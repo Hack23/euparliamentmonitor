@@ -129,7 +129,6 @@ export class EuropeanParliamentMCPClient {
 
   /**
    * Disconnect from the MCP server
-   * @returns {void}
    */
   disconnect() {
     if (this.process) {
@@ -142,7 +141,6 @@ export class EuropeanParliamentMCPClient {
   /**
    * Handle incoming messages from MCP server
    * @param {string} line - JSON message line from server
-   * @returns {void}
    */
   handleMessage(line) {
     try {
