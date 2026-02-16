@@ -178,19 +178,76 @@ euparliamentmonitor/
 └── package.json                     # Project dependencies
 ```
 
-## GitHub Actions Workflow
+## CI/CD & Automation
 
-The repository includes a GitHub Actions workflow that automatically generates news articles daily:
+### GitHub Actions Workflows
 
+The repository includes comprehensive GitHub Actions workflows for automation and quality assurance:
+
+#### 📰 News Generation
 - **Schedule**: Runs daily at 06:00 UTC
 - **Manual Trigger**: Can be triggered manually with custom parameters
 - **Automatic Commit**: Commits and pushes generated articles automatically
+- **Workflow**: `.github/workflows/news-generation.yml`
 
-### Workflow Inputs
-
+**Workflow Inputs:**
 - `article_types`: Comma-separated list of article types (default: `week-ahead`)
 - `languages`: Languages to generate (`en`, `eu-core`, `all`, or custom list)
 - `force_generation`: Force generation even if recent articles exist
+
+#### 🏷️ PR Labeling
+- **Automatic**: Labels PRs based on file changes
+- **Configuration**: `.github/labeler.yml`
+- **Workflow**: `.github/workflows/labeler.yml`
+- **Setup**: Run `.github/workflows/setup-labels.yml` once to create all labels
+
+#### 📦 Release Management
+- **Automated Release Notes**: Via Release Drafter
+- **Semantic Versioning**: Based on PR labels
+- **SBOM & Attestations**: Security compliance with artifact attestations
+- **Workflow**: `.github/workflows/release.yml`
+- **Configuration**: `.github/release-drafter.yml`
+
+#### 🔒 Security Scanning
+- **CodeQL**: Automated security analysis on push, PR, and weekly schedule
+- **Dependabot**: Weekly dependency updates for npm and GitHub Actions
+- **Vulnerability Scanning**: Automated npm audit in PR validation
+- **Workflows**: `.github/workflows/codeql.yml`, `.github/dependabot.yml`
+
+#### ✅ Test & Validation
+- **HTML Validation**: Automated htmlhint checks
+- **Functional Tests**: News generation, index, and sitemap validation
+- **Security Checks**: npm audit for vulnerabilities
+- **Workflow**: `.github/workflows/test-and-report.yml`
+
+### Workflow Status Badges
+
+[![News Generation](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml)
+[![CodeQL](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml)
+[![Test and Report](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml)
+
+### Manual Release Process
+
+To create a new release:
+
+1. Go to **Actions** → **Release** workflow
+2. Click **Run workflow**
+3. Enter version (e.g., `v1.0.0`)
+4. Select if pre-release
+5. The workflow will:
+   - Run validation and tests
+   - Generate SBOM and attestations
+   - Create GitHub release with artifacts
+   - Update release notes automatically
+
+### Setting Up Labels
+
+First-time setup requires running the label creation workflow:
+
+1. Go to **Actions** → **Setup Repository Labels**
+2. Click **Run workflow**
+3. Wait for completion
+4. Labels will be automatically applied to future PRs
 
 ## Configuration
 

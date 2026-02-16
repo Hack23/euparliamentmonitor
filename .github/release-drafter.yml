@@ -1,0 +1,326 @@
+name-template: "Release $RESOLVED_VERSION"
+tag-template: "$RESOLVED_VERSION"
+
+# Categories match exactly with PR labels from labeler.yml
+categories:
+  - title: "🚀 New Features"
+    labels:
+      - "feature"
+      - "enhancement"
+
+  - title: "🌍 EU Parliament Integration"
+    labels:
+      - "mcp-integration"
+      - "news"
+      - "content"
+
+  - title: "🌐 Multi-language Support"
+    labels:
+      - "i18n"
+      - "translation"
+
+  - title: "🎨 UI/UX Improvements"
+    labels:
+      - "ui"
+      - "design"
+      - "style"
+
+  - title: "🏗️ Infrastructure & Performance"
+    labels:
+      - "infrastructure"
+      - "performance"
+      - "config"
+
+  - title: "🔄 Code Quality & Refactoring"
+    labels:
+      - "refactor"
+      - "testing"
+
+  - title: "🔒 Security & Compliance"
+    labels:
+      - "security"
+
+  - title: "📝 Documentation"
+    labels:
+      - "documentation"
+
+  - title: "📦 Dependencies"
+    labels:
+      - "dependencies"
+      - "javascript"
+      - "github_actions"
+    
+  - title: "🐛 Bug Fixes"
+    labels:
+      - "bug"
+      - "fix"
+
+  - title: "🧪 Test Coverage Improvements"
+    labels:
+      - "test-coverage-impact"
+      - "needs-tests"
+      - "e2e"
+
+  - title: "🤖 Custom Agent Updates"
+    labels:
+      - "agents"
+      - "agent-task"
+      - "agent-news"
+      - "agent-frontend"
+      - "agent-data"
+      - "agent-devops"
+      - "agent-security"
+      - "agent-docs"
+      - "agent-quality"
+
+  - title: "⚙️ Component Updates"
+    labels:
+      - "workflows"
+      - "scripts"
+
+change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
+change-title-escapes: '\<*_&' # Escape markdown special characters
+
+
+template: |
+  # Highlights
+  $CHANGES
+
+  ## EU Parliament Monitor
+  European Parliament Intelligence Platform - Monitor political activity with systematic transparency
+
+  ## Features
+  - 📰 **Automated News Generation** - Generate news articles about EU Parliament activities
+  - 🌍 **14-Language Support** - English, German, French, Spanish, Italian, Dutch, Swedish, Danish, Finnish, Polish, Romanian, Hungarian, Portuguese, Greek
+  - 📅 **Week Ahead Coverage** - Preview upcoming parliamentary events
+  - 🤖 **8 Custom GitHub Copilot Agents** - Specialized agents for development tasks
+  - 🔄 **European Parliament MCP Integration** - Real-time EU Parliament data access
+  - 📊 **SEO Optimized** - Proper metadata, structured data, and sitemap generation
+
+  ## Technology Stack
+  - 📰 **Node.js 20+** - Modern JavaScript runtime
+  - 🤖 **GitHub Copilot Custom Agents** - AI-powered development assistance
+  - 🔄 **European Parliament MCP Server** - Model Context Protocol for EU data
+  - 🌐 **Multi-language Support** - 14 languages with RTL support
+  - ⚙️ **GitHub Actions** - Automated news generation and deployment
+
+  ## Contributors
+  Thanks to $CONTRIBUTORS for their contributions to this release!
+
+  **Full Changelog**: https://github.com/Hack23/euparliamentmonitor/compare/$PREVIOUS_TAG...$RESOLVED_VERSION
+
+version-resolver:
+  major:
+    labels:
+      - "major"
+      - "breaking"
+  minor:
+    labels:
+      - "feature"
+      - "enhancement"
+      - "news"
+      - "mcp-integration"
+      - "i18n"
+  patch:
+    labels:
+      - "bug"
+      - "fix"
+      - "security"
+      - "dependencies"
+      - "documentation"
+      - "performance"
+      - "refactor"
+  default: patch
+
+# Autolabeler is BACKUP for PRs without labels
+# Primary labeling happens via .github/labeler.yml
+autolabeler:
+  # Features & Enhancements
+  - label: "feature"
+    title:
+      - '/^feat(\([^)]+\))?:/i'
+      - '/^feature(\([^)]+\))?:/i'
+      - '/^add(\([^)]+\))?:/i'
+  
+  - label: "enhancement"
+    title:
+      - '/^enhance(\([^)]+\))?:/i'
+      - '/^improve(\([^)]+\))?:/i'
+      - '/^improvement(\([^)]+\))?:/i'
+  
+  # Bug Fixes
+  - label: "bug"
+    title:
+      - '/^fix(\([^)]+\))?:/i'
+      - '/^bug(\([^)]+\))?:/i'
+      - '/^bugfix(\([^)]+\))?:/i'
+  
+  - label: "fix"
+    title:
+      - '/^fix(\([^)]+\))?:/i'
+  
+  # News & Content
+  - label: "news"
+    title:
+      - '/^news(\([^)]+\))?:/i'
+      - '/^article(\([^)]+\))?:/i'
+    files:
+      - 'scripts/generate-news*'
+      - 'news/**/*'
+  
+  - label: "content"
+    title:
+      - '/^content(\([^)]+\))?:/i'
+    files:
+      - 'news/**/*'
+  
+  - label: "mcp-integration"
+    title:
+      - '/^mcp(\([^)]+\))?:/i'
+      - '/^integration(\([^)]+\))?:/i'
+    files:
+      - 'scripts/ep-mcp-client*'
+      - '**/*mcp*'
+  
+  # Multi-language
+  - label: "i18n"
+    title:
+      - '/^i18n(\([^)]+\))?:/i'
+      - '/^lang(\([^)]+\))?:/i'
+  
+  - label: "translation"
+    title:
+      - '/^translation(\([^)]+\))?:/i'
+  
+  # Documentation
+  - label: "documentation"
+    title:
+      - '/^docs(\([^)]+\))?:/i'
+      - '/^doc(\([^)]+\))?:/i'
+    files:
+      - '**/*.md'
+      - 'docs/**/*'
+      - '**/*.mdx'
+  
+  # UI/UX
+  - label: "ui"
+    title:
+      - '/^ui(\([^)]+\))?:/i'
+    files:
+      - 'styles.css'
+      - '**/*.css'
+      - 'index-*.html'
+  
+  - label: "design"
+    title:
+      - '/^design(\([^)]+\))?:/i'
+  
+  - label: "style"
+    title:
+      - '/^style(\([^)]+\))?:/i'
+    files:
+      - '**/*.css'
+      - '**/*.scss'
+  
+  # Dependencies - CRITICAL FOR DEPENDABOT
+  - label: "dependencies"
+    title:
+      - '/^build\(deps\):/i'
+      - '/^build\(deps-dev\):/i'
+      - '/^chore\(deps\):/i'
+      - '/^chore\(deps-dev\):/i'
+      - '/^deps(\([^)]+\))?:/i'
+      - '/^dependency(\([^)]+\))?:/i'
+      - '/^dependencies(\([^)]+\))?:/i'
+      - '/^bump/i'
+      - '/^update.*dependenc/i'
+      - '/^upgrade.*dependenc/i'
+  
+  - label: "javascript"
+    files:
+      - 'package.json'
+      - 'package-lock.json'
+  
+  - label: "github_actions"
+    files:
+      - '.github/workflows/**'
+      - '.github/actions/**'
+  
+  # Security
+  - label: "security"
+    title:
+      - '/^security(\([^)]+\))?:/i'
+      - '/^sec(\([^)]+\))?:/i'
+      - '/^fix-vuln(\([^)]+\))?:/i'
+      - '/\[security\]/i'
+  
+  # Performance
+  - label: "performance"
+    title:
+      - '/^perf(\([^)]+\))?:/i'
+      - '/^optimize(\([^)]+\))?:/i'
+  
+  # Infrastructure
+  - label: "infrastructure"
+    title:
+      - '/^infra(\([^)]+\))?:/i'
+      - '/^ci(\([^)]+\))?:/i'
+      - '/^cd(\([^)]+\))?:/i'
+    files:
+      - '.github/**/*'
+      - 'scripts/**/*'
+  
+  - label: "config"
+    title:
+      - '/^config(\([^)]+\))?:/i'
+      - '/^chore\(config\):/i'
+    files:
+      - '**/*.config.*'
+      - '.github/**/*.json'
+      - '.github/**/*.yml'
+  
+  # Code Quality
+  - label: "refactor"
+    title:
+      - '/^refactor(\([^)]+\))?:/i'
+  
+  - label: "testing"
+    title:
+      - '/^test(\([^)]+\))?:/i'
+    files:
+      - '**/*.test.*'
+      - '**/*.spec.*'
+      - 'test/**/*'
+  
+  # Test Coverage
+  - label: "test-coverage-impact"
+    files:
+      - '**/*.test.{js,ts}'
+      - '**/__tests__/**'
+  
+  - label: "needs-tests"
+    files:
+      - 'scripts/**/*.js'
+  
+  - label: "e2e"
+    title:
+      - '/^e2e(\([^)]+\))?:/i'
+      - '/end.?to.?end/i'
+    files:
+      - 'test/e2e/**/*'
+      - '**/*.e2e.*'
+  
+  # Component-specific labels
+  - label: "agents"
+    title:
+      - '/agent/i'
+    files:
+      - '.github/agents/**/*'
+  
+  - label: "workflows"
+    files:
+      - '.github/workflows/**/*'
+  
+  - label: "scripts"
+    files:
+      - 'scripts/**/*'

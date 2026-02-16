@@ -1,0 +1,288 @@
+# Label definitions for EU Parliament Monitor
+
+# 🚀 Features and Enhancements
+feature:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "scripts/**/feature/**"
+              - "scripts/**/feat/**"
+      - title: "feat:*"
+      - title: "feature:*"
+      - title: "add:*"
+      - body: "- [x] 🚀 New Feature/Enhancement"
+
+enhancement:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "scripts/**/enhance/**"
+              - "scripts/**/improvement/**"
+      - title: "enhance:*"
+      - title: "improvement:*"
+      - body: "- [x] 🚀 New Feature/Enhancement"
+
+# 🐛 Bug Fixes
+bug:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "scripts/**/fix/**"
+              - "scripts/**/bug/**"
+      - title: "fix:*"
+      - title: "bug:*"
+      - body: "- [x] 🐛 Bug Fix"
+
+# 🌍 News Generation
+news:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "scripts/generate-news*"
+              - "scripts/article-template*"
+              - "scripts/**/news/**"
+              - "news/**"
+      - title: "news:*"
+      - title: "article:*"
+      - body: "- [x] 🌍 News Generation"
+
+content:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "news/**"
+              - "scripts/generate-news*"
+      - title: "content:*"
+      - body: "- [x] 🌍 News Generation"
+
+mcp-integration:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "scripts/ep-mcp-client*"
+              - "**/*mcp*"
+              - ".github/copilot-mcp.json"
+      - title: "mcp:*"
+      - title: "integration:*"
+      - body: "- [x] 🔄 MCP Integration"
+
+# 🌐 Multi-language Support
+i18n:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "scripts/**/lang/**"
+              - "scripts/**/i18n/**"
+              - "scripts/**/translation/**"
+      - title: "i18n:*"
+      - title: "lang:*"
+      - body: "- [x] 🌐 Multi-language"
+
+translation:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "scripts/**/translation/**"
+      - title: "translation:*"
+      - body: "- [x] 🌐 Multi-language"
+
+# 🎨 UI/UX Improvements
+ui:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "styles.css"
+              - "**/*.css"
+              - "**/*.scss"
+              - "index-*.html"
+              - "news/**/*.html"
+      - title: "ui:*"
+      - title: "style:*"
+      - title: "design:*"
+      - body: "- [x] 🎨 UI/UX Improvements"
+
+design:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "styles.css"
+              - "**/*.css"
+      - title: "design:*"
+      - body: "- [x] 🎨 UI/UX Improvements"
+
+# 🏗️ Infrastructure & Performance
+infrastructure:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - ".github/**"
+              - "scripts/**"
+              - "**/*.json"
+              - ".env*"
+      - title: "infra:*"
+      - title: "ci:*"
+      - title: "cd:*"
+      - body: "- [x] 🏗️ Infrastructure & Performance"
+
+performance:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "scripts/**/perf/**"
+              - "scripts/**/performance/**"
+              - "scripts/**/optimize/**"
+      - title: "perf:*"
+      - title: "optimize:*"
+      - body: "- [x] 🏗️ Infrastructure & Performance"
+
+config:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "**/*.config.*"
+              - "**/.htmlhintrc"
+              - ".github/**/*.json"
+              - ".github/**/*.yml"
+              - ".github/**/*.yaml"
+      - title: "config:*"
+      - body: "- [x] 🏗️ Infrastructure & Performance"
+
+# 🔄 Code Quality & Refactoring
+refactor:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "scripts/**/refactor/**"
+      - title: "refactor:*"
+      - body: "- [x] 🔄 Code Quality & Refactoring"
+
+testing:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "scripts/**/*.test.*"
+              - "scripts/**/*.spec.*"
+              - "test/**"
+              - "__tests__/**"
+      - title: "test:*"
+      - body: "- [x] 🔄 Code Quality & Refactoring"
+
+# 🔒 Security & Compliance
+security:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "scripts/**/security/**"
+              - ".github/workflows/codeql.yml"
+              - ".github/workflows/scorecards.yml"
+              - "security/**"
+      - title: "security:*"
+      - title: "fix-vuln:*"
+      - body: "- [x] 🔒 Security & Compliance"
+
+# 📝 Documentation
+documentation:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "**/*.md"
+              - "docs/**"
+              - "LICENSE"
+              - "**/*.mdx"
+              - ".github/agents/**"
+      - title: "docs:*"
+      - title: "doc:*"
+      - body: "- [x] 📝 Documentation"
+
+# 📦 Dependencies
+dependencies:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "package.json"
+              - "package-lock.json"
+      - title: "build(deps):*"
+      - title: "deps:*"
+      - title: "dependency:*"
+      - title: "dependencies:*"
+      - body: "- [x] 📦 Dependencies Update"
+
+javascript:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "package.json"
+          - "package-lock.json"
+
+github_actions:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**"
+          - ".github/actions/**"
+
+# 🧪 Testing
+test-coverage-impact:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "**/*.test.{js,ts}"
+              - "**/__tests__/**"
+
+needs-tests:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "scripts/**/*.js"
+
+e2e:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "test/e2e/**"
+          - "**/*.e2e.*"
+
+# Component-specific labels
+agents:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/agents/**"
+
+workflows:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**"
+
+scripts:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "scripts/**"
+
+# Custom Agent labels
+agent-task:
+  - title: "agent-task:*"
+  - body: "- [x] 🤖 Agent Task"
+
+agent-news:
+  - title: "agent-news:*"
+  - body: "- [x] 📰 News Agent"
+
+agent-frontend:
+  - title: "agent-frontend:*"
+  - body: "- [x] 🎨 Frontend Agent"
+
+agent-data:
+  - title: "agent-data:*"
+  - body: "- [x] 🔄 Data Agent"
+
+agent-devops:
+  - title: "agent-devops:*"
+  - body: "- [x] ⚙️ DevOps Agent"
+
+agent-security:
+  - title: "agent-security:*"
+  - body: "- [x] 🔒 Security Agent"
+
+agent-docs:
+  - title: "agent-docs:*"
+  - body: "- [x] 📚 Documentation Agent"
+
+agent-quality:
+  - title: "agent-quality:*"
+  - body: "- [x] ✅ Quality Agent"

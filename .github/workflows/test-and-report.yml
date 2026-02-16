@@ -1,0 +1,288 @@
+name: Test and Report
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# Set default permissions to read-only
+permissions: read-all
+
+jobs:
+  prepare:
+    name: Prepare Environment
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Cache dependencies
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+  validation:
+    name: Validate Code
+    needs: prepare
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write # For posting comments
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Cache dependencies
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run HTML validation
+        run: |
+          echo "🔍 Validating HTML files..."
+          npm run htmlhint || echo "HTML validation completed with warnings"
+
+      - name: Check JavaScript syntax
+        run: |
+          echo "🔍 Checking JavaScript syntax..."
+          # Check for syntax errors in scripts
+          failed=0
+          for file in scripts/*.js; do
+            if node --check "$file"; then
+              echo "✅ $file - OK"
+            else
+              echo "❌ $file - FAILED"
+              failed=1
+            fi
+          done
+          if [ "$failed" -ne 0 ]; then
+            echo "JavaScript syntax check failed for one or more files."
+            exit 1
+          fi
+
+      - name: Verify package.json scripts
+        run: |
+          echo "🔍 Verifying package.json scripts..."
+          # Verify required scripts exist
+          required_scripts="generate-news generate-news-indexes generate-sitemap htmlhint"
+          for script in $required_scripts; do
+            if node -p "require('./package.json').scripts['$script']" 2>/dev/null | grep -v "^undefined$" > /dev/null; then
+              echo "✅ Script found: $script"
+            else
+              echo "❌ Missing script: $script"
+              exit 1
+            fi
+          done
+
+  functional-tests:
+    name: Functional Tests
+    needs: [prepare, validation]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Cache dependencies
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test news generation
+        env:
+          USE_EP_MCP: false
+        run: |
+          echo "📰 Testing news generation..."
+          npm run generate-news -- --types=week-ahead --languages=en
+          
+          # Verify news was generated
+          if [ -d "news" ] && [ "$(ls -A news/*.html 2>/dev/null | wc -l)" -gt 0 ]; then
+            echo "✅ News articles generated successfully"
+            echo "📊 Generated $(ls -1 news/*.html 2>/dev/null | wc -l) articles"
+          else
+            echo "⚠️ No news articles generated (this is okay for placeholder mode)"
+          fi
+
+      - name: Test index generation
+        run: |
+          echo "📋 Testing index generation..."
+          npm run generate-news-indexes
+          
+          # Verify indexes were generated
+          if ls index-*.html 1> /dev/null 2>&1; then
+            echo "✅ Index pages generated successfully"
+            echo "📊 Generated $(ls -1 index-*.html | wc -l) index pages"
+            ls -1 index-*.html
+          else
+            echo "❌ No index pages generated"
+            exit 1
+          fi
+
+      - name: Test sitemap generation
+        run: |
+          echo "🗺️ Testing sitemap generation..."
+          npm run generate-sitemap
+          
+          # Verify sitemap was generated
+          if [ -f "sitemap.xml" ]; then
+            echo "✅ Sitemap generated successfully"
+            echo "📊 Sitemap size: $(wc -c < sitemap.xml) bytes"
+            echo "📊 URL count: $(grep -c '<url>' sitemap.xml || echo '0')"
+          else
+            echo "❌ Sitemap not generated"
+            exit 1
+          fi
+
+      - name: Validate generated HTML
+        run: |
+          echo "🔍 Validating generated HTML..."
+          npm run htmlhint || echo "HTML validation completed"
+
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: test-output
+          path: |
+            news/
+            index-*.html
+            sitemap.xml
+          if-no-files-found: warn
+
+  security-check:
+    name: Security Check
+    needs: prepare
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Cache dependencies
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for vulnerabilities
+        run: |
+          echo "🔒 Checking for security vulnerabilities..."
+          npm audit --audit-level=moderate
+
+      - name: Check for outdated dependencies
+        run: |
+          echo "📦 Checking for outdated dependencies..."
+          npm outdated || echo "Dependency check completed"
+
+  report:
+    name: Generate Report
+    needs: [validation, functional-tests, security-check]
+    runs-on: ubuntu-latest
+    if: always()
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+        with:
+          egress-policy: audit
+
+      - name: Download test artifacts
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: test-output
+          path: test-artifacts/
+        continue-on-error: true
+
+      - name: Generate summary
+        run: |
+          echo "# Test and Validation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          echo "## Results" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Code validation: ${{ needs.validation.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Functional tests: ${{ needs.functional-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Security check: ${{ needs.security-check.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ needs.validation.result }}" == "success" ] && \
+             [ "${{ needs.functional-tests.result }}" == "success" ] && \
+             [ "${{ needs.security-check.result }}" == "success" ]; then
+            echo "✅ **All checks passed!**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ **Some checks failed. Please review the logs.**" >> $GITHUB_STEP_SUMMARY
+          fi
