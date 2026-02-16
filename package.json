@@ -9,7 +9,13 @@
     "generate-news-indexes": "node scripts/generate-news-indexes.js",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "htmlhint": "sh -c 'htmlhint *.html; set -- news/*.html; if [ -e \"$1\" ]; then htmlhint \"$@\"; else echo \"No news/*.html files to lint\"; fi'",
-    "serve": "python3 -m http.server 8080"
+    "serve": "python3 -m http.server 8080",
+    "lint": "eslint scripts/",
+    "lint:fix": "eslint scripts/ --fix",
+    "lint:report": "eslint scripts/ --format json --output-file eslint-report.json",
+    "format": "prettier --write \"scripts/**/*.js\" \"*.md\"",
+    "format:check": "prettier --check \"scripts/**/*.js\" \"*.md\"",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -30,9 +36,20 @@
     "url": "https://github.com/Hack23/euparliamentmonitor/issues"
   },
   "homepage": "https://euparliamentmonitor.com",
-  "dependencies": {},
   "devDependencies": {
-    "htmlhint": "^1.9.1"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsdoc": "^62.5.5",
+    "eslint-plugin-security": "^3.0.1",
+    "eslint-plugin-sonarjs": "^3.0.7",
+    "htmlhint": "^1.9.1",
+    "husky": "^9.1.7",
+    "jscpd": "^4.0.8",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
+    "ts-api-utils": "^2.4.0"
   },
   "engines": {
     "node": ">=20"
