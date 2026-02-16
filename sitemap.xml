@@ -97,7 +97,25 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://euparliamentmonitor.com/news/2026-02-16-week-ahead-es.html</loc>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://euparliamentmonitor.com/news/2026-02-16-week-ahead-fr.html</loc>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euparliamentmonitor.com/news/2026-02-16-week-ahead-it.html</loc>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euparliamentmonitor.com/news/2026-02-16-week-ahead-nl.html</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

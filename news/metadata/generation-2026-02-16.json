@@ -1,16 +1,19 @@
 {
-  "timestamp": "2026-02-16T12:30:31.445Z",
-  "generated": 3,
+  "timestamp": "2026-02-16T12:31:41.753Z",
+  "generated": 6,
   "errors": 0,
   "articles": [
     "2026-02-16-week-ahead-en.html",
     "2026-02-16-week-ahead-de.html",
-    "2026-02-16-week-ahead-fr.html"
+    "2026-02-16-week-ahead-fr.html",
+    "2026-02-16-week-ahead-es.html",
+    "2026-02-16-week-ahead-it.html",
+    "2026-02-16-week-ahead-nl.html"
   ],
   "results": [
     {
       "success": true,
-      "files": 3,
+      "files": 6,
       "slug": "2026-02-16-week-ahead"
     }
   ]
