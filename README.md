@@ -72,9 +72,11 @@ covering:
 
 ## Code Quality & Testing
 
-EU Parliament Monitor maintains high code quality standards with comprehensive testing:
+EU Parliament Monitor maintains high code quality standards with comprehensive
+testing:
 
 ### Code Quality
+
 - **ESLint**: Comprehensive linting with security, complexity, and documentation
   checks
 - **Prettier**: Consistent code formatting across all JavaScript files

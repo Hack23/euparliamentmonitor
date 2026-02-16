@@ -105,6 +105,7 @@ npx vitest test/unit/your-test.test.js
 ```
 
 **Required for all code changes:**
+
 - New functions must have unit tests
 - New features must have integration tests
 - All tests must pass before PR submission
