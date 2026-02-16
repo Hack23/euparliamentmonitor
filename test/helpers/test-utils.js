@@ -67,7 +67,7 @@ export function containsXSSVulnerability(html) {
   // These patterns detect common XSS vectors for testing purposes
   // They are intentionally simplified - real security requires proper escaping
   const xssPatterns = [
-    /<script[^>]*>.*?<\/script\s*>/gis, // Match script tags (CodeQL: intentional simplification)
+    /<script(\s+[^>]*)?>.*?<\/\s*script\s*>/gis, // Match script tags with optional attributes and whitespace
     /javascript:/gi,
     /on\w+\s*=\s*["'][^"']*["']/gi,
     /<iframe/gi,
