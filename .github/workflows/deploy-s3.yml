@@ -1,0 +1,180 @@
+name: Deploy to S3
+on:
+  push:
+    branches: ["main"]
+permissions:
+  contents: read
+  id-token: write
+  actions: write
+
+env:
+  AWS_REGION : "us-east-1"
+  AWS_REGION_ZONE : "us-east-1"
+  S3_BUCKET_NAME: "euparliamentmonitor-frontend-us-east-1-172017021075"
+  CLOUDFRONT_STACK_NAME: "euparliamentmonitor-frontend"
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+        with:
+          egress-policy: block
+          allowed-endpoints: >
+            accounts.google.com:443
+            amazon-cloudfront-secure-static-site-s3bucketroot-14oliw5cmta06.s3.us-east-1.amazonaws.com:443
+            api.github.com:443
+            api.securityscorecards.dev:443
+            app.fossa.io:443
+            auth.docker.io:443
+            bestpractices.coreinfrastructure.org:443
+            cfu.zaproxy.org:443
+            cla-assistant.io:443
+            cla-assistant.io:80
+            clients2.google.com:80
+            cloudformation.us-east-1.amazonaws.com:443
+            cloudfront.amazonaws.com:443
+            content-signature-2.cdn.mozilla.net:443
+            deb.debian.org:80
+            firefox-settings-attachments.cdn.mozilla.net:443
+            firefox.settings.services.mozilla.com:443
+            fonts.googleapis.com:443
+            fonts.gstatic.com:443
+            ghcr.io:443
+            github.com:443
+            hack23.com:443
+            hack23.com:80
+            hack23.comnull:443
+            img.shields.io:443
+            isitmaintained.com:443
+            isitmaintained.com:80
+            location.services.mozilla.com:443
+            news.zaproxy.org:443
+            objects.githubusercontent.com:443
+            pkg-containers.githubusercontent.com:443
+            production.cloudflare.docker.com:443
+            r10.o.lencr.org:443
+            r11.o.lencr.org:80
+            raw.githubusercontent.com:443
+            registry-1.docker.io:443
+            registry.npmjs.org:443
+            safebrowsingohttpgateway.googleapis.com:443
+            shavar.services.mozilla.com:443
+            slsa.dev:443
+            sonarcloud.io:443
+            storage.googleapis.com:443
+            sts.us-east-1.amazonaws.com:443
+            tel.zaproxy.org:443
+            tracking-protection.cdn.mozilla.net:443
+            us-central1-lighthouse-infrastructure.cloudfunctions.net:443
+            www.google.com:443
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0  # Need full history to restore mtimes
+
+      - name: Restore file modification times from git
+        run: |
+          # Restore mtimes to git commit time for accurate change detection
+          # This prevents re-uploading all files on every deployment
+          git ls-tree -r --name-only HEAD | while read filename; do
+            TIME=$(git log -1 --format="%ai" -- "$filename")
+            touch -d "$TIME" "$filename"
+          done
+          echo "✅ Restored mtimes for $(git ls-tree -r --name-only HEAD | wc -l) files"
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@8df5847569e6427dd6c4fb1cf565c83acfa8afa7 # v6.0.0
+        with:
+          role-to-assume: arn:aws:iam::172017021075:role/GithubWorkFlowRole
+          role-session-name: githubworkflowrolesessiont2
+          aws-region: ${{ env.AWS_REGION }}
+      
+      - name: Deploy to S3 with cache headers
+        run: |
+          BUCKET="s3://${{ env.S3_BUCKET_NAME }}"
+          SRC="."
+
+          # HTML files - short cache, must-revalidate
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.html' \
+            --cache-control 'public, max-age=3600, must-revalidate' \
+            --content-type 'text/html; charset=utf-8' \
+            --exclude 'screenshots/*' --exclude '.git/*'
+
+          # CSS files - long cache, immutable
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.css' \
+            --cache-control 'public, max-age=31536000, immutable' \
+            --content-type 'text/css' \
+            --exclude 'screenshots/*' --exclude '.git/*'
+
+          # JS files - long cache, immutable
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.js' \
+            --cache-control 'public, max-age=31536000, immutable' \
+            --content-type 'application/javascript' \
+            --exclude 'screenshots/*' --exclude '.git/*'
+
+          # Image files - long cache, immutable
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' \
+            --include '*.webp' --include '*.png' --include '*.jpg' --include '*.jpeg' \
+            --include '*.gif' --include '*.svg' --include '*.ico' \
+            --cache-control 'public, max-age=31536000, immutable' \
+            --exclude 'screenshots/*' --exclude '.git/*'
+
+          # Font files - long cache, immutable
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' \
+            --include '*.woff' --include '*.woff2' --include '*.ttf' --include '*.eot' --include '*.otf' \
+            --cache-control 'public, max-age=31536000, immutable' \
+            --exclude 'screenshots/*' --exclude '.git/*'
+
+          # Metadata files - medium cache (1 day)
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' \
+            --include '*.xml' --include '*.json' --include '*.txt' \
+            --cache-control 'public, max-age=86400' \
+            --exclude 'screenshots/*' --exclude '.git/*'
+
+          # Everything else
+          aws s3 sync "$SRC" "$BUCKET" \
+            --exclude '.git/*' --exclude 'screenshots/*' \
+            --exclude '.github/*' --exclude 'docs/*' --exclude 'schemas/*' \
+            --exclude 'scripts/*' --exclude '.devcontainer/*' --exclude 'quicksight/*' \
+            --exclude '*.md' --exclude 'package*.json' --exclude '.gitignore'
+
+          echo "✅ Deploy with cache headers completed"
+      
+      # Invalidate CloudFront cache to ensure latest content is served
+      # Note: Using blanket "/*" invalidation is optimal for this use case:
+      # - Site has ~500 files (well within 1000 free invalidations/month)
+      # - Deployment frequency is low (PR-based, not continuous)
+      # - Simplicity trumps optimization at this scale
+      # - Cache headers already optimized (1hr HTML, 1yr assets, 24hr metadata)
+      - name: Invalidate CloudFront
+        run: |
+          echo "🔍 Discovering CloudFront distribution ID from stack: ${{ env.CLOUDFRONT_STACK_NAME }}"
+          CloudFrontDistId=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.CLOUDFRONT_STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='CloudFrontDistributionId'].OutputValue" \
+            --output text 2>/dev/null || echo "")
+          
+          if [ -z "$CloudFrontDistId" ]; then
+            echo "⚠️  Warning: CloudFront distribution ID not found in stack outputs"
+            echo "Attempting to find distribution by S3 origin domain..."
+            # List all distributions and filter by S3 bucket origin
+            CloudFrontDistId=$(aws cloudfront list-distributions \
+              --output json 2>/dev/null | \
+              jq -r ".DistributionList.Items[] | select(.Origins.Items[].DomainName | contains(\"${{ env.S3_BUCKET_NAME }}\")) | .Id" | \
+              head -n 1 || echo "")
+          fi
+          
+          if [ -z "$CloudFrontDistId" ] || [ "$CloudFrontDistId" = "None" ]; then
+            echo "❌ Error: Could not discover CloudFront distribution ID"
+            exit 1
+          fi
+          
+          echo "✅ Found CloudFront distribution: $CloudFrontDistId"
+          echo "🔄 Creating cache invalidation for all paths..."
+          
+          aws cloudfront create-invalidation \
+            --distribution-id $CloudFrontDistId \
+            --paths "/*"
+          
+          echo "✅ CloudFront cache invalidation completed"
