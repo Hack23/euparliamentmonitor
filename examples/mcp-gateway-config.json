@@ -1,0 +1,49 @@
+{
+  "mcpServers": {
+    "github": {
+      "type": "stdio",
+      "container": "ghcr.io/github/github-mcp-server:latest",
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": ""
+      }
+    },
+    "european-parliament": {
+      "type": "stdio",
+      "container": "ghcr.io/hack23/european-parliament-mcp-server:latest",
+      "env": {
+        "EP_API_KEY": "${EP_API_KEY}",
+        "EP_CACHE_DIR": "${HOME}/.cache/ep-mcp"
+      }
+    },
+    "filesystem": {
+      "type": "stdio",
+      "container": "ghcr.io/modelcontextprotocol/filesystem-server:latest",
+      "mounts": [
+        "/workspace:/workspace:rw",
+        "/data:/data:ro"
+      ]
+    },
+    "slack": {
+      "type": "stdio",
+      "container": "ghcr.io/example/slack-mcp-server:latest",
+      "entrypoint": "/app/custom-entrypoint.sh",
+      "entrypointArgs": ["--verbose", "--debug"],
+      "env": {
+        "SLACK_TOKEN": "",
+        "SLACK_TEAM_ID": "${SLACK_TEAM_ID}"
+      }
+    },
+    "remote-api": {
+      "type": "http",
+      "url": "https://mcp-server.example.com:8080"
+    }
+  },
+  "gateway": {
+    "port": 8000,
+    "apiKey": "your-secret-api-key",
+    "domain": "localhost",
+    "startupTimeout": 45,
+    "toolTimeout": 90,
+    "payloadDir": "/tmp/jq-payloads"
+  }
+}

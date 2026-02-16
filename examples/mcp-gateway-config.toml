@@ -1,0 +1,93 @@
+# MCP Gateway Configuration Example (TOML)
+# This is a complete example configuration for the MCP Gateway
+# Repository: https://github.com/github/gh-aw-mcpg
+
+# Gateway configuration
+[gateway]
+port = 3000                    # HTTP server port (1-65535)
+api_key = "your-secret-api-key"  # API key for authentication (MCP spec 7.1)
+domain = "localhost"           # Gateway domain (localhost or host.docker.internal)
+startup_timeout = 60           # Backend startup timeout in seconds
+tool_timeout = 120             # Tool execution timeout in seconds
+payload_dir = "/tmp/jq-payloads"  # Directory for large payload storage
+
+# GitHub MCP Server
+[servers.github]
+command = "docker"
+args = [
+    "run",
+    "--rm",
+    "-i",
+    "-e", "GITHUB_PERSONAL_ACCESS_TOKEN",
+    "ghcr.io/github/github-mcp-server:latest"
+]
+
+# Filesystem MCP Server
+[servers.filesystem]
+command = "docker"
+args = [
+    "run",
+    "--rm",
+    "-i",
+    "-v", "/workspace:/workspace:rw",
+    "ghcr.io/modelcontextprotocol/filesystem-server:latest"
+]
+
+# Slack MCP Server (example)
+[servers.slack]
+command = "docker"
+args = [
+    "run",
+    "--rm",
+    "-i",
+    "-e", "SLACK_TOKEN",
+    "ghcr.io/example/slack-mcp-server:latest"
+]
+
+# Memory MCP Server (Node.js based)
+[servers.memory]
+command = "npx"
+args = [
+    "-y",
+    "@modelcontextprotocol/server-memory"
+]
+
+# Sequential Thinking MCP Server
+[servers.sequential-thinking]
+command = "npx"
+args = [
+    "-y",
+    "@modelcontextprotocol/server-sequential-thinking"
+]
+
+# Custom MCP Server (example with environment variables)
+[servers.custom]
+command = "docker"
+args = [
+    "run",
+    "--rm",
+    "-i",
+    "-e", "API_KEY",
+    "-e", "CONFIG_PATH",
+    "-v", "/host/config:/app/config:ro",
+    "ghcr.io/your-org/custom-mcp-server:v1.2.3"
+]
+
+# Usage:
+# 1. Set required environment variables:
+#    export GITHUB_PERSONAL_ACCESS_TOKEN="your-github-token"
+#    export SLACK_TOKEN="your-slack-token"
+#    export API_KEY="your-api-key"
+#    export CONFIG_PATH="/path/to/config"
+#
+# 2. Run the gateway:
+#    ./awmg --config config.toml
+#
+# 3. Test the gateway:
+#    curl http://localhost:3000/health
+#
+# 4. Access MCP servers:
+#    curl -X POST http://localhost:3000/mcp/github \
+#      -H "Authorization: your-secret-api-key" \
+#      -H "Content-Type: application/json" \
+#      -d '{"jsonrpc": "2.0", "method": "tools/list", "id": 1}'

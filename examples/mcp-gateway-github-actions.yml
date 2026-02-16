@@ -1,0 +1,179 @@
+name: Deploy MCP Gateway
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+        default: 'development'
+
+env:
+  GATEWAY_IMAGE: ghcr.io/github/gh-aw-mcpg:latest
+
+jobs:
+  deploy-mcp-gateway:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate MCP Configuration
+        run: |
+          cat > config.json <<EOF
+          {
+            "mcpServers": {
+              "github": {
+                "type": "stdio",
+                "container": "ghcr.io/github/github-mcp-server:latest",
+                "env": {
+                  "GITHUB_PERSONAL_ACCESS_TOKEN": ""
+                }
+              },
+              "european-parliament": {
+                "type": "stdio",
+                "container": "ghcr.io/hack23/european-parliament-mcp-server:latest",
+                "env": {
+                  "EP_API_KEY": "\${EP_API_KEY}",
+                  "EP_CACHE_DIR": "/tmp/ep-cache"
+                }
+              },
+              "filesystem": {
+                "type": "stdio",
+                "container": "ghcr.io/modelcontextprotocol/filesystem-server:latest",
+                "mounts": [
+                  "\${GITHUB_WORKSPACE}:/workspace:rw"
+                ]
+              }
+            },
+            "gateway": {
+              "port": 8000,
+              "apiKey": "gateway-api-key",
+              "domain": "localhost",
+              "startupTimeout": 45,
+              "toolTimeout": 90
+            }
+          }
+          EOF
+
+      - name: Pull Gateway Image
+        run: docker pull ${{ env.GATEWAY_IMAGE }}
+
+      - name: Start MCP Gateway
+        env:
+          MCP_GATEWAY_PORT: 8000
+          MCP_GATEWAY_DOMAIN: localhost
+          MCP_GATEWAY_API_KEY: ${{ secrets.MCP_API_KEY }}
+          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EP_API_KEY: ${{ secrets.EP_API_KEY }}
+        run: |
+          docker run -d --name mcp-gateway \
+            -e MCP_GATEWAY_PORT \
+            -e MCP_GATEWAY_DOMAIN \
+            -e MCP_GATEWAY_API_KEY \
+            -e GITHUB_PERSONAL_ACCESS_TOKEN \
+            -e EP_API_KEY \
+            -e GITHUB_WORKSPACE \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            -v $PWD/logs:/tmp/gh-aw/mcp-logs \
+            -v $PWD/payloads:/tmp/jq-payloads \
+            -p 8000:8000 \
+            ${{ env.GATEWAY_IMAGE }} < config.json
+
+          # Wait for gateway to be ready
+          echo "Waiting for gateway to start..."
+          sleep 10
+
+      - name: Health Check
+        run: |
+          echo "Testing health endpoint..."
+          curl -f http://localhost:8000/health || exit 1
+          echo "Health check passed!"
+
+      - name: Test GitHub MCP Server
+        env:
+          MCP_GATEWAY_API_KEY: ${{ secrets.MCP_API_KEY }}
+        run: |
+          echo "Testing GitHub MCP server..."
+          response=$(curl -s -X POST http://localhost:8000/mcp/github \
+            -H "Authorization: $MCP_GATEWAY_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{"jsonrpc": "2.0", "method": "tools/list", "id": 1}')
+          
+          # Verify response has tools
+          if ! echo "$response" | jq -e '.result.tools | length > 0' > /dev/null; then
+            echo "ERROR: No tools returned from GitHub MCP server"
+            echo "Response: $response"
+            exit 1
+          fi
+          
+          tool_count=$(echo "$response" | jq '.result.tools | length')
+          echo "GitHub MCP server returned $tool_count tools"
+
+      - name: Test European Parliament MCP Server
+        env:
+          MCP_GATEWAY_API_KEY: ${{ secrets.MCP_API_KEY }}
+        run: |
+          echo "Testing European Parliament MCP server..."
+          response=$(curl -s -X POST http://localhost:8000/mcp/european-parliament \
+            -H "Authorization: $MCP_GATEWAY_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{"jsonrpc": "2.0", "method": "tools/list", "id": 1}')
+          
+          # Verify response has tools
+          if ! echo "$response" | jq -e '.result.tools | length > 0' > /dev/null; then
+            echo "ERROR: No tools returned from European Parliament MCP server"
+            echo "Response: $response"
+            exit 1
+          fi
+          
+          tool_count=$(echo "$response" | jq '.result.tools | length')
+          echo "European Parliament MCP server returned $tool_count tools"
+
+      - name: Display Gateway Logs
+        if: always()
+        run: |
+          echo "=== MCP Gateway Logs ==="
+          cat logs/mcp-gateway.log || echo "No gateway logs found"
+          
+          echo ""
+          echo "=== GitHub Server Logs ==="
+          cat logs/github.log || echo "No github logs found"
+          
+          echo ""
+          echo "=== European Parliament Server Logs ==="
+          cat logs/european-parliament.log || echo "No european-parliament logs found"
+          
+          echo ""
+          echo "=== Tools Catalog ==="
+          cat logs/tools.json | jq . || echo "No tools catalog found"
+
+      - name: Stop Gateway
+        if: always()
+        run: |
+          docker stop mcp-gateway || true
+          docker rm mcp-gateway || true
+
+      - name: Upload Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mcp-gateway-logs-${{ inputs.environment }}
+          path: |
+            logs/
+            payloads/
+          retention-days: 7
+
+      - name: Deploy to Production (placeholder)
+        if: inputs.environment == 'production'
+        run: |
+          echo "Would deploy to production here..."
+          echo "This is a placeholder for actual deployment logic"
+          # Add your production deployment steps here
