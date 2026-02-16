@@ -19,19 +19,18 @@ updates:
     groups:
       development-dependencies:
         dependency-type: "development"
+        patterns:
+          - "*"
         update-types:
           - "minor"
           - "patch"
       production-dependencies:
         dependency-type: "production"
+        patterns:
+          - "*"
         update-types:
           - "minor"
           - "patch"
-    # Automatically approve and merge patch updates for trusted packages
-    reviewers:
-      - "Hack23"
-    assignees:
-      - "Hack23"
       
   # GitHub Actions
   - package-ecosystem: "github-actions"
@@ -51,7 +50,6 @@ updates:
       github-actions:
         patterns:
           - "*"
-    reviewers:
-      - "Hack23"
-    assignees:
-      - "Hack23"
+        update-types:
+          - "minor"
+          - "patch"
