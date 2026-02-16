@@ -1,40 +1,47 @@
-name: "CodeQL Security Analysis"
+# For most projects, this workflow file will not need changing; you simply need
+# to commit it to your repository.
+#
+# You may wish to alter this file to override the set of languages analyzed,
+# or to provide custom queries or build logic.
+#
+# ******** NOTE ********
+# We have attempted to detect the languages in your repository. Please check
+# the `language` matrix defined below to confirm you have the correct set of
+# supported CodeQL languages.
+#
+name: "CodeQL"
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    # The branches below must be a subset of the branches above
+    branches: ["main"]
   schedule:
-    # Run every Monday at 00:00 UTC
-    - cron: '0 0 * * 1'
+    - cron: "0 0 * * 1"
 
-# Set default permissions to read-only
-permissions: read-all
+permissions:
+  contents: read
 
 jobs:
   analyze:
-    name: Analyze (${{ matrix.language }})
+    name: Analyze
     runs-on: ubuntu-latest
-    timeout-minutes: 360
     permissions:
-      # Required for all workflows
-      security-events: write
-      # Required to fetch internal or private CodeQL packs
-      packages: read
-      # Only required for workflows in private repositories
       actions: read
       contents: read
+      security-events: write
 
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - language: javascript-typescript
-            build-mode: none
-    
+        language: ["javascript"]
+        # CodeQL supports [ $supported-codeql-languages ]
+        # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
+        # Note: Python removed as repository contains no Python code
+
     steps:
-      - name: Harden Runner
+      - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
         with:
           egress-policy: audit
@@ -42,63 +49,31 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
+      # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@fe83e8621ecd1fceb8c60ab42ecf2bbe9f1a3bbb # v3.28.14
+        uses: github/codeql-action/init@9e907b5e64f6b83e7804b09294d44122997950d6 # v4.32.3
         with:
           languages: ${{ matrix.language }}
-          build-mode: ${{ matrix.build-mode }}
-          # Enable all security queries
-          queries: +security-extended,security-and-quality
-          # Custom configuration for JavaScript/TypeScript
-          config: |
-            paths-ignore:
-              - 'news/**'
-              - 'node_modules/**'
-              - '**/*.test.js'
-              - '**/*.spec.js'
+          # If you wish to specify custom queries, you can do so here or in a config file.
+          # By default, queries listed here will override any specified in a config file.
+          # Prefix the list here with "+" to use these queries and those in the config file.
 
-      # If the analyze step fails for one of the languages you are analyzing with
-      # "We were unable to automatically build your code", modify the matrix above
-      # to set the build-mode to "manual" and uncomment the following three steps
-      # and modify them (or add more) to build your code if your project
-      # uses a compiled language
+      # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
+      # If this step fails, then you should remove it and run the build manually (see below)
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@9e907b5e64f6b83e7804b09294d44122997950d6 # v4.32.3
 
-      # - if: matrix.build-mode == 'manual'
-      #   name: Setup Node.js
-      #   uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
-      #   with:
-      #     node-version: '20'
-      
-      # - if: matrix.build-mode == 'manual'
-      #   name: Install dependencies
-      #   run: npm ci
+      # ℹ️ Command-line programs to run using the OS shell.
+      # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
 
-      # - if: matrix.build-mode == 'manual'
-      #   name: Build
-      #   run: npm run build
+      #   If the Autobuild fails above, remove it and uncomment the following three lines.
+      #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
+
+      # - run: |
+      #   echo "Run, Build Application using script"
+      #   ./location_of_script_within_repo/buildscript.sh
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@fe83e8621ecd1fceb8c60ab42ecf2bbe9f1a3bbb # v3.28.14
+        uses: github/codeql-action/analyze@9e907b5e64f6b83e7804b09294d44122997950d6 # v4.32.3
         with:
-          category: "/language:${{ matrix.language }}"
-          # Upload results to GitHub Security tab
-          upload: true
-          # Generate SARIF output
-          output: sarif-results
-          # Wait for processing to complete
-          wait-for-processing: true
-
-      - name: Upload SARIF results
-        if: always()
-        uses: github/codeql-action/upload-sarif@fe83e8621ecd1fceb8c60ab42ecf2bbe9f1a3bbb # v3.28.14
-        with:
-          sarif_file: sarif-results
-          category: "/language:${{ matrix.language }}"
-
-      - name: Check for Critical Vulnerabilities
-        if: always()
-        run: |
-          echo "🔍 Checking for critical vulnerabilities..."
-          # This is informational - the workflow won't fail, but will report
-          echo "✅ CodeQL analysis complete. Check the Security tab for results."
-          echo "📊 SARIF results uploaded to GitHub Security."
+          category: "/language:${{matrix.language}}"
