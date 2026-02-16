@@ -11,12 +11,11 @@ jobs:
   labeler:
     name: Label Pull Request
     runs-on: ubuntu-latest
-    # Enhanced permissions for label management
+    # Minimal permissions for label management (least privilege)
     permissions:
       contents: read # Required to check out the code
       pull-requests: write # Required to apply labels to PRs
-      issues: write # Required to create and manage labels
-      repository-projects: write # Required for repository management
+      issues: read # Required to read existing labels
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
@@ -39,7 +38,7 @@ jobs:
           key_labels=("infrastructure" "documentation" "security" "testing" "bug" "feature" "enhancement" "news" "mcp-integration")
 
           for label in "${key_labels[@]}"; do
-            if ! gh label list --search "$label" --limit 1 | grep -q "^$label"; then
+            if ! gh label list --json name --jq '.[].name' | grep -Fx "$label" > /dev/null; then
               missing_labels+=("$label")
             fi
           done

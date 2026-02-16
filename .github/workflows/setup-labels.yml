@@ -12,7 +12,6 @@ on:
 permissions:
   contents: read
   issues: write
-  pull-requests: write
 
 jobs:
   setup-labels:
@@ -48,7 +47,7 @@ jobs:
             local color="$2"
             local description="$3"
             
-            if gh label list --search "$name" --limit 1 | grep -q "^$name"; then
+            if gh label list --json name --jq '.[].name' | grep -Fx "$name" > /dev/null; then
               echo "📝 Updating label: $name"
               gh label edit "$name" --color "$color" --description "$description" || echo "❌ Failed to update: $name"
             else

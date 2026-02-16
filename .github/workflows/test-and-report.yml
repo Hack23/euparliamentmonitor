@@ -83,9 +83,19 @@ jobs:
         run: |
           echo "🔍 Checking JavaScript syntax..."
           # Check for syntax errors in scripts
+          failed=0
           for file in scripts/*.js; do
-            node --check "$file" && echo "✅ $file - OK" || echo "❌ $file - FAILED"
+            if node --check "$file"; then
+              echo "✅ $file - OK"
+            else
+              echo "❌ $file - FAILED"
+              failed=1
+            fi
           done
+          if [ "$failed" -ne 0 ]; then
+            echo "JavaScript syntax check failed for one or more files."
+            exit 1
+          fi
 
       - name: Verify package.json scripts
         run: |
@@ -93,7 +103,7 @@ jobs:
           # Verify required scripts exist
           required_scripts="generate-news generate-news-indexes generate-sitemap htmlhint"
           for script in $required_scripts; do
-            if npm run | grep -q "$script"; then
+            if node -p "require('./package.json').scripts['$script']" 2>/dev/null | grep -v "^undefined$" > /dev/null; then
               echo "✅ Script found: $script"
             else
               echo "❌ Missing script: $script"
@@ -216,10 +226,21 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: Cache dependencies
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Check for vulnerabilities
         run: |
           echo "🔒 Checking for security vulnerabilities..."
-          npm audit --audit-level=moderate || echo "Security audit completed"
+          npm audit --audit-level=moderate
 
       - name: Check for outdated dependencies
         run: |
