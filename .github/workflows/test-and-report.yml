@@ -153,6 +153,29 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run unit tests
+        run: |
+          echo "🧪 Running unit tests..."
+          npm run test:unit
+
+      - name: Run integration tests
+        run: |
+          echo "🔗 Running integration tests..."
+          npm run test:integration
+
+      - name: Generate test coverage report
+        run: |
+          echo "📊 Generating test coverage..."
+          npm run test:coverage
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@015f24e6818733317a2da2edd6290ab26238649a # v5.3.1
+        with:
+          files: ./coverage/lcov.info
+          flags: unittests
+          name: codecov-euparliamentmonitor
+          fail_ci_if_error: false
+
       - name: Test news generation
         env:
           USE_EP_MCP: false

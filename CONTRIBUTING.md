@@ -85,6 +85,32 @@ npm run htmlhint
 
 All contributions must meet these quality standards:
 
+### Testing Requirements
+
+- **Unit Tests**: Write unit tests for new functions and modules
+- **Integration Tests**: Add integration tests for new workflows
+- **Coverage**: Maintain ≥80% line coverage, ≥75% branch coverage
+- **Test Quality**: Follow AAA pattern (Arrange, Act, Assert)
+- **No Flaky Tests**: Ensure tests are deterministic and reliable
+
+```bash
+# Run tests before committing
+npm test
+
+# Check coverage
+npm run test:coverage
+
+# Run specific test file
+npx vitest test/unit/your-test.test.js
+```
+
+**Required for all code changes:**
+
+- New functions must have unit tests
+- New features must have integration tests
+- All tests must pass before PR submission
+- Coverage thresholds must be met
+
 ### ESLint
 
 - **Zero errors** required (warnings are acceptable for false positives)
@@ -118,6 +144,7 @@ All exported functions must include:
 - Avoid `eval()` and `new Function()`
 - Validate all user inputs
 - No SQL injection or XSS vulnerabilities
+- Test security-critical paths (≥95% coverage)
 
 ### Pre-commit Hooks
 
@@ -126,6 +153,7 @@ The project uses Husky and lint-staged to automatically:
 1. Run ESLint with auto-fix on staged JavaScript files
 2. Format staged files with Prettier
 3. Validate HTML files with htmlhint
+4. Run affected tests (if configured)
 
 These hooks run automatically on `git commit`. To bypass (not recommended):
 
@@ -154,7 +182,7 @@ Use conventional commits format:
 - `docs`: Documentation changes
 - `style`: Code style changes (formatting, etc.)
 - `refactor`: Code refactoring
-- `test`: Adding or updating tests
+- `test`: Adding or updating tests (use this for test-related commits!)
 - `chore`: Maintenance tasks
 - `ci`: CI/CD changes
 
@@ -165,6 +193,8 @@ git commit -m "feat(news): add breaking news article type"
 git commit -m "fix(mcp): handle connection timeout gracefully"
 git commit -m "docs: update code standards documentation"
 git commit -m "refactor(generator): reduce complexity in generateWeekAhead"
+git commit -m "test: add unit tests for article template"
+git commit -m "test: increase coverage for MCP client"
 ```
 
 ## Pull Request Process
@@ -177,9 +207,18 @@ git commit -m "refactor(generator): reduce complexity in generateWeekAhead"
    npm run lint
    npm run format:check
    npm run htmlhint
+   npm test
    ```
 
-2. **Test your changes**:
+2. **Check test coverage**:
+
+   ```bash
+   npm run test:coverage
+   # Ensure coverage thresholds are met
+   # Lines: ≥80%, Branches: ≥75%
+   ```
+
+3. **Test your changes**:
 
    ```bash
    # Generate news with your changes
@@ -190,10 +229,11 @@ git commit -m "refactor(generator): reduce complexity in generateWeekAhead"
    npm run generate-sitemap
    ```
 
-3. **Update documentation** if you've:
+4. **Update documentation** if you've:
    - Added new features
    - Changed APIs or interfaces
    - Modified configuration
+   - Added new test files (update test/README.md)
 
 ### PR Checklist
 
@@ -201,6 +241,9 @@ git commit -m "refactor(generator): reduce complexity in generateWeekAhead"
 - [ ] All ESLint checks pass (0 errors)
 - [ ] Code is formatted with Prettier
 - [ ] All functions have JSDoc documentation
+- [ ] **All tests pass (npm test)**
+- [ ] **Test coverage meets thresholds (≥80% lines, ≥75% branches)**
+- [ ] **New code has corresponding tests**
 - [ ] No security vulnerabilities introduced
 - [ ] Tests pass (if applicable)
 - [ ] Documentation updated (if needed)
@@ -224,6 +267,9 @@ Your PR must pass these automated checks:
 - ✅ Prettier formatting
 - ✅ HTML validation
 - ✅ JavaScript syntax check
+- ✅ **Unit tests**
+- ✅ **Integration tests**
+- ✅ **Coverage thresholds (80%/75%)**
 - ✅ Security audit (npm audit)
 - ✅ Functional tests
 

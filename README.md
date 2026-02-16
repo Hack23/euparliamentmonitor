@@ -70,9 +70,12 @@ covering:
 - 📊 **SEO Optimized**: Proper metadata, structured data, and sitemap generation
 - ✅ **Code Quality**: ESLint, Prettier, and automated quality gates
 
-## Code Quality
+## Code Quality & Testing
 
-EU Parliament Monitor maintains high code quality standards:
+EU Parliament Monitor maintains high code quality standards with comprehensive
+testing:
+
+### Code Quality
 
 - **ESLint**: Comprehensive linting with security, complexity, and documentation
   checks
@@ -83,6 +86,32 @@ EU Parliament Monitor maintains high code quality standards:
 
 **Code Standards**: See [docs/CODE_STANDARDS.md](docs/CODE_STANDARDS.md) for
 detailed coding guidelines.
+
+### Testing Infrastructure
+
+Comprehensive test suite with **Vitest** covering all core functionality:
+
+- **Unit Tests**: Article generation, MCP client, index/sitemap generation
+- **Integration Tests**: Full workflows, MCP integration, multi-language support
+- **Coverage**: ≥80% line coverage, ≥75% branch coverage
+- **Test Count**: 169+ tests covering critical paths
+
+```bash
+# Run all tests
+npm test
+
+# Run with coverage
+npm run test:coverage
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run with UI (browser interface)
+npm run test:ui
+```
+
+**Testing Documentation**: See [test/README.md](test/README.md) for detailed
+test suite documentation, best practices, and contribution guidelines.
 
 ## Custom Agents
 
