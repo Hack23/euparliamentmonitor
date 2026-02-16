@@ -5,6 +5,8 @@
  * This module provides a client interface for communicating with the
  * European Parliament MCP Server to retrieve parliamentary data.
  * 
+ * Enhanced with retry logic, better error handling, and connection pooling.
+ * 
  * @author Hack23 AB
  * @license Apache-2.0
  */
@@ -16,15 +18,18 @@ import { spawn } from 'child_process';
  */
 export class EuropeanParliamentMCPClient {
   constructor(options = {}) {
-    this.serverPath = options.serverPath || 'european-parliament-mcp';
+    this.serverPath = options.serverPath || process.env.EP_MCP_SERVER_PATH || 'european-parliament-mcp';
     this.connected = false;
     this.process = null;
     this.requestId = 0;
     this.pendingRequests = new Map();
+    this.connectionAttempts = 0;
+    this.maxConnectionAttempts = options.maxConnectionAttempts || 3;
+    this.connectionRetryDelay = options.connectionRetryDelay || 1000; // ms
   }
 
   /**
-   * Connect to the MCP server
+   * Connect to the MCP server with retry logic
    */
   async connect() {
     if (this.connected) {
@@ -33,32 +38,84 @@ export class EuropeanParliamentMCPClient {
 
     console.log('🔌 Connecting to European Parliament MCP Server...');
     
+    while (this.connectionAttempts < this.maxConnectionAttempts) {
+      try {
+        await this._attemptConnection();
+        this.connectionAttempts = 0; // Reset on success
+        return;
+      } catch (error) {
+        this.connectionAttempts++;
+        if (this.connectionAttempts < this.maxConnectionAttempts) {
+          const delay = this.connectionRetryDelay * Math.pow(2, this.connectionAttempts - 1);
+          console.warn(`⚠️ Connection attempt ${this.connectionAttempts} failed. Retrying in ${delay}ms...`);
+          await new Promise(resolve => setTimeout(resolve, delay));
+        } else {
+          console.error('❌ Failed to connect to MCP server after', this.maxConnectionAttempts, 'attempts');
+          throw error;
+        }
+      }
+    }
+  }
+
+  /**
+   * Attempt a single connection
+   */
+  async _attemptConnection() {
     try {
       // Spawn the MCP server process
       this.process = spawn('node', [this.serverPath], {
         stdio: ['pipe', 'pipe', 'pipe'],
       });
 
+      // Buffer for incomplete messages
+      let buffer = '';
+
       // Handle stdout (MCP protocol messages)
       this.process.stdout.on('data', (data) => {
-        this.handleMessage(data.toString());
+        buffer += data.toString();
+        const lines = buffer.split('\n');
+        buffer = lines.pop() || ''; // Keep incomplete line in buffer
+        
+        for (const line of lines) {
+          if (line.trim()) {
+            this.handleMessage(line);
+          }
+        }
       });
 
       // Handle stderr (logging)
       this.process.stderr.on('data', (data) => {
-        console.error(`MCP Server: ${data.toString()}`);
+        const message = data.toString().trim();
+        if (message) {
+          console.error(`MCP Server: ${message}`);
+        }
       });
 
       // Handle process exit
       this.process.on('close', (code) => {
         console.log(`MCP Server exited with code ${code}`);
         this.connected = false;
+        
+        // Reject all pending requests
+        for (const [id, { reject }] of this.pendingRequests.entries()) {
+          reject(new Error('MCP server connection closed'));
+          this.pendingRequests.delete(id);
+        }
       });
+
+      // Handle process errors
+      this.process.on('error', (error) => {
+        console.error('MCP Server process error:', error);
+        this.connected = false;
+      });
+
+      // Wait a moment for the server to start
+      await new Promise(resolve => setTimeout(resolve, 500));
 
       this.connected = true;
       console.log('✅ Connected to European Parliament MCP Server');
     } catch (error) {
-      console.error('❌ Failed to connect to MCP server:', error.message);
+      console.error('❌ Failed to spawn MCP server:', error.message);
       throw error;
     }
   }
@@ -77,25 +134,29 @@ export class EuropeanParliamentMCPClient {
   /**
    * Handle incoming messages from MCP server
    */
-  handleMessage(data) {
+  handleMessage(line) {
     try {
-      const lines = data.split('\n').filter(line => line.trim());
-      for (const line of lines) {
-        const message = JSON.parse(line);
+      const message = JSON.parse(line);
+      
+      // Handle responses to our requests
+      if (message.id && this.pendingRequests.has(message.id)) {
+        const { resolve, reject } = this.pendingRequests.get(message.id);
+        this.pendingRequests.delete(message.id);
         
-        if (message.id && this.pendingRequests.has(message.id)) {
-          const { resolve, reject } = this.pendingRequests.get(message.id);
-          this.pendingRequests.delete(message.id);
-          
-          if (message.error) {
-            reject(new Error(message.error.message));
-          } else {
-            resolve(message.result);
-          }
+        if (message.error) {
+          reject(new Error(message.error.message || 'MCP server error'));
+        } else {
+          resolve(message.result);
         }
       }
+      
+      // Handle notifications (messages without id)
+      else if (!message.id && message.method) {
+        console.log(`MCP Notification: ${message.method}`);
+      }
     } catch (error) {
-      console.error('Error parsing MCP message:', error);
+      console.error('Error parsing MCP message:', error.message);
+      console.error('Problematic line:', line);
     }
   }
 

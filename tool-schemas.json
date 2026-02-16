@@ -1,0 +1,157 @@
+{
+  "tools": [
+    {
+      "name": "get_meps",
+      "description": "Get Members of European Parliament with optional filters (country, political group)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 country code (e.g., 'SE' for Sweden)",
+            "examples": ["SE", "DE", "FR", "IT", "ES"]
+          },
+          "group": {
+            "type": "string",
+            "description": "Political group abbreviation (e.g., PPE, S&D, Renew, Greens/EFA)",
+            "examples": ["PPE", "S&D", "Renew", "Greens/EFA", "ECR", "ID", "The Left"]
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum number of results (1-100)",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          }
+        }
+      }
+    },
+    {
+      "name": "get_plenary_sessions",
+      "description": "Get European Parliament plenary sessions within a specified date range",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "type": "string",
+            "description": "Start date in YYYY-MM-DD format",
+            "examples": ["2024-01-01"]
+          },
+          "endDate": {
+            "type": "string",
+            "description": "End date in YYYY-MM-DD format",
+            "examples": ["2024-12-31"]
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum number of results (1-100)",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          }
+        },
+        "required": ["startDate", "endDate"]
+      }
+    },
+    {
+      "name": "search_documents",
+      "description": "Search European Parliament documents (reports, resolutions, etc.) by query",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query for documents",
+            "examples": ["climate change", "artificial intelligence", "migration policy"]
+          },
+          "type": {
+            "type": "string",
+            "description": "Document type filter (e.g., REPORT, RESOLUTION, DIRECTIVE)",
+            "examples": ["REPORT", "RESOLUTION", "DIRECTIVE", "REGULATION"]
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum number of results (1-100)",
+            "default": 20,
+            "minimum": 1,
+            "maximum": 100
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "get_parliamentary_questions",
+      "description": "Get parliamentary questions with optional filters for type and date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Question type (e.g., WRITTEN, ORAL, PRIORITY)",
+            "examples": ["WRITTEN", "ORAL", "PRIORITY"]
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Filter questions from this date (YYYY-MM-DD format)",
+            "examples": ["2024-01-01"]
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum number of results (1-100)",
+            "default": 20,
+            "minimum": 1,
+            "maximum": 100
+          }
+        }
+      }
+    },
+    {
+      "name": "get_committee_info",
+      "description": "Get information about European Parliament committees",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "committeeId": {
+            "type": "string",
+            "description": "Specific committee ID (e.g., AFET, ECON, ENVI, LIBE)",
+            "examples": ["AFET", "ECON", "ENVI", "LIBE", "CULT", "EMPL"]
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum number of results (1-100)",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          }
+        }
+      }
+    },
+    {
+      "name": "get_voting_records",
+      "description": "Get voting records from European Parliament sessions",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sessionId": {
+            "type": "string",
+            "description": "Filter by specific session ID",
+            "examples": ["2024-01-15"]
+          },
+          "mepId": {
+            "type": "string",
+            "description": "Filter by specific MEP ID",
+            "examples": ["12345"]
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum number of results (1-100)",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          }
+        }
+      }
+    }
+  ]
+}
