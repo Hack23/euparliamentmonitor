@@ -1,0 +1,7 @@
+{
+  "threshold": 3,
+  "reporters": ["html", "console"],
+  "ignore": ["node_modules/**", "coverage/**", "news/**", ".github/**"],
+  "format": ["javascript"],
+  "output": "./report/jscpd"
+}

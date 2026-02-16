@@ -2,11 +2,13 @@
 
 ## Status: ✅ IMPLEMENTATION COMPLETE
 
-The European Parliament MCP Server has been successfully implemented and is ready for integration with euparliamentmonitor.
+The European Parliament MCP Server has been successfully implemented and is
+ready for integration with euparliamentmonitor.
 
 ## What's Available
 
 ### MCP Server Repository
+
 **GitHub:** https://github.com/Hack23/European-Parliament-MCP-Server  
 **Branch:** `feat/implement-ep-api-integration`  
 **Commit:** `bb556b9`
@@ -51,7 +53,7 @@ The European Parliament MCP Server has been successfully implemented and is read
 The following documentation is available:
 
 - **FINAL_REPORT.md** - Complete implementation report
-- **IMPLEMENTATION_GUIDE.md** - Technical documentation  
+- **IMPLEMENTATION_GUIDE.md** - Technical documentation
 - **IMPLEMENTATION_SUMMARY.md** - Executive summary
 - **CHANGELOG.md** - Version history
 
@@ -146,6 +148,7 @@ const result = await mcpClient.callTool('get_plenary_sessions', {
 ## Technical Details
 
 ### API Client Features
+
 - Retry logic (3 attempts with exponential backoff)
 - LRU caching (5-minute TTL, 500 max entries)
 - Timeout handling (30 seconds default)
@@ -153,12 +156,14 @@ const result = await mcpClient.callTool('get_plenary_sessions', {
 - Multiple field name format support
 
 ### Performance
+
 - Cold request: ~200-500ms
 - Cached request: <5ms
 - Memory: ~50MB with full cache
 - Cache hit rate: 60-80% typical
 
 ### Security
+
 - No API keys required (public EP API)
 - Input validation on all parameters
 - Safe JSON parsing with fallbacks
@@ -167,6 +172,7 @@ const result = await mcpClient.callTool('get_plenary_sessions', {
 ## Contact & Support
 
 For questions or issues:
+
 - GitHub Issues: https://github.com/Hack23/European-Parliament-MCP-Server/issues
 - Repository: https://github.com/Hack23/European-Parliament-MCP-Server
 

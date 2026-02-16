@@ -1,0 +1,11 @@
+node_modules/
+coverage/
+dist/
+build/
+*.min.js
+*.min.css
+news/
+index-*.html
+sitemap.xml
+package-lock.json
+.github/

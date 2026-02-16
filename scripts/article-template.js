@@ -1,14 +1,14 @@
 /**
  * @module Article Template Generator
  * @description Generates HTML templates for news articles with proper structure and metadata
- * 
+ *
  * @author Hack23 AB
  * @license Apache-2.0
  */
 
 /**
  * Generate complete HTML for a news article
- * @param {Object} options - Article options
+ * @param {object} options - Article options
  * @param {string} options.slug - Article filename slug
  * @param {string} options.title - Article title
  * @param {string} options.subtitle - Article subtitle
@@ -18,12 +18,12 @@
  * @param {string} options.lang - Language code (en, de, fr, etc.)
  * @param {string} options.content - Article HTML content
  * @param {Array<string>} options.keywords - SEO keywords
- * @param {Array<Object>} options.sources - Source links
+ * @param {Array<object>} options.sources - Source links
  * @returns {string} Complete HTML document
  */
 export function generateArticleHTML(options) {
   const {
-    slug,
+    slug: _slug,
     title,
     subtitle,
     date,
@@ -32,19 +32,19 @@ export function generateArticleHTML(options) {
     lang,
     content,
     keywords = [],
-    sources = []
+    sources = [],
   } = options;
-  
+
   // Determine text direction (RTL for Arabic and Hebrew)
-  const dir = (lang === 'ar' || lang === 'he') ? 'rtl' : 'ltr';
-  
+  const dir = lang === 'ar' || lang === 'he' ? 'rtl' : 'ltr';
+
   // Format date for display
   const displayDate = new Date(date).toLocaleDateString(lang, {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   });
-  
+
   // Get language name
   const langNames = {
     en: 'English',
@@ -60,31 +60,51 @@ export function generateArticleHTML(options) {
     da: 'Dansk',
     fi: 'Suomi',
     el: 'Ελληνικά',
-    hu: 'Magyar'
+    hu: 'Magyar',
   };
-  
+
   const languageName = langNames[lang] || 'English';
-  
+
   // Article type labels
   const typeLabels = {
     en: { prospective: 'Week Ahead', retrospective: 'Analysis', breaking: 'Breaking News' },
     de: { prospective: 'Woche Voraus', retrospective: 'Analyse', breaking: 'Eilmeldung' },
-    fr: { prospective: 'Semaine à Venir', retrospective: 'Analyse', breaking: 'Dernières Nouvelles' },
-    es: { prospective: 'Semana Próxima', retrospective: 'Análisis', breaking: 'Noticias de Última Hora' },
+    fr: {
+      prospective: 'Semaine à Venir',
+      retrospective: 'Analyse',
+      breaking: 'Dernières Nouvelles',
+    },
+    es: {
+      prospective: 'Semana Próxima',
+      retrospective: 'Análisis',
+      breaking: 'Noticias de Última Hora',
+    },
     it: { prospective: 'Settimana Prossima', retrospective: 'Analisi', breaking: 'Ultime Notizie' },
     nl: { prospective: 'Week Vooruit', retrospective: 'Analyse', breaking: 'Laatste Nieuws' },
-    pl: { prospective: 'Nadchodzący Tydzień', retrospective: 'Analiza', breaking: 'Najnowsze Wiadomości' },
-    pt: { prospective: 'Semana Próxima', retrospective: 'Análise', breaking: 'Notícias de Última Hora' },
-    ro: { prospective: 'Săptămâna Viitoare', retrospective: 'Analiză', breaking: 'Știri de Ultimă Oră' },
+    pl: {
+      prospective: 'Nadchodzący Tydzień',
+      retrospective: 'Analiza',
+      breaking: 'Najnowsze Wiadomości',
+    },
+    pt: {
+      prospective: 'Semana Próxima',
+      retrospective: 'Análise',
+      breaking: 'Notícias de Última Hora',
+    },
+    ro: {
+      prospective: 'Săptămâna Viitoare',
+      retrospective: 'Analiză',
+      breaking: 'Știri de Ultimă Oră',
+    },
     sv: { prospective: 'Vecka Framåt', retrospective: 'Analys', breaking: 'Senaste Nytt' },
     da: { prospective: 'Ugen Fremover', retrospective: 'Analyse', breaking: 'Seneste Nyt' },
     fi: { prospective: 'Tuleva Viikko', retrospective: 'Analyysi', breaking: 'Uusimmat Uutiset' },
     el: { prospective: 'Επόμενη Εβδομάδα', retrospective: 'Ανάλυση', breaking: 'Τελευταία Νέα' },
-    hu: { prospective: 'Következő Hét', retrospective: 'Elemzés', breaking: 'Legfrissebb Hírek' }
+    hu: { prospective: 'Következő Hét', retrospective: 'Elemzés', breaking: 'Legfrissebb Hírek' },
   };
-  
+
   const typeLabel = (typeLabels[lang] || typeLabels.en)[type] || type;
-  
+
   // Read time labels
   const readTimeLabels = {
     en: (time) => `${time} min read`,
@@ -100,11 +120,11 @@ export function generateArticleHTML(options) {
     da: (time) => `${time} min læsetid`,
     fi: (time) => `${time} min lukuaika`,
     el: (time) => `${time} λεπτά ανάγνωσης`,
-    hu: (time) => `${time} perc olvasás`
+    hu: (time) => `${time} perc olvasás`,
   };
-  
+
   const readTimeLabel = (readTimeLabels[lang] || readTimeLabels.en)(readTime);
-  
+
   // Back to news labels
   const backLabels = {
     en: '← Back to News',
@@ -120,11 +140,11 @@ export function generateArticleHTML(options) {
     da: '← Tilbage til Nyheder',
     fi: '← Takaisin Uutisiin',
     el: '← Πίσω στα Νέα',
-    hu: '← Vissza a Hírekhez'
+    hu: '← Vissza a Hírekhez',
   };
-  
+
   const backLabel = backLabels[lang] || backLabels.en;
-  
+
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -189,16 +209,20 @@ export function generateArticleHTML(options) {
     
     ${content}
     
-    ${sources.length > 0 ? `
+    ${
+      sources.length > 0
+        ? `
     <footer class="article-footer">
       <section class="article-sources">
         <h2>Sources</h2>
         <ul>
-          ${sources.map(source => `<li><a href="${source.url}" target="_blank" rel="noopener">${source.title}</a></li>`).join('\n          ')}
+          ${sources.map((source) => `<li><a href="${source.url}" target="_blank" rel="noopener">${source.title}</a></li>`).join('\n          ')}
         </ul>
       </section>
     </footer>
-    ` : ''}
+    `
+        : ''
+    }
     
     <nav class="article-nav">
       <a href="../index-${lang}.html" class="back-to-news">${backLabel}</a>
