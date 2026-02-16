@@ -1,0 +1,41 @@
+{
+  "name": "euparliamentmonitor",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
+  "main": "index.html",
+  "scripts": {
+    "generate-news": "node scripts/generate-news-enhanced.js",
+    "generate-news-indexes": "node scripts/generate-news-indexes.js",
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "htmlhint": "sh -c 'htmlhint *.html; set -- news/*.html; if [ -e \"$1\" ]; then htmlhint \"$@\"; else echo \"No news/*.html files to lint\"; fi'",
+    "serve": "python3 -m http.server 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hack23/euparliamentmonitor.git"
+  },
+  "keywords": [
+    "european-parliament",
+    "parliament",
+    "europe",
+    "politics",
+    "osint",
+    "transparency",
+    "intelligence"
+  ],
+  "author": "Hack23 AB",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Hack23/euparliamentmonitor/issues"
+  },
+  "homepage": "https://euparliamentmonitor.com",
+  "dependencies": {},
+  "devDependencies": {
+    "htmlhint": "^1.9.1",
+    "js-yaml": "^4.1.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

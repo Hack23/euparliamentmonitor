@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-02-16T12:30:31.445Z",
+  "generated": 3,
+  "errors": 0,
+  "articles": [
+    "2026-02-16-week-ahead-en.html",
+    "2026-02-16-week-ahead-de.html",
+    "2026-02-16-week-ahead-fr.html"
+  ],
+  "results": [
+    {
+      "success": true,
+      "files": 3,
+      "slug": "2026-02-16-week-ahead"
+    }
+  ]
+}

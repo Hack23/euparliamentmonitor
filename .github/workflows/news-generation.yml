@@ -1,0 +1,100 @@
+name: News Generation
+
+on:
+  schedule:
+    # Run daily at 06:00 UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      article_types:
+        description: 'Comma-separated article types (week-ahead,committee-reports,propositions,motions,breaking)'
+        required: false
+        default: 'week-ahead'
+      languages:
+        description: 'Languages to generate (en | eu-core | all | custom comma-separated)'
+        required: false
+        default: 'en'
+      force_generation:
+        description: 'Force generation even if recent articles exist'
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  generate-news:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+      
+      - name: Generate news articles
+        env:
+          ARTICLE_TYPES: ${{ github.event.inputs.article_types || 'week-ahead' }}
+          LANGUAGES: ${{ github.event.inputs.languages || 'en' }}
+        run: |
+          echo "📰 Generating news articles..."
+          echo "  Types: $ARTICLE_TYPES"
+          echo "  Languages: $LANGUAGES"
+          
+          node scripts/generate-news-enhanced.js \
+            --types="$ARTICLE_TYPES" \
+            --languages="$LANGUAGES"
+      
+      - name: Generate news indexes
+        run: |
+          echo "📋 Generating news indexes..."
+          node scripts/generate-news-indexes.js
+      
+      - name: Generate sitemap
+        run: |
+          echo "🗺️ Generating sitemap..."
+          node scripts/generate-sitemap.js
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No changes detected"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "✅ Changes detected"
+          fi
+      
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          git add news/ index-*.html sitemap.xml
+          git commit -m "chore: generate news articles [skip ci]"
+          git push
+      
+      - name: Summary
+        run: |
+          echo "## News Generation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.check_changes.outputs.has_changes }}" == "true" ]; then
+            echo "✅ News articles generated and committed successfully" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Changes:" >> $GITHUB_STEP_SUMMARY
+            git diff HEAD~1 --stat >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ℹ️ No new articles generated" >> $GITHUB_STEP_SUMMARY
+          fi
