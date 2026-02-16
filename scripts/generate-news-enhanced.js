@@ -230,6 +230,8 @@ async function generateWeekAhead() {
       const langTitles = titles[lang] || titles.en;
       
       // Build content
+      // TODO: In production, this content should be properly translated to the target language
+      // Currently using placeholder English content for demonstration
       const content = `
         <div class="article-content">
           <section class="lede">

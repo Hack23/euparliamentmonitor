@@ -2,7 +2,14 @@
 
 European Parliament Intelligence Platform - Monitor political activity with systematic transparency
 
-## Overview
+## Current Status
+
+**Note**: The current implementation generates placeholder content in English for all languages. In production, the content should be:
+1. Retrieved from EU Parliament data sources or MCP servers
+2. Properly translated or generated in each target language
+3. Enhanced with actual parliamentary data (events, votes, documents)
+
+This implementation provides the infrastructure and framework that can be extended with real data sources.
 
 EU Parliament Monitor is an automated news generation platform that monitors European Parliament activities and generates multi-language news articles covering:
 
