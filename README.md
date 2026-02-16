@@ -1,18 +1,26 @@
 # EU Parliament Monitor
 
-European Parliament Intelligence Platform - Monitor political activity with systematic transparency
+European Parliament Intelligence Platform - Monitor political activity with
+systematic transparency
 
 ## Current Status
 
-**MCP Server Integration**: The project is designed to use the [European-Parliament-MCP-Server](https://github.com/Hack23/European-Parliament-MCP-Server) for accessing real EU Parliament data. 
+**MCP Server Integration**: The project is designed to use the
+[European-Parliament-MCP-Server](https://github.com/Hack23/European-Parliament-MCP-Server)
+for accessing real EU Parliament data.
 
-- **MCP Server Status**: The MCP server is currently in development (skeleton implementation)
-- **Fallback Mode**: News generation works with placeholder content when MCP server is unavailable
-- **Environment Variable**: Set `USE_EP_MCP=false` to disable MCP client connection attempts
+- **MCP Server Status**: The MCP server is currently in development (skeleton
+  implementation)
+- **Fallback Mode**: News generation works with placeholder content when MCP
+  server is unavailable
+- **Environment Variable**: Set `USE_EP_MCP=false` to disable MCP client
+  connection attempts
 
 ### When MCP Server is Ready
 
-Once the European-Parliament-MCP-Server is fully implemented, the system will automatically:
+Once the European-Parliament-MCP-Server is fully implemented, the system will
+automatically:
+
 1. Connect to the MCP server for real-time EU Parliament data
 2. Fetch plenary sessions, committee meetings, and documents
 3. Generate articles with actual parliamentary information
@@ -20,25 +28,32 @@ Once the European-Parliament-MCP-Server is fully implemented, the system will au
 
 ### Current Limitations
 
-**Note**: The current implementation generates placeholder content in English for all languages when MCP server is unavailable. To enable full functionality:
+**Note**: The current implementation generates placeholder content in English
+for all languages when MCP server is unavailable. To enable full functionality:
 
-1. **Complete the MCP Server**: The European-Parliament-MCP-Server needs implementation of:
+1. **Complete the MCP Server**: The European-Parliament-MCP-Server needs
+   implementation of:
    - `get_plenary_sessions` tool
    - `search_documents` tool
    - `get_parliamentary_questions` tool
    - `get_committee_info` tool
 
 2. **Install MCP Server**: Once ready, install the MCP server:
+
    ```bash
    npm install -g european-parliament-mcp-server
    # or clone and build locally
    ```
 
-3. **Enable MCP Client**: The news generator will automatically connect when the server is available
+3. **Enable MCP Client**: The news generator will automatically connect when the
+   server is available
 
-EU Parliament Monitor is an automated news generation platform that monitors European Parliament activities and generates multi-language news articles covering:
+EU Parliament Monitor is an automated news generation platform that monitors
+European Parliament activities and generates multi-language news articles
+covering:
 
-- **Week Ahead**: Preview of upcoming parliamentary events and committee meetings
+- **Week Ahead**: Preview of upcoming parliamentary events and committee
+  meetings
 - **Committee Reports**: Analysis of committee activities and decisions
 - **Propositions**: Government and parliamentary legislative proposals
 - **Motions**: Parliamentary motions and resolutions
@@ -46,26 +61,39 @@ EU Parliament Monitor is an automated news generation platform that monitors Eur
 
 ## Features
 
-- 📰 **Automated News Generation**: Generate news articles about EU Parliament activities
-- 🌍 **Multi-Language Support**: 14 languages including English, German, French, Spanish, Italian, and more
+- 📰 **Automated News Generation**: Generate news articles about EU Parliament
+  activities
+- 🌍 **Multi-Language Support**: 14 languages including English, German, French,
+  Spanish, Italian, and more
 - 📅 **Week Ahead Coverage**: Preview upcoming parliamentary events
 - 🤖 **GitHub Actions Integration**: Automated daily news generation
 - 📊 **SEO Optimized**: Proper metadata, structured data, and sitemap generation
 
 ## Custom Agents
 
-EU Parliament Monitor includes **8 specialized GitHub Copilot custom agents** to streamline development:
+EU Parliament Monitor includes **8 specialized GitHub Copilot custom agents** to
+streamline development:
 
-- 🤖 **[product-task-agent](.github/agents/product-task-agent.md)** - Product specialist for issue creation and coordination
-- 📰 **[news-journalist](.github/agents/news-journalist.md)** - The Economist-style European Parliament reporting
-- 🎨 **[frontend-specialist](.github/agents/frontend-specialist.md)** - HTML5/CSS3/WCAG 2.1 AA UI/UX expert
-- 🔄 **[data-pipeline-specialist](.github/agents/data-pipeline-specialist.md)** - European Parliament MCP integration expert
-- ⚙️ **[devops-engineer](.github/agents/devops-engineer.md)** - CI/CD and GitHub Actions automation
-- 🔒 **[security-architect](.github/agents/security-architect.md)** - ISMS, GDPR, NIS2 compliance expert
-- 📚 **[documentation-architect](.github/agents/documentation-architect.md)** - C4 models and architecture docs
-- ✅ **[quality-engineer](.github/agents/quality-engineer.md)** - Testing, validation, and accessibility
+- 🤖 **[product-task-agent](.github/agents/product-task-agent.md)** - Product
+  specialist for issue creation and coordination
+- 📰 **[news-journalist](.github/agents/news-journalist.md)** - The
+  Economist-style European Parliament reporting
+- 🎨 **[frontend-specialist](.github/agents/frontend-specialist.md)** -
+  HTML5/CSS3/WCAG 2.1 AA UI/UX expert
+- 🔄
+  **[data-pipeline-specialist](.github/agents/data-pipeline-specialist.md)** -
+  European Parliament MCP integration expert
+- ⚙️ **[devops-engineer](.github/agents/devops-engineer.md)** - CI/CD and GitHub
+  Actions automation
+- 🔒 **[security-architect](.github/agents/security-architect.md)** - ISMS,
+  GDPR, NIS2 compliance expert
+- 📚 **[documentation-architect](.github/agents/documentation-architect.md)** -
+  C4 models and architecture docs
+- ✅ **[quality-engineer](.github/agents/quality-engineer.md)** - Testing,
+  validation, and accessibility
 
 **Usage Example**:
+
 ```bash
 # Use product-task-agent to analyze repository and create improvement issues
 @product-task-agent analyze the multi-language support and create issues for any gaps
@@ -77,11 +105,13 @@ EU Parliament Monitor includes **8 specialized GitHub Copilot custom agents** to
 @frontend-specialist make the language switcher fully keyboard accessible
 ```
 
-**Learn More**: See [Custom Agents Documentation](.github/agents/README.md) for detailed agent capabilities, usage patterns, and examples.
+**Learn More**: See [Custom Agents Documentation](.github/agents/README.md) for
+detailed agent capabilities, usage patterns, and examples.
 
 ## Languages Supported
 
-- **EU Core**: English (en), German (de), French (fr), Spanish (es), Italian (it), Dutch (nl)
+- **EU Core**: English (en), German (de), French (fr), Spanish (es), Italian
+  (it), Dutch (nl)
 - **Nordic**: Swedish (sv), Danish (da), Finnish (fi)
 - **Eastern Europe**: Polish (pl), Romanian (ro), Hungarian (hu)
 - **Other**: Portuguese (pt), Greek (el)
@@ -115,11 +145,13 @@ npm run build
 ```
 
 Configure the MCP server path in environment variables:
+
 ```bash
 export EP_MCP_SERVER_PATH="/path/to/European-Parliament-MCP-Server/dist/index.js"
 ```
 
-**Note**: The MCP server is currently in development. News generation works without it using placeholder content.
+**Note**: The MCP server is currently in development. News generation works
+without it using placeholder content.
 
 ## Usage
 
@@ -182,26 +214,31 @@ euparliamentmonitor/
 
 ### GitHub Actions Workflows
 
-The repository includes comprehensive GitHub Actions workflows for automation and quality assurance:
+The repository includes comprehensive GitHub Actions workflows for automation
+and quality assurance:
 
 #### 📰 News Generation
+
 - **Schedule**: Runs daily at 06:00 UTC
 - **Manual Trigger**: Can be triggered manually with custom parameters
 - **Automatic Commit**: Commits and pushes generated articles automatically
 - **Workflow**: `.github/workflows/news-generation.yml`
 
 **Workflow Inputs:**
+
 - `article_types`: Comma-separated list of article types (default: `week-ahead`)
 - `languages`: Languages to generate (`en`, `eu-core`, `all`, or custom list)
 - `force_generation`: Force generation even if recent articles exist
 
 #### 🏷️ PR Labeling
+
 - **Automatic**: Labels PRs based on file changes
 - **Configuration**: `.github/labeler.yml`
 - **Workflow**: `.github/workflows/labeler.yml`
 - **Setup**: Run `.github/workflows/setup-labels.yml` once to create all labels
 
 #### 📦 Release Management
+
 - **Automated Release Notes**: Via Release Drafter
 - **Semantic Versioning**: Based on PR labels
 - **SBOM & Attestations**: Security compliance with artifact attestations
@@ -209,12 +246,14 @@ The repository includes comprehensive GitHub Actions workflows for automation an
 - **Configuration**: `.github/release-drafter.yml`
 
 #### 🔒 Security Scanning
+
 - **CodeQL**: Automated security analysis on push, PR, and weekly schedule
 - **Dependabot**: Weekly dependency updates for npm and GitHub Actions
 - **Vulnerability Scanning**: Automated npm audit in PR validation
 - **Workflows**: `.github/workflows/codeql.yml`, `.github/dependabot.yml`
 
 #### ✅ Test & Validation
+
 - **HTML Validation**: Automated htmlhint checks
 - **Functional Tests**: News generation, index, and sitemap validation
 - **Security Checks**: npm audit for vulnerabilities
@@ -276,7 +315,8 @@ Apache-2.0 License - see LICENSE file for details
 
 ## Credits
 
-This project is based on the news generation implementation from [Hack23/riksdagsmonitor](https://github.com/Hack23/riksdagsmonitor).
+This project is based on the news generation implementation from
+[Hack23/riksdagsmonitor](https://github.com/Hack23/riksdagsmonitor).
 
 ## Author
 
