@@ -124,6 +124,33 @@ This project follows
 - ✅ Security testing (SAST, SCA, unit tests)
 - ✅ Compliance mapping (ISO 27001, GDPR, NIS2)
 
+## 🤝 Community & Governance
+
+EU Parliament Monitor is an open source project with transparent governance and community standards.
+
+### Open Source Standards
+
+- **[Contributing Guide](CONTRIBUTING.md)** - Development workflow, code standards, and contribution guidelines
+- **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community standards based on Contributor Covenant 2.1
+- **[Security Policy](SECURITY.md)** - Vulnerability disclosure and security practices
+- **[Authors & Contributors](AUTHORS.md)** - Recognition of project contributors
+- **[License](LICENSE)** - Apache License 2.0 full text
+
+### Community Channels
+
+- **GitHub Issues**: Bug reports and feature requests
+- **GitHub Discussions**: Questions and community discussion
+- **Security**: [security@hack23.com](mailto:security@hack23.com) for vulnerability reports
+- **Conduct**: [conduct@hack23.com](mailto:conduct@hack23.com) for Code of Conduct issues
+
+### Governance Compliance
+
+This project adheres to:
+- ✅ **OpenSSF Best Practices**: Following CII Best Practices criteria
+- ✅ **ISMS Compliance**: Aligned with Hack23 ISMS policies
+- ✅ **Transparent Development**: Public repository, open discussions
+- ✅ **Security First**: Comprehensive security disclosure policy
+
 ## Code Quality & Testing
 
 EU Parliament Monitor maintains high code quality standards with comprehensive
@@ -433,11 +460,46 @@ First-time setup requires running the label creation workflow:
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+We welcome contributions from developers, journalists, translators, and security researchers!
+
+### How to Contribute
+
+Please read our comprehensive [Contributing Guide](CONTRIBUTING.md) for:
+- Development workflow and setup instructions
+- Code quality requirements and testing standards
+- Pull request process and review guidelines
+- Security best practices and ISMS compliance
+- Multi-language contribution guidelines
+
+### Code of Conduct
+
+This project adheres to the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [conduct@hack23.com](mailto:conduct@hack23.com).
+
+### Security
+
+If you discover a security vulnerability, please follow our [Security Policy](SECURITY.md) for responsible disclosure. **Do not** report security issues through public GitHub issues.
+
+### Contributors
+
+See [AUTHORS.md](AUTHORS.md) for a list of contributors who have helped make this project possible.
 
 ## License
 
-Apache-2.0 License - see LICENSE file for details
+Copyright 2024-2026 Hack23 AB
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+See [LICENSE](LICENSE) file for full details.
 
 ## Credits
 
