@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-17T01:25:51.751Z",
+  "timestamp": "2026-02-17T06:18:45.994Z",
   "generated": 1,
   "errors": 0,
   "articles": [
@@ -12,5 +12,5 @@
       "slug": "2026-02-17-week-ahead"
     }
   ],
-  "usedMCP": false
+  "usedMCP": true
 }
