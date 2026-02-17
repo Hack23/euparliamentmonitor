@@ -139,12 +139,43 @@ All exported functions must include:
 
 ### Security
 
+**Security Architecture**: All security changes must align with the
+[Security Architecture](SECURITY_ARCHITECTURE.md) and
+[ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md).
+
+**Security Requirements**:
+
 - Never commit secrets or API keys
 - Use `===` instead of `==`
 - Avoid `eval()` and `new Function()`
-- Validate all user inputs
-- No SQL injection or XSS vulnerabilities
+- Validate all user inputs (see [Security Controls](SECURITY_ARCHITECTURE.md#-security-controls))
+- Prevent XSS vulnerabilities (multi-layer defense: validation, sanitization, encoding, CSP)
+- No SQL injection risks (static site, no databases)
 - Test security-critical paths (≥95% coverage)
+- Follow threat model mitigations (see [Threat Model](SECURITY_ARCHITECTURE.md#-threat-model))
+
+**Security Review Checklist**:
+
+- [ ] Input validation implemented for all external data
+- [ ] HTML sanitization applied (script tags, event handlers removed)
+- [ ] Output encoding used (HTML entity encoding)
+- [ ] No new dependencies without security scanning (npm audit)
+- [ ] Security tests added for new attack surfaces
+- [ ] Documentation updated (SECURITY_ARCHITECTURE.md if applicable)
+- [ ] Threat model reviewed for new threats
+
+**Security Testing**:
+
+```bash
+# Run security audit
+npm audit
+
+# Run security-focused tests
+npm run test:unit -- --grep="security|xss|injection|sanitize"
+
+# Check for vulnerable dependencies
+npm audit --audit-level=moderate
+```
 
 ### Pre-commit Hooks
 

@@ -70,6 +70,60 @@ covering:
 - 📊 **SEO Optimized**: Proper metadata, structured data, and sitemap generation
 - ✅ **Code Quality**: ESLint, Prettier, and automated quality gates
 
+## 🔒 Security Architecture
+
+EU Parliament Monitor implements **security-by-design** with comprehensive
+security controls and ISMS compliance.
+
+### Security Documentation
+
+- 📋 **[Security Architecture](SECURITY_ARCHITECTURE.md)** - Complete security
+  implementation overview with C4 diagrams, threat model, and compliance mapping
+- 🚀 **[Future Security Architecture](FUTURE_SECURITY_ARCHITECTURE.md)** -
+  Security enhancement roadmap (2026-2027)
+- 📊 **[Data Model](DATA_MODEL.md)** - Data structures and European Parliament
+  API integration
+- 📈 **[Security Flowcharts](FLOWCHART.md)** - Detailed process flows with
+  security controls
+
+### Security Posture
+
+**Classification** (per
+[ISMS Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)):
+
+- **Confidentiality**: Public (Level 1) - European Parliament open data
+- **Integrity**: Medium (Level 2) - News accuracy critical for democratic
+  transparency
+- **Availability**: Medium (Level 2) - Daily updates expected, 24h RTO acceptable
+
+**Key Security Controls**:
+
+- ✅ **Minimal Attack Surface**: Static site, no databases, no server-side
+  execution
+- ✅ **Automated Security**: CodeQL SAST, Dependabot SCA, npm audit
+- ✅ **Supply Chain Security**: SHA-pinned GitHub Actions, SBOM generation
+- ✅ **Input Validation**: Multi-layer XSS prevention, HTML sanitization
+- ✅ **Infrastructure Security**: GitHub-hosted ephemeral runners, HTTPS
+  enforcement
+- ✅ **Compliance**: ISO 27001, GDPR, NIS2, EU CRA aligned
+
+**Security Metrics**:
+
+- Zero known vulnerabilities (npm audit clean)
+- 82%+ code coverage with security tests
+- 100% dependency scanning coverage
+- 0 CodeQL critical/high findings
+
+### ISMS Alignment
+
+This project follows
+[Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md):
+
+- ✅ Security architecture documentation (C4 models with Mermaid)
+- ✅ Threat modeling (STRIDE analysis)
+- ✅ Security testing (SAST, SCA, unit tests)
+- ✅ Compliance mapping (ISO 27001, GDPR, NIS2)
+
 ## Code Quality & Testing
 
 EU Parliament Monitor maintains high code quality standards with comprehensive
