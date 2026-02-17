@@ -1,3 +1,9 @@
+---
+name: mcp-gateway-security
+description: MCP Gateway security patterns with MCP spec 7.1 authentication, secrets management, container isolation, and session security
+tools: []
+---
+
 # MCP Gateway Security Skill
 
 ## Skill: MCP Gateway Security & Authentication

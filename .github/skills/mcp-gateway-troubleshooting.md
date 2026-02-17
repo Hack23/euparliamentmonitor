@@ -1,3 +1,9 @@
+---
+name: mcp-gateway-troubleshooting
+description: MCP Gateway troubleshooting and debugging with log analysis, debug mode, issue resolution, and performance diagnostics
+tools: []
+---
+
 # MCP Gateway Troubleshooting Skill
 
 ## Skill: MCP Gateway Troubleshooting & Debugging

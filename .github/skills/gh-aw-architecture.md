@@ -1,3 +1,9 @@
+---
+name: gh-aw-architecture
+description: GitHub Agentic Workflows architecture patterns, layered security model, component integration, and deployment strategies for AI agent systems
+tools: []
+---
+
 # Skill: GitHub Agentic Workflows Architecture
 
 ## Component Overview

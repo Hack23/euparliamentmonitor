@@ -1,3 +1,9 @@
+---
+name: gh-aw-sandbox
+description: Sandbox configuration for isolated agent execution with resource limits, filesystem control, network segmentation, and secrets management
+tools: []
+---
+
 # Skill: Sandbox Configuration for Agentic Workflows
 
 ## Sandbox Overview

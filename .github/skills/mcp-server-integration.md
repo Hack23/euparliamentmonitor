@@ -1,3 +1,9 @@
+---
+name: mcp-server-integration
+description: MCP server integration patterns with tool discovery, multi-server orchestration, custom server development, and performance optimization
+tools: []
+---
+
 # Skill: MCP Server Integration Patterns
 
 ## MCP Protocol Fundamentals

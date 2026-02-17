@@ -1,3 +1,9 @@
+---
+name: mcp-gateway-configuration
+description: MCP Gateway configuration mastery with TOML/JSON formats, server setup, environment variables, and validation rules
+tools: []
+---
+
 # MCP Gateway Configuration Skill
 
 ## Skill: MCP Gateway Configuration Mastery

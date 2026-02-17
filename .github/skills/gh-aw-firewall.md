@@ -1,3 +1,9 @@
+---
+name: gh-aw-firewall
+description: GitHub Agentic Workflows firewall security layer for domain filtering, policy enforcement, rate limiting, and compliance controls
+tools: []
+---
+
 # Skill: GitHub Agentic Workflows Firewall (gh-aw-firewall)
 
 ## Component Overview
