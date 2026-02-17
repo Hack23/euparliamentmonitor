@@ -9,7 +9,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { generateArticleHTML } from '../../scripts/article-template.js';
-import { createTempDir, cleanupTempDir, validateHTML, extractHTMLMetadata } from '../helpers/test-utils.js';
+import { createTempDir, cleanupTempDir, validateHTML, extractHTMLMetadata, writeFile } from '../helpers/test-utils.js';
 import { mockArticleMetadata, mockArticleContent, mockSources } from '../fixtures/ep-data.js';
 
 describe('News Generation Integration', () => {
@@ -46,7 +46,6 @@ describe('News Generation Integration', () => {
     it('should generate and save article to filesystem', () => {
       // Arrange
       const newsDir = path.join(tempDir, 'news');
-      fs.mkdirSync(newsDir, { recursive: true });
 
       const articleOptions = {
         slug: 'week-ahead-test',
@@ -61,11 +60,13 @@ describe('News Generation Integration', () => {
         sources: [],
       };
 
-      // Act: Generate and save
+      // Act: Generate and save using writeFile helper
       const html = generateArticleHTML(articleOptions);
       const filename = `${articleOptions.date}-${articleOptions.slug}-${articleOptions.lang}.html`;
       const filepath = path.join(newsDir, filename);
-      fs.writeFileSync(filepath, html, 'utf-8');
+      
+      // Use writeFile helper which automatically creates directories
+      writeFile(filepath, html);
 
       // Assert: Verify file exists and is valid
       expect(fs.existsSync(filepath)).toBe(true);
@@ -80,7 +81,6 @@ describe('News Generation Integration', () => {
     it('should generate articles for multiple languages', () => {
       const languages = ['en', 'de', 'fr', 'es'];
       const newsDir = path.join(tempDir, 'news');
-      fs.mkdirSync(newsDir, { recursive: true });
 
       languages.forEach((lang) => {
         // Arrange
@@ -97,11 +97,11 @@ describe('News Generation Integration', () => {
           sources: [],
         };
 
-        // Act
+        // Act: Generate and save using writeFile helper
         const html = generateArticleHTML(articleOptions);
         const filename = `${articleOptions.date}-${articleOptions.slug}-${lang}.html`;
         const filepath = path.join(newsDir, filename);
-        fs.writeFileSync(filepath, html, 'utf-8');
+        writeFile(filepath, html);
 
         // Assert
         expect(fs.existsSync(filepath)).toBe(true);
@@ -120,7 +120,6 @@ describe('News Generation Integration', () => {
     it('should generate metadata file alongside article', () => {
       const newsDir = path.join(tempDir, 'news');
       const metadataDir = path.join(newsDir, 'metadata');
-      fs.mkdirSync(metadataDir, { recursive: true });
 
       const articleOptions = {
         slug: 'metadata-test',
@@ -135,13 +134,13 @@ describe('News Generation Integration', () => {
         sources: mockSources,
       };
 
-      // Generate article
+      // Generate article using writeFile helper
       const html = generateArticleHTML(articleOptions);
       const articleFilename = `${articleOptions.date}-${articleOptions.slug}-${articleOptions.lang}.html`;
       const articleFilepath = path.join(newsDir, articleFilename);
-      fs.writeFileSync(articleFilepath, html, 'utf-8');
+      writeFile(articleFilepath, html);
 
-      // Generate metadata
+      // Generate metadata using writeFile helper
       const metadata = {
         ...articleOptions,
         generatedAt: new Date().toISOString(),
@@ -149,7 +148,7 @@ describe('News Generation Integration', () => {
       };
       const metadataFilename = `${articleOptions.date}-${articleOptions.slug}-${articleOptions.lang}.json`;
       const metadataFilepath = path.join(metadataDir, metadataFilename);
-      fs.writeFileSync(metadataFilepath, JSON.stringify(metadata, null, 2), 'utf-8');
+      writeFile(metadataFilepath, JSON.stringify(metadata, null, 2));
 
       // Assert
       expect(fs.existsSync(articleFilepath)).toBe(true);
@@ -275,7 +274,6 @@ describe('News Generation Integration', () => {
 
     it('should continue generation if one article fails', () => {
       const newsDir = path.join(tempDir, 'news');
-      fs.mkdirSync(newsDir, { recursive: true });
 
       const articles = [
         { slug: 'article-1', lang: 'en' },
@@ -297,7 +295,7 @@ describe('News Generation Integration', () => {
 
           const html = generateArticleHTML(articleOptions);
           const filename = `${articleOptions.date}-${article.slug}-${article.lang}.html`;
-          fs.writeFileSync(path.join(newsDir, filename), html, 'utf-8');
+          writeFile(path.join(newsDir, filename), html);
           return count + 1;
         } catch (error) {
           console.error(`Failed to generate ${article.slug}:`, error);
@@ -360,7 +358,8 @@ describe('News Generation Integration', () => {
       const newsDir = path.join(tempDir, 'news');
       const metadataDir = path.join(newsDir, 'metadata');
 
-      fs.mkdirSync(metadataDir, { recursive: true });
+      // Create directories by writing a file (writeFile will create them)
+      writeFile(path.join(metadataDir, 'test.txt'), 'test');
 
       expect(fs.existsSync(newsDir)).toBe(true);
       expect(fs.existsSync(metadataDir)).toBe(true);
@@ -371,7 +370,6 @@ describe('News Generation Integration', () => {
 
     it('should handle existing files correctly', () => {
       const newsDir = path.join(tempDir, 'news');
-      fs.mkdirSync(newsDir, { recursive: true });
 
       const filename = '2025-01-15-test-article-en.html';
       const filepath = path.join(newsDir, filename);
@@ -387,7 +385,7 @@ describe('News Generation Integration', () => {
         lang: 'en',
         content: '<p>Version 1</p>',
       });
-      fs.writeFileSync(filepath, html1, 'utf-8');
+      writeFile(filepath, html1);
 
       // Overwrite with updated version
       const html2 = generateArticleHTML({
@@ -400,7 +398,7 @@ describe('News Generation Integration', () => {
         lang: 'en',
         content: '<p>Version 2</p>',
       });
-      fs.writeFileSync(filepath, html2, 'utf-8');
+      writeFile(filepath, html2);
 
       // Verify latest version is saved
       const savedContent = fs.readFileSync(filepath, 'utf-8');

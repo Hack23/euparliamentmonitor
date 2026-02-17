@@ -12,12 +12,17 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Counter to ensure unique temp directory names even within the same millisecond
+let tempDirCounter = 0;
+
 /**
  * Create a temporary test directory
  * @returns {string} Path to temporary directory
  */
 export function createTempDir() {
-  const tempDir = path.join(__dirname, '..', 'temp', `test-${Date.now()}`);
+  const timestamp = Date.now();
+  const counter = tempDirCounter++;
+  const tempDir = path.join(__dirname, '..', 'temp', `test-${timestamp}-${counter}`);
   fs.mkdirSync(tempDir, { recursive: true });
   return tempDir;
 }
@@ -27,8 +32,24 @@ export function createTempDir() {
  * @param {string} dir - Directory path to clean up
  */
 export function cleanupTempDir(dir) {
-  if (fs.existsSync(dir)) {
-    fs.rmSync(dir, { recursive: true, force: true });
+  if (!fs.existsSync(dir)) {
+    return;
+  }
+
+  try {
+    // Use fs.rmSync with built-in retry logic
+    // maxRetries: retry up to 5 times
+    // retryDelay: wait 200ms between retries
+    fs.rmSync(dir, { 
+      recursive: true, 
+      force: true,
+      maxRetries: 5,
+      retryDelay: 200
+    });
+  } catch (error) {
+    // If cleanup still fails after retries, log but don't throw
+    // This prevents test failures due to file system timing issues
+    console.warn(`Failed to cleanup ${dir}: ${error.message}`);
   }
 }
 
