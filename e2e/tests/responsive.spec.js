@@ -120,8 +120,8 @@ test.describe('Responsive Design', () => {
 
   test('should not have horizontal scroll on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('/');
-    await page.waitForLoadState('domcontentloaded');
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(100); // Extra stability wait
 
     // Check for horizontal scrollbar
     const hasHorizontalScroll = await page.evaluate(() => {
@@ -133,9 +133,8 @@ test.describe('Responsive Design', () => {
 
   test('should display readable text on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('/');
-    await page.waitForLoadState('domcontentloaded');
-    await page.waitForTimeout(200); // Extra wait for stability
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(200); // Extra stability wait
 
     // Check body text size
     const fontSize = await page.evaluate(() => {
@@ -308,8 +307,8 @@ test.describe('Responsive Design', () => {
   test('should support text resizing without breaking layout', async ({
     page,
   }) => {
-    await page.goto('/');
-    await page.waitForLoadState('domcontentloaded');
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(100); // Extra stability wait
 
     // Increase text size
     await page.evaluate(() => {

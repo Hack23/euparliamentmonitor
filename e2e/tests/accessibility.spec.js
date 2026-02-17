@@ -262,8 +262,8 @@ test.describe('Accessibility', () => {
   });
 
   test('should have proper page title', async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('domcontentloaded');
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(100); // Extra stability wait
 
     // Verify page has meaningful title
     const title = await page.title();
