@@ -19,8 +19,8 @@
     "lint": "eslint scripts/",
     "lint:fix": "eslint scripts/ --fix",
     "lint:report": "eslint scripts/ --format json --output-file eslint-report.json",
-    "format": "prettier --write \"scripts/**/*.js\" \"*.md\"",
-    "format:check": "prettier --check \"scripts/**/*.js\" \"*.md\"",
+    "format": "prettier --write \"scripts/**/*.js\" ",
+    "format:check": "prettier --check \"scripts/**/*.js\"",
     "prepare": "husky"
   },
   "repository": {
