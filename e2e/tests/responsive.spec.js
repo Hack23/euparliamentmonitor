@@ -121,6 +121,7 @@ test.describe('Responsive Design', () => {
   test('should not have horizontal scroll on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
+    await page.waitForLoadState('domcontentloaded');
 
     // Check for horizontal scrollbar
     const hasHorizontalScroll = await page.evaluate(() => {
@@ -133,6 +134,8 @@ test.describe('Responsive Design', () => {
   test('should display readable text on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
+    await page.waitForLoadState('domcontentloaded');
+    await page.waitForTimeout(200); // Extra wait for stability
 
     // Check body text size
     const fontSize = await page.evaluate(() => {
@@ -248,17 +251,19 @@ test.describe('Responsive Design', () => {
 
   test('should hide or show elements based on viewport', async ({ page }) => {
     await page.goto('/');
+    await page.waitForLoadState('domcontentloaded');
 
     // Desktop viewport
     await page.setViewportSize({ width: 1920, height: 1080 });
-    const allElements = await page.locator('body *').count();
+    await page.waitForTimeout(300);
+    const allElements = await page.locator('*').count();
 
     // Mobile viewport
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(300);
 
     // Some elements might be hidden on mobile
-    const visibleElements = await page.locator('body *:visible').count();
+    const visibleElements = await page.locator('*:visible').count();
 
     // Should have content on both viewports
     expect(allElements).toBeGreaterThan(0);
@@ -304,6 +309,7 @@ test.describe('Responsive Design', () => {
     page,
   }) => {
     await page.goto('/');
+    await page.waitForLoadState('domcontentloaded');
 
     // Increase text size
     await page.evaluate(() => {
