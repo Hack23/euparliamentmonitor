@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Unit tests for generate-sitemap.js
  * Tests sitemap generation, URL formatting, and XML validation

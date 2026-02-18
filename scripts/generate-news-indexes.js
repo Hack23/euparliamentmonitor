@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * @module News Index Generator
  * @description Generates index.html files for each language listing all news articles

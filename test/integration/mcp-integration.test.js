@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Integration tests for MCP integration
  * Tests MCP client with mock server and data flow

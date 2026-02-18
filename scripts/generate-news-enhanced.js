@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * @module Intelligence Operations/Automated News Generation
  * @category Intelligence Operations - Automated Intelligence Reporting

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Test fixtures for EU Parliament data
  * Mock data for testing article generation

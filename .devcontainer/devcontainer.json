@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+
 {
   "name": "European Parliament Monitor Dev Container",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:24-trixie",

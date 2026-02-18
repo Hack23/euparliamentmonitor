@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * @module MCP Client for European Parliament
  * @description Client for connecting to European-Parliament-MCP-Server

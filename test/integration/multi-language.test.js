@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Integration tests for multi-language support
  * Tests article generation, index generation, and sitemap for all languages
