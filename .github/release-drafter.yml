@@ -89,7 +89,7 @@ template: |
   ## EU Parliament Monitor
   European Parliament Intelligence Platform - Monitor political activity with systematic transparency
 
-  ## Features
+  ### Key Features
   - 📰 **Automated News Generation** - Generate news articles about EU Parliament activities
   - 🌍 **14-Language Support** - English, German, French, Spanish, Italian, Dutch, Swedish, Danish, Finnish, Polish, Romanian, Hungarian, Portuguese, Greek
   - 📅 **Week Ahead Coverage** - Preview upcoming parliamentary events
@@ -97,12 +97,61 @@ template: |
   - 🔄 **European Parliament MCP Integration** - Real-time EU Parliament data access
   - 📊 **SEO Optimized** - Proper metadata, structured data, and sitemap generation
 
-  ## Technology Stack
-  - 📰 **Node.js 20+** - Modern JavaScript runtime
+  ### Technology Stack
+  - 📰 **Node.js 24** - Modern JavaScript runtime with latest features
   - 🤖 **GitHub Copilot Custom Agents** - AI-powered development assistance
   - 🔄 **European Parliament MCP Server** - Model Context Protocol for EU data
   - 🌐 **Multi-language Support** - 14 languages with RTL support
   - ⚙️ **GitHub Actions** - Automated news generation and deployment
+
+  ## Security & Compliance
+
+  ### Attestations & Provenance
+  [![SLSA 3](https://img.shields.io/badge/SLSA-Level%203-brightgreen?logo=github)](https://github.com/Hack23/euparliamentmonitor/attestations)
+  [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge)](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor)
+  [![CII Best Practices](https://img.shields.io/badge/CII-In%20Progress-yellow)](https://bestpractices.coreinfrastructure.org/)
+
+  **Verify this release:**
+  ```bash
+  # Verify artifact attestations
+  gh attestation verify euparliamentmonitor-$RESOLVED_VERSION.zip --owner Hack23
+  
+  # Verify SBOM attestation
+  gh attestation verify euparliamentmonitor-$RESOLVED_VERSION.spdx.json --owner Hack23
+  ```
+
+  ### ISMS Compliance
+  [![Information Security Policy](https://img.shields.io/badge/ISMS-Compliant-success?logo=security&logoColor=white)](https://github.com/Hack23/ISMS-PUBLIC)
+  [![Secure Development Policy](https://img.shields.io/badge/Secure%20Development-Policy-blue?logo=github&logoColor=white)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
+  [![Open Source Policy](https://img.shields.io/badge/Open%20Source-Policy-orange?logo=opensource&logoColor=white)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)
+
+  This release follows [Hack23 AB Information Security Management System (ISMS)](https://github.com/Hack23/ISMS-PUBLIC) standards:
+  - **Secure Development**: ISO 27001, NIST CSF 2.0, CIS Controls v8.1
+  - **Open Source**: Apache 2.0 License, REUSE 3.2 Compliant
+  - **Transparency**: Evidence-based development with full audit trails
+
+  ## Quality & Testing
+
+  ### Test Coverage & Reports
+  [![Test Coverage](https://img.shields.io/badge/Coverage-82%25-green?logo=vitest)](https://hack23.github.io/euparliamentmonitor/docs/coverage/)
+  [![API Documentation](https://img.shields.io/badge/API-Docs-blue?logo=javascript)](https://hack23.github.io/euparliamentmonitor/docs/api/)
+  [![E2E Test Report](https://img.shields.io/badge/E2E-Report-purple?logo=playwright)](https://hack23.github.io/euparliamentmonitor/playwright-report/)
+
+  **View detailed reports:**
+  - 📊 [Test Coverage Report](https://hack23.github.io/euparliamentmonitor/docs/coverage/) - Interactive Vitest coverage
+  - 📖 [API Documentation](https://hack23.github.io/euparliamentmonitor/docs/api/) - JSDoc-generated API reference
+  - 🎭 [E2E Test Results](https://hack23.github.io/euparliamentmonitor/playwright-report/) - Playwright test execution details
+  - 📋 [Test Summary](https://hack23.github.io/euparliamentmonitor/docs/test-results/) - Aggregated test results
+
+  ## Release Artifacts
+
+  This release includes:
+  - **euparliamentmonitor-$RESOLVED_VERSION.zip** - Full application package
+  - **euparliamentmonitor-$RESOLVED_VERSION.spdx.json** - SBOM (Software Bill of Materials)
+  - **euparliamentmonitor-$RESOLVED_VERSION.zip.intoto.jsonl** - Build provenance attestation
+  - **euparliamentmonitor-$RESOLVED_VERSION.spdx.json.intoto.jsonl** - SBOM attestation
+
+  All artifacts are signed and attested using GitHub's SLSA Level 3 build provenance.
 
   ## Contributors
   Thanks to $CONTRIBUTORS for their contributions to this release!

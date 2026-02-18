@@ -313,6 +313,18 @@ detailed agent capabilities, usage patterns, and examples.
 - **Eastern Europe**: Polish (pl), Romanian (ro), Hungarian (hu)
 - **Other**: Portuguese (pt), Greek (el)
 
+## Requirements
+
+- **Node.js**: Version 24 or higher
+- **npm**: Version 10 or higher (comes with Node.js 24)
+- **Git**: For cloning the repository
+
+You can verify your Node.js version with:
+```bash
+node --version  # Should be v24.x.x or higher
+npm --version   # Should be 10.x.x or higher
+```
+
 ## Installation
 
 ```bash
