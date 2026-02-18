@@ -84,6 +84,7 @@ describe('News Generation Integration', () => {
     it('should generate articles for multiple languages', () => {
       const languages = ['en', 'de', 'fr', 'es'];
       const newsDir = path.join(tempDir, 'news');
+      const expectedFiles = [];
 
       languages.forEach((lang) => {
         // Arrange
@@ -104,6 +105,7 @@ describe('News Generation Integration', () => {
         const html = generateArticleHTML(articleOptions);
         const filename = `${articleOptions.date}-${articleOptions.slug}-${lang}.html`;
         const filepath = path.join(newsDir, filename);
+        expectedFiles.push(filename);
         writeFile(filepath, html);
 
         // Assert
@@ -113,9 +115,13 @@ describe('News Generation Integration', () => {
         expect(metadata.lang).toBe(lang);
       });
 
-      // Verify all files exist
+      // Verify all expected files exist
       const files = fs.readdirSync(newsDir);
-      expect(files).toHaveLength(4);
+      expectedFiles.forEach((expectedFile) => {
+        expect(files).toContain(expectedFile);
+      });
+      // Verify we created the expected number of files (4 languages)
+      expect(expectedFiles).toHaveLength(4);
     });
   });
 
