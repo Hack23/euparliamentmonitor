@@ -329,6 +329,11 @@ Before releases, we conduct:
   - Re-evaluated 2026-02-17
 - **Risk Level**: Accepted (No exploitable attack vector in current
   implementation)
+- **CI/CD Handling**: The CI security check workflow has been configured to
+  allow this documented false positive while still failing on new or
+  undocumented vulnerabilities. The workflow validates that only known false
+  positives (GHSA-2g4f-4pwh-qvx6) are present and fails if any high/critical or
+  undocumented moderate vulnerabilities are detected.
 - **Last Reviewed**: 2026-02-17
 
 ### Limitations
