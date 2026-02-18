@@ -78,6 +78,7 @@ describe('Multi-Language Support Integration', () => {
 
     it('should save articles in correct filename format', () => {
       const newsDir = path.join(tempDir, 'news');
+      const expectedFiles = [];
 
       ALL_LANGUAGES.forEach((lang) => {
         const articleOptions = {
@@ -94,6 +95,7 @@ describe('Multi-Language Support Integration', () => {
         const html = generateArticleHTML(articleOptions);
         const filename = `${articleOptions.date}-${articleOptions.slug}-${lang}.html`;
         const filepath = path.join(newsDir, filename);
+        expectedFiles.push(filename);
 
         // Use writeFile helper which automatically creates directories
         writeFile(filepath, html);
@@ -105,9 +107,13 @@ describe('Multi-Language Support Integration', () => {
         expect(filename).toMatch(/^\d{4}-\d{2}-\d{2}-[\w-]+-[a-z]{2}\.html$/);
       });
 
-      // Verify all files were created
+      // Verify all expected files were created
       const files = fs.readdirSync(newsDir);
-      expect(files).toHaveLength(14);
+      expectedFiles.forEach((expectedFile) => {
+        expect(files).toContain(expectedFile);
+      });
+      // Verify we created the expected number of files (14 languages)
+      expect(expectedFiles).toHaveLength(14);
     });
   });
 
