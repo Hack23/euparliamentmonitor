@@ -1,0 +1,127 @@
+name: SLSA Provenance
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version tag for manual build (e.g., v1.0.0)"
+        required: false
+        type: string
+
+permissions: read-all
+
+jobs:
+  build:
+    name: Build and Attest
+    permissions:
+      id-token: write # For SLSA provenance
+      contents: write # For uploading release assets
+      attestations: write # For build attestations
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v4.3.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: "24"
+
+      - name: Cache dependencies
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate news content
+        run: |
+          # Generate news for all languages
+          npm run generate-news -- --types=week-ahead --languages=all || true
+          npm run generate-news-indexes || true
+          npm run generate-sitemap || true
+        env:
+          USE_EP_MCP: "false" # Use placeholder content for reproducible builds
+
+      - name: Determine version
+        id: version
+        run: |
+          if [ -n "${{ github.event.inputs.version }}" ]; then
+            VERSION="${{ github.event.inputs.version }}"
+          elif [ "${{ github.event_name }}" = "release" ]; then
+            VERSION="${{ github.event.release.tag_name }}"
+          else
+            VERSION="v$(date +%Y%m%d)-$(git rev-parse --short HEAD)"
+          fi
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "Building version: ${VERSION}"
+
+      - name: Create distribution archive
+        run: |
+          mkdir -p dist
+          tar -czf dist/euparliamentmonitor-${{ steps.version.outputs.version }}.tar.gz \
+            --exclude='node_modules' \
+            --exclude='.git' \
+            --exclude='dist' \
+            --exclude='test' \
+            --exclude='e2e' \
+            --exclude='playwright-report' \
+            --exclude='test-results' \
+            --exclude='.husky' \
+            index*.html \
+            news/ \
+            sitemap.xml \
+            styles.css \
+            scripts/ \
+            package.json \
+            package-lock.json \
+            LICENSE \
+            README.md \
+            SECURITY.md \
+            SECURITY_ARCHITECTURE.md \
+            CONTRIBUTING.md
+
+      - name: Generate SBOM
+        run: |
+          npm install -g @cyclonedx/cyclonedx-npm
+          npx @cyclonedx/cyclonedx-npm --output-file dist/sbom.json
+
+      - name: Attest Build Provenance
+        uses: actions/attest-build-provenance@ef244123eb79f2f7a7e75d99086184180e6d0018 # v2.0.0
+        with:
+          subject-path: "dist/euparliamentmonitor-*.tar.gz"
+
+      - name: Attest SBOM
+        uses: actions/attest-sbom@4cb5f8d7f70b69c98b0271f47c5bcbc87faa8c3a # v2.0.0
+        with:
+          subject-path: "dist/euparliamentmonitor-*.tar.gz"
+          sbom-path: "dist/sbom.json"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@47309c993abb98030a35d55ef7ff34b7fa1074b5 # v4.6.2
+        with:
+          name: euparliamentmonitor-${{ steps.version.outputs.version }}
+          path: |
+            dist/euparliamentmonitor-*.tar.gz
+            dist/sbom.json
+          retention-days: 90
+
+      - name: Upload to release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@ff770a9424f4231b97c8c2bee0c0e094bc84d6eb # v3.0.5
+        with:
+          files: |
+            dist/euparliamentmonitor-*.tar.gz
+            dist/sbom.json
+          tag_name: ${{ github.event.release.tag_name }}

@@ -432,6 +432,56 @@ USE_EP_MCP=false npm run generate-news
 - Review existing code for examples
 - Contact maintainers via GitHub
 
+## Security Badge Maintenance
+
+### Contributing to Badge Status
+
+When contributing, be aware of how your changes may affect security badges:
+
+#### OpenSSF Scorecard
+
+Your PR may affect the scorecard if it:
+- Modifies GitHub Actions workflows
+- Adds/removes dependencies
+- Changes branch protection settings
+- Adds security scanning tools
+
+**Best Practices:**
+- Pin all GitHub Actions to SHA hashes (not tags)
+- Use maintained, official actions when possible
+- Add security tests for new attack surfaces
+- Keep dependencies up-to-date
+
+#### REUSE Compliance
+
+All new files must include proper license headers or be covered by `.reuse/dep5`:
+
+**For JavaScript files:**
+```javascript
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+```
+
+**For configuration files:**
+Add entries to `.reuse/dep5` following existing patterns
+
+#### Test Coverage
+
+New code must maintain ≥80% line coverage, ≥75% branch coverage:
+- Add unit tests for new functions
+- Add integration tests for new workflows
+- Add E2E tests for user-facing features
+
+#### SonarCloud Quality Gate
+
+When SonarCloud is enabled, PRs will be checked for:
+- Code coverage (target: 80%)
+- Code smells and technical debt
+- Security vulnerabilities
+- Maintainability rating (target: A)
+
+See [README.md - Badge Maintenance](README.md#badge-maintenance) for detailed badge status and procedures.
+
 ## License
 
 By contributing, you agree that your contributions will be licensed under the

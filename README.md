@@ -168,6 +168,33 @@ This project follows
 - ✅ Security testing (SAST, SCA, unit tests)
 - ✅ Compliance mapping (ISO 27001, GDPR, NIS2)
 
+## 🤝 Community & Governance
+
+EU Parliament Monitor is an open source project with transparent governance and community standards.
+
+### Open Source Standards
+
+- **[Contributing Guide](CONTRIBUTING.md)** - Development workflow, code standards, and contribution guidelines
+- **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community standards based on Contributor Covenant 2.1
+- **[Security Policy](SECURITY.md)** - Vulnerability disclosure and security practices
+- **[Authors & Contributors](AUTHORS.md)** - Recognition of project contributors
+- **[License](LICENSE)** - Apache License 2.0 full text
+
+### Community Channels
+
+- **GitHub Issues**: Bug reports and feature requests
+- **GitHub Discussions**: Questions and community discussion
+- **Security**: [security@hack23.com](mailto:security@hack23.com) for vulnerability reports
+- **Conduct**: [conduct@hack23.com](mailto:conduct@hack23.com) for Code of Conduct issues
+
+### Governance Compliance
+
+This project adheres to:
+- ✅ **OpenSSF Best Practices**: Following CII Best Practices criteria
+- ✅ **ISMS Compliance**: Aligned with Hack23 ISMS policies
+- ✅ **Transparent Development**: Public repository, open discussions
+- ✅ **Security First**: Comprehensive security disclosure policy
+
 ## Code Quality & Testing
 
 EU Parliament Monitor maintains high code quality standards with comprehensive
@@ -418,9 +445,18 @@ and quality assurance:
 #### 🔒 Security Scanning
 
 - **CodeQL**: Automated security analysis on push, PR, and weekly schedule
+- **OpenSSF Scorecard**: Supply chain security assessment (weekly, on branch protection changes)
 - **Dependabot**: Weekly dependency updates for npm and GitHub Actions
+- **Dependency Review**: Vulnerability scanning on pull requests
 - **Vulnerability Scanning**: Automated npm audit in PR validation
-- **Workflows**: `.github/workflows/codeql.yml`, `.github/dependabot.yml`
+- **Workflows**: `.github/workflows/codeql.yml`, `.github/workflows/scorecards.yml`, `.github/dependabot.yml`, `.github/workflows/dependency-review.yml`
+
+#### 🏆 Compliance & Quality
+
+- **REUSE Compliance**: License header verification (FSFE REUSE specification)
+- **SonarCloud Analysis**: Code quality, security vulnerabilities, and technical debt tracking
+- **SLSA Provenance**: Level 3 build attestations with SBOM generation on releases
+- **Workflows**: `.github/workflows/reuse.yml`, `.github/workflows/sonarcloud.yml`, `.github/workflows/slsa-provenance.yml`
 
 #### ✅ Test & Validation
 
@@ -430,6 +466,25 @@ and quality assurance:
 - **Workflow**: `.github/workflows/test-and-report.yml`
 
 **📊 Evidence:** See [Workflow Status Badges](#-status-badges) at top of README.
+### Workflow Status Badges
+
+**Core Workflows:**
+
+[![News Generation](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml)
+[![Test and Report](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml)
+[![E2E Tests](https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml)
+
+**Security Workflows:**
+
+[![CodeQL](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml)
+[![OpenSSF Scorecard](https://github.com/Hack23/euparliamentmonitor/actions/workflows/scorecards.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/scorecards.yml)
+[![Dependency Review](https://github.com/Hack23/euparliamentmonitor/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/dependency-review.yml)
+
+**Compliance Workflows:**
+
+[![REUSE Compliance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml)
+[![SonarCloud](https://github.com/Hack23/euparliamentmonitor/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/sonarcloud.yml)
+[![SLSA Provenance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/slsa-provenance.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/slsa-provenance.yml)
 
 ### Manual Release Process
 
@@ -514,11 +569,162 @@ First-time setup requires running the label creation workflow:
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+We welcome contributions from developers, journalists, translators, and security researchers!
+
+### How to Contribute
+
+Please read our comprehensive [Contributing Guide](CONTRIBUTING.md) for:
+- Development workflow and setup instructions
+- Code quality requirements and testing standards
+- Pull request process and review guidelines
+- Security best practices and ISMS compliance
+- Multi-language contribution guidelines
+
+### Code of Conduct
+
+This project adheres to the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [conduct@hack23.com](mailto:conduct@hack23.com).
+
+### Security
+
+If you discover a security vulnerability, please follow our [Security Policy](SECURITY.md) for responsible disclosure. **Do not** report security issues through public GitHub issues.
+
+### Contributors
+
+See [AUTHORS.md](AUTHORS.md) for a list of contributors who have helped make this project possible.
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on:
+
+- Code quality requirements (ESLint, Prettier, JSDoc)
+- Testing requirements (80% line coverage, 75% branch coverage)
+- Security requirements (input validation, XSS prevention, dependency scanning)
+- Commit message format (conventional commits)
+- Pull request process
+
+**Security-Critical Contributions**: All security-related changes must align with [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) and [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md).
+
+## Security Policy
+
+For security vulnerability reporting and disclosure process, please see [SECURITY.md](SECURITY.md).
+
+**Responsible Disclosure**:
+- Report vulnerabilities privately via GitHub Security Advisories
+- 48-hour acknowledgment, 7-day validation, 30-day remediation for critical issues
+- Public recognition for security researchers (unless anonymity requested)
+
+## Badge Maintenance
+
+### Maintaining Security Badge Status
+
+EU Parliament Monitor maintains security excellence through continuous compliance with OpenSSF best practices:
+
+#### OpenSSF Scorecard (Target: ≥7.0)
+
+**Current Optimizations**:
+- ✅ Branch protection on `main` branch
+- ✅ Required code review for pull requests
+- ✅ SHA-pinned GitHub Actions
+- ✅ CodeQL SAST enabled
+- ✅ Dependabot alerts enabled
+- ✅ SECURITY.md present
+- ✅ No dangerous workflow patterns
+
+**Monitoring**: View current score at [OpenSSF Scorecard Dashboard](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor)
+
+#### CII Best Practices (Target: Passing → Silver → Gold)
+
+**Requirements Met**:
+- ✅ Public version control (GitHub)
+- ✅ Public issue tracker (GitHub Issues)
+- ✅ LICENSE file (Apache-2.0)
+- ✅ CONTRIBUTING.md with clear guidelines
+- ✅ CODE_OF_CONDUCT.md
+- ✅ SECURITY.md with vulnerability reporting
+- ✅ Documentation in README
+- ✅ Automated testing (Vitest + Playwright, ≥80% coverage)
+- ✅ Static analysis (CodeQL, ESLint)
+- ✅ Dependency scanning (Dependabot, npm audit)
+
+**Registration**: Complete questionnaire at [CII Best Practices](https://bestpractices.coreinfrastructure.org/)
+
+#### SLSA Level 3 (Status: ✅ Implemented)
+
+**Provenance Generation**:
+- ✅ Automated on releases via `.github/workflows/slsa-provenance.yml`
+- ✅ Build attestations using `actions/attest-build-provenance@v2`
+- ✅ SBOM generation using CycloneDX
+- ✅ Artifacts uploaded to GitHub Releases
+
+**Verification**: View attestations at `https://github.com/Hack23/euparliamentmonitor/attestations/`
+
+#### SonarCloud Quality Gate
+
+**Setup Required**:
+1. Enable repository at [SonarCloud](https://sonarcloud.io/)
+2. Add `SONAR_TOKEN` secret to GitHub repository
+3. Configure quality gate thresholds (recommended: 80% coverage, A maintainability)
+
+**Workflow**: Runs automatically on push to `main` and pull requests
+
+#### FOSSA License Compliance
+
+**Setup Required**:
+1. Sign up at [FOSSA](https://fossa.com/)
+2. Connect GitHub repository
+3. Configure license policy (Apache-2.0 compatible only)
+
+**Badge**: Updates automatically after scan completion
+
+#### REUSE Compliance (Status: ✅ Implemented)
+
+**Compliance Verification**:
+- ✅ `.reuse/dep5` covers all files without headers
+- ✅ Apache-2.0 license applied to all project files
+- ✅ Copyright notices: "2024-2026 Hack23 AB"
+
+**Workflow**: Runs on push, pull requests, and weekly via `.github/workflows/reuse.yml`
+
+### ISMS Policy References
+
+This project adheres to [Hack23 ISMS](https://github.com/Hack23/ISMS-PUBLIC) policies:
+
+| Policy | Relevance | Implementation |
+|--------|-----------|----------------|
+| [**Open Source Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | Security badge requirements | All required badges implemented |
+| [**Secure Development Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Development security standards | SECURITY_ARCHITECTURE.md, SAST/SCA/DAST |
+| [**Threat Modeling Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) | Threat analysis requirements | STRIDE analysis in SECURITY_ARCHITECTURE.md |
+| [**Vulnerability Management**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | Remediation SLAs | SECURITY.md disclosure timeline |
+| [**Classification Framework**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Data classification | Public/Medium/Medium (L1/L2/L2) |
+| [**Incident Response Plan**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | Security incident procedures | Linked in SECURITY.md |
+
+### Compliance Frameworks
+
+EU Parliament Monitor aligns with multiple compliance frameworks:
+
+| Framework | Controls | Evidence |
+|-----------|----------|----------|
+| **ISO 27001** | A.12.6.1 (Vulnerability Management), A.14.2.8 (Security Testing) | CodeQL, Dependabot, npm audit |
+| **NIST CSF 2.0** | Identify, Protect, Detect, Respond, Recover | SECURITY_ARCHITECTURE.md compliance matrix |
+| **CIS Controls v8.1** | 18.3 (Remediate Vulnerabilities), 2.7 (Allowlisting) | Automated scanning, SBOM |
+| **GDPR** | Data Protection by Design | European Parliament open data (public) |
+| **NIS2** | Article 20, 21 (Cybersecurity Risk Management) | Threat model, security controls |
+| **EU Cyber Resilience Act** | SBOM, Vulnerability Disclosure | SLSA provenance, SECURITY.md |
 
 ## License
 
-Apache-2.0 License - see LICENSE file for details
+Copyright 2024-2026 Hack23 AB
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+See [LICENSE](LICENSE) file for full details.
 
 ## Credits
 

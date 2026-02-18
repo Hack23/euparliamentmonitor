@@ -1,0 +1,28 @@
+name: REUSE Compliance
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  schedule:
+    - cron: "0 6 * * 1" # Weekly on Monday at 6 AM UTC
+
+permissions:
+  contents: read
+
+jobs:
+  reuse:
+    name: REUSE Compliance Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v4.3.1
+
+      - name: REUSE Compliance Check
+        uses: fsfe/reuse-action@3ae3c6bdf1257ab19397fab11fd3312144692083 # v5.0.0

@@ -1256,6 +1256,7 @@ flowchart TD
 **Automated Testing:**
 - ✅ **Unit Tests**: 87 tests covering core functionality
 - ✅ **Integration Tests**: 82 tests for MCP client, workflows
+- ✅ **E2E Tests**: 60+ Playwright tests (accessibility, responsive, multi-language)
 - ✅ **SAST**: CodeQL, ESLint security plugin
 - ✅ **SCA**: Dependabot, npm audit
 - ✅ **HTML Validation**: htmlhint in CI
@@ -1266,6 +1267,26 @@ flowchart TD
 - Branches: 83%+
 - Functions: 89%+
 - Statements: 82%+
+
+### OpenSSF Security Badges
+
+EU Parliament Monitor demonstrates security excellence through public, verifiable evidence per [Hack23 ISMS Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md):
+
+| Badge | Status | Score/Level | Description |
+|-------|--------|-------------|-------------|
+| **OpenSSF Scorecard** | 🎯 In Progress | Target ≥7.0 | Supply chain security assessment |
+| **CII Best Practices** | 📝 Registration Pending | Target: Passing | Open source development best practices |
+| **SLSA Provenance** | ✅ Implemented | Level 3 | Build attestations and SBOM generation |
+| **SonarCloud** | 📝 Setup Required | Target: A | Code quality and security analysis |
+| **FOSSA** | 📝 Setup Required | Target: Clean | License compliance scanning |
+| **REUSE** | ✅ Implemented | Passing | FSFE license header compliance |
+
+**Badge Links:**
+- View badges in [README.md](README.md#security--compliance-badges)
+- Maintenance procedures in [README.md - Badge Maintenance](README.md#badge-maintenance)
+- OpenSSF Scorecard: https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor
+- REUSE Compliance: https://api.reuse.software/info/github.com/Hack23/euparliamentmonitor
+- Build Attestations: https://github.com/Hack23/euparliamentmonitor/attestations/
 
 ---
 
