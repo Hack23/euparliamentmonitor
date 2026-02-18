@@ -1,438 +1,151 @@
 # Security Policy
 
-## 🛡️ Security Overview
-
-EU Parliament Monitor takes security seriously. This document outlines our
-security practices, vulnerability disclosure process, and how to report security
-issues.
-
-**Security Architecture**: For comprehensive security implementation details,
-see [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md).
-
-**ISMS Compliance**: This project follows
-[Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
-and
-[Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md).
-
 ## Supported Versions
 
-We provide security updates for the following versions:
+This project is under active development, and we provide security updates for the latest version only. Please ensure you're using the latest version of the project to receive security updates.
 
-| Version | Supported |
-| ------- | --------- |
-| 1.x.x   | ✅ Yes    |
-| < 1.0   | ❌ No     |
+| Version | Supported          |
+| ------- | ------------------ |
+| latest  | :white_check_mark: |
 
-**Note**: We strongly recommend always using the latest stable release to
-benefit from the most recent security updates.
+## Security Architecture
 
-## Reporting Security Issues
+For comprehensive information about the security architecture, threat model, and security controls implemented in EU Parliament Monitor, please refer to:
 
-### ⚠️ Please DO NOT Report Security Vulnerabilities Through Public GitHub Issues
+- **[Security Architecture](SECURITY_ARCHITECTURE.md)** - Complete security implementation overview with C4 diagrams, threat model (STRIDE analysis), and compliance mapping
+- **[Future Security Architecture](FUTURE_SECURITY_ARCHITECTURE.md)** - Security enhancement roadmap (2026-2027)
+- **[Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)** - Organization-wide secure development standards
 
-If you discover a security vulnerability, please report it responsibly through
-one of the following channels:
+## Reporting a Vulnerability
 
-### 🔒 Preferred Method: GitHub Security Advisories
+We take the security of the EU Parliament Monitor project seriously. If you have found a potential security vulnerability, we kindly ask you to report it privately, so that we can assess and address the issue before it becomes publicly known.
 
-1. Navigate to the
-   [euparliamentmonitor repository](https://github.com/Hack23/euparliamentmonitor)
-2. Click on the **Security** tab
-3. In the left sidebar, under "Reporting", click **Advisories**
-4. Click **Report a vulnerability** to open the advisory form
-5. Fill in the advisory details form with as much information as possible
-6. Click **Submit report**
+### What Constitutes a Vulnerability
 
-**Benefits of using GitHub Security Advisories**:
+A vulnerability is a weakness or flaw in the project that can be exploited to compromise the security, integrity, or availability of the system or its data. Examples of vulnerabilities include, but are not limited to:
 
-- Secure, private disclosure channel
-- Automatic CVE assignment (if applicable)
-- Coordinated disclosure timeline
-- Recognition in security advisory
+- Cross-site scripting (XSS) attacks
+- HTML injection vulnerabilities
+- Insecure dependencies or supply chain attacks
+- Exposure of sensitive data
+- Insecure defaults or configurations
+- Insufficient input validation
+- Content Security Policy bypasses
 
-### 📧 Alternative Method: Email
+### How to Privately Report a Vulnerability using GitHub
 
-Send vulnerability reports to:
-**[security@hack23.com](mailto:security@hack23.com)**
+Please follow these steps to privately report a security vulnerability:
 
-**For sensitive information, use PGP encryption**:
+1. On GitHub.com, navigate to the main page of the [euparliamentmonitor repository](https://github.com/Hack23/euparliamentmonitor).
+2. Under the repository name, click **Security**. If you cannot see the "Security" tab, select the dropdown menu, and then click **Security**.
+3. In the left sidebar, under "Reporting", click **Advisories**.
+4. Click **Report a vulnerability** to open the advisory form.
+5. Fill in the advisory details form. Provide as much information as possible to help us understand and reproduce the issue, including:
+   - Description of the vulnerability
+   - Steps to reproduce
+   - Potential impact
+   - Suggested mitigation (if known)
+6. At the bottom of the form, click **Submit report**.
 
-- PGP Key: Available at
-  [https://hack23.com/pgp-key.asc](https://hack23.com/pgp-key.asc)
-- Key Fingerprint: (to be added)
+After you submit the report, the maintainers of the euparliamentmonitor repository will be notified. They will review the report, validate the vulnerability, and take necessary actions to address the issue. You will be added as a collaborator and credited for the security advisory.
 
-## What to Include in Your Report
+### Alternative Reporting Methods
 
-To help us understand and address the issue quickly, please include:
+If you prefer not to use GitHub's security advisory system, you can also report vulnerabilities via:
 
-### Required Information
+- **Email**: security@hack23.com
+- **Subject**: [SECURITY] EU Parliament Monitor - [Brief Description]
 
-- **Vulnerability Type**: (e.g., XSS, injection, authorization bypass)
-- **Affected Component**: Which file, function, or feature is affected
-- **Attack Vector**: How can the vulnerability be exploited
-- **Impact**: What is the potential security impact
-- **Steps to Reproduce**: Detailed steps to reproduce the vulnerability
-- **Proof of Concept**: Code, screenshots, or commands demonstrating the issue
+### Disclosure Timeline
 
-### Optional But Helpful
+Upon receipt of a vulnerability report, our team will:
 
-- **Suggested Fix**: If you have ideas on how to fix the issue
-- **Related Issues**: Links to similar vulnerabilities or related security
-  concerns
-- **CVE References**: If the issue is related to known CVEs
-- **CVSS Score**: If you've calculated a severity score
+1. **Acknowledge** the report within **48 hours**
+2. **Validate** the vulnerability within **7 days**
+3. **Develop and release** a patch or mitigation within **30 days** for critical/high severity issues, depending on complexity
+4. **Publish** a security advisory with a detailed description of the vulnerability and the fix
 
-### Example Report Template
+**Severity-Based SLAs** (per [Hack23 ISMS Vulnerability Management Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)):
 
-```
-**Vulnerability Type**: Cross-Site Scripting (XSS)
+| Severity | Remediation SLA | Description |
+|----------|----------------|-------------|
+| Critical (CVSS 9.0-10.0) | 7 days | Immediate threat, active exploitation possible |
+| High (CVSS 7.0-8.9) | 30 days | Significant security impact |
+| Medium (CVSS 4.0-6.9) | 90 days | Moderate security impact |
+| Low (CVSS 0.1-3.9) | Best effort | Minimal security impact |
 
-**Affected Component**: scripts/article-template.js, line 123
+### Security Testing
 
-**Attack Vector**: User-controlled data from MCP server is not sanitized before being inserted into HTML.
+We employ multiple layers of security testing:
 
-**Impact**: An attacker with control over MCP server data could inject malicious JavaScript that executes in users' browsers.
+- **SAST**: CodeQL scanning (automated, weekly + PR triggers)
+- **SCA**: Dependabot dependency scanning (daily)
+- **Manual Testing**: Security-focused unit tests (≥80% coverage)
+- **Vulnerability Scanning**: npm audit (automated in CI/CD)
 
-**Steps to Reproduce**:
-1. Set up malicious MCP server that returns payload: <script>alert('XSS')</script>
-2. Run news generation with: npm run generate-news
-3. Open generated article in browser
-4. Observe alert dialog
+See [SECURITY_ARCHITECTURE.md - Security Testing](SECURITY_ARCHITECTURE.md#-security-testing) for details.
 
-**Proof of Concept**:
-[Include code or screenshot]
+### Scope
 
-**Suggested Fix**: Use DOMPurify or implement stricter HTML sanitization in sanitizeUserInput().
-```
+**In Scope**:
+- News generation scripts (scripts/)
+- HTML templates and output
+- MCP client integration
+- GitHub Actions workflows
+- Dependencies and supply chain
 
-## Response Timeline
+**Out of Scope**:
+- Third-party services (GitHub, European Parliament APIs)
+- Infrastructure (GitHub Pages hosting)
+- Client-side browser vulnerabilities (not controlled by this project)
 
-We are committed to responding to security vulnerabilities promptly:
+### Recognition and Anonymity
 
-| Phase                   | Timeline                                   |
-| ----------------------- | ------------------------------------------ |
-| **Initial Response**    | Within 48 hours of report submission       |
-| **Validation & Triage** | Within 7 days                              |
-| **Fix Development**     | Based on severity (see below)              |
-| **Security Advisory**   | Published after fix is deployed            |
-| **CVE Assignment**      | If applicable, coordinated with disclosure |
+We appreciate your effort in helping us maintain a secure and reliable project. If your report results in a confirmed security fix, we will recognize your contribution in:
 
-### Fix Timeline by Severity
+- Release notes
+- Security advisory acknowledgment
+- Public GitHub recognition (unless you request to remain anonymous)
 
-| Severity     | Description                                  | Fix Timeline |
-| ------------ | -------------------------------------------- | ------------ |
-| **Critical** | Remote code execution, authentication bypass | 7 days       |
-| **High**     | XSS, injection, significant data exposure    | 14 days      |
-| **Medium**   | CSRF, information disclosure, DoS            | 30 days      |
-| **Low**      | Minor security improvements                  | 90 days      |
+Contributors who help improve our security posture may also be considered for our Security Hall of Fame.
 
-**Note**: Complex fixes may require additional time. We will keep you informed
-throughout the process.
+## Security Compliance
 
-## Security Update Process
+EU Parliament Monitor aligns with:
 
-Once a vulnerability is confirmed, we follow this process:
-
-1. **Acknowledgment**: We acknowledge receipt of your report within 48 hours
-2. **Validation**: Our security team validates the vulnerability within 7 days
-3. **Fix Development**: We develop and test a fix according to severity
-   timelines
-4. **Security Advisory**: We prepare a GitHub Security Advisory (private draft)
-5. **Fix Deployment**: We release the fix in a new version
-6. **Public Disclosure**: We publish the security advisory and credit the
-   reporter
-7. **Notification**: We notify users through GitHub releases and security tab
-
-### Example Security Advisory
-
-When we publish a security advisory, it includes:
-
-- **CVE Number**: (if assigned)
-- **Severity**: CVSS score and severity level
-- **Affected Versions**: Which versions are vulnerable
-- **Fixed Versions**: Which versions include the fix
-- **Attack Vector**: How the vulnerability can be exploited
-- **Mitigation**: Steps users can take to protect themselves
-- **Credits**: Recognition of the security researcher who reported the issue
-
-## Security Best Practices for Users
-
-To maintain a secure deployment of EU Parliament Monitor:
-
-### Keep Dependencies Updated
-
-```bash
-# Check for vulnerabilities
-npm audit
-
-# Fix vulnerabilities automatically
-npm audit fix
-
-# Update to latest stable version
-git pull origin main
-npm install
-```
-
-### Enable Security Features
-
-1. **Dependabot Alerts**: Enable in GitHub repository settings
-2. **CodeQL Scanning**: Automatically enabled for all forks
-3. **Secret Scanning**: Monitor for accidentally committed secrets
-
-### Monitor Security Advisories
-
-- Watch the repository for security announcements
-- Subscribe to
-  [GitHub Security Advisories](https://github.com/Hack23/euparliamentmonitor/security/advisories)
-- Check the
-  [Security tab](https://github.com/Hack23/euparliamentmonitor/security)
-  regularly
-
-### Follow Secure Development Practices
-
-When contributing to the project:
-
-- Read [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) for security
-  controls
-- Follow
-  [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
-- Review security section in [CONTRIBUTING.md](CONTRIBUTING.md)
-- Run security tests before submitting PRs:
-  ```bash
-  npm audit
-  npm run lint
-  npm test
-  ```
-
-## Security Features
-
-EU Parliament Monitor implements multiple layers of security:
-
-### Static Site Security
-
-- ✅ **No Server-Side Execution**: Pure static HTML/CSS/JS
-- ✅ **No Database**: Eliminates SQL injection and database vulnerabilities
-- ✅ **No User Input**: No forms or user-generated content
-- ✅ **HTTPS Only**: All content served over secure connections
-- ✅ **Content Security Policy**: Restrictive CSP headers
-
-### Supply Chain Security
-
-- ✅ **Zero Runtime Dependencies**: No production dependencies
-- ✅ **SHA-Pinned Actions**: All GitHub Actions pinned to commit SHAs
-- ✅ **Dependabot**: Automated dependency updates
-- ✅ **npm Audit**: Regular vulnerability scanning
-- ✅ **SBOM Generation**: Software Bill of Materials for transparency
-
-### Development Security
-
-- ✅ **CodeQL Analysis**: Automated security code scanning (SAST)
-- ✅ **ESLint Security Rules**: Security-focused linting
-- ✅ **Pre-commit Hooks**: Automated security checks before commit
-- ✅ **Security Tests**: Dedicated security test suite
-- ✅ **Input Validation**: Multi-layer XSS prevention
-
-### Infrastructure Security
-
-- ✅ **GitHub-Hosted Runners**: Ephemeral, isolated build environments
-- ✅ **Least Privilege**: Minimal required permissions for workflows
-- ✅ **Secrets Management**: Secure handling of credentials
-- ✅ **Audit Logging**: Complete audit trail via Git history
-
-For detailed information, see
-[SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md).
-
-## Security Testing
-
-We maintain comprehensive security testing:
-
-### Automated Security Scanning
-
-```bash
-# SAST (Static Application Security Testing)
-# Runs automatically via CodeQL on every push and PR
-
-# Dependency Scanning
-npm audit
-
-# Linting with security rules
-npm run lint
-
-# Run security-focused tests
-npm run test:unit -- --grep="security|xss|injection|sanitize"
-```
-
-### Manual Security Testing
-
-Before releases, we conduct:
-
-- Threat model review (see [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md))
-- Dependency vulnerability assessment
-- Code review focusing on security-critical paths
-- XSS and injection testing
-- Supply chain security verification
-
-## Known Security Considerations
-
-### Current Security Posture
-
-**Classification** (per
-[ISMS Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)):
-
-- **Confidentiality**: Public (Level 1) - European Parliament open data
-- **Integrity**: Medium (Level 2) - News accuracy critical
-- **Availability**: Medium (Level 2) - Daily updates expected
-
-**Risk Assessment**:
-
-- **P1 (Medium Risk)**: Data integrity issues if MCP server compromised or
-  returns malicious data
-  - **Mitigation**: Multi-layer input validation and sanitization
-  - **Status**: Additional automated content verification planned (Q3 2026)
-- **P2 (Low Risk)**: Supply chain attacks via dependencies
-  - **Mitigation**: Zero production dependencies, SHA-pinned actions, Dependabot
-  - **Status**: Continuously monitored
-- **P3-P5 (Low Risk)**: Other threats have robust controls (see
-  [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md))
-
-### Known False Positives
-
-**ajv ReDoS Vulnerability (GHSA-2g4f-4pwh-qvx6)**
-
-- **Status**: False Positive (Not Exploitable) - Upgrade Blocked by Plugin
-  Compatibility
-- **Affected Package**: ajv < 8.18.0 (transitive dependency via @eslint/eslintrc
-  in ESLint 9.x)
-- **Severity**: Moderate (CVSS: N/A)
-- **Description**: ReDoS vulnerability when using `$data` option in ajv schema
-  validation
-- **Analysis**:
-  - ESLint and @eslint/eslintrc do not use the `$data` option in their ajv
-    configurations
-  - The vulnerability cannot be exploited in our usage context
-  - Review of dependency code confirms no use of vulnerable feature
-- **Resolution Path**:
-  - **ESLint 10 Status**: Released (10.0.0) on 2026-02-17 but still uses ajv 6.x
-    internally
-  - **Blocker**: ESLint plugins not yet updated for ESLint 10 API changes:
-    - `eslint-plugin-security@3.0.1`: Uses deprecated `context.getSourceCode()`
-      API
-    - `eslint-plugin-sonarjs@3.0.7`: Peer dependency limited to
-      `^8.0.0 || ^9.0.0`
-    - `eslint-plugin-jsdoc@62.5.5`: Peer dependency limited to
-      `^7.0.0 || ^8.0.0 || ^9.0.0`
-  - **Action Required**: Monitor plugin updates for ESLint 10 compatibility
-  - **Timeline**: Expected Q2-Q3 2026 as plugin ecosystem catches up
-- **Monitoring**:
-  - Track plugin releases monthly
-  - Test ESLint 10 compatibility when plugins release updates
-  - Re-evaluated 2026-02-17
-- **Risk Level**: Accepted (No exploitable attack vector in current
-  implementation)
-- **CI/CD Handling**: The CI security check workflow has been configured to
-  allow this documented false positive while still failing on new or
-  undocumented vulnerabilities. The workflow validates that only known false
-  positives (GHSA-2g4f-4pwh-qvx6) are present and fails if any high/critical or
-  undocumented moderate vulnerabilities are detected.
-- **Last Reviewed**: 2026-02-17
-
-### Limitations
-
-As a static site generator:
-
-- No runtime authentication/authorization mechanisms
-- Content integrity depends on MCP server trustworthiness
-- Limited real-time threat detection (relies on GitHub security features)
-
-## Hall of Fame
-
-We recognize security researchers who have responsibly disclosed
-vulnerabilities:
-
-<!-- This section will be populated as security reports are received and fixed -->
-
-_No security vulnerabilities have been reported to date._
-
-To be added to the Hall of Fame:
-
-1. Report a valid security vulnerability
-2. Follow responsible disclosure practices
-3. Allow us to fix the issue before public disclosure
-4. Optionally provide your name/handle and link
-
-Recognition includes:
-
-- Public acknowledgment in this file
-- Credit in security advisory
-- Link to your GitHub profile or website (optional)
-- Mention in release notes
-
-## Compliance & Standards
-
-EU Parliament Monitor security practices align with:
-
-- ✅ **ISO 27001**: Information Security Management (A.16.1 - Vulnerability
-  Management)
-- ✅ **GDPR**: Data protection by design and default
-- ✅ **NIS2**: Network and information security requirements
-- ✅ **EU Cyber Resilience Act**: Coordinated vulnerability disclosure
-- ✅ **NIST CSF 2.0**: Identify, Protect, Detect, Respond, Recover
-- ✅ **CIS Controls v8.1**: Continuous vulnerability management
-
-For detailed compliance mapping, see
-[SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md).
+- **ISO 27001**: Information security management (see [SECURITY_ARCHITECTURE.md - Compliance Matrix](SECURITY_ARCHITECTURE.md#-compliance-matrix))
+- **GDPR**: Data protection and privacy (European Parliament open data is public)
+- **NIS2**: Network and information security (Article 20, 21 compliance)
+- **EU Cyber Resilience Act**: Software supply chain security (SBOM, vulnerability disclosure)
+- **NIST Cybersecurity Framework 2.0**: Identify, Protect, Detect, Respond, Recover
+- **CIS Controls v8.1**: Critical security controls implementation
+- **OWASP Top 10**: Web application security best practices
 
 ## Security Metrics
 
-Current security posture:
+Current security posture (updated monthly):
 
-- ✅ **Zero Known Vulnerabilities**: npm audit clean
-- ✅ **82%+ Code Coverage**: Including security tests
-- ✅ **100% Dependency Scanning**: All dependencies monitored
-- ✅ **0 CodeQL Findings**: No critical/high security issues
-- ✅ **Daily Scans**: Automated security scanning
+- **Zero** known vulnerabilities (npm audit clean)
+- **82%+** code coverage with security tests
+- **100%** dependency scanning coverage
+- **0** CodeQL critical/high findings
+- **OpenSSF Scorecard**: Target ≥7.0 (in progress)
 
-## Additional Resources
+See [SECURITY_ARCHITECTURE.md - Security Metrics](SECURITY_ARCHITECTURE.md#-security-metrics) for detailed metrics.
 
-### Documentation
+## Security Resources
 
-- [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) - Complete security
-  architecture
-- [FUTURE_SECURITY_ARCHITECTURE.md](FUTURE_SECURITY_ARCHITECTURE.md) - Security
-  roadmap
-- [CONTRIBUTING.md](CONTRIBUTING.md) - Security section for contributors
-- [Hack23 ISMS](https://github.com/Hack23/ISMS-PUBLIC) - Organization security
-  policies
+- **Threat Model**: [SECURITY_ARCHITECTURE.md - Threat Model](SECURITY_ARCHITECTURE.md#-threat-model)
+- **Security Controls**: [SECURITY_ARCHITECTURE.md - Security Controls](SECURITY_ARCHITECTURE.md#-security-controls)
+- **Incident Response**: [Hack23 ISMS Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md)
+- **Vulnerability Management**: [Hack23 ISMS Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)
 
-### Security Tools
+## Contact
 
-- [GitHub Security Advisories](https://github.com/Hack23/euparliamentmonitor/security/advisories)
-- [Dependabot Alerts](https://github.com/Hack23/euparliamentmonitor/security/dependabot)
-- [CodeQL Results](https://github.com/Hack23/euparliamentmonitor/security/code-scanning)
-- [Security Policy](https://github.com/Hack23/euparliamentmonitor/security/policy)
-
-### Contact
-
-- **Security Issues**: [security@hack23.com](mailto:security@hack23.com)
-- **General Questions**:
-  [GitHub Discussions](https://github.com/Hack23/euparliamentmonitor/discussions)
-- **Bug Reports**:
-  [GitHub Issues](https://github.com/Hack23/euparliamentmonitor/issues)
-  (non-security)
-
-## Updates to This Policy
-
-This security policy is reviewed and updated regularly. Last updated: 2026-02-17
-
-Changes to this policy will be communicated through:
-
-- Git commit history
-- GitHub release notes
-- Security tab updates
+For non-security issues, please use:
+- **GitHub Issues**: https://github.com/Hack23/euparliamentmonitor/issues
+- **General Inquiries**: info@hack23.com
 
 ---
 
-**Thank you for helping keep EU Parliament Monitor and its users safe!** 🛡️
-
-_For questions about this security policy, contact
-[security@hack23.com](mailto:security@hack23.com)_
+Thank you for helping us keep the EU Parliament Monitor project and its users safe. Your contributions to our security posture are greatly appreciated!

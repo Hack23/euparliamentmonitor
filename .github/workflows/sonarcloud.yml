@@ -1,0 +1,65 @@
+name: SonarCloud Analysis
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  schedule:
+    - cron: "0 7 * * 1" # Weekly on Monday at 7 AM UTC
+
+permissions:
+  contents: read
+
+jobs:
+  sonarcloud:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read # For PR decoration
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v4.3.1
+        with:
+          fetch-depth: 0 # Shallow clones disabled for better analysis
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: "24"
+
+      - name: Cache dependencies
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests with coverage
+        run: npm run test:coverage
+        continue-on-error: true # Don't fail workflow if tests fail
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@4b44d3da8e4bf320ed2767edd408bb9b30d9c6aa # v4.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=Hack23_euparliamentmonitor
+            -Dsonar.organization=hack23
+            -Dsonar.sources=scripts/
+            -Dsonar.tests=test/,e2e/
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.javascript.node.maxspace=4096
+            -Dsonar.coverage.exclusions=**/*.test.js,**/*.spec.js,test/**/*,e2e/**/*
