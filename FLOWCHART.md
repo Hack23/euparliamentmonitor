@@ -402,12 +402,137 @@ flowchart TD
 
 ---
 
+## 🚀 Release Workflow with Documentation Automation
+
+This comprehensive flow shows the automated release process with SLSA Level 3 attestations and documentation-as-code implementation.
+
+```mermaid
+flowchart TD
+    Start[🚀 Release Trigger<br/>Manual or Tag Push] --> Prepare[📋 Prepare Job]
+    
+    Prepare --> Lint[🔍 Run Linter<br/>ESLint Validation]
+    Lint --> HTMLVal[✅ Validate HTML<br/>htmlhint]
+    HTMLVal --> Coverage[📊 Run Tests with Coverage<br/>169 Unit Tests<br/>82%+ Coverage]
+    
+    Coverage --> CoverageCheck{Coverage<br/>Thresholds?}
+    CoverageCheck -->|❌ Fail| Fail1[❌ Build Failed]
+    CoverageCheck -->|✅ Pass| E2E[🎭 Run E2E Tests<br/>Playwright Chromium]
+    
+    E2E --> E2ECheck{E2E Tests<br/>Pass?}
+    E2ECheck -->|❌ Fail| Fail2[❌ Build Failed]
+    E2ECheck -->|✅ Pass| CleanDocs[🧹 Clean Old Documentation<br/>Remove docs/api, coverage, test-results]
+    
+    CleanDocs --> GenAPI[📖 Generate API Documentation<br/>JSDoc → docs/api/<br/>52 files]
+    GenAPI --> CopyReports[📋 Copy Test Reports<br/>Coverage → docs/coverage/<br/>Test Results → docs/test-results/]
+    
+    CopyReports --> GenIndex[🎨 Generate Documentation Index<br/>Beautiful Hub Page<br/>docs/index.html]
+    
+    GenIndex --> VerifyDocs{Verify<br/>Documentation<br/>Structure?}
+    VerifyDocs -->|❌ Missing Files| Fail3[❌ Build Failed]
+    VerifyDocs -->|✅ Complete| CommitDocs[💾 Commit Documentation<br/>Git Auto-Commit<br/>To Main Branch]
+    
+    CommitDocs --> TagVersion{Workflow<br/>Dispatch?}
+    TagVersion -->|✅ Yes| CreateTag[🏷️ Create Version Tag<br/>npm version + git tag]
+    TagVersion -->|❌ No| Build[🔨 Build Job]
+    CreateTag --> Build
+    
+    Build --> Checkout2[📥 Checkout at Tag]
+    Checkout2 --> GenNews{News<br/>Directory<br/>Empty?}
+    GenNews -->|✅ Yes| SampleNews[📰 Generate Sample News<br/>Week Ahead Articles]
+    GenNews -->|❌ No| CreateArtifact
+    SampleNews --> CreateArtifact[📦 Create Release Artifacts<br/>Include docs/, playwright-report/<br/>ZIP Archive]
+    
+    CreateArtifact --> GenSBOM[🔐 Generate SBOM<br/>SPDX JSON Format<br/>Anchore SBOM Action]
+    GenSBOM --> BuildProv[📜 Build Provenance Attestation<br/>SLSA Level 3<br/>GitHub Attestations API]
+    BuildProv --> SBOMAttest[🔏 SBOM Attestation<br/>Cryptographic Signing]
+    
+    SBOMAttest --> UploadArtifacts[📤 Upload All Artifacts<br/>Build + Security Artifacts]
+    
+    UploadArtifacts --> Release[🚀 Release Job]
+    Release --> DraftNotes[📝 Draft Release Notes<br/>Release Drafter]
+    DraftNotes --> CreateRelease[🎉 Create GitHub Release<br/>Attach All Artifacts]
+    
+    CreateRelease --> Verify{Verification<br/>Required?}
+    Verify -->|✅ Yes| VerifyCmd[🔍 Verify Attestations<br/>gh attestation verify]
+    Verify -->|❌ No| Complete[✅ Release Complete<br/>Documentation Published<br/>Artifacts Attested]
+    VerifyCmd --> Complete
+    
+    style Start fill:#e3f2fd
+    style Prepare fill:#f0f4c3
+    style Lint fill:#e1f5ff
+    style Coverage fill:#e1f5ff
+    style E2E fill:#e1f5ff
+    style CleanDocs fill:#fff9c4
+    style GenAPI fill:#c8e6c9
+    style CopyReports fill:#c8e6c9
+    style GenIndex fill:#c8e6c9
+    style CommitDocs fill:#a5d6a7
+    style Build fill:#f0f4c3
+    style GenSBOM fill:#ffe1e1
+    style BuildProv fill:#ffe1e1
+    style SBOMAttest fill:#ffe1e1
+    style Release fill:#f0f4c3
+    style CreateRelease fill:#c5cae9
+    style Complete fill:#c8e6c9
+    style Fail1 fill:#ffcdd2
+    style Fail2 fill:#ffcdd2
+    style Fail3 fill:#ffcdd2
+```
+
+### Release Workflow Security Controls
+
+| Stage | Control | Purpose | ISMS Reference |
+|-------|---------|---------|----------------|
+| **Validation** | Linter + HTML validation | Code quality, syntax errors | Quality standards |
+| **Testing** | 169 unit tests, 82%+ coverage | Functional correctness | §3.3 Testing Requirements |
+| **E2E Testing** | Playwright across browsers | User workflow validation | Quality assurance |
+| **Documentation** | JSDoc, coverage, E2E reports | Evidence generation | §3.2 Architecture Documentation |
+| **Version Control** | Git commit + tag | Audit trail, traceability | ISO 27001 A.12.1.1 |
+| **SBOM Generation** | SPDX format, all dependencies | Supply chain transparency | §4.4 Supply Chain Security |
+| **Build Provenance** | SLSA Level 3 attestation | Build integrity | SLSA Framework |
+| **SBOM Attestation** | Cryptographic signing | Artifact authenticity | Non-repudiation |
+| **Verification** | gh attestation verify | Release validation | Trust establishment |
+
+### Documentation-as-Code Benefits
+
+**Integrity:**
+- ✅ Generated automatically from code and tests
+- ✅ Version controlled with full git history
+- ✅ Reproducible from any release tag
+- ✅ Part of attested release artifacts
+
+**Transparency:**
+- ✅ Public access via GitHub Pages
+- ✅ Real-time updates with every release
+- ✅ Complete test coverage visibility
+- ✅ API documentation always current
+
+**Compliance:**
+- ✅ ISMS §3.2 architecture documentation requirement
+- ✅ ISO 27001 A.12.1.1 documented procedures
+- ✅ Audit trail for all documentation changes
+- ✅ Eliminates documentation drift
+
+### ISMS Evidence
+
+- **Workflow**: [release.yml](.github/workflows/release.yml)
+- **Documentation**: [docs/index.html](https://hack23.github.io/euparliamentmonitor/docs/)
+- **Process Guide**: [docs/RELEASE_PROCESS.md](docs/RELEASE_PROCESS.md)
+- **Workflow Documentation**: [WORKFLOW.md](WORKFLOW.md#5-release-workflow)
+- **Attestations**: [GitHub Attestations](https://github.com/Hack23/euparliamentmonitor/attestations)
+- **Policy**: [ISMS Secure Development §3.2](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md#32-architecture-documentation)
+
+---
+
 ## 📚 References
 
 - [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md)
+- [WORKFLOW.md](WORKFLOW.md) - Current CI/CD workflows
+- [FUTURE_WORKFLOW.md](FUTURE_WORKFLOW.md) - Planned enhancements
 - [DATA_MODEL.md](DATA_MODEL.md)
 - [NIST Incident Response](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 - [OWASP Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)
+- [SLSA Framework](https://slsa.dev/)
 
 ---
 
