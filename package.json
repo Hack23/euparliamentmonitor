@@ -63,7 +63,7 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsdoc": "^62.6.0",
     "eslint-plugin-security": "^3.0.1",
-    "eslint-plugin-sonarjs": "^3.0.7",
+    "eslint-plugin-sonarjs": "^4.0.0",
     "happy-dom": "^20.6.2",
     "htmlhint": "^1.9.1",
     "husky": "^9.1.7",
