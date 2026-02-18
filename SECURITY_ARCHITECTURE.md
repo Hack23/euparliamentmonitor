@@ -71,8 +71,12 @@ Per [Hack23 ISMS Classification Framework](https://github.com/Hack23/ISMS-PUBLIC
 |----------|-------|------|
 | 🔐 Security Architecture | Current State | This document |
 | 🚀 Future Security Architecture | Roadmap | [FUTURE_SECURITY_ARCHITECTURE.md](FUTURE_SECURITY_ARCHITECTURE.md) |
+| ⚙️ CI/CD Workflows | Current workflows | [WORKFLOW.md](WORKFLOW.md) |
+| 🚀 Future Workflows | Planned enhancements | [FUTURE_WORKFLOW.md](FUTURE_WORKFLOW.md) |
 | 📊 Data Model | Data Structures | [DATA_MODEL.md](DATA_MODEL.md) |
 | 📈 Security Flow | Process Flows | [FLOWCHART.md](FLOWCHART.md) |
+| 📚 Documentation Hub | Release documentation | [docs/README.md](docs/README.md) |
+| 📋 Release Process | Release procedures | [docs/RELEASE_PROCESS.md](docs/RELEASE_PROCESS.md) |
 | 🎯 Threat Model | Risk Analysis | [#-threat-model](#-threat-model) |
 | 🛡️ ISMS Secure Development | Policy Framework | [ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) |
 
@@ -1262,6 +1266,82 @@ flowchart TD
 - Branches: 83%+
 - Functions: 89%+
 - Statements: 82%+
+
+---
+
+## 📚 Documentation as Code Security
+
+### Automated Documentation Generation
+
+The release workflow implements **documentation-as-code** principles, automatically generating comprehensive technical documentation with every release:
+
+**Documentation Pipeline:**
+
+```mermaid
+graph LR
+    A[Release Trigger] --> B[Run Tests]
+    B --> C[Generate Coverage]
+    C --> D[Generate API Docs]
+    D --> E[Copy Reports]
+    E --> F[Create Index]
+    F --> G[Commit to Main]
+    G --> H[Deploy to GitHub Pages]
+```
+
+### Generated Documentation
+
+| Documentation Type | Generator | Security Controls |
+|-------------------|-----------|-------------------|
+| **API Documentation** | JSDoc | Input sanitization, no script injection |
+| **Test Coverage** | Vitest HTML | Static HTML, no dynamic content |
+| **E2E Test Reports** | Playwright | Screenshots sanitized, no PII |
+| **Documentation Index** | Custom script | Static generation, XSS-safe |
+
+### Security Benefits
+
+**Integrity:**
+- ✅ **Version Controlled**: All documentation committed to git
+- ✅ **Immutable History**: Complete audit trail of changes
+- ✅ **Reproducible**: Regenerate docs from any release tag
+- ✅ **Signed**: Part of SLSA Level 3 attested artifacts
+
+**Transparency:**
+- ✅ **Public Access**: Documentation on GitHub Pages
+- ✅ **Evidence-Based**: Generated from actual code and tests
+- ✅ **Real-Time**: Updated with every release
+- ✅ **Comprehensive**: API, coverage, E2E, all in one place
+
+**Compliance:**
+- ✅ **ISMS §3.2**: Architecture documentation requirements met
+- ✅ **ISO 27001 A.12.1.1**: Documented operating procedures
+- ✅ **Audit Trail**: Full documentation history in git
+- ✅ **Evidence**: Automated generation eliminates documentation drift
+
+### Security Controls
+
+| Control | Implementation | Purpose |
+|---------|----------------|---------|
+| **Static Generation** | No server-side execution | Eliminates injection attacks |
+| **Input Sanitization** | JSDoc, HTML encoding | Prevents XSS in generated docs |
+| **Access Control** | GitHub Pages authentication | Public read, write via workflow only |
+| **Audit Trail** | Git commits for all changes | Complete history and accountability |
+| **Attestations** | SLSA Level 3 provenance | Verifiable documentation integrity |
+
+### ISMS Evidence
+
+- **Policy**: [Secure Development Policy §3.2 - Architecture Documentation](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md#32-architecture-documentation)
+- **Workflow**: [release.yml](.github/workflows/release.yml) lines 92-155
+- **Documentation Hub**: [docs/index.html](https://hack23.github.io/euparliamentmonitor/docs/)
+- **Process Guide**: [docs/RELEASE_PROCESS.md](docs/RELEASE_PROCESS.md)
+- **Attestations**: [GitHub Attestations](https://github.com/Hack23/euparliamentmonitor/attestations)
+
+### Future Enhancements
+
+See [FUTURE_WORKFLOW.md](FUTURE_WORKFLOW.md) for planned documentation improvements:
+- Automated architecture diagram generation
+- Interactive documentation search
+- Documentation versioning (per release)
+- PDF export for compliance reports
 
 ---
 
