@@ -1,0 +1,76 @@
+version = 1
+SPDX-PackageName = "euparliamentmonitor"
+SPDX-PackageSupplier = "James Pether Sörling <james@hack23.com>"
+SPDX-PackageDownloadLocation = "https://github.com/Hack23/euparliamentmonitor"
+
+[[annotations]]
+path = ["package.json", "package-lock.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["eslint.config.js", ".prettierrc.json", ".prettierignore", "vitest.config.js", "playwright.config.js", ".jscpd.json", ".lintstagedrc.json", ".pre-commit-config.yaml"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["**.md", "docs/**.md", ".github/agents/**.md", ".github/skills/**.md", "e2e/**.md", "test/**.md"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["**.html", "news/**.html"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "styles.css"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = [".github/workflows/**.yml", ".github/**.yml", ".github/dependabot.yml", ".github/labeler.yml", ".github/release-drafter.yml", ".github/copilot-mcp.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ".husky/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["sitemap.xml", "news/metadata/**.json", "tool-schemas.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = [".gitignore", ".gitattributes"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["test/fixtures/**.json", "test/fixtures/**.html", "e2e/fixtures/**.html"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "**.patch"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "LICENSE"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
