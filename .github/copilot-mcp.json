@@ -3,6 +3,7 @@
     "github": {
       "type": "local",
       "command": "npx",
+      "tools": ["*"],
       "args": [
         "-y",
         "@modelcontextprotocol/server-github",
@@ -10,6 +11,7 @@
         "all",
         "--tools",
         "*"
+        
       ],
       "env": {
         "GITHUB_TOKEN": "${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}",
@@ -21,6 +23,7 @@
     "filesystem": {
       "type": "local",
       "command": "npx",
+      "tools": ["*"],
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
@@ -30,6 +33,7 @@
     "git": {
       "type": "local",
       "command": "npx",
+      "tools": ["*"],
       "args": [
         "-y",
         "@modelcontextprotocol/server-git",
@@ -39,6 +43,7 @@
     },
     "memory": {
       "type": "local",
+      "tools": ["*"],
       "command": "npx",
       "args": [
         "-y",
@@ -47,6 +52,7 @@
     },
     "sequential-thinking": {
       "type": "local",
+      "tools": ["*"],
       "command": "npx",
       "args": [
         "-y",
@@ -55,6 +61,7 @@
     },
     "playwright": {
       "type": "local",
+      "tools": ["*"],
       "command": "npx",
       "args": [
         "-y",
@@ -66,6 +73,7 @@
     },
     "european-parliament": {
       "type": "local",
+      "tools": ["*"],
       "command": "npx",
       "args": [
         "-y",
