@@ -1009,8 +1009,10 @@ async function handleRequest(request) {
 
 ### Quarterly Reviews
 
-**Q2 2026**: Phase 1 completion review **Q3 2026**: Phase 2 completion review
-**Q4 2026**: Phase 3 completion review **Q1 2027**: Phase 4 completion review
+- **Q2 2026**: Phase 1 completion review
+- **Q3 2026**: Phase 2 completion review
+- **Q4 2026**: Phase 3 completion review
+- **Q1 2027**: Phase 4 completion review
 
 ### Annual Security Review (Q4 2027)
 

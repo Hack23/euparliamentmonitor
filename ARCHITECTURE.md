@@ -333,7 +333,7 @@ C4Deployment
 | **Runtime**         | Node.js    | 24.x    | JavaScript execution environment |
 | **Language**        | JavaScript | ES2022  | Primary development language     |
 | **Package Manager** | npm        | 10.x    | Dependency management            |
-| **Testing**         | Vitest     | 3.x     | Unit and integration testing     |
+| **Testing**         | Vitest     | 4.x     | Unit and integration testing     |
 | **E2E Testing**     | Playwright | 1.58.x  | End-to-end browser testing       |
 | **Linting**         | ESLint     | 9.x     | Code quality and security        |
 | **Formatting**      | Prettier   | 3.x     | Code formatting                  |
@@ -506,9 +506,9 @@ sequenceDiagram
 <div class="architecture-footer">
 
 **Document Status:** Living Document  
-**Last Updated:** 2026-02-17  
-**Next Review:** 2026-05-17  
-**Owner:** Security Architect / CTO
+**Last Updated:** 2026-02-20  
+**Next Review:** 2026-05-20  
+**Owner:** CEO
 
 This architecture documentation follows the [C4 model](https://c4model.com/)
 methodology and complies with
