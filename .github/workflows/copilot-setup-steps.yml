@@ -140,6 +140,7 @@ jobs:
             ~/.npm
             /usr/local/lib/node_modules
             /usr/local/bin/mcp-server-*
+            /usr/local/bin/european-parliament-mcp-server
           key: ${{ runner.os }}-mcp-servers-v4-${{ hashFiles('.github/copilot-mcp.json') }}
           restore-keys: |
             ${{ runner.os }}-mcp-servers-v4-
@@ -163,7 +164,7 @@ jobs:
           which mcp-server-playwright 2>/dev/null && echo "✅ mcp-server-playwright found" || echo "ℹ️ @playwright/mcp available via npx"
           
           echo "Checking european-parliament-mcp-server..."
-          which european-parliament-mcp-server && echo "✅ european-parliament-mcp-server found" || echo "❌ european-parliament-mcp-server NOT found"
+          which european-parliament-mcp-server 2>/dev/null && echo "✅ european-parliament-mcp-server found" || echo "❌ european-parliament-mcp-server NOT found"
                               
           echo ""
           echo "=== HTTP MCP Servers ==="
