@@ -18,56 +18,61 @@
 
 **📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:**
 2026-02-20 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-20
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-20  
+**🏷️ Classification:** Public (Open Source European Parliament Monitoring
+Platform)
 
 ---
 
 ## 🔐 Security Documentation Map
 
-| Document | Focus | Description |
-|----------|-------|-------------|
-| [Current Security Architecture](SECURITY_ARCHITECTURE.md) | 🛡️ Current | Current static site security implementation |
-| [Future Security Architecture](FUTURE_SECURITY_ARCHITECTURE.md) | 🔮 Future | **This document** - Enhanced security roadmap |
-| [End-of-Life Strategy](End-of-Life-Strategy.md) | 📅 Lifecycle | Security patching and updates |
-| [Workflows](WORKFLOWS.md) | 🔧 CI/CD | Security-hardened CI/CD workflows |
-| [Architecture](ARCHITECTURE.md) | 🏛️ Structure | Overall system architecture |
-| [Threat Model](THREAT_MODEL.md) | 🎯 Threats | Threat modeling and mitigation |
+| Document                                                        | Focus        | Description                                   |
+| --------------------------------------------------------------- | ------------ | --------------------------------------------- |
+| [Current Security Architecture](SECURITY_ARCHITECTURE.md)       | 🛡️ Current   | Current static site security implementation   |
+| [Future Security Architecture](FUTURE_SECURITY_ARCHITECTURE.md) | 🔮 Future    | **This document** - Enhanced security roadmap |
+| [End-of-Life Strategy](End-of-Life-Strategy.md)                 | 📅 Lifecycle | Security patching and updates                 |
+| [Workflows](WORKFLOWS.md)                                       | 🔧 CI/CD     | Security-hardened CI/CD workflows             |
+| [Architecture](ARCHITECTURE.md)                                 | 🏛️ Structure | Overall system architecture                   |
+| [Threat Model](THREAT_MODEL.md)                                 | 🎯 Threats   | Threat modeling and mitigation                |
 
 ---
 
 ## 🔐 ISMS Policy Alignment
 
-This future security architecture is designed to implement all controls from Hack23 AB's ISMS framework as the EU Parliament Monitor platform evolves from static site to enhanced security capabilities. For complete policy mapping, see [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md).
+This future security architecture is designed to implement all controls from
+Hack23 AB's ISMS framework as the EU Parliament Monitor platform evolves from
+static site to enhanced security capabilities. For complete policy mapping, see
+[SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md).
 
 ### Related ISMS Policies
 
-| **Policy Domain** | **Policy** | **Planned Implementation** |
-|-------------------|------------|----------------------------|
-| **🔐 Core Security** | [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Overall security governance framework for enhanced monitoring |
-| **🛠️ Development** | [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Security-integrated development lifecycle enhancements |
-| **🌐 Network** | [Network Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Network_Security_Policy.md) | CDN architecture, WAF, DDoS protection |
-| **🔒 Cryptography** | [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | Content signing, TLS 1.3, integrity verification |
-| **🔑 Access Control** | [Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md) | MCP authentication, request authorization |
-| **🏷️ Data Classification** | [Data Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Data_Classification_Policy.md) | European Parliament data classification |
-| **🔍 Vulnerability** | [Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | Enhanced automated scanning and monitoring |
-| **🚨 Incident Response** | [Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | Automated incident detection and response |
-| **💾 Backup & Recovery** | [Backup Recovery Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md) | Content backup, version control, recovery |
-| **🔄 Business Continuity** | [Business Continuity Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Business_Continuity_Plan.md) | Multi-CDN deployment, disaster recovery |
-| **🤝 Third-Party** | [Third Party Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md) | CDN provider security assessment |
-| **🏷️ Classification** | [Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Business impact analysis for platform |
+| **Policy Domain**          | **Policy**                                                                                                    | **Planned Implementation**                                    |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| **🔐 Core Security**       | [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Overall security governance framework for enhanced monitoring |
+| **🛠️ Development**         | [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)     | Security-integrated development lifecycle enhancements        |
+| **🌐 Network**             | [Network Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Network_Security_Policy.md)         | CDN architecture, WAF, DDoS protection                        |
+| **🔒 Cryptography**        | [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md)                 | Content signing, TLS 1.3, integrity verification              |
+| **🔑 Access Control**      | [Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md)             | MCP authentication, request authorization                     |
+| **🏷️ Data Classification** | [Data Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Data_Classification_Policy.md)   | European Parliament data classification                       |
+| **🔍 Vulnerability**       | [Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)       | Enhanced automated scanning and monitoring                    |
+| **🚨 Incident Response**   | [Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md)           | Automated incident detection and response                     |
+| **💾 Backup & Recovery**   | [Backup Recovery Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md)           | Content backup, version control, recovery                     |
+| **🔄 Business Continuity** | [Business Continuity Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Business_Continuity_Plan.md)       | Multi-CDN deployment, disaster recovery                       |
+| **🤝 Third-Party**         | [Third Party Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md)           | CDN provider security assessment                              |
+| **🏷️ Classification**      | [Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)                 | Business impact analysis for platform                         |
 
 ### Security Control Implementation Roadmap
 
-| **ISMS Control Domain** | **Current Status** | **Future Implementation** | **Timeline** |
-|--------------------------|-------------------|---------------------------|--------------|
-| **🔑 Access Control** | ⚠️ Limited | ✅ MCP authentication + request signing | Phase 3 (Q4 2026) |
-| **🔒 Cryptography** | ✅ HTTPS only | ✅ Enhanced (content signing, checksums) | Phase 2 (Q3 2026) |
-| **🌐 Network Security** | ✅ GitHub Pages | ✅ Enhanced (CDN, WAF, DDoS protection) | Phase 4 (Q1 2027) |
-| **🛠️ Secure Development** | ✅ Implemented | ✅ Extended (enhanced CI/CD security) | Phase 1 (Q2 2026) |
-| **🔍 Vulnerability Management** | ✅ CodeQL, Dependabot | ✅ Enhanced (real-time monitoring) | Phase 1 (Q2 2026) |
-| **📊 Monitoring & Logging** | ⚠️ Limited | ✅ Full (uptime, performance, security) | Phase 1 (Q2 2026) |
-| **💾 Data Protection** | ✅ Git versioning | ✅ Enhanced (signatures, checksums, audit trail) | Phase 2 (Q3 2026) |
-| **🚨 Incident Response** | ✅ Documented | ✅ Automated detection and alerting | Phase 1 (Q2 2026) |
+| **ISMS Control Domain**         | **Current Status**    | **Future Implementation**                        | **Timeline**      |
+| ------------------------------- | --------------------- | ------------------------------------------------ | ----------------- |
+| **🔑 Access Control**           | ⚠️ Limited            | ✅ MCP authentication + request signing          | Phase 3 (Q4 2026) |
+| **🔒 Cryptography**             | ✅ HTTPS only         | ✅ Enhanced (content signing, checksums)         | Phase 2 (Q3 2026) |
+| **🌐 Network Security**         | ✅ GitHub Pages       | ✅ Enhanced (CDN, WAF, DDoS protection)          | Phase 4 (Q1 2027) |
+| **🛠️ Secure Development**       | ✅ Implemented        | ✅ Extended (enhanced CI/CD security)            | Phase 1 (Q2 2026) |
+| **🔍 Vulnerability Management** | ✅ CodeQL, Dependabot | ✅ Enhanced (real-time monitoring)               | Phase 1 (Q2 2026) |
+| **📊 Monitoring & Logging**     | ⚠️ Limited            | ✅ Full (uptime, performance, security)          | Phase 1 (Q2 2026) |
+| **💾 Data Protection**          | ✅ Git versioning     | ✅ Enhanced (signatures, checksums, audit trail) | Phase 2 (Q3 2026) |
+| **🚨 Incident Response**        | ✅ Documented         | ✅ Automated detection and alerting              | Phase 1 (Q2 2026) |
 
 ---
 
@@ -454,11 +459,14 @@ flowchart TD
 
 ### Implementation Strategy
 
-EU Parliament Monitor implements authentication for build-time MCP communication only. End-user access remains authentication-free as the platform serves publicly accessible political intelligence.
+EU Parliament Monitor implements authentication for build-time MCP communication
+only. End-user access remains authentication-free as the platform serves
+publicly accessible political intelligence.
 
 #### 🔐 MCP Authentication (Phase 3)
 
 **Build-Time Authentication:**
+
 - **✅ HMAC Request Signing**: All MCP requests signed with HMAC-SHA256
 - **✅ Timestamp Validation**: 5-minute request freshness window
 - **✅ Nonce Protection**: Replay attack prevention
@@ -498,12 +506,15 @@ export function authenticateMCPRequest(request, secret) {
 #### 🌐 Public Access (No Authentication)
 
 **Static Site Architecture:**
+
 - **✅ No User Authentication**: Citizens access content without login
 - **✅ HTTPS-Only**: Encryption in transit via GitHub Pages
 - **✅ No Personal Data**: Zero PII collection, GDPR-compliant by design
-- **✅ Open Access**: Transparency through unrestricted access to EU political intelligence
+- **✅ Open Access**: Transparency through unrestricted access to EU political
+  intelligence
 
 **Security Implications:**
+
 - Content generated at build-time with authenticated MCP access
 - Published content is public and requires no authentication
 - No session management or user tracking
@@ -512,11 +523,13 @@ export function authenticateMCPRequest(request, secret) {
 ### Future Authentication Enhancements
 
 #### Phase 3 (Q4 2026): MCP Authentication
+
 - Mutual TLS for MCP communication
 - Client certificate authentication
 - Automated certificate rotation
 
 #### Phase 4 (Q1 2027): CDN Security
+
 - CloudFlare challenge pages for bot protection
 - Rate limiting per IP address
 - Geographic access analysis (metrics only, no blocking)
@@ -562,8 +575,11 @@ flowchart TD
 #### 📝 Immutable Audit Trail (Phase 2)
 
 **Comprehensive Audit Logging:**
-- **✅ Generation Events**: All article generation events logged with complete metadata
-- **✅ Source Data Tracking**: European Parliament API data hashes for provenance
+
+- **✅ Generation Events**: All article generation events logged with complete
+  metadata
+- **✅ Source Data Tracking**: European Parliament API data hashes for
+  provenance
 - **✅ Build Metadata**: GitHub Actions workflow IDs, commit SHAs, timestamps
 - **✅ Git-Tracked Logs**: Audit trail versioned in Git for immutability
 
@@ -597,9 +613,11 @@ flowchart TD
 #### 🔐 Content Verification (Phase 2)
 
 **Multi-Layer Verification:**
+
 - **✅ SHA-256 Checksums**: Content integrity verification for all HTML files
 - **✅ GPG Signatures**: Cryptographic signatures for article authenticity
-- **✅ Source Attribution**: Embedded European Parliament API references with data hashes
+- **✅ Source Attribution**: Embedded European Parliament API references with
+  data hashes
 - **✅ Verification Tools**: Citizen-accessible verification utilities
 
 **Checksum Verification:**
@@ -617,6 +635,7 @@ curl -s https://euparliamentmonitor.com/news/2026-week-28-en.html | \
 #### 🗂️ Data Lineage Tracking (Phase 2)
 
 **Source Data Provenance:**
+
 - **✅ EP API References**: Direct links to source European Parliament data
 - **✅ Data Hashes**: SHA-256 hashes of source data for tamper detection
 - **✅ Metadata Enrichment**: Complete attribution in article footers
@@ -637,6 +656,7 @@ jq -r 'select(.article_id == "2026-week-28-plenary")' \
 ### Audit Data Protection
 
 **Security Measures:**
+
 - **✅ Git Immutability**: Audit logs tracked in Git with complete history
 - **✅ Append-Only**: JSONL format prevents modification of historical entries
 - **✅ Public Transparency**: Audit trail publicly accessible for verification
@@ -674,11 +694,13 @@ flowchart TD
 
 ### Implementation Strategy
 
-EU Parliament Monitor implements **zero-tracking** architecture with privacy-respecting analytics.
+EU Parliament Monitor implements **zero-tracking** architecture with
+privacy-respecting analytics.
 
 #### 🚫 No User Tracking
 
 **Privacy-First Design:**
+
 - **✅ No Cookies**: Zero cookie usage, no consent banners required
 - **✅ No JavaScript Tracking**: No analytics JavaScript on frontend
 - **✅ No User Sessions**: Stateless architecture, no session management
@@ -688,12 +710,14 @@ EU Parliament Monitor implements **zero-tracking** architecture with privacy-res
 #### 📊 Privacy-Compliant Metrics (Phase 1 & 4)
 
 **Server-Side Analytics Only:**
+
 - **✅ Server Logs**: GitHub Pages access logs (aggregated, no IP storage)
 - **✅ CDN Analytics** (Phase 4): CloudFlare aggregated metrics (no IP logging)
 - **✅ Build-Time Metrics**: Lighthouse CI performance scores
 - **✅ Uptime Monitoring**: External availability checks (no user tracking)
 
 **Metrics Collected:**
+
 - Page view counts (aggregated, no user identification)
 - Performance metrics (Core Web Vitals)
 - Availability percentage (uptime monitoring)
@@ -703,6 +727,7 @@ EU Parliament Monitor implements **zero-tracking** architecture with privacy-res
 #### 🔐 Analytics Security
 
 **Data Protection:**
+
 - **✅ No Raw Logs**: IP addresses not stored or logged
 - **✅ Aggregation Only**: All metrics aggregated before storage
 - **✅ Time-Limited**: Metrics retained for 30 days maximum
@@ -711,12 +736,14 @@ EU Parliament Monitor implements **zero-tracking** architecture with privacy-res
 #### 📈 Future Analytics Enhancements (Phase 4)
 
 **CloudFlare Privacy-Respecting Analytics:**
+
 - Country-level traffic distribution (no IP tracking)
 - Bot detection and filtering (security only)
 - Performance metrics by region
 - Cache hit rates and CDN efficiency
 
 **Transparency:**
+
 - All metrics publicly documented
 - No hidden tracking or analytics
 - Open-source verification tools
@@ -759,12 +786,15 @@ flowchart TD
 #### 🔒 Automated Security Scanning
 
 **Static Application Security Testing (SAST):**
-- **✅ CodeQL**: Weekly scans for security vulnerabilities in JavaScript/Node.js code
+
+- **✅ CodeQL**: Weekly scans for security vulnerabilities in JavaScript/Node.js
+  code
 - **✅ Dependabot**: Daily dependency vulnerability scanning with automated PRs
 - **✅ Secret Scanning**: GitHub secret scanning for exposed credentials
 - **✅ Branch Protection**: Required security checks before merge
 
 **Security Metrics:**
+
 - Zero high/critical vulnerabilities policy
 - 7-day SLA for high severity vulnerabilities
 - Automated PR creation for security updates
@@ -773,12 +803,14 @@ flowchart TD
 #### 📊 Performance & Availability Monitoring (Phase 1)
 
 **Uptime Monitoring:**
+
 - **✅ External Monitoring**: Pingdom/StatusCake for availability checks
 - **✅ Multi-Region**: Monitoring from multiple geographic locations
 - **✅ Health Checks**: HTTP status, content integrity, SSL validity
 - **✅ Alert Routing**: Slack/Discord/Email notifications
 
 **Performance Monitoring:**
+
 - **✅ Lighthouse CI**: Automated Core Web Vitals tracking
 - **✅ Build-Time**: GitHub Actions build performance metrics
 - **✅ Deployment Time**: End-to-end deployment duration tracking
@@ -788,6 +820,7 @@ flowchart TD
 #### 🛡️ WAF Security Events (Phase 4)
 
 **CloudFlare WAF Monitoring:**
+
 - Attack pattern detection (SQL injection, XSS, etc.)
 - DDoS mitigation events
 - Bot traffic analysis
@@ -796,6 +829,7 @@ flowchart TD
 #### 🚨 Security Dashboard (Phase 1)
 
 **Centralized Security Visibility:**
+
 - Real-time vulnerability status
 - Dependency health metrics
 - Uptime and performance trends
@@ -1269,11 +1303,13 @@ graph TD
 
 ### Implementation Strategy
 
-EU Parliament Monitor implements multi-CDN architecture for maximum availability and resilience.
+EU Parliament Monitor implements multi-CDN architecture for maximum availability
+and resilience.
 
 #### 🌍 Multi-CDN Architecture (Phase 4)
 
 **Primary Distribution:**
+
 - **🇪🇺 CloudFlare CDN**: Primary content delivery with European focus
 - **🇺🇸 GitHub Pages**: Fallback and origin server
 - **🔄 Dual Deployment**: Simultaneous deployment to both platforms
@@ -1324,6 +1360,7 @@ Cache-Control = "public, max-age=2592000, immutable"
 #### 🔄 Health Monitoring & Failover (Phase 1 & 4)
 
 **Continuous Health Checks:**
+
 - **✅ HTTP Status Monitoring**: 200 OK verification every 5 minutes
 - **✅ Content Integrity**: Verify page title and key content elements
 - **✅ SSL Certificate**: Monitor certificate validity and expiration
@@ -1331,6 +1368,7 @@ Cache-Control = "public, max-age=2592000, immutable"
 - **✅ Response Time**: Track latency from multiple global locations
 
 **Automated Failover:**
+
 - DNS-based failover to GitHub Pages if CloudFlare unavailable
 - Automatic traffic switching based on health check results
 - 60-second detection and failover time (RTO: 1 minute)
@@ -1340,17 +1378,18 @@ Cache-Control = "public, max-age=2592000, immutable"
 
 **Service Level Objectives (SLOs):**
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| **Uptime** | 99.9% | 8.76 hours downtime/year max |
-| **Response Time** | <500ms (p95) | Global CDN edge locations |
-| **Time to First Byte** | <100ms | European users via CloudFlare |
-| **Recovery Time (RTO)** | 60 seconds | DNS failover activation |
-| **Recovery Point (RPO)** | 0 minutes | Zero data loss (static content) |
+| Metric                   | Target       | Measurement                     |
+| ------------------------ | ------------ | ------------------------------- |
+| **Uptime**               | 99.9%        | 8.76 hours downtime/year max    |
+| **Response Time**        | <500ms (p95) | Global CDN edge locations       |
+| **Time to First Byte**   | <100ms       | European users via CloudFlare   |
+| **Recovery Time (RTO)**  | 60 seconds   | DNS failover activation         |
+| **Recovery Point (RPO)** | 0 minutes    | Zero data loss (static content) |
 
 #### 🌐 Geographic Distribution
 
 **Global Content Delivery:**
+
 - **🇪🇺 Europe**: CloudFlare edge nodes in 30+ European cities
 - **🌍 Global**: 200+ CloudFlare edge locations worldwide
 - **🇺🇸 Fallback**: GitHub Pages global infrastructure
@@ -1370,23 +1409,61 @@ async function handleRequest(request) {
 
   // Map Accept-Language to supported languages
   const languageMap = {
-    'de': 'de', 'de-DE': 'de', 'de-AT': 'de', 'de-CH': 'de',
-    'fr': 'fr', 'fr-FR': 'fr', 'fr-BE': 'fr', 'fr-CH': 'fr',
-    'es': 'es', 'es-ES': 'es',
-    'it': 'it', 'it-IT': 'it',
-    'nl': 'nl', 'nl-NL': 'nl', 'nl-BE': 'nl',
-    'sv': 'sv', 'sv-SE': 'sv',
-    'da': 'da', 'da-DK': 'da',
-    'fi': 'fi', 'fi-FI': 'fi',
-    'pl': 'pl', 'pl-PL': 'pl',
-    'ro': 'ro', 'ro-RO': 'ro',
-    'hu': 'hu', 'hu-HU': 'hu',
-    'pt': 'pt', 'pt-PT': 'pt',
-    'el': 'el', 'el-GR': 'el',
+    de: 'de',
+    'de-DE': 'de',
+    'de-AT': 'de',
+    'de-CH': 'de',
+    fr: 'fr',
+    'fr-FR': 'fr',
+    'fr-BE': 'fr',
+    'fr-CH': 'fr',
+    es: 'es',
+    'es-ES': 'es',
+    it: 'it',
+    'it-IT': 'it',
+    nl: 'nl',
+    'nl-NL': 'nl',
+    'nl-BE': 'nl',
+    sv: 'sv',
+    'sv-SE': 'sv',
+    da: 'da',
+    'da-DK': 'da',
+    fi: 'fi',
+    'fi-FI': 'fi',
+    pl: 'pl',
+    'pl-PL': 'pl',
+    ro: 'ro',
+    'ro-RO': 'ro',
+    hu: 'hu',
+    'hu-HU': 'hu',
+    pt: 'pt',
+    'pt-PT': 'pt',
+    el: 'el',
+    'el-GR': 'el',
   };
 
   // Detect preferred language from Accept-Language header
-  const preferredLang = detectLanguage(acceptLanguage, languageMap) || 'en';
+  const detectedLang = detectLanguage(acceptLanguage, languageMap) || 'en';
+  // Validate language against allowed list to prevent open redirect
+  const allowedLanguages = [
+    'en',
+    'de',
+    'fr',
+    'es',
+    'it',
+    'nl',
+    'sv',
+    'da',
+    'fi',
+    'pl',
+    'ro',
+    'hu',
+    'pt',
+    'el',
+  ];
+  const preferredLang = allowedLanguages.includes(detectedLang)
+    ? detectedLang
+    : 'en';
 
   // Redirect root to language-specific index
   if (url.pathname === '/' || url.pathname === '/index.html') {
@@ -1400,7 +1477,7 @@ async function handleRequest(request) {
 function detectLanguage(acceptLanguage, languageMap) {
   if (!acceptLanguage) return null;
 
-  const languages = acceptLanguage.split(',').map(lang => {
+  const languages = acceptLanguage.split(',').map((lang) => {
     const [code, q = 'q=1.0'] = lang.trim().split(';');
     return { code: code.trim(), quality: parseFloat(q.split('=')[1]) };
   });
@@ -1420,7 +1497,9 @@ function detectLanguage(acceptLanguage, languageMap) {
 #### 💾 Content Synchronization
 
 **Deployment Strategy:**
-- **Simultaneous Deployment**: GitHub Actions deploys to both CloudFlare and GitHub Pages
+
+- **Simultaneous Deployment**: GitHub Actions deploys to both CloudFlare and
+  GitHub Pages
 - **Atomic Updates**: Content synchronized before DNS cutover
 - **Version Consistency**: Same content SHA-256 on both CDNs
 - **Rollback Capability**: Git-based rollback to previous versions
@@ -1502,6 +1581,7 @@ flowchart TD
 #### 🔐 Enhanced Encryption at Rest (Phase 2)
 
 **Content Protection:**
+
 - **✅ Git Repository Encryption**: GitHub's encrypted storage for all content
 - **✅ GPG Signatures** (Phase 2): Digital signatures for article authenticity
 - **✅ SHA-256 Checksums** (Phase 2): Content integrity verification
@@ -1551,7 +1631,9 @@ export function signArticle(articlePath, privateKeyPath) {
 #### 🚀 Enhanced Encryption in Transit (Current + Phase 4)
 
 **TLS Configuration:**
-- **✅ TLS 1.3**: Latest protocol with perfect forward secrecy (GitHub Pages + CloudFlare)
+
+- **✅ TLS 1.3**: Latest protocol with perfect forward secrecy (GitHub Pages +
+  CloudFlare)
 - **✅ HSTS Preload**: Strict-Transport-Security with preload list submission
 - **✅ Certificate Monitoring**: Automated Let's Encrypt certificate renewal
 - **✅ Mixed Content Prevention**: All resources loaded over HTTPS only
@@ -1584,11 +1666,11 @@ const securityHeaders = {
 
 **Key Types and Usage:**
 
-| Key Type | Purpose | Storage | Rotation |
-|----------|---------|---------|----------|
-| **GPG Signing Key** | Article signatures | GitHub Secrets + local secure storage | Annual |
-| **MCP Auth Secret** | MCP request signing | GitHub Secrets (encrypted) | Quarterly |
-| **TLS Certificates** | HTTPS encryption | Let's Encrypt automatic | 90 days (automatic) |
+| Key Type             | Purpose             | Storage                               | Rotation            |
+| -------------------- | ------------------- | ------------------------------------- | ------------------- |
+| **GPG Signing Key**  | Article signatures  | GitHub Secrets + local secure storage | Annual              |
+| **MCP Auth Secret**  | MCP request signing | GitHub Secrets (encrypted)            | Quarterly           |
+| **TLS Certificates** | HTTPS encryption    | Let's Encrypt automatic               | 90 days (automatic) |
 
 **Key Rotation Strategy:**
 
@@ -1621,6 +1703,7 @@ export async function rotateKeys() {
 #### 💾 Backup and Recovery Strategy
 
 **Git-Based Versioning:**
+
 - **✅ Complete History**: Full Git history preserves all content versions
 - **✅ Point-in-Time Recovery**: Rollback to any previous commit
 - **✅ Distributed Backups**: GitHub's redundant storage infrastructure
@@ -1656,6 +1739,7 @@ git log --oneline --graph --all
 #### 🛡️ Secure Development Lifecycle
 
 **Code Security:**
+
 - **✅ Static Analysis**: CodeQL SAST scanning on every commit
 - **✅ Dependency Scanning**: Dependabot automated vulnerability detection
 - **✅ Secret Scanning**: GitHub Advanced Security secret detection
@@ -1705,7 +1789,9 @@ export function validateMEPData(data) {
   const valid = validate(data);
 
   if (!valid) {
-    throw new Error(`MEP data validation failed: ${JSON.stringify(validate.errors)}`);
+    throw new Error(
+      `MEP data validation failed: ${JSON.stringify(validate.errors)}`
+    );
   }
 
   // Sanitize string fields
@@ -1713,7 +1799,9 @@ export function validateMEPData(data) {
     ...data,
     name: DOMPurify.sanitize(data.name, { ALLOWED_TAGS: [] }),
     party: DOMPurify.sanitize(data.party, { ALLOWED_TAGS: [] }),
-    email: data.email ? DOMPurify.sanitize(data.email, { ALLOWED_TAGS: [] }) : undefined,
+    email: data.email
+      ? DOMPurify.sanitize(data.email, { ALLOWED_TAGS: [] })
+      : undefined,
   };
 }
 ```
@@ -1763,10 +1851,9 @@ export class MTLSEPMCPClient extends EuropeanParliamentMCPClient {
       key: readFileSync(options.clientKey),
       ca: readFileSync(options.serverCA),
       minVersion: 'TLSv1.3',
-      ciphers: [
-        'TLS_AES_256_GCM_SHA384',
-        'TLS_CHACHA20_POLY1305_SHA256',
-      ].join(':'),
+      ciphers: ['TLS_AES_256_GCM_SHA384', 'TLS_CHACHA20_POLY1305_SHA256'].join(
+        ':'
+      ),
       honorCipherOrder: true,
     };
   }
@@ -1812,13 +1899,15 @@ const wafRules = [
   {
     id: 'block-sql-injection',
     description: 'Block SQL injection attempts',
-    expression: '(http.request.uri.query contains "UNION SELECT" or http.request.uri.query contains "\' OR 1=1")',
+    expression:
+      '(http.request.uri.query contains "UNION SELECT" or http.request.uri.query contains "\' OR 1=1")',
     action: 'block',
   },
   {
     id: 'block-xss',
     description: 'Block XSS attempts',
-    expression: '(http.request.uri.query contains "<script" or http.request.uri.query contains "javascript:")',
+    expression:
+      '(http.request.uri.query contains "<script" or http.request.uri.query contains "javascript:")',
     action: 'block',
   },
   {
@@ -1830,7 +1919,8 @@ const wafRules = [
   {
     id: 'block-bad-bots',
     description: 'Block known bad bots',
-    expression: '(cf.bot_management.score < 30 and not cf.bot_management.verified_bot)',
+    expression:
+      '(cf.bot_management.score < 30 and not cf.bot_management.verified_bot)',
     action: 'block',
   },
   {
@@ -1922,7 +2012,7 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
-          category: "/language:javascript"
+          category: '/language:javascript'
 
       - name: Upload SARIF results
         uses: github/codeql-action/upload-sarif@v3
@@ -1936,21 +2026,21 @@ jobs:
 # .github/dependabot.yml (existing)
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "daily"
-      time: "06:00"
-      timezone: "Europe/Stockholm"
+      interval: 'daily'
+      time: '06:00'
+      timezone: 'Europe/Stockholm'
     open-pull-requests-limit: 10
     reviewers:
-      - "Hack23/security-team"
+      - 'Hack23/security-team'
     labels:
-      - "dependencies"
-      - "security"
+      - 'dependencies'
+      - 'security'
     commit-message:
-      prefix: "security"
-      include: "scope"
+      prefix: 'security'
+      include: 'scope'
 ```
 
 ### Future Enhancements
@@ -2128,15 +2218,15 @@ jobs:
 
 **Automated Compliance Checks:**
 
-| Check | Frequency | Tool | Standard |
-|-------|-----------|------|----------|
-| **Dependency Vulnerabilities** | Daily | Dependabot | OWASP Top 10 |
-| **Code Security** | Per commit | CodeQL | CWE Top 25 |
-| **Secret Exposure** | Per commit | GitHub Secret Scanning | CIS Controls 3.11 |
-| **HTML Validation** | Per PR | Nu HTML Checker | W3C Standards |
-| **Accessibility** | Per PR | Lighthouse CI | WCAG 2.1 AA |
-| **Performance** | Per PR | Lighthouse CI | Core Web Vitals |
-| **Security Headers** | Daily | Custom tests | OWASP Secure Headers |
+| Check                          | Frequency  | Tool                   | Standard             |
+| ------------------------------ | ---------- | ---------------------- | -------------------- |
+| **Dependency Vulnerabilities** | Daily      | Dependabot             | OWASP Top 10         |
+| **Code Security**              | Per commit | CodeQL                 | CWE Top 25           |
+| **Secret Exposure**            | Per commit | GitHub Secret Scanning | CIS Controls 3.11    |
+| **HTML Validation**            | Per PR     | Nu HTML Checker        | W3C Standards        |
+| **Accessibility**              | Per PR     | Lighthouse CI          | WCAG 2.1 AA          |
+| **Performance**                | Per PR     | Lighthouse CI          | Core Web Vitals      |
+| **Security Headers**           | Daily      | Custom tests           | OWASP Secure Headers |
 
 ### Future Enhancements
 
@@ -2198,9 +2288,11 @@ async function checkOWASPCompliance() {
 
 ### Phase 1: Enhanced Monitoring (Q2 2026)
 
-See [Phase 1: Enhanced Monitoring](#-phase-1-enhanced-monitoring-q2-2026) for detailed implementation.
+See [Phase 1: Enhanced Monitoring](#-phase-1-enhanced-monitoring-q2-2026) for
+detailed implementation.
 
 **Key Metrics:**
+
 - Uptime and availability
 - Performance (Core Web Vitals)
 - Security events (vulnerabilities, failed builds)
@@ -2250,6 +2342,7 @@ async function getAnalytics(env) {
 ```
 
 **Privacy-Compliant Metrics:**
+
 - Aggregated page views (no user tracking)
 - Performance metrics by country (no IP logging)
 - Language distribution from URL paths
