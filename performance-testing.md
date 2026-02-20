@@ -36,7 +36,7 @@ Monitoring Framework"**.
 - ✅ Optimal asset sizes within performance budgets
 - ✅ Lighthouse scores meeting quality standards (90+ performance)
 - ✅ Multi-language content renders efficiently
-- ✅ **ISO 27001 (A.8.32)** compliance for capacity management
+- ✅ **ISO 27001 (A.8.26)** compliance for capacity management
 - ✅ **NIST CSF (ID.AM-1)** compliance for asset performance
 
 ---
