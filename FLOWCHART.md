@@ -518,7 +518,7 @@ flowchart TD
 - **Workflow**: [release.yml](.github/workflows/release.yml)
 - **Documentation**: [docs/index.html](https://hack23.github.io/euparliamentmonitor/docs/)
 - **Process Guide**: [docs/RELEASE_PROCESS.md](docs/RELEASE_PROCESS.md)
-- **Workflow Documentation**: [WORKFLOW.md](WORKFLOW.md#5-release-workflow)
+- **Workflow Documentation**: [WORKFLOWS.md](WORKFLOWS.md#5-release-workflow)
 - **Attestations**: [GitHub Attestations](https://github.com/Hack23/euparliamentmonitor/attestations)
 - **Policy**: [ISMS Secure Development §3.2](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md#32-architecture-documentation)
 
@@ -527,8 +527,8 @@ flowchart TD
 ## 📚 References
 
 - [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md)
-- [WORKFLOW.md](WORKFLOW.md) - Current CI/CD workflows
-- [FUTURE_WORKFLOW.md](FUTURE_WORKFLOW.md) - Planned enhancements
+- [WORKFLOWS.md](WORKFLOWS.md) - Current CI/CD workflows
+- [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) - Planned enhancements
 - [DATA_MODEL.md](DATA_MODEL.md)
 - [NIST Incident Response](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 - [OWASP Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)

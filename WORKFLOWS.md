@@ -406,7 +406,7 @@ graph LR
 
 ### Planned Enhancements
 
-See [FUTURE_WORKFLOW.md](FUTURE_WORKFLOW.md) for:
+See [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) for:
 - Advanced security scanning
 - Performance testing
 - Deployment automation improvements
@@ -421,7 +421,7 @@ See [FUTURE_WORKFLOW.md](FUTURE_WORKFLOW.md) for:
 | 🔐 Security Architecture | Current security implementation | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
 | 📈 Security Flowcharts | Process flows with security controls | [FLOWCHART.md](FLOWCHART.md) |
 | 📊 Data Model | Data structures and flows | [DATA_MODEL.md](DATA_MODEL.md) |
-| 🚀 Future Workflows | Planned enhancements | [FUTURE_WORKFLOW.md](FUTURE_WORKFLOW.md) |
+| 🚀 Future Workflows | Planned enhancements | [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) |
 | 📋 Release Process | Release procedures | [docs/RELEASE_PROCESS.md](docs/RELEASE_PROCESS.md) |
 | 🛡️ ISMS Policy | Security policy framework | [Hack23 ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC) |
 
