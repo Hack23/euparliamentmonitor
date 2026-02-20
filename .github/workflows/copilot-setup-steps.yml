@@ -114,6 +114,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      # Cache global npm packages for MCP servers (restore before install for speed)
+      - name: Cache global npm packages
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: |
+            ~/.npm
+            /usr/local/lib/node_modules
+            /usr/local/bin/mcp-server-*
+            /usr/local/bin/european-parliament-mcp-server
+          key: ${{ runner.os }}-mcp-servers-v4-${{ hashFiles('.github/copilot-mcp.json') }}
+          restore-keys: |
+            ${{ runner.os }}-mcp-servers-v4-
+
       # Pre-install MCP server packages globally
       - name: Install MCP server packages globally
         run: |
@@ -126,20 +139,11 @@ jobs:
           
           # Pre-cache @playwright/mcp for faster startup
           npm install -g @playwright/mcp
+          
+          # Install European Parliament MCP Server for parliamentary data access
+          npm install -g european-parliament-mcp-server
                     
           echo "✅ Node.js MCP server packages installed globally"
-
-      # Cache global npm packages for MCP servers
-      - name: Cache global npm packages
-        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
-        with:
-          path: |
-            ~/.npm
-            /usr/local/lib/node_modules
-            /usr/local/bin/mcp-server-*
-          key: ${{ runner.os }}-mcp-servers-v4-${{ hashFiles('.github/copilot-mcp.json') }}
-          restore-keys: |
-            ${{ runner.os }}-mcp-servers-v4-
 
       # Verify all MCP server installations
       - name: Verify MCP server installations
@@ -158,6 +162,9 @@ jobs:
           
           echo "Checking @playwright/mcp..."
           which mcp-server-playwright 2>/dev/null && echo "✅ mcp-server-playwright found" || echo "ℹ️ @playwright/mcp available via npx"
+          
+          echo "Checking european-parliament-mcp-server..."
+          which european-parliament-mcp-server 2>/dev/null && echo "✅ european-parliament-mcp-server found" || echo "❌ european-parliament-mcp-server NOT found"
                               
           echo ""
           echo "=== HTTP MCP Servers ==="

@@ -63,6 +63,14 @@
       "env": {
         "DISPLAY": ":99"
       }
+    },
+    "european-parliament": {
+      "type": "local",
+      "command": "npx",
+      "args": [
+        "-y",
+        "european-parliament-mcp-server"
+      ]
     }
   }
 }
