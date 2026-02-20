@@ -1,158 +1,108 @@
-# GitHub Agentic Workflows Skills - Quick Reference
+# EU Parliament Monitor - Skills Library
 
-## Available Skills
+## Purpose
 
-All skills are located in `.github/skills/` and are designed to be agent-focused with actionable patterns, not documentation.
+Skills are reusable knowledge units that encode Hack23's security policies, architecture patterns, quality standards, and compliance requirements. Each skill provides explicit, actionable rules that GitHub Copilot applies during development.
 
-### 1. gh-aw-architecture.md (13KB)
-**Focus**: Overall GitHub Agentic Workflows architecture
+**Skills auto-load via GitHub Copilot.** Reference specific skills when working in relevant areas.
 
-**Coverage**:
-- Layered security model (Sandbox → Gateway → Firewall → Backend)
-- Request flow patterns
-- Multi-component integration
-- Deployment patterns (Docker Compose, GitHub Actions)
-- Monitoring and observability
-- Troubleshooting workflows
+## Skills Catalog
 
-**When to Use**: Understanding how all AW components work together, designing secure agent workflows
+### 🏛️ Architecture Skills (1 skill)
+- **[C4 Architecture Documentation](c4-architecture-documentation.md)** — C4 models, Mermaid diagrams, documentation portfolio requirements
 
----
+### 🔒 Security Skills (3 skills)
+- **[Security by Design](security-by-design.md)** — Defense-in-depth, CSP headers, input validation, STRIDE
+- **[Threat Modeling](threat-modeling.md)** — STRIDE analysis, risk assessment, attack surface analysis
+- **[Data Protection](data-protection.md)** — GDPR compliance, data classification, sanitization
 
-### 2. gh-aw-firewall.md (8.5KB)
-**Focus**: Firewall security layer for agent network requests
+### ✅ Compliance Skills (2 skills)
+- **[Compliance Frameworks](compliance-frameworks.md)** — ISO 27001, NIST CSF 2.0, CIS Controls, GDPR, NIS2, EU CRA
+- **[ISMS Compliance](isms-compliance.md)** — ISMS policy references, evidence requirements, framework mapping
 
-**Coverage**:
-- Domain filtering (allowlist/blocklist)
-- Request inspection and sanitization
-- Policy enforcement and rate limiting
-- Compliance controls (GDPR, SOC2, ISO27001)
-- Dynamic rule updates
-- Incident response procedures
+### 🧪 Quality Skills (3 skills)
+- **[Testing Strategy](testing-strategy.md)** — Vitest unit tests, Playwright E2E, coverage requirements
+- **[Code Quality Excellence](code-quality-excellence.md)** — ESLint, HTMLHint, JavaScript/HTML/CSS standards
+- **[Accessibility Excellence](accessibility-excellence.md)** — WCAG 2.1 AA, keyboard navigation, screen readers
 
-**When to Use**: Configuring network security, implementing compliance controls, blocking malicious domains
+### ⚡ Performance Skills (1 skill)
+- **[Performance Optimization](performance-optimization.md)** — Core Web Vitals, caching, asset optimization
 
----
+### 📚 Documentation Skills (1 skill)
+- **[Documentation Standards](documentation-standards.md)** — Document control, JSDoc, REUSE compliance
 
-### 3. gh-aw-sandbox.md (11KB)
-**Focus**: Isolated execution environments for agents
+### 📜 Governance Skills (1 skill)
+- **[Open Source Governance](open-source-governance.md)** — Apache-2.0, REUSE 3.3, SBOM, SLSA, OpenSSF
 
-**Coverage**:
-- Resource isolation (CPU, memory, disk)
-- Filesystem access control
-- Network configuration
-- Secrets injection patterns
-- Lifecycle management
-- Workspace management
+### 🇪🇺 Data Integration Skills (1 skill)
+- **[European Parliament Data](european-parliament-data.md)** — EP MCP server tools, data validation, caching, fallback
 
-**When to Use**: Configuring agent runtime environments, managing resources, securing agent execution
+### 🤖 Agentic Workflow Skills (2 skills)
+- **[GitHub Agentic Workflows](github-agentic-workflows.md)** — Copilot coding agent, stacked PRs, agent selection
+- **[MCP Server Integration](mcp-server-integration.md)** — MCP protocol, multi-server orchestration
 
----
+### 🛡️ Infrastructure Skills (4 skills)
+- **[GH AW Architecture](gh-aw-architecture.md)** — Layered security model (Sandbox → Gateway → Firewall)
+- **[GH AW Firewall](gh-aw-firewall.md)** — Domain filtering, request sanitization, compliance
+- **[GH AW Sandbox](gh-aw-sandbox.md)** — Resource isolation, secrets injection
+- **[MCP Gateway Configuration](mcp-gateway-configuration.md)** — TOML/JSON config patterns
 
-### 4. mcp-gateway-configuration.md (6.5KB)
-**Focus**: MCP Gateway configuration mastery
+### 🔧 Operations Skills (2 skills)
+- **[MCP Gateway Security](mcp-gateway-security.md)** — Authentication, container isolation
+- **[MCP Gateway Troubleshooting](mcp-gateway-troubleshooting.md)** — Debug logging, issue resolution
 
-**Coverage**:
-- TOML vs JSON stdin formats
-- Server configuration (stdio, http)
-- Environment variable patterns
-- Validation rules
-- Common mistakes and solutions
+## Skills Statistics
 
-**When to Use**: Configuring MCP Gateway, setting up multi-server routing, managing environment variables
+**Total Skills**: 21 skills across 10 categories
 
----
+| Category | Count | Focus |
+|----------|-------|-------|
+| Architecture | 1 | C4 models, documentation portfolio |
+| Security | 3 | Defense-in-depth, threat modeling, data protection |
+| Compliance | 2 | ISO 27001, NIST CSF, CIS, GDPR, NIS2 |
+| Quality | 3 | Testing, code quality, accessibility |
+| Performance | 1 | Core Web Vitals, caching |
+| Documentation | 1 | Standards, REUSE compliance |
+| Governance | 1 | Open source, supply chain |
+| Data Integration | 1 | European Parliament MCP |
+| Agentic Workflows | 2 | Copilot agents, MCP protocol |
+| Infrastructure | 4 | AW architecture, firewall, sandbox, gateway |
+| Operations | 2 | Gateway security, troubleshooting |
 
-### 5. mcp-gateway-security.md (12KB)
-**Focus**: Security and authentication for MCP Gateway
+## Skills by Agent
 
-**Coverage**:
-- MCP Specification 7.1 authentication
-- Container isolation patterns
-- Secrets management
-- Session security
-- Security best practices
-- Monitoring and auditing
+| Agent | Primary Skills | Supporting Skills |
+|-------|---------------|-------------------|
+| **news-journalist** | european-parliament-data, documentation-standards | accessibility-excellence, data-protection |
+| **data-pipeline-specialist** | european-parliament-data, mcp-server-integration | performance-optimization, testing-strategy |
+| **frontend-specialist** | accessibility-excellence, code-quality-excellence | performance-optimization, security-by-design |
+| **quality-engineer** | testing-strategy, code-quality-excellence | accessibility-excellence, performance-optimization |
+| **security-architect** | security-by-design, threat-modeling, isms-compliance | compliance-frameworks, data-protection |
+| **documentation-architect** | c4-architecture-documentation, documentation-standards | isms-compliance, compliance-frameworks |
+| **devops-engineer** | github-agentic-workflows, open-source-governance | gh-aw-architecture, mcp-gateway-security |
+| **product-task-agent** | compliance-frameworks, isms-compliance | github-agentic-workflows, testing-strategy |
 
-**When to Use**: Implementing authentication, managing secrets, securing MCP Gateway deployments
+## How to Use Skills
 
----
+### For GitHub Copilot
+Skills auto-load when working in Hack23 repositories. Copilot references these skills to generate secure, compliant, accessible code.
 
-### 6. mcp-gateway-troubleshooting.md (16KB)
-**Focus**: Debugging and issue resolution
+### For Developers
+1. **Reference skills** before starting new work
+2. **Follow MUST rules** — these are non-negotiable
+3. **Apply patterns** from examples in each skill
+4. **Update skills** when policies or standards change
 
-**Coverage**:
-- Log file analysis (unified, per-server)
-- Debug logging with DEBUG environment variable
-- Common issues (Docker, timeouts, auth, env vars)
-- Performance diagnostics
-- Health check monitoring
-- Advanced debugging techniques
+### For Custom Agents
+Agents document which skills they leverage. See each agent's "Skills Reference" section.
 
-**When to Use**: Debugging MCP Gateway issues, analyzing logs, resolving connection problems
+## Related Resources
 
----
+- **[Copilot Instructions](../.github/copilot-instructions.md)** — Project-wide Copilot configuration
+- **[Agent Catalog](../agents/README.md)** — 8 specialized custom agents
+- **[ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC)** — Hack23 security policies
+- **[Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)** — SDLC security requirements
 
-### 7. mcp-server-integration.md (13KB)
-**Focus**: MCP server integration patterns
+## License
 
-**Coverage**:
-- MCP protocol fundamentals
-- Tool discovery and invocation
-- Multi-server orchestration
-- Custom MCP server development
-- Performance optimization
-- Testing patterns
-
-**When to Use**: Integrating MCP servers, building custom servers, optimizing performance
-
----
-
-## Component Coverage
-
-| Component | Skills |
-|-----------|--------|
-| **MCP Gateway (mcpg)** | mcp-gateway-configuration, mcp-gateway-security, mcp-gateway-troubleshooting |
-| **Firewall (fw)** | gh-aw-firewall |
-| **Sandbox** | gh-aw-sandbox |
-| **Architecture** | gh-aw-architecture |
-| **MCP Servers** | mcp-server-integration |
-
-## Usage Patterns
-
-### For Agents
-Reference these skills when:
-- Configuring GitHub Agentic Workflows components
-- Implementing security controls
-- Troubleshooting integration issues
-- Designing multi-server workflows
-- Optimizing performance
-
-### For Development
-- Use skills for configuration patterns
-- Reference for integration procedures
-- Follow security best practices
-- Apply troubleshooting steps
-
-### European Parliament Integration
-All skills include European Parliament MCP server examples showing:
-- Configuration for EP data access
-- Firewall rules for Europa.eu domains
-- Sandbox setup for article generation
-- Multi-server workflows (GitHub + EP + Filesystem)
-
-## Quick Start
-
-1. **Architecture First**: Read `gh-aw-architecture.md` to understand overall system
-2. **Component Setup**: Use `mcp-gateway-configuration.md` and `gh-aw-sandbox.md`
-3. **Security**: Apply patterns from `mcp-gateway-security.md` and `gh-aw-firewall.md`
-4. **Integration**: Follow `mcp-server-integration.md` for MCP servers
-5. **Debug**: Use `mcp-gateway-troubleshooting.md` when issues arise
-
-## Resources
-
-- **GitHub AW**: https://github.com/github/gh-aw
-- **MCP Gateway**: https://github.com/github/gh-aw-mcpg
-- **Firewall**: https://github.com/github/gh-aw-firewall
-- **MCP Spec**: https://github.com/modelcontextprotocol
-- **EP MCP Server**: https://github.com/Hack23/European-Parliament-MCP-Server
+All skills are licensed under Apache-2.0, consistent with Hack23's open-source commitment.
