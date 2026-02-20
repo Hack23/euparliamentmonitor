@@ -71,8 +71,8 @@ Per [Hack23 ISMS Classification Framework](https://github.com/Hack23/ISMS-PUBLIC
 |----------|-------|------|
 | 🔐 Security Architecture | Current State | This document |
 | 🚀 Future Security Architecture | Roadmap | [FUTURE_SECURITY_ARCHITECTURE.md](FUTURE_SECURITY_ARCHITECTURE.md) |
-| ⚙️ CI/CD Workflows | Current workflows | [WORKFLOW.md](WORKFLOW.md) |
-| 🚀 Future Workflows | Planned enhancements | [FUTURE_WORKFLOW.md](FUTURE_WORKFLOW.md) |
+| ⚙️ CI/CD Workflows | Current workflows | [WORKFLOWS.md](WORKFLOWS.md) |
+| 🚀 Future Workflows | Planned enhancements | [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) |
 | 📊 Data Model | Data Structures | [DATA_MODEL.md](DATA_MODEL.md) |
 | 📈 Security Flow | Process Flows | [FLOWCHART.md](FLOWCHART.md) |
 | 📚 Documentation Hub | Release documentation | [docs/README.md](docs/README.md) |
@@ -1358,7 +1358,7 @@ graph LR
 
 ### Future Enhancements
 
-See [FUTURE_WORKFLOW.md](FUTURE_WORKFLOW.md) for planned documentation improvements:
+See [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) for planned documentation improvements:
 - Automated architecture diagram generation
 - Interactive documentation search
 - Documentation versioning (per release)

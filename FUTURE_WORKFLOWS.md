@@ -583,7 +583,7 @@ jobs:
 
 | Document | Focus | Link |
 |----------|-------|------|
-| ⚙️ Current Workflows | Present state documentation | [WORKFLOW.md](WORKFLOW.md) |
+| ⚙️ Current Workflows | Present state documentation | [WORKFLOWS.md](WORKFLOWS.md) |
 | 🔐 Security Architecture | Current security implementation | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
 | 🚀 Future Security | Planned security enhancements | [FUTURE_SECURITY_ARCHITECTURE.md](FUTURE_SECURITY_ARCHITECTURE.md) |
 | 📈 Security Flowcharts | Process flows | [FLOWCHART.md](FLOWCHART.md) |

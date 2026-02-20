@@ -1,21 +1,43 @@
-# 🚀 EU Parliament Monitor — Future Security Architecture
+<p align="center">
+  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
+</p>
 
-**Version:** 1.0  
-**Last Updated:** 2025-02-17  
-**Status:** Planning Document  
-**Review Cycle:** Quarterly
+<h1 align="center">🚀 EU Parliament Monitor — Future Security Architecture</h1>
+
+<p align="center">
+  <strong>Planned Security Enhancements for European Parliament Intelligence</strong><br>
+  <em>🔮 Security Roadmap • 🛡️ Enhanced Controls • 🔐 Advanced Protection</em>
+</p>
+
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
+</p>
+
+**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:**
+2026-02-20 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-20
 
 ---
 
 ## 📋 Executive Summary
 
-This document outlines the planned security architecture enhancements for EU Parliament Monitor over the next 18 months (Q2 2026 - Q1 2027). The roadmap focuses on **proactive security**, **automated verification**, and **resilience** while maintaining the platform's core principles of simplicity and transparency.
+This document outlines the planned security architecture enhancements for EU
+Parliament Monitor over the next 18 months (Q2 2026 - Q1 2027). The roadmap
+focuses on **proactive security**, **automated verification**, and
+**resilience** while maintaining the platform's core principles of simplicity
+and transparency.
 
 ## 🎯 Strategic Security Goals
 
-1. **Enhanced Monitoring** (Q2 2026): Real-time visibility into system health and security events
-2. **Content Verification** (Q3 2026): Cryptographic integrity verification for generated content
-3. **Advanced MCP Security** (Q4 2026): Authenticated and encrypted MCP communication
+1. **Enhanced Monitoring** (Q2 2026): Real-time visibility into system health
+   and security events
+2. **Content Verification** (Q3 2026): Cryptographic integrity verification for
+   generated content
+3. **Advanced MCP Security** (Q4 2026): Authenticated and encrypted MCP
+   communication
 4. **CDN Integration** (Q1 2027): Global distribution with advanced protection
 
 ## 📅 Implementation Roadmap
@@ -29,19 +51,19 @@ gantt
     Uptime Monitoring            :milestone, p1, 2026-04, 0d
     Error Tracking Integration   :milestone, p1, 2026-05, 0d
     Security Metrics Dashboard   :milestone, p1, 2026-06, 0d
-    
+
     section Phase 2
     Content Verification         :p2, 2026-07, 3M
     Digital Signatures          :milestone, p2, 2026-07, 0d
     Audit Trail Enhancement     :milestone, p2, 2026-08, 0d
     Source Attribution          :milestone, p2, 2026-09, 0d
-    
+
     section Phase 3
     Advanced MCP Security       :p3, 2026-10, 3M
     Mutual TLS                  :milestone, p3, 2026-10, 0d
     API Rate Limiting           :milestone, p3, 2026-11, 0d
     Request Authentication      :milestone, p3, 2026-12, 0d
-    
+
     section Phase 4
     CDN Integration             :p4, 2027-01, 3M
     CloudFlare Integration      :milestone, p4, 2027-01, 0d
@@ -53,7 +75,8 @@ gantt
 
 ## 🔍 Phase 1: Enhanced Monitoring (Q2 2026)
 
-**Goal**: Implement comprehensive monitoring for proactive security and performance management.
+**Goal**: Implement comprehensive monitoring for proactive security and
+performance management.
 
 ### 1.1 Uptime Monitoring
 
@@ -79,7 +102,7 @@ jobs:
             echo "::error::Website returned $response"
             exit 1
           fi
-      
+
       - name: Validate Content Integrity
         run: |
           content=$(curl -s https://euparliamentmonitor.com/index-en.html)
@@ -90,6 +113,7 @@ jobs:
 ```
 
 **Metrics Tracked:**
+
 - HTTP response codes
 - Response time (latency)
 - Content availability
@@ -97,6 +121,7 @@ jobs:
 - DNS resolution time
 
 **Alerting:**
+
 - Slack/Discord notifications on downtime
 - Email alerts for SSL expiry (30 days before)
 - GitHub Issues auto-created for incidents
@@ -107,10 +132,11 @@ jobs:
 
 ```html
 <!-- Add to article-template.js -->
-<script src="https://browser.sentry-cdn.com/7.x.x/bundle.min.js" 
-        integrity="sha384-..."
-        crossorigin="anonymous">
-</script>
+<script
+  src="https://browser.sentry-cdn.com/7.x.x/bundle.min.js"
+  integrity="sha384-..."
+  crossorigin="anonymous"
+></script>
 <script>
   Sentry.init({
     dsn: 'https://...@sentry.io/...',
@@ -119,12 +145,13 @@ jobs:
     beforeSend(event) {
       // Filter out PII, only track errors
       return event;
-    }
+    },
   });
 </script>
 ```
 
 **Error Categories:**
+
 - JavaScript errors (if any future JS added)
 - Resource loading failures
 - CSP violations
@@ -159,6 +186,7 @@ jobs:
 ```
 
 **Metrics:**
+
 - Performance score (target: > 90)
 - Accessibility score (target: 100)
 - Best Practices score (target: 100)
@@ -176,14 +204,15 @@ export function generateSecurityDashboard() {
     codeQlFindings: fetchCodeQLFindings(),
     testCoverage: parseVitestCoverage(),
     uptime: fetchUptimeMetrics(),
-    deployments: fetchGitHubActions()
+    deployments: fetchGitHubActions(),
   };
-  
+
   return generateHTMLDashboard(metrics);
 }
 ```
 
 **Dashboard Components:**
+
 - Vulnerability count (target: 0)
 - Test coverage trend
 - Deployment success rate
@@ -194,7 +223,8 @@ export function generateSecurityDashboard() {
 
 ## 🔐 Phase 2: Content Verification (Q3 2026)
 
-**Goal**: Implement cryptographic verification to ensure content integrity and authenticity.
+**Goal**: Implement cryptographic verification to ensure content integrity and
+authenticity.
 
 ### 2.1 Digital Signatures for Articles
 
@@ -207,22 +237,23 @@ import { readFileSync, writeFileSync } from 'fs';
 
 export function signArticle(articlePath) {
   const content = readFileSync(articlePath, 'utf-8');
-  const signature = execSync(
-    'gpg --clearsign --armor',
-    { input: content, encoding: 'utf-8' }
-  );
-  
+  const signature = execSync('gpg --clearsign --armor', {
+    input: content,
+    encoding: 'utf-8',
+  });
+
   // Embed signature in HTML meta tag
   const signedContent = content.replace(
     '</head>',
     `  <meta name="signature" content="${signature}">\n</head>`
   );
-  
+
   writeFileSync(articlePath, signedContent);
 }
 ```
 
 **Signature Verification:**
+
 - Public key published in repository
 - Verification instructions in footer
 - Automated verification tool
@@ -246,7 +277,7 @@ import { readdirSync, readFileSync, writeFileSync } from 'fs';
 
 export function generateChecksums(directory) {
   const checksums = {};
-  
+
   const files = readdirSync(directory, { recursive: true });
   for (const file of files) {
     if (file.endsWith('.html')) {
@@ -255,7 +286,7 @@ export function generateChecksums(directory) {
       checksums[file] = hash;
     }
   }
-  
+
   writeFileSync(
     `${directory}/checksums.json`,
     JSON.stringify(checksums, null, 2)
@@ -264,6 +295,7 @@ export function generateChecksums(directory) {
 ```
 
 **Checksum Verification:**
+
 ```json
 // news/checksums.json
 {
@@ -289,15 +321,16 @@ export function recordGeneration(article, metadata) {
     generator_version: metadata.generatorVersion,
     source_data_hash: metadata.sourceDataHash,
     commit_sha: process.env.GITHUB_SHA,
-    workflow_run: process.env.GITHUB_RUN_ID
+    workflow_run: process.env.GITHUB_RUN_ID,
   };
-  
+
   // Append to audit log (Git-tracked)
   appendAuditLog('news/audit-trail.jsonl', auditEntry);
 }
 ```
 
 **Audit Trail Query:**
+
 ```bash
 # Find all articles generated from specific EP data
 jq -r 'select(.source_data_hash == "abc123") | .article_id' \
@@ -330,9 +363,10 @@ jq -r 'select(.source_data_hash == "abc123") | .article_id' \
   </ul>
   <p>
     <small>
-      Generated: 2026-03-01T06:15:32Z |
-      MCP Version: 1.2.3 |
-      Commit: <a href="https://github.com/Hack23/euparliamentmonitor/commit/...">abc123d</a>
+      Generated: 2026-03-01T06:15:32Z | MCP Version: 1.2.3 | Commit:
+      <a href="https://github.com/Hack23/euparliamentmonitor/commit/..."
+        >abc123d</a
+      >
     </small>
   </p>
 </div>
@@ -342,7 +376,8 @@ jq -r 'select(.source_data_hash == "abc123") | .article_id' \
 
 ## 🔒 Phase 3: Advanced MCP Security (Q4 2026)
 
-**Goal**: Secure MCP communication with authentication, encryption, and rate limiting.
+**Goal**: Secure MCP communication with authentication, encryption, and rate
+limiting.
 
 ### 3.1 Mutual TLS for MCP Communication
 
@@ -361,10 +396,10 @@ export class SecureEPMCPClient extends EuropeanParliamentMCPClient {
       key: readFileSync(options.clientKey),
       ca: readFileSync(options.serverCA),
       minVersion: 'TLSv1.3',
-      ciphers: 'TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256'
+      ciphers: 'TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256',
     };
   }
-  
+
   async connect() {
     this.process = spawn('node', [this.serverPath], {
       stdio: ['pipe', 'pipe', 'pipe'],
@@ -372,10 +407,10 @@ export class SecureEPMCPClient extends EuropeanParliamentMCPClient {
         ...process.env,
         MCP_TLS_CERT: this.tlsConfig.cert,
         MCP_TLS_KEY: this.tlsConfig.key,
-        MCP_TLS_CA: this.tlsConfig.ca
-      }
+        MCP_TLS_CA: this.tlsConfig.ca,
+      },
     });
-    
+
     // TLS handshake verification
     await this.verifyTLSConnection();
   }
@@ -383,6 +418,7 @@ export class SecureEPMCPClient extends EuropeanParliamentMCPClient {
 ```
 
 **Certificate Management:**
+
 - GitHub Secrets for private keys
 - Automated rotation (90-day cycle)
 - Certificate pinning for server verification
@@ -399,17 +435,17 @@ export class RateLimiter {
     this.windowMs = windowMs;
     this.requests = [];
   }
-  
+
   async checkLimit() {
     const now = Date.now();
-    this.requests = this.requests.filter(time => now - time < this.windowMs);
-    
+    this.requests = this.requests.filter((time) => now - time < this.windowMs);
+
     if (this.requests.length >= this.maxRequests) {
       const oldestRequest = Math.min(...this.requests);
       const waitTime = this.windowMs - (now - oldestRequest);
       throw new Error(`Rate limit exceeded. Retry after ${waitTime}ms`);
     }
-    
+
     this.requests.push(now);
   }
 }
@@ -431,48 +467,46 @@ import { createHmac } from 'crypto';
 export function signRequest(request, secret) {
   const timestamp = Date.now();
   const nonce = crypto.randomBytes(16).toString('hex');
-  
+
   const payload = JSON.stringify({
     method: request.method,
     params: request.params,
     timestamp,
-    nonce
+    nonce,
   });
-  
-  const signature = createHmac('sha256', secret)
-    .update(payload)
-    .digest('hex');
-  
+
+  const signature = createHmac('sha256', secret).update(payload).digest('hex');
+
   return {
     ...request,
     auth: {
       timestamp,
       nonce,
-      signature
-    }
+      signature,
+    },
   };
 }
 
 export function verifyRequest(request, secret, maxAge = 300000) {
   const now = Date.now();
-  
+
   // Check timestamp freshness (5 min window)
   if (now - request.auth.timestamp > maxAge) {
     throw new Error('Request expired');
   }
-  
+
   // Recompute signature
   const payload = JSON.stringify({
     method: request.method,
     params: request.params,
     timestamp: request.auth.timestamp,
-    nonce: request.auth.nonce
+    nonce: request.auth.nonce,
   });
-  
+
   const expectedSignature = createHmac('sha256', secret)
     .update(payload)
     .digest('hex');
-  
+
   if (expectedSignature !== request.auth.signature) {
     throw new Error('Invalid signature');
   }
@@ -504,12 +538,12 @@ const plenarySessionSchema = {
         properties: {
           item_id: { type: 'string' },
           title: { type: 'string' },
-          description: { type: 'string' }
-        }
-      }
-    }
+          description: { type: 'string' },
+        },
+      },
+    },
   },
-  additionalProperties: false
+  additionalProperties: false,
 };
 
 const validatePlenarySession = ajv.compile(plenarySessionSchema);
@@ -517,12 +551,12 @@ const validatePlenarySession = ajv.compile(plenarySessionSchema);
 export function validateMCPResponse(response, schema) {
   const validate = ajv.compile(schema);
   const valid = validate(response);
-  
+
   if (!valid) {
     console.error('Validation errors:', validate.errors);
     throw new Error('Invalid MCP response schema');
   }
-  
+
   return response;
 }
 ```
@@ -531,7 +565,8 @@ export function validateMCPResponse(response, schema) {
 
 ## 🌐 Phase 4: CDN Integration (Q1 2027)
 
-**Goal**: Global content delivery with advanced DDoS protection and performance optimization.
+**Goal**: Global content delivery with advanced DDoS protection and performance
+optimization.
 
 ### 4.1 CloudFlare Integration
 
@@ -550,10 +585,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Generate News
         run: npm run generate-news
-      
+
       - name: Deploy to CloudFlare Pages
         uses: cloudflare/pages-action@v1
         with:
@@ -565,6 +600,7 @@ jobs:
 ```
 
 **CloudFlare Configuration:**
+
 ```toml
 # cloudflare-pages.toml
 [build]
@@ -607,34 +643,37 @@ Cache-Control = "public, max-age=86400, immutable"
 // CloudFlare WAF Rules Configuration
 const wafRules = [
   {
-    description: "Block SQL injection attempts",
-    expression: "(http.request.uri.query contains \"' OR 1=1\" or http.request.uri.query contains \"UNION SELECT\")",
-    action: "block"
+    description: 'Block SQL injection attempts',
+    expression:
+      '(http.request.uri.query contains "\' OR 1=1" or http.request.uri.query contains "UNION SELECT")',
+    action: 'block',
   },
   {
-    description: "Block XSS attempts",
-    expression: "(http.request.uri.query contains \"<script\" or http.request.uri.query contains \"javascript:\")",
-    action: "block"
+    description: 'Block XSS attempts',
+    expression:
+      '(http.request.uri.query contains "<script" or http.request.uri.query contains "javascript:")',
+    action: 'block',
   },
   {
-    description: "Rate limit per IP",
-    expression: "(cf.threat_score > 14)",
-    action: "challenge"
+    description: 'Rate limit per IP',
+    expression: '(cf.threat_score > 14)',
+    action: 'challenge',
   },
   {
-    description: "Block known bad bots",
-    expression: "(cf.bot_management.score < 30)",
-    action: "block"
+    description: 'Block known bad bots',
+    expression: '(cf.bot_management.score < 30)',
+    action: 'block',
   },
   {
-    description: "OWASP ModSecurity Core Rule Set",
-    expression: "cf.waf.score > 10",
-    action: "challenge"
-  }
+    description: 'OWASP ModSecurity Core Rule Set',
+    expression: 'cf.waf.score > 10',
+    action: 'challenge',
+  },
 ];
 ```
 
 **WAF Protection Layers:**
+
 - OWASP Top 10 protection
 - DDoS mitigation (L3/L4/L7)
 - Bot management
@@ -651,18 +690,18 @@ graph TB
         L3[Network Layer<br/>SYN Flood Protection]
         L4[Transport Layer<br/>UDP Flood Protection]
     end
-    
+
     subgraph "Layer 7 Protection"
         L7[Application Layer<br/>HTTP Flood Protection]
         RATE[Rate Limiting<br/>Per IP/Country]
         BOT[Bot Management<br/>Challenge Bad Bots]
     end
-    
+
     subgraph "CloudFlare CDN"
         EDGE[Edge Nodes<br/>Global Distribution]
         CACHE[Caching<br/>Reduce Origin Load]
     end
-    
+
     ATTACK[DDoS Attack] --> L3
     L3 --> L4
     L4 --> L7
@@ -671,7 +710,7 @@ graph TB
     BOT --> EDGE
     EDGE --> CACHE
     CACHE --> ORIGIN[GitHub Pages<br/>Origin Server]
-    
+
     style ATTACK fill:#ffe1e1
     style L3 fill:#e1f5ff
     style L4 fill:#e1f5ff
@@ -684,6 +723,7 @@ graph TB
 ```
 
 **DDoS Mitigation Strategy:**
+
 1. **Anycast Network**: Distribute attack across global edge nodes
 2. **Rate Limiting**: 100 req/min per IP, 10,000 req/min per country
 3. **Challenge**: CAPTCHA for suspicious traffic
@@ -696,34 +736,44 @@ graph TB
 
 ```javascript
 // CloudFlare Edge Workers for intelligent routing
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
+addEventListener('fetch', (event) => {
+  event.respondWith(handleRequest(event.request));
 });
 
 async function handleRequest(request) {
   const url = new URL(request.url);
   const country = request.cf.country;
-  
+
   // Redirect to localized content based on country
   const languageMap = {
-    'DE': 'de', 'FR': 'fr', 'ES': 'es', 'IT': 'it',
-    'NL': 'nl', 'PL': 'pl', 'PT': 'pt', 'RO': 'ro',
-    'SE': 'sv', 'DK': 'da', 'FI': 'fi', 'GR': 'el',
-    'HU': 'hu'
+    DE: 'de',
+    FR: 'fr',
+    ES: 'es',
+    IT: 'it',
+    NL: 'nl',
+    PL: 'pl',
+    PT: 'pt',
+    RO: 'ro',
+    SE: 'sv',
+    DK: 'da',
+    FI: 'fi',
+    GR: 'el',
+    HU: 'hu',
   };
-  
+
   const lang = languageMap[country] || 'en';
-  
+
   if (url.pathname === '/') {
     return Response.redirect(`/index-${lang}.html`, 302);
   }
-  
+
   // Serve from cache or origin
   return fetch(request);
 }
 ```
 
 **Geographic Features:**
+
 - Automatic language selection based on IP geolocation
 - Edge caching in 200+ cities worldwide
 - <50ms latency for 95% of global users
@@ -740,6 +790,7 @@ async function handleRequest(request) {
 **Threat**: Deepfake parliamentary videos, AI-generated fake quotes
 
 **Mitigation Strategy**:
+
 - Digital signatures for all content
 - Source attribution with EP API data hashes
 - Fact-checking partnerships (future)
@@ -750,6 +801,7 @@ async function handleRequest(request) {
 **Threat**: Compromise of CloudFlare or CDN provider
 
 **Mitigation Strategy**:
+
 - Subresource Integrity (SRI) for all external resources
 - Multi-CDN strategy (CloudFlare + GitHub Pages fallback)
 - Certificate pinning
@@ -760,6 +812,7 @@ async function handleRequest(request) {
 **Threat**: State-sponsored actors targeting political intelligence platforms
 
 **Mitigation Strategy**:
+
 - Enhanced monitoring and anomaly detection
 - Incident response playbooks
 - Regular security audits
@@ -770,6 +823,7 @@ async function handleRequest(request) {
 **Threat**: Stricter data protection laws (ePrivacy Regulation, DMA, DSA)
 
 **Mitigation Strategy**:
+
 - No tracking architecture maintained
 - Privacy-by-design principles
 - Regular legal compliance reviews
@@ -781,39 +835,39 @@ async function handleRequest(request) {
 
 ### Phase 1 Targets (Q2 2026)
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| Uptime | > 99.9% | Pingdom monitoring |
-| Response Time | < 500ms (p95) | Lighthouse CI |
-| Error Rate | < 0.1% | Sentry tracking |
-| Security Dashboard | Live | Custom dashboard |
+| Metric             | Target        | Measurement        |
+| ------------------ | ------------- | ------------------ |
+| Uptime             | > 99.9%       | Pingdom monitoring |
+| Response Time      | < 500ms (p95) | Lighthouse CI      |
+| Error Rate         | < 0.1%        | Sentry tracking    |
+| Security Dashboard | Live          | Custom dashboard   |
 
 ### Phase 2 Targets (Q3 2026)
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| Articles Signed | 100% | Digital signatures |
-| Checksum Coverage | 100% | SHA-256 checksums |
-| Audit Trail Entries | 100% | JSONL audit log |
-| Source Attribution | 100% | EP API references |
+| Metric              | Target | Measurement        |
+| ------------------- | ------ | ------------------ |
+| Articles Signed     | 100%   | Digital signatures |
+| Checksum Coverage   | 100%   | SHA-256 checksums  |
+| Audit Trail Entries | 100%   | JSONL audit log    |
+| Source Attribution  | 100%   | EP API references  |
 
 ### Phase 3 Targets (Q4 2026)
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| TLS Encryption | 100% | Mutual TLS |
-| Rate Limit Violations | < 1% | Token bucket |
-| Authentication Failures | 0 | HMAC signatures |
-| Schema Validation | 100% | JSON Schema |
+| Metric                  | Target | Measurement     |
+| ----------------------- | ------ | --------------- |
+| TLS Encryption          | 100%   | Mutual TLS      |
+| Rate Limit Violations   | < 1%   | Token bucket    |
+| Authentication Failures | 0      | HMAC signatures |
+| Schema Validation       | 100%   | JSON Schema     |
 
 ### Phase 4 Targets (Q1 2027)
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| CDN Cache Hit Rate | > 95% | CloudFlare analytics |
-| Global Latency (p95) | < 50ms | Edge metrics |
-| DDoS Attacks Mitigated | 100% | WAF logs |
-| Multi-Region Availability | 100% | Anycast network |
+| Metric                    | Target | Measurement          |
+| ------------------------- | ------ | -------------------- |
+| CDN Cache Hit Rate        | > 95%  | CloudFlare analytics |
+| Global Latency (p95)      | < 50ms | Edge metrics         |
+| DDoS Attacks Mitigated    | 100%   | WAF logs             |
+| Multi-Region Availability | 100%   | Anycast network      |
 
 ---
 
@@ -821,20 +875,21 @@ async function handleRequest(request) {
 
 ### Budget Estimates
 
-| Phase | Component | Estimated Cost (Annual) |
-|-------|-----------|-------------------------|
-| Phase 1 | Pingdom/StatusCake | $15/month = $180 |
-| Phase 1 | Sentry (10K events/month) | $26/month = $312 |
-| Phase 1 | Lighthouse CI | Free (GitHub Actions) |
-| Phase 2 | GPG Key Management | Free (self-managed) |
-| Phase 2 | Audit Trail Storage | Free (Git repository) |
-| Phase 3 | TLS Certificates | Free (Let's Encrypt) |
-| Phase 3 | Enhanced MCP Server | Development time only |
-| Phase 4 | CloudFlare Pages Pro | $20/month = $240 |
-| Phase 4 | CloudFlare WAF | $5/month = $60 |
-| **Total** | **Annual Security Investment** | **~$800/year** |
+| Phase     | Component                      | Estimated Cost (Annual) |
+| --------- | ------------------------------ | ----------------------- |
+| Phase 1   | Pingdom/StatusCake             | $15/month = $180        |
+| Phase 1   | Sentry (10K events/month)      | $26/month = $312        |
+| Phase 1   | Lighthouse CI                  | Free (GitHub Actions)   |
+| Phase 2   | GPG Key Management             | Free (self-managed)     |
+| Phase 2   | Audit Trail Storage            | Free (Git repository)   |
+| Phase 3   | TLS Certificates               | Free (Let's Encrypt)    |
+| Phase 3   | Enhanced MCP Server            | Development time only   |
+| Phase 4   | CloudFlare Pages Pro           | $20/month = $240        |
+| Phase 4   | CloudFlare WAF                 | $5/month = $60          |
+| **Total** | **Annual Security Investment** | **~$800/year**          |
 
 **ROI Justification:**
+
 - Reduced incident response costs
 - Enhanced credibility and trust
 - Compliance with evolving regulations
@@ -847,21 +902,25 @@ async function handleRequest(request) {
 ### Q2 2026: Enhanced Monitoring
 
 **Week 1-2**: Setup uptime monitoring
+
 - Configure Pingdom/StatusCake
 - Create alert rules
 - Test notification channels
 
 **Week 3-4**: Implement error tracking
+
 - Integrate Sentry
 - Configure error filtering
 - Setup alerting
 
 **Week 5-6**: Performance monitoring
+
 - Setup Lighthouse CI
 - Create performance budgets
 - Automate regression detection
 
 **Week 7-8**: Security dashboard
+
 - Design dashboard layout
 - Implement metrics collection
 - Deploy to GitHub Pages
@@ -869,21 +928,25 @@ async function handleRequest(request) {
 ### Q3 2026: Content Verification
 
 **Week 1-2**: Digital signatures
+
 - Generate GPG keys
 - Implement signing workflow
 - Document verification process
 
 **Week 3-4**: Checksums
+
 - Implement SHA-256 generation
 - Create verification tools
 - Automate checksum updates
 
 **Week 5-6**: Audit trail
+
 - Design audit log schema
 - Implement logging
 - Create query tools
 
 **Week 7-8**: Source attribution
+
 - Embed EP API references
 - Add data hash tracking
 - Update article templates
@@ -891,21 +954,25 @@ async function handleRequest(request) {
 ### Q4 2026: Advanced MCP Security
 
 **Week 1-2**: Mutual TLS
+
 - Generate certificates
 - Implement TLS handshake
 - Test certificate rotation
 
 **Week 3-4**: Rate limiting
+
 - Implement token bucket
 - Test rate limits
 - Add monitoring
 
 **Week 5-6**: Request authentication
+
 - Implement HMAC signing
 - Test signature verification
 - Add timestamp validation
 
 **Week 7-8**: Schema validation
+
 - Define JSON schemas
 - Implement validation
 - Test error handling
@@ -913,21 +980,25 @@ async function handleRequest(request) {
 ### Q1 2027: CDN Integration
 
 **Week 1-2**: CloudFlare setup
+
 - Create CloudFlare account
 - Configure Pages project
 - Test deployment
 
 **Week 3-4**: WAF configuration
+
 - Enable WAF rules
 - Test OWASP protection
 - Configure rate limiting
 
 **Week 5-6**: DDoS protection
+
 - Enable Under Attack mode
 - Test challenge pages
 - Configure bot management
 
 **Week 7-8**: Edge optimization
+
 - Implement Edge Workers
 - Test geographic routing
 - Optimize caching
@@ -938,10 +1009,10 @@ async function handleRequest(request) {
 
 ### Quarterly Reviews
 
-**Q2 2026**: Phase 1 completion review
-**Q3 2026**: Phase 2 completion review
-**Q4 2026**: Phase 3 completion review
-**Q1 2027**: Phase 4 completion review
+- **Q2 2026**: Phase 1 completion review
+- **Q3 2026**: Phase 2 completion review
+- **Q4 2026**: Phase 3 completion review
+- **Q1 2027**: Phase 4 completion review
 
 ### Annual Security Review (Q4 2027)
 
