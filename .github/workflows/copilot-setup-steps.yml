@@ -114,6 +114,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      # Cache global npm packages for MCP servers (restore before install for speed)
+      - name: Cache global npm packages
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: |
+            ~/.npm
+            /usr/local/lib/node_modules
+            /usr/local/bin/mcp-server-*
+            /usr/local/bin/european-parliament-mcp-server
+          key: ${{ runner.os }}-mcp-servers-v4-${{ hashFiles('.github/copilot-mcp.json') }}
+          restore-keys: |
+            ${{ runner.os }}-mcp-servers-v4-
+
       # Pre-install MCP server packages globally
       - name: Install MCP server packages globally
         run: |
@@ -131,19 +144,6 @@ jobs:
           npm install -g european-parliament-mcp-server
                     
           echo "✅ Node.js MCP server packages installed globally"
-
-      # Cache global npm packages for MCP servers
-      - name: Cache global npm packages
-        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
-        with:
-          path: |
-            ~/.npm
-            /usr/local/lib/node_modules
-            /usr/local/bin/mcp-server-*
-            /usr/local/bin/european-parliament-mcp-server
-          key: ${{ runner.os }}-mcp-servers-v4-${{ hashFiles('.github/copilot-mcp.json') }}
-          restore-keys: |
-            ${{ runner.os }}-mcp-servers-v4-
 
       # Verify all MCP server installations
       - name: Verify MCP server installations
