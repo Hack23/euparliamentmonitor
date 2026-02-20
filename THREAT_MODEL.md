@@ -1,17 +1,36 @@
-# Threat Model - EU Parliament Monitor
+<p align="center">
+  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
+</p>
 
-**Document Classification:** Public  
-**Version:** 1.0  
-**Last Updated:** 2026-02-18  
-**Next Review:** 2026-05-18 (Quarterly)  
-**Owner:** Security Team / CEO  
-**Status:** 🟢 Living Document
+<h1 align="center">🎯 EU Parliament Monitor — Threat Model</h1>
+
+<p align="center">
+  <strong>STRIDE Threat Analysis for European Parliament Intelligence Platform</strong><br>
+  <em>🔍 Risk Assessment • 🛡️ Attack Surface Analysis • 📊 Mitigation Planning</em>
+</p>
+
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--18-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
+</p>
+
+**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:**
+2026-02-18 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-18  
+**🏷️ Classification:** Public | **🟢 Status:** Living Document
 
 ---
 
 ## Executive Summary
 
-This threat model provides a comprehensive security analysis of the EU Parliament Monitor system following the [Hack23 ISMS Threat Modeling Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md). The analysis applies the STRIDE framework, integrates MITRE ATT&CK tactics and techniques, and provides risk-based prioritization aligned with the system's classification ([CLASSIFICATION.md](CLASSIFICATION.md): Public/Medium/Medium).
+This threat model provides a comprehensive security analysis of the EU
+Parliament Monitor system following the
+[Hack23 ISMS Threat Modeling Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md).
+The analysis applies the STRIDE framework, integrates MITRE ATT&CK tactics and
+techniques, and provides risk-based prioritization aligned with the system's
+classification ([CLASSIFICATION.md](CLASSIFICATION.md): Public/Medium/Medium).
 
 ### Key Findings
 
@@ -24,10 +43,14 @@ This threat model provides a comprehensive security analysis of the EU Parliamen
 - **Primary Security Focus:** Data integrity and supply chain security
 - **Defense Posture:** Multi-layer defense-in-depth with 25+ security controls
 
-**System Classification Foundation (from [CLASSIFICATION.md](CLASSIFICATION.md)):**
+**System Classification Foundation (from
+[CLASSIFICATION.md](CLASSIFICATION.md)):**
+
 - **Confidentiality:** Public (Level 1) - European Parliament open data
-- **Integrity:** Medium (Level 2) - News accuracy critical for democratic transparency
-- **Availability:** Medium (Level 2) - Daily updates expected, 24h outage acceptable
+- **Integrity:** Medium (Level 2) - News accuracy critical for democratic
+  transparency
+- **Availability:** Medium (Level 2) - Daily updates expected, 24h outage
+  acceptable
 - **RTO/RPO:** 24 hours / 1 day
 
 ---
@@ -36,18 +59,19 @@ This threat model provides a comprehensive security analysis of the EU Parliamen
 
 ### Threat T-001: Cross-Site Scripting (XSS) via Parliamentary Data Injection
 
-| Attribute | Value |
-|-----------|-------|
-| **Threat ID** | T-001 |
-| **STRIDE Category** | Injection, Tampering |
-| **MITRE ATT&CK** | T1189 (Drive-by Compromise), T1059 (Command and Script Interpreter) |
-| **Threat Agent** | Malicious Insider, Nation-State Actor, Cybercriminal |
-| **Likelihood** | Low (1/5) |
-| **Impact** | Medium (3/5) - Integrity risk, user trust damage |
-| **Risk Score** | Low (3/25) |
-| **Priority** | P3 |
+| Attribute           | Value                                                               |
+| ------------------- | ------------------------------------------------------------------- |
+| **Threat ID**       | T-001                                                               |
+| **STRIDE Category** | Injection, Tampering                                                |
+| **MITRE ATT&CK**    | T1189 (Drive-by Compromise), T1059 (Command and Script Interpreter) |
+| **Threat Agent**    | Malicious Insider, Nation-State Actor, Cybercriminal                |
+| **Likelihood**      | Low (1/5)                                                           |
+| **Impact**          | Medium (3/5) - Integrity risk, user trust damage                    |
+| **Risk Score**      | Low (3/25)                                                          |
+| **Priority**        | P3                                                                  |
 
 **Existing Controls:**
+
 - ✅ Content Security Policy (CSP) headers
 - ✅ Handlebars auto-escaping
 - ✅ Input validation for EP data
@@ -62,18 +86,19 @@ This threat model provides a comprehensive security analysis of the EU Parliamen
 
 ### Threat T-002: Supply Chain Attack via npm Dependencies
 
-| Attribute | Value |
-|-----------|-------|
-| **Threat ID** | T-002 |
-| **STRIDE Category** | Elevation of Privilege, Tampering |
-| **MITRE ATT&CK** | T1195.002 (Compromise Software Supply Chain), T1608.001 (Upload Malware) |
-| **Threat Agent** | Cybercriminal, Nation-State Actor |
-| **Likelihood** | Low (1/5) |
-| **Impact** | High (4/5) - Could compromise build process |
-| **Risk Score** | Low (4/25) |
-| **Priority** | P2 |
+| Attribute           | Value                                                                    |
+| ------------------- | ------------------------------------------------------------------------ |
+| **Threat ID**       | T-002                                                                    |
+| **STRIDE Category** | Elevation of Privilege, Tampering                                        |
+| **MITRE ATT&CK**    | T1195.002 (Compromise Software Supply Chain), T1608.001 (Upload Malware) |
+| **Threat Agent**    | Cybercriminal, Nation-State Actor                                        |
+| **Likelihood**      | Low (1/5)                                                                |
+| **Impact**          | High (4/5) - Could compromise build process                              |
+| **Risk Score**      | Low (4/25)                                                               |
+| **Priority**        | P2                                                                       |
 
 **Existing Controls:**
+
 - ✅ Minimal dependencies (zero production, 17 dev-only)
 - ✅ Dependabot automated vulnerability scanning
 - ✅ SBOM generation (CycloneDX format)
@@ -88,18 +113,19 @@ This threat model provides a comprehensive security analysis of the EU Parliamen
 
 ### Threat T-003: Data Integrity - Incorrect News Generation ⚠️ P1
 
-| Attribute | Value |
-|-----------|-------|
-| **Threat ID** | T-003 |
-| **STRIDE Category** | Tampering, Information Disclosure |
-| **MITRE ATT&CK** | T1565.001 (Stored Data Manipulation), T1499 (Endpoint Denial of Service) |
-| **Threat Agent** | Accidental Insider, LLM Model Error, EP API Changes |
-| **Likelihood** | Medium (3/5) |
-| **Impact** | Medium (3/5) - News accuracy critical for democracy |
-| **Risk Score** | Medium (9/25) |
-| **Priority** | **P1** (Requires Additional Controls) |
+| Attribute           | Value                                                                    |
+| ------------------- | ------------------------------------------------------------------------ |
+| **Threat ID**       | T-003                                                                    |
+| **STRIDE Category** | Tampering, Information Disclosure                                        |
+| **MITRE ATT&CK**    | T1565.001 (Stored Data Manipulation), T1499 (Endpoint Denial of Service) |
+| **Threat Agent**    | Accidental Insider, LLM Model Error, EP API Changes                      |
+| **Likelihood**      | Medium (3/5)                                                             |
+| **Impact**          | Medium (3/5) - News accuracy critical for democracy                      |
+| **Risk Score**      | Medium (9/25)                                                            |
+| **Priority**        | **P1** (Requires Additional Controls)                                    |
 
 **Existing Controls:**
+
 - ✅ Schema validation for EP data
 - ✅ Type checking (JavaScript with JSDoc)
 - ✅ Error logging
@@ -111,6 +137,7 @@ This threat model provides a comprehensive security analysis of the EU Parliamen
 **Risk Treatment:** Reduce Risk - Implement additional controls
 
 **Recommendations (Q3 2026):**
+
 1. 🔄 Automated fact-checking pipeline
 2. 🔄 Confidence scoring (0.0-1.0) for each article
 3. 🔄 Human-in-the-loop review queue (<0.85 confidence)
@@ -122,18 +149,19 @@ This threat model provides a comprehensive security analysis of the EU Parliamen
 
 ### Threat T-004: Denial of Service - GitHub Actions Downtime
 
-| Attribute | Value |
-|-----------|-------|
-| **Threat ID** | T-004 |
-| **STRIDE Category** | Denial of Service |
-| **MITRE ATT&CK** | T1499 (Endpoint Denial of Service), T1498 (Network Denial of Service) |
-| **Threat Agent** | External Service Provider, Cyber Vandal, Hacktivist |
-| **Likelihood** | Low (1/5) |
-| **Impact** | Low (2/5) - 24h RTO acceptable per classification |
-| **Risk Score** | Low (2/25) |
-| **Priority** | P3 |
+| Attribute           | Value                                                                 |
+| ------------------- | --------------------------------------------------------------------- |
+| **Threat ID**       | T-004                                                                 |
+| **STRIDE Category** | Denial of Service                                                     |
+| **MITRE ATT&CK**    | T1499 (Endpoint Denial of Service), T1498 (Network Denial of Service) |
+| **Threat Agent**    | External Service Provider, Cyber Vandal, Hacktivist                   |
+| **Likelihood**      | Low (1/5)                                                             |
+| **Impact**          | Low (2/5) - 24h RTO acceptable per classification                     |
+| **Risk Score**      | Low (2/25)                                                            |
+| **Priority**        | P3                                                                    |
 
 **Existing Controls:**
+
 - ✅ GitHub infrastructure (multi-region redundancy)
 - ✅ Manual workflow trigger available
 - ✅ Cached content remains online
@@ -142,24 +170,26 @@ This threat model provides a comprehensive security analysis of the EU Parliamen
 
 **Residual Risk:** Low - Within acceptable RTO/RPO
 
-**Risk Treatment:** Accept - Availability Medium classification tolerates 24h outages
+**Risk Treatment:** Accept - Availability Medium classification tolerates 24h
+outages
 
 ---
 
 ### Threat T-005: Repository Compromise - Unauthorized Code Changes
 
-| Attribute | Value |
-|-----------|-------|
-| **Threat ID** | T-005 |
-| **STRIDE Category** | Tampering, Elevation of Privilege |
-| **MITRE ATT&CK** | T1078 (Valid Accounts), T1190 (Exploit Public-Facing Application) |
-| **Threat Agent** | Malicious Insider, Cybercriminal |
-| **Likelihood** | Low (1/5) |
-| **Impact** | High (4/5) - Could compromise entire site |
-| **Risk Score** | Low (4/25) |
-| **Priority** | P2 |
+| Attribute           | Value                                                             |
+| ------------------- | ----------------------------------------------------------------- |
+| **Threat ID**       | T-005                                                             |
+| **STRIDE Category** | Tampering, Elevation of Privilege                                 |
+| **MITRE ATT&CK**    | T1078 (Valid Accounts), T1190 (Exploit Public-Facing Application) |
+| **Threat Agent**    | Malicious Insider, Cybercriminal                                  |
+| **Likelihood**      | Low (1/5)                                                         |
+| **Impact**          | High (4/5) - Could compromise entire site                         |
+| **Risk Score**      | Low (4/25)                                                        |
+| **Priority**        | P2                                                                |
 
 **Existing Controls:**
+
 - ✅ Branch protection (protected main branch)
 - ✅ Required pull request reviews
 - ✅ MFA requirement (GitHub organization)
@@ -176,25 +206,27 @@ This threat model provides a comprehensive security analysis of the EU Parliamen
 
 ### Threat T-006: MCP Server Compromise
 
-| Attribute | Value |
-|-----------|-------|
-| **Threat ID** | T-006 |
-| **STRIDE Category** | Spoofing, Tampering |
-| **MITRE ATT&CK** | T1557 (Adversary-in-the-Middle), T1565 (Data Manipulation) |
-| **Threat Agent** | Nation-State Actor, Advanced Persistent Threat |
-| **Likelihood** | Very Low (0.5/5) |
-| **Impact** | Medium (3/5) - Could manipulate EP data |
-| **Risk Score** | Very Low (1.5/25) |
-| **Priority** | P4 |
+| Attribute           | Value                                                      |
+| ------------------- | ---------------------------------------------------------- |
+| **Threat ID**       | T-006                                                      |
+| **STRIDE Category** | Spoofing, Tampering                                        |
+| **MITRE ATT&CK**    | T1557 (Adversary-in-the-Middle), T1565 (Data Manipulation) |
+| **Threat Agent**    | Nation-State Actor, Advanced Persistent Threat             |
+| **Likelihood**      | Very Low (0.5/5)                                           |
+| **Impact**          | Medium (3/5) - Could manipulate EP data                    |
+| **Risk Score**      | Very Low (1.5/25)                                          |
+| **Priority**        | P4                                                         |
 
 **Existing Controls:**
+
 - ✅ Localhost-only binding (127.0.0.1)
 - ✅ Process isolation with limited permissions
 - ✅ Ephemeral execution (start/stop per run)
 - ✅ No persistent state (stateless operation)
 - ✅ GitHub Actions sandbox isolation
 
-**Residual Risk:** Very Low - Local access required (GitHub Actions runner already secured)
+**Residual Risk:** Very Low - Local access required (GitHub Actions runner
+already secured)
 
 **Risk Treatment:** Accept - Existing GitHub Actions isolation sufficient
 
@@ -204,14 +236,14 @@ This threat model provides a comprehensive security analysis of the EU Parliamen
 
 ### Priority-Based Treatment
 
-| Threat ID | Threat Name | Risk Level | Priority | Treatment | Timeline | Owner |
-|-----------|-------------|------------|----------|-----------|----------|-------|
-| **T-003** | Data Integrity - Incorrect News | Medium | P1 | **Reduce** | Q3 2026 | Product Team |
-| T-002 | Supply Chain Attack | Low | P2 | Monitor | Annual Review | Security Team |
-| T-005 | Repository Compromise | Low | P2 | Monitor | Annual Review | Security Team |
-| T-001 | XSS via Data Injection | Low | P3 | Accept | Quarterly Review | Security Team |
-| T-004 | GitHub Actions Downtime | Low | P3 | Accept | Monitor | DevOps Team |
-| T-006 | MCP Server Compromise | Very Low | P4 | Accept | Annual Review | Security Team |
+| Threat ID | Threat Name                     | Risk Level | Priority | Treatment  | Timeline         | Owner         |
+| --------- | ------------------------------- | ---------- | -------- | ---------- | ---------------- | ------------- |
+| **T-003** | Data Integrity - Incorrect News | Medium     | P1       | **Reduce** | Q3 2026          | Product Team  |
+| T-002     | Supply Chain Attack             | Low        | P2       | Monitor    | Annual Review    | Security Team |
+| T-005     | Repository Compromise           | Low        | P2       | Monitor    | Annual Review    | Security Team |
+| T-001     | XSS via Data Injection          | Low        | P3       | Accept     | Quarterly Review | Security Team |
+| T-004     | GitHub Actions Downtime         | Low        | P3       | Accept     | Monitor          | DevOps Team   |
+| T-006     | MCP Server Compromise           | Very Low   | P4       | Accept     | Annual Review    | Security Team |
 
 ### Risk Matrix
 
@@ -245,13 +277,13 @@ V.Low │           │            │           │           │
 
 ### Security Layers
 
-| Layer | Controls | Threats Mitigated | Status |
-|-------|----------|-------------------|--------|
-| **1. Perimeter** | GitHub infrastructure, TLS 1.3, DNS security | T-004 (DoS), T-006 (MITM) | ✅ Implemented |
-| **2. Network** | HTTPS-only, CSP headers, CDN | T-001 (XSS), T-006 (MITM) | ✅ Implemented |
-| **3. Application** | Input validation, output encoding, Handlebars escaping | T-001 (XSS), T-003 (Data Integrity) | ✅ Implemented |
-| **4. Data** | Schema validation, type checking, error logging | T-003 (Data Integrity) | ✅ Implemented |
-| **5. Monitoring** | CodeQL, Dependabot, audit logs, security scanning | T-002 (Supply Chain), T-005 (Compromise) | ✅ Implemented |
+| Layer              | Controls                                               | Threats Mitigated                        | Status         |
+| ------------------ | ------------------------------------------------------ | ---------------------------------------- | -------------- |
+| **1. Perimeter**   | GitHub infrastructure, TLS 1.3, DNS security           | T-004 (DoS), T-006 (MITM)                | ✅ Implemented |
+| **2. Network**     | HTTPS-only, CSP headers, CDN                           | T-001 (XSS), T-006 (MITM)                | ✅ Implemented |
+| **3. Application** | Input validation, output encoding, Handlebars escaping | T-001 (XSS), T-003 (Data Integrity)      | ✅ Implemented |
+| **4. Data**        | Schema validation, type checking, error logging        | T-003 (Data Integrity)                   | ✅ Implemented |
+| **5. Monitoring**  | CodeQL, Dependabot, audit logs, security scanning      | T-002 (Supply Chain), T-005 (Compromise) | ✅ Implemented |
 
 ---
 
@@ -259,46 +291,46 @@ V.Low │           │            │           │           │
 
 ### Architecture Documentation
 
-| Document | Link |
-|----------|------|
-| **CLASSIFICATION.md** | [CLASSIFICATION.md](CLASSIFICATION.md) |
+| Document                     | Link                                                 |
+| ---------------------------- | ---------------------------------------------------- |
+| **CLASSIFICATION.md**        | [CLASSIFICATION.md](CLASSIFICATION.md)               |
 | **SECURITY_ARCHITECTURE.md** | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
-| **ARCHITECTURE.md** | [ARCHITECTURE.md](ARCHITECTURE.md) |
-| **DATA_MODEL.md** | [DATA_MODEL.md](DATA_MODEL.md) |
-| **FLOWCHART.md** | [FLOWCHART.md](FLOWCHART.md) |
-| **STATEDIAGRAM.md** | [STATEDIAGRAM.md](STATEDIAGRAM.md) |
-| **MINDMAP.md** | [MINDMAP.md](MINDMAP.md) |
-| **SWOT.md** | [SWOT.md](SWOT.md) |
+| **ARCHITECTURE.md**          | [ARCHITECTURE.md](ARCHITECTURE.md)                   |
+| **DATA_MODEL.md**            | [DATA_MODEL.md](DATA_MODEL.md)                       |
+| **FLOWCHART.md**             | [FLOWCHART.md](FLOWCHART.md)                         |
+| **STATEDIAGRAM.md**          | [STATEDIAGRAM.md](STATEDIAGRAM.md)                   |
+| **MINDMAP.md**               | [MINDMAP.md](MINDMAP.md)                             |
+| **SWOT.md**                  | [SWOT.md](SWOT.md)                                   |
 
 ### Future Architecture
 
-| Document | Link |
-|----------|------|
+| Document                            | Link                                                               |
+| ----------------------------------- | ------------------------------------------------------------------ |
 | **FUTURE_SECURITY_ARCHITECTURE.md** | [FUTURE_SECURITY_ARCHITECTURE.md](FUTURE_SECURITY_ARCHITECTURE.md) |
-| **FUTURE_ARCHITECTURE.md** | [FUTURE_ARCHITECTURE.md](FUTURE_ARCHITECTURE.md) |
-| **FUTURE_DATA_MODEL.md** | [FUTURE_DATA_MODEL.md](FUTURE_DATA_MODEL.md) |
-| **FUTURE_FLOWCHART.md** | [FUTURE_FLOWCHART.md](FUTURE_FLOWCHART.md) |
-| **FUTURE_STATEDIAGRAM.md** | [FUTURE_STATEDIAGRAM.md](FUTURE_STATEDIAGRAM.md) |
-| **FUTURE_MINDMAP.md** | [FUTURE_MINDMAP.md](FUTURE_MINDMAP.md) |
-| **FUTURE_SWOT.md** | [FUTURE_SWOT.md](FUTURE_SWOT.md) |
+| **FUTURE_ARCHITECTURE.md**          | [FUTURE_ARCHITECTURE.md](FUTURE_ARCHITECTURE.md)                   |
+| **FUTURE_DATA_MODEL.md**            | [FUTURE_DATA_MODEL.md](FUTURE_DATA_MODEL.md)                       |
+| **FUTURE_FLOWCHART.md**             | [FUTURE_FLOWCHART.md](FUTURE_FLOWCHART.md)                         |
+| **FUTURE_STATEDIAGRAM.md**          | [FUTURE_STATEDIAGRAM.md](FUTURE_STATEDIAGRAM.md)                   |
+| **FUTURE_MINDMAP.md**               | [FUTURE_MINDMAP.md](FUTURE_MINDMAP.md)                             |
+| **FUTURE_SWOT.md**                  | [FUTURE_SWOT.md](FUTURE_SWOT.md)                                   |
 
 ### ISMS Policies (Hack23)
 
-| Policy | Link |
-|--------|------|
-| **Threat Modeling Policy** | [Hack23 ISMS - Threat Modeling](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) |
-| **Classification Framework** | [Hack23 ISMS - Classification](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| Policy                        | Link                                                                                                             |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **Threat Modeling Policy**    | [Hack23 ISMS - Threat Modeling](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md)              |
+| **Classification Framework**  | [Hack23 ISMS - Classification](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)                |
 | **Secure Development Policy** | [Hack23 ISMS - Secure Development](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) |
 
 ---
 
 ## Approval and Review
 
-| Role | Name | Date | Signature |
-|------|------|------|-----------|
-| **Security Architect** | Security Team | 2026-02-18 | Approved |
-| **Product Owner** | Product Team | 2026-02-18 | Approved |
-| **CEO / CISO** | CEO | 2026-02-18 | Approved |
+| Role                   | Name          | Date       | Signature |
+| ---------------------- | ------------- | ---------- | --------- |
+| **Security Architect** | Security Team | 2026-02-18 | Approved  |
+| **Product Owner**      | Product Team  | 2026-02-18 | Approved  |
+| **CEO / CISO**         | CEO           | 2026-02-18 | Approved  |
 
 ### Review Schedule
 
@@ -308,14 +340,16 @@ V.Low │           │            │           │           │
 
 ### Change Log
 
-| Version | Date | Author | Changes |
-|---------|------|--------|---------|
-| 1.0 | 2026-02-18 | Security Team | Initial threat model creation per Hack23 ISMS Threat Modeling Policy |
+| Version | Date       | Author        | Changes                                                              |
+| ------- | ---------- | ------------- | -------------------------------------------------------------------- |
+| 1.0     | 2026-02-18 | Security Team | Initial threat model creation per Hack23 ISMS Threat Modeling Policy |
 
 ---
 
 **Document Status:** ✅ Complete and Approved  
-**ISMS Compliance:** 100% - Meets all Hack23 Threat Modeling Policy requirements  
-**Next Action:** Implement P1 control (T-003: Automated content verification) by Q3 2026
+**ISMS Compliance:** 100% - Meets all Hack23 Threat Modeling Policy
+requirements  
+**Next Action:** Implement P1 control (T-003: Automated content verification) by
+Q3 2026
 
 ---
