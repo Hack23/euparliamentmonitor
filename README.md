@@ -16,6 +16,48 @@
   <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
+<table>
+  <tr>
+    <td width="120" align="center">
+      <img src="https://img.shields.io/badge/EU-Parliament-003399?style=for-the-badge&logo=european-union&logoColor=FFCC00" width="80" alt="EU Parliament Monitor"/>
+      <div>
+        <a href="https://github.com/Hack23/euparliamentmonitor">
+          <img src="https://img.shields.io/github/v/release/Hack23/euparliamentmonitor" alt="Release">
+        </a>
+      </div>
+    </td>
+    <td>
+      <p><strong>European Parliament Intelligence Platform</strong> — an automated multi-language news platform that monitors EU Parliament activities with 14-language support, covering plenary sessions, committee reports, propositions, and breaking news.</p>
+      <div>
+        <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor">
+          <img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard">
+        </a>
+        <a href="https://github.com/Hack23/euparliamentmonitor/attestations">
+          <img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA 3">
+        </a>
+        <a href="https://github.com/Hack23/euparliamentmonitor/license">
+          <img src="https://img.shields.io/github/license/Hack23/euparliamentmonitor" alt="License">
+        </a>
+      </div>
+      <div>
+        <a href="https://github.com/Hack23/euparliamentmonitor"><strong>📂 Repository</strong></a> •
+        <a href="https://hack23.com/euparliamentmonitor-features.html"><strong>✨ Features</strong></a> •
+        <a href="https://hack23.com/euparliamentmonitor-docs.html"><strong>📚 Documentation</strong></a>
+      </div>
+    </td>
+  </tr>
+</table>
+
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge)](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor)
+[![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://github.com/Hack23/euparliamentmonitor/attestations)
+[![News Generation](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml)
+[![Test and Report](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml)
+[![License](https://img.shields.io/github/license/Hack23/euparliamentmonitor)](https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE)
+[![ISMS](https://img.shields.io/badge/Hack23-ISMS-blue)](https://github.com/Hack23/ISMS-PUBLIC)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Hack23/euparliamentmonitor)
+
+
+
 ## 🎯 Status Badges
 
 ### Workflow Status
