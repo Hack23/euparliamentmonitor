@@ -126,6 +126,9 @@ jobs:
           
           # Pre-cache @playwright/mcp for faster startup
           npm install -g @playwright/mcp
+          
+          # Install European Parliament MCP Server for parliamentary data access
+          npm install -g european-parliament-mcp-server
                     
           echo "✅ Node.js MCP server packages installed globally"
 
@@ -158,6 +161,9 @@ jobs:
           
           echo "Checking @playwright/mcp..."
           which mcp-server-playwright 2>/dev/null && echo "✅ mcp-server-playwright found" || echo "ℹ️ @playwright/mcp available via npx"
+          
+          echo "Checking european-parliament-mcp-server..."
+          which european-parliament-mcp-server && echo "✅ european-parliament-mcp-server found" || echo "❌ european-parliament-mcp-server NOT found"
                               
           echo ""
           echo "=== HTTP MCP Servers ==="
