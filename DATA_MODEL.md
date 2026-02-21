@@ -83,15 +83,15 @@ This data model aligns with Hack23 ISMS policies to ensure secure data handling,
 |--------|-----------|------------------------------|
 | **[Data Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md)** | High | All data classified as **Public (Level 1)** per [CLASSIFICATION.md](CLASSIFICATION.md). European Parliament data is publicly available open data. No PII or sensitive information processed. |
 | **[Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md)** | Medium | TLS 1.3 for data in transit from European Parliament API. At-rest encryption via GitHub repository storage. SHA-256 hashes for data integrity verification. |
-| **[Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)** | High | Schema validation on all EP API responses. HTML sanitization with DOMPurify. Input validation for all external data. Git-based audit trail for all changes. |
+| **[Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)** | High | Planned schema validation for EP API responses and planned HTML sanitization (e.g., DOMPurify) in future generator/client updates. Input validation for external data where implemented. Git-based audit trail for all changes. |
 
 ### 🎯 Compliance Framework Mapping
 
 **ISO 27001:2022 Controls:**
 - **A.5.12**: Classification of information — Public data classification documented
-- **A.8.3**: Management of technical vulnerabilities — Schema validation prevents malformed data
+- **A.8.3**: Management of technical vulnerabilities — Planned schema validation to prevent malformed data in future iterations
 - **A.8.24**: Use of cryptography — TLS 1.3 for API communication
-- **A.8.28**: Secure coding — Input validation and HTML sanitization
+- **A.8.28**: Secure coding — Planned enhancements for input validation and HTML sanitization in the generator/client code
 
 **GDPR Compliance:**
 - **Article 5(1)(c)**: Data minimization — No personal data collected beyond publicly available MEP information
@@ -614,7 +614,7 @@ erDiagram
     }
 
     POLITICAL_GROUP {
-        string code PK "EPP, S&D, Renew, etc."
+        string code PK "PPE, S&D, Renew, Greens/EFA, ECR, etc."
         string name "Full group name"
         string abbreviation "Short name"
         int memberCount "Number of MEPs"
@@ -702,8 +702,8 @@ erDiagram
     EP_API {
         string baseUrl "https://data.europarl.europa.eu"
         string version "v2"
-        string authentication "API key, OAuth"
-        boolean requiresAuth
+        string authentication "None (public API; field reserved for future use such as API key, OAuth)"
+        boolean requiresAuth "false for current EP MCP; reserved for future use"
     }
 
     TOOL_RESPONSE {
@@ -903,14 +903,14 @@ flowchart TB
     subgraph "Generator Layer"
         GENERATOR["News Generator<br/>Node.js Script"]
         MCP_CLIENT["MCP Client<br/>stdio connection"]
-        VALIDATOR["Schema Validator<br/>JSON Schema"]
-        SANITIZER["HTML Sanitizer<br/>DOMPurify"]
+        VALIDATOR["Schema Validator<br/>(Planned)"]
+        SANITIZER["HTML Sanitizer<br/>(Planned: DOMPurify)"]
     end
 
     subgraph "Template Layer"
-        TEMPLATE_ENGINE["Template Engine<br/>Handlebars"]
-        TEMPLATE_WEEK["week-ahead.hbs"]
-        TEMPLATE_COMMITTEE["committee-reports.hbs"]
+        TEMPLATE_ENGINE["Template Module<br/>scripts/article-template.js"]
+        TEMPLATE_WEEK["Article Template<br/>(JS-based)"]
+        TEMPLATE_COMMITTEE["Committee Reports Template<br/>(JS-based)"]
         LANGUAGE_PROCESSOR["Multi-Language<br/>Processor"]
     end
 
@@ -1163,19 +1163,21 @@ All data in EU Parliament Monitor is classified according to [CLASSIFICATION.md]
 | **Generation Metadata** | Public (Level 1) | Public | Medium | Low | Technical provenance data, publicly accessible |
 | **EP API Responses** | Public (Level 1) | Public | Medium | Medium | Public European Parliament data, temporary runtime storage |
 | **MCP Tool Responses** | Public (Level 1) | Public | Medium | Medium | Cached EP data, integrity critical |
-| **GitHub Actions Logs** | Internal (Level 2) | Internal | Low | Low | Build logs contain technical details but no secrets |
+| **GitHub Actions Logs** | Public (Level 1) | Public | Low | Low | Actions logs are visible to anyone with read access to this public repo and contain technical build details but no secrets |
 
 ### Personal Identifiable Information (PII) Handling
 
-**PII Status**: **No PII Collected**
+**PII Status**: **No User/Customer PII Collected**
 
-EU Parliament Monitor processes **publicly available European Parliament data** only:
+EU Parliament Monitor processes **publicly available European Parliament data** only. MEP names, affiliations, and official contact details are publicly available personal data about public officials in their official capacity:
 
-- **MEP Information**: Names, political affiliations, committee memberships (public data)
-- **Contact Information**: Official MEP email addresses (publicly available)
+- **MEP Information**: Names, political affiliations, committee memberships (publicly available official data)
+- **Contact Information**: Official MEP email addresses (publicly available official contact data)
 - **No User Data**: No user accounts, no tracking, no analytics
 - **No Cookies**: Static HTML site, no client-side tracking
 - **No Private Communications**: No private messages, no personal correspondence
+
+> **Note**: Publicly available personal data about public officials (MEP names, affiliations, official emails) processed in their official capacity is handled under GDPR Article 9 exceptions and legitimate interest basis. No user or private personal data is collected.
 
 **GDPR Article 5 Alignment:**
 
@@ -1184,7 +1186,7 @@ EU Parliament Monitor processes **publicly available European Parliament data** 
 | **Art. 5(1)(a) - Lawfulness** | All data from public EP sources, no personal data processing | ✅ Compliant |
 | **Art. 5(1)(b) - Purpose Limitation** | Data used only for news generation about parliamentary activities | ✅ Compliant |
 | **Art. 5(1)(c) - Data Minimization** | Only necessary public EP data collected, no excessive data | ✅ Compliant |
-| **Art. 5(1)(d) - Accuracy** | Schema validation, HTML sanitization ensure accurate representation | ✅ Compliant |
+| **Art. 5(1)(d) - Accuracy** | EP data used as-is from official sources; planned schema validation and HTML sanitization to ensure accurate representation | ✅ Compliant |
 | **Art. 5(1)(e) - Storage Limitation** | Articles immutable, no unnecessary retention, git history for audit | ✅ Compliant |
 | **Art. 5(1)(f) - Integrity & Confidentiality** | TLS 1.3 encryption, SHA-256 hashes, GitHub encryption at rest | ✅ Compliant |
 
@@ -1201,7 +1203,7 @@ EU Parliament Monitor processes **publicly available European Parliament data** 
 
 2. **Handling Requirements**:
    - Public data: No access controls required
-   - Internal logs: GitHub private repository access only
+   - Repository logs: GitHub Actions and repository logs accessible to all users with repository read access (public repository, logs contain only data classified as Public)
    - No encryption requirements beyond standard TLS 1.3
 
 3. **Review Process**:
@@ -1340,14 +1342,14 @@ All responses from the European Parliament API are validated against JSON Schema
 }
 ```
 
-**Validation Process:**
+**Validation Process (Planned Enhancements):**
 
-1. **Pre-Processing Validation**: JSON Schema validation before any data transformation
-2. **Type Checking**: Strict type enforcement (no implicit coercion)
-3. **Range Validation**: String length, number ranges, array size limits
-4. **Format Validation**: Email, URL, date, ISO codes
-5. **Enum Validation**: Fixed vocabularies (political groups, committee codes)
-6. **Error Handling**: Invalid data triggers fallback to cached/manual data
+1. **Pre-Processing Validation**: Planned JSON Schema–based validation before any data transformation
+2. **Type Checking**: Planned strict type enforcement (no implicit coercion) for EP MCP responses
+3. **Range Validation**: Planned validation for string length, number ranges, and array size limits
+4. **Format Validation**: Planned checks for email, URL, date, and ISO codes
+5. **Enum Validation**: Planned fixed vocabularies (political groups, committee codes)
+6. **Error Handling (Current Behavior)**: Invalid or missing EP MCP data causes generation to fail or fall back to minimal/placeholder content; JSON Schema validation and cache/manual fallback for EP API responses are planned enhancements
 
 ### Article Data Validation Rules
 
@@ -1363,9 +1365,11 @@ All responses from the European Parliament API are validated against JSON Schema
 | `keywords` | Array of strings, max 10 keywords | Truncated to 10 if exceeded |
 | `read_time` | Integer >= 1, <= 60 minutes | Calculated from word count |
 
-### HTML Sanitization Requirements
+### HTML Sanitization Requirements (Planned)
 
-**DOMPurify Configuration:**
+> **Note**: HTML sanitization via DOMPurify is a planned security enhancement. The current generator (`scripts/article-template.js`) produces HTML from EP API data. The configuration below documents the intended future implementation.
+
+**Planned DOMPurify Configuration:**
 
 ```javascript
 const clean = DOMPurify.sanitize(dirtyHtml, {
@@ -1398,9 +1402,11 @@ const clean = DOMPurify.sanitize(dirtyHtml, {
 - **Exceptions**: Security vulnerabilities, factual errors (manual correction with audit trail)
 - **Enforcement**: Git commit history provides complete audit trail
 
-#### SHA-256 Integrity Hashes
+#### SHA-256 Integrity Hashes (Planned)
 
-**Source Data Hashing:**
+> **Note**: Source data hashing is a planned integrity enhancement. The metadata structure below shows the intended future implementation; SHA-256 hashing of EP/MCP responses is not yet implemented in the current generator code.
+
+**Planned Source Data Hashing Pattern:**
 
 ```javascript
 const sourceHash = crypto.createHash('sha256')
