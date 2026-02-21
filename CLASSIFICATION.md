@@ -132,7 +132,7 @@ flowchart TD
 #### 🔒 Confidentiality: Public (Level 1)
 **Justification:**
 - All source data from European Parliament's public open data APIs
-- Generated news articles publicly accessible via GitHub Pages
+- Generated news articles publicly accessible via AWS S3 + Amazon CloudFront
 - No authentication, authorization, or access controls required
 - No private, sensitive, or personal information processed
 - Designed for maximum transparency and public accessibility
@@ -165,7 +165,7 @@ flowchart TD
 
 ### 💸 Financial Impact Levels {#financial-impact-levels}
 
-**EU Parliament Monitor Context:** Zero-cost infrastructure (GitHub Pages), volunteer-driven, no revenue generation.
+**EU Parliament Monitor Context:** Low-cost infrastructure (AWS S3 + CloudFront), volunteer-driven, no revenue generation.
 
 - [![Critical](https://img.shields.io/badge/Critical-red?style=flat-square&logoColor=white)](#financial-impact-levels) Major revenue impact (>$10K daily) — **N/A** for volunteer project
 - [![Very High](https://img.shields.io/badge/Very_High-darkred?style=flat-square&logoColor=white)](#financial-impact-levels) Substantial penalties ($5K-10K daily) — **N/A** for volunteer project
@@ -178,7 +178,7 @@ flowchart TD
 
 **EU Parliament Monitor Context:** Static site generator, GitHub Actions automation, manual fallback available.
 
-- [![Critical](https://img.shields.io/badge/Critical-red?style=flat-square&logoColor=white)](#operational-impact-levels) Complete service outage — **Low probability** (GitHub Pages redundancy)
+- [![Critical](https://img.shields.io/badge/Critical-red?style=flat-square&logoColor=white)](#operational-impact-levels) Complete service outage — **Low probability** (AWS S3 + CloudFront redundancy)
 - [![High](https://img.shields.io/badge/High-orange?style=flat-square&logoColor=white)](#operational-impact-levels) Major service degradation — **Low probability** (static architecture)
 - [![Moderate](https://img.shields.io/badge/Moderate-yellow?style=flat-square&logoColor=black)](#operational-impact-levels) Partial service impact — **Possible** (workflow failures, content errors)
 - [![Low](https://img.shields.io/badge/Low-lightgreen?style=flat-square&logoColor=white)](#operational-impact-levels) Minor inconvenience — **Current exposure** (delayed updates)
@@ -240,7 +240,7 @@ graph TB
     
     subgraph EP_MONITOR["🏛️ EU Parliament Monitor"]
         EP_DATA[📊 European Parliament Data<br/>✅ Public open data APIs<br/>✅ No PII processed<br/>✅ Maximum transparency]
-        EP_NEWS[📰 Generated News Articles<br/>✅ 14 languages<br/>✅ Public GitHub Pages<br/>✅ No access control]
+        EP_NEWS[📰 Generated News Articles<br/>✅ 14 languages<br/>✅ Public AWS S3 + CloudFront<br/>✅ No access control]
     end
     
     PUBLIC -.->|Applied to| EP_MONITOR
@@ -281,7 +281,7 @@ graph TB
 | **Public** | [![Public](https://img.shields.io/badge/Confidentiality-Public-lightgrey?style=for-the-badge&logo=shield&logoColor=black)](#confidentiality-levels) | No confidentiality requirements | **✅ CURRENT LEVEL** |
 
 **Controls Required:**
-- ✅ TLS 1.3 for data in transit (GitHub Pages, API calls)
+- ✅ TLS 1.3 for data in transit (Amazon CloudFront, API calls)
 - ✅ Public content by design
 - ✅ No authentication/authorization systems needed
 - ✅ Transparent, open source codebase
@@ -320,9 +320,9 @@ graph TB
 | **Best Effort** | [![Best Effort](https://img.shields.io/badge/Availability-Best_Effort-lightgrey?style=for-the-badge&logo=clock&logoColor=black)](#availability-levels) | No uptime guarantees | Not acceptable |
 
 **Controls Required:**
-- ✅ GitHub Pages infrastructure (GitHub SLA: 99.9% uptime)
+- ✅ AWS S3 + Amazon CloudFront infrastructure (99.9% uptime SLA)
 - ✅ Static site architecture (no server-side execution)
-- ✅ CDN distribution (CloudFlare via GitHub Pages)
+- ✅ Amazon CloudFront global CDN distribution
 - ✅ Manual workflow trigger (backup recovery)
 - ✅ GitHub Actions automated recovery
 - ✅ Multiple repository copies (Git distributed architecture)
@@ -369,7 +369,7 @@ graph TB
 - ✅ GitHub Actions automated workflow retry
 - ✅ Manual workflow trigger via GitHub UI
 - ✅ Static site resilience (existing content remains available)
-- ✅ GitHub Pages redundancy (no single point of failure)
+- ✅ AWS S3 + CloudFront redundancy (no single point of failure)
 - ✅ Daily generation schedule provides natural recovery window
 
 **Acceptable Downtime:** 24 hours (content generation can be delayed without critical impact)
@@ -456,7 +456,7 @@ The following table provides explicit classifications for various types of Europ
 - Daily content generation schedule provides natural recovery window
 - 24-hour outages acceptable - not mission-critical democratic infrastructure
 - Manual workflow triggers available as backup
-- GitHub Pages provides inherent resilience via CDN
+- AWS S3 with CloudFront provides inherent resilience via global CDN distribution
 
 ### Multi-Language Content Classification {#multi-language-classification}
 
@@ -515,12 +515,12 @@ flowchart TB
     subgraph STORAGE["💾 Data Storage"]
         GIT_COMMIT[📝 Git Commit]
         REPO_STORE[📦 GitHub Repository]
-        PAGES_DEPLOY[🚀 GitHub Pages Deployment]
+        PAGES_DEPLOY[🚀 AWS S3 + CloudFront Deployment]
     end
     
     subgraph PUBLICATION["📢 Publication"]
         HTML_SERVE[🌐 Static HTML Serving]
-        CDN_CACHE[⚡ CloudFlare CDN Cache]
+        CDN_CACHE[⚡ Amazon CloudFront CDN Cache]
         PUBLIC_ACCESS[👥 Public Access]
     end
     
@@ -624,13 +624,13 @@ flowchart TB
 **Duration:** Real-time (CDN caching)  
 **Classification Impact:** Public access with availability controls  
 **Controls:**
-- ✅ GitHub Pages HTTPS (TLS 1.3)
-- ✅ CloudFlare CDN (DDoS protection)
+- ✅ AWS S3 + CloudFront HTTPS (TLS 1.3)
+- ✅ Amazon CloudFront (AWS Shield Standard for DDoS protection)
 - ✅ Static site architecture (no server-side vulnerabilities)
 - ✅ No authentication required (public by design)
 
 **Availability:**
-- **SLA:** GitHub Pages 99.9% uptime
+- **SLA:** AWS S3 (Standard) and Amazon CloudFront, each with 99.9% availability SLA
 - **CDN:** Global edge caching
 - **RTO:** 24 hours (manual workflow trigger)
 - **RPO:** 1 day (daily generation acceptable)
@@ -676,16 +676,16 @@ The following matrix defines specific handling procedures for each classificatio
 | Handling Procedure | 🔴 Restricted | 🟠 Confidential | 🟡 Internal | 🟢 Public | **EU Parliament Monitor** |
 |-------------------|--------------|----------------|------------|----------|---------------------------|
 | **💾 Storage** | HSM, encrypted vaults, air-gapped | AES-256 encryption, encrypted databases | Access-controlled storage, basic encryption | Standard storage, version control | ✅ **Git (public), GitHub (cloud)** |
-| **📡 Transmission** | Quantum-safe, VPN + TLS 1.3 | TLS 1.3, certificate pinning | TLS 1.2+, standard HTTPS | TLS 1.2+ (prefer 1.3) | ✅ **TLS 1.3 (GitHub Pages, EP API)** |
-| **🤝 Sharing** | Need-to-know, zero-trust, MFA | Role-based, MFA, audit logging | Authenticated access, logging | Public access, no restrictions | ✅ **Public GitHub Pages, no auth** |
+| **📡 Transmission** | Quantum-safe, VPN + TLS 1.3 | TLS 1.3, certificate pinning | TLS 1.2+, standard HTTPS | TLS 1.2+ (prefer 1.3) | ✅ **TLS 1.3 (CloudFront CDN, EP API)** |
+| **🤝 Sharing** | Need-to-know, zero-trust, MFA | Role-based, MFA, audit logging | Authenticated access, logging | Public access, no restrictions | ✅ **Public AWS S3 + CloudFront, no auth** |
 | **🗑️ Disposal** | Cryptographic erasure, physical destruction, witnessed | Multi-pass overwrite (DoD 5220.22-M), secure deletion | Standard deletion, recycle bin clearing | Standard deletion or retention | ✅ **Git history preservation (no deletion)** |
 | **🔐 Access Control** | Biometric + MFA, zero-trust | RBAC + MFA, privileged access management | Username/password + RBAC | No access control required | ✅ **No access control (public by design)** |
-| **🔒 Encryption** | AES-256 + HSM, quantum-resistant | AES-256, key rotation, KMS | AES-128/256, managed keys | TLS in transit only | ✅ **TLS 1.3 (GitHub Pages enforced)** |
+| **🔒 Encryption** | AES-256 + HSM, quantum-resistant | AES-256, key rotation, KMS | AES-128/256, managed keys | TLS in transit only | ✅ **TLS 1.3 (CloudFront enforced)** |
 | **📋 Labeling** | "RESTRICTED - AUTHORIZED ONLY" | "CONFIDENTIAL - INTERNAL USE" | "INTERNAL - STAFF ONLY" | "PUBLIC" or no label | ✅ **PUBLIC (implied, no labels needed)** |
 | **📊 Logging** | Immutable audit logs, SIEM, real-time alerting | Comprehensive logging, SIEM integration | Standard logging, periodic review | Basic logging or none | ✅ **Git commits (immutable), GitHub audit** |
 | **🔄 Backup** | Air-gapped, encrypted, off-site vaults | Encrypted backups, off-site replication | Standard backups, encryption | Git version control, cloud backups | ✅ **Git (distributed), GitHub backups** |
 | **📱 Mobile Devices** | Prohibited or heavily restricted | MDM, encryption, remote wipe | MDM, basic encryption | No restrictions | ✅ **Public access from any device** |
-| **☁️ Cloud Storage** | Prohibited or private cloud only | Encrypted, dedicated tenants | Encrypted, shared cloud | Public cloud, standard controls | ✅ **GitHub (public cloud), Pages (CDN)** |
+| **☁️ Cloud Storage** | Prohibited or private cloud only | Encrypted, dedicated tenants | Encrypted, shared cloud | Public cloud, standard controls | ✅ **AWS S3 (public cloud), CloudFront (CDN)** |
 | **🖨️ Printing** | Prohibited or secure printers only | Watermarked, secure disposal | Standard printers, secure disposal | Unrestricted | ✅ **N/A (web-only content)** |
 
 ### EU Parliament Monitor Handling Summary
@@ -698,12 +698,12 @@ The following matrix defines specific handling procedures for each classificatio
 - Distributed architecture (multiple clones)
 
 ✅ **Transmission:**
-- TLS 1.3 mandatory (GitHub Pages enforced)
+- TLS 1.3 mandatory (Amazon CloudFront enforced)
 - European Parliament API calls over HTTPS
 - No VPN or additional encryption needed
 
 ✅ **Sharing:**
-- Public GitHub Pages (open access)
+- Public AWS S3 + CloudFront (open access)
 - No authentication, authorization, or access control
 - Maximum transparency and accessibility
 
@@ -720,7 +720,7 @@ The following matrix defines specific handling procedures for each classificatio
 ✅ **Encryption:**
 - TLS 1.3 in transit only
 - No encryption at rest required (public data)
-- GitHub Pages HTTPS enforced
+- Amazon CloudFront HTTPS enforced
 
 ✅ **Logging:**
 - Git commit history (immutable)
@@ -758,7 +758,7 @@ EU Parliament Monitor's classification framework aligns with multiple internatio
 |-----------------------|----------|-------------------------------------|----------------|
 | **ID.AM-5** | Classify data | ✅ Complete classification framework (Public/Medium/Medium) | 🟢 **Level 4 - Adaptive** |
 | **PR.DS-1** | Protect data at rest | ✅ Git version control, GitHub backups | 🟢 **Level 3 - Informed** |
-| **PR.DS-2** | Protect data in transit | ✅ TLS 1.3 mandatory (GitHub Pages, EP API) | 🟢 **Level 4 - Adaptive** |
+| **PR.DS-2** | Protect data in transit | ✅ TLS 1.3 mandatory (CloudFront CDN, S3, EP API) | 🟢 **Level 4 - Adaptive** |
 | **PR.DS-5** | Protections against data leaks | ⚪ N/A (public data, no leaks possible) | ⚪ **N/A** |
 | **PR.DS-6** | Integrity checking | ✅ Git cryptographic hashing, commit signing | 🟢 **Level 3 - Informed** |
 | **PR.DS-7** | Separate dev/test/prod | ✅ GitHub Actions environments, branch protection | 🟢 **Level 3 - Informed** |
@@ -892,7 +892,7 @@ flowchart TB
     
     PROCESS --> STORE[💾 STORE<br/>Git Version Control<br/>GitHub Repository]
     
-    STORE --> DEPLOY[🚀 DEPLOY<br/>GitHub Pages<br/>CDN Distribution]
+    STORE --> DEPLOY[🚀 DEPLOY<br/>AWS S3<br/>CloudFront CDN]
     
     DEPLOY --> MONITOR[📊 MONITOR<br/>Access Logs<br/>Git Commit History]
     
@@ -994,8 +994,8 @@ flowchart TB
 - ✅ Branch protection (change control)
 
 #### 🚀 Stage 7: DEPLOY
-**Duration:** Minutes (GitHub Pages deployment)  
-**Responsibility:** GitHub Actions, GitHub Pages, CloudFlare CDN  
+**Duration:** Minutes (AWS S3 + CloudFront deployment)  
+**Responsibility:** GitHub Actions, AWS S3, Amazon CloudFront  
 **Deployment Controls:**
 - ✅ Automated deployment pipeline
 - ✅ TLS 1.3 enforced (HTTPS only)
@@ -1004,11 +1004,12 @@ flowchart TB
 
 #### 📊 Stage 8: MONITOR
 **Duration:** Continuous  
-**Responsibility:** GitHub Actions, Git logs  
+**Responsibility:** GitHub Actions, Git logs, AWS CloudFront, AWS S3, AWS CloudTrail  
 **Monitoring Methods:**
 - ✅ Git commit history (all changes tracked)
 - ✅ GitHub Actions workflow logs
-- ✅ GitHub Pages access logs (aggregated)
+- ✅ AWS CloudFront access logs / real-time logs
+- ✅ AWS S3 server access logs / CloudTrail S3 data events
 - ✅ Dependabot security alerts
 
 #### 🔍 Stage 9: REVIEW
@@ -1112,7 +1113,7 @@ flowchart TB
 
 | Classification Level | Required Controls | EU Parliament Monitor Implementation |
 |---------------------|-------------------|-------------------------------------|
-| **Confidentiality: Public** | TLS for transit, public access | ✅ GitHub Pages HTTPS, open repository |
+| **Confidentiality: Public** | TLS for transit, public access | ✅ AWS S3 + CloudFront HTTPS, open repository |
 | **Integrity: Medium** | Version control, code review, testing | ✅ Git, PR workflow, 82% test coverage |
 | **Availability: Medium** | Monitoring, manual recovery, CDN | ✅ GitHub Actions monitoring, Pages CDN |
 | **RTO: 24 hours** | Automated recovery, manual backup | ✅ Workflow retry, manual trigger |
