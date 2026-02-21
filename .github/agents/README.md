@@ -248,6 +248,94 @@ All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 
 ---
 
+### 9. 🔍 Intelligence Operative (`intelligence-operative`)
+
+**Expertise**: Political science, intelligence analysis, OSINT, behavioral analysis, EU Parliament transparency
+
+**When to Use**:
+- Analyzing MEP voting patterns and political group dynamics
+- Conducting structured analytic techniques (ACH, SWOT, Devil's Advocacy)
+- Assessing democratic accountability and institutional performance
+- Evaluating legislative outcomes and coalition stability
+- Producing data-driven intelligence assessments from EP MCP data
+- Risk assessment for EU political developments
+
+**Key Capabilities**:
+- Political science frameworks (comparative politics, public policy)
+- OSINT methodologies for EU Parliament open data
+- Intelligence analysis techniques (ACH, PESTLE, stakeholder analysis)
+- MEP scorecards and political group analysis
+- Electoral analysis and coalition dynamics
+- Behavioral analysis for MEP decision-making patterns
+- European Parliament MCP data integration
+- GDPR-compliant political data analysis
+
+**Example Use**:
+```bash
+@intelligence-operative analyze voting cohesion trends across political groups using EP MCP voting records and produce a risk assessment
+```
+
+---
+
+### 10. 💼 Business Development Specialist (`business-development-specialist`)
+
+**Expertise**: Strategic planning, partnership development, revenue models, civic tech sustainability
+
+**When to Use**:
+- Developing strategic growth plans for the platform
+- Identifying partnership opportunities with EU institutions, media, NGOs
+- Designing mission-aligned revenue models (grants, consulting, open core)
+- Analyzing market segments across 27 EU member states
+- Creating investor/grant proposals for civic tech funding
+- Evaluating business model viability and sustainability
+
+**Key Capabilities**:
+- Business Model Canvas for civic tech platforms
+- Partnership development (EU institutions, media, academic, NGO)
+- Revenue strategy (EU Horizon grants, democracy funds, consulting)
+- Market segmentation across 27 EU member states
+- Go-to-market strategy for political transparency platforms
+- Financial modeling and sustainability planning
+- ISMS compliance for business decisions
+- GDPR-compliant business practices
+
+**Example Use**:
+```bash
+@business-development-specialist create a Business Model Canvas for EU Parliament Monitor with focus on grant funding and institutional partnerships
+```
+
+---
+
+### 11. 📢 Marketing Specialist (`marketing-specialist`)
+
+**Expertise**: Digital marketing, content strategy, SEO, community building, multi-language outreach
+
+**When to Use**:
+- Developing SEO strategy for multi-language news articles
+- Creating content marketing plans for EU Parliament coverage
+- Building community engagement across EU member states
+- Optimizing search visibility for 14 language versions
+- Designing social media campaigns for democratic engagement
+- Measuring marketing effectiveness and audience growth
+
+**Key Capabilities**:
+- Multi-language SEO optimization (14 languages, hreflang)
+- Content strategy for EU Parliament journalism
+- Social media marketing for civic engagement
+- Community building across EU member states
+- Brand positioning for transparency platforms
+- Performance measurement and analytics
+- GDPR-compliant marketing (privacy-first, no tracking cookies)
+- Political neutrality in all messaging
+- Structured data (JSON-LD) and Schema.org optimization
+
+**Example Use**:
+```bash
+@marketing-specialist develop a multi-language SEO strategy for EU Parliament news articles targeting all 14 language versions
+```
+
+---
+
 ## 🌍 European Parliament Context
 
 All agents are configured with expertise in:
@@ -445,6 +533,9 @@ graph TD
     B -->|Security| H[security-architect]
     B -->|Documentation| I[documentation-architect]
     B -->|Testing/QA| J[quality-engineer]
+    B -->|Intelligence Analysis| K2[intelligence-operative]
+    B -->|Business Strategy| L2[business-development-specialist]
+    B -->|Marketing/SEO| M2[marketing-specialist]
     
     C --> K[Creates issues with proper labels/priorities]
     D --> L[Writes The Economist-style articles]
@@ -454,6 +545,9 @@ graph TD
     H --> P[Hardens security]
     I --> Q[Documents architecture]
     J --> R[Validates quality]
+    K2 --> S[Produces intelligence assessments]
+    L2 --> T[Develops growth strategy]
+    M2 --> U[Optimizes reach and engagement]
 ```
 
 ### Quick Reference Table
@@ -461,13 +555,18 @@ graph TD
 | Task Type | Primary Agent | Secondary Agent(s) |
 |-----------|--------------|-------------------|
 | Create product issues | product-task-agent | - |
-| Write news articles | news-journalist | data-pipeline-specialist |
+| Write news articles | news-journalist | data-pipeline-specialist, intelligence-operative |
 | Fix accessibility | frontend-specialist | quality-engineer |
 | Add MEP data | data-pipeline-specialist | frontend-specialist |
 | Setup CI/CD | devops-engineer | security-architect |
 | Security audit | security-architect | quality-engineer |
 | Architecture docs | documentation-architect | - |
 | Run tests | quality-engineer | frontend-specialist |
+| Political analysis | intelligence-operative | news-journalist, data-pipeline-specialist |
+| Business planning | business-development-specialist | marketing-specialist |
+| SEO optimization | marketing-specialist | news-journalist, frontend-specialist |
+| Grant proposals | business-development-specialist | intelligence-operative |
+| Audience growth | marketing-specialist | business-development-specialist |
 
 ---
 
@@ -537,6 +636,55 @@ graph TD
 
 ---
 
+### Example 5: Political Intelligence Assessment
+
+```bash
+# Use intelligence-operative for deep analysis
+@intelligence-operative analyze political group cohesion trends using EP MCP voting records and produce a SWOT assessment for cross-group collaboration
+```
+
+**Expected Outcome**: Intelligence product with:
+- Structured analytic techniques (ACH, SWOT)
+- Data-driven analysis from EP MCP voting records
+- Political group cohesion metrics
+- Risk assessment and early warning indicators
+- GDPR-compliant political data analysis
+
+---
+
+### Example 6: Business Strategy Planning
+
+```bash
+# Use business-development-specialist for growth planning
+@business-development-specialist create a Business Model Canvas for EU Parliament Monitor with focus on EU Horizon grant opportunities
+```
+
+**Expected Outcome**: Strategic business document with:
+- Business Model Canvas framework
+- Revenue stream analysis (grants, consulting, partnerships)
+- Customer segmentation across 27 EU member states
+- Partnership strategy for EU institutions
+- Mission alignment with democratic transparency
+
+---
+
+### Example 7: SEO and Marketing Strategy
+
+```bash
+# Use marketing-specialist for audience growth
+@marketing-specialist develop a multi-language SEO strategy for EU Parliament news articles targeting all 14 language versions
+```
+
+**Expected Outcome**: Marketing strategy with:
+- Multi-language SEO keyword research
+- Hreflang implementation guidance
+- JSON-LD structured data optimization
+- Core Web Vitals targets
+- GDPR-compliant analytics approach
+- Political neutrality in all messaging
+
+---
+
 ## 🏗️ Agent Development Patterns
 
 ### Pattern 1: Coordinated Multi-Agent Workflow
@@ -545,16 +693,25 @@ graph TD
 # Step 1: Product planning
 @product-task-agent create a feature plan for MEP voting record visualization
 
-# Step 2: Data integration
+# Step 2: Intelligence analysis
+@intelligence-operative analyze voting patterns and identify newsworthy trends from EP MCP data
+
+# Step 3: Data integration
 @data-pipeline-specialist implement the European Parliament MCP integration for voting records
 
-# Step 3: Frontend implementation
+# Step 4: Frontend implementation
 @frontend-specialist create the responsive voting chart UI with WCAG 2.1 AA support
 
-# Step 4: Quality assurance
+# Step 5: Content creation
+@news-journalist write data-driven articles based on intelligence analysis findings
+
+# Step 6: SEO optimization
+@marketing-specialist optimize articles for search visibility across 14 languages
+
+# Step 7: Quality assurance
 @quality-engineer write Playwright tests and validate accessibility across all 14 languages
 
-# Step 5: Documentation
+# Step 8: Documentation
 @documentation-architect create C4 diagrams and API documentation for the voting visualization feature
 ```
 
