@@ -1,7 +1,7 @@
 {
   "$schema": "https://typedoc.org/schema.json",
   "entryPoints": ["src/**/*.ts"],
-  "out": "docs/api",
+  "out": "builds/api",
   "name": "EU Parliament Monitor - API Documentation",
   "readme": "README.md",
   "tsconfig": "tsconfig.json",
