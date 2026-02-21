@@ -82,9 +82,10 @@ function votingStatistics(records) {
     median: n % 2 === 0
       ? (sorted[n / 2 - 1] + sorted[n / 2]) / 2
       : sorted[Math.floor(n / 2)],
-    standardDeviation: Math.sqrt(
-      values.reduce((s, v) => s + (v - mean) ** 2, 0) / (n - 1)
-    ),
+    standardDeviation: (() => {
+      const m = values.reduce((s, v) => s + v, 0) / n;
+      return Math.sqrt(values.reduce((s, v) => s + (v - m) ** 2, 0) / (n - 1));
+    })(),
     min: sorted[0],
     max: sorted[n - 1]
   };

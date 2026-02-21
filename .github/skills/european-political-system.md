@@ -29,7 +29,7 @@ Provide comprehensive knowledge of the European Parliament's institutional struc
 ### EU Parliament Structure
 
 ```
-European Parliament (751 seats, Lisbon Treaty maximum)
+European Parliament (720 seats as of 2024 elections)
 ├── President & Bureau
 │   ├── President (elected by MEPs)
 │   ├── 14 Vice-Presidents

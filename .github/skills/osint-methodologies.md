@@ -116,7 +116,7 @@ function verifyVotingRecord(record) {
   const checks = {
     dateValid: isValidSessionDate(record.date),
     totalsConsistent: (record.votesFor + record.votesAgainst
-      + record.abstentions) <= 705,
+      + record.abstentions) <= 720,
     resultLogical: record.result === determineResult(
       record.votesFor, record.votesAgainst
     ),
