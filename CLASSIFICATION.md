@@ -59,11 +59,11 @@ The following decision tree helps determine the appropriate classification level
 flowchart TD
     START[📊 Data Received/Created] --> EP_CHECK{🏛️ European Parliament<br/>Open Data Source?}
     
-    EP_CHECK -->|✅ Yes| PII_CHECK{👤 Contains Personal<br/>Identifiable Information?}
+    EP_CHECK -->|✅ Yes| PII_CHECK{👤 Contains non-public or<br/>sensitive personal data?}
     EP_CHECK -->|❌ No| REVIEW[🔍 Manual Review Required]
     
     PII_CHECK -->|❌ No| ACCESS_CHECK{🔐 Requires Access<br/>Control?}
-    PII_CHECK -->|✅ Yes| HIGH_CONF[🔴 High Confidentiality<br/>Not Applicable to EP Monitor]
+    PII_CHECK -->|✅ Yes| HIGH_CONF[🔴 High Confidentiality<br/>(Non-public/sensitive PII)<br/>Not Applicable to EP Monitor]
     
     ACCESS_CHECK -->|❌ No| ACCURACY_CHECK{✅ Accuracy<br/>Critical?}
     ACCESS_CHECK -->|✅ Yes| INTERNAL[🟡 Internal Classification<br/>Not Applicable to EP Monitor]
@@ -111,7 +111,7 @@ flowchart TD
 | **⏱️ Availability** | **Medium (Level 2)** | [![Moderate](https://img.shields.io/badge/Availability-Moderate-yellow?style=for-the-badge&logo=clock&logoColor=black)](#availability-levels) | Daily updates expected, 24-hour outages acceptable, not mission-critical infrastructure |
 | **🚨 RTO** | **24 hours** | [![Medium](https://img.shields.io/badge/RTO-Medium_(24hrs)-lightgreen?style=for-the-badge&logo=clock&logoColor=white)](#rto-classifications) | Manual workflow trigger available, automated recovery via GitHub Actions |
 | **🔄 RPO** | **1 day** | [![Daily](https://img.shields.io/badge/RPO-Daily_(24hrs)-lightblue?style=for-the-badge&logo=database&logoColor=white)](#rpo-classifications) | Daily generation schedule, previous day's content acceptable loss |
-| **🏷️ Privacy** | **NA (Not Applicable)** | [![NA](https://img.shields.io/badge/Privacy-NA-lightgrey?style=for-the-badge&logo=times-circle&logoColor=black)](#privacy-levels) | No personal data processed, public information only, no GDPR obligations |
+| **🏷️ Privacy** | **Personal (public-source)** | [![Personal](https://img.shields.io/badge/Privacy-Personal_(public--source)-orange?style=for-the-badge&logo=user-shield&logoColor=white)](#privacy-levels) | Publicly available personal data of elected representatives (MEP names/roles); no special categories; GDPR applies with reduced risk |
 
 **Project Type**: [![Content Creation](https://img.shields.io/badge/Type-Content_Creation-pink?style=for-the-badge&logo=newspaper&logoColor=white)](#project-type-classifications) Static site generator for European Parliament intelligence
 
@@ -134,7 +134,7 @@ flowchart TD
 - All source data from European Parliament's public open data APIs
 - Generated news articles publicly accessible via AWS S3 + Amazon CloudFront
 - No authentication, authorization, or access controls required
-- No private, sensitive, or personal information processed
+- Only publicly available MEP personal data processed (no non-public personal data, no special category data, no end-user tracking data)
 - Designed for maximum transparency and public accessibility
 
 **Impact if Compromised:** Negligible - Data already public
@@ -239,7 +239,7 @@ graph TB
     INTERNAL -.->|Lower sensitivity| PUBLIC
     
     subgraph EP_MONITOR["🏛️ EU Parliament Monitor"]
-        EP_DATA[📊 European Parliament Data<br/>✅ Public open data APIs<br/>✅ No PII processed<br/>✅ Maximum transparency]
+        EP_DATA[📊 European Parliament Data<br/>✅ Public open data APIs<br/>✅ Only public-identifiable data (MEP names/roles)<br/>✅ No non-public or special category data]
         EP_NEWS[📰 Generated News Articles<br/>✅ 14 languages<br/>✅ Public AWS S3 + CloudFront<br/>✅ No access control]
     end
     
@@ -329,16 +329,16 @@ graph TB
 
 ### 🏷️ Privacy & PII Protection Levels {#privacy-levels}
 
-**EU Parliament Monitor Classification: NA (Not Applicable)**
+**EU Parliament Monitor Classification: Personal (public-source, public-official context)**
 
 | Level | Badge | Description | GDPR Context | EU Parliament Monitor Context |
 |-------|-------|-------------|--------------|-------------------------------|
 | **Special Category** | [![Special Category](https://img.shields.io/badge/Privacy-Special_Category-darkred?style=for-the-badge&logo=shield-alt&logoColor=white)](#privacy-levels) | Art. 9 data | Explicit consent required | Not applicable |
 | **Personal Identifier** | [![Personal Identifier](https://img.shields.io/badge/Privacy-Personal_Identifier-red?style=for-the-badge&logo=fingerprint&logoColor=white)](#privacy-levels) | Direct identifiers | GDPR Art. 4(1) | Not applicable |
-| **Personal** | [![Personal](https://img.shields.io/badge/Privacy-Personal-orange?style=for-the-badge&logo=user-shield&logoColor=white)](#privacy-levels) | Personal data | GDPR compliance required | Not applicable |
+| **Personal** | [![Personal](https://img.shields.io/badge/Privacy-Personal-orange?style=for-the-badge&logo=user-shield&logoColor=white)](#privacy-levels) | Personal data | GDPR compliance required | **✅ CURRENT STATUS** — publicly available MEP names/roles from EP open data |
 | **Pseudonymized** | [![Pseudonymized](https://img.shields.io/badge/Privacy-Pseudonymized-yellow?style=for-the-badge&logo=mask&logoColor=black)](#privacy-levels) | De-identified with key | GDPR Art. 4(5) | Not applicable |
 | **Anonymized** | [![Anonymized](https://img.shields.io/badge/Privacy-Anonymized-lightgreen?style=for-the-badge&logo=user-slash&logoColor=white)](#privacy-levels) | Irreversibly de-identified | Outside GDPR scope | Not applicable |
-| **NA (Not Applicable)** | [![NA](https://img.shields.io/badge/Privacy-NA-lightgrey?style=for-the-badge&logo=times-circle&logoColor=black)](#privacy-levels) | Non-personal data | No GDPR obligations | **✅ CURRENT STATUS** |
+| **NA (Not Applicable)** | [![NA](https://img.shields.io/badge/Privacy-NA-lightgrey?style=for-the-badge&logo=times-circle&logoColor=black)](#privacy-levels) | Non-personal data | No GDPR obligations | Not applicable |
 
 **GDPR Compliance Status:**
 - ✅ Publicly available personal data of elected representatives only (no special categories, no behavioural profiling)
@@ -444,7 +444,7 @@ The following table provides explicit classifications for various types of Europ
 - ✅ All data originates from European Parliament's official open data sources
 - ✅ EU transparency regulations mandate public access to parliamentary proceedings
 - ✅ No authentication, authorization, or access control mechanisms needed
-- ✅ No personal data protection requirements (MEP information is public official data)
+- ✅ Personal data protection (GDPR) requirements apply, but risk and required controls are reduced because MEP information is public official data from open sources
 - ✅ Designed for maximum democratic transparency and citizen engagement
 
 **Why Integrity Varies (Low to High):**
@@ -578,7 +578,7 @@ flowchart TB
 **Duration:** Daily (automated via GitHub Actions)  
 **Classification Impact:** Public data from inception  
 **Controls:**
-- ✅ TLS 1.3 for API communications (TLS 1.2+ minimum)
+- ✅ TLS 1.2+ (TLS 1.3 where supported) for API communications
 - ✅ European Parliament MCP Server runs as a local stdio child process (no network exposure; explicit authentication planned for future remote deployment)
 - ✅ API rate limiting and error handling
 - ✅ Automated retry mechanisms
@@ -1079,8 +1079,8 @@ flowchart TB
    - Decision maker: Security Architect
    - Review date: 2026-05-17
 
-6. **Privacy = NA**
-   - Rationale: No personal data, GDPR compliant by design
+6. **Privacy = Personal (public-source)**
+   - Rationale: Publicly available MEP personal data from EP open data; GDPR applies with reduced risk due to public-official context; no special categories; DSRs handled with applicable exemptions
    - Decision maker: Security Architect & Legal
    - Review date: 2026-05-17
 
@@ -1119,7 +1119,7 @@ flowchart TB
 | **Availability: Medium** | Monitoring, manual recovery, CDN | ✅ GitHub Actions monitoring, AWS S3 + CloudFront CDN |
 | **RTO: 24 hours** | Automated recovery, manual backup | ✅ Workflow retry, manual trigger |
 | **RPO: 1 day** | Daily backups, version control | ✅ Git commits, GitHub repository |
-| **Privacy: NA** | No PII processing, GDPR by design | ✅ Public data only, no tracking |
+| **Privacy: Personal (public-source)** | GDPR compliance, minimization, DSR handling | ✅ Public-source MEP data only, no special categories, DSRs handled with applicable exemptions |
 
 ---
 
