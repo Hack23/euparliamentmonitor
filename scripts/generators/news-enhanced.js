@@ -7,12 +7,13 @@
  * Generates multi-language news articles about EU Parliament activities.
  */
 import fs from 'fs';
-import path from 'path';
+import path, { resolve } from 'path';
+import { pathToFileURL } from 'url';
 import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, ARG_SEPARATOR, } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
 import { generateArticleHTML } from '../templates/article-template.js';
 import { getEPMCPClient, closeEPMCPClient } from '../mcp/ep-mcp-client.js';
-import { formatDateForSlug, calculateReadTime, ensureDirectoryExists, } from '../utils/file-utils.js';
+import { formatDateForSlug, calculateReadTime, ensureDirectoryExists, escapeHTML, } from '../utils/file-utils.js';
 // Try to use MCP client if available
 let mcpClient = null;
 const useMCP = process.env['USE_EP_MCP'] !== 'false';
@@ -215,11 +216,11 @@ async function generateWeekAhead() {
             ${sampleEvents
                 .map((event) => `
               <div class="event-item">
-                <div class="event-date">${event.date}</div>
+                <div class="event-date">${escapeHTML(event.date)}</div>
                 <div class="event-details">
-                  <h3>${event.title}</h3>
-                  <p class="event-type">${event.type}</p>
-                  <p>${event.description}</p>
+                  <h3>${escapeHTML(event.title)}</h3>
+                  <p class="event-type">${escapeHTML(event.type)}</p>
+                  <p>${escapeHTML(event.description)}</p>
                 </div>
               </div>
             `)
@@ -308,5 +309,8 @@ async function main() {
     }
     process.exit(stats.errors > 0 ? 1 : 0);
 }
-main();
+// Only run main when executed directly (not when imported)
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+    main();
+}
 //# sourceMappingURL=news-enhanced.js.map

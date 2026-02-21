@@ -240,7 +240,7 @@ export function generateIndexHTML(): string {
       <p>
         <strong>EU Parliament Monitor</strong> - 
         European Parliament Intelligence Platform<br>
-        <a href="https://github.com/Hack23/euparliamentmonitor" target="_blank">
+        <a href="https://github.com/Hack23/euparliamentmonitor" target="_blank" rel="noopener noreferrer">
           View on GitHub
         </a>
       </p>

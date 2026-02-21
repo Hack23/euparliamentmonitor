@@ -10,9 +10,8 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { generateArticleHTML } from '../../scripts/templates/article-template.js';
+import { ALL_LANGUAGES } from '../../scripts/constants/languages.js';
 import { createTempDir, cleanupTempDir, validateHTML, extractHTMLMetadata, writeFile } from '../helpers/test-utils.js';
-
-const ALL_LANGUAGES = ['en', 'de', 'fr', 'es', 'it', 'nl', 'pl', 'pt', 'ro', 'sv', 'da', 'fi', 'el', 'hu'];
 
 describe('Multi-Language Support Integration', () => {
   let tempDir;

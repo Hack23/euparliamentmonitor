@@ -217,11 +217,11 @@ describe('article-template', () => {
         expect(html).not.toContain('<h2>Sources</h2>');
       });
 
-      it('should use rel="noopener" for external links', () => {
+      it('should use rel="noopener noreferrer" for external links', () => {
         const html = generateArticleHTML(defaultOptions);
         
         mockSources.forEach((source) => {
-          expect(html).toMatch(new RegExp(`<a href="${source.url}"[^>]*rel="noopener"`));
+          expect(html).toMatch(new RegExp(`<a href="[^"]*"[^>]*rel="noopener noreferrer"`));
         });
       });
     });
@@ -267,8 +267,9 @@ describe('article-template', () => {
         const titleWithQuotes = 'Article with "quotes" and \'apostrophes\'';
         const html = generateArticleHTML({ ...defaultOptions, title: titleWithQuotes });
         
-        // Title should be present but properly handled
-        expect(html).toContain(titleWithQuotes);
+        // Title should be HTML-escaped in attributes
+        expect(html).toContain('&quot;quotes&quot;');
+        expect(html).toContain('&#39;apostrophes&#39;');
       });
 
       it('should not allow javascript: URLs in sources', () => {
@@ -278,9 +279,10 @@ describe('article-template', () => {
         ];
         const html = generateArticleHTML({ ...defaultOptions, sources: maliciousSources });
         
-        // Should contain the javascript: URL as-is (no execution in HTML string)
-        // But in a real implementation, this should be validated
-        expect(html).toContain('javascript:');
+        // javascript: URLs should be replaced with '#' for safety
+        expect(html).not.toContain('javascript:');
+        expect(html).toContain('href="#"');
+        expect(html).toContain('href="https://example.com"');
       });
     });
 

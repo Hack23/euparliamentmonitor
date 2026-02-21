@@ -12,8 +12,8 @@ import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
 import { PROJECT_ROOT } from '../constants/config.js';
-import { ALL_LANGUAGES } from '../constants/languages.js';
 import {
+  ALL_LANGUAGES,
   LANGUAGE_NAMES,
   PAGE_TITLES,
   PAGE_DESCRIPTIONS,

@@ -150,3 +150,33 @@ export function writeFileContent(filepath: string, content: string): void {
   ensureDirectoryExists(dir);
   fs.writeFileSync(filepath, content, 'utf-8');
 }
+
+/**
+ * Escape special HTML characters to prevent XSS
+ *
+ * @param str - Raw string to escape
+ * @returns HTML-safe string
+ */
+export function escapeHTML(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/**
+ * Validate that a URL uses a safe scheme (http or https)
+ *
+ * @param url - URL string to validate
+ * @returns true if URL has a safe scheme
+ */
+export function isSafeURL(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}

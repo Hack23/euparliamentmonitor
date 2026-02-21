@@ -66,7 +66,7 @@ export interface ArticleOptions {
   title: string;
   subtitle: string;
   date: string;
-  type: ArticleType;
+  type: ArticleType | string;
   readTime: number;
   lang: string;
   content: string;
