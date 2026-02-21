@@ -75,7 +75,7 @@ EU Parliament Monitor is developed and maintained in accordance with Hack23 AB's
 | **[Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md)** | Defines data classification scheme (Public, Internal, Confidential, Restricted) and handling requirements | All project content classified as PUBLIC; establishes data handling controls for any future sensitive data integration |
 | **[AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md)** | Governs responsible AI usage, transparency, and human oversight requirements | Governs LLM usage for content generation: transparency requirements, human review workflows, bias mitigation, prompt injection protection |
 | **[Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md)** | Defines authentication, authorization, least privilege, and privileged access management | Controls GitHub repository access, branch protection rules, secret management, and deployment permissions |
-| **[Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md)** | Establishes cryptographic standards for data protection (algorithms, key management, TLS) | Mandates HTTPS-only content delivery, TLS 1.3 for API communications, secure secret storage for LLM API keys |
+| **[Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md)** | Establishes cryptographic standards for data protection (algorithms, key management, TLS) | Mandates HTTPS-only content delivery, TLS 1.2+ (TLS 1.3 where supported) for outbound HTTPS API communications; EP MCP integration uses a local stdio JSON-RPC channel (no TLS); ensures secure secret storage for LLM API keys |
 
 ### ISMS Compliance Implementation
 
@@ -83,7 +83,7 @@ EU Parliament Monitor is developed and maintained in accordance with Hack23 AB's
 - **A.5.10** - Information Security Policy (documented and reviewed quarterly)
 - **A.8.3** - Secure Coding (ESLint security rules, CodeQL SAST scanning)
 - **A.8.23** - Web Filtering (planned CSP headers via CloudFront, XSS prevention)
-- **A.8.24** - Cryptography (HTTPS-only, TLS 1.3)
+- **A.8.24** - Cryptography (HTTPS-only, TLS 1.2+ / TLS 1.3 where supported, site delivery via CloudFront)
 - **A.8.28** - Secure Coding (input validation, dependency scanning)
 
 **NIST CSF 2.0 Functions Addressed:**
@@ -185,7 +185,7 @@ C4Context
 | **Political Researcher**  | User            | Academic or analyst studying EP activities                 | Web Browser                 |
 | **Developer/Contributor** | User            | Maintainer improving system                                | Git, Node.js, VS Code       |
 | **EU Parliament Monitor** | System          | Core static site generator                                 | Node.js, JavaScript         |
-| **GitHub**                | External System | Source control, CI/CD, hosting                             | GitHub Actions, Pages       |
+| **GitHub**                | External System | Source control, CI/CD                                      | GitHub Actions          |
 | **EP MCP Server**         | External System | Structured EP data access                                  | MCP Protocol, TypeScript    |
 | **EP APIs**               | External System | Official data sources                                      | REST APIs, JSON             |
 | **LLM Service**           | External System | Content generation                                         | API (OpenAI/Anthropic/etc.) |
@@ -239,7 +239,7 @@ graph TB
 | Zone | Trust Level | Security Controls | Threat Model |
 |------|-------------|-------------------|--------------|
 | **Public Internet** | Untrusted | HTTPS-only, planned CSP headers, static content only | DDoS, XSS attempts (mitigated by static architecture) |
-| **GitHub Infrastructure** | Trusted | GitHub authentication, branch protection, signed commits, secret scanning | Supply chain attacks (mitigated by Dependabot, CodeQL) |
+| **GitHub Infrastructure** | Trusted | GitHub authentication, branch protection, optional signed commits, secret scanning | Supply chain attacks (mitigated by Dependabot, CodeQL) |
 | **AWS Hosting** | Trusted | ACM certificate, HTTPS redirect, DDoS protection via CloudFront | Hosting infrastructure compromise (mitigated by AWS security controls, OIDC deploy auth) |
 | **External Services** | Partially Trusted | API authentication, input validation, rate limiting, data sanitization | Data poisoning, API compromise (mitigated by validation, monitoring) |
 
@@ -322,11 +322,11 @@ C4Container
 
 | Container | Security Responsibility | Implementation | Controls |
 |-----------|------------------------|----------------|----------|
-| **News Generation Scripts** | Input validation, data sanitization, error handling | Validates all EP data against schemas, sanitizes HTML content, handles API errors gracefully | A.8.3, A.8.28 (ISO 27001) |
-| **Index Page Generator** | XSS prevention, metadata validation | Escapes all user-facing strings, validates article metadata structure | A.8.23 (ISO 27001) |
+| **News Generation Scripts** | Basic input validation, data handling, error handling (schema validation and sanitization planned) | Parses EP data with `JSON.parse` and basic shape checks, performs minimal input validation, handles API errors gracefully; comprehensive schema validation and HTML sanitization planned | A.8.3, A.8.28 (ISO 27001) |
+| **Index Page Generator** | XSS risk awareness, metadata validation (systematic escaping planned) | Performs basic article metadata structure checks and relies on static content; comprehensive XSS hardening and systematic escaping of user-facing strings planned | A.8.23 (ISO 27001) |
 | **Sitemap Generator** | URL validation, XML escaping | Validates all URLs before inclusion, escapes XML special characters | A.8.3 (ISO 27001) |
-| **MCP Client** | API authentication, rate limiting, TLS enforcement | Uses MCP protocol with authentication, implements exponential backoff, enforces TLS 1.3 | A.8.24 (ISO 27001), CIS Control 16 |
-| **Article Template Engine** | HTML sanitization, CSP-ready markup | Generates sanitized semantic HTML5 prepared for future CSP implementation, sanitizes all dynamic content | A.8.23 (ISO 27001) |
+| **MCP Client** | Local MCP process communication, timeout handling, basic validation | Spawns a local MCP server process over stdio JSON-RPC, applies connection retry backoff, per-request timeouts, and basic JSON parsing/validation (no TLS or API authentication at this local layer) | A.8.24 (ISO 27001), CIS Control 16 |
+| **Article Template Engine** | HTML output generation, CSP-ready markup (systematic sanitization planned) | Generates semantic HTML5 and interpolates dynamic content; systematic HTML escaping/sanitization and CSP hardening planned for all dynamic content | A.8.23 (ISO 27001) |
 | **Static Files** | Integrity verification, no sensitive data | All files public, no secrets or PII, content integrity via Git | A.5.10 (ISO 27001) |
 | **GitHub Actions** | Secret management, least privilege, audit logging | GitHub Secrets for API keys, OIDC authentication, workflow audit logs | A.8.3, CIS Control 6 |
 | **Amazon CloudFront + S3** | HTTPS-only, CDN security, DDoS protection | Forces HTTPS redirect via ACM certificate, CloudFront with DDoS mitigation, HSTS headers (configured externally in CloudFront distribution) | A.8.24 (ISO 27001) |
@@ -338,7 +338,7 @@ C4Container
 graph TB
     subgraph "Generation Layer - Build Time Security"
         NewsGen[News Generator<br/>🛡️ Input Validation<br/>🛡️ Data Sanitization]
-        MCPClient[MCP Client<br/>🛡️ API Authentication<br/>🛡️ Rate Limiting<br/>🛡️ TLS 1.3]
+        MCPClient[MCP Client<br/>🛡️ Local stdio JSON-RPC<br/>🛡️ Connection Retry<br/>🛡️ Request Timeout]
         Template[Template Engine<br/>🛡️ XSS Prevention<br/>🛡️ CSP Generation<br/>🛡️ HTML Sanitization]
     end
     
@@ -358,8 +358,8 @@ graph TB
     end
     
     NewsGen -->|Validated Data| Template
-    NewsGen -->|Authenticated Calls| MCPClient
-    MCPClient -->|TLS 1.3| EPMCP
+    NewsGen -->|Spawns locally (stdio)| MCPClient
+    MCPClient -->|JSON-RPC| EPMCP
     NewsGen -->|Secured API Calls| LLM
     Template -->|Safe HTML| GitRepo
     Secrets -->|Inject at Runtime| NewsGen
@@ -636,28 +636,26 @@ sequenceDiagram
     participant CLI as CLI Interface
     participant Gen as Article Generator
     participant MCP as MCP Client
-    participant EP as EP MCP Server
-    participant LLM as LLM Service
+    participant EP as EP MCP Server (local)
     participant TPL as Template Engine
     participant FS as File System
 
     GHA->>CLI: Trigger daily workflow
     CLI->>Gen: generate-news --types=week-ahead --languages=all
-    Gen->>MCP: getPlenary Sessions()
-    MCP->>EP: Query upcoming sessions
-    EP-->>MCP: Session data
-    MCP-->>Gen: Structured EP data
+    Gen->>MCP: getPlenarySessions()
+    Note over MCP,EP: MCP client spawns EP MCP Server as local process (stdio JSON-RPC)
+    MCP->>EP: JSON-RPC request (stdio)
+    EP-->>MCP: EP data (JSON-RPC response)
+    MCP-->>Gen: Parsed EP data (basic shape checks)
 
-    loop For each language
-        Gen->>LLM: Generate article(EP data, language)
-        Note over Gen,LLM: Target architecture (ADR-004); current implementation uses placeholder English content
-        LLM-->>Gen: Article content
-        Gen->>TPL: Render HTML(article, language)
+    loop For each language (sequential)
+        Gen->>TPL: Render HTML(EP data, language)
+        Note over Gen,TPL: Placeholder English body content; native per-language LLM generation planned (ADR-004)
         TPL-->>Gen: HTML output
         Gen->>FS: Write article file
     end
 
-    Gen->>FS: Write metadata.json
+    Gen->>FS: Write metadata.json (writeFileSync — failure fails run)
     GHA->>GHA: Commit and push changes
     GHA->>GHA: Deploy to S3 + invalidate CloudFront
 ```
@@ -692,7 +690,7 @@ Cross-cutting concerns are aspects of the system that affect multiple components
 | Level | Usage | Output | Retention |
 |-------|-------|--------|-----------|
 | **ERROR** | Unrecoverable errors (API failures, file write errors) | `console.error()`, GitHub Actions logs | 90 days (GitHub) |
-| **WARN** | Recoverable issues (cache miss, validation retry) | `console.warn()`, GitHub Actions logs | 90 days (GitHub) |
+| **WARN** | Recoverable issues (MCP connection retry/backoff, MCP tool fallback, JSON.parse recovery) | `console.warn()`, GitHub Actions logs | 90 days (GitHub) |
 | **INFO** | Normal operations (generation start/complete, article count) | `console.log()`, GitHub Actions logs | 90 days (GitHub) |
 | **DEBUG** | Detailed diagnostics (API responses, intermediate data) | Disabled in production | Dev only |
 
@@ -813,11 +811,11 @@ flowchart TD
 
 | Error Category | Examples | Retry Strategy | Fallback | User Impact |
 |----------------|----------|----------------|----------|-------------|
-| **Transient Network Errors** | EP MCP Server timeout, LLM API rate limit | Exponential backoff (1s, 2s, 4s), max 3 retries | Use cached data if available | None (transparent recovery) |
+| **Transient Network Errors** | EP MCP Server timeout, LLM API rate limit | Exponential backoff (1s, 2s, 4s), max 3 retries | Use placeholder events or skip affected items (no cache) | Missing or placeholder content for affected items |
 | **Permanent API Errors** | Invalid API key, malformed request | No retry | Skip article generation for affected language | Missing article for specific language |
-| **Data Validation Errors** | Invalid EP data structure, missing required fields | Regenerate request (max 2 attempts) | Use previous valid data if available | Stale content (dated but valid) |
+| **Data Validation Errors** | Invalid EP data structure, missing required fields | No automatic regeneration loop | Skip invalid items (no cached-data fallback) | Missing content for invalid items |
 | **File System Errors** | Disk full, permission denied | No retry | Fail workflow | Build failure (no deployment) |
-| **Content Generation Errors** | LLM refusal, prompt injection detected | Regenerate with modified prompt (max 2 attempts) | Use template with basic info | Reduced content quality |
+| **Content Generation Errors** | LLM refusal, prompt injection detected | Single generation attempt (no automatic regeneration loop) | Insert placeholder events when content generation fails | Reduced content quality or placeholder content |
 
 **Error Propagation:**
 1. **Component Level**: Catch and log errors, attempt recovery
