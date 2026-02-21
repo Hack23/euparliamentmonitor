@@ -10,7 +10,7 @@
 
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { createMockMCPClient } from '../helpers/mock-mcp-server.js';
-import { generateArticleHTML } from '../../scripts/article-template.js';
+import { generateArticleHTML } from '../../scripts/templates/article-template.js';
 import { mockPlenarySession } from '../fixtures/ep-data.js';
 
 describe('MCP Integration', () => {

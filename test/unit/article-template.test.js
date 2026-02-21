@@ -7,7 +7,7 @@
  */
 
 import { describe, it, expect, beforeEach } from 'vitest';
-import { generateArticleHTML } from '../../scripts/article-template.js';
+import { generateArticleHTML } from '../../scripts/templates/article-template.js';
 import { mockArticleMetadata, mockArticleContent, mockSources } from '../fixtures/ep-data.js';
 import { validateHTML } from '../helpers/test-utils.js';
 
@@ -128,6 +128,11 @@ describe('article-template', () => {
         expect(html).toContain('<span class="article-type">Woche Voraus</span>');
       });
 
+      it('should fall back to raw type string for unknown article types', () => {
+        const html = generateArticleHTML({ ...defaultOptions, type: 'custom-unknown', lang: 'en' });
+        expect(html).toContain('<span class="article-type">custom-unknown</span>');
+      });
+
       it('should format date according to language', () => {
         const html = generateArticleHTML({ ...defaultOptions, date: '2025-01-15', lang: 'en' });
         // English date format should be present
@@ -212,11 +217,11 @@ describe('article-template', () => {
         expect(html).not.toContain('<h2>Sources</h2>');
       });
 
-      it('should use rel="noopener" for external links', () => {
+      it('should use rel="noopener noreferrer" for external links', () => {
         const html = generateArticleHTML(defaultOptions);
         
         mockSources.forEach((source) => {
-          expect(html).toMatch(new RegExp(`<a href="${source.url}"[^>]*rel="noopener"`));
+          expect(html).toMatch(new RegExp(`<a href="[^"]*"[^>]*rel="noopener noreferrer"`));
         });
       });
     });
@@ -262,8 +267,9 @@ describe('article-template', () => {
         const titleWithQuotes = 'Article with "quotes" and \'apostrophes\'';
         const html = generateArticleHTML({ ...defaultOptions, title: titleWithQuotes });
         
-        // Title should be present but properly handled
-        expect(html).toContain(titleWithQuotes);
+        // Title should be HTML-escaped in attributes
+        expect(html).toContain('&quot;quotes&quot;');
+        expect(html).toContain('&#39;apostrophes&#39;');
       });
 
       it('should not allow javascript: URLs in sources', () => {
@@ -273,9 +279,10 @@ describe('article-template', () => {
         ];
         const html = generateArticleHTML({ ...defaultOptions, sources: maliciousSources });
         
-        // Should contain the javascript: URL as-is (no execution in HTML string)
-        // But in a real implementation, this should be validated
-        expect(html).toContain('javascript:');
+        // javascript: URLs should be replaced with '#' for safety
+        expect(html).not.toContain('javascript:');
+        expect(html).toContain('href="#"');
+        expect(html).toContain('href="https://example.com"');
       });
     });
 

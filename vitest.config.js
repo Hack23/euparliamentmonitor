@@ -26,7 +26,7 @@ export default defineConfig({
         statements: 80,
       },
       
-      // Files to include in coverage
+      // Files to include in coverage - cover compiled JS from TypeScript
       include: ['scripts/**/*.js'],
       
       // Files to exclude from coverage
@@ -37,12 +37,14 @@ export default defineConfig({
         '*.config.js',
         'eslint.config.js',
         // Exclude CLI entry point scripts (tested via integration tests)
-        'scripts/generate-news-enhanced.js',
-        'scripts/generate-news-indexes.js',
-        'scripts/generate-sitemap.js',
+        'scripts/generators/news-enhanced.js',
+        'scripts/generators/news-indexes.js',
+        'scripts/generators/sitemap.js',
         // Exclude documentation generation scripts (utility scripts)
-        'scripts/generate-docs-index.js',
-        'scripts/copy-test-reports.js',
+        'scripts/utils/generate-docs-index.js',
+        'scripts/utils/copy-test-reports.js',
+        // Exclude type definitions
+        'scripts/**/*.d.ts',
       ],
     },
     

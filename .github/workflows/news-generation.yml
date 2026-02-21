@@ -46,6 +46,9 @@ jobs:
       - name: Install dependencies
         run: npm ci --prefer-offline --no-audit
       
+      - name: Build TypeScript
+        run: npm run build
+      
       - name: Generate news articles
         env:
           ARTICLE_TYPES: ${{ github.event.inputs.article_types || 'week-ahead' }}
@@ -55,19 +58,19 @@ jobs:
           echo "  Types: $ARTICLE_TYPES"
           echo "  Languages: $LANGUAGES"
           
-          node scripts/generate-news-enhanced.js \
+          node scripts/generators/news-enhanced.js \
             --types="$ARTICLE_TYPES" \
             --languages="$LANGUAGES"
       
       - name: Generate news indexes
         run: |
           echo "📋 Generating news indexes..."
-          node scripts/generate-news-indexes.js
+          node scripts/generators/news-indexes.js
       
       - name: Generate sitemap
         run: |
           echo "🗺️ Generating sitemap..."
-          node scripts/generate-sitemap.js
+          node scripts/generators/sitemap.js
       
       - name: Check for changes
         id: check_changes

@@ -137,6 +137,11 @@ dist/
 # TypeScript cache
 *.tsbuildinfo
 
+# TypeScript compiled output (source maps and declaration files)
+scripts/**/*.js.map
+scripts/**/*.d.ts
+scripts/**/*.d.ts.map
+
 # MCP client logs/debug
 mcp-debug.log
 mcp-*.tmp

@@ -9,7 +9,7 @@
 /* eslint-disable no-undef */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { EuropeanParliamentMCPClient, getEPMCPClient, closeEPMCPClient } from '../../scripts/ep-mcp-client.js';
+import { EuropeanParliamentMCPClient, getEPMCPClient, closeEPMCPClient } from '../../scripts/mcp/ep-mcp-client.js';
 import { mockConsole } from '../helpers/test-utils.js';
 
 describe('ep-mcp-client', () => {

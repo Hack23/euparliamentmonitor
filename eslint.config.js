@@ -2,19 +2,26 @@ import js from '@eslint/js';
 import securityPlugin from 'eslint-plugin-security';
 import sonarjsPlugin from 'eslint-plugin-sonarjs';
 import jsdocPlugin from 'eslint-plugin-jsdoc';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsparser from '@typescript-eslint/parser';
 
 export default [
   js.configs.recommended,
   {
-    files: ['scripts/**/*.js'],
+    files: ['src/**/*.ts'],
     plugins: {
       security: securityPlugin,
       sonarjs: sonarjsPlugin,
       jsdoc: jsdocPlugin,
+      '@typescript-eslint': tseslint,
     },
     languageOptions: {
       ecmaVersion: 2024,
       sourceType: 'module',
+      parser: tsparser,
+      parserOptions: {
+        project: './tsconfig.json',
+      },
       globals: {
         console: 'readonly',
         process: 'readonly',
@@ -25,12 +32,14 @@ export default [
         clearTimeout: 'readonly',
         setInterval: 'readonly',
         clearInterval: 'readonly',
+        NodeJS: 'readonly',
       },
     },
     rules: {
       // Possible Errors
-      'no-console': 'off', // Allow console for CLI scripts
-      'no-unused-vars': [
+      'no-console': 'off',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
         'error',
         {
           argsIgnorePattern: '^_',
@@ -43,9 +52,9 @@ export default [
       'no-eval': 'error',
       'no-implied-eval': 'error',
       'no-new-func': 'error',
-      'no-return-await': 'error',
+      'no-return-await': 'off',
       'prefer-const': 'error',
-      'require-await': 'error',
+      'require-await': 'off',
 
       // Security
       'security/detect-object-injection': 'warn',
@@ -68,14 +77,14 @@ export default [
       'jsdoc/check-alignment': 'error',
       'jsdoc/check-param-names': 'error',
       'jsdoc/check-tag-names': 'error',
-      'jsdoc/check-types': 'error',
+      'jsdoc/check-types': 'off',
       'jsdoc/require-description': 'warn',
       'jsdoc/require-param': 'error',
       'jsdoc/require-param-description': 'warn',
-      'jsdoc/require-param-type': 'error',
+      'jsdoc/require-param-type': 'off',
       'jsdoc/require-returns': 'error',
       'jsdoc/require-returns-description': 'warn',
-      'jsdoc/require-returns-type': 'error',
+      'jsdoc/require-returns-type': 'off',
     },
   },
 ];

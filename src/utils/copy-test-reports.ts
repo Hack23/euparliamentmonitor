@@ -4,35 +4,28 @@
 // SPDX-License-Identifier: Apache-2.0
 
 /**
- * Copy Test Reports to Documentation Directory
- *
- * This script copies all test reports and coverage data to the docs/ directory
+ * @module Utils/CopyTestReports
+ * @description Copies test reports and coverage data to the docs/ directory
  * for inclusion in the documentation bundle.
- *
- * @module scripts/copy-test-reports
  */
 
 import { promises as fs } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { join, resolve } from 'path';
+import { pathToFileURL } from 'url';
+import { PROJECT_ROOT } from '../constants/config.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const ROOT_DIR = join(__dirname, '..');
-const DOCS_DIR = join(ROOT_DIR, 'docs');
+const DOCS_DIR = join(PROJECT_ROOT, 'docs');
 
 /**
  * Recursively copy directory
  *
- * @param {string} src - Source directory
- * @param {string} dest - Destination directory
+ * @param src - Source directory
+ * @param dest - Destination directory
  */
-async function copyDirectory(src, dest) {
+export async function copyDirectory(src: string, dest: string): Promise<void> {
   try {
-    // Create destination directory
     await fs.mkdir(dest, { recursive: true });
 
-    // Read source directory
     const entries = await fs.readdir(src, { withFileTypes: true });
 
     for (const entry of entries) {
@@ -46,8 +39,8 @@ async function copyDirectory(src, dest) {
       }
     }
   } catch (error) {
-    // Silently skip if source doesn't exist
-    if (error.code !== 'ENOENT') {
+    const nodeError = error as NodeJS.ErrnoException;
+    if (nodeError.code !== 'ENOENT') {
       throw error;
     }
   }
@@ -56,9 +49,9 @@ async function copyDirectory(src, dest) {
 /**
  * Create a simple HTML index for test results
  *
- * @returns {string} HTML content
+ * @returns HTML content
  */
-function createTestResultsIndex() {
+function createTestResultsIndex(): string {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,21 +87,18 @@ function createTestResultsIndex() {
 /**
  * Main execution function
  */
-async function main() {
+async function main(): Promise<void> {
   console.log('📋 Copying test reports to documentation directory...');
 
   try {
-    // Ensure docs directory exists
     await fs.mkdir(DOCS_DIR, { recursive: true });
 
-    // Copy coverage report
-    const coverageSrc = join(ROOT_DIR, 'coverage');
+    const coverageSrc = join(PROJECT_ROOT, 'coverage');
     const coverageDest = join(DOCS_DIR, 'coverage');
     console.log('  📊 Copying coverage report...');
     await copyDirectory(coverageSrc, coverageDest);
     console.log('  ✅ Coverage report copied');
 
-    // Create test-results directory with index
     const testResultsDir = join(DOCS_DIR, 'test-results');
     await fs.mkdir(testResultsDir, { recursive: true });
     await fs.writeFile(join(testResultsDir, 'index.html'), createTestResultsIndex(), 'utf8');
@@ -116,14 +106,13 @@ async function main() {
 
     console.log('✅ All test reports copied successfully');
   } catch (error) {
-    console.error('❌ Error copying test reports:', error.message);
+    const message = error instanceof Error ? error.message : String(error);
+    console.error('❌ Error copying test reports:', message);
     process.exit(1);
   }
 }
 
-// Run if executed directly
-if (process.argv[1] === __filename) {
+// Only run main when executed directly (not when imported)
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   main();
 }
-
-export { copyDirectory };

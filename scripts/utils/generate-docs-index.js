@@ -1,35 +1,24 @@
 #!/usr/bin/env node
-
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-
 /**
- * Generate Documentation Index
- *
- * Creates an index.html page in the docs/ directory that links to all
+ * @module Utils/GenerateDocsIndex
+ * @description Creates an index.html page in the docs/ directory that links to all
  * generated documentation and test reports.
- *
- * @module scripts/generate-docs-index
  */
-
 import { promises as fs } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const ROOT_DIR = join(__dirname, '..');
-const DOCS_DIR = join(ROOT_DIR, 'docs');
-
+import { join, resolve } from 'path';
+import { pathToFileURL } from 'url';
+import { PROJECT_ROOT } from '../constants/config.js';
+const DOCS_DIR = join(PROJECT_ROOT, 'docs');
 /**
  * Generate the documentation index HTML
  *
- * @returns {string} HTML content for the documentation index
+ * @returns HTML content for the documentation index
  */
-function generateIndexHTML() {
-  const currentDate = new Date().toISOString().split('T')[0];
-
-  return `<!DOCTYPE html>
+export function generateIndexHTML() {
+    const currentDate = new Date().toISOString().split('T')[0];
+    return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -245,7 +234,7 @@ function generateIndexHTML() {
       <p>
         <strong>EU Parliament Monitor</strong> - 
         European Parliament Intelligence Platform<br>
-        <a href="https://github.com/Hack23/euparliamentmonitor" target="_blank">
+        <a href="https://github.com/Hack23/euparliamentmonitor" target="_blank" rel="noopener noreferrer">
           View on GitHub
         </a>
       </p>
@@ -254,32 +243,26 @@ function generateIndexHTML() {
 </body>
 </html>`;
 }
-
 /**
  * Main execution function
  */
 async function main() {
-  console.log('📚 Generating documentation index...');
-
-  try {
-    // Ensure docs directory exists
-    await fs.mkdir(DOCS_DIR, { recursive: true });
-
-    // Generate and write index.html
-    const indexHTML = generateIndexHTML();
-    const indexPath = join(DOCS_DIR, 'index.html');
-    await fs.writeFile(indexPath, indexHTML, 'utf8');
-
-    console.log(`✅ Documentation index generated: ${indexPath}`);
-  } catch (error) {
-    console.error('❌ Error generating documentation index:', error.message);
-    process.exit(1);
-  }
+    console.log('📚 Generating documentation index...');
+    try {
+        await fs.mkdir(DOCS_DIR, { recursive: true });
+        const indexHTML = generateIndexHTML();
+        const indexPath = join(DOCS_DIR, 'index.html');
+        await fs.writeFile(indexPath, indexHTML, 'utf8');
+        console.log(`✅ Documentation index generated: ${indexPath}`);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error('❌ Error generating documentation index:', message);
+        process.exit(1);
+    }
 }
-
-// Run if executed directly
-if (process.argv[1] === __filename) {
-  main();
+// Only run main when executed directly (not when imported)
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+    main();
 }
-
-export { generateIndexHTML };
+//# sourceMappingURL=generate-docs-index.js.map
