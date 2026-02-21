@@ -506,7 +506,7 @@ Every workflow declares explicit, minimal permissions following the principle of
 | Workflow | Top-Level | Job-Level Overrides | Secrets Used |
 |----------|-----------|---------------------|--------------|
 | **news-generation** | `contents: write` | — | `GITHUB_TOKEN` |
-| **test-and-report** | `read-all` | validation: `pull-requests: write`; security: `security-events: write` | None |
+| **test-and-report** | `read-all` | validation: `pull-requests: write`; report: `pull-requests: write`; security: `security-events: write` | None |
 | **codeql** | `contents: read` | analyze: `security-events: write`, `packages: read` | None |
 | **e2e** | `contents: read` | — | None |
 | **release** | `read-all` | prepare: `contents: write`; build: `id-token: write`, `attestations: write`; release: `contents: write`, `id-token: write` | `GITHUB_TOKEN` |
@@ -674,7 +674,7 @@ Security scanning tools are integrated into the CI/CD pipeline with triggers as 
 |------|------|---------|-------------------|---------------|
 | **CodeQL** | SAST | Push, PR, weekly | GitHub Security tab | Yes (via required check) |
 | **SonarCloud** | SAST + Quality | Push, PR, weekly | SonarCloud dashboard | Configurable |
-| **npm audit** | SCA | Push, PR | Workflow logs | Yes (high/critical) |
+| **npm audit** | SCA | Push, PR | Workflow logs | Yes (new ≥ moderate, allowlist exceptions) |
 | **Dependency Review** | SCA | PR only | PR comments | Yes |
 | **ESLint** | SAST Lint | Push, PR, pre-commit | Workflow logs | Yes |
 | **HTMLHint** | Validation | Push, PR, pre-commit | Workflow logs | Warning |
@@ -706,18 +706,20 @@ graph LR
         SCL[SonarCloud<br/>Dashboard]
         PRC[PR Comments<br/>Inline feedback]
         SAR[SARIF Upload<br/>Code scanning tab]
+        WL[Workflow Logs<br/>Actions tab]
     end
 
     PR --> CQL & SLD & NA & DR & RL
     PS --> CQL & SLD & NA & RL & SC2
     SC --> CQL & SLD & RL & SC2
 
-    CQL --> GH & SAR
+    CQL --> SAR
     SLD --> SCL & PRC
-    NA --> GH
-    DR --> PRC & GH
-    RL --> GH
-    SC2 --> SAR & GH
+    NA --> WL
+    DR --> PRC
+    RL --> WL
+    SC2 --> SAR
+    SAR --> GH
 ```
 
 ---
@@ -770,8 +772,9 @@ graph TD
 | Failure Type | Detection | Automated Response | Manual Action |
 |-------------|-----------|-------------------|---------------|
 | **Test failure** | CI job exits non-zero | Workflow marked failed, merge blocked | Review logs, fix code, re-push |
-| **Security finding (new)** | CodeQL / npm audit | PR comment + Security alert | Assess, fix or document false positive |
-| **Security finding (FP)** | Known GHSA in audit output | Intelligent triage passes | Document in SECURITY.md |
+| **Security finding (CodeQL, new)** | CodeQL analysis | PR comment + GitHub Security alert | Assess, fix or document false positive |
+| **Security finding (npm audit, new)** | `npm audit` in `test-and-report.yml` | Workflow failed, findings in logs only | Review audit output, update deps or add to allowlist per policy |
+| **Security finding (known / accepted)** | Known GHSA in audit allowlist | Intelligent triage passes | Document in SECURITY.md and risk register |
 | **Deployment failure** | S3 sync / CF invalidation error | Workflow failed, previous version still live | Check AWS CloudWatch, re-run |
 | **Attestation failure** | Sigstore API / OIDC error | Release blocked | Retry workflow, check OIDC config |
 | **REUSE non-compliance** | Missing SPDX header | PR blocked | Add `SPDX-FileCopyrightText` headers |
@@ -870,13 +873,14 @@ All primary workflows expose real-time status badges in README.md and this docum
 
 ### GitHub Security Dashboard Integration
 
-All SAST tools upload findings to the GitHub Security Dashboard via SARIF format:
+The following tools integrate with the GitHub Security Dashboard via SARIF or native mechanisms; others report to external dashboards:
 
-| Tool | SARIF Upload | Dashboard Section |
-|------|-------------|-------------------|
-| **CodeQL** | `github/codeql-action/analyze` | Code scanning alerts |
-| **OpenSSF Scorecard** | `github/codeql-action/upload-sarif` | Code scanning alerts |
-| **Dependabot** | Native integration | Dependabot alerts |
+| Tool | Integration Type | Destination |
+|------|------------------|-------------|
+| **CodeQL** | SARIF via `github/codeql-action/analyze` | GitHub Security Dashboard (code scanning alerts) |
+| **OpenSSF Scorecard** | SARIF via `github/codeql-action/upload-sarif` | GitHub Security Dashboard (code scanning alerts) |
+| **Dependabot** | Native GitHub integration | GitHub Security Dashboard (Dependabot alerts) |
+| **SonarCloud** | External dashboard (no SARIF upload to GitHub in this setup) | SonarCloud Security Reports |
 
 ### Alerting Channels
 
@@ -900,7 +904,7 @@ All SAST tools upload findings to the GitHub Security Dashboard via SARIF format
 | **Access Control Policy** | deploy-s3 (OIDC), release (minimal permissions) | Workflow files |
 | **Cryptography Policy** | deploy-s3 (TLS), release (Sigstore/SLSA) | [Attestations](https://github.com/Hack23/euparliamentmonitor/attestations) |
 | **Open Source Policy** | REUSE compliance workflow | [REUSE.toml](REUSE.toml) |
-| **Vulnerability Management** | CodeQL, npm audit, Dependency Review | GitHub Security tab |
+| **Vulnerability Management** | CodeQL, npm audit, Dependency Review | CodeQL: GitHub Security tab; npm audit: workflow logs (Actions); Dependency Review: PR checks & review comments |
 
 ---
 
