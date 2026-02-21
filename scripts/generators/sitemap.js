@@ -6,7 +6,8 @@
  * @description Generates sitemap.xml for all news articles
  */
 import fs from 'fs';
-import path from 'path';
+import path, { resolve } from 'path';
+import { pathToFileURL } from 'url';
 import { NEWS_DIR, BASE_URL, PROJECT_ROOT } from '../constants/config.js';
 import { ALL_LANGUAGES } from '../constants/languages.js';
 import { getNewsArticles, getModifiedDate } from '../utils/file-utils.js';
@@ -62,5 +63,8 @@ function main() {
     fs.writeFileSync(filepath, sitemap, 'utf-8');
     console.log(`✅ Generated sitemap.xml with ${articles.length + 14} URLs`);
 }
-main();
+// Only run main when executed directly (not when imported)
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+    main();
+}
 //# sourceMappingURL=sitemap.js.map

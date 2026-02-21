@@ -6,7 +6,8 @@
  * @description Generates index.html files for each language listing all news articles
  */
 import fs from 'fs';
-import path from 'path';
+import path, { resolve } from 'path';
+import { pathToFileURL } from 'url';
 import { PROJECT_ROOT } from '../constants/config.js';
 import { ALL_LANGUAGES } from '../constants/languages.js';
 import { LANGUAGE_NAMES, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, getLocalizedString, getTextDirection, } from '../constants/languages.js';
@@ -92,5 +93,8 @@ function main() {
     }
     console.log(`✅ Generated ${generated} index files`);
 }
-main();
+// Only run main when executed directly (not when imported)
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+    main();
+}
 //# sourceMappingURL=news-indexes.js.map

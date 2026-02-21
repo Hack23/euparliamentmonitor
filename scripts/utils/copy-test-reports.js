@@ -7,7 +7,8 @@
  * for inclusion in the documentation bundle.
  */
 import { promises as fs } from 'fs';
-import { join } from 'path';
+import { join, resolve } from 'path';
+import { pathToFileURL } from 'url';
 import { PROJECT_ROOT } from '../constants/config.js';
 const DOCS_DIR = join(PROJECT_ROOT, 'docs');
 /**
@@ -99,5 +100,8 @@ async function main() {
         process.exit(1);
     }
 }
-main();
+// Only run main when executed directly (not when imported)
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+    main();
+}
 //# sourceMappingURL=copy-test-reports.js.map

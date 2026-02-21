@@ -7,7 +7,8 @@
  * generated documentation and test reports.
  */
 import { promises as fs } from 'fs';
-import { join } from 'path';
+import { join, resolve } from 'path';
+import { pathToFileURL } from 'url';
 import { PROJECT_ROOT } from '../constants/config.js';
 const DOCS_DIR = join(PROJECT_ROOT, 'docs');
 /**
@@ -261,8 +262,7 @@ async function main() {
     }
 }
 // Only run main when executed directly (not when imported)
-const isDirectExecution = process.argv[1] && import.meta.url === `file://${process.argv[1]}`;
-if (isDirectExecution) {
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
     main();
 }
 //# sourceMappingURL=generate-docs-index.js.map

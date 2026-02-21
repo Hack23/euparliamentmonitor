@@ -9,7 +9,8 @@
  */
 
 import fs from 'fs';
-import path from 'path';
+import path, { resolve } from 'path';
+import { pathToFileURL } from 'url';
 import { PROJECT_ROOT } from '../constants/config.js';
 import { ALL_LANGUAGES } from '../constants/languages.js';
 import {
@@ -118,4 +119,7 @@ function main(): void {
   console.log(`✅ Generated ${generated} index files`);
 }
 
-main();
+// Only run main when executed directly (not when imported)
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  main();
+}
