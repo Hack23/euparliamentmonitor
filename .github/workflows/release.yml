@@ -144,7 +144,6 @@ jobs:
         with:
           commit_message: "docs: update documentation for ${{ steps.get-version.outputs.version }}"
           file_pattern: "docs/**/*"
-          commit_options: "--no-verify"
           skip_fetch: false
           skip_checkout: false
 

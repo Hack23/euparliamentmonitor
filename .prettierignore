@@ -5,7 +5,10 @@ build/
 *.min.js
 *.min.css
 news/
-docs/
+docs/api/
+docs/coverage/
+docs/test-results/
+docs/playwright-report/
 index-*.html
 sitemap.xml
 package-lock.json
