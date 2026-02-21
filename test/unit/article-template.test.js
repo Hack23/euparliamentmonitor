@@ -7,7 +7,7 @@
  */
 
 import { describe, it, expect, beforeEach } from 'vitest';
-import { generateArticleHTML } from '../../scripts/article-template.js';
+import { generateArticleHTML } from '../../scripts/templates/article-template.js';
 import { mockArticleMetadata, mockArticleContent, mockSources } from '../fixtures/ep-data.js';
 import { validateHTML } from '../helpers/test-utils.js';
 

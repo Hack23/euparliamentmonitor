@@ -9,7 +9,7 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'fs';
 import path from 'path';
-import { generateArticleHTML } from '../../scripts/article-template.js';
+import { generateArticleHTML } from '../../scripts/templates/article-template.js';
 import { createTempDir, cleanupTempDir, validateHTML, extractHTMLMetadata, writeFile } from '../helpers/test-utils.js';
 
 const ALL_LANGUAGES = ['en', 'de', 'fr', 'es', 'it', 'nl', 'pl', 'pt', 'ro', 'sv', 'da', 'fi', 'el', 'hu'];
