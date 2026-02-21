@@ -81,7 +81,7 @@
 - [📗 Security Flows](FLOWCHART.md) - Process flows with security controls
 - [📙 Data Model](DATA_MODEL.md) - Data structures and API integration
 - [📕 Release Process](docs/RELEASE_PROCESS.md) - How to create releases
-- [📔 API Documentation](https://hack23.github.io/euparliamentmonitor/docs/api/) - JSDoc-generated API reference
+- [📔 API Documentation](https://hack23.github.io/euparliamentmonitor/docs/api/) - TypeDoc-generated API reference
 - [📓 Test Coverage](https://hack23.github.io/euparliamentmonitor/docs/coverage/) - Interactive coverage report
 
 **🔒 ISMS Compliance:**
@@ -249,7 +249,7 @@ testing:
 - **Prettier**: Consistent code formatting across all JavaScript files
 - **Pre-commit Hooks**: Automatic linting and formatting before every commit
 - **CI/CD Quality Gates**: Automated checks on every pull request
-- **JSDoc**: Complete documentation for all functions
+- **TypeDoc/JSDoc**: Complete documentation for all functions
 
 **Code Standards**: See [docs/CODE_STANDARDS.md](docs/CODE_STANDARDS.md) for
 detailed coding guidelines.
@@ -446,17 +446,32 @@ npm run serve
 ```
 euparliamentmonitor/
 ├── .github/
-│   └── workflows/
-│       └── news-generation.yml    # Automated news generation workflow
-├── scripts/
-│   ├── generate-news-enhanced.js   # Main news generation script
-│   ├── generate-news-indexes.js    # Index page generator
-│   ├── generate-sitemap.js         # Sitemap generator
-│   └── article-template.js         # HTML template generator
+│   ├── agents/                      # Custom GitHub Copilot agents
+│   ├── workflows/                   # CI/CD workflow configurations
+│   └── release-drafter.yml          # Release notes configuration
+├── src/                             # TypeScript source (compiles to scripts/)
+│   ├── constants/                   # Language data, configuration
+│   ├── generators/                  # News, index, sitemap generators
+│   ├── mcp/                         # European Parliament MCP client
+│   ├── templates/                   # HTML article templates
+│   ├── types/                       # Shared TypeScript interfaces
+│   └── utils/                       # File utilities, metadata
+├── scripts/                         # Compiled JavaScript output
+│   ├── constants/                   # Compiled constants
+│   ├── generators/                  # Compiled generators
+│   ├── mcp/                         # Compiled MCP client
+│   ├── templates/                   # Compiled templates
+│   ├── types/                       # Compiled type definitions
+│   └── utils/                       # Compiled utilities
 ├── news/                            # Generated news articles
 │   └── metadata/                    # Generation metadata
+├── test/                            # Vitest unit & integration tests
+├── e2e/                             # Playwright E2E tests
+├── docs/                            # Generated documentation
 ├── styles.css                       # Article styling
-├── index-{lang}.html               # Language-specific index pages
+├── index-{lang}.html                # Language-specific index pages
+├── typedoc.json                     # TypeDoc configuration
+├── tsconfig.json                    # TypeScript configuration
 ├── sitemap.xml                      # SEO sitemap
 └── package.json                     # Project dependencies
 ```
@@ -550,7 +565,7 @@ To create a new release:
 4. Select if pre-release
 5. The workflow will:
    - Run validation and tests (169 unit tests, E2E tests)
-   - Generate API documentation (JSDoc)
+   - Generate API documentation (TypeDoc)
    - Generate test coverage reports (Vitest HTML)
    - Generate E2E test reports (Playwright)
    - Create documentation index
@@ -570,14 +585,14 @@ Every release automatically generates comprehensive documentation:
 
 | Documentation | Description | Link |
 |--------------|-------------|------|
-| **API Documentation** | JSDoc-generated API reference (52 files) | [View Docs](https://hack23.github.io/euparliamentmonitor/docs/api/) |
+| **API Documentation** | TypeDoc-generated API reference from TypeScript source | [View Docs](https://hack23.github.io/euparliamentmonitor/docs/api/) |
 | **Test Coverage** | Interactive Vitest coverage reports (82%+) | [View Coverage](https://hack23.github.io/euparliamentmonitor/docs/coverage/) |
 | **E2E Test Reports** | Playwright test results with screenshots | [View Report](https://hack23.github.io/euparliamentmonitor/playwright-report/) |
 | **Documentation Index** | Beautiful hub linking all reports | [View Index](https://hack23.github.io/euparliamentmonitor/docs/) |
 
 **📋 How It Works:**
 1. Release workflow runs all tests
-2. Generates API docs with JSDoc
+2. Generates API docs with TypeDoc
 3. Copies coverage reports to `docs/`
 4. Creates documentation index page
 5. Commits everything to `main` branch

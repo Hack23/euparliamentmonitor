@@ -214,7 +214,8 @@ autolabeler:
       - '/^news(\([^)]+\))?:/i'
       - '/^article(\([^)]+\))?:/i'
     files:
-      - 'scripts/generate-news*'
+      - 'src/generators/news-*'
+      - 'scripts/generators/news-*'
       - 'news/**/*'
   
   - label: "content"
@@ -228,7 +229,8 @@ autolabeler:
       - '/^mcp(\([^)]+\))?:/i'
       - '/^integration(\([^)]+\))?:/i'
     files:
-      - 'scripts/ep-mcp-client*'
+      - 'src/mcp/*'
+      - 'scripts/mcp/*'
       - '**/*mcp*'
   
   # Multi-language
@@ -349,6 +351,7 @@ autolabeler:
   
   - label: "needs-tests"
     files:
+      - 'src/**/*.ts'
       - 'scripts/**/*.js'
   
   - label: "e2e"
@@ -372,4 +375,5 @@ autolabeler:
   
   - label: "scripts"
     files:
+      - 'src/**/*'
       - 'scripts/**/*'

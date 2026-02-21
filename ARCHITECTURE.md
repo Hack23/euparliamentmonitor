@@ -423,17 +423,17 @@ C4Component
 
 ### Component Diagram - Key Elements
 
-| Component                | Responsibility                   | Dependencies                     | File Location                     |
-| ------------------------ | -------------------------------- | -------------------------------- | --------------------------------- |
-| **CLI Interface**        | Parse command-line arguments     | Node.js process.argv             | scripts/generate-news-enhanced.js |
-| **Article Generator**    | Orchestrate article creation     | MCP Client, LLM Client, Template | scripts/generate-news-enhanced.js |
-| **MCP Client**           | Fetch EP data via MCP            | EP MCP Server                    | scripts/ep-mcp-client.js          |
-| **LLM Client**           | Generate article text            | LLM Service API                  | Integrated in article generator   |
-| **Translation Handler**  | Manage multi-language generation | LLM Client                       | scripts/generate-news-enhanced.js |
-| **HTML Template Engine** | Render semantic HTML5            | Article data                     | scripts/article-template.js       |
-| **File System Writer**   | Write files to disk              | Node.js fs module                | scripts/generate-news-enhanced.js |
-| **Metadata Manager**     | Track generation metadata        | Article data                     | scripts/generate-news-enhanced.js |
-| **Content Validator**    | Validate HTML output             | HTML validator                   | Integrated in template            |
+| Component                | Responsibility                   | Dependencies                     | File Location                             |
+| ------------------------ | -------------------------------- | -------------------------------- | ----------------------------------------- |
+| **CLI Interface**        | Parse command-line arguments     | Node.js process.argv             | src/generators/news-enhanced.ts           |
+| **Article Generator**    | Orchestrate article creation     | MCP Client, LLM Client, Template | src/generators/news-enhanced.ts           |
+| **MCP Client**           | Fetch EP data via MCP            | EP MCP Server                    | src/mcp/ep-mcp-client.ts                  |
+| **LLM Client**           | Generate article text            | LLM Service API                  | Integrated in article generator           |
+| **Translation Handler**  | Manage multi-language generation | LLM Client                       | src/generators/news-enhanced.ts           |
+| **HTML Template Engine** | Render semantic HTML5            | Article data                     | src/templates/article-template.ts         |
+| **File System Writer**   | Write files to disk              | Node.js fs module                | src/generators/news-enhanced.ts           |
+| **Metadata Manager**     | Track generation metadata        | Article data                     | src/generators/news-enhanced.ts           |
+| **Content Validator**    | Validate HTML output             | HTML validator                   | Integrated in template                    |
 
 ### Component Interaction Patterns
 
