@@ -1,0 +1,32 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/**/*.ts"],
+  "out": "docs/api",
+  "name": "EU Parliament Monitor - API Documentation",
+  "readme": "README.md",
+  "tsconfig": "tsconfig.json",
+  "plugin": [],
+  "excludePrivate": false,
+  "excludeProtected": false,
+  "excludeInternal": false,
+  "includeVersion": true,
+  "categorizeByGroup": true,
+  "categoryOrder": [
+    "Intelligence & Data",
+    "Content Generation",
+    "Business & Configuration",
+    "Templates & Presentation",
+    "Types & Models",
+    "Utilities",
+    "*"
+  ],
+  "navigation": {
+    "includeCategories": true,
+    "includeGroups": true
+  },
+  "sort": ["source-order", "alphabetical"],
+  "visibilityFilters": {
+    "protected": true,
+    "private": true
+  }
+}

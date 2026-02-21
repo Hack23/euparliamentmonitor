@@ -909,7 +909,7 @@ flowchart TB
     end
 
     subgraph "Template Layer"
-        TEMPLATE_ENGINE["Template Module<br/>scripts/article-template.js"]
+        TEMPLATE_ENGINE["Template Module<br/>src/templates/article-template.ts"]
         TEMPLATE_WEEK["Article Template<br/>(JS-based)"]
         TEMPLATE_COMMITTEE["Committee Reports Template<br/>(JS-based)"]
         LANGUAGE_PROCESSOR["Multi-Language<br/>Processor"]
@@ -1372,7 +1372,7 @@ Planned enhancement: responses from the European Parliament API will be validate
 
 ### HTML Sanitization Requirements (Planned)
 
-> **Note**: HTML sanitization via DOMPurify is a planned security enhancement. The current generator (`scripts/article-template.js`) produces HTML from EP API data. The configuration below documents the intended future implementation.
+> **Note**: HTML sanitization via DOMPurify is a planned security enhancement. The current generator (`src/templates/article-template.ts`) produces HTML from EP API data. The configuration below documents the intended future implementation.
 
 **Planned DOMPurify Configuration:**
 

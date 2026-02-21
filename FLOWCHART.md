@@ -622,7 +622,7 @@ flowchart TD
     end
     
     subgraph "Client Layer"
-        MCPClient[🔌 MCP Client<br/>Custom JSON-RPC over stdio<br/>scripts/ep-mcp-client.js<br/>Planned: @modelcontextprotocol/sdk]
+        MCPClient[🔌 MCP Client<br/>Custom JSON-RPC over stdio<br/>src/mcp/ep-mcp-client.ts<br/>Planned: @modelcontextprotocol/sdk]
         SchemaVal[🧪 Planned: Schema Validation<br/>JSON Schema<br/>Type Checking]
         TypeCheck[🔍 Planned: Type Validation<br/>TypeScript Interfaces<br/>Runtime Checks]
     end

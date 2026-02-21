@@ -28,7 +28,8 @@
     "lint:report": "eslint src/ --format json --output-file eslint-report.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.ts\"",
-    "docs:api": "jsdoc -c jsdoc.json",
+    "docs:api": "typedoc",
+    "docs:api:jsdoc": "jsdoc -c jsdoc.json",
     "docs:copy-reports": "node scripts/utils/copy-test-reports.js",
     "docs:index": "node scripts/utils/generate-docs-index.js",
     "docs:generate": "npm run docs:api && npm run docs:copy-reports && npm run docs:index",
@@ -78,6 +79,7 @@
     "lint-staged": "^16.2.7",
     "prettier": "^3.8.1",
     "ts-api-utils": "^2.4.0",
+    "typedoc": "^0.28.17",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
   },
