@@ -323,7 +323,7 @@ C4Container
 | **Index Page Generator** | XSS prevention, metadata validation | Escapes all user-facing strings, validates article metadata structure | A.8.23 (ISO 27001) |
 | **Sitemap Generator** | URL validation, XML escaping | Validates all URLs before inclusion, escapes XML special characters | A.8.3 (ISO 27001) |
 | **MCP Client** | API authentication, rate limiting, TLS enforcement | Uses MCP protocol with authentication, implements exponential backoff, enforces TLS 1.3 | A.8.24 (ISO 27001), CIS Control 16 |
-| **Article Template Engine** | Content Security Policy, HTML sanitization | Generates CSP-compliant HTML, sanitizes all dynamic content, uses semantic HTML5 | A.8.23 (ISO 27001) |
+| **Article Template Engine** | HTML sanitization, CSP-ready markup | Generates sanitized semantic HTML5 prepared for future CSP implementation, sanitizes all dynamic content | A.8.23 (ISO 27001) |
 | **Static Files** | Integrity verification, no sensitive data | All files public, no secrets or PII, content integrity via Git | A.5.10 (ISO 27001) |
 | **GitHub Actions** | Secret management, least privilege, audit logging | GitHub Secrets for API keys, OIDC authentication, workflow audit logs | A.8.3, CIS Control 6 |
 | **Amazon CloudFront + S3** | HTTPS-only, CDN security, DDoS protection | Forces HTTPS redirect via ACM certificate, CloudFront with DDoS mitigation, HSTS headers | A.8.24 (ISO 27001) |
@@ -555,8 +555,8 @@ C4Deployment
 
 | Technology | Current Version | Minimum Version | End-of-Life | Update Policy |
 |------------|----------------|-----------------|-------------|---------------|
-| **Node.js** | 24.13.1 | 24.0.0 | 2026-04-30 (tentative) | Update to latest LTS minor within 30 days of release |
-| **npm** | 10.9.2 | 10.0.0 | Follows Node.js | Auto-updated with Node.js |
+| **Node.js** | 24.x (latest) | 24.0.0 | 2026-04-30 (tentative) | Update to latest LTS minor within 30 days of release |
+| **npm** | 10.x (latest) | 10.0.0 | Follows Node.js | Auto-updated with Node.js |
 | **JavaScript** | ES2022 | ES2020 | N/A (language spec) | Evaluate new features annually; adopt when Node.js LTS supports |
 | **Vitest** | 4.0.18 | 4.0.0 | N/A | Update to latest minor within 14 days, major within 60 days |
 | **Playwright** | 1.58.2 | 1.50.0 | N/A | Update to latest minor within 14 days, major within 60 days |
@@ -1130,7 +1130,7 @@ Non-functional requirements define system qualities that are not directly relate
 
 **Performance Optimization Strategies:**
 - **Static Content**: All content pre-generated, no server-side processing
-- **CDN Caching**: Aggressive caching at edge (7 days TTL)
+- **CDN Caching**: Tiered caching strategy (1 hour for HTML, 1 day for metadata, 1 year for immutable assets)
 - **Image Optimization**: None required (no images in MVP)
 - **Minification**: HTML minification (future), CSS minification (future)
 - **HTTP/2**: Enabled by default on Amazon CloudFront
