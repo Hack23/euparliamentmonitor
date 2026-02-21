@@ -8,7 +8,7 @@ mcp-servers:
     command: npx
     args:
       - "-y"
-      - "@modelcontextprotocol/server-github"
+      - "@modelcontextprotocol/server-github@2025.4.8"
       - "--toolsets"
       - "all"
       - "--tools"

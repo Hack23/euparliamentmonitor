@@ -143,7 +143,7 @@ When generating articles about political analysis:
 |----------|------------------------------|
 | EN/FR/DE | Standard EU terminology |
 | ES/IT/PT | Romance language political traditions |
-| PL/RO/CS | Post-enlargement political context |
+| PL/RO | Post-enlargement political context |
 | SV/DA/FI | Nordic political culture references |
 | EL | Greek political terminology specifics |
 | NL | Benelux consensus-building context |
