@@ -114,8 +114,8 @@ function getWeekAheadDateRange(): DateRange {
   endDate.setDate(startDate.getDate() + 7);
 
   return {
-    start: startDate.toISOString().split('T')[0] ?? '',
-    end: endDate.toISOString().split('T')[0] ?? '',
+    start: startDate.toISOString().split('T')[0]!,
+    end: endDate.toISOString().split('T')[0]!,
   };
 }
 
@@ -296,7 +296,7 @@ async function generateWeekAhead(): Promise<GenerationResult> {
         slug: `${slug}-${lang}.html`,
         title: langTitles.title,
         subtitle: langTitles.subtitle,
-        date: today.toISOString().split('T')[0] ?? '',
+        date: today.toISOString().split('T')[0]!,
         type: 'prospective',
         readTime,
         lang,

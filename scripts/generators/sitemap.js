@@ -22,7 +22,7 @@ export function generateSitemap(articles) {
     for (const lang of ALL_LANGUAGES) {
         urls.push({
             loc: `${BASE_URL}/index-${lang}.html`,
-            lastmod: new Date().toISOString().split('T')[0] ?? '',
+            lastmod: new Date().toISOString().split('T')[0],
             changefreq: 'daily',
             priority: '1.0',
         });

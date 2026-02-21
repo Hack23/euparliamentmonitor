@@ -12,6 +12,7 @@ import type {
   LanguageMap,
   LanguagePreset,
   ArticleTypeLabels,
+  LangTitleSubtitle,
 } from '../types/index.js';
 
 /** All supported language codes */
@@ -269,8 +270,6 @@ export const WEEK_AHEAD_TITLES: LanguageMap<(start: string, end: string) => Lang
     subtitle: 'Európai Parlament naptár, bizottsági ülések és plenáris viták a jövő hétre',
   }),
 };
-
-import type { LangTitleSubtitle } from '../types/index.js';
 
 /**
  * Get a language-specific string with English fallback

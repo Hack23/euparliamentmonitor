@@ -43,12 +43,6 @@ export default defineConfig({
         // Exclude documentation generation scripts (utility scripts)
         'scripts/utils/generate-docs-index.js',
         'scripts/utils/copy-test-reports.js',
-        // Exclude old scripts (replaced by new TypeScript modules)
-        'scripts/generate-news-enhanced.js',
-        'scripts/generate-news-indexes.js',
-        'scripts/generate-sitemap.js',
-        'scripts/generate-docs-index.js',
-        'scripts/copy-test-reports.js',
         // Exclude type definitions
         'scripts/**/*.d.ts',
       ],

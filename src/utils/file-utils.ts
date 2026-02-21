@@ -101,7 +101,8 @@ export function formatSlug(slug: string): string {
  */
 export function getModifiedDate(filepath: string): string {
   const stats = fs.statSync(filepath);
-  return stats.mtime.toISOString().split('T')[0] ?? '';
+  // split('T') on an ISO string always produces at least one element
+  return stats.mtime.toISOString().split('T')[0]!;
 }
 
 /**
@@ -111,7 +112,8 @@ export function getModifiedDate(filepath: string): string {
  * @returns Formatted date string (YYYY-MM-DD)
  */
 export function formatDateForSlug(date: Date = new Date()): string {
-  return date.toISOString().split('T')[0] ?? '';
+  // split('T') on an ISO string always produces at least one element
+  return date.toISOString().split('T')[0]!;
 }
 
 /**
