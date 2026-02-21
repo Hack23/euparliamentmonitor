@@ -581,13 +581,13 @@ flowchart TD
     subgraph "MCP Server Layer"
         MCPServer[⚙️ EP MCP Server<br/>TypeScript 5.7<br/>Node.js 24]
         MCPTransport[📡 JSON-RPC 2.0<br/>stdio Transport<br/>Protocol v1.0]
-        MCPCache[💾 LRU Cache<br/>TTL: 24h<br/>Max: 500 entries]
+        MCPCache[💾 LRU Cache<br/>TTL: 5 min<br/>Max: 500 entries]
     end
     
     subgraph "Client Layer"
-        MCPClient[🔌 MCP Client<br/>@modelcontextprotocol/sdk<br/>Retry Logic]
-        SchemaVal[✅ Schema Validation<br/>JSON Schema<br/>Type Checking<br/>(Current)]
-        TypeCheck[🔍 Type Validation<br/>TypeScript Interfaces<br/>Runtime Checks<br/>(Current)]
+        MCPClient[🔌 MCP Client<br/>Custom JSON-RPC over stdio<br/>scripts/ep-mcp-client.js<br/>Planned: @modelcontextprotocol/sdk]
+        SchemaVal[🧪 Planned: Schema Validation<br/>JSON Schema<br/>Type Checking]
+        TypeCheck[🔍 Planned: Type Validation<br/>TypeScript Interfaces<br/>Runtime Checks]
     end
     
     subgraph "Sanitization Pipeline"
@@ -606,7 +606,7 @@ flowchart TD
     subgraph "Output Layer"
         StaticFiles[📦 Static HTML<br/>index-{lang}.html<br/>CSS Inline]
         Sitemap[🗺️ Sitemap.xml<br/>SEO Optimized<br/>14 Languages]
-        Deploy[🚀 GitHub Pages<br/>TLS 1.3<br/>HTTPS Only]
+        Deploy[🚀 AWS S3 + CloudFront<br/>Primary: S3 Sync Deploy<br/>CDN: CloudFront Invalidation]
     end
     
     subgraph "Error Handling"
@@ -672,12 +672,12 @@ flowchart TD
 |-------|---------|---------|----------------|
 | **API Layer** | HTTPS-only communication | Encryption in transit | TLS 1.3, HTTPS-only, HSTS via CDN/hosting config |
 | **MCP Server** | JSON-RPC 2.0 protocol | Structured communication | Standard protocol implementation |
-| **Caching** | LRU cache with TTL | Performance + resilience | 24h TTL, 500 entry max |
+| **Caching** | LRU cache with TTL | Performance + resilience | 5 min TTL, 500 entry max |
 | **Schema Validation** | JSON Schema enforcement (future control) | Data structure integrity | Planned: Ajv validator (strict mode), not yet implemented in codebase |
 | **Type Checking** | Runtime type validation (future control) | Type safety beyond TypeScript | Planned: io-ts runtime checks, not yet implemented in codebase |
 | **HTML Sanitization** | Planned: DOMPurify scrubbing (future control) | XSS prevention | Not yet in codebase; current: HTML entity encoding via template |
-| **XSS Encoding** | HTML entity encoding | Output encoding | All user-controlled data |
-| **URL Validation** | HTTPS + whitelist | Prevent malicious redirects | europarl.europa.eu only |
+| **XSS Encoding** | HTML entity encoding (future control) | Output encoding | Planned: template-level encoding for all user-controlled data, not yet implemented in codebase |
+| **URL Validation** | HTTPS + whitelist (future control) | Prevent malicious redirects | Planned: HTTPS-only + europarl.europa.eu allowlist for article/source URLs, not yet implemented in codebase |
 | **CSP Enforcement** | JSON-LD inline scripts allowed; no eval() | XSS mitigation | default-src 'self'; script-src allows type=application/ld+json |
 | **HTML Validation** | Standards compliance | Cross-browser compatibility | htmlhint, W3C validation |
 | **Fallback Content** | Graceful degradation | Availability | Placeholder articles |
@@ -687,11 +687,11 @@ flowchart TD
 
 ## 🌍 Multi-Language Content Generation Workflow
 
-This workflow demonstrates secure generation of European Parliament news content in 14 languages with language-specific security checkpoints.
+This workflow illustrates the full CI/CD content generation and validation pipeline for European Parliament news in 14 languages (PR/test-and-report.yml and release.yml). The scheduled daily `.github/workflows/news-generation.yml` job only runs the generate-and-commit subset (no HTML/SEO/a11y validation loop).
 
 ```mermaid
 flowchart TD
-    Start[🚀 Content Generation<br/>Triggered Daily<br/>06:00 UTC] --> FetchData[📥 Fetch Source Data<br/>EP MCP Server<br/>Validated JSON]
+    Start[🚀 Content Generation<br/>CI/CD: PRs / Releases<br/>Daily 06:00 UTC (subset)] --> FetchData[📥 Fetch Source Data<br/>EP MCP Server<br/>Validated JSON]
     
     FetchData --> LangDetect{⚙️ Language Args &<br/>Preset Expansion}
     
@@ -765,12 +765,12 @@ flowchart TD
     ShowErrors --> FixErrors[🔧 Auto-Fix<br/>Common Issues<br/>Re-validate]
     FixErrors --> ValidateAll
     
-    ValidateAll -->|✅ All Valid| A11yCheck[♿ Accessibility Check<br/>WCAG 2.1 AA<br/>Language Attributes]
+    ValidateAll -->|✅ All Valid| A11yCheck[♿ Accessibility Check<br/>WCAG 2.1 AA<br/>E2E Workflow Only]
     
     A11yCheck -->|❌ A11y Issues| FixA11y[🔧 Fix A11y<br/>Add lang Attributes<br/>Alt Text]
     FixA11y --> A11yCheck
     
-    A11yCheck -->|✅ Compliant| SEOCheck[📊 SEO Validation<br/>Meta Tags<br/>hreflang Links]
+    A11yCheck -->|✅ Compliant| SEOCheck[📊 SEO Validation<br/>Meta Tags<br/>hreflang Links<br/>Release Workflow Only]
     
     SEOCheck --> Complete[✅ Generation Complete<br/>14 Languages<br/>Ready to Deploy]
     
@@ -922,9 +922,9 @@ flowchart TD
 | **Commit** | SHA verification, GPG signatures | Code integrity | Git built-in |
 | **Linting** | ESLint security rules | Code quality, vulnerabilities | eslint-plugin-security |
 | **Unit Tests** | 169 tests, 82%+ coverage | Functional correctness | Vitest |
-| **Integration Tests** | 82 MCP client tests | API contract validation | Vitest + MCP SDK |
+| **Integration Tests** | 82 MCP client tests | API contract validation | Vitest + custom JSON-RPC MCP client |
 | **Security Scan** | CodeQL SAST | Vulnerability detection | GitHub CodeQL |
-| **Coverage Gate** | 80% lines, 75% branches | Test thoroughness | istanbul/c8 |
+| **Coverage Gate** | 80% lines, 75% branches | Test thoroughness | Vitest v8 provider (@vitest/coverage-v8) |
 | **SBOM** | SPDX JSON format | Supply chain transparency | Anchore SBOM Action |
 | **Provenance** | SLSA Level 3 | Build integrity | GitHub Attestations |
 | **Attestation** | Cryptographic signing | Artifact authenticity | Sigstore |
