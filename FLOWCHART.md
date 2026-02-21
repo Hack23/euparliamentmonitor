@@ -29,6 +29,44 @@ data flows, and decision points in the EU Parliament Monitor platform.
 
 ---
 
+## 🛡️ ISMS Policy Alignment
+
+This document aligns with Hack23's Information Security Management System (ISMS) policies and ISO 27001:2022 controls. All flowcharts demonstrate implementation of security controls required by these policies.
+
+### Policy Mapping
+
+| ISMS Policy | ISO 27001 Control | Document Section | Description |
+|-------------|-------------------|------------------|-------------|
+| [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | A.5.1 | All sections | Overarching security governance framework |
+| [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | A.8.25, A.8.28 | News Generation Security Flow, CI/CD Security Pipeline | Secure coding practices, input validation, code review |
+| [Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md) | A.5.15, A.5.18 | MCP Client Connection Security Flow | Authentication, authorization, least privilege |
+| [Vulnerability Management Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management_Policy.md) | A.8.8 | Vulnerability Management Workflow | Vulnerability scanning, remediation, patch management |
+| [Incident Response Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Policy.md) | A.5.24, A.5.25, A.5.26 | Incident Response Flow | Detection, response, recovery, post-incident review |
+| [Change Management Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Change_Management_Policy.md) | A.8.32 | CI/CD Security Pipeline, Release Workflow | Controlled deployments, testing, approval gates |
+| [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | A.8.24 | Content Delivery Security Flow, Deployment Security Flow | TLS 1.3, HTTPS-only, cryptographic signatures |
+
+### Key Security Principles Demonstrated
+
+1. **Defense in Depth**: Multiple security layers (validation, sanitization, encoding, CSP)
+2. **Least Privilege**: Minimal permissions for GitHub Actions, MCP connections
+3. **Secure by Default**: HTTPS-only, CSP enforcement, input validation at every stage
+4. **Fail Secure**: Fallback content on validation failures, graceful degradation
+5. **Separation of Duties**: Automated checks, required approvals, independent verification
+6. **Continuous Monitoring**: Dependabot, CodeQL, npm audit, health checks
+7. **Incident Response**: Defined severity levels, escalation paths, post-mortem reviews
+8. **Supply Chain Security**: SBOM generation, SLSA attestations, dependency scanning
+
+### Compliance Framework Coverage
+
+- **ISO 27001:2022**: Controls A.5.1, A.5.15, A.5.18, A.5.24, A.5.25, A.5.26, A.8.8, A.8.24, A.8.25, A.8.28, A.8.32
+- **NIST CSF 2.0**: Identify (ID.RA, ID.SC), Protect (PR.AC, PR.DS, PR.IP), Detect (DE.CM), Respond (RS.AN, RS.MI), Recover (RC.RP)
+- **CIS Controls v8.1**: Controls 1, 4, 6, 8, 10, 16, 18
+- **GDPR**: Article 25 (Data protection by design), Article 32 (Security of processing)
+- **NIS2 Directive**: Risk management, incident handling, supply chain security
+- **EU Cyber Resilience Act**: Secure by default, vulnerability disclosure, security updates
+
+---
+
 ## 🔐 News Generation Security Flow
 
 ```mermaid
@@ -419,6 +457,492 @@ flowchart TD
 
 ---
 
+## 🛡️ Vulnerability Management Workflow
+
+This workflow implements ISO 27001:2022 Control A.8.8 (Management of Technical Vulnerabilities) with defined severity levels and SLA-based remediation timelines.
+
+```mermaid
+flowchart TD
+    Discovery[🔍 Vulnerability Discovery] --> Source{Discovery<br/>Source}
+    
+    Source -->|Dependabot| DepAlert[🤖 Dependabot Alert<br/>Dependencies<br/>GitHub Security]
+    Source -->|CodeQL| CodeQLAlert[🔒 CodeQL Finding<br/>SAST Scanning<br/>Security Issue]
+    Source -->|npm audit| AuditAlert[📦 npm audit<br/>Package Vulnerabilities<br/>CVE Database]
+    Source -->|Manual| ManualReport[👤 Manual Report<br/>Security Researcher<br/>User Report]
+    
+    DepAlert --> Assess
+    CodeQLAlert --> Assess
+    AuditAlert --> Assess
+    ManualReport --> Assess
+    
+    Assess[📊 Assessment Phase] --> CVSSScore{🎯 CVSS Score<br/>Calculation}
+    
+    CVSSScore --> Exploit{🔬 Exploitability<br/>Analysis}
+    Exploit --> Impact{💥 Impact<br/>Assessment}
+    
+    Impact --> Prioritize{⚡ Prioritization}
+    
+    Prioritize -->|Critical 9.0-10.0| Critical[🚨 P0: Critical<br/>SLA: 24 hours<br/>Remote Code Execution<br/>Data Breach Risk]
+    Prioritize -->|High 7.0-8.9| High[⚠️ P1: High<br/>SLA: 7 days<br/>Privilege Escalation<br/>XSS/CSRF]
+    Prioritize -->|Medium 4.0-6.9| Medium[ℹ️ P2: Medium<br/>SLA: 30 days<br/>Information Disclosure<br/>DoS]
+    Prioritize -->|Low 0.1-3.9| Low[📝 P3: Low<br/>SLA: 90 days<br/>Minor Issues<br/>Low Impact]
+    
+    Critical --> EmergencyTeam[🚨 Emergency Response<br/>Notify Security Team<br/>Disable Affected Feature]
+    High --> UrgentAction[🔥 Urgent Action<br/>Create Security Advisory<br/>Block Deployments]
+    Medium --> StandardTrack[📋 Standard Track<br/>Create Issue<br/>Schedule Sprint]
+    Low --> BacklogAdd[📌 Backlog<br/>Log for Future<br/>Next Release]
+    
+    EmergencyTeam --> Remediation
+    UrgentAction --> Remediation
+    StandardTrack --> Remediation
+    BacklogAdd --> Remediation
+    
+    Remediation[🔧 Remediation Strategy] --> Strategy{Strategy<br/>Selection}
+    
+    Strategy -->|Available| Patch[🩹 Apply Patch<br/>Update Dependency<br/>Upgrade Version]
+    Strategy -->|Not Available| Workaround[🔀 Implement Workaround<br/>Code Changes<br/>Configuration Update]
+    Strategy -->|Not Feasible| Mitigate[🛡️ Mitigate Risk<br/>Additional Controls<br/>Monitoring]
+    Strategy -->|False Positive| Accept[✅ Accept Risk<br/>Document Rationale<br/>Security Exception]
+    
+    Patch --> Testing
+    Workaround --> Testing
+    Mitigate --> Testing
+    Accept --> Document
+    
+    Testing[🧪 Verification Testing] --> UnitTest[✅ Unit Tests<br/>169 Tests Pass]
+    UnitTest --> IntegTest[🔗 Integration Tests<br/>82 Tests Pass]
+    IntegTest --> SecScan[🔒 Security Scan<br/>CodeQL Clean<br/>npm audit Clean]
+    
+    SecScan --> TestResult{Tests<br/>Pass?}
+    TestResult -->|❌ Fail| FixFailed[🛠️ Fix Failed Tests<br/>Debug Issues<br/>Adjust Fix]
+    FixFailed --> Remediation
+    
+    TestResult -->|✅ Pass| Deploy[🚀 Deploy Fix<br/>Merge PR<br/>Production Release]
+    
+    Deploy --> Verify[✅ Post-Deploy Verification] --> Rescan{Vulnerability<br/>Resolved?}
+    
+    Rescan -->|❌ Not Fixed| Escalate[⬆️ Escalate<br/>Senior Security Review<br/>External Consultation]
+    Escalate --> Remediation
+    
+    Rescan -->|✅ Fixed| Document[📝 Documentation]
+    
+    Document --> UpdateAdvisory[📄 Update Security Advisory<br/>CVE Details<br/>Remediation Steps]
+    UpdateAdvisory --> UpdateCHANGELOG[📋 Update CHANGELOG.md<br/>Security Fix Entry<br/>Version Bump]
+    UpdateCHANGELOG --> CloseIssue[🔒 Close Issue<br/>Link to Commit<br/>Verification Evidence]
+    
+    CloseIssue --> Metrics[📊 Update Metrics<br/>MTTR Calculation<br/>Vulnerability Stats]
+    
+    Metrics --> Review[🔄 Post-Fix Review<br/>Lessons Learned<br/>Process Improvement]
+    
+    Review --> Complete[✅ Vulnerability Closed<br/>Evidence Recorded<br/>Controls Updated]
+    
+    style Discovery fill:#fff4e1
+    style Critical fill:#ffe1e1
+    style High fill:#fff3cd
+    style Medium fill:#e1f5ff
+    style Low fill:#f0f0f0
+    style Patch fill:#e8f5e9
+    style Testing fill:#e1f5ff
+    style Deploy fill:#e8f5e9
+    style Complete fill:#d4edda
+    style Accept fill:#fff3cd
+```
+
+### Vulnerability Management Security Controls
+
+| Phase | Control | SLA | ISMS Reference |
+|-------|---------|-----|----------------|
+| **Discovery** | Automated scanning (Dependabot, CodeQL, npm audit) | Continuous | ISO 27001 A.8.8 |
+| **Assessment** | CVSS scoring, exploitability analysis | 24 hours | NIST SP 800-30 |
+| **Prioritization** | Risk-based tiers with SLAs | By severity | ISO 27001 A.5.9 |
+| **Remediation** | Patch/workaround/mitigate/accept | 24h-90d | ISO 27001 A.8.8 |
+| **Verification** | Testing, scanning, deployment validation | Before close | ISO 27001 A.14.2.8 |
+| **Documentation** | Advisories, CHANGELOG, evidence | Required | ISO 27001 A.12.1.1 |
+| **Metrics** | MTTR, vulnerability stats tracking | Monthly | ISO 27001 A.18.2.1 |
+
+**Mean Time to Remediate (MTTR) Targets:**
+- Critical (P0): 24 hours
+- High (P1): 7 days
+- Medium (P2): 30 days
+- Low (P3): 90 days
+
+---
+
+## 🔗 MCP Data Integration Security Flow
+
+This flow shows the end-to-end secure data pipeline from European Parliament APIs through the MCP server to static site generation, with comprehensive security controls at each stage.
+
+```mermaid
+flowchart TD
+    subgraph "European Parliament APIs"
+        EPAPI[🏛️ EP Official APIs<br/>MEPs, Sessions<br/>Documents, Votes]
+    end
+    
+    subgraph "MCP Server Layer"
+        MCPServer[⚙️ EP MCP Server<br/>TypeScript 5.7<br/>Node.js 24]
+        MCPTransport[📡 JSON-RPC 2.0<br/>stdio Transport<br/>Protocol v1.0]
+        MCPCache[💾 LRU Cache<br/>TTL: 24h<br/>Max: 500 entries]
+    end
+    
+    subgraph "Client Layer"
+        MCPClient[🔌 MCP Client<br/>@modelcontextprotocol/sdk<br/>Retry Logic]
+        SchemaVal[✅ Schema Validation<br/>JSON Schema<br/>Type Checking]
+        TypeCheck[🔍 Type Validation<br/>TypeScript Interfaces<br/>Runtime Checks]
+    end
+    
+    subgraph "Sanitization Pipeline"
+        HTMLSan[🧹 HTML Sanitizer<br/>DOMPurify<br/>Strip Scripts]
+        XSSEncode[🔒 XSS Encoding<br/>HTML Entities<br/>&lt; &gt; &amp; &quot; &#39;]
+        URLVal[🔗 URL Validation<br/>HTTPS Only<br/>Domain Whitelist]
+        LengthCheck[📏 Length Validation<br/>Max Lengths<br/>Truncation]
+    end
+    
+    subgraph "Content Generation"
+        Template[📄 Template Engine<br/>14 Languages<br/>HTML5]
+        CSPCheck[🛡️ CSP Compliance<br/>No Inline Scripts<br/>No eval()]
+        HTMLVal[✅ HTML Validation<br/>htmlhint<br/>Standards Check]
+    end
+    
+    subgraph "Output Layer"
+        StaticFiles[📦 Static HTML<br/>index-{lang}.html<br/>CSS Inline]
+        Sitemap[🗺️ Sitemap.xml<br/>SEO Optimized<br/>14 Languages]
+        Deploy[🚀 GitHub Pages<br/>TLS 1.3<br/>HTTPS Only]
+    end
+    
+    subgraph "Error Handling"
+        FallbackData[⚠️ Fallback Content<br/>Placeholder Articles<br/>Safe Defaults]
+        ErrorLog[📝 Error Logging<br/>Structured Logs<br/>GitHub Actions]
+    end
+    
+    EPAPI -->|HTTPS Request| MCPServer
+    MCPServer --> MCPTransport
+    MCPTransport --> MCPCache
+    
+    MCPCache -->|Cache Hit| ReturnCached[✅ Return Cached<br/>Skip API Call]
+    MCPCache -->|Cache Miss| FetchFresh[📥 Fetch Fresh<br/>Call EP API]
+    
+    ReturnCached --> MCPClient
+    FetchFresh --> MCPClient
+    
+    MCPClient --> SchemaVal
+    SchemaVal -->|❌ Invalid| ErrorLog
+    SchemaVal -->|✅ Valid| TypeCheck
+    
+    TypeCheck -->|❌ Invalid| ErrorLog
+    TypeCheck -->|✅ Valid| HTMLSan
+    
+    ErrorLog --> FallbackData
+    FallbackData --> Template
+    
+    HTMLSan --> XSSEncode
+    XSSEncode --> URLVal
+    URLVal --> LengthCheck
+    
+    LengthCheck --> Template
+    
+    Template --> CSPCheck
+    CSPCheck -->|❌ Violation| ErrorLog
+    CSPCheck -->|✅ Compliant| HTMLVal
+    
+    HTMLVal -->|❌ Invalid| FixHTML[🔧 Auto-Fix HTML<br/>Correct Issues]
+    FixHTML --> HTMLVal
+    HTMLVal -->|✅ Valid| StaticFiles
+    
+    StaticFiles --> Sitemap
+    Sitemap --> Deploy
+    
+    Deploy --> CDN[🌐 GitHub CDN<br/>Edge Caching<br/>Global Distribution]
+    
+    style EPAPI fill:#e3f2fd
+    style MCPServer fill:#f0f4c3
+    style MCPClient fill:#c8e6c9
+    style HTMLSan fill:#fff9c4
+    style XSSEncode fill:#ffe1e1
+    style Template fill:#e1f5ff
+    style StaticFiles fill:#e8f5e9
+    style Deploy fill:#c8e6c9
+    style FallbackData fill:#fff3cd
+    style ErrorLog fill:#ffcdd2
+    style CDN fill:#d4edda
+```
+
+### Data Integration Security Controls
+
+| Layer | Control | Purpose | Implementation |
+|-------|---------|---------|----------------|
+| **API Layer** | HTTPS-only communication | Encryption in transit | TLS 1.3, certificate pinning |
+| **MCP Server** | JSON-RPC 2.0 protocol | Structured communication | Standard protocol implementation |
+| **Caching** | LRU cache with TTL | Performance + resilience | 24h TTL, 500 entry max |
+| **Schema Validation** | JSON Schema enforcement | Data structure integrity | Ajv validator, strict mode |
+| **Type Checking** | Runtime type validation | Type safety beyond TypeScript | io-ts runtime checks |
+| **HTML Sanitization** | DOMPurify scrubbing | XSS prevention | Strip scripts, remove events |
+| **XSS Encoding** | HTML entity encoding | Output encoding | All user-controlled data |
+| **URL Validation** | HTTPS + whitelist | Prevent malicious redirects | europarl.europa.eu only |
+| **CSP Enforcement** | No inline scripts | XSS mitigation | default-src 'self' |
+| **HTML Validation** | Standards compliance | Cross-browser compatibility | htmlhint, W3C validation |
+| **Fallback Content** | Graceful degradation | Availability | Placeholder articles |
+| **Error Logging** | Structured logging | Debugging + monitoring | GitHub Actions logs |
+
+---
+
+## 🌍 Multi-Language Content Generation Workflow
+
+This workflow demonstrates secure generation of European Parliament news content in 14 languages with language-specific security checkpoints.
+
+```mermaid
+flowchart TD
+    Start[🚀 Content Generation<br/>Triggered Daily<br/>06:00 UTC] --> FetchData[📥 Fetch Source Data<br/>EP MCP Server<br/>Validated JSON]
+    
+    FetchData --> LangDetect{🔍 Language<br/>Detection}
+    
+    LangDetect --> EN[🇬🇧 English<br/>index-en.html]
+    LangDetect --> FR[🇫🇷 French<br/>index-fr.html]
+    LangDetect --> DE[🇩🇪 German<br/>index-de.html]
+    LangDetect --> ES[🇪🇸 Spanish<br/>index-es.html]
+    LangDetect --> IT[🇮🇹 Italian<br/>index-it.html]
+    LangDetect --> PT[🇵🇹 Portuguese<br/>index-pt.html]
+    LangDetect --> NL[🇳🇱 Dutch<br/>index-nl.html]
+    LangDetect --> EL[🇬🇷 Greek<br/>index-el.html]
+    LangDetect --> PL[🇵🇱 Polish<br/>index-pl.html]
+    LangDetect --> RO[🇷🇴 Romanian<br/>index-ro.html]
+    LangDetect --> SV[🇸🇪 Swedish<br/>index-sv.html]
+    LangDetect --> DA[🇩🇰 Danish<br/>index-da.html]
+    LangDetect --> FI[🇫🇮 Finnish<br/>index-fi.html]
+    LangDetect --> HU[🇭🇺 Hungarian<br/>index-hu.html]
+    
+    EN --> ENTemplate[📄 EN Template<br/>HTML5 Structure<br/>Semantic Tags]
+    FR --> FRTemplate[📄 FR Template<br/>HTML5 Structure<br/>Semantic Tags]
+    DE --> DETemplate[📄 DE Template<br/>HTML5 Structure<br/>Semantic Tags]
+    ES --> ESTemplate[📄 ES Template<br/>HTML5 Structure<br/>Semantic Tags]
+    IT --> ITTemplate[📄 IT Template<br/>HTML5 Structure<br/>Semantic Tags]
+    PT --> PTTemplate[📄 PT Template<br/>HTML5 Structure<br/>Semantic Tags]
+    NL --> NLTemplate[📄 NL Template<br/>HTML5 Structure<br/>Semantic Tags]
+    EL --> ELTemplate[📄 EL Template<br/>HTML5 Structure<br/>Semantic Tags]
+    PL --> PLTemplate[📄 PL Template<br/>HTML5 Structure<br/>Semantic Tags]
+    RO --> ROTemplate[📄 RO Template<br/>HTML5 Structure<br/>Semantic Tags]
+    SV --> SVTemplate[📄 SV Template<br/>HTML5 Structure<br/>Semantic Tags]
+    DA --> DATemplate[📄 DA Template<br/>HTML5 Structure<br/>Semantic Tags]
+    FI --> FITemplate[📄 FI Template<br/>HTML5 Structure<br/>Semantic Tags]
+    HU --> HUTemplate[📄 HU Template<br/>HTML5 Structure<br/>Semantic Tags]
+    
+    ENTemplate --> ENSecCheck[🔒 EN Security<br/>Sanitize + Validate]
+    FRTemplate --> FRSecCheck[🔒 FR Security<br/>Sanitize + Validate]
+    DETemplate --> DESecCheck[🔒 DE Security<br/>Sanitize + Validate]
+    ESTemplate --> ESSecCheck[🔒 ES Security<br/>Sanitize + Validate]
+    ITTemplate --> ITSecCheck[🔒 IT Security<br/>Sanitize + Validate]
+    PTTemplate --> PTSecCheck[🔒 PT Security<br/>Sanitize + Validate]
+    NLTemplate --> NLSecCheck[🔒 NL Security<br/>Sanitize + Validate]
+    ELTemplate --> ELSecCheck[🔒 EL Security<br/>Sanitize + Validate]
+    PLTemplate --> PLSecCheck[🔒 PL Security<br/>Sanitize + Validate]
+    ROTemplate --> ROSecCheck[🔒 RO Security<br/>Sanitize + Validate]
+    SVTemplate --> SVSecCheck[🔒 SV Security<br/>Sanitize + Validate]
+    DATemplate --> DASecCheck[🔒 DA Security<br/>Sanitize + Validate]
+    FITemplate --> FISecCheck[🔒 FI Security<br/>Sanitize + Validate]
+    HUTemplate --> HUSecCheck[🔒 HU Security<br/>Sanitize + Validate]
+    
+    ENSecCheck --> Aggregate
+    FRSecCheck --> Aggregate
+    DESecCheck --> Aggregate
+    ESSecCheck --> Aggregate
+    ITSecCheck --> Aggregate
+    PTSecCheck --> Aggregate
+    NLSecCheck --> Aggregate
+    ELSecCheck --> Aggregate
+    PLSecCheck --> Aggregate
+    ROSecCheck --> Aggregate
+    SVSecCheck --> Aggregate
+    DASecCheck --> Aggregate
+    FISecCheck --> Aggregate
+    HUSecCheck --> Aggregate
+    
+    Aggregate[📋 Aggregate Results<br/>14 Language Indexes<br/>Collect Metadata] --> MainIndex[🏠 Generate Main Index<br/>index.html<br/>Language Selector]
+    
+    MainIndex --> Sitemap[🗺️ Generate Sitemap<br/>sitemap.xml<br/>All 14 Languages]
+    
+    Sitemap --> ValidateAll{✅ Validate<br/>All Files?}
+    
+    ValidateAll -->|❌ Validation Errors| ShowErrors[❌ Show Errors<br/>htmlhint Output<br/>Line Numbers]
+    ShowErrors --> FixErrors[🔧 Auto-Fix<br/>Common Issues<br/>Re-validate]
+    FixErrors --> ValidateAll
+    
+    ValidateAll -->|✅ All Valid| A11yCheck[♿ Accessibility Check<br/>WCAG 2.1 AA<br/>Language Attributes]
+    
+    A11yCheck -->|❌ A11y Issues| FixA11y[🔧 Fix A11y<br/>Add lang Attributes<br/>Alt Text]
+    FixA11y --> A11yCheck
+    
+    A11yCheck -->|✅ Compliant| SEOCheck[📊 SEO Validation<br/>Meta Tags<br/>hreflang Links]
+    
+    SEOCheck --> Complete[✅ Generation Complete<br/>14 Languages<br/>Ready to Deploy]
+    
+    style Start fill:#e3f2fd
+    style LangDetect fill:#fff4e1
+    style EN fill:#e8f5e9
+    style FR fill:#e8f5e9
+    style DE fill:#e8f5e9
+    style ES fill:#e8f5e9
+    style IT fill:#e8f5e9
+    style PT fill:#e8f5e9
+    style ENSecCheck fill:#ffe1e1
+    style FRSecCheck fill:#ffe1e1
+    style DESecCheck fill:#ffe1e1
+    style ESSecCheck fill:#ffe1e1
+    style ITSecCheck fill:#ffe1e1
+    style PTSecCheck fill:#ffe1e1
+    style Aggregate fill:#e1f5ff
+    style MainIndex fill:#c8e6c9
+    style Sitemap fill:#c8e6c9
+    style Complete fill:#d4edda
+```
+
+### Multi-Language Security Controls
+
+| Control | Applied to | Purpose | Standard |
+|---------|-----------|---------|----------|
+| **HTML Sanitization** | All 14 languages | XSS prevention | OWASP ASVS 5.3 |
+| **HTML Entity Encoding** | All 14 languages | Output encoding | OWASP ASVS 5.2 |
+| **HTML Validation** | All 14 languages | Standards compliance | W3C HTML5 |
+| **Language Attributes** | All 14 languages | Accessibility | WCAG 2.1 AA 3.1.1 |
+| **hreflang Links** | All 14 languages | SEO, crawling | Google Guidelines |
+| **CSP Headers** | All 14 languages | Script execution control | OWASP CSP |
+| **Character Encoding** | All 14 languages | UTF-8 declaration | HTML5 Standard |
+| **RTL Support** | Greek (el) | Text direction | CSS Writing Modes |
+
+**Supported Languages:**
+1. 🇬🇧 English (en) - Primary
+2. 🇫🇷 French (fr) - EU Official
+3. 🇩🇪 German (de) - EU Official
+4. 🇪🇸 Spanish (es) - EU Official
+5. 🇮🇹 Italian (it) - EU Official
+6. 🇵🇹 Portuguese (pt) - EU Official
+7. 🇳🇱 Dutch (nl) - EU Official
+8. 🇬🇷 Greek (el) - EU Official
+9. 🇵🇱 Polish (pl) - EU Official
+10. 🇷🇴 Romanian (ro) - EU Official
+11. 🇸🇪 Swedish (sv) - EU Official
+12. 🇩🇰 Danish (da) - EU Official
+13. 🇫🇮 Finnish (fi) - EU Official
+14. 🇭🇺 Hungarian (hu) - EU Official
+
+---
+
+## 🚀 Deployment Security Flow
+
+This flow shows the secure deployment pipeline from Git commit to GitHub Pages with comprehensive security gates, SBOM generation, and SLSA attestations.
+
+```mermaid
+flowchart TD
+    Commit[💾 Git Commit<br/>Developer Push<br/>Feature Branch] --> SHAVerify[🔐 SHA Verification<br/>Git Integrity Check<br/>GPG Signature]
+    
+    SHAVerify --> GHActions[🤖 GitHub Actions<br/>Workflow Trigger<br/>ubuntu-latest]
+    
+    GHActions --> SecGates[🛡️ Security Gates] --> Gate1{Gate 1:<br/>Linting}
+    
+    Gate1 -->|❌ Fail| BlockDeploy1[🚫 Block Deployment<br/>ESLint Errors<br/>Fix Required]
+    Gate1 -->|✅ Pass| Gate2{Gate 2:<br/>Unit Tests}
+    
+    Gate2 -->|❌ Fail| BlockDeploy2[🚫 Block Deployment<br/>169 Tests Failed<br/>Debug Required]
+    Gate2 -->|✅ Pass| Gate3{Gate 3:<br/>Integration Tests}
+    
+    Gate3 -->|❌ Fail| BlockDeploy3[🚫 Block Deployment<br/>82 Tests Failed<br/>Fix Required]
+    Gate3 -->|✅ Pass| Gate4{Gate 4:<br/>Security Scan}
+    
+    Gate4 -->|❌ Critical/High| BlockDeploy4[🚫 Block Deployment<br/>CodeQL Issues<br/>Vulnerability Fix]
+    Gate4 -->|✅ Pass| Gate5{Gate 5:<br/>Coverage}
+    
+    Gate5 -->|❌ Below 80%| BlockDeploy5[🚫 Block Deployment<br/>Coverage Too Low<br/>Add Tests]
+    Gate5 -->|✅ Pass| Build[🏗️ Build Phase]
+    
+    Build --> GenNews[📰 Generate News<br/>14 Languages<br/>All Article Types]
+    GenNews --> GenIndex[📋 Generate Indexes<br/>Language Indexes<br/>Main Index]
+    GenIndex --> GenSitemap[🗺️ Generate Sitemap<br/>sitemap.xml<br/>SEO Optimization]
+    
+    GenSitemap --> SBOM[📦 SBOM Generation<br/>SPDX Format<br/>All Dependencies]
+    
+    SBOM --> Attest1[🔏 Build Provenance<br/>SLSA Level 3<br/>GitHub Attestations]
+    Attest1 --> Attest2[🔐 SBOM Attestation<br/>Cryptographic Sign<br/>Sigstore]
+    
+    Attest2 --> Artifacts[📦 Collect Artifacts<br/>HTML Files<br/>CSS Files<br/>Sitemap<br/>SBOM]
+    
+    Artifacts --> DeployPrep[🚀 Deployment Prep<br/>Organize Files<br/>Check Integrity]
+    
+    DeployPrep --> DeployGHP[📤 Deploy to GitHub Pages<br/>gh-pages Branch<br/>Push Files]
+    
+    DeployGHP --> CDNProp[🌐 CDN Propagation<br/>GitHub CDN<br/>Edge Nodes<br/>Global Distribution]
+    
+    CDNProp --> HealthCheck{🏥 Health Check<br/>Site Accessible?}
+    
+    HealthCheck -->|❌ Failed| Rollback[🔙 Rollback<br/>Revert to Previous<br/>Restore Last Good]
+    Rollback --> NotifyFailure[📧 Notify Team<br/>Deployment Failed<br/>Incident Created]
+    
+    HealthCheck -->|✅ Success| Verify[✅ Verification Phase] --> CheckHTTPS{HTTPS<br/>Working?}
+    
+    CheckHTTPS -->|❌ No| Rollback
+    CheckHTTPS -->|✅ Yes| CheckContent{Content<br/>Loads?}
+    
+    CheckContent -->|❌ No| Rollback
+    CheckContent -->|✅ Yes| CheckLangs{All 14<br/>Languages?}
+    
+    CheckLangs -->|❌ Missing| Rollback
+    CheckLangs -->|✅ Present| CheckSitemap{Sitemap<br/>Valid?}
+    
+    CheckSitemap -->|❌ Invalid| Rollback
+    CheckSitemap -->|✅ Valid| UpdateMetrics[📊 Update Metrics<br/>Deployment Time<br/>Build Duration<br/>Success Rate]
+    
+    UpdateMetrics --> TagRelease[🏷️ Tag Release<br/>Git Tag<br/>Version Bump<br/>Create GitHub Release]
+    
+    TagRelease --> NotifySuccess[📧 Notify Team<br/>Deployment Successful<br/>Version + URL]
+    
+    NotifySuccess --> Complete[✅ Deployment Complete<br/>Live on GitHub Pages<br/>Attested + Verified]
+    
+    style Commit fill:#e3f2fd
+    style SHAVerify fill:#ffe1e1
+    style Gate1 fill:#e1f5ff
+    style Gate2 fill:#e1f5ff
+    style Gate3 fill:#e1f5ff
+    style Gate4 fill:#ffe1e1
+    style Gate5 fill:#e1f5ff
+    style BlockDeploy1 fill:#ffcdd2
+    style BlockDeploy2 fill:#ffcdd2
+    style BlockDeploy3 fill:#ffcdd2
+    style BlockDeploy4 fill:#ffcdd2
+    style BlockDeploy5 fill:#ffcdd2
+    style SBOM fill:#fff9c4
+    style Attest1 fill:#ffe1e1
+    style Attest2 fill:#ffe1e1
+    style DeployGHP fill:#c8e6c9
+    style CDNProp fill:#e8f5e9
+    style Rollback fill:#ffcdd2
+    style Complete fill:#d4edda
+```
+
+### Deployment Security Controls
+
+| Stage | Control | Purpose | Implementation |
+|-------|---------|---------|----------------|
+| **Commit** | SHA verification, GPG signatures | Code integrity | Git built-in |
+| **Linting** | ESLint security rules | Code quality, vulnerabilities | eslint-plugin-security |
+| **Unit Tests** | 169 tests, 82%+ coverage | Functional correctness | Vitest |
+| **Integration Tests** | 82 MCP client tests | API contract validation | Vitest + MCP SDK |
+| **Security Scan** | CodeQL SAST | Vulnerability detection | GitHub CodeQL |
+| **Coverage Gate** | 80% lines, 75% branches | Test thoroughness | istanbul/c8 |
+| **SBOM** | SPDX JSON format | Supply chain transparency | Anchore SBOM Action |
+| **Provenance** | SLSA Level 3 | Build integrity | GitHub Attestations |
+| **Attestation** | Cryptographic signing | Artifact authenticity | Sigstore |
+| **Health Check** | Multi-point verification | Deployment validation | Custom checks |
+| **Rollback** | Automated revert | Failure recovery | Git + gh-pages |
+| **Metrics** | Deployment tracking | Performance monitoring | GitHub Actions logs |
+
+**Deployment Security Requirements:**
+1. ✅ All security gates must pass (no critical/high vulnerabilities)
+2. ✅ SBOM generated and attested for every deployment
+3. ✅ SLSA Level 3 provenance attestation required
+4. ✅ Health checks must pass before declaring success
+5. ✅ Automatic rollback on any verification failure
+6. ✅ Team notification on success/failure
+7. ✅ Deployment metrics recorded for audit trail
+
+---
+
 ## 🚀 Release Workflow with Documentation Automation
 
 This comprehensive flow shows the automated release process with SLSA Level 3
@@ -550,16 +1074,42 @@ flowchart TD
 
 ## 📚 References
 
-- [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md)
+### Internal Documentation
+- [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) - Security architecture and threat model
 - [WORKFLOWS.md](WORKFLOWS.md) - Current CI/CD workflows
 - [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) - Planned enhancements
-- [DATA_MODEL.md](DATA_MODEL.md)
-- [NIST Incident Response](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
-- [OWASP Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)
-- [SLSA Framework](https://slsa.dev/)
+- [DATA_MODEL.md](DATA_MODEL.md) - Data structures and schemas
+- [ARCHITECTURE.md](ARCHITECTURE.md) - System architecture and C4 models
+
+### ISMS Policies (Hack23)
+- [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) - Overarching security governance
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) - Secure coding practices
+- [Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md) - Authentication and authorization
+- [Vulnerability Management Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management_Policy.md) - Vulnerability handling
+- [Incident Response Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Policy.md) - Incident management
+
+### Standards and Frameworks
+- [ISO 27001:2022](https://www.iso.org/standard/27001) - Information security management
+- [NIST Incident Response (SP 800-61)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final) - Incident handling
+- [NIST CSF 2.0](https://www.nist.gov/cyberframework) - Cybersecurity Framework
+- [CIS Controls v8.1](https://www.cisecurity.org/controls) - Security best practices
+- [OWASP Testing Guide](https://owasp.org/www-project-web-security-testing-guide/) - Security testing
+- [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/) - Application security verification
+- [SLSA Framework](https://slsa.dev/) - Supply chain security
+- [GDPR](https://gdpr.eu/) - Data protection regulation
+- [NIS2 Directive](https://digital-strategy.ec.europa.eu/en/policies/nis2-directive) - Network and information security
+
+### Tools and Technologies
+- [GitHub Actions Security](https://docs.github.com/en/actions/security-guides) - CI/CD security
+- [CodeQL](https://codeql.github.com/) - Semantic code analysis
+- [Dependabot](https://github.com/dependabot) - Dependency management
+- [Sigstore](https://www.sigstore.dev/) - Artifact signing
+- [SPDX](https://spdx.dev/) - Software bill of materials
 
 ---
 
 **Document Status**: Active  
-**Next Review**: 2026-05-17  
-**Owner**: Development Team, Hack23 AB
+**Next Review**: 2026-05-20  
+**Owner**: Development Team, Hack23 AB  
+**Classification**: Public  
+**Version**: 1.1
