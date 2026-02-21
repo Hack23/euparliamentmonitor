@@ -17,7 +17,7 @@
 </p>
 
 **📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-02-21 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-18
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-21
 
 ---
 
@@ -376,7 +376,7 @@ graph LR
 | **License Verification** | SPDX header validation on every file | Open Source Policy |
 | **Copyright Compliance** | Per-file copyright tracking | IP management |
 | **Supply Chain Clarity** | Machine-readable `REUSE.toml` | NIST CSF ID.SC-4 |
-| **SHA-Pinned Action** | `fsfe/reuse-action@676e2d5` | Supply chain security |
+| **SHA-Pinned Action** | `fsfe/reuse-action@676e2d560c9a403aa252096d99fcab3e1132b0f5` | Supply chain security |
 
 #### ISMS Evidence
 
@@ -409,7 +409,7 @@ graph LR
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
 | **Security Hotspot Detection** | SONAR_TOKEN secret (org-level) | ISO 27001 A.14.2.5 |
-| **Quality Gate Enforcement** | Fail on new security issues | Shift-left security |
+| **Quality Gate Status** | Analysis only (no merge-blocking quality gate) | Shift-left security |
 | **PR Decoration** | Inline code review comments | Developer feedback loop |
 | **Coverage Integration** | LCOV → SonarCloud metrics | Testing quality assurance |
 
@@ -450,8 +450,8 @@ graph TD
 
 | Artifact | Action | Verification Command |
 |----------|--------|----------------------|
-| **Build Provenance** | `actions/attest-build-provenance@96278af6` | `gh attestation verify --owner Hack23 <file>` |
-| **SBOM (CycloneDX)** | `actions/attest-sbom@4cb5f8d7` | `gh attestation verify --owner Hack23 <file>` |
+| **Build Provenance** | `actions/attest-build-provenance@96278af6caaf10aea03fd8d33a09a777ca52d62f` | `gh attestation verify --owner Hack23 <file>` |
+| **SBOM (CycloneDX)** | `actions/attest-sbom@4cb5f8d7f70b69c98b0271f47c5bcbc87faa8c3a` | `gh attestation verify --owner Hack23 <file>` |
 | **Distribution Archive** | `tar.gz` with excluded dev files | SHA-256 checksum |
 | **SBOM JSON** | CycloneDX NPM format | License compliance check |
 
@@ -501,7 +501,7 @@ graph TD
 
 ### Workflow Permissions Matrix
 
-Every workflow declares explicit, minimal permissions following the principle of least privilege. Top-level `permissions: read-all` is overridden per-job where write access is required.
+Every workflow declares explicit, minimal permissions following the principle of least privilege. Some workflows use top-level `permissions: read-all` with job-level write overrides where needed, while others define more restrictive explicit top-level scopes tailored to their tasks.
 
 | Workflow | Top-Level | Job-Level Overrides | Secrets Used |
 |----------|-----------|---------------------|--------------|
@@ -515,7 +515,7 @@ Every workflow declares explicit, minimal permissions following the principle of
 | **deploy-s3** | `contents: read`, `id-token: write`, `actions: write` | — | AWS OIDC role |
 | **reuse** | `contents: read` | — | None |
 | **sonarcloud** | `contents: read` | sonarcloud: `pull-requests: read` | `SONAR_TOKEN` |
-| **slsa-provenance** | `read-all` | build: `id-token: write`, `attestations: write` | None |
+| **slsa-provenance** | `read-all` | build: `contents: write`, `id-token: write`, `attestations: write` | None |
 
 ### Security Control Layers
 
@@ -666,7 +666,7 @@ gh attestation verify euparliamentmonitor-v1.0.0.spdx.json --owner Hack23
 
 ## 🔍 Security Scanning Pipeline
 
-All security scanning tools are integrated into the CI/CD pipeline and run automatically on every pull request and push to `main`.
+Security scanning tools are integrated into the CI/CD pipeline with triggers as documented in the matrix below (e.g., push, pull request, schedule, pre-commit).
 
 ### Scanning Tool Matrix
 
@@ -759,7 +759,7 @@ graph TD
 | **mtime Preservation** | Git commit times restored before sync | Change detection accuracy |
 | **Cache-Optimised Sync** | Per-type cache headers (HTML: 1h, assets: 1y) | Performance + integrity |
 | **HTTPS Enforcement** | CloudFront HTTPS-only distribution | Data in transit protection |
-| **TLS 1.3** | CloudFront + S3 enforce TLS 1.3 | [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) |
+| **TLS 1.3** | CloudFront + S3 expected to enforce TLS 1.3 (configured in AWS account) | [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) |
 
 ---
 
@@ -932,9 +932,8 @@ All SAST tools upload findings to the GitHub Security Dashboard via SARIF format
 
 ### Current Limitations
 
-1. **E2E Workflow:** Uses version tags instead of SHA-pinned actions (tracked for resolution)
-2. **SonarCloud Quality Gate:** Requires `SONAR_TOKEN` secret — configured at org level
-3. **Fuzzing:** Not yet implemented (planned in FUTURE_WORKFLOWS.md)
+1. **SonarCloud Quality Gate:** Analysis only — no merge-blocking quality gate step configured in `sonarcloud.yml`
+2. **Fuzzing:** Not yet implemented (planned in FUTURE_WORKFLOWS.md)
 
 ### Planned Enhancements
 
