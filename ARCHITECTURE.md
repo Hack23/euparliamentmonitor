@@ -764,8 +764,8 @@ graph TB
 | **Generation Duration** | Workflow logs | >15 minutes | Warning annotation |
 | **Test Pass Rate** | Vitest + Playwright | <100% | Block merge |
 | **Security Vulnerabilities** | Dependabot + CodeQL | Any high/critical | Email + PR |
-| **Site Availability** | GitHub Status | <99.9% | GitHub incident notification |
-| **Page Load Time** | Lighthouse CI | >3 seconds | Warning annotation |
+| **Site Availability** | AWS Health Dashboard | <99.9% | AWS Health event notification |
+| **Page Load Time** | Lighthouse (manual runs) | >3 seconds | Warning annotation |
 
 ### Error Handling
 
@@ -1206,7 +1206,7 @@ Non-functional requirements define system qualities that are not directly relate
 **Accessibility Testing:**
 - **Automated**: Playwright with axe-core (every PR)
 - **Manual**: Quarterly screen reader testing, keyboard navigation
-- **Tools**: Lighthouse CI, axe DevTools, HTML validator
+- **Tools**: Lighthouse (manual runs), axe DevTools, HTML validator
 
 ### Maintainability Requirements
 
