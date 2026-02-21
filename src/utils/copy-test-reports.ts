@@ -93,12 +93,18 @@ async function main(): Promise<void> {
   try {
     await fs.mkdir(DOCS_DIR, { recursive: true });
 
-    const coverageSrc = join(PROJECT_ROOT, 'coverage');
+    const coverageSrc = join(PROJECT_ROOT, 'builds/coverage');
     const coverageDest = join(DOCS_DIR, 'coverage');
     console.log('  📊 Copying coverage report...');
     await copyDirectory(coverageSrc, coverageDest);
     console.log('  ✅ Coverage report copied');
 
+    const coverageSrc = join(PROJECT_ROOT, 'builds/api');
+    const coverageDest = join(DOCS_DIR, 'api');
+    console.log('  📊 Copying coverage report...');
+    await copyDirectory(coverageSrc, coverageDest);
+    console.log('  ✅ Coverage report copied');
+    
     const testResultsDir = join(DOCS_DIR, 'test-results');
     await fs.mkdir(testResultsDir, { recursive: true });
     await fs.writeFile(join(testResultsDir, 'index.html'), createTestResultsIndex(), 'utf8');
