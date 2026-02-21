@@ -42,8 +42,9 @@ European Parliament (720 seats as of 2024 elections)
 │   ├── Renew Europe — Liberals and centrists
 │   ├── Greens/EFA — Greens and regionalists
 │   ├── ECR — European Conservatives and Reformists
-│   ├── ID — Identity and Democracy
 │   ├── The Left — GUE/NGL successor
+│   ├── PfE — Patriots for Europe
+│   ├── ESN — Europe of Sovereign Nations
 │   └── NI — Non-Inscritti (non-attached)
 ├── Standing Committees (20 + 4 sub-committees)
 │   ├── AFET — Foreign Affairs

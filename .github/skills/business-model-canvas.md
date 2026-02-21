@@ -49,8 +49,8 @@ Provide a structured Business Model Canvas framework adapted for the EU Parliame
 │  KEY RESOURCES   │                  │ CUSTOMER         │
 │                  │  CHANNELS        │ RELATIONSHIPS    │
 │ • EP MCP Server  │                  │                  │
-│   (data source)  │ • GitHub Pages   │ • Self-service   │
-│ • Multi-language │   (S3/CDN)       │   (open access)  │
+│   (data source)  │ • AWS S3/        │ • Self-service   │
+│ • Multi-language │   CloudFront CDN │   (open access)  │
 │   content engine │ • Social media   │ • Community      │
 │ • ISMS-compliant │   (X, LinkedIn)  │   (GitHub issues)│
 │   infrastructure │ • EU institution │ • Automated      │

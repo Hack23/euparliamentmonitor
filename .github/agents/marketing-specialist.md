@@ -93,21 +93,21 @@ You are a digital marketing specialist for the EU Parliament Monitor—a multi-l
 
 ```html
 <!-- hreflang implementation for all 14 languages -->
-<link rel="alternate" hreflang="en" href="https://hack23.github.io/euparliamentmonitor/index-en.html">
-<link rel="alternate" hreflang="fr" href="https://hack23.github.io/euparliamentmonitor/index-fr.html">
-<link rel="alternate" hreflang="de" href="https://hack23.github.io/euparliamentmonitor/index-de.html">
-<link rel="alternate" hreflang="es" href="https://hack23.github.io/euparliamentmonitor/index-es.html">
-<link rel="alternate" hreflang="it" href="https://hack23.github.io/euparliamentmonitor/index-it.html">
-<link rel="alternate" hreflang="nl" href="https://hack23.github.io/euparliamentmonitor/index-nl.html">
-<link rel="alternate" hreflang="sv" href="https://hack23.github.io/euparliamentmonitor/index-sv.html">
-<link rel="alternate" hreflang="da" href="https://hack23.github.io/euparliamentmonitor/index-da.html">
-<link rel="alternate" hreflang="fi" href="https://hack23.github.io/euparliamentmonitor/index-fi.html">
-<link rel="alternate" hreflang="pl" href="https://hack23.github.io/euparliamentmonitor/index-pl.html">
-<link rel="alternate" hreflang="ro" href="https://hack23.github.io/euparliamentmonitor/index-ro.html">
-<link rel="alternate" hreflang="hu" href="https://hack23.github.io/euparliamentmonitor/index-hu.html">
-<link rel="alternate" hreflang="pt" href="https://hack23.github.io/euparliamentmonitor/index-pt.html">
-<link rel="alternate" hreflang="el" href="https://hack23.github.io/euparliamentmonitor/index-el.html">
-<link rel="alternate" hreflang="x-default" href="https://hack23.github.io/euparliamentmonitor/">
+<link rel="alternate" hreflang="en" href="https://euparliamentmonitor.com/index-en.html">
+<link rel="alternate" hreflang="fr" href="https://euparliamentmonitor.com/index-fr.html">
+<link rel="alternate" hreflang="de" href="https://euparliamentmonitor.com/index-de.html">
+<link rel="alternate" hreflang="es" href="https://euparliamentmonitor.com/index-es.html">
+<link rel="alternate" hreflang="it" href="https://euparliamentmonitor.com/index-it.html">
+<link rel="alternate" hreflang="nl" href="https://euparliamentmonitor.com/index-nl.html">
+<link rel="alternate" hreflang="sv" href="https://euparliamentmonitor.com/index-sv.html">
+<link rel="alternate" hreflang="da" href="https://euparliamentmonitor.com/index-da.html">
+<link rel="alternate" hreflang="fi" href="https://euparliamentmonitor.com/index-fi.html">
+<link rel="alternate" hreflang="pl" href="https://euparliamentmonitor.com/index-pl.html">
+<link rel="alternate" hreflang="ro" href="https://euparliamentmonitor.com/index-ro.html">
+<link rel="alternate" hreflang="hu" href="https://euparliamentmonitor.com/index-hu.html">
+<link rel="alternate" hreflang="pt" href="https://euparliamentmonitor.com/index-pt.html">
+<link rel="alternate" hreflang="el" href="https://euparliamentmonitor.com/index-el.html">
+<link rel="alternate" hreflang="x-default" href="https://euparliamentmonitor.com/">
 ```
 
 **Keyword Strategy Per Language:**

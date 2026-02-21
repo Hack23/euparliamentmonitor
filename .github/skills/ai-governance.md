@@ -167,7 +167,7 @@ OWASP LLM Top 10 — EU Parliament Monitor Controls:
  *
  * @param {Object} article - Generated article content
  * @param {string} article.text - Article body text
- * @param {string[]} article.mepsmentioned - MEPs referenced
+ * @param {string[]} article.mepsMentioned - MEPs referenced
  * @param {string[]} article.groupsMentioned - Political groups referenced
  * @returns {Object} Bias assessment with flags and recommendations
  */

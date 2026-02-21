@@ -65,21 +65,21 @@ SEO Architecture:
 
 ```html
 <!-- Required in <head> for every page — all 14 language variants -->
-<link rel="alternate" hreflang="en" href="https://hack23.github.io/euparliamentmonitor/index-en.html" />
-<link rel="alternate" hreflang="fr" href="https://hack23.github.io/euparliamentmonitor/index-fr.html" />
-<link rel="alternate" hreflang="de" href="https://hack23.github.io/euparliamentmonitor/index-de.html" />
-<link rel="alternate" hreflang="es" href="https://hack23.github.io/euparliamentmonitor/index-es.html" />
-<link rel="alternate" hreflang="it" href="https://hack23.github.io/euparliamentmonitor/index-it.html" />
-<link rel="alternate" hreflang="pt" href="https://hack23.github.io/euparliamentmonitor/index-pt.html" />
-<link rel="alternate" hreflang="nl" href="https://hack23.github.io/euparliamentmonitor/index-nl.html" />
-<link rel="alternate" hreflang="el" href="https://hack23.github.io/euparliamentmonitor/index-el.html" />
-<link rel="alternate" hreflang="pl" href="https://hack23.github.io/euparliamentmonitor/index-pl.html" />
-<link rel="alternate" hreflang="ro" href="https://hack23.github.io/euparliamentmonitor/index-ro.html" />
-<link rel="alternate" hreflang="sv" href="https://hack23.github.io/euparliamentmonitor/index-sv.html" />
-<link rel="alternate" hreflang="da" href="https://hack23.github.io/euparliamentmonitor/index-da.html" />
-<link rel="alternate" hreflang="fi" href="https://hack23.github.io/euparliamentmonitor/index-fi.html" />
-<link rel="alternate" hreflang="hu" href="https://hack23.github.io/euparliamentmonitor/index-hu.html" />
-<link rel="alternate" hreflang="x-default" href="https://hack23.github.io/euparliamentmonitor/index-en.html" />
+<link rel="alternate" hreflang="en" href="https://euparliamentmonitor.com/index-en.html" />
+<link rel="alternate" hreflang="fr" href="https://euparliamentmonitor.com/index-fr.html" />
+<link rel="alternate" hreflang="de" href="https://euparliamentmonitor.com/index-de.html" />
+<link rel="alternate" hreflang="es" href="https://euparliamentmonitor.com/index-es.html" />
+<link rel="alternate" hreflang="it" href="https://euparliamentmonitor.com/index-it.html" />
+<link rel="alternate" hreflang="pt" href="https://euparliamentmonitor.com/index-pt.html" />
+<link rel="alternate" hreflang="nl" href="https://euparliamentmonitor.com/index-nl.html" />
+<link rel="alternate" hreflang="el" href="https://euparliamentmonitor.com/index-el.html" />
+<link rel="alternate" hreflang="pl" href="https://euparliamentmonitor.com/index-pl.html" />
+<link rel="alternate" hreflang="ro" href="https://euparliamentmonitor.com/index-ro.html" />
+<link rel="alternate" hreflang="sv" href="https://euparliamentmonitor.com/index-sv.html" />
+<link rel="alternate" hreflang="da" href="https://euparliamentmonitor.com/index-da.html" />
+<link rel="alternate" hreflang="fi" href="https://euparliamentmonitor.com/index-fi.html" />
+<link rel="alternate" hreflang="hu" href="https://euparliamentmonitor.com/index-hu.html" />
+<link rel="alternate" hreflang="x-default" href="https://euparliamentmonitor.com/index-en.html" />
 ```
 
 ### JSON-LD NewsArticle Schema
@@ -96,7 +96,7 @@ SEO Architecture:
   "author": {
     "@type": "Organization",
     "name": "EU Parliament Monitor",
-    "url": "https://hack23.github.io/euparliamentmonitor/"
+    "url": "https://euparliamentmonitor.com/"
   },
   "publisher": {
     "@type": "Organization",
@@ -104,14 +104,14 @@ SEO Architecture:
     "url": "https://www.hack23.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://hack23.github.io/euparliamentmonitor/logo.png"
+      "url": "https://euparliamentmonitor.com/logo.png"
     }
   },
   "inLanguage": "en",
   "isAccessibleForFree": true,
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://hack23.github.io/euparliamentmonitor/news/2025/climate-vote-en.html"
+    "@id": "https://euparliamentmonitor.com/news/2025/climate-vote-en.html"
   },
   "about": [
     { "@type": "GovernmentOrganization", "name": "European Parliament" }
@@ -134,7 +134,7 @@ SEO Architecture:
  * @returns {string} Sitemap XML entries with xhtml:link alternates
  */
 function generateSitemapEntry(article) {
-  const baseUrl = 'https://hack23.github.io/euparliamentmonitor';
+  const baseUrl = 'https://euparliamentmonitor.com';
   const languages = article.languages || [
     'en', 'fr', 'de', 'es', 'it', 'pt', 'nl',
     'el', 'pl', 'ro', 'sv', 'da', 'fi', 'hu'
@@ -166,13 +166,13 @@ ${alternates}
 <title>EU Parliament Votes on Digital Markets Act — EU Parliament Monitor</title>
 <meta name="description" content="Analysis of the European Parliament plenary vote on the Digital Markets Act, including voting patterns by political group and country.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-<link rel="canonical" href="https://hack23.github.io/euparliamentmonitor/news/2025/dma-vote-en.html">
+<link rel="canonical" href="https://euparliamentmonitor.com/news/2025/dma-vote-en.html">
 
 <!-- Open Graph -->
 <meta property="og:type" content="article">
 <meta property="og:title" content="EU Parliament Votes on Digital Markets Act">
 <meta property="og:description" content="Analysis of the European Parliament plenary vote...">
-<meta property="og:url" content="https://hack23.github.io/euparliamentmonitor/news/2025/dma-vote-en.html">
+<meta property="og:url" content="https://euparliamentmonitor.com/news/2025/dma-vote-en.html">
 <meta property="og:site_name" content="EU Parliament Monitor">
 <meta property="og:locale" content="en_GB">
 <meta property="article:published_time" content="2025-01-15T08:00:00+01:00">
@@ -303,7 +303,7 @@ Analytics Without Tracking:
 ### GDPR
 - **Article 5**: Data minimization — no unnecessary data in analytics
 - **Article 25**: Data protection by design — privacy-first SEO approach
-- **Article 6**: Lawful basis — no consent needed (no personal data processed)
+- **Article 6**: Lawful basis — limited processing of personal data in server/CDN logs (e.g., IP addresses) based on legitimate interests for security, abuse prevention, and aggregate analytics, with strict minimization and short retention
 
 ## Hack23 ISMS Policy References
 
