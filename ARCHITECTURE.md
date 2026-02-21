@@ -132,7 +132,7 @@ architecture.
 - **Multi-Language Support**: Generates content in 14 European languages
 - **MCP Integration**: Uses European Parliament MCP Server for data access
 - **Security by Design**: Minimal attack surface through static architecture
-- **GitHub Hosted**: Leverages GitHub Pages for zero-infrastructure hosting
+- **GitHub Hosted**: Leverages AWS S3 + CloudFront for zero-infrastructure static hosting
 
 ---
 
@@ -155,7 +155,8 @@ C4Context
 
     System(epmonitor, "EU Parliament Monitor", "Static site with multilingual news about European Parliament activities")
 
-    System_Ext(github, "GitHub", "Hosts repository, runs CI/CD, serves GitHub Pages")
+    System_Ext(github, "GitHub", "Hosts repository, runs CI/CD (GitHub Actions)")
+    System_Ext(aws, "AWS (S3 + CloudFront)", "Serves static site globally via CDN")
     System_Ext(ep_mcp, "European Parliament MCP Server", "Provides structured access to EP data")
     System_Ext(ep_api, "European Parliament APIs", "Official EP data sources (plenary, committees, documents)")
     System_Ext(llm, "LLM Service", "Generates article content from structured EP data")
@@ -165,7 +166,8 @@ C4Context
     Rel(researcher, epmonitor, "Analyzes data", "HTTPS")
     Rel(contributor, github, "Contributes code", "Git/HTTPS")
 
-    Rel(epmonitor, github, "Hosted on", "GitHub Pages")
+    Rel(epmonitor, github, "Built and deployed via", "GitHub Actions")
+    Rel(epmonitor, aws, "Hosted on", "S3 + CloudFront")
     Rel(github, epmonitor, "Generates site via", "GitHub Actions")
     Rel(epmonitor, ep_mcp, "Fetches EP data via", "MCP Protocol")
     Rel(ep_mcp, ep_api, "Queries EP data", "HTTPS/JSON")
@@ -202,7 +204,7 @@ graph TB
         end
         
         subgraph "Hosting Environment"
-            Pages[GitHub Pages CDN<br/>Fastly CDN + HTTPS]
+            Pages[AWS S3 + CloudFront CDN<br/>HTTPS via ACM]
             Repo[Git Repository<br/>Version Control]
         end
     end
@@ -239,9 +241,9 @@ graph TB
 | **External Services** | Partially Trusted | API authentication, input validation, rate limiting, data sanitization | Data poisoning, API compromise (mitigated by validation, monitoring) |
 
 **Key Security Boundaries:**
-1. **User → GitHub Pages**: Read-only HTTPS access, no authentication required (public content)
+1. **User → CloudFront**: Read-only HTTPS access, no authentication required (public content)
 2. **GitHub Actions → External APIs**: Authenticated API calls, input validation, error handling
-3. **Git Repository → GitHub Pages**: Automated deployment, only static files served
+3. **GitHub Actions → AWS S3**: Authenticated S3 sync + CloudFront invalidation, only static files deployed
 4. **External Services → System**: All data validated, sanitized, and rate-limited before use
 
 ---
@@ -272,8 +274,11 @@ C4Container
 
     Container_Boundary(github_infra, "GitHub Infrastructure") {
         Container(actions, "GitHub Actions", "CI/CD", "Automated news generation workflow")
-        Container(pages, "GitHub Pages", "Web Server", "Serves static site via CDN")
         ContainerDb(repo, "Git Repository", "Version Control", "Source code and generated content")
+    }
+
+    Container_Boundary(aws_infra, "AWS Infrastructure") {
+        Container(pages, "Amazon CloudFront + S3", "CDN / Object Storage", "Serves static site globally via HTTPS")
     }
 
     System_Ext(ep_mcp, "European Parliament MCP Server", "Structured EP data access")
@@ -290,7 +295,8 @@ C4Container
     Rel(sitemap_generator, static_files, "Creates sitemap", "fs.writeFileSync")
     Rel(mcp_client, ep_mcp, "Queries data", "MCP Protocol")
     Rel(static_files, repo, "Committed by Actions", "Git commit/push")
-    Rel(pages, static_files, "Serves from repo", "GitHub Pages")
+    Rel(actions, pages, "Deploys via", "S3 sync + CloudFront invalidation")
+    Rel(pages, static_files, "Serves from S3", "CloudFront edge")
 
     UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="2")
 ```
@@ -304,9 +310,9 @@ C4Container
 | **Sitemap Generator**       | Node.js/JavaScript | SEO sitemap creation                  | Lists all pages for search engine crawling       |
 | **MCP Client**              | JavaScript         | EP data access                        | Communicates with MCP Server for structured data |
 | **Article Template Engine** | JavaScript         | HTML generation                       | Converts article data to semantic HTML5          |
-| **Static Files**            | HTML/CSS/JS        | Generated output                      | Committed to repository, served by GitHub Pages  |
-| **GitHub Actions**          | CI/CD              | Automation                            | Daily workflow execution, build and deploy       |
-| **GitHub Pages**            | CDN/Web Server     | Hosting                               | HTTPS delivery of static content                 |
+| **Static Files**            | HTML/CSS/JS        | Generated output                      | Committed to repository, deployed to AWS S3 and served via CloudFront  |
+| **GitHub Actions**          | CI/CD              | Automation                            | Daily workflow execution, build, deploy to S3/CloudFront       |
+| **Amazon CloudFront + S3**  | CDN/Object Storage | Hosting                               | HTTPS delivery of static content globally                               |
 | **Git Repository**          | Version Control    | Source & Content                      | Stores code, generated articles, configuration   |
 
 ### Security Responsibilities per Container
@@ -320,7 +326,7 @@ C4Container
 | **Article Template Engine** | Content Security Policy, HTML sanitization | Generates CSP-compliant HTML, sanitizes all dynamic content, uses semantic HTML5 | A.8.23 (ISO 27001) |
 | **Static Files** | Integrity verification, no sensitive data | All files public, no secrets or PII, content integrity via Git | A.5.10 (ISO 27001) |
 | **GitHub Actions** | Secret management, least privilege, audit logging | GitHub Secrets for API keys, OIDC authentication, workflow audit logs | A.8.3, CIS Control 6 |
-| **GitHub Pages** | HTTPS-only, CDN security, DDoS protection | Forces HTTPS redirect, Fastly CDN with DDoS mitigation, HSTS headers | A.8.24 (ISO 27001) |
+| **Amazon CloudFront + S3** | HTTPS-only, CDN security, DDoS protection | Forces HTTPS redirect via ACM certificate, CloudFront with DDoS mitigation, HSTS headers | A.8.24 (ISO 27001) |
 | **Git Repository** | Access control, branch protection, signed commits | RBAC with least privilege, protected main branch, optional signed commits | CIS Control 6, A.8.3 |
 
 ### Container Security Architecture
@@ -339,8 +345,8 @@ graph TB
     end
     
     subgraph "Delivery Layer - Runtime Security"
-        Pages[GitHub Pages<br/>🛡️ HTTPS-Only<br/>🛡️ HSTS Headers<br/>🛡️ DDoS Protection]
-        CDN[Fastly CDN<br/>🛡️ TLS Termination<br/>🛡️ Edge Caching<br/>🛡️ Geographic Distribution]
+        Pages[Amazon CloudFront + S3<br/>🛡️ HTTPS-Only<br/>🛡️ HSTS Headers<br/>🛡️ DDoS Protection]
+        CDN[CloudFront Edge<br/>🛡️ TLS Termination<br/>🛡️ Edge Caching<br/>🛡️ Geographic Distribution]
     end
     
     subgraph "External Layer - Third-Party Security"
@@ -354,7 +360,7 @@ graph TB
     NewsGen -->|Secured API Calls| LLM
     Template -->|Safe HTML| GitRepo
     Secrets -->|Inject at Runtime| NewsGen
-    GitRepo -->|Auto Deploy| Pages
+    GitRepo -->|Deploy to S3| Pages
     Pages -->|Cached Content| CDN
     
     style NewsGen fill:#9cf,stroke:#333,stroke-width:2px
@@ -434,46 +440,23 @@ sequenceDiagram
     participant CLI as CLI Interface
     participant Gen as Article Generator
     participant MCP as MCP Client
-    participant Cache as LRU Cache
     participant EPMCP as EP MCP Server
-    participant LLM as LLM Client
-    participant Trans as Translation Handler
-    participant Valid as Content Validator
     participant Tmpl as HTML Template
     participant Meta as Metadata Manager
     participant FS as File System Writer
     
     CLI->>Gen: generate(type, languages)
     Gen->>MCP: fetchEPData(type)
-    MCP->>Cache: checkCache(key)
-    
-    alt Cache Hit
-        Cache-->>MCP: return cached data
-    else Cache Miss
-        MCP->>EPMCP: query(endpoint, params)
-        EPMCP-->>MCP: return EP data
-        MCP->>Cache: store(key, data, ttl)
-    end
-    
+    MCP->>EPMCP: query(endpoint, params)
+    EPMCP-->>MCP: return EP data
     MCP-->>Gen: return validated EP data
     
-    loop For each language
-        Gen->>Trans: translateContent(data, lang)
-        Trans->>LLM: generateArticle(data, lang, prompt)
-        LLM-->>Trans: return article text
-        Trans->>Valid: validateContent(text)
-        
-        alt Validation Passes
-            Valid-->>Trans: content valid
-            Trans-->>Gen: return article
-            Gen->>Tmpl: renderHTML(article, lang)
-            Tmpl-->>Gen: return HTML
-            Gen->>FS: writeFile(path, html)
-            Gen->>Meta: recordGeneration(article, lang)
-        else Validation Fails
-            Valid-->>Trans: content invalid
-            Trans->>LLM: regenerateArticle(data, lang)
-        end
+    loop For each language (sequential)
+        Gen->>Tmpl: renderHTML(epData, lang)
+        Note over Gen,Tmpl: Current: placeholder English content<br/>Future (ADR-004): native LLM generation per language
+        Tmpl-->>Gen: return HTML
+        Gen->>FS: writeFile(path, html)
+        Gen->>Meta: recordGeneration(article, lang)
     end
     
     Meta->>FS: writeMetadata(json)
@@ -484,10 +467,10 @@ sequenceDiagram
 
 | Pattern | Components Involved | Purpose | Error Handling |
 |---------|---------------------|---------|----------------|
-| **Cache-Aside** | MCP Client → LRU Cache → EP MCP Server | Reduce API calls, improve performance | Cache miss triggers fresh fetch, cache errors logged but non-blocking |
+| **Cache-Aside (Planned)** | MCP Client → LRU Cache → EP MCP Server | Reduce API calls, improve performance | Planned: cache miss triggers fresh fetch; current: direct calls to EP MCP Server |
 | **Retry with Exponential Backoff** | MCP Client → EP MCP Server | Handle transient failures | Max 3 retries with 1s, 2s, 4s delays; final failure throws error |
 | **Validation Pipeline** | Content Validator → Article Generator | Ensure content quality | Failed validation triggers regeneration (max 2 attempts) |
-| **Fan-Out Multi-Language** | Article Generator → Translation Handler (per language) | Parallel content generation | Per-language failures isolated; successful languages still generated |
+| **Sequential Multi-Language** | Article Generator → HTML Template (per language) | Content generation per language | Per-language failures logged; successful languages still generated; parallel generation planned (ADR-004) |
 | **Template Method** | Article Generator → HTML Template → File System Writer | Consistent HTML generation | Template errors logged and propagated to prevent partial writes |
 | **Metadata Aggregation** | Metadata Manager → File System Writer | Track generation history | Metadata write failures logged but don't block article generation |
 
@@ -510,9 +493,9 @@ C4Deployment
             Container(node_runtime, "Node.js Runtime", "Node.js 24", "Executes generation scripts")
         }
 
-        Deployment_Node(pages_cdn, "GitHub Pages CDN", "Fastly CDN") {
-            Container(web_server, "Static Web Server", "Nginx/Fastly", "Serves HTTPS content")
-            ContainerDb(static_content, "Static Files", "HTML/CSS/JS/JSON", "Generated articles and pages")
+        Deployment_Node(pages_cdn, "AWS Infrastructure", "S3 + CloudFront") {
+            Container(web_server, "Amazon CloudFront", "CDN / HTTPS", "Serves HTTPS content globally")
+            ContainerDb(static_content, "Amazon S3 Bucket", "Object Storage", "Generated articles and pages")
         }
 
         Deployment_Node(repo_storage, "GitHub Repository", "Git Storage") {
@@ -533,7 +516,7 @@ C4Deployment
     Rel(node_runtime, ep_mcp, "Fetches data", "HTTPS/MCP")
     Rel(node_runtime, llm, "Generates content", "HTTPS/API")
     Rel(node_runtime, git_repo, "Commits files", "Git")
-    Rel(git_repo, static_content, "Deploys", "GitHub Pages")
+    Rel(git_repo, static_content, "Deploys via", "S3 sync + CloudFront invalidation")
     Rel(browser, web_server, "Requests pages", "HTTPS")
     Rel(web_server, static_content, "Serves", "HTTP/2")
 
@@ -545,11 +528,12 @@ C4Deployment
 | Infrastructure Component  | Technology               | Purpose                           | Configuration                         |
 | ------------------------- | ------------------------ | --------------------------------- | ------------------------------------- |
 | **GitHub Actions Runner** | Ubuntu 24.04, Node.js 24 | Execute generation workflow       | .github/workflows/news-generation.yml |
-| **GitHub Pages CDN**      | Fastly CDN, Nginx        | Serve static content globally     | Enabled in repository settings        |
-| **Git Repository**        | GitHub Storage           | Version control + content storage | public repository                     |
-| **Web Browser**           | Modern browsers          | Render news articles              | HTML5, CSS3, ES6+                     |
-| **EP MCP Server**         | External service         | EP data access                    | MCP protocol endpoint                 |
-| **LLM Service**           | External API             | Content generation                | API key authentication                |
+| **Amazon CloudFront**     | AWS CDN                  | Serve static content globally     | CloudFront distribution (deploy-s3.yml) |
+| **Amazon S3**             | AWS Object Storage       | Host static site files            | S3 bucket (deploy-s3.yml)              |
+| **Git Repository**        | GitHub Storage           | Version control + content storage | public repository                      |
+| **Web Browser**           | Modern browsers          | Render news articles              | HTML5, CSS3, ES6+                      |
+| **EP MCP Server**         | External service         | EP data access                    | MCP protocol endpoint                  |
+| **LLM Service**           | External API             | Content generation                | API key authentication                 |
 
 ---
 
@@ -608,12 +592,12 @@ C4Deployment
 
 ### Infrastructure
 
-| Service            | Purpose             | Configuration            | Cost |
-| ------------------ | ------------------- | ------------------------ | ---- |
-| **GitHub Actions** | CI/CD automation    | .github/workflows/       | Free (public repo) |
-| **GitHub Pages**   | Static site hosting | Repository settings      | Free (public repo) |
-| **Fastly CDN**     | Content delivery    | GitHub Pages integration | Free (GitHub-provided) |
-| **Git**            | Version control     | Repository               | Free (public repo) |
+| Service               | Purpose             | Configuration                  | Cost |
+| --------------------- | ------------------- | ------------------------------ | ---- |
+| **GitHub Actions**    | CI/CD automation    | .github/workflows/             | Free (public repo) |
+| **AWS S3**            | Static site hosting | S3 bucket + static website     | Pay-per-use (storage, requests) |
+| **Amazon CloudFront** | Content delivery    | CloudFront distribution (S3)   | Pay-per-use (data transfer, requests) |
+| **Git**               | Version control     | Repository                     | Free (public repo) |
 
 ### External Services
 
@@ -627,11 +611,11 @@ C4Deployment
 
 | Browser | Minimum Version | Features Required | Testing Coverage |
 |---------|----------------|-------------------|------------------|
-| **Chrome/Edge** | 90+ | ES2020, CSS Grid, Flexbox | ✅ Playwright E2E |
-| **Firefox** | 88+ | ES2020, CSS Grid, Flexbox | ✅ Playwright E2E |
-| **Safari** | 14+ | ES2020, CSS Grid, Flexbox | ✅ Playwright E2E |
-| **Mobile Chrome** | 90+ | ES2020, Responsive Design | ✅ Playwright Mobile Emulation |
-| **Mobile Safari** | 14+ | ES2020, Responsive Design | ✅ Playwright Mobile Emulation |
+| **Chrome/Edge** | 90+ | ES2020, CSS Grid, Flexbox | ✅ Playwright E2E (Chromium in CI) |
+| **Firefox** | 88+ | ES2020, CSS Grid, Flexbox | 🧪 Manual regression (no Playwright CI) |
+| **Safari** | 14+ | ES2020, CSS Grid, Flexbox | 🧪 Manual regression (no Playwright CI) |
+| **Mobile Chrome** | 90+ | ES2020, Responsive Design | 🧪 Manual responsive testing |
+| **Mobile Safari** | 14+ | ES2020, Responsive Design | 🧪 Manual responsive testing |
 
 **No support for:**
 - Internet Explorer (EOL June 2022)
@@ -663,6 +647,7 @@ sequenceDiagram
 
     loop For each language
         Gen->>LLM: Generate article(EP data, language)
+        Note over Gen,LLM: Target architecture (ADR-004); current implementation uses placeholder English content
         LLM-->>Gen: Article content
         Gen->>TPL: Render HTML(article, language)
         TPL-->>Gen: HTML output
@@ -671,7 +656,7 @@ sequenceDiagram
 
     Gen->>FS: Write metadata.json
     GHA->>GHA: Commit and push changes
-    GHA->>GHA: Deploy to GitHub Pages
+    GHA->>GHA: Deploy to S3 + invalidate CloudFront
 ```
 
 ### User Request Flow
@@ -679,19 +664,17 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User as User Browser
-    participant CDN as Fastly CDN
-    participant Pages as GitHub Pages
+    participant CDN as CloudFront CDN
+    participant S3 as Amazon S3
     participant Repo as Git Repository
 
     User->>CDN: GET /index-en.html
-    CDN->>Pages: Forward request
-    Pages->>Repo: Fetch file
-    Repo-->>Pages: File content
-    Pages-->>CDN: HTML response
+    CDN->>S3: Forward request (cache miss)
+    S3-->>CDN: HTML response
     CDN-->>User: Cached HTML
 
     User->>CDN: GET /news/week-ahead-2026-02-17-en.html
-    CDN-->>User: Cached article (or fetch from Pages)
+    CDN-->>User: Cached article (or fetch from S3)
 ```
 
 ---
@@ -741,9 +724,9 @@ graph TB
     end
     
     subgraph "Application Monitoring"
-        Pages[GitHub Pages]
+        Pages[Amazon CloudFront + S3]
         Analytics[Web Analytics<br/>Visits, Bounce Rate, Countries]
-        Uptime[Uptime Monitoring<br/>GitHub Status]
+        Uptime[Uptime Monitoring<br/>AWS Health Dashboard]
     end
     
     subgraph "Security Monitoring"
@@ -840,7 +823,7 @@ flowchart TD
 
 ### Internationalization (i18n)
 
-**14 Languages Supported (ordered by EU population of native speakers):**
+**14 Languages Supported:**
 - 🇬🇧 English (en) - 67 million
 - 🇩🇪 German (de) - 95 million
 - 🇫🇷 French (fr) - 67 million
@@ -919,7 +902,7 @@ graph LR
 
 | Aspect | Implementation | Example |
 |--------|----------------|---------|
-| **Content Generation** | LLM generates native content per language (not translation) | Each article written directly in target language by LLM |
+| **Content Generation** | Placeholder English content for all languages (current); native LLM per-language generation planned (ADR-004) | Current: shared English body with localized titles/subtitles; Future: each article written directly in target language |
 | **File Naming** | Language suffix in filename | `week-ahead-2026-02-17-en.html`, `week-ahead-2026-02-17-de.html` |
 | **HTML lang Attribute** | Set per page | `<html lang="en">`, `<html lang="de">` |
 | **Navigation** | Language-specific index pages | `index-en.html`, `index-de.html` |
@@ -928,9 +911,10 @@ graph LR
 | **Character Encoding** | UTF-8 for all languages | `<meta charset="UTF-8">` |
 
 **Language Quality Assurance:**
-- **Native Content**: LLM generates content natively in each language (not machine translation)
-- **Cultural Adaptation**: Prompts include cultural context for each language/region
-- **Terminology Consistency**: EP terminology used consistently per language
+- **Current State**: Placeholder English body content with localized metadata (title, subtitle, HTML lang attribute, date formats) per language
+- **Target State (ADR-004)**: LLM generates content natively in each language (not machine translation)
+- **Cultural Adaptation**: Planned — prompts will include cultural context for each language/region
+- **Terminology Consistency**: EP terminology to be used consistently per language
 - **Quality Metrics**: Human review of sample articles per language quarterly
 
 ---
@@ -951,7 +935,7 @@ Architecture Decision Records document significant architectural decisions made 
 - Need to display European Parliament news to public audience
 - Security is paramount (public-facing system)
 - Limited development resources
-- GitHub Pages available as free hosting solution
+- GitHub Pages available as free hosting solution; AWS S3 + CloudFront chosen for production (see ADR-002)
 
 **Decision:**
 We will build EU Parliament Monitor as a **static site generator** rather than a dynamic web application with backend services.
@@ -959,7 +943,7 @@ We will build EU Parliament Monitor as a **static site generator** rather than a
 **Rationale:**
 1. **Security**: Static sites eliminate entire classes of vulnerabilities (SQL injection, XSS via server-side rendering, authentication bypass)
 2. **Scalability**: Static content scales infinitely via CDN with no server infrastructure
-3. **Cost**: GitHub Pages provides free hosting, no server costs
+3. **Cost**: Static hosting on AWS S3 + CloudFront is low-cost, no server infrastructure
 4. **Maintainability**: Simpler architecture with fewer moving parts
 5. **Reliability**: No database or server downtime risks
 
@@ -978,7 +962,7 @@ We will build EU Parliament Monitor as a **static site generator** rather than a
 
 ---
 
-### ADR-002: GitHub Pages for Hosting
+### ADR-002: AWS S3 + CloudFront for Hosting
 
 **Status:** Accepted  
 **Date:** 2025-12-05  
@@ -987,30 +971,31 @@ We will build EU Parliament Monitor as a **static site generator** rather than a
 **Context:**
 - Static site architecture chosen (ADR-001)
 - Need reliable, secure hosting with global CDN
-- Budget constraints (free or low-cost solution preferred)
-- Already using GitHub for source control
+- Budget constraints (low-cost solution preferred)
+- Already using GitHub for source control and CI/CD
 
 **Decision:**
-We will host EU Parliament Monitor on **GitHub Pages** with Fastly CDN integration.
+We will host EU Parliament Monitor on **AWS S3** with **Amazon CloudFront** as the global CDN (see `.github/workflows/deploy-s3.yml`).
 
 **Rationale:**
-1. **Cost**: Free for public repositories
-2. **Integration**: Seamless GitHub Actions CI/CD integration
-3. **Security**: HTTPS enforced, DDoS protection via Fastly CDN
-4. **Reliability**: GitHub SLA ~99.9% uptime
-5. **Performance**: Global CDN with edge caching
+1. **Cost**: Low-cost static hosting within current traffic and budget constraints
+2. **Integration**: GitHub Actions CI/CD deploys to S3 and invalidates the CloudFront distribution
+3. **Security**: HTTPS via AWS Certificate Manager, TLS termination at CloudFront edge
+4. **Reliability**: AWS S3 and CloudFront SLAs provide high availability and durability
+5. **Performance**: CloudFront global edge network with caching for low-latency delivery
 
 **Alternatives Considered:**
+- **GitHub Pages**: Considered for simplicity and zero direct hosting cost; kept as a documented alternative but not chosen due to less flexible edge configuration
 - **Netlify**: Rejected due to build minute limits on free tier
 - **Vercel**: Rejected due to commercial focus, potential future costs
-- **AWS S3 + CloudFront**: Rejected due to cost and operational complexity
 - **Self-hosted Nginx**: Rejected due to operational burden, security maintenance
 
 **Consequences:**
-- ✅ **Positive**: Zero hosting costs, automatic HTTPS, global CDN
-- ✅ **Positive**: Native GitHub integration, simple deployment
-- ⚠️ **Negative**: 1GB repository size limit (acceptable for static content)
-- ⚠️ **Negative**: 100GB bandwidth/month soft limit (sufficient for current traffic)
+- ✅ **Positive**: Globally distributed static hosting with strong reliability and performance
+- ✅ **Positive**: Automated deployments from GitHub Actions to S3 with CloudFront cache invalidation
+- ✅ **Positive**: Integration with AWS security services (WAF, Shield, ACM)
+- ⚠️ **Negative**: Ongoing AWS hosting costs and need to manage AWS credentials securely
+- ⚠️ **Negative**: Increased operational complexity compared to GitHub Pages
 
 **Compliance:** Aligns with ISO 27001 A.8.24 (Cryptography - HTTPS), CIS Control 1 (Asset Management)
 
@@ -1136,19 +1121,19 @@ Non-functional requirements define system qualities that are not directly relate
 
 | Requirement | Target | Measurement | Current Status |
 |-------------|--------|-------------|----------------|
-| **Page Load Time (Desktop)** | <1 second (LCP) | Lighthouse CI | ✅ 0.6s average |
-| **Page Load Time (Mobile)** | <2 seconds (LCP) | Lighthouse CI | ✅ 1.2s average |
+| **Page Load Time (Desktop)** | <1 second (LCP) | Lighthouse (manual runs) | ✅ 0.6s average |
+| **Page Load Time (Mobile)** | <2 seconds (LCP) | Lighthouse (manual runs) | ✅ 1.2s average |
 | **Build Time (All Languages)** | <15 minutes | GitHub Actions logs | ✅ 8-12 minutes |
 | **Article Generation (Single)** | <30 seconds | Script logs | ✅ 15-25 seconds |
 | **MCP API Response Time** | <2 seconds (p95) | Client logs | ✅ 1.1s average |
-| **CDN Cache Hit Rate** | >95% | Fastly metrics | ✅ 97% observed |
+| **CDN Cache Hit Rate** | >95% | CloudFront metrics (planned) | ⏳ TBD — instrumentation planned |
 
 **Performance Optimization Strategies:**
 - **Static Content**: All content pre-generated, no server-side processing
 - **CDN Caching**: Aggressive caching at edge (7 days TTL)
 - **Image Optimization**: None required (no images in MVP)
 - **Minification**: HTML minification (future), CSS minification (future)
-- **HTTP/2**: Enabled by default on GitHub Pages
+- **HTTP/2**: Enabled by default on Amazon CloudFront
 
 ### Scalability Requirements
 
@@ -1161,7 +1146,7 @@ Non-functional requirements define system qualities that are not directly relate
 | **Repository Size** | 150 MB | 800 MB (GitHub limit) | Archive old articles annually |
 
 **Scalability Constraints:**
-- GitHub Pages: 1GB repository size limit, 100GB bandwidth/month soft limit
+- AWS S3: No repository size limit for static hosting; storage costs increase linearly
 - GitHub Actions: 2000 minutes/month free, unlimited for public repos
 - LLM API: Rate limits vary by provider (typically 3000 RPM for tier 2)
 
@@ -1169,7 +1154,7 @@ Non-functional requirements define system qualities that are not directly relate
 
 | Requirement | Target | Measurement | Consequence of Failure |
 |-------------|--------|-------------|------------------------|
-| **Site Availability** | 99.9% (GitHub Pages SLA) | GitHub Status page | Users cannot access news |
+| **Site Availability** | 99.9% (AWS CloudFront/S3 SLA) | GitHub Status + AWS Health Dashboard | Users cannot access news |
 | **Build Success Rate** | >98% | GitHub Actions logs | No new content deployed |
 | **MCP API Availability** | >99% (best effort) | Health checks | Fallback to cached/previous data |
 | **LLM API Availability** | >99.5% (provider SLA) | API logs | Generation fails, retry logic |
@@ -1178,7 +1163,7 @@ Non-functional requirements define system qualities that are not directly relate
 
 **High Availability Strategies:**
 - **Static Architecture**: No single point of failure (SPOF) in runtime
-- **CDN Redundancy**: Fastly CDN with multiple POPs globally
+- **CDN Redundancy**: Amazon CloudFront with multiple edge locations globally
 - **Fallback Data**: Use previous day's data if EP MCP Server unavailable
 - **Retry Logic**: Exponential backoff for transient failures
 - **Monitoring**: GitHub Status, Dependabot alerts, workflow notifications
@@ -1187,8 +1172,8 @@ Non-functional requirements define system qualities that are not directly relate
 
 | Requirement | Implementation | Verification | Compliance |
 |-------------|----------------|--------------|------------|
-| **HTTPS-Only** | GitHub Pages enforces HTTPS redirect | Manual testing | ISO 27001 A.8.24 |
-| **Content Security Policy (CSP)** | Strict CSP headers in HTML | CSP Evaluator | ISO 27001 A.8.23 |
+| **HTTPS-Only** | CloudFront enforces HTTPS redirect via ACM certificate | Manual testing | ISO 27001 A.8.24 |
+| **Content Security Policy (CSP)** | Planned strict CSP via CloudFront response headers (no CSP meta tag in HTML templates currently) | CSP Evaluator (staging/production) | ISO 27001 A.8.23 |
 | **No Secrets in Repository** | GitHub Secrets for API keys | Git history scan | ISO 27001 A.8.3 |
 | **Dependency Vulnerability Scanning** | Dependabot daily scans | GitHub Security tab | CIS Control 10 |
 | **SAST (Static Application Security Testing)** | CodeQL weekly + PR | GitHub Code Scanning | ISO 27001 A.8.28 |
@@ -1229,7 +1214,7 @@ Non-functional requirements define system qualities that are not directly relate
 |--------|--------|---------|------|
 | **Code Coverage** | >80% lines | 82% | Vitest |
 | **Branch Coverage** | >80% branches | 83% | Vitest |
-| **Cyclomatic Complexity** | <10 per function | <8 average | ESLint complexity rule |
+| **Cognitive Complexity** | <15 per function | <10 average | ESLint sonarjs cognitive-complexity rule |
 | **Code Duplication** | <3% | <2% | Manual review |
 | **Documentation Coverage** | 100% public APIs | 95% | JSDoc, manual review |
 | **Build Time** | <5 minutes (tests only) | 3-4 minutes | GitHub Actions |
@@ -1289,14 +1274,14 @@ Non-functional requirements define system qualities that are not directly relate
 - **Cold Start**: N/A (static site, no cold starts)
 - **Page Load**: < 1s (static HTML, CDN cached)
 - **Build Time**: ~5-10 minutes (generation for all languages)
-- **Deployment Time**: < 1 minute (GitHub Pages deploy)
+- **Deployment Time**: ~1-2 minutes (S3 sync + CloudFront invalidation)
 
 ### Availability
 
-- **Target**: 99.9% (GitHub Pages SLA)
-- **Redundancy**: Fastly CDN with multiple POPs
-- **Failover**: Automatic via GitHub infrastructure
-- **Monitoring**: GitHub Status page
+- **Target**: 99.9% (AWS CloudFront/S3 SLA)
+- **Redundancy**: CloudFront with multiple edge locations globally
+- **Failover**: Automatic via AWS infrastructure
+- **Monitoring**: AWS Health Dashboard, GitHub Status page
 
 ### Security
 
