@@ -48,8 +48,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
 
   const languageName = getLocalizedString(LANGUAGE_NAMES, lang);
   const typeLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang);
-  const typeLabel =
-    (typeLabels as unknown as Record<string, string | undefined>)[type] ?? type;
+  const typeLabel = (typeLabels as unknown as Record<string, string | undefined>)[type] ?? type;
   const readTimeFormatter = getLocalizedString(READ_TIME_LABELS, lang);
   const readTimeLabel = readTimeFormatter(readTime);
   const backLabel = getLocalizedString(BACK_TO_NEWS_LABELS, lang);
@@ -157,11 +156,13 @@ function renderSourcesSection(sources: ArticleSource[]): string {
       <section class="article-sources">
         <h2>Sources</h2>
         <ul>
-          ${sources.map((source) => {
-            const safeSourceTitle = escapeHTML(source.title);
-            const href = isSafeURL(source.url) ? escapeHTML(source.url) : '#';
-            return `<li><a href="${href}" target="_blank" rel="noopener noreferrer">${safeSourceTitle}</a></li>`;
-          }).join('\n          ')}
+          ${sources
+            .map((source) => {
+              const safeSourceTitle = escapeHTML(source.title);
+              const href = isSafeURL(source.url) ? escapeHTML(source.url) : '#';
+              return `<li><a href="${href}" target="_blank" rel="noopener noreferrer">${safeSourceTitle}</a></li>`;
+            })
+            .join('\n          ')}
         </ul>
       </section>
     </footer>

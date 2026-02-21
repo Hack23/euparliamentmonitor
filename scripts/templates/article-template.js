@@ -118,11 +118,13 @@ function renderSourcesSection(sources) {
       <section class="article-sources">
         <h2>Sources</h2>
         <ul>
-          ${sources.map((source) => {
+          ${sources
+        .map((source) => {
         const safeSourceTitle = escapeHTML(source.title);
         const href = isSafeURL(source.url) ? escapeHTML(source.url) : '#';
         return `<li><a href="${href}" target="_blank" rel="noopener noreferrer">${safeSourceTitle}</a></li>`;
-    }).join('\n          ')}
+    })
+        .join('\n          ')}
         </ul>
       </section>
     </footer>
