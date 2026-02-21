@@ -132,7 +132,7 @@ architecture.
 - **Multi-Language Support**: Generates content in 14 European languages
 - **MCP Integration**: Uses European Parliament MCP Server for data access
 - **Security by Design**: Minimal attack surface through static architecture
-- **GitHub Hosted**: Leverages AWS S3 + CloudFront for zero-infrastructure static hosting
+- **AWS Hosted**: Leverages AWS S3 + CloudFront for zero-infrastructure static hosting
 
 ---
 
@@ -200,7 +200,7 @@ graph TB
     
     subgraph "GitHub Infrastructure - Trusted Zone"
         subgraph "Build Environment"
-            Actions[GitHub Actions Runner<br/>Ubuntu 24.04 + Node.js 24]
+            Actions[GitHub Actions Runner<br/>GitHub-hosted Ubuntu runner<br/>ubuntu-latest + Node.js 24]
             EPServer[European Parliament<br/>MCP Server<br/>(local process, stdio JSON-RPC)]
         end
         
@@ -220,9 +220,8 @@ graph TB
     
     Users -->|HTTPS GET<br/>Read-Only| Pages
     Actions -->|Spawns locally<br/>(stdio JSON-RPC)| EPServer
-    Actions -->|HTTPS/JSON<br/>Data Query| EPAPI
+    EPServer -->|HTTPS/JSON<br/>Data Queries| EPAPI
     Actions -->|API Calls<br/>Content Gen| LLM
-    EPServer -->|HTTPS<br/>Proxied Queries| EPAPI
     Actions -->|Git Push<br/>Authenticated| Repo
     Actions -->|S3 Sync + CF Invalidation<br/>Authenticated (OIDC)| Pages
     
@@ -241,13 +240,13 @@ graph TB
 | **Public Internet** | Untrusted | HTTPS-only, planned CSP headers, static content only | DDoS, XSS attempts (mitigated by static architecture) |
 | **GitHub Infrastructure** | Trusted | GitHub authentication, branch protection, optional signed commits, secret scanning | Supply chain attacks (mitigated by Dependabot, CodeQL) |
 | **AWS Hosting** | Trusted | ACM certificate, HTTPS redirect, DDoS protection via CloudFront | Hosting infrastructure compromise (mitigated by AWS security controls, OIDC deploy auth) |
-| **External Services** | Partially Trusted | API authentication, input validation, rate limiting, data sanitization | Data poisoning, API compromise (mitigated by validation, monitoring) |
+| **External Services** | Partially Trusted | API authentication, basic input parsing/shape validation; planned systematic sanitization/escaping and rate limiting | Data poisoning, API compromise (mitigated by validation, monitoring, planned hardening) |
 
 **Key Security Boundaries:**
 1. **User → CloudFront**: Read-only HTTPS access, no authentication required (public content)
 2. **GitHub Actions → External APIs**: Authenticated API calls, input validation, error handling
 3. **GitHub Actions → AWS S3**: Authenticated S3 sync + CloudFront invalidation, only static files deployed
-4. **External Services → System**: All data validated, sanitized, and rate-limited before use
+4. **External Services → System**: Data parsed and basic shape-validated before use; comprehensive sanitization/escaping and rate limiting are planned controls
 
 ---
 
@@ -473,7 +472,7 @@ sequenceDiagram
 | **Cache-Aside (Planned)** | MCP Client → LRU Cache → EP MCP Server | Reduce API calls, improve performance | Planned: cache miss triggers fresh fetch; current: direct calls to EP MCP Server |
 | **MCP Connection Retry with Backoff (Current)** | MCP Client → EP MCP Server | Handle transient MCP connection failures | Connection attempts retried with backoff; individual MCP requests use a fixed timeout and are not retried |
 | **Validation Pipeline (Planned)** | Content Validator → Article Generator | Ensure content quality | Planned: failed validation triggers regeneration (max 2 attempts); current: single-pass generation without regeneration loop |
-| **Sequential Multi-Language** | Article Generator → HTML Template (per language) | Content generation per language | Per-language failures logged; successful languages still generated; parallel generation planned (ADR-004) |
+| **Sequential Multi-Language** | Article Generator → HTML Template (per language) | Content generation per language | Current: failure in one language aborts remaining languages; Planned: per-language failures logged while other languages still generate; parallel generation planned (ADR-004) |
 | **Template Method** | Article Generator → HTML Template → File System Writer | Consistent HTML generation | Template errors logged and propagated to prevent partial writes |
 | **Metadata Aggregation** | Metadata Manager → File System Writer | Track generation history | Current: metadata written synchronously via writeFileSync; failures throw and fail the run. Planned: non-blocking, best-effort writes |
 
@@ -516,7 +515,7 @@ C4Deployment
     }
 
     Rel(workflow, node_runtime, "Executes", "Process")
-    Rel(node_runtime, ep_mcp, "Fetches data", "HTTPS/MCP")
+    Rel(node_runtime, ep_mcp, "Fetches data", "stdio/JSON-RPC")
     Rel(node_runtime, llm, "Generates content", "HTTPS/API")
     Rel(node_runtime, git_repo, "Commits files", "Git")
     Rel(git_repo, static_content, "Deploys via", "S3 sync + CloudFront invalidation")
@@ -530,12 +529,12 @@ C4Deployment
 
 | Infrastructure Component  | Technology               | Purpose                           | Configuration                         |
 | ------------------------- | ------------------------ | --------------------------------- | ------------------------------------- |
-| **GitHub Actions Runner** | Ubuntu 24.04, Node.js 24 | Execute generation workflow       | .github/workflows/news-generation.yml |
+| **GitHub Actions Runner** | ubuntu-latest, Node.js 24 | Execute generation workflow       | .github/workflows/news-generation.yml |
 | **Amazon CloudFront**     | AWS CDN                  | Serve static content globally     | CloudFront distribution (deploy-s3.yml) |
 | **Amazon S3**             | AWS Object Storage       | Host static site files            | S3 bucket (deploy-s3.yml)              |
 | **Git Repository**        | GitHub Storage           | Version control + content storage | public repository                      |
 | **Web Browser**           | Modern browsers          | Render news articles              | HTML5, CSS3, ES6+                      |
-| **EP MCP Server**         | External service         | EP data access                    | MCP protocol endpoint                  |
+| **EP MCP Server**         | Local Node process       | EP data access                    | Spawned locally via stdio JSON-RPC     |
 | **LLM Service**           | External API             | Content generation                | API key authentication                 |
 
 ---
@@ -558,8 +557,8 @@ C4Deployment
 
 | Technology | Current Version | Minimum Version | End-of-Life | Update Policy |
 |------------|----------------|-----------------|-------------|---------------|
-| **Node.js** | 24.x (latest) | 24.0.0 | 2026-04-30 (tentative) | Update to latest LTS minor within 30 days of release |
-| **npm** | 10.x (latest) | 10.0.0 | Follows Node.js | Auto-updated with Node.js |
+| **Node.js** | 24.x (latest) | 24.0.0 | 2029-04-30 (LTS maintenance end, tentative) | Update to latest LTS minor within 30 days of release |
+| **npm** | 10.x (latest) | 10.0.0 | Follows Node.js 24 LTS lifecycle | Auto-updated with Node.js |
 | **JavaScript** | ES2022 | ES2020 | N/A (language spec) | Evaluate new features annually; adopt when Node.js LTS supports |
 | **Vitest** | 4.0.18 | 4.0.0 | N/A | Update to latest minor within 14 days, major within 60 days |
 | **Playwright** | 1.58.2 | 1.50.0 | N/A | Update to latest minor within 14 days, major within 60 days |
@@ -710,7 +709,7 @@ Cross-cutting concerns are aspects of the system that affect multiple components
 
 **Logging Implementation:**
 - **Build Logs**: All GitHub Actions workflow logs (generation, deployment, tests)
-- **Error Tracking**: Errors logged to workflow annotations for visibility
+- **Error Tracking**: Errors logged to GitHub Actions workflow logs for visibility
 - **Performance Metrics**: Generation time per article, API call durations
 - **Audit Trail**: Git commit history serves as audit log for all content changes
 
@@ -811,7 +810,7 @@ flowchart TD
 
 | Error Category | Examples | Retry Strategy | Fallback | User Impact |
 |----------------|----------|----------------|----------|-------------|
-| **Transient Network Errors** | EP MCP Server timeout, LLM API rate limit | Exponential backoff (1s, 2s, 4s), max 3 retries | Use placeholder events or skip affected items (no cache) | Missing or placeholder content for affected items |
+| **Transient Network Errors** | MCP connection failure during startup, LLM API rate limit | Exponential backoff (1s, 2s, 4s), max 3 retries for MCP connection establishment and LLM calls; individual MCP requests use a single fixed timeout with no retry | Use placeholder events or skip affected items (no cache) | Missing or placeholder content for affected items |
 | **Permanent API Errors** | Invalid API key, malformed request | No retry | Skip article generation for affected language | Missing article for specific language |
 | **Data Validation Errors** | Invalid EP data structure, missing required fields | No automatic regeneration loop | Skip invalid items (no cached-data fallback) | Missing content for invalid items |
 | **File System Errors** | Disk full, permission denied | No retry | Fail workflow | Build failure (no deployment) |
@@ -1157,7 +1156,7 @@ Non-functional requirements define system qualities that are not directly relate
 |-------------|--------|-------------|------------------------|
 | **Site Availability** | 99.9% (AWS CloudFront/S3 SLA) | GitHub Status + AWS Health Dashboard | Users cannot access news |
 | **Build Success Rate** | >98% | GitHub Actions logs | No new content deployed |
-| **MCP API Availability** | >99% (best effort) | Health checks | Fallback to cached/previous data |
+| **MCP API Availability** | >99% (best effort) | Health checks | Fallback to placeholder events (no cached/previous data) |
 | **LLM API Availability** | >99.5% (provider SLA) | API logs | Generation fails, retry logic |
 | **Recovery Time Objective (RTO)** | <15 minutes | Manual testing | Time to restore service after outage |
 | **Recovery Point Objective (RPO)** | <24 hours | Git history | Maximum data loss acceptable |
@@ -1165,7 +1164,7 @@ Non-functional requirements define system qualities that are not directly relate
 **High Availability Strategies:**
 - **Static Architecture**: No single point of failure (SPOF) in runtime
 - **CDN Redundancy**: Amazon CloudFront with multiple edge locations globally
-- **Fallback Data**: Use previous day's data if EP MCP Server unavailable
+- **Fallback Data**: Use placeholder events if EP MCP Server unavailable (no cache/previous-data reuse)
 - **Retry Logic**: Exponential backoff for transient failures
 - **Monitoring**: GitHub Status, Dependabot alerts, workflow notifications
 
