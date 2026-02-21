@@ -207,7 +207,7 @@ function buildCoVotingNetwork(votingRecords, meps) {
 ```javascript
 const SUPPORTED_LANGUAGES = [
   'en', 'fr', 'de', 'es', 'it', 'pt',
-  'nl', 'el', 'pl', 'ro', 'sv', 'da', 'fi', 'cs'
+  'nl', 'el', 'pl', 'ro', 'sv', 'da', 'fi', 'hu'
 ];
 
 /**

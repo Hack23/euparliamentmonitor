@@ -81,6 +81,7 @@ Democratic Health Dimensions:
  * @returns {Promise<Object>} Health assessment
  */
 async function assessDemocraticHealth(dateFrom, dateTo) {
+  // MCP API pagination limits: max 100 results per call
   const [sessions, votes, questions] = await Promise.all([
     mcpClient.callTool('get_plenary_sessions', { dateFrom, dateTo, limit: 50 }),
     mcpClient.callTool('get_voting_records', { dateFrom, dateTo, limit: 100 }),

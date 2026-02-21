@@ -78,7 +78,7 @@ SEO Architecture:
 <link rel="alternate" hreflang="sv" href="https://hack23.github.io/euparliamentmonitor/index-sv.html" />
 <link rel="alternate" hreflang="da" href="https://hack23.github.io/euparliamentmonitor/index-da.html" />
 <link rel="alternate" hreflang="fi" href="https://hack23.github.io/euparliamentmonitor/index-fi.html" />
-<link rel="alternate" hreflang="cs" href="https://hack23.github.io/euparliamentmonitor/index-cs.html" />
+<link rel="alternate" hreflang="hu" href="https://hack23.github.io/euparliamentmonitor/index-hu.html" />
 <link rel="alternate" hreflang="x-default" href="https://hack23.github.io/euparliamentmonitor/index-en.html" />
 ```
 
@@ -137,7 +137,7 @@ function generateSitemapEntry(article) {
   const baseUrl = 'https://hack23.github.io/euparliamentmonitor';
   const languages = article.languages || [
     'en', 'fr', 'de', 'es', 'it', 'pt', 'nl',
-    'el', 'pl', 'ro', 'sv', 'da', 'fi', 'cs'
+    'el', 'pl', 'ro', 'sv', 'da', 'fi', 'hu'
   ];
 
   return languages.map(lang => {
