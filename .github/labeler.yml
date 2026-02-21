@@ -38,8 +38,10 @@ news:
   - any:
       - changed-files:
           - any-glob-to-any-file:
-              - "scripts/generate-news*"
-              - "scripts/article-template*"
+              - "src/generators/news-*"
+              - "scripts/generators/news-*"
+              - "src/templates/article-template*"
+              - "scripts/templates/article-template*"
               - "scripts/**/news/**"
               - "news/**"
       - title: "news:*"
@@ -51,7 +53,8 @@ content:
       - changed-files:
           - any-glob-to-any-file:
               - "news/**"
-              - "scripts/generate-news*"
+              - "src/generators/news-*"
+              - "scripts/generators/news-*"
       - title: "content:*"
       - body: "- [x] 🌍 News Generation"
 
@@ -59,7 +62,8 @@ mcp-integration:
   - any:
       - changed-files:
           - any-glob-to-any-file:
-              - "scripts/ep-mcp-client*"
+              - "src/mcp/*"
+              - "scripts/mcp/*"
               - "**/*mcp*"
               - ".github/copilot-mcp.json"
       - title: "mcp:*"
@@ -230,6 +234,7 @@ test-coverage-impact:
 needs-tests:
   - changed-files:
       - any-glob-to-any-file:
+          - "src/**/*.ts"
           - "scripts/**/*.js"
 
 e2e:
@@ -252,6 +257,7 @@ workflows:
 scripts:
   - changed-files:
       - any-glob-to-any-file:
+          - "src/**"
           - "scripts/**"
 
 # Custom Agent labels
