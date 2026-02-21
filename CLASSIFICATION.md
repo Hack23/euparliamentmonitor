@@ -265,7 +265,7 @@ graph TB
 | 🔴 **Restricted** | HSM, zero-trust, biometric auth, air-gapped systems | ❌ Not applicable - no sensitive data |
 | 🟠 **Confidential** | Strong encryption (AES-256), RBAC, SIEM monitoring | ❌ Not applicable - transparency platform |
 | 🟡 **Internal** | Standard access control, authentication, basic encryption | ❌ Not applicable - public by design |
-| 🟢 **Public** | TLS 1.3 in transit, public repository, open source | ✅ **CURRENT LEVEL** - maximum transparency |
+| 🟢 **Public** | TLS 1.2+ (TLS 1.3 where supported) in transit, public repository, open source | ✅ **CURRENT LEVEL** - maximum transparency |
 
 ### 🛡️ Confidentiality Levels {#confidentiality-levels}
 
@@ -281,7 +281,7 @@ graph TB
 | **Public** | [![Public](https://img.shields.io/badge/Confidentiality-Public-lightgrey?style=for-the-badge&logo=shield&logoColor=black)](#confidentiality-levels) | No confidentiality requirements | **✅ CURRENT LEVEL** |
 
 **Controls Required:**
-- ✅ TLS 1.3 for data in transit (Amazon CloudFront, API calls)
+- ✅ TLS 1.2+ (TLS 1.3 where supported) for data in transit (Amazon CloudFront, API calls)
 - ✅ Public content by design
 - ✅ No authentication/authorization systems needed
 - ✅ Transparent, open source codebase
@@ -578,7 +578,7 @@ flowchart TB
 **Duration:** Daily (automated via GitHub Actions)  
 **Classification Impact:** Public data from inception  
 **Controls:**
-- ✅ TLS 1.3 for API communications
+- ✅ TLS 1.3 for API communications (TLS 1.2+ minimum)
 - ✅ European Parliament MCP Server runs as a local stdio child process (no network exposure; explicit authentication planned for future remote deployment)
 - ✅ API rate limiting and error handling
 - ✅ Automated retry mechanisms
@@ -663,7 +663,7 @@ flowchart TB
 - Democratic transparency requires historical preservation
 - Public officials' parliamentary activities are permanent public record
 - Git architecture supports immutable history
-- No GDPR Right to Erasure (public official data, no personal data)
+- DSR rights to erasure are subject to applicable exemptions (public record, freedom of expression, journalistic/archival purpose)
 
 ---
 
@@ -676,11 +676,11 @@ The following matrix defines specific handling procedures for each classificatio
 | Handling Procedure | 🔴 Restricted | 🟠 Confidential | 🟡 Internal | 🟢 Public | **EU Parliament Monitor** |
 |-------------------|--------------|----------------|------------|----------|---------------------------|
 | **💾 Storage** | HSM, encrypted vaults, air-gapped | AES-256 encryption, encrypted databases | Access-controlled storage, basic encryption | Standard storage, version control | ✅ **Git (public), GitHub (cloud)** |
-| **📡 Transmission** | Quantum-safe, VPN + TLS 1.3 | TLS 1.3, certificate pinning | TLS 1.2+, standard HTTPS | TLS 1.2+ (prefer 1.3) | ✅ **TLS 1.3 (CloudFront CDN, EP API)** |
+| **📡 Transmission** | Quantum-safe, VPN + TLS 1.3 | TLS 1.3, certificate pinning | TLS 1.2+, standard HTTPS | TLS 1.2+ (prefer 1.3) | ✅ **TLS 1.2+, TLS 1.3 where supported (CloudFront CDN, EP API)** |
 | **🤝 Sharing** | Need-to-know, zero-trust, MFA | Role-based, MFA, audit logging | Authenticated access, logging | Public access, no restrictions | ✅ **Public AWS S3 + CloudFront, no auth** |
 | **🗑️ Disposal** | Cryptographic erasure, physical destruction, witnessed | Multi-pass overwrite (DoD 5220.22-M), secure deletion | Standard deletion, recycle bin clearing | Standard deletion or retention | ✅ **Git history preservation (no deletion)** |
 | **🔐 Access Control** | Biometric + MFA, zero-trust | RBAC + MFA, privileged access management | Username/password + RBAC | No access control required | ✅ **No access control (public by design)** |
-| **🔒 Encryption** | AES-256 + HSM, quantum-resistant | AES-256, key rotation, KMS | AES-128/256, managed keys | TLS in transit only | ✅ **TLS 1.3 (CloudFront enforced)** |
+| **🔒 Encryption** | AES-256 + HSM, quantum-resistant | AES-256, key rotation, KMS | AES-128/256, managed keys | TLS in transit only | ✅ **TLS 1.2+, TLS 1.3 where supported (CloudFront)** |
 | **📋 Labeling** | "RESTRICTED - AUTHORIZED ONLY" | "CONFIDENTIAL - INTERNAL USE" | "INTERNAL - STAFF ONLY" | "PUBLIC" or no label | ✅ **PUBLIC (implied, no labels needed)** |
 | **📊 Logging** | Immutable audit logs, SIEM, real-time alerting | Comprehensive logging, SIEM integration | Standard logging, periodic review | Basic logging or none | ✅ **Git commits (immutable), GitHub audit** |
 | **🔄 Backup** | Air-gapped, encrypted, off-site vaults | Encrypted backups, off-site replication | Standard backups, encryption | Git version control, cloud backups | ✅ **Git (distributed), GitHub backups** |
@@ -698,7 +698,7 @@ The following matrix defines specific handling procedures for each classificatio
 - Distributed architecture (multiple clones)
 
 ✅ **Transmission:**
-- TLS 1.3 mandatory (Amazon CloudFront enforced)
+- TLS 1.2+, TLS 1.3 where supported (Amazon CloudFront)
 - European Parliament API calls over HTTPS
 - No VPN or additional encryption needed
 
@@ -718,7 +718,7 @@ The following matrix defines specific handling procedures for each classificatio
 - Open source codebase
 
 ✅ **Encryption:**
-- TLS 1.3 in transit only
+- TLS 1.2+, TLS 1.3 where supported (in transit only)
 - No encryption at rest required (public data)
 - Amazon CloudFront HTTPS enforced
 
@@ -746,7 +746,7 @@ EU Parliament Monitor's classification framework aligns with multiple internatio
 |-------------------|--------------|-------------------------------------|-------------------|
 | **A.5.12** | Classification of information | ✅ Documented classification framework (this document) | ✅ **COMPLIANT** |
 | **A.5.13** | Labelling of information | ✅ Badges and metadata in all documents | ✅ **COMPLIANT** |
-| **A.5.14** | Information transfer | ✅ TLS 1.3 for all transmissions, EP API over HTTPS | ✅ **COMPLIANT** |
+| **A.5.14** | Information transfer | ✅ TLS 1.2+, TLS 1.3 where supported for all transmissions, EP API over HTTPS | ✅ **COMPLIANT** |
 | **A.8.10** | Information deletion | ✅ Git history preservation policy (no deletion) | ✅ **COMPLIANT** |
 | **A.8.11** | Data masking | ⚪ N/A (no sensitive data) | ⚪ **N/A** |
 | **A.8.12** | Data leakage prevention | ⚪ N/A (public data by design) | ⚪ **N/A** |
@@ -758,11 +758,11 @@ EU Parliament Monitor's classification framework aligns with multiple internatio
 |-----------------------|----------|-------------------------------------|----------------|
 | **ID.AM-5** | Classify data | ✅ Complete classification framework (Public/Medium/Medium) | 🟢 **Level 4 - Adaptive** |
 | **PR.DS-1** | Protect data at rest | ✅ Git version control, GitHub backups | 🟢 **Level 3 - Informed** |
-| **PR.DS-2** | Protect data in transit | ✅ TLS 1.3 mandatory (CloudFront CDN, S3, EP API) | 🟢 **Level 4 - Adaptive** |
+| **PR.DS-2** | Protect data in transit | ✅ TLS 1.2+, TLS 1.3 where supported (CloudFront CDN, S3, EP API) | 🟢 **Level 4 - Adaptive** |
 | **PR.DS-5** | Protections against data leaks | ⚪ N/A (public data, no leaks possible) | ⚪ **N/A** |
-| **PR.DS-6** | Integrity checking | ✅ Git cryptographic hashing, commit signing | 🟢 **Level 3 - Informed** |
+| **PR.DS-6** | Integrity checking | ✅ Git cryptographic hashing (SHA-1 by default), commit hash verification | 🟢 **Level 3 - Informed** |
 | **PR.DS-7** | Separate dev/test/prod | ✅ GitHub Actions environments, branch protection | 🟢 **Level 3 - Informed** |
-| **PR.DS-8** | Integrity verification | ✅ Automated testing (82% coverage), Git signatures | 🟢 **Level 3 - Informed** |
+| **PR.DS-8** | Integrity verification | ✅ Automated testing (82% coverage), Git object hashing | 🟢 **Level 3 - Informed** |
 
 **NIST CSF 2.0 Maturity Levels:**
 - 🔴 Level 1 - Partial: Ad hoc, reactive
@@ -816,7 +816,7 @@ EU Parliament Monitor's classification framework aligns with multiple internatio
 
 | NIS2 Requirement | EU Parliament Monitor Implementation | Compliance Status |
 |-----------------|-------------------------------------|-------------------|
-| **Art. 21 — Security measures** | ✅ Static architecture, TLS 1.3, GitHub security controls | ✅ **COMPLIANT** |
+| **Art. 21 — Security measures** | ✅ Static architecture, TLS 1.2+ (TLS 1.3 where supported), GitHub security controls | ✅ **COMPLIANT** |
 | **Art. 21(2)(a) — Incident handling** | ✅ GitHub Actions alerting, manual recovery procedures | ✅ **COMPLIANT** |
 | **Art. 21(2)(b) — Business continuity** | ✅ BCP documented, RTO 24h, RPO 1 day, static resilience | ✅ **COMPLIANT** |
 | **Art. 21(2)(e) — Supply chain security** | ✅ SHA-pinned GitHub Actions, Dependabot, SBOM generation | ✅ **COMPLIANT** |
@@ -827,10 +827,10 @@ EU Parliament Monitor's classification framework aligns with multiple internatio
 
 | Framework | Overall Compliance | Key Strengths | Areas for Improvement |
 |-----------|-------------------|---------------|----------------------|
-| **ISO 27001:2022** | ✅ **Fully Compliant** | Classification framework, TLS 1.3, Git integrity | Content validation automation (Q3 2026) |
+| **ISO 27001:2022** | ✅ **Fully Compliant** | Classification framework, TLS 1.2+, Git integrity | Content validation automation (Q3 2026) |
 | **NIST CSF 2.0** | 🟢 **Level 3-4 Maturity** | Data protection, integrity verification, separation | Real-time monitoring (future phase) |
 | **CIS Controls v8.1** | ✅ **Implemented** | Backup testing, logging, data segmentation | N/A (public data simplifies many controls) |
-| **GDPR** | ✅ **Fully Compliant** | No PII, transparency by design, privacy by default | N/A (no personal data processing) |
+| **GDPR** | ✅ **Fully Compliant** | Public-source institutional data, minimization, transparency, DSR support with applicable exemptions | N/A (no special categories or behavioural profiling) |
 | **NIS2** | ✅ **Compliant** | Security measures, BCP, supply chain, vulnerability disclosure | N/A (minimal attack surface simplifies many obligations) |
 | **EU CRA** | ✅ **Compliant** | Security by design, vulnerability management | Continuous improvement |
 
@@ -969,7 +969,7 @@ flowchart TB
 **Duration:** Throughout data lifecycle  
 **Responsibility:** Automated systems, security controls  
 **Public Data Handling:**
-- ✅ TLS 1.3 for all transmissions
+- ✅ TLS 1.2+, TLS 1.3 where supported (TLS 1.3 preferred) for all transmissions
 - ✅ No access control required (public by design)
 - ✅ Git version control for integrity
 - ✅ No encryption at rest (public data)
@@ -991,7 +991,7 @@ flowchart TB
 **Storage Controls:**
 - ✅ Git cryptographic hashing (integrity)
 - ✅ Distributed architecture (redundancy)
-- ✅ Commit signing (authenticity)
+- ✅ Git object integrity via commit hashes (no automated commit signing)
 - ✅ Branch protection (change control)
 
 #### 🚀 Stage 7: DEPLOY
@@ -999,7 +999,7 @@ flowchart TB
 **Responsibility:** GitHub Actions, AWS S3, Amazon CloudFront  
 **Deployment Controls:**
 - ✅ Automated deployment pipeline
-- ✅ TLS 1.3 enforced (HTTPS only)
+- ✅ TLS 1.2+, TLS 1.3 where supported (HTTPS only)
 - ✅ CDN caching (availability)
 - ✅ No authentication (public access)
 
@@ -1031,7 +1031,7 @@ flowchart TB
 **Duration:** Permanent  
 **Responsibility:** Git version history, GitHub repository  
 **Archiving Method:**
-- ✅ Immutable Git history (SHA-256 hashing)
+- ✅ Immutable Git history (Git object hashing, SHA-1 by default; SHA-256 if enabled)
 - ✅ No retroactive content modification
 - ✅ Complete audit trail preservation
 - ✅ Compliance with transparency principles
