@@ -51,6 +51,7 @@
 | **[Unit Test Plan](UnitTestPlan.md)** | 🧪 Testing | Unit testing strategy | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/UnitTestPlan.md) |
 | **[E2E Test Plan](E2ETestPlan.md)** | 🔍 Testing | End-to-end testing | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/E2ETestPlan.md) |
 | **[Performance Testing](performance-testing.md)** | ⚡ Performance | Performance benchmarks | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/performance-testing.md) |
+| **[Security Policy](SECURITY.md)** | 🔒 Security | Vulnerability reporting & security policy | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md) |
 
 ---
 
@@ -83,7 +84,6 @@ This future workflows document is designed to implement all controls from Hack23
 | **NIST CSF** | 2.0 | GV.OC, GV.RM, ID.AM, PR.AT |
 | **CIS Controls** | v8.1 | Control 1-5, 14, 16 |
 
----
 
 ## 📋 Executive Summary
 
