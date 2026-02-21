@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:**
-2026-02-20 (UTC)  
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:**
+2026-02-21 (UTC)  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-20
 
 ---
@@ -556,9 +556,9 @@ flowchart TD
 | **Assessment** | CVSS scoring, exploitability analysis | 24 hours | NIST SP 800-30 |
 | **Prioritization** | Risk-based tiers with SLAs | By severity | ISO 27001 A.5.9 |
 | **Remediation** | Patch/workaround/mitigate/accept | 24h-90d | ISO 27001 A.8.8 |
-| **Verification** | Testing, scanning, deployment validation | Before close | ISO 27001 A.14.2.8 |
-| **Documentation** | Advisories, CHANGELOG, evidence | Required | ISO 27001 A.12.1.1 |
-| **Metrics** | MTTR, vulnerability stats tracking | Monthly | ISO 27001 A.18.2.1 |
+| **Verification** | Testing, scanning, deployment validation | Before close | ISO/IEC 27001:2013 A.14.2.8 |
+| **Documentation** | Advisories, CHANGELOG, evidence | Required | ISO/IEC 27001:2013 A.12.1.1 |
+| **Metrics** | MTTR, vulnerability stats tracking | Monthly | ISO/IEC 27001:2013 A.18.2.1 |
 
 **Mean Time to Remediate (MTTR) Targets:**
 - Critical (P0): 24 hours
@@ -586,20 +586,20 @@ flowchart TD
     
     subgraph "Client Layer"
         MCPClient[🔌 MCP Client<br/>@modelcontextprotocol/sdk<br/>Retry Logic]
-        SchemaVal[✅ Schema Validation<br/>JSON Schema<br/>Type Checking]
-        TypeCheck[🔍 Type Validation<br/>TypeScript Interfaces<br/>Runtime Checks]
+        SchemaVal[✅ Schema Validation<br/>JSON Schema<br/>Type Checking<br/>(Current)]
+        TypeCheck[🔍 Type Validation<br/>TypeScript Interfaces<br/>Runtime Checks<br/>(Current)]
     end
     
     subgraph "Sanitization Pipeline"
-        HTMLSan[🧹 HTML Sanitizer<br/>DOMPurify<br/>Strip Scripts]
-        XSSEncode[🔒 XSS Encoding<br/>HTML Entities<br/>&lt; &gt; &amp; &quot; &#39;]
-        URLVal[🔗 URL Validation<br/>HTTPS Only<br/>Domain Whitelist]
-        LengthCheck[📏 Length Validation<br/>Max Lengths<br/>Truncation]
+        HTMLSan[🧹 Planned: HTML Sanitizer<br/>DOMPurify<br/>Strip Scripts]
+        XSSEncode[🔒 Planned: XSS Encoding<br/>HTML Entities<br/>&lt; &gt; &amp; &quot; &#39;]
+        URLVal[🔗 Planned: URL Validation<br/>HTTPS Only<br/>Domain Whitelist]
+        LengthCheck[📏 Planned: Length Validation<br/>Max Lengths<br/>Truncation]
     end
     
     subgraph "Content Generation"
         Template[📄 Template Engine<br/>14 Languages<br/>HTML5]
-        CSPCheck[🛡️ CSP Compliance<br/>No Inline Scripts<br/>No eval()]
+        CSPCheck[🛡️ CSP Compliance<br/>JSON-LD Allowed<br/>No eval()]
         HTMLVal[✅ HTML Validation<br/>htmlhint<br/>Standards Check]
     end
     
@@ -670,15 +670,15 @@ flowchart TD
 
 | Layer | Control | Purpose | Implementation |
 |-------|---------|---------|----------------|
-| **API Layer** | HTTPS-only communication | Encryption in transit | TLS 1.3, certificate pinning |
+| **API Layer** | HTTPS-only communication | Encryption in transit | TLS 1.3, HTTPS-only, HSTS via CDN/hosting config |
 | **MCP Server** | JSON-RPC 2.0 protocol | Structured communication | Standard protocol implementation |
 | **Caching** | LRU cache with TTL | Performance + resilience | 24h TTL, 500 entry max |
-| **Schema Validation** | JSON Schema enforcement | Data structure integrity | Ajv validator, strict mode |
-| **Type Checking** | Runtime type validation | Type safety beyond TypeScript | io-ts runtime checks |
-| **HTML Sanitization** | DOMPurify scrubbing | XSS prevention | Strip scripts, remove events |
+| **Schema Validation** | JSON Schema enforcement (future control) | Data structure integrity | Planned: Ajv validator (strict mode), not yet implemented in codebase |
+| **Type Checking** | Runtime type validation (future control) | Type safety beyond TypeScript | Planned: io-ts runtime checks, not yet implemented in codebase |
+| **HTML Sanitization** | Planned: DOMPurify scrubbing (future control) | XSS prevention | Not yet in codebase; current: HTML entity encoding via template |
 | **XSS Encoding** | HTML entity encoding | Output encoding | All user-controlled data |
 | **URL Validation** | HTTPS + whitelist | Prevent malicious redirects | europarl.europa.eu only |
-| **CSP Enforcement** | No inline scripts | XSS mitigation | default-src 'self' |
+| **CSP Enforcement** | JSON-LD inline scripts allowed; no eval() | XSS mitigation | default-src 'self'; script-src allows type=application/ld+json |
 | **HTML Validation** | Standards compliance | Cross-browser compatibility | htmlhint, W3C validation |
 | **Fallback Content** | Graceful degradation | Availability | Placeholder articles |
 | **Error Logging** | Structured logging | Debugging + monitoring | GitHub Actions logs |
@@ -693,7 +693,7 @@ This workflow demonstrates secure generation of European Parliament news content
 flowchart TD
     Start[🚀 Content Generation<br/>Triggered Daily<br/>06:00 UTC] --> FetchData[📥 Fetch Source Data<br/>EP MCP Server<br/>Validated JSON]
     
-    FetchData --> LangDetect{🔍 Language<br/>Detection}
+    FetchData --> LangDetect{⚙️ Language Args &<br/>Preset Expansion}
     
     LangDetect --> EN[🇬🇧 English<br/>index-en.html]
     LangDetect --> FR[🇫🇷 French<br/>index-fr.html]
@@ -805,7 +805,7 @@ flowchart TD
 | **hreflang Links** | All 14 languages | SEO, crawling | Google Guidelines |
 | **CSP Headers** | All 14 languages | Script execution control | OWASP CSP |
 | **Character Encoding** | All 14 languages | UTF-8 declaration | HTML5 Standard |
-| **RTL Support** | Greek (el) | Text direction | CSS Writing Modes |
+| **Text Direction Handling** | All 14 languages (LTR) | Ensure correct left-to-right rendering | HTML `dir` attribute / W3C HTML5 |
 
 **Supported Languages:**
 1. 🇬🇧 English (en) - Primary
@@ -827,7 +827,7 @@ flowchart TD
 
 ## 🚀 Deployment Security Flow
 
-This flow shows the secure deployment pipeline from Git commit to GitHub Pages with comprehensive security gates, SBOM generation, and SLSA attestations.
+This flow shows the secure deployment pipeline from Git commit to S3/CloudFront with comprehensive security gates, SBOM generation, and SLSA attestations. Note: linting, testing, and coverage gates apply to PR merges and release workflows; the daily news-generation workflow triggers S3 deployment directly after build.
 
 ```mermaid
 flowchart TD
@@ -835,21 +835,21 @@ flowchart TD
     
     SHAVerify --> GHActions[🤖 GitHub Actions<br/>Workflow Trigger<br/>ubuntu-latest]
     
-    GHActions --> SecGates[🛡️ Security Gates] --> Gate1{Gate 1:<br/>Linting}
+    GHActions --> SecGates[🛡️ Security Gates<br/>PR & Release Workflows] --> Gate1{Gate 1:<br/>Linting}
     
-    Gate1 -->|❌ Fail| BlockDeploy1[🚫 Block Deployment<br/>ESLint Errors<br/>Fix Required]
+    Gate1 -->|❌ Fail| BlockDeploy1[🚫 Block PR / Release<br/>ESLint Errors<br/>Fix Required]
     Gate1 -->|✅ Pass| Gate2{Gate 2:<br/>Unit Tests}
     
-    Gate2 -->|❌ Fail| BlockDeploy2[🚫 Block Deployment<br/>169 Tests Failed<br/>Debug Required]
+    Gate2 -->|❌ Fail| BlockDeploy2[🚫 Block PR / Release<br/>169 Tests Failed<br/>Debug Required]
     Gate2 -->|✅ Pass| Gate3{Gate 3:<br/>Integration Tests}
     
-    Gate3 -->|❌ Fail| BlockDeploy3[🚫 Block Deployment<br/>82 Tests Failed<br/>Fix Required]
+    Gate3 -->|❌ Fail| BlockDeploy3[🚫 Block PR / Release<br/>82 Tests Failed<br/>Fix Required]
     Gate3 -->|✅ Pass| Gate4{Gate 4:<br/>Security Scan}
     
-    Gate4 -->|❌ Critical/High| BlockDeploy4[🚫 Block Deployment<br/>CodeQL Issues<br/>Vulnerability Fix]
+    Gate4 -->|❌ Critical/High| BlockDeploy4[🚫 Block PR / Release<br/>CodeQL Issues<br/>Vulnerability Fix]
     Gate4 -->|✅ Pass| Gate5{Gate 5:<br/>Coverage}
     
-    Gate5 -->|❌ Below 80%| BlockDeploy5[🚫 Block Deployment<br/>Coverage Too Low<br/>Add Tests]
+    Gate5 -->|❌ Below 80%| BlockDeploy5[🚫 Block PR / Release<br/>Coverage Too Low<br/>Add Tests]
     Gate5 -->|✅ Pass| Build[🏗️ Build Phase]
     
     Build --> GenNews[📰 Generate News<br/>14 Languages<br/>All Article Types]
@@ -865,9 +865,9 @@ flowchart TD
     
     Artifacts --> DeployPrep[🚀 Deployment Prep<br/>Organize Files<br/>Check Integrity]
     
-    DeployPrep --> DeployGHP[📤 Deploy to GitHub Pages<br/>gh-pages Branch<br/>Push Files]
+    DeployPrep --> DeployS3[📤 Deploy to S3<br/>S3 Bucket<br/>Upload Files]
     
-    DeployGHP --> CDNProp[🌐 CDN Propagation<br/>GitHub CDN<br/>Edge Nodes<br/>Global Distribution]
+    DeployS3 --> CDNProp[🌐 CDN Propagation<br/>CloudFront CDN<br/>Edge Nodes<br/>Global Distribution]
     
     CDNProp --> HealthCheck{🏥 Health Check<br/>Site Accessible?}
     
@@ -892,7 +892,7 @@ flowchart TD
     
     TagRelease --> NotifySuccess[📧 Notify Team<br/>Deployment Successful<br/>Version + URL]
     
-    NotifySuccess --> Complete[✅ Deployment Complete<br/>Live on GitHub Pages<br/>Attested + Verified]
+    NotifySuccess --> Complete[✅ Deployment Complete<br/>Live on S3/CloudFront<br/>Attested + Verified]
     
     style Commit fill:#e3f2fd
     style SHAVerify fill:#ffe1e1
@@ -909,7 +909,7 @@ flowchart TD
     style SBOM fill:#fff9c4
     style Attest1 fill:#ffe1e1
     style Attest2 fill:#ffe1e1
-    style DeployGHP fill:#c8e6c9
+    style DeployS3 fill:#c8e6c9
     style CDNProp fill:#e8f5e9
     style Rollback fill:#ffcdd2
     style Complete fill:#d4edda
@@ -929,7 +929,7 @@ flowchart TD
 | **Provenance** | SLSA Level 3 | Build integrity | GitHub Attestations |
 | **Attestation** | Cryptographic signing | Artifact authenticity | Sigstore |
 | **Health Check** | Multi-point verification | Deployment validation | Custom checks |
-| **Rollback** | Automated revert | Failure recovery | Git + gh-pages |
+| **Rollback** | Automated revert | Failure recovery | Git + S3 re-deploy |
 | **Metrics** | Deployment tracking | Performance monitoring | GitHub Actions logs |
 
 **Deployment Security Requirements:**
