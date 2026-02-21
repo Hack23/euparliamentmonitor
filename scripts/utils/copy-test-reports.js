@@ -70,7 +70,7 @@ function createTestResultsIndex() {
   <div class="info">
     <p>Unit and integration test results are available in the terminal output and coverage report.</p>
     <p>For detailed test coverage metrics, see the <a href="../coverage/index.html">Coverage Report</a>.</p>
-    <p>For end-to-end test results, see the <a href="../../playwright-report/index.html">E2E Test Report</a>.</p>
+    <p>For end-to-end test results, see the <a href="../playwright-report/index.html">E2E Test Report</a>.</p>
   </div>
   <p><a href="../index.html">← Back to Documentation Index</a></p>
 </body>
@@ -83,15 +83,25 @@ async function main() {
     console.log('📋 Copying test reports to documentation directory...');
     try {
         await fs.mkdir(DOCS_DIR, { recursive: true });
-        const coverageSrc = join(PROJECT_ROOT, 'coverage');
+        const coverageSrc = join(PROJECT_ROOT, 'builds/coverage');
         const coverageDest = join(DOCS_DIR, 'coverage');
         console.log('  📊 Copying coverage report...');
         await copyDirectory(coverageSrc, coverageDest);
         console.log('  ✅ Coverage report copied');
+        const apiSrc = join(PROJECT_ROOT, 'builds/api');
+        const apiDest = join(DOCS_DIR, 'api');
+        console.log('  📊 Copying api docs...');
+        await copyDirectory(apiSrc, apiDest);
+        console.log('  ✅ api docs copied');
         const testResultsDir = join(DOCS_DIR, 'test-results');
         await fs.mkdir(testResultsDir, { recursive: true });
         await fs.writeFile(join(testResultsDir, 'index.html'), createTestResultsIndex(), 'utf8');
         console.log('  ✅ Test results index created');
+        const playwrightSrc = join(PROJECT_ROOT, 'playwright-report');
+        const playwrightDest = join(DOCS_DIR, 'playwright-report');
+        console.log('  🎭 Copying Playwright report...');
+        await copyDirectory(playwrightSrc, playwrightDest);
+        console.log('  ✅ Playwright report copied');
         console.log('✅ All test reports copied successfully');
     }
     catch (error) {

@@ -5,6 +5,7 @@ package-lock.json.tmp
 # Build artifacts
 dist/
 build/
+builds/
 
 # Logs
 logs/
