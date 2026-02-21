@@ -1,8 +1,8 @@
-# 🔄 EU Parliament Monitor — State Diagrams
-
 <p align="center">
-  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="128" height="128">
+  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
 </p>
+
+<h1 align="center">🔄 EU Parliament Monitor — State Diagrams</h1>
 
 <p align="center">
   <strong>📊 System State Transitions and Lifecycle Management</strong><br>
@@ -12,15 +12,15 @@
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2025--02--17-success?style=for-the-badge" alt="Effective Date"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" alt="Status"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--21-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
 **📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:**
-2025-02-17 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2025-05-17  
-**📌 ISMS Classification:** Public (Confidentiality: L1, Integrity: L2,
-Availability: L2)
+2026-02-21 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-21  
+**🏷️ Classification:** Public (Open Source European Parliament Monitoring
+Platform)
 
 ---
 
