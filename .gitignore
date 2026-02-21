@@ -21,23 +21,13 @@ pids/
 *.seed
 *.pid.lock
 
-# Test coverage
-coverage/
 .nyc_output/
-*.lcov
 
 # Vitest
 .vitest/
 
-# Documentation (generated, committed only on releases)
-# docs/ folder is committed as part of release workflow
-# but excluded from normal commits to avoid clutter
-docs/api/
-docs/coverage/
-
 # Playwright test results
 playwright-report/
-test-results/
 .last-run.json
 
 # Editor directories and files
