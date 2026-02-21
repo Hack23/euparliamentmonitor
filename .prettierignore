@@ -5,6 +5,7 @@ build/
 *.min.js
 *.min.css
 news/
+docs/
 index-*.html
 sitemap.xml
 package-lock.json
