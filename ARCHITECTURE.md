@@ -71,7 +71,7 @@ EU Parliament Monitor is developed and maintained in accordance with Hack23 AB's
 |--------|-------------|-----------------------------------|
 | **[Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)** | Establishes organization-wide security governance and risk management framework | Defines overall security posture, risk assessment methodology, and management responsibilities for the project |
 | **[Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)** | Defines secure coding standards, code review requirements, and SDLC security gates | Mandates security-first development practices: input validation, dependency scanning, SAST/DAST integration, secure CI/CD pipelines |
-| **[Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)** | Governs use, contribution, and licensing of open source software | Ensures compliance with MIT License, dependency license compatibility, and transparent open source contribution practices |
+| **[Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)** | Governs use, contribution, and licensing of open source software | Ensures compliance with Apache-2.0 License, dependency license compatibility, and transparent open source contribution practices |
 | **[Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md)** | Defines data classification scheme (Public, Internal, Confidential, Restricted) and handling requirements | All project content classified as PUBLIC; establishes data handling controls for any future sensitive data integration |
 | **[AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md)** | Governs responsible AI usage, transparency, and human oversight requirements | Governs LLM usage for content generation: transparency requirements, human review workflows, bias mitigation, prompt injection protection |
 | **[Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md)** | Defines authentication, authorization, least privilege, and privileged access management | Controls GitHub repository access, branch protection rules, secret management, and deployment permissions |
@@ -574,27 +574,25 @@ C4Deployment
 | **Node.js** | 24.13.1 | 24.0.0 | 2026-04-30 (tentative) | Update to latest LTS minor within 30 days of release |
 | **npm** | 10.9.2 | 10.0.0 | Follows Node.js | Auto-updated with Node.js |
 | **JavaScript** | ES2022 | ES2020 | N/A (language spec) | Evaluate new features annually; adopt when Node.js LTS supports |
-| **Vitest** | 4.1.4 | 4.0.0 | N/A | Update to latest minor within 14 days, major within 60 days |
-| **Playwright** | 1.58.1 | 1.50.0 | N/A | Update to latest minor within 14 days, major within 60 days |
-| **ESLint** | 9.19.0 | 9.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
-| **Prettier** | 3.4.2 | 3.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
+| **Vitest** | 4.0.18 | 4.0.0 | N/A | Update to latest minor within 14 days, major within 60 days |
+| **Playwright** | 1.58.2 | 1.50.0 | N/A | Update to latest minor within 14 days, major within 60 days |
+| **ESLint** | 9.39.2 | 9.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
+| **Prettier** | 3.8.1 | 3.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
 
 ### Dependency Management
 
 **Production Dependencies:**
 - **Zero runtime dependencies** - Static site architecture eliminates production dependencies
 
-**Development Dependencies (17 total):**
+**Development Dependencies (22 total):**
 
 | Category | Dependencies | Purpose |
 |----------|-------------|---------|
-| **Testing** | `vitest`, `@vitest/ui`, `@vitest/coverage-v8`, `playwright`, `@playwright/test` | Unit, integration, E2E testing, coverage reporting |
-| **Code Quality** | `eslint`, `prettier`, `eslint-config-prettier`, `eslint-plugin-security` | Linting, formatting, security checks |
+| **Testing** | `vitest`, `@vitest/ui`, `@vitest/coverage-v8`, `@playwright/test`, `@axe-core/playwright`, `happy-dom` | Unit, integration, E2E testing, accessibility testing, coverage reporting |
+| **Code Quality** | `eslint`, `@eslint/js`, `prettier`, `eslint-config-prettier`, `eslint-plugin-security`, `eslint-plugin-import`, `eslint-plugin-jsdoc`, `eslint-plugin-sonarjs`, `jscpd`, `ts-api-utils` | Linting, formatting, security checks, duplicate detection |
 | **Git Hooks** | `husky`, `lint-staged` | Pre-commit hooks for quality gates |
 | **HTML Validation** | `htmlhint` | HTML5 validation |
-| **Build Tools** | `npm-run-all2` | Parallel script execution |
-| **Documentation** | `jsdoc` | API documentation generation |
-| **Utilities** | `dotenv` | Environment variable management (dev only) |
+| **Documentation** | `jsdoc`, `docdash`, `jsdoc-to-markdown` | API documentation generation |
 
 ### Security & Quality
 
@@ -1241,7 +1239,7 @@ Non-functional requirements define system qualities that are not directly relate
 - **Documentation**: Architecture, security, process docs maintained
 - **Testing**: Unit (Vitest), E2E (Playwright), manual accessibility
 - **Linting**: ESLint with security plugin, Prettier formatting
-- **Dependencies**: Minimal (0 production, 17 dev), regularly updated
+- **Dependencies**: Minimal (0 production, 22 dev), regularly updated
 
 ---
 
@@ -1312,7 +1310,7 @@ Non-functional requirements define system qualities that are not directly relate
 - **Code Complexity**: Low (simple scripts, no frameworks)
 - **Test Coverage**: 82%+ lines, 83%+ branches
 - **Documentation**: Comprehensive (10+ architecture docs)
-- **Dependencies**: Zero production, 17 dev dependencies
+- **Dependencies**: Zero production, 22 dev dependencies
 
 ---
 
