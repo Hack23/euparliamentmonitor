@@ -49,6 +49,7 @@ export class EuropeanParliamentMCPClient {
             return;
         }
         console.log('🔌 Connecting to European Parliament MCP Server...');
+        this.connectionAttempts = 0;
         while (this.connectionAttempts < this.maxConnectionAttempts) {
             try {
                 await this._attemptConnection();

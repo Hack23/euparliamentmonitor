@@ -260,5 +260,9 @@ async function main() {
         process.exit(1);
     }
 }
-main();
+// Only run main when executed directly (not when imported)
+const isDirectExecution = process.argv[1] && import.meta.url === `file://${process.argv[1]}`;
+if (isDirectExecution) {
+    main();
+}
 //# sourceMappingURL=generate-docs-index.js.map

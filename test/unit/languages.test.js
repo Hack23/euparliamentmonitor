@@ -37,7 +37,7 @@ describe('constants/languages', () => {
   });
 
   describe('LANGUAGE_PRESETS', () => {
-    it('should have all preset', () => {
+    it('should have all presets', () => {
       expect(LANGUAGE_PRESETS.all).toEqual(ALL_LANGUAGES);
     });
 

@@ -21,7 +21,7 @@ const DOCS_DIR = join(PROJECT_ROOT, 'docs');
  * @returns HTML content for the documentation index
  */
 export function generateIndexHTML(): string {
-  const currentDate = new Date().toISOString().split('T')[0];
+  const currentDate = new Date().toISOString().split('T')[0]!;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -270,4 +270,8 @@ async function main(): Promise<void> {
   }
 }
 
-main();
+// Only run main when executed directly (not when imported)
+const isDirectExecution = process.argv[1] && import.meta.url === `file://${process.argv[1]}`;
+if (isDirectExecution) {
+  main();
+}
