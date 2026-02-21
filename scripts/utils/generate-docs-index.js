@@ -207,7 +207,7 @@ export function generateIndexHTML() {
           <span class="badge">Vitest</span>
         </a>
         
-        <a href="../playwright-report/index.html" class="doc-card">
+        <a href="playwright-report/index.html" class="doc-card">
           <div class="icon">🎭</div>
           <h2>E2E Test Report</h2>
           <p>End-to-end test results from Playwright covering user workflows and accessibility.</p>

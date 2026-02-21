@@ -96,7 +96,7 @@ jobs:
       - name: Clean old documentation
         run: |
           echo "🧹 Cleaning old documentation..."
-          rm -rf docs/api docs/coverage docs/test-results
+          rm -rf docs/api docs/coverage docs/test-results docs/playwright-report
 
       - name: Generate API documentation
         run: |
@@ -118,7 +118,7 @@ jobs:
           echo "🔍 Verifying documentation structure..."
           
           # Check required directories exist
-          for dir in docs/api docs/coverage docs/test-results; do
+          for dir in docs/api docs/coverage docs/test-results docs/playwright-report; do
             if [ -d "$dir" ]; then
               echo "✅ $dir exists"
             else
@@ -128,7 +128,7 @@ jobs:
           done
           
           # Check required files exist
-          for file in docs/index.html docs/api/index.html docs/coverage/index.html; do
+          for file in docs/index.html docs/api/index.html docs/coverage/index.html docs/playwright-report/index.html; do
             if [ -f "$file" ]; then
               echo "✅ $file exists"
             else
@@ -143,7 +143,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
         with:
           commit_message: "docs: update documentation for ${{ steps.get-version.outputs.version }}"
-          file_pattern: "docs/**/* playwright-report/**/*"
+          file_pattern: "docs/**/*"
           skip_fetch: false
           skip_checkout: false
 
@@ -216,7 +216,6 @@ jobs:
             styles.css \
             index-*.html \
             sitemap.xml \
-            playwright-report/ \
             package.json \
             package-lock.json \
             README.md \
