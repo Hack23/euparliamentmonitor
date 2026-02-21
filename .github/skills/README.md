@@ -34,8 +34,9 @@ Skills are reusable knowledge units that encode Hack23's security policies, arch
 ### 📜 Governance Skills (1 skill)
 - **[Open Source Governance](open-source-governance.md)** — Apache-2.0, REUSE 3.3, SBOM, SLSA, OpenSSF
 
-### 🇪🇺 Data Integration Skills (1 skill)
+### 🇪🇺 Data Integration Skills (2 skills)
 - **[European Parliament Data](european-parliament-data.md)** — EP MCP server tools, data validation, caching, fallback
+- **[Legislative Monitoring](legislative-monitoring.md)** — OLP tracking, trilogue analysis, amendment patterns, plenary voting
 
 ### 🤖 Agentic Workflow Skills (2 skills)
 - **[GitHub Agentic Workflows](github-agentic-workflows.md)** — Copilot coding agent, stacked PRs, agent selection
@@ -47,13 +48,19 @@ Skills are reusable knowledge units that encode Hack23's security policies, arch
 - **[GH AW Sandbox](gh-aw-sandbox.md)** — Resource isolation, secrets injection
 - **[MCP Gateway Configuration](mcp-gateway-configuration.md)** — TOML/JSON config patterns
 
+### 🧠 Analysis Skills (4 skills)
+- **[Electoral Analysis](electoral-analysis.md)** — EU Parliament elections, seat distribution, political group formation, Spitzenkandidaten
+- **[Behavioral Analysis](behavioral-analysis.md)** — MEP voting loyalty, cognitive biases, leadership profiling, cross-group collaboration
+- **[Strategic Communication Analysis](strategic-communication-analysis.md)** — Narrative framing, media bias detection, discourse analysis, multi-language messaging
+- **[Risk Assessment Frameworks](risk-assessment-frameworks.md)** — Democratic health, cohesion risk, legislative bottlenecks, early warning systems
+
 ### 🔧 Operations Skills (2 skills)
 - **[MCP Gateway Security](mcp-gateway-security.md)** — Authentication, container isolation
 - **[MCP Gateway Troubleshooting](mcp-gateway-troubleshooting.md)** — Debug logging, issue resolution
 
 ## Skills Statistics
 
-**Total Skills**: 21 skills across 10 categories
+**Total Skills**: 26 skills across 11 categories
 
 | Category | Count | Focus |
 |----------|-------|-------|
@@ -64,7 +71,8 @@ Skills are reusable knowledge units that encode Hack23's security policies, arch
 | Performance | 1 | Core Web Vitals, caching |
 | Documentation | 1 | Standards, REUSE compliance |
 | Governance | 1 | Open source, supply chain |
-| Data Integration | 1 | European Parliament MCP |
+| Data Integration | 2 | European Parliament MCP, legislative monitoring |
+| Analysis | 4 | Electoral, behavioral, communication, risk assessment |
 | Agentic Workflows | 2 | Copilot agents, MCP protocol |
 | Infrastructure | 4 | AW architecture, firewall, sandbox, gateway |
 | Operations | 2 | Gateway security, troubleshooting |
@@ -73,8 +81,8 @@ Skills are reusable knowledge units that encode Hack23's security policies, arch
 
 | Agent | Primary Skills | Supporting Skills |
 |-------|---------------|-------------------|
-| **news-journalist** | european-parliament-data, documentation-standards | accessibility-excellence, data-protection |
-| **data-pipeline-specialist** | european-parliament-data, mcp-server-integration | performance-optimization, testing-strategy |
+| **news-journalist** | european-parliament-data, electoral-analysis, strategic-communication-analysis | behavioral-analysis, risk-assessment-frameworks, data-protection |
+| **data-pipeline-specialist** | european-parliament-data, legislative-monitoring, mcp-server-integration | performance-optimization, testing-strategy |
 | **frontend-specialist** | accessibility-excellence, code-quality-excellence | performance-optimization, security-by-design |
 | **quality-engineer** | testing-strategy, code-quality-excellence | accessibility-excellence, performance-optimization |
 | **security-architect** | security-by-design, threat-modeling, isms-compliance | compliance-frameworks, data-protection |
