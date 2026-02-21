@@ -93,7 +93,7 @@ flowchart TD
 
 **Decision Tree Explanation:**
 1. **European Parliament Data Check**: All EP Monitor data originates from official EP open data APIs
-2. **PII Check**: MEP names and roles are public information, not protected PII
+2. **PII Check**: MEP names and roles are publicly available personal data from official European Parliament open data sources. Processing is limited to transparency and journalistic purposes and relies on GDPR Article 6(1)(f) (legitimate interests) and applicable Article 85 freedom-of-expression/journalistic exemptions; no special category data is processed.
 3. **Access Control Check**: No authentication or authorization required for public transparency platform
 4. **Accuracy Check**: News accuracy is critical for democratic transparency and public trust
 5. **Availability Check**: 24-hour outages acceptable given daily update schedule and non-critical nature
@@ -300,7 +300,7 @@ graph TB
 
 **Controls Required:**
 - ✅ Git version control (change tracking, audit trail)
-- ✅ GitHub commit signing (GPG signatures)
+- ✅ Git object integrity via commit hashes (no automated commit signing)
 - ✅ Immutable Git history
 - ✅ Automated testing (unit tests 82%, E2E tests)
 - ✅ Code review via pull requests
@@ -341,12 +341,12 @@ graph TB
 | **NA (Not Applicable)** | [![NA](https://img.shields.io/badge/Privacy-NA-lightgrey?style=for-the-badge&logo=times-circle&logoColor=black)](#privacy-levels) | Non-personal data | No GDPR obligations | **✅ CURRENT STATUS** |
 
 **GDPR Compliance Status:**
-- ✅ No personal data processed
+- ✅ Publicly available personal data of elected representatives only (no special categories, no behavioural profiling)
 - ✅ No cookies, tracking, or analytics
 - ✅ No user accounts or authentication
 - ✅ Public European Parliament data only
 - ✅ GDPR by design (data protection by design and by default)
-- ✅ No data subject rights obligations (no personal data)
+- ✅ Data subject rights handled case-by-case subject to applicable freedom-of-expression and public-interest exemptions
 
 ---
 
@@ -531,7 +531,7 @@ flowchart TB
     end
     
     subgraph DISPOSAL["🗑️ Data Disposal"]
-        RETENTION[⏰ 90-Day Retention Policy]
+        RETENTION[⏰ Policy-Based Retention]
         AUTO_ARCHIVE[🤖 Automatic Archiving]
         NO_DELETION[❌ No Permanent Deletion<br/>Public record preservation]
     end
@@ -579,7 +579,7 @@ flowchart TB
 **Classification Impact:** Public data from inception  
 **Controls:**
 - ✅ TLS 1.3 for API communications
-- ✅ European Parliament MCP Server authentication
+- ✅ European Parliament MCP Server runs as a local stdio child process (no network exposure; explicit authentication planned for future remote deployment)
 - ✅ API rate limiting and error handling
 - ✅ Automated retry mechanisms
 
@@ -596,7 +596,7 @@ flowchart TB
 - ✅ Input validation and sanitization
 - ✅ Content safety checks (no malicious content generation)
 - ✅ Translation quality validation
-- ✅ Git commit signing (integrity verification)
+- ✅ Git repository integrity via commit hashes (no automated commit signing)
 
 **Processing Steps:**
 1. Parse EP API JSON responses
@@ -611,7 +611,7 @@ flowchart TB
 **Controls:**
 - ✅ Git version control (immutable history)
 - ✅ GitHub repository backup (distributed copies)
-- ✅ Commit signing (GPG signatures)
+- ✅ Git object integrity via commit hashes (no automated commit signing)
 - ✅ Branch protection rules
 
 **Storage Characteristics:**
@@ -624,7 +624,7 @@ flowchart TB
 **Duration:** Real-time (CDN caching)  
 **Classification Impact:** Public access with availability controls  
 **Controls:**
-- ✅ AWS S3 + CloudFront HTTPS (TLS 1.3)
+- ✅ AWS S3 + CloudFront HTTPS (TLS 1.2+, TLS 1.3 where supported)
 - ✅ Amazon CloudFront (AWS Shield Standard for DDoS protection)
 - ✅ Static site architecture (no server-side vulnerabilities)
 - ✅ No authentication required (public by design)
@@ -639,7 +639,7 @@ flowchart TB
 **Duration:** Automatic (Git version history)  
 **Classification Impact:** Public historical record  
 **Controls:**
-- ✅ Immutable Git objects (SHA-1/SHA-256 hashing)
+- ✅ Immutable Git objects (Git object hashing, SHA-1 by default; SHA-256 if enabled)
 - ✅ Permanent version history
 - ✅ No content deletion (transparency principle)
 - ✅ Historical audit trail
@@ -788,17 +788,17 @@ EU Parliament Monitor's classification framework aligns with multiple internatio
 |--------------|-------------|-------------------------------------|-------------------|
 | **Art. 5(1)(a)** | Lawfulness, fairness, transparency | ✅ Public data, open source, maximum transparency | ✅ **COMPLIANT** |
 | **Art. 5(1)(b)** | Purpose limitation | ✅ Democratic transparency only, defined purpose | ✅ **COMPLIANT** |
-| **Art. 5(1)(c)** | Data minimization | ✅ No personal data processed, EP open data only | ✅ **COMPLIANT** |
+| **Art. 5(1)(c)** | Data minimization | ✅ European Parliament open data about public functions only; strict data minimization; no special categories | ✅ **COMPLIANT** |
 | **Art. 5(1)(d)** | Accuracy | ✅ Git version control, automated testing, integrity focus | ✅ **COMPLIANT** |
 | **Art. 5(1)(e)** | Storage limitation | ✅ Indefinite retention justified (public record preservation) | ✅ **COMPLIANT** |
-| **Art. 5(1)(f)** | Integrity and confidentiality | ✅ TLS 1.3, Git integrity, GitHub security | ✅ **COMPLIANT** |
-| **Art. 25** | Data protection by design | ✅ No PII processing architecture, public by design | ✅ **COMPLIANT** |
-| **Art. 32** | Security of processing | ✅ TLS 1.3, Git integrity, GitHub Actions security | ✅ **COMPLIANT** |
+| **Art. 5(1)(f)** | Integrity and confidentiality | ✅ TLS 1.2+, Git integrity, GitHub security | ✅ **COMPLIANT** |
+| **Art. 25** | Data protection by design | ✅ Architecture limited to EP open data; no behavioural tracking or unnecessary identifiers | ✅ **COMPLIANT** |
+| **Art. 32** | Security of processing | ✅ TLS 1.2+, Git integrity, GitHub Actions security | ✅ **COMPLIANT** |
 
 **GDPR Summary:**
-- ✅ **No personal data processing** - EU Parliament Monitor processes only public information
-- ✅ **MEP data is public official data** - Not protected under GDPR as personal data
-- ✅ **No data subject rights obligations** - No personal data = no GDPR DSR requirements
+- ✅ **Public-source institutional data only** - Processes European Parliament open data about elected representatives and institutional activities; no special categories or behavioural profiling
+- ✅ **MEP data is personal data of public officials** - Processed under GDPR on the basis of legitimate/public interest with appropriate safeguards and transparency
+- ✅ **Data subject rights supported** - DSRs (access, rectification, objection, etc.) are handled case-by-case, subject to applicable legal exemptions (e.g. freedom of expression and information, public interest, archival/record-keeping)
 - ✅ **No cookies, tracking, or analytics** - Privacy by design
 - ✅ **Transparency by default** - Open source, public repository, public content
 
@@ -918,6 +918,7 @@ flowchart TB
     classDef decision fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:#ffffff
     classDef archive fill:#8D6E63,stroke:#5D4037,stroke-width:2px,color:#ffffff
     classDef critical fill:#D32F2F,stroke:#B71C1C,stroke-width:2px,color:#ffffff
+    classDef success fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#ffffff
     
     class START start
     class CLASSIFY,REVIEW classify
@@ -1115,7 +1116,7 @@ flowchart TB
 |---------------------|-------------------|-------------------------------------|
 | **Confidentiality: Public** | TLS for transit, public access | ✅ AWS S3 + CloudFront HTTPS, open repository |
 | **Integrity: Medium** | Version control, code review, testing | ✅ Git, PR workflow, 82% test coverage |
-| **Availability: Medium** | Monitoring, manual recovery, CDN | ✅ GitHub Actions monitoring, Pages CDN |
+| **Availability: Medium** | Monitoring, manual recovery, CDN | ✅ GitHub Actions monitoring, AWS S3 + CloudFront CDN |
 | **RTO: 24 hours** | Automated recovery, manual backup | ✅ Workflow retry, manual trigger |
 | **RPO: 1 day** | Daily backups, version control | ✅ Git commits, GitHub repository |
 | **Privacy: NA** | No PII processing, GDPR by design | ✅ Public data only, no tracking |
