@@ -18,6 +18,23 @@ Every file must start with SPDX headers:
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 ```
 
+### Module Imports
+Import compiled TypeScript modules from `scripts/` subdirectories:
+```js
+// Templates
+import { generateArticleHTML } from '../../scripts/templates/article-template.js';
+
+// MCP Client
+import { EuropeanParliamentMCPClient } from '../../scripts/mcp/ep-mcp-client.js';
+
+// Constants
+import { ALL_LANGUAGES, LANGUAGE_NAMES } from '../../scripts/constants/languages.js';
+
+// Utilities
+import { parseArticleFilename, formatSlug } from '../../scripts/utils/file-utils.js';
+import { buildMetadataDatabase } from '../../scripts/utils/news-metadata.js';
+```
+
 ### Fixtures & Helpers
 - Use shared fixtures from `test/fixtures/ep-data.js` for EP data mocks
 - Use shared helpers from `test/helpers/test-utils.js` (e.g., `validateHTML`)

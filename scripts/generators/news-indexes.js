@@ -10,7 +10,7 @@ import path from 'path';
 import { PROJECT_ROOT } from '../constants/config.js';
 import { ALL_LANGUAGES } from '../constants/languages.js';
 import { LANGUAGE_NAMES, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, getLocalizedString, getTextDirection, } from '../constants/languages.js';
-import { getNewsArticles, groupArticlesByLanguage, formatSlug, } from '../utils/file-utils.js';
+import { getNewsArticles, groupArticlesByLanguage, formatSlug } from '../utils/file-utils.js';
 import { updateMetadataDatabase } from '../utils/news-metadata.js';
 /**
  * Generate index HTML for a language

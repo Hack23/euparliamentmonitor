@@ -12,7 +12,7 @@ import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, A
 import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
 import { generateArticleHTML } from '../templates/article-template.js';
 import { getEPMCPClient, closeEPMCPClient } from '../mcp/ep-mcp-client.js';
-import { formatDateForSlug, calculateReadTime, ensureDirectoryExists } from '../utils/file-utils.js';
+import { formatDateForSlug, calculateReadTime, ensureDirectoryExists, } from '../utils/file-utils.js';
 // Try to use MCP client if available
 let mcpClient = null;
 const useMCP = process.env['USE_EP_MCP'] !== 'false';
@@ -22,9 +22,7 @@ const typesArg = args.find((arg) => arg.startsWith('--types='));
 const languagesArg = args.find((arg) => arg.startsWith('--languages='));
 const dryRunArg = args.includes('--dry-run');
 const articleTypes = typesArg
-    ? (typesArg.split(ARG_SEPARATOR)[1] ?? '')
-        .split(',')
-        .map((t) => t.trim())
+    ? (typesArg.split(ARG_SEPARATOR)[1] ?? '').split(',').map((t) => t.trim())
     : [ARTICLE_TYPE_WEEK_AHEAD];
 let languagesInput = languagesArg
     ? (languagesArg.split(ARG_SEPARATOR)[1] ?? '').trim().toLowerCase()

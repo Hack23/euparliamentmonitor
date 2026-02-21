@@ -74,6 +74,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build TypeScript
+        run: npm run build
+
       - name: Run ESLint
         run: |
           echo "🔍 Running ESLint..."
@@ -89,23 +92,10 @@ jobs:
           echo "🔍 Validating HTML files..."
           npm run htmlhint || echo "HTML validation completed with warnings"
 
-      - name: Check JavaScript syntax
+      - name: Check TypeScript compilation
         run: |
-          echo "🔍 Checking JavaScript syntax..."
-          # Check for syntax errors in scripts
-          failed=0
-          for file in scripts/*.js; do
-            if node --check "$file"; then
-              echo "✅ $file - OK"
-            else
-              echo "❌ $file - FAILED"
-              failed=1
-            fi
-          done
-          if [ "$failed" -ne 0 ]; then
-            echo "JavaScript syntax check failed for one or more files."
-            exit 1
-          fi
+          echo "🔍 Checking TypeScript compilation..."
+          npm run build:check
 
       - name: Verify package.json scripts
         run: |
@@ -152,6 +142,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Build TypeScript
+        run: npm run build
 
       - name: Run unit tests
         run: |

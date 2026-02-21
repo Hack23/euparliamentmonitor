@@ -2,7 +2,20 @@
 // SPDX-License-Identifier: Apache-2.0
 /** All supported language codes */
 export const ALL_LANGUAGES = [
-    'en', 'de', 'fr', 'es', 'it', 'nl', 'pl', 'pt', 'ro', 'sv', 'da', 'fi', 'el', 'hu',
+    'en',
+    'de',
+    'fr',
+    'es',
+    'it',
+    'nl',
+    'pl',
+    'pt',
+    'ro',
+    'sv',
+    'da',
+    'fi',
+    'el',
+    'hu',
 ];
 /** Language presets for quick selection */
 export const LANGUAGE_PRESETS = {
@@ -100,12 +113,28 @@ export const ARTICLE_TYPE_LABELS = {
     en: { prospective: 'Week Ahead', retrospective: 'Analysis', breaking: 'Breaking News' },
     de: { prospective: 'Woche Voraus', retrospective: 'Analyse', breaking: 'Eilmeldung' },
     fr: { prospective: 'Semaine à Venir', retrospective: 'Analyse', breaking: 'Dernières Nouvelles' },
-    es: { prospective: 'Semana Próxima', retrospective: 'Análisis', breaking: 'Noticias de Última Hora' },
+    es: {
+        prospective: 'Semana Próxima',
+        retrospective: 'Análisis',
+        breaking: 'Noticias de Última Hora',
+    },
     it: { prospective: 'Settimana Prossima', retrospective: 'Analisi', breaking: 'Ultime Notizie' },
     nl: { prospective: 'Week Vooruit', retrospective: 'Analyse', breaking: 'Laatste Nieuws' },
-    pl: { prospective: 'Nadchodzący Tydzień', retrospective: 'Analiza', breaking: 'Najnowsze Wiadomości' },
-    pt: { prospective: 'Semana Próxima', retrospective: 'Análise', breaking: 'Notícias de Última Hora' },
-    ro: { prospective: 'Săptămâna Viitoare', retrospective: 'Analiză', breaking: 'Știri de Ultimă Oră' },
+    pl: {
+        prospective: 'Nadchodzący Tydzień',
+        retrospective: 'Analiza',
+        breaking: 'Najnowsze Wiadomości',
+    },
+    pt: {
+        prospective: 'Semana Próxima',
+        retrospective: 'Análise',
+        breaking: 'Notícias de Última Hora',
+    },
+    ro: {
+        prospective: 'Săptămâna Viitoare',
+        retrospective: 'Analiză',
+        breaking: 'Știri de Ultimă Oră',
+    },
     sv: { prospective: 'Vecka Framåt', retrospective: 'Analys', breaking: 'Senaste Nytt' },
     da: { prospective: 'Ugen Fremover', retrospective: 'Analyse', breaking: 'Seneste Nyt' },
     fi: { prospective: 'Tuleva Viikko', retrospective: 'Analyysi', breaking: 'Uusimmat Uutiset' },
