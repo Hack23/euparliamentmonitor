@@ -154,4 +154,37 @@ describe('utils/file-utils', () => {
       expect(calculateReadTime(content, 100)).toBe(1);
     });
   });
+
+  describe('ensureDirectoryExists', () => {
+    it('should create directory if it does not exist', async () => {
+      const { ensureDirectoryExists } = await import('../../scripts/utils/file-utils.js');
+      const newDir = path.join(tempDir, 'new-dir', 'sub-dir');
+      expect(fs.existsSync(newDir)).toBe(false);
+      ensureDirectoryExists(newDir);
+      expect(fs.existsSync(newDir)).toBe(true);
+    });
+
+    it('should not throw if directory already exists', async () => {
+      const { ensureDirectoryExists } = await import('../../scripts/utils/file-utils.js');
+      ensureDirectoryExists(tempDir);
+      expect(fs.existsSync(tempDir)).toBe(true);
+    });
+  });
+
+  describe('writeFileContent', () => {
+    it('should write content to file and create parent dirs', async () => {
+      const { writeFileContent } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'sub', 'test-output.txt');
+      writeFileContent(filePath, 'hello world');
+      expect(fs.readFileSync(filePath, 'utf-8')).toBe('hello world');
+    });
+
+    it('should overwrite existing file', async () => {
+      const { writeFileContent } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'overwrite.txt');
+      writeFileContent(filePath, 'first');
+      writeFileContent(filePath, 'second');
+      expect(fs.readFileSync(filePath, 'utf-8')).toBe('second');
+    });
+  });
 });

@@ -128,6 +128,11 @@ describe('article-template', () => {
         expect(html).toContain('<span class="article-type">Woche Voraus</span>');
       });
 
+      it('should fall back to raw type string for unknown article types', () => {
+        const html = generateArticleHTML({ ...defaultOptions, type: 'custom-unknown', lang: 'en' });
+        expect(html).toContain('<span class="article-type">custom-unknown</span>');
+      });
+
       it('should format date according to language', () => {
         const html = generateArticleHTML({ ...defaultOptions, date: '2025-01-15', lang: 'en' });
         // English date format should be present

@@ -97,5 +97,29 @@ describe('utils/news-metadata', () => {
       const result = readMetadataDatabase(path.join(tempDir, 'nonexistent.json'));
       expect(result).toBeNull();
     });
+
+    it('should create parent directory if it does not exist', () => {
+      const deepPath = path.join(tempDir, 'deep', 'nested', 'metadata.json');
+      const database = { lastUpdated: '2025-01-15T00:00:00Z', articles: [] };
+
+      writeMetadataDatabase(database, deepPath);
+      expect(fs.existsSync(deepPath)).toBe(true);
+      const result = readMetadataDatabase(deepPath);
+      expect(result).toEqual(database);
+    });
+  });
+
+  describe('updateMetadataDatabase', () => {
+    it('should build and write metadata in one step', async () => {
+      const { updateMetadataDatabase } = await import('../../scripts/utils/news-metadata.js');
+      fs.writeFileSync(path.join(newsDir, '2025-01-15-article-en.html'), '<html></html>');
+      const outputPath = path.join(tempDir, 'update-test.json');
+
+      const result = updateMetadataDatabase(newsDir, outputPath);
+
+      expect(result.articles).toHaveLength(1);
+      expect(result.articles[0].slug).toBe('article');
+      expect(fs.existsSync(outputPath)).toBe(true);
+    });
   });
 });
