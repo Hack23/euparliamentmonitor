@@ -82,7 +82,7 @@ EU Parliament Monitor is developed and maintained in accordance with Hack23 AB's
 **ISO 27001:2022 Controls Implemented:**
 - **A.5.10** - Information Security Policy (documented and reviewed quarterly)
 - **A.8.3** - Secure Coding (ESLint security rules, CodeQL SAST scanning)
-- **A.8.23** - Web Filtering (CSP headers, XSS prevention)
+- **A.8.23** - Web Filtering (planned CSP headers via CloudFront, XSS prevention)
 - **A.8.24** - Cryptography (HTTPS-only, TLS 1.3)
 - **A.8.28** - Secure Coding (input validation, dependency scanning)
 
@@ -201,27 +201,30 @@ graph TB
     subgraph "GitHub Infrastructure - Trusted Zone"
         subgraph "Build Environment"
             Actions[GitHub Actions Runner<br/>Ubuntu 24.04 + Node.js 24]
+            EPServer[European Parliament<br/>MCP Server<br/>(local process, stdio JSON-RPC)]
         end
         
-        subgraph "Hosting Environment"
-            Pages[AWS S3 + CloudFront CDN<br/>HTTPS via ACM]
+        subgraph "Source Control"
             Repo[Git Repository<br/>Version Control]
         end
     end
     
+    subgraph "AWS Hosting - Cloud Infrastructure Zone"
+        Pages[AWS S3 + CloudFront CDN<br/>HTTPS via ACM]
+    end
+    
     subgraph "External Services - Partially Trusted Zone"
-        EPServer[European Parliament<br/>MCP Server]
         EPAPI[European Parliament<br/>Official APIs]
         LLM[LLM Service<br/>OpenAI/Anthropic]
     end
     
     Users -->|HTTPS GET<br/>Read-Only| Pages
-    Actions -->|MCP Protocol<br/>Data Fetch| EPServer
+    Actions -->|Spawns locally<br/>(stdio JSON-RPC)| EPServer
     Actions -->|HTTPS/JSON<br/>Data Query| EPAPI
     Actions -->|API Calls<br/>Content Gen| LLM
     EPServer -->|HTTPS<br/>Proxied Queries| EPAPI
     Actions -->|Git Push<br/>Authenticated| Repo
-    Repo -->|Auto Deploy<br/>Trigger| Pages
+    Actions -->|S3 Sync + CF Invalidation<br/>Authenticated (OIDC)| Pages
     
     style Users fill:#f9f,stroke:#333,stroke-width:2px
     style Pages fill:#9f9,stroke:#333,stroke-width:2px
@@ -235,9 +238,9 @@ graph TB
 
 | Zone | Trust Level | Security Controls | Threat Model |
 |------|-------------|-------------------|--------------|
-| **Public Internet** | Untrusted | HTTPS-only, CSP headers, static content only | DDoS, XSS attempts (mitigated by static architecture) |
+| **Public Internet** | Untrusted | HTTPS-only, planned CSP headers, static content only | DDoS, XSS attempts (mitigated by static architecture) |
 | **GitHub Infrastructure** | Trusted | GitHub authentication, branch protection, signed commits, secret scanning | Supply chain attacks (mitigated by Dependabot, CodeQL) |
-| **Build Environment** | Trusted | Isolated runners, secret management, audit logs | Malicious code injection (mitigated by code review, SAST) |
+| **AWS Hosting** | Trusted | ACM certificate, HTTPS redirect, DDoS protection via CloudFront | Hosting infrastructure compromise (mitigated by AWS security controls, OIDC deploy auth) |
 | **External Services** | Partially Trusted | API authentication, input validation, rate limiting, data sanitization | Data poisoning, API compromise (mitigated by validation, monitoring) |
 
 **Key Security Boundaries:**
@@ -326,7 +329,7 @@ C4Container
 | **Article Template Engine** | HTML sanitization, CSP-ready markup | Generates sanitized semantic HTML5 prepared for future CSP implementation, sanitizes all dynamic content | A.8.23 (ISO 27001) |
 | **Static Files** | Integrity verification, no sensitive data | All files public, no secrets or PII, content integrity via Git | A.5.10 (ISO 27001) |
 | **GitHub Actions** | Secret management, least privilege, audit logging | GitHub Secrets for API keys, OIDC authentication, workflow audit logs | A.8.3, CIS Control 6 |
-| **Amazon CloudFront + S3** | HTTPS-only, CDN security, DDoS protection | Forces HTTPS redirect via ACM certificate, CloudFront with DDoS mitigation, HSTS headers | A.8.24 (ISO 27001) |
+| **Amazon CloudFront + S3** | HTTPS-only, CDN security, DDoS protection | Forces HTTPS redirect via ACM certificate, CloudFront with DDoS mitigation, HSTS headers (configured externally in CloudFront distribution) | A.8.24 (ISO 27001) |
 | **Git Repository** | Access control, branch protection, signed commits | RBAC with least privilege, protected main branch, optional signed commits | CIS Control 6, A.8.3 |
 
 ### Container Security Architecture
@@ -449,7 +452,7 @@ sequenceDiagram
     Gen->>MCP: fetchEPData(type)
     MCP->>EPMCP: query(endpoint, params)
     EPMCP-->>MCP: return EP data
-    MCP-->>Gen: return validated EP data
+    MCP-->>Gen: return parsed EP data
     
     loop For each language (sequential)
         Gen->>Tmpl: renderHTML(epData, lang)
@@ -468,11 +471,11 @@ sequenceDiagram
 | Pattern | Components Involved | Purpose | Error Handling |
 |---------|---------------------|---------|----------------|
 | **Cache-Aside (Planned)** | MCP Client → LRU Cache → EP MCP Server | Reduce API calls, improve performance | Planned: cache miss triggers fresh fetch; current: direct calls to EP MCP Server |
-| **Retry with Exponential Backoff** | MCP Client → EP MCP Server | Handle transient failures | Max 3 retries with 1s, 2s, 4s delays; final failure throws error |
-| **Validation Pipeline** | Content Validator → Article Generator | Ensure content quality | Failed validation triggers regeneration (max 2 attempts) |
+| **MCP Connection Retry with Backoff (Current)** | MCP Client → EP MCP Server | Handle transient MCP connection failures | Connection attempts retried with backoff; individual MCP requests use a fixed timeout and are not retried |
+| **Validation Pipeline (Planned)** | Content Validator → Article Generator | Ensure content quality | Planned: failed validation triggers regeneration (max 2 attempts); current: single-pass generation without regeneration loop |
 | **Sequential Multi-Language** | Article Generator → HTML Template (per language) | Content generation per language | Per-language failures logged; successful languages still generated; parallel generation planned (ADR-004) |
 | **Template Method** | Article Generator → HTML Template → File System Writer | Consistent HTML generation | Template errors logged and propagated to prevent partial writes |
-| **Metadata Aggregation** | Metadata Manager → File System Writer | Track generation history | Metadata write failures logged but don't block article generation |
+| **Metadata Aggregation** | Metadata Manager → File System Writer | Track generation history | Current: metadata written synchronously via writeFileSync; failures throw and fail the run. Planned: non-blocking, best-effort writes |
 
 ---
 
@@ -603,7 +606,7 @@ C4Deployment
 
 | Service | Purpose | Protocol | Authentication | Rate Limits | Cost Model |
 |---------|---------|----------|----------------|-------------|------------|
-| **European Parliament MCP Server** | EP data access | MCP over HTTPS | API key (optional) | 100 req/min | Free (public API) |
+| **European Parliament MCP Server** | EP data access | Local process (stdio JSON-RPC) | None (local process) | N/A (handled by MCP server / EP APIs) | Free (EP open data via MCP server) |
 | **LLM Service (OpenAI/Anthropic)** | Content generation | HTTPS/JSON | API key (required) | Varies by provider | Pay-per-token |
 | **GitHub API** | Repository operations | REST/GraphQL | GitHub token | 5000 req/hr | Free (authenticated) |
 
@@ -1018,10 +1021,10 @@ We will access European Parliament data via the **European Parliament MCP Server
 
 **Rationale:**
 1. **Abstraction**: MCP Server provides unified interface to fragmented EP APIs
-2. **Validation**: Built-in schema validation and data normalization
-3. **Caching**: LRU cache reduces API calls, improves performance
-4. **Error Handling**: Retry logic, exponential backoff, graceful degradation
-5. **Maintainability**: API changes isolated to MCP Server, not news generator
+2. **Data Normalization**: Consistent data structures across EP data sources
+3. **Error Handling**: Connection retry logic and graceful degradation
+4. **Maintainability**: API changes isolated to MCP Server, not news generator
+5. **Local Process**: Spawned as stdio JSON-RPC process during build, no separate deployment needed
 
 **Alternatives Considered:**
 - **Direct EP API calls**: Rejected due to fragmentation, lack of validation, poor error handling
@@ -1030,10 +1033,10 @@ We will access European Parliament data via the **European Parliament MCP Server
 
 **Consequences:**
 - ✅ **Positive**: Clean separation of concerns, reusable data layer
-- ✅ **Positive**: Standardized data structures, built-in caching
+- ✅ **Positive**: Standardized data structures, no direct EP API fragmentation
 - ✅ **Positive**: MCP Server maintained separately, used by multiple clients
 - ⚠️ **Negative**: Additional dependency (mitigated by fallback data strategy)
-- ⚠️ **Negative**: Requires MCP Server availability (99.5% observed uptime)
+- ⚠️ **Negative**: Requires MCP Server process availability during build
 
 **Compliance:** Aligns with ISO 27001 A.8.3 (Input Validation), NIST CSF PR.DS-2 (Data in Transit Protection)
 
