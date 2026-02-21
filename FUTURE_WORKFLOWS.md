@@ -16,8 +16,8 @@
   <a href="#"><img src="https://img.shields.io/badge/Timeline-2026--Q2--Q4-blue?style=for-the-badge" alt="Timeline"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-02-18 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-18  
+**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-02-20 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-20  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
 
 ---
