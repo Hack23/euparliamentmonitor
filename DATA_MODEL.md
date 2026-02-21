@@ -68,6 +68,7 @@ Parliament Monitor platform for news generation, storage, and delivery.
 | **[Unit Test Plan](UnitTestPlan.md)**                               | 🧪 Testing      | Unit testing strategy                          | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/UnitTestPlan.md)                 |
 | **[E2E Test Plan](E2ETestPlan.md)**                                 | 🔍 Testing      | End-to-end testing                             | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/E2ETestPlan.md)                  |
 | **[Performance Testing](performance-testing.md)**                   | ⚡ Performance  | Performance benchmarks                         | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/performance-testing.md)          |
+| **[Security Policy](SECURITY.md)**                                  | 🔒 Security     | Vulnerability reporting & security policy      | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md)                     |
 
 </div>
 
@@ -82,7 +83,7 @@ This data model aligns with Hack23 ISMS policies to ensure secure data handling,
 | Policy | Relevance | Implementation in Data Model |
 |--------|-----------|------------------------------|
 | **[Data Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md)** | High | All data classified as **Public (Level 1)** per [CLASSIFICATION.md](CLASSIFICATION.md). European Parliament data is publicly available open data. No PII or sensitive information processed. |
-| **[Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md)** | Medium | TLS 1.3 for data in transit from European Parliament API. At-rest encryption via GitHub repository storage. SHA-256 hashes for data integrity verification. |
+| **[Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md)** | Medium | TLS 1.3 for data in transit from European Parliament API. At-rest encryption via GitHub repository storage. Planned SHA-256 hashes for data integrity verification in future generator updates. |
 | **[Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)** | High | Planned schema validation for EP API responses and planned HTML sanitization (e.g., DOMPurify) in future generator/client updates. Input validation for external data where implemented. Git-based audit trail for all changes. |
 
 ### 🎯 Compliance Framework Mapping
@@ -923,7 +924,9 @@ flowchart TB
 
     subgraph "Deployment"
         GIT_COMMIT["Git Commit<br/>& Push"]
-        GH_PAGES["GitHub Pages<br/>CDN Distribution"]
+        GHA_DEPLOY["GitHub Actions<br/>Deploy Workflow"]
+        S3_BUCKET["AWS S3<br/>Static Site Bucket"]
+        GH_PAGES["AWS CloudFront<br/>CDN Distribution"]
     end
 
     EP_API --> EP_PLENARY
@@ -968,7 +971,9 @@ flowchart TB
     INDEX_HTML --> GIT_COMMIT
     SITEMAP_XML --> GIT_COMMIT
 
-    GIT_COMMIT -->|"GitHub Actions<br/>Deploy Workflow"| GH_PAGES
+    GIT_COMMIT -->|"Push triggers<br/>deploy workflow"| GHA_DEPLOY
+    GHA_DEPLOY -->|"aws s3 sync"| S3_BUCKET
+    S3_BUCKET -->|"CloudFront<br/>invalidation"| GH_PAGES
 
     style EP_API fill:#fff4e1
     style MCP_SERVER fill:#e8f5e9
@@ -1177,13 +1182,13 @@ EU Parliament Monitor processes **publicly available European Parliament data** 
 - **No Cookies**: Static HTML site, no client-side tracking
 - **No Private Communications**: No private messages, no personal correspondence
 
-> **Note**: Publicly available personal data about public officials (MEP names, affiliations, official emails) processed in their official capacity is handled under GDPR Article 9 exceptions and legitimate interest basis. No user or private personal data is collected.
+> **Note**: Publicly available personal data about public officials (MEP names, affiliations, official emails) processed in their official capacity is handled under GDPR Article 6 lawful basis (e.g., Art. 6(1)(e) public task and/or Art. 6(1)(f) legitimate interests). No special category data under Article 9 is processed. No user or private personal data is collected.
 
 **GDPR Article 5 Alignment:**
 
 | GDPR Principle | Implementation | Status |
 |----------------|----------------|--------|
-| **Art. 5(1)(a) - Lawfulness** | All data from public EP sources, no personal data processing | ✅ Compliant |
+| **Art. 5(1)(a) - Lawfulness** | Processing of publicly available personal data of MEPs from official EP sources under GDPR Art. 6 lawful basis (public task/legitimate interests); no user/customer personal data processed | ✅ Compliant |
 | **Art. 5(1)(b) - Purpose Limitation** | Data used only for news generation about parliamentary activities | ✅ Compliant |
 | **Art. 5(1)(c) - Data Minimization** | Only necessary public EP data collected, no excessive data | ✅ Compliant |
 | **Art. 5(1)(d) - Accuracy** | EP data used as-is from official sources; planned schema validation and HTML sanitization to ensure accurate representation | ✅ Compliant |
@@ -1222,10 +1227,10 @@ EU Parliament Monitor processes **publicly available European Parliament data** 
 |---------|----------------|----------|
 | **TLS 1.3 Encryption** | All EP API calls use HTTPS | Protect data in transit |
 | **At-Rest Encryption** | GitHub repository encryption | Protect stored data |
-| **Schema Validation** | JSON Schema for all API responses | Prevent malformed data |
-| **HTML Sanitization** | DOMPurify sanitizes all content | Prevent XSS attacks |
-| **Input Validation** | Whitelist validation on all inputs | Prevent injection attacks |
-| **SHA-256 Hashing** | Integrity checksums for source data | Detect data tampering |
+| **Schema Validation** | Planned: JSON Schema validation for EP API responses | Prevent malformed data |
+| **HTML Sanitization** | Planned: DOMPurify-based sanitization for rendered HTML | Prevent XSS attacks |
+| **Input Validation** | Planned: Whitelist-based validation for all configurable inputs | Prevent injection attacks |
+| **SHA-256 Hashing** | Planned: SHA-256 checksums for source data integrity | Detect data tampering |
 | **Git Audit Trail** | Complete commit history | Track all changes |
 | **Immutable Articles** | Articles never modified post-generation | Preserve integrity |
 
@@ -1246,7 +1251,7 @@ timeline
                    : Static HTML files
       No Metadata : No generation tracking
 
-    section v1.1 - Multi-Language (2026-Q2)
+    section v1.1 - Multi-Language (2026-Q1)
       14 Languages : en, de, fr, es, it, nl, sv, da, fi, pl, ro, hu, pt, el
                    : Language-specific index pages
                    : Hreflang SEO optimization
@@ -1257,7 +1262,7 @@ timeline
                           : Source data hashing
                           : Workflow run IDs
 
-    section v1.2 - Current (2026-Q2)
+    section v1.2 - Current (2026-Q1)
       Enhanced ER Diagrams : MEP entity model
                            : MCP integration model
                            : Multi-language content model
@@ -1266,7 +1271,7 @@ timeline
                      : GDPR compliance verified
                      : ISO 27001 controls mapped
       Data Flow : Comprehensive data flow diagrams
-                : European Parliament to GitHub Pages
+                : European Parliament to S3 + CloudFront
 
     section v2.0 - Future (2026-Q3)
       Real-Time Updates : WebSocket data streams
@@ -1304,7 +1309,7 @@ No breaking changes to date. All schema changes backward-compatible.
 
 #### European Parliament API Response Validation
 
-All responses from the European Parliament API are validated against JSON Schemas before processing:
+Planned enhancement: responses from the European Parliament API will be validated against JSON Schemas before processing:
 
 **MEP Data Schema:**
 ```json
@@ -1317,7 +1322,7 @@ All responses from the European Parliament API are validated against JSON Schema
     "name": { "type": "string", "minLength": 1, "maxLength": 200 },
     "country": { "type": "string", "pattern": "^[A-Z]{2}$" },
     "party": { "type": "string", "maxLength": 200 },
-    "politicalGroup": { "type": "string", "enum": ["EPP", "S&D", "Renew", "Greens/EFA", "ID", "ECR", "The Left", "NI"] },
+    "politicalGroup": { "type": "string", "enum": ["PPE", "S&D", "Renew", "Greens/EFA", "ID", "ECR", "The Left", "NI"] },
     "committees": { "type": "array", "items": { "type": "string" } },
     "email": { "type": "string", "format": "email" },
     "photoUrl": { "type": "string", "format": "uri", "pattern": "^https://" }
@@ -1353,17 +1358,17 @@ All responses from the European Parliament API are validated against JSON Schema
 
 ### Article Data Validation Rules
 
-**Generated Article Validation:**
+**Generated Article Validation (Planned Enhancements):**
 
 | Field | Validation Rule | Error Handling |
 |-------|-----------------|----------------|
-| `slug` | Alphanumeric + hyphens, max 100 chars | Generation fails, alert sent |
-| `title` | Min 10 chars, max 200 chars | Generation retries with adjusted prompt |
-| `subtitle` | Min 20 chars, max 500 chars | Optional, can be empty |
-| `content_html` | Valid HTML5, no `<script>` tags | HTML sanitization with DOMPurify |
-| `language` | ISO 639-1 code, must be in supported list | Generation fails for that language |
-| `keywords` | Array of strings, max 10 keywords | Truncated to 10 if exceeded |
-| `read_time` | Integer >= 1, <= 60 minutes | Calculated from word count |
+| `slug` | Alphanumeric + hyphens, max 100 chars | Planned: generation fails and alert is sent |
+| `title` | Min 10 chars, max 200 chars | Planned: generation retries with adjusted prompt |
+| `subtitle` | Min 20 chars, max 500 chars | Planned: optional, can be empty |
+| `content_html` | Valid HTML5, no `<script>` tags | Planned: HTML sanitization with DOMPurify |
+| `language` | ISO 639-1 code, must be in supported list | Planned: generation fails for that language |
+| `keywords` | Array of strings, max 10 keywords | Planned: truncated to 10 if exceeded |
+| `read_time` | Integer >= 1, <= 60 minutes | Planned: calculated from word count |
 
 ### HTML Sanitization Requirements (Planned)
 
