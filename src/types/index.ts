@@ -229,6 +229,7 @@ export interface ArticleTypeLabels {
   prospective: string;
   retrospective: string;
   breaking: string;
+  propositions: string;
 }
 
 /** Language-specific title and subtitle */
@@ -253,6 +254,18 @@ export interface CommitteeData {
   documents: CommitteeDocument[];
   effectiveness: string | null;
 }
+/** Localized strings for propositions articles */
+export interface PropositionsStrings {
+  lede: string;
+  proposalsHeading: string;
+  pipelineHeading: string;
+  procedureHeading: string;
+  analysisHeading: string;
+  analysis: string;
+  pipelineHealthLabel: string;
+  throughputRateLabel: string;
+}
+
 /** Options for getMEPs */
 export interface GetMEPsOptions {
   country?: string;

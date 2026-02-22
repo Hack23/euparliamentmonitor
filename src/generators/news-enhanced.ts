@@ -26,6 +26,8 @@ import {
   LANGUAGE_PRESETS,
   WEEK_AHEAD_TITLES,
   MOTIONS_TITLES,
+  PROPOSITIONS_TITLES,
+  PROPOSITIONS_STRINGS,
   BREAKING_NEWS_TITLES,
   COMMITTEE_REPORTS_TITLES,
   getLocalizedString,
@@ -57,6 +59,7 @@ import type {
   VotingPattern,
   VotingAnomaly,
   MotionsQuestion,
+  PropositionsStrings,
 } from '../types/index.js';
 import type { EuropeanParliamentMCPClient } from '../mcp/ep-mcp-client.js';
 
@@ -879,6 +882,7 @@ async function generateBreakingNews(): Promise<GenerationResult> {
           'voting anomalies',
           'coalition dynamics',
         ],
+        keywords: [EP_KEYWORD, 'breaking news', 'voting anomalies', 'coalition dynamics'],
         sources: [],
       });
 
@@ -1562,6 +1566,257 @@ async function fetchMotionsData(
  *
  * @returns Generation result
  */
+/**
+ * Fetch legislative proposals from MCP and return HTML + first procedure ID.
+ * Uses a broad keyword search (no document-type filter) to cover all proposal types.
+ *
+ * @returns Object with HTML string and optional first procedure ID found
+ */
+async function fetchProposalsFromMCP(): Promise<{ html: string; firstProcedureId: string }> {
+  if (!mcpClient) return { html: '', firstProcedureId: '' };
+  const docsResult = await mcpClient.searchDocuments({
+    keyword: 'legislative proposal',
+    limit: 10,
+  });
+  if (!docsResult?.content?.[0]) return { html: '', firstProcedureId: '' };
+  let data: { documents?: Array<Partial<LegislativeDocument>> };
+  try {
+    data = JSON.parse(docsResult.content[0].text) as {
+      documents?: Array<Partial<LegislativeDocument>>;
+    };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn('  ⚠️ Failed to parse proposals JSON:', message);
+    return { html: '', firstProcedureId: '' };
+  }
+  if (!data.documents?.length) return { html: '', firstProcedureId: '' };
+  console.log(`  ✅ Fetched ${data.documents.length} proposals from MCP`);
+  const firstProcedureId =
+    data.documents.find((d) => /\d{4}\/\d+\(.+\)/.test(d.id ?? ''))?.id ?? '';
+  const html = data.documents
+    .map(
+      (doc) => `
+      <div class="proposal-card">
+        <h3>${escapeHTML(doc.title ?? 'Legislative Proposal')}</h3>
+        <div class="proposal-meta">
+          ${doc.id ? `<span class="proposal-id">${escapeHTML(doc.id)}</span>` : ''}
+          ${doc.date ? `<span class="proposal-date">${escapeHTML(doc.date)}</span>` : ''}
+          ${doc.status ? `<span class="proposal-status">${escapeHTML(doc.status)}</span>` : ''}
+        </div>
+        ${doc.committee ? `<p class="proposal-committee">${escapeHTML(doc.committee)}</p>` : ''}
+        ${doc.rapporteur ? `<p class="proposal-rapporteur">${escapeHTML(doc.rapporteur)}</p>` : ''}
+      </div>`
+    )
+    .join('');
+  return { html, firstProcedureId };
+}
+
+/** Structured pipeline data returned from MCP before language-specific rendering */
+interface PipelineData {
+  healthScore: number;
+  throughput: number;
+  procRowsHtml: string;
+}
+
+/**
+ * Fetch legislative pipeline data from MCP server.
+ *
+ * @returns Structured pipeline data, or null if unavailable
+ */
+async function fetchPipelineFromMCP(): Promise<PipelineData | null> {
+  if (!mcpClient) return null;
+  const pipelineResult = await mcpClient.monitorLegislativePipeline({ status: 'ACTIVE', limit: 5 });
+  if (!pipelineResult?.content?.[0]) return null;
+  let pipeData: {
+    pipelineHealthScore?: number;
+    throughputRate?: number;
+    procedures?: Array<{ id?: string; title?: string; stage?: string }>;
+  };
+  try {
+    pipeData = JSON.parse(pipelineResult.content[0].text) as typeof pipeData;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn('  ⚠️ Failed to parse pipeline JSON:', message);
+    return null;
+  }
+  const healthScore = pipeData.pipelineHealthScore ?? 0;
+  const throughput = pipeData.throughputRate ?? 0;
+  const procRowsHtml =
+    pipeData.procedures
+      ?.map(
+        (proc) => `
+      <div class="procedure-item">
+        ${proc.id ? `<span class="procedure-id">${escapeHTML(proc.id)}</span>` : ''}
+        ${proc.title ? `<span class="procedure-title">${escapeHTML(proc.title)}</span>` : ''}
+        ${proc.stage ? `<span class="procedure-stage">${escapeHTML(proc.stage)}</span>` : ''}
+      </div>`
+      )
+      .join('') ?? '';
+  return { healthScore, throughput, procRowsHtml };
+}
+
+/**
+ * Fetch a specific procedure's tracked status HTML from MCP.
+ * Returns empty string if procedureId is empty or MCP unavailable.
+ *
+ * @param procedureId - Procedure identifier e.g. "2024/0001(COD)"
+ * @returns HTML string for procedure status section, or empty string
+ */
+async function fetchProcedureStatusFromMCP(procedureId: string): Promise<string> {
+  if (!procedureId || !mcpClient) return '';
+  try {
+    const result = await mcpClient.trackLegislation(procedureId);
+    if (!result?.content?.[0]) return '';
+    const raw = result.content[0].text;
+    return `<pre class="data-summary">${escapeHTML(raw.slice(0, 2000))}</pre>`;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn('  ⚠️ track_legislation failed:', message);
+    return '';
+  }
+}
+
+/**
+ * Build propositions article HTML content with localized strings.
+ *
+ * **Security contract**: `proposalsHtml`, `procedureHtml`, and
+ * `pipelineData.procRowsHtml` MUST be pre-sanitized HTML — all external
+ * (MCP-sourced) values must have been passed through `escapeHTML()` before
+ * being interpolated into these strings.  The fetch helpers
+ * (`fetchProposalsFromMCP`, `fetchPipelineFromMCP`,
+ * `fetchProcedureStatusFromMCP`) fulfil this contract; callers must do the
+ * same if they construct these arguments independently.
+ *
+ * @param proposalsHtml - Pre-sanitized HTML for proposals list section
+ * @param pipelineData - Structured pipeline data from MCP (null when unavailable);
+ *   `pipelineData.procRowsHtml` must be pre-sanitized HTML
+ * @param procedureHtml - Pre-sanitized HTML for tracked procedure status section (may be empty)
+ * @param strings - Localized string set for the target language
+ * @returns Full article HTML content string
+ */
+export function buildPropositionsContent(
+  proposalsHtml: string,
+  pipelineData: PipelineData | null,
+  procedureHtml: string,
+  strings: PropositionsStrings
+): string {
+  const pipelineHtml = pipelineData
+    ? `
+    <div class="pipeline-metrics">
+      <div class="metric" aria-label="${escapeHTML(strings.pipelineHealthLabel)}">
+        <span class="metric-label">${escapeHTML(strings.pipelineHealthLabel)}</span>
+        <span class="metric-value">${escapeHTML(String(Math.round(pipelineData.healthScore * 100)))}%</span>
+      </div>
+      <div class="metric" aria-label="${escapeHTML(strings.throughputRateLabel)}">
+        <span class="metric-label">${escapeHTML(strings.throughputRateLabel)}</span>
+        <span class="metric-value">${escapeHTML(String(pipelineData.throughput))}</span>
+      </div>
+    </div>
+    ${pipelineData.procRowsHtml}`
+    : '';
+  const procedureSection = procedureHtml
+    ? `
+          <section class="procedure-status">
+            <h2>${escapeHTML(strings.procedureHeading)}</h2>
+            ${procedureHtml}
+          </section>`
+    : '';
+  return `
+        <div class="article-content">
+          <section class="lede">
+            <p>${escapeHTML(strings.lede)}</p>
+          </section>
+
+          <section class="proposals-list">
+            <h2>${escapeHTML(strings.proposalsHeading)}</h2>
+            ${proposalsHtml}
+          </section>
+
+          <section class="pipeline-status">
+            <h2>${escapeHTML(strings.pipelineHeading)}</h2>
+            ${pipelineHtml}
+          </section>
+          ${procedureSection}
+          <section class="analysis">
+            <h2>${escapeHTML(strings.analysisHeading)}</h2>
+            <p>${escapeHTML(strings.analysis)}</p>
+          </section>
+        </div>
+      `;
+}
+
+/**
+ * Generate Propositions article in specified languages
+ *
+ * @returns Generation result
+ */
+async function generatePropositions(): Promise<GenerationResult> {
+  console.log('📜 Generating Propositions article...');
+
+  try {
+    const today = new Date();
+    const slug = `${formatDateForSlug(today)}-propositions`;
+
+    // Fetch proposals and pipeline in parallel
+    console.log('  📡 Fetching legislative data from MCP server...');
+    const [proposalsResult, pipelineResult] = await Promise.allSettled([
+      fetchProposalsFromMCP(),
+      fetchPipelineFromMCP(),
+    ]);
+
+    const { html: proposalsHtml, firstProcedureId } =
+      proposalsResult.status === 'fulfilled'
+        ? proposalsResult.value
+        : { html: '', firstProcedureId: '' };
+
+    const pipelineData = pipelineResult.status === 'fulfilled' ? pipelineResult.value : null;
+
+    // Track the first identified procedure for additional detail
+    const procedureHtml = await fetchProcedureStatusFromMCP(firstProcedureId);
+
+    if (!proposalsHtml)
+      console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
+
+    for (const lang of languages) {
+      console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
+
+      const langTitles = getLocalizedString(PROPOSITIONS_TITLES, lang)();
+      const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
+
+      const content = buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings);
+      const readTime = calculateReadTime(content);
+
+      const html = generateArticleHTML({
+        slug: `${slug}-${lang}.html`,
+        title: langTitles.title,
+        subtitle: langTitles.subtitle,
+        date: today.toISOString().split('T')[0]!,
+        type: 'propositions',
+        readTime,
+        lang,
+        content,
+        keywords: [EP_KEYWORD, 'legislation', 'proposals', 'procedure', 'OLP'],
+        sources: [],
+      });
+
+      writeSingleArticle(html, slug, lang);
+      console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+    }
+
+    console.log('  ✅ Propositions article generated successfully in all requested languages');
+    return { success: true, files: languages.length, slug };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    const stack = error instanceof Error ? error.stack : undefined;
+    console.error('❌ Error generating Propositions:', message);
+    if (stack) {
+      console.error('   Stack:', stack);
+    }
+    stats.errors++;
+    return { success: false, error: message };
+  }
+}
+
 async function generateMotions(): Promise<GenerationResult> {
   console.log('🗳️ Generating Motions article...');
 
@@ -1663,6 +1918,8 @@ async function main(): Promise<void> {
           break;
         case ARTICLE_TYPE_COMMITTEE_REPORTS:
           results.push(await generateCommitteeReports());
+        case 'propositions':
+          results.push(await generatePropositions());
           break;
         case 'motions':
           results.push(await generateMotions());
