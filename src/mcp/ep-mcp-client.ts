@@ -410,9 +410,7 @@ export class EuropeanParliamentMCPClient {
    * @param options - Options including optional MEP id, political group, and date
    * @returns Anomaly detection results
    */
-  async detectVotingAnomalies(
-    options: DetectVotingAnomaliesOptions = {}
-  ): Promise<MCPToolResult> {
+  async detectVotingAnomalies(options: DetectVotingAnomaliesOptions = {}): Promise<MCPToolResult> {
     try {
       return (await this.callTool('detect_voting_anomalies', options)) as MCPToolResult;
     } catch (error) {
