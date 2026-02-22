@@ -10,9 +10,7 @@ import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
 import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, ARTICLE_TYPE_BREAKING, ARTICLE_TYPE_COMMITTEE_REPORTS, ARG_SEPARATOR, } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, MOTIONS_TITLES, BREAKING_NEWS_TITLES, COMMITTEE_REPORTS_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
-import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, ARTICLE_TYPE_BREAKING, ARG_SEPARATOR, } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, MOTIONS_TITLES, PROPOSITIONS_TITLES, PROPOSITIONS_STRINGS, BREAKING_NEWS_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, MOTIONS_TITLES, PROPOSITIONS_TITLES, PROPOSITIONS_STRINGS, BREAKING_NEWS_TITLES, COMMITTEE_REPORTS_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
 import { generateArticleHTML } from '../templates/article-template.js';
 import { getEPMCPClient, closeEPMCPClient } from '../mcp/ep-mcp-client.js';
 import { formatDateForSlug, calculateReadTime, ensureDirectoryExists, escapeHTML, } from '../utils/file-utils.js';
@@ -754,7 +752,6 @@ async function generateBreakingNews() {
                     'voting anomalies',
                     'coalition dynamics',
                 ],
-                keywords: [EP_KEYWORD, 'breaking news', 'voting anomalies', 'coalition dynamics'],
                 sources: [],
             });
             writeSingleArticle(html, slug, lang);
@@ -1534,7 +1531,7 @@ async function generatePropositions() {
                 readTime,
                 lang,
                 content,
-                keywords: [EP_KEYWORD, 'legislation', 'proposals', 'procedure', 'OLP'],
+                keywords: [KEYWORD_EUROPEAN_PARLIAMENT, 'legislation', 'proposals', 'procedure', 'OLP'],
                 sources: [],
             });
             writeSingleArticle(html, slug, lang);
@@ -1631,6 +1628,7 @@ async function main() {
                     break;
                 case ARTICLE_TYPE_COMMITTEE_REPORTS:
                     results.push(await generateCommitteeReports());
+                    break;
                 case 'propositions':
                     results.push(await generatePropositions());
                     break;

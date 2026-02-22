@@ -882,7 +882,6 @@ async function generateBreakingNews(): Promise<GenerationResult> {
           'voting anomalies',
           'coalition dynamics',
         ],
-        keywords: [EP_KEYWORD, 'breaking news', 'voting anomalies', 'coalition dynamics'],
         sources: [],
       });
 
@@ -1795,7 +1794,7 @@ async function generatePropositions(): Promise<GenerationResult> {
         readTime,
         lang,
         content,
-        keywords: [EP_KEYWORD, 'legislation', 'proposals', 'procedure', 'OLP'],
+        keywords: [KEYWORD_EUROPEAN_PARLIAMENT, 'legislation', 'proposals', 'procedure', 'OLP'],
         sources: [],
       });
 
@@ -1918,6 +1917,7 @@ async function main(): Promise<void> {
           break;
         case ARTICLE_TYPE_COMMITTEE_REPORTS:
           results.push(await generateCommitteeReports());
+          break;
         case 'propositions':
           results.push(await generatePropositions());
           break;
