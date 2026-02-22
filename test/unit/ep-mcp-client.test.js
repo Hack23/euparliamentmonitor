@@ -423,6 +423,107 @@ describe('ep-mcp-client', () => {
       it('should track legislation', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"status": "first_reading"}' }],
+      it('should get MEP details', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"mep": {"id": "MEP-123"}}' }],
+        });
+
+        await client.getMEPDetails('MEP-123');
+
+        expect(client.callTool).toHaveBeenCalledWith('get_mep_details', { id: 'MEP-123' });
+      });
+
+      it('should handle missing get_mep_details tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getMEPDetails('MEP-123');
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"mep": null}' }],
+        });
+      });
+
+      it('should return null fallback for empty id in getMEPDetails', async () => {
+        const result = await client.getMEPDetails('');
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"mep": null}' }],
+        });
+      });
+
+      it('should return null fallback for whitespace-only id in getMEPDetails', async () => {
+        const result = await client.getMEPDetails('   ');
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"mep": null}' }],
+        });
+      });
+
+      it('should get voting records', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"votes": []}' }],
+        });
+
+        const options = { mepId: 'MEP-123', sessionId: 'SESSION-1', limit: 50 };
+        await client.getVotingRecords(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_voting_records', options);
+      });
+
+      it('should handle missing get_voting_records tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getVotingRecords();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"votes": []}' }],
+        });
+      });
+
+      it('should analyze voting patterns', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"patterns": {}}' }],
+        });
+
+        const options = { mepId: 'MEP-123', compareWithGroup: true };
+        await client.analyzeVotingPatterns(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('analyze_voting_patterns', options);
+      });
+
+      it('should handle missing analyze_voting_patterns tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.analyzeVotingPatterns({ mepId: 'MEP-123' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"patterns": null}' }],
+        });
+      });
+
+      it('should return null fallback for empty mepId in analyzeVotingPatterns', async () => {
+        const result = await client.analyzeVotingPatterns({ mepId: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"patterns": null}' }],
+        });
+      });
+
+      it('should return null fallback for whitespace-only mepId in analyzeVotingPatterns', async () => {
+        const result = await client.analyzeVotingPatterns({ mepId: '   ' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"patterns": null}' }],
+        });
+      });
+
+      it('should track legislation', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"procedure": {}}' }],
         });
 
         await client.trackLegislation('2024/0001(COD)');
@@ -439,6 +540,64 @@ describe('ep-mcp-client', () => {
 
         expect(result).toEqual({
           content: [{ type: 'text', text: '{}' }],
+          content: [{ type: 'text', text: '{"procedure": null}' }],
+        });
+      });
+
+      it('should return null fallback for empty procedureId in trackLegislation', async () => {
+        const result = await client.trackLegislation('');
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"procedure": null}' }],
+        });
+      });
+
+      it('should return null fallback for whitespace-only procedureId in trackLegislation', async () => {
+        const result = await client.trackLegislation('   ');
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"procedure": null}' }],
+        });
+      });
+
+      it('should generate report', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"report": {}}' }],
+        });
+
+        const options = { reportType: 'MEP_ACTIVITY', subjectId: 'MEP-123', dateFrom: '2025-01-01' };
+        await client.generateReport(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('generate_report', options);
+      });
+
+      it('should handle missing generate_report tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.generateReport({ reportType: 'VOTING_STATISTICS' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"report": null}' }],
+        });
+      });
+
+      it('should return null fallback for empty reportType in generateReport', async () => {
+        const result = await client.generateReport({ reportType: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"report": null}' }],
+        });
+      });
+
+      it('should return null fallback for whitespace-only reportType in generateReport', async () => {
+        const result = await client.generateReport({ reportType: '   ' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"report": null}' }],
         });
       });
     });

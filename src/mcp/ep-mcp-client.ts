@@ -16,6 +16,9 @@ import type {
   JSONRPCRequest,
   JSONRPCResponse,
   PendingRequest,
+  VotingRecordsOptions,
+  VotingPatternsOptions,
+  GenerateReportOptions,
 } from '../types/index.js';
 
 /** npm binary name for the European Parliament MCP server */
@@ -261,8 +264,11 @@ export class EuropeanParliamentMCPClient {
    * @param args - Tool arguments
    * @returns Tool execution result
    */
-  async callTool(name: string, args: Record<string, unknown> = {}): Promise<unknown> {
-    return await this.sendRequest('tools/call', { name, arguments: args });
+  async callTool(name: string, args: object = {}): Promise<MCPToolResult> {
+    return (await this.sendRequest('tools/call', {
+      name,
+      arguments: args,
+    })) as MCPToolResult;
   }
 
   /**
@@ -271,8 +277,14 @@ export class EuropeanParliamentMCPClient {
    * @param options - Filter options
    * @returns List of MEPs
    */
-  async getMEPs(options: Record<string, unknown> = {}): Promise<unknown> {
-    return await this.callTool('get_meps', options);
+  async getMEPs(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_meps', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_meps not available:', message);
+      return { content: [{ type: 'text', text: '{"meps": []}' }] };
+    }
   }
 
   /**
@@ -283,7 +295,7 @@ export class EuropeanParliamentMCPClient {
    */
   async getPlenarySessions(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('get_plenary_sessions', options)) as MCPToolResult;
+      return await this.callTool('get_plenary_sessions', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_plenary_sessions not available:', message);
@@ -299,7 +311,7 @@ export class EuropeanParliamentMCPClient {
    */
   async searchDocuments(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('search_documents', options)) as MCPToolResult;
+      return await this.callTool('search_documents', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('search_documents not available:', message);
@@ -315,7 +327,7 @@ export class EuropeanParliamentMCPClient {
    */
   async getParliamentaryQuestions(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('get_parliamentary_questions', options)) as MCPToolResult;
+      return await this.callTool('get_parliamentary_questions', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_parliamentary_questions not available:', message);
@@ -331,7 +343,7 @@ export class EuropeanParliamentMCPClient {
    */
   async getCommitteeInfo(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('get_committee_info', options)) as MCPToolResult;
+      return await this.callTool('get_committee_info', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_committee_info not available:', message);
@@ -347,7 +359,7 @@ export class EuropeanParliamentMCPClient {
    */
   async monitorLegislativePipeline(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('monitor_legislative_pipeline', options)) as MCPToolResult;
+      return await this.callTool('monitor_legislative_pipeline', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('monitor_legislative_pipeline not available:', message);
@@ -368,6 +380,108 @@ export class EuropeanParliamentMCPClient {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('track_legislation not available:', message);
       return { content: [{ type: 'text', text: '{}' }] };
+   * Get detailed information about a specific MEP
+   *
+   * @param id - MEP identifier (must be non-empty)
+   * @returns Detailed MEP information including biography, contact, and activities
+   */
+  async getMEPDetails(id: string): Promise<MCPToolResult> {
+    if (typeof id !== 'string' || id.trim().length === 0) {
+      console.warn('get_mep_details called without valid id (non-empty string required)');
+      return { content: [{ type: 'text', text: '{"mep": null}' }] };
+    }
+    try {
+      return await this.callTool('get_mep_details', { id: id.trim() });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_mep_details not available:', message);
+      return { content: [{ type: 'text', text: '{"mep": null}' }] };
+    }
+  }
+
+  /**
+   * Retrieve voting records with optional filters
+   *
+   * @param options - Filter options (mepId, sessionId, limit)
+   * @returns Voting records data
+   */
+  async getVotingRecords(options: VotingRecordsOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_voting_records', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_voting_records not available:', message);
+      return { content: [{ type: 'text', text: '{"votes": []}' }] };
+    }
+  }
+
+  /**
+   * Analyze voting behavior patterns for an MEP
+   *
+   * @param options - Analysis options (mepId required non-empty, dateFrom, compareWithGroup)
+   * @returns Voting pattern analysis
+   */
+  async analyzeVotingPatterns(options: VotingPatternsOptions): Promise<MCPToolResult> {
+    if (typeof options.mepId !== 'string' || options.mepId.trim().length === 0) {
+      console.warn(
+        'analyze_voting_patterns called without valid mepId (non-empty string required)'
+      );
+      return { content: [{ type: 'text', text: '{"patterns": null}' }] };
+    }
+    try {
+      return await this.callTool('analyze_voting_patterns', {
+        ...options,
+        mepId: options.mepId.trim(),
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('analyze_voting_patterns not available:', message);
+      return { content: [{ type: 'text', text: '{"patterns": null}' }] };
+    }
+  }
+
+  /**
+   * Track a legislative procedure by its identifier
+   *
+   * @param procedureId - Legislative procedure identifier (must be non-empty)
+   * @returns Procedure status and timeline
+   */
+  async trackLegislation(procedureId: string): Promise<MCPToolResult> {
+    if (typeof procedureId !== 'string' || procedureId.trim().length === 0) {
+      console.warn(
+        'track_legislation called without valid procedureId (non-empty string required)'
+      );
+      return { content: [{ type: 'text', text: '{"procedure": null}' }] };
+    }
+    try {
+      return await this.callTool('track_legislation', { procedureId: procedureId.trim() });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('track_legislation not available:', message);
+      return { content: [{ type: 'text', text: '{"procedure": null}' }] };
+    }
+  }
+
+  /**
+   * Generate an analytical report
+   *
+   * @param options - Report options (reportType required non-empty, subjectId, dateFrom)
+   * @returns Generated report data
+   */
+  async generateReport(options: GenerateReportOptions): Promise<MCPToolResult> {
+    if (typeof options.reportType !== 'string' || options.reportType.trim().length === 0) {
+      console.warn('generate_report called without valid reportType (non-empty string required)');
+      return { content: [{ type: 'text', text: '{"report": null}' }] };
+    }
+    try {
+      return await this.callTool('generate_report', {
+        ...options,
+        reportType: options.reportType.trim(),
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('generate_report not available:', message);
+      return { content: [{ type: 'text', text: '{"report": null}' }] };
     }
   }
 }
