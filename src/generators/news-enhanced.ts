@@ -400,12 +400,10 @@ async function fetchWeekAheadData(dateRange: DateRange): Promise<WeekAheadData> 
 
   const [plenarySessions, committeeInfo, documents, pipeline, questions] = await Promise.allSettled(
     [
-      mcpClient.getPlenarySessions({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 50 }),
-      mcpClient.getCommitteeInfo({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
+      mcpClient.getPlenarySessions({ startDate: dateRange.start, endDate: dateRange.end, limit: 50 }),
+      mcpClient.getCommitteeInfo({ limit: 20 }),
       mcpClient.searchDocuments({
-        keyword: 'parliament',
-        dateFrom: dateRange.start,
-        dateTo: dateRange.end,
+        query: 'parliament',
         limit: 20,
       }),
       mcpClient.monitorLegislativePipeline({
@@ -415,8 +413,7 @@ async function fetchWeekAheadData(dateRange: DateRange): Promise<WeekAheadData> 
         limit: 20,
       }),
       mcpClient.getParliamentaryQuestions({
-        dateFrom: dateRange.start,
-        dateTo: dateRange.end,
+        startDate: dateRange.start,
         limit: 20,
       }),
     ]
@@ -905,7 +902,7 @@ async function generateBreakingNews(): Promise<GenerationResult> {
  * @param data - Committee data object to update
  * @param abbreviation - Committee abbreviation
  */
-function applyCommitteeInfo(result: MCPToolResult, data: CommitteeData, abbreviation: string): void {
+export function applyCommitteeInfo(result: MCPToolResult, data: CommitteeData, abbreviation: string): void {
   try {
     if (!result?.content?.[0]) return;
     const parsed = JSON.parse(result.content[0].text) as {
@@ -936,16 +933,16 @@ function applyCommitteeInfo(result: MCPToolResult, data: CommitteeData, abbrevia
  * @param result - MCP tool result
  * @param data - Committee data object to update
  */
-function applyDocuments(result: MCPToolResult, data: CommitteeData): void {
+export function applyDocuments(result: MCPToolResult, data: CommitteeData): void {
   try {
     if (!result?.content?.[0]) return;
     const parsed = JSON.parse(result.content[0].text) as {
-      documents?: Array<{ title?: string; documentType?: string; date?: string }>;
+      documents?: Array<{ title?: string; type?: string; documentType?: string; date?: string }>;
     };
     if (!parsed.documents || parsed.documents.length === 0) return;
     data.documents = parsed.documents.map((d) => ({
       title: d.title ?? 'Untitled Document',
-      type: d.documentType ?? 'Document',
+      type: d.type ?? d.documentType ?? 'Document',
       date: d.date ?? '',
     }));
     console.log(`  ✅ Fetched ${data.documents.length} documents from MCP`);
@@ -961,7 +958,7 @@ function applyDocuments(result: MCPToolResult, data: CommitteeData): void {
  * @param result - MCP tool result
  * @param data - Committee data object to update
  */
-function applyEffectiveness(result: MCPToolResult, data: CommitteeData): void {
+export function applyEffectiveness(result: MCPToolResult, data: CommitteeData): void {
   try {
     if (!result?.content?.[0]) return;
     const parsed = JSON.parse(result.content[0].text) as {
@@ -1006,7 +1003,7 @@ async function fetchCommitteeData(abbreviation: string): Promise<CommitteeData> 
   // Each MCP call is isolated so a failure in one doesn't block the others
   try {
     console.log(`  📡 Fetching committee info for ${abbreviation}...`);
-    const committeeResult = await mcpClient.getCommitteeInfo({ abbreviation });
+    const committeeResult = await mcpClient.getCommitteeInfo({ committeeId: abbreviation });
     applyCommitteeInfo(committeeResult, defaultResult, abbreviation);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -1015,7 +1012,7 @@ async function fetchCommitteeData(abbreviation: string): Promise<CommitteeData> 
 
   try {
     console.log(`  📡 Fetching documents for ${abbreviation}...`);
-    const docsResult = await mcpClient.searchDocuments({ committee: abbreviation, limit: 5 });
+    const docsResult = await mcpClient.searchDocuments({ query: abbreviation, limit: 5 });
     applyDocuments(docsResult, defaultResult);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -1049,8 +1046,18 @@ async function generateCommitteeReports(): Promise<GenerationResult> {
     const today = new Date();
     const slug = `${formatDateForSlug(today)}-${ARTICLE_TYPE_COMMITTEE_REPORTS}`;
 
-    const committeeDataList = await Promise.all(
-      FEATURED_COMMITTEES.map((abbr) => fetchCommitteeData(abbr))
+    const committeeDataRaw = await Promise.all(
+      FEATURED_COMMITTEES.map((abbr) =>
+        fetchCommitteeData(abbr).catch((error) => {
+          const message = error instanceof Error ? error.message : String(error);
+          console.error(`  ⚠️ Failed to fetch data for committee ${abbr}:`, message);
+          return null;
+        })
+      )
+    );
+
+    const committeeDataList = committeeDataRaw.filter(
+      (committee): committee is CommitteeData => committee !== null
     );
 
     for (const lang of languages) {
