@@ -402,6 +402,8 @@ async function fetchParliamentaryQuestions(dateFromStr, dateStr) {
     }
     return [];
 }
+/** Marker string used in all fallback/placeholder data to indicate MCP data is unavailable */
+const PLACEHOLDER_MARKER = 'DATA_UNAVAILABLE (placeholder)';
 /**
  * Get fallback data for motions article
  *
@@ -413,42 +415,49 @@ function getMotionsFallbackData(dateStr, dateFromStr) {
     return {
         votingRecords: [
             {
-                title: 'Resolution on Climate Action',
+                title: 'Example motion (placeholder – data unavailable)',
                 date: dateStr,
-                result: 'Adopted',
-                votes: { for: 450, against: 120, abstain: 30 },
+                result: PLACEHOLDER_MARKER,
+                votes: { for: 0, against: 0, abstain: 0 },
             },
             {
-                title: 'Digital Markets Act Amendment',
+                title: 'Example amendment (placeholder – data unavailable)',
                 date: dateFromStr,
-                result: 'Rejected',
-                votes: { for: 280, against: 310, abstain: 10 },
+                result: PLACEHOLDER_MARKER,
+                votes: { for: 0, against: 0, abstain: 0 },
             },
         ],
         votingPatterns: [
-            { group: 'EPP', cohesion: 0.85, participation: 0.92 },
-            { group: 'S&D', cohesion: 0.78, participation: 0.89 },
-            { group: 'Greens/EFA', cohesion: 0.82, participation: 0.91 },
+            {
+                group: 'Example group A (placeholder)',
+                cohesion: 0.0,
+                participation: 0.0,
+            },
+            {
+                group: 'Example group B (placeholder)',
+                cohesion: 0.0,
+                participation: 0.0,
+            },
         ],
         anomalies: [
             {
-                type: 'Cross-Party Defection',
-                description: 'Unusual number of EPP members voted with opposition on agricultural policy',
-                severity: 'MEDIUM',
+                type: 'Placeholder example',
+                description: 'No real anomaly data available from MCP – this is illustrative placeholder content only.',
+                severity: 'LOW',
             },
         ],
         questions: [
             {
-                author: 'Maria Silva (S&D, PT)',
-                topic: 'EU energy security measures',
+                author: 'Placeholder MEP 1',
+                topic: 'Placeholder parliamentary question on energy security (MCP data unavailable)',
                 date: dateStr,
-                status: 'ANSWERED',
+                status: PLACEHOLDER_MARKER,
             },
             {
-                author: 'Hans Mueller (EPP, DE)',
-                topic: 'Migration policy coordination',
+                author: 'Placeholder MEP 2',
+                topic: 'Placeholder parliamentary question on migration policy (MCP data unavailable)',
                 date: dateFromStr,
-                status: 'PENDING',
+                status: PLACEHOLDER_MARKER,
             },
         ],
     };

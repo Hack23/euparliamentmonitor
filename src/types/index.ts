@@ -185,3 +185,33 @@ export interface LangTitleSubtitle {
   title: string;
   subtitle: string;
 }
+
+/** Voting record from MCP or fallback */
+export interface VotingRecord {
+  title: string;
+  date: string;
+  result: string;
+  votes: { for: number; against: number; abstain: number };
+}
+
+/** Voting pattern (party cohesion) from MCP or fallback */
+export interface VotingPattern {
+  group: string;
+  cohesion: number;
+  participation: number;
+}
+
+/** Voting anomaly from MCP or fallback */
+export interface VotingAnomaly {
+  type: string;
+  description: string;
+  severity: string;
+}
+
+/** Parliamentary question from MCP or fallback */
+export interface ParliamentaryQuestion {
+  author: string;
+  topic: string;
+  date: string;
+  status: string;
+}

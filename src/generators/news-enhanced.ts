@@ -43,6 +43,10 @@ import type {
   GenerationStats,
   GenerationResult,
   MCPToolResult,
+  VotingRecord,
+  VotingPattern,
+  VotingAnomaly,
+  ParliamentaryQuestion,
 } from '../types/index.js';
 import type { EuropeanParliamentMCPClient } from '../mcp/ep-mcp-client.js';
 
@@ -336,7 +340,7 @@ async function generateWeekAhead(): Promise<GenerationResult> {
 async function fetchVotingRecords(
   dateFromStr: string,
   dateStr: string
-): Promise<Array<{ title: string; date: string; result: string; votes: { for: number; against: number; abstain: number } }>> {
+): Promise<VotingRecord[]> {
   if (!mcpClient) return [];
 
   try {
@@ -383,7 +387,7 @@ async function fetchVotingRecords(
 async function fetchVotingPatterns(
   dateFromStr: string,
   dateStr: string
-): Promise<Array<{ group: string; cohesion: number; participation: number }>> {
+): Promise<VotingPattern[]> {
   if (!mcpClient) return [];
 
   try {
@@ -424,7 +428,7 @@ async function fetchVotingPatterns(
 async function fetchVotingAnomalies(
   dateFromStr: string,
   dateStr: string
-): Promise<Array<{ type: string; description: string; severity: string }>> {
+): Promise<VotingAnomaly[]> {
   if (!mcpClient) return [];
 
   try {
@@ -465,7 +469,7 @@ async function fetchVotingAnomalies(
 async function fetchParliamentaryQuestions(
   dateFromStr: string,
   dateStr: string
-): Promise<Array<{ author: string; topic: string; date: string; status: string }>> {
+): Promise<ParliamentaryQuestion[]> {
   if (!mcpClient) return [];
 
   try {
@@ -498,6 +502,9 @@ async function fetchParliamentaryQuestions(
   return [];
 }
 
+/** Marker string used in all fallback/placeholder data to indicate MCP data is unavailable */
+const PLACEHOLDER_MARKER = 'DATA_UNAVAILABLE (placeholder)';
+
 /**
  * Get fallback data for motions article
  *
@@ -506,50 +513,58 @@ async function fetchParliamentaryQuestions(
  * @returns Object with all fallback data arrays
  */
 function getMotionsFallbackData(dateStr: string, dateFromStr: string): {
-  votingRecords: Array<{ title: string; date: string; result: string; votes: { for: number; against: number; abstain: number } }>;
-  votingPatterns: Array<{ group: string; cohesion: number; participation: number }>;
-  anomalies: Array<{ type: string; description: string; severity: string }>;
-  questions: Array<{ author: string; topic: string; date: string; status: string }>;
+  votingRecords: VotingRecord[];
+  votingPatterns: VotingPattern[];
+  anomalies: VotingAnomaly[];
+  questions: ParliamentaryQuestion[];
 } {
   return {
     votingRecords: [
       {
-        title: 'Resolution on Climate Action',
+        title: 'Example motion (placeholder – data unavailable)',
         date: dateStr,
-        result: 'Adopted',
-        votes: { for: 450, against: 120, abstain: 30 },
+        result: PLACEHOLDER_MARKER,
+        votes: { for: 0, against: 0, abstain: 0 },
       },
       {
-        title: 'Digital Markets Act Amendment',
+        title: 'Example amendment (placeholder – data unavailable)',
         date: dateFromStr,
-        result: 'Rejected',
-        votes: { for: 280, against: 310, abstain: 10 },
+        result: PLACEHOLDER_MARKER,
+        votes: { for: 0, against: 0, abstain: 0 },
       },
     ],
     votingPatterns: [
-      { group: 'EPP', cohesion: 0.85, participation: 0.92 },
-      { group: 'S&D', cohesion: 0.78, participation: 0.89 },
-      { group: 'Greens/EFA', cohesion: 0.82, participation: 0.91 },
+      {
+        group: 'Example group A (placeholder)',
+        cohesion: 0.0,
+        participation: 0.0,
+      },
+      {
+        group: 'Example group B (placeholder)',
+        cohesion: 0.0,
+        participation: 0.0,
+      },
     ],
     anomalies: [
       {
-        type: 'Cross-Party Defection',
-        description: 'Unusual number of EPP members voted with opposition on agricultural policy',
-        severity: 'MEDIUM',
+        type: 'Placeholder example',
+        description:
+          'No real anomaly data available from MCP – this is illustrative placeholder content only.',
+        severity: 'LOW',
       },
     ],
     questions: [
       {
-        author: 'Maria Silva (S&D, PT)',
-        topic: 'EU energy security measures',
+        author: 'Placeholder MEP 1',
+        topic: 'Placeholder parliamentary question on energy security (MCP data unavailable)',
         date: dateStr,
-        status: 'ANSWERED',
+        status: PLACEHOLDER_MARKER,
       },
       {
-        author: 'Hans Mueller (EPP, DE)',
-        topic: 'Migration policy coordination',
+        author: 'Placeholder MEP 2',
+        topic: 'Placeholder parliamentary question on migration policy (MCP data unavailable)',
         date: dateFromStr,
-        status: 'PENDING',
+        status: PLACEHOLDER_MARKER,
       },
     ],
   };
@@ -569,10 +584,10 @@ function getMotionsFallbackData(dateStr: string, dateFromStr: string): {
 function generateMotionsContent(
   dateFromStr: string,
   dateStr: string,
-  votingRecords: Array<{ title: string; date: string; result: string; votes: { for: number; against: number; abstain: number } }>,
-  votingPatterns: Array<{ group: string; cohesion: number; participation: number }>,
-  anomalies: Array<{ type: string; description: string; severity: string }>,
-  questions: Array<{ author: string; topic: string; date: string; status: string }>
+  votingRecords: VotingRecord[],
+  votingPatterns: VotingPattern[],
+  anomalies: VotingAnomaly[],
+  questions: ParliamentaryQuestion[]
 ): string {
   return `
     <div class="article-content">
@@ -658,10 +673,10 @@ function generateMotionsContent(
  * @returns Object with all motions data
  */
 async function fetchMotionsData(dateFromStr: string, dateStr: string): Promise<{
-  votingRecords: Array<{ title: string; date: string; result: string; votes: { for: number; against: number; abstain: number } }>;
-  votingPatterns: Array<{ group: string; cohesion: number; participation: number }>;
-  anomalies: Array<{ type: string; description: string; severity: string }>;
-  questions: Array<{ author: string; topic: string; date: string; status: string }>;
+  votingRecords: VotingRecord[];
+  votingPatterns: VotingPattern[];
+  anomalies: VotingAnomaly[];
+  questions: ParliamentaryQuestion[];
 }> {
   // Fetch data from MCP
   let votingRecords = await fetchVotingRecords(dateFromStr, dateStr);
