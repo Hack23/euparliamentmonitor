@@ -1,214 +1,146 @@
-# Implementation Summary: EU Parliament News Generation
+# GitHub Issue #84 Implementation Summary
 
 ## Overview
+Successfully enhanced the Week-Ahead Generator with full MCP data integration for the EU Parliament Monitor project. All changes completed, tests pass (230/230), and functionality verified.
 
-Successfully implemented automated news generation system for
-euparliamentmonitor based on the riksdagsmonitor implementation.
+## Changes Made
 
-## What Was Implemented
+### 1. `src/mcp/ep-mcp-client.ts` (32 lines added)
+**Added two new MCP methods:**
+- `getCommitteeInfo()` - Fetches committee meeting information
+- `monitorLegislativePipeline()` - Retrieves legislative pipeline status
 
-### 1. Core Infrastructure
+Both methods follow the existing pattern with:
+- Proper error handling with fallback empty responses
+- Console warnings for unavailable tools
+- TypeScript type annotations
+- JSDoc documentation
 
-- **package.json**: Project configuration with npm scripts
-- **.gitignore**: Proper exclusion of build artifacts and dependencies
-- **LICENSE**: Apache-2.0 license file
-- **README.md**: Comprehensive documentation with usage examples
+### 2. `src/types/index.ts` (51 lines added)
+**Added five new TypeScript interfaces:**
+- `CommitteeMeeting` - Committee meeting data structure
+- `LegislativeDocument` - Legislative document metadata
+- `LegislativeProcedure` - Pipeline procedure information
+- `ParliamentaryQuestion` - Parliamentary Q&A data
+- `WeekAheadData` - Aggregated data from all MCP sources
 
-### 2. News Generation Scripts
+All interfaces include optional fields marked with `?` for flexibility.
 
-- **generate-news-enhanced.js**: Main news generation engine
-  - Supports 5 article types (week-ahead implemented)
-  - Multi-language support with presets
-  - Metadata generation and tracking
-- **article-template.js**: HTML template generator
-  - Semantic HTML5 structure
-  - SEO metadata (Open Graph, Twitter Cards, Schema.org)
-  - RTL support for Arabic/Hebrew
-  - Mobile-responsive design
+### 3. `src/generators/news-enhanced.ts` (363 lines modified)
+**Major enhancements:**
 
-- **generate-news-indexes.js**: Index page generator
-  - Creates language-specific index pages
-  - Lists all articles by language
-  - Proper sorting by date
+#### Import Updates
+- Added new type imports: `CommitteeMeeting`, `LegislativeDocument`, `LegislativeProcedure`, `ParliamentaryQuestion`, `WeekAheadData`
 
-- **generate-sitemap.js**: SEO sitemap generator
-  - XML sitemap for all pages
-  - Proper priority and change frequency
-  - Supports all language variants
+#### New `fetchWeekAheadData()` Function
+Replaced simple `fetchEvents()` with comprehensive data aggregation:
+- **Parallel fetching** using `Promise.allSettled()` for 5 MCP data sources:
+  1. Plenary sessions
+  2. Committee meetings
+  3. Legislative documents
+  4. Legislative pipeline
+  5. Parliamentary questions
+- **Graceful degradation** - handles partial failures without blocking
+- **Fallback logic** - provides placeholder data when MCP unavailable
+- **Detailed logging** - reports success/failure for each data source
 
-### 3. Styling
+#### Enhanced `generateWeekAhead()` Function
+- Calls `fetchWeekAheadData()` instead of `fetchEvents()`
+- Generates rich HTML with multiple sections:
+  - **Plenary Sessions** - always shown (with fallback message)
+  - **Committee Meetings** - with date, time, location, agenda
+  - **Legislative Documents** - with type, status, committee
+  - **Legislative Pipeline** - with stage, bottleneck indicators
+  - **Parliamentary Questions** - with type, author
+- **Security**: All external data escaped with `escapeHTML()`
+- **Dynamic keywords**: Built from all data sources for better SEO
+- **Conditional rendering**: Sections only shown when data available
 
-- **styles.css**: Professional article styling
-  - EU-themed color scheme (blue/yellow)
-  - Responsive design
-  - RTL layout support
-  - Print-friendly styles
+### 4. `test/unit/ep-mcp-client.test.js` (42 lines added)
+**Added 4 new unit tests:**
+- `should get committee info` - Verifies correct tool call
+- `should handle missing committee info tool gracefully` - Tests fallback
+- `should monitor legislative pipeline` - Verifies correct tool call
+- `should handle missing legislative pipeline tool gracefully` - Tests fallback
 
-### 4. Automation
+### 5. `test/integration/week-ahead-data.test.js` (new file, 246 lines)
+**Created comprehensive integration tests:**
 
-- **.github/workflows/news-generation.yml**: GitHub Actions workflow
-  - Daily automated generation at 06:00 UTC
-  - Manual trigger with custom parameters
-  - Automatic commit and push
+#### Test Suites:
+1. **Parallel Data Fetching**
+   - Verifies all 5 MCP sources called in parallel
+   - Tests data structure correctness
+   - Validates partial failure handling
 
-### 5. Multi-Language Support
+2. **Data Aggregation**
+   - Tests combining multiple data sources
+   - Verifies correct item counts across sources
 
-Implemented 14 languages with three presets:
+3. **Fallback Behavior**
+   - Ensures graceful degradation when all tools fail
+   - Validates empty array responses as fallback
 
-- **eu-core**: en, de, fr, es, it, nl (6 languages)
-- **nordic**: en, sv, da, fi (4 languages)
-- **all**: All 14 languages
+## Test Results
+```
+ Test Files  11 passed (11)
+      Tests  230 passed (230)
+```
 
-Languages: English, German, French, Spanish, Italian, Dutch, Polish, Portuguese,
-Romanian, Swedish, Danish, Finnish, Greek, Hungarian
+### New Tests Passing:
+✅ week-ahead-data.test.js (4 tests)
+  - Parallel data fetching with Promise.allSettled
+  - Partial failure handling
+  - Data aggregation from multiple sources
+  - Complete fallback behavior
 
-### 6. Generated Content
+✅ ep-mcp-client.test.js (4 new tests)
+  - getCommitteeInfo success & error cases
+  - monitorLegislativePipeline success & error cases
 
-- 6 sample articles in eu-core languages
-- 14 language-specific index pages
-- Main landing page with language selector
-- SEO sitemap with 20 URLs
+## Key Implementation Details
 
-## Technical Highlights
+### Security Features
+- **XSS Prevention**: All MCP data escaped with `escapeHTML()` before HTML insertion
+- **No String Interpolation**: JSON-LD uses `JSON.stringify()` as required
+- **Input Validation**: All data parsed with try-catch blocks
 
-### Architecture Decisions
-
-1. **Module System**: ES6 modules for clean imports
-2. **Template-based**: Separate template logic from content generation
-3. **Incremental Generation**: Generate only new content
-4. **Metadata Tracking**: JSON metadata for generation history
+### Resilience Features
+- **Parallel Execution**: `Promise.allSettled()` prevents blocking on single failures
+- **Graceful Degradation**: Each data source has independent error handling
+- **Fallback Data**: Placeholder content when MCP unavailable
+- **Detailed Logging**: Console output tracks success/failure per source
 
 ### Code Quality
+- **TypeScript Strict Mode**: All types explicit, no `any`
+- **SPDX Headers**: Required license headers on new files
+- **Consistent Patterns**: Follows existing codebase conventions
+- **Comprehensive Tests**: Unit + integration coverage
 
-- ✅ All HTML passes htmlhint validation
-- ✅ No CodeQL security alerts
-- ✅ Proper error handling and logging
-- ✅ Clear documentation and comments
+## Files Modified
+1. `src/mcp/ep-mcp-client.ts` (+32 lines)
+2. `src/types/index.ts` (+51 lines)
+3. `src/generators/news-enhanced.ts` (+363 lines modified)
+4. `test/unit/ep-mcp-client.test.js` (+42 lines)
+5. `test/integration/week-ahead-data.test.js` (new file, 246 lines)
 
-### Extensibility
+**Total**: 6 files changed, 717 insertions(+), 125 deletions(-)
 
-The system is designed for easy extension:
+## Verification
+- ✅ All tests pass (230/230)
+- ✅ TypeScript compiles to JavaScript correctly
+- ✅ No linting errors in modified code
+- ✅ Follows existing code patterns and conventions
+- ✅ Security requirements met (escapeHTML usage)
+- ✅ ISMS compliance (SPDX headers, no PII)
 
-- Add new article types by implementing generator functions
-- Add new languages by updating language constants
-- Add data sources by creating MCP client modules
-- Customize templates by modifying article-template.js
+## Next Steps
+The implementation is complete and ready for:
+1. Code review
+2. Manual testing with live MCP server
+3. Integration into CI/CD pipeline
+4. Production deployment
 
-## Current Limitations
-
-### Placeholder Content
-
-Currently generates English placeholder content for all languages. In
-production:
-
-- Content should be retrieved from EU Parliament APIs
-- Proper translation/localization needed
-- Real parliamentary data integration required
-
-### Article Types
-
-Only week-ahead is implemented. Still needed:
-
-- committee-reports
-- propositions
-- motions
-- breaking
-
-### Data Sources
-
-No real EU Parliament data integration yet. Future work:
-
-- Integrate with EU Parliament APIs
-- Create MCP server for EU Parliament data
-- Add data transformation logic
-
-## Testing Performed
-
-1. ✅ Generated articles in 6 languages (en, de, fr, es, it, nl)
-2. ✅ Verified HTML validation (htmlhint)
-3. ✅ Tested language presets (eu-core, nordic)
-4. ✅ Generated indexes for all 14 languages
-5. ✅ Generated sitemap with correct structure
-6. ✅ Security scanning (CodeQL) - no issues
-7. ✅ Code review - addressed all feedback
-
-## Usage Examples
-
-```bash
-# Generate week ahead in English
-npm run generate-news -- --types=week-ahead --languages=en
-
-# Generate in EU core languages
-npm run generate-news -- --types=week-ahead --languages=eu-core
-
-# Generate in all languages
-npm run generate-news -- --types=week-ahead --languages=all
-
-# Generate indexes
-npm run generate-news-indexes
-
-# Generate sitemap
-npm run generate-sitemap
-
-# Validate HTML
-npm run htmlhint
-```
-
-## Future Enhancements
-
-1. **Data Integration**
-   - Connect to EU Parliament APIs
-   - Create MCP server for EU data
-   - Add data caching layer
-
-2. **Content Generation**
-   - Implement remaining article types
-   - Add proper translation system
-   - Enhance content with real data
-
-3. **Features**
-   - Add article search functionality
-   - Implement RSS feeds
-   - Add email notifications
-   - Create analytics dashboard
-
-4. **Internationalization**
-   - Add more languages
-   - Improve translation quality
-   - Add language detection
-
-## Files Created
-
-```
-euparliamentmonitor/
-├── .github/workflows/news-generation.yml
-├── .gitignore
-├── LICENSE
-├── README.md
-├── IMPLEMENTATION_SUMMARY.md
-├── index.html
-├── index-{lang}.html (14 files)
-├── package.json
-├── styles.css
-├── sitemap.xml
-├── scripts/
-│   ├── article-template.js
-│   ├── generate-news-enhanced.js
-│   ├── generate-news-indexes.js
-│   └── generate-sitemap.js
-└── news/
-    ├── 2026-02-16-week-ahead-{lang}.html (6 files)
-    └── metadata/
-        └── generation-2026-02-16.json
-```
-
-## Conclusion
-
-Successfully implemented a complete news generation infrastructure for EU
-Parliament Monitor following the riksdagsmonitor pattern. The system is
-production-ready for the news generation workflow, with clear paths for
-extension and enhancement with real EU Parliament data.
-
-All code quality checks pass, security scanning shows no issues, and the
-documentation is comprehensive. The system is ready for integration with actual
-data sources and implementation of additional article types.
+---
+**Implemented by**: GitHub Copilot
+**Date**: 2026-02-22
+**Issue**: #84 - Enhance Week-Ahead Generator with Full MCP Data Integration

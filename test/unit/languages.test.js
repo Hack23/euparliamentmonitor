@@ -20,6 +20,7 @@ import {
   BACK_TO_NEWS_LABELS,
   WEEK_AHEAD_TITLES,
   MOTIONS_TITLES,
+  BREAKING_NEWS_TITLES,
   getLocalizedString,
   isSupportedLanguage,
   getTextDirection,
@@ -133,6 +134,18 @@ describe('constants/languages', () => {
         const result = generator('2025-01-01');
         expect(result.title).toBeDefined();
         expect(result.subtitle).toBeDefined();
+      }
+    });
+
+    it('should have entries for all 14 languages in BREAKING_NEWS_TITLES', () => {
+      for (const lang of ALL_LANGUAGES) {
+        const generator = BREAKING_NEWS_TITLES[lang];
+        expect(generator).toBeDefined();
+        expect(typeof generator).toBe('function');
+        const result = generator('2025-01-01');
+        expect(result.title).toBeDefined();
+        expect(result.subtitle).toBeDefined();
+        expect(result.title).toContain('2025-01-01');
       }
     });
 
