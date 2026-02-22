@@ -1,0 +1,720 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="./"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>EU Parliament Monitor - API Documentation - v0.2.0</title><meta name="description" content="Documentation for EU Parliament Monitor - API Documentation"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="index.html" class="title">EU Parliament Monitor - API Documentation - v0.2.0</a><div id="tsd-toolbar-links"></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h1>EU Parliament Monitor - API Documentation - v0.2.0</h1></div><div class="tsd-panel tsd-typography"><p align="center">
+  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
+</p>
+<h1 align="center">🏛️ EU Parliament Monitor</h1>
+<p align="center">
+  <strong>European Parliament Intelligence Platform</strong><br>
+  <em>Monitor political activity with systematic transparency</em>
+</p>
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Classification-Public-success?style=for-the-badge" alt="Classification"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
+</p>
+<table>
+  <tr>
+    <td width="120" align="center">
+      <img src="https://img.shields.io/badge/EU-Parliament-003399?style=for-the-badge&logo=european-union&logoColor=FFCC00" width="80" alt="EU Parliament Monitor"/>
+      <div>
+        <a href="https://github.com/Hack23/euparliamentmonitor">
+          <img src="https://img.shields.io/github/v/release/Hack23/euparliamentmonitor" alt="Release">
+        </a>
+      </div>
+    </td>
+    <td>
+      <p><strong>European Parliament Intelligence Platform</strong> — an automated multi-language news platform that monitors EU Parliament activities with 14-language support, covering plenary sessions, committee reports, propositions, and breaking news.</p>
+      <div>
+        <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor">
+          <img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard">
+        </a>
+        <a href="https://github.com/Hack23/euparliamentmonitor/attestations">
+          <img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA 3">
+        </a>
+        <a href="https://github.com/Hack23/euparliamentmonitor/license">
+          <img src="https://img.shields.io/github/license/Hack23/euparliamentmonitor" alt="License">
+        </a>
+      </div>
+      <div>
+        <a href="https://github.com/Hack23/euparliamentmonitor"><strong>📂 Repository</strong></a> •
+        <a href="https://hack23.com/euparliamentmonitor-features.html"><strong>✨ Features</strong></a> •
+        <a href="https://hack23.com/euparliamentmonitor-docs.html"><strong>📚 Documentation</strong></a>
+      </div>
+    </td>
+  </tr>
+</table>
+<p><a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/attestations"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA 3"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml/badge.svg" alt="News Generation"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml/badge.svg" alt="Test and Report"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Hack23/euparliamentmonitor" alt="License"></a>
+<a href="https://github.com/Hack23/ISMS-PUBLIC"><img src="https://img.shields.io/badge/Hack23-ISMS-blue" alt="ISMS"></a>
+<a href="https://deepwiki.com/Hack23/euparliamentmonitor"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a></p>
+<h2 id="🎯-status-badges" class="tsd-anchor-link">🎯 Status Badges<a href="#🎯-status-badges" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="workflow-status" class="tsd-anchor-link">Workflow Status<a href="#workflow-status" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml/badge.svg" alt="News Generation"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg" alt="CodeQL"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml/badge.svg" alt="Test and Report"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml/badge.svg" alt="Release"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml/badge.svg" alt="E2E Tests"></a>
+<a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a></p>
+<h3 id="documentation-reports" class="tsd-anchor-link">Documentation &amp; Reports<a href="#documentation-reports" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><a href="https://hack23.github.io/euparliamentmonitor/docs/api/"><img src="https://img.shields.io/badge/API-Documentation-blue?logo=javascript" alt="API Docs"></a>
+<a href="https://hack23.github.io/euparliamentmonitor/docs/coverage/"><img src="https://img.shields.io/badge/Coverage-82%25-green?logo=vitest" alt="Coverage"></a>
+<a href="https://hack23.github.io/euparliamentmonitor/playwright-report/"><img src="https://img.shields.io/badge/E2E-Report-purple?logo=playwright" alt="E2E Report"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/attestations"><img src="https://img.shields.io/badge/SLSA-Level%203-brightgreen?logo=github" alt="SLSA 3"></a></p>
+<h2 id="📚-documentation-hub" class="tsd-anchor-link">📚 Documentation Hub<a href="#📚-documentation-hub" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><strong>📖 Quick Links:</strong></p>
+<ul>
+<li><a href="media/SECURITY_ARCHITECTURE.md">📘 Architecture Documentation</a> - Complete security architecture with C4 diagrams</li>
+<li><a href="media/FLOWCHART.md">📗 Security Flows</a> - Process flows with security controls</li>
+<li><a href="media/DATA_MODEL.md">📙 Data Model</a> - Data structures and API integration</li>
+<li><a href="media/RELEASE_PROCESS.md">📕 Release Process</a> - How to create releases</li>
+<li><a href="https://hack23.github.io/euparliamentmonitor/docs/api/">📔 API Documentation</a> - TypeDoc-generated API reference</li>
+<li><a href="https://hack23.github.io/euparliamentmonitor/docs/coverage/">📓 Test Coverage</a> - Interactive coverage report</li>
+</ul>
+<p><strong>🔒 ISMS Compliance:</strong></p>
+<ul>
+<li><a href="https://github.com/Hack23/ISMS-PUBLIC">🛡️ Hack23 ISMS Framework</a> - Information Security Management System</li>
+<li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md">🔐 Secure Development Policy</a> - Development standards</li>
+<li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md">📋 Classification Framework</a> - CIA triad classification</li>
+</ul>
+<h2 id="current-status" class="tsd-anchor-link">Current Status<a href="#current-status" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><strong>MCP Server Integration</strong>: The project is designed to use the
+<a href="https://github.com/Hack23/European-Parliament-MCP-Server">European-Parliament-MCP-Server</a>
+for accessing real EU Parliament data.</p>
+<ul>
+<li><strong>MCP Server Status</strong>: The MCP server is currently in development (skeleton
+implementation)</li>
+<li><strong>Fallback Mode</strong>: News generation works with placeholder content when MCP
+server is unavailable</li>
+<li><strong>Environment Variable</strong>: Set <code>USE_EP_MCP=false</code> to disable MCP client
+connection attempts</li>
+</ul>
+<h3 id="when-mcp-server-is-ready" class="tsd-anchor-link">When MCP Server is Ready<a href="#when-mcp-server-is-ready" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Once the European-Parliament-MCP-Server is fully implemented, the system will
+automatically:</p>
+<ol>
+<li>Connect to the MCP server for real-time EU Parliament data</li>
+<li>Fetch plenary sessions, committee meetings, and documents</li>
+<li>Generate articles with actual parliamentary information</li>
+<li>Provide proper translation or content generation in each language</li>
+</ol>
+<h3 id="current-limitations" class="tsd-anchor-link">Current Limitations<a href="#current-limitations" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Note</strong>: The current implementation generates placeholder content in English
+for all languages when MCP server is unavailable. To enable full functionality:</p>
+<ol>
+<li>
+<p><strong>Complete the MCP Server</strong>: The European-Parliament-MCP-Server needs
+implementation of:</p>
+<ul>
+<li><code>get_plenary_sessions</code> tool</li>
+<li><code>search_documents</code> tool</li>
+<li><code>get_parliamentary_questions</code> tool</li>
+<li><code>get_committee_info</code> tool</li>
+</ul>
+</li>
+<li>
+<p><strong>Install MCP Server</strong>: Once ready, install the MCP server:</p>
+<pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span><span class="hl-1"> </span><span class="hl-3">-g</span><span class="hl-1"> </span><span class="hl-2">european-parliament-mcp-server</span><br/><span class="hl-4"># or clone and build locally</span>
+</code><button type="button">Copy</button></pre>
+
+</li>
+<li>
+<p><strong>Enable MCP Client</strong>: The news generator will automatically connect when the
+server is available</p>
+</li>
+</ol>
+<p>EU Parliament Monitor is an automated news generation platform that monitors
+European Parliament activities and generates multi-language news articles
+covering:</p>
+<ul>
+<li><strong>Week Ahead</strong>: Preview of upcoming parliamentary events and committee
+meetings</li>
+<li><strong>Committee Reports</strong>: Analysis of committee activities and decisions</li>
+<li><strong>Propositions</strong>: Government and parliamentary legislative proposals</li>
+<li><strong>Motions</strong>: Parliamentary motions and resolutions</li>
+<li><strong>Breaking News</strong>: Rapid-response coverage of significant developments</li>
+</ul>
+<h2 id="features" class="tsd-anchor-link">Features<a href="#features" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li>📰 <strong>Automated News Generation</strong>: Generate news articles about EU Parliament
+activities</li>
+<li>🌍 <strong>Multi-Language Support</strong>: 14 languages including English, German, French,
+Spanish, Italian, and more</li>
+<li>📅 <strong>Week Ahead Coverage</strong>: Preview upcoming parliamentary events</li>
+<li>🤖 <strong>GitHub Actions Integration</strong>: Automated daily news generation</li>
+<li>📊 <strong>SEO Optimized</strong>: Proper metadata, structured data, and sitemap generation</li>
+<li>✅ <strong>Code Quality</strong>: ESLint, Prettier, and automated quality gates</li>
+</ul>
+<h2 id="🔒-security-architecture" class="tsd-anchor-link">🔒 Security Architecture<a href="#🔒-security-architecture" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>EU Parliament Monitor implements <strong>security-by-design</strong> with comprehensive
+security controls and ISMS compliance.</p>
+<h3 id="security-documentation" class="tsd-anchor-link">Security Documentation<a href="#security-documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li>📋 <strong><a href="media/SECURITY_ARCHITECTURE.md">Security Architecture</a></strong> - Complete security
+implementation overview with C4 diagrams, threat model, and compliance mapping</li>
+<li>🚀 <strong><a href="media/FUTURE_SECURITY_ARCHITECTURE.md">Future Security Architecture</a></strong> -
+Security enhancement roadmap (2026-2027)</li>
+<li>📊 <strong><a href="media/DATA_MODEL.md">Data Model</a></strong> - Data structures and European Parliament
+API integration</li>
+<li>📈 <strong><a href="media/FLOWCHART.md">Security Flowcharts</a></strong> - Detailed process flows with
+security controls</li>
+</ul>
+<h3 id="security-posture" class="tsd-anchor-link">Security Posture<a href="#security-posture" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Classification</strong> (per
+<a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md">ISMS Classification Framework</a>):</p>
+<ul>
+<li><strong>Confidentiality</strong>: Public (Level 1) - European Parliament open data</li>
+<li><strong>Integrity</strong>: Medium (Level 2) - News accuracy critical for democratic
+transparency</li>
+<li><strong>Availability</strong>: Medium (Level 2) - Daily updates expected, 24h RTO acceptable</li>
+</ul>
+<p><strong>Key Security Controls</strong>:</p>
+<ul>
+<li>✅ <strong>Minimal Attack Surface</strong>: Static site, no databases, no server-side
+execution</li>
+<li>✅ <strong>Automated Security</strong>: CodeQL SAST, Dependabot SCA, npm audit</li>
+<li>✅ <strong>Supply Chain Security</strong>: SHA-pinned GitHub Actions, SBOM generation</li>
+<li>✅ <strong>Input Validation</strong>: Multi-layer XSS prevention, HTML sanitization</li>
+<li>✅ <strong>Infrastructure Security</strong>: GitHub-hosted ephemeral runners, HTTPS
+enforcement</li>
+<li>✅ <strong>Compliance</strong>: ISO 27001, GDPR, NIS2, EU CRA aligned</li>
+</ul>
+<p><strong>Security Metrics</strong>:</p>
+<ul>
+<li>Zero known vulnerabilities (npm audit clean)</li>
+<li>82%+ code coverage with security tests</li>
+<li>100% dependency scanning coverage</li>
+<li>0 CodeQL critical/high findings</li>
+</ul>
+<h3 id="isms-alignment" class="tsd-anchor-link">ISMS Alignment<a href="#isms-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>This project follows
+<a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md">Hack23 ISMS Secure Development Policy</a>:</p>
+<ul>
+<li>✅ Security architecture documentation (C4 models with Mermaid)</li>
+<li>✅ Threat modeling (STRIDE analysis)</li>
+<li>✅ Security testing (SAST, SCA, unit tests)</li>
+<li>✅ Compliance mapping (ISO 27001, GDPR, NIS2)</li>
+</ul>
+<h2 id="🤝-community-governance" class="tsd-anchor-link">🤝 Community &amp; Governance<a href="#🤝-community-governance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>EU Parliament Monitor is an open source project with transparent governance and community standards.</p>
+<h3 id="open-source-standards" class="tsd-anchor-link">Open Source Standards<a href="#open-source-standards" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong><a href="media/CONTRIBUTING.md">Contributing Guide</a></strong> - Development workflow, code standards, and contribution guidelines</li>
+<li><strong><a href="media/CODE_OF_CONDUCT.md">Code of Conduct</a></strong> - Community standards based on Contributor Covenant 2.1</li>
+<li><strong><a href="media/SECURITY.md">Security Policy</a></strong> - Vulnerability disclosure and security practices</li>
+<li><strong><a href="media/AUTHORS.md">Authors &amp; Contributors</a></strong> - Recognition of project contributors</li>
+<li><strong><a href="media/LICENSE">License</a></strong> - Apache License 2.0 full text</li>
+</ul>
+<h3 id="community-channels" class="tsd-anchor-link">Community Channels<a href="#community-channels" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>GitHub Issues</strong>: Bug reports and feature requests</li>
+<li><strong>GitHub Discussions</strong>: Questions and community discussion</li>
+<li><strong>Security</strong>: <a href="mailto:security@hack23.com">security@hack23.com</a> for vulnerability reports</li>
+<li><strong>Conduct</strong>: <a href="mailto:conduct@hack23.com">conduct@hack23.com</a> for Code of Conduct issues</li>
+</ul>
+<h3 id="governance-compliance" class="tsd-anchor-link">Governance Compliance<a href="#governance-compliance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>This project adheres to:</p>
+<ul>
+<li>✅ <strong>OpenSSF Best Practices</strong>: Following CII Best Practices criteria</li>
+<li>✅ <strong>ISMS Compliance</strong>: Aligned with Hack23 ISMS policies</li>
+<li>✅ <strong>Transparent Development</strong>: Public repository, open discussions</li>
+<li>✅ <strong>Security First</strong>: Comprehensive security disclosure policy</li>
+</ul>
+<h2 id="code-quality-testing" class="tsd-anchor-link">Code Quality &amp; Testing<a href="#code-quality-testing" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>EU Parliament Monitor maintains high code quality standards with comprehensive
+testing:</p>
+<h3 id="code-quality" class="tsd-anchor-link">Code Quality<a href="#code-quality" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>ESLint</strong>: Comprehensive linting with security, complexity, and documentation
+checks</li>
+<li><strong>Prettier</strong>: Consistent code formatting across all JavaScript files</li>
+<li><strong>Pre-commit Hooks</strong>: Automatic linting and formatting before every commit</li>
+<li><strong>CI/CD Quality Gates</strong>: Automated checks on every pull request</li>
+<li><strong>TypeDoc/JSDoc</strong>: Complete documentation for all functions</li>
+</ul>
+<p><strong>Code Standards</strong>: See <a href="media/CODE_STANDARDS.md">docs/CODE_STANDARDS.md</a> for
+detailed coding guidelines.</p>
+<h3 id="testing-infrastructure" class="tsd-anchor-link">Testing Infrastructure<a href="#testing-infrastructure" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Comprehensive test suite with <strong>Vitest</strong> and <strong>Playwright</strong> covering all
+functionality:</p>
+<h4 id="unit-integration-tests-vitest" class="tsd-anchor-link">Unit &amp; Integration Tests (Vitest)<a href="#unit-integration-tests-vitest" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li><strong>Unit Tests</strong>: Article generation, MCP client, index/sitemap generation</li>
+<li><strong>Integration Tests</strong>: Full workflows, MCP integration, multi-language support</li>
+<li><strong>Coverage</strong>: ≥80% line coverage, ≥75% branch coverage</li>
+<li><strong>Test Count</strong>: 169+ tests covering critical paths</li>
+</ul>
+<pre><code class="bash"><span class="hl-4"># Run unit &amp; integration tests</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">test</span><br/><br/><span class="hl-4"># Run with coverage</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:coverage</span><br/><br/><span class="hl-4"># Run tests in watch mode</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:watch</span><br/><br/><span class="hl-4"># Run with UI (browser interface)</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:ui</span>
+</code><button type="button">Copy</button></pre>
+
+<h4 id="end-to-end-tests-playwright" class="tsd-anchor-link">End-to-End Tests (Playwright)<a href="#end-to-end-tests-playwright" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li><strong>E2E Tests</strong>: Complete user experience validation</li>
+<li><strong>Cross-Browser</strong>: Chromium, Firefox, WebKit</li>
+<li><strong>Mobile Support</strong>: Mobile Chrome, Mobile Safari</li>
+<li><strong>Accessibility</strong>: WCAG 2.1 AA compliance with axe-core</li>
+<li><strong>Responsive Design</strong>: Multiple viewport sizes</li>
+<li><strong>Test Count</strong>: 60+ E2E tests covering user journeys</li>
+</ul>
+<pre><code class="bash"><span class="hl-4"># Run E2E tests</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:e2e</span><br/><br/><span class="hl-4"># Run with UI (interactive)</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:e2e:ui</span><br/><br/><span class="hl-4"># Run in headed mode (see browser)</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:e2e:headed</span><br/><br/><span class="hl-4"># View test report</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:e2e:report</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Testing Documentation</strong>:</p>
+<ul>
+<li><a href="media/README.md">test/README.md</a> - Unit &amp; integration tests</li>
+<li><a href="media/README-1.md">e2e/README.md</a> - E2E testing guide</li>
+</ul>
+<h2 id="custom-agents" class="tsd-anchor-link">Custom Agents<a href="#custom-agents" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>EU Parliament Monitor includes <strong>8 specialized GitHub Copilot custom agents</strong> to
+streamline development:</p>
+<ul>
+<li>🤖 <strong><a href="media/product-task-agent.md">product-task-agent</a></strong> - Product
+specialist for issue creation and coordination</li>
+<li>📰 <strong><a href="media/news-journalist.md">news-journalist</a></strong> - The
+Economist-style European Parliament reporting</li>
+<li>🎨 <strong><a href="media/frontend-specialist.md">frontend-specialist</a></strong> -
+HTML5/CSS3/WCAG 2.1 AA UI/UX expert</li>
+<li>🔄
+<strong><a href="media/data-pipeline-specialist.md">data-pipeline-specialist</a></strong> -
+European Parliament MCP integration expert</li>
+<li>⚙️ <strong><a href="media/devops-engineer.md">devops-engineer</a></strong> - CI/CD and GitHub
+Actions automation</li>
+<li>🔒 <strong><a href="media/security-architect.md">security-architect</a></strong> - ISMS,
+GDPR, NIS2 compliance expert</li>
+<li>📚 <strong><a href="media/documentation-architect.md">documentation-architect</a></strong> -
+C4 models and architecture docs</li>
+<li>✅ <strong><a href="media/quality-engineer.md">quality-engineer</a></strong> - Testing,
+validation, and accessibility</li>
+</ul>
+<p><strong>Usage Example</strong>:</p>
+<pre><code class="bash"><span class="hl-4"># Use product-task-agent to analyze repository and create improvement issues</span><br/><span class="hl-0">@product-task-agent</span><span class="hl-1"> </span><span class="hl-2">analyze</span><span class="hl-1"> </span><span class="hl-2">the</span><span class="hl-1"> </span><span class="hl-2">multi-language</span><span class="hl-1"> </span><span class="hl-2">support</span><span class="hl-1"> </span><span class="hl-2">and</span><span class="hl-1"> </span><span class="hl-2">create</span><span class="hl-1"> </span><span class="hl-2">issues</span><span class="hl-1"> </span><span class="hl-2">for</span><span class="hl-1"> </span><span class="hl-2">any</span><span class="hl-1"> </span><span class="hl-2">gaps</span><br/><br/><span class="hl-4"># Use news-journalist to generate content</span><br/><span class="hl-0">@news-journalist</span><span class="hl-1"> </span><span class="hl-2">create</span><span class="hl-1"> </span><span class="hl-2">a</span><span class="hl-1"> </span><span class="hl-2">week-ahead</span><span class="hl-1"> </span><span class="hl-2">article</span><span class="hl-1"> </span><span class="hl-2">for</span><span class="hl-1"> </span><span class="hl-2">the</span><span class="hl-1"> </span><span class="hl-2">upcoming</span><span class="hl-1"> </span><span class="hl-2">plenary</span><span class="hl-1"> </span><span class="hl-2">session</span><br/><br/><span class="hl-4"># Use frontend-specialist for UI improvements</span><br/><span class="hl-0">@frontend-specialist</span><span class="hl-1"> </span><span class="hl-2">make</span><span class="hl-1"> </span><span class="hl-2">the</span><span class="hl-1"> </span><span class="hl-2">language</span><span class="hl-1"> </span><span class="hl-2">switcher</span><span class="hl-1"> </span><span class="hl-2">fully</span><span class="hl-1"> </span><span class="hl-2">keyboard</span><span class="hl-1"> </span><span class="hl-2">accessible</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Learn More</strong>: See <a href="media/README-2.md">Custom Agents Documentation</a> for
+detailed agent capabilities, usage patterns, and examples.</p>
+<h2 id="languages-supported" class="tsd-anchor-link">Languages Supported<a href="#languages-supported" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li><strong>EU Core</strong>: English (en), German (de), French (fr), Spanish (es), Italian
+(it), Dutch (nl)</li>
+<li><strong>Nordic</strong>: Swedish (sv), Danish (da), Finnish (fi)</li>
+<li><strong>Eastern Europe</strong>: Polish (pl), Romanian (ro), Hungarian (hu)</li>
+<li><strong>Other</strong>: Portuguese (pt), Greek (el)</li>
+</ul>
+<h2 id="requirements" class="tsd-anchor-link">Requirements<a href="#requirements" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li><strong>Node.js</strong>: Version 24 or higher</li>
+<li><strong>npm</strong>: Version 10 or higher (comes with Node.js 24)</li>
+<li><strong>Git</strong>: For cloning the repository</li>
+</ul>
+<p>You can verify your Node.js version with:</p>
+<pre><code class="bash"><span class="hl-0">node</span><span class="hl-1"> </span><span class="hl-3">--version</span><span class="hl-1">  </span><span class="hl-4"># Should be v24.x.x or higher</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-3">--version</span><span class="hl-1">   </span><span class="hl-4"># Should be 10.x.x or higher</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="installation" class="tsd-anchor-link">Installation<a href="#installation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="bash"><span class="hl-4"># Clone the repository</span><br/><span class="hl-0">git</span><span class="hl-1"> </span><span class="hl-2">clone</span><span class="hl-1"> </span><span class="hl-2">https://github.com/Hack23/euparliamentmonitor.git</span><br/><span class="hl-0">cd</span><span class="hl-1"> </span><span class="hl-2">euparliamentmonitor</span><br/><br/><span class="hl-4"># Install dependencies</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="optional-european-parliament-mcp-server" class="tsd-anchor-link">Optional: European Parliament MCP Server<a href="#optional-european-parliament-mcp-server" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>For real EU Parliament data integration, install the MCP server:</p>
+<pre><code class="bash"><span class="hl-4"># Clone the MCP server repository</span><br/><span class="hl-0">git</span><span class="hl-1"> </span><span class="hl-2">clone</span><span class="hl-1"> </span><span class="hl-2">https://github.com/Hack23/European-Parliament-MCP-Server.git</span><br/><span class="hl-0">cd</span><span class="hl-1"> </span><span class="hl-2">European-Parliament-MCP-Server</span><br/><br/><span class="hl-4"># Install dependencies and build</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">build</span><br/><br/><span class="hl-4"># The server will be available at dist/index.js</span><br/><span class="hl-4"># You can install it globally or reference the path</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Configure the MCP server path in environment variables:</p>
+<pre><code class="bash"><span class="hl-3">export</span><span class="hl-1"> </span><span class="hl-5">EP_MCP_SERVER_PATH</span><span class="hl-1">=</span><span class="hl-2">&quot;/path/to/European-Parliament-MCP-Server/dist/index.js&quot;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Note</strong>: The MCP server is currently in development. News generation works
+without it using placeholder content.</p>
+<h2 id="usage" class="tsd-anchor-link">Usage<a href="#usage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="generate-news-articles" class="tsd-anchor-link">Generate News Articles<a href="#generate-news-articles" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="bash"><span class="hl-4"># Generate week ahead article in English</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-news</span><span class="hl-1"> </span><span class="hl-3">--</span><span class="hl-1"> </span><span class="hl-3">--types=week-ahead</span><span class="hl-1"> </span><span class="hl-3">--languages=en</span><br/><br/><span class="hl-4"># Generate multiple article types in multiple languages</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-news</span><span class="hl-1"> </span><span class="hl-3">--</span><span class="hl-1"> </span><span class="hl-3">--types=week-ahead,committee-reports</span><span class="hl-1"> </span><span class="hl-3">--languages=en,de,fr</span><br/><br/><span class="hl-4"># Generate in all EU core languages</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-news</span><span class="hl-1"> </span><span class="hl-3">--</span><span class="hl-1"> </span><span class="hl-3">--types=week-ahead</span><span class="hl-1"> </span><span class="hl-3">--languages=eu-core</span><br/><br/><span class="hl-4"># Generate in all supported languages</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-news</span><span class="hl-1"> </span><span class="hl-3">--</span><span class="hl-1"> </span><span class="hl-3">--types=week-ahead</span><span class="hl-1"> </span><span class="hl-3">--languages=all</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="generate-indexes-and-sitemap" class="tsd-anchor-link">Generate Indexes and Sitemap<a href="#generate-indexes-and-sitemap" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="bash"><span class="hl-4"># Generate language-specific index pages</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-news-indexes</span><br/><br/><span class="hl-4"># Generate sitemap.xml</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-sitemap</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="local-development" class="tsd-anchor-link">Local Development<a href="#local-development" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="bash"><span class="hl-4"># Serve the site locally</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">serve</span><br/><br/><span class="hl-4"># Open http://localhost:8080 in your browser</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="project-structure" class="tsd-anchor-link">Project Structure<a href="#project-structure" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code><span class="hl-5">euparliamentmonitor</span><span class="hl-1">/</span><br/><span class="hl-1">├── .</span><span class="hl-5">github</span><span class="hl-1">/</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">agents</span><span class="hl-1">/                      # </span><span class="hl-5">Custom</span><span class="hl-1"> </span><span class="hl-5">GitHub</span><span class="hl-1"> </span><span class="hl-5">Copilot</span><span class="hl-1"> </span><span class="hl-5">agents</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">workflows</span><span class="hl-1">/                   # </span><span class="hl-6">CI</span><span class="hl-1">/</span><span class="hl-6">CD</span><span class="hl-1"> </span><span class="hl-5">workflow</span><span class="hl-1"> </span><span class="hl-5">configurations</span><br/><span class="hl-1">│   └── </span><span class="hl-5">release</span><span class="hl-1">-</span><span class="hl-5">drafter</span><span class="hl-1">.</span><span class="hl-5">yml</span><span class="hl-1">          # </span><span class="hl-5">Release</span><span class="hl-1"> </span><span class="hl-5">notes</span><span class="hl-1"> </span><span class="hl-5">configuration</span><br/><span class="hl-1">├── </span><span class="hl-5">src</span><span class="hl-1">/                             # </span><span class="hl-5">TypeScript</span><span class="hl-1"> </span><span class="hl-0">source</span><span class="hl-1"> (</span><span class="hl-5">compiles</span><span class="hl-1"> </span><span class="hl-5">to</span><span class="hl-1"> </span><span class="hl-5">scripts</span><span class="hl-1">/)</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">constants</span><span class="hl-1">/                   # </span><span class="hl-5">Language</span><span class="hl-1"> </span><span class="hl-5">data</span><span class="hl-1">, </span><span class="hl-5">configuration</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">generators</span><span class="hl-1">/                  # </span><span class="hl-5">News</span><span class="hl-1">, </span><span class="hl-5">index</span><span class="hl-1">, </span><span class="hl-5">sitemap</span><span class="hl-1"> </span><span class="hl-5">generators</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">mcp</span><span class="hl-1">/                         # </span><span class="hl-5">European</span><span class="hl-1"> </span><span class="hl-5">Parliament</span><span class="hl-1"> </span><span class="hl-6">MCP</span><span class="hl-1"> </span><span class="hl-5">client</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">templates</span><span class="hl-1">/                   # </span><span class="hl-6">HTML</span><span class="hl-1"> </span><span class="hl-5">article</span><span class="hl-1"> </span><span class="hl-5">templates</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">types</span><span class="hl-1">/                       # </span><span class="hl-5">Shared</span><span class="hl-1"> </span><span class="hl-5">TypeScript</span><span class="hl-1"> </span><span class="hl-5">interfaces</span><br/><span class="hl-1">│   └── </span><span class="hl-5">utils</span><span class="hl-1">/                       # </span><span class="hl-5">File</span><span class="hl-1"> </span><span class="hl-5">utilities</span><span class="hl-1">, </span><span class="hl-5">metadata</span><br/><span class="hl-1">├── </span><span class="hl-5">scripts</span><span class="hl-1">/                         # </span><span class="hl-5">Compiled</span><span class="hl-1"> </span><span class="hl-5">JavaScript</span><span class="hl-1"> </span><span class="hl-5">output</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">constants</span><span class="hl-1">/                   # </span><span class="hl-5">Compiled</span><span class="hl-1"> </span><span class="hl-5">constants</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">generators</span><span class="hl-1">/                  # </span><span class="hl-5">Compiled</span><span class="hl-1"> </span><span class="hl-5">generators</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">mcp</span><span class="hl-1">/                         # </span><span class="hl-5">Compiled</span><span class="hl-1"> </span><span class="hl-6">MCP</span><span class="hl-1"> </span><span class="hl-5">client</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">templates</span><span class="hl-1">/                   # </span><span class="hl-5">Compiled</span><span class="hl-1"> </span><span class="hl-5">templates</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">types</span><span class="hl-1">/                       # </span><span class="hl-5">Compiled</span><span class="hl-1"> </span><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-7">definitions</span><br/><span class="hl-1">│   └── utils/                       # Compiled utilities</span><br/><span class="hl-1">├── news/                            # Generated news articles</span><br/><span class="hl-1">│   └── metadata/                    # Generation metadata</span><br/><span class="hl-1">├── test/                            # Vitest unit &amp; integration tests</span><br/><span class="hl-1">├── e2e/                             # Playwright E2E tests</span><br/><span class="hl-1">├── docs/                            # Generated documentation</span><br/><span class="hl-1">├── styles.css                       # Article styling</span><br/><span class="hl-1">├── index-{lang}.</span><span class="hl-5">html</span><span class="hl-1">                # </span><span class="hl-5">Language</span><span class="hl-1">-</span><span class="hl-5">specific</span><span class="hl-1"> </span><span class="hl-5">index</span><span class="hl-1"> </span><span class="hl-5">pages</span><br/><span class="hl-1">├── </span><span class="hl-5">typedoc</span><span class="hl-1">.</span><span class="hl-5">json</span><span class="hl-1">                     # </span><span class="hl-5">TypeDoc</span><span class="hl-1"> </span><span class="hl-5">configuration</span><br/><span class="hl-1">├── </span><span class="hl-5">tsconfig</span><span class="hl-1">.</span><span class="hl-5">json</span><span class="hl-1">                    # </span><span class="hl-5">TypeScript</span><span class="hl-1"> </span><span class="hl-5">configuration</span><br/><span class="hl-1">├── </span><span class="hl-5">sitemap</span><span class="hl-1">.</span><span class="hl-5">xml</span><span class="hl-1">                      # </span><span class="hl-6">SEO</span><span class="hl-1"> </span><span class="hl-5">sitemap</span><br/><span class="hl-1">└── </span><span class="hl-5">package</span><span class="hl-1">.</span><span class="hl-5">json</span><span class="hl-1">                     # </span><span class="hl-5">Project</span><span class="hl-1"> </span><span class="hl-5">dependencies</span>
+</code><button>Copy</button></pre>
+
+<h2 id="cicd-automation" class="tsd-anchor-link">CI/CD &amp; Automation<a href="#cicd-automation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="github-actions-workflows" class="tsd-anchor-link">GitHub Actions Workflows<a href="#github-actions-workflows" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>The repository includes comprehensive GitHub Actions workflows for automation
+and quality assurance:</p>
+<h4 id="📰-news-generation" class="tsd-anchor-link">📰 News Generation<a href="#📰-news-generation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li><strong>Schedule</strong>: Runs daily at 06:00 UTC</li>
+<li><strong>Manual Trigger</strong>: Can be triggered manually with custom parameters</li>
+<li><strong>Automatic Commit</strong>: Commits and pushes generated articles automatically</li>
+<li><strong>Workflow</strong>: <code>.github/workflows/news-generation.yml</code></li>
+</ul>
+<p><strong>Workflow Inputs:</strong></p>
+<ul>
+<li><code>article_types</code>: Comma-separated list of article types (default: <code>week-ahead</code>)</li>
+<li><code>languages</code>: Languages to generate (<code>en</code>, <code>eu-core</code>, <code>all</code>, or custom list)</li>
+<li><code>force_generation</code>: Force generation even if recent articles exist</li>
+</ul>
+<h4 id="🏷️-pr-labeling" class="tsd-anchor-link">🏷️ PR Labeling<a href="#🏷️-pr-labeling" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li><strong>Automatic</strong>: Labels PRs based on file changes</li>
+<li><strong>Configuration</strong>: <code>.github/labeler.yml</code></li>
+<li><strong>Workflow</strong>: <code>.github/workflows/labeler.yml</code></li>
+<li><strong>Setup</strong>: Run <code>.github/workflows/setup-labels.yml</code> once to create all labels</li>
+</ul>
+<h4 id="📦-release-management" class="tsd-anchor-link">📦 Release Management<a href="#📦-release-management" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li><strong>Automated Release Notes</strong>: Via Release Drafter</li>
+<li><strong>Semantic Versioning</strong>: Based on PR labels</li>
+<li><strong>SBOM &amp; Attestations</strong>: Security compliance with artifact attestations</li>
+<li><strong>Workflow</strong>: <code>.github/workflows/release.yml</code></li>
+<li><strong>Configuration</strong>: <code>.github/release-drafter.yml</code></li>
+</ul>
+<h4 id="🔒-security-scanning" class="tsd-anchor-link">🔒 Security Scanning<a href="#🔒-security-scanning" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li><strong>CodeQL</strong>: Automated security analysis on push, PR, and weekly schedule</li>
+<li><strong>OpenSSF Scorecard</strong>: Supply chain security assessment (weekly, on branch protection changes)</li>
+<li><strong>Dependabot</strong>: Weekly dependency updates for npm and GitHub Actions</li>
+<li><strong>Dependency Review</strong>: Vulnerability scanning on pull requests</li>
+<li><strong>Vulnerability Scanning</strong>: Automated npm audit in PR validation</li>
+<li><strong>Workflows</strong>: <code>.github/workflows/codeql.yml</code>, <code>.github/workflows/scorecards.yml</code>, <code>.github/dependabot.yml</code>, <code>.github/workflows/dependency-review.yml</code></li>
+</ul>
+<h4 id="🏆-compliance-quality" class="tsd-anchor-link">🏆 Compliance &amp; Quality<a href="#🏆-compliance-quality" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li><strong>REUSE Compliance</strong>: License header verification (FSFE REUSE specification)</li>
+<li><strong>SonarCloud Analysis</strong>: Code quality, security vulnerabilities, and technical debt tracking</li>
+<li><strong>SLSA Provenance</strong>: Level 3 build attestations with SBOM generation on releases</li>
+<li><strong>Workflows</strong>: <code>.github/workflows/reuse.yml</code>, <code>.github/workflows/sonarcloud.yml</code>, <code>.github/workflows/slsa-provenance.yml</code></li>
+</ul>
+<h4 id="✅-test-validation" class="tsd-anchor-link">✅ Test &amp; Validation<a href="#✅-test-validation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li><strong>HTML Validation</strong>: Automated htmlhint checks</li>
+<li><strong>Functional Tests</strong>: News generation, index, and sitemap validation</li>
+<li><strong>Security Checks</strong>: npm audit for vulnerabilities</li>
+<li><strong>Workflow</strong>: <code>.github/workflows/test-and-report.yml</code></li>
+</ul>
+<p><strong>📊 Evidence:</strong> See <a href="#-status-badges">Workflow Status Badges</a> at top of README.</p>
+<h3 id="workflow-status-badges" class="tsd-anchor-link">Workflow Status Badges<a href="#workflow-status-badges" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Core Workflows:</strong></p>
+<p><a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml/badge.svg" alt="News Generation"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml/badge.svg" alt="Test and Report"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml/badge.svg" alt="E2E Tests"></a></p>
+<p><strong>Security Workflows:</strong></p>
+<p><a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg" alt="CodeQL"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/scorecards.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/scorecards.yml/badge.svg" alt="OpenSSF Scorecard"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/dependency-review.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/dependency-review.yml/badge.svg" alt="Dependency Review"></a></p>
+<p><strong>Compliance Workflows:</strong></p>
+<p><a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml/badge.svg" alt="REUSE Compliance"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/sonarcloud.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/sonarcloud.yml/badge.svg" alt="SonarCloud"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/slsa-provenance.yml"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/slsa-provenance.yml/badge.svg" alt="SLSA Provenance"></a></p>
+<h3 id="manual-release-process" class="tsd-anchor-link">Manual Release Process<a href="#manual-release-process" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>To create a new release:</p>
+<ol>
+<li>Go to <strong>Actions</strong> → <strong>Release</strong> workflow</li>
+<li>Click <strong>Run workflow</strong></li>
+<li>Enter version (e.g., <code>v1.0.0</code>)</li>
+<li>Select if pre-release</li>
+<li>The workflow will:
+<ul>
+<li>Run validation and tests (169 unit tests, E2E tests)</li>
+<li>Generate API documentation (TypeDoc)</li>
+<li>Generate test coverage reports (Vitest HTML)</li>
+<li>Generate E2E test reports (Playwright)</li>
+<li>Create documentation index</li>
+<li>Commit documentation to main branch</li>
+<li>Generate SBOM and attestations (SLSA Level 3)</li>
+<li>Create GitHub release with artifacts</li>
+<li>Update release notes automatically</li>
+</ul>
+</li>
+</ol>
+<p><strong>🔒 ISMS Evidence:</strong></p>
+<ul>
+<li><a href="media/release.yml">Release Workflow</a> - Complete automation</li>
+<li><a href="https://github.com/Hack23/euparliamentmonitor/attestations">SLSA Attestations</a> - Build provenance</li>
+<li><a href="media/RELEASE_PROCESS.md">Release Process Guide</a> - Step-by-step documentation</li>
+</ul>
+<h3 id="documentation-as-code" class="tsd-anchor-link">Documentation as Code<a href="#documentation-as-code" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Every release automatically generates comprehensive documentation:</p>
+<table>
+<thead>
+<tr>
+<th>Documentation</th>
+<th>Description</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>API Documentation</strong></td>
+<td>TypeDoc-generated API reference from TypeScript source</td>
+<td><a href="https://hack23.github.io/euparliamentmonitor/docs/api/">View Docs</a></td>
+</tr>
+<tr>
+<td><strong>Test Coverage</strong></td>
+<td>Interactive Vitest coverage reports (82%+)</td>
+<td><a href="https://hack23.github.io/euparliamentmonitor/docs/coverage/">View Coverage</a></td>
+</tr>
+<tr>
+<td><strong>E2E Test Reports</strong></td>
+<td>Playwright test results with screenshots</td>
+<td><a href="https://hack23.github.io/euparliamentmonitor/playwright-report/">View Report</a></td>
+</tr>
+<tr>
+<td><strong>Documentation Index</strong></td>
+<td>Beautiful hub linking all reports</td>
+<td><a href="https://hack23.github.io/euparliamentmonitor/docs/">View Index</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>📋 How It Works:</strong></p>
+<ol>
+<li>Release workflow runs all tests</li>
+<li>Generates API docs with TypeDoc</li>
+<li>Copies coverage reports to <code>docs/</code></li>
+<li>Creates documentation index page</li>
+<li>Commits everything to <code>main</code> branch</li>
+<li>Documentation is version-controlled and traceable</li>
+</ol>
+<p><strong>🎯 Run Locally:</strong></p>
+<pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">docs:generate</span><span class="hl-1">  </span><span class="hl-4"># Generate all documentation</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">docs:api</span><span class="hl-1">       </span><span class="hl-4"># Generate API docs only</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">docs:index</span><span class="hl-1">     </span><span class="hl-4"># Generate index page</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>🔒 ISMS Compliance:</strong></p>
+<ul>
+<li>Documentation-as-code follows <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md#32-architecture-documentation">Hack23 ISMS Secure Development Policy §3.2</a></li>
+<li>All releases include complete documentation evidence</li>
+<li>Documentation committed to repository for full auditability</li>
+</ul>
+<h3 id="setting-up-labels" class="tsd-anchor-link">Setting Up Labels<a href="#setting-up-labels" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>First-time setup requires running the label creation workflow:</p>
+<ol>
+<li>Go to <strong>Actions</strong> → <strong>Setup Repository Labels</strong></li>
+<li>Click <strong>Run workflow</strong></li>
+<li>Wait for completion</li>
+<li>Labels will be automatically applied to future PRs</li>
+</ol>
+<h2 id="configuration" class="tsd-anchor-link">Configuration<a href="#configuration" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="language-presets" class="tsd-anchor-link">Language Presets<a href="#language-presets" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><code>en</code> - English only</li>
+<li><code>eu-core</code> - English, German, French, Spanish, Italian, Dutch</li>
+<li><code>nordic</code> - English, Swedish, Danish, Finnish</li>
+<li><code>all</code> - All 14 supported languages</li>
+</ul>
+<h3 id="article-types" class="tsd-anchor-link">Article Types<a href="#article-types" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><code>week-ahead</code> - Preview of upcoming parliamentary events</li>
+<li><code>committee-reports</code> - Committee activity analysis (coming soon)</li>
+<li><code>propositions</code> - Legislative proposals analysis (coming soon)</li>
+<li><code>motions</code> - Parliamentary motions analysis (coming soon)</li>
+<li><code>breaking</code> - Breaking news coverage (coming soon)</li>
+</ul>
+<h2 id="contributing" class="tsd-anchor-link">Contributing<a href="#contributing" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>We welcome contributions from developers, journalists, translators, and security researchers!</p>
+<h3 id="how-to-contribute" class="tsd-anchor-link">How to Contribute<a href="#how-to-contribute" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Please read our comprehensive <a href="media/CONTRIBUTING.md">Contributing Guide</a> for:</p>
+<ul>
+<li>Development workflow and setup instructions</li>
+<li>Code quality requirements and testing standards</li>
+<li>Pull request process and review guidelines</li>
+<li>Security best practices and ISMS compliance</li>
+<li>Multi-language contribution guidelines</li>
+</ul>
+<h3 id="code-of-conduct" class="tsd-anchor-link">Code of Conduct<a href="#code-of-conduct" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>This project adheres to the <a href="media/CODE_OF_CONDUCT.md">Contributor Covenant Code of Conduct</a>. By participating, you are expected to uphold this code. Please report unacceptable behavior to <a href="mailto:conduct@hack23.com">conduct@hack23.com</a>.</p>
+<h3 id="security" class="tsd-anchor-link">Security<a href="#security" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>If you discover a security vulnerability, please follow our <a href="media/SECURITY.md">Security Policy</a> for responsible disclosure. <strong>Do not</strong> report security issues through public GitHub issues.</p>
+<h3 id="contributors" class="tsd-anchor-link">Contributors<a href="#contributors" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>See <a href="media/AUTHORS.md">AUTHORS.md</a> for a list of contributors who have helped make this project possible.
+Contributions are welcome! Please see <a href="media/CONTRIBUTING.md">CONTRIBUTING.md</a> for detailed guidelines on:</p>
+<ul>
+<li>Code quality requirements (ESLint, Prettier, JSDoc)</li>
+<li>Testing requirements (80% line coverage, 75% branch coverage)</li>
+<li>Security requirements (input validation, XSS prevention, dependency scanning)</li>
+<li>Commit message format (conventional commits)</li>
+<li>Pull request process</li>
+</ul>
+<p><strong>Security-Critical Contributions</strong>: All security-related changes must align with <a href="media/SECURITY_ARCHITECTURE.md">SECURITY_ARCHITECTURE.md</a> and <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md">Hack23 ISMS Secure Development Policy</a>.</p>
+<h2 id="security-policy" class="tsd-anchor-link">Security Policy<a href="#security-policy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>For security vulnerability reporting and disclosure process, please see <a href="media/SECURITY.md">SECURITY.md</a>.</p>
+<p><strong>Responsible Disclosure</strong>:</p>
+<ul>
+<li>Report vulnerabilities privately via GitHub Security Advisories</li>
+<li>48-hour acknowledgment, 7-day validation, 30-day remediation for critical issues</li>
+<li>Public recognition for security researchers (unless anonymity requested)</li>
+</ul>
+<h2 id="badge-maintenance" class="tsd-anchor-link">Badge Maintenance<a href="#badge-maintenance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="maintaining-security-badge-status" class="tsd-anchor-link">Maintaining Security Badge Status<a href="#maintaining-security-badge-status" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>EU Parliament Monitor maintains security excellence through continuous compliance with OpenSSF best practices:</p>
+<h4 id="openssf-scorecard-target-≥70" class="tsd-anchor-link">OpenSSF Scorecard (Target: ≥7.0)<a href="#openssf-scorecard-target-≥70" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Current Optimizations</strong>:</p>
+<ul>
+<li>✅ Branch protection on <code>main</code> branch</li>
+<li>✅ Required code review for pull requests</li>
+<li>✅ SHA-pinned GitHub Actions</li>
+<li>✅ CodeQL SAST enabled</li>
+<li>✅ Dependabot alerts enabled</li>
+<li>✅ <a href="http://SECURITY.md">SECURITY.md</a> present</li>
+<li>✅ No dangerous workflow patterns</li>
+</ul>
+<p><strong>Monitoring</strong>: View current score at <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor">OpenSSF Scorecard Dashboard</a></p>
+<h4 id="cii-best-practices-target-passing-→-silver-→-gold" class="tsd-anchor-link">CII Best Practices (Target: Passing → Silver → Gold)<a href="#cii-best-practices-target-passing-→-silver-→-gold" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Requirements Met</strong>:</p>
+<ul>
+<li>✅ Public version control (GitHub)</li>
+<li>✅ Public issue tracker (GitHub Issues)</li>
+<li>✅ LICENSE file (Apache-2.0)</li>
+<li>✅ <a href="http://CONTRIBUTING.md">CONTRIBUTING.md</a> with clear guidelines</li>
+<li>✅ CODE_OF_CONDUCT.md</li>
+<li>✅ <a href="http://SECURITY.md">SECURITY.md</a> with vulnerability reporting</li>
+<li>✅ Documentation in README</li>
+<li>✅ Automated testing (Vitest + Playwright, ≥80% coverage)</li>
+<li>✅ Static analysis (CodeQL, ESLint)</li>
+<li>✅ Dependency scanning (Dependabot, npm audit)</li>
+</ul>
+<p><strong>Registration</strong>: Complete questionnaire at <a href="https://bestpractices.coreinfrastructure.org/">CII Best Practices</a></p>
+<h4 id="slsa-level-3-status-✅-implemented" class="tsd-anchor-link">SLSA Level 3 (Status: ✅ Implemented)<a href="#slsa-level-3-status-✅-implemented" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Provenance Generation</strong>:</p>
+<ul>
+<li>✅ Automated on releases via <code>.github/workflows/slsa-provenance.yml</code></li>
+<li>✅ Build attestations using <code>actions/attest-build-provenance@v2</code></li>
+<li>✅ SBOM generation using CycloneDX</li>
+<li>✅ Artifacts uploaded to GitHub Releases</li>
+</ul>
+<p><strong>Verification</strong>: View attestations at <code>https://github.com/Hack23/euparliamentmonitor/attestations/</code></p>
+<h4 id="sonarcloud-quality-gate" class="tsd-anchor-link">SonarCloud Quality Gate<a href="#sonarcloud-quality-gate" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Setup Required</strong>:</p>
+<ol>
+<li>Enable repository at <a href="https://sonarcloud.io/">SonarCloud</a></li>
+<li>Add <code>SONAR_TOKEN</code> secret to GitHub repository</li>
+<li>Configure quality gate thresholds (recommended: 80% coverage, A maintainability)</li>
+</ol>
+<p><strong>Workflow</strong>: Runs automatically on push to <code>main</code> and pull requests</p>
+<h4 id="fossa-license-compliance" class="tsd-anchor-link">FOSSA License Compliance<a href="#fossa-license-compliance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Setup Required</strong>:</p>
+<ol>
+<li>Sign up at <a href="https://fossa.com/">FOSSA</a></li>
+<li>Connect GitHub repository</li>
+<li>Configure license policy (Apache-2.0 compatible only)</li>
+</ol>
+<p><strong>Badge</strong>: Updates automatically after scan completion</p>
+<h4 id="reuse-compliance-status-✅-implemented" class="tsd-anchor-link">REUSE Compliance (Status: ✅ Implemented)<a href="#reuse-compliance-status-✅-implemented" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Compliance Verification</strong>:</p>
+<ul>
+<li>✅ <code>.reuse/dep5</code> covers all files without headers</li>
+<li>✅ Apache-2.0 license applied to all project files</li>
+<li>✅ Copyright notices: &quot;2024-2026 Hack23 AB&quot;</li>
+</ul>
+<p><strong>Workflow</strong>: Runs on push, pull requests, and weekly via <code>.github/workflows/reuse.yml</code></p>
+<h3 id="isms-policy-references" class="tsd-anchor-link">ISMS Policy References<a href="#isms-policy-references" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>This project adheres to <a href="https://github.com/Hack23/ISMS-PUBLIC">Hack23 ISMS</a> policies:</p>
+<table>
+<thead>
+<tr>
+<th>Policy</th>
+<th>Relevance</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md"><strong>Open Source Policy</strong></a></td>
+<td>Security badge requirements</td>
+<td>All required badges implemented</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md"><strong>Secure Development Policy</strong></a></td>
+<td>Development security standards</td>
+<td>SECURITY_ARCHITECTURE.md, SAST/SCA/DAST</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md"><strong>Threat Modeling Policy</strong></a></td>
+<td>Threat analysis requirements</td>
+<td>STRIDE analysis in SECURITY_ARCHITECTURE.md</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md"><strong>Vulnerability Management</strong></a></td>
+<td>Remediation SLAs</td>
+<td><a href="http://SECURITY.md">SECURITY.md</a> disclosure timeline</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md"><strong>Classification Framework</strong></a></td>
+<td>Data classification</td>
+<td>Public/Medium/Medium (L1/L2/L2)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md"><strong>Incident Response Plan</strong></a></td>
+<td>Security incident procedures</td>
+<td>Linked in <a href="http://SECURITY.md">SECURITY.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="compliance-frameworks" class="tsd-anchor-link">Compliance Frameworks<a href="#compliance-frameworks" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>EU Parliament Monitor aligns with multiple compliance frameworks:</p>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Controls</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ISO 27001</strong></td>
+<td>A.12.6.1 (Vulnerability Management), A.14.2.8 (Security Testing)</td>
+<td>CodeQL, Dependabot, npm audit</td>
+</tr>
+<tr>
+<td><strong>NIST CSF 2.0</strong></td>
+<td>Identify, Protect, Detect, Respond, Recover</td>
+<td>SECURITY_ARCHITECTURE.md compliance matrix</td>
+</tr>
+<tr>
+<td><strong>CIS Controls v8.1</strong></td>
+<td>18.3 (Remediate Vulnerabilities), 2.7 (Allowlisting)</td>
+<td>Automated scanning, SBOM</td>
+</tr>
+<tr>
+<td><strong>GDPR</strong></td>
+<td>Data Protection by Design</td>
+<td>European Parliament open data (public)</td>
+</tr>
+<tr>
+<td><strong>NIS2</strong></td>
+<td>Article 20, 21 (Cybersecurity Risk Management)</td>
+<td>Threat model, security controls</td>
+</tr>
+<tr>
+<td><strong>EU Cyber Resilience Act</strong></td>
+<td>SBOM, Vulnerability Disclosure</td>
+<td>SLSA provenance, <a href="http://SECURITY.md">SECURITY.md</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="license" class="tsd-anchor-link">License<a href="#license" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Copyright 2024-2026 Hack23 AB</p>
+<p>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+<pre><code>http://www.apache.org/licenses/LICENSE-2.0
+</code></pre>
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+<p>See <a href="media/LICENSE">LICENSE</a> file for full details.</p>
+<h2 id="credits" class="tsd-anchor-link">Credits<a href="#credits" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This project is based on the news generation implementation from
+<a href="https://github.com/Hack23/riksdagsmonitor">Hack23/riksdagsmonitor</a>.</p>
+<h2 id="author" class="tsd-anchor-link">Author<a href="#author" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Hack23 AB - Intelligence Operations Team</p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#🎯-status-badges"><span>🎯 <wbr/>Status <wbr/>Badges</span></a><ul><li><a href="#workflow-status"><span>Workflow <wbr/>Status</span></a></li><li><a href="#documentation-reports"><span>Documentation &amp; <wbr/>Reports</span></a></li></ul><a href="#📚-documentation-hub"><span>📚 <wbr/>Documentation <wbr/>Hub</span></a><a href="#current-status"><span>Current <wbr/>Status</span></a><ul><li><a href="#when-mcp-server-is-ready"><span>When <wbr/>MCP <wbr/>Server is <wbr/>Ready</span></a></li><li><a href="#current-limitations"><span>Current <wbr/>Limitations</span></a></li></ul><a href="#features"><span>Features</span></a><a href="#🔒-security-architecture"><span>🔒 <wbr/>Security <wbr/>Architecture</span></a><ul><li><a href="#security-documentation"><span>Security <wbr/>Documentation</span></a></li><li><a href="#security-posture"><span>Security <wbr/>Posture</span></a></li><li><a href="#isms-alignment"><span>ISMS <wbr/>Alignment</span></a></li></ul><a href="#🤝-community-governance"><span>🤝 <wbr/>Community &amp; <wbr/>Governance</span></a><ul><li><a href="#open-source-standards"><span>Open <wbr/>Source <wbr/>Standards</span></a></li><li><a href="#community-channels"><span>Community <wbr/>Channels</span></a></li><li><a href="#governance-compliance"><span>Governance <wbr/>Compliance</span></a></li></ul><a href="#code-quality-testing"><span>Code <wbr/>Quality &amp; <wbr/>Testing</span></a><ul><li><a href="#code-quality"><span>Code <wbr/>Quality</span></a></li><li><a href="#testing-infrastructure"><span>Testing <wbr/>Infrastructure</span></a></li><li><ul><li><a href="#unit-integration-tests-vitest"><span>Unit &amp; <wbr/>Integration <wbr/>Tests (<wbr/>Vitest)</span></a></li><li><a href="#end-to-end-tests-playwright"><span>End-<wbr/>to-<wbr/>End <wbr/>Tests (<wbr/>Playwright)</span></a></li></ul></li></ul><a href="#custom-agents"><span>Custom <wbr/>Agents</span></a><a href="#languages-supported"><span>Languages <wbr/>Supported</span></a><a href="#requirements"><span>Requirements</span></a><a href="#installation"><span>Installation</span></a><ul><li><a href="#optional-european-parliament-mcp-server"><span>Optional: <wbr/>European <wbr/>Parliament <wbr/>MCP <wbr/>Server</span></a></li></ul><a href="#usage"><span>Usage</span></a><ul><li><a href="#generate-news-articles"><span>Generate <wbr/>News <wbr/>Articles</span></a></li><li><a href="#generate-indexes-and-sitemap"><span>Generate <wbr/>Indexes and <wbr/>Sitemap</span></a></li><li><a href="#local-development"><span>Local <wbr/>Development</span></a></li></ul><a href="#project-structure"><span>Project <wbr/>Structure</span></a><a href="#cicd-automation"><span>CI/<wbr/>CD &amp; <wbr/>Automation</span></a><ul><li><a href="#github-actions-workflows"><span>Git<wbr/>Hub <wbr/>Actions <wbr/>Workflows</span></a></li><li><ul><li><a href="#📰-news-generation"><span>📰 <wbr/>News <wbr/>Generation</span></a></li><li><a href="#🏷️-pr-labeling"><span>🏷️ <wbr/>PR <wbr/>Labeling</span></a></li><li><a href="#📦-release-management"><span>📦 <wbr/>Release <wbr/>Management</span></a></li><li><a href="#🔒-security-scanning"><span>🔒 <wbr/>Security <wbr/>Scanning</span></a></li><li><a href="#🏆-compliance-quality"><span>🏆 <wbr/>Compliance &amp; <wbr/>Quality</span></a></li><li><a href="#✅-test-validation"><span>✅ <wbr/>Test &amp; <wbr/>Validation</span></a></li></ul></li><li><a href="#workflow-status-badges"><span>Workflow <wbr/>Status <wbr/>Badges</span></a></li><li><a href="#manual-release-process"><span>Manual <wbr/>Release <wbr/>Process</span></a></li><li><a href="#documentation-as-code"><span>Documentation as <wbr/>Code</span></a></li><li><a href="#setting-up-labels"><span>Setting <wbr/>Up <wbr/>Labels</span></a></li></ul><a href="#configuration"><span>Configuration</span></a><ul><li><a href="#language-presets"><span>Language <wbr/>Presets</span></a></li><li><a href="#article-types"><span>Article <wbr/>Types</span></a></li></ul><a href="#contributing"><span>Contributing</span></a><ul><li><a href="#how-to-contribute"><span>How to <wbr/>Contribute</span></a></li><li><a href="#code-of-conduct"><span>Code of <wbr/>Conduct</span></a></li><li><a href="#security"><span>Security</span></a></li><li><a href="#contributors"><span>Contributors</span></a></li></ul><a href="#security-policy"><span>Security <wbr/>Policy</span></a><a href="#badge-maintenance"><span>Badge <wbr/>Maintenance</span></a><ul><li><a href="#maintaining-security-badge-status"><span>Maintaining <wbr/>Security <wbr/>Badge <wbr/>Status</span></a></li><li><ul><li><a href="#openssf-scorecard-target-≥70"><span>Open<wbr/>SSF <wbr/>Scorecard (<wbr/>Target: ≥7.0)</span></a></li><li><a href="#cii-best-practices-target-passing-→-silver-→-gold"><span>CII <wbr/>Best <wbr/>Practices (<wbr/>Target: <wbr/>Passing → <wbr/>Silver → <wbr/>Gold)</span></a></li><li><a href="#slsa-level-3-status-✅-implemented"><span>SLSA <wbr/>Level 3 (<wbr/>Status: ✅ <wbr/>Implemented)</span></a></li><li><a href="#sonarcloud-quality-gate"><span>Sonar<wbr/>Cloud <wbr/>Quality <wbr/>Gate</span></a></li><li><a href="#fossa-license-compliance"><span>FOSSA <wbr/>License <wbr/>Compliance</span></a></li><li><a href="#reuse-compliance-status-✅-implemented"><span>REUSE <wbr/>Compliance (<wbr/>Status: ✅ <wbr/>Implemented)</span></a></li></ul></li><li><a href="#isms-policy-references"><span>ISMS <wbr/>Policy <wbr/>References</span></a></li><li><a href="#compliance-frameworks"><span>Compliance <wbr/>Frameworks</span></a></li></ul><a href="#license"><span>License</span></a><a href="#credits"><span>Credits</span></a><a href="#author"><span>Author</span></a></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html">EU Parliament Monitor - API Documentation - v0.2.0</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>

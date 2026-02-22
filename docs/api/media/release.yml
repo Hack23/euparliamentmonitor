@@ -1,0 +1,329 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release (vX.Y.Z format)"
+        required: true
+        default: "v0.1.0"
+      prerelease:
+        description: "Is this a pre-release?"
+        type: boolean
+        default: false
+  push:
+    tags:
+      - "v*"
+
+# Restrict top-level permissions to minimum required defaults
+permissions: read-all
+
+jobs:
+  prepare:
+    name: Prepare Release
+    runs-on: ubuntu-latest
+    # Only prepare job needs write permissions for commit and tagging
+    permissions:
+      contents: write # Required for git auto-commit
+    outputs:
+      version: ${{ steps.get-version.outputs.version }}
+      is_prerelease: ${{ github.event.inputs.prerelease || 'false' }}
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v4.3.1
+        with:
+          fetch-depth: 0
+
+      - name: Get version
+        id: get-version
+        run: |
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            VERSION=${GITHUB_REF#refs/tags/}
+          else
+            VERSION=${{ github.event.inputs.version }}
+          fi
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "Version: ${VERSION}"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Cache dependencies
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build TypeScript
+        run: npm run build
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Validate HTML
+        run: npm run htmlhint || echo "HTML validation completed"
+
+      - name: Set Version for release
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          PLAIN_VERSION="${{ github.event.inputs.version }}"
+          # Remove 'v' prefix if present
+          PLAIN_VERSION="${PLAIN_VERSION#v}"
+          npm version $PLAIN_VERSION --no-git-tag-version
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run tests with coverage
+        run: npm run test:coverage
+
+      - name: Run E2E tests
+        run: npm run test:e2e
+
+      - name: Clean old documentation
+        run: |
+          echo "🧹 Cleaning old documentation..."
+          rm -rf docs/api docs/coverage docs/test-results docs/playwright-report
+
+      - name: Generate API documentation
+        run: |
+          echo "📖 Generating API documentation..."
+          npm run docs:api
+
+      - name: Copy test reports to docs
+        run: |
+          echo "📋 Copying test reports..."
+          npm run docs:copy-reports
+
+      - name: Generate documentation index
+        run: |
+          echo "📚 Generating documentation index..."
+          npm run docs:index
+
+      - name: Verify documentation structure
+        run: |
+          echo "🔍 Verifying documentation structure..."
+          
+          # Check required directories exist
+          for dir in docs/api docs/coverage docs/test-results docs/playwright-report; do
+            if [ -d "$dir" ]; then
+              echo "✅ $dir exists"
+            else
+              echo "❌ $dir missing"
+              exit 1
+            fi
+          done
+          
+          # Check required files exist
+          for file in docs/index.html docs/api/index.html docs/coverage/index.html docs/playwright-report/index.html; do
+            if [ -f "$file" ]; then
+              echo "✅ $file exists"
+            else
+              echo "❌ $file missing"
+              exit 1
+            fi
+          done
+          
+          echo "✅ Documentation structure validated"
+
+      - name: Commit documentation updates
+        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
+        with:
+          commit_message: "docs: update documentation for ${{ steps.get-version.outputs.version }}"
+          file_pattern: "docs/**/*"
+          skip_fetch: false
+          skip_checkout: false
+
+      - name: Create version tag
+        if: github.event_name == 'workflow_dispatch'
+        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
+        with:
+          commit_message: "chore(release): bump version to ${{ github.event.inputs.version }}"
+          tagging_message: "${{ github.event.inputs.version }}"
+
+  build:
+    name: Build Release Package
+    needs: [prepare]
+    runs-on: ubuntu-latest
+    # Build job needs specific permissions for attestations
+    permissions:
+      contents: read
+      id-token: write # Required for OIDC
+      attestations: write # Required for SBOM and build attestations
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v4.3.1
+        with:
+          fetch-depth: 0
+          # Use GITHUB_REF directly for tag events
+          ref: ${{ github.event_name == 'push' && github.ref || github.event_name == 'workflow_dispatch' && github.event.inputs.version || '' }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Cache dependencies
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate sample news (if needed)
+        run: |
+          # Generate sample news for the release if news directory is empty
+          if [ ! -d "news" ] || [ -z "$(ls -A news 2>/dev/null)" ]; then
+            echo "📰 Generating sample news articles..."
+            npm run generate-news -- --types=week-ahead --languages=en || echo "News generation skipped"
+            npm run generate-news-indexes || echo "Index generation skipped"
+            npm run generate-sitemap || echo "Sitemap generation skipped"
+          fi
+
+      - name: Create release artifacts
+        run: |
+          # Create the zip file from the repository
+          mkdir -p release-artifacts
+          
+          # Include all necessary files including documentation
+          zip -r release-artifacts/euparliamentmonitor-${{ needs.prepare.outputs.version }}.zip \
+            news/ \
+            docs/ \
+            scripts/ \
+            styles.css \
+            index-*.html \
+            sitemap.xml \
+            package.json \
+            package-lock.json \
+            README.md \
+            LICENSE \
+            -x "*.git*" "node_modules/*"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@47309c993abb98030a35d55ef7ff34b7fa1074b5 # v6.0.0
+        with:
+          name: build-artifacts
+          path: release-artifacts/
+          if-no-files-found: error
+
+      - name: Generate SBOM
+        uses: anchore/sbom-action@28d71544de8eaf1b958d335707167c5f783590ad # v0.22.2
+        id: sbom
+        with:
+          format: spdx-json
+          output-file: euparliamentmonitor-${{ needs.prepare.outputs.version }}.spdx.json
+          artifact-name: euparliamentmonitor-${{ needs.prepare.outputs.version }}
+
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@96278af6caaf10aea03fd8d33a09a777ca52d62f # v3.2.0
+        id: attest
+        with:
+          subject-path: release-artifacts/euparliamentmonitor-${{ needs.prepare.outputs.version }}.zip
+
+      - name: Copy artifact attestation for zip
+        run: cp ${{ steps.attest.outputs.bundle-path }} euparliamentmonitor-${{ needs.prepare.outputs.version }}.zip.intoto.jsonl
+
+      - name: Generate SBOM attestation
+        id: attestsbom
+        uses: actions/attest-sbom@4651f806c01d8637787e274ac3bdf724ef169f34 # v3.0.0
+        with:
+          subject-path: release-artifacts/euparliamentmonitor-${{ needs.prepare.outputs.version }}.zip
+          sbom-path: euparliamentmonitor-${{ needs.prepare.outputs.version }}.spdx.json
+
+      - name: Copy SBOM attestation for zip
+        run: cp ${{ steps.attestsbom.outputs.bundle-path }} euparliamentmonitor-${{ needs.prepare.outputs.version }}.spdx.json.intoto.jsonl
+
+      - name: Upload security artifacts
+        uses: actions/upload-artifact@47309c993abb98030a35d55ef7ff34b7fa1074b5 # v6.0.0
+        with:
+          name: security-artifacts
+          path: |
+            euparliamentmonitor-${{ needs.prepare.outputs.version }}.spdx.json
+            euparliamentmonitor-${{ needs.prepare.outputs.version }}.zip.intoto.jsonl
+            euparliamentmonitor-${{ needs.prepare.outputs.version }}.spdx.json.intoto.jsonl
+          if-no-files-found: error
+
+  release:
+    name: Create Release
+    needs: [prepare, build]
+    runs-on: ubuntu-latest
+    # Release job needs specific permissions to create GitHub releases
+    permissions:
+      contents: write # Required to create releases
+      id-token: write # Required for OIDC
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+        with:
+          egress-policy: audit
+
+      # Checkout main branch to get latest documentation
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v4.3.1
+        with:
+          fetch-depth: 0
+          ref: main # Always use main branch for deployment
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: build-artifacts
+          path: artifacts/build
+
+      - name: Download security artifacts
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: security-artifacts
+          path: artifacts/security
+
+      - name: Draft Release Notes
+        id: release-drafter
+        uses: release-drafter/release-drafter@6db134d15f3909ccc9eefd369f02bd1e9cffdf97 # v6.2.0
+        with:
+          version: ${{ needs.prepare.outputs.version }}
+          tag: ${{ needs.prepare.outputs.version }}
+          name: EU Parliament Monitor ${{ needs.prepare.outputs.version }}
+          publish: false
+          prerelease: ${{ needs.prepare.outputs.is_prerelease }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Create GitHub Release with all artifacts
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@b7eabc95ff50cbeeedec83973935c8f306dfcd0b # v1.20.0
+        with:
+          tag: ${{ needs.prepare.outputs.version }}
+          name: EU Parliament Monitor ${{ needs.prepare.outputs.version }}
+          body: ${{ steps.release-drafter.outputs.body }}
+          generateReleaseNotes: false
+          draft: false
+          prerelease: ${{ needs.prepare.outputs.is_prerelease }}
+          artifacts: |
+            artifacts/build/euparliamentmonitor-${{ needs.prepare.outputs.version }}.zip
+            artifacts/security/euparliamentmonitor-${{ needs.prepare.outputs.version }}.spdx.json
+            artifacts/security/euparliamentmonitor-${{ needs.prepare.outputs.version }}.zip.intoto.jsonl
+            artifacts/security/euparliamentmonitor-${{ needs.prepare.outputs.version }}.spdx.json.intoto.jsonl
+          token: ${{ secrets.GITHUB_TOKEN }}
