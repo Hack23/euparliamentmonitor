@@ -1049,13 +1049,19 @@ async function fetchParliamentaryQuestions(
 
     if (questionsResult?.content?.[0]) {
       const data = JSON.parse(questionsResult.content[0].text) as {
-        questions?: Array<{ author?: string; topic?: string; date?: string; status?: string }>;
+        questions?: Array<{
+          author?: string;
+          topic?: string;
+          subject?: string;
+          date?: string;
+          status?: string;
+        }>;
       };
       if (data.questions && data.questions.length > 0) {
         console.log(`  ✅ Fetched ${data.questions.length} parliamentary questions from MCP`);
         return data.questions.map((q) => ({
           author: q.author ?? 'Unknown MEP',
-          topic: q.topic ?? 'General inquiry',
+          topic: q.topic ?? q.subject ?? 'General inquiry',
           date: q.date ?? dateStr,
           status: q.status ?? 'PENDING',
         }));

@@ -901,7 +901,7 @@ async function fetchParliamentaryQuestions(dateFromStr, dateStr) {
                 console.log(`  ✅ Fetched ${data.questions.length} parliamentary questions from MCP`);
                 return data.questions.map((q) => ({
                     author: q.author ?? 'Unknown MEP',
-                    topic: q.topic ?? 'General inquiry',
+                    topic: q.topic ?? q.subject ?? 'General inquiry',
                     date: q.date ?? dateStr,
                     status: q.status ?? 'PENDING',
                 }));
