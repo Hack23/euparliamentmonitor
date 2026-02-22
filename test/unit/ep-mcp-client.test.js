@@ -9,6 +9,7 @@
 /* eslint-disable no-undef */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import path from 'path';
 import { EuropeanParliamentMCPClient, getEPMCPClient, closeEPMCPClient } from '../../scripts/mcp/ep-mcp-client.js';
 import { mockConsole } from '../helpers/test-utils.js';
 
@@ -36,6 +37,21 @@ describe('ep-mcp-client', () => {
         expect(client.requestId).toBe(0);
         expect(client.maxConnectionAttempts).toBe(3);
         expect(client.connectionRetryDelay).toBe(1000);
+      });
+
+      it('should default serverPath to npm package binary in node_modules/.bin', () => {
+        const hadEnvVar = 'EP_MCP_SERVER_PATH' in process.env;
+        const originalPath = process.env.EP_MCP_SERVER_PATH;
+        delete process.env.EP_MCP_SERVER_PATH;
+
+        const defaultClient = new EuropeanParliamentMCPClient();
+        expect(defaultClient.serverPath).toContain('european-parliament-mcp-server');
+        expect(path.isAbsolute(defaultClient.serverPath)).toBe(true);
+
+        // Restore
+        if (hadEnvVar) {
+          process.env.EP_MCP_SERVER_PATH = originalPath;
+        }
       });
 
       it('should accept custom options', () => {
@@ -72,6 +88,24 @@ describe('ep-mcp-client', () => {
     });
 
     describe('Connection Management', () => {
+      it('should use serverPath as binary command (not node with script argument)', () => {
+        // The serverPath should be used directly as the executable command,
+        // not wrapped as 'node [serverPath]'. Verify by checking serverPath is
+        // an absolute path to the binary, not a .js script.
+        const hadEnvVar = 'EP_MCP_SERVER_PATH' in process.env;
+        const originalEnv = process.env.EP_MCP_SERVER_PATH;
+        delete process.env.EP_MCP_SERVER_PATH;
+
+        const clientWithBinary = new EuropeanParliamentMCPClient();
+        // Default path should point to the binary (not a .js file for node to execute)
+        expect(clientWithBinary.serverPath).not.toMatch(/\.js$/);
+        expect(clientWithBinary.serverPath).toContain('european-parliament-mcp-server');
+
+        if (hadEnvVar) {
+          process.env.EP_MCP_SERVER_PATH = originalEnv;
+        }
+      });
+
       it('should handle connection behavior consistently', async () => {
         // Set an invalid server path
         client.serverPath = '/nonexistent/path/to/server.js';
