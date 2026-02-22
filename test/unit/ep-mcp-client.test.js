@@ -399,11 +399,21 @@ describe('ep-mcp-client', () => {
       it('should handle missing get_committee_info tool gracefully', async () => {
         client.callTool.mockRejectedValue(new Error('Tool not available'));
 
-        const result = await client.getCommitteeInfo();
+        const result = await client.getCommitteeInfo({ abbreviation: 'ENVI' });
 
         expect(result).toEqual({
           content: [{ type: 'text', text: '{"committee": null}' }],
         });
+      });
+
+      it('should warn and return null when getCommitteeInfo called without identifier', async () => {
+        // Pass an empty object to exercise the runtime guard
+        const result = await client.getCommitteeInfo({});
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"committee": null}' }],
+        });
+        expect(client.callTool).not.toHaveBeenCalled();
       });
 
       it('should analyze voting patterns', async () => {

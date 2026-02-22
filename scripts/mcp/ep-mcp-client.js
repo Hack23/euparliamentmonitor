@@ -297,9 +297,13 @@ export class EuropeanParliamentMCPClient {
      * @param options - Options with id or abbreviation
      * @returns Committee information
      */
-    async getCommitteeInfo(options = {}) {
+    async getCommitteeInfo(options) {
         try {
-            return (await this.callTool('get_committee_info', options));
+            if (!('id' in options) && !('abbreviation' in options)) {
+                console.warn('get_committee_info called without required identifier (id or abbreviation)');
+                return { content: [{ type: 'text', text: '{"committee": null}' }] };
+            }
+            return (await this.callTool('get_committee_info', { ...options }));
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);

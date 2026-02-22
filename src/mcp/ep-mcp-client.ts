@@ -327,7 +327,7 @@ export class EuropeanParliamentMCPClient {
    */
   async getVotingRecords(options: VotingRecordsOptions = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('get_voting_records', options as Record<string, unknown>)) as MCPToolResult;
+      return (await this.callTool('get_voting_records', options)) as MCPToolResult;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_voting_records not available:', message);
@@ -341,9 +341,13 @@ export class EuropeanParliamentMCPClient {
    * @param options - Options with id or abbreviation
    * @returns Committee information
    */
-  async getCommitteeInfo(options: CommitteeInfoOptions = {}): Promise<MCPToolResult> {
+  async getCommitteeInfo(options: CommitteeInfoOptions): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('get_committee_info', options as Record<string, unknown>)) as MCPToolResult;
+      if (!('id' in options) && !('abbreviation' in options)) {
+        console.warn('get_committee_info called without required identifier (id or abbreviation)');
+        return { content: [{ type: 'text', text: '{"committee": null}' }] };
+      }
+      return (await this.callTool('get_committee_info', { ...options })) as MCPToolResult;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_committee_info not available:', message);
@@ -359,7 +363,7 @@ export class EuropeanParliamentMCPClient {
    */
   async analyzeVotingPatterns(options: VotingPatternsOptions): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('analyze_voting_patterns', options as unknown as Record<string, unknown>)) as MCPToolResult;
+      return (await this.callTool('analyze_voting_patterns', options)) as MCPToolResult;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('analyze_voting_patterns not available:', message);
@@ -391,7 +395,7 @@ export class EuropeanParliamentMCPClient {
    */
   async generateReport(options: GenerateReportOptions): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('generate_report', options as unknown as Record<string, unknown>)) as MCPToolResult;
+      return (await this.callTool('generate_report', options)) as MCPToolResult;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('generate_report not available:', message);

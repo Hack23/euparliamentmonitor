@@ -197,19 +197,28 @@ export interface VotingRecordsOptions {
   sessionId?: string;
   topic?: string;
   dateFrom?: string;
+  [key: string]: unknown;
 }
 
-/** Options for getting committee information */
-export interface CommitteeInfoOptions {
-  id?: string;
-  abbreviation?: string;
+/** Options for getting committee information (exactly one identifier is required) */
+export interface CommitteeInfoByIdOptions {
+  id: string;
+  abbreviation?: never;
 }
+
+export interface CommitteeInfoByAbbreviationOptions {
+  id?: never;
+  abbreviation: string;
+}
+
+export type CommitteeInfoOptions = CommitteeInfoByIdOptions | CommitteeInfoByAbbreviationOptions;
 
 /** Options for analyzing voting patterns */
 export interface VotingPatternsOptions {
   mepId: string;
   dateFrom?: string;
   compareWithGroup?: boolean;
+  [key: string]: unknown;
 }
 
 /** Options for tracking legislation */
@@ -222,4 +231,5 @@ export interface GenerateReportOptions {
   reportType: string;
   subjectId?: string;
   dateFrom?: string;
+  [key: string]: unknown;
 }
