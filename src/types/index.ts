@@ -237,6 +237,36 @@ export interface LangTitleSubtitle {
   subtitle: string;
 }
 
+/** Voting record from MCP or fallback */
+export interface VotingRecord {
+  title: string;
+  date: string;
+  result: string;
+  votes: { for: number; against: number; abstain: number };
+}
+
+/** Voting pattern (party cohesion) from MCP or fallback */
+export interface VotingPattern {
+  group: string;
+  cohesion: number;
+  participation: number;
+}
+
+/** Voting anomaly from MCP or fallback */
+export interface VotingAnomaly {
+  type: string;
+  description: string;
+  severity: string;
+}
+
+/** Parliamentary question for motions article (simplified MCP/fallback shape) */
+export interface MotionsQuestion {
+  author: string;
+  topic: string;
+  date: string;
+  status: string;
+}
+
 /** Options for getting voting records */
 export interface VotingRecordsOptions {
   mepId?: string;
