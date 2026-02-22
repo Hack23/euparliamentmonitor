@@ -749,12 +749,7 @@ async function generateBreakingNews() {
                 readTime,
                 lang,
                 content,
-                keywords: [
-                    EP_KEYWORD,
-                    'breaking news',
-                    'voting anomalies',
-                    'coalition dynamics',
-                ],
+                keywords: [EP_KEYWORD, 'breaking news', 'voting anomalies', 'coalition dynamics'],
                 sources: [],
             });
             writeSingleArticle(html, slug, lang);
@@ -1127,7 +1122,10 @@ async function fetchMotionsData(dateFromStr, dateStr) {
 async function fetchProposalsFromMCP() {
     if (!mcpClient)
         return { html: '', firstProcedureId: '' };
-    const docsResult = await mcpClient.searchDocuments({ keyword: 'legislative proposal', limit: 10 });
+    const docsResult = await mcpClient.searchDocuments({
+        keyword: 'legislative proposal',
+        limit: 10,
+    });
     if (!docsResult?.content?.[0])
         return { html: '', firstProcedureId: '' };
     let data;

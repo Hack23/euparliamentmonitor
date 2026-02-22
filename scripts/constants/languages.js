@@ -601,7 +601,7 @@ export const PROPOSITIONS_STRINGS = {
         pipelineHeading: 'Oversigt over Lovgivningspipeline',
         procedureHeading: 'Procedurestatus',
         analysisHeading: 'Konsekvensvurdering',
-        analysis: 'Den aktuelle lovgivningsaktivitet afspejler Parlamentets prioriteter inden for bæredygtig finansiering, digital forvaltning og miljøpolitik. Sporing af disse forslag hjælper borgere og interessenter med at forstå EU\'s lovgivningstrajektorie.',
+        analysis: "Den aktuelle lovgivningsaktivitet afspejler Parlamentets prioriteter inden for bæredygtig finansiering, digital forvaltning og miljøpolitik. Sporing af disse forslag hjælper borgere og interessenter med at forstå EU's lovgivningstrajektorie.",
         pipelineHealthLabel: 'Pipeline-sundhed',
         throughputRateLabel: 'Gennemstrømningshastighed',
     },

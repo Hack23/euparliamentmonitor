@@ -696,7 +696,7 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     procedureHeading: 'Procedurestatus',
     analysisHeading: 'Konsekvensvurdering',
     analysis:
-      'Den aktuelle lovgivningsaktivitet afspejler Parlamentets prioriteter inden for bæredygtig finansiering, digital forvaltning og miljøpolitik. Sporing af disse forslag hjælper borgere og interessenter med at forstå EU\'s lovgivningstrajektorie.',
+      "Den aktuelle lovgivningsaktivitet afspejler Parlamentets prioriteter inden for bæredygtig finansiering, digital forvaltning og miljøpolitik. Sporing af disse forslag hjælper borgere og interessenter med at forstå EU's lovgivningstrajektorie.",
     pipelineHealthLabel: 'Pipeline-sundhed',
     throughputRateLabel: 'Gennemstrømningshastighed',
   },

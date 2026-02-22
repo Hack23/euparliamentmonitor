@@ -876,12 +876,7 @@ async function generateBreakingNews(): Promise<GenerationResult> {
         readTime,
         lang,
         content,
-        keywords: [
-          EP_KEYWORD,
-          'breaking news',
-          'voting anomalies',
-          'coalition dynamics',
-        ],
+        keywords: [EP_KEYWORD, 'breaking news', 'voting anomalies', 'coalition dynamics'],
         sources: [],
       });
 
@@ -1334,11 +1329,16 @@ async function fetchMotionsData(
  */
 async function fetchProposalsFromMCP(): Promise<{ html: string; firstProcedureId: string }> {
   if (!mcpClient) return { html: '', firstProcedureId: '' };
-  const docsResult = await mcpClient.searchDocuments({ keyword: 'legislative proposal', limit: 10 });
+  const docsResult = await mcpClient.searchDocuments({
+    keyword: 'legislative proposal',
+    limit: 10,
+  });
   if (!docsResult?.content?.[0]) return { html: '', firstProcedureId: '' };
   let data: { documents?: Array<Partial<LegislativeDocument>> };
   try {
-    data = JSON.parse(docsResult.content[0].text) as { documents?: Array<Partial<LegislativeDocument>> };
+    data = JSON.parse(docsResult.content[0].text) as {
+      documents?: Array<Partial<LegislativeDocument>>;
+    };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     console.warn('  ⚠️ Failed to parse proposals JSON:', message);
@@ -1382,7 +1382,11 @@ async function fetchPipelineFromMCP(): Promise<PipelineData | null> {
   if (!mcpClient) return null;
   const pipelineResult = await mcpClient.monitorLegislativePipeline({ status: 'ACTIVE', limit: 5 });
   if (!pipelineResult?.content?.[0]) return null;
-  let pipeData: { pipelineHealthScore?: number; throughputRate?: number; procedures?: Array<{ id?: string; title?: string; stage?: string }> };
+  let pipeData: {
+    pipelineHealthScore?: number;
+    throughputRate?: number;
+    procedures?: Array<{ id?: string; title?: string; stage?: string }>;
+  };
   try {
     pipeData = JSON.parse(pipelineResult.content[0].text) as typeof pipeData;
   } catch (error) {
@@ -1520,13 +1524,13 @@ async function generatePropositions(): Promise<GenerationResult> {
         ? proposalsResult.value
         : { html: '', firstProcedureId: '' };
 
-    const pipelineData =
-      pipelineResult.status === 'fulfilled' ? pipelineResult.value : null;
+    const pipelineData = pipelineResult.status === 'fulfilled' ? pipelineResult.value : null;
 
     // Track the first identified procedure for additional detail
     const procedureHtml = await fetchProcedureStatusFromMCP(firstProcedureId);
 
-    if (!proposalsHtml) console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
+    if (!proposalsHtml)
+      console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
 
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
@@ -1567,7 +1571,6 @@ async function generatePropositions(): Promise<GenerationResult> {
     return { success: false, error: message };
   }
 }
-
 
 async function generateMotions(): Promise<GenerationResult> {
   console.log('🗳️ Generating Motions article...');
