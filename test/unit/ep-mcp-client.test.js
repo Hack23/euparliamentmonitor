@@ -781,7 +781,7 @@ describe('ep-mcp-client', () => {
       });
 
       it('should return fallback for analyzeLegislativeEffectiveness with blank subjectId', async () => {
-        const result = await client.analyzeLegislativeEffectiveness({ subjectId: '' });
+        const result = await client.analyzeLegislativeEffectiveness({ subjectId: '', subjectType: 'MEP' });
 
         expect(client.callTool).not.toHaveBeenCalled();
         expect(result).toEqual({
