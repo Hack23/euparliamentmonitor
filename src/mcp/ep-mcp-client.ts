@@ -306,12 +306,21 @@ export class EuropeanParliamentMCPClient {
   /**
    * Get plenary sessions
    *
-   * @param options - Filter options
+   * @param options - Filter options. `dateFrom` is mapped to `startDate` and `dateTo` to `endDate`
+   *   per the tool schema when the canonical fields are absent.
    * @returns Plenary sessions data
    */
   async getPlenarySessions(options: GetPlenarySessionsOptions = {}): Promise<MCPToolResult> {
     try {
-      return await this.callTool('get_plenary_sessions', options);
+      const { dateFrom, dateTo, ...rest } = options;
+      const normalizedOptions: Record<string, unknown> = { ...rest };
+      if (normalizedOptions['startDate'] === undefined && dateFrom !== undefined) {
+        normalizedOptions['startDate'] = dateFrom;
+      }
+      if (normalizedOptions['endDate'] === undefined && dateTo !== undefined) {
+        normalizedOptions['endDate'] = dateTo;
+      }
+      return await this.callTool('get_plenary_sessions', normalizedOptions);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_plenary_sessions not available:', message);
