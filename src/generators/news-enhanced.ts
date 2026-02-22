@@ -347,109 +347,6 @@ function parseLegislativePipeline(
   }
 }
 
-/**
-/**
- * Parse committee meetings from a settled MCP result
- *
- * @param settled - Promise.allSettled result
- * @param fallbackDate - Fallback date when meeting has none
- * @returns Array of committee meetings
- */
-function parseCommitteeMeetings(
-  settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>,
-  fallbackDate: string
-): CommitteeMeeting[] {
-  if (settled.status === 'rejected') {
-    console.warn('  ⚠️ Committee info fetch failed:', settled.reason);
-    return [];
-  }
-  const text = settled.value?.content?.[0]?.text;
-  if (!text) return [];
-  try {
-    const data = JSON.parse(text) as { committees?: Array<Partial<CommitteeMeeting>> };
-    if (!data.committees?.length) return [];
-    console.log(`  ✅ Committees: ${data.committees.length} meetings`);
-    return data.committees.map((c) => ({
-      id: c.id,
-      committee: c.committee ?? 'Unknown',
-      committeeName: c.committeeName,
-      date: c.date ?? fallbackDate,
-      time: c.time,
-      location: c.location,
-      agenda: c.agenda,
-    }));
-  } catch {
-    console.warn('  ⚠️ Failed to parse committee info');
-    return [];
-  }
-}
-
-/**
- * Parse legislative documents from a settled MCP result
- *
- * @param settled - Promise.allSettled result
- * @returns Array of legislative documents
- */
-function parseLegislativeDocuments(
-  settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>
-): LegislativeDocument[] {
-  if (settled.status === 'rejected') {
-    console.warn('  ⚠️ Documents fetch failed:', settled.reason);
-    return [];
-  }
-  const text = settled.value?.content?.[0]?.text;
-  if (!text) return [];
-  try {
-    const data = JSON.parse(text) as { documents?: Array<Partial<LegislativeDocument>> };
-    if (!data.documents?.length) return [];
-    console.log(`  ✅ Documents: ${data.documents.length} documents`);
-    return data.documents.map((d) => ({
-      id: d.id,
-      type: d.type,
-      title: d.title ?? 'Untitled Document',
-      date: d.date,
-      status: d.status,
-      committee: d.committee,
-      rapporteur: d.rapporteur,
-    }));
-  } catch {
-    console.warn('  ⚠️ Failed to parse documents');
-    return [];
-  }
-}
-
-/**
- * Parse legislative pipeline from a settled MCP result
- *
- * @param settled - Promise.allSettled result
- * @returns Array of legislative procedures
- */
-function parseLegislativePipeline(
-  settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>
-): LegislativeProcedure[] {
-  if (settled.status === 'rejected') {
-    console.warn('  ⚠️ Legislative pipeline fetch failed:', settled.reason);
-    return [];
-  }
-  const text = settled.value?.content?.[0]?.text;
-  if (!text) return [];
-  try {
-    const data = JSON.parse(text) as { procedures?: Array<Partial<LegislativeProcedure>> };
-    if (!data.procedures?.length) return [];
-    console.log(`  ✅ Pipeline: ${data.procedures.length} procedures`);
-    return data.procedures.map((p) => ({
-      id: p.id,
-      title: p.title ?? 'Unnamed Procedure',
-      stage: p.stage,
-      committee: p.committee,
-      status: p.status,
-      bottleneck: p.bottleneck,
-    }));
-  } catch {
-    console.warn('  ⚠️ Failed to parse legislative pipeline');
-    return [];
-  }
-}
 
 /**
  * Parse parliamentary questions from a settled MCP result
@@ -696,7 +593,6 @@ function buildWeekAheadContent(weekData: WeekAheadData, dateRange: DateRange): s
  */
 function buildKeywords(weekData: WeekAheadData): string[] {
   const keywords = [EP_KEYWORD, 'week ahead', 'plenary', 'committees'];
-  const keywords = ['European Parliament', 'week ahead', 'plenary', 'committees'];
   for (const c of weekData.committees) {
     if (c.committee && !keywords.includes(c.committee)) {
       keywords.push(c.committee);
