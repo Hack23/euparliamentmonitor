@@ -383,7 +383,7 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"committees": []}' }],
         });
 
-        const options = { dateFrom: '2024-01-01', limit: 20 };
+        const options = { committeeId: 'ENVI', limit: 20 };
         await client.getCommitteeInfo(options);
 
         expect(client.callTool).toHaveBeenCalledWith('get_committee_info', options);

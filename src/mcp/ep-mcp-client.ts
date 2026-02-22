@@ -343,7 +343,6 @@ export class EuropeanParliamentMCPClient {
    * @returns Committee info data
    */
   async getCommitteeInfo(options: GetCommitteeInfoOptions = {}): Promise<MCPToolResult> {
-  async getCommitteeInfo(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
       return (await this.callTool('get_committee_info', options)) as MCPToolResult;
     } catch (error) {
@@ -362,7 +361,6 @@ export class EuropeanParliamentMCPClient {
   async monitorLegislativePipeline(
     options: MonitorLegislativePipelineOptions = {}
   ): Promise<MCPToolResult> {
-  async monitorLegislativePipeline(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
       return (await this.callTool('monitor_legislative_pipeline', options)) as MCPToolResult;
     } catch (error) {

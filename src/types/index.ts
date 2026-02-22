@@ -249,8 +249,14 @@ export interface GetMEPsOptions {
 
 /** Options for getPlenarySessions */
 export interface GetPlenarySessionsOptions {
+  /** Tool schema field name */
   startDate?: string;
+  /** Tool schema field name */
   endDate?: string;
+  /** Alternative field name used by generators */
+  dateFrom?: string;
+  /** Alternative field name used by generators */
+  dateTo?: string;
   location?: string;
   limit?: number;
 }
@@ -258,6 +264,7 @@ export interface GetPlenarySessionsOptions {
 /** Options for searchDocuments */
 export interface SearchDocumentsOptions {
   query?: string;
+  keyword?: string;
   type?: string;
   committee?: string;
   dateFrom?: string;
@@ -269,12 +276,16 @@ export interface SearchDocumentsOptions {
 export interface GetParliamentaryQuestionsOptions {
   type?: string;
   startDate?: string;
+  dateFrom?: string;
+  dateTo?: string;
   limit?: number;
 }
 
 /** Options for getCommitteeInfo */
 export interface GetCommitteeInfoOptions {
+  committeeId?: string;
   dateFrom?: string;
+  dateTo?: string;
   limit?: number;
 }
 
@@ -283,6 +294,7 @@ export interface MonitorLegislativePipelineOptions {
   committeeId?: string;
   status?: string;
   dateFrom?: string;
+  dateTo?: string;
   limit?: number;
 }
 
