@@ -259,6 +259,102 @@ export class EuropeanParliamentMCPClient {
             return { content: [{ type: 'text', text: '{"questions": []}' }] };
         }
     }
+    /**
+     * Get detailed information about a specific MEP
+     *
+     * @param id - MEP identifier
+     * @returns Detailed MEP information including biography, contact, and activities
+     */
+    async getMEPDetails(id) {
+        try {
+            return (await this.callTool('get_mep_details', { id }));
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('get_mep_details not available:', message);
+            return { content: [{ type: 'text', text: '{"mep": null}' }] };
+        }
+    }
+    /**
+     * Retrieve voting records with optional filters
+     *
+     * @param options - Filter options (mepId, sessionId, topic, dateFrom)
+     * @returns Voting records data
+     */
+    async getVotingRecords(options = {}) {
+        try {
+            return (await this.callTool('get_voting_records', options));
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('get_voting_records not available:', message);
+            return { content: [{ type: 'text', text: '{"votes": []}' }] };
+        }
+    }
+    /**
+     * Get committee information by id or abbreviation
+     *
+     * @param options - Options with id or abbreviation
+     * @returns Committee information
+     */
+    async getCommitteeInfo(options = {}) {
+        try {
+            return (await this.callTool('get_committee_info', options));
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('get_committee_info not available:', message);
+            return { content: [{ type: 'text', text: '{"committee": null}' }] };
+        }
+    }
+    /**
+     * Analyze voting behavior patterns for an MEP
+     *
+     * @param options - Analysis options (mepId required, dateFrom, compareWithGroup)
+     * @returns Voting pattern analysis
+     */
+    async analyzeVotingPatterns(options) {
+        try {
+            return (await this.callTool('analyze_voting_patterns', options));
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('analyze_voting_patterns not available:', message);
+            return { content: [{ type: 'text', text: '{"patterns": null}' }] };
+        }
+    }
+    /**
+     * Track a legislative procedure by its identifier
+     *
+     * @param procedureId - Legislative procedure identifier
+     * @returns Procedure status and timeline
+     */
+    async trackLegislation(procedureId) {
+        try {
+            return (await this.callTool('track_legislation', { procedureId }));
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('track_legislation not available:', message);
+            return { content: [{ type: 'text', text: '{"procedure": null}' }] };
+        }
+    }
+    /**
+     * Generate an analytical report
+     *
+     * @param options - Report options (reportType required, subjectId, dateFrom)
+     * @returns Generated report data
+     */
+    async generateReport(options) {
+        try {
+            return (await this.callTool('generate_report', options));
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('generate_report not available:', message);
+            return { content: [{ type: 'text', text: '{"report": null}' }] };
+        }
+    }
 }
 // Singleton instance management
 let clientInstance = null;

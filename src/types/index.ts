@@ -185,3 +185,41 @@ export interface LangTitleSubtitle {
   title: string;
   subtitle: string;
 }
+
+/** Options for getting MEP details */
+export interface MEPDetailsOptions {
+  id: string;
+}
+
+/** Options for getting voting records */
+export interface VotingRecordsOptions {
+  mepId?: string;
+  sessionId?: string;
+  topic?: string;
+  dateFrom?: string;
+}
+
+/** Options for getting committee information */
+export interface CommitteeInfoOptions {
+  id?: string;
+  abbreviation?: string;
+}
+
+/** Options for analyzing voting patterns */
+export interface VotingPatternsOptions {
+  mepId: string;
+  dateFrom?: string;
+  compareWithGroup?: boolean;
+}
+
+/** Options for tracking legislation */
+export interface TrackLegislationOptions {
+  procedureId: string;
+}
+
+/** Options for generating analytical reports */
+export interface GenerateReportOptions {
+  reportType: string;
+  subjectId?: string;
+  dateFrom?: string;
+}
