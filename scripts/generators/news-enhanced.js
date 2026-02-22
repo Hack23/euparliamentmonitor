@@ -129,55 +129,386 @@ async function initializeMCPClient() {
         return null;
     }
 }
+/** Placeholder events used when MCP is unavailable or returns no sessions */
+const PLACEHOLDER_EVENTS = [
+    {
+        date: '',
+        title: 'Plenary Session',
+        type: 'Plenary',
+        description: 'Full parliamentary session',
+    },
+    {
+        date: '',
+        title: 'ENVI Committee Meeting',
+        type: 'Committee',
+        description: 'Environment committee discussion',
+    },
+];
 /**
- * Fetch events from MCP server or use fallback
+ * Parse plenary sessions from a settled MCP result
+ *
+ * @param settled - Promise.allSettled result
+ * @param fallbackDate - Fallback date when session has none
+ * @returns Array of parliament events
+ */
+function parsePlenarySessions(settled, fallbackDate) {
+    if (settled.status === 'rejected') {
+        console.warn('  ⚠️ Plenary sessions fetch failed:', settled.reason);
+        return [];
+    }
+    const text = settled.value?.content?.[0]?.text;
+    if (!text)
+        return [];
+    try {
+        const data = JSON.parse(text);
+        if (!data.sessions?.length)
+            return [];
+        console.log(`  ✅ Plenary: ${data.sessions.length} sessions`);
+        return data.sessions.map((s) => ({
+            date: s.date ?? fallbackDate,
+            title: s.title ?? 'Parliamentary Session',
+            type: s.type ?? 'Session',
+            description: s.description ?? '',
+        }));
+    }
+    catch {
+        console.warn('  ⚠️ Failed to parse plenary sessions');
+        return [];
+    }
+}
+/**
+ * Parse committee meetings from a settled MCP result
+ *
+ * @param settled - Promise.allSettled result
+ * @param fallbackDate - Fallback date when meeting has none
+ * @returns Array of committee meetings
+ */
+function parseCommitteeMeetings(settled, fallbackDate) {
+    if (settled.status === 'rejected') {
+        console.warn('  ⚠️ Committee info fetch failed:', settled.reason);
+        return [];
+    }
+    const text = settled.value?.content?.[0]?.text;
+    if (!text)
+        return [];
+    try {
+        const data = JSON.parse(text);
+        if (!data.committees?.length)
+            return [];
+        console.log(`  ✅ Committees: ${data.committees.length} meetings`);
+        return data.committees.map((c) => ({
+            id: c.id,
+            committee: c.committee ?? 'Unknown',
+            committeeName: c.committeeName,
+            date: c.date ?? fallbackDate,
+            time: c.time,
+            location: c.location,
+            agenda: c.agenda,
+        }));
+    }
+    catch {
+        console.warn('  ⚠️ Failed to parse committee info');
+        return [];
+    }
+}
+/**
+ * Parse legislative documents from a settled MCP result
+ *
+ * @param settled - Promise.allSettled result
+ * @returns Array of legislative documents
+ */
+function parseLegislativeDocuments(settled) {
+    if (settled.status === 'rejected') {
+        console.warn('  ⚠️ Documents fetch failed:', settled.reason);
+        return [];
+    }
+    const text = settled.value?.content?.[0]?.text;
+    if (!text)
+        return [];
+    try {
+        const data = JSON.parse(text);
+        if (!data.documents?.length)
+            return [];
+        console.log(`  ✅ Documents: ${data.documents.length} documents`);
+        return data.documents.map((d) => ({
+            id: d.id,
+            type: d.type,
+            title: d.title ?? 'Untitled Document',
+            date: d.date,
+            status: d.status,
+            committee: d.committee,
+            rapporteur: d.rapporteur,
+        }));
+    }
+    catch {
+        console.warn('  ⚠️ Failed to parse documents');
+        return [];
+    }
+}
+/**
+ * Parse legislative pipeline from a settled MCP result
+ *
+ * @param settled - Promise.allSettled result
+ * @returns Array of legislative procedures
+ */
+function parseLegislativePipeline(settled) {
+    if (settled.status === 'rejected') {
+        console.warn('  ⚠️ Legislative pipeline fetch failed:', settled.reason);
+        return [];
+    }
+    const text = settled.value?.content?.[0]?.text;
+    if (!text)
+        return [];
+    try {
+        const data = JSON.parse(text);
+        if (!data.procedures?.length)
+            return [];
+        console.log(`  ✅ Pipeline: ${data.procedures.length} procedures`);
+        return data.procedures.map((p) => ({
+            id: p.id,
+            title: p.title ?? 'Unnamed Procedure',
+            stage: p.stage,
+            committee: p.committee,
+            status: p.status,
+            bottleneck: p.bottleneck,
+        }));
+    }
+    catch {
+        console.warn('  ⚠️ Failed to parse legislative pipeline');
+        return [];
+    }
+}
+/**
+ * Parse parliamentary questions from a settled MCP result
+ *
+ * @param settled - Promise.allSettled result
+ * @returns Array of parliamentary questions
+ */
+function parseParliamentaryQuestions(settled) {
+    if (settled.status === 'rejected') {
+        console.warn('  ⚠️ Parliamentary questions fetch failed:', settled.reason);
+        return [];
+    }
+    const text = settled.value?.content?.[0]?.text;
+    if (!text)
+        return [];
+    try {
+        const data = JSON.parse(text);
+        if (!data.questions?.length)
+            return [];
+        console.log(`  ✅ Questions: ${data.questions.length} questions`);
+        return data.questions.map((q) => ({
+            id: q.id,
+            type: q.type,
+            author: q.author,
+            subject: q.subject ?? 'Unknown Subject',
+            date: q.date,
+            status: q.status,
+        }));
+    }
+    catch {
+        console.warn('  ⚠️ Failed to parse parliamentary questions');
+        return [];
+    }
+}
+/**
+ * Fetch week-ahead data from multiple MCP sources in parallel
  *
  * @param dateRange - Date range with start and end dates
- * @returns Array of events
+ * @returns Aggregated week-ahead data
  */
-async function fetchEvents(dateRange) {
-    if (mcpClient) {
-        try {
-            console.log('  📡 Fetching events from MCP server...');
-            const result = await mcpClient.getPlenarySessions({
-                startDate: dateRange.start,
-                endDate: dateRange.end,
-                limit: 50,
-            });
-            if (result?.content?.[0]) {
-                const data = JSON.parse(result.content[0].text);
-                if (data.sessions && data.sessions.length > 0) {
-                    console.log(`  ✅ Fetched ${data.sessions.length} sessions from MCP`);
-                    return data.sessions.map((s) => ({
-                        date: s.date ?? dateRange.start,
-                        title: s.title ?? 'Parliamentary Session',
-                        type: s.type ?? 'Session',
-                        description: s.description ?? '',
-                    }));
-                }
-            }
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('  ⚠️ MCP fetch failed:', message);
+async function fetchWeekAheadData(dateRange) {
+    if (!mcpClient) {
+        console.log('  ℹ️ MCP unavailable — using placeholder events');
+        return {
+            events: PLACEHOLDER_EVENTS.map((e) => ({ ...e, date: dateRange.start })),
+            committees: [],
+            documents: [],
+            pipeline: [],
+            questions: [],
+        };
+    }
+    console.log('  📡 Fetching week-ahead data from MCP (parallel)...');
+    const [plenarySessions, committeeInfo, documents, pipeline, questions] = await Promise.allSettled([
+        mcpClient.getPlenarySessions({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 50 }),
+        mcpClient.getCommitteeInfo({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
+        mcpClient.searchDocuments({
+            keyword: 'parliament',
+            dateFrom: dateRange.start,
+            dateTo: dateRange.end,
+            limit: 20,
+        }),
+        mcpClient.monitorLegislativePipeline({
+            dateFrom: dateRange.start,
+            dateTo: dateRange.end,
+            status: 'ACTIVE',
+            limit: 20,
+        }),
+        mcpClient.getParliamentaryQuestions({
+            dateFrom: dateRange.start,
+            dateTo: dateRange.end,
+            limit: 20,
+        }),
+    ]);
+    const events = parsePlenarySessions(plenarySessions, dateRange.start);
+    return {
+        events: events.length > 0 ? events : [{ ...PLACEHOLDER_EVENTS[0], date: dateRange.start }],
+        committees: parseCommitteeMeetings(committeeInfo, dateRange.start),
+        documents: parseLegislativeDocuments(documents),
+        pipeline: parseLegislativePipeline(pipeline),
+        questions: parseParliamentaryQuestions(questions),
+    };
+}
+/**
+ * Render a single plenary event as HTML
+ *
+ * @param event - Parliament event
+ * @returns HTML string for the event
+ */
+function renderPlenaryEvent(event) {
+    return `
+              <div class="event-item">
+                <div class="event-date">${escapeHTML(event.date)}</div>
+                <div class="event-details">
+                  <h3>${escapeHTML(event.title)}</h3>
+                  <p class="event-type">${escapeHTML(event.type)}</p>
+                  ${event.description ? `<p>${escapeHTML(event.description)}</p>` : ''}
+                </div>
+              </div>`;
+}
+/**
+ * Render a single committee meeting as HTML
+ *
+ * @param meeting - Committee meeting data
+ * @returns HTML string for the meeting
+ */
+function renderCommitteeMeeting(meeting) {
+    const agendaHtml = meeting.agenda && meeting.agenda.length > 0
+        ? `<ul class="agenda-list">${meeting.agenda.map((item) => `<li>${escapeHTML(item.title)}${item.type ? ` <span class="agenda-type">(${escapeHTML(item.type)})</span>` : ''}</li>`).join('')}</ul>`
+        : '';
+    return `
+              <div class="committee-item">
+                <div class="committee-date">${escapeHTML(meeting.date)}${meeting.time ? ` ${escapeHTML(meeting.time)}` : ''}</div>
+                <div class="committee-details">
+                  <h3>${escapeHTML(meeting.committeeName ?? meeting.committee)}</h3>
+                  ${meeting.location ? `<p class="committee-location">${escapeHTML(meeting.location)}</p>` : ''}
+                  ${agendaHtml}
+                </div>
+              </div>`;
+}
+/**
+ * Render a single legislative document as HTML
+ *
+ * @param doc - Legislative document
+ * @returns HTML string for the document
+ */
+function renderLegislativeDocument(doc) {
+    return `
+              <li class="document-item">
+                <span class="document-title">${escapeHTML(doc.title)}</span>
+                ${doc.type ? ` <span class="document-type">(${escapeHTML(doc.type)})</span>` : ''}
+                ${doc.committee ? ` — <span class="document-committee">${escapeHTML(doc.committee)}</span>` : ''}
+                ${doc.status ? ` <span class="document-status">[${escapeHTML(doc.status)}]</span>` : ''}
+              </li>`;
+}
+/**
+ * Render a single pipeline procedure as HTML
+ *
+ * @param proc - Legislative procedure
+ * @returns HTML string for the procedure
+ */
+function renderPipelineProcedure(proc) {
+    return `
+              <li class="pipeline-item${proc.bottleneck ? ' bottleneck' : ''}">
+                <span class="procedure-title">${escapeHTML(proc.title)}</span>
+                ${proc.stage ? ` <span class="procedure-stage">${escapeHTML(proc.stage)}</span>` : ''}
+                ${proc.committee ? ` — <span class="procedure-committee">${escapeHTML(proc.committee)}</span>` : ''}
+                ${proc.bottleneck ? ' <span class="bottleneck-indicator">⚠ Bottleneck</span>' : ''}
+              </li>`;
+}
+/**
+ * Render a single parliamentary question as HTML
+ *
+ * @param q - Parliamentary question
+ * @returns HTML string for the question
+ */
+function renderQuestion(q) {
+    return `
+              <li class="qa-item">
+                <span class="qa-subject">${escapeHTML(q.subject)}</span>
+                ${q.type ? ` <span class="qa-type">(${escapeHTML(q.type)})</span>` : ''}
+                ${q.author ? ` — <span class="qa-author">${escapeHTML(q.author)}</span>` : ''}
+              </li>`;
+}
+/**
+ * Build article content HTML from week-ahead data
+ *
+ * @param weekData - Aggregated week-ahead data
+ * @param dateRange - Date range for the article
+ * @returns HTML content string
+ */
+function buildWeekAheadContent(weekData, dateRange) {
+    const plenaryHtml = weekData.events.length > 0
+        ? weekData.events.map(renderPlenaryEvent).join('')
+        : '<p>No plenary sessions scheduled for this period.</p>';
+    const committeeSection = weekData.committees.length > 0
+        ? `<section class="committee-calendar">
+            <h2>Committee Meetings</h2>
+            ${weekData.committees.map(renderCommitteeMeeting).join('')}
+          </section>`
+        : '';
+    const documentsSection = weekData.documents.length > 0
+        ? `<section class="legislative-documents">
+            <h2>Upcoming Legislative Documents</h2>
+            <ul class="document-list">${weekData.documents.map(renderLegislativeDocument).join('')}</ul>
+          </section>`
+        : '';
+    const pipelineSection = weekData.pipeline.length > 0
+        ? `<section class="legislative-pipeline">
+            <h2>Legislative Pipeline</h2>
+            <ul class="pipeline-list">${weekData.pipeline.map(renderPipelineProcedure).join('')}</ul>
+          </section>`
+        : '';
+    const qaSection = weekData.questions.length > 0
+        ? `<section class="qa-schedule">
+            <h2>Parliamentary Questions</h2>
+            <ul class="qa-list">${weekData.questions.map(renderQuestion).join('')}</ul>
+          </section>`
+        : '';
+    return `
+        <div class="article-content">
+          <section class="lede">
+            <p>The European Parliament prepares for an active week ahead with multiple committee meetings and plenary sessions scheduled from ${escapeHTML(dateRange.start)} to ${escapeHTML(dateRange.end)}.</p>
+          </section>
+          <section class="plenary-schedule">
+            <h2>Plenary Sessions</h2>
+            ${plenaryHtml}
+          </section>
+          ${committeeSection}
+          ${documentsSection}
+          ${pipelineSection}
+          ${qaSection}
+        </div>
+      `;
+}
+/**
+ * Build article keywords from week-ahead data
+ *
+ * @param weekData - Aggregated week-ahead data
+ * @returns Array of keyword strings
+ */
+function buildKeywords(weekData) {
+    const keywords = ['European Parliament', 'week ahead', 'plenary', 'committees'];
+    for (const c of weekData.committees) {
+        if (c.committee && !keywords.includes(c.committee)) {
+            keywords.push(c.committee);
         }
     }
-    // Fallback to sample events
-    console.log('  ℹ️ Using placeholder events');
-    return [
-        {
-            date: dateRange.start,
-            title: 'Plenary Session',
-            type: 'Plenary',
-            description: 'Full parliamentary session',
-        },
-        {
-            date: dateRange.start,
-            title: 'ENVI Committee Meeting',
-            type: 'Committee',
-            description: 'Environment committee discussion',
-        },
-    ];
+    if (weekData.pipeline.length > 0)
+        keywords.push('legislative pipeline');
+    if (weekData.questions.length > 0)
+        keywords.push('parliamentary questions');
+    return keywords;
 }
 /**
  * Generate Week Ahead article in specified languages
@@ -191,54 +522,23 @@ async function generateWeekAhead() {
         console.log(`  📆 Date range: ${dateRange.start} to ${dateRange.end}`);
         const today = new Date();
         const slug = `${formatDateForSlug(today)}-${ARTICLE_TYPE_WEEK_AHEAD}`;
-        const sampleEvents = await fetchEvents(dateRange);
+        const weekData = await fetchWeekAheadData(dateRange);
+        const keywords = buildKeywords(weekData);
+        const content = buildWeekAheadContent(weekData, dateRange);
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const titleGenerator = getLocalizedString(WEEK_AHEAD_TITLES, lang);
             const langTitles = titleGenerator(dateRange.start, dateRange.end);
-            const content = `
-        <div class="article-content">
-          <section class="lede">
-            <p>The European Parliament prepares for an active week ahead with multiple committee meetings and plenary sessions scheduled from ${dateRange.start} to ${dateRange.end}.</p>
-          </section>
-          
-          <section class="context">
-            <h2>What to Watch</h2>
-            <ul>
-              <li>Plenary sessions on key legislative priorities</li>
-              <li>Committee meetings on environment, economy, and foreign affairs</li>
-              <li>Expected votes on important resolutions</li>
-            </ul>
-          </section>
-          
-          <section class="event-calendar">
-            <h2>Key Events</h2>
-            ${sampleEvents
-                .map((event) => `
-              <div class="event-item">
-                <div class="event-date">${escapeHTML(event.date)}</div>
-                <div class="event-details">
-                  <h3>${escapeHTML(event.title)}</h3>
-                  <p class="event-type">${escapeHTML(event.type)}</p>
-                  <p>${escapeHTML(event.description)}</p>
-                </div>
-              </div>
-            `)
-                .join('')}
-          </section>
-        </div>
-      `;
-            const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
                 slug: `${slug}-${lang}.html`,
                 title: langTitles.title,
                 subtitle: langTitles.subtitle,
                 date: today.toISOString().split('T')[0],
                 type: 'prospective',
-                readTime,
+                readTime: calculateReadTime(content),
                 lang,
                 content,
-                keywords: ['European Parliament', 'week ahead', 'plenary', 'committees'],
+                keywords,
                 sources: [],
             });
             writeSingleArticle(html, slug, lang);

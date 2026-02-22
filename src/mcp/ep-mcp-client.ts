@@ -298,6 +298,38 @@ export class EuropeanParliamentMCPClient {
       return { content: [{ type: 'text', text: '{"questions": []}' }] };
     }
   }
+
+  /**
+   * Get committee information
+   *
+   * @param options - Filter options
+   * @returns Committee info data
+   */
+  async getCommitteeInfo(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('get_committee_info', options)) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_committee_info not available:', message);
+      return { content: [{ type: 'text', text: '{"committees": []}' }] };
+    }
+  }
+
+  /**
+   * Monitor legislative pipeline
+   *
+   * @param options - Filter options
+   * @returns Legislative pipeline data
+   */
+  async monitorLegislativePipeline(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('monitor_legislative_pipeline', options)) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('monitor_legislative_pipeline not available:', message);
+      return { content: [{ type: 'text', text: '{"procedures": []}' }] };
+    }
+  }
 }
 
 // Singleton instance management
