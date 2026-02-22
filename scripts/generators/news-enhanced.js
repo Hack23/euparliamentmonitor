@@ -11,7 +11,6 @@ import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
 import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, ARTICLE_TYPE_BREAKING, ARG_SEPARATOR, } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, BREAKING_NEWS_TITLES, PROPOSITIONS_TITLES, PROPOSITIONS_STRINGS, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
-import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, BREAKING_NEWS_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
 import { generateArticleHTML } from '../templates/article-template.js';
 import { getEPMCPClient, closeEPMCPClient } from '../mcp/ep-mcp-client.js';
 import { formatDateForSlug, calculateReadTime, ensureDirectoryExists, escapeHTML, } from '../utils/file-utils.js';
@@ -502,7 +501,6 @@ function buildWeekAheadContent(weekData, dateRange) {
  */
 function buildKeywords(weekData) {
     const keywords = [KEYWORD_EU_PARLIAMENT, 'week ahead', 'plenary', 'committees'];
-    const keywords = ['European Parliament', 'week ahead', 'plenary', 'committees'];
     for (const c of weekData.committees) {
         if (c.committee && !keywords.includes(c.committee)) {
             keywords.push(c.committee);
@@ -921,15 +919,7 @@ export function buildPropositionsContent(proposalsHtml, pipelineData, procedureH
           <section class="analysis">
             <h2>${escapeHTML(strings.analysisHeading)}</h2>
             <p>${escapeHTML(strings.analysis)}</p>
-        <div class="article-content">
-          <section class="breaking-banner">
-            <p class="breaking-timestamp">⚡ BREAKING — ${escapeHTML(timestamp)}</p>
           </section>
-          ${placeholderNotice}
-          ${anomalySection}
-          ${coalitionSection}
-          ${reportSection}
-          ${keyPlayersSection}
         </div>
       `;
 }
@@ -962,28 +952,6 @@ async function generatePropositions() {
             const langTitles = getLocalizedString(PROPOSITIONS_TITLES, lang)();
             const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
             const content = buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings);
- * Generate Breaking News article in specified languages
- *
- * @returns Generation result
- */
-async function generateBreakingNews() {
-    console.log('🚨 Generating Breaking News article...');
-    try {
-        const today = new Date();
-        const dateStr = today.toISOString().split('T')[0];
-        const slug = `${formatDateForSlug(today)}-${ARTICLE_TYPE_BREAKING}`;
-        console.log('  📡 Fetching OSINT intelligence data from MCP...');
-        const [anomalyRaw, coalitionRaw, reportRaw, influenceRaw] = await Promise.all([
-            fetchVotingAnomalies(),
-            fetchCoalitionDynamics(),
-            fetchVotingReport(),
-            fetchMEPInfluence(''),
-        ]);
-        const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, influenceRaw);
-        for (const lang of languages) {
-            console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
-            const titleGenerator = getLocalizedString(BREAKING_NEWS_TITLES, lang);
-            const langTitles = titleGenerator(dateStr);
             const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
                 slug: `${slug}-${lang}.html`,
@@ -995,31 +963,18 @@ async function generateBreakingNews() {
                 lang,
                 content,
                 keywords: [KEYWORD_EU_PARLIAMENT, 'legislation', 'proposals', 'procedure', 'OLP'],
-                date: dateStr,
-                type: 'breaking',
-                readTime,
-                lang,
-                content,
-                keywords: [
-                    'European Parliament',
-                    'breaking news',
-                    'voting anomalies',
-                    'coalition dynamics',
-                ],
                 sources: [],
             });
             writeSingleArticle(html, slug, lang);
             console.log(`  ✅ ${lang.toUpperCase()} version generated`);
         }
         console.log('  ✅ Propositions article generated successfully in all requested languages');
-        console.log('  ✅ Breaking News article generated successfully in all requested languages');
         return { success: true, files: languages.length, slug };
     }
     catch (error) {
         const message = error instanceof Error ? error.message : String(error);
         const stack = error instanceof Error ? error.stack : undefined;
         console.error('❌ Error generating Propositions:', message);
-        console.error('❌ Error generating Breaking News:', message);
         if (stack) {
             console.error('   Stack:', stack);
         }
