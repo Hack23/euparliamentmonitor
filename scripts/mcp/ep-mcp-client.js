@@ -313,12 +313,16 @@ export class EuropeanParliamentMCPClient {
     /**
      * Get detailed information about a specific MEP
      *
-     * @param id - MEP identifier
+     * @param id - MEP identifier (must be non-empty)
      * @returns Detailed MEP information including biography, contact, and activities
      */
     async getMEPDetails(id) {
+        if (typeof id !== 'string' || id.trim().length === 0) {
+            console.warn('get_mep_details called without valid id (non-empty string required)');
+            return { content: [{ type: 'text', text: '{"mep": null}' }] };
+        }
         try {
-            return await this.callTool('get_mep_details', { id });
+            return await this.callTool('get_mep_details', { id: id.trim() });
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -345,12 +349,19 @@ export class EuropeanParliamentMCPClient {
     /**
      * Analyze voting behavior patterns for an MEP
      *
-     * @param options - Analysis options (mepId required, dateFrom, compareWithGroup)
+     * @param options - Analysis options (mepId required non-empty, dateFrom, compareWithGroup)
      * @returns Voting pattern analysis
      */
     async analyzeVotingPatterns(options) {
+        if (typeof options.mepId !== 'string' || options.mepId.trim().length === 0) {
+            console.warn('analyze_voting_patterns called without valid mepId (non-empty string required)');
+            return { content: [{ type: 'text', text: '{"patterns": null}' }] };
+        }
         try {
-            return await this.callTool('analyze_voting_patterns', options);
+            return await this.callTool('analyze_voting_patterns', {
+                ...options,
+                mepId: options.mepId.trim(),
+            });
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -361,12 +372,16 @@ export class EuropeanParliamentMCPClient {
     /**
      * Track a legislative procedure by its identifier
      *
-     * @param procedureId - Legislative procedure identifier
+     * @param procedureId - Legislative procedure identifier (must be non-empty)
      * @returns Procedure status and timeline
      */
     async trackLegislation(procedureId) {
+        if (typeof procedureId !== 'string' || procedureId.trim().length === 0) {
+            console.warn('track_legislation called without valid procedureId (non-empty string required)');
+            return { content: [{ type: 'text', text: '{"procedure": null}' }] };
+        }
         try {
-            return await this.callTool('track_legislation', { procedureId });
+            return await this.callTool('track_legislation', { procedureId: procedureId.trim() });
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -377,12 +392,19 @@ export class EuropeanParliamentMCPClient {
     /**
      * Generate an analytical report
      *
-     * @param options - Report options (reportType required, subjectId, dateFrom)
+     * @param options - Report options (reportType required non-empty, subjectId, dateFrom)
      * @returns Generated report data
      */
     async generateReport(options) {
+        if (typeof options.reportType !== 'string' || options.reportType.trim().length === 0) {
+            console.warn('generate_report called without valid reportType (non-empty string required)');
+            return { content: [{ type: 'text', text: '{"report": null}' }] };
+        }
         try {
-            return await this.callTool('generate_report', options);
+            return await this.callTool('generate_report', {
+                ...options,
+                reportType: options.reportType.trim(),
+            });
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);

@@ -241,8 +241,7 @@ export interface LangTitleSubtitle {
 export interface VotingRecordsOptions {
   mepId?: string;
   sessionId?: string;
-  topic?: string;
-  dateFrom?: string;
+  limit?: number;
 }
 
 /** Options for analyzing voting patterns */

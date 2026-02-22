@@ -440,12 +440,30 @@ describe('ep-mcp-client', () => {
         });
       });
 
+      it('should return null fallback for empty id in getMEPDetails', async () => {
+        const result = await client.getMEPDetails('');
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"mep": null}' }],
+        });
+      });
+
+      it('should return null fallback for whitespace-only id in getMEPDetails', async () => {
+        const result = await client.getMEPDetails('   ');
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"mep": null}' }],
+        });
+      });
+
       it('should get voting records', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"votes": []}' }],
         });
 
-        const options = { mepId: 'MEP-123', topic: 'climate', dateFrom: '2025-01-01' };
+        const options = { mepId: 'MEP-123', sessionId: 'SESSION-1', limit: 50 };
         await client.getVotingRecords(options);
 
         expect(client.callTool).toHaveBeenCalledWith('get_voting_records', options);
@@ -482,6 +500,24 @@ describe('ep-mcp-client', () => {
         });
       });
 
+      it('should return null fallback for empty mepId in analyzeVotingPatterns', async () => {
+        const result = await client.analyzeVotingPatterns({ mepId: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"patterns": null}' }],
+        });
+      });
+
+      it('should return null fallback for whitespace-only mepId in analyzeVotingPatterns', async () => {
+        const result = await client.analyzeVotingPatterns({ mepId: '   ' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"patterns": null}' }],
+        });
+      });
+
       it('should track legislation', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"procedure": {}}' }],
@@ -504,6 +540,24 @@ describe('ep-mcp-client', () => {
         });
       });
 
+      it('should return null fallback for empty procedureId in trackLegislation', async () => {
+        const result = await client.trackLegislation('');
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"procedure": null}' }],
+        });
+      });
+
+      it('should return null fallback for whitespace-only procedureId in trackLegislation', async () => {
+        const result = await client.trackLegislation('   ');
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"procedure": null}' }],
+        });
+      });
+
       it('should generate report', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"report": {}}' }],
@@ -520,6 +574,24 @@ describe('ep-mcp-client', () => {
 
         const result = await client.generateReport({ reportType: 'VOTING_STATISTICS' });
 
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"report": null}' }],
+        });
+      });
+
+      it('should return null fallback for empty reportType in generateReport', async () => {
+        const result = await client.generateReport({ reportType: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"report": null}' }],
+        });
+      });
+
+      it('should return null fallback for whitespace-only reportType in generateReport', async () => {
+        const result = await client.generateReport({ reportType: '   ' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
         expect(result).toEqual({
           content: [{ type: 'text', text: '{"report": null}' }],
         });
