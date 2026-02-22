@@ -19,6 +19,11 @@ import {
   READ_TIME_LABELS,
   BACK_TO_NEWS_LABELS,
   WEEK_AHEAD_TITLES,
+  MOTIONS_TITLES,
+  BREAKING_NEWS_TITLES,
+  COMMITTEE_REPORTS_TITLES,
+  PROPOSITIONS_TITLES,
+  PROPOSITIONS_STRINGS,
   getLocalizedString,
   isSupportedLanguage,
   getTextDirection,
@@ -95,6 +100,7 @@ describe('constants/languages', () => {
         expect(labels.prospective).toBeDefined();
         expect(labels.retrospective).toBeDefined();
         expect(labels.breaking).toBeDefined();
+        expect(labels.propositions).toBeDefined();
       }
     });
 
@@ -121,6 +127,58 @@ describe('constants/languages', () => {
         const result = generator('2025-01-01', '2025-01-07');
         expect(result.title).toBeDefined();
         expect(result.subtitle).toBeDefined();
+      }
+    });
+
+
+    it('should have entries for all 14 languages in MOTIONS_TITLES', () => {
+      for (const lang of ALL_LANGUAGES) {
+        const generator = MOTIONS_TITLES[lang];
+        expect(generator).toBeDefined();
+        expect(typeof generator).toBe('function');
+        const result = generator('2025-01-01');
+        expect(result.title).toBeDefined();
+        expect(result.subtitle).toBeDefined();
+      }
+    });
+
+    it('should have entries for all 14 languages in BREAKING_NEWS_TITLES', () => {
+      for (const lang of ALL_LANGUAGES) {
+        const generator = BREAKING_NEWS_TITLES[lang];
+        expect(generator).toBeDefined();
+        expect(typeof generator).toBe('function');
+        const result = generator('2025-01-01');
+        expect(result.title).toBeDefined();
+        expect(result.subtitle).toBeDefined();
+        expect(result.title).toContain('2025-01-01');
+      }
+    });
+
+    it('should have entries for all 14 languages in PROPOSITIONS_TITLES', () => {
+      for (const lang of ALL_LANGUAGES) {
+        const generator = PROPOSITIONS_TITLES[lang];
+        expect(generator).toBeDefined();
+        expect(typeof generator).toBe('function');
+        const result = generator();
+        expect(result.title).toBeDefined();
+        expect(result.subtitle).toBeDefined();
+        expect(result.title.length).toBeGreaterThan(0);
+        expect(result.subtitle.length).toBeGreaterThan(0);
+      }
+    });
+
+    it('should have entries for all 14 languages in PROPOSITIONS_STRINGS', () => {
+      for (const lang of ALL_LANGUAGES) {
+        const strings = PROPOSITIONS_STRINGS[lang];
+        expect(strings).toBeDefined();
+        expect(strings.lede.length).toBeGreaterThan(0);
+        expect(strings.proposalsHeading.length).toBeGreaterThan(0);
+        expect(strings.pipelineHeading.length).toBeGreaterThan(0);
+        expect(strings.procedureHeading.length).toBeGreaterThan(0);
+        expect(strings.analysisHeading.length).toBeGreaterThan(0);
+        expect(strings.analysis.length).toBeGreaterThan(0);
+        expect(strings.pipelineHealthLabel.length).toBeGreaterThan(0);
+        expect(strings.throughputRateLabel.length).toBeGreaterThan(0);
       }
     });
 
@@ -179,6 +237,24 @@ describe('constants/languages', () => {
 
     it('should return ltr for unknown languages', () => {
       expect(getTextDirection('zz')).toBe('ltr');
+    });
+  });
+
+  describe('COMMITTEE_REPORTS_TITLES', () => {
+    it('should have entries for all 14 supported languages', () => {
+      expect(Object.keys(COMMITTEE_REPORTS_TITLES)).toHaveLength(14);
+    });
+
+    it('should generate non-empty title containing committee name for each language', () => {
+      const committeeName = 'ENVI, ECON, AFET, LIBE, AGRI';
+      for (const lang of ALL_LANGUAGES) {
+        const generator = COMMITTEE_REPORTS_TITLES[lang];
+        expect(generator).toBeDefined();
+        const result = generator(committeeName);
+        expect(result.title).toContain(committeeName);
+        expect(typeof result.subtitle).toBe('string');
+        expect(result.subtitle.length).toBeGreaterThan(0);
+      }
     });
   });
 });

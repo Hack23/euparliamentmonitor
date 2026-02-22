@@ -110,36 +110,90 @@ export const NO_ARTICLES_MESSAGES = {
 };
 /** Article type labels per language */
 export const ARTICLE_TYPE_LABELS = {
-    en: { prospective: 'Week Ahead', retrospective: 'Analysis', breaking: 'Breaking News' },
-    de: { prospective: 'Woche Voraus', retrospective: 'Analyse', breaking: 'Eilmeldung' },
-    fr: { prospective: 'Semaine à Venir', retrospective: 'Analyse', breaking: 'Dernières Nouvelles' },
+    en: {
+        prospective: 'Week Ahead',
+        retrospective: 'Analysis',
+        breaking: 'Breaking News',
+        propositions: 'Legislative Proposals',
+    },
+    de: {
+        prospective: 'Woche Voraus',
+        retrospective: 'Analyse',
+        breaking: 'Eilmeldung',
+        propositions: 'Gesetzgebungsvorschläge',
+    },
+    fr: {
+        prospective: 'Semaine à Venir',
+        retrospective: 'Analyse',
+        breaking: 'Dernières Nouvelles',
+        propositions: 'Propositions Législatives',
+    },
     es: {
         prospective: 'Semana Próxima',
         retrospective: 'Análisis',
         breaking: 'Noticias de Última Hora',
+        propositions: 'Propuestas Legislativas',
     },
-    it: { prospective: 'Settimana Prossima', retrospective: 'Analisi', breaking: 'Ultime Notizie' },
-    nl: { prospective: 'Week Vooruit', retrospective: 'Analyse', breaking: 'Laatste Nieuws' },
+    it: {
+        prospective: 'Settimana Prossima',
+        retrospective: 'Analisi',
+        breaking: 'Ultime Notizie',
+        propositions: 'Proposte Legislative',
+    },
+    nl: {
+        prospective: 'Week Vooruit',
+        retrospective: 'Analyse',
+        breaking: 'Laatste Nieuws',
+        propositions: 'Wetgevingsvoorstellen',
+    },
     pl: {
         prospective: 'Nadchodzący Tydzień',
         retrospective: 'Analiza',
         breaking: 'Najnowsze Wiadomości',
+        propositions: 'Wnioski Ustawodawcze',
     },
     pt: {
         prospective: 'Semana Próxima',
         retrospective: 'Análise',
         breaking: 'Notícias de Última Hora',
+        propositions: 'Propostas Legislativas',
     },
     ro: {
         prospective: 'Săptămâna Viitoare',
         retrospective: 'Analiză',
         breaking: 'Știri de Ultimă Oră',
+        propositions: 'Propuneri Legislative',
     },
-    sv: { prospective: 'Vecka Framåt', retrospective: 'Analys', breaking: 'Senaste Nytt' },
-    da: { prospective: 'Ugen Fremover', retrospective: 'Analyse', breaking: 'Seneste Nyt' },
-    fi: { prospective: 'Tuleva Viikko', retrospective: 'Analyysi', breaking: 'Uusimmat Uutiset' },
-    el: { prospective: 'Επόμενη Εβδομάδα', retrospective: 'Ανάλυση', breaking: 'Τελευταία Νέα' },
-    hu: { prospective: 'Következő Hét', retrospective: 'Elemzés', breaking: 'Legfrissebb Hírek' },
+    sv: {
+        prospective: 'Vecka Framåt',
+        retrospective: 'Analys',
+        breaking: 'Senaste Nytt',
+        propositions: 'Lagstiftningsförslag',
+    },
+    da: {
+        prospective: 'Ugen Fremover',
+        retrospective: 'Analyse',
+        breaking: 'Seneste Nyt',
+        propositions: 'Lovgivningsmæssige Forslag',
+    },
+    fi: {
+        prospective: 'Tuleva Viikko',
+        retrospective: 'Analyysi',
+        breaking: 'Uusimmat Uutiset',
+        propositions: 'Lainsäädäntöehdotukset',
+    },
+    el: {
+        prospective: 'Επόμενη Εβδομάδα',
+        retrospective: 'Ανάλυση',
+        breaking: 'Τελευταία Νέα',
+        propositions: 'Νομοθετικές Προτάσεις',
+    },
+    hu: {
+        prospective: 'Következő Hét',
+        retrospective: 'Elemzés',
+        breaking: 'Legfrissebb Hírek',
+        propositions: 'Jogalkotási Javaslatok',
+    },
 };
 /** Read time label formatters per language */
 export const READ_TIME_LABELS = {
@@ -234,6 +288,186 @@ export const WEEK_AHEAD_TITLES = {
         subtitle: 'Európai Parlament naptár, bizottsági ülések és plenáris viták a jövő hétre',
     }),
 };
+/** Motions title templates per language */
+export const MOTIONS_TITLES = {
+    en: (date) => ({
+        title: `Parliamentary Motions & Votes: ${date}`,
+        subtitle: 'Recent parliamentary motions, voting records, party cohesion analysis, and detected voting anomalies in the European Parliament',
+    }),
+    de: (date) => ({
+        title: `Parlamentarische Anträge & Abstimmungen: ${date}`,
+        subtitle: 'Aktuelle parlamentarische Anträge, Abstimmungsergebnisse, Fraktionskohäsionsanalyse und erkannte Abstimmungsanomalien im Europäischen Parlament',
+    }),
+    fr: (date) => ({
+        title: `Motions & Votes Parlementaires: ${date}`,
+        subtitle: 'Motions parlementaires récentes, résultats de votes, analyse de cohésion des groupes politiques et anomalies de vote détectées au Parlement européen',
+    }),
+    es: (date) => ({
+        title: `Mociones & Votaciones Parlamentarias: ${date}`,
+        subtitle: 'Mociones parlamentarias recientes, resultados de votaciones, análisis de cohesión de grupos políticos y anomalías de votación detectadas en el Parlamento Europeo',
+    }),
+    it: (date) => ({
+        title: `Mozioni & Votazioni Parlamentari: ${date}`,
+        subtitle: 'Mozioni parlamentari recenti, risultati delle votazioni, analisi di coesione dei gruppi politici e anomalie di voto rilevate nel Parlamento europeo',
+    }),
+    nl: (date) => ({
+        title: `Parlementaire Moties & Stemmingen: ${date}`,
+        subtitle: 'Recente parlementaire moties, stemresultaten, fractiebinding-analyse en gedetecteerde stemanomalieën in het Europees Parlement',
+    }),
+    pl: (date) => ({
+        title: `Wnioski & Głosowania Parlamentarne: ${date}`,
+        subtitle: 'Ostatnie wnioski parlamentarne, wyniki głosowań, analiza spójności grup politycznych i wykryte anomalie głosowania w Parlamencie Europejskim',
+    }),
+    pt: (date) => ({
+        title: `Moções & Votações Parlamentares: ${date}`,
+        subtitle: 'Moções parlamentares recentes, resultados de votações, análise de coesão dos grupos políticos e anomalias de votação detectadas no Parlamento Europeu',
+    }),
+    ro: (date) => ({
+        title: `Moțiuni & Votări Parlamentare: ${date}`,
+        subtitle: 'Moțiuni parlamentare recente, rezultate ale voturilor, analiză de coeziune a grupurilor politice și anomalii de vot detectate în Parlamentul European',
+    }),
+    sv: (date) => ({
+        title: `Parlamentariska Motioner & Omröstningar: ${date}`,
+        subtitle: 'Senaste parlamentariska motioner, omröstningsresultat, analys av partikohesion och upptäckta omröstningsanomalier i Europaparlamentet',
+    }),
+    da: (date) => ({
+        title: `Parlamentariske Motioner & Afstemninger: ${date}`,
+        subtitle: 'Seneste parlamentariske motioner, afstemningsresultater, analyse af partikohæsion og opdagede afstemningsanomalier i Europa-Parlamentet',
+    }),
+    fi: (date) => ({
+        title: `Parlamentaariset Esitykset & Äänestykset: ${date}`,
+        subtitle: 'Viimeisimmät parlamentaariset esitykset, äänestystulokset, puoluekohesio-analyysi ja havaitut äänestyspoikkeamat Euroopan parlamentissa',
+    }),
+    el: (date) => ({
+        title: `Κοινοβουλευτικές Προτάσεις & Ψηφοφορίες: ${date}`,
+        subtitle: 'Πρόσφατες κοινοβουλευτικές προτάσεις, αποτελέσματα ψηφοφοριών, ανάλυση συνοχής κομματικών ομάδων και ανιχνευμένες ανωμαλίες ψηφοφορίας στο Ευρωπαϊκό Κοινοβούλιο',
+    }),
+    hu: (date) => ({
+        title: `Parlamenti Indítványok & Szavazások: ${date}`,
+        subtitle: 'Legutóbbi parlamenti indítványok, szavazási eredmények, pártkoheziós elemzés és észlelt szavazási anomáliák az Európai Parlamentben',
+    }),
+};
+/** Breaking news title templates per language */
+export const BREAKING_NEWS_TITLES = {
+    en: (date) => ({
+        title: `Breaking: Significant Parliamentary Developments — ${date}`,
+        subtitle: 'Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities',
+    }),
+    de: (date) => ({
+        title: `Eilmeldung: Bedeutende Parlamentarische Entwicklungen — ${date}`,
+        subtitle: 'Geheimdienstliche Analyse von Abstimmungsanomalien, Koalitionsverschiebungen und wichtigen MEP-Aktivitäten',
+    }),
+    fr: (date) => ({
+        title: `Dernières Nouvelles: Développements Parlementaires Significatifs — ${date}`,
+        subtitle: 'Analyse de renseignements sur les anomalies de vote, les évolutions des coalitions et les activités clés des eurodéputés',
+    }),
+    es: (date) => ({
+        title: `Última Hora: Desarrollos Parlamentarios Significativos — ${date}`,
+        subtitle: 'Análisis de inteligencia sobre anomalías en votaciones, cambios en coaliciones y actividades clave de eurodiputados',
+    }),
+    it: (date) => ({
+        title: `Ultime Notizie: Sviluppi Parlamentari Significativi — ${date}`,
+        subtitle: "Analisi dell'intelligence su anomalie di voto, cambiamenti nelle coalizioni e attività chiave degli eurodeputati",
+    }),
+    nl: (date) => ({
+        title: `Laatste Nieuws: Significante Parlementaire Ontwikkelingen — ${date}`,
+        subtitle: 'Inlichtingenanalyse van stemanomalieën, coalitieverschuivingen en belangrijke MEP-activiteiten',
+    }),
+    pl: (date) => ({
+        title: `Najnowsze Wiadomości: Znaczące Wydarzenia Parlamentarne — ${date}`,
+        subtitle: 'Analiza wywiadowcza anomalii głosowań, zmian koalicyjnych i kluczowych działań europosłów',
+    }),
+    pt: (date) => ({
+        title: `Notícias de Última Hora: Desenvolvimentos Parlamentares Significativos — ${date}`,
+        subtitle: 'Análise de inteligência sobre anomalias de votação, mudanças em coalizões e atividades-chave de eurodeputados',
+    }),
+    ro: (date) => ({
+        title: `Știri de Ultimă Oră: Evoluții Parlamentare Semnificative — ${date}`,
+        subtitle: 'Analiză de informații privind anomaliile de vot, schimbările de coaliție și activitățile-cheie ale eurodeputaților',
+    }),
+    sv: (date) => ({
+        title: `Senaste Nytt: Betydande Parlamentariska Händelser — ${date}`,
+        subtitle: 'Underrättelseanalys av röstningsanomalier, koalitionsförändringar och viktig MEP-aktivitet',
+    }),
+    da: (date) => ({
+        title: `Seneste Nyt: Betydelige Parlamentariske Udviklinger — ${date}`,
+        subtitle: 'Efterretningsanalyse af afstemningsanomalier, koalitionsforskydninger og centrale MEP-aktiviteter',
+    }),
+    fi: (date) => ({
+        title: `Uusimmat Uutiset: Merkittäviä Parlamentaarisia Kehityksiä — ${date}`,
+        subtitle: 'Tiedusteluanalyysi äänestyspoikkeamista, koalitiomuutoksista ja keskeisistä MEP-toimista',
+    }),
+    el: (date) => ({
+        title: `Τελευταία Νέα: Σημαντικές Κοινοβουλευτικές Εξελίξεις — ${date}`,
+        subtitle: 'Ανάλυση πληροφοριών για ψηφοφορικές ανωμαλίες, μετατοπίσεις συνασπισμών και βασικές δραστηριότητες ευρωβουλευτών',
+    }),
+    hu: (date) => ({
+        title: `Legfrissebb Hírek: Jelentős Parlamenti Fejlemények — ${date}`,
+        subtitle: 'Hírszerzési elemzés szavazási rendellenességekről, koalíciós eltolódásokról és kulcsfontosságú EP-képviselői tevékenységekről',
+    }),
+};
+/**
+ * Committee reports titles for all 14 supported languages
+ * Generator function accepting committee abbreviation string
+ */
+export const COMMITTEE_REPORTS_TITLES = {
+    en: (committee) => ({
+        title: `EU Parliament Committee Activity Report: ${committee}`,
+        subtitle: 'Analysis of recent legislative output, effectiveness metrics, and key committee activities',
+    }),
+    de: (committee) => ({
+        title: `EU-Parlament Ausschussbericht: ${committee}`,
+        subtitle: 'Analyse der aktuellen Gesetzgebungsleistung, Effektivitätskennzahlen und wichtiger Ausschussaktivitäten',
+    }),
+    fr: (committee) => ({
+        title: `Rapport d'activité des commissions du Parlement européen: ${committee}`,
+        subtitle: "Analyse de la production législative récente, des indicateurs d'efficacité et des activités clés des commissions",
+    }),
+    es: (committee) => ({
+        title: `Informe de actividad de comisiones del Parlamento Europeo: ${committee}`,
+        subtitle: 'Análisis de la producción legislativa reciente, métricas de efectividad y actividades clave de las comisiones',
+    }),
+    it: (committee) => ({
+        title: `Rapporto di attività delle commissioni del Parlamento europeo: ${committee}`,
+        subtitle: 'Analisi della recente produzione legislativa, metriche di efficacia e attività chiave delle commissioni',
+    }),
+    nl: (committee) => ({
+        title: `Activiteitenrapport commissies Europees Parlement: ${committee}`,
+        subtitle: 'Analyse van recente wetgevingsoutput, effectiviteitsmetrieken en belangrijkste commissieactiviteiten',
+    }),
+    pl: (committee) => ({
+        title: `Raport aktywności komisji Parlamentu Europejskiego: ${committee}`,
+        subtitle: 'Analiza ostatniego dorobku legislacyjnego, wskaźników efektywności i kluczowych działań komisji',
+    }),
+    pt: (committee) => ({
+        title: `Relatório de atividade das comissões do Parlamento Europeu: ${committee}`,
+        subtitle: 'Análise da produção legislativa recente, métricas de eficácia e atividades-chave das comissões',
+    }),
+    ro: (committee) => ({
+        title: `Raport de activitate al comisiilor Parlamentului European: ${committee}`,
+        subtitle: 'Analiza producției legislative recente, a indicatorilor de eficacitate și a activităților cheie ale comisiilor',
+    }),
+    sv: (committee) => ({
+        title: `Aktivitetsrapport för Europaparlamentets utskott: ${committee}`,
+        subtitle: 'Analys av nylig lagstiftningsproduktion, effektivitetsmätningar och viktigaste utskottsaktiviteter',
+    }),
+    da: (committee) => ({
+        title: `Aktivitetsrapport for Europa-Parlamentets udvalg: ${committee}`,
+        subtitle: 'Analyse af den seneste lovgivningsproduktion, effektivitetsmålinger og vigtigste udvalgsaktiviteter',
+    }),
+    fi: (committee) => ({
+        title: `Euroopan parlamentin valiokuntien toimintaraportti: ${committee}`,
+        subtitle: 'Analyysi viimeaikaisesta lainsäädäntötuotannosta, tehokkuusmittareista ja tärkeimmistä valiokuntatoiminnoista',
+    }),
+    el: (committee) => ({
+        title: `Έκθεση δραστηριότητας επιτροπών Ευρωπαϊκού Κοινοβουλίου: ${committee}`,
+        subtitle: 'Ανάλυση πρόσφατης νομοθετικής παραγωγής, δεικτών αποτελεσματικότητας και βασικών δραστηριοτήτων επιτροπών',
+    }),
+    hu: (committee) => ({
+        title: `Az Európai Parlament bizottságainak tevékenységi jelentése: ${committee}`,
+        subtitle: 'A közelmúlt jogalkotási kibocsátásának, hatékonysági mutatóinak és a bizottságok főbb tevékenységeinek elemzése',
+    }),
+};
 /**
  * Get a language-specific string with English fallback
  *
@@ -263,4 +497,205 @@ export function isSupportedLanguage(lang) {
 export function getTextDirection(lang) {
     return lang === 'ar' || lang === 'he' ? 'rtl' : 'ltr';
 }
+export const PROPOSITIONS_TITLES = {
+    en: () => ({
+        title: 'Legislative Proposals: European Parliament Monitor',
+        subtitle: 'Recent legislative proposals, procedure tracking, and pipeline status in the European Parliament',
+    }),
+    de: () => ({
+        title: 'Gesetzgebungsvorschläge: Europäisches Parlament Monitor',
+        subtitle: 'Aktuelle Gesetzgebungsvorschläge, Verfahrensverfolgung und Pipeline-Status im Europäischen Parlament',
+    }),
+    fr: () => ({
+        title: 'Propositions Législatives: Moniteur du Parlement Européen',
+        subtitle: 'Propositions législatives récentes, suivi des procédures et état du pipeline au Parlement européen',
+    }),
+    es: () => ({
+        title: 'Propuestas Legislativas: Monitor del Parlamento Europeo',
+        subtitle: 'Propuestas legislativas recientes, seguimiento de procedimientos y estado del pipeline en el Parlamento Europeo',
+    }),
+    it: () => ({
+        title: 'Proposte Legislative: Monitor del Parlamento Europeo',
+        subtitle: 'Proposte legislative recenti, monitoraggio delle procedure e stato della pipeline nel Parlamento europeo',
+    }),
+    nl: () => ({
+        title: 'Wetgevingsvoorstellen: EU Parlementsmonitor',
+        subtitle: 'Recente wetgevingsvoorstellen, procedurebewaking en pipeline-status in het Europees Parlement',
+    }),
+    pl: () => ({
+        title: 'Propozycje Legislacyjne: Monitor Parlamentu Europejskiego',
+        subtitle: 'Ostatnie propozycje legislacyjne, śledzenie procedur i status pipeline w Parlamencie Europejskim',
+    }),
+    pt: () => ({
+        title: 'Propostas Legislativas: Monitor do Parlamento Europeu',
+        subtitle: 'Propostas legislativas recentes, acompanhamento de procedimentos e estado do pipeline no Parlamento Europeu',
+    }),
+    ro: () => ({
+        title: 'Propuneri Legislative: Monitor al Parlamentului European',
+        subtitle: 'Propuneri legislative recente, urmărirea procedurilor și starea pipeline-ului în Parlamentul European',
+    }),
+    sv: () => ({
+        title: 'Lagstiftningsförslag: EU-parlamentsmonitor',
+        subtitle: 'Senaste lagstiftningsförslag, procedurspårning och pipeline-status i Europaparlamentet',
+    }),
+    da: () => ({
+        title: 'Lovgivningsforslag: EU-parlamentsmonitor',
+        subtitle: 'Seneste lovgivningsforslag, proceduresporing og pipeline-status i Europa-Parlamentet',
+    }),
+    fi: () => ({
+        title: 'Lainsäädäntöehdotukset: EU-parlamentin seuranta',
+        subtitle: 'Viimeisimmät lainsäädäntöehdotukset, menettelyseuranta ja pipeline-tila Euroopan parlamentissa',
+    }),
+    el: () => ({
+        title: 'Νομοθετικές Προτάσεις: Παρακολούθηση Ευρωπαϊκού Κοινοβουλίου',
+        subtitle: 'Πρόσφατες νομοθετικές προτάσεις, παρακολούθηση διαδικασιών και κατάσταση αγωγού στο Ευρωπαϊκό Κοινοβούλιο',
+    }),
+    hu: () => ({
+        title: 'Jogalkotási Javaslatok: EU Parlamenti Figyelő',
+        subtitle: 'Legfrissebb jogalkotási javaslatok, eljáráskövetés és csővezeték-állapot az Európai Parlamentben',
+    }),
+};
+/** Localized body text strings for propositions articles */
+export const PROPOSITIONS_STRINGS = {
+    en: {
+        lede: 'The European Parliament is actively processing multiple legislative proposals across key policy areas. This report tracks current proposals, their procedure status, and the overall legislative pipeline.',
+        proposalsHeading: 'Recent Legislative Proposals',
+        pipelineHeading: 'Legislative Pipeline Overview',
+        procedureHeading: 'Procedure Status',
+        analysisHeading: 'Impact Assessment',
+        analysis: "Current legislative activity reflects Parliament's priorities in sustainable finance, digital governance, and environmental policy. Tracking these proposals helps citizens and stakeholders understand the EU's legislative trajectory.",
+        pipelineHealthLabel: 'Pipeline Health',
+        throughputRateLabel: 'Throughput Rate',
+    },
+    de: {
+        lede: 'Das Europäische Parlament bearbeitet aktiv mehrere Gesetzgebungsvorschläge in wichtigen Politikbereichen. Dieser Bericht verfolgt aktuelle Vorschläge, ihren Verfahrensstatus und die gesamte Gesetzgebungspipeline.',
+        proposalsHeading: 'Aktuelle Gesetzgebungsvorschläge',
+        pipelineHeading: 'Überblick über die Gesetzgebungspipeline',
+        procedureHeading: 'Verfahrensstatus',
+        analysisHeading: 'Folgenabschätzung',
+        analysis: 'Die aktuelle Gesetzgebungstätigkeit spiegelt die Prioritäten des Parlaments in nachhaltiger Finanzierung, digitaler Governance und Umweltpolitik wider. Die Verfolgung dieser Vorschläge hilft Bürgern und Interessengruppen, den Gesetzgebungspfad der EU zu verstehen.',
+        pipelineHealthLabel: 'Pipeline-Gesundheit',
+        throughputRateLabel: 'Durchsatzrate',
+    },
+    fr: {
+        lede: "Le Parlement européen traite activement de multiples propositions législatives dans des domaines politiques clés. Ce rapport suit les propositions actuelles, leur statut procédural et l'état global du pipeline législatif.",
+        proposalsHeading: 'Propositions Législatives Récentes',
+        pipelineHeading: "Vue d'ensemble du Pipeline Législatif",
+        procedureHeading: 'Statut de la Procédure',
+        analysisHeading: "Évaluation de l'Impact",
+        analysis: "L'activité législative actuelle reflète les priorités du Parlement en matière de finance durable, de gouvernance numérique et de politique environnementale. Le suivi de ces propositions aide les citoyens et les parties prenantes à comprendre la trajectoire législative de l'UE.",
+        pipelineHealthLabel: 'Santé du Pipeline',
+        throughputRateLabel: 'Taux de Débit',
+    },
+    es: {
+        lede: 'El Parlamento Europeo está procesando activamente múltiples propuestas legislativas en áreas clave de política. Este informe rastrea las propuestas actuales, su estado de procedimiento y el estado general del pipeline legislativo.',
+        proposalsHeading: 'Propuestas Legislativas Recientes',
+        pipelineHeading: 'Descripción General del Pipeline Legislativo',
+        procedureHeading: 'Estado del Procedimiento',
+        analysisHeading: 'Evaluación de Impacto',
+        analysis: 'La actividad legislativa actual refleja las prioridades del Parlamento en finanzas sostenibles, gobernanza digital y política ambiental. Rastrear estas propuestas ayuda a los ciudadanos y partes interesadas a comprender la trayectoria legislativa de la UE.',
+        pipelineHealthLabel: 'Salud del Pipeline',
+        throughputRateLabel: 'Tasa de Rendimiento',
+    },
+    it: {
+        lede: 'Il Parlamento europeo sta elaborando attivamente molteplici proposte legislative in settori politici chiave. Questo rapporto traccia le proposte attuali, il loro stato procedurale e lo stato complessivo della pipeline legislativa.',
+        proposalsHeading: 'Proposte Legislative Recenti',
+        pipelineHeading: 'Panoramica della Pipeline Legislativa',
+        procedureHeading: 'Stato della Procedura',
+        analysisHeading: "Valutazione d'Impatto",
+        analysis: "L'attività legislativa attuale riflette le priorità del Parlamento in materia di finanza sostenibile, governance digitale e politica ambientale. Tracciare queste proposte aiuta cittadini e parti interessate a comprendere la traiettoria legislativa dell'UE.",
+        pipelineHealthLabel: 'Salute del Pipeline',
+        throughputRateLabel: 'Tasso di Elaborazione',
+    },
+    nl: {
+        lede: 'Het Europees Parlement behandelt actief meerdere wetgevende voorstellen op belangrijke beleidsterreinen. Dit rapport volgt huidige voorstellen, hun procedurestatus en de algehele wetgevende pipeline.',
+        proposalsHeading: 'Recente Wetgevingsvoorstellen',
+        pipelineHeading: 'Overzicht van de Wetgevende Pipeline',
+        procedureHeading: 'Procedurestatus',
+        analysisHeading: 'Impactbeoordeling',
+        analysis: 'De huidige wetgevende activiteit weerspiegelt de prioriteiten van het Parlement op het gebied van duurzame financiering, digitaal bestuur en milieubeleid. Het volgen van deze voorstellen helpt burgers en belanghebbenden de wetgevende koers van de EU te begrijpen.',
+        pipelineHealthLabel: 'Pipeline-gezondheid',
+        throughputRateLabel: 'Doorvoersnelheid',
+    },
+    pl: {
+        lede: 'Parlament Europejski aktywnie przetwarza wiele propozycji legislacyjnych w kluczowych obszarach politycznych. Niniejszy raport śledzi aktualne propozycje, ich status proceduralny i ogólny stan pipeline legislacyjnego.',
+        proposalsHeading: 'Ostatnie Propozycje Legislacyjne',
+        pipelineHeading: 'Przegląd Pipeline Legislacyjnego',
+        procedureHeading: 'Status Procedury',
+        analysisHeading: 'Ocena Wpływu',
+        analysis: 'Obecna działalność legislacyjna odzwierciedla priorytety Parlamentu w zakresie zrównoważonych finansów, zarządzania cyfrowego i polityki środowiskowej. Śledzenie tych propozycji pomaga obywatelom i zainteresowanym stronom zrozumieć kierunek legislacyjny UE.',
+        pipelineHealthLabel: 'Kondycja Pipeline',
+        throughputRateLabel: 'Wskaźnik Przepustowości',
+    },
+    pt: {
+        lede: 'O Parlamento Europeu está processando ativamente múltiplas propostas legislativas em áreas políticas importantes. Este relatório acompanha as propostas atuais, seu status de procedimento e o estado geral do pipeline legislativo.',
+        proposalsHeading: 'Propostas Legislativas Recentes',
+        pipelineHeading: 'Visão Geral do Pipeline Legislativo',
+        procedureHeading: 'Status do Procedimento',
+        analysisHeading: 'Avaliação de Impacto',
+        analysis: 'A atividade legislativa atual reflete as prioridades do Parlamento em finanças sustentáveis, governança digital e política ambiental. Acompanhar estas propostas ajuda cidadãos e partes interessadas a compreender a trajetória legislativa da UE.',
+        pipelineHealthLabel: 'Saúde do Pipeline',
+        throughputRateLabel: 'Taxa de Processamento',
+    },
+    ro: {
+        lede: 'Parlamentul European procesează activ multiple propuneri legislative în domenii politice cheie. Acest raport urmărește propunerile actuale, statusul lor procedural și starea generală a pipeline-ului legislativ.',
+        proposalsHeading: 'Propuneri Legislative Recente',
+        pipelineHeading: 'Prezentare Generală a Pipeline-ului Legislativ',
+        procedureHeading: 'Starea Procedurii',
+        analysisHeading: 'Evaluarea Impactului',
+        analysis: 'Activitatea legislativă actuală reflectă prioritățile Parlamentului în finanțe durabile, guvernanță digitală și politică de mediu. Urmărirea acestor propuneri ajută cetățenii și părțile interesate să înțeleagă traiectoria legislativă a UE.',
+        pipelineHealthLabel: 'Sănătatea Pipeline-ului',
+        throughputRateLabel: 'Rata de Procesare',
+    },
+    sv: {
+        lede: 'Europaparlamentet bearbetar aktivt flera lagstiftningsförslag inom viktiga politikområden. Denna rapport spårar aktuella förslag, deras procedurstatus och det övergripande lagstiftningspipeline-läget.',
+        proposalsHeading: 'Senaste Lagstiftningsförslag',
+        pipelineHeading: 'Översikt av Lagstiftnings-Pipeline',
+        procedureHeading: 'Procedurstatus',
+        analysisHeading: 'Konsekvensbedömning',
+        analysis: 'Den nuvarande lagstiftningsverksamheten speglar parlamentets prioriteringar inom hållbar finansiering, digital styrning och miljöpolitik. Att spåra dessa förslag hjälper medborgare och intressenter att förstå EU:s lagstiftningsinriktning.',
+        pipelineHealthLabel: 'Pipeline-hälsa',
+        throughputRateLabel: 'Genomströmningshastighet',
+    },
+    da: {
+        lede: 'Europa-Parlamentet behandler aktivt adskillige lovgivningsforslag inden for vigtige politikområder. Denne rapport sporer aktuelle forslag, deres procedurestatus og den overordnede lovgivningspipeline-tilstand.',
+        proposalsHeading: 'Seneste Lovgivningsforslag',
+        pipelineHeading: 'Oversigt over Lovgivningspipeline',
+        procedureHeading: 'Procedurestatus',
+        analysisHeading: 'Konsekvensvurdering',
+        analysis: "Den aktuelle lovgivningsaktivitet afspejler Parlamentets prioriteter inden for bæredygtig finansiering, digital forvaltning og miljøpolitik. Sporing af disse forslag hjælper borgere og interessenter med at forstå EU's lovgivningstrajektorie.",
+        pipelineHealthLabel: 'Pipeline-sundhed',
+        throughputRateLabel: 'Gennemstrømningshastighed',
+    },
+    fi: {
+        lede: 'Euroopan parlamentti käsittelee aktiivisesti useita lainsäädäntöehdotuksia keskeisillä politiikka-alueilla. Tämä raportti seuraa ajankohtaisia ehdotuksia, niiden menettelytilaa ja yleistä lainsäädäntöputken tilaa.',
+        proposalsHeading: 'Viimeisimmät Lainsäädäntöehdotukset',
+        pipelineHeading: 'Lainsäädäntöputken Yleiskatsaus',
+        procedureHeading: 'Menettelyn Tila',
+        analysisHeading: 'Vaikutustenarviointi',
+        analysis: 'Nykyinen lainsäädäntötoiminta heijastaa parlamentin prioriteetteja kestävässä rahoituksessa, digitaalisessa hallinnossa ja ympäristöpolitiikassa. Näiden ehdotusten seuraaminen auttaa kansalaisia ja sidosryhmiä ymmärtämään EU:n lainsäädäntösuuntaa.',
+        pipelineHealthLabel: 'Putkilinjan terveys',
+        throughputRateLabel: 'Läpimenoaste',
+    },
+    el: {
+        lede: 'Το Ευρωπαϊκό Κοινοβούλιο επεξεργάζεται ενεργά πολλαπλές νομοθετικές προτάσεις σε βασικούς τομείς πολιτικής. Αυτή η αναφορά παρακολουθεί τις τρέχουσες προτάσεις, την κατάσταση της διαδικασίας τους και τη συνολική κατάσταση του νομοθετικού αγωγού.',
+        proposalsHeading: 'Πρόσφατες Νομοθετικές Προτάσεις',
+        pipelineHeading: 'Επισκόπηση Νομοθετικού Αγωγού',
+        procedureHeading: 'Κατάσταση Διαδικασίας',
+        analysisHeading: 'Αξιολόγηση Αντίκτυπου',
+        analysis: 'Η τρέχουσα νομοθετική δραστηριότητα αντικατοπτρίζει τις προτεραιότητες του Κοινοβουλίου στη βιώσιμη χρηματοδότηση, την ψηφιακή διακυβέρνηση και την περιβαλλοντική πολιτική. Η παρακολούθηση αυτών των προτάσεων βοηθά τους πολίτες και τα ενδιαφερόμενα μέρη να κατανοήσουν τη νομοθετική πορεία της ΕΕ.',
+        pipelineHealthLabel: 'Υγεία Αγωγού',
+        throughputRateLabel: 'Ρυθμός Ροής',
+    },
+    hu: {
+        lede: 'Az Európai Parlament aktívan dolgoz fel több jogalkotási javaslatot a főbb szakpolitikai területeken. Ez a jelentés nyomon követi az aktuális javaslatokat, eljárási státuszukat és a jogalkotási csővezeték általános állapotát.',
+        proposalsHeading: 'Legfrissebb Jogalkotási Javaslatok',
+        pipelineHeading: 'Jogalkotási Csővezeték Áttekintése',
+        procedureHeading: 'Eljárás Állapota',
+        analysisHeading: 'Hatáselemzés',
+        analysis: 'A jelenlegi jogalkotási tevékenység tükrözi a Parlament prioritásait a fenntartható pénzügyek, a digitális irányítás és a környezetpolitika terén. E javaslatok nyomon követése segít az állampolgároknak és az érdekelt feleknek megérteni az EU jogalkotási irányát.',
+        pipelineHealthLabel: 'Csővezeték állapota',
+        throughputRateLabel: 'Áteresztőképesség',
+    },
+};
 //# sourceMappingURL=languages.js.map
