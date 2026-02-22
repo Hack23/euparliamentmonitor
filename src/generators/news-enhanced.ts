@@ -517,7 +517,13 @@ async function generateBreakingNews(): Promise<GenerationResult> {
       fetchMEPInfluence(''),
     ]);
 
-    const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, influenceRaw);
+    const content = buildBreakingNewsContent(
+      dateStr,
+      anomalyRaw,
+      coalitionRaw,
+      reportRaw,
+      influenceRaw
+    );
 
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
@@ -536,7 +542,12 @@ async function generateBreakingNews(): Promise<GenerationResult> {
         readTime,
         lang,
         content,
-        keywords: ['European Parliament', 'breaking news', 'voting anomalies', 'coalition dynamics'],
+        keywords: [
+          'European Parliament',
+          'breaking news',
+          'voting anomalies',
+          'coalition dynamics',
+        ],
         sources: [],
       });
 

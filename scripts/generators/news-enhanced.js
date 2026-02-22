@@ -447,7 +447,12 @@ async function generateBreakingNews() {
                 readTime,
                 lang,
                 content,
-                keywords: ['European Parliament', 'breaking news', 'voting anomalies', 'coalition dynamics'],
+                keywords: [
+                    'European Parliament',
+                    'breaking news',
+                    'voting anomalies',
+                    'coalition dynamics',
+                ],
                 sources: [],
             });
             writeSingleArticle(html, slug, lang);
