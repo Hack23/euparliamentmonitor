@@ -40,6 +40,7 @@ describe('ep-mcp-client', () => {
       });
 
       it('should default serverPath to npm package binary in node_modules/.bin', () => {
+        const hadEnvVar = 'EP_MCP_SERVER_PATH' in process.env;
         const originalPath = process.env.EP_MCP_SERVER_PATH;
         delete process.env.EP_MCP_SERVER_PATH;
 
@@ -48,7 +49,7 @@ describe('ep-mcp-client', () => {
         expect(path.isAbsolute(defaultClient.serverPath)).toBe(true);
 
         // Restore
-        if (originalPath) {
+        if (hadEnvVar) {
           process.env.EP_MCP_SERVER_PATH = originalPath;
         }
       });
@@ -91,6 +92,7 @@ describe('ep-mcp-client', () => {
         // The serverPath should be used directly as the executable command,
         // not wrapped as 'node [serverPath]'. Verify by checking serverPath is
         // an absolute path to the binary, not a .js script.
+        const hadEnvVar = 'EP_MCP_SERVER_PATH' in process.env;
         const originalEnv = process.env.EP_MCP_SERVER_PATH;
         delete process.env.EP_MCP_SERVER_PATH;
 
@@ -99,7 +101,7 @@ describe('ep-mcp-client', () => {
         expect(clientWithBinary.serverPath).not.toMatch(/\.js$/);
         expect(clientWithBinary.serverPath).toContain('european-parliament-mcp-server');
 
-        if (originalEnv) {
+        if (hadEnvVar) {
           process.env.EP_MCP_SERVER_PATH = originalEnv;
         }
       });
