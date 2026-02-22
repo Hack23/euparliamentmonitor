@@ -21,6 +21,8 @@ import {
   WEEK_AHEAD_TITLES,
   MOTIONS_TITLES,
   BREAKING_NEWS_TITLES,
+  PROPOSITIONS_TITLES,
+  PROPOSITIONS_STRINGS,
   getLocalizedString,
   isSupportedLanguage,
   getTextDirection,
@@ -97,6 +99,7 @@ describe('constants/languages', () => {
         expect(labels.prospective).toBeDefined();
         expect(labels.retrospective).toBeDefined();
         expect(labels.breaking).toBeDefined();
+        expect(labels.propositions).toBeDefined();
       }
     });
 
@@ -147,6 +150,34 @@ describe('constants/languages', () => {
         expect(result.title).toBeDefined();
         expect(result.subtitle).toBeDefined();
         expect(result.title).toContain('2025-01-01');
+      }
+    });
+
+    it('should have entries for all 14 languages in PROPOSITIONS_TITLES', () => {
+      for (const lang of ALL_LANGUAGES) {
+        const generator = PROPOSITIONS_TITLES[lang];
+        expect(generator).toBeDefined();
+        expect(typeof generator).toBe('function');
+        const result = generator();
+        expect(result.title).toBeDefined();
+        expect(result.subtitle).toBeDefined();
+        expect(result.title.length).toBeGreaterThan(0);
+        expect(result.subtitle.length).toBeGreaterThan(0);
+      }
+    });
+
+    it('should have entries for all 14 languages in PROPOSITIONS_STRINGS', () => {
+      for (const lang of ALL_LANGUAGES) {
+        const strings = PROPOSITIONS_STRINGS[lang];
+        expect(strings).toBeDefined();
+        expect(strings.lede.length).toBeGreaterThan(0);
+        expect(strings.proposalsHeading.length).toBeGreaterThan(0);
+        expect(strings.pipelineHeading.length).toBeGreaterThan(0);
+        expect(strings.procedureHeading.length).toBeGreaterThan(0);
+        expect(strings.analysisHeading.length).toBeGreaterThan(0);
+        expect(strings.analysis.length).toBeGreaterThan(0);
+        expect(strings.pipelineHealthLabel.length).toBeGreaterThan(0);
+        expect(strings.throughputRateLabel.length).toBeGreaterThan(0);
       }
     });
 

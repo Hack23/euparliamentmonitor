@@ -229,12 +229,25 @@ export interface ArticleTypeLabels {
   prospective: string;
   retrospective: string;
   breaking: string;
+  propositions: string;
 }
 
 /** Language-specific title and subtitle */
 export interface LangTitleSubtitle {
   title: string;
   subtitle: string;
+}
+
+/** Localized strings for propositions articles */
+export interface PropositionsStrings {
+  lede: string;
+  proposalsHeading: string;
+  pipelineHeading: string;
+  procedureHeading: string;
+  analysisHeading: string;
+  analysis: string;
+  pipelineHealthLabel: string;
+  throughputRateLabel: string;
 }
 
 /** Options for getMEPs */
