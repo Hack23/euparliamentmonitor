@@ -416,6 +416,34 @@ describe('ep-mcp-client', () => {
         expect(client.callTool).not.toHaveBeenCalled();
       });
 
+      it('should warn and return null when getCommitteeInfo called with empty string id', async () => {
+        const result = await client.getCommitteeInfo({ id: '' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"committee": null}' }],
+        });
+        expect(client.callTool).not.toHaveBeenCalled();
+      });
+
+      it('should warn and return null when getCommitteeInfo called with whitespace-only abbreviation', async () => {
+        const result = await client.getCommitteeInfo({ abbreviation: '   ' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"committee": null}' }],
+        });
+        expect(client.callTool).not.toHaveBeenCalled();
+      });
+
+      it('should trim identifier before sending to tool', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"committee": {"abbreviation": "ENVI"}}' }],
+        });
+
+        await client.getCommitteeInfo({ abbreviation: '  ENVI  ' });
+
+        expect(client.callTool).toHaveBeenCalledWith('get_committee_info', { abbreviation: 'ENVI' });
+      });
+
       it('should analyze voting patterns', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"patterns": {}}' }],

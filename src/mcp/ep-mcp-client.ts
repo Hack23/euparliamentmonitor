@@ -343,11 +343,23 @@ export class EuropeanParliamentMCPClient {
    */
   async getCommitteeInfo(options: CommitteeInfoOptions): Promise<MCPToolResult> {
     try {
-      if (!('id' in options) && !('abbreviation' in options)) {
-        console.warn('get_committee_info called without required identifier (id or abbreviation)');
+      const { id, abbreviation } = options as { id?: unknown; abbreviation?: unknown };
+      let requestPayload: { id?: string; abbreviation?: string } | null = null;
+
+      if (typeof id === 'string' && id.trim().length > 0) {
+        requestPayload = { id: id.trim() };
+      } else if (typeof abbreviation === 'string' && abbreviation.trim().length > 0) {
+        requestPayload = { abbreviation: abbreviation.trim() };
+      }
+
+      if (requestPayload === null) {
+        console.warn(
+          'get_committee_info called without valid identifier (non-empty id or abbreviation)'
+        );
         return { content: [{ type: 'text', text: '{"committee": null}' }] };
       }
-      return (await this.callTool('get_committee_info', { ...options })) as MCPToolResult;
+
+      return (await this.callTool('get_committee_info', requestPayload)) as MCPToolResult;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_committee_info not available:', message);
