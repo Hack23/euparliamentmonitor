@@ -68,10 +68,7 @@
             "maximum": 100
           }
         },
-        "required": [
-          "startDate",
-          "endDate"
-        ]
+        "required": []
       }
     },
     {

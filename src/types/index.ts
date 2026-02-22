@@ -313,7 +313,6 @@ export interface GetParliamentaryQuestionsOptions {
 /** Options for getCommitteeInfo */
 export interface GetCommitteeInfoOptions {
   committeeId?: string;
-  abbreviation?: string;
   dateFrom?: string;
   dateTo?: string;
   limit?: number;
