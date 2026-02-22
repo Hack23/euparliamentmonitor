@@ -308,10 +308,10 @@ export class EuropeanParliamentMCPClient {
         }
     }
     /**
-     * Analyze legislative effectiveness for an MEP or committee
+     * Analyze legislative effectiveness of an MEP or committee
      *
-     * @param options - Analysis options
-     * @returns Effectiveness analysis data
+     * @param options - Options including subjectType and subjectId
+     * @returns Legislative effectiveness data
      */
     async analyzeLegislativeEffectiveness(options = {}) {
         try {

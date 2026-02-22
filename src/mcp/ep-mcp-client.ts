@@ -356,19 +356,14 @@ export class EuropeanParliamentMCPClient {
   }
 
   /**
-   * Analyze legislative effectiveness for an MEP or committee
+   * Analyze legislative effectiveness of an MEP or committee
    *
-   * @param options - Analysis options
-   * @returns Effectiveness analysis data
+   * @param options - Options including subjectType and subjectId
+   * @returns Legislative effectiveness data
    */
-  async analyzeLegislativeEffectiveness(
-    options: Record<string, unknown> = {}
-  ): Promise<MCPToolResult> {
+  async analyzeLegislativeEffectiveness(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool(
-        'analyze_legislative_effectiveness',
-        options
-      )) as MCPToolResult;
+      return (await this.callTool('analyze_legislative_effectiveness', options)) as MCPToolResult;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('analyze_legislative_effectiveness not available:', message);

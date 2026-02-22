@@ -293,63 +293,66 @@ export const BREAKING_NEWS_TITLES = {
         subtitle: 'Hírszerzési elemzés szavazási rendellenességekről, koalíciós eltolódásokról és kulcsfontosságú EP-képviselői tevékenységekről',
     }),
 };
-/** Committee reports title templates per language */
+/**
+ * Committee reports titles for all 14 supported languages
+ * Generator function accepting committee abbreviation string
+ */
 export const COMMITTEE_REPORTS_TITLES = {
     en: (committee) => ({
-        title: `Committee Report: ${committee}`,
-        subtitle: 'European Parliament committee activity, legislative output, and effectiveness metrics',
+        title: `EU Parliament Committee Activity Report: ${committee}`,
+        subtitle: 'Analysis of recent legislative output, effectiveness metrics, and key committee activities',
     }),
     de: (committee) => ({
-        title: `Ausschussbericht: ${committee}`,
-        subtitle: 'Aktivitäten, Gesetzgebungsproduktion und Effektivitätskennzahlen des Europäischen Parlamentsausschusses',
+        title: `EU-Parlament Ausschussbericht: ${committee}`,
+        subtitle: 'Analyse der aktuellen Gesetzgebungsleistung, Effektivitätskennzahlen und wichtiger Ausschussaktivitäten',
     }),
     fr: (committee) => ({
-        title: `Rapport de Commission: ${committee}`,
-        subtitle: "Activité de la commission du Parlement européen, production législative et indicateurs d'efficacité",
+        title: `Rapport d'activité des commissions du Parlement européen: ${committee}`,
+        subtitle: "Analyse de la production législative récente, des indicateurs d'efficacité et des activités clés des commissions",
     }),
     es: (committee) => ({
-        title: `Informe de Comisión: ${committee}`,
-        subtitle: 'Actividad de la comisión del Parlamento Europeo, producción legislativa y métricas de efectividad',
+        title: `Informe de actividad de comisiones del Parlamento Europeo: ${committee}`,
+        subtitle: 'Análisis de la producción legislativa reciente, métricas de efectividad y actividades clave de las comisiones',
     }),
     it: (committee) => ({
-        title: `Rapporto di Commissione: ${committee}`,
-        subtitle: 'Attività della commissione del Parlamento europeo, produzione legislativa e metriche di efficacia',
+        title: `Rapporto di attività delle commissioni del Parlamento europeo: ${committee}`,
+        subtitle: "Analisi della recente produzione legislativa, metriche di efficacia e attività chiave delle commissioni",
     }),
     nl: (committee) => ({
-        title: `Commissieverslag: ${committee}`,
-        subtitle: 'Activiteit, wetgevingsoutput en effectiviteitsmaatstaven van de commissie van het Europees Parlement',
+        title: `Activiteitenrapport commissies Europees Parlement: ${committee}`,
+        subtitle: 'Analyse van recente wetgevingsoutput, effectiviteitsmetrieken en belangrijkste commissieactiviteiten',
     }),
     pl: (committee) => ({
-        title: `Sprawozdanie Komisji: ${committee}`,
-        subtitle: 'Aktywność komisji Parlamentu Europejskiego, produkcja legislacyjna i wskaźniki skuteczności',
+        title: `Raport aktywności komisji Parlamentu Europejskiego: ${committee}`,
+        subtitle: 'Analiza ostatniego dorobku legislacyjnego, wskaźników efektywności i kluczowych działań komisji',
     }),
     pt: (committee) => ({
-        title: `Relatório de Comissão: ${committee}`,
-        subtitle: 'Atividade da comissão do Parlamento Europeu, produção legislativa e métricas de eficácia',
+        title: `Relatório de atividade das comissões do Parlamento Europeu: ${committee}`,
+        subtitle: 'Análise da produção legislativa recente, métricas de eficácia e atividades-chave das comissões',
     }),
     ro: (committee) => ({
-        title: `Raport de Comisie: ${committee}`,
-        subtitle: 'Activitatea comisiei Parlamentului European, producția legislativă și metrici de eficiență',
+        title: `Raport de activitate al comisiilor Parlamentului European: ${committee}`,
+        subtitle: 'Analiza producției legislative recente, a indicatorilor de eficacitate și a activităților cheie ale comisiilor',
     }),
     sv: (committee) => ({
-        title: `Utskottsrapport: ${committee}`,
-        subtitle: 'Europaparlamentets utskottsaktivitet, lagstiftningsproduktion och effektivitetsmått',
+        title: `Aktivitetsrapport för Europaparlamentets utskott: ${committee}`,
+        subtitle: 'Analys av nylig lagstiftningsproduktion, effektivitetsmätningar och viktigaste utskottsaktiviteter',
     }),
     da: (committee) => ({
-        title: `Udvalgsrapport: ${committee}`,
-        subtitle: 'Europa-Parlamentets udvalgsaktivitet, lovgivningsmæssig produktion og effektivitetsmål',
+        title: `Aktivitetsrapport for Europa-Parlamentets udvalg: ${committee}`,
+        subtitle: 'Analyse af den seneste lovgivningsproduktion, effektivitetsmålinger og vigtigste udvalgsaktiviteter',
     }),
     fi: (committee) => ({
-        title: `Valiokunnan Raportti: ${committee}`,
-        subtitle: 'Euroopan parlamentin valiokunnan toiminta, lainsäädäntötuotos ja tehokkuusmittarit',
+        title: `Euroopan parlamentin valiokuntien toimintaraportti: ${committee}`,
+        subtitle: 'Analyysi viimeaikaisesta lainsäädäntötuotannosta, tehokkuusmittareista ja tärkeimmistä valiokuntatoiminnoista',
     }),
     el: (committee) => ({
-        title: `Έκθεση Επιτροπής: ${committee}`,
-        subtitle: 'Δραστηριότητα επιτροπής Ευρωπαϊκού Κοινοβουλίου, νομοθετική παραγωγή και μετρήσεις αποτελεσματικότητας',
+        title: `Έκθεση δραστηριότητας επιτροπών Ευρωπαϊκού Κοινοβουλίου: ${committee}`,
+        subtitle: 'Ανάλυση πρόσφατης νομοθετικής παραγωγής, δεικτών αποτελεσματικότητας και βασικών δραστηριοτήτων επιτροπών',
     }),
     hu: (committee) => ({
-        title: `Bizottsági Jelentés: ${committee}`,
-        subtitle: 'Az Európai Parlament bizottsági tevékenysége, jogalkotási teljesítmény és hatékonysági mutatók',
+        title: `Az Európai Parlament bizottságainak tevékenységi jelentése: ${committee}`,
+        subtitle: 'A közelmúlt jogalkotási kibocsátásának, hatékonysági mutatóinak és a bizottságok főbb tevékenységeinek elemzése',
     }),
 };
 /**

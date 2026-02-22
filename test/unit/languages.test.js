@@ -138,18 +138,6 @@ describe('constants/languages', () => {
       }
     });
 
-    it('should have entries for all 14 languages in COMMITTEE_REPORTS_TITLES', () => {
-      for (const lang of ALL_LANGUAGES) {
-        const generator = COMMITTEE_REPORTS_TITLES[lang];
-        expect(generator).toBeDefined();
-        expect(typeof generator).toBe('function');
-        const result = generator('ENVI');
-        expect(result.title).toContain('ENVI');
-        expect(typeof result.subtitle).toBe('string');
-        expect(result.subtitle.length).toBeGreaterThan(0);
-      }
-    });
-
     it('should have correct native language names', () => {
       expect(LANGUAGE_NAMES.en).toBe('English');
       expect(LANGUAGE_NAMES.de).toBe('Deutsch');
@@ -205,6 +193,24 @@ describe('constants/languages', () => {
 
     it('should return ltr for unknown languages', () => {
       expect(getTextDirection('zz')).toBe('ltr');
+    });
+  });
+
+  describe('COMMITTEE_REPORTS_TITLES', () => {
+    it('should have entries for all 14 supported languages', () => {
+      expect(Object.keys(COMMITTEE_REPORTS_TITLES)).toHaveLength(14);
+    });
+
+    it('should generate non-empty title containing committee name for each language', () => {
+      const committeeName = 'ENVI, ECON, AFET, LIBE, AGRI';
+      for (const lang of ALL_LANGUAGES) {
+        const generator = COMMITTEE_REPORTS_TITLES[lang];
+        expect(generator).toBeDefined();
+        const result = generator(committeeName);
+        expect(result.title).toContain(committeeName);
+        expect(typeof result.subtitle).toBe('string');
+        expect(result.subtitle.length).toBeGreaterThan(0);
+      }
     });
   });
 });

@@ -17,8 +17,6 @@ import { formatDateForSlug, calculateReadTime, ensureDirectoryExists, escapeHTML
 // Try to use MCP client if available
 let mcpClient = null;
 const useMCP = process.env['USE_EP_MCP'] !== 'false';
-/** Shared keyword for European Parliament articles */
-const KEYWORD_EUROPEAN_PARLIAMENT = 'European Parliament';
 // Parse command line arguments
 const args = process.argv.slice(2);
 const typesArg = args.find((arg) => arg.startsWith('--types='));
@@ -131,6 +129,8 @@ async function initializeMCPClient() {
         return null;
     }
 }
+/** European Parliament keyword for document searches and article metadata */
+const KEYWORD_EUROPEAN_PARLIAMENT = 'European Parliament';
 /** Placeholder events used when MCP is unavailable or returns no sessions */
 const PLACEHOLDER_EVENTS = [
     {
@@ -771,73 +771,99 @@ async function generateBreakingNews() {
         return { success: false, error: message };
     }
 }
+/** Featured committees to include in committee reports */
+const FEATURED_COMMITTEES = ['ENVI', 'ECON', 'AFET', 'LIBE', 'AGRI'];
 /**
  * Apply committee info from MCP result to the data object
+ *
+ * @param result - MCP tool result
+ * @param data - Committee data to populate
+ * @param abbreviation - Fallback abbreviation
  */
 export function applyCommitteeInfo(result, data, abbreviation) {
     try {
-        if (!result?.content?.[0]) return;
+        if (!result?.content?.[0])
+            return;
         const parsed = JSON.parse(result.content[0].text);
-        if (!parsed.committee) return;
+        if (!parsed.committee)
+            return;
         data.name = parsed.committee.name ?? data.name;
         data.abbreviation = parsed.committee.abbreviation ?? abbreviation;
         data.chair = parsed.committee.chair ?? 'N/A';
         const memberCountRaw = parsed.committee.memberCount;
+        let memberCount = 0;
         if (typeof memberCountRaw === 'number' && Number.isFinite(memberCountRaw)) {
-            data.members = memberCountRaw;
-        } else if (typeof memberCountRaw === 'string') {
+            memberCount = memberCountRaw;
+        }
+        else if (typeof memberCountRaw === 'string') {
             const parsedNumber = Number(memberCountRaw);
             if (Number.isFinite(parsedNumber)) {
-                data.members = parsedNumber;
+                memberCount = parsedNumber;
             }
         }
-    } catch (err) {
+        data.members = memberCount;
+        console.log(`  ✅ Committee info: ${data.name} (${data.members} members)`);
+    }
+    catch (err) {
         const message = err instanceof Error ? err.message : String(err);
         console.warn('  ⚠️ Failed to parse committee info:', message);
     }
 }
 /**
- * Apply document list from MCP result to the data object
+ * Apply documents from MCP result to the data object
+ *
+ * @param result - MCP tool result
+ * @param data - Committee data to populate
  */
 export function applyDocuments(result, data) {
     try {
-        if (!result?.content?.[0]) return;
+        if (!result?.content?.[0])
+            return;
         const parsed = JSON.parse(result.content[0].text);
-        if (!parsed.documents || parsed.documents.length === 0) return;
+        if (!parsed.documents || parsed.documents.length === 0)
+            return;
         data.documents = parsed.documents.map((d) => ({
             title: d.title ?? 'Untitled Document',
             type: d.type ?? d.documentType ?? 'Document',
             date: d.date ?? '',
         }));
         console.log(`  ✅ Fetched ${data.documents.length} documents from MCP`);
-    } catch (err) {
+    }
+    catch (err) {
         const message = err instanceof Error ? err.message : String(err);
         console.warn('  ⚠️ Failed to parse documents:', message);
     }
 }
 /**
  * Apply effectiveness metrics from MCP result to the data object
+ *
+ * @param result - MCP tool result
+ * @param data - Committee data to populate
  */
 export function applyEffectiveness(result, data) {
     try {
-        if (!result?.content?.[0]) return;
+        if (!result?.content?.[0])
+            return;
         const parsed = JSON.parse(result.content[0].text);
-        if (!parsed.effectiveness) return;
+        if (!parsed.effectiveness)
+            return;
         const score = parsed.effectiveness.overallScore;
         const rank = parsed.effectiveness.rank ?? '';
         data.effectiveness =
             typeof score === 'number' && Number.isFinite(score)
                 ? `Score: ${score.toFixed(1)} ${rank}`.trim()
                 : null;
-    } catch (err) {
+    }
+    catch (err) {
         const message = err instanceof Error ? err.message : String(err);
         console.warn('  ⚠️ Failed to parse effectiveness:', message);
     }
 }
-/** Featured committees to report on */
-const FEATURED_COMMITTEES = ['ENVI', 'ECON', 'AFET', 'LIBE', 'AGRI'];
 /**
- * Fetch committee data from MCP server or use fallback
+ * Fetch committee data from MCP sources for a given abbreviation
+ *
+ * @param abbreviation - Committee abbreviation (e.g. "ENVI")
+ * @returns Committee data populated from MCP sources
  */
 async function fetchCommitteeData(abbreviation) {
     const defaultResult = {
@@ -848,40 +874,43 @@ async function fetchCommitteeData(abbreviation) {
         documents: [],
         effectiveness: null,
     };
-    if (!mcpClient) {
+    if (!mcpClient)
         return defaultResult;
-    }
     try {
         console.log(`  📡 Fetching committee info for ${abbreviation}...`);
         const committeeResult = await mcpClient.getCommitteeInfo({ committeeId: abbreviation });
         applyCommitteeInfo(committeeResult, defaultResult, abbreviation);
-    } catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
+    }
+    catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
         console.warn(`  ⚠️ getCommitteeInfo failed for ${abbreviation}:`, message);
     }
     try {
         console.log(`  📡 Fetching documents for ${abbreviation}...`);
         const docsResult = await mcpClient.searchDocuments({ query: abbreviation, limit: 5 });
         applyDocuments(docsResult, defaultResult);
-    } catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
+    }
+    catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
         console.warn(`  ⚠️ searchDocuments failed for ${abbreviation}:`, message);
     }
     try {
-        console.log(`  📡 Fetching effectiveness metrics for ${abbreviation}...`);
         const effectivenessResult = await mcpClient.analyzeLegislativeEffectiveness({
             subjectType: 'COMMITTEE',
             subjectId: abbreviation,
         });
         applyEffectiveness(effectivenessResult, defaultResult);
-    } catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
+    }
+    catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
         console.warn(`  ⚠️ analyzeLegislativeEffectiveness failed for ${abbreviation}:`, message);
     }
     return defaultResult;
 }
 /**
  * Generate Committee Reports article in specified languages
+ *
+ * @returns Generation result
  */
 async function generateCommitteeReports() {
     console.log('🏛️ Generating Committee Reports article...');
@@ -915,53 +944,51 @@ async function generateCommitteeReports() {
                     ? `<p class="effectiveness-score">${escapeHTML(committee.effectiveness)}</p>`
                     : '';
                 return `
-          <div class="committee-card">
-            <section class="committee-overview">
-              <h2>${escapeHTML(committee.name)} (${escapeHTML(committee.abbreviation)})</h2>
-              ${committee.chair !== 'N/A' ? `<p class="committee-chair">Chair: ${escapeHTML(committee.chair)}</p>` : ''}
-              ${committee.members > 0 ? `<p class="committee-members">Members: ${committee.members}</p>` : ''}
-            </section>
-            <section class="recent-activity">
-              <h3>Recent Documents</h3>
-              <ul class="document-list">${docItems}</ul>
-            </section>
-            ${effectivenessHtml ? `<section class="effectiveness-metrics"><h3>Legislative Effectiveness</h3>${effectivenessHtml}</section>` : ''}
-          </div>`;
+      <section class="committee-card">
+        <h3 class="committee-name">${escapeHTML(committee.name)} (${escapeHTML(committee.abbreviation)})</h3>
+        <div class="committee-meta">
+          <span class="committee-chair">Chair: ${escapeHTML(committee.chair)}</span>
+          <span class="committee-members">Members: ${committee.members}</span>
+        </div>
+        <section class="recent-activity">
+          <ul class="document-list">${docItems}</ul>
+        </section>
+        <section class="effectiveness-metrics">${effectivenessHtml}</section>
+      </section>`;
             })
                 .join('');
             const content = `
-        <div class="article-content">
-          <section class="lede">
-            <p>An overview of European Parliament committee activity, recent legislative output, and effectiveness across key committees.</p>
-          </section>
-          ${committeeSections}
-        </div>
-      `;
-            const readTime = calculateReadTime(content);
+    <section class="committee-overview">
+      <p class="lede">${escapeHTML(KEYWORD_EUROPEAN_PARLIAMENT)} committee activity and legislative effectiveness analysis.</p>
+    </section>
+    <section class="committee-reports">${committeeSections}</section>`;
+            const sources = [{ title: 'European Parliament', url: 'https://www.europarl.europa.eu' }];
+            const dateStr = today.toISOString().split('T')[0];
             const html = generateArticleHTML({
-                slug: `${slug}-${lang}.html`,
+                slug,
                 title: langTitles.title,
                 subtitle: langTitles.subtitle,
-                date: today.toISOString().split('T')[0],
-                type: 'retrospective',
-                readTime,
+                date: dateStr,
+                type: 'prospective',
+                readTime: calculateReadTime(content),
                 lang,
                 content,
-                keywords: [KEYWORD_EUROPEAN_PARLIAMENT, 'committees', 'legislative', 'reports'],
-                sources: [],
+                keywords: ['committee', 'EU Parliament', 'legislation'],
+                sources,
             });
-            writeSingleArticle(html, slug, lang);
-            console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+            const newsDir = path.join(NEWS_DIR, lang);
+            ensureDirectoryExists(newsDir);
+            const filename = `${dateStr}-${slug}-${lang}.html`;
+            const filepath = path.join(newsDir, filename);
+            fs.writeFileSync(filepath, html, 'utf-8');
+            console.log(`  ✅ Written: ${filepath}`);
+            stats.generated++;
         }
-        console.log('  ✅ Committee Reports article generated successfully in all requested languages');
         return { success: true, files: languages.length, slug };
-    } catch (error) {
+    }
+    catch (error) {
         const message = error instanceof Error ? error.message : String(error);
-        const stack = error instanceof Error ? error.stack : undefined;
-        console.error('❌ Error generating Committee Reports:', message);
-        if (stack) {
-            console.error('   Stack:', stack);
-        }
+        console.error('❌ Committee reports generation failed:', message);
         stats.errors++;
         return { success: false, error: message };
     }

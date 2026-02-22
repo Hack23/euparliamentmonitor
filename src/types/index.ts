@@ -237,14 +237,14 @@ export interface LangTitleSubtitle {
   subtitle: string;
 }
 
-/** Committee document entry */
+/** Committee document with type, title and date */
 export interface CommitteeDocument {
   title: string;
   type: string;
   date: string;
 }
 
-/** Committee report data */
+/** Committee report data aggregated from MCP sources */
 export interface CommitteeData {
   name: string;
   abbreviation: string;

@@ -211,22 +211,11 @@
           "status": {
             "type": "string",
             "description": "Pipeline status filter (ALL, ACTIVE, STALLED, COMPLETED)",
-            "default": "ACTIVE",
-            "examples": [
-              "ALL",
-              "ACTIVE",
-              "STALLED",
-              "COMPLETED"
-            ]
+            "default": "ACTIVE"
           },
           "committee": {
             "type": "string",
-            "description": "Filter by committee abbreviation",
-            "examples": [
-              "ENVI",
-              "ECON",
-              "AFET"
-            ]
+            "description": "Filter by committee abbreviation"
           },
           "limit": {
             "type": "number",
@@ -250,34 +239,19 @@
             "enum": [
               "MEP",
               "COMMITTEE"
-            ],
-            "examples": [
-              "MEP",
-              "COMMITTEE"
             ]
           },
           "subjectId": {
             "type": "string",
-            "description": "Subject identifier (MEP ID or committee abbreviation)",
-            "examples": [
-              "ENVI",
-              "ECON",
-              "MEP-124810"
-            ]
+            "description": "Subject identifier (MEP ID or committee abbreviation)"
           },
           "dateFrom": {
             "type": "string",
-            "description": "Analysis start date in YYYY-MM-DD format",
-            "examples": [
-              "2024-01-01"
-            ]
+            "description": "Analysis start date in YYYY-MM-DD format"
           },
           "dateTo": {
             "type": "string",
-            "description": "Analysis end date in YYYY-MM-DD format",
-            "examples": [
-              "2024-12-31"
-            ]
+            "description": "Analysis end date in YYYY-MM-DD format"
           }
         },
         "required": [
