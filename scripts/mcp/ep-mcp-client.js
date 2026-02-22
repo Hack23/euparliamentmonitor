@@ -212,10 +212,13 @@ export class EuropeanParliamentMCPClient {
      * Call an MCP tool
      *
      * @param name - Tool name
-     * @param args - Tool arguments
+     * @param args - Tool arguments (must be a plain object, not an array or function)
      * @returns Tool execution result
      */
     async callTool(name, args = {}) {
+        if (Array.isArray(args)) {
+            throw new TypeError('MCP tool arguments must be a plain object, not an array');
+        }
         return await this.sendRequest('tools/call', { name, arguments: args });
     }
     /**
@@ -225,7 +228,14 @@ export class EuropeanParliamentMCPClient {
      * @returns List of MEPs
      */
     async getMEPs(options = {}) {
-        return await this.callTool('get_meps', options);
+        try {
+            return (await this.callTool('get_meps', options));
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('get_meps not available:', message);
+            return { content: [{ type: 'text', text: '{"meps": []}' }] };
+        }
     }
     /**
      * Get plenary sessions
@@ -246,12 +256,20 @@ export class EuropeanParliamentMCPClient {
     /**
      * Search legislative documents
      *
-     * @param options - Search options
+     * @param options - Search options (normalizes `keyword` to `query` if `query` is absent)
      * @returns Search results
      */
     async searchDocuments(options = {}) {
         try {
-            return (await this.callTool('search_documents', options));
+            const { keyword, ...rest } = options;
+            const normalizedOptions = { ...rest };
+            if (normalizedOptions['query'] === undefined && keyword !== undefined) {
+                const trimmed = String(keyword).trim();
+                if (trimmed.length > 0) {
+                    normalizedOptions['query'] = trimmed;
+                }
+            }
+            return (await this.callTool('search_documents', normalizedOptions));
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -262,12 +280,17 @@ export class EuropeanParliamentMCPClient {
     /**
      * Get parliamentary questions
      *
-     * @param options - Filter options
+     * @param options - Filter options (maps `dateFrom` to `startDate` per tool schema)
      * @returns Parliamentary questions data
      */
     async getParliamentaryQuestions(options = {}) {
         try {
-            return (await this.callTool('get_parliamentary_questions', options));
+            const { dateFrom, dateTo: _dateTo, ...rest } = options;
+            const toolOptions = { ...rest };
+            if (toolOptions['startDate'] === undefined && dateFrom !== undefined) {
+                toolOptions['startDate'] = dateFrom;
+            }
+            return (await this.callTool('get_parliamentary_questions', toolOptions));
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);

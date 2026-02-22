@@ -301,11 +301,15 @@ describe('ep-mcp-client', () => {
       it('should get MEPs', async () => {
         const options = { country: 'DE', limit: 10 };
         await client.getMEPs(options);
-        
+
         expect(client.sendRequest).toHaveBeenCalledWith('tools/call', {
           name: 'get_meps',
           arguments: options,
         });
+      });
+
+      it('should reject array arguments in callTool', async () => {
+        await expect(client.callTool('test_tool', [])).rejects.toThrow(TypeError);
       });
     });
 
@@ -313,6 +317,27 @@ describe('ep-mcp-client', () => {
       beforeEach(() => {
         client.connected = true;
         client.callTool = vi.fn();
+      });
+
+      it('should get MEPs with options', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"meps": []}' }],
+        });
+
+        const options = { country: 'DE', limit: 10 };
+        await client.getMEPs(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_meps', options);
+      });
+
+      it('should handle missing getMEPs tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getMEPs();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"meps": []}' }],
+        });
       });
 
       it('should get plenary sessions', async () => {
@@ -347,6 +372,21 @@ describe('ep-mcp-client', () => {
         expect(client.callTool).toHaveBeenCalledWith('search_documents', options);
       });
 
+      it('should normalize keyword to query in searchDocuments', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+
+        await client.searchDocuments({ keyword: 'parliament', limit: 20 });
+
+        expect(client.callTool).toHaveBeenCalledWith(
+          'search_documents',
+          expect.objectContaining({ query: 'parliament', limit: 20 })
+        );
+        const callArgs = client.callTool.mock.calls[0][1];
+        expect(callArgs).not.toHaveProperty('keyword');
+      });
+
       it('should handle missing search documents tool gracefully', async () => {
         client.callTool.mockRejectedValue(new Error('Tool not available'));
 
@@ -366,6 +406,19 @@ describe('ep-mcp-client', () => {
         await client.getParliamentaryQuestions(options);
 
         expect(client.callTool).toHaveBeenCalledWith('get_parliamentary_questions', options);
+      });
+
+      it('should map dateFrom to startDate in getParliamentaryQuestions', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"questions": []}' }],
+        });
+
+        await client.getParliamentaryQuestions({ dateFrom: '2024-01-01', limit: 10 });
+
+        const callArgs = client.callTool.mock.calls[0][1];
+        expect(callArgs).toHaveProperty('startDate', '2024-01-01');
+        expect(callArgs).not.toHaveProperty('dateFrom');
+        expect(callArgs).not.toHaveProperty('dateTo');
       });
 
       it('should handle missing parliamentary questions tool gracefully', async () => {

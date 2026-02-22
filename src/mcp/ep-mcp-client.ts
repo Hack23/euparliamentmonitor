@@ -269,10 +269,13 @@ export class EuropeanParliamentMCPClient {
    * Call an MCP tool
    *
    * @param name - Tool name
-   * @param args - Tool arguments
+   * @param args - Tool arguments (must be a plain object, not an array or function)
    * @returns Tool execution result
    */
   async callTool(name: string, args: object = {}): Promise<unknown> {
+    if (Array.isArray(args)) {
+      throw new TypeError('MCP tool arguments must be a plain object, not an array');
+    }
     return await this.sendRequest('tools/call', { name, arguments: args });
   }
 
@@ -282,8 +285,14 @@ export class EuropeanParliamentMCPClient {
    * @param options - Filter options
    * @returns List of MEPs
    */
-  async getMEPs(options: GetMEPsOptions = {}): Promise<unknown> {
-    return await this.callTool('get_meps', options);
+  async getMEPs(options: GetMEPsOptions = {}): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('get_meps', options)) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_meps not available:', message);
+      return { content: [{ type: 'text', text: '{"meps": []}' }] };
+    }
   }
 
   /**
@@ -305,12 +314,20 @@ export class EuropeanParliamentMCPClient {
   /**
    * Search legislative documents
    *
-   * @param options - Search options
+   * @param options - Search options (normalizes `keyword` to `query` if `query` is absent)
    * @returns Search results
    */
   async searchDocuments(options: SearchDocumentsOptions = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('search_documents', options)) as MCPToolResult;
+      const { keyword, ...rest } = options;
+      const normalizedOptions: Record<string, unknown> = { ...rest };
+      if (normalizedOptions['query'] === undefined && keyword !== undefined) {
+        const trimmed = String(keyword).trim();
+        if (trimmed.length > 0) {
+          normalizedOptions['query'] = trimmed;
+        }
+      }
+      return (await this.callTool('search_documents', normalizedOptions)) as MCPToolResult;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('search_documents not available:', message);
@@ -321,14 +338,19 @@ export class EuropeanParliamentMCPClient {
   /**
    * Get parliamentary questions
    *
-   * @param options - Filter options
+   * @param options - Filter options (maps `dateFrom` to `startDate` per tool schema)
    * @returns Parliamentary questions data
    */
   async getParliamentaryQuestions(
     options: GetParliamentaryQuestionsOptions = {}
   ): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('get_parliamentary_questions', options)) as MCPToolResult;
+      const { dateFrom, dateTo: _dateTo, ...rest } = options;
+      const toolOptions: Record<string, unknown> = { ...rest };
+      if (toolOptions['startDate'] === undefined && dateFrom !== undefined) {
+        toolOptions['startDate'] = dateFrom;
+      }
+      return (await this.callTool('get_parliamentary_questions', toolOptions)) as MCPToolResult;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_parliamentary_questions not available:', message);
