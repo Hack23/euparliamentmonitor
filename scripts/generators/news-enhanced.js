@@ -897,7 +897,8 @@ async function generateCommitteeReports() {
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const titleGenerator = getLocalizedString(COMMITTEE_REPORTS_TITLES, lang);
-            const langTitles = titleGenerator('EU Parliament Committees');
+            const committeeLabel = FEATURED_COMMITTEES.join(', ');
+            const langTitles = titleGenerator(committeeLabel);
             const committeeSections = committeeDataList
                 .map((committee) => {
                 const docItems = committee.documents.length > 0

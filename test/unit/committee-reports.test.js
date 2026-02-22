@@ -6,8 +6,6 @@
  * Tests MCP payload parsing, type coercion, and graceful degradation
  */
 
-/* eslint-disable no-undef */
-
 import { describe, it, expect } from 'vitest';
 import {
   applyCommitteeInfo,
