@@ -782,11 +782,11 @@ async function fetchVotingRecords(dateFromStr, dateStr) {
         return [];
     try {
         console.log('  📡 Fetching voting records from MCP server...');
-        const votingResult = await mcpClient.callTool('get_voting_records', {
+        const votingResult = (await mcpClient.callTool('get_voting_records', {
             dateFrom: dateFromStr,
             dateTo: dateStr,
             limit: 20,
-        });
+        }));
         if (votingResult?.content?.[0]) {
             const data = JSON.parse(votingResult.content[0].text);
             if (data.records && data.records.length > 0) {
@@ -822,10 +822,10 @@ async function fetchVotingPatterns(dateFromStr, dateStr) {
         return [];
     try {
         console.log('  📡 Fetching voting patterns from MCP server...');
-        const patternsResult = await mcpClient.callTool('analyze_voting_patterns', {
+        const patternsResult = (await mcpClient.callTool('analyze_voting_patterns', {
             dateFrom: dateFromStr,
             dateTo: dateStr,
-        });
+        }));
         if (patternsResult?.content?.[0]) {
             const data = JSON.parse(patternsResult.content[0].text);
             if (data.patterns && data.patterns.length > 0) {
@@ -856,10 +856,10 @@ async function fetchMotionsAnomalies(dateFromStr, dateStr) {
         return [];
     try {
         console.log('  📡 Fetching voting anomalies from MCP server...');
-        const anomaliesResult = await mcpClient.callTool('detect_voting_anomalies', {
+        const anomaliesResult = (await mcpClient.callTool('detect_voting_anomalies', {
             dateFrom: dateFromStr,
             dateTo: dateStr,
-        });
+        }));
         if (anomaliesResult?.content?.[0]) {
             const data = JSON.parse(anomaliesResult.content[0].text);
             if (data.anomalies && data.anomalies.length > 0) {
@@ -1067,7 +1067,7 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
  */
 async function fetchMotionsData(dateFromStr, dateStr) {
     // Fetch data from MCP in parallel
-    const [votingRecordsResult, votingPatternsResult, anomaliesResult, questionsResult,] = await Promise.allSettled([
+    const [votingRecordsResult, votingPatternsResult, anomaliesResult, questionsResult] = await Promise.allSettled([
         fetchVotingRecords(dateFromStr, dateStr),
         fetchVotingPatterns(dateFromStr, dateStr),
         fetchMotionsAnomalies(dateFromStr, dateStr),

@@ -347,7 +347,6 @@ function parseLegislativePipeline(
   }
 }
 
-
 /**
  * Parse parliamentary questions from a settled MCP result
  *
@@ -905,23 +904,25 @@ async function generateBreakingNews(): Promise<GenerationResult> {
  * Main execution
  */
 
-async function fetchVotingRecords(
-  dateFromStr: string,
-  dateStr: string
-): Promise<VotingRecord[]> {
+async function fetchVotingRecords(dateFromStr: string, dateStr: string): Promise<VotingRecord[]> {
   if (!mcpClient) return [];
 
   try {
     console.log('  📡 Fetching voting records from MCP server...');
-    const votingResult = await mcpClient.callTool('get_voting_records', {
+    const votingResult = (await mcpClient.callTool('get_voting_records', {
       dateFrom: dateFromStr,
       dateTo: dateStr,
       limit: 20,
-    }) as MCPToolResult;
+    })) as MCPToolResult;
 
     if (votingResult?.content?.[0]) {
       const data = JSON.parse(votingResult.content[0].text) as {
-        records?: Array<{ title?: string; date?: string; result?: string; votes?: { for?: number; against?: number; abstain?: number } }>;
+        records?: Array<{
+          title?: string;
+          date?: string;
+          result?: string;
+          votes?: { for?: number; against?: number; abstain?: number };
+        }>;
       };
       if (data.records && data.records.length > 0) {
         console.log(`  ✅ Fetched ${data.records.length} voting records from MCP`);
@@ -952,18 +953,15 @@ async function fetchVotingRecords(
  * @param dateStr - End date
  * @returns Voting patterns array
  */
-async function fetchVotingPatterns(
-  dateFromStr: string,
-  dateStr: string
-): Promise<VotingPattern[]> {
+async function fetchVotingPatterns(dateFromStr: string, dateStr: string): Promise<VotingPattern[]> {
   if (!mcpClient) return [];
 
   try {
     console.log('  📡 Fetching voting patterns from MCP server...');
-    const patternsResult = await mcpClient.callTool('analyze_voting_patterns', {
+    const patternsResult = (await mcpClient.callTool('analyze_voting_patterns', {
       dateFrom: dateFromStr,
       dateTo: dateStr,
-    }) as MCPToolResult;
+    })) as MCPToolResult;
 
     if (patternsResult?.content?.[0]) {
       const data = JSON.parse(patternsResult.content[0].text) as {
@@ -1001,10 +999,10 @@ async function fetchMotionsAnomalies(
 
   try {
     console.log('  📡 Fetching voting anomalies from MCP server...');
-    const anomaliesResult = await mcpClient.callTool('detect_voting_anomalies', {
+    const anomaliesResult = (await mcpClient.callTool('detect_voting_anomalies', {
       dateFrom: dateFromStr,
       dateTo: dateStr,
-    }) as MCPToolResult;
+    })) as MCPToolResult;
 
     if (anomaliesResult?.content?.[0]) {
       const data = JSON.parse(anomaliesResult.content[0].text) as {
@@ -1086,7 +1084,10 @@ export const PLACEHOLDER_MARKER = 'DATA_UNAVAILABLE (placeholder)';
  * @param dateFromStr - Start date string
  * @returns Object with all fallback data arrays
  */
-export function getMotionsFallbackData(dateStr: string, dateFromStr: string): {
+export function getMotionsFallbackData(
+  dateStr: string,
+  dateFromStr: string
+): {
   votingRecords: VotingRecord[];
   votingPatterns: VotingPattern[];
   anomalies: VotingAnomaly[];
@@ -1250,24 +1251,23 @@ export function generateMotionsContent(
  * @param dateStr - End date
  * @returns Object with all motions data
  */
-async function fetchMotionsData(dateFromStr: string, dateStr: string): Promise<{
+async function fetchMotionsData(
+  dateFromStr: string,
+  dateStr: string
+): Promise<{
   votingRecords: VotingRecord[];
   votingPatterns: VotingPattern[];
   anomalies: VotingAnomaly[];
   questions: MotionsQuestion[];
 }> {
   // Fetch data from MCP in parallel
-  const [
-    votingRecordsResult,
-    votingPatternsResult,
-    anomaliesResult,
-    questionsResult,
-  ] = await Promise.allSettled([
-    fetchVotingRecords(dateFromStr, dateStr),
-    fetchVotingPatterns(dateFromStr, dateStr),
-    fetchMotionsAnomalies(dateFromStr, dateStr),
-    fetchParliamentaryQuestions(dateFromStr, dateStr),
-  ]);
+  const [votingRecordsResult, votingPatternsResult, anomaliesResult, questionsResult] =
+    await Promise.allSettled([
+      fetchVotingRecords(dateFromStr, dateStr),
+      fetchVotingPatterns(dateFromStr, dateStr),
+      fetchMotionsAnomalies(dateFromStr, dateStr),
+      fetchParliamentaryQuestions(dateFromStr, dateStr),
+    ]);
 
   let votingRecords: VotingRecord[] =
     votingRecordsResult.status === 'fulfilled' ? votingRecordsResult.value : [];
@@ -1334,7 +1334,10 @@ async function generateMotions(): Promise<GenerationResult> {
     const dateFromStr = dateFrom.toISOString().split('T')[0]!;
 
     // Fetch all data
-    const { votingRecords, votingPatterns, anomalies, questions } = await fetchMotionsData(dateFromStr, dateStr);
+    const { votingRecords, votingPatterns, anomalies, questions } = await fetchMotionsData(
+      dateFromStr,
+      dateStr
+    );
 
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
