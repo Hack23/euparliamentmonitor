@@ -151,6 +151,57 @@ export interface ParliamentEvent {
   description: string;
 }
 
+/** Committee meeting data from MCP */
+export interface CommitteeMeeting {
+  id?: string;
+  committee: string;
+  committeeName?: string;
+  date: string;
+  time?: string;
+  location?: string;
+  agenda?: Array<{ item?: number; title: string; type?: string }>;
+}
+
+/** Legislative document from MCP */
+export interface LegislativeDocument {
+  id?: string;
+  type?: string;
+  title: string;
+  date?: string;
+  status?: string;
+  committee?: string;
+  rapporteur?: string;
+}
+
+/** Legislative pipeline procedure */
+export interface LegislativeProcedure {
+  id?: string;
+  title: string;
+  stage?: string;
+  committee?: string;
+  status?: string;
+  bottleneck?: boolean;
+}
+
+/** Parliamentary question */
+export interface ParliamentaryQuestion {
+  id?: string;
+  type?: string;
+  author?: string;
+  subject: string;
+  date?: string;
+  status?: string;
+}
+
+/** Aggregated week-ahead data from multiple MCP sources */
+export interface WeekAheadData {
+  events: ParliamentEvent[];
+  committees: CommitteeMeeting[];
+  documents: LegislativeDocument[];
+  pipeline: LegislativeProcedure[];
+  questions: ParliamentaryQuestion[];
+}
+
 /** Date range for article generation */
 export interface DateRange {
   start: string;
@@ -184,4 +235,14 @@ export interface ArticleTypeLabels {
 export interface LangTitleSubtitle {
   title: string;
   subtitle: string;
+}
+
+/** Localized strings for propositions articles */
+export interface PropositionsStrings {
+  lede: string;
+  proposalsHeading: string;
+  pipelineHeading: string;
+  procedureHeading: string;
+  analysisHeading: string;
+  analysis: string;
 }

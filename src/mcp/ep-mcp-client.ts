@@ -8,6 +8,8 @@
  */
 
 import { spawn, type ChildProcess } from 'child_process';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import type {
   MCPClientOptions,
   MCPToolResult,
@@ -15,6 +17,18 @@ import type {
   JSONRPCResponse,
   PendingRequest,
 } from '../types/index.js';
+
+/** npm binary name for the European Parliament MCP server */
+const BINARY_NAME = 'european-parliament-mcp-server';
+
+/** Platform-specific binary filename (Windows uses .cmd shim) */
+const BINARY_FILE = process.platform === 'win32' ? `${BINARY_NAME}.cmd` : BINARY_NAME;
+
+/** Default binary resolved from node_modules/.bin relative to this file's compiled location */
+const DEFAULT_SERVER_BINARY = resolve(
+  dirname(fileURLToPath(import.meta.url)),
+  `../../node_modules/.bin/${BINARY_FILE}`
+);
 
 /** Request timeout in milliseconds */
 const REQUEST_TIMEOUT_MS = 30000;
@@ -37,7 +51,7 @@ export class EuropeanParliamentMCPClient {
 
   constructor(options: MCPClientOptions = {}) {
     this.serverPath =
-      options.serverPath ?? process.env['EP_MCP_SERVER_PATH'] ?? 'european-parliament-mcp';
+      options.serverPath ?? process.env['EP_MCP_SERVER_PATH'] ?? DEFAULT_SERVER_BINARY;
     this.connected = false;
     this.process = null;
     this.requestId = 0;
@@ -97,11 +111,16 @@ export class EuropeanParliamentMCPClient {
    */
   private async _attemptConnection(): Promise<void> {
     try {
-      this.process = spawn('node', [this.serverPath], {
+      const isJavaScriptFile: boolean = this.serverPath.toLowerCase().endsWith('.js');
+      const command: string = isJavaScriptFile ? process.execPath : this.serverPath;
+      const args: string[] = isJavaScriptFile ? [this.serverPath] : [];
+
+      this.process = spawn(command, args, {
         stdio: ['pipe', 'pipe', 'pipe'],
       });
 
       let buffer = '';
+      let startupError: Error | null = null;
 
       this.process.stdout?.on('data', (data: Buffer) => {
         buffer += data.toString();
@@ -132,11 +151,16 @@ export class EuropeanParliamentMCPClient {
         }
       });
 
-      this.process.on('error', (_error: Error) => {
+      this.process.on('error', (err: Error) => {
+        startupError = err;
         this.connected = false;
       });
 
       await new Promise((resolve) => setTimeout(resolve, CONNECTION_STARTUP_DELAY_MS));
+
+      if (startupError) {
+        throw startupError;
+      }
 
       this.connected = true;
       console.log('✅ Connected to European Parliament MCP Server');
@@ -300,6 +324,38 @@ export class EuropeanParliamentMCPClient {
   }
 
   /**
+   * Get committee information
+   *
+   * @param options - Filter options
+   * @returns Committee info data
+   */
+  async getCommitteeInfo(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('get_committee_info', options)) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_committee_info not available:', message);
+      return { content: [{ type: 'text', text: '{"committees": []}' }] };
+    }
+  }
+
+  /**
+   * Monitor legislative pipeline
+   *
+   * @param options - Filter options
+   * @returns Legislative pipeline data
+   */
+  async monitorLegislativePipeline(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('monitor_legislative_pipeline', options)) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('monitor_legislative_pipeline not available:', message);
+      return { content: [{ type: 'text', text: '{"procedures": []}' }] };
+    }
+  }
+
+  /**
    * Track legislative procedure status
    *
    * @param procedureId - Procedure identifier (e.g. "2024/0001(COD)")
@@ -311,22 +367,6 @@ export class EuropeanParliamentMCPClient {
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('track_legislation not available:', message);
-      return { content: [{ type: 'text', text: '{}' }] };
-    }
-  }
-
-  /**
-   * Monitor the legislative pipeline
-   *
-   * @param options - Filter options
-   * @returns Pipeline monitoring data
-   */
-  async monitorLegislativePipeline(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
-    try {
-      return (await this.callTool('monitor_legislative_pipeline', options)) as MCPToolResult;
-    } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
-      console.warn('monitor_legislative_pipeline not available:', message);
       return { content: [{ type: 'text', text: '{}' }] };
     }
   }

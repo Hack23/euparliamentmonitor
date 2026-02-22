@@ -13,6 +13,7 @@ import type {
   LanguagePreset,
   ArticleTypeLabels,
   LangTitleSubtitle,
+  PropositionsStrings,
 } from '../types/index.js';
 
 /** All supported language codes */
@@ -271,6 +272,79 @@ export const WEEK_AHEAD_TITLES: LanguageMap<(start: string, end: string) => Lang
   }),
 };
 
+/** Breaking news title templates per language */
+export const BREAKING_NEWS_TITLES: LanguageMap<(date: string) => LangTitleSubtitle> = {
+  en: (date) => ({
+    title: `Breaking: Significant Parliamentary Developments — ${date}`,
+    subtitle: 'Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities',
+  }),
+  de: (date) => ({
+    title: `Eilmeldung: Bedeutende Parlamentarische Entwicklungen — ${date}`,
+    subtitle:
+      'Geheimdienstliche Analyse von Abstimmungsanomalien, Koalitionsverschiebungen und wichtigen MEP-Aktivitäten',
+  }),
+  fr: (date) => ({
+    title: `Dernières Nouvelles: Développements Parlementaires Significatifs — ${date}`,
+    subtitle:
+      'Analyse de renseignements sur les anomalies de vote, les évolutions des coalitions et les activités clés des eurodéputés',
+  }),
+  es: (date) => ({
+    title: `Última Hora: Desarrollos Parlamentarios Significativos — ${date}`,
+    subtitle:
+      'Análisis de inteligencia sobre anomalías en votaciones, cambios en coaliciones y actividades clave de eurodiputados',
+  }),
+  it: (date) => ({
+    title: `Ultime Notizie: Sviluppi Parlamentari Significativi — ${date}`,
+    subtitle:
+      "Analisi dell'intelligence su anomalie di voto, cambiamenti nelle coalizioni e attività chiave degli eurodeputati",
+  }),
+  nl: (date) => ({
+    title: `Laatste Nieuws: Significante Parlementaire Ontwikkelingen — ${date}`,
+    subtitle:
+      'Inlichtingenanalyse van stemanomalieën, coalitieverschuivingen en belangrijke MEP-activiteiten',
+  }),
+  pl: (date) => ({
+    title: `Najnowsze Wiadomości: Znaczące Wydarzenia Parlamentarne — ${date}`,
+    subtitle:
+      'Analiza wywiadowcza anomalii głosowań, zmian koalicyjnych i kluczowych działań europosłów',
+  }),
+  pt: (date) => ({
+    title: `Notícias de Última Hora: Desenvolvimentos Parlamentares Significativos — ${date}`,
+    subtitle:
+      'Análise de inteligência sobre anomalias de votação, mudanças em coalizões e atividades-chave de eurodeputados',
+  }),
+  ro: (date) => ({
+    title: `Știri de Ultimă Oră: Evoluții Parlamentare Semnificative — ${date}`,
+    subtitle:
+      'Analiză de informații privind anomaliile de vot, schimbările de coaliție și activitățile-cheie ale eurodeputaților',
+  }),
+  sv: (date) => ({
+    title: `Senaste Nytt: Betydande Parlamentariska Händelser — ${date}`,
+    subtitle:
+      'Underrättelseanalys av röstningsanomalier, koalitionsförändringar och viktig MEP-aktivitet',
+  }),
+  da: (date) => ({
+    title: `Seneste Nyt: Betydelige Parlamentariske Udviklinger — ${date}`,
+    subtitle:
+      'Efterretningsanalyse af afstemningsanomalier, koalitionsforskydninger og centrale MEP-aktiviteter',
+  }),
+  fi: (date) => ({
+    title: `Uusimmat Uutiset: Merkittäviä Parlamentaarisia Kehityksiä — ${date}`,
+    subtitle:
+      'Tiedusteluanalyysi äänestyspoikkeamista, koalitiomuutoksista ja keskeisistä MEP-toimista',
+  }),
+  el: (date) => ({
+    title: `Τελευταία Νέα: Σημαντικές Κοινοβουλευτικές Εξελίξεις — ${date}`,
+    subtitle:
+      'Ανάλυση πληροφοριών για ψηφοφορικές ανωμαλίες, μετατοπίσεις συνασπισμών και βασικές δραστηριότητες ευρωβουλευτών',
+  }),
+  hu: (date) => ({
+    title: `Legfrissebb Hírek: Jelentős Parlamenti Fejlemények — ${date}`,
+    subtitle:
+      'Hírszerzési elemzés szavazási rendellenességekről, koalíciós eltolódásokról és kulcsfontosságú EP-képviselői tevékenységekről',
+  }),
+};
+
 /** Propositions article title templates per language */
 export const PROPOSITIONS_TITLES: LanguageMap<() => LangTitleSubtitle> = {
   en: () => ({
@@ -343,6 +417,136 @@ export const PROPOSITIONS_TITLES: LanguageMap<() => LangTitleSubtitle> = {
     subtitle:
       'Legfrissebb jogalkotási javaslatok, eljáráskövetés és csővezeték-állapot az Európai Parlamentben',
   }),
+};
+
+/** Localized body text strings for propositions articles */
+export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
+  en: {
+    lede: 'The European Parliament is actively processing multiple legislative proposals across key policy areas. This report tracks current proposals, their procedure status, and the overall legislative pipeline.',
+    proposalsHeading: 'Recent Legislative Proposals',
+    pipelineHeading: 'Legislative Pipeline Overview',
+    procedureHeading: 'Procedure Status',
+    analysisHeading: 'Impact Assessment',
+    analysis:
+      "Current legislative activity reflects Parliament's priorities in sustainable finance, digital governance, and environmental policy. Tracking these proposals helps citizens and stakeholders understand the EU's legislative trajectory.",
+  },
+  de: {
+    lede: 'Das Europäische Parlament bearbeitet aktiv mehrere Gesetzgebungsvorschläge in wichtigen Politikbereichen. Dieser Bericht verfolgt aktuelle Vorschläge, ihren Verfahrensstatus und die gesamte Gesetzgebungspipeline.',
+    proposalsHeading: 'Aktuelle Gesetzgebungsvorschläge',
+    pipelineHeading: 'Überblick über die Gesetzgebungspipeline',
+    procedureHeading: 'Verfahrensstatus',
+    analysisHeading: 'Folgenabschätzung',
+    analysis:
+      'Die aktuelle Gesetzgebungstätigkeit spiegelt die Prioritäten des Parlaments in nachhaltiger Finanzierung, digitaler Governance und Umweltpolitik wider. Die Verfolgung dieser Vorschläge hilft Bürgern und Interessengruppen, den Gesetzgebungspfad der EU zu verstehen.',
+  },
+  fr: {
+    lede: "Le Parlement européen traite activement de multiples propositions législatives dans des domaines politiques clés. Ce rapport suit les propositions actuelles, leur statut procédural et l'état global du pipeline législatif.",
+    proposalsHeading: 'Propositions Législatives Récentes',
+    pipelineHeading: "Vue d'ensemble du Pipeline Législatif",
+    procedureHeading: 'Statut de la Procédure',
+    analysisHeading: "Évaluation de l'Impact",
+    analysis:
+      "L'activité législative actuelle reflète les priorités du Parlement en matière de finance durable, de gouvernance numérique et de politique environnementale. Le suivi de ces propositions aide les citoyens et les parties prenantes à comprendre la trajectoire législative de l'UE.",
+  },
+  es: {
+    lede: 'El Parlamento Europeo está procesando activamente múltiples propuestas legislativas en áreas clave de política. Este informe rastrea las propuestas actuales, su estado de procedimiento y el estado general del pipeline legislativo.',
+    proposalsHeading: 'Propuestas Legislativas Recientes',
+    pipelineHeading: 'Descripción General del Pipeline Legislativo',
+    procedureHeading: 'Estado del Procedimiento',
+    analysisHeading: 'Evaluación de Impacto',
+    analysis:
+      'La actividad legislativa actual refleja las prioridades del Parlamento en finanzas sostenibles, gobernanza digital y política ambiental. Rastrear estas propuestas ayuda a los ciudadanos y partes interesadas a comprender la trayectoria legislativa de la UE.',
+  },
+  it: {
+    lede: 'Il Parlamento europeo sta elaborando attivamente molteplici proposte legislative in settori politici chiave. Questo rapporto traccia le proposte attuali, il loro stato procedurale e lo stato complessivo della pipeline legislativa.',
+    proposalsHeading: 'Proposte Legislative Recenti',
+    pipelineHeading: 'Panoramica della Pipeline Legislativa',
+    procedureHeading: 'Stato della Procedura',
+    analysisHeading: "Valutazione d'Impatto",
+    analysis:
+      "L'attività legislativa attuale riflette le priorità del Parlamento in materia di finanza sostenibile, governance digitale e politica ambientale. Tracciare queste proposte aiuta cittadini e parti interessate a comprendere la traiettoria legislativa dell'UE.",
+  },
+  nl: {
+    lede: 'Het Europees Parlement behandelt actief meerdere wetgevende voorstellen op belangrijke beleidsterreinen. Dit rapport volgt huidige voorstellen, hun procedurestatus en de algehele wetgevende pipeline.',
+    proposalsHeading: 'Recente Wetgevingsvoorstellen',
+    pipelineHeading: 'Overzicht van de Wetgevende Pipeline',
+    procedureHeading: 'Procedurestatus',
+    analysisHeading: 'Impactbeoordeling',
+    analysis:
+      'De huidige wetgevende activiteit weerspiegelt de prioriteiten van het Parlement op het gebied van duurzame financiering, digitaal bestuur en milieubeleid. Het volgen van deze voorstellen helpt burgers en belanghebbenden de wetgevende koers van de EU te begrijpen.',
+  },
+  pl: {
+    lede: 'Parlament Europejski aktywnie przetwarza wiele propozycji legislacyjnych w kluczowych obszarach politycznych. Niniejszy raport śledzi aktualne propozycje, ich status proceduralny i ogólny stan pipeline legislacyjnego.',
+    proposalsHeading: 'Ostatnie Propozycje Legislacyjne',
+    pipelineHeading: 'Przegląd Pipeline Legislacyjnego',
+    procedureHeading: 'Status Procedury',
+    analysisHeading: 'Ocena Wpływu',
+    analysis:
+      'Obecna działalność legislacyjna odzwierciedla priorytety Parlamentu w zakresie zrównoważonych finansów, zarządzania cyfrowego i polityki środowiskowej. Śledzenie tych propozycji pomaga obywatelom i zainteresowanym stronom zrozumieć kierunek legislacyjny UE.',
+  },
+  pt: {
+    lede: 'O Parlamento Europeu está processando ativamente múltiplas propostas legislativas em áreas políticas importantes. Este relatório acompanha as propostas atuais, seu status de procedimento e o estado geral do pipeline legislativo.',
+    proposalsHeading: 'Propostas Legislativas Recentes',
+    pipelineHeading: 'Visão Geral do Pipeline Legislativo',
+    procedureHeading: 'Status do Procedimento',
+    analysisHeading: 'Avaliação de Impacto',
+    analysis:
+      'A atividade legislativa atual reflete as prioridades do Parlamento em finanças sustentáveis, governança digital e política ambiental. Acompanhar estas propostas ajuda cidadãos e partes interessadas a compreender a trajetória legislativa da UE.',
+  },
+  ro: {
+    lede: 'Parlamentul European procesează activ multiple propuneri legislative în domenii politice cheie. Acest raport urmărește propunerile actuale, statusul lor procedural și starea generală a pipeline-ului legislativ.',
+    proposalsHeading: 'Propuneri Legislative Recente',
+    pipelineHeading: 'Prezentare Generală a Pipeline-ului Legislativ',
+    procedureHeading: 'Starea Procedurii',
+    analysisHeading: 'Evaluarea Impactului',
+    analysis:
+      'Activitatea legislativă actuală reflectă prioritățile Parlamentului în finanțe durabile, guvernanță digitală și politică de mediu. Urmărirea acestor propuneri ajută cetățenii și părțile interesate să înțeleagă traiectoria legislativă a UE.',
+  },
+  sv: {
+    lede: 'Europaparlamentet bearbetar aktivt flera lagstiftningsförslag inom viktiga politikområden. Denna rapport spårar aktuella förslag, deras procedurstatus och det övergripande lagstiftningspipeline-läget.',
+    proposalsHeading: 'Senaste Lagstiftningsförslag',
+    pipelineHeading: 'Översikt av Lagstiftnings-Pipeline',
+    procedureHeading: 'Procedurstatus',
+    analysisHeading: 'Konsekvensbedömning',
+    analysis:
+      'Den nuvarande lagstiftningsverksamheten speglar parlamentets prioriteringar inom hållbar finansiering, digital styrning och miljöpolitik. Att spåra dessa förslag hjälper medborgare och intressenter att förstå EU:s lagstiftningsinriktning.',
+  },
+  da: {
+    lede: 'Europa-Parlamentet behandler aktivt adskillige lovgivningsforslag inden for vigtige politikområder. Denne rapport sporer aktuelle forslag, deres procedurestatus og den overordnede lovgivningspipeline-tilstand.',
+    proposalsHeading: 'Seneste Lovgivningsforslag',
+    pipelineHeading: 'Oversigt over Lovgivningspipeline',
+    procedureHeading: 'Procedurestatus',
+    analysisHeading: 'Konsekvensvurdering',
+    analysis:
+      'Den aktuelle lovgivningsaktivitet afspejler Parlamentets prioriteter inden for bæredygtig finansiering, digital forvaltning og miljøpolitik. Sporing af disse forslag hjælper borgere og interessenter med at forstå EU\'s lovgivningstrajektorie.',
+  },
+  fi: {
+    lede: 'Euroopan parlamentti käsittelee aktiivisesti useita lainsäädäntöehdotuksia keskeisillä politiikka-alueilla. Tämä raportti seuraa ajankohtaisia ehdotuksia, niiden menettelytilaa ja yleistä lainsäädäntöputken tilaa.',
+    proposalsHeading: 'Viimeisimmät Lainsäädäntöehdotukset',
+    pipelineHeading: 'Lainsäädäntöputken Yleiskatsaus',
+    procedureHeading: 'Menettelyn Tila',
+    analysisHeading: 'Vaikutustenarviointi',
+    analysis:
+      'Nykyinen lainsäädäntötoiminta heijastaa parlamentin prioriteetteja kestävässä rahoituksessa, digitaalisessa hallinnossa ja ympäristöpolitiikassa. Näiden ehdotusten seuraaminen auttaa kansalaisia ja sidosryhmiä ymmärtämään EU:n lainsäädäntösuuntaa.',
+  },
+  el: {
+    lede: 'Το Ευρωπαϊκό Κοινοβούλιο επεξεργάζεται ενεργά πολλαπλές νομοθετικές προτάσεις σε βασικούς τομείς πολιτικής. Αυτή η αναφορά παρακολουθεί τις τρέχουσες προτάσεις, την κατάσταση της διαδικασίας τους και τη συνολική κατάσταση του νομοθετικού αγωγού.',
+    proposalsHeading: 'Πρόσφατες Νομοθετικές Προτάσεις',
+    pipelineHeading: 'Επισκόπηση Νομοθετικού Αγωγού',
+    procedureHeading: 'Κατάσταση Διαδικασίας',
+    analysisHeading: 'Αξιολόγηση Αντίκτυπου',
+    analysis:
+      'Η τρέχουσα νομοθετική δραστηριότητα αντικατοπτρίζει τις προτεραιότητες του Κοινοβουλίου στη βιώσιμη χρηματοδότηση, την ψηφιακή διακυβέρνηση και την περιβαλλοντική πολιτική. Η παρακολούθηση αυτών των προτάσεων βοηθά τους πολίτες και τα ενδιαφερόμενα μέρη να κατανοήσουν τη νομοθετική πορεία της ΕΕ.',
+  },
+  hu: {
+    lede: 'Az Európai Parlament aktívan dolgoz fel több jogalkotási javaslatot a főbb szakpolitikai területeken. Ez a jelentés nyomon követi az aktuális javaslatokat, eljárási státuszukat és a jogalkotási csővezeték általános állapotát.',
+    proposalsHeading: 'Legfrissebb Jogalkotási Javaslatok',
+    pipelineHeading: 'Jogalkotási Csővezeték Áttekintése',
+    procedureHeading: 'Eljárás Állapota',
+    analysisHeading: 'Hatáselemzés',
+    analysis:
+      'A jelenlegi jogalkotási tevékenység tükrözi a Parlament prioritásait a fenntartható pénzügyek, a digitális irányítás és a környezetpolitika terén. E javaslatok nyomon követése segít az állampolgároknak és az érdekelt feleknek megérteni az EU jogalkotási irányát.',
+  },
 };
 
 /**
