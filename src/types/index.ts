@@ -252,6 +252,130 @@ export interface CommitteeData {
   members: number;
   documents: CommitteeDocument[];
   effectiveness: string | null;
+/** Options for getMEPs */
+export interface GetMEPsOptions {
+  country?: string;
+  group?: string;
+  committee?: string;
+  active?: boolean;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getPlenarySessions */
+export interface GetPlenarySessionsOptions {
+  /** Tool schema field name */
+  startDate?: string;
+  /** Tool schema field name */
+  endDate?: string;
+  /** Alternative field name used by generators */
+  dateFrom?: string;
+  /** Alternative field name used by generators */
+  dateTo?: string;
+  location?: string;
+  limit?: number;
+}
+
+/** Options for searchDocuments */
+export interface SearchDocumentsOptions {
+  query?: string;
+  keyword?: string;
+  type?: string;
+  committee?: string;
+  dateFrom?: string;
+  dateTo?: string;
+  limit?: number;
+}
+
+/** Options for getParliamentaryQuestions */
+export interface GetParliamentaryQuestionsOptions {
+  type?: string;
+  startDate?: string;
+  dateFrom?: string;
+  dateTo?: string;
+  limit?: number;
+}
+
+/** Options for getCommitteeInfo */
+export interface GetCommitteeInfoOptions {
+  committeeId?: string;
+  dateFrom?: string;
+  dateTo?: string;
+  limit?: number;
+}
+
+/** Options for monitorLegislativePipeline */
+export interface MonitorLegislativePipelineOptions {
+  committeeId?: string;
+  status?: string;
+  dateFrom?: string;
+  dateTo?: string;
+  limit?: number;
+}
+
+/** Options for assessMEPInfluence */
+export interface AssessMEPInfluenceOptions {
+  mepId: string;
+  dateFrom?: string;
+  dateTo?: string;
+}
+
+/** Options for analyzeCoalitionDynamics */
+export interface AnalyzeCoalitionDynamicsOptions {
+  politicalGroups?: string[];
+  dateFrom?: string;
+  dateTo?: string;
+}
+
+/** Options for detectVotingAnomalies */
+export interface DetectVotingAnomaliesOptions {
+  mepId?: string;
+  politicalGroup?: string;
+  dateFrom?: string;
+}
+
+/** Options for comparePoliticalGroups */
+export interface ComparePoliticalGroupsOptions {
+  groups: string[];
+  metrics?: string[];
+  dateFrom?: string;
+}
+
+/** Options for analyzeLegislativeEffectiveness */
+export interface AnalyzeLegislativeEffectivenessOptions {
+  subjectId: string;
+  subjectType?: string;
+  dateFrom?: string;
+}
+
+/** Voting record from MCP or fallback */
+export interface VotingRecord {
+  title: string;
+  date: string;
+  result: string;
+  votes: { for: number; against: number; abstain: number };
+}
+
+/** Voting pattern (party cohesion) from MCP or fallback */
+export interface VotingPattern {
+  group: string;
+  cohesion: number;
+  participation: number;
+}
+
+/** Voting anomaly from MCP or fallback */
+export interface VotingAnomaly {
+  type: string;
+  description: string;
+  severity: string;
+}
+
+/** Parliamentary question for motions article (simplified MCP/fallback shape) */
+export interface MotionsQuestion {
+  author: string;
+  topic: string;
+  date: string;
+  status: string;
 }
 
 /** Options for getting voting records */
