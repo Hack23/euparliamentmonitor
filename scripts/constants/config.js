@@ -30,6 +30,8 @@ export const VALID_ARTICLE_TYPES = [
 ];
 /** Week ahead article type constant */
 export const ARTICLE_TYPE_WEEK_AHEAD = 'week-ahead';
+/** Breaking news article type constant */
+export const ARTICLE_TYPE_BREAKING = 'breaking';
 /** CLI argument separator */
 export const ARG_SEPARATOR = '=';
 //# sourceMappingURL=config.js.map
