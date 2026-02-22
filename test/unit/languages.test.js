@@ -19,6 +19,7 @@ import {
   READ_TIME_LABELS,
   BACK_TO_NEWS_LABELS,
   WEEK_AHEAD_TITLES,
+  COMMITTEE_REPORTS_TITLES,
   getLocalizedString,
   isSupportedLanguage,
   getTextDirection,
@@ -120,6 +121,17 @@ describe('constants/languages', () => {
         expect(typeof generator).toBe('function');
         const result = generator('2025-01-01', '2025-01-07');
         expect(result.title).toBeDefined();
+        expect(result.subtitle).toBeDefined();
+      }
+    });
+
+    it('should have entries for all 14 languages in COMMITTEE_REPORTS_TITLES', () => {
+      for (const lang of ALL_LANGUAGES) {
+        const generator = COMMITTEE_REPORTS_TITLES[lang];
+        expect(generator).toBeDefined();
+        expect(typeof generator).toBe('function');
+        const result = generator('ENVI');
+        expect(result.title).toContain('ENVI');
         expect(result.subtitle).toBeDefined();
       }
     });

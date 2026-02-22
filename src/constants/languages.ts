@@ -271,6 +271,66 @@ export const WEEK_AHEAD_TITLES: LanguageMap<(start: string, end: string) => Lang
   }),
 };
 
+/** Committee reports title templates per language */
+export const COMMITTEE_REPORTS_TITLES: LanguageMap<(committee: string) => LangTitleSubtitle> = {
+  en: (committee) => ({
+    title: `Committee Report: ${committee}`,
+    subtitle: 'European Parliament committee activity, legislative output, and effectiveness metrics',
+  }),
+  de: (committee) => ({
+    title: `Ausschussbericht: ${committee}`,
+    subtitle: 'Aktivitäten, Gesetzgebungsproduktion und Effektivitätskennzahlen des Europäischen Parlamentsausschusses',
+  }),
+  fr: (committee) => ({
+    title: `Rapport de Commission: ${committee}`,
+    subtitle: "Activité de la commission du Parlement européen, production législative et indicateurs d'efficacité",
+  }),
+  es: (committee) => ({
+    title: `Informe de Comisión: ${committee}`,
+    subtitle: 'Actividad de la comisión del Parlamento Europeo, producción legislativa y métricas de efectividad',
+  }),
+  it: (committee) => ({
+    title: `Rapporto di Commissione: ${committee}`,
+    subtitle: 'Attività della commissione del Parlamento europeo, produzione legislativa e metriche di efficacia',
+  }),
+  nl: (committee) => ({
+    title: `Commissieverslag: ${committee}`,
+    subtitle: 'Activiteit, wetgevingsoutput en effectiviteitsmaatstaven van de commissie van het Europees Parlement',
+  }),
+  pl: (committee) => ({
+    title: `Sprawozdanie Komisji: ${committee}`,
+    subtitle: 'Aktywność komisji Parlamentu Europejskiego, produkcja legislacyjna i wskaźniki skuteczności',
+  }),
+  pt: (committee) => ({
+    title: `Relatório de Comissão: ${committee}`,
+    subtitle: 'Atividade da comissão do Parlamento Europeu, produção legislativa e métricas de eficácia',
+  }),
+  ro: (committee) => ({
+    title: `Raport de Comisie: ${committee}`,
+    subtitle: 'Activitatea comisiei Parlamentului European, producția legislativă și metrici de eficiență',
+  }),
+  sv: (committee) => ({
+    title: `Utskottsrapport: ${committee}`,
+    subtitle: 'Europaparlamentets utskottsaktivitet, lagstiftningsproduktion och effektivitetsmått',
+  }),
+  da: (committee) => ({
+    title: `Udvalgsrapport: ${committee}`,
+    subtitle: 'Europa-Parlamentets udvalgsaktivitet, lovgivningsmæssig produktion og effektivitetsmål',
+  }),
+  fi: (committee) => ({
+    title: `Valiokunnan Raportti: ${committee}`,
+    subtitle: 'Euroopan parlamentin valiokunnan toiminta, lainsäädäntötuotos ja tehokkuusmittarit',
+  }),
+  el: (committee) => ({
+    title: `Έκθεση Επιτροπής: ${committee}`,
+    subtitle: 'Δραστηριότητα επιτροπής Ευρωπαϊκού Κοινοβουλίου, νομοθετική παραγωγή και μετρήσεις αποτελεσματικότητας',
+  }),
+  hu: (committee) => ({
+    title: `Bizottsági Jelentés: ${committee}`,
+    subtitle: 'Az Európai Parlament bizottsági tevékenysége, jogalkotási teljesítmény és hatékonysági mutatók',
+  }),
+};
+
 /**
  * Get a language-specific string with English fallback
  *

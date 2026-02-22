@@ -298,9 +298,43 @@ export class EuropeanParliamentMCPClient {
       return { content: [{ type: 'text', text: '{"questions": []}' }] };
     }
   }
-}
+  /**
+   * Get committee information
+   *
+   * @param options - Filter options (abbreviation or id)
+   * @returns Committee data
+   */
+  async getCommitteeInfo(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('get_committee_info', options)) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_committee_info not available:', message);
+      return { content: [{ type: 'text', text: '{"committee": null}' }] };
+    }
+  }
 
-// Singleton instance management
+  /**
+   * Analyze legislative effectiveness for an MEP or committee
+   *
+   * @param options - Analysis options
+   * @returns Effectiveness analysis data
+   */
+  async analyzeLegislativeEffectiveness(
+    options: Record<string, unknown> = {}
+  ): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool(
+        'analyze_legislative_effectiveness',
+        options
+      )) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('analyze_legislative_effectiveness not available:', message);
+      return { content: [{ type: 'text', text: '{"effectiveness": null}' }] };
+    }
+  }
+}
 let clientInstance: EuropeanParliamentMCPClient | null = null;
 
 /**

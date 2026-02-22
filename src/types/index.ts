@@ -180,6 +180,23 @@ export interface ArticleTypeLabels {
   breaking: string;
 }
 
+/** Committee document entry */
+export interface CommitteeDocument {
+  title: string;
+  type: string;
+  date: string;
+}
+
+/** Committee report data */
+export interface CommitteeData {
+  name: string;
+  abbreviation: string;
+  chair: string;
+  members: number;
+  documents: CommitteeDocument[];
+  effectiveness: string | null;
+}
+
 /** Language-specific title and subtitle */
 export interface LangTitleSubtitle {
   title: string;
