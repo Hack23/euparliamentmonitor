@@ -11,6 +11,7 @@ import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
 import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, ARTICLE_TYPE_BREAKING, ARG_SEPARATOR, } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, MOTIONS_TITLES, BREAKING_NEWS_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, BREAKING_NEWS_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
 import { generateArticleHTML } from '../templates/article-template.js';
 import { getEPMCPClient, closeEPMCPClient } from '../mcp/ep-mcp-client.js';
 import { formatDateForSlug, calculateReadTime, ensureDirectoryExists, escapeHTML, } from '../utils/file-utils.js';
@@ -501,6 +502,7 @@ function buildWeekAheadContent(weekData, dateRange) {
  */
 function buildKeywords(weekData) {
     const keywords = [EP_KEYWORD, 'week ahead', 'plenary', 'committees'];
+    const keywords = ['European Parliament', 'week ahead', 'plenary', 'committees'];
     for (const c of weekData.committees) {
         if (c.committee && !keywords.includes(c.committee)) {
             keywords.push(c.committee);
