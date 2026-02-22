@@ -185,3 +185,45 @@ export interface LangTitleSubtitle {
   title: string;
   subtitle: string;
 }
+
+/** Options for assessMEPInfluence */
+export interface AssessMEPInfluenceOptions {
+  mepId: string;
+  dateFrom?: string;
+  dateTo?: string;
+}
+
+/** Options for analyzeCoalitionDynamics */
+export interface AnalyzeCoalitionDynamicsOptions {
+  politicalGroups?: string[];
+  dateFrom?: string;
+  dateTo?: string;
+}
+
+/** Options for detectVotingAnomalies */
+export interface DetectVotingAnomaliesOptions {
+  mepId?: string;
+  politicalGroup?: string;
+  dateFrom?: string;
+}
+
+/** Options for comparePoliticalGroups */
+export interface ComparePoliticalGroupsOptions {
+  groups: string[];
+  metrics?: string[];
+  dateFrom?: string;
+}
+
+/** Options for analyzeLegislativeEffectiveness */
+export interface AnalyzeLegislativeEffectivenessOptions {
+  subjectId: string;
+  subjectType?: string;
+  dateFrom?: string;
+}
+
+/** Options for monitorLegislativePipeline */
+export interface MonitorLegislativePipelineOptions {
+  committeeId?: string;
+  status?: string;
+  dateFrom?: string;
+}

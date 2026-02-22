@@ -345,6 +345,139 @@ describe('ep-mcp-client', () => {
       });
     });
 
+    describe('OSINT Intelligence Methods', () => {
+      beforeEach(() => {
+        client.connected = true;
+        client.callTool = vi.fn();
+      });
+
+      it('should assess MEP influence', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"influence": {"score": 85}}' }],
+        });
+
+        const options = { mepId: 'MEP-123', dateFrom: '2024-01-01', dateTo: '2024-12-31' };
+        await client.assessMEPInfluence(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('assess_mep_influence', options);
+      });
+
+      it('should handle missing assess MEP influence tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.assessMEPInfluence({ mepId: 'MEP-123' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"influence": {}}' }],
+        });
+      });
+
+      it('should analyze coalition dynamics', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"coalitions": []}' }],
+        });
+
+        const options = { politicalGroups: ['EPP', 'S&D'], dateFrom: '2024-01-01' };
+        await client.analyzeCoalitionDynamics(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('analyze_coalition_dynamics', options);
+      });
+
+      it('should handle missing analyze coalition dynamics tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.analyzeCoalitionDynamics();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"coalitions": []}' }],
+        });
+      });
+
+      it('should detect voting anomalies', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"anomalies": []}' }],
+        });
+
+        const options = { mepId: 'MEP-123', politicalGroup: 'EPP', dateFrom: '2024-01-01' };
+        await client.detectVotingAnomalies(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('detect_voting_anomalies', options);
+      });
+
+      it('should handle missing detect voting anomalies tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.detectVotingAnomalies();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"anomalies": []}' }],
+        });
+      });
+
+      it('should compare political groups', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"comparison": {}}' }],
+        });
+
+        const options = { groups: ['EPP', 'S&D'], metrics: ['attendance'], dateFrom: '2024-01-01' };
+        await client.comparePoliticalGroups(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('compare_political_groups', options);
+      });
+
+      it('should handle missing compare political groups tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.comparePoliticalGroups({ groups: ['EPP', 'S&D'] });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"comparison": {}}' }],
+        });
+      });
+
+      it('should analyze legislative effectiveness', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"effectiveness": {"score": 72}}' }],
+        });
+
+        const options = { subjectId: 'MEP-123', subjectType: 'MEP', dateFrom: '2024-01-01' };
+        await client.analyzeLegislativeEffectiveness(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('analyze_legislative_effectiveness', options);
+      });
+
+      it('should handle missing analyze legislative effectiveness tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.analyzeLegislativeEffectiveness({ subjectId: 'MEP-123' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"effectiveness": {}}' }],
+        });
+      });
+
+      it('should monitor legislative pipeline', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"pipeline": []}' }],
+        });
+
+        const options = { committeeId: 'ENVI', status: 'ACTIVE', dateFrom: '2024-01-01' };
+        await client.monitorLegislativePipeline(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('monitor_legislative_pipeline', options);
+      });
+
+      it('should handle missing monitor legislative pipeline tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.monitorLegislativePipeline();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"pipeline": []}' }],
+        });
+      });
+    });
+
     describe('Retry Logic', () => {
       it('should have retry configuration', async () => {
         const failingClient = new EuropeanParliamentMCPClient({

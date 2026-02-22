@@ -14,6 +14,12 @@ import type {
   JSONRPCRequest,
   JSONRPCResponse,
   PendingRequest,
+  AssessMEPInfluenceOptions,
+  AnalyzeCoalitionDynamicsOptions,
+  DetectVotingAnomaliesOptions,
+  ComparePoliticalGroupsOptions,
+  AnalyzeLegislativeEffectivenessOptions,
+  MonitorLegislativePipelineOptions,
 } from '../types/index.js';
 
 /** Request timeout in milliseconds */
@@ -296,6 +302,102 @@ export class EuropeanParliamentMCPClient {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_parliamentary_questions not available:', message);
       return { content: [{ type: 'text', text: '{"questions": []}' }] };
+    }
+  }
+
+  /**
+   * Assess MEP influence using 5-dimension scoring model
+   *
+   * @param options - Options including required mepId and optional date range
+   * @returns MEP influence score and breakdown
+   */
+  async assessMEPInfluence(options: AssessMEPInfluenceOptions): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('assess_mep_influence', options as unknown as Record<string, unknown>)) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('assess_mep_influence not available:', message);
+      return { content: [{ type: 'text', text: '{"influence": {}}' }] };
+    }
+  }
+
+  /**
+   * Analyze coalition dynamics and cohesion
+   *
+   * @param options - Options including optional political groups and date range
+   * @returns Coalition cohesion and stress analysis
+   */
+  async analyzeCoalitionDynamics(options: AnalyzeCoalitionDynamicsOptions = {}): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('analyze_coalition_dynamics', options as Record<string, unknown>)) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('analyze_coalition_dynamics not available:', message);
+      return { content: [{ type: 'text', text: '{"coalitions": []}' }] };
+    }
+  }
+
+  /**
+   * Detect voting anomalies and party defections
+   *
+   * @param options - Options including optional MEP id, political group, and date
+   * @returns Anomaly detection results
+   */
+  async detectVotingAnomalies(options: DetectVotingAnomaliesOptions = {}): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('detect_voting_anomalies', options as Record<string, unknown>)) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('detect_voting_anomalies not available:', message);
+      return { content: [{ type: 'text', text: '{"anomalies": []}' }] };
+    }
+  }
+
+  /**
+   * Compare political groups across dimensions
+   *
+   * @param options - Options including required groups and optional metrics and date
+   * @returns Cross-group comparative analysis
+   */
+  async comparePoliticalGroups(options: ComparePoliticalGroupsOptions): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('compare_political_groups', options as unknown as Record<string, unknown>)) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('compare_political_groups not available:', message);
+      return { content: [{ type: 'text', text: '{"comparison": {}}' }] };
+    }
+  }
+
+  /**
+   * Analyze legislative effectiveness of an MEP or committee
+   *
+   * @param options - Options including required subjectId and optional subjectType and date
+   * @returns Legislative effectiveness scoring
+   */
+  async analyzeLegislativeEffectiveness(options: AnalyzeLegislativeEffectivenessOptions): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('analyze_legislative_effectiveness', options as unknown as Record<string, unknown>)) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('analyze_legislative_effectiveness not available:', message);
+      return { content: [{ type: 'text', text: '{"effectiveness": {}}' }] };
+    }
+  }
+
+  /**
+   * Monitor legislative pipeline status and detect bottlenecks
+   *
+   * @param options - Options including optional committee id, status filter, and date
+   * @returns Pipeline status and bottleneck detection results
+   */
+  async monitorLegislativePipeline(options: MonitorLegislativePipelineOptions = {}): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('monitor_legislative_pipeline', options as Record<string, unknown>)) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('monitor_legislative_pipeline not available:', message);
+      return { content: [{ type: 'text', text: '{"pipeline": []}' }] };
     }
   }
 }
