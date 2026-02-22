@@ -53,7 +53,6 @@ import type {
   GenerationResult,
   CommitteeData,
   MCPToolResult,
-  MCPToolResult,
   VotingRecord,
   VotingPattern,
   VotingAnomaly,
@@ -109,9 +108,6 @@ console.log('Dry run:', dryRunArg ? 'Yes (no files written)' : 'No');
 
 // Ensure directories exist
 ensureDirectoryExists(METADATA_DIR);
-
-/** Common keyword for all EP article types */
-const EP_KEYWORD = 'European Parliament';
 
 // Generation statistics
 const stats: GenerationStats = {
@@ -596,7 +592,6 @@ function buildWeekAheadContent(weekData: WeekAheadData, dateRange: DateRange): s
  */
 function buildKeywords(weekData: WeekAheadData): string[] {
   const keywords = [KEYWORD_EUROPEAN_PARLIAMENT, 'week ahead', 'plenary', 'committees'];
-  const keywords = [EP_KEYWORD, 'week ahead', 'plenary', 'committees'];
   for (const c of weekData.committees) {
     if (c.committee && !keywords.includes(c.committee)) {
       keywords.push(c.committee);
@@ -1613,7 +1608,7 @@ async function generateMotions(): Promise<GenerationResult> {
         lang,
         content,
         keywords: [
-          EP_KEYWORD,
+          KEYWORD_EUROPEAN_PARLIAMENT,
           'motions',
           'voting records',
           'party cohesion',
@@ -1668,6 +1663,7 @@ async function main(): Promise<void> {
           break;
         case ARTICLE_TYPE_COMMITTEE_REPORTS:
           results.push(await generateCommitteeReports());
+          break;
         case 'motions':
           results.push(await generateMotions());
           break;

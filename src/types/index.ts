@@ -252,6 +252,7 @@ export interface CommitteeData {
   members: number;
   documents: CommitteeDocument[];
   effectiveness: string | null;
+}
 /** Options for getMEPs */
 export interface GetMEPsOptions {
   country?: string;

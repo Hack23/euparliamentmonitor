@@ -26,7 +26,6 @@ import type {
   AnalyzeCoalitionDynamicsOptions,
   DetectVotingAnomaliesOptions,
   ComparePoliticalGroupsOptions,
-  AnalyzeLegislativeEffectivenessOptions,
   VotingRecordsOptions,
   VotingPatternsOptions,
   GenerateReportOptions,
@@ -422,6 +421,22 @@ export class EuropeanParliamentMCPClient {
         'analyze_legislative_effectiveness called without valid subjectId (non-empty string required)'
       );
       return { content: [{ type: 'text', text: EFFECTIVENESS_FALLBACK }] };
+    }
+    const trimmedSubjectId = subjectId.trim();
+    try {
+      return await this.callTool('analyze_legislative_effectiveness', {
+        ...options,
+        subjectType,
+        subjectId: trimmedSubjectId,
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('analyze_legislative_effectiveness not available:', message);
+      return { content: [{ type: 'text', text: EFFECTIVENESS_FALLBACK }] };
+    }
+  }
+
+  /**
    * Assess MEP influence using 5-dimension scoring model
    *
    * @param options - Options including required mepId and optional date range
@@ -499,38 +514,6 @@ export class EuropeanParliamentMCPClient {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('compare_political_groups not available:', message);
       return { content: [{ type: 'text', text: '{"comparison": {}}' }] };
-    }
-  }
-
-  /**
-   * Analyze legislative effectiveness of an MEP or committee
-   *
-   * @param options - Options including required subjectId and optional subjectType and date
-   * @returns Legislative effectiveness scoring
-   */
-  async analyzeLegislativeEffectiveness(
-    options: AnalyzeLegislativeEffectivenessOptions
-  ): Promise<MCPToolResult> {
-    const trimmedSubjectId =
-      options && typeof options.subjectId === 'string' ? options.subjectId.trim() : '';
-    if (trimmedSubjectId.length === 0) {
-      console.warn(
-        'analyze_legislative_effectiveness called without valid subjectId (non-empty string required)'
-      );
-      return { content: [{ type: 'text', text: '{"effectiveness": {}}' }] };
-    }
-    try {
-      return await this.callTool('analyze_legislative_effectiveness', {
-        ...options,
-        subjectType,
-        subjectId: subjectId.trim(),
-        subjectId: trimmedSubjectId,
-      });
-    } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
-      console.warn('analyze_legislative_effectiveness not available:', message);
-      return { content: [{ type: 'text', text: EFFECTIVENESS_FALLBACK }] };
-      return { content: [{ type: 'text', text: '{"effectiveness": {}}' }] };
     }
   }
 
