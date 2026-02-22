@@ -133,36 +133,90 @@ export const NO_ARTICLES_MESSAGES: LanguageMap = {
 
 /** Article type labels per language */
 export const ARTICLE_TYPE_LABELS: LanguageMap<ArticleTypeLabels> = {
-  en: { prospective: 'Week Ahead', retrospective: 'Analysis', breaking: 'Breaking News' },
-  de: { prospective: 'Woche Voraus', retrospective: 'Analyse', breaking: 'Eilmeldung' },
-  fr: { prospective: 'Semaine à Venir', retrospective: 'Analyse', breaking: 'Dernières Nouvelles' },
+  en: {
+    prospective: 'Week Ahead',
+    retrospective: 'Analysis',
+    breaking: 'Breaking News',
+    propositions: 'Legislative Proposals',
+  },
+  de: {
+    prospective: 'Woche Voraus',
+    retrospective: 'Analyse',
+    breaking: 'Eilmeldung',
+    propositions: 'Gesetzgebungsvorschläge',
+  },
+  fr: {
+    prospective: 'Semaine à Venir',
+    retrospective: 'Analyse',
+    breaking: 'Dernières Nouvelles',
+    propositions: 'Propositions Législatives',
+  },
   es: {
     prospective: 'Semana Próxima',
     retrospective: 'Análisis',
     breaking: 'Noticias de Última Hora',
+    propositions: 'Propuestas Legislativas',
   },
-  it: { prospective: 'Settimana Prossima', retrospective: 'Analisi', breaking: 'Ultime Notizie' },
-  nl: { prospective: 'Week Vooruit', retrospective: 'Analyse', breaking: 'Laatste Nieuws' },
+  it: {
+    prospective: 'Settimana Prossima',
+    retrospective: 'Analisi',
+    breaking: 'Ultime Notizie',
+    propositions: 'Proposte Legislative',
+  },
+  nl: {
+    prospective: 'Week Vooruit',
+    retrospective: 'Analyse',
+    breaking: 'Laatste Nieuws',
+    propositions: 'Wetgevingsvoorstellen',
+  },
   pl: {
     prospective: 'Nadchodzący Tydzień',
     retrospective: 'Analiza',
     breaking: 'Najnowsze Wiadomości',
+    propositions: 'Wnioski Ustawodawcze',
   },
   pt: {
     prospective: 'Semana Próxima',
     retrospective: 'Análise',
     breaking: 'Notícias de Última Hora',
+    propositions: 'Propostas Legislativas',
   },
   ro: {
     prospective: 'Săptămâna Viitoare',
     retrospective: 'Analiză',
     breaking: 'Știri de Ultimă Oră',
+    propositions: 'Propuneri Legislative',
   },
-  sv: { prospective: 'Vecka Framåt', retrospective: 'Analys', breaking: 'Senaste Nytt' },
-  da: { prospective: 'Ugen Fremover', retrospective: 'Analyse', breaking: 'Seneste Nyt' },
-  fi: { prospective: 'Tuleva Viikko', retrospective: 'Analyysi', breaking: 'Uusimmat Uutiset' },
-  el: { prospective: 'Επόμενη Εβδομάδα', retrospective: 'Ανάλυση', breaking: 'Τελευταία Νέα' },
-  hu: { prospective: 'Következő Hét', retrospective: 'Elemzés', breaking: 'Legfrissebb Hírek' },
+  sv: {
+    prospective: 'Vecka Framåt',
+    retrospective: 'Analys',
+    breaking: 'Senaste Nytt',
+    propositions: 'Lagstiftningsförslag',
+  },
+  da: {
+    prospective: 'Ugen Fremover',
+    retrospective: 'Analyse',
+    breaking: 'Seneste Nyt',
+    propositions: 'Lovgivningsmæssige Forslag',
+  },
+  fi: {
+    prospective: 'Tuleva Viikko',
+    retrospective: 'Analyysi',
+    breaking: 'Uusimmat Uutiset',
+    propositions: 'Lainsäädäntöehdotukset',
+  },
+  el: {
+    prospective: 'Επόμενη Εβδομάδα',
+    retrospective: 'Ανάλυση',
+    breaking: 'Τελευταία Νέα',
+    propositions: 'Νομοθετικές Προτάσεις',
+  },
+  hu: {
+    prospective: 'Következő Hét',
+    retrospective: 'Elemzés',
+    breaking: 'Legfrissebb Hírek',
+    propositions: 'Jogalkotási Javaslatok',
+  },
 };
 
 /** Read time label formatters per language */

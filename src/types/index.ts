@@ -229,6 +229,7 @@ export interface ArticleTypeLabels {
   prospective: string;
   retrospective: string;
   breaking: string;
+  propositions: string;
 }
 
 /** Language-specific title and subtitle */

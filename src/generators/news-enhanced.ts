@@ -1002,9 +1002,18 @@ async function fetchProcedureStatusFromMCP(procedureId: string): Promise<string>
 /**
  * Build propositions article HTML content with localized strings.
  *
- * @param proposalsHtml - HTML for proposals list section
- * @param pipelineData - Structured pipeline data from MCP (null when unavailable)
- * @param procedureHtml - HTML for tracked procedure status section (may be empty)
+ * **Security contract**: `proposalsHtml`, `procedureHtml`, and
+ * `pipelineData.procRowsHtml` MUST be pre-sanitized HTML — all external
+ * (MCP-sourced) values must have been passed through `escapeHTML()` before
+ * being interpolated into these strings.  The fetch helpers
+ * (`fetchProposalsFromMCP`, `fetchPipelineFromMCP`,
+ * `fetchProcedureStatusFromMCP`) fulfil this contract; callers must do the
+ * same if they construct these arguments independently.
+ *
+ * @param proposalsHtml - Pre-sanitized HTML for proposals list section
+ * @param pipelineData - Structured pipeline data from MCP (null when unavailable);
+ *   `pipelineData.procRowsHtml` must be pre-sanitized HTML
+ * @param procedureHtml - Pre-sanitized HTML for tracked procedure status section (may be empty)
  * @param strings - Localized string set for the target language
  * @returns Full article HTML content string
  */

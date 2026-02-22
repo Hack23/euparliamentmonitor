@@ -98,6 +98,7 @@ describe('constants/languages', () => {
         expect(labels.prospective).toBeDefined();
         expect(labels.retrospective).toBeDefined();
         expect(labels.breaking).toBeDefined();
+        expect(labels.propositions).toBeDefined();
       }
     });
 
