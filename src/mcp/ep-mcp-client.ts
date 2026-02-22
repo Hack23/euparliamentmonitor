@@ -39,6 +39,9 @@ const REQUEST_TIMEOUT_MS = 30000;
 /** Connection startup delay in milliseconds */
 const CONNECTION_STARTUP_DELAY_MS = 500;
 
+/** Fallback payload for analyze_legislative_effectiveness when validation fails or tool is unavailable */
+const EFFECTIVENESS_FALLBACK = '{"effectiveness": null}';
+
 /**
  * MCP Client for European Parliament data access
  */
@@ -374,12 +377,30 @@ export class EuropeanParliamentMCPClient {
    * @returns Legislative effectiveness data
    */
   async analyzeLegislativeEffectiveness(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
+    const subjectType = options.subjectType;
+    const subjectId = options.subjectId;
+    if (subjectType !== 'MEP' && subjectType !== 'COMMITTEE') {
+      console.warn(
+        'analyze_legislative_effectiveness called without valid subjectType (must be "MEP" or "COMMITTEE")'
+      );
+      return { content: [{ type: 'text', text: EFFECTIVENESS_FALLBACK }] };
+    }
+    if (typeof subjectId !== 'string' || subjectId.trim().length === 0) {
+      console.warn(
+        'analyze_legislative_effectiveness called without valid subjectId (non-empty string required)'
+      );
+      return { content: [{ type: 'text', text: EFFECTIVENESS_FALLBACK }] };
+    }
     try {
-      return await this.callTool('analyze_legislative_effectiveness', options);
+      return await this.callTool('analyze_legislative_effectiveness', {
+        ...options,
+        subjectType,
+        subjectId: subjectId.trim(),
+      });
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('analyze_legislative_effectiveness not available:', message);
-      return { content: [{ type: 'text', text: '{"effectiveness": null}' }] };
+      return { content: [{ type: 'text', text: EFFECTIVENESS_FALLBACK }] };
     }
   }
 
