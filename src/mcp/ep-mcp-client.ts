@@ -292,7 +292,7 @@ export class EuropeanParliamentMCPClient {
    */
   async getMEPs(options: GetMEPsOptions = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('get_meps', options)) as MCPToolResult;
+      return await this.callTool('get_meps', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_meps not available:', message);
@@ -332,7 +332,7 @@ export class EuropeanParliamentMCPClient {
           normalizedOptions['query'] = trimmed;
         }
       }
-      return (await this.callTool('search_documents', normalizedOptions)) as MCPToolResult;
+      return await this.callTool('search_documents', normalizedOptions);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('search_documents not available:', message);
@@ -343,7 +343,9 @@ export class EuropeanParliamentMCPClient {
   /**
    * Get parliamentary questions
    *
-   * @param options - Filter options (maps `dateFrom` to `startDate` per tool schema)
+   * @param options - Filter options. `dateFrom` is mapped to `startDate` per the tool schema.
+   *   `dateTo` is intentionally ignored because the `get_parliamentary_questions` tool schema
+   *   only supports `startDate` as a date filter; passing `dateTo` would have no effect.
    * @returns Parliamentary questions data
    */
   async getParliamentaryQuestions(
@@ -355,7 +357,7 @@ export class EuropeanParliamentMCPClient {
       if (toolOptions['startDate'] === undefined && dateFrom !== undefined) {
         toolOptions['startDate'] = dateFrom;
       }
-      return (await this.callTool('get_parliamentary_questions', toolOptions)) as MCPToolResult;
+      return await this.callTool('get_parliamentary_questions', toolOptions);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_parliamentary_questions not available:', message);
@@ -404,8 +406,13 @@ export class EuropeanParliamentMCPClient {
    * @returns MEP influence score and breakdown
    */
   async assessMEPInfluence(options: AssessMEPInfluenceOptions): Promise<MCPToolResult> {
+    const trimmedMepId = options && typeof options.mepId === 'string' ? options.mepId.trim() : '';
+    if (trimmedMepId.length === 0) {
+      console.warn('assess_mep_influence called without valid mepId (non-empty string required)');
+      return { content: [{ type: 'text', text: '{"influence": {}}' }] };
+    }
     try {
-      return (await this.callTool('assess_mep_influence', options)) as MCPToolResult;
+      return await this.callTool('assess_mep_influence', { ...options, mepId: trimmedMepId });
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('assess_mep_influence not available:', message);
@@ -423,7 +430,7 @@ export class EuropeanParliamentMCPClient {
     options: AnalyzeCoalitionDynamicsOptions = {}
   ): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('analyze_coalition_dynamics', options)) as MCPToolResult;
+      return await this.callTool('analyze_coalition_dynamics', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('analyze_coalition_dynamics not available:', message);
@@ -439,7 +446,7 @@ export class EuropeanParliamentMCPClient {
    */
   async detectVotingAnomalies(options: DetectVotingAnomaliesOptions = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('detect_voting_anomalies', options)) as MCPToolResult;
+      return await this.callTool('detect_voting_anomalies', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('detect_voting_anomalies not available:', message);
@@ -454,8 +461,18 @@ export class EuropeanParliamentMCPClient {
    * @returns Cross-group comparative analysis
    */
   async comparePoliticalGroups(options: ComparePoliticalGroupsOptions): Promise<MCPToolResult> {
+    const rawGroups = options && Array.isArray(options.groups) ? options.groups : [];
+    const groups = rawGroups
+      .map((g) => (typeof g === 'string' ? g.trim() : ''))
+      .filter((g) => g.length > 0);
+    if (groups.length === 0) {
+      console.warn(
+        'compare_political_groups called without valid groups (non-empty string array required)'
+      );
+      return { content: [{ type: 'text', text: '{"comparison": {}}' }] };
+    }
     try {
-      return (await this.callTool('compare_political_groups', options)) as MCPToolResult;
+      return await this.callTool('compare_political_groups', { ...options, groups });
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('compare_political_groups not available:', message);
@@ -472,8 +489,19 @@ export class EuropeanParliamentMCPClient {
   async analyzeLegislativeEffectiveness(
     options: AnalyzeLegislativeEffectivenessOptions
   ): Promise<MCPToolResult> {
+    const trimmedSubjectId =
+      options && typeof options.subjectId === 'string' ? options.subjectId.trim() : '';
+    if (trimmedSubjectId.length === 0) {
+      console.warn(
+        'analyze_legislative_effectiveness called without valid subjectId (non-empty string required)'
+      );
+      return { content: [{ type: 'text', text: '{"effectiveness": {}}' }] };
+    }
     try {
-      return (await this.callTool('analyze_legislative_effectiveness', options)) as MCPToolResult;
+      return await this.callTool('analyze_legislative_effectiveness', {
+        ...options,
+        subjectId: trimmedSubjectId,
+      });
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('analyze_legislative_effectiveness not available:', message);

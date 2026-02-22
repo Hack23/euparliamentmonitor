@@ -678,6 +678,15 @@ describe('ep-mcp-client', () => {
         });
       });
 
+      it('should return fallback for assessMEPInfluence with blank mepId', async () => {
+        const result = await client.assessMEPInfluence({ mepId: '   ' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"influence": {}}' }],
+        });
+      });
+
       it('should analyze coalition dynamics', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"coalitions": []}' }],
@@ -741,6 +750,15 @@ describe('ep-mcp-client', () => {
         });
       });
 
+      it('should return fallback for comparePoliticalGroups with empty groups', async () => {
+        const result = await client.comparePoliticalGroups({ groups: [] });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"comparison": {}}' }],
+        });
+      });
+
       it('should analyze legislative effectiveness', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"effectiveness": {"score": 72}}' }],
@@ -757,6 +775,15 @@ describe('ep-mcp-client', () => {
 
         const result = await client.analyzeLegislativeEffectiveness({ subjectId: 'MEP-123' });
 
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"effectiveness": {}}' }],
+        });
+      });
+
+      it('should return fallback for analyzeLegislativeEffectiveness with blank subjectId', async () => {
+        const result = await client.analyzeLegislativeEffectiveness({ subjectId: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
         expect(result).toEqual({
           content: [{ type: 'text', text: '{"effectiveness": {}}' }],
         });

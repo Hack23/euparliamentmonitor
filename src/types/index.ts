@@ -331,6 +331,8 @@ export interface AnalyzeLegislativeEffectivenessOptions {
   subjectId: string;
   subjectType?: string;
   dateFrom?: string;
+}
+
 /** Voting record from MCP or fallback */
 export interface VotingRecord {
   title: string;

@@ -229,7 +229,7 @@ export class EuropeanParliamentMCPClient {
      */
     async getMEPs(options = {}) {
         try {
-            return (await this.callTool('get_meps', options));
+            return await this.callTool('get_meps', options);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -269,7 +269,7 @@ export class EuropeanParliamentMCPClient {
                     normalizedOptions['query'] = trimmed;
                 }
             }
-            return (await this.callTool('search_documents', normalizedOptions));
+            return await this.callTool('search_documents', normalizedOptions);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -280,7 +280,9 @@ export class EuropeanParliamentMCPClient {
     /**
      * Get parliamentary questions
      *
-     * @param options - Filter options (maps `dateFrom` to `startDate` per tool schema)
+     * @param options - Filter options. `dateFrom` is mapped to `startDate` per the tool schema.
+     *   `dateTo` is intentionally ignored because the `get_parliamentary_questions` tool schema
+     *   only supports `startDate` as a date filter; passing `dateTo` would have no effect.
      * @returns Parliamentary questions data
      */
     async getParliamentaryQuestions(options = {}) {
@@ -290,7 +292,7 @@ export class EuropeanParliamentMCPClient {
             if (toolOptions['startDate'] === undefined && dateFrom !== undefined) {
                 toolOptions['startDate'] = dateFrom;
             }
-            return (await this.callTool('get_parliamentary_questions', toolOptions));
+            return await this.callTool('get_parliamentary_questions', toolOptions);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -337,8 +339,13 @@ export class EuropeanParliamentMCPClient {
      * @returns MEP influence score and breakdown
      */
     async assessMEPInfluence(options) {
+        const trimmedMepId = options && typeof options.mepId === 'string' ? options.mepId.trim() : '';
+        if (trimmedMepId.length === 0) {
+            console.warn('assess_mep_influence called without valid mepId (non-empty string required)');
+            return { content: [{ type: 'text', text: '{"influence": {}}' }] };
+        }
         try {
-            return (await this.callTool('assess_mep_influence', options));
+            return await this.callTool('assess_mep_influence', { ...options, mepId: trimmedMepId });
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -354,7 +361,7 @@ export class EuropeanParliamentMCPClient {
      */
     async analyzeCoalitionDynamics(options = {}) {
         try {
-            return (await this.callTool('analyze_coalition_dynamics', options));
+            return await this.callTool('analyze_coalition_dynamics', options);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -370,7 +377,7 @@ export class EuropeanParliamentMCPClient {
      */
     async detectVotingAnomalies(options = {}) {
         try {
-            return (await this.callTool('detect_voting_anomalies', options));
+            return await this.callTool('detect_voting_anomalies', options);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -385,8 +392,16 @@ export class EuropeanParliamentMCPClient {
      * @returns Cross-group comparative analysis
      */
     async comparePoliticalGroups(options) {
+        const rawGroups = options && Array.isArray(options.groups) ? options.groups : [];
+        const groups = rawGroups
+            .map((g) => (typeof g === 'string' ? g.trim() : ''))
+            .filter((g) => g.length > 0);
+        if (groups.length === 0) {
+            console.warn('compare_political_groups called without valid groups (non-empty string array required)');
+            return { content: [{ type: 'text', text: '{"comparison": {}}' }] };
+        }
         try {
-            return (await this.callTool('compare_political_groups', options));
+            return await this.callTool('compare_political_groups', { ...options, groups });
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -401,252 +416,21 @@ export class EuropeanParliamentMCPClient {
      * @returns Legislative effectiveness scoring
      */
     async analyzeLegislativeEffectiveness(options) {
+        const trimmedSubjectId = options && typeof options.subjectId === 'string' ? options.subjectId.trim() : '';
+        if (trimmedSubjectId.length === 0) {
+            console.warn('analyze_legislative_effectiveness called without valid subjectId (non-empty string required)');
+            return { content: [{ type: 'text', text: '{"effectiveness": {}}' }] };
+        }
         try {
-            return (await this.callTool('analyze_legislative_effectiveness', options));
+            return await this.callTool('analyze_legislative_effectiveness', {
+                ...options,
+                subjectId: trimmedSubjectId,
+            });
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
             console.warn('analyze_legislative_effectiveness not available:', message);
             return { content: [{ type: 'text', text: '{"effectiveness": {}}' }] };
-        }
-    }
-    /**
-     * Attempt a single connection
-     */
-    async _attemptConnection() {
-        try {
-            const isJavaScriptFile = this.serverPath.toLowerCase().endsWith('.js');
-            const command = isJavaScriptFile ? process.execPath : this.serverPath;
-            const args = isJavaScriptFile ? [this.serverPath] : [];
-            this.process = spawn(command, args, {
-                stdio: ['pipe', 'pipe', 'pipe'],
-            });
-            let buffer = '';
-            let startupError = null;
-            this.process.stdout?.on('data', (data) => {
-                buffer += data.toString();
-                const lines = buffer.split('\n');
-                buffer = lines.pop() ?? '';
-                for (const line of lines) {
-                    if (line.trim()) {
-                        this.handleMessage(line);
-                    }
-                }
-            });
-            this.process.stderr?.on('data', (data) => {
-                const message = data.toString().trim();
-                if (message) {
-                    console.error(`MCP Server: ${message}`);
-                }
-            });
-            this.process.on('close', (code) => {
-                console.log(`MCP Server exited with code ${code}`);
-                this.connected = false;
-                for (const [id, { reject }] of this.pendingRequests.entries()) {
-                    reject(new Error('MCP server connection closed'));
-                    this.pendingRequests.delete(id);
-                }
-            });
-            this.process.on('error', (err) => {
-                startupError = err;
-                this.connected = false;
-            });
-            await new Promise((resolve) => setTimeout(resolve, CONNECTION_STARTUP_DELAY_MS));
-            if (startupError) {
-                throw startupError;
-            }
-            this.connected = true;
-            console.log('✅ Connected to European Parliament MCP Server');
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.error('❌ Failed to spawn MCP server:', message);
-            throw error;
-        }
-    }
-    /**
-     * Disconnect from the MCP server
-     */
-    disconnect() {
-        if (this.process) {
-            this.process.kill();
-            this.process = null;
-        }
-        this.connected = false;
-    }
-    /**
-     * Handle incoming messages from MCP server
-     *
-     * @param line - JSON message line from server
-     */
-    handleMessage(line) {
-        try {
-            const message = JSON.parse(line);
-            if (message.id && this.pendingRequests.has(message.id)) {
-                const pending = this.pendingRequests.get(message.id);
-                this.pendingRequests.delete(message.id);
-                if (message.error) {
-                    pending.reject(new Error(message.error.message ?? 'MCP server error'));
-                }
-                else {
-                    pending.resolve(message.result);
-                }
-            }
-            else if (!message.id && message.method) {
-                console.log(`MCP Notification: ${message.method}`);
-            }
-        }
-        catch (error) {
-            const errorMessage = error instanceof Error ? error.message : String(error);
-            console.error('Error parsing MCP message:', errorMessage);
-            console.error('Problematic line:', line);
-        }
-    }
-    /**
-     * Send a request to the MCP server
-     *
-     * @param method - RPC method name
-     * @param params - Method parameters
-     * @returns Server response
-     */
-    async sendRequest(method, params = {}) {
-        if (!this.connected) {
-            throw new Error('Not connected to MCP server');
-        }
-        const id = ++this.requestId;
-        const request = {
-            jsonrpc: '2.0',
-            id,
-            method,
-            params,
-        };
-        return await new Promise((resolve, reject) => {
-            this.pendingRequests.set(id, { resolve, reject });
-            const message = JSON.stringify(request) + '\n';
-            this.process?.stdin?.write(message);
-            setTimeout(() => {
-                if (this.pendingRequests.has(id)) {
-                    this.pendingRequests.delete(id);
-                    reject(new Error('Request timeout'));
-                }
-            }, REQUEST_TIMEOUT_MS);
-        });
-    }
-    /**
-     * List available MCP tools
-     *
-     * @returns List of available tools
-     */
-    async listTools() {
-        return await this.sendRequest('tools/list');
-    }
-    /**
-     * Call an MCP tool
-     *
-     * @param name - Tool name
-     * @param args - Tool arguments
-     * @returns Tool execution result
-     */
-    async callTool(name, args = {}) {
-        return (await this.sendRequest('tools/call', {
-            name,
-            arguments: args,
-        }));
-    }
-    /**
-     * Get Members of European Parliament
-     *
-     * @param options - Filter options
-     * @returns List of MEPs
-     */
-    async getMEPs(options = {}) {
-        try {
-            return await this.callTool('get_meps', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_meps not available:', message);
-            return { content: [{ type: 'text', text: '{"meps": []}' }] };
-        }
-    }
-    /**
-     * Get plenary sessions
-     *
-     * @param options - Filter options
-     * @returns Plenary sessions data
-     */
-    async getPlenarySessions(options = {}) {
-        try {
-            return await this.callTool('get_plenary_sessions', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_plenary_sessions not available:', message);
-            return { content: [{ type: 'text', text: '{"sessions": []}' }] };
-        }
-    }
-    /**
-     * Search legislative documents
-     *
-     * @param options - Search options
-     * @returns Search results
-     */
-    async searchDocuments(options = {}) {
-        try {
-            return await this.callTool('search_documents', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('search_documents not available:', message);
-            return { content: [{ type: 'text', text: '{"documents": []}' }] };
-        }
-    }
-    /**
-     * Get parliamentary questions
-     *
-     * @param options - Filter options
-     * @returns Parliamentary questions data
-     */
-    async getParliamentaryQuestions(options = {}) {
-        try {
-            return await this.callTool('get_parliamentary_questions', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_parliamentary_questions not available:', message);
-            return { content: [{ type: 'text', text: '{"questions": []}' }] };
-        }
-    }
-    /**
-     * Get committee information
-     *
-     * @param options - Filter options
-     * @returns Committee info data
-     */
-    async getCommitteeInfo(options = {}) {
-        try {
-            return await this.callTool('get_committee_info', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_committee_info not available:', message);
-            return { content: [{ type: 'text', text: '{"committees": []}' }] };
-        }
-    }
-    /**
-     * Monitor legislative pipeline
-     *
-     * @param options - Filter options
-     * @returns Legislative pipeline data
-     */
-    async monitorLegislativePipeline(options = {}) {
-        try {
-            return await this.callTool('monitor_legislative_pipeline', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('monitor_legislative_pipeline not available:', message);
-            return { content: [{ type: 'text', text: '{"procedures": []}' }] };
         }
     }
     /**
