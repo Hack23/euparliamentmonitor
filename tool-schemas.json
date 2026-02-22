@@ -152,6 +152,92 @@
           }
         }
       }
+    },
+    {
+      "name": "get_mep_details",
+      "description": "Get detailed information about a specific MEP including biography, contact information, committee memberships, and parliamentary activities",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "MEP identifier (e.g., 'MEP-124810')",
+            "examples": ["MEP-124810"]
+          }
+        },
+        "required": ["id"]
+      }
+    },
+    {
+      "name": "analyze_voting_patterns",
+      "description": "Analyze voting behavior patterns for a specific MEP, including alignment with political group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mepId": {
+            "type": "string",
+            "description": "MEP identifier",
+            "examples": ["MEP-124810"]
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Analysis start date in YYYY-MM-DD format",
+            "examples": ["2024-01-01"]
+          },
+          "compareWithGroup": {
+            "type": "boolean",
+            "description": "Whether to compare MEP voting with political group average",
+            "default": true
+          }
+        },
+        "required": ["mepId"]
+      }
+    },
+    {
+      "name": "track_legislation",
+      "description": "Track the progress of a legislative procedure through the European Parliament",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "procedureId": {
+            "type": "string",
+            "description": "Legislative procedure identifier (e.g., '2024/0001(COD)')",
+            "examples": ["2024/0001(COD)"]
+          }
+        },
+        "required": ["procedureId"]
+      }
+    },
+    {
+      "name": "generate_report",
+      "description": "Generate an analytical report on European Parliament data (MEP activity, committee performance, voting statistics, or legislation progress)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "reportType": {
+            "type": "string",
+            "description": "Type of report to generate",
+            "enum": [
+              "MEP_ACTIVITY",
+              "COMMITTEE_PERFORMANCE",
+              "VOTING_STATISTICS",
+              "LEGISLATION_PROGRESS"
+            ],
+            "examples": ["MEP_ACTIVITY", "VOTING_STATISTICS"]
+          },
+          "subjectId": {
+            "type": "string",
+            "description": "Subject identifier (MEP ID, committee ID, etc.) — optional for aggregate reports",
+            "examples": ["MEP-124810", "ENVI"]
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Report period start date in YYYY-MM-DD format",
+            "examples": ["2024-01-01"]
+          }
+        },
+        "required": ["reportType"]
+      }
     }
   ]
 }
