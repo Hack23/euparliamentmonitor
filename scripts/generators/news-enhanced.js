@@ -9,7 +9,7 @@
 import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, ARTICLE_TYPE_BREAKING, ARTICLE_TYPE_COMMITTEE_REPORTS, ARG_SEPARATOR, } from '../constants/config.js';
+import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, ARTICLE_TYPE_BREAKING, ARTICLE_TYPE_COMMITTEE_REPORTS, ARTICLE_TYPE_PROPOSITIONS, ARTICLE_TYPE_MOTIONS, ARG_SEPARATOR, } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, MOTIONS_TITLES, PROPOSITIONS_TITLES, PROPOSITIONS_STRINGS, BREAKING_NEWS_TITLES, COMMITTEE_REPORTS_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
 import { generateArticleHTML } from '../templates/article-template.js';
 import { getEPMCPClient, closeEPMCPClient } from '../mcp/ep-mcp-client.js';
@@ -1635,10 +1635,10 @@ async function main() {
                 case ARTICLE_TYPE_COMMITTEE_REPORTS:
                     results.push(await generateCommitteeReports());
                     break;
-                case 'propositions':
+                case ARTICLE_TYPE_PROPOSITIONS:
                     results.push(await generatePropositions());
                     break;
-                case 'motions':
+                case ARTICLE_TYPE_MOTIONS:
                     results.push(await generateMotions());
                     break;
                 default:

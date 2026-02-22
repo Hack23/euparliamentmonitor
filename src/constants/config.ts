@@ -48,5 +48,11 @@ export const ARTICLE_TYPE_BREAKING = 'breaking';
 /** Committee reports article type constant */
 export const ARTICLE_TYPE_COMMITTEE_REPORTS = 'committee-reports';
 
+/** Propositions article type constant */
+export const ARTICLE_TYPE_PROPOSITIONS = 'propositions';
+
+/** Motions article type constant */
+export const ARTICLE_TYPE_MOTIONS = 'motions';
+
 /** CLI argument separator */
 export const ARG_SEPARATOR = '=';

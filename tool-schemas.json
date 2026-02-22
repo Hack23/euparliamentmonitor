@@ -68,10 +68,7 @@
             "maximum": 100
           }
         },
-        "required": [
-          "startDate",
-          "endDate"
-        ]
+        "required": []
       }
     },
     {
@@ -344,6 +341,99 @@
           }
         },
         "required": ["reportType"]
+      }
+    },
+    {
+      "name": "assess_mep_influence",
+      "description": "Compute MEP influence score using a 5-dimension weighted model: Voting Activity (25%), Legislative Output (25%), Committee Engagement (20%), Parliamentary Oversight (15%), Coalition Building (15%)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mepId": {
+            "type": "string",
+            "description": "MEP identifier",
+            "examples": ["MEP-124810"]
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Analysis start date in YYYY-MM-DD format"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "Analysis end date in YYYY-MM-DD format"
+          }
+        },
+        "required": ["mepId"]
+      }
+    },
+    {
+      "name": "analyze_coalition_dynamics",
+      "description": "Analyze political group coalition dynamics including cohesion rates, cross-party alliances, defection rates, and stress indicators",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "politicalGroups": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Political group identifiers to analyze (omit for all groups)",
+            "examples": [["EPP", "S&D", "Renew"]]
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Analysis start date in YYYY-MM-DD format"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "Analysis end date in YYYY-MM-DD format"
+          }
+        }
+      }
+    },
+    {
+      "name": "detect_voting_anomalies",
+      "description": "Detect unusual voting patterns including party defections, abstention spikes, and low attendance anomalies",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mepId": {
+            "type": "string",
+            "description": "MEP identifier (omit for broad analysis)"
+          },
+          "politicalGroup": {
+            "type": "string",
+            "description": "Political group to analyze"
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Analysis start date in YYYY-MM-DD format"
+          }
+        }
+      }
+    },
+    {
+      "name": "compare_political_groups",
+      "description": "Compare political groups across multiple dimensions: voting discipline, activity level, legislative output, attendance, and cohesion",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groups": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Political group identifiers to compare (minimum 2)",
+            "examples": [["EPP", "S&D"]]
+          },
+          "metrics": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Comparison dimensions (omit for all)",
+            "examples": [["voting_discipline", "activity_level"]]
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Analysis start date in YYYY-MM-DD format"
+          }
+        },
+        "required": ["groups"]
       }
     }
   ]

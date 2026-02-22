@@ -19,6 +19,8 @@ import {
   ARTICLE_TYPE_WEEK_AHEAD,
   ARTICLE_TYPE_BREAKING,
   ARTICLE_TYPE_COMMITTEE_REPORTS,
+  ARTICLE_TYPE_PROPOSITIONS,
+  ARTICLE_TYPE_MOTIONS,
   ARG_SEPARATOR,
 } from '../constants/config.js';
 import {
@@ -1928,10 +1930,10 @@ async function main(): Promise<void> {
         case ARTICLE_TYPE_COMMITTEE_REPORTS:
           results.push(await generateCommitteeReports());
           break;
-        case 'propositions':
+        case ARTICLE_TYPE_PROPOSITIONS:
           results.push(await generatePropositions());
           break;
-        case 'motions':
+        case ARTICLE_TYPE_MOTIONS:
           results.push(await generateMotions());
           break;
         default:

@@ -351,6 +351,33 @@ describe('ep-mcp-client', () => {
         expect(client.callTool).toHaveBeenCalledWith('get_plenary_sessions', options);
       });
 
+      it('should normalize dateFrom to startDate in getPlenarySessions', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"sessions": []}' }],
+        });
+
+        await client.getPlenarySessions({ dateFrom: '2025-01-01', dateTo: '2025-01-31', limit: 50 });
+
+        expect(client.callTool).toHaveBeenCalledWith('get_plenary_sessions', {
+          startDate: '2025-01-01',
+          endDate: '2025-01-31',
+          limit: 50,
+        });
+      });
+
+      it('should not overwrite startDate with dateFrom in getPlenarySessions', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"sessions": []}' }],
+        });
+
+        await client.getPlenarySessions({ startDate: '2025-02-01', dateFrom: '2025-01-01', limit: 10 });
+
+        expect(client.callTool).toHaveBeenCalledWith('get_plenary_sessions', {
+          startDate: '2025-02-01',
+          limit: 10,
+        });
+      });
+
       it('should handle missing plenary sessions tool gracefully', async () => {
         client.callTool.mockRejectedValue(new Error('Tool not available'));
 
