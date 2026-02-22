@@ -186,8 +186,18 @@ async function initializeMCPClient(): Promise<EuropeanParliamentMCPClient | null
 
 /** Placeholder events used when MCP is unavailable or returns no sessions */
 const PLACEHOLDER_EVENTS: ParliamentEvent[] = [
-  { date: '', title: 'Plenary Session', type: 'Plenary', description: 'Full parliamentary session' },
-  { date: '', title: 'ENVI Committee Meeting', type: 'Committee', description: 'Environment committee discussion' },
+  {
+    date: '',
+    title: 'Plenary Session',
+    type: 'Plenary',
+    description: 'Full parliamentary session',
+  },
+  {
+    date: '',
+    title: 'ENVI Committee Meeting',
+    type: 'Committee',
+    description: 'Environment committee discussion',
+  },
 ];
 
 /**
@@ -379,14 +389,29 @@ async function fetchWeekAheadData(dateRange: DateRange): Promise<WeekAheadData> 
 
   console.log('  📡 Fetching week-ahead data from MCP (parallel)...');
 
-  const [plenarySessions, committeeInfo, documents, pipeline, questions] =
-    await Promise.allSettled([
+  const [plenarySessions, committeeInfo, documents, pipeline, questions] = await Promise.allSettled(
+    [
       mcpClient.getPlenarySessions({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 50 }),
       mcpClient.getCommitteeInfo({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
-      mcpClient.searchDocuments({ keyword: 'parliament', dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
-      mcpClient.monitorLegislativePipeline({ dateFrom: dateRange.start, dateTo: dateRange.end, status: 'ACTIVE', limit: 20 }),
-      mcpClient.getParliamentaryQuestions({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
-    ]);
+      mcpClient.searchDocuments({
+        keyword: 'parliament',
+        dateFrom: dateRange.start,
+        dateTo: dateRange.end,
+        limit: 20,
+      }),
+      mcpClient.monitorLegislativePipeline({
+        dateFrom: dateRange.start,
+        dateTo: dateRange.end,
+        status: 'ACTIVE',
+        limit: 20,
+      }),
+      mcpClient.getParliamentaryQuestions({
+        dateFrom: dateRange.start,
+        dateTo: dateRange.end,
+        limit: 20,
+      }),
+    ]
+  );
 
   const events = parsePlenarySessions(plenarySessions, dateRange.start);
 
