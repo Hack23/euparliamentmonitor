@@ -151,6 +151,57 @@ export interface ParliamentEvent {
   description: string;
 }
 
+/** Committee meeting data from MCP */
+export interface CommitteeMeeting {
+  id?: string;
+  committee: string;
+  committeeName?: string;
+  date: string;
+  time?: string;
+  location?: string;
+  agenda?: Array<{ item?: number; title: string; type?: string }>;
+}
+
+/** Legislative document from MCP */
+export interface LegislativeDocument {
+  id?: string;
+  type?: string;
+  title: string;
+  date?: string;
+  status?: string;
+  committee?: string;
+  rapporteur?: string;
+}
+
+/** Legislative pipeline procedure */
+export interface LegislativeProcedure {
+  id?: string;
+  title: string;
+  stage?: string;
+  committee?: string;
+  status?: string;
+  bottleneck?: boolean;
+}
+
+/** Parliamentary question */
+export interface ParliamentaryQuestion {
+  id?: string;
+  type?: string;
+  author?: string;
+  subject: string;
+  date?: string;
+  status?: string;
+}
+
+/** Aggregated week-ahead data from multiple MCP sources */
+export interface WeekAheadData {
+  events: ParliamentEvent[];
+  committees: CommitteeMeeting[];
+  documents: LegislativeDocument[];
+  pipeline: LegislativeProcedure[];
+  questions: ParliamentaryQuestion[];
+}
+
 /** Date range for article generation */
 export interface DateRange {
   start: string;
@@ -186,6 +237,55 @@ export interface LangTitleSubtitle {
   subtitle: string;
 }
 
+/** Options for getMEPs */
+export interface GetMEPsOptions {
+  country?: string;
+  group?: string;
+  committee?: string;
+  active?: boolean;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getPlenarySessions */
+export interface GetPlenarySessionsOptions {
+  startDate?: string;
+  endDate?: string;
+  location?: string;
+  limit?: number;
+}
+
+/** Options for searchDocuments */
+export interface SearchDocumentsOptions {
+  query?: string;
+  type?: string;
+  committee?: string;
+  dateFrom?: string;
+  dateTo?: string;
+  limit?: number;
+}
+
+/** Options for getParliamentaryQuestions */
+export interface GetParliamentaryQuestionsOptions {
+  type?: string;
+  startDate?: string;
+  limit?: number;
+}
+
+/** Options for getCommitteeInfo */
+export interface GetCommitteeInfoOptions {
+  dateFrom?: string;
+  limit?: number;
+}
+
+/** Options for monitorLegislativePipeline */
+export interface MonitorLegislativePipelineOptions {
+  committeeId?: string;
+  status?: string;
+  dateFrom?: string;
+  limit?: number;
+}
+
 /** Options for assessMEPInfluence */
 export interface AssessMEPInfluenceOptions {
   mepId: string;
@@ -218,12 +318,5 @@ export interface ComparePoliticalGroupsOptions {
 export interface AnalyzeLegislativeEffectivenessOptions {
   subjectId: string;
   subjectType?: string;
-  dateFrom?: string;
-}
-
-/** Options for monitorLegislativePipeline */
-export interface MonitorLegislativePipelineOptions {
-  committeeId?: string;
-  status?: string;
   dateFrom?: string;
 }
