@@ -8,6 +8,8 @@
  */
 
 import { spawn, type ChildProcess } from 'child_process';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import type {
   MCPClientOptions,
   MCPToolResult,
@@ -15,6 +17,12 @@ import type {
   JSONRPCResponse,
   PendingRequest,
 } from '../types/index.js';
+
+/** Default binary resolved from node_modules/.bin relative to this file's compiled location */
+const DEFAULT_SERVER_BINARY = resolve(
+  dirname(fileURLToPath(import.meta.url)),
+  '../../node_modules/.bin/european-parliament-mcp-server'
+);
 
 /** Request timeout in milliseconds */
 const REQUEST_TIMEOUT_MS = 30000;
@@ -37,7 +45,7 @@ export class EuropeanParliamentMCPClient {
 
   constructor(options: MCPClientOptions = {}) {
     this.serverPath =
-      options.serverPath ?? process.env['EP_MCP_SERVER_PATH'] ?? 'european-parliament-mcp';
+      options.serverPath ?? process.env['EP_MCP_SERVER_PATH'] ?? DEFAULT_SERVER_BINARY;
     this.connected = false;
     this.process = null;
     this.requestId = 0;
@@ -97,7 +105,7 @@ export class EuropeanParliamentMCPClient {
    */
   private async _attemptConnection(): Promise<void> {
     try {
-      this.process = spawn('node', [this.serverPath], {
+      this.process = spawn(this.serverPath, [], {
         stdio: ['pipe', 'pipe', 'pipe'],
       });
 

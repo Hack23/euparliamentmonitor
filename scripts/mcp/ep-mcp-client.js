@@ -6,6 +6,10 @@
  * Communicates via JSON-RPC 2.0 over stdio with retry logic.
  */
 import { spawn } from 'child_process';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+/** Default binary resolved from node_modules/.bin relative to this file's compiled location */
+const DEFAULT_SERVER_BINARY = resolve(dirname(fileURLToPath(import.meta.url)), '../../node_modules/.bin/european-parliament-mcp-server');
 /** Request timeout in milliseconds */
 const REQUEST_TIMEOUT_MS = 30000;
 /** Connection startup delay in milliseconds */
@@ -24,7 +28,7 @@ export class EuropeanParliamentMCPClient {
     connectionRetryDelay;
     constructor(options = {}) {
         this.serverPath =
-            options.serverPath ?? process.env['EP_MCP_SERVER_PATH'] ?? 'european-parliament-mcp';
+            options.serverPath ?? process.env['EP_MCP_SERVER_PATH'] ?? DEFAULT_SERVER_BINARY;
         this.connected = false;
         this.process = null;
         this.requestId = 0;
@@ -75,7 +79,7 @@ export class EuropeanParliamentMCPClient {
      */
     async _attemptConnection() {
         try {
-            this.process = spawn('node', [this.serverPath], {
+            this.process = spawn(this.serverPath, [], {
                 stdio: ['pipe', 'pipe', 'pipe'],
             });
             let buffer = '';
