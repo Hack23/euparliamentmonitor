@@ -17,12 +17,14 @@ import {
   METADATA_DIR,
   VALID_ARTICLE_TYPES,
   ARTICLE_TYPE_WEEK_AHEAD,
+  ARTICLE_TYPE_BREAKING,
   ARG_SEPARATOR,
 } from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_PRESETS,
   WEEK_AHEAD_TITLES,
+  BREAKING_NEWS_TITLES,
   getLocalizedString,
   isSupportedLanguage,
 } from '../constants/languages.js';
@@ -326,6 +328,237 @@ async function generateWeekAhead(): Promise<GenerationResult> {
 }
 
 /**
+ * Fetch voting anomalies from MCP server or return empty fallback
+ *
+ * @returns Anomaly data string or empty fallback
+ */
+async function fetchVotingAnomalies(): Promise<string> {
+  if (mcpClient) {
+    try {
+      const result = (await mcpClient.callTool('detect_voting_anomalies', {
+        sensitivityThreshold: 0.3,
+      })) as MCPToolResult;
+      if (result?.content?.[0]) {
+        return result.content[0].text;
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('  ⚠️ detect_voting_anomalies failed:', message);
+    }
+  }
+  return '';
+}
+
+/**
+ * Fetch coalition dynamics from MCP server or return empty fallback
+ *
+ * @returns Coalition data string or empty fallback
+ */
+async function fetchCoalitionDynamics(): Promise<string> {
+  if (mcpClient) {
+    try {
+      const result = (await mcpClient.callTool('analyze_coalition_dynamics', {})) as MCPToolResult;
+      if (result?.content?.[0]) {
+        return result.content[0].text;
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('  ⚠️ analyze_coalition_dynamics failed:', message);
+    }
+  }
+  return '';
+}
+
+/**
+ * Fetch voting statistics report from MCP server or return empty fallback
+ *
+ * @returns Report data string or empty fallback
+ */
+async function fetchVotingReport(): Promise<string> {
+  if (mcpClient) {
+    try {
+      const result = (await mcpClient.callTool('generate_report', {
+        reportType: 'VOTING_STATISTICS',
+      })) as MCPToolResult;
+      if (result?.content?.[0]) {
+        return result.content[0].text;
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('  ⚠️ generate_report failed:', message);
+    }
+  }
+  return '';
+}
+
+/**
+ * Fetch MEP influence assessment from MCP server or return empty fallback.
+ * Returns empty string immediately if no mepId is provided.
+ *
+ * @param mepId - MEP identifier (skips call when empty)
+ * @returns Influence data string or empty fallback
+ */
+async function fetchMEPInfluence(mepId: string): Promise<string> {
+  if (!mepId || !mcpClient) {
+    return '';
+  }
+  try {
+    const result = (await mcpClient.callTool('assess_mep_influence', {
+      mepId,
+      includeDetails: true,
+    })) as MCPToolResult;
+    if (result?.content?.[0]) {
+      return result.content[0].text;
+    }
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn('  ⚠️ assess_mep_influence failed:', message);
+  }
+  return '';
+}
+
+/**
+ * Build breaking news HTML content from OSINT data
+ *
+ * @param date - Article date string
+ * @param anomalyRaw - Raw anomaly data from MCP
+ * @param coalitionRaw - Raw coalition data from MCP
+ * @param reportRaw - Raw report data from MCP
+ * @param influenceRaw - Raw MEP influence data from MCP
+ * @returns HTML content string
+ */
+export function buildBreakingNewsContent(
+  date: string,
+  anomalyRaw: string,
+  coalitionRaw: string,
+  reportRaw: string,
+  influenceRaw: string
+): string {
+  const hasData = anomalyRaw || coalitionRaw || reportRaw || influenceRaw;
+  const timestamp = new Date().toISOString();
+
+  const anomalySection = anomalyRaw
+    ? `
+        <section class="analysis">
+          <h2>Voting Anomaly Intelligence</h2>
+          <pre class="data-summary">${escapeHTML(anomalyRaw.slice(0, 2000))}</pre>
+        </section>`
+    : '';
+
+  const coalitionSection = coalitionRaw
+    ? `
+        <section class="coalition-impact">
+          <h2>Coalition Dynamics Assessment</h2>
+          <pre class="data-summary">${escapeHTML(coalitionRaw.slice(0, 2000))}</pre>
+        </section>`
+    : '';
+
+  const reportSection = reportRaw
+    ? `
+        <section class="context">
+          <h2>Analytical Report</h2>
+          <pre class="data-summary">${escapeHTML(reportRaw.slice(0, 2000))}</pre>
+        </section>`
+    : '';
+
+  const keyPlayersSection = influenceRaw
+    ? `
+        <section class="key-players">
+          <h2>Key MEP Influence Analysis</h2>
+          <pre class="data-summary">${escapeHTML(influenceRaw.slice(0, 2000))}</pre>
+        </section>`
+    : '';
+
+  const placeholderNotice = !hasData
+    ? `
+        <div class="notice">
+          <p><strong>Note:</strong> This is placeholder content generated while the European Parliament MCP Server is unavailable. Live intelligence data will appear here when the server is connected.</p>
+        </div>
+        <section class="lede">
+          <p>Significant parliamentary developments are being monitored. Connect the European Parliament MCP Server to receive real-time intelligence on voting anomalies, coalition shifts, and MEP activities.</p>
+        </section>`
+    : `
+        <section class="lede">
+          <p>Intelligence analysis from the European Parliament MCP Server has identified significant parliamentary developments requiring immediate attention as of ${escapeHTML(date)}.</p>
+        </section>`;
+
+  return `
+        <div class="article-content">
+          <section class="breaking-banner">
+            <p class="breaking-timestamp">⚡ BREAKING — ${escapeHTML(timestamp)}</p>
+          </section>
+          ${placeholderNotice}
+          ${anomalySection}
+          ${coalitionSection}
+          ${reportSection}
+          ${keyPlayersSection}
+        </div>
+      `;
+}
+
+/**
+ * Generate Breaking News article in specified languages
+ *
+ * @returns Generation result
+ */
+async function generateBreakingNews(): Promise<GenerationResult> {
+  console.log('🚨 Generating Breaking News article...');
+
+  try {
+    const today = new Date();
+    const dateStr = today.toISOString().split('T')[0]!;
+    const slug = `${formatDateForSlug(today)}-${ARTICLE_TYPE_BREAKING}`;
+
+    console.log('  📡 Fetching OSINT intelligence data from MCP...');
+    const [anomalyRaw, coalitionRaw, reportRaw, influenceRaw] = await Promise.all([
+      fetchVotingAnomalies(),
+      fetchCoalitionDynamics(),
+      fetchVotingReport(),
+      fetchMEPInfluence(''),
+    ]);
+
+    const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, influenceRaw);
+
+    for (const lang of languages) {
+      console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
+
+      const titleGenerator = getLocalizedString(BREAKING_NEWS_TITLES, lang);
+      const langTitles = titleGenerator(dateStr);
+
+      const readTime = calculateReadTime(content);
+
+      const html = generateArticleHTML({
+        slug: `${slug}-${lang}.html`,
+        title: langTitles.title,
+        subtitle: langTitles.subtitle,
+        date: dateStr,
+        type: 'breaking',
+        readTime,
+        lang,
+        content,
+        keywords: ['European Parliament', 'breaking news', 'voting anomalies', 'coalition dynamics'],
+        sources: [],
+      });
+
+      writeSingleArticle(html, slug, lang);
+      console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+    }
+
+    console.log('  ✅ Breaking News article generated successfully in all requested languages');
+    return { success: true, files: languages.length, slug };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    const stack = error instanceof Error ? error.stack : undefined;
+    console.error('❌ Error generating Breaking News:', message);
+    if (stack) {
+      console.error('   Stack:', stack);
+    }
+    stats.errors++;
+    return { success: false, error: message };
+  }
+}
+
+/**
  * Main execution
  */
 async function main(): Promise<void> {
@@ -347,6 +580,9 @@ async function main(): Promise<void> {
       switch (articleType) {
         case ARTICLE_TYPE_WEEK_AHEAD:
           results.push(await generateWeekAhead());
+          break;
+        case ARTICLE_TYPE_BREAKING:
+          results.push(await generateBreakingNews());
           break;
         default:
           console.log(`⏭️ Article type "${articleType}" not yet implemented`);
