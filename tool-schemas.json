@@ -258,6 +258,9 @@
           "subjectType",
           "subjectId"
         ]
+      }
+    },
+    {
       "name": "get_mep_details",
       "description": "Get detailed information about a specific MEP including biography, contact information, committee memberships, and parliamentary activities",
       "inputSchema": {
