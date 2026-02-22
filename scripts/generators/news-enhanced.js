@@ -332,7 +332,11 @@ async function fetchWeekAheadData(dateRange) {
     }
     console.log('  📡 Fetching week-ahead data from MCP (parallel)...');
     const [plenarySessions, committeeInfo, documents, pipeline, questions] = await Promise.allSettled([
-        mcpClient.getPlenarySessions({ startDate: dateRange.start, endDate: dateRange.end, limit: 50 }),
+        mcpClient.getPlenarySessions({
+            startDate: dateRange.start,
+            endDate: dateRange.end,
+            limit: 50,
+        }),
         mcpClient.getCommitteeInfo({ limit: 20 }),
         mcpClient.searchDocuments({
             query: 'parliament',
@@ -962,7 +966,9 @@ async function generateCommitteeReports() {
       <p class="lede">${escapeHTML(KEYWORD_EUROPEAN_PARLIAMENT)} committee activity and legislative effectiveness analysis.</p>
     </section>
     <section class="committee-reports">${committeeSections}</section>`;
-            const sources = [{ title: KEYWORD_EUROPEAN_PARLIAMENT, url: 'https://www.europarl.europa.eu' }];
+            const sources = [
+                { title: KEYWORD_EUROPEAN_PARLIAMENT, url: 'https://www.europarl.europa.eu' },
+            ];
             const dateStr = today.toISOString().split('T')[0];
             const html = generateArticleHTML({
                 slug: `${slug}-${lang}.html`,

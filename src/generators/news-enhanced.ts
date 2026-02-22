@@ -408,7 +408,11 @@ async function fetchWeekAheadData(dateRange: DateRange): Promise<WeekAheadData> 
 
   const [plenarySessions, committeeInfo, documents, pipeline, questions] = await Promise.allSettled(
     [
-      mcpClient.getPlenarySessions({ startDate: dateRange.start, endDate: dateRange.end, limit: 50 }),
+      mcpClient.getPlenarySessions({
+        startDate: dateRange.start,
+        endDate: dateRange.end,
+        limit: 50,
+      }),
       mcpClient.getCommitteeInfo({ limit: 20 }),
       mcpClient.searchDocuments({
         query: 'parliament',
@@ -913,7 +917,11 @@ const FEATURED_COMMITTEES = ['ENVI', 'ECON', 'AFET', 'LIBE', 'AGRI'] as const;
  * @param data - Committee data to populate
  * @param abbreviation - Fallback abbreviation
  */
-export function applyCommitteeInfo(result: MCPToolResult, data: CommitteeData, abbreviation: string): void {
+export function applyCommitteeInfo(
+  result: MCPToolResult,
+  data: CommitteeData,
+  abbreviation: string
+): void {
   try {
     if (!result?.content?.[0]) return;
     const parsed = JSON.parse(result.content[0].text) as {
@@ -1115,7 +1123,9 @@ async function generateCommitteeReports(): Promise<GenerationResult> {
     </section>
     <section class="committee-reports">${committeeSections}</section>`;
 
-      const sources = [{ title: KEYWORD_EUROPEAN_PARLIAMENT, url: 'https://www.europarl.europa.eu' }];
+      const sources = [
+        { title: KEYWORD_EUROPEAN_PARLIAMENT, url: 'https://www.europarl.europa.eu' },
+      ];
       const dateStr = today.toISOString().split('T')[0]!;
       const html = generateArticleHTML({
         slug: `${slug}-${lang}.html`,

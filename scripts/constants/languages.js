@@ -429,7 +429,7 @@ export const COMMITTEE_REPORTS_TITLES = {
     }),
     it: (committee) => ({
         title: `Rapporto di attività delle commissioni del Parlamento europeo: ${committee}`,
-        subtitle: "Analisi della recente produzione legislativa, metriche di efficacia e attività chiave delle commissioni",
+        subtitle: 'Analisi della recente produzione legislativa, metriche di efficacia e attività chiave delle commissioni',
     }),
     nl: (committee) => ({
         title: `Activiteitenrapport commissies Europees Parlement: ${committee}`,

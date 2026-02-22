@@ -407,7 +407,9 @@ export class EuropeanParliamentMCPClient {
    * @param options - Options including subjectType and subjectId
    * @returns Legislative effectiveness data
    */
-  async analyzeLegislativeEffectiveness(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
+  async analyzeLegislativeEffectiveness(
+    options: Record<string, unknown> = {}
+  ): Promise<MCPToolResult> {
     const subjectType = options.subjectType;
     const subjectId = options.subjectId;
     if (subjectType !== 'MEP' && subjectType !== 'COMMITTEE') {
