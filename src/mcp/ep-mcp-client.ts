@@ -277,7 +277,7 @@ export class EuropeanParliamentMCPClient {
    * @param options - Filter options
    * @returns List of MEPs
    */
-  async getMEPs(options: Record<string, unknown> = {}): Promise<unknown> {
+  async getMEPs(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     return await this.callTool('get_meps', options);
   }
 
@@ -384,7 +384,7 @@ export class EuropeanParliamentMCPClient {
   /**
    * Retrieve voting records with optional filters
    *
-   * @param options - Filter options (mepId, sessionId, topic, dateFrom)
+   * @param options - Filter options (mepId, sessionId, limit)
    * @returns Voting records data
    */
   async getVotingRecords(options: VotingRecordsOptions = {}): Promise<MCPToolResult> {

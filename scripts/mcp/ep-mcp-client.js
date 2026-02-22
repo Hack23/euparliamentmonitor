@@ -333,7 +333,7 @@ export class EuropeanParliamentMCPClient {
     /**
      * Retrieve voting records with optional filters
      *
-     * @param options - Filter options (mepId, sessionId, topic, dateFrom)
+     * @param options - Filter options (mepId, sessionId, limit)
      * @returns Voting records data
      */
     async getVotingRecords(options = {}) {

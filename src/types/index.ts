@@ -251,9 +251,16 @@ export interface VotingPatternsOptions {
   compareWithGroup?: boolean;
 }
 
+/** Allowed report types for analytical reports */
+export type ReportType =
+  | 'MEP_ACTIVITY'
+  | 'COMMITTEE_PERFORMANCE'
+  | 'VOTING_STATISTICS'
+  | 'LEGISLATION_PROGRESS';
+
 /** Options for generating analytical reports */
 export interface GenerateReportOptions {
-  reportType: string;
+  reportType: ReportType;
   subjectId?: string;
   dateFrom?: string;
 }
