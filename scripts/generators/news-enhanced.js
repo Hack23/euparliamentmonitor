@@ -965,7 +965,7 @@ async function generateCommitteeReports() {
             const sources = [{ title: KEYWORD_EUROPEAN_PARLIAMENT, url: 'https://www.europarl.europa.eu' }];
             const dateStr = today.toISOString().split('T')[0];
             const html = generateArticleHTML({
-                slug,
+                slug: `${slug}-${lang}.html`,
                 title: langTitles.title,
                 subtitle: langTitles.subtitle,
                 date: dateStr,
@@ -976,13 +976,7 @@ async function generateCommitteeReports() {
                 keywords: ['committee', 'EU Parliament', 'legislation'],
                 sources,
             });
-            const newsDir = path.join(NEWS_DIR, lang);
-            ensureDirectoryExists(newsDir);
-            const filename = `${dateStr}-${slug}-${lang}.html`;
-            const filepath = path.join(newsDir, filename);
-            fs.writeFileSync(filepath, html, 'utf-8');
-            console.log(`  ✅ Written: ${filepath}`);
-            stats.generated++;
+            writeSingleArticle(html, slug, lang);
         }
         return { success: true, files: languages.length, slug };
     }
