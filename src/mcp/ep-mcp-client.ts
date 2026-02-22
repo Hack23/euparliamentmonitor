@@ -272,19 +272,16 @@ export class EuropeanParliamentMCPClient {
    * Call an MCP tool
    *
    * @param name - Tool name
-   * @param args - Tool arguments (must be a plain object, not an array or function)
+   * @param args - Tool arguments (must be a plain object, non-null, not an array)
    * @returns Tool execution result
    */
-  async callTool(name: string, args: object = {}): Promise<unknown> {
-    if (Array.isArray(args)) {
-      throw new TypeError('MCP tool arguments must be a plain object, not an array');
-    }
-    return await this.sendRequest('tools/call', { name, arguments: args });
   async callTool(name: string, args: object = {}): Promise<MCPToolResult> {
-    return (await this.sendRequest('tools/call', {
-      name,
-      arguments: args,
-    })) as MCPToolResult;
+    if (args === null || Array.isArray(args) || typeof args !== 'object') {
+      throw new TypeError(
+        'MCP tool arguments must be a plain object (non-null object, not an array or function)'
+      );
+    }
+    return (await this.sendRequest('tools/call', { name, arguments: args })) as MCPToolResult;
   }
 
   /**
@@ -296,9 +293,6 @@ export class EuropeanParliamentMCPClient {
   async getMEPs(options: GetMEPsOptions = {}): Promise<MCPToolResult> {
     try {
       return (await this.callTool('get_meps', options)) as MCPToolResult;
-  async getMEPs(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
-    try {
-      return await this.callTool('get_meps', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_meps not available:', message);
@@ -339,7 +333,6 @@ export class EuropeanParliamentMCPClient {
         }
       }
       return (await this.callTool('search_documents', normalizedOptions)) as MCPToolResult;
-      return await this.callTool('search_documents', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('search_documents not available:', message);
@@ -363,7 +356,6 @@ export class EuropeanParliamentMCPClient {
         toolOptions['startDate'] = dateFrom;
       }
       return (await this.callTool('get_parliamentary_questions', toolOptions)) as MCPToolResult;
-      return await this.callTool('get_parliamentary_questions', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_parliamentary_questions not available:', message);
@@ -486,6 +478,10 @@ export class EuropeanParliamentMCPClient {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('analyze_legislative_effectiveness not available:', message);
       return { content: [{ type: 'text', text: '{"effectiveness": {}}' }] };
+    }
+  }
+
+  /**
    * Get detailed information about a specific MEP
    *
    * @param id - MEP identifier (must be non-empty)

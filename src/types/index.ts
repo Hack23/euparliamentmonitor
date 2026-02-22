@@ -330,6 +330,9 @@ export interface ComparePoliticalGroupsOptions {
 export interface AnalyzeLegislativeEffectivenessOptions {
   subjectId: string;
   subjectType?: string;
+  dateFrom?: string;
+}
+
 /** Options for getting voting records */
 export interface VotingRecordsOptions {
   mepId?: string;

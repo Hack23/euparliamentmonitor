@@ -48,7 +48,6 @@ import type {
   DateRange,
   GenerationStats,
   GenerationResult,
-  MCPToolResult,
 } from '../types/index.js';
 import type { EuropeanParliamentMCPClient } from '../mcp/ep-mcp-client.js';
 
