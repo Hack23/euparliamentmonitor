@@ -420,9 +420,6 @@ describe('ep-mcp-client', () => {
         });
       });
 
-      it('should track legislation', async () => {
-        client.callTool.mockResolvedValue({
-          content: [{ type: 'text', text: '{"status": "first_reading"}' }],
       it('should get MEP details', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"mep": {"id": "MEP-123"}}' }],
@@ -539,7 +536,6 @@ describe('ep-mcp-client', () => {
         const result = await client.trackLegislation('2024/0001(COD)');
 
         expect(result).toEqual({
-          content: [{ type: 'text', text: '{}' }],
           content: [{ type: 'text', text: '{"procedure": null}' }],
         });
       });

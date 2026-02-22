@@ -248,6 +248,8 @@ export interface PropositionsStrings {
   analysis: string;
   pipelineHealthLabel: string;
   throughputRateLabel: string;
+}
+
 /** Options for getting voting records */
 export interface VotingRecordsOptions {
   mepId?: string;

@@ -368,18 +368,6 @@ export class EuropeanParliamentMCPClient {
   }
 
   /**
-   * Track legislative procedure status
-   *
-   * @param procedureId - Procedure identifier (e.g. "2024/0001(COD)")
-   * @returns Procedure tracking data
-   */
-  async trackLegislation(procedureId: string): Promise<MCPToolResult> {
-    try {
-      return (await this.callTool('track_legislation', { procedureId })) as MCPToolResult;
-    } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
-      console.warn('track_legislation not available:', message);
-      return { content: [{ type: 'text', text: '{}' }] };
    * Get detailed information about a specific MEP
    *
    * @param id - MEP identifier (must be non-empty)
