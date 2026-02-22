@@ -343,6 +343,49 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"questions": []}' }],
         });
       });
+
+      it('should track legislation', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"status": "first_reading"}' }],
+        });
+
+        await client.trackLegislation('2024/0001(COD)');
+
+        expect(client.callTool).toHaveBeenCalledWith('track_legislation', {
+          procedureId: '2024/0001(COD)',
+        });
+      });
+
+      it('should handle missing track_legislation tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.trackLegislation('2024/0001(COD)');
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{}' }],
+        });
+      });
+
+      it('should monitor legislative pipeline', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"pipelineHealthScore": 0.8}' }],
+        });
+
+        const options = { status: 'ACTIVE', limit: 5 };
+        await client.monitorLegislativePipeline(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('monitor_legislative_pipeline', options);
+      });
+
+      it('should handle missing monitor_legislative_pipeline tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.monitorLegislativePipeline();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{}' }],
+        });
+      });
     });
 
     describe('Retry Logic', () => {

@@ -271,6 +271,80 @@ export const WEEK_AHEAD_TITLES: LanguageMap<(start: string, end: string) => Lang
   }),
 };
 
+/** Propositions article title templates per language */
+export const PROPOSITIONS_TITLES: LanguageMap<() => LangTitleSubtitle> = {
+  en: () => ({
+    title: 'Legislative Proposals: European Parliament Monitor',
+    subtitle:
+      'Recent legislative proposals, procedure tracking, and pipeline status in the European Parliament',
+  }),
+  de: () => ({
+    title: 'Gesetzgebungsvorschläge: Europäisches Parlament Monitor',
+    subtitle:
+      'Aktuelle Gesetzgebungsvorschläge, Verfahrensverfolgung und Pipeline-Status im Europäischen Parlament',
+  }),
+  fr: () => ({
+    title: 'Propositions Législatives: Moniteur du Parlement Européen',
+    subtitle:
+      'Propositions législatives récentes, suivi des procédures et état du pipeline au Parlement européen',
+  }),
+  es: () => ({
+    title: 'Propuestas Legislativas: Monitor del Parlamento Europeo',
+    subtitle:
+      'Propuestas legislativas recientes, seguimiento de procedimientos y estado del pipeline en el Parlamento Europeo',
+  }),
+  it: () => ({
+    title: 'Proposte Legislative: Monitor del Parlamento Europeo',
+    subtitle:
+      'Proposte legislative recenti, monitoraggio delle procedure e stato della pipeline nel Parlamento europeo',
+  }),
+  nl: () => ({
+    title: 'Wetgevingsvoorstellen: EU Parlementsmonitor',
+    subtitle:
+      'Recente wetgevingsvoorstellen, procedurebewaking en pipeline-status in het Europees Parlement',
+  }),
+  pl: () => ({
+    title: 'Propozycje Legislacyjne: Monitor Parlamentu Europejskiego',
+    subtitle:
+      'Ostatnie propozycje legislacyjne, śledzenie procedur i status pipeline w Parlamencie Europejskim',
+  }),
+  pt: () => ({
+    title: 'Propostas Legislativas: Monitor do Parlamento Europeu',
+    subtitle:
+      'Propostas legislativas recentes, acompanhamento de procedimentos e estado do pipeline no Parlamento Europeu',
+  }),
+  ro: () => ({
+    title: 'Propuneri Legislative: Monitor al Parlamentului European',
+    subtitle:
+      'Propuneri legislative recente, urmărirea procedurilor și starea pipeline-ului în Parlamentul European',
+  }),
+  sv: () => ({
+    title: 'Lagstiftningsförslag: EU-parlamentsmonitor',
+    subtitle:
+      'Senaste lagstiftningsförslag, procedurspårning och pipeline-status i Europaparlamentet',
+  }),
+  da: () => ({
+    title: 'Lovgivningsforslag: EU-parlamentsmonitor',
+    subtitle:
+      'Seneste lovgivningsforslag, proceduresporing og pipeline-status i Europa-Parlamentet',
+  }),
+  fi: () => ({
+    title: 'Lainsäädäntöehdotukset: EU-parlamentin seuranta',
+    subtitle:
+      'Viimeisimmät lainsäädäntöehdotukset, menettelyseuranta ja pipeline-tila Euroopan parlamentissa',
+  }),
+  el: () => ({
+    title: 'Νομοθετικές Προτάσεις: Παρακολούθηση Ευρωπαϊκού Κοινοβουλίου',
+    subtitle:
+      'Πρόσφατες νομοθετικές προτάσεις, παρακολούθηση διαδικασιών και κατάσταση αγωγού στο Ευρωπαϊκό Κοινοβούλιο',
+  }),
+  hu: () => ({
+    title: 'Jogalkotási Javaslatok: EU Parlamenti Figyelő',
+    subtitle:
+      'Legfrissebb jogalkotási javaslatok, eljáráskövetés és csővezeték-állapot az Európai Parlamentben',
+  }),
+};
+
 /**
  * Get a language-specific string with English fallback
  *

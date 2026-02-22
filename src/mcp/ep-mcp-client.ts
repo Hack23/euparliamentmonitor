@@ -298,6 +298,38 @@ export class EuropeanParliamentMCPClient {
       return { content: [{ type: 'text', text: '{"questions": []}' }] };
     }
   }
+
+  /**
+   * Track legislative procedure status
+   *
+   * @param procedureId - Procedure identifier (e.g. "2024/0001(COD)")
+   * @returns Procedure tracking data
+   */
+  async trackLegislation(procedureId: string): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('track_legislation', { procedureId })) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('track_legislation not available:', message);
+      return { content: [{ type: 'text', text: '{}' }] };
+    }
+  }
+
+  /**
+   * Monitor the legislative pipeline
+   *
+   * @param options - Filter options
+   * @returns Pipeline monitoring data
+   */
+  async monitorLegislativePipeline(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
+    try {
+      return (await this.callTool('monitor_legislative_pipeline', options)) as MCPToolResult;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('monitor_legislative_pipeline not available:', message);
+      return { content: [{ type: 'text', text: '{}' }] };
+    }
+  }
 }
 
 // Singleton instance management

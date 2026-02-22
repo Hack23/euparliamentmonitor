@@ -10,7 +10,7 @@ import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
 import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, ARG_SEPARATOR, } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, PROPOSITIONS_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
 import { generateArticleHTML } from '../templates/article-template.js';
 import { getEPMCPClient, closeEPMCPClient } from '../mcp/ep-mcp-client.js';
 import { formatDateForSlug, calculateReadTime, ensureDirectoryExists, escapeHTML, } from '../utils/file-utils.js';
@@ -259,6 +259,168 @@ async function generateWeekAhead() {
     }
 }
 /**
+ * Generate Propositions article in specified languages
+ *
+ * @returns Generation result
+ */
+async function generatePropositions() {
+    console.log('📜 Generating Propositions article...');
+    try {
+        const today = new Date();
+        const slug = `${formatDateForSlug(today)}-propositions`;
+        let proposalsContent = '';
+        let pipelineContent = '';
+        if (mcpClient) {
+            try {
+                console.log('  📡 Fetching legislative proposals from MCP server...');
+                const docsResult = await mcpClient.searchDocuments({
+                    keyword: 'regulation',
+                    documentType: 'REGULATION',
+                    limit: 10,
+                });
+                if (docsResult?.content?.[0]) {
+                    const data = JSON.parse(docsResult.content[0].text);
+                    if (data.documents && data.documents.length > 0) {
+                        console.log(`  ✅ Fetched ${data.documents.length} proposals from MCP`);
+                        proposalsContent = data.documents
+                            .map((doc) => `
+              <div class="proposal-card">
+                <h3>${escapeHTML(doc.title ?? 'Legislative Proposal')}</h3>
+                <div class="proposal-meta">
+                  ${doc.id ? `<span class="proposal-id">${escapeHTML(doc.id)}</span>` : ''}
+                  ${doc.date ? `<span class="proposal-date">${escapeHTML(doc.date)}</span>` : ''}
+                  ${doc.status ? `<span class="proposal-status">${escapeHTML(doc.status)}</span>` : ''}
+                </div>
+                ${doc.committee ? `<p class="proposal-committee">Committee: ${escapeHTML(doc.committee)}</p>` : ''}
+                ${doc.rapporteur ? `<p class="proposal-rapporteur">Rapporteur: ${escapeHTML(doc.rapporteur)}</p>` : ''}
+              </div>`)
+                            .join('');
+                    }
+                }
+                const pipelineResult = await mcpClient.monitorLegislativePipeline({
+                    status: 'ACTIVE',
+                    limit: 5,
+                });
+                if (pipelineResult?.content?.[0]) {
+                    const pipeData = JSON.parse(pipelineResult.content[0].text);
+                    const healthScore = pipeData.pipelineHealthScore ?? 0;
+                    const throughput = pipeData.throughputRate ?? 0;
+                    pipelineContent = `
+            <div class="pipeline-metrics">
+              <div class="metric">
+                <span class="metric-label">Pipeline Health</span>
+                <span class="metric-value">${escapeHTML(String(Math.round(healthScore * 100)))}%</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Throughput Rate</span>
+                <span class="metric-value">${escapeHTML(String(throughput))}</span>
+              </div>
+            </div>
+            ${pipeData.procedures
+                        ?.map((proc) => `
+              <div class="procedure-item">
+                ${proc.id ? `<span class="procedure-id">${escapeHTML(proc.id)}</span>` : ''}
+                ${proc.title ? `<span class="procedure-title">${escapeHTML(proc.title)}</span>` : ''}
+                ${proc.stage ? `<span class="procedure-stage">${escapeHTML(proc.stage)}</span>` : ''}
+              </div>`)
+                        .join('') ?? ''}`;
+                }
+            }
+            catch (error) {
+                const message = error instanceof Error ? error.message : String(error);
+                console.warn('  ⚠️ MCP fetch failed:', message);
+            }
+        }
+        if (!proposalsContent) {
+            console.log('  ℹ️ Using placeholder proposals content');
+            proposalsContent = `
+        <div class="proposal-card">
+          <h3>Proposal for a Regulation on Sustainable Finance Reporting</h3>
+          <div class="proposal-meta">
+            <span class="proposal-id">COM(2025)0001</span>
+            <span class="proposal-status">Under Review</span>
+          </div>
+          <p class="proposal-committee">Committee: ECON</p>
+        </div>
+        <div class="proposal-card">
+          <h3>Proposal for a Directive on Corporate Sustainability Due Diligence</h3>
+          <div class="proposal-meta">
+            <span class="proposal-id">COM(2025)0002</span>
+            <span class="proposal-status">First Reading</span>
+          </div>
+          <p class="proposal-committee">Committee: JURI</p>
+        </div>`;
+        }
+        if (!pipelineContent) {
+            console.log('  ℹ️ Using placeholder pipeline content');
+            pipelineContent = `
+        <div class="pipeline-metrics">
+          <div class="metric">
+            <span class="metric-label">Active Procedures</span>
+            <span class="metric-value">42</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">In Trilogue</span>
+            <span class="metric-value">8</span>
+          </div>
+        </div>`;
+        }
+        for (const lang of languages) {
+            console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
+            const langTitles = getLocalizedString(PROPOSITIONS_TITLES, lang)();
+            const content = `
+        <div class="article-content">
+          <section class="lede">
+            <p>The European Parliament is actively processing multiple legislative proposals across key policy areas. This report tracks current proposals, their procedure status, and the overall legislative pipeline.</p>
+          </section>
+
+          <section class="proposals-list">
+            <h2>Recent Legislative Proposals</h2>
+            ${proposalsContent}
+          </section>
+
+          <section class="pipeline-status">
+            <h2>Legislative Pipeline Overview</h2>
+            ${pipelineContent}
+          </section>
+
+          <section class="analysis">
+            <h2>Impact Assessment</h2>
+            <p>Current legislative activity reflects Parliament's priorities in sustainable finance, digital governance, and environmental policy. Tracking these proposals helps citizens and stakeholders understand the EU's legislative trajectory.</p>
+          </section>
+        </div>
+      `;
+            const readTime = calculateReadTime(content);
+            const html = generateArticleHTML({
+                slug: `${slug}-${lang}.html`,
+                title: langTitles.title,
+                subtitle: langTitles.subtitle,
+                date: today.toISOString().split('T')[0],
+                type: 'retrospective',
+                readTime,
+                lang,
+                content,
+                keywords: ['European Parliament', 'legislation', 'proposals', 'procedure', 'OLP'],
+                sources: [],
+            });
+            writeSingleArticle(html, slug, lang);
+            console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+        }
+        console.log('  ✅ Propositions article generated successfully in all requested languages');
+        return { success: true, files: languages.length, slug };
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        const stack = error instanceof Error ? error.stack : undefined;
+        console.error('❌ Error generating Propositions:', message);
+        if (stack) {
+            console.error('   Stack:', stack);
+        }
+        stats.errors++;
+        return { success: false, error: message };
+    }
+}
+/**
  * Main execution
  */
 async function main() {
@@ -276,6 +438,9 @@ async function main() {
             switch (articleType) {
                 case ARTICLE_TYPE_WEEK_AHEAD:
                     results.push(await generateWeekAhead());
+                    break;
+                case 'propositions':
+                    results.push(await generatePropositions());
                     break;
                 default:
                     console.log(`⏭️ Article type "${articleType}" not yet implemented`);
