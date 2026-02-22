@@ -29,6 +29,7 @@ import type {
   VotingRecordsOptions,
   VotingPatternsOptions,
   GenerateReportOptions,
+  AnalyzeLegislativeEffectivenessOptions,
 } from '../types/index.js';
 
 /** npm binary name for the European Parliament MCP server */
@@ -408,17 +409,10 @@ export class EuropeanParliamentMCPClient {
    * @returns Legislative effectiveness data
    */
   async analyzeLegislativeEffectiveness(
-    options: Record<string, unknown> = {}
+    options: AnalyzeLegislativeEffectivenessOptions
   ): Promise<MCPToolResult> {
-    const subjectType = options.subjectType;
-    const subjectId = options.subjectId;
-    if (subjectType !== 'MEP' && subjectType !== 'COMMITTEE') {
-      console.warn(
-        'analyze_legislative_effectiveness called without valid subjectType (must be "MEP" or "COMMITTEE")'
-      );
-      return { content: [{ type: 'text', text: EFFECTIVENESS_FALLBACK }] };
-    }
-    if (typeof subjectId !== 'string' || subjectId.trim().length === 0) {
+    const { subjectType, subjectId } = options;
+    if (subjectId.trim().length === 0) {
       console.warn(
         'analyze_legislative_effectiveness called without valid subjectId (non-empty string required)'
       );

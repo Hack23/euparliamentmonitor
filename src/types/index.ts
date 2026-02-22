@@ -358,8 +358,9 @@ export interface ComparePoliticalGroupsOptions {
 /** Options for analyzeLegislativeEffectiveness */
 export interface AnalyzeLegislativeEffectivenessOptions {
   subjectId: string;
-  subjectType?: string;
+  subjectType: 'MEP' | 'COMMITTEE';
   dateFrom?: string;
+  dateTo?: string;
 }
 
 /** Voting record from MCP or fallback */

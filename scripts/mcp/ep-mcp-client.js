@@ -340,14 +340,9 @@ export class EuropeanParliamentMCPClient {
      * @param options - Options including subjectType and subjectId
      * @returns Legislative effectiveness data
      */
-    async analyzeLegislativeEffectiveness(options = {}) {
-        const subjectType = options.subjectType;
-        const subjectId = options.subjectId;
-        if (subjectType !== 'MEP' && subjectType !== 'COMMITTEE') {
-            console.warn('analyze_legislative_effectiveness called without valid subjectType (must be "MEP" or "COMMITTEE")');
-            return { content: [{ type: 'text', text: EFFECTIVENESS_FALLBACK }] };
-        }
-        if (typeof subjectId !== 'string' || subjectId.trim().length === 0) {
+    async analyzeLegislativeEffectiveness(options) {
+        const { subjectType, subjectId } = options;
+        if (subjectId.trim().length === 0) {
             console.warn('analyze_legislative_effectiveness called without valid subjectId (non-empty string required)');
             return { content: [{ type: 'text', text: EFFECTIVENESS_FALLBACK }] };
         }
