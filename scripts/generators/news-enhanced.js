@@ -750,7 +750,7 @@ async function generateBreakingNews() {
                 lang,
                 content,
                 keywords: [
-                    'European Parliament',
+                    EP_KEYWORD,
                     'breaking news',
                     'voting anomalies',
                     'coalition dynamics',

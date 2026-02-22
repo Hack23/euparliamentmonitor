@@ -877,7 +877,7 @@ async function generateBreakingNews(): Promise<GenerationResult> {
         lang,
         content,
         keywords: [
-          'European Parliament',
+          EP_KEYWORD,
           'breaking news',
           'voting anomalies',
           'coalition dynamics',
