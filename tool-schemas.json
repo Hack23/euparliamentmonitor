@@ -217,7 +217,12 @@
           "reportType": {
             "type": "string",
             "description": "Type of report to generate",
-            "enum": ["MEP_ACTIVITY", "COMMITTEE_PERFORMANCE", "VOTING_STATISTICS", "LEGISLATION_PROGRESS"],
+            "enum": [
+              "MEP_ACTIVITY",
+              "COMMITTEE_PERFORMANCE",
+              "VOTING_STATISTICS",
+              "LEGISLATION_PROGRESS"
+            ],
             "examples": ["MEP_ACTIVITY", "VOTING_STATISTICS"]
           },
           "subjectId": {

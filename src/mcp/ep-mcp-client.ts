@@ -278,7 +278,13 @@ export class EuropeanParliamentMCPClient {
    * @returns List of MEPs
    */
   async getMEPs(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
-    return await this.callTool('get_meps', options);
+    try {
+      return await this.callTool('get_meps', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_meps not available:', message);
+      return { content: [{ type: 'text', text: '{"meps": []}' }] };
+    }
   }
 
   /**
@@ -405,7 +411,9 @@ export class EuropeanParliamentMCPClient {
    */
   async analyzeVotingPatterns(options: VotingPatternsOptions): Promise<MCPToolResult> {
     if (typeof options.mepId !== 'string' || options.mepId.trim().length === 0) {
-      console.warn('analyze_voting_patterns called without valid mepId (non-empty string required)');
+      console.warn(
+        'analyze_voting_patterns called without valid mepId (non-empty string required)'
+      );
       return { content: [{ type: 'text', text: '{"patterns": null}' }] };
     }
     try {
@@ -428,7 +436,9 @@ export class EuropeanParliamentMCPClient {
    */
   async trackLegislation(procedureId: string): Promise<MCPToolResult> {
     if (typeof procedureId !== 'string' || procedureId.trim().length === 0) {
-      console.warn('track_legislation called without valid procedureId (non-empty string required)');
+      console.warn(
+        'track_legislation called without valid procedureId (non-empty string required)'
+      );
       return { content: [{ type: 'text', text: '{"procedure": null}' }] };
     }
     try {
