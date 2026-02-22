@@ -14,11 +14,11 @@ import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, BREAKING_NEWS_TITLE
 import { generateArticleHTML } from '../templates/article-template.js';
 import { getEPMCPClient, closeEPMCPClient } from '../mcp/ep-mcp-client.js';
 import { formatDateForSlug, calculateReadTime, ensureDirectoryExists, escapeHTML, } from '../utils/file-utils.js';
+/** Shared keyword prefix used across article generators */
+const KEYWORD_EU_PARLIAMENT = 'European Parliament';
 // Try to use MCP client if available
 let mcpClient = null;
 const useMCP = process.env['USE_EP_MCP'] !== 'false';
-/** Shared keyword prefix used across article generators */
-const KEYWORD_EU_PARLIAMENT = 'European Parliament';
 // Parse command line arguments
 const args = process.argv.slice(2);
 const typesArg = args.find((arg) => arg.startsWith('--types='));
@@ -777,11 +777,15 @@ async function generateBreakingNews() {
 /**
  * Fetch legislative proposals from MCP and return HTML + first procedure ID.
  * Uses a broad keyword search (no document-type filter) to cover all proposal types.
+ *
+ * @returns Object with HTML string and optional first procedure ID found
  */
 async function fetchProposalsFromMCP() {
-    if (!mcpClient) return { html: '', firstProcedureId: '' };
+    if (!mcpClient)
+        return { html: '', firstProcedureId: '' };
     const docsResult = await mcpClient.searchDocuments({ keyword: 'legislative proposal', limit: 10 });
-    if (!docsResult?.content?.[0]) return { html: '', firstProcedureId: '' };
+    if (!docsResult?.content?.[0])
+        return { html: '', firstProcedureId: '' };
     let data;
     try {
         data = JSON.parse(docsResult.content[0].text);
@@ -791,10 +795,12 @@ async function fetchProposalsFromMCP() {
         console.warn('  ⚠️ Failed to parse proposals JSON:', message);
         return { html: '', firstProcedureId: '' };
     }
-    if (!data.documents?.length) return { html: '', firstProcedureId: '' };
+    if (!data.documents?.length)
+        return { html: '', firstProcedureId: '' };
     console.log(`  ✅ Fetched ${data.documents.length} proposals from MCP`);
     const firstProcedureId = data.documents.find((d) => /\d{4}\/\d+\(.+\)/.test(d.id ?? ''))?.id ?? '';
-    const html = data.documents.map((doc) => `
+    const html = data.documents
+        .map((doc) => `
       <div class="proposal-card">
         <h3>${escapeHTML(doc.title ?? 'Legislative Proposal')}</h3>
         <div class="proposal-meta">
@@ -804,16 +810,21 @@ async function fetchProposalsFromMCP() {
         </div>
         ${doc.committee ? `<p class="proposal-committee">${escapeHTML(doc.committee)}</p>` : ''}
         ${doc.rapporteur ? `<p class="proposal-rapporteur">${escapeHTML(doc.rapporteur)}</p>` : ''}
-      </div>`).join('');
+      </div>`)
+        .join('');
     return { html, firstProcedureId };
 }
 /**
  * Fetch legislative pipeline data from MCP server.
+ *
+ * @returns Structured pipeline data, or null if unavailable
  */
 async function fetchPipelineFromMCP() {
-    if (!mcpClient) return null;
+    if (!mcpClient)
+        return null;
     const pipelineResult = await mcpClient.monitorLegislativePipeline({ status: 'ACTIVE', limit: 5 });
-    if (!pipelineResult?.content?.[0]) return null;
+    if (!pipelineResult?.content?.[0])
+        return null;
     let pipeData;
     try {
         pipeData = JSON.parse(pipelineResult.content[0].text);
@@ -825,22 +836,30 @@ async function fetchPipelineFromMCP() {
     }
     const healthScore = pipeData.pipelineHealthScore ?? 0;
     const throughput = pipeData.throughputRate ?? 0;
-    const procRowsHtml = pipeData.procedures?.map((proc) => `
+    const procRowsHtml = pipeData.procedures
+        ?.map((proc) => `
       <div class="procedure-item">
         ${proc.id ? `<span class="procedure-id">${escapeHTML(proc.id)}</span>` : ''}
         ${proc.title ? `<span class="procedure-title">${escapeHTML(proc.title)}</span>` : ''}
         ${proc.stage ? `<span class="procedure-stage">${escapeHTML(proc.stage)}</span>` : ''}
-      </div>`).join('') ?? '';
+      </div>`)
+        .join('') ?? '';
     return { healthScore, throughput, procRowsHtml };
 }
 /**
  * Fetch a specific procedure's tracked status HTML from MCP.
+ * Returns empty string if procedureId is empty or MCP unavailable.
+ *
+ * @param procedureId - Procedure identifier e.g. "2024/0001(COD)"
+ * @returns HTML string for procedure status section, or empty string
  */
 async function fetchProcedureStatusFromMCP(procedureId) {
-    if (!procedureId || !mcpClient) return '';
+    if (!procedureId || !mcpClient)
+        return '';
     try {
         const result = await mcpClient.trackLegislation(procedureId);
-        if (!result?.content?.[0]) return '';
+        if (!result?.content?.[0])
+            return '';
         const raw = result.content[0].text;
         return `<pre class="data-summary">${escapeHTML(raw.slice(0, 2000))}</pre>`;
     }
@@ -852,6 +871,12 @@ async function fetchProcedureStatusFromMCP(procedureId) {
 }
 /**
  * Build propositions article HTML content with localized strings.
+ *
+ * @param proposalsHtml - HTML for proposals list section
+ * @param pipelineData - Structured pipeline data from MCP (null when unavailable)
+ * @param procedureHtml - HTML for tracked procedure status section (may be empty)
+ * @param strings - Localized string set for the target language
+ * @returns Full article HTML content string
  */
 export function buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings) {
     const pipelineHtml = pipelineData
@@ -900,12 +925,15 @@ export function buildPropositionsContent(proposalsHtml, pipelineData, procedureH
 }
 /**
  * Generate Propositions article in specified languages
+ *
+ * @returns Generation result
  */
 async function generatePropositions() {
     console.log('📜 Generating Propositions article...');
     try {
         const today = new Date();
         const slug = `${formatDateForSlug(today)}-propositions`;
+        // Fetch proposals and pipeline in parallel
         console.log('  📡 Fetching legislative data from MCP server...');
         const [proposalsResult, pipelineResult] = await Promise.allSettled([
             fetchProposalsFromMCP(),
@@ -915,8 +943,10 @@ async function generatePropositions() {
             ? proposalsResult.value
             : { html: '', firstProcedureId: '' };
         const pipelineData = pipelineResult.status === 'fulfilled' ? pipelineResult.value : null;
+        // Track the first identified procedure for additional detail
         const procedureHtml = await fetchProcedureStatusFromMCP(firstProcedureId);
-        if (!proposalsHtml) console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
+        if (!proposalsHtml)
+            console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const langTitles = getLocalizedString(PROPOSITIONS_TITLES, lang)();

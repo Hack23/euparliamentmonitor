@@ -162,6 +162,8 @@ describe('constants/languages', () => {
         expect(strings.procedureHeading.length).toBeGreaterThan(0);
         expect(strings.analysisHeading.length).toBeGreaterThan(0);
         expect(strings.analysis.length).toBeGreaterThan(0);
+        expect(strings.pipelineHealthLabel.length).toBeGreaterThan(0);
+        expect(strings.throughputRateLabel.length).toBeGreaterThan(0);
       }
     });
 

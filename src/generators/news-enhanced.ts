@@ -55,12 +55,12 @@ import type {
 } from '../types/index.js';
 import type { EuropeanParliamentMCPClient } from '../mcp/ep-mcp-client.js';
 
+/** Shared keyword prefix used across article generators */
+const KEYWORD_EU_PARLIAMENT = 'European Parliament';
+
 // Try to use MCP client if available
 let mcpClient: EuropeanParliamentMCPClient | null = null;
 const useMCP = process.env['USE_EP_MCP'] !== 'false';
-
-/** Shared keyword prefix used across article generators */
-const KEYWORD_EU_PARLIAMENT = 'European Parliament';
 
 // Parse command line arguments
 const args = process.argv.slice(2);

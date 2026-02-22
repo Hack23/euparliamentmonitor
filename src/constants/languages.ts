@@ -345,7 +345,37 @@ export const BREAKING_NEWS_TITLES: LanguageMap<(date: string) => LangTitleSubtit
   }),
 };
 
-/** Propositions article title templates per language */
+/**
+ * Get a language-specific string with English fallback
+ *
+ * @param map - Language map to look up
+ * @param lang - Language code
+ * @returns The language-specific value or English fallback
+ */
+export function getLocalizedString<T>(map: LanguageMap<T>, lang: string): T {
+  const code = lang as LanguageCode;
+  return map[code] ?? map.en;
+}
+
+/**
+ * Check if a language code is supported
+ *
+ * @param lang - Language code to check
+ * @returns True if the language is supported
+ */
+export function isSupportedLanguage(lang: string): lang is LanguageCode {
+  return ALL_LANGUAGES.includes(lang as LanguageCode);
+}
+
+/**
+ * Determine text direction for a language
+ *
+ * @param lang - Language code
+ * @returns 'rtl' for Arabic/Hebrew, 'ltr' otherwise
+ */
+export function getTextDirection(lang: string): 'ltr' | 'rtl' {
+  return lang === 'ar' || lang === 'he' ? 'rtl' : 'ltr';
+}
 export const PROPOSITIONS_TITLES: LanguageMap<() => LangTitleSubtitle> = {
   en: () => ({
     title: 'Legislative Proposals: European Parliament Monitor',
@@ -576,35 +606,3 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     throughputRateLabel: 'Áteresztőképesség',
   },
 };
-
-/**
- * Get a language-specific string with English fallback
- *
- * @param map - Language map to look up
- * @param lang - Language code
- * @returns The language-specific value or English fallback
- */
-export function getLocalizedString<T>(map: LanguageMap<T>, lang: string): T {
-  const code = lang as LanguageCode;
-  return map[code] ?? map.en;
-}
-
-/**
- * Check if a language code is supported
- *
- * @param lang - Language code to check
- * @returns True if the language is supported
- */
-export function isSupportedLanguage(lang: string): lang is LanguageCode {
-  return ALL_LANGUAGES.includes(lang as LanguageCode);
-}
-
-/**
- * Determine text direction for a language
- *
- * @param lang - Language code
- * @returns 'rtl' for Arabic/Hebrew, 'ltr' otherwise
- */
-export function getTextDirection(lang: string): 'ltr' | 'rtl' {
-  return lang === 'ar' || lang === 'he' ? 'rtl' : 'ltr';
-}
