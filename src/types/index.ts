@@ -248,6 +248,8 @@ export interface PropositionsStrings {
   analysis: string;
   pipelineHealthLabel: string;
   throughputRateLabel: string;
+}
+
 /** Options for getMEPs */
 export interface GetMEPsOptions {
   country?: string;
