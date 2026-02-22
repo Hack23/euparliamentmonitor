@@ -774,36 +774,6 @@ async function generateBreakingNews() {
         return { success: false, error: message };
     }
 }
-/** Placeholder proposals HTML when MCP data is unavailable */
-const PLACEHOLDER_PROPOSALS = `
-        <div class="proposal-card">
-          <h3>Proposal for a Regulation on Sustainable Finance Reporting</h3>
-          <div class="proposal-meta">
-            <span class="proposal-id">COM(2025)0001</span>
-            <span class="proposal-status">Under Review</span>
-          </div>
-          <p class="proposal-committee">Committee: ECON</p>
-        </div>
-        <div class="proposal-card">
-          <h3>Proposal for a Directive on Corporate Sustainability Due Diligence</h3>
-          <div class="proposal-meta">
-            <span class="proposal-id">COM(2025)0002</span>
-            <span class="proposal-status">First Reading</span>
-          </div>
-          <p class="proposal-committee">Committee: JURI</p>
-        </div>`;
-/** Placeholder pipeline HTML when MCP data is unavailable */
-const PLACEHOLDER_PIPELINE = `
-        <div class="pipeline-metrics">
-          <div class="metric">
-            <span class="metric-label">Active Procedures</span>
-            <span class="metric-value">42</span>
-          </div>
-          <div class="metric">
-            <span class="metric-label">In Trilogue</span>
-            <span class="metric-value">8</span>
-          </div>
-        </div>`;
 /**
  * Fetch legislative proposals from MCP and return HTML + first procedure ID.
  * Uses a broad keyword search (no document-type filter) to cover all proposal types.
@@ -812,7 +782,15 @@ async function fetchProposalsFromMCP() {
     if (!mcpClient) return { html: '', firstProcedureId: '' };
     const docsResult = await mcpClient.searchDocuments({ keyword: 'legislative proposal', limit: 10 });
     if (!docsResult?.content?.[0]) return { html: '', firstProcedureId: '' };
-    const data = JSON.parse(docsResult.content[0].text);
+    let data;
+    try {
+        data = JSON.parse(docsResult.content[0].text);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.warn('  ⚠️ Failed to parse proposals JSON:', message);
+        return { html: '', firstProcedureId: '' };
+    }
     if (!data.documents?.length) return { html: '', firstProcedureId: '' };
     console.log(`  ✅ Fetched ${data.documents.length} proposals from MCP`);
     const firstProcedureId = data.documents.find((d) => /\d{4}\/\d+\(.+\)/.test(d.id ?? ''))?.id ?? '';
@@ -824,39 +802,36 @@ async function fetchProposalsFromMCP() {
           ${doc.date ? `<span class="proposal-date">${escapeHTML(doc.date)}</span>` : ''}
           ${doc.status ? `<span class="proposal-status">${escapeHTML(doc.status)}</span>` : ''}
         </div>
-        ${doc.committee ? `<p class="proposal-committee">Committee: ${escapeHTML(doc.committee)}</p>` : ''}
-        ${doc.rapporteur ? `<p class="proposal-rapporteur">Rapporteur: ${escapeHTML(doc.rapporteur)}</p>` : ''}
+        ${doc.committee ? `<p class="proposal-committee">${escapeHTML(doc.committee)}</p>` : ''}
+        ${doc.rapporteur ? `<p class="proposal-rapporteur">${escapeHTML(doc.rapporteur)}</p>` : ''}
       </div>`).join('');
     return { html, firstProcedureId };
 }
 /**
- * Fetch legislative pipeline HTML from MCP server.
+ * Fetch legislative pipeline data from MCP server.
  */
 async function fetchPipelineFromMCP() {
-    if (!mcpClient) return '';
+    if (!mcpClient) return null;
     const pipelineResult = await mcpClient.monitorLegislativePipeline({ status: 'ACTIVE', limit: 5 });
-    if (!pipelineResult?.content?.[0]) return '';
-    const pipeData = JSON.parse(pipelineResult.content[0].text);
+    if (!pipelineResult?.content?.[0]) return null;
+    let pipeData;
+    try {
+        pipeData = JSON.parse(pipelineResult.content[0].text);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.warn('  ⚠️ Failed to parse pipeline JSON:', message);
+        return null;
+    }
     const healthScore = pipeData.pipelineHealthScore ?? 0;
     const throughput = pipeData.throughputRate ?? 0;
-    const procRows = pipeData.procedures?.map((proc) => `
+    const procRowsHtml = pipeData.procedures?.map((proc) => `
       <div class="procedure-item">
         ${proc.id ? `<span class="procedure-id">${escapeHTML(proc.id)}</span>` : ''}
         ${proc.title ? `<span class="procedure-title">${escapeHTML(proc.title)}</span>` : ''}
         ${proc.stage ? `<span class="procedure-stage">${escapeHTML(proc.stage)}</span>` : ''}
       </div>`).join('') ?? '';
-    return `
-    <div class="pipeline-metrics">
-      <div class="metric">
-        <span class="metric-label">Pipeline Health</span>
-        <span class="metric-value">${escapeHTML(String(Math.round(healthScore * 100)))}%</span>
-      </div>
-      <div class="metric">
-        <span class="metric-label">Throughput Rate</span>
-        <span class="metric-value">${escapeHTML(String(throughput))}</span>
-      </div>
-    </div>
-    ${procRows}`;
+    return { healthScore, throughput, procRowsHtml };
 }
 /**
  * Fetch a specific procedure's tracked status HTML from MCP.
@@ -878,7 +853,21 @@ async function fetchProcedureStatusFromMCP(procedureId) {
 /**
  * Build propositions article HTML content with localized strings.
  */
-export function buildPropositionsContent(proposalsHtml, pipelineHtml, procedureHtml, strings) {
+export function buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings) {
+    const pipelineHtml = pipelineData
+        ? `
+    <div class="pipeline-metrics">
+      <div class="metric" aria-label="${escapeHTML(strings.pipelineHealthLabel)}">
+        <span class="metric-label">${escapeHTML(strings.pipelineHealthLabel)}</span>
+        <span class="metric-value">${escapeHTML(String(Math.round(pipelineData.healthScore * 100)))}%</span>
+      </div>
+      <div class="metric" aria-label="${escapeHTML(strings.throughputRateLabel)}">
+        <span class="metric-label">${escapeHTML(strings.throughputRateLabel)}</span>
+        <span class="metric-value">${escapeHTML(String(pipelineData.throughput))}</span>
+      </div>
+    </div>
+    ${pipelineData.procRowsHtml}`
+        : '';
     const procedureSection = procedureHtml
         ? `
           <section class="procedure-status">
@@ -925,15 +914,14 @@ async function generatePropositions() {
         const { html: proposalsHtml, firstProcedureId } = proposalsResult.status === 'fulfilled'
             ? proposalsResult.value
             : { html: '', firstProcedureId: '' };
-        const pipelineHtml = pipelineResult.status === 'fulfilled' ? pipelineResult.value : '';
+        const pipelineData = pipelineResult.status === 'fulfilled' ? pipelineResult.value : null;
         const procedureHtml = await fetchProcedureStatusFromMCP(firstProcedureId);
-        const finalProposalsHtml = proposalsHtml || (console.log('  ℹ️ Using placeholder proposals'), PLACEHOLDER_PROPOSALS);
-        const finalPipelineHtml = pipelineHtml || (console.log('  ℹ️ Using placeholder pipeline'), PLACEHOLDER_PIPELINE);
+        if (!proposalsHtml) console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const langTitles = getLocalizedString(PROPOSITIONS_TITLES, lang)();
             const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
-            const content = buildPropositionsContent(finalProposalsHtml, finalPipelineHtml, procedureHtml, strings);
+            const content = buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings);
             const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
                 slug: `${slug}-${lang}.html`,

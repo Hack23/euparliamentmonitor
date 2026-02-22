@@ -14,12 +14,15 @@ import { validateHTML } from '../helpers/test-utils.js';
 
 const EN_STRINGS = PROPOSITIONS_STRINGS.en;
 
+/** Sample pipeline data used across tests */
+const SAMPLE_PIPELINE = { healthScore: 0.85, throughput: 12, procRowsHtml: '' };
+
 describe('Propositions Generator', () => {
   describe('buildPropositionsContent', () => {
     it('should return HTML with localized section headings', () => {
       const html = buildPropositionsContent(
         '<div class="proposal-card"><h3>Test Proposal</h3></div>',
-        '<div class="pipeline-metrics"></div>',
+        SAMPLE_PIPELINE,
         '',
         EN_STRINGS
       );
@@ -31,8 +34,23 @@ describe('Propositions Generator', () => {
       expect(html).toContain('sustainable finance, digital governance');
     });
 
+    it('should include localized pipeline metric labels', () => {
+      const html = buildPropositionsContent('', SAMPLE_PIPELINE, '', EN_STRINGS);
+      expect(html).toContain(EN_STRINGS.pipelineHealthLabel);
+      expect(html).toContain(EN_STRINGS.throughputRateLabel);
+      expect(html).toContain('85%');
+      expect(html).toContain('12');
+    });
+
+    it('should render empty pipeline section when pipelineData is null', () => {
+      const html = buildPropositionsContent('<p>proposals</p>', null, '', EN_STRINGS);
+      // pipeline-status section heading still appears; content inside is empty
+      expect(html).toContain('pipeline-status');
+      expect(html).not.toContain('pipeline-metrics');
+    });
+
     it('should omit procedure section when procedureHtml is empty', () => {
-      const html = buildPropositionsContent('<p>proposals</p>', '<p>pipeline</p>', '', EN_STRINGS);
+      const html = buildPropositionsContent('<p>proposals</p>', null, '', EN_STRINGS);
       expect(html).not.toContain('procedure-status');
       expect(html).not.toContain(EN_STRINGS.procedureHeading);
     });
@@ -40,7 +58,7 @@ describe('Propositions Generator', () => {
     it('should include procedure section when procedureHtml is provided', () => {
       const html = buildPropositionsContent(
         '<p>proposals</p>',
-        '<p>pipeline</p>',
+        null,
         '<pre>{"status": "first_reading"}</pre>',
         EN_STRINGS
       );
@@ -58,7 +76,7 @@ describe('Propositions Generator', () => {
         procedureHeading: 'Procedure',
         analysisHeading: 'Analysis',
       };
-      const html = buildPropositionsContent('', '', '', maliciousStrings);
+      const html = buildPropositionsContent('', null, '', maliciousStrings);
       expect(html).not.toContain('<script>');
       expect(html).not.toContain('<img');
       expect(html).toContain('&lt;script&gt;');
@@ -67,16 +85,16 @@ describe('Propositions Generator', () => {
 
     it('should include proposals HTML verbatim (proposals content is pre-sanitized)', () => {
       const proposalsHtml = '<div class="proposal-card"><h3>Test Proposal</h3></div>';
-      const html = buildPropositionsContent(proposalsHtml, '', '', EN_STRINGS);
+      const html = buildPropositionsContent(proposalsHtml, null, '', EN_STRINGS);
       expect(html).toContain('proposal-card');
       expect(html).toContain('Test Proposal');
     });
 
-    it('should include pipeline HTML verbatim (pipeline content is pre-sanitized)', () => {
-      const pipelineHtml = '<div class="pipeline-metrics"><p>Active: 5</p></div>';
-      const html = buildPropositionsContent('', pipelineHtml, '', EN_STRINGS);
-      expect(html).toContain('pipeline-metrics');
-      expect(html).toContain('Active: 5');
+    it('should include pipeline proc rows HTML verbatim', () => {
+      const pipelineData = { healthScore: 0.5, throughput: 5, procRowsHtml: '<div class="procedure-item"><span class="procedure-id">2024/0001(COD)</span></div>' };
+      const html = buildPropositionsContent('', pipelineData, '', EN_STRINGS);
+      expect(html).toContain('procedure-item');
+      expect(html).toContain('2024/0001(COD)');
     });
   });
 
@@ -85,7 +103,7 @@ describe('Propositions Generator', () => {
       const strings = getLocalizedString(PROPOSITIONS_STRINGS, 'en');
       const content = buildPropositionsContent(
         '<div class="proposal-card"><h3>Test</h3></div>',
-        '<div class="pipeline-metrics"></div>',
+        SAMPLE_PIPELINE,
         '',
         strings
       );
@@ -115,8 +133,10 @@ describe('Propositions Generator', () => {
         expect(titles.title).toBeDefined();
         expect(titles.subtitle).toBeDefined();
         expect(strings.lede.length).toBeGreaterThan(0);
+        expect(strings.pipelineHealthLabel.length).toBeGreaterThan(0);
+        expect(strings.throughputRateLabel.length).toBeGreaterThan(0);
 
-        const content = buildPropositionsContent('<p>proposals</p>', '<p>pipeline</p>', '', strings);
+        const content = buildPropositionsContent('<p>proposals</p>', SAMPLE_PIPELINE, '', strings);
         const html = generateArticleHTML({
           slug: `2025-01-15-propositions-${lang}.html`,
           title: titles.title,
@@ -135,14 +155,9 @@ describe('Propositions Generator', () => {
       }
     });
 
-    it('should generate placeholder propositions when MCP is unavailable', () => {
+    it('should generate minimal article when MCP is unavailable (null pipeline)', () => {
       const strings = getLocalizedString(PROPOSITIONS_STRINGS, 'en');
-      const content = buildPropositionsContent(
-        '<div class="proposal-card"><h3>Proposal for a Regulation on Sustainable Finance Reporting</h3></div>',
-        '<div class="pipeline-metrics"></div>',
-        '',
-        strings
-      );
+      const content = buildPropositionsContent('', null, '', strings);
       const titles = getLocalizedString(PROPOSITIONS_TITLES, 'en')();
       const html = generateArticleHTML({
         slug: '2025-01-15-propositions-en.html',

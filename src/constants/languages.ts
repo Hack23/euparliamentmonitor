@@ -429,6 +429,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: 'Impact Assessment',
     analysis:
       "Current legislative activity reflects Parliament's priorities in sustainable finance, digital governance, and environmental policy. Tracking these proposals helps citizens and stakeholders understand the EU's legislative trajectory.",
+    pipelineHealthLabel: 'Pipeline Health',
+    throughputRateLabel: 'Throughput Rate',
   },
   de: {
     lede: 'Das Europäische Parlament bearbeitet aktiv mehrere Gesetzgebungsvorschläge in wichtigen Politikbereichen. Dieser Bericht verfolgt aktuelle Vorschläge, ihren Verfahrensstatus und die gesamte Gesetzgebungspipeline.',
@@ -438,6 +440,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: 'Folgenabschätzung',
     analysis:
       'Die aktuelle Gesetzgebungstätigkeit spiegelt die Prioritäten des Parlaments in nachhaltiger Finanzierung, digitaler Governance und Umweltpolitik wider. Die Verfolgung dieser Vorschläge hilft Bürgern und Interessengruppen, den Gesetzgebungspfad der EU zu verstehen.',
+    pipelineHealthLabel: 'Pipeline-Gesundheit',
+    throughputRateLabel: 'Durchsatzrate',
   },
   fr: {
     lede: "Le Parlement européen traite activement de multiples propositions législatives dans des domaines politiques clés. Ce rapport suit les propositions actuelles, leur statut procédural et l'état global du pipeline législatif.",
@@ -447,6 +451,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: "Évaluation de l'Impact",
     analysis:
       "L'activité législative actuelle reflète les priorités du Parlement en matière de finance durable, de gouvernance numérique et de politique environnementale. Le suivi de ces propositions aide les citoyens et les parties prenantes à comprendre la trajectoire législative de l'UE.",
+    pipelineHealthLabel: 'Santé du Pipeline',
+    throughputRateLabel: 'Taux de Débit',
   },
   es: {
     lede: 'El Parlamento Europeo está procesando activamente múltiples propuestas legislativas en áreas clave de política. Este informe rastrea las propuestas actuales, su estado de procedimiento y el estado general del pipeline legislativo.',
@@ -456,6 +462,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: 'Evaluación de Impacto',
     analysis:
       'La actividad legislativa actual refleja las prioridades del Parlamento en finanzas sostenibles, gobernanza digital y política ambiental. Rastrear estas propuestas ayuda a los ciudadanos y partes interesadas a comprender la trayectoria legislativa de la UE.',
+    pipelineHealthLabel: 'Salud del Pipeline',
+    throughputRateLabel: 'Tasa de Rendimiento',
   },
   it: {
     lede: 'Il Parlamento europeo sta elaborando attivamente molteplici proposte legislative in settori politici chiave. Questo rapporto traccia le proposte attuali, il loro stato procedurale e lo stato complessivo della pipeline legislativa.',
@@ -465,6 +473,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: "Valutazione d'Impatto",
     analysis:
       "L'attività legislativa attuale riflette le priorità del Parlamento in materia di finanza sostenibile, governance digitale e politica ambientale. Tracciare queste proposte aiuta cittadini e parti interessate a comprendere la traiettoria legislativa dell'UE.",
+    pipelineHealthLabel: 'Salute del Pipeline',
+    throughputRateLabel: 'Tasso di Elaborazione',
   },
   nl: {
     lede: 'Het Europees Parlement behandelt actief meerdere wetgevende voorstellen op belangrijke beleidsterreinen. Dit rapport volgt huidige voorstellen, hun procedurestatus en de algehele wetgevende pipeline.',
@@ -474,6 +484,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: 'Impactbeoordeling',
     analysis:
       'De huidige wetgevende activiteit weerspiegelt de prioriteiten van het Parlement op het gebied van duurzame financiering, digitaal bestuur en milieubeleid. Het volgen van deze voorstellen helpt burgers en belanghebbenden de wetgevende koers van de EU te begrijpen.',
+    pipelineHealthLabel: 'Pipeline-gezondheid',
+    throughputRateLabel: 'Doorvoersnelheid',
   },
   pl: {
     lede: 'Parlament Europejski aktywnie przetwarza wiele propozycji legislacyjnych w kluczowych obszarach politycznych. Niniejszy raport śledzi aktualne propozycje, ich status proceduralny i ogólny stan pipeline legislacyjnego.',
@@ -483,6 +495,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: 'Ocena Wpływu',
     analysis:
       'Obecna działalność legislacyjna odzwierciedla priorytety Parlamentu w zakresie zrównoważonych finansów, zarządzania cyfrowego i polityki środowiskowej. Śledzenie tych propozycji pomaga obywatelom i zainteresowanym stronom zrozumieć kierunek legislacyjny UE.',
+    pipelineHealthLabel: 'Kondycja Pipeline',
+    throughputRateLabel: 'Wskaźnik Przepustowości',
   },
   pt: {
     lede: 'O Parlamento Europeu está processando ativamente múltiplas propostas legislativas em áreas políticas importantes. Este relatório acompanha as propostas atuais, seu status de procedimento e o estado geral do pipeline legislativo.',
@@ -492,6 +506,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: 'Avaliação de Impacto',
     analysis:
       'A atividade legislativa atual reflete as prioridades do Parlamento em finanças sustentáveis, governança digital e política ambiental. Acompanhar estas propostas ajuda cidadãos e partes interessadas a compreender a trajetória legislativa da UE.',
+    pipelineHealthLabel: 'Saúde do Pipeline',
+    throughputRateLabel: 'Taxa de Processamento',
   },
   ro: {
     lede: 'Parlamentul European procesează activ multiple propuneri legislative în domenii politice cheie. Acest raport urmărește propunerile actuale, statusul lor procedural și starea generală a pipeline-ului legislativ.',
@@ -501,6 +517,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: 'Evaluarea Impactului',
     analysis:
       'Activitatea legislativă actuală reflectă prioritățile Parlamentului în finanțe durabile, guvernanță digitală și politică de mediu. Urmărirea acestor propuneri ajută cetățenii și părțile interesate să înțeleagă traiectoria legislativă a UE.',
+    pipelineHealthLabel: 'Sănătatea Pipeline-ului',
+    throughputRateLabel: 'Rata de Procesare',
   },
   sv: {
     lede: 'Europaparlamentet bearbetar aktivt flera lagstiftningsförslag inom viktiga politikområden. Denna rapport spårar aktuella förslag, deras procedurstatus och det övergripande lagstiftningspipeline-läget.',
@@ -510,6 +528,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: 'Konsekvensbedömning',
     analysis:
       'Den nuvarande lagstiftningsverksamheten speglar parlamentets prioriteringar inom hållbar finansiering, digital styrning och miljöpolitik. Att spåra dessa förslag hjälper medborgare och intressenter att förstå EU:s lagstiftningsinriktning.',
+    pipelineHealthLabel: 'Pipeline-hälsa',
+    throughputRateLabel: 'Genomströmningshastighet',
   },
   da: {
     lede: 'Europa-Parlamentet behandler aktivt adskillige lovgivningsforslag inden for vigtige politikområder. Denne rapport sporer aktuelle forslag, deres procedurestatus og den overordnede lovgivningspipeline-tilstand.',
@@ -519,6 +539,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: 'Konsekvensvurdering',
     analysis:
       'Den aktuelle lovgivningsaktivitet afspejler Parlamentets prioriteter inden for bæredygtig finansiering, digital forvaltning og miljøpolitik. Sporing af disse forslag hjælper borgere og interessenter med at forstå EU\'s lovgivningstrajektorie.',
+    pipelineHealthLabel: 'Pipeline-sundhed',
+    throughputRateLabel: 'Gennemstrømningshastighed',
   },
   fi: {
     lede: 'Euroopan parlamentti käsittelee aktiivisesti useita lainsäädäntöehdotuksia keskeisillä politiikka-alueilla. Tämä raportti seuraa ajankohtaisia ehdotuksia, niiden menettelytilaa ja yleistä lainsäädäntöputken tilaa.',
@@ -528,6 +550,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: 'Vaikutustenarviointi',
     analysis:
       'Nykyinen lainsäädäntötoiminta heijastaa parlamentin prioriteetteja kestävässä rahoituksessa, digitaalisessa hallinnossa ja ympäristöpolitiikassa. Näiden ehdotusten seuraaminen auttaa kansalaisia ja sidosryhmiä ymmärtämään EU:n lainsäädäntösuuntaa.',
+    pipelineHealthLabel: 'Putkilinjan terveys',
+    throughputRateLabel: 'Läpimenoaste',
   },
   el: {
     lede: 'Το Ευρωπαϊκό Κοινοβούλιο επεξεργάζεται ενεργά πολλαπλές νομοθετικές προτάσεις σε βασικούς τομείς πολιτικής. Αυτή η αναφορά παρακολουθεί τις τρέχουσες προτάσεις, την κατάσταση της διαδικασίας τους και τη συνολική κατάσταση του νομοθετικού αγωγού.',
@@ -537,6 +561,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: 'Αξιολόγηση Αντίκτυπου',
     analysis:
       'Η τρέχουσα νομοθετική δραστηριότητα αντικατοπτρίζει τις προτεραιότητες του Κοινοβουλίου στη βιώσιμη χρηματοδότηση, την ψηφιακή διακυβέρνηση και την περιβαλλοντική πολιτική. Η παρακολούθηση αυτών των προτάσεων βοηθά τους πολίτες και τα ενδιαφερόμενα μέρη να κατανοήσουν τη νομοθετική πορεία της ΕΕ.',
+    pipelineHealthLabel: 'Υγεία Αγωγού',
+    throughputRateLabel: 'Ρυθμός Ροής',
   },
   hu: {
     lede: 'Az Európai Parlament aktívan dolgoz fel több jogalkotási javaslatot a főbb szakpolitikai területeken. Ez a jelentés nyomon követi az aktuális javaslatokat, eljárási státuszukat és a jogalkotási csővezeték általános állapotát.',
@@ -546,6 +572,8 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     analysisHeading: 'Hatáselemzés',
     analysis:
       'A jelenlegi jogalkotási tevékenység tükrözi a Parlament prioritásait a fenntartható pénzügyek, a digitális irányítás és a környezetpolitika terén. E javaslatok nyomon követése segít az állampolgároknak és az érdekelt feleknek megérteni az EU jogalkotási irányát.',
+    pipelineHealthLabel: 'Csővezeték állapota',
+    throughputRateLabel: 'Áteresztőképesség',
   },
 };
 

@@ -245,4 +245,6 @@ export interface PropositionsStrings {
   procedureHeading: string;
   analysisHeading: string;
   analysis: string;
+  pipelineHealthLabel: string;
+  throughputRateLabel: string;
 }
