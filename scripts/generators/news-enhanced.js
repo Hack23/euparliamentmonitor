@@ -565,9 +565,9 @@ async function generateWeekAhead() {
 async function fetchVotingAnomalies() {
     if (mcpClient) {
         try {
-            const result = (await mcpClient.callTool('detect_voting_anomalies', {
+            const result = await mcpClient.callTool('detect_voting_anomalies', {
                 sensitivityThreshold: 0.3,
-            }));
+            });
             if (result?.content?.[0]) {
                 return result.content[0].text;
             }
@@ -587,7 +587,7 @@ async function fetchVotingAnomalies() {
 async function fetchCoalitionDynamics() {
     if (mcpClient) {
         try {
-            const result = (await mcpClient.callTool('analyze_coalition_dynamics', {}));
+            const result = await mcpClient.callTool('analyze_coalition_dynamics', {});
             if (result?.content?.[0]) {
                 return result.content[0].text;
             }
@@ -607,9 +607,9 @@ async function fetchCoalitionDynamics() {
 async function fetchVotingReport() {
     if (mcpClient) {
         try {
-            const result = (await mcpClient.callTool('generate_report', {
+            const result = await mcpClient.callTool('generate_report', {
                 reportType: 'VOTING_STATISTICS',
-            }));
+            });
             if (result?.content?.[0]) {
                 return result.content[0].text;
             }
@@ -633,10 +633,10 @@ async function fetchMEPInfluence(mepId) {
         return '';
     }
     try {
-        const result = (await mcpClient.callTool('assess_mep_influence', {
+        const result = await mcpClient.callTool('assess_mep_influence', {
             mepId,
             includeDetails: true,
-        }));
+        });
         if (result?.content?.[0]) {
             return result.content[0].text;
         }
