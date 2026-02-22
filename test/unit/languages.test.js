@@ -21,6 +21,7 @@ import {
   WEEK_AHEAD_TITLES,
   MOTIONS_TITLES,
   BREAKING_NEWS_TITLES,
+  COMMITTEE_REPORTS_TITLES,
   PROPOSITIONS_TITLES,
   PROPOSITIONS_STRINGS,
   getLocalizedString,
@@ -236,6 +237,24 @@ describe('constants/languages', () => {
 
     it('should return ltr for unknown languages', () => {
       expect(getTextDirection('zz')).toBe('ltr');
+    });
+  });
+
+  describe('COMMITTEE_REPORTS_TITLES', () => {
+    it('should have entries for all 14 supported languages', () => {
+      expect(Object.keys(COMMITTEE_REPORTS_TITLES)).toHaveLength(14);
+    });
+
+    it('should generate non-empty title containing committee name for each language', () => {
+      const committeeName = 'ENVI, ECON, AFET, LIBE, AGRI';
+      for (const lang of ALL_LANGUAGES) {
+        const generator = COMMITTEE_REPORTS_TITLES[lang];
+        expect(generator).toBeDefined();
+        const result = generator(committeeName);
+        expect(result.title).toContain(committeeName);
+        expect(typeof result.subtitle).toBe('string');
+        expect(result.subtitle.length).toBeGreaterThan(0);
+      }
     });
   });
 });

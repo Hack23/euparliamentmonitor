@@ -9,8 +9,8 @@
 import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, ARTICLE_TYPE_BREAKING, ARG_SEPARATOR, } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, MOTIONS_TITLES, PROPOSITIONS_TITLES, PROPOSITIONS_STRINGS, BREAKING_NEWS_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
+import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, ARTICLE_TYPE_BREAKING, ARTICLE_TYPE_COMMITTEE_REPORTS, ARG_SEPARATOR, } from '../constants/config.js';
+import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, MOTIONS_TITLES, PROPOSITIONS_TITLES, PROPOSITIONS_STRINGS, BREAKING_NEWS_TITLES, COMMITTEE_REPORTS_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
 import { generateArticleHTML } from '../templates/article-template.js';
 import { getEPMCPClient, closeEPMCPClient } from '../mcp/ep-mcp-client.js';
 import { formatDateForSlug, calculateReadTime, ensureDirectoryExists, escapeHTML, } from '../utils/file-utils.js';
@@ -51,8 +51,6 @@ console.log('Languages:', languages.join(', '));
 console.log('Dry run:', dryRunArg ? 'Yes (no files written)' : 'No');
 // Ensure directories exist
 ensureDirectoryExists(METADATA_DIR);
-/** Common keyword for all EP article types */
-const EP_KEYWORD = 'European Parliament';
 // Generation statistics
 const stats = {
     generated: 0,
@@ -131,6 +129,8 @@ async function initializeMCPClient() {
         return null;
     }
 }
+/** European Parliament keyword for document searches and article metadata */
+const KEYWORD_EUROPEAN_PARLIAMENT = 'European Parliament';
 /** Placeholder events used when MCP is unavailable or returns no sessions */
 const PLACEHOLDER_EVENTS = [
     {
@@ -332,12 +332,14 @@ async function fetchWeekAheadData(dateRange) {
     }
     console.log('  📡 Fetching week-ahead data from MCP (parallel)...');
     const [plenarySessions, committeeInfo, documents, pipeline, questions] = await Promise.allSettled([
-        mcpClient.getPlenarySessions({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 50 }),
-        mcpClient.getCommitteeInfo({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
+        mcpClient.getPlenarySessions({
+            startDate: dateRange.start,
+            endDate: dateRange.end,
+            limit: 50,
+        }),
+        mcpClient.getCommitteeInfo({ limit: 20 }),
         mcpClient.searchDocuments({
-            keyword: 'parliament',
-            dateFrom: dateRange.start,
-            dateTo: dateRange.end,
+            query: 'parliament',
             limit: 20,
         }),
         mcpClient.monitorLegislativePipeline({
@@ -347,8 +349,7 @@ async function fetchWeekAheadData(dateRange) {
             limit: 20,
         }),
         mcpClient.getParliamentaryQuestions({
-            dateFrom: dateRange.start,
-            dateTo: dateRange.end,
+            startDate: dateRange.start,
             limit: 20,
         }),
     ]);
@@ -500,7 +501,7 @@ function buildWeekAheadContent(weekData, dateRange) {
  * @returns Array of keyword strings
  */
 function buildKeywords(weekData) {
-    const keywords = [EP_KEYWORD, 'week ahead', 'plenary', 'committees'];
+    const keywords = [KEYWORD_EUROPEAN_PARLIAMENT, 'week ahead', 'plenary', 'committees'];
     for (const c of weekData.committees) {
         if (c.committee && !keywords.includes(c.committee)) {
             keywords.push(c.committee);
@@ -749,7 +750,12 @@ async function generateBreakingNews() {
                 readTime,
                 lang,
                 content,
-                keywords: [EP_KEYWORD, 'breaking news', 'voting anomalies', 'coalition dynamics'],
+                keywords: [
+                    KEYWORD_EUROPEAN_PARLIAMENT,
+                    'breaking news',
+                    'voting anomalies',
+                    'coalition dynamics',
+                ],
                 sources: [],
             });
             writeSingleArticle(html, slug, lang);
@@ -765,6 +771,224 @@ async function generateBreakingNews() {
         if (stack) {
             console.error('   Stack:', stack);
         }
+        stats.errors++;
+        return { success: false, error: message };
+    }
+}
+/** Featured committees to include in committee reports */
+const FEATURED_COMMITTEES = ['ENVI', 'ECON', 'AFET', 'LIBE', 'AGRI'];
+/**
+ * Apply committee info from MCP result to the data object
+ *
+ * @param result - MCP tool result
+ * @param data - Committee data to populate
+ * @param abbreviation - Fallback abbreviation
+ */
+export function applyCommitteeInfo(result, data, abbreviation) {
+    try {
+        if (!result?.content?.[0])
+            return;
+        const parsed = JSON.parse(result.content[0].text);
+        if (!parsed.committee)
+            return;
+        data.name = parsed.committee.name ?? data.name;
+        data.abbreviation = parsed.committee.abbreviation ?? abbreviation;
+        data.chair = parsed.committee.chair ?? 'N/A';
+        const memberCountRaw = parsed.committee.memberCount;
+        let memberCount = 0;
+        if (typeof memberCountRaw === 'number' && Number.isFinite(memberCountRaw)) {
+            memberCount = memberCountRaw;
+        }
+        else if (typeof memberCountRaw === 'string') {
+            const parsedNumber = Number(memberCountRaw);
+            if (Number.isFinite(parsedNumber)) {
+                memberCount = parsedNumber;
+            }
+        }
+        data.members = memberCount;
+        console.log(`  ✅ Committee info: ${data.name} (${data.members} members)`);
+    }
+    catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        console.warn('  ⚠️ Failed to parse committee info:', message);
+    }
+}
+/**
+ * Apply documents from MCP result to the data object
+ *
+ * @param result - MCP tool result
+ * @param data - Committee data to populate
+ */
+export function applyDocuments(result, data) {
+    try {
+        if (!result?.content?.[0])
+            return;
+        const parsed = JSON.parse(result.content[0].text);
+        if (!parsed.documents || parsed.documents.length === 0)
+            return;
+        data.documents = parsed.documents.map((d) => ({
+            title: d.title ?? 'Untitled Document',
+            type: d.type ?? d.documentType ?? 'Document',
+            date: d.date ?? '',
+        }));
+        console.log(`  ✅ Fetched ${data.documents.length} documents from MCP`);
+    }
+    catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        console.warn('  ⚠️ Failed to parse documents:', message);
+    }
+}
+/**
+ * Apply effectiveness metrics from MCP result to the data object
+ *
+ * @param result - MCP tool result
+ * @param data - Committee data to populate
+ */
+export function applyEffectiveness(result, data) {
+    try {
+        if (!result?.content?.[0])
+            return;
+        const parsed = JSON.parse(result.content[0].text);
+        if (!parsed.effectiveness)
+            return;
+        const score = parsed.effectiveness.overallScore;
+        const rank = parsed.effectiveness.rank ?? '';
+        data.effectiveness =
+            typeof score === 'number' && Number.isFinite(score)
+                ? `Score: ${score.toFixed(1)} ${rank}`.trim()
+                : null;
+    }
+    catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        console.warn('  ⚠️ Failed to parse effectiveness:', message);
+    }
+}
+/**
+ * Fetch committee data from MCP sources for a given abbreviation
+ *
+ * @param abbreviation - Committee abbreviation (e.g. "ENVI")
+ * @returns Committee data populated from MCP sources
+ */
+async function fetchCommitteeData(abbreviation) {
+    const defaultResult = {
+        name: `${abbreviation} Committee`,
+        abbreviation,
+        chair: 'N/A',
+        members: 0,
+        documents: [],
+        effectiveness: null,
+    };
+    if (!mcpClient)
+        return defaultResult;
+    try {
+        console.log(`  📡 Fetching committee info for ${abbreviation}...`);
+        const committeeResult = await mcpClient.getCommitteeInfo({ committeeId: abbreviation });
+        applyCommitteeInfo(committeeResult, defaultResult, abbreviation);
+    }
+    catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        console.warn(`  ⚠️ getCommitteeInfo failed for ${abbreviation}:`, message);
+    }
+    try {
+        console.log(`  📡 Fetching documents for ${abbreviation}...`);
+        const docsResult = await mcpClient.searchDocuments({ query: abbreviation, limit: 5 });
+        applyDocuments(docsResult, defaultResult);
+    }
+    catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        console.warn(`  ⚠️ searchDocuments failed for ${abbreviation}:`, message);
+    }
+    try {
+        const effectivenessResult = await mcpClient.analyzeLegislativeEffectiveness({
+            subjectType: 'COMMITTEE',
+            subjectId: abbreviation,
+        });
+        applyEffectiveness(effectivenessResult, defaultResult);
+    }
+    catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        console.warn(`  ⚠️ analyzeLegislativeEffectiveness failed for ${abbreviation}:`, message);
+    }
+    return defaultResult;
+}
+/**
+ * Generate Committee Reports article in specified languages
+ *
+ * @returns Generation result
+ */
+async function generateCommitteeReports() {
+    console.log('🏛️ Generating Committee Reports article...');
+    try {
+        const today = new Date();
+        const slug = `${formatDateForSlug(today)}-${ARTICLE_TYPE_COMMITTEE_REPORTS}`;
+        const committeeDataRaw = await Promise.all(FEATURED_COMMITTEES.map((abbr) => fetchCommitteeData(abbr).catch((error) => {
+            const message = error instanceof Error ? error.message : String(error);
+            console.error(`  ⚠️ Failed to fetch data for committee ${abbr}:`, message);
+            return null;
+        })));
+        const committeeDataList = committeeDataRaw.filter((committee) => committee !== null);
+        for (const lang of languages) {
+            console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
+            const titleGenerator = getLocalizedString(COMMITTEE_REPORTS_TITLES, lang);
+            const committeeLabel = FEATURED_COMMITTEES.join(', ');
+            const langTitles = titleGenerator(committeeLabel);
+            const committeeSections = committeeDataList
+                .map((committee) => {
+                const docItems = committee.documents.length > 0
+                    ? committee.documents
+                        .map((doc) => `
+                <li class="document-item">
+                  <span class="document-type">${escapeHTML(doc.type)}</span>
+                  <span class="document-title">${escapeHTML(doc.title)}</span>
+                  ${doc.date ? `<span class="document-date">${escapeHTML(doc.date)}</span>` : ''}
+                </li>`)
+                        .join('')
+                    : '<li>No recent documents available</li>';
+                const effectivenessHtml = committee.effectiveness
+                    ? `<p class="effectiveness-score">${escapeHTML(committee.effectiveness)}</p>`
+                    : '';
+                return `
+      <section class="committee-card">
+        <h3 class="committee-name">${escapeHTML(committee.name)} (${escapeHTML(committee.abbreviation)})</h3>
+        <div class="committee-meta">
+          <span class="committee-chair">Chair: ${escapeHTML(committee.chair)}</span>
+          <span class="committee-members">Members: ${committee.members}</span>
+        </div>
+        <section class="recent-activity">
+          <ul class="document-list">${docItems}</ul>
+        </section>
+        <section class="effectiveness-metrics">${effectivenessHtml}</section>
+      </section>`;
+            })
+                .join('');
+            const content = `
+    <section class="committee-overview">
+      <p class="lede">${escapeHTML(KEYWORD_EUROPEAN_PARLIAMENT)} committee activity and legislative effectiveness analysis.</p>
+    </section>
+    <section class="committee-reports">${committeeSections}</section>`;
+            const sources = [
+                { title: KEYWORD_EUROPEAN_PARLIAMENT, url: 'https://www.europarl.europa.eu' },
+            ];
+            const dateStr = today.toISOString().split('T')[0];
+            const html = generateArticleHTML({
+                slug: `${slug}-${lang}.html`,
+                title: langTitles.title,
+                subtitle: langTitles.subtitle,
+                date: dateStr,
+                type: 'prospective',
+                readTime: calculateReadTime(content),
+                lang,
+                content,
+                keywords: ['committee', 'EU Parliament', 'legislation'],
+                sources,
+            });
+            writeSingleArticle(html, slug, lang);
+        }
+        return { success: true, files: languages.length, slug };
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error('❌ Committee reports generation failed:', message);
         stats.errors++;
         return { success: false, error: message };
     }
@@ -1313,7 +1537,7 @@ async function generatePropositions() {
                 readTime,
                 lang,
                 content,
-                keywords: [EP_KEYWORD, 'legislation', 'proposals', 'procedure', 'OLP'],
+                keywords: [KEYWORD_EUROPEAN_PARLIAMENT, 'legislation', 'proposals', 'procedure', 'OLP'],
                 sources: [],
             });
             writeSingleArticle(html, slug, lang);
@@ -1361,7 +1585,7 @@ async function generateMotions() {
                 lang,
                 content,
                 keywords: [
-                    EP_KEYWORD,
+                    KEYWORD_EUROPEAN_PARLIAMENT,
                     'motions',
                     'voting records',
                     'party cohesion',
@@ -1407,6 +1631,9 @@ async function main() {
                     break;
                 case ARTICLE_TYPE_BREAKING:
                     results.push(await generateBreakingNews());
+                    break;
+                case ARTICLE_TYPE_COMMITTEE_REPORTS:
+                    results.push(await generateCommitteeReports());
                     break;
                 case 'propositions':
                     results.push(await generatePropositions());

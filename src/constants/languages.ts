@@ -474,6 +474,83 @@ export const BREAKING_NEWS_TITLES: LanguageMap<(date: string) => LangTitleSubtit
 };
 
 /**
+ * Committee reports titles for all 14 supported languages
+ * Generator function accepting committee abbreviation string
+ */
+export const COMMITTEE_REPORTS_TITLES: LanguageMap<(committee: string) => LangTitleSubtitle> = {
+  en: (committee) => ({
+    title: `EU Parliament Committee Activity Report: ${committee}`,
+    subtitle:
+      'Analysis of recent legislative output, effectiveness metrics, and key committee activities',
+  }),
+  de: (committee) => ({
+    title: `EU-Parlament Ausschussbericht: ${committee}`,
+    subtitle:
+      'Analyse der aktuellen Gesetzgebungsleistung, Effektivitätskennzahlen und wichtiger Ausschussaktivitäten',
+  }),
+  fr: (committee) => ({
+    title: `Rapport d'activité des commissions du Parlement européen: ${committee}`,
+    subtitle:
+      "Analyse de la production législative récente, des indicateurs d'efficacité et des activités clés des commissions",
+  }),
+  es: (committee) => ({
+    title: `Informe de actividad de comisiones del Parlamento Europeo: ${committee}`,
+    subtitle:
+      'Análisis de la producción legislativa reciente, métricas de efectividad y actividades clave de las comisiones',
+  }),
+  it: (committee) => ({
+    title: `Rapporto di attività delle commissioni del Parlamento europeo: ${committee}`,
+    subtitle:
+      'Analisi della recente produzione legislativa, metriche di efficacia e attività chiave delle commissioni',
+  }),
+  nl: (committee) => ({
+    title: `Activiteitenrapport commissies Europees Parlement: ${committee}`,
+    subtitle:
+      'Analyse van recente wetgevingsoutput, effectiviteitsmetrieken en belangrijkste commissieactiviteiten',
+  }),
+  pl: (committee) => ({
+    title: `Raport aktywności komisji Parlamentu Europejskiego: ${committee}`,
+    subtitle:
+      'Analiza ostatniego dorobku legislacyjnego, wskaźników efektywności i kluczowych działań komisji',
+  }),
+  pt: (committee) => ({
+    title: `Relatório de atividade das comissões do Parlamento Europeu: ${committee}`,
+    subtitle:
+      'Análise da produção legislativa recente, métricas de eficácia e atividades-chave das comissões',
+  }),
+  ro: (committee) => ({
+    title: `Raport de activitate al comisiilor Parlamentului European: ${committee}`,
+    subtitle:
+      'Analiza producției legislative recente, a indicatorilor de eficacitate și a activităților cheie ale comisiilor',
+  }),
+  sv: (committee) => ({
+    title: `Aktivitetsrapport för Europaparlamentets utskott: ${committee}`,
+    subtitle:
+      'Analys av nylig lagstiftningsproduktion, effektivitetsmätningar och viktigaste utskottsaktiviteter',
+  }),
+  da: (committee) => ({
+    title: `Aktivitetsrapport for Europa-Parlamentets udvalg: ${committee}`,
+    subtitle:
+      'Analyse af den seneste lovgivningsproduktion, effektivitetsmålinger og vigtigste udvalgsaktiviteter',
+  }),
+  fi: (committee) => ({
+    title: `Euroopan parlamentin valiokuntien toimintaraportti: ${committee}`,
+    subtitle:
+      'Analyysi viimeaikaisesta lainsäädäntötuotannosta, tehokkuusmittareista ja tärkeimmistä valiokuntatoiminnoista',
+  }),
+  el: (committee) => ({
+    title: `Έκθεση δραστηριότητας επιτροπών Ευρωπαϊκού Κοινοβουλίου: ${committee}`,
+    subtitle:
+      'Ανάλυση πρόσφατης νομοθετικής παραγωγής, δεικτών αποτελεσματικότητας και βασικών δραστηριοτήτων επιτροπών',
+  }),
+  hu: (committee) => ({
+    title: `Az Európai Parlament bizottságainak tevékenységi jelentése: ${committee}`,
+    subtitle:
+      'A közelmúlt jogalkotási kibocsátásának, hatékonysági mutatóinak és a bizottságok főbb tevékenységeinek elemzése',
+  }),
+};
+
+/**
  * Get a language-specific string with English fallback
  *
  * @param map - Language map to look up

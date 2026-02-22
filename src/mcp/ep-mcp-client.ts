@@ -26,10 +26,10 @@ import type {
   AnalyzeCoalitionDynamicsOptions,
   DetectVotingAnomaliesOptions,
   ComparePoliticalGroupsOptions,
-  AnalyzeLegislativeEffectivenessOptions,
   VotingRecordsOptions,
   VotingPatternsOptions,
   GenerateReportOptions,
+  AnalyzeLegislativeEffectivenessOptions,
 } from '../types/index.js';
 
 /** npm binary name for the European Parliament MCP server */
@@ -49,6 +49,9 @@ const REQUEST_TIMEOUT_MS = 30000;
 
 /** Connection startup delay in milliseconds */
 const CONNECTION_STARTUP_DELAY_MS = 500;
+
+/** Fallback payload for analyze_legislative_effectiveness when validation fails or tool is unavailable */
+const EFFECTIVENESS_FALLBACK = '{"effectiveness": null}';
 
 /**
  * MCP Client for European Parliament data access
@@ -400,6 +403,36 @@ export class EuropeanParliamentMCPClient {
   }
 
   /**
+   * Analyze legislative effectiveness of an MEP or committee
+   *
+   * @param options - Options including subjectType and subjectId
+   * @returns Legislative effectiveness data
+   */
+  async analyzeLegislativeEffectiveness(
+    options: AnalyzeLegislativeEffectivenessOptions
+  ): Promise<MCPToolResult> {
+    const { subjectType, subjectId } = options;
+    if (subjectId.trim().length === 0) {
+      console.warn(
+        'analyze_legislative_effectiveness called without valid subjectId (non-empty string required)'
+      );
+      return { content: [{ type: 'text', text: EFFECTIVENESS_FALLBACK }] };
+    }
+    const trimmedSubjectId = subjectId.trim();
+    try {
+      return await this.callTool('analyze_legislative_effectiveness', {
+        ...options,
+        subjectType,
+        subjectId: trimmedSubjectId,
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('analyze_legislative_effectiveness not available:', message);
+      return { content: [{ type: 'text', text: EFFECTIVENESS_FALLBACK }] };
+    }
+  }
+
+  /**
    * Assess MEP influence using 5-dimension scoring model
    *
    * @param options - Options including required mepId and optional date range
@@ -477,35 +510,6 @@ export class EuropeanParliamentMCPClient {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('compare_political_groups not available:', message);
       return { content: [{ type: 'text', text: '{"comparison": {}}' }] };
-    }
-  }
-
-  /**
-   * Analyze legislative effectiveness of an MEP or committee
-   *
-   * @param options - Options including required subjectId and optional subjectType and date
-   * @returns Legislative effectiveness scoring
-   */
-  async analyzeLegislativeEffectiveness(
-    options: AnalyzeLegislativeEffectivenessOptions
-  ): Promise<MCPToolResult> {
-    const trimmedSubjectId =
-      options && typeof options.subjectId === 'string' ? options.subjectId.trim() : '';
-    if (trimmedSubjectId.length === 0) {
-      console.warn(
-        'analyze_legislative_effectiveness called without valid subjectId (non-empty string required)'
-      );
-      return { content: [{ type: 'text', text: '{"effectiveness": {}}' }] };
-    }
-    try {
-      return await this.callTool('analyze_legislative_effectiveness', {
-        ...options,
-        subjectId: trimmedSubjectId,
-      });
-    } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
-      console.warn('analyze_legislative_effectiveness not available:', message);
-      return { content: [{ type: 'text', text: '{"effectiveness": {}}' }] };
     }
   }
 

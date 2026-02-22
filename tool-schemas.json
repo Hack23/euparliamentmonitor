@@ -9,12 +9,26 @@
           "country": {
             "type": "string",
             "description": "ISO 3166-1 alpha-2 country code (e.g., 'SE' for Sweden)",
-            "examples": ["SE", "DE", "FR", "IT", "ES"]
+            "examples": [
+              "SE",
+              "DE",
+              "FR",
+              "IT",
+              "ES"
+            ]
           },
           "group": {
             "type": "string",
             "description": "Political group abbreviation (e.g., PPE, S&D, Renew, Greens/EFA)",
-            "examples": ["PPE", "S&D", "Renew", "Greens/EFA", "ECR", "ID", "The Left"]
+            "examples": [
+              "PPE",
+              "S&D",
+              "Renew",
+              "Greens/EFA",
+              "ECR",
+              "ID",
+              "The Left"
+            ]
           },
           "limit": {
             "type": "number",
@@ -35,12 +49,16 @@
           "startDate": {
             "type": "string",
             "description": "Start date in YYYY-MM-DD format",
-            "examples": ["2024-01-01"]
+            "examples": [
+              "2024-01-01"
+            ]
           },
           "endDate": {
             "type": "string",
             "description": "End date in YYYY-MM-DD format",
-            "examples": ["2024-12-31"]
+            "examples": [
+              "2024-12-31"
+            ]
           },
           "limit": {
             "type": "number",
@@ -50,7 +68,10 @@
             "maximum": 100
           }
         },
-        "required": ["startDate", "endDate"]
+        "required": [
+          "startDate",
+          "endDate"
+        ]
       }
     },
     {
@@ -62,12 +83,21 @@
           "query": {
             "type": "string",
             "description": "Search query for documents",
-            "examples": ["climate change", "artificial intelligence", "migration policy"]
+            "examples": [
+              "climate change",
+              "artificial intelligence",
+              "migration policy"
+            ]
           },
           "type": {
             "type": "string",
             "description": "Document type filter (e.g., REPORT, RESOLUTION, DIRECTIVE)",
-            "examples": ["REPORT", "RESOLUTION", "DIRECTIVE", "REGULATION"]
+            "examples": [
+              "REPORT",
+              "RESOLUTION",
+              "DIRECTIVE",
+              "REGULATION"
+            ]
           },
           "limit": {
             "type": "number",
@@ -77,7 +107,9 @@
             "maximum": 100
           }
         },
-        "required": ["query"]
+        "required": [
+          "query"
+        ]
       }
     },
     {
@@ -89,12 +121,18 @@
           "type": {
             "type": "string",
             "description": "Question type (e.g., WRITTEN, ORAL, PRIORITY)",
-            "examples": ["WRITTEN", "ORAL", "PRIORITY"]
+            "examples": [
+              "WRITTEN",
+              "ORAL",
+              "PRIORITY"
+            ]
           },
           "startDate": {
             "type": "string",
             "description": "Filter questions from this date (YYYY-MM-DD format)",
-            "examples": ["2024-01-01"]
+            "examples": [
+              "2024-01-01"
+            ]
           },
           "limit": {
             "type": "number",
@@ -115,7 +153,14 @@
           "committeeId": {
             "type": "string",
             "description": "Specific committee ID (e.g., AFET, ECON, ENVI, LIBE)",
-            "examples": ["AFET", "ECON", "ENVI", "LIBE", "CULT", "EMPL"]
+            "examples": [
+              "AFET",
+              "ECON",
+              "ENVI",
+              "LIBE",
+              "CULT",
+              "EMPL"
+            ]
           },
           "limit": {
             "type": "number",
@@ -136,12 +181,16 @@
           "sessionId": {
             "type": "string",
             "description": "Filter by specific session ID",
-            "examples": ["2024-01-15"]
+            "examples": [
+              "2024-01-15"
+            ]
           },
           "mepId": {
             "type": "string",
             "description": "Filter by specific MEP ID",
-            "examples": ["12345"]
+            "examples": [
+              "12345"
+            ]
           },
           "limit": {
             "type": "number",
@@ -151,6 +200,64 @@
             "maximum": 100
           }
         }
+      }
+    },
+    {
+      "name": "monitor_legislative_pipeline",
+      "description": "Monitor European Parliament legislative pipeline status with bottleneck detection and forecasting",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Pipeline status filter (ALL, ACTIVE, STALLED, COMPLETED)",
+            "default": "ACTIVE"
+          },
+          "committee": {
+            "type": "string",
+            "description": "Filter by committee abbreviation"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum number of results (1-100)",
+            "default": 20,
+            "minimum": 1,
+            "maximum": 100
+          }
+        }
+      }
+    },
+    {
+      "name": "analyze_legislative_effectiveness",
+      "description": "Analyze legislative effectiveness of an MEP or committee with productivity, quality, and impact scores",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subjectType": {
+            "type": "string",
+            "description": "Subject type to analyze",
+            "enum": [
+              "MEP",
+              "COMMITTEE"
+            ]
+          },
+          "subjectId": {
+            "type": "string",
+            "description": "Subject identifier (MEP ID or committee abbreviation)"
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Analysis start date in YYYY-MM-DD format"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "Analysis end date in YYYY-MM-DD format"
+          }
+        },
+        "required": [
+          "subjectType",
+          "subjectId"
+        ]
       }
     },
     {

@@ -238,6 +238,22 @@ export interface LangTitleSubtitle {
   subtitle: string;
 }
 
+/** Committee document with type, title and date */
+export interface CommitteeDocument {
+  title: string;
+  type: string;
+  date: string;
+}
+
+/** Committee report data aggregated from MCP sources */
+export interface CommitteeData {
+  name: string;
+  abbreviation: string;
+  chair: string;
+  members: number;
+  documents: CommitteeDocument[];
+  effectiveness: string | null;
+}
 /** Localized strings for propositions articles */
 export interface PropositionsStrings {
   lede: string;
@@ -342,8 +358,9 @@ export interface ComparePoliticalGroupsOptions {
 /** Options for analyzeLegislativeEffectiveness */
 export interface AnalyzeLegislativeEffectivenessOptions {
   subjectId: string;
-  subjectType?: string;
+  subjectType: 'MEP' | 'COMMITTEE';
   dateFrom?: string;
+  dateTo?: string;
 }
 
 /** Voting record from MCP or fallback */

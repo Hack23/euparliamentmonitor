@@ -773,19 +773,19 @@ describe('ep-mcp-client', () => {
       it('should handle missing analyze legislative effectiveness tool gracefully', async () => {
         client.callTool.mockRejectedValue(new Error('Tool not available'));
 
-        const result = await client.analyzeLegislativeEffectiveness({ subjectId: 'MEP-123' });
+        const result = await client.analyzeLegislativeEffectiveness({ subjectId: 'MEP-123', subjectType: 'MEP' });
 
         expect(result).toEqual({
-          content: [{ type: 'text', text: '{"effectiveness": {}}' }],
+          content: [{ type: 'text', text: '{"effectiveness": null}' }],
         });
       });
 
       it('should return fallback for analyzeLegislativeEffectiveness with blank subjectId', async () => {
-        const result = await client.analyzeLegislativeEffectiveness({ subjectId: '' });
+        const result = await client.analyzeLegislativeEffectiveness({ subjectId: '', subjectType: 'MEP' });
 
         expect(client.callTool).not.toHaveBeenCalled();
         expect(result).toEqual({
-          content: [{ type: 'text', text: '{"effectiveness": {}}' }],
+          content: [{ type: 'text', text: '{"effectiveness": null}' }],
         });
       });
     });
