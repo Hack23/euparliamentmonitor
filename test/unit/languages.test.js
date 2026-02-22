@@ -126,6 +126,7 @@ describe('constants/languages', () => {
       }
     });
 
+
     it('should have entries for all 14 languages in MOTIONS_TITLES', () => {
       for (const lang of ALL_LANGUAGES) {
         const generator = MOTIONS_TITLES[lang];

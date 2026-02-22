@@ -84,6 +84,8 @@ Replaced simple `fetchEvents()` with comprehensive data aggregation:
 ```
  Test Files  11 passed (11)
       Tests  230 passed (230)
+   Start at  02:35:55
+   Duration  1.21s
 ```
 
 ### New Tests Passing:
