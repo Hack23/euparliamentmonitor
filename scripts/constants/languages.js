@@ -234,6 +234,65 @@ export const WEEK_AHEAD_TITLES = {
         subtitle: 'Európai Parlament naptár, bizottsági ülések és plenáris viták a jövő hétre',
     }),
 };
+/** Breaking news title templates per language */
+export const BREAKING_NEWS_TITLES = {
+    en: (date) => ({
+        title: `Breaking: Significant Parliamentary Developments — ${date}`,
+        subtitle: 'Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities',
+    }),
+    de: (date) => ({
+        title: `Eilmeldung: Bedeutende Parlamentarische Entwicklungen — ${date}`,
+        subtitle: 'Geheimdienstliche Analyse von Abstimmungsanomalien, Koalitionsverschiebungen und wichtigen MEP-Aktivitäten',
+    }),
+    fr: (date) => ({
+        title: `Dernières Nouvelles: Développements Parlementaires Significatifs — ${date}`,
+        subtitle: 'Analyse de renseignements sur les anomalies de vote, les évolutions des coalitions et les activités clés des eurodéputés',
+    }),
+    es: (date) => ({
+        title: `Última Hora: Desarrollos Parlamentarios Significativos — ${date}`,
+        subtitle: 'Análisis de inteligencia sobre anomalías en votaciones, cambios en coaliciones y actividades clave de eurodiputados',
+    }),
+    it: (date) => ({
+        title: `Ultime Notizie: Sviluppi Parlamentari Significativi — ${date}`,
+        subtitle: "Analisi dell'intelligence su anomalie di voto, cambiamenti nelle coalizioni e attività chiave degli eurodeputati",
+    }),
+    nl: (date) => ({
+        title: `Laatste Nieuws: Significante Parlementaire Ontwikkelingen — ${date}`,
+        subtitle: 'Inlichtingenanalyse van stemanomalieën, coalitieverschuivingen en belangrijke MEP-activiteiten',
+    }),
+    pl: (date) => ({
+        title: `Najnowsze Wiadomości: Znaczące Wydarzenia Parlamentarne — ${date}`,
+        subtitle: 'Analiza wywiadowcza anomalii głosowań, zmian koalicyjnych i kluczowych działań europosłów',
+    }),
+    pt: (date) => ({
+        title: `Notícias de Última Hora: Desenvolvimentos Parlamentares Significativos — ${date}`,
+        subtitle: 'Análise de inteligência sobre anomalias de votação, mudanças em coalizões e atividades-chave de eurodeputados',
+    }),
+    ro: (date) => ({
+        title: `Știri de Ultimă Oră: Evoluții Parlamentare Semnificative — ${date}`,
+        subtitle: 'Analiză de informații privind anomaliile de vot, schimbările de coaliție și activitățile-cheie ale eurodeputaților',
+    }),
+    sv: (date) => ({
+        title: `Senaste Nytt: Betydande Parlamentariska Händelser — ${date}`,
+        subtitle: 'Underrättelseanalys av röstningsanomalier, koalitionsförändringar och viktig MEP-aktivitet',
+    }),
+    da: (date) => ({
+        title: `Seneste Nyt: Betydelige Parlamentariske Udviklinger — ${date}`,
+        subtitle: 'Efterretningsanalyse af afstemningsanomalier, koalitionsforskydninger og centrale MEP-aktiviteter',
+    }),
+    fi: (date) => ({
+        title: `Uusimmat Uutiset: Merkittäviä Parlamentaarisia Kehityksiä — ${date}`,
+        subtitle: 'Tiedusteluanalyysi äänestyspoikkeamista, koalitiomuutoksista ja keskeisistä MEP-toimista',
+    }),
+    el: (date) => ({
+        title: `Τελευταία Νέα: Σημαντικές Κοινοβουλευτικές Εξελίξεις — ${date}`,
+        subtitle: 'Ανάλυση πληροφοριών για ψηφοφορικές ανωμαλίες, μετατοπίσεις συνασπισμών και βασικές δραστηριότητες ευρωβουλευτών',
+    }),
+    hu: (date) => ({
+        title: `Legfrissebb Hírek: Jelentős Parlamenti Fejlemények — ${date}`,
+        subtitle: 'Hírszerzési elemzés szavazási rendellenességekről, koalíciós eltolódásokról és kulcsfontosságú EP-képviselői tevékenységekről',
+    }),
+};
 /** Committee reports title templates per language */
 export const COMMITTEE_REPORTS_TITLES = {
     en: (committee) => ({
