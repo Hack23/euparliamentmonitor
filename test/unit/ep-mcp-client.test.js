@@ -301,11 +301,15 @@ describe('ep-mcp-client', () => {
       it('should get MEPs', async () => {
         const options = { country: 'DE', limit: 10 };
         await client.getMEPs(options);
-        
+
         expect(client.sendRequest).toHaveBeenCalledWith('tools/call', {
           name: 'get_meps',
           arguments: options,
         });
+      });
+
+      it('should reject array arguments in callTool', async () => {
+        await expect(client.callTool('test_tool', [])).rejects.toThrow(TypeError);
       });
     });
 
@@ -313,6 +317,27 @@ describe('ep-mcp-client', () => {
       beforeEach(() => {
         client.connected = true;
         client.callTool = vi.fn();
+      });
+
+      it('should get MEPs with options', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"meps": []}' }],
+        });
+
+        const options = { country: 'DE', limit: 10 };
+        await client.getMEPs(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_meps', options);
+      });
+
+      it('should handle missing getMEPs tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getMEPs();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"meps": []}' }],
+        });
       });
 
       it('should get plenary sessions', async () => {
@@ -347,6 +372,21 @@ describe('ep-mcp-client', () => {
         expect(client.callTool).toHaveBeenCalledWith('search_documents', options);
       });
 
+      it('should normalize keyword to query in searchDocuments', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+
+        await client.searchDocuments({ keyword: 'parliament', limit: 20 });
+
+        expect(client.callTool).toHaveBeenCalledWith(
+          'search_documents',
+          expect.objectContaining({ query: 'parliament', limit: 20 })
+        );
+        const callArgs = client.callTool.mock.calls[0][1];
+        expect(callArgs).not.toHaveProperty('keyword');
+      });
+
       it('should handle missing search documents tool gracefully', async () => {
         client.callTool.mockRejectedValue(new Error('Tool not available'));
 
@@ -368,6 +408,19 @@ describe('ep-mcp-client', () => {
         expect(client.callTool).toHaveBeenCalledWith('get_parliamentary_questions', options);
       });
 
+      it('should map dateFrom to startDate in getParliamentaryQuestions', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"questions": []}' }],
+        });
+
+        await client.getParliamentaryQuestions({ dateFrom: '2024-01-01', limit: 10 });
+
+        const callArgs = client.callTool.mock.calls[0][1];
+        expect(callArgs).toHaveProperty('startDate', '2024-01-01');
+        expect(callArgs).not.toHaveProperty('dateFrom');
+        expect(callArgs).not.toHaveProperty('dateTo');
+      });
+
       it('should handle missing parliamentary questions tool gracefully', async () => {
         client.callTool.mockRejectedValue(new Error('Tool not available'));
 
@@ -383,7 +436,7 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"committees": []}' }],
         });
 
-        const options = { dateFrom: '2024-01-01', limit: 20 };
+        const options = { committeeId: 'ENVI', limit: 20 };
         await client.getCommitteeInfo(options);
 
         expect(client.callTool).toHaveBeenCalledWith('get_committee_info', options);
@@ -594,6 +647,145 @@ describe('ep-mcp-client', () => {
         expect(client.callTool).not.toHaveBeenCalled();
         expect(result).toEqual({
           content: [{ type: 'text', text: '{"report": null}' }],
+        });
+      });
+    });
+
+    describe('OSINT Intelligence Methods', () => {
+      beforeEach(() => {
+        client.connected = true;
+        client.callTool = vi.fn();
+      });
+
+      it('should assess MEP influence', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"influence": {"score": 85}}' }],
+        });
+
+        const options = { mepId: 'MEP-123', dateFrom: '2024-01-01', dateTo: '2024-12-31' };
+        await client.assessMEPInfluence(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('assess_mep_influence', options);
+      });
+
+      it('should handle missing assess MEP influence tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.assessMEPInfluence({ mepId: 'MEP-123' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"influence": {}}' }],
+        });
+      });
+
+      it('should return fallback for assessMEPInfluence with blank mepId', async () => {
+        const result = await client.assessMEPInfluence({ mepId: '   ' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"influence": {}}' }],
+        });
+      });
+
+      it('should analyze coalition dynamics', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"coalitions": []}' }],
+        });
+
+        const options = { politicalGroups: ['EPP', 'S&D'], dateFrom: '2024-01-01' };
+        await client.analyzeCoalitionDynamics(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('analyze_coalition_dynamics', options);
+      });
+
+      it('should handle missing analyze coalition dynamics tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.analyzeCoalitionDynamics();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"coalitions": []}' }],
+        });
+      });
+
+      it('should detect voting anomalies', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"anomalies": []}' }],
+        });
+
+        const options = { mepId: 'MEP-123', politicalGroup: 'EPP', dateFrom: '2024-01-01' };
+        await client.detectVotingAnomalies(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('detect_voting_anomalies', options);
+      });
+
+      it('should handle missing detect voting anomalies tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.detectVotingAnomalies();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"anomalies": []}' }],
+        });
+      });
+
+      it('should compare political groups', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"comparison": {}}' }],
+        });
+
+        const options = { groups: ['EPP', 'S&D'], metrics: ['attendance'], dateFrom: '2024-01-01' };
+        await client.comparePoliticalGroups(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('compare_political_groups', options);
+      });
+
+      it('should handle missing compare political groups tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.comparePoliticalGroups({ groups: ['EPP', 'S&D'] });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"comparison": {}}' }],
+        });
+      });
+
+      it('should return fallback for comparePoliticalGroups with empty groups', async () => {
+        const result = await client.comparePoliticalGroups({ groups: [] });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"comparison": {}}' }],
+        });
+      });
+
+      it('should analyze legislative effectiveness', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"effectiveness": {"score": 72}}' }],
+        });
+
+        const options = { subjectId: 'MEP-123', subjectType: 'MEP', dateFrom: '2024-01-01' };
+        await client.analyzeLegislativeEffectiveness(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('analyze_legislative_effectiveness', options);
+      });
+
+      it('should handle missing analyze legislative effectiveness tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.analyzeLegislativeEffectiveness({ subjectId: 'MEP-123' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"effectiveness": {}}' }],
+        });
+      });
+
+      it('should return fallback for analyzeLegislativeEffectiveness with blank subjectId', async () => {
+        const result = await client.analyzeLegislativeEffectiveness({ subjectId: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"effectiveness": {}}' }],
         });
       });
     });
