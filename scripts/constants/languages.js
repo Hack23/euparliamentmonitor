@@ -234,6 +234,65 @@ export const WEEK_AHEAD_TITLES = {
         subtitle: 'Európai Parlament naptár, bizottsági ülések és plenáris viták a jövő hétre',
     }),
 };
+/** Motions title templates per language */
+export const MOTIONS_TITLES = {
+    en: (date) => ({
+        title: `Parliamentary Motions & Votes: ${date}`,
+        subtitle: 'Recent parliamentary motions, voting records, party cohesion analysis, and detected voting anomalies in the European Parliament',
+    }),
+    de: (date) => ({
+        title: `Parlamentarische Anträge & Abstimmungen: ${date}`,
+        subtitle: 'Aktuelle parlamentarische Anträge, Abstimmungsergebnisse, Fraktionskohäsionsanalyse und erkannte Abstimmungsanomalien im Europäischen Parlament',
+    }),
+    fr: (date) => ({
+        title: `Motions & Votes Parlementaires: ${date}`,
+        subtitle: 'Motions parlementaires récentes, résultats de votes, analyse de cohésion des groupes politiques et anomalies de vote détectées au Parlement européen',
+    }),
+    es: (date) => ({
+        title: `Mociones & Votaciones Parlamentarias: ${date}`,
+        subtitle: 'Mociones parlamentarias recientes, resultados de votaciones, análisis de cohesión de grupos políticos y anomalías de votación detectadas en el Parlamento Europeo',
+    }),
+    it: (date) => ({
+        title: `Mozioni & Votazioni Parlamentari: ${date}`,
+        subtitle: 'Mozioni parlamentari recenti, risultati delle votazioni, analisi di coesione dei gruppi politici e anomalie di voto rilevate nel Parlamento europeo',
+    }),
+    nl: (date) => ({
+        title: `Parlementaire Moties & Stemmingen: ${date}`,
+        subtitle: 'Recente parlementaire moties, stemresultaten, fractiebinding-analyse en gedetecteerde stemanomalieën in het Europees Parlement',
+    }),
+    pl: (date) => ({
+        title: `Wnioski & Głosowania Parlamentarne: ${date}`,
+        subtitle: 'Ostatnie wnioski parlamentarne, wyniki głosowań, analiza spójności grup politycznych i wykryte anomalie głosowania w Parlamencie Europejskim',
+    }),
+    pt: (date) => ({
+        title: `Moções & Votações Parlamentares: ${date}`,
+        subtitle: 'Moções parlamentares recentes, resultados de votações, análise de coesão dos grupos políticos e anomalias de votação detectadas no Parlamento Europeu',
+    }),
+    ro: (date) => ({
+        title: `Moțiuni & Votări Parlamentare: ${date}`,
+        subtitle: 'Moțiuni parlamentare recente, rezultate ale voturilor, analiză de coeziune a grupurilor politice și anomalii de vot detectate în Parlamentul European',
+    }),
+    sv: (date) => ({
+        title: `Parlamentariska Motioner & Omröstningar: ${date}`,
+        subtitle: 'Senaste parlamentariska motioner, omröstningsresultat, analys av partikohesion och upptäckta omröstningsanomalier i Europaparlamentet',
+    }),
+    da: (date) => ({
+        title: `Parlamentariske Motioner & Afstemninger: ${date}`,
+        subtitle: 'Seneste parlamentariske motioner, afstemningsresultater, analyse af partikohæsion og opdagede afstemningsanomalier i Europa-Parlamentet',
+    }),
+    fi: (date) => ({
+        title: `Parlamentaariset Esitykset & Äänestykset: ${date}`,
+        subtitle: 'Viimeisimmät parlamentaariset esitykset, äänestystulokset, puoluekohesio-analyysi ja havaitut äänestyspoikkeamat Euroopan parlamentissa',
+    }),
+    el: (date) => ({
+        title: `Κοινοβουλευτικές Προτάσεις & Ψηφοφορίες: ${date}`,
+        subtitle: 'Πρόσφατες κοινοβουλευτικές προτάσεις, αποτελέσματα ψηφοφοριών, ανάλυση συνοχής κομματικών ομάδων και ανιχνευμένες ανωμαλίες ψηφοφορίας στο Ευρωπαϊκό Κοινοβούλιο',
+    }),
+    hu: (date) => ({
+        title: `Parlamenti Indítványok & Szavazások: ${date}`,
+        subtitle: 'Legutóbbi parlamenti indítványok, szavazási eredmények, pártkoheziós elemzés és észlelt szavazási anomáliák az Európai Parlamentben',
+    }),
+};
 /**
  * Get a language-specific string with English fallback
  *
