@@ -265,6 +265,8 @@ export interface MotionsQuestion {
   topic: string;
   date: string;
   status: string;
+}
+
 /** Options for getting voting records */
 export interface VotingRecordsOptions {
   mepId?: string;

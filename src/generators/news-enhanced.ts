@@ -901,9 +901,12 @@ async function generateBreakingNews(): Promise<GenerationResult> {
 }
 
 /**
- * Main execution
+ * Fetches recent voting records from the MCP server for the given date range.
+ *
+ * @param dateFromStr - Start date in YYYY-MM-DD format
+ * @param dateStr - End date in YYYY-MM-DD format
+ * @returns Array of VotingRecord objects, or empty array if MCP is unavailable
  */
-
 async function fetchVotingRecords(dateFromStr: string, dateStr: string): Promise<VotingRecord[]> {
   if (!mcpClient) return [];
 
