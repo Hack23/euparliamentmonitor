@@ -151,6 +151,57 @@ export interface ParliamentEvent {
   description: string;
 }
 
+/** Committee meeting data from MCP */
+export interface CommitteeMeeting {
+  id?: string;
+  committee: string;
+  committeeName?: string;
+  date: string;
+  time?: string;
+  location?: string;
+  agenda?: Array<{ item?: number; title: string; type?: string }>;
+}
+
+/** Legislative document from MCP */
+export interface LegislativeDocument {
+  id?: string;
+  type?: string;
+  title: string;
+  date?: string;
+  status?: string;
+  committee?: string;
+  rapporteur?: string;
+}
+
+/** Legislative pipeline procedure */
+export interface LegislativeProcedure {
+  id?: string;
+  title: string;
+  stage?: string;
+  committee?: string;
+  status?: string;
+  bottleneck?: boolean;
+}
+
+/** Parliamentary question */
+export interface ParliamentaryQuestion {
+  id?: string;
+  type?: string;
+  author?: string;
+  subject: string;
+  date?: string;
+  status?: string;
+}
+
+/** Aggregated week-ahead data from multiple MCP sources */
+export interface WeekAheadData {
+  events: ParliamentEvent[];
+  committees: CommitteeMeeting[];
+  documents: LegislativeDocument[];
+  pipeline: LegislativeProcedure[];
+  questions: ParliamentaryQuestion[];
+}
+
 /** Date range for article generation */
 export interface DateRange {
   start: string;
@@ -186,11 +237,6 @@ export interface LangTitleSubtitle {
   subtitle: string;
 }
 
-/** Options for getting MEP details */
-export interface MEPDetailsOptions {
-  id: string;
-}
-
 /** Options for getting voting records */
 export interface VotingRecordsOptions {
   mepId?: string;
@@ -200,30 +246,12 @@ export interface VotingRecordsOptions {
   [key: string]: unknown;
 }
 
-/** Options for getting committee information (exactly one identifier is required) */
-export interface CommitteeInfoByIdOptions {
-  id: string;
-  abbreviation?: never;
-}
-
-export interface CommitteeInfoByAbbreviationOptions {
-  id?: never;
-  abbreviation: string;
-}
-
-export type CommitteeInfoOptions = CommitteeInfoByIdOptions | CommitteeInfoByAbbreviationOptions;
-
 /** Options for analyzing voting patterns */
 export interface VotingPatternsOptions {
   mepId: string;
   dateFrom?: string;
   compareWithGroup?: boolean;
   [key: string]: unknown;
-}
-
-/** Options for tracking legislation */
-export interface TrackLegislationOptions {
-  procedureId: string;
 }
 
 /** Options for generating analytical reports */

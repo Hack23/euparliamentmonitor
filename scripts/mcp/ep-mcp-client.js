@@ -6,6 +6,14 @@
  * Communicates via JSON-RPC 2.0 over stdio with retry logic.
  */
 import { spawn } from 'child_process';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+/** npm binary name for the European Parliament MCP server */
+const BINARY_NAME = 'european-parliament-mcp-server';
+/** Platform-specific binary filename (Windows uses .cmd shim) */
+const BINARY_FILE = process.platform === 'win32' ? `${BINARY_NAME}.cmd` : BINARY_NAME;
+/** Default binary resolved from node_modules/.bin relative to this file's compiled location */
+const DEFAULT_SERVER_BINARY = resolve(dirname(fileURLToPath(import.meta.url)), `../../node_modules/.bin/${BINARY_FILE}`);
 /** Request timeout in milliseconds */
 const REQUEST_TIMEOUT_MS = 30000;
 /** Connection startup delay in milliseconds */
@@ -24,7 +32,7 @@ export class EuropeanParliamentMCPClient {
     connectionRetryDelay;
     constructor(options = {}) {
         this.serverPath =
-            options.serverPath ?? process.env['EP_MCP_SERVER_PATH'] ?? 'european-parliament-mcp';
+            options.serverPath ?? process.env['EP_MCP_SERVER_PATH'] ?? DEFAULT_SERVER_BINARY;
         this.connected = false;
         this.process = null;
         this.requestId = 0;
@@ -75,10 +83,14 @@ export class EuropeanParliamentMCPClient {
      */
     async _attemptConnection() {
         try {
-            this.process = spawn('node', [this.serverPath], {
+            const isJavaScriptFile = this.serverPath.toLowerCase().endsWith('.js');
+            const command = isJavaScriptFile ? process.execPath : this.serverPath;
+            const args = isJavaScriptFile ? [this.serverPath] : [];
+            this.process = spawn(command, args, {
                 stdio: ['pipe', 'pipe', 'pipe'],
             });
             let buffer = '';
+            let startupError = null;
             this.process.stdout?.on('data', (data) => {
                 buffer += data.toString();
                 const lines = buffer.split('\n');
@@ -103,10 +115,14 @@ export class EuropeanParliamentMCPClient {
                     this.pendingRequests.delete(id);
                 }
             });
-            this.process.on('error', (_error) => {
+            this.process.on('error', (err) => {
+                startupError = err;
                 this.connected = false;
             });
             await new Promise((resolve) => setTimeout(resolve, CONNECTION_STARTUP_DELAY_MS));
+            if (startupError) {
+                throw startupError;
+            }
             this.connected = true;
             console.log('✅ Connected to European Parliament MCP Server');
         }
@@ -260,6 +276,38 @@ export class EuropeanParliamentMCPClient {
         }
     }
     /**
+     * Get committee information
+     *
+     * @param options - Filter options
+     * @returns Committee info data
+     */
+    async getCommitteeInfo(options = {}) {
+        try {
+            return (await this.callTool('get_committee_info', options));
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('get_committee_info not available:', message);
+            return { content: [{ type: 'text', text: '{"committees": []}' }] };
+        }
+    }
+    /**
+     * Monitor legislative pipeline
+     *
+     * @param options - Filter options
+     * @returns Legislative pipeline data
+     */
+    async monitorLegislativePipeline(options = {}) {
+        try {
+            return (await this.callTool('monitor_legislative_pipeline', options));
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('monitor_legislative_pipeline not available:', message);
+            return { content: [{ type: 'text', text: '{"procedures": []}' }] };
+        }
+    }
+    /**
      * Get detailed information about a specific MEP
      *
      * @param id - MEP identifier
@@ -289,34 +337,6 @@ export class EuropeanParliamentMCPClient {
             const message = error instanceof Error ? error.message : String(error);
             console.warn('get_voting_records not available:', message);
             return { content: [{ type: 'text', text: '{"votes": []}' }] };
-        }
-    }
-    /**
-     * Get committee information by id or abbreviation
-     *
-     * @param options - Options with id or abbreviation
-     * @returns Committee information
-     */
-    async getCommitteeInfo(options) {
-        try {
-            const { id, abbreviation } = options;
-            let requestPayload = null;
-            if (typeof id === 'string' && id.trim().length > 0) {
-                requestPayload = { id: id.trim() };
-            }
-            else if (typeof abbreviation === 'string' && abbreviation.trim().length > 0) {
-                requestPayload = { abbreviation: abbreviation.trim() };
-            }
-            if (requestPayload === null) {
-                console.warn('get_committee_info called without valid identifier (non-empty id or abbreviation)');
-                return { content: [{ type: 'text', text: '{"committee": null}' }] };
-            }
-            return (await this.callTool('get_committee_info', requestPayload));
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_committee_info not available:', message);
-            return { content: [{ type: 'text', text: '{"committee": null}' }] };
         }
     }
     /**

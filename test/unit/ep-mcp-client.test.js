@@ -9,6 +9,7 @@
 /* eslint-disable no-undef */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import path from 'path';
 import { EuropeanParliamentMCPClient, getEPMCPClient, closeEPMCPClient } from '../../scripts/mcp/ep-mcp-client.js';
 import { mockConsole } from '../helpers/test-utils.js';
 
@@ -36,6 +37,21 @@ describe('ep-mcp-client', () => {
         expect(client.requestId).toBe(0);
         expect(client.maxConnectionAttempts).toBe(3);
         expect(client.connectionRetryDelay).toBe(1000);
+      });
+
+      it('should default serverPath to npm package binary in node_modules/.bin', () => {
+        const hadEnvVar = 'EP_MCP_SERVER_PATH' in process.env;
+        const originalPath = process.env.EP_MCP_SERVER_PATH;
+        delete process.env.EP_MCP_SERVER_PATH;
+
+        const defaultClient = new EuropeanParliamentMCPClient();
+        expect(defaultClient.serverPath).toContain('european-parliament-mcp-server');
+        expect(path.isAbsolute(defaultClient.serverPath)).toBe(true);
+
+        // Restore
+        if (hadEnvVar) {
+          process.env.EP_MCP_SERVER_PATH = originalPath;
+        }
       });
 
       it('should accept custom options', () => {
@@ -72,6 +88,24 @@ describe('ep-mcp-client', () => {
     });
 
     describe('Connection Management', () => {
+      it('should use serverPath as binary command (not node with script argument)', () => {
+        // The serverPath should be used directly as the executable command,
+        // not wrapped as 'node [serverPath]'. Verify by checking serverPath is
+        // an absolute path to the binary, not a .js script.
+        const hadEnvVar = 'EP_MCP_SERVER_PATH' in process.env;
+        const originalEnv = process.env.EP_MCP_SERVER_PATH;
+        delete process.env.EP_MCP_SERVER_PATH;
+
+        const clientWithBinary = new EuropeanParliamentMCPClient();
+        // Default path should point to the binary (not a .js file for node to execute)
+        expect(clientWithBinary.serverPath).not.toMatch(/\.js$/);
+        expect(clientWithBinary.serverPath).toContain('european-parliament-mcp-server');
+
+        if (hadEnvVar) {
+          process.env.EP_MCP_SERVER_PATH = originalEnv;
+        }
+      });
+
       it('should handle connection behavior consistently', async () => {
         // Set an invalid server path
         client.serverPath = '/nonexistent/path/to/server.js';
@@ -344,6 +378,48 @@ describe('ep-mcp-client', () => {
         });
       });
 
+      it('should get committee info', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"committees": []}' }],
+        });
+
+        const options = { dateFrom: '2024-01-01', limit: 20 };
+        await client.getCommitteeInfo(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_committee_info', options);
+      });
+
+      it('should handle missing committee info tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getCommitteeInfo();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"committees": []}' }],
+        });
+      });
+
+      it('should monitor legislative pipeline', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"procedures": []}' }],
+        });
+
+        const options = { status: 'ACTIVE', limit: 20 };
+        await client.monitorLegislativePipeline(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('monitor_legislative_pipeline', options);
+      });
+
+      it('should handle missing legislative pipeline tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.monitorLegislativePipeline();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"procedures": []}' }],
+        });
+      });
+
       it('should get MEP details', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"mep": {"id": "MEP-123"}}' }],
@@ -383,65 +459,6 @@ describe('ep-mcp-client', () => {
         expect(result).toEqual({
           content: [{ type: 'text', text: '{"votes": []}' }],
         });
-      });
-
-      it('should get committee info by abbreviation', async () => {
-        client.callTool.mockResolvedValue({
-          content: [{ type: 'text', text: '{"committee": {"abbreviation": "ENVI"}}' }],
-        });
-
-        const options = { abbreviation: 'ENVI' };
-        await client.getCommitteeInfo(options);
-
-        expect(client.callTool).toHaveBeenCalledWith('get_committee_info', options);
-      });
-
-      it('should handle missing get_committee_info tool gracefully', async () => {
-        client.callTool.mockRejectedValue(new Error('Tool not available'));
-
-        const result = await client.getCommitteeInfo({ abbreviation: 'ENVI' });
-
-        expect(result).toEqual({
-          content: [{ type: 'text', text: '{"committee": null}' }],
-        });
-      });
-
-      it('should warn and return null when getCommitteeInfo called without identifier', async () => {
-        // Pass an empty object to exercise the runtime guard
-        const result = await client.getCommitteeInfo({});
-
-        expect(result).toEqual({
-          content: [{ type: 'text', text: '{"committee": null}' }],
-        });
-        expect(client.callTool).not.toHaveBeenCalled();
-      });
-
-      it('should warn and return null when getCommitteeInfo called with empty string id', async () => {
-        const result = await client.getCommitteeInfo({ id: '' });
-
-        expect(result).toEqual({
-          content: [{ type: 'text', text: '{"committee": null}' }],
-        });
-        expect(client.callTool).not.toHaveBeenCalled();
-      });
-
-      it('should warn and return null when getCommitteeInfo called with whitespace-only abbreviation', async () => {
-        const result = await client.getCommitteeInfo({ abbreviation: '   ' });
-
-        expect(result).toEqual({
-          content: [{ type: 'text', text: '{"committee": null}' }],
-        });
-        expect(client.callTool).not.toHaveBeenCalled();
-      });
-
-      it('should trim identifier before sending to tool', async () => {
-        client.callTool.mockResolvedValue({
-          content: [{ type: 'text', text: '{"committee": {"abbreviation": "ENVI"}}' }],
-        });
-
-        await client.getCommitteeInfo({ abbreviation: '  ENVI  ' });
-
-        expect(client.callTool).toHaveBeenCalledWith('get_committee_info', { abbreviation: 'ENVI' });
       });
 
       it('should analyze voting patterns', async () => {
