@@ -252,6 +252,8 @@ export interface CommitteeData {
   members: number;
   documents: CommitteeDocument[];
   effectiveness: string | null;
+}
+
 /** Options for getting voting records */
 export interface VotingRecordsOptions {
   mepId?: string;

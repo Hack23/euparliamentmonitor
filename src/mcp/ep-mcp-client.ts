@@ -375,11 +375,15 @@ export class EuropeanParliamentMCPClient {
    */
   async analyzeLegislativeEffectiveness(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('analyze_legislative_effectiveness', options)) as MCPToolResult;
+      return await this.callTool('analyze_legislative_effectiveness', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('analyze_legislative_effectiveness not available:', message);
       return { content: [{ type: 'text', text: '{"effectiveness": null}' }] };
+    }
+  }
+
+  /**
    * Get detailed information about a specific MEP
    *
    * @param id - MEP identifier (must be non-empty)
