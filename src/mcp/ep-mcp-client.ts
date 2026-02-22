@@ -264,8 +264,11 @@ export class EuropeanParliamentMCPClient {
    * @param args - Tool arguments
    * @returns Tool execution result
    */
-  async callTool(name: string, args: Record<string, unknown> = {}): Promise<unknown> {
-    return await this.sendRequest('tools/call', { name, arguments: args });
+  async callTool(name: string, args: object = {}): Promise<MCPToolResult> {
+    return (await this.sendRequest('tools/call', {
+      name,
+      arguments: args,
+    })) as MCPToolResult;
   }
 
   /**
@@ -286,7 +289,7 @@ export class EuropeanParliamentMCPClient {
    */
   async getPlenarySessions(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('get_plenary_sessions', options)) as MCPToolResult;
+      return await this.callTool('get_plenary_sessions', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_plenary_sessions not available:', message);
@@ -302,7 +305,7 @@ export class EuropeanParliamentMCPClient {
    */
   async searchDocuments(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('search_documents', options)) as MCPToolResult;
+      return await this.callTool('search_documents', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('search_documents not available:', message);
@@ -318,7 +321,7 @@ export class EuropeanParliamentMCPClient {
    */
   async getParliamentaryQuestions(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('get_parliamentary_questions', options)) as MCPToolResult;
+      return await this.callTool('get_parliamentary_questions', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_parliamentary_questions not available:', message);
@@ -334,7 +337,7 @@ export class EuropeanParliamentMCPClient {
    */
   async getCommitteeInfo(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('get_committee_info', options)) as MCPToolResult;
+      return await this.callTool('get_committee_info', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_committee_info not available:', message);
@@ -350,7 +353,7 @@ export class EuropeanParliamentMCPClient {
    */
   async monitorLegislativePipeline(options: Record<string, unknown> = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('monitor_legislative_pipeline', options)) as MCPToolResult;
+      return await this.callTool('monitor_legislative_pipeline', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('monitor_legislative_pipeline not available:', message);
@@ -366,7 +369,7 @@ export class EuropeanParliamentMCPClient {
    */
   async getMEPDetails(id: string): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('get_mep_details', { id })) as MCPToolResult;
+      return await this.callTool('get_mep_details', { id });
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_mep_details not available:', message);
@@ -382,7 +385,7 @@ export class EuropeanParliamentMCPClient {
    */
   async getVotingRecords(options: VotingRecordsOptions = {}): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('get_voting_records', options)) as MCPToolResult;
+      return await this.callTool('get_voting_records', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_voting_records not available:', message);
@@ -398,7 +401,7 @@ export class EuropeanParliamentMCPClient {
    */
   async analyzeVotingPatterns(options: VotingPatternsOptions): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('analyze_voting_patterns', options)) as MCPToolResult;
+      return await this.callTool('analyze_voting_patterns', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('analyze_voting_patterns not available:', message);
@@ -414,7 +417,7 @@ export class EuropeanParliamentMCPClient {
    */
   async trackLegislation(procedureId: string): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('track_legislation', { procedureId })) as MCPToolResult;
+      return await this.callTool('track_legislation', { procedureId });
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('track_legislation not available:', message);
@@ -430,7 +433,7 @@ export class EuropeanParliamentMCPClient {
    */
   async generateReport(options: GenerateReportOptions): Promise<MCPToolResult> {
     try {
-      return (await this.callTool('generate_report', options)) as MCPToolResult;
+      return await this.callTool('generate_report', options);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('generate_report not available:', message);

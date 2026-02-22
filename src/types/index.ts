@@ -243,7 +243,6 @@ export interface VotingRecordsOptions {
   sessionId?: string;
   topic?: string;
   dateFrom?: string;
-  [key: string]: unknown;
 }
 
 /** Options for analyzing voting patterns */
@@ -251,7 +250,6 @@ export interface VotingPatternsOptions {
   mepId: string;
   dateFrom?: string;
   compareWithGroup?: boolean;
-  [key: string]: unknown;
 }
 
 /** Options for generating analytical reports */
@@ -259,5 +257,4 @@ export interface GenerateReportOptions {
   reportType: string;
   subjectId?: string;
   dateFrom?: string;
-  [key: string]: unknown;
 }

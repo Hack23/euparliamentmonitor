@@ -216,7 +216,10 @@ export class EuropeanParliamentMCPClient {
      * @returns Tool execution result
      */
     async callTool(name, args = {}) {
-        return await this.sendRequest('tools/call', { name, arguments: args });
+        return (await this.sendRequest('tools/call', {
+            name,
+            arguments: args,
+        }));
     }
     /**
      * Get Members of European Parliament
@@ -235,7 +238,7 @@ export class EuropeanParliamentMCPClient {
      */
     async getPlenarySessions(options = {}) {
         try {
-            return (await this.callTool('get_plenary_sessions', options));
+            return await this.callTool('get_plenary_sessions', options);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -251,7 +254,7 @@ export class EuropeanParliamentMCPClient {
      */
     async searchDocuments(options = {}) {
         try {
-            return (await this.callTool('search_documents', options));
+            return await this.callTool('search_documents', options);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -267,7 +270,7 @@ export class EuropeanParliamentMCPClient {
      */
     async getParliamentaryQuestions(options = {}) {
         try {
-            return (await this.callTool('get_parliamentary_questions', options));
+            return await this.callTool('get_parliamentary_questions', options);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -283,7 +286,7 @@ export class EuropeanParliamentMCPClient {
      */
     async getCommitteeInfo(options = {}) {
         try {
-            return (await this.callTool('get_committee_info', options));
+            return await this.callTool('get_committee_info', options);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -299,7 +302,7 @@ export class EuropeanParliamentMCPClient {
      */
     async monitorLegislativePipeline(options = {}) {
         try {
-            return (await this.callTool('monitor_legislative_pipeline', options));
+            return await this.callTool('monitor_legislative_pipeline', options);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -315,7 +318,7 @@ export class EuropeanParliamentMCPClient {
      */
     async getMEPDetails(id) {
         try {
-            return (await this.callTool('get_mep_details', { id }));
+            return await this.callTool('get_mep_details', { id });
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -331,7 +334,7 @@ export class EuropeanParliamentMCPClient {
      */
     async getVotingRecords(options = {}) {
         try {
-            return (await this.callTool('get_voting_records', options));
+            return await this.callTool('get_voting_records', options);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -347,7 +350,7 @@ export class EuropeanParliamentMCPClient {
      */
     async analyzeVotingPatterns(options) {
         try {
-            return (await this.callTool('analyze_voting_patterns', options));
+            return await this.callTool('analyze_voting_patterns', options);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -363,7 +366,7 @@ export class EuropeanParliamentMCPClient {
      */
     async trackLegislation(procedureId) {
         try {
-            return (await this.callTool('track_legislation', { procedureId }));
+            return await this.callTool('track_legislation', { procedureId });
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -379,7 +382,7 @@ export class EuropeanParliamentMCPClient {
      */
     async generateReport(options) {
         try {
-            return (await this.callTool('generate_report', options));
+            return await this.callTool('generate_report', options);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
