@@ -11,6 +11,8 @@ import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
 import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, ARTICLE_TYPE_BREAKING, ARTICLE_TYPE_COMMITTEE_REPORTS, ARG_SEPARATOR, } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, BREAKING_NEWS_TITLES, COMMITTEE_REPORTS_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
+import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, ARTICLE_TYPE_BREAKING, ARG_SEPARATOR, } from '../constants/config.js';
+import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, BREAKING_NEWS_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
 import { generateArticleHTML } from '../templates/article-template.js';
 import { getEPMCPClient, closeEPMCPClient } from '../mcp/ep-mcp-client.js';
 import { formatDateForSlug, calculateReadTime, ensureDirectoryExists, escapeHTML, } from '../utils/file-utils.js';
@@ -336,6 +338,12 @@ async function fetchWeekAheadData(dateRange) {
         mcpClient.getCommitteeInfo({ limit: 20 }),
         mcpClient.searchDocuments({
             query: 'parliament',
+        mcpClient.getPlenarySessions({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 50 }),
+        mcpClient.getCommitteeInfo({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
+        mcpClient.searchDocuments({
+            keyword: 'parliament',
+            dateFrom: dateRange.start,
+            dateTo: dateRange.end,
             limit: 20,
         }),
         mcpClient.monitorLegislativePipeline({
@@ -346,6 +354,8 @@ async function fetchWeekAheadData(dateRange) {
         }),
         mcpClient.getParliamentaryQuestions({
             startDate: dateRange.start,
+            dateFrom: dateRange.start,
+            dateTo: dateRange.end,
             limit: 20,
         }),
     ]);
@@ -498,6 +508,7 @@ function buildWeekAheadContent(weekData, dateRange) {
  */
 function buildKeywords(weekData) {
     const keywords = [KEYWORD_EUROPEAN_PARLIAMENT, 'week ahead', 'plenary', 'committees'];
+    const keywords = ['European Parliament', 'week ahead', 'plenary', 'committees'];
     for (const c of weekData.committees) {
         if (c.committee && !keywords.includes(c.committee)) {
             keywords.push(c.committee);
@@ -748,6 +759,7 @@ async function generateBreakingNews() {
                 content,
                 keywords: [
                     KEYWORD_EUROPEAN_PARLIAMENT,
+                    'European Parliament',
                     'breaking news',
                     'voting anomalies',
                     'coalition dynamics',
