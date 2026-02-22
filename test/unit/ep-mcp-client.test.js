@@ -343,6 +343,48 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"questions": []}' }],
         });
       });
+
+      it('should get committee info', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"committees": []}' }],
+        });
+
+        const options = { dateFrom: '2024-01-01', limit: 20 };
+        await client.getCommitteeInfo(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_committee_info', options);
+      });
+
+      it('should handle missing committee info tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getCommitteeInfo();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"committees": []}' }],
+        });
+      });
+
+      it('should monitor legislative pipeline', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"procedures": []}' }],
+        });
+
+        const options = { status: 'ACTIVE', limit: 20 };
+        await client.monitorLegislativePipeline(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('monitor_legislative_pipeline', options);
+      });
+
+      it('should handle missing legislative pipeline tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.monitorLegislativePipeline();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"procedures": []}' }],
+        });
+      });
     });
 
     describe('Retry Logic', () => {
