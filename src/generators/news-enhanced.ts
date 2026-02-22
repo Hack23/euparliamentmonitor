@@ -392,13 +392,13 @@ function applyEffectiveness(result: MCPToolResult, data: CommitteeData): void {
  * @returns Committee data object
  */
 async function fetchCommitteeData(abbreviation: string): Promise<CommitteeData> {
-  const defaultResult = {
+  const defaultResult: CommitteeData = {
     name: `${abbreviation} Committee`,
     abbreviation,
     chair: 'N/A',
     members: 0,
-    documents: [] as Array<{ title: string; type: string; date: string }>,
-    effectiveness: null as string | null,
+    documents: [],
+    effectiveness: null,
   };
 
   if (!mcpClient) {

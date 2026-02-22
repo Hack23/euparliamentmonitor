@@ -132,7 +132,8 @@ describe('constants/languages', () => {
         expect(typeof generator).toBe('function');
         const result = generator('ENVI');
         expect(result.title).toContain('ENVI');
-        expect(result.subtitle).toBeDefined();
+        expect(typeof result.subtitle).toBe('string');
+        expect(result.subtitle.length).toBeGreaterThan(0);
       }
     });
 
