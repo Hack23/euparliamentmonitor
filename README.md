@@ -69,9 +69,9 @@
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge)](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor)
 
 ### Documentation & Reports
-[![API Docs](https://img.shields.io/badge/API-Documentation-blue?logo=javascript)](https://hack23.github.io/euparliamentmonitor/docs/api/)
-[![Coverage](https://img.shields.io/badge/Coverage-82%25-green?logo=vitest)](https://hack23.github.io/euparliamentmonitor/docs/coverage/)
-[![E2E Report](https://img.shields.io/badge/E2E-Report-purple?logo=playwright)](https://hack23.github.io/euparliamentmonitor/playwright-report/)
+[![API Docs](https://img.shields.io/badge/API-Documentation-blue?logo=javascript)](https://euparliamentmonitor.com/docs/api/index.html)
+[![Coverage](https://img.shields.io/badge/Coverage-82%25-green?logo=vitest)](https://euparliamentmonitor.com/docs/coverage/index.html)
+[![E2E Report](https://img.shields.io/badge/E2E-Report-purple?logo=playwright)](https://euparliamentmonitor.com/playwright-report/index.html)
 [![SLSA 3](https://img.shields.io/badge/SLSA-Level%203-brightgreen?logo=github)](https://github.com/Hack23/euparliamentmonitor/attestations)
 
 ## 📚 Documentation Hub
@@ -81,8 +81,8 @@
 - [📗 Security Flows](FLOWCHART.md) - Process flows with security controls
 - [📙 Data Model](DATA_MODEL.md) - Data structures and API integration
 - [📕 Release Process](docs/RELEASE_PROCESS.md) - How to create releases
-- [📔 API Documentation](https://hack23.github.io/euparliamentmonitor/docs/api/) - TypeDoc-generated API reference
-- [📓 Test Coverage](https://hack23.github.io/euparliamentmonitor/docs/coverage/) - Interactive coverage report
+- [📔 API Documentation](https://euparliamentmonitor.com/docs/api/index.html) - TypeDoc-generated API reference
+- [📓 Test Coverage](https://euparliamentmonitor.com/docs/coverage/index.html) - Interactive coverage report
 
 **🔒 ISMS Compliance:**
 - [🛡️ Hack23 ISMS Framework](https://github.com/Hack23/ISMS-PUBLIC) - Information Security Management System
