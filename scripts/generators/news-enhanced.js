@@ -56,6 +56,7 @@ ensureDirectoryExists(METADATA_DIR);
 // Generation statistics
 const stats = {
     generated: 0,
+    skipped: 0,
     errors: 0,
     articles: [],
     timestamp: new Date().toISOString(),
@@ -111,6 +112,9 @@ function writeSingleArticle(html, slug, lang) {
     if (written) {
         stats.generated += 1;
         stats.articles.push(filename);
+    }
+    else if (skipExistingArg) {
+        stats.skipped += 1;
     }
     return filename;
 }
@@ -1656,12 +1660,14 @@ async function main() {
         console.log('');
         console.log('📊 Generation Summary:');
         console.log(`  ✅ Generated: ${stats.generated} articles`);
+        console.log(`  ⏭️ Skipped: ${stats.skipped} articles`);
         console.log(`  ❌ Errors: ${stats.errors}`);
         console.log('');
         // Write metadata
         const metadata = {
             timestamp: stats.timestamp,
             generated: stats.generated,
+            skipped: stats.skipped,
             errors: stats.errors,
             articles: stats.articles,
             results,

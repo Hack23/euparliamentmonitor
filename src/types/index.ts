@@ -211,6 +211,7 @@ export interface DateRange {
 /** Generation statistics */
 export interface GenerationStats {
   generated: number;
+  skipped: number;
   errors: number;
   articles: string[];
   timestamp: string;
