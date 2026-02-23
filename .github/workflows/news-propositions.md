@@ -13,7 +13,6 @@ on:
         required: false
         default: false
       languages:
-        description: 'Languages to generate (en,de,fr | eu-core | nordic | all)'
         description: 'Languages to generate (en | eu-core | nordic | all | custom comma-separated)'
         required: false
         default: all
@@ -73,8 +72,12 @@ steps:
 
   - name: Export workflow inputs as environment variables
     run: |
-      echo "EP_LANG_INPUT=${{ github.event.inputs.languages }}" >> "$GITHUB_ENV"
-      echo "EP_FORCE_GENERATION=${{ github.event.inputs.force_generation }}" >> "$GITHUB_ENV"
+      {
+        cat << 'EOF'
+EP_LANG_INPUT=${{ github.event.inputs.languages }}
+EP_FORCE_GENERATION=${{ github.event.inputs.force_generation }}
+EOF
+      } >> "$GITHUB_ENV"
 
 engine:
   id: copilot
@@ -98,14 +101,6 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 **ALL article data MUST come exclusively from the European Parliament MCP server** (`european-parliament-mcp-server`). No other data sources should be used for article content.
 
 ## 🔒 Required Skills
-
-Read each skill file before proceeding:
-
-## 🚨 CRITICAL: European Parliament MCP Server Is the Primary Data Source
-
-**ALL article data MUST be fetched from the European Parliament MCP server** (`european-parliament-mcp-server`). No other data source should be used for article content.
-
-## Required Skills
 
 Read each skill file before proceeding:
 1. **`.github/skills/european-political-system.md`** — EU legislative procedures (OLP, CNS, APP)
@@ -134,11 +129,10 @@ echo "============================"
 ## MANDATORY PR Creation
 
 - ✅ `safeoutputs___create_pull_request` when articles generated
-- ✅ `noop` ONLY if genuinely no new proposals available from MCP
+- ✅ `noop` ONLY if genuinely no new proposals available from MCP, OR all target files already existed (--skip-existing) with no changes
 - ❌ NEVER use `noop` as fallback for PR creation failures
 
 ## 🏛️ EP MCP Tools for Propositions
-## EP MCP Tools for Propositions
 
 **ALL data MUST come from these EP MCP tools:**
 
@@ -160,7 +154,6 @@ european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTE
 ```
 
 ## 🏛️ EU Legislative Procedures Reference
-## EU Legislative Procedures Reference
 
 | Code | Procedure | Description |
 |------|-----------|-------------|
@@ -181,11 +174,6 @@ Check if propositions articles exist from the last 11 hours. If **force_generati
 ### Step 2: Query EP MCP
 
 ```javascript
-// Warm up and fetch proposals
-Check if propositions articles exist from the last 11 hours. If **force_generation** is `true`, skip this check.
-
-### Step 2: Query EP MCP
-```javascript
 european_parliament___search_documents({ query: "Commission proposal", limit: 20 })
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
 ```
@@ -193,11 +181,7 @@ european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10
 ### Step 3: Generate Articles
 
 ```bash
-# EP_LANG_INPUT is provided via the workflow step env: block
-LANGUAGES_INPUT="${EP_LANG_INPUT:-all}"
-
-# Validate input against known safe values to prevent shell injection
-# e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
+# EP_LANG_INPUT is provided by a previous step via $GITHUB_ENV
 LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
@@ -212,27 +196,10 @@ case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
   "nordic")  LANG_ARG="en,sv,da,fi" ;;
   "all")     LANG_ARG="en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" ;;
-  *)
-    # Strict whitelist: only allow comma-separated 2-letter language codes
-    if echo "$LANGUAGES_INPUT" | grep -qE '^[a-z]{2}(,[a-z]{2})*$'; then
-      LANG_ARG="$LANGUAGES_INPUT"
-    else
-      echo "❌ Invalid languages input: '$LANGUAGES_INPUT' (must be preset or comma-separated 2-letter codes)"
-      exit 1
-    fi
-    ;;
-esac
-
-# Respect force_generation: skip existing articles unless force is true
-# EP_FORCE_GENERATION is provided via the workflow step env: block
-FORCE_GENERATION="${EP_FORCE_GENERATION:-false}"
-
-SKIP_FLAG="--skip-existing"
-if [ "$FORCE_GENERATION" = "true" ]; then
-  SKIP_FLAG=""
   *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
+# EP_FORCE_GENERATION is provided by a previous step via $GITHUB_ENV
 SKIP_FLAG=""
 if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
@@ -241,7 +208,6 @@ fi
 npx tsx src/generators/news-enhanced.ts \
   --types=propositions \
   --languages="$LANG_ARG" \
-  ${SKIP_FLAG}
   $SKIP_FLAG
 ```
 
@@ -249,7 +215,6 @@ npx tsx src/generators/news-enhanced.ts \
 
 ```bash
 npm run generate-news-indexes
-npx tsx src/generators/news-indexes.ts
 ```
 
 ### Step 5: Analysis Quality Check
@@ -280,7 +245,6 @@ safeoutputs___create_pull_request
 
 ## Article Naming Convention
 
-Files: `YYYY-MM-DD-propositions-{lang}.html`
 Files: `YYYY-MM-DD-propositions-{lang}.html` (e.g., `2026-02-23-propositions-en.html`)
 
 ## ISMS Compliance

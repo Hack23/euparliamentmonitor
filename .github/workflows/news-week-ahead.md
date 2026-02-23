@@ -68,8 +68,12 @@ steps:
 
   - name: Export workflow inputs as environment variables
     run: |
-      echo "EP_LANG_INPUT=${{ github.event.inputs.languages }}" >> "$GITHUB_ENV"
-      echo "EP_FORCE_GENERATION=${{ github.event.inputs.force_generation }}" >> "$GITHUB_ENV"
+      {
+        cat << 'EOF'
+EP_LANG_INPUT=${{ github.event.inputs.languages }}
+EP_FORCE_GENERATION=${{ github.event.inputs.force_generation }}
+EOF
+      } >> "$GITHUB_ENV"
 
 engine:
   id: copilot
@@ -181,12 +185,7 @@ const [sessions, committees, documents, pipeline, meps] = await Promise.allSettl
 ### Step 3: Generate Articles
 
 ```bash
-# EP_LANG_INPUT is provided via the workflow step env: block
-LANGUAGES_INPUT="${EP_LANG_INPUT:-all}"
-
-# Validate input against known safe values to prevent shell injection
-# e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
-# EP_FORCE_GENERATION: ${{ github.event.inputs.force_generation }}
+# EP_LANG_INPUT is provided by a previous step via $GITHUB_ENV
 LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
@@ -201,20 +200,11 @@ case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
   "nordic")  LANG_ARG="en,sv,da,fi" ;;
   "all")     LANG_ARG="en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" ;;
-  *)
-    # Strict whitelist: only allow comma-separated 2-letter language codes
-    if echo "$LANGUAGES_INPUT" | grep -qE '^[a-z]{2}(,[a-z]{2})*$'; then
-      LANG_ARG="$LANGUAGES_INPUT"
-    else
-      echo "❌ Invalid languages input: '$LANGUAGES_INPUT' (must be preset or comma-separated 2-letter codes)"
-      exit 1
-    fi
-    ;;
+  *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
+# EP_FORCE_GENERATION is provided by a previous step via $GITHUB_ENV
 SKIP_FLAG=""
-# EP_FORCE_GENERATION is provided via the workflow step env: block
-if [ "${EP_FORCE_GENERATION:-false}" != "true" ]; then
 if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
 fi
@@ -228,7 +218,7 @@ npx tsx src/generators/news-enhanced.ts \
 ### Step 4: Generate Indexes
 
 ```bash
-npx tsx src/generators/news-indexes.ts
+npm run generate-news-indexes
 ```
 
 ### Step 5: Translate, Validate & Verify Analysis Quality
