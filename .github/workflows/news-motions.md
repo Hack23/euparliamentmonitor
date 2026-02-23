@@ -169,9 +169,14 @@ compare_political_groups({ groupIds: ["EPP", "S&D", "Renew", "Greens/EFA", "ECR"
 ### Step 3: Generate Articles
 
 ```bash
-# Set LANGUAGES_INPUT to the value shown in Workflow Dispatch Parameters above
-LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
-[ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
+# Read language input via environment variable to avoid shell injection
+LANGUAGES_INPUT="${EP_LANG_INPUT:-all}"
+
+# Validate: only allow known-safe language presets or comma-separated language codes
+if ! echo "$LANGUAGES_INPUT" | grep -qE '^(eu-core|nordic|all|[a-z]{2}(,[a-z]{2})*)$'; then
+  echo "ERROR: Invalid languages input: $LANGUAGES_INPUT" >&2
+  exit 1
+fi
 
 case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
@@ -185,6 +190,8 @@ npx tsx src/generators/news-enhanced.ts \
   --languages="$LANG_ARG" \
   --skip-existing
 ```
+
+Set environment variable `EP_LANG_INPUT` to `${{ github.event.inputs.languages }}` in the step `env:` block rather than interpolating the input directly into the shell script body.
 
 ### Step 4: Rebuild Indexes and Validate
 
