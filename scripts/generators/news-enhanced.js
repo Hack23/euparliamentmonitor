@@ -56,6 +56,8 @@ ensureDirectoryExists(METADATA_DIR);
 // Generation statistics
 const stats = {
     generated: 0,
+    skipped: 0,
+    dryRun: 0,
     errors: 0,
     articles: [],
     timestamp: new Date().toISOString(),
@@ -93,7 +95,7 @@ function writeArticle(html, filename) {
     }
     if (dryRunArg) {
         console.log(`  [DRY RUN] Would write: ${filename}`);
-        return true;
+        return false;
     }
     fs.writeFileSync(filepath, html, 'utf-8');
     console.log(`  ✅ Wrote: ${filename}`);
@@ -113,6 +115,12 @@ function writeSingleArticle(html, slug, lang) {
     if (written) {
         stats.generated += 1;
         stats.articles.push(filename);
+    }
+    else if (skipExistingArg && fs.existsSync(path.join(NEWS_DIR, filename))) {
+        stats.skipped += 1;
+    }
+    else if (dryRunArg) {
+        stats.dryRun += 1;
     }
     return written;
 }
@@ -1674,12 +1682,17 @@ async function main() {
         console.log('');
         console.log('📊 Generation Summary:');
         console.log(`  ✅ Generated: ${stats.generated} articles`);
+        console.log(`  ⏭️ Skipped: ${stats.skipped} articles`);
+        if (dryRunArg)
+            console.log(`  🔍 Dry run: ${stats.dryRun} articles`);
         console.log(`  ❌ Errors: ${stats.errors}`);
         console.log('');
         // Write metadata
         const metadata = {
             timestamp: stats.timestamp,
             generated: stats.generated,
+            skipped: stats.skipped,
+            dryRun: stats.dryRun,
             errors: stats.errors,
             articles: stats.articles,
             results,
