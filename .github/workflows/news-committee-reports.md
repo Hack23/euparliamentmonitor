@@ -128,26 +128,26 @@ echo "============================"
 
 ```javascript
 // Fetch committee information
-get_committee_info({ committeeId: "ENVI" })
-get_committee_info({ committeeId: "ECON" })
-get_committee_info({ committeeId: "AFET" })
-get_committee_info({ committeeId: "LIBE" })
-get_committee_info({ committeeId: "AGRI" })
+european_parliament___get_committee_info({ committeeId: "ENVI" })
+european_parliament___get_committee_info({ committeeId: "ECON" })
+european_parliament___get_committee_info({ committeeId: "AFET" })
+european_parliament___get_committee_info({ committeeId: "LIBE" })
+european_parliament___get_committee_info({ committeeId: "AGRI" })
 
 // Search for recent committee reports and opinions
-search_documents({ keyword: "committee report", type: "REPORT" })
-search_documents({ keyword: "committee opinion", type: "OPINION" })
+european_parliament___search_documents({ keyword: "committee report", type: "REPORT" })
+european_parliament___search_documents({ keyword: "committee opinion", type: "OPINION" })
 
 // Analyze committee legislative effectiveness
-analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
-analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ECON" })
+european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
+european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ECON" })
 
 // Fetch committee voting records
-get_voting_records({})
+european_parliament___get_voting_records({})
 
 // Get committee members and rapporteurs
-get_meps({ committee: "ENVI" })
-get_mep_details({ id: "<mepId>" })
+european_parliament___get_meps({ committee: "ENVI" })
+european_parliament___get_mep_details({ id: "<mepId>" })
 ```
 
 ## EP Standing Committees Reference
