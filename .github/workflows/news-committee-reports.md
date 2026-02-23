@@ -135,8 +135,8 @@ european_parliament___get_committee_info({ committeeId: "LIBE" })
 european_parliament___get_committee_info({ committeeId: "AGRI" })
 
 // Search for recent committee reports and opinions
-european_parliament___search_documents({ keyword: "committee report", type: "REPORT" })
-european_parliament___search_documents({ keyword: "committee opinion", type: "OPINION" })
+european_parliament___search_documents({ query: "committee report", type: "REPORT" })
+european_parliament___search_documents({ query: "committee opinion", type: "OPINION" })
 
 // Analyze committee legislative effectiveness
 european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
@@ -188,9 +188,17 @@ Fetch data from European Parliament MCP tools for each featured committee (ENVI,
 Parse the `languages` input and generate using the automated script:
 
 ```bash
-# Set LANGUAGES_INPUT to the value shown in Workflow Dispatch Parameters above
-LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
+# EP_LANG_INPUT is provided via the workflow step env: block
+# e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
+LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
+
+# Strict allowlist validation to prevent shell injection
+if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu)(,(en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu))*$'; then
+  echo "❌ Invalid languages input: $LANGUAGES_INPUT" >&2
+  echo "Allowed: all, eu-core, nordic, or comma-separated: en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" >&2
+  exit 1
+fi
 
 case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
@@ -199,10 +207,15 @@ case "$LANGUAGES_INPUT" in
   *) LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
+SKIP_FLAG=""
+if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+  SKIP_FLAG="--skip-existing"
+fi
+
 npx tsx src/generators/news-enhanced.ts \
   --types=committee-reports \
   --languages="$LANG_ARG" \
-  --skip-existing
+  $SKIP_FLAG
 ```
 
 ### Step 4: Analysis Quality Verification
