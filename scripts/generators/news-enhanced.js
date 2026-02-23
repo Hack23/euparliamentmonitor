@@ -22,6 +22,7 @@ const args = process.argv.slice(2);
 const typesArg = args.find((arg) => arg.startsWith('--types='));
 const languagesArg = args.find((arg) => arg.startsWith('--languages='));
 const dryRunArg = args.includes('--dry-run');
+const skipExistingArg = args.includes('--skip-existing');
 const articleTypes = typesArg
     ? (typesArg.split(ARG_SEPARATOR)[1] ?? '').split(',').map((t) => t.trim())
     : [ARTICLE_TYPE_WEEK_AHEAD];
@@ -49,6 +50,7 @@ console.log('📰 Enhanced News Generation Script');
 console.log('Article types:', articleTypes.join(', '));
 console.log('Languages:', languages.join(', '));
 console.log('Dry run:', dryRunArg ? 'Yes (no files written)' : 'No');
+console.log('Skip existing:', skipExistingArg ? 'Yes' : 'No');
 // Ensure directories exist
 ensureDirectoryExists(METADATA_DIR);
 // Generation statistics
@@ -87,6 +89,10 @@ function writeArticle(html, filename) {
         return true;
     }
     const filepath = path.join(NEWS_DIR, filename);
+    if (skipExistingArg && fs.existsSync(filepath)) {
+        console.log(`  ⏭️  Skipped (already exists): ${filename}`);
+        return false;
+    }
     fs.writeFileSync(filepath, html, 'utf-8');
     console.log(`  ✅ Wrote: ${filename}`);
     return true;
@@ -101,9 +107,11 @@ function writeArticle(html, filename) {
  */
 function writeSingleArticle(html, slug, lang) {
     const filename = `${slug}-${lang}.html`;
-    writeArticle(html, filename);
-    stats.generated += 1;
-    stats.articles.push(filename);
+    const written = writeArticle(html, filename);
+    if (written) {
+        stats.generated += 1;
+        stats.articles.push(filename);
+    }
     return filename;
 }
 /**
