@@ -173,13 +173,6 @@ european_parliament___compare_political_groups({ groupIds: ["EPP", "S&D", "Renew
 ### Step 3: Generate Articles
 
 ```bash
-# Read language input from environment variable (set EP_LANG_INPUT before running)
-# In the gh-aw execution model, pass the workflow input as: EP_LANG_INPUT="<languages input>" bash -c '...'
-LANGUAGES_INPUT="${EP_LANG_INPUT:-all}"
-
-# Validate: only allow known-safe language presets or comma-separated language codes
-if ! echo "$LANGUAGES_INPUT" | grep -qE '^(eu-core|nordic|all|[a-z]{2}(,[a-z]{2})*)$'; then
-  echo "ERROR: Invalid languages input: $LANGUAGES_INPUT" >&2
 # EP_LANG_INPUT is provided via the workflow step env: block
 # e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
 LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
@@ -199,14 +192,6 @@ case "$LANGUAGES_INPUT" in
   *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
-npx tsx src/generators/news-enhanced.ts \
-  --types=motions \
-  --languages="$LANG_ARG" \
-  --skip-existing
-```
-
-> **Note**: Always pass the `languages` workflow input via the `EP_LANG_INPUT` environment variable rather than interpolating `${{ github.event.inputs.languages }}` directly into shell code. The regex validation above ensures only safe values (language presets or `[a-z]{2}` codes) are used.
-
 SKIP_FLAG=""
 if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
@@ -218,17 +203,12 @@ npx tsx src/generators/news-enhanced.ts \
   $SKIP_FLAG
 ```
 
-### Step 4: Rebuild Indexes and Validate
+### Step 4: Validate & Regenerate Indexes
 
 ```bash
 npx tsx src/generators/news-indexes.ts
 ```
 
-Validate all generated HTML files contain required analytical sections.
-
-### Step 5: Commit Changes
-
-Commit all generated article files and updated indexes.
 ### Step 5: Create PR
 ```
 safeoutputs___create_pull_request
@@ -283,12 +263,6 @@ Every generated article must include:
 
 ## Article Naming Convention
 
-Files: `YYYY-MM-DD-motions-{lang}.html`
-
-Examples:
-- `2025-01-15-motions-en.html`
-- `2025-01-15-motions-fr.html`
-- `2025-01-15-motions-de.html`
 Files: `YYYY-MM-DD-motions-{lang}.html` (e.g., `2026-02-23-motions-en.html`)
 
 ## ISMS Compliance
