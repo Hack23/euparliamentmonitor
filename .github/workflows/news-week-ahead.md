@@ -194,7 +194,6 @@ case "$LANGUAGES_INPUT" in
       exit 1
     fi
     ;;
-  *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
 SKIP_FLAG=""

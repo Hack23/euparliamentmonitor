@@ -97,11 +97,6 @@ function writeArticle(html, filename) {
         console.log(`  [DRY RUN] Would write: ${filename}`);
         return false;
     }
-    const filepath = path.join(NEWS_DIR, filename);
-    if (skipExistingArg && fs.existsSync(filepath)) {
-        console.log(`  ⏭️ Skipping existing: ${filename}`);
-        return false;
-    }
     fs.writeFileSync(filepath, html, 'utf-8');
     console.log(`  ✅ Wrote: ${filename}`);
     return true;
@@ -128,13 +123,6 @@ function writeSingleArticle(html, slug, lang) {
         stats.dryRun += 1;
     }
     return written;
-    else if (dryRunArg) {
-        stats.dryRun += 1;
-    }
-    else if (skipExistingArg) {
-        stats.skipped += 1;
-    }
-    return filename;
 }
 /**
  * Initialize MCP client if available
@@ -580,7 +568,9 @@ async function generateWeekAhead() {
                 console.log(`  ✅ ${lang.toUpperCase()} version generated`);
             }
         }
-        console.log('  ✅ Week Ahead article generated successfully in all requested languages');
+        console.log(writtenCount > 0
+            ? `  ✅ Week Ahead article generated: ${writtenCount}/${languages.length} language(s) written`
+            : `  ✅ Week Ahead article generation completed: 0 files written (dry-run or all files skipped)`);
         return { success: true, files: writtenCount, slug };
     }
     catch (error) {
@@ -797,7 +787,9 @@ async function generateBreakingNews() {
                 console.log(`  ✅ ${lang.toUpperCase()} version generated`);
             }
         }
-        console.log('  ✅ Breaking News article generated successfully in all requested languages');
+        console.log(writtenCount > 0
+            ? `  ✅ Breaking News article generated: ${writtenCount}/${languages.length} language(s) written`
+            : `  ✅ Breaking News article generation completed: 0 files written (dry-run or all files skipped)`);
         return { success: true, files: writtenCount, slug };
     }
     catch (error) {
@@ -1586,7 +1578,9 @@ async function generatePropositions() {
                 console.log(`  ✅ ${lang.toUpperCase()} version generated`);
             }
         }
-        console.log('  ✅ Propositions article generated successfully in all requested languages');
+        console.log(writtenCount > 0
+            ? `  ✅ Propositions article generated: ${writtenCount}/${languages.length} language(s) written`
+            : `  ✅ Propositions article generation completed: 0 files written (dry-run or all files skipped)`);
         return { success: true, files: writtenCount, slug };
     }
     catch (error) {
@@ -1642,7 +1636,9 @@ async function generateMotions() {
                 console.log(`  ✅ ${lang.toUpperCase()} version generated`);
             }
         }
-        console.log('  ✅ Motions article generated successfully in all requested languages');
+        console.log(writtenCount > 0
+            ? `  ✅ Motions article generated: ${writtenCount}/${languages.length} language(s) written`
+            : `  ✅ Motions article generation completed: 0 files written (dry-run or all files skipped)`);
         return { success: true, files: writtenCount, slug };
     }
     catch (error) {
