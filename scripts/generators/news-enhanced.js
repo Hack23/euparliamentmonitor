@@ -95,6 +95,11 @@ function writeArticle(html, filename) {
         console.log(`  [DRY RUN] Would write: ${filename}`);
         return false;
     }
+    const filepath = path.join(NEWS_DIR, filename);
+    if (skipExistingArg && fs.existsSync(filepath)) {
+        console.log(`  ⏭️ Skipping existing: ${filename}`);
+        return false;
+    }
     fs.writeFileSync(filepath, html, 'utf-8');
     console.log(`  ✅ Wrote: ${filename}`);
     return true;
@@ -119,6 +124,12 @@ function writeSingleArticle(html, slug, lang) {
     }
     else if (dryRunArg) {
         stats.dryRun += 1;
+    }
+    else if (dryRunArg) {
+        stats.dryRun += 1;
+    }
+    else if (skipExistingArg) {
+        stats.skipped += 1;
     }
     return filename;
 }
