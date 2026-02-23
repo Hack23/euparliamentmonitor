@@ -126,7 +126,7 @@ echo "============================"
 
 ```javascript
 // Fetch latest legislative proposals
-search_documents({ keyword: "Commission proposal", limit: 20 })
+search_documents({ query: "Commission proposal", limit: 20 })
 
 // Monitor legislative pipeline
 monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
@@ -163,7 +163,7 @@ Check if propositions articles exist from the last 11 hours. If **force_generati
 
 ```javascript
 // Warm up and fetch proposals
-search_documents({ keyword: "Commission proposal", limit: 20 })
+search_documents({ query: "Commission proposal", limit: 20 })
 monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
 ```
 
@@ -181,10 +181,19 @@ case "$LANGUAGES_INPUT" in
   *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
+# Respect force_generation: skip existing articles unless force is true
+FORCE_GENERATION="${{ github.event.inputs.force_generation }}"
+[ -z "$FORCE_GENERATION" ] && FORCE_GENERATION="false"
+
+SKIP_FLAG="--skip-existing"
+if [ "$FORCE_GENERATION" = "true" ]; then
+  SKIP_FLAG=""
+fi
+
 npx tsx src/generators/news-enhanced.ts \
   --types=propositions \
   --languages="$LANG_ARG" \
-  --skip-existing
+  ${SKIP_FLAG}
 ```
 
 ### Step 4: Validate & Regenerate Indexes
