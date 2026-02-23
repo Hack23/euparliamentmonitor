@@ -53,6 +53,10 @@ tools:
   bash: true
 
 safe-outputs:
+  allowed-domains:
+    - data.europarl.europa.eu
+    - www.europarl.europa.eu
+    - github.com
   create-pull-request: {}
   add-comment: {}
 
@@ -176,6 +180,15 @@ LANGUAGES_INPUT="${EP_LANG_INPUT:-all}"
 # Validate: only allow known-safe language presets or comma-separated language codes
 if ! echo "$LANGUAGES_INPUT" | grep -qE '^(eu-core|nordic|all|[a-z]{2}(,[a-z]{2})*)$'; then
   echo "ERROR: Invalid languages input: $LANGUAGES_INPUT" >&2
+# EP_LANG_INPUT is provided via the workflow step env: block
+# e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
+LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
+[ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
+
+# Strict allowlist validation to prevent shell injection
+if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu)(,(en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu))*$'; then
+  echo "❌ Invalid languages input: $LANGUAGES_INPUT" >&2
+  echo "Allowed: all, eu-core, nordic, or comma-separated: en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" >&2
   exit 1
 fi
 
@@ -194,6 +207,17 @@ npx tsx src/generators/news-enhanced.ts \
 
 > **Note**: Always pass the `languages` workflow input via the `EP_LANG_INPUT` environment variable rather than interpolating `${{ github.event.inputs.languages }}` directly into shell code. The regex validation above ensures only safe values (language presets or `[a-z]{2}` codes) are used.
 
+SKIP_FLAG=""
+if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+  SKIP_FLAG="--skip-existing"
+fi
+
+npx tsx src/generators/news-enhanced.ts \
+  --types=motions \
+  --languages="$LANG_ARG" \
+  $SKIP_FLAG
+```
+
 ### Step 4: Rebuild Indexes and Validate
 
 ```bash
@@ -205,6 +229,10 @@ Validate all generated HTML files contain required analytical sections.
 ### Step 5: Commit Changes
 
 Commit all generated article files and updated indexes.
+### Step 5: Create PR
+```
+safeoutputs___create_pull_request
+```
 
 ## Analysis Quality Requirements
 
@@ -261,3 +289,10 @@ Examples:
 - `2025-01-15-motions-en.html`
 - `2025-01-15-motions-fr.html`
 - `2025-01-15-motions-de.html`
+Files: `YYYY-MM-DD-motions-{lang}.html` (e.g., `2026-02-23-motions-en.html`)
+
+## ISMS Compliance
+
+- **Secure Development Policy**: Input validation, output encoding applied
+- **GDPR**: Public EU Parliament data only — no personal data processing
+- **ISO 27001**: MCP data sanitization per SECURITY_ARCHITECTURE.md
