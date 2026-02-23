@@ -156,7 +156,11 @@ function writeArticle(html: string, filename: string): boolean {
   const filepath = path.join(NEWS_DIR, filename);
 
   if (skipExistingArg && fs.existsSync(filepath)) {
-    console.log(`  ⏭️ Skipped (already exists): ${filename}`);
+    console.log(
+      dryRunArg
+        ? `  [DRY RUN] Would skip (already exists): ${filename}`
+        : `  ⏭️  Skipped (already exists): ${filename}`
+    );
     return false;
   }
 
@@ -176,9 +180,9 @@ function writeArticle(html: string, filename: string): boolean {
  * @param html - HTML content
  * @param slug - Article slug
  * @param lang - Language code
- * @returns Generated filename
+ * @returns Whether the article was written successfully
  */
-function writeSingleArticle(html: string, slug: string, lang: string): string {
+function writeSingleArticle(html: string, slug: string, lang: string): boolean {
   const filename = `${slug}-${lang}.html`;
   const written = writeArticle(html, filename);
   if (written) {
@@ -189,7 +193,7 @@ function writeSingleArticle(html: string, slug: string, lang: string): string {
   } else if (dryRunArg) {
     stats.dryRun += 1;
   }
-  return filename;
+  return written;
 }
 
 /**
@@ -646,6 +650,7 @@ async function generateWeekAhead(): Promise<GenerationResult> {
     const keywords = buildKeywords(weekData);
     const content = buildWeekAheadContent(weekData, dateRange);
 
+    let writtenCount = 0;
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
@@ -665,12 +670,18 @@ async function generateWeekAhead(): Promise<GenerationResult> {
         sources: [],
       });
 
-      writeSingleArticle(html, slug, lang);
-      console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+      if (writeSingleArticle(html, slug, lang)) {
+        writtenCount++;
+        console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+      }
     }
 
-    console.log('  ✅ Week Ahead article generated successfully in all requested languages');
-    return { success: true, files: languages.length, slug };
+    console.log(
+      writtenCount > 0
+        ? `  ✅ Week Ahead article generated: ${writtenCount}/${languages.length} language(s) written`
+        : `  ✅ Week Ahead article generation completed: 0 files written (dry-run or all files skipped)`
+    );
+    return { success: true, files: writtenCount, slug };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const stack = error instanceof Error ? error.stack : undefined;
@@ -881,6 +892,7 @@ async function generateBreakingNews(): Promise<GenerationResult> {
       influenceRaw
     );
 
+    let writtenCount = 0;
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
@@ -907,12 +919,18 @@ async function generateBreakingNews(): Promise<GenerationResult> {
         sources: [],
       });
 
-      writeSingleArticle(html, slug, lang);
-      console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+      if (writeSingleArticle(html, slug, lang)) {
+        writtenCount++;
+        console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+      }
     }
 
-    console.log('  ✅ Breaking News article generated successfully in all requested languages');
-    return { success: true, files: languages.length, slug };
+    console.log(
+      writtenCount > 0
+        ? `  ✅ Breaking News article generated: ${writtenCount}/${languages.length} language(s) written`
+        : `  ✅ Breaking News article generation completed: 0 files written (dry-run or all files skipped)`
+    );
+    return { success: true, files: writtenCount, slug };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const stack = error instanceof Error ? error.stack : undefined;
@@ -1093,6 +1111,7 @@ async function generateCommitteeReports(): Promise<GenerationResult> {
       (committee): committee is CommitteeData => committee !== null
     );
 
+    let writtenCount = 0;
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
@@ -1158,10 +1177,16 @@ async function generateCommitteeReports(): Promise<GenerationResult> {
         sources,
       });
 
-      writeSingleArticle(html, slug, lang);
+      if (writeSingleArticle(html, slug, lang)) {
+        writtenCount++;
+        console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+      }
     }
 
-    return { success: true, files: languages.length, slug };
+    console.log(
+      `  ✅ Committee reports generation completed: ${writtenCount}/${languages.length} languages written`
+    );
+    return { success: true, files: writtenCount, slug };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     console.error('❌ Committee reports generation failed:', message);
@@ -1804,6 +1829,7 @@ async function generatePropositions(): Promise<GenerationResult> {
     if (!proposalsHtml)
       console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
 
+    let writtenCount = 0;
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
@@ -1826,12 +1852,18 @@ async function generatePropositions(): Promise<GenerationResult> {
         sources: [],
       });
 
-      writeSingleArticle(html, slug, lang);
-      console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+      if (writeSingleArticle(html, slug, lang)) {
+        writtenCount++;
+        console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+      }
     }
 
-    console.log('  ✅ Propositions article generated successfully in all requested languages');
-    return { success: true, files: languages.length, slug };
+    console.log(
+      writtenCount > 0
+        ? `  ✅ Propositions article generated: ${writtenCount}/${languages.length} language(s) written`
+        : `  ✅ Propositions article generation completed: 0 files written (dry-run or all files skipped)`
+    );
+    return { success: true, files: writtenCount, slug };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const stack = error instanceof Error ? error.stack : undefined;
@@ -1863,6 +1895,7 @@ async function generateMotions(): Promise<GenerationResult> {
       dateStr
     );
 
+    let writtenCount = 0;
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
@@ -1899,12 +1932,18 @@ async function generateMotions(): Promise<GenerationResult> {
         sources: [],
       });
 
-      writeSingleArticle(html, slug, lang);
-      console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+      if (writeSingleArticle(html, slug, lang)) {
+        writtenCount++;
+        console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+      }
     }
 
-    console.log('  ✅ Motions article generated successfully in all requested languages');
-    return { success: true, files: languages.length, slug };
+    console.log(
+      writtenCount > 0
+        ? `  ✅ Motions article generated: ${writtenCount}/${languages.length} language(s) written`
+        : `  ✅ Motions article generation completed: 0 files written (dry-run or all files skipped)`
+    );
+    return { success: true, files: writtenCount, slug };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const stack = error instanceof Error ? error.stack : undefined;

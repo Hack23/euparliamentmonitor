@@ -89,11 +89,9 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 **This workflow generates ONLY `propositions` articles.** Do not generate other article types.
 
-## 🚨 CRITICAL: European Parliament MCP Server Is the Primary Data Source
+**ALL article data MUST come exclusively from the European Parliament MCP server** (`european-parliament-mcp-server`). No other data sources should be used for article content.
 
-**ALL article data MUST be fetched from the European Parliament MCP server** (`european-parliament-mcp-server`). No other data source should be used for article content.
-
-## Required Skills
+## 🔒 Required Skills
 
 Read each skill file before proceeding:
 1. **`.github/skills/european-political-system.md`** — EU legislative procedures (OLP, CNS, APP)
@@ -103,6 +101,7 @@ Read each skill file before proceeding:
 5. **`.github/skills/gh-aw-firewall.md`** — Network security and safe outputs
 
 ## ⏱️ Time Budget (30 minutes)
+
 - **Minutes 0–3**: Date validation, EP MCP server warm-up
 - **Minutes 3–10**: Query EP MCP tools for legislative proposals and pipeline data
 - **Minutes 10–22**: Generate articles for requested languages
@@ -121,10 +120,10 @@ echo "============================"
 ## MANDATORY PR Creation
 
 - ✅ `safeoutputs___create_pull_request` when articles generated
-- ✅ `noop` ONLY if genuinely no new proposals available from MCP
+- ✅ `noop` ONLY if genuinely no new proposals available from MCP, OR all target files already existed (--skip-existing) with no changes
 - ❌ NEVER use `noop` as fallback for PR creation failures
 
-## EP MCP Tools for Propositions
+## 🏛️ EP MCP Tools for Propositions
 
 **ALL data MUST come from these EP MCP tools:**
 
@@ -145,7 +144,7 @@ european_parliament___get_committee_info({ committeeId: "ENVI" })
 european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
 ```
 
-## EU Legislative Procedures Reference
+## 🏛️ EU Legislative Procedures Reference
 
 | Code | Procedure | Description |
 |------|-----------|-------------|
@@ -160,9 +159,11 @@ european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTE
 ## Generation Steps
 
 ### Step 1: Check Recent Generation
+
 Check if propositions articles exist from the last 11 hours. If **force_generation** is `true`, skip this check.
 
 ### Step 2: Query EP MCP
+
 ```javascript
 european_parliament___search_documents({ query: "Commission proposal", limit: 20 })
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
@@ -190,6 +191,7 @@ case "$LANGUAGES_INPUT" in
   *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
+# EP_FORCE_GENERATION is provided via the workflow step env: block
 SKIP_FLAG=""
 if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
@@ -204,7 +206,7 @@ npx tsx src/generators/news-enhanced.ts \
 ### Step 4: Validate & Regenerate Indexes
 
 ```bash
-npx tsx src/generators/news-indexes.ts
+npm run generate-news-indexes
 ```
 
 ### Step 5: Analysis Quality Check

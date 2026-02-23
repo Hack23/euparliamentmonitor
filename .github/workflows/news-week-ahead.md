@@ -53,6 +53,10 @@ tools:
   bash: true
 
 safe-outputs:
+  allowed-domains:
+    - data.europarl.europa.eu
+    - www.europarl.europa.eu
+    - github.com
   create-pull-request: {}
   add-comment: {}
 
@@ -178,7 +182,6 @@ const [sessions, committees, documents, pipeline, meps] = await Promise.allSettl
 ```bash
 # EP_LANG_INPUT is provided via the workflow step env: block
 # e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
-# EP_FORCE_GENERATION: ${{ github.event.inputs.force_generation }}
 LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
@@ -196,6 +199,7 @@ case "$LANGUAGES_INPUT" in
   *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
+# EP_FORCE_GENERATION is provided via the workflow step env: block
 SKIP_FLAG=""
 if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
@@ -210,7 +214,7 @@ npx tsx src/generators/news-enhanced.ts \
 ### Step 4: Generate Indexes
 
 ```bash
-npx tsx src/generators/news-indexes.ts
+npm run generate-news-indexes
 ```
 
 ### Step 5: Translate, Validate & Verify Analysis Quality
