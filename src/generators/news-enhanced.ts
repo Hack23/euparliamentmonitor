@@ -180,7 +180,7 @@ function writeArticle(html: string, filename: string): boolean {
  * @param html - HTML content
  * @param slug - Article slug
  * @param lang - Language code
- * @returns Generated filename
+ * @returns Whether the article was written successfully
  */
 function writeSingleArticle(html: string, slug: string, lang: string): boolean {
   const filename = `${slug}-${lang}.html`;
@@ -246,7 +246,7 @@ const PLACEHOLDER_EVENTS: ParliamentEvent[] = [
  * @param fallbackDate - Fallback date when session has none
  * @returns Array of parliament events
  */
-function parsePlenarySessions(
+export function parsePlenarySessions(
   settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>,
   fallbackDate: string
 ): ParliamentEvent[] {
@@ -279,7 +279,7 @@ function parsePlenarySessions(
  * @param fallbackDate - Fallback date when meeting has none
  * @returns Array of committee meetings
  */
-function parseCommitteeMeetings(
+export function parseCommitteeMeetings(
   settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>,
   fallbackDate: string
 ): CommitteeMeeting[] {
@@ -314,7 +314,7 @@ function parseCommitteeMeetings(
  * @param settled - Promise.allSettled result
  * @returns Array of legislative documents
  */
-function parseLegislativeDocuments(
+export function parseLegislativeDocuments(
   settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>
 ): LegislativeDocument[] {
   if (settled.status === 'rejected') {
@@ -348,7 +348,7 @@ function parseLegislativeDocuments(
  * @param settled - Promise.allSettled result
  * @returns Array of legislative procedures
  */
-function parseLegislativePipeline(
+export function parseLegislativePipeline(
   settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>
 ): LegislativeProcedure[] {
   if (settled.status === 'rejected') {
@@ -558,7 +558,7 @@ function renderQuestion(q: ParliamentaryQuestion): string {
  * @param dateRange - Date range for the article
  * @returns HTML content string
  */
-function buildWeekAheadContent(weekData: WeekAheadData, dateRange: DateRange): string {
+export function buildWeekAheadContent(weekData: WeekAheadData, dateRange: DateRange): string {
   const plenaryHtml =
     weekData.events.length > 0
       ? weekData.events.map(renderPlenaryEvent).join('')
@@ -619,7 +619,7 @@ function buildWeekAheadContent(weekData: WeekAheadData, dateRange: DateRange): s
  * @param weekData - Aggregated week-ahead data
  * @returns Array of keyword strings
  */
-function buildKeywords(weekData: WeekAheadData): string[] {
+export function buildKeywords(weekData: WeekAheadData): string[] {
   const keywords = [KEYWORD_EUROPEAN_PARLIAMENT, 'week ahead', 'plenary', 'committees'];
   for (const c of weekData.committees) {
     if (c.committee && !keywords.includes(c.committee)) {
