@@ -153,15 +153,15 @@ function getWeekAheadDateRange(): DateRange {
  * @returns Success status
  */
 function writeArticle(html: string, filename: string): boolean {
-  if (dryRunArg) {
-    console.log(`  [DRY RUN] Would write: ${filename}`);
-    return false;
-  }
-
   const filepath = path.join(NEWS_DIR, filename);
 
   if (skipExistingArg && fs.existsSync(filepath)) {
-    console.log(`  ⏭️ Skipping existing: ${filename}`);
+    console.log(`  ⏭️ Skipped (already exists): ${filename}`);
+    return false;
+  }
+
+  if (dryRunArg) {
+    console.log(`  [DRY RUN] Would write: ${filename}`);
     return false;
   }
 
@@ -184,10 +184,10 @@ function writeSingleArticle(html: string, slug: string, lang: string): string {
   if (written) {
     stats.generated += 1;
     stats.articles.push(filename);
+  } else if (skipExistingArg && fs.existsSync(path.join(NEWS_DIR, filename))) {
+    stats.skipped += 1;
   } else if (dryRunArg) {
     stats.dryRun += 1;
-  } else if (skipExistingArg) {
-    stats.skipped += 1;
   }
   return filename;
 }
