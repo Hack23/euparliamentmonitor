@@ -184,7 +184,7 @@ function writeSingleArticle(html: string, slug: string, lang: string): string {
   if (written) {
     stats.generated += 1;
     stats.articles.push(filename);
-  } else if (skipExistingArg) {
+  } else if (skipExistingArg && fs.existsSync(path.join(NEWS_DIR, filename))) {
     stats.skipped += 1;
   } else if (dryRunArg) {
     stats.dryRun += 1;

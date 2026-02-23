@@ -125,7 +125,7 @@ Use the following EP MCP tools to gather data for motions analysis. **All data M
 
 ```javascript
 // Primary motions data
-search_documents({ keyword: "motion for resolution", limit: 20 })
+search_documents({ query: "motion for resolution", limit: 20 })
 
 // Parliamentary questions and interpellations
 get_parliamentary_questions({ limit: 10 })
@@ -158,7 +158,7 @@ Fetch all required data from the European Parliament MCP server:
 
 ```javascript
 // Fetch in parallel for efficiency
-search_documents({ keyword: "motion for resolution", limit: 20 })
+search_documents({ query: "motion for resolution", limit: 20 })
 get_parliamentary_questions({ limit: 10 })
 detect_voting_anomalies({})
 analyze_coalition_dynamics({})
