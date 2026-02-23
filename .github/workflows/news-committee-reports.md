@@ -45,7 +45,7 @@ mcp-servers:
     command: npx
     args:
       - "-y"
-      - european-parliament-mcp-server
+      - european-parliament-mcp-server@0.4.0
 
 tools:
   github:

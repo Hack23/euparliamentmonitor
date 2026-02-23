@@ -154,7 +154,7 @@ function getWeekAheadDateRange(): DateRange {
 function writeArticle(html: string, filename: string): boolean {
   if (dryRunArg) {
     console.log(`  [DRY RUN] Would write: ${filename}`);
-    return true;
+    return false;
   }
 
   const filepath = path.join(NEWS_DIR, filename);
@@ -169,7 +169,7 @@ function writeArticle(html: string, filename: string): boolean {
  * @param html - HTML content
  * @param slug - Article slug
  * @param lang - Language code
- * @returns True if the file was written, false if it was skipped
+ * @returns True if the file was actually written, false if skipped or dry-run
  */
 function writeSingleArticle(html: string, slug: string, lang: string): boolean {
   const filename = `${slug}-${lang}.html`;
@@ -178,10 +178,12 @@ function writeSingleArticle(html: string, slug: string, lang: string): boolean {
     stats.skipped += 1;
     return false;
   }
-  writeArticle(html, filename);
-  stats.generated += 1;
-  stats.articles.push(filename);
-  return true;
+  const written = writeArticle(html, filename);
+  if (written) {
+    stats.generated += 1;
+    stats.articles.push(filename);
+  }
+  return written;
 }
 
 /**
