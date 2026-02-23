@@ -124,7 +124,6 @@ function writeSingleArticle(html, slug, lang) {
         stats.dryRun += 1;
     }
     return written;
-    return filename;
 }
 /**
  * Initialize MCP client if available
