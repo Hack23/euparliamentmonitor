@@ -212,6 +212,7 @@ export interface DateRange {
 export interface GenerationStats {
   generated: number;
   skipped: number;
+  dryRun: number;
   errors: number;
   articles: string[];
   timestamp: string;
