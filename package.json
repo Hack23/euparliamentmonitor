@@ -87,6 +87,6 @@
     "node": ">=24"
   },
   "dependencies": {
-    "european-parliament-mcp-server": "^0.4.0"
+    "european-parliament-mcp-server": "^0.5.1"
   }
 }
