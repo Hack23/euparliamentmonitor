@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server
+      - european-parliament-mcp-server@0.4.0
 
 tools:
   github:
@@ -130,19 +130,19 @@ echo "============================"
 
 ```javascript
 // Fetch latest legislative proposals
-search_documents({ keyword: "Commission proposal", limit: 20 })
+european_parliament___search_documents({ keyword: "Commission proposal", limit: 20 })
 
 // Monitor legislative pipeline
-monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
+european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
 
 // Track a specific procedure (use procedure ID from search_documents results)
-track_legislation({ procedureId: "2024/0001(COD)" })
+european_parliament___track_legislation({ procedureId: "2024/0001(COD)" })
 
 // Get committee referral information
-get_committee_info({ committeeId: "ENVI" })
+european_parliament___get_committee_info({ committeeId: "ENVI" })
 
 // Analyze legislative effectiveness
-analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
+european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
 ```
 
 ## EU Legislative Procedures Reference
@@ -164,16 +164,24 @@ Check if propositions articles exist from the last 11 hours. If **force_generati
 
 ### Step 2: Query EP MCP
 ```javascript
-search_documents({ keyword: "Commission proposal", limit: 20 })
-monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
+european_parliament___search_documents({ keyword: "Commission proposal", limit: 20 })
+european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
 ```
 
 ### Step 3: Generate Articles
 
 ```bash
-# Set LANGUAGES_INPUT to the value shown in Workflow Dispatch Parameters above
-LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
+# EP_LANG_INPUT is provided via the workflow step env: block
+# e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
+LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
+
+# Strict allowlist validation to prevent shell injection
+if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu)(,(en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu))*$'; then
+  echo "❌ Invalid languages input: $LANGUAGES_INPUT" >&2
+  echo "Allowed: all, eu-core, nordic, or comma-separated: en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" >&2
+  exit 1
+fi
 
 case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;

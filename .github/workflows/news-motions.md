@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server
+      - european-parliament-mcp-server@0.4.0
 
 tools:
   github:
@@ -129,25 +129,25 @@ Use the following EP MCP tools to gather data for motions analysis. **All data M
 
 ```javascript
 // Primary motions data
-search_documents({ keyword: "motion for resolution", limit: 20 })
+european_parliament___search_documents({ keyword: "motion for resolution", limit: 20 })
 
 // Parliamentary questions and interpellations
-get_parliamentary_questions({ limit: 10 })
+european_parliament___get_parliamentary_questions({ limit: 10 })
 
 // OSINT: Voting anomalies on motions
-detect_voting_anomalies({})
+european_parliament___detect_voting_anomalies({})
 
 // OSINT: Political group alignment on motions
-analyze_coalition_dynamics({})
+european_parliament___analyze_coalition_dynamics({})
 
 // OSINT: Group positions comparison
-compare_political_groups({ groupIds: ["EPP", "S&D", "Renew", "Greens/EFA", "ECR", "The Left", "PfE", "ESN"] })
+european_parliament___compare_political_groups({ groupIds: ["EPP", "S&D", "Renew", "Greens/EFA", "ECR", "The Left", "PfE", "ESN"] })
 
 // Voting records on motions
-get_voting_records({ topic: "resolution", limit: 20 })
+european_parliament___get_voting_records({ topic: "resolution", limit: 20 })
 
 // OSINT: Key MEP influence (call per influential MEP identified)
-assess_mep_influence({ mepId: "<mepId>" })
+european_parliament___assess_mep_influence({ mepId: "<mepId>" })
 ```
 
 ## Generation Steps
@@ -161,20 +161,28 @@ Fetch all required data from the European Parliament MCP server:
 
 ```javascript
 // Fetch in parallel for efficiency
-search_documents({ keyword: "motion for resolution", limit: 20 })
-get_parliamentary_questions({ limit: 10 })
-detect_voting_anomalies({})
-analyze_coalition_dynamics({})
-get_voting_records({ topic: "resolution", limit: 20 })
-compare_political_groups({ groupIds: ["EPP", "S&D", "Renew", "Greens/EFA", "ECR"] })
+european_parliament___search_documents({ keyword: "motion for resolution", limit: 20 })
+european_parliament___get_parliamentary_questions({ limit: 10 })
+european_parliament___detect_voting_anomalies({})
+european_parliament___analyze_coalition_dynamics({})
+european_parliament___get_voting_records({ topic: "resolution", limit: 20 })
+european_parliament___compare_political_groups({ groupIds: ["EPP", "S&D", "Renew", "Greens/EFA", "ECR"] })
 ```
 
 ### Step 3: Generate Articles
 
 ```bash
-# Set LANGUAGES_INPUT to the value shown in Workflow Dispatch Parameters above
-LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
+# EP_LANG_INPUT is provided via the workflow step env: block
+# e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
+LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
+
+# Strict allowlist validation to prevent shell injection
+if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu)(,(en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu))*$'; then
+  echo "❌ Invalid languages input: $LANGUAGES_INPUT" >&2
+  echo "Allowed: all, eu-core, nordic, or comma-separated: en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" >&2
+  exit 1
+fi
 
 case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;

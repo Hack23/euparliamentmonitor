@@ -176,9 +176,18 @@ const [sessions, committees, documents, pipeline, meps] = await Promise.allSettl
 ### Step 3: Generate Articles
 
 ```bash
-# Set LANGUAGES_INPUT to the value shown in Workflow Dispatch Parameters above
-LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
+# EP_LANG_INPUT is provided via the workflow step env: block
+# e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
+# EP_FORCE_GENERATION: ${{ github.event.inputs.force_generation }}
+LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
+
+# Strict allowlist validation to prevent shell injection
+if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu)(,(en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu))*$'; then
+  echo "❌ Invalid languages input: $LANGUAGES_INPUT" >&2
+  echo "Allowed: all, eu-core, nordic, or comma-separated: en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" >&2
+  exit 1
+fi
 
 case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
@@ -188,7 +197,7 @@ case "$LANGUAGES_INPUT" in
 esac
 
 SKIP_FLAG=""
-if [ "${{ github.event.inputs.force_generation }}" != "true" ]; then
+if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
 fi
 
