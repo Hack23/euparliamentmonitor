@@ -126,19 +126,19 @@ echo "============================"
 
 ```javascript
 // Fetch latest legislative proposals
-search_documents({ query: "Commission proposal", limit: 20 })
+european_parliament___search_documents({ query: "Commission proposal", limit: 20 })
 
 // Monitor legislative pipeline
-monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
+european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
 
 // Track a specific procedure (use procedure ID from search_documents results)
-track_legislation({ procedureId: "2024/0001(COD)" })
+european_parliament___track_legislation({ procedureId: "2024/0001(COD)" })
 
 // Get committee referral information
-get_committee_info({ committeeId: "ENVI" })
+european_parliament___get_committee_info({ committeeId: "ENVI" })
 
 // Analyze legislative effectiveness
-analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
+european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
 ```
 
 ## 🏛️ EU Legislative Procedures Reference
@@ -163,8 +163,8 @@ Check if propositions articles exist from the last 11 hours. If **force_generati
 
 ```javascript
 // Warm up and fetch proposals
-search_documents({ query: "Commission proposal", limit: 20 })
-monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
+european_parliament___search_documents({ query: "Commission proposal", limit: 20 })
+european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
 ```
 
 ### Step 3: Generate Articles
@@ -208,7 +208,7 @@ npx tsx src/generators/news-enhanced.ts \
 ### Step 4: Validate & Regenerate Indexes
 
 ```bash
-npx tsx src/generators/generate-news-indexes.ts
+npm run generate-news-indexes
 ```
 
 ### Step 5: Analysis Quality Check

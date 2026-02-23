@@ -180,11 +180,20 @@ const [sessions, committees, documents, pipeline, meps] = await Promise.allSettl
 LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
+# Validate input against known safe values to prevent shell injection
 case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
   "nordic")  LANG_ARG="en,sv,da,fi" ;;
   "all")     LANG_ARG="en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" ;;
-  *)         LANG_ARG="$LANGUAGES_INPUT" ;;
+  *)
+    # Strict whitelist: only allow comma-separated 2-letter language codes
+    if echo "$LANGUAGES_INPUT" | grep -qE '^[a-z]{2}(,[a-z]{2})*$'; then
+      LANG_ARG="$LANGUAGES_INPUT"
+    else
+      echo "❌ Invalid languages input: '$LANGUAGES_INPUT' (must be preset or comma-separated 2-letter codes)"
+      exit 1
+    fi
+    ;;
 esac
 
 SKIP_FLAG=""
