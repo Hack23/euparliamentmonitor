@@ -191,10 +191,15 @@ case "$LANGUAGES_INPUT" in
   *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
+SKIP_FLAG=""
+if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+  SKIP_FLAG="--skip-existing"
+fi
+
 npx tsx src/generators/news-enhanced.ts \
   --types=motions \
   --languages="$LANG_ARG" \
-  --skip-existing
+  $SKIP_FLAG
 ```
 
 ### Step 4: Rebuild Indexes and Validate
