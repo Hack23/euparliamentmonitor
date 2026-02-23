@@ -135,8 +135,8 @@ get_committee_info({ committeeId: "LIBE" })
 get_committee_info({ committeeId: "AGRI" })
 
 // Search for recent committee reports and opinions
-search_documents({ keyword: "committee report", documentType: "REPORT" })
-search_documents({ keyword: "committee opinion", documentType: "OPINION" })
+search_documents({ keyword: "committee report", type: "REPORT" })
+search_documents({ keyword: "committee opinion", type: "OPINION" })
 
 // Analyze committee legislative effectiveness
 analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })

@@ -100,19 +100,19 @@ function writeArticle(html, filename) {
  * @param html - HTML content
  * @param slug - Article slug
  * @param lang - Language code
- * @returns Generated filename
+ * @returns True if the file was written, false if it was skipped
  */
 function writeSingleArticle(html, slug, lang) {
     const filename = `${slug}-${lang}.html`;
     if (skipExistingArg && fs.existsSync(path.join(NEWS_DIR, filename))) {
         console.log(`  ⏭️ Skipping existing: ${filename}`);
         stats.skipped += 1;
-        return filename;
+        return false;
     }
     writeArticle(html, filename);
     stats.generated += 1;
     stats.articles.push(filename);
-    return filename;
+    return true;
 }
 /**
  * Initialize MCP client if available
@@ -536,6 +536,7 @@ async function generateWeekAhead() {
         const weekData = await fetchWeekAheadData(dateRange);
         const keywords = buildKeywords(weekData);
         const content = buildWeekAheadContent(weekData, dateRange);
+        let filesWritten = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const titleGenerator = getLocalizedString(WEEK_AHEAD_TITLES, lang);
@@ -552,11 +553,13 @@ async function generateWeekAhead() {
                 keywords,
                 sources: [],
             });
-            writeSingleArticle(html, slug, lang);
-            console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+            if (writeSingleArticle(html, slug, lang)) {
+                filesWritten += 1;
+                console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+            }
         }
         console.log('  ✅ Week Ahead article generated successfully in all requested languages');
-        return { success: true, files: languages.length, slug };
+        return { success: true, files: filesWritten, slug };
     }
     catch (error) {
         const message = error instanceof Error ? error.message : String(error);
@@ -744,6 +747,7 @@ async function generateBreakingNews() {
             fetchMEPInfluence(''),
         ]);
         const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, influenceRaw);
+        let filesWritten = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const titleGenerator = getLocalizedString(BREAKING_NEWS_TITLES, lang);
@@ -766,11 +770,13 @@ async function generateBreakingNews() {
                 ],
                 sources: [],
             });
-            writeSingleArticle(html, slug, lang);
-            console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+            if (writeSingleArticle(html, slug, lang)) {
+                filesWritten += 1;
+                console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+            }
         }
         console.log('  ✅ Breaking News article generated successfully in all requested languages');
-        return { success: true, files: languages.length, slug };
+        return { success: true, files: filesWritten, slug };
     }
     catch (error) {
         const message = error instanceof Error ? error.message : String(error);
@@ -935,6 +941,7 @@ async function generateCommitteeReports() {
             return null;
         })));
         const committeeDataList = committeeDataRaw.filter((committee) => committee !== null);
+        let filesWritten = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const titleGenerator = getLocalizedString(COMMITTEE_REPORTS_TITLES, lang);
@@ -990,9 +997,11 @@ async function generateCommitteeReports() {
                 keywords: ['committee', 'EU Parliament', 'legislation'],
                 sources,
             });
-            writeSingleArticle(html, slug, lang);
+            if (writeSingleArticle(html, slug, lang)) {
+                filesWritten += 1;
+            }
         }
-        return { success: true, files: languages.length, slug };
+        return { success: true, files: filesWritten, slug };
     }
     catch (error) {
         const message = error instanceof Error ? error.message : String(error);
@@ -1530,6 +1539,7 @@ async function generatePropositions() {
         const procedureHtml = await fetchProcedureStatusFromMCP(firstProcedureId);
         if (!proposalsHtml)
             console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
+        let filesWritten = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const langTitles = getLocalizedString(PROPOSITIONS_TITLES, lang)();
@@ -1548,11 +1558,13 @@ async function generatePropositions() {
                 keywords: [KEYWORD_EUROPEAN_PARLIAMENT, 'legislation', 'proposals', 'procedure', 'OLP'],
                 sources: [],
             });
-            writeSingleArticle(html, slug, lang);
-            console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+            if (writeSingleArticle(html, slug, lang)) {
+                filesWritten += 1;
+                console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+            }
         }
         console.log('  ✅ Propositions article generated successfully in all requested languages');
-        return { success: true, files: languages.length, slug };
+        return { success: true, files: filesWritten, slug };
     }
     catch (error) {
         const message = error instanceof Error ? error.message : String(error);
@@ -1577,6 +1589,7 @@ async function generateMotions() {
         const dateFromStr = dateFrom.toISOString().split('T')[0];
         // Fetch all data
         const { votingRecords, votingPatterns, anomalies, questions } = await fetchMotionsData(dateFromStr, dateStr);
+        let filesWritten = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const titleGenerator = getLocalizedString(MOTIONS_TITLES, lang);
@@ -1601,11 +1614,13 @@ async function generateMotions() {
                 ],
                 sources: [],
             });
-            writeSingleArticle(html, slug, lang);
-            console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+            if (writeSingleArticle(html, slug, lang)) {
+                filesWritten += 1;
+                console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+            }
         }
         console.log('  ✅ Motions article generated successfully in all requested languages');
-        return { success: true, files: languages.length, slug };
+        return { success: true, files: filesWritten, slug };
     }
     catch (error) {
         const message = error instanceof Error ? error.message : String(error);
