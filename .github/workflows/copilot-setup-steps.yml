@@ -151,9 +151,3 @@ jobs:
           echo "=== HTTP MCP Servers ==="
           echo "📍 GitHub MCP Server: Using HTTP endpoint (https://api.githubcopilot.com/mcp/insiders)"
           echo "✅ MCP server verification complete"
-
-      - name: Install Playwright browsers (and OS deps)
-        run: npx playwright install --with-deps
-        env:
-          DISPLAY: ":99"
-          PLAYWRIGHT_BROWSERS_PATH: "0"
