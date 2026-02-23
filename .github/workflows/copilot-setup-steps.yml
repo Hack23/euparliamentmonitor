@@ -52,14 +52,13 @@ jobs:
             ${{ runner.os }}-apt-
 
       # Setup complete Web test environment
-      - name: Setup Web Test Environment
+      - name: Setup Test Environment
         run: |
           echo "🔧 Setting up complete Web test environment..."
 
           # Install system dependencies for Web rendering
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            xvfb dbus-x11 x11-utils \
             libgtk2.0-0 libgtk-3-0 libgbm-dev libgbm1 \
             libnotify-dev libnss3 libxss1 \
             libxtst6 xauth \
@@ -71,10 +70,6 @@ jobs:
             libx11-xcb1 libxcomposite1 libxdamage1 \
             libxfixes3 libxrandr2 libxrender1 \
             libxshmfence1 xdg-utils wget libxkbcommon0 xkb-data
-
-          # Setup D-Bus for Chrome
-          sudo mkdir -p /var/run/dbus
-          sudo dbus-daemon --system --fork || true
                     
         env:
           XKB_DEFAULT_RULES: evdev
@@ -107,6 +102,9 @@ jobs:
           key: ${{ runner.os }}-mcp-servers-v4-${{ hashFiles('.github/copilot-mcp.json') }}
           restore-keys: |
             ${{ runner.os }}-mcp-servers-v4-
+
+      - name: Install dependencies
+        run: npm ci
 
       # Pre-install MCP server packages globally
       - name: Install MCP server packages globally
