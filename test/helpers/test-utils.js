@@ -20,12 +20,14 @@ let tempDirCounter = 0;
 
 /**
  * Create a temporary test directory
+ * Includes process.pid to avoid collisions across parallel vitest workers
+ * that each start tempDirCounter at 0.
  * @returns {string} Path to temporary directory
  */
 export function createTempDir() {
   const timestamp = Date.now();
   const counter = tempDirCounter++;
-  const tempDir = path.join(__dirname, '..', 'temp', `test-${timestamp}-${counter}`);
+  const tempDir = path.join(__dirname, '..', 'temp', `test-${timestamp}-${process.pid}-${counter}`);
   fs.mkdirSync(tempDir, { recursive: true });
   return tempDir;
 }
