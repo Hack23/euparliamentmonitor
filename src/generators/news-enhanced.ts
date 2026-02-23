@@ -120,6 +120,7 @@ ensureDirectoryExists(METADATA_DIR);
 const stats: GenerationStats = {
   generated: 0,
   skipped: 0,
+  dryRun: 0,
   errors: 0,
   articles: [],
   timestamp: new Date().toISOString(),
@@ -154,7 +155,7 @@ function getWeekAheadDateRange(): DateRange {
 function writeArticle(html: string, filename: string): boolean {
   if (dryRunArg) {
     console.log(`  [DRY RUN] Would write: ${filename}`);
-    return true;
+    return false;
   }
 
   const filepath = path.join(NEWS_DIR, filename);
@@ -183,6 +184,8 @@ function writeSingleArticle(html: string, slug: string, lang: string): string {
   if (written) {
     stats.generated += 1;
     stats.articles.push(filename);
+  } else if (dryRunArg) {
+    stats.dryRun += 1;
   } else if (skipExistingArg) {
     stats.skipped += 1;
   }
@@ -1958,6 +1961,7 @@ async function main(): Promise<void> {
     console.log('📊 Generation Summary:');
     console.log(`  ✅ Generated: ${stats.generated} articles`);
     console.log(`  ⏭️ Skipped: ${stats.skipped} articles`);
+    if (dryRunArg) console.log(`  🔍 Dry run: ${stats.dryRun} articles`);
     console.log(`  ❌ Errors: ${stats.errors}`);
     console.log('');
 
@@ -1966,6 +1970,7 @@ async function main(): Promise<void> {
       timestamp: stats.timestamp,
       generated: stats.generated,
       skipped: stats.skipped,
+      dryRun: stats.dryRun,
       errors: stats.errors,
       articles: stats.articles,
       results,
