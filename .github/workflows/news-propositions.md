@@ -70,15 +70,6 @@ steps:
     run: |
       npm ci --prefer-offline --no-audit
 
-  - name: Export workflow inputs as environment variables
-    run: |
-      {
-        cat << 'EOF'
-EP_LANG_INPUT=${{ github.event.inputs.languages }}
-EP_FORCE_GENERATION=${{ github.event.inputs.force_generation }}
-EOF
-      } >> "$GITHUB_ENV"
-
 engine:
   id: copilot
   model: claude-opus-4.6
@@ -181,7 +172,8 @@ european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10
 ### Step 3: Generate Articles
 
 ```bash
-# EP_LANG_INPUT is provided by a previous step via $GITHUB_ENV
+# EP_LANG_INPUT is provided via the workflow step env: block
+# e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
 LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
@@ -199,7 +191,7 @@ case "$LANGUAGES_INPUT" in
   *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
-# EP_FORCE_GENERATION is provided by a previous step via $GITHUB_ENV
+# EP_FORCE_GENERATION is provided via the workflow step env: block
 SKIP_FLAG=""
 if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
