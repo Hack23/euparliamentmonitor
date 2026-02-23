@@ -13,7 +13,7 @@ on:
         required: false
         default: false
       languages:
-        description: 'Languages to generate (en | eu-core | nordic | all | custom comma-separated)'
+        description: 'Languages to generate (en | eu-core | nordic | all)'
         required: false
         default: all
 
@@ -41,10 +41,11 @@ network:
 
 mcp-servers:
   european-parliament:
+    type: local
     command: npx
     args:
-      - -y
-      - european-parliament-mcp-server
+      - "-y"
+      - european-parliament-mcp-server@0.4.0
 
 tools:
   github:
@@ -53,10 +54,6 @@ tools:
   bash: true
 
 safe-outputs:
-  allowed-domains:
-    - data.europarl.europa.eu
-    - www.europarl.europa.eu
-    - github.com
   create-pull-request: {}
   add-comment: {}
 
@@ -93,12 +90,8 @@ This focused approach ensures:
 - Faster execution within timeout
 - Independent scheduling per article type
 
-## 🚨 CRITICAL: European Parliament MCP Server Is the Primary Data Source
-
-**ALL article data MUST be fetched from the European Parliament MCP server.** No other data source should be used for article content.
-
 ## ⏱️ Time Budget (30 minutes)
-- **Minutes 0–3**: Date check, EP MCP warm-up
+- **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–10**: Query EP MCP tools for committee reports data
 - **Minutes 10–22**: Generate articles for all 14 EU languages
 - **Minutes 22–27**: Validate and commit
@@ -131,30 +124,30 @@ echo "============================"
 
 ## EP MCP Tools for Committee Reports
 
-**ALL data MUST come from these EP MCP tools:**
+**Use these European Parliament MCP tools** to fetch real committee data:
 
 ```javascript
 // Fetch committee information
-get_committee_info({ committeeId: "ENVI" })
-get_committee_info({ committeeId: "ECON" })
-get_committee_info({ committeeId: "AFET" })
-get_committee_info({ committeeId: "LIBE" })
-get_committee_info({ committeeId: "AGRI" })
+european_parliament___get_committee_info({ committeeId: "ENVI" })
+european_parliament___get_committee_info({ committeeId: "ECON" })
+european_parliament___get_committee_info({ committeeId: "AFET" })
+european_parliament___get_committee_info({ committeeId: "LIBE" })
+european_parliament___get_committee_info({ committeeId: "AGRI" })
 
 // Search for recent committee reports and opinions
-search_documents({ keyword: "committee report", documentType: "REPORT" })
-search_documents({ keyword: "committee opinion", documentType: "OPINION" })
+european_parliament___search_documents({ keyword: "committee report", type: "REPORT" })
+european_parliament___search_documents({ keyword: "committee opinion", type: "OPINION" })
 
 // Analyze committee legislative effectiveness
-analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
-analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ECON" })
+european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
+european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ECON" })
 
 // Fetch committee voting records
-get_voting_records({})
+european_parliament___get_voting_records({})
 
 // Get committee members and rapporteurs
-get_meps({ committee: "ENVI" })
-get_mep_details({ id: "<mepId>" })
+european_parliament___get_meps({ committee: "ENVI" })
+european_parliament___get_mep_details({ id: "<mepId>" })
 ```
 
 ## EP Standing Committees Reference
@@ -201,9 +194,9 @@ LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
 
 case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
-  "nordic")  LANG_ARG="en,sv,da,fi" ;;
-  "all")     LANG_ARG="en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" ;;
-  *)         LANG_ARG="$LANGUAGES_INPUT" ;;
+  "nordic") LANG_ARG="en,sv,da,fi" ;;
+  "all") LANG_ARG="en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" ;;
+  *) LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
 npx tsx src/generators/news-enhanced.ts \
@@ -237,9 +230,3 @@ Validate HTML structure, then create PR using `safeoutputs___create_pull_request
 
 ## Article Naming Convention
 Files: `YYYY-MM-DD-committee-reports-{lang}.html` (e.g., `2026-02-22-committee-reports-en.html`)
-
-## ISMS Compliance
-
-- **Secure Development Policy**: Input validation, output encoding applied
-- **GDPR**: Public EU Parliament data only — no personal data processing
-- **ISO 27001**: MCP data sanitization per SECURITY_ARCHITECTURE.md

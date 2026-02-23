@@ -13,7 +13,7 @@ on:
         required: false
         default: false
       languages:
-        description: 'Languages to generate (en | eu-core | nordic | all | custom comma-separated)'
+        description: 'Languages to generate (en | eu-core | nordic | all)'
         required: false
         default: all
 
@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server
+      - european-parliament-mcp-server@0.4.0
 
 tools:
   github:
@@ -53,10 +53,6 @@ tools:
   bash: true
 
 safe-outputs:
-  allowed-domains:
-    - data.europarl.europa.eu
-    - www.europarl.europa.eu
-    - github.com
   create-pull-request: {}
   add-comment: {}
 
@@ -89,24 +85,25 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 **This workflow generates ONLY `week-ahead` articles.** Do not generate other article types.
 
-## 🚨 CRITICAL: European Parliament MCP Server Is the Primary Data Source
+## 🚨 CRITICAL: European Parliament MCP Server is the Sole Data Source
 
-**ALL article data MUST be fetched from the European Parliament MCP server.** No other data source should be used for article content.
+**ALL article data MUST be fetched from the `european-parliament` MCP server.** No other data source should be used for article content. The MCP server provides 16 tools covering MEPs, plenary sessions, committees, documents, voting records, and legislative pipeline.
 
 ## ⏱️ Time Budget (30 minutes)
-- **Minutes 0–3**: Date check, EP MCP warm-up
-- **Minutes 3–10**: Query plenary sessions, committee meetings for next 7 days
-- **Minutes 10–22**: Generate articles for all 14 EU languages
-- **Minutes 22–27**: Validate and commit
+
+- **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
+- **Minutes 3–10**: Query plenary sessions, committee meetings, and legislative pipeline for next 7 days
+- **Minutes 10–22**: Generate articles for all requested languages
+- **Minutes 22–27**: Validate generated HTML and run news indexes
 - **Minutes 27–30**: Create PR with `safeoutputs___create_pull_request`
 
 ## Required Skills
 
-1. **`.github/skills/european-political-system.md`** — EU Parliament terminology and structure
+1. **`.github/skills/european-political-system.md`** — EU Parliament terminology and political groups
 2. **`.github/skills/legislative-monitoring.md`** — Legislative procedure tracking
-3. **`.github/skills/european-parliament-data.md`** — MCP tool documentation
-4. **`.github/skills/seo-best-practices.md`** — Multi-language SEO
-5. **`.github/skills/gh-aw-firewall.md`** — Network security and safe outputs
+3. **`.github/skills/european-parliament-data.md`** — EP MCP tool documentation
+4. **`.github/skills/seo-best-practices.md`** — Article SEO and metadata
+5. **`.github/skills/gh-aw-firewall.md`** — Safe outputs and network security
 
 ## MANDATORY Date Validation
 
@@ -120,43 +117,60 @@ echo "============================"
 ## MANDATORY PR Creation
 
 - ✅ `safeoutputs___create_pull_request` when articles generated
-- ✅ `noop` ONLY if genuinely no upcoming plenary or committee events
+- ✅ `noop` ONLY if genuinely no upcoming calendar events
 - ❌ NEVER use `noop` as fallback for PR creation failures
 
 ## EP MCP Tools for Week Ahead
 
-**ALL data MUST come from these EP MCP tools:**
+**Always query these tools to gather data for the week ahead:**
 
 ```javascript
-// Get upcoming plenary sessions for the next 7 days
+// Get upcoming plenary sessions
 const today = new Date().toISOString().split('T')[0];
-const nextWeek = new Date(Date.now() + 7*86400000).toISOString().split('T')[0];
-get_plenary_sessions({ startDate: today, endDate: nextWeek })
+const nextWeek = new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0];
 
-// Get committee meetings scheduled
-get_committee_info({ dateFrom: today, dateTo: nextWeek })
+european_parliament___get_plenary_sessions({ startDate: today, endDate: nextWeek, limit: 50 })
 
-// Search for legislative documents on the agenda
-search_documents({ keyword: "plenary agenda", limit: 20 })
+// Get committee meetings
+european_parliament___get_committee_info({ dateFrom: today, dateTo: nextWeek, limit: 20 })
 
-// Monitor legislative pipeline for critical-stage legislation
-monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
+// Get upcoming legislative documents on the agenda
+european_parliament___search_documents({ query: "plenary agenda", limit: 20 })
+
+// Monitor legislation at critical stages
+european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 })
 
 // Get MEPs involved in upcoming debates
-get_meps({ limit: 50 })
+european_parliament___get_meps({ limit: 20 })
 ```
 
 ## Generation Steps
 
 ### Step 1: Check Recent Generation
-Check if week-ahead articles exist from the last 11 hours. Skip if **force_generation** is `true`.
+
+If **force_generation** is `false`, check whether week-ahead articles already exist from the last 11 hours:
+
+```bash
+find news/ -name "*week-ahead-en.html" -mmin -660 2>/dev/null | head -5
+```
+
+If recent articles exist and force_generation is `false`, use `--skip-existing` in the generation command.
 
 ### Step 2: Query EP MCP Server
+
 ```javascript
-get_plenary_sessions({ startDate: "YYYY-MM-DD", endDate: "YYYY-MM-DD+7" })
-get_committee_info({})
-search_documents({ keyword: "plenary agenda" })
-monitor_legislative_pipeline({})
+// Validate current date
+const today = new Date().toISOString().split('T')[0];
+const nextWeek = new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0];
+
+// Fetch all week-ahead data in parallel
+const [sessions, committees, documents, pipeline, meps] = await Promise.allSettled([
+  european_parliament___get_plenary_sessions({ startDate: today, endDate: nextWeek, limit: 50 }),
+  european_parliament___get_committee_info({ dateFrom: today, dateTo: nextWeek, limit: 20 }),
+  european_parliament___search_documents({ query: "plenary agenda", limit: 20 }),
+  european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 }),
+  european_parliament___get_meps({ limit: 20 }),
+]);
 ```
 
 ### Step 3: Generate Articles
@@ -173,50 +187,63 @@ case "$LANGUAGES_INPUT" in
   *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
+SKIP_FLAG=""
+if [ "${{ github.event.inputs.force_generation }}" != "true" ]; then
+  SKIP_FLAG="--skip-existing"
+fi
+
 npx tsx src/generators/news-enhanced.ts \
   --types=week-ahead \
   --languages="$LANG_ARG" \
-  --skip-existing
+  $SKIP_FLAG
 ```
 
-### Step 4: Translate, Validate & Verify Analysis Quality
+### Step 4: Generate Indexes
 
-**CRITICAL: Each article MUST contain real analysis, not just a list of event titles.**
-Every generated article must include:
-- A "Why This Week Matters" context box with political significance analysis
-- Key Events section with interpretive commentary (not just time/title)
-- "What to Watch" forward-looking analysis with implications
-- Political context connecting events to broader EU legislative trends
-- Political group dynamics and expected voting patterns
-
-If the generated article lacks analysis, manually add contextual commentary before committing.
-
-### Step 5: Regenerate Indexes
 ```bash
 npx tsx src/generators/news-indexes.ts
 ```
 
-### Step 6: Validate & Create PR
-Validate HTML structure, then create PR:
-```
-safeoutputs___create_pull_request
-```
+### Step 5: Translate, Validate & Verify Analysis Quality
 
-## 14 EU Languages
+**CRITICAL: Each article MUST contain real analysis, not just a list of translated event titles.**
 
-All articles generated in: English (en), German (de), French (fr), Spanish (es), Italian (it), Dutch (nl), Polish (pl), Portuguese (pt), Romanian (ro), Swedish (sv), Danish (da), Finnish (fi), Greek (el), Hungarian (hu)
+Every generated article must include:
+- A lede with political significance analysis of the upcoming week
+- Plenary Sessions section with interpretive commentary (not just titles)
+- Committee Meetings calendar with agenda context
+- Legislative Pipeline section identifying critical procedure stages
+- "What to Watch" analysis with implications for EU citizens
+
+If the generated article lacks analysis, enrich it with contextual commentary before committing.
+
+### Step 6: Create Pull Request
+
+After generating and validating articles, create a PR using safe outputs:
+
+```javascript
+safeoutputs___create_pull_request({
+  title: `chore: EU Parliament week-ahead articles ${today}`,
+  body: `## EU Parliament Week Ahead Articles\n\nGenerated week-ahead prospective articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date range: ${today} → ${nextWeek}\n- Data source: European Parliament MCP Server`,
+  base: "main",
+  head: `news/week-ahead-${today}`,
+  files: [/* generated article files */]
+})
+```
 
 ## Translation Rules
-- EP document references kept as-is (e.g., COM(2024)123, A9-0001/2024)
-- Political group abbreviations (EPP, S&D, Renew, Greens/EFA, ECR, The Left, PfE, ESN) are NEVER translated
-- Committee abbreviations (AFET, BUDG, ECON, etc.) kept as-is
-- ZERO TOLERANCE for language mixing within an article
+
+- EP document reference IDs (e.g., `2024/0001(COD)`) MUST be kept as-is — never translated
+- Political group abbreviations (EPP, S&D, Renew, Greens/EFA, ECR, PfE, ESN) MUST NEVER be translated
+- Session location names (Strasbourg, Brussels) are kept in original form
+- Committee abbreviations (ENVI, AGRI, ECON, LIBE) are kept as-is in all languages
+- ZERO TOLERANCE for language mixing within a single article
 
 ## Article Naming Convention
-Files: `YYYY-MM-DD-week-ahead-{lang}.html` (e.g., `2026-02-27-week-ahead-en.html`)
 
-## ISMS Compliance
+Files: `YYYY-MM-DD-week-ahead-{lang}.html`
 
-- **Secure Development Policy**: Input validation, output encoding applied
-- **GDPR**: Public EU Parliament data only — no personal data processing
-- **ISO 27001**: MCP data sanitization per SECURITY_ARCHITECTURE.md
+Examples:
+- `2026-03-07-week-ahead-en.html`
+- `2026-03-07-week-ahead-fr.html`
+- `2026-03-07-week-ahead-de.html`
