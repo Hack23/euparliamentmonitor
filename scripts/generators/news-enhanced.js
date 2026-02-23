@@ -91,6 +91,7 @@ function writeArticle(html, filename) {
         console.log(dryRunArg
             ? `  [DRY RUN] Would skip (already exists): ${filename}`
             : `  ⏭️  Skipped (already exists): ${filename}`);
+        console.log(`  ⏭️ Skipped (already exists): ${filename}`);
         return false;
     }
     if (dryRunArg) {
@@ -123,6 +124,7 @@ function writeSingleArticle(html, slug, lang) {
         stats.dryRun += 1;
     }
     return written;
+    return filename;
 }
 /**
  * Initialize MCP client if available

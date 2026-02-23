@@ -161,6 +161,7 @@ function writeArticle(html: string, filename: string): boolean {
         ? `  [DRY RUN] Would skip (already exists): ${filename}`
         : `  ⏭️  Skipped (already exists): ${filename}`
     );
+    console.log(`  ⏭️ Skipped (already exists): ${filename}`);
     return false;
   }
 

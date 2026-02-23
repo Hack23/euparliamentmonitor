@@ -153,6 +153,7 @@ european_parliament___assess_mep_influence({ mepId: "<mepId>" })
 ## Generation Steps
 
 ### Step 1: Check Recent Generation
+
 Check if motions articles exist from the last 11 hours. If **force_generation** is `true`, skip this check.
 
 ### Step 2: Query EP MCP Tools
@@ -202,13 +203,11 @@ npx tsx src/generators/news-enhanced.ts \
   $SKIP_FLAG
 ```
 
-### Step 4: Rebuild Indexes and Validate
+### Step 4: Validate & Regenerate Indexes
 
 ```bash
 npx tsx src/generators/news-indexes.ts
 ```
-
-Validate all generated HTML files contain required analytical sections.
 
 ### Step 5: Create PR
 ```
