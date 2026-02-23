@@ -14,6 +14,7 @@ on:
         default: false
       languages:
         description: 'Languages to generate (en,de,fr | eu-core | nordic | all)'
+        description: 'Languages to generate (en | eu-core | nordic | all | custom comma-separated)'
         required: false
         default: all
 
@@ -53,6 +54,10 @@ tools:
   bash: true
 
 safe-outputs:
+  allowed-domains:
+    - data.europarl.europa.eu
+    - www.europarl.europa.eu
+    - github.com
   create-pull-request: {}
   add-comment: {}
 
@@ -96,6 +101,13 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 Read each skill file before proceeding:
 
+## 🚨 CRITICAL: European Parliament MCP Server Is the Primary Data Source
+
+**ALL article data MUST be fetched from the European Parliament MCP server** (`european-parliament-mcp-server`). No other data source should be used for article content.
+
+## Required Skills
+
+Read each skill file before proceeding:
 1. **`.github/skills/european-political-system.md`** — EU legislative procedures (OLP, CNS, APP)
 2. **`.github/skills/legislative-monitoring.md`** — Legislative pipeline tracking
 3. **`.github/skills/european-parliament-data.md`** — EP MCP tool documentation
@@ -126,6 +138,7 @@ echo "============================"
 - ❌ NEVER use `noop` as fallback for PR creation failures
 
 ## 🏛️ EP MCP Tools for Propositions
+## EP MCP Tools for Propositions
 
 **ALL data MUST come from these EP MCP tools:**
 
@@ -147,6 +160,7 @@ european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTE
 ```
 
 ## 🏛️ EU Legislative Procedures Reference
+## EU Legislative Procedures Reference
 
 | Code | Procedure | Description |
 |------|-----------|-------------|
@@ -168,6 +182,10 @@ Check if propositions articles exist from the last 11 hours. If **force_generati
 
 ```javascript
 // Warm up and fetch proposals
+Check if propositions articles exist from the last 11 hours. If **force_generation** is `true`, skip this check.
+
+### Step 2: Query EP MCP
+```javascript
 european_parliament___search_documents({ query: "Commission proposal", limit: 20 })
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
 ```
@@ -179,6 +197,17 @@ european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10
 LANGUAGES_INPUT="${EP_LANG_INPUT:-all}"
 
 # Validate input against known safe values to prevent shell injection
+# e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
+LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
+[ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
+
+# Strict allowlist validation to prevent shell injection
+if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu)(,(en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu))*$'; then
+  echo "❌ Invalid languages input: $LANGUAGES_INPUT" >&2
+  echo "Allowed: all, eu-core, nordic, or comma-separated: en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" >&2
+  exit 1
+fi
+
 case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
   "nordic")  LANG_ARG="en,sv,da,fi" ;;
@@ -201,18 +230,26 @@ FORCE_GENERATION="${EP_FORCE_GENERATION:-false}"
 SKIP_FLAG="--skip-existing"
 if [ "$FORCE_GENERATION" = "true" ]; then
   SKIP_FLAG=""
+  *)         LANG_ARG="$LANGUAGES_INPUT" ;;
+esac
+
+SKIP_FLAG=""
+if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+  SKIP_FLAG="--skip-existing"
 fi
 
 npx tsx src/generators/news-enhanced.ts \
   --types=propositions \
   --languages="$LANG_ARG" \
   ${SKIP_FLAG}
+  $SKIP_FLAG
 ```
 
 ### Step 4: Validate & Regenerate Indexes
 
 ```bash
 npm run generate-news-indexes
+npx tsx src/generators/news-indexes.ts
 ```
 
 ### Step 5: Analysis Quality Check
@@ -228,6 +265,11 @@ Every generated article must include:
 
 If the generated article lacks these analytical sections, manually add contextual analysis before committing.
 
+### Step 6: Create PR
+```
+safeoutputs___create_pull_request
+```
+
 ## Translation Rules
 
 - EU document reference formats (COM(2024)123, SWD(2024)456) are NEVER translated
@@ -239,6 +281,7 @@ If the generated article lacks these analytical sections, manually add contextua
 ## Article Naming Convention
 
 Files: `YYYY-MM-DD-propositions-{lang}.html`
+Files: `YYYY-MM-DD-propositions-{lang}.html` (e.g., `2026-02-23-propositions-en.html`)
 
 ## ISMS Compliance
 
