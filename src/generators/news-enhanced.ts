@@ -119,6 +119,7 @@ ensureDirectoryExists(METADATA_DIR);
 // Generation statistics
 const stats: GenerationStats = {
   generated: 0,
+  skipped: 0,
   errors: 0,
   articles: [],
   timestamp: new Date().toISOString(),
@@ -182,6 +183,8 @@ function writeSingleArticle(html: string, slug: string, lang: string): string {
   if (written) {
     stats.generated += 1;
     stats.articles.push(filename);
+  } else if (skipExistingArg) {
+    stats.skipped += 1;
   }
   return filename;
 }
@@ -1954,6 +1957,7 @@ async function main(): Promise<void> {
     console.log('');
     console.log('📊 Generation Summary:');
     console.log(`  ✅ Generated: ${stats.generated} articles`);
+    console.log(`  ⏭️ Skipped: ${stats.skipped} articles`);
     console.log(`  ❌ Errors: ${stats.errors}`);
     console.log('');
 
@@ -1961,6 +1965,7 @@ async function main(): Promise<void> {
     const metadata = {
       timestamp: stats.timestamp,
       generated: stats.generated,
+      skipped: stats.skipped,
       errors: stats.errors,
       articles: stats.articles,
       results,

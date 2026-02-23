@@ -176,7 +176,7 @@ LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
 case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
   "nordic")  LANG_ARG="en,sv,da,fi" ;;
-  "all")     LANG_ARG="en,fr,de,es,it,pt,nl,el,pl,ro,sv,da,fi,cs" ;;
+  "all")     LANG_ARG="en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" ;;
   *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
