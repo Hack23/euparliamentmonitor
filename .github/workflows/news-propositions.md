@@ -66,6 +66,11 @@ steps:
     run: |
       npm ci --prefer-offline --no-audit
 
+  - name: Export workflow inputs as environment variables
+    run: |
+      echo "EP_LANG_INPUT=${{ github.event.inputs.languages }}" >> "$GITHUB_ENV"
+      echo "EP_FORCE_GENERATION=${{ github.event.inputs.force_generation }}" >> "$GITHUB_ENV"
+
 engine:
   id: copilot
   model: claude-opus-4.6
@@ -170,9 +175,8 @@ european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10
 ### Step 3: Generate Articles
 
 ```bash
-# Set LANGUAGES_INPUT to the value shown in Workflow Dispatch Parameters above
-LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
-[ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
+# EP_LANG_INPUT is provided via the workflow step env: block
+LANGUAGES_INPUT="${EP_LANG_INPUT:-all}"
 
 # Validate input against known safe values to prevent shell injection
 case "$LANGUAGES_INPUT" in
@@ -191,8 +195,8 @@ case "$LANGUAGES_INPUT" in
 esac
 
 # Respect force_generation: skip existing articles unless force is true
-FORCE_GENERATION="${{ github.event.inputs.force_generation }}"
-[ -z "$FORCE_GENERATION" ] && FORCE_GENERATION="false"
+# EP_FORCE_GENERATION is provided via the workflow step env: block
+FORCE_GENERATION="${EP_FORCE_GENERATION:-false}"
 
 SKIP_FLAG="--skip-existing"
 if [ "$FORCE_GENERATION" = "true" ]; then

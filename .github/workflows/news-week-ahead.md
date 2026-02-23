@@ -66,6 +66,11 @@ steps:
     run: |
       npm ci --prefer-offline --no-audit
 
+  - name: Export workflow inputs as environment variables
+    run: |
+      echo "EP_LANG_INPUT=${{ github.event.inputs.languages }}" >> "$GITHUB_ENV"
+      echo "EP_FORCE_GENERATION=${{ github.event.inputs.force_generation }}" >> "$GITHUB_ENV"
+
 engine:
   id: copilot
   model: claude-opus-4.6
@@ -176,9 +181,8 @@ const [sessions, committees, documents, pipeline, meps] = await Promise.allSettl
 ### Step 3: Generate Articles
 
 ```bash
-# Set LANGUAGES_INPUT to the value shown in Workflow Dispatch Parameters above
-LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
-[ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
+# EP_LANG_INPUT is provided via the workflow step env: block
+LANGUAGES_INPUT="${EP_LANG_INPUT:-all}"
 
 # Validate input against known safe values to prevent shell injection
 case "$LANGUAGES_INPUT" in
@@ -197,7 +201,8 @@ case "$LANGUAGES_INPUT" in
 esac
 
 SKIP_FLAG=""
-if [ "${{ github.event.inputs.force_generation }}" != "true" ]; then
+# EP_FORCE_GENERATION is provided via the workflow step env: block
+if [ "${EP_FORCE_GENERATION:-false}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
 fi
 
