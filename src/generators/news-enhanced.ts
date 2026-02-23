@@ -120,6 +120,7 @@ ensureDirectoryExists(METADATA_DIR);
 const stats: GenerationStats = {
   generated: 0,
   skipped: 0,
+  dryRun: 0,
   errors: 0,
   articles: [],
   timestamp: new Date().toISOString(),
@@ -158,6 +159,12 @@ function writeArticle(html: string, filename: string): boolean {
   }
 
   const filepath = path.join(NEWS_DIR, filename);
+
+  if (skipExistingArg && fs.existsSync(filepath)) {
+    console.log(`  ⏭️ Skipping existing: ${filename}`);
+    return false;
+  }
+
   fs.writeFileSync(filepath, html, 'utf-8');
   console.log(`  ✅ Wrote: ${filename}`);
   return true;
@@ -169,21 +176,20 @@ function writeArticle(html: string, filename: string): boolean {
  * @param html - HTML content
  * @param slug - Article slug
  * @param lang - Language code
- * @returns True if the file was actually written, false if skipped or dry-run
+ * @returns Generated filename
  */
-function writeSingleArticle(html: string, slug: string, lang: string): boolean {
+function writeSingleArticle(html: string, slug: string, lang: string): string {
   const filename = `${slug}-${lang}.html`;
-  if (skipExistingArg && fs.existsSync(path.join(NEWS_DIR, filename))) {
-    console.log(`  ⏭️ Skipping existing: ${filename}`);
-    stats.skipped += 1;
-    return false;
-  }
   const written = writeArticle(html, filename);
   if (written) {
     stats.generated += 1;
     stats.articles.push(filename);
+  } else if (dryRunArg) {
+    stats.dryRun += 1;
+  } else if (skipExistingArg) {
+    stats.skipped += 1;
   }
-  return written;
+  return filename;
 }
 
 /**
@@ -236,7 +242,7 @@ const PLACEHOLDER_EVENTS: ParliamentEvent[] = [
  * @param fallbackDate - Fallback date when session has none
  * @returns Array of parliament events
  */
-function parsePlenarySessions(
+export function parsePlenarySessions(
   settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>,
   fallbackDate: string
 ): ParliamentEvent[] {
@@ -269,7 +275,7 @@ function parsePlenarySessions(
  * @param fallbackDate - Fallback date when meeting has none
  * @returns Array of committee meetings
  */
-function parseCommitteeMeetings(
+export function parseCommitteeMeetings(
   settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>,
   fallbackDate: string
 ): CommitteeMeeting[] {
@@ -304,7 +310,7 @@ function parseCommitteeMeetings(
  * @param settled - Promise.allSettled result
  * @returns Array of legislative documents
  */
-function parseLegislativeDocuments(
+export function parseLegislativeDocuments(
   settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>
 ): LegislativeDocument[] {
   if (settled.status === 'rejected') {
@@ -338,7 +344,7 @@ function parseLegislativeDocuments(
  * @param settled - Promise.allSettled result
  * @returns Array of legislative procedures
  */
-function parseLegislativePipeline(
+export function parseLegislativePipeline(
   settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>
 ): LegislativeProcedure[] {
   if (settled.status === 'rejected') {
@@ -548,7 +554,7 @@ function renderQuestion(q: ParliamentaryQuestion): string {
  * @param dateRange - Date range for the article
  * @returns HTML content string
  */
-function buildWeekAheadContent(weekData: WeekAheadData, dateRange: DateRange): string {
+export function buildWeekAheadContent(weekData: WeekAheadData, dateRange: DateRange): string {
   const plenaryHtml =
     weekData.events.length > 0
       ? weekData.events.map(renderPlenaryEvent).join('')
@@ -609,7 +615,7 @@ function buildWeekAheadContent(weekData: WeekAheadData, dateRange: DateRange): s
  * @param weekData - Aggregated week-ahead data
  * @returns Array of keyword strings
  */
-function buildKeywords(weekData: WeekAheadData): string[] {
+export function buildKeywords(weekData: WeekAheadData): string[] {
   const keywords = [KEYWORD_EUROPEAN_PARLIAMENT, 'week ahead', 'plenary', 'committees'];
   for (const c of weekData.committees) {
     if (c.committee && !keywords.includes(c.committee)) {
@@ -640,7 +646,6 @@ async function generateWeekAhead(): Promise<GenerationResult> {
     const keywords = buildKeywords(weekData);
     const content = buildWeekAheadContent(weekData, dateRange);
 
-    let filesWritten = 0;
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
@@ -660,14 +665,12 @@ async function generateWeekAhead(): Promise<GenerationResult> {
         sources: [],
       });
 
-      if (writeSingleArticle(html, slug, lang)) {
-        filesWritten += 1;
-        console.log(`  ✅ ${lang.toUpperCase()} version generated`);
-      }
+      writeSingleArticle(html, slug, lang);
+      console.log(`  ✅ ${lang.toUpperCase()} version generated`);
     }
 
     console.log('  ✅ Week Ahead article generated successfully in all requested languages');
-    return { success: true, files: filesWritten, slug };
+    return { success: true, files: languages.length, slug };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const stack = error instanceof Error ? error.stack : undefined;
@@ -878,7 +881,6 @@ async function generateBreakingNews(): Promise<GenerationResult> {
       influenceRaw
     );
 
-    let filesWritten = 0;
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
@@ -905,14 +907,12 @@ async function generateBreakingNews(): Promise<GenerationResult> {
         sources: [],
       });
 
-      if (writeSingleArticle(html, slug, lang)) {
-        filesWritten += 1;
-        console.log(`  ✅ ${lang.toUpperCase()} version generated`);
-      }
+      writeSingleArticle(html, slug, lang);
+      console.log(`  ✅ ${lang.toUpperCase()} version generated`);
     }
 
     console.log('  ✅ Breaking News article generated successfully in all requested languages');
-    return { success: true, files: filesWritten, slug };
+    return { success: true, files: languages.length, slug };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const stack = error instanceof Error ? error.stack : undefined;
@@ -1093,7 +1093,6 @@ async function generateCommitteeReports(): Promise<GenerationResult> {
       (committee): committee is CommitteeData => committee !== null
     );
 
-    let filesWritten = 0;
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
@@ -1159,12 +1158,10 @@ async function generateCommitteeReports(): Promise<GenerationResult> {
         sources,
       });
 
-      if (writeSingleArticle(html, slug, lang)) {
-        filesWritten += 1;
-      }
+      writeSingleArticle(html, slug, lang);
     }
 
-    return { success: true, files: filesWritten, slug };
+    return { success: true, files: languages.length, slug };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     console.error('❌ Committee reports generation failed:', message);
@@ -1807,7 +1804,6 @@ async function generatePropositions(): Promise<GenerationResult> {
     if (!proposalsHtml)
       console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
 
-    let filesWritten = 0;
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
@@ -1830,14 +1826,12 @@ async function generatePropositions(): Promise<GenerationResult> {
         sources: [],
       });
 
-      if (writeSingleArticle(html, slug, lang)) {
-        filesWritten += 1;
-        console.log(`  ✅ ${lang.toUpperCase()} version generated`);
-      }
+      writeSingleArticle(html, slug, lang);
+      console.log(`  ✅ ${lang.toUpperCase()} version generated`);
     }
 
     console.log('  ✅ Propositions article generated successfully in all requested languages');
-    return { success: true, files: filesWritten, slug };
+    return { success: true, files: languages.length, slug };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const stack = error instanceof Error ? error.stack : undefined;
@@ -1869,7 +1863,6 @@ async function generateMotions(): Promise<GenerationResult> {
       dateStr
     );
 
-    let filesWritten = 0;
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
@@ -1906,14 +1899,12 @@ async function generateMotions(): Promise<GenerationResult> {
         sources: [],
       });
 
-      if (writeSingleArticle(html, slug, lang)) {
-        filesWritten += 1;
-        console.log(`  ✅ ${lang.toUpperCase()} version generated`);
-      }
+      writeSingleArticle(html, slug, lang);
+      console.log(`  ✅ ${lang.toUpperCase()} version generated`);
     }
 
     console.log('  ✅ Motions article generated successfully in all requested languages');
-    return { success: true, files: filesWritten, slug };
+    return { success: true, files: languages.length, slug };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const stack = error instanceof Error ? error.stack : undefined;
@@ -1970,6 +1961,7 @@ async function main(): Promise<void> {
     console.log('📊 Generation Summary:');
     console.log(`  ✅ Generated: ${stats.generated} articles`);
     console.log(`  ⏭️ Skipped: ${stats.skipped} articles`);
+    if (dryRunArg) console.log(`  🔍 Dry run: ${stats.dryRun} articles`);
     console.log(`  ❌ Errors: ${stats.errors}`);
     console.log('');
 
@@ -1978,6 +1970,7 @@ async function main(): Promise<void> {
       timestamp: stats.timestamp,
       generated: stats.generated,
       skipped: stats.skipped,
+      dryRun: stats.dryRun,
       errors: stats.errors,
       articles: stats.articles,
       results,
