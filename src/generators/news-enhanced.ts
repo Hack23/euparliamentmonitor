@@ -152,16 +152,16 @@ function getWeekAheadDateRange(): DateRange {
  * @returns Success status
  */
 function writeArticle(html: string, filename: string): boolean {
-  if (dryRunArg) {
-    console.log(`  [DRY RUN] Would write: ${filename}`);
-    return true;
-  }
-
   const filepath = path.join(NEWS_DIR, filename);
 
   if (skipExistingArg && fs.existsSync(filepath)) {
     console.log(`  ⏭️ Skipped (already exists): ${filename}`);
     return false;
+  }
+
+  if (dryRunArg) {
+    console.log(`  [DRY RUN] Would write: ${filename}`);
+    return true;
   }
 
   fs.writeFileSync(filepath, html, 'utf-8');
