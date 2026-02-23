@@ -1183,6 +1183,9 @@ async function generateCommitteeReports(): Promise<GenerationResult> {
       }
     }
 
+    console.log(
+      `  ✅ Committee reports generation completed: ${writtenCount}/${languages.length} languages written`,
+    );
     return { success: true, files: writtenCount, slug };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);

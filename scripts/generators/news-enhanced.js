@@ -1016,6 +1016,7 @@ async function generateCommitteeReports() {
                 console.log(`  ✅ ${lang.toUpperCase()} version generated`);
             }
         }
+        console.log(`  ✅ Committee reports generation completed: ${writtenCount}/${languages.length} languages written`);
         return { success: true, files: writtenCount, slug };
     }
     catch (error) {

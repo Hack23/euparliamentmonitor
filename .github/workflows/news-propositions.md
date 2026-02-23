@@ -178,7 +178,7 @@ LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
 case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
   "nordic")  LANG_ARG="en,sv,da,fi" ;;
-  "all")     LANG_ARG="en,de,fr,es,it,pt,nl,el,pl,ro,sv,da,fi,hu" ;;
+  "all")     LANG_ARG="en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" ;;
   *)
     # Strict whitelist: only allow comma-separated 2-letter language codes
     if echo "$LANGUAGES_INPUT" | grep -qE '^[a-z]{2}(,[a-z]{2})*$'; then
