@@ -74,6 +74,7 @@ const args = process.argv.slice(2);
 const typesArg = args.find((arg) => arg.startsWith('--types='));
 const languagesArg = args.find((arg) => arg.startsWith('--languages='));
 const dryRunArg = args.includes('--dry-run');
+const skipExistingArg = args.includes('--skip-existing');
 
 const articleTypes = typesArg
   ? (typesArg.split(ARG_SEPARATOR)[1] ?? '').split(',').map((t) => t.trim())
@@ -110,6 +111,7 @@ console.log('📰 Enhanced News Generation Script');
 console.log('Article types:', articleTypes.join(', '));
 console.log('Languages:', languages.join(', '));
 console.log('Dry run:', dryRunArg ? 'Yes (no files written)' : 'No');
+console.log('Skip existing:', skipExistingArg ? 'Yes' : 'No');
 
 // Ensure directories exist
 ensureDirectoryExists(METADATA_DIR);
@@ -117,6 +119,7 @@ ensureDirectoryExists(METADATA_DIR);
 // Generation statistics
 const stats: GenerationStats = {
   generated: 0,
+  skipped: 0,
   errors: 0,
   articles: [],
   timestamp: new Date().toISOString(),
@@ -170,6 +173,11 @@ function writeArticle(html: string, filename: string): boolean {
  */
 function writeSingleArticle(html: string, slug: string, lang: string): string {
   const filename = `${slug}-${lang}.html`;
+  if (skipExistingArg && fs.existsSync(path.join(NEWS_DIR, filename))) {
+    console.log(`  ⏭️ Skipping existing: ${filename}`);
+    stats.skipped += 1;
+    return filename;
+  }
   writeArticle(html, filename);
   stats.generated += 1;
   stats.articles.push(filename);
@@ -1944,6 +1952,7 @@ async function main(): Promise<void> {
     console.log('');
     console.log('📊 Generation Summary:');
     console.log(`  ✅ Generated: ${stats.generated} articles`);
+    console.log(`  ⏭️ Skipped: ${stats.skipped} articles`);
     console.log(`  ❌ Errors: ${stats.errors}`);
     console.log('');
 
@@ -1951,6 +1960,7 @@ async function main(): Promise<void> {
     const metadata = {
       timestamp: stats.timestamp,
       generated: stats.generated,
+      skipped: stats.skipped,
       errors: stats.errors,
       articles: stats.articles,
       results,
