@@ -125,25 +125,25 @@ Use the following EP MCP tools to gather data for motions analysis. **All data M
 
 ```javascript
 // Primary motions data
-search_documents({ query: "motion for resolution", limit: 20 })
+european_parliament___search_documents({ query: "motion for resolution", limit: 20 })
 
 // Parliamentary questions and interpellations
-get_parliamentary_questions({ limit: 10 })
+european_parliament___get_parliamentary_questions({ limit: 10 })
 
 // OSINT: Voting anomalies on motions
-detect_voting_anomalies({})
+european_parliament___detect_voting_anomalies({})
 
 // OSINT: Political group alignment on motions
-analyze_coalition_dynamics({})
+european_parliament___analyze_coalition_dynamics({})
 
 // OSINT: Group positions comparison
-compare_political_groups({ groupIds: ["EPP", "S&D", "Renew", "Greens/EFA", "ECR", "The Left", "PfE", "ESN"] })
+european_parliament___compare_political_groups({ groupIds: ["EPP", "S&D", "Renew", "Greens/EFA", "ECR", "The Left", "PfE", "ESN"] })
 
 // Voting records on motions
-get_voting_records({ topic: "resolution", limit: 20 })
+european_parliament___get_voting_records({ topic: "resolution", limit: 20 })
 
 // OSINT: Key MEP influence (call per influential MEP identified)
-assess_mep_influence({ mepId: "<mepId>" })
+european_parliament___assess_mep_influence({ mepId: "<mepId>" })
 ```
 
 ## Generation Steps
@@ -158,18 +158,19 @@ Fetch all required data from the European Parliament MCP server:
 
 ```javascript
 // Fetch in parallel for efficiency
-search_documents({ query: "motion for resolution", limit: 20 })
-get_parliamentary_questions({ limit: 10 })
-detect_voting_anomalies({})
-analyze_coalition_dynamics({})
-get_voting_records({ topic: "resolution", limit: 20 })
-compare_political_groups({ groupIds: ["EPP", "S&D", "Renew", "Greens/EFA", "ECR"] })
+european_parliament___search_documents({ query: "motion for resolution", limit: 20 })
+european_parliament___get_parliamentary_questions({ limit: 10 })
+european_parliament___detect_voting_anomalies({})
+european_parliament___analyze_coalition_dynamics({})
+european_parliament___get_voting_records({ topic: "resolution", limit: 20 })
+european_parliament___compare_political_groups({ groupIds: ["EPP", "S&D", "Renew", "Greens/EFA", "ECR"] })
 ```
 
 ### Step 3: Generate Articles
 
 ```bash
-# Read language input via environment variable to avoid shell injection
+# Read language input from environment variable (set EP_LANG_INPUT before running)
+# In the gh-aw execution model, pass the workflow input as: EP_LANG_INPUT="<languages input>" bash -c '...'
 LANGUAGES_INPUT="${EP_LANG_INPUT:-all}"
 
 # Validate: only allow known-safe language presets or comma-separated language codes
@@ -191,7 +192,7 @@ npx tsx src/generators/news-enhanced.ts \
   --skip-existing
 ```
 
-Set environment variable `EP_LANG_INPUT` to `${{ github.event.inputs.languages }}` in the step `env:` block rather than interpolating the input directly into the shell script body.
+> **Note**: Always pass the `languages` workflow input via the `EP_LANG_INPUT` environment variable rather than interpolating `${{ github.event.inputs.languages }}` directly into shell code. The regex validation above ensures only safe values (language presets or `[a-z]{2}` codes) are used.
 
 ### Step 4: Rebuild Indexes and Validate
 

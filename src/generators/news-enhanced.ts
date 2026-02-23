@@ -165,13 +165,6 @@ function writeArticle(html: string, filename: string): boolean {
     return false;
   }
 
-  const filepath = path.join(NEWS_DIR, filename);
-
-  if (skipExistingArg && fs.existsSync(filepath)) {
-    console.log(`  ⏭️ Skipping existing: ${filename}`);
-    return false;
-  }
-
   fs.writeFileSync(filepath, html, 'utf-8');
   console.log(`  ✅ Wrote: ${filename}`);
   return true;
@@ -195,10 +188,6 @@ function writeSingleArticle(html: string, slug: string, lang: string): string {
     stats.skipped += 1;
   } else if (dryRunArg) {
     stats.dryRun += 1;
-  } else if (dryRunArg) {
-    stats.dryRun += 1;
-  } else if (skipExistingArg) {
-    stats.skipped += 1;
   }
   return filename;
 }
