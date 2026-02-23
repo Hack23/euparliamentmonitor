@@ -22,6 +22,7 @@ const args = process.argv.slice(2);
 const typesArg = args.find((arg) => arg.startsWith('--types='));
 const languagesArg = args.find((arg) => arg.startsWith('--languages='));
 const dryRunArg = args.includes('--dry-run');
+const skipExistingArg = args.includes('--skip-existing');
 const articleTypes = typesArg
     ? (typesArg.split(ARG_SEPARATOR)[1] ?? '').split(',').map((t) => t.trim())
     : [ARTICLE_TYPE_WEEK_AHEAD];
@@ -49,11 +50,14 @@ console.log('📰 Enhanced News Generation Script');
 console.log('Article types:', articleTypes.join(', '));
 console.log('Languages:', languages.join(', '));
 console.log('Dry run:', dryRunArg ? 'Yes (no files written)' : 'No');
+console.log('Skip existing:', skipExistingArg ? 'Yes' : 'No');
 // Ensure directories exist
 ensureDirectoryExists(METADATA_DIR);
 // Generation statistics
 const stats = {
     generated: 0,
+    skipped: 0,
+    dryRun: 0,
     errors: 0,
     articles: [],
     timestamp: new Date().toISOString(),
@@ -84,9 +88,13 @@ function getWeekAheadDateRange() {
 function writeArticle(html, filename) {
     if (dryRunArg) {
         console.log(`  [DRY RUN] Would write: ${filename}`);
-        return true;
+        return false;
     }
     const filepath = path.join(NEWS_DIR, filename);
+    if (skipExistingArg && fs.existsSync(filepath)) {
+        console.log(`  ⏭️ Skipping existing: ${filename}`);
+        return false;
+    }
     fs.writeFileSync(filepath, html, 'utf-8');
     console.log(`  ✅ Wrote: ${filename}`);
     return true;
@@ -101,9 +109,17 @@ function writeArticle(html, filename) {
  */
 function writeSingleArticle(html, slug, lang) {
     const filename = `${slug}-${lang}.html`;
-    writeArticle(html, filename);
-    stats.generated += 1;
-    stats.articles.push(filename);
+    const written = writeArticle(html, filename);
+    if (written) {
+        stats.generated += 1;
+        stats.articles.push(filename);
+    }
+    else if (dryRunArg) {
+        stats.dryRun += 1;
+    }
+    else if (skipExistingArg) {
+        stats.skipped += 1;
+    }
     return filename;
 }
 /**
@@ -153,7 +169,7 @@ const PLACEHOLDER_EVENTS = [
  * @param fallbackDate - Fallback date when session has none
  * @returns Array of parliament events
  */
-function parsePlenarySessions(settled, fallbackDate) {
+export function parsePlenarySessions(settled, fallbackDate) {
     if (settled.status === 'rejected') {
         console.warn('  ⚠️ Plenary sessions fetch failed:', settled.reason);
         return [];
@@ -185,7 +201,7 @@ function parsePlenarySessions(settled, fallbackDate) {
  * @param fallbackDate - Fallback date when meeting has none
  * @returns Array of committee meetings
  */
-function parseCommitteeMeetings(settled, fallbackDate) {
+export function parseCommitteeMeetings(settled, fallbackDate) {
     if (settled.status === 'rejected') {
         console.warn('  ⚠️ Committee info fetch failed:', settled.reason);
         return [];
@@ -219,7 +235,7 @@ function parseCommitteeMeetings(settled, fallbackDate) {
  * @param settled - Promise.allSettled result
  * @returns Array of legislative documents
  */
-function parseLegislativeDocuments(settled) {
+export function parseLegislativeDocuments(settled) {
     if (settled.status === 'rejected') {
         console.warn('  ⚠️ Documents fetch failed:', settled.reason);
         return [];
@@ -253,7 +269,7 @@ function parseLegislativeDocuments(settled) {
  * @param settled - Promise.allSettled result
  * @returns Array of legislative procedures
  */
-function parseLegislativePipeline(settled) {
+export function parseLegislativePipeline(settled) {
     if (settled.status === 'rejected') {
         console.warn('  ⚠️ Legislative pipeline fetch failed:', settled.reason);
         return [];
@@ -450,7 +466,7 @@ function renderQuestion(q) {
  * @param dateRange - Date range for the article
  * @returns HTML content string
  */
-function buildWeekAheadContent(weekData, dateRange) {
+export function buildWeekAheadContent(weekData, dateRange) {
     const plenaryHtml = weekData.events.length > 0
         ? weekData.events.map(renderPlenaryEvent).join('')
         : '<p>No plenary sessions scheduled for this period.</p>';
@@ -500,7 +516,7 @@ function buildWeekAheadContent(weekData, dateRange) {
  * @param weekData - Aggregated week-ahead data
  * @returns Array of keyword strings
  */
-function buildKeywords(weekData) {
+export function buildKeywords(weekData) {
     const keywords = [KEYWORD_EUROPEAN_PARLIAMENT, 'week ahead', 'plenary', 'committees'];
     for (const c of weekData.committees) {
         if (c.committee && !keywords.includes(c.committee)) {
@@ -1648,12 +1664,17 @@ async function main() {
         console.log('');
         console.log('📊 Generation Summary:');
         console.log(`  ✅ Generated: ${stats.generated} articles`);
+        console.log(`  ⏭️ Skipped: ${stats.skipped} articles`);
+        if (dryRunArg)
+            console.log(`  🔍 Dry run: ${stats.dryRun} articles`);
         console.log(`  ❌ Errors: ${stats.errors}`);
         console.log('');
         // Write metadata
         const metadata = {
             timestamp: stats.timestamp,
             generated: stats.generated,
+            skipped: stats.skipped,
+            dryRun: stats.dryRun,
             errors: stats.errors,
             articles: stats.articles,
             results,

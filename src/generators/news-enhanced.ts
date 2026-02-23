@@ -74,6 +74,7 @@ const args = process.argv.slice(2);
 const typesArg = args.find((arg) => arg.startsWith('--types='));
 const languagesArg = args.find((arg) => arg.startsWith('--languages='));
 const dryRunArg = args.includes('--dry-run');
+const skipExistingArg = args.includes('--skip-existing');
 
 const articleTypes = typesArg
   ? (typesArg.split(ARG_SEPARATOR)[1] ?? '').split(',').map((t) => t.trim())
@@ -110,6 +111,7 @@ console.log('📰 Enhanced News Generation Script');
 console.log('Article types:', articleTypes.join(', '));
 console.log('Languages:', languages.join(', '));
 console.log('Dry run:', dryRunArg ? 'Yes (no files written)' : 'No');
+console.log('Skip existing:', skipExistingArg ? 'Yes' : 'No');
 
 // Ensure directories exist
 ensureDirectoryExists(METADATA_DIR);
@@ -117,6 +119,8 @@ ensureDirectoryExists(METADATA_DIR);
 // Generation statistics
 const stats: GenerationStats = {
   generated: 0,
+  skipped: 0,
+  dryRun: 0,
   errors: 0,
   articles: [],
   timestamp: new Date().toISOString(),
@@ -151,10 +155,16 @@ function getWeekAheadDateRange(): DateRange {
 function writeArticle(html: string, filename: string): boolean {
   if (dryRunArg) {
     console.log(`  [DRY RUN] Would write: ${filename}`);
-    return true;
+    return false;
   }
 
   const filepath = path.join(NEWS_DIR, filename);
+
+  if (skipExistingArg && fs.existsSync(filepath)) {
+    console.log(`  ⏭️ Skipping existing: ${filename}`);
+    return false;
+  }
+
   fs.writeFileSync(filepath, html, 'utf-8');
   console.log(`  ✅ Wrote: ${filename}`);
   return true;
@@ -170,9 +180,15 @@ function writeArticle(html: string, filename: string): boolean {
  */
 function writeSingleArticle(html: string, slug: string, lang: string): string {
   const filename = `${slug}-${lang}.html`;
-  writeArticle(html, filename);
-  stats.generated += 1;
-  stats.articles.push(filename);
+  const written = writeArticle(html, filename);
+  if (written) {
+    stats.generated += 1;
+    stats.articles.push(filename);
+  } else if (dryRunArg) {
+    stats.dryRun += 1;
+  } else if (skipExistingArg) {
+    stats.skipped += 1;
+  }
   return filename;
 }
 
@@ -226,7 +242,7 @@ const PLACEHOLDER_EVENTS: ParliamentEvent[] = [
  * @param fallbackDate - Fallback date when session has none
  * @returns Array of parliament events
  */
-function parsePlenarySessions(
+export function parsePlenarySessions(
   settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>,
   fallbackDate: string
 ): ParliamentEvent[] {
@@ -259,7 +275,7 @@ function parsePlenarySessions(
  * @param fallbackDate - Fallback date when meeting has none
  * @returns Array of committee meetings
  */
-function parseCommitteeMeetings(
+export function parseCommitteeMeetings(
   settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>,
   fallbackDate: string
 ): CommitteeMeeting[] {
@@ -294,7 +310,7 @@ function parseCommitteeMeetings(
  * @param settled - Promise.allSettled result
  * @returns Array of legislative documents
  */
-function parseLegislativeDocuments(
+export function parseLegislativeDocuments(
   settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>
 ): LegislativeDocument[] {
   if (settled.status === 'rejected') {
@@ -328,7 +344,7 @@ function parseLegislativeDocuments(
  * @param settled - Promise.allSettled result
  * @returns Array of legislative procedures
  */
-function parseLegislativePipeline(
+export function parseLegislativePipeline(
   settled: PromiseSettledResult<{ content?: Array<{ text: string }> }>
 ): LegislativeProcedure[] {
   if (settled.status === 'rejected') {
@@ -538,7 +554,7 @@ function renderQuestion(q: ParliamentaryQuestion): string {
  * @param dateRange - Date range for the article
  * @returns HTML content string
  */
-function buildWeekAheadContent(weekData: WeekAheadData, dateRange: DateRange): string {
+export function buildWeekAheadContent(weekData: WeekAheadData, dateRange: DateRange): string {
   const plenaryHtml =
     weekData.events.length > 0
       ? weekData.events.map(renderPlenaryEvent).join('')
@@ -599,7 +615,7 @@ function buildWeekAheadContent(weekData: WeekAheadData, dateRange: DateRange): s
  * @param weekData - Aggregated week-ahead data
  * @returns Array of keyword strings
  */
-function buildKeywords(weekData: WeekAheadData): string[] {
+export function buildKeywords(weekData: WeekAheadData): string[] {
   const keywords = [KEYWORD_EUROPEAN_PARLIAMENT, 'week ahead', 'plenary', 'committees'];
   for (const c of weekData.committees) {
     if (c.committee && !keywords.includes(c.committee)) {
@@ -1944,6 +1960,8 @@ async function main(): Promise<void> {
     console.log('');
     console.log('📊 Generation Summary:');
     console.log(`  ✅ Generated: ${stats.generated} articles`);
+    console.log(`  ⏭️ Skipped: ${stats.skipped} articles`);
+    if (dryRunArg) console.log(`  🔍 Dry run: ${stats.dryRun} articles`);
     console.log(`  ❌ Errors: ${stats.errors}`);
     console.log('');
 
@@ -1951,6 +1969,8 @@ async function main(): Promise<void> {
     const metadata = {
       timestamp: stats.timestamp,
       generated: stats.generated,
+      skipped: stats.skipped,
+      dryRun: stats.dryRun,
       errors: stats.errors,
       articles: stats.articles,
       results,
