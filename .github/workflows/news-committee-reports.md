@@ -135,8 +135,8 @@ european_parliament___get_committee_info({ committeeId: "LIBE" })
 european_parliament___get_committee_info({ committeeId: "AGRI" })
 
 // Search for recent committee reports and opinions
-european_parliament___search_documents({ keyword: "committee report", type: "REPORT" })
-european_parliament___search_documents({ keyword: "committee opinion", type: "OPINION" })
+european_parliament___search_documents({ query: "committee report", type: "REPORT" })
+european_parliament___search_documents({ query: "committee opinion", type: "OPINION" })
 
 // Analyze committee legislative effectiveness
 european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
@@ -188,7 +188,6 @@ Fetch data from European Parliament MCP tools for each featured committee (ENVI,
 Parse the `languages` input and generate using the automated script:
 
 ```bash
-<<<<<<< copilot/create-agentic-workflows
 # EP_LANG_INPUT is provided via the workflow step env: block
 # e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
 LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
@@ -201,12 +200,6 @@ if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|de|fr|es
   exit 1
 fi
 
-=======
-# Set LANGUAGES_INPUT to the value shown in Workflow Dispatch Parameters above
-LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
-[ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
-
->>>>>>> main
 case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
   "nordic") LANG_ARG="en,sv,da,fi" ;;

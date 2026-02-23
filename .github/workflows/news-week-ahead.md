@@ -189,10 +189,6 @@ if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|de|fr|es
   exit 1
 fi
 
-# Set LANGUAGES_INPUT to the value shown in Workflow Dispatch Parameters above
-LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
-[ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
-
 case "$LANGUAGES_INPUT" in
   "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
   "nordic")  LANG_ARG="en,sv,da,fi" ;;
@@ -202,7 +198,6 @@ esac
 
 SKIP_FLAG=""
 if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
-if [ "${{ github.event.inputs.force_generation }}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
 fi
 
