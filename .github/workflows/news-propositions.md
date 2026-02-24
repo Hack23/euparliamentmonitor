@@ -199,6 +199,28 @@ european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTE
 
 ## Generation Steps
 
+### Step 0: Check for Existing Open PRs
+
+Before generating, check if an open PR already exists for `propositions` articles on today's date:
+
+```bash
+TODAY=$(date -u +%Y-%m-%d)
+EXISTING_PR=$(gh pr list --repo Hack23/euparliamentmonitor \
+  --search "propositions $TODAY in:title" \
+  --state open --limit 1 --json number --jq '.[0].number // ""' 2>/dev/null || echo "")
+echo "Existing PR check: EXISTING_PR=$EXISTING_PR, TODAY=$TODAY"
+```
+
+If `EXISTING_PR` is non-empty **and** **force_generation** is `false`:
+
+```bash
+if [ -n "$EXISTING_PR" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+  echo "PR #$EXISTING_PR already exists for propositions on $TODAY. Skipping to avoid duplicate PR."
+  safeoutputs___noop
+  exit 0
+fi
+```
+
 ### Step 1: Check Recent Generation
 
 Check if propositions articles exist from the last 11 hours. If **force_generation** is `true`, skip this check.
@@ -353,8 +375,25 @@ fi
 6. Translate any remaining untranslated content in non-English articles
 
 ### Step 6: Create PR
+
+Set the deterministic branch name before creating the PR:
+
+```bash
+TODAY=$(date -u +%Y-%m-%d)
+BRANCH_NAME="news/propositions-$TODAY"
+echo "Branch: $BRANCH_NAME"
 ```
-safeoutputs___create_pull_request
+
+Pass `$BRANCH_NAME` (e.g., `news/propositions-2026-02-24`) as the `head` parameter when calling `safeoutputs___create_pull_request`:
+
+```javascript
+safeoutputs___create_pull_request({
+  title: `chore: EU Parliament propositions articles ${TODAY}`,
+  body: `## EU Parliament Propositions Articles\n\nGenerated propositions articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server`,
+  base: "main",
+  head: `news/propositions-${TODAY}`,
+  files: [/* generated article files */]
+})
 ```
 
 ## Translation Rules

@@ -207,6 +207,28 @@ EU Parliament API responses commonly take 30+ seconds. To handle this:
 
 ## Generation Steps
 
+### Step 0: Check for Existing Open PRs
+
+Before generating, check if an open PR already exists for `week-ahead` articles on today's date:
+
+```bash
+TODAY=$(date -u +%Y-%m-%d)
+EXISTING_PR=$(gh pr list --repo Hack23/euparliamentmonitor \
+  --search "week-ahead $TODAY in:title" \
+  --state open --limit 1 --json number --jq '.[0].number // ""' 2>/dev/null || echo "")
+echo "Existing PR check: EXISTING_PR=$EXISTING_PR, TODAY=$TODAY"
+```
+
+If `EXISTING_PR` is non-empty **and** **force_generation** is `false`:
+
+```bash
+if [ -n "$EXISTING_PR" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+  echo "PR #$EXISTING_PR already exists for week-ahead on $TODAY. Skipping to avoid duplicate PR."
+  safeoutputs___noop
+  exit 0
+fi
+```
+
 ### Step 1: Check Recent Generation
 
 If **force_generation** is `false`, check whether week-ahead articles already exist from the last 11 hours:
