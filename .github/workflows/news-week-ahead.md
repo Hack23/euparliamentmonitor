@@ -413,7 +413,22 @@ fi
 
 ### Step 6: Create Pull Request
 
-After generating and validating articles, create a PR using safe outputs:
+After generating and validating articles, refresh `articles-metadata.json` from `origin/main` to prevent
+`Failed to apply patch` errors caused by concurrent news workflow runs modifying shared metadata:
+
+```bash
+TODAY=$(date -u +%Y-%m-%d)
+
+# Refresh articles-metadata.json from origin/main to prevent patch conflicts.
+# If a concurrent news workflow (motions, propositions, committee-reports, etc.) merged
+# new articles to main while this agent was running, the metadata context will have changed.
+# Fetching the latest metadata and rebuilding ensures the patch applies cleanly.
+git fetch origin main --depth=1 2>/dev/null || echo "⚠️  Warning: Could not fetch from origin/main — continuing with local metadata"
+git show origin/main:news/articles-metadata.json > news/articles-metadata.json 2>/dev/null || echo "⚠️  Warning: Could not restore metadata from origin/main — will rebuild from local news/ files"
+node -e "import('./scripts/utils/news-metadata.js').then(({ updateMetadataDatabase }) => { updateMetadataDatabase(); console.log('✅ Rebuilt articles-metadata.json'); }).catch(e => { console.error('❌ Failed to rebuild metadata:', e.message); process.exit(1); });"
+```
+
+Then create a PR using safe outputs:
 
 ```javascript
 safeoutputs___create_pull_request({
