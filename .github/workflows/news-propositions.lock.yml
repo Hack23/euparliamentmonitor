@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament legislative propositions analysis articles for all 14 languages. Single article type per run.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"60ddec0389395c22675622aa59ccbe197477029c58cc5d08f37806982e81696a","compiler_version":"v0.49.6"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"c699a70a61c2a321be12293685195cfc66ce6a2a0c35aa52e282bfd7c55bad9a","compiler_version":"v0.49.6"}
 
 name: "News: EU Parliament Legislative Propositions"
 "on":

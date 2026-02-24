@@ -208,16 +208,16 @@ LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
 # Strict allowlist validation to prevent shell injection
-if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu)(,(en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu))*$'; then
+if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh)(,(en|sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh))*$'; then
   echo "❌ Invalid languages input: $LANGUAGES_INPUT" >&2
-  echo "Allowed: all, eu-core, nordic, or comma-separated: en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" >&2
+  echo "Allowed: all, eu-core, nordic, or comma-separated: en,sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" >&2
   exit 1
 fi
 
 case "$LANGUAGES_INPUT" in
-  "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
-  "nordic") LANG_ARG="en,sv,da,fi" ;;
-  "all") LANG_ARG="en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" ;;
+  "eu-core") LANG_ARG="en,de,fr,es,nl" ;;
+  "nordic") LANG_ARG="en,sv,da,no,fi" ;;
+  "all") LANG_ARG="en,sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" ;;
   *) LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
