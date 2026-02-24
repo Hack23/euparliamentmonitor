@@ -151,6 +151,7 @@ export function generateIndexHTML(lang: string, articles: ParsedArticle[]): stri
   const dir = getTextDirection(lang);
   const year = new Date().getFullYear();
   const selfHref = getIndexFilename(lang);
+  const heroTitle = title.split(' - ')[0];
 
   const content =
     articles.length === 0
@@ -169,17 +170,22 @@ export function generateIndexHTML(lang: string, articles: ParsedArticle[]): stri
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="referrer" content="no-referrer">
   <title>${title}</title>
   <meta name="description" content="${description}">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
   <header class="site-header" role="banner">
     <div class="site-header__inner">
-      <a href="${selfHref}" class="site-header__brand" aria-label="EU Parliament Monitor">
+      <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
         <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
         <span>
-          <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__title">${heroTitle}</span>
           <span class="site-header__subtitle">European Parliament Intelligence</span>
         </span>
       </a>
@@ -191,11 +197,11 @@ export function generateIndexHTML(lang: string, articles: ParsedArticle[]): stri
   </nav>
 
   <section class="hero">
-    <h1 class="hero__title">${title}</h1>
+    <h1 class="hero__title">${heroTitle}</h1>
     <p class="hero__description">${description}</p>
   </section>
 
-  <main class="site-main">
+  <main id="main" class="site-main">
     <h2 class="section-heading"><span class="section-heading__icon" aria-hidden="true">📋</span> ${heading}</h2>
     ${content}
   </main>

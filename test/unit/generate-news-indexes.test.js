@@ -206,6 +206,28 @@ describe('generate-news-indexes', () => {
       expect(html).toContain('EU Parliament Monitor');
       expect(html).toMatch(/\d{4}/); // Current year
     });
+
+    it('should include skip navigation link', () => {
+      const html = generateMockIndexHTML('en', []);
+      expect(html).toContain('<a href="#main" class="skip-link">Skip to main content</a>');
+    });
+
+    it('should include main element with id', () => {
+      const html = generateMockIndexHTML('en', []);
+      expect(html).toContain('<main id="main"');
+    });
+
+    it('should include security meta tags', () => {
+      const html = generateMockIndexHTML('en', []);
+      expect(html).toContain('X-Content-Type-Options');
+      expect(html).toContain('X-Frame-Options');
+      expect(html).toContain('no-referrer');
+    });
+
+    it('should use brand name in hero title without News suffix', () => {
+      const html = generateMockIndexHTML('en', []);
+      expect(html).toContain('<h1 class="hero__title">EU Parliament Monitor</h1>');
+    });
   });
 
   describe('Multi-Language Support', () => {
@@ -362,6 +384,7 @@ function generateMockIndexHTML(lang, articles) {
   const languageName = langNames[lang] || 'English';
   const noArticlesText = noArticles[lang] || noArticles.en;
   const heading = headings[lang] || headings.en;
+  const heroTitle = title.split(' - ')[0];
 
   const langNav = Object.entries(langNames)
     .map(([code, name]) => {
@@ -378,17 +401,22 @@ function generateMockIndexHTML(lang, articles) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="referrer" content="no-referrer">
   <title>${title}</title>
   <meta name="description" content="${description}">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
   <header class="site-header" role="banner">
     <div class="site-header__inner">
-      <a href="${selfHref}" class="site-header__brand" aria-label="EU Parliament Monitor">
+      <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
         <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
         <span>
-          <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__title">${heroTitle}</span>
           <span class="site-header__subtitle">European Parliament Intelligence</span>
         </span>
       </a>
@@ -400,11 +428,11 @@ function generateMockIndexHTML(lang, articles) {
   </nav>
 
   <section class="hero">
-    <h1 class="hero__title">${title}</h1>
+    <h1 class="hero__title">${heroTitle}</h1>
     <p class="hero__description">${description}</p>
   </section>
 
-  <main class="site-main">
+  <main id="main" class="site-main">
     <h2 class="section-heading"><span class="section-heading__icon" aria-hidden="true">📋</span> ${heading}</h2>
     ${
       articles.length === 0
