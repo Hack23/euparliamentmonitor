@@ -51,7 +51,8 @@ function detectCategory(slug: string): string {
   if (s.includes('month-in-review')) return ArticleCategory.MONTH_IN_REVIEW;
   if (s.includes('year-in-review')) return ArticleCategory.YEAR_IN_REVIEW;
   if (s.includes('committee')) return ArticleCategory.COMMITTEE_REPORTS;
-  if (s.includes('motion') || s.includes('vote') || s.includes('voting')) return ArticleCategory.MOTIONS;
+  if (s.includes('motion') || s.includes('vote') || s.includes('voting'))
+    return ArticleCategory.MOTIONS;
   if (s.includes('propos') || s.includes('legislat')) return ArticleCategory.PROPOSITIONS;
   if (s.includes('breaking') || s.includes('urgent')) return ArticleCategory.BREAKING_NEWS;
   if (s.includes('deep-analysis') || s.includes('5-whys')) return ArticleCategory.DEEP_ANALYSIS;
