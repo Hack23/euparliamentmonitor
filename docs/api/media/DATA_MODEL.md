@@ -122,36 +122,34 @@ erDiagram
 
     NEWS_ARTICLE {
         string slug PK "Unique article identifier"
-        string type "prospective, retrospective, breaking"
+        string category "ArticleCategory enum value"
         string language "en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh"
-        datetime generated "Generation timestamp"
+        string date "Publication date string"
         string title "Article title"
         string subtitle "Article subtitle"
-        string content_html "Full HTML content"
-        int read_time "Estimated read time (minutes)"
-        array keywords "SEO keywords"
+        string content "Full HTML content"
+        int readTime "Estimated read time (minutes)"
+        array keywords "SEO keywords (optional)"
+        array sources "ArticleSource references (optional)"
     }
 
     METADATA {
-        string article_slug FK "Reference to article"
-        string source_type "MCP, fallback, manual"
-        datetime ep_data_timestamp "EP API data timestamp"
-        string mcp_version "MCP server version"
-        string generator_version "News generator version"
-        string commit_sha "Git commit SHA"
-        string workflow_run_id "GitHub Actions run ID"
+        string filename "Article filename"
+        string date "Publication date"
+        string slug "Article slug"
+        string lang "Language code"
+        string title "Article title"
+        string type "ArticleCategory value (optional)"
     }
 
     SOURCE {
-        string article_slug FK "Reference to article"
-        string source_type "plenary, committee, document, question"
-        string source_id "EP API identifier"
-        string source_url "EP API URL"
-        string data_hash "SHA-256 of source data"
+        string title "Source title"
+        string url "Source URL"
     }
 
     ARTICLE_TYPE {
-        string code PK "prospective, retrospective, etc."
+        string code PK "ArticleCategory enum value"
+        string perspective "ArticlePerspective (prospective, retrospective, real-time, analytical)"
         string label_en "English label"
         string label_de "German label"
         string label_fr "French label"
@@ -198,7 +196,7 @@ erDiagram
 
 ### 1. News Article
 
-**File Location**: `news/{year}-{slug}-{lang}.html`
+**File Location**: `news/YYYY-MM-DD-{slug}-{lang}.html`
 
 **HTML Structure**:
 
@@ -294,109 +292,93 @@ erDiagram
 </html>
 ```
 
-### 2. Generation Metadata
+### 2. News Metadata Database
 
-**File Location**: `news/metadata/{year}-{slug}.json`
+**File Location**: `articles-metadata.json`
 
-**JSON Structure**:
+**TypeScript Interface** (`NewsMetadataDatabase`):
 
 ```json
 {
-  "article": {
-    "slug": "2026-week-ahead",
-    "type": "prospective",
-    "languages": ["en", "de", "fr", "es", "it", "nl"],
-    "generated_at": "2026-03-01T06:15:32Z"
-  },
-  "generator": {
-    "version": "1.0.0",
-    "commit_sha": "abc123def456",
-    "workflow_run_id": "12345678",
-    "workflow_url": "https://github.com/Hack23/euparliamentmonitor/actions/runs/12345678"
-  },
-  "mcp": {
-    "server_version": "1.2.3",
-    "connection_type": "stdio",
-    "data_sources": [
-      {
-        "type": "plenary_session",
-        "id": "PS-2026-03-01",
-        "url": "https://data.europarl.europa.eu/sessions/2026-03-01",
-        "data_hash": "abc123...",
-        "timestamp": "2026-02-28T18:30:00Z"
-      },
-      {
-        "type": "committee_meeting",
-        "id": "LIBE-2026-02-25",
-        "url": "https://data.europarl.europa.eu/committees/LIBE/2026-02-25",
-        "data_hash": "def456...",
-        "timestamp": "2026-02-25T14:00:00Z"
-      }
-    ]
-  },
-  "statistics": {
-    "total_languages": 6,
-    "word_count": {
-      "en": 1250,
-      "de": 1300,
-      "fr": 1275
+  "lastUpdated": "2026-03-01T06:15:32Z",
+  "articles": [
+    {
+      "filename": "2026-03-01-week-ahead-en.html",
+      "date": "2026-03-01",
+      "slug": "week-ahead",
+      "lang": "en",
+      "title": "Week Ahead: European Parliament March Session",
+      "type": "week-ahead"
     },
-    "read_time": {
-      "en": 5,
-      "de": 5,
-      "fr": 5
+    {
+      "filename": "2026-03-01-week-ahead-de.html",
+      "date": "2026-03-01",
+      "slug": "week-ahead",
+      "lang": "de",
+      "title": "Woche Voraus: Europäisches Parlament Märzsitzung",
+      "type": "week-ahead"
     }
-  }
+  ]
 }
 ```
 
 ### 3. Article Type Definitions
 
-**File Location**: `config/article-types.json` (conceptual)
+**File Location**: `src/types/index.ts` (ArticleCategory enum)
 
 ```json
 {
   "article_types": [
     {
-      "code": "prospective",
+      "code": "week-ahead",
+      "perspective": "prospective",
       "labels": {
         "en": "Week Ahead",
+        "sv": "Vecka Framåt",
+        "da": "Ugen Fremover",
+        "no": "Uken Fremover",
+        "fi": "Viikko Eteenpäin",
         "de": "Woche Voraus",
         "fr": "Semaine à Venir",
         "es": "Semana Próxima",
-        "it": "Settimana Prossima",
         "nl": "Week Vooruit",
-        "pl": "Nadchodzący Tydzień",
-        "pt": "Semana Próxima",
-        "ro": "Săptămâna Viitoare",
-        "sv": "Vecka Framåt",
-        "da": "Ugen Fremover",
-        "fi": "Viikko Eteenpäin",
-        "el": "Εβδομάδα Μπροστά",
-        "hu": "Következő Hét"
+        "ar": "الأسبوع القادم",
+        "he": "השבוע הקרוב",
+        "ja": "今週の展望",
+        "ko": "주간 전망",
+        "zh": "一周展望"
       },
-      "description": "Preview of upcoming parliamentary events and committee meetings",
-      "template": "week-ahead.hbs"
+      "description": "Preview of upcoming parliamentary events and committee meetings"
     },
     {
-      "code": "retrospective",
+      "code": "committee-reports",
+      "perspective": "retrospective",
       "labels": {
         "en": "Committee Reports",
         "de": "Ausschussberichte",
         "fr": "Rapports de Commission"
       },
-      "description": "Analysis of committee activities and decisions",
-      "template": "committee-reports.hbs"
+      "description": "Analysis of committee activities and decisions"
     },
     {
       "code": "breaking",
+      "perspective": "real-time",
       "labels": {
         "en": "Breaking News",
         "de": "Eilmeldung",
         "fr": "Dernières Nouvelles"
       },
-      "description": "Rapid-response coverage of significant developments",
-      "template": "breaking.hbs"
+      "description": "Rapid-response coverage of significant developments"
+    },
+    {
+      "code": "deep-analysis",
+      "perspective": "analytical",
+      "labels": {
+        "en": "Deep Analysis",
+        "de": "Tiefenanalyse",
+        "fr": "Analyse Approfondie"
+      },
+      "description": "Multi-perspective deep dive analysis"
     }
   ]
 }
@@ -404,7 +386,7 @@ erDiagram
 
 ### 4. Language Configuration
 
-**File Location**: `config/languages.json` (conceptual)
+**File Location**: `src/constants/languages.ts`
 
 ```json
 {
@@ -414,48 +396,51 @@ erDiagram
       "name": "English",
       "native_name": "English",
       "direction": "ltr",
-      "locale": "en-US",
-      "region": "Global",
-      "priority": 1
+      "flag": "🇬🇧"
+    },
+    {
+      "code": "sv",
+      "name": "Swedish",
+      "native_name": "Svenska",
+      "direction": "ltr",
+      "flag": "🇸🇪"
     },
     {
       "code": "de",
       "name": "German",
       "native_name": "Deutsch",
       "direction": "ltr",
-      "locale": "de-DE",
-      "region": "EU Core",
-      "priority": 2
+      "flag": "🇩🇪"
     },
     {
       "code": "fr",
       "name": "French",
       "native_name": "Français",
       "direction": "ltr",
-      "locale": "fr-FR",
-      "region": "EU Core",
-      "priority": 3
+      "flag": "🇫🇷"
+    },
+    {
+      "code": "ar",
+      "name": "Arabic",
+      "native_name": "العربية",
+      "direction": "rtl",
+      "flag": "🇸🇦"
+    },
+    {
+      "code": "he",
+      "name": "Hebrew",
+      "native_name": "עברית",
+      "direction": "rtl",
+      "flag": "🇮🇱"
     }
   ],
   "language_groups": {
-    "eu-core": ["en", "de", "fr", "es", "it", "nl"],
-    "nordic": ["en", "sv", "da", "fi"],
-    "eastern": ["pl", "ro", "hu"],
+    "eu-core": ["en", "de", "fr", "es", "nl"],
+    "nordic": ["en", "sv", "da", "no", "fi"],
     "all": [
-      "en",
-      "de",
-      "fr",
-      "es",
-      "it",
-      "nl",
-      "pl",
-      "pt",
-      "ro",
-      "sv",
-      "da",
-      "fi",
-      "el",
-      "hu"
+      "en", "sv", "da", "no", "fi",
+      "de", "fr", "es", "nl",
+      "ar", "he", "ja", "ko", "zh"
     ]
   }
 }
@@ -760,8 +745,8 @@ erDiagram
     LANGUAGE ||--o{ INDEX_PAGE : "has"
 
     ARTICLE {
-        string slug PK "2026-week-ahead"
-        string type "prospective, retrospective"
+        string slug PK "2026-01-01-week-ahead"
+        string category "ArticleCategory enum value"
         datetime generatedAt
         string commitSha "Git commit hash"
         array sourceIds "EP data source IDs"
@@ -781,12 +766,10 @@ erDiagram
 
     LANGUAGE {
         string code PK "ISO 639-1"
-        string name "Language name"
-        string nativeName "Native language name"
+        string name "Native language name"
+        string flag "Flag emoji"
         string direction "ltr or rtl"
-        string locale "en-US, de-DE"
-        int priority "Display order"
-        string region "EU Core, Nordic, Eastern"
+        string preset "all, eu-core, nordic"
     }
 
     ARTICLE_METADATA {
@@ -902,7 +885,7 @@ flowchart TB
     end
 
     subgraph "Generator Layer"
-        GENERATOR["News Generator<br/>Node.js Script"]
+        GENERATOR["News Generator<br/>TypeScript Script"]
         MCP_CLIENT["MCP Client<br/>stdio connection"]
         VALIDATOR["Schema Validator<br/>(Planned)"]
         SANITIZER["HTML Sanitizer<br/>(Planned: DOMPurify)"]
@@ -910,14 +893,14 @@ flowchart TB
 
     subgraph "Template Layer"
         TEMPLATE_ENGINE["Template Module<br/>src/templates/article-template.ts"]
-        TEMPLATE_WEEK["Article Template<br/>(JS-based)"]
-        TEMPLATE_COMMITTEE["Committee Reports Template<br/>(JS-based)"]
+        TEMPLATE_WEEK["Article Template<br/>(TS-based)"]
+        TEMPLATE_COMMITTEE["Committee Reports Template<br/>(TS-based)"]
         LANGUAGE_PROCESSOR["Multi-Language<br/>Processor"]
     end
 
     subgraph "Output Layer"
         ARTICLE_HTML["Article HTML<br/>news/*.html"]
-        METADATA_JSON["Metadata JSON<br/>news/metadata/*.json"]
+        METADATA_JSON["Metadata JSON<br/>articles-metadata.json"]
         INDEX_HTML["Index Pages<br/>index-*.html"]
         SITEMAP_XML["sitemap.xml"]
     end
@@ -925,8 +908,7 @@ flowchart TB
     subgraph "Deployment"
         GIT_COMMIT["Git Commit<br/>& Push"]
         GHA_DEPLOY["GitHub Actions<br/>Deploy Workflow"]
-        S3_BUCKET["AWS S3<br/>Static Site Bucket"]
-        GH_PAGES["AWS CloudFront<br/>CDN Distribution"]
+        GH_PAGES["GitHub Pages<br/>Static Hosting"]
     end
 
     EP_API --> EP_PLENARY
@@ -972,8 +954,7 @@ flowchart TB
     SITEMAP_XML --> GIT_COMMIT
 
     GIT_COMMIT -->|"Push triggers<br/>deploy workflow"| GHA_DEPLOY
-    GHA_DEPLOY -->|"aws s3 sync"| S3_BUCKET
-    S3_BUCKET -->|"CloudFront<br/>invalidation"| GH_PAGES
+    GHA_DEPLOY -->|"Deploy to<br/>GitHub Pages"| GH_PAGES
 
     style EP_API fill:#fff4e1
     style MCP_SERVER fill:#e8f5e9
@@ -990,11 +971,12 @@ flowchart TB
 ```
 euparliamentmonitor/
 ├── news/                           # Generated articles
-│   ├── 2026-week-ahead-en.html
-│   ├── 2026-week-ahead-de.html
-│   ├── 2026-week-ahead-fr.html
-│   └── metadata/                   # Generation metadata
-│       └── 2026-week-ahead.json
+│   ├── 2026-01-01-week-ahead-en.html
+│   ├── 2026-01-01-week-ahead-de.html
+│   ├── 2026-01-01-week-ahead-fr.html
+│   └── ...
+│
+├── articles-metadata.json          # News metadata database
 │
 ├── index-{lang}.html               # Language-specific indexes
 │   ├── index.html
@@ -1271,7 +1253,7 @@ timeline
                      : GDPR compliance verified
                      : ISO 27001 controls mapped
       Data Flow : Comprehensive data flow diagrams
-                : European Parliament to S3 + CloudFront
+                : European Parliament to GitHub Pages
 
     section v2.0 - Future (2026-Q3)
       Real-Time Updates : WebSocket data streams
@@ -1376,7 +1358,7 @@ Planned enhancement: responses from the European Parliament API will be validate
 
 **Planned DOMPurify Configuration:**
 
-```javascript
+```typescript
 const clean = DOMPurify.sanitize(dirtyHtml, {
   ALLOWED_TAGS: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'strong', 'em', 'blockquote', 'code', 'pre'],
   ALLOWED_ATTR: ['href', 'title', 'class', 'id'],
@@ -1413,7 +1395,7 @@ const clean = DOMPurify.sanitize(dirtyHtml, {
 
 **Planned Source Data Hashing Pattern:**
 
-```javascript
+```typescript
 const sourceHash = crypto.createHash('sha256')
   .update(JSON.stringify(epApiResponse))
   .digest('hex');
