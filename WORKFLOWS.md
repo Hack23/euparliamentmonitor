@@ -181,7 +181,7 @@ graph LR
 
 #### Security Analysis
 
-- **Language:** JavaScript
+- **Language:** JavaScript/TypeScript
 - **Query Suite:** Security Extended
 - **Analysis Type:** Source code + dependencies
 - **Vulnerability Types:** 
