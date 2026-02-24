@@ -41,6 +41,28 @@
   --transition: 0.25s ease;
 }
 
+/* ─── Skip Navigation ────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 200;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-sm) 0;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--secondary);
+  outline-offset: 2px;
+}
+
 /* ─── Reset & Base ───────────────────────────────────────────────── */
 *,
 *::before,
@@ -720,20 +742,7 @@ img {
   color: white;
 }
 
-/* ─── Legacy Index Compat ────────────────────────────────────────── */
-header {
-  text-align: center;
-  padding: 40px 20px;
-  border-bottom: 3px solid var(--primary);
-  margin-bottom: 32px;
-}
-
-header h1 {
-  color: var(--primary);
-  font-size: 2.2em;
-  margin-bottom: 8px;
-}
-
+/* ─── Language Indicator Compat ───────────────────────────────────── */
 .language-indicator {
   background: var(--secondary);
   display: inline-block;
@@ -747,6 +756,12 @@ header h1 {
 /* ─── RTL Support ────────────────────────────────────────────────── */
 [dir="rtl"] {
   direction: rtl;
+}
+
+[dir="rtl"] .skip-link {
+  left: auto;
+  right: 0;
+  border-radius: 0 0 0 var(--radius-sm);
 }
 
 [dir="rtl"] .article-content ul,
@@ -912,4 +927,16 @@ a:focus-visible,
 button:focus-visible {
   outline: 3px solid var(--secondary);
   outline-offset: 2px;
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
