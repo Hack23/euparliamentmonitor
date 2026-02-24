@@ -156,7 +156,6 @@ export function generateIndexHTML(lang, articles) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="DENY">
   <meta name="referrer" content="no-referrer">
   <title>${title}</title>
   <meta name="description" content="${description}">

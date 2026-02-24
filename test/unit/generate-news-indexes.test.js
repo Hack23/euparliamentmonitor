@@ -220,7 +220,6 @@ describe('generate-news-indexes', () => {
     it('should include security meta tags', () => {
       const html = generateMockIndexHTML('en', []);
       expect(html).toContain('X-Content-Type-Options');
-      expect(html).toContain('X-Frame-Options');
       expect(html).toContain('no-referrer');
     });
 
@@ -402,7 +401,6 @@ function generateMockIndexHTML(lang, articles) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="DENY">
   <meta name="referrer" content="no-referrer">
   <title>${title}</title>
   <meta name="description" content="${description}">
