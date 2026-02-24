@@ -1,0 +1,172 @@
+name: Compile Agentic Workflows
+
+# Automatically compile .md workflow files to .lock.yml when they change
+# This ensures the lock files stay in sync with their markdown sources
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+jobs:
+  compile:
+    name: Compile Agentic Workflows
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v4.3.1
+        with:
+          token: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: '24'
+
+      - name: Install gh-aw CLI
+        run: |
+          echo "Installing gh-aw tool..."
+          if gh auth status 2>/dev/null; then
+            gh extension install github/gh-aw || echo "Failed to install gh-aw extension"
+          else
+            echo "⚠️ GitHub CLI not authenticated"
+            echo "Skipping gh-aw installation"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Compile Agentic Workflows
+        id: compile
+        run: |
+          echo "Compiling agentic workflows..."
+
+          md_files=$(find .github/workflows -name "*.md" -not -name "README.md" -type f)
+
+          if [ -z "$md_files" ]; then
+            echo "No .md workflow files found"
+            exit 0
+          fi
+
+          compiled=false
+
+          for md_file in $md_files; do
+            echo "Processing: $md_file"
+
+            if command -v gh >/dev/null 2>&1 && gh aw compile --help >/dev/null 2>&1; then
+              echo "  Compiling with gh aw compile..."
+              gh aw compile "$md_file" || {
+                echo "  ❌ Failed to compile $md_file"
+                continue
+              }
+              compiled=true
+            else
+              echo "  ⚠️ gh-aw tool not available"
+              echo "  Please install gh-aw extension: gh extension install github/gh-aw"
+              echo "  Or run 'gh aw compile' locally"
+              echo "needs_manual_compile=true" >> $GITHUB_OUTPUT
+              exit 1
+            fi
+          done
+
+          if [ "$compiled" = true ]; then
+            echo "✅ Workflows compiled successfully"
+            echo "compiled=true" >> $GITHUB_OUTPUT
+          else
+            echo "ℹ️ No workflows were compiled"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          lock_files=$(find .github/workflows -name "*.lock.yml" -type f)
+          if [ -z "$lock_files" ]; then
+            echo "No lock files found"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          elif git diff --quiet -- $lock_files 2>/dev/null; then
+            echo "No changes to lock files"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Lock files have changes"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            git diff --stat -- $lock_files
+          fi
+
+      - name: Commit changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          lock_files=$(find .github/workflows -name "*.lock.yml" -type f)
+          git add $lock_files
+          git commit -m "chore: recompile agentic workflow lock files"
+          git push
+
+      - name: Create issue for manual compilation
+        if: steps.compile.outputs.needs_manual_compile == 'true'
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        with:
+          script: |
+            const issueBody = [
+              '## Problem',
+              '',
+              'The agentic workflow markdown files have been updated, but the lock files could not be automatically compiled.',
+              '',
+              '### Action Required',
+              '',
+              'Please compile the lock files locally:',
+              '',
+              '```bash',
+              '# Install gh-aw extension (first time only)',
+              'gh extension install github/gh-aw',
+              '',
+              '# Compile all agentic workflows',
+              'cd .github/workflows',
+              'gh aw compile news-committee-reports.md',
+              'gh aw compile news-motions.md',
+              'gh aw compile news-propositions.md',
+              'gh aw compile news-week-ahead.md',
+              '',
+              '# Commit and push the updated lock files',
+              'git add *.lock.yml',
+              'git commit -m "chore: recompile agentic workflow lock files"',
+              'git push',
+              '```',
+              '',
+              '### Files Affected',
+              '',
+              '- `.github/workflows/news-committee-reports.md` → `news-committee-reports.lock.yml`',
+              '- `.github/workflows/news-motions.md` → `news-motions.lock.yml`',
+              '- `.github/workflows/news-propositions.md` → `news-propositions.lock.yml`',
+              '- `.github/workflows/news-week-ahead.md` → `news-week-ahead.lock.yml`',
+              '',
+              '### Why This Happened',
+              '',
+              'The gh-aw tool requires GitHub authentication and is not available in the automated workflow environment.',
+              '',
+              '### More Information',
+              '',
+              '- [GitHub Agentic Workflows Documentation](https://github.com/github/gh-aw/blob/main/.github/aw/github-agentic-workflows.md)',
+              '- Triggered by: ' + (context.payload.head_commit?.message || 'Manual trigger'),
+              '- Workflow run: ' + context.serverUrl + '/' + context.repo.owner + '/' + context.repo.repo + '/actions/runs/' + context.runId
+            ].join('\n');
+
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '⚠️ Agentic Workflow Lock Files Need Manual Compilation',
+              body: issueBody,
+              labels: ['infrastructure', 'automated-issue', 'needs-action']
+            });
+
+            console.log(`Created issue #${issue.data.number}`);
