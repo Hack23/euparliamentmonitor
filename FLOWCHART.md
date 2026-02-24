@@ -115,11 +115,11 @@ flowchart TD
 
     ConnectMCP --> RetryCheck{🔄 Connection<br/>Successful?}
     RetryCheck -->|❌ No| RetryCount{Retry < 3?}
-    RetryCount -->|✅ Yes| BackoffWait[⏳ Exponential Backoff<br/>Wait 1s, 2s, 4s]
+    RetryCount -->|✅ Yes| BackoffWait[⏳ Wait 30s<br/>Between Retries]
     BackoffWait --> ConnectMCP
     RetryCount -->|❌ No| Fallback
 
-    RetryCheck -->|✅ Yes| FetchData[📥 Fetch Parliamentary Data<br/>Plenary Sessions<br/>Committee Meetings<br/>Documents]
+    RetryCheck -->|✅ Yes| FetchData[📥 Fetch Parliamentary Data<br/>Plenary Sessions<br/>Committee Meetings<br/>Documents, Voting Records]
 
     FetchData --> ValidateSchema{✅ Validate<br/>JSON Schema?}
     ValidateSchema -->|❌ Invalid| LogError1[📝 Log Validation Error<br/>Error Type<br/>Field Name] --> Fallback
@@ -131,12 +131,18 @@ flowchart TD
     ValidateRange -->|❌ Invalid| LogError3[📝 Log Range Error<br/>Out of Bounds] --> Fallback
     ValidateRange -->|✅ Valid| SanitizeHTML[🧹 Sanitize HTML<br/>Strip Script Tags<br/>Remove Event Handlers]
 
-    Fallback --> Generate
+    Fallback --> AgentContext
     SanitizeHTML --> EncodeHTML[🔒 HTML Entity Encoding<br/>Convert: &lt; &gt; &amp; &quot; &#39;]
 
-    EncodeHTML --> Generate[📝 Generate Articles<br/>All Languages<br/>All Types]
+    EncodeHTML --> AgentContext[🤖 Copilot/LLM Agent<br/>Receives Article Type Context<br/>5 Types: week-ahead, motions,<br/>propositions, committee-reports,<br/>breaking-news]
 
-    Generate --> HTMLValidate[✅ Validate HTML<br/>htmlhint Rules<br/>Standards Compliance]
+    AgentContext --> GenerateEN[📝 Generate English Content<br/>Agent Calls MCP Tools<br/>Plenary, Committees,<br/>Documents, Voting Records]
+
+    GenerateEN --> Translate[🌍 Translate Content<br/>English → 13 Languages<br/>14 Total Languages]
+
+    Translate --> GenHTML[📄 generateArticleHTML()<br/>Per Language<br/>SEO, JSON-LD, Open Graph]
+
+    GenHTML --> HTMLValidate[✅ Validate HTML<br/>htmlhint Rules<br/>Standards Compliance]
 
     HTMLValidate -->|❌ Fail| FixHTML[🔧 Fix HTML Issues<br/>Auto-correct<br/>Report Issues]
     FixHTML --> HTMLValidate
@@ -145,13 +151,15 @@ flowchart TD
 
     GenerateIndex --> GenerateSitemap[🗺️ Generate Sitemap<br/>sitemap.xml<br/>SEO Optimization]
 
-    GenerateSitemap --> RunTests[🧪 Run Security Tests<br/>ESLint Security<br/>npm audit<br/>Unit Tests]
+    GenerateSitemap --> CreateBranch[🌿 Create Branch<br/>news/{type}-{date}]
 
-    RunTests -->|❌ Fail| TestFail[❌ Tests Failed<br/>Block Commit<br/>Notify Team]
-    RunTests -->|✅ Pass| CommitChanges[📦 Commit Changes<br/>Git Add<br/>Git Commit<br/>Git Push]
+    CreateBranch --> CommitPR[📦 Commit & Create PR<br/>Article HTML Files<br/>Updated Indexes & Sitemap]
 
-    CommitChanges --> Complete[✅ Generation Complete<br/>Articles Published<br/>Indexes Updated]
-    TestFail --> End[❌ Workflow Failed]
+    CommitPR --> MergePR[🔀 Merge PR to Main]
+
+    MergePR --> DeployPages[🚀 Deploy to GitHub Pages<br/>Updated Static Site]
+
+    DeployPages --> Complete[✅ Generation Complete<br/>Articles Published<br/>Site Updated]
     Complete --> End[🎉 Workflow Success]
 
     style Start fill:#e8f5e9
@@ -163,12 +171,17 @@ flowchart TD
     style ValidateRange fill:#e1f5ff
     style SanitizeHTML fill:#e8f5e9
     style EncodeHTML fill:#e8f5e9
-    style Generate fill:#e8f5e9
+    style AgentContext fill:#e1f5ff
+    style GenerateEN fill:#e8f5e9
+    style Translate fill:#e8f5e9
+    style GenHTML fill:#e8f5e9
     style HTMLValidate fill:#e1f5ff
-    style CommitChanges fill:#e8f5e9
+    style CreateBranch fill:#e1f5ff
+    style CommitPR fill:#e8f5e9
+    style MergePR fill:#e8f5e9
+    style DeployPages fill:#d4edda
     style Complete fill:#d4edda
     style End fill:#d4edda
-    style TestFail fill:#ffe1e1
 ```
 
 ---
@@ -308,9 +321,9 @@ flowchart TD
     CheckEnv -->|✅ Enabled| AttemptCount{🔄 Attempt Count<br/>< Max Attempts?}
 
     AttemptCount -->|❌ Exceeded| MaxRetries[❌ Max Retries Reached<br/>Log Error<br/>Use Fallback]
-    AttemptCount -->|✅ Within Limit| SpawnProcess[⚙️ Spawn MCP Process<br/>Node.js Child Process<br/>stdio: pipe]
+    AttemptCount -->|✅ Within Limit| SpawnProcess[⚙️ Spawn MCP Process<br/>npx european-parliament-mcp-server<br/>stdio: pipe]
 
-    SpawnProcess --> WaitConnection[⏳ Wait for Ready<br/>Timeout: 10s<br/>Monitor stderr]
+    SpawnProcess --> WaitConnection[⏳ Wait for Ready<br/>Startup Delay: 500ms<br/>Monitor stderr]
 
     WaitConnection --> ConnectionCheck{✅ Connection<br/>Established?}
 
@@ -321,16 +334,16 @@ flowchart TD
     ConnectionCheck -->|❌ Process Error| ProcessError[❌ Process Failed<br/>Log stderr<br/>Kill Process]
     ProcessError --> IncrementRetry
 
-    ConnectionCheck -->|✅ Connected| SendHandshake[🤝 Send Handshake<br/>JSON-RPC 2.0<br/>Protocol Version]
+    ConnectionCheck -->|✅ Connected| SendHandshake[🤝 Send Initialize Request<br/>JSON-RPC 2.0<br/>List Available Tools]
 
-    SendHandshake --> HandshakeCheck{✅ Handshake<br/>Valid?}
+    SendHandshake --> HandshakeCheck{✅ Initialize<br/>Valid?}
 
-    HandshakeCheck -->|❌ Invalid| HandshakeFail[❌ Handshake Failed<br/>Protocol Mismatch<br/>Close Connection]
+    HandshakeCheck -->|❌ Invalid| HandshakeFail[❌ Initialize Failed<br/>Protocol Mismatch<br/>Close Connection]
     HandshakeFail --> IncrementRetry
 
     HandshakeCheck -->|✅ Valid| Authenticated[✅ Connection Ready<br/>Reset Retry Counter<br/>Log Success]
 
-    Authenticated --> RequestLoop[🔁 Request Loop<br/>Send Requests<br/>Receive Responses]
+    Authenticated --> RequestLoop[🔁 Request Loop<br/>Send Requests<br/>60s Timeout Per Request]
 
     RequestLoop --> ValidateResponse{✅ Validate<br/>Response?}
 
@@ -643,7 +656,7 @@ flowchart TD
     subgraph "Output Layer"
         StaticFiles[📦 Static HTML<br/>index-{lang}.html<br/>CSS Inline]
         Sitemap[🗺️ Sitemap.xml<br/>SEO Optimized<br/>14 Languages]
-        Deploy[🚀 AWS S3 + CloudFront<br/>Primary: S3 Sync Deploy<br/>CDN: CloudFront Invalidation]
+        Deploy[🚀 GitHub Pages<br/>Static Site Hosting<br/>GitHub Actions Deploy]
     end
     
     subgraph "Error Handling"
@@ -864,7 +877,7 @@ flowchart TD
 
 ## 🚀 Deployment Security Flow
 
-This flow shows the secure deployment pipeline from Git commit to S3/CloudFront with comprehensive security gates, SBOM generation, and SLSA attestations. Note: linting, testing, and coverage gates apply to PR merges and release workflows; the daily news-generation workflow triggers S3 deployment directly after build.
+This flow shows the secure deployment pipeline from Git commit to GitHub Pages with comprehensive security gates, SBOM generation, and SLSA attestations. Note: linting, testing, and coverage gates apply to PR merges and release workflows; the daily news-generation workflow triggers GitHub Pages deployment directly after build.
 
 ```mermaid
 flowchart TD
@@ -902,11 +915,11 @@ flowchart TD
     
     Artifacts --> DeployPrep[🚀 Deployment Prep<br/>Organize Files<br/>Check Integrity]
     
-    DeployPrep --> DeployS3[📤 Deploy to S3<br/>S3 Bucket<br/>Upload Files]
+    DeployPrep --> DeployGHP[📤 Deploy to GitHub Pages<br/>Static Files<br/>actions/deploy-pages]
     
-    DeployS3 --> CDNProp[🌐 CDN Propagation<br/>CloudFront CDN<br/>Edge Nodes<br/>Global Distribution]
+    DeployGHP --> GHPages[🌐 GitHub Pages Live<br/>GitHub CDN<br/>Global Distribution]
     
-    CDNProp --> HealthCheck{🏥 Health Check<br/>Site Accessible?}
+    GHPages --> HealthCheck{🏥 Health Check<br/>Site Accessible?}
     
     HealthCheck -->|❌ Failed| Rollback[🔙 Rollback<br/>Revert to Previous<br/>Restore Last Good]
     Rollback --> NotifyFailure[📧 Notify Team<br/>Deployment Failed<br/>Incident Created]
@@ -929,7 +942,7 @@ flowchart TD
     
     TagRelease --> NotifySuccess[📧 Notify Team<br/>Deployment Successful<br/>Version + URL]
     
-    NotifySuccess --> Complete[✅ Deployment Complete<br/>Live on S3/CloudFront<br/>Attested + Verified]
+    NotifySuccess --> Complete[✅ Deployment Complete<br/>Live on GitHub Pages<br/>Attested + Verified]
     
     style Commit fill:#e3f2fd
     style SHAVerify fill:#ffe1e1
@@ -946,8 +959,8 @@ flowchart TD
     style SBOM fill:#fff9c4
     style Attest1 fill:#ffe1e1
     style Attest2 fill:#ffe1e1
-    style DeployS3 fill:#c8e6c9
-    style CDNProp fill:#e8f5e9
+    style DeployGHP fill:#c8e6c9
+    style GHPages fill:#e8f5e9
     style Rollback fill:#ffcdd2
     style Complete fill:#d4edda
 ```
@@ -966,7 +979,7 @@ flowchart TD
 | **Provenance** | SLSA Level 3 | Build integrity | GitHub Attestations |
 | **Attestation** | Cryptographic signing | Artifact authenticity | Sigstore |
 | **Health Check** | Multi-point verification | Deployment validation | Custom checks |
-| **Rollback** | Automated revert | Failure recovery | Git + S3 re-deploy |
+| **Rollback** | Automated revert | Failure recovery | Git + GitHub Pages re-deploy |
 | **Metrics** | Deployment tracking | Performance monitoring | GitHub Actions logs |
 
 **Deployment Security Requirements:**
