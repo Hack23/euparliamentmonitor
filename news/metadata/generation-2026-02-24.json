@@ -1,17 +1,30 @@
 {
-  "timestamp": "2026-02-24T03:48:24.824Z",
-  "generated": 1,
+  "timestamp": "2026-02-24T05:23:19.299Z",
+  "generated": 14,
   "skipped": 0,
   "dryRun": 0,
   "errors": 0,
   "articles": [
-    "2026-02-24-week-ahead-en.html"
+    "2026-02-24-committee-reports-en.html",
+    "2026-02-24-committee-reports-sv.html",
+    "2026-02-24-committee-reports-da.html",
+    "2026-02-24-committee-reports-no.html",
+    "2026-02-24-committee-reports-fi.html",
+    "2026-02-24-committee-reports-de.html",
+    "2026-02-24-committee-reports-fr.html",
+    "2026-02-24-committee-reports-es.html",
+    "2026-02-24-committee-reports-nl.html",
+    "2026-02-24-committee-reports-ar.html",
+    "2026-02-24-committee-reports-he.html",
+    "2026-02-24-committee-reports-ja.html",
+    "2026-02-24-committee-reports-ko.html",
+    "2026-02-24-committee-reports-zh.html"
   ],
   "results": [
     {
       "success": true,
-      "files": 1,
-      "slug": "2026-02-24-week-ahead"
+      "files": 14,
+      "slug": "2026-02-24-committee-reports"
     }
   ],
   "usedMCP": true
