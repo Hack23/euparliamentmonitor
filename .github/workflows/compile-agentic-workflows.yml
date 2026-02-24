@@ -119,7 +119,9 @@ jobs:
                       print "  cancel-in-progress: false"
                       exit
                     }
-                    if (nextLine !~ /cancel-in-progress:/) {
+                    if (nextLine ~ /cancel-in-progress:/) {
+                      sub(/cancel-in-progress:.*/, "cancel-in-progress: false", nextLine)
+                    } else {
                       print "  cancel-in-progress: false"
                     }
                     print nextLine

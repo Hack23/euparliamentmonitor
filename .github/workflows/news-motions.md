@@ -408,11 +408,23 @@ TODAY=$(date -u +%Y-%m-%d)
 BRANCH_NAME="news/motions-$TODAY"
 echo "Branch: $BRANCH_NAME"
 
-# Refresh articles-metadata.json from origin/main to prevent patch conflicts.
+# Refresh news/ content and articles-metadata.json from origin/main to prevent patch conflicts
+# and metadata loss for articles merged while this workflow was running.
 # If a concurrent news workflow (propositions, week-ahead, etc.) merged new articles
-# to main while this agent was running, the metadata context will have changed.
-# Fetching the latest metadata and rebuilding ensures the patch applies cleanly.
-git fetch origin main --depth=1 2>/dev/null || echo "⚠️  Warning: Could not fetch from origin/main — continuing with local metadata"
+# to main while this agent was running, those files must be present locally so
+# updateMetadataDatabase() sees both new local articles and articles already on main.
+git fetch origin main --depth=1 2>/dev/null || echo "⚠️  Warning: Could not fetch from origin/main — continuing with local news/ and metadata"
+# Restore any missing news/ article files from origin/main without overwriting locally generated files.
+if git rev-parse --verify origin/main >/dev/null 2>&1; then
+  git ls-tree -rz --name-only origin/main -- news/ | while IFS= read -r -d '' path; do
+    if [ -n "$path" ] && [ ! -f "$path" ]; then
+      mkdir -p "$(dirname "$path")"
+      git show "origin/main:$path" > "$path" 2>/dev/null || echo "⚠️  Warning: Could not restore $path from origin/main"
+    fi
+  done
+else
+  echo "⚠️  Warning: origin/main not available — skipping refresh of news/ files"
+fi
 git show origin/main:news/articles-metadata.json > news/articles-metadata.json 2>/dev/null || echo "⚠️  Warning: Could not restore metadata from origin/main — will rebuild from local news/ files"
 node -e "import('./scripts/utils/news-metadata.js').then(({ updateMetadataDatabase }) => { updateMetadataDatabase(); console.log('✅ Rebuilt articles-metadata.json'); }).catch(e => { console.error('❌ Failed to rebuild metadata:', e.message); process.exit(1); });"
 ```
