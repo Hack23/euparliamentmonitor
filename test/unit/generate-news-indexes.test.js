@@ -227,6 +227,29 @@ describe('generate-news-indexes', () => {
       const html = generateMockIndexHTML('en', []);
       expect(html).toContain('<h1 class="hero__title">EU Parliament Monitor</h1>');
     });
+
+    it('should include Open Graph meta tags', () => {
+      const html = generateMockIndexHTML('en', []);
+      expect(html).toContain('<meta property="og:type" content="website">');
+      expect(html).toContain('<meta property="og:title"');
+      expect(html).toContain('<meta property="og:description"');
+      expect(html).toContain('<meta property="og:site_name" content="EU Parliament Monitor">');
+    });
+
+    it('should include hreflang alternate links', () => {
+      const html = generateMockIndexHTML('en', []);
+      expect(html).toContain('<link rel="alternate" hreflang="en"');
+      expect(html).toContain('<link rel="alternate" hreflang="x-default"');
+    });
+
+    it('should capitalize badge category text', () => {
+      const articles = [
+        { date: '2025-01-15', slug: 'week-ahead', lang: 'en', filename: 'test.html' },
+      ];
+      const html = generateMockIndexHTML('en', articles);
+      expect(html).toContain('Week Ahead');
+      expect(html).not.toContain('>week ahead<');
+    });
   });
 
   describe('Multi-Language Support', () => {
@@ -411,6 +434,13 @@ function generateMockIndexHTML(lang, articles) {
   <meta name="referrer" content="no-referrer">
   <title>${title}</title>
   <meta name="description" content="${description}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${heroTitle}">
+  <meta property="og:description" content="${description}">
+  <meta property="og:site_name" content="EU Parliament Monitor">
+  <meta property="og:locale" content="${lang}">
+  <link rel="alternate" hreflang="en" href="index.html">
+  <link rel="alternate" hreflang="x-default" href="index.html">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -457,7 +487,7 @@ function generateMockIndexHTML(lang, articles) {
           <div class="news-card__accent news-card__accent--${category}"></div>
           <div class="news-card__body">
             <div class="news-card__meta">
-              <span class="news-card__badge news-card__badge--${category}">${category.replace('-', ' ')}</span>
+              <span class="news-card__badge news-card__badge--${category}">${formatSlug(category)}</span>
               <time class="news-card__date" datetime="${article.date}">${article.date}</time>
             </div>
             <h3 class="news-card__title">${formatSlug(article.slug)}</h3>

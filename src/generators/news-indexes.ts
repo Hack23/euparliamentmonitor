@@ -120,13 +120,27 @@ function renderCard(article: ParsedArticle): string {
           <div class="news-card__accent news-card__accent--${category}"></div>
           <div class="news-card__body">
             <div class="news-card__meta">
-              <span class="news-card__badge news-card__badge--${category}">${category.replace('-', ' ')}</span>
+              <span class="news-card__badge news-card__badge--${category}">${formatSlug(category)}</span>
               <time class="news-card__date" datetime="${article.date}">${article.date}</time>
             </div>
             <h3 class="news-card__title">${title}</h3>
           </div>
         </a>
       </li>`;
+}
+
+/**
+ * Build hreflang alternate link tags for SEO multi-language support.
+ *
+ * @returns HTML string of link elements
+ */
+function buildHreflangTags(): string {
+  const links = ALL_LANGUAGES.map((code) => {
+    const href = getIndexFilename(code);
+    return `<link rel="alternate" hreflang="${code}" href="${href}">`;
+  });
+  links.push('<link rel="alternate" hreflang="x-default" href="index.html">');
+  return links.join('\n  ');
 }
 
 /**
@@ -176,6 +190,12 @@ export function generateIndexHTML(lang: string, articles: ParsedArticle[]): stri
   <meta name="referrer" content="no-referrer">
   <title>${title}</title>
   <meta name="description" content="${description}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${heroTitle}">
+  <meta property="og:description" content="${description}">
+  <meta property="og:site_name" content="EU Parliament Monitor">
+  <meta property="og:locale" content="${lang}">
+  ${buildHreflangTags()}
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
