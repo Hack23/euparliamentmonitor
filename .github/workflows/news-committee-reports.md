@@ -54,6 +54,10 @@ tools:
   bash: true
 
 safe-outputs:
+  allowed-domains:
+    - data.europarl.europa.eu
+    - www.europarl.europa.eu
+    - github.com
   create-pull-request: {}
   add-comment: {}
 
