@@ -545,7 +545,7 @@ quadrantChart
 **Existing Controls:**
 
 - ✅ Schema validation for EP data
-- ✅ Type checking (JavaScript with JSDoc)
+- ✅ Type checking (TypeScript with strict mode)
 - ✅ Error logging
 - ✅ Unit tests (82% line coverage, 70% branch)
 - ✅ Official European Parliament API source
