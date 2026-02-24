@@ -22,6 +22,7 @@ import {
   PAGE_DESCRIPTIONS,
   SECTION_HEADINGS,
   NO_ARTICLES_MESSAGES,
+  SKIP_LINK_TEXTS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -119,13 +120,27 @@ function renderCard(article: ParsedArticle): string {
           <div class="news-card__accent news-card__accent--${category}"></div>
           <div class="news-card__body">
             <div class="news-card__meta">
-              <span class="news-card__badge news-card__badge--${category}">${category.replace('-', ' ')}</span>
+              <span class="news-card__badge news-card__badge--${category}">${formatSlug(category)}</span>
               <time class="news-card__date" datetime="${article.date}">${article.date}</time>
             </div>
             <h3 class="news-card__title">${title}</h3>
           </div>
         </a>
       </li>`;
+}
+
+/**
+ * Build hreflang alternate link tags for SEO multi-language support.
+ *
+ * @returns HTML string of link elements
+ */
+function buildHreflangTags(): string {
+  const links = ALL_LANGUAGES.map((code) => {
+    const href = getIndexFilename(code);
+    return `<link rel="alternate" hreflang="${code}" href="${href}">`;
+  });
+  links.push('<link rel="alternate" hreflang="x-default" href="index.html">');
+  return links.join('\n  ');
 }
 
 /**
@@ -148,9 +163,11 @@ export function generateIndexHTML(lang: string, articles: ParsedArticle[]): stri
   const description = getLocalizedString(PAGE_DESCRIPTIONS, lang);
   const heading = getLocalizedString(SECTION_HEADINGS, lang);
   const noArticlesText = getLocalizedString(NO_ARTICLES_MESSAGES, lang);
+  const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
   const dir = getTextDirection(lang);
   const year = new Date().getFullYear();
   const selfHref = getIndexFilename(lang);
+  const heroTitle = title.split(' - ')[0];
 
   const content =
     articles.length === 0
@@ -169,17 +186,27 @@ export function generateIndexHTML(lang: string, articles: ParsedArticle[]): stri
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="no-referrer">
   <title>${title}</title>
   <meta name="description" content="${description}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${heroTitle}">
+  <meta property="og:description" content="${description}">
+  <meta property="og:site_name" content="EU Parliament Monitor">
+  <meta property="og:locale" content="${lang}">
+  ${buildHreflangTags()}
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a href="#main" class="skip-link">${skipLinkText}</a>
+
   <header class="site-header" role="banner">
     <div class="site-header__inner">
-      <a href="${selfHref}" class="site-header__brand" aria-label="EU Parliament Monitor">
+      <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
         <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
         <span>
-          <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__title">${heroTitle}</span>
           <span class="site-header__subtitle">European Parliament Intelligence</span>
         </span>
       </a>
@@ -191,11 +218,11 @@ export function generateIndexHTML(lang: string, articles: ParsedArticle[]): stri
   </nav>
 
   <section class="hero">
-    <h1 class="hero__title">${title}</h1>
+    <h1 class="hero__title">${heroTitle}</h1>
     <p class="hero__description">${description}</p>
   </section>
 
-  <main class="site-main">
+  <main id="main" class="site-main">
     <h2 class="section-heading"><span class="section-heading__icon" aria-hidden="true">📋</span> ${heading}</h2>
     ${content}
   </main>

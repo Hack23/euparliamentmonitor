@@ -206,6 +206,50 @@ describe('generate-news-indexes', () => {
       expect(html).toContain('EU Parliament Monitor');
       expect(html).toMatch(/\d{4}/); // Current year
     });
+
+    it('should include skip navigation link', () => {
+      const html = generateMockIndexHTML('en', []);
+      expect(html).toContain('<a href="#main" class="skip-link">Skip to main content</a>');
+    });
+
+    it('should include main element with id', () => {
+      const html = generateMockIndexHTML('en', []);
+      expect(html).toContain('<main id="main"');
+    });
+
+    it('should include security meta tags', () => {
+      const html = generateMockIndexHTML('en', []);
+      expect(html).toContain('X-Content-Type-Options');
+      expect(html).toContain('no-referrer');
+    });
+
+    it('should use brand name in hero title without News suffix', () => {
+      const html = generateMockIndexHTML('en', []);
+      expect(html).toContain('<h1 class="hero__title">EU Parliament Monitor</h1>');
+    });
+
+    it('should include Open Graph meta tags', () => {
+      const html = generateMockIndexHTML('en', []);
+      expect(html).toContain('<meta property="og:type" content="website">');
+      expect(html).toContain('<meta property="og:title"');
+      expect(html).toContain('<meta property="og:description"');
+      expect(html).toContain('<meta property="og:site_name" content="EU Parliament Monitor">');
+    });
+
+    it('should include hreflang alternate links', () => {
+      const html = generateMockIndexHTML('en', []);
+      expect(html).toContain('<link rel="alternate" hreflang="en"');
+      expect(html).toContain('<link rel="alternate" hreflang="x-default"');
+    });
+
+    it('should capitalize badge category text', () => {
+      const articles = [
+        { date: '2025-01-15', slug: 'week-ahead', lang: 'en', filename: 'test.html' },
+      ];
+      const html = generateMockIndexHTML('en', articles);
+      expect(html).toContain('Week Ahead');
+      expect(html).not.toContain('>week ahead<');
+    });
   });
 
   describe('Multi-Language Support', () => {
@@ -357,11 +401,19 @@ function generateMockIndexHTML(lang, articles) {
     fr: 'Dernières Actualités',
   };
 
+  const skipLinkTexts = {
+    en: 'Skip to main content',
+    de: 'Zum Hauptinhalt springen',
+    fr: 'Aller au contenu principal',
+  };
+
   const title = titles[lang] || titles.en;
   const description = descriptions[lang] || descriptions.en;
   const languageName = langNames[lang] || 'English';
   const noArticlesText = noArticles[lang] || noArticles.en;
   const heading = headings[lang] || headings.en;
+  const skipLinkText = skipLinkTexts[lang] || skipLinkTexts.en;
+  const heroTitle = title.split(' - ')[0];
 
   const langNav = Object.entries(langNames)
     .map(([code, name]) => {
@@ -378,17 +430,28 @@ function generateMockIndexHTML(lang, articles) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="no-referrer">
   <title>${title}</title>
   <meta name="description" content="${description}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${heroTitle}">
+  <meta property="og:description" content="${description}">
+  <meta property="og:site_name" content="EU Parliament Monitor">
+  <meta property="og:locale" content="${lang}">
+  <link rel="alternate" hreflang="en" href="index.html">
+  <link rel="alternate" hreflang="x-default" href="index.html">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a href="#main" class="skip-link">${skipLinkText}</a>
+
   <header class="site-header" role="banner">
     <div class="site-header__inner">
-      <a href="${selfHref}" class="site-header__brand" aria-label="EU Parliament Monitor">
+      <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
         <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
         <span>
-          <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__title">${heroTitle}</span>
           <span class="site-header__subtitle">European Parliament Intelligence</span>
         </span>
       </a>
@@ -400,11 +463,11 @@ function generateMockIndexHTML(lang, articles) {
   </nav>
 
   <section class="hero">
-    <h1 class="hero__title">${title}</h1>
+    <h1 class="hero__title">${heroTitle}</h1>
     <p class="hero__description">${description}</p>
   </section>
 
-  <main class="site-main">
+  <main id="main" class="site-main">
     <h2 class="section-heading"><span class="section-heading__icon" aria-hidden="true">📋</span> ${heading}</h2>
     ${
       articles.length === 0
@@ -424,7 +487,7 @@ function generateMockIndexHTML(lang, articles) {
           <div class="news-card__accent news-card__accent--${category}"></div>
           <div class="news-card__body">
             <div class="news-card__meta">
-              <span class="news-card__badge news-card__badge--${category}">${category.replace('-', ' ')}</span>
+              <span class="news-card__badge news-card__badge--${category}">${formatSlug(category)}</span>
               <time class="news-card__date" datetime="${article.date}">${article.date}</time>
             </div>
             <h3 class="news-card__title">${formatSlug(article.slug)}</h3>
