@@ -314,7 +314,7 @@ C4Container
 | **Sitemap Generator**       | Node.js/TypeScript | SEO sitemap creation                  | Lists all pages for search engine crawling       |
 | **MCP Client**              | TypeScript         | EP data access                        | Communicates with MCP Server for structured data |
 | **Article Template Engine** | TypeScript         | HTML generation                       | Converts article data to semantic HTML5          |
-| **Static Files**            | HTML/CSS/JS        | Generated output                      | Committed to repository, deployed to AWS S3 and served via CloudFront  |
+| **Static Files**            | HTML/CSS           | Generated output                      | Committed to repository, deployed to AWS S3 and served via CloudFront  |
 | **GitHub Actions**          | CI/CD              | Automation                            | Daily workflow execution, build, deploy to S3/CloudFront       |
 | **Amazon CloudFront + S3**  | CDN/Object Storage | Hosting                               | HTTPS delivery of static content globally                               |
 | **Git Repository**          | Version Control    | Source & Content                      | Stores code, generated articles, configuration   |
