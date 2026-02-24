@@ -95,6 +95,34 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
 
+      - name: Patch news lock files with shared concurrency group
+        # gh aw compile regenerates lock files from .md sources and resets the concurrency group.
+        # This step re-applies the shared "news-article-generation" concurrency group to all 4
+        # news workflow lock files after each compile, making the patch-conflict fix durable.
+        run: |
+          news_lock_files="
+            .github/workflows/news-motions.lock.yml
+            .github/workflows/news-propositions.lock.yml
+            .github/workflows/news-committee-reports.lock.yml
+            .github/workflows/news-week-ahead.lock.yml
+          "
+          for lock_file in $news_lock_files; do
+            if [ -f "$lock_file" ]; then
+              # Replace the per-workflow concurrency group with the shared one (single-line form)
+              if grep -q 'group: "gh-aw-\${{ github.workflow }}"' "$lock_file"; then
+                sed -i 's|group: "gh-aw-\${{ github.workflow }}"|group: "news-article-generation"|' "$lock_file"
+                # Insert cancel-in-progress: false on the line after the group line
+                sed -i '/group: "news-article-generation"/{/cancel-in-progress/!a\  cancel-in-progress: false
+}' "$lock_file"
+                echo "✅ Patched concurrency group in $lock_file"
+              else
+                echo "ℹ️  $lock_file already has a custom concurrency group — skipping"
+              fi
+            else
+              echo "⚠️  $lock_file not found — skipping"
+            fi
+          done
+
       - name: Check for changes
         id: check_changes
         run: |

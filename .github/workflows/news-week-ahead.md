@@ -417,8 +417,6 @@ After generating and validating articles, refresh `articles-metadata.json` from 
 `Failed to apply patch` errors caused by concurrent news workflow runs modifying shared metadata:
 
 ```bash
-TODAY=$(date -u +%Y-%m-%d)
-
 # Refresh articles-metadata.json from origin/main to prevent patch conflicts.
 # If a concurrent news workflow (motions, propositions, committee-reports, etc.) merged
 # new articles to main while this agent was running, the metadata context will have changed.
