@@ -158,6 +158,7 @@ img {
   align-items: center;
   gap: 3px;
   padding: 4px 10px;
+  min-height: 30px;
   border-radius: var(--radius-sm);
   font-size: 0.78rem;
   font-weight: 600;
@@ -485,7 +486,7 @@ img {
 
 .footer-bottom a {
   color: var(--secondary);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .footer-bottom a:hover {
