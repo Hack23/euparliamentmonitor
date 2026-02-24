@@ -204,8 +204,14 @@ echo "Existing PR check: EXISTING_PR=$EXISTING_PR, TODAY=$TODAY"
 ```
 
 If `EXISTING_PR` is non-empty **and** **force_generation** is `false`:
-- Log: `"PR #$EXISTING_PR already exists for committee-reports on $TODAY. Skipping to avoid duplicate PR."`
-- Call `safeoutputs___noop` and **stop here** — do not proceed to article generation.
+
+```bash
+if [ -n "$EXISTING_PR" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+  echo "PR #$EXISTING_PR already exists for committee-reports on $TODAY. Skipping to avoid duplicate PR."
+  safeoutputs___noop
+  exit 0
+fi
+```
 
 ### Step 1: Check Recent Generation
 Check if committee-reports articles exist from the last 11 hours. If **force_generation** is `true`, skip this check.
@@ -265,16 +271,19 @@ npx tsx src/generators/news-indexes.ts
 
 ### Step 6: Validate & Create PR
 
-Use a deterministic branch name to prevent duplicate branches:
+Set the deterministic branch name before creating the PR:
 
 ```bash
 TODAY=$(date -u +%Y-%m-%d)
-echo "Branch: news/committee-reports-$TODAY"
+BRANCH_NAME="news/committee-reports-$TODAY"
+echo "Branch: $BRANCH_NAME"
 ```
 
-Validate HTML structure, then create PR using `safeoutputs___create_pull_request`.
+Pass `$BRANCH_NAME` (e.g., `news/committee-reports-2026-02-24`) as the branch argument to `safeoutputs___create_pull_request`. Validate HTML structure, then create the PR:
 
-Use branch name `news/committee-reports-{TODAY}` (e.g., `news/committee-reports-2026-02-24`) when creating the PR.
+```
+safeoutputs___create_pull_request
+```
 
 ## Translation Rules
 - Committee abbreviations (ENVI, ECON, AFET) are kept as-is in document references

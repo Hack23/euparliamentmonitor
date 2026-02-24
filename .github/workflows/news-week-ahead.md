@@ -179,8 +179,14 @@ echo "Existing PR check: EXISTING_PR=$EXISTING_PR, TODAY=$TODAY"
 ```
 
 If `EXISTING_PR` is non-empty **and** **force_generation** is `false`:
-- Log: `"PR #$EXISTING_PR already exists for week-ahead on $TODAY. Skipping to avoid duplicate PR."`
-- Call `safeoutputs___noop` and **stop here** — do not proceed to article generation.
+
+```bash
+if [ -n "$EXISTING_PR" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+  echo "PR #$EXISTING_PR already exists for week-ahead on $TODAY. Skipping to avoid duplicate PR."
+  safeoutputs___noop
+  exit 0
+fi
+```
 
 ### Step 1: Check Recent Generation
 

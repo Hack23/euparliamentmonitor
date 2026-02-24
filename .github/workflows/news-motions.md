@@ -179,8 +179,14 @@ echo "Existing PR check: EXISTING_PR=$EXISTING_PR, TODAY=$TODAY"
 ```
 
 If `EXISTING_PR` is non-empty **and** **force_generation** is `false`:
-- Log: `"PR #$EXISTING_PR already exists for motions on $TODAY. Skipping to avoid duplicate PR."`
-- Call `safeoutputs___noop` and **stop here** — do not proceed to article generation.
+
+```bash
+if [ -n "$EXISTING_PR" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+  echo "PR #$EXISTING_PR already exists for motions on $TODAY. Skipping to avoid duplicate PR."
+  safeoutputs___noop
+  exit 0
+fi
+```
 
 ### Step 1: Check Recent Generation
 
@@ -241,18 +247,19 @@ npx tsx src/generators/news-indexes.ts
 
 ### Step 5: Create PR
 
-Use a deterministic branch name to prevent duplicate branches:
+Set the deterministic branch name before creating the PR:
 
 ```bash
 TODAY=$(date -u +%Y-%m-%d)
-echo "Branch: news/motions-$TODAY"
+BRANCH_NAME="news/motions-$TODAY"
+echo "Branch: $BRANCH_NAME"
 ```
+
+Pass `$BRANCH_NAME` (e.g., `news/motions-2026-02-24`) as the branch argument to `safeoutputs___create_pull_request`:
 
 ```
 safeoutputs___create_pull_request
 ```
-
-Use branch name `news/motions-{TODAY}` (e.g., `news/motions-2026-02-24`) when creating the PR.
 
 ## Analysis Quality Requirements
 
