@@ -610,7 +610,7 @@ build-time optimization.
 **Optimization Opportunities**: | Area | Current | Optimized | Savings |
 |------|---------|-----------|---------| | **Images** | Uncompressed | WebP,
 AVIF | 60-80% | | **CSS** | Unminified | Minified, purged | 40-60% | |
-**JavaScript** | Unminified | Minified, tree-shaken | 50-70% | | **HTML** |
+**TypeScript** | Strict mode | Optimized compilation | N/A | | **HTML** |
 Pretty-printed | Minified | 20-30% | | **Build Cache** | None | Incremental
 builds | 50-70% |
 
@@ -618,7 +618,7 @@ builds | 50-70% |
 
 - **Image**: Sharp, ImageOptim, Squoosh
 - **CSS**: PurgeCSS, cssnano
-- **JavaScript**: Terser, esbuild
+- **TypeScript**: tsc compilation to ES2022
 - **HTML**: html-minifier
 - **Build**: Nx, Turborepo caching
 

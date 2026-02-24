@@ -97,10 +97,12 @@ Per
 
 - ✅ **Static Content**: No server-side execution, no databases
 - ✅ **GitHub-Hosted**: GitHub Pages infrastructure security
-- ✅ **Minimal Dependencies**: 17 devDependencies, zero production dependencies,
-  automated updates
-- ✅ **Automated Security**: CodeQL, Dependabot, npm audit
-- ✅ **Supply Chain Security**: SHA-pinned GitHub Actions, SBOM generation
+- ✅ **Minimal Dependencies**: 28 devDependencies, 1 production dependency
+  (european-parliament-mcp-server), automated updates
+- ✅ **Automated Security**: CodeQL, Dependabot, SonarCloud, npm audit
+- ✅ **Supply Chain Security**: SHA-pinned GitHub Actions, SBOM generation,
+  SLSA Level 3 provenance
+- ✅ **Workflow Hardening**: StepSecurity harden-runner, OpenSSF Scorecard
 - ✅ **Ephemeral Execution**: GitHub-hosted runners, no persistent
   infrastructure
 
@@ -142,7 +144,7 @@ Per
   - [Network Security](#network-security)
   - [Application Security](#application-security)
   - [Infrastructure Security](#infrastructure-security)
-- [📊 Session & Action Tracking](#-session--action-tracking)
+- [📊 Build & Action Tracking](#-build--action-tracking)
 - [🔍 Security Event Monitoring](#-security-event-monitoring)
 - [🏗️ High Availability Design](#-high-availability-design)
 - [⚡ Resilience & Operational Readiness](#-resilience--operational-readiness)
@@ -182,9 +184,9 @@ available ISMS framework. For complete policy mapping, see the
 | **ISMS Control Domain**         | **Implementation Status** | **Notes**                                                    |
 | ------------------------------- | ------------------------- | ------------------------------------------------------------ |
 | **🔑 Access Control**           | ✅ Implemented            | GitHub CODEOWNERS, branch protection, required reviews       |
-| **🔒 Cryptography**             | ✅ Implemented            | TLS 1.3, HTTPS-only, CSP headers, SRI for external resources |
+| **🔒 Cryptography**             | ✅ Implemented            | TLS 1.3, HTTPS-only, HSTS                                   |
 | **🌐 Network Security**         | ✅ Implemented            | GitHub Pages CDN, DDoS protection, edge caching              |
-| **🛠️ Secure Development**       | ✅ Implemented            | CodeQL SAST, ESLint, Prettier, pre-commit hooks              |
+| **🛠️ Secure Development**       | ✅ Implemented            | CodeQL SAST, ESLint, TypeScript, Prettier, pre-commit hooks  |
 | **🔍 Vulnerability Management** | ✅ Implemented            | Dependabot (weekly), CodeQL (push/PR), npm audit             |
 | **📊 Monitoring & Logging**     | ⚠️ Limited                | GitHub Actions logs, CDN access logs (no backend logging)    |
 | **💾 Data Protection**          | ✅ Implemented            | No persistent storage, ephemeral build environment           |
@@ -217,9 +219,9 @@ graph TB
     end
 
     User -->|Browse News<br/>HTTPS| GHP
-    GHP -->|Serve Static<br/>HTML/CSS/JS| User
+    GHP -->|Serve Static<br/>HTML/CSS| User
 
-    GHA -->|Trigger Daily<br/>06:00 UTC| EuPM
+    GHA -->|Trigger Scheduled<br/>Weekday Crons| EuPM
     GHA -->|Monitor Security| GH_SECURITY
 
     EuPM -->|Connect via<br/>stdio/localhost| EPMCP
@@ -298,17 +300,17 @@ persistent infrastructure.
 graph TB
     subgraph "GitHub Actions Runner (Ubuntu Latest)"
         subgraph "News Generation Container"
-            CLI[📝 generate-news-enhanced.js<br/>Node.js CLI Script]
-            TEMPLATE[🎨 article-template.js<br/>HTML Generator]
-            CLIENT[🔌 ep-mcp-client.js<br/>MCP Client Library]
+            CLI[📝 generate-news-enhanced.ts<br/>TypeScript CLI Script]
+            TEMPLATE[🎨 article-template.ts<br/>HTML Generator]
+            CLIENT[🔌 ep-mcp-client.ts<br/>MCP Client Library]
         end
 
         subgraph "Index Generation Container"
-            IDX[📋 generate-news-indexes.js<br/>Index Generator]
+            IDX[📋 generate-news-indexes.ts<br/>Index Generator]
         end
 
         subgraph "Sitemap Generation Container"
-            SITE[🗺️ generate-sitemap.js<br/>Sitemap Generator]
+            SITE[🗺️ generate-sitemap.ts<br/>Sitemap Generator]
         end
 
         subgraph "European Parliament MCP Server"
@@ -651,7 +653,7 @@ flowchart TD
 - ✅ **No Form Inputs**: No data collection forms
 - ✅ **No User Accounts**: No registration or login
 - ✅ **Static Content Only**: No server-side processing of user data
-- ✅ **No Third-Party Scripts**: No external JavaScript libraries
+- ✅ **No JavaScript**: No client-side scripts of any kind in generated pages
 
 **GDPR Compliance:**
 
@@ -680,7 +682,7 @@ graph TB
 
     subgraph "Application Layer"
         direction TB
-        STATIC[📄 Static HTML/CSS/JS<br/>Read-Only Files]
+        STATIC[📄 Static HTML/CSS<br/>Read-Only Files]
         MCP[🔌 MCP Server<br/>localhost:random_port]
     end
 
@@ -728,29 +730,34 @@ graph TB
 
 #### Content Security Policy
 
-**CSP Header Configuration:**
+**Current Security Headers (GitHub Pages Defaults):**
 
-```http
-Content-Security-Policy:
-  default-src 'self';
-  script-src 'self' 'unsafe-inline';
-  style-src 'self' 'unsafe-inline';
-  img-src 'self' data: https:;
-  font-src 'self';
-  connect-src 'self';
-  frame-ancestors 'none';
-  base-uri 'self';
-  form-action 'none';
-```
-
-**Security Headers:**
+GitHub Pages provides the following default security headers:
 
 - `X-Content-Type-Options: nosniff` - Prevent MIME sniffing
-- `X-Frame-Options: DENY` - Prevent clickjacking
-- `Referrer-Policy: strict-origin-when-cross-origin` - Privacy protection
 
-**Note**: GitHub Pages provides default security headers. Future enhancement:
-Custom CSP via meta tags.
+**HTML Meta Tags (Implemented):**
+
+The generated HTML pages include no inline JavaScript and no external scripts,
+which provides inherent XSS protection without requiring a CSP header.
+
+**Security Headers Not Currently Configured:**
+
+- `Content-Security-Policy` - Not set (no custom CSP via meta tags yet)
+- `X-Frame-Options` - Relies on GitHub Pages defaults
+- `Referrer-Policy` - Not explicitly set; external links use
+  `rel="noopener noreferrer"`
+
+**Future Enhancement**: Custom CSP meta tags with strict `script-src 'none'`
+policy to formally enforce the no-JavaScript architecture:
+
+```html
+<meta http-equiv="Content-Security-Policy"
+  content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-ancestors 'none'; form-action 'none'">
+```
+
+**Note**: Since the site contains no JavaScript whatsoever, the primary XSS
+defense is architectural (no scripts to execute) rather than header-based.
 
 ### Application Security
 
@@ -760,7 +767,7 @@ Custom CSP via meta tags.
 
 ```mermaid
 flowchart TD
-    INPUT[User Input /<br/>API Data]
+    INPUT[EP API Data /<br/>External Input]
 
     subgraph "Defense Layer 1: Input Validation"
         VAL[Schema Validation]
@@ -810,10 +817,11 @@ flowchart TD
 
 1. **Input Validation**: Reject invalid data at API boundary
 2. **HTML Sanitization**: Remove dangerous tags (`<script>`, `<iframe>`, etc.)
-3. **Entity Encoding**: Convert special characters to HTML entities
-4. **Context-Aware Encoding**: Different encoding for HTML vs attributes vs URLs
-5. **CSP**: Block inline scripts, restrict sources
-6. **No JavaScript Execution**: Generated articles contain no JavaScript
+3. **Entity Encoding**: Convert special characters to HTML entities via
+   `escapeHTML()` in `src/utils/file-utils.ts`
+4. **URL Validation**: `isSafeURL()` validates URL schemes (http/https only)
+5. **No JavaScript Execution**: Generated articles contain zero JavaScript —
+   XSS is architecturally impossible in the output
 
 **Testing:**
 
@@ -829,7 +837,7 @@ flowchart TD
 ```mermaid
 graph TB
     subgraph "Dependency Management"
-        PKG[package.json<br/>14 Dependencies]
+        PKG[package.json<br/>29 Dependencies]
         LOCK[package-lock.json<br/>Locked Versions]
     end
 
@@ -878,7 +886,8 @@ graph TB
 
 **Dependency Security:**
 
-- **Minimal Dependencies**: 17 devDependencies, zero production dependencies
+- **Minimal Dependencies**: 28 devDependencies, 1 production dependency
+  (european-parliament-mcp-server)
 - **Dependabot**: Weekly scans, auto-generate PRs for updates
 - **npm audit**: CI validation, fail on moderate+ vulnerabilities
 - **Version Locking**: package-lock.json ensures reproducible builds
@@ -886,7 +895,8 @@ graph TB
 
 **Current Dependencies:**
 
-- All devDependencies (17 packages, no production runtime dependencies)
+- All devDependencies (28 packages) plus 1 production dependency
+  (european-parliament-mcp-server)
 - Latest versions with security patches
 - No known vulnerabilities (npm audit clean)
 
@@ -906,7 +916,7 @@ graph TB
 ```mermaid
 flowchart TD
     subgraph "Workflow Trigger"
-        SCHED[Schedule Trigger<br/>Daily 06:00 UTC]
+        SCHED[Schedule Trigger<br/>Weekday Crons]
         MANUAL[Manual Trigger<br/>workflow_dispatch]
     end
 
@@ -986,6 +996,13 @@ flowchart TD
    - Dependabot monitors action updates
    - SBOM generation for releases
 
+5. **Workflow Hardening (StepSecurity Harden Runner)**
+   - `step-security/harden-runner` deployed across all CI/CD workflows
+   - Egress policy: `audit` mode (monitors outbound network calls)
+   - Egress policy: `block` mode on deployment workflows (only allowed
+     endpoints)
+   - Detects and reports anomalous network activity during builds
+
 **ISMS Alignment:**
 
 - [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) -
@@ -1011,13 +1028,46 @@ flowchart TD
 - ✅ **No User Input**: No injection attack vectors
 - ✅ **No Sessions**: No session hijacking risk
 
+#### Agentic Workflow Security
+
+The 4 news generation workflows (week-ahead, committee-reports, propositions,
+motions) use the GitHub Agentic Workflows (gh-aw) framework with built-in
+security controls:
+
+**Workflow Hardening:**
+
+- ✅ **Timeout Enforcement**: `timeout-minutes: 45` hard stop prevents runaway
+  execution
+- ✅ **Allowed Domains Whitelist**: Network access restricted to
+  `data.europarl.europa.eu`, `*.europa.eu`, `github.com`, and required
+  infrastructure endpoints via `safe-outputs` configuration
+- ✅ **Deterministic Branch Naming**: `news/{type}-{date}` pattern (e.g.,
+  `news/week-ahead-2026-02-23`) prevents branch conflicts
+- ✅ **PR Creation Limits**: Maximum 1 pull request per workflow run enforced
+  by gh-aw constraints
+- ✅ **Comment Limits**: Maximum 1 comment per run, 65536 character limit,
+  10 mention limit
+- ✅ **Concurrency Control**: `concurrency: gh-aw-${{ github.workflow }}`
+  prevents parallel execution of the same workflow
+- ✅ **Read-Only Default Permissions**: `permissions: {}` at workflow level,
+  elevated only where needed
+- ✅ **SHA-Pinned Actions**: All gh-aw actions pinned to specific commit SHA
+
+**MCP Data Resilience:**
+
+- 🔄 **Fallback Data**: Automatic fallback to cached/sample data if MCP server
+  unavailable
+- ⏰ **Scheduled Retries**: Multiple daily cron triggers ensure eventual
+  success
+
 ---
 
-## 📊 Session & Action Tracking
+## 📊 Build & Action Tracking
 
 EU Parliament Monitor, as a static website generator, implements tracking
 mechanisms appropriate for its architecture—focusing on build-time operations
-and privacy-respecting visitor analytics.
+and privacy-respecting analytics. There are no user sessions, cookies, or
+client-side tracking.
 
 ```mermaid
 flowchart TD
@@ -1258,7 +1308,7 @@ npm audit --audit-level=moderate
 **CodeQL Analysis:**
 
 - **Triggers**: Every push to `main`, every pull request
-- **Languages**: JavaScript (Node.js 24)
+- **Languages**: JavaScript/TypeScript (Node.js 24)
 - **Security queries**: OWASP Top 10, CWE Top 25
 - **Findings**: XSS, injection, path traversal, crypto issues
 
@@ -1611,9 +1661,10 @@ flowchart TD
    - No waiting for next scheduled run
 
 4. **⏰ Scheduled Execution**:
-   - Daily cron: `0 8 * * *` (8:00 UTC)
+   - Weekday crons: Committee (04:00), Propositions (05:00), Motions (06:00),
+     Week Ahead (Fridays 07:00 UTC)
    - Ensures fresh content even after failures
-   - Multiple retry opportunities per day
+   - Multiple retry opportunities per week
 
 **Deployment Resilience:**
 
@@ -1806,7 +1857,7 @@ on:
 
 jobs:
   analyze:
-    name: Analyze (javascript)
+    name: Analyze (javascript-typescript)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -1815,20 +1866,20 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
-          languages: javascript
+          languages: javascript-typescript
           queries: security-extended
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
-          category: '/language:javascript'
+          category: '/language:javascript-typescript'
 ```
 
 **Automated Scanning:**
 
 - ⚡ **Trigger Events**: Push to `main`, pull requests, weekly scheduled
 - 🔍 **Query Suite**: `security-extended` (OWASP Top 10, CWE Top 25)
-- 📊 **Language**: JavaScript/Node.js
+- 📊 **Language**: JavaScript/TypeScript
 - 🚨 **Blocking**: High/Critical findings block PR merge
 
 **Alert Management:**
@@ -1930,7 +1981,7 @@ jobs:
 - ⚡ **Time Savings**: ~8 hours/week (manual security checks eliminated)
 - 🔄 **Consistency**: 100% of commits scanned (no human error)
 - 🚀 **Speed**: Dependabot PRs created within 1 hour of vulnerability disclosure
-- 📊 **Coverage**: 17/17 dependencies monitored (100%)
+- 📊 **Coverage**: 29/29 dependencies monitored (100%)
 
 **Security Improvements:**
 
@@ -1994,47 +2045,56 @@ graph TB
 **HTTP Security Headers:**
 
 ```
-Content-Security-Policy: default-src 'self'; img-src 'self' https:; script-src 'none'
 Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 X-Content-Type-Options: nosniff
-X-Frame-Options: DENY
-Referrer-Policy: strict-origin-when-cross-origin
-Permissions-Policy: geolocation=(), microphone=(), camera=()
 ```
+
+**Note**: HSTS and nosniff are provided by GitHub Pages. Additional security
+headers (CSP, X-Frame-Options, Permissions-Policy) are planned as future
+enhancements via HTML meta tags.
 
 **Network Controls:**
 
 - ✅ **HTTPS-Only**: No HTTP traffic (301 redirects)
 - ✅ **HSTS Preloading**: Browser-enforced HTTPS
-- ✅ **CSP**: Prevents unauthorized script execution
-- ✅ **Clickjacking Protection**: X-Frame-Options DENY
+- ✅ **No JavaScript**: Architectural XSS prevention (no scripts to execute)
+- ✅ **No Inline Scripts**: HTML output contains zero JavaScript
 
 **Security Benefits:**
 
-- Prevents man-in-the-middle attacks
-- Blocks XSS via inline scripts
-- Prevents clickjacking attacks
+- Prevents man-in-the-middle attacks via HTTPS/HSTS
+- XSS is architecturally prevented (no JavaScript in output)
+- Prevents MIME-type confusion attacks
 - Enforces secure communication
 
 ### Layer 3: Application Security
 
 **Input Validation & Sanitization:**
 
-```javascript
-// scripts/security/sanitize.js
-import DOMPurify from 'isomorphic-dompurify';
+```typescript
+// src/utils/file-utils.ts
+export function escapeHTML(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 
-export function sanitizeHTML(html) {
-  return DOMPurify.sanitize(html, {
-    ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'a', 'ul', 'ol', 'li'],
-    ALLOWED_ATTR: ['href', 'title'],
-  });
+export function isSafeURL(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
 }
 ```
 
 **Dependency Security:**
 
-- **📦 Minimal Dependencies**: 17 devDependencies, 0 production dependencies
+- **📦 Minimal Dependencies**: 28 devDependencies, 1 production dependency
 - **🔒 Lock Files**: `package-lock.json` ensures reproducible builds
 - **🔍 Weekly Scans**: Dependabot monitors for vulnerabilities
 - **✅ Automated Updates**: Auto-merge dev dependency patches
@@ -2043,7 +2103,7 @@ export function sanitizeHTML(html) {
 
 - **🔍 CodeQL SAST**: Scans for OWASP Top 10, CWE Top 25
 - **📝 ESLint**: Enforces secure coding patterns
-- **⚡ Type Safety**: JSDoc type annotations
+- **⚡ Type Safety**: TypeScript type system with strict checks
 - **🔒 No eval()**: No dynamic code execution
 
 **Security Benefits:**
@@ -2064,19 +2124,12 @@ export function sanitizeHTML(html) {
 
 **Data Validation:**
 
-```javascript
-// European Parliament MCP Client
-class EPMCPClient {
-  async getMEPs(params) {
-    // Schema validation
-    const validated = validateMEPSchema(params);
-
-    // Sanitize output
-    const sanitized = this.sanitizeResponse(validated);
-
-    return sanitized;
-  }
-}
+```typescript
+// src/clients/ep-mcp-client.ts - Build-time data validation
+// MCP responses are validated and sanitized before HTML generation
+const rawData = await mcpClient.callTool('get_meps', params);
+const sanitizedName = escapeHTML(rawData.name);
+const validUrl = isSafeURL(rawData.photoUrl) ? rawData.photoUrl : '';
 ```
 
 **Security Benefits:**
@@ -2180,8 +2233,8 @@ The defense-in-depth approach ensures:
 ```
 🚨 XSS Attack Attempt via European Parliament Data
 ├─ Layer 1 (CDN): ✅ Passes (static content delivery)
-├─ Layer 2 (Network): 🛡️ CSP blocks inline script execution
-├─ Layer 3 (Application): 🧹 DOMPurify sanitizes malicious HTML
+├─ Layer 2 (Network): 🛡️ No JavaScript in output (architectural prevention)
+├─ Layer 3 (Application): 🧹 escapeHTML() sanitizes malicious content
 ├─ Layer 4 (Data): ✅ Schema validation rejects invalid input
 ├─ Layer 6 (Infrastructure): 🔒 Build fails if XSS in templates
 └─ Layer 7 (Monitoring): 🔍 CodeQL detects XSS vulnerability in code
@@ -2223,8 +2276,8 @@ responses, executed in user browsers.
 1. Attacker compromises EP API or performs MITM
 2. Injects malicious `<script>` tags in session titles or descriptions
 3. News generator includes malicious script in HTML
-4. User browsers execute script, potentially stealing session data or
-   redirecting users
+4. User browsers execute script, potentially redirecting users to malicious
+   sites
 
 **Likelihood**: Low (EP API is authoritative source, HTTPS prevents MITM)
 
@@ -2233,10 +2286,11 @@ responses, executed in user browsers.
 **Controls**:
 
 - ✅ **Input Validation**: Schema validation on MCP responses
-- ✅ **HTML Sanitization**: Strip all `<script>` tags from input
-- ✅ **Entity Encoding**: Convert HTML special characters to entities
-- ✅ **CSP**: Content Security Policy blocks inline scripts
-- ✅ **No JavaScript**: Generated articles contain no JavaScript execution
+- ✅ **HTML Sanitization**: `escapeHTML()` encodes all dangerous characters
+- ✅ **Entity Encoding**: Convert `<`, `>`, `&`, `"`, `'` to HTML entities
+- ✅ **URL Validation**: `isSafeURL()` validates URL schemes (http/https only)
+- ✅ **No JavaScript**: Generated articles contain zero JavaScript — XSS
+  cannot execute in the output
 - ✅ **Testing**: ESLint security plugin, XSS test cases
 
 **Residual Risk**: **Low** - Multiple defense layers make successful XSS
@@ -2267,8 +2321,7 @@ generation.
 
 **Controls**:
 
-- ✅ **Minimal Dependencies**: Only 14 devDependencies, zero production
-  dependencies
+- ✅ **Minimal Dependencies**: 28 devDependencies, 1 production dependency
 - ✅ **Dependabot**: Automated vulnerability scanning, weekly updates
 - ✅ **npm audit**: CI validation fails on moderate+ vulnerabilities
 - ✅ **Code Review**: All PRs require review before merge
@@ -2823,10 +2876,10 @@ verifiable evidence per
 
 | Badge                  | Status                  | Score/Level     | Description                            |
 | ---------------------- | ----------------------- | --------------- | -------------------------------------- |
-| **OpenSSF Scorecard**  | 🎯 In Progress          | Target ≥7.0     | Supply chain security assessment       |
+| **OpenSSF Scorecard**  | ✅ Implemented          | Target ≥7.0     | Supply chain security assessment       |
 | **CII Best Practices** | 📝 Registration Pending | Target: Passing | Open source development best practices |
 | **SLSA Provenance**    | ✅ Implemented          | Level 3         | Build attestations and SBOM generation |
-| **SonarCloud**         | 📝 Setup Required       | Target: A       | Code quality and security analysis     |
+| **SonarCloud**         | ✅ Implemented          | Target: A       | Code quality and security analysis     |
 | **FOSSA**              | 📝 Setup Required       | Target: Clean   | License compliance scanning            |
 | **REUSE**              | ✅ Implemented          | Passing         | FSFE license header compliance         |
 
