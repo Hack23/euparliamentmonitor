@@ -732,65 +732,65 @@ flowchart TD
     
     FetchData --> LangDetect{⚙️ Language Args &<br/>Preset Expansion}
     
-    LangDetect --> EN[🇬🇧 English<br/>index-en.html]
-    LangDetect --> FR[🇫🇷 French<br/>index-fr.html]
-    LangDetect --> DE[🇩🇪 German<br/>index-de.html]
-    LangDetect --> ES[🇪🇸 Spanish<br/>index-es.html]
-    LangDetect --> IT[🇮🇹 Italian<br/>index-it.html]
-    LangDetect --> PT[🇵🇹 Portuguese<br/>index-pt.html]
-    LangDetect --> NL[🇳🇱 Dutch<br/>index-nl.html]
-    LangDetect --> EL[🇬🇷 Greek<br/>index-el.html]
-    LangDetect --> PL[🇵🇱 Polish<br/>index-pl.html]
-    LangDetect --> RO[🇷🇴 Romanian<br/>index-ro.html]
+    LangDetect --> EN[🇬🇧 English<br/>index.html]
     LangDetect --> SV[🇸🇪 Swedish<br/>index-sv.html]
     LangDetect --> DA[🇩🇰 Danish<br/>index-da.html]
+    LangDetect --> NO[🇳🇴 Norwegian<br/>index-no.html]
     LangDetect --> FI[🇫🇮 Finnish<br/>index-fi.html]
-    LangDetect --> HU[🇭🇺 Hungarian<br/>index-hu.html]
+    LangDetect --> DE[🇩🇪 German<br/>index-de.html]
+    LangDetect --> FR[🇫🇷 French<br/>index-fr.html]
+    LangDetect --> ES[🇪🇸 Spanish<br/>index-es.html]
+    LangDetect --> NL[🇳🇱 Dutch<br/>index-nl.html]
+    LangDetect --> AR[🇸🇦 Arabic<br/>index-ar.html]
+    LangDetect --> HE[🇮🇱 Hebrew<br/>index-he.html]
+    LangDetect --> JA[🇯🇵 Japanese<br/>index-ja.html]
+    LangDetect --> KO[🇰🇷 Korean<br/>index-ko.html]
+    LangDetect --> ZH[🇨🇳 Chinese<br/>index-zh.html]
     
     EN --> ENTemplate[📄 EN Template<br/>HTML5 Structure<br/>Semantic Tags]
-    FR --> FRTemplate[📄 FR Template<br/>HTML5 Structure<br/>Semantic Tags]
-    DE --> DETemplate[📄 DE Template<br/>HTML5 Structure<br/>Semantic Tags]
-    ES --> ESTemplate[📄 ES Template<br/>HTML5 Structure<br/>Semantic Tags]
-    IT --> ITTemplate[📄 IT Template<br/>HTML5 Structure<br/>Semantic Tags]
-    PT --> PTTemplate[📄 PT Template<br/>HTML5 Structure<br/>Semantic Tags]
-    NL --> NLTemplate[📄 NL Template<br/>HTML5 Structure<br/>Semantic Tags]
-    EL --> ELTemplate[📄 EL Template<br/>HTML5 Structure<br/>Semantic Tags]
-    PL --> PLTemplate[📄 PL Template<br/>HTML5 Structure<br/>Semantic Tags]
-    RO --> ROTemplate[📄 RO Template<br/>HTML5 Structure<br/>Semantic Tags]
     SV --> SVTemplate[📄 SV Template<br/>HTML5 Structure<br/>Semantic Tags]
     DA --> DATemplate[📄 DA Template<br/>HTML5 Structure<br/>Semantic Tags]
+    NO --> NOTemplate[📄 NO Template<br/>HTML5 Structure<br/>Semantic Tags]
     FI --> FITemplate[📄 FI Template<br/>HTML5 Structure<br/>Semantic Tags]
-    HU --> HUTemplate[📄 HU Template<br/>HTML5 Structure<br/>Semantic Tags]
+    DE --> DETemplate[📄 DE Template<br/>HTML5 Structure<br/>Semantic Tags]
+    FR --> FRTemplate[📄 FR Template<br/>HTML5 Structure<br/>Semantic Tags]
+    ES --> ESTemplate[📄 ES Template<br/>HTML5 Structure<br/>Semantic Tags]
+    NL --> NLTemplate[📄 NL Template<br/>HTML5 Structure<br/>Semantic Tags]
+    AR --> ARTemplate[📄 AR Template<br/>HTML5 Structure<br/>RTL Support]
+    HE --> HETemplate[📄 HE Template<br/>HTML5 Structure<br/>RTL Support]
+    JA --> JATemplate[📄 JA Template<br/>HTML5 Structure<br/>Semantic Tags]
+    KO --> KOTemplate[📄 KO Template<br/>HTML5 Structure<br/>Semantic Tags]
+    ZH --> ZHTemplate[📄 ZH Template<br/>HTML5 Structure<br/>Semantic Tags]
     
     ENTemplate --> ENSecCheck[🔒 EN Security<br/>Sanitize + Validate]
-    FRTemplate --> FRSecCheck[🔒 FR Security<br/>Sanitize + Validate]
-    DETemplate --> DESecCheck[🔒 DE Security<br/>Sanitize + Validate]
-    ESTemplate --> ESSecCheck[🔒 ES Security<br/>Sanitize + Validate]
-    ITTemplate --> ITSecCheck[🔒 IT Security<br/>Sanitize + Validate]
-    PTTemplate --> PTSecCheck[🔒 PT Security<br/>Sanitize + Validate]
-    NLTemplate --> NLSecCheck[🔒 NL Security<br/>Sanitize + Validate]
-    ELTemplate --> ELSecCheck[🔒 EL Security<br/>Sanitize + Validate]
-    PLTemplate --> PLSecCheck[🔒 PL Security<br/>Sanitize + Validate]
-    ROTemplate --> ROSecCheck[🔒 RO Security<br/>Sanitize + Validate]
     SVTemplate --> SVSecCheck[🔒 SV Security<br/>Sanitize + Validate]
     DATemplate --> DASecCheck[🔒 DA Security<br/>Sanitize + Validate]
+    NOTemplate --> NOSecCheck[🔒 NO Security<br/>Sanitize + Validate]
     FITemplate --> FISecCheck[🔒 FI Security<br/>Sanitize + Validate]
-    HUTemplate --> HUSecCheck[🔒 HU Security<br/>Sanitize + Validate]
+    DETemplate --> DESecCheck[🔒 DE Security<br/>Sanitize + Validate]
+    FRTemplate --> FRSecCheck[🔒 FR Security<br/>Sanitize + Validate]
+    ESTemplate --> ESSecCheck[🔒 ES Security<br/>Sanitize + Validate]
+    NLTemplate --> NLSecCheck[🔒 NL Security<br/>Sanitize + Validate]
+    ARTemplate --> ARSecCheck[🔒 AR Security<br/>Sanitize + Validate]
+    HETemplate --> HESecCheck[🔒 HE Security<br/>Sanitize + Validate]
+    JATemplate --> JASecCheck[🔒 JA Security<br/>Sanitize + Validate]
+    KOTemplate --> KOSecCheck[🔒 KO Security<br/>Sanitize + Validate]
+    ZHTemplate --> ZHSecCheck[🔒 ZH Security<br/>Sanitize + Validate]
     
     ENSecCheck --> Aggregate
-    FRSecCheck --> Aggregate
-    DESecCheck --> Aggregate
-    ESSecCheck --> Aggregate
-    ITSecCheck --> Aggregate
-    PTSecCheck --> Aggregate
-    NLSecCheck --> Aggregate
-    ELSecCheck --> Aggregate
-    PLSecCheck --> Aggregate
-    ROSecCheck --> Aggregate
     SVSecCheck --> Aggregate
     DASecCheck --> Aggregate
+    NOSecCheck --> Aggregate
     FISecCheck --> Aggregate
-    HUSecCheck --> Aggregate
+    DESecCheck --> Aggregate
+    FRSecCheck --> Aggregate
+    ESSecCheck --> Aggregate
+    NLSecCheck --> Aggregate
+    ARSecCheck --> Aggregate
+    HESecCheck --> Aggregate
+    JASecCheck --> Aggregate
+    KOSecCheck --> Aggregate
+    ZHSecCheck --> Aggregate
     
     Aggregate[📋 Aggregate Results<br/>14 Language Indexes<br/>Collect Metadata] --> MainIndex[🏠 Generate Main Index<br/>index.html<br/>Language Selector]
     
@@ -842,23 +842,23 @@ flowchart TD
 | **hreflang Links** | All 14 languages | SEO, crawling | Google Guidelines |
 | **CSP Headers** | All 14 languages | Script execution control | OWASP CSP |
 | **Character Encoding** | All 14 languages | UTF-8 declaration | HTML5 Standard |
-| **Text Direction Handling** | All 14 languages (LTR) | Ensure correct left-to-right rendering | HTML `dir` attribute / W3C HTML5 |
+| **Text Direction Handling** | All 14 languages (LTR/RTL) | Ensure correct text direction rendering | HTML `dir` attribute / W3C HTML5 |
 
 **Supported Languages:**
 1. 🇬🇧 English (en) - Primary
-2. 🇫🇷 French (fr) - EU Official
-3. 🇩🇪 German (de) - EU Official
-4. 🇪🇸 Spanish (es) - EU Official
-5. 🇮🇹 Italian (it) - EU Official
-6. 🇵🇹 Portuguese (pt) - EU Official
-7. 🇳🇱 Dutch (nl) - EU Official
-8. 🇬🇷 Greek (el) - EU Official
-9. 🇵🇱 Polish (pl) - EU Official
-10. 🇷🇴 Romanian (ro) - EU Official
-11. 🇸🇪 Swedish (sv) - EU Official
-12. 🇩🇰 Danish (da) - EU Official
-13. 🇫🇮 Finnish (fi) - EU Official
-14. 🇭🇺 Hungarian (hu) - EU Official
+2. 🇸🇪 Swedish (sv) - Nordic
+3. 🇩🇰 Danish (da) - Nordic
+4. 🇳🇴 Norwegian (no) - Nordic
+5. 🇫🇮 Finnish (fi) - Nordic
+6. 🇩🇪 German (de) - European
+7. 🇫🇷 French (fr) - European
+8. 🇪🇸 Spanish (es) - European
+9. 🇳🇱 Dutch (nl) - European
+10. 🇸🇦 Arabic (ar) - RTL
+11. 🇮🇱 Hebrew (he) - RTL
+12. 🇯🇵 Japanese (ja) - East Asian
+13. 🇰🇷 Korean (ko) - East Asian
+14. 🇨🇳 Chinese (zh) - East Asian
 
 ---
 

@@ -29,7 +29,7 @@ mcp-servers:
 
 1. **`index.html`** - Main entry point, template structure
 2. **`styles.css`** - Global styles, responsive patterns, accessibility
-3. **`index-*.html`** files - 14 language versions (de, fr, es, it, nl, sv, da, fi, pl, ro, hu, pt, el)
+3. **`index-*.html`** files - 14 language versions (sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 4. **`news/`** directory - Article rendering patterns
 5. **`.github/workflows/news-generation.yml`** - Static site generation workflow
 
@@ -179,18 +179,18 @@ You are an expert frontend developer specializing in semantic HTML5, accessible 
 ### Multi-Language UI
 
 **14 Supported Languages:**
-- **Germanic**: English (en), German (de), Dutch (nl), Swedish (sv), Danish (da)
-- **Romance**: French (fr), Spanish (es), Italian (it), Portuguese (pt), Romanian (ro)
-- **Slavic**: Polish (pl)
-- **Finno-Ugric**: Finnish (fi), Hungarian (hu)
-- **Hellenic**: Greek (el)
+- **Nordic**: English (en), Swedish (sv), Danish (da), Norwegian (no), Finnish (fi)
+- **Germanic**: German (de), Dutch (nl)
+- **Romance**: French (fr), Spanish (es)
+- **Semitic (RTL)**: Arabic (ar), Hebrew (he)
+- **East Asian**: Japanese (ja), Korean (ko), Chinese (zh)
 
 **Implementation Patterns:**
 ```html
 <!-- Language switcher -->
 <nav aria-label="Language selection">
   <ul role="list">
-    <li><a href="/index-en.html" hreflang="en" lang="en">English</a></li>
+    <li><a href="/index.html" hreflang="en" lang="en">English</a></li>
     <li><a href="/index-de.html" hreflang="de" lang="de">Deutsch</a></li>
     <li><a href="/index-fr.html" hreflang="fr" lang="fr">Français</a></li>
     <!-- ...11 more languages -->
@@ -198,7 +198,7 @@ You are an expert frontend developer specializing in semantic HTML5, accessible 
 </nav>
 
 <!-- Hreflang tags for SEO -->
-<link rel="alternate" hreflang="en" href="https://euparliamentmonitor.com/index-en.html">
+<link rel="alternate" hreflang="en" href="https://euparliamentmonitor.com/index.html">
 <link rel="alternate" hreflang="de" href="https://euparliamentmonitor.com/index-de.html">
 <!-- ...12 more hreflang tags -->
 <link rel="alternate" hreflang="x-default" href="https://euparliamentmonitor.com/">
@@ -206,8 +206,9 @@ You are an expert frontend developer specializing in semantic HTML5, accessible 
 
 **Character Encoding:**
 - UTF-8 everywhere (HTML meta tag, HTTP headers)
-- Proper diacritics: ä, ö, ü, é, è, ñ, ø, å, ł, ș, ț, ă, ő, ű, ά
-- RTL-ready markup (future Arabic expansion)
+- Proper diacritics: ä, ö, ü, é, è, ñ, ø, å
+- RTL support for Arabic (ar) and Hebrew (he)
+- CJK character support for Japanese, Korean, Chinese
 - Language-specific fonts and typography
 
 ### Performance Optimization
