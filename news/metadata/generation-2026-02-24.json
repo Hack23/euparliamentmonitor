@@ -1,18 +1,30 @@
 {
-  "timestamp": "2026-02-24T03:48:24.824Z",
-  "generated": 1,
-  "skipped": 0,
+  "timestamp": "2026-02-24T05:23:00.566Z",
+  "generated": 13,
+  "skipped": 1,
   "dryRun": 0,
   "errors": 0,
   "articles": [
-    "2026-02-24-week-ahead-en.html"
+    "2026-02-24-week-ahead-sv.html",
+    "2026-02-24-week-ahead-da.html",
+    "2026-02-24-week-ahead-no.html",
+    "2026-02-24-week-ahead-fi.html",
+    "2026-02-24-week-ahead-de.html",
+    "2026-02-24-week-ahead-fr.html",
+    "2026-02-24-week-ahead-es.html",
+    "2026-02-24-week-ahead-nl.html",
+    "2026-02-24-week-ahead-ar.html",
+    "2026-02-24-week-ahead-he.html",
+    "2026-02-24-week-ahead-ja.html",
+    "2026-02-24-week-ahead-ko.html",
+    "2026-02-24-week-ahead-zh.html"
   ],
   "results": [
     {
       "success": true,
-      "files": 1,
+      "files": 13,
       "slug": "2026-02-24-week-ahead"
     }
   ],
-  "usedMCP": true
+  "usedMCP": false
 }
