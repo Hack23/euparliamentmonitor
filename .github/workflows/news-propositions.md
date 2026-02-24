@@ -219,6 +219,16 @@ if [ -n "$EXISTING_PR" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
   safeoutputs___noop
   exit 0
 fi
+
+# Also check if articles already exist in main (e.g., after a merged PR).
+# Generating patches that modify existing files causes "Failed to apply patch" errors
+# when the base content changes between the agent checkout and safe_outputs checkout.
+EXISTING_ARTICLE=$(find news/ -name "${TODAY}-propositions-en.html" 2>/dev/null | head -1)
+if [ -n "$EXISTING_ARTICLE" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+  echo "Article $EXISTING_ARTICLE already exists in repo for $TODAY. Skipping to avoid duplicate generation and patch conflicts."
+  safeoutputs___noop
+  exit 0
+fi
 ```
 
 ### Step 1: Check Recent Generation
