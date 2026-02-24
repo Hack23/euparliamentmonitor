@@ -672,9 +672,7 @@ export class EuropeanParliamentMCPClient {
    * @param options - Options including required country code and optional date range
    * @returns Country delegation analysis data
    */
-  async analyzeCountryDelegation(
-    options: AnalyzeCountryDelegationOptions
-  ): Promise<MCPToolResult> {
+  async analyzeCountryDelegation(options: AnalyzeCountryDelegationOptions): Promise<MCPToolResult> {
     if (typeof options.country !== 'string' || options.country.trim().length === 0) {
       console.warn(
         'analyze_country_delegation called without valid country (non-empty string required)'
