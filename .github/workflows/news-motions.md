@@ -270,6 +270,7 @@ fi
 
 # 3. Check for stale or mismatched publication dates in today's articles
 STALE_COUNT=0
+shopt -s nullglob
 for LANG_FILE in news/${TODAY}-${ARTICLE_TYPE}-*.html; do
   if [ ! -f "$LANG_FILE" ]; then
     continue
@@ -285,6 +286,7 @@ for LANG_FILE in news/${TODAY}-${ARTICLE_TYPE}-*.html; do
     fi
   done
 done
+shopt -u nullglob
 if [ "$STALE_COUNT" -gt 0 ]; then
   echo "ERROR: $STALE_COUNT file(s) contain non-current publication dates — update before committing" >&2
   exit 1
