@@ -1482,5 +1482,5 @@ const sourceHash = crypto.createHash('sha256')
 ---
 
 **Document Status**: Active  
-**Next Review**: 2026-05-17  
+**Next Review**: 2026-05-20  
 **Owner**: Development Team, Hack23 AB

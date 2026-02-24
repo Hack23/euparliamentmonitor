@@ -433,7 +433,7 @@ C4Deployment
 
 ### Infrastructure Comparison
 
-| Component      | Current (2025)         | Future (2027)            | Scalability             |
+| Component      | Current (2026)         | Future (2027)            | Scalability             |
 | -------------- | ---------------------- | ------------------------ | ----------------------- |
 | **Hosting**    | GitHub Pages (free)    | CloudFlare + AWS         | 99.99% SLA              |
 | **Compute**    | GitHub Actions (batch) | ECS Fargate (real-time)  | Auto-scaling 2-20 tasks |
@@ -1137,7 +1137,7 @@ dashboards:
 
 | Phase                         | Monthly Cost | Annual Cost | Cumulative |
 | ----------------------------- | ------------ | ----------- | ---------- |
-| **Current (2025)**            | $0           | $0          | $0         |
+| **Current (2026)**            | $0           | $0          | $0         |
 | **Phase 1 (Q2-Q3 2026)**      | $50          | $600        | $600       |
 | **Phase 2 (Q3-Q4 2026)**      | $200         | $2,400      | $3,000     |
 | **Phase 3 (Q4 2026-Q1 2027)** | $600         | $7,200      | $10,200    |

@@ -641,7 +641,7 @@ flowchart TD
 
 ## 📚 Workflow Comparison: Current vs. Future
 
-| Process Step           | Current (2025)         | Future (2027)             | Improvement        |
+| Process Step           | Current (2026)         | Future (2027)             | Improvement        |
 | ---------------------- | ---------------------- | ------------------------- | ------------------ |
 | **Event Detection**    | Scheduled poll (daily) | Real-time stream (<5s)    | 17,280x faster     |
 | **Data Fetching**      | Batch HTTP requests    | Streaming WebSocket       | Continuous updates |
