@@ -6,19 +6,19 @@
 
 <p align="center">
   <strong>🗄️ Enhanced European Parliament Data Architecture</strong><br>
-  <em>🎯 From Static Files to Real-Time Multi-Parliament Intelligence (2026-2027)</em>
+  <em>🎯 From Static Files to Real-Time Multi-Parliament Intelligence (2026-2037)</em>
 </p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2027-blue?style=for-the-badge" alt="Timeline"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last
-Updated:** 2026-02-20 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-20  
+**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last
+Updated:** 2026-02-24 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-24  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
 
 ---
@@ -100,7 +100,7 @@ cross-parliament comparisons, and AI-powered intelligence.
 
 ### Transformation Overview
 
-| Aspect               | Current (2025)    | Future (2027)                 | Benefit                        |
+| Aspect               | Current (2026)    | Future (2027)                 | Benefit                        |
 | -------------------- | ----------------- | ----------------------------- | ------------------------------ |
 | **Storage**          | Flat HTML files   | PostgreSQL + MongoDB + Redis  | Query flexibility, scalability |
 | **Structure**        | Unstructured HTML | Relational + Document + Graph | Rich relationships, analytics  |
@@ -1597,6 +1597,64 @@ SELECT cron.schedule('data-quality-check', '0 6 * * *',
 
 ---
 
+## 🔮 Visionary Data Model Roadmap: 2027-2037
+
+### AI-Driven Data Evolution
+
+As AI models evolve — from Anthropic Opus 4.6 (minor updates every ~2.3 months,
+major annually) through potential AGI — the data model must evolve to support
+increasingly sophisticated analytical capabilities.
+
+| Era | Years | Data Model Paradigm | Key Additions |
+| --- | ----- | ------------------- | ------------- |
+| **Near-Term** | 2027-2029 | Multi-DB + Knowledge Graph | Vector embeddings, semantic search, cross-parliament links |
+| **Mid-Term** | 2029-2032 | Unified Semantic Data Fabric | Ontology-driven schemas, automated schema evolution, causal data models |
+| **Long-Term** | 2032-2035 | Autonomous Data Intelligence | Self-organizing data structures, AI-curated data quality, predictive indexing |
+| **Visionary** | 2035-2037 | AGI-Native Data Architecture | Dynamic schema generation, universal parliament ontology, real-time global intelligence |
+
+### Phase 5: Semantic Data Fabric (2027-2029)
+
+- **Universal Parliament Ontology**: Formal OWL/RDF ontology mapping legislative
+  concepts across EU and 27 national parliaments — bills, votes, committees,
+  amendments — into a unified semantic model
+- **AI-Powered Schema Evolution**: Anthropic Opus 5.x+ analyzes incoming data
+  patterns and proposes schema migrations automatically, with human approval gates
+- **Vector Knowledge Base**: Store LLM embeddings for all parliamentary documents
+  enabling semantic similarity search across languages and parliaments
+- **Temporal Graph Database**: Full historical graph with time-travel queries
+  supporting "What did Parliament look like on date X?" analysis
+
+### Phase 6: Autonomous Data Curation (2029-2032)
+
+- **Self-Healing Data Pipelines**: AI agents detect data quality issues,
+  identify root causes, and apply corrections with audit trails
+- **Predictive Data Modeling**: ML models anticipate data needs based on
+  upcoming parliamentary calendars and pre-fetch/pre-structure data
+- **Cross-Lingual Data Unification**: Real-time semantic alignment of
+  parliamentary data across 24+ EU languages without manual mapping
+- **Causal Inference Layer**: Data structures supporting "Why did this vote
+  happen?" analysis beyond correlation
+
+### Phase 7: Global Democratic Data (2032-2035)
+
+- **50+ Parliament Integration**: Pluggable data adapters for parliaments
+  worldwide with automatic schema discovery and mapping
+- **Real-Time Streaming at Scale**: Process millions of parliamentary events
+  per second with sub-100ms query latency globally
+- **Citizen Impact Data Model**: Link legislative data to economic, social, and
+  environmental outcome indicators for impact assessment
+
+### Phase 8: AGI-Ready Data (2035-2037)
+
+- **Dynamic Schema Generation**: AGI systems generate optimal data schemas
+  based on analytical requirements without human intervention
+- **Universal Legislative Intelligence**: Single query interface across all
+  world parliaments in any language with full semantic understanding
+- **Autonomous Data Governance**: AI-driven compliance, classification, and
+  retention management aligned with evolving regulations
+
+---
+
 ## 📚 References
 
 ### Current State
@@ -1624,10 +1682,12 @@ SELECT cron.schedule('data-quality-check', '0 6 * * *',
 
 | Version | Date       | Author         | Changes                            |
 | ------- | ---------- | -------------- | ---------------------------------- |
-| 2.0     | 2025-02-17 | Data Architect | Initial future data model document |
+| 3.0     | 2026-02-24 | CEO            | Added visionary 2027-2037 data model roadmap |
+| 2.0     | 2026-02-20 | Data Architect | Updated near-term 2026-2027 roadmap |
+| 1.0     | 2025-02-17 | Data Architect | Initial future data model document |
 
 ---
 
 **Document Status**: ✅ **APPROVED FOR PLANNING**  
-**Next Review**: 2025-05-17 (Quarterly)  
-**Classification**: Internal Use Only
+**Next Review**: 2026-05-24 (Quarterly)  
+**Classification**: Public
