@@ -128,8 +128,9 @@ architecture.
 
 ### Key Characteristics
 
-- **Zero Runtime Dependencies**: Pure static HTML/CSS/JS with no server-side
-  execution
+- **Minimal Runtime Dependencies**: Pure static HTML/CSS output with no server-side
+  execution; single production dependency (`european-parliament-mcp-server`) used at build time
+- **TypeScript Source**: All source code in `src/` written in TypeScript (strict mode), compiled via `tsc` to `scripts/` (ES2022 target)
 - **Multi-Language Support**: Generates content in 14 languages
 - **MCP Integration**: Uses European Parliament MCP Server for data access
 - **Security by Design**: Minimal attack surface through static architecture
@@ -185,7 +186,7 @@ C4Context
 | **Journalist**            | User            | Professional using site for research and story development | Web Browser                 |
 | **Political Researcher**  | User            | Academic or analyst studying EP activities                 | Web Browser                 |
 | **Developer/Contributor** | User            | Maintainer improving system                                | Git, Node.js, VS Code       |
-| **EU Parliament Monitor** | System          | Core static site generator                                 | Node.js, JavaScript         |
+| **EU Parliament Monitor** | System          | Core static site generator                                 | Node.js, TypeScript         |
 | **GitHub**                | External System | Source control, CI/CD                                      | GitHub Actions          |
 | **EP MCP Server**         | External System | Structured EP data access                                  | MCP Protocol, TypeScript    |
 | **EP APIs**               | External System | Official data sources                                      | REST APIs, JSON             |
@@ -267,12 +268,12 @@ C4Container
     Person(contributor, "Contributor", "Maintains system")
 
     Container_Boundary(epmonitor, "EU Parliament Monitor") {
-        Container(news_generator, "News Generation Scripts", "Node.js/JavaScript", "Generates multilingual news articles from EP data")
-        Container(index_generator, "Index Page Generator", "Node.js/JavaScript", "Creates language-specific index pages")
-        Container(sitemap_generator, "Sitemap Generator", "Node.js/JavaScript", "Generates sitemap.xml for SEO")
-        Container(mcp_client, "MCP Client", "JavaScript", "Communicates with EP MCP Server for data access")
-        Container(template_engine, "Article Template Engine", "JavaScript", "Generates HTML from article data")
-        ContainerDb(static_files, "Static Files", "HTML/CSS/JS", "Generated news articles and indexes")
+        Container(news_generator, "News Generation Scripts", "Node.js/TypeScript", "Generates multilingual news articles from EP data")
+        Container(index_generator, "Index Page Generator", "Node.js/TypeScript", "Creates language-specific index pages")
+        Container(sitemap_generator, "Sitemap Generator", "Node.js/TypeScript", "Generates sitemap.xml for SEO")
+        Container(mcp_client, "MCP Client", "TypeScript", "Communicates with EP MCP Server for data access")
+        Container(template_engine, "Article Template Engine", "TypeScript", "Generates HTML from article data")
+        ContainerDb(static_files, "Static Files", "HTML/CSS", "Generated news articles and indexes")
     }
 
     Container_Boundary(github_infra, "GitHub Infrastructure") {
@@ -308,11 +309,11 @@ C4Container
 
 | Container                   | Technology         | Purpose                               | Data Flow                                        |
 | --------------------------- | ------------------ | ------------------------------------- | ------------------------------------------------ |
-| **News Generation Scripts** | Node.js/JavaScript | Core article generation logic         | Orchestrates MCP data fetch and LLM generation   |
-| **Index Page Generator**    | Node.js/JavaScript | Creates language-specific index pages | Aggregates article metadata into navigation      |
-| **Sitemap Generator**       | Node.js/JavaScript | SEO sitemap creation                  | Lists all pages for search engine crawling       |
-| **MCP Client**              | JavaScript         | EP data access                        | Communicates with MCP Server for structured data |
-| **Article Template Engine** | JavaScript         | HTML generation                       | Converts article data to semantic HTML5          |
+| **News Generation Scripts** | Node.js/TypeScript | Core article generation logic         | Orchestrates MCP data fetch and LLM generation   |
+| **Index Page Generator**    | Node.js/TypeScript | Creates language-specific index pages | Aggregates article metadata into navigation      |
+| **Sitemap Generator**       | Node.js/TypeScript | SEO sitemap creation                  | Lists all pages for search engine crawling       |
+| **MCP Client**              | TypeScript         | EP data access                        | Communicates with MCP Server for structured data |
+| **Article Template Engine** | TypeScript         | HTML generation                       | Converts article data to semantic HTML5          |
 | **Static Files**            | HTML/CSS/JS        | Generated output                      | Committed to repository, deployed to AWS S3 and served via CloudFront  |
 | **GitHub Actions**          | CI/CD              | Automation                            | Daily workflow execution, build, deploy to S3/CloudFront       |
 | **Amazon CloudFront + S3**  | CDN/Object Storage | Hosting                               | HTTPS delivery of static content globally                               |
@@ -389,15 +390,15 @@ C4Component
     title EU Parliament Monitor - News Generation Components
 
     Container_Boundary(news_gen, "News Generation Container") {
-        Component(cli, "CLI Interface", "JavaScript", "Parses command-line arguments for generation parameters")
-        Component(article_gen, "Article Generator", "JavaScript", "Coordinates article creation for specified types/languages")
-        Component(mcp_client, "MCP Client", "JavaScript", "Fetches EP data via MCP protocol")
-        Component(llm_client, "LLM Client", "JavaScript", "Generates article content from EP data")
-        Component(translator, "Translation Handler", "JavaScript", "Manages multi-language content generation")
-        Component(template, "HTML Template Engine", "JavaScript", "Renders articles as semantic HTML5")
-        Component(file_writer, "File System Writer", "JavaScript", "Writes generated articles to disk")
-        Component(metadata, "Metadata Manager", "JavaScript", "Tracks generation metadata and timestamps")
-        Component(validator, "Content Validator", "JavaScript", "Validates generated HTML and content")
+        Component(cli, "CLI Interface", "TypeScript", "Parses command-line arguments for generation parameters")
+        Component(article_gen, "Article Generator", "TypeScript", "Coordinates article creation for specified types/languages")
+        Component(mcp_client, "MCP Client", "TypeScript", "Fetches EP data via MCP protocol")
+        Component(llm_client, "LLM Client", "TypeScript", "Generates article content from EP data")
+        Component(translator, "Translation Handler", "TypeScript", "Manages multi-language content generation")
+        Component(template, "HTML Template Engine", "TypeScript", "Renders articles as semantic HTML5")
+        Component(file_writer, "File System Writer", "TypeScript", "Writes generated articles to disk")
+        Component(metadata, "Metadata Manager", "TypeScript", "Tracks generation metadata and timestamps")
+        Component(validator, "Content Validator", "TypeScript", "Validates generated HTML and content")
     }
 
     System_Ext(ep_mcp, "EP MCP Server", "EP data access")
@@ -530,7 +531,7 @@ C4Deployment
 
 | Infrastructure Component  | Technology               | Purpose                           | Configuration                         |
 | ------------------------- | ------------------------ | --------------------------------- | ------------------------------------- |
-| **GitHub Actions Runner** | ubuntu-latest, Node.js 24 | Execute generation workflow       | .github/workflows/news-generation.yml |
+| **GitHub Actions Runner** | ubuntu-latest, Node.js 24 | Execute generation workflow       | .github/workflows/news-*.lock.yml |
 | **Amazon CloudFront**     | AWS CDN                  | Serve static content globally     | CloudFront distribution (deploy-s3.yml) |
 | **Amazon S3**             | AWS Object Storage       | Host static site files            | S3 bucket (deploy-s3.yml)              |
 | **Git Repository**        | GitHub Storage           | Version control + content storage | public repository                      |
@@ -547,11 +548,11 @@ C4Deployment
 | Layer               | Technology | Version | Purpose                          | Rationale |
 | ------------------- | ---------- | ------- | -------------------------------- | --------- |
 | **Runtime**         | Node.js    | 24.x LTS | JavaScript execution environment | Latest LTS for long-term stability, security patches, modern ECMAScript support |
-| **Language**        | JavaScript | ES2022  | Primary development language     | Native browser support, no transpilation overhead, faster builds |
+| **Language**        | TypeScript | 5.x     | Primary development language     | Strict type safety, compile-time error detection; compiles from `src/` to `scripts/` targeting ES2022 |
 | **Package Manager** | npm        | 10.x    | Dependency management            | Native Node.js package manager, security audit integration |
 | **Testing**         | Vitest     | 4.x     | Unit and integration testing     | Fast, modern, ESM-native test runner with great DX |
 | **E2E Testing**     | Playwright | 1.58.x  | End-to-end browser testing       | Cross-browser support, reliable selectors, parallel execution |
-| **Linting**         | ESLint     | 9.x     | Code quality and security        | Flat config support, security plugins, modern JavaScript rules |
+| **Linting**         | ESLint     | 9.x     | Code quality and security        | Flat config support, security plugins, TypeScript rules via @typescript-eslint |
 | **Formatting**      | Prettier   | 3.x     | Code formatting                  | Zero-config, opinionated formatter, consistent code style |
 
 ### Technology Version Matrix
@@ -560,7 +561,7 @@ C4Deployment
 |------------|----------------|-----------------|-------------|---------------|
 | **Node.js** | 24.x (latest) | 24.0.0 | 2029-04-30 (LTS maintenance end, tentative) | Update to latest LTS minor within 30 days of release |
 | **npm** | 10.x (latest) | 10.0.0 | Follows Node.js 24 LTS lifecycle | Auto-updated with Node.js |
-| **JavaScript** | ES2022 | ES2020 | N/A (language spec) | Evaluate new features annually; adopt when Node.js LTS supports |
+| **TypeScript** | 5.9.x | 5.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
 | **Vitest** | 4.0.18 | 4.0.0 | N/A | Update to latest minor within 14 days, major within 60 days |
 | **Playwright** | 1.58.2 | 1.50.0 | N/A | Update to latest minor within 14 days, major within 60 days |
 | **ESLint** | 9.39.2 | 9.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
@@ -568,18 +569,19 @@ C4Deployment
 
 ### Dependency Management
 
-**Production Dependencies:**
-- **Zero runtime dependencies** - Static site architecture eliminates production dependencies
+**Production Dependencies (1):**
+- **`european-parliament-mcp-server`** (`^0.6.2`) - Provides European Parliament data access at build time via MCP protocol (stdio JSON-RPC)
 
-**Development Dependencies (22 total):**
+**Development Dependencies (28 total):**
 
 | Category | Dependencies | Purpose |
 |----------|-------------|---------|
 | **Testing** | `vitest`, `@vitest/ui`, `@vitest/coverage-v8`, `@playwright/test`, `@axe-core/playwright`, `happy-dom` | Unit, integration, E2E testing, accessibility testing, coverage reporting |
-| **Code Quality** | `eslint`, `@eslint/js`, `prettier`, `eslint-config-prettier`, `eslint-plugin-security`, `eslint-plugin-import`, `eslint-plugin-jsdoc`, `eslint-plugin-sonarjs`, `jscpd`, `ts-api-utils` | Linting, formatting, security checks, duplicate detection |
+| **TypeScript** | `typescript`, `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`, `@types/node`, `ts-api-utils`, `tsx` | TypeScript compiler, ESLint TypeScript rules, type definitions, dev runner |
+| **Code Quality** | `eslint`, `@eslint/js`, `prettier`, `eslint-config-prettier`, `eslint-plugin-security`, `eslint-plugin-import`, `eslint-plugin-jsdoc`, `eslint-plugin-sonarjs`, `jscpd` | Linting, formatting, security checks, duplicate detection |
 | **Git Hooks** | `husky`, `lint-staged` | Pre-commit hooks for quality gates |
 | **HTML Validation** | `htmlhint` | HTML5 validation |
-| **Documentation** | `jsdoc`, `docdash`, `jsdoc-to-markdown` | API documentation generation |
+| **Documentation** | `typedoc`, `jsdoc`, `docdash`, `jsdoc-to-markdown` | API documentation generation |
 
 ### Security & Quality
 
@@ -623,6 +625,39 @@ C4Deployment
 **No support for:**
 - Internet Explorer (EOL June 2022)
 - Legacy Edge (Chromium-based only)
+
+### Build Process
+
+TypeScript source in `src/` is compiled to JavaScript in `scripts/` via `tsc`. The generated JavaScript files are executed by Node.js during news generation.
+
+```
+src/                          → scripts/             (tsc compilation)
+├── types/index.ts            → types/index.js       Type definitions (ArticleCategory, LanguageCode, interfaces)
+├── constants/config.ts       → constants/config.js   Project paths, BASE_URL, article filename pattern
+├── constants/languages.ts    → constants/languages.js 14-language translations, presets, flags
+├── mcp/ep-mcp-client.ts      → mcp/ep-mcp-client.js  MCP client (JSON-RPC 2.0, retry, singleton)
+├── templates/article-template.ts → templates/article-template.js  HTML5 article generation (SEO, JSON-LD, Open Graph)
+├── generators/news-enhanced.ts   → generators/news-enhanced.js    Core article generation engine
+├── generators/news-indexes.ts    → generators/news-indexes.js     Multi-language index generator
+├── generators/sitemap.ts         → generators/sitemap.js          XML sitemap generator
+├── utils/file-utils.ts           → utils/file-utils.js            File operations, escapeHTML, isSafeURL
+├── utils/news-metadata.ts        → utils/news-metadata.js         articles-metadata.json management
+├── utils/copy-test-reports.ts     → utils/copy-test-reports.js     Test report archiver
+└── utils/generate-docs-index.ts   → utils/generate-docs-index.js   Docs hub generator
+```
+
+**Key build commands:**
+- `npm run build` — Runs `tsc` (TypeScript compilation)
+- `npm run lint` — ESLint on `src/` TypeScript files
+- `npm run generate-news` — Executes compiled `scripts/generators/news-enhanced.js`
+- `npm run generate-news-indexes` — Executes compiled `scripts/generators/news-indexes.js`
+
+**TypeScript configuration** (`tsconfig.json`):
+- `target: ES2022` — Modern JavaScript output
+- `module: ESNext` — ES module syntax
+- `strict: true` — Full strict mode enabled
+- `rootDir: ./src` — TypeScript source root
+- `outDir: ./scripts` — Compiled JavaScript output
 
 ---
 
@@ -1077,7 +1112,7 @@ We will generate content **natively in each language using LLMs** rather than tr
 
 ---
 
-### ADR-005: JavaScript (ES2022) over TypeScript
+### ADR-005: TypeScript with Strict Mode for Type Safety
 
 **Status:** Accepted  
 **Date:** 2026-01-05  
@@ -1085,32 +1120,32 @@ We will generate content **natively in each language using LLMs** rather than tr
 
 **Context:**
 - Building news generation scripts and static site generator
-- TypeScript offers type safety, better IDE support
-- JavaScript ES2022 sufficient for project complexity
-- Small development team (1-2 developers)
+- Need compile-time type safety for complex data structures from EP MCP Server
+- Multiple article categories, 14 languages, and complex data pipelines
+- Small development team (1-2 developers) benefits from IDE support
 
 **Decision:**
-We will use **JavaScript (ES2022)** as the primary development language, not TypeScript.
+We will use **TypeScript (strict mode)** as the primary development language, compiling from `src/` to `scripts/` targeting ES2022.
 
 **Rationale:**
-1. **Simplicity**: No transpilation step, faster builds
-2. **Sufficient Type Safety**: JSDoc comments provide type hints for IDEs
-3. **Node.js Native**: ES2022 modules supported natively in Node.js 24
-4. **Reduced Complexity**: Fewer build tools, simpler CI/CD
-5. **Learning Curve**: Lower barrier for contributors
+1. **Type Safety**: Strict mode catches errors at compile time, especially important for complex EP data structures and MCP client interfaces
+2. **IDE Support**: Full IntelliSense, refactoring, and navigation in VS Code
+3. **Self-Documenting**: TypeScript interfaces serve as living documentation for data models (ArticleCategory, LanguageCode, MCPToolResult, etc.)
+4. **Build Pipeline**: `tsc` compiles `src/*.ts` → `scripts/*.js`; `rootDir: ./src`, `outDir: ./scripts`, `target: ES2022`, `module: ESNext`
+5. **Ecosystem**: Full access to Node.js and npm ecosystem with type definitions
 
 **Alternatives Considered:**
-- **TypeScript**: Rejected due to build complexity, transpilation overhead
+- **JavaScript (ES2022) with JSDoc**: Rejected due to weaker type guarantees, less comprehensive IDE support for complex interfaces
 - **Flow**: Rejected due to declining community support
 - **JavaScript ES2015**: Rejected due to lack of modern features (optional chaining, nullish coalescing)
 
 **Consequences:**
-- ✅ **Positive**: Simple build process, fast iteration, no transpilation
-- ✅ **Positive**: Native Node.js support, standard JavaScript ecosystem
-- ⚠️ **Negative**: Less IDE support than TypeScript (mitigated by JSDoc)
-- ⚠️ **Negative**: Runtime type errors possible (mitigated by comprehensive testing, 82%+ coverage)
+- ✅ **Positive**: Compile-time error detection, comprehensive IDE support, self-documenting code
+- ✅ **Positive**: Strict null checks prevent runtime errors with optional EP data fields
+- ⚠️ **Negative**: Requires build step (`npm run build` / `tsc`) before execution
+- ⚠️ **Negative**: Slightly higher learning curve for contributors unfamiliar with TypeScript
 
-**Compliance:** Aligns with Hack23 Secure Development Policy (Simplicity Principle), ISO 27001 A.8.28 (Secure Coding)
+**Compliance:** Aligns with Hack23 Secure Development Policy (Type Safety Principle), ISO 27001 A.8.28 (Secure Coding)
 
 ---
 
@@ -1184,7 +1219,7 @@ Non-functional requirements define system qualities that are not directly relate
 | **Incident Response** | SECURITY.md procedures | Quarterly reviews | NIST CSF RS.RP |
 
 **Security Testing:**
-- **SAST**: CodeQL (weekly + PR) - JavaScript, HTML
+- **SAST**: CodeQL (weekly + PR) - JavaScript/TypeScript, HTML
 - **Dependency Scanning**: Dependabot (daily) + npm audit (pre-commit)
 - **Manual Penetration Testing**: Not required (static site, no user input)
 - **Security Reviews**: Quarterly architecture review
@@ -1225,7 +1260,7 @@ Non-functional requirements define system qualities that are not directly relate
 - **Documentation**: Architecture, security, process docs maintained
 - **Testing**: Unit (Vitest), E2E (Playwright), manual accessibility
 - **Linting**: ESLint with security plugin, Prettier formatting
-- **Dependencies**: Minimal (0 production, 22 dev), regularly updated
+- **Dependencies**: Minimal (1 production, 28 dev), regularly updated
 
 ---
 
@@ -1235,14 +1270,14 @@ Non-functional requirements define system qualities that are not directly relate
 
 - **Minimal Attack Surface**: Static architecture eliminates server-side
   vulnerabilities
-- **No Runtime Execution**: Pure HTML/CSS/JS with no backend processing
+- **No Runtime Execution**: Pure HTML/CSS with no backend processing
 - **Content Security Policy**: Strict CSP headers prevent XSS
 - **HTTPS Only**: All content delivered over HTTPS
 
 ### 2. Separation of Concerns
 
-- **Generation**: News generation scripts (Node.js)
-- **Presentation**: Static HTML/CSS/JS
+- **Generation**: News generation scripts (TypeScript → Node.js)
+- **Presentation**: Static HTML/CSS
 - **Data Access**: MCP Client abstraction
 - **Infrastructure**: GitHub-managed CI/CD and hosting
 
@@ -1254,8 +1289,8 @@ Non-functional requirements define system qualities that are not directly relate
 
 ### 4. Maintainability
 
-- **Zero Dependencies**: No runtime dependencies, only dev dependencies
-- **Standard Technologies**: HTML5, CSS3, vanilla JavaScript
+- **Minimal Dependencies**: One production dependency (`european-parliament-mcp-server` for build-time data access), only dev dependencies otherwise
+- **Standard Technologies**: HTML5, CSS3, TypeScript (compiled to ES2022 JavaScript)
 - **Comprehensive Testing**: Unit, integration, and E2E tests
 - **Documentation**: Architecture, security, and process docs
 
@@ -1293,10 +1328,10 @@ Non-functional requirements define system qualities that are not directly relate
 
 ### Maintainability
 
-- **Code Complexity**: Low (simple scripts, no frameworks)
+- **Code Complexity**: Low (TypeScript scripts, no frameworks)
 - **Test Coverage**: 82%+ lines, 83%+ branches
 - **Documentation**: Comprehensive (10+ architecture docs)
-- **Dependencies**: Zero production, 22 dev dependencies
+- **Dependencies**: 1 production (`european-parliament-mcp-server`), 28 dev dependencies
 
 ---
 
