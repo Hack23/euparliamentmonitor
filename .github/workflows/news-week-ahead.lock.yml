@@ -21,7 +21,7 @@
 #
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
-# Generates EU Parliament week-ahead prospective articles for all 14 EU languages. Runs Fridays to preview the upcoming parliamentary week using European Parliament MCP data.
+# Generates EU Parliament week-ahead prospective articles for all 14 languages. Runs Fridays to preview the upcoming parliamentary week using European Parliament MCP data.
 #
 # gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"27d21b3be26a8da96a6591ea96df213c6c7ae86a3a7616914232b3095ce15226","compiler_version":"v0.49.6"}
 
@@ -1040,7 +1040,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           WORKFLOW_NAME: "News: EU Parliament Week Ahead"
-          WORKFLOW_DESCRIPTION: "Generates EU Parliament week-ahead prospective articles for all 14 EU languages. Runs Fridays to preview the upcoming parliamentary week using European Parliament MCP data."
+          WORKFLOW_DESCRIPTION: "Generates EU Parliament week-ahead prospective articles for all 14 languages. Runs Fridays to preview the upcoming parliamentary week using European Parliament MCP data."
           HAS_PATCH: ${{ needs.agent.outputs.has_patch }}
         with:
           script: |

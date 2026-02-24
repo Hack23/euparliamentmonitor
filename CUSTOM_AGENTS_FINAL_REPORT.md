@@ -69,7 +69,7 @@ custom_instructions
 
 ✅ **6 MCP Tools**: get_meps, get_plenary_sessions, search_documents,
 get_parliamentary_questions, get_committee_info, get_voting_records  
-✅ **14 Languages**: en, de, fr, es, it, nl, sv, da, fi, pl, ro, hu, pt, el  
+✅ **14 Languages**: en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh  
 ✅ **ep-mcp-client.js** patterns and best practices  
 ✅ **Retry Logic** with exponential backoff  
 ✅ **LRU Caching** strategies  

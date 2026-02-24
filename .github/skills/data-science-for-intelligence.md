@@ -8,7 +8,7 @@ license: Apache-2.0
 
 ## Purpose
 
-Apply data science methodologies to European Parliament MCP data for producing quantitative, evidence-based journalism. Covers statistical analysis of voting patterns, time series analysis for political trends, network analysis for alliance mapping, and NLP for document analysis across 14 EU languages.
+Apply data science methodologies to European Parliament MCP data for producing quantitative, evidence-based journalism. Covers statistical analysis of voting patterns, time series analysis for political trends, network analysis for alliance mapping, and NLP for document analysis across 14 languages.
 
 ## When to Use
 

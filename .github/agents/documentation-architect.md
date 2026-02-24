@@ -137,7 +137,7 @@ sequenceDiagram
     participant EPMCP as EP MCP Server
     
     User->>Browser: Visit euparliamentmonitor.com
-    Browser->>GitHubPages: GET /index-en.html
+    Browser->>GitHubPages: GET /index.html
     GitHubPages->>Browser: 200 OK (HTML + CSS)
     Browser->>Browser: Render page
     Note over Browser: Static content<br/>No JavaScript required
@@ -292,7 +292,7 @@ const enviMembers = await client.callTool('get_meps', { committee: 'ENVI' });
 
 ## 🌟 Features
 
-- **14 Languages**: en, de, fr, es, it, nl, sv, da, fi, pl, ro, hu, pt, el
+- **14 Languages**: en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
 - **European Parliament MCP**: Real-time MEP data, plenary sessions, voting records
 - **Automated News**: Daily generation via GitHub Actions
 - **Accessibility**: WCAG 2.1 AA compliant

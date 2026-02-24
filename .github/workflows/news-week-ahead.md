@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Week Ahead"
-description: Generates EU Parliament week-ahead prospective articles for all 14 EU languages. Runs Fridays to preview the upcoming parliamentary week using European Parliament MCP data.
+description: Generates EU Parliament week-ahead prospective articles for all 14 languages. Runs Fridays to preview the upcoming parliamentary week using European Parliament MCP data.
 strict: false
 on:
   schedule:

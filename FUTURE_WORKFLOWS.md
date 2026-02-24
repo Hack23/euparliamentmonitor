@@ -283,7 +283,7 @@ jobs:
         with:
           urls: |
             https://hack23.github.io/euparliamentmonitor/
-            https://hack23.github.io/euparliamentmonitor/index-en.html
+            https://hack23.github.io/euparliamentmonitor/index.html
           uploadArtifacts: true
           temporaryPublicStorage: true
 

@@ -164,7 +164,7 @@ MCP server integration and data flow:
 
 Multi-language functionality:
 
-- ✅ All 14 EU languages support
+- ✅ All 14 languages support
 - ✅ Language-specific labels (type, read time, navigation)
 - ✅ Date formatting per locale
 - ✅ Character encoding (special chars, diacritics)

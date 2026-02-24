@@ -497,7 +497,7 @@ The following table provides explicit classifications for various types of Europ
 
 ### Multi-Language Content Classification {#multi-language-classification}
 
-**Language Coverage:** 14 EU languages (en, de, fr, es, it, nl, pl, pt, ro, sv, da, fi, el, hu)
+**Language Coverage:** 14 languages (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 
 **Uniform Classification Across Languages:**
 

@@ -15,24 +15,24 @@ import { test, expect } from '@playwright/test';
 
 const LANGUAGES = [
   { code: 'en', name: 'English' },
+  { code: 'sv', name: 'Swedish' },
+  { code: 'da', name: 'Danish' },
+  { code: 'no', name: 'Norwegian' },
+  { code: 'fi', name: 'Finnish' },
   { code: 'de', name: 'German' },
   { code: 'fr', name: 'French' },
   { code: 'es', name: 'Spanish' },
-  { code: 'it', name: 'Italian' },
   { code: 'nl', name: 'Dutch' },
-  { code: 'sv', name: 'Swedish' },
-  { code: 'da', name: 'Danish' },
-  { code: 'fi', name: 'Finnish' },
-  { code: 'pl', name: 'Polish' },
-  { code: 'ro', name: 'Romanian' },
-  { code: 'hu', name: 'Hungarian' },
-  { code: 'pt', name: 'Portuguese' },
-  { code: 'el', name: 'Greek' },
+  { code: 'ar', name: 'Arabic' },
+  { code: 'he', name: 'Hebrew' },
+  { code: 'ja', name: 'Japanese' },
+  { code: 'ko', name: 'Korean' },
+  { code: 'zh', name: 'Chinese' },
 ];
 
 test.describe('Multi-Language Support', () => {
   test('should load English version', async ({ page }) => {
-    await page.goto('/index-en.html');
+    await page.goto('/index.html');
 
     // Verify correct language
     const html = page.locator('html');
@@ -100,7 +100,8 @@ test.describe('Multi-Language Support', () => {
     const testLanguages = ['en', 'de', 'fr'];
 
     for (const lang of testLanguages) {
-      await page.goto(`/index-${lang}.html`);
+      const url = lang === 'en' ? '/index.html' : `/index-${lang}.html`;
+      await page.goto(url);
 
       // Count main content elements
       const articles = await page.locator('article').count();
@@ -126,7 +127,7 @@ test.describe('Multi-Language Support', () => {
   });
 
   test('should have language-specific meta tags', async ({ page }) => {
-    await page.goto('/index-en.html');
+    await page.goto('/index.html');
 
     // Check for language-specific Open Graph tags
     const ogLocale = page.locator('meta[property="og:locale"]');
@@ -167,10 +168,11 @@ test.describe('Multi-Language Support', () => {
   test('should have proper charset encoding for all languages', async ({
     page,
   }) => {
-    const testLanguages = ['en', 'de', 'el', 'pl'];
+    const testLanguages = ['en', 'de', 'ar', 'ja'];
 
     for (const lang of testLanguages) {
-      await page.goto(`/index-${lang}.html`);
+      const url = lang === 'en' ? '/index.html' : `/index-${lang}.html`;
+      await page.goto(url);
 
       // Verify charset meta tag
       const charsetMeta = page.locator('meta[charset]');
@@ -191,7 +193,8 @@ test.describe('Multi-Language Support', () => {
     ];
 
     for (const testCase of testCases) {
-      await page.goto(`/index-${testCase.lang}.html`);
+      const url = testCase.lang === 'en' ? '/index.html' : `/index-${testCase.lang}.html`;
+      await page.goto(url);
 
       // Verify page has text content
       const bodyText = await page.locator('body').textContent();
@@ -204,7 +207,7 @@ test.describe('Multi-Language Support', () => {
   });
 
   test('should have correct language in alternate links', async ({ page }) => {
-    await page.goto('/index-en.html');
+    await page.goto('/index.html');
 
     // Check for alternate language links
     const alternateLinks = page.locator('link[rel="alternate"]');

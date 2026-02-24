@@ -118,15 +118,16 @@ You are an expert in:
 ### 2. Multi-Language Support Quality
 
 **14-Language Validation:**
-- English (en), German (de), French (fr), Spanish (es), Italian (it), Dutch (nl)
-- Swedish (sv), Danish (da), Finnish (fi)
-- Polish (pl), Romanian (ro), Hungarian (hu)
-- Portuguese (pt), Greek (el)
+- English (en), Swedish (sv), Danish (da), Norwegian (no), Finnish (fi)
+- German (de), French (fr), Spanish (es), Dutch (nl)
+- Arabic (ar), Hebrew (he)
+- Japanese (ja), Korean (ko), Chinese (zh)
 
 **Quality Checks:**
 - Content consistency across languages
-- RTL support for future expansion
+- RTL support for Arabic and Hebrew
 - Character encoding (UTF-8)
+- CJK character rendering
 - Translation fallback behavior
 - Language-specific SEO metadata
 - Cultural sensitivity and appropriateness

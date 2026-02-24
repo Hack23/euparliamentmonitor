@@ -21,7 +21,7 @@
 #
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
-# Generates EU Parliament committee reports analysis articles for all 14 EU languages. Single article type per run to reduce patch size and improve reliability.
+# Generates EU Parliament committee reports analysis articles for all 14 languages. Single article type per run to reduce patch size and improve reliability.
 #
 # gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"703d724ecf4cba73bdd58533a1114fcd1662e411f726ffbf4f907ac7cb50f995","compiler_version":"v0.49.6"}
 
@@ -1040,7 +1040,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           WORKFLOW_NAME: "News: EU Parliament Committee Reports"
-          WORKFLOW_DESCRIPTION: "Generates EU Parliament committee reports analysis articles for all 14 EU languages. Single article type per run to reduce patch size and improve reliability."
+          WORKFLOW_DESCRIPTION: "Generates EU Parliament committee reports analysis articles for all 14 languages. Single article type per run to reduce patch size and improve reliability."
           HAS_PATCH: ${{ needs.agent.outputs.has_patch }}
         with:
           script: |

@@ -131,10 +131,10 @@ Tests multi-language functionality:
 
 **Supported Languages**:
 
-- EN (English), DE (German), FR (French), ES (Spanish)
-- IT (Italian), NL (Dutch), SV (Swedish), DA (Danish)
-- FI (Finnish), PL (Polish), RO (Romanian), HU (Hungarian)
-- PT (Portuguese), EL (Greek)
+- EN (English), SV (Swedish), DA (Danish), NO (Norwegian)
+- FI (Finnish), DE (German), FR (French), ES (Spanish)
+- NL (Dutch), AR (Arabic), HE (Hebrew), JA (Japanese)
+- KO (Korean), ZH (Chinese)
 
 ### 5. Accessibility Tests (`accessibility.spec.js`)
 

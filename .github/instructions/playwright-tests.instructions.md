@@ -51,7 +51,7 @@ expect(results.violations).toEqual([]);
 
 ### Multi-Language Testing
 When testing language variants, use the correct `index-<lang>.html` path:
-- English: `/index-en.html` or `/`
+- English: `/index.html` or `/`
 - French: `/index-fr.html`
 - German: `/index-de.html`
 

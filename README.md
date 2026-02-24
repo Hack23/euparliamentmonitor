@@ -149,8 +149,8 @@ covering:
 
 - 📰 **Automated News Generation**: Generate news articles about EU Parliament
   activities
-- 🌍 **Multi-Language Support**: 14 languages including English, German, French,
-  Spanish, Italian, and more
+- 🌍 **Multi-Language Support**: 14 languages including English, Swedish, German,
+  French, Spanish, Arabic, Japanese, and more
 - 📅 **Week Ahead Coverage**: Preview upcoming parliamentary events
 - 🤖 **GitHub Actions Integration**: Automated daily news generation
 - 📊 **SEO Optimized**: Proper metadata, structured data, and sitemap generation
@@ -349,11 +349,10 @@ detailed agent capabilities, usage patterns, and examples.
 
 ## Languages Supported
 
-- **EU Core**: English (en), German (de), French (fr), Spanish (es), Italian
-  (it), Dutch (nl)
-- **Nordic**: Swedish (sv), Danish (da), Finnish (fi)
-- **Eastern Europe**: Polish (pl), Romanian (ro), Hungarian (hu)
-- **Other**: Portuguese (pt), Greek (el)
+- **Nordic**: English (en), Swedish (sv), Danish (da), Norwegian (no), Finnish (fi)
+- **EU Core**: German (de), French (fr), Spanish (es), Dutch (nl)
+- **Middle East**: Arabic (ar), Hebrew (he)
+- **East Asia**: Japanese (ja), Korean (ko), Chinese (zh)
 
 ## Requirements
 
@@ -624,8 +623,8 @@ First-time setup requires running the label creation workflow:
 ### Language Presets
 
 - `en` - English only
-- `eu-core` - English, German, French, Spanish, Italian, Dutch
-- `nordic` - English, Swedish, Danish, Finnish
+- `eu-core` - English, German, French, Spanish, Dutch
+- `nordic` - English, Swedish, Danish, Norwegian, Finnish
 - `all` - All 14 supported languages
 
 ### Article Types

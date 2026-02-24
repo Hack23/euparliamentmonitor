@@ -130,7 +130,7 @@ architecture.
 
 - **Zero Runtime Dependencies**: Pure static HTML/CSS/JS with no server-side
   execution
-- **Multi-Language Support**: Generates content in 14 European languages
+- **Multi-Language Support**: Generates content in 14 languages
 - **MCP Integration**: Uses European Parliament MCP Server for data access
 - **Security by Design**: Minimal attack surface through static architecture
 - **AWS Hosted**: Leverages AWS S3 + CloudFront for zero-infrastructure static hosting
@@ -669,7 +669,7 @@ sequenceDiagram
     participant S3 as Amazon S3
     participant Repo as Git Repository
 
-    User->>CDN: GET /index-en.html
+    User->>CDN: GET /index.html
     CDN->>S3: Forward request (cache miss)
     S3-->>CDN: HTML response
     CDN-->>User: Cached HTML
@@ -826,19 +826,19 @@ flowchart TD
 
 **14 Languages Supported:**
 - 🇬🇧 English (en) - 67 million
+- �🇪 Swedish (sv) - 10 million
+- 🇩🇰 Danish (da) - 6 million
+- 🇳🇴 Norwegian (no) - 5 million
+- 🇫🇮 Finnish (fi) - 5 million
 - 🇩🇪 German (de) - 95 million
 - 🇫🇷 French (fr) - 67 million
 - 🇪🇸 Spanish (es) - 47 million
-- 🇮🇹 Italian (it) - 60 million
 - 🇳🇱 Dutch (nl) - 24 million
-- 🇸🇪 Swedish (sv) - 10 million
-- 🇩🇰 Danish (da) - 6 million
-- 🇫🇮 Finnish (fi) - 5 million
-- 🇵🇱 Polish (pl) - 40 million
-- 🇷🇴 Romanian (ro) - 24 million
-- 🇭🇺 Hungarian (hu) - 13 million
-- 🇵🇹 Portuguese (pt) - 10 million
-- 🇬🇷 Greek (el) - 13 million
+- 🇸🇦 Arabic (ar) - 420 million
+- 🇮🇱 Hebrew (he) - 9 million
+- 🇯🇵 Japanese (ja) - 125 million
+- 🇰🇷 Korean (ko) - 77 million
+- 🇨🇳 Chinese (zh) - 1.3 billion
 
 **i18n Architecture:**
 
@@ -852,19 +852,19 @@ graph LR
     
     subgraph "14 Language Variants"
         EN[English Article]
+        SV[Swedish Article]
+        DA[Danish Article]
+        NO[Norwegian Article]
+        FI[Finnish Article]
         DE[German Article]
         FR[French Article]
         ES[Spanish Article]
-        IT[Italian Article]
         NL[Dutch Article]
-        SV[Swedish Article]
-        DA[Danish Article]
-        FI[Finnish Article]
-        PL[Polish Article]
-        RO[Romanian Article]
-        HU[Hungarian Article]
-        PT[Portuguese Article]
-        EL[Greek Article]
+        AR[Arabic Article]
+        HE[Hebrew Article]
+        JA[Japanese Article]
+        KO[Korean Article]
+        ZH[Chinese Article]
     end
     
     subgraph "Delivery"
@@ -875,19 +875,19 @@ graph LR
     EPData --> LLM
     Prompt --> LLM
     LLM --> EN
+    LLM --> SV
+    LLM --> DA
+    LLM --> NO
+    LLM --> FI
     LLM --> DE
     LLM --> FR
     LLM --> ES
-    LLM --> IT
     LLM --> NL
-    LLM --> SV
-    LLM --> DA
-    LLM --> FI
-    LLM --> PL
-    LLM --> RO
-    LLM --> HU
-    LLM --> PT
-    LLM --> EL
+    LLM --> AR
+    LLM --> HE
+    LLM --> JA
+    LLM --> KO
+    LLM --> ZH
     
     EN --> Index
     DE --> Index
@@ -906,7 +906,7 @@ graph LR
 | **Content Generation** | Placeholder English content for all languages (current); native LLM per-language generation planned (ADR-004) | Current: shared English body with localized titles/subtitles; Future: each article written directly in target language |
 | **File Naming** | Language suffix in filename | `week-ahead-2026-02-17-en.html`, `week-ahead-2026-02-17-de.html` |
 | **HTML lang Attribute** | Set per page | `<html lang="en">`, `<html lang="de">` |
-| **Navigation** | Language-specific index pages | `index-en.html`, `index-de.html` |
+| **Navigation** | Language-specific index pages | `index.html`, `index-de.html` |
 | **SEO** | hreflang tags for alternate languages | `<link rel="alternate" hreflang="de" href="...">` |
 | **Date Formatting** | Locale-specific date formats | EN: "February 17, 2026", DE: "17. Februar 2026" |
 | **Character Encoding** | UTF-8 for all languages | `<meta charset="UTF-8">` |
@@ -1047,7 +1047,7 @@ We will access European Parliament data via the **European Parliament MCP Server
 **Decision Makers:** CEO, Content Team
 
 **Context:**
-- Need to support 14 European languages
+- Need to support 14 languages
 - Machine translation often produces unnatural, awkward phrasing
 - European Parliament terminology requires domain expertise
 - Budget available for LLM API costs
@@ -1143,7 +1143,7 @@ Non-functional requirements define system qualities that are not directly relate
 | **Concurrent Users** | Unlimited (static content) | Unlimited | CDN auto-scales |
 | **Daily Visitors** | 10,000+ | 100,000+ | CDN bandwidth increase |
 | **Articles per Day** | 14 (one per language) | 140 (ten per language) | Parallel generation, workflow optimization |
-| **Supported Languages** | 14 | 24 (all EU languages) | Add language configs, LLM prompts |
+| **Supported Languages** | 14 | 24+ (expanded markets) | Add language configs, LLM prompts |
 | **Repository Size** | 150 MB | 800 MB (GitHub limit) | Archive old articles annually |
 
 **Scalability Constraints:**
@@ -1248,7 +1248,7 @@ Non-functional requirements define system qualities that are not directly relate
 
 ### 3. Multi-Language First
 
-- **14 Languages Supported**: Full European language coverage
+- **14 Languages Supported**: Full multi-language coverage including RTL support
 - **Language-Specific Indexes**: Separate navigation for each language
 - **SEO Per Language**: Individual sitemaps and metadata
 

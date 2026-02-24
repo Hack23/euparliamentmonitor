@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Committee Reports"
-description: Generates EU Parliament committee reports analysis articles for all 14 EU languages. Single article type per run to reduce patch size and improve reliability.
+description: Generates EU Parliament committee reports analysis articles for all 14 languages. Single article type per run to reduce patch size and improve reliability.
 strict: false
 on:
   schedule:
@@ -93,7 +93,7 @@ This focused approach ensures:
 ## ⏱️ Time Budget (45 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–10**: Query EP MCP tools for committee reports data
-- **Minutes 10–35**: Generate articles for all 14 EU languages
+- **Minutes 10–35**: Generate articles for all 14 languages
 - **Minutes 35–40**: Validate and commit
 - **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
 

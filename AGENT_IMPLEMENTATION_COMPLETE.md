@@ -335,12 +335,11 @@ Complete documentation of:
 
 ### Multi-Language Support (14 Languages)
 
-- **Germanic**: English (en), German (de), Dutch (nl), Swedish (sv), Danish (da)
-- **Romance**: French (fr), Spanish (es), Italian (it), Portuguese (pt),
-  Romanian (ro)
-- **Slavic**: Polish (pl)
-- **Finno-Ugric**: Finnish (fi), Hungarian (hu)
-- **Hellenic**: Greek (el)
+- **Nordic**: English (en), Swedish (sv), Danish (da), Norwegian (no), Finnish (fi)
+- **Germanic**: German (de), Dutch (nl)
+- **Romance**: French (fr), Spanish (es)
+- **Semitic (RTL)**: Arabic (ar), Hebrew (he)
+- **East Asian**: Japanese (ja), Korean (ko), Chinese (zh)
 
 ### ISMS Compliance (All Agents)
 

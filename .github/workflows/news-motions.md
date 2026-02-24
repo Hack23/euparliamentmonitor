@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Motions"
-description: Generates EU Parliament motions and resolutions analysis articles for all 14 EU languages. Single article type per run.
+description: Generates EU Parliament motions and resolutions analysis articles for all 14 languages. Single article type per run.
 strict: false
 on:
   schedule:
