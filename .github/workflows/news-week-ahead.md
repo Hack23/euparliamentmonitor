@@ -215,7 +215,7 @@ Before generating, check if an open PR already exists for `week-ahead` articles 
 TODAY=$(date -u +%Y-%m-%d)
 EXISTING_PR=$(gh pr list --repo Hack23/euparliamentmonitor \
   --search "week-ahead $TODAY in:title" \
-  --state open --json number --jq '.[0].number' 2>/dev/null || echo "")
+  --state open --limit 1 --json number --jq '.[0].number // ""' 2>/dev/null || echo "")
 echo "Existing PR check: EXISTING_PR=$EXISTING_PR, TODAY=$TODAY"
 ```
 
