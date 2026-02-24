@@ -1,7 +1,7 @@
 name: Compile Agentic Workflows
 
-# Automatically compile .md workflow files to .lock.yml when they change
-# This ensures the lock files stay in sync with their markdown sources
+# Manually compile .md workflow files to .lock.yml via workflow_dispatch
+# This helps keep the lock files in sync with their markdown sources when requested
 
 on:
   workflow_dispatch:
@@ -58,17 +58,19 @@ jobs:
           fi
 
           compiled=false
+          compile_failed=false
 
           for md_file in $md_files; do
             echo "Processing: $md_file"
 
             if command -v gh >/dev/null 2>&1 && gh aw compile --help >/dev/null 2>&1; then
               echo "  Compiling with gh aw compile..."
-              gh aw compile "$md_file" || {
+              if gh aw compile "$md_file"; then
+                compiled=true
+              else
                 echo "  ❌ Failed to compile $md_file"
-                continue
-              }
-              compiled=true
+                compile_failed=true
+              fi
             else
               echo "  ⚠️ gh-aw tool not available"
               echo "  Please install gh-aw extension: gh extension install github/gh-aw"
@@ -77,6 +79,12 @@ jobs:
               exit 1
             fi
           done
+
+          if [ "$compile_failed" = true ]; then
+            echo "❌ One or more workflows failed to compile"
+            echo "needs_manual_compile=true" >> $GITHUB_OUTPUT
+            exit 1
+          fi
 
           if [ "$compiled" = true ]; then
             echo "✅ Workflows compiled successfully"
@@ -94,13 +102,18 @@ jobs:
           if [ -z "$lock_files" ]; then
             echo "No lock files found"
             echo "has_changes=false" >> $GITHUB_OUTPUT
-          elif git diff --quiet -- $lock_files 2>/dev/null; then
-            echo "No changes to lock files"
-            echo "has_changes=false" >> $GITHUB_OUTPUT
           else
-            echo "Lock files have changes"
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-            git diff --stat -- $lock_files
+            # Detect modified and untracked lock files (excluding ignored)
+            changed_lock_files=$(git ls-files -m -o --exclude-standard -- $lock_files 2>/dev/null || true)
+            if [ -z "$changed_lock_files" ]; then
+              echo "No changes to lock files"
+              echo "has_changes=false" >> $GITHUB_OUTPUT
+            else
+              echo "Lock files have changes:"
+              echo "$changed_lock_files"
+              echo "has_changes=true" >> $GITHUB_OUTPUT
+              git diff --stat -- $changed_lock_files || true
+            fi
           fi
 
       - name: Commit changes
