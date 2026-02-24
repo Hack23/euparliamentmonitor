@@ -414,7 +414,7 @@ npm run generate-news -- --types=week-ahead --languages=en
 # Generate multiple article types in multiple languages
 npm run generate-news -- --types=week-ahead,committee-reports --languages=en,de,fr
 
-# Generate in all EU core languages
+# Generate in all eu-core preset languages
 npm run generate-news -- --types=week-ahead --languages=eu-core
 
 # Generate in all supported languages

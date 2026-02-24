@@ -63,7 +63,7 @@
 
 This document establishes the **comprehensive performance testing strategy,
 benchmarks, and optimization practices** for the EU Parliament Monitor platform,
-ensuring optimal user experience across all 14 EU language versions. Aligned
+ensuring optimal user experience across all 14 language versions. Aligned
 with **Hack23 ISMS Secure Development Policy §8 "Performance Testing &
 Monitoring Framework"**.
 

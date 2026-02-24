@@ -95,7 +95,7 @@ Section 4.3.3 — End-to-End Testing Requirements.
 
 ## 🎯 Testing Objectives
 
-- **🌐 Validate Multi-Language Content**: Verify all 14 EU language versions
+- **🌐 Validate Multi-Language Content**: Verify all 14 language versions
   render correctly
 - **📰 Verify News Article Access**: Test news article navigation and content
   display

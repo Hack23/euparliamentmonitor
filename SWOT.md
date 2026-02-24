@@ -747,7 +747,7 @@ documentation, higher quality.
 - **Structured Data**: Better schema definitions
 - **Historical Data**: Archives beyond current term
 - **Linked Data**: Relationships between entities
-- **Multi-Language**: Metadata in all EU languages
+- **Multi-Language**: Metadata in all languages
 
 **New Data Sources** (Potential):
 
