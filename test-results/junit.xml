@@ -1,10 +1,10 @@
-<testsuites id="" name="" tests="61" failures="0" skipped="1" errors="0" time="23.134515999999998">
-<testsuite name="tests/accessibility.spec.js" timestamp="2026-02-22T20:41:44.010Z" hostname="chromium" tests="14" failures="0" skipped="1" time="6.052" errors="0">
-<testcase name="Accessibility › homepage should be accessible" classname="tests/accessibility.spec.js" time="1.329">
+<testsuites id="" name="" tests="61" failures="0" skipped="1" errors="0" time="22.986081000000002">
+<testsuite name="tests/accessibility.spec.js" timestamp="2026-02-24T00:00:24.308Z" hostname="chromium" tests="14" failures="0" skipped="1" time="5.963" errors="0">
+<testcase name="Accessibility › homepage should be accessible" classname="tests/accessibility.spec.js" time="1.331">
 </testcase>
-<testcase name="Accessibility › article page should be accessible" classname="tests/accessibility.spec.js" time="0.251">
+<testcase name="Accessibility › article page should be accessible" classname="tests/accessibility.spec.js" time="0.253">
 </testcase>
-<testcase name="Accessibility › should have proper heading hierarchy" classname="tests/accessibility.spec.js" time="0.241">
+<testcase name="Accessibility › should have proper heading hierarchy" classname="tests/accessibility.spec.js" time="0.19">
 <properties>
 <property name="skip" value="">
 </property>
@@ -12,131 +12,131 @@
 <skipped>
 </skipped>
 </testcase>
-<testcase name="Accessibility › should have alt text for images" classname="tests/accessibility.spec.js" time="0.264">
+<testcase name="Accessibility › should have alt text for images" classname="tests/accessibility.spec.js" time="0.199">
 </testcase>
-<testcase name="Accessibility › should be keyboard navigable" classname="tests/accessibility.spec.js" time="0.212">
+<testcase name="Accessibility › should be keyboard navigable" classname="tests/accessibility.spec.js" time="0.205">
 </testcase>
-<testcase name="Accessibility › should activate links with Enter key" classname="tests/accessibility.spec.js" time="0.266">
+<testcase name="Accessibility › should activate links with Enter key" classname="tests/accessibility.spec.js" time="0.25">
 </testcase>
-<testcase name="Accessibility › should have sufficient color contrast" classname="tests/accessibility.spec.js" time="1.149">
+<testcase name="Accessibility › should have sufficient color contrast" classname="tests/accessibility.spec.js" time="1.221">
 </testcase>
-<testcase name="Accessibility › should have proper ARIA landmarks" classname="tests/accessibility.spec.js" time="0.273">
+<testcase name="Accessibility › should have proper ARIA landmarks" classname="tests/accessibility.spec.js" time="0.271">
 </testcase>
-<testcase name="Accessibility › should have proper link text" classname="tests/accessibility.spec.js" time="0.254">
+<testcase name="Accessibility › should have proper link text" classname="tests/accessibility.spec.js" time="0.233">
 </testcase>
-<testcase name="Accessibility › should have skip navigation link" classname="tests/accessibility.spec.js" time="0.258">
+<testcase name="Accessibility › should have skip navigation link" classname="tests/accessibility.spec.js" time="0.247">
 </testcase>
-<testcase name="Accessibility › should have proper page title" classname="tests/accessibility.spec.js" time="0.305">
+<testcase name="Accessibility › should have proper page title" classname="tests/accessibility.spec.js" time="0.296">
 </testcase>
-<testcase name="Accessibility › should have language attribute" classname="tests/accessibility.spec.js" time="0.233">
+<testcase name="Accessibility › should have language attribute" classname="tests/accessibility.spec.js" time="0.273">
 </testcase>
-<testcase name="Accessibility › should support text zoom" classname="tests/accessibility.spec.js" time="0.806">
+<testcase name="Accessibility › should support text zoom" classname="tests/accessibility.spec.js" time="0.802">
 </testcase>
-<testcase name="Accessibility › should have proper form labels if forms exist" classname="tests/accessibility.spec.js" time="0.211">
-</testcase>
-</testsuite>
-<testsuite name="tests/homepage.spec.js" timestamp="2026-02-22T20:41:44.010Z" hostname="chromium" tests="6" failures="0" skipped="0" time="1.384" errors="0">
-<testcase name="Homepage › should load successfully" classname="tests/homepage.spec.js" time="0.261">
-</testcase>
-<testcase name="Homepage › should display navigation menu" classname="tests/homepage.spec.js" time="0.244">
-</testcase>
-<testcase name="Homepage › should display recent articles" classname="tests/homepage.spec.js" time="0.215">
-</testcase>
-<testcase name="Homepage › should have working sitemap link" classname="tests/homepage.spec.js" time="0.244">
-</testcase>
-<testcase name="Homepage › should have proper HTML structure" classname="tests/homepage.spec.js" time="0.212">
-</testcase>
-<testcase name="Homepage › should have SEO meta tags" classname="tests/homepage.spec.js" time="0.208">
+<testcase name="Accessibility › should have proper form labels if forms exist" classname="tests/accessibility.spec.js" time="0.192">
 </testcase>
 </testsuite>
-<testsuite name="tests/multi-language.spec.js" timestamp="2026-02-22T20:41:44.010Z" hostname="chromium" tests="11" failures="0" skipped="0" time="2.47" errors="0">
-<testcase name="Multi-Language Support › should load English version" classname="tests/multi-language.spec.js" time="0.211">
+<testsuite name="tests/homepage.spec.js" timestamp="2026-02-24T00:00:24.308Z" hostname="chromium" tests="6" failures="0" skipped="0" time="1.526" errors="0">
+<testcase name="Homepage › should load successfully" classname="tests/homepage.spec.js" time="0.258">
 </testcase>
-<testcase name="Multi-Language Support › should load German version" classname="tests/multi-language.spec.js" time="0.185">
+<testcase name="Homepage › should display navigation menu" classname="tests/homepage.spec.js" time="0.26">
 </testcase>
-<testcase name="Multi-Language Support › should load French version" classname="tests/multi-language.spec.js" time="0.177">
+<testcase name="Homepage › should display recent articles" classname="tests/homepage.spec.js" time="0.266">
 </testcase>
-<testcase name="Multi-Language Support › should load Spanish version" classname="tests/multi-language.spec.js" time="0.193">
+<testcase name="Homepage › should have working sitemap link" classname="tests/homepage.spec.js" time="0.209">
 </testcase>
-<testcase name="Multi-Language Support › should switch between languages" classname="tests/multi-language.spec.js" time="0.212">
+<testcase name="Homepage › should have proper HTML structure" classname="tests/homepage.spec.js" time="0.255">
 </testcase>
-<testcase name="Multi-Language Support › should have consistent structure across languages" classname="tests/multi-language.spec.js" time="0.303">
+<testcase name="Homepage › should have SEO meta tags" classname="tests/homepage.spec.js" time="0.278">
 </testcase>
-<testcase name="Multi-Language Support › should have language-specific meta tags" classname="tests/multi-language.spec.js" time="0.215">
+</testsuite>
+<testsuite name="tests/multi-language.spec.js" timestamp="2026-02-24T00:00:24.308Z" hostname="chromium" tests="11" failures="0" skipped="0" time="2.512" errors="0">
+<testcase name="Multi-Language Support › should load English version" classname="tests/multi-language.spec.js" time="0.217">
+</testcase>
+<testcase name="Multi-Language Support › should load German version" classname="tests/multi-language.spec.js" time="0.181">
+</testcase>
+<testcase name="Multi-Language Support › should load French version" classname="tests/multi-language.spec.js" time="0.205">
+</testcase>
+<testcase name="Multi-Language Support › should load Spanish version" classname="tests/multi-language.spec.js" time="0.21">
+</testcase>
+<testcase name="Multi-Language Support › should switch between languages" classname="tests/multi-language.spec.js" time="0.214">
+</testcase>
+<testcase name="Multi-Language Support › should have consistent structure across languages" classname="tests/multi-language.spec.js" time="0.297">
+</testcase>
+<testcase name="Multi-Language Support › should have language-specific meta tags" classname="tests/multi-language.spec.js" time="0.202">
 </testcase>
 <testcase name="Multi-Language Support › should maintain navigation in selected language" classname="tests/multi-language.spec.js" time="0.177">
 </testcase>
-<testcase name="Multi-Language Support › should have proper charset encoding for all languages" classname="tests/multi-language.spec.js" time="0.309">
+<testcase name="Multi-Language Support › should have proper charset encoding for all languages" classname="tests/multi-language.spec.js" time="0.329">
 </testcase>
-<testcase name="Multi-Language Support › should display articles in language-specific format" classname="tests/multi-language.spec.js" time="0.29">
+<testcase name="Multi-Language Support › should display articles in language-specific format" classname="tests/multi-language.spec.js" time="0.298">
 </testcase>
-<testcase name="Multi-Language Support › should have correct language in alternate links" classname="tests/multi-language.spec.js" time="0.198">
-</testcase>
-</testsuite>
-<testsuite name="tests/navigation.spec.js" timestamp="2026-02-22T20:41:44.010Z" hostname="chromium" tests="10" failures="0" skipped="0" time="2.462" errors="0">
-<testcase name="Navigation › should have functional navigation menu" classname="tests/navigation.spec.js" time="0.245">
-</testcase>
-<testcase name="Navigation › should navigate to different sections" classname="tests/navigation.spec.js" time="0.254">
-</testcase>
-<testcase name="Navigation › should maintain navigation state across pages" classname="tests/navigation.spec.js" time="0.245">
-</testcase>
-<testcase name="Navigation › should have working home link" classname="tests/navigation.spec.js" time="0.262">
-</testcase>
-<testcase name="Navigation › should support browser back button" classname="tests/navigation.spec.js" time="0.257">
-</testcase>
-<testcase name="Navigation › should support browser forward button" classname="tests/navigation.spec.js" time="0.247">
-</testcase>
-<testcase name="Navigation › should have accessible skip links" classname="tests/navigation.spec.js" time="0.203">
-</testcase>
-<testcase name="Navigation › should have proper link focus states" classname="tests/navigation.spec.js" time="0.284">
-</testcase>
-<testcase name="Navigation › should have working external links" classname="tests/navigation.spec.js" time="0.26">
-</testcase>
-<testcase name="Navigation › should not have broken internal links" classname="tests/navigation.spec.js" time="0.205">
+<testcase name="Multi-Language Support › should have correct language in alternate links" classname="tests/multi-language.spec.js" time="0.182">
 </testcase>
 </testsuite>
-<testsuite name="tests/news-browsing.spec.js" timestamp="2026-02-22T20:41:44.010Z" hostname="chromium" tests="5" failures="0" skipped="0" time="1.131" errors="0">
-<testcase name="News Browsing › should open and display article" classname="tests/news-browsing.spec.js" time="0.206">
+<testsuite name="tests/navigation.spec.js" timestamp="2026-02-24T00:00:24.308Z" hostname="chromium" tests="10" failures="0" skipped="0" time="2.385" errors="0">
+<testcase name="Navigation › should have functional navigation menu" classname="tests/navigation.spec.js" time="0.204">
 </testcase>
-<testcase name="News Browsing › should navigate back to homepage" classname="tests/news-browsing.spec.js" time="0.194">
+<testcase name="Navigation › should navigate to different sections" classname="tests/navigation.spec.js" time="0.201">
 </testcase>
-<testcase name="News Browsing › should display article metadata" classname="tests/news-browsing.spec.js" time="0.254">
+<testcase name="Navigation › should maintain navigation state across pages" classname="tests/navigation.spec.js" time="0.257">
 </testcase>
-<testcase name="News Browsing › should have working internal links" classname="tests/news-browsing.spec.js" time="0.232">
+<testcase name="Navigation › should have working home link" classname="tests/navigation.spec.js" time="0.253">
 </testcase>
-<testcase name="News Browsing › should display article content" classname="tests/news-browsing.spec.js" time="0.245">
+<testcase name="Navigation › should support browser back button" classname="tests/navigation.spec.js" time="0.27">
+</testcase>
+<testcase name="Navigation › should support browser forward button" classname="tests/navigation.spec.js" time="0.259">
+</testcase>
+<testcase name="Navigation › should have accessible skip links" classname="tests/navigation.spec.js" time="0.235">
+</testcase>
+<testcase name="Navigation › should have proper link focus states" classname="tests/navigation.spec.js" time="0.208">
+</testcase>
+<testcase name="Navigation › should have working external links" classname="tests/navigation.spec.js" time="0.246">
+</testcase>
+<testcase name="Navigation › should not have broken internal links" classname="tests/navigation.spec.js" time="0.252">
 </testcase>
 </testsuite>
-<testsuite name="tests/responsive.spec.js" timestamp="2026-02-22T20:41:44.010Z" hostname="chromium" tests="15" failures="0" skipped="0" time="5.435" errors="0">
-<testcase name="Responsive Design › should render correctly on Mobile Portrait" classname="tests/responsive.spec.js" time="0.188">
+<testsuite name="tests/news-browsing.spec.js" timestamp="2026-02-24T00:00:24.308Z" hostname="chromium" tests="5" failures="0" skipped="0" time="1.173" errors="0">
+<testcase name="News Browsing › should open and display article" classname="tests/news-browsing.spec.js" time="0.237">
 </testcase>
-<testcase name="Responsive Design › should render correctly on Tablet Portrait" classname="tests/responsive.spec.js" time="0.221">
+<testcase name="News Browsing › should navigate back to homepage" classname="tests/news-browsing.spec.js" time="0.248">
+</testcase>
+<testcase name="News Browsing › should display article metadata" classname="tests/news-browsing.spec.js" time="0.242">
+</testcase>
+<testcase name="News Browsing › should have working internal links" classname="tests/news-browsing.spec.js" time="0.236">
+</testcase>
+<testcase name="News Browsing › should display article content" classname="tests/news-browsing.spec.js" time="0.21">
+</testcase>
+</testsuite>
+<testsuite name="tests/responsive.spec.js" timestamp="2026-02-24T00:00:24.308Z" hostname="chromium" tests="15" failures="0" skipped="0" time="5.517" errors="0">
+<testcase name="Responsive Design › should render correctly on Mobile Portrait" classname="tests/responsive.spec.js" time="0.238">
+</testcase>
+<testcase name="Responsive Design › should render correctly on Tablet Portrait" classname="tests/responsive.spec.js" time="0.213">
 </testcase>
 <testcase name="Responsive Design › should render correctly on Desktop" classname="tests/responsive.spec.js" time="0.257">
 </testcase>
-<testcase name="Responsive Design › should have responsive meta viewport tag" classname="tests/responsive.spec.js" time="0.268">
+<testcase name="Responsive Design › should have responsive meta viewport tag" classname="tests/responsive.spec.js" time="0.265">
 </testcase>
-<testcase name="Responsive Design › should adapt layout for different screen sizes" classname="tests/responsive.spec.js" time="0.202">
+<testcase name="Responsive Design › should adapt layout for different screen sizes" classname="tests/responsive.spec.js" time="0.247">
 </testcase>
-<testcase name="Responsive Design › should have touch-friendly tap targets on mobile" classname="tests/responsive.spec.js" time="0.176">
+<testcase name="Responsive Design › should have touch-friendly tap targets on mobile" classname="tests/responsive.spec.js" time="0.171">
 </testcase>
-<testcase name="Responsive Design › should not have horizontal scroll on mobile" classname="tests/responsive.spec.js" time="0.236">
+<testcase name="Responsive Design › should not have horizontal scroll on mobile" classname="tests/responsive.spec.js" time="0.23">
 </testcase>
-<testcase name="Responsive Design › should display readable text on mobile" classname="tests/responsive.spec.js" time="0.358">
+<testcase name="Responsive Design › should display readable text on mobile" classname="tests/responsive.spec.js" time="0.34">
 </testcase>
-<testcase name="Responsive Design › should stack content on mobile" classname="tests/responsive.spec.js" time="0.28">
+<testcase name="Responsive Design › should stack content on mobile" classname="tests/responsive.spec.js" time="0.248">
 </testcase>
-<testcase name="Responsive Design › should maintain functionality across viewports" classname="tests/responsive.spec.js" time="0.442">
+<testcase name="Responsive Design › should maintain functionality across viewports" classname="tests/responsive.spec.js" time="0.412">
 </testcase>
-<testcase name="Responsive Design › should have responsive images" classname="tests/responsive.spec.js" time="0.214">
+<testcase name="Responsive Design › should have responsive images" classname="tests/responsive.spec.js" time="0.191">
 </testcase>
-<testcase name="Responsive Design › should hide or show elements based on viewport" classname="tests/responsive.spec.js" time="0.814">
+<testcase name="Responsive Design › should hide or show elements based on viewport" classname="tests/responsive.spec.js" time="0.899">
 </testcase>
-<testcase name="Responsive Design › should support landscape orientation on mobile" classname="tests/responsive.spec.js" time="0.713">
+<testcase name="Responsive Design › should support landscape orientation on mobile" classname="tests/responsive.spec.js" time="0.709">
 </testcase>
-<testcase name="Responsive Design › should have readable line lengths on desktop" classname="tests/responsive.spec.js" time="0.228">
+<testcase name="Responsive Design › should have readable line lengths on desktop" classname="tests/responsive.spec.js" time="0.263">
 </testcase>
-<testcase name="Responsive Design › should support text resizing without breaking layout" classname="tests/responsive.spec.js" time="0.838">
+<testcase name="Responsive Design › should support text resizing without breaking layout" classname="tests/responsive.spec.js" time="0.834">
 </testcase>
 </testsuite>
 </testsuites>
