@@ -522,9 +522,9 @@ and quality assurance:
 #### 🏆 Compliance & Quality
 
 - **REUSE Compliance**: License header verification (FSFE REUSE specification)
-- **SonarCloud Analysis**: Code quality, security vulnerabilities, and technical debt tracking
+- **SonarCloud Analysis**: Automatic server-side code quality, security vulnerabilities, and technical debt tracking
 - **SLSA Provenance**: Level 3 build attestations with SBOM generation on releases
-- **Workflows**: `.github/workflows/reuse.yml`, `.github/workflows/sonarcloud.yml`, `.github/workflows/slsa-provenance.yml`
+- **Workflows**: `.github/workflows/reuse.yml`, `.github/workflows/slsa-provenance.yml`
 
 #### ✅ Test & Validation
 
@@ -551,7 +551,6 @@ and quality assurance:
 **Compliance Workflows:**
 
 [![REUSE Compliance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml)
-[![SonarCloud](https://github.com/Hack23/euparliamentmonitor/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/sonarcloud.yml)
 [![SLSA Provenance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/slsa-provenance.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/slsa-provenance.yml)
 
 ### Manual Release Process
@@ -722,15 +721,6 @@ EU Parliament Monitor maintains security excellence through continuous complianc
 - ✅ Artifacts uploaded to GitHub Releases
 
 **Verification**: View attestations at `https://github.com/Hack23/euparliamentmonitor/attestations/`
-
-#### SonarCloud Quality Gate
-
-**Setup Required**:
-1. Enable repository at [SonarCloud](https://sonarcloud.io/)
-2. Add `SONAR_TOKEN` secret to GitHub repository
-3. Configure quality gate thresholds (recommended: 80% coverage, A maintainability)
-
-**Workflow**: Runs automatically on push to `main` and pull requests
 
 #### FOSSA License Compliance
 
