@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:**
-2026-02-20 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-20  
+**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:**
+2026-02-24 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-24  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -103,10 +103,13 @@ static site to enhanced security capabilities. For complete policy mapping, see
 ## 📋 Executive Summary
 
 This document outlines the planned security architecture enhancements for EU
-Parliament Monitor over the next 18 months (Q2 2026 - Q1 2027). The roadmap
+Parliament Monitor over the near-term (Q2 2026 - Q1 2027) and extends into a
+**visionary 10-year security roadmap (2027-2037)**. The near-term roadmap
 focuses on **proactive security**, **automated verification**, and
 **resilience** while maintaining the platform's core principles of simplicity
-and transparency.
+and transparency. The long-term vision addresses the security implications of
+evolving AI capabilities — including Anthropic Opus 4.6 (minor updates every
+~2.3 months, major version upgrades annually) — and potential AGI emergence.
 
 ## 🎯 Strategic Security Goals
 
@@ -2599,6 +2602,87 @@ async function getAnalytics(env) {
 
 ---
 
+## 🔮 Visionary Security Roadmap: 2027-2037
+
+### AI-Driven Security Evolution
+
+As AI models evolve from Anthropic Opus 4.6 (minor updates every ~2.3 months,
+major annual upgrades) through potential AGI, the security architecture must
+evolve to address both new capabilities and new threat vectors.
+
+### Security Threat Evolution Timeline
+
+| Era | Years | Primary Threats | Security Response |
+| --- | ----- | --------------- | ----------------- |
+| **Current** | 2026 | Supply chain attacks, prompt injection, data poisoning | SHA-pinning, input validation, CodeQL |
+| **Near-Term** | 2027-2029 | Advanced AI-powered attacks, model manipulation, deepfake content | AI-powered threat detection, content provenance, model verification |
+| **Mid-Term** | 2029-2032 | Autonomous attack agents, quantum cryptography threats, AI model theft | Zero-trust AI architecture, post-quantum crypto migration, model fingerprinting |
+| **Long-Term** | 2032-2035 | AGI-enabled sophisticated attacks, infrastructure-level threats | AGI-powered defense systems, self-healing security, predictive threat prevention |
+| **Visionary** | 2035-2037 | Post-AGI threat landscape, unknown attack vectors | Autonomous security operations, adaptive defense, quantum-safe infrastructure |
+
+### Phase 5: AI-Powered Security Operations (2027-2029)
+
+- **AI Threat Detection**: Deploy ML models to detect anomalous patterns in
+  MCP data flows, content generation, and user access — leveraging Opus 5.x
+  capabilities for natural language threat analysis
+- **Content Provenance & Signing**: Cryptographic signatures on all generated
+  content with blockchain-anchored provenance chains, ensuring content integrity
+  across the multi-language pipeline
+- **LLM Security Hardening**: Implement model-agnostic guardrails for prompt
+  injection, jailbreak attempts, and adversarial inputs as the platform
+  integrates multiple AI models (Anthropic, competitors, open-source)
+- **Automated Vulnerability Remediation**: AI-assisted patch generation and
+  deployment for detected vulnerabilities with human approval gates
+
+### Phase 6: Zero-Trust AI Architecture (2029-2032)
+
+- **Zero-Trust Model Interactions**: Every AI model interaction verified,
+  validated, and audited — no implicit trust between system components
+- **Post-Quantum Cryptography Migration**: Begin transitioning to quantum-safe
+  algorithms (CRYSTALS-Kyber, CRYSTALS-Dilithium) for all cryptographic
+  operations before quantum computing threatens current encryption
+- **AI Red Team Automation**: Continuous automated adversarial testing of all
+  AI components using competing models to find vulnerabilities
+- **Federated Security Intelligence**: Share threat intelligence across the
+  Hack23 ecosystem (CIA, riksdagsmonitor, etc.) with privacy-preserving protocols
+
+### Phase 7: Autonomous Security (2032-2035)
+
+- **Self-Defending Infrastructure**: Systems that autonomously detect,
+  isolate, and remediate security incidents without human intervention for
+  routine threats
+- **Predictive Threat Prevention**: AI models that forecast attack vectors
+  based on geopolitical trends, technology evolution, and historical patterns
+- **Quantum-Safe Infrastructure**: Complete migration to quantum-resistant
+  cryptographic primitives across all system components
+- **AI Ethics & Safety Controls**: Comprehensive guardrails ensuring AI
+  security tools operate within defined ethical boundaries
+
+### Phase 8: AGI-Ready Security (2035-2037)
+
+- **AGI-Powered Defense**: If AGI emerges, integrate general intelligence
+  capabilities into security operations for unprecedented threat detection
+  and response
+- **Autonomous Compliance Management**: Security systems that automatically
+  adapt to evolving regulatory requirements (GDPR successors, new EU
+  regulations, global standards)
+- **Universal Threat Intelligence**: Real-time global threat awareness with
+  autonomous response across all covered parliamentary platforms
+- **Self-Evolving Security Architecture**: Security controls that autonomously
+  improve based on emerging threat patterns and attack techniques
+
+### Cryptographic Evolution Path
+
+| Year | Cryptographic Standard | Key Size / Algorithm | Purpose |
+| ---- | ---------------------- | -------------------- | ------- |
+| 2026 | TLS 1.3 + AES-256 | Current best practice | Transit + at-rest encryption |
+| 2028 | Hybrid classical + PQ | CRYSTALS-Kyber (testing) | Quantum migration preparation |
+| 2030 | Post-quantum primary | CRYSTALS-Dilithium, SPHINCS+ | Quantum-safe signatures |
+| 2033 | Full PQ migration | Quantum-safe only | Complete quantum resistance |
+| 2035 | Quantum-native | QKD-enhanced (if available) | Quantum key distribution |
+
+---
+
 ## 🔄 Review & Maintenance
 
 ### Quarterly Reviews
@@ -2631,7 +2715,7 @@ async function getAnalytics(env) {
 ---
 
 **Document Status**: Living document, updated quarterly  
-**Next Review**: 2026-05-17  
+**Next Review**: 2026-05-24  
 **Owner**: CEO, Hack23 AB
 
 <p align="center">
