@@ -9,25 +9,25 @@
 /** Supported language codes */
 export type LanguageCode =
   | 'en'
+  | 'sv'
+  | 'da'
+  | 'no'
+  | 'fi'
   | 'de'
   | 'fr'
   | 'es'
-  | 'it'
   | 'nl'
-  | 'pl'
-  | 'pt'
-  | 'ro'
-  | 'sv'
-  | 'da'
-  | 'fi'
-  | 'el'
-  | 'hu';
+  | 'ar'
+  | 'he'
+  | 'ja'
+  | 'ko'
+  | 'zh';
 
 /** RTL language codes */
 export type RTLLanguageCode = 'ar' | 'he';
 
 /** All possible language codes (including RTL) */
-export type AnyLanguageCode = LanguageCode | RTLLanguageCode;
+export type AnyLanguageCode = LanguageCode;
 
 /** Article type identifiers */
 export type ArticleType = 'prospective' | 'retrospective' | 'breaking';

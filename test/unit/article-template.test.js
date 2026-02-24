@@ -231,7 +231,7 @@ describe('article-template', () => {
         const html = generateArticleHTML({ ...defaultOptions, lang: 'en' });
         
         expect(html).toContain('<nav class="article-nav">');
-        expect(html).toContain('<a href="../index-en.html" class="back-to-news">← Back to News</a>');
+        expect(html).toContain('<a href="../index.html" class="back-to-news">← Back to News</a>');
       });
 
       it('should use correct back link for language', () => {

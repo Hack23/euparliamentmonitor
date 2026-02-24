@@ -133,7 +133,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     ${renderSourcesSection(sources)}
     
     <nav class="article-nav">
-      <a href="../index-${lang}.html" class="back-to-news">${backLabel}</a>
+      <a href="../${lang === 'en' ? 'index.html' : `index-${lang}.html`}" class="back-to-news">${backLabel}</a>
     </nav>
   </article>
 </body>
