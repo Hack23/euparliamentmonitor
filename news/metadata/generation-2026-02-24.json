@@ -1,18 +1,31 @@
 {
-  "timestamp": "2026-02-24T03:48:24.824Z",
-  "generated": 1,
+  "timestamp": "2026-02-24T05:25:19.707Z",
+  "generated": 14,
   "skipped": 0,
   "dryRun": 0,
   "errors": 0,
   "articles": [
-    "2026-02-24-week-ahead-en.html"
+    "2026-02-24-motions-en.html",
+    "2026-02-24-motions-sv.html",
+    "2026-02-24-motions-da.html",
+    "2026-02-24-motions-no.html",
+    "2026-02-24-motions-fi.html",
+    "2026-02-24-motions-de.html",
+    "2026-02-24-motions-fr.html",
+    "2026-02-24-motions-es.html",
+    "2026-02-24-motions-nl.html",
+    "2026-02-24-motions-ar.html",
+    "2026-02-24-motions-he.html",
+    "2026-02-24-motions-ja.html",
+    "2026-02-24-motions-ko.html",
+    "2026-02-24-motions-zh.html"
   ],
   "results": [
     {
       "success": true,
-      "files": 1,
-      "slug": "2026-02-24-week-ahead"
+      "files": 14,
+      "slug": "2026-02-24-motions"
     }
   ],
-  "usedMCP": true
+  "usedMCP": false
 }
