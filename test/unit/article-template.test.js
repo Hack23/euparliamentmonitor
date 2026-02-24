@@ -301,6 +301,33 @@ describe('article-template', () => {
         
         expect(html).toContain('<article class="news-article" lang="fr">');
       });
+
+      it('should include skip navigation link', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain('<a href="#main" class="skip-link">');
+      });
+
+      it('should include site header with branding', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain('<header class="site-header" role="banner">');
+        expect(html).toContain('EU Parliament Monitor');
+      });
+
+      it('should include main element with id for skip link target', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain('<main id="main"');
+      });
+
+      it('should include site footer', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain('<footer class="site-footer" role="contentinfo">');
+      });
+
+      it('should include security meta tags', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain('X-Content-Type-Options');
+        expect(html).toContain('no-referrer');
+      });
     });
 
     describe('Error Handling', () => {

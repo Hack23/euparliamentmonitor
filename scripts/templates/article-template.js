@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-import { LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 /**
  * Generate complete HTML for a news article
@@ -23,6 +23,8 @@ export function generateArticleHTML(options) {
     const readTimeFormatter = getLocalizedString(READ_TIME_LABELS, lang);
     const readTimeLabel = readTimeFormatter(readTime);
     const backLabel = getLocalizedString(BACK_TO_NEWS_LABELS, lang);
+    const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
+    const indexHref = lang === 'en' ? '../index.html' : `../index-${lang}.html`;
     // Escape values for safe HTML embedding
     const safeTitle = escapeHTML(title);
     const safeSubtitle = escapeHTML(subtitle);
@@ -52,6 +54,8 @@ export function generateArticleHTML(options) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="no-referrer">
   <title>${safeTitle} | EU Parliament Monitor</title>
   <meta name="description" content="${safeSubtitle}">
   <meta name="keywords" content="${safeKeywords}">
@@ -80,6 +84,21 @@ export function generateArticleHTML(options) {
   </script>
 </head>
 <body>
+  <a href="#main" class="skip-link">${skipLinkText}</a>
+
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="${indexHref}" class="site-header__brand" aria-label="EU Parliament Monitor">
+        <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
+        <span>
+          <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__subtitle">European Parliament Intelligence</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
   <article class="news-article" lang="${lang}">
     <header class="article-header">
       <div class="article-meta">
@@ -97,9 +116,16 @@ export function generateArticleHTML(options) {
     ${renderSourcesSection(sources)}
     
     <nav class="article-nav">
-      <a href="../${lang === 'en' ? 'index.html' : `index-${lang}.html`}" class="back-to-news">${backLabel}</a>
+      <a href="${indexHref}" class="back-to-news">${backLabel}</a>
     </nav>
   </article>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-bottom">
+      <p>&copy; 2008-${new Date().getFullYear()} <a href="https://hack23.com">Hack23 AB</a> | EU Parliament Monitor</p>
+    </div>
+  </footer>
 </body>
 </html>`;
 }

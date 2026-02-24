@@ -152,6 +152,24 @@ export const NO_ARTICLES_MESSAGES: LanguageMap = {
   zh: '暂无文章。',
 };
 
+/** Skip link text per language */
+export const SKIP_LINK_TEXTS: LanguageMap = {
+  en: 'Skip to main content',
+  sv: 'Hoppa till huvudinnehåll',
+  da: 'Spring til hovedindhold',
+  no: 'Hopp til hovedinnhold',
+  fi: 'Siirry pääsisältöön',
+  de: 'Zum Hauptinhalt springen',
+  fr: 'Aller au contenu principal',
+  es: 'Ir al contenido principal',
+  nl: 'Ga naar hoofdinhoud',
+  ar: 'انتقل إلى المحتوى الرئيسي',
+  he: 'דלג לתוכן הראשי',
+  ja: 'メインコンテンツへスキップ',
+  ko: '본문으로 건너뛰기',
+  zh: '跳至主要内容',
+};
+
 /** Article category labels per language — covers all ArticleCategory values */
 export const ARTICLE_TYPE_LABELS: LanguageMap<ArticleCategoryLabels> = {
   en: {
