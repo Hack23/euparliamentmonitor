@@ -111,9 +111,22 @@ jobs:
               # Replace the per-workflow concurrency group with the shared one (single-line form)
               if grep -q 'group: "gh-aw-\${{ github.workflow }}"' "$lock_file"; then
                 sed -i 's|group: "gh-aw-\${{ github.workflow }}"|group: "news-article-generation"|' "$lock_file"
-                # Insert cancel-in-progress: false on the line after the group line
-                sed -i '/group: "news-article-generation"/{/cancel-in-progress/!a\  cancel-in-progress: false
-}' "$lock_file"
+                # Ensure cancel-in-progress: false is present on the line after the group line
+                awk '
+                  /group: "news-article-generation"/ {
+                    print
+                    if ((getline nextLine) <= 0) {
+                      print "  cancel-in-progress: false"
+                      exit
+                    }
+                    if (nextLine !~ /cancel-in-progress:/) {
+                      print "  cancel-in-progress: false"
+                    }
+                    print nextLine
+                    next
+                  }
+                  { print }
+                ' "$lock_file" > "${lock_file}.tmp" && mv "${lock_file}.tmp" "$lock_file"
                 echo "✅ Patched concurrency group in $lock_file"
               else
                 echo "ℹ️  $lock_file already has a custom concurrency group — skipping"
