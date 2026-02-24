@@ -104,11 +104,11 @@ mindmap
         Open Data Access
         Political Accountability
       Multi-Language Support
-        14 EU Languages
-          EN, DE, FR, ES
-          IT, NL, PL, PT
-          RO, SV, DA, FI
-          EL, HU
+        14 Languages
+          EN, SV, DA, NO
+          FI, DE, FR, ES
+          NL, AR, HE, JA
+          KO, ZH
         Native Speakers
         Cultural Adaptation
       Automated Intelligence
@@ -642,19 +642,19 @@ flowchart TD
     Validate -->|Valid| Translate[🌍 Multi-Language]
 
     Translate --> L1[English]
-    Translate --> L2[German]
-    Translate --> L3[French]
-    Translate --> L4[Spanish]
-    Translate --> L5[Italian]
-    Translate --> L6[Dutch]
-    Translate --> L7[Polish]
-    Translate --> L8[Portuguese]
-    Translate --> L9[Romanian]
-    Translate --> L10[Swedish]
-    Translate --> L11[Danish]
-    Translate --> L12[Finnish]
-    Translate --> L13[Greek]
-    Translate --> L14[Hungarian]
+    Translate --> L2[Swedish]
+    Translate --> L3[Danish]
+    Translate --> L4[Norwegian]
+    Translate --> L5[Finnish]
+    Translate --> L6[German]
+    Translate --> L7[French]
+    Translate --> L8[Spanish]
+    Translate --> L9[Dutch]
+    Translate --> L10[Arabic]
+    Translate --> L11[Hebrew]
+    Translate --> L12[Japanese]
+    Translate --> L13[Korean]
+    Translate --> L14[Chinese]
 
     L1 --> HTML[Generate HTML]
     L2 --> HTML

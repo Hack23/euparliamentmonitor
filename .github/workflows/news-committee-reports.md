@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Committee Reports"
-description: Generates EU Parliament committee reports analysis articles for all 14 EU languages. Single article type per run to reduce patch size and improve reliability.
+description: Generates EU Parliament committee reports analysis articles for all 14 languages. Single article type per run to reduce patch size and improve reliability.
 strict: false
 on:
   schedule:
@@ -25,7 +25,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 30
+timeout-minutes: 45
 
 network:
   allowed:
@@ -45,7 +45,7 @@ mcp-servers:
     command: npx
     args:
       - "-y"
-      - european-parliament-mcp-server@0.4.0
+      - european-parliament-mcp-server@0.5.1
 
 tools:
   github:
@@ -90,12 +90,12 @@ This focused approach ensures:
 - Faster execution within timeout
 - Independent scheduling per article type
 
-## ⏱️ Time Budget (30 minutes)
+## ⏱️ Time Budget (45 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–10**: Query EP MCP tools for committee reports data
-- **Minutes 10–22**: Generate articles for all 14 EU languages
-- **Minutes 22–27**: Validate and commit
-- **Minutes 27–30**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 10–35**: Generate articles for all 14 languages
+- **Minutes 35–40**: Validate and commit
+- **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
 
 ## Required Skills
 
@@ -142,13 +142,27 @@ european_parliament___search_documents({ query: "committee opinion", type: "OPIN
 european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
 european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ECON" })
 
+// Analyze committee workload and engagement (v0.5.1 tool)
+european_parliament___analyze_committee_activity({ committeeId: "ENVI" })
+european_parliament___analyze_committee_activity({ committeeId: "ECON" })
+
 // Fetch committee voting records
 european_parliament___get_voting_records({})
 
 // Get committee members and rapporteurs
 european_parliament___get_meps({ committee: "ENVI" })
 european_parliament___get_mep_details({ id: "<mepId>" })
+
+// Track MEP attendance in committees (v0.5.1 tool)
+european_parliament___track_mep_attendance({})
 ```
+
+### Handling Slow API Responses
+
+EU Parliament API responses commonly take 30+ seconds. To handle this:
+1. Use `Promise.allSettled()` for all parallel MCP queries
+2. Never fail the workflow on individual tool timeouts
+3. Continue with available data if some queries time out
 
 ## EP Standing Committees Reference
 
@@ -194,16 +208,16 @@ LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
 # Strict allowlist validation to prevent shell injection
-if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu)(,(en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu))*$'; then
+if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh)(,(en|sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh))*$'; then
   echo "❌ Invalid languages input: $LANGUAGES_INPUT" >&2
-  echo "Allowed: all, eu-core, nordic, or comma-separated: en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" >&2
+  echo "Allowed: all, eu-core, nordic, or comma-separated: en,sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" >&2
   exit 1
 fi
 
 case "$LANGUAGES_INPUT" in
-  "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
-  "nordic") LANG_ARG="en,sv,da,fi" ;;
-  "all") LANG_ARG="en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" ;;
+  "eu-core") LANG_ARG="en,de,fr,es,nl" ;;
+  "nordic") LANG_ARG="en,sv,da,no,fi" ;;
+  "all") LANG_ARG="en,sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" ;;
   *) LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 

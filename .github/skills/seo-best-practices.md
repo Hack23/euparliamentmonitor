@@ -8,7 +8,7 @@ license: Apache-2.0
 
 ## Purpose
 
-Provide actionable SEO guidance for the EU Parliament Monitor — a static HTML site serving political news in 14 EU languages. Covers on-page optimization, technical SEO, structured data, hreflang implementation, and GDPR-compliant discoverability without user tracking.
+Provide actionable SEO guidance for the EU Parliament Monitor — a static HTML site serving political news in 14 languages. Covers on-page optimization, technical SEO, structured data, hreflang implementation, and GDPR-compliant discoverability without user tracking.
 
 ## When to Use
 
@@ -65,21 +65,21 @@ SEO Architecture:
 
 ```html
 <!-- Required in <head> for every page — all 14 language variants -->
-<link rel="alternate" hreflang="en" href="https://euparliamentmonitor.com/index-en.html" />
-<link rel="alternate" hreflang="fr" href="https://euparliamentmonitor.com/index-fr.html" />
-<link rel="alternate" hreflang="de" href="https://euparliamentmonitor.com/index-de.html" />
-<link rel="alternate" hreflang="es" href="https://euparliamentmonitor.com/index-es.html" />
-<link rel="alternate" hreflang="it" href="https://euparliamentmonitor.com/index-it.html" />
-<link rel="alternate" hreflang="pt" href="https://euparliamentmonitor.com/index-pt.html" />
-<link rel="alternate" hreflang="nl" href="https://euparliamentmonitor.com/index-nl.html" />
-<link rel="alternate" hreflang="el" href="https://euparliamentmonitor.com/index-el.html" />
-<link rel="alternate" hreflang="pl" href="https://euparliamentmonitor.com/index-pl.html" />
-<link rel="alternate" hreflang="ro" href="https://euparliamentmonitor.com/index-ro.html" />
+<link rel="alternate" hreflang="en" href="https://euparliamentmonitor.com/index.html" />
 <link rel="alternate" hreflang="sv" href="https://euparliamentmonitor.com/index-sv.html" />
 <link rel="alternate" hreflang="da" href="https://euparliamentmonitor.com/index-da.html" />
+<link rel="alternate" hreflang="no" href="https://euparliamentmonitor.com/index-no.html" />
 <link rel="alternate" hreflang="fi" href="https://euparliamentmonitor.com/index-fi.html" />
-<link rel="alternate" hreflang="hu" href="https://euparliamentmonitor.com/index-hu.html" />
-<link rel="alternate" hreflang="x-default" href="https://euparliamentmonitor.com/index-en.html" />
+<link rel="alternate" hreflang="de" href="https://euparliamentmonitor.com/index-de.html" />
+<link rel="alternate" hreflang="fr" href="https://euparliamentmonitor.com/index-fr.html" />
+<link rel="alternate" hreflang="es" href="https://euparliamentmonitor.com/index-es.html" />
+<link rel="alternate" hreflang="nl" href="https://euparliamentmonitor.com/index-nl.html" />
+<link rel="alternate" hreflang="ar" href="https://euparliamentmonitor.com/index-ar.html" />
+<link rel="alternate" hreflang="he" href="https://euparliamentmonitor.com/index-he.html" />
+<link rel="alternate" hreflang="ja" href="https://euparliamentmonitor.com/index-ja.html" />
+<link rel="alternate" hreflang="ko" href="https://euparliamentmonitor.com/index-ko.html" />
+<link rel="alternate" hreflang="zh" href="https://euparliamentmonitor.com/index-zh.html" />
+<link rel="alternate" hreflang="x-default" href="https://euparliamentmonitor.com/index.html" />
 ```
 
 ### JSON-LD NewsArticle Schema

@@ -91,8 +91,8 @@ excellence_
 
 **Included Systems:**
 
-- 🌐 Static HTML/CSS site (14 languages: en, de, fr, es, it, nl, sv, da, fi, pl,
-  ro, hu, pt, el)
+- 🌐 Static HTML/CSS site (14 languages: en, sv, da, no, fi, de, fr, es, nl, ar,
+  he, ja, ko, zh)
 - 🔄 News generation scripts (Node.js 24, European Parliament MCP integration)
 - 🤖 GitHub Actions CI/CD (daily automation, HTML validation, deployment)
 - 📄 GitHub Pages hosting (static content delivery)
@@ -729,16 +729,16 @@ flowchart TD
 | **🇩🇪 German (de)**     | Formal/informal register manipulation           | Political tone misrepresentation            | Native speaker review, context validation | German political discourse expert   |
 | **🇫🇷 French (fr)**     | Political terminology mistranslation            | Policy misinterpretation                    | French parliamentary terminology expert   | EU French language service          |
 | **🇪🇸 Spanish (es)**    | Regional dialect bias (Spain vs. Latin America) | Geographic inclusivity                      | Neutral Spanish usage, expert review      | Spanish linguistic diversity expert |
-| **🇮🇹 Italian (it)**    | Political context loss                          | Italian political culture misrepresentation | Cultural context preservation             | Italian political analyst           |
-| **🇳🇱 Dutch (nl)**      | Parliamentary term accuracy                     | Dutch parliamentary procedure understanding | Official Dutch EP glossary                | Dutch parliamentary expert          |
-| **🇸🇪 Swedish (sv)**    | Nordic political terminology                    | Swedish political culture representation    | Swedish EU terminology expert             | Swedish EU correspondent            |
+| **�🇪 Swedish (sv)**    | Nordic political terminology                    | Swedish political culture representation    | Swedish EU terminology expert             | Swedish EU correspondent            |
 | **🇩🇰 Danish (da)**     | Danish political nuance                         | Danish democratic culture                   | Danish political expert                   | Danish EU journalist                |
+| **🇳🇴 Norwegian (no)**  | Norwegian political terminology                 | Norwegian political culture representation  | Norwegian EU terminology expert           | Norwegian EU correspondent          |
 | **🇫🇮 Finnish (fi)**    | Finnish parliamentary terms                     | Finnish political system understanding      | Finnish parliamentary glossary            | Finnish EU expert                   |
-| **🇵🇱 Polish (pl)**     | Polish political sensitivity                    | Polish political discourse                  | Polish political expert                   | Polish EU analyst                   |
-| **🇷🇴 Romanian (ro)**   | Romanian EU terminology                         | Romanian EU integration context             | Romanian EU specialist                    | Romanian political analyst          |
-| **🇭🇺 Hungarian (hu)**  | Hungarian political context                     | Hungarian political culture                 | Hungarian political expert                | Hungarian EU correspondent          |
-| **🇵🇹 Portuguese (pt)** | Portuguese political terminology                | Portuguese political culture                | Portuguese EU specialist                  | Portuguese political analyst        |
-| **🇬🇷 Greek (el)**      | Greek EU terminology                            | Greek political discourse                   | Greek EU expert                           | Greek political journalist          |
+| **🇳🇱 Dutch (nl)**      | Parliamentary term accuracy                     | Dutch parliamentary procedure understanding | Official Dutch EP glossary                | Dutch parliamentary expert          |
+| **🇸🇦 Arabic (ar)**     | RTL layout and political sensitivity            | Arabic political discourse                  | Arabic political expert, RTL validation   | Arabic EU analyst                   |
+| **🇮🇱 Hebrew (he)**     | RTL layout and terminology accuracy             | Hebrew political culture                    | Hebrew political expert, RTL validation   | Hebrew EU correspondent             |
+| **🇯🇵 Japanese (ja)**   | Honorific and formal register accuracy          | Japanese political culture representation   | Japanese EU terminology expert            | Japanese political analyst          |
+| **🇰🇷 Korean (ko)**     | Korean political terminology                    | Korean political culture representation     | Korean EU terminology expert              | Korean political analyst            |
+| **🇨🇳 Chinese (zh)**    | Simplified vs. Traditional, political nuance    | Chinese political discourse representation  | Chinese EU specialist                     | Chinese political analyst           |
 
 #### **🌐 Cultural Bias Detection Framework**
 
@@ -1160,18 +1160,18 @@ with parliamentary adaptations:
 
 #### **🌍 Multi-Language Security**
 
-- **🤝 Cultural Sensitivity:** Respect for 14 European language cultures and
+- **🤝 Cultural Sensitivity:** Respect for 14 language cultures and
   political contexts
 - **📢 Translation Validation:** Native speaker review for parliamentary
   terminology
 - **🔍 Consistency Verification:** Cross-language comparison for content
   consistency
-- **📈 Linguistic Diversity:** Equal treatment of all official EU languages
+- **📈 Linguistic Diversity:** Equal treatment of all supported languages
 
 **Implementation:**
 
-- ✅ 14 language versions (en, de, fr, es, it, nl, sv, da, fi, pl, ro, hu, pt,
-  el)
+- ✅ 14 language versions (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko,
+  zh)
 - ✅ Language-specific HTML files with proper encoding (UTF-8)
 - ✅ Cultural context preservation in translations
 - 🔄 Native speaker validation (planned for Level 3 maturity)
@@ -1370,7 +1370,7 @@ Q3 2026
 | **MITRE ATT&CK Coverage**    | 1.3% (9/703 techniques)     | ✅ Appropriate for static site               |
 | **Security Controls**        | 25+                         | ✅ Implemented                               |
 | **Defense Layers**           | 5 (Perimeter to Monitoring) | ✅ Complete                                  |
-| **Languages Supported**      | 14 European languages       | ✅ Multi-language security                   |
+| **Languages Supported**      | 14 languages       | ✅ Multi-language security                   |
 | **Document Lines**           | 943+                        | ✅ Comprehensive (matching Hack23 standards) |
 | **Maturity Level**           | Level 2 (In Progress)       | 🔄 Advancing to Level 3                      |
 | **P1 Threats**               | 1 (T-003)                   | ⚠️ Requires action by Q3 2026                |

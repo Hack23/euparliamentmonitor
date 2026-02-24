@@ -91,7 +91,7 @@ template: |
 
   ### Key Features
   - 📰 **Automated News Generation** - Generate news articles about EU Parliament activities
-  - 🌍 **14-Language Support** - English, German, French, Spanish, Italian, Dutch, Swedish, Danish, Finnish, Polish, Romanian, Hungarian, Portuguese, Greek
+  - 🌍 **14-Language Support** - English, Swedish, Danish, Norwegian, Finnish, German, French, Spanish, Dutch, Arabic, Hebrew, Japanese, Korean, Chinese
   - 📅 **Week Ahead Coverage** - Preview upcoming parliamentary events
   - 🤖 **8 Custom GitHub Copilot Agents** - Specialized agents for development tasks
   - 🔄 **European Parliament MCP Integration** - Real-time EU Parliament data access

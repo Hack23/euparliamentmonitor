@@ -209,20 +209,21 @@ describe('generate-news-indexes', () => {
   });
 
   describe('Multi-Language Support', () => {
-    const languages = ['en', 'de', 'fr', 'es', 'it', 'nl', 'pl', 'pt', 'ro', 'sv', 'da', 'fi', 'el', 'hu'];
+    const languages = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
 
-    it('should support all EU languages', () => {
+    it('should support all Hack23 market languages', () => {
       expect(languages).toHaveLength(14);
     });
 
     it('should generate index for each language', () => {
       const indexes = languages.map((lang) => ({
         lang,
-        filename: `index-${lang}.html`,
+        filename: lang === 'en' ? 'index.html' : `index-${lang}.html`,
       }));
 
       expect(indexes).toHaveLength(14);
-      indexes.forEach((index) => {
+      expect(indexes[0].filename).toBe('index.html');
+      indexes.slice(1).forEach((index) => {
         expect(index.filename).toMatch(/^index-[a-z]{2}\.html$/);
       });
     });
@@ -230,19 +231,19 @@ describe('generate-news-indexes', () => {
     it('should use correct language names', () => {
       const langNames = {
         en: 'English',
+        sv: 'Svenska',
+        da: 'Dansk',
+        no: 'Norsk',
+        fi: 'Suomi',
         de: 'Deutsch',
         fr: 'Français',
         es: 'Español',
-        it: 'Italiano',
         nl: 'Nederlands',
-        pl: 'Polski',
-        pt: 'Português',
-        ro: 'Română',
-        sv: 'Svenska',
-        da: 'Dansk',
-        fi: 'Suomi',
-        el: 'Ελληνικά',
-        hu: 'Magyar',
+        ar: 'العربية',
+        he: 'עברית',
+        ja: '日本語',
+        ko: '한국어',
+        zh: '中文',
       };
 
       Object.entries(langNames).forEach(([code, name]) => {
@@ -312,7 +313,7 @@ describe('generate-news-indexes', () => {
 
 /**
  * Helper function to generate mock index HTML
- * Simplified version of the actual generator
+ * Mirrors the actual generator's card-layout structure
  */
 function generateMockIndexHTML(lang, articles) {
   const titles = {
@@ -329,19 +330,19 @@ function generateMockIndexHTML(lang, articles) {
 
   const langNames = {
     en: 'English',
+    sv: 'Svenska',
+    da: 'Dansk',
+    no: 'Norsk',
+    fi: 'Suomi',
     de: 'Deutsch',
     fr: 'Français',
     es: 'Español',
-    it: 'Italiano',
     nl: 'Nederlands',
-    pl: 'Polski',
-    pt: 'Português',
-    ro: 'Română',
-    sv: 'Svenska',
-    da: 'Dansk',
-    fi: 'Suomi',
-    el: 'Ελληνικά',
-    hu: 'Magyar',
+    ar: 'العربية',
+    he: 'עברית',
+    ja: '日本語',
+    ko: '한국어',
+    zh: '中文',
   };
 
   const noArticles = {
@@ -350,10 +351,27 @@ function generateMockIndexHTML(lang, articles) {
     fr: 'Aucun article disponible pour le moment.',
   };
 
+  const headings = {
+    en: 'Latest News',
+    de: 'Neueste Nachrichten',
+    fr: 'Dernières Actualités',
+  };
+
   const title = titles[lang] || titles.en;
   const description = descriptions[lang] || descriptions.en;
   const languageName = langNames[lang] || 'English';
   const noArticlesText = noArticles[lang] || noArticles.en;
+  const heading = headings[lang] || headings.en;
+
+  const langNav = Object.entries(langNames)
+    .map(([code, name]) => {
+      const active = code === lang ? ' lang-link active' : '';
+      const href = code === 'en' ? 'index.html' : `index-${code}.html`;
+      return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${name}">${name}</a>`;
+    })
+    .join('\n          ');
+
+  const selfHref = lang === 'en' ? 'index.html' : `index-${lang}.html`;
 
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="ltr">
@@ -365,39 +383,66 @@ function generateMockIndexHTML(lang, articles) {
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>${title}</h1>
-    <p class="language-indicator">${languageName}</p>
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="${selfHref}" class="site-header__brand" aria-label="EU Parliament Monitor">
+        <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
+        <span>
+          <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__subtitle">European Parliament Intelligence</span>
+        </span>
+      </a>
+    </div>
   </header>
-  
-  <main>
-    <section class="news-list">
-      <h2>Latest News</h2>
-      ${
-        articles.length === 0
-          ? `<p>${noArticlesText}</p>`
-          : `
-      <ul class="article-list">
-        ${articles
-          .map(
-            (article) => `
-        <li class="article-item">
-          <a href="news/${article.filename}">
-            <span class="article-date">${article.date}</span>
-            <span class="article-title">${formatSlug(article.slug)}</span>
-          </a>
-        </li>
-        `
-          )
-          .join('\n        ')}
-      </ul>
-      `
-      }
-    </section>
+
+  <nav class="language-switcher" role="navigation" aria-label="Language selection">
+    ${langNav}
+  </nav>
+
+  <section class="hero">
+    <h1 class="hero__title">${title}</h1>
+    <p class="hero__description">${description}</p>
+  </section>
+
+  <main class="site-main">
+    <h2 class="section-heading"><span class="section-heading__icon" aria-hidden="true">📋</span> ${heading}</h2>
+    ${
+      articles.length === 0
+        ? `
+    <div class="empty-state">
+      <div class="empty-state__icon" aria-hidden="true">📰</div>
+      <p class="empty-state__text">${noArticlesText}</p>
+    </div>`
+        : `
+    <ul class="news-grid" role="list">
+      ${articles
+        .map((article) => {
+          const category = 'week-ahead';
+          return `
+      <li class="news-card">
+        <a href="news/${article.filename}" class="news-card__link">
+          <div class="news-card__accent news-card__accent--${category}"></div>
+          <div class="news-card__body">
+            <div class="news-card__meta">
+              <span class="news-card__badge news-card__badge--${category}">${category.replace('-', ' ')}</span>
+              <time class="news-card__date" datetime="${article.date}">${article.date}</time>
+            </div>
+            <h3 class="news-card__title">${formatSlug(article.slug)}</h3>
+          </div>
+        </a>
+      </li>`;
+        })
+        .join('\n')}
+    </ul>`
+    }
   </main>
-  
-  <footer>
-    <p>&copy; ${new Date().getFullYear()} EU Parliament Monitor</p>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-section">
+        <p>&copy; ${new Date().getFullYear()} EU Parliament Monitor</p>
+      </div>
+    </div>
   </footer>
 </body>
 </html>`;

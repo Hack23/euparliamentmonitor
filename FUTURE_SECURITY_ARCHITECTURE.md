@@ -183,7 +183,7 @@ jobs:
 
       - name: Validate Content Integrity
         run: |
-          content=$(curl -s https://euparliamentmonitor.com/index-en.html)
+          content=$(curl -s https://euparliamentmonitor.com/index.html)
           if ! echo "$content" | grep -q "EU Parliament Monitor"; then
             echo "::error::Content integrity check failed"
             exit 1
@@ -258,7 +258,7 @@ jobs:
         with:
           urls: |
             https://euparliamentmonitor.com
-            https://euparliamentmonitor.com/index-en.html
+            https://euparliamentmonitor.com/index.html
           uploadArtifacts: true
           temporaryPublicStorage: true
 ```
@@ -1126,7 +1126,7 @@ NODE_VERSION = "24"
 
 [[redirects]]
 from = "/index.html"
-to = "/index-en.html"
+to = "/index.html"
 status = 302
 
 [[headers]]
@@ -1352,7 +1352,7 @@ NODE_VERSION = "24"
 
 [[redirects]]
 from = "/index.html"
-to = "/index-en.html"
+to = "/index.html"
 status = 302
 
 [[headers]]

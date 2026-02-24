@@ -95,7 +95,7 @@ Section 4.3.3 — End-to-End Testing Requirements.
 
 ## 🎯 Testing Objectives
 
-- **🌐 Validate Multi-Language Content**: Verify all 14 EU language versions
+- **🌐 Validate Multi-Language Content**: Verify all 14 language versions
   render correctly
 - **📰 Verify News Article Access**: Test news article navigation and content
   display
@@ -123,20 +123,20 @@ Section 4.3.3 — End-to-End Testing Requirements.
 
 | Language   | Code | Index Page      | News Content |
 | ---------- | ---- | --------------- | ------------ |
-| English    | EN   | `index-en.html` | ✅ Generated |
+| English    | EN   | `index.html` | ✅ Generated |
+| Swedish    | SV   | `index-sv.html` | ✅ Generated |
+| Danish     | DA   | `index-da.html` | ✅ Generated |
+| Norwegian  | NO   | `index-no.html` | ✅ Generated |
+| Finnish    | FI   | `index-fi.html` | ✅ Generated |
 | German     | DE   | `index-de.html` | ✅ Generated |
 | French     | FR   | `index-fr.html` | ✅ Generated |
 | Spanish    | ES   | `index-es.html` | ✅ Generated |
-| Italian    | IT   | `index-it.html` | ✅ Generated |
 | Dutch      | NL   | `index-nl.html` | ✅ Generated |
-| Polish     | PL   | `index-pl.html` | ✅ Generated |
-| Portuguese | PT   | `index-pt.html` | ✅ Generated |
-| Romanian   | RO   | `index-ro.html` | ✅ Generated |
-| Swedish    | SV   | `index-sv.html` | ✅ Generated |
-| Danish     | DA   | `index-da.html` | ✅ Generated |
-| Finnish    | FI   | `index-fi.html` | ✅ Generated |
-| Greek      | EL   | `index-el.html` | ✅ Generated |
-| Hungarian  | HU   | `index-hu.html` | ✅ Generated |
+| Arabic     | AR   | `index-ar.html` | ✅ Generated |
+| Hebrew     | HE   | `index-he.html` | ✅ Generated |
+| Japanese   | JA   | `index-ja.html` | ✅ Generated |
+| Korean     | KO   | `index-ko.html` | ✅ Generated |
+| Chinese    | ZH   | `index-zh.html` | ✅ Generated |
 
 ### 3. ♿ Accessibility Testing
 

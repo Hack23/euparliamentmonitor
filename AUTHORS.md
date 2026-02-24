@@ -95,7 +95,7 @@ As of 2026-02-17:
 - **Total Commits**: 100+
 - **Lines of Code**: 5,000+
 - **Test Coverage**: 82%+
-- **Languages**: 14 EU languages supported
+- **Languages**: 14 languages supported
 
 ## How to Contribute
 

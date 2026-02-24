@@ -125,7 +125,7 @@ graph TB
 | **Git-Based Backup** | Full history in distributed VCS | ✅ Active |
 | **CDN Distribution** | GitHub Pages global CDN | ✅ Active |
 | **Automated Rebuild** | GitHub Actions CI/CD pipeline | ✅ Active |
-| **Multi-Language Content** | 14 EU languages pre-generated | ✅ Active |
+| **Multi-Language Content** | 14 languages pre-generated | ✅ Active |
 
 ---
 

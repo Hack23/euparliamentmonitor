@@ -533,7 +533,7 @@ stateDiagram-v2
     ParallelFetching --> EP_Fetching: European Parliament
     ParallelFetching --> DE_Fetching: German Bundestag
     ParallelFetching --> FR_Fetching: French Assemblée
-    ParallelFetching --> IT_Fetching: Italian Camera
+    ParallelFetching --> IT_Fetching: Swedish Riksdag
     ParallelFetching --> OtherParliaments: 24 More Sources
 
     EP_Fetching --> EP_Success: Data Retrieved

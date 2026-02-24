@@ -9,11 +9,12 @@
 import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_TYPES, ARTICLE_TYPE_WEEK_AHEAD, ARTICLE_TYPE_BREAKING, ARTICLE_TYPE_COMMITTEE_REPORTS, ARTICLE_TYPE_PROPOSITIONS, ARTICLE_TYPE_MOTIONS, ARG_SEPARATOR, } from '../constants/config.js';
+import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_CATEGORIES, ARTICLE_TYPE_WEEK_AHEAD, ARTICLE_TYPE_BREAKING, ARTICLE_TYPE_COMMITTEE_REPORTS, ARTICLE_TYPE_PROPOSITIONS, ARTICLE_TYPE_MOTIONS, ARG_SEPARATOR, } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_PRESETS, WEEK_AHEAD_TITLES, MOTIONS_TITLES, PROPOSITIONS_TITLES, PROPOSITIONS_STRINGS, BREAKING_NEWS_TITLES, COMMITTEE_REPORTS_TITLES, getLocalizedString, isSupportedLanguage, } from '../constants/languages.js';
 import { generateArticleHTML } from '../templates/article-template.js';
 import { getEPMCPClient, closeEPMCPClient } from '../mcp/ep-mcp-client.js';
 import { formatDateForSlug, calculateReadTime, ensureDirectoryExists, escapeHTML, } from '../utils/file-utils.js';
+import { ArticleCategory } from '../types/index.js';
 // Try to use MCP client if available
 let mcpClient = null;
 const useMCP = process.env['USE_EP_MCP'] !== 'false';
@@ -42,7 +43,7 @@ if (languages.length === 0) {
     process.exit(1);
 }
 // Validate article types
-const invalidTypes = articleTypes.filter((t) => !VALID_ARTICLE_TYPES.includes(t.trim()));
+const invalidTypes = articleTypes.filter((t) => !VALID_ARTICLE_CATEGORIES.includes(t.trim()));
 if (invalidTypes.length > 0) {
     console.warn(`⚠️ Unknown article types ignored: ${invalidTypes.join(', ')}`);
 }
@@ -556,7 +557,7 @@ async function generateWeekAhead() {
                 title: langTitles.title,
                 subtitle: langTitles.subtitle,
                 date: today.toISOString().split('T')[0],
-                type: 'prospective',
+                category: ArticleCategory.WEEK_AHEAD,
                 readTime: calculateReadTime(content),
                 lang,
                 content,
@@ -770,7 +771,7 @@ async function generateBreakingNews() {
                 title: langTitles.title,
                 subtitle: langTitles.subtitle,
                 date: dateStr,
-                type: 'breaking',
+                category: ArticleCategory.BREAKING_NEWS,
                 readTime,
                 lang,
                 content,
@@ -1004,7 +1005,7 @@ async function generateCommitteeReports() {
                 title: langTitles.title,
                 subtitle: langTitles.subtitle,
                 date: dateStr,
-                type: 'prospective',
+                category: ArticleCategory.COMMITTEE_REPORTS,
                 readTime: calculateReadTime(content),
                 lang,
                 content,
@@ -1567,7 +1568,7 @@ async function generatePropositions() {
                 title: langTitles.title,
                 subtitle: langTitles.subtitle,
                 date: today.toISOString().split('T')[0],
-                type: 'propositions',
+                category: ArticleCategory.PROPOSITIONS,
                 readTime,
                 lang,
                 content,
@@ -1619,7 +1620,7 @@ async function generateMotions() {
                 title: langTitles.title,
                 subtitle: langTitles.subtitle,
                 date: dateStr,
-                type: 'retrospective',
+                category: ArticleCategory.MOTIONS,
                 readTime,
                 lang,
                 content,
@@ -1664,7 +1665,7 @@ async function main() {
         await initializeMCPClient();
         const results = [];
         for (const articleType of articleTypes) {
-            if (!VALID_ARTICLE_TYPES.includes(articleType)) {
+            if (!VALID_ARTICLE_CATEGORIES.includes(articleType)) {
                 console.log(`⏭️ Skipping unknown article type: ${articleType}`);
                 continue;
             }

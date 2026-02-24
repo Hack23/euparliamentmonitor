@@ -267,20 +267,20 @@ stateDiagram-v2
 
     state LanguageProcessing {
         [*] --> ProcessingEN
-        ProcessingEN --> ProcessingDE: English OK
+        ProcessingEN --> ProcessingSV: English OK
+        ProcessingSV --> ProcessingDA: Swedish OK
+        ProcessingDA --> ProcessingNO: Danish OK
+        ProcessingNO --> ProcessingFI: Norwegian OK
+        ProcessingFI --> ProcessingDE: Finnish OK
         ProcessingDE --> ProcessingFR: German OK
         ProcessingFR --> ProcessingES: French OK
-        ProcessingES --> ProcessingIT: Spanish OK
-        ProcessingIT --> ProcessingNL: Italian OK
-        ProcessingNL --> ProcessingPL: Dutch OK
-        ProcessingPL --> ProcessingPT: Polish OK
-        ProcessingPT --> ProcessingRO: Portuguese OK
-        ProcessingRO --> ProcessingSV: Romanian OK
-        ProcessingSV --> ProcessingDA: Swedish OK
-        ProcessingDA --> ProcessingFI: Danish OK
-        ProcessingFI --> ProcessingEL: Finnish OK
-        ProcessingEL --> ProcessingHU: Greek OK
-        ProcessingHU --> AllLanguagesComplete: Hungarian OK
+        ProcessingES --> ProcessingNL: Spanish OK
+        ProcessingNL --> ProcessingAR: Dutch OK
+        ProcessingAR --> ProcessingHE: Arabic OK
+        ProcessingHE --> ProcessingJA: Hebrew OK
+        ProcessingJA --> ProcessingKO: Japanese OK
+        ProcessingKO --> ProcessingZH: Korean OK
+        ProcessingZH --> AllLanguagesComplete: Chinese OK
 
         ProcessingEN --> LanguageError: Translation Failed
         ProcessingDE --> LanguageError: Translation Failed
@@ -352,10 +352,10 @@ stateDiagram-v2
     end note
 
     note right of LanguageProcessing
-        14 EU languages:
-        EN, DE, FR, ES, IT, NL,
-        PL, PT, RO, SV, DA, FI,
-        EL, HU
+        14 languages:
+        EN, SV, DA, NO, FI, DE,
+        FR, ES, NL, AR, HE, JA,
+        KO, ZH
     end note
 
     note right of ArticleLive

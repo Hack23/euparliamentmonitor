@@ -119,17 +119,17 @@ describe('article-template', () => {
 
     describe('Article Metadata', () => {
       it('should include article type label in English', () => {
-        const html = generateArticleHTML({ ...defaultOptions, type: 'prospective', lang: 'en' });
+        const html = generateArticleHTML({ ...defaultOptions, category: 'week-ahead', lang: 'en' });
         expect(html).toContain('<span class="article-type">Week Ahead</span>');
       });
 
       it('should include article type label in German', () => {
-        const html = generateArticleHTML({ ...defaultOptions, type: 'prospective', lang: 'de' });
+        const html = generateArticleHTML({ ...defaultOptions, category: 'week-ahead', lang: 'de' });
         expect(html).toContain('<span class="article-type">Woche Voraus</span>');
       });
 
-      it('should fall back to raw type string for unknown article types', () => {
-        const html = generateArticleHTML({ ...defaultOptions, type: 'custom-unknown', lang: 'en' });
+      it('should fall back to raw category string for unknown article categories', () => {
+        const html = generateArticleHTML({ ...defaultOptions, category: 'custom-unknown', lang: 'en' });
         expect(html).toContain('<span class="article-type">custom-unknown</span>');
       });
 
@@ -231,7 +231,7 @@ describe('article-template', () => {
         const html = generateArticleHTML({ ...defaultOptions, lang: 'en' });
         
         expect(html).toContain('<nav class="article-nav">');
-        expect(html).toContain('<a href="../index-en.html" class="back-to-news">← Back to News</a>');
+        expect(html).toContain('<a href="../index.html" class="back-to-news">← Back to News</a>');
       });
 
       it('should use correct back link for language', () => {
@@ -310,7 +310,7 @@ describe('article-template', () => {
           title: 'Test Title',
           subtitle: 'Test Subtitle',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang: 'en',
           content: '<p>Content</p>',

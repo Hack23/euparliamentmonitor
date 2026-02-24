@@ -8,7 +8,7 @@ license: Apache-2.0
 
 ## Purpose
 
-Provide a structured Business Model Canvas framework adapted for the EU Parliament Monitor — an open source, mission-driven platform delivering European Parliament transparency in 14 EU languages. Guides strategic decisions on value delivery, sustainability, and ISMS-compliant operations.
+Provide a structured Business Model Canvas framework adapted for the EU Parliament Monitor — an open source, mission-driven platform delivering European Parliament transparency in 14 languages. Guides strategic decisions on value delivery, sustainability, and ISMS-compliant operations.
 
 ## When to Use
 
@@ -179,7 +179,7 @@ Funding Evaluation:
 
 | Metric | Target | Measurement |
 |--------|--------|-------------|
-| Language coverage | 14 EU languages | Automated check |
+| Language coverage | 14 languages | Automated check |
 | Content freshness | Daily updates | CI/CD pipeline |
 | WCAG compliance | AA level | axe-core testing |
 | Page load time | < 2s (LCP) | Lighthouse CI |

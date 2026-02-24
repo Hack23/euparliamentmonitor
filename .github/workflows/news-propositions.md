@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Legislative Propositions"
-description: Generates EU Parliament legislative propositions analysis articles for all 14 EU languages. Single article type per run.
+description: Generates EU Parliament legislative propositions analysis articles for all 14 languages. Single article type per run.
 strict: false
 on:
   schedule:
@@ -25,7 +25,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 30
+timeout-minutes: 45
 
 network:
   allowed:
@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.4.0
+      - european-parliament-mcp-server@0.5.1
 
 tools:
   github:
@@ -100,13 +100,13 @@ Read each skill file before proceeding:
 4. **`.github/skills/seo-best-practices.md`** — Multi-language SEO
 5. **`.github/skills/gh-aw-firewall.md`** — Network security and safe outputs
 
-## ⏱️ Time Budget (30 minutes)
+## ⏱️ Time Budget (45 minutes)
 
 - **Minutes 0–3**: Date validation, EP MCP server warm-up
 - **Minutes 3–10**: Query EP MCP tools for legislative proposals and pipeline data
-- **Minutes 10–22**: Generate articles for requested languages
-- **Minutes 22–27**: Validate HTML and regenerate indexes
-- **Minutes 27–30**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 10–35**: Generate articles for requested languages
+- **Minutes 35–40**: Validate HTML and regenerate indexes
+- **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
 
 ## MANDATORY Date Validation
 
@@ -178,16 +178,16 @@ LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
 # Strict allowlist validation to prevent shell injection
-if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu)(,(en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu))*$'; then
+if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh)(,(en|sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh))*$'; then
   echo "❌ Invalid languages input: $LANGUAGES_INPUT" >&2
-  echo "Allowed: all, eu-core, nordic, or comma-separated: en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" >&2
+  echo "Allowed: all, eu-core, nordic, or comma-separated: en,sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" >&2
   exit 1
 fi
 
 case "$LANGUAGES_INPUT" in
-  "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
-  "nordic")  LANG_ARG="en,sv,da,fi" ;;
-  "all")     LANG_ARG="en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" ;;
+  "eu-core") LANG_ARG="en,de,fr,es,nl" ;;
+  "nordic")  LANG_ARG="en,sv,da,no,fi" ;;
+  "all")     LANG_ARG="en,sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" ;;
   *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 

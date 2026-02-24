@@ -14,8 +14,8 @@ const BINARY_NAME = 'european-parliament-mcp-server';
 const BINARY_FILE = process.platform === 'win32' ? `${BINARY_NAME}.cmd` : BINARY_NAME;
 /** Default binary resolved from node_modules/.bin relative to this file's compiled location */
 const DEFAULT_SERVER_BINARY = resolve(dirname(fileURLToPath(import.meta.url)), `../../node_modules/.bin/${BINARY_FILE}`);
-/** Request timeout in milliseconds */
-const REQUEST_TIMEOUT_MS = 30000;
+/** Request timeout in milliseconds — EU Parliament API responses commonly take 30+ seconds */
+const REQUEST_TIMEOUT_MS = 60000;
 /** Connection startup delay in milliseconds */
 const CONNECTION_STARTUP_DELAY_MS = 500;
 /** Fallback payload for analyze_legislative_effectiveness when validation fails or tool is unavailable */
@@ -546,6 +546,77 @@ export class EuropeanParliamentMCPClient {
             const message = error instanceof Error ? error.message : String(error);
             console.warn('generate_report not available:', message);
             return { content: [{ type: 'text', text: '{"report": null}' }] };
+        }
+    }
+    /**
+     * Analyze committee activity, workload, and engagement
+     *
+     * @param options - Options including optional committeeId and date range
+     * @returns Committee activity analysis data
+     */
+    async analyzeCommitteeActivity(options = {}) {
+        try {
+            return await this.callTool('analyze_committee_activity', options);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('analyze_committee_activity not available:', message);
+            return { content: [{ type: 'text', text: '{"activity": null}' }] };
+        }
+    }
+    /**
+     * Track MEP attendance patterns and trends
+     *
+     * @param options - Options including optional mepId and date range
+     * @returns MEP attendance data
+     */
+    async trackMEPAttendance(options = {}) {
+        try {
+            return await this.callTool('track_mep_attendance', options);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('track_mep_attendance not available:', message);
+            return { content: [{ type: 'text', text: '{"attendance": null}' }] };
+        }
+    }
+    /**
+     * Analyze country delegation voting behavior and composition
+     *
+     * @param options - Options including required country code and optional date range
+     * @returns Country delegation analysis data
+     */
+    async analyzeCountryDelegation(options) {
+        if (typeof options.country !== 'string' || options.country.trim().length === 0) {
+            console.warn('analyze_country_delegation called without valid country (non-empty string required)');
+            return { content: [{ type: 'text', text: '{"delegation": null}' }] };
+        }
+        try {
+            return await this.callTool('analyze_country_delegation', {
+                ...options,
+                country: options.country.trim(),
+            });
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('analyze_country_delegation not available:', message);
+            return { content: [{ type: 'text', text: '{"delegation": null}' }] };
+        }
+    }
+    /**
+     * Generate a parliament-wide political landscape overview
+     *
+     * @param options - Options including optional date range and detail level
+     * @returns Political landscape overview data
+     */
+    async generatePoliticalLandscape(options = {}) {
+        try {
+            return await this.callTool('generate_political_landscape', options);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('generate_political_landscape not available:', message);
+            return { content: [{ type: 'text', text: '{"landscape": null}' }] };
         }
     }
 }

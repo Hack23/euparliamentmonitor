@@ -1,15 +1,17 @@
 {
-  "timestamp": "2026-02-21T06:10:13.244Z",
+  "timestamp": "2026-02-24T03:48:24.824Z",
   "generated": 1,
+  "skipped": 0,
+  "dryRun": 0,
   "errors": 0,
   "articles": [
-    "2026-02-21-week-ahead-en.html"
+    "2026-02-24-week-ahead-en.html"
   ],
   "results": [
     {
       "success": true,
       "files": 1,
-      "slug": "2026-02-21-week-ahead"
+      "slug": "2026-02-24-week-ahead"
     }
   ],
   "usedMCP": true

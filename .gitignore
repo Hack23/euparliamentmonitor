@@ -27,7 +27,8 @@ pids/
 # Vitest
 .vitest/
 
-# Playwright test results
+# Test results
+test-results/
 playwright-report/
 .last-run.json
 

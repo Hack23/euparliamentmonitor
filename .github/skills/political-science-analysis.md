@@ -8,7 +8,7 @@ license: Apache-2.0
 
 ## Purpose
 
-Provide structured political science frameworks for analyzing European Parliament activity, MEP behavior, political group dynamics, and legislative outcomes. Enables data-driven journalism across 14 EU languages using European Parliament MCP server data.
+Provide structured political science frameworks for analyzing European Parliament activity, MEP behavior, political group dynamics, and legislative outcomes. Enables data-driven journalism across 14 languages using European Parliament MCP server data.
 
 ## When to Use
 
@@ -144,13 +144,11 @@ When generating articles about political analysis:
 
 | Language | Political Term Considerations |
 |----------|------------------------------|
-| EN/FR/DE | Standard EU terminology |
-| ES/IT/PT | Romance language political traditions |
-| PL/RO | Post-enlargement political context |
-| SV/DA/FI | Nordic political culture references |
-| EL | Greek political terminology specifics |
-| NL | Benelux consensus-building context |
-| HU | Central European political framing |
+| EN/DE/FR | Standard EU terminology |
+| ES/NL | Western European political traditions |
+| SV/DA/NO/FI | Nordic political culture references |
+| AR/HE | Middle Eastern political context, RTL |
+| JA/KO/ZH | East Asian political framing |
 
 ### Article Generation Checklist
 

@@ -35,8 +35,8 @@ describe('constants/languages', () => {
       expect(ALL_LANGUAGES).toHaveLength(14);
     });
 
-    it('should contain all expected EU languages', () => {
-      const expected = ['en', 'de', 'fr', 'es', 'it', 'nl', 'pl', 'pt', 'ro', 'sv', 'da', 'fi', 'el', 'hu'];
+    it('should contain all expected Hack23 market languages', () => {
+      const expected = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
       expect([...ALL_LANGUAGES]).toEqual(expected);
     });
   });
@@ -46,17 +46,18 @@ describe('constants/languages', () => {
       expect(LANGUAGE_PRESETS.all).toEqual(ALL_LANGUAGES);
     });
 
-    it('should have eu-core preset with 6 languages', () => {
-      expect(LANGUAGE_PRESETS['eu-core']).toHaveLength(6);
+    it('should have eu-core preset with 5 languages', () => {
+      expect(LANGUAGE_PRESETS['eu-core']).toHaveLength(5);
       expect(LANGUAGE_PRESETS['eu-core']).toContain('en');
       expect(LANGUAGE_PRESETS['eu-core']).toContain('de');
       expect(LANGUAGE_PRESETS['eu-core']).toContain('fr');
     });
 
-    it('should have nordic preset with 4 languages', () => {
-      expect(LANGUAGE_PRESETS.nordic).toHaveLength(4);
+    it('should have nordic preset with 5 languages', () => {
+      expect(LANGUAGE_PRESETS.nordic).toHaveLength(5);
       expect(LANGUAGE_PRESETS.nordic).toContain('sv');
       expect(LANGUAGE_PRESETS.nordic).toContain('da');
+      expect(LANGUAGE_PRESETS.nordic).toContain('no');
       expect(LANGUAGE_PRESETS.nordic).toContain('fi');
     });
   });
@@ -94,13 +95,18 @@ describe('constants/languages', () => {
     });
 
     it('should have entries for all 14 languages in ARTICLE_TYPE_LABELS', () => {
+      const expectedCategories = [
+        'week-ahead', 'month-ahead', 'year-ahead',
+        'week-in-review', 'month-in-review', 'year-in-review',
+        'breaking', 'committee-reports', 'motions',
+        'propositions', 'deep-analysis',
+      ];
       for (const lang of ALL_LANGUAGES) {
         const labels = ARTICLE_TYPE_LABELS[lang];
         expect(labels).toBeDefined();
-        expect(labels.prospective).toBeDefined();
-        expect(labels.retrospective).toBeDefined();
-        expect(labels.breaking).toBeDefined();
-        expect(labels.propositions).toBeDefined();
+        for (const cat of expectedCategories) {
+          expect(labels[cat]).toBeDefined();
+        }
       }
     });
 
@@ -186,8 +192,8 @@ describe('constants/languages', () => {
       expect(LANGUAGE_NAMES.en).toBe('English');
       expect(LANGUAGE_NAMES.de).toBe('Deutsch');
       expect(LANGUAGE_NAMES.fr).toBe('Français');
-      expect(LANGUAGE_NAMES.el).toBe('Ελληνικά');
-      expect(LANGUAGE_NAMES.hu).toBe('Magyar');
+      expect(LANGUAGE_NAMES.ja).toBe('日本語');
+      expect(LANGUAGE_NAMES.zh).toBe('中文');
     });
   });
 
@@ -210,19 +216,21 @@ describe('constants/languages', () => {
     it('should return true for supported languages', () => {
       expect(isSupportedLanguage('en')).toBe(true);
       expect(isSupportedLanguage('de')).toBe(true);
-      expect(isSupportedLanguage('el')).toBe(true);
+      expect(isSupportedLanguage('ar')).toBe(true);
+      expect(isSupportedLanguage('ja')).toBe(true);
     });
 
     it('should return false for unsupported languages', () => {
       expect(isSupportedLanguage('zz')).toBe(false);
-      expect(isSupportedLanguage('ar')).toBe(false);
+      expect(isSupportedLanguage('el')).toBe(false);
       expect(isSupportedLanguage('')).toBe(false);
     });
   });
 
   describe('getTextDirection', () => {
-    it('should return ltr for EU languages', () => {
-      for (const lang of ALL_LANGUAGES) {
+    it('should return ltr for LTR languages', () => {
+      const ltrLangs = ALL_LANGUAGES.filter(l => l !== 'ar' && l !== 'he');
+      for (const lang of ltrLangs) {
         expect(getTextDirection(lang)).toBe('ltr');
       }
     });

@@ -63,7 +63,7 @@
 
 This document establishes the **comprehensive performance testing strategy,
 benchmarks, and optimization practices** for the EU Parliament Monitor platform,
-ensuring optimal user experience across all 14 EU language versions. Aligned
+ensuring optimal user experience across all 14 language versions. Aligned
 with **Hack23 ISMS Secure Development Policy §8 "Performance Testing &
 Monitoring Framework"**.
 
@@ -169,20 +169,20 @@ All 14 language versions should meet the same performance targets:
 
 | Language   | Index Page      | Target Load |
 | ---------- | --------------- | ----------- |
-| English    | `index-en.html` | <2s         |
+| English    | `index.html` | <2s         |
+| Swedish    | `index-sv.html` | <2s         |
+| Danish     | `index-da.html` | <2s         |
+| Norwegian  | `index-no.html` | <2s         |
+| Finnish    | `index-fi.html` | <2s         |
 | German     | `index-de.html` | <2s         |
 | French     | `index-fr.html` | <2s         |
 | Spanish    | `index-es.html` | <2s         |
-| Italian    | `index-it.html` | <2s         |
 | Dutch      | `index-nl.html` | <2s         |
-| Polish     | `index-pl.html` | <2s         |
-| Portuguese | `index-pt.html` | <2s         |
-| Romanian   | `index-ro.html` | <2s         |
-| Swedish    | `index-sv.html` | <2s         |
-| Danish     | `index-da.html` | <2s         |
-| Finnish    | `index-fi.html` | <2s         |
-| Greek      | `index-el.html` | <2s         |
-| Hungarian  | `index-hu.html` | <2s         |
+| Arabic     | `index-ar.html` | <2s         |
+| Hebrew     | `index-he.html` | <2s         |
+| Japanese   | `index-ja.html` | <2s         |
+| Korean     | `index-ko.html` | <2s         |
+| Chinese    | `index-zh.html` | <2s         |
 
 ### 3. Build Performance
 

@@ -164,7 +164,7 @@ MCP server integration and data flow:
 
 Multi-language functionality:
 
-- ✅ All 14 EU languages support
+- ✅ All 14 languages support
 - ✅ Language-specific labels (type, read time, navigation)
 - ✅ Date formatting per locale
 - ✅ Character encoding (special chars, diacritics)
@@ -311,7 +311,7 @@ describe('generateArticleHTML', () => {
       title: 'Test Article',
       subtitle: 'Test subtitle',
       date: '2025-01-15',
-      type: 'prospective',
+      category: 'week-ahead',
       readTime: 5,
       lang: 'en',
       content: '<p>Content</p>',

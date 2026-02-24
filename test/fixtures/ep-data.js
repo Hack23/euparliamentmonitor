@@ -145,7 +145,7 @@ export const mockArticleMetadata = {
   title: 'European Parliament Week Ahead: January 20-24, 2025',
   subtitle: 'Key debates on climate policy and digital services regulation',
   date: '2025-01-15',
-  type: 'prospective',
+  category: 'week-ahead',
   readTime: 5,
   lang: 'en',
   keywords: ['plenary', 'climate', 'digital services', 'legislation'],

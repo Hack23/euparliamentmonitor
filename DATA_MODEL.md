@@ -123,7 +123,7 @@ erDiagram
     NEWS_ARTICLE {
         string slug PK "Unique article identifier"
         string type "prospective, retrospective, breaking"
-        string language "en, de, fr, es, it, nl, etc."
+        string language "en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh"
         datetime generated "Generation timestamp"
         string title "Article title"
         string subtitle "Article subtitle"
@@ -997,7 +997,7 @@ euparliamentmonitor/
 │       └── 2026-week-ahead.json
 │
 ├── index-{lang}.html               # Language-specific indexes
-│   ├── index-en.html
+│   ├── index.html
 │   ├── index-de.html
 │   └── index-fr.html
 │
@@ -1252,7 +1252,7 @@ timeline
       No Metadata : No generation tracking
 
     section v1.1 - Multi-Language (2026-Q1)
-      14 Languages : en, de, fr, es, it, nl, sv, da, fi, pl, ro, hu, pt, el
+      14 Languages : en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
                    : Language-specific index pages
                    : Hreflang SEO optimization
       MCP Integration : European Parliament MCP Server

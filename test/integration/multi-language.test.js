@@ -32,7 +32,7 @@ describe('Multi-Language Support Integration', () => {
           title: `Week Ahead - ${lang.toUpperCase()}`,
           subtitle: 'Parliamentary activities overview',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: '<p>Test content</p>',
@@ -56,13 +56,14 @@ describe('Multi-Language Support Integration', () => {
     });
 
     it('should use correct text direction for all languages', () => {
+      const rtlLanguages = ['ar', 'he'];
       ALL_LANGUAGES.forEach((lang) => {
         const articleOptions = {
           slug: 'direction-test',
           title: 'Direction Test',
           subtitle: 'Testing text direction',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: '<p>Content</p>',
@@ -70,8 +71,8 @@ describe('Multi-Language Support Integration', () => {
 
         const html = generateArticleHTML(articleOptions);
 
-        // All EU languages use LTR
-        expect(html).toContain('dir="ltr"');
+        const expectedDir = rtlLanguages.includes(lang) ? 'rtl' : 'ltr';
+        expect(html).toContain(`dir="${expectedDir}"`);
       });
     });
 
@@ -85,7 +86,7 @@ describe('Multi-Language Support Integration', () => {
           title: 'Filename Test',
           subtitle: 'Test',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: '<p>Content</p>',
@@ -120,19 +121,19 @@ describe('Multi-Language Support Integration', () => {
     it('should use correct article type labels for each language', () => {
       const typeLabels = {
         en: 'Week Ahead',
+        sv: 'Vecka Framåt',
+        da: 'Ugen Fremover',
+        no: 'Uken Fremover',
+        fi: 'Tuleva Viikko',
         de: 'Woche Voraus',
         fr: 'Semaine à Venir',
         es: 'Semana Próxima',
-        it: 'Settimana Prossima',
         nl: 'Week Vooruit',
-        pl: 'Nadchodzący Tydzień',
-        pt: 'Semana Próxima',
-        ro: 'Săptămâna Viitoare',
-        sv: 'Vecka Framåt',
-        da: 'Ugen Fremover',
-        fi: 'Tuleva Viikko',
-        el: 'Επόμενη Εβδομάδα',
-        hu: 'Következő Hét',
+        ar: 'الأسبوع القادم',
+        he: 'השבוע הקרוב',
+        ja: '今週の予定',
+        ko: '다음 주 일정',
+        zh: '下周预告',
       };
 
       Object.entries(typeLabels).forEach(([lang, label]) => {
@@ -141,7 +142,7 @@ describe('Multi-Language Support Integration', () => {
           title: 'Test',
           subtitle: 'Test',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: '<p>Content</p>',
@@ -158,7 +159,7 @@ describe('Multi-Language Support Integration', () => {
         de: '5 Min. Lesezeit',
         fr: '5 min de lecture',
         es: '5 min de lectura',
-        it: '5 min di lettura',
+        sv: '5 min läsning',
       };
 
       Object.entries(readTimeLabels).forEach(([lang, label]) => {
@@ -167,7 +168,7 @@ describe('Multi-Language Support Integration', () => {
           title: 'Test',
           subtitle: 'Test',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: '<p>Content</p>',
@@ -184,7 +185,7 @@ describe('Multi-Language Support Integration', () => {
         de: '← Zurück zu Nachrichten',
         fr: '← Retour aux Actualités',
         es: '← Volver a Noticias',
-        it: '← Torna alle Notizie',
+        sv: '← Tillbaka till Nyheter',
       };
 
       Object.entries(backLabels).forEach(([lang, label]) => {
@@ -193,7 +194,7 @@ describe('Multi-Language Support Integration', () => {
           title: 'Test',
           subtitle: 'Test',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: '<p>Content</p>',
@@ -215,7 +216,7 @@ describe('Multi-Language Support Integration', () => {
           title: 'Date Format Test',
           subtitle: 'Test',
           date: testDate,
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: '<p>Content</p>',
@@ -241,7 +242,7 @@ describe('Multi-Language Support Integration', () => {
         de: 'Januar',
         fr: 'janvier',
         es: 'enero',
-        it: 'gennaio',
+        sv: 'januari',
       };
 
       Object.entries(januaryNames).forEach(([lang, monthName]) => {
@@ -250,7 +251,7 @@ describe('Multi-Language Support Integration', () => {
           title: 'Test',
           subtitle: 'Test',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: '<p>Content</p>',
@@ -302,7 +303,8 @@ describe('Multi-Language Support Integration', () => {
       const sitemap = generateMockSitemap([]);
 
       ALL_LANGUAGES.forEach((lang) => {
-        expect(sitemap).toContain(`<loc>https://euparliamentmonitor.com/index-${lang}.html</loc>`);
+        const filename = lang === 'en' ? 'index.html' : `index-${lang}.html`;
+        expect(sitemap).toContain(`<loc>https://euparliamentmonitor.com/${filename}</loc>`);
       });
     });
 
@@ -324,7 +326,7 @@ describe('Multi-Language Support Integration', () => {
           title: 'Consistency Test',
           subtitle: 'Test',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: '<p>Content</p>',
@@ -348,14 +350,15 @@ describe('Multi-Language Support Integration', () => {
           title: 'Test',
           subtitle: 'Test',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: '<p>Content</p>',
         };
 
         const html = generateArticleHTML(articleOptions);
-        expect(html).toContain(`href="../index-${lang}.html"`);
+        const expectedHref = lang === 'en' ? 'href="../index.html"' : `href="../index-${lang}.html"`;
+        expect(html).toContain(expectedHref);
       });
     });
   });
@@ -367,8 +370,8 @@ describe('Multi-Language Support Integration', () => {
         de: 'Ümläüte: ä, ö, ü, ß',
         fr: 'Accents: é, è, ê, ë, à, ù',
         es: 'Españoles: ñ, á, é, í, ó, ú',
-        el: 'Ελληνικά: α, β, γ, δ',
-        ro: 'Românești: ă, â, î, ș, ț',
+        ja: '日本語: あ, い, う, え',
+        ar: 'عربي: ع, ر, ب, ي',
       };
 
       Object.entries(specialChars).forEach(([lang, text]) => {
@@ -377,7 +380,7 @@ describe('Multi-Language Support Integration', () => {
           title: text,
           subtitle: 'Test special characters',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: `<p>${text}</p>`,
@@ -399,7 +402,7 @@ describe('Multi-Language Support Integration', () => {
           title: 'Test',
           subtitle: 'Test',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: '<p>Content</p>',
@@ -417,7 +420,7 @@ describe('Multi-Language Support Integration', () => {
           title: 'Test',
           subtitle: 'Test',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: '<p>Content</p>',
@@ -439,7 +442,7 @@ describe('Multi-Language Support Integration', () => {
           title: 'Performance Test',
           subtitle: 'Test',
           date: '2025-01-15',
-          type: 'prospective',
+          category: 'week-ahead',
           readTime: 5,
           lang,
           content: '<p>Content</p>',
@@ -487,9 +490,10 @@ function generateMockSitemap(articles) {
   const languages = ALL_LANGUAGES;
   const urls = [];
 
-  // Add indexes
+  // Add indexes - English uses index.html, others use index-{lang}.html
   for (const lang of languages) {
-    urls.push(`    <loc>https://euparliamentmonitor.com/index-${lang}.html</loc>`);
+    const filename = lang === 'en' ? 'index.html' : `index-${lang}.html`;
+    urls.push(`    <loc>https://euparliamentmonitor.com/${filename}</loc>`);
   }
 
   // Add articles

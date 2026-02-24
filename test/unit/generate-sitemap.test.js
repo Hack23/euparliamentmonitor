@@ -32,17 +32,18 @@ describe('generate-sitemap', () => {
     });
 
     it('should include all language index pages', () => {
-      const languages = ['en', 'de', 'fr', 'es', 'it', 'nl', 'pl', 'pt', 'ro', 'sv', 'da', 'fi', 'el', 'hu'];
+      const languages = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
       const sitemap = generateMockSitemap([]);
 
       languages.forEach((lang) => {
-        expect(sitemap).toContain(`<loc>https://euparliamentmonitor.com/index-${lang}.html</loc>`);
+        const filename = lang === 'en' ? 'index.html' : `index-${lang}.html`;
+        expect(sitemap).toContain(`<loc>https://euparliamentmonitor.com/${filename}</loc>`);
       });
     });
 
     it('should include 14 language index URLs', () => {
       const sitemap = generateMockSitemap([]);
-      const indexUrls = sitemap.match(/index-[a-z]{2}\.html/g);
+      const indexUrls = sitemap.match(/index(?:-[a-z]{2})?\.html/g);
 
       expect(indexUrls).toHaveLength(14);
     });
@@ -66,7 +67,7 @@ describe('generate-sitemap', () => {
       const sitemap = generateMockSitemap([]);
 
       // Check that index pages have priority 1.0
-      const indexUrlBlock = sitemap.match(/<url>[\s\S]*?index-en\.html[\s\S]*?<\/url>/);
+      const indexUrlBlock = sitemap.match(/<url>[\s\S]*?index\.html[\s\S]*?<\/url>/);
       expect(indexUrlBlock).toBeTruthy();
       expect(indexUrlBlock[0]).toContain('<priority>1.0</priority>');
     });
@@ -74,7 +75,7 @@ describe('generate-sitemap', () => {
     it('should set daily changefreq for index pages', () => {
       const sitemap = generateMockSitemap([]);
 
-      const indexUrlBlock = sitemap.match(/<url>[\s\S]*?index-en\.html[\s\S]*?<\/url>/);
+      const indexUrlBlock = sitemap.match(/<url>[\s\S]*?index\.html[\s\S]*?<\/url>/);
       expect(indexUrlBlock).toBeTruthy();
       expect(indexUrlBlock[0]).toContain('<changefreq>daily</changefreq>');
     });
@@ -190,7 +191,7 @@ describe('generate-sitemap', () => {
       const sitemap = generateMockSitemap([]);
       const today = new Date().toISOString().split('T')[0];
 
-      const indexUrlBlock = sitemap.match(/<url>[\s\S]*?index-en\.html[\s\S]*?<\/url>/);
+      const indexUrlBlock = sitemap.match(/<url>[\s\S]*?index\.html[\s\S]*?<\/url>/);
       expect(indexUrlBlock[0]).toContain(`<lastmod>${today}</lastmod>`);
     });
 
@@ -286,11 +287,12 @@ function generateMockSitemap(articles) {
   const urls = [];
 
   // Add home pages for each language
-  const languages = ['en', 'de', 'fr', 'es', 'it', 'nl', 'pl', 'pt', 'ro', 'sv', 'da', 'fi', 'el', 'hu'];
+  const languages = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
   
   for (const lang of languages) {
+    const filename = lang === 'en' ? 'index.html' : `index-${lang}.html`;
     urls.push({
-      loc: `${BASE_URL}/index-${lang}.html`,
+      loc: `${BASE_URL}/${filename}`,
       lastmod: new Date().toISOString().split('T')[0],
       changefreq: 'daily',
       priority: '1.0',

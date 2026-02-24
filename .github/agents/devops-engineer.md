@@ -162,7 +162,7 @@ jobs:
           git diff --staged --quiet || git commit -m "🗞️ Daily EU Parliament news generation [skip ci]
 
           Generated: $(date -u +'%Y-%m-%d %H:%M:%S UTC')
-          Languages: 14 (en, de, fr, es, it, nl, sv, da, fi, pl, ro, hu, pt, el)
+          Languages: 14 (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
           MCP enabled: ${{ !inputs.skip_mcp }}
           
           Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"

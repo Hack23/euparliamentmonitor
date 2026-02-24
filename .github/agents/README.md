@@ -350,10 +350,10 @@ All agents are configured with expertise in:
   - `get_voting_records` - Voting results and patterns
 
 ### Multi-Language Support (14 Languages)
-- **EU Core**: English (en), German (de), French (fr), Spanish (es), Italian (it), Dutch (nl)
-- **Nordic**: Swedish (sv), Danish (da), Finnish (fi)
-- **Eastern Europe**: Polish (pl), Romanian (ro), Hungarian (hu)
-- **Other**: Portuguese (pt), Greek (el)
+- **Nordic**: English (en), Swedish (sv), Danish (da), Norwegian (no), Finnish (fi)
+- **EU Core**: German (de), French (fr), Spanish (es), Dutch (nl)
+- **Middle East**: Arabic (ar), Hebrew (he)
+- **East Asia**: Japanese (ja), Korean (ko), Chinese (zh)
 
 ### Article Types
 - **Week Ahead**: Preview of upcoming plenary sessions and events

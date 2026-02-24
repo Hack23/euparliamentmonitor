@@ -221,7 +221,7 @@ Aligned | SBOM generation, vulnerability disclosure, security updates |
 
 ### S3: 14-Language Multilingual Support
 
-**Description**: Simultaneous content generation in 14 European languages with
+**Description**: Simultaneous content generation in 14 languages with
 cultural adaptation.
 
 **Strategic Value**:
@@ -233,10 +233,10 @@ cultural adaptation.
 
 **Languages Supported**:
 
-- **Western Europe**: English, German, French, Dutch
-- **Southern Europe**: Spanish, Italian, Portuguese, Greek
-- **Eastern Europe**: Polish, Romanian, Hungarian
-- **Nordic**: Swedish, Danish, Finnish
+- **Nordic**: Swedish, Danish, Norwegian, Finnish
+- **Western Europe**: English, German, French, Spanish, Dutch
+- **Middle East**: Arabic, Hebrew
+- **East Asia**: Japanese, Korean, Chinese
 
 **Implementation**:
 
@@ -747,7 +747,7 @@ documentation, higher quality.
 - **Structured Data**: Better schema definitions
 - **Historical Data**: Archives beyond current term
 - **Linked Data**: Relationships between entities
-- **Multi-Language**: Metadata in all EU languages
+- **Multi-Language**: Metadata in all languages
 
 **New Data Sources** (Potential):
 

@@ -21,8 +21,9 @@ export function generateSitemap(articles) {
     const urls = [];
     // Add home pages for each language
     for (const lang of ALL_LANGUAGES) {
+        const filename = lang === 'en' ? 'index.html' : `index-${lang}.html`;
         urls.push({
-            loc: `${BASE_URL}/index-${lang}.html`,
+            loc: `${BASE_URL}/${filename}`,
             lastmod: new Date().toISOString().split('T')[0],
             changefreq: 'daily',
             priority: '1.0',

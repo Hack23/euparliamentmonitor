@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Week Ahead"
-description: Generates EU Parliament week-ahead prospective articles for all 14 EU languages. Runs Fridays to preview the upcoming parliamentary week using European Parliament MCP data.
+description: Generates EU Parliament week-ahead prospective articles for all 14 languages. Runs Fridays to preview the upcoming parliamentary week using European Parliament MCP data.
 strict: false
 on:
   schedule:
@@ -25,7 +25,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 30
+timeout-minutes: 45
 
 network:
   allowed:
@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.4.0
+      - european-parliament-mcp-server@0.5.1
 
 tools:
   github:
@@ -91,15 +91,17 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 ## 🚨 CRITICAL: European Parliament MCP Server is the Sole Data Source
 
-**ALL article data MUST be fetched from the `european-parliament` MCP server.** No other data source should be used for article content. The MCP server provides 16 tools covering MEPs, plenary sessions, committees, documents, voting records, and legislative pipeline.
+**ALL article data MUST be fetched from the `european-parliament` MCP server.** No other data source should be used for article content. The MCP server provides 20 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, and OSINT intelligence analysis.
 
-## ⏱️ Time Budget (30 minutes)
+**Note:** EU Parliament API responses can be slow (30+ seconds is common). The workflow timeout has been set to 45 minutes to accommodate this. Use `Promise.allSettled()` for parallel queries and handle timeouts gracefully.
+
+## ⏱️ Time Budget (45 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
 - **Minutes 3–10**: Query plenary sessions, committee meetings, and legislative pipeline for next 7 days
-- **Minutes 10–22**: Generate articles for all requested languages
-- **Minutes 22–27**: Validate generated HTML and run news indexes
-- **Minutes 27–30**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 10–35**: Generate articles for all requested languages
+- **Minutes 35–40**: Validate generated HTML and run news indexes
+- **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
 
 ## Required Skills
 
@@ -146,7 +148,21 @@ european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20
 
 // Get MEPs involved in upcoming debates
 european_parliament___get_meps({ limit: 20 })
+
+// Committee workload analysis for the week
+european_parliament___analyze_committee_activity({ dateFrom: today, dateTo: nextWeek })
+
+// Parliament-wide political landscape overview
+european_parliament___generate_political_landscape({})
 ```
+
+### Handling Slow API Responses
+
+EU Parliament API responses commonly take 30+ seconds. To handle this:
+1. Use `Promise.allSettled()` for all parallel MCP queries
+2. Never fail the workflow on individual tool timeouts
+3. Continue with available data if some queries time out
+4. Log warnings for failed queries but generate articles with whatever data is available
 
 ## Generation Steps
 
@@ -186,16 +202,16 @@ LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
 # Strict allowlist validation to prevent shell injection
-if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu)(,(en|de|fr|es|it|nl|pl|pt|ro|sv|da|fi|el|hu))*$'; then
+if ! printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(all|eu-core|nordic|en|sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh)(,(en|sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh))*$'; then
   echo "❌ Invalid languages input: $LANGUAGES_INPUT" >&2
-  echo "Allowed: all, eu-core, nordic, or comma-separated: en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" >&2
+  echo "Allowed: all, eu-core, nordic, or comma-separated: en,sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" >&2
   exit 1
 fi
 
 case "$LANGUAGES_INPUT" in
-  "eu-core") LANG_ARG="en,de,fr,es,it,nl" ;;
-  "nordic")  LANG_ARG="en,sv,da,fi" ;;
-  "all")     LANG_ARG="en,de,fr,es,it,nl,pl,pt,ro,sv,da,fi,el,hu" ;;
+  "eu-core") LANG_ARG="en,de,fr,es,nl" ;;
+  "nordic")  LANG_ARG="en,sv,da,no,fi" ;;
+  "all")     LANG_ARG="en,sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" ;;
   *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
