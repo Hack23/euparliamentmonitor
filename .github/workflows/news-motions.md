@@ -286,6 +286,108 @@ npx tsx src/generators/news-enhanced.ts \
 npx tsx src/generators/news-indexes.ts
 ```
 
+## MANDATORY Quality Validation
+
+After article generation, verify EACH article meets these minimum standards **before committing**.
+
+### Required Sections (at least 3 of 5):
+1. **Analytical Lede** (paragraph, not just a data count)
+2. **Thematic Analysis** (documents grouped by policy theme)
+3. **Strategic Context** (why these documents matter politically)
+4. **Stakeholder Impact** (who benefits, who loses)
+5. **What Happens Next** (expected timeline and outcomes)
+
+### Disqualifying Patterns:
+- ❌ Synthetic test IDs: `VOTE-2024-001`, `DOC-2024-001`, `MEP-124810`, `Q-2024-001`
+- ❌ Identical metrics across different article types
+- ❌ Articles under 500 words
+- ❌ Stale dates (prior-year dates in current-year articles)
+- ❌ Untranslated English content in non-English articles
+- ❌ Duplicate "Why It Matters" text across articles
+
+### Bash Validation Commands:
+```bash
+ARTICLE_TYPE="motions"
+TODAY=$(date +%Y-%m-%d)
+CURRENT_YEAR=$(date +%Y)
+
+# 1. Check for synthetic/test IDs (should return 0 files)
+SYNTHETIC=$(grep -Erl "VOTE-2024-001|DOC-2024-001|MEP-124810|Q-2024-001" news/ 2>/dev/null | grep "${ARTICLE_TYPE}" | wc -l || echo 0)
+if [ "$SYNTHETIC" -gt 0 ]; then
+  echo "ERROR: $SYNTHETIC files contain synthetic test data IDs — do not commit" >&2
+  exit 1
+fi
+
+# 2. Check word count of English article (must be >= 500)
+FILE="news/${TODAY}-${ARTICLE_TYPE}-en.html"
+if [ -f "$FILE" ]; then
+  WORD_COUNT=$(sed 's/<[^>]*>/ /g' "$FILE" | tr -s '[:space:]' '\n' | grep -c '[[:alnum:]]' 2>/dev/null || echo 0)
+  echo "Content word count (HTML tags stripped): $WORD_COUNT"
+  if [ "$WORD_COUNT" -lt 500 ]; then
+    echo "ERROR: Article content too short ($WORD_COUNT words; minimum 500 required)." >&2
+    exit 1
+  fi
+else
+  echo "WARNING: Expected article file not found: $FILE" >&2
+fi
+
+# 3. Check for stale or mismatched publication dates in today's articles
+STALE_COUNT=0
+shopt -s nullglob
+for LANG_FILE in news/${TODAY}-${ARTICLE_TYPE}-*.html; do
+  if [ ! -f "$LANG_FILE" ]; then
+    continue
+  fi
+  DATES=$(grep -E 'name="date"|article:published_time|datePublished|Date:' "$LANG_FILE" 2>/dev/null \
+    | grep -Eo '20[0-9]{2}-[0-9]{2}-[0-9]{2}' | sort -u || true)
+  for DATE_VALUE in $DATES; do
+    DATE_YEAR=$(echo "$DATE_VALUE" | cut -c1-4)
+    if [ "$DATE_YEAR" != "$CURRENT_YEAR" ]; then
+      echo "ERROR: $LANG_FILE contains stale or mismatched publication date '$DATE_VALUE' (expected year $CURRENT_YEAR)" >&2
+      STALE_COUNT=$((STALE_COUNT + 1))
+      break
+    fi
+  done
+done
+shopt -u nullglob
+if [ "$STALE_COUNT" -gt 0 ]; then
+  echo "ERROR: $STALE_COUNT file(s) contain non-current publication dates — update before committing" >&2
+  exit 1
+fi
+
+# 4. Check for untranslated content in non-English articles
+for LANG in sv da no fi de fr es nl ar he ja ko zh; do
+  LANG_FILE="news/${TODAY}-${ARTICLE_TYPE}-${LANG}.html"
+  if [ -f "$LANG_FILE" ]; then
+    UNTRANSLATED=$(grep -c 'data-translate="true"' "$LANG_FILE" 2>/dev/null || echo 0)
+    if [ "$UNTRANSLATED" -gt 0 ]; then
+      echo "WARNING: $LANG_FILE has $UNTRANSLATED untranslated spans — translate before committing"
+    fi
+  fi
+done
+
+# 5. Check for duplicate "Why It Matters" analysis blocks across all generated files
+DUPLICATES=$(
+  awk '
+    /Why It Matters/ { capture=1; block=""; next }
+    capture && /<h[1-6][^>]*>/ { if (block != "") { gsub(/^[[:space:]]+|[[:space:]]+$/, "", block); gsub(/[[:space:]]+/, " ", block); seen[block]++ }; capture=0 }
+    capture { block = block $0 "\n" }
+    END { dup=0; for (b in seen) { if (seen[b] > 1) dup++ }; print dup }
+  ' news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null || echo 0
+)
+if [ "$DUPLICATES" -gt 0 ]; then
+  echo "WARNING: $DUPLICATES duplicate 'Why It Matters' analysis block(s) detected across generated files — differentiate analysis before committing"
+fi
+```
+
+### If Article Fails Quality Check:
+1. Use bash to enhance the HTML with the missing analytical sections
+2. Replace synthetic IDs with real data from EP MCP tools
+3. Replace generic "Why It Matters" with article-specific political analysis
+4. Add thematic grouping headers (by committee or policy domain)
+5. Ensure all dates reference the current year (`${CURRENT_YEAR}`)
+6. Translate any remaining untranslated content in non-English articles
+
 ### Step 5: Create PR
 
 Set the deterministic branch name before creating the PR:
