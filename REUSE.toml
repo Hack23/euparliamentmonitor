@@ -40,7 +40,7 @@ SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
-path = [".github/workflows/**.yml", ".github/**.yml", ".github/dependabot.yml", ".github/labeler.yml", ".github/release-drafter.yml", ".github/copilot-mcp.json"]
+path = [".github/workflows/**.yml", ".github/**.yml", ".github/dependabot.yml", ".github/labeler.yml", ".github/release-drafter.yml", ".github/copilot-mcp.json", ".github/aw/**.json"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
 SPDX-License-Identifier = "Apache-2.0"
