@@ -247,7 +247,6 @@ After article generation, verify EACH article meets these minimum standards **be
 ARTICLE_TYPE="motions"
 TODAY=$(date +%Y-%m-%d)
 CURRENT_YEAR=$(date +%Y)
-LAST_YEAR=$((CURRENT_YEAR - 1))
 
 # 1. Check for synthetic/test IDs (should return 0 files)
 SYNTHETIC=$(grep -Erl "VOTE-2024-001|DOC-2024-001|MEP-124810|Q-2024-001" news/ 2>/dev/null | grep "${ARTICLE_TYPE}" | wc -l || echo 0)
@@ -269,10 +268,25 @@ else
   echo "WARNING: Expected article file not found: $FILE" >&2
 fi
 
-# 3. Check for stale prior-year dates in articles
-STALE=$(grep -rl "Date: ${LAST_YEAR}-" news/ 2>/dev/null | grep "${TODAY}-${ARTICLE_TYPE}" | wc -l || echo 0)
-if [ "$STALE" -gt 0 ]; then
-  echo "ERROR: $STALE files contain stale ${LAST_YEAR} dates in ${CURRENT_YEAR} articles — update before committing" >&2
+# 3. Check for stale or mismatched publication dates in today's articles
+STALE_COUNT=0
+for LANG_FILE in news/${TODAY}-${ARTICLE_TYPE}-*.html; do
+  if [ ! -f "$LANG_FILE" ]; then
+    continue
+  fi
+  DATES=$(grep -E 'name="date"|article:published_time|datePublished|Date:' "$LANG_FILE" 2>/dev/null \
+    | grep -Eo '20[0-9]{2}-[0-9]{2}-[0-9]{2}' | sort -u || true)
+  for DATE_VALUE in $DATES; do
+    DATE_YEAR=$(echo "$DATE_VALUE" | cut -c1-4)
+    if [ "$DATE_YEAR" != "$CURRENT_YEAR" ]; then
+      echo "ERROR: $LANG_FILE contains stale or mismatched publication date '$DATE_VALUE' (expected year $CURRENT_YEAR)" >&2
+      STALE_COUNT=$((STALE_COUNT + 1))
+      break
+    fi
+  done
+done
+if [ "$STALE_COUNT" -gt 0 ]; then
+  echo "ERROR: $STALE_COUNT file(s) contain non-current publication dates — update before committing" >&2
   exit 1
 fi
 
@@ -287,10 +301,17 @@ for LANG in sv da no fi de fr es nl ar he ja ko zh; do
   fi
 done
 
-# 5. Check for duplicate "Why It Matters" text (should return empty)
-DUPLICATES=$(grep -h "Why It Matters" "news/${TODAY}-${ARTICLE_TYPE}-en.html" 2>/dev/null | sort | uniq -d | wc -l || echo 0)
+# 5. Check for duplicate "Why It Matters" analysis blocks across all generated files
+DUPLICATES=$(
+  awk '
+    /Why It Matters/ { capture=1; block=""; next }
+    capture && /<h[1-6][^>]*>/ { if (block != "") { gsub(/^[[:space:]]+|[[:space:]]+$/, "", block); gsub(/[[:space:]]+/, " ", block); seen[block]++ }; capture=0 }
+    capture { block = block $0 "\n" }
+    END { dup=0; for (b in seen) { if (seen[b] > 1) dup++ }; print dup }
+  ' news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null || echo 0
+)
 if [ "$DUPLICATES" -gt 0 ]; then
-  echo "WARNING: Duplicate 'Why It Matters' sections detected — differentiate analysis before committing"
+  echo "WARNING: $DUPLICATES duplicate 'Why It Matters' analysis block(s) detected across generated files — differentiate analysis before committing"
 fi
 ```
 
