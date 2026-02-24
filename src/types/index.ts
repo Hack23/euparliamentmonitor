@@ -3,534 +3,83 @@
 
 /**
  * @module Types
- * @description Shared TypeScript type definitions for EU Parliament Monitor
+ * @description Barrel re-export for all EU Parliament Monitor type definitions.
+ *
+ * Bounded contexts:
+ * - **common** — Language codes, article enums, category mappings
+ * - **parliament** — Domain entities (events, committees, documents, voting)
+ * - **generation** — Article pipeline (options, metadata, stats)
+ * - **mcp** — MCP client transport and tool option interfaces
  */
 
-/** Supported language codes */
-export type LanguageCode =
-  | 'en'
-  | 'sv'
-  | 'da'
-  | 'no'
-  | 'fi'
-  | 'de'
-  | 'fr'
-  | 'es'
-  | 'nl'
-  | 'ar'
-  | 'he'
-  | 'ja'
-  | 'ko'
-  | 'zh';
+export {
+  type LanguageCode,
+  type RTLLanguageCode,
+  type AnyLanguageCode,
+  ArticleCategory,
+  ArticlePerspective,
+  TimePeriod,
+  AnalysisPerspective,
+  CATEGORY_PERSPECTIVE,
+  CATEGORY_TIME_PERIOD,
+  type LanguagePreset,
+  type LanguageMap,
+  type ArticleCategoryLabels,
+  type LangTitleSubtitle,
+  type PropositionsStrings,
+} from './common.js';
 
-/** RTL language codes */
-export type RTLLanguageCode = 'ar' | 'he';
+export type {
+  ParliamentEvent,
+  CommitteeMeeting,
+  LegislativeDocument,
+  LegislativeProcedure,
+  ParliamentaryQuestion,
+  WeekAheadData,
+  CommitteeDocument,
+  CommitteeData,
+  VotingRecord,
+  VotingPattern,
+  VotingAnomaly,
+  MotionsQuestion,
+} from './parliament.js';
 
-/** All possible language codes (including RTL) */
-export type AnyLanguageCode = LanguageCode;
+export type {
+  ParsedArticle,
+  ArticleSource,
+  ArticleOptions,
+  SitemapUrl,
+  ArticleMetadataEntry,
+  NewsMetadataDatabase,
+  DateRange,
+  GenerationStats,
+  GenerationResult,
+} from './generation.js';
 
-/**
- * Article category — the primary classifier for content generation.
- * Each value represents a distinct article type with its own data pipeline,
- * template structure, and editorial voice.
- */
-export enum ArticleCategory {
-  // Prospective — looking ahead
-  WEEK_AHEAD = 'week-ahead',
-  MONTH_AHEAD = 'month-ahead',
-  YEAR_AHEAD = 'year-ahead',
-
-  // Retrospective — looking back
-  WEEK_IN_REVIEW = 'week-in-review',
-  MONTH_IN_REVIEW = 'month-in-review',
-  YEAR_IN_REVIEW = 'year-in-review',
-
-  // Real-time
-  BREAKING_NEWS = 'breaking',
-
-  // Domain-specific
-  COMMITTEE_REPORTS = 'committee-reports',
-  MOTIONS = 'motions',
-  PROPOSITIONS = 'propositions',
-
-  // Analytical
-  DEEP_ANALYSIS = 'deep-analysis',
-}
-
-/**
- * Temporal perspective of an article — derived from its category.
- * Determines the editorial framing and verb tense.
- */
-export enum ArticlePerspective {
-  /** Forward-looking: previews, agendas, upcoming events */
-  PROSPECTIVE = 'prospective',
-  /** Backward-looking: reviews, summaries, retrospectives */
-  RETROSPECTIVE = 'retrospective',
-  /** Live/current: breaking news, urgent developments */
-  REAL_TIME = 'real-time',
-  /** Deep dive: multi-perspective analysis, root cause */
-  ANALYTICAL = 'analytical',
-}
-
-/**
- * Time period scope for periodic articles (look-ahead or in-review).
- */
-export enum TimePeriod {
-  WEEK = 'week',
-  MONTH = 'month',
-  YEAR = 'year',
-}
-
-/**
- * Analysis perspective for "5 Whys" deep analysis articles.
- * Each perspective frames the same events through a different lens,
- * asking "why" iteratively to uncover root causes.
- */
-export enum AnalysisPerspective {
-  /** Party dynamics, power shifts, political strategy */
-  POLITICAL = 'political',
-  /** Budget impact, market effects, fiscal policy */
-  ECONOMIC = 'economic',
-  /** Citizen impact, public opinion, social equity */
-  SOCIAL = 'social',
-  /** Treaty basis, legal competence, compliance */
-  LEGAL = 'legal',
-  /** Climate, sustainability, green transition */
-  ENVIRONMENTAL = 'environmental',
-  /** EU external relations, global positioning */
-  GEOPOLITICAL = 'geopolitical',
-  /** EU institutional mechanics, inter-institutional balance */
-  INSTITUTIONAL = 'institutional',
-}
-
-/** Mapping from ArticleCategory to its inherent ArticlePerspective */
-export const CATEGORY_PERSPECTIVE: Record<ArticleCategory, ArticlePerspective> = {
-  [ArticleCategory.WEEK_AHEAD]: ArticlePerspective.PROSPECTIVE,
-  [ArticleCategory.MONTH_AHEAD]: ArticlePerspective.PROSPECTIVE,
-  [ArticleCategory.YEAR_AHEAD]: ArticlePerspective.PROSPECTIVE,
-  [ArticleCategory.WEEK_IN_REVIEW]: ArticlePerspective.RETROSPECTIVE,
-  [ArticleCategory.MONTH_IN_REVIEW]: ArticlePerspective.RETROSPECTIVE,
-  [ArticleCategory.YEAR_IN_REVIEW]: ArticlePerspective.RETROSPECTIVE,
-  [ArticleCategory.BREAKING_NEWS]: ArticlePerspective.REAL_TIME,
-  [ArticleCategory.COMMITTEE_REPORTS]: ArticlePerspective.RETROSPECTIVE,
-  [ArticleCategory.MOTIONS]: ArticlePerspective.RETROSPECTIVE,
-  [ArticleCategory.PROPOSITIONS]: ArticlePerspective.PROSPECTIVE,
-  [ArticleCategory.DEEP_ANALYSIS]: ArticlePerspective.ANALYTICAL,
-};
-
-/** Mapping from periodic categories to their time period scope */
-export const CATEGORY_TIME_PERIOD: Partial<Record<ArticleCategory, TimePeriod>> = {
-  [ArticleCategory.WEEK_AHEAD]: TimePeriod.WEEK,
-  [ArticleCategory.MONTH_AHEAD]: TimePeriod.MONTH,
-  [ArticleCategory.YEAR_AHEAD]: TimePeriod.YEAR,
-  [ArticleCategory.WEEK_IN_REVIEW]: TimePeriod.WEEK,
-  [ArticleCategory.MONTH_IN_REVIEW]: TimePeriod.MONTH,
-  [ArticleCategory.YEAR_IN_REVIEW]: TimePeriod.YEAR,
-};
-
-/** Language preset names */
-export type LanguagePreset = 'all' | 'eu-core' | 'nordic';
-
-/** Map from language code to translated string */
-export type LanguageMap<T = string> = Record<LanguageCode, T>;
-
-/** Parsed article metadata from filename */
-export interface ParsedArticle {
-  date: string;
-  slug: string;
-  lang: string;
-  filename: string;
-}
-
-/** Article source reference */
-export interface ArticleSource {
-  title: string;
-  url: string;
-}
-
-/** Options for generating article HTML */
-export interface ArticleOptions {
-  slug: string;
-  title: string;
-  subtitle: string;
-  date: string;
-  category: ArticleCategory;
-  readTime: number;
-  lang: string;
-  content: string;
-  keywords?: string[];
-  sources?: ArticleSource[];
-  analysisPerspectives?: AnalysisPerspective[];
-}
-
-/** Sitemap URL entry */
-export interface SitemapUrl {
-  loc: string;
-  lastmod: string;
-  changefreq: string;
-  priority: string;
-}
-
-/** News article metadata entry */
-export interface ArticleMetadataEntry {
-  filename: string;
-  date: string;
-  slug: string;
-  lang: string;
-  title: string;
-  type?: string;
-}
-
-/** News metadata database */
-export interface NewsMetadataDatabase {
-  lastUpdated: string;
-  articles: ArticleMetadataEntry[];
-}
-
-/** MCP client options */
-export interface MCPClientOptions {
-  serverPath?: string;
-  maxConnectionAttempts?: number;
-  connectionRetryDelay?: number;
-}
-
-/** MCP tool call result content item */
-export interface MCPContentItem {
-  type: string;
-  text: string;
-}
-
-/** MCP tool call result */
-export interface MCPToolResult {
-  content?: MCPContentItem[];
-}
-
-/** JSON-RPC 2.0 request */
-export interface JSONRPCRequest {
-  jsonrpc: '2.0';
-  id: number;
-  method: string;
-  params: Record<string, unknown>;
-}
-
-/** JSON-RPC 2.0 response */
-export interface JSONRPCResponse {
-  jsonrpc: '2.0';
-  id?: number;
-  method?: string;
-  result?: unknown;
-  error?: {
-    code: number;
-    message: string;
-    data?: unknown;
-  };
-}
-
-/** Pending request handler */
-export interface PendingRequest {
-  resolve: (value: unknown) => void;
-  reject: (reason: Error) => void;
-}
-
-/** Event data from MCP or fallback */
-export interface ParliamentEvent {
-  date: string;
-  title: string;
-  type: string;
-  description: string;
-}
-
-/** Committee meeting data from MCP */
-export interface CommitteeMeeting {
-  id?: string;
-  committee: string;
-  committeeName?: string;
-  date: string;
-  time?: string;
-  location?: string;
-  agenda?: Array<{ item?: number; title: string; type?: string }>;
-}
-
-/** Legislative document from MCP */
-export interface LegislativeDocument {
-  id?: string;
-  type?: string;
-  title: string;
-  date?: string;
-  status?: string;
-  committee?: string;
-  rapporteur?: string;
-}
-
-/** Legislative pipeline procedure */
-export interface LegislativeProcedure {
-  id?: string;
-  title: string;
-  stage?: string;
-  committee?: string;
-  status?: string;
-  bottleneck?: boolean;
-}
-
-/** Parliamentary question */
-export interface ParliamentaryQuestion {
-  id?: string;
-  type?: string;
-  author?: string;
-  subject: string;
-  date?: string;
-  status?: string;
-}
-
-/** Aggregated week-ahead data from multiple MCP sources */
-export interface WeekAheadData {
-  events: ParliamentEvent[];
-  committees: CommitteeMeeting[];
-  documents: LegislativeDocument[];
-  pipeline: LegislativeProcedure[];
-  questions: ParliamentaryQuestion[];
-}
-
-/** Date range for article generation */
-export interface DateRange {
-  start: string;
-  end: string;
-}
-
-/** Generation statistics */
-export interface GenerationStats {
-  generated: number;
-  skipped: number;
-  dryRun: number;
-  errors: number;
-  articles: string[];
-  timestamp: string;
-}
-
-/** Generation result */
-export interface GenerationResult {
-  success: boolean;
-  files?: number;
-  slug?: string;
-  error?: string;
-}
-
-/** Article category labels for a single language — one entry per ArticleCategory */
-export type ArticleCategoryLabels = Record<ArticleCategory, string>;
-
-/** Language-specific title and subtitle */
-export interface LangTitleSubtitle {
-  title: string;
-  subtitle: string;
-}
-
-/** Committee document with type, title and date */
-export interface CommitteeDocument {
-  title: string;
-  type: string;
-  date: string;
-}
-
-/** Committee report data aggregated from MCP sources */
-export interface CommitteeData {
-  name: string;
-  abbreviation: string;
-  chair: string;
-  members: number;
-  documents: CommitteeDocument[];
-  effectiveness: string | null;
-}
-/** Localized strings for propositions articles */
-export interface PropositionsStrings {
-  lede: string;
-  proposalsHeading: string;
-  pipelineHeading: string;
-  procedureHeading: string;
-  analysisHeading: string;
-  analysis: string;
-  pipelineHealthLabel: string;
-  throughputRateLabel: string;
-}
-
-/** Options for getMEPs */
-export interface GetMEPsOptions {
-  country?: string;
-  group?: string;
-  committee?: string;
-  active?: boolean;
-  limit?: number;
-  offset?: number;
-}
-
-/** Options for getPlenarySessions */
-export interface GetPlenarySessionsOptions {
-  /** Tool schema field name */
-  startDate?: string;
-  /** Tool schema field name */
-  endDate?: string;
-  /** Alternative field name used by generators */
-  dateFrom?: string;
-  /** Alternative field name used by generators */
-  dateTo?: string;
-  location?: string;
-  limit?: number;
-}
-
-/** Options for searchDocuments */
-export interface SearchDocumentsOptions {
-  query?: string;
-  keyword?: string;
-  type?: string;
-  committee?: string;
-  dateFrom?: string;
-  dateTo?: string;
-  limit?: number;
-}
-
-/** Options for getParliamentaryQuestions */
-export interface GetParliamentaryQuestionsOptions {
-  type?: string;
-  startDate?: string;
-  dateFrom?: string;
-  dateTo?: string;
-  limit?: number;
-}
-
-/** Options for getCommitteeInfo */
-export interface GetCommitteeInfoOptions {
-  committeeId?: string;
-  dateFrom?: string;
-  dateTo?: string;
-  limit?: number;
-}
-
-/** Options for monitorLegislativePipeline */
-export interface MonitorLegislativePipelineOptions {
-  committeeId?: string;
-  status?: string;
-  dateFrom?: string;
-  dateTo?: string;
-  limit?: number;
-}
-
-/** Options for assessMEPInfluence */
-export interface AssessMEPInfluenceOptions {
-  mepId: string;
-  dateFrom?: string;
-  dateTo?: string;
-}
-
-/** Options for analyzeCoalitionDynamics */
-export interface AnalyzeCoalitionDynamicsOptions {
-  politicalGroups?: string[];
-  dateFrom?: string;
-  dateTo?: string;
-}
-
-/** Options for detectVotingAnomalies */
-export interface DetectVotingAnomaliesOptions {
-  mepId?: string;
-  politicalGroup?: string;
-  dateFrom?: string;
-}
-
-/** Options for comparePoliticalGroups */
-export interface ComparePoliticalGroupsOptions {
-  groups: string[];
-  metrics?: string[];
-  dateFrom?: string;
-}
-
-/** Options for analyzeLegislativeEffectiveness */
-export interface AnalyzeLegislativeEffectivenessOptions {
-  subjectId: string;
-  subjectType: 'MEP' | 'COMMITTEE';
-  dateFrom?: string;
-  dateTo?: string;
-}
-
-/** Voting record from MCP or fallback */
-export interface VotingRecord {
-  title: string;
-  date: string;
-  result: string;
-  votes: { for: number; against: number; abstain: number };
-}
-
-/** Voting pattern (party cohesion) from MCP or fallback */
-export interface VotingPattern {
-  group: string;
-  cohesion: number;
-  participation: number;
-}
-
-/** Voting anomaly from MCP or fallback */
-export interface VotingAnomaly {
-  type: string;
-  description: string;
-  severity: string;
-}
-
-/** Parliamentary question for motions article (simplified MCP/fallback shape) */
-export interface MotionsQuestion {
-  author: string;
-  topic: string;
-  date: string;
-  status: string;
-}
-
-/** Options for getting voting records */
-export interface VotingRecordsOptions {
-  mepId?: string;
-  sessionId?: string;
-  limit?: number;
-}
-
-/** Options for analyzing voting patterns */
-export interface VotingPatternsOptions {
-  mepId: string;
-  dateFrom?: string;
-  compareWithGroup?: boolean;
-}
-
-/** Allowed report types for analytical reports */
-export type ReportType =
-  | 'MEP_ACTIVITY'
-  | 'COMMITTEE_PERFORMANCE'
-  | 'VOTING_STATISTICS'
-  | 'LEGISLATION_PROGRESS';
-
-/** Options for generating analytical reports */
-export interface GenerateReportOptions {
-  reportType: ReportType;
-  subjectId?: string;
-  dateFrom?: string;
-}
-
-/** Options for analyzeCommitteeActivity */
-export interface AnalyzeCommitteeActivityOptions {
-  committeeId?: string;
-  dateFrom?: string;
-  dateTo?: string;
-}
-
-/** Options for trackMEPAttendance */
-export interface TrackMEPAttendanceOptions {
-  mepId?: string;
-  dateFrom?: string;
-  dateTo?: string;
-}
-
-/** Options for analyzeCountryDelegation */
-export interface AnalyzeCountryDelegationOptions {
-  country: string;
-  dateFrom?: string;
-  dateTo?: string;
-}
-
-/** Options for generatePoliticalLandscape */
-export interface GeneratePoliticalLandscapeOptions {
-  dateFrom?: string;
-  dateTo?: string;
-  includeDetails?: boolean;
-}
+export {
+  type MCPClientOptions,
+  type MCPContentItem,
+  type MCPToolResult,
+  type JSONRPCRequest,
+  type JSONRPCResponse,
+  type PendingRequest,
+  type GetMEPsOptions,
+  type GetPlenarySessionsOptions,
+  type SearchDocumentsOptions,
+  type GetParliamentaryQuestionsOptions,
+  type GetCommitteeInfoOptions,
+  type MonitorLegislativePipelineOptions,
+  type AssessMEPInfluenceOptions,
+  type AnalyzeCoalitionDynamicsOptions,
+  type DetectVotingAnomaliesOptions,
+  type ComparePoliticalGroupsOptions,
+  type AnalyzeLegislativeEffectivenessOptions,
+  type VotingRecordsOptions,
+  type VotingPatternsOptions,
+  type ReportType,
+  type GenerateReportOptions,
+  type AnalyzeCommitteeActivityOptions,
+  type TrackMEPAttendanceOptions,
+  type AnalyzeCountryDelegationOptions,
+  type GeneratePoliticalLandscapeOptions,
+} from './mcp.js';
