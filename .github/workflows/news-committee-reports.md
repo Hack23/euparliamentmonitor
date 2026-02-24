@@ -416,10 +416,16 @@ BRANCH_NAME="news/committee-reports-$TODAY"
 echo "Branch: $BRANCH_NAME"
 ```
 
-Pass `$BRANCH_NAME` (e.g., `news/committee-reports-2026-02-24`) as the branch argument to `safeoutputs___create_pull_request`. Validate HTML structure, then create the PR:
+Pass `$BRANCH_NAME` (e.g., `news/committee-reports-2026-02-24`) as the `head` parameter when calling `safeoutputs___create_pull_request`. Validate HTML structure, then create the PR:
 
-```
-safeoutputs___create_pull_request
+```javascript
+safeoutputs___create_pull_request({
+  title: `chore: EU Parliament committee-reports articles ${TODAY}`,
+  body: `## EU Parliament Committee Reports Articles\n\nGenerated committee-reports articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server`,
+  base: "main",
+  head: `news/committee-reports-${TODAY}`,
+  files: [/* generated article files */]
+})
 ```
 
 ## Translation Rules

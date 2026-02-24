@@ -384,10 +384,16 @@ BRANCH_NAME="news/propositions-$TODAY"
 echo "Branch: $BRANCH_NAME"
 ```
 
-Pass `$BRANCH_NAME` (e.g., `news/propositions-2026-02-24`) as the branch argument to `safeoutputs___create_pull_request`:
+Pass `$BRANCH_NAME` (e.g., `news/propositions-2026-02-24`) as the `head` parameter when calling `safeoutputs___create_pull_request`:
 
-```
-safeoutputs___create_pull_request
+```javascript
+safeoutputs___create_pull_request({
+  title: `chore: EU Parliament propositions articles ${TODAY}`,
+  body: `## EU Parliament Propositions Articles\n\nGenerated propositions articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server`,
+  base: "main",
+  head: `news/propositions-${TODAY}`,
+  files: [/* generated article files */]
+})
 ```
 
 ## Translation Rules
