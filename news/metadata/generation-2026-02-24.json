@@ -1,30 +1,31 @@
 {
-  "timestamp": "2026-02-24T05:23:00.566Z",
-  "generated": 13,
-  "skipped": 1,
+  "timestamp": "2026-02-24T15:40:46.576Z",
+  "generated": 14,
+  "skipped": 0,
   "dryRun": 0,
   "errors": 0,
   "articles": [
-    "2026-02-24-week-ahead-sv.html",
-    "2026-02-24-week-ahead-da.html",
-    "2026-02-24-week-ahead-no.html",
-    "2026-02-24-week-ahead-fi.html",
-    "2026-02-24-week-ahead-de.html",
-    "2026-02-24-week-ahead-fr.html",
-    "2026-02-24-week-ahead-es.html",
-    "2026-02-24-week-ahead-nl.html",
-    "2026-02-24-week-ahead-ar.html",
-    "2026-02-24-week-ahead-he.html",
-    "2026-02-24-week-ahead-ja.html",
-    "2026-02-24-week-ahead-ko.html",
-    "2026-02-24-week-ahead-zh.html"
+    "2026-02-24-propositions-en.html",
+    "2026-02-24-propositions-sv.html",
+    "2026-02-24-propositions-da.html",
+    "2026-02-24-propositions-no.html",
+    "2026-02-24-propositions-fi.html",
+    "2026-02-24-propositions-de.html",
+    "2026-02-24-propositions-fr.html",
+    "2026-02-24-propositions-es.html",
+    "2026-02-24-propositions-nl.html",
+    "2026-02-24-propositions-ar.html",
+    "2026-02-24-propositions-he.html",
+    "2026-02-24-propositions-ja.html",
+    "2026-02-24-propositions-ko.html",
+    "2026-02-24-propositions-zh.html"
   ],
   "results": [
     {
       "success": true,
-      "files": 13,
-      "slug": "2026-02-24-week-ahead"
+      "files": 14,
+      "slug": "2026-02-24-propositions"
     }
   ],
-  "usedMCP": false
+  "usedMCP": true
 }
