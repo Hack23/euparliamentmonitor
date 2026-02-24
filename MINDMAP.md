@@ -337,8 +337,8 @@ mindmap
         Performance
         ES Modules
         Latest Features
-      JavaScript/TypeScript
-        Modern Syntax
+      TypeScript
+        Strict Mode
         Type Safety
         Async/Await
         Error Handling
@@ -399,10 +399,12 @@ mindmap
           Type-Safe
           Versioned
         Tools
+          get_meps
           get_plenary_sessions
           search_documents
           get_parliamentary_questions
           get_committee_info
+          get_voting_records
         Error Handling
           Retry Logic
           Exponential Backoff
@@ -454,7 +456,7 @@ mindmap
 ```mermaid
 graph TB
     subgraph "Presentation Layer"
-        A[Static HTML/CSS/JS]
+        A[Static HTML/CSS]
         B[Multi-Language Content]
         C[Responsive Design]
     end
@@ -739,7 +741,7 @@ mindmap
     Security Controls
       Static Analysis
         CodeQL
-          JavaScript Analysis
+          TypeScript Analysis
           Vulnerability Detection
           Data Flow Analysis
           Control Flow Analysis
@@ -765,7 +767,6 @@ mindmap
           API Key Detection
           Credential Leaks
         License Compliance
-          FOSSA Scanning
           REUSE Compliance
           License Compatibility
           Attribution
@@ -1085,7 +1086,7 @@ graph LR
 | ------------------------ | ---------------------------- | ------ | ------- |
 | **Article Types**        | Number of types supported    | 5+     | 5       |
 | **Languages**            | Number of languages          | 14     | 14      |
-| **Data Sources**         | Number of EP API endpoints   | 4+     | 4       |
+| **Data Sources**         | Number of EP MCP tools       | 6+     | 6       |
 | **Generation Time**      | Average time per article set | <5 min | ~3 min  |
 | **Validation Pass Rate** | Articles passing validation  | >98%   | 99.2%   |
 | **Deployment Success**   | Successful deployments       | >99%   | 99.5%   |
