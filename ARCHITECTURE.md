@@ -18,7 +18,7 @@
 
 **📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:**
 2026-02-20 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-20
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-24
 
 ---
 
@@ -1319,7 +1319,7 @@ Non-functional requirements define system qualities that are not directly relate
 
 **Document Status:** Living Document  
 **Last Updated:** 2026-02-20  
-**Next Review:** 2026-05-20  
+**Next Review:** 2026-05-24  
 **Owner:** CEO
 
 This architecture documentation follows the [C4 model](https://c4model.com/)

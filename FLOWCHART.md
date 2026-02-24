@@ -18,7 +18,7 @@
 
 **📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:**
 2026-02-21 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-20
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-24
 
 ---
 
@@ -1146,7 +1146,7 @@ flowchart TD
 ---
 
 **Document Status**: Active  
-**Next Review**: 2026-05-20  
+**Next Review**: 2026-05-24  
 **Owner**: Development Team, Hack23 AB  
 **Classification**: Public  
 **Version**: 1.1
