@@ -100,6 +100,8 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 - **Minutes 35–40**: Validate HTML and commit
 - **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
 
+**If you reach minute 35 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+
 ## Required Skills
 
 1. **`.github/skills/european-political-system.md`** — EU Parliament political groups and dynamics
@@ -117,11 +119,50 @@ echo "Article Type: motions"
 echo "============================"
 ```
 
+## MANDATORY MCP Health Gate
+
+Before generating ANY articles, verify MCP connectivity:
+
+1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, proceed
+2. If it fails, wait 30 seconds and retry (up to 3 total attempts)
+3. If ALL 3 attempts fail:
+   - Use `safeoutputs___noop` with message: "MCP server unavailable after 3 connection attempts. No articles generated."
+   - DO NOT analyze existing articles in the repository
+   - DO NOT fabricate or recycle content
+   - The workflow MUST end with noop
+
+**CRITICAL**: ALL article content MUST originate from live MCP data. Never generate content from:
+- Existing articles in the news/ directory
+- Cached or stale data
+- AI-generated content without MCP source data
+- Synthetic/test IDs (VOTE-2024-001, DOC-2024-001, etc.)
+
 ## MANDATORY PR Creation
 
 - ✅ `safeoutputs___create_pull_request` when articles generated
 - ✅ `noop` ONLY if genuinely no new motions
 - ❌ NEVER use `noop` as fallback for PR creation failures
+
+## Error Handling
+
+**If EP MCP server unavailable (3 retries failed):**
+1. `safeoutputs___noop` with descriptive message — legitimate noop
+
+**If no significant data found (genuinely empty):**
+1. Verify all MCP tools were queried
+2. `safeoutputs___noop` — legitimate quiet period
+
+**If article generation fails AFTER starting work:**
+1. Log the specific failure
+2. ❌ **DO NOT use noop** — workflow should FAIL
+3. Let error propagate so it's visible
+
+**If PR creation fails AFTER generating articles:**
+1. Retry `safeoutputs___create_pull_request` once
+2. If still fails: ❌ workflow MUST FAIL
+3. The articles exist but no PR = readers can't see them = FAILURE
+
+**⚠️ NEVER use `git push` directly** — always use `safeoutputs___create_pull_request`
 
 ## EP MCP Tools for Motions
 
