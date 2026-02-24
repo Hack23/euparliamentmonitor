@@ -61,7 +61,6 @@ jobs:
             safebrowsingohttpgateway.googleapis.com:443
             shavar.services.mozilla.com:443
             slsa.dev:443
-            sonarcloud.io:443
             storage.googleapis.com:443
             sts.us-east-1.amazonaws.com:443
             tel.zaproxy.org:443
