@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament motions and resolutions analysis articles for all 14 EU languages. Single article type per run.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"5f9432efee1221372fefda7185da1144f709a85a647d79b27a0feb1f6d545c0b","compiler_version":"v0.49.6"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"fb373e6c8ecdb81a0f82fb6ce809d9b2fae6cb92ba5f4c8c782e314a243f2157","compiler_version":"v0.49.6"}
 
 name: "News: EU Parliament Motions"
 "on":
@@ -685,7 +685,7 @@ jobs:
                 "entrypointArgs": [
                   "npx",
                   "-y",
-                  "european-parliament-mcp-server@0.4.0"
+                  "european-parliament-mcp-server@0.5.1"
                 ],
                 "tools": [
                   "*"
@@ -733,7 +733,7 @@ jobs:
       - name: Execute GitHub Copilot CLI
         id: agentic_execution
         # Copilot CLI tool arguments (sorted):
-        timeout-minutes: 30
+        timeout-minutes: 45
         run: |
           set -o pipefail
           sudo -E awf --env-all --container-workdir "${GITHUB_WORKSPACE}" --allow-domains "*.com,*.europa.eu,*.io,*.jsr.io,*.org,api.business.githubcopilot.com,api.enterprise.githubcopilot.com,api.github.com,api.githubcopilot.com,api.individual.githubcopilot.com,api.npms.io,bun.sh,cdn.jsdelivr.net,data.europarl.europa.eu,deb.nodesource.com,default,deno.land,esm.sh,get.pnpm.io,github.com,googleapis.deno.dev,googlechromelabs.github.io,host.docker.internal,jsr.io,nodejs.org,npm.pkg.github.com,npmjs.com,npmjs.org,raw.githubusercontent.com,registry.bower.io,registry.npmjs.com,registry.npmjs.org,registry.yarnpkg.com,repo.yarnpkg.com,skimdb.npmjs.com,storage.googleapis.com,telemetry.enterprise.githubcopilot.com,www.npmjs.com,www.npmjs.org,yarnpkg.com" --log-level info --proxy-logs-dir /tmp/gh-aw/sandbox/firewall/logs --enable-host-access --image-tag 0.20.2 --skip-pull --enable-api-proxy \

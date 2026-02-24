@@ -815,6 +815,99 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"effectiveness": null}' }],
         });
       });
+
+      it('should analyze committee activity', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"activity": {"meetings": 5}}' }],
+        });
+
+        const options = { committeeId: 'ENVI', dateFrom: '2024-01-01' };
+        await client.analyzeCommitteeActivity(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('analyze_committee_activity', options);
+      });
+
+      it('should handle missing analyze_committee_activity tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.analyzeCommitteeActivity();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"activity": null}' }],
+        });
+      });
+
+      it('should track MEP attendance', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"attendance": {"rate": 0.85}}' }],
+        });
+
+        const options = { mepId: 'MEP-123', dateFrom: '2024-01-01' };
+        await client.trackMEPAttendance(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('track_mep_attendance', options);
+      });
+
+      it('should handle missing track_mep_attendance tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.trackMEPAttendance();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"attendance": null}' }],
+        });
+      });
+
+      it('should analyze country delegation', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"delegation": {"cohesion": 0.75}}' }],
+        });
+
+        const options = { country: 'DE', dateFrom: '2024-01-01' };
+        await client.analyzeCountryDelegation(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('analyze_country_delegation', options);
+      });
+
+      it('should handle missing analyze_country_delegation tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.analyzeCountryDelegation({ country: 'DE' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"delegation": null}' }],
+        });
+      });
+
+      it('should return fallback for analyzeCountryDelegation with empty country', async () => {
+        const result = await client.analyzeCountryDelegation({ country: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"delegation": null}' }],
+        });
+      });
+
+      it('should generate political landscape', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"landscape": {"groups": 8}}' }],
+        });
+
+        const options = { dateFrom: '2024-01-01', includeDetails: true };
+        await client.generatePoliticalLandscape(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('generate_political_landscape', options);
+      });
+
+      it('should handle missing generate_political_landscape tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.generatePoliticalLandscape();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"landscape": null}' }],
+        });
+      });
     });
 
     describe('Retry Logic', () => {

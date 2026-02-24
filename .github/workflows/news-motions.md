@@ -25,7 +25,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 30
+timeout-minutes: 45
 
 network:
   allowed:
@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.4.0
+      - european-parliament-mcp-server@0.5.1
 
 tools:
   github:
@@ -93,12 +93,12 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 **ALL article data MUST be fetched from the European Parliament MCP server.** No other data source should be used for article content.
 
-## ⏱️ Time Budget (30 minutes)
+## ⏱️ Time Budget (45 minutes)
 - **Minutes 0–3**: Date validation, MCP warm-up
 - **Minutes 3–12**: Query EP MCP tools for motions data (parallel where possible)
-- **Minutes 12–24**: Generate articles for requested languages
-- **Minutes 24–27**: Validate HTML and commit
-- **Minutes 27–30**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 12–35**: Generate articles for requested languages
+- **Minutes 35–40**: Validate HTML and commit
+- **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
 
 ## Required Skills
 
@@ -148,7 +148,21 @@ european_parliament___get_voting_records({ topic: "resolution", limit: 20 })
 
 // OSINT: Key MEP influence (call per influential MEP identified)
 european_parliament___assess_mep_influence({ mepId: "<mepId>" })
+
+// OSINT: Country delegation analysis (v0.5.1 tool)
+european_parliament___analyze_country_delegation({ country: "<countryCode>" })
+
+// Parliament-wide landscape for context (v0.5.1 tool)
+european_parliament___generate_political_landscape({})
 ```
+
+### Handling Slow API Responses
+
+EU Parliament API responses commonly take 30+ seconds. To handle this:
+1. Use `Promise.allSettled()` for all parallel MCP queries
+2. Never fail the workflow on individual tool timeouts
+3. Continue with available data if some queries time out
+4. Log warnings for failed queries but generate articles with whatever data is available
 
 ## Generation Steps
 

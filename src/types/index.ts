@@ -422,3 +422,31 @@ export interface GenerateReportOptions {
   subjectId?: string;
   dateFrom?: string;
 }
+
+/** Options for analyzeCommitteeActivity */
+export interface AnalyzeCommitteeActivityOptions {
+  committeeId?: string;
+  dateFrom?: string;
+  dateTo?: string;
+}
+
+/** Options for trackMEPAttendance */
+export interface TrackMEPAttendanceOptions {
+  mepId?: string;
+  dateFrom?: string;
+  dateTo?: string;
+}
+
+/** Options for analyzeCountryDelegation */
+export interface AnalyzeCountryDelegationOptions {
+  country: string;
+  dateFrom?: string;
+  dateTo?: string;
+}
+
+/** Options for generatePoliticalLandscape */
+export interface GeneratePoliticalLandscapeOptions {
+  dateFrom?: string;
+  dateTo?: string;
+  includeDetails?: boolean;
+}

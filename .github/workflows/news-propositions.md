@@ -25,7 +25,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 30
+timeout-minutes: 45
 
 network:
   allowed:
@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.4.0
+      - european-parliament-mcp-server@0.5.1
 
 tools:
   github:
@@ -100,13 +100,13 @@ Read each skill file before proceeding:
 4. **`.github/skills/seo-best-practices.md`** — Multi-language SEO
 5. **`.github/skills/gh-aw-firewall.md`** — Network security and safe outputs
 
-## ⏱️ Time Budget (30 minutes)
+## ⏱️ Time Budget (45 minutes)
 
 - **Minutes 0–3**: Date validation, EP MCP server warm-up
 - **Minutes 3–10**: Query EP MCP tools for legislative proposals and pipeline data
-- **Minutes 10–22**: Generate articles for requested languages
-- **Minutes 22–27**: Validate HTML and regenerate indexes
-- **Minutes 27–30**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 10–35**: Generate articles for requested languages
+- **Minutes 35–40**: Validate HTML and regenerate indexes
+- **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
 
 ## MANDATORY Date Validation
 
