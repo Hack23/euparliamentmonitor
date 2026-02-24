@@ -191,8 +191,24 @@ EU Parliament API responses commonly take 30+ seconds. To handle this:
 
 ## Generation Steps
 
+### Step 0: Check for Existing Open PRs
+
+Before generating, check if an open PR already exists for `committee-reports` articles on today's date:
+
+```bash
+TODAY=$(date -u +%Y-%m-%d)
+EXISTING_PR=$(gh pr list --repo Hack23/euparliamentmonitor \
+  --search "committee-reports $TODAY in:title" \
+  --state open --json number --jq '.[0].number' 2>/dev/null || echo "")
+echo "Existing PR check: EXISTING_PR=$EXISTING_PR, TODAY=$TODAY"
+```
+
+If `EXISTING_PR` is non-empty **and** **force_generation** is `false`:
+- Log: `"PR #$EXISTING_PR already exists for committee-reports on $TODAY. Skipping to avoid duplicate PR."`
+- Call `safeoutputs___noop` and **stop here** — do not proceed to article generation.
+
 ### Step 1: Check Recent Generation
-Check if committee-reports articles exist from the last 11 hours. Skip if **force_generation** is false AND recent articles exist.
+Check if committee-reports articles exist from the last 11 hours. If **force_generation** is `true`, skip this check.
 
 ### Step 2: Query EP MCP for Committee Reports
 Fetch data from European Parliament MCP tools for each featured committee (ENVI, ECON, AFET, LIBE, AGRI).
@@ -248,7 +264,17 @@ npx tsx src/generators/news-indexes.ts
 ```
 
 ### Step 6: Validate & Create PR
+
+Use a deterministic branch name to prevent duplicate branches:
+
+```bash
+TODAY=$(date -u +%Y-%m-%d)
+echo "Branch: news/committee-reports-$TODAY"
+```
+
 Validate HTML structure, then create PR using `safeoutputs___create_pull_request`.
+
+Use branch name `news/committee-reports-{TODAY}` (e.g., `news/committee-reports-2026-02-24`) when creating the PR.
 
 ## Translation Rules
 - Committee abbreviations (ENVI, ECON, AFET) are kept as-is in document references

@@ -158,6 +158,22 @@ european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTE
 
 ## Generation Steps
 
+### Step 0: Check for Existing Open PRs
+
+Before generating, check if an open PR already exists for `propositions` articles on today's date:
+
+```bash
+TODAY=$(date -u +%Y-%m-%d)
+EXISTING_PR=$(gh pr list --repo Hack23/euparliamentmonitor \
+  --search "propositions $TODAY in:title" \
+  --state open --json number --jq '.[0].number' 2>/dev/null || echo "")
+echo "Existing PR check: EXISTING_PR=$EXISTING_PR, TODAY=$TODAY"
+```
+
+If `EXISTING_PR` is non-empty **and** **force_generation** is `false`:
+- Log: `"PR #$EXISTING_PR already exists for propositions on $TODAY. Skipping to avoid duplicate PR."`
+- Call `safeoutputs___noop` and **stop here** — do not proceed to article generation.
+
 ### Step 1: Check Recent Generation
 
 Check if propositions articles exist from the last 11 hours. If **force_generation** is `true`, skip this check.
@@ -223,9 +239,19 @@ Every generated article must include:
 If the generated article lacks these analytical sections, manually add contextual analysis before committing.
 
 ### Step 6: Create PR
+
+Use a deterministic branch name to prevent duplicate branches:
+
+```bash
+TODAY=$(date -u +%Y-%m-%d)
+echo "Branch: news/propositions-$TODAY"
+```
+
 ```
 safeoutputs___create_pull_request
 ```
+
+Use branch name `news/propositions-{TODAY}` (e.g., `news/propositions-2026-02-24`) when creating the PR.
 
 ## Translation Rules
 
