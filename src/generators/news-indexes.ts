@@ -22,6 +22,7 @@ import {
   PAGE_DESCRIPTIONS,
   SECTION_HEADINGS,
   NO_ARTICLES_MESSAGES,
+  SKIP_LINK_TEXTS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -148,6 +149,7 @@ export function generateIndexHTML(lang: string, articles: ParsedArticle[]): stri
   const description = getLocalizedString(PAGE_DESCRIPTIONS, lang);
   const heading = getLocalizedString(SECTION_HEADINGS, lang);
   const noArticlesText = getLocalizedString(NO_ARTICLES_MESSAGES, lang);
+  const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
   const dir = getTextDirection(lang);
   const year = new Date().getFullYear();
   const selfHref = getIndexFilename(lang);
@@ -177,7 +179,7 @@ export function generateIndexHTML(lang: string, articles: ParsedArticle[]): stri
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
+  <a href="#main" class="skip-link">${skipLinkText}</a>
 
   <header class="site-header" role="banner">
     <div class="site-header__inner">

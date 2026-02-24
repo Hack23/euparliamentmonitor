@@ -378,11 +378,18 @@ function generateMockIndexHTML(lang, articles) {
     fr: 'Dernières Actualités',
   };
 
+  const skipLinkTexts = {
+    en: 'Skip to main content',
+    de: 'Zum Hauptinhalt springen',
+    fr: 'Aller au contenu principal',
+  };
+
   const title = titles[lang] || titles.en;
   const description = descriptions[lang] || descriptions.en;
   const languageName = langNames[lang] || 'English';
   const noArticlesText = noArticles[lang] || noArticles.en;
   const heading = headings[lang] || headings.en;
+  const skipLinkText = skipLinkTexts[lang] || skipLinkTexts.en;
   const heroTitle = title.split(' - ')[0];
 
   const langNav = Object.entries(langNames)
@@ -407,7 +414,7 @@ function generateMockIndexHTML(lang, articles) {
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
+  <a href="#main" class="skip-link">${skipLinkText}</a>
 
   <header class="site-header" role="banner">
     <div class="site-header__inner">

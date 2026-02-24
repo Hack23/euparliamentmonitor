@@ -11,7 +11,7 @@ import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
 import { PROJECT_ROOT } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { getNewsArticles, groupArticlesByLanguage, formatSlug } from '../utils/file-utils.js';
 import { updateMetadataDatabase } from '../utils/news-metadata.js';
 import { ArticleCategory } from '../types/index.js';
@@ -136,6 +136,7 @@ export function generateIndexHTML(lang, articles) {
     const description = getLocalizedString(PAGE_DESCRIPTIONS, lang);
     const heading = getLocalizedString(SECTION_HEADINGS, lang);
     const noArticlesText = getLocalizedString(NO_ARTICLES_MESSAGES, lang);
+    const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
     const dir = getTextDirection(lang);
     const year = new Date().getFullYear();
     const selfHref = getIndexFilename(lang);
@@ -162,7 +163,7 @@ export function generateIndexHTML(lang, articles) {
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
+  <a href="#main" class="skip-link">${skipLinkText}</a>
 
   <header class="site-header" role="banner">
     <div class="site-header__inner">
