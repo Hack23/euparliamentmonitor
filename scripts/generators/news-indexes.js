@@ -14,29 +14,42 @@ import { PROJECT_ROOT } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { getNewsArticles, groupArticlesByLanguage, formatSlug } from '../utils/file-utils.js';
 import { updateMetadataDatabase } from '../utils/news-metadata.js';
+import { ArticleCategory } from '../types/index.js';
 /**
  * Default category for articles that don't match specific patterns.
  */
-const DEFAULT_CATEGORY = 'week-ahead';
+const DEFAULT_CATEGORY = ArticleCategory.WEEK_AHEAD;
 /**
  * Detect the article category from a slug.
- * Returns a CSS-friendly category key used for badge/accent colours.
+ * Returns the matching ArticleCategory value used for badge/accent colours.
  *
  * @param slug - Hyphenated slug string
- * @returns Category key string
+ * @returns ArticleCategory value string
  */
 function detectCategory(slug) {
     const s = slug.toLowerCase();
     if (s.includes('week-ahead'))
-        return DEFAULT_CATEGORY;
+        return ArticleCategory.WEEK_AHEAD;
+    if (s.includes('month-ahead'))
+        return ArticleCategory.MONTH_AHEAD;
+    if (s.includes('year-ahead'))
+        return ArticleCategory.YEAR_AHEAD;
+    if (s.includes('week-in-review'))
+        return ArticleCategory.WEEK_IN_REVIEW;
+    if (s.includes('month-in-review'))
+        return ArticleCategory.MONTH_IN_REVIEW;
+    if (s.includes('year-in-review'))
+        return ArticleCategory.YEAR_IN_REVIEW;
     if (s.includes('committee'))
-        return 'committee';
+        return ArticleCategory.COMMITTEE_REPORTS;
     if (s.includes('motion') || s.includes('vote') || s.includes('voting'))
-        return 'motions';
+        return ArticleCategory.MOTIONS;
     if (s.includes('propos') || s.includes('legislat'))
-        return 'propositions';
+        return ArticleCategory.PROPOSITIONS;
     if (s.includes('breaking') || s.includes('urgent'))
-        return 'breaking';
+        return ArticleCategory.BREAKING_NEWS;
+    if (s.includes('deep-analysis') || s.includes('5-whys'))
+        return ArticleCategory.DEEP_ANALYSIS;
     return DEFAULT_CATEGORY;
 }
 /**

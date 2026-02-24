@@ -95,13 +95,18 @@ describe('constants/languages', () => {
     });
 
     it('should have entries for all 14 languages in ARTICLE_TYPE_LABELS', () => {
+      const expectedCategories = [
+        'week-ahead', 'month-ahead', 'year-ahead',
+        'week-in-review', 'month-in-review', 'year-in-review',
+        'breaking', 'committee-reports', 'motions',
+        'propositions', 'deep-analysis',
+      ];
       for (const lang of ALL_LANGUAGES) {
         const labels = ARTICLE_TYPE_LABELS[lang];
         expect(labels).toBeDefined();
-        expect(labels.prospective).toBeDefined();
-        expect(labels.retrospective).toBeDefined();
-        expect(labels.breaking).toBeDefined();
-        expect(labels.propositions).toBeDefined();
+        for (const cat of expectedCategories) {
+          expect(labels[cat]).toBeDefined();
+        }
       }
     });
 

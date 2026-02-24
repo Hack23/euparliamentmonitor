@@ -6,7 +6,7 @@
  * @description Generates HTML templates for news articles with proper structure and metadata
  */
 
-import type { ArticleOptions, ArticleSource } from '../types/index.js';
+import type { ArticleOptions, ArticleSource, ArticleCategoryLabels } from '../types/index.js';
 import {
   LANGUAGE_NAMES,
   ARTICLE_TYPE_LABELS,
@@ -29,7 +29,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     title,
     subtitle,
     date,
-    type,
+    category,
     readTime,
     lang,
     content,
@@ -47,8 +47,8 @@ export function generateArticleHTML(options: ArticleOptions): string {
   });
 
   const languageName = getLocalizedString(LANGUAGE_NAMES, lang);
-  const typeLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang);
-  const typeLabel = (typeLabels as unknown as Record<string, string | undefined>)[type] ?? type;
+  const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang) as ArticleCategoryLabels;
+  const categoryLabel = categoryLabels[category] ?? category;
   const readTimeFormatter = getLocalizedString(READ_TIME_LABELS, lang);
   const readTimeLabel = readTimeFormatter(readTime);
   const backLabel = getLocalizedString(BACK_TO_NEWS_LABELS, lang);
@@ -57,7 +57,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   const safeTitle = escapeHTML(title);
   const safeSubtitle = escapeHTML(subtitle);
   const safeKeywords = keywords.map((k) => escapeHTML(k)).join(', ');
-  const safeTypeLabel = escapeHTML(typeLabel);
+  const safeCategoryLabel = escapeHTML(categoryLabel);
 
   // Build JSON-LD as object for safe serialization
   const jsonLd = JSON.stringify(
@@ -119,7 +119,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <article class="news-article" lang="${lang}">
     <header class="article-header">
       <div class="article-meta">
-        <span class="article-type">${safeTypeLabel}</span>
+        <span class="article-type">${safeCategoryLabel}</span>
         <span class="article-date">${displayDate}</span>
         <span class="article-read-time">${readTimeLabel}</span>
         <span class="article-lang">${languageName}</span>

@@ -8,6 +8,7 @@
 
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { ArticleCategory } from '../types/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,29 +31,28 @@ export const ARTICLE_FILENAME_PATTERN = /^(\d{4}-\d{2}-\d{2})-(.+)-([a-z]{2})\.h
 /** Words per minute for read time calculation */
 export const WORDS_PER_MINUTE = 250;
 
-/** Valid article types for generation */
-export const VALID_ARTICLE_TYPES = [
-  'week-ahead',
-  'committee-reports',
-  'propositions',
-  'motions',
-  'breaking',
-] as const;
+/** Valid article categories for generation — all values of the ArticleCategory enum */
+export const VALID_ARTICLE_CATEGORIES: readonly ArticleCategory[] = Object.values(
+  ArticleCategory
+) as ArticleCategory[];
 
-/** Week ahead article type constant */
-export const ARTICLE_TYPE_WEEK_AHEAD = 'week-ahead';
+/** @deprecated Use ArticleCategory enum directly */
+export const VALID_ARTICLE_TYPES = VALID_ARTICLE_CATEGORIES;
 
-/** Breaking news article type constant */
-export const ARTICLE_TYPE_BREAKING = 'breaking';
+/** Week ahead article category constant */
+export const ARTICLE_TYPE_WEEK_AHEAD = ArticleCategory.WEEK_AHEAD;
 
-/** Committee reports article type constant */
-export const ARTICLE_TYPE_COMMITTEE_REPORTS = 'committee-reports';
+/** Breaking news article category constant */
+export const ARTICLE_TYPE_BREAKING = ArticleCategory.BREAKING_NEWS;
 
-/** Propositions article type constant */
-export const ARTICLE_TYPE_PROPOSITIONS = 'propositions';
+/** Committee reports article category constant */
+export const ARTICLE_TYPE_COMMITTEE_REPORTS = ArticleCategory.COMMITTEE_REPORTS;
 
-/** Motions article type constant */
-export const ARTICLE_TYPE_MOTIONS = 'motions';
+/** Propositions article category constant */
+export const ARTICLE_TYPE_PROPOSITIONS = ArticleCategory.PROPOSITIONS;
+
+/** Motions article category constant */
+export const ARTICLE_TYPE_MOTIONS = ArticleCategory.MOTIONS;
 
 /** CLI argument separator */
 export const ARG_SEPARATOR = '=';

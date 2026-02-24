@@ -15,7 +15,7 @@ import { pathToFileURL } from 'url';
 import {
   NEWS_DIR,
   METADATA_DIR,
-  VALID_ARTICLE_TYPES,
+  VALID_ARTICLE_CATEGORIES,
   ARTICLE_TYPE_WEEK_AHEAD,
   ARTICLE_TYPE_BREAKING,
   ARTICLE_TYPE_COMMITTEE_REPORTS,
@@ -63,6 +63,7 @@ import type {
   MotionsQuestion,
   PropositionsStrings,
 } from '../types/index.js';
+import { ArticleCategory } from '../types/index.js';
 import type { EuropeanParliamentMCPClient } from '../mcp/ep-mcp-client.js';
 
 // Try to use MCP client if available
@@ -101,7 +102,7 @@ if (languages.length === 0) {
 
 // Validate article types
 const invalidTypes = articleTypes.filter(
-  (t) => !VALID_ARTICLE_TYPES.includes(t.trim() as (typeof VALID_ARTICLE_TYPES)[number])
+  (t) => !VALID_ARTICLE_CATEGORIES.includes(t.trim() as ArticleCategory)
 );
 if (invalidTypes.length > 0) {
   console.warn(`⚠️ Unknown article types ignored: ${invalidTypes.join(', ')}`);
@@ -662,7 +663,7 @@ async function generateWeekAhead(): Promise<GenerationResult> {
         title: langTitles.title,
         subtitle: langTitles.subtitle,
         date: today.toISOString().split('T')[0]!,
-        type: 'prospective',
+        category: ArticleCategory.WEEK_AHEAD,
         readTime: calculateReadTime(content),
         lang,
         content,
@@ -906,7 +907,7 @@ async function generateBreakingNews(): Promise<GenerationResult> {
         title: langTitles.title,
         subtitle: langTitles.subtitle,
         date: dateStr,
-        type: 'breaking',
+        category: ArticleCategory.BREAKING_NEWS,
         readTime,
         lang,
         content,
@@ -1169,7 +1170,7 @@ async function generateCommitteeReports(): Promise<GenerationResult> {
         title: langTitles.title,
         subtitle: langTitles.subtitle,
         date: dateStr,
-        type: 'prospective',
+        category: ArticleCategory.COMMITTEE_REPORTS,
         readTime: calculateReadTime(content),
         lang,
         content,
@@ -1844,7 +1845,7 @@ async function generatePropositions(): Promise<GenerationResult> {
         title: langTitles.title,
         subtitle: langTitles.subtitle,
         date: today.toISOString().split('T')[0]!,
-        type: 'propositions',
+        category: ArticleCategory.PROPOSITIONS,
         readTime,
         lang,
         content,
@@ -1918,7 +1919,7 @@ async function generateMotions(): Promise<GenerationResult> {
         title: langTitles.title,
         subtitle: langTitles.subtitle,
         date: dateStr,
-        type: 'retrospective',
+        category: ArticleCategory.MOTIONS,
         readTime,
         lang,
         content,
@@ -1970,7 +1971,7 @@ async function main(): Promise<void> {
     const results: GenerationResult[] = [];
 
     for (const articleType of articleTypes) {
-      if (!VALID_ARTICLE_TYPES.includes(articleType as (typeof VALID_ARTICLE_TYPES)[number])) {
+      if (!VALID_ARTICLE_CATEGORIES.includes(articleType as ArticleCategory)) {
         console.log(`⏭️ Skipping unknown article type: ${articleType}`);
         continue;
       }

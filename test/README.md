@@ -311,7 +311,7 @@ describe('generateArticleHTML', () => {
       title: 'Test Article',
       subtitle: 'Test subtitle',
       date: '2025-01-15',
-      type: 'prospective',
+      category: 'week-ahead',
       readTime: 5,
       lang: 'en',
       content: '<p>Content</p>',
