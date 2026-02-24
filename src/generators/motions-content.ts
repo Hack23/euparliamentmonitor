@@ -8,7 +8,12 @@
  */
 
 import { escapeHTML } from '../utils/file-utils.js';
-import type { VotingRecord, VotingPattern, VotingAnomaly, MotionsQuestion } from '../types/index.js';
+import type {
+  VotingRecord,
+  VotingPattern,
+  VotingAnomaly,
+  MotionsQuestion,
+} from '../types/index.js';
 
 /** Marker string used in all fallback/placeholder data to indicate MCP data is unavailable */
 export const PLACEHOLDER_MARKER = 'DATA_UNAVAILABLE (placeholder)';

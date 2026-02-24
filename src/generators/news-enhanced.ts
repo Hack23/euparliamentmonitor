@@ -331,7 +331,6 @@ async function fetchWeekAheadData(dateRange: DateRange): Promise<WeekAheadData> 
   };
 }
 
-
 /**
  * Generate Week Ahead article in specified languages
  *
@@ -485,7 +484,6 @@ async function fetchMEPInfluence(mepId: string): Promise<string> {
   return '';
 }
 
-
 /**
  * Generate Breaking News article in specified languages
  *
@@ -565,7 +563,6 @@ async function generateBreakingNews(): Promise<GenerationResult> {
     return { success: false, error: message };
   }
 }
-
 
 /**
  * Fetch committee data from MCP sources for a given abbreviation
@@ -903,7 +900,6 @@ async function fetchParliamentaryQuestions(
 
   return [];
 }
-
 
 /**
  * Fetch all motions data from MCP or use fallback
