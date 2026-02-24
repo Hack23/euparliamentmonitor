@@ -105,7 +105,7 @@ Read each skill file before proceeding:
 - **Minutes 0–3**: Date validation, EP MCP server warm-up
 - **Minutes 3–10**: Query EP MCP tools for legislative proposals and pipeline data
 - **Minutes 10–35**: Generate articles for requested languages
-- **Minutes 35–40**: Validate HTML and regenerate indexes
+- **Minutes 35–40**: Validate HTML
 - **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
 
 **If you reach minute 35 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
@@ -276,11 +276,9 @@ npx tsx src/generators/news-enhanced.ts \
   $SKIP_FLAG
 ```
 
-### Step 4: Validate & Regenerate Indexes
+### Step 4: Validate Articles
 
-```bash
-npm run generate-news-indexes
-```
+**Note**: News index files (`index*.html`), metadata (`news/articles-metadata.json`), and `sitemap.xml` are **NOT committed to git**. They are generated automatically at build time by the `prebuild` script. Do NOT run `generate-news-indexes`, `news-metadata`, or `generate-sitemap` manually — and do NOT commit their output files. Only commit the actual article HTML files: `news/{YYYY-MM-DD}-propositions-{lang}.html`
 
 ### Step 5: MANDATORY Quality Validation
 
@@ -386,33 +384,12 @@ fi
 
 ### Step 6: Create PR
 
-Set the deterministic branch name and refresh `articles-metadata.json` from `origin/main` before creating the PR.
-This prevents `Failed to apply patch` errors caused by concurrent news workflow runs modifying shared metadata.
+Set the deterministic branch name for the PR.
 
 ```bash
 TODAY=$(date -u +%Y-%m-%d)
 BRANCH_NAME="news/propositions-$TODAY"
 echo "Branch: $BRANCH_NAME"
-
-# Refresh news/ content and articles-metadata.json from origin/main to prevent patch conflicts
-# and metadata loss for articles merged while this workflow was running.
-# If a concurrent news workflow (motions, week-ahead, etc.) merged new articles
-# to main while this agent was running, those files must be present locally so
-# updateMetadataDatabase() sees both new local articles and articles already on main.
-git fetch origin main --depth=1 2>/dev/null || echo "⚠️  Warning: Could not fetch from origin/main — continuing with local news/ and metadata"
-# Restore any missing news/ article files from origin/main without overwriting locally generated files.
-if git rev-parse --verify origin/main >/dev/null 2>&1; then
-  git ls-tree -rz --name-only origin/main -- news/ | while IFS= read -r -d '' path; do
-    if [ -n "$path" ] && [ ! -f "$path" ]; then
-      mkdir -p "$(dirname "$path")"
-      git show "origin/main:$path" > "$path" 2>/dev/null || echo "⚠️  Warning: Could not restore $path from origin/main"
-    fi
-  done
-else
-  echo "⚠️  Warning: origin/main not available — skipping refresh of news/ files"
-fi
-git show origin/main:news/articles-metadata.json > news/articles-metadata.json 2>/dev/null || echo "⚠️  Warning: Could not restore metadata from origin/main — will rebuild from local news/ files"
-node -e "import('./scripts/utils/news-metadata.js').then(({ updateMetadataDatabase }) => { updateMetadataDatabase(); console.log('✅ Rebuilt articles-metadata.json'); }).catch(e => { console.error('❌ Failed to rebuild metadata:', e.message); process.exit(1); });"
 ```
 
 Pass `$BRANCH_NAME` (e.g., `news/propositions-2026-02-24`) as the `head` parameter when calling `safeoutputs___create_pull_request`:
