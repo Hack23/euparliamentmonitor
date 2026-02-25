@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament week-ahead prospective articles for all 14 languages. Runs Fridays to preview the upcoming parliamentary week using European Parliament MCP data.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"293cc241824547688b8387b0f3773327d476d613a14e27c36320004e1a07fe37","compiler_version":"v0.50.4"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"b472e9ea9c9506f2f188a75f43171e596fb725754dbcbcbc1493d2961b1896ad","compiler_version":"v0.50.4"}
 
 name: "News: EU Parliament Week Ahead"
 "on":
@@ -267,7 +267,10 @@ jobs:
       - name: Create gh-aw temp directory
         run: bash /opt/gh-aw/actions/create_gh_aw_tmp_dir.sh
       - name: Install dependencies
-        run: npm ci --prefer-offline --no-audit
+        run: |
+          npm ci --prefer-offline --no-audit
+      - name: Build TypeScript
+        run: npm run build
 
       - name: Configure Git credentials
         env:
@@ -688,7 +691,7 @@ jobs:
                 "entrypointArgs": [
                   "npx",
                   "-y",
-                  "european-parliament-mcp-server@0.5.1"
+                  "european-parliament-mcp-server@0.8.0"
                 ],
                 "tools": [
                   "*"

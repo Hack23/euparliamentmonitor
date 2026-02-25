@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament committee reports analysis articles for all 14 languages. Single article type per run to reduce patch size and improve reliability.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"89d5570d19df21412930db598151ab745b2e52681e07a39b58faa3f286bd9614","compiler_version":"v0.50.4"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"15e2ae5a190f8e2f6793f7b97d4edeff269df7a9c156c323fbc8a95629b5fc33","compiler_version":"v0.50.4"}
 
 name: "News: EU Parliament Committee Reports"
 "on":
@@ -44,8 +44,7 @@ name: "News: EU Parliament Committee Reports"
 permissions: {}
 
 concurrency:
-  group: "news-article-generation"
-  cancel-in-progress: false
+  group: "gh-aw-${{ github.workflow }}"
 
 run-name: "News: EU Parliament Committee Reports"
 
@@ -268,7 +267,10 @@ jobs:
       - name: Create gh-aw temp directory
         run: bash /opt/gh-aw/actions/create_gh_aw_tmp_dir.sh
       - name: Install dependencies
-        run: npm ci --prefer-offline --no-audit
+        run: |
+          npm ci --prefer-offline --no-audit
+      - name: Build TypeScript
+        run: npm run build
 
       - name: Configure Git credentials
         env:
@@ -689,7 +691,7 @@ jobs:
                 "entrypointArgs": [
                   "npx",
                   "-y",
-                  "european-parliament-mcp-server@0.5.1"
+                  "european-parliament-mcp-server@0.8.0"
                 ],
                 "tools": [
                   "*"
