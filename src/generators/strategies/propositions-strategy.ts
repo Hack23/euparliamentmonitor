@@ -111,7 +111,8 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
       data.proposalsHtml,
       data.pipelineData,
       data.procedureHtml,
-      strings
+      strings,
+      lang
     );
   }
 
