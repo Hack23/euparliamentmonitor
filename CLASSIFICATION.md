@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--17-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-02-17 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-17
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-02-25 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-25
 
 ---
 
@@ -1157,6 +1157,64 @@ flowchart TB
 | **RTO: 24 hours** | Automated recovery, manual backup | ✅ Workflow retry, manual trigger |
 | **RPO: 1 day** | Daily backups, version control | ✅ Git commits, GitHub repository |
 | **Privacy: Personal (public-source)** | GDPR compliance, minimization, DSR handling | ✅ Public-source MEP data only, no special categories, DSRs handled with applicable exemptions |
+
+---
+
+## 📊 ISO 27001:2022 Classification Framework Alignment
+
+This classification scheme aligns with ISO 27001:2022 Annex A information classification controls:
+
+| ISO 27001:2022 Control | Classification Requirement | EU Parliament Monitor Implementation | Status |
+|------------------------|---------------------------|--------------------------------------|--------|
+| **5.12** Classification of information | Define classification levels | C (Public/Internal/Confidential/Restricted) scheme | ✅ |
+| **5.13** Labelling of information | Apply labels to assets | Classification badges in all ISMS documents | ✅ |
+| **5.14** Information transfer | Classification-based transfer rules | HTTPS-only, TLS 1.3 for all transfers | ✅ |
+| **5.9** Inventory of information and other assets | Asset register with classifications | SBOM (technical assets) + documentation inventory | ✅ |
+| **8.12** Data leakage prevention | Prevent unauthorized disclosure | No PII collected, public data only | ✅ |
+| **5.33** Protection of records | Records retention and protection | Git immutable history, GitHub repository | ✅ |
+
+**ISO 27001:2022 Classification Compliance**: ✅ All 6 applicable controls implemented
+
+---
+
+## 🎯 NIST CSF 2.0 Governance & Identification Alignment
+
+| Subcategory | Description | Classification Alignment | Status |
+|-------------|-------------|--------------------------|--------|
+| **GV.RM-01** | Risk management objectives established | Public C, Moderate I, Standard A drives risk appetite | ✅ |
+| **GV.RM-02** | Risk appetite established and communicated | Classification CLASSIFICATION.md public documentation | ✅ |
+| **ID.AM-05** | Resources prioritized by sensitivity | Public-only data = lowest priority tier | ✅ |
+| **ID.AM-07** | Inventories of data managed | No PII inventory needed (public data only) | ✅ |
+| **ID.RA-02** | Threat intelligence received and analyzed | THREAT_MODEL.md cross-referenced with classification | ✅ |
+| **PR.DS-01** | Data at rest protected per classification | Public data — Git repository integrity | ✅ |
+| **PR.DS-02** | Data in transit protected per classification | TLS 1.3 HTTPS consistent with all classification levels | ✅ |
+
+---
+
+## 🛡️ CIS Controls v8.1 Data Protection Alignment
+
+| CIS Control | Safeguard | Classification-Based Implementation | IG Level | Status |
+|-------------|-----------|-------------------------------------|----------|--------|
+| **3.1** | Establish data management process | Public data classification = minimal handling requirements | IG1 | ✅ |
+| **3.2** | Establish data inventory | SBOM + documentation inventory | IG1 | ✅ |
+| **3.3** | Configure data access control | Public = no access controls; workflow access = least privilege | IG1 | ✅ |
+| **3.7** | Establish data classification scheme | Confidentiality (C), Integrity (I), Availability (A) triad | IG2 | ✅ |
+| **3.12** | Segment data processing | EP data processing isolated in GitHub Actions (ephemeral) | IG2 | ✅ |
+
+---
+
+## 🔗 Hack23 ISMS-PUBLIC Policy Alignment
+
+| ISMS-PUBLIC Policy | Classification Relevance | Alignment Evidence |
+|--------------------|--------------------------|-------------------|
+| [📋 Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Overall security governance framework | Public classification consistent with open-source mandate |
+| [🏷️ Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md) | Classification scheme definition | CIA triad ratings derived from this policy |
+| [🔑 Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md) | Access decisions based on classification | Public content = no authentication; workflow = least privilege |
+| [🔒 Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | Encryption requirements by classification | TLS 1.3 minimum consistent with public data classification |
+| [📊 Risk Assessment Methodology](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md) | Risk scoring tied to classification | RTO/RPO derived from Availability classification |
+| [🌐 ISMS Transparency Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/ISMS_Transparency_Plan.md) | Public disclosure aligned with C=Public | All ISMS docs public per transparency commitment |
+| [📝 Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | Open source classification requirements | Apache-2.0 license, public repository, open data |
+| [🤖 AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) | AI-generated content classification | News content generated by AI scripts = public classification maintained |
 
 ---
 
