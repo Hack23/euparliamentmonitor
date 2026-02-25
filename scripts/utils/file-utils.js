@@ -132,6 +132,11 @@ export function writeFileContent(filepath, content) {
  * Decode the 5 HTML entities produced by escapeHTML() back to plain text.
  * Used when extracting text from our own generated HTML to obtain unescaped values.
  *
+ * IMPORTANT: `&amp;` MUST be decoded last. Decoding it first would convert
+ * `&amp;lt;` to `&lt;` before the `&lt;` → `<` replacement runs, causing
+ * double-decoding. The correct order is: decode all specific entities first,
+ * then decode `&amp;` as the final step.
+ *
  * @param str - HTML string with entities
  * @returns Plain text with entities decoded
  */
@@ -149,6 +154,12 @@ function decodeHtmlEntities(str) {
  * Falls back to empty strings when the file cannot be read.
  * HTML entities from the template are decoded to produce plain text.
  *
+ * NOTE: The meta description regex relies on the template's use of escapeHTML(),
+ * which converts `"` to `&quot;`. Because descriptions are always stored with
+ * double-quote delimiters and inner quotes are HTML-encoded, the `[^"]+` pattern
+ * safely captures the full value. If the template ever changes its quoting
+ * convention this regex must be updated accordingly.
+ *
  * @param filepath - Absolute path to the article HTML file
  * @returns Object with title (from first h1) and description (from meta description)
  */
@@ -157,9 +168,11 @@ export function extractArticleMeta(filepath) {
     let description = '';
     try {
         const content = fs.readFileSync(filepath, 'utf-8');
-        const titleMatch = content.match(/<h1>([^<]+)<\/h1>/u);
+        // Matches h1 with any attributes but only plain-text content (no nested tags).
+        // The template always writes plain escaped text in h1, so this is correct.
+        const titleMatch = content.match(/<h1[^>]*>([^<]+)<\/h1>/u);
         if (titleMatch?.[1]) {
-            title = decodeHtmlEntities(titleMatch[1]);
+            title = decodeHtmlEntities(titleMatch[1].trim());
         }
         const descMatch = content.match(/<meta name="description" content="([^"]+)"/u);
         if (descMatch?.[1]) {

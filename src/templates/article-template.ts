@@ -14,6 +14,7 @@ import {
   ARTICLE_TYPE_LABELS,
   READ_TIME_LABELS,
   BACK_TO_NEWS_LABELS,
+  ARTICLE_NAV_LABELS,
   SKIP_LINK_TEXTS,
   getLocalizedString,
   getTextDirection,
@@ -123,6 +124,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   const readTimeFormatter = getLocalizedString(READ_TIME_LABELS, lang);
   const readTimeLabel = readTimeFormatter(readTime);
   const backLabel = getLocalizedString(BACK_TO_NEWS_LABELS, lang);
+  const articleNavLabel = getLocalizedString(ARTICLE_NAV_LABELS, lang);
   const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
   const indexHref = lang === 'en' ? '../index.html' : `../index-${lang}.html`;
 
@@ -210,7 +212,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     ${buildArticleLangSwitcher(date, slug, lang)}
   </nav>
 
-  <nav class="article-top-nav" aria-label="Article navigation">
+  <nav class="article-top-nav" aria-label="${escapeHTML(articleNavLabel)}">
     <a href="${indexHref}" class="back-to-news">${backLabel}</a>
   </nav>
 
@@ -231,7 +233,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     
     ${renderSourcesSection(sources)}
     
-    <nav class="article-nav">
+    <nav class="article-nav" aria-label="${escapeHTML(articleNavLabel)}">
       <a href="${indexHref}" class="back-to-news">${backLabel}</a>
     </nav>
   </article>

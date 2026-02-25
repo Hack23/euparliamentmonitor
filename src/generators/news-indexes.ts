@@ -116,6 +116,8 @@ function buildFooterLanguageGrid(currentLang: string): string {
  */
 function renderCard(article: ParsedArticle, meta: { title: string; description: string }): string {
   const category = detectCategory(article.slug);
+  // Sanitize the category for safe use in CSS class names (allow only alphanumeric and hyphens)
+  const safeCategory = category.replace(/[^a-z0-9-]/gi, '');
   const title = escapeHTML(meta.title || formatSlug(article.slug));
   const excerpt = meta.description
     ? `\n            <p class="news-card__excerpt">${escapeHTML(meta.description)}</p>`
@@ -123,12 +125,12 @@ function renderCard(article: ParsedArticle, meta: { title: string; description: 
 
   return `
       <li class="news-card">
-        <a href="news/${article.filename}" class="news-card__link" lang="${article.lang}" hreflang="${article.lang}">
-          <div class="news-card__accent news-card__accent--${category}"></div>
+        <a href="news/${escapeHTML(article.filename)}" class="news-card__link" lang="${escapeHTML(article.lang)}" hreflang="${escapeHTML(article.lang)}">
+          <div class="news-card__accent news-card__accent--${safeCategory}"></div>
           <div class="news-card__body">
             <div class="news-card__meta">
-              <span class="news-card__badge news-card__badge--${category}">${formatSlug(category)}</span>
-              <time class="news-card__date" datetime="${article.date}">${article.date}</time>
+              <span class="news-card__badge news-card__badge--${safeCategory}">${formatSlug(safeCategory)}</span>
+              <time class="news-card__date" datetime="${escapeHTML(article.date)}">${escapeHTML(article.date)}</time>
             </div>
             <h3 class="news-card__title">${title}</h3>${excerpt}
           </div>
@@ -296,11 +298,14 @@ function main(): void {
   const grouped = groupArticlesByLanguage(articles, ALL_LANGUAGES);
 
   // Build metadata map (real titles + descriptions from each article HTML)
+  const metaBuildTimerLabel = `⏱️ Built metadata map for ${articles.length} articles`;
+  console.time(metaBuildTimerLabel);
   const metaMap = new Map<string, { title: string; description: string }>();
   for (const filename of articles) {
     const filepath = path.join(NEWS_DIR, filename);
     metaMap.set(filename, extractArticleMeta(filepath));
   }
+  console.timeEnd(metaBuildTimerLabel);
 
   // Also update the metadata database
   updateMetadataDatabase();

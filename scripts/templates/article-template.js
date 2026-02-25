@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 /** Pattern for valid article dates (YYYY-MM-DD) */
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
@@ -83,6 +83,7 @@ export function generateArticleHTML(options) {
     const readTimeFormatter = getLocalizedString(READ_TIME_LABELS, lang);
     const readTimeLabel = readTimeFormatter(readTime);
     const backLabel = getLocalizedString(BACK_TO_NEWS_LABELS, lang);
+    const articleNavLabel = getLocalizedString(ARTICLE_NAV_LABELS, lang);
     const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
     const indexHref = lang === 'en' ? '../index.html' : `../index-${lang}.html`;
     // Escape values for safe HTML embedding
@@ -163,7 +164,7 @@ export function generateArticleHTML(options) {
     ${buildArticleLangSwitcher(date, slug, lang)}
   </nav>
 
-  <nav class="article-top-nav" aria-label="Article navigation">
+  <nav class="article-top-nav" aria-label="${escapeHTML(articleNavLabel)}">
     <a href="${indexHref}" class="back-to-news">${backLabel}</a>
   </nav>
 
@@ -184,7 +185,7 @@ export function generateArticleHTML(options) {
     
     ${renderSourcesSection(sources)}
     
-    <nav class="article-nav">
+    <nav class="article-nav" aria-label="${escapeHTML(articleNavLabel)}">
       <a href="${indexHref}" class="back-to-news">${backLabel}</a>
     </nav>
   </article>

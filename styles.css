@@ -1326,64 +1326,6 @@ button:focus-visible {
   }
 }
 
-/* ─── Breadcrumb Navigation ──────────────────────────────────────── */
-/*
- * Usage:
- * <nav class="breadcrumb" aria-label="Breadcrumb">
- *   <ol>
- *     <li><a href="../index.html">Home</a></li>
- *     <li aria-current="page">Article Title</li>
- *   </ol>
- * </nav>
- */
-.breadcrumb {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 8px 24px;
-  font-size: var(--font-size-sm);
-}
-
-.breadcrumb ol {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 4px;
-  color: var(--text-muted);
-}
-
-.breadcrumb ol li {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.breadcrumb ol li + li::before {
-  content: "/";
-  color: var(--border);
-  margin-right: 4px;
-}
-
-.breadcrumb ol li a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.breadcrumb ol li a:hover {
-  text-decoration: underline;
-}
-
-.breadcrumb ol li[aria-current="page"] {
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-
-[dir="rtl"] .breadcrumb ol li + li::before {
-  content: "‹";
-}
-
 /* ─── Tablet Breakpoint (769px – 1024px) ────────────────────────── */
 @media (min-width: 769px) and (max-width: 1024px) {
   .news-grid {
