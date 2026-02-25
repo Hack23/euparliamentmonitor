@@ -313,7 +313,7 @@ export const ARTICLE_NAV_LABELS = {
     no: 'Artikkelnavigasjon',
     fi: 'Artikkelin navigointi',
     de: 'Artikelnavigation',
-    fr: 'Navigation de l\'article',
+    fr: "Navigation de l'article",
     es: 'Navegación del artículo',
     nl: 'Artikelnavigatie',
     ar: 'التنقل في المقالة',

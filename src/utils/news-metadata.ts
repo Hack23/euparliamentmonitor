@@ -12,7 +12,12 @@
 import fs from 'fs';
 import path from 'path';
 import { NEWS_DIR } from '../constants/config.js';
-import { getNewsArticles, parseArticleFilename, formatSlug, extractArticleMeta } from './file-utils.js';
+import {
+  getNewsArticles,
+  parseArticleFilename,
+  formatSlug,
+  extractArticleMeta,
+} from './file-utils.js';
 import type { ArticleMetadataEntry, NewsMetadataDatabase } from '../types/index.js';
 
 /** Default path for the metadata database file */

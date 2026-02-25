@@ -12,8 +12,8 @@ import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
 import { PROJECT_ROOT } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
-import { getNewsArticles, groupArticlesByLanguage, formatSlug, extractArticleMeta, escapeHTML } from '../utils/file-utils.js';
-import { updateMetadataDatabase } from '../utils/news-metadata.js';
+import { getNewsArticles, groupArticlesByLanguage, formatSlug, parseArticleFilename, extractArticleMeta, escapeHTML, } from '../utils/file-utils.js';
+import { writeMetadataDatabase } from '../utils/news-metadata.js';
 import { ArticleCategory } from '../types/index.js';
 import { NEWS_DIR } from '../constants/config.js';
 /**
@@ -279,8 +279,25 @@ function main() {
         metaMap.set(filename, extractArticleMeta(filepath));
     }
     console.timeEnd(metaBuildTimerLabel);
-    // Also update the metadata database
-    updateMetadataDatabase();
+    // Also update the metadata database, reusing the already-extracted meta to avoid re-reading files
+    const dbArticles = articles
+        .map((filename) => {
+        const parsed = parseArticleFilename(filename);
+        if (!parsed)
+            return null;
+        const meta = metaMap.get(filename) ?? { title: '', description: '' };
+        return {
+            filename: parsed.filename,
+            date: parsed.date,
+            slug: parsed.slug,
+            lang: parsed.lang,
+            title: meta.title || formatSlug(parsed.slug),
+            description: meta.description,
+        };
+    })
+        .filter((e) => e !== null);
+    dbArticles.sort((a, b) => b.date.localeCompare(a.date));
+    writeMetadataDatabase({ lastUpdated: new Date().toISOString(), articles: dbArticles });
     console.log('📝 Updated articles metadata database');
     let generated = 0;
     for (const lang of ALL_LANGUAGES) {

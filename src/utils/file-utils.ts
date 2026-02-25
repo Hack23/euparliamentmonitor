@@ -184,7 +184,7 @@ function decodeHtmlEntities(str: string): string {
  * safely captures the full value. If the template ever changes its quoting
  * convention this regex must be updated accordingly.
  *
- * @param filepath - Absolute path to the article HTML file
+ * @param filepath - Path to the article HTML file
  * @returns Object with title (from first h1) and description (from meta description)
  */
 export function extractArticleMeta(filepath: string): { title: string; description: string } {
