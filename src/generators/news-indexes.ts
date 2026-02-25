@@ -26,10 +26,18 @@ import {
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
-import { getNewsArticles, groupArticlesByLanguage, formatSlug } from '../utils/file-utils.js';
-import { updateMetadataDatabase } from '../utils/news-metadata.js';
+import {
+  getNewsArticles,
+  groupArticlesByLanguage,
+  formatSlug,
+  parseArticleFilename,
+  extractArticleMeta,
+  escapeHTML,
+} from '../utils/file-utils.js';
+import { writeMetadataDatabase } from '../utils/news-metadata.js';
 import type { ParsedArticle } from '../types/index.js';
 import { ArticleCategory } from '../types/index.js';
+import { NEWS_DIR } from '../constants/config.js';
 
 /**
  * Default category for articles that don't match specific patterns.
@@ -108,22 +116,30 @@ function buildFooterLanguageGrid(currentLang: string): string {
  * Render a single news card element.
  *
  * @param article - Parsed article data
+ * @param meta - Real title and description extracted from the article HTML
+ * @param meta.title - Article title
+ * @param meta.description - Article description/excerpt
  * @returns HTML string for one card
  */
-function renderCard(article: ParsedArticle): string {
+function renderCard(article: ParsedArticle, meta: { title: string; description: string }): string {
   const category = detectCategory(article.slug);
-  const title = formatSlug(article.slug);
+  // Sanitize the category for safe use in CSS class names (allow only alphanumeric and hyphens)
+  const safeCategory = category.replace(/[^a-z0-9-]/gi, '');
+  const title = escapeHTML(meta.title || formatSlug(article.slug));
+  const excerpt = meta.description
+    ? `\n            <p class="news-card__excerpt">${escapeHTML(meta.description)}</p>`
+    : '';
 
   return `
       <li class="news-card">
-        <a href="news/${article.filename}" class="news-card__link">
-          <div class="news-card__accent news-card__accent--${category}"></div>
+        <a href="news/${escapeHTML(article.filename)}" class="news-card__link" lang="${escapeHTML(article.lang)}" hreflang="${escapeHTML(article.lang)}">
+          <div class="news-card__accent news-card__accent--${safeCategory}"></div>
           <div class="news-card__body">
             <div class="news-card__meta">
-              <span class="news-card__badge news-card__badge--${category}">${formatSlug(category)}</span>
-              <time class="news-card__date" datetime="${article.date}">${article.date}</time>
+              <span class="news-card__badge news-card__badge--${safeCategory}">${formatSlug(safeCategory)}</span>
+              <time class="news-card__date" datetime="${escapeHTML(article.date)}">${escapeHTML(article.date)}</time>
             </div>
-            <h3 class="news-card__title">${title}</h3>
+            <h3 class="news-card__title">${title}</h3>${excerpt}
           </div>
         </a>
       </li>`;
@@ -156,9 +172,14 @@ function buildHreflangTags(): string {
  *
  * @param lang - Language code
  * @param articles - Articles for this language
+ * @param metaMap - Map of article filename to real title and description
  * @returns Complete HTML document
  */
-export function generateIndexHTML(lang: string, articles: ParsedArticle[]): string {
+export function generateIndexHTML(
+  lang: string,
+  articles: ParsedArticle[],
+  metaMap: Map<string, { title: string; description: string }> = new Map()
+): string {
   const title = getLocalizedString(PAGE_TITLES, lang);
   const description = getLocalizedString(PAGE_DESCRIPTIONS, lang);
   const heading = getLocalizedString(SECTION_HEADINGS, lang);
@@ -178,7 +199,11 @@ export function generateIndexHTML(lang: string, articles: ParsedArticle[]): stri
     </div>`
       : `
     <ul class="news-grid" role="list">
-      ${articles.map(renderCard).join('\n')}
+      ${articles
+        .map((a) =>
+          renderCard(a, metaMap.get(a.filename) ?? { title: formatSlug(a.slug), description: '' })
+        )
+        .join('\n')}
     </ul>`;
 
   return `<!DOCTYPE html>
@@ -279,14 +304,40 @@ function main(): void {
 
   const grouped = groupArticlesByLanguage(articles, ALL_LANGUAGES);
 
-  // Also update the metadata database
-  updateMetadataDatabase();
+  // Build metadata map (real titles + descriptions from each article HTML)
+  const metaBuildTimerLabel = `⏱️ Built metadata map for ${articles.length} articles`;
+  console.time(metaBuildTimerLabel);
+  const metaMap = new Map<string, { title: string; description: string }>();
+  for (const filename of articles) {
+    const filepath = path.join(NEWS_DIR, filename);
+    metaMap.set(filename, extractArticleMeta(filepath));
+  }
+  console.timeEnd(metaBuildTimerLabel);
+
+  // Also update the metadata database, reusing the already-extracted meta to avoid re-reading files
+  const dbArticles = articles
+    .map((filename) => {
+      const parsed = parseArticleFilename(filename);
+      if (!parsed) return null;
+      const meta = metaMap.get(filename) ?? { title: '', description: '' };
+      return {
+        filename: parsed.filename,
+        date: parsed.date,
+        slug: parsed.slug,
+        lang: parsed.lang,
+        title: meta.title || formatSlug(parsed.slug),
+        description: meta.description,
+      };
+    })
+    .filter((e): e is NonNullable<typeof e> => e !== null);
+  dbArticles.sort((a, b) => b.date.localeCompare(a.date));
+  writeMetadataDatabase({ lastUpdated: new Date().toISOString(), articles: dbArticles });
   console.log('📝 Updated articles metadata database');
 
   let generated = 0;
   for (const lang of ALL_LANGUAGES) {
     const langArticles = grouped[lang] ?? [];
-    const html = generateIndexHTML(lang, langArticles);
+    const html = generateIndexHTML(lang, langArticles, metaMap);
     const filename = getIndexFilename(lang);
     const filepath = path.join(PROJECT_ROOT, filename);
 

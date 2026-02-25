@@ -53,6 +53,7 @@ export interface ArticleMetadataEntry {
   slug: string;
   lang: string;
   title: string;
+  description?: string;
   type?: string;
 }
 

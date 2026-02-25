@@ -56,6 +56,16 @@ describe('utils/news-metadata', () => {
       expect(db.articles[0].title).toBe('Committee Report');
     });
 
+    it('should use real title from h1 when present in HTML', () => {
+      const html = '<h1>Real Committee Title</h1><meta name="description" content="Real description here">';
+      fs.writeFileSync(path.join(newsDir, '2025-03-01-committee-report-fr.html'), html);
+
+      const db = buildMetadataDatabase(newsDir);
+
+      expect(db.articles[0].title).toBe('Real Committee Title');
+      expect(db.articles[0].description).toBe('Real description here');
+    });
+
     it('should handle empty news directory', () => {
       const db = buildMetadataDatabase(newsDir);
       expect(db.articles).toHaveLength(0);

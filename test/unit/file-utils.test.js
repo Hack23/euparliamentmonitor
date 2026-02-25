@@ -187,4 +187,92 @@ describe('utils/file-utils', () => {
       expect(fs.readFileSync(filePath, 'utf-8')).toBe('second');
     });
   });
+
+  describe('extractArticleMeta', () => {
+    it('should extract title from h1 element', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'article.html');
+      fs.writeFileSync(filePath, '<h1>My Real Title</h1><meta name="description" content="My description">');
+      const meta = extractArticleMeta(filePath);
+      expect(meta.title).toBe('My Real Title');
+    });
+
+    it('should extract description from meta description tag', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'article2.html');
+      fs.writeFileSync(filePath, '<h1>Title</h1><meta name="description" content="The real description here">');
+      const meta = extractArticleMeta(filePath);
+      expect(meta.description).toBe('The real description here');
+    });
+
+    it('should return empty strings for file with no matching elements', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'empty.html');
+      fs.writeFileSync(filePath, '<html><body><p>No h1 here</p></body></html>');
+      const meta = extractArticleMeta(filePath);
+      expect(meta.title).toBe('');
+      expect(meta.description).toBe('');
+    });
+
+    it('should decode HTML entities in extracted values', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'article-entities.html');
+      fs.writeFileSync(
+        filePath,
+        '<h1>EU &amp; Parliament: Tom&#39;s &quot;Report&quot;</h1><meta name="description" content="Cost &lt;100&gt; &amp; more">',
+      );
+      const meta = extractArticleMeta(filePath);
+      expect(meta.title).toBe('EU & Parliament: Tom\'s "Report"');
+      expect(meta.description).toBe('Cost <100> & more');
+    });
+
+    it('should use the first h1 when multiple h1 tags are present', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'article-multiple-h1.html');
+      fs.writeFileSync(
+        filePath,
+        '<h1>First Title</h1><p>Some content</p><h1>Second Title</h1><meta name="description" content="Description">',
+      );
+      const meta = extractArticleMeta(filePath);
+      expect(meta.title).toBe('First Title');
+    });
+
+    it('should use the first meta description when multiple description tags are present', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'article-multiple-meta.html');
+      fs.writeFileSync(
+        filePath,
+        '<h1>Title</h1><meta name="description" content="First description"><meta name="description" content="Second description">',
+      );
+      const meta = extractArticleMeta(filePath);
+      expect(meta.description).toBe('First description');
+    });
+
+    it('should handle malformed or unclosed tags gracefully', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'article-malformed.html');
+      fs.writeFileSync(
+        filePath,
+        '<html><body><h1>Broken Title<p>Some text<meta name="description" content="Desc"></body></html>',
+      );
+      const meta = extractArticleMeta(filePath);
+      expect(typeof meta.title).toBe('string');
+      expect(typeof meta.description).toBe('string');
+    });
+
+    it('should extract title when h1 has custom attributes', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'article-h1-attr.html');
+      fs.writeFileSync(filePath, '<h1 class="main-title">Title with attributes</h1><meta name="description" content="Desc">');
+      const meta = extractArticleMeta(filePath);
+      expect(meta.title).toBe('Title with attributes');
+    });
+
+    it('should return empty strings for non-existent file', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const meta = extractArticleMeta(path.join(tempDir, 'nonexistent.html'));
+      expect(meta.title).toBe('');
+      expect(meta.description).toBe('');
+    });
+  });
 });
