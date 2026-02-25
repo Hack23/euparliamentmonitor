@@ -37,6 +37,21 @@ export { applyCommitteeInfo, applyDocuments, applyEffectiveness, FEATURED_COMMIT
 export { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent, buildPoliticalAlignmentSection, };
 export { buildPropositionsContent };
 export { scoreVotingAnomaly, analyzeCoalitionCohesion, scoreMEPInfluence, calculateLegislativeVelocity, rankBySignificance, buildIntelligenceSection, };
+/**
+ * Inject `section` before the last `</div>` in `base` so the new content
+ * lands inside an existing wrapper element (e.g. `.article-content`).
+ * Falls back to appending when no closing `</div>` is found.
+ *
+ * @param base - Base HTML string
+ * @param section - HTML section to inject
+ * @returns Combined HTML with section inside the wrapper
+ */
+function injectBeforeLastDiv(base, section) {
+    const lastDiv = base.lastIndexOf('</div>');
+    return lastDiv !== -1
+        ? base.slice(0, lastDiv) + section + base.slice(lastDiv)
+        : `${base}${section}`;
+}
 // Try to use MCP client if available
 let mcpClient = null;
 const useMCP = process.env['USE_EP_MCP'] !== 'false';
@@ -240,14 +255,7 @@ async function generateWeekAhead() {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const watchSection = buildWhatToWatchSection(weekData.pipeline, [], lang);
             const baseContent = buildWeekAheadContent(weekData, dateRange, lang);
-            let content = baseContent;
-            if (watchSection) {
-                const lastDiv = baseContent.lastIndexOf('</div>');
-                content =
-                    lastDiv !== -1
-                        ? baseContent.slice(0, lastDiv) + watchSection + baseContent.slice(lastDiv)
-                        : `${baseContent}${watchSection}`;
-            }
+            const content = watchSection ? injectBeforeLastDiv(baseContent, watchSection) : baseContent;
             const titleGenerator = getLocalizedString(WEEK_AHEAD_TITLES, lang);
             const langTitles = titleGenerator(dateRange.start, dateRange.end);
             const html = generateArticleHTML({
@@ -954,16 +962,9 @@ async function generateMotions() {
             const langTitles = titleGenerator(dateStr);
             const baseMotionsContent = generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions, lang);
             const alignmentSection = buildPoliticalAlignmentSection(votingRecords, [], lang);
-            let content = baseMotionsContent;
-            if (alignmentSection) {
-                const lastDiv = baseMotionsContent.lastIndexOf('</div>');
-                content =
-                    lastDiv !== -1
-                        ? baseMotionsContent.slice(0, lastDiv) +
-                            alignmentSection +
-                            baseMotionsContent.slice(lastDiv)
-                        : `${baseMotionsContent}${alignmentSection}`;
-            }
+            const content = alignmentSection
+                ? injectBeforeLastDiv(baseMotionsContent, alignmentSection)
+                : baseMotionsContent;
             const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
                 slug: ARTICLE_TYPE_MOTIONS,
