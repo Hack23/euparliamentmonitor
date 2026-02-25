@@ -251,7 +251,11 @@ export function rankBySignificance<
  * @param className - CSS class name for the section element (will be HTML-escaped)
  * @returns HTML string for the intelligence section, or empty string if no items
  */
-export function buildIntelligenceSection(title: string, items: string[], className: string): string {
+export function buildIntelligenceSection(
+  title: string,
+  items: string[],
+  className: string
+): string {
   if (items.length === 0) return '';
   const safeClass = escapeHTML(className);
   const safeTitle = escapeHTML(title);

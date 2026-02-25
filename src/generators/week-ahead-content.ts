@@ -419,7 +419,7 @@ function buildHighRiskItems(velocities: LegislativeVelocity[]): string {
     .map(
       (v) =>
         `<li class="${CSS_WATCH_HIGH}">${escapeHTML(v.title)} — ` +
-        `Stage: ${escapeHTML(v.stage)} (bottleneck risk detected)</li>`,
+        `Stage: ${escapeHTML(v.stage)} (bottleneck risk detected)</li>`
     )
     .join('');
 }
@@ -436,7 +436,7 @@ function buildBottleneckProcedureItems(procedures: LegislativeProcedure[]): stri
     .map(
       (p) =>
         `<li class="${CSS_WATCH_PROCEDURE}">${escapeHTML(p.title)} — ` +
-        `${escapeHTML(p.stage ?? 'in progress')} stage</li>`,
+        `${escapeHTML(p.stage ?? 'in progress')} stage</li>`
     )
     .join('');
 }
@@ -454,7 +454,7 @@ function buildNormalVelocityItems(velocities: LegislativeVelocity[]): string {
     .map(
       (v) =>
         `<li class="${CSS_WATCH_ITEM}">${escapeHTML(v.title)} — ` +
-        `predicted completion: ${escapeHTML(v.predictedCompletion)}</li>`,
+        `predicted completion: ${escapeHTML(v.predictedCompletion)}</li>`
     )
     .join('');
 }
@@ -472,7 +472,7 @@ function buildNormalVelocityItems(velocities: LegislativeVelocity[]): string {
 export function buildWhatToWatchSection(
   procedures: LegislativeProcedure[],
   velocities: LegislativeVelocity[],
-  language: string,
+  language: string
 ): string {
   if (procedures.length === 0 && velocities.length === 0) return '';
   const allItems =

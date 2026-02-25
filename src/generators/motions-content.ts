@@ -203,7 +203,7 @@ function buildVoteAlignmentHtml(records: VotingRecord[]): string {
         `<strong>${escapeHTML(r.title)}</strong> — ` +
         `${escapeHTML(r.result)} ` +
         `(${r.votes.for}&#43; / ${r.votes.against}&#8722; / ${r.votes.abstain} abstain)` +
-        `</li>`,
+        `</li>`
     )
     .join('\n          ');
   return `<ul class="alignment-votes">\n          ${items}\n        </ul>`;
@@ -223,7 +223,7 @@ function buildCoalitionAlignmentHtml(coalitions: CoalitionIntelligence[]): strin
         `<li class="alignment-coalition alignment-${escapeHTML(c.riskLevel)}">` +
         `${escapeHTML(c.groups.join(', '))} — ` +
         `cohesion: ${escapeHTML(String(Math.round(c.cohesionScore * 100)))}% ` +
-        `(${escapeHTML(c.alignmentTrend)})</li>`,
+        `(${escapeHTML(c.alignmentTrend)})</li>`
     )
     .join('\n          ');
   return `<ul class="alignment-coalitions">\n          ${items}\n        </ul>`;
@@ -242,7 +242,7 @@ function buildCoalitionAlignmentHtml(coalitions: CoalitionIntelligence[]): strin
 export function buildPoliticalAlignmentSection(
   votingRecords: VotingRecord[],
   coalitions: CoalitionIntelligence[],
-  language: string,
+  language: string
 ): string {
   if (votingRecords.length === 0 && coalitions.length === 0) return '';
   const recordsHtml = buildVoteAlignmentHtml(votingRecords);

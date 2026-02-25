@@ -37,7 +37,7 @@ function buildAnomalyAlertSection(anomalies: VotingAnomalyIntelligence[]): strin
         `<li class="anomaly-${escapeHTML(a.significance)}">` +
         `<strong>${escapeHTML(a.description)}</strong> — ` +
         `${escapeHTML(a.implication)} ` +
-        `(deviation: ${escapeHTML(String(a.deviationPercentage))}%)</li>`,
+        `(deviation: ${escapeHTML(String(a.deviationPercentage))}%)</li>`
     )
     .join('\n            ');
   return `
@@ -63,7 +63,7 @@ function buildCoalitionDynamicsSection(coalitions: CoalitionIntelligence[]): str
         `<li class="coalition-${escapeHTML(c.riskLevel)}">` +
         `${escapeHTML(c.groups.join(', '))} — ` +
         `cohesion: ${escapeHTML(String(Math.round(c.cohesionScore * 100)))}% ` +
-        `(${escapeHTML(c.alignmentTrend)})</li>`,
+        `(${escapeHTML(c.alignmentTrend)})</li>`
     )
     .join('\n            ');
   return `
@@ -89,7 +89,7 @@ function buildKeyPlayersIntelSection(mepScores: MEPInfluenceScore[]): string {
         `<li class="mep-score">` +
         `<strong>${escapeHTML(m.mepName)}</strong> — ` +
         `score: ${escapeHTML(String(Math.round(m.overallScore)))} ` +
-        `(${escapeHTML(m.rank)})</li>`,
+        `(${escapeHTML(m.rank)})</li>`
     )
     .join('\n            ');
   return `
@@ -112,7 +112,7 @@ function buildKeyPlayersIntelSection(mepScores: MEPInfluenceScore[]): string {
 function buildIntelligenceBriefingSection(
   anomalies: VotingAnomalyIntelligence[],
   coalitions: CoalitionIntelligence[],
-  mepScores: MEPInfluenceScore[],
+  mepScores: MEPInfluenceScore[]
 ): string {
   const hasIntel = anomalies.length > 0 || coalitions.length > 0 || mepScores.length > 0;
   if (!hasIntel) return '';
@@ -151,11 +151,16 @@ export function buildBreakingNewsContent(
   influenceRaw: string,
   anomalies: VotingAnomalyIntelligence[] = [],
   coalitions: CoalitionIntelligence[] = [],
-  mepScores: MEPInfluenceScore[] = [],
+  mepScores: MEPInfluenceScore[] = []
 ): string {
   const hasData = Boolean(
-    anomalyRaw || coalitionRaw || reportRaw || influenceRaw ||
-    anomalies.length || coalitions.length || mepScores.length,
+    anomalyRaw ||
+    coalitionRaw ||
+    reportRaw ||
+    influenceRaw ||
+    anomalies.length ||
+    coalitions.length ||
+    mepScores.length
   );
   const timestamp = new Date().toISOString();
 

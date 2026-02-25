@@ -34,7 +34,7 @@ import { scoreVotingAnomaly, analyzeCoalitionCohesion, scoreMEPInfluence, calcul
 export { parsePlenarySessions, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, buildWeekAheadContent, buildKeywords, PLACEHOLDER_EVENTS, buildWhatToWatchSection, };
 export { buildBreakingNewsContent };
 export { applyCommitteeInfo, applyDocuments, applyEffectiveness, FEATURED_COMMITTEES };
-export { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent, buildPoliticalAlignmentSection };
+export { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent, buildPoliticalAlignmentSection, };
 export { buildPropositionsContent };
 export { scoreVotingAnomaly, analyzeCoalitionCohesion, scoreMEPInfluence, calculateLegislativeVelocity, rankBySignificance, buildIntelligenceSection, };
 // Try to use MCP client if available

@@ -119,8 +119,13 @@ function buildIntelligenceBriefingSection(anomalies, coalitions, mepScores) {
  * @returns Full article HTML content string
  */
 export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, anomalies = [], coalitions = [], mepScores = []) {
-    const hasData = Boolean(anomalyRaw || coalitionRaw || reportRaw || influenceRaw ||
-        anomalies.length || coalitions.length || mepScores.length);
+    const hasData = Boolean(anomalyRaw ||
+        coalitionRaw ||
+        reportRaw ||
+        influenceRaw ||
+        anomalies.length ||
+        coalitions.length ||
+        mepScores.length);
     const timestamp = new Date().toISOString();
     const anomalySection = anomalyRaw
         ? `

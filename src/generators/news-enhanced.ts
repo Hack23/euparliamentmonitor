@@ -128,7 +128,12 @@ export {
 };
 export { buildBreakingNewsContent };
 export { applyCommitteeInfo, applyDocuments, applyEffectiveness, FEATURED_COMMITTEES };
-export { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent, buildPoliticalAlignmentSection };
+export {
+  PLACEHOLDER_MARKER,
+  getMotionsFallbackData,
+  generateMotionsContent,
+  buildPoliticalAlignmentSection,
+};
 export { buildPropositionsContent };
 export type { PipelineData };
 export {
@@ -568,7 +573,7 @@ async function generateBreakingNews(): Promise<GenerationResult> {
       influenceRaw,
       anomalies,
       coalitions,
-      mepScores,
+      mepScores
     );
 
     let writtenCount = 0;
