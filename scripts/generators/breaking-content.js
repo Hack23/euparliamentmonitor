@@ -55,11 +55,14 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
           <p class="data-narrative">${escapeHTML(influenceRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
         : '';
+    const context = escapeHTML(editorial.parliamentaryContext);
+    const finding = escapeHTML(editorial.keyTakeaway).toLowerCase();
+    const attribution = escapeHTML(editorial.sourceAttribution).toLowerCase();
     const whyThisMattersSection = hasData
         ? `
         <section class="why-this-matters">
           <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
-          <p>${escapeHTML(editorial.parliamentaryContext)}: ${escapeHTML(editorial.keyTakeaway).toLowerCase()} — ${escapeHTML(editorial.sourceAttribution).toLowerCase()}.</p>
+          <p>${context}: ${finding} — ${attribution}.</p>
         </section>`
         : '';
     const placeholderNotice = !hasData

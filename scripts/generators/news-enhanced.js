@@ -233,10 +233,10 @@ async function generateWeekAhead() {
         const slug = `${formatDateForSlug(today)}-${ARTICLE_TYPE_WEEK_AHEAD}`;
         const weekData = await fetchWeekAheadData(dateRange);
         const keywords = buildKeywords(weekData);
-        const content = buildWeekAheadContent(weekData, dateRange);
         let writtenCount = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
+            const content = buildWeekAheadContent(weekData, dateRange, lang);
             const titleGenerator = getLocalizedString(WEEK_AHEAD_TITLES, lang);
             const langTitles = titleGenerator(dateRange.start, dateRange.end);
             const html = generateArticleHTML({
@@ -380,10 +380,10 @@ async function generateBreakingNews() {
             fetchVotingReport(),
             fetchMEPInfluence(''),
         ]);
-        const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, influenceRaw);
         let writtenCount = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
+            const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, lang);
             const titleGenerator = getLocalizedString(BREAKING_NEWS_TITLES, lang);
             const langTitles = titleGenerator(dateStr);
             const readTime = calculateReadTime(content);
@@ -887,7 +887,7 @@ async function generatePropositions() {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const langTitles = getLocalizedString(PROPOSITIONS_TITLES, lang)();
             const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
-            const content = buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings);
+            const content = buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings, lang);
             const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
                 slug: ARTICLE_TYPE_PROPOSITIONS,
@@ -939,7 +939,7 @@ async function generateMotions() {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const titleGenerator = getLocalizedString(MOTIONS_TITLES, lang);
             const langTitles = titleGenerator(dateStr);
-            const content = generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions);
+            const content = generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions, lang);
             const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
                 slug: ARTICLE_TYPE_MOTIONS,
