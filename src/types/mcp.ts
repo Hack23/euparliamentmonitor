@@ -204,3 +204,141 @@ export interface GeneratePoliticalLandscapeOptions {
   dateTo?: string;
   includeDetails?: boolean;
 }
+
+/** Options for getCurrentMEPs */
+export interface GetCurrentMEPsOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getSpeeches */
+export interface GetSpeechesOptions {
+  speechId?: string;
+  dateFrom?: string;
+  dateTo?: string;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getProcedures */
+export interface GetProceduresOptions {
+  processId?: string;
+  year?: number;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getAdoptedTexts */
+export interface GetAdoptedTextsOptions {
+  docId?: string;
+  year?: number;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getEvents */
+export interface GetEventsOptions {
+  eventId?: string;
+  dateFrom?: string;
+  dateTo?: string;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getMeetingActivities */
+export interface GetMeetingActivitiesOptions {
+  sittingId: string;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getMeetingDecisions */
+export interface GetMeetingDecisionsOptions {
+  sittingId: string;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getMEPDeclarations */
+export interface GetMEPDeclarationsOptions {
+  docId?: string;
+  year?: number;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getIncomingMEPs */
+export interface GetIncomingMEPsOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getOutgoingMEPs */
+export interface GetOutgoingMEPsOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getHomonymMEPs */
+export interface GetHomonymMEPsOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getPlenaryDocuments */
+export interface GetPlenaryDocumentsOptions {
+  docId?: string;
+  year?: number;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getCommitteeDocuments */
+export interface GetCommitteeDocumentsOptions {
+  docId?: string;
+  year?: number;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getPlenarySessionDocuments */
+export interface GetPlenarySessionDocumentsOptions {
+  docId?: string;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getPlenarySessionDocumentItems */
+export interface GetPlenarySessionDocumentItemsOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getControlledVocabularies */
+export interface GetControlledVocabulariesOptions {
+  vocId?: string;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getExternalDocuments */
+export interface GetExternalDocumentsOptions {
+  docId?: string;
+  year?: number;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getMeetingForeseenActivities */
+export interface GetMeetingForeseenActivitiesOptions {
+  sittingId: string;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getProcedureEvents */
+export interface GetProcedureEventsOptions {
+  processId: string;
+  limit?: number;
+  offset?: number;
+}

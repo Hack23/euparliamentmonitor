@@ -910,6 +910,448 @@ describe('ep-mcp-client', () => {
       });
     });
 
+    describe('Open Data Portal Methods', () => {
+      beforeEach(() => {
+        client.connected = true;
+        client.callTool = vi.fn();
+      });
+
+      it('should get current MEPs', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"meps": [{"name": "Test MEP"}]}' }],
+        });
+
+        const options = { limit: 10 };
+        await client.getCurrentMEPs(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_current_meps', options);
+      });
+
+      it('should handle missing get_current_meps tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getCurrentMEPs();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"meps": []}' }],
+        });
+      });
+
+      it('should get speeches', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"speeches": []}' }],
+        });
+
+        const options = { dateFrom: '2025-01-01', dateTo: '2025-01-31' };
+        await client.getSpeeches(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_speeches', options);
+      });
+
+      it('should handle missing get_speeches tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getSpeeches();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"speeches": []}' }],
+        });
+      });
+
+      it('should get procedures', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"procedures": []}' }],
+        });
+
+        const options = { year: 2025, limit: 10 };
+        await client.getProcedures(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_procedures', options);
+      });
+
+      it('should handle missing get_procedures tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getProcedures();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"procedures": []}' }],
+        });
+      });
+
+      it('should get adopted texts', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"texts": []}' }],
+        });
+
+        const options = { year: 2025 };
+        await client.getAdoptedTexts(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_adopted_texts', options);
+      });
+
+      it('should handle missing get_adopted_texts tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getAdoptedTexts();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"texts": []}' }],
+        });
+      });
+
+      it('should get events', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"events": []}' }],
+        });
+
+        const options = { dateFrom: '2025-01-01', dateTo: '2025-01-31' };
+        await client.getEvents(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_events', options);
+      });
+
+      it('should handle missing get_events tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getEvents();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"events": []}' }],
+        });
+      });
+
+      it('should get meeting activities', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"activities": []}' }],
+        });
+
+        const options = { sittingId: 'SITTING-123' };
+        await client.getMeetingActivities(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_meeting_activities', options);
+      });
+
+      it('should handle missing get_meeting_activities tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getMeetingActivities({ sittingId: 'SITTING-123' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"activities": []}' }],
+        });
+      });
+
+      it('should return fallback for getMeetingActivities with empty sittingId', async () => {
+        const result = await client.getMeetingActivities({ sittingId: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"activities": []}' }],
+        });
+      });
+
+      it('should get meeting decisions', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"decisions": []}' }],
+        });
+
+        const options = { sittingId: 'SITTING-123' };
+        await client.getMeetingDecisions(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_meeting_decisions', options);
+      });
+
+      it('should handle missing get_meeting_decisions tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getMeetingDecisions({ sittingId: 'SITTING-123' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"decisions": []}' }],
+        });
+      });
+
+      it('should return fallback for getMeetingDecisions with empty sittingId', async () => {
+        const result = await client.getMeetingDecisions({ sittingId: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"decisions": []}' }],
+        });
+      });
+
+      it('should get MEP declarations', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"declarations": []}' }],
+        });
+
+        const options = { year: 2025 };
+        await client.getMEPDeclarations(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_mep_declarations', options);
+      });
+
+      it('should handle missing get_mep_declarations tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getMEPDeclarations();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"declarations": []}' }],
+        });
+      });
+
+      it('should get incoming MEPs', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"meps": []}' }],
+        });
+
+        const options = { limit: 10 };
+        await client.getIncomingMEPs(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_incoming_meps', options);
+      });
+
+      it('should handle missing get_incoming_meps tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getIncomingMEPs();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"meps": []}' }],
+        });
+      });
+
+      it('should get outgoing MEPs', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"meps": []}' }],
+        });
+
+        const options = { limit: 10 };
+        await client.getOutgoingMEPs(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_outgoing_meps', options);
+      });
+
+      it('should handle missing get_outgoing_meps tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getOutgoingMEPs();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"meps": []}' }],
+        });
+      });
+
+      it('should get homonym MEPs', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"meps": []}' }],
+        });
+
+        const options = { limit: 10 };
+        await client.getHomonymMEPs(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_homonym_meps', options);
+      });
+
+      it('should handle missing get_homonym_meps tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getHomonymMEPs();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"meps": []}' }],
+        });
+      });
+
+      it('should get plenary documents', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+
+        const options = { year: 2025 };
+        await client.getPlenaryDocuments(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_plenary_documents', options);
+      });
+
+      it('should handle missing get_plenary_documents tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getPlenaryDocuments();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+      });
+
+      it('should get committee documents', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+
+        const options = { year: 2025 };
+        await client.getCommitteeDocuments(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_committee_documents', options);
+      });
+
+      it('should handle missing get_committee_documents tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getCommitteeDocuments();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+      });
+
+      it('should get plenary session documents', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+
+        const options = { docId: 'DOC-123' };
+        await client.getPlenarySessionDocuments(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_plenary_session_documents', options);
+      });
+
+      it('should handle missing get_plenary_session_documents tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getPlenarySessionDocuments();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+      });
+
+      it('should get plenary session document items', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"items": []}' }],
+        });
+
+        const options = { limit: 10 };
+        await client.getPlenarySessionDocumentItems(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_plenary_session_document_items', options);
+      });
+
+      it('should handle missing get_plenary_session_document_items tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getPlenarySessionDocumentItems();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"items": []}' }],
+        });
+      });
+
+      it('should get controlled vocabularies', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"vocabularies": []}' }],
+        });
+
+        const options = { vocId: 'VOC-123' };
+        await client.getControlledVocabularies(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_controlled_vocabularies', options);
+      });
+
+      it('should handle missing get_controlled_vocabularies tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getControlledVocabularies();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"vocabularies": []}' }],
+        });
+      });
+
+      it('should get external documents', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+
+        const options = { year: 2025 };
+        await client.getExternalDocuments(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_external_documents', options);
+      });
+
+      it('should handle missing get_external_documents tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getExternalDocuments();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+      });
+
+      it('should get meeting foreseen activities', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"activities": []}' }],
+        });
+
+        const options = { sittingId: 'SITTING-123' };
+        await client.getMeetingForeseenActivities(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_meeting_foreseen_activities', options);
+      });
+
+      it('should handle missing get_meeting_foreseen_activities tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getMeetingForeseenActivities({ sittingId: 'SITTING-123' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"activities": []}' }],
+        });
+      });
+
+      it('should return fallback for getMeetingForeseenActivities with empty sittingId', async () => {
+        const result = await client.getMeetingForeseenActivities({ sittingId: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"activities": []}' }],
+        });
+      });
+
+      it('should get procedure events', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"events": []}' }],
+        });
+
+        const options = { processId: 'PROC-123' };
+        await client.getProcedureEvents(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_procedure_events', options);
+      });
+
+      it('should handle missing get_procedure_events tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getProcedureEvents({ processId: 'PROC-123' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"events": []}' }],
+        });
+      });
+
+      it('should return fallback for getProcedureEvents with empty processId', async () => {
+        const result = await client.getProcedureEvents({ processId: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"events": []}' }],
+        });
+      });
+    });
+
     describe('Retry Logic', () => {
       it('should have retry configuration', async () => {
         const failingClient = new EuropeanParliamentMCPClient({
