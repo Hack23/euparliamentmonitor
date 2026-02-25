@@ -155,6 +155,7 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
         <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
         <p>${escapeHTML(editorial.keyTakeaway)}: Voting records and party cohesion data reveal political alignment across the European Parliament, helping citizens understand how their elected representatives make legislative decisions.</p>
       </section>
+      <!-- /article-content -->
     </div>
   `;
 }

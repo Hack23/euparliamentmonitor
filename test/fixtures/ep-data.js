@@ -180,3 +180,80 @@ export const mockSources = [
     url: 'https://www.europarl.europa.eu/committees/en/envi/home',
   },
 ];
+
+// ─── Article strategy fixtures ────────────────────────────────────────────────
+
+const STRATEGY_DATE = '2025-01-15';
+
+/** Minimal WeekAheadArticleData fixture */
+export const weekAheadData = {
+  date: STRATEGY_DATE,
+  dateRange: { start: '2025-01-16', end: '2025-01-23' },
+  weekData: {
+    events: [{ date: '2025-01-16', title: 'Plenary Session', type: 'Plenary', description: '' }],
+    committees: [],
+    documents: [],
+    pipeline: [],
+    questions: [],
+  },
+  keywords: ['European Parliament', 'plenary'],
+};
+
+/** WeekAheadArticleData fixture with a bottlenecked pipeline procedure */
+export const weekAheadDataWithPipeline = {
+  ...weekAheadData,
+  weekData: {
+    ...weekAheadData.weekData,
+    pipeline: [{ title: 'Climate Regulation', stage: 'committee', bottleneck: true }],
+  },
+};
+
+/** Minimal BreakingNewsArticleData fixture */
+export const breakingNewsData = {
+  date: STRATEGY_DATE,
+  anomalyRaw: 'EPP defection detected',
+  coalitionRaw: 'Coalition stress rising',
+  reportRaw: 'High abstention rate',
+};
+
+/** Minimal CommitteeReportsArticleData fixture */
+export const committeeReportsData = {
+  date: STRATEGY_DATE,
+  committeeDataList: [
+    {
+      name: 'Environment Committee',
+      abbreviation: 'ENVI',
+      chair: 'Jane Doe',
+      members: 42,
+      documents: [{ title: 'Draft Report', type: 'REPORT', date: '2025-01-10' }],
+      effectiveness: '85 / Rank 2',
+    },
+  ],
+};
+
+/** Minimal PropositionsArticleData fixture */
+export const propositionsData = {
+  date: STRATEGY_DATE,
+  proposalsHtml: '<div class="proposal-card"><h3>Green Deal Directive</h3></div>',
+  pipelineData: { healthScore: 0.85, throughput: 12, procRowsHtml: '' },
+  procedureHtml: '',
+};
+
+/** Minimal MotionsArticleData fixture */
+export const motionsData = {
+  date: STRATEGY_DATE,
+  dateFromStr: '2024-12-16',
+  votingRecords: [
+    {
+      title: 'Budget 2025',
+      date: STRATEGY_DATE,
+      result: 'Adopted',
+      votes: { for: 400, against: 100, abstain: 50 },
+    },
+  ],
+  votingPatterns: [{ group: 'EPP', cohesion: 0.9, participation: 0.95 }],
+  anomalies: [{ type: 'Defection', description: 'EPP defection', severity: 'HIGH' }],
+  questions: [
+    { author: 'MEP Smith', topic: 'Energy policy', date: STRATEGY_DATE, status: 'PENDING' },
+  ],
+};
