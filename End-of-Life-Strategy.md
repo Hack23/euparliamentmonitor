@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--20-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-02-20 (UTC)  
-**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-02-20  
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-02-25 (UTC)  
+**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-02-25  
 **🏷️ Classification:** Public (Static Site European Parliament Intelligence Platform)
 
 ---
@@ -69,7 +69,7 @@
 
 | 🔧 **Component** | 📊 **Version** | 📅 **EOL Date** | 🔄 **Migration Plan** |
 |------------------|---------------|-----------------|----------------------|
-| **Node.js** | 24 LTS | ~April 2029 | Upgrade to next LTS |
+| **Node.js** | 24 LTS | ~April 2028 | Upgrade to next LTS |
 | **HTML5/CSS3** | Living Standard | Evergreen | No migration needed |
 | **Vitest** | Latest | Active maintenance | Track major versions |
 | **Playwright** | Latest | Active maintenance | Track major versions |
@@ -83,13 +83,15 @@
 
 ### 🔄 Node.js LTS Schedule
 
-| Version | Status | Active LTS | Maintenance End |
-|---------|--------|------------|-----------------|
-| Node.js 22 | Maintenance | 2024-10 | 2027-04 |
-| Node.js 24 | ✅ **Current** | 2025-10 | 2029-04 |
-| Node.js 26 | Planned | 2027-10 | 2031-04 |
+| Version | Status | Active LTS Start | Maintenance EOL |
+|---------|--------|------------------|-----------------|
+| Node.js 22 | LTS Maintenance | 2024-10 | 2027-04 |
+| Node.js 24 | ✅ **Current LTS** | 2025-10 | **~2028-04** |
+| Node.js 26 | Planned | 2027-10 | ~2031-04 |
 
 **Migration Strategy:** Upgrade to next LTS version 6 months before current LTS reaches maintenance end. Test full suite including news generation pipeline.
+
+> **Note:** Node.js 22 LTS reaches End of Life April 2027. Migration to Node.js 24 is already complete per `package.json` engines requirement `>=24`.
 
 ### 📦 Key Dependencies
 
@@ -137,6 +139,33 @@ If sunset is triggered:
 
 ---
 
+## 🛡️ Security & Compliance EOL Controls
+
+| Framework Requirement | EOL Control | Implementation | Status |
+|-----------------------|-------------|----------------|--------|
+| ISO 27001:2022 A.8.8 | Technical vulnerability management | Dependabot auto-update, npm audit | ✅ |
+| CIS Controls 2.2 | Ensure authorized software is supported | Node.js LTS-only policy, Dependabot | ✅ |
+| NIST CSF PR.PS-02 | Software maintained | package.json `engines: >=24`, LTS upgrades | ✅ |
+| NIS2 Art.21(2)(d) | Supply chain security | Dependency lifecycle tracking | ✅ |
+| EU CRA Annex I §2 | Security updates | Automated patch management process | ✅ |
+
+**EOL Policy Alignment**: ✅ **All framework requirements met through automated tooling**
+
+---
+
+## 📅 EOL Action Timeline
+
+```
+2026-02-25 (Now)    Node.js 24 current LTS ✅ Active
+2026-Q3             Review Node.js 24 LTS status
+2027-04             ⚠️  Node.js 22 reaches EOL (already on v24, no action needed)
+2027-Q3             Evaluate Node.js 26 release (planned Oct 2027)
+2028-04             ⚠️  Node.js 24 maintenance end — plan upgrade to Node.js 26
+2028-Q3             Migrate to Node.js 26 LTS
+```
+
+---
+
 ## 📋 Maintenance Schedule
 
 | 📅 **Activity** | 🔄 **Frequency** | 📋 **Responsible** |
@@ -156,6 +185,8 @@ If sunset is triggered:
 - [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
 - [🔍 Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)
 - [📝 Change Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Change_Management.md)
+- [🔍 Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)
+- [📋 Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)
 
 ### 🏛️ Project Documentation
 - [🏛️ Architecture](ARCHITECTURE.md) — System design

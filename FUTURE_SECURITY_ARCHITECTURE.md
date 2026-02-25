@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:**
-2026-02-24 (UTC)  
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:**
+2026-02-25 (UTC)  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-24  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
@@ -121,6 +121,49 @@ evolving AI capabilities — including Anthropic Opus 4.6 (minor updates every
    communication
 4. **CDN Integration** (Q1 2027): Global distribution with advanced protection
 
+---
+
+## 📊 Current Security Posture Baseline (Q1 2026)
+
+Before detailing the future security roadmap, this section documents the **verified current security posture** as the baseline for all planned enhancements. This baseline was validated against the current SECURITY_ARCHITECTURE.md v1.1 (2026-02-25).
+
+### Baseline Control Coverage
+
+| Framework | Controls Implemented | Total Applicable | Coverage | Trend |
+|-----------|---------------------|------------------|----------|-------|
+| **ISO 27001:2022 Annex A** | 26 | 26 | 100% | ✅ Stable |
+| **NIST CSF 2.0** | 36 subcategories | 36 targeted | 100% | ✅ Stable |
+| **CIS Controls v8.1** | 22 safeguards | 23 targeted | 96% | ✅ Improving |
+| **MITRE ATT&CK** | 16 techniques mapped | 793 total | 2.3% | 🔄 Improving |
+| **EU CRA** | All self-assessment requirements | - | Self-assessed ✅ | ✅ Compliant |
+| **GDPR** | All applicable articles | - | N/A (no PII) | ✅ Compliant |
+| **NIS2** | 7/8 requirements | 8 | 87.5% | 🔄 Improving |
+
+### Current Security Stack
+
+| Category | Tool/Control | Status | Next Enhancement |
+|----------|-------------|--------|-----------------|
+| SAST | CodeQL (weekly) | ✅ Implemented | SonarCloud Q2 2026 |
+| SCA | Dependabot + npm audit | ✅ Implemented | FOSSA license scan Q2 2026 |
+| Supply Chain | SHA-pinned actions + SBOM | ✅ Implemented | SLSA Level 3 attestations |
+| Access Control | MFA + branch protection + CODEOWNERS | ✅ Implemented | Required reviews enhancement |
+| Monitoring | GitHub Actions logs + Dependabot alerts | ✅ Implemented | Uptime monitoring Q2 2026 |
+| DAST | Not yet implemented | ⚠️ Gap | OWASP ZAP Q3 2026 |
+| Incident Response | SECURITY.md procedures | ✅ Implemented | CSIRT reporting 2026-09 |
+| Cryptography | TLS 1.3 + HTTPS-only | ✅ Implemented | Certificate transparency |
+
+### Security Debt Register
+
+| Item | Priority | Target Resolution | Phase |
+|------|----------|------------------|-------|
+| DAST implementation | Medium | Q3 2026 | Phase 2 |
+| NIS2 CSIRT automated reporting | Medium | Q4 2026 (before Sep 2026 CRA deadline) | Phase 3 |
+| OpenSSF Best Practices badge | Low | Q2 2026 | Phase 1 |
+| FOSSA license compliance | Low | Q2 2026 | Phase 1 |
+| Content integrity monitoring | Low | Q3 2026 | Phase 2 |
+
+---
+
 ## 📅 Implementation Roadmap
 
 ```mermaid
@@ -158,6 +201,16 @@ gantt
 
 **Goal**: Implement comprehensive monitoring for proactive security and
 performance management.
+
+### Phase 1 Controls Alignment (Q1-Q2 2026)
+
+| Enhancement | ISO 27001:2022 | NIST CSF 2.0 | CIS Control | Priority |
+|-------------|----------------|--------------|-------------|----------|
+| SonarCloud integration | A.8.25 (Secure dev lifecycle) | ID.RA-01, DE.CM-01 | 16.1 | High |
+| OpenSSF Scorecard badge | A.5.36 (Compliance) | GV.RM-01 | 16.2 | Medium |
+| FOSSA license scanning | A.5.12 (Information classification) | GV.SC-06 | 2.1 | Low |
+| Uptime monitoring | A.8.16 (Monitoring activities) | DE.CM-09 | 8.2 | Medium |
+| Content freshness alerts | A.8.15 (Logging) | DE.AE-02 | 8.5 | Low |
 
 ### 1.1 Uptime Monitoring
 
@@ -2309,6 +2362,23 @@ async function checkOWASPCompliance() {
 
 ---
 
+## 🔒 NIST CSF 2.0 Future Enhancement Roadmap
+
+The NIST CSF 2.0 introduced the **Govern (GV)** function as a new top-level function. Current implementation covers all 36 subcategories. Future enhancements target deeper maturity:
+
+| CSF Function | Current Maturity | 2026 Target | 2027 Target |
+|--------------|-----------------|-------------|-------------|
+| **GV (Govern)** | Tier 2 (Risk-Informed) | Tier 2 | Tier 3 (Repeatable) |
+| **ID (Identify)** | Tier 2 | Tier 3 | Tier 3 |
+| **PR (Protect)** | Tier 2 | Tier 2 | Tier 3 |
+| **DE (Detect)** | Tier 1 (Partial) | Tier 2 | Tier 2 |
+| **RS (Respond)** | Tier 2 | Tier 2 | Tier 3 |
+| **RC (Recover)** | Tier 2 | Tier 2 | Tier 3 |
+
+**CSF Tier Definitions**: Tier 1=Partial, Tier 2=Risk-Informed, Tier 3=Repeatable, Tier 4=Adaptive
+
+---
+
 ## 📊 Monitoring & Analytics
 
 **Status**: 🔮 Planned Enhancement - Comprehensive Observability
@@ -2708,6 +2778,12 @@ evolve to address both new capabilities and new threat vectors.
 - [Hack23 ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC)
 - [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md)
 - [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
+- [📋 Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
+- [🔑 Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md)
+- [🔒 Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md)
+- [📊 Risk Assessment Methodology](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md)
+- [🤖 AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) (for AI-assisted news generation security)
+- [🌐 ISMS Transparency Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/ISMS_Transparency_Plan.md)
 - [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - [CIS Controls v8.1](https://www.cisecurity.org/controls)

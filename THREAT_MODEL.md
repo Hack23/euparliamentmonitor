@@ -11,14 +11,14 @@
 
 <p align="center">
   <a><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a><img src="https://img.shields.io/badge/Effective-2026--02--18-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a><img src="https://img.shields.io/badge/Effective-2026--02--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:**
-2026-02-18 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-18  
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:**
+2026-02-25 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-25  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -86,6 +86,15 @@ excellence_
 - **🏗️ Asset-centric analysis:** Critical resource protection focus
 - **🎯 Scenario-centric modeling:** Real-world attack simulation
 - **⚖️ Risk-centric assessment:** Business impact quantification
+
+> **🏛️ NIST CSF 2.0 GV (Govern) Alignment:** This threat model directly supports the
+> **GV.OC** (Organizational Context) function by documenting how the EU Parliament Monitor's
+> democratic transparency mission shapes risk tolerance, asset priorities, and threat actor
+> motivations. The platform's public-interest mandate — providing open access to European
+> Parliament activities — defines its unique threat landscape: integrity of parliamentary
+> data is the primary security concern, not confidentiality. This GV.OC alignment drives
+> the prioritization of Impact and Initial Access tactics in ATT&CK coverage, and informs
+> the Low risk appetite for content manipulation threats across all 14 supported languages.
 
 ### **🔍 Scope Definition**
 
@@ -329,11 +338,20 @@ methodology:
 | **🔍 Discovery**         | Application Enumeration    | [T1083](https://attack.mitre.org/techniques/T1083/) | Public repository, open source      | Transparency by design              | Public documentation               |
 | **💥 Impact**            | Data Manipulation          | [T1565](https://attack.mitre.org/techniques/T1565/) | News content tampering              | Schema validation, HTML validation  | Automated testing, manual review   |
 | **💥 Impact**            | Defacement                 | [T1491](https://attack.mitre.org/techniques/T1491/) | Website content alteration          | Branch protection, required reviews | Visual diff review, monitoring     |
+| **🔍 Initial Access**    | External Remote Services   | [T1133](https://attack.mitre.org/techniques/T1133/) | Unauthorized EP API access attempts         | Allowlist-only MCP access, public API only  | EP API access logs, rate monitoring        |
+| **🔍 Initial Access**    | Implant Internal Image     | [T1525](https://attack.mitre.org/techniques/T1525/) | Dependency confusion in npm registry        | package-lock.json, SHA verification         | Dependabot, SBOM integrity checks          |
+| **🔍 Discovery**         | Network Service Discovery  | [T1046](https://attack.mitre.org/techniques/T1046/) | Port scanning, MCP service enumeration      | Localhost-only MCP binding, firewall rules  | Network connection monitoring              |
+| **📦 Collection**        | Data from Cloud Storage    | [T1530](https://attack.mitre.org/techniques/T1530/) | GitHub Pages content scraping/access        | Public by design, no secrets in Pages       | Traffic monitoring, rate limiting          |
+| **📦 Collection**        | Data from Configuration Repository | [T1602](https://attack.mitre.org/techniques/T1602/) | package.json, workflow config access | No secrets in config files, SBOM tracking   | Repository access auditing                 |
+| **🔄 Persistence**       | Services File Permissions Weakness | [T1574.010](https://attack.mitre.org/techniques/T1574/010/) | GitHub Actions workflow tampering | SHA-pinned actions, branch protection rules | Workflow change alerts, PR review required |
+| **📡 Command & Control** | Application Layer Protocol | [T1071](https://attack.mitre.org/techniques/T1071/) | MCP HTTP/HTTPS communication to EP API      | TLS enforcement, strict hostname allowlist  | Outbound traffic monitoring                |
+| **📡 Command & Control** | Web Protocols              | [T1071.001](https://attack.mitre.org/techniques/T1071/001/) | HTTPS requests to data.europarl.europa.eu | TLS 1.3, certificate validation   | HTTP request logging, anomaly detection    |
+| **🎭 Defense Evasion**   | Code Signing               | [T1553.003](https://attack.mitre.org/techniques/T1553/003/) | SLSA attestation bypass attempts  | SLSA Level 3, artifact signatures           | Attestation verification in CI             |
 
 ### **📊 ATT&CK Coverage Analysis**
 
-[![ATT&CK Coverage](https://img.shields.io/badge/ATT%26CK_Coverage-1.1%25-yellow?style=for-the-badge)](https://mitre-attack.github.io/attack-navigator/)
-[![Covered Techniques](https://img.shields.io/badge/Techniques-9%2F793-orange?style=for-the-badge)](https://attack.mitre.org/)
+[![ATT&CK Coverage](https://img.shields.io/badge/ATT%26CK_Coverage-2.3%25-orange?style=for-the-badge)](https://mitre-attack.github.io/attack-navigator/)
+[![Covered Techniques](https://img.shields.io/badge/Techniques-16%2F793-orange?style=for-the-badge)](https://attack.mitre.org/)
 
 **Comprehensive Coverage Tracking:** This threat model provides systematic
 coverage analysis of MITRE ATT&CK techniques, identifying which tactics and
@@ -343,22 +361,24 @@ techniques are relevant to the EU Parliament Monitor's threat landscape.
 
 | Tactic                     | Covered Techniques | Total Techniques | Coverage % | Status                                                                                                                                |
 | -------------------------- | ------------------ | ---------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| **🔍 Initial Access**      | 2                  | 22               | 9.1%       | [![High Priority](https://img.shields.io/badge/Priority-High-red?style=flat-square)](https://attack.mitre.org/tactics/TA0001/)        |
+| **🔍 Initial Access**      | 4                  | 22               | 18.2%      | [![High Priority](https://img.shields.io/badge/Priority-High-red?style=flat-square)](https://attack.mitre.org/tactics/TA0001/)        |
 | **💥 Impact**              | 2                  | 33               | 6.1%       | [![High Priority](https://img.shields.io/badge/Priority-High-red?style=flat-square)](https://attack.mitre.org/tactics/TA0040/)        |
 | **⚡ Execution**           | 1                  | 51               | 2.0%       | [![Medium Priority](https://img.shields.io/badge/Priority-Medium-yellow?style=flat-square)](https://attack.mitre.org/tactics/TA0002/) |
-| **🔄 Persistence**         | 1                  | 130              | 0.8%       | [![Low Priority](https://img.shields.io/badge/Priority-Low-green?style=flat-square)](https://attack.mitre.org/tactics/TA0003/)        |
-| **🎭 Defense Evasion**     | 1                  | 218              | 0.5%       | [![Low Priority](https://img.shields.io/badge/Priority-Low-green?style=flat-square)](https://attack.mitre.org/tactics/TA0005/)        |
+| **🔄 Persistence**         | 2                  | 130              | 1.5%       | [![Low Priority](https://img.shields.io/badge/Priority-Low-green?style=flat-square)](https://attack.mitre.org/tactics/TA0003/)        |
+| **🎭 Defense Evasion**     | 2                  | 218              | 0.9%       | [![Low Priority](https://img.shields.io/badge/Priority-Low-green?style=flat-square)](https://attack.mitre.org/tactics/TA0005/)        |
 | **🔑 Credential Access**   | 1                  | 67               | 1.5%       | [![Low Priority](https://img.shields.io/badge/Priority-Low-green?style=flat-square)](https://attack.mitre.org/tactics/TA0006/)        |
-| **🔍 Discovery**           | 1                  | 49               | 2.0%       | [![Low Priority](https://img.shields.io/badge/Priority-Low-green?style=flat-square)](https://attack.mitre.org/tactics/TA0007/)        |
+| **🔍 Discovery**           | 2                  | 49               | 4.1%       | [![Medium Priority](https://img.shields.io/badge/Priority-Medium-yellow?style=flat-square)](https://attack.mitre.org/tactics/TA0007/) |
 | **🔀 Lateral Movement**    | 0                  | 25               | 0.0%       | [![Not Applicable](https://img.shields.io/badge/Status-N%2FA-lightgrey?style=flat-square)](https://attack.mitre.org/tactics/TA0008/)  |
-| **📦 Collection**          | 0                  | 41               | 0.0%       | [![Not Applicable](https://img.shields.io/badge/Status-N%2FA-lightgrey?style=flat-square)](https://attack.mitre.org/tactics/TA0009/)  |
+| **📦 Collection**          | 2                  | 41               | 4.9%       | [![Medium Priority](https://img.shields.io/badge/Priority-Medium-yellow?style=flat-square)](https://attack.mitre.org/tactics/TA0009/) |
 | **📤 Exfiltration**        | 0                  | 19               | 0.0%       | [![Not Applicable](https://img.shields.io/badge/Status-N%2FA-lightgrey?style=flat-square)](https://attack.mitre.org/tactics/TA0010/)  |
-| **📡 Command and Control** | 0                  | 47               | 0.0%       | [![Not Applicable](https://img.shields.io/badge/Status-N%2FA-lightgrey?style=flat-square)](https://attack.mitre.org/tactics/TA0011/)  |
+| **📡 Command and Control** | 2                  | 47               | 4.3%       | [![Medium Priority](https://img.shields.io/badge/Priority-Medium-yellow?style=flat-square)](https://attack.mitre.org/tactics/TA0011/) |
 
-**Coverage Rationale:** The EU Parliament Monitor's 1.3% overall coverage
-reflects focused threat modeling for a static site with limited attack surface.
-Higher coverage in Initial Access (9.1%) and Impact (6.1%) aligns with primary
-threat vectors for public-facing platforms and content integrity concerns.
+**Coverage Rationale:** The EU Parliament Monitor's 2.3% overall coverage
+reflects focused threat modeling for a static site with EP MCP Server
+integration. Higher coverage in Initial Access (18.2%), Collection (4.9%),
+Command & Control (4.3%), and Discovery (4.1%) aligns with primary threat
+vectors for public-facing platforms with external API dependencies. The 16
+techniques mapped include 7 EP MCP Server-specific vectors added in v1.1.
 
 #### **🛡️ Security Control to ATT&CK Mitigation Mapping**
 
@@ -374,6 +394,67 @@ techniques:
 | **Input Validation**         | [M1021: Restrict Web Content](https://attack.mitre.org/mitigations/M1021/)        | [T1190](https://attack.mitre.org/techniques/T1190/), [T1565](https://attack.mitre.org/techniques/T1565/) | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#input-validation) |
 | **SBOM Generation**          | [M1016: Vulnerability Scanning](https://attack.mitre.org/mitigations/M1016/)      | [T1195](https://attack.mitre.org/techniques/T1195/)                                                      | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#sbom)             |
 | **MFA Enforcement**          | [M1032: Multi-factor Authentication](https://attack.mitre.org/mitigations/M1032/) | [T1078](https://attack.mitre.org/techniques/T1078/), [T1110](https://attack.mitre.org/techniques/T1110/) | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#mfa)              |
+| **npm Package Lock**         | [M1016: Vulnerability Scanning](https://attack.mitre.org/mitigations/M1016/)      | [T1525](https://attack.mitre.org/techniques/T1525/), [T1195](https://attack.mitre.org/techniques/T1195/) | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#supply-chain)     |
+| **Localhost-Only MCP Binding** | [M1030: Network Segmentation](https://attack.mitre.org/mitigations/M1030/)      | [T1046](https://attack.mitre.org/techniques/T1046/), [T1071](https://attack.mitre.org/techniques/T1071/) | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#network)          |
+| **SLSA Level 3 Attestation** | [M1045: Code Signing](https://attack.mitre.org/mitigations/M1045/)                | [T1553.003](https://attack.mitre.org/techniques/T1553/003/), [T1195](https://attack.mitre.org/techniques/T1195/) | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#slsa)       |
+
+### **🔌 EP MCP Server Attack Surface Analysis**
+
+The European Parliament MCP Server integration (`european-parliament-mcp-server@0.7.3`) introduces a specific attack surface that requires dedicated threat analysis. As an ephemeral, localhost-only process invoked during GitHub Actions builds, its exposure window is narrow — but its role in data ingestion makes integrity controls critical.
+
+| Attack Vector | MITRE Technique | Threat Description | Likelihood | Impact | Mitigation |
+|---|---|---|---|---|---|
+| **MCP Data Poisoning** | [T1565.001](https://attack.mitre.org/techniques/T1565/001/) (Stored Data Manipulation) | Malicious EP API responses injecting XSS/HTML into generated articles | Low | High | Response sanitization, HTML entity encoding, schema validation |
+| **MCP Protocol Abuse** | [T1071](https://attack.mitre.org/techniques/T1071/) (Application Layer Protocol) | Manipulated JSON-RPC 2.0 requests exploiting parsing flaws | Very Low | Medium | Input validation, request ID tracking, strict error handling |
+| **Dependency Confusion** | [T1525](https://attack.mitre.org/techniques/T1525/) (Implant Internal Image) | Malicious npm package named `european-parliament-mcp-server` | Very Low | Critical | Package provenance checking, npm registry lock, SHA verification |
+| **API Rate Abuse** | [T1499](https://attack.mitre.org/techniques/T1499/) (Endpoint DoS) | Exhausting EP API rate limits through excessive MCP calls | Low | Medium | Retry limits, timeout enforcement, exponential backoff |
+| **Credential Exposure** | [T1078](https://attack.mitre.org/techniques/T1078/) (Valid Accounts) | EP API tokens or secrets exposed in GitHub Actions logs | Very Low | High | No API keys used (public API), secrets scanning in CI |
+| **SSRF via MCP** | [T1190](https://attack.mitre.org/techniques/T1190/) (Exploit Public-Facing App) | MCP client making unauthorized requests to internal GitHub resources | Very Low | Medium | Strict hostname allowlisting, localhost-only MCP communication |
+| **Schema Injection** | [T1059](https://attack.mitre.org/techniques/T1059/) (Command/Script Interpreter) | Malformed EP data exploiting TypeScript parser vulnerabilities | Very Low | Low | TypeScript strict mode, schema validation, error boundaries |
+
+```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#e3f2fd',
+      'primaryTextColor': '#0d47a1',
+      'lineColor': '#1976d2',
+      'secondaryColor': '#fce4ec'
+    }
+  }
+}%%
+flowchart LR
+    GHA[🤖 GitHub Actions Runner]
+    MCP[🔌 EP MCP Server\nephemeral process]
+    EPA[🇪🇺 EP Open Data API\ndata.europarl.europa.eu]
+    NG[📰 News Generator\nNode.js scripts]
+    GHP[🌐 GitHub Pages\nStatic Site]
+
+    GHA -->|"spawn localhost:stdio"| MCP
+    MCP -->|"HTTPS / TLS 1.3"| EPA
+    EPA -->|"JSON responses\n(schema-validated)"| MCP
+    MCP -->|"Sanitized data"| NG
+    NG -->|"HTML articles\n(Handlebars escaped)"| GHP
+
+    style GHA fill:#e8f5e9,stroke:#388e3c,color:#000
+    style MCP fill:#fff3e0,stroke:#f57c00,color:#000
+    style EPA fill:#e3f2fd,stroke:#1565c0,color:#000
+    style NG fill:#f3e5f5,stroke:#7b1fa2,color:#000
+    style GHP fill:#e8f5e9,stroke:#388e3c,color:#000
+```
+
+**MCP Server Security Posture Summary:**
+
+| Property | Value | Security Implication |
+|---|---|---|
+| **Execution model** | Ephemeral (per-build, terminates after use) | ✅ No persistent process to attack |
+| **Network binding** | Localhost stdio only (no TCP port) | ✅ No remote attack surface |
+| **Authentication** | None required (EP public API) | ✅ No credentials to steal or leak |
+| **Data direction** | Read-only inbound from EP API | ✅ Cannot write back to EP systems |
+| **Output escaping** | Handlebars auto-escape + CSP headers | ✅ XSS injection from data poisoning blocked |
+| **Package provenance** | npm SHA lock + Dependabot monitoring | ✅ Dependency confusion monitored |
+| **SLSA attestation** | SLSA Level 3 via GitHub Actions | ✅ Build provenance verified end-to-end |
 
 ### **🌳 Attack Tree Analysis**
 
@@ -1304,15 +1385,15 @@ V.Low │           │            │           │           │
 
 | Role                   | Name          | Date       | Signature |
 | ---------------------- | ------------- | ---------- | --------- |
-| **Security Architect** | Security Team | 2026-02-18 | Approved  |
-| **Product Owner**      | Product Team  | 2026-02-18 | Approved  |
-| **CEO / CISO**         | CEO           | 2026-02-18 | Approved  |
+| **Security Architect** | Security Team | 2026-02-25 | Approved  |
+| **Product Owner**      | Product Team  | 2026-02-25 | Approved  |
+| **CEO / CISO**         | CEO           | 2026-02-25 | Approved  |
 
 ### **🔄 Review Schedule**
 
-- **Current Review:** 2026-02-18
-- **Next Quarterly Review:** 2026-05-18
-- **Annual Comprehensive Review:** 2027-02-18
+- **Current Review:** 2026-02-25
+- **Next Quarterly Review:** 2026-05-25
+- **Annual Comprehensive Review:** 2027-02-25
 
 ### **📊 Review Criteria**
 
@@ -1336,6 +1417,14 @@ V.Low │           │            │           │           │
 
 | Version | Date       | Author        | Changes                                                                       |
 | ------- | ---------- | ------------- | ----------------------------------------------------------------------------- |
+| 1.1     | 2026-02-25 | Security Team | EP MCP Server attack surface expansion and ATT&CK coverage enhancement        |
+|         |            |               | - Expanded 🎖️ MITRE ATT&CK coverage to 16 techniques (2.3% coverage)         |
+|         |            |               | - Added T1133, T1525, T1046, T1530, T1602, T1574.010, T1071, T1071.001, T1553.003 |
+|         |            |               | - Added 🔌 EP MCP Server Attack Surface Analysis section with 7 attack vectors |
+|         |            |               | - Added MCP server security posture summary and data flow diagram              |
+|         |            |               | - Updated ATT&CK Coverage Heat Map (Initial Access: 18.2%, Collection: 4.9%)  |
+|         |            |               | - Added npm Package Lock and SLSA controls to ATT&CK mitigation mapping        |
+|         |            |               | - Added NIST CSF 2.0 GV.OC alignment note in Framework Integration section    |
 | 1.0     | 2026-02-18 | Security Team | Initial comprehensive threat model per Hack23 ISMS standards                  |
 |         |            |               | - Added 🎯 Purpose & Scope with framework integration                         |
 |         |            |               | - Added 📊 System Classification & Operating Profile                          |
@@ -1407,8 +1496,8 @@ Q3 2026
 
 1. **Q3 2026:** Implement T-003 mitigation (automated fact-checking pipeline)
 2. **Q3 2026:** Advance to Maturity Level 3 (Democratic Analysis Excellence)
-3. **2026-05-18:** Conduct next quarterly threat model review
-4. **2027-02-18:** Annual comprehensive threat model update
+3. **2026-05-25:** Conduct next quarterly threat model review
+4. **2027-02-25:** Annual comprehensive threat model update
 
 ---
 

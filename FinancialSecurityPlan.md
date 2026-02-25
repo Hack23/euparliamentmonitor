@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--20-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-02-20 (UTC)  
-**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-02-20
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-02-25 (UTC)  
+**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-02-25
 
 ---
 
@@ -141,6 +141,39 @@ For architectural context, see [Architecture Documentation](ARCHITECTURE.md) and
 
 ---
 
+## 📊 Security Investment ROI Analysis
+
+| Security Investment | Annual Cost (€) | Risk Reduction | Incidents Prevented/Year (est.) | ROI Score |
+|--------------------|-----------------|----------------|--------------------------------|-----------|
+| GitHub Actions CI/CD (free tier) | €0 | High | 3-5 build failures | ♾️ Infinite |
+| Dependabot automated updates | €0 | High | 2-4 CVE exposures/year | ♾️ Infinite |
+| CodeQL SAST scanning | €0 | Medium | 1-2 code vulnerabilities/year | ♾️ Infinite |
+| GitHub Branch Protection | €0 | High | Prevents unauthorized commits | ♾️ Infinite |
+| SBOM generation | €0 | Medium | Supply chain visibility | ♾️ Infinite |
+| htmlhint HTML validation | €0 | Low | 5-10 HTML errors/month | ♾️ Infinite |
+| ESLint security plugin | €0 | Medium | 2-3 security issues/year | ♾️ Infinite |
+
+**Key Finding**: All implemented security controls carry €0 direct cost due to GitHub free tier and open-source tooling. The security investment ROI is effectively infinite for this open-source civic technology platform.
+
+---
+
+## 🛡️ ISMS Cost-Security Framework Alignment
+
+| Framework Control | Cost Center | Budget Allocation | Annual Cost |
+|-------------------|-------------|------------------|-------------|
+| ISO 27001:2022 A.8.8 (Vulnerability Management) | GitHub Dependabot | Free tier | €0 |
+| ISO 27001:2022 A.8.25 (Secure Development Lifecycle) | CodeQL + ESLint | Free tier | €0 |
+| CIS Controls 7 (Vulnerability Management) | npm audit + Dependabot | Automated | €0 |
+| NIST CSF DE.CM-01 (Vulnerability Detection) | CodeQL scans | Free tier | €0 |
+| NIS2 Art.21(2)(d) Supply Chain Security | SHA-pinned actions | Configuration | €0 |
+| EU CRA SBOM requirement | GitHub Actions SBOM | Free tier | €0 |
+
+**Total Security Control Budget**: €0/year (open-source platform on GitHub free tier)  
+**Total Platform Infrastructure Cost**: €0/year (GitHub Pages + Actions free tier)  
+**External Security Tools**: €0/year (all tools in free/open-source tier)
+
+---
+
 ## 🔗 Related Documentation
 
 ### 🔐 ISMS Policies
@@ -148,6 +181,8 @@ For architectural context, see [Architecture Documentation](ARCHITECTURE.md) and
 - [🔐 Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
 - [🔍 Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)
 - [🏷️ Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)
+- [📋 Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
+- [💰 Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)
 
 ### 🏛️ Project Documentation
 - [🏛️ Architecture](ARCHITECTURE.md) — System design
