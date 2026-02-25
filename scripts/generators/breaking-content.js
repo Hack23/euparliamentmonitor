@@ -2,14 +2,110 @@
 // SPDX-License-Identifier: Apache-2.0
 /**
  * @module Generators/BreakingContent
- * @description Pure function for building breaking-news article HTML.
+ * @description Pure functions for building breaking-news article HTML,
+ * including optional structured intelligence briefing sections derived
+ * from typed MCP intelligence data.
  */
 import { escapeHTML } from '../utils/file-utils.js';
 import { getLocalizedString, EDITORIAL_STRINGS } from '../constants/languages.js';
 /** Maximum characters to display from raw MCP intelligence data */
 const MAX_DATA_CHARS = 2000;
+// ─── Private section builders ────────────────────────────────────────────────
 /**
- * Build breaking news article HTML content
+ * Build intelligence briefing section HTML from structured anomaly data
+ *
+ * @param anomalies - Structured voting anomaly intelligence items
+ * @returns HTML section string or empty string
+ */
+function buildAnomalyAlertSection(anomalies) {
+    if (anomalies.length === 0)
+        return '';
+    const items = anomalies
+        .map((a) => `<li class="anomaly-${escapeHTML(a.significance)}">` +
+        `<strong>${escapeHTML(a.description)}</strong> — ` +
+        `${escapeHTML(a.implication)} ` +
+        `(deviation: ${escapeHTML(String(a.deviationPercentage))}%)</li>`)
+        .join('\n            ');
+    return `
+        <section class="anomaly-alert">
+          <h3>Voting Anomaly Alert</h3>
+          <ul>
+            ${items}
+          </ul>
+        </section>`;
+}
+/**
+ * Build coalition dynamics section HTML from structured coalition data
+ *
+ * @param coalitions - Structured coalition intelligence items
+ * @returns HTML section string or empty string
+ */
+function buildCoalitionDynamicsSection(coalitions) {
+    if (coalitions.length === 0)
+        return '';
+    const items = coalitions
+        .map((c) => `<li class="coalition-${escapeHTML(c.riskLevel)}">` +
+        `${escapeHTML(c.groups.join(', '))} — ` +
+        `cohesion: ${escapeHTML(String(Math.round(c.cohesionScore * 100)))}% ` +
+        `(${escapeHTML(c.alignmentTrend)})</li>`)
+        .join('\n            ');
+    return `
+        <section class="coalition-dynamics">
+          <h3>Coalition Dynamics</h3>
+          <ul>
+            ${items}
+          </ul>
+        </section>`;
+}
+/**
+ * Build key parliamentary players section HTML from structured MEP influence data
+ *
+ * @param mepScores - Structured MEP influence score items
+ * @returns HTML section string or empty string
+ */
+function buildKeyPlayersIntelSection(mepScores) {
+    if (mepScores.length === 0)
+        return '';
+    const items = mepScores
+        .map((m) => `<li class="mep-score">` +
+        `<strong>${escapeHTML(m.mepName)}</strong> — ` +
+        `score: ${escapeHTML(String(Math.round(m.overallScore)))} ` +
+        `${m.rank ? `(${escapeHTML(m.rank)})` : ''}</li>`)
+        .join('\n            ');
+    return `
+        <section class="key-players-intel">
+          <h3>Key Parliamentary Players</h3>
+          <ul>
+            ${items}
+          </ul>
+        </section>`;
+}
+/**
+ * Build intelligence briefing section HTML from all structured sources
+ *
+ * @param anomalies - Structured voting anomaly intelligence items
+ * @param coalitions - Structured coalition intelligence items
+ * @param mepScores - Structured MEP influence score items
+ * @returns HTML section string or empty string
+ */
+function buildIntelligenceBriefingSection(anomalies, coalitions, mepScores) {
+    const hasIntel = anomalies.length > 0 || coalitions.length > 0 || mepScores.length > 0;
+    if (!hasIntel)
+        return '';
+    return `
+        <section class="intelligence-briefing">
+          <h2>Intelligence Briefing</h2>
+          ${buildAnomalyAlertSection(anomalies)}
+          ${buildCoalitionDynamicsSection(coalitions)}
+          ${buildKeyPlayersIntelSection(mepScores)}
+        </section>`;
+}
+// ─── Exported function ────────────────────────────────────────────────────────
+/**
+ * Build breaking news article HTML content.
+ * Accepts both raw MCP string data (rendered as narrative blocks) and optional
+ * structured intelligence data (rendered as formatted HTML sections).
+ * When no data is provided, returns a placeholder notice.
  *
  * @param date - Current date string for the article
  * @param anomalyRaw - Raw anomaly data from MCP
@@ -17,11 +113,20 @@ const MAX_DATA_CHARS = 2000;
  * @param reportRaw - Raw analytical report from MCP
  * @param influenceRaw - Raw MEP influence data from MCP
  * @param lang - Language code for localized editorial strings (default: 'en')
+ * @param anomalies - Optional structured voting anomaly intelligence items
+ * @param coalitions - Optional structured coalition intelligence items
+ * @param mepScores - Optional structured MEP influence score items
  * @returns Full article HTML content string
  */
-export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, lang = 'en') {
+export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, lang = 'en', anomalies = [], coalitions = [], mepScores = []) {
     const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
-    const hasData = Boolean(anomalyRaw || coalitionRaw || reportRaw || influenceRaw);
+    const hasData = Boolean(anomalyRaw ||
+        coalitionRaw ||
+        reportRaw ||
+        influenceRaw ||
+        anomalies.length ||
+        coalitions.length ||
+        mepScores.length);
     const timestamp = new Date().toISOString();
     const anomalySection = anomalyRaw
         ? `
@@ -65,6 +170,7 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
           <p>${context}: ${finding} — ${attribution}.</p>
         </section>`
         : '';
+    const intelligenceBriefing = buildIntelligenceBriefingSection(anomalies, coalitions, mepScores);
     const placeholderNotice = !hasData
         ? `
         <div class="notice">
@@ -83,6 +189,7 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
             <p class="breaking-timestamp">⚡ BREAKING — ${escapeHTML(timestamp)}</p>
           </section>
           ${placeholderNotice}
+          ${intelligenceBriefing}
           ${anomalySection}
           ${coalitionSection}
           ${reportSection}

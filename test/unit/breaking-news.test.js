@@ -110,6 +110,101 @@ describe('Breaking News Generator', () => {
     });
   });
 
+  describe('structured intelligence sections', () => {
+    const sampleAnomalies = [
+      {
+        anomalyId: 'A-001',
+        significance: 'high',
+        description: 'EPP defection detected',
+        affectedGroups: ['EPP'],
+        deviationPercentage: 15.5,
+        historicalContext: 'First EPP defection in 2 years',
+        implication: 'Potential coalition shift',
+      },
+    ];
+
+    const sampleCoalitions = [
+      {
+        coalitionId: 'C-001',
+        groups: ['EPP', 'Renew'],
+        cohesionScore: 0.72,
+        alignmentTrend: 'weakening',
+        keyVotes: 10,
+        riskLevel: 'medium',
+      },
+    ];
+
+    const sampleMEPs = [
+      {
+        mepId: 'MEP-001',
+        mepName: 'Jane Smith',
+        overallScore: 82,
+        votingActivity: 90,
+        legislativeOutput: 75,
+        committeeEngagement: 80,
+        rank: 'top-10%',
+      },
+    ];
+
+    it('should render intelligence briefing when anomalies array provided', () => {
+      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', sampleAnomalies, [], []);
+      expect(html).toContain('intelligence-briefing');
+      expect(html).toContain('Voting Anomaly Alert');
+      expect(html).toContain('EPP defection detected');
+      expect(html).toContain('anomaly-high');
+    });
+
+    it('should render coalition dynamics section when coalitions array provided', () => {
+      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], sampleCoalitions, []);
+      expect(html).toContain('coalition-dynamics');
+      expect(html).toContain('Coalition Dynamics');
+      expect(html).toContain('EPP');
+      expect(html).toContain('Renew');
+    });
+
+    it('should render key players section when mepScores array provided', () => {
+      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], sampleMEPs);
+      expect(html).toContain('key-players-intel');
+      expect(html).toContain('Key Parliamentary Players');
+      expect(html).toContain('Jane Smith');
+      expect(html).toContain('82');
+    });
+
+    it('should show non-placeholder lede when only structured intel provided', () => {
+      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', sampleAnomalies, [], []);
+      expect(html).not.toContain('placeholder content');
+      expect(html).toContain('Intelligence analysis from the European Parliament MCP Server');
+      expect(html).toContain('intelligence-briefing');
+    });
+
+    it('should render all three intel sections when all structured data provided', () => {
+      const html = buildBreakingNewsContent(
+        '2025-01-15', '', '', '', '', 'en',
+        sampleAnomalies, sampleCoalitions, sampleMEPs
+      );
+      expect(html).toContain('Voting Anomaly Alert');
+      expect(html).toContain('Coalition Dynamics');
+      expect(html).toContain('Key Parliamentary Players');
+    });
+
+    it('should escape XSS in structured anomaly description', () => {
+      const xssAnomalies = [
+        {
+          anomalyId: 'A-XSS',
+          significance: 'high',
+          description: '<script>alert("xss")</script>',
+          affectedGroups: [],
+          deviationPercentage: 10,
+          historicalContext: 'context',
+          implication: 'implication',
+        },
+      ];
+      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', xssAnomalies, [], []);
+      expect(html).not.toContain('<script>alert("xss")</script>');
+      expect(html).toContain('&lt;script&gt;');
+    });
+  });
+
   describe('Breaking News article HTML generation', () => {
     it('should produce valid HTML for breaking news article', () => {
       const content = buildBreakingNewsContent('2025-01-15', 'anomaly', 'coalition', 'report', 'influence');
