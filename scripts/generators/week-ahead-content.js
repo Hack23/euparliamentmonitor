@@ -324,6 +324,7 @@ export function buildWeekAheadContent(weekData, dateRange, lang = 'en') {
           ${documentsSection}
           ${pipelineSection}
           ${qaSection}
+          <!-- /article-content -->
         </div>
       `;
 }

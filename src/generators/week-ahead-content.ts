@@ -408,6 +408,7 @@ export function buildWeekAheadContent(
           ${documentsSection}
           ${pipelineSection}
           ${qaSection}
+          <!-- /article-content -->
         </div>
       `;
 }
