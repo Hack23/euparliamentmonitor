@@ -14,86 +14,20 @@ import { describe, it, expect } from 'vitest';
 
 import { WeekAheadStrategy } from '../../scripts/generators/strategies/week-ahead-strategy.js';
 import { BreakingNewsStrategy } from '../../scripts/generators/strategies/breaking-news-strategy.js';
-import {
-  CommitteeReportsStrategy,
-} from '../../scripts/generators/strategies/committee-reports-strategy.js';
-import {
-  PropositionsStrategy,
-} from '../../scripts/generators/strategies/propositions-strategy.js';
+import { CommitteeReportsStrategy } from '../../scripts/generators/strategies/committee-reports-strategy.js';
+import { PropositionsStrategy } from '../../scripts/generators/strategies/propositions-strategy.js';
 import { MotionsStrategy } from '../../scripts/generators/strategies/motions-strategy.js';
 
 // ─── Fixtures ────────────────────────────────────────────────────────────────
 
-const DATE = '2025-01-15';
-
-/** Minimal WeekAheadArticleData fixture */
-const weekAheadData = {
-  date: DATE,
-  dateRange: { start: '2025-01-16', end: '2025-01-23' },
-  weekData: {
-    events: [{ date: '2025-01-16', title: 'Plenary Session', type: 'Plenary', description: '' }],
-    committees: [],
-    documents: [],
-    pipeline: [],
-    questions: [],
-  },
-  keywords: ['European Parliament', 'plenary'],
-};
-
-/** WeekAheadArticleData fixture with a bottlenecked pipeline procedure */
-const weekAheadDataWithPipeline = {
-  ...weekAheadData,
-  weekData: {
-    ...weekAheadData.weekData,
-    pipeline: [
-      { title: 'Climate Regulation', stage: 'committee', bottleneck: true },
-    ],
-  },
-};
-
-/** Minimal BreakingNewsArticleData fixture */
-const breakingNewsData = {
-  date: DATE,
-  anomalyRaw: 'EPP defection detected',
-  coalitionRaw: 'Coalition stress rising',
-  reportRaw: 'High abstention rate',
-};
-
-/** Minimal CommitteeReportsArticleData fixture */
-const committeeReportsData = {
-  date: DATE,
-  committeeDataList: [
-    {
-      name: 'Environment Committee',
-      abbreviation: 'ENVI',
-      chair: 'Jane Doe',
-      members: 42,
-      documents: [{ title: 'Draft Report', type: 'REPORT', date: '2025-01-10' }],
-      effectiveness: '85 / Rank 2',
-    },
-  ],
-};
-
-/** Minimal PropositionsArticleData fixture */
-const propositionsData = {
-  date: DATE,
-  proposalsHtml:
-    '<div class="proposal-card"><h3>Green Deal Directive</h3></div>',
-  pipelineData: { healthScore: 0.85, throughput: 12, procRowsHtml: '' },
-  procedureHtml: '',
-};
-
-/** Minimal MotionsArticleData fixture */
-const motionsData = {
-  date: DATE,
-  dateFromStr: '2024-12-16',
-  votingRecords: [
-    { title: 'Budget 2025', date: DATE, result: 'Adopted', votes: { for: 400, against: 100, abstain: 50 } },
-  ],
-  votingPatterns: [{ group: 'EPP', cohesion: 0.9, participation: 0.95 }],
-  anomalies: [{ type: 'Defection', description: 'EPP defection', severity: 'HIGH' }],
-  questions: [{ author: 'MEP Smith', topic: 'Energy policy', date: DATE, status: 'PENDING' }],
-};
+import {
+  weekAheadData,
+  weekAheadDataWithPipeline,
+  breakingNewsData,
+  committeeReportsData,
+  propositionsData,
+  motionsData,
+} from '../fixtures/ep-data.js';
 
 // ─── WeekAheadStrategy tests ──────────────────────────────────────────────────
 
@@ -230,17 +164,37 @@ describe('CommitteeReportsStrategy', () => {
   });
 
   it('buildContent shows "No recent documents available" when empty', () => {
-    const data = { ...committeeReportsData, committeeDataList: [
-      { name: 'Test', abbreviation: 'TEST', chair: 'N/A', members: 0, documents: [], effectiveness: null },
-    ]};
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Test',
+          abbreviation: 'TEST',
+          chair: 'N/A',
+          members: 0,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+    };
     const content = strategy.buildContent(data, 'en');
     expect(content).toContain('No recent documents available');
   });
 
   it('buildContent escapes HTML in committee name', () => {
-    const data = { ...committeeReportsData, committeeDataList: [
-      { name: '<script>alert(1)</script>', abbreviation: 'XSS', chair: 'N/A', members: 0, documents: [], effectiveness: null },
-    ]};
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: '<script>alert(1)</script>',
+          abbreviation: 'XSS',
+          chair: 'N/A',
+          members: 0,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+    };
     const content = strategy.buildContent(data, 'en');
     expect(content).not.toContain('<script>');
   });
