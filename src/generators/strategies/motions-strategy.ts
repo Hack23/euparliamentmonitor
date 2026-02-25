@@ -103,20 +103,21 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
   }
 
   /**
-   * Build the motions HTML body (same for all languages).
+   * Build the motions HTML body for the specified language.
    *
    * @param data - Motions data payload
-   * @param _lang - Language code (unused — content is language-independent)
+   * @param lang - Target language code used for editorial strings
    * @returns Article HTML body
    */
-  buildContent(data: MotionsArticleData, _lang: LanguageCode): string {
+  buildContent(data: MotionsArticleData, lang: LanguageCode): string {
     return generateMotionsContent(
       data.dateFromStr,
       data.date,
       [...data.votingRecords],
       [...data.votingPatterns],
       [...data.anomalies],
-      [...data.questions]
+      [...data.questions],
+      lang
     );
   }
 

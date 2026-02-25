@@ -38,8 +38,6 @@ export interface BreakingNewsArticleData extends ArticleData {
   readonly coalitionRaw: string;
   /** Raw voting statistics report text from MCP */
   readonly reportRaw: string;
-  /** Pre-built article HTML body (language-independent) */
-  readonly prebuiltContent: string;
 }
 
 // ─── Strategy implementation ──────────────────────────────────────────────────
@@ -58,7 +56,7 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
   ] as const;
 
   /**
-   * Fetch all OSINT signals in parallel and pre-build the HTML body.
+   * Fetch all OSINT signals in parallel.
    *
    * @param client - MCP client or null
    * @param date - ISO 8601 publication date
@@ -76,20 +74,18 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       fetchVotingReport(client),
     ]);
 
-    const prebuiltContent = buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, '');
-
-    return { date, anomalyRaw, coalitionRaw, reportRaw, prebuiltContent };
+    return { date, anomalyRaw, coalitionRaw, reportRaw };
   }
 
   /**
-   * Return the pre-built HTML body (same for all languages).
+   * Build the breaking news HTML body for the specified language.
    *
    * @param data - Breaking news data payload
-   * @param _lang - Language code (unused — content is language-independent)
+   * @param lang - Target language code used for editorial strings
    * @returns Article HTML body
    */
-  buildContent(data: BreakingNewsArticleData, _lang: LanguageCode): string {
-    return data.prebuiltContent;
+  buildContent(data: BreakingNewsArticleData, lang: LanguageCode): string {
+    return buildBreakingNewsContent(data.date, data.anomalyRaw, data.coalitionRaw, data.reportRaw, '', lang);
   }
 
   /**

@@ -37,7 +37,6 @@ const weekAheadData = {
     questions: [],
   },
   keywords: ['European Parliament', 'plenary'],
-  prebuiltContent: '<section class="week-ahead">Plenary preview content</section>',
 };
 
 /** Minimal BreakingNewsArticleData fixture */
@@ -46,7 +45,6 @@ const breakingNewsData = {
   anomalyRaw: 'EPP defection detected',
   coalitionRaw: 'Coalition stress rising',
   reportRaw: 'High abstention rate',
-  prebuiltContent: '<section class="breaking">Breaking content</section>',
 };
 
 /** Minimal CommitteeReportsArticleData fixture */
@@ -100,15 +98,19 @@ describe('WeekAheadStrategy', () => {
     expect(strategy.requiredMCPTools).toContain('search_documents');
   });
 
-  it('buildContent returns the prebuilt content unchanged', () => {
+  it('buildContent returns non-empty HTML for the given language', () => {
     const content = strategy.buildContent(weekAheadData, 'en');
-    expect(content).toBe(weekAheadData.prebuiltContent);
+    expect(typeof content).toBe('string');
+    expect(content.length).toBeGreaterThan(0);
   });
 
-  it('buildContent is the same for all languages', () => {
+  it('buildContent returns non-empty content for multiple languages', () => {
     const en = strategy.buildContent(weekAheadData, 'en');
     const de = strategy.buildContent(weekAheadData, 'de');
-    expect(en).toBe(de);
+    expect(typeof en).toBe('string');
+    expect(en.length).toBeGreaterThan(0);
+    expect(typeof de).toBe('string');
+    expect(de.length).toBeGreaterThan(0);
   });
 
   it('getMetadata returns en title containing "Week Ahead" or equivalent', () => {
@@ -146,15 +148,19 @@ describe('BreakingNewsStrategy', () => {
     expect(strategy.requiredMCPTools).toContain('generate_report');
   });
 
-  it('buildContent returns the prebuilt content unchanged', () => {
+  it('buildContent returns non-empty HTML for the given language', () => {
     const content = strategy.buildContent(breakingNewsData, 'en');
-    expect(content).toBe(breakingNewsData.prebuiltContent);
+    expect(typeof content).toBe('string');
+    expect(content.length).toBeGreaterThan(0);
   });
 
-  it('buildContent is the same for all languages', () => {
-    expect(strategy.buildContent(breakingNewsData, 'fr')).toBe(
-      strategy.buildContent(breakingNewsData, 'sv')
-    );
+  it('buildContent returns valid content for multiple languages', () => {
+    const enContent = strategy.buildContent(breakingNewsData, 'en');
+    const frContent = strategy.buildContent(breakingNewsData, 'fr');
+    expect(typeof enContent).toBe('string');
+    expect(enContent).toBeTruthy();
+    expect(typeof frContent).toBe('string');
+    expect(frContent).toBeTruthy();
   });
 
   it('getMetadata en has title and "breaking" category', () => {
@@ -311,10 +317,10 @@ describe('MotionsStrategy', () => {
     expect(content).toContain('MEP Smith');
   });
 
-  it('buildContent is the same for all languages', () => {
+  it('buildContent differs by language', () => {
     const en = strategy.buildContent(motionsData, 'en');
     const fr = strategy.buildContent(motionsData, 'fr');
-    expect(en).toBe(fr);
+    expect(en).not.toBe(fr);
   });
 
   it('getMetadata returns "motions" category', () => {

@@ -54,14 +54,14 @@ export class MotionsStrategy {
         };
     }
     /**
-     * Build the motions HTML body (same for all languages).
+     * Build the motions HTML body for the specified language.
      *
      * @param data - Motions data payload
-     * @param _lang - Language code (unused — content is language-independent)
+     * @param lang - Target language code used for editorial strings
      * @returns Article HTML body
      */
-    buildContent(data, _lang) {
-        return generateMotionsContent(data.dateFromStr, data.date, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions]);
+    buildContent(data, lang) {
+        return generateMotionsContent(data.dateFromStr, data.date, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
     }
     /**
      * Return language-specific metadata for the motions article.

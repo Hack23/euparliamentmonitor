@@ -26,8 +26,6 @@ export interface WeekAheadArticleData extends ArticleData {
   readonly weekData: WeekAheadData;
   /** SEO keywords derived from the week-ahead data */
   readonly keywords: readonly string[];
-  /** Pre-built article HTML body (language-independent) */
-  readonly prebuiltContent: string;
 }
 
 // ─── Date-range helper ────────────────────────────────────────────────────────
@@ -78,7 +76,7 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
   ] as const;
 
   /**
-   * Fetch week-ahead data and pre-build the language-independent HTML body.
+   * Fetch week-ahead data from MCP.
    *
    * @param client - MCP client or null
    * @param date - ISO 8601 publication date
@@ -93,20 +91,19 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
 
     const weekData = await fetchWeekAheadData(client, dateRange);
     const keywords = buildKeywords(weekData);
-    const prebuiltContent = buildWeekAheadContent(weekData, dateRange);
 
-    return { date, dateRange, weekData, keywords, prebuiltContent };
+    return { date, dateRange, weekData, keywords };
   }
 
   /**
-   * Return the pre-built HTML body (same for all languages).
+   * Build the week-ahead HTML body for the specified language.
    *
    * @param data - Week-ahead data payload
-   * @param _lang - Language code (unused — content is language-independent)
+   * @param lang - Target language code used for editorial strings
    * @returns Article HTML body
    */
-  buildContent(data: WeekAheadArticleData, _lang: LanguageCode): string {
-    return data.prebuiltContent;
+  buildContent(data: WeekAheadArticleData, lang: LanguageCode): string {
+    return buildWeekAheadContent(data.weekData, data.dateRange, lang);
   }
 
   /**

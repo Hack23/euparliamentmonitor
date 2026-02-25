@@ -24,7 +24,7 @@ export class BreakingNewsStrategy {
         'generate_report',
     ];
     /**
-     * Fetch all OSINT signals in parallel and pre-build the HTML body.
+     * Fetch all OSINT signals in parallel.
      *
      * @param client - MCP client or null
      * @param date - ISO 8601 publication date
@@ -37,18 +37,17 @@ export class BreakingNewsStrategy {
             fetchCoalitionDynamics(client),
             fetchVotingReport(client),
         ]);
-        const prebuiltContent = buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, '');
-        return { date, anomalyRaw, coalitionRaw, reportRaw, prebuiltContent };
+        return { date, anomalyRaw, coalitionRaw, reportRaw };
     }
     /**
-     * Return the pre-built HTML body (same for all languages).
+     * Build the breaking news HTML body for the specified language.
      *
      * @param data - Breaking news data payload
-     * @param _lang - Language code (unused — content is language-independent)
+     * @param lang - Target language code used for editorial strings
      * @returns Article HTML body
      */
-    buildContent(data, _lang) {
-        return data.prebuiltContent;
+    buildContent(data, lang) {
+        return buildBreakingNewsContent(data.date, data.anomalyRaw, data.coalitionRaw, data.reportRaw, '', lang);
     }
     /**
      * Return language-specific metadata for the breaking news article.

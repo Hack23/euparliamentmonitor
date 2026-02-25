@@ -7,13 +7,12 @@
  * @module Generators/NewsEnhanced
  * @description CLI orchestrator for European Parliament news generation.
  *
- * Coordinates the four-stage pipeline (fetch → transform → generate → output)
+ * Coordinates the three-stage pipeline (fetch → generate → output)
  * via dedicated pipeline-stage modules and a strategy registry.  Each article
  * type is handled by its own {@link ArticleStrategy} implementation.
  *
  * Pipeline stages:
  * - {@link module:Generators/Pipeline/FetchStage}
- * - {@link module:Generators/Pipeline/TransformStage}
  * - {@link module:Generators/Pipeline/GenerateStage}
  * - {@link module:Generators/Pipeline/OutputStage}
  *
