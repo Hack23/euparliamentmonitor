@@ -53,10 +53,12 @@ function buildCommitteeReportsHTML(committeeDataList) {
     })
         .join('');
     return `
-    <section class="committee-overview">
-      <p class="lede">${escapeHTML(EP_DISPLAY_NAME)} committee activity and legislative effectiveness analysis.</p>
-    </section>
-    <section class="committee-reports">${committeeSections}</section>`;
+    <div class="article-content">
+      <section class="committee-overview">
+        <p class="lede">${escapeHTML(EP_DISPLAY_NAME)} committee activity and legislative effectiveness analysis.</p>
+      </section>
+      <section class="committee-reports">${committeeSections}</section>
+    </div>`;
 }
 // ─── Strategy implementation ──────────────────────────────────────────────────
 /**

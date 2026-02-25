@@ -165,12 +165,14 @@ export const mcpCircuitBreaker = new CircuitBreaker();
 
 /**
  * Execute a single MCP API call through the module-level circuit breaker.
- * Short-circuits with `fallback` when the circuit is OPEN.
+ * Short-circuits with `fallback` whenever the circuit breaker is not
+ * accepting requests (for example when OPEN, or in HALF_OPEN with no
+ * probe slots available).
  * Records success or failure after each call, opening the circuit when
  * {@link CircuitBreakerOptions.failureThreshold} consecutive failures occur.
  *
  * @param fn - Async factory that performs the MCP call
- * @param fallback - Value returned when the circuit is open
+ * @param fallback - Value returned when the circuit is not accepting requests
  * @param context - Label used in warning messages
  * @returns Result of `fn` or `fallback`
  */
