@@ -32,7 +32,7 @@ export function buildBreakingNewsContent(
   lang = 'en'
 ): string {
   const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
-  const hasData = anomalyRaw || coalitionRaw || reportRaw || influenceRaw;
+  const hasData = Boolean(anomalyRaw || coalitionRaw || reportRaw || influenceRaw);
   const timestamp = new Date().toISOString();
 
   const anomalySection = anomalyRaw

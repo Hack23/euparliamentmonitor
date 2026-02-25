@@ -84,7 +84,7 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
     return `
     <div class="article-content">
       <section class="lede">
-        <p>Recent parliamentary activities reveal key voting patterns, party cohesion trends, and notable political dynamics in the European Parliament. ${escapeHTML(editorial.sourceAttribution)}, analysis of voting records from ${dateFromStr} to ${dateStr} provides insights into legislative decision-making and party discipline.</p>
+        <p>Recent parliamentary activities reveal key voting patterns, party cohesion trends, and notable political dynamics in the European Parliament. ${escapeHTML(editorial.sourceAttribution)}, analysis of voting records from ${escapeHTML(dateFromStr)} to ${escapeHTML(dateStr)} provides insights into legislative decision-making and party discipline.</p>
       </section>
       
       <section class="voting-results">

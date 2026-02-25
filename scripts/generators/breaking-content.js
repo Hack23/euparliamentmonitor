@@ -21,7 +21,7 @@ const MAX_DATA_CHARS = 2000;
  */
 export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, lang = 'en') {
     const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
-    const hasData = anomalyRaw || coalitionRaw || reportRaw || influenceRaw;
+    const hasData = Boolean(anomalyRaw || coalitionRaw || reportRaw || influenceRaw);
     const timestamp = new Date().toISOString();
     const anomalySection = anomalyRaw
         ? `

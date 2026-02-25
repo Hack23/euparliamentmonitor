@@ -390,7 +390,7 @@ export function buildWeekAheadContent(
   const whyThisMattersSection = `
           <section class="why-this-matters">
             <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
-            <p>${escapeHTML(editorial.parliamentaryContext)}: ${escapeHTML(editorial.sourceAttribution).toLowerCase()} — parliamentary schedules determine the legislative agenda affecting EU citizens directly.</p>
+            <p>${escapeHTML(editorial.parliamentaryContext)}: ${escapeHTML(editorial.sourceAttribution)} — parliamentary schedules determine the legislative agenda affecting EU citizens directly.</p>
           </section>`;
 
   return `

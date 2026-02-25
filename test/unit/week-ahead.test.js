@@ -378,7 +378,7 @@ describe('week-ahead editorial quality', () => {
   it('should include source attribution in "Why This Matters" section', () => {
     const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' });
     expect(html).toContain('Parliamentary Context');
-    expect(html).toContain('according to european parliament data');
+    expect(html).toContain('According to European Parliament data');
   });
 
   it('should include committee count in lede when committees are present', () => {

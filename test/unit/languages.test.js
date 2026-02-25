@@ -286,8 +286,8 @@ describe('EDITORIAL_STRINGS', () => {
     }
   });
 
-  it('should return English editorial strings via getLocalizedString fallback', () => {
-    const strings = getLocalizedString(EDITORIAL_STRINGS, 'en');
+  it('should return English editorial strings via getLocalizedString fallback for unsupported language', () => {
+    const strings = getLocalizedString(EDITORIAL_STRINGS, 'xx');
     expect(strings.whyThisMatters).toBe('Why This Matters');
     expect(strings.keyTakeaway).toBe('Key Finding');
     expect(strings.parliamentaryContext).toBe('Parliamentary Context');
