@@ -80,6 +80,7 @@ import {
   buildWeekAheadContent,
   buildKeywords,
   PLACEHOLDER_EVENTS,
+  buildWhatToWatchSection,
 } from './week-ahead-content.js';
 
 import { buildBreakingNewsContent } from './breaking-content.js';
@@ -95,10 +96,20 @@ import {
   PLACEHOLDER_MARKER,
   getMotionsFallbackData,
   generateMotionsContent,
+  buildPoliticalAlignmentSection,
 } from './motions-content.js';
 
 import { buildPropositionsContent } from './propositions-content.js';
 import type { PipelineData } from './propositions-content.js';
+
+import {
+  scoreVotingAnomaly,
+  analyzeCoalitionCohesion,
+  scoreMEPInfluence,
+  calculateLegislativeVelocity,
+  rankBySignificance,
+  buildIntelligenceSection,
+} from '../utils/intelligence-analysis.js';
 
 // ─── Re-exports for backward compatibility (tests import from this module) ───
 
@@ -110,12 +121,21 @@ export {
   buildWeekAheadContent,
   buildKeywords,
   PLACEHOLDER_EVENTS,
+  buildWhatToWatchSection,
 };
 export { buildBreakingNewsContent };
 export { applyCommitteeInfo, applyDocuments, applyEffectiveness, FEATURED_COMMITTEES };
-export { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent };
+export { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent, buildPoliticalAlignmentSection };
 export { buildPropositionsContent };
 export type { PipelineData };
+export {
+  scoreVotingAnomaly,
+  analyzeCoalitionCohesion,
+  scoreMEPInfluence,
+  calculateLegislativeVelocity,
+  rankBySignificance,
+  buildIntelligenceSection,
+};
 
 // Try to use MCP client if available
 let mcpClient: EuropeanParliamentMCPClient | null = null;

@@ -112,3 +112,46 @@ export interface MotionsQuestion {
   date: string;
   status: string;
 }
+
+/** Intelligence analysis for a detected voting anomaly */
+export interface VotingAnomalyIntelligence {
+  anomalyId: string;
+  significance: 'critical' | 'high' | 'medium' | 'low';
+  description: string;
+  affectedGroups: string[];
+  deviationPercentage: number;
+  historicalContext: string;
+  implication: string;
+}
+
+/** Coalition cohesion and alignment intelligence */
+export interface CoalitionIntelligence {
+  coalitionId: string;
+  groups: string[];
+  cohesionScore: number;
+  alignmentTrend: 'strengthening' | 'weakening' | 'stable';
+  keyVotes: number;
+  riskLevel: 'high' | 'medium' | 'low';
+}
+
+/** MEP influence score across multiple parliamentary dimensions */
+export interface MEPInfluenceScore {
+  mepId: string;
+  mepName: string;
+  overallScore: number;
+  votingActivity: number;
+  legislativeOutput: number;
+  committeeEngagement: number;
+  rank: string;
+}
+
+/** Legislative velocity for procedure pipeline monitoring */
+export interface LegislativeVelocity {
+  procedureId: string;
+  title: string;
+  stage: string;
+  daysInCurrentStage: number;
+  velocityScore: number;
+  bottleneckRisk: 'high' | 'medium' | 'low';
+  predictedCompletion: string;
+}

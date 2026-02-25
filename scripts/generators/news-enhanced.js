@@ -24,17 +24,19 @@ import { getEPMCPClient, closeEPMCPClient } from '../mcp/ep-mcp-client.js';
 import { formatDateForSlug, calculateReadTime, ensureDirectoryExists, escapeHTML, } from '../utils/file-utils.js';
 import { ArticleCategory } from '../types/index.js';
 // ─── Content-module imports (bounded contexts) ──────────────────────────────
-import { parsePlenarySessions, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, parseParliamentaryQuestions as parseQuestions, buildWeekAheadContent, buildKeywords, PLACEHOLDER_EVENTS, } from './week-ahead-content.js';
+import { parsePlenarySessions, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, parseParliamentaryQuestions as parseQuestions, buildWeekAheadContent, buildKeywords, PLACEHOLDER_EVENTS, buildWhatToWatchSection, } from './week-ahead-content.js';
 import { buildBreakingNewsContent } from './breaking-content.js';
 import { applyCommitteeInfo, applyDocuments, applyEffectiveness, FEATURED_COMMITTEES, } from './committee-helpers.js';
-import { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent, } from './motions-content.js';
+import { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent, buildPoliticalAlignmentSection, } from './motions-content.js';
 import { buildPropositionsContent } from './propositions-content.js';
+import { scoreVotingAnomaly, analyzeCoalitionCohesion, scoreMEPInfluence, calculateLegislativeVelocity, rankBySignificance, buildIntelligenceSection, } from '../utils/intelligence-analysis.js';
 // ─── Re-exports for backward compatibility (tests import from this module) ───
-export { parsePlenarySessions, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, buildWeekAheadContent, buildKeywords, PLACEHOLDER_EVENTS, };
+export { parsePlenarySessions, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, buildWeekAheadContent, buildKeywords, PLACEHOLDER_EVENTS, buildWhatToWatchSection, };
 export { buildBreakingNewsContent };
 export { applyCommitteeInfo, applyDocuments, applyEffectiveness, FEATURED_COMMITTEES };
-export { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent };
+export { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent, buildPoliticalAlignmentSection };
 export { buildPropositionsContent };
+export { scoreVotingAnomaly, analyzeCoalitionCohesion, scoreMEPInfluence, calculateLegislativeVelocity, rankBySignificance, buildIntelligenceSection, };
 // Try to use MCP client if available
 let mcpClient = null;
 const useMCP = process.env['USE_EP_MCP'] !== 'false';

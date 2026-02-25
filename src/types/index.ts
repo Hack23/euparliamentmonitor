@@ -42,6 +42,10 @@ export type {
   VotingPattern,
   VotingAnomaly,
   MotionsQuestion,
+  VotingAnomalyIntelligence,
+  CoalitionIntelligence,
+  MEPInfluenceScore,
+  LegislativeVelocity,
 } from './parliament.js';
 
 export type {

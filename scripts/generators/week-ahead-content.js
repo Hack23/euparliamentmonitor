@@ -317,4 +317,79 @@ export function buildKeywords(weekData) {
         keywords.push('parliamentary questions');
     return keywords;
 }
+// ─── What-to-Watch section ─────────────────────────────────────────────────
+/** CSS class for bottleneck-risk watch items */
+const CSS_WATCH_HIGH = 'watch-high';
+/** CSS class for bottlenecked procedure watch items */
+const CSS_WATCH_PROCEDURE = 'watch-procedure';
+/** CSS class for standard velocity watch items */
+const CSS_WATCH_ITEM = 'watch-item';
+/** Maximum number of non-bottleneck velocity items to include */
+const WATCH_MAX_NORMAL_ITEMS = 3;
+/**
+ * Build list items for high-risk velocities
+ *
+ * @param velocities - All legislative velocities
+ * @returns HTML list items for high bottleneck risk items
+ */
+function buildHighRiskItems(velocities) {
+    return velocities
+        .filter((v) => v.bottleneckRisk === 'high')
+        .map((v) => `<li class="${CSS_WATCH_HIGH}">${escapeHTML(v.title)} — ` +
+        `Stage: ${escapeHTML(v.stage)} (bottleneck risk detected)</li>`)
+        .join('');
+}
+/**
+ * Build list items for procedures flagged as bottlenecks
+ *
+ * @param procedures - All legislative procedures
+ * @returns HTML list items for bottlenecked procedures
+ */
+function buildBottleneckProcedureItems(procedures) {
+    return procedures
+        .filter((p) => p.bottleneck === true)
+        .map((p) => `<li class="${CSS_WATCH_PROCEDURE}">${escapeHTML(p.title)} — ` +
+        `${escapeHTML(p.stage ?? 'in progress')} stage</li>`)
+        .join('');
+}
+/**
+ * Build list items for normal-risk velocities
+ *
+ * @param velocities - All legislative velocities
+ * @returns HTML list items for the top normal-risk velocity items
+ */
+function buildNormalVelocityItems(velocities) {
+    return velocities
+        .filter((v) => v.bottleneckRisk !== 'high')
+        .slice(0, WATCH_MAX_NORMAL_ITEMS)
+        .map((v) => `<li class="${CSS_WATCH_ITEM}">${escapeHTML(v.title)} — ` +
+        `predicted completion: ${escapeHTML(v.predictedCompletion)}</li>`)
+        .join('');
+}
+/**
+ * Build predictive "What to Watch" analysis section showing legislative
+ * procedures and velocity data ordered by bottleneck risk.
+ * Returns an empty string when both input arrays are empty or yield no items.
+ *
+ * @param procedures - Legislative procedures to analyse
+ * @param velocities - Legislative velocity data from MCP pipeline monitor
+ * @param language - BCP 47 language code used as the section lang attribute
+ * @returns HTML string for the "What to Watch" section
+ */
+export function buildWhatToWatchSection(procedures, velocities, language) {
+    if (procedures.length === 0 && velocities.length === 0)
+        return '';
+    const allItems = buildHighRiskItems(velocities) +
+        buildBottleneckProcedureItems(procedures) +
+        buildNormalVelocityItems(velocities);
+    if (!allItems)
+        return '';
+    return `
+        <section class="what-to-watch" lang="${escapeHTML(language)}">
+          <h2>What to Watch</h2>
+          <ul>
+            ${allItems}
+          </ul>
+        </section>`;
+}
 //# sourceMappingURL=week-ahead-content.js.map

@@ -13,6 +13,7 @@ import type {
   VotingPattern,
   VotingAnomaly,
   MotionsQuestion,
+  CoalitionIntelligence,
 } from '../types/index.js';
 
 /** Marker string used in all fallback/placeholder data to indicate MCP data is unavailable */
@@ -183,4 +184,74 @@ export function generateMotionsContent(
       </section>
     </div>
   `;
+}
+
+// ─── Political Alignment section ──────────────────────────────────────────────
+
+/**
+ * Build HTML list items for voting record alignment rows
+ *
+ * @param records - Voting records to render
+ * @returns HTML list items string
+ */
+function buildVoteAlignmentHtml(records: VotingRecord[]): string {
+  if (records.length === 0) return '';
+  const items = records
+    .map(
+      (r) =>
+        `<li class="alignment-vote">` +
+        `<strong>${escapeHTML(r.title)}</strong> — ` +
+        `${escapeHTML(r.result)} ` +
+        `(${r.votes.for}&#43; / ${r.votes.against}&#8722; / ${r.votes.abstain} abstain)` +
+        `</li>`,
+    )
+    .join('\n          ');
+  return `<ul class="alignment-votes">\n          ${items}\n        </ul>`;
+}
+
+/**
+ * Build HTML list items for coalition alignment rows
+ *
+ * @param coalitions - Coalition intelligence items to render
+ * @returns HTML list items string
+ */
+function buildCoalitionAlignmentHtml(coalitions: CoalitionIntelligence[]): string {
+  if (coalitions.length === 0) return '';
+  const items = coalitions
+    .map(
+      (c) =>
+        `<li class="alignment-coalition alignment-${escapeHTML(c.riskLevel)}">` +
+        `${escapeHTML(c.groups.join(', '))} — ` +
+        `cohesion: ${escapeHTML(String(Math.round(c.cohesionScore * 100)))}% ` +
+        `(${escapeHTML(c.alignmentTrend)})</li>`,
+    )
+    .join('\n          ');
+  return `<ul class="alignment-coalitions">\n          ${items}\n        </ul>`;
+}
+
+/**
+ * Build political alignment analysis section for motions, showing how
+ * voting records map to coalition cohesion and cross-party dynamics.
+ * Returns an empty string when both input arrays are empty or yield no items.
+ *
+ * @param votingRecords - Voting records to analyse
+ * @param coalitions - Coalition intelligence data from MCP
+ * @param language - BCP 47 language code used as the section lang attribute
+ * @returns HTML string for the political alignment section
+ */
+export function buildPoliticalAlignmentSection(
+  votingRecords: VotingRecord[],
+  coalitions: CoalitionIntelligence[],
+  language: string,
+): string {
+  if (votingRecords.length === 0 && coalitions.length === 0) return '';
+  const recordsHtml = buildVoteAlignmentHtml(votingRecords);
+  const coalitionsHtml = buildCoalitionAlignmentHtml(coalitions);
+  if (!recordsHtml && !coalitionsHtml) return '';
+  return `
+        <section class="political-alignment" lang="${escapeHTML(language)}">
+          <h2>Political Alignment</h2>
+          ${recordsHtml}
+          ${coalitionsHtml}
+        </section>`;
 }
