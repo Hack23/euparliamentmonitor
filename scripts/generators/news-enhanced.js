@@ -351,7 +351,11 @@ function parseRawJsonArray(raw, key) {
     if (!raw)
         return [];
     try {
-        const data = JSON.parse(raw);
+        const parsed = JSON.parse(raw);
+        if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
+            return [];
+        }
+        const data = parsed;
         const value = data[key];
         return Array.isArray(value) ? value : [];
     }

@@ -497,7 +497,11 @@ async function fetchVotingReport(): Promise<string> {
 function parseRawJsonArray(raw: string, key: string): unknown[] {
   if (!raw) return [];
   try {
-    const data = JSON.parse(raw) as Record<string, unknown>;
+    const parsed = JSON.parse(raw) as unknown;
+    if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
+      return [];
+    }
+    const data = parsed as Record<string, unknown>;
     const value = data[key];
     return Array.isArray(value) ? value : [];
   } catch {
