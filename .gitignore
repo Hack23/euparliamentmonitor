@@ -141,9 +141,12 @@ mcp-*.tmp
 # Security scanning reports
 eslint-report.json
 
-# Generated files (uncomment if news should not be committed)
-# news/
-# news/metadata/
-# index-*.html
-# sitemap.xml
+# Derived files — generated at build time by `npm run prebuild`
+# These files cause merge conflicts when multiple news PRs are open simultaneously.
+# See: https://github.com/Hack23/riksdagsmonitor/pull/512
+sitemap.xml
+index.html
+index-*.html
+news/articles-metadata.json
+
 homepage-desktop.png

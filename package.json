@@ -5,6 +5,7 @@
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "index.html",
   "scripts": {
+    "prebuild": "node scripts/generators/news-indexes.js && node scripts/generators/sitemap.js",
     "build": "tsc",
     "build:check": "tsc --noEmit",
     "generate-news": "node scripts/generators/news-enhanced.js",
