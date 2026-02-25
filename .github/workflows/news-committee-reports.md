@@ -41,10 +41,9 @@ network:
 
 mcp-servers:
   european-parliament:
-    type: local
     command: npx
     args:
-      - "-y"
+      - -y
       - european-parliament-mcp-server@0.5.1
 
 tools:
@@ -169,38 +168,23 @@ Before generating ANY articles, verify MCP connectivity:
 
 ## EP MCP Tools for Committee Reports
 
-**Use these European Parliament MCP tools** to fetch real committee data:
+**Use these European Parliament MCP tools** to verify connectivity and fetch key data before running the generation script:
 
 ```javascript
-// Fetch committee information
+// Verify connectivity and fetch representative committee info
 european_parliament___get_committee_info({ committeeId: "ENVI" })
-european_parliament___get_committee_info({ committeeId: "ECON" })
-european_parliament___get_committee_info({ committeeId: "AFET" })
-european_parliament___get_committee_info({ committeeId: "LIBE" })
-european_parliament___get_committee_info({ committeeId: "AGRI" })
 
-// Search for recent committee reports and opinions
-european_parliament___search_documents({ query: "committee report", type: "REPORT" })
-european_parliament___search_documents({ query: "committee opinion", type: "OPINION" })
+// Search for recent committee reports
+european_parliament___search_documents({ query: "committee report", documentType: "REPORT" })
 
-// Analyze committee legislative effectiveness
+// Monitor legislative pipeline for committee work
+european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
+
+// Analyze ENVI committee effectiveness
 european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
-european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ECON" })
-
-// Analyze committee workload and engagement (v0.5.1 tool)
-european_parliament___analyze_committee_activity({ committeeId: "ENVI" })
-european_parliament___analyze_committee_activity({ committeeId: "ECON" })
-
-// Fetch committee voting records
-european_parliament___get_voting_records({})
-
-// Get committee members and rapporteurs
-european_parliament___get_meps({ committee: "ENVI" })
-european_parliament___get_mep_details({ id: "<mepId>" })
-
-// Track MEP attendance in committees (v0.5.1 tool)
-european_parliament___track_mep_attendance({})
 ```
+
+> **Note:** The generation script (`scripts/generators/news-enhanced.js`) fetches full data for all five featured committees (ENVI, ECON, AFET, LIBE, AGRI) internally. The above calls are only for connectivity verification and supplemental context.
 
 ### Handling Slow API Responses
 
@@ -271,8 +255,8 @@ fi
 ### Step 1: Check Recent Generation
 Check if committee-reports articles exist from the last 11 hours. If **force_generation** is `true`, skip this check.
 
-### Step 2: Query EP MCP for Committee Reports
-Fetch data from European Parliament MCP tools for each featured committee (ENVI, ECON, AFET, LIBE, AGRI).
+### Step 2: Verify EP MCP Connectivity
+Call the minimal set of EP MCP tools listed in the "EP MCP Tools for Committee Reports" section above to confirm connectivity. The generation script in Step 3 fetches full data for all committees internally.
 
 ### Step 3: Generate Articles
 
@@ -303,7 +287,7 @@ if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
 fi
 
-npx tsx src/generators/news-enhanced.ts \
+node scripts/generators/news-enhanced.js \
   --types=committee-reports \
   --languages="$LANG_ARG" \
   $SKIP_FLAG
