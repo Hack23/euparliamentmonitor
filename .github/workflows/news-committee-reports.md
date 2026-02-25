@@ -175,7 +175,7 @@ Before generating ANY articles, verify MCP connectivity:
 european_parliament___get_committee_info({ committeeId: "ENVI" })
 
 // Search for recent committee reports
-european_parliament___search_documents({ query: "committee report", documentType: "REPORT" })
+european_parliament___search_documents({ query: "committee report", type: "REPORT" })
 
 // Monitor legislative pipeline for committee work
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
@@ -287,7 +287,7 @@ if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
 fi
 
-node scripts/generators/news-enhanced.js \
+npx tsx src/generators/news-enhanced.ts \
   --types=committee-reports \
   --languages="$LANG_ARG" \
   $SKIP_FLAG
