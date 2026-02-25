@@ -25,7 +25,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 45
+timeout-minutes: 60
 
 network:
   allowed:
@@ -97,14 +97,14 @@ This focused approach ensures:
 - Faster execution within timeout
 - Independent scheduling per article type
 
-## ⏱️ Time Budget (45 minutes)
+## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–10**: Query EP MCP tools for committee reports data
-- **Minutes 10–35**: Generate articles for all 14 languages
-- **Minutes 35–40**: Validate and commit
-- **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 10–40**: Generate articles for all 14 languages
+- **Minutes 40–50**: Validate and commit
+- **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 35 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 50 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
 
 ## Required Skills
 
