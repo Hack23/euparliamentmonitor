@@ -1074,7 +1074,7 @@ button:focus-visible {
   position: relative;
   line-height: 1.55;
   color: var(--text);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .key-findings__list li:last-child {
@@ -1274,7 +1274,7 @@ button:focus-visible {
   }
 
   .key-findings__list li {
-    border-bottom-color: rgba(255,255,255,0.08);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
   }
 
   .pull-quote {
