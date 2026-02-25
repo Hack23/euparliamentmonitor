@@ -131,10 +131,10 @@ Before detailing the future security roadmap, this section documents the **verif
 
 | Framework | Controls Implemented | Total Applicable | Coverage | Trend |
 |-----------|---------------------|------------------|----------|-------|
-| **ISO 27001:2022 Annex A** | 26 | 26 | 100% | ✅ Stable |
+| **ISO 27001:2022 Annex A** | 25 | 25 | 100% | ✅ Stable |
 | **NIST CSF 2.0** | 36 subcategories | 36 targeted | 100% | ✅ Stable |
-| **CIS Controls v8.1** | 22 safeguards | 23 targeted | 96% | ✅ Improving |
-| **MITRE ATT&CK** | 16 techniques mapped | 793 total | 2.3% | 🔄 Improving |
+| **CIS Controls v8.1** | 19 safeguards | 23 targeted | 83% | ✅ Improving |
+| **MITRE ATT&CK** | 18 techniques mapped | 793 total | 2.3% | 🔄 Improving |
 | **EU CRA** | All self-assessment requirements | - | Self-assessed ✅ | ✅ Compliant |
 | **GDPR** | All applicable articles | - | N/A (no PII) | ✅ Compliant |
 | **NIS2** | 7/8 requirements | 8 | 87.5% | 🔄 Improving |
