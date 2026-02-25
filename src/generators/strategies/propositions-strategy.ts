@@ -73,7 +73,9 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
     client: EuropeanParliamentMCPClient | null,
     date: string
   ): Promise<PropositionsArticleData> {
-    console.log('  📡 Fetching legislative data from MCP server...');
+    if (client) {
+      console.log('  📡 Fetching legislative data from MCP server...');
+    }
 
     const [proposalsResult, pipelineResult] = await Promise.allSettled([
       fetchProposalsFromMCP(client),

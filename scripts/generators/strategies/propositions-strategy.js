@@ -33,7 +33,9 @@ export class PropositionsStrategy {
      * @returns Populated propositions data payload
      */
     async fetchData(client, date) {
-        console.log('  📡 Fetching legislative data from MCP server...');
+        if (client) {
+            console.log('  📡 Fetching legislative data from MCP server...');
+        }
         const [proposalsResult, pipelineResult] = await Promise.allSettled([
             fetchProposalsFromMCP(client),
             fetchPipelineFromMCP(client),
