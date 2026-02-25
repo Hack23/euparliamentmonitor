@@ -8,6 +8,8 @@
 
 import type { ArticleOptions, ArticleSource, ArticleCategoryLabels } from '../types/index.js';
 import {
+  ALL_LANGUAGES,
+  LANGUAGE_FLAGS,
   LANGUAGE_NAMES,
   ARTICLE_TYPE_LABELS,
   READ_TIME_LABELS,
@@ -18,6 +20,73 @@ import {
 } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 
+/** Pattern for valid article dates (YYYY-MM-DD) */
+const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
+
+/** Pattern for valid article slugs (lowercase letters, digits, hyphens) */
+const SLUG_PATTERN = /^[a-z0-9-]+$/u;
+
+/**
+ * Build the article language switcher nav HTML.
+ * Links to the same article in all 14 languages using the filename pattern {date}-{slug}-{lang}.html.
+ *
+ * @param date - Article date (YYYY-MM-DD)
+ * @param slug - Article slug
+ * @param currentLang - Active language code
+ * @returns HTML string
+ */
+function buildArticleLangSwitcher(date: string, slug: string, currentLang: string): string {
+  if (!DATE_PATTERN.test(date)) {
+    throw new Error(`Invalid article date format: "${date}"`);
+  }
+
+  if (!SLUG_PATTERN.test(slug)) {
+    throw new Error(`Invalid article slug format: "${slug}"`);
+  }
+
+  const safeDate = escapeHTML(date);
+  const safeSlug = escapeHTML(slug);
+
+  return ALL_LANGUAGES.map((code) => {
+    const flag = getLocalizedString(LANGUAGE_FLAGS, code);
+    const name = getLocalizedString(LANGUAGE_NAMES, code);
+    const active = code === currentLang ? ' active' : '';
+    const href = `${safeDate}-${safeSlug}-${code}.html`;
+    const safeTitle = escapeHTML(name);
+    return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeTitle}">${flag} ${code.toUpperCase()}</a>`;
+  }).join('\n        ');
+}
+
+/**
+ * Build a single footer section with title and content.
+ *
+ * @param title - Section heading text
+ * @param content - Inner HTML content
+ * @returns HTML string for one footer section
+ */
+function buildFooterSection(title: string, content: string): string {
+  return `<div class="footer-section">
+        <h3>${title}</h3>
+        ${content}
+      </div>`;
+}
+
+/**
+ * Build the language grid for the article footer.
+ *
+ * @param currentLang - Active language code
+ * @returns HTML string for the language grid
+ */
+function buildArticleFooterLanguageGrid(currentLang: string): string {
+  return ALL_LANGUAGES.map((code) => {
+    const flag = getLocalizedString(LANGUAGE_FLAGS, code);
+    const safeName = escapeHTML(getLocalizedString(LANGUAGE_NAMES, code));
+    const href = code === 'en' ? '../index.html' : `../index-${code}.html`;
+    const active = code === currentLang ? ' class="active"' : '';
+    return `<a href="${href}"${active} hreflang="${code}">${flag} ${safeName}</a>`;
+  }).join('\n            ');
+}
+
 /**
  * Generate complete HTML for a news article
  *
@@ -26,7 +95,7 @@ import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
  */
 export function generateArticleHTML(options: ArticleOptions): string {
   const {
-    slug: _slug,
+    slug,
     title,
     subtitle,
     date,
@@ -39,6 +108,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   } = options;
 
   const dir = getTextDirection(lang);
+  const year = new Date().getFullYear();
 
   // Format date for display
   const displayDate = new Date(date).toLocaleDateString(lang, {
@@ -135,6 +205,14 @@ export function generateArticleHTML(options: ArticleOptions): string {
     </div>
   </header>
 
+  <nav class="language-switcher" role="navigation" aria-label="Language selection">
+    ${buildArticleLangSwitcher(date, slug, lang)}
+  </nav>
+
+  <nav class="article-top-nav">
+    <a href="${indexHref}" class="back-to-news">${backLabel}</a>
+  </nav>
+
   <main id="main" class="site-main">
   <article class="news-article" lang="${lang}">
     <header class="article-header">
@@ -159,8 +237,35 @@ export function generateArticleHTML(options: ArticleOptions): string {
   </main>
 
   <footer class="site-footer" role="contentinfo">
+    <div class="footer-content">
+      ${buildFooterSection('About EU Parliament Monitor', '<p>European Parliament Intelligence Platform — monitoring political activity with systematic transparency. Powered by European Parliament open data.</p>')}
+      ${buildFooterSection(
+        'Quick Links',
+        `<ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
+          <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
+        </ul>`
+      )}
+      ${buildFooterSection(
+        'Built by Hack23 AB',
+        `<ul>
+          <li><a href="https://hack23.com">hack23.com</a></li>
+          <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Security &amp; Privacy Policy</a></li>
+          <li><a href="mailto:james@hack23.com">Contact</a></li>
+        </ul>`
+      )}
+      ${buildFooterSection(
+        'Languages',
+        `<div class="language-grid">
+          ${buildArticleFooterLanguageGrid(lang)}
+        </div>`
+      )}
+    </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-${new Date().getFullYear()} <a href="https://hack23.com">Hack23 AB</a> | EU Parliament Monitor</p>
+      <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden</p>
     </div>
   </footer>
 </body>

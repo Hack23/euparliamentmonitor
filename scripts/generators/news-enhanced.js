@@ -240,7 +240,7 @@ async function generateWeekAhead() {
             const titleGenerator = getLocalizedString(WEEK_AHEAD_TITLES, lang);
             const langTitles = titleGenerator(dateRange.start, dateRange.end);
             const html = generateArticleHTML({
-                slug: `${slug}-${lang}.html`,
+                slug: ARTICLE_TYPE_WEEK_AHEAD,
                 title: langTitles.title,
                 subtitle: langTitles.subtitle,
                 date: today.toISOString().split('T')[0],
@@ -388,7 +388,7 @@ async function generateBreakingNews() {
             const langTitles = titleGenerator(dateStr);
             const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
-                slug: `${slug}-${lang}.html`,
+                slug: ARTICLE_TYPE_BREAKING,
                 title: langTitles.title,
                 subtitle: langTitles.subtitle,
                 date: dateStr,
@@ -534,7 +534,7 @@ async function generateCommitteeReports() {
             ];
             const dateStr = today.toISOString().split('T')[0];
             const html = generateArticleHTML({
-                slug: `${slug}-${lang}.html`,
+                slug: ARTICLE_TYPE_COMMITTEE_REPORTS,
                 title: langTitles.title,
                 subtitle: langTitles.subtitle,
                 date: dateStr,
@@ -890,7 +890,7 @@ async function generatePropositions() {
             const content = buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings);
             const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
-                slug: `${slug}-${lang}.html`,
+                slug: ARTICLE_TYPE_PROPOSITIONS,
                 title: langTitles.title,
                 subtitle: langTitles.subtitle,
                 date: today.toISOString().split('T')[0],
@@ -942,7 +942,7 @@ async function generateMotions() {
             const content = generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions);
             const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
-                slug: `${slug}-${lang}.html`,
+                slug: ARTICLE_TYPE_MOTIONS,
                 title: langTitles.title,
                 subtitle: langTitles.subtitle,
                 date: dateStr,

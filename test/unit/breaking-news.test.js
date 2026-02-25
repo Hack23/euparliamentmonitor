@@ -114,7 +114,7 @@ describe('Breaking News Generator', () => {
     it('should produce valid HTML for breaking news article', () => {
       const content = buildBreakingNewsContent('2025-01-15', 'anomaly', 'coalition', 'report', 'influence');
       const html = generateArticleHTML({
-        slug: '2025-01-15-breaking-en.html',
+        slug: 'breaking',
         title: 'Breaking: Significant Parliamentary Developments — 2025-01-15',
         subtitle: 'Intelligence analysis of voting anomalies',
         date: '2025-01-15',
@@ -139,7 +139,7 @@ describe('Breaking News Generator', () => {
 
         const content = buildBreakingNewsContent(date, '', '', '', '');
         const html = generateArticleHTML({
-          slug: `2025-01-15-breaking-${lang}.html`,
+          slug: 'breaking',
           title: localizedTitles.title,
           subtitle: localizedTitles.subtitle,
           date,
@@ -159,7 +159,7 @@ describe('Breaking News Generator', () => {
     it('should generate placeholder breaking news when MCP is unavailable', () => {
       const content = buildBreakingNewsContent('2025-01-15', '', '', '', '');
       const html = generateArticleHTML({
-        slug: '2025-01-15-breaking-en.html',
+        slug: 'breaking',
         title: 'Breaking: Significant Parliamentary Developments — 2025-01-15',
         subtitle: 'Intelligence analysis of voting anomalies',
         date: '2025-01-15',
