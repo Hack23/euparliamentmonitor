@@ -56,9 +56,8 @@ export class PropositionsStrategy {
      * @returns Article HTML body
      */
     buildContent(data, lang) {
-        const propData = data;
         const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
-        return buildPropositionsContent(propData.proposalsHtml, propData.pipelineData, propData.procedureHtml, strings);
+        return buildPropositionsContent(data.proposalsHtml, data.pipelineData, data.procedureHtml, strings);
     }
     /**
      * Return language-specific metadata for the propositions article.

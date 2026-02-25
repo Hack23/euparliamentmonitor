@@ -53,7 +53,7 @@ export interface PropositionsArticleData extends ArticleData {
  * Fetches legislative proposals, active pipeline status, and procedure detail
  * then renders a language-specific article.
  */
-export class PropositionsStrategy implements ArticleStrategy {
+export class PropositionsStrategy implements ArticleStrategy<PropositionsArticleData> {
   readonly type = ArticleCategory.PROPOSITIONS;
 
   readonly requiredMCPTools = [
@@ -103,13 +103,12 @@ export class PropositionsStrategy implements ArticleStrategy {
    * @param lang - Target language code
    * @returns Article HTML body
    */
-  buildContent(data: ArticleData, lang: LanguageCode): string {
-    const propData = data as PropositionsArticleData;
+  buildContent(data: PropositionsArticleData, lang: LanguageCode): string {
     const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
     return buildPropositionsContent(
-      propData.proposalsHtml,
-      propData.pipelineData,
-      propData.procedureHtml,
+      data.proposalsHtml,
+      data.pipelineData,
+      data.procedureHtml,
       strings
     );
   }
@@ -121,7 +120,7 @@ export class PropositionsStrategy implements ArticleStrategy {
    * @param lang - Target language code
    * @returns Localised metadata
    */
-  getMetadata(_data: ArticleData, lang: LanguageCode): ArticleMetadata {
+  getMetadata(_data: PropositionsArticleData, lang: LanguageCode): ArticleMetadata {
     const titleFn = getLocalizedString(PROPOSITIONS_TITLES, lang);
     const { title, subtitle } = titleFn();
     return {

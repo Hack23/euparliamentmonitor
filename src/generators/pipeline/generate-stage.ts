@@ -16,7 +16,7 @@ import { ArticleCategory } from '../../types/index.js';
 import type { LanguageCode, GenerationStats, GenerationResult } from '../../types/index.js';
 import { generateArticleHTML } from '../../templates/article-template.js';
 import { calculateReadTime, formatDateForSlug } from '../../utils/file-utils.js';
-import type { ArticleStrategy } from '../strategies/article-strategy.js';
+import type { ArticleStrategy, ArticleData } from '../strategies/article-strategy.js';
 import { weekAheadStrategy } from '../strategies/week-ahead-strategy.js';
 import { breakingNewsStrategy } from '../strategies/breaking-news-strategy.js';
 import { committeeReportsStrategy } from '../strategies/committee-reports-strategy.js';
@@ -28,7 +28,7 @@ import { writeSingleArticle } from './output-stage.js';
 // ─── Registry ────────────────────────────────────────────────────────────────
 
 /** Map from {@link ArticleCategory} to its registered strategy */
-export type StrategyRegistry = Map<ArticleCategory, ArticleStrategy>;
+export type StrategyRegistry = Map<ArticleCategory, ArticleStrategy<ArticleData>>;
 
 /**
  * Build the default strategy registry containing all five built-in strategies.
@@ -37,11 +37,11 @@ export type StrategyRegistry = Map<ArticleCategory, ArticleStrategy>;
  */
 export function createStrategyRegistry(): StrategyRegistry {
   const registry: StrategyRegistry = new Map();
-  registry.set(ArticleCategory.WEEK_AHEAD, weekAheadStrategy);
-  registry.set(ArticleCategory.BREAKING_NEWS, breakingNewsStrategy);
-  registry.set(ArticleCategory.COMMITTEE_REPORTS, committeeReportsStrategy);
-  registry.set(ArticleCategory.PROPOSITIONS, propositionsStrategy);
-  registry.set(ArticleCategory.MOTIONS, motionsStrategy);
+  registry.set(ArticleCategory.WEEK_AHEAD, weekAheadStrategy as unknown as ArticleStrategy<ArticleData>);
+  registry.set(ArticleCategory.BREAKING_NEWS, breakingNewsStrategy as unknown as ArticleStrategy<ArticleData>);
+  registry.set(ArticleCategory.COMMITTEE_REPORTS, committeeReportsStrategy as unknown as ArticleStrategy<ArticleData>);
+  registry.set(ArticleCategory.PROPOSITIONS, propositionsStrategy as unknown as ArticleStrategy<ArticleData>);
+  registry.set(ArticleCategory.MOTIONS, motionsStrategy as unknown as ArticleStrategy<ArticleData>);
   return registry;
 }
 
@@ -73,7 +73,7 @@ const ARTICLE_EMOJIS: Partial<Record<ArticleCategory, string>> = {
  * @returns Generation result with success flag, file count and slug
  */
 export async function generateArticleForStrategy(
-  strategy: ArticleStrategy,
+  strategy: ArticleStrategy<ArticleData>,
   client: EuropeanParliamentMCPClient | null,
   languages: ReadonlyArray<LanguageCode>,
   outputOptions: OutputOptions,

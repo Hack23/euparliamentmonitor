@@ -38,7 +38,11 @@ export class MotionsStrategy {
     async fetchData(client, date) {
         const dateFrom = new Date(date);
         dateFrom.setDate(dateFrom.getDate() - MOTIONS_LOOKBACK_DAYS);
-        const dateFromStr = dateFrom.toISOString().split('T')[0];
+        const dateFromParts = dateFrom.toISOString().split('T');
+        if (!dateFromParts[0]) {
+            throw new Error('Invalid date format generated for motions look-back window');
+        }
+        const dateFromStr = dateFromParts[0];
         const { votingRecords, votingPatterns, anomalies, questions } = await fetchMotionsData(client, dateFromStr, date);
         return {
             date,
@@ -57,8 +61,7 @@ export class MotionsStrategy {
      * @returns Article HTML body
      */
     buildContent(data, _lang) {
-        const mData = data;
-        return generateMotionsContent(mData.dateFromStr, mData.date, [...mData.votingRecords], [...mData.votingPatterns], [...mData.anomalies], [...mData.questions]);
+        return generateMotionsContent(data.dateFromStr, data.date, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions]);
     }
     /**
      * Return language-specific metadata for the motions article.

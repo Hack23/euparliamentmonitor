@@ -49,8 +49,10 @@ export interface ArticleMetadata {
  * - {@link module:Generators/Strategies/CommitteeReportsStrategy}
  * - {@link module:Generators/Strategies/PropositionsStrategy}
  * - {@link module:Generators/Strategies/MotionsStrategy}
+ *
+ * @template TData - Concrete data payload type returned by {@link fetchData}
  */
-export interface ArticleStrategy {
+export interface ArticleStrategy<TData extends ArticleData = ArticleData> {
   /** The article category this strategy handles */
   readonly type: ArticleCategory;
   /** Names of MCP tools this strategy calls */
@@ -65,7 +67,7 @@ export interface ArticleStrategy {
   fetchData(
     client: EuropeanParliamentMCPClient | null,
     date: string
-  ): Promise<ArticleData>;
+  ): Promise<TData>;
   /**
    * Build the article HTML body for the given language.
    *
@@ -73,7 +75,7 @@ export interface ArticleStrategy {
    * @param lang - Target language code
    * @returns Article body HTML string
    */
-  buildContent(data: ArticleData, lang: LanguageCode): string;
+  buildContent(data: TData, lang: LanguageCode): string;
   /**
    * Return title, subtitle, keywords, and sources for the given language.
    *
@@ -81,5 +83,5 @@ export interface ArticleStrategy {
    * @param lang - Target language code
    * @returns Article metadata
    */
-  getMetadata(data: ArticleData, lang: LanguageCode): ArticleMetadata;
+  getMetadata(data: TData, lang: LanguageCode): ArticleMetadata;
 }

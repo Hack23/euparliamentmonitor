@@ -49,9 +49,16 @@ function computeWeekAheadDateRange(baseDate: string): DateRange {
   const endDate = new Date(startDate);
   endDate.setDate(startDate.getDate() + 7);
 
+  const startParts = startDate.toISOString().split('T');
+  const endParts = endDate.toISOString().split('T');
+
+  if (!startParts[0] || !endParts[0]) {
+    throw new Error('Invalid date format generated in computeWeekAheadDateRange');
+  }
+
   return {
-    start: startDate.toISOString().split('T')[0]!,
-    end: endDate.toISOString().split('T')[0]!,
+    start: startParts[0],
+    end: endParts[0],
   };
 }
 
@@ -62,7 +69,7 @@ function computeWeekAheadDateRange(baseDate: string): DateRange {
  * Fetches plenary, committee, document, pipeline and question data then builds
  * a forward-looking preview of the upcoming parliamentary week.
  */
-export class WeekAheadStrategy implements ArticleStrategy {
+export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> {
   readonly type = ArticleCategory.WEEK_AHEAD;
 
   readonly requiredMCPTools = [
@@ -101,8 +108,8 @@ export class WeekAheadStrategy implements ArticleStrategy {
    * @param _lang - Language code (unused — content is language-independent)
    * @returns Article HTML body
    */
-  buildContent(data: ArticleData, _lang: LanguageCode): string {
-    return (data as WeekAheadArticleData).prebuiltContent;
+  buildContent(data: WeekAheadArticleData, _lang: LanguageCode): string {
+    return data.prebuiltContent;
   }
 
   /**
@@ -112,14 +119,13 @@ export class WeekAheadStrategy implements ArticleStrategy {
    * @param lang - Target language code
    * @returns Localised metadata
    */
-  getMetadata(data: ArticleData, lang: LanguageCode): ArticleMetadata {
-    const waData = data as WeekAheadArticleData;
+  getMetadata(data: WeekAheadArticleData, lang: LanguageCode): ArticleMetadata {
     const titleFn = getLocalizedString(WEEK_AHEAD_TITLES, lang);
-    const { title, subtitle } = titleFn(waData.dateRange.start, waData.dateRange.end);
+    const { title, subtitle } = titleFn(data.dateRange.start, data.dateRange.end);
     return {
       title,
       subtitle,
-      keywords: waData.keywords,
+      keywords: data.keywords,
       category: ArticleCategory.WEEK_AHEAD,
       sources: [],
     };

@@ -51,7 +51,7 @@ export interface BreakingNewsArticleData extends ArticleData {
  * Article strategy for {@link ArticleCategory.BREAKING_NEWS}.
  * Aggregates OSINT signals from MCP and surfaces political intelligence.
  */
-export class BreakingNewsStrategy implements ArticleStrategy {
+export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticleData> {
   readonly type = ArticleCategory.BREAKING_NEWS;
 
   readonly requiredMCPTools = [
@@ -99,8 +99,8 @@ export class BreakingNewsStrategy implements ArticleStrategy {
    * @param _lang - Language code (unused — content is language-independent)
    * @returns Article HTML body
    */
-  buildContent(data: ArticleData, _lang: LanguageCode): string {
-    return (data as BreakingNewsArticleData).prebuiltContent;
+  buildContent(data: BreakingNewsArticleData, _lang: LanguageCode): string {
+    return data.prebuiltContent;
   }
 
   /**
@@ -110,7 +110,7 @@ export class BreakingNewsStrategy implements ArticleStrategy {
    * @param lang - Target language code
    * @returns Localised metadata
    */
-  getMetadata(data: ArticleData, lang: LanguageCode): ArticleMetadata {
+  getMetadata(data: BreakingNewsArticleData, lang: LanguageCode): ArticleMetadata {
     const titleFn = getLocalizedString(BREAKING_NEWS_TITLES, lang);
     const { title, subtitle } = titleFn(data.date);
     return {

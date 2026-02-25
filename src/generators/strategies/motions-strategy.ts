@@ -57,7 +57,7 @@ export interface MotionsArticleData extends ArticleData {
  * Aggregates voting data over a rolling 30-day window and surfaces
  * patterns, anomalies and parliamentary questions.
  */
-export class MotionsStrategy implements ArticleStrategy {
+export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
   readonly type = ArticleCategory.MOTIONS;
 
   readonly requiredMCPTools = [
@@ -80,7 +80,11 @@ export class MotionsStrategy implements ArticleStrategy {
   ): Promise<MotionsArticleData> {
     const dateFrom = new Date(date);
     dateFrom.setDate(dateFrom.getDate() - MOTIONS_LOOKBACK_DAYS);
-    const dateFromStr = dateFrom.toISOString().split('T')[0]!;
+    const dateFromParts = dateFrom.toISOString().split('T');
+    if (!dateFromParts[0]) {
+      throw new Error('Invalid date format generated for motions look-back window');
+    }
+    const dateFromStr = dateFromParts[0];
 
     const { votingRecords, votingPatterns, anomalies, questions } = await fetchMotionsData(
       client,
@@ -105,15 +109,14 @@ export class MotionsStrategy implements ArticleStrategy {
    * @param _lang - Language code (unused — content is language-independent)
    * @returns Article HTML body
    */
-  buildContent(data: ArticleData, _lang: LanguageCode): string {
-    const mData = data as MotionsArticleData;
+  buildContent(data: MotionsArticleData, _lang: LanguageCode): string {
     return generateMotionsContent(
-      mData.dateFromStr,
-      mData.date,
-      [...mData.votingRecords],
-      [...mData.votingPatterns],
-      [...mData.anomalies],
-      [...mData.questions]
+      data.dateFromStr,
+      data.date,
+      [...data.votingRecords],
+      [...data.votingPatterns],
+      [...data.anomalies],
+      [...data.questions]
     );
   }
 
@@ -124,7 +127,7 @@ export class MotionsStrategy implements ArticleStrategy {
    * @param lang - Target language code
    * @returns Localised metadata
    */
-  getMetadata(data: ArticleData, lang: LanguageCode): ArticleMetadata {
+  getMetadata(data: MotionsArticleData, lang: LanguageCode): ArticleMetadata {
     const titleFn = getLocalizedString(MOTIONS_TITLES, lang);
     const { title, subtitle } = titleFn(data.date);
     return {

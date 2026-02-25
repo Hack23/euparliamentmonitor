@@ -98,7 +98,7 @@ function buildCommitteeReportsHTML(committeeDataList: readonly CommitteeData[]):
  * Fetches info, documents and effectiveness data for the featured committees
  * then renders an activity overview.
  */
-export class CommitteeReportsStrategy implements ArticleStrategy {
+export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReportsArticleData> {
   readonly type = ArticleCategory.COMMITTEE_REPORTS;
 
   readonly requiredMCPTools = [
@@ -142,9 +142,8 @@ export class CommitteeReportsStrategy implements ArticleStrategy {
    * @param _lang - Language code (unused — content is language-independent)
    * @returns Article HTML body
    */
-  buildContent(data: ArticleData, _lang: LanguageCode): string {
-    const crData = data as CommitteeReportsArticleData;
-    return buildCommitteeReportsHTML(crData.committeeDataList);
+  buildContent(data: CommitteeReportsArticleData, _lang: LanguageCode): string {
+    return buildCommitteeReportsHTML(data.committeeDataList);
   }
 
   /**
@@ -154,7 +153,7 @@ export class CommitteeReportsStrategy implements ArticleStrategy {
    * @param lang - Target language code
    * @returns Localised metadata
    */
-  getMetadata(_data: ArticleData, lang: LanguageCode): ArticleMetadata {
+  getMetadata(_data: CommitteeReportsArticleData, lang: LanguageCode): ArticleMetadata {
     const committeeLabel = FEATURED_COMMITTEES.join(', ');
     const titleFn = getLocalizedString(COMMITTEE_REPORTS_TITLES, lang);
     const { title, subtitle } = titleFn(committeeLabel);

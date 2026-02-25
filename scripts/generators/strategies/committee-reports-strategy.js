@@ -95,8 +95,7 @@ export class CommitteeReportsStrategy {
      * @returns Article HTML body
      */
     buildContent(data, _lang) {
-        const crData = data;
-        return buildCommitteeReportsHTML(crData.committeeDataList);
+        return buildCommitteeReportsHTML(data.committeeDataList);
     }
     /**
      * Return language-specific metadata for the committee reports article.

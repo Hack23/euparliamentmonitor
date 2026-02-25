@@ -17,9 +17,14 @@ function computeWeekAheadDateRange(baseDate) {
     startDate.setDate(base.getDate() + 1);
     const endDate = new Date(startDate);
     endDate.setDate(startDate.getDate() + 7);
+    const startParts = startDate.toISOString().split('T');
+    const endParts = endDate.toISOString().split('T');
+    if (!startParts[0] || !endParts[0]) {
+        throw new Error('Invalid date format generated in computeWeekAheadDateRange');
+    }
     return {
-        start: startDate.toISOString().split('T')[0],
-        end: endDate.toISOString().split('T')[0],
+        start: startParts[0],
+        end: endParts[0],
     };
 }
 // ─── Strategy implementation ──────────────────────────────────────────────────
@@ -70,13 +75,12 @@ export class WeekAheadStrategy {
      * @returns Localised metadata
      */
     getMetadata(data, lang) {
-        const waData = data;
         const titleFn = getLocalizedString(WEEK_AHEAD_TITLES, lang);
-        const { title, subtitle } = titleFn(waData.dateRange.start, waData.dateRange.end);
+        const { title, subtitle } = titleFn(data.dateRange.start, data.dateRange.end);
         return {
             title,
             subtitle,
-            keywords: waData.keywords,
+            keywords: data.keywords,
             category: ArticleCategory.WEEK_AHEAD,
             sources: [],
         };

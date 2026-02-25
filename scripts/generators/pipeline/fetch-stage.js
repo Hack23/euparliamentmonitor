@@ -80,6 +80,32 @@ export class CircuitBreaker {
 }
 /** Module-level circuit breaker shared across all MCP fetch operations */
 export const mcpCircuitBreaker = new CircuitBreaker();
+/**
+ * Execute a single MCP API call through the module-level circuit breaker.
+ * Short-circuits with `fallback` when the circuit is OPEN.
+ * Records success or failure after each call, opening the circuit when
+ * {@link CircuitBreakerOptions.failureThreshold} consecutive failures occur.
+ *
+ * @param fn - Async factory that performs the MCP call
+ * @param fallback - Value returned when the circuit is open
+ * @param context - Label used in warning messages
+ * @returns Result of `fn` or `fallback`
+ */
+async function callMCP(fn, fallback, context) {
+    if (!mcpCircuitBreaker.canRequest()) {
+        console.warn(`${WARN_PREFIX} Circuit breaker OPEN — skipping ${context}`);
+        return fallback;
+    }
+    try {
+        const result = await fn();
+        mcpCircuitBreaker.recordSuccess();
+        return result;
+    }
+    catch (error) {
+        mcpCircuitBreaker.recordFailure();
+        throw error;
+    }
+}
 // ─── Internal helpers ─────────────────────────────────────────────────────────
 /**
  * Parse JSON text, returning `null` and logging a warning on parse failure.
@@ -143,6 +169,16 @@ export async function fetchWeekAheadData(client, dateRange) {
             questions: [],
         };
     }
+    if (!mcpCircuitBreaker.canRequest()) {
+        console.warn(`${WARN_PREFIX} Circuit breaker OPEN — using placeholder events`);
+        return {
+            events: PLACEHOLDER_EVENTS.map((e) => ({ ...e, date: dateRange.start })),
+            committees: [],
+            documents: [],
+            pipeline: [],
+            questions: [],
+        };
+    }
     console.log(`${MCP_FETCH_PREFIX} Fetching week-ahead data from MCP (parallel)...`);
     const [plenarySessions, committeeInfo, documents, pipeline, questions] = await Promise.allSettled([
         client.getPlenarySessions({ startDate: dateRange.start, endDate: dateRange.end, limit: 50 }),
@@ -156,6 +192,13 @@ export async function fetchWeekAheadData(client, dateRange) {
         }),
         client.getParliamentaryQuestions({ startDate: dateRange.start, limit: 20 }),
     ]);
+    const allFailed = [plenarySessions, committeeInfo, documents, pipeline, questions].every((r) => r.status === 'rejected');
+    if (allFailed) {
+        mcpCircuitBreaker.recordFailure();
+    }
+    else {
+        mcpCircuitBreaker.recordSuccess();
+    }
     const events = parsePlenarySessions(plenarySessions, dateRange.start);
     return {
         events: events.length > 0 ? events : [{ ...PLACEHOLDER_EVENTS[0], date: dateRange.start }],
@@ -176,9 +219,7 @@ export async function fetchVotingAnomalies(client) {
     if (!client)
         return '';
     try {
-        const result = await client.callTool('detect_voting_anomalies', {
-            sensitivityThreshold: 0.3,
-        });
+        const result = await callMCP(() => client.callTool('detect_voting_anomalies', { sensitivityThreshold: 0.3 }), undefined, 'detect_voting_anomalies');
         return result?.content?.[0]?.text ?? '';
     }
     catch (error) {
@@ -197,7 +238,7 @@ export async function fetchCoalitionDynamics(client) {
     if (!client)
         return '';
     try {
-        const result = await client.callTool('analyze_coalition_dynamics', {});
+        const result = await callMCP(() => client.callTool('analyze_coalition_dynamics', {}), undefined, 'analyze_coalition_dynamics');
         return result?.content?.[0]?.text ?? '';
     }
     catch (error) {
@@ -216,7 +257,7 @@ export async function fetchVotingReport(client) {
     if (!client)
         return '';
     try {
-        const result = await client.callTool('generate_report', { reportType: 'VOTING_STATISTICS' });
+        const result = await callMCP(() => client.callTool('generate_report', { reportType: 'VOTING_STATISTICS' }), undefined, 'generate_report');
         return result?.content?.[0]?.text ?? '';
     }
     catch (error) {
@@ -237,10 +278,7 @@ export async function fetchMEPInfluence(client, mepId) {
     if (!mepId || !client)
         return '';
     try {
-        const result = await client.callTool('assess_mep_influence', {
-            mepId,
-            includeDetails: true,
-        });
+        const result = await callMCP(() => client.callTool('assess_mep_influence', { mepId, includeDetails: true }), undefined, 'assess_mep_influence');
         return result?.content?.[0]?.text ?? '';
     }
     catch (error) {
@@ -271,8 +309,9 @@ export async function fetchCommitteeData(client, abbreviation) {
         return defaultResult;
     try {
         console.log(`${MCP_FETCH_PREFIX} Fetching committee info for ${abbreviation}...`);
-        const committeeResult = await client.getCommitteeInfo({ committeeId: abbreviation });
-        applyCommitteeInfo(committeeResult, defaultResult, abbreviation);
+        const committeeResult = await callMCP(() => client.getCommitteeInfo({ committeeId: abbreviation }), null, `getCommitteeInfo(${abbreviation})`);
+        if (committeeResult)
+            applyCommitteeInfo(committeeResult, defaultResult, abbreviation);
     }
     catch (err) {
         const message = err instanceof Error ? err.message : String(err);
@@ -280,19 +319,21 @@ export async function fetchCommitteeData(client, abbreviation) {
     }
     try {
         console.log(`${MCP_FETCH_PREFIX} Fetching documents for ${abbreviation}...`);
-        const docsResult = await client.searchDocuments({ query: abbreviation, limit: 5 });
-        applyDocuments(docsResult, defaultResult);
+        const docsResult = await callMCP(() => client.searchDocuments({ query: abbreviation, limit: 5 }), null, `searchDocuments(${abbreviation})`);
+        if (docsResult)
+            applyDocuments(docsResult, defaultResult);
     }
     catch (err) {
         const message = err instanceof Error ? err.message : String(err);
         console.warn(`${WARN_PREFIX} searchDocuments failed for ${abbreviation}:`, message);
     }
     try {
-        const effectivenessResult = await client.analyzeLegislativeEffectiveness({
+        const effectivenessResult = await callMCP(() => client.analyzeLegislativeEffectiveness({
             subjectType: 'COMMITTEE',
             subjectId: abbreviation,
-        });
-        applyEffectiveness(effectivenessResult, defaultResult);
+        }), null, `analyzeLegislativeEffectiveness(${abbreviation})`);
+        if (effectivenessResult)
+            applyEffectiveness(effectivenessResult, defaultResult);
     }
     catch (err) {
         const message = err instanceof Error ? err.message : String(err);
@@ -314,11 +355,11 @@ export async function fetchVotingRecords(client, dateFromStr, dateStr) {
         return [];
     try {
         console.log(`${MCP_FETCH_PREFIX} Fetching voting records from MCP server...`);
-        const votingResult = (await client.callTool('get_voting_records', {
+        const votingResult = (await callMCP(() => client.callTool('get_voting_records', {
             dateFrom: dateFromStr,
             dateTo: dateStr,
             limit: 20,
-        }));
+        }), undefined, 'get_voting_records'));
         if (votingResult?.content?.[0]) {
             const data = parseJSON(votingResult.content[0].text, 'voting records');
             if (data?.records && data.records.length > 0) {
@@ -351,10 +392,10 @@ export async function fetchVotingPatterns(client, dateFromStr, dateStr) {
         return [];
     try {
         console.log(`${MCP_FETCH_PREFIX} Fetching voting patterns from MCP server...`);
-        const patternsResult = (await client.callTool('analyze_voting_patterns', {
+        const patternsResult = (await callMCP(() => client.callTool('analyze_voting_patterns', {
             dateFrom: dateFromStr,
             dateTo: dateStr,
-        }));
+        }), undefined, 'analyze_voting_patterns'));
         if (patternsResult?.content?.[0]) {
             const data = parseJSON(patternsResult.content[0].text, 'voting patterns');
             if (data?.patterns && data.patterns.length > 0) {
@@ -386,10 +427,10 @@ export async function fetchMotionsAnomalies(client, dateFromStr, dateStr) {
         return [];
     try {
         console.log(`${MCP_FETCH_PREFIX} Fetching voting anomalies from MCP server...`);
-        const anomaliesResult = (await client.callTool('detect_voting_anomalies', {
+        const anomaliesResult = (await callMCP(() => client.callTool('detect_voting_anomalies', {
             dateFrom: dateFromStr,
             dateTo: dateStr,
-        }));
+        }), undefined, 'detect_voting_anomalies'));
         if (anomaliesResult?.content?.[0]) {
             const data = parseJSON(anomaliesResult.content[0].text, 'voting anomalies');
             if (data?.anomalies && data.anomalies.length > 0) {
@@ -421,11 +462,11 @@ export async function fetchParliamentaryQuestionsForMotions(client, dateFromStr,
         return [];
     try {
         console.log(`${MCP_FETCH_PREFIX} Fetching parliamentary questions from MCP server...`);
-        const questionsResult = await client.getParliamentaryQuestions({
+        const questionsResult = await callMCP(() => client.getParliamentaryQuestions({
             dateFrom: dateFromStr,
             dateTo: dateStr,
             limit: 10,
-        });
+        }), undefined, 'get_parliamentary_questions');
         if (questionsResult?.content?.[0]) {
             const data = parseJSON(questionsResult.content[0].text, 'parliamentary questions');
             if (data?.questions && data.questions.length > 0) {
@@ -506,7 +547,7 @@ export async function fetchMotionsData(client, dateFromStr, dateStr) {
 export async function fetchProposalsFromMCP(client) {
     if (!client)
         return { html: '', firstProcedureId: '' };
-    const docsResult = await client.searchDocuments({ keyword: 'legislative proposal', limit: 10 });
+    const docsResult = await callMCP(() => client.searchDocuments({ keyword: 'legislative proposal', limit: 10 }), undefined, 'search_documents(proposals)');
     if (!docsResult?.content?.[0])
         return { html: '', firstProcedureId: '' };
     const data = parseJSON(docsResult.content[0].text, 'proposals');
@@ -538,7 +579,7 @@ export async function fetchProposalsFromMCP(client) {
 export async function fetchPipelineFromMCP(client) {
     if (!client)
         return null;
-    const pipelineResult = await client.monitorLegislativePipeline({ status: 'ACTIVE', limit: 5 });
+    const pipelineResult = await callMCP(() => client.monitorLegislativePipeline({ status: 'ACTIVE', limit: 5 }), undefined, 'monitor_legislative_pipeline');
     if (!pipelineResult?.content?.[0])
         return null;
     const pipeData = parseJSON(pipelineResult.content[0].text, 'pipeline');
@@ -568,7 +609,7 @@ export async function fetchProcedureStatusFromMCP(client, procedureId) {
     if (!procedureId || !client)
         return '';
     try {
-        const result = await client.trackLegislation(procedureId);
+        const result = await callMCP(() => client.trackLegislation(procedureId), undefined, `track_legislation(${procedureId})`);
         if (!result?.content?.[0])
             return '';
         const raw = result.content[0].text;
