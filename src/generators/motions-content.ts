@@ -197,14 +197,18 @@ export function generateMotionsContent(
 function buildVoteAlignmentHtml(records: VotingRecord[]): string {
   if (records.length === 0) return '';
   const items = records
-    .map(
-      (r) =>
+    .map((r) => {
+      const forVotes = escapeHTML(String(r.votes.for));
+      const againstVotes = escapeHTML(String(r.votes.against));
+      const abstainVotes = escapeHTML(String(r.votes.abstain));
+      return (
         `<li class="alignment-vote">` +
         `<strong>${escapeHTML(r.title)}</strong> — ` +
         `${escapeHTML(r.result)} ` +
-        `(${r.votes.for}&#43; / ${r.votes.against}&#8722; / ${r.votes.abstain} abstain)` +
+        `(${forVotes}&#43; / ${againstVotes}&#8722; / ${abstainVotes} abstain)` +
         `</li>`
-    )
+      );
+    })
     .join('\n          ');
   return `<ul class="alignment-votes">\n          ${items}\n        </ul>`;
 }

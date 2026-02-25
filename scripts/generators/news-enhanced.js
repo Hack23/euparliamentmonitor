@@ -341,32 +341,6 @@ async function fetchVotingReport() {
     return '';
 }
 /**
- * Fetch MEP influence assessment from MCP server or return empty fallback.
- * Returns empty string immediately if no mepId is provided.
- *
- * @param mepId - MEP identifier (skips call when empty)
- * @returns Influence data string or empty fallback
- */
-async function fetchMEPInfluence(mepId) {
-    if (!mepId || !mcpClient) {
-        return '';
-    }
-    try {
-        const result = await mcpClient.callTool('assess_mep_influence', {
-            mepId,
-            includeDetails: true,
-        });
-        if (result?.content?.[0]) {
-            return result.content[0].text;
-        }
-    }
-    catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        console.warn('  ⚠️ assess_mep_influence failed:', message);
-    }
-    return '';
-}
-/**
  * Safely parse a JSON string and extract a named array property.
  *
  * @param raw - Raw JSON string (empty string returns [])
@@ -397,11 +371,10 @@ async function generateBreakingNews() {
         const dateStr = today.toISOString().split('T')[0];
         const slug = `${formatDateForSlug(today)}-${ARTICLE_TYPE_BREAKING}`;
         console.log('  📡 Fetching OSINT intelligence data from MCP...');
-        const [anomalyRaw, coalitionRaw, reportRaw, influenceRaw] = await Promise.all([
+        const [anomalyRaw, coalitionRaw, reportRaw] = await Promise.all([
             fetchVotingAnomalies(),
             fetchCoalitionDynamics(),
             fetchVotingReport(),
-            fetchMEPInfluence(''),
         ]);
         const anomalies = parseRawJsonArray(anomalyRaw, 'anomalies')
             .map((a) => scoreVotingAnomaly(a))
@@ -409,10 +382,7 @@ async function generateBreakingNews() {
         const coalitions = parseRawJsonArray(coalitionRaw, 'coalitions')
             .map((c) => analyzeCoalitionCohesion(c))
             .filter((c) => c !== null);
-        const mepScores = parseRawJsonArray(influenceRaw, 'meps')
-            .map((m) => scoreMEPInfluence(m))
-            .filter((m) => m !== null);
-        const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, anomalies, coalitions, mepScores);
+        const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, '', anomalies, coalitions, []);
         let writtenCount = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);

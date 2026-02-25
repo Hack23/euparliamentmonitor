@@ -29,7 +29,7 @@ function buildAnomalyAlertSection(anomalies) {
         .join('\n            ');
     return `
         <section class="anomaly-alert">
-          <h2>Voting Anomaly Alert</h2>
+          <h3>Voting Anomaly Alert</h3>
           <ul>
             ${items}
           </ul>
@@ -52,7 +52,7 @@ function buildCoalitionDynamicsSection(coalitions) {
         .join('\n            ');
     return `
         <section class="coalition-dynamics">
-          <h2>Coalition Dynamics</h2>
+          <h3>Coalition Dynamics</h3>
           <ul>
             ${items}
           </ul>
@@ -75,7 +75,7 @@ function buildKeyPlayersIntelSection(mepScores) {
         .join('\n            ');
     return `
         <section class="key-players-intel">
-          <h2>Key Parliamentary Players</h2>
+          <h3>Key Parliamentary Players</h3>
           <ul>
             ${items}
           </ul>

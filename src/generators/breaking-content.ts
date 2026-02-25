@@ -42,7 +42,7 @@ function buildAnomalyAlertSection(anomalies: VotingAnomalyIntelligence[]): strin
     .join('\n            ');
   return `
         <section class="anomaly-alert">
-          <h2>Voting Anomaly Alert</h2>
+          <h3>Voting Anomaly Alert</h3>
           <ul>
             ${items}
           </ul>
@@ -68,7 +68,7 @@ function buildCoalitionDynamicsSection(coalitions: CoalitionIntelligence[]): str
     .join('\n            ');
   return `
         <section class="coalition-dynamics">
-          <h2>Coalition Dynamics</h2>
+          <h3>Coalition Dynamics</h3>
           <ul>
             ${items}
           </ul>
@@ -94,7 +94,7 @@ function buildKeyPlayersIntelSection(mepScores: MEPInfluenceScore[]): string {
     .join('\n            ');
   return `
         <section class="key-players-intel">
-          <h2>Key Parliamentary Players</h2>
+          <h3>Key Parliamentary Players</h3>
           <ul>
             ${items}
           </ul>
