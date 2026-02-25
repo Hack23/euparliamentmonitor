@@ -235,16 +235,12 @@ async function generateWeekAhead() {
         const slug = `${formatDateForSlug(today)}-${ARTICLE_TYPE_WEEK_AHEAD}`;
         const weekData = await fetchWeekAheadData(dateRange);
         const keywords = buildKeywords(weekData);
-        const baseContent = buildWeekAheadContent(weekData, dateRange);
         let writtenCount = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const watchSection = buildWhatToWatchSection(weekData.pipeline, [], lang);
+            const baseContent = buildWeekAheadContent(weekData, dateRange, lang);
             const content = watchSection ? `${baseContent}${watchSection}` : baseContent;
-        let writtenCount = 0;
-        for (const lang of languages) {
-            console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
-            const content = buildWeekAheadContent(weekData, dateRange, lang);
             const titleGenerator = getLocalizedString(WEEK_AHEAD_TITLES, lang);
             const langTitles = titleGenerator(dateRange.start, dateRange.end);
             const html = generateArticleHTML({
@@ -386,11 +382,10 @@ async function generateBreakingNews() {
         const coalitions = parseRawJsonArray(coalitionRaw, 'coalitions')
             .map((c) => analyzeCoalitionCohesion(c))
             .filter((c) => c !== null);
-        const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, '', anomalies, coalitions, []);
         let writtenCount = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
-            const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, lang);
+            const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, '', lang, anomalies, coalitions, []);
             const titleGenerator = getLocalizedString(BREAKING_NEWS_TITLES, lang);
             const langTitles = titleGenerator(dateStr);
             const readTime = calculateReadTime(content);
@@ -946,12 +941,11 @@ async function generateMotions() {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const titleGenerator = getLocalizedString(MOTIONS_TITLES, lang);
             const langTitles = titleGenerator(dateStr);
-            const baseMotionsContent = generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions);
+            const baseMotionsContent = generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions, lang);
             const alignmentSection = buildPoliticalAlignmentSection(votingRecords, [], lang);
             const content = alignmentSection
                 ? `${baseMotionsContent}${alignmentSection}`
                 : baseMotionsContent;
-            const content = generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions, lang);
             const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
                 slug: ARTICLE_TYPE_MOTIONS,

@@ -375,16 +375,14 @@ async function generateWeekAhead(): Promise<GenerationResult> {
 
     const weekData = await fetchWeekAheadData(dateRange);
     const keywords = buildKeywords(weekData);
-    const baseContent = buildWeekAheadContent(weekData, dateRange);
 
     let writtenCount = 0;
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
       const watchSection = buildWhatToWatchSection(weekData.pipeline, [], lang);
+      const baseContent = buildWeekAheadContent(weekData, dateRange, lang);
       const content = watchSection ? `${baseContent}${watchSection}` : baseContent;
-
-      const content = buildWeekAheadContent(weekData, dateRange, lang);
       const titleGenerator = getLocalizedString(WEEK_AHEAD_TITLES, lang);
       const langTitles = titleGenerator(dateRange.start, dateRange.end);
 
@@ -535,17 +533,6 @@ async function generateBreakingNews(): Promise<GenerationResult> {
       .map((c) => analyzeCoalitionCohesion(c))
       .filter((c): c is CoalitionIntelligence => c !== null);
 
-    const content = buildBreakingNewsContent(
-      dateStr,
-      anomalyRaw,
-      coalitionRaw,
-      reportRaw,
-      '',
-      anomalies,
-      coalitions,
-      []
-    );
-
     let writtenCount = 0;
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
@@ -555,8 +542,11 @@ async function generateBreakingNews(): Promise<GenerationResult> {
         anomalyRaw,
         coalitionRaw,
         reportRaw,
-        influenceRaw,
-        lang
+        '',
+        lang,
+        anomalies,
+        coalitions,
+        []
       );
 
       const titleGenerator = getLocalizedString(BREAKING_NEWS_TITLES, lang);

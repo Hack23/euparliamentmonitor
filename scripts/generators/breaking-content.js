@@ -7,14 +7,10 @@
  * from typed MCP intelligence data.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-/** Maximum raw-data characters rendered per pre block */
-const MAX_RAW_CHARS = 2000;
-/** CSS class for raw data pre blocks */
-const CSS_DATA_SUMMARY = 'data-summary';
-// ─── Private section builders ────────────────────────────────────────────────
 import { getLocalizedString, EDITORIAL_STRINGS } from '../constants/languages.js';
 /** Maximum characters to display from raw MCP intelligence data */
 const MAX_DATA_CHARS = 2000;
+// ─── Private section builders ────────────────────────────────────────────────
 /**
  * Build intelligence briefing section HTML from structured anomaly data
  *
@@ -107,21 +103,23 @@ function buildIntelligenceBriefingSection(anomalies, coalitions, mepScores) {
 // ─── Exported function ────────────────────────────────────────────────────────
 /**
  * Build breaking news article HTML content.
- * Accepts both raw MCP string data (rendered as pre blocks) and optional
+ * Accepts both raw MCP string data (rendered as narrative blocks) and optional
  * structured intelligence data (rendered as formatted HTML sections).
  * When no data is provided, returns a placeholder notice.
  *
  * @param date - Current date string for the article
- * @param anomalyRaw - Raw anomaly data from MCP (rendered as pre block)
- * @param coalitionRaw - Raw coalition dynamics data from MCP (rendered as pre block)
- * @param reportRaw - Raw analytical report from MCP (rendered as pre block)
- * @param influenceRaw - Raw MEP influence data from MCP (rendered as pre block)
+ * @param anomalyRaw - Raw anomaly data from MCP
+ * @param coalitionRaw - Raw coalition dynamics data from MCP
+ * @param reportRaw - Raw analytical report from MCP
+ * @param influenceRaw - Raw MEP influence data from MCP
+ * @param lang - Language code for localized editorial strings (default: 'en')
  * @param anomalies - Optional structured voting anomaly intelligence items
  * @param coalitions - Optional structured coalition intelligence items
  * @param mepScores - Optional structured MEP influence score items
  * @returns Full article HTML content string
  */
-export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, anomalies = [], coalitions = [], mepScores = []) {
+export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, lang = 'en', anomalies = [], coalitions = [], mepScores = []) {
+    const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
     const hasData = Boolean(anomalyRaw ||
         coalitionRaw ||
         reportRaw ||
@@ -129,22 +127,11 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
         anomalies.length ||
         coalitions.length ||
         mepScores.length);
- * @param anomalyRaw - Raw anomaly data from MCP
- * @param coalitionRaw - Raw coalition dynamics data from MCP
- * @param reportRaw - Raw analytical report from MCP
- * @param influenceRaw - Raw MEP influence data from MCP
- * @param lang - Language code for localized editorial strings (default: 'en')
- * @returns Full article HTML content string
- */
-export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, lang = 'en') {
-    const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
-    const hasData = Boolean(anomalyRaw || coalitionRaw || reportRaw || influenceRaw);
     const timestamp = new Date().toISOString();
     const anomalySection = anomalyRaw
         ? `
         <section class="analysis">
           <h2>Voting Anomaly Intelligence</h2>
-          <pre class="${CSS_DATA_SUMMARY}">${escapeHTML(anomalyRaw.slice(0, MAX_RAW_CHARS))}</pre>
           <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
           <p class="data-narrative">${escapeHTML(anomalyRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
@@ -153,7 +140,6 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
         ? `
         <section class="coalition-impact">
           <h2>Coalition Dynamics Assessment</h2>
-          <pre class="${CSS_DATA_SUMMARY}">${escapeHTML(coalitionRaw.slice(0, MAX_RAW_CHARS))}</pre>
           <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
           <p class="data-narrative">${escapeHTML(coalitionRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
@@ -162,7 +148,6 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
         ? `
         <section class="context">
           <h2>Analytical Report</h2>
-          <pre class="${CSS_DATA_SUMMARY}">${escapeHTML(reportRaw.slice(0, MAX_RAW_CHARS))}</pre>
           <p class="source-attribution">${escapeHTML(editorial.analysisNote)}:</p>
           <p class="data-narrative">${escapeHTML(reportRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
@@ -171,7 +156,6 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
         ? `
         <section class="key-players">
           <h2>Key MEP Influence Analysis</h2>
-          <pre class="${CSS_DATA_SUMMARY}">${escapeHTML(influenceRaw.slice(0, MAX_RAW_CHARS))}</pre>
           <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
           <p class="data-narrative">${escapeHTML(influenceRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`

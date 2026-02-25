@@ -147,7 +147,7 @@ describe('Breaking News Generator', () => {
     ];
 
     it('should render intelligence briefing when anomalies array provided', () => {
-      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', sampleAnomalies, [], []);
+      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', sampleAnomalies, [], []);
       expect(html).toContain('intelligence-briefing');
       expect(html).toContain('Voting Anomaly Alert');
       expect(html).toContain('EPP defection detected');
@@ -155,7 +155,7 @@ describe('Breaking News Generator', () => {
     });
 
     it('should render coalition dynamics section when coalitions array provided', () => {
-      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', [], sampleCoalitions, []);
+      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], sampleCoalitions, []);
       expect(html).toContain('coalition-dynamics');
       expect(html).toContain('Coalition Dynamics');
       expect(html).toContain('EPP');
@@ -163,7 +163,7 @@ describe('Breaking News Generator', () => {
     });
 
     it('should render key players section when mepScores array provided', () => {
-      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', [], [], sampleMEPs);
+      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], sampleMEPs);
       expect(html).toContain('key-players-intel');
       expect(html).toContain('Key Parliamentary Players');
       expect(html).toContain('Jane Smith');
@@ -171,7 +171,7 @@ describe('Breaking News Generator', () => {
     });
 
     it('should show non-placeholder lede when only structured intel provided', () => {
-      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', sampleAnomalies, [], []);
+      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', sampleAnomalies, [], []);
       expect(html).not.toContain('placeholder content');
       expect(html).toContain('Intelligence analysis from the European Parliament MCP Server');
       expect(html).toContain('intelligence-briefing');
@@ -179,7 +179,7 @@ describe('Breaking News Generator', () => {
 
     it('should render all three intel sections when all structured data provided', () => {
       const html = buildBreakingNewsContent(
-        '2025-01-15', '', '', '', '',
+        '2025-01-15', '', '', '', '', 'en',
         sampleAnomalies, sampleCoalitions, sampleMEPs
       );
       expect(html).toContain('Voting Anomaly Alert');
@@ -199,7 +199,7 @@ describe('Breaking News Generator', () => {
           implication: 'implication',
         },
       ];
-      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', xssAnomalies, [], []);
+      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', xssAnomalies, [], []);
       expect(html).not.toContain('<script>alert("xss")</script>');
       expect(html).toContain('&lt;script&gt;');
     });
