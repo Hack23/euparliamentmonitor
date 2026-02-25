@@ -236,11 +236,11 @@ async function generateWeekAhead() {
         const weekData = await fetchWeekAheadData(dateRange);
         const keywords = buildKeywords(weekData);
         const baseContent = buildWeekAheadContent(weekData, dateRange);
-        const watchSection = buildWhatToWatchSection(weekData.pipeline, [], 'en');
-        const content = watchSection ? `${baseContent}${watchSection}` : baseContent;
         let writtenCount = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
+            const watchSection = buildWhatToWatchSection(weekData.pipeline, [], lang);
+            const content = watchSection ? `${baseContent}${watchSection}` : baseContent;
             const titleGenerator = getLocalizedString(WEEK_AHEAD_TITLES, lang);
             const langTitles = titleGenerator(dateRange.start, dateRange.end);
             const html = generateArticleHTML({
