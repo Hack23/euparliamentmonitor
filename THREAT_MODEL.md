@@ -346,12 +346,12 @@ methodology:
 | **🔄 Persistence**       | Services File Permissions Weakness | [T1574.010](https://attack.mitre.org/techniques/T1574/010/) | GitHub Actions workflow tampering | SHA-pinned actions, branch protection rules | Workflow change alerts, PR review required |
 | **📡 Command & Control** | Application Layer Protocol | [T1071](https://attack.mitre.org/techniques/T1071/) | MCP HTTP/HTTPS communication to EP API      | TLS enforcement, strict hostname allowlist  | Outbound traffic monitoring                |
 | **📡 Command & Control** | Web Protocols              | [T1071.001](https://attack.mitre.org/techniques/T1071/001/) | HTTPS requests to data.europarl.europa.eu | TLS 1.3, certificate validation   | HTTP request logging, anomaly detection    |
-| **🎭 Defense Evasion**   | Code Signing               | [T1553.003](https://attack.mitre.org/techniques/T1553/003/) | SLSA attestation bypass attempts  | SLSA Level 3, artifact signatures           | Attestation verification in CI             |
+| **🎭 Defense Evasion**   | Code Signing               | [T1553.002](https://attack.mitre.org/techniques/T1553/002/) | SLSA attestation bypass attempts  | SLSA Level 3, artifact signatures           | Attestation verification in CI             |
 
 ### **📊 ATT&CK Coverage Analysis**
 
 [![ATT&CK Coverage](https://img.shields.io/badge/ATT%26CK_Coverage-2.3%25-orange?style=for-the-badge)](https://mitre-attack.github.io/attack-navigator/)
-[![Covered Techniques](https://img.shields.io/badge/Techniques-16%2F793-orange?style=for-the-badge)](https://attack.mitre.org/)
+[![Covered Techniques](https://img.shields.io/badge/Techniques-18%2F793-orange?style=for-the-badge)](https://attack.mitre.org/)
 
 **Comprehensive Coverage Tracking:** This threat model provides systematic
 coverage analysis of MITRE ATT&CK techniques, identifying which tactics and
