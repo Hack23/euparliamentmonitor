@@ -30,6 +30,7 @@ export {
   ARTICLE_TYPE_LABELS,
   READ_TIME_LABELS,
   BACK_TO_NEWS_LABELS,
+  ARTICLE_NAV_LABELS,
 } from './language-ui.js';
 
 export {

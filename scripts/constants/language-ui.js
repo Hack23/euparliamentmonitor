@@ -305,4 +305,21 @@ export const BACK_TO_NEWS_LABELS = {
     ko: '← 뉴스로 돌아가기',
     zh: '← 返回新闻',
 };
+/** Article navigation aria-label per language */
+export const ARTICLE_NAV_LABELS = {
+    en: 'Article navigation',
+    sv: 'Artikelnavigering',
+    da: 'Artikelnavigation',
+    no: 'Artikkelnavigasjon',
+    fi: 'Artikkelin navigointi',
+    de: 'Artikelnavigation',
+    fr: "Navigation de l'article",
+    es: 'Navegación del artículo',
+    nl: 'Artikelnavigatie',
+    ar: 'التنقل في المقالة',
+    he: 'ניווט מאמר',
+    ja: '記事ナビゲーション',
+    ko: '기사 탐색',
+    zh: '文章导航',
+};
 //# sourceMappingURL=language-ui.js.map
