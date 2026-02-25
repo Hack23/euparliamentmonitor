@@ -4,8 +4,8 @@ import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, REA
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 /** Pattern for valid article dates (YYYY-MM-DD) */
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
-/** Pattern for valid article slugs (lowercase letters, digits, hyphens, dots) */
-const SLUG_PATTERN = /^[a-z0-9.-]+$/u;
+/** Pattern for valid article slugs (lowercase letters, digits, hyphens) */
+const SLUG_PATTERN = /^[a-z0-9-]+$/u;
 /**
  * Build the article language switcher nav HTML.
  * Links to the same article in all 14 languages using the filename pattern {date}-{slug}-{lang}.html.

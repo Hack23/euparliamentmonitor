@@ -109,7 +109,7 @@ describe('Propositions Generator', () => {
       );
       const titles = getLocalizedString(PROPOSITIONS_TITLES, 'en')();
       const html = generateArticleHTML({
-        slug: '2025-01-15-propositions-en.html',
+        slug: 'propositions',
         title: titles.title,
         subtitle: titles.subtitle,
         date: '2025-01-15',
@@ -138,7 +138,7 @@ describe('Propositions Generator', () => {
 
         const content = buildPropositionsContent('<p>proposals</p>', SAMPLE_PIPELINE, '', strings);
         const html = generateArticleHTML({
-          slug: `2025-01-15-propositions-${lang}.html`,
+          slug: 'propositions',
           title: titles.title,
           subtitle: titles.subtitle,
           date,
@@ -160,7 +160,7 @@ describe('Propositions Generator', () => {
       const content = buildPropositionsContent('', null, '', strings);
       const titles = getLocalizedString(PROPOSITIONS_TITLES, 'en')();
       const html = generateArticleHTML({
-        slug: '2025-01-15-propositions-en.html',
+        slug: 'propositions',
         title: titles.title,
         subtitle: titles.subtitle,
         date: '2025-01-15',

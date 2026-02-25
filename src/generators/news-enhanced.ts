@@ -358,7 +358,7 @@ async function generateWeekAhead(): Promise<GenerationResult> {
       const langTitles = titleGenerator(dateRange.start, dateRange.end);
 
       const html = generateArticleHTML({
-        slug: `${slug}-${lang}.html`,
+        slug: ARTICLE_TYPE_WEEK_AHEAD,
         title: langTitles.title,
         subtitle: langTitles.subtitle,
         date: today.toISOString().split('T')[0]!,
@@ -523,7 +523,7 @@ async function generateBreakingNews(): Promise<GenerationResult> {
       const readTime = calculateReadTime(content);
 
       const html = generateArticleHTML({
-        slug: `${slug}-${lang}.html`,
+        slug: ARTICLE_TYPE_BREAKING,
         title: langTitles.title,
         subtitle: langTitles.subtitle,
         date: dateStr,
@@ -694,7 +694,7 @@ async function generateCommitteeReports(): Promise<GenerationResult> {
       ];
       const dateStr = today.toISOString().split('T')[0]!;
       const html = generateArticleHTML({
-        slug: `${slug}-${lang}.html`,
+        slug: ARTICLE_TYPE_COMMITTEE_REPORTS,
         title: langTitles.title,
         subtitle: langTitles.subtitle,
         date: dateStr,
@@ -1123,7 +1123,7 @@ async function generatePropositions(): Promise<GenerationResult> {
       const readTime = calculateReadTime(content);
 
       const html = generateArticleHTML({
-        slug: `${slug}-${lang}.html`,
+        slug: ARTICLE_TYPE_PROPOSITIONS,
         title: langTitles.title,
         subtitle: langTitles.subtitle,
         date: today.toISOString().split('T')[0]!,
@@ -1197,7 +1197,7 @@ async function generateMotions(): Promise<GenerationResult> {
       const readTime = calculateReadTime(content);
 
       const html = generateArticleHTML({
-        slug: `${slug}-${lang}.html`,
+        slug: ARTICLE_TYPE_MOTIONS,
         title: langTitles.title,
         subtitle: langTitles.subtitle,
         date: dateStr,

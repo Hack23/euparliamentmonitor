@@ -23,8 +23,8 @@ import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 /** Pattern for valid article dates (YYYY-MM-DD) */
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
 
-/** Pattern for valid article slugs (lowercase letters, digits, hyphens, dots) */
-const SLUG_PATTERN = /^[a-z0-9.-]+$/u;
+/** Pattern for valid article slugs (lowercase letters, digits, hyphens) */
+const SLUG_PATTERN = /^[a-z0-9-]+$/u;
 
 /**
  * Build the article language switcher nav HTML.
@@ -239,21 +239,30 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <footer class="site-footer" role="contentinfo">
     <div class="footer-content">
       ${buildFooterSection('About EU Parliament Monitor', '<p>European Parliament Intelligence Platform — monitoring political activity with systematic transparency. Powered by European Parliament open data.</p>')}
-      ${buildFooterSection('Quick Links', `<ul>
+      ${buildFooterSection(
+        'Quick Links',
+        `<ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
           <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
-        </ul>`)}
-      ${buildFooterSection('Built by Hack23 AB', `<ul>
+        </ul>`
+      )}
+      ${buildFooterSection(
+        'Built by Hack23 AB',
+        `<ul>
           <li><a href="https://hack23.com">hack23.com</a></li>
           <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
           <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Security &amp; Privacy Policy</a></li>
           <li><a href="mailto:james@hack23.com">Contact</a></li>
-        </ul>`)}
-      ${buildFooterSection('Languages', `<div class="language-grid">
+        </ul>`
+      )}
+      ${buildFooterSection(
+        'Languages',
+        `<div class="language-grid">
           ${buildArticleFooterLanguageGrid(lang)}
-        </div>`)}
+        </div>`
+      )}
     </div>
     <div class="footer-bottom">
       <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden</p>
