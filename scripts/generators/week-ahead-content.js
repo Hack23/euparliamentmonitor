@@ -401,7 +401,7 @@ function buildNormalVelocityItems(velocities) {
  * Returns an empty string when both input arrays are empty or yield no items.
  *
  * @param procedures - Legislative procedures to analyse
- * @param velocities - Legislative velocity data from MCP pipeline monitor
+ * @param velocities - Legislative velocity data (for example from a separate velocity analysis feed)
  * @param language - BCP 47 language code used as the section lang attribute
  * @returns HTML string for the "What to Watch" section
  */
