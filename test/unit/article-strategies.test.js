@@ -40,6 +40,17 @@ const weekAheadData = {
   keywords: ['European Parliament', 'plenary'],
 };
 
+/** WeekAheadArticleData fixture with a bottlenecked pipeline procedure */
+const weekAheadDataWithPipeline = {
+  ...weekAheadData,
+  weekData: {
+    ...weekAheadData.weekData,
+    pipeline: [
+      { title: 'Climate Regulation', stage: 'committee', bottleneck: true },
+    ],
+  },
+};
+
 /** Minimal BreakingNewsArticleData fixture */
 const breakingNewsData = {
   date: DATE,
@@ -112,6 +123,17 @@ describe('WeekAheadStrategy', () => {
     expect(en.length).toBeGreaterThan(0);
     expect(typeof de).toBe('string');
     expect(de.length).toBeGreaterThan(0);
+  });
+
+  it('buildContent injects What-to-Watch section inside .article-content when pipeline has bottleneck', () => {
+    const content = strategy.buildContent(weekAheadDataWithPipeline, 'en');
+    expect(content).toContain('class="what-to-watch"');
+    expect(content).toContain('Climate Regulation');
+    // section must appear before the final closing </div>
+    const watchIdx = content.lastIndexOf('what-to-watch');
+    const closingDivIdx = content.lastIndexOf('</div>');
+    expect(watchIdx).toBeGreaterThan(-1);
+    expect(watchIdx).toBeLessThan(closingDivIdx);
   });
 
   it('getMetadata returns en title containing "Week Ahead" or equivalent', () => {
@@ -322,6 +344,17 @@ describe('MotionsStrategy', () => {
     const en = strategy.buildContent(motionsData, 'en');
     const fr = strategy.buildContent(motionsData, 'fr');
     expect(en).not.toBe(fr);
+  });
+
+  it('buildContent injects Political Alignment section inside .article-content when voting records are present', () => {
+    const content = strategy.buildContent(motionsData, 'en');
+    expect(content).toContain('class="political-alignment"');
+    expect(content).toContain('Budget 2025');
+    // section must appear before the final closing </div>
+    const alignIdx = content.lastIndexOf('political-alignment');
+    const closingDivIdx = content.lastIndexOf('</div>');
+    expect(alignIdx).toBeGreaterThan(-1);
+    expect(alignIdx).toBeLessThan(closingDivIdx);
   });
 
   it('getMetadata returns "motions" category', () => {
