@@ -1513,6 +1513,8 @@ describe('ep-mcp-client', () => {
     });
 
     it('should handle gateway connection failure gracefully', async () => {
+      vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('Connection refused')));
+
       const client = new EuropeanParliamentMCPClient({
         gatewayUrl: 'http://localhost:19999/mcp/european-parliament',
         maxConnectionAttempts: 1,
@@ -1521,16 +1523,35 @@ describe('ep-mcp-client', () => {
 
       await expect(client.connect()).rejects.toThrow();
       expect(client.isConnected()).toBe(false);
+
+      vi.unstubAllGlobals();
     });
 
-    it('should clear session on disconnect in gateway mode', () => {
+    it('should clear session on disconnect in gateway mode', async () => {
+      // Mock a successful gateway connect that returns a session ID header
+      vi.stubGlobal(
+        'fetch',
+        vi.fn().mockResolvedValue({
+          ok: true,
+          headers: new Map([
+            ['mcp-session-id', 'test-session-123'],
+            ['content-type', 'application/json'],
+          ]),
+          text: () => Promise.resolve('{"jsonrpc":"2.0","id":1,"result":{}}'),
+        })
+      );
+
       const client = new EuropeanParliamentMCPClient({
         gatewayUrl: 'http://localhost:80/mcp/european-parliament',
       });
-      // Use internal access only for test setup (JavaScript runtime allows it)
-      client['mcpSessionId'] = 'test-session';
+
+      await client.connect();
+      expect(client.getMcpSessionId()).toBe('test-session-123');
+
       client.disconnect();
       expect(client.getMcpSessionId()).toBeNull();
+
+      vi.unstubAllGlobals();
     });
   });
 

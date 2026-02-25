@@ -81,7 +81,8 @@ export class MCPConnection {
         this.connectionAttempts = 0;
         this.maxConnectionAttempts = options.maxConnectionAttempts ?? 3;
         this.connectionRetryDelay = options.connectionRetryDelay ?? 1000;
-        this.gatewayUrl = options.gatewayUrl ?? process.env['EP_MCP_GATEWAY_URL'] ?? null;
+        const rawGatewayUrl = (options.gatewayUrl ?? process.env['EP_MCP_GATEWAY_URL'] ?? '').trim();
+        this.gatewayUrl = rawGatewayUrl || null;
         this.gatewayApiKey = options.gatewayApiKey ?? process.env['EP_MCP_GATEWAY_API_KEY'] ?? null;
         this.mcpSessionId = null;
     }
@@ -99,7 +100,7 @@ export class MCPConnection {
      * @returns True if gateway mode is active
      */
     isGatewayMode() {
-        return this.gatewayUrl !== null;
+        return Boolean(this.gatewayUrl);
     }
     /**
      * Get the configured gateway URL

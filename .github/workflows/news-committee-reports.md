@@ -306,7 +306,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ EP MCP server binary not found, attempting reinstall..."
-    npm install european-parliament-mcp-server@0.8.0
+    npm install --no-save european-parliament-mcp-server@0.8.0
   fi
 fi
 ```
