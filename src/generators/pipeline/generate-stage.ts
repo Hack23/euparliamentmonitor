@@ -166,7 +166,7 @@ export async function generateArticleForStrategy(
     const message = error instanceof Error ? error.message : String(error);
     const stack = error instanceof Error ? error.stack : undefined;
     console.error(`❌ Error generating ${strategy.type}:`, message);
-    if (stack) {
+    if (stack && process.env['DEBUG'] === 'true') {
       console.error('   Stack:', stack);
     }
     stats.errors++;

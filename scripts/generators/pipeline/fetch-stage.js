@@ -117,18 +117,6 @@ export const mcpCircuitBreaker = new CircuitBreaker();
  */
 async function callMCP(fn, fallback, context) {
     if (!mcpCircuitBreaker.canRequest()) {
-        // When HALF_OPEN with a probe already in flight, parallel sub-calls within
-        // the same strategy batch should pass through untracked so they can still
-        // retrieve data after the probe closes the circuit.  The probe call itself
-        // will record success or failure for the whole batch.
-        if (mcpCircuitBreaker.getState() === 'HALF_OPEN') {
-            try {
-                return await fn();
-            }
-            catch {
-                return fallback;
-            }
-        }
         console.warn(`${WARN_PREFIX} Circuit breaker not accepting requests (${mcpCircuitBreaker.getState()}) — skipping ${context}`);
         return fallback;
     }

@@ -66,7 +66,9 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
     client: EuropeanParliamentMCPClient | null,
     date: string
   ): Promise<BreakingNewsArticleData> {
-    console.log('  📡 Fetching OSINT intelligence data from MCP...');
+    if (client) {
+      console.log('  📡 Fetching OSINT intelligence data from MCP...');
+    }
 
     const [anomalyRaw, coalitionRaw, reportRaw] = await Promise.all([
       fetchVotingAnomalies(client),

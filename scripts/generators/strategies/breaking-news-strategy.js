@@ -31,7 +31,9 @@ export class BreakingNewsStrategy {
      * @returns Populated breaking news data payload
      */
     async fetchData(client, date) {
-        console.log('  📡 Fetching OSINT intelligence data from MCP...');
+        if (client) {
+            console.log('  📡 Fetching OSINT intelligence data from MCP...');
+        }
         const [anomalyRaw, coalitionRaw, reportRaw] = await Promise.all([
             fetchVotingAnomalies(client),
             fetchCoalitionDynamics(client),
