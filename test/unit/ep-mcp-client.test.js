@@ -1051,6 +1051,15 @@ describe('ep-mcp-client', () => {
         });
       });
 
+      it('should return fallback for getMeetingActivities with whitespace sittingId', async () => {
+        const result = await client.getMeetingActivities({ sittingId: '   ' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"activities": []}' }],
+        });
+      });
+
       it('should get meeting decisions', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"decisions": []}' }],
@@ -1074,6 +1083,15 @@ describe('ep-mcp-client', () => {
 
       it('should return fallback for getMeetingDecisions with empty sittingId', async () => {
         const result = await client.getMeetingDecisions({ sittingId: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"decisions": []}' }],
+        });
+      });
+
+      it('should return fallback for getMeetingDecisions with whitespace sittingId', async () => {
+        const result = await client.getMeetingDecisions({ sittingId: '   ' });
 
         expect(client.callTool).not.toHaveBeenCalled();
         expect(result).toEqual({
@@ -1321,6 +1339,15 @@ describe('ep-mcp-client', () => {
         });
       });
 
+      it('should return fallback for getMeetingForeseenActivities with whitespace sittingId', async () => {
+        const result = await client.getMeetingForeseenActivities({ sittingId: '   ' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"activities": []}' }],
+        });
+      });
+
       it('should get procedure events', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"events": []}' }],
@@ -1344,6 +1371,15 @@ describe('ep-mcp-client', () => {
 
       it('should return fallback for getProcedureEvents with empty processId', async () => {
         const result = await client.getProcedureEvents({ processId: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"events": []}' }],
+        });
+      });
+
+      it('should return fallback for getProcedureEvents with whitespace-only processId', async () => {
+        const result = await client.getProcedureEvents({ processId: '   ' });
 
         expect(client.callTool).not.toHaveBeenCalled();
         expect(result).toEqual({
