@@ -372,7 +372,7 @@ export const PROPOSITIONS_STRINGS = {
         analysis: "L'activité législative actuelle reflète les priorités du Parlement en matière de finance durable, de gouvernance numérique et de politique environnementale.",
         pipelineHealthLabel: 'Santé du Pipeline',
         throughputRateLabel: 'Taux de Débit',
-        whyThisMatters: "Ces propositions législatives concernent directement les citoyens européens — des coûts énergétiques aux droits numériques. Comprendre le pipeline aide les parties prenantes à anticiper les futures évolutions réglementaires.",
+        whyThisMatters: 'Ces propositions législatives concernent directement les citoyens européens — des coûts énergétiques aux droits numériques. Comprendre le pipeline aide les parties prenantes à anticiper les futures évolutions réglementaires.',
     },
     es: {
         lede: 'El Parlamento Europeo está procesando activamente múltiples propuestas legislativas en áreas clave de política.',
@@ -497,11 +497,11 @@ export const EDITORIAL_STRINGS = {
         analysisNote: 'Analysehinweis',
     },
     fr: {
-        whyThisMatters: 'Pourquoi C\'est Important',
+        whyThisMatters: "Pourquoi C'est Important",
         keyTakeaway: 'Constat Clé',
         parliamentaryContext: 'Contexte Parlementaire',
         sourceAttribution: 'Selon les données du Parlement européen',
-        analysisNote: 'Note d\'analyse',
+        analysisNote: "Note d'analyse",
     },
     es: {
         whyThisMatters: 'Por Qué Importa',

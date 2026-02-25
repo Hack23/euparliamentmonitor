@@ -3,7 +3,7 @@
 import { ArticleCategory } from '../../types/index.js';
 import { WEEK_AHEAD_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchWeekAheadData } from '../pipeline/fetch-stage.js';
-import { buildWeekAheadContent, buildKeywords, } from '../week-ahead-content.js';
+import { buildWeekAheadContent, buildKeywords } from '../week-ahead-content.js';
 // ─── Date-range helper ────────────────────────────────────────────────────────
 /**
  * Compute the week-ahead date range starting the day after `baseDate`.
@@ -12,11 +12,11 @@ import { buildWeekAheadContent, buildKeywords, } from '../week-ahead-content.js'
  * @returns Date range spanning the next 7 days
  */
 function computeWeekAheadDateRange(baseDate) {
-    const base = new Date(baseDate);
+    const base = new Date(`${baseDate}T00:00:00Z`);
     const startDate = new Date(base);
-    startDate.setDate(base.getDate() + 1);
+    startDate.setUTCDate(base.getUTCDate() + 1);
     const endDate = new Date(startDate);
-    endDate.setDate(startDate.getDate() + 7);
+    endDate.setUTCDate(startDate.getUTCDate() + 7);
     const startParts = startDate.toISOString().split('T');
     const endParts = endDate.toISOString().split('T');
     if (!startParts[0] || !endParts[0]) {

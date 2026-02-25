@@ -174,6 +174,18 @@ describe('validateMCPResponse', () => {
     const result = validateMCPResponse('test_tool', [{ content: [] }]);
     expect(result.valid).toBe(false);
   });
+
+  it('returns valid=false when first content item is null', () => {
+    const result = validateMCPResponse('test_tool', { content: [null] });
+    expect(result.valid).toBe(false);
+    expect(result.errors.some((e) => e.includes('text'))).toBe(true);
+  });
+
+  it('returns valid=false when first content item is undefined', () => {
+    const result = validateMCPResponse('test_tool', { content: [undefined] });
+    expect(result.valid).toBe(false);
+    expect(result.errors.some((e) => e.includes('text'))).toBe(true);
+  });
 });
 
 // ─── normalizeISO8601Date tests ───────────────────────────────────────────────

@@ -45,15 +45,13 @@ export class CircuitBreaker {
             if (Date.now() >= this.nextAttemptAt) {
                 this.state = 'HALF_OPEN';
                 this.halfOpenProbeInFlight = false;
-                return this._allowHalfOpenProbe();
+                // Fall through to HALF_OPEN probe logic below
             }
-            return false;
+            else {
+                return false;
+            }
         }
         // HALF_OPEN: allow exactly one probe in flight at a time
-        return this._allowHalfOpenProbe();
-    }
-    /** @internal Grant the single HALF_OPEN probe slot */
-    _allowHalfOpenProbe() {
         if (this.halfOpenProbeInFlight)
             return false;
         this.halfOpenProbeInFlight = true;
@@ -119,7 +117,7 @@ export const mcpCircuitBreaker = new CircuitBreaker();
  */
 async function callMCP(fn, fallback, context) {
     if (!mcpCircuitBreaker.canRequest()) {
-        console.warn(`${WARN_PREFIX} Circuit breaker OPEN — skipping ${context}`);
+        console.warn(`${WARN_PREFIX} Circuit breaker not accepting requests (${mcpCircuitBreaker.getState()}) — skipping ${context}`);
         return fallback;
     }
     try {
@@ -196,7 +194,7 @@ export async function fetchWeekAheadData(client, dateRange) {
         };
     }
     if (!mcpCircuitBreaker.canRequest()) {
-        console.warn(`${WARN_PREFIX} Circuit breaker OPEN — using placeholder events`);
+        console.warn(`${WARN_PREFIX} Circuit breaker not accepting requests (${mcpCircuitBreaker.getState()}) — using placeholder events`);
         return {
             events: PLACEHOLDER_EVENTS.map((e) => ({ ...e, date: dateRange.start })),
             committees: [],
@@ -205,6 +203,9 @@ export async function fetchWeekAheadData(client, dateRange) {
             questions: [],
         };
     }
+    // Record whether we entered as a HALF_OPEN probe so any rejection triggers
+    // an immediate re-open (normal circuit-breaker probe semantics).
+    const wasHalfOpen = mcpCircuitBreaker.getState() === 'HALF_OPEN';
     console.log(`${MCP_FETCH_PREFIX} Fetching week-ahead data from MCP (parallel)...`);
     const [plenarySessions, committeeInfo, documents, pipeline, questions] = await Promise.allSettled([
         client.getPlenarySessions({ startDate: dateRange.start, endDate: dateRange.end, limit: 50 }),
@@ -219,7 +220,9 @@ export async function fetchWeekAheadData(client, dateRange) {
         client.getParliamentaryQuestions({ startDate: dateRange.start, limit: 20 }),
     ]);
     const allFailed = [plenarySessions, committeeInfo, documents, pipeline, questions].every((r) => r.status === 'rejected');
-    if (allFailed) {
+    const anyFailed = [plenarySessions, committeeInfo, documents, pipeline, questions].some((r) => r.status === 'rejected');
+    // In HALF_OPEN any single rejection means the probe failed — re-open immediately.
+    if (allFailed || (wasHalfOpen && anyFailed)) {
         mcpCircuitBreaker.recordFailure();
     }
     else {
@@ -394,7 +397,11 @@ export async function fetchVotingRecords(client, dateFromStr, dateStr) {
                     title: r.title ?? 'Parliamentary Vote',
                     date: r.date ?? dateStr,
                     result: r.result ?? 'Adopted',
-                    votes: { for: r.votes?.for ?? 0, against: r.votes?.against ?? 0, abstain: r.votes?.abstain ?? 0 },
+                    votes: {
+                        for: r.votes?.for ?? 0,
+                        against: r.votes?.against ?? 0,
+                        abstain: r.votes?.abstain ?? 0,
+                    },
                 }));
             }
         }

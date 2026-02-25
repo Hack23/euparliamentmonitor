@@ -12,6 +12,14 @@ import { writeSingleArticle } from './output-stage.js';
 /**
  * Build the default strategy registry containing all five built-in strategies.
  *
+ * Each concrete strategy implements `ArticleStrategy<ConcreteData>` where
+ * `ConcreteData` extends `ArticleData`.  TypeScript's invariant generic
+ * parameter means the concrete type is not directly assignable to the base
+ * `ArticleStrategy<ArticleData>` without a boundary cast; the
+ * `as unknown as ArticleStrategy<ArticleData>` casts below are therefore
+ * intentional and safe — the registry delegates back to each strategy's own
+ * typed `fetchData`/`buildContent`/`getMetadata` methods at call-site.
+ *
  * @returns A populated registry ready for use by {@link generateArticleForStrategy}
  */
 export function createStrategyRegistry() {

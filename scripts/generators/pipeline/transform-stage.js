@@ -1,5 +1,21 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
+/**
+ * Validate the first item of a content array is a non-null object with a
+ * `text` string field.  Returns an error description or null when valid.
+ *
+ * @param item - First element of the content array
+ * @returns Error message or null
+ */
+function validateFirstContentItem(item) {
+    if (item === null || item === undefined || typeof item !== 'object' || Array.isArray(item)) {
+        return "First content item is missing a 'text' string field";
+    }
+    const obj = item;
+    return typeof obj['text'] === 'string'
+        ? null
+        : "First content item is missing a 'text' string field";
+}
 // ─── MCP Response validation ──────────────────────────────────────────────────
 /**
  * Validate that an MCP tool response has the standard envelope shape:
@@ -34,10 +50,9 @@ export function validateMCPResponse(toolName, data) {
             errors.push('Empty content array');
         }
         else {
-            const firstItem = content[0];
-            if (typeof firstItem['text'] !== 'string') {
-                errors.push("First content item is missing a 'text' string field");
-            }
+            const itemError = validateFirstContentItem(content[0]);
+            if (itemError)
+                errors.push(itemError);
         }
     }
     if (errors.length > 0) {

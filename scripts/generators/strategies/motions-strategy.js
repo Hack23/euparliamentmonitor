@@ -36,8 +36,8 @@ export class MotionsStrategy {
      * @returns Populated motions data payload
      */
     async fetchData(client, date) {
-        const dateFrom = new Date(date);
-        dateFrom.setDate(dateFrom.getDate() - MOTIONS_LOOKBACK_DAYS);
+        const dateFrom = new Date(`${date}T00:00:00Z`);
+        dateFrom.setUTCDate(dateFrom.getUTCDate() - MOTIONS_LOOKBACK_DAYS);
         const dateFromParts = dateFrom.toISOString().split('T');
         if (!dateFromParts[0]) {
             throw new Error('Invalid date format generated for motions look-back window');
