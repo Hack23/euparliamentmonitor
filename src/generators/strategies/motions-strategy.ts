@@ -19,7 +19,7 @@ import type {
 } from '../../types/index.js';
 import { MOTIONS_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchMotionsData } from '../pipeline/fetch-stage.js';
-import { generateMotionsContent } from '../motions-content.js';
+import { generateMotionsContent, buildPoliticalAlignmentSection } from '../motions-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 /** Keywords shared by all Motions articles */
@@ -110,7 +110,7 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
    * @returns Article HTML body
    */
   buildContent(data: MotionsArticleData, lang: LanguageCode): string {
-    return generateMotionsContent(
+    const base = generateMotionsContent(
       data.dateFromStr,
       data.date,
       [...data.votingRecords],
@@ -119,6 +119,11 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
       [...data.questions],
       lang
     );
+    const alignmentSection = buildPoliticalAlignmentSection([...data.votingRecords], [], lang);
+    if (alignmentSection) {
+      return base.replace(/(<\/div>\s*)$/, `${alignmentSection}$1`);
+    }
+    return base;
   }
 
   /**

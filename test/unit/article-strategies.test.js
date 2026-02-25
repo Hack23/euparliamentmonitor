@@ -3,8 +3,9 @@
 
 /**
  * Unit tests for article generation strategies.
- * Tests buildContent() and getMetadata() for each strategy using
- * pre-populated ArticleData payloads — no MCP calls required.
+ * Tests buildContent(), getMetadata(), and fetchData() (including fallback and
+ * error branches) for each strategy using pre-populated ArticleData payloads
+ * and null/mock MCP clients — no real MCP server calls required.
  */
 
 import { describe, it, expect } from 'vitest';

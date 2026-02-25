@@ -3,7 +3,7 @@
 import { ArticleCategory } from '../../types/index.js';
 import { MOTIONS_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchMotionsData } from '../pipeline/fetch-stage.js';
-import { generateMotionsContent } from '../motions-content.js';
+import { generateMotionsContent, buildPoliticalAlignmentSection } from '../motions-content.js';
 /** Keywords shared by all Motions articles */
 const MOTIONS_KEYWORDS = [
     'European Parliament',
@@ -61,7 +61,12 @@ export class MotionsStrategy {
      * @returns Article HTML body
      */
     buildContent(data, lang) {
-        return generateMotionsContent(data.dateFromStr, data.date, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
+        const base = generateMotionsContent(data.dateFromStr, data.date, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
+        const alignmentSection = buildPoliticalAlignmentSection([...data.votingRecords], [], lang);
+        if (alignmentSection) {
+            return base.replace(/(<\/div>\s*)$/, `${alignmentSection}$1`);
+        }
+        return base;
     }
     /**
      * Return language-specific metadata for the motions article.

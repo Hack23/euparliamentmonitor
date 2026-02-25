@@ -3,7 +3,7 @@
 import { ArticleCategory } from '../../types/index.js';
 import { WEEK_AHEAD_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchWeekAheadData } from '../pipeline/fetch-stage.js';
-import { buildWeekAheadContent, buildKeywords } from '../week-ahead-content.js';
+import { buildWeekAheadContent, buildKeywords, buildWhatToWatchSection } from '../week-ahead-content.js';
 // ─── Date-range helper ────────────────────────────────────────────────────────
 /**
  * Compute the week-ahead date range starting the day after `baseDate`.
@@ -64,7 +64,12 @@ export class WeekAheadStrategy {
      * @returns Article HTML body
      */
     buildContent(data, lang) {
-        return buildWeekAheadContent(data.weekData, data.dateRange, lang);
+        const base = buildWeekAheadContent(data.weekData, data.dateRange, lang);
+        const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
+        if (watchSection) {
+            return base.replace(/(<\/div>\s*)$/, `${watchSection}$1`);
+        }
+        return base;
     }
     /**
      * Return language-specific metadata for the week-ahead article.
