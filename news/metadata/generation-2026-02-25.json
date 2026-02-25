@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-02-25T05:35:00.123Z",
+  "generated": 14,
+  "skipped": 0,
+  "dryRun": 0,
+  "errors": 0,
+  "articles": [
+    "2026-02-25-propositions-en.html",
+    "2026-02-25-propositions-sv.html",
+    "2026-02-25-propositions-da.html",
+    "2026-02-25-propositions-no.html",
+    "2026-02-25-propositions-fi.html",
+    "2026-02-25-propositions-de.html",
+    "2026-02-25-propositions-fr.html",
+    "2026-02-25-propositions-es.html",
+    "2026-02-25-propositions-nl.html",
+    "2026-02-25-propositions-ar.html",
+    "2026-02-25-propositions-he.html",
+    "2026-02-25-propositions-ja.html",
+    "2026-02-25-propositions-ko.html",
+    "2026-02-25-propositions-zh.html"
+  ],
+  "results": [
+    {
+      "success": true,
+      "files": 14,
+      "slug": "2026-02-25-propositions"
+    }
+  ],
+  "usedMCP": true
+}
