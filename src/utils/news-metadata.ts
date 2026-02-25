@@ -12,7 +12,7 @@
 import fs from 'fs';
 import path from 'path';
 import { NEWS_DIR } from '../constants/config.js';
-import { getNewsArticles, parseArticleFilename, formatSlug } from './file-utils.js';
+import { getNewsArticles, parseArticleFilename, formatSlug, extractArticleMeta } from './file-utils.js';
 import type { ArticleMetadataEntry, NewsMetadataDatabase } from '../types/index.js';
 
 /** Default path for the metadata database file */
@@ -31,12 +31,15 @@ export function buildMetadataDatabase(newsDir: string = NEWS_DIR): NewsMetadataD
   for (const filename of articleFiles) {
     const parsed = parseArticleFilename(filename);
     if (parsed) {
+      const filepath = path.join(newsDir, filename);
+      const meta = extractArticleMeta(filepath);
       articles.push({
         filename: parsed.filename,
         date: parsed.date,
         slug: parsed.slug,
         lang: parsed.lang,
-        title: formatSlug(parsed.slug),
+        title: meta.title || formatSlug(parsed.slug),
+        description: meta.description,
       });
     }
   }

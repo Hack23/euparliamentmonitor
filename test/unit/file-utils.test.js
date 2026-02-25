@@ -187,4 +187,40 @@ describe('utils/file-utils', () => {
       expect(fs.readFileSync(filePath, 'utf-8')).toBe('second');
     });
   });
+
+  describe('extractArticleMeta', () => {
+    it('should extract title from h1 element', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'article.html');
+      fs.writeFileSync(filePath, '<h1>My Real Title</h1><meta name="description" content="My description">');
+      const meta = extractArticleMeta(filePath);
+      expect(meta.title).toBe('My Real Title');
+    });
+
+    it('should extract description from meta description tag', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'article2.html');
+      fs.writeFileSync(filePath, '<h1>Title</h1><meta name="description" content="The real description here">');
+      const meta = extractArticleMeta(filePath);
+      expect(meta.description).toBe('The real description here');
+    });
+
+    it('should return empty strings for file with no matching elements', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'empty.html');
+      fs.writeFileSync(filePath, '<html><body><p>No h1 here</p></body></html>');
+      const meta = extractArticleMeta(filePath);
+      expect(meta.title).toBe('');
+      expect(meta.description).toBe('');
+    });
+
+    it('should decode HTML entities in extracted values', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'article-entities.html');
+      fs.writeFileSync(filePath, '<h1>EU &amp; Parliament: Tom&#39;s &quot;Report&quot;</h1><meta name="description" content="Cost &lt;100&gt; &amp; more">');
+      const meta = extractArticleMeta(filePath);
+      expect(meta.title).toBe('EU & Parliament: Tom\'s "Report"');
+      expect(meta.description).toBe('Cost <100> & more');
+    });
+  });
 });

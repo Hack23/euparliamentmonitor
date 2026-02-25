@@ -152,6 +152,50 @@ export function writeFileContent(filepath: string, content: string): void {
 }
 
 /**
+ * Decode the 5 HTML entities produced by escapeHTML() back to plain text.
+ * Used when extracting text from our own generated HTML to obtain unescaped values.
+ *
+ * @param str - HTML string with entities
+ * @returns Plain text with entities decoded
+ */
+function decodeHtmlEntities(str: string): string {
+  return str
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
+}
+
+/**
+ * Extract title and description from a generated article HTML file.
+ * Reads the predictable template structure produced by article-template.ts.
+ * Falls back to empty strings when the file cannot be read.
+ * HTML entities from the template are decoded to produce plain text.
+ *
+ * @param filepath - Absolute path to the article HTML file
+ * @returns Object with title (from first h1) and description (from meta description)
+ */
+export function extractArticleMeta(filepath: string): { title: string; description: string } {
+  let title = '';
+  let description = '';
+  try {
+    const content = fs.readFileSync(filepath, 'utf-8');
+    const titleMatch = content.match(/<h1>([^<]+)<\/h1>/u);
+    if (titleMatch?.[1]) {
+      title = decodeHtmlEntities(titleMatch[1]);
+    }
+    const descMatch = content.match(/<meta name="description" content="([^"]+)"/u);
+    if (descMatch?.[1]) {
+      description = decodeHtmlEntities(descMatch[1]);
+    }
+  } catch {
+    // File not readable – return empty strings
+  }
+  return { title, description };
+}
+
+/**
  * Escape special HTML characters to prevent XSS
  *
  * @param str - Raw string to escape

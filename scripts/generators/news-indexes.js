@@ -12,9 +12,10 @@ import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
 import { PROJECT_ROOT } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
-import { getNewsArticles, groupArticlesByLanguage, formatSlug } from '../utils/file-utils.js';
+import { getNewsArticles, groupArticlesByLanguage, formatSlug, extractArticleMeta, escapeHTML } from '../utils/file-utils.js';
 import { updateMetadataDatabase } from '../utils/news-metadata.js';
 import { ArticleCategory } from '../types/index.js';
+import { NEWS_DIR } from '../constants/config.js';
 /**
  * Default category for articles that don't match specific patterns.
  */
@@ -97,11 +98,17 @@ function buildFooterLanguageGrid(currentLang) {
  * Render a single news card element.
  *
  * @param article - Parsed article data
+ * @param meta - Real title and description extracted from the article HTML
+ * @param meta.title - Article title
+ * @param meta.description - Article description/excerpt
  * @returns HTML string for one card
  */
-function renderCard(article) {
+function renderCard(article, meta) {
     const category = detectCategory(article.slug);
-    const title = formatSlug(article.slug);
+    const title = escapeHTML(meta.title || formatSlug(article.slug));
+    const excerpt = meta.description
+        ? `\n            <p class="news-card__excerpt">${escapeHTML(meta.description)}</p>`
+        : '';
     return `
       <li class="news-card">
         <a href="news/${article.filename}" class="news-card__link" lang="${article.lang}" hreflang="${article.lang}">
@@ -111,7 +118,7 @@ function renderCard(article) {
               <span class="news-card__badge news-card__badge--${category}">${formatSlug(category)}</span>
               <time class="news-card__date" datetime="${article.date}">${article.date}</time>
             </div>
-            <h3 class="news-card__title">${title}</h3>
+            <h3 class="news-card__title">${title}</h3>${excerpt}
           </div>
         </a>
       </li>`;
@@ -142,9 +149,10 @@ function buildHreflangTags() {
  *
  * @param lang - Language code
  * @param articles - Articles for this language
+ * @param metaMap - Map of article filename to real title and description
  * @returns Complete HTML document
  */
-export function generateIndexHTML(lang, articles) {
+export function generateIndexHTML(lang, articles, metaMap = new Map()) {
     const title = getLocalizedString(PAGE_TITLES, lang);
     const description = getLocalizedString(PAGE_DESCRIPTIONS, lang);
     const heading = getLocalizedString(SECTION_HEADINGS, lang);
@@ -162,7 +170,9 @@ export function generateIndexHTML(lang, articles) {
     </div>`
         : `
     <ul class="news-grid" role="list">
-      ${articles.map(renderCard).join('\n')}
+      ${articles
+            .map((a) => renderCard(a, metaMap.get(a.filename) ?? { title: formatSlug(a.slug), description: '' }))
+            .join('\n')}
     </ul>`;
     return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
@@ -258,13 +268,19 @@ function main() {
     const articles = getNewsArticles();
     console.log(`📊 Found ${articles.length} articles`);
     const grouped = groupArticlesByLanguage(articles, ALL_LANGUAGES);
+    // Build metadata map (real titles + descriptions from each article HTML)
+    const metaMap = new Map();
+    for (const filename of articles) {
+        const filepath = path.join(NEWS_DIR, filename);
+        metaMap.set(filename, extractArticleMeta(filepath));
+    }
     // Also update the metadata database
     updateMetadataDatabase();
     console.log('📝 Updated articles metadata database');
     let generated = 0;
     for (const lang of ALL_LANGUAGES) {
         const langArticles = grouped[lang] ?? [];
-        const html = generateIndexHTML(lang, langArticles);
+        const html = generateIndexHTML(lang, langArticles, metaMap);
         const filename = getIndexFilename(lang);
         const filepath = path.join(PROJECT_ROOT, filename);
         fs.writeFileSync(filepath, html, 'utf-8');
