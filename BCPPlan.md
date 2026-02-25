@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--20-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Semi_Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-02-20 (UTC)  
-**🔄 Review Cycle:** Semi-Annual | **⏰ Next Review:** 2026-08-20
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-02-25 (UTC)  
+**🔄 Review Cycle:** Semi-Annual | **⏰ Next Review:** 2026-08-25
 
 ---
 
@@ -85,6 +85,10 @@ Based on [CLASSIFICATION.md](CLASSIFICATION.md) analysis:
 | **RTO (Recovery Time Objective)** | 4 hours | GitHub Pages rebuild from repository |
 | **RPO (Recovery Point Objective)** | 0 minutes | Git repository provides full history |
 | **MTTR (Mean Time to Repair)** | 2 hours | Automated CI/CD pipeline rebuild |
+| **MTPD (Max Tolerable Period of Disruption)** | 72 hours | After 3 days, democratic monitoring impact becomes significant |
+| **SDO (Service Delivery Objective)** | 95% availability | Monthly target for GitHub Pages service |
+| **WRT (Work Recovery Time)** | 30 minutes | Time to validate restored content integrity |
+| **NBD (Normal Business Day)** | N/A (24/7 operations) | No business-day distinction; weekend and holiday recovery procedures are identical to normal operations |
 
 ---
 
@@ -195,6 +199,62 @@ graph TB
 
 ---
 
+## 📋 ISO 22301:2019 Business Continuity Management Alignment
+
+EU Parliament Monitor BCP aligns with ISO 22301:2019 (Business Continuity Management) key clauses:
+
+| ISO 22301 Clause | Requirement | Implementation | Status |
+|-----------------|-------------|----------------|--------|
+| **4.1** | Understanding organizational context | Democratic transparency mission, GitHub-hosted | ✅ |
+| **4.2** | Interested parties needs | European citizens, researchers, MEPs, media | ✅ |
+| **5.1** | Leadership commitment | CEO document ownership and approval | ✅ |
+| **6.1** | Risk assessment | THREAT_MODEL.md STRIDE analysis | ✅ |
+| **6.2** | Business continuity objectives | RTO ≤ 4h, RPO = 0, MTPD ≤ 72h | ✅ |
+| **7.5** | Documented information | This BCP, SECURITY_ARCHITECTURE.md, WORKFLOWS.md | ✅ |
+| **8.2** | Business impact analysis (BIA) | CLASSIFICATION.md CIA triad analysis | ✅ |
+| **8.3** | Business continuity strategy | Static site + Git backup + CDN | ✅ |
+| **8.4** | Business continuity plans and procedures | This document + recovery runbooks | ✅ |
+| **8.5** | Exercise and testing | GitHub Actions pipeline validates recovery monthly | ✅ |
+| **8.6** | Evaluation of business continuity docs | Semi-annual review cycle | ✅ |
+| **9.1** | Monitoring, measurement, analysis | GitHub Pages uptime monitoring | ✅ |
+| **10.1** | Nonconformity and corrective action | GitHub Issues for incident tracking | ✅ |
+| **10.2** | Continual improvement | Quarterly threat model review | ✅ |
+
+**ISO 22301 Alignment**: ✅ **Substantially Compliant** — All 14 applicable clauses addressed
+
+---
+
+## 🔄 NIST CSF 2.0 Recovery Function Alignment
+
+| Subcategory | Description | Implementation | Status |
+|-------------|-------------|----------------|--------|
+| **RC.RP-01** | Recovery plan executed per plan | GitHub Actions manual trigger + runbooks | ✅ |
+| **RC.RP-02** | Recovery plan validated before incident | Monthly pipeline test runs | ✅ |
+| **RC.RP-03** | Recovery activities meet recovery objectives | RTO/RPO validated in test exercises | ✅ |
+| **RC.RP-04** | Critical functions restored per RTO | < 4h rebuild validated via CI timing | ✅ |
+| **RC.RP-05** | Integrity of restored assets verified | HTML validation + test suite post-recovery | ✅ |
+| **RC.CO-03** | Recovery activities communicated | GitHub Issues, SECURITY.md procedures | ✅ |
+| **RC.CO-04** | Lessons learned from incidents documented | Post-incident review requirement | ✅ |
+| **RC.IM-01** | Recovery plans updated after exercises | BCP semi-annual review cycle | ✅ |
+| **RC.IM-02** | Incident management improvements | GitHub Issues retrospective process | ✅ |
+
+**NIST CSF 2.0 RC Function**: ✅ **9/9 subcategories addressed**
+
+---
+
+## 📊 Framework Compliance Summary
+
+| Framework | Standard | BCP Alignment | Evidence |
+|-----------|----------|---------------|---------|
+| **ISO 22301:2019** | Business Continuity Management | 14/14 clauses | This document |
+| **ISO 27001:2022 A.5.29** | Information security during disruption | Recovery procedures | SECURITY_ARCHITECTURE.md |
+| **NIST CSF 2.0 RC** | Recover function | 9/9 subcategories | This document |
+| **CIS Controls v8.1 #11** | Data recovery | Git-based backup strategy | BCPPlan.md + WORKFLOWS.md |
+| **NIS2 Art.21(2)(c)** | Business continuity | RTO/RPO defined | This document |
+| **GDPR Art.32** | Availability of systems | 99%+ GitHub Pages SLA | Architecture design |
+
+---
+
 ## 🔗 Related Documentation
 
 ### 🔐 ISMS Policies
@@ -202,6 +262,9 @@ graph TB
 - [💾 Backup & Recovery Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md)
 - [🚨 Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md)
 - [🏷️ Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)
+- [📋 Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
+- [📊 Risk Assessment Methodology](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md)
+- [🌐 ISMS Transparency Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/ISMS_Transparency_Plan.md)
 
 ### 🏛️ Project Documentation
 - [🏛️ Architecture](ARCHITECTURE.md) — System design

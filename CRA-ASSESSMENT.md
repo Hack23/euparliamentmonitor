@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--20-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-02-20 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-20
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-02-25 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-25
 
 ---
 
@@ -133,7 +133,53 @@ As a static site generating multi-language news articles from European Parliamen
 
 ### Scope Justification
 
-EU Parliament Monitor falls under **CRA Article 6 — Standard (Default) category** as a non-critical digital product. The product is an open-source static site generator that produces pre-rendered HTML pages from publicly available European Parliament data. It has no runtime network connectivity, processes no personal data, requires no user authentication, and poses minimal cybersecurity risk. As a non-commercial open-source project (CRA Recital 18), it benefits from reduced obligations while voluntarily maintaining comprehensive security practices aligned with CRA Annex I essential requirements.
+EU Parliament Monitor falls under **CRA Article 6 — Standard (Default) category** as a non-critical digital product. The product is an open-source static site generator that produces pre-rendered HTML pages from publicly available European Parliament data. It has no runtime network connectivity, processes no personal data, requires no user authentication, and poses minimal cybersecurity risk.
+
+### 🏛️ Open Source Software CRA Exemption
+
+> **Important CRA Note for Open Source Software**: Under CRA **Recital 18** and **Article 3**, open-source software developed and distributed non-commercially (subject to the "in-the-course-of-a-commercial-activity" test) may qualify for full or partial CRA exemption. EU Parliament Monitor is:
+>
+> - ✅ Free and open-source (Apache-2.0 license)
+> - ✅ Non-commercial civic technology — zero revenue generated
+> - ✅ No monetary consideration for distribution
+> - ✅ No commercial exploitation by manufacturer (Hack23 AB)
+
+**Assessment**: EU Parliament Monitor **likely qualifies as non-commercial OSS** under CRA Article 3, meaning most manufacturer obligations do **NOT** apply. However, the platform **voluntarily implements CRA best practices** as part of Hack23 AB's security commitment and ISMS framework — demonstrating proactive security transparency to citizens, regulators, and the open-source community.
+
+As a non-commercial open-source project (CRA Recital 18), it benefits from reduced obligations while voluntarily maintaining comprehensive security practices aligned with CRA Annex I essential requirements.
+
+---
+
+## 2️⃣ᵃ EU CRA Enforcement Timeline
+
+Understanding CRA's phased enforcement timeline is essential for compliance planning. EU Parliament Monitor monitors these milestones to ensure timely readiness.
+
+| 🗓️ Milestone | 📅 Date | 📋 Requirements | 🚦 Status |
+|--------------|---------|-----------------|-----------|
+| **CRA Published in Official Journal** | 2024-11-20 | Regulation (EU) 2024/2847 published | ✅ Completed |
+| **CRA Entry into Force** | 2024-12-11 | 20 days after publication in Official Journal | ✅ Completed |
+| **Market Surveillance Provisions** | **2026-06-11** | Chapter VI market surveillance rules applicable (18 months) | 🔄 Upcoming |
+| **Vulnerability & Incident Reporting Obligations** | **2026-09-11** | Articles 14 & 15 — Vulnerability and incident reporting to ENISA/national CSIRTs | 🔄 Upcoming |
+| **Full CRA Compliance Required** | **2027-12-11** | All CRA requirements for manufacturers, importers, and distributors | 🔄 Upcoming |
+| **CE Marking Mandatory** | **2027-12-11** | Products covered by CRA must bear CE marking | N/A (non-commercial OSS) |
+
+> **📍 Current Position (Feb 2026):** CRA is in force. Vulnerability reporting requirements under Articles 14 & 15 apply from **September 2026 — approximately 7 months away**. EU Parliament Monitor's existing [`SECURITY.md`](SECURITY.md) coordinated disclosure process and GitHub Security Advisories integration **already satisfies these upcoming requirements**. No additional action required before the September 2026 deadline.
+
+```mermaid
+gantt
+    title EU CRA Enforcement Timeline
+    dateFormat  YYYY-MM-DD
+    axisFormat  %b %Y
+
+    section Completed
+    CRA Published (2024-11-20)          :done, pub,  2024-11-20, 1d
+    CRA Entry into Force (2024-12-11)   :done, eif,  2024-12-11, 1d
+
+    section Upcoming
+    Market Surveillance (2026-06-11)    :active, ms,  2026-06-11, 30d
+    Vulnerability Reporting (2026-09-11):active, vr,  2026-09-11, 30d
+    Full CRA Compliance (2027-12-11)    :crit, fc,  2027-12-11, 30d
+```
 
 ---
 
@@ -153,6 +199,22 @@ EU Parliament Monitor falls under **CRA Article 6 — Standard (Default) categor
 | **Technology Lifecycle** | End-of-Life Strategy documenting Node.js 24 LTS support timeline; dependency lifecycle tracking; proactive technology migration planning | [End-of-Life-Strategy.md](End-of-Life-Strategy.md) |
 | **Testing & Validation** | Vitest unit tests (82%+ coverage); Playwright E2E tests across 14 languages; axe-core accessibility testing (WCAG 2.1 AA); Lighthouse performance benchmarking; ESLint + HTMLHint linting | [UnitTestPlan.md](UnitTestPlan.md), [E2ETestPlan.md](E2ETestPlan.md), [performance-testing.md](performance-testing.md) |
 | **Business Continuity** | GitHub Pages CDN with global distribution; git-based disaster recovery; repository mirroring capability; classification-driven recovery priorities | [BCPPlan.md](BCPPlan.md), [FinancialSecurityPlan.md](FinancialSecurityPlan.md) |
+
+### 📦 SBOM Implementation Details
+
+EU Parliament Monitor generates a comprehensive Software Bill of Materials (SBOM) for every release per **CRA Annex I, Part I, §2(3)** requirements — ensuring complete software supply chain transparency.
+
+| 📋 SBOM Attribute | 🔧 Implementation | 📜 CRA Requirement | ✅ Status |
+|-------------------|-------------------|-------------------|-----------|
+| **SBOM Format** | SPDX JSON (via `npm list --json`) | Machine-readable format | ✅ |
+| **Component Inventory** | All npm dependencies — direct and transitive | Complete software component listing | ✅ |
+| **Version Information** | Exact semantic versions from `package-lock.json` | Precise version identification | ✅ |
+| **License Information** | `REUSE.toml` + SPDX headers per file | License compliance metadata | ✅ |
+| **Vulnerability Status** | `npm audit` + Dependabot alerts | Known vulnerability tracking | ✅ |
+| **Generation Frequency** | On every release via GitHub Actions release workflow | Current at time of distribution | ✅ |
+| **Public Availability** | Released as GitHub Release artifact | Freely accessible to downstream users | ✅ |
+
+> **Note:** The `package-lock.json` provides a machine-readable, version-pinned dependency graph that serves as a complementary SBOM artifact for all build-time consumers. Both the CycloneDX SBOM (generated per release) and `package-lock.json` are publicly accessible, fulfilling CRA Annex I Part II §7.
 
 ---
 
@@ -239,16 +301,16 @@ flowchart TD
 
 | ✅ | 📋 **Conformity Checkpoint** | 📊 **Status** | 📅 **Verified** |
 |----|------------------------------|--------------|-----------------|
-| ✅ | CRA Annex I Part I — All security property requirements assessed | Complete | 2026-02-20 |
-| ✅ | CRA Annex I Part II — All vulnerability handling requirements assessed | Complete | 2026-02-20 |
-| ✅ | CRA Annex V — Technical documentation complete and current | Complete | 2026-02-20 |
-| ✅ | SBOM — Machine-readable CycloneDX SBOM generated per release | Complete | 2026-02-20 |
-| ✅ | SLSA — Level 3 provenance attestation for release artifacts | Complete | 2026-02-20 |
-| ✅ | Vulnerability Disclosure — SECURITY.md with coordinated disclosure process | Complete | 2026-02-20 |
-| ✅ | Security Testing — SAST (CodeQL), SCA (Dependabot), unit, E2E, accessibility | Complete | 2026-02-20 |
-| ✅ | Lifecycle Management — End-of-Life Strategy documenting support period | Complete | 2026-02-20 |
-| ✅ | Risk Assessment — STRIDE threat model with residual risk evaluation | Complete | 2026-02-20 |
-| ✅ | ISMS Alignment — Mapped to Hack23 ISMS public policy framework | Complete | 2026-02-20 |
+| ✅ | CRA Annex I Part I — All security property requirements assessed | Complete | 2026-02-25 |
+| ✅ | CRA Annex I Part II — All vulnerability handling requirements assessed | Complete | 2026-02-25 |
+| ✅ | CRA Annex V — Technical documentation complete and current | Complete | 2026-02-25 |
+| ✅ | SBOM — Machine-readable CycloneDX SBOM generated per release | Complete | 2026-02-25 |
+| ✅ | SLSA — Level 3 provenance attestation for release artifacts | Complete | 2026-02-25 |
+| ✅ | Vulnerability Disclosure — SECURITY.md with coordinated disclosure process | Complete | 2026-02-25 |
+| ✅ | Security Testing — SAST (CodeQL), SCA (Dependabot), unit, E2E, accessibility | Complete | 2026-02-25 |
+| ✅ | Lifecycle Management — End-of-Life Strategy documenting support period | Complete | 2026-02-25 |
+| ✅ | Risk Assessment — STRIDE threat model with residual risk evaluation | Complete | 2026-02-25 |
+| ✅ | ISMS Alignment — Mapped to Hack23 ISMS public policy framework | Complete | 2026-02-25 |
 
 ### CRA Article Cross-References
 
@@ -317,6 +379,22 @@ flowchart TD
 - **🎯 Minimal Overhead:** Static site architecture naturally satisfies many CRA requirements through design simplicity
 - **🤝 Stakeholder Confidence:** Transparent assessment demonstrates professional security practices for open-source civic technology
 
+### 🔀 ISO 27001:2022 ↔ EU CRA Cross-Reference
+
+The table below maps ISO 27001:2022 controls directly to CRA Annex I references, demonstrating how Hack23 AB's existing ISMS controls satisfy CRA essential requirements — minimising compliance overhead through integrated governance.
+
+| 🏛️ ISO 27001:2022 Control | 📜 CRA Annex I Reference | 📋 Description | ✅ Status |
+|--------------------------|-------------------------|----------------|-----------|
+| **A.5.1** Information security policies | Part I §1 (Security by default) | Security governance framework establishing security-by-design principles | ✅ Aligned |
+| **A.8.8** Technical vulnerability management | Part I §2(2) (Vulnerability handling) | CVE tracking, Dependabot scanning, and severity-based remediation SLAs | ✅ Aligned |
+| **A.8.25** Secure development lifecycle | Part II §1 (Secure development) | SDLC security integration via CodeQL SAST, PR reviews, and CI/CD gates | ✅ Aligned |
+| **A.5.24** Information security incident management | Part I §2(5) (Incident reporting) | Security incident procedures via SECURITY.md and GitHub Security Advisories | ✅ Aligned |
+| **A.8.13** Information backup | Part I §5 (Data integrity) | Git-based immutable backup strategy with full site regeneration capability | ✅ Aligned |
+| **A.5.36** Compliance with policies and standards | Module A self-assessment | Ongoing conformity verification through quarterly CRA assessment review cycle | ✅ Aligned |
+| **A.8.20** Network security | Part I §8 (Availability of other services) | Static site generates zero runtime outbound traffic; no network attack surface at runtime | ✅ Aligned |
+| **A.8.29** Security testing in development | Part II §3 (Regular testing) | Vitest unit tests, Playwright E2E, axe-core accessibility, and Lighthouse performance | ✅ Aligned |
+| **A.5.20** Addressing security in supplier agreements | Part I supply chain (§9) | SLSA Level 3 provenance, dependency-review workflow, pinned action versions | ✅ Aligned |
+
 ---
 
 ## 🔗 Related Documentation
@@ -347,7 +425,7 @@ flowchart TD
 **✅ Approved by:** James Pether Sörling, CEO  
 **📤 Distribution:** Public  
 **🏷️ Classification:** [![Confidentiality: Public](https://img.shields.io/badge/C-Public-lightgrey?style=flat-square&logo=shield&logoColor=black)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#confidentiality-levels) [![Integrity: Moderate](https://img.shields.io/badge/I-Moderate-yellow?style=flat-square&logo=check-circle&logoColor=black)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#integrity-levels) [![Availability: Standard](https://img.shields.io/badge/A-Standard-lightgreen?style=flat-square&logo=server&logoColor=white)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#availability-levels)  
-**📅 Effective Date:** 2026-02-20  
+**📅 Effective Date:** 2026-02-25  
 **🔄 CRA Alignment:** Self-assessment per CRA Module A — supports CRA Annex V technical documentation and Annex I essential requirements  
 **🏛️ ISMS Integration:** Comprehensive alignment with [Hack23 ISMS Public Framework](https://github.com/Hack23/ISMS-PUBLIC)  
 **🎯 Framework Compliance:** [![ISO 27001](https://img.shields.io/badge/ISO_27001-2022_Aligned-blue?style=flat-square&logo=iso&logoColor=white)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) [![NIST CSF 2.0](https://img.shields.io/badge/NIST_CSF-2.0_Aligned-green?style=flat-square&logo=nist&logoColor=white)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) [![CIS Controls](https://img.shields.io/badge/CIS_Controls-v8.1_Aligned-orange?style=flat-square&logo=cisecurity&logoColor=white)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)
