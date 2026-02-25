@@ -42,12 +42,12 @@ export interface WeekAheadArticleData extends ArticleData {
  * @returns Date range spanning the next 7 days
  */
 function computeWeekAheadDateRange(baseDate: string): DateRange {
-  const base = new Date(baseDate);
+  const base = new Date(`${baseDate}T00:00:00Z`);
   const startDate = new Date(base);
-  startDate.setDate(base.getDate() + 1);
+  startDate.setUTCDate(base.getUTCDate() + 1);
 
   const endDate = new Date(startDate);
-  endDate.setDate(startDate.getDate() + 7);
+  endDate.setUTCDate(startDate.getUTCDate() + 7);
 
   const startParts = startDate.toISOString().split('T');
   const endParts = endDate.toISOString().split('T');

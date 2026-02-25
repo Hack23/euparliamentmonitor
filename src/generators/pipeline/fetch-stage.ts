@@ -176,7 +176,7 @@ export const mcpCircuitBreaker = new CircuitBreaker();
  */
 async function callMCP<T>(fn: () => Promise<T>, fallback: T, context: string): Promise<T> {
   if (!mcpCircuitBreaker.canRequest()) {
-    console.warn(`${WARN_PREFIX} Circuit breaker OPEN — skipping ${context}`);
+    console.warn(`${WARN_PREFIX} Circuit breaker not accepting requests (${mcpCircuitBreaker.getState()}) — skipping ${context}`);
     return fallback;
   }
   try {
@@ -262,7 +262,7 @@ export async function fetchWeekAheadData(
   }
 
   if (!mcpCircuitBreaker.canRequest()) {
-    console.warn(`${WARN_PREFIX} Circuit breaker OPEN — using placeholder events`);
+    console.warn(`${WARN_PREFIX} Circuit breaker not accepting requests (${mcpCircuitBreaker.getState()}) — using placeholder events`);
     return {
       events: PLACEHOLDER_EVENTS.map((e) => ({ ...e, date: dateRange.start })),
       committees: [],
@@ -271,6 +271,10 @@ export async function fetchWeekAheadData(
       questions: [],
     };
   }
+
+  // Record whether we entered as a HALF_OPEN probe so any rejection triggers
+  // an immediate re-open (normal circuit-breaker probe semantics).
+  const wasHalfOpen = mcpCircuitBreaker.getState() === 'HALF_OPEN';
 
   console.log(`${MCP_FETCH_PREFIX} Fetching week-ahead data from MCP (parallel)...`);
 
@@ -291,7 +295,11 @@ export async function fetchWeekAheadData(
   const allFailed = [plenarySessions, committeeInfo, documents, pipeline, questions].every(
     (r) => r.status === 'rejected'
   );
-  if (allFailed) {
+  const anyFailed = [plenarySessions, committeeInfo, documents, pipeline, questions].some(
+    (r) => r.status === 'rejected'
+  );
+  // In HALF_OPEN any single rejection means the probe failed — re-open immediately.
+  if (allFailed || (wasHalfOpen && anyFailed)) {
     mcpCircuitBreaker.recordFailure();
   } else {
     mcpCircuitBreaker.recordSuccess();

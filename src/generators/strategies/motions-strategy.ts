@@ -78,8 +78,8 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
     client: EuropeanParliamentMCPClient | null,
     date: string
   ): Promise<MotionsArticleData> {
-    const dateFrom = new Date(date);
-    dateFrom.setDate(dateFrom.getDate() - MOTIONS_LOOKBACK_DAYS);
+    const dateFrom = new Date(`${date}T00:00:00Z`);
+    dateFrom.setUTCDate(dateFrom.getUTCDate() - MOTIONS_LOOKBACK_DAYS);
     const dateFromParts = dateFrom.toISOString().split('T');
     if (!dateFromParts[0]) {
       throw new Error('Invalid date format generated for motions look-back window');

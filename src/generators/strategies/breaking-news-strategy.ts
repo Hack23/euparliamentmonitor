@@ -5,7 +5,7 @@
  * @module Generators/Strategies/BreakingNewsStrategy
  * @description Article strategy for the Breaking News article type.
  * Fetches OSINT intelligence signals (voting anomalies, coalition dynamics,
- * voting report, MEP influence) and renders a real-time alert article.
+ * voting report) and renders a real-time alert article.
  */
 
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';

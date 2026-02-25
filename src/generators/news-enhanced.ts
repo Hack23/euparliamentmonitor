@@ -159,6 +159,7 @@ console.log('Skip existing:', skipExistingArg ? 'Yes' : 'No');
 
 // Ensure directories exist
 ensureDirectoryExists(METADATA_DIR);
+ensureDirectoryExists(NEWS_DIR);
 
 // Generation statistics
 const stats: GenerationStats = {

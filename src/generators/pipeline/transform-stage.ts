@@ -20,6 +20,21 @@ export interface ValidationResult {
   errors: string[];
 }
 
+/**
+ * Validate the first item of a content array is a non-null object with a
+ * `text` string field.  Returns an error description or null when valid.
+ *
+ * @param item - First element of the content array
+ * @returns Error message or null
+ */
+function validateFirstContentItem(item: unknown): string | null {
+  if (item === null || item === undefined || typeof item !== 'object' || Array.isArray(item)) {
+    return "First content item is missing a 'text' string field";
+  }
+  const obj = item as Record<string, unknown>;
+  return typeof obj['text'] === 'string' ? null : "First content item is missing a 'text' string field";
+}
+
 // ─── MCP Response validation ──────────────────────────────────────────────────
 
 /**
@@ -57,10 +72,8 @@ export function validateMCPResponse(toolName: string, data: unknown): Validation
     if (content.length === 0) {
       errors.push('Empty content array');
     } else {
-      const firstItem = content[0] as Record<string, unknown>;
-      if (typeof firstItem['text'] !== 'string') {
-        errors.push("First content item is missing a 'text' string field");
-      }
+      const itemError = validateFirstContentItem(content[0]);
+      if (itemError) errors.push(itemError);
     }
   }
 
