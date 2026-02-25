@@ -44,8 +44,7 @@ name: "News: EU Parliament Motions"
 permissions: {}
 
 concurrency:
-  group: "news-article-generation"
-  cancel-in-progress: false
+  group: "gh-aw-${{ github.workflow }}"
 
 run-name: "News: EU Parliament Motions"
 
