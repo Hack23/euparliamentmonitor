@@ -96,6 +96,34 @@ describe('CircuitBreaker', () => {
     expect(stats.state).toBe('CLOSED');
     expect(stats.consecutiveFailures).toBe(2);
   });
+
+  it('HALF_OPEN allows only one probe — second canRequest() returns false', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 1, resetTimeoutMs: 0 });
+    cb.recordFailure();
+    const first = cb.canRequest();  // transitions to HALF_OPEN, probe in-flight
+    const second = cb.canRequest(); // probe already in-flight → blocked
+    expect(first).toBe(true);
+    expect(second).toBe(false);
+    expect(cb.getState()).toBe('HALF_OPEN');
+  });
+
+  it('HALF_OPEN failure immediately re-opens the circuit', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 1, resetTimeoutMs: 60_000 });
+    cb.recordFailure();           // → OPEN
+    cb.canRequest();              // → HALF_OPEN (probe in-flight)
+    cb.recordFailure();           // probe failed → OPEN immediately
+    expect(cb.getState()).toBe('OPEN');
+    expect(cb.canRequest()).toBe(false); // back-off hasn't expired
+  });
+
+  it('HALF_OPEN probe-slot is freed after recordSuccess so circuit closes', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 1, resetTimeoutMs: 0 });
+    cb.recordFailure();
+    cb.canRequest(); // → HALF_OPEN, probe in-flight
+    cb.recordSuccess();
+    expect(cb.getState()).toBe('CLOSED');
+    expect(cb.canRequest()).toBe(true); // circuit CLOSED, normal traffic allowed
+  });
 });
 
 // ─── validateMCPResponse tests ────────────────────────────────────────────────

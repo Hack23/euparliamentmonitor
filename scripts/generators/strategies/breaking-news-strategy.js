@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { ArticleCategory } from '../../types/index.js';
 import { BREAKING_NEWS_TITLES, getLocalizedString } from '../../constants/languages.js';
-import { fetchVotingAnomalies, fetchCoalitionDynamics, fetchVotingReport, fetchMEPInfluence, } from '../pipeline/fetch-stage.js';
+import { fetchVotingAnomalies, fetchCoalitionDynamics, fetchVotingReport, } from '../pipeline/fetch-stage.js';
 import { buildBreakingNewsContent } from '../breaking-content.js';
 /** Keywords shared by all Breaking News articles */
 const BREAKING_NEWS_KEYWORDS = [
@@ -22,7 +22,6 @@ export class BreakingNewsStrategy {
         'detect_voting_anomalies',
         'analyze_coalition_dynamics',
         'generate_report',
-        'assess_mep_influence',
     ];
     /**
      * Fetch all OSINT signals in parallel and pre-build the HTML body.
@@ -33,14 +32,13 @@ export class BreakingNewsStrategy {
      */
     async fetchData(client, date) {
         console.log('  📡 Fetching OSINT intelligence data from MCP...');
-        const [anomalyRaw, coalitionRaw, reportRaw, influenceRaw] = await Promise.all([
+        const [anomalyRaw, coalitionRaw, reportRaw] = await Promise.all([
             fetchVotingAnomalies(client),
             fetchCoalitionDynamics(client),
             fetchVotingReport(client),
-            fetchMEPInfluence(client, ''),
         ]);
-        const prebuiltContent = buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw);
-        return { date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, prebuiltContent };
+        const prebuiltContent = buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, '');
+        return { date, anomalyRaw, coalitionRaw, reportRaw, prebuiltContent };
     }
     /**
      * Return the pre-built HTML body (same for all languages).

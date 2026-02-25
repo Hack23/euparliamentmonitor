@@ -46,7 +46,6 @@ const breakingNewsData = {
   anomalyRaw: 'EPP defection detected',
   coalitionRaw: 'Coalition stress rising',
   reportRaw: 'High abstention rate',
-  influenceRaw: '',
   prebuiltContent: '<section class="breaking">Breaking content</section>',
 };
 

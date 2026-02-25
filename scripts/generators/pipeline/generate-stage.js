@@ -32,6 +32,20 @@ const ARTICLE_EMOJIS = {
     [ArticleCategory.PROPOSITIONS]: '📜',
     [ArticleCategory.MOTIONS]: '🗳️',
 };
+// ─── Date helper ──────────────────────────────────────────────────────────────
+/**
+ * Extract the YYYY-MM-DD portion of a Date object's ISO string.
+ * Throws explicitly instead of relying on non-null assertion.
+ *
+ * @param date - Date to extract from
+ * @returns ISO date string (YYYY-MM-DD)
+ */
+function getIsoDatePart(date) {
+    const parts = date.toISOString().split('T');
+    if (!parts[0])
+        throw new Error('Failed to extract date part from ISO string');
+    return parts[0];
+}
 // ─── Generation orchestrator ──────────────────────────────────────────────────
 /**
  * Run the complete fetch → build → write cycle for one article type.
@@ -52,7 +66,7 @@ export async function generateArticleForStrategy(strategy, client, languages, ou
     console.log(`${emoji} Generating ${strategy.type} article...`);
     try {
         const today = new Date();
-        const dateStr = today.toISOString().split('T')[0];
+        const dateStr = getIsoDatePart(today);
         const slug = `${formatDateForSlug(today)}-${strategy.type}`;
         const data = await strategy.fetchData(client, dateStr);
         let writtenCount = 0;

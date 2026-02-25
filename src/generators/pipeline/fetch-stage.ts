@@ -75,6 +75,7 @@ export class CircuitBreaker {
   private state: CircuitState = 'CLOSED';
   private consecutiveFailures = 0;
   private nextAttemptAt = 0;
+  private halfOpenProbeInFlight = false;
   private readonly failureThreshold: number;
   private readonly resetTimeoutMs: number;
 
@@ -86,29 +87,50 @@ export class CircuitBreaker {
   /**
    * Whether a request may proceed given the current circuit state.
    *
-   * @returns `true` when the circuit is CLOSED or HALF_OPEN and probe is due
+   * In HALF_OPEN state only a single probe is allowed at a time; subsequent
+   * calls return `false` until the in-flight probe records success or failure.
+   *
+   * @returns `true` when the circuit is CLOSED, or HALF_OPEN with no probe in flight
    */
   canRequest(): boolean {
     if (this.state === 'CLOSED') return true;
     if (this.state === 'OPEN') {
       if (Date.now() >= this.nextAttemptAt) {
         this.state = 'HALF_OPEN';
-        return true;
+        this.halfOpenProbeInFlight = false;
+        // Fall through to HALF_OPEN probe logic below
+      } else {
+        return false;
       }
-      return false;
     }
-    // HALF_OPEN: allow one probe
+    // HALF_OPEN: allow exactly one probe in flight at a time
+    if (this.halfOpenProbeInFlight) return false;
+    this.halfOpenProbeInFlight = true;
     return true;
   }
 
   /** Record a successful request and close the circuit */
   recordSuccess(): void {
     this.consecutiveFailures = 0;
+    this.halfOpenProbeInFlight = false;
     this.state = 'CLOSED';
   }
 
-  /** Record a failed request; open the circuit when threshold is reached */
+  /**
+   * Record a failed request.
+   *
+   * - When in **HALF_OPEN** the circuit re-opens immediately (the probe failed).
+   * - When in **CLOSED** the circuit opens only once the failure threshold is reached.
+   */
   recordFailure(): void {
+    this.halfOpenProbeInFlight = false;
+    if (this.state === 'HALF_OPEN') {
+      // Probe failed — immediately re-open and back off again
+      this.state = 'OPEN';
+      this.nextAttemptAt = Date.now() + this.resetTimeoutMs;
+      console.warn('⚡ Circuit breaker re-OPEN after HALF_OPEN probe failure');
+      return;
+    }
     this.consecutiveFailures++;
     if (this.consecutiveFailures >= this.failureThreshold) {
       this.state = 'OPEN';

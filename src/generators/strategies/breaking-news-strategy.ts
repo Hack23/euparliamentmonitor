@@ -16,7 +16,6 @@ import {
   fetchVotingAnomalies,
   fetchCoalitionDynamics,
   fetchVotingReport,
-  fetchMEPInfluence,
 } from '../pipeline/fetch-stage.js';
 import { buildBreakingNewsContent } from '../breaking-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
@@ -39,8 +38,6 @@ export interface BreakingNewsArticleData extends ArticleData {
   readonly coalitionRaw: string;
   /** Raw voting statistics report text from MCP */
   readonly reportRaw: string;
-  /** Raw MEP influence assessment text from MCP */
-  readonly influenceRaw: string;
   /** Pre-built article HTML body (language-independent) */
   readonly prebuiltContent: string;
 }
@@ -58,7 +55,6 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
     'detect_voting_anomalies',
     'analyze_coalition_dynamics',
     'generate_report',
-    'assess_mep_influence',
   ] as const;
 
   /**
@@ -74,11 +70,10 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
   ): Promise<BreakingNewsArticleData> {
     console.log('  📡 Fetching OSINT intelligence data from MCP...');
 
-    const [anomalyRaw, coalitionRaw, reportRaw, influenceRaw] = await Promise.all([
+    const [anomalyRaw, coalitionRaw, reportRaw] = await Promise.all([
       fetchVotingAnomalies(client),
       fetchCoalitionDynamics(client),
       fetchVotingReport(client),
-      fetchMEPInfluence(client, ''),
     ]);
 
     const prebuiltContent = buildBreakingNewsContent(
@@ -86,10 +81,10 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       anomalyRaw,
       coalitionRaw,
       reportRaw,
-      influenceRaw
+      ''
     );
 
-    return { date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, prebuiltContent };
+    return { date, anomalyRaw, coalitionRaw, reportRaw, prebuiltContent };
   }
 
   /**
