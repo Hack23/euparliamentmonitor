@@ -8,6 +8,7 @@
  */
 
 import { escapeHTML } from '../utils/file-utils.js';
+import { getLocalizedString, EDITORIAL_STRINGS } from '../constants/languages.js';
 import type {
   VotingRecord,
   VotingPattern,
@@ -96,6 +97,7 @@ export function getMotionsFallbackData(
  * @param votingPatterns - Voting patterns data
  * @param anomalies - Anomalies data
  * @param questions - Questions data
+ * @param lang - Language code for editorial strings (default: 'en')
  * @returns HTML content string
  */
 export function generateMotionsContent(
@@ -104,12 +106,14 @@ export function generateMotionsContent(
   votingRecords: VotingRecord[],
   votingPatterns: VotingPattern[],
   anomalies: VotingAnomaly[],
-  questions: MotionsQuestion[]
+  questions: MotionsQuestion[],
+  lang = 'en'
 ): string {
+  const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
   return `
     <div class="article-content">
       <section class="lede">
-        <p>Recent parliamentary activities reveal key voting patterns, party cohesion trends, and notable political dynamics in the European Parliament. Analysis of voting records from ${dateFromStr} to ${dateStr} provides insights into legislative decision-making and party discipline.</p>
+        <p>Recent parliamentary activities reveal key voting patterns, party cohesion trends, and notable political dynamics in the European Parliament. ${escapeHTML(editorial.sourceAttribution)}, analysis of voting records from ${escapeHTML(dateFromStr)} to ${escapeHTML(dateStr)} provides insights into legislative decision-making and party discipline.</p>
       </section>
       
       <section class="voting-results">
@@ -134,7 +138,7 @@ export function generateMotionsContent(
       
       <section class="voting-patterns">
         <h2>Party Cohesion Analysis</h2>
-        <p>Analysis of voting behavior reveals varying levels of party discipline across political groups:</p>
+        <p>${escapeHTML(editorial.parliamentaryContext)}: Analysis of voting behavior reveals varying levels of party discipline across political groups:</p>
         ${votingPatterns
           .map(
             (pattern) => `
@@ -150,7 +154,7 @@ export function generateMotionsContent(
       
       <section class="anomalies">
         <h2>Detected Voting Anomalies</h2>
-        <p>Unusual voting patterns that deviate from typical party lines:</p>
+        <p>${escapeHTML(editorial.analysisNote)}: Unusual voting patterns that deviate from typical party lines:</p>
         ${anomalies
           .map((anomaly) => {
             const rawSeverity = anomaly.severity ?? 'unknown';
@@ -181,6 +185,11 @@ export function generateMotionsContent(
         `
           )
           .join('')}
+      </section>
+
+      <section class="why-this-matters">
+        <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
+        <p>${escapeHTML(editorial.keyTakeaway)}: Voting records and party cohesion data reveal political alignment across the European Parliament, helping citizens understand how their elected representatives make legislative decisions.</p>
       </section>
     </div>
   `;

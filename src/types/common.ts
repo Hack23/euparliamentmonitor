@@ -154,4 +154,19 @@ export interface PropositionsStrings {
   analysis: string;
   pipelineHealthLabel: string;
   throughputRateLabel: string;
+  whyThisMatters: string;
+}
+
+/** Localized editorial strings shared across article types */
+export interface EditorialStrings {
+  /** Heading for "Why This Matters" citizen-impact section */
+  whyThisMatters: string;
+  /** Heading for key analytical finding */
+  keyTakeaway: string;
+  /** Heading for parliamentary context section */
+  parliamentaryContext: string;
+  /** Source attribution phrase (e.g. "According to European Parliament records") */
+  sourceAttribution: string;
+  /** Analytical note label */
+  analysisNote: string;
 }

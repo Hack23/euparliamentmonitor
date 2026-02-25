@@ -241,6 +241,10 @@ async function generateWeekAhead() {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const watchSection = buildWhatToWatchSection(weekData.pipeline, [], lang);
             const content = watchSection ? `${baseContent}${watchSection}` : baseContent;
+        let writtenCount = 0;
+        for (const lang of languages) {
+            console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
+            const content = buildWeekAheadContent(weekData, dateRange, lang);
             const titleGenerator = getLocalizedString(WEEK_AHEAD_TITLES, lang);
             const langTitles = titleGenerator(dateRange.start, dateRange.end);
             const html = generateArticleHTML({
@@ -386,6 +390,7 @@ async function generateBreakingNews() {
         let writtenCount = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
+            const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, lang);
             const titleGenerator = getLocalizedString(BREAKING_NEWS_TITLES, lang);
             const langTitles = titleGenerator(dateStr);
             const readTime = calculateReadTime(content);
@@ -889,7 +894,7 @@ async function generatePropositions() {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const langTitles = getLocalizedString(PROPOSITIONS_TITLES, lang)();
             const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
-            const content = buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings);
+            const content = buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings, lang);
             const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
                 slug: ARTICLE_TYPE_PROPOSITIONS,
@@ -946,6 +951,7 @@ async function generateMotions() {
             const content = alignmentSection
                 ? `${baseMotionsContent}${alignmentSection}`
                 : baseMotionsContent;
+            const content = generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions, lang);
             const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
                 slug: ARTICLE_TYPE_MOTIONS,

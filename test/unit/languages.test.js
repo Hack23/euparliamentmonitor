@@ -24,6 +24,7 @@ import {
   COMMITTEE_REPORTS_TITLES,
   PROPOSITIONS_TITLES,
   PROPOSITIONS_STRINGS,
+  EDITORIAL_STRINGS,
   getLocalizedString,
   isSupportedLanguage,
   getTextDirection,
@@ -264,5 +265,51 @@ describe('constants/languages', () => {
         expect(result.subtitle.length).toBeGreaterThan(0);
       }
     });
+  });
+});
+
+describe('EDITORIAL_STRINGS', () => {
+  it('should have entries for all 14 supported languages', () => {
+    expect(Object.keys(EDITORIAL_STRINGS)).toHaveLength(14);
+  });
+
+  it('should contain all required editorial string fields for every language', () => {
+    const requiredFields = ['whyThisMatters', 'keyTakeaway', 'parliamentaryContext', 'sourceAttribution', 'analysisNote'];
+    for (const lang of ALL_LANGUAGES) {
+      const strings = EDITORIAL_STRINGS[lang];
+      expect(strings).toBeDefined();
+      for (const field of requiredFields) {
+        expect(strings[field]).toBeDefined();
+        expect(typeof strings[field]).toBe('string');
+        expect(strings[field].length).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it('should return English editorial strings via getLocalizedString fallback for unsupported language', () => {
+    const strings = getLocalizedString(EDITORIAL_STRINGS, 'xx');
+    expect(strings.whyThisMatters).toBe('Why This Matters');
+    expect(strings.keyTakeaway).toBe('Key Finding');
+    expect(strings.parliamentaryContext).toBe('Parliamentary Context');
+    expect(strings.sourceAttribution).toBe('According to European Parliament data');
+    expect(strings.analysisNote).toBe('Analysis Note');
+  });
+
+  it('should have non-empty whyThisMatters for all languages', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const strings = getLocalizedString(EDITORIAL_STRINGS, lang);
+      expect(strings.whyThisMatters.length).toBeGreaterThan(0);
+    }
+  });
+});
+
+describe('PROPOSITIONS_STRINGS whyThisMatters', () => {
+  it('should have whyThisMatters field for all 14 languages', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const strings = PROPOSITIONS_STRINGS[lang];
+      expect(strings.whyThisMatters).toBeDefined();
+      expect(typeof strings.whyThisMatters).toBe('string');
+      expect(strings.whyThisMatters.length).toBeGreaterThan(0);
+    }
   });
 });

@@ -384,6 +384,7 @@ async function generateWeekAhead(): Promise<GenerationResult> {
       const watchSection = buildWhatToWatchSection(weekData.pipeline, [], lang);
       const content = watchSection ? `${baseContent}${watchSection}` : baseContent;
 
+      const content = buildWeekAheadContent(weekData, dateRange, lang);
       const titleGenerator = getLocalizedString(WEEK_AHEAD_TITLES, lang);
       const langTitles = titleGenerator(dateRange.start, dateRange.end);
 
@@ -548,6 +549,15 @@ async function generateBreakingNews(): Promise<GenerationResult> {
     let writtenCount = 0;
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
+
+      const content = buildBreakingNewsContent(
+        dateStr,
+        anomalyRaw,
+        coalitionRaw,
+        reportRaw,
+        influenceRaw,
+        lang
+      );
 
       const titleGenerator = getLocalizedString(BREAKING_NEWS_TITLES, lang);
       const langTitles = titleGenerator(dateStr);
@@ -1151,7 +1161,13 @@ async function generatePropositions(): Promise<GenerationResult> {
       const langTitles = getLocalizedString(PROPOSITIONS_TITLES, lang)();
       const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
 
-      const content = buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings);
+      const content = buildPropositionsContent(
+        proposalsHtml,
+        pipelineData,
+        procedureHtml,
+        strings,
+        lang
+      );
       const readTime = calculateReadTime(content);
 
       const html = generateArticleHTML({
@@ -1223,7 +1239,8 @@ async function generateMotions(): Promise<GenerationResult> {
         votingRecords,
         votingPatterns,
         anomalies,
-        questions
+        questions,
+        lang
       );
       const alignmentSection = buildPoliticalAlignmentSection(votingRecords, [], lang);
       const content = alignmentSection

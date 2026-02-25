@@ -74,6 +74,10 @@ function buildCoalitionDynamicsSection(coalitions: CoalitionIntelligence[]): str
           </ul>
         </section>`;
 }
+import { getLocalizedString, EDITORIAL_STRINGS } from '../constants/languages.js';
+
+/** Maximum characters to display from raw MCP intelligence data */
+const MAX_DATA_CHARS = 2000;
 
 /**
  * Build key parliamentary players section HTML from structured MEP influence data
@@ -141,6 +145,11 @@ function buildIntelligenceBriefingSection(
  * @param anomalies - Optional structured voting anomaly intelligence items
  * @param coalitions - Optional structured coalition intelligence items
  * @param mepScores - Optional structured MEP influence score items
+ * @param anomalyRaw - Raw anomaly data from MCP
+ * @param coalitionRaw - Raw coalition dynamics data from MCP
+ * @param reportRaw - Raw analytical report from MCP
+ * @param influenceRaw - Raw MEP influence data from MCP
+ * @param lang - Language code for localized editorial strings (default: 'en')
  * @returns Full article HTML content string
  */
 export function buildBreakingNewsContent(
@@ -162,6 +171,10 @@ export function buildBreakingNewsContent(
     coalitions.length ||
     mepScores.length
   );
+  lang = 'en'
+): string {
+  const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
+  const hasData = Boolean(anomalyRaw || coalitionRaw || reportRaw || influenceRaw);
   const timestamp = new Date().toISOString();
 
   const anomalySection = anomalyRaw
@@ -169,6 +182,8 @@ export function buildBreakingNewsContent(
         <section class="analysis">
           <h2>Voting Anomaly Intelligence</h2>
           <pre class="${CSS_DATA_SUMMARY}">${escapeHTML(anomalyRaw.slice(0, MAX_RAW_CHARS))}</pre>
+          <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
+          <p class="data-narrative">${escapeHTML(anomalyRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
     : '';
 
@@ -177,6 +192,8 @@ export function buildBreakingNewsContent(
         <section class="coalition-impact">
           <h2>Coalition Dynamics Assessment</h2>
           <pre class="${CSS_DATA_SUMMARY}">${escapeHTML(coalitionRaw.slice(0, MAX_RAW_CHARS))}</pre>
+          <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
+          <p class="data-narrative">${escapeHTML(coalitionRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
     : '';
 
@@ -185,6 +202,8 @@ export function buildBreakingNewsContent(
         <section class="context">
           <h2>Analytical Report</h2>
           <pre class="${CSS_DATA_SUMMARY}">${escapeHTML(reportRaw.slice(0, MAX_RAW_CHARS))}</pre>
+          <p class="source-attribution">${escapeHTML(editorial.analysisNote)}:</p>
+          <p class="data-narrative">${escapeHTML(reportRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
     : '';
 
@@ -193,6 +212,20 @@ export function buildBreakingNewsContent(
         <section class="key-players">
           <h2>Key MEP Influence Analysis</h2>
           <pre class="${CSS_DATA_SUMMARY}">${escapeHTML(influenceRaw.slice(0, MAX_RAW_CHARS))}</pre>
+          <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
+          <p class="data-narrative">${escapeHTML(influenceRaw.slice(0, MAX_DATA_CHARS))}</p>
+        </section>`
+    : '';
+
+  const context = escapeHTML(editorial.parliamentaryContext);
+  const finding = escapeHTML(editorial.keyTakeaway).toLowerCase();
+  const attribution = escapeHTML(editorial.sourceAttribution).toLowerCase();
+
+  const whyThisMattersSection = hasData
+    ? `
+        <section class="why-this-matters">
+          <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
+          <p>${context}: ${finding} — ${attribution}.</p>
         </section>`
     : '';
 
@@ -222,6 +255,7 @@ export function buildBreakingNewsContent(
           ${coalitionSection}
           ${reportSection}
           ${keyPlayersSection}
+          ${whyThisMattersSection}
         </div>
       `;
 }
