@@ -4,8 +4,10 @@
 /**
  * Unit tests for the pipeline stages:
  *   - CircuitBreaker (fetch-stage)
+ *   - fetch-stage null-client functions
  *   - validateMCPResponse, normalizeISO8601Date, sanitizeText (transform-stage)
  *   - writeArticleFile, writeSingleArticle, writeGenerationMetadata (output-stage)
+ *   - generateArticleForStrategy, createStrategyRegistry (generate-stage)
  */
 
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
@@ -17,6 +19,22 @@ import os from 'os';
 
 import {
   CircuitBreaker,
+  mcpCircuitBreaker,
+  initializeMCPClient,
+  fetchWeekAheadData,
+  fetchVotingAnomalies,
+  fetchCoalitionDynamics,
+  fetchVotingReport,
+  fetchMEPInfluence,
+  fetchCommitteeData,
+  fetchVotingRecords,
+  fetchVotingPatterns,
+  fetchMotionsAnomalies,
+  fetchParliamentaryQuestionsForMotions,
+  fetchMotionsData,
+  fetchProposalsFromMCP,
+  fetchPipelineFromMCP,
+  fetchProcedureStatusFromMCP,
 } from '../../scripts/generators/pipeline/fetch-stage.js';
 
 import {
@@ -432,5 +450,567 @@ describe('createStrategyRegistry', () => {
     const r1 = createStrategyRegistry();
     const r2 = createStrategyRegistry();
     expect(r1).not.toBe(r2);
+  });
+});
+
+// ─── fetch-stage null-client tests ────────────────────────────────────────────
+
+describe('initializeMCPClient', () => {
+  it('returns null when useMCP is false', async () => {
+    const client = await initializeMCPClient(false);
+    expect(client).toBeNull();
+  });
+});
+
+describe('fetchWeekAheadData with null client', () => {
+  it('returns placeholder events when client is null', async () => {
+    const dateRange = { start: '2025-01-16', end: '2025-01-23' };
+    const result = await fetchWeekAheadData(null, dateRange);
+    expect(result).toHaveProperty('events');
+    expect(Array.isArray(result.events)).toBe(true);
+    expect(result.events.length).toBeGreaterThan(0);
+    expect(result.committees).toEqual([]);
+    expect(result.documents).toEqual([]);
+    expect(result.pipeline).toEqual([]);
+    expect(result.questions).toEqual([]);
+  });
+
+  it('sets event date to dateRange.start', async () => {
+    const dateRange = { start: '2025-03-10', end: '2025-03-17' };
+    const result = await fetchWeekAheadData(null, dateRange);
+    expect(result.events[0].date).toBe('2025-03-10');
+  });
+});
+
+describe('fetchVotingAnomalies with null client', () => {
+  it('returns empty string when client is null', async () => {
+    const result = await fetchVotingAnomalies(null);
+    expect(result).toBe('');
+  });
+});
+
+describe('fetchCoalitionDynamics with null client', () => {
+  it('returns empty string when client is null', async () => {
+    const result = await fetchCoalitionDynamics(null);
+    expect(result).toBe('');
+  });
+});
+
+describe('fetchVotingReport with null client', () => {
+  it('returns empty string when client is null', async () => {
+    const result = await fetchVotingReport(null);
+    expect(result).toBe('');
+  });
+});
+
+describe('fetchMEPInfluence with null client or empty mepId', () => {
+  it('returns empty string when client is null', async () => {
+    const result = await fetchMEPInfluence(null, 'MEP-123');
+    expect(result).toBe('');
+  });
+
+  it('returns empty string when mepId is empty', async () => {
+    const result = await fetchMEPInfluence(null, '');
+    expect(result).toBe('');
+  });
+});
+
+describe('fetchCommitteeData with null client', () => {
+  it('returns default result when client is null', async () => {
+    const result = await fetchCommitteeData(null, 'ENVI');
+    expect(result.name).toContain('ENVI');
+    expect(result.abbreviation).toBe('ENVI');
+    expect(result.chair).toBe('N/A');
+    expect(result.members).toBe(0);
+    expect(result.documents).toEqual([]);
+    expect(result.effectiveness).toBeNull();
+  });
+
+  it('includes abbreviation in name', async () => {
+    const result = await fetchCommitteeData(null, 'AGRI');
+    expect(result.name).toContain('AGRI');
+    expect(result.abbreviation).toBe('AGRI');
+  });
+});
+
+describe('fetchVotingRecords with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchVotingRecords(null, '2025-01-01', '2025-01-31');
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchVotingPatterns with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchVotingPatterns(null, '2025-01-01', '2025-01-31');
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchMotionsAnomalies with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchMotionsAnomalies(null, '2025-01-01', '2025-01-31');
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchParliamentaryQuestionsForMotions with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchParliamentaryQuestionsForMotions(null, '2025-01-01', '2025-01-31');
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchMotionsData with null client', () => {
+  it('returns fallback data with placeholder arrays when client is null', async () => {
+    const result = await fetchMotionsData(null, '2025-01-01', '2025-01-31');
+    expect(Array.isArray(result.votingRecords)).toBe(true);
+    expect(Array.isArray(result.votingPatterns)).toBe(true);
+    expect(Array.isArray(result.anomalies)).toBe(true);
+    expect(Array.isArray(result.questions)).toBe(true);
+    // fallback should include at least one placeholder item in each
+    expect(result.votingRecords.length).toBeGreaterThan(0);
+    expect(result.votingPatterns.length).toBeGreaterThan(0);
+    expect(result.anomalies.length).toBeGreaterThan(0);
+    expect(result.questions.length).toBeGreaterThan(0);
+  });
+});
+
+describe('fetchProposalsFromMCP with null client', () => {
+  it('returns empty html and procedureId when client is null', async () => {
+    const result = await fetchProposalsFromMCP(null);
+    expect(result).toEqual({ html: '', firstProcedureId: '' });
+  });
+});
+
+describe('fetchPipelineFromMCP with null client', () => {
+  it('returns null when client is null', async () => {
+    const result = await fetchPipelineFromMCP(null);
+    expect(result).toBeNull();
+  });
+});
+
+describe('fetchProcedureStatusFromMCP with null client or empty procedureId', () => {
+  it('returns empty string when client is null', async () => {
+    const result = await fetchProcedureStatusFromMCP(null, '2024/0001(COD)');
+    expect(result).toBe('');
+  });
+
+  it('returns empty string when procedureId is empty', async () => {
+    const result = await fetchProcedureStatusFromMCP(null, '');
+    expect(result).toBe('');
+  });
+});
+
+// ─── generateArticleForStrategy tests ─────────────────────────────────────────
+
+describe('generateArticleForStrategy', () => {
+  let tmpDir;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-gen-test-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('returns success=true and writes files with null client', async () => {
+    const { generateArticleForStrategy } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const { WeekAheadStrategy } = await import(
+      '../../scripts/generators/strategies/week-ahead-strategy.js'
+    );
+    const strategy = new WeekAheadStrategy();
+    const stats = { generated: 0, skipped: 0, dryRun: 0, errors: 0, articles: [], timestamp: '' };
+    const opts = { dryRun: false, skipExisting: false, newsDir: tmpDir };
+
+    const result = await generateArticleForStrategy(strategy, null, ['en'], opts, stats);
+    expect(result.success).toBe(true);
+    expect(result.files).toBe(1);
+    expect(stats.generated).toBe(1);
+  });
+
+  it('returns success=true with dryRun mode and no files written', async () => {
+    const { generateArticleForStrategy } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const { BreakingNewsStrategy } = await import(
+      '../../scripts/generators/strategies/breaking-news-strategy.js'
+    );
+    const strategy = new BreakingNewsStrategy();
+    const stats = { generated: 0, skipped: 0, dryRun: 0, errors: 0, articles: [], timestamp: '' };
+    const opts = { dryRun: true, skipExisting: false, newsDir: tmpDir };
+
+    const result = await generateArticleForStrategy(strategy, null, ['en', 'de'], opts, stats);
+    expect(result.success).toBe(true);
+    expect(result.files).toBe(0);
+    expect(stats.dryRun).toBe(2);
+    expect(stats.generated).toBe(0);
+  });
+
+  it('returns success=true with multiple languages and null client', async () => {
+    const { generateArticleForStrategy } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const { MotionsStrategy } = await import(
+      '../../scripts/generators/strategies/motions-strategy.js'
+    );
+    const strategy = new MotionsStrategy();
+    const stats = { generated: 0, skipped: 0, dryRun: 0, errors: 0, articles: [], timestamp: '' };
+    const opts = { dryRun: false, skipExisting: false, newsDir: tmpDir };
+
+    const result = await generateArticleForStrategy(strategy, null, ['en', 'sv', 'de'], opts, stats);
+    expect(result.success).toBe(true);
+    expect(result.files).toBe(3);
+    expect(stats.generated).toBe(3);
+  });
+
+  it('returns success=false and increments stats.errors when fetchData throws', async () => {
+    const { generateArticleForStrategy } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const failingStrategy = {
+      type: 'week-ahead',
+      requiredMCPTools: [],
+      fetchData: async () => { throw new Error('MCP timeout'); },
+      buildContent: () => '',
+      getMetadata: () => ({ title: '', subtitle: '', category: 'week-ahead', keywords: [] }),
+    };
+    const stats = { generated: 0, skipped: 0, dryRun: 0, errors: 0, articles: [], timestamp: '' };
+    const opts = { dryRun: false, skipExisting: false, newsDir: tmpDir };
+
+    const result = await generateArticleForStrategy(failingStrategy, null, ['en'], opts, stats);
+    expect(result.success).toBe(false);
+    expect(result.error).toContain('MCP timeout');
+    expect(stats.errors).toBe(1);
+  });
+
+  it('returns success=true with empty languages array', async () => {
+    const { generateArticleForStrategy } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const { PropositionsStrategy } = await import(
+      '../../scripts/generators/strategies/propositions-strategy.js'
+    );
+    const strategy = new PropositionsStrategy();
+    const stats = { generated: 0, skipped: 0, dryRun: 0, errors: 0, articles: [], timestamp: '' };
+    const opts = { dryRun: false, skipExisting: false, newsDir: tmpDir };
+
+    const result = await generateArticleForStrategy(strategy, null, [], opts, stats);
+    expect(result.success).toBe(true);
+    expect(result.files).toBe(0);
+  });
+});
+
+// ─── fetch-stage with mock client (covers if(client) true branches) ────────────
+
+/**
+ * Minimal mock MCP client — all methods return undefined so callMCP
+ * sees a successful-but-empty response and falls back to empty/null values.
+ */
+const mockClientEmpty = {
+  callTool: async () => undefined,
+  getPlenarySessions: async () => undefined,
+  getCommitteeInfo: async () => undefined,
+  searchDocuments: async () => undefined,
+  monitorLegislativePipeline: async () => undefined,
+  getParliamentaryQuestions: async () => undefined,
+  trackLegislation: async () => undefined,
+};
+
+describe('fetchVotingAnomalies with mock client', () => {
+  it('returns empty string when client returns undefined', async () => {
+    const result = await fetchVotingAnomalies(mockClientEmpty);
+    expect(result).toBe('');
+  });
+});
+
+describe('fetchCoalitionDynamics with mock client', () => {
+  it('returns empty string when client returns undefined', async () => {
+    const result = await fetchCoalitionDynamics(mockClientEmpty);
+    expect(result).toBe('');
+  });
+});
+
+describe('fetchVotingReport with mock client', () => {
+  it('returns empty string when client returns undefined', async () => {
+    const result = await fetchVotingReport(mockClientEmpty);
+    expect(result).toBe('');
+  });
+});
+
+describe('fetchVotingRecords with mock client', () => {
+  it('returns empty array when client returns undefined', async () => {
+    const result = await fetchVotingRecords(mockClientEmpty, '2025-01-01', '2025-01-31');
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchVotingPatterns with mock client', () => {
+  it('returns empty array when client returns undefined', async () => {
+    const result = await fetchVotingPatterns(mockClientEmpty, '2025-01-01', '2025-01-31');
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchMotionsAnomalies with mock client', () => {
+  it('returns empty array when client returns undefined', async () => {
+    const result = await fetchMotionsAnomalies(mockClientEmpty, '2025-01-01', '2025-01-31');
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchParliamentaryQuestionsForMotions with mock client', () => {
+  it('returns empty array when client returns undefined', async () => {
+    const result = await fetchParliamentaryQuestionsForMotions(mockClientEmpty, '2025-01-01', '2025-01-31');
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchProposalsFromMCP with mock client', () => {
+  it('returns empty html when client returns undefined', async () => {
+    const result = await fetchProposalsFromMCP(mockClientEmpty);
+    expect(result).toEqual({ html: '', firstProcedureId: '' });
+  });
+});
+
+describe('fetchPipelineFromMCP with mock client', () => {
+  it('returns null when client returns undefined', async () => {
+    const result = await fetchPipelineFromMCP(mockClientEmpty);
+    expect(result).toBeNull();
+  });
+});
+
+describe('fetchProcedureStatusFromMCP with mock client', () => {
+  it('returns empty string when client returns undefined', async () => {
+    const result = await fetchProcedureStatusFromMCP(mockClientEmpty, '2024/0001(COD)');
+    expect(result).toBe('');
+  });
+});
+
+describe('fetchCommitteeData with mock client', () => {
+  it('returns committee data with defaults when client returns undefined', async () => {
+    const result = await fetchCommitteeData(mockClientEmpty, 'LIBE');
+    expect(result.abbreviation).toBe('LIBE');
+    expect(Array.isArray(result.documents)).toBe(true);
+  });
+});
+
+// ─── fetch-stage error paths (try/catch branches) ─────────────────────────────
+
+/**
+ * Mock client that throws on every call — exercises error-handling try/catch
+ * branches in the fetch functions and callMCP re-throw path.
+ * We reset the circuit breaker before each test to keep it CLOSED.
+ */
+const mockClientThrowing = {
+  callTool: async () => { throw new Error('MCP call failed'); },
+  getPlenarySessions: async () => { throw new Error('MCP call failed'); },
+  getCommitteeInfo: async () => { throw new Error('MCP call failed'); },
+  searchDocuments: async () => { throw new Error('MCP call failed'); },
+  monitorLegislativePipeline: async () => { throw new Error('MCP call failed'); },
+  getParliamentaryQuestions: async () => { throw new Error('MCP call failed'); },
+  trackLegislation: async () => { throw new Error('MCP call failed'); },
+  analyzeLegislativeEffectiveness: async () => { throw new Error('MCP call failed'); },
+};
+
+describe('fetch-stage error paths with throwing client', () => {
+  beforeEach(() => {
+    // Reset circuit breaker to CLOSED so each test gets a fresh probe
+    mcpCircuitBreaker.recordSuccess();
+  });
+
+  it('fetchVotingAnomalies returns empty string when client throws', async () => {
+    const result = await fetchVotingAnomalies(mockClientThrowing);
+    expect(result).toBe('');
+  });
+
+  it('fetchCoalitionDynamics returns empty string when client throws', async () => {
+    mcpCircuitBreaker.recordSuccess();
+    const result = await fetchCoalitionDynamics(mockClientThrowing);
+    expect(result).toBe('');
+  });
+
+  it('fetchVotingReport returns empty string when client throws', async () => {
+    mcpCircuitBreaker.recordSuccess();
+    const result = await fetchVotingReport(mockClientThrowing);
+    expect(result).toBe('');
+  });
+
+  it('fetchMEPInfluence returns empty string when client throws', async () => {
+    mcpCircuitBreaker.recordSuccess();
+    const result = await fetchMEPInfluence(mockClientThrowing, 'MEP-123');
+    expect(result).toBe('');
+  });
+
+  it('fetchCommitteeData returns default result when client throws', async () => {
+    mcpCircuitBreaker.recordSuccess();
+    const result = await fetchCommitteeData(mockClientThrowing, 'ENVI');
+    expect(result.abbreviation).toBe('ENVI');
+    expect(result.documents).toEqual([]);
+  });
+
+  it('fetchProcedureStatusFromMCP returns empty string when client throws', async () => {
+    mcpCircuitBreaker.recordSuccess();
+    const result = await fetchProcedureStatusFromMCP(mockClientThrowing, '2024/0001(COD)');
+    expect(result).toBe('');
+  });
+});
+
+// ─── generate-stage DEBUG flag coverage ───────────────────────────────────────
+
+describe('generateArticleForStrategy DEBUG mode', () => {
+  let tmpDir;
+  let originalDebug;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-debug-test-'));
+    originalDebug = process.env['DEBUG'];
+    process.env['DEBUG'] = 'true';
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+    if (originalDebug === undefined) {
+      delete process.env['DEBUG'];
+    } else {
+      process.env['DEBUG'] = originalDebug;
+    }
+  });
+
+  it('logs stack trace in DEBUG mode when strategy throws Error with stack', async () => {
+    const { generateArticleForStrategy } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const stackError = new Error('debug test error');
+    const failingStrategy = {
+      type: 'breaking',
+      requiredMCPTools: [],
+      fetchData: async () => { throw stackError; },
+      buildContent: () => '',
+      getMetadata: () => ({ title: '', subtitle: '', category: 'breaking', keywords: [] }),
+    };
+    const stats = { generated: 0, skipped: 0, dryRun: 0, errors: 0, articles: [], timestamp: '' };
+    const opts = { dryRun: false, skipExisting: false, newsDir: tmpDir };
+
+    const result = await generateArticleForStrategy(failingStrategy, null, ['en'], opts, stats);
+    expect(result.success).toBe(false);
+    expect(stats.errors).toBe(1);
+  });
+});
+
+// ─── fetch-stage with data-returning mock client (covers MCP parse branches) ──
+
+/**
+ * Mock client that returns structured MCP data — covers parsing branches
+ * when real data flows through the fetch/parse pipeline.
+ */
+const mockClientWithData = {
+  getPlenarySessions: async () => ({
+    content: [{ text: JSON.stringify({
+      sessions: [{ date: '2025-01-16', title: 'EP Plenary', type: 'Plenary', description: 'Budget reading' }],
+    }) }],
+  }),
+  getCommitteeInfo: async () => ({
+    content: [{ text: JSON.stringify({ committees: [] }) }],
+  }),
+  searchDocuments: async () => ({
+    content: [{ text: JSON.stringify({ documents: [] }) }],
+  }),
+  monitorLegislativePipeline: async () => ({
+    content: [{ text: JSON.stringify({ procedures: [], pipelineHealthScore: 0.9, throughputRate: 5 }) }],
+  }),
+  getParliamentaryQuestions: async () => ({
+    content: [{ text: JSON.stringify({ questions: [] }) }],
+  }),
+  callTool: async (toolName) => {
+    if (toolName === 'get_voting_records') {
+      return {
+        content: [{ text: JSON.stringify({
+          records: [{ title: 'Vote on Budget', date: '2025-01-15', result: 'Adopted', votes: { for: 400, against: 100, abstain: 50 } }],
+        }) }],
+      };
+    }
+    if (toolName === 'analyze_voting_patterns') {
+      return {
+        content: [{ text: JSON.stringify({
+          patterns: [{ group: 'EPP', cohesion: 0.92, participation: 0.95 }],
+        }) }],
+      };
+    }
+    if (toolName === 'detect_voting_anomalies') {
+      return {
+        content: [{ text: JSON.stringify({
+          anomalies: [{ type: 'Defection', description: 'Party split', severity: 'HIGH' }],
+        }) }],
+      };
+    }
+    return undefined;
+  },
+  getParliamentaryQuestions: async () => ({
+    content: [{ text: JSON.stringify({ questions: [] }) }],
+  }),
+  trackLegislation: async () => undefined,
+  analyzeLegislativeEffectiveness: async () => undefined,
+};
+
+describe('fetchWeekAheadData with data-returning mock client', () => {
+  beforeEach(() => { mcpCircuitBreaker.recordSuccess(); });
+
+  it('returns parsed events when client returns valid session data', async () => {
+    const dateRange = { start: '2025-01-16', end: '2025-01-23' };
+    const result = await fetchWeekAheadData(mockClientWithData, dateRange);
+    expect(result.events.length).toBeGreaterThan(0);
+    // Event should be parsed from MCP data
+    expect(result.events[0].title).toBe('EP Plenary');
+    expect(result.events[0].type).toBe('Plenary');
+  });
+});
+
+describe('fetchVotingRecords with data-returning mock client', () => {
+  beforeEach(() => { mcpCircuitBreaker.recordSuccess(); });
+
+  it('returns parsed voting records when client returns valid data', async () => {
+    const result = await fetchVotingRecords(mockClientWithData, '2025-01-01', '2025-01-31');
+    expect(result.length).toBe(1);
+    expect(result[0].title).toBe('Vote on Budget');
+    expect(result[0].result).toBe('Adopted');
+    expect(result[0].votes.for).toBe(400);
+  });
+});
+
+describe('fetchVotingPatterns with data-returning mock client', () => {
+  beforeEach(() => { mcpCircuitBreaker.recordSuccess(); });
+
+  it('returns parsed voting patterns when client returns valid data', async () => {
+    const result = await fetchVotingPatterns(mockClientWithData, '2025-01-01', '2025-01-31');
+    expect(result.length).toBe(1);
+    expect(result[0].group).toBe('EPP');
+    expect(result[0].cohesion).toBe(0.92);
+  });
+});
+
+describe('fetchMotionsAnomalies with data-returning mock client', () => {
+  beforeEach(() => { mcpCircuitBreaker.recordSuccess(); });
+
+  it('returns parsed anomalies when client returns valid data', async () => {
+    const result = await fetchMotionsAnomalies(mockClientWithData, '2025-01-01', '2025-01-31');
+    expect(result.length).toBe(1);
+    expect(result[0].type).toBe('Defection');
+    expect(result[0].severity).toBe('HIGH');
+  });
+});
+
+describe('fetchMotionsData with data-returning mock client', () => {
+  beforeEach(() => { mcpCircuitBreaker.recordSuccess(); });
+
+  it('returns real data without applying fallbacks when client returns data', async () => {
+    const result = await fetchMotionsData(mockClientWithData, '2025-01-01', '2025-01-31');
+    // With real data, fallbacks are NOT applied (covers the length > 0 branches)
+    expect(result.votingRecords[0].title).toBe('Vote on Budget');
+    expect(result.votingPatterns[0].group).toBe('EPP');
+    expect(result.anomalies[0].type).toBe('Defection');
   });
 });

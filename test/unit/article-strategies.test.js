@@ -385,3 +385,134 @@ describe('ArticleStrategy interface contract', () => {
     });
   }
 });
+
+// ─── Strategy.fetchData(null, date) tests ─────────────────────────────────────
+
+describe('WeekAheadStrategy.fetchData with null client', () => {
+  it('returns valid payload with placeholder events when client is null', async () => {
+    const strategy = new WeekAheadStrategy();
+    const data = await strategy.fetchData(null, '2025-01-15');
+    expect(data.date).toBe('2025-01-15');
+    expect(data.dateRange).toHaveProperty('start');
+    expect(data.dateRange).toHaveProperty('end');
+    expect(Array.isArray(data.weekData.events)).toBe(true);
+    expect(data.weekData.events.length).toBeGreaterThan(0);
+    expect(Array.isArray(data.weekData.committees)).toBe(true);
+    expect(Array.isArray(data.weekData.documents)).toBe(true);
+  });
+
+  it('keywords array is non-empty', async () => {
+    const strategy = new WeekAheadStrategy();
+    const data = await strategy.fetchData(null, '2025-01-15');
+    expect(Array.isArray(data.keywords)).toBe(true);
+    expect(data.keywords.length).toBeGreaterThan(0);
+  });
+});
+
+describe('BreakingNewsStrategy.fetchData with null client', () => {
+  it('returns empty strings for all raw fields when client is null', async () => {
+    const strategy = new BreakingNewsStrategy();
+    const data = await strategy.fetchData(null, '2025-01-15');
+    expect(data.date).toBe('2025-01-15');
+    expect(data.anomalyRaw).toBe('');
+    expect(data.coalitionRaw).toBe('');
+    expect(data.reportRaw).toBe('');
+  });
+});
+
+describe('CommitteeReportsStrategy.fetchData with null client', () => {
+  it('returns committeeDataList with default entries when client is null', async () => {
+    const strategy = new CommitteeReportsStrategy();
+    const data = await strategy.fetchData(null, '2025-01-15');
+    expect(data.date).toBe('2025-01-15');
+    expect(Array.isArray(data.committeeDataList)).toBe(true);
+    expect(data.committeeDataList.length).toBeGreaterThan(0);
+    // each item should have the committee fields
+    const first = data.committeeDataList[0];
+    expect(first).toHaveProperty('name');
+    expect(first).toHaveProperty('abbreviation');
+    expect(first).toHaveProperty('documents');
+  });
+});
+
+describe('PropositionsStrategy.fetchData with null client', () => {
+  it('returns empty proposals and null pipeline when client is null', async () => {
+    const strategy = new PropositionsStrategy();
+    const data = await strategy.fetchData(null, '2025-01-15');
+    expect(data.date).toBe('2025-01-15');
+    expect(data.proposalsHtml).toBe('');
+    expect(data.pipelineData).toBeNull();
+    expect(data.procedureHtml).toBe('');
+  });
+});
+
+describe('MotionsStrategy.fetchData with null client', () => {
+  it('returns fallback data with placeholder arrays when client is null', async () => {
+    const strategy = new MotionsStrategy();
+    const data = await strategy.fetchData(null, '2025-01-15');
+    expect(data.date).toBe('2025-01-15');
+    expect(typeof data.dateFromStr).toBe('string');
+    expect(data.dateFromStr).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(Array.isArray(data.votingRecords)).toBe(true);
+    expect(Array.isArray(data.votingPatterns)).toBe(true);
+    expect(Array.isArray(data.anomalies)).toBe(true);
+    expect(Array.isArray(data.questions)).toBe(true);
+    // fallback should have at least one item each
+    expect(data.votingRecords.length).toBeGreaterThan(0);
+  });
+
+  it('dateFromStr is 30 days before date', async () => {
+    const strategy = new MotionsStrategy();
+    const data = await strategy.fetchData(null, '2025-02-01');
+    const dateFrom = new Date(data.dateFromStr);
+    const dateEnd = new Date('2025-02-01');
+    const diffDays = (dateEnd - dateFrom) / (1000 * 60 * 60 * 24);
+    expect(diffDays).toBe(30);
+  });
+});
+
+// ─── Strategy.fetchData with mock client (covers if(client) true branches) ────
+
+/**
+ * Minimal mock MCP client — all methods return undefined so all fetch
+ * functions see a non-null client but get empty/undefined responses.
+ */
+const mockClientEmpty = {
+  callTool: async () => undefined,
+  getPlenarySessions: async () => undefined,
+  getCommitteeInfo: async () => undefined,
+  searchDocuments: async () => undefined,
+  monitorLegislativePipeline: async () => undefined,
+  getParliamentaryQuestions: async () => undefined,
+  trackLegislation: async () => undefined,
+};
+
+describe('BreakingNewsStrategy.fetchData with mock client', () => {
+  it('returns empty raw strings when client returns undefined', async () => {
+    const strategy = new BreakingNewsStrategy();
+    const data = await strategy.fetchData(mockClientEmpty, '2025-01-15');
+    expect(data.date).toBe('2025-01-15');
+    expect(data.anomalyRaw).toBe('');
+    expect(data.coalitionRaw).toBe('');
+    expect(data.reportRaw).toBe('');
+  });
+});
+
+describe('PropositionsStrategy.fetchData with mock client', () => {
+  it('returns empty proposals when client returns undefined', async () => {
+    const strategy = new PropositionsStrategy();
+    const data = await strategy.fetchData(mockClientEmpty, '2025-01-15');
+    expect(data.date).toBe('2025-01-15');
+    expect(data.proposalsHtml).toBe('');
+    expect(data.pipelineData).toBeNull();
+  });
+});
+
+describe('WeekAheadStrategy — error branch', () => {
+  it('fetchData throws on invalid date input', async () => {
+    const strategy = new WeekAheadStrategy();
+    // 'invalid-date' produces NaN-based ISO that may fail the parts check
+    // or V8's Date may produce 'Invalid Date'
+    await expect(strategy.fetchData(null, 'not-a-date')).rejects.toThrow();
+  });
+});
