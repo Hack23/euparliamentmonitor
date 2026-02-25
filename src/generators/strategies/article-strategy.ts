@@ -64,10 +64,7 @@ export interface ArticleStrategy<TData extends ArticleData = ArticleData> {
    * @param date - ISO 8601 publication date (YYYY-MM-DD)
    * @returns Populated article data payload
    */
-  fetchData(
-    client: EuropeanParliamentMCPClient | null,
-    date: string
-  ): Promise<TData>;
+  fetchData(client: EuropeanParliamentMCPClient | null, date: string): Promise<TData>;
   /**
    * Build the article HTML body for the given language.
    *

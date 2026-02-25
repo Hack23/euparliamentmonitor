@@ -32,7 +32,9 @@ function validateFirstContentItem(item: unknown): string | null {
     return "First content item is missing a 'text' string field";
   }
   const obj = item as Record<string, unknown>;
-  return typeof obj['text'] === 'string' ? null : "First content item is missing a 'text' string field";
+  return typeof obj['text'] === 'string'
+    ? null
+    : "First content item is missing a 'text' string field";
 }
 
 // ─── MCP Response validation ──────────────────────────────────────────────────

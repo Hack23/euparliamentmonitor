@@ -76,13 +76,7 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       fetchVotingReport(client),
     ]);
 
-    const prebuiltContent = buildBreakingNewsContent(
-      date,
-      anomalyRaw,
-      coalitionRaw,
-      reportRaw,
-      ''
-    );
+    const prebuiltContent = buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, '');
 
     return { date, anomalyRaw, coalitionRaw, reportRaw, prebuiltContent };
   }

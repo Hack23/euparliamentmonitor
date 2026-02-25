@@ -176,7 +176,9 @@ export const mcpCircuitBreaker = new CircuitBreaker();
  */
 async function callMCP<T>(fn: () => Promise<T>, fallback: T, context: string): Promise<T> {
   if (!mcpCircuitBreaker.canRequest()) {
-    console.warn(`${WARN_PREFIX} Circuit breaker not accepting requests (${mcpCircuitBreaker.getState()}) — skipping ${context}`);
+    console.warn(
+      `${WARN_PREFIX} Circuit breaker not accepting requests (${mcpCircuitBreaker.getState()}) — skipping ${context}`
+    );
     return fallback;
   }
   try {
@@ -262,7 +264,9 @@ export async function fetchWeekAheadData(
   }
 
   if (!mcpCircuitBreaker.canRequest()) {
-    console.warn(`${WARN_PREFIX} Circuit breaker not accepting requests (${mcpCircuitBreaker.getState()}) — using placeholder events`);
+    console.warn(
+      `${WARN_PREFIX} Circuit breaker not accepting requests (${mcpCircuitBreaker.getState()}) — using placeholder events`
+    );
     return {
       events: PLACEHOLDER_EVENTS.map((e) => ({ ...e, date: dateRange.start })),
       committees: [],
@@ -278,8 +282,8 @@ export async function fetchWeekAheadData(
 
   console.log(`${MCP_FETCH_PREFIX} Fetching week-ahead data from MCP (parallel)...`);
 
-  const [plenarySessions, committeeInfo, documents, pipeline, questions] =
-    await Promise.allSettled([
+  const [plenarySessions, committeeInfo, documents, pipeline, questions] = await Promise.allSettled(
+    [
       client.getPlenarySessions({ startDate: dateRange.start, endDate: dateRange.end, limit: 50 }),
       client.getCommitteeInfo({ limit: 20 }),
       client.searchDocuments({ query: 'parliament', limit: 20 }),
@@ -290,7 +294,8 @@ export async function fetchWeekAheadData(
         limit: 20,
       }),
       client.getParliamentaryQuestions({ startDate: dateRange.start, limit: 20 }),
-    ]);
+    ]
+  );
 
   const allFailed = [plenarySessions, committeeInfo, documents, pipeline, questions].every(
     (r) => r.status === 'rejected'
@@ -535,7 +540,11 @@ export async function fetchVotingRecords(
           title: r.title ?? 'Parliamentary Vote',
           date: r.date ?? dateStr,
           result: r.result ?? 'Adopted',
-          votes: { for: r.votes?.for ?? 0, against: r.votes?.against ?? 0, abstain: r.votes?.abstain ?? 0 },
+          votes: {
+            for: r.votes?.for ?? 0,
+            against: r.votes?.against ?? 0,
+            abstain: r.votes?.abstain ?? 0,
+          },
         }));
       }
     }

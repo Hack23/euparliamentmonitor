@@ -45,10 +45,22 @@ export type StrategyRegistry = Map<ArticleCategory, ArticleStrategy<ArticleData>
  */
 export function createStrategyRegistry(): StrategyRegistry {
   const registry: StrategyRegistry = new Map();
-  registry.set(ArticleCategory.WEEK_AHEAD, weekAheadStrategy as unknown as ArticleStrategy<ArticleData>);
-  registry.set(ArticleCategory.BREAKING_NEWS, breakingNewsStrategy as unknown as ArticleStrategy<ArticleData>);
-  registry.set(ArticleCategory.COMMITTEE_REPORTS, committeeReportsStrategy as unknown as ArticleStrategy<ArticleData>);
-  registry.set(ArticleCategory.PROPOSITIONS, propositionsStrategy as unknown as ArticleStrategy<ArticleData>);
+  registry.set(
+    ArticleCategory.WEEK_AHEAD,
+    weekAheadStrategy as unknown as ArticleStrategy<ArticleData>
+  );
+  registry.set(
+    ArticleCategory.BREAKING_NEWS,
+    breakingNewsStrategy as unknown as ArticleStrategy<ArticleData>
+  );
+  registry.set(
+    ArticleCategory.COMMITTEE_REPORTS,
+    committeeReportsStrategy as unknown as ArticleStrategy<ArticleData>
+  );
+  registry.set(
+    ArticleCategory.PROPOSITIONS,
+    propositionsStrategy as unknown as ArticleStrategy<ArticleData>
+  );
   registry.set(ArticleCategory.MOTIONS, motionsStrategy as unknown as ArticleStrategy<ArticleData>);
   return registry;
 }

@@ -42,11 +42,7 @@ const DRY_RUN_PREFIX = '  [DRY RUN]';
  * @param options - Output flags and directory path
  * @returns `true` when the file was actually written
  */
-export function writeArticleFile(
-  html: string,
-  filename: string,
-  options: OutputOptions
-): boolean {
+export function writeArticleFile(html: string, filename: string, options: OutputOptions): boolean {
   const filepath = path.join(options.newsDir, filename);
 
   if (options.skipExisting && fs.existsSync(filepath)) {
