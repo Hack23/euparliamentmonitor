@@ -972,3 +972,288 @@ button:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+/* ─── Extended Design Tokens ──────────────────────────────────── */
+:root {
+  /* Typography Scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* Article Reading Tokens */
+  --article-max-width: 72ch;
+  --article-line-height: 1.7;
+  --article-paragraph-spacing: 1.5em;
+
+  /* Political Group Colors */
+  --group-epp: #0055A4;
+  --group-sd: #E2001A;
+  --group-re: #FFD700;
+  --group-greens: #00993E;
+  --group-ecr: #009EDB;
+  --group-id: #002B7F;
+  --group-left: #8B0000;
+}
+
+/* ─── Dark Mode ──────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a2e;
+    --bg-card: #2a2a3e;
+    --text: #e4e4e4;
+    --text-secondary: #b0b0c0;
+    --text-muted: #909090;
+    --border: #444466;
+    --border-light: #333355;
+    --primary-light: #1e2a4e;
+  }
+}
+
+/* ─── Article Typography Enhancement ────────────────────────── */
+.article-content p {
+  line-height: var(--article-line-height);
+  margin-bottom: var(--article-paragraph-spacing);
+}
+
+/* ─── Key Findings Box ───────────────────────────────────────── */
+.key-findings {
+  background: #fffbea;
+  border: 1px solid var(--secondary-dark);
+  border-left: 5px solid var(--secondary);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+
+.key-findings__title {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #7a5c00;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.key-findings__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.key-findings__list li {
+  padding: 6px 0 6px 22px;
+  position: relative;
+  line-height: 1.55;
+  color: var(--text);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.key-findings__list li:last-child {
+  border-bottom: none;
+}
+
+.key-findings__list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--secondary-dark);
+  font-size: 0.75em;
+  top: 9px;
+}
+
+/* ─── Pull Quote ─────────────────────────────────────────────── */
+.pull-quote {
+  border-left: 5px solid var(--primary);
+  padding: 20px 28px;
+  margin: 32px 0;
+  font-family: var(--font-serif);
+  font-size: var(--font-size-xl);
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  background: var(--primary-light);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.pull-quote cite {
+  display: block;
+  margin-top: 12px;
+  font-size: var(--font-size-sm);
+  font-style: normal;
+  font-weight: 600;
+  color: var(--primary);
+  font-family: var(--font-sans);
+}
+
+/* ─── Data Card ──────────────────────────────────────────────── */
+.data-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 20px 22px;
+  margin: 24px 0;
+  overflow: auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.data-card__title {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.data-card pre,
+.data-card code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text);
+  background: none;
+}
+
+/* ─── Status Badges ──────────────────────────────────────────── */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+}
+
+.status-badge--passed {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+
+.status-badge--pending {
+  background: #fff8e1;
+  color: #8d6e00;
+}
+
+.status-badge--failed {
+  background: #fde8e8;
+  color: #b91c1c;
+}
+
+/* ─── Political Group Badges ─────────────────────────────────── */
+.group-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: white;
+  vertical-align: middle;
+}
+
+.group-badge--epp    { background: var(--group-epp); }
+.group-badge--sd     { background: var(--group-sd); }
+.group-badge--re     { background: var(--group-re); color: #333; }
+.group-badge--greens { background: var(--group-greens); }
+.group-badge--ecr    { background: var(--group-ecr); }
+.group-badge--id     { background: var(--group-id); }
+.group-badge--left   { background: var(--group-left); }
+
+/* ─── Reading Progress Bar ───────────────────────────────────── */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--secondary);
+  z-index: 1000;
+  transition: width 0.15s linear;
+}
+
+/* ─── RTL Enhancements for New Components ───────────────────── */
+[dir="rtl"] .key-findings {
+  border-left: 1px solid var(--secondary-dark);
+  border-right: 5px solid var(--secondary);
+}
+
+[dir="rtl"] .key-findings__list li {
+  padding-left: 0;
+  padding-right: 22px;
+}
+
+[dir="rtl"] .key-findings__list li::before {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .pull-quote {
+  border-left: none;
+  border-right: 5px solid var(--primary);
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+[dir="rtl"] .data-card {
+  border-left: 1px solid var(--border);
+  border-right: 4px solid var(--accent);
+}
+
+[dir="rtl"] .reading-progress {
+  left: auto;
+  right: 0;
+}
+
+/* ─── Dark Mode Component Overrides ─────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  .key-findings {
+    background: #2a2400;
+    border-color: #665c00;
+    border-left-color: var(--secondary);
+  }
+
+  .key-findings__title {
+    color: #ccaa00;
+  }
+
+  .key-findings__list li {
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+
+  .pull-quote {
+    background: #1e2a4e;
+  }
+
+  .data-card {
+    border-color: #444466;
+    border-left-color: var(--accent);
+  }
+
+  .status-badge--passed {
+    background: #1a3a1a;
+    color: #90ee90;
+  }
+
+  .status-badge--pending {
+    background: #3a2e00;
+    color: #ffd860;
+  }
+
+  .status-badge--failed {
+    background: #3a0a0a;
+    color: #ff9090;
+  }
+}
