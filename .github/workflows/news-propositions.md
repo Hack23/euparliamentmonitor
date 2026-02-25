@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.7.3
+      - european-parliament-mcp-server@0.8.0
 
 tools:
   github:
@@ -263,13 +263,21 @@ MCP_CONFIG="${GH_AW_MCP_CONFIG:-/home/runner/.copilot/mcp-config.json}"
 
 if [ -f "$MCP_CONFIG" ]; then
   echo "✅ MCP gateway config found at $MCP_CONFIG"
-  GATEWAY_PORT=$(cat "$MCP_CONFIG" | grep -o '"port":[^,}]*' | head -1 | grep -o '[0-9]*')
-  GATEWAY_DOMAIN=$(cat "$MCP_CONFIG" | grep -o '"domain":"[^"]*"' | head -1 | sed 's/"domain":"//;s/"//')
-  GATEWAY_API_KEY=$(cat "$MCP_CONFIG" | grep -o '"apiKey":"[^"]*"' | head -1 | sed 's/"apiKey":"//;s/"//')
+  # Extract gateway configuration using jq for robust JSON parsing
+  if command -v jq >/dev/null 2>&1; then
+    GATEWAY_PORT=$(jq -r '.gateway.port // empty' "$MCP_CONFIG")
+    GATEWAY_DOMAIN=$(jq -r '.gateway.domain // empty' "$MCP_CONFIG")
+    GATEWAY_API_KEY=$(jq -r '.gateway.apiKey // empty' "$MCP_CONFIG")
+  else
+    echo "⚠️ jq not found; falling back to basic grep/sed parsing of MCP config"
+    GATEWAY_PORT=$(cat "$MCP_CONFIG" | grep -o '"port":[^,}]*' | head -1 | grep -o '[0-9]*')
+    GATEWAY_DOMAIN=$(cat "$MCP_CONFIG" | grep -o '"domain":"[^"]*"' | head -1 | sed 's/"domain":"//;s/"//')
+    GATEWAY_API_KEY=$(cat "$MCP_CONFIG" | grep -o '"apiKey":"[^"]*"' | head -1 | sed 's/"apiKey":"//;s/"//')
+  fi
 
-  if [ -n "$GATEWAY_PORT" ] && [ -n "$GATEWAY_DOMAIN" ]; then
+  if [ -n "${GATEWAY_PORT:-}" ] && [ -n "${GATEWAY_DOMAIN:-}" ]; then
     export EP_MCP_GATEWAY_URL="http://${GATEWAY_DOMAIN}:${GATEWAY_PORT}/mcp/european-parliament"
-    export EP_MCP_GATEWAY_API_KEY="${GATEWAY_API_KEY}"
+    export EP_MCP_GATEWAY_API_KEY="${GATEWAY_API_KEY:-}"
     echo "✅ Gateway mode: EP_MCP_GATEWAY_URL=$EP_MCP_GATEWAY_URL"
   fi
 else
@@ -282,7 +290,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ EP MCP server binary not found, attempting reinstall..."
-    npm install european-parliament-mcp-server@0.7.3
+    npm install european-parliament-mcp-server@0.8.0
   fi
 fi
 ```

@@ -24,12 +24,17 @@ const REQUEST_TIMEOUT_MS = 60000;
 /** Connection startup delay in milliseconds */
 const CONNECTION_STARTUP_DELAY_MS = 500;
 /**
- * Parse an SSE (Server-Sent Events) response body to extract JSON-RPC messages.
+ * Parse an SSE (Server-Sent Events) response body to extract the first valid JSON-RPC message.
  *
- * @param body - Raw SSE response text
- * @returns Parsed JSON-RPC response or null
+ * The MCP Streamable HTTP protocol sends JSON-RPC responses as SSE `data:` lines.
+ * This function returns the **first** successfully parsed JSON-RPC message; any
+ * subsequent `data:` lines are ignored. This matches the MCP protocol expectation
+ * of one JSON-RPC response per HTTP request/response cycle.
+ *
+ * @param body - Raw SSE response text (may contain multiple lines including `event:` and `data:`)
+ * @returns The first valid JSON-RPC response found, or null if no valid message exists
  */
-function parseSSEResponse(body) {
+export function parseSSEResponse(body) {
     const lines = body.split('\n');
     for (const line of lines) {
         const trimmed = line.trim();
