@@ -227,10 +227,17 @@ describe('article-template', () => {
     });
 
     describe('Navigation', () => {
-      it('should include back to news link', () => {
+      it('should include back to news link at bottom', () => {
         const html = generateArticleHTML({ ...defaultOptions, lang: 'en' });
         
         expect(html).toContain('<nav class="article-nav">');
+        expect(html).toContain('<a href="../index.html" class="back-to-news">← Back to News</a>');
+      });
+
+      it('should include back to news link at top', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: 'en' });
+        
+        expect(html).toContain('<nav class="article-top-nav">');
         expect(html).toContain('<a href="../index.html" class="back-to-news">← Back to News</a>');
       });
 
@@ -238,6 +245,80 @@ describe('article-template', () => {
         const html = generateArticleHTML({ ...defaultOptions, lang: 'de' });
         
         expect(html).toContain('<a href="../index-de.html" class="back-to-news">← Zurück zu Nachrichten</a>');
+      });
+    });
+
+    describe('Language Switcher', () => {
+      it('should include language switcher navigation', () => {
+        const html = generateArticleHTML(defaultOptions);
+
+        expect(html).toContain('<nav class="language-switcher" role="navigation" aria-label="Language selection">');
+      });
+
+      it('should include lang-link elements for all 14 languages', () => {
+        const html = generateArticleHTML(defaultOptions);
+        const langCodes = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+
+        langCodes.forEach((code) => {
+          expect(html).toContain(`hreflang="${code}"`);
+        });
+      });
+
+      it('should mark the current language as active', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: 'fr' });
+
+        expect(html).toContain('class="lang-link active" hreflang="fr"');
+      });
+
+      it('should link to same article in other languages using filename pattern', () => {
+        const html = generateArticleHTML({ ...defaultOptions, slug: 'week-ahead-january-2025', date: '2025-01-15', lang: 'en' });
+
+        expect(html).toContain('href="2025-01-15-week-ahead-january-2025-de.html"');
+        expect(html).toContain('href="2025-01-15-week-ahead-january-2025-fr.html"');
+        expect(html).toContain('href="2025-01-15-week-ahead-january-2025-ar.html"');
+      });
+
+      it('should include flag emojis in language links', () => {
+        const html = generateArticleHTML(defaultOptions);
+
+        expect(html).toContain('🇬🇧');
+        expect(html).toContain('🇸🇪');
+        expect(html).toContain('🇩🇪');
+        expect(html).toContain('🇫🇷');
+      });
+    });
+
+    describe('Enhanced Footer', () => {
+      it('should include full footer with multiple sections', () => {
+        const html = generateArticleHTML(defaultOptions);
+
+        expect(html).toContain('<div class="footer-content">');
+        expect(html).toContain('About EU Parliament Monitor');
+        expect(html).toContain('Quick Links');
+        expect(html).toContain('Built by Hack23 AB');
+        expect(html).toContain('Languages');
+      });
+
+      it('should include footer language grid', () => {
+        const html = generateArticleHTML(defaultOptions);
+
+        expect(html).toContain('<div class="language-grid">');
+      });
+
+      it('should include Hack23 AB copyright with organization details', () => {
+        const html = generateArticleHTML(defaultOptions);
+
+        expect(html).toContain('Hack23 AB');
+        expect(html).toContain('Org.nr 5595347807');
+        expect(html).toContain('Gothenburg, Sweden');
+      });
+
+      it('should include links to GitHub, European Parliament, and license', () => {
+        const html = generateArticleHTML(defaultOptions);
+
+        expect(html).toContain('https://github.com/Hack23/euparliamentmonitor');
+        expect(html).toContain('https://www.europarl.europa.eu/');
+        expect(html).toContain('Apache-2.0 License');
       });
     });
 
