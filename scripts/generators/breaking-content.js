@@ -5,6 +5,9 @@
  * @description Pure function for building breaking-news article HTML.
  */
 import { escapeHTML } from '../utils/file-utils.js';
+import { getLocalizedString, EDITORIAL_STRINGS } from '../constants/languages.js';
+/** Maximum characters to display from raw MCP intelligence data */
+const MAX_DATA_CHARS = 2000;
 /**
  * Build breaking news article HTML content
  *
@@ -13,37 +16,50 @@ import { escapeHTML } from '../utils/file-utils.js';
  * @param coalitionRaw - Raw coalition dynamics data from MCP
  * @param reportRaw - Raw analytical report from MCP
  * @param influenceRaw - Raw MEP influence data from MCP
+ * @param lang - Language code for localized editorial strings (default: 'en')
  * @returns Full article HTML content string
  */
-export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw) {
+export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, lang = 'en') {
+    const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
     const hasData = anomalyRaw || coalitionRaw || reportRaw || influenceRaw;
     const timestamp = new Date().toISOString();
     const anomalySection = anomalyRaw
         ? `
         <section class="analysis">
           <h2>Voting Anomaly Intelligence</h2>
-          <pre class="data-summary">${escapeHTML(anomalyRaw.slice(0, 2000))}</pre>
+          <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
+          <p class="data-narrative">${escapeHTML(anomalyRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
         : '';
     const coalitionSection = coalitionRaw
         ? `
         <section class="coalition-impact">
           <h2>Coalition Dynamics Assessment</h2>
-          <pre class="data-summary">${escapeHTML(coalitionRaw.slice(0, 2000))}</pre>
+          <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
+          <p class="data-narrative">${escapeHTML(coalitionRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
         : '';
     const reportSection = reportRaw
         ? `
         <section class="context">
           <h2>Analytical Report</h2>
-          <pre class="data-summary">${escapeHTML(reportRaw.slice(0, 2000))}</pre>
+          <p class="source-attribution">${escapeHTML(editorial.analysisNote)}:</p>
+          <p class="data-narrative">${escapeHTML(reportRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
         : '';
     const keyPlayersSection = influenceRaw
         ? `
         <section class="key-players">
           <h2>Key MEP Influence Analysis</h2>
-          <pre class="data-summary">${escapeHTML(influenceRaw.slice(0, 2000))}</pre>
+          <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
+          <p class="data-narrative">${escapeHTML(influenceRaw.slice(0, MAX_DATA_CHARS))}</p>
+        </section>`
+        : '';
+    const whyThisMattersSection = hasData
+        ? `
+        <section class="why-this-matters">
+          <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
+          <p>${escapeHTML(editorial.parliamentaryContext)}: ${escapeHTML(editorial.keyTakeaway).toLowerCase()} — ${escapeHTML(editorial.sourceAttribution).toLowerCase()}.</p>
         </section>`
         : '';
     const placeholderNotice = !hasData
@@ -68,6 +84,7 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
           ${coalitionSection}
           ${reportSection}
           ${keyPlayersSection}
+          ${whyThisMattersSection}
         </div>
       `;
 }

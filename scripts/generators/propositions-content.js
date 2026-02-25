@@ -6,6 +6,7 @@
  * localized strings and pre-sanitized MCP data.
  */
 import { escapeHTML } from '../utils/file-utils.js';
+import { getLocalizedString, EDITORIAL_STRINGS } from '../constants/languages.js';
 /**
  * Build propositions article HTML content with localized strings.
  *
@@ -22,9 +23,11 @@ import { escapeHTML } from '../utils/file-utils.js';
  *   `pipelineData.procRowsHtml` must be pre-sanitized HTML
  * @param procedureHtml - Pre-sanitized HTML for tracked procedure status section (may be empty)
  * @param strings - Localized string set for the target language
+ * @param lang - Language code for editorial string headings (default: 'en')
  * @returns Full article HTML content string
  */
-export function buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings) {
+export function buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings, lang = 'en') {
+    const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
     const pipelineHtml = pipelineData
         ? `
     <div class="pipeline-metrics">
@@ -65,6 +68,10 @@ export function buildPropositionsContent(proposalsHtml, pipelineData, procedureH
           <section class="analysis">
             <h2>${escapeHTML(strings.analysisHeading)}</h2>
             <p>${escapeHTML(strings.analysis)}</p>
+          </section>
+          <section class="why-this-matters">
+            <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
+            <p>${escapeHTML(strings.whyThisMatters)}</p>
           </section>
         </div>
       `;

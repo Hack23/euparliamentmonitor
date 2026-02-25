@@ -363,3 +363,47 @@ describe('week-ahead helpers', () => {
     });
   });
 });
+
+describe('week-ahead editorial quality', () => {
+  function emptyWeekData() {
+    return { events: [], committees: [], documents: [], pipeline: [], questions: [] };
+  }
+
+  it('should include "Why This Matters" section in every article', () => {
+    const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' });
+    expect(html).toContain('why-this-matters');
+    expect(html).toContain('Why This Matters');
+  });
+
+  it('should include source attribution in "Why This Matters" section', () => {
+    const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' });
+    expect(html).toContain('Parliamentary Context');
+    expect(html).toContain('according to european parliament data');
+  });
+
+  it('should include committee count in lede when committees are present', () => {
+    const weekData = {
+      ...emptyWeekData(),
+      committees: [
+        { committee: 'ENVI', date: '2026-03-04' },
+        { committee: 'ECON', date: '2026-03-05' },
+      ],
+    };
+    const html = buildWeekAheadContent(weekData, { start: '2026-03-01', end: '2026-03-08' });
+    expect(html).toContain('2 committee meetings are scheduled');
+  });
+
+  it('should use singular form for single committee meeting', () => {
+    const weekData = {
+      ...emptyWeekData(),
+      committees: [{ committee: 'ENVI', date: '2026-03-04' }],
+    };
+    const html = buildWeekAheadContent(weekData, { start: '2026-03-01', end: '2026-03-08' });
+    expect(html).toContain('1 committee meeting is scheduled');
+  });
+
+  it('should use localized editorial strings for Swedish', () => {
+    const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' }, 'sv');
+    expect(html).toContain('Varför Det Spelar Roll');
+  });
+});

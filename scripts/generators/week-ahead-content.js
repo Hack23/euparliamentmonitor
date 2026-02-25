@@ -6,6 +6,7 @@
  * No side effects — all functions accept data and return strings.
  */
 import { escapeHTML } from '../utils/file-utils.js';
+import { getLocalizedString, EDITORIAL_STRINGS } from '../constants/languages.js';
 /** Keyword constant for article tagging */
 const KEYWORD_EUROPEAN_PARLIAMENT = 'European Parliament';
 /** Placeholder events used when MCP is unavailable or returns no sessions */
@@ -248,13 +249,34 @@ function renderQuestion(q) {
 }
 // ─── Content builders ────────────────────────────────────────────────────────
 /**
+ * Build the supplementary lede sentence about committee and pipeline counts.
+ *
+ * @param committeeCount - Number of committee meetings
+ * @param pipelineCount - Number of pipeline procedures
+ * @returns Sentence fragment or empty string
+ */
+function buildLedeDetail(committeeCount, pipelineCount) {
+    if (committeeCount === 0 && pipelineCount === 0)
+        return '';
+    const committeePart = committeeCount > 0
+        ? `${committeeCount} committee meeting${committeeCount !== 1 ? 's are' : ' is'} scheduled`
+        : '';
+    const pipelinePart = pipelineCount > 0
+        ? `${pipelineCount} legislative procedure${pipelineCount !== 1 ? 's are' : ' is'} advancing through the pipeline`
+        : '';
+    const conjunction = committeePart && pipelinePart ? ' and ' : '';
+    return ` Notably, ${committeePart}${conjunction}${pipelinePart}.`;
+}
+/**
  * Build article content HTML from week-ahead data
  *
  * @param weekData - Aggregated week-ahead data
  * @param dateRange - Date range for the article
+ * @param lang - Language code for editorial strings (default: 'en')
  * @returns HTML content string
  */
-export function buildWeekAheadContent(weekData, dateRange) {
+export function buildWeekAheadContent(weekData, dateRange, lang = 'en') {
+    const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
     const plenaryHtml = weekData.events.length > 0
         ? weekData.events.map(renderPlenaryEvent).join('')
         : '<p>No plenary sessions scheduled for this period.</p>';
@@ -282,11 +304,18 @@ export function buildWeekAheadContent(weekData, dateRange) {
             <ul class="qa-list">${weekData.questions.map(renderQuestion).join('')}</ul>
           </section>`
         : '';
+    const ledeDetail = buildLedeDetail(weekData.committees.length, weekData.pipeline.length);
+    const whyThisMattersSection = `
+          <section class="why-this-matters">
+            <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
+            <p>${escapeHTML(editorial.parliamentaryContext)}: ${escapeHTML(editorial.sourceAttribution).toLowerCase()} — parliamentary schedules determine the legislative agenda affecting EU citizens directly.</p>
+          </section>`;
     return `
         <div class="article-content">
           <section class="lede">
-            <p>The European Parliament prepares for an active week ahead with multiple committee meetings and plenary sessions scheduled from ${escapeHTML(dateRange.start)} to ${escapeHTML(dateRange.end)}.</p>
+            <p>The European Parliament prepares for an active week ahead with multiple committee meetings and plenary sessions scheduled from ${escapeHTML(dateRange.start)} to ${escapeHTML(dateRange.end)}.${escapeHTML(ledeDetail)}</p>
           </section>
+          ${whyThisMattersSection}
           <section class="plenary-schedule">
             <h2>Plenary Sessions</h2>
             ${plenaryHtml}
