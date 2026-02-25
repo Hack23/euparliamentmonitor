@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.5.1
+      - european-parliament-mcp-server@0.7.3
 
 tools:
   github:
@@ -69,6 +69,10 @@ steps:
   - name: Install dependencies
     run: |
       npm ci --prefer-offline --no-audit
+
+  - name: Build TypeScript
+    run: |
+      npm run build
 
 engine:
   id: copilot
@@ -259,9 +263,48 @@ european_parliament___compare_political_groups({ groupIds: ["EPP", "S&D", "Renew
 
 ### Step 3: Generate Articles
 
+**IMPORTANT: MCP Client Setup for Script Execution**
+
+The generation script (`src/generators/news-enhanced.ts`) has its own built-in MCP client that connects to the European Parliament MCP server. It supports two transport modes:
+
+1. **Gateway mode** (preferred in agentic environments): Set `EP_MCP_GATEWAY_URL` and `EP_MCP_GATEWAY_API_KEY` to route requests through the MCP Gateway that is already running in the workflow.
+2. **Stdio mode** (default): Spawns the `european-parliament-mcp-server` binary from `node_modules/.bin/`.
+
+**In this agentic workflow, use gateway mode.** The MCP Gateway is already running and provides access to the EP MCP server. Read the gateway configuration to pass credentials to the script:
+
 ```bash
-# EP_LANG_INPUT is provided via the workflow step env: block
-# e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
+# Read MCP gateway config from the environment
+MCP_CONFIG="${GH_AW_MCP_CONFIG:-/home/runner/.copilot/mcp-config.json}"
+
+if [ -f "$MCP_CONFIG" ]; then
+  echo "✅ MCP gateway config found at $MCP_CONFIG"
+  GATEWAY_PORT=$(cat "$MCP_CONFIG" | grep -o '"port":[^,}]*' | head -1 | grep -o '[0-9]*')
+  GATEWAY_DOMAIN=$(cat "$MCP_CONFIG" | grep -o '"domain":"[^"]*"' | head -1 | sed 's/"domain":"//;s/"//')
+  GATEWAY_API_KEY=$(cat "$MCP_CONFIG" | grep -o '"apiKey":"[^"]*"' | head -1 | sed 's/"apiKey":"//;s/"//')
+
+  if [ -n "$GATEWAY_PORT" ] && [ -n "$GATEWAY_DOMAIN" ]; then
+    export EP_MCP_GATEWAY_URL="http://${GATEWAY_DOMAIN}:${GATEWAY_PORT}/mcp/european-parliament"
+    export EP_MCP_GATEWAY_API_KEY="${GATEWAY_API_KEY}"
+    echo "✅ Gateway mode: EP_MCP_GATEWAY_URL=$EP_MCP_GATEWAY_URL"
+  fi
+else
+  echo "ℹ️ No gateway config found, will use stdio mode"
+fi
+
+# Fallback: verify binary for stdio mode
+if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
+  if [ -f "node_modules/.bin/european-parliament-mcp-server" ]; then
+    echo "✅ EP MCP server binary found for stdio mode"
+  else
+    echo "⚠️ EP MCP server binary not found, attempting reinstall..."
+    npm install european-parliament-mcp-server@0.7.3
+  fi
+fi
+```
+
+Then generate articles:
+
+```bash
 LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
@@ -284,11 +327,26 @@ if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
 fi
 
+# Set USE_EP_MCP=true to enable the script's built-in MCP client
+export USE_EP_MCP=true
+
 npx tsx src/generators/news-enhanced.ts \
   --types=motions \
   --languages="$LANG_ARG" \
   $SKIP_FLAG
 ```
+
+If the script fails to connect to the MCP server (e.g., `❌ Failed to connect to MCP server after 3 attempts`), you can fall back to running with `USE_EP_MCP=false`:
+
+```bash
+export USE_EP_MCP=false
+npx tsx src/generators/news-enhanced.ts \
+  --types=motions \
+  --languages="$LANG_ARG" \
+  $SKIP_FLAG
+```
+
+**Note**: When `USE_EP_MCP=false`, the script generates placeholder content. If this happens, you MUST enrich the articles with real data from the EP MCP tools available to you as an agent before committing.
 
 ### Step 4: Validate Articles
 

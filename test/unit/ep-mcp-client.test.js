@@ -1450,4 +1450,85 @@ describe('ep-mcp-client', () => {
       await expect(closeEPMCPClient()).resolves.not.toThrow();
     });
   });
+
+  describe('Gateway Mode', () => {
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+      delete process.env.EP_MCP_GATEWAY_URL;
+      delete process.env.EP_MCP_GATEWAY_API_KEY;
+    });
+
+    it('should detect gateway mode from constructor options', () => {
+      const client = new EuropeanParliamentMCPClient({
+        gatewayUrl: 'http://localhost:8080/mcp/european-parliament',
+        gatewayApiKey: 'test-key',
+      });
+      expect(client.isGatewayMode()).toBe(true);
+    });
+
+    it('should detect gateway mode from environment variables', () => {
+      process.env.EP_MCP_GATEWAY_URL = 'http://host.docker.internal:80/mcp/european-parliament';
+      process.env.EP_MCP_GATEWAY_API_KEY = 'env-key';
+
+      const client = new EuropeanParliamentMCPClient();
+      expect(client.isGatewayMode()).toBe(true);
+    });
+
+    it('should default to stdio mode when no gateway configured', () => {
+      const client = new EuropeanParliamentMCPClient();
+      expect(client.isGatewayMode()).toBe(false);
+    });
+
+    it('should prefer explicit gatewayUrl over environment variable', () => {
+      process.env.EP_MCP_GATEWAY_URL = 'http://env-url:80/mcp/european-parliament';
+
+      const client = new EuropeanParliamentMCPClient({
+        gatewayUrl: 'http://explicit-url:80/mcp/european-parliament',
+      });
+      expect(client.isGatewayMode()).toBe(true);
+      expect(client.gatewayUrl).toBe('http://explicit-url:80/mcp/european-parliament');
+    });
+
+    it('should store gateway API key from options', () => {
+      const client = new EuropeanParliamentMCPClient({
+        gatewayUrl: 'http://localhost:80/mcp/european-parliament',
+        gatewayApiKey: 'my-api-key',
+      });
+      expect(client.gatewayApiKey).toBe('my-api-key');
+    });
+
+    it('should store gateway API key from environment', () => {
+      process.env.EP_MCP_GATEWAY_URL = 'http://localhost:80/mcp/european-parliament';
+      process.env.EP_MCP_GATEWAY_API_KEY = 'env-api-key';
+
+      const client = new EuropeanParliamentMCPClient();
+      expect(client.gatewayApiKey).toBe('env-api-key');
+    });
+
+    it('should handle gateway connection failure gracefully', async () => {
+      const client = new EuropeanParliamentMCPClient({
+        gatewayUrl: 'http://localhost:19999/mcp/european-parliament',
+        maxConnectionAttempts: 1,
+        connectionRetryDelay: 10,
+      });
+
+      await expect(client.connect()).rejects.toThrow();
+      expect(client.isConnected()).toBe(false);
+    });
+
+    it('should clear session on disconnect in gateway mode', () => {
+      const client = new EuropeanParliamentMCPClient({
+        gatewayUrl: 'http://localhost:80/mcp/european-parliament',
+      });
+      client.mcpSessionId = 'test-session';
+      client.disconnect();
+      expect(client.mcpSessionId).toBeNull();
+    });
+  });
 });

@@ -3,8 +3,13 @@
 
 /**
  * @module MCP/MCPConnection
- * @description Base MCP client — JSON-RPC 2.0 transport over stdio with retry logic.
- * Handles connection lifecycle, message framing, and request/response correlation.
+ * @description Base MCP client — JSON-RPC 2.0 transport over stdio or HTTP gateway.
+ * Supports two transport modes:
+ * - **stdio**: Spawns the EP MCP server binary as a child process (default)
+ * - **gateway**: Connects to an MCP Gateway via HTTP (for agentic workflow environments)
+ *
+ * Gateway mode is activated when `EP_MCP_GATEWAY_URL` env var is set or
+ * `gatewayUrl` is provided in options.
  */
 
 import { spawn, type ChildProcess } from 'child_process';
@@ -37,7 +42,31 @@ const REQUEST_TIMEOUT_MS = 60000;
 const CONNECTION_STARTUP_DELAY_MS = 500;
 
 /**
- * Base MCP connection managing JSON-RPC 2.0 transport over stdio.
+ * Parse an SSE (Server-Sent Events) response body to extract JSON-RPC messages.
+ *
+ * @param body - Raw SSE response text
+ * @returns Parsed JSON-RPC response or null
+ */
+function parseSSEResponse(body: string): JSONRPCResponse | null {
+  const lines = body.split('\n');
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed.startsWith('data:')) {
+      const jsonStr = trimmed.slice(5).trim();
+      if (jsonStr) {
+        try {
+          return JSON.parse(jsonStr) as JSONRPCResponse;
+        } catch {
+          // Continue to next data line
+        }
+      }
+    }
+  }
+  return null;
+}
+
+/**
+ * Base MCP connection managing JSON-RPC 2.0 transport over stdio or HTTP gateway.
  * Extended by domain-specific clients to add tool wrapper methods.
  */
 export class MCPConnection {
@@ -50,6 +79,15 @@ export class MCPConnection {
   private maxConnectionAttempts: number;
   private connectionRetryDelay: number;
 
+  /** Gateway URL for HTTP transport mode */
+  private gatewayUrl: string | null;
+
+  /** API key for gateway authentication */
+  private gatewayApiKey: string | null;
+
+  /** MCP session ID returned by the gateway */
+  private mcpSessionId: string | null;
+
   constructor(options: MCPClientOptions = {}) {
     this.serverPath =
       options.serverPath ?? process.env['EP_MCP_SERVER_PATH'] ?? DEFAULT_SERVER_BINARY;
@@ -60,6 +98,10 @@ export class MCPConnection {
     this.connectionAttempts = 0;
     this.maxConnectionAttempts = options.maxConnectionAttempts ?? 3;
     this.connectionRetryDelay = options.connectionRetryDelay ?? 1000;
+
+    this.gatewayUrl = options.gatewayUrl ?? process.env['EP_MCP_GATEWAY_URL'] ?? null;
+    this.gatewayApiKey = options.gatewayApiKey ?? process.env['EP_MCP_GATEWAY_API_KEY'] ?? null;
+    this.mcpSessionId = null;
   }
 
   /**
@@ -72,6 +114,15 @@ export class MCPConnection {
   }
 
   /**
+   * Check if using gateway HTTP transport
+   *
+   * @returns True if gateway mode is active
+   */
+  isGatewayMode(): boolean {
+    return this.gatewayUrl !== null;
+  }
+
+  /**
    * Connect to the MCP server with retry logic
    */
   async connect(): Promise<void> {
@@ -79,12 +130,21 @@ export class MCPConnection {
       return;
     }
 
-    console.log('🔌 Connecting to European Parliament MCP Server...');
+    if (this.gatewayUrl) {
+      console.log('🔌 Connecting to European Parliament MCP Server via gateway...');
+      console.log(`   Gateway URL: ${this.gatewayUrl}`);
+    } else {
+      console.log('🔌 Connecting to European Parliament MCP Server...');
+    }
 
     this.connectionAttempts = 0;
     while (this.connectionAttempts < this.maxConnectionAttempts) {
       try {
-        await this._attemptConnection();
+        if (this.gatewayUrl) {
+          await this._attemptGatewayConnection();
+        } else {
+          await this._attemptConnection();
+        }
         this.connectionAttempts = 0; // Reset on success
         return;
       } catch (error) {
@@ -108,7 +168,56 @@ export class MCPConnection {
   }
 
   /**
-   * Attempt a single connection
+   * Attempt a single connection via MCP Gateway (HTTP transport)
+   */
+  private async _attemptGatewayConnection(): Promise<void> {
+    try {
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+        Accept: 'application/json, text/event-stream',
+      };
+      if (this.gatewayApiKey) {
+        headers['Authorization'] = `Bearer ${this.gatewayApiKey}`;
+      }
+
+      const initRequest: JSONRPCRequest = {
+        jsonrpc: '2.0',
+        id: ++this.requestId,
+        method: 'initialize',
+        params: {
+          protocolVersion: '2024-11-05',
+          capabilities: {},
+          clientInfo: { name: 'ep-mcp-client', version: '1.0.0' },
+        },
+      };
+
+      const response = await fetch(this.gatewayUrl!, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(initRequest),
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Gateway returned ${response.status}: ${response.statusText}`);
+      }
+
+      const sessionId = response.headers.get('mcp-session-id');
+      if (sessionId) {
+        this.mcpSessionId = sessionId;
+      }
+
+      this.connected = true;
+      console.log('✅ Connected to European Parliament MCP Server via gateway');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.error('❌ Failed to connect to MCP gateway:', message);
+      throw error;
+    }
+  }
+
+  /**
+   * Attempt a single connection via stdio (spawns server binary)
    */
   private async _attemptConnection(): Promise<void> {
     try {
@@ -181,10 +290,11 @@ export class MCPConnection {
       this.process = null;
     }
     this.connected = false;
+    this.mcpSessionId = null;
   }
 
   /**
-   * Handle incoming messages from MCP server
+   * Handle incoming messages from MCP server (stdio mode only)
    *
    * @param line - JSON message line from server
    */
@@ -212,6 +322,73 @@ export class MCPConnection {
   }
 
   /**
+   * Send a request via MCP Gateway (HTTP transport)
+   *
+   * @param method - RPC method name
+   * @param params - Method parameters
+   * @returns Server response
+   */
+  private async _sendGatewayRequest(
+    method: string,
+    params: Record<string, unknown> = {}
+  ): Promise<unknown> {
+    const id = ++this.requestId;
+    const request: JSONRPCRequest = {
+      jsonrpc: '2.0',
+      id,
+      method,
+      params,
+    };
+
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+      Accept: 'application/json, text/event-stream',
+    };
+    if (this.gatewayApiKey) {
+      headers['Authorization'] = `Bearer ${this.gatewayApiKey}`;
+    }
+    if (this.mcpSessionId) {
+      headers['Mcp-Session-Id'] = this.mcpSessionId;
+    }
+
+    const response = await fetch(this.gatewayUrl!, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(request),
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Gateway error ${response.status}: ${response.statusText}`);
+    }
+
+    const sessionId = response.headers.get('mcp-session-id');
+    if (sessionId) {
+      this.mcpSessionId = sessionId;
+    }
+
+    const contentType = response.headers.get('content-type') ?? '';
+    const body = await response.text();
+
+    if (contentType.includes('text/event-stream')) {
+      const parsed = parseSSEResponse(body);
+      if (!parsed) {
+        throw new Error('Failed to parse SSE response from gateway');
+      }
+      if (parsed.error) {
+        throw new Error(parsed.error.message ?? 'MCP gateway error');
+      }
+      return parsed.result;
+    }
+
+    const jsonResponse = JSON.parse(body) as JSONRPCResponse;
+    if (jsonResponse.error) {
+      throw new Error(jsonResponse.error.message ?? 'MCP gateway error');
+    }
+    return jsonResponse.result;
+  }
+
+  /**
    * Send a request to the MCP server
    *
    * @param method - RPC method name
@@ -221,6 +398,10 @@ export class MCPConnection {
   async sendRequest(method: string, params: Record<string, unknown> = {}): Promise<unknown> {
     if (!this.connected) {
       throw new Error('Not connected to MCP server');
+    }
+
+    if (this.gatewayUrl) {
+      return await this._sendGatewayRequest(method, params);
     }
 
     const id = ++this.requestId;
