@@ -18,7 +18,7 @@
 
 **📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:**
 2026-02-25 (UTC)  
-**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-02-20  
+**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-02-25  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -2747,7 +2747,7 @@ graph TD
 | **8.27** | Secure system architecture and engineering principles | Code review, branch protection | ✅ | Security Operations section |
 | **8.33** | Test information | No production data in tests | ✅ | test/fixtures/ uses mock data |
 
-**Overall ISO 27001:2022 Compliance**: ✅ **Compliant** (26/26 applicable controls
+**Overall ISO 27001:2022 Compliance**: ✅ **Compliant** (25/25 applicable controls
 implemented)
 
 ### NIST CSF 2.0 Subcategory Mappings

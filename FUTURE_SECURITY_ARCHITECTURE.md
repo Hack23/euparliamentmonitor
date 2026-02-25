@@ -18,7 +18,7 @@
 
 **📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:**
 2026-02-25 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-24  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-25  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 

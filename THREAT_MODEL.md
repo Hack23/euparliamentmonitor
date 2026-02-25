@@ -396,7 +396,7 @@ techniques:
 | **MFA Enforcement**          | [M1032: Multi-factor Authentication](https://attack.mitre.org/mitigations/M1032/) | [T1078](https://attack.mitre.org/techniques/T1078/), [T1110](https://attack.mitre.org/techniques/T1110/) | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#mfa)              |
 | **npm Package Lock**         | [M1016: Vulnerability Scanning](https://attack.mitre.org/mitigations/M1016/)      | [T1525](https://attack.mitre.org/techniques/T1525/), [T1195](https://attack.mitre.org/techniques/T1195/) | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#supply-chain)     |
 | **Localhost-Only MCP Binding** | [M1030: Network Segmentation](https://attack.mitre.org/mitigations/M1030/)      | [T1046](https://attack.mitre.org/techniques/T1046/), [T1071](https://attack.mitre.org/techniques/T1071/) | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#network)          |
-| **SLSA Level 3 Attestation** | [M1045: Code Signing](https://attack.mitre.org/mitigations/M1045/)                | [T1553.003](https://attack.mitre.org/techniques/T1553/003/), [T1195](https://attack.mitre.org/techniques/T1195/) | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#slsa)       |
+| **SLSA Level 3 Attestation** | [M1045: Code Signing](https://attack.mitre.org/mitigations/M1045/)                | [T1553.002](https://attack.mitre.org/techniques/T1553/002/), [T1195](https://attack.mitre.org/techniques/T1195/) | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#slsa)       |
 
 ### **🔌 EP MCP Server Attack Surface Analysis**
 
@@ -1418,8 +1418,8 @@ V.Low │           │            │           │           │
 | Version | Date       | Author        | Changes                                                                       |
 | ------- | ---------- | ------------- | ----------------------------------------------------------------------------- |
 | 1.1     | 2026-02-25 | Security Team | EP MCP Server attack surface expansion and ATT&CK coverage enhancement        |
-|         |            |               | - Expanded 🎖️ MITRE ATT&CK coverage to 16 techniques (2.3% coverage)         |
-|         |            |               | - Added T1133, T1525, T1046, T1530, T1602, T1574.010, T1071, T1071.001, T1553.003 |
+|         |            |               | - Expanded 🎖️ MITRE ATT&CK coverage to 18 techniques (2.3% coverage)         |
+|         |            |               | - Added T1133, T1525, T1046, T1530, T1602, T1574.010, T1071, T1071.001, T1553.002 |
 |         |            |               | - Added 🔌 EP MCP Server Attack Surface Analysis section with 7 attack vectors |
 |         |            |               | - Added MCP server security posture summary and data flow diagram              |
 |         |            |               | - Updated ATT&CK Coverage Heat Map (Initial Access: 18.2%, Collection: 4.9%)  |

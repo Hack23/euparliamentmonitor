@@ -158,7 +158,7 @@ Understanding CRA's phased enforcement timeline is essential for compliance plan
 |--------------|---------|-----------------|-----------|
 | **CRA Published in Official Journal** | 2024-11-20 | Regulation (EU) 2024/2847 published | ✅ Completed |
 | **CRA Entry into Force** | 2024-12-11 | 20 days after publication in Official Journal | ✅ Completed |
-| **Market Surveillance Provisions** | **2026-06-11** | Chapter VI market surveillance rules applicable (21 months) | 🔄 Upcoming |
+| **Market Surveillance Provisions** | **2026-06-11** | Chapter VI market surveillance rules applicable (18 months) | 🔄 Upcoming |
 | **Vulnerability & Incident Reporting Obligations** | **2026-09-11** | Articles 14 & 15 — Vulnerability and incident reporting to ENISA/national CSIRTs | 🔄 Upcoming |
 | **Full CRA Compliance Required** | **2027-12-11** | All CRA requirements for manufacturers, importers, and distributors | 🔄 Upcoming |
 | **CE Marking Mandatory** | **2027-12-11** | Products covered by CRA must bear CE marking | N/A (non-commercial OSS) |
