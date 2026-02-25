@@ -23,8 +23,8 @@ import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 /** Pattern for valid article dates (YYYY-MM-DD) */
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
 
-/** Pattern for valid article slugs (alphanumeric, hyphens, dots) */
-const SLUG_PATTERN = /^[A-Za-z0-9.-]+$/u;
+/** Pattern for valid article slugs (lowercase letters, digits, hyphens, dots) */
+const SLUG_PATTERN = /^[a-z0-9.-]+$/u;
 
 /**
  * Build the article language switcher nav HTML.
@@ -80,10 +80,10 @@ function buildFooterSection(title: string, content: string): string {
 function buildArticleFooterLanguageGrid(currentLang: string): string {
   return ALL_LANGUAGES.map((code) => {
     const flag = getLocalizedString(LANGUAGE_FLAGS, code);
-    const name = getLocalizedString(LANGUAGE_NAMES, code);
+    const safeName = escapeHTML(getLocalizedString(LANGUAGE_NAMES, code));
     const href = code === 'en' ? '../index.html' : `../index-${code}.html`;
     const active = code === currentLang ? ' class="active"' : '';
-    return `<a href="${href}"${active} hreflang="${code}">${flag} ${name}</a>`;
+    return `<a href="${href}"${active} hreflang="${code}">${flag} ${safeName}</a>`;
   }).join('\n            ');
 }
 

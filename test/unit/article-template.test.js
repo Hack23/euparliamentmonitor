@@ -307,6 +307,18 @@ describe('article-template', () => {
         expect(() => generateArticleHTML({ ...defaultOptions, slug: '' })).toThrow('Invalid article slug format');
       });
 
+      it('should throw on whitespace-only slug', () => {
+        expect(() => generateArticleHTML({ ...defaultOptions, slug: '   ' })).toThrow('Invalid article slug format');
+      });
+
+      it('should throw on empty date', () => {
+        expect(() => generateArticleHTML({ ...defaultOptions, date: '' })).toThrow('Invalid article date format');
+      });
+
+      it('should throw on whitespace-only date', () => {
+        expect(() => generateArticleHTML({ ...defaultOptions, date: '   ' })).toThrow('Invalid article date format');
+      });
+
       it('should escape language names in title attributes', () => {
         const html = generateArticleHTML(defaultOptions);
 
