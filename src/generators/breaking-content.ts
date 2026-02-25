@@ -87,7 +87,7 @@ function buildKeyPlayersIntelSection(mepScores: MEPInfluenceScore[]): string {
         `<li class="mep-score">` +
         `<strong>${escapeHTML(m.mepName)}</strong> — ` +
         `score: ${escapeHTML(String(Math.round(m.overallScore)))} ` +
-        `(${escapeHTML(m.rank)})</li>`
+        `${m.rank ? `(${escapeHTML(m.rank)})` : ''}</li>`
     )
     .join('\n            ');
   return `
