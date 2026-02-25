@@ -235,7 +235,9 @@ async function generateWeekAhead() {
         const slug = `${formatDateForSlug(today)}-${ARTICLE_TYPE_WEEK_AHEAD}`;
         const weekData = await fetchWeekAheadData(dateRange);
         const keywords = buildKeywords(weekData);
-        const content = buildWeekAheadContent(weekData, dateRange);
+        const baseContent = buildWeekAheadContent(weekData, dateRange);
+        const watchSection = buildWhatToWatchSection(weekData.pipeline, [], 'en');
+        const content = watchSection ? `${baseContent}${watchSection}` : baseContent;
         let writtenCount = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
@@ -365,6 +367,25 @@ async function fetchMEPInfluence(mepId) {
     return '';
 }
 /**
+ * Safely parse a JSON string and extract a named array property.
+ *
+ * @param raw - Raw JSON string (empty string returns [])
+ * @param key - Property name to extract as array
+ * @returns Extracted array, or empty array on parse error or missing key
+ */
+function parseRawJsonArray(raw, key) {
+    if (!raw)
+        return [];
+    try {
+        const data = JSON.parse(raw);
+        const value = data[key];
+        return Array.isArray(value) ? value : [];
+    }
+    catch {
+        return [];
+    }
+}
+/**
  * Generate Breaking News article in specified languages
  *
  * @returns Generation result
@@ -382,7 +403,16 @@ async function generateBreakingNews() {
             fetchVotingReport(),
             fetchMEPInfluence(''),
         ]);
-        const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, influenceRaw);
+        const anomalies = parseRawJsonArray(anomalyRaw, 'anomalies')
+            .map((a) => scoreVotingAnomaly(a))
+            .filter((a) => a !== null);
+        const coalitions = parseRawJsonArray(coalitionRaw, 'coalitions')
+            .map((c) => analyzeCoalitionCohesion(c))
+            .filter((c) => c !== null);
+        const mepScores = parseRawJsonArray(influenceRaw, 'meps')
+            .map((m) => scoreMEPInfluence(m))
+            .filter((m) => m !== null);
+        const content = buildBreakingNewsContent(dateStr, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, anomalies, coalitions, mepScores);
         let writtenCount = 0;
         for (const lang of languages) {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
@@ -941,7 +971,11 @@ async function generateMotions() {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const titleGenerator = getLocalizedString(MOTIONS_TITLES, lang);
             const langTitles = titleGenerator(dateStr);
-            const content = generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions);
+            const baseMotionsContent = generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions);
+            const alignmentSection = buildPoliticalAlignmentSection(votingRecords, [], lang);
+            const content = alignmentSection
+                ? `${baseMotionsContent}${alignmentSection}`
+                : baseMotionsContent;
             const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
                 slug: ARTICLE_TYPE_MOTIONS,

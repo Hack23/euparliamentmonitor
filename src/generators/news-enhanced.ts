@@ -65,6 +65,9 @@ import type {
   VotingAnomaly,
   MotionsQuestion,
   LegislativeDocument,
+  VotingAnomalyIntelligence,
+  CoalitionIntelligence,
+  MEPInfluenceScore,
 } from '../types/index.js';
 import { ArticleCategory } from '../types/index.js';
 import type { EuropeanParliamentMCPClient } from '../mcp/ep-mcp-client.js';
@@ -368,7 +371,9 @@ async function generateWeekAhead(): Promise<GenerationResult> {
 
     const weekData = await fetchWeekAheadData(dateRange);
     const keywords = buildKeywords(weekData);
-    const content = buildWeekAheadContent(weekData, dateRange);
+    const baseContent = buildWeekAheadContent(weekData, dateRange);
+    const watchSection = buildWhatToWatchSection(weekData.pipeline, [], 'en');
+    const content = watchSection ? `${baseContent}${watchSection}` : baseContent;
 
     let writtenCount = 0;
     for (const lang of languages) {
@@ -505,6 +510,24 @@ async function fetchMEPInfluence(mepId: string): Promise<string> {
 }
 
 /**
+ * Safely parse a JSON string and extract a named array property.
+ *
+ * @param raw - Raw JSON string (empty string returns [])
+ * @param key - Property name to extract as array
+ * @returns Extracted array, or empty array on parse error or missing key
+ */
+function parseRawJsonArray(raw: string, key: string): unknown[] {
+  if (!raw) return [];
+  try {
+    const data = JSON.parse(raw) as Record<string, unknown>;
+    const value = data[key];
+    return Array.isArray(value) ? value : [];
+  } catch {
+    return [];
+  }
+}
+
+/**
  * Generate Breaking News article in specified languages
  *
  * @returns Generation result
@@ -525,12 +548,27 @@ async function generateBreakingNews(): Promise<GenerationResult> {
       fetchMEPInfluence(''),
     ]);
 
+    const anomalies = parseRawJsonArray(anomalyRaw, 'anomalies')
+      .map((a) => scoreVotingAnomaly(a))
+      .filter((a): a is VotingAnomalyIntelligence => a !== null);
+
+    const coalitions = parseRawJsonArray(coalitionRaw, 'coalitions')
+      .map((c) => analyzeCoalitionCohesion(c))
+      .filter((c): c is CoalitionIntelligence => c !== null);
+
+    const mepScores = parseRawJsonArray(influenceRaw, 'meps')
+      .map((m) => scoreMEPInfluence(m))
+      .filter((m): m is MEPInfluenceScore => m !== null);
+
     const content = buildBreakingNewsContent(
       dateStr,
       anomalyRaw,
       coalitionRaw,
       reportRaw,
-      influenceRaw
+      influenceRaw,
+      anomalies,
+      coalitions,
+      mepScores,
     );
 
     let writtenCount = 0;
@@ -1205,7 +1243,7 @@ async function generateMotions(): Promise<GenerationResult> {
       const titleGenerator = getLocalizedString(MOTIONS_TITLES, lang);
       const langTitles = titleGenerator(dateStr);
 
-      const content = generateMotionsContent(
+      const baseMotionsContent = generateMotionsContent(
         dateFromStr,
         dateStr,
         votingRecords,
@@ -1213,6 +1251,10 @@ async function generateMotions(): Promise<GenerationResult> {
         anomalies,
         questions
       );
+      const alignmentSection = buildPoliticalAlignmentSection(votingRecords, [], lang);
+      const content = alignmentSection
+        ? `${baseMotionsContent}${alignmentSection}`
+        : baseMotionsContent;
 
       const readTime = calculateReadTime(content);
 

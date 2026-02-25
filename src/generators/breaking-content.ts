@@ -153,7 +153,10 @@ export function buildBreakingNewsContent(
   coalitions: CoalitionIntelligence[] = [],
   mepScores: MEPInfluenceScore[] = [],
 ): string {
-  const hasData = anomalyRaw || coalitionRaw || reportRaw || influenceRaw;
+  const hasData = Boolean(
+    anomalyRaw || coalitionRaw || reportRaw || influenceRaw ||
+    anomalies.length || coalitions.length || mepScores.length,
+  );
   const timestamp = new Date().toISOString();
 
   const anomalySection = anomalyRaw
