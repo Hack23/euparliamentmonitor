@@ -43,7 +43,12 @@ import {
 import { ALL_LANGUAGES, LANGUAGE_PRESETS, isSupportedLanguage } from '../constants/languages.js';
 import { closeEPMCPClient } from '../mcp/ep-mcp-client.js';
 import { ensureDirectoryExists } from '../utils/file-utils.js';
-import type { LanguageCode, LanguagePreset, GenerationStats, GenerationResult } from '../types/index.js';
+import type {
+  LanguageCode,
+  LanguagePreset,
+  GenerationStats,
+  GenerationResult,
+} from '../types/index.js';
 import { ArticleCategory } from '../types/index.js';
 
 // ─── Pipeline-stage imports ───────────────────────────────────────────────────

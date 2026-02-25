@@ -87,7 +87,14 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
    * @returns Article HTML body
    */
   buildContent(data: BreakingNewsArticleData, lang: LanguageCode): string {
-    return buildBreakingNewsContent(data.date, data.anomalyRaw, data.coalitionRaw, data.reportRaw, '', lang);
+    return buildBreakingNewsContent(
+      data.date,
+      data.anomalyRaw,
+      data.coalitionRaw,
+      data.reportRaw,
+      '',
+      lang
+    );
   }
 
   /**
