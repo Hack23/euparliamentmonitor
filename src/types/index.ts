@@ -27,6 +27,7 @@ export {
   type ArticleCategoryLabels,
   type LangTitleSubtitle,
   type PropositionsStrings,
+  type EditorialStrings,
 } from './common.js';
 
 export type {
