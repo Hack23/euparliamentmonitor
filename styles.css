@@ -986,7 +986,6 @@ button:focus-visible {
   --font-size-4xl: 2.25rem;
 
   /* Article Reading Tokens */
-  --article-max-width: 72ch;
   --article-line-height: 1.7;
   --article-paragraph-spacing: 1.5em;
 
@@ -1015,12 +1014,26 @@ button:focus-visible {
 }
 
 /* ─── Article Typography Enhancement ────────────────────────── */
-.article-content p {
+/* Enhances direct paragraph children with improved reading metrics.
+ * Coexists with the base .article-content p rule (line ~629) which
+ * sets margin and text-align; these properties are additive.
+ */
+.article-content > p {
   line-height: var(--article-line-height);
   margin-bottom: var(--article-paragraph-spacing);
 }
 
 /* ─── Key Findings Box ───────────────────────────────────────── */
+/*
+ * Usage:
+ * <aside class="key-findings">
+ *   <p class="key-findings__title">🔑 Key Findings</p>
+ *   <ul class="key-findings__list">
+ *     <li>First key finding</li>
+ *     <li>Second key finding</li>
+ *   </ul>
+ * </aside>
+ */
 .key-findings {
   background: #fffbea;
   border: 1px solid var(--secondary-dark);
@@ -1070,6 +1083,13 @@ button:focus-visible {
 }
 
 /* ─── Pull Quote ─────────────────────────────────────────────── */
+/*
+ * Usage:
+ * <blockquote class="pull-quote">
+ *   "Quote text here."
+ *   <cite>— MEP Name, Political Group</cite>
+ * </blockquote>
+ */
 .pull-quote {
   border-left: 5px solid var(--primary);
   padding: 20px 28px;
@@ -1094,6 +1114,13 @@ button:focus-visible {
 }
 
 /* ─── Data Card ──────────────────────────────────────────────── */
+/*
+ * Usage (replaces raw <pre> data dumps):
+ * <div class="data-card">
+ *   <p class="data-card__title">Legislative Data</p>
+ *   <pre>Formatted data here</pre>
+ * </div>
+ */
 .data-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1126,6 +1153,10 @@ button:focus-visible {
 }
 
 /* ─── Status Badges ──────────────────────────────────────────── */
+/*
+ * Usage: <span class="status-badge status-badge--passed">Adopted</span>
+ * Variants: status-badge--passed | status-badge--pending | status-badge--failed
+ */
 .status-badge {
   display: inline-flex;
   align-items: center;
@@ -1155,6 +1186,10 @@ button:focus-visible {
 }
 
 /* ─── Political Group Badges ─────────────────────────────────── */
+/*
+ * Usage: <span class="group-badge group-badge--epp">EPP</span>
+ * Variants: epp | sd | re | greens | ecr | id | left
+ */
 .group-badge {
   display: inline-block;
   padding: 2px 8px;
@@ -1174,15 +1209,13 @@ button:focus-visible {
 .group-badge--left   { background: var(--group-left); }
 
 /* ─── Reading Progress Bar ───────────────────────────────────── */
+/*
+ * Requires JavaScript to update `element.style.width` on scroll.
+ * Hidden until a JS implementation is added to this static site.
+ * Re-enable by removing display:none and adding a scroll listener.
+ */
 .reading-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 3px;
-  background: var(--secondary);
-  z-index: 1000;
-  transition: width 0.15s linear;
+  display: none;
 }
 
 /* ─── RTL Enhancements for New Components ───────────────────── */
@@ -1210,11 +1243,6 @@ button:focus-visible {
 [dir="rtl"] .data-card {
   border-left: 1px solid var(--border);
   border-right: 4px solid var(--accent);
-}
-
-[dir="rtl"] .reading-progress {
-  left: auto;
-  right: 0;
 }
 
 /* ─── Dark Mode Component Overrides ─────────────────────────── */
@@ -1255,5 +1283,21 @@ button:focus-visible {
   .status-badge--failed {
     background: #3a0a0a;
     color: #ff9090;
+  }
+}
+
+/* ─── Dark Mode + RTL Combined Overrides ────────────────────── */
+/* Ensures border directions are correct when both dark mode and RTL
+ * apply simultaneously (e.g. Arabic or Hebrew with dark system theme).
+ */
+@media (prefers-color-scheme: dark) {
+  [dir="rtl"] .key-findings {
+    border-left-color: #665c00;
+    border-right-color: var(--secondary);
+  }
+
+  [dir="rtl"] .data-card {
+    border-left-color: #444466;
+    border-right-color: var(--accent);
   }
 }
