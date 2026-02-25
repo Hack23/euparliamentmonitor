@@ -178,3 +178,49 @@ describe('Motions Generator', () => {
     });
   });
 });
+
+describe('Motions editorial quality', () => {
+  const mockRecords = [
+    {
+      title: 'Motion on Climate',
+      date: '2025-01-15',
+      result: 'Adopted',
+      votes: { for: 400, against: 200, abstain: 30 },
+    },
+  ];
+  const mockPatterns = [{ group: 'EPP', cohesion: 0.88, participation: 0.94 }];
+  const mockAnomalies = [{ type: 'Defection', description: 'Cross-party vote', severity: 'LOW' }];
+  const mockQuestions = [{ author: 'MEP Smith', topic: 'Climate policy', date: '2025-01-15', status: 'ANSWERED' }];
+
+  it('should include "Why This Matters" section', () => {
+    const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions);
+    expect(html).toContain('why-this-matters');
+    expect(html).toContain('Why This Matters');
+  });
+
+  it('should include source attribution in lede', () => {
+    const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions);
+    expect(html).toContain('According to European Parliament data');
+  });
+
+  it('should include parliamentary context label in party cohesion section', () => {
+    const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions);
+    expect(html).toContain('Parliamentary Context');
+  });
+
+  it('should include analysis note label in anomalies section', () => {
+    const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions);
+    expect(html).toContain('Analysis Note');
+  });
+
+  it('should use localized editorial strings for French', () => {
+    const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions, 'fr');
+    expect(html).toContain('Pourquoi');
+    expect(html).toContain('Constat Clé');
+  });
+
+  it('should include key takeaway in "Why This Matters" section', () => {
+    const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions);
+    expect(html).toContain('Key Finding');
+  });
+});
