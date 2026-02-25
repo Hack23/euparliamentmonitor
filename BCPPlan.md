@@ -88,7 +88,7 @@ Based on [CLASSIFICATION.md](CLASSIFICATION.md) analysis:
 | **MTPD (Max Tolerable Period of Disruption)** | 72 hours | After 3 days, democratic monitoring impact becomes significant |
 | **SDO (Service Delivery Objective)** | 95% availability | Monthly target for GitHub Pages service |
 | **WRT (Work Recovery Time)** | 30 minutes | Time to validate restored content integrity |
-| **NBD (Normal Business Day)** | N/A | Platform operates 24/7 automated |
+| **NBD (Normal Business Day)** | N/A (24/7 operations) | No business-day distinction; weekend and holiday recovery procedures are identical to normal operations |
 
 ---
 

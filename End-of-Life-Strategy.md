@@ -69,7 +69,7 @@
 
 | 🔧 **Component** | 📊 **Version** | 📅 **EOL Date** | 🔄 **Migration Plan** |
 |------------------|---------------|-----------------|----------------------|
-| **Node.js** | 24 LTS | ~April 2028 | Upgrade to next LTS |
+| **Node.js** | 24 LTS | ~2028-04 | Upgrade to next LTS |
 | **HTML5/CSS3** | Living Standard | Evergreen | No migration needed |
 | **Vitest** | Latest | Active maintenance | Track major versions |
 | **Playwright** | Latest | Active maintenance | Track major versions |

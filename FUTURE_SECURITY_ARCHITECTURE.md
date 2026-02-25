@@ -157,7 +157,7 @@ Before detailing the future security roadmap, this section documents the **verif
 | Item | Priority | Target Resolution | Phase |
 |------|----------|------------------|-------|
 | DAST implementation | Medium | Q3 2026 | Phase 2 |
-| NIS2 CSIRT automated reporting | Medium | Q4 2026 (before Sep 2026 CRA deadline) | Phase 3 |
+| NIS2 CSIRT automated reporting | Medium | Q3 2026 (before Sep 2026 CRA deadline) | Phase 3 |
 | OpenSSF Best Practices badge | Low | Q2 2026 | Phase 1 |
 | FOSSA license compliance | Low | Q2 2026 | Phase 1 |
 | Content integrity monitoring | Low | Q3 2026 | Phase 2 |
