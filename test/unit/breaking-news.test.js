@@ -177,3 +177,50 @@ describe('Breaking News Generator', () => {
     });
   });
 });
+
+describe('Breaking News editorial quality', () => {
+  it('should not use <pre> data dumps in anomaly section', () => {
+    const html = buildBreakingNewsContent('2025-01-15', 'anomaly data', '', '', '');
+    expect(html).not.toContain('<pre');
+    expect(html).not.toContain('data-summary');
+  });
+
+  it('should not use <pre> data dumps in coalition section', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', 'coalition data', '', '');
+    expect(html).not.toContain('<pre');
+  });
+
+  it('should include source attribution when anomaly data provided', () => {
+    const html = buildBreakingNewsContent('2025-01-15', 'some anomaly', '', '', '');
+    expect(html).toContain('source-attribution');
+    expect(html).toContain('According to European Parliament data');
+  });
+
+  it('should include "Why This Matters" section when MCP data is present', () => {
+    const html = buildBreakingNewsContent('2025-01-15', 'some anomaly', '', '', '');
+    expect(html).toContain('why-this-matters');
+    expect(html).toContain('Why This Matters');
+  });
+
+  it('should not include "Why This Matters" section when no MCP data', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '');
+    expect(html).not.toContain('why-this-matters');
+  });
+
+  it('should use data-narrative class instead of data-summary', () => {
+    const html = buildBreakingNewsContent('2025-01-15', 'some data', '', '', '');
+    expect(html).toContain('data-narrative');
+    expect(html).not.toContain('data-summary');
+  });
+
+  it('should include localized editorial strings for French', () => {
+    const html = buildBreakingNewsContent('2025-01-15', 'anomaly data', '', '', '', 'fr');
+    expect(html).toContain('Pourquoi');
+    expect(html).toContain('why-this-matters');
+  });
+
+  it('should include localized editorial strings for German', () => {
+    const html = buildBreakingNewsContent('2025-01-15', 'anomaly data', '', '', '', 'de');
+    expect(html).toContain('Warum Das Wichtig Ist');
+  });
+});

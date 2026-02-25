@@ -178,3 +178,27 @@ describe('Propositions Generator', () => {
     });
   });
 });
+
+describe('Propositions editorial quality', () => {
+  it('should include "Why This Matters" section', () => {
+    const strings = PROPOSITIONS_STRINGS.en;
+    const html = buildPropositionsContent('<p>proposals</p>', null, '', strings);
+    expect(html).toContain('why-this-matters');
+    expect(html).toContain('Why This Matters');
+  });
+
+  it('should have whyThisMatters field that is non-empty', () => {
+    expect(PROPOSITIONS_STRINGS.en.whyThisMatters.length).toBeGreaterThan(0);
+    expect(PROPOSITIONS_STRINGS.en.whyThisMatters).toContain('EU citizens');
+  });
+
+  it('should escape whyThisMatters content', () => {
+    const maliciousStrings = {
+      ...PROPOSITIONS_STRINGS.en,
+      whyThisMatters: '<script>alert(1)</script>',
+    };
+    const html = buildPropositionsContent('', null, '', maliciousStrings);
+    expect(html).not.toContain('<script>');
+    expect(html).toContain('&lt;script&gt;');
+  });
+});
