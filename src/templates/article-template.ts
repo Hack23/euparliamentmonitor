@@ -20,6 +20,12 @@ import {
 } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 
+/** Pattern for valid article dates (YYYY-MM-DD) */
+const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
+
+/** Pattern for valid article slugs (alphanumeric, hyphens, dots) */
+const SLUG_PATTERN = /^[A-Za-z0-9.-]+$/u;
+
 /**
  * Build the article language switcher nav HTML.
  * Links to the same article in all 14 languages using the filename pattern {date}-{slug}-{lang}.html.
@@ -30,13 +36,39 @@ import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
  * @returns HTML string
  */
 function buildArticleLangSwitcher(date: string, slug: string, currentLang: string): string {
+  if (!DATE_PATTERN.test(date)) {
+    throw new Error(`Invalid article date format: "${date}"`);
+  }
+
+  if (!SLUG_PATTERN.test(slug)) {
+    throw new Error(`Invalid article slug format: "${slug}"`);
+  }
+
+  const safeDate = escapeHTML(date);
+  const safeSlug = escapeHTML(slug);
+
   return ALL_LANGUAGES.map((code) => {
     const flag = getLocalizedString(LANGUAGE_FLAGS, code);
     const name = getLocalizedString(LANGUAGE_NAMES, code);
     const active = code === currentLang ? ' active' : '';
-    const href = `${date}-${slug}-${code}.html`;
-    return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${name}">${flag} ${code.toUpperCase()}</a>`;
+    const href = `${safeDate}-${safeSlug}-${code}.html`;
+    const safeTitle = escapeHTML(name);
+    return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeTitle}">${flag} ${code.toUpperCase()}</a>`;
   }).join('\n        ');
+}
+
+/**
+ * Build a single footer section with title and content.
+ *
+ * @param title - Section heading text
+ * @param content - Inner HTML content
+ * @returns HTML string for one footer section
+ */
+function buildFooterSection(title: string, content: string): string {
+  return `<div class="footer-section">
+        <h3>${title}</h3>
+        ${content}
+      </div>`;
 }
 
 /**
@@ -206,34 +238,22 @@ export function generateArticleHTML(options: ArticleOptions): string {
 
   <footer class="site-footer" role="contentinfo">
     <div class="footer-content">
-      <div class="footer-section">
-        <h3>About EU Parliament Monitor</h3>
-        <p>European Parliament Intelligence Platform — monitoring political activity with systematic transparency. Powered by European Parliament open data.</p>
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul>
+      ${buildFooterSection('About EU Parliament Monitor', '<p>European Parliament Intelligence Platform — monitoring political activity with systematic transparency. Powered by European Parliament open data.</p>')}
+      ${buildFooterSection('Quick Links', `<ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
           <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Built by Hack23 AB</h3>
-        <ul>
+        </ul>`)}
+      ${buildFooterSection('Built by Hack23 AB', `<ul>
           <li><a href="https://hack23.com">hack23.com</a></li>
           <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
           <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Security &amp; Privacy Policy</a></li>
           <li><a href="mailto:james@hack23.com">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Languages</h3>
-        <div class="language-grid">
+        </ul>`)}
+      ${buildFooterSection('Languages', `<div class="language-grid">
           ${buildArticleFooterLanguageGrid(lang)}
-        </div>
-      </div>
+        </div>`)}
     </div>
     <div class="footer-bottom">
       <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden</p>

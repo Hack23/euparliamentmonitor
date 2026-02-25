@@ -286,6 +286,35 @@ describe('article-template', () => {
         expect(html).toContain('🇩🇪');
         expect(html).toContain('🇫🇷');
       });
+
+      it('should throw on invalid date format in language switcher', () => {
+        expect(() => generateArticleHTML({ ...defaultOptions, date: 'not-a-date' })).toThrow('Invalid article date format');
+      });
+
+      it('should throw on date with HTML injection', () => {
+        expect(() => generateArticleHTML({ ...defaultOptions, date: '2025"><script>' })).toThrow('Invalid article date format');
+      });
+
+      it('should throw on slug with HTML injection characters', () => {
+        expect(() => generateArticleHTML({ ...defaultOptions, slug: 'test"onclick="alert(1)' })).toThrow('Invalid article slug format');
+      });
+
+      it('should throw on slug with angle brackets', () => {
+        expect(() => generateArticleHTML({ ...defaultOptions, slug: 'test<script>alert(1)</script>' })).toThrow('Invalid article slug format');
+      });
+
+      it('should throw on empty slug', () => {
+        expect(() => generateArticleHTML({ ...defaultOptions, slug: '' })).toThrow('Invalid article slug format');
+      });
+
+      it('should escape language names in title attributes', () => {
+        const html = generateArticleHTML(defaultOptions);
+
+        // Language names should be present and properly escaped in title attributes
+        expect(html).toContain('title="English"');
+        expect(html).toContain('title="Deutsch"');
+        expect(html).toContain('title="Français"');
+      });
     });
 
     describe('Enhanced Footer', () => {
@@ -305,6 +334,23 @@ describe('article-template', () => {
         expect(html).toContain('<div class="language-grid">');
       });
 
+      it('should include footer language grid with correct index links', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: 'de' });
+
+        // English links to ../index.html
+        expect(html).toMatch(/language-grid[\s\S]*href="\.\.\/index\.html"/);
+        // German links to ../index-de.html
+        expect(html).toMatch(/language-grid[\s\S]*href="\.\.\/index-de\.html"/);
+        // French links to ../index-fr.html
+        expect(html).toMatch(/language-grid[\s\S]*href="\.\.\/index-fr\.html"/);
+      });
+
+      it('should mark current language as active in footer language grid', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: 'sv' });
+
+        expect(html).toMatch(/language-grid[\s\S]*class="active"[\s\S]*hreflang="sv"/);
+      });
+
       it('should include Hack23 AB copyright with organization details', () => {
         const html = generateArticleHTML(defaultOptions);
 
@@ -319,6 +365,13 @@ describe('article-template', () => {
         expect(html).toContain('https://github.com/Hack23/euparliamentmonitor');
         expect(html).toContain('https://www.europarl.europa.eu/');
         expect(html).toContain('Apache-2.0 License');
+      });
+
+      it('should use footer-section divs for each section', () => {
+        const html = generateArticleHTML(defaultOptions);
+
+        const footerSectionCount = (html.match(/class="footer-section"/g) || []).length;
+        expect(footerSectionCount).toBe(4);
       });
     });
 
