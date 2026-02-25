@@ -7,6 +7,10 @@
  */
 
 import { escapeHTML } from '../utils/file-utils.js';
+import { getLocalizedString, EDITORIAL_STRINGS } from '../constants/languages.js';
+
+/** Maximum characters to display from raw MCP intelligence data */
+const MAX_DATA_CHARS = 2000;
 
 /**
  * Build breaking news article HTML content
@@ -16,6 +20,7 @@ import { escapeHTML } from '../utils/file-utils.js';
  * @param coalitionRaw - Raw coalition dynamics data from MCP
  * @param reportRaw - Raw analytical report from MCP
  * @param influenceRaw - Raw MEP influence data from MCP
+ * @param lang - Language code for localized editorial strings (default: 'en')
  * @returns Full article HTML content string
  */
 export function buildBreakingNewsContent(
@@ -23,16 +28,19 @@ export function buildBreakingNewsContent(
   anomalyRaw: string,
   coalitionRaw: string,
   reportRaw: string,
-  influenceRaw: string
+  influenceRaw: string,
+  lang = 'en'
 ): string {
-  const hasData = anomalyRaw || coalitionRaw || reportRaw || influenceRaw;
+  const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
+  const hasData = Boolean(anomalyRaw || coalitionRaw || reportRaw || influenceRaw);
   const timestamp = new Date().toISOString();
 
   const anomalySection = anomalyRaw
     ? `
         <section class="analysis">
           <h2>Voting Anomaly Intelligence</h2>
-          <pre class="data-summary">${escapeHTML(anomalyRaw.slice(0, 2000))}</pre>
+          <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
+          <p class="data-narrative">${escapeHTML(anomalyRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
     : '';
 
@@ -40,7 +48,8 @@ export function buildBreakingNewsContent(
     ? `
         <section class="coalition-impact">
           <h2>Coalition Dynamics Assessment</h2>
-          <pre class="data-summary">${escapeHTML(coalitionRaw.slice(0, 2000))}</pre>
+          <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
+          <p class="data-narrative">${escapeHTML(coalitionRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
     : '';
 
@@ -48,7 +57,8 @@ export function buildBreakingNewsContent(
     ? `
         <section class="context">
           <h2>Analytical Report</h2>
-          <pre class="data-summary">${escapeHTML(reportRaw.slice(0, 2000))}</pre>
+          <p class="source-attribution">${escapeHTML(editorial.analysisNote)}:</p>
+          <p class="data-narrative">${escapeHTML(reportRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
     : '';
 
@@ -56,7 +66,20 @@ export function buildBreakingNewsContent(
     ? `
         <section class="key-players">
           <h2>Key MEP Influence Analysis</h2>
-          <pre class="data-summary">${escapeHTML(influenceRaw.slice(0, 2000))}</pre>
+          <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
+          <p class="data-narrative">${escapeHTML(influenceRaw.slice(0, MAX_DATA_CHARS))}</p>
+        </section>`
+    : '';
+
+  const context = escapeHTML(editorial.parliamentaryContext);
+  const finding = escapeHTML(editorial.keyTakeaway).toLowerCase();
+  const attribution = escapeHTML(editorial.sourceAttribution).toLowerCase();
+
+  const whyThisMattersSection = hasData
+    ? `
+        <section class="why-this-matters">
+          <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
+          <p>${context}: ${finding} — ${attribution}.</p>
         </section>`
     : '';
 
@@ -83,6 +106,7 @@ export function buildBreakingNewsContent(
           ${coalitionSection}
           ${reportSection}
           ${keyPlayersSection}
+          ${whyThisMattersSection}
         </div>
       `;
 }
