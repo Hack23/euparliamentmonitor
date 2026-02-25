@@ -110,7 +110,10 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     const base = buildWeekAheadContent(data.weekData, data.dateRange, lang);
     const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
     if (watchSection) {
-      return base.replace(/(<\/div>\s*)$/, `${watchSection}$1`);
+      // Inject before the explicit <!-- /article-content --> marker so the section
+      // stays inside the .article-content styling scope. The marker is always
+      // emitted by buildWeekAheadContent as the last child of that wrapper.
+      return base.replace('<!-- /article-content -->', `${watchSection}\n          <!-- /article-content -->`);
     }
     return base;
   }

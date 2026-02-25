@@ -64,7 +64,10 @@ export class MotionsStrategy {
         const base = generateMotionsContent(data.dateFromStr, data.date, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
         const alignmentSection = buildPoliticalAlignmentSection([...data.votingRecords], [], lang);
         if (alignmentSection) {
-            return base.replace(/(<\/div>\s*)$/, `${alignmentSection}$1`);
+            // Inject before the explicit <!-- /article-content --> marker so the section
+            // stays inside the .article-content styling scope. The marker is always
+            // emitted by generateMotionsContent as the last child of that wrapper.
+            return base.replace('<!-- /article-content -->', `${alignmentSection}\n      <!-- /article-content -->`);
         }
         return base;
     }
