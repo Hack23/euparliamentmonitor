@@ -1120,7 +1120,13 @@ async function generatePropositions(): Promise<GenerationResult> {
       const langTitles = getLocalizedString(PROPOSITIONS_TITLES, lang)();
       const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
 
-      const content = buildPropositionsContent(proposalsHtml, pipelineData, procedureHtml, strings, lang);
+      const content = buildPropositionsContent(
+        proposalsHtml,
+        pipelineData,
+        procedureHtml,
+        strings,
+        lang
+      );
       const readTime = calculateReadTime(content);
 
       const html = generateArticleHTML({

@@ -8,7 +8,12 @@
  * has its own localized title template returning `LangTitleSubtitle`.
  */
 
-import type { LanguageMap, LangTitleSubtitle, PropositionsStrings, EditorialStrings } from '../types/index.js';
+import type {
+  LanguageMap,
+  LangTitleSubtitle,
+  PropositionsStrings,
+  EditorialStrings,
+} from '../types/index.js';
 
 /** Week ahead title templates per language */
 export const WEEK_AHEAD_TITLES: LanguageMap<(start: string, end: string) => LangTitleSubtitle> = {
@@ -443,7 +448,7 @@ export const PROPOSITIONS_STRINGS: LanguageMap<PropositionsStrings> = {
     pipelineHealthLabel: 'Santé du Pipeline',
     throughputRateLabel: 'Taux de Débit',
     whyThisMatters:
-      "Ces propositions législatives concernent directement les citoyens européens — des coûts énergétiques aux droits numériques. Comprendre le pipeline aide les parties prenantes à anticiper les futures évolutions réglementaires.",
+      'Ces propositions législatives concernent directement les citoyens européens — des coûts énergétiques aux droits numériques. Comprendre le pipeline aide les parties prenantes à anticiper les futures évolutions réglementaires.',
   },
   es: {
     lede: 'El Parlamento Europeo está procesando activamente múltiples propuestas legislativas en áreas clave de política.',
@@ -582,11 +587,11 @@ export const EDITORIAL_STRINGS: LanguageMap<EditorialStrings> = {
     analysisNote: 'Analysehinweis',
   },
   fr: {
-    whyThisMatters: 'Pourquoi C\'est Important',
+    whyThisMatters: "Pourquoi C'est Important",
     keyTakeaway: 'Constat Clé',
     parliamentaryContext: 'Contexte Parlementaire',
     sourceAttribution: 'Selon les données du Parlement européen',
-    analysisNote: 'Note d\'analyse',
+    analysisNote: "Note d'analyse",
   },
   es: {
     whyThisMatters: 'Por Qué Importa',
