@@ -184,7 +184,7 @@ european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10
 european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
 ```
 
-> **Note:** The generation script (`scripts/generators/news-enhanced.js`) fetches full data for all five featured committees (ENVI, ECON, AFET, LIBE, AGRI) internally. The above calls are only for connectivity verification and supplemental context.
+> **Note:** The generation script (`src/generators/news-enhanced.ts`, executed via `npx tsx`) fetches full data for all five featured committees (ENVI, ECON, AFET, LIBE, AGRI) internally. The above calls are only for connectivity verification and supplemental context.
 
 ### Handling Slow API Responses
 
