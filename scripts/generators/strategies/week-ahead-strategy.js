@@ -3,7 +3,7 @@
 import { ArticleCategory } from '../../types/index.js';
 import { WEEK_AHEAD_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchWeekAheadData } from '../pipeline/fetch-stage.js';
-import { buildWeekAheadContent, buildKeywords, buildWhatToWatchSection } from '../week-ahead-content.js';
+import { buildWeekAheadContent, buildKeywords, buildWhatToWatchSection, } from '../week-ahead-content.js';
 // ─── Date-range helper ────────────────────────────────────────────────────────
 /**
  * Compute the week-ahead date range starting the day after `baseDate`.

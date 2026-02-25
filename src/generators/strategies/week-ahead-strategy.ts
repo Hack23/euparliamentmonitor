@@ -13,7 +13,11 @@ import { ArticleCategory } from '../../types/index.js';
 import type { LanguageCode, DateRange, WeekAheadData } from '../../types/index.js';
 import { WEEK_AHEAD_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchWeekAheadData } from '../pipeline/fetch-stage.js';
-import { buildWeekAheadContent, buildKeywords, buildWhatToWatchSection } from '../week-ahead-content.js';
+import {
+  buildWeekAheadContent,
+  buildKeywords,
+  buildWhatToWatchSection,
+} from '../week-ahead-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
