@@ -1493,7 +1493,7 @@ describe('ep-mcp-client', () => {
         gatewayUrl: 'http://explicit-url:80/mcp/european-parliament',
       });
       expect(client.isGatewayMode()).toBe(true);
-      expect(client.gatewayUrl).toBe('http://explicit-url:80/mcp/european-parliament');
+      expect(client.getGatewayUrl()).toBe('http://explicit-url:80/mcp/european-parliament');
     });
 
     it('should store gateway API key from options', () => {
@@ -1501,7 +1501,7 @@ describe('ep-mcp-client', () => {
         gatewayUrl: 'http://localhost:80/mcp/european-parliament',
         gatewayApiKey: 'my-api-key',
       });
-      expect(client.gatewayApiKey).toBe('my-api-key');
+      expect(client.getGatewayApiKey()).toBe('my-api-key');
     });
 
     it('should store gateway API key from environment', () => {
@@ -1509,7 +1509,7 @@ describe('ep-mcp-client', () => {
       process.env.EP_MCP_GATEWAY_API_KEY = 'env-api-key';
 
       const client = new EuropeanParliamentMCPClient();
-      expect(client.gatewayApiKey).toBe('env-api-key');
+      expect(client.getGatewayApiKey()).toBe('env-api-key');
     });
 
     it('should handle gateway connection failure gracefully', async () => {
@@ -1527,9 +1527,10 @@ describe('ep-mcp-client', () => {
       const client = new EuropeanParliamentMCPClient({
         gatewayUrl: 'http://localhost:80/mcp/european-parliament',
       });
-      client.mcpSessionId = 'test-session';
+      // Use internal access only for test setup (JavaScript runtime allows it)
+      client['mcpSessionId'] = 'test-session';
       client.disconnect();
-      expect(client.mcpSessionId).toBeNull();
+      expect(client.getMcpSessionId()).toBeNull();
     });
   });
 

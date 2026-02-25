@@ -128,6 +128,33 @@ export class MCPConnection {
   }
 
   /**
+   * Get the configured gateway URL
+   *
+   * @returns Gateway URL or null if using stdio transport
+   */
+  getGatewayUrl(): string | null {
+    return this.gatewayUrl;
+  }
+
+  /**
+   * Get the configured gateway API key
+   *
+   * @returns Gateway API key or null if not set
+   */
+  getGatewayApiKey(): string | null {
+    return this.gatewayApiKey;
+  }
+
+  /**
+   * Get the current MCP session ID
+   *
+   * @returns Session ID returned by the gateway, or null if not yet connected
+   */
+  getMcpSessionId(): string | null {
+    return this.mcpSessionId;
+  }
+
+  /**
    * Connect to the MCP server with retry logic
    */
   async connect(): Promise<void> {
@@ -173,6 +200,38 @@ export class MCPConnection {
   }
 
   /**
+   * Validate a gateway response body, throwing on JSON-RPC errors.
+   *
+   * @param contentType - Response content-type header
+   * @param body - Raw response body text
+   */
+  private _validateGatewayResponseBody(contentType: string, body: string): void {
+    if (contentType.includes('text/event-stream')) {
+      const parsed = parseSSEResponse(body);
+      if (parsed?.error) {
+        throw new Error(parsed.error.message ?? 'MCP gateway initialization error');
+      }
+      return;
+    }
+
+    if (!body) {
+      return;
+    }
+
+    try {
+      const jsonResponse = JSON.parse(body) as JSONRPCResponse;
+      if (jsonResponse.error) {
+        throw new Error(jsonResponse.error.message ?? 'MCP gateway initialization error');
+      }
+    } catch (e) {
+      // Non-JSON body is acceptable for init — some gateways return empty/plain text
+      if (e instanceof Error && e.message.includes('MCP gateway')) {
+        throw e;
+      }
+    }
+  }
+
+  /**
    * Attempt a single connection via MCP Gateway (HTTP transport)
    */
   private async _attemptGatewayConnection(): Promise<void> {
@@ -211,6 +270,11 @@ export class MCPConnection {
       if (sessionId) {
         this.mcpSessionId = sessionId;
       }
+
+      // Parse and validate the initialization response body
+      const contentType = response.headers.get('content-type') ?? '';
+      const body = await response.text();
+      this._validateGatewayResponseBody(contentType, body);
 
       this.connected = true;
       console.log('✅ Connected to European Parliament MCP Server via gateway');
