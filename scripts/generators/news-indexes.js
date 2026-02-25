@@ -104,7 +104,7 @@ function renderCard(article) {
     const title = formatSlug(article.slug);
     return `
       <li class="news-card">
-        <a href="news/${article.filename}" class="news-card__link">
+        <a href="news/${article.filename}" class="news-card__link" lang="${article.lang}" hreflang="${article.lang}">
           <div class="news-card__accent news-card__accent--${category}"></div>
           <div class="news-card__body">
             <div class="news-card__meta">

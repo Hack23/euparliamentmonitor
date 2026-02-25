@@ -163,7 +163,7 @@ export function generateArticleHTML(options) {
     ${buildArticleLangSwitcher(date, slug, lang)}
   </nav>
 
-  <nav class="article-top-nav">
+  <nav class="article-top-nav" aria-label="Article navigation">
     <a href="${indexHref}" class="back-to-news">${backLabel}</a>
   </nav>
 

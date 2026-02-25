@@ -237,7 +237,7 @@ describe('article-template', () => {
       it('should include back to news link at top', () => {
         const html = generateArticleHTML({ ...defaultOptions, lang: 'en' });
         
-        expect(html).toContain('<nav class="article-top-nav">');
+        expect(html).toContain('<nav class="article-top-nav" aria-label="Article navigation">');
         expect(html).toContain('<a href="../index.html" class="back-to-news">← Back to News</a>');
       });
 
