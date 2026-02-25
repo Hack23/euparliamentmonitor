@@ -120,16 +120,14 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
       lang
     );
     const alignmentSection = buildPoliticalAlignmentSection([...data.votingRecords], [], lang);
+    // Inject at the explicit <!-- /article-content --> marker so the section
+    // stays inside the .article-content styling scope. The marker is always
+    // emitted by generateMotionsContent as the last child of that wrapper and
+    // is removed from the final HTML during this replacement.
     if (alignmentSection) {
-      // Inject before the explicit <!-- /article-content --> marker so the section
-      // stays inside the .article-content styling scope. The marker is always
-      // emitted by generateMotionsContent as the last child of that wrapper.
-      return base.replace(
-        '<!-- /article-content -->',
-        `${alignmentSection}\n      <!-- /article-content -->`
-      );
+      return base.replace('<!-- /article-content -->', `${alignmentSection}\n`);
     }
-    return base;
+    return base.replace('<!-- /article-content -->', '');
   }
 
   /**

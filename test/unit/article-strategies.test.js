@@ -129,12 +129,13 @@ describe('WeekAheadStrategy', () => {
     const content = strategy.buildContent(weekAheadDataWithPipeline, 'en');
     expect(content).toContain('class="what-to-watch"');
     expect(content).toContain('Climate Regulation');
-    // section must appear before the explicit <!-- /article-content --> marker
+    // marker is consumed during injection and must NOT appear in final HTML
+    expect(content).not.toContain('<!-- /article-content -->');
+    // section must appear before the final closing </div>
     const watchIdx = content.lastIndexOf('what-to-watch');
-    const markerIdx = content.lastIndexOf('<!-- /article-content -->');
+    const closingDivIdx = content.lastIndexOf('</div>');
     expect(watchIdx).toBeGreaterThan(-1);
-    expect(markerIdx).toBeGreaterThan(-1);
-    expect(watchIdx).toBeLessThan(markerIdx);
+    expect(watchIdx).toBeLessThan(closingDivIdx);
   });
 
   it('getMetadata returns en title containing "Week Ahead" or equivalent', () => {
@@ -351,12 +352,13 @@ describe('MotionsStrategy', () => {
     const content = strategy.buildContent(motionsData, 'en');
     expect(content).toContain('class="political-alignment"');
     expect(content).toContain('Budget 2025');
-    // section must appear before the explicit <!-- /article-content --> marker
+    // marker is consumed during injection and must NOT appear in final HTML
+    expect(content).not.toContain('<!-- /article-content -->');
+    // section must appear before the final closing </div>
     const alignIdx = content.lastIndexOf('political-alignment');
-    const markerIdx = content.lastIndexOf('<!-- /article-content -->');
+    const closingDivIdx = content.lastIndexOf('</div>');
     expect(alignIdx).toBeGreaterThan(-1);
-    expect(markerIdx).toBeGreaterThan(-1);
-    expect(alignIdx).toBeLessThan(markerIdx);
+    expect(alignIdx).toBeLessThan(closingDivIdx);
   });
 
   it('getMetadata returns "motions" category', () => {
