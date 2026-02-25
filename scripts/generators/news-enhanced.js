@@ -240,7 +240,14 @@ async function generateWeekAhead() {
             console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
             const watchSection = buildWhatToWatchSection(weekData.pipeline, [], lang);
             const baseContent = buildWeekAheadContent(weekData, dateRange, lang);
-            const content = watchSection ? `${baseContent}${watchSection}` : baseContent;
+            let content = baseContent;
+            if (watchSection) {
+                const lastDiv = baseContent.lastIndexOf('</div>');
+                content =
+                    lastDiv !== -1
+                        ? baseContent.slice(0, lastDiv) + watchSection + baseContent.slice(lastDiv)
+                        : `${baseContent}${watchSection}`;
+            }
             const titleGenerator = getLocalizedString(WEEK_AHEAD_TITLES, lang);
             const langTitles = titleGenerator(dateRange.start, dateRange.end);
             const html = generateArticleHTML({
@@ -947,9 +954,16 @@ async function generateMotions() {
             const langTitles = titleGenerator(dateStr);
             const baseMotionsContent = generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions, lang);
             const alignmentSection = buildPoliticalAlignmentSection(votingRecords, [], lang);
-            const content = alignmentSection
-                ? `${baseMotionsContent}${alignmentSection}`
-                : baseMotionsContent;
+            let content = baseMotionsContent;
+            if (alignmentSection) {
+                const lastDiv = baseMotionsContent.lastIndexOf('</div>');
+                content =
+                    lastDiv !== -1
+                        ? baseMotionsContent.slice(0, lastDiv) +
+                            alignmentSection +
+                            baseMotionsContent.slice(lastDiv)
+                        : `${baseMotionsContent}${alignmentSection}`;
+            }
             const readTime = calculateReadTime(content);
             const html = generateArticleHTML({
                 slug: ARTICLE_TYPE_MOTIONS,
