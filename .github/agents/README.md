@@ -336,6 +336,128 @@ All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 
 ---
 
+## 🔧 GitHub Agentic Workflows (gh-aw) Agents
+
+The following agents are sourced from [github/gh-aw](https://github.com/github/gh-aw) and provide GitHub Agentic Workflows capabilities:
+
+### 12. 🤖 Agentic Workflows (`agentic-workflows.agent`)
+
+**Expertise**: GitHub Agentic Workflows (gh-aw) — Create, debug, and upgrade AI-powered workflows
+
+**When to Use**:
+- Creating new agentic workflows in markdown
+- Debugging failing workflows
+- Upgrading workflows to new gh-aw versions
+- Creating shared workflow components
+- Fixing Dependabot PRs for workflow dependencies
+- Analyzing test coverage
+
+---
+
+### 13. 🧹 CI Cleaner (`ci-cleaner.agent`)
+
+**Expertise**: Repository CI state cleanup — formatting, linting, testing, and workflow recompilation
+
+**When to Use**:
+- CI is failing and needs cleanup
+- Code formatting needs fixing
+- Linters report issues
+- Tests are broken
+- Workflows need recompilation
+
+---
+
+### 14. ✅ Contribution Checker (`contribution-checker.agent`)
+
+**Expertise**: PR evaluation against CONTRIBUTING.md guidelines
+
+**When to Use**:
+- Evaluating PR compliance with contribution guidelines
+- Assessing PR quality (on-topic, focused, tested, described)
+- Generating structured PR feedback
+
+---
+
+### 15. 🔌 Create Safe Output Type (`create-safe-output-type.agent`)
+
+**Expertise**: Adding new safe output types to GitHub Agentic Workflows
+
+**When to Use**:
+- Adding a new safe output type to the gh-aw system
+- Implementing JSONL validation pipelines
+- Creating handler factories for safe outputs
+
+---
+
+### 16. ⚙️ Custom Engine Implementation (`custom-engine-implementation.agent`)
+
+**Expertise**: Implementing custom agentic engines in gh-aw
+
+**When to Use**:
+- Building a new AI engine for gh-aw
+- Understanding the engine interface architecture
+- Integrating engines with MCP servers and firewalls
+
+---
+
+### 17. 📖 Developer Instructions (`developer.instructions`)
+
+**Expertise**: Development guidelines and standards for GitHub Agentic Workflows
+
+**When to Use**:
+- Understanding code organization patterns
+- Following validation architecture
+- Applying security best practices
+- Managing releases with changesets
+
+---
+
+### 18. 🔥 Grumpy Reviewer (`grumpy-reviewer.agent`)
+
+**Expertise**: Thorough code review with a grumpy, sarcastic senior developer persona
+
+**When to Use**:
+- Getting brutally honest code reviews
+- Finding code smells, performance issues, and security concerns
+- Identifying missing error handling and poor naming
+
+---
+
+### 19. 🎯 Interactive Agent Designer (`interactive-agent-designer.agent`)
+
+**Expertise**: Interactive wizard for creating and optimizing agent prompts and workflow descriptions
+
+**When to Use**:
+- Creating new agent prompts via guided wizard
+- Optimizing existing workflow descriptions
+- Designing workflow configurations (frontmatter)
+- Creating custom agent instructions
+
+---
+
+### 20. 📝 Technical Doc Writer (`technical-doc-writer.agent`)
+
+**Expertise**: Technical documentation using GitHub Docs voice and Diátaxis structure
+
+**When to Use**:
+- Writing developer-focused documentation
+- Creating getting-started guides, how-to guides, and references
+- Following GitHub Docs style and tone
+
+---
+
+### 21. 📋 W3C Specification Writer (`w3c-specification-writer.agent`)
+
+**Expertise**: Formal W3C-style specifications with RFC 2119 keywords
+
+**When to Use**:
+- Writing formal technical specifications
+- Creating protocol, API, or data format specifications
+- Applying RFC 2119 requirement levels (MUST, SHALL, SHOULD, MAY)
+- Defining conformance classes and compliance testing
+
+---
+
 ## 🌍 European Parliament Context
 
 All agents are configured with expertise in:
