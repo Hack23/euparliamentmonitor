@@ -315,6 +315,18 @@ describe('MotionsStrategy', () => {
     expect(alignIdx).toBeLessThan(closingDivIdx);
   });
 
+  it('buildContent strips marker without injecting alignment when voting records are empty', () => {
+    const emptyMotionsData = {
+      ...motionsData,
+      votingRecords: [],
+    };
+    const content = strategy.buildContent(emptyMotionsData, 'en');
+    // When alignment section is empty, marker is still removed
+    expect(content).not.toContain('<!-- /article-content -->');
+    // No alignment section injected
+    expect(content).not.toContain('class="political-alignment"');
+  });
+
   it('getMetadata returns "motions" category', () => {
     const meta = strategy.getMetadata(motionsData, 'en');
     expect(meta.category).toBe('motions');
@@ -506,5 +518,51 @@ describe('WeekAheadStrategy — error branch', () => {
     // 'invalid-date' produces NaN-based ISO that may fail the parts check
     // or V8's Date may produce 'Invalid Date'
     await expect(strategy.fetchData(null, 'not-a-date')).rejects.toThrow();
+  });
+});
+
+// ─── PropositionsStrategy.fetchData with rejected promise branches ─────────────
+
+describe('PropositionsStrategy.fetchData with rejected promises', () => {
+  it('handles rejected proposals and pipeline gracefully', async () => {
+    const mockClientRejecting = {
+      callTool: async () => undefined,
+      getPlenarySessions: async () => undefined,
+      getCommitteeInfo: async () => undefined,
+      searchDocuments: async () => { throw new Error('network failure'); },
+      monitorLegislativePipeline: async () => { throw new Error('timeout'); },
+      getParliamentaryQuestions: async () => undefined,
+      trackLegislation: async () => undefined,
+    };
+    const strategy = new PropositionsStrategy();
+    const data = await strategy.fetchData(mockClientRejecting, '2025-01-15');
+    expect(data.date).toBe('2025-01-15');
+    expect(data.proposalsHtml).toBe('');
+    expect(data.pipelineData).toBeNull();
+    expect(data.procedureHtml).toBe('');
+  });
+});
+
+// ─── PropositionsStrategy.buildContent with empty proposalsHtml ────────────────
+
+describe('PropositionsStrategy.buildContent with empty proposals', () => {
+  it('renders without proposals section when proposalsHtml is empty', () => {
+    const strategy = new PropositionsStrategy();
+    const data = { ...propositionsData, proposalsHtml: '' };
+    const content = strategy.buildContent(data, 'en');
+    expect(typeof content).toBe('string');
+    expect(content.length).toBeGreaterThan(0);
+  });
+});
+
+// ─── MotionsStrategy.buildContent strips marker without alignment section ──────
+
+describe('WeekAheadStrategy.buildContent strips marker without watch section', () => {
+  it('strips the marker when pipeline is empty (no bottleneck)', () => {
+    const strategy = new WeekAheadStrategy();
+    const content = strategy.buildContent(weekAheadData, 'en');
+    // weekAheadData has empty pipeline, so no watch section
+    expect(content).not.toContain('<!-- /article-content -->');
+    expect(content).not.toContain('class="what-to-watch"');
   });
 });

@@ -11,6 +11,7 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import path from 'path';
 import { EuropeanParliamentMCPClient, getEPMCPClient, closeEPMCPClient } from '../../scripts/mcp/ep-mcp-client.js';
+import { parseSSEResponse } from '../../scripts/mcp/mcp-connection.js';
 import { mockConsole } from '../helpers/test-utils.js';
 
 describe('ep-mcp-client', () => {
@@ -1448,6 +1449,180 @@ describe('ep-mcp-client', () => {
 
     it('should handle closing when no client exists', async () => {
       await expect(closeEPMCPClient()).resolves.not.toThrow();
+    });
+  });
+
+  describe('Gateway Mode', () => {
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+      delete process.env.EP_MCP_GATEWAY_URL;
+      delete process.env.EP_MCP_GATEWAY_API_KEY;
+    });
+
+    it('should detect gateway mode from constructor options', () => {
+      const client = new EuropeanParliamentMCPClient({
+        gatewayUrl: 'http://localhost:8080/mcp/european-parliament',
+        gatewayApiKey: 'test-key',
+      });
+      expect(client.isGatewayMode()).toBe(true);
+    });
+
+    it('should detect gateway mode from environment variables', () => {
+      process.env.EP_MCP_GATEWAY_URL = 'http://host.docker.internal:80/mcp/european-parliament';
+      process.env.EP_MCP_GATEWAY_API_KEY = 'env-key';
+
+      const client = new EuropeanParliamentMCPClient();
+      expect(client.isGatewayMode()).toBe(true);
+    });
+
+    it('should default to stdio mode when no gateway configured', () => {
+      const client = new EuropeanParliamentMCPClient();
+      expect(client.isGatewayMode()).toBe(false);
+    });
+
+    it('should prefer explicit gatewayUrl over environment variable', () => {
+      process.env.EP_MCP_GATEWAY_URL = 'http://env-url:80/mcp/european-parliament';
+
+      const client = new EuropeanParliamentMCPClient({
+        gatewayUrl: 'http://explicit-url:80/mcp/european-parliament',
+      });
+      expect(client.isGatewayMode()).toBe(true);
+      expect(client.getGatewayUrl()).toBe('http://explicit-url:80/mcp/european-parliament');
+    });
+
+    it('should store gateway API key from options', () => {
+      const client = new EuropeanParliamentMCPClient({
+        gatewayUrl: 'http://localhost:80/mcp/european-parliament',
+        gatewayApiKey: 'my-api-key',
+      });
+      expect(client.getGatewayApiKey()).toBe('my-api-key');
+    });
+
+    it('should store gateway API key from environment', () => {
+      process.env.EP_MCP_GATEWAY_URL = 'http://localhost:80/mcp/european-parliament';
+      process.env.EP_MCP_GATEWAY_API_KEY = 'env-api-key';
+
+      const client = new EuropeanParliamentMCPClient();
+      expect(client.getGatewayApiKey()).toBe('env-api-key');
+    });
+
+    it('should handle gateway connection failure gracefully', async () => {
+      vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('Connection refused')));
+
+      const client = new EuropeanParliamentMCPClient({
+        gatewayUrl: 'http://localhost:19999/mcp/european-parliament',
+        maxConnectionAttempts: 1,
+        connectionRetryDelay: 10,
+      });
+
+      await expect(client.connect()).rejects.toThrow();
+      expect(client.isConnected()).toBe(false);
+
+      vi.unstubAllGlobals();
+    });
+
+    it('should clear session on disconnect in gateway mode', async () => {
+      // Mock a successful gateway connect that returns a session ID header
+      vi.stubGlobal(
+        'fetch',
+        vi.fn().mockResolvedValue({
+          ok: true,
+          headers: new Map([
+            ['mcp-session-id', 'test-session-123'],
+            ['content-type', 'application/json'],
+          ]),
+          text: () => Promise.resolve('{"jsonrpc":"2.0","id":1,"result":{}}'),
+        })
+      );
+
+      const client = new EuropeanParliamentMCPClient({
+        gatewayUrl: 'http://localhost:80/mcp/european-parliament',
+      });
+
+      await client.connect();
+      expect(client.getMcpSessionId()).toBe('test-session-123');
+
+      client.disconnect();
+      expect(client.getMcpSessionId()).toBeNull();
+
+      vi.unstubAllGlobals();
+    });
+  });
+
+  describe('parseSSEResponse', () => {
+    it('should parse a valid SSE response with single data line', () => {
+      const body = 'event: message\ndata: {"jsonrpc":"2.0","id":1,"result":{"tools":[]}}\n\n';
+      const result = parseSSEResponse(body);
+      expect(result).not.toBeNull();
+      expect(result.jsonrpc).toBe('2.0');
+      expect(result.id).toBe(1);
+      expect(result.result).toEqual({ tools: [] });
+    });
+
+    it('should return null for empty response body', () => {
+      expect(parseSSEResponse('')).toBeNull();
+    });
+
+    it('should return null for response with no data lines', () => {
+      const body = 'event: message\n: comment line\n\n';
+      expect(parseSSEResponse(body)).toBeNull();
+    });
+
+    it('should return first valid message when multiple data lines exist', () => {
+      const body = 'data: {"jsonrpc":"2.0","id":1,"result":"first"}\ndata: {"jsonrpc":"2.0","id":2,"result":"second"}\n';
+      const result = parseSSEResponse(body);
+      expect(result).not.toBeNull();
+      expect(result.id).toBe(1);
+      expect(result.result).toBe('first');
+    });
+
+    it('should skip malformed JSON and return next valid data line', () => {
+      const body = 'data: {invalid json}\ndata: {"jsonrpc":"2.0","id":3,"result":"valid"}\n';
+      const result = parseSSEResponse(body);
+      expect(result).not.toBeNull();
+      expect(result.id).toBe(3);
+      expect(result.result).toBe('valid');
+    });
+
+    it('should return null when all data lines contain malformed JSON', () => {
+      const body = 'data: {invalid}\ndata: not-json\n';
+      expect(parseSSEResponse(body)).toBeNull();
+    });
+
+    it('should skip data lines with empty content after prefix', () => {
+      const body = 'data: \ndata:   \ndata: {"jsonrpc":"2.0","id":4,"result":"ok"}\n';
+      const result = parseSSEResponse(body);
+      expect(result).not.toBeNull();
+      expect(result.id).toBe(4);
+    });
+
+    it('should handle data lines with extra whitespace after prefix', () => {
+      const body = 'data:    {"jsonrpc":"2.0","id":5,"result":"trimmed"}  \n';
+      const result = parseSSEResponse(body);
+      expect(result).not.toBeNull();
+      expect(result.id).toBe(5);
+    });
+
+    it('should handle mixed valid/invalid lines with event prefixes', () => {
+      const body = 'event: message\n: server comment\ndata: {"jsonrpc":"2.0","id":6,"result":"found"}\nevent: done\n\n';
+      const result = parseSSEResponse(body);
+      expect(result).not.toBeNull();
+      expect(result.id).toBe(6);
+    });
+
+    it('should parse error responses from SSE', () => {
+      const body = 'data: {"jsonrpc":"2.0","id":7,"error":{"code":-32600,"message":"Invalid Request"}}\n';
+      const result = parseSSEResponse(body);
+      expect(result).not.toBeNull();
+      expect(result.error).toBeDefined();
+      expect(result.error.code).toBe(-32600);
+      expect(result.error.message).toBe('Invalid Request');
     });
   });
 });
