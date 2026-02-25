@@ -191,7 +191,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   </script>
 </head>
 <body>
-  <div class="reading-progress" aria-hidden="true" role="presentation"></div>
+  <div class="reading-progress" aria-hidden="true"></div>
   <a href="#main" class="skip-link">${skipLinkText}</a>
 
   <header class="site-header" role="banner">

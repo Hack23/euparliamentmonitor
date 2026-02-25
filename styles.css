@@ -1009,7 +1009,15 @@ button:focus-visible {
     --text-muted: #909090;
     --border: #444466;
     --border-light: #333355;
+
+    /* Dark mode brand/foreground colors */
+    --primary: #4da3ff;
+    --primary-dark: #80b3ff;
     --primary-light: #1e2a4e;
+    --accent: #66c2ff;
+    --accent-light: #27416b;
+    --secondary: #ffd94d;
+    --secondary-dark: #f0c500;
   }
 }
 
@@ -1216,6 +1224,14 @@ button:focus-visible {
  */
 .reading-progress {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: var(--secondary);
+  z-index: 1000;
+  transition: width var(--transition);
 }
 
 /* ─── RTL Enhancements for New Components ───────────────────── */
