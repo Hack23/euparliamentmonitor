@@ -29,10 +29,41 @@ import type {
   TrackMEPAttendanceOptions,
   AnalyzeCountryDelegationOptions,
   GeneratePoliticalLandscapeOptions,
+  GetCurrentMEPsOptions,
+  GetSpeechesOptions,
+  GetProceduresOptions,
+  GetAdoptedTextsOptions,
+  GetEventsOptions,
+  GetMeetingActivitiesOptions,
+  GetMeetingDecisionsOptions,
+  GetMEPDeclarationsOptions,
+  GetIncomingMEPsOptions,
+  GetOutgoingMEPsOptions,
+  GetHomonymMEPsOptions,
+  GetPlenaryDocumentsOptions,
+  GetCommitteeDocumentsOptions,
+  GetPlenarySessionDocumentsOptions,
+  GetPlenarySessionDocumentItemsOptions,
+  GetControlledVocabulariesOptions,
+  GetExternalDocumentsOptions,
+  GetMeetingForeseenActivitiesOptions,
+  GetProcedureEventsOptions,
 } from '../types/index.js';
 
 /** Fallback payload for analyze_legislative_effectiveness when validation fails or tool is unavailable */
 const EFFECTIVENESS_FALLBACK = '{"effectiveness": null}';
+
+/** Fallback payload for MEP list tools */
+const MEPS_FALLBACK = '{"meps": []}';
+
+/** Fallback payload for document list tools */
+const DOCUMENTS_FALLBACK = '{"documents": []}';
+
+/** Fallback payload for event list tools */
+const EVENTS_FALLBACK = '{"events": []}';
+
+/** Fallback payload for activity list tools */
+const ACTIVITIES_FALLBACK = '{"activities": []}';
 
 /**
  * MCP Client for European Parliament data access.
@@ -51,7 +82,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_meps not available:', message);
-      return { content: [{ type: 'text', text: '{"meps": []}' }] };
+      return { content: [{ type: 'text', text: MEPS_FALLBACK }] };
     }
   }
 
@@ -100,7 +131,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('search_documents not available:', message);
-      return { content: [{ type: 'text', text: '{"documents": []}' }] };
+      return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
     }
   }
 
@@ -454,6 +485,354 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('generate_political_landscape not available:', message);
       return { content: [{ type: 'text', text: '{"landscape": null}' }] };
+    }
+  }
+
+  /**
+   * Get currently active Members of European Parliament
+   *
+   * @param options - Pagination options
+   * @returns Active MEPs data
+   */
+  async getCurrentMEPs(options: GetCurrentMEPsOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_current_meps', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_current_meps not available:', message);
+      return { content: [{ type: 'text', text: MEPS_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Get plenary speeches and debate contributions
+   *
+   * @param options - Filter options including optional speechId or date range
+   * @returns Speeches data
+   */
+  async getSpeeches(options: GetSpeechesOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_speeches', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_speeches not available:', message);
+      return { content: [{ type: 'text', text: '{"speeches": []}' }] };
+    }
+  }
+
+  /**
+   * Get legislative procedures
+   *
+   * @param options - Filter options including optional processId or year
+   * @returns Procedures data
+   */
+  async getProcedures(options: GetProceduresOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_procedures', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_procedures not available:', message);
+      return { content: [{ type: 'text', text: '{"procedures": []}' }] };
+    }
+  }
+
+  /**
+   * Get adopted texts (legislative resolutions, positions, non-legislative resolutions)
+   *
+   * @param options - Filter options including optional docId or year
+   * @returns Adopted texts data
+   */
+  async getAdoptedTexts(options: GetAdoptedTextsOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_adopted_texts', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_adopted_texts not available:', message);
+      return { content: [{ type: 'text', text: '{"texts": []}' }] };
+    }
+  }
+
+  /**
+   * Get European Parliament events (hearings, conferences, seminars)
+   *
+   * @param options - Filter options including optional eventId or date range
+   * @returns Events data
+   */
+  async getEvents(options: GetEventsOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_events', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_events not available:', message);
+      return { content: [{ type: 'text', text: EVENTS_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Get activities linked to a specific plenary sitting
+   *
+   * @param options - Options including required sittingId
+   * @returns Meeting activities data
+   */
+  async getMeetingActivities(options: GetMeetingActivitiesOptions): Promise<MCPToolResult> {
+    if (typeof options.sittingId !== 'string' || options.sittingId.trim().length === 0) {
+      console.warn(
+        'get_meeting_activities called without valid sittingId (non-empty string required)'
+      );
+      return { content: [{ type: 'text', text: ACTIVITIES_FALLBACK }] };
+    }
+    try {
+      return await this.callTool('get_meeting_activities', {
+        ...options,
+        sittingId: options.sittingId.trim(),
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_meeting_activities not available:', message);
+      return { content: [{ type: 'text', text: ACTIVITIES_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Get decisions made in a specific plenary sitting
+   *
+   * @param options - Options including required sittingId
+   * @returns Meeting decisions data
+   */
+  async getMeetingDecisions(options: GetMeetingDecisionsOptions): Promise<MCPToolResult> {
+    if (typeof options.sittingId !== 'string' || options.sittingId.trim().length === 0) {
+      console.warn(
+        'get_meeting_decisions called without valid sittingId (non-empty string required)'
+      );
+      return { content: [{ type: 'text', text: '{"decisions": []}' }] };
+    }
+    try {
+      return await this.callTool('get_meeting_decisions', {
+        ...options,
+        sittingId: options.sittingId.trim(),
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_meeting_decisions not available:', message);
+      return { content: [{ type: 'text', text: '{"decisions": []}' }] };
+    }
+  }
+
+  /**
+   * Get MEP declarations of financial interests
+   *
+   * @param options - Filter options including optional docId or year
+   * @returns MEP declarations data
+   */
+  async getMEPDeclarations(options: GetMEPDeclarationsOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_mep_declarations', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_mep_declarations not available:', message);
+      return { content: [{ type: 'text', text: '{"declarations": []}' }] };
+    }
+  }
+
+  /**
+   * Get incoming Members of European Parliament
+   *
+   * @param options - Pagination options
+   * @returns Incoming MEPs data
+   */
+  async getIncomingMEPs(options: GetIncomingMEPsOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_incoming_meps', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_incoming_meps not available:', message);
+      return { content: [{ type: 'text', text: MEPS_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Get outgoing Members of European Parliament
+   *
+   * @param options - Pagination options
+   * @returns Outgoing MEPs data
+   */
+  async getOutgoingMEPs(options: GetOutgoingMEPsOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_outgoing_meps', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_outgoing_meps not available:', message);
+      return { content: [{ type: 'text', text: MEPS_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Get homonym MEPs (MEPs with identical names)
+   *
+   * @param options - Pagination options
+   * @returns Homonym MEPs data
+   */
+  async getHomonymMEPs(options: GetHomonymMEPsOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_homonym_meps', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_homonym_meps not available:', message);
+      return { content: [{ type: 'text', text: MEPS_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Get plenary documents
+   *
+   * @param options - Filter options including optional docId or year
+   * @returns Plenary documents data
+   */
+  async getPlenaryDocuments(options: GetPlenaryDocumentsOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_plenary_documents', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_plenary_documents not available:', message);
+      return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Get committee documents
+   *
+   * @param options - Filter options including optional docId or year
+   * @returns Committee documents data
+   */
+  async getCommitteeDocuments(options: GetCommitteeDocumentsOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_committee_documents', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_committee_documents not available:', message);
+      return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Get plenary session documents (agendas, minutes, voting lists)
+   *
+   * @param options - Filter options including optional docId
+   * @returns Plenary session documents data
+   */
+  async getPlenarySessionDocuments(
+    options: GetPlenarySessionDocumentsOptions = {}
+  ): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_plenary_session_documents', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_plenary_session_documents not available:', message);
+      return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Get plenary session document items
+   *
+   * @param options - Pagination options
+   * @returns Plenary session document items data
+   */
+  async getPlenarySessionDocumentItems(
+    options: GetPlenarySessionDocumentItemsOptions = {}
+  ): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_plenary_session_document_items', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_plenary_session_document_items not available:', message);
+      return { content: [{ type: 'text', text: '{"items": []}' }] };
+    }
+  }
+
+  /**
+   * Get controlled vocabularies (standardized classification terms)
+   *
+   * @param options - Filter options including optional vocId
+   * @returns Controlled vocabularies data
+   */
+  async getControlledVocabularies(
+    options: GetControlledVocabulariesOptions = {}
+  ): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_controlled_vocabularies', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_controlled_vocabularies not available:', message);
+      return { content: [{ type: 'text', text: '{"vocabularies": []}' }] };
+    }
+  }
+
+  /**
+   * Get external documents (non-EP documents such as Council positions)
+   *
+   * @param options - Filter options including optional docId or year
+   * @returns External documents data
+   */
+  async getExternalDocuments(options: GetExternalDocumentsOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('get_external_documents', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_external_documents not available:', message);
+      return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Get foreseen (planned) activities for a specific plenary sitting
+   *
+   * @param options - Options including required sittingId
+   * @returns Foreseen activities data
+   */
+  async getMeetingForeseenActivities(
+    options: GetMeetingForeseenActivitiesOptions
+  ): Promise<MCPToolResult> {
+    if (typeof options.sittingId !== 'string' || options.sittingId.trim().length === 0) {
+      console.warn(
+        'get_meeting_foreseen_activities called without valid sittingId (non-empty string required)'
+      );
+      return { content: [{ type: 'text', text: ACTIVITIES_FALLBACK }] };
+    }
+    try {
+      return await this.callTool('get_meeting_foreseen_activities', {
+        ...options,
+        sittingId: options.sittingId.trim(),
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_meeting_foreseen_activities not available:', message);
+      return { content: [{ type: 'text', text: ACTIVITIES_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Get events linked to a specific legislative procedure
+   *
+   * @param options - Options including required processId
+   * @returns Procedure events data
+   */
+  async getProcedureEvents(options: GetProcedureEventsOptions): Promise<MCPToolResult> {
+    if (typeof options.processId !== 'string' || options.processId.trim().length === 0) {
+      console.warn(
+        'get_procedure_events called without valid processId (non-empty string required)'
+      );
+      return { content: [{ type: 'text', text: EVENTS_FALLBACK }] };
+    }
+    try {
+      return await this.callTool('get_procedure_events', {
+        ...options,
+        processId: options.processId.trim(),
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_procedure_events not available:', message);
+      return { content: [{ type: 'text', text: EVENTS_FALLBACK }] };
     }
   }
 }
