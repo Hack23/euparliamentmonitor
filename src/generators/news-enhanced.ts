@@ -65,6 +65,8 @@ import type {
   VotingAnomaly,
   MotionsQuestion,
   LegislativeDocument,
+  VotingAnomalyIntelligence,
+  CoalitionIntelligence,
 } from '../types/index.js';
 import { ArticleCategory } from '../types/index.js';
 import type { EuropeanParliamentMCPClient } from '../mcp/ep-mcp-client.js';
@@ -80,6 +82,7 @@ import {
   buildWeekAheadContent,
   buildKeywords,
   PLACEHOLDER_EVENTS,
+  buildWhatToWatchSection,
 } from './week-ahead-content.js';
 
 import { buildBreakingNewsContent } from './breaking-content.js';
@@ -95,10 +98,20 @@ import {
   PLACEHOLDER_MARKER,
   getMotionsFallbackData,
   generateMotionsContent,
+  buildPoliticalAlignmentSection,
 } from './motions-content.js';
 
 import { buildPropositionsContent } from './propositions-content.js';
 import type { PipelineData } from './propositions-content.js';
+
+import {
+  scoreVotingAnomaly,
+  analyzeCoalitionCohesion,
+  scoreMEPInfluence,
+  calculateLegislativeVelocity,
+  rankBySignificance,
+  buildIntelligenceSection,
+} from '../utils/intelligence-analysis.js';
 
 // ─── Re-exports for backward compatibility (tests import from this module) ───
 
@@ -110,12 +123,42 @@ export {
   buildWeekAheadContent,
   buildKeywords,
   PLACEHOLDER_EVENTS,
+  buildWhatToWatchSection,
 };
 export { buildBreakingNewsContent };
 export { applyCommitteeInfo, applyDocuments, applyEffectiveness, FEATURED_COMMITTEES };
-export { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent };
+export {
+  PLACEHOLDER_MARKER,
+  getMotionsFallbackData,
+  generateMotionsContent,
+  buildPoliticalAlignmentSection,
+};
 export { buildPropositionsContent };
 export type { PipelineData };
+export {
+  scoreVotingAnomaly,
+  analyzeCoalitionCohesion,
+  scoreMEPInfluence,
+  calculateLegislativeVelocity,
+  rankBySignificance,
+  buildIntelligenceSection,
+};
+
+/**
+ * Inject `section` before the last `</div>` in `base` so the new content
+ * lands inside an existing wrapper element (e.g. `.article-content`).
+ * Falls back to appending when no closing `</div>` is found.
+ *
+ * @param base - Base HTML string
+ * @param section - HTML section to inject
+ * @returns Combined HTML with section inside the wrapper
+ */
+function injectBeforeLastDiv(base: string, section: string): string {
+  const lastDiv = base.lastIndexOf('</div>');
+  return lastDiv !== -1
+    ? base.slice(0, lastDiv) + section + base.slice(lastDiv)
+    : `${base}${section}`;
+}
 
 // Try to use MCP client if available
 let mcpClient: EuropeanParliamentMCPClient | null = null;
@@ -353,7 +396,9 @@ async function generateWeekAhead(): Promise<GenerationResult> {
     for (const lang of languages) {
       console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
-      const content = buildWeekAheadContent(weekData, dateRange, lang);
+      const watchSection = buildWhatToWatchSection(weekData.pipeline, [], lang);
+      const baseContent = buildWeekAheadContent(weekData, dateRange, lang);
+      const content = watchSection ? injectBeforeLastDiv(baseContent, watchSection) : baseContent;
       const titleGenerator = getLocalizedString(WEEK_AHEAD_TITLES, lang);
       const langTitles = titleGenerator(dateRange.start, dateRange.end);
 
@@ -459,29 +504,25 @@ async function fetchVotingReport(): Promise<string> {
 }
 
 /**
- * Fetch MEP influence assessment from MCP server or return empty fallback.
- * Returns empty string immediately if no mepId is provided.
+ * Safely parse a JSON string and extract a named array property.
  *
- * @param mepId - MEP identifier (skips call when empty)
- * @returns Influence data string or empty fallback
+ * @param raw - Raw JSON string (empty string returns [])
+ * @param key - Property name to extract as array
+ * @returns Extracted array, or empty array on parse error or missing key
  */
-async function fetchMEPInfluence(mepId: string): Promise<string> {
-  if (!mepId || !mcpClient) {
-    return '';
-  }
+function parseRawJsonArray(raw: string, key: string): unknown[] {
+  if (!raw) return [];
   try {
-    const result = await mcpClient.callTool('assess_mep_influence', {
-      mepId,
-      includeDetails: true,
-    });
-    if (result?.content?.[0]) {
-      return result.content[0].text;
+    const parsed = JSON.parse(raw) as unknown;
+    if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
+      return [];
     }
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    console.warn('  ⚠️ assess_mep_influence failed:', message);
+    const data = parsed as Record<string, unknown>;
+    const value = data[key];
+    return Array.isArray(value) ? value : [];
+  } catch {
+    return [];
   }
-  return '';
 }
 
 /**
@@ -498,12 +539,19 @@ async function generateBreakingNews(): Promise<GenerationResult> {
     const slug = `${formatDateForSlug(today)}-${ARTICLE_TYPE_BREAKING}`;
 
     console.log('  📡 Fetching OSINT intelligence data from MCP...');
-    const [anomalyRaw, coalitionRaw, reportRaw, influenceRaw] = await Promise.all([
+    const [anomalyRaw, coalitionRaw, reportRaw] = await Promise.all([
       fetchVotingAnomalies(),
       fetchCoalitionDynamics(),
       fetchVotingReport(),
-      fetchMEPInfluence(''),
     ]);
+
+    const anomalies = parseRawJsonArray(anomalyRaw, 'anomalies')
+      .map((a) => scoreVotingAnomaly(a))
+      .filter((a): a is VotingAnomalyIntelligence => a !== null);
+
+    const coalitions = parseRawJsonArray(coalitionRaw, 'coalitions')
+      .map((c) => analyzeCoalitionCohesion(c))
+      .filter((c): c is CoalitionIntelligence => c !== null);
 
     let writtenCount = 0;
     for (const lang of languages) {
@@ -514,8 +562,11 @@ async function generateBreakingNews(): Promise<GenerationResult> {
         anomalyRaw,
         coalitionRaw,
         reportRaw,
-        influenceRaw,
-        lang
+        '',
+        lang,
+        anomalies,
+        coalitions,
+        []
       );
 
       const titleGenerator = getLocalizedString(BREAKING_NEWS_TITLES, lang);
@@ -1192,7 +1243,7 @@ async function generateMotions(): Promise<GenerationResult> {
       const titleGenerator = getLocalizedString(MOTIONS_TITLES, lang);
       const langTitles = titleGenerator(dateStr);
 
-      const content = generateMotionsContent(
+      const baseMotionsContent = generateMotionsContent(
         dateFromStr,
         dateStr,
         votingRecords,
@@ -1201,6 +1252,10 @@ async function generateMotions(): Promise<GenerationResult> {
         questions,
         lang
       );
+      const alignmentSection = buildPoliticalAlignmentSection(votingRecords, [], lang);
+      const content = alignmentSection
+        ? injectBeforeLastDiv(baseMotionsContent, alignmentSection)
+        : baseMotionsContent;
 
       const readTime = calculateReadTime(content);
 
