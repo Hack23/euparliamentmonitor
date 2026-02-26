@@ -243,7 +243,15 @@ if [ -f "$MCP_CONFIG" ]; then
   fi
 
   if [ -n "${GATEWAY_PORT:-}" ] && [ -n "${GATEWAY_DOMAIN:-}" ]; then
-    export EP_MCP_GATEWAY_URL="http://${GATEWAY_DOMAIN}:${GATEWAY_PORT}/mcp/european-parliament"
+    case "$GATEWAY_DOMAIN" in
+      localhost|127.0.0.1|::1)
+        GATEWAY_SCHEME="http"
+        ;;
+      *)
+        GATEWAY_SCHEME="https"
+        ;;
+    esac
+    export EP_MCP_GATEWAY_URL="${GATEWAY_SCHEME}://${GATEWAY_DOMAIN}:${GATEWAY_PORT}/mcp/european-parliament"
     export EP_MCP_GATEWAY_API_KEY="${GATEWAY_API_KEY:-}"
     echo "✅ Gateway mode: EP_MCP_GATEWAY_URL=$EP_MCP_GATEWAY_URL"
   fi
