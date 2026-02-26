@@ -430,17 +430,20 @@ describe('writeGenerationMetadata', () => {
 // ─── createStrategyRegistry tests ─────────────────────────────────────────────
 
 describe('createStrategyRegistry', () => {
-  it('registers all five built-in article categories', async () => {
+  it('registers all eight built-in article categories', async () => {
     const { createStrategyRegistry } = await import(
       '../../scripts/generators/pipeline/generate-stage.js'
     );
     const registry = createStrategyRegistry();
-    expect(registry.size).toBe(5);
+    expect(registry.size).toBe(8);
     expect(registry.has('week-ahead')).toBe(true);
     expect(registry.has('breaking')).toBe(true);
     expect(registry.has('committee-reports')).toBe(true);
     expect(registry.has('propositions')).toBe(true);
     expect(registry.has('motions')).toBe(true);
+    expect(registry.has('month-ahead')).toBe(true);
+    expect(registry.has('week-in-review')).toBe(true);
+    expect(registry.has('month-in-review')).toBe(true);
   });
 
   it('returns different instances on each call', async () => {

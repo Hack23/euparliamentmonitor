@@ -257,3 +257,59 @@ export const motionsData = {
     { author: 'MEP Smith', topic: 'Energy policy', date: STRATEGY_DATE, status: 'PENDING' },
   ],
 };
+
+/** Minimal MonthAheadArticleData fixture */
+export const monthAheadData = {
+  date: STRATEGY_DATE,
+  dateRange: { start: '2025-01-16', end: '2025-02-15' },
+  monthData: {
+    events: [{ date: '2025-01-20', title: 'Plenary Session', type: 'Plenary', description: '' }],
+    committees: [],
+    documents: [],
+    pipeline: [],
+    questions: [],
+  },
+  keywords: ['European Parliament', 'month ahead', 'strategic outlook', 'legislative calendar'],
+  monthLabel: 'January 2025',
+};
+
+/** Minimal WeeklyReviewArticleData fixture */
+export const weeklyReviewData = {
+  date: STRATEGY_DATE,
+  dateRange: { start: '2025-01-08', end: '2025-01-15' },
+  dateFromStr: '2025-01-08',
+  votingRecords: [
+    {
+      title: 'Digital Markets Act Amendment',
+      date: '2025-01-13',
+      result: 'Adopted',
+      votes: { for: 350, against: 150, abstain: 30 },
+    },
+  ],
+  votingPatterns: [{ group: 'S&D', cohesion: 0.88, participation: 0.92 }],
+  anomalies: [{ type: 'Abstention Spike', description: 'S&D abstention spike', severity: 'MEDIUM' }],
+  questions: [
+    { author: 'MEP Dubois', topic: 'AI regulation', date: '2025-01-10', status: 'ANSWERED' },
+  ],
+};
+
+/** Minimal MonthlyReviewArticleData fixture */
+export const monthlyReviewData = {
+  date: STRATEGY_DATE,
+  dateRange: { start: '2024-12-16', end: '2025-01-15' },
+  dateFromStr: '2024-12-16',
+  votingRecords: [
+    {
+      title: 'Green Deal Implementation',
+      date: '2025-01-05',
+      result: 'Adopted',
+      votes: { for: 420, against: 80, abstain: 40 },
+    },
+  ],
+  votingPatterns: [{ group: 'Renew', cohesion: 0.85, participation: 0.90 }],
+  anomalies: [{ type: 'Cross-Party Vote', description: 'Unexpected cross-party alignment', severity: 'LOW' }],
+  questions: [
+    { author: 'MEP Schmidt', topic: 'Climate finance', date: '2025-01-02', status: 'PENDING' },
+  ],
+  monthLabel: 'December 2024',
+};

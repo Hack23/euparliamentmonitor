@@ -35,6 +35,12 @@ export const ARTICLE_TYPE_COMMITTEE_REPORTS = ArticleCategory.COMMITTEE_REPORTS;
 export const ARTICLE_TYPE_PROPOSITIONS = ArticleCategory.PROPOSITIONS;
 /** Motions article category constant */
 export const ARTICLE_TYPE_MOTIONS = ArticleCategory.MOTIONS;
+/** Month ahead article category constant */
+export const ARTICLE_TYPE_MONTH_AHEAD = ArticleCategory.MONTH_AHEAD;
+/** Week in review article category constant */
+export const ARTICLE_TYPE_WEEK_IN_REVIEW = ArticleCategory.WEEK_IN_REVIEW;
+/** Month in review article category constant */
+export const ARTICLE_TYPE_MONTH_IN_REVIEW = ArticleCategory.MONTH_IN_REVIEW;
 /** CLI argument separator */
 export const ARG_SEPARATOR = '=';
 //# sourceMappingURL=config.js.map

@@ -8,6 +8,9 @@ import { breakingNewsStrategy } from '../strategies/breaking-news-strategy.js';
 import { committeeReportsStrategy } from '../strategies/committee-reports-strategy.js';
 import { propositionsStrategy } from '../strategies/propositions-strategy.js';
 import { motionsStrategy } from '../strategies/motions-strategy.js';
+import { monthAheadStrategy } from '../strategies/month-ahead-strategy.js';
+import { weeklyReviewStrategy } from '../strategies/weekly-review-strategy.js';
+import { monthlyReviewStrategy } from '../strategies/monthly-review-strategy.js';
 import { writeSingleArticle } from './output-stage.js';
 /**
  * Build the default strategy registry containing all five built-in strategies.
@@ -29,16 +32,22 @@ export function createStrategyRegistry() {
     registry.set(ArticleCategory.COMMITTEE_REPORTS, committeeReportsStrategy);
     registry.set(ArticleCategory.PROPOSITIONS, propositionsStrategy);
     registry.set(ArticleCategory.MOTIONS, motionsStrategy);
+    registry.set(ArticleCategory.MONTH_AHEAD, monthAheadStrategy);
+    registry.set(ArticleCategory.WEEK_IN_REVIEW, weeklyReviewStrategy);
+    registry.set(ArticleCategory.MONTH_IN_REVIEW, monthlyReviewStrategy);
     return registry;
 }
 // ─── Emoji map ────────────────────────────────────────────────────────────────
 /** Display emoji for each article category */
 const ARTICLE_EMOJIS = {
     [ArticleCategory.WEEK_AHEAD]: '📅',
+    [ArticleCategory.MONTH_AHEAD]: '📅',
     [ArticleCategory.BREAKING_NEWS]: '🚨',
     [ArticleCategory.COMMITTEE_REPORTS]: '🏛️',
     [ArticleCategory.PROPOSITIONS]: '📜',
     [ArticleCategory.MOTIONS]: '🗳️',
+    [ArticleCategory.WEEK_IN_REVIEW]: '📊',
+    [ArticleCategory.MONTH_IN_REVIEW]: '📊',
 };
 // ─── Date helper ──────────────────────────────────────────────────────────────
 /**
