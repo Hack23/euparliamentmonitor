@@ -16,10 +16,13 @@
  *
  * Article strategies:
  * - {@link module:Generators/Strategies/WeekAheadStrategy}
+ * - {@link module:Generators/Strategies/MonthAheadStrategy}
  * - {@link module:Generators/Strategies/BreakingNewsStrategy}
  * - {@link module:Generators/Strategies/CommitteeReportsStrategy}
  * - {@link module:Generators/Strategies/PropositionsStrategy}
  * - {@link module:Generators/Strategies/MotionsStrategy}
+ * - {@link module:Generators/Strategies/WeeklyReviewStrategy}
+ * - {@link module:Generators/Strategies/MonthlyReviewStrategy}
  *
  * Bounded-context content modules (re-exported for backward compatibility):
  * - {@link module:Generators/WeekAheadContent}

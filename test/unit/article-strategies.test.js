@@ -17,6 +17,9 @@ import { BreakingNewsStrategy } from '../../scripts/generators/strategies/breaki
 import { CommitteeReportsStrategy } from '../../scripts/generators/strategies/committee-reports-strategy.js';
 import { PropositionsStrategy } from '../../scripts/generators/strategies/propositions-strategy.js';
 import { MotionsStrategy } from '../../scripts/generators/strategies/motions-strategy.js';
+import { MonthAheadStrategy } from '../../scripts/generators/strategies/month-ahead-strategy.js';
+import { WeeklyReviewStrategy } from '../../scripts/generators/strategies/weekly-review-strategy.js';
+import { MonthlyReviewStrategy } from '../../scripts/generators/strategies/monthly-review-strategy.js';
 
 // ─── Fixtures ────────────────────────────────────────────────────────────────
 
@@ -27,6 +30,9 @@ import {
   committeeReportsData,
   propositionsData,
   motionsData,
+  monthAheadData,
+  weeklyReviewData,
+  monthlyReviewData,
 } from '../fixtures/ep-data.js';
 
 // ─── WeekAheadStrategy tests ──────────────────────────────────────────────────
@@ -564,5 +570,160 @@ describe('WeekAheadStrategy.buildContent strips marker without watch section', (
     // weekAheadData has empty pipeline, so no watch section
     expect(content).not.toContain('<!-- /article-content -->');
     expect(content).not.toContain('class="what-to-watch"');
+  });
+});
+
+// ─── MonthAheadStrategy tests ─────────────────────────────────────────────────
+
+describe('MonthAheadStrategy', () => {
+  const strategy = new MonthAheadStrategy();
+
+  it('has the correct article type', () => {
+    expect(strategy.type).toBe('month-ahead');
+  });
+
+  it('declares required MCP tools', () => {
+    expect(strategy.requiredMCPTools).toContain('get_plenary_sessions');
+    expect(strategy.requiredMCPTools).toContain('monitor_legislative_pipeline');
+  });
+
+  it('buildContent returns non-empty HTML for the given language', () => {
+    const content = strategy.buildContent(monthAheadData, 'en');
+    expect(typeof content).toBe('string');
+    expect(content.length).toBeGreaterThan(0);
+  });
+
+  it('buildContent returns non-empty content for multiple languages', () => {
+    const en = strategy.buildContent(monthAheadData, 'en');
+    const fr = strategy.buildContent(monthAheadData, 'fr');
+    expect(en.length).toBeGreaterThan(0);
+    expect(fr.length).toBeGreaterThan(0);
+  });
+
+  it('getMetadata returns en title containing "Month Ahead"', () => {
+    const meta = strategy.getMetadata(monthAheadData, 'en');
+    expect(meta.title).toContain('Month Ahead');
+    expect(meta.subtitle).toBeTruthy();
+    expect(meta.category).toBe('month-ahead');
+    expect(meta.keywords.length).toBeGreaterThan(0);
+  });
+
+  it('getMetadata returns localized title for de', () => {
+    const meta = strategy.getMetadata(monthAheadData, 'de');
+    expect(meta.title).toContain('Monat Voraus');
+  });
+
+  it('fetchData returns data with null client (no MCP)', async () => {
+    const data = await strategy.fetchData(null, '2025-01-15');
+    expect(data.date).toBe('2025-01-15');
+    expect(data.dateRange.start).toBeTruthy();
+    expect(data.dateRange.end).toBeTruthy();
+    expect(data.monthLabel).toBeTruthy();
+    expect(data.monthData.events.length).toBeGreaterThan(0);
+  });
+});
+
+// ─── WeeklyReviewStrategy tests ───────────────────────────────────────────────
+
+describe('WeeklyReviewStrategy', () => {
+  const strategy = new WeeklyReviewStrategy();
+
+  it('has the correct article type', () => {
+    expect(strategy.type).toBe('week-in-review');
+  });
+
+  it('declares required MCP tools', () => {
+    expect(strategy.requiredMCPTools).toContain('get_voting_records');
+    expect(strategy.requiredMCPTools).toContain('detect_voting_anomalies');
+  });
+
+  it('buildContent returns non-empty HTML for the given language', () => {
+    const content = strategy.buildContent(weeklyReviewData, 'en');
+    expect(typeof content).toBe('string');
+    expect(content.length).toBeGreaterThan(0);
+  });
+
+  it('buildContent returns non-empty content for multiple languages', () => {
+    const en = strategy.buildContent(weeklyReviewData, 'en');
+    const es = strategy.buildContent(weeklyReviewData, 'es');
+    expect(en.length).toBeGreaterThan(0);
+    expect(es.length).toBeGreaterThan(0);
+  });
+
+  it('getMetadata returns en title containing "Week in Review"', () => {
+    const meta = strategy.getMetadata(weeklyReviewData, 'en');
+    expect(meta.title).toContain('Week in Review');
+    expect(meta.subtitle).toBeTruthy();
+    expect(meta.category).toBe('week-in-review');
+    expect(meta.keywords.length).toBeGreaterThan(0);
+  });
+
+  it('getMetadata returns localized title for sv', () => {
+    const meta = strategy.getMetadata(weeklyReviewData, 'sv');
+    expect(meta.title).toContain('Veckan i Korthet');
+  });
+
+  it('fetchData returns empty arrays with null client (no MCP)', async () => {
+    const data = await strategy.fetchData(null, '2025-01-15');
+    expect(data.date).toBe('2025-01-15');
+    expect(data.dateRange.start).toBeTruthy();
+    expect(data.dateRange.end).toBeTruthy();
+    expect(data.votingRecords).toEqual([]);
+    expect(data.votingPatterns).toEqual([]);
+    expect(data.anomalies).toEqual([]);
+    expect(data.questions).toEqual([]);
+  });
+});
+
+// ─── MonthlyReviewStrategy tests ──────────────────────────────────────────────
+
+describe('MonthlyReviewStrategy', () => {
+  const strategy = new MonthlyReviewStrategy();
+
+  it('has the correct article type', () => {
+    expect(strategy.type).toBe('month-in-review');
+  });
+
+  it('declares required MCP tools', () => {
+    expect(strategy.requiredMCPTools).toContain('get_voting_records');
+    expect(strategy.requiredMCPTools).toContain('analyze_voting_patterns');
+  });
+
+  it('buildContent returns non-empty HTML for the given language', () => {
+    const content = strategy.buildContent(monthlyReviewData, 'en');
+    expect(typeof content).toBe('string');
+    expect(content.length).toBeGreaterThan(0);
+  });
+
+  it('buildContent returns non-empty content for multiple languages', () => {
+    const en = strategy.buildContent(monthlyReviewData, 'en');
+    const ja = strategy.buildContent(monthlyReviewData, 'ja');
+    expect(en.length).toBeGreaterThan(0);
+    expect(ja.length).toBeGreaterThan(0);
+  });
+
+  it('getMetadata returns en title containing "Month in Review"', () => {
+    const meta = strategy.getMetadata(monthlyReviewData, 'en');
+    expect(meta.title).toContain('Month in Review');
+    expect(meta.subtitle).toBeTruthy();
+    expect(meta.category).toBe('month-in-review');
+    expect(meta.keywords.length).toBeGreaterThan(0);
+  });
+
+  it('getMetadata returns localized title for fr', () => {
+    const meta = strategy.getMetadata(monthlyReviewData, 'fr');
+    expect(meta.title).toContain('Mois en Revue');
+  });
+
+  it('fetchData returns empty arrays with null client (no MCP)', async () => {
+    const data = await strategy.fetchData(null, '2025-01-15');
+    expect(data.date).toBe('2025-01-15');
+    expect(data.dateRange.start).toBeTruthy();
+    expect(data.dateRange.end).toBeTruthy();
+    expect(data.monthLabel).toBeTruthy();
+    expect(data.votingRecords).toEqual([]);
+    expect(data.votingPatterns).toEqual([]);
+    expect(data.anomalies).toEqual([]);
+    expect(data.questions).toEqual([]);
   });
 });

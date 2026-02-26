@@ -22,6 +22,9 @@ import { breakingNewsStrategy } from '../strategies/breaking-news-strategy.js';
 import { committeeReportsStrategy } from '../strategies/committee-reports-strategy.js';
 import { propositionsStrategy } from '../strategies/propositions-strategy.js';
 import { motionsStrategy } from '../strategies/motions-strategy.js';
+import { monthAheadStrategy } from '../strategies/month-ahead-strategy.js';
+import { weeklyReviewStrategy } from '../strategies/weekly-review-strategy.js';
+import { monthlyReviewStrategy } from '../strategies/monthly-review-strategy.js';
 import type { OutputOptions } from './output-stage.js';
 import { writeSingleArticle } from './output-stage.js';
 
@@ -31,7 +34,7 @@ import { writeSingleArticle } from './output-stage.js';
 export type StrategyRegistry = Map<ArticleCategory, ArticleStrategy<ArticleData>>;
 
 /**
- * Build the default strategy registry containing all five built-in strategies.
+ * Build the default strategy registry containing all built-in strategies.
  *
  * Each concrete strategy implements `ArticleStrategy<ConcreteData>` where
  * `ConcreteData` extends `ArticleData`.  TypeScript's invariant generic
@@ -62,6 +65,18 @@ export function createStrategyRegistry(): StrategyRegistry {
     propositionsStrategy as unknown as ArticleStrategy<ArticleData>
   );
   registry.set(ArticleCategory.MOTIONS, motionsStrategy as unknown as ArticleStrategy<ArticleData>);
+  registry.set(
+    ArticleCategory.MONTH_AHEAD,
+    monthAheadStrategy as unknown as ArticleStrategy<ArticleData>
+  );
+  registry.set(
+    ArticleCategory.WEEK_IN_REVIEW,
+    weeklyReviewStrategy as unknown as ArticleStrategy<ArticleData>
+  );
+  registry.set(
+    ArticleCategory.MONTH_IN_REVIEW,
+    monthlyReviewStrategy as unknown as ArticleStrategy<ArticleData>
+  );
   return registry;
 }
 
@@ -70,10 +85,13 @@ export function createStrategyRegistry(): StrategyRegistry {
 /** Display emoji for each article category */
 const ARTICLE_EMOJIS: Partial<Record<ArticleCategory, string>> = {
   [ArticleCategory.WEEK_AHEAD]: '📅',
+  [ArticleCategory.MONTH_AHEAD]: '📅',
   [ArticleCategory.BREAKING_NEWS]: '🚨',
   [ArticleCategory.COMMITTEE_REPORTS]: '🏛️',
   [ArticleCategory.PROPOSITIONS]: '📜',
   [ArticleCategory.MOTIONS]: '🗳️',
+  [ArticleCategory.WEEK_IN_REVIEW]: '📊',
+  [ArticleCategory.MONTH_IN_REVIEW]: '📊',
 };
 
 // ─── Date helper ──────────────────────────────────────────────────────────────
