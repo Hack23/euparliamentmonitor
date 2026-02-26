@@ -46,7 +46,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.8.0
+      - european-parliament-mcp-server@0.8.2
 
 tools:
   github:
@@ -92,7 +92,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 
 ## 🚨 CRITICAL: European Parliament MCP Server is the Sole Data Source
 
-**ALL article data MUST be fetched from the `european-parliament` MCP server.** The MCP server provides 20+ tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, and OSINT intelligence analysis.
+**ALL article data MUST be fetched from the `european-parliament` MCP server.** The MCP server provides 39 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, and OSINT intelligence analysis.
 
 ## ⏱️ Time Budget (60 minutes)
 
@@ -263,7 +263,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ -f "node_modules/.bin/european-parliament-mcp-server" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
-    npm install --no-save european-parliament-mcp-server@0.8.0
+    npm install --no-save european-parliament-mcp-server@0.8.2
   fi
 fi
 ```

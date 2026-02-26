@@ -65,6 +65,7 @@ import type { OutputOptions } from './pipeline/output-stage.js';
 
 import {
   parsePlenarySessions,
+  parseEPEvents,
   parseCommitteeMeetings,
   parseLegislativeDocuments,
   parseLegislativePipeline,
@@ -98,6 +99,7 @@ import type { PipelineData } from './propositions-content.js';
 
 export {
   parsePlenarySessions,
+  parseEPEvents,
   parseCommitteeMeetings,
   parseLegislativeDocuments,
   parseLegislativePipeline,

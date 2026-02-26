@@ -10,6 +10,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   parsePlenarySessions,
+  parseEPEvents,
   parseCommitteeMeetings,
   parseLegislativeDocuments,
   parseLegislativePipeline,
@@ -89,6 +90,65 @@ describe('week-ahead helpers', () => {
 
     it('should return empty array when no content text', () => {
       const result = parsePlenarySessions(
+        { status: 'fulfilled', value: {} },
+        DATE_RANGE.start
+      );
+      expect(result).toEqual([]);
+    });
+  });
+
+  describe('parseEPEvents', () => {
+    it('should return events from a fulfilled MCP result', () => {
+      const result = parseEPEvents(
+        fulfilled({
+          events: [
+            { date: '2026-03-03', title: 'AI Act Hearing', type: 'Hearing', description: 'Public hearing on AI regulation' },
+          ],
+        }),
+        DATE_RANGE.start
+      );
+      expect(result).toHaveLength(1);
+      expect(result[0].title).toBe('AI Act Hearing');
+      expect(result[0].type).toBe('Hearing');
+      expect(result[0].date).toBe('2026-03-03');
+    });
+
+    it('should use fallback date when event has no date', () => {
+      const result = parseEPEvents(
+        fulfilled({ events: [{ title: 'Conference', type: 'Conference' }] }),
+        DATE_RANGE.start
+      );
+      expect(result[0].date).toBe(DATE_RANGE.start);
+    });
+
+    it('should use default title when event has none', () => {
+      const result = parseEPEvents(
+        fulfilled({ events: [{ date: '2026-03-03' }] }),
+        DATE_RANGE.start
+      );
+      expect(result[0].title).toBe('EP Event');
+    });
+
+    it('should return empty array for rejected result', () => {
+      const result = parseEPEvents(rejected(), DATE_RANGE.start);
+      expect(result).toEqual([]);
+    });
+
+    it('should return empty array when events array is absent', () => {
+      const result = parseEPEvents(fulfilled({}), DATE_RANGE.start);
+      expect(result).toEqual([]);
+    });
+
+    it('should return empty array for invalid JSON', () => {
+      const result = parseEPEvents(
+        { status: 'fulfilled', value: { content: [{ type: 'text', text: 'not-json' }] } },
+        DATE_RANGE.start
+      );
+      expect(result).toEqual([]);
+    });
+
+    it('should return empty array when no content text', () => {
+      const result = parseEPEvents(
         { status: 'fulfilled', value: {} },
         DATE_RANGE.start
       );

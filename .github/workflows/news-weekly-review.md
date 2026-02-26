@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.8.0
+      - european-parliament-mcp-server@0.8.2
 
 tools:
   github:
@@ -216,7 +216,7 @@ fi
 
 if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ ! -f "node_modules/.bin/european-parliament-mcp-server" ]; then
-    npm install --no-save european-parliament-mcp-server@0.8.0
+    npm install --no-save european-parliament-mcp-server@0.8.2
   fi
 fi
 ```

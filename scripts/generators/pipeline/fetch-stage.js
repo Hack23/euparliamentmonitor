@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 import { getEPMCPClient } from '../../mcp/ep-mcp-client.js';
-import { parsePlenarySessions, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, parseParliamentaryQuestions, PLACEHOLDER_EVENTS, } from '../week-ahead-content.js';
+import { parsePlenarySessions, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, parseParliamentaryQuestions, parseEPEvents, PLACEHOLDER_EVENTS, } from '../week-ahead-content.js';
 import { applyCommitteeInfo, applyDocuments, applyEffectiveness } from '../committee-helpers.js';
 import { getMotionsFallbackData } from '../motions-content.js';
 import { escapeHTML } from '../../utils/file-utils.js';
@@ -209,7 +209,7 @@ export async function fetchWeekAheadData(client, dateRange) {
     // an immediate re-open (normal circuit-breaker probe semantics).
     const wasHalfOpen = mcpCircuitBreaker.getState() === 'HALF_OPEN';
     console.log(`${MCP_FETCH_PREFIX} Fetching week-ahead data from MCP (parallel)...`);
-    const [plenarySessions, committeeInfo, documents, pipeline, questions] = await Promise.allSettled([
+    const [plenarySessions, committeeInfo, documents, pipeline, questions, epEvents] = await Promise.allSettled([
         client.getPlenarySessions({ startDate: dateRange.start, endDate: dateRange.end, limit: 50 }),
         client.getCommitteeInfo({ limit: 20 }),
         client.searchDocuments({ query: 'parliament', limit: 20 }),
@@ -220,9 +220,17 @@ export async function fetchWeekAheadData(client, dateRange) {
             limit: 20,
         }),
         client.getParliamentaryQuestions({ startDate: dateRange.start, limit: 20 }),
+        client.getEvents({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
     ]);
-    const allFailed = [plenarySessions, committeeInfo, documents, pipeline, questions].every((r) => r.status === 'rejected');
-    const anyFailed = [plenarySessions, committeeInfo, documents, pipeline, questions].some((r) => r.status === 'rejected');
+    const allFailed = [
+        plenarySessions,
+        committeeInfo,
+        documents,
+        pipeline,
+        questions,
+        epEvents,
+    ].every((r) => r.status === 'rejected');
+    const anyFailed = [plenarySessions, committeeInfo, documents, pipeline, questions, epEvents].some((r) => r.status === 'rejected');
     // In HALF_OPEN any single rejection means the probe failed — re-open immediately.
     if (allFailed || (wasHalfOpen && anyFailed)) {
         mcpCircuitBreaker.recordFailure();
@@ -230,7 +238,9 @@ export async function fetchWeekAheadData(client, dateRange) {
     else {
         mcpCircuitBreaker.recordSuccess();
     }
-    const events = parsePlenarySessions(plenarySessions, dateRange.start);
+    const plenaryEvents = parsePlenarySessions(plenarySessions, dateRange.start);
+    const additionalEvents = parseEPEvents(epEvents, dateRange.start);
+    const events = [...plenaryEvents, ...additionalEvents];
     return {
         events: events.length > 0 ? events : [{ ...PLACEHOLDER_EVENTS[0], date: dateRange.start }],
         committees: parseCommitteeMeetings(committeeInfo, dateRange.start),

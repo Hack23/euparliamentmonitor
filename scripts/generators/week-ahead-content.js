@@ -51,6 +51,32 @@ export function parsePlenarySessions(settled, fallbackDate) {
     }
 }
 /**
+ * Parse EP events (hearings, conferences, seminars) from a settled MCP result
+ *
+ * @param settled - Promise.allSettled result
+ * @param fallbackDate - Fallback date when event has none
+ * @returns Array of parliament events
+ */
+export function parseEPEvents(settled, fallbackDate) {
+    if (settled.status !== 'fulfilled')
+        return [];
+    try {
+        const text = settled.value.content?.[0]?.text ?? '{}';
+        const data = JSON.parse(text);
+        if (!data.events || data.events.length === 0)
+            return [];
+        return data.events.map((e) => ({
+            date: e.date ?? fallbackDate,
+            title: e.title ?? 'EP Event',
+            type: e.type ?? 'Event',
+            description: e.description ?? '',
+        }));
+    }
+    catch {
+        return [];
+    }
+}
+/**
  * Parse committee meetings from a settled MCP result
  *
  * @param settled - Promise.allSettled result
