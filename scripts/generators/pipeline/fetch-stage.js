@@ -222,7 +222,14 @@ export async function fetchWeekAheadData(client, dateRange) {
         client.getParliamentaryQuestions({ startDate: dateRange.start, limit: 20 }),
         client.getEvents({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
     ]);
-    const allFailed = [plenarySessions, committeeInfo, documents, pipeline, questions, epEvents].every((r) => r.status === 'rejected');
+    const allFailed = [
+        plenarySessions,
+        committeeInfo,
+        documents,
+        pipeline,
+        questions,
+        epEvents,
+    ].every((r) => r.status === 'rejected');
     const anyFailed = [plenarySessions, committeeInfo, documents, pipeline, questions, epEvents].some((r) => r.status === 'rejected');
     // In HALF_OPEN any single rejection means the probe failed — re-open immediately.
     if (allFailed || (wasHalfOpen && anyFailed)) {

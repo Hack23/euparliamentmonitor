@@ -300,9 +300,14 @@ export async function fetchWeekAheadData(
       client.getEvents({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
     ]);
 
-  const allFailed = [plenarySessions, committeeInfo, documents, pipeline, questions, epEvents].every(
-    (r) => r.status === 'rejected'
-  );
+  const allFailed = [
+    plenarySessions,
+    committeeInfo,
+    documents,
+    pipeline,
+    questions,
+    epEvents,
+  ].every((r) => r.status === 'rejected');
   const anyFailed = [plenarySessions, committeeInfo, documents, pipeline, questions, epEvents].some(
     (r) => r.status === 'rejected'
   );
