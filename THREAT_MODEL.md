@@ -315,8 +315,8 @@ classification ([CLASSIFICATION.md](CLASSIFICATION.md): Public/Medium/Medium).
   - Critical: 0
   - High: 0
   - Medium: 3 (T-003, T-007, T-013 — P1 Priority)
-  - Low-Medium: 9 (Monitored with existing controls)
-  - Low: 8 (Managed with existing controls)
+  - Low-Medium: 10 (Monitored with existing controls)
+  - Low: 7 (Managed with existing controls)
 - **Primary Security Focus:** Data integrity, supply chain security, information manipulation
 - **Defense Posture:** Multi-layer defense-in-depth with 30+ security controls
 - **ENISA Alignment:** 7/7 ENISA TL 2024 threat categories mapped
@@ -763,17 +763,17 @@ Following [Hack23 AB Risk-Centric Threat Modeling](https://github.com/Hack23/ISM
 | **T-005** | Repository Compromise | 1 | 4 | 4 | 🟡 Low-Medium | Monitor |
 | **T-006** | MCP Server Compromise | 1 | 3 | 3 | 🟢 Low | Accept |
 | **T-007** | EP API Format Change | 3 | 3 | **9** | 🟠 **Medium** | Reduce |
-| **T-008** | Translation Manipulation | 2 | 3 | 6 | 🟡 Medium-Low | Monitor |
+| **T-008** | Translation Manipulation | 2 | 3 | 6 | 🟡 Low-Medium | Monitor |
 | **T-009** | Election Period Defacement | 1 | 4 | 4 | 🟡 Low-Medium | Monitor |
 | **T-010** | GitHub Actions Secret Leak | 1 | 3 | 3 | 🟢 Low | Accept |
 | **T-011** | SLSA Attestation Bypass | 1 | 4 | 4 | 🟡 Low-Medium | Monitor |
-| **T-012** | Dependency Confusion | 1 | 5 | 5 | 🟡 Medium-Low | Monitor |
+| **T-012** | Dependency Confusion | 1 | 5 | 5 | 🟡 Low-Medium | Monitor |
 | **T-013** | MCP Data Poisoning via API | 2 | 4 | **8** | 🟠 **Medium** | Reduce |
 | **T-014** | Cross-Language Inconsistency | 2 | 2 | 4 | 🟡 Low-Medium | Monitor |
 | **T-015** | Contributor Account Compromise | 1 | 4 | 4 | 🟡 Low-Medium | Monitor |
 | **T-016** | Automated Bot Abuse | 2 | 1 | 2 | 🟢 Low | Accept |
-| **T-017** | MEP Data Integrity Failure | 2 | 3 | 6 | 🟡 Medium-Low | Monitor |
-| **T-018** | Information Manipulation Campaign | 1 | 5 | 5 | 🟡 Medium-Low | Monitor |
+| **T-017** | MEP Data Integrity Failure | 2 | 3 | 6 | 🟡 Low-Medium | Monitor |
+| **T-018** | Information Manipulation Campaign | 1 | 5 | 5 | 🟡 Low-Medium | Monitor |
 | **T-019** | Node.js Runtime Vulnerability | 1 | 3 | 3 | 🟢 Low | Accept |
 | **T-020** | GitHub Pages CDN Compromise | 1 | 3 | 3 | 🟢 Low | Accept |
 
@@ -782,8 +782,8 @@ Following [Hack23 AB Risk-Centric Threat Modeling](https://github.com/Hack23/ISM
 | Risk Level | Count | Threats | Treatment Strategy |
 |---|---|---|---|
 | 🟠 **Medium (6-9)** | 3 | T-003, T-007, T-013 | **Active reduction** — implement additional controls |
-| 🟡 **Low-Medium (4-5)** | 9 | T-002, T-005, T-008, T-009, T-011, T-012, T-014, T-015, T-017, T-018 | **Monitor** — quarterly review and trending |
-| 🟢 **Low (1-3)** | 8 | T-001, T-004, T-006, T-010, T-016, T-019, T-020 | **Accept** — existing controls sufficient |
+| 🟡 **Low-Medium (4-6)** | 10 | T-002, T-005, T-008, T-009, T-011, T-012, T-014, T-015, T-017, T-018 | **Monitor** — quarterly review and trending |
+| 🟢 **Low (1-3)** | 7 | T-001, T-004, T-006, T-010, T-016, T-019, T-020 | **Accept** — existing controls sufficient |
 
 ---
 
@@ -1000,7 +1000,7 @@ already secured)
 | **Threat Agent**    | Nation-State Actor, Malicious Insider                              |
 | **Likelihood**      | Low (2/5)                                                          |
 | **Impact**          | Medium (3/5) - Language-specific democratic impact                 |
-| **Risk Score**      | Medium-Low (6/25)                                                  |
+| **Risk Score**      | Low-Medium (6/25)                                                  |
 | **Priority**        | P2                                                                 |
 
 **Existing Controls:**
@@ -1104,7 +1104,7 @@ already secured)
 | **Threat Agent**    | Cybercriminal, Nation-State Actor                                  |
 | **Likelihood**      | Very Low (1/5)                                                     |
 | **Impact**          | Critical (5/5) - Complete build compromise                         |
-| **Risk Score**      | Medium-Low (5/25)                                                  |
+| **Risk Score**      | Low-Medium (5/25)                                                  |
 | **Priority**        | P2                                                                 |
 
 **Existing Controls:**
@@ -1234,7 +1234,7 @@ already secured)
 | **Threat Agent**    | EP API Error, Accidental Insider, LLM Model Error                  |
 | **Likelihood**      | Low (2/5)                                                          |
 | **Impact**          | Medium (3/5) - Incorrect MEP information published                 |
-| **Risk Score**      | Medium-Low (6/25)                                                  |
+| **Risk Score**      | Low-Medium (6/25)                                                  |
 | **Priority**        | P2                                                                 |
 
 **Existing Controls:**
@@ -1260,7 +1260,7 @@ already secured)
 | **Threat Agent**    | Nation-State Actor, Organized Disinformation Group                 |
 | **Likelihood**      | Very Low (1/5)                                                     |
 | **Impact**          | Critical (5/5) - Democratic process manipulation                   |
-| **Risk Score**      | Medium-Low (5/25)                                                  |
+| **Risk Score**      | Low-Medium (5/25)                                                  |
 | **Priority**        | P2                                                                 |
 
 **Existing Controls:**
@@ -1617,12 +1617,12 @@ flowchart TB
 
 | STRIDE Category | Primary Controls | Secondary Controls | Monitoring Controls | Threats Addressed | Status |
 |---|---|---|---|---|---|
-| **S — Spoofing** | Localhost-only MCP binding, MFA enforcement, Git commit signing | CODEOWNERS, required PR reviews, contributor identity verification | GitHub audit logs, commit history verification, access alerts | T-006, T-015, T-020 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#spoofing) |
-| **T — Tampering** | Branch protection, required reviews, SHA-pinned actions, schema validation | SLSA Level 3 attestation, package-lock.json integrity, CSP headers | CodeQL SAST scanning, Dependabot alerts, automated testing, diff review | T-001, T-002, T-003, T-007, T-008, T-013 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#tampering) |
-| **R — Repudiation** | GitHub audit logs, commit history, Git signed commits | SLSA provenance attestation, SBOM tracking, workflow logging | CodeQL logs, GitHub Actions run history, PR review trail | T-005, T-011 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#repudiation) |
-| **I — Information Disclosure** | Secret scanning, no PII collection, public data only, environment-scoped secrets | Workflow permission minimization (least privilege), no secrets in config | GitHub secret scanning alerts, repository traffic monitoring | T-010, T-014 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#disclosure) |
-| **D — Denial of Service** | GitHub Pages CDN (DDoS protection), static site architecture, manual workflow triggers | Retry logic with backoff, cached content persistence, 24h RTO alignment | GitHub status monitoring, workflow failure alerts, deployment health checks | T-004, T-016, T-019 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#dos) |
-| **E — Elevation of Privilege** | MFA enforcement, CODEOWNERS, workflow permissions (least privilege) | Branch protection rules, required status checks, role-based access | Quarterly access reviews, workflow change alerts, PR approval audit | T-005, T-009, T-012, T-015 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#privilege) |
+| **S — Spoofing** | Localhost-only MCP binding, MFA enforcement, Git commit signing | CODEOWNERS, required PR reviews, contributor identity verification | GitHub audit logs, commit history verification, access alerts | T-006, T-015 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#spoofing) |
+| **T — Tampering** | Branch protection, required reviews, SHA-pinned actions, schema validation | SLSA Level 3 attestation, package-lock.json integrity, CSP headers | CodeQL SAST scanning, Dependabot alerts, automated testing, diff review | T-001, T-002, T-003, T-007, T-008, T-013, T-014, T-020 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#tampering) |
+| **R — Repudiation** | GitHub audit logs, commit history, Git signed commits | SLSA provenance attestation, SBOM tracking, workflow logging | CodeQL logs, GitHub Actions run history, PR review trail | T-005, T-011, T-018 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#repudiation) |
+| **I — Information Disclosure** | Secret scanning, no PII collection, public data only, environment-scoped secrets | Workflow permission minimization (least privilege), no secrets in config | GitHub secret scanning alerts, repository traffic monitoring | T-010 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#disclosure) |
+| **D — Denial of Service** | GitHub Pages CDN (DDoS protection), static site architecture, manual workflow triggers | Retry logic with backoff, cached content persistence, 24h RTO alignment | GitHub status monitoring, workflow failure alerts, deployment health checks | T-004, T-016, T-020 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#dos) |
+| **E — Elevation of Privilege** | MFA enforcement, CODEOWNERS, workflow permissions (least privilege) | Branch protection rules, required status checks, role-based access | Quarterly access reviews, workflow change alerts, PR approval audit | T-005, T-009, T-012, T-015, T-019 | [![Implemented](https://img.shields.io/badge/Status-Implemented-success?style=flat-square)](SECURITY_ARCHITECTURE.md#privilege) |
 
 ### **🔐 Comprehensive Control Catalog**
 
@@ -2028,12 +2028,12 @@ with parliamentary adaptations:
 | **T-013** | EP MCP Data Poisoning           | Medium      | P1       | **Reduce** | Q3 2026          | Security Team |
 | T-002     | Supply Chain Attack             | Low-Medium  | P2       | Monitor    | Annual Review    | Security Team |
 | T-005     | Repository Compromise           | Low-Medium  | P2       | Monitor    | Annual Review    | Security Team |
-| T-008     | Translation Manipulation        | Medium-Low  | P2       | Monitor    | Quarterly Review | Product Team  |
+| T-008     | Translation Manipulation        | Low-Medium  | P2       | Monitor    | Quarterly Review | Product Team  |
 | T-009     | Election Period Defacement      | Low-Medium  | P2       | Monitor    | Election periods | Security Team |
-| T-012     | Dependency Confusion            | Medium-Low  | P2       | Monitor    | Annual Review    | Security Team |
+| T-012     | Dependency Confusion            | Low-Medium  | P2       | Monitor    | Annual Review    | Security Team |
 | T-015     | Contributor Account Compromise  | Low-Medium  | P2       | Monitor    | Quarterly Review | Security Team |
-| T-017     | MEP Data Integrity Failure      | Medium-Low  | P2       | Monitor    | Quarterly Review | Product Team  |
-| T-018     | Information Manipulation        | Medium-Low  | P2       | Monitor    | Election periods | Security Team |
+| T-017     | MEP Data Integrity Failure      | Low-Medium  | P2       | Monitor    | Quarterly Review | Product Team  |
+| T-018     | Information Manipulation        | Low-Medium  | P2       | Monitor    | Election periods | Security Team |
 | T-001     | XSS via Data Injection          | Low         | P3       | Accept     | Quarterly Review | Security Team |
 | T-004     | GitHub Actions Downtime         | Low         | P3       | Accept     | Monitor          | DevOps Team   |
 | T-006     | MCP Server Compromise           | Low         | P4       | Accept     | Annual Review    | Security Team |
@@ -2233,7 +2233,7 @@ requirements (5-strategy integration, ENISA TL 2024, Kill Chain, Quantitative Ri
 | **Document Lines**           | 2200+                       | ✅ Comprehensive (matching Hack23 standards) |
 | **Maturity Level**           | Level 2 (In Progress)       | 🔄 Advancing to Level 3                      |
 | **P1 Threats**               | 3 (T-003, T-007, T-013)    | ⚠️ Requires action by Q3 2026                |
-| **Risk Distribution**        | 3 Medium, 9 Low-Med, 8 Low | ✅ Acceptable risk profile                   |
+| **Risk Distribution**        | 3 Medium, 10 Low-Med, 7 Low | ✅ Acceptable risk profile                   |
 
 ### **🎯 Success Criteria**
 
