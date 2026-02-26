@@ -96,6 +96,40 @@ excellence_
 > the prioritization of Impact and Initial Access tactics in ATT&CK coverage, and informs
 > the Low risk appetite for content manipulation threats across all 14 supported languages.
 
+### **🎯 Multi-Strategy Threat Modeling Integration**
+
+Following [Hack23 AB Multi-Strategy Approach](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md#integrated-threat-modeling-strategies):
+
+```mermaid
+mindmap
+  root)🎯 EU Parliament Monitor<br/>Threat Modeling Strategies(
+    (🎖️ Attacker-Centric)
+      [MITRE ATT&CK Mapping]
+      [Kill Chain Analysis]
+      [Attack Trees]
+      [Threat Agent Profiling]
+    (🏗️ Asset-Centric)
+      [Crown Jewel Analysis]
+      [Asset Inventory]
+      [Data Flow Threat Analysis]
+      [EP Data Classification]
+    (🏛️ Architecture-Centric)
+      [STRIDE per Element]
+      [Trust Boundaries]
+      [DFD with Threat Annotations]
+      [Defense-in-Depth Layers]
+    (🎯 Scenario-Centric)
+      [Misuse Cases]
+      [What-If Analysis]
+      [Persona-Based Threats]
+      [Election Period Scenarios]
+    (⚖️ Risk-Centric)
+      [Quantitative Risk Assessment]
+      [Business Impact Analysis]
+      [Likelihood × Impact Matrix]
+      [Risk Treatment Plans]
+```
+
 ### **🔍 Scope Definition**
 
 **Included Systems:**
@@ -118,6 +152,57 @@ excellence_
 Integrated with
 [🎯 Hack23 AB Threat Modeling Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md)
 methodology and frameworks.
+
+---
+
+## 🌐 ENISA Threat Landscape 2024 Integration
+
+Following [Hack23 AB Threat Landscape Integration](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) and aligned with [ENISA Threat Landscape 2024](https://www.enisa.europa.eu/publications/enisa-threat-landscape-2024):
+
+### **📊 ENISA Priority Threat Mapping**
+
+| # | ENISA Priority Threat | Relevance to EU Parliament Monitor | Risk Level | Key Mitigations | ATT&CK Alignment |
+|---|---|---|---|---|---|
+| 1 | **🔻 Ransomware** | Low — Static site architecture, no server-side persistence, no user data | [![Low](https://img.shields.io/badge/Risk-Low-green?style=flat-square)](CLASSIFICATION.md) | Static architecture, GitHub-managed infrastructure, no writable backend | [T1486](https://attack.mitre.org/techniques/T1486/) |
+| 2 | **📡 Malware** | Low — No executable downloads, no user uploads, CDN-delivered static HTML | [![Low](https://img.shields.io/badge/Risk-Low-green?style=flat-square)](CLASSIFICATION.md) | CSP headers, Subresource Integrity, no dynamic content execution | [T1059](https://attack.mitre.org/techniques/T1059/) |
+| 3 | **🎣 Social Engineering** | Medium — Contributor account targeting, maintainer impersonation | [![Medium](https://img.shields.io/badge/Risk-Medium-yellow?style=flat-square)](CLASSIFICATION.md) | MFA enforcement, branch protection, required reviews, CODEOWNERS | [T1566](https://attack.mitre.org/techniques/T1566/) |
+| 4 | **📊 Data Threats** | Medium — EP parliamentary data integrity, multi-language content accuracy | [![Medium](https://img.shields.io/badge/Risk-Medium-yellow?style=flat-square)](CLASSIFICATION.md) | Schema validation, source verification, automated testing | [T1565](https://attack.mitre.org/techniques/T1565/) |
+| 5 | **⚡ Availability Threats** | Low — GitHub Pages CDN resilience, 24h RTO acceptable | [![Low](https://img.shields.io/badge/Risk-Low-green?style=flat-square)](CLASSIFICATION.md) | GitHub infrastructure, static site caching, manual deployment backup | [T1499](https://attack.mitre.org/techniques/T1499/) |
+| 6 | **📰 Information Manipulation** | High — Democratic transparency platform, political data integrity critical | [![High](https://img.shields.io/badge/Risk-High-red?style=flat-square)](CLASSIFICATION.md) | Official EP API source, schema validation, multi-language consistency checks | [T1491](https://attack.mitre.org/techniques/T1491/) |
+| 7 | **🔗 Supply Chain Attacks** | Medium — npm dependency chain, GitHub Actions supply chain | [![Medium](https://img.shields.io/badge/Risk-Medium-yellow?style=flat-square)](CLASSIFICATION.md) | Minimal deps (0 prod), SHA-pinned actions, SBOM, Dependabot, package-lock | [T1195](https://attack.mitre.org/techniques/T1195/) |
+
+### **🎯 ENISA Threat Relevance Assessment**
+
+```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#e3f2fd',
+      'primaryTextColor': '#0d47a1',
+      'lineColor': '#1976d2'
+    }
+  }
+}%%
+quadrantChart
+    title 🌐 ENISA 2024 Threat Relevance to EU Parliament Monitor
+    x-axis Low Relevance --> High Relevance
+    y-axis Low Impact --> High Impact
+    quadrant-1 Monitor Closely
+    quadrant-2 Critical Focus
+    quadrant-3 Accept Risk
+    quadrant-4 Active Mitigation
+
+    "📰 Information Manipulation": [0.85, 0.80]
+    "📊 Data Threats": [0.70, 0.65]
+    "🔗 Supply Chain": [0.60, 0.70]
+    "🎣 Social Engineering": [0.55, 0.55]
+    "⚡ Availability": [0.40, 0.35]
+    "📡 Malware": [0.25, 0.30]
+    "🔻 Ransomware": [0.15, 0.25]
+```
+
+> **📌 Key Insight:** Information Manipulation is the highest-relevance ENISA threat for the EU Parliament Monitor due to its democratic transparency mission. Data integrity attacks targeting parliamentary content across 14 languages represent the primary concern, outweighing traditional infrastructure threats that are mitigated by the static site architecture.
 
 ---
 
@@ -501,6 +586,49 @@ flowchart TD
     style A4 fill:#ffccbc,stroke:#e64a19,color:#000
 ```
 
+### **🔗 Kill Chain Disruption Analysis**
+
+Following [Hack23 AB Kill Chain Analysis](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) methodology — mapping Cyber Kill Chain phases to EU Parliament Monitor defensive controls:
+
+| Kill Chain Phase | EU Parliament Monitor Context | Defensive Controls | Detection Capability | Disruption Effectiveness |
+|---|---|---|---|---|
+| **1. Reconnaissance** | Public repository scanning, dependency enumeration, EP API discovery | Transparency by design (public data), no sensitive endpoints exposed | GitHub audit logs, repository traffic analytics | [![High](https://img.shields.io/badge/Effectiveness-High-green?style=flat-square)](#) — Minimal attack surface |
+| **2. Weaponization** | Crafting malicious npm packages, preparing XSS payloads for EP data | N/A (attacker-side phase) | Threat intelligence feeds, npm advisory monitoring | [![Medium](https://img.shields.io/badge/Effectiveness-Medium-yellow?style=flat-square)](#) — External phase |
+| **3. Delivery** | Malicious PR submission, dependency confusion, EP data poisoning | Branch protection, required reviews, schema validation, package-lock.json | CodeQL SAST on PRs, Dependabot alerts, EP data schema checks | [![High](https://img.shields.io/badge/Effectiveness-High-green?style=flat-square)](#) — Multiple gates |
+| **4. Exploitation** | XSS via injected EP data, command injection in build scripts | CSP headers, Handlebars auto-escaping, ESLint security rules, TypeScript strict mode | CodeQL scanning, unit tests, HTML validation | [![High](https://img.shields.io/badge/Effectiveness-High-green?style=flat-square)](#) — Defense-in-depth |
+| **5. Installation** | Persistent backdoor in codebase, modified GitHub Actions workflow | SHA-pinned actions, CODEOWNERS enforcement, branch protection | Workflow change alerts, PR diff review, SBOM integrity checks | [![High](https://img.shields.io/badge/Effectiveness-High-green?style=flat-square)](#) — Strong access control |
+| **6. Command & Control** | Exfiltrating data via MCP channel, covert communication via build logs | Localhost-only MCP binding, no outbound network from static site, TLS enforcement | GitHub Actions log monitoring, network connection auditing | [![High](https://img.shields.io/badge/Effectiveness-High-green?style=flat-square)](#) — Minimal C2 surface |
+| **7. Actions on Objectives** | Content manipulation, democratic process disruption, defacement | Multi-layer validation, automated testing, schema checks, SLSA attestation | Visual diff review, automated content verification, monitoring | [![Medium](https://img.shields.io/badge/Effectiveness-Medium-yellow?style=flat-square)](#) — Detection gap for subtle manipulation |
+
+```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#e8f5e9',
+      'primaryTextColor': '#1b5e20',
+      'lineColor': '#388e3c'
+    }
+  }
+}%%
+flowchart LR
+    R[🔍 Recon] --> W[⚙️ Weapon] --> D[📦 Deliver] --> X[💥 Exploit] --> I[📌 Install] --> C[📡 C2] --> A[🎯 Actions]
+
+    R -.->|"Public by design<br/>Minimal attack surface"| DR[🛡️ Accept]
+    D -.->|"Branch protection<br/>Schema validation<br/>Package lock"| DD[🛡️ Block]
+    X -.->|"CSP + Auto-escape<br/>SAST + Type checking"| DX[🛡️ Block]
+    I -.->|"SHA-pinned actions<br/>CODEOWNERS"| DI[🛡️ Block]
+    C -.->|"Localhost MCP<br/>No outbound"| DC[🛡️ Block]
+    A -.->|"Multi-layer validation<br/>SLSA attestation"| DA[🛡️ Detect]
+
+    style DR fill:#c8e6c9,stroke:#388e3c
+    style DD fill:#c8e6c9,stroke:#388e3c
+    style DX fill:#c8e6c9,stroke:#388e3c
+    style DI fill:#c8e6c9,stroke:#388e3c
+    style DC fill:#c8e6c9,stroke:#388e3c
+    style DA fill:#fff9c4,stroke:#f9a825
+```
+
 ---
 
 ## 🎯 Priority Threat Scenarios
@@ -551,6 +679,108 @@ quadrantChart
     "🌍 Translation Error": [0.4, 0.4]
     "🤖 Workflow Tamper": [0.25, 0.55]
 ```
+
+---
+
+## 🎯 Scenario-Centric Threat Analysis
+
+Following [Hack23 AB Scenario-Centric Threat Modeling](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) methodology:
+
+### **🎭 Misuse Cases**
+
+| # | Misuse Case | Threat Agent | Attack Description | Preconditions | Impact | Mitigation |
+|---|---|---|---|---|---|---|
+| **MC-001** | **Nation-State Data Manipulation** | 🏛️ Nation-State Actor | Compromises EP API upstream or MCP data pipeline to inject subtly biased MEP voting records, altering democratic perception across 14 languages | Access to EP data pipeline or MCP server compromise | Critical — Erosion of democratic transparency trust across EU | EP official API verification, schema validation, cross-reference checks, content consistency monitoring |
+| **MC-002** | **Supply Chain Backdoor** | 💰 Cybercriminal | Publishes malicious npm package mimicking `european-parliament-mcp-server`, injects code into build pipeline during GitHub Actions execution | npm registry access, typosquatting opportunity | High — Complete build process compromise, potential content manipulation | Package provenance (SHA verification), Dependabot monitoring, SBOM generation, package-lock.json integrity |
+| **MC-003** | **Insider Bias Injection** | 👤 Malicious Insider | Contributor with merge access introduces subtle political bias in news generation templates or translation strings for specific languages | Trusted contributor access, code review gap | High — Political bias in generated news, trust damage | Required PR reviews, CODEOWNERS enforcement, automated bias detection, multi-language consistency checks |
+| **MC-004** | **Election Period Defacement** | 🎭 Hacktivist | During European Parliament elections, defaces website content to spread political messaging or discredit specific MEPs/parties | Repository access or XSS vulnerability | High — Election integrity impact, voter confusion | Enhanced monitoring during election periods, branch protection, CSP headers, rapid response procedures |
+| **MC-005** | **Translation Weaponization** | 🏛️ Nation-State Actor | Targets specific language versions (e.g., AR, ZH) with deliberate mistranslations of parliamentary positions to serve geopolitical agenda | Access to translation pipeline or template manipulation | Medium — Language-specific democratic impact, regional trust damage | Cross-language consistency validation, native speaker review, automated translation comparison |
+| **MC-006** | **CI/CD Pipeline Hijacking** | 💰 Cybercriminal | Exploits GitHub Actions workflow to inject cryptocurrency miner or use compute resources, degrading news generation performance | Workflow file modification or action compromise | Medium — Service degradation, resource abuse | SHA-pinned actions, workflow permissions review, resource monitoring, required status checks |
+
+### **🤔 What-If Analysis**
+
+| # | What-If Scenario | Probability | Impact Assessment | Current Resilience | Recommended Action |
+|---|---|---|---|---|---|
+| **WI-001** | What if the European Parliament changes its open data API format? | Medium | News generation fails until adaptation; stale content served | Schema validation catches errors; cached content remains available | Monitor EP API changelog; implement API version detection; maintain fallback templates |
+| **WI-002** | What if a zero-day vulnerability is found in Node.js 24? | Low | Build pipeline compromised during news generation | GitHub Actions auto-updates runners; Dependabot monitors dependencies | Pin Node.js version; implement container-based builds; maintain rollback capability |
+| **WI-003** | What if GitHub Pages experiences a multi-day outage? | Very Low | Site unavailable; no news updates for > 24h RTO | Static content cached by CDN; manual deployment possible | Maintain backup deployment target; document manual recovery; accept 24h RTO per classification |
+| **WI-004** | What if a contributor's GitHub account is compromised? | Low | Potential unauthorized code changes or content manipulation | MFA required; branch protection; required reviews; CODEOWNERS | Quarterly access reviews; monitor for anomalous commits; incident response plan |
+| **WI-005** | What if politically motivated content manipulation goes undetected? | Low-Medium | Gradual erosion of platform credibility and democratic trust | Schema validation; automated testing; public source code | Implement automated fact-checking pipeline (P1); add confidence scoring; cross-reference with official EP records |
+| **WI-006** | What if the EP MCP Server package is deprecated or abandoned? | Medium | Loss of data integration capability; news generation stops | Version pinning; local fallback data | Monitor package health; maintain fork capability; implement direct EP API fallback |
+
+### **👥 Persona-Based Threat Scenarios**
+
+#### **Persona 1: "Alexei" — State-Sponsored Information Operator**
+- **Profile:** Advanced persistent threat operator working for a nation-state intelligence service
+- **Motivation:** Undermine EU parliamentary transparency and democratic processes
+- **Capability:** High (custom tooling, patient long-term operations, multiple attack vectors)
+- **Attack Path:** Targets EP data pipeline → injects subtle voting record modifications → affects 14 language versions → gradually erodes trust in parliamentary data
+- **Countermeasures:** Official EP API source verification, schema validation, cross-language consistency monitoring, anomaly detection
+
+#### **Persona 2: "Marco" — Disgruntled Political Activist**
+- **Profile:** Technically skilled hacktivist with political agenda
+- **Motivation:** Promote specific political agenda or discredit EU institutions
+- **Capability:** Medium (public exploit tools, social engineering)
+- **Attack Path:** Social engineers a contributor → submits PR with biased translation strings → targets election-sensitive content
+- **Countermeasures:** Required PR reviews, CODEOWNERS, automated sentiment analysis, election period enhanced monitoring
+
+#### **Persona 3: "Chen" — Supply Chain Attacker**
+- **Profile:** Organized cybercrime group specializing in supply chain attacks
+- **Motivation:** Financial gain through compute resource abuse or reputation extortion
+- **Capability:** Medium-High (registry manipulation, typosquatting infrastructure)
+- **Attack Path:** Publishes malicious npm package → dependency confusion during build → injects cryptominer or exfiltration code
+- **Countermeasures:** Zero production dependencies, package-lock.json, SHA verification, SBOM monitoring, Dependabot
+
+---
+
+## ⚖️ Quantitative Risk Assessment
+
+Following [Hack23 AB Risk-Centric Threat Modeling](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) methodology:
+
+### **📊 Risk Scoring Methodology**
+
+**Risk Score = Likelihood × Impact**
+
+| Score | Likelihood Definition | Impact Definition |
+|---|---|---|
+| **1 — Very Low** | < 5% annual probability | Minimal business impact, easily recoverable |
+| **2 — Low** | 5-15% annual probability | Minor disruption, limited scope |
+| **3 — Medium** | 15-35% annual probability | Moderate disruption, requires active response |
+| **4 — High** | 35-65% annual probability | Significant disruption, affects core mission |
+| **5 — Critical** | > 65% annual probability | Severe impact, existential or regulatory consequence |
+
+### **📈 Comprehensive Likelihood × Impact Matrix**
+
+| Threat ID | Threat Name | Likelihood (L) | Impact (I) | Risk Score (L×I) | Risk Level | Treatment |
+|---|---|---|---|---|---|---|
+| **T-001** | XSS via EP Data Injection | 1 | 3 | 3 | 🟢 Low | Accept |
+| **T-002** | Supply Chain npm Attack | 1 | 4 | 4 | 🟡 Low-Medium | Monitor |
+| **T-003** | Incorrect News Generation | 3 | 3 | **9** | 🟠 **Medium** | **Reduce** |
+| **T-004** | GitHub Actions Downtime | 1 | 2 | 2 | 🟢 Low | Accept |
+| **T-005** | Repository Compromise | 1 | 4 | 4 | 🟡 Low-Medium | Monitor |
+| **T-006** | MCP Server Compromise | 1 | 3 | 3 | 🟢 Low | Accept |
+| **T-007** | EP API Format Change | 3 | 3 | **9** | 🟠 **Medium** | Reduce |
+| **T-008** | Translation Manipulation | 2 | 3 | 6 | 🟡 Medium-Low | Monitor |
+| **T-009** | Election Period Defacement | 1 | 4 | 4 | 🟡 Low-Medium | Monitor |
+| **T-010** | GitHub Actions Secret Leak | 1 | 3 | 3 | 🟢 Low | Accept |
+| **T-011** | SLSA Attestation Bypass | 1 | 4 | 4 | 🟡 Low-Medium | Monitor |
+| **T-012** | Dependency Confusion | 1 | 5 | 5 | 🟡 Medium-Low | Monitor |
+| **T-013** | MCP Data Poisoning via API | 2 | 4 | **8** | 🟠 **Medium** | Reduce |
+| **T-014** | Cross-Language Inconsistency | 2 | 2 | 4 | 🟡 Low-Medium | Monitor |
+| **T-015** | Contributor Account Compromise | 1 | 4 | 4 | 🟡 Low-Medium | Monitor |
+| **T-016** | Automated Bot Abuse | 2 | 1 | 2 | 🟢 Low | Accept |
+| **T-017** | MEP Data Integrity Failure | 2 | 3 | 6 | 🟡 Medium-Low | Monitor |
+| **T-018** | Information Manipulation Campaign | 1 | 5 | 5 | 🟡 Medium-Low | Monitor |
+| **T-019** | Node.js Runtime Vulnerability | 1 | 3 | 3 | 🟢 Low | Accept |
+| **T-020** | GitHub Pages CDN Compromise | 1 | 3 | 3 | 🟢 Low | Accept |
+
+### **🎯 Risk Distribution Summary**
+
+| Risk Level | Count | Threats | Treatment Strategy |
+|---|---|---|---|
+| 🟠 **Medium (6-9)** | 3 | T-003, T-007, T-013 | **Active reduction** — implement additional controls |
+| 🟡 **Low-Medium (4-5)** | 9 | T-002, T-005, T-008, T-009, T-011, T-012, T-014, T-015, T-017, T-018 | **Monitor** — quarterly review and trending |
+| 🟢 **Low (1-3)** | 8 | T-001, T-004, T-006, T-010, T-016, T-019, T-020 | **Accept** — existing controls sufficient |
 
 ---
 
@@ -728,6 +958,370 @@ outages
 already secured)
 
 **Risk Treatment:** Accept - Existing GitHub Actions isolation sufficient
+
+---
+
+### Threat T-007: EP API Format Change / Breaking Change
+
+| Attribute           | Value                                                      |
+| ------------------- | ---------------------------------------------------------- |
+| **Threat ID**       | T-007                                                      |
+| **STRIDE Category** | Denial of Service, Tampering                               |
+| **MITRE ATT&CK**    | T1499 (Endpoint DoS), T1565 (Data Manipulation)            |
+| **Threat Agent**    | External Service Provider (EP API), Accidental Insider     |
+| **Likelihood**      | Medium (3/5)                                               |
+| **Impact**          | Medium (3/5) - News generation fails, stale content served |
+| **Risk Score**      | Medium (9/25)                                              |
+| **Priority**        | **P1** (Requires Additional Controls)                      |
+
+**Existing Controls:**
+
+- ✅ Schema validation for EP MCP responses
+- ✅ Error handling with graceful degradation
+- ✅ Cached content remains online during failures
+- ✅ Version-pinned EP MCP Server dependency
+
+**Residual Risk:** Medium - API changes could break generation
+
+**Risk Treatment:** Reduce Risk - Implement API version monitoring
+
+---
+
+### Threat T-008: Translation Manipulation / Cultural Bias Injection
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-008                                                              |
+| **STRIDE Category** | Tampering, Information Disclosure                                  |
+| **MITRE ATT&CK**    | T1565 (Data Manipulation), T1491 (Defacement)                      |
+| **Threat Agent**    | Nation-State Actor, Malicious Insider                              |
+| **Likelihood**      | Low (2/5)                                                          |
+| **Impact**          | Medium (3/5) - Language-specific democratic impact                 |
+| **Risk Score**      | Medium-Low (6/25)                                                  |
+| **Priority**        | P2                                                                 |
+
+**Existing Controls:**
+
+- ✅ Template-based translation (consistent structure)
+- ✅ Code review for language file changes
+- ✅ Automated HTML validation per language
+- ✅ UTF-8 encoding enforcement
+
+**Residual Risk:** Low-Medium - Subtle translation bias hard to detect
+
+**Risk Treatment:** Monitor - Implement cross-language consistency checks
+
+---
+
+### Threat T-009: Election Period Website Defacement
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-009                                                              |
+| **STRIDE Category** | Tampering, Elevation of Privilege                                  |
+| **MITRE ATT&CK**    | T1491 (Defacement), T1078 (Valid Accounts)                         |
+| **Threat Agent**    | Hacktivist, Nation-State Actor                                     |
+| **Likelihood**      | Low (1/5)                                                          |
+| **Impact**          | High (4/5) - Election integrity impact, voter confusion            |
+| **Risk Score**      | Low-Medium (4/25)                                                  |
+| **Priority**        | P2                                                                 |
+
+**Existing Controls:**
+
+- ✅ Branch protection with required reviews
+- ✅ MFA enforcement for all contributors
+- ✅ Automated deployment (no manual HTML changes)
+- ✅ GitHub Pages CDN caching
+
+**Residual Risk:** Low - Multiple access control layers
+
+**Risk Treatment:** Monitor - Enhanced vigilance during election periods
+
+---
+
+### Threat T-010: GitHub Actions Secret Exposure
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-010                                                              |
+| **STRIDE Category** | Information Disclosure                                             |
+| **MITRE ATT&CK**    | T1552 (Unsecured Credentials), T1078 (Valid Accounts)              |
+| **Threat Agent**    | Accidental Insider, Cybercriminal                                  |
+| **Likelihood**      | Low (1/5)                                                          |
+| **Impact**          | Medium (3/5) - Potential workflow compromise                       |
+| **Risk Score**      | Low (3/25)                                                         |
+| **Priority**        | P3                                                                 |
+
+**Existing Controls:**
+
+- ✅ GitHub secret scanning enabled
+- ✅ No API keys required (EP public API)
+- ✅ Environment-scoped secrets
+- ✅ Workflow permissions minimized (least privilege)
+
+**Residual Risk:** Low - Minimal secrets to expose
+
+**Risk Treatment:** Accept - Secret scanning provides adequate coverage
+
+---
+
+### Threat T-011: SLSA Build Provenance Bypass
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-011                                                              |
+| **STRIDE Category** | Tampering, Repudiation                                             |
+| **MITRE ATT&CK**    | T1553.002 (Code Signing), T1195 (Supply Chain Compromise)          |
+| **Threat Agent**    | Advanced Persistent Threat, Nation-State Actor                     |
+| **Likelihood**      | Very Low (1/5)                                                     |
+| **Impact**          | High (4/5) - Undermines build integrity guarantee                  |
+| **Risk Score**      | Low-Medium (4/25)                                                  |
+| **Priority**        | P3                                                                 |
+
+**Existing Controls:**
+
+- ✅ SLSA Level 3 via GitHub Actions
+- ✅ Artifact signatures with provenance attestation
+- ✅ SHA-pinned actions in all workflows
+- ✅ SBOM generation (CycloneDX format)
+
+**Residual Risk:** Very Low - SLSA Level 3 provides strong guarantees
+
+**Risk Treatment:** Accept - Industry-standard provenance
+
+---
+
+### Threat T-012: Dependency Confusion / Typosquatting
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-012                                                              |
+| **STRIDE Category** | Tampering, Elevation of Privilege                                  |
+| **MITRE ATT&CK**    | T1525 (Implant Internal Image), T1195.002 (Supply Chain)           |
+| **Threat Agent**    | Cybercriminal, Nation-State Actor                                  |
+| **Likelihood**      | Very Low (1/5)                                                     |
+| **Impact**          | Critical (5/5) - Complete build compromise                         |
+| **Risk Score**      | Medium-Low (5/25)                                                  |
+| **Priority**        | P2                                                                 |
+
+**Existing Controls:**
+
+- ✅ package-lock.json with SHA integrity hashes
+- ✅ Zero production dependencies
+- ✅ Dependabot automated scanning
+- ✅ npm provenance checking
+
+**Residual Risk:** Very Low - Package lock prevents confusion
+
+**Risk Treatment:** Monitor - Annual dependency audit
+
+---
+
+### Threat T-013: EP MCP Data Poisoning via Upstream API Compromise
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-013                                                              |
+| **STRIDE Category** | Tampering, Information Disclosure                                  |
+| **MITRE ATT&CK**    | T1565.001 (Stored Data Manipulation), T1557 (Adversary-in-Middle)  |
+| **Threat Agent**    | Nation-State Actor, Advanced Persistent Threat                     |
+| **Likelihood**      | Low (2/5)                                                          |
+| **Impact**          | High (4/5) - Parliamentary data integrity compromised              |
+| **Risk Score**      | Medium (8/25)                                                      |
+| **Priority**        | **P1** (Requires Additional Controls)                              |
+
+**Existing Controls:**
+
+- ✅ Official EP API as single data source
+- ✅ MCP schema validation
+- ✅ TypeScript strict mode parsing
+- ✅ Ephemeral MCP execution (no persistent compromise)
+
+**Residual Risk:** Medium - Upstream compromise difficult to detect
+
+**Risk Treatment:** Reduce Risk - Implement cross-reference validation with multiple EP data sources
+
+---
+
+### Threat T-014: Cross-Language Content Inconsistency
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-014                                                              |
+| **STRIDE Category** | Tampering                                                          |
+| **MITRE ATT&CK**    | T1565 (Data Manipulation)                                          |
+| **Threat Agent**    | Accidental Insider, LLM Model Error                                |
+| **Likelihood**      | Low (2/5)                                                          |
+| **Impact**          | Low (2/5) - Content mismatch between language versions             |
+| **Risk Score**      | Low-Medium (4/25)                                                  |
+| **Priority**        | P3                                                                 |
+
+**Existing Controls:**
+
+- ✅ Template-based generation (consistent structure)
+- ✅ Same EP data source for all languages
+- ✅ Automated HTML validation per language
+- ✅ E2E tests for multi-language content
+
+**Residual Risk:** Low - Template structure ensures consistency
+
+**Risk Treatment:** Monitor - Quarterly cross-language audit
+
+---
+
+### Threat T-015: Contributor Account Compromise
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-015                                                              |
+| **STRIDE Category** | Spoofing, Elevation of Privilege                                   |
+| **MITRE ATT&CK**    | T1078 (Valid Accounts), T1566 (Phishing)                           |
+| **Threat Agent**    | Cybercriminal, Nation-State Actor                                  |
+| **Likelihood**      | Low (1/5)                                                          |
+| **Impact**          | High (4/5) - Could push malicious code with trusted identity       |
+| **Risk Score**      | Low-Medium (4/25)                                                  |
+| **Priority**        | P2                                                                 |
+
+**Existing Controls:**
+
+- ✅ MFA required for organization members
+- ✅ Branch protection rules
+- ✅ Required PR reviews
+- ✅ GitHub audit logging of all access
+
+**Residual Risk:** Low - MFA significantly reduces account compromise risk
+
+**Risk Treatment:** Monitor - Quarterly access review
+
+---
+
+### Threat T-016: Automated Bot Abuse
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-016                                                              |
+| **STRIDE Category** | Denial of Service                                                  |
+| **MITRE ATT&CK**    | T1499 (Endpoint DoS)                                               |
+| **Threat Agent**    | Automated Bots, Script Kiddies                                     |
+| **Likelihood**      | Low (2/5)                                                          |
+| **Impact**          | Very Low (1/5) - Static site resilient to bot traffic              |
+| **Risk Score**      | Low (2/25)                                                         |
+| **Priority**        | P4                                                                 |
+
+**Existing Controls:**
+
+- ✅ GitHub Pages CDN (DDoS protection)
+- ✅ Static site architecture (no dynamic endpoints)
+- ✅ robots.txt configured
+- ✅ No authentication endpoints to brute-force
+
+**Residual Risk:** Very Low - Static architecture inherently resilient
+
+**Risk Treatment:** Accept - GitHub CDN provides adequate protection
+
+---
+
+### Threat T-017: MEP Data Integrity Failure
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-017                                                              |
+| **STRIDE Category** | Tampering, Information Disclosure                                  |
+| **MITRE ATT&CK**    | T1565 (Data Manipulation)                                          |
+| **Threat Agent**    | EP API Error, Accidental Insider, LLM Model Error                  |
+| **Likelihood**      | Low (2/5)                                                          |
+| **Impact**          | Medium (3/5) - Incorrect MEP information published                 |
+| **Risk Score**      | Medium-Low (6/25)                                                  |
+| **Priority**        | P2                                                                 |
+
+**Existing Controls:**
+
+- ✅ EP MCP Server schema validation
+- ✅ TypeScript type checking
+- ✅ Unit tests for data transformation
+- ✅ Official EP API as authoritative source
+
+**Residual Risk:** Low-Medium - EP API data assumed accurate
+
+**Risk Treatment:** Monitor - Implement MEP data cross-referencing
+
+---
+
+### Threat T-018: Information Manipulation Campaign
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-018                                                              |
+| **STRIDE Category** | Tampering, Repudiation                                             |
+| **MITRE ATT&CK**    | T1491 (Defacement), T1565 (Data Manipulation)                      |
+| **Threat Agent**    | Nation-State Actor, Organized Disinformation Group                 |
+| **Likelihood**      | Very Low (1/5)                                                     |
+| **Impact**          | Critical (5/5) - Democratic process manipulation                   |
+| **Risk Score**      | Medium-Low (5/25)                                                  |
+| **Priority**        | P2                                                                 |
+
+**Existing Controls:**
+
+- ✅ Official EP data sources only
+- ✅ Transparent open-source methodology
+- ✅ Public audit trail (Git history)
+- ✅ Multi-layer validation pipeline
+
+**Residual Risk:** Low - Multiple integrity controls
+
+**Risk Treatment:** Monitor - Enhanced during election periods
+
+---
+
+### Threat T-019: Node.js Runtime Vulnerability
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-019                                                              |
+| **STRIDE Category** | Elevation of Privilege, Execution                                  |
+| **MITRE ATT&CK**    | T1059 (Command/Script Interpreter)                                 |
+| **Threat Agent**    | Cybercriminal, Opportunistic Attacker                              |
+| **Likelihood**      | Low (1/5)                                                          |
+| **Impact**          | Medium (3/5) - Build pipeline compromise                           |
+| **Risk Score**      | Low (3/25)                                                         |
+| **Priority**        | P3                                                                 |
+
+**Existing Controls:**
+
+- ✅ Pinned Node.js 24 version
+- ✅ GitHub Actions runner auto-updates
+- ✅ Build-time only execution (no runtime server)
+- ✅ Dependabot monitors Node.js advisories
+
+**Residual Risk:** Low - Ephemeral build execution limits exposure
+
+**Risk Treatment:** Accept - Automated patching via GitHub Actions
+
+---
+
+### Threat T-020: GitHub Pages CDN Compromise
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-020                                                              |
+| **STRIDE Category** | Tampering, Denial of Service                                       |
+| **MITRE ATT&CK**    | T1584 (Compromise Infrastructure)                                  |
+| **Threat Agent**    | Nation-State Actor, Advanced Persistent Threat                     |
+| **Likelihood**      | Very Low (1/5)                                                     |
+| **Impact**          | Medium (3/5) - Content served to users could be manipulated        |
+| **Risk Score**      | Low (3/25)                                                         |
+| **Priority**        | P4                                                                 |
+
+**Existing Controls:**
+
+- ✅ GitHub-managed infrastructure (SOC 2 compliant)
+- ✅ TLS 1.3 enforcement
+- ✅ HSTS headers
+- ✅ Content integrity via Git-backed deployment
+
+**Residual Risk:** Very Low - GitHub infrastructure security
+
+**Risk Treatment:** Accept - Risk transferred to GitHub infrastructure
 
 ---
 
