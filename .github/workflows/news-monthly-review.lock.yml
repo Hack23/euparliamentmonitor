@@ -21,14 +21,14 @@
 #
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
-# Generates EU Parliament committee reports analysis articles for all 14 languages. Single article type per run to reduce patch size and improve reliability.
+# Generates EU Parliament monthly review retrospective articles for all 14 languages. Runs on 28th of each month.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"6b56e495511b1c15e49470eba79315616980b3fb1ed0554104efd06ad7aef534","compiler_version":"v0.50.4"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"e7c3397bfaa418d8fe16719231c5b697b27b032d722f507af6627a57399dad38","compiler_version":"v0.50.4"}
 
-name: "News: EU Parliament Committee Reports"
+name: "News: EU Parliament Monthly Review"
 "on":
   schedule:
-  - cron: "0 4 * * 1-5"
+  - cron: "0 10 28 * *"
   workflow_dispatch:
     inputs:
       force_generation:
@@ -46,7 +46,7 @@ permissions: {}
 concurrency:
   group: "gh-aw-${{ github.workflow }}"
 
-run-name: "News: EU Parliament Committee Reports"
+run-name: "News: EU Parliament Monthly Review"
 
 jobs:
   activation:
@@ -80,7 +80,7 @@ jobs:
       - name: Check workflow file timestamps
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
-          GH_AW_WORKFLOW_FILE: "news-committee-reports.lock.yml"
+          GH_AW_WORKFLOW_FILE: "news-monthly-review.lock.yml"
         with:
           script: |
             const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
@@ -151,7 +151,7 @@ jobs:
           </system>
           GH_AW_PROMPT_EOF
           cat << 'GH_AW_PROMPT_EOF'
-          {{#runtime-import .github/workflows/news-committee-reports.md}}
+          {{#runtime-import .github/workflows/news-monthly-review.md}}
           GH_AW_PROMPT_EOF
           } > "$GH_AW_PROMPT"
       - name: Interpolate variables and render templates
@@ -240,7 +240,7 @@ jobs:
       GH_AW_SAFE_OUTPUTS: /opt/gh-aw/safeoutputs/outputs.jsonl
       GH_AW_SAFE_OUTPUTS_CONFIG_PATH: /opt/gh-aw/safeoutputs/config.json
       GH_AW_SAFE_OUTPUTS_TOOLS_PATH: /opt/gh-aw/safeoutputs/tools.json
-      GH_AW_WORKFLOW_ID_SANITIZED: newscommitteereports
+      GH_AW_WORKFLOW_ID_SANITIZED: newsmonthlyreview
     outputs:
       checkout_pr_success: ${{ steps.checkout-pr.outputs.checkout_pr_success || 'true' }}
       detection_conclusion: ${{ steps.detection_conclusion.outputs.conclusion }}
@@ -312,7 +312,7 @@ jobs:
               version: "",
               agent_version: "0.0.417",
               cli_version: "v0.50.4",
-              workflow_name: "News: EU Parliament Committee Reports",
+              workflow_name: "News: EU Parliament Monthly Review",
               experimental: false,
               supports_tools_allowlist: true,
               run_id: context.runId,
@@ -739,7 +739,7 @@ jobs:
       - name: Execute GitHub Copilot CLI
         id: agentic_execution
         # Copilot CLI tool arguments (sorted):
-        timeout-minutes: 60
+        timeout-minutes: 45
         run: |
           set -o pipefail
           # shellcheck disable=SC1003
@@ -934,8 +934,8 @@ jobs:
         if: always() && steps.detection_guard.outputs.run_detection == 'true'
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
-          WORKFLOW_NAME: "News: EU Parliament Committee Reports"
-          WORKFLOW_DESCRIPTION: "Generates EU Parliament committee reports analysis articles for all 14 languages. Single article type per run to reduce patch size and improve reliability."
+          WORKFLOW_NAME: "News: EU Parliament Monthly Review"
+          WORKFLOW_DESCRIPTION: "Generates EU Parliament monthly review retrospective articles for all 14 languages. Runs on 28th of each month."
           HAS_PATCH: ${{ steps.collect_output.outputs.has_patch }}
         with:
           script: |
@@ -1051,7 +1051,7 @@ jobs:
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
           GH_AW_NOOP_MAX: "1"
-          GH_AW_WORKFLOW_NAME: "News: EU Parliament Committee Reports"
+          GH_AW_WORKFLOW_NAME: "News: EU Parliament Monthly Review"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1064,7 +1064,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "News: EU Parliament Committee Reports"
+          GH_AW_WORKFLOW_NAME: "News: EU Parliament Monthly Review"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1077,10 +1077,10 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "News: EU Parliament Committee Reports"
+          GH_AW_WORKFLOW_NAME: "News: EU Parliament Monthly Review"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_AGENT_CONCLUSION: ${{ needs.agent.result }}
-          GH_AW_WORKFLOW_ID: "news-committee-reports"
+          GH_AW_WORKFLOW_ID: "news-monthly-review"
           GH_AW_SECRET_VERIFICATION_RESULT: ${{ needs.agent.outputs.secret_verification_result }}
           GH_AW_CHECKOUT_PR_SUCCESS: ${{ needs.agent.outputs.checkout_pr_success }}
           GH_AW_CODE_PUSH_FAILURE_ERRORS: ${{ needs.safe_outputs.outputs.code_push_failure_errors }}
@@ -1098,7 +1098,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "News: EU Parliament Committee Reports"
+          GH_AW_WORKFLOW_NAME: "News: EU Parliament Monthly Review"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_AGENT_CONCLUSION: ${{ needs.agent.result }}
           GH_AW_NOOP_MESSAGE: ${{ steps.noop.outputs.noop_message }}
@@ -1115,7 +1115,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "News: EU Parliament Committee Reports"
+          GH_AW_WORKFLOW_NAME: "News: EU Parliament Monthly Review"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
@@ -1140,8 +1140,8 @@ jobs:
     env:
       GH_AW_ENGINE_ID: "copilot"
       GH_AW_ENGINE_MODEL: "claude-opus-4.6"
-      GH_AW_WORKFLOW_ID: "news-committee-reports"
-      GH_AW_WORKFLOW_NAME: "News: EU Parliament Committee Reports"
+      GH_AW_WORKFLOW_ID: "news-monthly-review"
+      GH_AW_WORKFLOW_NAME: "News: EU Parliament Monthly Review"
     outputs:
       code_push_failure_count: ${{ steps.process_safe_outputs.outputs.code_push_failure_count }}
       code_push_failure_errors: ${{ steps.process_safe_outputs.outputs.code_push_failure_errors }}
