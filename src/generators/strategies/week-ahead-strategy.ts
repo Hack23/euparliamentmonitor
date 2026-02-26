@@ -77,6 +77,7 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     'search_documents',
     'monitor_legislative_pipeline',
     'get_parliamentary_questions',
+    'get_events',
   ] as const;
 
   /**

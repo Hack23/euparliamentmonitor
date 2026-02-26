@@ -928,6 +928,9 @@ const mockClientWithData = {
   getParliamentaryQuestions: async () => ({
     content: [{ text: JSON.stringify({ questions: [] }) }],
   }),
+  getEvents: async () => ({
+    content: [{ text: JSON.stringify({ events: [{ date: '2025-01-17', title: 'Hearing on AI Act', type: 'Hearing', description: 'Public hearing on AI regulation' }] }) }],
+  }),
   callTool: async (toolName) => {
     if (toolName === 'get_voting_records') {
       return {
@@ -1325,6 +1328,7 @@ describe('fetchWeekAheadData with HALF_OPEN probe semantics', () => {
       searchDocuments: async () => ({ content: [{ text: '{}' }] }),
       monitorLegislativePipeline: async () => ({ content: [{ text: '{}' }] }),
       getParliamentaryQuestions: async () => ({ content: [{ text: '{}' }] }),
+      getEvents: async () => ({ content: [{ text: '{}' }] }),
     };
 
     // Force to HALF_OPEN via failureThreshold=1 and resetTimeout=0

@@ -41,6 +41,7 @@ export class WeekAheadStrategy {
         'search_documents',
         'monitor_legislative_pipeline',
         'get_parliamentary_questions',
+        'get_events',
     ];
     /**
      * Fetch week-ahead data from MCP.
