@@ -140,6 +140,26 @@ Before generating ANY articles, verify MCP connectivity:
 - ✅ `noop` ONLY if genuinely no data available for any requested article type
 - ❌ NEVER use `noop` as fallback for PR creation failures
 
+### 🔑 How Safe Pull Request Works (READ FIRST)
+
+The gh-aw framework **automatically captures all file changes** you make in the working directory as a patch. You do NOT manage git operations yourself.
+
+**The mechanism:**
+1. You write/edit article files to `news/` using `bash` (e.g., `cat > news/file.html << 'HTMLEOF' ... HTMLEOF`)
+2. You call `safeoutputs___create_pull_request` with `title`, `body`, `base`, and `head`
+3. The framework diffs your working directory, creates a branch, applies the patch, and opens the PR
+
+**MUST do:** Write files → Call `safeoutputs___create_pull_request` once. That's it.
+
+**MUST NOT do (do not waste time on these — they will all fail):**
+- ❌ `git add`, `git commit`, `git push` — the framework handles git
+- ❌ `git checkout -b` — branch creation is automatic
+- ❌ GitHub API calls to create PRs — use only the safe output tool
+- ❌ Passing a `files` parameter — it does not exist; all working directory changes are captured automatically
+- ❌ Trying multiple alternative approaches if PR creation fails — retry **once**, then let the workflow fail
+
+**⚠️ NEVER use `git push` directly** — always use `safeoutputs___create_pull_request`
+
 ## Supported Article Types
 
 | Type | Perspective | Schedule | Description |
@@ -321,12 +341,12 @@ echo "Branch: $BRANCH_NAME"
 ```
 
 ```javascript
+// All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament news articles ${today}`,
   body: `## EU Parliament News Articles\n\nGenerated ${ARTICLE_TYPES} articles for ${LANG_ARG}.\n\n- Types: ${ARTICLE_TYPES}\n- Languages: ${LANG_ARG}\n- Date: ${today}\n- Data source: European Parliament MCP Server`,
   base: "main",
-  head: `news/articles-${today}`,
-  files: [/* generated article files */]
+  head: `news/articles-${today}`
 })
 ```
 
