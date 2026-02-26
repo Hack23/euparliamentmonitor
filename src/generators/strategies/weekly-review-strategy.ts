@@ -4,7 +4,7 @@
 /**
  * @module Generators/Strategies/WeeklyReviewStrategy
  * @description Article strategy for the Week In Review article type.
- * Fetches voting records, committee reports, documents, and parliamentary
+ * Fetches voting records, voting patterns, voting anomalies, and parliamentary
  * questions from the past 7 days, then renders a retrospective analysis article.
  */
 
@@ -140,10 +140,10 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
     return generateMotionsContent(
       data.dateRange.start,
       data.dateRange.end,
-      data.votingRecords as VotingRecord[],
-      data.votingPatterns as VotingPattern[],
-      data.anomalies as VotingAnomaly[],
-      data.questions as MotionsQuestion[],
+      [...data.votingRecords],
+      [...data.votingPatterns],
+      [...data.anomalies],
+      [...data.questions],
       lang
     );
   }

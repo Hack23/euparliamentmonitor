@@ -34,7 +34,7 @@ import { writeSingleArticle } from './output-stage.js';
 export type StrategyRegistry = Map<ArticleCategory, ArticleStrategy<ArticleData>>;
 
 /**
- * Build the default strategy registry containing all five built-in strategies.
+ * Build the default strategy registry containing all built-in strategies.
  *
  * Each concrete strategy implements `ArticleStrategy<ConcreteData>` where
  * `ConcreteData` extends `ArticleData`.  TypeScript's invariant generic

@@ -80,7 +80,7 @@ export class WeeklyReviewStrategy {
      * @returns Article HTML body
      */
     buildContent(data, lang) {
-        return generateMotionsContent(data.dateRange.start, data.dateRange.end, data.votingRecords, data.votingPatterns, data.anomalies, data.questions, lang);
+        return generateMotionsContent(data.dateRange.start, data.dateRange.end, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
     }
     /**
      * Return language-specific metadata for the weekly review article.

@@ -4,9 +4,9 @@
 /**
  * @module Generators/Strategies/MonthlyReviewStrategy
  * @description Article strategy for the Month In Review article type.
- * Fetches voting records, committee reports, documents, and parliamentary
- * questions from the past 30 days, then renders a comprehensive
- * retrospective analysis article.
+ * Fetches voting records, voting patterns, voting anomalies, and
+ * parliamentary questions from the past 30 days, then renders a
+ * comprehensive retrospective analysis article.
  */
 
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
@@ -87,11 +87,11 @@ function computeMonthlyReviewDateRange(baseDate: string): DateRange {
  * Format a month label from a date string (e.g. "February 2026").
  *
  * @param dateStr - ISO 8601 date
- * @returns Human-readable month label
+ * @returns Human-readable month label, using the runtime's default locale
  */
 function formatMonthLabel(dateStr: string): string {
   const date = new Date(`${dateStr}T00:00:00Z`);
-  return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+  return date.toLocaleDateString(undefined, { month: 'long', year: 'numeric', timeZone: 'UTC' });
 }
 
 // ─── Strategy implementation ──────────────────────────────────────────────────
@@ -157,10 +157,10 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
     return generateMotionsContent(
       data.dateRange.start,
       data.dateRange.end,
-      data.votingRecords as VotingRecord[],
-      data.votingPatterns as VotingPattern[],
-      data.anomalies as VotingAnomaly[],
-      data.questions as MotionsQuestion[],
+      [...data.votingRecords],
+      [...data.votingPatterns],
+      [...data.anomalies],
+      [...data.questions],
       lang
     );
   }

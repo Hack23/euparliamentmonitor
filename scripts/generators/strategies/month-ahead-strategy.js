@@ -38,11 +38,11 @@ function computeMonthAheadDateRange(baseDate) {
  * Format a month label from a date string (e.g. "February 2026").
  *
  * @param dateStr - ISO 8601 date
- * @returns Human-readable month label
+ * @returns Human-readable month label, using the runtime's default locale
  */
 function formatMonthLabel(dateStr) {
     const date = new Date(`${dateStr}T00:00:00Z`);
-    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+    return date.toLocaleDateString(undefined, { month: 'long', year: 'numeric', timeZone: 'UTC' });
 }
 // ─── Strategy implementation ──────────────────────────────────────────────────
 /**

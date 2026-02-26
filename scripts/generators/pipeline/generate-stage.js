@@ -13,7 +13,7 @@ import { weeklyReviewStrategy } from '../strategies/weekly-review-strategy.js';
 import { monthlyReviewStrategy } from '../strategies/monthly-review-strategy.js';
 import { writeSingleArticle } from './output-stage.js';
 /**
- * Build the default strategy registry containing all five built-in strategies.
+ * Build the default strategy registry containing all built-in strategies.
  *
  * Each concrete strategy implements `ArticleStrategy<ConcreteData>` where
  * `ConcreteData` extends `ArticleData`.  TypeScript's invariant generic
