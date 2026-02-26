@@ -85,47 +85,58 @@ export const WEEK_AHEAD_TITLES: LanguageMap<(start: string, end: string) => Lang
 export const MONTH_AHEAD_TITLES: LanguageMap<(month: string) => LangTitleSubtitle> = {
   en: (month) => ({
     title: `Month Ahead: ${month}`,
-    subtitle: 'European Parliament strategic outlook — legislative milestones, committee calendar, and policy agenda for the coming month',
+    subtitle:
+      'European Parliament strategic outlook — legislative milestones, committee calendar, and policy agenda for the coming month',
   }),
   sv: (month) => ({
     title: `Månaden Framåt: ${month}`,
-    subtitle: 'Europaparlamentets strategiska utsikt — lagstiftningsmilstolpar, utskottskalender och politisk agenda för kommande månad',
+    subtitle:
+      'Europaparlamentets strategiska utsikt — lagstiftningsmilstolpar, utskottskalender och politisk agenda för kommande månad',
   }),
   da: (month) => ({
     title: `Måneden Fremover: ${month}`,
-    subtitle: 'Europa-Parlamentets strategiske udsigt — lovgivningsmilepæle, udvalgskalender og politisk dagsorden for den kommende måned',
+    subtitle:
+      'Europa-Parlamentets strategiske udsigt — lovgivningsmilepæle, udvalgskalender og politisk dagsorden for den kommende måned',
   }),
   no: (month) => ({
     title: `Måneden Fremover: ${month}`,
-    subtitle: 'Europaparlamentets strategiske utsikt — lovgivningsmilestener, komitékalender og politisk agenda for kommende måned',
+    subtitle:
+      'Europaparlamentets strategiske utsikt — lovgivningsmilestener, komitékalender og politisk agenda for kommende måned',
   }),
   fi: (month) => ({
     title: `Tuleva Kuukausi: ${month}`,
-    subtitle: 'Euroopan parlamentin strateginen katsaus — lainsäädännölliset virstanpylväät, valiokuntakalenteri ja poliittinen agenda tulevalle kuukaudelle',
+    subtitle:
+      'Euroopan parlamentin strateginen katsaus — lainsäädännölliset virstanpylväät, valiokuntakalenteri ja poliittinen agenda tulevalle kuukaudelle',
   }),
   de: (month) => ({
     title: `Monat Voraus: ${month}`,
-    subtitle: 'Strategischer Ausblick des Europäischen Parlaments — Gesetzgebungsmeilensteine, Ausschusskalender und politische Agenda für den kommenden Monat',
+    subtitle:
+      'Strategischer Ausblick des Europäischen Parlaments — Gesetzgebungsmeilensteine, Ausschusskalender und politische Agenda für den kommenden Monat',
   }),
   fr: (month) => ({
     title: `Mois à Venir: ${month}`,
-    subtitle: 'Perspectives stratégiques du Parlement européen — jalons législatifs, calendrier des commissions et agenda politique pour le mois à venir',
+    subtitle:
+      'Perspectives stratégiques du Parlement européen — jalons législatifs, calendrier des commissions et agenda politique pour le mois à venir',
   }),
   es: (month) => ({
     title: `Mes Próximo: ${month}`,
-    subtitle: 'Perspectiva estratégica del Parlamento Europeo — hitos legislativos, calendario de comisiones y agenda política para el próximo mes',
+    subtitle:
+      'Perspectiva estratégica del Parlamento Europeo — hitos legislativos, calendario de comisiones y agenda política para el próximo mes',
   }),
   nl: (month) => ({
     title: `Maand Vooruit: ${month}`,
-    subtitle: 'Strategische vooruitblik Europees Parlement — wetgevingsmijlpalen, commissiekalender en politieke agenda voor de komende maand',
+    subtitle:
+      'Strategische vooruitblik Europees Parlement — wetgevingsmijlpalen, commissiekalender en politieke agenda voor de komende maand',
   }),
   ar: (month) => ({
     title: `الشهر القادم: ${month}`,
-    subtitle: 'نظرة استراتيجية للبرلمان الأوروبي — معالم تشريعية وجدول أعمال اللجان والأجندة السياسية للشهر القادم',
+    subtitle:
+      'نظرة استراتيجية للبرلمان الأوروبي — معالم تشريعية وجدول أعمال اللجان والأجندة السياسية للشهر القادم',
   }),
   he: (month) => ({
     title: `החודש הקרוב: ${month}`,
-    subtitle: 'תחזית אסטרטגית של הפרלמנט האירופי — אבני דרך חקיקתיות, לוח ועדות ואג׳נדה פוליטית לחודש הקרוב',
+    subtitle:
+      'תחזית אסטרטגית של הפרלמנט האירופי — אבני דרך חקיקתיות, לוח ועדות ואג׳נדה פוליטית לחודש הקרוב',
   }),
   ja: (month) => ({
     title: `来月の展望: ${month}`,
@@ -142,106 +153,127 @@ export const MONTH_AHEAD_TITLES: LanguageMap<(month: string) => LangTitleSubtitl
 };
 
 /** Weekly review title templates per language */
-export const WEEKLY_REVIEW_TITLES: LanguageMap<(start: string, end: string) => LangTitleSubtitle> = {
-  en: (start, end) => ({
-    title: `Week in Review: ${start} to ${end}`,
-    subtitle: 'Analysis of the past week in the European Parliament — votes, committee decisions, and legislative developments',
-  }),
-  sv: (start, end) => ({
-    title: `Veckan i Korthet: ${start} till ${end}`,
-    subtitle: 'Analys av den gångna veckan i Europaparlamentet — omröstningar, utskottsbeslut och lagstiftningsutvecklingar',
-  }),
-  da: (start, end) => ({
-    title: `Ugen i Overblik: ${start} til ${end}`,
-    subtitle: 'Analyse af den forgangne uge i Europa-Parlamentet — afstemninger, udvalgsbeslutninger og lovgivningsudviklinger',
-  }),
-  no: (start, end) => ({
-    title: `Uken i Tilbakeblikk: ${start} til ${end}`,
-    subtitle: 'Analyse av den siste uken i Europaparlamentet — avstemninger, komitébeslutninger og lovgivningsutvikling',
-  }),
-  fi: (start, end) => ({
-    title: `Viikon Katsaus: ${start} - ${end}`,
-    subtitle: 'Analyysi kuluneesta viikosta Euroopan parlamentissa — äänestykset, valiokuntapäätökset ja lainsäädäntökehitys',
-  }),
-  de: (start, end) => ({
-    title: `Woche im Rückblick: ${start} bis ${end}`,
-    subtitle: 'Analyse der vergangenen Woche im Europäischen Parlament — Abstimmungen, Ausschussentscheidungen und Gesetzgebungsentwicklungen',
-  }),
-  fr: (start, end) => ({
-    title: `Semaine en Revue: ${start} au ${end}`,
-    subtitle: 'Analyse de la semaine écoulée au Parlement européen — votes, décisions de commission et évolutions législatives',
-  }),
-  es: (start, end) => ({
-    title: `Semana en Revisión: ${start} a ${end}`,
-    subtitle: 'Análisis de la semana pasada en el Parlamento Europeo — votaciones, decisiones de comisión y desarrollos legislativos',
-  }),
-  nl: (start, end) => ({
-    title: `Week in Overzicht: ${start} tot ${end}`,
-    subtitle: 'Analyse van de afgelopen week in het Europees Parlement — stemmingen, commissiebesluiten en wetgevingsontwikkelingen',
-  }),
-  ar: (start, end) => ({
-    title: `مراجعة الأسبوع: ${start} إلى ${end}`,
-    subtitle: 'تحليل الأسبوع الماضي في البرلمان الأوروبي — التصويتات وقرارات اللجان والتطورات التشريعية',
-  }),
-  he: (start, end) => ({
-    title: `סקירת השבוע: ${start} עד ${end}`,
-    subtitle: 'ניתוח השבוע שחלף בפרלמנט האירופי — הצבעות, החלטות ועדות והתפתחויות חקיקתיות',
-  }),
-  ja: (start, end) => ({
-    title: `今週の振り返り: ${start} ～ ${end}`,
-    subtitle: '欧州議会における先週の分析 — 投票、委員会の決定、立法の進展',
-  }),
-  ko: (start, end) => ({
-    title: `주간 리뷰: ${start} ~ ${end}`,
-    subtitle: '유럽 의회 지난 주 분석 — 투표, 위원회 결정 및 입법 발전',
-  }),
-  zh: (start, end) => ({
-    title: `本周回顾: ${start} 至 ${end}`,
-    subtitle: '欧洲议会过去一周分析 — 投票、委员会决定和立法进展',
-  }),
-};
+export const WEEKLY_REVIEW_TITLES: LanguageMap<(start: string, end: string) => LangTitleSubtitle> =
+  {
+    en: (start, end) => ({
+      title: `Week in Review: ${start} to ${end}`,
+      subtitle:
+        'Analysis of the past week in the European Parliament — votes, committee decisions, and legislative developments',
+    }),
+    sv: (start, end) => ({
+      title: `Veckan i Korthet: ${start} till ${end}`,
+      subtitle:
+        'Analys av den gångna veckan i Europaparlamentet — omröstningar, utskottsbeslut och lagstiftningsutvecklingar',
+    }),
+    da: (start, end) => ({
+      title: `Ugen i Overblik: ${start} til ${end}`,
+      subtitle:
+        'Analyse af den forgangne uge i Europa-Parlamentet — afstemninger, udvalgsbeslutninger og lovgivningsudviklinger',
+    }),
+    no: (start, end) => ({
+      title: `Uken i Tilbakeblikk: ${start} til ${end}`,
+      subtitle:
+        'Analyse av den siste uken i Europaparlamentet — avstemninger, komitébeslutninger og lovgivningsutvikling',
+    }),
+    fi: (start, end) => ({
+      title: `Viikon Katsaus: ${start} - ${end}`,
+      subtitle:
+        'Analyysi kuluneesta viikosta Euroopan parlamentissa — äänestykset, valiokuntapäätökset ja lainsäädäntökehitys',
+    }),
+    de: (start, end) => ({
+      title: `Woche im Rückblick: ${start} bis ${end}`,
+      subtitle:
+        'Analyse der vergangenen Woche im Europäischen Parlament — Abstimmungen, Ausschussentscheidungen und Gesetzgebungsentwicklungen',
+    }),
+    fr: (start, end) => ({
+      title: `Semaine en Revue: ${start} au ${end}`,
+      subtitle:
+        'Analyse de la semaine écoulée au Parlement européen — votes, décisions de commission et évolutions législatives',
+    }),
+    es: (start, end) => ({
+      title: `Semana en Revisión: ${start} a ${end}`,
+      subtitle:
+        'Análisis de la semana pasada en el Parlamento Europeo — votaciones, decisiones de comisión y desarrollos legislativos',
+    }),
+    nl: (start, end) => ({
+      title: `Week in Overzicht: ${start} tot ${end}`,
+      subtitle:
+        'Analyse van de afgelopen week in het Europees Parlement — stemmingen, commissiebesluiten en wetgevingsontwikkelingen',
+    }),
+    ar: (start, end) => ({
+      title: `مراجعة الأسبوع: ${start} إلى ${end}`,
+      subtitle:
+        'تحليل الأسبوع الماضي في البرلمان الأوروبي — التصويتات وقرارات اللجان والتطورات التشريعية',
+    }),
+    he: (start, end) => ({
+      title: `סקירת השבוע: ${start} עד ${end}`,
+      subtitle: 'ניתוח השבוע שחלף בפרלמנט האירופי — הצבעות, החלטות ועדות והתפתחויות חקיקתיות',
+    }),
+    ja: (start, end) => ({
+      title: `今週の振り返り: ${start} ～ ${end}`,
+      subtitle: '欧州議会における先週の分析 — 投票、委員会の決定、立法の進展',
+    }),
+    ko: (start, end) => ({
+      title: `주간 리뷰: ${start} ~ ${end}`,
+      subtitle: '유럽 의회 지난 주 분석 — 투표, 위원회 결정 및 입법 발전',
+    }),
+    zh: (start, end) => ({
+      title: `本周回顾: ${start} 至 ${end}`,
+      subtitle: '欧洲议会过去一周分析 — 投票、委员会决定和立法进展',
+    }),
+  };
 
 /** Monthly review title templates per language */
 export const MONTHLY_REVIEW_TITLES: LanguageMap<(month: string) => LangTitleSubtitle> = {
   en: (month) => ({
     title: `Month in Review: ${month}`,
-    subtitle: 'Comprehensive analysis of the European Parliament — legislative output, coalition dynamics, and policy trends',
+    subtitle:
+      'Comprehensive analysis of the European Parliament — legislative output, coalition dynamics, and policy trends',
   }),
   sv: (month) => ({
     title: `Månaden i Korthet: ${month}`,
-    subtitle: 'Övergripande analys av Europaparlamentet — lagstiftningsutfall, koalitionsdynamik och policytrender',
+    subtitle:
+      'Övergripande analys av Europaparlamentet — lagstiftningsutfall, koalitionsdynamik och policytrender',
   }),
   da: (month) => ({
     title: `Måneden i Overblik: ${month}`,
-    subtitle: 'Omfattende analyse af Europa-Parlamentet — lovgivningsresultater, koalitionsdynamik og politiktendenser',
+    subtitle:
+      'Omfattende analyse af Europa-Parlamentet — lovgivningsresultater, koalitionsdynamik og politiktendenser',
   }),
   no: (month) => ({
     title: `Måneden i Tilbakeblikk: ${month}`,
-    subtitle: 'Omfattende analyse av Europaparlamentet — lovgivningsresultater, koalisjonsdynamikk og politiske trender',
+    subtitle:
+      'Omfattende analyse av Europaparlamentet — lovgivningsresultater, koalisjonsdynamikk og politiske trender',
   }),
   fi: (month) => ({
     title: `Kuukauden Katsaus: ${month}`,
-    subtitle: 'Kattava analyysi Euroopan parlamentista — lainsäädäntötulokset, koalitiodynamiikka ja politiikkatrendit',
+    subtitle:
+      'Kattava analyysi Euroopan parlamentista — lainsäädäntötulokset, koalitiodynamiikka ja politiikkatrendit',
   }),
   de: (month) => ({
     title: `Monat im Rückblick: ${month}`,
-    subtitle: 'Umfassende Analyse des Europäischen Parlaments — Gesetzgebungsleistung, Koalitionsdynamik und Politiktrends',
+    subtitle:
+      'Umfassende Analyse des Europäischen Parlaments — Gesetzgebungsleistung, Koalitionsdynamik und Politiktrends',
   }),
   fr: (month) => ({
     title: `Mois en Revue: ${month}`,
-    subtitle: 'Analyse complète du Parlement européen — production législative, dynamiques de coalition et tendances politiques',
+    subtitle:
+      'Analyse complète du Parlement européen — production législative, dynamiques de coalition et tendances politiques',
   }),
   es: (month) => ({
     title: `Mes en Revisión: ${month}`,
-    subtitle: 'Análisis integral del Parlamento Europeo — producción legislativa, dinámicas de coalición y tendencias políticas',
+    subtitle:
+      'Análisis integral del Parlamento Europeo — producción legislativa, dinámicas de coalición y tendencias políticas',
   }),
   nl: (month) => ({
     title: `Maand in Overzicht: ${month}`,
-    subtitle: 'Uitgebreide analyse van het Europees Parlement — wetgevingsproductie, coalitiedynamiek en beleidstrends',
+    subtitle:
+      'Uitgebreide analyse van het Europees Parlement — wetgevingsproductie, coalitiedynamiek en beleidstrends',
   }),
   ar: (month) => ({
     title: `مراجعة الشهر: ${month}`,
-    subtitle: 'تحليل شامل للبرلمان الأوروبي — الإنتاج التشريعي وديناميات التحالفات واتجاهات السياسات',
+    subtitle:
+      'تحليل شامل للبرلمان الأوروبي — الإنتاج التشريعي وديناميات التحالفات واتجاهات السياسات',
   }),
   he: (month) => ({
     title: `סקירת החודש: ${month}`,
