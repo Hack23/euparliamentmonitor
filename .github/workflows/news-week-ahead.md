@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.8.0
+      - european-parliament-mcp-server@0.8.2
 
 tools:
   github:
@@ -95,7 +95,7 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 ## 🚨 CRITICAL: European Parliament MCP Server is the Sole Data Source
 
-**ALL article data MUST be fetched from the `european-parliament` MCP server.** No other data source should be used for article content. The MCP server provides 20 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, and OSINT intelligence analysis.
+**ALL article data MUST be fetched from the `european-parliament` MCP server.** No other data source should be used for article content. The MCP server provides 39 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, and OSINT intelligence analysis.
 
 **Note:** EU Parliament API responses can be slow (30+ seconds is common). The workflow timeout has been set to 45 minutes to accommodate this. Use `Promise.allSettled()` for parallel queries and handle timeouts gracefully.
 
@@ -322,7 +322,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ EP MCP server binary not found, attempting reinstall..."
-    npm install --no-save european-parliament-mcp-server@0.8.0
+    npm install --no-save european-parliament-mcp-server@0.8.2
   fi
 fi
 ```

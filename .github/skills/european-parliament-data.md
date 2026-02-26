@@ -13,16 +13,74 @@ Ensure reliable integration with European Parliament open data via the MCP (Mode
 4. MUST sanitize data before rendering in HTML
 5. MUST handle rate limiting and retry with exponential backoff
 
-### European Parliament MCP Server Tools
+### European Parliament MCP Server Tools (39 tools)
 
+#### MEP Tools (7)
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
-| `get_meps` | Fetch Members of European Parliament | `country`, `party`, `committee` |
-| `get_plenary_sessions` | Retrieve plenary session info | `startDate`, `endDate` |
-| `search_documents` | Search EP documents | `query`, `type`, `date` |
-| `get_parliamentary_questions` | Get parliamentary questions | `author`, `topic` |
-| `get_committee_info` | Get committee information | `committeeId` |
-| `get_voting_records` | Get voting records | `sessionId`, `date` |
+| `get_meps` | Fetch Members of European Parliament | `country`, `group`, `committee`, `active`, `limit` |
+| `get_mep_details` | Get detailed MEP information | `id` |
+| `get_current_meps` | Get currently active MEPs | `limit`, `offset` |
+| `get_incoming_meps` | Get incoming MEPs for current term | `limit`, `offset` |
+| `get_outgoing_meps` | Get outgoing MEPs for current term | `limit`, `offset` |
+| `get_homonym_meps` | Get MEPs with identical names | `limit`, `offset` |
+| `get_mep_declarations` | Get MEP financial interest declarations | `docId`, `year`, `limit` |
+
+#### Plenary & Meeting Tools (7)
+| Tool | Purpose | Key Parameters |
+|------|---------|----------------|
+| `get_plenary_sessions` | Retrieve plenary session info | `startDate`, `endDate`, `location`, `limit` |
+| `get_speeches` | Get plenary speeches and debates | `speechId`, `dateFrom`, `dateTo`, `limit` |
+| `get_events` | Get EP events (hearings, conferences) | `eventId`, `dateFrom`, `dateTo`, `limit` |
+| `get_meeting_activities` | Get activities for a plenary sitting | `sittingId`, `limit` |
+| `get_meeting_decisions` | Get decisions for a plenary sitting | `sittingId`, `limit` |
+| `get_meeting_foreseen_activities` | Get planned activities for a sitting | `sittingId`, `limit` |
+| `get_voting_records` | Get voting records | `sessionId`, `mepId`, `topic`, `limit` |
+
+#### Committee Tools (2)
+| Tool | Purpose | Key Parameters |
+|------|---------|----------------|
+| `get_committee_info` | Get committee information | `committeeId`, `abbreviation`, `showCurrent` |
+| `get_parliamentary_questions` | Get parliamentary questions | `type`, `author`, `topic`, `status` |
+
+#### Document Tools (7)
+| Tool | Purpose | Key Parameters |
+|------|---------|----------------|
+| `search_documents` | Search EP documents | `keyword`, `documentType`, `committee`, `dateFrom` |
+| `get_plenary_documents` | Get plenary documents | `docId`, `year`, `limit` |
+| `get_committee_documents` | Get committee documents | `docId`, `year`, `limit` |
+| `get_plenary_session_documents` | Get session documents (agendas, minutes) | `docId`, `limit` |
+| `get_plenary_session_document_items` | Get session document items | `limit`, `offset` |
+| `get_external_documents` | Get non-EP documents (Council, Commission) | `docId`, `year`, `limit` |
+| `get_controlled_vocabularies` | Get standardized classification terms | `vocId`, `limit` |
+
+#### Legislative Tools (3)
+| Tool | Purpose | Key Parameters |
+|------|---------|----------------|
+| `get_procedures` | Get legislative procedures | `processId`, `year`, `limit` |
+| `get_adopted_texts` | Get adopted texts and resolutions | `docId`, `year`, `limit` |
+| `get_procedure_events` | Get events for a legislative procedure | `processId`, `limit` |
+
+#### Advanced Analysis Tools (3)
+| Tool | Purpose | Key Parameters |
+|------|---------|----------------|
+| `track_legislation` | Track legislative procedure progress | `procedureId` |
+| `monitor_legislative_pipeline` | Monitor pipeline with bottleneck detection | `committee`, `status`, `dateFrom` |
+| `generate_report` | Generate analytical reports | `reportType`, `subjectId`, `dateFrom` |
+
+#### OSINT Intelligence Tools (10)
+| Tool | Purpose | Key Parameters |
+|------|---------|----------------|
+| `assess_mep_influence` | MEP influence scoring (5-dimension model) | `mepId`, `dateFrom`, `dateTo` |
+| `analyze_coalition_dynamics` | Coalition cohesion & stress analysis | `groupIds`, `dateFrom`, `dateTo` |
+| `detect_voting_anomalies` | Party defection & anomaly detection | `mepId`, `groupId`, `dateFrom` |
+| `compare_political_groups` | Cross-group comparative analysis | `groupIds`, `dimensions`, `dateFrom` |
+| `analyze_legislative_effectiveness` | MEP/committee legislative scoring | `subjectType`, `subjectId`, `dateFrom` |
+| `analyze_committee_activity` | Committee workload & engagement | `committeeId`, `dateFrom`, `dateTo` |
+| `track_mep_attendance` | MEP attendance patterns & trends | `mepId`, `country`, `groupId` |
+| `analyze_country_delegation` | Country delegation voting & composition | `country`, `dateFrom`, `dateTo` |
+| `analyze_voting_patterns` | MEP voting behavior analysis | `mepId`, `dateFrom`, `compareWithGroup` |
+| `generate_political_landscape` | Parliament-wide political landscape | `dateFrom`, `dateTo` |
 
 ### MCP Client Pattern
 
@@ -82,8 +140,8 @@ Circuit Breaker:
 
 ```javascript
 const SUPPORTED_LANGUAGES = [
-  'en', 'fr', 'de', 'es', 'it', 'pt',
-  'nl', 'el', 'pl', 'ro', 'sv', 'da', 'fi', 'cs'
+  'en', 'sv', 'da', 'no', 'fi', 'de', 'fr',
+  'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'
 ];
 
 async function generateMultiLanguageArticles(sessionData) {

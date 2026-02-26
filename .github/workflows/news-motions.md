@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.8.0
+      - european-parliament-mcp-server@0.8.2
 
 tools:
   github:
@@ -194,10 +194,10 @@ european_parliament___get_voting_records({ topic: "resolution", limit: 20 })
 // OSINT: Key MEP influence (call per influential MEP identified)
 european_parliament___assess_mep_influence({ mepId: "<mepId>" })
 
-// OSINT: Country delegation analysis (v0.5.1 tool)
+// OSINT: Country delegation analysis
 european_parliament___analyze_country_delegation({ country: "<countryCode>" })
 
-// Parliament-wide landscape for context (v0.5.1 tool)
+// Parliament-wide landscape for context
 european_parliament___generate_political_landscape({})
 ```
 
@@ -313,7 +313,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ EP MCP server binary not found, attempting reinstall..."
-    npm install --no-save european-parliament-mcp-server@0.8.0
+    npm install --no-save european-parliament-mcp-server@0.8.2
   fi
 fi
 ```
