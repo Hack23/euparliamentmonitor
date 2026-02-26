@@ -103,7 +103,7 @@ jobs:
           subject-path: "dist/euparliamentmonitor-*.tar.gz"
 
       - name: Attest SBOM
-        uses: actions/attest-sbom@4cb5f8d7f70b69c98b0271f47c5bcbc87faa8c3a # v2.0.0
+        uses: actions/attest-sbom@07e74fc4e78d1aad915e867f9a094073a9f71527 # v2.0.0
         with:
           subject-path: "dist/euparliamentmonitor-*.tar.gz"
           sbom-path: "dist/sbom.json"
