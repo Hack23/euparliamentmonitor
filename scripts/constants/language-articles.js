@@ -1190,7 +1190,7 @@ export const BREAKING_STRINGS = {
         breakingBanner: '⚡ SISTE NYTT',
         votingAnomalyIntel: 'Avstemningsavvik — Etterretningsanalyse',
         coalitionDynamics: 'Vurdering av Koalisjonsdynamikk',
-        analyticalReport: 'Analytisk Rapport',
+        analyticalReport: 'Analytisk Rapportering',
         keyMEPInfluence: 'Analyse av Viktige MEP-Innflytelse',
         intelligenceBriefing: 'Etterretningsbriefing',
         votingAnomalyAlert: 'Advarsel om Avstemningsavvik',

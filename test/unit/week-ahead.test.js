@@ -17,6 +17,7 @@ import {
   buildWeekAheadContent,
   buildKeywords,
 } from '../../scripts/generators/news-enhanced.js';
+import { ALL_LANGUAGES, getLocalizedString, WEEK_AHEAD_STRINGS } from '../../scripts/constants/languages.js';
 
 /**
  * Build a fulfilled Promise.allSettled result from a plain object
@@ -465,5 +466,80 @@ describe('week-ahead editorial quality', () => {
   it('should use localized editorial strings for Swedish', () => {
     const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' }, 'sv');
     expect(html).toContain('Varför Det Spelar Roll');
+  });
+});
+
+describe('week-ahead multi-language section headings', () => {
+  function emptyWeekData() {
+    return {
+      events: [],
+      committees: [{ committee: 'ENVI', date: '2026-03-04' }],
+      documents: [{ title: 'Test Doc', type: 'Report' }],
+      pipeline: [{ title: 'Test Proc', stage: 'Committee' }],
+      questions: [{ subject: 'Test Q', type: 'WRITTEN' }],
+      velocities: [],
+    };
+  }
+
+  it('should use localized section headings for all 14 languages', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const strings = getLocalizedString(WEEK_AHEAD_STRINGS, lang);
+      const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' }, lang);
+      expect(html).toContain(strings.plenarySessions);
+      expect(html).toContain(strings.committeeMeetings);
+      expect(html).toContain(strings.legislativeDocuments);
+      expect(html).toContain(strings.legislativePipeline);
+      expect(html).toContain(strings.parliamentaryQuestions);
+    }
+  });
+
+  it('should use localized no-plenary message when events are empty', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const strings = getLocalizedString(WEEK_AHEAD_STRINGS, lang);
+      const data = { events: [], committees: [], documents: [], pipeline: [], questions: [], velocities: [] };
+      const html = buildWeekAheadContent(data, { start: '2026-03-01', end: '2026-03-08' }, lang);
+      expect(html).toContain(strings.noPlenary);
+    }
+  });
+
+  it('should use Japanese section headings', () => {
+    const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' }, 'ja');
+    expect(html).toContain('本会議');
+    expect(html).toContain('委員会会合');
+    expect(html).toContain('今後の立法文書');
+    expect(html).toContain('立法パイプライン');
+    expect(html).toContain('議会質問');
+  });
+
+  it('should use Korean section headings', () => {
+    const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' }, 'ko');
+    expect(html).toContain('본회의');
+    expect(html).toContain('위원회 회의');
+    expect(html).toContain('예정된 입법 문서');
+    expect(html).toContain('입법 파이프라인');
+    expect(html).toContain('의회 질문');
+  });
+
+  it('should use Chinese section headings', () => {
+    const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' }, 'zh');
+    expect(html).toContain('全体会议');
+    expect(html).toContain('委员会会议');
+    expect(html).toContain('即将发布的立法文件');
+    expect(html).toContain('立法管道');
+    expect(html).toContain('议会质询');
+  });
+
+  it('should have WEEK_AHEAD_STRINGS for all 14 languages', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const strings = getLocalizedString(WEEK_AHEAD_STRINGS, lang);
+      expect(strings.plenarySessions).toBeDefined();
+      expect(strings.plenarySessions.length).toBeGreaterThan(0);
+      expect(strings.committeeMeetings).toBeDefined();
+      expect(strings.legislativeDocuments).toBeDefined();
+      expect(strings.legislativePipeline).toBeDefined();
+      expect(strings.parliamentaryQuestions).toBeDefined();
+      expect(strings.noPlenary).toBeDefined();
+      expect(strings.lede).toBeDefined();
+    }
   });
 });

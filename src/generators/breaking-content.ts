@@ -29,6 +29,7 @@ const MAX_DATA_CHARS = 2000;
  * Build intelligence briefing section HTML from structured anomaly data
  *
  * @param anomalies - Structured voting anomaly intelligence items
+ * @param lang - Language code for localized strings
  * @returns HTML section string or empty string
  */
 function buildAnomalyAlertSection(anomalies: VotingAnomalyIntelligence[], lang: string): string {
@@ -56,6 +57,7 @@ function buildAnomalyAlertSection(anomalies: VotingAnomalyIntelligence[], lang: 
  * Build coalition dynamics section HTML from structured coalition data
  *
  * @param coalitions - Structured coalition intelligence items
+ * @param lang - Language code for localized strings
  * @returns HTML section string or empty string
  */
 function buildCoalitionDynamicsSection(coalitions: CoalitionIntelligence[], lang: string): string {
@@ -83,6 +85,7 @@ function buildCoalitionDynamicsSection(coalitions: CoalitionIntelligence[], lang
  * Build key parliamentary players section HTML from structured MEP influence data
  *
  * @param mepScores - Structured MEP influence score items
+ * @param lang - Language code for localized strings
  * @returns HTML section string or empty string
  */
 function buildKeyPlayersIntelSection(mepScores: MEPInfluenceScore[], lang: string): string {
@@ -112,6 +115,7 @@ function buildKeyPlayersIntelSection(mepScores: MEPInfluenceScore[], lang: strin
  * @param anomalies - Structured voting anomaly intelligence items
  * @param coalitions - Structured coalition intelligence items
  * @param mepScores - Structured MEP influence score items
+ * @param lang - Language code for localized strings
  * @returns HTML section string or empty string
  */
 function buildIntelligenceBriefingSection(

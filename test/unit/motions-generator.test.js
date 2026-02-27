@@ -12,7 +12,7 @@ import {
   getMotionsFallbackData,
   PLACEHOLDER_MARKER,
 } from '../../scripts/generators/news-enhanced.js';
-import { MOTIONS_TITLES, ALL_LANGUAGES, getLocalizedString } from '../../scripts/constants/languages.js';
+import { MOTIONS_TITLES, ALL_LANGUAGES, getLocalizedString, MOTIONS_STRINGS } from '../../scripts/constants/languages.js';
 
 const DATE_STR = '2025-01-15';
 const DATE_FROM_STR = '2024-12-16';
@@ -222,5 +222,88 @@ describe('Motions editorial quality', () => {
   it('should include key takeaway in "Why This Matters" section', () => {
     const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions);
     expect(html).toContain('Key Finding');
+  });
+});
+
+describe('Motions multi-language section headings', () => {
+  const mockRecords = [
+    {
+      title: 'Motion on Climate',
+      date: '2025-01-15',
+      result: 'Adopted',
+      votes: { for: 400, against: 200, abstain: 30 },
+    },
+  ];
+  const mockPatterns = [{ group: 'EPP', cohesion: 0.88, participation: 0.94 }];
+  const mockAnomalies = [{ type: 'Defection', description: 'Cross-party vote', severity: 'LOW' }];
+  const mockQuestions = [{ author: 'MEP Smith', topic: 'Climate policy', date: '2025-01-15', status: 'ANSWERED' }];
+
+  it('should use localized section headings for all 14 languages', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const strings = getLocalizedString(MOTIONS_STRINGS, lang);
+      const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions, lang);
+      expect(html).toContain(strings.votingRecordsHeading);
+      expect(html).toContain(strings.partyCohesionHeading);
+      expect(html).toContain(strings.anomaliesHeading);
+      expect(html).toContain(strings.questionsHeading);
+    }
+  });
+
+  it('should use localized labels for Japanese', () => {
+    const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions, 'ja');
+    expect(html).toContain('最近の投票記録');
+    expect(html).toContain('政党結束分析');
+    expect(html).toContain('検出された投票異常');
+    expect(html).toContain('最近の議会質問');
+    expect(html).toContain('日付');
+    expect(html).toContain('賛成');
+    expect(html).toContain('反対');
+    expect(html).toContain('棄権');
+  });
+
+  it('should use localized labels for Korean', () => {
+    const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions, 'ko');
+    expect(html).toContain('최근 투표 기록');
+    expect(html).toContain('정당 결속 분석');
+    expect(html).toContain('감지된 투표 이상');
+    expect(html).toContain('최근 의회 질문');
+  });
+
+  it('should use localized labels for Chinese', () => {
+    const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions, 'zh');
+    expect(html).toContain('最近投票记录');
+    expect(html).toContain('政党凝聚力分析');
+    expect(html).toContain('检测到的投票异常');
+    expect(html).toContain('最近议会质询');
+  });
+
+  it('should use localized labels for German', () => {
+    const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions, 'de');
+    expect(html).toContain('Aktuelle Abstimmungsergebnisse');
+    expect(html).toContain('Analyse der Fraktionskohäsion');
+    expect(html).toContain('Erkannte Abstimmungsanomalien');
+    expect(html).toContain('Aktuelle Parlamentarische Anfragen');
+    expect(html).toContain('Schweregrad');
+  });
+
+  it('should use localized labels for Arabic', () => {
+    const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions, 'ar');
+    expect(html).toContain('سجلات التصويت الأخيرة');
+    expect(html).toContain('تحليل تماسك الأحزاب');
+    expect(html).toContain('شذوذ التصويت المكتشف');
+    expect(html).toContain('الأسئلة البرلمانية الأخيرة');
+  });
+
+  it('should have MOTIONS_STRINGS for all 14 languages', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const strings = getLocalizedString(MOTIONS_STRINGS, lang);
+      expect(strings.votingRecordsHeading).toBeDefined();
+      expect(strings.votingRecordsHeading.length).toBeGreaterThan(0);
+      expect(strings.partyCohesionHeading).toBeDefined();
+      expect(strings.anomaliesHeading).toBeDefined();
+      expect(strings.questionsHeading).toBeDefined();
+      expect(strings.lede).toBeDefined();
+      expect(strings.keyTakeawayText).toBeDefined();
+    }
   });
 });
