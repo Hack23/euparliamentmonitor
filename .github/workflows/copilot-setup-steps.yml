@@ -118,13 +118,13 @@ jobs:
           
           echo "=== Node.js MCP Servers ==="
           echo "Checking mcp-server-filesystem..."
-          which mcp-server-filesystem && echo "✅ mcp-server-filesystem found" || echo "❌ mcp-server-filesystem NOT found"
+          which mcp-server-filesystem 2>/dev/null && echo "✅ mcp-server-filesystem found" || echo "❌ mcp-server-filesystem NOT found"
           
           echo "Checking mcp-server-memory..."
-          which mcp-server-memory && echo "✅ mcp-server-memory found" || echo "❌ mcp-server-memory NOT found"
+          which mcp-server-memory 2>/dev/null && echo "✅ mcp-server-memory found" || echo "❌ mcp-server-memory NOT found"
           
           echo "Checking mcp-server-sequential-thinking..."
-          which mcp-server-sequential-thinking && echo "✅ mcp-server-sequential-thinking found" || echo "❌ mcp-server-sequential-thinking NOT found"
+          which mcp-server-sequential-thinking 2>/dev/null && echo "✅ mcp-server-sequential-thinking found" || echo "❌ mcp-server-sequential-thinking NOT found"
           
           echo "Checking mcp-server-github..."
           which mcp-server-github 2>/dev/null && echo "✅ mcp-server-github found" || echo "❌ mcp-server-github NOT found"
