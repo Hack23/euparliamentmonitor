@@ -150,6 +150,26 @@ Before generating ANY articles, verify MCP connectivity:
 - ✅ `noop` ONLY if genuinely no upcoming calendar events
 - ❌ NEVER use `noop` as fallback for PR creation failures
 
+### 🔑 How Safe Pull Request Works (READ FIRST)
+
+The gh-aw framework **automatically captures all file changes** you make in the working directory as a patch. You do NOT manage git operations yourself.
+
+**The mechanism:**
+1. You write/edit article files to `news/` using `bash` (e.g., `cat > news/file.html << 'HTMLEOF' ... HTMLEOF`)
+2. You call `safeoutputs___create_pull_request` with `title`, `body`, `base`, and `head`
+3. The framework diffs your working directory, creates a branch, applies the patch, and opens the PR
+
+**MUST do:** Write files → Call `safeoutputs___create_pull_request` once. That's it.
+
+**MUST NOT do (do not waste time on these — they will all fail):**
+- ❌ `git add`, `git commit`, `git push` — the framework handles git
+- ❌ `git checkout -b` — branch creation is automatic
+- ❌ GitHub API calls to create PRs — use only the safe output tool
+- ❌ Passing a `files` parameter — it does not exist; all working directory changes are captured automatically
+- ❌ Trying multiple alternative approaches if PR creation fails — retry **once**, then let the workflow fail
+
+**⚠️ NEVER use `git push` directly** — always use `safeoutputs___create_pull_request`
+
 ## Error Handling
 
 **If EP MCP server unavailable (3 retries failed):**
@@ -166,10 +186,8 @@ Before generating ANY articles, verify MCP connectivity:
 
 **If PR creation fails AFTER generating articles:**
 1. Retry `safeoutputs___create_pull_request` once
-2. If still fails: ❌ workflow MUST FAIL
+2. If still fails: ❌ workflow MUST FAIL — do NOT try alternative git commands or API calls
 3. The articles exist but no PR = readers can't see them = FAILURE
-
-**⚠️ NEVER use `git push` directly** — always use `safeoutputs___create_pull_request`
 
 ## EP MCP Tools for Week Ahead
 
@@ -501,15 +519,15 @@ BRANCH_NAME="news/week-ahead-$TODAY"
 echo "Branch: $BRANCH_NAME"
 ```
 
-Then create a PR using safe outputs:
+Then create a PR using safe outputs. The framework automatically captures all file changes — do NOT pass a `files` parameter:
 
 ```javascript
+// All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
-  title: `chore: EU Parliament week-ahead articles ${today}`,
-  body: `## EU Parliament Week Ahead Articles\n\nGenerated week-ahead prospective articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date range: ${today} → ${nextWeek}\n- Data source: European Parliament MCP Server`,
+  title: `chore: EU Parliament week-ahead articles ${TODAY}`,
+  body: `## EU Parliament Week Ahead Articles\n\nGenerated week-ahead prospective articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date range: ${TODAY} → ${nextWeek}\n- Data source: European Parliament MCP Server`,
   base: "main",
-  head: `news/week-ahead-${today}`,
-  files: [/* generated article files */]
+  head: BRANCH_NAME
 })
 ```
 
