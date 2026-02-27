@@ -39,7 +39,7 @@ name: "News: EU Parliament Article Generator"
         required: false
         type: boolean
       languages:
-        default: all
+        default: eu-core
         description: Languages to generate (en | eu-core | nordic | all)
         required: false
 
@@ -743,7 +743,7 @@ jobs:
       - name: Execute GitHub Copilot CLI
         id: agentic_execution
         # Copilot CLI tool arguments (sorted):
-        timeout-minutes: 60
+        timeout-minutes: 120
         run: |
           set -o pipefail
           # shellcheck disable=SC1003

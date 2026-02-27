@@ -17,7 +17,7 @@ on:
       languages:
         description: 'Languages to generate (en | eu-core | nordic | all)'
         required: false
-        default: all
+        default: eu-core
 
 permissions:
   contents: read
@@ -27,7 +27,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 60
+timeout-minutes: 120
 
 network:
   allowed:
@@ -94,15 +94,15 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 
 **ALL article data MUST be fetched from the `european-parliament` MCP server.** The MCP server provides 39 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, and OSINT intelligence analysis.
 
-## ⏱️ Time Budget (60 minutes)
+## ⏱️ Time Budget (120 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up
 - **Minutes 3–10**: Parse article types and verify MCP connectivity
-- **Minutes 10–50**: Generate articles for each requested type and language
-- **Minutes 50–55**: Validate generated HTML
-- **Minutes 55–60**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 10–100**: Generate articles for each requested type and language
+- **Minutes 100–110**: Validate generated HTML
+- **Minutes 110–120**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 50 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 100 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
 
 ## Required Skills
 
