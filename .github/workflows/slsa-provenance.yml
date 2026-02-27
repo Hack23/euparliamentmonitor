@@ -109,7 +109,7 @@ jobs:
           sbom-path: "dist/sbom.json"
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@47309c993abb98030a35d55ef7ff34b7fa1074b5 # v4.6.2
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v4.6.2
         with:
           name: euparliamentmonitor-${{ steps.version.outputs.version }}
           path: |
