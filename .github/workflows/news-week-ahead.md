@@ -25,7 +25,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 45
+timeout-minutes: 60
 
 network:
   allowed:
@@ -97,17 +97,17 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 **ALL article data MUST be fetched from the `european-parliament` MCP server.** No other data source should be used for article content. The MCP server provides 39 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, and OSINT intelligence analysis.
 
-**Note:** EU Parliament API responses can be slow (30+ seconds is common). The workflow timeout has been set to 45 minutes to accommodate this. Use `Promise.allSettled()` for parallel queries and handle timeouts gracefully.
+**Note:** EU Parliament API responses can be slow (30+ seconds is common). The workflow timeout has been set to 60 minutes to accommodate this. Use `Promise.allSettled()` for parallel queries and handle timeouts gracefully.
 
-## ⏱️ Time Budget (45 minutes)
+## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
 - **Minutes 3–10**: Query plenary sessions, committee meetings, and legislative pipeline for next 7 days
-- **Minutes 10–35**: Generate articles for all requested languages
-- **Minutes 35–40**: Validate generated HTML
-- **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 10–40**: Generate articles for all requested languages
+- **Minutes 40–50**: Validate generated HTML
+- **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 35 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 50 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
 
 ## Required Skills
 
