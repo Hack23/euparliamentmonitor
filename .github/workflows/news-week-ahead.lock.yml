@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament week-ahead prospective articles for all 14 languages. Runs Fridays to preview the upcoming parliamentary week using European Parliament MCP data.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"f5c3a7dab5ce5b1ad5f759cf55e33e80b465584deab10da18bb7fb2fb4e00b20","compiler_version":"v0.50.6"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"606fdc51b2da06a00b21f6eeab77f4ae63e227ca967797a726c5b4ff9d8f1a2f","compiler_version":"v0.50.6"}
 
 name: "News: EU Parliament Week Ahead"
 "on":
@@ -739,7 +739,7 @@ jobs:
       - name: Execute GitHub Copilot CLI
         id: agentic_execution
         # Copilot CLI tool arguments (sorted):
-        timeout-minutes: 45
+        timeout-minutes: 60
         run: |
           set -o pipefail
           # shellcheck disable=SC1003
