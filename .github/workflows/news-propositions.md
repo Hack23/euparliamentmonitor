@@ -504,6 +504,28 @@ safeoutputs___create_pull_request({
 - Procedure codes (COD, CNS, APP) are NEVER translated
 - ZERO TOLERANCE for language mixing within articles
 
+### Pre-Localized Strings (handled by code)
+
+The following UI elements are already localized in the TypeScript source code via `PROPOSITIONS_STRINGS`, `EDITORIAL_STRINGS`, and `PROPOSITIONS_TITLES` for all 14 languages:
+
+- Section headings: proposals, pipeline, procedure, analysis headings
+- Pipeline metric labels (health score, throughput rate)
+- "Why This Matters" heading and editorial attribution
+- Article titles and subtitles (via `PROPOSITIONS_TITLES`)
+
+### LLM Must Translate
+
+When generating articles for non-English languages, the LLM MUST translate:
+- Lede paragraphs and narrative analysis
+- Policy impact descriptions and stakeholder positions
+- Any free-text editorial content beyond the structured headings
+
+### Language-Specific Requirements (ja, ko, zh)
+
+- **Japanese (ja)**: Use formal Japanese (です/ます form), CJK punctuation (。、)
+- **Korean (ko)**: Use formal Korean (합니다 form), CJK punctuation
+- **Chinese (zh)**: Use Simplified Chinese, CJK punctuation (。、)
+
 ## Article Naming Convention
 
 Files: `YYYY-MM-DD-propositions-{lang}.html` (e.g., `2026-02-23-propositions-en.html`)

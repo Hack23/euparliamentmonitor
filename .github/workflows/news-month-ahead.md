@@ -310,7 +310,24 @@ Month-ahead articles should include:
 ## Translation Rules
 - Political group abbreviations MUST NEVER be translated
 - Committee abbreviations kept as-is
+- MEP names are NEVER translated
+- EP document reference IDs are NEVER translated
 - ZERO TOLERANCE for language mixing
+
+### Pre-Localized Strings (handled by code)
+
+Section headings and editorial strings are localized via `EDITORIAL_STRINGS`, `WEEK_AHEAD_STRINGS`, and `MONTH_AHEAD_TITLES` for all 14 languages. The `lang` parameter must be passed to content generators.
+
+### LLM Must Translate
+
+- All narrative body paragraphs (upcoming events analysis, key expectations)
+- Context explanations and policy impact descriptions
+
+### Language-Specific Requirements (ja, ko, zh)
+
+- **Japanese (ja)**: Use formal Japanese (です/ます form), CJK punctuation (。、)
+- **Korean (ko)**: Use formal Korean (합니다 form), CJK punctuation
+- **Chinese (zh)**: Use Simplified Chinese, CJK punctuation (。、)
 
 ## Article Naming Convention
 Files: `YYYY-MM-DD-month-ahead-{lang}.html`

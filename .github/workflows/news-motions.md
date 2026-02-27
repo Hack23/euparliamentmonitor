@@ -557,6 +557,29 @@ Every generated article must include:
 - All article body text MUST be in the target language
 - ZERO TOLERANCE for language mixing within a single article
 
+### Pre-Localized Strings (handled by code)
+
+The following UI elements are already localized in the TypeScript source code via `MOTIONS_STRINGS`, `EDITORIAL_STRINGS`, and `MOTIONS_TITLES` for all 14 languages (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh):
+
+- Section headings: "Recent Voting Records", "Party Cohesion Analysis", "Detected Voting Anomalies", "Recent Parliamentary Questions", "Political Alignment"
+- Labels: "Date", "Result", "For", "Against", "Abstain", "Cohesion", "Participation", "Severity", "Status"
+- "Why This Matters" heading and editorial attribution
+- Article titles and subtitles (via `MOTIONS_TITLES`)
+
+### LLM Must Translate
+
+When generating articles for non-English languages, the LLM MUST translate:
+- The narrative body paragraphs (analysis, context explanations)
+- Descriptions of voting patterns and political dynamics
+- Any free-text editorial content beyond the structured headings
+- Captions, tooltips, or additional context added by the LLM
+
+### Language-Specific Requirements (ja, ko, zh)
+
+- **Japanese (ja)**: Use formal Japanese (です/ます form), CJK punctuation (。、), no spaces between words
+- **Korean (ko)**: Use formal Korean (합니다 form), CJK punctuation, proper spacing between words
+- **Chinese (zh)**: Use Simplified Chinese, CJK punctuation (。、), no spaces between characters
+
 ## Article Naming Convention
 
 Files: `YYYY-MM-DD-motions-{lang}.html` (e.g., `2026-02-23-motions-en.html`)
