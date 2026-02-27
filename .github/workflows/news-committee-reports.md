@@ -514,7 +514,28 @@ safeoutputs___create_pull_request({
 ## Translation Rules
 - Committee abbreviations (ENVI, ECON, AFET) are kept as-is in document references
 - Political group abbreviations (EPP, S&D, Renew, Greens/EFA, ECR, PfE, ESN, The Left) are NEVER translated
+- MEP names are NEVER translated
 - ZERO TOLERANCE for language mixing in article content
+
+### Pre-Localized Strings (handled by code)
+
+The following UI elements are already localized via `EDITORIAL_STRINGS` and `COMMITTEE_REPORTS_TITLES` for all 14 languages:
+
+- "Why This Matters" heading and editorial attribution
+- Article titles and subtitles (via `COMMITTEE_REPORTS_TITLES`)
+
+### LLM Must Translate
+
+When generating articles for non-English languages, the LLM MUST translate:
+- All narrative body paragraphs, committee activity descriptions
+- Analysis of committee decisions, stakeholder positions
+- Any free-text editorial content added by the LLM
+
+### Language-Specific Requirements (ja, ko, zh)
+
+- **Japanese (ja)**: Use formal Japanese (です/ます form), CJK punctuation (。、)
+- **Korean (ko)**: Use formal Korean (합니다 form), CJK punctuation
+- **Chinese (zh)**: Use Simplified Chinese, CJK punctuation (。、)
 
 ## Article Naming Convention
 Files: `YYYY-MM-DD-committee-reports-{lang}.html` (e.g., `2026-02-22-committee-reports-en.html`)

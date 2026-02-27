@@ -539,6 +539,31 @@ safeoutputs___create_pull_request({
 - Committee abbreviations (ENVI, AGRI, ECON, LIBE) are kept as-is in all languages
 - ZERO TOLERANCE for language mixing within a single article
 
+### Pre-Localized Strings (handled by code)
+
+The following UI elements are already localized in the TypeScript source code via `WEEK_AHEAD_STRINGS`, `EDITORIAL_STRINGS`, and `WEEK_AHEAD_TITLES` for all 14 languages (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh):
+
+- Section headings: "Plenary Sessions", "Committee Meetings", "Upcoming Legislative Documents", "Legislative Pipeline", "Parliamentary Questions", "What to Watch"
+- "No plenary sessions scheduled for this period" fallback message
+- "⚠ Bottleneck" indicator
+- Lede paragraph template
+- "Why This Matters" heading and editorial attribution
+- Article titles and subtitles (via `WEEK_AHEAD_TITLES`)
+
+### LLM Must Translate
+
+When generating articles for non-English languages, the LLM MUST translate:
+- The narrative body paragraphs (analysis, context, what-to-watch explanations)
+- Event descriptions and committee agenda summaries
+- Any free-text editorial content beyond the structured headings
+- Calendar and scheduling descriptions
+
+### Language-Specific Requirements (ja, ko, zh)
+
+- **Japanese (ja)**: Use formal Japanese (です/ます form), CJK punctuation (。、), no spaces between words
+- **Korean (ko)**: Use formal Korean (합니다 form), CJK punctuation, proper spacing between words
+- **Chinese (zh)**: Use Simplified Chinese, CJK punctuation (。、), no spaces between characters
+
 ## Article Naming Convention
 
 Files: `YYYY-MM-DD-week-ahead-{lang}.html`

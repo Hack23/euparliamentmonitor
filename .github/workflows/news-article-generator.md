@@ -355,4 +355,30 @@ safeoutputs___create_pull_request({
 - EP document reference IDs (e.g., `2024/0001(COD)`) MUST be kept as-is
 - Political group abbreviations (EPP, S&D, Renew, Greens/EFA, ECR, PfE, ESN) MUST NEVER be translated
 - Committee abbreviations (ENVI, AGRI, ECON, LIBE) are kept as-is in all languages
+- MEP names are NEVER translated
 - ZERO TOLERANCE for language mixing within a single article
+
+### Pre-Localized Strings (handled by code)
+
+The TypeScript source code provides localized strings for all 14 languages (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh) via:
+- `EDITORIAL_STRINGS` — "Why This Matters", "Key Finding", "Parliamentary Context", source attribution
+- `MOTIONS_STRINGS` — Section headings, labels for voting records/cohesion/anomalies/questions
+- `WEEK_AHEAD_STRINGS` — Section headings for plenary/committees/documents/pipeline/questions
+- `BREAKING_STRINGS` — Section headings for intelligence briefing sections
+- `PROPOSITIONS_STRINGS` — Section headings for proposals/pipeline/procedure/analysis
+- `*_TITLES` — Article title/subtitle generators per article type
+
+These are applied automatically when the `lang` parameter is passed to content generators.
+
+### LLM Must Translate
+
+When generating articles for non-English languages, the LLM MUST translate:
+- All narrative body paragraphs and analytical text
+- Context explanations and policy impact descriptions
+- Any free-text editorial content beyond the structured headings
+
+### Language-Specific Requirements (ja, ko, zh)
+
+- **Japanese (ja)**: Use formal Japanese (です/ます form), CJK punctuation (。、), no spaces between words
+- **Korean (ko)**: Use formal Korean (합니다 form), CJK punctuation, proper spacing between words
+- **Chinese (zh)**: Use Simplified Chinese, CJK punctuation (。、), no spaces between characters

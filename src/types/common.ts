@@ -170,3 +170,52 @@ export interface EditorialStrings {
   /** Analytical note label */
   analysisNote: string;
 }
+
+/** Localized section heading strings for motions articles */
+export interface MotionsStrings {
+  lede: string;
+  votingRecordsHeading: string;
+  partyCohesionHeading: string;
+  anomaliesHeading: string;
+  questionsHeading: string;
+  dateLabel: string;
+  resultLabel: string;
+  forLabel: string;
+  againstLabel: string;
+  abstainLabel: string;
+  cohesionLabel: string;
+  participationLabel: string;
+  severityLabel: string;
+  statusLabel: string;
+  keyTakeawayText: string;
+  politicalAlignmentHeading: string;
+}
+
+/** Localized section heading strings for week-ahead articles */
+export interface WeekAheadStrings {
+  lede: string;
+  plenarySessions: string;
+  committeeMeetings: string;
+  legislativeDocuments: string;
+  legislativePipeline: string;
+  parliamentaryQuestions: string;
+  noPlenary: string;
+  bottleneckIndicator: string;
+  whatToWatch: string;
+}
+
+/** Localized section heading strings for breaking news articles */
+export interface BreakingStrings {
+  breakingBanner: string;
+  votingAnomalyIntel: string;
+  coalitionDynamics: string;
+  analyticalReport: string;
+  keyMEPInfluence: string;
+  intelligenceBriefing: string;
+  votingAnomalyAlert: string;
+  coalitionDynamicsSection: string;
+  keyPlayers: string;
+  placeholderNotice: string;
+  placeholderLede: string;
+  lede: string;
+}

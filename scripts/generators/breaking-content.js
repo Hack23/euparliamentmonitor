@@ -7,7 +7,7 @@
  * from typed MCP intelligence data.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-import { getLocalizedString, EDITORIAL_STRINGS } from '../constants/languages.js';
+import { getLocalizedString, EDITORIAL_STRINGS, BREAKING_STRINGS } from '../constants/languages.js';
 /** Maximum characters to display from raw MCP intelligence data */
 const MAX_DATA_CHARS = 2000;
 // ─── Private section builders ────────────────────────────────────────────────
@@ -15,11 +15,13 @@ const MAX_DATA_CHARS = 2000;
  * Build intelligence briefing section HTML from structured anomaly data
  *
  * @param anomalies - Structured voting anomaly intelligence items
+ * @param lang - Language code for localized strings
  * @returns HTML section string or empty string
  */
-function buildAnomalyAlertSection(anomalies) {
+function buildAnomalyAlertSection(anomalies, lang) {
     if (anomalies.length === 0)
         return '';
+    const strings = getLocalizedString(BREAKING_STRINGS, lang);
     const items = anomalies
         .map((a) => `<li class="anomaly-${escapeHTML(a.significance)}">` +
         `<strong>${escapeHTML(a.description)}</strong> — ` +
@@ -28,7 +30,7 @@ function buildAnomalyAlertSection(anomalies) {
         .join('\n            ');
     return `
         <section class="anomaly-alert">
-          <h3>Voting Anomaly Alert</h3>
+          <h3>${escapeHTML(strings.votingAnomalyAlert)}</h3>
           <ul>
             ${items}
           </ul>
@@ -38,11 +40,13 @@ function buildAnomalyAlertSection(anomalies) {
  * Build coalition dynamics section HTML from structured coalition data
  *
  * @param coalitions - Structured coalition intelligence items
+ * @param lang - Language code for localized strings
  * @returns HTML section string or empty string
  */
-function buildCoalitionDynamicsSection(coalitions) {
+function buildCoalitionDynamicsSection(coalitions, lang) {
     if (coalitions.length === 0)
         return '';
+    const strings = getLocalizedString(BREAKING_STRINGS, lang);
     const items = coalitions
         .map((c) => `<li class="coalition-${escapeHTML(c.riskLevel)}">` +
         `${escapeHTML(c.groups.join(', '))} — ` +
@@ -51,7 +55,7 @@ function buildCoalitionDynamicsSection(coalitions) {
         .join('\n            ');
     return `
         <section class="coalition-dynamics">
-          <h3>Coalition Dynamics</h3>
+          <h3>${escapeHTML(strings.coalitionDynamicsSection)}</h3>
           <ul>
             ${items}
           </ul>
@@ -61,11 +65,13 @@ function buildCoalitionDynamicsSection(coalitions) {
  * Build key parliamentary players section HTML from structured MEP influence data
  *
  * @param mepScores - Structured MEP influence score items
+ * @param lang - Language code for localized strings
  * @returns HTML section string or empty string
  */
-function buildKeyPlayersIntelSection(mepScores) {
+function buildKeyPlayersIntelSection(mepScores, lang) {
     if (mepScores.length === 0)
         return '';
+    const strings = getLocalizedString(BREAKING_STRINGS, lang);
     const items = mepScores
         .map((m) => `<li class="mep-score">` +
         `<strong>${escapeHTML(m.mepName)}</strong> — ` +
@@ -74,7 +80,7 @@ function buildKeyPlayersIntelSection(mepScores) {
         .join('\n            ');
     return `
         <section class="key-players-intel">
-          <h3>Key Parliamentary Players</h3>
+          <h3>${escapeHTML(strings.keyPlayers)}</h3>
           <ul>
             ${items}
           </ul>
@@ -86,18 +92,20 @@ function buildKeyPlayersIntelSection(mepScores) {
  * @param anomalies - Structured voting anomaly intelligence items
  * @param coalitions - Structured coalition intelligence items
  * @param mepScores - Structured MEP influence score items
+ * @param lang - Language code for localized strings
  * @returns HTML section string or empty string
  */
-function buildIntelligenceBriefingSection(anomalies, coalitions, mepScores) {
+function buildIntelligenceBriefingSection(anomalies, coalitions, mepScores, lang) {
     const hasIntel = anomalies.length > 0 || coalitions.length > 0 || mepScores.length > 0;
     if (!hasIntel)
         return '';
+    const strings = getLocalizedString(BREAKING_STRINGS, lang);
     return `
         <section class="intelligence-briefing">
-          <h2>Intelligence Briefing</h2>
-          ${buildAnomalyAlertSection(anomalies)}
-          ${buildCoalitionDynamicsSection(coalitions)}
-          ${buildKeyPlayersIntelSection(mepScores)}
+          <h2>${escapeHTML(strings.intelligenceBriefing)}</h2>
+          ${buildAnomalyAlertSection(anomalies, lang)}
+          ${buildCoalitionDynamicsSection(coalitions, lang)}
+          ${buildKeyPlayersIntelSection(mepScores, lang)}
         </section>`;
 }
 // ─── Exported function ────────────────────────────────────────────────────────
@@ -120,6 +128,7 @@ function buildIntelligenceBriefingSection(anomalies, coalitions, mepScores) {
  */
 export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, lang = 'en', anomalies = [], coalitions = [], mepScores = []) {
     const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
+    const strings = getLocalizedString(BREAKING_STRINGS, lang);
     const hasData = Boolean(anomalyRaw ||
         coalitionRaw ||
         reportRaw ||
@@ -131,7 +140,7 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
     const anomalySection = anomalyRaw
         ? `
         <section class="analysis">
-          <h2>Voting Anomaly Intelligence</h2>
+          <h2>${escapeHTML(strings.votingAnomalyIntel)}</h2>
           <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
           <p class="data-narrative">${escapeHTML(anomalyRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
@@ -139,7 +148,7 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
     const coalitionSection = coalitionRaw
         ? `
         <section class="coalition-impact">
-          <h2>Coalition Dynamics Assessment</h2>
+          <h2>${escapeHTML(strings.coalitionDynamics)}</h2>
           <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
           <p class="data-narrative">${escapeHTML(coalitionRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
@@ -147,7 +156,7 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
     const reportSection = reportRaw
         ? `
         <section class="context">
-          <h2>Analytical Report</h2>
+          <h2>${escapeHTML(strings.analyticalReport)}</h2>
           <p class="source-attribution">${escapeHTML(editorial.analysisNote)}:</p>
           <p class="data-narrative">${escapeHTML(reportRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
@@ -155,7 +164,7 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
     const keyPlayersSection = influenceRaw
         ? `
         <section class="key-players">
-          <h2>Key MEP Influence Analysis</h2>
+          <h2>${escapeHTML(strings.keyMEPInfluence)}</h2>
           <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
           <p class="data-narrative">${escapeHTML(influenceRaw.slice(0, MAX_DATA_CHARS))}</p>
         </section>`
@@ -170,23 +179,23 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
           <p>${context}: ${finding} — ${attribution}.</p>
         </section>`
         : '';
-    const intelligenceBriefing = buildIntelligenceBriefingSection(anomalies, coalitions, mepScores);
+    const intelligenceBriefing = buildIntelligenceBriefingSection(anomalies, coalitions, mepScores, lang);
     const placeholderNotice = !hasData
         ? `
         <div class="notice">
-          <p><strong>Note:</strong> This is placeholder content generated while the European Parliament MCP Server is unavailable. Live intelligence data will appear here when the server is connected.</p>
+          <p><strong>Note:</strong> ${escapeHTML(strings.placeholderNotice)}</p>
         </div>
         <section class="lede">
-          <p>Significant parliamentary developments are being monitored. Connect the European Parliament MCP Server to receive real-time intelligence on voting anomalies, coalition shifts, and MEP activities.</p>
+          <p>${escapeHTML(strings.placeholderLede)}</p>
         </section>`
         : `
         <section class="lede">
-          <p>Intelligence analysis from the European Parliament MCP Server has identified significant parliamentary developments requiring immediate attention as of ${escapeHTML(date)}.</p>
+          <p>${escapeHTML(strings.lede)} as of ${escapeHTML(date)}.</p>
         </section>`;
     return `
         <div class="article-content">
           <section class="breaking-banner">
-            <p class="breaking-timestamp">⚡ BREAKING — ${escapeHTML(timestamp)}</p>
+            <p class="breaking-timestamp">${escapeHTML(strings.breakingBanner)} — ${escapeHTML(timestamp)}</p>
           </section>
           ${placeholderNotice}
           ${intelligenceBriefing}

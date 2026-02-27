@@ -9,7 +9,7 @@
 import { describe, it, expect } from 'vitest';
 import { buildBreakingNewsContent } from '../../scripts/generators/news-enhanced.js';
 import { generateArticleHTML } from '../../scripts/templates/article-template.js';
-import { BREAKING_NEWS_TITLES, ALL_LANGUAGES, getLocalizedString } from '../../scripts/constants/languages.js';
+import { BREAKING_NEWS_TITLES, ALL_LANGUAGES, getLocalizedString, BREAKING_STRINGS } from '../../scripts/constants/languages.js';
 import { validateHTML } from '../helpers/test-utils.js';
 
 describe('Breaking News Generator', () => {
@@ -317,5 +317,50 @@ describe('Breaking News editorial quality', () => {
   it('should include localized editorial strings for German', () => {
     const html = buildBreakingNewsContent('2025-01-15', 'anomaly data', '', '', '', 'de');
     expect(html).toContain('Warum Das Wichtig Ist');
+  });
+});
+
+describe('Breaking News multi-language section headings', () => {
+  it('should use localized section headings for all 14 languages', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const strings = getLocalizedString(BREAKING_STRINGS, lang);
+      const html = buildBreakingNewsContent('2025-01-15', 'anomaly', 'coalition', 'report', 'influence', lang);
+      // Section headings are escaped — check for the CSS class markers instead of raw text for headings with special chars
+      expect(html).toContain('class="analysis"');
+      expect(html).toContain('class="coalition-impact"');
+      expect(html).toContain('class="context"');
+      expect(html).toContain('class="key-players"');
+      expect(html).toContain(strings.breakingBanner);
+    }
+  });
+
+  it('should use Japanese section headings', () => {
+    const html = buildBreakingNewsContent('2025-01-15', 'anomaly', '', '', '', 'ja');
+    expect(html).toContain('投票異常 — 情報分析');
+    expect(html).toContain('⚡ 速報');
+  });
+
+  it('should use Korean section headings', () => {
+    const html = buildBreakingNewsContent('2025-01-15', 'anomaly', '', '', '', 'ko');
+    expect(html).toContain('투표 이상 — 정보 분석');
+    expect(html).toContain('⚡ 속보');
+  });
+
+  it('should use Chinese section headings', () => {
+    const html = buildBreakingNewsContent('2025-01-15', 'anomaly', '', '', '', 'zh');
+    expect(html).toContain('投票异常 — 情报分析');
+    expect(html).toContain('⚡ 突发');
+  });
+
+  it('should have BREAKING_STRINGS for all 14 languages', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const strings = getLocalizedString(BREAKING_STRINGS, lang);
+      expect(strings.breakingBanner).toBeDefined();
+      expect(strings.breakingBanner.length).toBeGreaterThan(0);
+      expect(strings.votingAnomalyIntel).toBeDefined();
+      expect(strings.coalitionDynamics).toBeDefined();
+      expect(strings.intelligenceBriefing).toBeDefined();
+      expect(strings.lede).toBeDefined();
+    }
   });
 });

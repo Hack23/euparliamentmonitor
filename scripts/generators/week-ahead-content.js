@@ -6,7 +6,7 @@
  * No side effects — all functions accept data and return strings.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-import { getLocalizedString, EDITORIAL_STRINGS } from '../constants/languages.js';
+import { getLocalizedString, EDITORIAL_STRINGS, WEEK_AHEAD_STRINGS, } from '../constants/languages.js';
 /** Keyword constant for article tagging */
 const KEYWORD_EUROPEAN_PARLIAMENT = 'European Parliament';
 /** Placeholder events used when MCP is unavailable or returns no sessions */
@@ -303,30 +303,31 @@ function buildLedeDetail(committeeCount, pipelineCount) {
  */
 export function buildWeekAheadContent(weekData, dateRange, lang = 'en') {
     const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
+    const strings = getLocalizedString(WEEK_AHEAD_STRINGS, lang);
     const plenaryHtml = weekData.events.length > 0
         ? weekData.events.map(renderPlenaryEvent).join('')
-        : '<p>No plenary sessions scheduled for this period.</p>';
+        : `<p>${escapeHTML(strings.noPlenary)}</p>`;
     const committeeSection = weekData.committees.length > 0
         ? `<section class="committee-calendar">
-            <h2>Committee Meetings</h2>
+            <h2>${escapeHTML(strings.committeeMeetings)}</h2>
             ${weekData.committees.map(renderCommitteeMeeting).join('')}
           </section>`
         : '';
     const documentsSection = weekData.documents.length > 0
         ? `<section class="legislative-documents">
-            <h2>Upcoming Legislative Documents</h2>
+            <h2>${escapeHTML(strings.legislativeDocuments)}</h2>
             <ul class="document-list">${weekData.documents.map(renderLegislativeDocument).join('')}</ul>
           </section>`
         : '';
     const pipelineSection = weekData.pipeline.length > 0
         ? `<section class="legislative-pipeline">
-            <h2>Legislative Pipeline</h2>
+            <h2>${escapeHTML(strings.legislativePipeline)}</h2>
             <ul class="pipeline-list">${weekData.pipeline.map(renderPipelineProcedure).join('')}</ul>
           </section>`
         : '';
     const qaSection = weekData.questions.length > 0
         ? `<section class="qa-schedule">
-            <h2>Parliamentary Questions</h2>
+            <h2>${escapeHTML(strings.parliamentaryQuestions)}</h2>
             <ul class="qa-list">${weekData.questions.map(renderQuestion).join('')}</ul>
           </section>`
         : '';
@@ -339,11 +340,11 @@ export function buildWeekAheadContent(weekData, dateRange, lang = 'en') {
     return `
         <div class="article-content">
           <section class="lede">
-            <p>The European Parliament prepares for an active week ahead with multiple committee meetings and plenary sessions scheduled from ${escapeHTML(dateRange.start)} to ${escapeHTML(dateRange.end)}.${escapeHTML(ledeDetail)}</p>
+            <p>${escapeHTML(strings.lede)} from ${escapeHTML(dateRange.start)} to ${escapeHTML(dateRange.end)}.${escapeHTML(ledeDetail)}</p>
           </section>
           ${whyThisMattersSection}
           <section class="plenary-schedule">
-            <h2>Plenary Sessions</h2>
+            <h2>${escapeHTML(strings.plenarySessions)}</h2>
             ${plenaryHtml}
           </section>
           ${committeeSection}
@@ -440,9 +441,10 @@ export function buildWhatToWatchSection(procedures, velocities, language) {
         buildNormalVelocityItems(velocities);
     if (!allItems)
         return '';
+    const strings = getLocalizedString(WEEK_AHEAD_STRINGS, language);
     return `
         <section class="what-to-watch" lang="${escapeHTML(language)}">
-          <h2>What to Watch</h2>
+          <h2>${escapeHTML(strings.whatToWatch)}</h2>
           <ul>
             ${allItems}
           </ul>
