@@ -223,7 +223,7 @@ jobs:
             -x "*.git*" "node_modules/*"
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@47309c993abb98030a35d55ef7ff34b7fa1074b5 # v6.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v6.0.0
         with:
           name: build-artifacts
           path: release-artifacts/
@@ -238,7 +238,7 @@ jobs:
           artifact-name: euparliamentmonitor-${{ needs.prepare.outputs.version }}
 
       - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@e4d4f7c39adfa4c260fb5c147f0622000aa14b99 # v4.0.0
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4.1.0
         id: attest
         with:
           subject-path: release-artifacts/euparliamentmonitor-${{ needs.prepare.outputs.version }}.zip
@@ -257,7 +257,7 @@ jobs:
         run: cp ${{ steps.attestsbom.outputs.bundle-path }} euparliamentmonitor-${{ needs.prepare.outputs.version }}.spdx.json.intoto.jsonl
 
       - name: Upload security artifacts
-        uses: actions/upload-artifact@47309c993abb98030a35d55ef7ff34b7fa1074b5 # v6.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v6.0.0
         with:
           name: security-artifacts
           path: |
@@ -288,13 +288,13 @@ jobs:
           ref: main # Always use main branch for deployment
 
       - name: Download build artifacts
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
           name: build-artifacts
           path: artifacts/build
 
       - name: Download security artifacts
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
           name: security-artifacts
           path: artifacts/security
