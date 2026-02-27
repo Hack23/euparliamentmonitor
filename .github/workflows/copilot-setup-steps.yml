@@ -126,11 +126,11 @@ jobs:
           echo "Checking mcp-server-sequential-thinking..."
           which mcp-server-sequential-thinking && echo "✅ mcp-server-sequential-thinking found" || echo "❌ mcp-server-sequential-thinking NOT found"
           
-          echo "Checking @modelcontextprotocol/server-github..."
-          npx --no-install @modelcontextprotocol/server-github --version 2>/dev/null && echo "✅ @modelcontextprotocol/server-github found" || echo "ℹ️ @modelcontextprotocol/server-github available via npx"
+          echo "Checking mcp-server-github..."
+          which mcp-server-github 2>/dev/null && echo "✅ mcp-server-github found" || echo "❌ mcp-server-github NOT found"
           
-          echo "Checking @modelcontextprotocol/server-git..."
-          npx --no-install @modelcontextprotocol/server-git --version 2>/dev/null && echo "✅ @modelcontextprotocol/server-git found" || echo "ℹ️ @modelcontextprotocol/server-git available via npx"
+          echo "Checking mcp-server-git..."
+          which mcp-server-git 2>/dev/null && echo "✅ mcp-server-git found" || echo "❌ mcp-server-git NOT found"
           
           echo "Checking @playwright/mcp..."
           which mcp-server-playwright 2>/dev/null && echo "✅ mcp-server-playwright found" || echo "ℹ️ @playwright/mcp available via npx"
