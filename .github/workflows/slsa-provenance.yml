@@ -98,7 +98,7 @@ jobs:
           npx @cyclonedx/cyclonedx-npm --output-file dist/sbom.json
 
       - name: Attest Build Provenance
-        uses: actions/attest-build-provenance@e4d4f7c39adfa4c260fb5c147f0622000aa14b99 # v2.0.0
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v2.0.0
         with:
           subject-path: "dist/euparliamentmonitor-*.tar.gz"
 
@@ -109,7 +109,7 @@ jobs:
           sbom-path: "dist/sbom.json"
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@47309c993abb98030a35d55ef7ff34b7fa1074b5 # v4.6.2
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v4.6.2
         with:
           name: euparliamentmonitor-${{ steps.version.outputs.version }}
           path: |
