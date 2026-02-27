@@ -170,9 +170,8 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ### ⚡ MCP Call Budget (STRICT)
 
-- **Maximum 8 MCP tool calls** total for data gathering
-- **The `european_parliament___get_plenary_sessions` call used in the MCP Health Gate MUST be the same single call you use for data gathering here** — do **not** invoke it a second time. Use `{ startDate: today, endDate: nextMonth, limit: 50 }` for both purposes.
-- Apart from the combined health-gate/data call, each remaining MCP tool may be called **at most once** — never call the same tool a second time
+- Use a single `european_parliament___get_plenary_sessions` call for month-ahead data gathering with `{ startDate: today, endDate: nextMonth, limit: 50 }`.
+- Apart from that `get_plenary_sessions` data call, each remaining MCP tool may be called **at most once** — never call the same tool a second time
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 - If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
 

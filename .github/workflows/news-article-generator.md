@@ -180,13 +180,13 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ### ⚡ MCP Call Budget (STRICT)
 
-- **One connectivity check**: `european_parliament___get_plenary_sessions({ limit: 1 })` is called **once** at startup to verify MCP health — this does **not** count toward the per-type data-gathering budget
-- **Per article type**: call **at most 4 distinct tools**, each **at most once** — the tool sets below already contain exactly 4 tools per type
+- **Health-gate connectivity check**: attempt `european_parliament___get_plenary_sessions({ limit: 1 })` **up to 3 times** at startup as a single health-gate step to verify MCP health — this step does **not** count toward the per-type data-gathering budget
+- **Per article type**: call **at most 4 distinct tools**, each **at most once** — the tool sets below use up to 4 tools per type
 - **Across all types in a multi-type run**: each tool may still only be called once globally — if a tool appears in multiple type lists, use the same single call's result for all types
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 - If you notice you are about to call a tool you already called in this run, **STOP data gathering for that type and move to generation**
 
-**Always verify connectivity first (health check — does not count toward data budget):**
+**Always verify connectivity first (health gate — up to 3 attempts, does not count toward data budget):**
 ```javascript
 european_parliament___get_plenary_sessions({ limit: 1 })
 ```

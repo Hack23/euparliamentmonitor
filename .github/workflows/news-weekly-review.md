@@ -171,12 +171,12 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 ### ⚡ MCP Call Budget (STRICT)
 
 - **Total maximum 8 MCP tool calls**, including the mandatory health-gate `european_parliament___get_plenary_sessions` call
-- **Health-gate connectivity check**: call `european_parliament___get_plenary_sessions` exactly once at the start of data gathering to verify MCP health; this call **counts toward** the 8-call budget and must **not** be invoked again later in the run
-- **Per-tool limit after the health gate**: apart from the initial health-gate call, each remaining MCP tool may be called **at most once** — never call the same tool a second time
+- **Health-gate connectivity check**: call `european_parliament___get_plenary_sessions` exactly once at the start of data gathering to verify MCP health; this single call **counts as 1** toward the 8-call budget and must **not** be retried or invoked again later in the run, even if it fails
+- **Per-tool limit after the health gate (no retries)**: apart from the initial health-gate call, each remaining MCP tool may be called **at most once per workflow run**, even on failure — never call the same tool a second time or implement retry/backoff loops
 - If data from a tool looks sparse, generic, historical, or placeholder after its first call, **proceed to article generation immediately — do NOT retry that tool**
 - If you notice you are about to call a tool you already called, or you would exceed the 8-call budget, **STOP data gathering and move to generation**
 
-**ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate and connectivity check. Do not call it again later in the run.**
+**ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate and connectivity check. Do not call it again or retry it later in the run.**
 
 ```javascript
 const lastWeek = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0];

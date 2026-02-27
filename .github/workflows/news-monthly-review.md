@@ -171,12 +171,12 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 ### ⚡ MCP Call Budget (STRICT)
 
 - **Total maximum 8 MCP tool calls**, including the mandatory health-gate `european_parliament___get_plenary_sessions` call
-- **Health-gate connectivity check**: call `european_parliament___get_plenary_sessions` exactly once at the start of data gathering to verify MCP health; this call **counts toward** the 8-call budget and must **not** be invoked again later in the run
-- **Per-tool limit after the health gate**: apart from the initial health-gate call, each remaining MCP tool may be called **at most once** — never call the same tool a second time
+- **Health-gate connectivity check**: call `european_parliament___get_plenary_sessions({ limit: 1 })` exactly once at the start to verify MCP health; this single call **counts as 1** toward the 8-call budget and must **not** be retried or invoked again later in the run
+- **Per-tool limit after the health gate (no retries)**: apart from the initial health-gate call, each remaining MCP tool may be called **at most once per workflow run** — never call the same tool a second time
 - If data from a tool looks sparse, generic, historical, or placeholder after its first call, **proceed to article generation immediately — do NOT retry that tool**
 - If you notice you are about to call a tool you already called, or you would exceed the 8-call budget, **STOP data gathering and move to generation**
 
-**ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate and connectivity check. Do not call it again later in the run.**
+**ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate and connectivity check. Do not call it again or retry it later in the run.**
 
 From the tool list below, **select at most 7 additional tools** (plus the mandatory health-gate call = 8 total). You do **not** need to call every tool listed.
 
@@ -184,8 +184,8 @@ From the tool list below, **select at most 7 additional tools** (plus the mandat
 const lastMonth = new Date(Date.now() - 30 * 86400000).toISOString().split('T')[0];
 const today = new Date().toISOString().split('T')[0];
 
-// MANDATORY — health gate (counts as call 1)
-european_parliament___get_plenary_sessions({ dateFrom: lastMonth, dateTo: today, limit: 10 })
+// MANDATORY — health gate (counts as call 1, use {limit:1})
+european_parliament___get_plenary_sessions({ limit: 1 })
 
 // Select at most 7 from below (calls 2–8):
 european_parliament___get_voting_records({ dateFrom: lastMonth, dateTo: today, limit: 30 })

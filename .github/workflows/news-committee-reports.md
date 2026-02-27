@@ -101,7 +101,7 @@ This focused approach ensures:
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–10**: Query EP MCP tools for committee reports data
 - **Minutes 10–40**: Generate articles for all 14 languages
-- **Minutes 40–50**: Validate and commit
+- **Minutes 40–50**: Validate and finalize changes
 - **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
 **If you reach minute 50 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
