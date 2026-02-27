@@ -107,7 +107,7 @@ This is a **retrospective** article analyzing the past 7 days of parliamentary a
 - **Minutes 40–50**: Validate generated HTML
 - **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 40 without having committed**: Stop generating. Commit what you have and create the PR immediately.
+**If you reach minute 40 without having prepared the PR**: Stop generating. Finish your current file edits and immediately create the PR using `safeoutputs___create_pull_request` (do not run any git commands; the framework will capture your working-directory changes).
 
 ## Required Skills
 
@@ -170,12 +170,13 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ### ⚡ MCP Call Budget (STRICT)
 
-- **Call each tool at most once** — never call the same tool a second time
-- **Maximum 8 MCP tool calls** total for data gathering
-- If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
-- If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
+- **Total maximum 8 MCP tool calls**, including the mandatory health-gate `european_parliament___get_plenary_sessions` call
+- **Health-gate connectivity check**: call `european_parliament___get_plenary_sessions` exactly once at the start of data gathering to verify MCP health; this call **counts toward** the 8-call budget and must **not** be invoked again later in the run
+- **Per-tool limit after the health gate**: apart from the initial health-gate call, each remaining MCP tool may be called **at most once** — never call the same tool a second time
+- If data from a tool looks sparse, generic, historical, or placeholder after its first call, **proceed to article generation immediately — do NOT retry that tool**
+- If you notice you are about to call a tool you already called, or you would exceed the 8-call budget, **STOP data gathering and move to generation**
 
-**ALWAYS call `get_plenary_sessions` FIRST for connectivity check.**
+**ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate and connectivity check. Do not call it again later in the run.**
 
 ```javascript
 const lastWeek = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0];

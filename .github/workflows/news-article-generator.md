@@ -102,7 +102,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 - **Minutes 100–110**: Validate generated HTML
 - **Minutes 110–120**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 100 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 100 and the PR has not been created yet**: Stop generating more content and immediately create the PR using `safeoutputs___create_pull_request` with the content generated so far. Partial content in a PR is better than a timeout with no PR.
 
 ## Required Skills
 
@@ -180,17 +180,18 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ### ⚡ MCP Call Budget (STRICT)
 
-- **Call each tool at most once** — never call the same tool a second time
-- **Maximum 8 MCP tool calls** total for data gathering
+- **One connectivity check**: `european_parliament___get_plenary_sessions({ limit: 1 })` is called **once** at startup to verify MCP health — this does **not** count toward the per-type data-gathering budget
+- **Per article type**: call **at most 4 distinct tools**, each **at most once** — the tool sets below already contain exactly 4 tools per type
+- **Across all types in a multi-type run**: each tool may still only be called once globally — if a tool appears in multiple type lists, use the same single call's result for all types
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
-- If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
+- If you notice you are about to call a tool you already called in this run, **STOP data gathering for that type and move to generation**
 
-**Always verify connectivity first:**
+**Always verify connectivity first (health check — does not count toward data budget):**
 ```javascript
 european_parliament___get_plenary_sessions({ limit: 1 })
 ```
 
-**Data gathering tools by article type:**
+**Data gathering tools by article type (call each at most once, reuse results if shared across types):**
 
 **Prospective (week-ahead, month-ahead):**
 ```javascript

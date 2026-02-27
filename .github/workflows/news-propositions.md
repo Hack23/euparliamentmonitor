@@ -112,7 +112,7 @@ Read each skill file before proceeding:
 - **Minutes 40–50**: Validate HTML
 - **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 40 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 40 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately trigger PR creation using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 
 ## MANDATORY Date Validation
 

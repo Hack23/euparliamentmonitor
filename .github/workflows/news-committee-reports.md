@@ -104,7 +104,7 @@ This focused approach ensures:
 - **Minutes 40–50**: Validate and commit
 - **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 50 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 50 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 
 ## Required Skills
 

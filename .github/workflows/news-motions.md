@@ -101,10 +101,10 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 - **Minutes 0–3**: Date validation, MCP warm-up
 - **Minutes 3–12**: Query EP MCP tools for motions data (parallel where possible)
 - **Minutes 12–40**: Generate articles for requested languages
-- **Minutes 40–50**: Validate HTML and commit
+- **Minutes 40–50**: Validate HTML
 - **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 40 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 40 with generation still in progress**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 
 ## Required Skills
 
@@ -193,12 +193,13 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ### ⚡ MCP Call Budget (STRICT)
 
-- **Call each tool at most once** — never call the same tool a second time
-- **Maximum 8 MCP tool calls** total for data gathering
-- If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
-- If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
+- From the tool list below, **select at most 8 distinct tools** to call in a single workflow run
+- **Call each selected tool at most once** — never call the same tool a second time in the same run
+- **Maximum 8 MCP tool calls** total for data gathering (because you select at most 8 tools, once each)
+- If data looks sparse, generic, historical, or placeholder after the first call to a tool: **proceed to article generation immediately — do NOT retry that tool**
+- If you notice you are about to call a tool you already called or exceed 8 total calls, **STOP data gathering and move to generation**
 
-Use the following EP MCP tools to gather data for motions analysis. **All data MUST come from these tools.**
+Use the following EP MCP tools to gather data for motions analysis. **All data MUST come from this toolset, but you MUST NOT call more than 8 tools total and you do NOT need to call every tool.**
 
 ```javascript
 // Primary motions data
@@ -219,10 +220,10 @@ european_parliament___compare_political_groups({ groupIds: ["EPP", "S&D", "Renew
 // Voting records on motions
 european_parliament___get_voting_records({ topic: "resolution", limit: 20 })
 
-// OSINT: Key MEP influence (call per influential MEP identified)
+// OSINT: Key MEP influence (optional — only if a specific MEP is a key focus)
 european_parliament___assess_mep_influence({ mepId: "<mepId>" })
 
-// OSINT: Country delegation analysis
+// OSINT: Country delegation analysis (optional — only if a specific country is relevant)
 european_parliament___analyze_country_delegation({ country: "<countryCode>" })
 
 // Parliament-wide landscape for context

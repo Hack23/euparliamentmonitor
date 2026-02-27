@@ -107,7 +107,7 @@ This is a **prospective** article providing a 30-day forward-looking strategic o
 - **Minutes 40–50**: Validate generated HTML
 - **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 40 without having committed**: Stop generating. Commit what you have and create the PR immediately.
+**If you reach minute 40 with unfinished articles**: Stop generating. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`.
 
 ## Required Skills
 
@@ -170,8 +170,9 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ### ⚡ MCP Call Budget (STRICT)
 
-- **Call each tool at most once** — never call the same tool a second time
 - **Maximum 8 MCP tool calls** total for data gathering
+- **The `european_parliament___get_plenary_sessions` call used in the MCP Health Gate MUST be the same single call you use for data gathering here** — do **not** invoke it a second time. Use `{ startDate: today, endDate: nextMonth, limit: 50 }` for both purposes.
+- Apart from the combined health-gate/data call, each remaining MCP tool may be called **at most once** — never call the same tool a second time
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 - If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
 
