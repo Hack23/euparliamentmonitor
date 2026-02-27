@@ -25,7 +25,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 45
+timeout-minutes: 60
 
 network:
   allowed:
@@ -97,14 +97,14 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 **ALL article data MUST be fetched from the European Parliament MCP server.** No other data source should be used for article content.
 
-## ⏱️ Time Budget (45 minutes)
+## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date validation, MCP warm-up
 - **Minutes 3–12**: Query EP MCP tools for motions data (parallel where possible)
-- **Minutes 12–35**: Generate articles for requested languages
-- **Minutes 35–40**: Validate HTML and commit
-- **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 12–40**: Generate articles for requested languages
+- **Minutes 40–50**: Validate HTML and commit
+- **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 35 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 40 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
 
 ## Required Skills
 

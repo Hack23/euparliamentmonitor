@@ -39,7 +39,7 @@ name: "News: EU Parliament Article Generator"
         required: false
         type: boolean
       languages:
-        default: eu-core
+        default: all
         description: Languages to generate (en | eu-core | nordic | all)
         required: false
 

@@ -25,7 +25,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 45
+timeout-minutes: 60
 
 network:
   allowed:
@@ -99,15 +99,15 @@ This is a **retrospective** article analyzing the past 7 days of parliamentary a
 
 **ALL article data MUST be fetched from the `european-parliament` MCP server.**
 
-## ⏱️ Time Budget (45 minutes)
+## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
 - **Minutes 3–10**: Query voting records, documents, and questions from past 7 days
-- **Minutes 10–35**: Generate articles for all requested languages
-- **Minutes 35–40**: Validate generated HTML
-- **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 10–40**: Generate articles for all requested languages
+- **Minutes 40–50**: Validate generated HTML
+- **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 35 without having committed**: Stop generating. Commit what you have and create the PR immediately.
+**If you reach minute 40 without having committed**: Stop generating. Commit what you have and create the PR immediately.
 
 ## Required Skills
 

@@ -25,7 +25,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 45
+timeout-minutes: 60
 
 network:
   allowed:
@@ -104,15 +104,15 @@ Read each skill file before proceeding:
 4. **`.github/skills/seo-best-practices.md`** — Multi-language SEO
 5. **`.github/skills/gh-aw-firewall.md`** — Network security and safe outputs
 
-## ⏱️ Time Budget (45 minutes)
+## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, EP MCP server warm-up
 - **Minutes 3–10**: Query EP MCP tools for legislative proposals and pipeline data
-- **Minutes 10–35**: Generate articles for requested languages
-- **Minutes 35–40**: Validate HTML
-- **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 10–40**: Generate articles for requested languages
+- **Minutes 40–50**: Validate HTML
+- **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 35 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 40 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
 
 ## MANDATORY Date Validation
 

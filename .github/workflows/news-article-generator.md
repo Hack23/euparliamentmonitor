@@ -17,7 +17,7 @@ on:
       languages:
         description: 'Languages to generate (en | eu-core | nordic | all)'
         required: false
-        default: eu-core
+        default: all
 
 permissions:
   contents: read
