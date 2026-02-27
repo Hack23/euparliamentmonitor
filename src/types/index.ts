@@ -28,6 +28,9 @@ export {
   type LangTitleSubtitle,
   type PropositionsStrings,
   type EditorialStrings,
+  type MotionsStrings,
+  type WeekAheadStrings,
+  type BreakingStrings,
 } from './common.js';
 
 export type {

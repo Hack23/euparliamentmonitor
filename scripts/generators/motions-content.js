@@ -6,7 +6,7 @@
  * generating placeholder/fallback data when MCP is unavailable.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-import { getLocalizedString, EDITORIAL_STRINGS } from '../constants/languages.js';
+import { getLocalizedString, EDITORIAL_STRINGS, MOTIONS_STRINGS, } from '../constants/languages.js';
 /** Marker string used in all fallback/placeholder data to indicate MCP data is unavailable */
 export const PLACEHOLDER_MARKER = 'DATA_UNAVAILABLE (placeholder)';
 /**
@@ -81,24 +81,25 @@ export function getMotionsFallbackData(dateStr, dateFromStr) {
  */
 export function generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions, lang = 'en') {
     const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
+    const strings = getLocalizedString(MOTIONS_STRINGS, lang);
     return `
     <div class="article-content">
       <section class="lede">
-        <p>Recent parliamentary activities reveal key voting patterns, party cohesion trends, and notable political dynamics in the European Parliament. ${escapeHTML(editorial.sourceAttribution)}, analysis of voting records from ${escapeHTML(dateFromStr)} to ${escapeHTML(dateStr)} provides insights into legislative decision-making and party discipline.</p>
+        <p>${escapeHTML(strings.lede)} ${escapeHTML(editorial.sourceAttribution)}, analysis of voting records from ${escapeHTML(dateFromStr)} to ${escapeHTML(dateStr)} provides insights into legislative decision-making and party discipline.</p>
       </section>
       
       <section class="voting-results">
-        <h2>Recent Voting Records</h2>
+        <h2>${escapeHTML(strings.votingRecordsHeading)}</h2>
         ${votingRecords
         .map((record) => `
           <div class="vote-item">
             <h3>${escapeHTML(record.title)}</h3>
-            <p class="vote-date">Date: ${escapeHTML(record.date)}</p>
-            <p class="vote-result"><strong>Result:</strong> ${escapeHTML(record.result)}</p>
+            <p class="vote-date">${escapeHTML(strings.dateLabel)}: ${escapeHTML(record.date)}</p>
+            <p class="vote-result"><strong>${escapeHTML(strings.resultLabel)}:</strong> ${escapeHTML(record.result)}</p>
             <div class="vote-breakdown">
-              <span class="vote-for">For: ${escapeHTML(String(record.votes.for))}</span>
-              <span class="vote-against">Against: ${escapeHTML(String(record.votes.against))}</span>
-              <span class="vote-abstain">Abstain: ${escapeHTML(String(record.votes.abstain))}</span>
+              <span class="vote-for">${escapeHTML(strings.forLabel)}: ${escapeHTML(String(record.votes.for))}</span>
+              <span class="vote-against">${escapeHTML(strings.againstLabel)}: ${escapeHTML(String(record.votes.against))}</span>
+              <span class="vote-abstain">${escapeHTML(strings.abstainLabel)}: ${escapeHTML(String(record.votes.abstain))}</span>
             </div>
           </div>
         `)
@@ -106,21 +107,21 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
       </section>
       
       <section class="voting-patterns">
-        <h2>Party Cohesion Analysis</h2>
+        <h2>${escapeHTML(strings.partyCohesionHeading)}</h2>
         <p>${escapeHTML(editorial.parliamentaryContext)}: Analysis of voting behavior reveals varying levels of party discipline across political groups:</p>
         ${votingPatterns
         .map((pattern) => `
           <div class="pattern-item">
             <h3>${escapeHTML(pattern.group)}</h3>
-            <p><strong>Cohesion:</strong> ${escapeHTML(String((pattern.cohesion * 100).toFixed(1)))}%</p>
-            <p><strong>Participation:</strong> ${escapeHTML(String((pattern.participation * 100).toFixed(1)))}%</p>
+            <p><strong>${escapeHTML(strings.cohesionLabel)}:</strong> ${escapeHTML(String((pattern.cohesion * 100).toFixed(1)))}%</p>
+            <p><strong>${escapeHTML(strings.participationLabel)}:</strong> ${escapeHTML(String((pattern.participation * 100).toFixed(1)))}%</p>
           </div>
         `)
         .join('')}
       </section>
       
       <section class="anomalies">
-        <h2>Detected Voting Anomalies</h2>
+        <h2>${escapeHTML(strings.anomaliesHeading)}</h2>
         <p>${escapeHTML(editorial.analysisNote)}: Unusual voting patterns that deviate from typical party lines:</p>
         ${anomalies
         .map((anomaly) => {
@@ -131,7 +132,7 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
           <div class="anomaly-item severity-${escapeHTML(severityClass)}">
             <h3>${escapeHTML(anomaly.type)}</h3>
             <p>${escapeHTML(anomaly.description)}</p>
-            <p class="severity">Severity: ${escapeHTML(severityDisplay)}</p>
+            <p class="severity">${escapeHTML(strings.severityLabel)}: ${escapeHTML(severityDisplay)}</p>
           </div>
         `;
     })
@@ -139,13 +140,13 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
       </section>
       
       <section class="questions">
-        <h2>Recent Parliamentary Questions</h2>
+        <h2>${escapeHTML(strings.questionsHeading)}</h2>
         ${questions
         .map((question) => `
           <div class="question-item">
             <p class="question-author">${escapeHTML(question.author)}</p>
             <p class="question-topic"><strong>${escapeHTML(question.topic)}</strong></p>
-            <p class="question-meta">Date: ${escapeHTML(question.date)} | Status: ${escapeHTML(question.status)}</p>
+            <p class="question-meta">${escapeHTML(strings.dateLabel)}: ${escapeHTML(question.date)} | ${escapeHTML(strings.statusLabel)}: ${escapeHTML(question.status)}</p>
           </div>
         `)
         .join('')}
@@ -153,7 +154,7 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
 
       <section class="why-this-matters">
         <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
-        <p>${escapeHTML(editorial.keyTakeaway)}: Voting records and party cohesion data reveal political alignment across the European Parliament, helping citizens understand how their elected representatives make legislative decisions.</p>
+        <p>${escapeHTML(editorial.keyTakeaway)}: ${escapeHTML(strings.keyTakeawayText)}</p>
       </section>
       <!-- /article-content -->
     </div>
@@ -217,9 +218,10 @@ export function buildPoliticalAlignmentSection(votingRecords, coalitions, langua
     const coalitionsHtml = buildCoalitionAlignmentHtml(coalitions);
     if (!recordsHtml && !coalitionsHtml)
         return '';
+    const strings = getLocalizedString(MOTIONS_STRINGS, language);
     return `
         <section class="political-alignment" lang="${escapeHTML(language)}">
-          <h2>Political Alignment</h2>
+          <h2>${escapeHTML(strings.politicalAlignmentHeading)}</h2>
           ${recordsHtml}
           ${coalitionsHtml}
         </section>`;
