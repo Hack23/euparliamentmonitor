@@ -8,11 +8,7 @@
  */
 
 import { escapeHTML } from '../utils/file-utils.js';
-import {
-  getLocalizedString,
-  EDITORIAL_STRINGS,
-  MOTIONS_STRINGS,
-} from '../constants/languages.js';
+import { getLocalizedString, EDITORIAL_STRINGS, MOTIONS_STRINGS } from '../constants/languages.js';
 import type {
   VotingRecord,
   VotingPattern,

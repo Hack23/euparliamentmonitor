@@ -7,7 +7,7 @@
  * from typed MCP intelligence data.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-import { getLocalizedString, EDITORIAL_STRINGS, BREAKING_STRINGS, } from '../constants/languages.js';
+import { getLocalizedString, EDITORIAL_STRINGS, BREAKING_STRINGS } from '../constants/languages.js';
 /** Maximum characters to display from raw MCP intelligence data */
 const MAX_DATA_CHARS = 2000;
 // ─── Private section builders ────────────────────────────────────────────────

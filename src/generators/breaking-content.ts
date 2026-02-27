@@ -9,11 +9,7 @@
  */
 
 import { escapeHTML } from '../utils/file-utils.js';
-import {
-  getLocalizedString,
-  EDITORIAL_STRINGS,
-  BREAKING_STRINGS,
-} from '../constants/languages.js';
+import { getLocalizedString, EDITORIAL_STRINGS, BREAKING_STRINGS } from '../constants/languages.js';
 import type {
   VotingAnomalyIntelligence,
   CoalitionIntelligence,
@@ -227,7 +223,12 @@ export function buildBreakingNewsContent(
         </section>`
     : '';
 
-  const intelligenceBriefing = buildIntelligenceBriefingSection(anomalies, coalitions, mepScores, lang);
+  const intelligenceBriefing = buildIntelligenceBriefingSection(
+    anomalies,
+    coalitions,
+    mepScores,
+    lang
+  );
 
   const placeholderNotice = !hasData
     ? `

@@ -876,7 +876,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: 'Participation',
     severityLabel: 'Severity',
     statusLabel: 'Status',
-    keyTakeawayText: 'Voting records and party cohesion data reveal political alignment across the European Parliament, helping citizens understand how their elected representatives make legislative decisions.',
+    keyTakeawayText:
+      'Voting records and party cohesion data reveal political alignment across the European Parliament, helping citizens understand how their elected representatives make legislative decisions.',
     politicalAlignmentHeading: 'Political Alignment',
   },
   sv: {
@@ -894,7 +895,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: 'Deltagande',
     severityLabel: 'Allvarlighetsgrad',
     statusLabel: 'Status',
-    keyTakeawayText: 'Omröstningsresultat och partikohesionsdata avslöjar politisk samstämmighet i Europaparlamentet och hjälper medborgare att förstå hur deras valda representanter fattar lagstiftningsbeslut.',
+    keyTakeawayText:
+      'Omröstningsresultat och partikohesionsdata avslöjar politisk samstämmighet i Europaparlamentet och hjälper medborgare att förstå hur deras valda representanter fattar lagstiftningsbeslut.',
     politicalAlignmentHeading: 'Politisk Samstämmighet',
   },
   da: {
@@ -912,7 +914,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: 'Deltagelse',
     severityLabel: 'Alvorlighed',
     statusLabel: 'Status',
-    keyTakeawayText: 'Afstemningsresultater og partikohæsionsdata afslører politisk tilpasning i Europa-Parlamentet og hjælper borgere med at forstå, hvordan deres valgte repræsentanter træffer lovgivningsbeslutninger.',
+    keyTakeawayText:
+      'Afstemningsresultater og partikohæsionsdata afslører politisk tilpasning i Europa-Parlamentet og hjælper borgere med at forstå, hvordan deres valgte repræsentanter træffer lovgivningsbeslutninger.',
     politicalAlignmentHeading: 'Politisk Tilpasning',
   },
   no: {
@@ -930,7 +933,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: 'Deltakelse',
     severityLabel: 'Alvorlighetsgrad',
     statusLabel: 'Status',
-    keyTakeawayText: 'Avstemningsresultater og partikohesjonsdata avslører politisk samsvar i Europaparlamentet og hjelper borgere med å forstå hvordan deres valgte representanter tar lovgivningsbeslutninger.',
+    keyTakeawayText:
+      'Avstemningsresultater og partikohesjonsdata avslører politisk samsvar i Europaparlamentet og hjelper borgere med å forstå hvordan deres valgte representanter tar lovgivningsbeslutninger.',
     politicalAlignmentHeading: 'Politisk Samsvar',
   },
   fi: {
@@ -948,7 +952,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: 'Osallistuminen',
     severityLabel: 'Vakavuus',
     statusLabel: 'Tila',
-    keyTakeawayText: 'Äänestystulokset ja puoluekohesiotiedot paljastavat poliittisen linjauksen Euroopan parlamentissa ja auttavat kansalaisia ymmärtämään, miten heidän valitsemansa edustajat tekevät lainsäädäntöpäätöksiä.',
+    keyTakeawayText:
+      'Äänestystulokset ja puoluekohesiotiedot paljastavat poliittisen linjauksen Euroopan parlamentissa ja auttavat kansalaisia ymmärtämään, miten heidän valitsemansa edustajat tekevät lainsäädäntöpäätöksiä.',
     politicalAlignmentHeading: 'Poliittinen Linjaus',
   },
   de: {
@@ -966,7 +971,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: 'Beteiligung',
     severityLabel: 'Schweregrad',
     statusLabel: 'Status',
-    keyTakeawayText: 'Abstimmungsergebnisse und Fraktionskohäsionsdaten zeigen die politische Ausrichtung im Europäischen Parlament und helfen den Bürgern zu verstehen, wie ihre gewählten Vertreter Gesetzgebungsentscheidungen treffen.',
+    keyTakeawayText:
+      'Abstimmungsergebnisse und Fraktionskohäsionsdaten zeigen die politische Ausrichtung im Europäischen Parlament und helfen den Bürgern zu verstehen, wie ihre gewählten Vertreter Gesetzgebungsentscheidungen treffen.',
     politicalAlignmentHeading: 'Politische Ausrichtung',
   },
   fr: {
@@ -984,7 +990,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: 'Participation',
     severityLabel: 'Gravité',
     statusLabel: 'Statut',
-    keyTakeawayText: 'Les résultats de vote et les données de cohésion des groupes révèlent l\'alignement politique au Parlement européen, aidant les citoyens à comprendre comment leurs représentants élus prennent des décisions législatives.',
+    keyTakeawayText:
+      "Les résultats de vote et les données de cohésion des groupes révèlent l'alignement politique au Parlement européen, aidant les citoyens à comprendre comment leurs représentants élus prennent des décisions législatives.",
     politicalAlignmentHeading: 'Alignement Politique',
   },
   es: {
@@ -1002,7 +1009,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: 'Participación',
     severityLabel: 'Gravedad',
     statusLabel: 'Estado',
-    keyTakeawayText: 'Los resultados de votación y los datos de cohesión de grupos revelan la alineación política en el Parlamento Europeo, ayudando a los ciudadanos a comprender cómo sus representantes electos toman decisiones legislativas.',
+    keyTakeawayText:
+      'Los resultados de votación y los datos de cohesión de grupos revelan la alineación política en el Parlamento Europeo, ayudando a los ciudadanos a comprender cómo sus representantes electos toman decisiones legislativas.',
     politicalAlignmentHeading: 'Alineación Política',
   },
   nl: {
@@ -1020,7 +1028,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: 'Deelname',
     severityLabel: 'Ernst',
     statusLabel: 'Status',
-    keyTakeawayText: 'Stemresultaten en fractiebindingsgegevens onthullen de politieke afstemming in het Europees Parlement en helpen burgers te begrijpen hoe hun gekozen vertegenwoordigers wetgevingsbeslissingen nemen.',
+    keyTakeawayText:
+      'Stemresultaten en fractiebindingsgegevens onthullen de politieke afstemming in het Europees Parlement en helpen burgers te begrijpen hoe hun gekozen vertegenwoordigers wetgevingsbeslissingen nemen.',
     politicalAlignmentHeading: 'Politieke Afstemming',
   },
   ar: {
@@ -1038,7 +1047,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: 'المشاركة',
     severityLabel: 'الخطورة',
     statusLabel: 'الحالة',
-    keyTakeawayText: 'تكشف سجلات التصويت وبيانات تماسك الأحزاب التوافق السياسي في البرلمان الأوروبي، مما يساعد المواطنين على فهم كيفية اتخاذ ممثليهم المنتخبين للقرارات التشريعية.',
+    keyTakeawayText:
+      'تكشف سجلات التصويت وبيانات تماسك الأحزاب التوافق السياسي في البرلمان الأوروبي، مما يساعد المواطنين على فهم كيفية اتخاذ ممثليهم المنتخبين للقرارات التشريعية.',
     politicalAlignmentHeading: 'التوافق السياسي',
   },
   he: {
@@ -1056,7 +1066,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: 'השתתפות',
     severityLabel: 'חומרה',
     statusLabel: 'סטטוס',
-    keyTakeawayText: 'רשומות הצבעה ונתוני לכידות מפלגתית חושפים את ההתאמה הפוליטית בפרלמנט האירופי, ומסייעים לאזרחים להבין כיצד נבחריהם מקבלים החלטות חקיקה.',
+    keyTakeawayText:
+      'רשומות הצבעה ונתוני לכידות מפלגתית חושפים את ההתאמה הפוליטית בפרלמנט האירופי, ומסייעים לאזרחים להבין כיצד נבחריהם מקבלים החלטות חקיקה.',
     politicalAlignmentHeading: 'התאמה פוליטית',
   },
   ja: {
@@ -1074,7 +1085,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: '参加率',
     severityLabel: '深刻度',
     statusLabel: 'ステータス',
-    keyTakeawayText: '投票記録と政党結束データは、欧州議会における政治的連携を明らかにし、市民が選出された代表者がどのように立法上の決定を行うかを理解するのに役立ちます。',
+    keyTakeawayText:
+      '投票記録と政党結束データは、欧州議会における政治的連携を明らかにし、市民が選出された代表者がどのように立法上の決定を行うかを理解するのに役立ちます。',
     politicalAlignmentHeading: '政治的連携',
   },
   ko: {
@@ -1092,7 +1104,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: '참여율',
     severityLabel: '심각도',
     statusLabel: '상태',
-    keyTakeawayText: '투표 기록과 정당 결속 데이터는 유럽 의회의 정치적 정렬을 보여주며, 시민들이 선출된 대표자가 입법 결정을 내리는 방식을 이해하는 데 도움을 줍니다.',
+    keyTakeawayText:
+      '투표 기록과 정당 결속 데이터는 유럽 의회의 정치적 정렬을 보여주며, 시민들이 선출된 대표자가 입법 결정을 내리는 방식을 이해하는 데 도움을 줍니다.',
     politicalAlignmentHeading: '정치적 정렬',
   },
   zh: {
@@ -1110,7 +1123,8 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     participationLabel: '参与率',
     severityLabel: '严重程度',
     statusLabel: '状态',
-    keyTakeawayText: '投票记录和政党凝聚力数据揭示了欧洲议会中的政治一致性，帮助公民了解其当选代表如何做出立法决定。',
+    keyTakeawayText:
+      '投票记录和政党凝聚力数据揭示了欧洲议会中的政治一致性，帮助公民了解其当选代表如何做出立法决定。',
     politicalAlignmentHeading: '政治一致性',
   },
 };
@@ -1191,7 +1205,7 @@ export const WEEK_AHEAD_STRINGS: LanguageMap<WeekAheadStrings> = {
     legislativePipeline: 'Pipeline Législatif',
     parliamentaryQuestions: 'Questions Parlementaires',
     noPlenary: 'Aucune session plénière prévue pour cette période.',
-    bottleneckIndicator: '⚠ Goulot d\'étranglement',
+    bottleneckIndicator: "⚠ Goulot d'étranglement",
     whatToWatch: 'À Suivre',
   },
   es: {
@@ -1285,8 +1299,10 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     votingAnomalyAlert: 'Voting Anomaly Alert',
     coalitionDynamicsSection: 'Coalition Dynamics',
     keyPlayers: 'Key Parliamentary Players',
-    placeholderNotice: 'This is placeholder content generated while the European Parliament MCP Server is unavailable. Live intelligence data will appear here when the server is connected.',
-    placeholderLede: 'Significant parliamentary developments are being monitored. Connect the European Parliament MCP Server to receive real-time intelligence on voting anomalies, coalition shifts, and MEP activities.',
+    placeholderNotice:
+      'This is placeholder content generated while the European Parliament MCP Server is unavailable. Live intelligence data will appear here when the server is connected.',
+    placeholderLede:
+      'Significant parliamentary developments are being monitored. Connect the European Parliament MCP Server to receive real-time intelligence on voting anomalies, coalition shifts, and MEP activities.',
     lede: 'Intelligence analysis from the European Parliament MCP Server has identified significant parliamentary developments requiring immediate attention',
   },
   sv: {
@@ -1299,8 +1315,10 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     votingAnomalyAlert: 'Varning för Röstningsanomalier',
     coalitionDynamicsSection: 'Koalitionsdynamik',
     keyPlayers: 'Parlamentariska Nyckelaktörer',
-    placeholderNotice: 'Detta är platshållarinnehåll genererat medan EU-parlamentets MCP-server är otillgänglig.',
-    placeholderLede: 'Betydande parlamentariska händelser övervakas. Anslut EU-parlamentets MCP-server för att ta emot realtidsinformation.',
+    placeholderNotice:
+      'Detta är platshållarinnehåll genererat medan EU-parlamentets MCP-server är otillgänglig.',
+    placeholderLede:
+      'Betydande parlamentariska händelser övervakas. Anslut EU-parlamentets MCP-server för att ta emot realtidsinformation.',
     lede: 'Underrättelseanalys från EU-parlamentets MCP-server har identifierat betydande parlamentariska händelser som kräver omedelbar uppmärksamhet',
   },
   da: {
@@ -1313,8 +1331,10 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     votingAnomalyAlert: 'Advarsel om Afstemningsanomalier',
     coalitionDynamicsSection: 'Koalitionsdynamik',
     keyPlayers: 'Parlamentariske Nøgleaktører',
-    placeholderNotice: 'Dette er pladsholderindhold genereret mens Europa-Parlamentets MCP-server er utilgængelig.',
-    placeholderLede: 'Betydelige parlamentariske udviklinger overvåges. Tilslut Europa-Parlamentets MCP-server for at modtage realtidsintelligens.',
+    placeholderNotice:
+      'Dette er pladsholderindhold genereret mens Europa-Parlamentets MCP-server er utilgængelig.',
+    placeholderLede:
+      'Betydelige parlamentariske udviklinger overvåges. Tilslut Europa-Parlamentets MCP-server for at modtage realtidsintelligens.',
     lede: 'Efterretningsanalyse fra Europa-Parlamentets MCP-server har identificeret betydelige parlamentariske udviklinger der kræver øjeblikkelig opmærksomhed',
   },
   no: {
@@ -1327,8 +1347,10 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     votingAnomalyAlert: 'Advarsel om Avstemningsavvik',
     coalitionDynamicsSection: 'Koalisjonsdynamikk',
     keyPlayers: 'Parlamentariske Nøkkelaktører',
-    placeholderNotice: 'Dette er plassholder-innhold generert mens Europaparlamentets MCP-server er utilgjengelig.',
-    placeholderLede: 'Betydelige parlamentariske hendelser overvåkes. Koble til Europaparlamentets MCP-server for å motta sanntidsinformasjon.',
+    placeholderNotice:
+      'Dette er plassholder-innhold generert mens Europaparlamentets MCP-server er utilgjengelig.',
+    placeholderLede:
+      'Betydelige parlamentariske hendelser overvåkes. Koble til Europaparlamentets MCP-server for å motta sanntidsinformasjon.',
     lede: 'Etterretningsanalyse fra Europaparlamentets MCP-server har identifisert betydelige parlamentariske hendelser som krever umiddelbar oppmerksomhet',
   },
   fi: {
@@ -1341,8 +1363,10 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     votingAnomalyAlert: 'Äänestyspoikkeamavaroitus',
     coalitionDynamicsSection: 'Koalitiodynamiikka',
     keyPlayers: 'Parlamentaariset Avainpelaajat',
-    placeholderNotice: 'Tämä on paikkamerkkisisältö, joka on luotu EU-parlamentin MCP-palvelimen ollessa pois käytöstä.',
-    placeholderLede: 'Merkittäviä parlamentaarisia tapahtumia seurataan. Yhdistä EU-parlamentin MCP-palvelimeen reaaliaikaisen tiedon vastaanottamiseksi.',
+    placeholderNotice:
+      'Tämä on paikkamerkkisisältö, joka on luotu EU-parlamentin MCP-palvelimen ollessa pois käytöstä.',
+    placeholderLede:
+      'Merkittäviä parlamentaarisia tapahtumia seurataan. Yhdistä EU-parlamentin MCP-palvelimeen reaaliaikaisen tiedon vastaanottamiseksi.',
     lede: 'EU-parlamentin MCP-palvelimen tiedusteluanalyysi on tunnistanut merkittäviä parlamentaarisia tapahtumia, jotka vaativat välitöntä huomiota',
   },
   de: {
@@ -1355,8 +1379,10 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     votingAnomalyAlert: 'Warnung vor Abstimmungsanomalien',
     coalitionDynamicsSection: 'Koalitionsdynamik',
     keyPlayers: 'Parlamentarische Schlüsselfiguren',
-    placeholderNotice: 'Dies ist Platzhalterinhalt, der generiert wurde, während der MCP-Server des EU-Parlaments nicht verfügbar ist.',
-    placeholderLede: 'Bedeutende parlamentarische Entwicklungen werden überwacht. Verbinden Sie den MCP-Server des EU-Parlaments für Echtzeit-Informationen.',
+    placeholderNotice:
+      'Dies ist Platzhalterinhalt, der generiert wurde, während der MCP-Server des EU-Parlaments nicht verfügbar ist.',
+    placeholderLede:
+      'Bedeutende parlamentarische Entwicklungen werden überwacht. Verbinden Sie den MCP-Server des EU-Parlaments für Echtzeit-Informationen.',
     lede: 'Die Nachrichtendienstanalyse des MCP-Servers des EU-Parlaments hat bedeutende parlamentarische Entwicklungen identifiziert, die sofortige Aufmerksamkeit erfordern',
   },
   fr: {
@@ -1364,14 +1390,16 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     votingAnomalyIntel: 'Anomalies de Vote — Analyse de Renseignement',
     coalitionDynamics: 'Évaluation des Dynamiques de Coalition',
     analyticalReport: 'Rapport Analytique',
-    keyMEPInfluence: 'Analyse de l\'Influence des Eurodéputés Clés',
+    keyMEPInfluence: "Analyse de l'Influence des Eurodéputés Clés",
     intelligenceBriefing: 'Briefing de Renseignement',
     votingAnomalyAlert: 'Alerte Anomalie de Vote',
     coalitionDynamicsSection: 'Dynamiques de Coalition',
     keyPlayers: 'Acteurs Parlementaires Clés',
-    placeholderNotice: 'Ceci est un contenu indicatif généré pendant que le serveur MCP du Parlement européen est indisponible.',
-    placeholderLede: 'Des développements parlementaires importants sont surveillés. Connectez le serveur MCP du Parlement européen pour recevoir des renseignements en temps réel.',
-    lede: 'L\'analyse de renseignement du serveur MCP du Parlement européen a identifié des développements parlementaires significatifs nécessitant une attention immédiate',
+    placeholderNotice:
+      'Ceci est un contenu indicatif généré pendant que le serveur MCP du Parlement européen est indisponible.',
+    placeholderLede:
+      'Des développements parlementaires importants sont surveillés. Connectez le serveur MCP du Parlement européen pour recevoir des renseignements en temps réel.',
+    lede: "L'analyse de renseignement du serveur MCP du Parlement européen a identifié des développements parlementaires significatifs nécessitant une attention immédiate",
   },
   es: {
     breakingBanner: '⚡ ÚLTIMA HORA',
@@ -1383,8 +1411,10 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     votingAnomalyAlert: 'Alerta de Anomalía de Votación',
     coalitionDynamicsSection: 'Dinámicas de Coalición',
     keyPlayers: 'Actores Parlamentarios Clave',
-    placeholderNotice: 'Este es contenido de marcador de posición generado mientras el servidor MCP del Parlamento Europeo no está disponible.',
-    placeholderLede: 'Se están monitoreando desarrollos parlamentarios significativos. Conecte el servidor MCP del Parlamento Europeo para recibir inteligencia en tiempo real.',
+    placeholderNotice:
+      'Este es contenido de marcador de posición generado mientras el servidor MCP del Parlamento Europeo no está disponible.',
+    placeholderLede:
+      'Se están monitoreando desarrollos parlamentarios significativos. Conecte el servidor MCP del Parlamento Europeo para recibir inteligencia en tiempo real.',
     lede: 'El análisis de inteligencia del servidor MCP del Parlamento Europeo ha identificado desarrollos parlamentarios significativos que requieren atención inmediata',
   },
   nl: {
@@ -1397,8 +1427,10 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     votingAnomalyAlert: 'Waarschuwing Stemanomalieën',
     coalitionDynamicsSection: 'Coalitiedynamiek',
     keyPlayers: 'Parlementaire Sleutelfiguren',
-    placeholderNotice: 'Dit is tijdelijke inhoud gegenereerd terwijl de MCP-server van het Europees Parlement niet beschikbaar is.',
-    placeholderLede: 'Significante parlementaire ontwikkelingen worden gemonitord. Verbind de MCP-server van het Europees Parlement voor realtime-informatie.',
+    placeholderNotice:
+      'Dit is tijdelijke inhoud gegenereerd terwijl de MCP-server van het Europees Parlement niet beschikbaar is.',
+    placeholderLede:
+      'Significante parlementaire ontwikkelingen worden gemonitord. Verbind de MCP-server van het Europees Parlement voor realtime-informatie.',
     lede: 'Inlichtingenanalyse van de MCP-server van het Europees Parlement heeft significante parlementaire ontwikkelingen geïdentificeerd die onmiddellijke aandacht vereisen',
   },
   ar: {
@@ -1412,7 +1444,8 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionDynamicsSection: 'ديناميات التحالف',
     keyPlayers: 'اللاعبون البرلمانيون الرئيسيون',
     placeholderNotice: 'هذا محتوى مؤقت تم إنشاؤه أثناء عدم توفر خادم MCP للبرلمان الأوروبي.',
-    placeholderLede: 'تتم مراقبة تطورات برلمانية مهمة. قم بتوصيل خادم MCP للبرلمان الأوروبي لتلقي معلومات استخبارية في الوقت الفعلي.',
+    placeholderLede:
+      'تتم مراقبة تطورات برلمانية مهمة. قم بتوصيل خادم MCP للبرلمان الأوروبي لتلقي معلومات استخبارية في الوقت الفعلي.',
     lede: 'حدد التحليل الاستخباراتي لخادم MCP للبرلمان الأوروبي تطورات برلمانية مهمة تتطلب اهتماماً فورياً',
   },
   he: {
@@ -1426,7 +1459,8 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionDynamicsSection: 'דינמיקת קואליציה',
     keyPlayers: 'שחקני מפתח פרלמנטריים',
     placeholderNotice: 'זהו תוכן מציין מיקום שנוצר בזמן ששרת MCP של הפרלמנט האירופי אינו זמין.',
-    placeholderLede: 'מתבצע ניטור של התפתחויות פרלמנטריות משמעותיות. חבר את שרת MCP של הפרלמנט האירופי לקבלת מודיעין בזמן אמת.',
+    placeholderLede:
+      'מתבצע ניטור של התפתחויות פרלמנטריות משמעותיות. חבר את שרת MCP של הפרלמנט האירופי לקבלת מודיעין בזמן אמת.',
     lede: 'ניתוח מודיעיני משרת MCP של הפרלמנט האירופי זיהה התפתחויות פרלמנטריות משמעותיות הדורשות תשומת לב מיידית',
   },
   ja: {
@@ -1439,8 +1473,10 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     votingAnomalyAlert: '投票異常警報',
     coalitionDynamicsSection: '連立動態',
     keyPlayers: '議会の主要人物',
-    placeholderNotice: 'これは欧州議会MCPサーバーが利用できない間に生成されたプレースホルダーコンテンツです。',
-    placeholderLede: '重大な議会の動きを監視しています。リアルタイムの情報を受信するには、欧州議会MCPサーバーに接続してください。',
+    placeholderNotice:
+      'これは欧州議会MCPサーバーが利用できない間に生成されたプレースホルダーコンテンツです。',
+    placeholderLede:
+      '重大な議会の動きを監視しています。リアルタイムの情報を受信するには、欧州議会MCPサーバーに接続してください。',
     lede: '欧州議会MCPサーバーの情報分析により、即座の注意を要する重大な議会の動きが特定されました',
   },
   ko: {
@@ -1454,7 +1490,8 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionDynamicsSection: '연합 역학',
     keyPlayers: '의회 핵심 인물',
     placeholderNotice: '유럽 의회 MCP 서버를 사용할 수 없는 동안 생성된 자리 표시자 콘텐츠입니다.',
-    placeholderLede: '중요한 의회 동향이 모니터링되고 있습니다. 실시간 정보를 수신하려면 유럽 의회 MCP 서버에 연결하세요.',
+    placeholderLede:
+      '중요한 의회 동향이 모니터링되고 있습니다. 실시간 정보를 수신하려면 유럽 의회 MCP 서버에 연결하세요.',
     lede: '유럽 의회 MCP 서버의 정보 분석에서 즉각적인 주의가 필요한 중요한 의회 동향이 확인되었습니다',
   },
   zh: {

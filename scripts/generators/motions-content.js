@@ -6,7 +6,7 @@
  * generating placeholder/fallback data when MCP is unavailable.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-import { getLocalizedString, EDITORIAL_STRINGS, MOTIONS_STRINGS, } from '../constants/languages.js';
+import { getLocalizedString, EDITORIAL_STRINGS, MOTIONS_STRINGS } from '../constants/languages.js';
 /** Marker string used in all fallback/placeholder data to indicate MCP data is unavailable */
 export const PLACEHOLDER_MARKER = 'DATA_UNAVAILABLE (placeholder)';
 /**
