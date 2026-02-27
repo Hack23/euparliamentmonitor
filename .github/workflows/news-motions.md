@@ -123,6 +123,9 @@ echo "Article Type: motions"
 echo "============================"
 ```
 
+**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$(date -u +%Y-%m-%d)`. NEVER hardcode a year (e.g. 2024). Use `TODAY=$(date -u +%Y-%m-%d)` and compute offsets with `date -u -d` commands.
+
+
 ## MANDATORY MCP Health Gate
 
 Before generating ANY articles, verify MCP connectivity:
@@ -187,6 +190,13 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 3. The articles exist but no PR = readers can't see them = FAILURE
 
 ## EP MCP Tools for Motions
+
+### ⚡ MCP Call Budget (STRICT)
+
+- **Call each tool at most once** — never call the same tool a second time
+- **Maximum 8 MCP tool calls** total for data gathering
+- If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
+- If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
 
 Use the following EP MCP tools to gather data for motions analysis. **All data MUST come from these tools.**
 
@@ -310,7 +320,7 @@ if [ -f "$MCP_CONFIG" ]; then
 
   if [ -n "${GATEWAY_PORT:-}" ] && [ -n "${GATEWAY_DOMAIN:-}" ]; then
     case "$GATEWAY_DOMAIN" in
-      localhost|127.0.0.1|::1)
+      localhost|127.0.0.1|::1|host.docker.internal)
         GATEWAY_SCHEME="http"
         ;;
       *)
@@ -380,7 +390,7 @@ npx tsx src/generators/news-enhanced.ts \
   $SKIP_FLAG
 ```
 
-**Note**: When `USE_EP_MCP=false`, the script generates placeholder content. If this happens, you MUST enrich the articles with real data from the EP MCP tools available to you as an agent before committing.
+**Note**: When `USE_EP_MCP=false`, the script generates correct HTML structure with placeholder content sections. **Enrich ONLY the English article** by replacing placeholder `<p>` paragraphs in `<section>` elements with real analysis from the MCP data gathered above. For other language articles, the TypeScript templates already handle localized headings and labels — only update the narrative body paragraphs (the analysis text inside `<p>` tags) by writing translated versions of the English analysis. Do NOT rewrite entire articles — only update narrative `<p>` content.
 
 ### Step 4: Validate Articles
 

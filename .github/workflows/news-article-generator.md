@@ -121,6 +121,9 @@ echo "Article Types: ${{ github.event.inputs.article_types }}"
 echo "============================"
 ```
 
+**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$(date -u +%Y-%m-%d)`. NEVER hardcode a year (e.g. 2024). Use `TODAY=$(date -u +%Y-%m-%d)` and compute offsets with `date -u -d` commands.
+
+
 ## MANDATORY MCP Health Gate
 
 Before generating ANY articles, verify MCP connectivity:
@@ -174,6 +177,13 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 | `breaking` | Real-time | Manual | OSINT intelligence alerts |
 
 ## EP MCP Tools
+
+### ⚡ MCP Call Budget (STRICT)
+
+- **Call each tool at most once** — never call the same tool a second time
+- **Maximum 8 MCP tool calls** total for data gathering
+- If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
+- If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
 
 **Always verify connectivity first:**
 ```javascript
@@ -264,7 +274,7 @@ if [ -f "$MCP_CONFIG" ]; then
 
   if [ -n "${GATEWAY_PORT:-}" ] && [ -n "${GATEWAY_DOMAIN:-}" ]; then
     case "$GATEWAY_DOMAIN" in
-      localhost|127.0.0.1|::1)
+      localhost|127.0.0.1|::1|host.docker.internal)
         GATEWAY_SCHEME="http"
         ;;
       *)
