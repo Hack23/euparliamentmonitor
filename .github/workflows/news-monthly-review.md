@@ -297,10 +297,10 @@ BRANCH_NAME="news/month-in-review-$TODAY"
 ```javascript
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
-  title: `chore: EU Parliament month-in-review articles ${today}`,
+  title: `chore: EU Parliament month-in-review articles ${TODAY}`,
   body: `## EU Parliament Monthly Review Articles\n\nGenerated month-in-review comprehensive analysis articles.\n\n- Languages: ${LANG_ARG}\n- Review period: past 30 days\n- Data source: European Parliament MCP Server`,
   base: "main",
-  head: `news/month-in-review-${today}`
+  head: BRANCH_NAME
 })
 ```
 

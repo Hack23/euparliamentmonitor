@@ -492,7 +492,7 @@ safeoutputs___create_pull_request({
   title: `chore: EU Parliament propositions articles ${TODAY}`,
   body: `## EU Parliament Propositions Articles\n\nGenerated propositions articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server`,
   base: "main",
-  head: `news/propositions-${TODAY}`
+  head: BRANCH_NAME
 })
 ```
 

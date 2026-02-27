@@ -343,10 +343,10 @@ echo "Branch: $BRANCH_NAME"
 ```javascript
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
-  title: `chore: EU Parliament news articles ${today}`,
-  body: `## EU Parliament News Articles\n\nGenerated ${ARTICLE_TYPES} articles for ${LANG_ARG}.\n\n- Types: ${ARTICLE_TYPES}\n- Languages: ${LANG_ARG}\n- Date: ${today}\n- Data source: European Parliament MCP Server`,
+  title: `chore: EU Parliament news articles ${TODAY}`,
+  body: `## EU Parliament News Articles\n\nGenerated ${ARTICLE_TYPES} articles for ${LANG_ARG}.\n\n- Types: ${ARTICLE_TYPES}\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server`,
   base: "main",
-  head: `news/articles-${today}`
+  head: BRANCH_NAME
 })
 ```
 
