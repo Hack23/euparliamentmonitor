@@ -16,6 +16,8 @@ export interface MCPClientOptions {
   gatewayUrl?: string;
   /** API key for MCP Gateway authentication */
   gatewayApiKey?: string;
+  /** Human-readable server name used in operational log messages (default: 'European Parliament MCP Server') */
+  serverLabel?: string;
 }
 
 /** MCP tool call result content item */
@@ -390,4 +392,32 @@ export interface ComparativeIntelligenceOptions {
 export interface CorrelateIntelligenceOptions {
   mepId?: number;
   correlationScenarios?: ('influence_anomaly' | 'coalition_stress' | 'network_activity')[];
+}
+
+/** Allowed category values for getAllGeneratedStats */
+export type GeneratedStatsCategory =
+  | 'all'
+  | 'plenary_sessions'
+  | 'legislative_acts'
+  | 'roll_call_votes'
+  | 'committee_meetings'
+  | 'parliamentary_questions'
+  | 'resolutions'
+  | 'speeches'
+  | 'adopted_texts'
+  | 'political_groups'
+  | 'procedures'
+  | 'events'
+  | 'documents'
+  | 'mep_turnover'
+  | 'declarations';
+
+/** Options for getAllGeneratedStats */
+export interface GetAllGeneratedStatsOptions {
+  yearFrom?: number;
+  yearTo?: number;
+  category?: GeneratedStatsCategory;
+  includePredictions?: boolean;
+  includeMonthlyBreakdown?: boolean;
+  includeRankings?: boolean;
 }

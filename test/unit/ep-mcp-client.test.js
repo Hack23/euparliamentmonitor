@@ -1597,6 +1597,55 @@ describe('ep-mcp-client', () => {
       });
     });
 
+    describe('Precomputed Statistics', () => {
+      beforeEach(() => {
+        client.connected = true;
+        client.callTool = vi.fn();
+      });
+
+      it('should get all generated stats with default options', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"yearlyStats": {}, "coveragePeriod": {"from": 2004, "to": 2025}}' }],
+        });
+
+        await client.getAllGeneratedStats();
+
+        expect(client.callTool).toHaveBeenCalledWith('get_all_generated_stats', {});
+      });
+
+      it('should get all generated stats with custom options', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"yearlyStats": {}}' }],
+        });
+
+        const options = { yearFrom: 2019, yearTo: 2023, category: 'plenary_sessions', includePredictions: true, includeRankings: true };
+        await client.getAllGeneratedStats(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_all_generated_stats', options);
+      });
+
+      it('should handle missing get_all_generated_stats tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getAllGeneratedStats();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"stats": null}' }],
+        });
+      });
+
+      it('should pass category filter correctly', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"yearlyStats": {}}' }],
+        });
+
+        const options = { category: 'roll_call_votes', includeMonthlyBreakdown: true };
+        await client.getAllGeneratedStats(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_all_generated_stats', options);
+      });
+    });
+
     describe('Retry Logic', () => {
       it('should have retry configuration', async () => {
         const failingClient = new EuropeanParliamentMCPClient({

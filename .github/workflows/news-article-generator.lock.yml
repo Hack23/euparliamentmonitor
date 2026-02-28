@@ -23,7 +23,7 @@
 #
 # Manual dispatch workflow to generate any combination of EU Parliament news article types. High-level invoker for multi-type article generation.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"7ac7edfa7786bca61d4b516f7cb4c9975ddaca1c30a179fdbad544e69e9f28e6","compiler_version":"v0.50.7"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"4b81b788260f872b01ec0ba6181f3edeb47f160a9fb7036104a66ec772911137","compiler_version":"v0.50.7"}
 
 name: "News: EU Parliament Article Generator"
 "on":
@@ -695,7 +695,7 @@ jobs:
                 "entrypointArgs": [
                   "npx",
                   "-y",
-                  "european-parliament-mcp-server@0.9.0"
+                  "european-parliament-mcp-server@1.0.0"
                 ],
                 "tools": [
                   "*"

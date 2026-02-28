@@ -77,18 +77,19 @@
     "jscpd": "^4.0.8",
     "jsdoc": "^4.0.5",
     "jsdoc-to-markdown": "^9.1.3",
-    "lint-staged": "^16.2.7",
+    "lint-staged": "^16.3.0",
     "prettier": "^3.8.1",
     "ts-api-utils": "^2.4.0",
     "tsx": "^4.21.0",
     "typedoc": "^0.28.17",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "vitest": "^4.0.18",
+    "worldbank-mcp": "^1.0.0"
   },
   "engines": {
     "node": ">=24"
   },
   "dependencies": {
-    "european-parliament-mcp-server": "^0.9.0"
+    "european-parliament-mcp-server": "^1.0.0"
   }
 }

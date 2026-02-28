@@ -9,6 +9,7 @@
  * - **parliament** — Domain entities (events, committees, documents, voting)
  * - **generation** — Article pipeline (options, metadata, stats)
  * - **mcp** — MCP client transport and tool option interfaces
+ * - **world-bank** — World Bank economic data types for article enrichment
  */
 export { ArticleCategory, ArticlePerspective, TimePeriod, AnalysisPerspective, CATEGORY_PERSPECTIVE, CATEGORY_TIME_PERIOD, } from './common.js';
 //# sourceMappingURL=index.js.map
