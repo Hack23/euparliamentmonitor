@@ -774,11 +774,11 @@ EU Parliament Monitor aligns with multiple compliance frameworks:
 > have finished their morning coffee. The future of parliamentary journalism
 > didn't send a memo — it opened a pull request."*
 
-The EU Parliament Monitor doesn't just report on European Parliament activity — it **autonomously generates deep political intelligence** at machine speed, with editorial quality that would make legacy news desks nervous. Every article is researched, written, localized, and published by AI agents operating on live European Parliament data via the [MCP Server](https://github.com/Hack23/European-Parliament-MCP-Server) (46 tools, real-time data), without a single human keystroke.
+The EU Parliament Monitor doesn't just report on European Parliament activity — it **autonomously generates deep political intelligence** at machine speed, with editorial quality that would make legacy news desks nervous. Every article is researched, written, localized, and prepared for publication by AI agents that operate by default on live European Parliament data via the [MCP Server](https://github.com/Hack23/European-Parliament-MCP-Server) (46 tools, real-time data), with transparent fallback to placeholder/test data when live access is unavailable as described above. The agents automatically generate content and open publication-ready pull requests; publication to the site occurs when a human reviews and merges those PRs.
 
 ### 📰 Agentic News Generation Architecture
 
-**8 autonomous news workflows** run on precision schedules, each powered by a dedicated GitHub Copilot agentic workflow that fetches live EP data, generates Economist-style analysis, and publishes across all 14 languages:
+**8 autonomous news workflows** run on precision schedules, each powered by a dedicated GitHub Copilot agentic workflow that fetches live EP data (with documented fallback behavior), generates Economist-style analysis, and opens publication-ready pull requests across all 14 languages:
 
 ```mermaid
 graph LR
@@ -830,11 +830,11 @@ graph LR
 
 ### 🧠 The Intelligence Stack
 
-The platform combines **8 specialized AI agents**, **39 TypeScript source modules**, **21 CI/CD workflows**, and **46 MCP data tools** into a fully autonomous political intelligence pipeline:
+The platform combines **8 core news-pipeline AI agents** (from a catalog of 22+ specialized agents), **39 TypeScript source modules**, **21 CI/CD workflows**, and **46 MCP data tools** into a fully autonomous political intelligence pipeline:
 
 ```mermaid
 graph TB
-    subgraph "🤖 8 Custom AI Agents"
+    subgraph "🤖 8 Core News Pipeline Agents"
         A1["📰 News Journalist<br/><i>Economist-style reporting</i>"]
         A2["🔄 Data Pipeline<br/><i>MCP integration</i>"]
         A3["🎨 Frontend<br/><i>WCAG 2.1 AA</i>"]
@@ -928,7 +928,7 @@ When AGI or near-AGI systems become available, the platform architecture is desi
 
 | Capability | Description |
 |-----------|-------------|
-| 🤖 **Autonomous Analysis** | AGI-powered real-time political intelligence across all 195 parliamentary systems |
+| 🤖 **Autonomous Analysis** | AGI-powered real-time political intelligence across all 195 national legislatures |
 | 🌐 **Universal Language Support** | Every UN language supported natively — no translation pipeline, native generation |
 | 📊 **Predictive Governance** | Policy impact prediction *before* legislation is proposed — anticipatory intelligence |
 | ⚖️ **Ethical AI Governance** | Human oversight maintained regardless of AI capability level — democratic safeguards hardcoded |
