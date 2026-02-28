@@ -12,7 +12,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { createTempDir, cleanupTempDir } from '../helpers/test-utils.js';
-import { generateSitemap, collectDocsHtmlFiles, generateSitemapHTML, getSitemapFilename } from '../../scripts/generators/sitemap.js';
+import { generateSitemap, collectDocsHtmlFiles, generateSitemapHTML, getSitemapFilename, generateRssFeed } from '../../scripts/generators/sitemap.js';
 
 describe('generate-sitemap', () => {
   let tempDir;
@@ -168,15 +168,15 @@ describe('generate-sitemap', () => {
       const sitemap = generateMockSitemap(articles, docsFiles);
 
       const urlCount = (sitemap.match(/<url>/g) || []).length;
-      // 14 index + 14 sitemap HTML + 3 articles + 1 docs = 32
-      expect(urlCount).toBe(14 + 14 + articles.length + docsFiles.length);
+      // 14 index + 14 sitemap HTML + 1 rss.xml + 3 articles + 1 docs = 33
+      expect(urlCount).toBe(14 + 14 + 1 + articles.length + docsFiles.length);
     });
 
     it('should handle no articles and no docs', () => {
       const sitemap = generateMockSitemap([]);
 
       const urlCount = (sitemap.match(/<url>/g) || []).length;
-      expect(urlCount).toBe(14 + 14); // 14 language indexes + 14 sitemap HTML pages
+      expect(urlCount).toBe(14 + 14 + 1); // 14 language indexes + 14 sitemap HTML pages + 1 rss.xml
     });
 
     it('should handle many articles', () => {
@@ -184,7 +184,7 @@ describe('generate-sitemap', () => {
       const sitemap = generateMockSitemap(articles);
 
       const urlCount = (sitemap.match(/<url>/g) || []).length;
-      expect(urlCount).toBe(14 + 14 + 100);
+      expect(urlCount).toBe(14 + 14 + 1 + 100);
     });
   });
 
@@ -541,6 +541,194 @@ describe('generate-sitemap', () => {
       expect(docsBlock).toBeTruthy();
       expect(docsBlock[0]).toContain('<changefreq>weekly</changefreq>');
     });
+
+    it('should include rss.xml URL in sitemap', () => {
+      const xml = generateSitemap([]);
+
+      expect(xml).toContain('<loc>https://euparliamentmonitor.com/rss.xml</loc>');
+    });
+  });
+
+  describe('generateRssFeed', () => {
+    it('should generate valid RSS 2.0 XML', () => {
+      const rss = generateRssFeed([]);
+
+      expect(rss).toContain('<?xml version="1.0" encoding="UTF-8"?>');
+      expect(rss).toContain('<rss version="2.0"');
+      expect(rss).toContain('xmlns:atom="http://www.w3.org/2005/Atom"');
+      expect(rss).toContain('<channel>');
+      expect(rss).toContain('</channel>');
+      expect(rss).toContain('</rss>');
+    });
+
+    it('should include channel metadata', () => {
+      const rss = generateRssFeed([]);
+
+      expect(rss).toContain('<title>EU Parliament Monitor</title>');
+      expect(rss).toContain('<link>https://euparliamentmonitor.com</link>');
+      expect(rss).toContain('<description>');
+      expect(rss).toContain('<language>en</language>');
+      expect(rss).toContain('<lastBuildDate>');
+    });
+
+    it('should include atom self link', () => {
+      const rss = generateRssFeed([]);
+
+      expect(rss).toContain('atom:link href="https://euparliamentmonitor.com/rss.xml"');
+      expect(rss).toContain('rel="self"');
+      expect(rss).toContain('type="application/rss+xml"');
+    });
+
+    it('should include article items with correct structure', () => {
+      const items = [
+        { title: 'Test Article', link: 'https://euparliamentmonitor.com/news/test.html', description: 'A test', pubDate: 'Wed, 15 Jan 2025 00:00:00 GMT', lang: 'en' },
+      ];
+      const rss = generateRssFeed(items);
+
+      expect(rss).toContain('<item>');
+      expect(rss).toContain('<title>Test Article</title>');
+      expect(rss).toContain('<link>https://euparliamentmonitor.com/news/test.html</link>');
+      expect(rss).toContain('<description>A test</description>');
+      expect(rss).toContain('<pubDate>Wed, 15 Jan 2025 00:00:00 GMT</pubDate>');
+      expect(rss).toContain('<guid isPermaLink="true">https://euparliamentmonitor.com/news/test.html</guid>');
+      expect(rss).toContain('<language>en</language>');
+    });
+
+    it('should include multi-language items', () => {
+      const items = [
+        { title: 'English Article', link: 'https://euparliamentmonitor.com/news/en.html', description: 'English desc', pubDate: 'Wed, 15 Jan 2025 00:00:00 GMT', lang: 'en' },
+        { title: 'Svensk Artikel', link: 'https://euparliamentmonitor.com/news/sv.html', description: 'Svensk beskrivning', pubDate: 'Wed, 15 Jan 2025 00:00:00 GMT', lang: 'sv' },
+        { title: 'مقال عربي', link: 'https://euparliamentmonitor.com/news/ar.html', description: 'وصف عربي', pubDate: 'Wed, 15 Jan 2025 00:00:00 GMT', lang: 'ar' },
+      ];
+      const rss = generateRssFeed(items);
+
+      expect(rss).toContain('<language>en</language>');
+      expect(rss).toContain('<language>sv</language>');
+      expect(rss).toContain('<language>ar</language>');
+      const itemCount = (rss.match(/<item>/g) || []).length;
+      expect(itemCount).toBe(3);
+    });
+
+    it('should escape XML special characters in titles', () => {
+      const items = [
+        { title: 'Test & <Script> "Article"', link: 'https://euparliamentmonitor.com/news/test.html', description: 'Desc with & chars', pubDate: 'Wed, 15 Jan 2025 00:00:00 GMT', lang: 'en' },
+      ];
+      const rss = generateRssFeed(items);
+
+      expect(rss).toContain('Test &amp; &lt;Script&gt; &quot;Article&quot;');
+      expect(rss).not.toContain('<Script>');
+    });
+
+    it('should handle empty items list', () => {
+      const rss = generateRssFeed([]);
+
+      expect(rss).toContain('<channel>');
+      expect(rss).toContain('</channel>');
+      expect(rss).not.toContain('<item>');
+    });
+
+    it('should handle large number of items', () => {
+      const items = Array.from({ length: 200 }, (_, i) => ({
+        title: `Article ${i}`,
+        link: `https://euparliamentmonitor.com/news/article-${i}.html`,
+        description: `Description ${i}`,
+        pubDate: 'Wed, 15 Jan 2025 00:00:00 GMT',
+        lang: 'en',
+      }));
+      const rss = generateRssFeed(items);
+
+      const itemCount = (rss.match(/<item>/g) || []).length;
+      expect(itemCount).toBe(200);
+    });
+  });
+
+  describe('Sitemap Locale Validation', () => {
+    const ALL_LANG_CODES = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+
+    it('should include index page for every supported language', () => {
+      const xml = generateSitemap([]);
+
+      for (const lang of ALL_LANG_CODES) {
+        const filename = lang === 'en' ? 'index.html' : `index-${lang}.html`;
+        expect(xml).toContain(`<loc>https://euparliamentmonitor.com/${filename}</loc>`);
+      }
+    });
+
+    it('should include sitemap HTML page for every supported language', () => {
+      const xml = generateSitemap([]);
+
+      for (const lang of ALL_LANG_CODES) {
+        const filename = lang === 'en' ? 'sitemap.html' : `sitemap_${lang}.html`;
+        expect(xml).toContain(`<loc>https://euparliamentmonitor.com/${filename}</loc>`);
+      }
+    });
+
+    it('should include rss.xml in sitemap', () => {
+      const xml = generateSitemap([]);
+      expect(xml).toContain('<loc>https://euparliamentmonitor.com/rss.xml</loc>');
+    });
+
+    it('should include all article locale variants when provided', () => {
+      const articles = ALL_LANG_CODES.map((lang) => `2026-02-24-propositions-${lang}.html`);
+      const xml = generateSitemap(articles);
+
+      for (const lang of ALL_LANG_CODES) {
+        expect(xml).toContain(`<loc>https://euparliamentmonitor.com/news/2026-02-24-propositions-${lang}.html</loc>`);
+      }
+    });
+
+    it('should include docs files when present', () => {
+      const docsFiles = ['docs/index.html', 'docs/api/index.html', 'docs/coverage/index.html'];
+      const xml = generateSitemap([], docsFiles);
+
+      for (const doc of docsFiles) {
+        expect(xml).toContain(`<loc>https://euparliamentmonitor.com/${doc}</loc>`);
+      }
+    });
+
+    it('should have exactly 14 index pages, 14 sitemap pages, 1 rss.xml with no articles', () => {
+      const xml = generateSitemap([]);
+      const urlCount = (xml.match(/<url>/g) || []).length;
+
+      // 14 index + 14 sitemap HTML + 1 rss.xml = 29
+      expect(urlCount).toBe(29);
+    });
+
+    it('should have correct total URL count with articles and docs', () => {
+      const articles = ['2026-02-24-propositions-en.html', '2026-02-24-propositions-sv.html'];
+      const docsFiles = ['docs/index.html'];
+      const xml = generateSitemap(articles, docsFiles);
+      const urlCount = (xml.match(/<url>/g) || []).length;
+
+      // 14 index + 14 sitemap + 1 rss + 2 articles + 1 docs = 32
+      expect(urlCount).toBe(32);
+    });
+
+    it('should set correct priorities for all page types', () => {
+      const articles = ['2026-02-24-propositions-en.html'];
+      const docsFiles = ['docs/index.html'];
+      const xml = generateSitemap(articles, docsFiles);
+
+      // Index pages: 1.0
+      const indexBlock = xml.match(/<url>[\s\S]*?index\.html[\s\S]*?<\/url>/);
+      expect(indexBlock[0]).toContain('<priority>1.0</priority>');
+
+      // News: 0.8
+      const newsBlock = xml.match(/<url>[\s\S]*?news\/[\s\S]*?<\/url>/);
+      expect(newsBlock[0]).toContain('<priority>0.8</priority>');
+
+      // Sitemap HTML: 0.5
+      const sitemapBlock = xml.match(/<url>[\s\S]*?sitemap\.html[\s\S]*?<\/url>/);
+      expect(sitemapBlock[0]).toContain('<priority>0.5</priority>');
+
+      // RSS: 0.5
+      const rssBlock = xml.match(/<url>[\s\S]*?rss\.xml[\s\S]*?<\/url>/);
+      expect(rssBlock[0]).toContain('<priority>0.5</priority>');
+
+      // Docs: 0.3
+      const docsBlock = xml.match(/<url>[\s\S]*?docs\/[\s\S]*?<\/url>/);
+      expect(docsBlock[0]).toContain('<priority>0.3</priority>');
+    });
   });
 });
 
@@ -574,6 +762,14 @@ function generateMockSitemap(articles, docsFiles = []) {
       priority: '0.5',
     });
   }
+
+  // Add RSS feed
+  urls.push({
+    loc: `${BASE_URL}/rss.xml`,
+    lastmod: new Date().toISOString().split('T')[0],
+    changefreq: 'daily',
+    priority: '0.5',
+  });
 
   // Add news articles
   for (const article of articles) {
