@@ -9,6 +9,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { generateArticleHTML } from '../../scripts/templates/article-template.js';
 import { validateArticleHTML } from '../../scripts/utils/file-utils.js';
+import { ALL_LANGUAGES } from '../../scripts/constants/languages.js';
 import { mockArticleMetadata, mockArticleContent, mockSources } from '../fixtures/ep-data.js';
 import { validateHTML } from '../helpers/test-utils.js';
 
@@ -514,37 +515,23 @@ describe('article-template', () => {
       });
 
       it('should pass validation for all 14 languages', () => {
-        const langCodes = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
-
-        langCodes.forEach((code) => {
+        ALL_LANGUAGES.forEach((code) => {
           const html = generateArticleHTML({ ...defaultOptions, lang: code });
           const result = validateArticleHTML(html);
           expect(result.valid).toBe(true);
         });
       });
 
-      it('should fail validation for HTML missing language-switcher', () => {
+      it.each([
+        'language-switcher',
+        'article-top-nav',
+        'site-header',
+      ])('should fail validation for HTML missing %s', (element) => {
         const html = '<html><body><main id="main"><article></article></main></body></html>';
         const result = validateArticleHTML(html);
 
         expect(result.valid).toBe(false);
-        expect(result.errors.some(e => e.includes('language-switcher'))).toBe(true);
-      });
-
-      it('should fail validation for HTML missing article-top-nav', () => {
-        const html = '<html><body><main id="main"><article></article></main></body></html>';
-        const result = validateArticleHTML(html);
-
-        expect(result.valid).toBe(false);
-        expect(result.errors.some(e => e.includes('article-top-nav'))).toBe(true);
-      });
-
-      it('should fail validation for HTML missing site-header', () => {
-        const html = '<html><body><main id="main"><article></article></main></body></html>';
-        const result = validateArticleHTML(html);
-
-        expect(result.valid).toBe(false);
-        expect(result.errors.some(e => e.includes('site-header'))).toBe(true);
+        expect(result.errors.some(e => e.includes(element))).toBe(true);
       });
 
       it('should fail validation for HTML missing all required elements', () => {

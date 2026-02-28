@@ -158,6 +158,8 @@ function generateSingleLanguageArticle(
     console.error(
       `  ❌ ${lang.toUpperCase()} article failed validation: ${validation.errors.join('; ')}`
     );
+    stats.errors++;
+    return false;
   }
 
   if (writeSingleArticle(html, slug, lang, outputOptions, stats)) {
