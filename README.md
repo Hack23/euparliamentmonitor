@@ -769,7 +769,7 @@ EU Parliament Monitor aligns with multiple compliance frameworks:
 ## 🤖 AI-Disrupted News Generation & Agentic Intelligence
 
 > *"While traditional newsrooms debate whether AI will replace journalists,
-> EU Parliament Monitor quietly deployed 8 autonomous AI agents that publish
+> EU Parliament Monitor quietly deployed 8 autonomous AI agents that generate
 > investigative political intelligence in 14 languages before most reporters
 > have finished their morning coffee. The future of parliamentary journalism
 > didn't send a memo — it opened a pull request."*
@@ -847,9 +847,10 @@ graph TB
 
     subgraph "⚙️ 21 CI/CD Workflows"
         W1["8 News Generation"]
-        W2["5 Security Scanning"]
-        W3["4 Testing & Quality"]
-        W4["4 Release & Deploy"]
+        W2["4 Security Scanning"]
+        W3["3 Testing & Quality"]
+        W4["2 Release & Deploy"]
+        W5["4 Automation & Infra"]
     end
 
     subgraph "📊 Data Layer"
@@ -917,7 +918,7 @@ timeline
                         : Cross-jurisdiction analysis
     section Phase 6 (2034–2037)
         AGI Era : Transformative democracy
-               : 195 parliamentary systems
+               : 195 national legislatures
                : Policy prediction before proposal
                : Human oversight maintained
 ```
