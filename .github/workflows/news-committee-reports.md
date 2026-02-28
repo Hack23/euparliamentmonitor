@@ -101,10 +101,10 @@ This focused approach ensures:
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–10**: Query EP MCP tools for committee reports data
 - **Minutes 10–40**: Generate articles for all 14 languages
-- **Minutes 40–50**: Validate and commit
+- **Minutes 40–50**: Validate and finalize changes
 - **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 50 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 50 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 
 ## Required Skills
 
@@ -124,6 +124,9 @@ date -u "+Current UTC: %A %Y-%m-%d %H:%M:%S"
 echo "Article Type: committee-reports"
 echo "============================"
 ```
+
+**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$(date -u +%Y-%m-%d)`. NEVER hardcode a year (e.g. 2024). Use `TODAY=$(date -u +%Y-%m-%d)` and compute offsets with `date -u -d` commands.
+
 
 ## MANDATORY MCP Health Gate
 
@@ -189,6 +192,14 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 3. The articles exist but no PR = readers can't see them = FAILURE
 
 ## EP MCP Tools for Committee Reports
+
+### ⚡ MCP Call Budget (STRICT)
+
+- This budget applies to **manual pre-generation data gathering only** (connectivity checks and sample queries run before invoking the generator script). The mandatory MCP Health Gate (including up to 3 retries of `european_parliament___get_plenary_sessions`) and the automated generator script (`src/generators/news-enhanced.ts`, including its committee-reports mode which makes ~15 internal MCP calls across 5 committees) are **explicitly exempt** from this budget.
+- When performing **manual pre-generation data gathering**, **call each tool at most once** — never call the same tool a second time during that phase
+- During **manual pre-generation data gathering**, make a **maximum of 8 MCP tool calls** total (health-gate calls and calls made by the generator script do not count)
+- If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
+- If you notice you are about to call a tool you already called during the manual phase, **STOP data gathering and move to generation** (let the generator script handle any further MCP usage)
 
 **Use these European Parliament MCP tools** to verify connectivity and fetch key data before running the generation script:
 
@@ -311,7 +322,7 @@ if [ -f "$MCP_CONFIG" ]; then
 
   if [ -n "${GATEWAY_PORT:-}" ] && [ -n "${GATEWAY_DOMAIN:-}" ]; then
     case "$GATEWAY_DOMAIN" in
-      localhost|127.0.0.1|::1)
+      localhost|127.0.0.1|::1|host.docker.internal)
         GATEWAY_SCHEME="http"
         ;;
       *)
@@ -381,7 +392,7 @@ npx tsx src/generators/news-enhanced.ts \
   $SKIP_FLAG
 ```
 
-**Note**: When `USE_EP_MCP=false`, the script generates placeholder content. If this happens, you MUST enrich the articles with real data from the EP MCP tools available to you as an agent before committing.
+**Note**: When `USE_EP_MCP=false`, the script generates correct HTML structure with placeholder content sections. **Enrich ONLY the English article** by replacing placeholder `<p>` paragraphs in `<section>` elements with real analysis from the MCP data gathered above. For other language articles, the TypeScript templates already handle localized headings and labels — only update the narrative body paragraphs (the analysis text inside `<p>` tags) by writing translated versions of the English analysis. Do NOT rewrite entire articles — only update narrative `<p>` content.
 
 ### Step 4: MANDATORY Quality Validation
 

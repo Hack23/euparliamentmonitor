@@ -25,7 +25,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 45
+timeout-minutes: 60
 
 network:
   allowed:
@@ -99,15 +99,15 @@ This is a **retrospective** article providing comprehensive analysis of the past
 
 **ALL article data MUST be fetched from the `european-parliament` MCP server.**
 
-## ⏱️ Time Budget (45 minutes)
+## ⏱️ Time Budget (60 minutes)
 
-- **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
+- **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (single call, no retry)
 - **Minutes 3–10**: Query voting records, documents, reports from past 30 days
-- **Minutes 10–35**: Generate articles for all requested languages
-- **Minutes 35–40**: Validate generated HTML
-- **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 10–40**: Generate articles for all requested languages
+- **Minutes 40–50**: Validate generated HTML
+- **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 35 without having committed**: Stop generating. Commit what you have and create the PR immediately.
+**If you reach minute 40 with generation still in progress**: Stop generating, finalize your current file edits, and immediately create the PR using `safeoutputs___create_pull_request`.
 
 ## Required Skills
 
@@ -126,14 +126,15 @@ echo "Article Type: month-in-review"
 echo "============================"
 ```
 
+**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$(date -u +%Y-%m-%d)`. NEVER hardcode a year (e.g. 2024). Use `TODAY=$(date -u +%Y-%m-%d)` and compute offsets with `date -u -d` commands.
+
+
 ## MANDATORY MCP Health Gate
 
 Before generating ANY articles, verify MCP connectivity:
 
 1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, proceed
-2. If it fails, wait 30 seconds and retry (up to 3 total attempts)
-3. If ALL 3 attempts fail:
-   - Use `safeoutputs___noop` with message: "MCP server unavailable after 3 connection attempts. No articles generated."
+2. If it fails, **do not retry** — use `safeoutputs___noop` with message: "MCP server unavailable. No articles generated."
    - DO NOT fabricate or recycle content
    - The workflow MUST end with noop
 
@@ -165,13 +166,26 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools for Monthly Review
 
-**ALWAYS call `get_plenary_sessions` FIRST for connectivity check.**
+### ⚡ MCP Call Budget (STRICT)
+
+- **Total maximum 8 MCP tool calls**, including the single mandatory health-gate/warm-up `european_parliament___get_plenary_sessions` call
+- **Health-gate connectivity check (also the MCP warm-up)**: call `european_parliament___get_plenary_sessions({ limit: 1 })` exactly once at the start to verify MCP health; this single call **counts as 1** toward the 8-call budget, serves as the only "MCP warm-up" mentioned in the Time Budget section, and must **not** be retried, repeated, or invoked again later in the run
+- **Per-tool limit after the health gate (no retries)**: apart from the initial health-gate call, each remaining MCP tool may be called **at most once per workflow run** — never call the same tool a second time
+- If data from a tool looks sparse, generic, historical, or placeholder after its first call, **proceed to article generation immediately — do NOT retry that tool**
+- If you notice you are about to call a tool you already called, or you would exceed the 8-call budget, **STOP data gathering and move to generation**
+
+**ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the single mandatory MCP Health Gate / warm-up and connectivity check. Do not call it again or retry it later in the run. This Health Gate call is the same single call as the "MCP Health Gate" step in the Time Budget above — do NOT make a separate warm-up call.**
+
+From the tool list below, **select at most 7 additional tools** (plus the mandatory health-gate call = 8 total). You do **not** need to call every tool listed.
 
 ```javascript
 const lastMonth = new Date(Date.now() - 30 * 86400000).toISOString().split('T')[0];
 const today = new Date().toISOString().split('T')[0];
 
-// Comprehensive retrospective data — past 30 days
+// MANDATORY — health gate (counts as call 1, use {limit:1})
+european_parliament___get_plenary_sessions({ limit: 1 })
+
+// Select at most 7 from below (calls 2–8):
 european_parliament___get_voting_records({ dateFrom: lastMonth, dateTo: today, limit: 30 })
 european_parliament___analyze_voting_patterns({ dateFrom: lastMonth, dateTo: today })
 european_parliament___detect_voting_anomalies({ dateFrom: lastMonth, dateTo: today })
@@ -225,7 +239,7 @@ if [ -f "$MCP_CONFIG" ]; then
 
   if [ -n "${GATEWAY_PORT:-}" ] && [ -n "${GATEWAY_DOMAIN:-}" ]; then
     case "$GATEWAY_DOMAIN" in
-      localhost|127.0.0.1|::1)
+      localhost|127.0.0.1|::1|host.docker.internal)
         GATEWAY_SCHEME="http"
         ;;
       *)

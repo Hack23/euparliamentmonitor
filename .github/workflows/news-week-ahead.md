@@ -107,7 +107,7 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 - **Minutes 40–50**: Validate generated HTML
 - **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 50 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 50 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 
 ## Required Skills
 
@@ -125,6 +125,9 @@ date -u "+Current UTC: %A %Y-%m-%d %H:%M:%S"
 echo "Article Type: week-ahead"
 echo "============================"
 ```
+
+**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$(date -u +%Y-%m-%d)`. NEVER hardcode a year (e.g. 2024). Use `TODAY=$(date -u +%Y-%m-%d)` and compute offsets with `date -u -d` commands.
+
 
 ## MANDATORY MCP Health Gate
 
@@ -191,7 +194,16 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools for Week Ahead
 
-**Always query these tools to gather data for the week ahead:**
+### ⚡ MCP Call Budget (STRICT)
+
+- These limits apply to **content-generation data gathering only**, after the mandatory MCP Health Gate has completed
+- Within the data-gathering phase, **call each tool at most once** — never call the same tool a second time
+- **Maximum 8 MCP tool calls** total for data gathering (excluding the MCP Health Gate)
+- The MCP Health Gate call `european_parliament___get_plenary_sessions({ limit: 1 })` is a dedicated health-check and does **not** count toward this per-tool limit or the 8-call budget
+- If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
+- If you notice you are about to call a tool you already called during data gathering, **STOP data gathering and move to generation**
+
+**For the data-gathering phase, query each of these tools at most once to gather data for the week ahead:**
 
 ```javascript
 // Get upcoming plenary sessions
@@ -319,7 +331,7 @@ if [ -f "$MCP_CONFIG" ]; then
 
   if [ -n "${GATEWAY_PORT:-}" ] && [ -n "${GATEWAY_DOMAIN:-}" ]; then
     case "$GATEWAY_DOMAIN" in
-      localhost|127.0.0.1|::1)
+      localhost|127.0.0.1|::1|host.docker.internal)
         GATEWAY_SCHEME="http"
         ;;
       *)
@@ -392,7 +404,7 @@ npx tsx src/generators/news-enhanced.ts \
   $SKIP_FLAG
 ```
 
-**Note**: When `USE_EP_MCP=false`, the script generates placeholder content. If this happens, you MUST enrich the articles with real data from the EP MCP tools available to you as an agent before committing.
+**Note**: When `USE_EP_MCP=false`, the script generates correct HTML structure with placeholder content sections. **Enrich ONLY the English article** by replacing placeholder `<p>` paragraphs in `<section>` elements with real analysis from the MCP data gathered above. For other language articles, the TypeScript templates already handle localized headings and labels — only update the narrative body paragraphs (the analysis text inside `<p>` tags) by writing translated versions of the English analysis. Do NOT rewrite entire articles — only update narrative `<p>` content.
 
 ### Step 5: Translate, Validate & Verify Analysis Quality
 

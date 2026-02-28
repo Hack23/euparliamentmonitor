@@ -25,7 +25,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 45
+timeout-minutes: 60
 
 network:
   allowed:
@@ -104,15 +104,15 @@ Read each skill file before proceeding:
 4. **`.github/skills/seo-best-practices.md`** — Multi-language SEO
 5. **`.github/skills/gh-aw-firewall.md`** — Network security and safe outputs
 
-## ⏱️ Time Budget (45 minutes)
+## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, EP MCP server warm-up
 - **Minutes 3–10**: Query EP MCP tools for legislative proposals and pipeline data
-- **Minutes 10–35**: Generate articles for requested languages
-- **Minutes 35–40**: Validate HTML
-- **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 10–40**: Generate articles for requested languages
+- **Minutes 40–50**: Validate HTML
+- **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 35 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 40 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately trigger PR creation using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 
 ## MANDATORY Date Validation
 
@@ -122,6 +122,9 @@ date -u "+Current UTC: %A %Y-%m-%d %H:%M:%S"
 echo "Article Type: propositions"
 echo "============================"
 ```
+
+**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$(date -u +%Y-%m-%d)`. NEVER hardcode a year (e.g. 2024). Use `TODAY=$(date -u +%Y-%m-%d)` and compute offsets with `date -u -d` commands.
+
 
 ## MANDATORY MCP Health Gate
 
@@ -187,6 +190,14 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 3. The articles exist but no PR = readers can't see them = FAILURE
 
 ## 🏛️ EP MCP Tools for Propositions
+
+### ⚡ MCP Call Budget (STRICT)
+
+- This budget applies to **content data gathering only** — the mandatory MCP Health Gate (including up to 3 retries of `european_parliament___get_plenary_sessions`) is **explicitly exempt** from this budget
+- **Call each tool at most once** — never call the same tool a second time during data gathering
+- **Maximum 8 MCP tool calls** total for content data gathering (health-gate calls do not count)
+- If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
+- If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
 
 **ALL data MUST come from these EP MCP tools:**
 
@@ -295,7 +306,7 @@ if [ -f "$MCP_CONFIG" ]; then
 
   if [ -n "${GATEWAY_PORT:-}" ] && [ -n "${GATEWAY_DOMAIN:-}" ]; then
     case "$GATEWAY_DOMAIN" in
-      localhost|127.0.0.1|::1)
+      localhost|127.0.0.1|::1|host.docker.internal)
         GATEWAY_SCHEME="http"
         ;;
       *)
@@ -366,7 +377,7 @@ npx tsx src/generators/news-enhanced.ts \
   $SKIP_FLAG
 ```
 
-**Note**: When `USE_EP_MCP=false`, the script generates placeholder content. If this happens, you MUST enrich the articles with real data from the EP MCP tools available to you as an agent before committing.
+**Note**: When `USE_EP_MCP=false`, the script generates correct HTML structure with placeholder content sections. **Enrich ONLY the English article** by replacing placeholder `<p>` paragraphs in `<section>` elements with real analysis from the MCP data gathered above. For other language articles, the TypeScript templates already handle localized headings and labels — only update the narrative body paragraphs (the analysis text inside `<p>` tags) by writing translated versions of the English analysis. Do NOT rewrite entire articles — only update narrative `<p>` content.
 
 ### Step 4: Validate Articles
 

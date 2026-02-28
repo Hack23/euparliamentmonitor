@@ -27,7 +27,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 60
+timeout-minutes: 120
 
 network:
   allowed:
@@ -94,15 +94,15 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 
 **ALL article data MUST be fetched from the `european-parliament` MCP server.** The MCP server provides 39 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, and OSINT intelligence analysis.
 
-## ⏱️ Time Budget (60 minutes)
+## ⏱️ Time Budget (120 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up
 - **Minutes 3–10**: Parse article types and verify MCP connectivity
-- **Minutes 10–50**: Generate articles for each requested type and language
-- **Minutes 50–55**: Validate generated HTML
-- **Minutes 55–60**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 10–100**: Generate articles for each requested type and language
+- **Minutes 100–110**: Validate generated HTML
+- **Minutes 110–120**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 50 without having committed**: Stop generating more content. Commit what you have and create the PR immediately. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 100 and the PR has not been created yet**: Stop generating more content and immediately create the PR using `safeoutputs___create_pull_request` with the content generated so far. Partial content in a PR is better than a timeout with no PR.
 
 ## Required Skills
 
@@ -120,6 +120,9 @@ date -u "+Current UTC: %A %Y-%m-%d %H:%M:%S"
 echo "Article Types: ${{ github.event.inputs.article_types }}"
 echo "============================"
 ```
+
+**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$(date -u +%Y-%m-%d)`. NEVER hardcode a year (e.g. 2024). Use `TODAY=$(date -u +%Y-%m-%d)` and compute offsets with `date -u -d` commands.
+
 
 ## MANDATORY MCP Health Gate
 
@@ -175,12 +178,20 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools
 
-**Always verify connectivity first:**
+### ⚡ MCP Call Budget (STRICT)
+
+- **Health-gate connectivity check**: attempt `european_parliament___get_plenary_sessions({ limit: 1 })` **up to 3 times** at startup as a single health-gate step to verify MCP health — this step does **not** count toward the per-type data-gathering budget
+- **Per article type**: call **at most 4 distinct tools**, each **at most once** — the tool sets below use up to 4 tools per type
+- **Across all types in a multi-type run**: each tool may still only be called once globally — if a tool appears in multiple type lists, use the same single call's result for all types
+- If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
+- If you notice you are about to call a tool you already called in this run, **STOP data gathering for that type and move to generation**
+
+**Always verify connectivity first (health gate — up to 3 attempts, does not count toward data budget):**
 ```javascript
 european_parliament___get_plenary_sessions({ limit: 1 })
 ```
 
-**Data gathering tools by article type:**
+**Data gathering tools by article type (call each at most once, reuse results if shared across types):**
 
 **Prospective (week-ahead, month-ahead):**
 ```javascript
@@ -264,7 +275,7 @@ if [ -f "$MCP_CONFIG" ]; then
 
   if [ -n "${GATEWAY_PORT:-}" ] && [ -n "${GATEWAY_DOMAIN:-}" ]; then
     case "$GATEWAY_DOMAIN" in
-      localhost|127.0.0.1|::1)
+      localhost|127.0.0.1|::1|host.docker.internal)
         GATEWAY_SCHEME="http"
         ;;
       *)

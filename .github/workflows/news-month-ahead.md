@@ -25,7 +25,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 45
+timeout-minutes: 60
 
 network:
   allowed:
@@ -99,15 +99,15 @@ This is a **prospective** article providing a 30-day forward-looking strategic o
 
 **ALL article data MUST be fetched from the `european-parliament` MCP server.** No other data source should be used for article content.
 
-## ⏱️ Time Budget (45 minutes)
+## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
 - **Minutes 3–10**: Query plenary sessions, committees, and legislative pipeline for next 30 days
-- **Minutes 10–35**: Generate articles for all requested languages
-- **Minutes 35–40**: Validate generated HTML
-- **Minutes 40–45**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 10–40**: Generate articles for all requested languages
+- **Minutes 40–50**: Validate generated HTML
+- **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 35 without having committed**: Stop generating. Commit what you have and create the PR immediately.
+**If you reach minute 40 with unfinished articles**: Stop generating. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`.
 
 ## Required Skills
 
@@ -125,6 +125,9 @@ date -u "+Current UTC: %A %Y-%m-%d %H:%M:%S"
 echo "Article Type: month-ahead"
 echo "============================"
 ```
+
+**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$(date -u +%Y-%m-%d)`. NEVER hardcode a year (e.g. 2024). Use `TODAY=$(date -u +%Y-%m-%d)` and compute offsets with `date -u -d` commands.
+
 
 ## MANDATORY MCP Health Gate
 
@@ -164,6 +167,14 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **⚠️ NEVER use `git push` directly** — always use `safeoutputs___create_pull_request`
 
 ## EP MCP Tools for Month Ahead
+
+### ⚡ MCP Call Budget (STRICT)
+
+- The **MCP Health Gate** (earlier in this workflow) calls `european_parliament___get_plenary_sessions({ limit: 1 })` with up to 3 retries — that health check is **completely separate** from and **does not count toward** the data-gathering budget below.
+- Within the **month-ahead data-gathering phase**, use a single `european_parliament___get_plenary_sessions` call with `{ startDate: today, endDate: nextMonth, limit: 50 }` — this is a distinct call from the health-gate check and must **not** be repeated.
+- Apart from that single month-ahead `get_plenary_sessions` data call, each remaining MCP tool may be called **at most once** — never call the same tool a second time in this phase
+- If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
+- If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
 
 ```javascript
 const today = new Date().toISOString().split('T')[0];
@@ -219,7 +230,7 @@ if [ -f "$MCP_CONFIG" ]; then
 
   if [ -n "${GATEWAY_PORT:-}" ] && [ -n "${GATEWAY_DOMAIN:-}" ]; then
     case "$GATEWAY_DOMAIN" in
-      localhost|127.0.0.1|::1)
+      localhost|127.0.0.1|::1|host.docker.internal)
         GATEWAY_SCHEME="http"
         ;;
       *)
