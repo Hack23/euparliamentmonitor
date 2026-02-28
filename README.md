@@ -830,7 +830,7 @@ graph LR
 
 ### 🧠 The Intelligence Stack
 
-The platform combines **8 core news-pipeline AI agents** (from a catalog of 22+ specialized agents), **39 TypeScript source modules**, **21 CI/CD workflows**, and **46 MCP data tools** into a fully autonomous political intelligence pipeline:
+The platform combines **8 core news-pipeline AI agents** (from a catalog of 22+ specialized agents), **39+ TypeScript source modules**, **21 CI/CD workflows**, and **46 MCP data tools** into a fully autonomous political intelligence pipeline:
 
 ```mermaid
 graph TB
@@ -847,15 +847,15 @@ graph TB
 
     subgraph "⚙️ 21 CI/CD Workflows"
         W1["8 News Generation"]
-        W2["4 Security Scanning"]
-        W3["3 Testing & Quality"]
+        W2["5 Security & Compliance"]
+        W3["2 Testing"]
         W4["2 Release & Deploy"]
         W5["4 Automation & Infra"]
     end
 
     subgraph "📊 Data Layer"
         MCP["🔌 EP MCP Server<br/>46 Tools"]
-        TS["📦 39 TypeScript Modules"]
+        TS["📦 39+ TypeScript Modules"]
         L14["🌍 14 Languages"]
     end
 
@@ -957,8 +957,8 @@ xychart-beta
     title "Projected Workflow Definitions & Variants (2026–2037)"
     x-axis ["2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037"]
     y-axis "Workflow definitions & variants" 0 --> 130
-    bar [47, 53, 60, 70, 80, 88, 94, 100, 105, 110, 115, 120]
-    line [47, 53, 60, 70, 80, 88, 94, 100, 105, 110, 115, 120]
+    bar [44, 53, 60, 70, 80, 88, 94, 100, 105, 110, 115, 120]
+    line [44, 53, 60, 70, 80, 88, 94, 100, 105, 110, 115, 120]
 ```
 
 ### 📚 Detailed Roadmap Documentation
