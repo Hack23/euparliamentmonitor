@@ -180,10 +180,10 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ### ⚡ MANDATORY: Precomputed Statistics First
 
-**ALWAYS call `get_all_generated_stats` as the first data-gathering step.** This returns precomputed EP activity statistics (2004–2025) with yearly breakdowns, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Use this data as the statistical backbone for ALL article types.
+**ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This returns the **complete** precomputed EP activity statistics (2004–2025) with yearly breakdowns, monthly activity data, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Always read ALL stats to provide full value and context. Use this data as the statistical backbone for ALL article types.
 
 ```javascript
-european_parliament___get_all_generated_stats({ yearFrom: 2024, yearTo: 2025, category: "all", includePredictions: true, includeRankings: true })
+european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
 ```
 
 ### ⚡ MCP Call Budget (STRICT)
@@ -202,7 +202,7 @@ european_parliament___get_plenary_sessions({ limit: 1 })
 
 **Then fetch precomputed stats (reuse across all types):**
 ```javascript
-european_parliament___get_all_generated_stats({ yearFrom: 2024, yearTo: 2025, category: "all", includePredictions: true, includeRankings: true })
+european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
 ```
 
 **Data gathering tools by article type (call each at most once, reuse results if shared across types):**

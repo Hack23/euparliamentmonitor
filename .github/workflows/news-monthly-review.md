@@ -168,10 +168,10 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ### ⚡ MANDATORY: Precomputed Statistics First
 
-**ALWAYS call `get_all_generated_stats` as the first data-gathering step.** This returns precomputed EP activity statistics (2004–2025) with yearly breakdowns, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response.
+**ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This returns the **complete** precomputed EP activity statistics (2004–2025) with yearly breakdowns, monthly activity data, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Always read ALL stats to provide full value and context.
 
 ```javascript
-european_parliament___get_all_generated_stats({ yearFrom: 2024, yearTo: 2025, category: "all", includePredictions: true, includeRankings: true })
+european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
 ```
 
 ### ⚡ MCP Call Budget (STRICT)
