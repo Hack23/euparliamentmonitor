@@ -1387,6 +1387,214 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"events": []}' }],
         });
       });
+
+      it('should get meeting plenary session documents', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+
+        const options = { sittingId: 'SITTING-456' };
+        await client.getMeetingPlenarySessionDocuments(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_meeting_plenary_session_documents', options);
+      });
+
+      it('should handle missing get_meeting_plenary_session_documents tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getMeetingPlenarySessionDocuments({ sittingId: 'SITTING-456' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+      });
+
+      it('should return fallback for getMeetingPlenarySessionDocuments with empty sittingId', async () => {
+        const result = await client.getMeetingPlenarySessionDocuments({ sittingId: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+      });
+
+      it('should return fallback for getMeetingPlenarySessionDocuments with whitespace sittingId', async () => {
+        const result = await client.getMeetingPlenarySessionDocuments({ sittingId: '   ' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"documents": []}' }],
+        });
+      });
+
+      it('should get meeting plenary session document items', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"items": []}' }],
+        });
+
+        const options = { sittingId: 'SITTING-789' };
+        await client.getMeetingPlenarySessionDocumentItems(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_meeting_plenary_session_document_items', options);
+      });
+
+      it('should handle missing get_meeting_plenary_session_document_items tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getMeetingPlenarySessionDocumentItems({ sittingId: 'SITTING-789' });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"items": []}' }],
+        });
+      });
+
+      it('should return fallback for getMeetingPlenarySessionDocumentItems with empty sittingId', async () => {
+        const result = await client.getMeetingPlenarySessionDocumentItems({ sittingId: '' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"items": []}' }],
+        });
+      });
+
+      it('should return fallback for getMeetingPlenarySessionDocumentItems with whitespace sittingId', async () => {
+        const result = await client.getMeetingPlenarySessionDocumentItems({ sittingId: '   ' });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"items": []}' }],
+        });
+      });
+    });
+
+    describe('Phase 6 OSINT Intelligence Methods', () => {
+      beforeEach(() => {
+        client.connected = true;
+        client.callTool = vi.fn();
+      });
+
+      it('should run network analysis', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"analysisType": "combined", "networkNodes": []}' }],
+        });
+
+        const options = { mepId: 12345, analysisType: 'committee', depth: 2 };
+        await client.networkAnalysis(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('network_analysis', options);
+      });
+
+      it('should handle missing network_analysis tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.networkAnalysis();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"analysis": null}' }],
+        });
+      });
+
+      it('should run sentiment tracker', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"sentiment": []}' }],
+        });
+
+        const options = { groupId: 'EPP', timeframe: 'last_quarter' };
+        await client.sentimentTracker(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('sentiment_tracker', options);
+      });
+
+      it('should handle missing sentiment_tracker tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.sentimentTracker();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"analysis": null}' }],
+        });
+      });
+
+      it('should run early warning system', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"warnings": []}' }],
+        });
+
+        const options = { sensitivity: 'high', focusArea: 'coalitions' };
+        await client.earlyWarningSystem(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('early_warning_system', options);
+      });
+
+      it('should handle missing early_warning_system tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.earlyWarningSystem();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"analysis": null}' }],
+        });
+      });
+
+      it('should run comparative intelligence', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"profiles": []}' }],
+        });
+
+        const options = { mepIds: [123, 456], dimensions: ['voting', 'committee'] };
+        await client.comparativeIntelligence(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('comparative_intelligence', options);
+      });
+
+      it('should handle missing comparative_intelligence tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.comparativeIntelligence({ mepIds: [123, 456] });
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"analysis": null}' }],
+        });
+      });
+
+      it('should return fallback for comparativeIntelligence with insufficient mepIds', async () => {
+        const result = await client.comparativeIntelligence({ mepIds: [123] });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"analysis": null}' }],
+        });
+      });
+
+      it('should return fallback for comparativeIntelligence with empty mepIds', async () => {
+        const result = await client.comparativeIntelligence({ mepIds: [] });
+
+        expect(client.callTool).not.toHaveBeenCalled();
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"analysis": null}' }],
+        });
+      });
+
+      it('should run correlate intelligence', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"alerts": []}' }],
+        });
+
+        const options = { mepId: 12345, correlationScenarios: ['influence_anomaly'] };
+        await client.correlateIntelligence(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('correlate_intelligence', options);
+      });
+
+      it('should handle missing correlate_intelligence tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.correlateIntelligence();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"analysis": null}' }],
+        });
+      });
     });
 
     describe('Retry Logic', () => {

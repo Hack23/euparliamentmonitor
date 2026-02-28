@@ -266,10 +266,14 @@
           "id": {
             "type": "string",
             "description": "MEP identifier (e.g., 'MEP-124810')",
-            "examples": ["MEP-124810"]
+            "examples": [
+              "MEP-124810"
+            ]
           }
         },
-        "required": ["id"]
+        "required": [
+          "id"
+        ]
       }
     },
     {
@@ -281,12 +285,16 @@
           "mepId": {
             "type": "string",
             "description": "MEP identifier",
-            "examples": ["MEP-124810"]
+            "examples": [
+              "MEP-124810"
+            ]
           },
           "dateFrom": {
             "type": "string",
             "description": "Analysis start date in YYYY-MM-DD format",
-            "examples": ["2024-01-01"]
+            "examples": [
+              "2024-01-01"
+            ]
           },
           "compareWithGroup": {
             "type": "boolean",
@@ -294,7 +302,9 @@
             "default": true
           }
         },
-        "required": ["mepId"]
+        "required": [
+          "mepId"
+        ]
       }
     },
     {
@@ -306,10 +316,14 @@
           "procedureId": {
             "type": "string",
             "description": "Legislative procedure identifier (e.g., '2024/0001(COD)')",
-            "examples": ["2024/0001(COD)"]
+            "examples": [
+              "2024/0001(COD)"
+            ]
           }
         },
-        "required": ["procedureId"]
+        "required": [
+          "procedureId"
+        ]
       }
     },
     {
@@ -327,20 +341,30 @@
               "VOTING_STATISTICS",
               "LEGISLATION_PROGRESS"
             ],
-            "examples": ["MEP_ACTIVITY", "VOTING_STATISTICS"]
+            "examples": [
+              "MEP_ACTIVITY",
+              "VOTING_STATISTICS"
+            ]
           },
           "subjectId": {
             "type": "string",
-            "description": "Subject identifier (MEP ID, committee ID, etc.) — optional for aggregate reports",
-            "examples": ["MEP-124810", "ENVI"]
+            "description": "Subject identifier (MEP ID, committee ID, etc.) \u2014 optional for aggregate reports",
+            "examples": [
+              "MEP-124810",
+              "ENVI"
+            ]
           },
           "dateFrom": {
             "type": "string",
             "description": "Report period start date in YYYY-MM-DD format",
-            "examples": ["2024-01-01"]
+            "examples": [
+              "2024-01-01"
+            ]
           }
         },
-        "required": ["reportType"]
+        "required": [
+          "reportType"
+        ]
       }
     },
     {
@@ -352,7 +376,9 @@
           "mepId": {
             "type": "string",
             "description": "MEP identifier",
-            "examples": ["MEP-124810"]
+            "examples": [
+              "MEP-124810"
+            ]
           },
           "dateFrom": {
             "type": "string",
@@ -363,7 +389,9 @@
             "description": "Analysis end date in YYYY-MM-DD format"
           }
         },
-        "required": ["mepId"]
+        "required": [
+          "mepId"
+        ]
       }
     },
     {
@@ -374,9 +402,17 @@
         "properties": {
           "politicalGroups": {
             "type": "array",
-            "items": { "type": "string" },
+            "items": {
+              "type": "string"
+            },
             "description": "Political group identifiers to analyze (omit for all groups)",
-            "examples": [["EPP", "S&D", "Renew"]]
+            "examples": [
+              [
+                "EPP",
+                "S&D",
+                "Renew"
+              ]
+            ]
           },
           "dateFrom": {
             "type": "string",
@@ -418,22 +454,781 @@
         "properties": {
           "groups": {
             "type": "array",
-            "items": { "type": "string" },
+            "items": {
+              "type": "string"
+            },
             "description": "Political group identifiers to compare (minimum 2)",
-            "examples": [["EPP", "S&D"]]
+            "examples": [
+              [
+                "EPP",
+                "S&D"
+              ]
+            ]
           },
           "metrics": {
             "type": "array",
-            "items": { "type": "string" },
+            "items": {
+              "type": "string"
+            },
             "description": "Comparison dimensions (omit for all)",
-            "examples": [["voting_discipline", "activity_level"]]
+            "examples": [
+              [
+                "voting_discipline",
+                "activity_level"
+              ]
+            ]
           },
           "dateFrom": {
             "type": "string",
             "description": "Analysis start date in YYYY-MM-DD format"
           }
         },
-        "required": ["groups"]
+        "required": [
+          "groups"
+        ]
+      }
+    },
+    {
+      "name": "analyze_committee_activity",
+      "description": "Analyze European Parliament committee workload, meeting frequency, document production, legislative output, and member engagement",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "committeeId": {
+            "type": "string",
+            "description": "Committee identifier or abbreviation (e.g., 'ENVI', 'ITRE')"
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          }
+        }
+      }
+    },
+    {
+      "name": "track_mep_attendance",
+      "description": "Track and analyze MEP attendance patterns across plenary sessions",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mepId": {
+            "type": "string",
+            "description": "MEP identifier (omit for group/country overview)"
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          }
+        }
+      }
+    },
+    {
+      "name": "analyze_country_delegation",
+      "description": "Analyze a country's MEP delegation \u2014 political group distribution, voting behavior, committee presence, and national cohesion",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 country code (e.g., 'SE', 'DE', 'FR')"
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          }
+        },
+        "required": [
+          "country"
+        ]
+      }
+    },
+    {
+      "name": "generate_political_landscape",
+      "description": "Generate a comprehensive political landscape overview of the European Parliament \u2014 group sizes, seat shares, coalition dynamics",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "dateFrom": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_current_meps",
+      "description": "Get currently active Members of European Parliament with active mandates",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_speeches",
+      "description": "Get European Parliament plenary speeches and debate contributions",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speechId": {
+            "type": "string",
+            "description": "Speech ID for single speech lookup"
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_procedures",
+      "description": "Get European Parliament legislative procedures",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "processId": {
+            "type": "string",
+            "description": "Process ID for single procedure lookup"
+          },
+          "year": {
+            "type": "number",
+            "description": "Filter by year (e.g., 2024)"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_adopted_texts",
+      "description": "Get European Parliament adopted texts including legislative resolutions, positions, and non-legislative resolutions",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "docId": {
+            "type": "string",
+            "description": "Document ID for single adopted text lookup"
+          },
+          "year": {
+            "type": "number",
+            "description": "Filter by year of adoption"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_events",
+      "description": "Get European Parliament events including hearings, conferences, seminars, and institutional events",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "description": "Event ID for single event lookup"
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_meeting_activities",
+      "description": "Get activities linked to a specific EP plenary sitting (debates, votes, presentations)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sittingId": {
+            "type": "string",
+            "description": "Meeting / sitting identifier"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        },
+        "required": [
+          "sittingId"
+        ]
+      }
+    },
+    {
+      "name": "get_meeting_decisions",
+      "description": "Get decisions made in a specific EP plenary sitting",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sittingId": {
+            "type": "string",
+            "description": "Meeting / sitting identifier"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        },
+        "required": [
+          "sittingId"
+        ]
+      }
+    },
+    {
+      "name": "get_mep_declarations",
+      "description": "Get MEP declarations of financial interests filed under the Rules of Procedure",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "docId": {
+            "type": "string",
+            "description": "Document ID for single declaration lookup"
+          },
+          "year": {
+            "type": "number",
+            "description": "Filter by filing year"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_incoming_meps",
+      "description": "Get incoming Members of European Parliament for the current parliamentary term",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_outgoing_meps",
+      "description": "Get outgoing Members of European Parliament for the current parliamentary term",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_homonym_meps",
+      "description": "Get homonym Members of European Parliament (MEPs with identical names)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_plenary_documents",
+      "description": "Get European Parliament plenary documents",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "docId": {
+            "type": "string",
+            "description": "Document ID for single document lookup"
+          },
+          "year": {
+            "type": "number",
+            "description": "Filter by year"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_committee_documents",
+      "description": "Get European Parliament committee documents",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "docId": {
+            "type": "string",
+            "description": "Document ID for single document lookup"
+          },
+          "year": {
+            "type": "number",
+            "description": "Filter by year"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_plenary_session_documents",
+      "description": "Get European Parliament plenary session documents (agendas, minutes, voting lists)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "docId": {
+            "type": "string",
+            "description": "Document ID for single document lookup"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_plenary_session_document_items",
+      "description": "Get European Parliament plenary session document items",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_controlled_vocabularies",
+      "description": "Get European Parliament controlled vocabularies (standardized classification terms)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "vocId": {
+            "type": "string",
+            "description": "Vocabulary ID for single vocabulary lookup"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_external_documents",
+      "description": "Get external documents (non-EP documents such as Council positions, Commission proposals)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "docId": {
+            "type": "string",
+            "description": "Document ID for single document lookup"
+          },
+          "year": {
+            "type": "number",
+            "description": "Filter by year"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "get_meeting_foreseen_activities",
+      "description": "Get foreseen (planned) activities for a specific EP meeting/plenary sitting",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sittingId": {
+            "type": "string",
+            "description": "Meeting / sitting identifier"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        },
+        "required": [
+          "sittingId"
+        ]
+      }
+    },
+    {
+      "name": "get_procedure_events",
+      "description": "Get events linked to a specific EP legislative procedure (hearings, debates, votes)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "processId": {
+            "type": "string",
+            "description": "Procedure process ID"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        },
+        "required": [
+          "processId"
+        ]
+      }
+    },
+    {
+      "name": "get_meeting_plenary_session_documents",
+      "description": "Retrieve plenary session documents linked to a specific EP meeting (plenary sitting)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sittingId": {
+            "type": "string",
+            "description": "EP plenary sitting identifier"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        },
+        "required": [
+          "sittingId"
+        ]
+      }
+    },
+    {
+      "name": "get_meeting_plenary_session_document_items",
+      "description": "Retrieve plenary session document items linked to a specific EP meeting (plenary sitting)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sittingId": {
+            "type": "string",
+            "description": "EP plenary sitting identifier"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results to return (1-100)",
+            "default": 50
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
+          }
+        },
+        "required": [
+          "sittingId"
+        ]
+      }
+    },
+    {
+      "name": "network_analysis",
+      "description": "MEP relationship network mapping using committee co-membership. Computes centrality scores, cluster assignments, bridging MEPs, and network density metrics",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mepId": {
+            "type": "number",
+            "description": "Optional numeric EP API internal MEP ID to focus the network analysis (ego network). Note: Phase 6 OSINT tools use numeric IDs from the EP API v2, unlike core tools which use string identifiers like 'MEP-124810'"
+          },
+          "analysisType": {
+            "type": "string",
+            "enum": [
+              "committee",
+              "voting",
+              "combined"
+            ],
+            "description": "Preferred analysis mode",
+            "default": "combined"
+          },
+          "depth": {
+            "type": "number",
+            "description": "Network traversal depth (1-3)",
+            "minimum": 1,
+            "maximum": 3,
+            "default": 2
+          }
+        }
+      }
+    },
+    {
+      "name": "sentiment_tracker",
+      "description": "Track political group institutional positioning and inferred sentiment using seat-share distribution as a proxy indicator",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string",
+            "description": "Political group ID to track (omit for all groups)"
+          },
+          "timeframe": {
+            "type": "string",
+            "enum": [
+              "last_month",
+              "last_quarter",
+              "last_year"
+            ],
+            "description": "Time window label",
+            "default": "last_quarter"
+          }
+        }
+      }
+    },
+    {
+      "name": "early_warning_system",
+      "description": "Detect emerging political shifts, unusual voting changes, and coalition fracture signals",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sensitivity": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "description": "Detection sensitivity",
+            "default": "medium"
+          },
+          "focusArea": {
+            "type": "string",
+            "enum": [
+              "coalitions",
+              "attendance",
+              "all"
+            ],
+            "description": "Area of political activity to monitor",
+            "default": "all"
+          }
+        }
+      }
+    },
+    {
+      "name": "comparative_intelligence",
+      "description": "Cross-reference MEP activities across committees, delegations, and legislative procedures for comprehensive multi-dimensional profiling",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mepIds": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "description": "List of numeric EP API internal MEP IDs to compare (2-10 MEPs). Note: Phase 6 OSINT tools use numeric IDs from the EP API v2, unlike core tools which use string identifiers like 'MEP-124810'"
+          },
+          "dimensions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "voting",
+                "committee",
+                "legislative",
+                "attendance"
+              ]
+            },
+            "description": "Dimensions to include in the comparison"
+          }
+        },
+        "required": [
+          "mepIds"
+        ]
+      }
+    },
+    {
+      "name": "correlate_intelligence",
+      "description": "Cross-tool OSINT intelligence correlation engine combining outputs from multiple intelligence tools for consolidated alerts and insights",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mepId": {
+            "type": "number",
+            "description": "Optional numeric EP API internal MEP ID to focus the correlation. Note: Phase 6 OSINT tools use numeric IDs from the EP API v2, unlike core tools which use string identifiers like 'MEP-124810'"
+          },
+          "correlationScenarios": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "influence_anomaly",
+                "coalition_stress",
+                "network_activity"
+              ]
+            },
+            "description": "Correlation scenarios to run"
+          }
+        }
       }
     }
   ]

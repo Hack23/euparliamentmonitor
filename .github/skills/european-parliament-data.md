@@ -13,7 +13,7 @@ Ensure reliable integration with European Parliament open data via the MCP (Mode
 4. MUST sanitize data before rendering in HTML
 5. MUST handle rate limiting and retry with exponential backoff
 
-### European Parliament MCP Server Tools (39 tools)
+### European Parliament MCP Server Tools (46 tools)
 
 #### MEP Tools (7)
 | Tool | Purpose | Key Parameters |
@@ -26,7 +26,7 @@ Ensure reliable integration with European Parliament open data via the MCP (Mode
 | `get_homonym_meps` | Get MEPs with identical names | `limit`, `offset` |
 | `get_mep_declarations` | Get MEP financial interest declarations | `docId`, `year`, `limit` |
 
-#### Plenary & Meeting Tools (7)
+#### Plenary & Meeting Tools (9)
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
 | `get_plenary_sessions` | Retrieve plenary session info | `startDate`, `endDate`, `location`, `limit` |
@@ -35,6 +35,8 @@ Ensure reliable integration with European Parliament open data via the MCP (Mode
 | `get_meeting_activities` | Get activities for a plenary sitting | `sittingId`, `limit` |
 | `get_meeting_decisions` | Get decisions for a plenary sitting | `sittingId`, `limit` |
 | `get_meeting_foreseen_activities` | Get planned activities for a sitting | `sittingId`, `limit` |
+| `get_meeting_plenary_session_documents` | Get session documents for a meeting | `sittingId`, `limit` |
+| `get_meeting_plenary_session_document_items` | Get session document items for a meeting | `sittingId`, `limit` |
 | `get_voting_records` | Get voting records | `sessionId`, `mepId`, `topic`, `limit` |
 
 #### Committee Tools (2)
@@ -68,7 +70,7 @@ Ensure reliable integration with European Parliament open data via the MCP (Mode
 | `monitor_legislative_pipeline` | Monitor pipeline with bottleneck detection | `committee`, `status`, `dateFrom` |
 | `generate_report` | Generate analytical reports | `reportType`, `subjectId`, `dateFrom` |
 
-#### OSINT Intelligence Tools (10)
+#### OSINT Intelligence Tools (15)
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
 | `assess_mep_influence` | MEP influence scoring (5-dimension model) | `mepId`, `dateFrom`, `dateTo` |
@@ -81,6 +83,11 @@ Ensure reliable integration with European Parliament open data via the MCP (Mode
 | `analyze_country_delegation` | Country delegation voting & composition | `country`, `dateFrom`, `dateTo` |
 | `analyze_voting_patterns` | MEP voting behavior analysis | `mepId`, `dateFrom`, `compareWithGroup` |
 | `generate_political_landscape` | Parliament-wide political landscape | `dateFrom`, `dateTo` |
+| `network_analysis` | MEP relationship network mapping | `mepId`, `analysisType`, `depth` |
+| `sentiment_tracker` | Political group institutional sentiment | `groupId`, `timeframe` |
+| `early_warning_system` | Emerging political shift detection | `sensitivity`, `focusArea` |
+| `comparative_intelligence` | Cross-reference MEP multi-dimensional profiling | `mepIds`, `dimensions` |
+| `correlate_intelligence` | Cross-tool OSINT intelligence correlation | `mepId`, `correlationScenarios` |
 
 ### MCP Client Pattern
 

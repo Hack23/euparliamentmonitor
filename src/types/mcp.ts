@@ -346,3 +346,48 @@ export interface GetProcedureEventsOptions {
   limit?: number;
   offset?: number;
 }
+
+/** Options for getMeetingPlenarySessionDocuments */
+export interface GetMeetingPlenarySessionDocumentsOptions {
+  sittingId: string;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getMeetingPlenarySessionDocumentItems */
+export interface GetMeetingPlenarySessionDocumentItemsOptions {
+  sittingId: string;
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for networkAnalysis */
+export interface NetworkAnalysisOptions {
+  mepId?: number;
+  analysisType?: 'committee' | 'voting' | 'combined';
+  depth?: number;
+}
+
+/** Options for sentimentTracker */
+export interface SentimentTrackerOptions {
+  groupId?: string;
+  timeframe?: 'last_month' | 'last_quarter' | 'last_year';
+}
+
+/** Options for earlyWarningSystem */
+export interface EarlyWarningSystemOptions {
+  sensitivity?: 'low' | 'medium' | 'high';
+  focusArea?: 'coalitions' | 'attendance' | 'all';
+}
+
+/** Options for comparativeIntelligence */
+export interface ComparativeIntelligenceOptions {
+  mepIds: number[];
+  dimensions?: ('voting' | 'committee' | 'legislative' | 'attendance')[];
+}
+
+/** Options for correlateIntelligence */
+export interface CorrelateIntelligenceOptions {
+  mepId?: number;
+  correlationScenarios?: ('influence_anomaly' | 'coalition_stress' | 'network_activity')[];
+}

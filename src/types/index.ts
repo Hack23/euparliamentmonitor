@@ -109,4 +109,11 @@ export {
   type GetExternalDocumentsOptions,
   type GetMeetingForeseenActivitiesOptions,
   type GetProcedureEventsOptions,
+  type GetMeetingPlenarySessionDocumentsOptions,
+  type GetMeetingPlenarySessionDocumentItemsOptions,
+  type NetworkAnalysisOptions,
+  type SentimentTrackerOptions,
+  type EarlyWarningSystemOptions,
+  type ComparativeIntelligenceOptions,
+  type CorrelateIntelligenceOptions,
 } from './mcp.js';
