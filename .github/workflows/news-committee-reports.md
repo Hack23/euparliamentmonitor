@@ -195,11 +195,11 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ### ⚡ MCP Call Budget (STRICT)
 
-- This budget applies to **content data gathering only** — the mandatory MCP Health Gate (including up to 3 retries of `european_parliament___get_plenary_sessions`) is **explicitly exempt** from this budget
-- **Call each tool at most once** — never call the same tool a second time during data gathering
-- **Maximum 8 MCP tool calls** total for content data gathering (health-gate calls do not count)
+- This budget applies to **manual pre-generation data gathering only** (connectivity checks and sample queries run before invoking the generator script). The mandatory MCP Health Gate (including up to 3 retries of `european_parliament___get_plenary_sessions`) and the automated generator script (`src/generators/news-enhanced.ts`, including its committee-reports mode which makes ~15 internal MCP calls across 5 committees) are **explicitly exempt** from this budget.
+- When performing **manual pre-generation data gathering**, **call each tool at most once** — never call the same tool a second time during that phase
+- During **manual pre-generation data gathering**, make a **maximum of 8 MCP tool calls** total (health-gate calls and calls made by the generator script do not count)
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
-- If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
+- If you notice you are about to call a tool you already called during the manual phase, **STOP data gathering and move to generation** (let the generator script handle any further MCP usage)
 
 **Use these European Parliament MCP tools** to verify connectivity and fetch key data before running the generation script:
 
