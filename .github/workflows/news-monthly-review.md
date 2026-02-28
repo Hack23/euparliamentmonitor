@@ -264,13 +264,19 @@ european_parliament___generate_political_landscape({})
 5. **RTL languages**: Arabic (`ar`) uses `→` arrow, Hebrew (`he`) uses `→` arrow in back-to-news label
 6. **All 14 languages required** in the language switcher: en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
 
-### Fix Existing Articles
+### ⚠️ Fallback Only: Fix Legacy Articles
 
-If you find articles missing these elements, run:
+> **The TypeScript article template (`generateArticleHTML`) is the primary mechanism.**
+> It already produces all required structural elements. The fix-articles script below
+> is a **last-resort recovery tool** for patching legacy articles generated before the
+> template was complete. It should NEVER be relied upon as part of normal generation.
+
 ```bash
-npx tsx src/utils/fix-articles.ts
+# FALLBACK ONLY — use only if legacy articles are missing elements
+npx tsx src/utils/fix-articles.ts --dry-run  # preview first
+npx tsx src/utils/fix-articles.ts            # apply fixes
 ```
-This script automatically detects and fixes articles missing the language switcher, article-top-nav, site-header, skip-link, or reading-progress bar.
+
 
 
 ## Generation Steps
@@ -384,9 +390,10 @@ TODAY=$(date +%Y-%m-%d)
 MISSING_SWITCHER=$(grep -rL 'class="language-switcher"' news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null | wc -l || echo 0)
 MISSING_TOPNAV=$(grep -rL 'class="article-top-nav"' news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null | wc -l || echo 0)
 if [ "$MISSING_SWITCHER" -gt 0 ] || [ "$MISSING_TOPNAV" -gt 0 ]; then
-  echo "WARNING: $MISSING_SWITCHER articles missing language-switcher, $MISSING_TOPNAV missing article-top-nav"
-  echo "Running fix-articles script..."
-  npx tsx src/utils/fix-articles.ts
+  echo "ERROR: $MISSING_SWITCHER articles missing language-switcher, $MISSING_TOPNAV missing article-top-nav" >&2
+  echo "This indicates a template bug — articles should be generated correctly by generateArticleHTML." >&2
+  echo "FALLBACK: Run npx tsx src/utils/fix-articles.ts to patch, but investigate the root cause." >&2
+  exit 1
 fi
 ```
 

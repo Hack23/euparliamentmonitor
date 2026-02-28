@@ -8,6 +8,7 @@
 
 import { describe, it, expect, beforeEach } from 'vitest';
 import { generateArticleHTML } from '../../scripts/templates/article-template.js';
+import { validateArticleHTML } from '../../scripts/utils/file-utils.js';
 import { mockArticleMetadata, mockArticleContent, mockSources } from '../fixtures/ep-data.js';
 import { validateHTML } from '../helpers/test-utils.js';
 
@@ -500,6 +501,71 @@ describe('article-template', () => {
         
         // Should fall back to English labels
         expect(html).toContain('<span class="article-lang">English</span>');
+      });
+    });
+
+    describe('Article Validation (validateArticleHTML)', () => {
+      it('should pass validation for a correctly generated article', () => {
+        const html = generateArticleHTML(defaultOptions);
+        const result = validateArticleHTML(html);
+
+        expect(result.valid).toBe(true);
+        expect(result.errors).toHaveLength(0);
+      });
+
+      it('should pass validation for all 14 languages', () => {
+        const langCodes = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+
+        langCodes.forEach((code) => {
+          const html = generateArticleHTML({ ...defaultOptions, lang: code });
+          const result = validateArticleHTML(html);
+          expect(result.valid).toBe(true);
+        });
+      });
+
+      it('should fail validation for HTML missing language-switcher', () => {
+        const html = '<html><body><main id="main"><article></article></main></body></html>';
+        const result = validateArticleHTML(html);
+
+        expect(result.valid).toBe(false);
+        expect(result.errors.some(e => e.includes('language-switcher'))).toBe(true);
+      });
+
+      it('should fail validation for HTML missing article-top-nav', () => {
+        const html = '<html><body><main id="main"><article></article></main></body></html>';
+        const result = validateArticleHTML(html);
+
+        expect(result.valid).toBe(false);
+        expect(result.errors.some(e => e.includes('article-top-nav'))).toBe(true);
+      });
+
+      it('should fail validation for HTML missing site-header', () => {
+        const html = '<html><body><main id="main"><article></article></main></body></html>';
+        const result = validateArticleHTML(html);
+
+        expect(result.valid).toBe(false);
+        expect(result.errors.some(e => e.includes('site-header'))).toBe(true);
+      });
+
+      it('should fail validation for HTML missing all required elements', () => {
+        const html = '<html><body><article></article></body></html>';
+        const result = validateArticleHTML(html);
+
+        expect(result.valid).toBe(false);
+        expect(result.errors.length).toBeGreaterThanOrEqual(5);
+      });
+
+      it('should report all missing elements in errors array', () => {
+        const html = '<html><body></body></html>';
+        const result = validateArticleHTML(html);
+
+        expect(result.errors).toContain('Missing required element: language-switcher nav');
+        expect(result.errors).toContain('Missing required element: article-top-nav (back button)');
+        expect(result.errors).toContain('Missing required element: site-header');
+        expect(result.errors).toContain('Missing required element: skip-link');
+        expect(result.errors).toContain('Missing required element: reading-progress bar');
+        expect(result.errors).toContain('Missing required element: main content wrapper');
+        expect(result.errors).toContain('Missing required element: site-footer');
       });
     });
   });

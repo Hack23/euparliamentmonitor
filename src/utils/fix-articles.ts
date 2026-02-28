@@ -3,8 +3,13 @@
 
 /**
  * @module Utils/FixArticles
- * @description Retroactively adds missing language switcher, article-top-nav (back button),
- * site-header, skip-link, and reading-progress bar to existing news articles.
+ * @description FALLBACK TOOL — Retroactively adds missing language switcher, article-top-nav
+ * (back button), site-header, skip-link, and reading-progress bar to existing news articles.
+ *
+ * The primary mechanism for including these elements is the article template
+ * (`generateArticleHTML` in `src/templates/article-template.ts`), which already produces
+ * all required structural elements. This script is a last-resort recovery tool for
+ * patching legacy articles generated before the template was complete.
  *
  * Usage: npx tsx src/utils/fix-articles.ts [--dry-run]
  */
