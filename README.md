@@ -938,8 +938,10 @@ When AGI or near-AGI systems become available, the platform architecture is desi
 
 **Assumptions:** Major AI model upgrades annually, competitors (OpenAI, Google, Meta, EU sovereign AI) evaluated at each release. Architecture accommodates potential paradigm shifts (quantum AI, neuromorphic computing).
 
-| Year | Total Workflows | AI Model | Key Capability |
-|------|----------------|----------|----------------|
+Projected workflow counts below include all CI/CD workflow definitions, agentic workflow sources, and planned variants across the platform. The 2026 baseline (~44) builds on the current 21 deployed `.yml` workflows + 8 agentic `.md` sources (29 today) plus planned security, localization, and data-pipeline additions.
+
+| Year | Projected Workflow Definitions | AI Model | Key Capability |
+|------|-------------------------------|----------|----------------|
 | **2026** | 44–50 | Opus 4.6–4.9 | 🟢 Agentic news generation |
 | **2027** | 50–55 | Opus 5.x | 🔵 Predictive analytics |
 | **2028** | 55–65 | Opus 6.x | 🟣 Multi-modal content |
@@ -951,9 +953,9 @@ When AGI or near-AGI systems become available, the platform architecture is desi
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#1a5276', 'primaryTextColor': '#fff', 'lineColor': '#2e86c1', 'secondaryColor': '#117a65'}}}%%
 xychart-beta
-    title "Workflow Growth Projection (2026–2037)"
+    title "Projected Workflow Definitions & Variants (2026–2037)"
     x-axis ["2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037"]
-    y-axis "Total Workflows" 0 --> 130
+    y-axis "Workflow definitions & variants" 0 --> 130
     bar [47, 53, 60, 70, 80, 88, 94, 100, 105, 110, 115, 120]
     line [47, 53, 60, 70, 80, 88, 94, 100, 105, 110, 115, 120]
 ```
