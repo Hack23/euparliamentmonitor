@@ -322,7 +322,7 @@ export function buildEconomicContextHTML(context: EconomicContext): string {
   const rows = context.indicators
     .map(
       (ind) =>
-        `<tr><td>${escapeHTML(ind.name)}</td><td>${escapeHTML(ind.formatted)}</td><td>${ind.year}</td></tr>`
+        `<tr><td>${escapeHTML(ind.name)}</td><td>${escapeHTML(ind.formatted)}</td><td>${escapeHTML(String(ind.year))}</td></tr>`
     )
     .join('\n');
 
