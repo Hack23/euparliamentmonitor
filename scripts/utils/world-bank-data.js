@@ -133,10 +133,7 @@ export function parseWorldBankCSV(csvText) {
         return [];
     }
     const headers = splitCSVLine(lines[0]).map((h) => h.toLowerCase());
-    const colMap = Object.fromEntries(Object.entries(HEADER_ALIASES).map(([key, aliases]) => [
-        key,
-        findColumnIndex(headers, aliases),
-    ]));
+    const colMap = Object.fromEntries(Object.entries(HEADER_ALIASES).map(([key, aliases]) => [key, findColumnIndex(headers, aliases)]));
     const results = [];
     for (let i = 1; i < lines.length; i++) {
         const cols = splitCSVLine(lines[i]);

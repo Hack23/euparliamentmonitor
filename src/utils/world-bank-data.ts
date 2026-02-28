@@ -164,10 +164,7 @@ export function parseWorldBankCSV(csvText: string | null | undefined): WorldBank
 
   const headers = splitCSVLine(lines[0]!).map((h) => h.toLowerCase());
   const colMap = Object.fromEntries(
-    Object.entries(HEADER_ALIASES).map(([key, aliases]) => [
-      key,
-      findColumnIndex(headers, aliases),
-    ])
+    Object.entries(HEADER_ALIASES).map(([key, aliases]) => [key, findColumnIndex(headers, aliases)])
   );
 
   const results: WorldBankIndicator[] = [];

@@ -84,9 +84,7 @@ let wbClientInstance = null;
 export async function getWBMCPClient(options = {}) {
     if (!wbClientInstance) {
         const mergedOptions = {
-            serverPath: options.serverPath,
-            gatewayUrl: options.gatewayUrl,
-            gatewayApiKey: options.gatewayApiKey,
+            ...options,
             maxConnectionAttempts: options.maxConnectionAttempts ?? 2,
             connectionRetryDelay: options.connectionRetryDelay ?? 1000,
         };

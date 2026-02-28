@@ -63,10 +63,7 @@ export class WorldBankMCPClient extends MCPConnection {
    * @param indicatorId - World Bank indicator ID (e.g., 'NY.GDP.MKTP.CD' for GDP)
    * @returns MCP tool result with CSV-formatted indicator data, or empty text on error
    */
-  async getIndicatorForCountry(
-    countryId: string,
-    indicatorId: string
-  ): Promise<MCPToolResult> {
+  async getIndicatorForCountry(countryId: string, indicatorId: string): Promise<MCPToolResult> {
     if (!countryId || !indicatorId) {
       console.warn('get_indicator_for_country called without required countryId or indicatorId');
       return { content: [{ type: 'text', text: INDICATOR_FALLBACK }] };
@@ -97,9 +94,7 @@ let wbClientInstance: WorldBankMCPClient | null = null;
  * @param options - Client options (overrides env vars)
  * @returns Connected World Bank MCP client
  */
-export async function getWBMCPClient(
-  options: MCPClientOptions = {}
-): Promise<WorldBankMCPClient> {
+export async function getWBMCPClient(options: MCPClientOptions = {}): Promise<WorldBankMCPClient> {
   if (!wbClientInstance) {
     const mergedOptions: MCPClientOptions = {
       ...options,
