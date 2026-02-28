@@ -1100,7 +1100,7 @@
         "properties": {
           "mepId": {
             "type": "number",
-            "description": "Optional MEP ID to focus the network analysis (ego network)"
+            "description": "Optional numeric EP API internal MEP ID to focus the network analysis (ego network). Note: Phase 6 OSINT tools use numeric IDs from the EP API v2, unlike core tools which use string identifiers like 'MEP-124810'"
           },
           "analysisType": {
             "type": "string",
@@ -1185,7 +1185,7 @@
             "items": {
               "type": "number"
             },
-            "description": "List of MEP IDs to compare (2-10 MEPs)"
+            "description": "List of numeric EP API internal MEP IDs to compare (2-10 MEPs). Note: Phase 6 OSINT tools use numeric IDs from the EP API v2, unlike core tools which use string identifiers like 'MEP-124810'"
           },
           "dimensions": {
             "type": "array",
@@ -1214,7 +1214,7 @@
         "properties": {
           "mepId": {
             "type": "number",
-            "description": "Optional MEP ID to focus the correlation"
+            "description": "Optional numeric EP API internal MEP ID to focus the correlation. Note: Phase 6 OSINT tools use numeric IDs from the EP API v2, unlike core tools which use string identifiers like 'MEP-124810'"
           },
           "correlationScenarios": {
             "type": "array",

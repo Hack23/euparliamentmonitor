@@ -72,6 +72,9 @@ const EVENTS_FALLBACK = '{"events": []}';
 /** Fallback payload for activity list tools */
 const ACTIVITIES_FALLBACK = '{"activities": []}';
 
+/** Fallback payload for item list tools */
+const ITEMS_FALLBACK = '{"items": []}';
+
 /** Fallback payload for intelligence analysis tools */
 const INTELLIGENCE_FALLBACK = '{"analysis": null}';
 
@@ -756,7 +759,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_plenary_session_document_items not available:', message);
-      return { content: [{ type: 'text', text: '{"items": []}' }] };
+      return { content: [{ type: 'text', text: ITEMS_FALLBACK }] };
     }
   }
 
@@ -886,7 +889,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       console.warn(
         'get_meeting_plenary_session_document_items called without valid sittingId (non-empty string required)'
       );
-      return { content: [{ type: 'text', text: '{"items": []}' }] };
+      return { content: [{ type: 'text', text: ITEMS_FALLBACK }] };
     }
     try {
       return await this.callTool('get_meeting_plenary_session_document_items', {
@@ -896,7 +899,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn('get_meeting_plenary_session_document_items not available:', message);
-      return { content: [{ type: 'text', text: '{"items": []}' }] };
+      return { content: [{ type: 'text', text: ITEMS_FALLBACK }] };
     }
   }
 
