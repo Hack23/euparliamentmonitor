@@ -193,11 +193,20 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools for Committee Reports
 
+### ⚡ MANDATORY: Precomputed Statistics First
+
+**ALWAYS call `get_all_generated_stats` as the first data-gathering step.** This returns precomputed EP activity statistics (2004–2025) with yearly breakdowns, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response.
+
+```javascript
+european_parliament___get_all_generated_stats({ yearFrom: 2024, yearTo: 2025, category: "committee_meetings", includePredictions: true, includeRankings: true })
+```
+
 ### ⚡ MCP Call Budget (STRICT)
 
 - This budget applies to **manual pre-generation data gathering only** (connectivity checks and sample queries run before invoking the generator script). The mandatory MCP Health Gate (including up to 3 retries of `european_parliament___get_plenary_sessions`) and the automated generator script (`src/generators/news-enhanced.ts`, including its committee-reports mode which makes ~15 internal MCP calls across 5 committees) are **explicitly exempt** from this budget.
+- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once globally — reuse across all sections (does **not** count toward per-tool budget)
 - When performing **manual pre-generation data gathering**, **call each tool at most once** — never call the same tool a second time during that phase
-- During **manual pre-generation data gathering**, make a **maximum of 8 MCP tool calls** total (health-gate calls and calls made by the generator script do not count)
+- During **manual pre-generation data gathering**, make a **maximum of 8 MCP tool calls** total (health-gate calls, precomputed stats, and calls made by the generator script do not count)
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 - If you notice you are about to call a tool you already called during the manual phase, **STOP data gathering and move to generation** (let the generator script handle any further MCP usage)
 

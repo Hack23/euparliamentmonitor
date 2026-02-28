@@ -95,7 +95,7 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 ## 🚨 CRITICAL: European Parliament MCP Server is the Sole Data Source
 
-**ALL article data MUST be fetched from the `european-parliament` MCP server.** No other data source should be used for article content. The MCP server provides 39 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, and OSINT intelligence analysis.
+**ALL article data MUST be fetched from the `european-parliament` MCP server.** No other data source should be used for article content. The MCP server provides 47 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, OSINT intelligence analysis, and precomputed statistics.
 
 **Note:** EU Parliament API responses can be slow (30+ seconds is common). The workflow timeout has been set to 60 minutes to accommodate this. Use `Promise.allSettled()` for parallel queries and handle timeouts gracefully.
 
@@ -194,11 +194,20 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools for Week Ahead
 
+### ⚡ MANDATORY: Precomputed Statistics First
+
+**ALWAYS call `get_all_generated_stats` as the first data-gathering step.** This returns precomputed EP activity statistics (2004–2025) with yearly breakdowns, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response.
+
+```javascript
+european_parliament___get_all_generated_stats({ yearFrom: 2024, yearTo: 2025, category: "all", includePredictions: true, includeRankings: true })
+```
+
 ### ⚡ MCP Call Budget (STRICT)
 
 - These limits apply to **content-generation data gathering only**, after the mandatory MCP Health Gate has completed
+- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once globally — reuse across all sections (does **not** count toward per-tool budget)
 - Within the data-gathering phase, **call each tool at most once** — never call the same tool a second time
-- **Maximum 8 MCP tool calls** total for data gathering (excluding the MCP Health Gate)
+- **Maximum 8 MCP tool calls** total for data gathering (excluding the MCP Health Gate and precomputed stats)
 - The MCP Health Gate call `european_parliament___get_plenary_sessions({ limit: 1 })` is a dedicated health-check and does **not** count toward this per-tool limit or the 8-call budget
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 - If you notice you are about to call a tool you already called during data gathering, **STOP data gathering and move to generation**

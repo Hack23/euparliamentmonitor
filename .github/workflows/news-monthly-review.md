@@ -166,9 +166,18 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools for Monthly Review
 
+### ⚡ MANDATORY: Precomputed Statistics First
+
+**ALWAYS call `get_all_generated_stats` as the first data-gathering step.** This returns precomputed EP activity statistics (2004–2025) with yearly breakdowns, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response.
+
+```javascript
+european_parliament___get_all_generated_stats({ yearFrom: 2024, yearTo: 2025, category: "all", includePredictions: true, includeRankings: true })
+```
+
 ### ⚡ MCP Call Budget (STRICT)
 
 - **Total maximum 8 MCP tool calls**, including the single mandatory health-gate/warm-up `european_parliament___get_plenary_sessions` call
+- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once globally — reuse across all sections (does **not** count toward the 8-call budget)
 - **Health-gate connectivity check (also the MCP warm-up)**: call `european_parliament___get_plenary_sessions({ limit: 1 })` exactly once at the start to verify MCP health; this single call **counts as 1** toward the 8-call budget, serves as the only "MCP warm-up" mentioned in the Time Budget section, and must **not** be retried, repeated, or invoked again later in the run
 - **Per-tool limit after the health gate (no retries)**: apart from the initial health-gate call, each remaining MCP tool may be called **at most once per workflow run** — never call the same tool a second time
 - If data from a tool looks sparse, generic, historical, or placeholder after its first call, **proceed to article generation immediately — do NOT retry that tool**
