@@ -14,14 +14,13 @@
  * - `WB_MCP_SERVER_PATH` — Override default server binary path
  * - `WB_MCP_GATEWAY_URL` — Use HTTP gateway transport instead of stdio
  * - `WB_MCP_GATEWAY_API_KEY` — API key for gateway authentication
- * - `USE_WB_MCP` — Set to 'false' to disable World Bank data enrichment
  */
 
 import { MCPConnection } from './mcp-connection.js';
 import type { MCPToolResult, MCPClientOptions } from '../types/index.js';
 
-/** Fallback payload when indicator data is unavailable */
-const INDICATOR_FALLBACK = '{"data": []}';
+/** Fallback payload when indicator data is unavailable (empty CSV) */
+const INDICATOR_FALLBACK = '';
 
 /**
  * MCP Client for World Bank economic data access.
@@ -35,7 +34,7 @@ export class WorldBankMCPClient extends MCPConnection {
    *
    * @param countryId - World Bank country code (e.g., 'DEU' for Germany, 'FRA' for France)
    * @param indicatorId - World Bank indicator ID (e.g., 'NY.GDP.MKTP.CD' for GDP)
-   * @returns CSV-formatted indicator data or fallback on error
+   * @returns MCP tool result with CSV-formatted indicator data, or empty text on error
    */
   async getIndicatorForCountry(
     countryId: string,

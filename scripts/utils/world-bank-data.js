@@ -82,10 +82,38 @@ function readCol(cols, idx) {
     return idx >= 0 ? (cols[idx] ?? '') : '';
 }
 /**
+ * Split a CSV line respecting quoted fields.
+ * Commas inside double-quoted values are preserved as part of the field.
+ *
+ * @param line - A single CSV row
+ * @returns Array of field values with surrounding quotes removed
+ */
+function splitCSVLine(line) {
+    const fields = [];
+    let current = '';
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') {
+            inQuotes = !inQuotes;
+        }
+        else if (ch === ',' && !inQuotes) {
+            fields.push(current.trim());
+            current = '';
+        }
+        else {
+            current += ch;
+        }
+    }
+    fields.push(current.trim());
+    return fields;
+}
+/**
  * Parse CSV data from World Bank MCP response into structured indicator objects.
  * The World Bank MCP server returns indicator data as CSV text via pandas.
+ * Handles quoted fields that may contain commas (e.g., indicator names).
  *
- * @param csvText - Raw CSV text from the MCP tool response
+ * @param csvText - Raw CSV text from the MCP tool response (accepts null/undefined for convenience)
  * @returns Array of parsed World Bank indicator data points
  */
 export function parseWorldBankCSV(csvText) {
@@ -96,14 +124,14 @@ export function parseWorldBankCSV(csvText) {
     if (lines.length < 2) {
         return [];
     }
-    const headers = lines[0].split(',').map((h) => h.trim().toLowerCase());
+    const headers = splitCSVLine(lines[0]).map((h) => h.toLowerCase());
     const colMap = Object.fromEntries(Object.entries(HEADER_ALIASES).map(([key, aliases]) => [
         key,
         findColumnIndex(headers, aliases),
     ]));
     const results = [];
     for (let i = 1; i < lines.length; i++) {
-        const cols = lines[i].split(',').map((c) => c.trim());
+        const cols = splitCSVLine(lines[i]);
         const rawValue = readCol(cols, colMap['value'] ?? -1);
         const parsedValue = rawValue !== '' ? Number(rawValue) : null;
         const yearStr = readCol(cols, colMap['date'] ?? -1);

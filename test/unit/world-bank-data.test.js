@@ -128,6 +128,28 @@ DEU,Germany,NY.GDP.MKTP.CD,GDP,invalid,1000`;
       const result = parseWorldBankCSV(csv);
       expect(result).toHaveLength(0);
     });
+
+    it('should handle quoted fields containing commas', () => {
+      const csv = `country.id,country.value,indicator.id,indicator.value,date,value
+DEU,Germany,FP.CPI.TOTL.ZG,"Inflation, consumer prices (annual %)",2023,5.7`;
+
+      const result = parseWorldBankCSV(csv);
+      expect(result).toHaveLength(1);
+      expect(result[0].countryId).toBe('DEU');
+      expect(result[0].indicatorName).toBe('Inflation, consumer prices (annual %)');
+      expect(result[0].year).toBe(2023);
+      expect(result[0].value).toBe(5.7);
+    });
+
+    it('should handle quoted headers containing commas', () => {
+      const csv = `"country.id","country.value","indicator.id","indicator.value","date","value"
+DEU,Germany,NY.GDP.MKTP.CD,"GDP (current US$)",2023,4082000000000`;
+
+      const result = parseWorldBankCSV(csv);
+      expect(result).toHaveLength(1);
+      expect(result[0].countryId).toBe('DEU');
+      expect(result[0].value).toBe(4082000000000);
+    });
   });
 
   describe('formatIndicatorValue', () => {

@@ -9,7 +9,7 @@
 /* eslint-disable no-undef */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { WorldBankMCPClient, getWBMCPClient, closeWBMCPClient } from '../../scripts/mcp/wb-mcp-client.js';
+import { WorldBankMCPClient, closeWBMCPClient } from '../../scripts/mcp/wb-mcp-client.js';
 import { mockConsole } from '../helpers/test-utils.js';
 
 describe('wb-mcp-client', () => {
@@ -57,12 +57,12 @@ describe('wb-mcp-client', () => {
 
       it('should return fallback when countryId is empty', async () => {
         const result = await client.getIndicatorForCountry('', 'NY.GDP.MKTP.CD');
-        expect(result.content[0].text).toContain('[]');
+        expect(result.content[0].text).toBe('');
       });
 
       it('should return fallback when indicatorId is empty', async () => {
         const result = await client.getIndicatorForCountry('DEU', '');
-        expect(result.content[0].text).toContain('[]');
+        expect(result.content[0].text).toBe('');
       });
 
       it('should call callTool with correct tool name and arguments', async () => {
@@ -81,7 +81,7 @@ describe('wb-mcp-client', () => {
       it('should gracefully handle callTool errors', async () => {
         vi.spyOn(client, 'callTool').mockRejectedValue(new Error('Connection refused'));
         const result = await client.getIndicatorForCountry('DEU', 'NY.GDP.MKTP.CD');
-        expect(result.content[0].text).toContain('[]');
+        expect(result.content[0].text).toBe('');
       });
     });
   });
