@@ -766,6 +766,205 @@ EU Parliament Monitor aligns with multiple compliance frameworks:
 | **NIS2** | Article 20, 21 (Cybersecurity Risk Management) | Threat model, security controls |
 | **EU Cyber Resilience Act** | SBOM, Vulnerability Disclosure | SLSA provenance, SECURITY.md |
 
+## 🤖 AI-Disrupted News Generation & Agentic Intelligence
+
+> *"While traditional newsrooms debate whether AI will replace journalists,
+> EU Parliament Monitor quietly deployed 8 autonomous AI agents that publish
+> investigative political intelligence in 14 languages before most reporters
+> have finished their morning coffee. The future of parliamentary journalism
+> didn't send a memo — it opened a pull request."*
+
+The EU Parliament Monitor doesn't just report on European Parliament activity — it **autonomously generates deep political intelligence** at machine speed, with editorial quality that would make legacy news desks nervous. Every article is researched, written, localized, and published by AI agents operating on live European Parliament data via the [MCP Server](https://github.com/Hack23/European-Parliament-MCP-Server) (46 tools, real-time data), without a single human keystroke.
+
+### 📰 Agentic News Generation Architecture
+
+**8 autonomous news workflows** run on precision schedules, each powered by a dedicated GitHub Copilot agentic workflow that fetches live EP data, generates Economist-style analysis, and publishes across all 14 languages:
+
+```mermaid
+graph LR
+    subgraph "📅 Daily Cycle (Mon-Fri)"
+        CR["🏛️ Committee Reports<br/>04:00 UTC"]
+        PR["📜 Propositions<br/>05:00 UTC"]
+        MO["⚖️ Motions<br/>06:00 UTC"]
+    end
+
+    subgraph "📆 Weekly Cycle"
+        WA["📋 Week Ahead<br/>Fri 07:00 UTC"]
+        WR["📊 Weekly Review<br/>Sat 09:00 UTC"]
+    end
+
+    subgraph "📅 Monthly Cycle"
+        MA["🔭 Month Ahead<br/>1st 08:00 UTC"]
+        MR["📈 Monthly Review<br/>28th 10:00 UTC"]
+    end
+
+    subgraph "🎛️ On-Demand"
+        AG["🚀 Article Generator<br/>Manual Dispatch"]
+    end
+
+    MCP["🔌 EP MCP Server<br/>46 Tools · Live Data"]
+
+    MCP --> CR & PR & MO & WA & WR & MA & MR & AG
+
+    style CR fill:#1a5276,color:#fff
+    style PR fill:#1a5276,color:#fff
+    style MO fill:#1a5276,color:#fff
+    style WA fill:#117a65,color:#fff
+    style WR fill:#117a65,color:#fff
+    style MA fill:#7d3c98,color:#fff
+    style MR fill:#7d3c98,color:#fff
+    style AG fill:#b9770e,color:#fff
+    style MCP fill:#c0392b,color:#fff
+```
+
+| Workflow | Schedule | Focus | Output |
+|----------|----------|-------|--------|
+| 🏛️ **Committee Reports** | Mon–Fri 04:00 UTC | Committee decisions & activities | 14 language articles |
+| 📜 **Propositions** | Mon–Fri 05:00 UTC | Legislative proposals analysis | 14 language articles |
+| ⚖️ **Motions** | Mon–Fri 06:00 UTC | Motions & resolutions analysis | 14 language articles |
+| 📋 **Week Ahead** | Fridays 07:00 UTC | Upcoming parliamentary preview | 14 language articles |
+| 📊 **Weekly Review** | Saturdays 09:00 UTC | Past week retrospective | 14 language articles |
+| 🔭 **Month Ahead** | 1st of month 08:00 UTC | Strategic monthly outlook | 14 language articles |
+| 📈 **Monthly Review** | 28th of month 10:00 UTC | Monthly retrospective analysis | 14 language articles |
+| 🚀 **Article Generator** | Manual dispatch | Multi-type article generation | Configurable |
+
+### 🧠 The Intelligence Stack
+
+The platform combines **8 specialized AI agents**, **39 TypeScript source modules**, **21 CI/CD workflows**, and **46 MCP data tools** into a fully autonomous political intelligence pipeline:
+
+```mermaid
+graph TB
+    subgraph "🤖 8 Custom AI Agents"
+        A1["📰 News Journalist<br/><i>Economist-style reporting</i>"]
+        A2["🔄 Data Pipeline<br/><i>MCP integration</i>"]
+        A3["🎨 Frontend<br/><i>WCAG 2.1 AA</i>"]
+        A4["✅ Quality Engineer<br/><i>Testing & validation</i>"]
+        A5["🔒 Security Architect<br/><i>ISMS compliance</i>"]
+        A6["📚 Documentation<br/><i>C4 & architecture</i>"]
+        A7["⚙️ DevOps Engineer<br/><i>CI/CD automation</i>"]
+        A8["📋 Product Task<br/><i>Issue management</i>"]
+    end
+
+    subgraph "⚙️ 21 CI/CD Workflows"
+        W1["8 News Generation"]
+        W2["5 Security Scanning"]
+        W3["4 Testing & Quality"]
+        W4["4 Release & Deploy"]
+    end
+
+    subgraph "📊 Data Layer"
+        MCP["🔌 EP MCP Server<br/>46 Tools"]
+        TS["📦 39 TypeScript Modules"]
+        L14["🌍 14 Languages"]
+    end
+
+    A1 --> W1
+    A2 --> MCP
+    A7 --> W2 & W3 & W4
+    W1 --> TS --> L14
+
+    style A1 fill:#2e86c1,color:#fff
+    style A2 fill:#2e86c1,color:#fff
+    style A3 fill:#2e86c1,color:#fff
+    style A4 fill:#2e86c1,color:#fff
+    style A5 fill:#2e86c1,color:#fff
+    style A6 fill:#2e86c1,color:#fff
+    style A7 fill:#2e86c1,color:#fff
+    style A8 fill:#2e86c1,color:#fff
+    style W1 fill:#1a5276,color:#fff
+    style W2 fill:#7d3c98,color:#fff
+    style W3 fill:#117a65,color:#fff
+    style W4 fill:#b9770e,color:#fff
+    style MCP fill:#c0392b,color:#fff
+    style TS fill:#1c2833,color:#fff
+    style L14 fill:#117a65,color:#fff
+```
+
+### 🚀 Future Advance: AI Evolution Roadmap (2026–2037)
+
+> *"We're not just keeping up with AI — we're building the editorial infrastructure
+> for the era when machines understand parliamentary procedure better than most MEPs."*
+
+The platform evolves through six phases from agentic news generation to AGI-enhanced transformative democracy. Full details in **[Future Mindmap](FUTURE_MINDMAP.md)** and **[Future Workflows](FUTURE_WORKFLOWS.md)**.
+
+```mermaid
+timeline
+    title EU Parliament Monitor — AI Evolution Roadmap
+    section Phase 1 (2026)
+        Agentic News : 8 autonomous workflows
+                     : 14-language generation
+                     : MCP data integration
+                     : Economist-style analysis
+    section Phase 2 (2027)
+        Predictive Analytics : Voting outcome prediction
+                             : Legislative impact forecasting
+                             : Cross-party coalition detection
+                             : Automated trend analysis
+    section Phase 3 (2028–2029)
+        Multi-Modal Intelligence : Video plenary analysis
+                                 : Real-time debate tracking
+                                 : Infographic auto-generation
+                                 : Autonomous content pipelines
+    section Phase 4 (2030–2031)
+        Near-Expert Analysis : 50+ parliament coverage
+                             : Expert-level policy briefs
+                             : Predictive governance models
+                             : Universal language support
+    section Phase 5 (2032–2033)
+        Global Coverage : 100+ parliaments
+                        : Pre-AGI capabilities
+                        : Real-time policy impact
+                        : Cross-jurisdiction analysis
+    section Phase 6 (2034–2037)
+        AGI Era : Transformative democracy
+               : 195 parliamentary systems
+               : Policy prediction before proposal
+               : Human oversight maintained
+```
+
+### 🤖 Phase 6: AGI Era & Transformative Democracy (2034–2037)
+
+When AGI or near-AGI systems become available, the platform architecture is designed to scale responsibly:
+
+| Capability | Description |
+|-----------|-------------|
+| 🤖 **Autonomous Analysis** | AGI-powered real-time political intelligence across all 195 parliamentary systems |
+| 🌐 **Universal Language Support** | Every UN language supported natively — no translation pipeline, native generation |
+| 📊 **Predictive Governance** | Policy impact prediction *before* legislation is proposed — anticipatory intelligence |
+| ⚖️ **Ethical AI Governance** | Human oversight maintained regardless of AI capability level — democratic safeguards hardcoded |
+| 🛡️ **Democratic Safeguards** | Platform architecture prevents weaponization or manipulation — transparency by design |
+
+### 📈 AI Model Evolution Strategy
+
+**Assumptions:** Major AI model upgrades annually, competitors (OpenAI, Google, Meta, EU sovereign AI) evaluated at each release. Architecture accommodates potential paradigm shifts (quantum AI, neuromorphic computing).
+
+| Year | Total Workflows | AI Model | Key Capability |
+|------|----------------|----------|----------------|
+| **2026** | 44–50 | Opus 4.6–4.9 | 🟢 Agentic news generation |
+| **2027** | 50–55 | Opus 5.x | 🔵 Predictive analytics |
+| **2028** | 55–65 | Opus 6.x | 🟣 Multi-modal content |
+| **2029** | 65–75 | Opus 7.x | 🟠 Autonomous pipeline |
+| **2030** | 75–85 | Opus 8.x | 🔴 Near-expert analysis |
+| **2031–2033** | 85–100 | Opus 9–10.x / Pre-AGI | ⚪ Global coverage |
+| **2034–2037** | 100–120+ | AGI / Post-AGI | ⭐ Transformative platform |
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#1a5276', 'primaryTextColor': '#fff', 'lineColor': '#2e86c1', 'secondaryColor': '#117a65'}}}%%
+xychart-beta
+    title "Workflow Growth Projection (2026–2037)"
+    x-axis ["2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037"]
+    y-axis "Total Workflows" 0 --> 130
+    bar [47, 53, 60, 70, 80, 88, 94, 100, 105, 110, 115, 120]
+    line [47, 53, 60, 70, 80, 88, 94, 100, 105, 110, 115, 120]
+```
+
+### 📚 Detailed Roadmap Documentation
+
+| Document | Focus | Coverage |
+|----------|-------|----------|
+| 📘 **[Future Mindmap](FUTURE_MINDMAP.md)** | Capability evolution & system vision | 2026–2037 AI/ML roadmap, multi-parliament expansion, API ecosystem |
+| 📗 **[Future Workflows](FUTURE_WORKFLOWS.md)** | CI/CD evolution & automation roadmap | Security hardening, performance optimization, AGI-ready pipelines |
+
 ## License
 
 Copyright 2024-2026 Hack23 AB
