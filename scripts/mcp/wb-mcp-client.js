@@ -15,13 +15,26 @@
  * - `WB_MCP_GATEWAY_API_KEY` — API key for gateway authentication
  */
 import { MCPConnection } from './mcp-connection.js';
+/** Default World Bank MCP server binary (npm package) */
+const WB_DEFAULT_SERVER = 'worldbank-mcp';
 /** Fallback payload when indicator data is unavailable (empty CSV) */
 const INDICATOR_FALLBACK = '';
 /**
  * MCP Client for World Bank economic data access.
  * Extends {@link MCPConnection} with World Bank-specific tool wrapper methods.
+ *
+ * Always supplies an explicit World Bank server path so the base class never
+ * falls back to the European Parliament MCP server defaults.
  */
 export class WorldBankMCPClient extends MCPConnection {
+    constructor(options = {}) {
+        super({
+            ...options,
+            serverPath: options.serverPath ?? process.env['WB_MCP_SERVER_PATH'] ?? WB_DEFAULT_SERVER,
+            gatewayUrl: options.gatewayUrl ?? process.env['WB_MCP_GATEWAY_URL'] ?? '',
+            gatewayApiKey: options.gatewayApiKey ?? process.env['WB_MCP_GATEWAY_API_KEY'] ?? undefined,
+        });
+    }
     /**
      * Get economic indicator data for a specific country.
      *
@@ -56,7 +69,7 @@ let wbClientInstance = null;
  *
  * Uses `WB_MCP_SERVER_PATH`, `WB_MCP_GATEWAY_URL`, and `WB_MCP_GATEWAY_API_KEY`
  * environment variables for configuration. Falls back to stdio transport
- * with default server binary.
+ * with the `worldbank-mcp` npm binary.
  *
  * @param options - Client options (overrides env vars)
  * @returns Connected World Bank MCP client
@@ -64,9 +77,9 @@ let wbClientInstance = null;
 export async function getWBMCPClient(options = {}) {
     if (!wbClientInstance) {
         const mergedOptions = {
-            serverPath: options.serverPath ?? process.env['WB_MCP_SERVER_PATH'],
-            gatewayUrl: options.gatewayUrl ?? process.env['WB_MCP_GATEWAY_URL'],
-            gatewayApiKey: options.gatewayApiKey ?? process.env['WB_MCP_GATEWAY_API_KEY'],
+            serverPath: options.serverPath,
+            gatewayUrl: options.gatewayUrl,
+            gatewayApiKey: options.gatewayApiKey,
             maxConnectionAttempts: options.maxConnectionAttempts ?? 2,
             connectionRetryDelay: options.connectionRetryDelay ?? 1000,
         };

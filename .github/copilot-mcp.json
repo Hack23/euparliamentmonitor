@@ -86,7 +86,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "worldbank-mcp"
+        "worldbank-mcp@1.0.0"
       ]
     }
   }

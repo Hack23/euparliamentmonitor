@@ -9,7 +9,9 @@
  * CSV parsing for MCP responses, indicator formatting, and economic
  * context building for EU Parliament article enrichment.
  *
- * All functions are pure and stateless — no side effects.
+ * Functions in this module are designed to be stateless and avoid observable
+ * side effects, with the exception of explicitly recording metadata such as
+ * data timestamps in returned objects.
  */
 
 import type {
@@ -338,6 +340,10 @@ export function isEUMemberState(iso2Code: string): boolean {
 
 /**
  * Generate an HTML section with economic context data for article embedding.
+ *
+ * Note: UI strings are currently in English. A future enhancement should accept
+ * a `lang` parameter and use localized string maps (similar to `WEEK_AHEAD_STRINGS`)
+ * to support all 14 article languages.
  *
  * @param context - Economic context data
  * @returns Sanitized HTML string for the economic context section
