@@ -542,6 +542,8 @@ export function generateRssFeed(articleInfos: RssItem[]): string {
     .join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>EU Parliament Monitor</title>
@@ -573,7 +575,7 @@ function main(): void {
 
   fs.writeFileSync(filepath, sitemap, 'utf-8');
   const totalUrls =
-    articles.length + ALL_LANGUAGES.length + ALL_LANGUAGES.length + docsFiles.length;
+    articles.length + ALL_LANGUAGES.length + ALL_LANGUAGES.length + docsFiles.length + 1;
   console.log(`✅ Generated sitemap.xml with ${totalUrls} URLs`);
 
   // Build article metadata map for sitemap HTML pages and RSS
@@ -632,8 +634,8 @@ function main(): void {
       });
     }
   }
-  // Sort newest first
-  rssItems.sort((a, b) => b.pubDate.localeCompare(a.pubDate));
+  // Sort newest first using numeric timestamps
+  rssItems.sort((a, b) => Date.parse(b.pubDate) - Date.parse(a.pubDate));
 
   const rss = generateRssFeed(rssItems);
   const rssPath = path.join(PROJECT_ROOT, 'rss.xml');

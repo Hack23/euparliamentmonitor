@@ -1,572 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>EU Parliament Monitor</title>
     <link>https://euparliamentmonitor.com</link>
     <description>European Parliament Intelligence Platform — monitoring political activity with systematic transparency.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 28 Feb 2026 23:13:06 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Feb 2026 23:38:36 GMT</lastBuildDate>
     <atom:link href="https://euparliamentmonitor.com/rss.xml" rel="self" type="application/rss+xml"/>
-    <item>
-      <title>المقترحات التشريعية: مراقب البرلمان الأوروبي</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-ar.html</link>
-      <description>المقترحات التشريعية الأخيرة ومتابعة الإجراءات وحالة خط الأنابيب في البرلمان الأوروبي</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-ar.html</guid>
-      <language>ar</language>
-    </item>
-    <item>
-      <title>Lovgivningsforslag: EU-parlamentsmonitor</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-da.html</link>
-      <description>Seneste lovgivningsforslag, proceduresporing og pipeline-status i Europa-Parlamentet</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-da.html</guid>
-      <language>da</language>
-    </item>
-    <item>
-      <title>Gesetzgebungsvorschläge: EU-Parlamentsmonitor</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-de.html</link>
-      <description>Aktuelle Gesetzgebungsvorschläge, Verfahrensverfolgung und Pipeline-Status im Europäischen Parlament</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-de.html</guid>
-      <language>de</language>
-    </item>
-    <item>
-      <title>Legislative Proposals: European Parliament Monitor</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-en.html</link>
-      <description>Recent legislative proposals, procedure tracking, and pipeline status in the European Parliament</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-en.html</guid>
-      <language>en</language>
-    </item>
-    <item>
-      <title>Propuestas Legislativas: Monitor del Parlamento Europeo</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-es.html</link>
-      <description>Propuestas legislativas recientes, seguimiento de procedimientos y estado del pipeline en el Parlamento Europeo</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-es.html</guid>
-      <language>es</language>
-    </item>
-    <item>
-      <title>Lainsäädäntöehdotukset: EU-parlamentin seuranta</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-fi.html</link>
-      <description>Viimeisimmät lainsäädäntöehdotukset, menettelyseuranta ja pipeline-tila Euroopan parlamentissa</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-fi.html</guid>
-      <language>fi</language>
-    </item>
-    <item>
-      <title>Propositions Législatives: Moniteur du Parlement Européen</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-fr.html</link>
-      <description>Propositions législatives récentes, suivi des procédures et état du pipeline au Parlement européen</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-fr.html</guid>
-      <language>fr</language>
-    </item>
-    <item>
-      <title>הצעות חקיקה: מוניטור הפרלמנט האירופי</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-he.html</link>
-      <description>הצעות חקיקה אחרונות, מעקב אחר הליכים ומצב צינור החקיקה בפרלמנט האירופי</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-he.html</guid>
-      <language>he</language>
-    </item>
-    <item>
-      <title>法案提案: EU議会モニター</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-ja.html</link>
-      <description>欧州議会における最近の法案提案、手続き追跡、パイプライン状況</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-ja.html</guid>
-      <language>ja</language>
-    </item>
-    <item>
-      <title>입법 제안: EU 의회 모니터</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-ko.html</link>
-      <description>유럽 의회의 최근 입법 제안, 절차 추적 및 파이프라인 상태</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-ko.html</guid>
-      <language>ko</language>
-    </item>
-    <item>
-      <title>Wetgevingsvoorstellen: EU Parlementsmonitor</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-nl.html</link>
-      <description>Recente wetgevingsvoorstellen, procedurebewaking en pipeline-status in het Europees Parlement</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-nl.html</guid>
-      <language>nl</language>
-    </item>
-    <item>
-      <title>Lovgivningsforslag: EU-parlamentsmonitor</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-no.html</link>
-      <description>Siste lovgivningsforslag, prosedyresporing og pipeline-status i Europaparlamentet</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-no.html</guid>
-      <language>no</language>
-    </item>
-    <item>
-      <title>Lagstiftningsförslag: EU-parlamentsmonitor</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-sv.html</link>
-      <description>Senaste lagstiftningsförslag, procedurspårning och pipeline-status i Europaparlamentet</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-sv.html</guid>
-      <language>sv</language>
-    </item>
-    <item>
-      <title>立法提案: EU议会监测</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-zh.html</link>
-      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-zh.html</guid>
-      <language>zh</language>
-    </item>
-    <item>
-      <title>المقترحات التشريعية: مراقب البرلمان الأوروبي</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-ar.html</link>
-      <description>المقترحات التشريعية الأخيرة ومتابعة الإجراءات وحالة خط الأنابيب في البرلمان الأوروبي</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-ar.html</guid>
-      <language>ar</language>
-    </item>
-    <item>
-      <title>Lovgivningsforslag: EU-parlamentsmonitor</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-da.html</link>
-      <description>Seneste lovgivningsforslag, proceduresporing og pipeline-status i Europa-Parlamentet</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-da.html</guid>
-      <language>da</language>
-    </item>
-    <item>
-      <title>Gesetzgebungsvorschläge: EU-Parlamentsmonitor</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-de.html</link>
-      <description>Aktuelle Gesetzgebungsvorschläge, Verfahrensverfolgung und Pipeline-Status im Europäischen Parlament</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-de.html</guid>
-      <language>de</language>
-    </item>
-    <item>
-      <title>Legislative Proposals: European Parliament Monitor</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-en.html</link>
-      <description>Recent legislative proposals, procedure tracking, and pipeline status in the European Parliament</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-en.html</guid>
-      <language>en</language>
-    </item>
-    <item>
-      <title>Propuestas Legislativas: Monitor del Parlamento Europeo</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-es.html</link>
-      <description>Propuestas legislativas recientes, seguimiento de procedimientos y estado del pipeline en el Parlamento Europeo</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-es.html</guid>
-      <language>es</language>
-    </item>
-    <item>
-      <title>Lainsäädäntöehdotukset: EU-parlamentin seuranta</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-fi.html</link>
-      <description>Viimeisimmät lainsäädäntöehdotukset, menettelyseuranta ja pipeline-tila Euroopan parlamentissa</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-fi.html</guid>
-      <language>fi</language>
-    </item>
-    <item>
-      <title>Propositions Législatives: Moniteur du Parlement Européen</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-fr.html</link>
-      <description>Propositions législatives récentes, suivi des procédures et état du pipeline au Parlement européen</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-fr.html</guid>
-      <language>fr</language>
-    </item>
-    <item>
-      <title>הצעות חקיקה: מוניטור הפרלמנט האירופי</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-he.html</link>
-      <description>הצעות חקיקה אחרונות, מעקב אחר הליכים ומצב צינור החקיקה בפרלמנט האירופי</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-he.html</guid>
-      <language>he</language>
-    </item>
-    <item>
-      <title>法案提案: EU議会モニター</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-ja.html</link>
-      <description>欧州議会における最近の法案提案、手続き追跡、パイプライン状況</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-ja.html</guid>
-      <language>ja</language>
-    </item>
-    <item>
-      <title>입법 제안: EU 의회 모니터</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-ko.html</link>
-      <description>유럽 의회의 최근 입법 제안, 절차 추적 및 파이프라인 상태</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-ko.html</guid>
-      <language>ko</language>
-    </item>
-    <item>
-      <title>Wetgevingsvoorstellen: EU Parlementsmonitor</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-nl.html</link>
-      <description>Recente wetgevingsvoorstellen, procedurebewaking en pipeline-status in het Europees Parlement</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-nl.html</guid>
-      <language>nl</language>
-    </item>
-    <item>
-      <title>Lovgivningsforslag: EU-parlamentsmonitor</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-no.html</link>
-      <description>Siste lovgivningsforslag, prosedyresporing og pipeline-status i Europaparlamentet</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-no.html</guid>
-      <language>no</language>
-    </item>
-    <item>
-      <title>Lagstiftningsförslag: EU-parlamentsmonitor</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-sv.html</link>
-      <description>Senaste lagstiftningsförslag, procedurspårning och pipeline-status i Europaparlamentet</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-sv.html</guid>
-      <language>sv</language>
-    </item>
-    <item>
-      <title>立法提案: EU议会监测</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-zh.html</link>
-      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-zh.html</guid>
-      <language>zh</language>
-    </item>
-    <item>
-      <title>الأسبوع القادم: 2026-02-25 إلى 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ar.html</link>
-      <description>جدول أعمال البرلمان الأوروبي واجتماعات اللجان والنقاشات العامة للأسبوع القادم</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ar.html</guid>
-      <language>ar</language>
-    </item>
-    <item>
-      <title>Ugen Fremover: 2026-02-25 til 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-da.html</link>
-      <description>Europa-Parlamentets kalender, udvalgsmøder og plenardebatter for den kommende uge</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-da.html</guid>
-      <language>da</language>
-    </item>
-    <item>
-      <title>Woche Voraus: 2026-02-25 bis 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-de.html</link>
-      <description>Europäischer Parlamentskalender, Ausschusssitzungen und Plenardebatten für die kommende Woche</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-de.html</guid>
-      <language>de</language>
-    </item>
-    <item>
-      <title>Week Ahead: 2026-02-25 to 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-en.html</link>
-      <description>European Parliament calendar, committee meetings, and plenary debates for the coming week</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-en.html</guid>
-      <language>en</language>
-    </item>
-    <item>
-      <title>Semana Próxima: 2026-02-25 a 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-es.html</link>
-      <description>Calendario del Parlamento Europeo, reuniones de comisión y debates plenarios para la próxima semana</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-es.html</guid>
-      <language>es</language>
-    </item>
-    <item>
-      <title>Tuleva Viikko: 2026-02-25 - 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-fi.html</link>
-      <description>Euroopan parlamentin kalenteri, valiokuntien kokoukset ja täysistuntokeskustelut tulevalle viikolle</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-fi.html</guid>
-      <language>fi</language>
-    </item>
-    <item>
-      <title>Semaine à Venir: 2026-02-25 au 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-fr.html</link>
-      <description>Calendrier du Parlement européen, réunions de commission et débats pléniers pour la semaine à venir</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-fr.html</guid>
-      <language>fr</language>
-    </item>
-    <item>
-      <title>השבוע הקרוב: 2026-02-25 עד 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-he.html</link>
-      <description>לוח הזמנים של הפרלמנט האירופי, ישיבות ועדות ודיוני מליאה לשבוע הקרוב</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-he.html</guid>
-      <language>he</language>
-    </item>
-    <item>
-      <title>今週の予定: 2026-02-25 ～ 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ja.html</link>
-      <description>欧州議会のカレンダー、委員会会合、本会議の討論</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ja.html</guid>
-      <language>ja</language>
-    </item>
-    <item>
-      <title>다음 주 일정: 2026-02-25 ~ 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ko.html</link>
-      <description>유럽 의회 일정, 위원회 회의 및 본회의 토론</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ko.html</guid>
-      <language>ko</language>
-    </item>
-    <item>
-      <title>Week Vooruit: 2026-02-25 tot 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-nl.html</link>
-      <description>Europees Parlement kalender, commissievergaderingen en plenaire debatten voor de komende week</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-nl.html</guid>
-      <language>nl</language>
-    </item>
-    <item>
-      <title>Uken Fremover: 2026-02-25 til 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-no.html</link>
-      <description>Europaparlamentets kalender, komitémøter og plenardebatter for kommende uke</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-no.html</guid>
-      <language>no</language>
-    </item>
-    <item>
-      <title>Vecka Framåt: 2026-02-25 till 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-sv.html</link>
-      <description>Europaparlamentets kalender, utskottsmöten och plenardebatter för kommande vecka</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-sv.html</guid>
-      <language>sv</language>
-    </item>
-    <item>
-      <title>下周预告: 2026-02-25 至 2026-03-04</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-zh.html</link>
-      <description>欧洲议会日历、委员会会议和全体辩论</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-zh.html</guid>
-      <language>zh</language>
-    </item>
-    <item>
-      <title>تقارير لجان البرلمان الأوروبي: خمس لجان رئيسية تشكل الأجندة السياسية الأوروبية</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ar.html</link>
-      <description>تحليل معمق لنشاط لجان البرلمان الأوروبي يغطي تنظيم المواد الكيميائية والضرائب الرقمية والشؤون الخارجية والحريات المدنية والتجارة الزراعية.</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ar.html</guid>
-      <language>ar</language>
-    </item>
-    <item>
-      <title>EU-Parlamentets udvalgsrapporter: Fem nøgleudvalg former den europæiske politiske dagsorden</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-da.html</link>
-      <description>Dybdegående analyse af EU-Parlamentets udvalgsaktivitet dækkende kemikalieregulering, digital beskatning, udenrigspolitiske resolutioner, borgerlige frihedsrettigheder og landbrugshandel.</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-da.html</guid>
-      <language>da</language>
-    </item>
-    <item>
-      <title>EU-Parlament Ausschussberichte: Fünf Schlüsselausschüsse gestalten die europäische politische Agenda</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-de.html</link>
-      <description>Tiefgehende Analyse der Ausschussarbeit des EU-Parlaments zu Chemikalienregulierung, digitaler Besteuerung, außenpolitischen Resolutionen, bürgerlichen Freiheiten und Agrarhandel.</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-de.html</guid>
-      <language>de</language>
-    </item>
-    <item>
-      <title>EU Parliament Committee Reports: Five Key Committees Shape European Policy Agenda</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-en.html</link>
-      <description>In-depth analysis of European Parliament committee activity covering chemicals regulation, digital taxation, foreign affairs resolutions, civil liberties, and agricultural trade across five key standing committees.</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-en.html</guid>
-      <language>en</language>
-    </item>
-    <item>
-      <title>Informes de las comisiones del Parlamento Europeo: cinco comisiones clave configuran la agenda política europea</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-es.html</link>
-      <description>Análisis en profundidad de la actividad de las comisiones del Parlamento Europeo sobre regulación química, fiscalidad digital, resoluciones de política exterior, libertades civiles y comercio agrícola.</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-es.html</guid>
-      <language>es</language>
-    </item>
-    <item>
-      <title>EU:n parlamentin valiokuntatraportit: Viisi keskeistä valiokuntaa muovaavat eurooppalaista politiikkaa</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-fi.html</link>
-      <description>Syvällinen analyysi EU:n parlamentin valiokuntatoiminnasta kattaen kemikaalien sääntelyn, digitaalisen verotuksen, ulkopoliittiset päätöslauselmat, kansalaisvapaudet ja maatalouskaupan.</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-fi.html</guid>
-      <language>fi</language>
-    </item>
-    <item>
-      <title>Rapports des commissions du Parlement européen : cinq commissions clés façonnent l&apos;agenda politique européen</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-fr.html</link>
-      <description>Analyse approfondie de l&apos;activité des commissions du Parlement européen couvrant la réglementation chimique, la fiscalité numérique, les résolutions de politique étrangère, les libertés civiles et le commerce agricole.</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-fr.html</guid>
-      <language>fr</language>
-    </item>
-    <item>
-      <title>דוחות ועדות הפרלמנט האירופי: חמש ועדות מרכזיות מעצבות את האגנדה הפוליטית האירופית</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-he.html</link>
-      <description>ניתוח מעמיק של פעילות ועדות הפרלמנט האירופי המכסה רגולציה כימית, מיסוי דיגיטלי, יחסי חוץ, חירויות אזרחיות וסחר חקלאי.</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-he.html</guid>
-      <language>he</language>
-    </item>
-    <item>
-      <title>EU議会委員会報告：5つの主要委員会が欧州の政策議題を形成</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ja.html</link>
-      <description>EU議会委員会の活動に関する詳細分析。化学物質規制、デジタル課税、外交政策決議、市民的自由、農業貿易を網羅。</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ja.html</guid>
-      <language>ja</language>
-    </item>
-    <item>
-      <title>EU 의회 위원회 보고서: 5개 주요 위원회가 유럽 정책 의제를 형성</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ko.html</link>
-      <description>EU 의회 위원회 활동에 대한 심층 분석. 화학물질 규제, 디지털 과세, 외교 결의, 시민적 자유, 농업 무역 포함.</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ko.html</guid>
-      <language>ko</language>
-    </item>
-    <item>
-      <title>EU-Parlement commissierapporten: vijf sleutelcommissies vormen de Europese beleidsagenda</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-nl.html</link>
-      <description>Diepgaande analyse van de commissieactiviteiten van het EU-Parlement over chemische regulering, digitale belasting, buitenlandse zaken resoluties, burgerlijke vrijheden en landbouwhandel.</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-nl.html</guid>
-      <language>nl</language>
-    </item>
-    <item>
-      <title>EU-parlamentets komitérapporter: Fem nøkkelkomiteer former den europeiske politiske agendaen</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-no.html</link>
-      <description>Dybdeanalyse av EU-parlamentets komitéaktivitet som dekker kjemikalieregulering, digital beskatning, utenrikspolitiske resolusjoner, sivile friheter og landbrukshandel.</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-no.html</guid>
-      <language>no</language>
-    </item>
-    <item>
-      <title>EU-parlamentets utskottsrapporter: Fem nyckelutskott formar den europeiska politiska agendan</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-sv.html</link>
-      <description>Fördjupad analys av EU-parlamentets utskottsverksamhet som omfattar kemikaliereglering, digital beskattning, utrikespolitiska resolutioner, medborgerliga fri- och rättigheter samt jordbrukshandel.</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-sv.html</guid>
-      <language>sv</language>
-    </item>
-    <item>
-      <title>欧洲议会委员会报告：五个关键委员会塑造欧洲政策议程</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-zh.html</link>
-      <description>对欧洲议会委员会活动的深入分析，涵盖化学品监管、数字税收、外交政策决议、公民自由和农业贸易。</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-zh.html</guid>
-      <language>zh</language>
-    </item>
-    <item>
-      <title>تصاعد خط الأنابيب التشريعي: 20 إجراءً جديدًا في 2026</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-ar.html</link>
-      <description>تحليل الأجندة التشريعية للبرلمان الأوروبي 2026: 7 مقترحات COD جديدة و12 ملفًا مُرحّلًا وأكثر من 20 نصًا مُعتمدًا</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-ar.html</guid>
-      <language>ar</language>
-    </item>
-    <item>
-      <title>Lovgivningspipeline i vækst: 20 nye procedurer i 2026</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-da.html</link>
-      <description>Analyse af Europa-Parlamentets lovgivningsdagsorden 2026: 7 nye COD-forslag, 12 overførte sager, 20+ vedtagne tekster</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-da.html</guid>
-      <language>da</language>
-    </item>
-    <item>
-      <title>Gesetzgebungspipeline im Aufschwung: 20 neue Verfahren 2026</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-de.html</link>
-      <description>Analyse der Gesetzgebungsagenda 2026 des Europäischen Parlaments: 7 neue COD-Vorschläge, 12 Übergangsverfahren, 20+ angenommene Texte</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-de.html</guid>
-      <language>de</language>
-    </item>
-    <item>
-      <title>Legislative Pipeline Surge: 20 New Procedures Filed in 2026 as Parliament Tackles Finance, Trade and Security</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-en.html</link>
-      <description>Analysis of the European Parliament&apos;s 2026 legislative docket: 7 new COD proposals, 12 carryover files, 20+ adopted texts on Mercosur, drones, digital sovereignty and more</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-en.html</guid>
-      <language>en</language>
-    </item>
-    <item>
-      <title>Pipeline legislativo en auge: 20 nuevos procedimientos en 2026</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-es.html</link>
-      <description>Análisis de la agenda legislativa del Parlamento Europeo 2026: 7 nuevas propuestas COD, 12 expedientes pendientes, 20+ textos adoptados</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-es.html</guid>
-      <language>es</language>
-    </item>
-    <item>
-      <title>Lainsäädäntöputki kasvussa: 20 uutta menettelyä vuonna 2026</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-fi.html</link>
-      <description>Euroopan parlamentin vuoden 2026 lainsäädäntöagendan analyysi: 7 uutta COD-ehdotusta, 12 jatkoasiaa, 20+ hyväksyttyä tekstiä</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-fi.html</guid>
-      <language>fi</language>
-    </item>
-    <item>
-      <title>Pipeline législatif en hausse : 20 nouvelles procédures en 2026</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-fr.html</link>
-      <description>Analyse de l&apos;agenda législatif du Parlement européen 2026 : 7 nouvelles propositions COD, 12 dossiers reportés, 20+ textes adoptés</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-fr.html</guid>
-      <language>fr</language>
-    </item>
-    <item>
-      <title>עלייה בצינור החקיקה: 20 הליכים חדשים ב-2026</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-he.html</link>
-      <description>ניתוח סדר היום החקיקתי של הפרלמנט האירופי 2026: 7 הצעות COD חדשות, 12 תיקים מועברים, 20+ טקסטים שאומצו</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-he.html</guid>
-      <language>he</language>
-    </item>
-    <item>
-      <title>立法パイプライン急増：2026年に20の新手続き</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-ja.html</link>
-      <description>欧州議会の2026年立法議題分析：COD提案7件、継続案件12件、採択テキスト20件以上</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-ja.html</guid>
-      <language>ja</language>
-    </item>
-    <item>
-      <title>입법 파이프라인 급증: 2026년 20건의 새 절차</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-ko.html</link>
-      <description>유럽의회 2026 입법 의제 분석: 새 COD 제안 7건, 이월 안건 12건, 채택 텍스트 20건 이상</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-ko.html</guid>
-      <language>ko</language>
-    </item>
-    <item>
-      <title>Wetgevingspijplijn in opmars: 20 nieuwe procedures in 2026</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-nl.html</link>
-      <description>Analyse van de wetgevingsagenda 2026 van het Europees Parlement: 7 nieuwe COD-voorstellen, 12 overgedragen dossiers, 20+ aangenomen teksten</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-nl.html</guid>
-      <language>nl</language>
-    </item>
-    <item>
-      <title>Lovgivningspipeline i vekst: 20 nye prosedyrer i 2026</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-no.html</link>
-      <description>Analyse av Europaparlamentets lovgivningsagenda 2026: 7 nye COD-forslag, 12 overførte saker, 20+ vedtatte tekster</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-no.html</guid>
-      <language>no</language>
-    </item>
-    <item>
-      <title>Lagstiftningspipeline i uppgång: 20 nya förfaranden 2026</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-sv.html</link>
-      <description>Analys av Europaparlamentets 2026 lagstiftningsagenda: 7 nya COD-förslag, 12 övergångsärenden, 20+ antagna texter</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-sv.html</guid>
-      <language>sv</language>
-    </item>
-    <item>
-      <title>立法管道激增：2026年新增20项程序</title>
-      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-zh.html</link>
-      <description>欧洲议会2026年立法议程分析：7项新COD提案、12项延续案件、20多项已通过文本</description>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-zh.html</guid>
-      <language>zh</language>
-    </item>
     <item>
       <title>الشهر القادم: مارس 2026 نظرة استراتيجية</title>
       <link>https://euparliamentmonitor.com/news/2026-02-28-month-ahead-ar.html</link>
@@ -1237,6 +679,566 @@
       <description>分析欧洲议会2026年立法加速：7项新COD提案、涵盖卫生、国防、贸易和气候的50多项已通过文本以及2025年结转的13个文件</description>
       <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-27-propositions-zh.html</guid>
+      <language>zh</language>
+    </item>
+    <item>
+      <title>تقارير لجان البرلمان الأوروبي: خمس لجان رئيسية تشكل الأجندة السياسية الأوروبية</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ar.html</link>
+      <description>تحليل معمق لنشاط لجان البرلمان الأوروبي يغطي تنظيم المواد الكيميائية والضرائب الرقمية والشؤون الخارجية والحريات المدنية والتجارة الزراعية.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ar.html</guid>
+      <language>ar</language>
+    </item>
+    <item>
+      <title>EU-Parlamentets udvalgsrapporter: Fem nøgleudvalg former den europæiske politiske dagsorden</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-da.html</link>
+      <description>Dybdegående analyse af EU-Parlamentets udvalgsaktivitet dækkende kemikalieregulering, digital beskatning, udenrigspolitiske resolutioner, borgerlige frihedsrettigheder og landbrugshandel.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-da.html</guid>
+      <language>da</language>
+    </item>
+    <item>
+      <title>EU-Parlament Ausschussberichte: Fünf Schlüsselausschüsse gestalten die europäische politische Agenda</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-de.html</link>
+      <description>Tiefgehende Analyse der Ausschussarbeit des EU-Parlaments zu Chemikalienregulierung, digitaler Besteuerung, außenpolitischen Resolutionen, bürgerlichen Freiheiten und Agrarhandel.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-de.html</guid>
+      <language>de</language>
+    </item>
+    <item>
+      <title>EU Parliament Committee Reports: Five Key Committees Shape European Policy Agenda</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-en.html</link>
+      <description>In-depth analysis of European Parliament committee activity covering chemicals regulation, digital taxation, foreign affairs resolutions, civil liberties, and agricultural trade across five key standing committees.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-en.html</guid>
+      <language>en</language>
+    </item>
+    <item>
+      <title>Informes de las comisiones del Parlamento Europeo: cinco comisiones clave configuran la agenda política europea</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-es.html</link>
+      <description>Análisis en profundidad de la actividad de las comisiones del Parlamento Europeo sobre regulación química, fiscalidad digital, resoluciones de política exterior, libertades civiles y comercio agrícola.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-es.html</guid>
+      <language>es</language>
+    </item>
+    <item>
+      <title>EU:n parlamentin valiokuntatraportit: Viisi keskeistä valiokuntaa muovaavat eurooppalaista politiikkaa</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-fi.html</link>
+      <description>Syvällinen analyysi EU:n parlamentin valiokuntatoiminnasta kattaen kemikaalien sääntelyn, digitaalisen verotuksen, ulkopoliittiset päätöslauselmat, kansalaisvapaudet ja maatalouskaupan.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-fi.html</guid>
+      <language>fi</language>
+    </item>
+    <item>
+      <title>Rapports des commissions du Parlement européen : cinq commissions clés façonnent l&apos;agenda politique européen</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-fr.html</link>
+      <description>Analyse approfondie de l&apos;activité des commissions du Parlement européen couvrant la réglementation chimique, la fiscalité numérique, les résolutions de politique étrangère, les libertés civiles et le commerce agricole.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-fr.html</guid>
+      <language>fr</language>
+    </item>
+    <item>
+      <title>דוחות ועדות הפרלמנט האירופי: חמש ועדות מרכזיות מעצבות את האגנדה הפוליטית האירופית</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-he.html</link>
+      <description>ניתוח מעמיק של פעילות ועדות הפרלמנט האירופי המכסה רגולציה כימית, מיסוי דיגיטלי, יחסי חוץ, חירויות אזרחיות וסחר חקלאי.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-he.html</guid>
+      <language>he</language>
+    </item>
+    <item>
+      <title>EU議会委員会報告：5つの主要委員会が欧州の政策議題を形成</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ja.html</link>
+      <description>EU議会委員会の活動に関する詳細分析。化学物質規制、デジタル課税、外交政策決議、市民的自由、農業貿易を網羅。</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ja.html</guid>
+      <language>ja</language>
+    </item>
+    <item>
+      <title>EU 의회 위원회 보고서: 5개 주요 위원회가 유럽 정책 의제를 형성</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ko.html</link>
+      <description>EU 의회 위원회 활동에 대한 심층 분석. 화학물질 규제, 디지털 과세, 외교 결의, 시민적 자유, 농업 무역 포함.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ko.html</guid>
+      <language>ko</language>
+    </item>
+    <item>
+      <title>EU-Parlement commissierapporten: vijf sleutelcommissies vormen de Europese beleidsagenda</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-nl.html</link>
+      <description>Diepgaande analyse van de commissieactiviteiten van het EU-Parlement over chemische regulering, digitale belasting, buitenlandse zaken resoluties, burgerlijke vrijheden en landbouwhandel.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-nl.html</guid>
+      <language>nl</language>
+    </item>
+    <item>
+      <title>EU-parlamentets komitérapporter: Fem nøkkelkomiteer former den europeiske politiske agendaen</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-no.html</link>
+      <description>Dybdeanalyse av EU-parlamentets komitéaktivitet som dekker kjemikalieregulering, digital beskatning, utenrikspolitiske resolusjoner, sivile friheter og landbrukshandel.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-no.html</guid>
+      <language>no</language>
+    </item>
+    <item>
+      <title>EU-parlamentets utskottsrapporter: Fem nyckelutskott formar den europeiska politiska agendan</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-sv.html</link>
+      <description>Fördjupad analys av EU-parlamentets utskottsverksamhet som omfattar kemikaliereglering, digital beskattning, utrikespolitiska resolutioner, medborgerliga fri- och rättigheter samt jordbrukshandel.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-sv.html</guid>
+      <language>sv</language>
+    </item>
+    <item>
+      <title>欧洲议会委员会报告：五个关键委员会塑造欧洲政策议程</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-zh.html</link>
+      <description>对欧洲议会委员会活动的深入分析，涵盖化学品监管、数字税收、外交政策决议、公民自由和农业贸易。</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-zh.html</guid>
+      <language>zh</language>
+    </item>
+    <item>
+      <title>تصاعد خط الأنابيب التشريعي: 20 إجراءً جديدًا في 2026</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-ar.html</link>
+      <description>تحليل الأجندة التشريعية للبرلمان الأوروبي 2026: 7 مقترحات COD جديدة و12 ملفًا مُرحّلًا وأكثر من 20 نصًا مُعتمدًا</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-ar.html</guid>
+      <language>ar</language>
+    </item>
+    <item>
+      <title>Lovgivningspipeline i vækst: 20 nye procedurer i 2026</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-da.html</link>
+      <description>Analyse af Europa-Parlamentets lovgivningsdagsorden 2026: 7 nye COD-forslag, 12 overførte sager, 20+ vedtagne tekster</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-da.html</guid>
+      <language>da</language>
+    </item>
+    <item>
+      <title>Gesetzgebungspipeline im Aufschwung: 20 neue Verfahren 2026</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-de.html</link>
+      <description>Analyse der Gesetzgebungsagenda 2026 des Europäischen Parlaments: 7 neue COD-Vorschläge, 12 Übergangsverfahren, 20+ angenommene Texte</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-de.html</guid>
+      <language>de</language>
+    </item>
+    <item>
+      <title>Legislative Pipeline Surge: 20 New Procedures Filed in 2026 as Parliament Tackles Finance, Trade and Security</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-en.html</link>
+      <description>Analysis of the European Parliament&apos;s 2026 legislative docket: 7 new COD proposals, 12 carryover files, 20+ adopted texts on Mercosur, drones, digital sovereignty and more</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-en.html</guid>
+      <language>en</language>
+    </item>
+    <item>
+      <title>Pipeline legislativo en auge: 20 nuevos procedimientos en 2026</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-es.html</link>
+      <description>Análisis de la agenda legislativa del Parlamento Europeo 2026: 7 nuevas propuestas COD, 12 expedientes pendientes, 20+ textos adoptados</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-es.html</guid>
+      <language>es</language>
+    </item>
+    <item>
+      <title>Lainsäädäntöputki kasvussa: 20 uutta menettelyä vuonna 2026</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-fi.html</link>
+      <description>Euroopan parlamentin vuoden 2026 lainsäädäntöagendan analyysi: 7 uutta COD-ehdotusta, 12 jatkoasiaa, 20+ hyväksyttyä tekstiä</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-fi.html</guid>
+      <language>fi</language>
+    </item>
+    <item>
+      <title>Pipeline législatif en hausse : 20 nouvelles procédures en 2026</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-fr.html</link>
+      <description>Analyse de l&apos;agenda législatif du Parlement européen 2026 : 7 nouvelles propositions COD, 12 dossiers reportés, 20+ textes adoptés</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-fr.html</guid>
+      <language>fr</language>
+    </item>
+    <item>
+      <title>עלייה בצינור החקיקה: 20 הליכים חדשים ב-2026</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-he.html</link>
+      <description>ניתוח סדר היום החקיקתי של הפרלמנט האירופי 2026: 7 הצעות COD חדשות, 12 תיקים מועברים, 20+ טקסטים שאומצו</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-he.html</guid>
+      <language>he</language>
+    </item>
+    <item>
+      <title>立法パイプライン急増：2026年に20の新手続き</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-ja.html</link>
+      <description>欧州議会の2026年立法議題分析：COD提案7件、継続案件12件、採択テキスト20件以上</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-ja.html</guid>
+      <language>ja</language>
+    </item>
+    <item>
+      <title>입법 파이프라인 급증: 2026년 20건의 새 절차</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-ko.html</link>
+      <description>유럽의회 2026 입법 의제 분석: 새 COD 제안 7건, 이월 안건 12건, 채택 텍스트 20건 이상</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-ko.html</guid>
+      <language>ko</language>
+    </item>
+    <item>
+      <title>Wetgevingspijplijn in opmars: 20 nieuwe procedures in 2026</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-nl.html</link>
+      <description>Analyse van de wetgevingsagenda 2026 van het Europees Parlement: 7 nieuwe COD-voorstellen, 12 overgedragen dossiers, 20+ aangenomen teksten</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-nl.html</guid>
+      <language>nl</language>
+    </item>
+    <item>
+      <title>Lovgivningspipeline i vekst: 20 nye prosedyrer i 2026</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-no.html</link>
+      <description>Analyse av Europaparlamentets lovgivningsagenda 2026: 7 nye COD-forslag, 12 overførte saker, 20+ vedtatte tekster</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-no.html</guid>
+      <language>no</language>
+    </item>
+    <item>
+      <title>Lagstiftningspipeline i uppgång: 20 nya förfaranden 2026</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-sv.html</link>
+      <description>Analys av Europaparlamentets 2026 lagstiftningsagenda: 7 nya COD-förslag, 12 övergångsärenden, 20+ antagna texter</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-sv.html</guid>
+      <language>sv</language>
+    </item>
+    <item>
+      <title>立法管道激增：2026年新增20项程序</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-zh.html</link>
+      <description>欧洲议会2026年立法议程分析：7项新COD提案、12项延续案件、20多项已通过文本</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-zh.html</guid>
+      <language>zh</language>
+    </item>
+    <item>
+      <title>المقترحات التشريعية: مراقب البرلمان الأوروبي</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-ar.html</link>
+      <description>المقترحات التشريعية الأخيرة ومتابعة الإجراءات وحالة خط الأنابيب في البرلمان الأوروبي</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-ar.html</guid>
+      <language>ar</language>
+    </item>
+    <item>
+      <title>Lovgivningsforslag: EU-parlamentsmonitor</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-da.html</link>
+      <description>Seneste lovgivningsforslag, proceduresporing og pipeline-status i Europa-Parlamentet</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-da.html</guid>
+      <language>da</language>
+    </item>
+    <item>
+      <title>Gesetzgebungsvorschläge: EU-Parlamentsmonitor</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-de.html</link>
+      <description>Aktuelle Gesetzgebungsvorschläge, Verfahrensverfolgung und Pipeline-Status im Europäischen Parlament</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-de.html</guid>
+      <language>de</language>
+    </item>
+    <item>
+      <title>Legislative Proposals: European Parliament Monitor</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-en.html</link>
+      <description>Recent legislative proposals, procedure tracking, and pipeline status in the European Parliament</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-en.html</guid>
+      <language>en</language>
+    </item>
+    <item>
+      <title>Propuestas Legislativas: Monitor del Parlamento Europeo</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-es.html</link>
+      <description>Propuestas legislativas recientes, seguimiento de procedimientos y estado del pipeline en el Parlamento Europeo</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-es.html</guid>
+      <language>es</language>
+    </item>
+    <item>
+      <title>Lainsäädäntöehdotukset: EU-parlamentin seuranta</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-fi.html</link>
+      <description>Viimeisimmät lainsäädäntöehdotukset, menettelyseuranta ja pipeline-tila Euroopan parlamentissa</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-fi.html</guid>
+      <language>fi</language>
+    </item>
+    <item>
+      <title>Propositions Législatives: Moniteur du Parlement Européen</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-fr.html</link>
+      <description>Propositions législatives récentes, suivi des procédures et état du pipeline au Parlement européen</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-fr.html</guid>
+      <language>fr</language>
+    </item>
+    <item>
+      <title>הצעות חקיקה: מוניטור הפרלמנט האירופי</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-he.html</link>
+      <description>הצעות חקיקה אחרונות, מעקב אחר הליכים ומצב צינור החקיקה בפרלמנט האירופי</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-he.html</guid>
+      <language>he</language>
+    </item>
+    <item>
+      <title>法案提案: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-ja.html</link>
+      <description>欧州議会における最近の法案提案、手続き追跡、パイプライン状況</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-ja.html</guid>
+      <language>ja</language>
+    </item>
+    <item>
+      <title>입법 제안: EU 의회 모니터</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-ko.html</link>
+      <description>유럽 의회의 최근 입법 제안, 절차 추적 및 파이프라인 상태</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-ko.html</guid>
+      <language>ko</language>
+    </item>
+    <item>
+      <title>Wetgevingsvoorstellen: EU Parlementsmonitor</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-nl.html</link>
+      <description>Recente wetgevingsvoorstellen, procedurebewaking en pipeline-status in het Europees Parlement</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-nl.html</guid>
+      <language>nl</language>
+    </item>
+    <item>
+      <title>Lovgivningsforslag: EU-parlamentsmonitor</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-no.html</link>
+      <description>Siste lovgivningsforslag, prosedyresporing og pipeline-status i Europaparlamentet</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-no.html</guid>
+      <language>no</language>
+    </item>
+    <item>
+      <title>Lagstiftningsförslag: EU-parlamentsmonitor</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-sv.html</link>
+      <description>Senaste lagstiftningsförslag, procedurspårning och pipeline-status i Europaparlamentet</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-sv.html</guid>
+      <language>sv</language>
+    </item>
+    <item>
+      <title>立法提案: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-zh.html</guid>
+      <language>zh</language>
+    </item>
+    <item>
+      <title>المقترحات التشريعية: مراقب البرلمان الأوروبي</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-ar.html</link>
+      <description>المقترحات التشريعية الأخيرة ومتابعة الإجراءات وحالة خط الأنابيب في البرلمان الأوروبي</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-ar.html</guid>
+      <language>ar</language>
+    </item>
+    <item>
+      <title>Lovgivningsforslag: EU-parlamentsmonitor</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-da.html</link>
+      <description>Seneste lovgivningsforslag, proceduresporing og pipeline-status i Europa-Parlamentet</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-da.html</guid>
+      <language>da</language>
+    </item>
+    <item>
+      <title>Gesetzgebungsvorschläge: EU-Parlamentsmonitor</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-de.html</link>
+      <description>Aktuelle Gesetzgebungsvorschläge, Verfahrensverfolgung und Pipeline-Status im Europäischen Parlament</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-de.html</guid>
+      <language>de</language>
+    </item>
+    <item>
+      <title>Legislative Proposals: European Parliament Monitor</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-en.html</link>
+      <description>Recent legislative proposals, procedure tracking, and pipeline status in the European Parliament</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-en.html</guid>
+      <language>en</language>
+    </item>
+    <item>
+      <title>Propuestas Legislativas: Monitor del Parlamento Europeo</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-es.html</link>
+      <description>Propuestas legislativas recientes, seguimiento de procedimientos y estado del pipeline en el Parlamento Europeo</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-es.html</guid>
+      <language>es</language>
+    </item>
+    <item>
+      <title>Lainsäädäntöehdotukset: EU-parlamentin seuranta</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-fi.html</link>
+      <description>Viimeisimmät lainsäädäntöehdotukset, menettelyseuranta ja pipeline-tila Euroopan parlamentissa</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-fi.html</guid>
+      <language>fi</language>
+    </item>
+    <item>
+      <title>Propositions Législatives: Moniteur du Parlement Européen</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-fr.html</link>
+      <description>Propositions législatives récentes, suivi des procédures et état du pipeline au Parlement européen</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-fr.html</guid>
+      <language>fr</language>
+    </item>
+    <item>
+      <title>הצעות חקיקה: מוניטור הפרלמנט האירופי</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-he.html</link>
+      <description>הצעות חקיקה אחרונות, מעקב אחר הליכים ומצב צינור החקיקה בפרלמנט האירופי</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-he.html</guid>
+      <language>he</language>
+    </item>
+    <item>
+      <title>法案提案: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-ja.html</link>
+      <description>欧州議会における最近の法案提案、手続き追跡、パイプライン状況</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-ja.html</guid>
+      <language>ja</language>
+    </item>
+    <item>
+      <title>입법 제안: EU 의회 모니터</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-ko.html</link>
+      <description>유럽 의회의 최근 입법 제안, 절차 추적 및 파이프라인 상태</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-ko.html</guid>
+      <language>ko</language>
+    </item>
+    <item>
+      <title>Wetgevingsvoorstellen: EU Parlementsmonitor</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-nl.html</link>
+      <description>Recente wetgevingsvoorstellen, procedurebewaking en pipeline-status in het Europees Parlement</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-nl.html</guid>
+      <language>nl</language>
+    </item>
+    <item>
+      <title>Lovgivningsforslag: EU-parlamentsmonitor</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-no.html</link>
+      <description>Siste lovgivningsforslag, prosedyresporing og pipeline-status i Europaparlamentet</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-no.html</guid>
+      <language>no</language>
+    </item>
+    <item>
+      <title>Lagstiftningsförslag: EU-parlamentsmonitor</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-sv.html</link>
+      <description>Senaste lagstiftningsförslag, procedurspårning och pipeline-status i Europaparlamentet</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-sv.html</guid>
+      <language>sv</language>
+    </item>
+    <item>
+      <title>立法提案: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-zh.html</guid>
+      <language>zh</language>
+    </item>
+    <item>
+      <title>الأسبوع القادم: 2026-02-25 إلى 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ar.html</link>
+      <description>جدول أعمال البرلمان الأوروبي واجتماعات اللجان والنقاشات العامة للأسبوع القادم</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ar.html</guid>
+      <language>ar</language>
+    </item>
+    <item>
+      <title>Ugen Fremover: 2026-02-25 til 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-da.html</link>
+      <description>Europa-Parlamentets kalender, udvalgsmøder og plenardebatter for den kommende uge</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-da.html</guid>
+      <language>da</language>
+    </item>
+    <item>
+      <title>Woche Voraus: 2026-02-25 bis 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-de.html</link>
+      <description>Europäischer Parlamentskalender, Ausschusssitzungen und Plenardebatten für die kommende Woche</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-de.html</guid>
+      <language>de</language>
+    </item>
+    <item>
+      <title>Week Ahead: 2026-02-25 to 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-en.html</link>
+      <description>European Parliament calendar, committee meetings, and plenary debates for the coming week</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-en.html</guid>
+      <language>en</language>
+    </item>
+    <item>
+      <title>Semana Próxima: 2026-02-25 a 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-es.html</link>
+      <description>Calendario del Parlamento Europeo, reuniones de comisión y debates plenarios para la próxima semana</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-es.html</guid>
+      <language>es</language>
+    </item>
+    <item>
+      <title>Tuleva Viikko: 2026-02-25 - 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-fi.html</link>
+      <description>Euroopan parlamentin kalenteri, valiokuntien kokoukset ja täysistuntokeskustelut tulevalle viikolle</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-fi.html</guid>
+      <language>fi</language>
+    </item>
+    <item>
+      <title>Semaine à Venir: 2026-02-25 au 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-fr.html</link>
+      <description>Calendrier du Parlement européen, réunions de commission et débats pléniers pour la semaine à venir</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-fr.html</guid>
+      <language>fr</language>
+    </item>
+    <item>
+      <title>השבוע הקרוב: 2026-02-25 עד 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-he.html</link>
+      <description>לוח הזמנים של הפרלמנט האירופי, ישיבות ועדות ודיוני מליאה לשבוע הקרוב</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-he.html</guid>
+      <language>he</language>
+    </item>
+    <item>
+      <title>今週の予定: 2026-02-25 ～ 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ja.html</link>
+      <description>欧州議会のカレンダー、委員会会合、本会議の討論</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ja.html</guid>
+      <language>ja</language>
+    </item>
+    <item>
+      <title>다음 주 일정: 2026-02-25 ~ 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ko.html</link>
+      <description>유럽 의회 일정, 위원회 회의 및 본회의 토론</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ko.html</guid>
+      <language>ko</language>
+    </item>
+    <item>
+      <title>Week Vooruit: 2026-02-25 tot 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-nl.html</link>
+      <description>Europees Parlement kalender, commissievergaderingen en plenaire debatten voor de komende week</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-nl.html</guid>
+      <language>nl</language>
+    </item>
+    <item>
+      <title>Uken Fremover: 2026-02-25 til 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-no.html</link>
+      <description>Europaparlamentets kalender, komitémøter og plenardebatter for kommende uke</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-no.html</guid>
+      <language>no</language>
+    </item>
+    <item>
+      <title>Vecka Framåt: 2026-02-25 till 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-sv.html</link>
+      <description>Europaparlamentets kalender, utskottsmöten och plenardebatter för kommande vecka</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-sv.html</guid>
+      <language>sv</language>
+    </item>
+    <item>
+      <title>下周预告: 2026-02-25 至 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-zh.html</link>
+      <description>欧洲议会日历、委员会会议和全体辩论</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-zh.html</guid>
       <language>zh</language>
     </item>
   </channel>

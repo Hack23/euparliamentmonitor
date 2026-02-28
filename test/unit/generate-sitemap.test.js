@@ -554,6 +554,8 @@ describe('generate-sitemap', () => {
       const rss = generateRssFeed([]);
 
       expect(rss).toContain('<?xml version="1.0" encoding="UTF-8"?>');
+      expect(rss).toContain('SPDX-FileCopyrightText');
+      expect(rss).toContain('SPDX-License-Identifier: Apache-2.0');
       expect(rss).toContain('<rss version="2.0"');
       expect(rss).toContain('xmlns:atom="http://www.w3.org/2005/Atom"');
       expect(rss).toContain('<channel>');
