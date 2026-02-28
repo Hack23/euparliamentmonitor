@@ -98,12 +98,12 @@ jobs:
           npx @cyclonedx/cyclonedx-npm --output-file dist/sbom.json
 
       - name: Attest Build Provenance
-        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v2.0.0
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4.1.0
         with:
           subject-path: "dist/euparliamentmonitor-*.tar.gz"
 
       - name: Attest SBOM
-        uses: actions/attest-sbom@07e74fc4e78d1aad915e867f9a094073a9f71527 # v2.0.0
+        uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26 # v4.1.0
         with:
           subject-path: "dist/euparliamentmonitor-*.tar.gz"
           sbom-path: "dist/sbom.json"
