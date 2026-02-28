@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.9.0
+      - european-parliament-mcp-server@1.0.0
 
 tools:
   github:
@@ -168,9 +168,18 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools for Month Ahead
 
+### ⚡ MANDATORY: Precomputed Statistics First
+
+**ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This returns the **complete** precomputed EP activity statistics (2004–2025) with yearly breakdowns, monthly activity data, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Always read ALL stats to provide full value and context.
+
+```javascript
+european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
+```
+
 ### ⚡ MCP Call Budget (STRICT)
 
 - The **MCP Health Gate** (earlier in this workflow) calls `european_parliament___get_plenary_sessions({ limit: 1 })` with up to 3 retries — that health check is **completely separate** from and **does not count toward** the data-gathering budget below.
+- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once globally — reuse across all sections (does **not** count toward per-tool budget)
 - Within the **month-ahead data-gathering phase**, use a single `european_parliament___get_plenary_sessions` call with `{ startDate: today, endDate: nextMonth, limit: 50 }` — this is a distinct call from the health-gate check and must **not** be repeated.
 - Apart from that single month-ahead `get_plenary_sessions` data call, each remaining MCP tool may be called **at most once** — never call the same tool a second time in this phase
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
@@ -244,7 +253,7 @@ fi
 
 if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ ! -f "node_modules/.bin/european-parliament-mcp-server" ]; then
-    npm install --no-save european-parliament-mcp-server@0.9.0
+    npm install --no-save european-parliament-mcp-server@1.0.0
   fi
 fi
 ```

@@ -46,7 +46,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.9.0
+      - european-parliament-mcp-server@1.0.0
 
 tools:
   github:
@@ -92,7 +92,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 
 ## 🚨 CRITICAL: European Parliament MCP Server is the Sole Data Source
 
-**ALL article data MUST be fetched from the `european-parliament` MCP server.** The MCP server provides 39 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, and OSINT intelligence analysis.
+**ALL article data MUST be fetched from the `european-parliament` MCP server.** The MCP server provides 47 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, OSINT intelligence analysis, and precomputed statistics.
 
 ## ⏱️ Time Budget (120 minutes)
 
@@ -178,9 +178,18 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools
 
+### ⚡ MANDATORY: Precomputed Statistics First
+
+**ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This returns the **complete** precomputed EP activity statistics (2004–2025) with yearly breakdowns, monthly activity data, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Always read ALL stats to provide full value and context. Use this data as the statistical backbone for ALL article types.
+
+```javascript
+european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
+```
+
 ### ⚡ MCP Call Budget (STRICT)
 
 - **Health-gate connectivity check**: attempt `european_parliament___get_plenary_sessions({ limit: 1 })` **up to 3 times** at startup as a single health-gate step to verify MCP health — this step does **not** count toward the per-type data-gathering budget
+- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once globally — reuse across all article types (does **not** count toward per-type budget)
 - **Per article type**: call **at most 4 distinct tools**, each **at most once** — the tool sets below use up to 4 tools per type
 - **Across all types in a multi-type run**: each tool may still only be called once globally — if a tool appears in multiple type lists, use the same single call's result for all types
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
@@ -189,6 +198,11 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **Always verify connectivity first (health gate — up to 3 attempts, does not count toward data budget):**
 ```javascript
 european_parliament___get_plenary_sessions({ limit: 1 })
+```
+
+**Then fetch precomputed stats (reuse across all types):**
+```javascript
+european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
 ```
 
 **Data gathering tools by article type (call each at most once, reuse results if shared across types):**
@@ -294,7 +308,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ -f "node_modules/.bin/european-parliament-mcp-server" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
-    npm install --no-save european-parliament-mcp-server@0.9.0
+    npm install --no-save european-parliament-mcp-server@1.0.0
   fi
 fi
 ```

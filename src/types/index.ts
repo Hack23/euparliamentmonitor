@@ -117,6 +117,8 @@ export {
   type EarlyWarningSystemOptions,
   type ComparativeIntelligenceOptions,
   type CorrelateIntelligenceOptions,
+  type GeneratedStatsCategory,
+  type GetAllGeneratedStatsOptions,
 } from './mcp.js';
 
 export type {

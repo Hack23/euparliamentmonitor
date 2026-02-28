@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.9.0
+      - european-parliament-mcp-server@1.0.0
 
 tools:
   github:
@@ -191,11 +191,20 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## 🏛️ EP MCP Tools for Propositions
 
+### ⚡ MANDATORY: Precomputed Statistics First
+
+**ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This returns the **complete** precomputed EP activity statistics (2004–2025) with yearly breakdowns, monthly activity data, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Always read ALL stats to provide full value and context.
+
+```javascript
+european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
+```
+
 ### ⚡ MCP Call Budget (STRICT)
 
 - This budget applies to **content data gathering only** — the mandatory MCP Health Gate (including up to 3 retries of `european_parliament___get_plenary_sessions`) is **explicitly exempt** from this budget
+- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once globally — reuse across all sections (does **not** count toward per-tool budget)
 - **Call each tool at most once** — never call the same tool a second time during data gathering
-- **Maximum 8 MCP tool calls** total for content data gathering (health-gate calls do not count)
+- **Maximum 8 MCP tool calls** total for content data gathering (health-gate calls and precomputed stats do not count)
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 - If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
 
@@ -327,7 +336,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ EP MCP server binary not found, attempting reinstall..."
-    npm install --no-save european-parliament-mcp-server@0.9.0
+    npm install --no-save european-parliament-mcp-server@1.0.0
   fi
 fi
 ```
