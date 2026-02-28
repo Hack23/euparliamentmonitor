@@ -38,7 +38,7 @@ export class WorldBankMCPClient extends MCPConnection {
             ...options,
             serverPath: options.serverPath ?? process.env['WB_MCP_SERVER_PATH'] ?? WB_DEFAULT_SERVER,
             gatewayUrl: options.gatewayUrl ?? process.env['WB_MCP_GATEWAY_URL'] ?? '',
-            gatewayApiKey: options.gatewayApiKey ?? process.env['WB_MCP_GATEWAY_API_KEY'] ?? undefined,
+            gatewayApiKey: options.gatewayApiKey ?? process.env['WB_MCP_GATEWAY_API_KEY'] ?? '',
             serverLabel: options.serverLabel ?? 'World Bank MCP Server',
         });
     }

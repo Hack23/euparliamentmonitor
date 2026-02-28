@@ -365,9 +365,10 @@ export function buildEconomicContextHTML(context: EconomicContext): string {
     .join('\n');
 
   return `<section class="economic-context" aria-label="Economic indicators for ${escapeHTML(context.countryName)}">
-<h3>Economic Context: ${escapeHTML(context.countryName)}</h3>
+<h2>Economic Context: ${escapeHTML(context.countryName)}</h2>
 <table>
-<thead><tr><th>Indicator</th><th>Value</th><th>Year</th></tr></thead>
+<caption>Economic indicators for ${escapeHTML(context.countryName)}</caption>
+<thead><tr><th scope="col">Indicator</th><th scope="col">Value</th><th scope="col">Year</th></tr></thead>
 <tbody>
 ${rows}
 </tbody>
