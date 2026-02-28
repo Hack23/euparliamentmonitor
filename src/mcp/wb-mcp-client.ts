@@ -102,9 +102,7 @@ export async function getWBMCPClient(
 ): Promise<WorldBankMCPClient> {
   if (!wbClientInstance) {
     const mergedOptions: MCPClientOptions = {
-      serverPath: options.serverPath,
-      gatewayUrl: options.gatewayUrl,
-      gatewayApiKey: options.gatewayApiKey,
+      ...options,
       maxConnectionAttempts: options.maxConnectionAttempts ?? 2,
       connectionRetryDelay: options.connectionRetryDelay ?? 1000,
     };

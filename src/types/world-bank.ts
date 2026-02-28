@@ -7,16 +7,13 @@
  * Used to enrich EU Parliament articles with economic context from World Bank indicators.
  */
 
-/** World Bank MCP client connection options */
-export interface WBMCPClientOptions {
-  serverPath?: string;
-  maxConnectionAttempts?: number;
-  connectionRetryDelay?: number;
-  /** MCP Gateway URL for HTTP transport */
-  gatewayUrl?: string;
-  /** API key for MCP Gateway authentication */
-  gatewayApiKey?: string;
-}
+/**
+ * World Bank MCP client connection options.
+ *
+ * Alias for {@link MCPClientOptions} to ensure all base connection options
+ * (including `serverLabel`) are always available for the World Bank client.
+ */
+export type WBMCPClientOptions = import('./mcp.js').MCPClientOptions;
 
 /** World Bank indicator data point */
 export interface WorldBankIndicator {
