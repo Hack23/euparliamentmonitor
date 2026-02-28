@@ -134,9 +134,7 @@ echo "============================"
 Before generating ANY articles, verify MCP connectivity:
 
 1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, proceed
-2. If it fails, wait 30 seconds and retry (up to 3 total attempts)
-3. If ALL 3 attempts fail:
-   - Use `safeoutputs___noop` with message: "MCP server unavailable after 3 connection attempts. No articles generated."
+2. If it fails, **do not retry** — use `safeoutputs___noop` with message: "MCP server unavailable. No articles generated."
    - DO NOT fabricate or recycle content
    - The workflow MUST end with noop
 

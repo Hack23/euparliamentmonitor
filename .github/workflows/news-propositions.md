@@ -193,8 +193,9 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ### ⚡ MCP Call Budget (STRICT)
 
-- **Call each tool at most once** — never call the same tool a second time
-- **Maximum 8 MCP tool calls** total for data gathering
+- This budget applies to **content data gathering only** — the mandatory MCP Health Gate (including up to 3 retries of `european_parliament___get_plenary_sessions`) is **explicitly exempt** from this budget
+- **Call each tool at most once** — never call the same tool a second time during data gathering
+- **Maximum 8 MCP tool calls** total for content data gathering (health-gate calls do not count)
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 - If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
 
