@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>313/313</span>
+                <span class='fraction'>319/319</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">76.19% </span>
+                <span class="strong">76.05% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>160/210</span>
+                <span class='fraction'>162/213</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>50/50</span>
+                <span class='fraction'>51/51</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>313/313</span>
+                <span class='fraction'>319/319</span>
             </div>
         
             
@@ -1081,7 +1081,29 @@
 <a name='L1016'></a><a href='#L1016'>1016</a>
 <a name='L1017'></a><a href='#L1017'>1017</a>
 <a name='L1018'></a><a href='#L1018'>1018</a>
-<a name='L1019'></a><a href='#L1019'>1019</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L1019'></a><a href='#L1019'>1019</a>
+<a name='L1020'></a><a href='#L1020'>1020</a>
+<a name='L1021'></a><a href='#L1021'>1021</a>
+<a name='L1022'></a><a href='#L1022'>1022</a>
+<a name='L1023'></a><a href='#L1023'>1023</a>
+<a name='L1024'></a><a href='#L1024'>1024</a>
+<a name='L1025'></a><a href='#L1025'>1025</a>
+<a name='L1026'></a><a href='#L1026'>1026</a>
+<a name='L1027'></a><a href='#L1027'>1027</a>
+<a name='L1028'></a><a href='#L1028'>1028</a>
+<a name='L1029'></a><a href='#L1029'>1029</a>
+<a name='L1030'></a><a href='#L1030'>1030</a>
+<a name='L1031'></a><a href='#L1031'>1031</a>
+<a name='L1032'></a><a href='#L1032'>1032</a>
+<a name='L1033'></a><a href='#L1033'>1033</a>
+<a name='L1034'></a><a href='#L1034'>1034</a>
+<a name='L1035'></a><a href='#L1035'>1035</a>
+<a name='L1036'></a><a href='#L1036'>1036</a>
+<a name='L1037'></a><a href='#L1037'>1037</a>
+<a name='L1038'></a><a href='#L1038'>1038</a>
+<a name='L1039'></a><a href='#L1039'>1039</a>
+<a name='L1040'></a><a href='#L1040'>1040</a>
+<a name='L1041'></a><a href='#L1041'>1041</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1139,6 +1161,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
@@ -2065,6 +2091,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -2156,6 +2200,7 @@ import type {
   EarlyWarningSystemOptions,
   ComparativeIntelligenceOptions,
   CorrelateIntelligenceOptions,
+  GetAllGeneratedStatsOptions,
 } from '../types/index.js';
 &nbsp;
 /** Fallback payload for analyze_legislative_effectiveness when validation fails or tool is unavailable */
@@ -2178,6 +2223,9 @@ const ITEMS_FALLBACK = '{"items": []}';
 &nbsp;
 /** Fallback payload for intelligence analysis tools */
 const INTELLIGENCE_FALLBACK = '{"analysis": null}';
+&nbsp;
+/** Fallback payload for precomputed statistics */
+const STATS_FALLBACK = '{"stats": null}';
 &nbsp;
 /**
  * MCP Client for European Parliament data access.
@@ -3089,6 +3137,24 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
     }
   }
+&nbsp;
+  /**
+   * Retrieve precomputed European Parliament activity statistics (EP6–EP10, 2004–2025).
+   * Includes yearly stats, category rankings, political landscape history, and
+   * average-based predictions for 2026–2030. Static data refreshed weekly — no live API calls.
+   *
+   * @param options - Filter options including optional year range, category, and flags
+   * @returns Precomputed EP statistics data
+   */
+  async getAllGeneratedStats(options: GetAllGeneratedStatsOptions = {}): Promise&lt;MCPToolResult&gt; {
+    try {
+      return await this.callTool('get_all_generated_stats', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : <span class="branch-1 cbranch-no" title="branch not covered" >String(error);</span>
+      console.warn('get_all_generated_stats not available:', message);
+      return { content: [{ type: 'text', text: STATS_FALLBACK }] };
+    }
+  }
 }
 let clientInstance: EuropeanParliamentMCPClient | null = null;
 &nbsp;
@@ -3124,7 +3190,7 @@ export async function closeEPMCPClient(): Promise&lt;void&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-28T03:00:54.776Z
+                at 2026-02-28T18:14:54.352Z
             </div>
         <script src="../prettify.js"></script>
         <script>
