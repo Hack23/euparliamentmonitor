@@ -10,6 +10,7 @@
  * - **parliament** — Domain entities (events, committees, documents, voting)
  * - **generation** — Article pipeline (options, metadata, stats)
  * - **mcp** — MCP client transport and tool option interfaces
+ * - **world-bank** — World Bank economic data types for article enrichment
  */
 
 export {
@@ -119,3 +120,13 @@ export {
   type GeneratedStatsCategory,
   type GetAllGeneratedStatsOptions,
 } from './mcp.js';
+
+export type {
+  WBMCPClientOptions,
+  WorldBankIndicator,
+  WorldBankCountry,
+  EconomicContext,
+  EconomicIndicatorSummary,
+  EUCountryCodeMap,
+  PolicyRelevantIndicators,
+} from './world-bank.js';

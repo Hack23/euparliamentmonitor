@@ -79,6 +79,15 @@
         "-y",
         "european-parliament-mcp-server@1.0.0"
       ]
+    },
+    "world-bank": {
+      "type": "local",
+      "tools": ["*"],
+      "command": "npx",
+      "args": [
+        "-y",
+        "worldbank-mcp@1.0.0"
+      ]
     }
   }
 }
