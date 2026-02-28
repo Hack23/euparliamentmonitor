@@ -16,11 +16,22 @@
  * - `WB_MCP_GATEWAY_API_KEY` — API key for gateway authentication
  */
 
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { MCPConnection } from './mcp-connection.js';
 import type { MCPToolResult, MCPClientOptions } from '../types/index.js';
 
-/** Default World Bank MCP server binary (npm package) */
-const WB_DEFAULT_SERVER = 'worldbank-mcp';
+/** npm binary name for the World Bank MCP server */
+const WB_BINARY_NAME = 'worldbank-mcp';
+
+/** Platform-specific binary filename (Windows uses .cmd shim) */
+const WB_BINARY_FILE = process.platform === 'win32' ? `${WB_BINARY_NAME}.cmd` : WB_BINARY_NAME;
+
+/** Default binary resolved from node_modules/.bin relative to this file's compiled location */
+const WB_DEFAULT_SERVER = resolve(
+  dirname(fileURLToPath(import.meta.url)),
+  `../../node_modules/.bin/${WB_BINARY_FILE}`
+);
 
 /** Fallback payload when indicator data is unavailable (empty CSV) */
 const INDICATOR_FALLBACK = '';
@@ -39,21 +50,8 @@ export class WorldBankMCPClient extends MCPConnection {
       serverPath: options.serverPath ?? process.env['WB_MCP_SERVER_PATH'] ?? WB_DEFAULT_SERVER,
       gatewayUrl: options.gatewayUrl ?? process.env['WB_MCP_GATEWAY_URL'] ?? '',
       gatewayApiKey: options.gatewayApiKey ?? process.env['WB_MCP_GATEWAY_API_KEY'] ?? undefined,
+      serverLabel: options.serverLabel ?? 'World Bank MCP Server',
     });
-  }
-
-  /**
-   * Establish a connection to the World Bank MCP server.
-   *
-   * Wraps the base {@link MCPConnection.connect} method with World Bank-specific
-   * operational log messages to avoid confusion with the European Parliament MCP server.
-   *
-   * @returns Promise that resolves when the connection has been established
-   */
-  async connect(): Promise<void> {
-    console.log('🔌 Connecting to World Bank MCP Server...');
-    await super.connect();
-    console.log('✅ Connected to World Bank MCP Server.');
   }
 
   /**
@@ -94,7 +92,7 @@ let wbClientInstance: WorldBankMCPClient | null = null;
  *
  * Uses `WB_MCP_SERVER_PATH`, `WB_MCP_GATEWAY_URL`, and `WB_MCP_GATEWAY_API_KEY`
  * environment variables for configuration. Falls back to stdio transport
- * with the `worldbank-mcp` npm binary.
+ * with the `worldbank-mcp` npm binary resolved from `node_modules/.bin`.
  *
  * @param options - Client options (overrides env vars)
  * @returns Connected World Bank MCP client

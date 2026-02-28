@@ -16,6 +16,8 @@ export interface MCPClientOptions {
   gatewayUrl?: string;
   /** API key for MCP Gateway authentication */
   gatewayApiKey?: string;
+  /** Human-readable server name used in operational log messages (default: 'European Parliament MCP Server') */
+  serverLabel?: string;
 }
 
 /** MCP tool call result content item */

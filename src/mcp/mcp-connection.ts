@@ -93,6 +93,9 @@ export class MCPConnection {
   /** MCP session ID returned by the gateway */
   private mcpSessionId: string | null;
 
+  /** Human-readable server name for log messages */
+  protected serverLabel: string;
+
   constructor(options: MCPClientOptions = {}) {
     this.serverPath =
       options.serverPath ?? process.env['EP_MCP_SERVER_PATH'] ?? DEFAULT_SERVER_BINARY;
@@ -103,6 +106,7 @@ export class MCPConnection {
     this.connectionAttempts = 0;
     this.maxConnectionAttempts = options.maxConnectionAttempts ?? 3;
     this.connectionRetryDelay = options.connectionRetryDelay ?? 1000;
+    this.serverLabel = options.serverLabel ?? 'European Parliament MCP Server';
 
     const rawGatewayUrl = (options.gatewayUrl ?? process.env['EP_MCP_GATEWAY_URL'] ?? '').trim();
     this.gatewayUrl = rawGatewayUrl || null;
@@ -164,10 +168,10 @@ export class MCPConnection {
     }
 
     if (this.gatewayUrl) {
-      console.log('🔌 Connecting to European Parliament MCP Server via gateway...');
+      console.log(`🔌 Connecting to ${this.serverLabel} via gateway...`);
       console.log(`   Gateway URL: ${this.gatewayUrl}`);
     } else {
-      console.log('🔌 Connecting to European Parliament MCP Server...');
+      console.log(`🔌 Connecting to ${this.serverLabel}...`);
     }
 
     this.connectionAttempts = 0;
@@ -278,7 +282,7 @@ export class MCPConnection {
       this._validateGatewayResponseBody(contentType, body);
 
       this.connected = true;
-      console.log('✅ Connected to European Parliament MCP Server via gateway');
+      console.log(`✅ Connected to ${this.serverLabel} via gateway`);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.error('❌ Failed to connect to MCP gateway:', message);
@@ -343,7 +347,7 @@ export class MCPConnection {
       }
 
       this.connected = true;
-      console.log('✅ Connected to European Parliament MCP Server');
+      console.log(`✅ Connected to ${this.serverLabel}`);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.error('❌ Failed to spawn MCP server:', message);
