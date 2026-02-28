@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament month-ahead strategic outlook articles for all 14 languages. Runs on 1st of each month.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"2938636b1f98d22b009d217a0514aa5ed2720c98a7d9ec2633e2a8ba55b54df2","compiler_version":"v0.50.7"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"b4ac4ce1ee21f0e37db79df9e19bcdb89deb59c015f2fd7b0b8d422135022013","compiler_version":"v0.50.7"}
 
 name: "News: EU Parliament Month Ahead"
 "on":
