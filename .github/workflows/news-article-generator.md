@@ -46,7 +46,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@0.8.2
+      - european-parliament-mcp-server@0.9.0
 
 tools:
   github:
@@ -294,7 +294,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ -f "node_modules/.bin/european-parliament-mcp-server" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
-    npm install --no-save european-parliament-mcp-server@0.8.2
+    npm install --no-save european-parliament-mcp-server@0.9.0
   fi
 fi
 ```

@@ -48,6 +48,13 @@ import type {
   GetExternalDocumentsOptions,
   GetMeetingForeseenActivitiesOptions,
   GetProcedureEventsOptions,
+  GetMeetingPlenarySessionDocumentsOptions,
+  GetMeetingPlenarySessionDocumentItemsOptions,
+  NetworkAnalysisOptions,
+  SentimentTrackerOptions,
+  EarlyWarningSystemOptions,
+  ComparativeIntelligenceOptions,
+  CorrelateIntelligenceOptions,
 } from '../types/index.js';
 
 /** Fallback payload for analyze_legislative_effectiveness when validation fails or tool is unavailable */
@@ -64,6 +71,9 @@ const EVENTS_FALLBACK = '{"events": []}';
 
 /** Fallback payload for activity list tools */
 const ACTIVITIES_FALLBACK = '{"activities": []}';
+
+/** Fallback payload for intelligence analysis tools */
+const INTELLIGENCE_FALLBACK = '{"analysis": null}';
 
 /**
  * MCP Client for European Parliament data access.
@@ -835,9 +845,147 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       return { content: [{ type: 'text', text: EVENTS_FALLBACK }] };
     }
   }
-}
 
-// Singleton instance management
+  /**
+   * Get plenary session documents linked to a specific meeting
+   *
+   * @param options - Options including required sittingId
+   * @returns Meeting plenary session documents data
+   */
+  async getMeetingPlenarySessionDocuments(
+    options: GetMeetingPlenarySessionDocumentsOptions
+  ): Promise<MCPToolResult> {
+    if (typeof options.sittingId !== 'string' || options.sittingId.trim().length === 0) {
+      console.warn(
+        'get_meeting_plenary_session_documents called without valid sittingId (non-empty string required)'
+      );
+      return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
+    }
+    try {
+      return await this.callTool('get_meeting_plenary_session_documents', {
+        ...options,
+        sittingId: options.sittingId.trim(),
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_meeting_plenary_session_documents not available:', message);
+      return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Get plenary session document items linked to a specific meeting
+   *
+   * @param options - Options including required sittingId
+   * @returns Meeting plenary session document items data
+   */
+  async getMeetingPlenarySessionDocumentItems(
+    options: GetMeetingPlenarySessionDocumentItemsOptions
+  ): Promise<MCPToolResult> {
+    if (typeof options.sittingId !== 'string' || options.sittingId.trim().length === 0) {
+      console.warn(
+        'get_meeting_plenary_session_document_items called without valid sittingId (non-empty string required)'
+      );
+      return { content: [{ type: 'text', text: '{"items": []}' }] };
+    }
+    try {
+      return await this.callTool('get_meeting_plenary_session_document_items', {
+        ...options,
+        sittingId: options.sittingId.trim(),
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('get_meeting_plenary_session_document_items not available:', message);
+      return { content: [{ type: 'text', text: '{"items": []}' }] };
+    }
+  }
+
+  /**
+   * MEP relationship network mapping using committee co-membership
+   *
+   * @param options - Options including optional mepId, analysisType, and depth
+   * @returns Network analysis with centrality scores and clusters
+   */
+  async networkAnalysis(options: NetworkAnalysisOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('network_analysis', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('network_analysis not available:', message);
+      return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Track political group institutional positioning and sentiment
+   *
+   * @param options - Options including optional groupId and timeframe
+   * @returns Sentiment tracking data
+   */
+  async sentimentTracker(options: SentimentTrackerOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('sentiment_tracker', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('sentiment_tracker not available:', message);
+      return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Detect emerging political shifts and coalition fracture signals
+   *
+   * @param options - Options including optional sensitivity and focusArea
+   * @returns Early warning alerts and trend indicators
+   */
+  async earlyWarningSystem(options: EarlyWarningSystemOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('early_warning_system', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('early_warning_system not available:', message);
+      return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Cross-reference MEP activities for comparative multi-dimensional profiling
+   *
+   * @param options - Options including required mepIds array and optional dimensions
+   * @returns Comparative intelligence profiles
+   */
+  async comparativeIntelligence(options: ComparativeIntelligenceOptions): Promise<MCPToolResult> {
+    if (!Array.isArray(options.mepIds) || options.mepIds.length < 2) {
+      console.warn(
+        'comparative_intelligence called without valid mepIds (array of at least 2 required)'
+      );
+      return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
+    }
+    try {
+      return await this.callTool('comparative_intelligence', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('comparative_intelligence not available:', message);
+      return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
+    }
+  }
+
+  /**
+   * Cross-tool OSINT intelligence correlation engine
+   *
+   * @param options - Options including optional mepId and correlation scenarios
+   * @returns Correlated intelligence alerts and insights
+   */
+  async correlateIntelligence(options: CorrelateIntelligenceOptions = {}): Promise<MCPToolResult> {
+    try {
+      return await this.callTool('correlate_intelligence', options);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn('correlate_intelligence not available:', message);
+      return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
+    }
+  }
+}
 let clientInstance: EuropeanParliamentMCPClient | null = null;
 
 /**
