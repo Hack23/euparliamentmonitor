@@ -95,6 +95,14 @@ export function generateSitemap(articles: string[], docsFiles: string[] = []): s
     });
   }
 
+  // Add RSS feed
+  urls.push({
+    loc: `${BASE_URL}/rss.xml`,
+    lastmod: today,
+    changefreq: 'daily',
+    priority: '0.5',
+  });
+
   // Add news articles
   for (const article of articles) {
     const filepath = path.join(NEWS_DIR, article);
@@ -485,7 +493,70 @@ ${articlesSection}
 }
 
 /**
- * Main execution - generates sitemap.xml and multi-language sitemap HTML pages.
+ * RSS feed item data.
+ */
+interface RssItem {
+  title: string;
+  link: string;
+  description: string;
+  pubDate: string;
+  lang: string;
+}
+
+/**
+ * Escape special XML characters in text content.
+ *
+ * @param str - Raw string to escape for XML
+ * @returns XML-safe string
+ */
+function escapeXML(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+/**
+ * Generate RSS 2.0 XML feed with all news articles across all languages.
+ * Articles are sorted newest-first. Each item includes the article language.
+ *
+ * @param articleInfos - Article metadata sorted newest first
+ * @returns Complete RSS 2.0 XML string
+ */
+export function generateRssFeed(articleInfos: RssItem[]): string {
+  const buildDate = new Date().toUTCString();
+
+  const items = articleInfos
+    .map(
+      (item) => `    <item>
+      <title>${escapeXML(item.title)}</title>
+      <link>${escapeXML(item.link)}</link>
+      <description>${escapeXML(item.description)}</description>
+      <pubDate>${item.pubDate}</pubDate>
+      <guid isPermaLink="true">${escapeXML(item.link)}</guid>
+      <language>${escapeXML(item.lang)}</language>
+    </item>`
+    )
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EU Parliament Monitor</title>
+    <link>${BASE_URL}</link>
+    <description>European Parliament Intelligence Platform — monitoring political activity with systematic transparency.</description>
+    <language>en</language>
+    <lastBuildDate>${buildDate}</lastBuildDate>
+    <atom:link href="${BASE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
+${items}
+  </channel>
+</rss>`;
+}
+
+/**
+ * Main execution - generates sitemap.xml, multi-language sitemap HTML pages, and rss.xml.
  */
 function main(): void {
   console.log('🗺️ Generating sitemap...');
@@ -505,7 +576,7 @@ function main(): void {
     articles.length + ALL_LANGUAGES.length + ALL_LANGUAGES.length + docsFiles.length;
   console.log(`✅ Generated sitemap.xml with ${totalUrls} URLs`);
 
-  // Build article metadata map for sitemap HTML pages
+  // Build article metadata map for sitemap HTML pages and RSS
   const articleMetaMap = new Map<string, SitemapArticleInfo>();
   for (const filename of articles) {
     const parsed = parseArticleFilename(filename);
@@ -546,6 +617,28 @@ function main(): void {
   }
 
   console.log(`✅ Generated ${htmlGenerated} sitemap HTML files`);
+
+  // Generate RSS feed with all articles across all languages
+  const rssItems: RssItem[] = [];
+  for (const [, info] of articleMetaMap) {
+    const parsed = parseArticleFilename(info.filename);
+    if (parsed) {
+      rssItems.push({
+        title: info.title,
+        link: `${BASE_URL}/news/${info.filename}`,
+        description: info.description || info.title,
+        pubDate: new Date(parsed.date).toUTCString(),
+        lang: parsed.lang,
+      });
+    }
+  }
+  // Sort newest first
+  rssItems.sort((a, b) => b.pubDate.localeCompare(a.pubDate));
+
+  const rss = generateRssFeed(rssItems);
+  const rssPath = path.join(PROJECT_ROOT, 'rss.xml');
+  fs.writeFileSync(rssPath, rss, 'utf-8');
+  console.log(`✅ Generated rss.xml with ${rssItems.length} items`);
 }
 
 // Only run main when executed directly (not when imported)
