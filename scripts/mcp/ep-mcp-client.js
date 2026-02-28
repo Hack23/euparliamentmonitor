@@ -20,6 +20,8 @@ const ACTIVITIES_FALLBACK = '{"activities": []}';
 const ITEMS_FALLBACK = '{"items": []}';
 /** Fallback payload for intelligence analysis tools */
 const INTELLIGENCE_FALLBACK = '{"analysis": null}';
+/** Fallback payload for precomputed statistics */
+const STATS_FALLBACK = '{"stats": null}';
 /**
  * MCP Client for European Parliament data access.
  * Extends {@link MCPConnection} with EP-specific tool wrapper methods.
@@ -881,6 +883,24 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             const message = error instanceof Error ? error.message : String(error);
             console.warn('correlate_intelligence not available:', message);
             return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
+        }
+    }
+    /**
+     * Retrieve precomputed European Parliament activity statistics (EP6–EP10, 2004–2025).
+     * Includes yearly stats, category rankings, political landscape history, and
+     * average-based predictions for 2026–2030. Static data refreshed weekly — no live API calls.
+     *
+     * @param options - Filter options including optional year range, category, and flags
+     * @returns Precomputed EP statistics data
+     */
+    async getAllGeneratedStats(options = {}) {
+        try {
+            return await this.callTool('get_all_generated_stats', options);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('get_all_generated_stats not available:', message);
+            return { content: [{ type: 'text', text: STATS_FALLBACK }] };
         }
     }
 }
