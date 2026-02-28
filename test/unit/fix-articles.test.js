@@ -39,6 +39,7 @@ describe('fix-articles', () => {
   <main id="main">
   <article class="news-article" lang="en"><h1>Test</h1></article>
   </main>
+  <footer class="site-footer" role="contentinfo"><p>Footer</p></footer>
 </body>
 </html>`;
       vi.mocked(fs.readFileSync).mockReturnValue(html);

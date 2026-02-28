@@ -523,15 +523,21 @@ describe('article-template', () => {
       });
 
       it.each([
-        'language-switcher',
-        'article-top-nav',
-        'site-header',
-      ])('should fail validation for HTML missing %s', (element) => {
-        const html = '<html><body><main id="main"><article></article></main></body></html>';
+        ['language-switcher', 'class="language-switcher"', 'class="removed-for-test-ls"'],
+        ['article-top-nav', 'class="article-top-nav"', 'class="removed-for-test-atn"'],
+        ['site-header', 'class="site-header"', 'class="removed-for-test-sh"'],
+        ['skip-link', 'class="skip-link"', 'class="removed-for-test-sl"'],
+        ['reading-progress', 'class="reading-progress"', 'class="removed-for-test-rp"'],
+        ['main content wrapper', '<main id="main"', '<main id="removed-for-test"'],
+        ['site-footer', 'class="site-footer"', 'class="removed-for-test-sf"'],
+      ])('should fail validation for HTML missing only %s', (_element, selector, replacement) => {
+        // Start with a fully valid article, then remove only the element under test
+        const fullHtml = generateArticleHTML(defaultOptions);
+        const html = fullHtml.replace(selector, replacement);
         const result = validateArticleHTML(html);
 
         expect(result.valid).toBe(false);
-        expect(result.errors.some(e => e.includes(element))).toBe(true);
+        expect(result.errors).toHaveLength(1);
       });
 
       it('should fail validation for HTML missing all required elements', () => {

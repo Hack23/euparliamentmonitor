@@ -95,6 +95,8 @@ function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outp
     const validation = validateArticleHTML(html);
     if (!validation.valid) {
         console.error(`  ❌ ${lang.toUpperCase()} article failed validation: ${validation.errors.join('; ')}`);
+        stats.errors++;
+        return false;
     }
     if (writeSingleArticle(html, slug, lang, outputOptions, stats)) {
         console.log(`  ✅ ${lang.toUpperCase()} version generated`);

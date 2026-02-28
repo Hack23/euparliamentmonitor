@@ -2,8 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 /**
  * @module Utils/FixArticles
- * @description Retroactively adds missing language switcher, article-top-nav (back button),
- * site-header, skip-link, and reading-progress bar to existing news articles.
+ * @description FALLBACK TOOL — Retroactively adds missing language switcher, article-top-nav
+ * (back button), site-header, skip-link, reading-progress bar, and site-footer to existing
+ * news articles.
+ *
+ * The primary mechanism for including these elements is the article template
+ * (`generateArticleHTML` in `src/templates/article-template.ts`), which already produces
+ * all required structural elements. This script is a last-resort recovery tool for
+ * patching legacy articles generated before the template was complete.
  *
  * Usage: npx tsx src/utils/fix-articles.ts [--dry-run]
  */
@@ -20,6 +26,8 @@ const ARTICLE_TOP_NAV_CLASS = 'class="article-top-nav"';
 const SITE_HEADER_CLASS = 'class="site-header"';
 /** CSS class selector for the reading progress bar element */
 const READING_PROGRESS_CLASS = 'class="reading-progress"';
+/** CSS class selector for the site footer element */
+const SITE_FOOTER_CLASS = 'class="site-footer"';
 /**
  * Build the language switcher nav HTML for an article.
  *
@@ -70,6 +78,65 @@ function buildArticleTopNav(indexHref, lang) {
     return `<nav class="article-top-nav" aria-label="${articleNavLabel}">
     <a href="${indexHref}" class="back-to-news">${backLabel}</a>
   </nav>`;
+}
+/**
+ * Build the language grid for the article footer.
+ *
+ * @param currentLang - Active language code
+ * @returns HTML string for the language grid
+ */
+function buildFooterLanguageGrid(currentLang) {
+    return ALL_LANGUAGES.map((code) => {
+        const flag = getLocalizedString(LANGUAGE_FLAGS, code);
+        const safeName = escapeHTML(getLocalizedString(LANGUAGE_NAMES, code));
+        const href = code === 'en' ? '../index.html' : `../index-${code}.html`;
+        const active = code === currentLang ? ' class="active"' : '';
+        return `<a href="${href}"${active} hreflang="${code}">${flag} ${safeName}</a>`;
+    }).join('\n            ');
+}
+/**
+ * Build the site footer HTML.
+ *
+ * @param lang - Language code for the language grid active state
+ * @returns HTML string for the site footer
+ */
+function buildSiteFooter(lang) {
+    const year = new Date().getFullYear();
+    return `<footer class="site-footer" role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About EU Parliament Monitor</h3>
+        <p>European Parliament Intelligence Platform — monitoring political activity with systematic transparency. Powered by European Parliament open data.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
+          <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Built by Hack23 AB</h3>
+        <ul>
+          <li><a href="https://hack23.com">hack23.com</a></li>
+          <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Security &amp; Privacy Policy</a></li>
+          <li><a href="mailto:james@hack23.com">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Languages</h3>
+        <div class="language-grid">
+          ${buildFooterLanguageGrid(lang)}
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden</p>
+    </div>
+  </footer>`;
 }
 /**
  * Inject full structural elements for articles with no site-header (Type A).
@@ -179,6 +246,26 @@ function injectReadingProgress(html) {
     };
 }
 /**
+ * Inject site-footer if missing. Inserts before </body>.
+ *
+ * @param html - Current article HTML
+ * @param lang - Language code for the footer language grid
+ * @returns Updated HTML and change description, or null if already present
+ */
+function injectSiteFooter(html, lang) {
+    if (html.includes(SITE_FOOTER_CLASS)) {
+        return null;
+    }
+    const pattern = /(\s*)<\/body>/;
+    if (!pattern.test(html)) {
+        return null;
+    }
+    return {
+        html: html.replace(pattern, `\n\n  ${buildSiteFooter(lang)}\n</body>`),
+        change: 'Added site-footer',
+    };
+}
+/**
  * Apply an injection result if present.
  *
  * @param current - Current HTML content
@@ -214,7 +301,9 @@ export function fixArticle(filepath, dryRun = false) {
     const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
     const ctx = { date, slug, lang, indexHref, skipLinkText };
     let html = fs.readFileSync(filepath, 'utf-8');
-    if (html.includes(LANG_SWITCHER_CLASS) && html.includes(ARTICLE_TOP_NAV_CLASS)) {
+    if (html.includes(LANG_SWITCHER_CLASS) &&
+        html.includes(ARTICLE_TOP_NAV_CLASS) &&
+        html.includes(SITE_FOOTER_CLASS)) {
         return { changed: false, description: `Already complete: ${filename}` };
     }
     const changes = [];
@@ -237,6 +326,8 @@ export function fixArticle(filepath, dryRun = false) {
     if (html.includes(SITE_HEADER_CLASS)) {
         html = applyInjection(html, () => injectReadingProgress(html), changes);
     }
+    // Add site-footer if missing
+    html = applyInjection(html, () => injectSiteFooter(html, lang), changes);
     if (changes.length === 0) {
         return { changed: false, description: `No changes needed: ${filename}` };
     }
