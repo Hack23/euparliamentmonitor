@@ -43,6 +43,20 @@ export class WorldBankMCPClient extends MCPConnection {
   }
 
   /**
+   * Establish a connection to the World Bank MCP server.
+   *
+   * Wraps the base {@link MCPConnection.connect} method with World Bank-specific
+   * operational log messages to avoid confusion with the European Parliament MCP server.
+   *
+   * @returns Promise that resolves when the connection has been established
+   */
+  async connect(): Promise<void> {
+    console.log('🔌 Connecting to World Bank MCP Server...');
+    await super.connect();
+    console.log('✅ Connected to World Bank MCP Server.');
+  }
+
+  /**
    * Get economic indicator data for a specific country.
    *
    * Calls the `get_indicator_for_country` tool on the World Bank MCP server.
@@ -96,8 +110,14 @@ export async function getWBMCPClient(
       maxConnectionAttempts: options.maxConnectionAttempts ?? 2,
       connectionRetryDelay: options.connectionRetryDelay ?? 1000,
     };
-    wbClientInstance = new WorldBankMCPClient(mergedOptions);
-    await wbClientInstance.connect();
+    const client = new WorldBankMCPClient(mergedOptions);
+    try {
+      await client.connect();
+      wbClientInstance = client;
+    } catch (error) {
+      wbClientInstance = null;
+      throw error;
+    }
   }
   return wbClientInstance;
 }

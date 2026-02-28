@@ -111,8 +111,9 @@ function readCol(cols: readonly string[], idx: number): string {
 }
 
 /**
- * Split a CSV line respecting quoted fields.
+ * Split a CSV line respecting quoted fields (RFC 4180).
  * Commas inside double-quoted values are preserved as part of the field.
+ * Escaped quotes (`""`) inside a quoted field are treated as a literal `"`.
  *
  * @param line - A single CSV row
  * @returns Array of field values with surrounding quotes removed
@@ -125,7 +126,13 @@ function splitCSVLine(line: string): string[] {
   for (let i = 0; i < line.length; i++) {
     const ch = line[i]!;
     if (ch === '"') {
-      inQuotes = !inQuotes;
+      if (inQuotes && i + 1 < line.length && line[i + 1] === '"') {
+        // RFC 4180 escaped quote: "" → literal "
+        current += '"';
+        i++; // skip the second quote
+      } else {
+        inQuotes = !inQuotes;
+      }
     } else if (ch === ',' && !inQuotes) {
       fields.push(current.trim());
       current = '';
@@ -150,7 +157,7 @@ export function parseWorldBankCSV(csvText: string | null | undefined): WorldBank
     return [];
   }
 
-  const lines = csvText.trim().split('\n');
+  const lines = csvText.trim().split(/\r?\n/);
   if (lines.length < 2) {
     return [];
   }

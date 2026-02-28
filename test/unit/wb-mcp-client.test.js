@@ -6,8 +6,6 @@
  * Tests World Bank MCP client construction, tool wrapper methods, and singleton lifecycle
  */
 
-/* eslint-disable no-undef */
-
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { WorldBankMCPClient, closeWBMCPClient } from '../../scripts/mcp/wb-mcp-client.js';
 import { mockConsole } from '../helpers/test-utils.js';

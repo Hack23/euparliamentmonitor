@@ -6,8 +6,6 @@
  * Tests CSV parsing, indicator formatting, EU country mapping, and economic context
  */
 
-/* eslint-disable no-undef */
-
 import { describe, it, expect } from 'vitest';
 import {
   EU_COUNTRY_CODES,
@@ -149,6 +147,25 @@ DEU,Germany,NY.GDP.MKTP.CD,"GDP (current US$)",2023,4082000000000`;
       expect(result).toHaveLength(1);
       expect(result[0].countryId).toBe('DEU');
       expect(result[0].value).toBe(4082000000000);
+    });
+
+    it('should handle CRLF line endings', () => {
+      const csv = "country.id,country.value,indicator.id,indicator.value,date,value\r\nDEU,Germany,NY.GDP.MKTP.CD,GDP,2023,4082000000000\r\n";
+
+      const result = parseWorldBankCSV(csv);
+      expect(result).toHaveLength(1);
+      expect(result[0].countryId).toBe('DEU');
+      expect(result[0].value).toBe(4082000000000);
+    });
+
+    it('should handle RFC 4180 escaped quotes in fields', () => {
+      const csv = `country.id,country.value,indicator.id,indicator.value,date,value
+DEU,"He said ""hi""",FP.CPI.TOTL.ZG,Inflation,2023,5.7`;
+
+      const result = parseWorldBankCSV(csv);
+      expect(result).toHaveLength(1);
+      expect(result[0].countryName).toBe('He said "hi"');
+      expect(result[0].value).toBe(5.7);
     });
   });
 
