@@ -3,13 +3,16 @@
 
 /**
  * Unit tests for generate-sitemap.js
- * Tests sitemap generation, URL formatting, and XML validation
+ * Tests sitemap generation, URL formatting, XML validation,
+ * docs inclusion, and multi-language sitemap HTML generation.
+ * Note: tests exclude docs folder content validation per requirements.
  */
 
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { createTempDir, cleanupTempDir } from '../helpers/test-utils.js';
+import { generateSitemap, collectDocsHtmlFiles, generateSitemapHTML, getSitemapFilename } from '../../scripts/generators/sitemap.js';
 
 describe('generate-sitemap', () => {
   let tempDir;
@@ -60,6 +63,21 @@ describe('generate-sitemap', () => {
         expect(sitemap).toContain(`<loc>https://euparliamentmonitor.com/news/${article}</loc>`);
       });
     });
+
+    it('should include sitemap HTML page URLs', () => {
+      const sitemap = generateMockSitemap([]);
+
+      expect(sitemap).toContain('<loc>https://euparliamentmonitor.com/sitemap.html</loc>');
+      expect(sitemap).toContain('<loc>https://euparliamentmonitor.com/sitemap_sv.html</loc>');
+      expect(sitemap).toContain('<loc>https://euparliamentmonitor.com/sitemap_zh.html</loc>');
+    });
+
+    it('should include docs files when provided', () => {
+      const sitemap = generateMockSitemap([], ['docs/index.html', 'docs/api/index.html']);
+
+      expect(sitemap).toContain('<loc>https://euparliamentmonitor.com/docs/index.html</loc>');
+      expect(sitemap).toContain('<loc>https://euparliamentmonitor.com/docs/api/index.html</loc>');
+    });
   });
 
   describe('URL Properties', () => {
@@ -98,6 +116,30 @@ describe('generate-sitemap', () => {
       expect(articleUrlBlock[0]).toContain('<changefreq>monthly</changefreq>');
     });
 
+    it('should set priority 0.5 for sitemap HTML pages', () => {
+      const sitemap = generateMockSitemap([]);
+
+      const sitemapUrlBlock = sitemap.match(/<url>[\s\S]*?sitemap\.html[\s\S]*?<\/url>/);
+      expect(sitemapUrlBlock).toBeTruthy();
+      expect(sitemapUrlBlock[0]).toContain('<priority>0.5</priority>');
+    });
+
+    it('should set priority 0.3 for docs files', () => {
+      const sitemap = generateMockSitemap([], ['docs/index.html']);
+
+      const docsUrlBlock = sitemap.match(/<url>[\s\S]*?docs\/index\.html[\s\S]*?<\/url>/);
+      expect(docsUrlBlock).toBeTruthy();
+      expect(docsUrlBlock[0]).toContain('<priority>0.3</priority>');
+    });
+
+    it('should set weekly changefreq for docs files', () => {
+      const sitemap = generateMockSitemap([], ['docs/index.html']);
+
+      const docsUrlBlock = sitemap.match(/<url>[\s\S]*?docs\/index\.html[\s\S]*?<\/url>/);
+      expect(docsUrlBlock).toBeTruthy();
+      expect(docsUrlBlock[0]).toContain('<changefreq>weekly</changefreq>');
+    });
+
     it('should include lastmod date for all URLs', () => {
       const sitemap = generateMockSitemap(['2025-01-15-article-en.html']);
 
@@ -120,19 +162,21 @@ describe('generate-sitemap', () => {
   });
 
   describe('URL Count', () => {
-    it('should calculate total URLs correctly', () => {
+    it('should calculate total URLs correctly with articles and docs', () => {
       const articles = ['article1.html', 'article2.html', 'article3.html'];
-      const sitemap = generateMockSitemap(articles);
+      const docsFiles = ['docs/index.html'];
+      const sitemap = generateMockSitemap(articles, docsFiles);
 
       const urlCount = (sitemap.match(/<url>/g) || []).length;
-      expect(urlCount).toBe(14 + articles.length); // 14 language indexes + articles
+      // 14 index + 14 sitemap HTML + 3 articles + 1 docs = 32
+      expect(urlCount).toBe(14 + 14 + articles.length + docsFiles.length);
     });
 
-    it('should handle no articles', () => {
+    it('should handle no articles and no docs', () => {
       const sitemap = generateMockSitemap([]);
 
       const urlCount = (sitemap.match(/<url>/g) || []).length;
-      expect(urlCount).toBe(14); // Only language indexes
+      expect(urlCount).toBe(14 + 14); // 14 language indexes + 14 sitemap HTML pages
     });
 
     it('should handle many articles', () => {
@@ -140,7 +184,7 @@ describe('generate-sitemap', () => {
       const sitemap = generateMockSitemap(articles);
 
       const urlCount = (sitemap.match(/<url>/g) || []).length;
-      expect(urlCount).toBe(14 + 100);
+      expect(urlCount).toBe(14 + 14 + 100);
     });
   });
 
@@ -277,12 +321,233 @@ describe('generate-sitemap', () => {
       expect(endTime - startTime).toBeLessThan(1000); // Should complete in less than 1 second
     });
   });
+
+  describe('collectDocsHtmlFiles', () => {
+    it('should return empty array for non-existent directory', () => {
+      const result = collectDocsHtmlFiles(path.join(tempDir, 'nonexistent'), tempDir);
+      expect(result).toEqual([]);
+    });
+
+    it('should collect HTML files recursively', () => {
+      const docsDir = path.join(tempDir, 'docs');
+      fs.mkdirSync(docsDir, { recursive: true });
+      fs.mkdirSync(path.join(docsDir, 'api'), { recursive: true });
+
+      fs.writeFileSync(path.join(docsDir, 'index.html'), '<html></html>');
+      fs.writeFileSync(path.join(docsDir, 'api', 'index.html'), '<html></html>');
+      fs.writeFileSync(path.join(docsDir, 'README.md'), '# Docs');
+
+      const result = collectDocsHtmlFiles(docsDir, tempDir);
+
+      expect(result).toContain('docs/index.html');
+      expect(result).toContain(path.join('docs', 'api', 'index.html'));
+      expect(result).not.toContain('docs/README.md');
+    });
+
+    it('should skip non-HTML files', () => {
+      const docsDir = path.join(tempDir, 'docs');
+      fs.mkdirSync(docsDir, { recursive: true });
+
+      fs.writeFileSync(path.join(docsDir, 'data.json'), '{}');
+      fs.writeFileSync(path.join(docsDir, 'style.css'), 'body{}');
+      fs.writeFileSync(path.join(docsDir, 'page.html'), '<html></html>');
+
+      const result = collectDocsHtmlFiles(docsDir, tempDir);
+
+      expect(result).toHaveLength(1);
+      expect(result[0]).toBe('docs/page.html');
+    });
+  });
+
+  describe('getSitemapFilename', () => {
+    it('should return sitemap.html for English', () => {
+      expect(getSitemapFilename('en')).toBe('sitemap.html');
+    });
+
+    it('should return sitemap_<lang>.html for other languages', () => {
+      expect(getSitemapFilename('sv')).toBe('sitemap_sv.html');
+      expect(getSitemapFilename('ar')).toBe('sitemap_ar.html');
+      expect(getSitemapFilename('zh')).toBe('sitemap_zh.html');
+    });
+  });
+
+  describe('generateSitemapHTML', () => {
+    it('should generate valid HTML5 document', () => {
+      const html = generateSitemapHTML('en', []);
+
+      expect(html).toContain('<!DOCTYPE html>');
+      expect(html).toContain('<html lang="en"');
+      expect(html).toContain('<meta charset="UTF-8">');
+      expect(html).toContain('</html>');
+    });
+
+    it('should include sitemap title in target language', () => {
+      const htmlEn = generateSitemapHTML('en', []);
+      expect(htmlEn).toContain('<h1>Sitemap</h1>');
+
+      const htmlSv = generateSitemapHTML('sv', []);
+      expect(htmlSv).toContain('<h1>Webbplatskarta</h1>');
+
+      const htmlDe = generateSitemapHTML('de', []);
+      expect(htmlDe).toContain('<h1>Seitenübersicht</h1>');
+    });
+
+    it('should include all language index page links', () => {
+      const html = generateSitemapHTML('en', []);
+
+      expect(html).toContain('href="index.html"');
+      expect(html).toContain('href="index-sv.html"');
+      expect(html).toContain('href="index-zh.html"');
+    });
+
+    it('should include article titles and dates', () => {
+      const articles = [
+        { filename: '2025-01-15-week-ahead-en.html', date: '2025-01-15', title: 'Week Ahead Test', description: 'A test article description' },
+      ];
+      const html = generateSitemapHTML('en', articles);
+
+      expect(html).toContain('Week Ahead Test');
+      expect(html).toContain('2025-01-15');
+      expect(html).toContain('A test article description');
+    });
+
+    it('should include article description when present', () => {
+      const articles = [
+        { filename: '2025-01-15-article-en.html', date: '2025-01-15', title: 'Test', description: 'Description text here' },
+      ];
+      const html = generateSitemapHTML('en', articles);
+
+      expect(html).toContain('Description text here');
+    });
+
+    it('should handle articles without description', () => {
+      const articles = [
+        { filename: '2025-01-15-article-en.html', date: '2025-01-15', title: 'Test Article', description: '' },
+      ];
+      const html = generateSitemapHTML('en', articles);
+
+      expect(html).toContain('Test Article');
+      expect(html).not.toContain('sitemap-desc');
+    });
+
+    it('should include docs section when hasDocsDir is true', () => {
+      const html = generateSitemapHTML('en', [], true);
+
+      expect(html).toContain('Documentation');
+      expect(html).toContain('docs/index.html');
+      expect(html).toContain('docs/api/index.html');
+      expect(html).toContain('docs/coverage/index.html');
+      expect(html).toContain('docs/test-results/index.html');
+    });
+
+    it('should not include docs section when hasDocsDir is false', () => {
+      const html = generateSitemapHTML('en', [], false);
+
+      expect(html).not.toContain('docs/index.html');
+      expect(html).not.toContain('docs/api/index.html');
+    });
+
+    it('should use localized docs labels', () => {
+      const htmlSv = generateSitemapHTML('sv', [], true);
+
+      expect(htmlSv).toContain('Dokumentation');
+      expect(htmlSv).toContain('API-dokumentation');
+    });
+
+    it('should set correct RTL direction for Arabic', () => {
+      const html = generateSitemapHTML('ar', []);
+
+      expect(html).toContain('dir="rtl"');
+      expect(html).toContain('lang="ar"');
+    });
+
+    it('should set correct LTR direction for English', () => {
+      const html = generateSitemapHTML('en', []);
+
+      expect(html).toContain('dir="ltr"');
+    });
+
+    it('should include language switcher for sitemap pages', () => {
+      const html = generateSitemapHTML('en', []);
+
+      expect(html).toContain('sitemap.html');
+      expect(html).toContain('sitemap_sv.html');
+      expect(html).toContain('sitemap_zh.html');
+    });
+
+    it('should include skip link for accessibility', () => {
+      const html = generateSitemapHTML('en', []);
+
+      expect(html).toContain('class="skip-link"');
+      expect(html).toContain('Skip to main content');
+    });
+
+    it('should include footer with Hack23 info', () => {
+      const html = generateSitemapHTML('en', []);
+
+      expect(html).toContain('Hack23 AB');
+      expect(html).toContain('hack23.com');
+    });
+
+    it('should escape HTML in article titles', () => {
+      const articles = [
+        { filename: '2025-01-15-article-en.html', date: '2025-01-15', title: 'Test <script>alert(1)</script>', description: '' },
+      ];
+      const html = generateSitemapHTML('en', articles);
+
+      expect(html).not.toContain('<script>');
+      expect(html).toContain('&lt;script&gt;');
+    });
+
+    it('should link news articles correctly', () => {
+      const articles = [
+        { filename: '2025-01-15-week-ahead-en.html', date: '2025-01-15', title: 'Week Ahead', description: '' },
+      ];
+      const html = generateSitemapHTML('en', articles);
+
+      expect(html).toContain('href="news/2025-01-15-week-ahead-en.html"');
+    });
+
+    it('should generate all 14 language variants', () => {
+      const languages = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+      
+      for (const lang of languages) {
+        const html = generateSitemapHTML(lang, []);
+        expect(html).toContain(`lang="${lang}"`);
+        expect(html).toContain('<!DOCTYPE html>');
+      }
+    });
+  });
+
+  describe('generateSitemap (exported function)', () => {
+    it('should include sitemap HTML URLs in generated XML', () => {
+      const xml = generateSitemap([]);
+
+      expect(xml).toContain('sitemap.html');
+      expect(xml).toContain('sitemap_sv.html');
+    });
+
+    it('should include docs files in generated XML', () => {
+      const xml = generateSitemap([], ['docs/index.html', 'docs/api/index.html']);
+
+      expect(xml).toContain('docs/index.html');
+      expect(xml).toContain('docs/api/index.html');
+    });
+
+    it('should set weekly changefreq for docs URLs', () => {
+      const xml = generateSitemap([], ['docs/index.html']);
+      const docsBlock = xml.match(/<url>[\s\S]*?docs\/index\.html[\s\S]*?<\/url>/);
+      
+      expect(docsBlock).toBeTruthy();
+      expect(docsBlock[0]).toContain('<changefreq>weekly</changefreq>');
+    });
+  });
 });
 
 /**
- * Helper function to generate mock sitemap
+ * Helper function to generate mock sitemap (mirrors the updated generateSitemap behavior)
  */
-function generateMockSitemap(articles) {
+function generateMockSitemap(articles, docsFiles = []) {
   const BASE_URL = 'https://euparliamentmonitor.com';
   const urls = [];
 
@@ -299,6 +564,17 @@ function generateMockSitemap(articles) {
     });
   }
 
+  // Add sitemap HTML pages for each language
+  for (const lang of languages) {
+    const filename = lang === 'en' ? 'sitemap.html' : `sitemap_${lang}.html`;
+    urls.push({
+      loc: `${BASE_URL}/${filename}`,
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'daily',
+      priority: '0.5',
+    });
+  }
+
   // Add news articles
   for (const article of articles) {
     urls.push({
@@ -306,6 +582,16 @@ function generateMockSitemap(articles) {
       lastmod: new Date().toISOString().split('T')[0],
       changefreq: 'monthly',
       priority: '0.8',
+    });
+  }
+
+  // Add docs files
+  for (const docFile of docsFiles) {
+    urls.push({
+      loc: `${BASE_URL}/${docFile}`,
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'weekly',
+      priority: '0.3',
     });
   }
 
