@@ -88,7 +88,10 @@ const STATS_FALLBACK = '{"stats": null}';
  */
 export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
-   * Generic error-safe wrapper around {@link callTool}.
+   * Generic error-safe wrapper around {@link callToolWithRetry}.
+   * Retries transient failures (timeouts, connection drops) with exponential
+   * back-off before falling back. Non-retriable errors (session expiry, rate
+   * limits, programmer errors) are caught immediately without additional delay.
    * Catches any error thrown by the tool (or by the args factory), logs a warning,
    * and returns a fallback payload.
    *

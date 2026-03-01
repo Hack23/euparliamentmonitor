@@ -79,7 +79,15 @@ export class MCPSessionExpiredError extends Error {
  * @returns `true` if the error is safe to retry
  */
 export function isRetriableError(error: Error): boolean {
+  // Never retry session expiry or programmer errors — these require intervention
+  if (error instanceof MCPSessionExpiredError || error instanceof TypeError) {
+    return false;
+  }
   const msg = error.message?.toLowerCase() ?? '';
+  // Never retry rate-limit errors — callers must honour the Retry-After delay
+  if (msg.startsWith(RATE_LIMIT_MSG.toLowerCase())) {
+    return false;
+  }
   return (
     msg.includes('timeout') ||
     msg.includes('connection closed') ||
@@ -102,6 +110,9 @@ export function isRetriableError(error: Error): boolean {
 export function formatRetryAfter(retryAfter: string): string {
   // Accept both bare numbers ("30") and numeric-with-suffix ("30s")
   const normalized = retryAfter.trim().replace(/s$/i, '');
+  if (!normalized) {
+    return retryAfter;
+  }
   const numericDelay = Number(normalized);
   if (!Number.isNaN(numericDelay)) {
     return `${numericDelay}s`;
@@ -366,7 +377,7 @@ export class MCPConnection {
       });
 
       if (!response.ok) {
-        throw new Error(`Gateway returned ${response.status}: ${response.statusText}`);
+        this._throwGatewayResponseError(response);
       }
 
       const sessionId = response.headers.get('mcp-session-id');
@@ -515,7 +526,7 @@ export class MCPConnection {
       }
       const statusText = response.statusText || 'Too Many Requests';
       throw new Error(
-        `${RATE_LIMIT_MSG} (status ${response.status} ${statusText}; Retry-After header missing)`
+        `${RATE_LIMIT_MSG} (status ${response.status} ${statusText}; ${RETRY_AFTER_HEADER}/Retry-After header missing)`
       );
     }
     throw new Error(`Gateway error ${response.status}: ${response.statusText}`);

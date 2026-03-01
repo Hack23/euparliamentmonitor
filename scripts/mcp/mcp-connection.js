@@ -57,7 +57,15 @@ export class MCPSessionExpiredError extends Error {
  * @returns `true` if the error is safe to retry
  */
 export function isRetriableError(error) {
+    // Never retry session expiry or programmer errors — these require intervention
+    if (error instanceof MCPSessionExpiredError || error instanceof TypeError) {
+        return false;
+    }
     const msg = error.message?.toLowerCase() ?? '';
+    // Never retry rate-limit errors — callers must honour the Retry-After delay
+    if (msg.startsWith(RATE_LIMIT_MSG.toLowerCase())) {
+        return false;
+    }
     return (msg.includes('timeout') ||
         msg.includes('connection closed') ||
         msg.includes('connection reset') ||
@@ -77,6 +85,9 @@ export function isRetriableError(error) {
 export function formatRetryAfter(retryAfter) {
     // Accept both bare numbers ("30") and numeric-with-suffix ("30s")
     const normalized = retryAfter.trim().replace(/s$/i, '');
+    if (!normalized) {
+        return retryAfter;
+    }
     const numericDelay = Number(normalized);
     if (!Number.isNaN(numericDelay)) {
         return `${numericDelay}s`;
@@ -317,7 +328,7 @@ export class MCPConnection {
                 signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
             });
             if (!response.ok) {
-                throw new Error(`Gateway returned ${response.status}: ${response.statusText}`);
+                this._throwGatewayResponseError(response);
             }
             const sessionId = response.headers.get('mcp-session-id');
             if (sessionId) {
@@ -449,7 +460,7 @@ export class MCPConnection {
                 throw new Error(`${RATE_LIMIT_MSG} ${retryMessage}`);
             }
             const statusText = response.statusText || 'Too Many Requests';
-            throw new Error(`${RATE_LIMIT_MSG} (status ${response.status} ${statusText}; Retry-After header missing)`);
+            throw new Error(`${RATE_LIMIT_MSG} (status ${response.status} ${statusText}; ${RETRY_AFTER_HEADER}/Retry-After header missing)`);
         }
         throw new Error(`Gateway error ${response.status}: ${response.statusText}`);
     }

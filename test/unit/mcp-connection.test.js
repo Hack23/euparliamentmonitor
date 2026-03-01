@@ -117,6 +117,14 @@ describe('mcp-connection', () => {
     it('should return the raw value when not numeric and not a valid date', () => {
       expect(formatRetryAfter('invalid-value')).toBe('invalid-value');
     });
+
+    it('should return the raw value for an empty string (not "0s")', () => {
+      expect(formatRetryAfter('')).toBe('');
+    });
+
+    it('should return the raw value for a whitespace-only string (not "0s")', () => {
+      expect(formatRetryAfter('   ')).toBe('   ');
+    });
   });
 
   describe('MCPSessionExpiredError', () => {
@@ -173,6 +181,10 @@ describe('mcp-connection', () => {
 
     it('should return false for a rate-limit error', () => {
       expect(isRetriableError(new Error('Rate limited. Retry after 30s'))).toBe(false);
+    });
+
+    it('should return false for a TypeError even when message contains a retriable keyword', () => {
+      expect(isRetriableError(new TypeError('timeout reading args'))).toBe(false);
     });
   });
 
@@ -562,7 +574,7 @@ describe('mcp-connection', () => {
         );
 
         await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
-          'Rate limited. Retry after (status 429 Too Many Requests; Retry-After header missing)'
+          'Rate limited. Retry after (status 429 Too Many Requests; X-Retry-After/Retry-After header missing)'
         );
       });
 
