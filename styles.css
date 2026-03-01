@@ -11,7 +11,7 @@
   /* Focus ring token — always contrasts with page background */
   --focus-ring: #001A66;
   --secondary: #E6B800;
-  --secondary-dark: #CC9900;
+  --secondary-dark: #996600;
   /* Text on secondary (yellow) backgrounds — always dark for contrast */
   --on-secondary: #1a1a2e;
   --accent: #0066cc;
@@ -1440,7 +1440,7 @@ button:focus-visible {
   :root {
     --primary: #001A66;
     --secondary: #FFD633;
-    --secondary-dark: #CC9900;
+    --secondary-dark: #996600;
     --text: #000000;
     --text-secondary: #111111;
     --text-muted: #333333;
@@ -1478,8 +1478,9 @@ button:focus-visible {
   }
 
   /* Reset .key-findings to use tokenized colors so the 1px border has
-   * sufficient contrast against --bg (#ffffff). --secondary-dark (#CC9900)
-   * gives only ~2.4:1 on white; --border (#000000) gives 21:1. */
+   * sufficient contrast against --bg (#ffffff). --secondary-dark (#996600)
+   * gives ~4.5:1 on white (passes WCAG AA), but --border (#000000) at 21:1
+   * is used here for maximum contrast in the high-contrast theme. */
   .key-findings {
     background: var(--bg-card);
     border: 2px solid var(--border);
@@ -1540,6 +1541,15 @@ button:focus-visible {
   .data-card {
     border-color: var(--border);
     border-left-color: var(--accent);
+  }
+
+  /* RTL override: ensure token-based borders also win over dark-mode RTL
+   * hardcoded #444466 in combined dark + high-contrast mode. Accent appears
+   * on the inline-start edge (right in RTL). */
+  [dir="rtl"] .data-card {
+    border-color: var(--border);
+    border-right-color: var(--accent);
+    border-left-color: var(--border);
   }
 
   /* Badge text: use on-secondary (dark) to maintain contrast on light badge
