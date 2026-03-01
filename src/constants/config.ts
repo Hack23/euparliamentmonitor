@@ -71,8 +71,19 @@ export const ARG_SEPARATOR = '=';
 export const APP_VERSION: string = (() => {
   try {
     const pkgPath = path.join(PROJECT_ROOT, 'package.json');
-    const pkgJson = JSON.parse(fs.readFileSync(pkgPath, 'utf-8')) as { version: string };
-    return pkgJson.version;
+    const parsed: unknown = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+
+    if (typeof parsed === 'object' && parsed !== null && 'version' in parsed) {
+      const versionValue = (parsed as { version: unknown }).version;
+      if (typeof versionValue === 'string' && versionValue.trim() !== '') {
+        return versionValue;
+      }
+    }
+
+    console.warn(
+      'Invalid or missing "version" in package.json, falling back to default 0.0.0'
+    );
+    return '0.0.0';
   } catch (err) {
     console.warn('Failed to read version from package.json:', err);
     return '0.0.0';

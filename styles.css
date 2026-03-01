@@ -299,12 +299,7 @@ img {
 .footer-disclaimer {
   margin-top: 8px;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.footer-disclaimer a {
-  color: var(--secondary);
-  text-decoration: underline;
+  color: inherit;
 }
 
 /* ─── Main Content ───────────────────────────────────────────────── */
@@ -892,6 +887,16 @@ img {
 [dir="rtl"] .context {
   border-left: none;
   border-right: 4px solid var(--primary);
+}
+
+[dir="rtl"] .ai-intelligence {
+  border-left: none;
+  border-right: 4px solid var(--primary);
+}
+
+[dir="rtl"] .ai-intelligence__quote {
+  border-left: none;
+  border-right: 3px solid var(--secondary);
 }
 
 [dir="rtl"] .article-sources li {
