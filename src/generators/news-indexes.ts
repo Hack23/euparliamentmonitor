@@ -13,7 +13,7 @@
 import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { PROJECT_ROOT, APP_VERSION } from '../constants/config.js';
+import { PROJECT_ROOT, APP_VERSION, NEWS_DIR } from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
@@ -37,7 +37,6 @@ import {
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
 import type { ParsedArticle } from '../types/index.js';
 import { ArticleCategory } from '../types/index.js';
-import { NEWS_DIR } from '../constants/config.js';
 
 /**
  * Default category for articles that don't match specific patterns.

@@ -80,9 +80,7 @@ export const APP_VERSION: string = (() => {
       }
     }
 
-    console.warn(
-      'Invalid or missing "version" in package.json, falling back to default 0.0.0'
-    );
+    console.warn('Invalid or missing "version" in package.json, falling back to default 0.0.0');
     return '0.0.0';
   } catch (err) {
     console.warn('Failed to read version from package.json:', err);
