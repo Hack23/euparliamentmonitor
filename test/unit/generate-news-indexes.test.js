@@ -413,17 +413,17 @@ describe('generate-news-indexes', () => {
 
     it('should contain German localized AI heading on German page', () => {
       const html = generateIndexHTML('de', []);
-      expect(html).toContain('KI-gestützte parlamentarische Aufklärung');
+      expect(html).toContain('KI-disruptierte Nachrichtenerzeugung');
     });
 
     it('should contain Japanese localized AI heading on Japanese page', () => {
       const html = generateIndexHTML('ja', []);
-      expect(html).toContain('AI駆動');
+      expect(html).toContain('AI\u304c\u5207\u308a\u62d3\u304f');
     });
 
     it('should contain Arabic localized AI heading on Arabic page', () => {
       const html = generateIndexHTML('ar', []);
-      expect(html).toContain('استخبارات برلمانية');
+      expect(html).toContain('\u0625\u0646\u062a\u0627\u062c \u0623\u062e\u0628\u0627\u0631');
     });
 
     it('should generate valid HTML with AI section', () => {
@@ -431,6 +431,23 @@ describe('generate-news-indexes', () => {
       const validation = validateHTML(html);
 
       expect(validation.valid).toBe(true);
+    });
+
+    it('should include filter toolbar when articles are present', () => {
+      const articles = [
+        { date: '2025-01-15', slug: 'week-ahead-test', lang: 'en', filename: 'test.html' },
+      ];
+      const html = generateIndexHTML('en', articles);
+
+      expect(html).toContain('filter-toolbar');
+      expect(html).toContain('filter-btn');
+      expect(html).toContain('filter-search__input');
+    });
+
+    it('should not include filter toolbar when no articles', () => {
+      const html = generateIndexHTML('en', []);
+
+      expect(html).not.toContain('class="filter-toolbar"');
     });
   });
 });

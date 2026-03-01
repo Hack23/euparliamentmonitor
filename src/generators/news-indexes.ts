@@ -24,6 +24,8 @@ import {
   NO_ARTICLES_MESSAGES,
   SKIP_LINK_TEXTS,
   AI_SECTION_CONTENT,
+  FILTER_LABELS,
+  ARTICLE_TYPE_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -36,7 +38,7 @@ import {
   escapeHTML,
 } from '../utils/file-utils.js';
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
-import type { ParsedArticle } from '../types/index.js';
+import type { ParsedArticle, ArticleCategoryLabels } from '../types/index.js';
 import { ArticleCategory } from '../types/index.js';
 
 /**
@@ -189,6 +191,14 @@ export function generateIndexHTML(
   const year = new Date().getFullYear();
   const selfHref = getIndexFilename(lang);
   const heroTitle = title.split(' - ')[0];
+  const filterLabels = getLocalizedString(FILTER_LABELS, lang) as { all: string; search: string };
+  const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang) as ArticleCategoryLabels;
+
+  // Collect distinct categories from the current article set
+  const usedCategories = new Set<string>();
+  for (const a of articles) {
+    usedCategories.add(detectCategory(a.slug));
+  }
 
   const content =
     articles.length === 0
@@ -207,6 +217,19 @@ export function generateIndexHTML(
     </ul>`;
 
   const ai = getLocalizedString(AI_SECTION_CONTENT, lang);
+
+  // Build filter buttons from used categories
+  const filterButtons =
+    articles.length > 0
+      ? Array.from(usedCategories)
+          .sort()
+          .map((cat) => {
+            const safeCat = cat.replace(/[^a-z0-9-]/gi, '');
+            const label = categoryLabels[cat as keyof ArticleCategoryLabels] ?? formatSlug(safeCat);
+            return `<button type="button" class="filter-btn" data-category="${safeCat}">${escapeHTML(label)}</button>`;
+          })
+          .join('\n          ')
+      : '';
 
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
@@ -262,7 +285,20 @@ export function generateIndexHTML(
   </section>
 
   <main id="main" class="site-main">
-    <h2 class="section-heading"><span class="section-heading__icon" aria-hidden="true">📋</span> ${heading}</h2>
+    <h2 class="section-heading"><span class="section-heading__icon" aria-hidden="true">📋</span> ${heading}</h2>${
+      articles.length > 0
+        ? `
+    <div class="filter-toolbar" role="toolbar" aria-label="Filter articles">
+      <div class="filter-buttons">
+        <button type="button" class="filter-btn active" data-category="all">${escapeHTML(filterLabels.all)}</button>
+        ${filterButtons}
+      </div>
+      <div class="filter-search">
+        <input type="search" class="filter-search__input" placeholder="${escapeHTML(filterLabels.search)}" aria-label="${escapeHTML(filterLabels.search)}">
+      </div>
+    </div>`
+        : ''
+    }
     ${content}
   </main>
 
@@ -303,6 +339,40 @@ export function generateIndexHTML(
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> This platform is under ongoing improvement. Please <a href="https://github.com/Hack23/euparliamentmonitor/issues">report any issues on GitHub</a>.</p>
     </div>
   </footer>
+
+  <script>
+  (function(){
+    var toolbar=document.querySelector('.filter-toolbar');
+    if(!toolbar)return;
+    var buttons=toolbar.querySelectorAll('.filter-btn');
+    var search=toolbar.querySelector('.filter-search__input');
+    var cards=document.querySelectorAll('.news-card');
+    function filterCards(){
+      var cat=toolbar.querySelector('.filter-btn.active');
+      var activeCat=cat?cat.getAttribute('data-category'):'all';
+      var query=search?search.value.toLowerCase():'';
+      cards.forEach(function(card){
+        var badge=card.querySelector('.news-card__badge');
+        var cardCat=badge?badge.className.replace(/.*news-card__badge--/,''):'';
+        var title=card.querySelector('.news-card__title');
+        var text=(title?title.textContent:'').toLowerCase();
+        var excerpt=card.querySelector('.news-card__excerpt');
+        var excerptText=(excerpt?excerpt.textContent:'').toLowerCase();
+        var matchCat=activeCat==='all'||cardCat===activeCat;
+        var matchSearch=!query||text.indexOf(query)!==-1||excerptText.indexOf(query)!==-1;
+        card.style.display=matchCat&&matchSearch?'':'none';
+      });
+    }
+    buttons.forEach(function(btn){
+      btn.addEventListener('click',function(){
+        buttons.forEach(function(b){b.classList.remove('active')});
+        btn.classList.add('active');
+        filterCards();
+      });
+    });
+    if(search){search.addEventListener('input',filterCards);}
+  })();
+  </script>
 </body>
 </html>`;
 }
