@@ -27,6 +27,9 @@ const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
 /** Pattern for valid article slugs (lowercase letters, digits, hyphens) */
 const SLUG_PATTERN = /^[a-z0-9-]+$/u;
 
+/** Pattern for valid SRI integrity hashes (sha256/sha384/sha512 + base64) */
+const SRI_HASH_PATTERN = /^sha(?:256|384|512)-[A-Za-z0-9+/]+={0,2}$/u;
+
 /**
  * Build the article language switcher nav HTML.
  * Links to the same article in all 14 languages using the filename pattern {date}-{slug}-{lang}.html.
@@ -106,6 +109,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     content,
     keywords = [],
     sources = [],
+    stylesHash,
   } = options;
 
   const dir = getTextDirection(lang);
@@ -158,6 +162,12 @@ export function generateArticleHTML(options: ArticleOptions): string {
     4
   );
 
+  // Validate and escape stylesHash — only allow valid SRI hash format
+  const safeSriAttrs =
+    stylesHash && SRI_HASH_PATTERN.test(stylesHash)
+      ? ` integrity="${escapeHTML(stylesHash)}" crossorigin="anonymous"`
+      : '';
+
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -165,6 +175,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
   <title>${safeTitle} | EU Parliament Monitor</title>
   <meta name="description" content="${safeSubtitle}">
   <meta name="keywords" content="${safeKeywords}">
@@ -185,7 +196,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta name="twitter:title" content="${safeTitle}">
   <meta name="twitter:description" content="${safeSubtitle}">
   
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css"${safeSriAttrs}>
   
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
