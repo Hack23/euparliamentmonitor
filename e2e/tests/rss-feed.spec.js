@@ -16,103 +16,103 @@ import { test, expect } from '@playwright/test';
  */
 
 test.describe('RSS Feed', () => {
-  test('should load rss.xml successfully', async ({ page }) => {
-    const response = await page.goto('/rss.xml');
+  test('should load rss.xml successfully', async ({ request }) => {
+    const response = await request.get('/rss.xml');
 
     // Verify the feed returns HTTP 200
     expect(response.status()).toBe(200);
   });
 
   test('should be valid RSS 2.0 with required root element', async ({
-    page,
+    request,
   }) => {
-    await page.goto('/rss.xml');
-    const content = await page.content();
+    const response = await request.get('/rss.xml');
+    const text = await response.text();
 
     // Verify RSS 2.0 root element
-    expect(content).toContain('version="2.0"');
+    expect(text).toContain('version="2.0"');
 
     // Verify channel wrapper
-    expect(content).toContain('<channel>');
+    expect(text).toContain('<channel>');
   });
 
-  test('should have required channel metadata', async ({ page }) => {
-    await page.goto('/rss.xml');
-    const content = await page.content();
+  test('should have required channel metadata', async ({ request }) => {
+    const response = await request.get('/rss.xml');
+    const text = await response.text();
 
     // Verify required RSS channel elements
-    expect(content).toContain('<title>');
-    expect(content).toContain('<link>');
-    expect(content).toContain('<description>');
+    expect(text).toContain('<title>');
+    expect(text).toContain('<link>');
+    expect(text).toContain('<description>');
   });
 
   test('should declare Dublin Core namespace for language tags', async ({
-    page,
+    request,
   }) => {
-    await page.goto('/rss.xml');
-    const content = await page.content();
+    const response = await request.get('/rss.xml');
+    const text = await response.text();
 
     // Verify dc namespace declaration for per-item language tags
-    expect(content).toContain('xmlns:dc=');
+    expect(text).toContain('xmlns:dc=');
   });
 
-  test('should have at least one item', async ({ page }) => {
-    await page.goto('/rss.xml');
-    const content = await page.content();
+  test('should have at least one item', async ({ request }) => {
+    const response = await request.get('/rss.xml');
+    const text = await response.text();
 
     // Verify items are present
-    expect(content).toContain('<item>');
+    expect(text).toContain('<item>');
   });
 
-  test('should have items with required elements', async ({ page }) => {
-    await page.goto('/rss.xml');
-    const content = await page.content();
+  test('should have items with required elements', async ({ request }) => {
+    const response = await request.get('/rss.xml');
+    const text = await response.text();
 
-    // Verify item structure includes title, link, and description
-    expect(content).toContain('<title>');
-    expect(content).toContain('<link>');
-    expect(content).toContain('<description>');
-    expect(content).toContain('<pubDate>');
-    expect(content).toContain('<guid');
+    // Verify item structure includes title, link, description, pubDate, and guid
+    expect(text).toContain('<title>');
+    expect(text).toContain('<link>');
+    expect(text).toContain('<description>');
+    expect(text).toContain('<pubDate>');
+    expect(text).toContain('<guid');
   });
 
-  test('should include dc:language tags on items', async ({ page }) => {
-    await page.goto('/rss.xml');
-    const content = await page.content();
+  test('should include dc:language tags on items', async ({ request }) => {
+    const response = await request.get('/rss.xml');
+    const text = await response.text();
 
     // Verify Dublin Core language tags are used for per-item language
-    expect(content).toContain('dc:language');
+    expect(text).toContain('dc:language');
   });
 
-  test('should contain articles in multiple languages', async ({ page }) => {
-    await page.goto('/rss.xml');
-    const content = await page.content();
+  test('should contain articles in multiple languages', async ({ request }) => {
+    const response = await request.get('/rss.xml');
+    const text = await response.text();
 
     // Verify items covering multiple languages exist
     const languages = ['en', 'de', 'fr', 'es', 'sv'];
     let foundLanguages = 0;
     for (const lang of languages) {
-      if (content.includes(`>${lang}<`) || content.includes(`"${lang}"`)) {
+      if (text.includes(`>${lang}<`) || text.includes(`"${lang}"`)) {
         foundLanguages++;
       }
     }
     expect(foundLanguages).toBeGreaterThan(0);
   });
 
-  test('should have atom self-link with correct URL', async ({ page }) => {
-    await page.goto('/rss.xml');
-    const content = await page.content();
+  test('should have atom self-link with correct URL', async ({ request }) => {
+    const response = await request.get('/rss.xml');
+    const text = await response.text();
 
     // Verify atom:link self-reference for feed discovery
-    expect(content).toContain('rel="self"');
-    expect(content).toContain('rss.xml');
+    expect(text).toContain('rel="self"');
+    expect(text).toContain('rss.xml');
   });
 
-  test('should have lastBuildDate element', async ({ page }) => {
-    await page.goto('/rss.xml');
-    const content = await page.content();
+  test('should have lastBuildDate element', async ({ request }) => {
+    const response = await request.get('/rss.xml');
+    const text = await response.text();
 
     // Verify build date is present
-    expect(content).toContain('<lastBuildDate>');
+    expect(text).toContain('<lastBuildDate>');
   });
 });

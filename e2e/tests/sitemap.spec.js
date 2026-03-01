@@ -31,8 +31,8 @@ const SITEMAP_HTML_LANGUAGES = [
 ];
 
 test.describe('Sitemap XML', () => {
-  test('should load sitemap.xml when available', async ({ page }) => {
-    const response = await page.goto('/sitemap.xml');
+  test('should load sitemap.xml when available', async ({ request }) => {
+    const response = await request.get('/sitemap.xml');
 
     // sitemap.xml is a generated build artifact; skip if not present
     if (response.status() === 404) {
@@ -43,64 +43,64 @@ test.describe('Sitemap XML', () => {
     expect(response.status()).toBe(200);
   });
 
-  test('should have valid urlset structure', async ({ page }) => {
-    const response = await page.goto('/sitemap.xml');
+  test('should have valid urlset structure', async ({ request }) => {
+    const response = await request.get('/sitemap.xml');
 
     if (response.status() === 404) {
       test.skip();
       return;
     }
 
-    const content = await page.content();
+    const text = await response.text();
 
     // Verify XML sitemap namespace
-    expect(content).toContain('urlset');
-    expect(content).toContain('sitemaps.org');
+    expect(text).toContain('urlset');
+    expect(text).toContain('sitemaps.org');
   });
 
-  test('should contain article URLs', async ({ page }) => {
-    const response = await page.goto('/sitemap.xml');
+  test('should contain article URLs', async ({ request }) => {
+    const response = await request.get('/sitemap.xml');
 
     if (response.status() === 404) {
       test.skip();
       return;
     }
 
-    const content = await page.content();
+    const text = await response.text();
 
     // Verify news article URLs are present
-    expect(content).toContain('/news/');
-    expect(content).toContain('<url>');
-    expect(content).toContain('<loc>');
+    expect(text).toContain('/news/');
+    expect(text).toContain('<url>');
+    expect(text).toContain('<loc>');
   });
 
-  test('should contain more than 50 URLs', async ({ page }) => {
-    const response = await page.goto('/sitemap.xml');
+  test('should contain more than 50 URLs', async ({ request }) => {
+    const response = await request.get('/sitemap.xml');
 
     if (response.status() === 404) {
       test.skip();
       return;
     }
 
-    const content = await page.content();
+    const text = await response.text();
 
     // Verify there are many article entries
-    const urlMatches = content.match(/<url>/g) || [];
+    const urlMatches = text.match(/<url>/g) || [];
     expect(urlMatches.length).toBeGreaterThan(50);
   });
 
-  test('should include rss.xml in sitemap', async ({ page }) => {
-    const response = await page.goto('/sitemap.xml');
+  test('should include rss.xml in sitemap', async ({ request }) => {
+    const response = await request.get('/sitemap.xml');
 
     if (response.status() === 404) {
       test.skip();
       return;
     }
 
-    const content = await page.content();
+    const text = await response.text();
 
     // Verify RSS feed URL is listed in sitemap
-    expect(content).toContain('rss.xml');
+    expect(text).toContain('rss.xml');
   });
 });
 

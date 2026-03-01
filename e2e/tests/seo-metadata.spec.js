@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
 /**
  * SEO Metadata E2E Tests
@@ -12,6 +13,7 @@ import { test, expect } from '@playwright/test';
  * - Standard SEO meta tags (description, keywords, author)
  * - Schema.org structured data (JSON-LD)
  * - Article-specific meta tags
+ * - WCAG 2.1 AA accessibility compliance
  */
 
 // Use a committed news article for reliable testing
@@ -90,6 +92,16 @@ test.describe('Article SEO Metadata', () => {
     expect(content).toBeTruthy();
   });
 
+  test('should have Twitter description', async ({ page }) => {
+    await page.goto(ARTICLE_PATH);
+
+    const twitterDesc = page.locator('meta[name="twitter:description"]');
+    await expect(twitterDesc).toHaveCount(1);
+
+    const content = await twitterDesc.getAttribute('content');
+    expect(content).toBeTruthy();
+  });
+
   test('should have meta description', async ({ page }) => {
     await page.goto(ARTICLE_PATH);
 
@@ -164,6 +176,17 @@ test.describe('Article SEO Metadata', () => {
     const content = await viewport.getAttribute('content');
     expect(content).toContain('width=device-width');
   });
+
+  test('article page should be accessible (WCAG 2.1 AA)', async ({ page }) => {
+    await page.goto(ARTICLE_PATH);
+    await page.waitForLoadState('networkidle');
+
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .analyze();
+
+    expect(results.violations).toEqual([]);
+  });
 });
 
 test.describe('Multi-Language Article SEO', () => {
@@ -179,12 +202,10 @@ test.describe('Multi-Language Article SEO', () => {
       await page.goto(path);
 
       const ogLocale = page.locator('meta[property="og:locale"]');
-      const count = await ogLocale.count();
+      await expect(ogLocale).toHaveCount(1);
 
-      if (count > 0) {
-        const content = await ogLocale.getAttribute('content');
-        expect(content).toContain(locale);
-      }
+      const content = await ogLocale.getAttribute('content');
+      expect(content).toContain(locale);
     });
 
     test(`${lang} article should have html lang attribute`, async ({
