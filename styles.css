@@ -8,8 +8,8 @@
   --primary: #003399;
   --primary-dark: #002266;
   --primary-light: #e8edf5;
-  --secondary: #FFCC00;
-  --secondary-dark: #e6b800;
+  --secondary: #E6B800;
+  --secondary-dark: #CC9900;
   --accent: #0066cc;
   --accent-light: #e6f0ff;
 
@@ -592,6 +592,7 @@ img {
   border-radius: 100px;
   font-weight: 700;
   font-size: 0.78em;
+  color: var(--text);
 }
 
 .article-header h1 {
@@ -772,6 +773,7 @@ img {
 /* ─── Language Indicator Compat ───────────────────────────────────── */
 .language-indicator {
   background: var(--secondary);
+  color: var(--text);
   display: inline-block;
   padding: 4px 14px;
   border-radius: 100px;
@@ -964,7 +966,7 @@ img {
 /* ─── Accessibility: Focus ───────────────────────────────────────── */
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid var(--secondary);
+  outline: 3px solid var(--primary);
   outline-offset: 2px;
 }
 
@@ -1024,8 +1026,20 @@ button:focus-visible {
     --primary-light: #1e2a4e;
     --accent: #66c2ff;
     --accent-light: #27416b;
-    --secondary: #ffd94d;
-    --secondary-dark: #f0c500;
+    --secondary: #FFD633;
+    --secondary-dark: #E6B800;
+
+    /* Dark mode political group colors — lighter for visibility on dark cards.
+     * All colors achieve ≥4.5:1 contrast against dark text (var(--bg) = #1a1a2e)
+     * as required by WCAG 2.1 AA for small text.
+     */
+    --group-epp: #4A9FE6;
+    --group-sd: #FF6B6B;
+    --group-re: #FFD93D;
+    --group-greens: #3DC464;
+    --group-ecr: #33BBEE;
+    --group-id: #7088D8;
+    --group-left: #D46060;
   }
 }
 
@@ -1308,6 +1322,11 @@ button:focus-visible {
     background: #3a0a0a;
     color: #ff9090;
   }
+
+  /* Group badges use dark text on lighter dark-mode backgrounds */
+  .group-badge {
+    color: var(--bg);
+  }
 }
 
 /* ─── Dark Mode + RTL Combined Overrides ────────────────────── */
@@ -1389,4 +1408,31 @@ button:focus-visible {
 [dir="rtl"] .sitemap-date {
   margin-left: 0;
   margin-right: 0.75rem;
+}
+
+/* ─── High Contrast Mode (prefers-contrast: more) ───────────────── */
+@media (prefers-contrast: more) {
+  :root {
+    --primary: #001A66;
+    --secondary: #FFD633;
+    --secondary-dark: #CC9900;
+    --text: #000000;
+    --text-secondary: #111111;
+    --text-muted: #333333;
+    --bg: #ffffff;
+    --bg-card: #ffffff;
+    --border: #000000;
+    --border-light: #333333;
+    --accent: #0044aa;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline-width: 4px;
+    outline-color: var(--primary);
+  }
+
+  .group-badge {
+    outline: 2px solid currentColor;
+  }
 }
