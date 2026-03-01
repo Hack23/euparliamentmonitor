@@ -3,6 +3,7 @@
 
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
 
 /**
  * Accessibility E2E Tests
@@ -15,6 +16,35 @@ import AxeBuilder from '@axe-core/playwright';
  * - Color contrast
  * - Form accessibility
  */
+
+/**
+ * All 14 supported language codes, sourced from scripts/constants/language-core.js.
+ * English uses the root index (/); other languages use /index-{lang}.html.
+ */
+
+test.describe('Multi-language index accessibility (WCAG 2.1 AA)', () => {
+  for (const lang of ALL_LANGUAGES) {
+    const url = lang === 'en' ? '/' : `/index-${lang}.html`;
+
+    test(`${lang} index page should be WCAG 2.1 AA compliant`, async ({ page }) => {
+      await page.goto(url);
+      await page.waitForLoadState('networkidle');
+
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+        .analyze();
+
+      if (accessibilityScanResults.violations.length > 0) {
+        console.log(
+          `[${lang}] Accessibility violations:`,
+          JSON.stringify(accessibilityScanResults.violations, null, 2)
+        );
+      }
+
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+  }
+});
 
 test.describe('Accessibility', () => {
   test('homepage should be accessible', async ({ page }) => {
