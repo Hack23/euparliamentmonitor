@@ -1340,9 +1340,16 @@ button:focus-visible {
     color: #ff9090;
   }
 
-  /* Group badges use dark text on lighter dark-mode backgrounds */
-  .group-badge {
+  /* Group badges and article-lang pills use dark text on lighter dark-mode
+   * backgrounds (--bg = #1a1a2e, same as --on-secondary in dark mode) */
+  .group-badge,
   .article-lang {
+    color: var(--bg);
+  }
+
+  /* Brand hover on light-blue dark-mode header: --secondary (#FFD633) gives
+   * only ~1.5:1 on --primary (#4da3ff). Use --bg (#1a1a2e) instead → ~7:1. */
+  .site-header__brand:hover {
     color: var(--bg);
   }
 }
@@ -1499,8 +1506,8 @@ button:focus-visible {
     --text-muted: #cccccc;
     --border: #ffffff;
     --border-light: #aaaaaa;
-    --primary: #6bb8ff;
-    --primary-dark: #99ccff;
+    --primary: #0055cc;
+    --primary-dark: #003399;
     --primary-light: #001a33;
     --accent: #80d4ff;
     --accent-light: #001f33;
@@ -1538,9 +1545,9 @@ button:focus-visible {
 
   /* Two-tone focus indicator for primary-background controls in combined dark
    * + high-contrast mode. --focus-ring is #ffffff here, so the standard
-   * prefers-contrast: more rule (both shadows become #ffffff) fails to
-   * contrast against the light-blue --primary (#6bb8ff) button background.
-   * Override: dark inner ring (21:1 on #6bb8ff) + white outer ring (21:1 on
+   * prefers-contrast: more rule (both shadows become #ffffff) lacks contrast
+   * against the dark-blue --primary (#0055cc) button background.
+   * Override: dark inner ring + white outer ring (6.65:1 on #0055cc, 21:1 on
    * near-black --bg #000000), meeting WCAG 2.2 SC 2.4.11. */
   .back-to-news:focus-visible,
   .lang-link.active:focus-visible,
