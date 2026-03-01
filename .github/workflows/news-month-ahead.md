@@ -378,8 +378,9 @@ ARTICLE_TYPE="month-ahead"
 TODAY=$(date +%Y-%m-%d)
 MISSING_SWITCHER=$(grep -rL 'class="language-switcher"' news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null | wc -l || echo 0)
 MISSING_TOPNAV=$(grep -rL 'class="article-top-nav"' news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null | wc -l || echo 0)
-if [ "$MISSING_SWITCHER" -gt 0 ] || [ "$MISSING_TOPNAV" -gt 0 ]; then
-  echo "ERROR: $MISSING_SWITCHER articles missing language-switcher, $MISSING_TOPNAV missing article-top-nav" >&2
+MISSING_HEADER=$(grep -rL 'class="site-header"' news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null | wc -l || echo 0)
+if [ "$MISSING_SWITCHER" -gt 0 ] || [ "$MISSING_TOPNAV" -gt 0 ] || [ "$MISSING_HEADER" -gt 0 ]; then
+  echo "ERROR: $MISSING_SWITCHER articles missing language-switcher, $MISSING_TOPNAV missing article-top-nav, $MISSING_HEADER missing site-header" >&2
   echo "This indicates a template bug — articles should be generated correctly by generateArticleHTML." >&2
   echo "FALLBACK: Run npx tsx src/utils/fix-articles.ts to patch, but investigate the root cause." >&2
   exit 1
