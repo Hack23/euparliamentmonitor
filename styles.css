@@ -589,6 +589,7 @@ img {
 .article-lang {
   padding: 3px 12px;
   background: var(--secondary);
+  color: var(--primary);
   border-radius: 100px;
   font-weight: 700;
   font-size: 0.78em;
@@ -1307,6 +1308,10 @@ button:focus-visible {
   .status-badge--failed {
     background: #3a0a0a;
     color: #ff9090;
+  }
+
+  .article-lang {
+    color: var(--bg);
   }
 }
 
