@@ -228,9 +228,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-playwright-
 
+      - name: Install Playwright OS dependencies
+        run: npx playwright install-deps chromium
+
       - name: Install Playwright browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install chromium
 
       - name: Run accessibility tests (WCAG 2.1 AA)
         run: |
