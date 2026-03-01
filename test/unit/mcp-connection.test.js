@@ -307,13 +307,16 @@ describe('mcp-connection', () => {
         client.mcpSessionId = 'old-session-id';
         client.connected = true;
 
-        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
-          ok: false,
-          status: 401,
-          statusText: 'Unauthorized',
-          headers: { get: () => null },
-          text: async () => '',
-        }));
+        vi.stubGlobal(
+          'fetch',
+          vi.fn().mockResolvedValue({
+            ok: false,
+            status: 401,
+            statusText: 'Unauthorized',
+            headers: { get: () => null },
+            text: async () => '',
+          })
+        );
 
         await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
           MCPSessionExpiredError
@@ -326,13 +329,16 @@ describe('mcp-connection', () => {
         client.gatewayUrl = 'http://fake-gateway/mcp';
         client.connected = true;
 
-        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
-          ok: false,
-          status: 401,
-          statusText: 'Unauthorized',
-          headers: { get: () => null },
-          text: async () => '',
-        }));
+        vi.stubGlobal(
+          'fetch',
+          vi.fn().mockResolvedValue({
+            ok: false,
+            status: 401,
+            statusText: 'Unauthorized',
+            headers: { get: () => null },
+            text: async () => '',
+          })
+        );
 
         await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
           'MCP session expired (401)'
@@ -345,15 +351,18 @@ describe('mcp-connection', () => {
         client.gatewayUrl = 'http://fake-gateway/mcp';
         client.connected = true;
 
-        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
-          ok: false,
-          status: 429,
-          statusText: 'Too Many Requests',
-          headers: {
-            get: (name) => (name === 'X-Retry-After' ? '30' : null),
-          },
-          text: async () => '',
-        }));
+        vi.stubGlobal(
+          'fetch',
+          vi.fn().mockResolvedValue({
+            ok: false,
+            status: 429,
+            statusText: 'Too Many Requests',
+            headers: {
+              get: (name) => (name === 'X-Retry-After' ? '30' : null),
+            },
+            text: async () => '',
+          })
+        );
 
         await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
           'Rate limited. Retry after 30s'
@@ -365,15 +374,18 @@ describe('mcp-connection', () => {
         client.gatewayUrl = 'http://fake-gateway/mcp';
         client.connected = true;
 
-        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
-          ok: false,
-          status: 429,
-          statusText: 'Too Many Requests',
-          headers: {
-            get: (name) => (name === 'Retry-After' ? '60' : null),
-          },
-          text: async () => '',
-        }));
+        vi.stubGlobal(
+          'fetch',
+          vi.fn().mockResolvedValue({
+            ok: false,
+            status: 429,
+            statusText: 'Too Many Requests',
+            headers: {
+              get: (name) => (name === 'Retry-After' ? '60' : null),
+            },
+            text: async () => '',
+          })
+        );
 
         await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
           'Rate limited. Retry after 60s'
@@ -385,15 +397,18 @@ describe('mcp-connection', () => {
         client.connected = true;
 
         const futureDate = new Date(Date.now() + 90000).toUTCString();
-        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
-          ok: false,
-          status: 429,
-          statusText: 'Too Many Requests',
-          headers: {
-            get: (name) => (name === 'X-Retry-After' ? futureDate : null),
-          },
-          text: async () => '',
-        }));
+        vi.stubGlobal(
+          'fetch',
+          vi.fn().mockResolvedValue({
+            ok: false,
+            status: 429,
+            statusText: 'Too Many Requests',
+            headers: {
+              get: (name) => (name === 'X-Retry-After' ? futureDate : null),
+            },
+            text: async () => '',
+          })
+        );
 
         await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
           /Rate limited\. Retry after \d+s \(until /
@@ -404,17 +419,18 @@ describe('mcp-connection', () => {
         client.gatewayUrl = 'http://fake-gateway/mcp';
         client.connected = true;
 
-        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
-          ok: false,
-          status: 503,
-          statusText: 'Service Unavailable',
-          headers: { get: () => null },
-          text: async () => '',
-        }));
-
-        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
-          'Gateway error 503'
+        vi.stubGlobal(
+          'fetch',
+          vi.fn().mockResolvedValue({
+            ok: false,
+            status: 503,
+            statusText: 'Service Unavailable',
+            headers: { get: () => null },
+            text: async () => '',
+          })
         );
+
+        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow('Gateway error 503');
       });
     });
   });

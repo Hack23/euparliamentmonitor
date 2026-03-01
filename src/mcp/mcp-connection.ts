@@ -653,7 +653,11 @@ export class MCPConnection {
    * @param retries - Total retry count
    * @returns Promise that resolves after logging, optional reconnect, and inter-retry delay
    */
-  private async _handleRetryAttempt(lastError: Error, attempt: number, retries: number): Promise<void> {
+  private async _handleRetryAttempt(
+    lastError: Error,
+    attempt: number,
+    retries: number
+  ): Promise<void> {
     if (lastError.message.toLowerCase().includes('timeout')) {
       this.timeoutCount++;
       console.warn(
