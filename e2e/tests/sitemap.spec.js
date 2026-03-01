@@ -157,7 +157,7 @@ test.describe('Sitemap HTML Pages', () => {
     for (const { code, file } of SITEMAP_HTML_LANGUAGES) {
       const response = await page.goto(file);
 
-      expect(response.status()).toBe(200, `Sitemap for ${code} should load`);
+      expect(response.status(), `Sitemap for ${code} should load`).toBe(200);
 
       // Verify page body is visible
       await expect(page.locator('body')).toBeVisible();
@@ -175,7 +175,7 @@ test.describe('Sitemap HTML Pages', () => {
       const html = page.locator('html');
       const lang = await html.getAttribute('lang');
 
-      expect(lang).toBe(code, `Sitemap for ${code} should have lang="${code}"`);
+      expect(lang, `Sitemap for ${code} should have lang="${code}"`).toBe(code);
     }
   });
 
