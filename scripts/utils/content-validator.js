@@ -37,13 +37,23 @@ const REQUIRED_HTML_ELEMENTS = [
 ];
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 /**
- * Strip HTML tags and collapse whitespace to obtain a plain-text word count.
+ * Extract plain text from the `<main>` element of an article and count words.
+ *
+ * Restricts counting to the main content area so that JSON-LD scripts,
+ * navigation, and header/footer boilerplate do not inflate the word count.
+ * Falls back to the full document when no `<main>` element is found.
  *
  * @param html - Raw HTML string
- * @returns Approximate word count
+ * @returns Approximate word count of the main content area
  */
 function countWordsInHtml(html) {
-    const plainText = html.replace(/<[^>]+>/gu, ' ').replace(/\s+/gu, ' ').trim();
+    const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
+    const source = mainMatch?.[1] ?? html;
+    const plainText = source
+        .replace(/<script[^>]*>[\s\S]*?<\/script>/giu, ' ')
+        .replace(/<[^>]+>/gu, ' ')
+        .replace(/\s+/gu, ' ')
+        .trim();
     if (!plainText)
         return 0;
     return plainText.split(' ').length;
