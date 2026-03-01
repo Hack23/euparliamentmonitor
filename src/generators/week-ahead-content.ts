@@ -45,6 +45,33 @@ export const PLACEHOLDER_EVENTS: ParliamentEvent[] = [
 ];
 
 /**
+ * Generic parser for settled MCP results.
+ * Extracts an array from the JSON payload at the given key and maps each element.
+ *
+ * @param settled - Promise.allSettled result
+ * @param key - JSON key containing the array of items
+ * @param mapper - Function to map raw items to typed objects
+ * @returns Array of typed objects, or empty array on failure
+ */
+function parseSettledMCPResult<T>(
+  settled: PromiseSettledResult<MCPToolResult>,
+  key: string,
+  mapper: (raw: Record<string, unknown>) => T
+): T[] {
+  if (settled.status !== 'fulfilled') return [];
+  try {
+    const data = JSON.parse(settled.value.content?.[0]?.text ?? '{}') as Record<string, unknown>;
+    if (!Object.hasOwn(data, key)) return [];
+    // eslint-disable-next-line security/detect-object-injection
+    const items: unknown = data[key];
+    if (!Array.isArray(items)) return [];
+    return items.map(mapper);
+  } catch {
+    return [];
+  }
+}
+
+/**
  * Parse plenary sessions from a settled MCP result
  *
  * @param settled - Promise.allSettled result
@@ -55,22 +82,12 @@ export function parsePlenarySessions(
   settled: PromiseSettledResult<MCPToolResult>,
   fallbackDate: string
 ): ParliamentEvent[] {
-  if (settled.status !== 'fulfilled') return [];
-  try {
-    const text = settled.value.content?.[0]?.text ?? '{}';
-    const data = JSON.parse(text) as {
-      sessions?: Array<{ date?: string; title?: string; type?: string; description?: string }>;
-    };
-    if (!data.sessions || data.sessions.length === 0) return [];
-    return data.sessions.map((s) => ({
-      date: s.date ?? fallbackDate,
-      title: s.title ?? 'Parliamentary Session',
-      type: s.type ?? 'Session',
-      description: s.description ?? '',
-    }));
-  } catch {
-    return [];
-  }
+  return parseSettledMCPResult(settled, 'sessions', (s) => ({
+    date: String(s.date ?? fallbackDate),
+    title: String(s.title ?? 'Parliamentary Session'),
+    type: String(s.type ?? 'Session'),
+    description: String(s.description ?? ''),
+  }));
 }
 
 /**
@@ -84,28 +101,12 @@ export function parseEPEvents(
   settled: PromiseSettledResult<MCPToolResult>,
   fallbackDate: string
 ): ParliamentEvent[] {
-  if (settled.status !== 'fulfilled') return [];
-  try {
-    const text = settled.value.content?.[0]?.text ?? '{}';
-    const data = JSON.parse(text) as {
-      events?: Array<{
-        date?: string;
-        title?: string;
-        type?: string;
-        description?: string;
-        location?: string;
-      }>;
-    };
-    if (!data.events || data.events.length === 0) return [];
-    return data.events.map((e) => ({
-      date: e.date ?? fallbackDate,
-      title: e.title ?? 'EP Event',
-      type: e.type ?? 'Event',
-      description: e.description ?? '',
-    }));
-  } catch {
-    return [];
-  }
+  return parseSettledMCPResult(settled, 'events', (e) => ({
+    date: String(e.date ?? fallbackDate),
+    title: String(e.title ?? 'EP Event'),
+    type: String(e.type ?? 'Event'),
+    description: String(e.description ?? ''),
+  }));
 }
 
 /**
@@ -119,37 +120,21 @@ export function parseCommitteeMeetings(
   settled: PromiseSettledResult<MCPToolResult>,
   fallbackDate?: string
 ): CommitteeMeeting[] {
-  if (settled.status !== 'fulfilled') return [];
-  try {
-    const text = settled.value.content?.[0]?.text ?? '{}';
-    const data = JSON.parse(text) as {
-      committees?: Array<{
-        id?: string;
-        committee?: string;
-        committeeName?: string;
-        date?: string;
-        time?: string;
-        location?: string;
-        agenda?: Array<{ item?: number; title?: string; type?: string }>;
-      }>;
-    };
-    if (!data.committees || data.committees.length === 0) return [];
-    return data.committees.map((c) => ({
-      id: c.id,
-      committee: c.committee ?? 'Unknown',
-      committeeName: c.committeeName,
-      date: c.date ?? fallbackDate ?? '',
-      time: c.time,
-      location: c.location,
-      agenda: c.agenda?.map((a) => ({
-        item: a.item,
-        title: a.title ?? '',
-        type: a.type,
-      })),
-    }));
-  } catch {
-    return [];
-  }
+  return parseSettledMCPResult(settled, 'committees', (c) => ({
+    id: c.id as string | undefined,
+    committee: String(c.committee ?? 'Unknown'),
+    committeeName: c.committeeName as string | undefined,
+    date: String(c.date ?? fallbackDate ?? ''),
+    time: c.time as string | undefined,
+    location: c.location as string | undefined,
+    agenda: Array.isArray(c.agenda)
+      ? (c.agenda as Array<Record<string, unknown>>).map((a) => ({
+          item: a.item as number | undefined,
+          title: String(a.title ?? ''),
+          type: a.type as string | undefined,
+        }))
+      : undefined,
+  }));
 }
 
 /**
@@ -161,33 +146,15 @@ export function parseCommitteeMeetings(
 export function parseLegislativeDocuments(
   settled: PromiseSettledResult<MCPToolResult>
 ): LegislativeDocument[] {
-  if (settled.status !== 'fulfilled') return [];
-  try {
-    const text = settled.value.content?.[0]?.text ?? '{}';
-    const data = JSON.parse(text) as {
-      documents?: Array<{
-        id?: string;
-        type?: string;
-        title?: string;
-        date?: string;
-        status?: string;
-        committee?: string;
-        rapporteur?: string;
-      }>;
-    };
-    if (!data.documents || data.documents.length === 0) return [];
-    return data.documents.map((d) => ({
-      id: d.id,
-      type: d.type,
-      title: d.title ?? 'Untitled Document',
-      date: d.date,
-      status: d.status,
-      committee: d.committee,
-      rapporteur: d.rapporteur,
-    }));
-  } catch {
-    return [];
-  }
+  return parseSettledMCPResult(settled, 'documents', (d) => ({
+    id: d.id as string | undefined,
+    type: d.type as string | undefined,
+    title: String(d.title ?? 'Untitled Document'),
+    date: d.date as string | undefined,
+    status: d.status as string | undefined,
+    committee: d.committee as string | undefined,
+    rapporteur: d.rapporteur as string | undefined,
+  }));
 }
 
 /**
@@ -199,31 +166,14 @@ export function parseLegislativeDocuments(
 export function parseLegislativePipeline(
   settled: PromiseSettledResult<MCPToolResult>
 ): LegislativeProcedure[] {
-  if (settled.status !== 'fulfilled') return [];
-  try {
-    const text = settled.value.content?.[0]?.text ?? '{}';
-    const data = JSON.parse(text) as {
-      procedures?: Array<{
-        id?: string;
-        title?: string;
-        stage?: string;
-        committee?: string;
-        status?: string;
-        bottleneck?: boolean;
-      }>;
-    };
-    if (!data.procedures || data.procedures.length === 0) return [];
-    return data.procedures.map((p) => ({
-      id: p.id,
-      title: p.title ?? 'Unnamed Procedure',
-      stage: p.stage,
-      committee: p.committee,
-      status: p.status,
-      bottleneck: p.bottleneck,
-    }));
-  } catch {
-    return [];
-  }
+  return parseSettledMCPResult(settled, 'procedures', (p) => ({
+    id: p.id as string | undefined,
+    title: String(p.title ?? 'Unnamed Procedure'),
+    stage: p.stage as string | undefined,
+    committee: p.committee as string | undefined,
+    status: p.status as string | undefined,
+    bottleneck: p.bottleneck as boolean | undefined,
+  }));
 }
 
 /**
@@ -235,31 +185,14 @@ export function parseLegislativePipeline(
 export function parseParliamentaryQuestions(
   settled: PromiseSettledResult<MCPToolResult>
 ): ParliamentaryQuestion[] {
-  if (settled.status !== 'fulfilled') return [];
-  try {
-    const text = settled.value.content?.[0]?.text ?? '{}';
-    const data = JSON.parse(text) as {
-      questions?: Array<{
-        id?: string;
-        type?: string;
-        author?: string;
-        subject?: string;
-        date?: string;
-        status?: string;
-      }>;
-    };
-    if (!data.questions || data.questions.length === 0) return [];
-    return data.questions.map((q) => ({
-      id: q.id,
-      type: q.type,
-      author: q.author,
-      subject: q.subject ?? 'No subject',
-      date: q.date,
-      status: q.status,
-    }));
-  } catch {
-    return [];
-  }
+  return parseSettledMCPResult(settled, 'questions', (q) => ({
+    id: q.id as string | undefined,
+    type: q.type as string | undefined,
+    author: q.author as string | undefined,
+    subject: String(q.subject ?? 'No subject'),
+    date: q.date as string | undefined,
+    status: q.status as string | undefined,
+  }));
 }
 
 // ─── Render helpers ──────────────────────────────────────────────────────────
