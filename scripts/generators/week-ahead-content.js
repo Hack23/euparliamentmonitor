@@ -59,10 +59,10 @@ function parseSettledMCPResult(settled, key, mapper) {
  */
 export function parsePlenarySessions(settled, fallbackDate) {
     return parseSettledMCPResult(settled, 'sessions', (s) => ({
-        date: String(s.date ?? fallbackDate),
-        title: String(s.title ?? 'Parliamentary Session'),
-        type: String(s.type ?? 'Session'),
-        description: String(s.description ?? ''),
+        date: s.date ?? fallbackDate,
+        title: s.title ?? 'Parliamentary Session',
+        type: s.type ?? 'Session',
+        description: s.description ?? '',
     }));
 }
 /**
@@ -74,10 +74,10 @@ export function parsePlenarySessions(settled, fallbackDate) {
  */
 export function parseEPEvents(settled, fallbackDate) {
     return parseSettledMCPResult(settled, 'events', (e) => ({
-        date: String(e.date ?? fallbackDate),
-        title: String(e.title ?? 'EP Event'),
-        type: String(e.type ?? 'Event'),
-        description: String(e.description ?? ''),
+        date: e.date ?? fallbackDate,
+        title: e.title ?? 'EP Event',
+        type: e.type ?? 'Event',
+        description: e.description ?? '',
     }));
 }
 /**
@@ -90,18 +90,16 @@ export function parseEPEvents(settled, fallbackDate) {
 export function parseCommitteeMeetings(settled, fallbackDate) {
     return parseSettledMCPResult(settled, 'committees', (c) => ({
         id: c.id,
-        committee: String(c.committee ?? 'Unknown'),
+        committee: c.committee ?? 'Unknown',
         committeeName: c.committeeName,
-        date: String(c.date ?? fallbackDate ?? ''),
+        date: c.date ?? fallbackDate ?? '',
         time: c.time,
         location: c.location,
-        agenda: Array.isArray(c.agenda)
-            ? c.agenda.map((a) => ({
-                item: a.item,
-                title: String(a.title ?? ''),
-                type: a.type,
-            }))
-            : undefined,
+        agenda: c.agenda?.map((a) => ({
+            item: a.item,
+            title: a.title ?? '',
+            type: a.type,
+        })),
     }));
 }
 /**
@@ -114,7 +112,7 @@ export function parseLegislativeDocuments(settled) {
     return parseSettledMCPResult(settled, 'documents', (d) => ({
         id: d.id,
         type: d.type,
-        title: String(d.title ?? 'Untitled Document'),
+        title: d.title ?? 'Untitled Document',
         date: d.date,
         status: d.status,
         committee: d.committee,
@@ -130,7 +128,7 @@ export function parseLegislativeDocuments(settled) {
 export function parseLegislativePipeline(settled) {
     return parseSettledMCPResult(settled, 'procedures', (p) => ({
         id: p.id,
-        title: String(p.title ?? 'Unnamed Procedure'),
+        title: p.title ?? 'Unnamed Procedure',
         stage: p.stage,
         committee: p.committee,
         status: p.status,
@@ -148,7 +146,7 @@ export function parseParliamentaryQuestions(settled) {
         id: q.id,
         type: q.type,
         author: q.author,
-        subject: String(q.subject ?? 'No subject'),
+        subject: q.subject ?? 'No subject',
         date: q.date,
         status: q.status,
     }));

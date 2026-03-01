@@ -83,10 +83,10 @@ export function parsePlenarySessions(
   fallbackDate: string
 ): ParliamentEvent[] {
   return parseSettledMCPResult(settled, 'sessions', (s) => ({
-    date: String(s.date ?? fallbackDate),
-    title: String(s.title ?? 'Parliamentary Session'),
-    type: String(s.type ?? 'Session'),
-    description: String(s.description ?? ''),
+    date: (s.date as string | undefined) ?? fallbackDate,
+    title: (s.title as string | undefined) ?? 'Parliamentary Session',
+    type: (s.type as string | undefined) ?? 'Session',
+    description: (s.description as string | undefined) ?? '',
   }));
 }
 
@@ -102,10 +102,10 @@ export function parseEPEvents(
   fallbackDate: string
 ): ParliamentEvent[] {
   return parseSettledMCPResult(settled, 'events', (e) => ({
-    date: String(e.date ?? fallbackDate),
-    title: String(e.title ?? 'EP Event'),
-    type: String(e.type ?? 'Event'),
-    description: String(e.description ?? ''),
+    date: (e.date as string | undefined) ?? fallbackDate,
+    title: (e.title as string | undefined) ?? 'EP Event',
+    type: (e.type as string | undefined) ?? 'Event',
+    description: (e.description as string | undefined) ?? '',
   }));
 }
 
@@ -122,18 +122,18 @@ export function parseCommitteeMeetings(
 ): CommitteeMeeting[] {
   return parseSettledMCPResult(settled, 'committees', (c) => ({
     id: c.id as string | undefined,
-    committee: String(c.committee ?? 'Unknown'),
+    committee: (c.committee as string | undefined) ?? 'Unknown',
     committeeName: c.committeeName as string | undefined,
-    date: String(c.date ?? fallbackDate ?? ''),
+    date: (c.date as string | undefined) ?? fallbackDate ?? '',
     time: c.time as string | undefined,
     location: c.location as string | undefined,
-    agenda: Array.isArray(c.agenda)
-      ? (c.agenda as Array<Record<string, unknown>>).map((a) => ({
-          item: a.item as number | undefined,
-          title: String(a.title ?? ''),
-          type: a.type as string | undefined,
-        }))
-      : undefined,
+    agenda: (c.agenda as Array<{ item?: number; title?: string; type?: string }> | undefined)?.map(
+      (a) => ({
+        item: a.item,
+        title: a.title ?? '',
+        type: a.type,
+      })
+    ),
   }));
 }
 
@@ -149,7 +149,7 @@ export function parseLegislativeDocuments(
   return parseSettledMCPResult(settled, 'documents', (d) => ({
     id: d.id as string | undefined,
     type: d.type as string | undefined,
-    title: String(d.title ?? 'Untitled Document'),
+    title: (d.title as string | undefined) ?? 'Untitled Document',
     date: d.date as string | undefined,
     status: d.status as string | undefined,
     committee: d.committee as string | undefined,
@@ -168,7 +168,7 @@ export function parseLegislativePipeline(
 ): LegislativeProcedure[] {
   return parseSettledMCPResult(settled, 'procedures', (p) => ({
     id: p.id as string | undefined,
-    title: String(p.title ?? 'Unnamed Procedure'),
+    title: (p.title as string | undefined) ?? 'Unnamed Procedure',
     stage: p.stage as string | undefined,
     committee: p.committee as string | undefined,
     status: p.status as string | undefined,
@@ -189,7 +189,7 @@ export function parseParliamentaryQuestions(
     id: q.id as string | undefined,
     type: q.type as string | undefined,
     author: q.author as string | undefined,
-    subject: String(q.subject ?? 'No subject'),
+    subject: (q.subject as string | undefined) ?? 'No subject',
     date: q.date as string | undefined,
     status: q.status as string | undefined,
   }));
