@@ -488,7 +488,7 @@ describe('article-template', () => {
       });
 
       it('should include SRI integrity attribute on stylesheet when stylesHash is provided', () => {
-        const testHash = 'sha384-abc123testHash';
+        const testHash = 'sha384-4xui5ALFIyaFXCKCuIMx3UvVNrdUZvte2R1YxgX/8IFy8mFkpPjXxV3UdbQ3Wk1P';
         const html = generateArticleHTML({ ...defaultOptions, stylesHash: testHash });
         expect(html).toContain(`integrity="${testHash}"`);
         expect(html).toContain('crossorigin="anonymous"');
@@ -497,6 +497,7 @@ describe('article-template', () => {
       it('should not include integrity attribute on stylesheet when stylesHash is omitted', () => {
         const html = generateArticleHTML(defaultOptions);
         expect(html).not.toContain('integrity=');
+        expect(html).not.toContain('crossorigin=');
         expect(html).toContain('<link rel="stylesheet" href="../styles.css">');
       });
     });
