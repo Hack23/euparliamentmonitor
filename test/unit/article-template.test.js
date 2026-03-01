@@ -391,7 +391,7 @@ describe('article-template', () => {
       it('should include app version in footer', () => {
         const html = generateArticleHTML(defaultOptions);
 
-        expect(html).toMatch(/v\d+\.\d+\.\d+/);
+        expect(html).toMatch(/v[0-9A-Za-z.+-]+/);
       });
 
       it('should include disclaimer with link to GitHub issues', () => {

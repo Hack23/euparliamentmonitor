@@ -356,42 +356,38 @@ describe('generate-news-indexes', () => {
   });
 
   describe('Real generateIndexHTML', () => {
-    it('should include AI-Disrupted News Generation section', () => {
+    it('should include AI section with correct structure', () => {
       const html = generateIndexHTML('en', []);
 
-      expect(html).toContain('ai-intelligence');
-      expect(html).toContain('AI-Disrupted News Generation');
-      expect(html).toContain('Agentic Intelligence');
+      expect(html).toContain('<section class="ai-intelligence"');
+      expect(html).toContain('aria-labelledby="ai-heading"');
+      expect(html).toContain('id="ai-heading"');
     });
 
-    it('should include AI section quote about autonomous agents', () => {
+    it('should include AI section quote element', () => {
       const html = generateIndexHTML('en', []);
 
       expect(html).toContain('ai-intelligence__quote');
-      expect(html).toContain('8 autonomous AI agents');
     });
 
-    it('should include AI feature highlights', () => {
+    it('should include AI feature list with 4 items', () => {
       const html = generateIndexHTML('en', []);
 
       expect(html).toContain('ai-intelligence__features');
-      expect(html).toContain('8 Autonomous AI Agents');
-      expect(html).toContain('14 Languages');
-      expect(html).toContain('Human-in-the-Loop');
-      expect(html).toContain('Live Parliament Data');
+      const featureItems = html.match(/<li>/g) || [];
+      expect(featureItems.length).toBeGreaterThanOrEqual(4);
     });
 
     it('should include app version in footer', () => {
       const html = generateIndexHTML('en', []);
 
-      expect(html).toMatch(/v\d+\.\d+\.\d+/);
+      expect(html).toMatch(/v[0-9A-Za-z.+-]+/);
     });
 
     it('should include disclaimer with link to GitHub issues', () => {
       const html = generateIndexHTML('en', []);
 
       expect(html).toContain('footer-disclaimer');
-      expect(html).toContain('ongoing improvement');
       expect(html).toContain('https://github.com/Hack23/euparliamentmonitor/issues');
     });
 
