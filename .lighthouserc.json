@@ -30,7 +30,7 @@
     },
     "upload": {
       "target": "filesystem",
-      "outputDir": "./lighthouse-reports"
+      "outputDir": "./test-results/lighthouse-reports"
     }
   }
 }
