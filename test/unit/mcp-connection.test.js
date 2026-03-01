@@ -9,7 +9,12 @@
 /* eslint-disable no-undef */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { MCPConnection, parseSSEResponse } from '../../scripts/mcp/mcp-connection.js';
+import {
+  MCPConnection,
+  MCPSessionExpiredError,
+  parseSSEResponse,
+  formatRetryAfter,
+} from '../../scripts/mcp/mcp-connection.js';
 import { mockConsole } from '../helpers/test-utils.js';
 
 describe('mcp-connection', () => {
@@ -48,6 +53,56 @@ describe('mcp-connection', () => {
     });
   });
 
+  describe('formatRetryAfter', () => {
+    it('should format numeric seconds', () => {
+      expect(formatRetryAfter('30')).toBe('30s');
+    });
+
+    it('should format zero seconds', () => {
+      expect(formatRetryAfter('0')).toBe('0s');
+    });
+
+    it('should format a future HTTP-date as seconds until that time', () => {
+      const futureDate = new Date(Date.now() + 45000).toUTCString();
+      const result = formatRetryAfter(futureDate);
+      expect(result).toMatch(/^\d+s \(until /);
+    });
+
+    it('should format a past HTTP-date as just the UTC string', () => {
+      const pastDate = new Date(Date.now() - 5000).toUTCString();
+      const result = formatRetryAfter(pastDate);
+      expect(result).toMatch(/GMT$/);
+      expect(result).not.toMatch(/^\d+s/);
+    });
+
+    it('should return the raw value when not numeric and not a valid date', () => {
+      expect(formatRetryAfter('invalid-value')).toBe('invalid-value');
+    });
+  });
+
+  describe('MCPSessionExpiredError', () => {
+    it('should be an instance of Error', () => {
+      const err = new MCPSessionExpiredError('Unauthorized');
+      expect(err).toBeInstanceOf(Error);
+    });
+
+    it('should be an instance of MCPSessionExpiredError', () => {
+      const err = new MCPSessionExpiredError('Unauthorized');
+      expect(err).toBeInstanceOf(MCPSessionExpiredError);
+    });
+
+    it('should have name MCPSessionExpiredError', () => {
+      const err = new MCPSessionExpiredError('Unauthorized');
+      expect(err.name).toBe('MCPSessionExpiredError');
+    });
+
+    it('should include 401 and statusText in the message', () => {
+      const err = new MCPSessionExpiredError('Unauthorized');
+      expect(err.message).toContain('401');
+      expect(err.message).toContain('Unauthorized');
+    });
+  });
+
   describe('MCPConnection', () => {
     let client;
     let consoleOutput;
@@ -59,6 +114,7 @@ describe('mcp-connection', () => {
 
     afterEach(() => {
       consoleOutput.restore();
+      vi.unstubAllGlobals();
       client.disconnect();
     });
 
@@ -77,6 +133,10 @@ describe('mcp-connection', () => {
 
       it('should default maxRetries to 2', () => {
         expect(client.maxRetries).toBe(2);
+      });
+
+      it('should initialize reconnectingPromise to null', () => {
+        expect(client.reconnectingPromise).toBeNull();
       });
     });
 
@@ -145,6 +205,7 @@ describe('mcp-connection', () => {
         await expect(client.callToolWithRetry('tool_name', {}, 2)).rejects.toThrow(
           'Request timeout'
         );
+        // 1 initial + 2 retries = 3 total attempts
         expect(client.callTool).toHaveBeenCalledTimes(3);
       });
 
@@ -199,124 +260,161 @@ describe('mcp-connection', () => {
         expect(client.getConnectionHealth().reconnectCount).toBe(2);
       });
 
-      it('should not run concurrently when reconnecting flag is set', async () => {
-        client.reconnecting = true;
-        const connectSpy = vi.spyOn(client, 'connect');
+      it('should await the same in-flight promise when called concurrently', async () => {
+        let resolveConnect;
+        const connectPromise = new Promise((res) => {
+          resolveConnect = res;
+        });
+        client.connect = vi.fn().mockReturnValue(connectPromise);
+        client.connected = false;
 
-        await client.reconnect();
-        expect(connectSpy).not.toHaveBeenCalled();
+        // Fire two concurrent reconnect calls
+        const p1 = client.reconnect();
+        const p2 = client.reconnect();
+
+        // Only one reconnectCount increment should have happened (shared in-flight)
+        expect(client.getConnectionHealth().reconnectCount).toBe(1);
+
+        resolveConnect();
+        await Promise.all([p1, p2]);
+
+        // Still only 1 reconnect was initiated
+        expect(client.getConnectionHealth().reconnectCount).toBe(1);
       });
 
-      it('should reset reconnecting flag after success', async () => {
+      it('should clear reconnectingPromise after success', async () => {
         client.connect = vi.fn().mockResolvedValue(undefined);
         client.connected = false;
 
         await client.reconnect();
-        expect(client.reconnecting).toBe(false);
+        expect(client.reconnectingPromise).toBeNull();
       });
 
-      it('should reset reconnecting flag after all attempts fail', async () => {
+      it('should clear reconnectingPromise after all attempts fail', async () => {
         client.connect = vi.fn().mockRejectedValue(new Error('cannot connect'));
         client.maxConnectionAttempts = 2;
         client.connected = false;
 
         await client.reconnect();
-        expect(client.reconnecting).toBe(false);
+        expect(client.reconnectingPromise).toBeNull();
         expect(consoleOutput.errors.length).toBeGreaterThan(0);
       });
     });
 
     describe('Gateway session expiry (401)', () => {
-      it('should clear session and mark disconnected on 401', async () => {
+      it('should throw MCPSessionExpiredError and clear session on 401', async () => {
         client.gatewayUrl = 'http://fake-gateway/mcp';
         client.mcpSessionId = 'old-session-id';
         client.connected = true;
 
-        globalThis.fetch = vi.fn().mockResolvedValue({
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
           ok: false,
           status: 401,
           statusText: 'Unauthorized',
           headers: { get: () => null },
           text: async () => '',
-        });
+        }));
+
+        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
+          MCPSessionExpiredError
+        );
+        expect(client.mcpSessionId).toBeNull();
+        expect(client.connected).toBe(false);
+      });
+
+      it('should include statusText in the MCPSessionExpiredError message', async () => {
+        client.gatewayUrl = 'http://fake-gateway/mcp';
+        client.connected = true;
+
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+          ok: false,
+          status: 401,
+          statusText: 'Unauthorized',
+          headers: { get: () => null },
+          text: async () => '',
+        }));
 
         await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
           'MCP session expired (401)'
         );
-        expect(client.mcpSessionId).toBeNull();
-        expect(client.connected).toBe(false);
-
-        delete globalThis.fetch;
       });
     });
 
     describe('Rate limit handling (X-Retry-After)', () => {
-      it('should throw rate limit error with retry delay from X-Retry-After', async () => {
+      it('should throw rate limit error with numeric delay from X-Retry-After', async () => {
         client.gatewayUrl = 'http://fake-gateway/mcp';
         client.connected = true;
 
-        globalThis.fetch = vi.fn().mockResolvedValue({
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
           ok: false,
           status: 429,
           statusText: 'Too Many Requests',
           headers: {
-            get: (name) => {
-              if (name === 'X-Retry-After') return '30';
-              return null;
-            },
+            get: (name) => (name === 'X-Retry-After' ? '30' : null),
           },
           text: async () => '',
-        });
+        }));
 
         await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
           'Rate limited. Retry after 30s'
         );
         expect(consoleOutput.warnings.some((w) => w.includes('30s'))).toBe(true);
-
-        delete globalThis.fetch;
       });
 
       it('should fall back to Retry-After header if X-Retry-After is absent', async () => {
         client.gatewayUrl = 'http://fake-gateway/mcp';
         client.connected = true;
 
-        globalThis.fetch = vi.fn().mockResolvedValue({
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
           ok: false,
           status: 429,
           statusText: 'Too Many Requests',
           headers: {
-            get: (name) => {
-              if (name === 'Retry-After') return '60';
-              return null;
-            },
+            get: (name) => (name === 'Retry-After' ? '60' : null),
           },
           text: async () => '',
-        });
+        }));
 
         await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
           'Rate limited. Retry after 60s'
         );
+      });
 
-        delete globalThis.fetch;
+      it('should format HTTP-date Retry-After as seconds until expiry', async () => {
+        client.gatewayUrl = 'http://fake-gateway/mcp';
+        client.connected = true;
+
+        const futureDate = new Date(Date.now() + 90000).toUTCString();
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+          ok: false,
+          status: 429,
+          statusText: 'Too Many Requests',
+          headers: {
+            get: (name) => (name === 'X-Retry-After' ? futureDate : null),
+          },
+          text: async () => '',
+        }));
+
+        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
+          /Rate limited\. Retry after \d+s \(until /
+        );
       });
 
       it('should throw generic gateway error when no rate-limit header present', async () => {
         client.gatewayUrl = 'http://fake-gateway/mcp';
         client.connected = true;
 
-        globalThis.fetch = vi.fn().mockResolvedValue({
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
           ok: false,
           status: 503,
           statusText: 'Service Unavailable',
           headers: { get: () => null },
           text: async () => '',
-        });
+        }));
 
         await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
           'Gateway error 503'
         );
-
-        delete globalThis.fetch;
       });
     });
   });

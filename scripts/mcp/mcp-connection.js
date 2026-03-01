@@ -30,6 +30,39 @@ const RETRY_AFTER_HEADER = 'X-Retry-After';
 /** Log prefix for rate-limit warnings */
 const RATE_LIMIT_MSG = 'Rate limited. Retry after';
 /**
+ * Typed error thrown when the MCP gateway returns 401 (session expired).
+ * Callers can detect this with `instanceof MCPSessionExpiredError` to trigger re-authentication.
+ */
+export class MCPSessionExpiredError extends Error {
+    constructor(statusText) {
+        super(`MCP session expired (401): ${statusText}`);
+        this.name = 'MCPSessionExpiredError';
+    }
+}
+/**
+ * Parse a `Retry-After` or `X-Retry-After` header value (which may be either a
+ * delay-in-seconds number or an HTTP-date string) into a human-readable message.
+ *
+ * @param retryAfter - Raw header value
+ * @returns Formatted string describing the delay (e.g. "30s" or "45s (until Thu, 01 Jan 2026 …)")
+ */
+export function formatRetryAfter(retryAfter) {
+    const numericDelay = Number(retryAfter);
+    if (!Number.isNaN(numericDelay)) {
+        return `${numericDelay}s`;
+    }
+    const retryDate = new Date(retryAfter);
+    if (Number.isNaN(retryDate.getTime())) {
+        return retryAfter;
+    }
+    const delayMs = retryDate.getTime() - Date.now();
+    if (delayMs > 0) {
+        const delaySeconds = Math.ceil(delayMs / 1000);
+        return `${delaySeconds}s (until ${retryDate.toUTCString()})`;
+    }
+    return retryDate.toUTCString();
+}
+/**
  * Parse an SSE (Server-Sent Events) response body to extract the first valid JSON-RPC message.
  *
  * The MCP Streamable HTTP protocol sends JSON-RPC responses as SSE `data:` lines.
@@ -72,7 +105,7 @@ export class MCPConnection {
     maxConnectionAttempts;
     connectionRetryDelay;
     maxRetries;
-    reconnecting;
+    reconnectingPromise;
     timeoutCount;
     reconnectCount;
     /** Gateway URL for HTTP transport mode */
@@ -94,7 +127,7 @@ export class MCPConnection {
         this.maxConnectionAttempts = options.maxConnectionAttempts ?? 3;
         this.connectionRetryDelay = options.connectionRetryDelay ?? 1000;
         this.maxRetries = options.maxRetries ?? 2;
-        this.reconnecting = false;
+        this.reconnectingPromise = null;
         this.timeoutCount = 0;
         this.reconnectCount = 0;
         this.serverLabel = options.serverLabel ?? 'European Parliament MCP Server';
@@ -401,12 +434,13 @@ export class MCPConnection {
             if (response.status === 401) {
                 this.mcpSessionId = null;
                 this.connected = false;
-                throw new Error(`MCP session expired (401): ${response.statusText}`);
+                throw new MCPSessionExpiredError(response.statusText);
             }
             const retryAfter = response.headers.get(RETRY_AFTER_HEADER) ?? response.headers.get('Retry-After');
             if (retryAfter) {
-                console.warn(`⏳ ${RATE_LIMIT_MSG} ${retryAfter}s`);
-                throw new Error(`${RATE_LIMIT_MSG} ${retryAfter}s`);
+                const retryMessage = formatRetryAfter(retryAfter);
+                console.warn(`⏳ ${RATE_LIMIT_MSG} ${retryMessage}`);
+                throw new Error(`${RATE_LIMIT_MSG} ${retryMessage}`);
             }
             throw new Error(`Gateway error ${response.status}: ${response.statusText}`);
         }
@@ -488,14 +522,31 @@ export class MCPConnection {
     }
     /**
      * Attempt to reconnect to the MCP server with exponential back-off.
-     * No-ops if a reconnection attempt is already in progress.
+     * Concurrent callers await the same in-flight reconnect instead of no-oping,
+     * ensuring the connection is re-established before all waiting callers continue.
+     *
+     * @returns Promise that resolves when reconnection succeeds or all attempts are exhausted
      */
     async reconnect() {
-        if (this.reconnecting)
-            return;
-        this.reconnecting = true;
+        if (this.reconnectingPromise !== null) {
+            return this.reconnectingPromise;
+        }
         this.reconnectCount++;
         console.log(`🔄 Reconnecting to ${this.serverLabel} (attempt ${this.reconnectCount})...`);
+        this.reconnectingPromise = this._doReconnect();
+        try {
+            await this.reconnectingPromise;
+        }
+        finally {
+            this.reconnectingPromise = null;
+        }
+    }
+    /**
+     * Internal reconnect loop with exponential back-off.
+     *
+     * @returns Promise that resolves when reconnection succeeds or all attempts are exhausted
+     */
+    async _doReconnect() {
         for (let i = 0; i < this.maxConnectionAttempts; i++) {
             // Exponential back-off: delay * 2^attempt, capped at RECONNECT_MAX_DELAY_MS
             const delay = Math.min(this.connectionRetryDelay * Math.pow(2, i), RECONNECT_MAX_DELAY_MS);
@@ -503,14 +554,12 @@ export class MCPConnection {
             try {
                 this.connected = false;
                 await this.connect();
-                this.reconnecting = false;
                 return;
             }
             catch {
                 // continue to next attempt
             }
         }
-        this.reconnecting = false;
         console.error(`❌ Reconnection to ${this.serverLabel} failed after exhausting attempts`);
     }
     /**
@@ -519,6 +568,7 @@ export class MCPConnection {
      * @param lastError - The error from the failed attempt
      * @param attempt - Zero-based current attempt index
      * @param retries - Total retry count
+     * @returns Promise that resolves after logging, optional reconnect, and inter-retry delay
      */
     async _handleRetryAttempt(lastError, attempt, retries) {
         if (lastError.message.toLowerCase().includes('timeout')) {
