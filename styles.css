@@ -979,6 +979,7 @@ button:focus-visible {
  * (#4da3ff in dark mode), giving high contrast in both colour schemes. */
 .back-to-news:focus-visible,
 .lang-link.active:focus-visible,
+.lang-link:hover:focus-visible,
 .skip-link:focus-visible {
   outline-color: var(--bg);
 }
@@ -1463,6 +1464,7 @@ button:focus-visible {
    * background, meeting WCAG 2.2 SC 2.4.11 in high-contrast light mode. */
   .back-to-news:focus-visible,
   .lang-link.active:focus-visible,
+  .lang-link:hover:focus-visible,
   .skip-link:focus-visible {
     outline-color: var(--focus-ring);
     outline-width: 3px;
@@ -1486,6 +1488,10 @@ button:focus-visible {
   }
 
   .key-findings__title {
+    color: var(--text);
+  }
+
+  .key-findings__list li::before {
     color: var(--text);
   }
 }
@@ -1543,6 +1549,13 @@ button:focus-visible {
     color: var(--on-secondary);
   }
 
+  /* Brand hover: dark-mode override uses var(--bg) which becomes #000000 here
+   * (dark on dark-blue #0055cc header — low contrast). Use var(--text)
+   * (#ffffff) instead: 6.65:1 on #0055cc, meeting WCAG 2.1 AA. */
+  .site-header__brand:hover {
+    color: var(--text);
+  }
+
   /* Two-tone focus indicator for primary-background controls in combined dark
    * + high-contrast mode. --focus-ring is #ffffff here, so the standard
    * prefers-contrast: more rule (both shadows become #ffffff) lacks contrast
@@ -1551,6 +1564,7 @@ button:focus-visible {
    * near-black --bg #000000), meeting WCAG 2.2 SC 2.4.11. */
   .back-to-news:focus-visible,
   .lang-link.active:focus-visible,
+  .lang-link:hover:focus-visible,
   .skip-link:focus-visible {
     outline-color: #000000;
     outline-width: 3px;
