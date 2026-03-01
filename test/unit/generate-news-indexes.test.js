@@ -12,6 +12,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { createTempDir, cleanupTempDir, validateHTML } from '../helpers/test-utils.js';
+import { generateIndexHTML } from '../../scripts/generators/news-indexes.js';
 
 describe('generate-news-indexes', () => {
   let tempDir;
@@ -351,6 +352,64 @@ describe('generate-news-indexes', () => {
         .join(' ');
 
       expect(formatted).toContain('2025');
+    });
+  });
+
+  describe('Real generateIndexHTML', () => {
+    it('should include AI-Disrupted News Generation section', () => {
+      const html = generateIndexHTML('en', []);
+
+      expect(html).toContain('ai-intelligence');
+      expect(html).toContain('AI-Disrupted News Generation');
+      expect(html).toContain('Agentic Intelligence');
+    });
+
+    it('should include AI section quote about autonomous agents', () => {
+      const html = generateIndexHTML('en', []);
+
+      expect(html).toContain('ai-intelligence__quote');
+      expect(html).toContain('8 autonomous AI agents');
+    });
+
+    it('should include AI feature highlights', () => {
+      const html = generateIndexHTML('en', []);
+
+      expect(html).toContain('ai-intelligence__features');
+      expect(html).toContain('8 Autonomous AI Agents');
+      expect(html).toContain('14 Languages');
+      expect(html).toContain('Human-in-the-Loop');
+      expect(html).toContain('Live Parliament Data');
+    });
+
+    it('should include app version in footer', () => {
+      const html = generateIndexHTML('en', []);
+
+      expect(html).toMatch(/v\d+\.\d+\.\d+/);
+    });
+
+    it('should include disclaimer with link to GitHub issues', () => {
+      const html = generateIndexHTML('en', []);
+
+      expect(html).toContain('footer-disclaimer');
+      expect(html).toContain('ongoing improvement');
+      expect(html).toContain('https://github.com/Hack23/euparliamentmonitor/issues');
+    });
+
+    it('should include AI section for all languages', () => {
+      const languages = ['en', 'de', 'fr', 'ar', 'ja'];
+
+      languages.forEach((lang) => {
+        const html = generateIndexHTML(lang, []);
+        expect(html).toContain('ai-intelligence');
+        expect(html).toContain('AI-Disrupted News Generation');
+      });
+    });
+
+    it('should generate valid HTML with AI section', () => {
+      const html = generateIndexHTML('en', []);
+      const validation = validateHTML(html);
+
+      expect(validation.valid).toBe(true);
     });
   });
 });

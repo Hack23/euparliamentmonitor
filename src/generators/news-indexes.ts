@@ -14,6 +14,7 @@ import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
 import { PROJECT_ROOT } from '../constants/config.js';
+import { APP_VERSION } from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
@@ -247,6 +248,18 @@ export function generateIndexHTML(
     <p class="hero__description">${description}</p>
   </section>
 
+  <section class="ai-intelligence" aria-labelledby="ai-heading">
+    <h2 id="ai-heading"><span aria-hidden="true">🤖</span> AI-Disrupted News Generation &amp; Agentic Intelligence</h2>
+    <blockquote class="ai-intelligence__quote">While traditional newsrooms debate whether AI will replace journalists, EU Parliament Monitor quietly deployed 8 autonomous AI agents that generate investigative political intelligence in 14 languages before most reporters have finished their morning coffee. The future of parliamentary journalism didn&rsquo;t send a memo &mdash; it opened a pull request.</blockquote>
+    <p>The EU Parliament Monitor doesn&rsquo;t just report on European Parliament activity &mdash; it autonomously generates deep political intelligence at machine speed, with editorial quality that would make legacy news desks nervous. Every article is researched, written, localized, and prepared for publication by AI agents that operate by default on live European Parliament data via the <strong>MCP Server</strong> (46 tools, real-time data), with transparent fallback to placeholder data when live access is unavailable.</p>
+    <ul class="ai-intelligence__features">
+      <li><strong>8 Autonomous AI Agents</strong> &mdash; specialized for news, data, frontend, quality, security, docs, DevOps, and product</li>
+      <li><strong>14 Languages</strong> &mdash; EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH</li>
+      <li><strong>Human-in-the-Loop</strong> &mdash; agents open publication-ready pull requests; publication occurs when a human reviews and merges</li>
+      <li><strong>Live Parliament Data</strong> &mdash; powered by European Parliament Open Data via MCP Server</li>
+    </ul>
+  </section>
+
   <main id="main" class="site-main">
     <h2 class="section-heading"><span class="section-heading__icon" aria-hidden="true">📋</span> ${heading}</h2>
     ${content}
@@ -285,7 +298,8 @@ export function generateIndexHTML(
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden</p>
+      <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v${APP_VERSION}</p>
+      <p class="footer-disclaimer">⚠️ This platform is under ongoing improvement. Please <a href="https://github.com/Hack23/euparliamentmonitor/issues">report any issues on GitHub</a>.</p>
     </div>
   </footer>
 </body>

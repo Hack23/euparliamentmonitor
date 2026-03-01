@@ -387,6 +387,20 @@ describe('article-template', () => {
         const footerSectionCount = (html.match(/class="footer-section"/g) || []).length;
         expect(footerSectionCount).toBe(4);
       });
+
+      it('should include app version in footer', () => {
+        const html = generateArticleHTML(defaultOptions);
+
+        expect(html).toMatch(/v\d+\.\d+\.\d+/);
+      });
+
+      it('should include disclaimer with link to GitHub issues', () => {
+        const html = generateArticleHTML(defaultOptions);
+
+        expect(html).toContain('footer-disclaimer');
+        expect(html).toContain('ongoing improvement');
+        expect(html).toContain('https://github.com/Hack23/euparliamentmonitor/issues');
+      });
     });
 
     describe('Security - XSS Prevention', () => {

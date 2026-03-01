@@ -4,6 +4,7 @@
  * @module Constants/Config
  * @description Shared configuration constants
  */
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { ArticleCategory } from '../types/index.js';
@@ -43,4 +44,15 @@ export const ARTICLE_TYPE_WEEK_IN_REVIEW = ArticleCategory.WEEK_IN_REVIEW;
 export const ARTICLE_TYPE_MONTH_IN_REVIEW = ArticleCategory.MONTH_IN_REVIEW;
 /** CLI argument separator */
 export const ARG_SEPARATOR = '=';
+/** Application version read from package.json */
+export const APP_VERSION = (() => {
+    try {
+        const pkgPath = path.join(PROJECT_ROOT, 'package.json');
+        const pkgJson = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+        return pkgJson.version;
+    }
+    catch {
+        return '0.0.0';
+    }
+})();
 //# sourceMappingURL=config.js.map

@@ -6,6 +6,7 @@
  * @description Shared configuration constants
  */
 
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { ArticleCategory } from '../types/index.js';
@@ -65,3 +66,14 @@ export const ARTICLE_TYPE_MONTH_IN_REVIEW = ArticleCategory.MONTH_IN_REVIEW;
 
 /** CLI argument separator */
 export const ARG_SEPARATOR = '=';
+
+/** Application version read from package.json */
+export const APP_VERSION: string = (() => {
+  try {
+    const pkgPath = path.join(PROJECT_ROOT, 'package.json');
+    const pkgJson = JSON.parse(fs.readFileSync(pkgPath, 'utf-8')) as { version: string };
+    return pkgJson.version;
+  } catch {
+    return '0.0.0';
+  }
+})();
