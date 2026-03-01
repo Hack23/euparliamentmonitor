@@ -138,15 +138,13 @@ test.describe('Article SEO Metadata', () => {
 
     // Verify structured data script tag exists
     const jsonLd = page.locator('script[type="application/ld+json"]');
-    const count = await jsonLd.count();
+    await expect(jsonLd).toHaveCount(1);
 
-    if (count > 0) {
-      const scriptContent = await jsonLd.first().textContent();
-      expect(scriptContent).toBeTruthy();
+    const scriptContent = await jsonLd.first().textContent();
+    expect(scriptContent).toBeTruthy();
 
-      // Verify it's valid JSON
-      expect(() => JSON.parse(scriptContent)).not.toThrow();
-    }
+    // Verify it's valid JSON
+    expect(() => JSON.parse(scriptContent)).not.toThrow();
   });
 
   test('should have page title with site name', async ({ page }) => {

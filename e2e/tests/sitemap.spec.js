@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
 /**
  * Sitemap Validation E2E Tests
@@ -137,6 +138,19 @@ test.describe('Sitemap HTML Pages', () => {
     const count = await langLinks.count();
 
     expect(count).toBeGreaterThan(0);
+  });
+
+  test('English sitemap HTML should be accessible (WCAG 2.1 AA)', async ({
+    page,
+  }) => {
+    await page.goto('/sitemap.html');
+    await page.waitForLoadState('networkidle');
+
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .analyze();
+
+    expect(results.violations).toEqual([]);
   });
 
   test('all 14 language sitemap HTML pages should load', async ({ page }) => {
