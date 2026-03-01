@@ -28,7 +28,12 @@ test.describe('Multi-language index accessibility (WCAG 2.1 AA)', () => {
     const url = `/index-${lang}.html`;
 
     test(`${lang} index page should be WCAG 2.1 AA compliant`, async ({ page }) => {
-      await page.goto(url);
+      const response = await page.goto(url);
+      expect(response, `Failed to load ${url} for language '${lang}'`).not.toBeNull();
+      expect(
+        response.ok(),
+        `Non-OK HTTP status ${response && response.status()} for ${url} (lang='${lang}')`
+      ).toBeTruthy();
       await page.waitForLoadState('networkidle');
 
       const accessibilityScanResults = await new AxeBuilder({ page })
