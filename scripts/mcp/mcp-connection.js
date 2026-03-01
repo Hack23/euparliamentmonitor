@@ -23,6 +23,12 @@ const DEFAULT_SERVER_BINARY = resolve(dirname(fileURLToPath(import.meta.url)), `
 const REQUEST_TIMEOUT_MS = 60000;
 /** Connection startup delay in milliseconds */
 const CONNECTION_STARTUP_DELAY_MS = 500;
+/** Maximum reconnect back-off delay in milliseconds */
+const RECONNECT_MAX_DELAY_MS = 30000;
+/** HTTP header for API rate-limit retry delay */
+const RETRY_AFTER_HEADER = 'X-Retry-After';
+/** Log prefix for rate-limit warnings */
+const RATE_LIMIT_MSG = 'Rate limited. Retry after';
 /**
  * Parse an SSE (Server-Sent Events) response body to extract the first valid JSON-RPC message.
  *
@@ -65,6 +71,10 @@ export class MCPConnection {
     connectionAttempts;
     maxConnectionAttempts;
     connectionRetryDelay;
+    maxRetries;
+    reconnecting;
+    timeoutCount;
+    reconnectCount;
     /** Gateway URL for HTTP transport mode */
     gatewayUrl;
     /** API key for gateway authentication */
@@ -83,6 +93,10 @@ export class MCPConnection {
         this.connectionAttempts = 0;
         this.maxConnectionAttempts = options.maxConnectionAttempts ?? 3;
         this.connectionRetryDelay = options.connectionRetryDelay ?? 1000;
+        this.maxRetries = options.maxRetries ?? 2;
+        this.reconnecting = false;
+        this.timeoutCount = 0;
+        this.reconnectCount = 0;
         this.serverLabel = options.serverLabel ?? 'European Parliament MCP Server';
         const rawGatewayUrl = (options.gatewayUrl ?? process.env['EP_MCP_GATEWAY_URL'] ?? '').trim();
         this.gatewayUrl = rawGatewayUrl || null;
@@ -128,6 +142,18 @@ export class MCPConnection {
      */
     getMcpSessionId() {
         return this.mcpSessionId;
+    }
+    /**
+     * Get connection health metrics for telemetry
+     *
+     * @returns Object with timeout count, reconnection count, and current connection status
+     */
+    getConnectionHealth() {
+        return {
+            timeoutCount: this.timeoutCount,
+            reconnectCount: this.reconnectCount,
+            connected: this.connected,
+        };
     }
     /**
      * Connect to the MCP server with retry logic
@@ -372,6 +398,16 @@ export class MCPConnection {
             signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
         });
         if (!response.ok) {
+            if (response.status === 401) {
+                this.mcpSessionId = null;
+                this.connected = false;
+                throw new Error(`MCP session expired (401): ${response.statusText}`);
+            }
+            const retryAfter = response.headers.get(RETRY_AFTER_HEADER) ?? response.headers.get('Retry-After');
+            if (retryAfter) {
+                console.warn(`⏳ ${RATE_LIMIT_MSG} ${retryAfter}s`);
+                throw new Error(`${RATE_LIMIT_MSG} ${retryAfter}s`);
+            }
             throw new Error(`Gateway error ${response.status}: ${response.statusText}`);
         }
         const sessionId = response.headers.get('mcp-session-id');
@@ -449,6 +485,78 @@ export class MCPConnection {
             throw new TypeError('MCP tool arguments must be a plain object (non-null object, not an array or function)');
         }
         return (await this.sendRequest('tools/call', { name, arguments: args }));
+    }
+    /**
+     * Attempt to reconnect to the MCP server with exponential back-off.
+     * No-ops if a reconnection attempt is already in progress.
+     */
+    async reconnect() {
+        if (this.reconnecting)
+            return;
+        this.reconnecting = true;
+        this.reconnectCount++;
+        console.log(`🔄 Reconnecting to ${this.serverLabel} (attempt ${this.reconnectCount})...`);
+        for (let i = 0; i < this.maxConnectionAttempts; i++) {
+            // Exponential back-off: delay * 2^attempt, capped at RECONNECT_MAX_DELAY_MS
+            const delay = Math.min(this.connectionRetryDelay * Math.pow(2, i), RECONNECT_MAX_DELAY_MS);
+            await new Promise((r) => setTimeout(r, delay));
+            try {
+                this.connected = false;
+                await this.connect();
+                this.reconnecting = false;
+                return;
+            }
+            catch {
+                // continue to next attempt
+            }
+        }
+        this.reconnecting = false;
+        console.error(`❌ Reconnection to ${this.serverLabel} failed after exhausting attempts`);
+    }
+    /**
+     * Log a retry warning and, if disconnected, attempt to reconnect before waiting.
+     *
+     * @param lastError - The error from the failed attempt
+     * @param attempt - Zero-based current attempt index
+     * @param retries - Total retry count
+     */
+    async _handleRetryAttempt(lastError, attempt, retries) {
+        if (lastError.message.toLowerCase().includes('timeout')) {
+            this.timeoutCount++;
+            console.warn(`⏱️ Request timeout (total: ${this.timeoutCount}), retrying ${attempt + 1}/${retries}...`);
+        }
+        else {
+            console.warn(`⚠️ Request failed, retrying ${attempt + 1}/${retries}: ${lastError.message}`);
+        }
+        if (!this.connected) {
+            await this.reconnect();
+        }
+        await new Promise((r) => setTimeout(r, this.connectionRetryDelay * (attempt + 1)));
+    }
+    /**
+     * Call an MCP tool with automatic retry on timeout or connection loss.
+     * Reconnects automatically if the connection was lost between attempts.
+     *
+     * @param name - Tool name
+     * @param args - Tool arguments (plain object, non-null, not an array)
+     * @param maxRetries - Override the default retry count from options
+     * @returns Tool execution result
+     */
+    async callToolWithRetry(name, args = {}, maxRetries) {
+        const retries = maxRetries ?? this.maxRetries;
+        let lastError = new Error(`Failed to call tool '${name}' after ${retries} retries`);
+        for (let attempt = 0; attempt <= retries; attempt++) {
+            try {
+                return await this.callTool(name, args);
+            }
+            catch (error) {
+                lastError = error instanceof Error ? error : new Error(String(error));
+                if (attempt === retries)
+                    break;
+                await this._handleRetryAttempt(lastError, attempt, retries);
+            }
+        }
+        throw lastError;
     }
 }
 //# sourceMappingURL=mcp-connection.js.map

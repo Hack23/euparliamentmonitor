@@ -12,6 +12,8 @@ export interface MCPClientOptions {
   serverPath?: string;
   maxConnectionAttempts?: number;
   connectionRetryDelay?: number;
+  /** Maximum retries for callToolWithRetry() (default: 2) */
+  maxRetries?: number;
   /** MCP Gateway URL for HTTP transport (e.g., http://host.docker.internal:80/mcp/european-parliament) */
   gatewayUrl?: string;
   /** API key for MCP Gateway authentication */
