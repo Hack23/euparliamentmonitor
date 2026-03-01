@@ -8,8 +8,12 @@
   --primary: #003399;
   --primary-dark: #002266;
   --primary-light: #e8edf5;
-  --secondary: #FFCC00;
-  --secondary-dark: #e6b800;
+  /* Focus ring token — always contrasts with page background */
+  --focus-ring: #001A66;
+  --secondary: #E6B800;
+  --secondary-dark: #996600;
+  /* Text on secondary (yellow) backgrounds — always dark for contrast */
+  --on-secondary: #1a1a2e;
   --accent: #0066cc;
   --accent-light: #e6f0ff;
 
@@ -589,10 +593,10 @@ img {
 .article-lang {
   padding: 3px 12px;
   background: var(--secondary);
-  color: var(--primary);
   border-radius: 100px;
   font-weight: 700;
   font-size: 0.78em;
+  color: var(--on-secondary);
 }
 
 .article-header h1 {
@@ -773,6 +777,7 @@ img {
 /* ─── Language Indicator Compat ───────────────────────────────────── */
 .language-indicator {
   background: var(--secondary);
+  color: var(--on-secondary);
   display: inline-block;
   padding: 4px 14px;
   border-radius: 100px;
@@ -965,8 +970,18 @@ img {
 /* ─── Accessibility: Focus ───────────────────────────────────────── */
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid var(--secondary);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
+}
+
+/* Primary-background interactive elements need a contrasting focus ring.
+ * var(--bg) is light on dark primary (#003399) and dark on light primary
+ * (#4da3ff in dark mode), giving high contrast in both colour schemes. */
+.back-to-news:focus-visible,
+.lang-link.active:focus-visible,
+.lang-link:hover:focus-visible,
+.skip-link:focus-visible {
+  outline-color: var(--bg);
 }
 
 /* ─── Reduced Motion ─────────────────────────────────────────────── */
@@ -1023,10 +1038,26 @@ button:focus-visible {
     --primary: #4da3ff;
     --primary-dark: #80b3ff;
     --primary-light: #1e2a4e;
+    /* Focus ring — light so it contrasts on dark backgrounds */
+    --focus-ring: #cce5ff;
     --accent: #66c2ff;
     --accent-light: #27416b;
-    --secondary: #ffd94d;
-    --secondary-dark: #f0c500;
+    --secondary: #FFD633;
+    --secondary-dark: #E6B800;
+    /* on-secondary stays dark — #1a1a2e on #FFD633 gives ~10:1 contrast */
+    --on-secondary: #1a1a2e;
+
+    /* Dark mode political group colors — lighter for visibility on dark cards.
+     * All colors achieve ≥4.5:1 contrast against dark text (var(--bg) = #1a1a2e)
+     * as required by WCAG 2.1 AA for small text.
+     */
+    --group-epp: #4A9FE6;
+    --group-sd: #FF6B6B;
+    --group-re: #FFD93D;
+    --group-greens: #3DC464;
+    --group-ecr: #33BBEE;
+    --group-id: #7088D8;
+    --group-left: #D46060;
   }
 }
 
@@ -1310,7 +1341,15 @@ button:focus-visible {
     color: #ff9090;
   }
 
-  .article-lang {
+  /* Group badges use dark text on lighter dark-mode backgrounds
+   * (--bg = #1a1a2e, same as --on-secondary in dark mode) */
+  .group-badge {
+    color: var(--bg);
+  }
+
+  /* Brand hover on light-blue dark-mode header: --secondary (#FFD633) gives
+   * only ~1.5:1 on --primary (#4da3ff). Use --bg (#1a1a2e) instead → ~7:1. */
+  .site-header__brand:hover {
     color: var(--bg);
   }
 }
@@ -1394,4 +1433,153 @@ button:focus-visible {
 [dir="rtl"] .sitemap-date {
   margin-left: 0;
   margin-right: 0.75rem;
+}
+
+/* ─── High Contrast Mode (prefers-contrast: more) ───────────────── */
+@media (prefers-contrast: more) {
+  :root {
+    --primary: #001A66;
+    --secondary: #FFD633;
+    --secondary-dark: #996600;
+    --text: #000000;
+    --text-secondary: #111111;
+    --text-muted: #333333;
+    --bg: #ffffff;
+    --bg-card: #ffffff;
+    --border: #000000;
+    --border-light: #333333;
+    --accent: #0044aa;
+    --focus-ring: #000000;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline-width: 4px;
+    outline-color: var(--focus-ring);
+  }
+
+  /* Two-tone focus indicator for primary-background controls: dark outline
+   * + white inner shadow. Contrasts against both dark button and light page
+   * background, meeting WCAG 2.2 SC 2.4.11 in high-contrast light mode. */
+  .back-to-news:focus-visible,
+  .lang-link.active:focus-visible,
+  .lang-link:hover:focus-visible,
+  .skip-link:focus-visible {
+    outline-color: var(--focus-ring);
+    outline-width: 3px;
+    outline-offset: 3px;
+    box-shadow:
+      0 0 0 1px #ffffff,
+      0 0 0 4px var(--focus-ring);
+  }
+
+  .group-badge {
+    outline: 2px solid var(--border);
+  }
+
+  /* Reset .key-findings to use tokenized colors so the 1px border has
+   * sufficient contrast against --bg (#ffffff). --secondary-dark (#996600)
+   * gives ~4.5:1 on white (passes WCAG AA), but --border (#000000) at 21:1
+   * is used here for maximum contrast in the high-contrast theme. */
+  .key-findings {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-left: 5px solid var(--secondary);
+  }
+
+  .key-findings__title {
+    color: var(--text);
+  }
+
+  .key-findings__list li::before {
+    color: var(--text);
+  }
+}
+
+/* ─── High Contrast Dark Mode Combined Override ──────────────────── */
+/* Defines a coherent high-contrast dark palette when both dark mode and
+ * high contrast are active. Uses near-black backgrounds with pure-white
+ * text and vivid accents so every component meets WCAG 2.1 AA (≥4.5:1).
+ * Overrides tokens set by prefers-contrast: more (which forces --bg to
+ * #ffffff) and component overrides with hardcoded dark hex backgrounds.
+ */
+@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+  :root {
+    --bg: #000000;
+    --bg-card: #0d0d0d;
+    --text: #ffffff;
+    --text-secondary: #eeeeee;
+    --text-muted: #cccccc;
+    --border: #ffffff;
+    --border-light: #aaaaaa;
+    --primary: #0055cc;
+    --primary-dark: #003399;
+    --primary-light: #001a33;
+    --accent: #80d4ff;
+    --accent-light: #001f33;
+    --secondary: #FFE066;
+    --on-secondary: #000000;
+    --focus-ring: #ffffff;
+  }
+
+  /* Reset hardcoded dark backgrounds to use tokens */
+  .key-findings {
+    background: var(--bg-card);
+    border-color: var(--border);
+    border-left-color: var(--secondary);
+  }
+
+  .key-findings__title {
+    color: var(--secondary);
+  }
+
+  .pull-quote {
+    background: var(--bg-card);
+  }
+
+  /* Use token-based borders; overrides hardcoded #444466 from dark-mode override */
+  .data-card {
+    border-color: var(--border);
+    border-left-color: var(--accent);
+  }
+
+  /* RTL override: ensure token-based borders also win over dark-mode RTL
+   * hardcoded #444466 in combined dark + high-contrast mode. Accent appears
+   * on the inline-start edge (right in RTL). */
+  [dir="rtl"] .data-card {
+    border-color: var(--border);
+    border-right-color: var(--accent);
+    border-left-color: var(--border);
+  }
+
+  /* Badge text: use on-secondary (dark) to maintain contrast on light badge
+   * backgrounds (e.g. yellow RE badge) in high-contrast dark mode */
+  .group-badge {
+    color: var(--on-secondary);
+  }
+
+  /* Brand hover: dark-mode override uses var(--bg) which becomes #000000 here
+   * (dark on dark-blue #0055cc header — low contrast). Use var(--text)
+   * (#ffffff) instead: 6.65:1 on #0055cc, meeting WCAG 2.1 AA. */
+  .site-header__brand:hover {
+    color: var(--text);
+  }
+
+  /* Two-tone focus indicator for primary-background controls in combined dark
+   * + high-contrast mode. --focus-ring is #ffffff here, so the standard
+   * prefers-contrast: more rule (both shadows become #ffffff) lacks contrast
+   * against the dark-blue --primary (#0055cc) button background.
+   * Override: dark inner ring + white outer ring (6.65:1 on #0055cc, 21:1 on
+   * near-black --bg #000000), meeting WCAG 2.2 SC 2.4.11. */
+  .back-to-news:focus-visible,
+  .lang-link.active:focus-visible,
+  .lang-link:hover:focus-visible,
+  .skip-link:focus-visible {
+    outline-color: #000000;
+    outline-width: 3px;
+    outline-offset: 3px;
+    box-shadow:
+      0 0 0 1px #000000,
+      0 0 0 4px #ffffff;
+  }
 }
