@@ -500,6 +500,14 @@ describe('article-template', () => {
         expect(html).not.toContain('crossorigin=');
         expect(html).toContain('<link rel="stylesheet" href="../styles.css">');
       });
+
+      it('should omit SRI attributes when stylesHash has invalid format', () => {
+        const invalidHash = 'not-a-valid-hash" onload="evil()';
+        const html = generateArticleHTML({ ...defaultOptions, stylesHash: invalidHash });
+        expect(html).not.toContain('integrity=');
+        expect(html).not.toContain('crossorigin=');
+        expect(html).not.toContain('evil()');
+      });
     });
 
     describe('Error Handling', () => {

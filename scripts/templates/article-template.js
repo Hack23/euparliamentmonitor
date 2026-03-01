@@ -6,6 +6,8 @@ import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
 /** Pattern for valid article slugs (lowercase letters, digits, hyphens) */
 const SLUG_PATTERN = /^[a-z0-9-]+$/u;
+/** Pattern for valid SRI integrity hashes (sha256/sha384/sha512 + base64url) */
+const SRI_HASH_PATTERN = /^sha(?:256|384|512)-[A-Za-z0-9+/]+={0,2}$/u;
 /**
  * Build the article language switcher nav HTML.
  * Links to the same article in all 14 languages using the filename pattern {date}-{slug}-{lang}.html.
@@ -110,6 +112,10 @@ export function generateArticleHTML(options) {
         },
         keywords: keywords.join(', '),
     }, null, 4);
+    // Validate and escape stylesHash — only allow valid SRI hash format
+    const safeSriAttrs = stylesHash && SRI_HASH_PATTERN.test(stylesHash)
+        ? ` integrity="${escapeHTML(stylesHash)}" crossorigin="anonymous"`
+        : '';
     return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -138,7 +144,7 @@ export function generateArticleHTML(options) {
   <meta name="twitter:title" content="${safeTitle}">
   <meta name="twitter:description" content="${safeSubtitle}">
   
-  <link rel="stylesheet" href="../styles.css"${stylesHash ? ` integrity="${stylesHash}" crossorigin="anonymous"` : ''}>
+  <link rel="stylesheet" href="../styles.css"${safeSriAttrs}>
   
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
