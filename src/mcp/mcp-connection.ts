@@ -829,7 +829,7 @@ export class MCPConnection {
    */
   async callToolWithRetry(
     name: string,
-    args: Record<string, unknown> = {},
+    args: object = {},
     maxRetries?: number
   ): Promise<MCPToolResult> {
     const retries = maxRetries ?? this.maxRetries;

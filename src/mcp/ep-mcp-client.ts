@@ -111,7 +111,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   ): Promise<MCPToolResult> {
     try {
       const resolvedArgs = typeof args === 'function' ? args() : args;
-      return await this.callToolWithRetry(toolName, resolvedArgs as Record<string, unknown>);
+      return await this.callToolWithRetry(toolName, resolvedArgs);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn(`${toolName} not available:`, message);
