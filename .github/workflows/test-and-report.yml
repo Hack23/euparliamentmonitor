@@ -219,6 +219,16 @@ jobs:
           echo "🔍 Validating generated HTML..."
           npm run htmlhint || echo "HTML validation completed"
 
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run accessibility tests (WCAG 2.1 AA)
+        run: |
+          echo "♿ Running WCAG 2.1 AA accessibility tests..."
+          npm run test:e2e -- e2e/tests/accessibility.spec.js
+        env:
+          CI: true
+
       - name: Upload test artifacts
         if: always()
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v6.0.0
@@ -229,6 +239,17 @@ jobs:
             index-*.html
             sitemap.xml
           if-no-files-found: warn
+
+      - name: Upload accessibility report
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v6.0.0
+        with:
+          name: accessibility-report
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: warn
+          retention-days: 30
 
   security-check:
     name: Security Check
@@ -342,6 +363,10 @@ jobs:
           echo "- ✅ Code validation: ${{ needs.validation.result }}" >> $GITHUB_STEP_SUMMARY
           echo "- ✅ Functional tests: ${{ needs.functional-tests.result }}" >> $GITHUB_STEP_SUMMARY
           echo "- ✅ Security check: ${{ needs.security-check.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Accessibility" >> $GITHUB_STEP_SUMMARY
+          echo "- ♿ WCAG 2.1 AA accessibility tests run as part of functional-tests job" >> $GITHUB_STEP_SUMMARY
+          echo "- 📊 Accessibility report artifact: \`accessibility-report\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
           if [ "${{ needs.validation.result }}" == "success" ] && \
