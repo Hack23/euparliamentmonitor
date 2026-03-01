@@ -109,8 +109,20 @@ describe('mcp-connection', () => {
       expect(isRetriableError(new Error('Request timeout after 60000ms'))).toBe(true);
     });
 
-    it('should return true for a generic transient error', () => {
+    it('should return true for a connection-closed error', () => {
       expect(isRetriableError(new Error('connection closed'))).toBe(true);
+    });
+
+    it('should return true for a connection-reset error', () => {
+      expect(isRetriableError(new Error('ECONNRESET'))).toBe(true);
+    });
+
+    it('should return true for a not-connected error', () => {
+      expect(isRetriableError(new Error('Not connected to MCP server'))).toBe(true);
+    });
+
+    it('should return false for a generic unknown error (allow-list)', () => {
+      expect(isRetriableError(new Error('some unknown tool error'))).toBe(false);
     });
 
     it('should return false for MCPSessionExpiredError', () => {
@@ -249,7 +261,7 @@ describe('mcp-connection', () => {
       it('should not reconnect when still connected on retry', async () => {
         client.callTool = vi
           .fn()
-          .mockRejectedValueOnce(new Error('temporary error'))
+          .mockRejectedValueOnce(new Error('connection closed'))
           .mockResolvedValueOnce({ content: [] });
         client.connected = true;
 
@@ -261,11 +273,11 @@ describe('mcp-connection', () => {
 
       it('should use instance maxRetries when no override provided', async () => {
         const c = new MCPConnection({ maxRetries: 1, connectionRetryDelay: 0 });
-        const err = new Error('fail');
+        const err = new Error('Request timeout');
         c.callTool = vi.fn().mockRejectedValue(err);
         c.connected = true;
 
-        await expect(c.callToolWithRetry('tool_name')).rejects.toThrow('fail');
+        await expect(c.callToolWithRetry('tool_name')).rejects.toThrow('Request timeout');
         expect(c.callTool).toHaveBeenCalledTimes(2); // 1 initial + 1 retry
       });
 
@@ -487,6 +499,46 @@ describe('mcp-connection', () => {
           })
         );
 
+        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow('Gateway error 503');
+      });
+
+      it('should throw RATE_LIMIT_MSG for 429 without Retry-After header', async () => {
+        client.gatewayUrl = 'http://fake-gateway/mcp';
+        client.connected = true;
+
+        vi.stubGlobal(
+          'fetch',
+          vi.fn().mockResolvedValue({
+            ok: false,
+            status: 429,
+            statusText: 'Too Many Requests',
+            headers: { get: () => null },
+            text: async () => '',
+          })
+        );
+
+        await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
+          'Rate limited. Retry after'
+        );
+      });
+
+      it('should throw generic gateway error (not rate-limit) for non-429 with Retry-After header', async () => {
+        client.gatewayUrl = 'http://fake-gateway/mcp';
+        client.connected = true;
+
+        vi.stubGlobal(
+          'fetch',
+          vi.fn().mockResolvedValue({
+            ok: false,
+            status: 503,
+            statusText: 'Service Unavailable',
+            // Retry-After present but status is 503, not 429
+            headers: { get: (name) => (name === 'Retry-After' ? '30' : null) },
+            text: async () => '',
+          })
+        );
+
+        // Must throw 'Gateway error 503', not a rate-limit error, even with a Retry-After header
         await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow('Gateway error 503');
       });
     });

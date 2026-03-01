@@ -43,23 +43,28 @@ export class MCPSessionExpiredError extends Error {
  * Returns true only for transient, retriable failures: request timeouts,
  * network-level connection-closed/reset errors, and "not connected" states.
  *
- * Returns false (no retry) for:
- * - `MCPSessionExpiredError` — requires re-authentication, not a transient failure
- * - Rate-limit errors (message begins with `RATE_LIMIT_MSG`) — retrying before the
- *   Retry-After interval would cause repeated 429s
- * - `TypeError` — indicates a programmer error (invalid arguments, etc.)
+ * Uses an allow-list of known transient error patterns so that unknown or
+ * server-level errors (e.g., tool runtime failures) are NOT retried:
+ * - timeout — AbortSignal timeout or custom timeout message
+ * - connection closed / reset / refused — network-level transport failures
+ * - not connected — local "not yet connected" guard error
+ * - socket hang up — Node.js HTTP socket-level disconnection
+ *
+ * Everything else (MCPSessionExpiredError, TypeError, rate-limit errors,
+ * unknown errors) returns false so `callToolWithRetry` surfaces them immediately.
  *
  * @param error - The caught error to classify
  * @returns `true` if the error is safe to retry
  */
 export function isRetriableError(error) {
-    if (error instanceof MCPSessionExpiredError)
-        return false;
-    if (error instanceof TypeError)
-        return false;
-    if (error.message?.startsWith(RATE_LIMIT_MSG))
-        return false;
-    return true;
+    const msg = error.message?.toLowerCase() ?? '';
+    return (msg.includes('timeout') ||
+        msg.includes('connection closed') ||
+        msg.includes('connection reset') ||
+        msg.includes('not connected') ||
+        msg.includes('econnreset') ||
+        msg.includes('econnrefused') ||
+        msg.includes('socket hang up'));
 }
 /**
  * Parse a `Retry-After` or `X-Retry-After` header value (which may be either a
@@ -422,6 +427,29 @@ export class MCPConnection {
         }
     }
     /**
+     * Throw an appropriate error for a non-OK gateway response.
+     * Extracted to keep `_sendGatewayRequest` within cognitive-complexity limits.
+     *
+     * @param response - The non-OK fetch Response
+     */
+    _throwGatewayResponseError(response) {
+        if (response.status === 401) {
+            this.mcpSessionId = null;
+            this.connected = false;
+            throw new MCPSessionExpiredError(response.statusText);
+        }
+        if (response.status === 429) {
+            const retryAfter = response.headers.get(RETRY_AFTER_HEADER) ?? response.headers.get('Retry-After');
+            if (retryAfter) {
+                const retryMessage = formatRetryAfter(retryAfter);
+                console.warn(`⏳ ${RATE_LIMIT_MSG} ${retryMessage}`);
+                throw new Error(`${RATE_LIMIT_MSG} ${retryMessage}`);
+            }
+            throw new Error(RATE_LIMIT_MSG);
+        }
+        throw new Error(`Gateway error ${response.status}: ${response.statusText}`);
+    }
+    /**
      * Send a request via MCP Gateway (HTTP transport)
      *
      * @param method - RPC method name
@@ -453,18 +481,7 @@ export class MCPConnection {
             signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
         });
         if (!response.ok) {
-            if (response.status === 401) {
-                this.mcpSessionId = null;
-                this.connected = false;
-                throw new MCPSessionExpiredError(response.statusText);
-            }
-            const retryAfter = response.headers.get(RETRY_AFTER_HEADER) ?? response.headers.get('Retry-After');
-            if (retryAfter) {
-                const retryMessage = formatRetryAfter(retryAfter);
-                console.warn(`⏳ ${RATE_LIMIT_MSG} ${retryMessage}`);
-                throw new Error(`${RATE_LIMIT_MSG} ${retryMessage}`);
-            }
-            throw new Error(`Gateway error ${response.status}: ${response.statusText}`);
+            this._throwGatewayResponseError(response);
         }
         const sessionId = response.headers.get('mcp-session-id');
         if (sessionId) {
@@ -564,25 +581,28 @@ export class MCPConnection {
         }
     }
     /**
-     * Internal reconnect loop with exponential back-off.
+     * Internal reconnect helper.
      *
-     * @returns Promise that resolves when reconnection succeeds or all attempts are exhausted
+     * Waits for an exponential back-off delay derived from the current
+     * `reconnectCount`, then delegates to `connect()` which handles its own
+     * retry loop. This avoids composing N×N attempts.
+     *
+     * @returns Promise that resolves when reconnection succeeds or logs on failure
      */
     async _doReconnect() {
-        for (let i = 0; i < this.maxConnectionAttempts; i++) {
-            // Exponential back-off: delay * 2^attempt, capped at RECONNECT_MAX_DELAY_MS
-            const delay = Math.min(this.connectionRetryDelay * Math.pow(2, i), RECONNECT_MAX_DELAY_MS);
-            await new Promise((r) => setTimeout(r, delay));
-            try {
-                this.connected = false;
-                await this.connect();
-                return;
-            }
-            catch {
-                // continue to next attempt
-            }
+        // Derive a single outer back-off delay from reconnectCount so successive
+        // reconnect bursts are spaced further apart, capped at RECONNECT_MAX_DELAY_MS.
+        // Clamp to [0, maxConnectionAttempts - 1]: first floor to ≥0, then ceil to ≤max.
+        const attemptIndex = Math.min(Math.max(0, this.reconnectCount - 1), this.maxConnectionAttempts - 1);
+        const delay = Math.min(this.connectionRetryDelay * Math.pow(2, attemptIndex), RECONNECT_MAX_DELAY_MS);
+        await new Promise((r) => setTimeout(r, delay));
+        try {
+            this.connected = false;
+            await this.connect();
         }
-        console.error(`❌ Reconnection to ${this.serverLabel} failed after exhausting attempts`);
+        catch (error) {
+            console.error(`❌ Reconnection to ${this.serverLabel} failed: ${error instanceof Error ? error.message : String(error)}`);
+        }
     }
     /**
      * Log a retry warning and, if disconnected, attempt to reconnect before waiting.
