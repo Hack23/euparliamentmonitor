@@ -167,7 +167,7 @@ test.describe('Sitemap HTML Pages', () => {
   test('language sitemap pages should have correct lang attribute', async ({
     page,
   }) => {
-    const testLanguages = SITEMAP_HTML_LANGUAGES.slice(0, 5);
+    const testLanguages = SITEMAP_HTML_LANGUAGES;
 
     for (const { code, file } of testLanguages) {
       await page.goto(file);

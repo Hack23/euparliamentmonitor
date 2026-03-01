@@ -96,7 +96,7 @@ test.describe('RSS Feed', () => {
         foundLanguages++;
       }
     }
-    expect(foundLanguages).toBeGreaterThan(0);
+    expect(foundLanguages).toBeGreaterThanOrEqual(3);
   });
 
   test('should have atom self-link with correct URL', async ({ request }) => {
