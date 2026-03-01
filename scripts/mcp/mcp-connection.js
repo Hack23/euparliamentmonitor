@@ -40,6 +40,28 @@ export class MCPSessionExpiredError extends Error {
     }
 }
 /**
+ * Returns true only for transient, retriable failures: request timeouts,
+ * network-level connection-closed/reset errors, and "not connected" states.
+ *
+ * Returns false (no retry) for:
+ * - `MCPSessionExpiredError` — requires re-authentication, not a transient failure
+ * - Rate-limit errors (message begins with `RATE_LIMIT_MSG`) — retrying before the
+ *   Retry-After interval would cause repeated 429s
+ * - `TypeError` — indicates a programmer error (invalid arguments, etc.)
+ *
+ * @param error - The caught error to classify
+ * @returns `true` if the error is safe to retry
+ */
+export function isRetriableError(error) {
+    if (error instanceof MCPSessionExpiredError)
+        return false;
+    if (error instanceof TypeError)
+        return false;
+    if (error.message.startsWith(RATE_LIMIT_MSG))
+        return false;
+    return true;
+}
+/**
  * Parse a `Retry-After` or `X-Retry-After` header value (which may be either a
  * delay-in-seconds number or an HTTP-date string) into a human-readable message.
  *
@@ -587,6 +609,10 @@ export class MCPConnection {
      * Call an MCP tool with automatic retry on timeout or connection loss.
      * Reconnects automatically if the connection was lost between attempts.
      *
+     * Only transient failures are retried (see `isRetriableError`). Non-retriable
+     * errors — rate-limit (429), session-expired (401), and programmer errors such
+     * as `TypeError` — are re-thrown immediately without consuming any retry budget.
+     *
      * @param name - Tool name
      * @param args - Tool arguments (plain object, non-null, not an array)
      * @param maxRetries - Override the default retry count from options
@@ -601,6 +627,8 @@ export class MCPConnection {
             }
             catch (error) {
                 lastError = error instanceof Error ? error : new Error(String(error));
+                if (!isRetriableError(lastError))
+                    throw lastError;
                 if (attempt === retries)
                     break;
                 await this._handleRetryAttempt(lastError, attempt, retries);

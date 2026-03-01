@@ -14,6 +14,7 @@ import {
   MCPSessionExpiredError,
   parseSSEResponse,
   formatRetryAfter,
+  isRetriableError,
 } from '../../scripts/mcp/mcp-connection.js';
 import { mockConsole } from '../helpers/test-utils.js';
 
@@ -100,6 +101,28 @@ describe('mcp-connection', () => {
       const err = new MCPSessionExpiredError('Unauthorized');
       expect(err.message).toContain('401');
       expect(err.message).toContain('Unauthorized');
+    });
+  });
+
+  describe('isRetriableError', () => {
+    it('should return true for a timeout error', () => {
+      expect(isRetriableError(new Error('Request timeout after 60000ms'))).toBe(true);
+    });
+
+    it('should return true for a generic transient error', () => {
+      expect(isRetriableError(new Error('connection closed'))).toBe(true);
+    });
+
+    it('should return false for MCPSessionExpiredError', () => {
+      expect(isRetriableError(new MCPSessionExpiredError('Unauthorized'))).toBe(false);
+    });
+
+    it('should return false for a TypeError', () => {
+      expect(isRetriableError(new TypeError('args must be a plain object'))).toBe(false);
+    });
+
+    it('should return false for a rate-limit error', () => {
+      expect(isRetriableError(new Error('Rate limited. Retry after 30s'))).toBe(false);
     });
   });
 
@@ -244,6 +267,40 @@ describe('mcp-connection', () => {
 
         await expect(c.callToolWithRetry('tool_name')).rejects.toThrow('fail');
         expect(c.callTool).toHaveBeenCalledTimes(2); // 1 initial + 1 retry
+      });
+
+      it('should throw immediately without retrying on rate-limit (429) error', async () => {
+        const rateLimitErr = new Error('Rate limited. Retry after 30s');
+        client.callTool = vi.fn().mockRejectedValue(rateLimitErr);
+        client.connected = true;
+
+        await expect(client.callToolWithRetry('tool_name', {}, 3)).rejects.toThrow(
+          'Rate limited. Retry after 30s'
+        );
+        // Must NOT retry — only 1 attempt
+        expect(client.callTool).toHaveBeenCalledTimes(1);
+      });
+
+      it('should throw immediately without retrying on MCPSessionExpiredError', async () => {
+        const sessionErr = new MCPSessionExpiredError('Unauthorized');
+        client.callTool = vi.fn().mockRejectedValue(sessionErr);
+        client.connected = true;
+
+        await expect(client.callToolWithRetry('tool_name', {}, 3)).rejects.toBeInstanceOf(
+          MCPSessionExpiredError
+        );
+        expect(client.callTool).toHaveBeenCalledTimes(1);
+      });
+
+      it('should throw immediately without retrying on TypeError (programmer error)', async () => {
+        const typeErr = new TypeError('args must be a plain object');
+        client.callTool = vi.fn().mockRejectedValue(typeErr);
+        client.connected = true;
+
+        await expect(client.callToolWithRetry('tool_name', {}, 3)).rejects.toBeInstanceOf(
+          TypeError
+        );
+        expect(client.callTool).toHaveBeenCalledTimes(1);
       });
     });
 
