@@ -22,7 +22,6 @@ import {
 } from '../../utils/file-utils.js';
 import type { ArticleStrategyBase, ArticleData } from '../strategies/article-strategy.js';
 import { validateArticleContent } from '../../utils/content-validator.js';
-import type { ArticleStrategy } from '../strategies/article-strategy.js';
 import { weekAheadStrategy } from '../strategies/week-ahead-strategy.js';
 import { breakingNewsStrategy } from '../strategies/breaking-news-strategy.js';
 import { committeeReportsStrategy } from '../strategies/committee-reports-strategy.js';
