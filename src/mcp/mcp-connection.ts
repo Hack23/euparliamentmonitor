@@ -77,7 +77,7 @@ export class MCPSessionExpiredError extends Error {
 export function isRetriableError(error: Error): boolean {
   if (error instanceof MCPSessionExpiredError) return false;
   if (error instanceof TypeError) return false;
-  if (error.message.startsWith(RATE_LIMIT_MSG)) return false;
+  if (error.message?.startsWith(RATE_LIMIT_MSG)) return false;
   return true;
 }
 

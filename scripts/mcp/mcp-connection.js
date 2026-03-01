@@ -57,7 +57,7 @@ export function isRetriableError(error) {
         return false;
     if (error instanceof TypeError)
         return false;
-    if (error.message.startsWith(RATE_LIMIT_MSG))
+    if (error.message?.startsWith(RATE_LIMIT_MSG))
         return false;
     return true;
 }
