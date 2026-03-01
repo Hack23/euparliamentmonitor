@@ -20,6 +20,7 @@ import {
   formatDateForSlug,
   validateArticleHTML,
 } from '../../utils/file-utils.js';
+import { validateArticleContent } from '../../utils/content-validator.js';
 import type { ArticleStrategy, ArticleData } from '../strategies/article-strategy.js';
 import { weekAheadStrategy } from '../strategies/week-ahead-strategy.js';
 import { breakingNewsStrategy } from '../strategies/breaking-news-strategy.js';
@@ -160,6 +161,19 @@ function generateSingleLanguageArticle(
     );
     stats.errors++;
     return false;
+  }
+
+  // Validate content quality (word count, placeholders, required elements)
+  const contentValidation = validateArticleContent(html, lang, strategy.type);
+  if (!contentValidation.valid) {
+    console.error(
+      `  ❌ ${lang.toUpperCase()} article failed content validation: ${contentValidation.errors.join('; ')}`
+    );
+    stats.errors++;
+    return false;
+  }
+  for (const warning of contentValidation.warnings) {
+    console.warn(`  ⚠️  ${lang.toUpperCase()} content warning: ${warning}`);
   }
 
   if (writeSingleArticle(html, slug, lang, outputOptions, stats)) {
