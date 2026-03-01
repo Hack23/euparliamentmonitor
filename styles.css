@@ -1481,8 +1481,15 @@ button:focus-visible {
     background: var(--bg-card);
   }
 
-  /* Badge text: use --text (white) for legibility on dark badge backgrounds */
+  /* Use token-based borders; overrides hardcoded #444466 from dark-mode override */
+  .data-card {
+    border-color: var(--border);
+    border-left-color: var(--accent);
+  }
+
+  /* Badge text: use on-secondary (dark) to maintain contrast on light badge
+   * backgrounds (e.g. yellow RE badge) in high-contrast dark mode */
   .group-badge {
-    color: var(--text);
+    color: var(--on-secondary);
   }
 }
