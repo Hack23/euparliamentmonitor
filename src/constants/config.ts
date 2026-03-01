@@ -6,6 +6,7 @@
  * @description Shared configuration constants
  */
 
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { ArticleCategory } from '../types/index.js';
@@ -65,3 +66,24 @@ export const ARTICLE_TYPE_MONTH_IN_REVIEW = ArticleCategory.MONTH_IN_REVIEW;
 
 /** CLI argument separator */
 export const ARG_SEPARATOR = '=';
+
+/** Application version read from package.json */
+export const APP_VERSION: string = (() => {
+  try {
+    const pkgPath = path.join(PROJECT_ROOT, 'package.json');
+    const parsed: unknown = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+
+    if (typeof parsed === 'object' && parsed !== null && 'version' in parsed) {
+      const versionValue = (parsed as { version: unknown }).version;
+      if (typeof versionValue === 'string' && versionValue.trim() !== '') {
+        return versionValue;
+      }
+    }
+
+    console.warn('Invalid or missing "version" in package.json, falling back to default 0.0.0');
+    return '0.0.0';
+  } catch (err) {
+    console.warn('Failed to read version from package.json:', err);
+    return '0.0.0';
+  }
+})();

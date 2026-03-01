@@ -12,6 +12,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { createTempDir, cleanupTempDir, validateHTML } from '../helpers/test-utils.js';
+import { generateIndexHTML } from '../../scripts/generators/news-indexes.js';
 
 describe('generate-news-indexes', () => {
   let tempDir;
@@ -351,6 +352,66 @@ describe('generate-news-indexes', () => {
         .join(' ');
 
       expect(formatted).toContain('2025');
+    });
+  });
+
+  describe('Real generateIndexHTML', () => {
+    it('should include AI section with correct structure', () => {
+      const html = generateIndexHTML('en', []);
+
+      expect(html).toContain('<section class="ai-intelligence"');
+      expect(html).toContain('aria-labelledby="ai-heading"');
+      expect(html).toContain('id="ai-heading"');
+    });
+
+    it('should include AI section quote element', () => {
+      const html = generateIndexHTML('en', []);
+
+      expect(html).toContain('ai-intelligence__quote');
+    });
+
+    it('should include AI feature list with 4 items', () => {
+      const html = generateIndexHTML('en', []);
+
+      expect(html).toContain('ai-intelligence__features');
+      const featuresMatch = html.match(/<ul class="ai-intelligence__features">([\s\S]*?)<\/ul>/);
+      expect(featuresMatch).not.toBeNull();
+      const featureItems = featuresMatch[1].match(/<li>/g) || [];
+      expect(featureItems.length).toBe(4);
+    });
+
+    it('should include app version in footer', () => {
+      const html = generateIndexHTML('en', []);
+
+      expect(html).toMatch(/v[0-9A-Za-z.+-]+/);
+    });
+
+    it('should include disclaimer with link to GitHub issues', () => {
+      const html = generateIndexHTML('en', []);
+
+      expect(html).toContain('footer-disclaimer');
+      expect(html).toContain('https://github.com/Hack23/euparliamentmonitor/issues');
+    });
+
+    it('should include AI section for all languages', () => {
+      const languages = ['en', 'de', 'fr', 'ar', 'ja'];
+
+      languages.forEach((lang) => {
+        const html = generateIndexHTML(lang, []);
+        expect(html).toContain('<section class="ai-intelligence"');
+        expect(html).toContain('ai-intelligence__quote');
+        expect(html).toContain('ai-intelligence__features');
+        if (lang !== 'en') {
+          expect(html).toContain('lang="en"');
+        }
+      });
+    });
+
+    it('should generate valid HTML with AI section', () => {
+      const html = generateIndexHTML('en', []);
+      const validation = validateHTML(html);
+
+      expect(validation.valid).toBe(true);
     });
   });
 });
