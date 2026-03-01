@@ -46,9 +46,27 @@ export interface ArticleMetadata {
  * data payload type so that concrete strategies parameterised on a subtype can
  * be stored in a single {@link StrategyRegistry} map without unsafe casts.
  *
- * TypeScript's bivariant method-parameter checking ensures that a concrete
- * strategy whose methods accept a narrower `TData` still satisfies this
- * interface structurally.
+ * This interface deliberately relies on TypeScript's bivariant method-parameter
+ * checking: a concrete strategy whose methods accept a narrower `TData`
+ * (extending {@link ArticleData}) still satisfies this interface structurally.
+ * That means the type is not fully sound — a caller that only sees
+ * {@link ArticleStrategyBase} could, in principle, pass an {@link ArticleData}
+ * value that does not match the concrete strategy's expected `TData` shape.
+ *
+ * To use this interface safely:
+ * - Only pass the `data` object returned by a given strategy's own
+ *   {@link ArticleStrategyBase.fetchData | fetchData} to that same strategy's
+ *   {@link ArticleStrategyBase.buildContent | buildContent} and
+ *   {@link ArticleStrategyBase.getMetadata | getMetadata} methods.
+ * - Never mix data payloads between different strategies, even if they share
+ *   the {@link ArticleData} base type.
+ *
+ * External callers that need strong typing for a specific strategy should
+ * prefer the generic {@link ArticleStrategy} interface, which preserves the
+ * concrete `TData` type and avoids this intentional unsoundness. The
+ * {@link ArticleStrategyBase} interface is intended primarily for the internal
+ * orchestration / pipeline layer that manages a heterogeneous strategy
+ * registry.
  */
 export interface ArticleStrategyBase {
   /** The article category this strategy handles */
@@ -93,7 +111,9 @@ export interface ArticleStrategyBase {
  *
  * @template TData - Concrete data payload type returned by {@link fetchData}
  */
-export interface ArticleStrategy<TData extends ArticleData = ArticleData> extends ArticleStrategyBase {
+export interface ArticleStrategy<
+  TData extends ArticleData = ArticleData,
+> extends ArticleStrategyBase {
   /**
    * Fetch all domain data needed to render this article type.
    *
