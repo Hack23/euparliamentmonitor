@@ -1309,6 +1309,10 @@ button:focus-visible {
     background: #3a0a0a;
     color: #ff9090;
   }
+
+  .article-lang {
+    color: var(--bg);
+  }
 }
 
 /* ─── Dark Mode + RTL Combined Overrides ────────────────────── */
