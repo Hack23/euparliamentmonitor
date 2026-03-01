@@ -19,7 +19,7 @@ import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, getLocalizedString, } from '../constants/languages.js';
 import { escapeHTML } from './file-utils.js';
 /** CSS class selector for the language switcher nav element */
-const LANG_SWITCHER_CLASS = 'class="language-switcher"';
+const LANG_SWITCHER_CLASS = 'class="site-header__langs"';
 /** CSS class selector for the article top navigation element */
 const ARTICLE_TOP_NAV_CLASS = 'class="article-top-nav"';
 /** CSS class selector for the site header element */
@@ -45,25 +45,6 @@ function buildLangSwitcher(date, slug, currentLang) {
         const safeTitle = escapeHTML(name);
         return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeTitle}">${flag} ${code.toUpperCase()}</a>`;
     }).join('\n        ');
-}
-/**
- * Build the site header HTML.
- *
- * @param indexHref - Link to the language-specific index page
- * @returns HTML string for the site header
- */
-function buildSiteHeader(indexHref) {
-    return `<header class="site-header" role="banner">
-    <div class="site-header__inner">
-      <a href="${indexHref}" class="site-header__brand" aria-label="EU Parliament Monitor">
-        <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
-        <span>
-          <span class="site-header__title">EU Parliament Monitor</span>
-          <span class="site-header__subtitle">European Parliament Intelligence</span>
-        </span>
-      </a>
-    </div>
-  </header>`;
 }
 /**
  * Build the article-top-nav HTML with a localized back button.
@@ -154,11 +135,20 @@ function injectTypeA(html, ctx) {
   <div class="reading-progress" aria-hidden="true"></div>
   <a href="#main" class="skip-link">${ctx.skipLinkText}</a>
 
-  ${buildSiteHeader(ctx.indexHref)}
-
-  <nav class="language-switcher" role="navigation" aria-label="Language selection">
-    ${buildLangSwitcher(ctx.date, ctx.slug, ctx.lang)}
-  </nav>
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="${ctx.indexHref}" class="site-header__brand" aria-label="EU Parliament Monitor">
+        <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
+        <span>
+          <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__subtitle">European Parliament Intelligence</span>
+        </span>
+      </a>
+      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
+        ${buildLangSwitcher(ctx.date, ctx.slug, ctx.lang)}
+      </nav>
+    </div>
+  </header>
 
   ${buildArticleTopNav(ctx.indexHref, ctx.lang)}
 
@@ -183,22 +173,36 @@ function injectTypeA(html, ctx) {
  * @returns Updated HTML and change description, or null if not applicable
  */
 function injectTypeB(html, ctx) {
-    const headerMainPattern = /(<\/header>)\s*\n(\s*<main\s)/;
-    if (!headerMainPattern.test(html)) {
-        return null;
-    }
-    const injectedBlock = `$1
+    // Try to inject lang switcher inside the header's .site-header__inner
+    const innerPattern = /(<\/a>\s*\n\s*<\/div>\s*\n\s*<\/header>)\s*\n(\s*<main\s)/;
+    if (!innerPattern.test(html)) {
+        // Fallback: inject after header close
+        const headerMainPattern = /(<\/header>)\s*\n(\s*<main\s)/;
+        if (!headerMainPattern.test(html)) {
+            return null;
+        }
+        const injectedBlock = `$1
 
-  <nav class="language-switcher" role="navigation" aria-label="Language selection">
-    ${buildLangSwitcher(ctx.date, ctx.slug, ctx.lang)}
-  </nav>
+  ${buildArticleTopNav(ctx.indexHref, ctx.lang)}
+
+  $2`;
+        return {
+            html: html.replace(headerMainPattern, injectedBlock),
+            change: 'Added article-top-nav after header',
+        };
+    }
+    const injectedBlock = `      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
+        ${buildLangSwitcher(ctx.date, ctx.slug, ctx.lang)}
+      </nav>
+    </div>
+  </header>
 
   ${buildArticleTopNav(ctx.indexHref, ctx.lang)}
 
   $2`;
     return {
-        html: html.replace(headerMainPattern, injectedBlock),
-        change: 'Added language-switcher and article-top-nav',
+        html: html.replace(/(<\/a>\s*\n\s*)<\/div>\s*\n\s*<\/header>\s*\n(\s*<main\s)/, `$1${injectedBlock}`),
+        change: 'Added language switcher and article-top-nav',
     };
 }
 /**
@@ -212,8 +216,9 @@ function injectTypeC(html, ctx) {
     if (html.includes(ARTICLE_TOP_NAV_CLASS)) {
         return null;
     }
-    const langSwitcherMainPattern = /(<\/nav>)\s*\n(\s*<main\s)/;
-    if (!langSwitcherMainPattern.test(html)) {
+    // Pattern: closing header tag followed by main element
+    const headerMainPattern = /(<\/header>)\s*\n(\s*<main\s)/;
+    if (!headerMainPattern.test(html)) {
         return null;
     }
     const injectedBlock = `$1
@@ -222,7 +227,7 @@ function injectTypeC(html, ctx) {
 
   $2`;
     return {
-        html: html.replace(langSwitcherMainPattern, injectedBlock),
+        html: html.replace(headerMainPattern, injectedBlock),
         change: 'Added article-top-nav',
     };
 }

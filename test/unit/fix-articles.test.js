@@ -26,15 +26,14 @@ describe('fix-articles', () => {
       expect(result.description).toContain('Skipped');
     });
 
-    it('should skip files already containing language-switcher and article-top-nav', () => {
+    it('should skip files already containing site-header__langs and article-top-nav', () => {
       const html = `<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head><title>Test</title></head>
 <body>
   <div class="reading-progress" aria-hidden="true"></div>
   <a href="#main" class="skip-link">Skip</a>
-  <header class="site-header" role="banner"><div class="site-header__inner"></div></header>
-  <nav class="language-switcher" role="navigation"><a href="#">EN</a></nav>
+  <header class="site-header" role="banner"><div class="site-header__inner"><nav class="site-header__langs" role="navigation"><a href="#">EN</a></nav></div></header>
   <nav class="article-top-nav" aria-label="Nav"><a href="../index.html">Back</a></nav>
   <main id="main">
   <article class="news-article" lang="en"><h1>Test</h1></article>
@@ -69,7 +68,7 @@ describe('fix-articles', () => {
       expect(result.description).toContain('main wrapper');
     });
 
-    it('should inject language-switcher and top-nav for Type B articles (has site-header)', () => {
+    it('should inject top-nav for Type B articles (has site-header)', () => {
       const html = `<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head><title>Test</title></head>
@@ -86,19 +85,17 @@ describe('fix-articles', () => {
       const result = fixArticle('/news/2026-02-24-propositions-en.html', true);
 
       expect(result.changed).toBe(true);
-      expect(result.description).toContain('language-switcher');
       expect(result.description).toContain('article-top-nav');
     });
 
-    it('should inject article-top-nav for Type C articles (has language-switcher)', () => {
+    it('should inject article-top-nav for Type C articles (has site-header__langs)', () => {
       const html = `<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head><title>Test</title></head>
 <body>
   <div class="reading-progress" aria-hidden="true"></div>
   <a href="#main" class="skip-link">Skip</a>
-  <header class="site-header" role="banner"><div class="site-header__inner"></div></header>
-  <nav class="language-switcher" role="navigation"><a href="#">EN</a></nav>
+  <header class="site-header" role="banner"><div class="site-header__inner"><nav class="site-header__langs" role="navigation"><a href="#">EN</a></nav></div></header>
 
   <main id="main" role="main">
   <article class="news-article" lang="en"><h1>Test</h1></article>
@@ -197,8 +194,7 @@ describe('fix-articles', () => {
 <html lang="en" dir="ltr">
 <head><title>Test</title></head>
 <body>
-  <header class="site-header" role="banner"><div></div></header>
-  <nav class="language-switcher" role="navigation"><a href="#">EN</a></nav>
+  <header class="site-header" role="banner"><div class="site-header__inner"><nav class="site-header__langs"><a href="#">EN</a></nav></div></header>
   <nav class="article-top-nav"><a href="#">Back</a></nav>
   <main id="main"><article class="news-article" lang="en"><h1>Test</h1></article></main>
 </body>

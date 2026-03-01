@@ -11,7 +11,7 @@ import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
 import { PROJECT_ROOT, APP_VERSION, NEWS_DIR } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, AI_SECTION_CONTENT, FILTER_LABELS, ARTICLE_TYPE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { getNewsArticles, groupArticlesByLanguage, formatSlug, parseArticleFilename, extractArticleMeta, escapeHTML, } from '../utils/file-utils.js';
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
 import { ArticleCategory } from '../types/index.js';
@@ -163,6 +163,13 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
     const year = new Date().getFullYear();
     const selfHref = getIndexFilename(lang);
     const heroTitle = title.split(' - ')[0];
+    const filterLabels = getLocalizedString(FILTER_LABELS, lang);
+    const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang);
+    // Collect distinct categories from the current article set
+    const usedCategories = new Set();
+    for (const a of articles) {
+        usedCategories.add(detectCategory(a.slug));
+    }
     const content = articles.length === 0
         ? `
     <div class="empty-state">
@@ -175,6 +182,18 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
             .map((a) => renderCard(a, metaMap.get(a.filename) ?? { title: formatSlug(a.slug), description: '' }))
             .join('\n')}
     </ul>`;
+    const ai = getLocalizedString(AI_SECTION_CONTENT, lang);
+    // Build filter buttons from used categories
+    const filterButtons = articles.length > 0
+        ? Array.from(usedCategories)
+            .sort()
+            .map((cat) => {
+            const safeCat = cat.replace(/[^a-z0-9-]/gi, '');
+            const label = categoryLabels[cat] ?? formatSlug(safeCat);
+            return `<button type="button" class="filter-btn" data-category="${safeCat}">${escapeHTML(label)}</button>`;
+        })
+            .join('\n          ')
+        : '';
     return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -204,32 +223,42 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
           <span class="site-header__subtitle">European Parliament Intelligence</span>
         </span>
       </a>
+      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
+        ${buildLangSwitcher(lang)}
+      </nav>
     </div>
   </header>
-
-  <nav class="language-switcher" role="navigation" aria-label="Language selection">
-    ${buildLangSwitcher(lang)}
-  </nav>
 
   <section class="hero">
     <h1 class="hero__title">${heroTitle}</h1>
     <p class="hero__description">${description}</p>
   </section>
 
-  <section class="ai-intelligence" aria-labelledby="ai-heading"${lang !== 'en' ? ' lang="en"' : ''}>
-    <h2 id="ai-heading"><span aria-hidden="true">🤖</span> AI-Disrupted News Generation &amp; Agentic Intelligence</h2>
-    <blockquote class="ai-intelligence__quote">While traditional newsrooms debate whether AI will replace journalists, EU Parliament Monitor quietly deployed 8 autonomous AI agents that generate investigative political intelligence in 14 languages before most reporters have finished their morning coffee. The future of parliamentary journalism didn&rsquo;t send a memo &mdash; it opened a pull request.</blockquote>
-    <p>The EU Parliament Monitor doesn&rsquo;t just report on European Parliament activity &mdash; it autonomously generates deep political intelligence at machine speed, with editorial quality that would make legacy news desks nervous. Every article is researched, written, localized, and prepared for publication by AI agents that operate by default on live European Parliament data via the <strong>MCP Server</strong> (46 tools, real-time data), with transparent fallback to placeholder data when live access is unavailable.</p>
+  <section class="ai-intelligence" aria-labelledby="ai-heading">
+    <h2 id="ai-heading"><span aria-hidden="true">🤖</span> ${escapeHTML(ai.heading)}</h2>
+    <blockquote class="ai-intelligence__quote">${escapeHTML(ai.quote)}</blockquote>
+    <p>${escapeHTML(ai.description)}</p>
     <ul class="ai-intelligence__features">
-      <li><strong>8 Autonomous AI Agents</strong> &mdash; specialized for news, data, frontend, quality, security, docs, DevOps, and product</li>
-      <li><strong>14 Languages</strong> &mdash; EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH</li>
-      <li><strong>Human-in-the-Loop</strong> &mdash; agents open publication-ready pull requests; publication occurs when a human reviews and merges</li>
-      <li><strong>Live Parliament Data</strong> &mdash; powered by European Parliament Open Data via MCP Server</li>
+      <li><strong>${escapeHTML(ai.featureAgents)}</strong> &mdash; ${escapeHTML(ai.featureAgentsDesc)}</li>
+      <li><strong>${escapeHTML(ai.featureSchedule)}</strong> &mdash; ${escapeHTML(ai.featureScheduleDesc)}</li>
+      <li><strong>${escapeHTML(ai.featureHuman)}</strong> &mdash; ${escapeHTML(ai.featureHumanDesc)}</li>
+      <li><strong>${escapeHTML(ai.featureData)}</strong> &mdash; ${escapeHTML(ai.featureDataDesc)}</li>
     </ul>
   </section>
 
   <main id="main" class="site-main">
-    <h2 class="section-heading"><span class="section-heading__icon" aria-hidden="true">📋</span> ${heading}</h2>
+    <h2 class="section-heading"><span class="section-heading__icon" aria-hidden="true">📋</span> ${heading}</h2>${articles.length > 0
+        ? `
+    <div class="filter-toolbar" role="toolbar" aria-label="Filter articles">
+      <div class="filter-buttons">
+        <button type="button" class="filter-btn active" data-category="all">${escapeHTML(filterLabels.all)}</button>
+        ${filterButtons}
+      </div>
+      <div class="filter-search">
+        <input type="search" class="filter-search__input" placeholder="${escapeHTML(filterLabels.search)}" aria-label="${escapeHTML(filterLabels.search)}">
+      </div>
+    </div>`
+        : ''}
     ${content}
   </main>
 
@@ -270,6 +299,40 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> This platform is under ongoing improvement. Please <a href="https://github.com/Hack23/euparliamentmonitor/issues">report any issues on GitHub</a>.</p>
     </div>
   </footer>
+
+  <script>
+  (function(){
+    var toolbar=document.querySelector('.filter-toolbar');
+    if(!toolbar)return;
+    var buttons=toolbar.querySelectorAll('.filter-btn');
+    var search=toolbar.querySelector('.filter-search__input');
+    var cards=document.querySelectorAll('.news-card');
+    function filterCards(){
+      var cat=toolbar.querySelector('.filter-btn.active');
+      var activeCat=cat?cat.getAttribute('data-category'):'all';
+      var query=search?search.value.toLowerCase():'';
+      cards.forEach(function(card){
+        var badge=card.querySelector('.news-card__badge');
+        var cardCat=badge?badge.className.replace(/.*news-card__badge--/,''):'';
+        var title=card.querySelector('.news-card__title');
+        var text=(title?title.textContent:'').toLowerCase();
+        var excerpt=card.querySelector('.news-card__excerpt');
+        var excerptText=(excerpt?excerpt.textContent:'').toLowerCase();
+        var matchCat=activeCat==='all'||cardCat===activeCat;
+        var matchSearch=!query||text.indexOf(query)!==-1||excerptText.indexOf(query)!==-1;
+        card.style.display=matchCat&&matchSearch?'':'none';
+      });
+    }
+    buttons.forEach(function(btn){
+      btn.addEventListener('click',function(){
+        buttons.forEach(function(b){b.classList.remove('active')});
+        btn.classList.add('active');
+        filterCards();
+      });
+    });
+    if(search){search.addEventListener('input',filterCards);}
+  })();
+  </script>
 </body>
 </html>`;
 }

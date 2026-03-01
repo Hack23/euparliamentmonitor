@@ -248,7 +248,7 @@ export interface ArticleValidationResult {
 
 /** Required structural elements that every article must contain */
 const REQUIRED_ARTICLE_ELEMENTS: ReadonlyArray<{ selector: string; label: string }> = [
-  { selector: 'class="language-switcher"', label: 'language-switcher nav' },
+  { selector: 'class="site-header__langs"', label: 'language switcher nav' },
   { selector: 'class="article-top-nav"', label: 'article-top-nav (back button)' },
   { selector: 'class="site-header"', label: 'site-header' },
   { selector: 'class="skip-link"', label: 'skip-link' },

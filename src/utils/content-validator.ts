@@ -61,7 +61,7 @@ const PLACEHOLDER_PATTERNS: ReadonlyArray<RegExp> = [
 
 /** Required structural HTML elements that every article must contain */
 const REQUIRED_HTML_ELEMENTS: ReadonlyArray<{ selector: string; label: string }> = [
-  { selector: 'class="language-switcher"', label: 'language-switcher nav' },
+  { selector: 'class="site-header__langs"', label: 'language switcher nav' },
   { selector: 'class="article-top-nav"', label: 'article-top-nav (back button)' },
   { selector: 'class="site-header"', label: 'site-header' },
   { selector: '<main id="main"', label: 'main content wrapper' },
