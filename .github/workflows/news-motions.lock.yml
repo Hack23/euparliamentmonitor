@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament motions and resolutions analysis articles for all 14 languages. Single article type per run.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"13ca853bfc7e04ce7bd94260589ef36c28eb4c9b7bb75ad5ec6d14fd5b2fbe36","compiler_version":"v0.51.0"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"c898d42e8d8d0b13964030b0a924ee6204fc9bea2a9b3f41293ebfe120d3cf8a","compiler_version":"v0.51.0"}
 
 name: "News: EU Parliament Motions"
 "on":

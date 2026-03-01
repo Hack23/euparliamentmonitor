@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament committee reports analysis articles for all 14 languages. Single article type per run to reduce patch size and improve reliability.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"545ec8b602e24c539fdefc7ab9b96d5730b6f4a57c42ebcb9e4b3cba2addb0be","compiler_version":"v0.51.0"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"48858d2cf9b573017f2d830e1c631a852c8882daef8340e28c8ddeb93e0148b9","compiler_version":"v0.51.0"}
 
 name: "News: EU Parliament Committee Reports"
 "on":
