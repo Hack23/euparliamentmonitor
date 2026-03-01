@@ -213,4 +213,32 @@ export function isSafeURL(url) {
         return false;
     }
 }
+/** Required structural elements that every article must contain */
+const REQUIRED_ARTICLE_ELEMENTS = [
+    { selector: 'class="language-switcher"', label: 'language-switcher nav' },
+    { selector: 'class="article-top-nav"', label: 'article-top-nav (back button)' },
+    { selector: 'class="site-header"', label: 'site-header' },
+    { selector: 'class="skip-link"', label: 'skip-link' },
+    { selector: 'class="reading-progress"', label: 'reading-progress bar' },
+    { selector: '<main id="main"', label: 'main content wrapper' },
+    { selector: 'class="site-footer"', label: 'site-footer' },
+];
+/**
+ * Validate that generated article HTML includes all required structural elements.
+ *
+ * This is the primary validation gate — articles must be generated correctly
+ * by the template. The fix-articles script is only a fallback for legacy articles.
+ *
+ * @param html - Complete HTML string of the article
+ * @returns Validation result with errors list (empty if valid)
+ */
+export function validateArticleHTML(html) {
+    const errors = [];
+    for (const element of REQUIRED_ARTICLE_ELEMENTS) {
+        if (!html.includes(element.selector)) {
+            errors.push(`Missing required element: ${element.label}`);
+        }
+    }
+    return { valid: errors.length === 0, errors };
+}
 //# sourceMappingURL=file-utils.js.map
