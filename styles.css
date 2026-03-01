@@ -315,7 +315,7 @@ img {
 }
 
 .ai-intelligence__features li strong {
-  color: var(--secondary);
+  color: #ffd740;
 }
 
 @media (min-width: 768px) {

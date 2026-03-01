@@ -413,7 +413,7 @@ describe('generate-news-indexes', () => {
 
     it('should contain German localized AI heading on German page', () => {
       const html = generateIndexHTML('de', []);
-      expect(html).toContain('KI-gest');
+      expect(html).toContain('KI-gestützte parlamentarische Aufklärung');
     });
 
     it('should contain Japanese localized AI heading on Japanese page', () => {
