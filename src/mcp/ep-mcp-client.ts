@@ -88,7 +88,10 @@ const STATS_FALLBACK = '{"stats": null}';
  */
 export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
-   * Generic error-safe wrapper around {@link callTool}.
+   * Generic error-safe wrapper around {@link callToolWithRetry}.
+   * Retries transient failures (timeouts, connection drops) with a bounded
+   * back-off delay before falling back. Non-retriable errors (session expiry,
+   * rate limits, programmer errors) are caught immediately without additional delay.
    * Catches any error thrown by the tool (or by the args factory), logs a warning,
    * and returns a fallback payload.
    *
@@ -108,7 +111,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   ): Promise<MCPToolResult> {
     try {
       const resolvedArgs = typeof args === 'function' ? args() : args;
-      return await this.callTool(toolName, resolvedArgs);
+      return await this.callToolWithRetry(toolName, resolvedArgs);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn(`${toolName} not available:`, message);
