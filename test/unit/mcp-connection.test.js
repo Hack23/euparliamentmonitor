@@ -625,6 +625,52 @@ describe('mcp-connection', () => {
         expect(error.retryAfterMs).toBe(30000);
       });
 
+      it('should throw MCPRateLimitError with retryAfterMs=0 for 429 with whitespace-only Retry-After header', async () => {
+        client.gatewayUrl = 'http://fake-gateway/mcp';
+        client.connected = true;
+
+        vi.stubGlobal(
+          'fetch',
+          vi.fn().mockResolvedValue({
+            ok: false,
+            status: 429,
+            statusText: 'Too Many Requests',
+            // whitespace-only header should be treated the same as missing
+            headers: { get: (name) => (name === 'X-Retry-After' ? '   ' : null) },
+            text: async () => '',
+          })
+        );
+
+        const error = await client._sendGatewayRequest('tools/list').catch((e) => e);
+        expect(error).toBeInstanceOf(MCPRateLimitError);
+        expect(error.retryAfterMs).toBe(0);
+        expect(error.message).toContain('header missing');
+      });
+
+      it('should rethrow MCPSessionExpiredError immediately without retrying in connect()', async () => {
+        const sessionClient = new MCPConnection({
+          gatewayUrl: 'http://fake-gateway/mcp',
+          maxConnectionAttempts: 3,
+          connectionRetryDelay: 0,
+        });
+
+        vi.stubGlobal(
+          'fetch',
+          vi.fn().mockResolvedValue({
+            ok: false,
+            status: 401,
+            statusText: 'Unauthorized',
+            headers: { get: () => null },
+            text: async () => '',
+          })
+        );
+
+        const fetchSpy = global.fetch;
+        await expect(sessionClient.connect()).rejects.toBeInstanceOf(MCPSessionExpiredError);
+        // Should only have attempted once (no retries for session expiry)
+        expect(fetchSpy).toHaveBeenCalledTimes(1);
+      });
+
       it('should use Retry-After delay (not exponential backoff) when connect() encounters 429', async () => {
         // connect() should wait retryAfterMs (60s) not connectionRetryDelay * 2^0 (0ms)
         const slowClient = new MCPConnection({

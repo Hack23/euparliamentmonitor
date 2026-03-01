@@ -321,6 +321,30 @@ export class MCPConnection {
   }
 
   /**
+   * Handle a single connection attempt error: re-throw immediately for non-retriable errors
+   * (e.g. session expiry), increment the attempt counter, and return the delay to wait
+   * before the next attempt. Throws when the maximum attempts have been exhausted.
+   *
+   * @param error - The error from the failed attempt
+   * @returns Delay in milliseconds to wait before the next attempt
+   */
+  private _handleConnectionAttemptError(error: unknown): number {
+    if (error instanceof MCPSessionExpiredError) {
+      throw error;
+    }
+    this.connectionAttempts++;
+    if (this.connectionAttempts >= this.maxConnectionAttempts) {
+      console.error(
+        '❌ Failed to connect to MCP server after',
+        this.maxConnectionAttempts,
+        'attempts'
+      );
+      throw error;
+    }
+    return this._computeConnectionDelay(error, this.connectionAttempts);
+  }
+
+  /**
    * Connect to the MCP server with retry logic
    */
   async connect(): Promise<void> {
@@ -346,21 +370,11 @@ export class MCPConnection {
         this.connectionAttempts = 0; // Reset on success
         return;
       } catch (error) {
-        this.connectionAttempts++;
-        if (this.connectionAttempts < this.maxConnectionAttempts) {
-          const delay = this._computeConnectionDelay(error, this.connectionAttempts);
-          console.warn(
-            `⚠️ Connection attempt ${this.connectionAttempts} failed. Retrying in ${delay}ms...`
-          );
-          await new Promise((resolve) => setTimeout(resolve, delay));
-        } else {
-          console.error(
-            '❌ Failed to connect to MCP server after',
-            this.maxConnectionAttempts,
-            'attempts'
-          );
-          throw error;
-        }
+        const delay = this._handleConnectionAttemptError(error);
+        console.warn(
+          `⚠️ Connection attempt ${this.connectionAttempts} failed. Retrying in ${delay}ms...`
+        );
+        await new Promise((resolve) => setTimeout(resolve, delay));
       }
     }
   }
@@ -569,9 +583,10 @@ export class MCPConnection {
       throw new MCPSessionExpiredError(response.statusText);
     }
     if (response.status === 429) {
-      const retryAfter =
+      const rawRetryAfter =
         response.headers.get(RETRY_AFTER_HEADER) ?? response.headers.get('Retry-After');
-      if (retryAfter) {
+      const retryAfter = (rawRetryAfter ?? '').trim();
+      if (retryAfter !== '') {
         const retryMessage = formatRetryAfter(retryAfter);
         const retryAfterMs = parseRetryAfterMs(retryAfter);
         console.warn(`⏳ ${RATE_LIMIT_MSG} ${retryMessage}`);
