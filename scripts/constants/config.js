@@ -51,7 +51,8 @@ export const APP_VERSION = (() => {
         const pkgJson = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
         return pkgJson.version;
     }
-    catch {
+    catch (err) {
+        console.warn('Failed to read version from package.json:', err);
         return '0.0.0';
     }
 })();
