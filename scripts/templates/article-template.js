@@ -68,7 +68,7 @@ function buildArticleFooterLanguageGrid(currentLang) {
  * @returns Complete HTML document string
  */
 export function generateArticleHTML(options) {
-    const { slug, title, subtitle, date, category, readTime, lang, content, keywords = [], sources = [], } = options;
+    const { slug, title, subtitle, date, category, readTime, lang, content, keywords = [], sources = [], stylesHash, } = options;
     const dir = getTextDirection(lang);
     const year = new Date().getFullYear();
     // Format date for display
@@ -138,7 +138,7 @@ export function generateArticleHTML(options) {
   <meta name="twitter:title" content="${safeTitle}">
   <meta name="twitter:description" content="${safeSubtitle}">
   
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css"${stylesHash ? ` integrity="${stylesHash}" crossorigin="anonymous"` : ''}>
   
   <!-- Schema.org structured data -->
   <script type="application/ld+json">

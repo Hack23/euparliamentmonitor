@@ -106,6 +106,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     content,
     keywords = [],
     sources = [],
+    stylesHash,
   } = options;
 
   const dir = getTextDirection(lang);
@@ -186,7 +187,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta name="twitter:title" content="${safeTitle}">
   <meta name="twitter:description" content="${safeSubtitle}">
   
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css"${stylesHash ? ` integrity="${stylesHash}" crossorigin="anonymous"` : ''}>
   
   <!-- Schema.org structured data -->
   <script type="application/ld+json">

@@ -486,6 +486,19 @@ describe('article-template', () => {
         expect(html).toContain("base-uri 'self'");
         expect(html).toContain("form-action 'none'");
       });
+
+      it('should include SRI integrity attribute on stylesheet when stylesHash is provided', () => {
+        const testHash = 'sha384-abc123testHash';
+        const html = generateArticleHTML({ ...defaultOptions, stylesHash: testHash });
+        expect(html).toContain(`integrity="${testHash}"`);
+        expect(html).toContain('crossorigin="anonymous"');
+      });
+
+      it('should not include integrity attribute on stylesheet when stylesHash is omitted', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).not.toContain('integrity=');
+        expect(html).toContain('<link rel="stylesheet" href="../styles.css">');
+      });
     });
 
     describe('Error Handling', () => {
