@@ -554,10 +554,13 @@ describe('generate-sitemap', () => {
       const rss = generateRssFeed([]);
 
       expect(rss).toContain('<?xml version="1.0" encoding="UTF-8"?>');
+      // REUSE-IgnoreStart
       expect(rss).toContain('SPDX-FileCopyrightText');
       expect(rss).toContain('SPDX-License-Identifier: Apache-2.0');
+      // REUSE-IgnoreEnd
       expect(rss).toContain('<rss version="2.0"');
       expect(rss).toContain('xmlns:atom="http://www.w3.org/2005/Atom"');
+      expect(rss).toContain('xmlns:dc="http://purl.org/dc/elements/1.1/"');
       expect(rss).toContain('<channel>');
       expect(rss).toContain('</channel>');
       expect(rss).toContain('</rss>');
@@ -593,7 +596,7 @@ describe('generate-sitemap', () => {
       expect(rss).toContain('<description>A test</description>');
       expect(rss).toContain('<pubDate>Wed, 15 Jan 2025 00:00:00 GMT</pubDate>');
       expect(rss).toContain('<guid isPermaLink="true">https://euparliamentmonitor.com/news/test.html</guid>');
-      expect(rss).toContain('<language>en</language>');
+      expect(rss).toContain('<dc:language>en</dc:language>');
     });
 
     it('should include multi-language items', () => {
@@ -604,9 +607,9 @@ describe('generate-sitemap', () => {
       ];
       const rss = generateRssFeed(items);
 
-      expect(rss).toContain('<language>en</language>');
-      expect(rss).toContain('<language>sv</language>');
-      expect(rss).toContain('<language>ar</language>');
+      expect(rss).toContain('<dc:language>en</dc:language>');
+      expect(rss).toContain('<dc:language>sv</dc:language>');
+      expect(rss).toContain('<dc:language>ar</dc:language>');
       const itemCount = (rss.match(/<item>/g) || []).length;
       expect(itemCount).toBe(3);
     });

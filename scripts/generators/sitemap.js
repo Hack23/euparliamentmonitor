@@ -12,7 +12,7 @@ import { pathToFileURL } from 'url';
 import { NEWS_DIR, BASE_URL, PROJECT_ROOT } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { getNewsArticles, getModifiedDate, parseArticleFilename, formatSlug, extractArticleMeta, escapeHTML, } from '../utils/file-utils.js';
-/** Docs directory relative to project root */
+/** Absolute docs directory under project root */
 const DOCS_DIR = path.join(PROJECT_ROOT, 'docs');
 /**
  * Recursively collect all HTML files under a directory, returning paths
@@ -262,8 +262,9 @@ function buildSitemapLangSwitcher(currentLang) {
         const flag = getLocalizedString(LANGUAGE_FLAGS, code);
         const name = getLocalizedString(LANGUAGE_NAMES, code);
         const active = code === currentLang ? ' active' : '';
+        const ariaCurrent = code === currentLang ? ' aria-current="page"' : '';
         const href = getSitemapFilename(code);
-        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${name}">${flag} ${code.toUpperCase()}</a>`;
+        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
     }).join('\n        ');
 }
 /**
@@ -458,13 +459,13 @@ export function generateRssFeed(articleInfos) {
       <description>${escapeXML(item.description)}</description>
       <pubDate>${item.pubDate}</pubDate>
       <guid isPermaLink="true">${escapeXML(item.link)}</guid>
-      <language>${escapeXML(item.lang)}</language>
+      <dc:language>${escapeXML(item.lang)}</dc:language>
     </item>`)
         .join('\n');
     return `<?xml version="1.0" encoding="UTF-8"?>
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>EU Parliament Monitor</title>
     <link>${BASE_URL}</link>
@@ -491,17 +492,33 @@ function main() {
     fs.writeFileSync(filepath, sitemap, 'utf-8');
     const totalUrls = articles.length + ALL_LANGUAGES.length + ALL_LANGUAGES.length + docsFiles.length + 1;
     console.log(`✅ Generated sitemap.xml with ${totalUrls} URLs`);
-    // Build article metadata map for sitemap HTML pages and RSS
-    const articleMetaMap = new Map();
+    // Build article metadata map for sitemap HTML pages and RSS,
+    // pre-grouped by language for O(N) iteration
+    const articlesByLang = new Map();
+    const rssItems = [];
+    for (const lang of ALL_LANGUAGES) {
+        articlesByLang.set(lang, []);
+    }
     for (const filename of articles) {
         const parsed = parseArticleFilename(filename);
         if (parsed) {
             const meta = extractArticleMeta(path.join(NEWS_DIR, filename));
-            articleMetaMap.set(filename, {
+            const info = {
                 filename: parsed.filename,
                 date: parsed.date,
                 title: meta.title || formatSlug(parsed.slug),
                 description: meta.description,
+            };
+            const bucket = articlesByLang.get(parsed.lang);
+            if (bucket) {
+                bucket.push(info);
+            }
+            rssItems.push({
+                title: info.title,
+                link: `${BASE_URL}/news/${info.filename}`,
+                description: info.description || info.title,
+                pubDate: new Date(parsed.date).toUTCString(),
+                lang: parsed.lang,
             });
         }
     }
@@ -510,14 +527,7 @@ function main() {
     // Generate sitemap HTML for each language
     let htmlGenerated = 0;
     for (const lang of ALL_LANGUAGES) {
-        // Filter articles for this language
-        const langArticles = [];
-        for (const [, info] of articleMetaMap) {
-            const parsed = parseArticleFilename(info.filename);
-            if (parsed && parsed.lang === lang) {
-                langArticles.push(info);
-            }
-        }
+        const langArticles = articlesByLang.get(lang) || [];
         // Sort newest first
         langArticles.sort((a, b) => b.date.localeCompare(a.date));
         const html = generateSitemapHTML(lang, langArticles, hasDocsDir);
@@ -528,21 +538,7 @@ function main() {
         htmlGenerated++;
     }
     console.log(`✅ Generated ${htmlGenerated} sitemap HTML files`);
-    // Generate RSS feed with all articles across all languages
-    const rssItems = [];
-    for (const [, info] of articleMetaMap) {
-        const parsed = parseArticleFilename(info.filename);
-        if (parsed) {
-            rssItems.push({
-                title: info.title,
-                link: `${BASE_URL}/news/${info.filename}`,
-                description: info.description || info.title,
-                pubDate: new Date(parsed.date).toUTCString(),
-                lang: parsed.lang,
-            });
-        }
-    }
-    // Sort newest first using numeric timestamps
+    // Sort RSS items newest first using numeric timestamps
     rssItems.sort((a, b) => Date.parse(b.pubDate) - Date.parse(a.pubDate));
     const rss = generateRssFeed(rssItems);
     const rssPath = path.join(PROJECT_ROOT, 'rss.xml');
