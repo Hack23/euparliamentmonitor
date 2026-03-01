@@ -1534,4 +1534,21 @@ button:focus-visible {
   .group-badge {
     color: var(--on-secondary);
   }
+
+  /* Two-tone focus indicator for primary-background controls in combined dark
+   * + high-contrast mode. --focus-ring is #ffffff here, so the standard
+   * prefers-contrast: more rule (both shadows become #ffffff) fails to
+   * contrast against the light-blue --primary (#6bb8ff) button background.
+   * Override: dark inner ring (21:1 on #6bb8ff) + white outer ring (21:1 on
+   * near-black --bg #000000), meeting WCAG 2.2 SC 2.4.11. */
+  .back-to-news:focus-visible,
+  .lang-link.active:focus-visible,
+  .skip-link:focus-visible {
+    outline-color: #000000;
+    outline-width: 3px;
+    outline-offset: 3px;
+    box-shadow:
+      0 0 0 1px #000000,
+      0 0 0 4px #ffffff;
+  }
 }
