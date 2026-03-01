@@ -34,7 +34,7 @@ export function collectDocsHtmlFiles(dir, rootDir = PROJECT_ROOT) {
             results.push(...collectDocsHtmlFiles(fullPath, rootDir));
         }
         else if (entry.isFile() && entry.name.endsWith('.html')) {
-            results.push(path.relative(rootDir, fullPath));
+            results.push(path.relative(rootDir, fullPath).replace(/\\/g, '/'));
         }
     }
     return results;
@@ -117,17 +117,19 @@ ${urls
         .join('\n')}
 </urlset>`;
 }
+/** Default sitemap title used as English fallback */
+const DEFAULT_SITEMAP_TITLE = 'Sitemap';
 /** Sitemap page titles per language */
 const SITEMAP_TITLES = {
-    en: 'Sitemap',
+    en: DEFAULT_SITEMAP_TITLE,
     sv: 'Webbplatskarta',
-    da: 'Sitemap',
+    da: DEFAULT_SITEMAP_TITLE,
     no: 'Nettstedskart',
     fi: 'Sivukartta',
     de: 'Seitenübersicht',
     fr: 'Plan du site',
     es: 'Mapa del sitio',
-    nl: 'Sitemap',
+    nl: DEFAULT_SITEMAP_TITLE,
     ar: 'خريطة الموقع',
     he: 'מפת אתר',
     ja: 'サイトマップ',
@@ -279,7 +281,7 @@ function buildSitemapFooterLanguageGrid(currentLang) {
         const name = getLocalizedString(LANGUAGE_NAMES, code);
         const href = getSitemapFilename(code);
         const active = code === currentLang ? ' class="active"' : '';
-        return `<a href="${href}"${active} hreflang="${code}">${flag} ${name}</a>`;
+        return `<a href="${href}"${active} hreflang="${code}">${flag} ${escapeHTML(name)}</a>`;
     }).join('\n            ');
 }
 /**
@@ -293,21 +295,14 @@ function buildSitemapFooterLanguageGrid(currentLang) {
  * @returns Complete HTML document string
  */
 export function generateSitemapHTML(lang, articleInfos, hasDocsDir = false) {
-    const sitemapTitle = SITEMAP_TITLES[lang] ?? SITEMAP_TITLES['en'] ?? 'Sitemap';
+    const sitemapTitle = SITEMAP_TITLES[lang] ?? SITEMAP_TITLES['en'] ?? DEFAULT_SITEMAP_TITLE;
     const pageTitle = `${getLocalizedString(PAGE_TITLES, lang).split(' - ')[0]} - ${sitemapTitle}`;
     const description = getLocalizedString(PAGE_DESCRIPTIONS, lang);
     const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
     const dir = getTextDirection(lang);
     const year = new Date().getFullYear();
-    const sections = SITEMAP_SECTIONS[lang] ??
-        SITEMAP_SECTIONS['en'] ?? { news: 'News Articles', docs: 'Documentation', pages: 'Pages' };
-    const docsLabels = DOCS_LABELS[lang] ??
-        DOCS_LABELS['en'] ?? {
-        api: 'API Documentation',
-        coverage: 'Code Coverage',
-        testResults: 'Test Results',
-        docsHome: 'Documentation Home',
-    };
+    const sections = SITEMAP_SECTIONS[lang] ?? SITEMAP_SECTIONS['en'];
+    const docsLabels = DOCS_LABELS[lang] ?? DOCS_LABELS['en'];
     const heroTitle = getLocalizedString(PAGE_TITLES, lang).split(' - ')[0] ?? '';
     // Pages section
     const pagesSection = ALL_LANGUAGES.map((code) => {
