@@ -89,20 +89,26 @@ const STATS_FALLBACK = '{"stats": null}';
 export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Generic error-safe wrapper around {@link callTool}.
-   * Catches any error thrown by the tool, logs a warning, and returns a fallback payload.
+   * Catches any error thrown by the tool (or by the args factory), logs a warning,
+   * and returns a fallback payload.
+   *
+   * Accepts either a plain args object or a factory function `() => object`.
+   * Using a factory ensures that options normalization/destructuring runs inside
+   * the try/catch so invalid runtime inputs fall back gracefully.
    *
    * @param toolName - MCP tool name
-   * @param args - Tool arguments (typed as `object` to accept any options interface)
+   * @param args - Tool arguments or a factory that builds them
    * @param fallbackText - JSON text to return when the tool is unavailable
    * @returns Tool result or fallback
    */
   private async safeCallTool(
     toolName: string,
-    args: object,
+    args: object | (() => object),
     fallbackText: string
   ): Promise<MCPToolResult> {
     try {
-      return await this.callTool(toolName, args);
+      const resolvedArgs = typeof args === 'function' ? args() : args;
+      return await this.callTool(toolName, resolvedArgs);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.warn(`${toolName} not available:`, message);
@@ -128,15 +134,21 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    * @returns Plenary sessions data
    */
   async getPlenarySessions(options: GetPlenarySessionsOptions = {}): Promise<MCPToolResult> {
-    const { dateFrom, dateTo, ...rest } = options;
-    const normalizedOptions: Record<string, unknown> = { ...rest };
-    if (normalizedOptions['startDate'] === undefined && dateFrom !== undefined) {
-      normalizedOptions['startDate'] = dateFrom;
-    }
-    if (normalizedOptions['endDate'] === undefined && dateTo !== undefined) {
-      normalizedOptions['endDate'] = dateTo;
-    }
-    return this.safeCallTool('get_plenary_sessions', normalizedOptions, '{"sessions": []}');
+    return this.safeCallTool(
+      'get_plenary_sessions',
+      () => {
+        const { dateFrom, dateTo, ...rest } = options;
+        const normalizedOptions: Record<string, unknown> = { ...rest };
+        if (normalizedOptions['startDate'] === undefined && dateFrom !== undefined) {
+          normalizedOptions['startDate'] = dateFrom;
+        }
+        if (normalizedOptions['endDate'] === undefined && dateTo !== undefined) {
+          normalizedOptions['endDate'] = dateTo;
+        }
+        return normalizedOptions;
+      },
+      '{"sessions": []}'
+    );
   }
 
   /**
@@ -146,15 +158,21 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    * @returns Search results
    */
   async searchDocuments(options: SearchDocumentsOptions = {}): Promise<MCPToolResult> {
-    const { keyword, ...rest } = options;
-    const normalizedOptions: Record<string, unknown> = { ...rest };
-    if (normalizedOptions['query'] === undefined && keyword !== undefined) {
-      const trimmed = String(keyword).trim();
-      if (trimmed.length > 0) {
-        normalizedOptions['query'] = trimmed;
-      }
-    }
-    return this.safeCallTool('search_documents', normalizedOptions, DOCUMENTS_FALLBACK);
+    return this.safeCallTool(
+      'search_documents',
+      () => {
+        const { keyword, ...rest } = options;
+        const normalizedOptions: Record<string, unknown> = { ...rest };
+        if (normalizedOptions['query'] === undefined && keyword !== undefined) {
+          const trimmed = String(keyword).trim();
+          if (trimmed.length > 0) {
+            normalizedOptions['query'] = trimmed;
+          }
+        }
+        return normalizedOptions;
+      },
+      DOCUMENTS_FALLBACK
+    );
   }
 
   /**
@@ -168,12 +186,18 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   async getParliamentaryQuestions(
     options: GetParliamentaryQuestionsOptions = {}
   ): Promise<MCPToolResult> {
-    const { dateFrom, dateTo: _dateTo, ...rest } = options;
-    const toolOptions: Record<string, unknown> = { ...rest };
-    if (toolOptions['startDate'] === undefined && dateFrom !== undefined) {
-      toolOptions['startDate'] = dateFrom;
-    }
-    return this.safeCallTool('get_parliamentary_questions', toolOptions, '{"questions": []}');
+    return this.safeCallTool(
+      'get_parliamentary_questions',
+      () => {
+        const { dateFrom, dateTo: _dateTo, ...rest } = options;
+        const toolOptions: Record<string, unknown> = { ...rest };
+        if (toolOptions['startDate'] === undefined && dateFrom !== undefined) {
+          toolOptions['startDate'] = dateFrom;
+        }
+        return toolOptions;
+      },
+      '{"questions": []}'
+    );
   }
 
   /**
