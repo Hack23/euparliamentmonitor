@@ -237,56 +237,85 @@ img {
 .ai-intelligence {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 32px 24px 24px;
-  background: linear-gradient(135deg, var(--primary-light) 0%, #f0f4ff 100%);
-  border-left: 4px solid var(--primary);
-  border-radius: var(--radius-md);
+  padding: 40px 32px 32px;
+  background: linear-gradient(135deg, var(--primary) 0%, #0044aa 60%, #0055cc 100%);
+  border-radius: var(--radius-lg);
   margin-top: 24px;
   margin-bottom: 8px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.ai-intelligence::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 204, 0, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .ai-intelligence h2 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 12px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
 }
 
 .ai-intelligence p {
   font-size: 0.97rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.65;
+  margin-bottom: 12px;
 }
 
 .ai-intelligence__quote {
   font-style: italic;
-  color: var(--text);
+  color: #fff;
   border-left: 3px solid var(--secondary);
-  padding: 12px 16px;
-  margin: 0 0 16px;
-  background: rgba(255, 255, 255, 0.6);
+  padding: 14px 20px;
+  margin: 0 0 20px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
-  line-height: 1.55;
-  font-size: 0.95rem;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  backdrop-filter: blur(4px);
 }
 
 .ai-intelligence__features {
   list-style: none;
   padding: 0;
-  margin: 12px 0 0;
+  margin: 16px 0 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 8px;
+  gap: 10px;
 }
 
 .ai-intelligence__features li {
   font-size: 0.93rem;
-  color: var(--text);
-  padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.7);
+  color: #fff;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-md);
   line-height: 1.5;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.ai-intelligence__features li:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.ai-intelligence__features li strong {
+  color: var(--secondary);
 }
 
 @media (min-width: 768px) {
@@ -889,11 +918,6 @@ img {
   border-right: 4px solid var(--primary);
 }
 
-[dir="rtl"] .ai-intelligence {
-  border-left: none;
-  border-right: 4px solid var(--primary);
-}
-
 [dir="rtl"] .ai-intelligence__quote {
   border-left: none;
   border-right: 3px solid var(--secondary);
@@ -1433,17 +1457,18 @@ button:focus-visible {
   }
 
   .ai-intelligence {
-    background: linear-gradient(135deg, #1e2a4e 0%, #1a1a2e 100%);
-    border-left-color: var(--primary);
+    background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 60%, #142850 100%);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   }
 
   .ai-intelligence__quote {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.06);
     border-left-color: var(--secondary);
   }
 
   .ai-intelligence__features li {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.1);
   }
 }
 

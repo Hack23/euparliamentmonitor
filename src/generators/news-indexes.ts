@@ -23,6 +23,7 @@ import {
   SECTION_HEADINGS,
   NO_ARTICLES_MESSAGES,
   SKIP_LINK_TEXTS,
+  AI_SECTION_CONTENT,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -205,6 +206,8 @@ export function generateIndexHTML(
         .join('\n')}
     </ul>`;
 
+  const ai = getLocalizedString(AI_SECTION_CONTENT, lang);
+
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -246,15 +249,15 @@ export function generateIndexHTML(
     <p class="hero__description">${description}</p>
   </section>
 
-  <section class="ai-intelligence" aria-labelledby="ai-heading"${lang !== 'en' ? ' lang="en"' : ''}>
-    <h2 id="ai-heading"><span aria-hidden="true">🤖</span> AI-Disrupted News Generation &amp; Agentic Intelligence</h2>
-    <blockquote class="ai-intelligence__quote">While traditional newsrooms debate whether AI will replace journalists, EU Parliament Monitor quietly deployed 8 autonomous AI agents that generate investigative political intelligence in 14 languages before most reporters have finished their morning coffee. The future of parliamentary journalism didn&rsquo;t send a memo &mdash; it opened a pull request.</blockquote>
-    <p>The EU Parliament Monitor doesn&rsquo;t just report on European Parliament activity &mdash; it autonomously generates deep political intelligence at machine speed, with editorial quality that would make legacy news desks nervous. Every article is researched, written, localized, and prepared for publication by AI agents that operate by default on live European Parliament data via the <strong>MCP Server</strong> (46 tools, real-time data), with transparent fallback to placeholder data when live access is unavailable.</p>
+  <section class="ai-intelligence" aria-labelledby="ai-heading">
+    <h2 id="ai-heading"><span aria-hidden="true">🤖</span> ${escapeHTML(ai.heading)}</h2>
+    <blockquote class="ai-intelligence__quote">${escapeHTML(ai.quote)}</blockquote>
+    <p>${escapeHTML(ai.description)}</p>
     <ul class="ai-intelligence__features">
-      <li><strong>8 Autonomous AI Agents</strong> &mdash; specialized for news, data, frontend, quality, security, docs, DevOps, and product</li>
-      <li><strong>14 Languages</strong> &mdash; EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH</li>
-      <li><strong>Human-in-the-Loop</strong> &mdash; agents open publication-ready pull requests; publication occurs when a human reviews and merges</li>
-      <li><strong>Live Parliament Data</strong> &mdash; powered by European Parliament Open Data via MCP Server</li>
+      <li><strong>${escapeHTML(ai.featureAgents)}</strong> &mdash; ${escapeHTML(ai.featureAgentsDesc)}</li>
+      <li><strong>${escapeHTML(ai.featureLanguages)}</strong> &mdash; ${escapeHTML(ai.featureLanguagesDesc)}</li>
+      <li><strong>${escapeHTML(ai.featureHuman)}</strong> &mdash; ${escapeHTML(ai.featureHumanDesc)}</li>
+      <li><strong>${escapeHTML(ai.featureData)}</strong> &mdash; ${escapeHTML(ai.featureDataDesc)}</li>
     </ul>
   </section>
 

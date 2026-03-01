@@ -31,7 +31,10 @@ export {
   READ_TIME_LABELS,
   BACK_TO_NEWS_LABELS,
   ARTICLE_NAV_LABELS,
+  AI_SECTION_CONTENT,
 } from './language-ui.js';
+
+export type { AISection } from './language-ui.js';
 
 export {
   WEEK_AHEAD_TITLES,

@@ -393,7 +393,7 @@ describe('generate-news-indexes', () => {
       expect(html).toContain('https://github.com/Hack23/euparliamentmonitor/issues');
     });
 
-    it('should include AI section for all languages', () => {
+    it('should include AI section for all languages with localized content', () => {
       const languages = ['en', 'de', 'fr', 'ar', 'ja'];
 
       languages.forEach((lang) => {
@@ -401,10 +401,29 @@ describe('generate-news-indexes', () => {
         expect(html).toContain('<section class="ai-intelligence"');
         expect(html).toContain('ai-intelligence__quote');
         expect(html).toContain('ai-intelligence__features');
-        if (lang !== 'en') {
-          expect(html).toContain('lang="en"');
-        }
       });
+    });
+
+    it('should not include lang="en" override on AI section for non-English pages', () => {
+      const html = generateIndexHTML('de', []);
+      const aiSection = html.match(/<section class="ai-intelligence"[^>]*>/);
+      expect(aiSection).not.toBeNull();
+      expect(aiSection[0]).not.toContain('lang="en"');
+    });
+
+    it('should contain German localized AI heading on German page', () => {
+      const html = generateIndexHTML('de', []);
+      expect(html).toContain('KI-gest');
+    });
+
+    it('should contain Japanese localized AI heading on Japanese page', () => {
+      const html = generateIndexHTML('ja', []);
+      expect(html).toContain('AI駆動');
+    });
+
+    it('should contain Arabic localized AI heading on Arabic page', () => {
+      const html = generateIndexHTML('ar', []);
+      expect(html).toContain('استخبارات برلمانية');
     });
 
     it('should generate valid HTML with AI section', () => {
