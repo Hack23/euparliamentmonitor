@@ -20,9 +20,12 @@ e2e/
 │   ├── homepage.spec.js           # Homepage functionality tests
 │   ├── news-browsing.spec.js      # Article browsing and reading
 │   ├── navigation.spec.js         # Site navigation tests
-│   ├── multi-language.spec.js     # Multi-language support tests
+│   ├── multi-language.spec.js     # Multi-language support tests (all 14 languages)
 │   ├── accessibility.spec.js      # WCAG 2.1 AA compliance tests
-│   └── responsive.spec.js         # Responsive design tests
+│   ├── responsive.spec.js         # Responsive design tests
+│   ├── rss-feed.spec.js           # RSS 2.0 feed validation tests
+│   ├── sitemap.spec.js            # Sitemap XML and HTML validation tests
+│   └── seo-metadata.spec.js       # SEO meta tags and Open Graph validation
 ├── fixtures/                      # Test data (future)
 ├── helpers/                       # Test utilities (future)
 └── README.md                      # This file
@@ -171,6 +174,48 @@ Tests responsive design:
 - ✅ Content stacking on mobile
 - ✅ Responsive images
 - ✅ Text resizing support
+
+### 7. RSS Feed Tests (`rss-feed.spec.js`)
+
+Tests RSS 2.0 feed validity:
+
+- ✅ Feed loads successfully (HTTP 200)
+- ✅ Valid RSS 2.0 root element with version attribute
+- ✅ Required channel elements (title, link, description)
+- ✅ Dublin Core namespace for per-item language tags
+- ✅ Items present with required elements (title, pubDate, guid)
+- ✅ dc:language tags on items
+- ✅ Multi-language article coverage
+- ✅ Atom self-link for feed discovery
+- ✅ lastBuildDate element
+
+### 8. Sitemap Tests (`sitemap.spec.js`)
+
+Tests sitemap completeness and validity:
+
+- ✅ sitemap.xml loads when available (graceful skip if not generated)
+- ✅ Valid XML urlset structure with sitemaps.org namespace
+- ✅ Article URLs present in sitemap
+- ✅ More than 50 URL entries
+- ✅ RSS feed URL listed in sitemap
+- ✅ All 14 language HTML sitemap pages load successfully
+- ✅ Correct lang attribute on each language sitemap page
+- ✅ RTL direction for Arabic and Hebrew sitemap pages
+- ✅ Language navigation in HTML sitemaps
+
+### 9. SEO Metadata Tests (`seo-metadata.spec.js`)
+
+Tests SEO metadata completeness on articles:
+
+- ✅ Open Graph title, description, type (article), locale, site_name
+- ✅ Twitter Card meta tags (card, title, description)
+- ✅ Standard meta tags (description, keywords, author)
+- ✅ Schema.org JSON-LD structured data (valid JSON)
+- ✅ Page title includes site name
+- ✅ Charset UTF-8
+- ✅ Viewport meta tag
+- ✅ Multi-language og:locale correctness
+- ✅ RTL direction for Arabic and Hebrew articles
 
 ## Writing E2E Tests
 
@@ -450,7 +495,7 @@ When adding new features:
 
 ---
 
-**Last Updated**: February 2025  
+**Last Updated**: March 2026  
 **Framework**: Playwright 1.58+  
-**Test Count**: 60+ E2E tests  
-**Coverage**: Homepage, Navigation, Multi-language, Accessibility, Responsive
+**Test Count**: 90+ E2E tests  
+**Coverage**: Homepage, Navigation, Multi-language (14 languages), Accessibility, Responsive, RSS Feed, Sitemap, SEO Metadata
