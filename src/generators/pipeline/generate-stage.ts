@@ -20,7 +20,8 @@ import {
   formatDateForSlug,
   validateArticleHTML,
 } from '../../utils/file-utils.js';
-import type { ArticleStrategy, ArticleData } from '../strategies/article-strategy.js';
+import type { ArticleStrategyBase, ArticleData } from '../strategies/article-strategy.js';
+import { validateArticleContent } from '../../utils/content-validator.js';
 import { weekAheadStrategy } from '../strategies/week-ahead-strategy.js';
 import { breakingNewsStrategy } from '../strategies/breaking-news-strategy.js';
 import { committeeReportsStrategy } from '../strategies/committee-reports-strategy.js';
@@ -35,52 +36,28 @@ import { writeSingleArticle } from './output-stage.js';
 // ─── Registry ────────────────────────────────────────────────────────────────
 
 /** Map from {@link ArticleCategory} to its registered strategy */
-export type StrategyRegistry = Map<ArticleCategory, ArticleStrategy<ArticleData>>;
+export type StrategyRegistry = Map<ArticleCategory, ArticleStrategyBase>;
 
 /**
  * Build the default strategy registry containing all built-in strategies.
  *
- * Each concrete strategy implements `ArticleStrategy<ConcreteData>` where
- * `ConcreteData` extends `ArticleData`.  TypeScript's invariant generic
- * parameter means the concrete type is not directly assignable to the base
- * `ArticleStrategy<ArticleData>` without a boundary cast; the
- * `as unknown as ArticleStrategy<ArticleData>` casts below are therefore
- * intentional and safe — the registry delegates back to each strategy's own
- * typed `fetchData`/`buildContent`/`getMetadata` methods at call-site.
+ * Each concrete strategy implements `ArticleStrategy<ConcreteData>` which
+ * extends `ArticleStrategyBase`.  Because TypeScript's method-parameter
+ * checking is bivariant, a strategy whose methods accept a narrower `TData`
+ * is structurally assignable to `ArticleStrategyBase` without any cast.
  *
  * @returns A populated registry ready for use by {@link generateArticleForStrategy}
  */
 export function createStrategyRegistry(): StrategyRegistry {
   const registry: StrategyRegistry = new Map();
-  registry.set(
-    ArticleCategory.WEEK_AHEAD,
-    weekAheadStrategy as unknown as ArticleStrategy<ArticleData>
-  );
-  registry.set(
-    ArticleCategory.BREAKING_NEWS,
-    breakingNewsStrategy as unknown as ArticleStrategy<ArticleData>
-  );
-  registry.set(
-    ArticleCategory.COMMITTEE_REPORTS,
-    committeeReportsStrategy as unknown as ArticleStrategy<ArticleData>
-  );
-  registry.set(
-    ArticleCategory.PROPOSITIONS,
-    propositionsStrategy as unknown as ArticleStrategy<ArticleData>
-  );
-  registry.set(ArticleCategory.MOTIONS, motionsStrategy as unknown as ArticleStrategy<ArticleData>);
-  registry.set(
-    ArticleCategory.MONTH_AHEAD,
-    monthAheadStrategy as unknown as ArticleStrategy<ArticleData>
-  );
-  registry.set(
-    ArticleCategory.WEEK_IN_REVIEW,
-    weeklyReviewStrategy as unknown as ArticleStrategy<ArticleData>
-  );
-  registry.set(
-    ArticleCategory.MONTH_IN_REVIEW,
-    monthlyReviewStrategy as unknown as ArticleStrategy<ArticleData>
-  );
+  registry.set(ArticleCategory.WEEK_AHEAD, weekAheadStrategy);
+  registry.set(ArticleCategory.BREAKING_NEWS, breakingNewsStrategy);
+  registry.set(ArticleCategory.COMMITTEE_REPORTS, committeeReportsStrategy);
+  registry.set(ArticleCategory.PROPOSITIONS, propositionsStrategy);
+  registry.set(ArticleCategory.MOTIONS, motionsStrategy);
+  registry.set(ArticleCategory.MONTH_AHEAD, monthAheadStrategy);
+  registry.set(ArticleCategory.WEEK_IN_REVIEW, weeklyReviewStrategy);
+  registry.set(ArticleCategory.MONTH_IN_REVIEW, monthlyReviewStrategy);
   return registry;
 }
 
@@ -126,7 +103,7 @@ function getIsoDatePart(date: Date): string {
  * @returns true if a file was written
  */
 function generateSingleLanguageArticle(
-  strategy: ArticleStrategy<ArticleData>,
+  strategy: ArticleStrategyBase,
   data: ArticleData,
   lang: LanguageCode,
   dateStr: string,
@@ -162,6 +139,19 @@ function generateSingleLanguageArticle(
     return false;
   }
 
+  // Validate content quality (word count, placeholders, required elements)
+  const contentValidation = validateArticleContent(html, lang, strategy.type);
+  if (!contentValidation.valid) {
+    console.error(
+      `  ❌ ${lang.toUpperCase()} article failed content validation: ${contentValidation.errors.join('; ')}`
+    );
+    stats.errors++;
+    return false;
+  }
+  for (const warning of contentValidation.warnings) {
+    console.warn(`  ⚠️  ${lang.toUpperCase()} content warning: ${warning}`);
+  }
+
   if (writeSingleArticle(html, slug, lang, outputOptions, stats)) {
     console.log(`  ✅ ${lang.toUpperCase()} version generated`);
     return true;
@@ -186,7 +176,7 @@ function generateSingleLanguageArticle(
  * @returns Generation result with success flag, file count and slug
  */
 export async function generateArticleForStrategy(
-  strategy: ArticleStrategy<ArticleData>,
+  strategy: ArticleStrategyBase,
   client: EuropeanParliamentMCPClient | null,
   languages: ReadonlyArray<LanguageCode>,
   outputOptions: OutputOptions,

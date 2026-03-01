@@ -739,25 +739,27 @@ GitHub Pages provides the following default security headers:
 **HTML Meta Tags (Implemented):**
 
 The generated HTML pages include no inline JavaScript and no external scripts,
-which provides inherent XSS protection without requiring a CSP header.
+which provides inherent XSS protection. A Content-Security-Policy meta tag is
+also emitted in every generated article page.
 
-**Security Headers Not Currently Configured:**
+**Implemented Security Meta Tags:**
 
-- `Content-Security-Policy` - Not set (no custom CSP via meta tags yet)
-- `X-Frame-Options` - Relies on GitHub Pages defaults
-- `Referrer-Policy` - Not explicitly set; external links use
-  `rel="noopener noreferrer"`
-
-**Future Enhancement**: Custom CSP meta tags with strict `script-src 'none'`
-policy to formally enforce the no-JavaScript architecture:
+- `Content-Security-Policy` - Emitted in every article page via `article-template.ts`:
 
 ```html
 <meta http-equiv="Content-Security-Policy"
-  content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-ancestors 'none'; form-action 'none'">
+  content="default-src 'none'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
 ```
 
-**Note**: Since the site contains no JavaScript whatsoever, the primary XSS
-defense is architectural (no scripts to execute) rather than header-based.
+- `X-Content-Type-Options: nosniff` - Emitted in every article page
+- `Referrer-Policy: no-referrer` - Emitted in every article page
+- `X-Frame-Options` - Relies on GitHub Pages defaults
+
+**Policy decisions:**
+- `script-src 'none'` — static site has no JavaScript; JSON-LD `type="application/ld+json"` is CSP-exempt
+- `style-src 'unsafe-inline'` — required for existing inline styles in article content
+- `img-src 'self' https: data:` — permits EU Parliament remote images and data URIs
+- `connect-src 'none'`, `frame-src 'none'`, `form-action 'none'` — hard deny on outbound connectivity and embedding
 
 ### Application Security
 
@@ -2049,9 +2051,9 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 X-Content-Type-Options: nosniff
 ```
 
-**Note**: HSTS and nosniff are provided by GitHub Pages. Additional security
-headers (CSP, X-Frame-Options, Permissions-Policy) are planned as future
-enhancements via HTML meta tags.
+**Note**: HSTS and nosniff are provided by GitHub Pages. CSP is implemented
+via HTML meta tags in article pages. X-Frame-Options and Permissions-Policy
+are planned as future enhancements.
 
 **Network Controls:**
 

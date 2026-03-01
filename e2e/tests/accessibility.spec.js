@@ -3,6 +3,7 @@
 
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
 
 /**
  * Accessibility E2E Tests
@@ -15,6 +16,41 @@ import AxeBuilder from '@axe-core/playwright';
  * - Color contrast
  * - Form accessibility
  */
+
+/**
+ * Non-English language codes (English is covered by the standalone 'Accessibility' suite).
+ * Other languages use /index-{lang}.html.
+ */
+const NON_ENGLISH_LANGUAGES = ALL_LANGUAGES.filter((lang) => lang !== 'en');
+
+test.describe('Multi-language index accessibility (WCAG 2.1 AA)', () => {
+  for (const lang of NON_ENGLISH_LANGUAGES) {
+    const url = `/index-${lang}.html`;
+
+    test(`${lang} index page should be WCAG 2.1 AA compliant`, async ({ page }) => {
+      const response = await page.goto(url);
+      expect(response, `Failed to load ${url} for language '${lang}'`).not.toBeNull();
+      expect(
+        response.ok(),
+        `Non-OK HTTP status ${response && response.status()} for ${url} (lang='${lang}')`
+      ).toBeTruthy();
+      await page.waitForLoadState('networkidle');
+
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+        .analyze();
+
+      if (accessibilityScanResults.violations.length > 0) {
+        console.log(
+          `[${lang}] Accessibility violations:`,
+          JSON.stringify(accessibilityScanResults.violations, null, 2)
+        );
+      }
+
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+  }
+});
 
 test.describe('Accessibility', () => {
   test('homepage should be accessible', async ({ page }) => {

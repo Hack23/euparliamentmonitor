@@ -219,6 +219,29 @@ jobs:
           echo "🔍 Validating generated HTML..."
           npm run htmlhint || echo "HTML validation completed"
 
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+      - name: Install Playwright OS dependencies
+        run: npx playwright install-deps chromium
+
+      - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install chromium
+
+      - name: Run accessibility tests (WCAG 2.1 AA)
+        run: |
+          echo "♿ Running WCAG 2.1 AA accessibility tests..."
+          npm run test:e2e -- e2e/tests/accessibility.spec.js
+        env:
+          CI: true
+
       - name: Upload test artifacts
         if: always()
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v6.0.0
@@ -229,6 +252,85 @@ jobs:
             index-*.html
             sitemap.xml
           if-no-files-found: warn
+
+      - name: Upload accessibility report
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v6.0.0
+        with:
+          name: accessibility-report
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: warn
+          retention-days: 30
+
+  performance:
+    name: Performance Testing
+    needs: [prepare, validation]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      GENERATION_BUDGET_MS: 30000
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@a90bcbc6539c36a85cdfeb73f7e2f433735f215b # v2.15.0
+        with:
+          egress-policy: audit
+
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v4.3.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Cache dependencies
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build TypeScript
+        run: npm run build
+
+      - name: News generation benchmark
+        env:
+          USE_EP_MCP: false
+        run: |
+          echo "⏱️ Benchmarking article generation time..."
+          START=$(date +%s%N)
+          npm run generate-news -- --types=week-ahead --languages=en
+          END=$(date +%s%N)
+          DURATION=$(( ($END - $START) / 1000000 ))
+          echo "Generation time: ${DURATION}ms"
+          if [ $DURATION -gt $GENERATION_BUDGET_MS ]; then
+            echo "::warning::Article generation exceeded ${GENERATION_BUDGET_MS}ms budget (${DURATION}ms)"
+          else
+            echo "✅ Article generation within ${GENERATION_BUDGET_MS}ms budget (${DURATION}ms)"
+          fi
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@0.15.1
+
+      - name: Run Lighthouse CI
+        run: lhci autorun
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v6.0.0
+        with:
+          name: lighthouse-reports
+          path: test-results/lighthouse-reports/
+          if-no-files-found: warn
+          retention-days: 14
 
   security-check:
     name: Security Check
@@ -314,7 +416,7 @@ jobs:
 
   report:
     name: Generate Report
-    needs: [validation, functional-tests, security-check]
+    needs: [validation, functional-tests, security-check, performance]
     runs-on: ubuntu-latest
     if: always()
     permissions:
@@ -339,14 +441,20 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           
           echo "## Results" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Code validation: ${{ needs.validation.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Functional tests: ${{ needs.functional-tests.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Security check: ${{ needs.security-check.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Code validation: ${{ needs.validation.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Functional tests: ${{ needs.functional-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Security check: ${{ needs.security-check.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Performance testing: ${{ needs.performance.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Accessibility" >> $GITHUB_STEP_SUMMARY
+          echo "- ♿ WCAG 2.1 AA accessibility tests run as part of functional-tests job" >> $GITHUB_STEP_SUMMARY
+          echo "- 📊 [Accessibility report artifact](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}#artifacts)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
           if [ "${{ needs.validation.result }}" == "success" ] && \
              [ "${{ needs.functional-tests.result }}" == "success" ] && \
-             [ "${{ needs.security-check.result }}" == "success" ]; then
+             [ "${{ needs.security-check.result }}" == "success" ] && \
+             [ "${{ needs.performance.result }}" == "success" ]; then
             echo "✅ **All checks passed!**" >> $GITHUB_STEP_SUMMARY
           else
             echo "⚠️ **Some checks failed. Please review the logs.**" >> $GITHUB_STEP_SUMMARY

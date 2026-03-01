@@ -82,7 +82,7 @@ SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
-path = "robots.txt"
+path = "**.txt"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
 SPDX-License-Identifier = "Apache-2.0"
@@ -92,3 +92,4 @@ path = "LICENSE"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
 SPDX-License-Identifier = "Apache-2.0"
+
