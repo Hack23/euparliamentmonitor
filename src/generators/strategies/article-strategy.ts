@@ -41,6 +41,47 @@ export interface ArticleMetadata {
 }
 
 /**
+ * Non-generic base interface for {@link ArticleStrategy} used by the strategy
+ * registry.  Expresses the common operations with {@link ArticleData} as the
+ * data payload type so that concrete strategies parameterised on a subtype can
+ * be stored in a single {@link StrategyRegistry} map without unsafe casts.
+ *
+ * TypeScript's bivariant method-parameter checking ensures that a concrete
+ * strategy whose methods accept a narrower `TData` still satisfies this
+ * interface structurally.
+ */
+export interface ArticleStrategyBase {
+  /** The article category this strategy handles */
+  readonly type: ArticleCategory;
+  /** Names of MCP tools this strategy calls */
+  readonly requiredMCPTools: readonly string[];
+  /**
+   * Fetch all domain data needed to render this article type.
+   *
+   * @param client - Connected MCP client, or null when MCP is unavailable
+   * @param date - ISO 8601 publication date (YYYY-MM-DD)
+   * @returns Populated article data payload
+   */
+  fetchData(client: EuropeanParliamentMCPClient | null, date: string): Promise<ArticleData>;
+  /**
+   * Build the article HTML body for the given language.
+   *
+   * @param data - Data payload returned by {@link fetchData}
+   * @param lang - Target language code
+   * @returns Article body HTML string
+   */
+  buildContent(data: ArticleData, lang: LanguageCode): string;
+  /**
+   * Return title, subtitle, keywords, and sources for the given language.
+   *
+   * @param data - Data payload returned by {@link fetchData}
+   * @param lang - Target language code
+   * @returns Article metadata
+   */
+  getMetadata(data: ArticleData, lang: LanguageCode): ArticleMetadata;
+}
+
+/**
  * Strategy interface for article generation.
  *
  * Each concrete implementation handles one {@link ArticleCategory}:
@@ -52,11 +93,7 @@ export interface ArticleMetadata {
  *
  * @template TData - Concrete data payload type returned by {@link fetchData}
  */
-export interface ArticleStrategy<TData extends ArticleData = ArticleData> {
-  /** The article category this strategy handles */
-  readonly type: ArticleCategory;
-  /** Names of MCP tools this strategy calls */
-  readonly requiredMCPTools: readonly string[];
+export interface ArticleStrategy<TData extends ArticleData = ArticleData> extends ArticleStrategyBase {
   /**
    * Fetch all domain data needed to render this article type.
    *
