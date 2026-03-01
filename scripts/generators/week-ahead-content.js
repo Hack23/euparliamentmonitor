@@ -25,6 +25,32 @@ export const PLACEHOLDER_EVENTS = [
     },
 ];
 /**
+ * Generic parser for settled MCP results.
+ * Extracts an array from the JSON payload at the given key and maps each element.
+ *
+ * @param settled - Promise.allSettled result
+ * @param key - JSON key containing the array of items
+ * @param mapper - Function to map raw items to typed objects
+ * @returns Array of typed objects, or empty array on failure
+ */
+function parseSettledMCPResult(settled, key, mapper) {
+    if (settled.status !== 'fulfilled')
+        return [];
+    try {
+        const data = JSON.parse(settled.value.content?.[0]?.text ?? '{}');
+        if (!Object.hasOwn(data, key))
+            return [];
+        // eslint-disable-next-line security/detect-object-injection
+        const items = data[key];
+        if (!Array.isArray(items))
+            return [];
+        return items.map(mapper);
+    }
+    catch {
+        return [];
+    }
+}
+/**
  * Parse plenary sessions from a settled MCP result
  *
  * @param settled - Promise.allSettled result
@@ -32,23 +58,12 @@ export const PLACEHOLDER_EVENTS = [
  * @returns Array of parliament events
  */
 export function parsePlenarySessions(settled, fallbackDate) {
-    if (settled.status !== 'fulfilled')
-        return [];
-    try {
-        const text = settled.value.content?.[0]?.text ?? '{}';
-        const data = JSON.parse(text);
-        if (!data.sessions || data.sessions.length === 0)
-            return [];
-        return data.sessions.map((s) => ({
-            date: s.date ?? fallbackDate,
-            title: s.title ?? 'Parliamentary Session',
-            type: s.type ?? 'Session',
-            description: s.description ?? '',
-        }));
-    }
-    catch {
-        return [];
-    }
+    return parseSettledMCPResult(settled, 'sessions', (s) => ({
+        date: s.date ?? fallbackDate,
+        title: s.title ?? 'Parliamentary Session',
+        type: s.type ?? 'Session',
+        description: s.description ?? '',
+    }));
 }
 /**
  * Parse EP events (hearings, conferences, seminars) from a settled MCP result
@@ -58,23 +73,12 @@ export function parsePlenarySessions(settled, fallbackDate) {
  * @returns Array of parliament events
  */
 export function parseEPEvents(settled, fallbackDate) {
-    if (settled.status !== 'fulfilled')
-        return [];
-    try {
-        const text = settled.value.content?.[0]?.text ?? '{}';
-        const data = JSON.parse(text);
-        if (!data.events || data.events.length === 0)
-            return [];
-        return data.events.map((e) => ({
-            date: e.date ?? fallbackDate,
-            title: e.title ?? 'EP Event',
-            type: e.type ?? 'Event',
-            description: e.description ?? '',
-        }));
-    }
-    catch {
-        return [];
-    }
+    return parseSettledMCPResult(settled, 'events', (e) => ({
+        date: e.date ?? fallbackDate,
+        title: e.title ?? 'EP Event',
+        type: e.type ?? 'Event',
+        description: e.description ?? '',
+    }));
 }
 /**
  * Parse committee meetings from a settled MCP result
@@ -84,30 +88,19 @@ export function parseEPEvents(settled, fallbackDate) {
  * @returns Array of committee meetings
  */
 export function parseCommitteeMeetings(settled, fallbackDate) {
-    if (settled.status !== 'fulfilled')
-        return [];
-    try {
-        const text = settled.value.content?.[0]?.text ?? '{}';
-        const data = JSON.parse(text);
-        if (!data.committees || data.committees.length === 0)
-            return [];
-        return data.committees.map((c) => ({
-            id: c.id,
-            committee: c.committee ?? 'Unknown',
-            committeeName: c.committeeName,
-            date: c.date ?? fallbackDate ?? '',
-            time: c.time,
-            location: c.location,
-            agenda: c.agenda?.map((a) => ({
-                item: a.item,
-                title: a.title ?? '',
-                type: a.type,
-            })),
-        }));
-    }
-    catch {
-        return [];
-    }
+    return parseSettledMCPResult(settled, 'committees', (c) => ({
+        id: c.id,
+        committee: c.committee ?? 'Unknown',
+        committeeName: c.committeeName,
+        date: c.date ?? fallbackDate ?? '',
+        time: c.time,
+        location: c.location,
+        agenda: c.agenda?.map((a) => ({
+            item: a.item,
+            title: a.title ?? '',
+            type: a.type,
+        })),
+    }));
 }
 /**
  * Parse legislative documents from a settled MCP result
@@ -116,26 +109,15 @@ export function parseCommitteeMeetings(settled, fallbackDate) {
  * @returns Array of legislative documents
  */
 export function parseLegislativeDocuments(settled) {
-    if (settled.status !== 'fulfilled')
-        return [];
-    try {
-        const text = settled.value.content?.[0]?.text ?? '{}';
-        const data = JSON.parse(text);
-        if (!data.documents || data.documents.length === 0)
-            return [];
-        return data.documents.map((d) => ({
-            id: d.id,
-            type: d.type,
-            title: d.title ?? 'Untitled Document',
-            date: d.date,
-            status: d.status,
-            committee: d.committee,
-            rapporteur: d.rapporteur,
-        }));
-    }
-    catch {
-        return [];
-    }
+    return parseSettledMCPResult(settled, 'documents', (d) => ({
+        id: d.id,
+        type: d.type,
+        title: d.title ?? 'Untitled Document',
+        date: d.date,
+        status: d.status,
+        committee: d.committee,
+        rapporteur: d.rapporteur,
+    }));
 }
 /**
  * Parse legislative pipeline from a settled MCP result
@@ -144,25 +126,14 @@ export function parseLegislativeDocuments(settled) {
  * @returns Array of legislative procedures
  */
 export function parseLegislativePipeline(settled) {
-    if (settled.status !== 'fulfilled')
-        return [];
-    try {
-        const text = settled.value.content?.[0]?.text ?? '{}';
-        const data = JSON.parse(text);
-        if (!data.procedures || data.procedures.length === 0)
-            return [];
-        return data.procedures.map((p) => ({
-            id: p.id,
-            title: p.title ?? 'Unnamed Procedure',
-            stage: p.stage,
-            committee: p.committee,
-            status: p.status,
-            bottleneck: p.bottleneck,
-        }));
-    }
-    catch {
-        return [];
-    }
+    return parseSettledMCPResult(settled, 'procedures', (p) => ({
+        id: p.id,
+        title: p.title ?? 'Unnamed Procedure',
+        stage: p.stage,
+        committee: p.committee,
+        status: p.status,
+        bottleneck: p.bottleneck,
+    }));
 }
 /**
  * Parse parliamentary questions from a settled MCP result
@@ -171,25 +142,14 @@ export function parseLegislativePipeline(settled) {
  * @returns Array of parliamentary questions
  */
 export function parseParliamentaryQuestions(settled) {
-    if (settled.status !== 'fulfilled')
-        return [];
-    try {
-        const text = settled.value.content?.[0]?.text ?? '{}';
-        const data = JSON.parse(text);
-        if (!data.questions || data.questions.length === 0)
-            return [];
-        return data.questions.map((q) => ({
-            id: q.id,
-            type: q.type,
-            author: q.author,
-            subject: q.subject ?? 'No subject',
-            date: q.date,
-            status: q.status,
-        }));
-    }
-    catch {
-        return [];
-    }
+    return parseSettledMCPResult(settled, 'questions', (q) => ({
+        id: q.id,
+        type: q.type,
+        author: q.author,
+        subject: q.subject ?? 'No subject',
+        date: q.date,
+        status: q.status,
+    }));
 }
 // ─── Render helpers ──────────────────────────────────────────────────────────
 /**
