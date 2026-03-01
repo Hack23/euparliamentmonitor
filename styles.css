@@ -1467,6 +1467,19 @@ button:focus-visible {
   .group-badge {
     outline: 2px solid var(--border);
   }
+
+  /* Reset .key-findings to use tokenized colors so the 1px border has
+   * sufficient contrast against --bg (#ffffff). --secondary-dark (#CC9900)
+   * gives only ~2.4:1 on white; --border (#000000) gives 21:1. */
+  .key-findings {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-left: 5px solid var(--secondary);
+  }
+
+  .key-findings__title {
+    color: var(--text);
+  }
 }
 
 /* ─── High Contrast Dark Mode Combined Override ──────────────────── */
