@@ -15,7 +15,11 @@ import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
 import { ArticleCategory } from '../../types/index.js';
 import type { LanguageCode, GenerationStats, GenerationResult } from '../../types/index.js';
 import { generateArticleHTML } from '../../templates/article-template.js';
-import { calculateReadTime, formatDateForSlug } from '../../utils/file-utils.js';
+import {
+  calculateReadTime,
+  formatDateForSlug,
+  validateArticleHTML,
+} from '../../utils/file-utils.js';
 import type { ArticleStrategy, ArticleData } from '../strategies/article-strategy.js';
 import { weekAheadStrategy } from '../strategies/week-ahead-strategy.js';
 import { breakingNewsStrategy } from '../strategies/breaking-news-strategy.js';
@@ -109,6 +113,62 @@ function getIsoDatePart(date: Date): string {
   return parts[0];
 }
 
+/**
+ * Generate, validate and write a single language version of an article.
+ *
+ * @param strategy - Article strategy providing content and metadata
+ * @param data - Fetched article data
+ * @param lang - Target language code
+ * @param dateStr - ISO date string
+ * @param slug - File slug (date-type)
+ * @param outputOptions - Output configuration
+ * @param stats - Mutable generation stats
+ * @returns true if a file was written
+ */
+function generateSingleLanguageArticle(
+  strategy: ArticleStrategy<ArticleData>,
+  data: ArticleData,
+  lang: LanguageCode,
+  dateStr: string,
+  slug: string,
+  outputOptions: OutputOptions,
+  stats: GenerationStats
+): boolean {
+  console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
+
+  const content = strategy.buildContent(data, lang);
+  const metadata = strategy.getMetadata(data, lang);
+
+  const html = generateArticleHTML({
+    slug: strategy.type,
+    title: metadata.title,
+    subtitle: metadata.subtitle,
+    date: dateStr,
+    category: metadata.category,
+    readTime: calculateReadTime(content),
+    lang,
+    content,
+    keywords: [...metadata.keywords],
+    sources: metadata.sources ? [...metadata.sources] : [],
+  });
+
+  // Validate generated HTML has all required structural elements
+  const validation = validateArticleHTML(html);
+  if (!validation.valid) {
+    console.error(
+      `  ❌ ${lang.toUpperCase()} article failed validation: ${validation.errors.join('; ')}`
+    );
+    stats.errors++;
+    return false;
+  }
+
+  if (writeSingleArticle(html, slug, lang, outputOptions, stats)) {
+    console.log(`  ✅ ${lang.toUpperCase()} version generated`);
+    return true;
+  }
+  return false;
+}
+
 // ─── Generation orchestrator ──────────────────────────────────────────────────
 
 /**
@@ -144,27 +204,10 @@ export async function generateArticleForStrategy(
 
     let writtenCount = 0;
     for (const lang of languages) {
-      console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
-
-      const content = strategy.buildContent(data, lang);
-      const metadata = strategy.getMetadata(data, lang);
-
-      const html = generateArticleHTML({
-        slug: strategy.type,
-        title: metadata.title,
-        subtitle: metadata.subtitle,
-        date: dateStr,
-        category: metadata.category,
-        readTime: calculateReadTime(content),
-        lang,
-        content,
-        keywords: [...metadata.keywords],
-        sources: metadata.sources ? [...metadata.sources] : [],
-      });
-
-      if (writeSingleArticle(html, slug, lang, outputOptions, stats)) {
+      if (
+        generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outputOptions, stats)
+      ) {
         writtenCount++;
-        console.log(`  ✅ ${lang.toUpperCase()} version generated`);
       }
     }
 

@@ -11,6 +11,7 @@
     "generate-news": "node scripts/generators/news-enhanced.js",
     "generate-news-indexes": "node scripts/generators/news-indexes.js",
     "generate-sitemap": "node scripts/generators/sitemap.js",
+    "fix-articles": "npx tsx src/utils/fix-articles.ts",
     "htmlhint": "sh -c 'htmlhint *.html; set -- news/*.html; if [ -e \"$1\" ]; then htmlhint \"$@\"; else echo \"No news/*.html files to lint\"; fi'",
     "serve": "python3 -m http.server 8080",
     "test": "vitest run",
