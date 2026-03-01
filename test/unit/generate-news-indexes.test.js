@@ -374,8 +374,10 @@ describe('generate-news-indexes', () => {
       const html = generateIndexHTML('en', []);
 
       expect(html).toContain('ai-intelligence__features');
-      const featureItems = html.match(/<li>/g) || [];
-      expect(featureItems.length).toBeGreaterThanOrEqual(4);
+      const featuresMatch = html.match(/<ul class="ai-intelligence__features">([\s\S]*?)<\/ul>/);
+      expect(featuresMatch).not.toBeNull();
+      const featureItems = featuresMatch[1].match(/<li>/g) || [];
+      expect(featureItems.length).toBe(4);
     });
 
     it('should include app version in footer', () => {
