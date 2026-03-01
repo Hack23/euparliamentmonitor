@@ -68,10 +68,11 @@ test.describe('RSS Feed', () => {
     const response = await request.get('/rss.xml');
     const text = await response.text();
 
-    // Verify item structure includes title, link, description, pubDate, and guid
-    expect(text).toContain('<title>');
-    expect(text).toContain('<link>');
-    expect(text).toContain('<description>');
+    // Verify there is at least one item title in addition to the channel title
+    const titleCount = (text.match(/<title>/g) ?? []).length;
+    expect(titleCount).toBeGreaterThan(1);
+
+    // Verify item-specific elements (not shared with channel metadata)
     expect(text).toContain('<pubDate>');
     expect(text).toContain('<guid');
   });
