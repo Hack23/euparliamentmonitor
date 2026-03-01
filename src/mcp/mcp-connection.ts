@@ -62,6 +62,40 @@ export class MCPSessionExpiredError extends Error {
 }
 
 /**
+ * Typed error thrown when the MCP gateway returns 429 (rate limited).
+ * Carries the parsed `retryAfterMs` delay so callers can honour the back-off period.
+ * `retryAfterMs` is 0 when no Retry-After / X-Retry-After header was present.
+ */
+export class MCPRateLimitError extends Error {
+  readonly retryAfterMs: number;
+  constructor(retryAfterMs: number, message: string) {
+    super(message);
+    this.name = 'MCPRateLimitError';
+    this.retryAfterMs = retryAfterMs;
+  }
+}
+
+/**
+ * Parse a `Retry-After` or `X-Retry-After` header value into milliseconds.
+ * Accepts delta-seconds ("30"), numeric-with-suffix ("30s"), or an HTTP-date string.
+ * Returns 0 when the value is empty or unparseable.
+ *
+ * @param retryAfter - Raw Retry-After / X-Retry-After header value
+ * @returns Delay in milliseconds, or 0 if the value cannot be parsed
+ */
+function parseRetryAfterMs(retryAfter: string): number {
+  const normalized = retryAfter.trim().replace(/s$/i, '');
+  if (!normalized) return 0;
+  const numericDelay = Number(normalized);
+  if (!Number.isNaN(numericDelay)) return numericDelay * 1000;
+  const retryDate = new Date(retryAfter);
+  if (!Number.isNaN(retryDate.getTime())) {
+    return Math.max(0, retryDate.getTime() - Date.now());
+  }
+  return 0;
+}
+
+/**
  * Returns true only for transient, retriable failures: request timeouts,
  * network-level connection-closed/reset errors, and "not connected" states.
  *
@@ -84,8 +118,10 @@ export function isRetriableError(error: Error): boolean {
     return false;
   }
   const msg = error.message?.toLowerCase() ?? '';
-  // Never retry rate-limit errors — callers must honour the Retry-After delay
-  if (msg.startsWith(RATE_LIMIT_MSG.toLowerCase())) {
+  // Never retry rate-limit errors — callers must honour the Retry-After delay.
+  // `instanceof MCPRateLimitError` is the primary guard for typed errors;
+  // the string prefix fallback handles any legacy plain Error with a rate-limit message.
+  if (error instanceof MCPRateLimitError || msg.startsWith(RATE_LIMIT_MSG.toLowerCase())) {
     return false;
   }
   return (
@@ -269,6 +305,22 @@ export class MCPConnection {
   }
 
   /**
+   * Compute the delay before the next connection attempt.
+   * Respects `Retry-After` carried by {@link MCPRateLimitError}; otherwise uses
+   * exponential back-off (`connectionRetryDelay * 2^(attempt - 1)`).
+   *
+   * @param error - The error from the failed attempt
+   * @param attempt - Number of attempts made so far (1-indexed)
+   * @returns Delay in milliseconds
+   */
+  private _computeConnectionDelay(error: unknown, attempt: number): number {
+    if (error instanceof MCPRateLimitError && error.retryAfterMs > 0) {
+      return error.retryAfterMs;
+    }
+    return this.connectionRetryDelay * Math.pow(2, attempt - 1);
+  }
+
+  /**
    * Connect to the MCP server with retry logic
    */
   async connect(): Promise<void> {
@@ -296,7 +348,7 @@ export class MCPConnection {
       } catch (error) {
         this.connectionAttempts++;
         if (this.connectionAttempts < this.maxConnectionAttempts) {
-          const delay = this.connectionRetryDelay * Math.pow(2, this.connectionAttempts - 1);
+          const delay = this._computeConnectionDelay(error, this.connectionAttempts);
           console.warn(
             `⚠️ Connection attempt ${this.connectionAttempts} failed. Retrying in ${delay}ms...`
           );
@@ -521,11 +573,13 @@ export class MCPConnection {
         response.headers.get(RETRY_AFTER_HEADER) ?? response.headers.get('Retry-After');
       if (retryAfter) {
         const retryMessage = formatRetryAfter(retryAfter);
+        const retryAfterMs = parseRetryAfterMs(retryAfter);
         console.warn(`⏳ ${RATE_LIMIT_MSG} ${retryMessage}`);
-        throw new Error(`${RATE_LIMIT_MSG} ${retryMessage}`);
+        throw new MCPRateLimitError(retryAfterMs, `${RATE_LIMIT_MSG} ${retryMessage}`);
       }
       const statusText = response.statusText || 'Too Many Requests';
-      throw new Error(
+      throw new MCPRateLimitError(
+        0,
         `${RATE_LIMIT_MSG} (status ${response.status} ${statusText}; ${RETRY_AFTER_HEADER}/Retry-After header missing)`
       );
     }

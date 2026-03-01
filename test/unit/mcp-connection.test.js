@@ -12,6 +12,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import {
   MCPConnection,
   MCPSessionExpiredError,
+  MCPRateLimitError,
   parseSSEResponse,
   formatRetryAfter,
   isRetriableError,
@@ -181,6 +182,12 @@ describe('mcp-connection', () => {
 
     it('should return false for a rate-limit error', () => {
       expect(isRetriableError(new Error('Rate limited. Retry after 30s'))).toBe(false);
+    });
+
+    it('should return false for a MCPRateLimitError instance', () => {
+      expect(isRetriableError(new MCPRateLimitError(30000, 'Rate limited. Retry after 30s'))).toBe(
+        false
+      );
     });
 
     it('should return false for a TypeError even when message contains a retriable keyword', () => {
@@ -596,6 +603,67 @@ describe('mcp-connection', () => {
 
         // Must throw 'Gateway error 503', not a rate-limit error, even with a Retry-After header
         await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow('Gateway error 503');
+      });
+
+      it('should throw MCPRateLimitError (not plain Error) for 429 with Retry-After', async () => {
+        client.gatewayUrl = 'http://fake-gateway/mcp';
+        client.connected = true;
+
+        vi.stubGlobal(
+          'fetch',
+          vi.fn().mockResolvedValue({
+            ok: false,
+            status: 429,
+            statusText: 'Too Many Requests',
+            headers: { get: (name) => (name === 'X-Retry-After' ? '30' : null) },
+            text: async () => '',
+          })
+        );
+
+        const error = await client._sendGatewayRequest('tools/list').catch((e) => e);
+        expect(error).toBeInstanceOf(MCPRateLimitError);
+        expect(error.retryAfterMs).toBe(30000);
+      });
+
+      it('should use Retry-After delay (not exponential backoff) when connect() encounters 429', async () => {
+        // connect() should wait retryAfterMs (60s) not connectionRetryDelay * 2^0 (0ms)
+        const slowClient = new MCPConnection({
+          gatewayUrl: 'http://fake-gateway/mcp',
+          maxConnectionAttempts: 2,
+          connectionRetryDelay: 0,
+        });
+
+        const delays = [];
+        const origSetTimeout = global.setTimeout;
+        vi.spyOn(global, 'setTimeout').mockImplementation((fn, ms) => {
+          delays.push(ms);
+          return origSetTimeout(fn, 0); // execute immediately in test
+        });
+
+        vi.stubGlobal(
+          'fetch',
+          vi
+            .fn()
+            .mockResolvedValueOnce({
+              ok: false,
+              status: 429,
+              statusText: 'Too Many Requests',
+              headers: { get: (name) => (name === 'Retry-After' ? '60' : null) },
+              text: async () => '',
+            })
+            .mockResolvedValueOnce({
+              ok: true,
+              status: 200,
+              headers: { get: () => null },
+              text: async () => '{"jsonrpc":"2.0","id":1,"result":{}}',
+            })
+        );
+
+        await expect(slowClient.connect()).resolves.toBeUndefined();
+
+        vi.restoreAllMocks();
+        // The first retry delay must be 60000ms (from Retry-After: 60) not 0ms
+        expect(delays.some((d) => d === 60000)).toBe(true);
       });
     });
   });
