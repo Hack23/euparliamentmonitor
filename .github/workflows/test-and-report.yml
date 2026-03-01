@@ -407,10 +407,10 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           
           echo "## Results" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Code validation: ${{ needs.validation.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Functional tests: ${{ needs.functional-tests.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Security check: ${{ needs.security-check.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Performance testing: ${{ needs.performance.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Code validation: ${{ needs.validation.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Functional tests: ${{ needs.functional-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Security check: ${{ needs.security-check.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Performance testing: ${{ needs.performance.result }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
           if [ "${{ needs.validation.result }}" == "success" ] && \
