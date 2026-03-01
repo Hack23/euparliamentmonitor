@@ -10,6 +10,8 @@
   --primary-light: #e8edf5;
   --secondary: #E6B800;
   --secondary-dark: #CC9900;
+  /* Text on secondary (yellow) backgrounds — always dark for contrast */
+  --on-secondary: #1a1a2e;
   --accent: #0066cc;
   --accent-light: #e6f0ff;
 
@@ -592,7 +594,7 @@ img {
   border-radius: 100px;
   font-weight: 700;
   font-size: 0.78em;
-  color: var(--text);
+  color: var(--on-secondary);
 }
 
 .article-header h1 {
@@ -773,7 +775,7 @@ img {
 /* ─── Language Indicator Compat ───────────────────────────────────── */
 .language-indicator {
   background: var(--secondary);
-  color: var(--text);
+  color: var(--on-secondary);
   display: inline-block;
   padding: 4px 14px;
   border-radius: 100px;
@@ -1028,6 +1030,8 @@ button:focus-visible {
     --accent-light: #27416b;
     --secondary: #FFD633;
     --secondary-dark: #E6B800;
+    /* on-secondary stays dark — #1a1a2e on #FFD633 gives ~10:1 contrast */
+    --on-secondary: #1a1a2e;
 
     /* Dark mode political group colors — lighter for visibility on dark cards.
      * All colors achieve ≥4.5:1 contrast against dark text (var(--bg) = #1a1a2e)
@@ -1434,5 +1438,16 @@ button:focus-visible {
 
   .group-badge {
     outline: 2px solid currentColor;
+  }
+}
+
+/* ─── High Contrast Dark Mode Combined Override ──────────────────── */
+/* When both dark mode and high contrast are active, --bg is set to
+ * #ffffff by prefers-contrast, making group badge text white (via var(--bg)).
+ * Force dark text so badges remain legible regardless of badge color.
+ */
+@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+  .group-badge {
+    color: var(--text);
   }
 }
