@@ -12,7 +12,7 @@
       },
       "url": [
         "http://localhost:8080/index.html",
-        "http://localhost:8080/news/2026-02-24-week-ahead-en.html"
+        "http://localhost:8080/sitemap.html"
       ]
     },
     "assert": {
