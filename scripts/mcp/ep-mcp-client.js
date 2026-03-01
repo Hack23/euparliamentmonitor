@@ -44,7 +44,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     async safeCallTool(toolName, args, fallbackText) {
         try {
             const resolvedArgs = typeof args === 'function' ? args() : args;
-            return await this.callTool(toolName, resolvedArgs);
+            return await this.callToolWithRetry(toolName, resolvedArgs);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);

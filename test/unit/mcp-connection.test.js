@@ -562,7 +562,7 @@ describe('mcp-connection', () => {
         );
 
         await expect(client._sendGatewayRequest('tools/list')).rejects.toThrow(
-          'Rate limited. Retry after'
+          'Rate limited. Retry after (status 429 Too Many Requests; Retry-After header missing)'
         );
       });
 

@@ -448,7 +448,8 @@ export class MCPConnection {
                 console.warn(`⏳ ${RATE_LIMIT_MSG} ${retryMessage}`);
                 throw new Error(`${RATE_LIMIT_MSG} ${retryMessage}`);
             }
-            throw new Error(RATE_LIMIT_MSG);
+            const statusText = response.statusText || 'Too Many Requests';
+            throw new Error(`${RATE_LIMIT_MSG} (status ${response.status} ${statusText}; Retry-After header missing)`);
         }
         throw new Error(`Gateway error ${response.status}: ${response.statusText}`);
     }
