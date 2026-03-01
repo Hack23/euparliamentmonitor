@@ -1341,10 +1341,9 @@ button:focus-visible {
     color: #ff9090;
   }
 
-  /* Group badges and article-lang pills use dark text on lighter dark-mode
-   * backgrounds (--bg = #1a1a2e, same as --on-secondary in dark mode) */
-  .group-badge,
-  .article-lang {
+  /* Group badges use dark text on lighter dark-mode backgrounds
+   * (--bg = #1a1a2e, same as --on-secondary in dark mode) */
+  .group-badge {
     color: var(--bg);
   }
 
