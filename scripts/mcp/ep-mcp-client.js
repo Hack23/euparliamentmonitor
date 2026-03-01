@@ -28,20 +28,38 @@ const STATS_FALLBACK = '{"stats": null}';
  */
 export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
+     * Generic error-safe wrapper around {@link callTool}.
+     * Catches any error thrown by the tool (or by the args factory), logs a warning,
+     * and returns a fallback payload.
+     *
+     * Accepts either a plain args object or a factory function `() => object`.
+     * Using a factory ensures that options normalization/destructuring runs inside
+     * the try/catch so invalid runtime inputs fall back gracefully.
+     *
+     * @param toolName - MCP tool name
+     * @param args - Tool arguments or a factory that builds them
+     * @param fallbackText - JSON text to return when the tool is unavailable
+     * @returns Tool result or fallback
+     */
+    async safeCallTool(toolName, args, fallbackText) {
+        try {
+            const resolvedArgs = typeof args === 'function' ? args() : args;
+            return await this.callTool(toolName, resolvedArgs);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn(`${toolName} not available:`, message);
+            return { content: [{ type: 'text', text: fallbackText }] };
+        }
+    }
+    /**
      * Get Members of European Parliament
      *
      * @param options - Filter options
      * @returns List of MEPs
      */
     async getMEPs(options = {}) {
-        try {
-            return await this.callTool('get_meps', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_meps not available:', message);
-            return { content: [{ type: 'text', text: MEPS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_meps', options, MEPS_FALLBACK);
     }
     /**
      * Get plenary sessions
@@ -51,7 +69,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Plenary sessions data
      */
     async getPlenarySessions(options = {}) {
-        try {
+        return this.safeCallTool('get_plenary_sessions', () => {
             const { dateFrom, dateTo, ...rest } = options;
             const normalizedOptions = { ...rest };
             if (normalizedOptions['startDate'] === undefined && dateFrom !== undefined) {
@@ -60,13 +78,8 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             if (normalizedOptions['endDate'] === undefined && dateTo !== undefined) {
                 normalizedOptions['endDate'] = dateTo;
             }
-            return await this.callTool('get_plenary_sessions', normalizedOptions);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_plenary_sessions not available:', message);
-            return { content: [{ type: 'text', text: '{"sessions": []}' }] };
-        }
+            return normalizedOptions;
+        }, '{"sessions": []}');
     }
     /**
      * Search legislative documents
@@ -75,7 +88,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Search results
      */
     async searchDocuments(options = {}) {
-        try {
+        return this.safeCallTool('search_documents', () => {
             const { keyword, ...rest } = options;
             const normalizedOptions = { ...rest };
             if (normalizedOptions['query'] === undefined && keyword !== undefined) {
@@ -84,13 +97,8 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
                     normalizedOptions['query'] = trimmed;
                 }
             }
-            return await this.callTool('search_documents', normalizedOptions);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('search_documents not available:', message);
-            return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
-        }
+            return normalizedOptions;
+        }, DOCUMENTS_FALLBACK);
     }
     /**
      * Get parliamentary questions
@@ -101,19 +109,14 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Parliamentary questions data
      */
     async getParliamentaryQuestions(options = {}) {
-        try {
+        return this.safeCallTool('get_parliamentary_questions', () => {
             const { dateFrom, dateTo: _dateTo, ...rest } = options;
             const toolOptions = { ...rest };
             if (toolOptions['startDate'] === undefined && dateFrom !== undefined) {
                 toolOptions['startDate'] = dateFrom;
             }
-            return await this.callTool('get_parliamentary_questions', toolOptions);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_parliamentary_questions not available:', message);
-            return { content: [{ type: 'text', text: '{"questions": []}' }] };
-        }
+            return toolOptions;
+        }, '{"questions": []}');
     }
     /**
      * Get committee information
@@ -122,14 +125,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Committee info data
      */
     async getCommitteeInfo(options = {}) {
-        try {
-            return await this.callTool('get_committee_info', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_committee_info not available:', message);
-            return { content: [{ type: 'text', text: '{"committees": []}' }] };
-        }
+        return this.safeCallTool('get_committee_info', options, '{"committees": []}');
     }
     /**
      * Monitor legislative pipeline
@@ -138,14 +134,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Legislative pipeline data
      */
     async monitorLegislativePipeline(options = {}) {
-        try {
-            return await this.callTool('monitor_legislative_pipeline', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('monitor_legislative_pipeline not available:', message);
-            return { content: [{ type: 'text', text: '{"procedures": []}' }] };
-        }
+        return this.safeCallTool('monitor_legislative_pipeline', options, '{"procedures": []}');
     }
     /**
      * Analyze legislative effectiveness of an MEP or committee
@@ -160,18 +149,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             return { content: [{ type: 'text', text: EFFECTIVENESS_FALLBACK }] };
         }
         const trimmedSubjectId = subjectId.trim();
-        try {
-            return await this.callTool('analyze_legislative_effectiveness', {
-                ...options,
-                subjectType,
-                subjectId: trimmedSubjectId,
-            });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('analyze_legislative_effectiveness not available:', message);
-            return { content: [{ type: 'text', text: EFFECTIVENESS_FALLBACK }] };
-        }
+        return this.safeCallTool('analyze_legislative_effectiveness', { ...options, subjectType, subjectId: trimmedSubjectId }, EFFECTIVENESS_FALLBACK);
     }
     /**
      * Assess MEP influence using 5-dimension scoring model
@@ -185,14 +163,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('assess_mep_influence called without valid mepId (non-empty string required)');
             return { content: [{ type: 'text', text: '{"influence": {}}' }] };
         }
-        try {
-            return await this.callTool('assess_mep_influence', { ...options, mepId: trimmedMepId });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('assess_mep_influence not available:', message);
-            return { content: [{ type: 'text', text: '{"influence": {}}' }] };
-        }
+        return this.safeCallTool('assess_mep_influence', { ...options, mepId: trimmedMepId }, '{"influence": {}}');
     }
     /**
      * Analyze coalition dynamics and cohesion
@@ -201,14 +172,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Coalition cohesion and stress analysis
      */
     async analyzeCoalitionDynamics(options = {}) {
-        try {
-            return await this.callTool('analyze_coalition_dynamics', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('analyze_coalition_dynamics not available:', message);
-            return { content: [{ type: 'text', text: '{"coalitions": []}' }] };
-        }
+        return this.safeCallTool('analyze_coalition_dynamics', options, '{"coalitions": []}');
     }
     /**
      * Detect voting anomalies and party defections
@@ -217,14 +181,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Anomaly detection results
      */
     async detectVotingAnomalies(options = {}) {
-        try {
-            return await this.callTool('detect_voting_anomalies', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('detect_voting_anomalies not available:', message);
-            return { content: [{ type: 'text', text: '{"anomalies": []}' }] };
-        }
+        return this.safeCallTool('detect_voting_anomalies', options, '{"anomalies": []}');
     }
     /**
      * Compare political groups across dimensions
@@ -241,14 +198,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('compare_political_groups called without valid groups (non-empty string array required)');
             return { content: [{ type: 'text', text: '{"comparison": {}}' }] };
         }
-        try {
-            return await this.callTool('compare_political_groups', { ...options, groups });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('compare_political_groups not available:', message);
-            return { content: [{ type: 'text', text: '{"comparison": {}}' }] };
-        }
+        return this.safeCallTool('compare_political_groups', { ...options, groups }, '{"comparison": {}}');
     }
     /**
      * Get detailed information about a specific MEP
@@ -261,14 +211,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('get_mep_details called without valid id (non-empty string required)');
             return { content: [{ type: 'text', text: '{"mep": null}' }] };
         }
-        try {
-            return await this.callTool('get_mep_details', { id: id.trim() });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_mep_details not available:', message);
-            return { content: [{ type: 'text', text: '{"mep": null}' }] };
-        }
+        return this.safeCallTool('get_mep_details', { id: id.trim() }, '{"mep": null}');
     }
     /**
      * Retrieve voting records with optional filters
@@ -277,14 +220,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Voting records data
      */
     async getVotingRecords(options = {}) {
-        try {
-            return await this.callTool('get_voting_records', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_voting_records not available:', message);
-            return { content: [{ type: 'text', text: '{"votes": []}' }] };
-        }
+        return this.safeCallTool('get_voting_records', options, '{"votes": []}');
     }
     /**
      * Analyze voting behavior patterns for an MEP
@@ -297,17 +233,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('analyze_voting_patterns called without valid mepId (non-empty string required)');
             return { content: [{ type: 'text', text: '{"patterns": null}' }] };
         }
-        try {
-            return await this.callTool('analyze_voting_patterns', {
-                ...options,
-                mepId: options.mepId.trim(),
-            });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('analyze_voting_patterns not available:', message);
-            return { content: [{ type: 'text', text: '{"patterns": null}' }] };
-        }
+        return this.safeCallTool('analyze_voting_patterns', { ...options, mepId: options.mepId.trim() }, '{"patterns": null}');
     }
     /**
      * Track a legislative procedure by its identifier
@@ -320,14 +246,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('track_legislation called without valid procedureId (non-empty string required)');
             return { content: [{ type: 'text', text: '{"procedure": null}' }] };
         }
-        try {
-            return await this.callTool('track_legislation', { procedureId: procedureId.trim() });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('track_legislation not available:', message);
-            return { content: [{ type: 'text', text: '{"procedure": null}' }] };
-        }
+        return this.safeCallTool('track_legislation', { procedureId: procedureId.trim() }, '{"procedure": null}');
     }
     /**
      * Generate an analytical report
@@ -340,17 +259,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('generate_report called without valid reportType (non-empty string required)');
             return { content: [{ type: 'text', text: '{"report": null}' }] };
         }
-        try {
-            return await this.callTool('generate_report', {
-                ...options,
-                reportType: options.reportType.trim(),
-            });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('generate_report not available:', message);
-            return { content: [{ type: 'text', text: '{"report": null}' }] };
-        }
+        return this.safeCallTool('generate_report', { ...options, reportType: options.reportType.trim() }, '{"report": null}');
     }
     /**
      * Analyze committee activity, workload, and engagement
@@ -359,14 +268,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Committee activity analysis data
      */
     async analyzeCommitteeActivity(options = {}) {
-        try {
-            return await this.callTool('analyze_committee_activity', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('analyze_committee_activity not available:', message);
-            return { content: [{ type: 'text', text: '{"activity": null}' }] };
-        }
+        return this.safeCallTool('analyze_committee_activity', options, '{"activity": null}');
     }
     /**
      * Track MEP attendance patterns and trends
@@ -375,14 +277,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns MEP attendance data
      */
     async trackMEPAttendance(options = {}) {
-        try {
-            return await this.callTool('track_mep_attendance', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('track_mep_attendance not available:', message);
-            return { content: [{ type: 'text', text: '{"attendance": null}' }] };
-        }
+        return this.safeCallTool('track_mep_attendance', options, '{"attendance": null}');
     }
     /**
      * Analyze country delegation voting behavior and composition
@@ -395,17 +290,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('analyze_country_delegation called without valid country (non-empty string required)');
             return { content: [{ type: 'text', text: '{"delegation": null}' }] };
         }
-        try {
-            return await this.callTool('analyze_country_delegation', {
-                ...options,
-                country: options.country.trim(),
-            });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('analyze_country_delegation not available:', message);
-            return { content: [{ type: 'text', text: '{"delegation": null}' }] };
-        }
+        return this.safeCallTool('analyze_country_delegation', { ...options, country: options.country.trim() }, '{"delegation": null}');
     }
     /**
      * Generate a parliament-wide political landscape overview
@@ -414,14 +299,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Political landscape overview data
      */
     async generatePoliticalLandscape(options = {}) {
-        try {
-            return await this.callTool('generate_political_landscape', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('generate_political_landscape not available:', message);
-            return { content: [{ type: 'text', text: '{"landscape": null}' }] };
-        }
+        return this.safeCallTool('generate_political_landscape', options, '{"landscape": null}');
     }
     /**
      * Get currently active Members of European Parliament
@@ -430,14 +308,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Active MEPs data
      */
     async getCurrentMEPs(options = {}) {
-        try {
-            return await this.callTool('get_current_meps', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_current_meps not available:', message);
-            return { content: [{ type: 'text', text: MEPS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_current_meps', options, MEPS_FALLBACK);
     }
     /**
      * Get plenary speeches and debate contributions
@@ -446,14 +317,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Speeches data
      */
     async getSpeeches(options = {}) {
-        try {
-            return await this.callTool('get_speeches', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_speeches not available:', message);
-            return { content: [{ type: 'text', text: '{"speeches": []}' }] };
-        }
+        return this.safeCallTool('get_speeches', options, '{"speeches": []}');
     }
     /**
      * Get legislative procedures
@@ -462,14 +326,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Procedures data
      */
     async getProcedures(options = {}) {
-        try {
-            return await this.callTool('get_procedures', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_procedures not available:', message);
-            return { content: [{ type: 'text', text: '{"procedures": []}' }] };
-        }
+        return this.safeCallTool('get_procedures', options, '{"procedures": []}');
     }
     /**
      * Get adopted texts (legislative resolutions, positions, non-legislative resolutions)
@@ -478,14 +335,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Adopted texts data
      */
     async getAdoptedTexts(options = {}) {
-        try {
-            return await this.callTool('get_adopted_texts', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_adopted_texts not available:', message);
-            return { content: [{ type: 'text', text: '{"texts": []}' }] };
-        }
+        return this.safeCallTool('get_adopted_texts', options, '{"texts": []}');
     }
     /**
      * Get European Parliament events (hearings, conferences, seminars)
@@ -494,14 +344,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Events data
      */
     async getEvents(options = {}) {
-        try {
-            return await this.callTool('get_events', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_events not available:', message);
-            return { content: [{ type: 'text', text: EVENTS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_events', options, EVENTS_FALLBACK);
     }
     /**
      * Get activities linked to a specific plenary sitting
@@ -514,17 +357,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('get_meeting_activities called without valid sittingId (non-empty string required)');
             return { content: [{ type: 'text', text: ACTIVITIES_FALLBACK }] };
         }
-        try {
-            return await this.callTool('get_meeting_activities', {
-                ...options,
-                sittingId: options.sittingId.trim(),
-            });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_meeting_activities not available:', message);
-            return { content: [{ type: 'text', text: ACTIVITIES_FALLBACK }] };
-        }
+        return this.safeCallTool('get_meeting_activities', { ...options, sittingId: options.sittingId.trim() }, ACTIVITIES_FALLBACK);
     }
     /**
      * Get decisions made in a specific plenary sitting
@@ -537,17 +370,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('get_meeting_decisions called without valid sittingId (non-empty string required)');
             return { content: [{ type: 'text', text: '{"decisions": []}' }] };
         }
-        try {
-            return await this.callTool('get_meeting_decisions', {
-                ...options,
-                sittingId: options.sittingId.trim(),
-            });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_meeting_decisions not available:', message);
-            return { content: [{ type: 'text', text: '{"decisions": []}' }] };
-        }
+        return this.safeCallTool('get_meeting_decisions', { ...options, sittingId: options.sittingId.trim() }, '{"decisions": []}');
     }
     /**
      * Get MEP declarations of financial interests
@@ -556,14 +379,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns MEP declarations data
      */
     async getMEPDeclarations(options = {}) {
-        try {
-            return await this.callTool('get_mep_declarations', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_mep_declarations not available:', message);
-            return { content: [{ type: 'text', text: '{"declarations": []}' }] };
-        }
+        return this.safeCallTool('get_mep_declarations', options, '{"declarations": []}');
     }
     /**
      * Get incoming Members of European Parliament
@@ -572,14 +388,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Incoming MEPs data
      */
     async getIncomingMEPs(options = {}) {
-        try {
-            return await this.callTool('get_incoming_meps', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_incoming_meps not available:', message);
-            return { content: [{ type: 'text', text: MEPS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_incoming_meps', options, MEPS_FALLBACK);
     }
     /**
      * Get outgoing Members of European Parliament
@@ -588,14 +397,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Outgoing MEPs data
      */
     async getOutgoingMEPs(options = {}) {
-        try {
-            return await this.callTool('get_outgoing_meps', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_outgoing_meps not available:', message);
-            return { content: [{ type: 'text', text: MEPS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_outgoing_meps', options, MEPS_FALLBACK);
     }
     /**
      * Get homonym MEPs (MEPs with identical names)
@@ -604,14 +406,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Homonym MEPs data
      */
     async getHomonymMEPs(options = {}) {
-        try {
-            return await this.callTool('get_homonym_meps', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_homonym_meps not available:', message);
-            return { content: [{ type: 'text', text: MEPS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_homonym_meps', options, MEPS_FALLBACK);
     }
     /**
      * Get plenary documents
@@ -620,14 +415,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Plenary documents data
      */
     async getPlenaryDocuments(options = {}) {
-        try {
-            return await this.callTool('get_plenary_documents', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_plenary_documents not available:', message);
-            return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_plenary_documents', options, DOCUMENTS_FALLBACK);
     }
     /**
      * Get committee documents
@@ -636,14 +424,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Committee documents data
      */
     async getCommitteeDocuments(options = {}) {
-        try {
-            return await this.callTool('get_committee_documents', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_committee_documents not available:', message);
-            return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_committee_documents', options, DOCUMENTS_FALLBACK);
     }
     /**
      * Get plenary session documents (agendas, minutes, voting lists)
@@ -652,14 +433,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Plenary session documents data
      */
     async getPlenarySessionDocuments(options = {}) {
-        try {
-            return await this.callTool('get_plenary_session_documents', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_plenary_session_documents not available:', message);
-            return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_plenary_session_documents', options, DOCUMENTS_FALLBACK);
     }
     /**
      * Get plenary session document items
@@ -668,14 +442,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Plenary session document items data
      */
     async getPlenarySessionDocumentItems(options = {}) {
-        try {
-            return await this.callTool('get_plenary_session_document_items', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_plenary_session_document_items not available:', message);
-            return { content: [{ type: 'text', text: ITEMS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_plenary_session_document_items', options, ITEMS_FALLBACK);
     }
     /**
      * Get controlled vocabularies (standardized classification terms)
@@ -684,14 +451,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Controlled vocabularies data
      */
     async getControlledVocabularies(options = {}) {
-        try {
-            return await this.callTool('get_controlled_vocabularies', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_controlled_vocabularies not available:', message);
-            return { content: [{ type: 'text', text: '{"vocabularies": []}' }] };
-        }
+        return this.safeCallTool('get_controlled_vocabularies', options, '{"vocabularies": []}');
     }
     /**
      * Get external documents (non-EP documents such as Council positions)
@@ -700,14 +460,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns External documents data
      */
     async getExternalDocuments(options = {}) {
-        try {
-            return await this.callTool('get_external_documents', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_external_documents not available:', message);
-            return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_external_documents', options, DOCUMENTS_FALLBACK);
     }
     /**
      * Get foreseen (planned) activities for a specific plenary sitting
@@ -720,17 +473,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('get_meeting_foreseen_activities called without valid sittingId (non-empty string required)');
             return { content: [{ type: 'text', text: ACTIVITIES_FALLBACK }] };
         }
-        try {
-            return await this.callTool('get_meeting_foreseen_activities', {
-                ...options,
-                sittingId: options.sittingId.trim(),
-            });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_meeting_foreseen_activities not available:', message);
-            return { content: [{ type: 'text', text: ACTIVITIES_FALLBACK }] };
-        }
+        return this.safeCallTool('get_meeting_foreseen_activities', { ...options, sittingId: options.sittingId.trim() }, ACTIVITIES_FALLBACK);
     }
     /**
      * Get events linked to a specific legislative procedure
@@ -743,17 +486,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('get_procedure_events called without valid processId (non-empty string required)');
             return { content: [{ type: 'text', text: EVENTS_FALLBACK }] };
         }
-        try {
-            return await this.callTool('get_procedure_events', {
-                ...options,
-                processId: options.processId.trim(),
-            });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_procedure_events not available:', message);
-            return { content: [{ type: 'text', text: EVENTS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_procedure_events', { ...options, processId: options.processId.trim() }, EVENTS_FALLBACK);
     }
     /**
      * Get plenary session documents linked to a specific meeting
@@ -766,17 +499,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('get_meeting_plenary_session_documents called without valid sittingId (non-empty string required)');
             return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
         }
-        try {
-            return await this.callTool('get_meeting_plenary_session_documents', {
-                ...options,
-                sittingId: options.sittingId.trim(),
-            });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_meeting_plenary_session_documents not available:', message);
-            return { content: [{ type: 'text', text: DOCUMENTS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_meeting_plenary_session_documents', { ...options, sittingId: options.sittingId.trim() }, DOCUMENTS_FALLBACK);
     }
     /**
      * Get plenary session document items linked to a specific meeting
@@ -789,17 +512,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('get_meeting_plenary_session_document_items called without valid sittingId (non-empty string required)');
             return { content: [{ type: 'text', text: ITEMS_FALLBACK }] };
         }
-        try {
-            return await this.callTool('get_meeting_plenary_session_document_items', {
-                ...options,
-                sittingId: options.sittingId.trim(),
-            });
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_meeting_plenary_session_document_items not available:', message);
-            return { content: [{ type: 'text', text: ITEMS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_meeting_plenary_session_document_items', { ...options, sittingId: options.sittingId.trim() }, ITEMS_FALLBACK);
     }
     /**
      * MEP relationship network mapping using committee co-membership
@@ -808,14 +521,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Network analysis with centrality scores and clusters
      */
     async networkAnalysis(options = {}) {
-        try {
-            return await this.callTool('network_analysis', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('network_analysis not available:', message);
-            return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
-        }
+        return this.safeCallTool('network_analysis', options, INTELLIGENCE_FALLBACK);
     }
     /**
      * Track political group institutional positioning and sentiment
@@ -824,14 +530,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Sentiment tracking data
      */
     async sentimentTracker(options = {}) {
-        try {
-            return await this.callTool('sentiment_tracker', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('sentiment_tracker not available:', message);
-            return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
-        }
+        return this.safeCallTool('sentiment_tracker', options, INTELLIGENCE_FALLBACK);
     }
     /**
      * Detect emerging political shifts and coalition fracture signals
@@ -840,14 +539,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Early warning alerts and trend indicators
      */
     async earlyWarningSystem(options = {}) {
-        try {
-            return await this.callTool('early_warning_system', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('early_warning_system not available:', message);
-            return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
-        }
+        return this.safeCallTool('early_warning_system', options, INTELLIGENCE_FALLBACK);
     }
     /**
      * Cross-reference MEP activities for comparative multi-dimensional profiling
@@ -860,14 +552,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             console.warn('comparative_intelligence called without valid mepIds (array of at least 2 required)');
             return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
         }
-        try {
-            return await this.callTool('comparative_intelligence', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('comparative_intelligence not available:', message);
-            return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
-        }
+        return this.safeCallTool('comparative_intelligence', options, INTELLIGENCE_FALLBACK);
     }
     /**
      * Cross-tool OSINT intelligence correlation engine
@@ -876,14 +561,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Correlated intelligence alerts and insights
      */
     async correlateIntelligence(options = {}) {
-        try {
-            return await this.callTool('correlate_intelligence', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('correlate_intelligence not available:', message);
-            return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
-        }
+        return this.safeCallTool('correlate_intelligence', options, INTELLIGENCE_FALLBACK);
     }
     /**
      * Retrieve precomputed European Parliament activity statistics (EP6–EP10, 2004–2025).
@@ -894,14 +572,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Precomputed EP statistics data
      */
     async getAllGeneratedStats(options = {}) {
-        try {
-            return await this.callTool('get_all_generated_stats', options);
-        }
-        catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            console.warn('get_all_generated_stats not available:', message);
-            return { content: [{ type: 'text', text: STATS_FALLBACK }] };
-        }
+        return this.safeCallTool('get_all_generated_stats', options, STATS_FALLBACK);
     }
 }
 let clientInstance = null;
