@@ -8,6 +8,8 @@
   --primary: #003399;
   --primary-dark: #002266;
   --primary-light: #e8edf5;
+  /* Focus ring token — always contrasts with page background */
+  --focus-ring: #001A66;
   --secondary: #E6B800;
   --secondary-dark: #CC9900;
   /* Text on secondary (yellow) backgrounds — always dark for contrast */
@@ -968,8 +970,17 @@ img {
 /* ─── Accessibility: Focus ───────────────────────────────────────── */
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid var(--primary);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
+}
+
+/* Primary-background interactive elements need a contrasting focus ring.
+ * var(--bg) is light on dark primary (#003399) and dark on light primary
+ * (#4da3ff in dark mode), giving high contrast in both colour schemes. */
+.back-to-news:focus-visible,
+.lang-link.active:focus-visible,
+.skip-link:focus-visible {
+  outline-color: var(--bg);
 }
 
 /* ─── Reduced Motion ─────────────────────────────────────────────── */
@@ -1026,6 +1037,8 @@ button:focus-visible {
     --primary: #4da3ff;
     --primary-dark: #80b3ff;
     --primary-light: #1e2a4e;
+    /* Focus ring — light so it contrasts on dark backgrounds */
+    --focus-ring: #cce5ff;
     --accent: #66c2ff;
     --accent-light: #27416b;
     --secondary: #FFD633;
@@ -1428,12 +1441,13 @@ button:focus-visible {
     --border: #000000;
     --border-light: #333333;
     --accent: #0044aa;
+    --focus-ring: #000000;
   }
 
   a:focus-visible,
   button:focus-visible {
     outline-width: 4px;
-    outline-color: var(--primary);
+    outline-color: var(--focus-ring);
   }
 
   .group-badge {
@@ -1464,6 +1478,7 @@ button:focus-visible {
     --accent-light: #001f33;
     --secondary: #FFE066;
     --on-secondary: #000000;
+    --focus-ring: #ffffff;
   }
 
   /* Reset hardcoded dark backgrounds to use tokens */
