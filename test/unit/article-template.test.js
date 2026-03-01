@@ -475,6 +475,38 @@ describe('article-template', () => {
         const html = generateArticleHTML(defaultOptions);
         expect(html).toContain('X-Content-Type-Options');
         expect(html).toContain('no-referrer');
+        expect(html).toContain('Content-Security-Policy');
+        expect(html).toContain("default-src 'none'");
+        expect(html).toContain("script-src 'none'");
+        expect(html).toContain("style-src 'self' 'unsafe-inline'");
+        expect(html).toContain("img-src 'self' https: data:");
+        expect(html).toContain("font-src 'self'");
+        expect(html).toContain("connect-src 'none'");
+        expect(html).toContain("frame-src 'none'");
+        expect(html).toContain("base-uri 'self'");
+        expect(html).toContain("form-action 'none'");
+      });
+
+      it('should include SRI integrity attribute on stylesheet when stylesHash is provided', () => {
+        const testHash = 'sha384-4xui5ALFIyaFXCKCuIMx3UvVNrdUZvte2R1YxgX/8IFy8mFkpPjXxV3UdbQ3Wk1P';
+        const html = generateArticleHTML({ ...defaultOptions, stylesHash: testHash });
+        expect(html).toContain(`integrity="${testHash}"`);
+        expect(html).toContain('crossorigin="anonymous"');
+      });
+
+      it('should not include integrity attribute on stylesheet when stylesHash is omitted', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).not.toContain('integrity=');
+        expect(html).not.toContain('crossorigin=');
+        expect(html).toContain('<link rel="stylesheet" href="../styles.css">');
+      });
+
+      it('should omit SRI attributes when stylesHash has invalid format', () => {
+        const invalidHash = 'not-a-valid-hash" onload="evil()';
+        const html = generateArticleHTML({ ...defaultOptions, stylesHash: invalidHash });
+        expect(html).not.toContain('integrity=');
+        expect(html).not.toContain('crossorigin=');
+        expect(html).not.toContain('evil()');
       });
     });
 
