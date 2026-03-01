@@ -59,6 +59,10 @@ describe('mcp-connection', () => {
       expect(formatRetryAfter('30')).toBe('30s');
     });
 
+    it('should format numeric seconds with trailing s suffix', () => {
+      expect(formatRetryAfter('30s')).toBe('30s');
+    });
+
     it('should format zero seconds', () => {
       expect(formatRetryAfter('0')).toBe('0s');
     });
@@ -313,6 +317,12 @@ describe('mcp-connection', () => {
           TypeError
         );
         expect(client.callTool).toHaveBeenCalledTimes(1);
+      });
+      it('should throw RangeError for negative maxRetries', async () => {
+        await expect(client.callToolWithRetry('tool_name', {}, -1)).rejects.toThrow(RangeError);
+        await expect(client.callToolWithRetry('tool_name', {}, -1)).rejects.toThrow(
+          'maxRetries must be >= 0'
+        );
       });
     });
 

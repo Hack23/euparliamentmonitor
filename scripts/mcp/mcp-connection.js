@@ -68,13 +68,16 @@ export function isRetriableError(error) {
 }
 /**
  * Parse a `Retry-After` or `X-Retry-After` header value (which may be either a
- * delay-in-seconds number or an HTTP-date string) into a human-readable message.
+ * delay-in-seconds number, a numeric string with an optional trailing "s" suffix
+ * (e.g. "30s"), or an HTTP-date string) into a human-readable message.
  *
  * @param retryAfter - Raw header value
  * @returns Formatted string describing the delay (e.g. "30s" or "45s (until Thu, 01 Jan 2026 …)")
  */
 export function formatRetryAfter(retryAfter) {
-    const numericDelay = Number(retryAfter);
+    // Accept both bare numbers ("30") and numeric-with-suffix ("30s")
+    const normalized = retryAfter.trim().replace(/s$/i, '');
+    const numericDelay = Number(normalized);
     if (!Number.isNaN(numericDelay)) {
         return `${numericDelay}s`;
     }
@@ -592,8 +595,11 @@ export class MCPConnection {
     async _doReconnect() {
         // Derive a single outer back-off delay from reconnectCount so successive
         // reconnect bursts are spaced further apart, capped at RECONNECT_MAX_DELAY_MS.
-        // Clamp to [0, maxConnectionAttempts - 1]: first floor to ≥0, then ceil to ≤max.
-        const attemptIndex = Math.min(Math.max(0, this.reconnectCount - 1), this.maxConnectionAttempts - 1);
+        // Normalize maxConnectionAttempts to ≥1 to avoid a negative upper bound when
+        // the user configures 0 attempts (which would give 2^-1 = 0.5 s backoff).
+        const normalizedMaxAttempts = Math.max(1, this.maxConnectionAttempts);
+        // Clamp to [0, normalizedMaxAttempts - 1]: first floor to ≥0, then ceil to ≤max.
+        const attemptIndex = Math.min(Math.max(0, this.reconnectCount - 1), normalizedMaxAttempts - 1);
         const delay = Math.min(this.connectionRetryDelay * Math.pow(2, attemptIndex), RECONNECT_MAX_DELAY_MS);
         await new Promise((r) => setTimeout(r, delay));
         try {
@@ -640,6 +646,9 @@ export class MCPConnection {
      */
     async callToolWithRetry(name, args = {}, maxRetries) {
         const retries = maxRetries ?? this.maxRetries;
+        if (retries < 0) {
+            throw new RangeError(`maxRetries must be >= 0, received ${retries}`);
+        }
         let lastError = new Error(`Failed to call tool '${name}' after ${retries} retries`);
         for (let attempt = 0; attempt <= retries; attempt++) {
             try {
