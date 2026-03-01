@@ -1442,11 +1442,46 @@ button:focus-visible {
 }
 
 /* ─── High Contrast Dark Mode Combined Override ──────────────────── */
-/* When both dark mode and high contrast are active, --bg is set to
- * #ffffff by prefers-contrast, making group badge text white (via var(--bg)).
- * Force dark text so badges remain legible regardless of badge color.
+/* Defines a coherent high-contrast dark palette when both dark mode and
+ * high contrast are active. Uses near-black backgrounds with pure-white
+ * text and vivid accents so every component meets WCAG 2.1 AA (≥4.5:1).
+ * Overrides tokens set by prefers-contrast: more (which forces --bg to
+ * #ffffff) and component overrides with hardcoded dark hex backgrounds.
  */
 @media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+  :root {
+    --bg: #000000;
+    --bg-card: #0d0d0d;
+    --text: #ffffff;
+    --text-secondary: #eeeeee;
+    --text-muted: #cccccc;
+    --border: #ffffff;
+    --border-light: #aaaaaa;
+    --primary: #6bb8ff;
+    --primary-dark: #99ccff;
+    --primary-light: #001a33;
+    --accent: #80d4ff;
+    --accent-light: #001f33;
+    --secondary: #FFE066;
+    --on-secondary: #000000;
+  }
+
+  /* Reset hardcoded dark backgrounds to use tokens */
+  .key-findings {
+    background: var(--bg-card);
+    border-color: var(--border);
+    border-left-color: var(--secondary);
+  }
+
+  .key-findings__title {
+    color: var(--secondary);
+  }
+
+  .pull-quote {
+    background: var(--bg-card);
+  }
+
+  /* Badge text: use --text (white) for legibility on dark badge backgrounds */
   .group-badge {
     color: var(--text);
   }
