@@ -37,7 +37,7 @@ export function collectDocsHtmlFiles(dir, rootDir = PROJECT_ROOT) {
             results.push(path.relative(rootDir, fullPath).replace(/\\/g, '/'));
         }
     }
-    return results;
+    return results.sort();
 }
 /**
  * Generate sitemap XML including index pages, news articles, sitemap HTML pages,

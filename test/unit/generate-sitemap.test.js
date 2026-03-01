@@ -340,7 +340,7 @@ describe('generate-sitemap', () => {
       const result = collectDocsHtmlFiles(docsDir, tempDir);
 
       expect(result).toContain('docs/index.html');
-      expect(result).toContain(path.join('docs', 'api', 'index.html'));
+      expect(result).toContain('docs/api/index.html');
       expect(result).not.toContain('docs/README.md');
     });
 

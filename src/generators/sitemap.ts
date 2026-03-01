@@ -58,7 +58,7 @@ export function collectDocsHtmlFiles(dir: string, rootDir: string = PROJECT_ROOT
       results.push(path.relative(rootDir, fullPath).replace(/\\/g, '/'));
     }
   }
-  return results;
+  return results.sort();
 }
 
 /**
