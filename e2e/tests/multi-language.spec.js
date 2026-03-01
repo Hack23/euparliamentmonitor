@@ -69,6 +69,88 @@ test.describe('Multi-Language Support', () => {
     await expect(page.locator('body')).toBeVisible();
   });
 
+  test('should load Swedish version', async ({ page }) => {
+    await page.goto('/index-sv.html');
+
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'sv');
+    await expect(page.locator('body')).toBeVisible();
+  });
+
+  test('should load Danish version', async ({ page }) => {
+    await page.goto('/index-da.html');
+
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'da');
+    await expect(page.locator('body')).toBeVisible();
+  });
+
+  test('should load Norwegian version', async ({ page }) => {
+    await page.goto('/index-no.html');
+
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'no');
+    await expect(page.locator('body')).toBeVisible();
+  });
+
+  test('should load Finnish version', async ({ page }) => {
+    await page.goto('/index-fi.html');
+
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'fi');
+    await expect(page.locator('body')).toBeVisible();
+  });
+
+  test('should load Dutch version', async ({ page }) => {
+    await page.goto('/index-nl.html');
+
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'nl');
+    await expect(page.locator('body')).toBeVisible();
+  });
+
+  test('should load Arabic version with RTL direction', async ({ page }) => {
+    await page.goto('/index-ar.html');
+
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'ar');
+    await expect(html).toHaveAttribute('dir', 'rtl');
+    await expect(page.locator('body')).toBeVisible();
+  });
+
+  test('should load Hebrew version with RTL direction', async ({ page }) => {
+    await page.goto('/index-he.html');
+
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'he');
+    await expect(html).toHaveAttribute('dir', 'rtl');
+    await expect(page.locator('body')).toBeVisible();
+  });
+
+  test('should load Japanese version', async ({ page }) => {
+    await page.goto('/index-ja.html');
+
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'ja');
+    await expect(page.locator('body')).toBeVisible();
+  });
+
+  test('should load Korean version', async ({ page }) => {
+    await page.goto('/index-ko.html');
+
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'ko');
+    await expect(page.locator('body')).toBeVisible();
+  });
+
+  test('should load Chinese version', async ({ page }) => {
+    await page.goto('/index-zh.html');
+
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'zh');
+    await expect(page.locator('body')).toBeVisible();
+  });
+
   test('should switch between languages', async ({ page }) => {
     await page.goto('/');
 
@@ -97,7 +179,7 @@ test.describe('Multi-Language Support', () => {
     page,
   }) => {
     const structures = {};
-    const testLanguages = ['en', 'de', 'fr'];
+    const testLanguages = ['en', 'de', 'fr', 'sv', 'ja', 'ar'];
 
     for (const lang of testLanguages) {
       const url = lang === 'en' ? '/index.html' : `/index-${lang}.html`;
@@ -112,7 +194,7 @@ test.describe('Multi-Language Support', () => {
 
     // Verify all languages have similar structure
     const enStructure = structures['en'];
-    for (const lang of ['de', 'fr']) {
+    for (const lang of ['de', 'fr', 'sv', 'ja', 'ar']) {
       const langStructure = structures[lang];
 
       // Articles count should be similar (allow some variance)
@@ -168,7 +250,7 @@ test.describe('Multi-Language Support', () => {
   test('should have proper charset encoding for all languages', async ({
     page,
   }) => {
-    const testLanguages = ['en', 'de', 'ar', 'ja'];
+    const testLanguages = ['en', 'de', 'ar', 'ja', 'ko', 'zh', 'he'];
 
     for (const lang of testLanguages) {
       const url = lang === 'en' ? '/index.html' : `/index-${lang}.html`;
@@ -190,6 +272,9 @@ test.describe('Multi-Language Support', () => {
       { lang: 'en', expectedPattern: /\w+/ }, // English text
       { lang: 'de', expectedPattern: /\w+/ }, // German text
       { lang: 'fr', expectedPattern: /\w+/ }, // French text
+      { lang: 'sv', expectedPattern: /\w+/ }, // Swedish text
+      { lang: 'nl', expectedPattern: /\w+/ }, // Dutch text
+      { lang: 'fi', expectedPattern: /\w+/ }, // Finnish text
     ];
 
     for (const testCase of testCases) {
