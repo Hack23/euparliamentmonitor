@@ -183,7 +183,7 @@ Tests RSS 2.0 feed validity:
 - ✅ Valid RSS 2.0 root element with version attribute
 - ✅ Required channel elements (title, link, description)
 - ✅ Dublin Core namespace for per-item language tags
-- ✅ Items present with required elements (title, link, description, pubDate, guid)
+- ✅ Items present with required elements (title, pubDate, guid)
 - ✅ dc:language tags on items
 - ✅ Multi-language article coverage
 - ✅ Atom self-link for feed discovery
