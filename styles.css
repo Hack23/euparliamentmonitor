@@ -217,7 +217,8 @@ img {
   background: rgba(255, 255, 255, 0.35);
 }
 
-/* Legacy standalone .language-switcher (kept for backward compat) */
+/* Legacy standalone .language-switcher — hidden; 168 existing articles still
+   reference this class. Remove after all articles are regenerated. */
 .language-switcher {
   display: none;
 }
@@ -1213,10 +1214,6 @@ img {
 
   .news-card__body {
     padding: 14px 14px 16px;
-  }
-
-  .news-card {
-    border-left-width: 3px;
   }
 
   .language-grid {
