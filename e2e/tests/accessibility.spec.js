@@ -18,13 +18,14 @@ import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
  */
 
 /**
- * All 14 supported language codes, sourced from scripts/constants/language-core.js.
- * English uses the root index (/); other languages use /index-{lang}.html.
+ * Non-English language codes (English is covered by the standalone 'Accessibility' suite).
+ * Other languages use /index-{lang}.html.
  */
+const NON_ENGLISH_LANGUAGES = ALL_LANGUAGES.filter((lang) => lang !== 'en');
 
 test.describe('Multi-language index accessibility (WCAG 2.1 AA)', () => {
-  for (const lang of ALL_LANGUAGES) {
-    const url = lang === 'en' ? '/' : `/index-${lang}.html`;
+  for (const lang of NON_ENGLISH_LANGUAGES) {
+    const url = `/index-${lang}.html`;
 
     test(`${lang} index page should be WCAG 2.1 AA compliant`, async ({ page }) => {
       await page.goto(url);
