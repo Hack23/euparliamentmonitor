@@ -6,7 +6,7 @@ import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
 /** Pattern for valid article slugs (lowercase letters, digits, hyphens) */
 const SLUG_PATTERN = /^[a-z0-9-]+$/u;
-/** Pattern for valid SRI integrity hashes (sha256/sha384/sha512 + base64url) */
+/** Pattern for valid SRI integrity hashes (sha256/sha384/sha512 + base64) */
 const SRI_HASH_PATTERN = /^sha(?:256|384|512)-[A-Za-z0-9+/]+={0,2}$/u;
 /**
  * Build the article language switcher nav HTML.
