@@ -246,7 +246,7 @@ export function generateIndexHTML(
     <p class="hero__description">${description}</p>
   </section>
 
-  <section class="ai-intelligence" aria-labelledby="ai-heading">
+  <section class="ai-intelligence" aria-labelledby="ai-heading"${lang !== 'en' ? ' lang="en"' : ''}>
     <h2 id="ai-heading"><span aria-hidden="true">🤖</span> AI-Disrupted News Generation &amp; Agentic Intelligence</h2>
     <blockquote class="ai-intelligence__quote">While traditional newsrooms debate whether AI will replace journalists, EU Parliament Monitor quietly deployed 8 autonomous AI agents that generate investigative political intelligence in 14 languages before most reporters have finished their morning coffee. The future of parliamentary journalism didn&rsquo;t send a memo &mdash; it opened a pull request.</blockquote>
     <p>The EU Parliament Monitor doesn&rsquo;t just report on European Parliament activity &mdash; it autonomously generates deep political intelligence at machine speed, with editorial quality that would make legacy news desks nervous. Every article is researched, written, localized, and prepared for publication by AI agents that operate by default on live European Parliament data via the <strong>MCP Server</strong> (46 tools, real-time data), with transparent fallback to placeholder data when live access is unavailable.</p>

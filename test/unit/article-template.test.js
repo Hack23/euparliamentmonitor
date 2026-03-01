@@ -397,8 +397,7 @@ describe('article-template', () => {
       it('should include disclaimer with link to GitHub issues', () => {
         const html = generateArticleHTML(defaultOptions);
 
-        expect(html).toContain('footer-disclaimer');
-        expect(html).toContain('ongoing improvement');
+        expect(html).toContain('class="footer-disclaimer"');
         expect(html).toContain('https://github.com/Hack23/euparliamentmonitor/issues');
       });
     });

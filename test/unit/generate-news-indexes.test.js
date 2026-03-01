@@ -400,8 +400,12 @@ describe('generate-news-indexes', () => {
 
       languages.forEach((lang) => {
         const html = generateIndexHTML(lang, []);
-        expect(html).toContain('ai-intelligence');
-        expect(html).toContain('AI-Disrupted News Generation');
+        expect(html).toContain('<section class="ai-intelligence"');
+        expect(html).toContain('ai-intelligence__quote');
+        expect(html).toContain('ai-intelligence__features');
+        if (lang !== 'en') {
+          expect(html).toContain('lang="en"');
+        }
       });
     });
 
