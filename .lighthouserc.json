@@ -2,9 +2,10 @@
   "ci": {
     "collect": {
       "staticDistDir": ".",
+      "port": 8080,
       "url": [
-        "http://localhost/index-en.html",
-        "http://localhost/news/2026-02-24-week-ahead-en.html"
+        "http://localhost:8080/index.html",
+        "http://localhost:8080/news/2026-02-24-week-ahead-en.html"
       ]
     },
     "assert": {

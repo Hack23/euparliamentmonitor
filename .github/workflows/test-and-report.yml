@@ -283,16 +283,11 @@ jobs:
             echo "✅ Article generation within ${GENERATION_BUDGET_MS}ms budget (${DURATION}ms)"
           fi
 
-      - name: Generate indexes and sitemap
-        run: |
-          npm run generate-news-indexes
-          npm run generate-sitemap
-
       - name: Install Lighthouse CI
         run: npm install -g @lhci/cli@0.15.1
 
       - name: Run Lighthouse CI
-        run: lhci autorun || echo "::warning::Lighthouse CI assertions failed - review lighthouse-reports artifact"
+        run: lhci autorun
 
       - name: Upload Lighthouse reports
         if: always()
