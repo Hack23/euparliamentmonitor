@@ -1450,6 +1450,20 @@ button:focus-visible {
     outline-color: var(--focus-ring);
   }
 
+  /* Two-tone focus indicator for primary-background controls: dark outline
+   * + white inner shadow. Contrasts against both dark button and light page
+   * background, meeting WCAG 2.2 SC 2.4.11 in high-contrast light mode. */
+  .back-to-news:focus-visible,
+  .lang-link.active:focus-visible,
+  .skip-link:focus-visible {
+    outline-color: var(--focus-ring);
+    outline-width: 3px;
+    outline-offset: 3px;
+    box-shadow:
+      0 0 0 1px #ffffff,
+      0 0 0 4px var(--focus-ring);
+  }
+
   .group-badge {
     outline: 2px solid var(--border);
   }
