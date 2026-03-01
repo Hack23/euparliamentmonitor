@@ -475,6 +475,16 @@ describe('article-template', () => {
         const html = generateArticleHTML(defaultOptions);
         expect(html).toContain('X-Content-Type-Options');
         expect(html).toContain('no-referrer');
+        expect(html).toContain('Content-Security-Policy');
+        expect(html).toContain("default-src 'none'");
+        expect(html).toContain("script-src 'none'");
+        expect(html).toContain("style-src 'self' 'unsafe-inline'");
+        expect(html).toContain("img-src 'self' https: data:");
+        expect(html).toContain("font-src 'self'");
+        expect(html).toContain("connect-src 'none'");
+        expect(html).toContain("frame-src 'none'");
+        expect(html).toContain("base-uri 'self'");
+        expect(html).toContain("form-action 'none'");
       });
     });
 
