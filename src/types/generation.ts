@@ -36,6 +36,8 @@ export interface ArticleOptions {
   keywords?: string[];
   sources?: ArticleSource[];
   analysisPerspectives?: AnalysisPerspective[];
+  /** SRI hash (sha256/sha384/sha512) for the styles.css link (e.g. "sha384-…"). If provided, adds integrity and crossorigin attributes. */
+  stylesHash?: string;
 }
 
 /** Sitemap URL entry */
