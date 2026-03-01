@@ -593,6 +593,7 @@ img {
 .article-lang {
   padding: 3px 12px;
   background: var(--secondary);
+  color: var(--primary);
   border-radius: 100px;
   font-weight: 700;
   font-size: 0.78em;
@@ -1342,6 +1343,7 @@ button:focus-visible {
 
   /* Group badges use dark text on lighter dark-mode backgrounds */
   .group-badge {
+  .article-lang {
     color: var(--bg);
   }
 }
