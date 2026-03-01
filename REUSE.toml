@@ -52,7 +52,7 @@ SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
-path = ["sitemap.xml", "rss.xml", "news/metadata/**.json", "news/**.json", "tool-schemas.json"]
+path = ["sitemap.xml", "news/metadata/**.json", "news/**.json", "tool-schemas.json"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
 SPDX-License-Identifier = "Apache-2.0"
