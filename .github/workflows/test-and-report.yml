@@ -219,7 +219,17 @@ jobs:
           echo "🔍 Validating generated HTML..."
           npm run htmlhint || echo "HTML validation completed"
 
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
       - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium
 
       - name: Run accessibility tests (WCAG 2.1 AA)
@@ -366,7 +376,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "## Accessibility" >> $GITHUB_STEP_SUMMARY
           echo "- ♿ WCAG 2.1 AA accessibility tests run as part of functional-tests job" >> $GITHUB_STEP_SUMMARY
-          echo "- 📊 Accessibility report artifact: \`accessibility-report\`" >> $GITHUB_STEP_SUMMARY
+          echo "- 📊 [Accessibility report artifact](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}#artifacts)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
           if [ "${{ needs.validation.result }}" == "success" ] && \
