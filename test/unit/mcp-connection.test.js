@@ -20,37 +20,71 @@ import { mockConsole } from '../helpers/test-utils.js';
 
 describe('mcp-connection', () => {
   describe('parseSSEResponse', () => {
+    it('should parse a valid SSE response with single data line', () => {
+      const body = 'event: message\ndata: {"jsonrpc":"2.0","id":1,"result":{"tools":[]}}\n\n';
+      const result = parseSSEResponse(body);
+      expect(result).not.toBeNull();
+      expect(result?.jsonrpc).toBe('2.0');
+      expect(result?.id).toBe(1);
+      expect(result?.result).toEqual({ tools: [] });
+    });
+
     it('should return null for empty string', () => {
       expect(parseSSEResponse('')).toBeNull();
     });
 
-    it('should parse a single data line', () => {
-      const body = 'data: {"jsonrpc":"2.0","id":1,"result":{"tools":[]}}';
-      const result = parseSSEResponse(body);
-      expect(result).not.toBeNull();
-      expect(result?.id).toBe(1);
+    it('should return null for response with no data lines', () => {
+      const body = 'event: ping\n: comment line\n\n';
+      expect(parseSSEResponse(body)).toBeNull();
     });
 
     it('should return first valid data line when multiple exist', () => {
-      const body = [
-        'event: message',
-        'data: {"jsonrpc":"2.0","id":1,"result":{"tools":[]}}',
-        '',
-        'data: {"jsonrpc":"2.0","id":2,"result":{}}',
-      ].join('\n');
+      const body =
+        'data: {"jsonrpc":"2.0","id":1,"result":"first"}\ndata: {"jsonrpc":"2.0","id":2,"result":"second"}\n';
       const result = parseSSEResponse(body);
       expect(result?.id).toBe(1);
+      expect(result?.result).toBe('first');
     });
 
     it('should skip invalid JSON and return the first valid one', () => {
-      const body = 'data: not-json\ndata: {"jsonrpc":"2.0","id":3,"result":{}}';
+      const body = 'data: {invalid json}\ndata: {"jsonrpc":"2.0","id":3,"result":"valid"}\n';
       const result = parseSSEResponse(body);
       expect(result?.id).toBe(3);
+      expect(result?.result).toBe('valid');
     });
 
-    it('should return null when no valid data lines exist', () => {
-      const body = 'event: ping\ncomment: keep-alive\n';
+    it('should return null when all data lines contain malformed JSON', () => {
+      const body = 'data: {invalid}\ndata: not-json\n';
       expect(parseSSEResponse(body)).toBeNull();
+    });
+
+    it('should skip data lines with empty content after prefix', () => {
+      const body = 'data: \ndata:   \ndata: {"jsonrpc":"2.0","id":4,"result":"ok"}\n';
+      const result = parseSSEResponse(body);
+      expect(result?.id).toBe(4);
+    });
+
+    it('should handle data lines with extra whitespace after prefix', () => {
+      const body = 'data:    {"jsonrpc":"2.0","id":5,"result":"trimmed"}  \n';
+      const result = parseSSEResponse(body);
+      expect(result?.id).toBe(5);
+    });
+
+    it('should handle mixed valid/invalid lines with event prefixes', () => {
+      const body =
+        'event: message\n: server comment\ndata: {"jsonrpc":"2.0","id":6,"result":"found"}\nevent: done\n\n';
+      const result = parseSSEResponse(body);
+      expect(result?.id).toBe(6);
+    });
+
+    it('should parse error responses from SSE', () => {
+      const body =
+        'data: {"jsonrpc":"2.0","id":7,"error":{"code":-32600,"message":"Invalid Request"}}\n';
+      const result = parseSSEResponse(body);
+      expect(result).not.toBeNull();
+      expect(result?.error).toBeDefined();
+      expect(result?.error?.code).toBe(-32600);
+      expect(result?.error?.message).toBe('Invalid Request');
     });
   });
 

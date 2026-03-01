@@ -185,7 +185,7 @@ export class MCPConnection {
     this.requestId = 0;
     this.pendingRequests = new Map();
     this.connectionAttempts = 0;
-    this.maxConnectionAttempts = options.maxConnectionAttempts ?? 3;
+    this.maxConnectionAttempts = Math.max(1, options.maxConnectionAttempts ?? 3);
     this.connectionRetryDelay = options.connectionRetryDelay ?? 1000;
     this.maxRetries = options.maxRetries ?? 2;
     this.reconnectingPromise = null;
