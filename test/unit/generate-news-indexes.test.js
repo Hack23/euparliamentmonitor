@@ -552,12 +552,11 @@ function generateMockIndexHTML(lang, articles) {
           <span class="site-header__subtitle">European Parliament Intelligence</span>
         </span>
       </a>
+      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
+        ${langNav}
+      </nav>
     </div>
   </header>
-
-  <nav class="language-switcher" role="navigation" aria-label="Language selection">
-    ${langNav}
-  </nav>
 
   <section class="hero">
     <h1 class="hero__title">${heroTitle}</h1>

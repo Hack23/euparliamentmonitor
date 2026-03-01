@@ -342,9 +342,6 @@ export const ARTICLE_NAV_LABELS: LanguageMap = {
 
 /* ─── AI Section Localized Strings ───────────────────────────────── */
 
-/** Shared language codes display string */
-const LANG_CODES_LIST = 'EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH';
-
 /** AI section interface for structured localized content */
 export interface AISection {
   heading: string;
@@ -352,8 +349,8 @@ export interface AISection {
   description: string;
   featureAgents: string;
   featureAgentsDesc: string;
-  featureLanguages: string;
-  featureLanguagesDesc: string;
+  featureSchedule: string;
+  featureScheduleDesc: string;
   featureHuman: string;
   featureHumanDesc: string;
   featureData: string;
@@ -370,8 +367,8 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
       'EU Parliament Monitor doesn\u2019t just report on European Parliament activity \u2014 it autonomously generates deep political intelligence at machine speed, with editorial quality that would make legacy news desks nervous.',
     featureAgents: '8 Autonomous Agents',
     featureAgentsDesc: 'News, data, frontend, quality, security, docs, DevOps, product',
-    featureLanguages: '14 Languages',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: 'Comprehensive Coverage',
+    featureScheduleDesc: 'Weekly Ahead · Committee Reports · Legislative Tracker · Monthly Reviews',
     featureHuman: 'Human-in-the-Loop',
     featureHumanDesc: 'Agents open publication-ready PRs; humans review and merge',
     featureData: 'Live Parliament Data',
@@ -386,8 +383,9 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
     featureAgents: '8 autonoma agenter',
     featureAgentsDesc:
       'Nyheter, data, frontend, kvalitet, s\u00e4kerhet, dokumentation, DevOps, produkt',
-    featureLanguages: '14 spr\u00e5k',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: 'Omfattande bevakning',
+    featureScheduleDesc:
+      'Veckans agenda · Utskottsrapporter · Lagstiftningsträcker · Månadsöversikter',
     featureHuman: 'M\u00e4nniska i loopen',
     featureHumanDesc:
       'Agenter \u00f6ppnar publiceringsf\u00e4rdiga PR; m\u00e4nniskor granskar och mergar',
@@ -403,8 +401,8 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
     featureAgents: '8 autonome agenter',
     featureAgentsDesc:
       'Nyheder, data, frontend, kvalitet, sikkerhed, dokumentation, DevOps, produkt',
-    featureLanguages: '14 sprog',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: 'Omfattende dækning',
+    featureScheduleDesc: 'Ugens agenda · Udvalgsrapporter · Lovgivningstracker · Månedsoversigter',
     featureHuman: 'Menneske i kredsl\u00f8bet',
     featureHumanDesc: 'Agenter \u00e5bner publiceringsklar PR; mennesker gennemg\u00e5r og merger',
     featureData: 'Parlamentsdata i realtid',
@@ -419,8 +417,8 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
     featureAgents: '8 autonome agenter',
     featureAgentsDesc:
       'Nyheter, data, frontend, kvalitet, sikkerhet, dokumentasjon, DevOps, produkt',
-    featureLanguages: '14 spr\u00e5k',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: 'Omfattende dekning',
+    featureScheduleDesc: 'Ukens agenda · Komitérapporter · Lovgivningstracker · Månedsoversikter',
     featureHuman: 'Menneske i loopen',
     featureHumanDesc:
       'Agenter \u00e5pner publiseringsklare PR; mennesker gjennomg\u00e5r og merger',
@@ -435,8 +433,9 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
       'EU Parliament Monitor ei vain raportoi Euroopan parlamentin toiminnasta \u2014 se tuottaa autonomisesti syv\u00e4llist\u00e4 poliittista tiedustelua konenopeudella.',
     featureAgents: '8 autonomista agenttia',
     featureAgentsDesc: 'Uutiset, data, frontend, laatu, turvallisuus, dokumentaatio, DevOps, tuote',
-    featureLanguages: '14 kielt\u00e4',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: 'Kattava seuranta',
+    featureScheduleDesc:
+      'Viikkonäkymä · Valiokunnan raportit · Lainsäädäntöseuranta · Kuukausikatsaukset',
     featureHuman: 'Ihminen mukana',
     featureHumanDesc: 'Agentit avaavat julkaisuvalmiit PR:t; ihmiset tarkistavat ja mergaavat',
     featureData: 'Reaaliaikainen data',
@@ -451,8 +450,9 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
     featureAgents: '8 autonome Agenten',
     featureAgentsDesc:
       'Nachrichten, Daten, Frontend, Qualit\u00e4t, Sicherheit, Dokumentation, DevOps, Produkt',
-    featureLanguages: '14 Sprachen',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: 'Umfassende Berichterstattung',
+    featureScheduleDesc:
+      'Wochenvorschau · Ausschussberichte · Gesetzgebungstracker · Monatsrückblicke',
     featureHuman: 'Mensch in der Schleife',
     featureHumanDesc: 'Agenten erstellen publikationsreife PRs; Menschen pr\u00fcfen und mergen',
     featureData: 'Echtzeit-Parlamentsdaten',
@@ -468,8 +468,9 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
     featureAgents: '8 agents autonomes',
     featureAgentsDesc:
       'Actualit\u00e9s, donn\u00e9es, frontend, qualit\u00e9, s\u00e9curit\u00e9, documentation, DevOps, produit',
-    featureLanguages: '14 langues',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: 'Couverture complète',
+    featureScheduleDesc:
+      'Semaine à venir · Rapports de commission · Suivi législatif · Bilans mensuels',
     featureHuman: 'Humain dans la boucle',
     featureHumanDesc:
       'Les agents ouvrent des PR pr\u00eates \u00e0 publier ; les humains r\u00e9visent et mergent',
@@ -485,8 +486,9 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
     featureAgents: '8 agentes aut\u00f3nomos',
     featureAgentsDesc:
       'Noticias, datos, frontend, calidad, seguridad, documentaci\u00f3n, DevOps, producto',
-    featureLanguages: '14 idiomas',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: 'Cobertura integral',
+    featureScheduleDesc:
+      'Semana entrante · Informes de comité · Seguimiento legislativo · Revisión mensual',
     featureHuman: 'Humano en el proceso',
     featureHumanDesc: 'Los agentes crean PRs listas para publicar; los humanos revisan y fusionan',
     featureData: 'Datos en vivo',
@@ -501,8 +503,9 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
     featureAgents: '8 autonome agenten',
     featureAgentsDesc:
       'Nieuws, data, frontend, kwaliteit, beveiliging, documentatie, DevOps, product',
-    featureLanguages: '14 talen',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: 'Uitgebreide dekking',
+    featureScheduleDesc:
+      'Weekoverzicht · Commissierapporten · Wetgevingstracker · Maandoverzichten',
     featureHuman: 'Mens in de kring',
     featureHumanDesc: "Agenten openen publicatieklare PR's; mensen beoordelen en mergen",
     featureData: 'Live data',
@@ -518,8 +521,8 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
     featureAgents: '8 \u0648\u0643\u0644\u0627\u0621 \u0645\u0633\u062a\u0642\u0644\u064a\u0646',
     featureAgentsDesc:
       '\u0623\u062e\u0628\u0627\u0631\u060c \u0628\u064a\u0627\u0646\u0627\u062a\u060c \u0648\u0627\u062c\u0647\u0629 \u0623\u0645\u0627\u0645\u064a\u0629\u060c \u062c\u0648\u062f\u0629\u060c \u0623\u0645\u0627\u0646\u060c \u062a\u0648\u062b\u064a\u0642\u060c DevOps\u060c \u0645\u0646\u062a\u062c',
-    featureLanguages: '14 \u0644\u063a\u0629',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: 'تغطية شاملة',
+    featureScheduleDesc: 'أجندة الأسبوع · تقارير اللجان · متابعة التشريعات · مراجعات شهرية',
     featureHuman:
       '\u0627\u0644\u0625\u0646\u0633\u0627\u0646 \u0641\u064a \u0627\u0644\u062d\u0644\u0642\u0629',
     featureHumanDesc:
@@ -539,8 +542,8 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
       '8 \u05e1\u05d5\u05db\u05e0\u05d9\u05dd \u05d0\u05d5\u05d8\u05d5\u05e0\u05d5\u05de\u05d9\u05d9\u05dd',
     featureAgentsDesc:
       '\u05d7\u05d3\u05e9\u05d5\u05ea, \u05e0\u05ea\u05d5\u05e0\u05d9\u05dd, \u05de\u05de\u05e9\u05e7, \u05d0\u05d9\u05db\u05d5\u05ea, \u05d0\u05d1\u05d8\u05d7\u05d4, \u05ea\u05d9\u05e2\u05d5\u05d3, DevOps, \u05de\u05d5\u05e6\u05e8',
-    featureLanguages: '14 \u05e9\u05e4\u05d5\u05ea',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: 'כיסוי מקיף',
+    featureScheduleDesc: 'מבט שבועי · דוחות ועדות · מעקב חקיקה · סקירות חודשיות',
     featureHuman: '\u05d0\u05d3\u05dd \u05d1\u05dc\u05d5\u05dc\u05d0\u05d4',
     featureHumanDesc:
       '\u05e1\u05d5\u05db\u05e0\u05d9\u05dd \u05e4\u05d5\u05ea\u05d7\u05d9\u05dd PR \u05de\u05d5\u05db\u05e0\u05d9\u05dd \u05dc\u05e4\u05e8\u05e1\u05d5\u05dd; \u05d1\u05e0\u05d9 \u05d0\u05d3\u05dd \u05d1\u05d5\u05d3\u05e7\u05d9\u05dd \u05d5\u05de\u05de\u05d6\u05d2\u05d9\u05dd',
@@ -558,8 +561,8 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
     featureAgents: '8\u3064\u306e\u81ea\u5f8b\u578b\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8',
     featureAgentsDesc:
       '\u30cb\u30e5\u30fc\u30b9\u3001\u30c7\u30fc\u30bf\u3001\u30d5\u30ed\u30f3\u30c8\u30a8\u30f3\u30c9\u3001\u54c1\u8cea\u3001\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3001\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\u3001DevOps\u3001\u30d7\u30ed\u30c0\u30af\u30c8',
-    featureLanguages: '14\u8a00\u8a9e\u5bfe\u5fdc',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: '包括的なカバレッジ',
+    featureScheduleDesc: '週間展望 · 委員会報告 · 立法トラッカー · 月次レビュー',
     featureHuman:
       '\u30d2\u30e5\u30fc\u30de\u30f3\u30fb\u30a4\u30f3\u30fb\u30b6\u30fb\u30eb\u30fc\u30d7',
     featureHumanDesc:
@@ -578,8 +581,8 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
     featureAgents: '8\uac1c \uc790\uc728 \uc5d0\uc774\uc804\ud2b8',
     featureAgentsDesc:
       '\ub274\uc2a4, \ub370\uc774\ud130, \ud504\ub860\ud2b8\uc5d4\ub4dc, \ud488\uc9c8, \ubcf4\uc548, \ubb38\uc11c, DevOps, \uc81c\ud488',
-    featureLanguages: '14\uac1c \uc5b8\uc5b4',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: '포괄적 보도',
+    featureScheduleDesc: '주간 전망 · 위원회 보고서 · 입법 추적 · 월간 리뷰',
     featureHuman: '\ud734\uba3c \uc778 \ub354 \ub8e8\ud504',
     featureHumanDesc:
       '\uc5d0\uc774\uc804\ud2b8\uac00 \ubc1c\ud589 \uc900\ube44\ub41c PR\uc744 \uc5f4\uace0, \uc0ac\ub78c\uc774 \uac80\ud1a0 \ud6c4 \uba38\uc9c0',
@@ -596,8 +599,8 @@ export const AI_SECTION_CONTENT: LanguageMap<AISection> = {
     featureAgents: '8\u4e2a\u81ea\u4e3b\u4ee3\u7406',
     featureAgentsDesc:
       '\u65b0\u95fb\u3001\u6570\u636e\u3001\u524d\u7aef\u3001\u8d28\u91cf\u3001\u5b89\u5168\u3001\u6587\u6863\u3001DevOps\u3001\u4ea7\u54c1',
-    featureLanguages: '14\u79cd\u8bed\u8a00',
-    featureLanguagesDesc: LANG_CODES_LIST,
+    featureSchedule: '全面报道',
+    featureScheduleDesc: '周前瞻 · 委员会报告 · 立法追踪 · 月度回顾',
     featureHuman: '\u4eba\u673a\u534f\u540c',
     featureHumanDesc: '\u4ee3\u7406\u521b\u5efaPR\uff0c\u4eba\u5de5\u5ba1\u6838\u53d1\u5e03',
     featureData: '\u5b9e\u65f6\u6570\u636e',

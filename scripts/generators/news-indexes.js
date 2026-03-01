@@ -223,12 +223,11 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
           <span class="site-header__subtitle">European Parliament Intelligence</span>
         </span>
       </a>
+      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
+        ${buildLangSwitcher(lang)}
+      </nav>
     </div>
   </header>
-
-  <nav class="language-switcher" role="navigation" aria-label="Language selection">
-    ${buildLangSwitcher(lang)}
-  </nav>
 
   <section class="hero">
     <h1 class="hero__title">${heroTitle}</h1>
@@ -241,7 +240,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
     <p>${escapeHTML(ai.description)}</p>
     <ul class="ai-intelligence__features">
       <li><strong>${escapeHTML(ai.featureAgents)}</strong> &mdash; ${escapeHTML(ai.featureAgentsDesc)}</li>
-      <li><strong>${escapeHTML(ai.featureLanguages)}</strong> &mdash; ${escapeHTML(ai.featureLanguagesDesc)}</li>
+      <li><strong>${escapeHTML(ai.featureSchedule)}</strong> &mdash; ${escapeHTML(ai.featureScheduleDesc)}</li>
       <li><strong>${escapeHTML(ai.featureHuman)}</strong> &mdash; ${escapeHTML(ai.featureHumanDesc)}</li>
       <li><strong>${escapeHTML(ai.featureData)}</strong> &mdash; ${escapeHTML(ai.featureDataDesc)}</li>
     </ul>
