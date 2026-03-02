@@ -115,17 +115,28 @@ Before generating articles, consult these skills:
 4. **`.github/skills/seo-best-practices.md`** — Multi-language SEO
 5. **`.github/skills/gh-aw-firewall.md`** — Network security and safe outputs
 
-## MANDATORY Date Validation
+## MANDATORY Date Context Establishment
 
-**ALWAYS START by logging the current date:**
+**⚠️ ALWAYS run this block FIRST before any MCP calls or article generation.**
+
 ```bash
-echo "=== Date Validation Check ==="
-date -u "+Current UTC: %A %Y-%m-%d %H:%M:%S"
+echo "=== Date Context Establishment ==="
+TODAY=$(date -u +%Y-%m-%d)
+CURRENT_YEAR=$(date -u +%Y)
+CURRENT_MONTH=$(date -u +%m)
+CURRENT_MONTH_NAME=$(date -u +%B)
+CURRENT_DAY=$(date -u +%d)
+DAY_OF_WEEK=$(date -u +%A)
+DAY_NUM=$(date -u +%u)
+echo "Today:  $TODAY ($DAY_OF_WEEK)"
+echo "Month:  $CURRENT_MONTH_NAME $CURRENT_YEAR"
+echo "Year:   $CURRENT_YEAR"
 echo "Article Type: committee-reports"
-echo "============================"
+echo "==================================="
+export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WEEK DAY_NUM
 ```
 
-**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$(date -u +%Y-%m-%d)`. NEVER hardcode a year (e.g. 2024). Use `TODAY=$(date -u +%Y-%m-%d)` and compute offsets with `date -u -d` commands.
+**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$TODAY` (set above). NEVER hardcode a year (e.g. 2024, 2025). Use `date -u -d "$TODAY - 7 days" +%Y-%m-%d` for offsets.
 
 
 ## MANDATORY MCP Health Gate

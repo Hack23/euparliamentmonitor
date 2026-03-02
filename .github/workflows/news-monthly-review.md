@@ -33,6 +33,7 @@ network:
     - github.com
     - api.github.com
     - data.europarl.europa.eu
+    - api.worldbank.org
     - "*.europa.eu"
     - "*.com"
     - "*.org"
@@ -45,6 +46,11 @@ mcp-servers:
     args:
       - -y
       - european-parliament-mcp-server@1.0.1
+  world-bank:
+    command: npx
+    args:
+      - -y
+      - worldbank-mcp@1.0.0
 
 tools:
   github:
@@ -117,16 +123,30 @@ This is a **retrospective** article providing comprehensive analysis of the past
 4. **`.github/skills/seo-best-practices.md`** — Article SEO and metadata
 5. **`.github/skills/gh-aw-firewall.md`** — Safe outputs and network security
 
-## MANDATORY Date Validation
+## MANDATORY Date Context Establishment
+
+**⚠️ ALWAYS run this block FIRST before any MCP calls or article generation.**
 
 ```bash
-echo "=== Date Validation Check ==="
-date -u "+Current UTC: %A %Y-%m-%d %H:%M:%S"
+echo "=== Date Context Establishment ==="
+TODAY=$(date -u +%Y-%m-%d)
+CURRENT_YEAR=$(date -u +%Y)
+CURRENT_MONTH=$(date -u +%m)
+CURRENT_MONTH_NAME=$(date -u +%B)
+CURRENT_DAY=$(date -u +%d)
+DAY_OF_WEEK=$(date -u +%A)
+DAY_NUM=$(date -u +%u)
+LAST_MONTH=$(date -u -d "$TODAY - 30 days" +%Y-%m-%d)
+echo "Today:      $TODAY ($DAY_OF_WEEK)"
+echo "Month:      $CURRENT_MONTH_NAME $CURRENT_YEAR"
+echo "Year:       $CURRENT_YEAR"
+echo "Last month: $LAST_MONTH"
 echo "Article Type: month-in-review"
-echo "============================"
+echo "==================================="
+export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WEEK DAY_NUM LAST_MONTH
 ```
 
-**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$(date -u +%Y-%m-%d)`. NEVER hardcode a year (e.g. 2024). Use `TODAY=$(date -u +%Y-%m-%d)` and compute offsets with `date -u -d` commands.
+**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$TODAY` and `$LAST_MONTH` (set above). NEVER hardcode a year (e.g. 2024, 2025). Use `date -u -d` for offsets.
 
 
 ## MANDATORY MCP Health Gate
@@ -205,6 +225,24 @@ european_parliament___analyze_coalition_dynamics({ dateFrom: lastMonth, dateTo: 
 european_parliament___compare_political_groups({ groupIds: ["EPP", "S&D", "Renew", "Greens/EFA", "ECR"] })
 european_parliament___generate_political_landscape({})
 ```
+
+
+## 🌍 World Bank Economic Context (Optional Enrichment)
+
+When the monthly review covers legislation with economic impact, use the `world-bank` MCP server to contextualize legislative achievements:
+
+```javascript
+// EU GDP growth for economic policy context
+world_bank___get_economic_data({ countryCode: "EU", indicator: "GDP_GROWTH", years: 5 })
+
+// Unemployment trends for employment legislation impact
+world_bank___get_economic_data({ countryCode: "EU", indicator: "UNEMPLOYMENT", years: 5 })
+
+// FDI data for trade/investment legislation
+world_bank___get_economic_data({ countryCode: "EU", indicator: "FDI_NET", years: 5 })
+```
+
+**Rules**: Use at most 3 World Bank calls per workflow run. Only include when it directly contextualizes the month's legislative output.
 
 
 ## MANDATORY Article HTML Structure
@@ -399,6 +437,8 @@ fi
 ```
 
 ### Step 4: Create PR
+
+> **⚠️ Do NOT commit generated files**: `sitemap.xml`, `sitemap*.html`, `rss.xml`, `index.html`, `index-*.html`, and `news/articles-metadata.json` are generated at deploy time. Only commit article HTML files: `news/{YYYY-MM-DD}-month-in-review-{lang}.html`
 
 ```bash
 TODAY=$(date -u +%Y-%m-%d)
