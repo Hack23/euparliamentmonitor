@@ -577,6 +577,126 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     async getAllGeneratedStats(options = {}) {
         return this.safeCallTool('get_all_generated_stats', options, STATS_FALLBACK);
     }
+    // ─── EP API v2 Feed Endpoint Methods ────────────────────────────────────────
+    /** Fallback payload for feed tools */
+    static FEED_FALLBACK = '{"feed": []}';
+    /**
+     * Get MEPs feed (most recent updates via EP API v2)
+     *
+     * @param options - Pagination options
+     * @returns MEPs feed data
+     */
+    async getMEPsFeed(options = {}) {
+        return this.safeCallTool('get_meps_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+    }
+    /**
+     * Get events feed (most recent updates via EP API v2)
+     *
+     * @param options - Pagination options
+     * @returns Events feed data
+     */
+    async getEventsFeed(options = {}) {
+        return this.safeCallTool('get_events_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+    }
+    /**
+     * Get procedures feed (most recent updates via EP API v2)
+     *
+     * @param options - Pagination options
+     * @returns Procedures feed data
+     */
+    async getProceduresFeed(options = {}) {
+        return this.safeCallTool('get_procedures_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+    }
+    /**
+     * Get adopted texts feed (most recent updates via EP API v2)
+     *
+     * @param options - Pagination options
+     * @returns Adopted texts feed data
+     */
+    async getAdoptedTextsFeed(options = {}) {
+        return this.safeCallTool('get_adopted_texts_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+    }
+    /**
+     * Get MEP declarations feed (most recent updates via EP API v2)
+     *
+     * @param options - Pagination options
+     * @returns MEP declarations feed data
+     */
+    async getMEPDeclarationsFeed(options = {}) {
+        return this.safeCallTool('get_mep_declarations_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+    }
+    /**
+     * Get documents feed (most recent updates via EP API v2)
+     *
+     * @param options - Pagination options
+     * @returns Documents feed data
+     */
+    async getDocumentsFeed(options = {}) {
+        return this.safeCallTool('get_documents_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+    }
+    /**
+     * Get plenary documents feed (most recent updates via EP API v2)
+     *
+     * @param options - Pagination options
+     * @returns Plenary documents feed data
+     */
+    async getPlenaryDocumentsFeed(options = {}) {
+        return this.safeCallTool('get_plenary_documents_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+    }
+    /**
+     * Get committee documents feed (most recent updates via EP API v2)
+     *
+     * @param options - Pagination options
+     * @returns Committee documents feed data
+     */
+    async getCommitteeDocumentsFeed(options = {}) {
+        return this.safeCallTool('get_committee_documents_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+    }
+    /**
+     * Get plenary session documents feed (most recent updates via EP API v2)
+     *
+     * @param options - Pagination options
+     * @returns Plenary session documents feed data
+     */
+    async getPlenarySessionDocumentsFeed(options = {}) {
+        return this.safeCallTool('get_plenary_session_documents_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+    }
+    /**
+     * Get external documents feed (most recent updates via EP API v2)
+     *
+     * @param options - Pagination options
+     * @returns External documents feed data
+     */
+    async getExternalDocumentsFeed(options = {}) {
+        return this.safeCallTool('get_external_documents_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+    }
+    /**
+     * Get parliamentary questions feed (most recent updates via EP API v2)
+     *
+     * @param options - Pagination options
+     * @returns Parliamentary questions feed data
+     */
+    async getParliamentaryQuestionsFeed(options = {}) {
+        return this.safeCallTool('get_parliamentary_questions_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+    }
+    /**
+     * Get corporate bodies feed (most recent updates via EP API v2)
+     *
+     * @param options - Pagination options
+     * @returns Corporate bodies feed data
+     */
+    async getCorporateBodiesFeed(options = {}) {
+        return this.safeCallTool('get_corporate_bodies_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+    }
+    /**
+     * Get controlled vocabularies feed (most recent updates via EP API v2)
+     *
+     * @param options - Pagination options
+     * @returns Controlled vocabularies feed data
+     */
+    async getControlledVocabulariesFeed(options = {}) {
+        return this.safeCallTool('get_controlled_vocabularies_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+    }
 }
 let clientInstance = null;
 /**

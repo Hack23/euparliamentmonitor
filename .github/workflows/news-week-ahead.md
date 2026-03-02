@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.0.1
+      - european-parliament-mcp-server@1.1.0
 
 tools:
   github:
@@ -95,7 +95,7 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 ## 🚨 CRITICAL: European Parliament MCP Server is the Sole Data Source
 
-**ALL article data MUST be fetched from the `european-parliament` MCP server.** No other data source should be used for article content. The MCP server provides 47 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, OSINT intelligence analysis, and precomputed statistics.
+**ALL article data MUST be fetched from the `european-parliament` MCP server.** No other data source should be used for article content. The MCP server provides 61 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, OSINT intelligence analysis, and precomputed statistics.
 
 **Note:** EU Parliament API responses can be slow (30+ seconds is common). The workflow timeout has been set to 60 minutes to accommodate this. Use `Promise.allSettled()` for parallel queries and handle timeouts gracefully.
 
@@ -252,6 +252,16 @@ european_parliament___analyze_committee_activity({ dateFrom: today, dateTo: next
 
 // Parliament-wide political landscape overview
 european_parliament___generate_political_landscape({})
+```
+
+### 📡 Preferred: EP API v2 Feed Endpoints for Recent Updates
+
+**Prefer feed endpoints for the latest parliamentary updates.** These return the most recently updated items:
+
+```javascript
+european_parliament___get_events_feed({ limit: 20 })
+european_parliament___get_procedures_feed({ limit: 20 })
+european_parliament___get_plenary_documents_feed({ limit: 20 })
 ```
 
 ### Handling Slow API Responses
@@ -448,7 +458,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ EP MCP server binary not found, attempting reinstall..."
-    npm install --no-save european-parliament-mcp-server@1.0.1
+    npm install --no-save european-parliament-mcp-server@1.1.0
   fi
 fi
 ```

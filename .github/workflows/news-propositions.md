@@ -45,7 +45,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.0.1
+      - european-parliament-mcp-server@1.1.0
   world-bank:
     command: npx
     args:
@@ -243,6 +243,15 @@ european_parliament___get_committee_info({ committeeId: "ENVI" })
 
 // Analyze legislative effectiveness
 european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
+```
+
+### 📡 Preferred: EP API v2 Feed Endpoints for Recent Updates
+
+**Prefer feed endpoints for the latest legislative updates:**
+
+```javascript
+european_parliament___get_procedures_feed({ limit: 20 })
+european_parliament___get_documents_feed({ limit: 20 })
 ```
 
 ## 🏛️ EU Legislative Procedures Reference
@@ -445,7 +454,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ EP MCP server binary not found, attempting reinstall..."
-    npm install --no-save european-parliament-mcp-server@1.0.1
+    npm install --no-save european-parliament-mcp-server@1.1.0
   fi
 fi
 ```

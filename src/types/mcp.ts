@@ -423,3 +423,83 @@ export interface GetAllGeneratedStatsOptions {
   includeMonthlyBreakdown?: boolean;
   includeRankings?: boolean;
 }
+
+// ─── EP API v2 Feed Endpoint Options ───────────────────────────────────────────
+
+/** Options for getMEPsFeed */
+export interface GetMEPsFeedOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getEventsFeed */
+export interface GetEventsFeedOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getProceduresFeed */
+export interface GetProceduresFeedOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getAdoptedTextsFeed */
+export interface GetAdoptedTextsFeedOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getMEPDeclarationsFeed */
+export interface GetMEPDeclarationsFeedOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getDocumentsFeed */
+export interface GetDocumentsFeedOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getPlenaryDocumentsFeed */
+export interface GetPlenaryDocumentsFeedOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getCommitteeDocumentsFeed */
+export interface GetCommitteeDocumentsFeedOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getPlenarySessionDocumentsFeed */
+export interface GetPlenarySessionDocumentsFeedOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getExternalDocumentsFeed */
+export interface GetExternalDocumentsFeedOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getParliamentaryQuestionsFeed */
+export interface GetParliamentaryQuestionsFeedOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getCorporateBodiesFeed */
+export interface GetCorporateBodiesFeedOptions {
+  limit?: number;
+  offset?: number;
+}
+
+/** Options for getControlledVocabulariesFeed */
+export interface GetControlledVocabulariesFeedOptions {
+  limit?: number;
+  offset?: number;
+}
