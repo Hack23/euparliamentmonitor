@@ -263,14 +263,14 @@ european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTE
 When propositions involve economic, trade, or environmental regulation, use the `world-bank` MCP server to add macroeconomic context:
 
 ```javascript
-// EU GDP growth for economic legislation context
-world_bank___get_economic_data({ countryCode: "EU", indicator: "GDP_GROWTH", years: 5 })
+// EU GDP growth for economic legislation context (World Bank indicator: NY.GDP.MKTP.KD.ZG)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NY.GDP.MKTP.KD.ZG", years: 5 })
 
-// Trade data for trade-related proposals
-world_bank___get_economic_data({ countryCode: "EU", indicator: "EXPORTS_GDP", years: 5 })
+// Trade data for trade-related proposals (World Bank indicator: NE.EXP.GNFS.ZS)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NE.EXP.GNFS.ZS", years: 5 })
 
-// Health expenditure for health-related legislation
-world_bank___get_health_data({ countryCode: "EU", indicator: "HEALTH_EXPENDITURE", years: 5 })
+// Health expenditure for health-related legislation (World Bank indicator: SH.XPD.CHEX.GD.ZS)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "SH.XPD.CHEX.GD.ZS", years: 5 })
 ```
 
 **Rules**: Use at most 3 World Bank calls per workflow run. Only include when it directly contextualizes the legislative proposals being analyzed.

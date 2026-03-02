@@ -232,14 +232,14 @@ european_parliament___generate_political_landscape({})
 When the monthly review covers legislation with economic impact, use the `world-bank` MCP server to contextualize legislative achievements:
 
 ```javascript
-// EU GDP growth for economic policy context
-world_bank___get_economic_data({ countryCode: "EU", indicator: "GDP_GROWTH", years: 5 })
+// EU GDP growth for economic policy context (World Bank indicator: NY.GDP.MKTP.KD.ZG)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NY.GDP.MKTP.KD.ZG", years: 5 })
 
-// Unemployment trends for employment legislation impact
-world_bank___get_economic_data({ countryCode: "EU", indicator: "UNEMPLOYMENT", years: 5 })
+// Unemployment trends for employment legislation impact (World Bank indicator: SL.UEM.TOTL.ZS)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "SL.UEM.TOTL.ZS", years: 5 })
 
-// FDI data for trade/investment legislation
-world_bank___get_economic_data({ countryCode: "EU", indicator: "FDI_NET", years: 5 })
+// FDI data for trade/investment legislation (World Bank indicator: BX.KLT.DINV.WD.GD.ZS)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "BX.KLT.DINV.WD.GD.ZS", years: 5 })
 ```
 
 **Rules**: Use at most 3 World Bank calls per workflow run. Only include when it directly contextualizes the month's legislative output.

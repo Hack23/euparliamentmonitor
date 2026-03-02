@@ -261,14 +261,14 @@ european_parliament___generate_report({ reportType: "VOTING_STATISTICS" })
 When articles cover legislation with economic impact (trade, employment, environment, budget), use the `world-bank` MCP server to add macroeconomic context. This is **supplementary** — EU Parliament MCP remains the primary data source.
 
 ```javascript
-// GDP growth for EU context
-world_bank___get_economic_data({ countryCode: "EU", indicator: "GDP_GROWTH", years: 5 })
+// GDP growth for EU context (World Bank indicator: NY.GDP.MKTP.KD.ZG)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NY.GDP.MKTP.KD.ZG", years: 5 })
 
-// Unemployment trends
-world_bank___get_economic_data({ countryCode: "EU", indicator: "UNEMPLOYMENT", years: 5 })
+// Unemployment trends (World Bank indicator: SL.UEM.TOTL.ZS)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "SL.UEM.TOTL.ZS", years: 5 })
 
-// Trade data for trade-related legislation
-world_bank___get_economic_data({ countryCode: "EU", indicator: "EXPORTS_GDP", years: 5 })
+// Trade data for trade-related legislation (World Bank indicator: NE.EXP.GNFS.ZS)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NE.EXP.GNFS.ZS", years: 5 })
 ```
 
 **Rules**: Use at most 3 World Bank calls per workflow run. Only include World Bank data when it directly contextualizes the parliamentary activity being reported.

@@ -15,7 +15,7 @@
  * economic indicators when enriching articles with World Bank data.
  */
 
-import { ArticleCategory } from '../types/common.js';
+import { ArticleCategory, AnalysisPerspective } from '../types/common.js';
 
 // ─── Priority Constants ──────────────────────────────────────────────────────
 
@@ -174,7 +174,7 @@ export type WBIndicatorId = (typeof WB_INDICATORS)[keyof typeof WB_INDICATORS];
  */
 export interface IndicatorMapping {
   /** World Bank indicator ID */
-  readonly indicatorId: string;
+  readonly indicatorId: WBIndicatorId;
   /** Human-readable indicator name */
   readonly name: string;
   /** Why this indicator is relevant to the committee/category */
@@ -196,7 +196,7 @@ export interface CommitteeIndicatorEntry {
   /** Policy domain this committee covers */
   readonly policyDomain: string;
   /** Relevant analysis perspectives from AnalysisPerspective enum */
-  readonly analysisPerspectives: readonly string[];
+  readonly analysisPerspectives: readonly AnalysisPerspective[];
   /** World Bank indicators mapped to this committee */
   readonly indicators: readonly IndicatorMapping[];
 }
@@ -216,13 +216,43 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Economic and Monetary Affairs',
     abbreviation: 'ECON',
     policyDomain: 'Economic governance, monetary policy, financial regulation',
-    analysisPerspectives: ['economic', 'institutional'],
+    analysisPerspectives: [AnalysisPerspective.ECONOMIC, AnalysisPerspective.INSTITUTIONAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.GDP_GROWTH, name: N.GDP_GROWTH, relevance: 'Core metric for economic policy assessment', usage: 'Contextualize fiscal policy debates and eurozone economic health', priority: PRI },
-      { indicatorId: WB_INDICATORS.INFLATION, name: N.INFLATION, relevance: 'Central to ECB monetary policy discussions', usage: 'Frame debates on interest rates, price stability, and cost of living', priority: PRI },
-      { indicatorId: WB_INDICATORS.UNEMPLOYMENT, name: N.UNEMPLOYMENT, relevance: 'Key indicator for economic governance resolutions', usage: 'Assess effectiveness of EU economic coordination policies', priority: PRI },
-      { indicatorId: WB_INDICATORS.TAX_REVENUE, name: N.TAX, relevance: 'Relevant to EU tax harmonization debates', usage: 'Compare national fiscal capacities in tax policy discussions', priority: SEC },
-      { indicatorId: WB_INDICATORS.GOV_EXPENDITURE, name: N.GOV_EXP, relevance: 'Fiscal discipline and stability pact compliance', usage: 'Contextualize budget deficit and debt sustainability debates', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.GDP_GROWTH,
+        name: N.GDP_GROWTH,
+        relevance: 'Core metric for economic policy assessment',
+        usage: 'Contextualize fiscal policy debates and eurozone economic health',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.INFLATION,
+        name: N.INFLATION,
+        relevance: 'Central to ECB monetary policy discussions',
+        usage: 'Frame debates on interest rates, price stability, and cost of living',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.UNEMPLOYMENT,
+        name: N.UNEMPLOYMENT,
+        relevance: 'Key indicator for economic governance resolutions',
+        usage: 'Assess effectiveness of EU economic coordination policies',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.TAX_REVENUE,
+        name: N.TAX,
+        relevance: 'Relevant to EU tax harmonization debates',
+        usage: 'Compare national fiscal capacities in tax policy discussions',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.GOV_EXPENDITURE,
+        name: N.GOV_EXP,
+        relevance: 'Fiscal discipline and stability pact compliance',
+        usage: 'Contextualize budget deficit and debt sustainability debates',
+        priority: SEC,
+      },
     ],
   },
 
@@ -230,11 +260,29 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Budgets',
     abbreviation: 'BUDG',
     policyDomain: 'EU budget, Multiannual Financial Framework',
-    analysisPerspectives: ['economic', 'institutional'],
+    analysisPerspectives: [AnalysisPerspective.ECONOMIC, AnalysisPerspective.INSTITUTIONAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.GDP, name: N.GDP, relevance: 'EU budget is proportional to member state GNI', usage: 'Contextualize EU budget contributions and cohesion fund allocations', priority: PRI },
-      { indicatorId: WB_INDICATORS.GOV_EXPENDITURE, name: N.GOV_EXP, relevance: 'National spending patterns inform EU budget negotiations', usage: 'Compare public spending priorities across member states', priority: PRI },
-      { indicatorId: WB_INDICATORS.TAX_REVENUE, name: N.TAX, relevance: 'Own resources and EU revenue discussions', usage: 'Frame debates on new EU own resources proposals', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.GDP,
+        name: N.GDP,
+        relevance: 'EU budget is proportional to member state GNI',
+        usage: 'Contextualize EU budget contributions and cohesion fund allocations',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.GOV_EXPENDITURE,
+        name: N.GOV_EXP,
+        relevance: 'National spending patterns inform EU budget negotiations',
+        usage: 'Compare public spending priorities across member states',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.TAX_REVENUE,
+        name: N.TAX,
+        relevance: 'Own resources and EU revenue discussions',
+        usage: 'Frame debates on new EU own resources proposals',
+        priority: SEC,
+      },
     ],
   },
 
@@ -242,10 +290,22 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Budgetary Control',
     abbreviation: 'CONT',
     policyDomain: 'Budget execution, audit, anti-fraud',
-    analysisPerspectives: ['institutional', 'economic'],
+    analysisPerspectives: [AnalysisPerspective.INSTITUTIONAL, AnalysisPerspective.ECONOMIC],
     indicators: [
-      { indicatorId: WB_INDICATORS.GOV_EXPENDITURE, name: N.GOV_EXP, relevance: 'Benchmarks for public spending efficiency', usage: 'Assess EU fund absorption rates against national spending patterns', priority: PRI },
-      { indicatorId: WB_INDICATORS.GDP, name: N.GDP, relevance: 'Context for EU fund disbursement scale', usage: 'Proportionality of EU recovery and cohesion fund allocations', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.GOV_EXPENDITURE,
+        name: N.GOV_EXP,
+        relevance: 'Benchmarks for public spending efficiency',
+        usage: 'Assess EU fund absorption rates against national spending patterns',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.GDP,
+        name: N.GDP,
+        relevance: 'Context for EU fund disbursement scale',
+        usage: 'Proportionality of EU recovery and cohesion fund allocations',
+        priority: SEC,
+      },
     ],
   },
 
@@ -254,13 +314,43 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Employment and Social Affairs',
     abbreviation: 'EMPL',
     policyDomain: 'Employment policy, social protection, working conditions',
-    analysisPerspectives: ['social', 'economic'],
+    analysisPerspectives: [AnalysisPerspective.SOCIAL, AnalysisPerspective.ECONOMIC],
     indicators: [
-      { indicatorId: WB_INDICATORS.UNEMPLOYMENT, name: N.UNEMPLOYMENT, relevance: 'Primary metric for employment policy effectiveness', usage: 'Track labor market conditions driving legislative action', priority: PRI },
-      { indicatorId: WB_INDICATORS.YOUTH_UNEMPLOYMENT, name: N.YOUTH_UNEMP, relevance: 'Central to Youth Guarantee and skills agenda', usage: 'Highlight generational employment gaps in social policy debates', priority: PRI },
-      { indicatorId: WB_INDICATORS.LABOR_PARTICIPATION, name: N.LABOR, relevance: 'Measures workforce engagement beyond headline unemployment', usage: 'Assess structural employment challenges and inactivity rates', priority: SEC },
-      { indicatorId: WB_INDICATORS.GINI_INDEX, name: N.GINI, relevance: 'Income inequality drives social protection debates', usage: 'Contextualize minimum wage and social pillar discussions', priority: SEC },
-      { indicatorId: WB_INDICATORS.EMPLOYMENT_RATIO, name: N.EMPLOYMENT, relevance: 'Broad employment health metric', usage: 'Compare employment outcomes across member states', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.UNEMPLOYMENT,
+        name: N.UNEMPLOYMENT,
+        relevance: 'Primary metric for employment policy effectiveness',
+        usage: 'Track labor market conditions driving legislative action',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.YOUTH_UNEMPLOYMENT,
+        name: N.YOUTH_UNEMP,
+        relevance: 'Central to Youth Guarantee and skills agenda',
+        usage: 'Highlight generational employment gaps in social policy debates',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.LABOR_PARTICIPATION,
+        name: N.LABOR,
+        relevance: 'Measures workforce engagement beyond headline unemployment',
+        usage: 'Assess structural employment challenges and inactivity rates',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.GINI_INDEX,
+        name: N.GINI,
+        relevance: 'Income inequality drives social protection debates',
+        usage: 'Contextualize minimum wage and social pillar discussions',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.EMPLOYMENT_RATIO,
+        name: N.EMPLOYMENT,
+        relevance: 'Broad employment health metric',
+        usage: 'Compare employment outcomes across member states',
+        priority: SEC,
+      },
     ],
   },
 
@@ -269,13 +359,43 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Environment, Public Health and Food Safety',
     abbreviation: 'ENVI',
     policyDomain: 'Climate, environment, public health, food safety',
-    analysisPerspectives: ['environmental', 'social'],
+    analysisPerspectives: [AnalysisPerspective.ENVIRONMENTAL, AnalysisPerspective.SOCIAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.CO2_EMISSIONS, name: N.CO2, relevance: 'Core metric for EU Green Deal and climate targets', usage: 'Track progress toward 55% reduction target and net-zero by 2050', priority: PRI },
-      { indicatorId: WB_INDICATORS.RENEWABLE_ENERGY, name: N.RENEWABLE, relevance: 'REPowerEU and renewable energy directive benchmarks', usage: 'Measure clean energy transition across member states', priority: PRI },
-      { indicatorId: WB_INDICATORS.HEALTH_EXPENDITURE, name: N.HEALTH, relevance: 'EU health policy and pandemic preparedness', usage: 'Contextualize public health legislation and EU4Health programme', priority: PRI },
-      { indicatorId: WB_INDICATORS.FOREST_AREA, name: N.FOREST, relevance: 'Biodiversity strategy and deforestation regulation', usage: 'Assess land-use change in environmental policy debates', priority: SEC },
-      { indicatorId: WB_INDICATORS.ENERGY_USE, name: N.ENERGY, relevance: 'Energy efficiency directive benchmarks', usage: 'Track energy consumption trends relevant to climate legislation', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.CO2_EMISSIONS,
+        name: N.CO2,
+        relevance: 'Core metric for EU Green Deal and climate targets',
+        usage: 'Track progress toward 55% reduction target and net-zero by 2050',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.RENEWABLE_ENERGY,
+        name: N.RENEWABLE,
+        relevance: 'REPowerEU and renewable energy directive benchmarks',
+        usage: 'Measure clean energy transition across member states',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.HEALTH_EXPENDITURE,
+        name: N.HEALTH,
+        relevance: 'EU health policy and pandemic preparedness',
+        usage: 'Contextualize public health legislation and EU4Health programme',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.FOREST_AREA,
+        name: N.FOREST,
+        relevance: 'Biodiversity strategy and deforestation regulation',
+        usage: 'Assess land-use change in environmental policy debates',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.ENERGY_USE,
+        name: N.ENERGY,
+        relevance: 'Energy efficiency directive benchmarks',
+        usage: 'Track energy consumption trends relevant to climate legislation',
+        priority: SEC,
+      },
     ],
   },
 
@@ -284,13 +404,43 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Industry, Research and Energy',
     abbreviation: 'ITRE',
     policyDomain: 'Industrial policy, research, energy, digital',
-    analysisPerspectives: ['economic', 'environmental'],
+    analysisPerspectives: [AnalysisPerspective.ECONOMIC, AnalysisPerspective.ENVIRONMENTAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.RD_EXPENDITURE, name: N.RD, relevance: 'Horizon Europe and 3% GDP R&D target', usage: 'Measure innovation investment gaps across member states', priority: PRI },
-      { indicatorId: WB_INDICATORS.RENEWABLE_ENERGY, name: N.RENEWABLE, relevance: 'Energy policy and REPowerEU targets', usage: 'Track energy transition for industrial competitiveness', priority: PRI },
-      { indicatorId: WB_INDICATORS.HIGHTECH_EXPORTS, name: N.HIGHTECH, relevance: 'EU industrial competitiveness and strategic autonomy', usage: 'Assess technology sovereignty in trade and industrial debates', priority: PRI },
-      { indicatorId: WB_INDICATORS.INTERNET_USERS, name: N.INTERNET, relevance: 'Digital single market and connectivity targets', usage: 'Measure digital divide and broadband access progress', priority: SEC },
-      { indicatorId: WB_INDICATORS.ENERGY_USE, name: N.ENERGY, relevance: 'Energy efficiency and industrial energy policy', usage: 'Contextualize energy security and pricing debates', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.RD_EXPENDITURE,
+        name: N.RD,
+        relevance: 'Horizon Europe and 3% GDP R&D target',
+        usage: 'Measure innovation investment gaps across member states',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.RENEWABLE_ENERGY,
+        name: N.RENEWABLE,
+        relevance: 'Energy policy and REPowerEU targets',
+        usage: 'Track energy transition for industrial competitiveness',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.HIGHTECH_EXPORTS,
+        name: N.HIGHTECH,
+        relevance: 'EU industrial competitiveness and strategic autonomy',
+        usage: 'Assess technology sovereignty in trade and industrial debates',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.INTERNET_USERS,
+        name: N.INTERNET,
+        relevance: 'Digital single market and connectivity targets',
+        usage: 'Measure digital divide and broadband access progress',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.ENERGY_USE,
+        name: N.ENERGY,
+        relevance: 'Energy efficiency and industrial energy policy',
+        usage: 'Contextualize energy security and pricing debates',
+        priority: SEC,
+      },
     ],
   },
 
@@ -299,11 +449,29 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Internal Market and Consumer Protection',
     abbreviation: 'IMCO',
     policyDomain: 'Single market, consumer rights, product safety',
-    analysisPerspectives: ['economic', 'social'],
+    analysisPerspectives: [AnalysisPerspective.ECONOMIC, AnalysisPerspective.SOCIAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.TRADE, name: N.TRADE, relevance: 'Intra-EU trade flows reflect single market health', usage: 'Assess single market integration and barriers', priority: PRI },
-      { indicatorId: WB_INDICATORS.GDP_PER_CAPITA, name: N.GDP_PER_CAPITA, relevance: 'Consumer purchasing power across member states', usage: 'Contextualize consumer protection and market access debates', priority: PRI },
-      { indicatorId: WB_INDICATORS.INTERNET_USERS, name: N.INTERNET, relevance: 'Digital services and e-commerce regulation', usage: 'Frame digital market legislation with connectivity data', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.TRADE,
+        name: N.TRADE,
+        relevance: 'Intra-EU trade flows reflect single market health',
+        usage: 'Assess single market integration and barriers',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.GDP_PER_CAPITA,
+        name: N.GDP_PER_CAPITA,
+        relevance: 'Consumer purchasing power across member states',
+        usage: 'Contextualize consumer protection and market access debates',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.INTERNET_USERS,
+        name: N.INTERNET,
+        relevance: 'Digital services and e-commerce regulation',
+        usage: 'Frame digital market legislation with connectivity data',
+        priority: SEC,
+      },
     ],
   },
 
@@ -312,11 +480,29 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Transport and Tourism',
     abbreviation: 'TRAN',
     policyDomain: 'Transport, mobility, tourism',
-    analysisPerspectives: ['economic', 'environmental'],
+    analysisPerspectives: [AnalysisPerspective.ECONOMIC, AnalysisPerspective.ENVIRONMENTAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.CO2_EMISSIONS, name: N.CO2, relevance: 'Transport is ~25% of EU emissions', usage: 'Contextualize transport decarbonization legislation', priority: PRI },
-      { indicatorId: WB_INDICATORS.ENERGY_USE, name: N.ENERGY, relevance: 'Transport energy efficiency and alternative fuels', usage: 'Track energy consumption trends in mobility sector', priority: SEC },
-      { indicatorId: WB_INDICATORS.GDP_GROWTH, name: N.GDP_GROWTH, relevance: 'Tourism contribution to economic growth', usage: 'Frame tourism recovery and cross-border mobility debates', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.CO2_EMISSIONS,
+        name: N.CO2,
+        relevance: 'Transport is ~25% of EU emissions',
+        usage: 'Contextualize transport decarbonization legislation',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.ENERGY_USE,
+        name: N.ENERGY,
+        relevance: 'Transport energy efficiency and alternative fuels',
+        usage: 'Track energy consumption trends in mobility sector',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.GDP_GROWTH,
+        name: N.GDP_GROWTH,
+        relevance: 'Tourism contribution to economic growth',
+        usage: 'Frame tourism recovery and cross-border mobility debates',
+        priority: SEC,
+      },
     ],
   },
 
@@ -325,11 +511,29 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Regional Development',
     abbreviation: 'REGI',
     policyDomain: 'Cohesion policy, structural funds, territorial development',
-    analysisPerspectives: ['economic', 'social'],
+    analysisPerspectives: [AnalysisPerspective.ECONOMIC, AnalysisPerspective.SOCIAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.GDP_PER_CAPITA, name: N.GDP_PER_CAPITA, relevance: 'Cohesion fund eligibility threshold (75% of EU average)', usage: 'Identify convergence/divergence across EU regions', priority: PRI },
-      { indicatorId: WB_INDICATORS.UNEMPLOYMENT, name: N.UNEMPLOYMENT, relevance: 'ESF+ and regional employment fund targeting', usage: 'Map regional employment disparities for cohesion policy', priority: PRI },
-      { indicatorId: WB_INDICATORS.POPULATION_GROWTH, name: N.POP_GROWTH, relevance: 'Demographic challenges in rural/peripheral regions', usage: 'Assess depopulation risks in territorial cohesion debates', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.GDP_PER_CAPITA,
+        name: N.GDP_PER_CAPITA,
+        relevance: 'Cohesion fund eligibility threshold (75% of EU average)',
+        usage: 'Identify convergence/divergence across EU regions',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.UNEMPLOYMENT,
+        name: N.UNEMPLOYMENT,
+        relevance: 'ESF+ and regional employment fund targeting',
+        usage: 'Map regional employment disparities for cohesion policy',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.POPULATION_GROWTH,
+        name: N.POP_GROWTH,
+        relevance: 'Demographic challenges in rural/peripheral regions',
+        usage: 'Assess depopulation risks in territorial cohesion debates',
+        priority: SEC,
+      },
     ],
   },
 
@@ -338,12 +542,36 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Agriculture and Rural Development',
     abbreviation: 'AGRI',
     policyDomain: 'Common Agricultural Policy, rural development, food systems',
-    analysisPerspectives: ['economic', 'environmental'],
+    analysisPerspectives: [AnalysisPerspective.ECONOMIC, AnalysisPerspective.ENVIRONMENTAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.AGRICULTURE_GDP, name: N.AGRICULTURE, relevance: 'CAP budget and agricultural sector weight', usage: 'Contextualize CAP reform debates with sector economic data', priority: PRI },
-      { indicatorId: WB_INDICATORS.CEREAL_YIELD, name: N.CEREAL, relevance: 'Productivity and food security metrics', usage: 'Assess agricultural productivity in food security debates', priority: PRI },
-      { indicatorId: WB_INDICATORS.ARABLE_LAND, name: N.ARABLE, relevance: 'Land use and environmental conditionality', usage: 'Frame CAP environmental requirements with land-use data', priority: SEC },
-      { indicatorId: WB_INDICATORS.CO2_EMISSIONS, name: N.CO2, relevance: 'Agricultural emissions and Farm to Fork strategy', usage: 'Contextualize agricultural sustainability requirements', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.AGRICULTURE_GDP,
+        name: N.AGRICULTURE,
+        relevance: 'CAP budget and agricultural sector weight',
+        usage: 'Contextualize CAP reform debates with sector economic data',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.CEREAL_YIELD,
+        name: N.CEREAL,
+        relevance: 'Productivity and food security metrics',
+        usage: 'Assess agricultural productivity in food security debates',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.ARABLE_LAND,
+        name: N.ARABLE,
+        relevance: 'Land use and environmental conditionality',
+        usage: 'Frame CAP environmental requirements with land-use data',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.CO2_EMISSIONS,
+        name: N.CO2,
+        relevance: 'Agricultural emissions and Farm to Fork strategy',
+        usage: 'Contextualize agricultural sustainability requirements',
+        priority: SEC,
+      },
     ],
   },
 
@@ -352,10 +580,22 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Fisheries',
     abbreviation: 'PECH',
     policyDomain: 'Common Fisheries Policy, marine resources',
-    analysisPerspectives: ['environmental', 'economic'],
+    analysisPerspectives: [AnalysisPerspective.ENVIRONMENTAL, AnalysisPerspective.ECONOMIC],
     indicators: [
-      { indicatorId: WB_INDICATORS.GDP_PER_CAPITA, name: N.GDP_PER_CAPITA, relevance: 'Fishing community livelihoods', usage: 'Assess economic impact of fishing quotas on coastal regions', priority: SEC },
-      { indicatorId: WB_INDICATORS.TRADE, name: N.TRADE, relevance: 'Seafood trade and market access', usage: 'Contextualize fisheries agreements and trade impacts', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.GDP_PER_CAPITA,
+        name: N.GDP_PER_CAPITA,
+        relevance: 'Fishing community livelihoods',
+        usage: 'Assess economic impact of fishing quotas on coastal regions',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.TRADE,
+        name: N.TRADE,
+        relevance: 'Seafood trade and market access',
+        usage: 'Contextualize fisheries agreements and trade impacts',
+        priority: SEC,
+      },
     ],
   },
 
@@ -364,11 +604,29 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Culture and Education',
     abbreviation: 'CULT',
     policyDomain: 'Education, culture, media, sport, youth',
-    analysisPerspectives: ['social', 'economic'],
+    analysisPerspectives: [AnalysisPerspective.SOCIAL, AnalysisPerspective.ECONOMIC],
     indicators: [
-      { indicatorId: WB_INDICATORS.EDUCATION_EXPENDITURE, name: N.EDUCATION, relevance: 'Erasmus+ and EU education investment benchmarks', usage: 'Compare national education spending in skills agenda debates', priority: PRI },
-      { indicatorId: WB_INDICATORS.TERTIARY_ENROLLMENT, name: N.TERTIARY, relevance: 'Higher education access and European Education Area', usage: 'Measure higher education participation across member states', priority: PRI },
-      { indicatorId: WB_INDICATORS.YOUTH_UNEMPLOYMENT, name: N.YOUTH_UNEMP, relevance: 'Skills mismatch and education-to-employment transition', usage: 'Link education policy to labor market outcomes', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.EDUCATION_EXPENDITURE,
+        name: N.EDUCATION,
+        relevance: 'Erasmus+ and EU education investment benchmarks',
+        usage: 'Compare national education spending in skills agenda debates',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.TERTIARY_ENROLLMENT,
+        name: N.TERTIARY,
+        relevance: 'Higher education access and European Education Area',
+        usage: 'Measure higher education participation across member states',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.YOUTH_UNEMPLOYMENT,
+        name: N.YOUTH_UNEMP,
+        relevance: 'Skills mismatch and education-to-employment transition',
+        usage: 'Link education policy to labor market outcomes',
+        priority: SEC,
+      },
     ],
   },
 
@@ -377,10 +635,22 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Legal Affairs',
     abbreviation: 'JURI',
     policyDomain: 'Legal matters, intellectual property, company law',
-    analysisPerspectives: ['legal', 'economic'],
+    analysisPerspectives: [AnalysisPerspective.LEGAL, AnalysisPerspective.ECONOMIC],
     indicators: [
-      { indicatorId: WB_INDICATORS.GDP, name: N.GDP, relevance: 'Scale of economic activity subject to EU legal frameworks', usage: 'Contextualize corporate governance and IP law proposals', priority: SEC },
-      { indicatorId: WB_INDICATORS.HIGHTECH_EXPORTS, name: N.HIGHTECH, relevance: 'IP-intensive sectors affected by legal frameworks', usage: 'Frame AI regulation and digital IP debates with trade data', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.GDP,
+        name: N.GDP,
+        relevance: 'Scale of economic activity subject to EU legal frameworks',
+        usage: 'Contextualize corporate governance and IP law proposals',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.HIGHTECH_EXPORTS,
+        name: N.HIGHTECH,
+        relevance: 'IP-intensive sectors affected by legal frameworks',
+        usage: 'Frame AI regulation and digital IP debates with trade data',
+        priority: SEC,
+      },
     ],
   },
 
@@ -389,11 +659,29 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Civil Liberties, Justice and Home Affairs',
     abbreviation: 'LIBE',
     policyDomain: 'Fundamental rights, migration, asylum, security',
-    analysisPerspectives: ['social', 'legal'],
+    analysisPerspectives: [AnalysisPerspective.SOCIAL, AnalysisPerspective.LEGAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.NET_MIGRATION, name: N.NET_MIGRATION, relevance: 'Core metric for migration and asylum policy', usage: 'Quantify migration flows in asylum reform debates', priority: PRI },
-      { indicatorId: WB_INDICATORS.POPULATION, name: N.POPULATION, relevance: 'Demographic context for burden-sharing debates', usage: 'Proportionality of refugee quotas relative to population', priority: SEC },
-      { indicatorId: WB_INDICATORS.INTERNET_USERS, name: N.INTERNET, relevance: 'Digital rights and surveillance regulation', usage: 'Frame digital privacy debates with connectivity data', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.NET_MIGRATION,
+        name: N.NET_MIGRATION,
+        relevance: 'Core metric for migration and asylum policy',
+        usage: 'Quantify migration flows in asylum reform debates',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.POPULATION,
+        name: N.POPULATION,
+        relevance: 'Demographic context for burden-sharing debates',
+        usage: 'Proportionality of refugee quotas relative to population',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.INTERNET_USERS,
+        name: N.INTERNET,
+        relevance: 'Digital rights and surveillance regulation',
+        usage: 'Frame digital privacy debates with connectivity data',
+        priority: SEC,
+      },
     ],
   },
 
@@ -402,10 +690,22 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Constitutional Affairs',
     abbreviation: 'AFCO',
     policyDomain: 'EU treaties, institutional reform, electoral law',
-    analysisPerspectives: ['institutional', 'political'],
+    analysisPerspectives: [AnalysisPerspective.INSTITUTIONAL, AnalysisPerspective.POLITICAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.POPULATION, name: N.POPULATION, relevance: 'EP seat allocation proportionality', usage: 'Contextualize electoral reform and degressive proportionality', priority: PRI },
-      { indicatorId: WB_INDICATORS.GDP_PER_CAPITA, name: N.GDP_PER_CAPITA, relevance: 'Economic divergence as treaty reform driver', usage: 'Frame institutional reform debates with economic data', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.POPULATION,
+        name: N.POPULATION,
+        relevance: 'EP seat allocation proportionality',
+        usage: 'Contextualize electoral reform and degressive proportionality',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.GDP_PER_CAPITA,
+        name: N.GDP_PER_CAPITA,
+        relevance: 'Economic divergence as treaty reform driver',
+        usage: 'Frame institutional reform debates with economic data',
+        priority: SEC,
+      },
     ],
   },
 
@@ -414,12 +714,36 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Foreign Affairs',
     abbreviation: 'AFET',
     policyDomain: 'EU external relations, CFSP, neighbourhood policy',
-    analysisPerspectives: ['geopolitical', 'economic'],
+    analysisPerspectives: [AnalysisPerspective.GEOPOLITICAL, AnalysisPerspective.ECONOMIC],
     indicators: [
-      { indicatorId: WB_INDICATORS.MILITARY_EXPENDITURE, name: N.MILITARY, relevance: 'Defence spending and CSDP/NATO commitments', usage: 'Contextualize EU defence and security policy debates', priority: PRI },
-      { indicatorId: WB_INDICATORS.TRADE, name: N.TRADE, relevance: 'Trade relationships and sanctions impact', usage: 'Assess economic dimensions of foreign policy decisions', priority: PRI },
-      { indicatorId: WB_INDICATORS.FDI_NET, name: N.FDI, relevance: 'Investment screening and economic sovereignty', usage: 'Frame debates on foreign investment controls', priority: SEC },
-      { indicatorId: WB_INDICATORS.GDP, name: N.GDP, relevance: 'Economic weight in geopolitical negotiations', usage: 'Compare EU economic leverage in diplomatic contexts', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.MILITARY_EXPENDITURE,
+        name: N.MILITARY,
+        relevance: 'Defence spending and CSDP/NATO commitments',
+        usage: 'Contextualize EU defence and security policy debates',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.TRADE,
+        name: N.TRADE,
+        relevance: 'Trade relationships and sanctions impact',
+        usage: 'Assess economic dimensions of foreign policy decisions',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.FDI_NET,
+        name: N.FDI,
+        relevance: 'Investment screening and economic sovereignty',
+        usage: 'Frame debates on foreign investment controls',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.GDP,
+        name: N.GDP,
+        relevance: 'Economic weight in geopolitical negotiations',
+        usage: 'Compare EU economic leverage in diplomatic contexts',
+        priority: SEC,
+      },
     ],
   },
 
@@ -428,11 +752,29 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Development',
     abbreviation: 'DEVE',
     policyDomain: 'Development cooperation, humanitarian aid',
-    analysisPerspectives: ['geopolitical', 'social'],
+    analysisPerspectives: [AnalysisPerspective.GEOPOLITICAL, AnalysisPerspective.SOCIAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.GNI_PER_CAPITA, name: N.GNI, relevance: 'ODA commitments (0.7% GNI target)', usage: 'Track EU development aid commitments against GNI', priority: PRI },
-      { indicatorId: WB_INDICATORS.LIFE_EXPECTANCY, name: N.LIFE_EXPECTANCY, relevance: 'SDG health outcome benchmarks', usage: 'Measure development progress in partner countries', priority: SEC },
-      { indicatorId: WB_INDICATORS.POPULATION_GROWTH, name: N.POP_GROWTH, relevance: 'Demographic trends in development regions', usage: 'Contextualize development aid allocation decisions', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.GNI_PER_CAPITA,
+        name: N.GNI,
+        relevance: 'ODA commitments (0.7% GNI target)',
+        usage: 'Track EU development aid commitments against GNI',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.LIFE_EXPECTANCY,
+        name: N.LIFE_EXPECTANCY,
+        relevance: 'SDG health outcome benchmarks',
+        usage: 'Measure development progress in partner countries',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.POPULATION_GROWTH,
+        name: N.POP_GROWTH,
+        relevance: 'Demographic trends in development regions',
+        usage: 'Contextualize development aid allocation decisions',
+        priority: SEC,
+      },
     ],
   },
 
@@ -441,12 +783,36 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'International Trade',
     abbreviation: 'INTA',
     policyDomain: 'Trade agreements, trade defence, WTO',
-    analysisPerspectives: ['economic', 'geopolitical'],
+    analysisPerspectives: [AnalysisPerspective.ECONOMIC, AnalysisPerspective.GEOPOLITICAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.TRADE, name: N.TRADE, relevance: 'Overall trade openness of EU economy', usage: 'Frame trade agreement negotiations with openness metrics', priority: PRI },
-      { indicatorId: WB_INDICATORS.EXPORTS_GDP, name: 'Exports (% of GDP)', relevance: 'Export dependency and market diversification', usage: 'Assess export exposure in trade defence instrument debates', priority: PRI },
-      { indicatorId: WB_INDICATORS.FDI_NET, name: N.FDI, relevance: 'Investment chapter of trade agreements', usage: 'Contextualize investment protection and screening debates', priority: PRI },
-      { indicatorId: WB_INDICATORS.HIGHTECH_EXPORTS, name: N.HIGHTECH, relevance: 'Technology sovereignty in trade policy', usage: 'Frame export controls and strategic autonomy discussions', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.TRADE,
+        name: N.TRADE,
+        relevance: 'Overall trade openness of EU economy',
+        usage: 'Frame trade agreement negotiations with openness metrics',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.EXPORTS_GDP,
+        name: 'Exports (% of GDP)',
+        relevance: 'Export dependency and market diversification',
+        usage: 'Assess export exposure in trade defence instrument debates',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.FDI_NET,
+        name: N.FDI,
+        relevance: 'Investment chapter of trade agreements',
+        usage: 'Contextualize investment protection and screening debates',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.HIGHTECH_EXPORTS,
+        name: N.HIGHTECH,
+        relevance: 'Technology sovereignty in trade policy',
+        usage: 'Frame export controls and strategic autonomy discussions',
+        priority: SEC,
+      },
     ],
   },
 
@@ -455,10 +821,22 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Petitions',
     abbreviation: 'PETI',
     policyDomain: 'Citizen petitions, EU ombudsman, fundamental rights',
-    analysisPerspectives: ['social', 'institutional'],
+    analysisPerspectives: [AnalysisPerspective.SOCIAL, AnalysisPerspective.INSTITUTIONAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.INTERNET_USERS, name: N.INTERNET, relevance: 'Digital access for citizen engagement', usage: 'Assess digital accessibility of petition process', priority: SEC },
-      { indicatorId: WB_INDICATORS.POPULATION, name: N.POPULATION, relevance: 'Petition volume proportionality', usage: 'Normalize petition counts by member state population', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.INTERNET_USERS,
+        name: N.INTERNET,
+        relevance: 'Digital access for citizen engagement',
+        usage: 'Assess digital accessibility of petition process',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.POPULATION,
+        name: N.POPULATION,
+        relevance: 'Petition volume proportionality',
+        usage: 'Normalize petition counts by member state population',
+        priority: SEC,
+      },
     ],
   },
 
@@ -467,10 +845,22 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Security and Defence',
     abbreviation: 'SEDE',
     policyDomain: 'CSDP, defence industry, military cooperation',
-    analysisPerspectives: ['geopolitical', 'economic'],
+    analysisPerspectives: [AnalysisPerspective.GEOPOLITICAL, AnalysisPerspective.ECONOMIC],
     indicators: [
-      { indicatorId: WB_INDICATORS.MILITARY_EXPENDITURE, name: N.MILITARY, relevance: 'NATO 2% GDP target and EU defence fund', usage: 'Track defence spending commitments across member states', priority: PRI },
-      { indicatorId: WB_INDICATORS.GDP, name: N.GDP, relevance: 'Economic capacity for defence investment', usage: 'Assess defence burden-sharing proportionality', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.MILITARY_EXPENDITURE,
+        name: N.MILITARY,
+        relevance: 'NATO 2% GDP target and EU defence fund',
+        usage: 'Track defence spending commitments across member states',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.GDP,
+        name: N.GDP,
+        relevance: 'Economic capacity for defence investment',
+        usage: 'Assess defence burden-sharing proportionality',
+        priority: SEC,
+      },
     ],
   },
 
@@ -479,10 +869,22 @@ export const COMMITTEE_INDICATOR_MAP: Readonly<Record<string, CommitteeIndicator
     name: 'Human Rights',
     abbreviation: 'DROI',
     policyDomain: 'Human rights, democracy, rule of law',
-    analysisPerspectives: ['social', 'geopolitical'],
+    analysisPerspectives: [AnalysisPerspective.SOCIAL, AnalysisPerspective.GEOPOLITICAL],
     indicators: [
-      { indicatorId: WB_INDICATORS.GINI_INDEX, name: N.GINI, relevance: 'Economic inequality as rights context', usage: 'Correlate inequality data with human rights assessments', priority: SEC },
-      { indicatorId: WB_INDICATORS.LIFE_EXPECTANCY, name: N.LIFE_EXPECTANCY, relevance: 'Right to health outcome indicator', usage: 'Benchmark health outcomes in human rights reporting', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.GINI_INDEX,
+        name: N.GINI,
+        relevance: 'Economic inequality as rights context',
+        usage: 'Correlate inequality data with human rights assessments',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.LIFE_EXPECTANCY,
+        name: N.LIFE_EXPECTANCY,
+        relevance: 'Right to health outcome indicator',
+        usage: 'Benchmark health outcomes in human rights reporting',
+        priority: SEC,
+      },
     ],
   },
 } as const;
@@ -520,49 +922,125 @@ export interface CategoryIndicatorEntry {
 export const CATEGORY_INDICATOR_MAP: Readonly<Record<ArticleCategory, CategoryIndicatorEntry>> = {
   [ArticleCategory.PROPOSITIONS]: {
     category: ArticleCategory.PROPOSITIONS,
-    enrichmentStrategy: 'Map each legislative proposal to its policy domain, then fetch the 2-3 most relevant indicators for the dominant domain. Use to explain "why this legislation matters" with economic evidence.',
+    enrichmentStrategy:
+      'Map each legislative proposal to its policy domain, then fetch the 2-3 most relevant indicators for the dominant domain. Use to explain "why this legislation matters" with economic evidence.',
     primaryIndicators: [
-      { indicatorId: WB_INDICATORS.GDP_GROWTH, name: N.GDP_GROWTH, relevance: 'Economic backdrop for legislative proposals', usage: 'Frame the economic context driving new legislation', priority: PRI },
-      { indicatorId: WB_INDICATORS.UNEMPLOYMENT, name: N.UNEMPLOYMENT, relevance: 'Employment impact of proposed legislation', usage: 'Assess labor market implications of proposals', priority: PRI },
+      {
+        indicatorId: WB_INDICATORS.GDP_GROWTH,
+        name: N.GDP_GROWTH,
+        relevance: 'Economic backdrop for legislative proposals',
+        usage: 'Frame the economic context driving new legislation',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.UNEMPLOYMENT,
+        name: N.UNEMPLOYMENT,
+        relevance: 'Employment impact of proposed legislation',
+        usage: 'Assess labor market implications of proposals',
+        priority: PRI,
+      },
     ],
     secondaryIndicators: [
-      { indicatorId: WB_INDICATORS.INFLATION, name: N.INFLATION, relevance: 'Cost-of-living context for consumer legislation', usage: 'Contextualize price-related regulation proposals', priority: SEC },
-      { indicatorId: WB_INDICATORS.TRADE, name: N.TRADE, relevance: 'Trade impact of market regulation proposals', usage: 'Assess trade implications of single market legislation', priority: SEC },
-      { indicatorId: WB_INDICATORS.CO2_EMISSIONS, name: N.CO2, relevance: 'Environmental proposals and Green Deal progress', usage: 'Quantify environmental impact of green proposals', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.INFLATION,
+        name: N.INFLATION,
+        relevance: 'Cost-of-living context for consumer legislation',
+        usage: 'Contextualize price-related regulation proposals',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.TRADE,
+        name: N.TRADE,
+        relevance: 'Trade impact of market regulation proposals',
+        usage: 'Assess trade implications of single market legislation',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.CO2_EMISSIONS,
+        name: N.CO2,
+        relevance: 'Environmental proposals and Green Deal progress',
+        usage: 'Quantify environmental impact of green proposals',
+        priority: SEC,
+      },
     ],
     maxWBCalls: 3,
   },
 
   [ArticleCategory.MONTH_AHEAD]: {
     category: ArticleCategory.MONTH_AHEAD,
-    enrichmentStrategy: 'Provide a macroeconomic snapshot for the upcoming month. Focus on 2-3 headline indicators that set the economic backdrop for upcoming parliamentary business.',
+    enrichmentStrategy:
+      'Provide a macroeconomic snapshot for the upcoming month. Focus on 2-3 headline indicators that set the economic backdrop for upcoming parliamentary business.',
     primaryIndicators: [
-      { indicatorId: WB_INDICATORS.GDP_GROWTH, name: N.GDP_GROWTH, relevance: 'Economic outlook for upcoming legislative agenda', usage: 'Set the macroeconomic scene for the month ahead', priority: PRI },
-      { indicatorId: WB_INDICATORS.INFLATION, name: N.INFLATION, relevance: 'Cost-of-living pressures shaping policy priorities', usage: 'Explain why certain issues dominate the upcoming agenda', priority: PRI },
+      {
+        indicatorId: WB_INDICATORS.GDP_GROWTH,
+        name: N.GDP_GROWTH,
+        relevance: 'Economic outlook for upcoming legislative agenda',
+        usage: 'Set the macroeconomic scene for the month ahead',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.INFLATION,
+        name: N.INFLATION,
+        relevance: 'Cost-of-living pressures shaping policy priorities',
+        usage: 'Explain why certain issues dominate the upcoming agenda',
+        priority: PRI,
+      },
     ],
     secondaryIndicators: [
-      { indicatorId: WB_INDICATORS.UNEMPLOYMENT, name: N.UNEMPLOYMENT, relevance: 'Labor market context for employment legislation', usage: 'Preview employment-related legislative activity', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.UNEMPLOYMENT,
+        name: N.UNEMPLOYMENT,
+        relevance: 'Labor market context for employment legislation',
+        usage: 'Preview employment-related legislative activity',
+        priority: SEC,
+      },
     ],
     maxWBCalls: 3,
   },
 
   [ArticleCategory.MONTH_IN_REVIEW]: {
     category: ArticleCategory.MONTH_IN_REVIEW,
-    enrichmentStrategy: 'Retrospective economic assessment: how do the month\'s legislative achievements relate to current economic conditions? Use indicators to measure the "so what" of passed legislation.',
+    enrichmentStrategy:
+      'Retrospective economic assessment: how do the month\'s legislative achievements relate to current economic conditions? Use indicators to measure the "so what" of passed legislation.',
     primaryIndicators: [
-      { indicatorId: WB_INDICATORS.GDP_GROWTH, name: N.GDP_GROWTH, relevance: 'Economic context for legislative achievements', usage: 'Assess whether legislation addressed economic realities', priority: PRI },
-      { indicatorId: WB_INDICATORS.UNEMPLOYMENT, name: N.UNEMPLOYMENT, relevance: 'Labor market conditions during the review period', usage: 'Evaluate employment-focused legislation effectiveness', priority: PRI },
+      {
+        indicatorId: WB_INDICATORS.GDP_GROWTH,
+        name: N.GDP_GROWTH,
+        relevance: 'Economic context for legislative achievements',
+        usage: 'Assess whether legislation addressed economic realities',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.UNEMPLOYMENT,
+        name: N.UNEMPLOYMENT,
+        relevance: 'Labor market conditions during the review period',
+        usage: 'Evaluate employment-focused legislation effectiveness',
+        priority: PRI,
+      },
     ],
     secondaryIndicators: [
-      { indicatorId: WB_INDICATORS.INFLATION, name: N.INFLATION, relevance: 'Price stability context for the reviewed period', usage: 'Measure economic conditions during the legislative month', priority: SEC },
-      { indicatorId: WB_INDICATORS.FDI_NET, name: N.FDI, relevance: 'Investment climate during the review period', usage: 'Assess investment implications of passed legislation', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.INFLATION,
+        name: N.INFLATION,
+        relevance: 'Price stability context for the reviewed period',
+        usage: 'Measure economic conditions during the legislative month',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.FDI_NET,
+        name: N.FDI,
+        relevance: 'Investment climate during the review period',
+        usage: 'Assess investment implications of passed legislation',
+        priority: SEC,
+      },
     ],
     maxWBCalls: 3,
   },
 
   [ArticleCategory.COMMITTEE_REPORTS]: {
     category: ArticleCategory.COMMITTEE_REPORTS,
-    enrichmentStrategy: 'Use COMMITTEE_INDICATOR_MAP to select indicators per committee. Each committee section should include 1-2 indicators from its domain mapping.',
+    enrichmentStrategy:
+      'Use COMMITTEE_INDICATOR_MAP to select indicators per committee. Each committee section should include 1-2 indicators from its domain mapping.',
     primaryIndicators: [],
     secondaryIndicators: [],
     maxWBCalls: 3,
@@ -570,89 +1048,222 @@ export const CATEGORY_INDICATOR_MAP: Readonly<Record<ArticleCategory, CategoryIn
 
   [ArticleCategory.WEEK_AHEAD]: {
     category: ArticleCategory.WEEK_AHEAD,
-    enrichmentStrategy: 'Light economic context: 1-2 headline indicators to frame the upcoming parliamentary week. Only include when specific agenda items have clear economic dimensions.',
+    enrichmentStrategy:
+      'Light economic context: 1-2 headline indicators to frame the upcoming parliamentary week. Only include when specific agenda items have clear economic dimensions.',
     primaryIndicators: [
-      { indicatorId: WB_INDICATORS.GDP_GROWTH, name: N.GDP_GROWTH, relevance: 'Quick economic pulse for the week', usage: 'One-line economic context in the article lede', priority: PRI },
+      {
+        indicatorId: WB_INDICATORS.GDP_GROWTH,
+        name: N.GDP_GROWTH,
+        relevance: 'Quick economic pulse for the week',
+        usage: 'One-line economic context in the article lede',
+        priority: PRI,
+      },
     ],
     secondaryIndicators: [
-      { indicatorId: WB_INDICATORS.UNEMPLOYMENT, name: N.UNEMPLOYMENT, relevance: 'Employment context if labor agenda items exist', usage: 'Only include when employment topics are on the agenda', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.UNEMPLOYMENT,
+        name: N.UNEMPLOYMENT,
+        relevance: 'Employment context if labor agenda items exist',
+        usage: 'Only include when employment topics are on the agenda',
+        priority: SEC,
+      },
     ],
     maxWBCalls: 2,
   },
 
   [ArticleCategory.WEEK_IN_REVIEW]: {
     category: ArticleCategory.WEEK_IN_REVIEW,
-    enrichmentStrategy: 'Retrospective economic context for weekly review. Include when votes or decisions had clear economic implications.',
+    enrichmentStrategy:
+      'Retrospective economic context for weekly review. Include when votes or decisions had clear economic implications.',
     primaryIndicators: [
-      { indicatorId: WB_INDICATORS.GDP_GROWTH, name: N.GDP_GROWTH, relevance: 'Economic backdrop for the week\'s decisions', usage: 'Frame voting outcomes in economic context', priority: PRI },
+      {
+        indicatorId: WB_INDICATORS.GDP_GROWTH,
+        name: N.GDP_GROWTH,
+        relevance: "Economic backdrop for the week's decisions",
+        usage: 'Frame voting outcomes in economic context',
+        priority: PRI,
+      },
     ],
     secondaryIndicators: [
-      { indicatorId: WB_INDICATORS.TRADE, name: N.TRADE, relevance: 'If trade-related legislation was debated', usage: 'Only include for trade-relevant weekly activity', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.TRADE,
+        name: N.TRADE,
+        relevance: 'If trade-related legislation was debated',
+        usage: 'Only include for trade-relevant weekly activity',
+        priority: SEC,
+      },
     ],
     maxWBCalls: 2,
   },
 
   [ArticleCategory.MOTIONS]: {
     category: ArticleCategory.MOTIONS,
-    enrichmentStrategy: 'Selective enrichment: only include economic data when motions/resolutions directly address economic policy. Map voting topics to relevant indicators.',
+    enrichmentStrategy:
+      'Selective enrichment: only include economic data when motions/resolutions directly address economic policy. Map voting topics to relevant indicators.',
     primaryIndicators: [],
     secondaryIndicators: [
-      { indicatorId: WB_INDICATORS.GDP_GROWTH, name: N.GDP_GROWTH, relevance: 'For economy-related motions', usage: 'Only when motions address economic governance', priority: SEC },
-      { indicatorId: WB_INDICATORS.UNEMPLOYMENT, name: N.UNEMPLOYMENT, relevance: 'For employment-related motions', usage: 'Only when motions address labor policy', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.GDP_GROWTH,
+        name: N.GDP_GROWTH,
+        relevance: 'For economy-related motions',
+        usage: 'Only when motions address economic governance',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.UNEMPLOYMENT,
+        name: N.UNEMPLOYMENT,
+        relevance: 'For employment-related motions',
+        usage: 'Only when motions address labor policy',
+        priority: SEC,
+      },
     ],
     maxWBCalls: 2,
   },
 
   [ArticleCategory.BREAKING_NEWS]: {
     category: ArticleCategory.BREAKING_NEWS,
-    enrichmentStrategy: 'Minimal enrichment — breaking news prioritizes speed over depth. Only include one indicator if the breaking event has immediate economic significance.',
+    enrichmentStrategy:
+      'Minimal enrichment — breaking news prioritizes speed over depth. Only include one indicator if the breaking event has immediate economic significance.',
     primaryIndicators: [],
     secondaryIndicators: [
-      { indicatorId: WB_INDICATORS.GDP_GROWTH, name: N.GDP_GROWTH, relevance: 'Economic context for market-moving decisions', usage: 'Only for economically significant breaking events', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.GDP_GROWTH,
+        name: N.GDP_GROWTH,
+        relevance: 'Economic context for market-moving decisions',
+        usage: 'Only for economically significant breaking events',
+        priority: SEC,
+      },
     ],
     maxWBCalls: 1,
   },
 
   [ArticleCategory.DEEP_ANALYSIS]: {
     category: ArticleCategory.DEEP_ANALYSIS,
-    enrichmentStrategy: 'Maximum enrichment — deep analysis articles should include comprehensive economic context. Use COMMITTEE_INDICATOR_MAP for the primary committee, plus 2-3 cross-cutting indicators.',
+    enrichmentStrategy:
+      'Maximum enrichment — deep analysis articles should include comprehensive economic context. Use COMMITTEE_INDICATOR_MAP for the primary committee, plus 2-3 cross-cutting indicators.',
     primaryIndicators: [
-      { indicatorId: WB_INDICATORS.GDP_GROWTH, name: N.GDP_GROWTH, relevance: 'Macro context for deep analysis', usage: 'Establish economic baseline for multi-perspective analysis', priority: PRI },
-      { indicatorId: WB_INDICATORS.UNEMPLOYMENT, name: N.UNEMPLOYMENT, relevance: 'Social dimension of policy analysis', usage: 'Labor market lens for 5-why analysis', priority: PRI },
-      { indicatorId: WB_INDICATORS.CO2_EMISSIONS, name: N.CO2, relevance: 'Environmental dimension of policy analysis', usage: 'Environmental lens for 5-why analysis', priority: PRI },
+      {
+        indicatorId: WB_INDICATORS.GDP_GROWTH,
+        name: N.GDP_GROWTH,
+        relevance: 'Macro context for deep analysis',
+        usage: 'Establish economic baseline for multi-perspective analysis',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.UNEMPLOYMENT,
+        name: N.UNEMPLOYMENT,
+        relevance: 'Social dimension of policy analysis',
+        usage: 'Labor market lens for 5-why analysis',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.CO2_EMISSIONS,
+        name: N.CO2,
+        relevance: 'Environmental dimension of policy analysis',
+        usage: 'Environmental lens for 5-why analysis',
+        priority: PRI,
+      },
     ],
     secondaryIndicators: [
-      { indicatorId: WB_INDICATORS.GINI_INDEX, name: N.GINI, relevance: 'Inequality dimension', usage: 'Social equity lens for distributional analysis', priority: SEC },
-      { indicatorId: WB_INDICATORS.TRADE, name: N.TRADE, relevance: 'External dimension', usage: 'Geopolitical lens for trade impact analysis', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.GINI_INDEX,
+        name: N.GINI,
+        relevance: 'Inequality dimension',
+        usage: 'Social equity lens for distributional analysis',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.TRADE,
+        name: N.TRADE,
+        relevance: 'External dimension',
+        usage: 'Geopolitical lens for trade impact analysis',
+        priority: SEC,
+      },
     ],
     maxWBCalls: 5,
   },
 
   [ArticleCategory.YEAR_AHEAD]: {
     category: ArticleCategory.YEAR_AHEAD,
-    enrichmentStrategy: 'Comprehensive economic outlook for the legislative year. Include broad macroeconomic indicators and trend analysis.',
+    enrichmentStrategy:
+      'Comprehensive economic outlook for the legislative year. Include broad macroeconomic indicators and trend analysis.',
     primaryIndicators: [
-      { indicatorId: WB_INDICATORS.GDP_GROWTH, name: N.GDP_GROWTH, relevance: 'Annual economic growth trajectory', usage: 'Set the economic scene for the legislative year', priority: PRI },
-      { indicatorId: WB_INDICATORS.INFLATION, name: N.INFLATION, relevance: 'Price stability outlook', usage: 'Frame monetary policy context for the year', priority: PRI },
-      { indicatorId: WB_INDICATORS.UNEMPLOYMENT, name: N.UNEMPLOYMENT, relevance: 'Employment outlook', usage: 'Preview employment-related legislative priorities', priority: PRI },
+      {
+        indicatorId: WB_INDICATORS.GDP_GROWTH,
+        name: N.GDP_GROWTH,
+        relevance: 'Annual economic growth trajectory',
+        usage: 'Set the economic scene for the legislative year',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.INFLATION,
+        name: N.INFLATION,
+        relevance: 'Price stability outlook',
+        usage: 'Frame monetary policy context for the year',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.UNEMPLOYMENT,
+        name: N.UNEMPLOYMENT,
+        relevance: 'Employment outlook',
+        usage: 'Preview employment-related legislative priorities',
+        priority: PRI,
+      },
     ],
     secondaryIndicators: [
-      { indicatorId: WB_INDICATORS.CO2_EMISSIONS, name: N.CO2, relevance: 'Climate targets for the year', usage: 'Assess Green Deal progress trajectory', priority: SEC },
-      { indicatorId: WB_INDICATORS.RD_EXPENDITURE, name: N.RD, relevance: 'Innovation investment trends', usage: 'Preview technology and research policy outlook', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.CO2_EMISSIONS,
+        name: N.CO2,
+        relevance: 'Climate targets for the year',
+        usage: 'Assess Green Deal progress trajectory',
+        priority: SEC,
+      },
+      {
+        indicatorId: WB_INDICATORS.RD_EXPENDITURE,
+        name: N.RD,
+        relevance: 'Innovation investment trends',
+        usage: 'Preview technology and research policy outlook',
+        priority: SEC,
+      },
     ],
     maxWBCalls: 3,
   },
 
   [ArticleCategory.YEAR_IN_REVIEW]: {
     category: ArticleCategory.YEAR_IN_REVIEW,
-    enrichmentStrategy: 'Annual retrospective with comprehensive economic assessment. Compare start-of-year vs end-of-year indicators to measure legislative impact.',
+    enrichmentStrategy:
+      'Annual retrospective with comprehensive economic assessment. Compare start-of-year vs end-of-year indicators to measure legislative impact.',
     primaryIndicators: [
-      { indicatorId: WB_INDICATORS.GDP_GROWTH, name: N.GDP_GROWTH, relevance: 'Annual economic performance', usage: 'Assess legislative achievements against economic outcomes', priority: PRI },
-      { indicatorId: WB_INDICATORS.UNEMPLOYMENT, name: N.UNEMPLOYMENT, relevance: 'Annual employment trend', usage: 'Evaluate employment-focused legislative track record', priority: PRI },
-      { indicatorId: WB_INDICATORS.CO2_EMISSIONS, name: N.CO2, relevance: 'Annual climate progress', usage: 'Measure Green Deal legislative impact', priority: PRI },
+      {
+        indicatorId: WB_INDICATORS.GDP_GROWTH,
+        name: N.GDP_GROWTH,
+        relevance: 'Annual economic performance',
+        usage: 'Assess legislative achievements against economic outcomes',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.UNEMPLOYMENT,
+        name: N.UNEMPLOYMENT,
+        relevance: 'Annual employment trend',
+        usage: 'Evaluate employment-focused legislative track record',
+        priority: PRI,
+      },
+      {
+        indicatorId: WB_INDICATORS.CO2_EMISSIONS,
+        name: N.CO2,
+        relevance: 'Annual climate progress',
+        usage: 'Measure Green Deal legislative impact',
+        priority: PRI,
+      },
     ],
     secondaryIndicators: [
-      { indicatorId: WB_INDICATORS.INFLATION, name: N.INFLATION, relevance: 'Price stability over the year', usage: 'Retrospective economic conditions assessment', priority: SEC },
+      {
+        indicatorId: WB_INDICATORS.INFLATION,
+        name: N.INFLATION,
+        relevance: 'Price stability over the year',
+        usage: 'Retrospective economic conditions assessment',
+        priority: SEC,
+      },
     ],
     maxWBCalls: 3,
   },
@@ -701,7 +1312,7 @@ export function getCategoryIndicators(category: ArticleCategory): CategoryIndica
  */
 export function getIndicatorIdsForCommittees(
   abbreviations: readonly string[],
-  primaryOnly = false
+  primaryOnly: boolean = false
 ): readonly string[] {
   const ids = new Set<string>();
   for (const abbr of abbreviations) {

@@ -117,8 +117,13 @@ describe('committee-indicator-map', () => {
 
     it('should have valid analysis perspectives', () => {
       const validPerspectives = [
-        'political', 'economic', 'social', 'legal',
-        'environmental', 'geopolitical', 'institutional',
+        'political',
+        'economic',
+        'social',
+        'legal',
+        'environmental',
+        'geopolitical',
+        'institutional',
       ];
       for (const entry of Object.values(COMMITTEE_INDICATOR_MAP)) {
         expect(entry.analysisPerspectives.length).toBeGreaterThan(0);

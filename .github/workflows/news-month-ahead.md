@@ -223,14 +223,14 @@ european_parliament___generate_political_landscape({})
 When the month-ahead outlook covers legislation with economic impact (budget, trade, employment, environment), use the `world-bank` MCP server to add macroeconomic context:
 
 ```javascript
-// EU GDP growth trends for economic legislation context
-world_bank___get_economic_data({ countryCode: "EU", indicator: "GDP_GROWTH", years: 5 })
+// EU GDP growth trends for economic legislation context (World Bank indicator: NY.GDP.MKTP.KD.ZG)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NY.GDP.MKTP.KD.ZG", years: 5 })
 
-// Unemployment data for employment-related legislation
-world_bank___get_economic_data({ countryCode: "EU", indicator: "UNEMPLOYMENT", years: 5 })
+// Unemployment data for employment-related legislation (World Bank indicator: SL.UEM.TOTL.ZS)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "SL.UEM.TOTL.ZS", years: 5 })
 
-// Inflation data for budget/monetary policy context
-world_bank___get_economic_data({ countryCode: "EU", indicator: "INFLATION", years: 5 })
+// Inflation data for budget/monetary policy context (World Bank indicator: FP.CPI.TOTL.ZG)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "FP.CPI.TOTL.ZG", years: 5 })
 ```
 
 **Rules**: Use at most 3 World Bank calls per workflow run. Only include when it directly contextualizes upcoming legislative priorities.
