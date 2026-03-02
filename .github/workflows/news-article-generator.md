@@ -196,9 +196,11 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools
 
-### ⚡ MANDATORY: Precomputed Statistics First
+### ⚡ MANDATORY: Precomputed Statistics for Context
 
-**ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This returns the **complete** precomputed EP activity statistics (2004–2025) with yearly breakdowns, monthly activity data, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Always read ALL stats to provide full value and context. Use this data as the statistical backbone for ALL article types.
+**ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This returns the **complete** precomputed EP activity statistics (2004–2025) with yearly breakdowns, monthly activity data, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Always read ALL stats to provide full value and context.
+
+> **⚠️ CONTEXT ONLY — NEVER THE NEWS ITSELF**: Precomputed statistics provide historical background and analytical context. They are **NEVER newsworthy on their own** and must NEVER be the primary content of any article. The actual news content MUST come from **live EP feed endpoints** (adopted texts, new procedures, recent events, committee documents) that reflect **what actually happened recently**. Stats from `get_all_generated_stats` only answer "how does this compare historically?" — they never answer "what happened?"
 
 ```javascript
 european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
@@ -248,11 +250,22 @@ european_parliament___search_documents({ query: "committee report", type: "REPOR
 european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
 ```
 
-**Breaking News:**
+**Breaking News (MANDATORY: Feed-First — stats are context only):**
+
+> **🚨 NEWSWORTHINESS GATE**: Breaking news MUST be triggered by **actual recent events** found in EP feed endpoints. Precomputed statistics (`get_all_generated_stats`) — already fetched above as the first data-gathering step — provide historical context only and are NEVER breaking news. After fetching stats for context, **immediately check feeds** for newsworthy events. If NO recent newsworthy events are found in feeds, use `safeoutputs___noop` — do NOT generate a breaking news article from stats alone.
+
+**Data-gathering order:** (1) `get_all_generated_stats` for historical context (already called above), then (2) feed endpoints below for actual news content:
+
 ```javascript
+// Feed checks (MANDATORY) — these provide the actual news content
+european_parliament___get_adopted_texts_feed({ limit: 20 })
+european_parliament___get_events_feed({ limit: 20 })
+european_parliament___get_procedures_feed({ limit: 20 })
+european_parliament___get_meps_feed({ limit: 20 })
+
+// Analytical context (OPTIONAL) — only if feeds contain newsworthy events
 european_parliament___detect_voting_anomalies({})
-european_parliament___analyze_coalition_dynamics({})
-european_parliament___generate_report({ reportType: "VOTING_STATISTICS" })
+european_parliament___analyze_coalition_dynamics({})  // Analytical context only, not news content
 ```
 
 ### 📡 EP API v2 Feed Endpoints (Preferred for Recent Updates)
@@ -306,7 +319,7 @@ european_parliament___get_controlled_vocabularies_feed({ limit: 20 })
 - **Committee Reports**: `get_committee_documents_feed`, `get_plenary_documents_feed`
 - **Propositions**: `get_procedures_feed`, `get_documents_feed`
 - **Motions**: `get_adopted_texts_feed`, `get_parliamentary_questions_feed`
-- **Breaking News**: `get_meps_feed`, `get_events_feed`, `get_adopted_texts_feed`
+- **Breaking News** (**MANDATORY** — feeds are the primary data source, not stats): `get_adopted_texts_feed`, `get_events_feed`, `get_procedures_feed`, `get_meps_feed`
 
 
 ## 🌍 World Bank Economic Context (Optional Enrichment)

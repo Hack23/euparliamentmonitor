@@ -186,9 +186,11 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools for Monthly Review
 
-### ⚡ MANDATORY: Precomputed Statistics First
+### ⚡ MANDATORY: Precomputed Statistics for Context
 
 **ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This returns the **complete** precomputed EP activity statistics (2004–2025) with yearly breakdowns, monthly activity data, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Always read ALL stats to provide full value and context.
+
+> **⚠️ CONTEXT ONLY — NEVER THE NEWS ITSELF**: Precomputed statistics provide historical background and analytical context. They are **NEVER newsworthy on their own** and must NEVER be the primary content of any article. The actual news content MUST come from **live EP feed endpoints** and **recent MCP data** reflecting what actually happened recently.
 
 ```javascript
 european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
@@ -447,12 +449,45 @@ if [ "$MISSING_SWITCHER" -gt 0 ] || [ "$MISSING_TOPNAV" -gt 0 ] || [ "$MISSING_H
 fi
 ```
 
-### Step 4: Create PR
+### Step 4: Create PR (ONE call — ALL files at once)
+
+> **🚨 ATOMIC PR CREATION**: Generate ALL language files FIRST, then call `safeoutputs___create_pull_request` exactly **ONCE**. The framework captures all working directory changes as a single patch. Do NOT call it multiple times for individual files.
+
+#### MANDATORY File Count Validation
+
+```bash
+# Reuse $TODAY from Date Context Establishment — do NOT recompute to avoid midnight drift
+ARTICLE_TYPE="month-in-review"
+EXPECTED_LANGS="en sv da no fi de fr es nl ar he ja ko zh"
+EXPECTED_COUNT=14
+ACTUAL_COUNT=$(ls news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null | wc -l)
+echo "📊 File count: $ACTUAL_COUNT / $EXPECTED_COUNT expected"
+# Unconditionally validate each expected language file exists (guards against stray files inflating count)
+MISSING_LANGS=""
+for LANG in $EXPECTED_LANGS; do
+  if [ ! -f "news/${TODAY}-${ARTICLE_TYPE}-${LANG}.html" ]; then
+    MISSING_LANGS="$MISSING_LANGS $LANG"
+  fi
+done
+
+if [ -n "$MISSING_LANGS" ]; then
+  echo "❌ ERROR: Missing language files:"
+  for LANG in $MISSING_LANGS; do
+    echo "  - $LANG"
+  done
+  echo "❌ ERROR: Incomplete language coverage. All $EXPECTED_COUNT languages must be generated before creating the PR." >&2
+  exit 1
+fi
+
+if [ "$ACTUAL_COUNT" -ne "$EXPECTED_COUNT" ]; then
+  echo "⚠️ WARNING: File count mismatch: $ACTUAL_COUNT files found, $EXPECTED_COUNT expected. Check for stray or duplicate files." >&2
+fi
+```
 
 > **⚠️ Do NOT commit generated files**: `sitemap.xml`, `sitemap*.html`, `rss.xml`, `index.html`, `index-*.html`, and `news/articles-metadata.json` are generated at deploy time. Only commit article HTML files: `news/{YYYY-MM-DD}-month-in-review-{lang}.html`
 
 ```bash
-TODAY=$(date -u +%Y-%m-%d)
+# Reuse $TODAY from Date Context Establishment
 BRANCH_NAME="news/month-in-review-$TODAY"
 ```
 
