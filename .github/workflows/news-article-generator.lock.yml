@@ -679,7 +679,10 @@ jobs:
                 ],
                 "tools": [
                   "*"
-                ]
+                ],
+                "env": {
+                  "EP_REQUEST_TIMEOUT_MS": "30000"
+                }
               },
               "github": {
                 "type": "stdio",
