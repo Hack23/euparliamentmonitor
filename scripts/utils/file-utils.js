@@ -215,7 +215,10 @@ export function isSafeURL(url) {
 }
 /** Required structural elements that every article must contain */
 const REQUIRED_ARTICLE_ELEMENTS = [
-    { selector: 'class="site-header__langs"', label: 'language switcher nav' },
+    {
+        selector: ['class="site-header__langs"', 'class="language-switcher"'],
+        label: 'language switcher nav',
+    },
     { selector: 'class="article-top-nav"', label: 'article-top-nav (back button)' },
     { selector: 'class="site-header"', label: 'site-header' },
     { selector: 'class="skip-link"', label: 'skip-link' },
@@ -235,7 +238,11 @@ const REQUIRED_ARTICLE_ELEMENTS = [
 export function validateArticleHTML(html) {
     const errors = [];
     for (const element of REQUIRED_ARTICLE_ELEMENTS) {
-        if (!html.includes(element.selector)) {
+        const sel = element.selector;
+        const found = Array.isArray(sel)
+            ? sel.some((s) => html.includes(s))
+            : html.includes(sel);
+        if (!found) {
             errors.push(`Missing required element: ${element.label}`);
         }
     }

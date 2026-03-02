@@ -115,6 +115,7 @@ img {
   top: 0;
   z-index: 100;
   box-shadow: var(--shadow-md);
+  overflow: hidden;
 }
 
 .site-header__inner {
@@ -191,7 +192,7 @@ img {
   align-items: center;
   gap: 2px;
   padding: 4px 7px;
-  min-height: 28px;
+  min-height: 32px;
   border-radius: var(--radius-sm);
   font-size: 0.7rem;
   font-weight: 600;
@@ -217,10 +218,23 @@ img {
   background: rgba(255, 255, 255, 0.35);
 }
 
-/* Legacy standalone .language-switcher — hidden; 168 existing articles still
-   reference this class. Remove after all articles are regenerated. */
-.language-switcher {
+/* Legacy standalone .language-switcher — only hide when the new
+   .site-header__langs nav is also present (so legacy articles remain
+   navigable until they are regenerated). */
+.site-header__langs ~ .language-switcher,
+.site-header:has(.site-header__langs) ~ .language-switcher {
   display: none;
+}
+
+/* Style legacy .language-switcher to match the header aesthetic when it IS
+   the only language nav (articles not yet migrated). */
+.language-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px 24px;
+  background: var(--primary-dark);
+  justify-content: center;
 }
 
 /* ─── Hero Section (Index pages) ─────────────────────────────────── */
@@ -1140,6 +1154,12 @@ img {
     overflow-x: auto;
     flex-wrap: nowrap;
     -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    scrollbar-width: none;
+  }
+
+  .filter-buttons::-webkit-scrollbar {
+    display: none;
   }
 
   .filter-btn {

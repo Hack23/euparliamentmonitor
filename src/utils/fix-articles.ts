@@ -29,8 +29,11 @@ import {
 } from '../constants/languages.js';
 import { escapeHTML } from './file-utils.js';
 
-/** CSS class selector for the language switcher nav element */
-const LANG_SWITCHER_CLASS = 'class="site-header__langs"';
+/** CSS class selector for the NEW language switcher nav element (inside header) */
+const LANG_SWITCHER_NEW_CLASS = 'class="site-header__langs"';
+
+/** CSS class selector for the LEGACY language switcher nav element (standalone) */
+const LANG_SWITCHER_LEGACY_CLASS = 'class="language-switcher"';
 
 /** CSS class selector for the article top navigation element */
 const ARTICLE_TOP_NAV_CLASS = 'class="article-top-nav"';
@@ -230,12 +233,16 @@ function injectTypeB(html: string, ctx: InjectionContext): InjectionResult | nul
     }
     const injectedBlock = `$1
 
+  <nav class="site-header__langs" role="navigation" aria-label="Language selection">
+    ${buildLangSwitcher(ctx.date, ctx.slug, ctx.lang)}
+  </nav>
+
   ${buildArticleTopNav(ctx.indexHref, ctx.lang)}
 
   $2`;
     return {
       html: html.replace(headerMainPattern, injectedBlock),
-      change: 'Added article-top-nav after header',
+      change: 'Added language switcher and article-top-nav after header',
     };
   }
 
@@ -376,8 +383,13 @@ export function fixArticle(
 
   let html = fs.readFileSync(filepath, 'utf-8');
 
+  /** True when article already has the NEW header-integrated language nav */
+  const hasNewLangSwitcher = html.includes(LANG_SWITCHER_NEW_CLASS);
+  /** True when article has any language switcher (new or legacy) */
+  const hasAnyLangSwitcher = hasNewLangSwitcher || html.includes(LANG_SWITCHER_LEGACY_CLASS);
+
   if (
-    html.includes(LANG_SWITCHER_CLASS) &&
+    hasNewLangSwitcher &&
     html.includes(ARTICLE_TOP_NAV_CLASS) &&
     html.includes(SITE_FOOTER_CLASS)
   ) {
@@ -386,19 +398,18 @@ export function fixArticle(
 
   const changes: string[] = [];
   const hasSiteHeader = html.includes(SITE_HEADER_CLASS);
-  const hasLangSwitcher = html.includes(LANG_SWITCHER_CLASS);
   const hasTopNav = html.includes(ARTICLE_TOP_NAV_CLASS);
 
   // Type A: Missing everything
-  if (!hasSiteHeader && !hasLangSwitcher && !hasTopNav) {
+  if (!hasSiteHeader && !hasAnyLangSwitcher && !hasTopNav) {
     html = applyInjection(html, () => injectTypeA(html, ctx), changes);
   }
-  // Type B: Has site-header but no language-switcher or top-nav
-  else if (hasSiteHeader && !hasLangSwitcher && !hasTopNav) {
+  // Type B: Has site-header but no NEW language-switcher or top-nav
+  else if (hasSiteHeader && !hasNewLangSwitcher && !hasTopNav) {
     html = applyInjection(html, () => injectTypeB(html, ctx), changes);
   }
-  // Type C: Has language-switcher but no article-top-nav
-  else if (hasLangSwitcher && !hasTopNav) {
+  // Type C: Has NEW language-switcher but no article-top-nav
+  else if (hasNewLangSwitcher && !hasTopNav) {
     html = applyInjection(html, () => injectTypeC(html, ctx), changes);
   }
 
