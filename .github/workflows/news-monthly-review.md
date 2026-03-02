@@ -46,6 +46,8 @@ mcp-servers:
     args:
       - -y
       - european-parliament-mcp-server@1.1.0
+    env:
+      EP_REQUEST_TIMEOUT_MS: "30000"
   world-bank:
     command: npx
     args:
@@ -107,7 +109,7 @@ This is a **retrospective** article providing comprehensive analysis of the past
 
 ## ⏱️ Time Budget (60 minutes)
 
-- **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (single call, no retry)
+- **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (up to 3 attempts)
 - **Minutes 3–10**: Query voting records, documents, reports from past 30 days
 - **Minutes 10–40**: Generate articles for all requested languages
 - **Minutes 40–50**: Validate generated HTML
@@ -154,7 +156,9 @@ export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WE
 Before generating ANY articles, verify MCP connectivity:
 
 1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, proceed
-2. If it fails, **do not retry** — use `safeoutputs___noop` with message: "MCP server unavailable. No articles generated."
+2. If it fails, wait 30 seconds and retry (up to 3 total attempts)
+3. If ALL 3 attempts fail:
+   - Use `safeoutputs___noop` with message: "MCP server unavailable after 3 connection attempts. No articles generated."
    - DO NOT fabricate or recycle content
    - The workflow MUST end with noop
 
@@ -200,12 +204,12 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 - **Total maximum 8 MCP tool calls**, including the single mandatory health-gate/warm-up `european_parliament___get_plenary_sessions` call
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once globally — reuse across all sections (does **not** count toward the 8-call budget)
-- **Health-gate connectivity check (also the MCP warm-up)**: call `european_parliament___get_plenary_sessions({ limit: 1 })` exactly once at the start to verify MCP health; this single call **counts as 1** toward the 8-call budget, serves as the only "MCP warm-up" mentioned in the Time Budget section, and must **not** be retried, repeated, or invoked again later in the run
+- **Health-gate connectivity check (also the MCP warm-up)**: call `european_parliament___get_plenary_sessions({ limit: 1 })` at the start to verify MCP health (up to 3 attempts with 30-second delays); this call **counts as 1** toward the 8-call budget, serves as the only "MCP warm-up" mentioned in the Time Budget section, and must **not** be repeated or invoked again later in the run after it succeeds
 - **Per-tool limit after the health gate (no retries)**: apart from the initial health-gate call, each remaining MCP tool may be called **at most once per workflow run** — never call the same tool a second time
 - If data from a tool looks sparse, generic, historical, or placeholder after its first call, **proceed to article generation immediately — do NOT retry that tool**
 - If you notice you are about to call a tool you already called, or you would exceed the 8-call budget, **STOP data gathering and move to generation**
 
-**ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the single mandatory MCP Health Gate / warm-up and connectivity check. Do not call it again or retry it later in the run. This Health Gate call is the same single call as the "MCP Health Gate" step in the Time Budget above — do NOT make a separate warm-up call.**
+**ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate / warm-up and connectivity check (up to 3 attempts). Do not call it again after it succeeds. This Health Gate call is the same call as the "MCP Health Gate" step in the Time Budget above — do NOT make a separate warm-up call.**
 
 From the tool list below, **select at most 7 additional tools** (plus the mandatory health-gate call = 8 total). You do **not** need to call every tool listed.
 
