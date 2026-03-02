@@ -204,9 +204,11 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools for Committee Reports
 
-### ⚡ MANDATORY: Precomputed Statistics First
+### ⚡ MANDATORY: Precomputed Statistics for Context
 
 **ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This returns the **complete** precomputed EP activity statistics (2004–2025) with yearly breakdowns, monthly activity data, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Always read ALL stats to provide full value and context.
+
+> **⚠️ CONTEXT ONLY — NEVER THE NEWS ITSELF**: Precomputed statistics provide historical background and analytical context. They are **NEVER newsworthy on their own** and must NEVER be the primary content of any article. The actual news content MUST come from **live EP feed endpoints** and **recent MCP data** reflecting what actually happened recently.
 
 ```javascript
 european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
@@ -616,7 +618,38 @@ fi
 
 **Note**: News index files (`index*.html`), metadata (`news/articles-metadata.json`), and `sitemap.xml` are **NOT committed to git**. They are generated automatically at build time by the `prebuild` script. Do NOT run `generate-news-indexes`, `news-metadata`, or `generate-sitemap` manually — and do NOT commit their output files. Only commit the actual article HTML files: `news/{YYYY-MM-DD}-committee-reports-{lang}.html`
 
-### Step 6: Create PR
+### Step 5a: MANDATORY File Count Validation
+
+> **🚨 ALL language files MUST be generated BEFORE creating the PR.** Do NOT create the PR after generating only a subset of languages. If time is running short, generate all files with the TypeScript script first (it handles all languages in one pass), then create the PR. A PR with all 14 language files is always better than multiple PRs with partial files.
+
+```bash
+TODAY=$(date -u +%Y-%m-%d)
+ARTICLE_TYPE="committee-reports"
+EXPECTED_LANGS="en sv da no fi de fr es nl ar he ja ko zh"
+EXPECTED_COUNT=14
+ACTUAL_COUNT=$(ls news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null | wc -l)
+echo "📊 File count: $ACTUAL_COUNT / $EXPECTED_COUNT expected"
+
+if [ "$ACTUAL_COUNT" -lt "$EXPECTED_COUNT" ]; then
+  echo "⚠️ WARNING: Only $ACTUAL_COUNT of $EXPECTED_COUNT language files generated."
+  echo "Missing languages:"
+  for LANG in $EXPECTED_LANGS; do
+    if [ ! -f "news/${TODAY}-${ARTICLE_TYPE}-${LANG}.html" ]; then
+      echo "  - $LANG"
+    fi
+  done
+  echo "Ensure the TypeScript generator script completed for ALL languages before creating the PR."
+fi
+
+if [ "$ACTUAL_COUNT" -eq 0 ]; then
+  echo "❌ ERROR: No article files generated. Cannot create PR." >&2
+  exit 1
+fi
+```
+
+### Step 6: Create PR (ONE call — ALL files at once)
+
+> **🚨 ATOMIC PR CREATION**: Call `safeoutputs___create_pull_request` exactly **ONCE** after ALL language files have been written. The framework captures all working directory changes as a single patch. Do NOT call it multiple times for individual files — that causes incomplete PRs with only partial languages (as seen in PR #293 where only 4 of 14 files were committed).
 
 Set the deterministic branch name for the PR.
 
