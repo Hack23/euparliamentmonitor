@@ -172,7 +172,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
 
   // Compute SHA-256 hash of the inline JSON-LD script content for CSP.
   // IMPORTANT: The whitespace here ("\n  " prefix and "\n  " suffix) must exactly
-  // match the script tag content in the HTML template below (lines 208-210):
+  // match the script tag content in the HTML template below:
   //   <script type="application/ld+json">
   //   ${jsonLd}
   //   </script>
