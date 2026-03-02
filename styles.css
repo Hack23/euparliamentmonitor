@@ -503,7 +503,7 @@ img {
   border-left-color: var(--accent);
 }
 
-.news-card:has(.news-card__accent--committee) {
+.news-card:has(.news-card__accent--committee-reports) {
   border-left-color: var(--success);
 }
 
@@ -562,7 +562,7 @@ img {
   color: var(--accent);
 }
 
-.news-card__badge--committee {
+.news-card__badge--committee-reports {
   background: #e8f5e9;
   color: #1b5e20;
 }
@@ -1078,7 +1078,7 @@ img {
   border-right-color: var(--accent);
 }
 
-[dir="rtl"] .news-card:has(.news-card__accent--committee) {
+[dir="rtl"] .news-card:has(.news-card__accent--committee-reports) {
   border-right-color: var(--success);
 }
 
@@ -1092,6 +1092,18 @@ img {
 
 [dir="rtl"] .news-card:has(.news-card__accent--breaking) {
   border-right-color: var(--danger);
+}
+
+[dir="rtl"] .news-card:has(.news-card__accent--month-ahead) {
+  border-right-color: #0088cc;
+}
+
+[dir="rtl"] .news-card:has(.news-card__accent--week-in-review) {
+  border-right-color: #e67e22;
+}
+
+[dir="rtl"] .news-card:has(.news-card__accent--month-in-review) {
+  border-right-color: #2ecc71;
 }
 
 /* ─── Responsive ─────────────────────────────────────────────────── */
