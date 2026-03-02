@@ -428,16 +428,25 @@ EXPECTED_LANGS="en sv da no fi de fr es nl ar he ja ko zh"
 EXPECTED_COUNT=14
 ACTUAL_COUNT=$(ls news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null | wc -l)
 echo "📊 File count: $ACTUAL_COUNT / $EXPECTED_COUNT expected"
-if [ "$ACTUAL_COUNT" -lt "$EXPECTED_COUNT" ]; then
-  echo "⚠️ WARNING: Only $ACTUAL_COUNT of $EXPECTED_COUNT language files generated."
-  echo "Missing languages:"
-  for LANG in $EXPECTED_LANGS; do
-    if [ ! -f "news/${TODAY}-${ARTICLE_TYPE}-${LANG}.html" ]; then
-      echo "  - $LANG"
-    fi
+# Unconditionally validate each expected language file exists (guards against stray files inflating count)
+MISSING_LANGS=""
+for LANG in $EXPECTED_LANGS; do
+  if [ ! -f "news/${TODAY}-${ARTICLE_TYPE}-${LANG}.html" ]; then
+    MISSING_LANGS="$MISSING_LANGS $LANG"
+  fi
+done
+
+if [ -n "$MISSING_LANGS" ]; then
+  echo "❌ ERROR: Missing language files:"
+  for LANG in $MISSING_LANGS; do
+    echo "  - $LANG"
   done
   echo "❌ ERROR: Incomplete language coverage. All $EXPECTED_COUNT languages must be generated before creating the PR." >&2
   exit 1
+fi
+
+if [ "$ACTUAL_COUNT" -ne "$EXPECTED_COUNT" ]; then
+  echo "⚠️ WARNING: File count mismatch: $ACTUAL_COUNT files found, $EXPECTED_COUNT expected. Check for stray or duplicate files." >&2
 fi
 ```
 
