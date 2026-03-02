@@ -124,7 +124,7 @@ jobs:
           BUCKET="s3://${{ env.S3_BUCKET_NAME }}"
           SRC="."
           # Common exclusions for non-website directories (bash array)
-          EXCL=(--exclude "screenshots/*" --exclude ".git/*" --exclude "scripts/*" --exclude "test/*" --exclude "e2e/*" --exclude "src/*" --exclude ".github/*" --exclude ".devcontainer/*" --exclude "node_modules/*")
+          EXCL=(--exclude "screenshots/*" --exclude ".git/*" --exclude "scripts/*" --exclude "test/*" --exclude "e2e/*" --exclude "src/*" --exclude ".github/*" --exclude ".devcontainer/*" --exclude "node_modules/*" --exclude "quicksight/*" --exclude "schemas/*")
 
           # HTML files - short cache, must-revalidate
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.html' \
@@ -136,10 +136,12 @@ jobs:
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.css' \
             --cache-control 'public, max-age=31536000, immutable' \
             --content-type 'text/css' \
+            --no-guess-mime-type \
             "${EXCL[@]}"
 
-          # JS files - long cache, immutable (includes docs/api assets)
+          # JS files - long cache, immutable (excludes root config files)
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.js' \
+            --exclude '*.config.js' \
             --cache-control 'public, max-age=31536000, immutable' \
             --content-type 'application/javascript' \
             --no-guess-mime-type \
@@ -158,18 +160,22 @@ jobs:
             --cache-control 'public, max-age=31536000, immutable' \
             "${EXCL[@]}"
 
-          # Metadata files - medium cache (1 day)
+          # Public metadata files only - medium cache (1 day)
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' \
-            --include '*.xml' --include '*.json' --include '*.txt' \
+            --include 'sitemap.xml' --include 'rss.xml' \
+            --include 'articles-metadata.json' --include 'robots.txt' \
             --cache-control 'public, max-age=86400' \
             "${EXCL[@]}"
 
-          # Everything else (excluding source, build, and config directories)
+          # Everything else — skip file types already uploaded above and
+          # all source/config/tooling files to avoid overwriting content types.
           aws s3 sync "$SRC" "$BUCKET" \
-            --exclude '.git/*' --exclude 'screenshots/*' \
-            --exclude '.github/*' --exclude 'schemas/*' \
-            --exclude 'scripts/*' --exclude 'src/*' --exclude 'test/*' --exclude 'e2e/*' \
-            --exclude '.devcontainer/*' --exclude 'quicksight/*' --exclude 'node_modules/*' \
+            "${EXCL[@]}" \
+            --exclude '*.html' --exclude '*.css' --exclude '*.js' \
+            --exclude '*.webp' --exclude '*.png' --exclude '*.jpg' --exclude '*.jpeg' \
+            --exclude '*.gif' --exclude '*.svg' --exclude '*.ico' \
+            --exclude '*.woff' --exclude '*.woff2' --exclude '*.ttf' --exclude '*.eot' --exclude '*.otf' \
+            --exclude '*.xml' --exclude '*.json' --exclude '*.txt' \
             --exclude '*.md' --exclude 'package*.json' --exclude '.gitignore' \
             --exclude 'tsconfig.json' --exclude 'typedoc.json' --exclude 'jsdoc.json' \
             --exclude '*.config.js' --exclude '.eslintcache' --exclude '.prettierrc.json' \
