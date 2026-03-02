@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament month-ahead strategic outlook articles for all 14 languages. Runs on 1st of each month.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"1dbc3834a921aa46f01f796b2686ed48b35e9160b365dda7bab6f648f26e36ff","compiler_version":"v0.51.5"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"9c65be3aaf275c121ab56baeddfd5666de586980c0dd6dcae263e622d4ca47ab","compiler_version":"v0.51.5"}
 
 name: "News: EU Parliament Month Ahead"
 "on":
@@ -76,7 +76,7 @@ jobs:
           GH_AW_INFO_EXPERIMENTAL: "false"
           GH_AW_INFO_SUPPORTS_TOOLS_ALLOWLIST: "true"
           GH_AW_INFO_STAGED: "false"
-          GH_AW_INFO_ALLOWED_DOMAINS: '["node","github.com","api.github.com","data.europarl.europa.eu","*.europa.eu","*.com","*.org","*.io","default"]'
+          GH_AW_INFO_ALLOWED_DOMAINS: '["node","github.com","api.github.com","data.europarl.europa.eu","api.worldbank.org","*.europa.eu","*.com","*.org","*.io","default"]'
           GH_AW_INFO_FIREWALL_ENABLED: "true"
           GH_AW_INFO_AWF_VERSION: "v0.23.0"
           GH_AW_INFO_AWMG_VERSION: ""
@@ -693,6 +693,19 @@ jobs:
                 "headers": {
                   "Authorization": "\${GH_AW_SAFE_OUTPUTS_API_KEY}"
                 }
+              },
+              "world-bank": {
+                "type": "stdio",
+                "container": "node:lts-alpine",
+                "entrypoint": "npx",
+                "entrypointArgs": [
+                  "npx",
+                  "-y",
+                  "worldbank-mcp@1.0.0"
+                ],
+                "tools": [
+                  "*"
+                ]
               }
             },
             "gateway": {
@@ -717,7 +730,7 @@ jobs:
         run: |
           set -o pipefail
           # shellcheck disable=SC1003
-          sudo -E awf --env-all --container-workdir "${GITHUB_WORKSPACE}" --allow-domains "*.com,*.europa.eu,*.io,*.jsr.io,*.org,api.business.githubcopilot.com,api.enterprise.githubcopilot.com,api.github.com,api.githubcopilot.com,api.individual.githubcopilot.com,api.npms.io,bun.sh,cdn.jsdelivr.net,data.europarl.europa.eu,deb.nodesource.com,default,deno.land,esm.sh,get.pnpm.io,github.com,googleapis.deno.dev,googlechromelabs.github.io,host.docker.internal,jsr.io,nodejs.org,npm.pkg.github.com,npmjs.com,npmjs.org,raw.githubusercontent.com,registry.bower.io,registry.npmjs.com,registry.npmjs.org,registry.yarnpkg.com,repo.yarnpkg.com,skimdb.npmjs.com,storage.googleapis.com,telemetry.enterprise.githubcopilot.com,telemetry.vercel.com,www.npmjs.com,www.npmjs.org,yarnpkg.com" --log-level info --proxy-logs-dir /tmp/gh-aw/sandbox/firewall/logs --enable-host-access --image-tag 0.23.0 --skip-pull --enable-api-proxy \
+          sudo -E awf --env-all --container-workdir "${GITHUB_WORKSPACE}" --allow-domains "*.com,*.europa.eu,*.io,*.jsr.io,*.org,api.business.githubcopilot.com,api.enterprise.githubcopilot.com,api.github.com,api.githubcopilot.com,api.individual.githubcopilot.com,api.npms.io,api.worldbank.org,bun.sh,cdn.jsdelivr.net,data.europarl.europa.eu,deb.nodesource.com,default,deno.land,esm.sh,get.pnpm.io,github.com,googleapis.deno.dev,googlechromelabs.github.io,host.docker.internal,jsr.io,nodejs.org,npm.pkg.github.com,npmjs.com,npmjs.org,raw.githubusercontent.com,registry.bower.io,registry.npmjs.com,registry.npmjs.org,registry.yarnpkg.com,repo.yarnpkg.com,skimdb.npmjs.com,storage.googleapis.com,telemetry.enterprise.githubcopilot.com,telemetry.vercel.com,www.npmjs.com,www.npmjs.org,yarnpkg.com" --log-level info --proxy-logs-dir /tmp/gh-aw/sandbox/firewall/logs --enable-host-access --image-tag 0.23.0 --skip-pull --enable-api-proxy \
             -- /bin/bash -c '/usr/local/bin/copilot --add-dir /tmp/gh-aw/ --log-level all --log-dir /tmp/gh-aw/sandbox/agent/logs/ --add-dir "${GITHUB_WORKSPACE}" --disable-builtin-mcps --allow-all-tools --allow-all-paths --prompt "$(cat /tmp/gh-aw/aw-prompts/prompt.txt)"' 2>&1 | tee -a /tmp/gh-aw/agent-stdio.log
         env:
           COPILOT_AGENT_RUNNER_TYPE: STANDALONE
