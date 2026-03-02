@@ -95,6 +95,23 @@ jobs:
           rm -rf node_modules
           echo "✅ Generated index files, articles-metadata.json, and sitemap.xml"
 
+      - name: Normalise CSP in legacy news articles
+        run: |
+          # Ensure all committed articles use the current relaxed CSP directives
+          # so production is consistent regardless of when each article was generated.
+          count=0
+          for f in news/*.html; do
+            if grep -q "default-src 'none'" "$f" 2>/dev/null; then
+              sed -i \
+                -e "s/default-src 'none'/default-src 'self'/g" \
+                -e "s/script-src 'sha256-/script-src 'self' 'sha256-/g" \
+                -e "s/connect-src 'none'/connect-src 'self'/g" \
+                "$f"
+              count=$((count + 1))
+            fi
+          done
+          echo "✅ Updated CSP in $count legacy article(s)"
+
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@8df5847569e6427dd6c4fb1cf565c83acfa8afa7 # v6.0.0
         with:
@@ -106,46 +123,46 @@ jobs:
         run: |
           BUCKET="s3://${{ env.S3_BUCKET_NAME }}"
           SRC="."
-          # Common exclusions for non-website directories
-          EXCL="--exclude 'screenshots/*' --exclude '.git/*' --exclude 'scripts/*' --exclude 'test/*' --exclude 'e2e/*' --exclude 'src/*' --exclude '.github/*' --exclude '.devcontainer/*' --exclude 'node_modules/*'"
+          # Common exclusions for non-website directories (bash array)
+          EXCL=(--exclude "screenshots/*" --exclude ".git/*" --exclude "scripts/*" --exclude "test/*" --exclude "e2e/*" --exclude "src/*" --exclude ".github/*" --exclude ".devcontainer/*" --exclude "node_modules/*")
 
           # HTML files - short cache, must-revalidate
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.html' \
             --cache-control 'public, max-age=3600, must-revalidate' \
             --content-type 'text/html; charset=utf-8' \
-            $EXCL
+            "${EXCL[@]}"
 
           # CSS files - long cache, immutable
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.css' \
             --cache-control 'public, max-age=31536000, immutable' \
             --content-type 'text/css' \
-            $EXCL
+            "${EXCL[@]}"
 
           # JS files - long cache, immutable (includes docs/api assets)
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.js' \
             --cache-control 'public, max-age=31536000, immutable' \
             --content-type 'application/javascript' \
             --no-guess-mime-type \
-            $EXCL
+            "${EXCL[@]}"
 
           # Image files - long cache, immutable
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' \
             --include '*.webp' --include '*.png' --include '*.jpg' --include '*.jpeg' \
             --include '*.gif' --include '*.svg' --include '*.ico' \
             --cache-control 'public, max-age=31536000, immutable' \
-            $EXCL
+            "${EXCL[@]}"
 
           # Font files - long cache, immutable
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' \
             --include '*.woff' --include '*.woff2' --include '*.ttf' --include '*.eot' --include '*.otf' \
             --cache-control 'public, max-age=31536000, immutable' \
-            $EXCL
+            "${EXCL[@]}"
 
           # Metadata files - medium cache (1 day)
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' \
             --include '*.xml' --include '*.json' --include '*.txt' \
             --cache-control 'public, max-age=86400' \
-            $EXCL
+            "${EXCL[@]}"
 
           # Everything else (excluding source, build, and config directories)
           aws s3 sync "$SRC" "$BUCKET" \
