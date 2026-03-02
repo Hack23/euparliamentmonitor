@@ -263,7 +263,7 @@ european_parliament___get_meps_feed({ limit: 20 })
 
 // STEP 2 (OPTIONAL context): Only if feeds contain newsworthy events, add analytical context
 european_parliament___detect_voting_anomalies({})
-european_parliament___analyze_coalition_dynamics({})
+european_parliament___analyze_coalition_dynamics({})  // Analytical context only, not news content
 ```
 
 ### 📡 EP API v2 Feed Endpoints (Preferred for Recent Updates)

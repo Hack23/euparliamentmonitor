@@ -638,7 +638,8 @@ if [ "$ACTUAL_COUNT" -lt "$EXPECTED_COUNT" ]; then
       echo "  - $LANG"
     fi
   done
-  echo "Ensure the TypeScript generator script completed for ALL languages before creating the PR."
+  echo "❌ ERROR: Incomplete language coverage. All $EXPECTED_COUNT languages must be generated before creating the PR." >&2
+  exit 1
 fi
 
 if [ "$ACTUAL_COUNT" -eq 0 ]; then
