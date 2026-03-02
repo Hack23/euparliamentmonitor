@@ -165,12 +165,11 @@ export function generateArticleHTML(options) {
           <span class="site-header__subtitle">European Parliament Intelligence</span>
         </span>
       </a>
+      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
+        ${buildArticleLangSwitcher(date, slug, lang)}
+      </nav>
     </div>
   </header>
-
-  <nav class="language-switcher" role="navigation" aria-label="Language selection">
-    ${buildArticleLangSwitcher(date, slug, lang)}
-  </nav>
 
   <nav class="article-top-nav" aria-label="${escapeHTML(articleNavLabel)}">
     <a href="${indexHref}" class="back-to-news">${backLabel}</a>

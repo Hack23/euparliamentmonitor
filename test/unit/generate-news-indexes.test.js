@@ -393,7 +393,7 @@ describe('generate-news-indexes', () => {
       expect(html).toContain('https://github.com/Hack23/euparliamentmonitor/issues');
     });
 
-    it('should include AI section for all languages', () => {
+    it('should include AI section for all languages with localized content', () => {
       const languages = ['en', 'de', 'fr', 'ar', 'ja'];
 
       languages.forEach((lang) => {
@@ -401,10 +401,29 @@ describe('generate-news-indexes', () => {
         expect(html).toContain('<section class="ai-intelligence"');
         expect(html).toContain('ai-intelligence__quote');
         expect(html).toContain('ai-intelligence__features');
-        if (lang !== 'en') {
-          expect(html).toContain('lang="en"');
-        }
       });
+    });
+
+    it('should not include lang="en" override on AI section for non-English pages', () => {
+      const html = generateIndexHTML('de', []);
+      const aiSection = html.match(/<section class="ai-intelligence"[^>]*>/);
+      expect(aiSection).not.toBeNull();
+      expect(aiSection[0]).not.toContain('lang="en"');
+    });
+
+    it('should contain German localized AI heading on German page', () => {
+      const html = generateIndexHTML('de', []);
+      expect(html).toContain('KI-disruptierte Nachrichtenerzeugung');
+    });
+
+    it('should contain Japanese localized AI heading on Japanese page', () => {
+      const html = generateIndexHTML('ja', []);
+      expect(html).toContain('AI\u304c\u5207\u308a\u62d3\u304f');
+    });
+
+    it('should contain Arabic localized AI heading on Arabic page', () => {
+      const html = generateIndexHTML('ar', []);
+      expect(html).toContain('\u0625\u0646\u062a\u0627\u062c \u0623\u062e\u0628\u0627\u0631');
     });
 
     it('should generate valid HTML with AI section', () => {
@@ -412,6 +431,23 @@ describe('generate-news-indexes', () => {
       const validation = validateHTML(html);
 
       expect(validation.valid).toBe(true);
+    });
+
+    it('should include filter toolbar when articles are present', () => {
+      const articles = [
+        { date: '2025-01-15', slug: 'week-ahead-test', lang: 'en', filename: 'test.html' },
+      ];
+      const html = generateIndexHTML('en', articles);
+
+      expect(html).toContain('filter-toolbar');
+      expect(html).toContain('filter-btn');
+      expect(html).toContain('filter-search__input');
+    });
+
+    it('should not include filter toolbar when no articles', () => {
+      const html = generateIndexHTML('en', []);
+
+      expect(html).not.toContain('class="filter-toolbar"');
     });
   });
 });
@@ -516,12 +552,11 @@ function generateMockIndexHTML(lang, articles) {
           <span class="site-header__subtitle">European Parliament Intelligence</span>
         </span>
       </a>
+      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
+        ${langNav}
+      </nav>
     </div>
   </header>
-
-  <nav class="language-switcher" role="navigation" aria-label="Language selection">
-    ${langNav}
-  </nav>
 
   <section class="hero">
     <h1 class="hero__title">${heroTitle}</h1>

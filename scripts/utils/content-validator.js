@@ -30,7 +30,10 @@ const PLACEHOLDER_PATTERNS = [
 ];
 /** Required structural HTML elements that every article must contain */
 const REQUIRED_HTML_ELEMENTS = [
-    { selector: 'class="language-switcher"', label: 'language-switcher nav' },
+    {
+        selector: ['class="site-header__langs"', 'class="language-switcher"'],
+        label: 'language switcher nav',
+    },
     { selector: 'class="article-top-nav"', label: 'article-top-nav (back button)' },
     { selector: 'class="site-header"', label: 'site-header' },
     { selector: '<main id="main"', label: 'main content wrapper' },
@@ -74,7 +77,13 @@ function detectPlaceholders(html) {
  * @returns Array of labels for missing elements (empty when all present)
  */
 function findMissingElements(html) {
-    return REQUIRED_HTML_ELEMENTS.filter((el) => !html.includes(el.selector)).map((el) => el.label);
+    return REQUIRED_HTML_ELEMENTS.filter((el) => {
+        const sel = el.selector;
+        if (Array.isArray(sel)) {
+            return !sel.some((s) => html.includes(s));
+        }
+        return !html.includes(sel);
+    }).map((el) => el.label);
 }
 // ─── Public API ───────────────────────────────────────────────────────────────
 /**

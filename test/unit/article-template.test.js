@@ -254,7 +254,7 @@ describe('article-template', () => {
       it('should include language switcher navigation', () => {
         const html = generateArticleHTML(defaultOptions);
 
-        expect(html).toContain('<nav class="language-switcher" role="navigation" aria-label="Language selection">');
+        expect(html).toContain('<nav class="site-header__langs" role="navigation" aria-label="Language selection">');
       });
 
       it('should include lang-link elements for all 14 languages', () => {
@@ -568,7 +568,7 @@ describe('article-template', () => {
       });
 
       it.each([
-        ['language-switcher', 'class="language-switcher"', 'class="removed-for-test-ls"'],
+        ['language switcher', 'class="site-header__langs"', 'class="removed-for-test-ls"'],
         ['article-top-nav', 'class="article-top-nav"', 'class="removed-for-test-atn"'],
         ['site-header', 'class="site-header"', 'class="removed-for-test-sh"'],
         ['skip-link', 'class="skip-link"', 'class="removed-for-test-sl"'],
@@ -597,7 +597,7 @@ describe('article-template', () => {
         const html = '<html><body></body></html>';
         const result = validateArticleHTML(html);
 
-        expect(result.errors).toContain('Missing required element: language-switcher nav');
+        expect(result.errors).toContain('Missing required element: language switcher nav');
         expect(result.errors).toContain('Missing required element: article-top-nav (back button)');
         expect(result.errors).toContain('Missing required element: site-header');
         expect(result.errors).toContain('Missing required element: skip-link');

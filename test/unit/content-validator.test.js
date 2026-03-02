@@ -18,8 +18,7 @@ function buildArticleHtml(bodyText) {
 <body>
   <nav class="skip-link"></nav>
   <div class="reading-progress"></div>
-  <header class="site-header"><h1>Test</h1></header>
-  <nav class="language-switcher"><a href="#">EN</a></nav>
+  <header class="site-header"><div class="site-header__inner"><h1>Test</h1><nav class="site-header__langs"><a href="#">EN</a></nav></div></header>
   <nav class="article-top-nav"><a href="#">Back</a></nav>
   <main id="main">
     <article>${bodyText}</article>
@@ -135,9 +134,9 @@ describe('utils/content-validator', () => {
     });
 
     describe('missing required HTML elements (fail)', () => {
-      it('should fail when language-switcher is missing', () => {
+      it('should fail when language switcher is missing', () => {
         const html = `<!DOCTYPE html><html><body>
-          <header class="site-header"></header>
+          <header class="site-header"><div class="site-header__inner"></div></header>
           <nav class="article-top-nav"></nav>
           <main id="main"><p>${words(600)}</p></main>
         </body></html>`;
@@ -145,13 +144,12 @@ describe('utils/content-validator', () => {
 
         expect(result.valid).toBe(false);
         expect(result.metrics.htmlValid).toBe(false);
-        expect(result.errors.join(' ')).toContain('language-switcher');
+        expect(result.errors.join(' ')).toContain('language switcher');
       });
 
       it('should fail when article-top-nav is missing', () => {
         const html = `<!DOCTYPE html><html><body>
-          <header class="site-header"></header>
-          <nav class="language-switcher"></nav>
+          <header class="site-header"><div class="site-header__inner"><nav class="site-header__langs"></nav></div></header>
           <main id="main"><p>${words(600)}</p></main>
         </body></html>`;
         const result = validateArticleContent(html, 'en', 'week-ahead');
@@ -162,7 +160,7 @@ describe('utils/content-validator', () => {
 
       it('should fail when site-header is missing', () => {
         const html = `<!DOCTYPE html><html><body>
-          <nav class="language-switcher"></nav>
+          <nav class="site-header__langs"></nav>
           <nav class="article-top-nav"></nav>
           <main id="main"><p>${words(600)}</p></main>
         </body></html>`;
@@ -174,8 +172,7 @@ describe('utils/content-validator', () => {
 
       it('should fail when main content wrapper is missing', () => {
         const html = `<!DOCTYPE html><html><body>
-          <header class="site-header"></header>
-          <nav class="language-switcher"></nav>
+          <header class="site-header"><div class="site-header__inner"><nav class="site-header__langs"></nav></div></header>
           <nav class="article-top-nav"></nav>
           <div><p>${words(600)}</p></div>
         </body></html>`;
