@@ -32,6 +32,9 @@
         <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor">
           <img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard">
         </a>
+        <a href="https://www.bestpractices.dev/projects/12068">
+          <img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices">
+        </a>
         <a href="https://github.com/Hack23/euparliamentmonitor/attestations">
           <img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA 3">
         </a>
@@ -49,6 +52,7 @@
 </table>
 
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge)](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/12068/badge)](https://www.bestpractices.dev/projects/12068)
 [![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://github.com/Hack23/euparliamentmonitor/attestations)
 [![News Generation](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml)
 [![Test and Report](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml)
