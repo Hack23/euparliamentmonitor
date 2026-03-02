@@ -6,6 +6,7 @@
  * @description Generates HTML templates for news articles with proper structure and metadata
  */
 
+import { createHash } from 'crypto';
 import type { ArticleOptions, ArticleSource, ArticleCategoryLabels } from '../types/index.js';
 import {
   ALL_LANGUAGES,
@@ -169,6 +170,15 @@ export function generateArticleHTML(options: ArticleOptions): string {
       ? ` integrity="${escapeHTML(stylesHash)}" crossorigin="anonymous"`
       : '';
 
+  // Compute SHA-256 hash of the inline JSON-LD script content for CSP.
+  // IMPORTANT: The whitespace here ("\n  " prefix and "\n  " suffix) must exactly
+  // match the script tag content in the HTML template below:
+  //   <script type="application/ld+json">
+  //   ${jsonLd}
+  //   </script>
+  const jsonLdScriptContent = `\n  ${jsonLd}\n  `;
+  const jsonLdHash = `sha256-${createHash('sha256').update(jsonLdScriptContent).digest('base64')}`;
+
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -176,7 +186,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src '${jsonLdHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
   <title>${safeTitle} | EU Parliament Monitor</title>
   <meta name="description" content="${safeSubtitle}">
   <meta name="keywords" content="${safeKeywords}">

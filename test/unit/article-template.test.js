@@ -490,7 +490,7 @@ describe('article-template', () => {
         expect(html).toContain('no-referrer');
         expect(html).toContain('Content-Security-Policy');
         expect(html).toContain("default-src 'none'");
-        expect(html).toContain("script-src 'none'");
+        expect(html).toContain("script-src 'sha256-");
         expect(html).toContain("style-src 'self' 'unsafe-inline'");
         expect(html).toContain("img-src 'self' https: data:");
         expect(html).toContain("font-src 'self'");
@@ -498,6 +498,22 @@ describe('article-template', () => {
         expect(html).toContain("frame-src 'none'");
         expect(html).toContain("base-uri 'self'");
         expect(html).toContain("form-action 'none'");
+      });
+
+      it('should include CSP script-src hash matching the JSON-LD content', async () => {
+        const { createHash } = await import('crypto');
+        const html = generateArticleHTML(defaultOptions);
+
+        // Extract the JSON-LD script content from the generated HTML
+        const scriptMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+        expect(scriptMatch).not.toBeNull();
+        const scriptContent = scriptMatch[1];
+
+        // Compute the expected hash
+        const expectedHash = `sha256-${createHash('sha256').update(scriptContent).digest('base64')}`;
+
+        // Verify the CSP contains this exact hash
+        expect(html).toContain(`script-src '${expectedHash}'`);
       });
 
       it('should include SRI integrity attribute on stylesheet when stylesHash is provided', () => {
