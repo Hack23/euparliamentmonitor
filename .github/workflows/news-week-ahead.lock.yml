@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament week-ahead prospective articles for all 14 languages. Runs Fridays to preview the upcoming parliamentary week using European Parliament MCP data.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"a2f66cf9f3784283bab65004e4828014359e74732f25e9309f3b764fa8cdf5c9","compiler_version":"v0.51.6"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"847174dddb103ef246c2f8bb7536a6a4dfaf6fd185a89468cec44763c01b4afe","compiler_version":"v0.51.6"}
 
 name: "News: EU Parliament Week Ahead"
 "on":

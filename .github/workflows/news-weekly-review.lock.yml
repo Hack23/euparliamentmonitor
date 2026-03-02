@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament weekly review retrospective articles for all 14 languages. Runs Saturdays to review the past week.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"2d60d69212294d9683466e6272aaa32b6c3da8bd35d8ae11f80831a3d3c1b896","compiler_version":"v0.51.6"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"c703a87f207fb597c8e7007117a17b1b858e841e0b078a04a0de0486005b3be2","compiler_version":"v0.51.6"}
 
 name: "News: EU Parliament Weekly Review"
 "on":
