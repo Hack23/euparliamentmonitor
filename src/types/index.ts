@@ -119,6 +119,19 @@ export {
   type CorrelateIntelligenceOptions,
   type GeneratedStatsCategory,
   type GetAllGeneratedStatsOptions,
+  type GetMEPsFeedOptions,
+  type GetEventsFeedOptions,
+  type GetProceduresFeedOptions,
+  type GetAdoptedTextsFeedOptions,
+  type GetMEPDeclarationsFeedOptions,
+  type GetDocumentsFeedOptions,
+  type GetPlenaryDocumentsFeedOptions,
+  type GetCommitteeDocumentsFeedOptions,
+  type GetPlenarySessionDocumentsFeedOptions,
+  type GetExternalDocumentsFeedOptions,
+  type GetParliamentaryQuestionsFeedOptions,
+  type GetCorporateBodiesFeedOptions,
+  type GetControlledVocabulariesFeedOptions,
 } from './mcp.js';
 
 export type {

@@ -45,7 +45,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.0.1
+      - european-parliament-mcp-server@1.1.0
   world-bank:
     command: npx
     args:
@@ -226,6 +226,17 @@ european_parliament___compare_political_groups({ groupIds: ["EPP", "S&D", "Renew
 european_parliament___generate_political_landscape({})
 ```
 
+### 📡 Preferred: EP API v2 Feed Endpoints for Recent Updates
+
+**Prefer feed endpoints for the latest parliamentary updates.** These return the most recently updated items:
+
+```javascript
+european_parliament___get_adopted_texts_feed({ limit: 20 })
+european_parliament___get_procedures_feed({ limit: 20 })
+european_parliament___get_plenary_documents_feed({ limit: 20 })
+european_parliament___get_parliamentary_questions_feed({ limit: 20 })
+```
+
 
 ## 🌍 World Bank Economic Context (Optional Enrichment)
 
@@ -373,7 +384,7 @@ fi
 
 if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ ! -f "node_modules/.bin/european-parliament-mcp-server" ]; then
-    npm install --no-save european-parliament-mcp-server@1.0.1
+    npm install --no-save european-parliament-mcp-server@1.1.0
   fi
 fi
 ```

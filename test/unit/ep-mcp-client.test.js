@@ -1645,6 +1645,169 @@ describe('ep-mcp-client', () => {
       });
     });
 
+    describe('EP API v2 Feed Endpoint Methods', () => {
+      beforeEach(() => {
+        client.connected = true;
+        client.callTool = vi.fn();
+      });
+
+      it('should get MEPs feed with default options', async () => {
+        client.callTool.mockResolvedValue({ content: [{ type: 'text', text: '{"feed": []}' }] });
+        await client.getMEPsFeed();
+        expect(client.callTool).toHaveBeenCalledWith('get_meps_feed', {});
+      });
+
+      it('should handle missing get_meps_feed tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+        const result = await client.getMEPsFeed();
+        expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      });
+
+      it('should get events feed with pagination', async () => {
+        client.callTool.mockResolvedValue({ content: [{ type: 'text', text: '{"feed": []}' }] });
+        await client.getEventsFeed({ limit: 10, offset: 0 });
+        expect(client.callTool).toHaveBeenCalledWith('get_events_feed', { limit: 10, offset: 0 });
+      });
+
+      it('should handle missing get_events_feed tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+        const result = await client.getEventsFeed();
+        expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      });
+
+      it('should get procedures feed', async () => {
+        client.callTool.mockResolvedValue({ content: [{ type: 'text', text: '{"feed": []}' }] });
+        await client.getProceduresFeed();
+        expect(client.callTool).toHaveBeenCalledWith('get_procedures_feed', {});
+      });
+
+      it('should handle missing get_procedures_feed tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+        const result = await client.getProceduresFeed();
+        expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      });
+
+      it('should get adopted texts feed', async () => {
+        client.callTool.mockResolvedValue({ content: [{ type: 'text', text: '{"feed": []}' }] });
+        await client.getAdoptedTextsFeed();
+        expect(client.callTool).toHaveBeenCalledWith('get_adopted_texts_feed', {});
+      });
+
+      it('should handle missing get_adopted_texts_feed tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+        const result = await client.getAdoptedTextsFeed();
+        expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      });
+
+      it('should get MEP declarations feed', async () => {
+        client.callTool.mockResolvedValue({ content: [{ type: 'text', text: '{"feed": []}' }] });
+        await client.getMEPDeclarationsFeed();
+        expect(client.callTool).toHaveBeenCalledWith('get_mep_declarations_feed', {});
+      });
+
+      it('should handle missing get_mep_declarations_feed tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+        const result = await client.getMEPDeclarationsFeed();
+        expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      });
+
+      it('should get documents feed', async () => {
+        client.callTool.mockResolvedValue({ content: [{ type: 'text', text: '{"feed": []}' }] });
+        await client.getDocumentsFeed();
+        expect(client.callTool).toHaveBeenCalledWith('get_documents_feed', {});
+      });
+
+      it('should handle missing get_documents_feed tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+        const result = await client.getDocumentsFeed();
+        expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      });
+
+      it('should get plenary documents feed', async () => {
+        client.callTool.mockResolvedValue({ content: [{ type: 'text', text: '{"feed": []}' }] });
+        await client.getPlenaryDocumentsFeed();
+        expect(client.callTool).toHaveBeenCalledWith('get_plenary_documents_feed', {});
+      });
+
+      it('should handle missing get_plenary_documents_feed tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+        const result = await client.getPlenaryDocumentsFeed();
+        expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      });
+
+      it('should get committee documents feed', async () => {
+        client.callTool.mockResolvedValue({ content: [{ type: 'text', text: '{"feed": []}' }] });
+        await client.getCommitteeDocumentsFeed();
+        expect(client.callTool).toHaveBeenCalledWith('get_committee_documents_feed', {});
+      });
+
+      it('should handle missing get_committee_documents_feed tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+        const result = await client.getCommitteeDocumentsFeed();
+        expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      });
+
+      it('should get plenary session documents feed', async () => {
+        client.callTool.mockResolvedValue({ content: [{ type: 'text', text: '{"feed": []}' }] });
+        await client.getPlenarySessionDocumentsFeed();
+        expect(client.callTool).toHaveBeenCalledWith('get_plenary_session_documents_feed', {});
+      });
+
+      it('should handle missing get_plenary_session_documents_feed tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+        const result = await client.getPlenarySessionDocumentsFeed();
+        expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      });
+
+      it('should get external documents feed', async () => {
+        client.callTool.mockResolvedValue({ content: [{ type: 'text', text: '{"feed": []}' }] });
+        await client.getExternalDocumentsFeed();
+        expect(client.callTool).toHaveBeenCalledWith('get_external_documents_feed', {});
+      });
+
+      it('should handle missing get_external_documents_feed tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+        const result = await client.getExternalDocumentsFeed();
+        expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      });
+
+      it('should get parliamentary questions feed', async () => {
+        client.callTool.mockResolvedValue({ content: [{ type: 'text', text: '{"feed": []}' }] });
+        await client.getParliamentaryQuestionsFeed();
+        expect(client.callTool).toHaveBeenCalledWith('get_parliamentary_questions_feed', {});
+      });
+
+      it('should handle missing get_parliamentary_questions_feed tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+        const result = await client.getParliamentaryQuestionsFeed();
+        expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      });
+
+      it('should get corporate bodies feed', async () => {
+        client.callTool.mockResolvedValue({ content: [{ type: 'text', text: '{"feed": []}' }] });
+        await client.getCorporateBodiesFeed();
+        expect(client.callTool).toHaveBeenCalledWith('get_corporate_bodies_feed', {});
+      });
+
+      it('should handle missing get_corporate_bodies_feed tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+        const result = await client.getCorporateBodiesFeed();
+        expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      });
+
+      it('should get controlled vocabularies feed', async () => {
+        client.callTool.mockResolvedValue({ content: [{ type: 'text', text: '{"feed": []}' }] });
+        await client.getControlledVocabulariesFeed();
+        expect(client.callTool).toHaveBeenCalledWith('get_controlled_vocabularies_feed', {});
+      });
+
+      it('should handle missing get_controlled_vocabularies_feed tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+        const result = await client.getControlledVocabulariesFeed();
+        expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      });
+    });
+
     describe('Retry Logic', () => {
       it('should have retry configuration', async () => {
         const failingClient = new EuropeanParliamentMCPClient({

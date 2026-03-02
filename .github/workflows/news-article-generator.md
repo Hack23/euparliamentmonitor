@@ -47,7 +47,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.0.1
+      - european-parliament-mcp-server@1.1.0
   world-bank:
     command: npx
     args:
@@ -98,7 +98,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 
 ## 🚨 CRITICAL: European Parliament MCP Server is the Sole Data Source
 
-**ALL article data MUST be fetched from the `european-parliament` MCP server.** The MCP server provides 47 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, OSINT intelligence analysis, and precomputed statistics.
+**ALL article data MUST be fetched from the `european-parliament` MCP server.** The MCP server provides 61 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, OSINT intelligence analysis, and precomputed statistics.
 
 ## ⏱️ Time Budget (120 minutes)
 
@@ -254,6 +254,59 @@ european_parliament___detect_voting_anomalies({})
 european_parliament___analyze_coalition_dynamics({})
 european_parliament___generate_report({ reportType: "VOTING_STATISTICS" })
 ```
+
+### 📡 EP API v2 Feed Endpoints (Preferred for Recent Updates)
+
+**ALWAYS prefer feed endpoints when fetching the most recent parliamentary updates.** Feed tools return the latest data from the EP API v2 Atom/RSS feeds, ordered by most recently updated. Use these instead of the standard list endpoints when you need to know what changed recently:
+
+```javascript
+// MEPs feed — latest MEP updates
+european_parliament___get_meps_feed({ limit: 20 })
+
+// Events feed — latest EP events
+european_parliament___get_events_feed({ limit: 20 })
+
+// Procedures feed — latest legislative procedures
+european_parliament___get_procedures_feed({ limit: 20 })
+
+// Adopted texts feed — latest adopted texts
+european_parliament___get_adopted_texts_feed({ limit: 20 })
+
+// MEP declarations feed — latest financial declarations
+european_parliament___get_mep_declarations_feed({ limit: 20 })
+
+// Documents feed — latest documents
+european_parliament___get_documents_feed({ limit: 20 })
+
+// Plenary documents feed — latest plenary documents
+european_parliament___get_plenary_documents_feed({ limit: 20 })
+
+// Committee documents feed — latest committee documents
+european_parliament___get_committee_documents_feed({ limit: 20 })
+
+// Plenary session documents feed — latest session documents
+european_parliament___get_plenary_session_documents_feed({ limit: 20 })
+
+// External documents feed — latest non-EP documents
+european_parliament___get_external_documents_feed({ limit: 20 })
+
+// Parliamentary questions feed — latest questions
+european_parliament___get_parliamentary_questions_feed({ limit: 20 })
+
+// Corporate bodies feed — latest committee/body updates
+european_parliament___get_corporate_bodies_feed({ limit: 20 })
+
+// Controlled vocabularies feed — latest vocabulary updates
+european_parliament___get_controlled_vocabularies_feed({ limit: 20 })
+```
+
+**Feed tool selection by article type:**
+- **Prospective (week-ahead, month-ahead)**: `get_events_feed`, `get_procedures_feed`, `get_plenary_documents_feed`
+- **Retrospective (week-in-review, month-in-review)**: `get_adopted_texts_feed`, `get_procedures_feed`, `get_plenary_documents_feed`
+- **Committee Reports**: `get_committee_documents_feed`, `get_plenary_documents_feed`
+- **Propositions**: `get_procedures_feed`, `get_documents_feed`
+- **Motions**: `get_adopted_texts_feed`, `get_parliamentary_questions_feed`
+- **Breaking News**: `get_meps_feed`, `get_events_feed`, `get_adopted_texts_feed`
 
 
 ## 🌍 World Bank Economic Context (Optional Enrichment)
@@ -416,7 +469,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ -f "node_modules/.bin/european-parliament-mcp-server" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
-    npm install --no-save european-parliament-mcp-server@1.0.1
+    npm install --no-save european-parliament-mcp-server@1.1.0
   fi
 fi
 ```
