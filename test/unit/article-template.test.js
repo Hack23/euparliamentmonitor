@@ -489,12 +489,12 @@ describe('article-template', () => {
         expect(html).toContain('X-Content-Type-Options');
         expect(html).toContain('no-referrer');
         expect(html).toContain('Content-Security-Policy');
-        expect(html).toContain("default-src 'none'");
-        expect(html).toContain("script-src 'sha256-");
+        expect(html).toContain("default-src 'self'");
+        expect(html).toContain("script-src 'self' 'sha256-");
         expect(html).toContain("style-src 'self' 'unsafe-inline'");
         expect(html).toContain("img-src 'self' https: data:");
         expect(html).toContain("font-src 'self'");
-        expect(html).toContain("connect-src 'none'");
+        expect(html).toContain("connect-src 'self'");
         expect(html).toContain("frame-src 'none'");
         expect(html).toContain("base-uri 'self'");
         expect(html).toContain("form-action 'none'");
@@ -513,7 +513,7 @@ describe('article-template', () => {
         const expectedHash = `sha256-${createHash('sha256').update(scriptContent).digest('base64')}`;
 
         // Verify the CSP contains this exact hash
-        expect(html).toContain(`script-src '${expectedHash}'`);
+        expect(html).toContain(`script-src 'self' '${expectedHash}'`);
       });
 
       it('should include SRI integrity attribute on stylesheet when stylesHash is provided', () => {
