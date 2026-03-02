@@ -25,30 +25,105 @@ This directory contains GitHub Actions workflows for the EU Parliament Monitor p
 
 ---
 
-### 📰 News Generation
+### 📰 News Generation (Agentic Workflows)
 
-#### `news-generation.yml`
-**Purpose**: Automated daily news article generation
+The project uses **8 agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files. Each workflow generates a specific type of EU Parliament news article using the European Parliament MCP server as the primary data source, with optional World Bank MCP enrichment for economic context.
 
-**Trigger**: 
-- Schedule: Daily at 06:00 UTC
-- Workflow dispatch (manual)
+#### `news-article-generator.md`
+**Purpose**: Manual dispatch workflow to generate any combination of article types
+
+**Trigger**: Workflow dispatch (manual)
 
 **Inputs**:
-- `article_types`: Comma-separated article types (default: `week-ahead`)
-- `languages`: Languages to generate (default: `en`)
+- `article_types`: Comma-separated article types (default: `committee-reports,propositions,motions`)
+- `languages`: Languages to generate (default: `all`)
 - `force_generation`: Force generation even if recent articles exist (default: `false`)
 
 **What it does**:
-1. Generates news articles using European Parliament MCP Server
-2. Creates language-specific index pages
-3. Generates sitemap.xml
-4. Commits and pushes changes automatically
+1. Establishes date context with `date -u` command
+2. Queries European Parliament MCP server for data
+3. Optionally enriches with World Bank economic indicators
+4. Generates articles using `npx tsx src/generators/news-enhanced.ts`
+5. Creates PR with generated article HTML files
 
-**Environment Variables**:
-- `USE_EP_MCP`: Set to `false` to use placeholder content
+**Timeout**: 120 minutes
 
-**Security**: Contents write permission for commits
+---
+
+#### `news-committee-reports.md`
+**Purpose**: Generates EU Parliament committee reports analysis articles
+
+**Trigger**: Scheduled daily at 04:00 UTC (Mon-Fri), workflow dispatch
+
+**What it does**: Analyzes activity across 20 EU standing committees (ENVI, ECON, AFET, LIBE, AGRI, etc.)
+
+**Timeout**: 60 minutes
+
+---
+
+#### `news-week-ahead.md`
+**Purpose**: Generates week-ahead prospective articles previewing upcoming parliamentary week
+
+**Trigger**: Scheduled Fridays at 07:00 UTC, workflow dispatch
+
+**Timeout**: 60 minutes
+
+---
+
+#### `news-weekly-review.md`
+**Purpose**: Generates weekly review retrospective articles analyzing past 7 days
+
+**Trigger**: Scheduled Saturdays at 09:00 UTC, workflow dispatch
+
+**Timeout**: 60 minutes
+
+---
+
+#### `news-month-ahead.md`
+**Purpose**: Generates strategic month-ahead outlook articles with World Bank economic context
+
+**Trigger**: Scheduled 1st of each month at 08:00 UTC, workflow dispatch
+
+**Timeout**: 60 minutes
+
+---
+
+#### `news-monthly-review.md`
+**Purpose**: Generates monthly review retrospective articles with World Bank economic context
+
+**Trigger**: Scheduled 28th of each month at 10:00 UTC, workflow dispatch
+
+**Timeout**: 60 minutes
+
+---
+
+#### `news-motions.md`
+**Purpose**: Generates motions and resolutions analysis with voting records and party dynamics
+
+**Trigger**: Scheduled daily at 06:00 UTC (Mon-Fri), workflow dispatch
+
+**Timeout**: 60 minutes
+
+---
+
+#### `news-propositions.md`
+**Purpose**: Generates legislative propositions analysis with World Bank economic context
+
+**Trigger**: Scheduled daily at 05:00 UTC (Mon-Fri), workflow dispatch
+
+**Timeout**: 60 minutes
+
+---
+
+**Common features across all news workflows**:
+- Uses `european-parliament-mcp-server@1.0.1` as primary data source
+- Mandatory date context establishment via `date -u` command
+- Supports 14 languages: en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
+- HTML validation and quality checks before PR creation
+- Never commits generated files (sitemap, rss, index files)
+- Uses `safeoutputs___create_pull_request` for PR creation
+
+**Security**: Read-only permissions by default, MCP data only from official EU Parliament sources
 
 ---
 
@@ -331,14 +406,16 @@ jobs:
 3. Verify npm version command compatibility
 4. Check artifact generation succeeds
 
-### News Generation Not Committing
-**Problem**: News generated but not committed
+### News Generation Issues
+**Problem**: News articles not generated or PR not created
 
 **Solution**:
-1. Check `contents: write` permission exists
-2. Verify git configuration in workflow
-3. Ensure files are staged with `git add`
-4. Check for git conflicts
+1. Check MCP server connectivity (European Parliament API availability)
+2. Verify `date -u` returns correct date context
+3. Ensure `npm ci && npm run build` succeeds
+4. Check `safeoutputs___create_pull_request` was called (not raw git commands)
+5. Review workflow logs for MCP health gate failures
+6. Never commit generated files (sitemap, rss, index files) — only article HTML
 
 ### CodeQL Analysis Failing
 **Problem**: CodeQL analysis encounters errors
@@ -365,7 +442,14 @@ jobs:
 | Workflow | Push | PR | Schedule | Manual |
 |----------|------|----|---------:|-------:|
 | copilot-setup-steps | ✅ | ✅ | ❌ | ✅ |
-| news-generation | ❌ | ❌ | ✅ Daily | ✅ |
+| news-article-generator | ❌ | ❌ | ❌ | ✅ |
+| news-committee-reports | ❌ | ❌ | ✅ Mon-Fri 04:00 | ✅ |
+| news-week-ahead | ❌ | ❌ | ✅ Fri 07:00 | ✅ |
+| news-weekly-review | ❌ | ❌ | ✅ Sat 09:00 | ✅ |
+| news-month-ahead | ❌ | ❌ | ✅ 1st 08:00 | ✅ |
+| news-monthly-review | ❌ | ❌ | ✅ 28th 10:00 | ✅ |
+| news-motions | ❌ | ❌ | ✅ Mon-Fri 06:00 | ✅ |
+| news-propositions | ❌ | ❌ | ✅ Mon-Fri 05:00 | ✅ |
 | labeler | ❌ | ✅ | ❌ | ❌ |
 | setup-labels | ❌ | ❌ | ❌ | ✅ |
 | release | ✅ Tags | ❌ | ❌ | ✅ |
@@ -402,5 +486,5 @@ For workflow issues or questions:
 
 ---
 
-**Last Updated**: 2026-02-16  
+**Last Updated**: 2026-03-02  
 **Maintained By**: Hack23 DevOps Team

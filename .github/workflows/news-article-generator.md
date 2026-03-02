@@ -35,6 +35,7 @@ network:
     - github.com
     - api.github.com
     - data.europarl.europa.eu
+    - api.worldbank.org
     - "*.europa.eu"
     - "*.com"
     - "*.org"
@@ -47,6 +48,11 @@ mcp-servers:
     args:
       - -y
       - european-parliament-mcp-server@1.0.1
+  world-bank:
+    command: npx
+    args:
+      - -y
+      - worldbank-mcp@1.0.0
 
 tools:
   github:
@@ -112,16 +118,28 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 4. **`.github/skills/seo-best-practices.md`** — Article SEO and metadata
 5. **`.github/skills/gh-aw-firewall.md`** — Safe outputs and network security
 
-## MANDATORY Date Validation
+## MANDATORY Date Context Establishment
+
+**⚠️ ALWAYS run this block FIRST before any MCP calls or article generation.** This establishes the date context for the entire workflow.
 
 ```bash
-echo "=== Date Validation Check ==="
-date -u "+Current UTC: %A %Y-%m-%d %H:%M:%S"
+echo "=== Date Context Establishment ==="
+TODAY=$(date -u +%Y-%m-%d)
+CURRENT_YEAR=$(date -u +%Y)
+CURRENT_MONTH=$(date -u +%m)
+CURRENT_MONTH_NAME=$(date -u +%B)
+CURRENT_DAY=$(date -u +%d)
+DAY_OF_WEEK=$(date -u +%A)
+DAY_NUM=$(date -u +%u)
+echo "Today:  $TODAY ($DAY_OF_WEEK)"
+echo "Month:  $CURRENT_MONTH_NAME $CURRENT_YEAR"
+echo "Year:   $CURRENT_YEAR"
 echo "Article Types: ${{ github.event.inputs.article_types }}"
-echo "============================"
+echo "==================================="
+export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WEEK DAY_NUM
 ```
 
-**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$(date -u +%Y-%m-%d)`. NEVER hardcode a year (e.g. 2024). Use `TODAY=$(date -u +%Y-%m-%d)` and compute offsets with `date -u -d` commands.
+**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$TODAY` (set above). NEVER hardcode a year (e.g. 2024, 2025). Use `date -u -d "$TODAY - 7 days" +%Y-%m-%d` for offsets.
 
 
 ## MANDATORY MCP Health Gate
@@ -237,6 +255,23 @@ european_parliament___analyze_coalition_dynamics({})
 european_parliament___generate_report({ reportType: "VOTING_STATISTICS" })
 ```
 
+
+## 🌍 World Bank Economic Context (Optional Enrichment)
+
+When articles cover legislation with economic impact (trade, employment, environment, budget), use the `world-bank` MCP server to add macroeconomic context. This is **supplementary** — EU Parliament MCP remains the primary data source.
+
+```javascript
+// GDP growth for EU context (World Bank indicator: NY.GDP.MKTP.KD.ZG)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NY.GDP.MKTP.KD.ZG", years: 5 })
+
+// Unemployment trends (World Bank indicator: SL.UEM.TOTL.ZS)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "SL.UEM.TOTL.ZS", years: 5 })
+
+// Trade data for trade-related legislation (World Bank indicator: NE.EXP.GNFS.ZS)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NE.EXP.GNFS.ZS", years: 5 })
+```
+
+**Rules**: Use at most 3 World Bank calls per workflow run. Only include World Bank data when it directly contextualizes the parliamentary activity being reported.
 
 ## MANDATORY Article HTML Structure
 
@@ -442,6 +477,8 @@ fi
 ```
 
 ### Step 5: Create PR
+
+> **⚠️ Do NOT commit generated files**: `sitemap.xml`, `sitemap*.html`, `rss.xml`, `index.html`, `index-*.html`, and `news/articles-metadata.json` are generated at deploy time. Only commit article HTML files: `news/{YYYY-MM-DD}-{type}-{lang}.html`
 
 ```bash
 TODAY=$(date -u +%Y-%m-%d)

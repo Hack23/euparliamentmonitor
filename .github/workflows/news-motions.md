@@ -114,16 +114,30 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 4. **`.github/skills/political-science-analysis.md`** — Political analysis frameworks
 5. **`.github/skills/gh-aw-firewall.md`** — Network security and safe outputs
 
-## MANDATORY Date Validation
+## MANDATORY Date Context Establishment
+
+**⚠️ ALWAYS run this block FIRST before any MCP calls or article generation.**
 
 ```bash
-echo "=== Date Validation Check ==="
-date -u "+Current UTC: %A %Y-%m-%d %H:%M:%S"
+echo "=== Date Context Establishment ==="
+TODAY=$(date -u +%Y-%m-%d)
+CURRENT_YEAR=$(date -u +%Y)
+CURRENT_MONTH=$(date -u +%m)
+CURRENT_MONTH_NAME=$(date -u +%B)
+CURRENT_DAY=$(date -u +%d)
+DAY_OF_WEEK=$(date -u +%A)
+DAY_NUM=$(date -u +%u)
+LAST_WEEK=$(date -u -d "$TODAY - 7 days" +%Y-%m-%d)
+echo "Today:     $TODAY ($DAY_OF_WEEK)"
+echo "Month:     $CURRENT_MONTH_NAME $CURRENT_YEAR"
+echo "Year:      $CURRENT_YEAR"
+echo "Last week: $LAST_WEEK"
 echo "Article Type: motions"
-echo "============================"
+echo "==================================="
+export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WEEK DAY_NUM LAST_WEEK
 ```
 
-**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$(date -u +%Y-%m-%d)`. NEVER hardcode a year (e.g. 2024). Use `TODAY=$(date -u +%Y-%m-%d)` and compute offsets with `date -u -d` commands.
+**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$TODAY` and `$LAST_WEEK` (set above). NEVER hardcode a year (e.g. 2024, 2025). Use `date -u -d` for offsets.
 
 
 ## MANDATORY MCP Health Gate

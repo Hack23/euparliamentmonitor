@@ -33,6 +33,7 @@ network:
     - github.com
     - api.github.com
     - data.europarl.europa.eu
+    - api.worldbank.org
     - "*.europa.eu"
     - "*.com"
     - "*.org"
@@ -45,6 +46,11 @@ mcp-servers:
     args:
       - -y
       - european-parliament-mcp-server@1.0.1
+  world-bank:
+    command: npx
+    args:
+      - -y
+      - worldbank-mcp@1.0.0
 
 tools:
   github:
@@ -114,16 +120,28 @@ Read each skill file before proceeding:
 
 **If you reach minute 40 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately trigger PR creation using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 
-## MANDATORY Date Validation
+## MANDATORY Date Context Establishment
+
+**⚠️ ALWAYS run this block FIRST before any MCP calls or article generation.**
 
 ```bash
-echo "=== Date Validation Check ==="
-date -u "+Current UTC: %A %Y-%m-%d %H:%M:%S"
+echo "=== Date Context Establishment ==="
+TODAY=$(date -u +%Y-%m-%d)
+CURRENT_YEAR=$(date -u +%Y)
+CURRENT_MONTH=$(date -u +%m)
+CURRENT_MONTH_NAME=$(date -u +%B)
+CURRENT_DAY=$(date -u +%d)
+DAY_OF_WEEK=$(date -u +%A)
+DAY_NUM=$(date -u +%u)
+echo "Today:  $TODAY ($DAY_OF_WEEK)"
+echo "Month:  $CURRENT_MONTH_NAME $CURRENT_YEAR"
+echo "Year:   $CURRENT_YEAR"
 echo "Article Type: propositions"
-echo "============================"
+echo "==================================="
+export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WEEK DAY_NUM
 ```
 
-**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$(date -u +%Y-%m-%d)`. NEVER hardcode a year (e.g. 2024). Use `TODAY=$(date -u +%Y-%m-%d)` and compute offsets with `date -u -d` commands.
+**⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$TODAY` (set above). NEVER hardcode a year (e.g. 2024, 2025). Use `date -u -d "$TODAY - 7 days" +%Y-%m-%d` for offsets.
 
 
 ## MANDATORY MCP Health Gate
@@ -238,6 +256,24 @@ european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTE
 | BUD | Budget | Annual EU budget procedure |
 | INI | Own-initiative | EP-initiated report |
 | RSP | Resolution | Non-binding resolution |
+
+
+## 🌍 World Bank Economic Context (Optional Enrichment)
+
+When propositions involve economic, trade, or environmental regulation, use the `world-bank` MCP server to add macroeconomic context:
+
+```javascript
+// EU GDP growth for economic legislation context (World Bank indicator: NY.GDP.MKTP.KD.ZG)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NY.GDP.MKTP.KD.ZG", years: 5 })
+
+// Trade data for trade-related proposals (World Bank indicator: NE.EXP.GNFS.ZS)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NE.EXP.GNFS.ZS", years: 5 })
+
+// Health expenditure for health-related legislation (World Bank indicator: SH.XPD.CHEX.GD.ZS)
+world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "SH.XPD.CHEX.GD.ZS", years: 5 })
+```
+
+**Rules**: Use at most 3 World Bank calls per workflow run. Only include when it directly contextualizes the legislative proposals being analyzed.
 
 
 ## MANDATORY Article HTML Structure
