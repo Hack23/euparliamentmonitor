@@ -825,11 +825,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    * @returns MEPs feed data
    */
   async getMEPsFeed(options: GetMEPsFeedOptions = {}): Promise<MCPToolResult> {
-    return this.safeCallTool(
-      'get_meps_feed',
-      options,
-      EuropeanParliamentMCPClient.FEED_FALLBACK
-    );
+    return this.safeCallTool('get_meps_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
   }
 
   /**
@@ -839,11 +835,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    * @returns Events feed data
    */
   async getEventsFeed(options: GetEventsFeedOptions = {}): Promise<MCPToolResult> {
-    return this.safeCallTool(
-      'get_events_feed',
-      options,
-      EuropeanParliamentMCPClient.FEED_FALLBACK
-    );
+    return this.safeCallTool('get_events_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
   }
 
   /**
