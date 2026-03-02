@@ -444,13 +444,21 @@ fi
 #### MANDATORY File Count Validation
 
 ```bash
-TODAY=$(date -u +%Y-%m-%d)
+# Reuse $TODAY from Date Context Establishment — do NOT recompute to avoid midnight drift
 ARTICLE_TYPE="month-ahead"
+EXPECTED_LANGS="en sv da no fi de fr es nl ar he ja ko zh"
 EXPECTED_COUNT=14
 ACTUAL_COUNT=$(ls news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null | wc -l)
 echo "📊 File count: $ACTUAL_COUNT / $EXPECTED_COUNT expected"
-if [ "$ACTUAL_COUNT" -eq 0 ]; then
-  echo "❌ ERROR: No article files generated. Cannot create PR." >&2
+if [ "$ACTUAL_COUNT" -lt "$EXPECTED_COUNT" ]; then
+  echo "⚠️ WARNING: Only $ACTUAL_COUNT of $EXPECTED_COUNT language files generated."
+  echo "Missing languages:"
+  for LANG in $EXPECTED_LANGS; do
+    if [ ! -f "news/${TODAY}-${ARTICLE_TYPE}-${LANG}.html" ]; then
+      echo "  - $LANG"
+    fi
+  done
+  echo "❌ ERROR: Incomplete language coverage. All $EXPECTED_COUNT languages must be generated before creating the PR." >&2
   exit 1
 fi
 ```
@@ -458,7 +466,7 @@ fi
 > **⚠️ Do NOT commit generated files**: `sitemap.xml`, `sitemap*.html`, `rss.xml`, `index.html`, `index-*.html`, and `news/articles-metadata.json` are generated at deploy time. Only commit article HTML files: `news/{YYYY-MM-DD}-month-ahead-{lang}.html`
 
 ```bash
-TODAY=$(date -u +%Y-%m-%d)
+# Reuse $TODAY from Date Context Establishment
 BRANCH_NAME="news/month-ahead-$TODAY"
 ```
 

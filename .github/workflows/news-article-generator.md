@@ -252,16 +252,18 @@ european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTE
 
 **Breaking News (MANDATORY: Feed-First — stats are context only):**
 
-> **🚨 NEWSWORTHINESS GATE**: Breaking news MUST be triggered by **actual recent events** found in EP feed endpoints. Precomputed statistics (`get_all_generated_stats`) are NEVER breaking news — they provide historical context only. If NO recent newsworthy events are found in feeds, use `safeoutputs___noop` — do NOT generate a breaking news article from stats alone.
+> **🚨 NEWSWORTHINESS GATE**: Breaking news MUST be triggered by **actual recent events** found in EP feed endpoints. Precomputed statistics (`get_all_generated_stats`) — already fetched above as the first data-gathering step — provide historical context only and are NEVER breaking news. After fetching stats for context, **immediately check feeds** for newsworthy events. If NO recent newsworthy events are found in feeds, use `safeoutputs___noop` — do NOT generate a breaking news article from stats alone.
+
+**Data-gathering order:** (1) `get_all_generated_stats` for historical context (already called above), then (2) feed endpoints below for actual news content:
 
 ```javascript
-// STEP 1 (MANDATORY): Check feeds for actual recent events — these ARE the news
+// Feed checks (MANDATORY) — these provide the actual news content
 european_parliament___get_adopted_texts_feed({ limit: 20 })
 european_parliament___get_events_feed({ limit: 20 })
 european_parliament___get_procedures_feed({ limit: 20 })
 european_parliament___get_meps_feed({ limit: 20 })
 
-// STEP 2 (OPTIONAL context): Only if feeds contain newsworthy events, add analytical context
+// Analytical context (OPTIONAL) — only if feeds contain newsworthy events
 european_parliament___detect_voting_anomalies({})
 european_parliament___analyze_coalition_dynamics({})  // Analytical context only, not news content
 ```

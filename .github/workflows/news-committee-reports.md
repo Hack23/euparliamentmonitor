@@ -623,7 +623,7 @@ fi
 > **🚨 ALL language files MUST be generated BEFORE creating the PR.** Do NOT create the PR after generating only a subset of languages. If time is running short, generate all files with the TypeScript script first (it handles all languages in one pass), then create the PR. A PR with all 14 language files is always better than multiple PRs with partial files.
 
 ```bash
-TODAY=$(date -u +%Y-%m-%d)
+# Reuse $TODAY from Date Context Establishment — do NOT recompute to avoid midnight drift
 ARTICLE_TYPE="committee-reports"
 EXPECTED_LANGS="en sv da no fi de fr es nl ar he ja ko zh"
 EXPECTED_COUNT=14
@@ -641,11 +641,6 @@ if [ "$ACTUAL_COUNT" -lt "$EXPECTED_COUNT" ]; then
   echo "❌ ERROR: Incomplete language coverage. All $EXPECTED_COUNT languages must be generated before creating the PR." >&2
   exit 1
 fi
-
-if [ "$ACTUAL_COUNT" -eq 0 ]; then
-  echo "❌ ERROR: No article files generated. Cannot create PR." >&2
-  exit 1
-fi
 ```
 
 ### Step 6: Create PR (ONE call — ALL files at once)
@@ -655,7 +650,7 @@ fi
 Set the deterministic branch name for the PR.
 
 ```bash
-TODAY=$(date -u +%Y-%m-%d)
+# Reuse $TODAY from Date Context Establishment — do NOT recompute to avoid midnight drift
 BRANCH_NAME="news/committee-reports-$TODAY"
 echo "Branch: $BRANCH_NAME"
 ```
