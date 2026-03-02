@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.55% </span>
+                <span class="strong">96.96% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>28/29</span>
+                <span class='fraction'>32/33</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.66% </span>
+                <span class="strong">92.85% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>11/12</span>
+                <span class='fraction'>13/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>25/25</span>
+                <span class='fraction'>30/30</span>
             </div>
         
             
@@ -230,7 +230,19 @@
 <a name='L165'></a><a href='#L165'>165</a>
 <a name='L166'></a><a href='#L166'>166</a>
 <a name='L167'></a><a href='#L167'>167</a>
-<a name='L168'></a><a href='#L168'>168</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -292,7 +304,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -340,7 +358,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25x</span>
 <span class="cline-any cline-yes">100x</span>
+<span class="cline-any cline-yes">100x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">75x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -459,8 +483,14 @@ const PLACEHOLDER_PATTERNS: ReadonlyArray&lt;RegExp&gt; = [
 ] as const;
 &nbsp;
 /** Required structural HTML elements that every article must contain */
-const REQUIRED_HTML_ELEMENTS: ReadonlyArray&lt;{ selector: string; label: string }&gt; = [
-  { selector: 'class="language-switcher"', label: 'language-switcher nav' },
+const REQUIRED_HTML_ELEMENTS: ReadonlyArray&lt;{
+  selector: string | readonly string[];
+  label: string;
+}&gt; = [
+  {
+    selector: ['class="site-header__langs"', 'class="language-switcher"'],
+    label: 'language switcher nav',
+  },
   { selector: 'class="article-top-nav"', label: 'article-top-nav (back button)' },
   { selector: 'class="site-header"', label: 'site-header' },
   { selector: '&lt;main id="main"', label: 'main content wrapper' },
@@ -507,7 +537,13 @@ function detectPlaceholders(html: string): boolean {
  * @returns Array of labels for missing elements (empty when all present)
  */
 function findMissingElements(html: string): string[] {
-  return REQUIRED_HTML_ELEMENTS.filter((el) =&gt; !html.includes(el.selector)).map((el) =&gt; el.label);
+  return REQUIRED_HTML_ELEMENTS.filter((el) =&gt; {
+    const sel = el.selector;
+    if (Array.isArray(sel)) {
+      return !sel.some((s) =&gt; html.includes(s));
+    }
+    return !html.includes(sel as string);
+  }).map((el) =&gt; el.label);
 }
 &nbsp;
 // ─── Public API ───────────────────────────────────────────────────────────────
@@ -571,7 +607,7 @@ export function validateArticleContent(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-01T17:38:52.972Z
+                at 2026-03-02T15:09:29.232Z
             </div>
         <script src="../prettify.js"></script>
         <script>
