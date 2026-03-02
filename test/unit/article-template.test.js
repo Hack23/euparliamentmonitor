@@ -490,7 +490,7 @@ describe('article-template', () => {
         expect(html).toContain('no-referrer');
         expect(html).toContain('Content-Security-Policy');
         expect(html).toContain("default-src 'none'");
-        expect(html).toContain("script-src 'none'");
+        expect(html).toContain("script-src 'sha256-");
         expect(html).toContain("style-src 'self' 'unsafe-inline'");
         expect(html).toContain("img-src 'self' https: data:");
         expect(html).toContain("font-src 'self'");
