@@ -205,9 +205,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <link rel="stylesheet" href="../styles.css"${safeSriAttrs}>
   
   <!-- Schema.org structured data -->
-  <script type="application/ld+json">
-  ${jsonLd}
-  </script>
+  <script type="application/ld+json">${jsonLdInlineContent}</script>
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"></div>
