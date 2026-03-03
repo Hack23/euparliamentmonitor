@@ -35,6 +35,11 @@ import {
   fetchProposalsFromMCP,
   fetchPipelineFromMCP,
   fetchProcedureStatusFromMCP,
+  fetchAdoptedTextsFeed,
+  fetchEventsFeed,
+  fetchProceduresFeed,
+  fetchMEPsFeed,
+  fetchBreakingNewsFeedData,
 } from '../../scripts/generators/pipeline/fetch-stage.js';
 
 import {
@@ -602,6 +607,46 @@ describe('fetchProcedureStatusFromMCP with null client or empty procedureId', ()
   it('returns empty string when procedureId is empty', async () => {
     const result = await fetchProcedureStatusFromMCP(null, '');
     expect(result).toBe('');
+  });
+});
+
+// ─── EP Feed fetch tests (null client) ───────────────────────────────────────
+
+describe('fetchAdoptedTextsFeed with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchAdoptedTextsFeed(null);
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchEventsFeed with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchEventsFeed(null);
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchProceduresFeed with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchProceduresFeed(null);
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchMEPsFeed with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchMEPsFeed(null);
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchBreakingNewsFeedData with null client', () => {
+  it('returns empty feed data when client is null', async () => {
+    const result = await fetchBreakingNewsFeedData(null);
+    expect(result.adoptedTexts).toEqual([]);
+    expect(result.events).toEqual([]);
+    expect(result.procedures).toEqual([]);
+    expect(result.mepUpdates).toEqual([]);
   });
 });
 
