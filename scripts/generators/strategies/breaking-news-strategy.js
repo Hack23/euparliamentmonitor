@@ -31,7 +31,8 @@ export class BreakingNewsStrategy {
         'analyze_coalition_dynamics',
     ];
     /**
-     * Fetch EP feed data (primary) and analytical context (secondary) in parallel.
+     * Fetch EP feed data (primary) first, then conditionally fetch analytical
+     * context (secondary) in a second phase.
      *
      * @param client - MCP client or null
      * @param date - ISO 8601 publication date

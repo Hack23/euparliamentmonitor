@@ -423,8 +423,8 @@ describe('Breaking News feed-based sections', () => {
     expect(html).toContain('Intelligence analysis from the European Parliament MCP Server');
   });
 
-  it('should show placeholder when no feed data and no analytical data', () => {
-    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], emptyFeedData);
+  it('should show placeholder when MCP is truly unavailable (no feedData, no analytical data)', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], []);
     expect(html).toContain('placeholder content');
     expect(html).toContain('MCP Server is unavailable');
   });
@@ -433,6 +433,7 @@ describe('Breaking News feed-based sections', () => {
     const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], emptyFeedData);
     expect(html).toContain('feed-empty-notice');
     expect(html).toContain('No recent feed data available from the European Parliament');
+    expect(html).not.toContain('MCP Server is unavailable');
   });
 
   it('should not render feed sections when feedData is undefined', () => {

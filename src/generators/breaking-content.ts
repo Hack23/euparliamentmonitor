@@ -322,12 +322,13 @@ export function buildBreakingNewsContent(
   const strings = getLocalizedString(BREAKING_STRINGS, lang);
 
   // Feed data is the primary news content
-  const hasFeedData =
+  const hasFeedData = Boolean(
     feedData &&
-    (feedData.adoptedTexts.length > 0 ||
-      feedData.events.length > 0 ||
-      feedData.procedures.length > 0 ||
-      feedData.mepUpdates.length > 0);
+      (feedData.adoptedTexts.length > 0 ||
+        feedData.events.length > 0 ||
+        feedData.procedures.length > 0 ||
+        feedData.mepUpdates.length > 0)
+  );
 
   // Analytical data is context only
   const hasAnalyticalData = Boolean(
@@ -341,6 +342,8 @@ export function buildBreakingNewsContent(
   );
 
   const hasData = hasFeedData || hasAnalyticalData;
+  // MCP is truly unavailable only when feedData is undefined AND no analytical data
+  const isMCPUnavailable = !feedData && !hasAnalyticalData;
   const timestamp = new Date().toISOString();
 
   // ─── Feed sections (PRIMARY news content) ──────────────────────────────
@@ -408,7 +411,7 @@ export function buildBreakingNewsContent(
     lang
   );
 
-  const placeholderNotice = !hasData
+  const placeholderNotice = isMCPUnavailable
     ? `
         <div class="notice">
           <p><strong>Note:</strong> ${escapeHTML(strings.placeholderNotice)}</p>
