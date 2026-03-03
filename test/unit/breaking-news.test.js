@@ -423,6 +423,8 @@ describe('Breaking News feed-based sections', () => {
     expect(html).toContain('feed-empty-notice');
     expect(html).toContain('No recent feed data available from the European Parliament');
     expect(html).not.toContain('MCP Server is unavailable');
+    // Lede should not claim "recent parliamentary activity" when feeds are empty
+    expect(html).not.toContain('highlights recent parliamentary activity');
   });
 
   it('should not render feed sections when feedData is undefined', () => {

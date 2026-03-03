@@ -411,7 +411,11 @@ export function buildBreakingNewsContent(
     lang
   );
 
-  const ledeText = hasAnalyticalData ? strings.lede : strings.feedLede;
+  const ledeText = hasAnalyticalData
+    ? strings.lede
+    : hasFeedData
+      ? strings.feedLede
+      : strings.noFeedDataNotice;
   const placeholderNotice = isMCPUnavailable
     ? `
         <div class="notice">
