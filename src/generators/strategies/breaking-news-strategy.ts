@@ -83,11 +83,8 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       console.log('  📡 Fetching EP feed data (primary) and analytical context...');
     }
 
-    const [feedData, anomalyRaw, coalitionRaw] = await Promise.all([
-      fetchBreakingNewsFeedData(client),
-      fetchVotingAnomalies(client),
-      fetchCoalitionDynamics(client),
-    ]);
+    // Step 1: Fetch feed data (PRIMARY news content)
+    const feedData = await fetchBreakingNewsFeedData(client);
 
     const totalFeedItems =
       feedData.adoptedTexts.length +
@@ -102,8 +99,15 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
           `${feedData.mepUpdates.length} MEP updates`
       );
     } else {
-      console.log('  ⚠️ No feed data available — article will contain context-only content');
+      console.log('  ⚠️ No feed data available — skipping analytical context fetch');
+      return { date, feedData, anomalyRaw: '', coalitionRaw: '', reportRaw: '' };
     }
+
+    // Step 2: Only fetch analytical context when feeds contain newsworthy items
+    const [anomalyRaw, coalitionRaw] = await Promise.all([
+      fetchVotingAnomalies(client),
+      fetchCoalitionDynamics(client),
+    ]);
 
     return { date, feedData, anomalyRaw, coalitionRaw, reportRaw: '' };
   }

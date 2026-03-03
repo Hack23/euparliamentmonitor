@@ -344,7 +344,13 @@ export function buildBreakingNewsContent(
   const timestamp = new Date().toISOString();
 
   // ─── Feed sections (PRIMARY news content) ──────────────────────────────
-  const feedSections = buildFeedSections(feedData, lang);
+  const feedSections =
+    feedData && !hasFeedData
+      ? `
+        <section class="feed-empty-notice">
+          <p>${escapeHTML(strings.noFeedDataNotice)}</p>
+        </section>`
+      : buildFeedSections(feedData, lang);
 
   // ─── Analytical context sections (SECONDARY) ──────────────────────────
   const anomalySection = anomalyRaw

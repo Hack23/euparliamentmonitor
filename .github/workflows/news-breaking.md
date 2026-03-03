@@ -34,9 +34,6 @@ network:
     - api.github.com
     - data.europarl.europa.eu
     - "*.europa.eu"
-    - "*.com"
-    - "*.org"
-    - "*.io"
     - default
 
 mcp-servers:
@@ -301,7 +298,7 @@ npx tsx src/generators/news-enhanced.ts \
 ### Quality Validation
 
 ```bash
-TODAY=$(date +%Y-%m-%d)
+TODAY=$(date -u +%Y-%m-%d)
 
 SYNTHETIC=$(grep -Erl "VOTE-2024-001|DOC-2024-001|MEP-124810|Q-2024-001" news/ 2>/dev/null | wc -l || echo 0)
 if [ "$SYNTHETIC" -gt 0 ]; then

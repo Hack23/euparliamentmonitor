@@ -429,6 +429,12 @@ describe('Breaking News feed-based sections', () => {
     expect(html).toContain('MCP Server is unavailable');
   });
 
+  it('should render noFeedDataNotice when feedData is present but empty', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], emptyFeedData);
+    expect(html).toContain('feed-empty-notice');
+    expect(html).toContain('No recent feed data available from the European Parliament');
+  });
+
   it('should not render feed sections when feedData is undefined', () => {
     const html = buildBreakingNewsContent('2025-01-15', 'anomaly', '', '', '', 'en');
     expect(html).not.toContain('adopted-texts-feed');
