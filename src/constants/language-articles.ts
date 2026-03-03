@@ -1304,6 +1304,11 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderLede:
       'Significant parliamentary developments are being monitored. Connect the European Parliament MCP Server to receive real-time intelligence on voting anomalies, coalition shifts, and MEP activities.',
     lede: 'Intelligence analysis from the European Parliament MCP Server has identified significant parliamentary developments requiring immediate attention',
+    adoptedTextsHeading: 'Recently Adopted Texts',
+    recentEventsHeading: 'Recent Parliamentary Events',
+    procedureUpdatesHeading: 'Legislative Procedure Updates',
+    mepUpdatesHeading: 'MEP Updates',
+    noFeedDataNotice: 'No recent feed data available from the European Parliament.',
   },
   sv: {
     breakingBanner: '⚡ SENASTE NYTT',
@@ -1320,6 +1325,11 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderLede:
       'Betydande parlamentariska händelser övervakas. Anslut EU-parlamentets MCP-server för att ta emot realtidsinformation.',
     lede: 'Underrättelseanalys från EU-parlamentets MCP-server har identifierat betydande parlamentariska händelser som kräver omedelbar uppmärksamhet',
+    adoptedTextsHeading: 'Nyligen Antagna Texter',
+    recentEventsHeading: 'Senaste Parlamentariska Händelser',
+    procedureUpdatesHeading: 'Uppdateringar av Lagstiftningsförfaranden',
+    mepUpdatesHeading: 'Uppdateringar om Ledamöter',
+    noFeedDataNotice: 'Inga nya flödesdata tillgängliga från Europaparlamentet.',
   },
   da: {
     breakingBanner: '⚡ SENESTE NYT',
@@ -1336,6 +1346,11 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderLede:
       'Betydelige parlamentariske udviklinger overvåges. Tilslut Europa-Parlamentets MCP-server for at modtage realtidsintelligens.',
     lede: 'Efterretningsanalyse fra Europa-Parlamentets MCP-server har identificeret betydelige parlamentariske udviklinger der kræver øjeblikkelig opmærksomhed',
+    adoptedTextsHeading: 'Nyligt Vedtagne Tekster',
+    recentEventsHeading: 'Seneste Parlamentariske Begivenheder',
+    procedureUpdatesHeading: 'Opdateringer af Lovgivningsprocedurer',
+    mepUpdatesHeading: 'MEP-Opdateringer',
+    noFeedDataNotice: 'Ingen nye feeddata tilgængelige fra Europa-Parlamentet.',
   },
   no: {
     breakingBanner: '⚡ SISTE NYTT',
@@ -1352,6 +1367,11 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderLede:
       'Betydelige parlamentariske hendelser overvåkes. Koble til Europaparlamentets MCP-server for å motta sanntidsinformasjon.',
     lede: 'Etterretningsanalyse fra Europaparlamentets MCP-server har identifisert betydelige parlamentariske hendelser som krever umiddelbar oppmerksomhet',
+    adoptedTextsHeading: 'Nylig Vedtatte Tekster',
+    recentEventsHeading: 'Siste Parlamentariske Hendelser',
+    procedureUpdatesHeading: 'Oppdateringer av Lovgivningsprosedyrer',
+    mepUpdatesHeading: 'MEP-Oppdateringer',
+    noFeedDataNotice: 'Ingen nye feeddata tilgjengelige fra Europaparlamentet.',
   },
   fi: {
     breakingBanner: '⚡ TUOREET UUTISET',
@@ -1368,6 +1388,11 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderLede:
       'Merkittäviä parlamentaarisia tapahtumia seurataan. Yhdistä EU-parlamentin MCP-palvelimeen reaaliaikaisen tiedon vastaanottamiseksi.',
     lede: 'EU-parlamentin MCP-palvelimen tiedusteluanalyysi on tunnistanut merkittäviä parlamentaarisia tapahtumia, jotka vaativat välitöntä huomiota',
+    adoptedTextsHeading: 'Äskettäin Hyväksytyt Tekstit',
+    recentEventsHeading: 'Viimeisimmät Parlamentaariset Tapahtumat',
+    procedureUpdatesHeading: 'Lainsäädäntömenettelyjen Päivitykset',
+    mepUpdatesHeading: 'MEP-Päivitykset',
+    noFeedDataNotice: 'Ei uusia syötetietoja saatavilla Euroopan parlamentista.',
   },
   de: {
     breakingBanner: '⚡ EILMELDUNG',
@@ -1384,6 +1409,11 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderLede:
       'Bedeutende parlamentarische Entwicklungen werden überwacht. Verbinden Sie den MCP-Server des EU-Parlaments für Echtzeit-Informationen.',
     lede: 'Die Nachrichtendienstanalyse des MCP-Servers des EU-Parlaments hat bedeutende parlamentarische Entwicklungen identifiziert, die sofortige Aufmerksamkeit erfordern',
+    adoptedTextsHeading: 'Kürzlich Angenommene Texte',
+    recentEventsHeading: 'Aktuelle Parlamentarische Ereignisse',
+    procedureUpdatesHeading: 'Aktualisierungen der Gesetzgebungsverfahren',
+    mepUpdatesHeading: 'MdEP-Aktualisierungen',
+    noFeedDataNotice: 'Keine neuen Feeddaten vom Europäischen Parlament verfügbar.',
   },
   fr: {
     breakingBanner: '⚡ DERNIÈRES NOUVELLES',
@@ -1400,6 +1430,11 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderLede:
       'Des développements parlementaires importants sont surveillés. Connectez le serveur MCP du Parlement européen pour recevoir des renseignements en temps réel.',
     lede: "L'analyse de renseignement du serveur MCP du Parlement européen a identifié des développements parlementaires significatifs nécessitant une attention immédiate",
+    adoptedTextsHeading: 'Textes Récemment Adoptés',
+    recentEventsHeading: 'Événements Parlementaires Récents',
+    procedureUpdatesHeading: 'Mises à Jour des Procédures Législatives',
+    mepUpdatesHeading: 'Mises à Jour des Eurodéputés',
+    noFeedDataNotice: 'Aucune donnée de flux récente disponible du Parlement européen.',
   },
   es: {
     breakingBanner: '⚡ ÚLTIMA HORA',
@@ -1416,6 +1451,11 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderLede:
       'Se están monitoreando desarrollos parlamentarios significativos. Conecte el servidor MCP del Parlamento Europeo para recibir inteligencia en tiempo real.',
     lede: 'El análisis de inteligencia del servidor MCP del Parlamento Europeo ha identificado desarrollos parlamentarios significativos que requieren atención inmediata',
+    adoptedTextsHeading: 'Textos Recientemente Adoptados',
+    recentEventsHeading: 'Eventos Parlamentarios Recientes',
+    procedureUpdatesHeading: 'Actualizaciones de Procedimientos Legislativos',
+    mepUpdatesHeading: 'Actualizaciones de Eurodiputados',
+    noFeedDataNotice: 'No hay datos de feeds recientes disponibles del Parlamento Europeo.',
   },
   nl: {
     breakingBanner: '⚡ LAATSTE NIEUWS',
@@ -1432,6 +1472,11 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderLede:
       'Significante parlementaire ontwikkelingen worden gemonitord. Verbind de MCP-server van het Europees Parlement voor realtime-informatie.',
     lede: 'Inlichtingenanalyse van de MCP-server van het Europees Parlement heeft significante parlementaire ontwikkelingen geïdentificeerd die onmiddellijke aandacht vereisen',
+    adoptedTextsHeading: 'Recent Aangenomen Teksten',
+    recentEventsHeading: 'Recente Parlementaire Evenementen',
+    procedureUpdatesHeading: 'Updates van Wetgevingsprocedures',
+    mepUpdatesHeading: 'Updates van Europarlementsleden',
+    noFeedDataNotice: 'Geen recente feedgegevens beschikbaar van het Europees Parlement.',
   },
   ar: {
     breakingBanner: '⚡ عاجل',
@@ -1447,6 +1492,11 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderLede:
       'تتم مراقبة تطورات برلمانية مهمة. قم بتوصيل خادم MCP للبرلمان الأوروبي لتلقي معلومات استخبارية في الوقت الفعلي.',
     lede: 'حدد التحليل الاستخباراتي لخادم MCP للبرلمان الأوروبي تطورات برلمانية مهمة تتطلب اهتماماً فورياً',
+    adoptedTextsHeading: 'النصوص المعتمدة مؤخراً',
+    recentEventsHeading: 'أحداث برلمانية حديثة',
+    procedureUpdatesHeading: 'تحديثات الإجراءات التشريعية',
+    mepUpdatesHeading: 'تحديثات أعضاء البرلمان',
+    noFeedDataNotice: 'لا تتوفر بيانات تغذية حديثة من البرلمان الأوروبي.',
   },
   he: {
     breakingBanner: '⚡ חדשות דחופות',
@@ -1462,6 +1512,11 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderLede:
       'מתבצע ניטור של התפתחויות פרלמנטריות משמעותיות. חבר את שרת MCP של הפרלמנט האירופי לקבלת מודיעין בזמן אמת.',
     lede: 'ניתוח מודיעיני משרת MCP של הפרלמנט האירופי זיהה התפתחויות פרלמנטריות משמעותיות הדורשות תשומת לב מיידית',
+    adoptedTextsHeading: 'טקסטים שאומצו לאחרונה',
+    recentEventsHeading: 'אירועים פרלמנטריים אחרונים',
+    procedureUpdatesHeading: 'עדכוני הליכי חקיקה',
+    mepUpdatesHeading: 'עדכוני חברי פרלמנט',
+    noFeedDataNotice: 'אין נתוני הזנה עדכניים זמינים מהפרלמנט האירופי.',
   },
   ja: {
     breakingBanner: '⚡ 速報',
@@ -1478,6 +1533,11 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderLede:
       '重大な議会の動きを監視しています。リアルタイムの情報を受信するには、欧州議会MCPサーバーに接続してください。',
     lede: '欧州議会MCPサーバーの情報分析により、即座の注意を要する重大な議会の動きが特定されました',
+    adoptedTextsHeading: '最近採択されたテキスト',
+    recentEventsHeading: '最近の議会イベント',
+    procedureUpdatesHeading: '立法手続きの更新',
+    mepUpdatesHeading: 'MEPの更新',
+    noFeedDataNotice: '欧州議会からの最新フィードデータはありません。',
   },
   ko: {
     breakingBanner: '⚡ 속보',
@@ -1493,6 +1553,11 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderLede:
       '중요한 의회 동향이 모니터링되고 있습니다. 실시간 정보를 수신하려면 유럽 의회 MCP 서버에 연결하세요.',
     lede: '유럽 의회 MCP 서버의 정보 분석에서 즉각적인 주의가 필요한 중요한 의회 동향이 확인되었습니다',
+    adoptedTextsHeading: '최근 채택된 텍스트',
+    recentEventsHeading: '최근 의회 이벤트',
+    procedureUpdatesHeading: '입법 절차 업데이트',
+    mepUpdatesHeading: 'MEP 업데이트',
+    noFeedDataNotice: '유럽 의회의 최신 피드 데이터가 없습니다.',
   },
   zh: {
     breakingBanner: '⚡ 突发',
@@ -1507,5 +1572,10 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     placeholderNotice: '这是在欧洲议会MCP服务器不可用时生成的占位符内容。',
     placeholderLede: '正在监控重大议会动态。请连接欧洲议会MCP服务器以接收实时情报。',
     lede: '欧洲议会MCP服务器的情报分析已确定需要立即关注的重大议会动态',
+    adoptedTextsHeading: '最近通过的文本',
+    recentEventsHeading: '近期议会活动',
+    procedureUpdatesHeading: '立法程序更新',
+    mepUpdatesHeading: 'MEP更新',
+    noFeedDataNotice: '没有来自欧洲议会的最新订阅数据。',
   },
 };

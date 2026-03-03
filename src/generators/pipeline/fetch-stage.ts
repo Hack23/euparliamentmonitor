@@ -26,6 +26,11 @@ import type {
   VotingAnomaly,
   MotionsQuestion,
   LegislativeDocument,
+  AdoptedTextFeedItem,
+  EventFeedItem,
+  ProcedureFeedItem,
+  MEPFeedItem,
+  BreakingNewsFeedData,
 } from '../../types/index.js';
 import {
   parsePlenarySessions,
@@ -907,4 +912,176 @@ export async function fetchProcedureStatusFromMCP(
     console.warn(`${WARN_PREFIX} track_legislation failed:`, message);
     return '';
   }
+}
+
+// ─── EP Feed-based fetches (Breaking News) ──────────────────────────────────
+
+/**
+ * Parse a feed result from MCP into a flat array of items.
+ * Handles various EP API v2 feed response shapes safely.
+ *
+ * @param result - Raw MCP tool result
+ * @returns Array of parsed feed entry objects (may be empty)
+ */
+function parseFeedResult(result: MCPToolResult | undefined): Record<string, unknown>[] {
+  if (!result?.content?.[0]?.text) return [];
+  const parsed = parseJSON<unknown>(result.content[0].text, 'feed');
+  if (!parsed) return [];
+  // EP feeds may wrap items under "feed", "entries", "items", or return an array directly
+  const candidates = [
+    (parsed as Record<string, unknown>)['feed'],
+    (parsed as Record<string, unknown>)['entries'],
+    (parsed as Record<string, unknown>)['items'],
+    parsed,
+  ];
+  for (const candidate of candidates) {
+    if (Array.isArray(candidate)) return candidate as Record<string, unknown>[];
+  }
+  return [];
+}
+
+/**
+ * Fetch adopted texts feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @returns Array of adopted text feed items
+ */
+export async function fetchAdoptedTextsFeed(
+  client: EuropeanParliamentMCPClient | null
+): Promise<AdoptedTextFeedItem[]> {
+  if (!client) return [];
+  try {
+    console.log(`${MCP_FETCH_PREFIX} Fetching adopted texts feed...`);
+    const result = await callMCP(
+      () => client.getAdoptedTextsFeed({ limit: 20 }),
+      undefined,
+      'get_adopted_texts_feed'
+    );
+    return parseFeedResult(result).map((item) => ({
+      id: String(item['id'] ?? item['docId'] ?? ''),
+      title: String(item['title'] ?? item['name'] ?? 'Untitled'),
+      date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
+      type: item['type'] ? String(item['type']) : undefined,
+      url: item['url'] ? String(item['url']) : undefined,
+    }));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} get_adopted_texts_feed failed:`, message);
+    return [];
+  }
+}
+
+/**
+ * Fetch events feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @returns Array of event feed items
+ */
+export async function fetchEventsFeed(
+  client: EuropeanParliamentMCPClient | null
+): Promise<EventFeedItem[]> {
+  if (!client) return [];
+  try {
+    console.log(`${MCP_FETCH_PREFIX} Fetching events feed...`);
+    const result = await callMCP(
+      () => client.getEventsFeed({ limit: 20 }),
+      undefined,
+      'get_events_feed'
+    );
+    return parseFeedResult(result).map((item) => ({
+      id: String(item['id'] ?? item['eventId'] ?? ''),
+      title: String(item['title'] ?? item['name'] ?? 'Untitled'),
+      date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
+      type: item['type'] ? String(item['type']) : undefined,
+      location: item['location'] ? String(item['location']) : undefined,
+      url: item['url'] ? String(item['url']) : undefined,
+    }));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} get_events_feed failed:`, message);
+    return [];
+  }
+}
+
+/**
+ * Fetch procedures feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @returns Array of procedure feed items
+ */
+export async function fetchProceduresFeed(
+  client: EuropeanParliamentMCPClient | null
+): Promise<ProcedureFeedItem[]> {
+  if (!client) return [];
+  try {
+    console.log(`${MCP_FETCH_PREFIX} Fetching procedures feed...`);
+    const result = await callMCP(
+      () => client.getProceduresFeed({ limit: 20 }),
+      undefined,
+      'get_procedures_feed'
+    );
+    return parseFeedResult(result).map((item) => ({
+      id: String(item['id'] ?? item['processId'] ?? ''),
+      title: String(item['title'] ?? item['name'] ?? 'Untitled'),
+      date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
+      stage: item['stage'] ? String(item['stage']) : undefined,
+      type: item['type'] ? String(item['type']) : undefined,
+      url: item['url'] ? String(item['url']) : undefined,
+    }));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} get_procedures_feed failed:`, message);
+    return [];
+  }
+}
+
+/**
+ * Fetch MEPs feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @returns Array of MEP feed items
+ */
+export async function fetchMEPsFeed(
+  client: EuropeanParliamentMCPClient | null
+): Promise<MEPFeedItem[]> {
+  if (!client) return [];
+  try {
+    console.log(`${MCP_FETCH_PREFIX} Fetching MEPs feed...`);
+    const result = await callMCP(
+      () => client.getMEPsFeed({ limit: 20 }),
+      undefined,
+      'get_meps_feed'
+    );
+    return parseFeedResult(result).map((item) => ({
+      id: String(item['id'] ?? item['mepId'] ?? ''),
+      name: String(item['name'] ?? item['title'] ?? 'Unknown'),
+      date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
+      country: item['country'] ? String(item['country']) : undefined,
+      group: item['group'] ? String(item['group']) : undefined,
+      url: item['url'] ? String(item['url']) : undefined,
+    }));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} get_meps_feed failed:`, message);
+    return [];
+  }
+}
+
+/**
+ * Fetch all EP feed data for breaking news articles.
+ * Calls adopted texts, events, procedures, and MEPs feeds in parallel.
+ *
+ * @param client - MCP client or null
+ * @returns Aggregated feed data for breaking news
+ */
+export async function fetchBreakingNewsFeedData(
+  client: EuropeanParliamentMCPClient | null
+): Promise<BreakingNewsFeedData> {
+  const [adoptedTexts, events, procedures, mepUpdates] = await Promise.all([
+    fetchAdoptedTextsFeed(client),
+    fetchEventsFeed(client),
+    fetchProceduresFeed(client),
+    fetchMEPsFeed(client),
+  ]);
+  return { adoptedTexts, events, procedures, mepUpdates };
 }
