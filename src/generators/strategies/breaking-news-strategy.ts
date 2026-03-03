@@ -110,7 +110,7 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       return { date, feedData, anomalyRaw: '', coalitionRaw: '', reportRaw: '' };
     }
 
-    // Step 2: Only fetch analytical context when feeds contain newsworthy items
+    // Step 2: Fetch analytical context only when at least one feed item is available
     const [anomalyRaw, coalitionRaw] = await Promise.all([
       fetchVotingAnomalies(client),
       fetchCoalitionDynamics(client),

@@ -1079,6 +1079,12 @@ export async function fetchBreakingNewsFeedData(
   client: EuropeanParliamentMCPClient | null
 ): Promise<BreakingNewsFeedData | undefined> {
   if (!client) return undefined;
+  if (!mcpCircuitBreaker.canRequest()) {
+    console.warn(
+      `${WARN_PREFIX} Circuit breaker OPEN — treating as MCP unavailable for breaking news feeds`
+    );
+    return undefined;
+  }
   const [adoptedTexts, events, procedures, mepUpdates] = await Promise.all([
     fetchAdoptedTextsFeed(client),
     fetchEventsFeed(client),
