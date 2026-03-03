@@ -405,10 +405,11 @@ describe('Breaking News feed-based sections', () => {
     expect(html).toContain('MEP Updates');
   });
 
-  it('should show non-placeholder lede when only feed data is present (no analytical data)', () => {
+  it('should show feed-first lede when only feed data is present (no analytical data)', () => {
     const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], sampleFeedData);
     expect(html).not.toContain('placeholder content');
-    expect(html).toContain('Intelligence analysis from the European Parliament MCP Server');
+    expect(html).not.toContain('Intelligence analysis from the European Parliament MCP Server');
+    expect(html).toContain('The latest European Parliament feed data highlights recent parliamentary activity');
   });
 
   it('should show placeholder when MCP is truly unavailable (no feedData, no analytical data)', () => {
@@ -480,6 +481,8 @@ describe('Breaking News feed-based sections', () => {
       expect(strings.mepUpdatesHeading.length).toBeGreaterThan(0);
       expect(strings.noFeedDataNotice).toBeDefined();
       expect(strings.noFeedDataNotice.length).toBeGreaterThan(0);
+      expect(strings.feedLede).toBeDefined();
+      expect(strings.feedLede.length).toBeGreaterThan(0);
     }
   });
 
@@ -510,6 +513,8 @@ describe('Breaking News feed-based sections', () => {
     // Analytical context (secondary)
     expect(html).toContain('Voting Anomaly Intelligence');
     expect(html).toContain('Coalition Dynamics Assessment');
+    // Analytical lede should appear when analytical data is present
+    expect(html).toContain('Intelligence analysis from the European Parliament MCP Server');
     // Both should not show placeholder
     expect(html).not.toContain('placeholder content');
   });

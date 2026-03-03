@@ -411,6 +411,7 @@ export function buildBreakingNewsContent(
     lang
   );
 
+  const ledeText = hasAnalyticalData ? strings.lede : strings.feedLede;
   const placeholderNotice = isMCPUnavailable
     ? `
         <div class="notice">
@@ -421,7 +422,7 @@ export function buildBreakingNewsContent(
         </section>`
     : `
         <section class="lede">
-          <p>${escapeHTML(strings.lede)} as of ${escapeHTML(date)}.</p>
+          <p>${escapeHTML(ledeText)} as of ${escapeHTML(date)}.</p>
         </section>`;
 
   return `
