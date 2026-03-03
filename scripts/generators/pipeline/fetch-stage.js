@@ -803,11 +803,14 @@ export async function fetchMEPsFeed(client) {
 /**
  * Fetch all EP feed data for breaking news articles.
  * Calls adopted texts, events, procedures, and MEPs feeds in parallel.
+ * Returns `undefined` when client is null (MCP unavailable).
  *
  * @param client - MCP client or null
- * @returns Aggregated feed data for breaking news
+ * @returns Aggregated feed data for breaking news, or undefined when client is null
  */
 export async function fetchBreakingNewsFeedData(client) {
+    if (!client)
+        return undefined;
     const [adoptedTexts, events, procedures, mepUpdates] = await Promise.all([
         fetchAdoptedTextsFeed(client),
         fetchEventsFeed(client),

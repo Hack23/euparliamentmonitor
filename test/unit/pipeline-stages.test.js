@@ -641,12 +641,9 @@ describe('fetchMEPsFeed with null client', () => {
 });
 
 describe('fetchBreakingNewsFeedData with null client', () => {
-  it('returns empty feed data when client is null', async () => {
+  it('returns undefined when client is null (MCP unavailable)', async () => {
     const result = await fetchBreakingNewsFeedData(null);
-    expect(result.adoptedTexts).toEqual([]);
-    expect(result.events).toEqual([]);
-    expect(result.procedures).toEqual([]);
-    expect(result.mepUpdates).toEqual([]);
+    expect(result).toBeUndefined();
   });
 });
 

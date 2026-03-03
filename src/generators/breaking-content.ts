@@ -324,10 +324,10 @@ export function buildBreakingNewsContent(
   // Feed data is the primary news content
   const hasFeedData = Boolean(
     feedData &&
-      (feedData.adoptedTexts.length > 0 ||
-        feedData.events.length > 0 ||
-        feedData.procedures.length > 0 ||
-        feedData.mepUpdates.length > 0)
+    (feedData.adoptedTexts.length > 0 ||
+      feedData.events.length > 0 ||
+      feedData.procedures.length > 0 ||
+      feedData.mepUpdates.length > 0)
   );
 
   // Analytical data is context only

@@ -37,8 +37,8 @@ const BREAKING_NEWS_KEYWORDS = [
 
 /** Data fetched and pre-processed by {@link BreakingNewsStrategy} */
 export interface BreakingNewsArticleData extends ArticleData {
-  /** Feed data — adopted texts, events, procedures, MEP updates (PRIMARY) */
-  readonly feedData: BreakingNewsFeedData;
+  /** Feed data — adopted texts, events, procedures, MEP updates (PRIMARY). Undefined when MCP unavailable. */
+  readonly feedData: BreakingNewsFeedData | undefined;
   /** Raw voting anomaly text from MCP (CONTEXT ONLY) */
   readonly anomalyRaw: string;
   /** Raw coalition dynamics text from MCP (CONTEXT ONLY) */
@@ -86,6 +86,12 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
 
     // Step 1: Fetch feed data (PRIMARY news content)
     const feedData = await fetchBreakingNewsFeedData(client);
+
+    // When client is null, feedData is undefined — MCP unavailable
+    if (!feedData) {
+      console.log('  ⚠️ MCP unavailable — no feed data or analytical context');
+      return { date, feedData, anomalyRaw: '', coalitionRaw: '', reportRaw: '' };
+    }
 
     const totalFeedItems =
       feedData.adoptedTexts.length +

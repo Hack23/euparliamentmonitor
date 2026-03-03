@@ -11,6 +11,7 @@ import { buildBreakingNewsContent } from '../../scripts/generators/news-enhanced
 import { generateArticleHTML } from '../../scripts/templates/article-template.js';
 import { BREAKING_NEWS_TITLES, ALL_LANGUAGES, getLocalizedString, BREAKING_STRINGS } from '../../scripts/constants/languages.js';
 import { validateHTML } from '../helpers/test-utils.js';
+import { breakingNewsData } from '../fixtures/ep-data.js';
 
 describe('Breaking News Generator', () => {
   describe('buildBreakingNewsContent', () => {
@@ -366,21 +367,8 @@ describe('Breaking News multi-language section headings', () => {
 });
 
 describe('Breaking News feed-based sections', () => {
-  const sampleFeedData = {
-    adoptedTexts: [
-      { id: 'AT-001', title: 'Resolution on climate action', date: '2025-01-15', type: 'RESOLUTION' },
-      { id: 'AT-002', title: 'Directive on digital markets', date: '2025-01-14' },
-    ],
-    events: [
-      { id: 'EV-001', title: 'Plenary session debate', date: '2025-01-15', location: 'Strasbourg' },
-    ],
-    procedures: [
-      { id: 'PR-001', title: 'New regulation on AI governance', date: '2025-01-15', stage: 'Committee' },
-    ],
-    mepUpdates: [
-      { id: 'MEP-001', name: 'Jane Smith', date: '2025-01-15', country: 'DE', group: 'EPP' },
-    ],
-  };
+  // Use shared fixture from test/fixtures/ep-data.js
+  const sampleFeedData = breakingNewsData.feedData;
 
   const emptyFeedData = {
     adoptedTexts: [],
@@ -399,14 +387,14 @@ describe('Breaking News feed-based sections', () => {
   it('should render events section when feed data is provided', () => {
     const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], sampleFeedData);
     expect(html).toContain('events-feed');
-    expect(html).toContain('Plenary session debate');
+    expect(html).toContain('Plenary session');
     expect(html).toContain('Recent Parliamentary Events');
   });
 
   it('should render procedures section when feed data is provided', () => {
     const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], sampleFeedData);
     expect(html).toContain('procedures-feed');
-    expect(html).toContain('New regulation on AI governance');
+    expect(html).toContain('New regulation proposal');
     expect(html).toContain('Legislative Procedure Updates');
   });
 

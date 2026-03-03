@@ -44,6 +44,11 @@ export class BreakingNewsStrategy {
         }
         // Step 1: Fetch feed data (PRIMARY news content)
         const feedData = await fetchBreakingNewsFeedData(client);
+        // When client is null, feedData is undefined — MCP unavailable
+        if (!feedData) {
+            console.log('  ⚠️ MCP unavailable — no feed data or analytical context');
+            return { date, feedData, anomalyRaw: '', coalitionRaw: '', reportRaw: '' };
+        }
         const totalFeedItems = feedData.adoptedTexts.length +
             feedData.events.length +
             feedData.procedures.length +
