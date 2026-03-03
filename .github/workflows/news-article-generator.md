@@ -194,7 +194,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 | `committee-reports` | Retrospective | Mon-Fri | Committee activity and reports |
 | `propositions` | Prospective | Mon-Fri | Legislative propositions analysis |
 | `motions` | Retrospective | Mon-Fri | Voting records and party dynamics |
-| `breaking` | Real-time | Manual | OSINT intelligence alerts |
+| `breaking` | Real-time | Manual/Auto | **Feed-first**: adopted texts, events, procedures, MEP updates from EP feeds |
 
 ## EP MCP Tools
 
