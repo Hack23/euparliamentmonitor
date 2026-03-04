@@ -157,10 +157,11 @@ describe('CommitteeReportsStrategy', () => {
     expect(strategy.type).toBe('committee-reports');
   });
 
-  it('declares required MCP tools', () => {
+  it('declares required MCP tools including feed endpoints', () => {
     expect(strategy.requiredMCPTools).toContain('get_committee_info');
     expect(strategy.requiredMCPTools).toContain('search_documents');
     expect(strategy.requiredMCPTools).toContain('analyze_legislative_effectiveness');
+    expect(strategy.requiredMCPTools).toContain('get_committee_documents_feed');
   });
 
   it('buildContent renders committee name and abbreviation', () => {
@@ -235,10 +236,12 @@ describe('PropositionsStrategy', () => {
     expect(strategy.type).toBe('propositions');
   });
 
-  it('declares required MCP tools', () => {
+  it('declares required MCP tools including feed endpoints', () => {
     expect(strategy.requiredMCPTools).toContain('search_documents');
     expect(strategy.requiredMCPTools).toContain('monitor_legislative_pipeline');
     expect(strategy.requiredMCPTools).toContain('track_legislation');
+    expect(strategy.requiredMCPTools).toContain('get_procedures_feed');
+    expect(strategy.requiredMCPTools).toContain('get_adopted_texts_feed');
   });
 
   it('buildContent en includes localized lede text', () => {
@@ -590,9 +593,12 @@ describe('MonthAheadStrategy', () => {
     expect(strategy.type).toBe('month-ahead');
   });
 
-  it('declares required MCP tools', () => {
+  it('declares required MCP tools including feed endpoints', () => {
     expect(strategy.requiredMCPTools).toContain('get_plenary_sessions');
     expect(strategy.requiredMCPTools).toContain('monitor_legislative_pipeline');
+    expect(strategy.requiredMCPTools).toContain('get_events_feed');
+    expect(strategy.requiredMCPTools).toContain('get_adopted_texts_feed');
+    expect(strategy.requiredMCPTools).toContain('get_procedures_feed');
   });
 
   it('buildContent returns non-empty HTML for the given language', () => {
@@ -640,9 +646,12 @@ describe('WeeklyReviewStrategy', () => {
     expect(strategy.type).toBe('week-in-review');
   });
 
-  it('declares required MCP tools', () => {
+  it('declares required MCP tools including feed endpoints', () => {
     expect(strategy.requiredMCPTools).toContain('get_voting_records');
     expect(strategy.requiredMCPTools).toContain('detect_voting_anomalies');
+    expect(strategy.requiredMCPTools).toContain('get_adopted_texts_feed');
+    expect(strategy.requiredMCPTools).toContain('get_procedures_feed');
+    expect(strategy.requiredMCPTools).toContain('get_events_feed');
   });
 
   it('buildContent returns non-empty HTML for the given language', () => {
@@ -692,9 +701,12 @@ describe('MonthlyReviewStrategy', () => {
     expect(strategy.type).toBe('month-in-review');
   });
 
-  it('declares required MCP tools', () => {
+  it('declares required MCP tools including feed endpoints', () => {
     expect(strategy.requiredMCPTools).toContain('get_voting_records');
     expect(strategy.requiredMCPTools).toContain('analyze_voting_patterns');
+    expect(strategy.requiredMCPTools).toContain('get_adopted_texts_feed');
+    expect(strategy.requiredMCPTools).toContain('get_procedures_feed');
+    expect(strategy.requiredMCPTools).toContain('get_events_feed');
   });
 
   it('buildContent returns non-empty HTML for the given language', () => {
