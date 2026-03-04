@@ -297,11 +297,18 @@ european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
 
 > **🚨 NEWSWORTHINESS GATE**: Breaking news covers ONLY events published/updated TODAY. Use `timeframe: "today"` for ALL feed calls. If NO items from today are found, use `safeoutputs___noop`. ALL document references MUST include their publish date.
 
+These 4 feeds map directly to the breaking news generator's data model (`adoptedTexts`, `events`, `procedures`, `mepUpdates`):
+
 ```javascript
 european_parliament___get_adopted_texts_feed({ timeframe: "today", limit: 20 })
 european_parliament___get_events_feed({ timeframe: "today", limit: 50 })
 european_parliament___get_procedures_feed({ timeframe: "today", limit: 50 })
 european_parliament___get_meps_feed({ timeframe: "today", limit: 20 })
+```
+
+Optional advisory feeds (for newsworthiness gate context only — not rendered in the generated article):
+
+```javascript
 european_parliament___get_documents_feed({ timeframe: "today", limit: 20 })
 european_parliament___get_plenary_documents_feed({ timeframe: "today", limit: 20 })
 european_parliament___get_committee_documents_feed({ timeframe: "today", limit: 20 })

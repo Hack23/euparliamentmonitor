@@ -223,7 +223,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 
-**These feed endpoints provide the actual breaking news content. ALL must use `timeframe: "today"` to get ONLY items published/updated today:**
+**These 4 feed endpoints map directly to the breaking news generator's data model. ALL must use `timeframe: "today"` to get ONLY items published/updated today:**
 
 ```javascript
 // Adopted texts — resolutions, directives, regulations adopted TODAY
@@ -237,21 +237,21 @@ european_parliament___get_procedures_feed({ timeframe: "today", limit: 20 })
 
 // MEP updates — MEP changes, new members, departures TODAY
 european_parliament___get_meps_feed({ timeframe: "today", limit: 20 })
-
-// Documents — general documents published TODAY
-european_parliament___get_documents_feed({ timeframe: "today", limit: 20 })
-
-// Plenary documents — plenary documents published TODAY
-european_parliament___get_plenary_documents_feed({ timeframe: "today", limit: 20 })
-
-// Committee documents — committee documents published TODAY
-european_parliament___get_committee_documents_feed({ timeframe: "today", limit: 20 })
-
-// Parliamentary questions — questions tabled TODAY
-european_parliament___get_parliamentary_questions_feed({ timeframe: "today", limit: 20 })
 ```
 
 > **📅 IMPORTANT**: Every item returned from feeds has a publish/update date. ONLY include items from TODAY in the article. If an item's date is older than 12 hours, it is NOT breaking news.
+
+**OPTIONAL: Advisory feeds (for newsworthiness context only — not rendered in the generated article):**
+
+```javascript
+// These feeds inform the NEWSWORTHINESS GATE but are NOT consumed by the generator.
+// Use them to decide whether to proceed with article generation, but do NOT
+// include their items directly in the article output.
+european_parliament___get_documents_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_plenary_documents_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_committee_documents_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_parliamentary_questions_feed({ timeframe: "today", limit: 20 })
+```
 
 ### 🔍 NEWSWORTHINESS GATE
 
@@ -259,8 +259,7 @@ After fetching all feed data, evaluate newsworthiness:
 1. Are there adopted texts published/updated TODAY?
 2. Are there significant parliamentary events happening TODAY?
 3. Are there legislative procedures updated TODAY?
-4. Are there documents published TODAY?
-5. Are there notable MEP changes announced TODAY?
+4. Are there notable MEP changes announced TODAY?
 
 **If YES to any**: Proceed with article generation — include publish dates for ALL referenced items
 **If NO to all**: Use `safeoutputs___noop` — no breaking news today
