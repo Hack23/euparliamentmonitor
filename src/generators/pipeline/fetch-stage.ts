@@ -5,9 +5,11 @@
  * @module Generators/Pipeline/FetchStage
  * @description MCP data-fetching pipeline stage with circuit breaker protection.
  *
- * All functions are pure with respect to I/O: they accept an explicit
- * `client` argument instead of reading module-level state, making them
- * straightforward to unit-test with a mock client.
+ * MCP-facing functions accept an explicit `client` argument instead of reading
+ * module-level state, making them straightforward to unit-test with a mock
+ * client.  The {@link loadFeedDataFromFile} and {@link loadEPFeedDataFromFile}
+ * helpers introduce filesystem I/O to load pre-fetched feed JSON produced by
+ * agentic workflows.
  *
  * The {@link CircuitBreaker} prevents cascading failures when the MCP server
  * is degraded: after {@link CircuitBreakerOptions.failureThreshold} consecutive
@@ -331,9 +333,9 @@ function sanitizeMEPItems(items: readonly unknown[]): MEPFeedItem[] {
  * results to a JSON file and the generator reads them via this function,
  * avoiding the need to manually construct article HTML.
  *
- * The file must contain a JSON object with at least one of the keys:
- * `adoptedTexts`, `events`, `procedures`, `mepUpdates`.  Missing keys
- * default to empty arrays.
+ * The file must contain a JSON object. The optional keys
+ * `adoptedTexts`, `events`, `procedures`, and `mepUpdates` are treated as
+ * arrays and default to empty arrays when missing (an empty object `{}` is valid).
  *
  * @param filePath - Absolute or relative path to the JSON file
  * @returns Parsed {@link BreakingNewsFeedData}, or `undefined` on any error
