@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament breaking news articles using EP feed endpoints as the primary data source. Feed-first approach — stats are context only, never news.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"15818d200d4fa52eb53cd475a010fce9d46ba7f98fde043e418e2d9d577f922e","compiler_version":"v0.52.1"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"01791ddc3a977f79868aede9af68e6001456fb8d5b75038112217d2f657a49b0","compiler_version":"v0.52.1"}
 
 name: "News: EU Parliament Breaking News"
 "on":

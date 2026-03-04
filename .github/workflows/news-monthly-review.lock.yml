@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament monthly review retrospective articles for all 14 languages. Runs on 28th of each month.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"a21f95c494c2c6e4d0edbcdb5d135a3dd3818eab41f1d11146b35bd1e884684e","compiler_version":"v0.52.1"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"887d8dfe437bc97b87a24a1b9d98d9dfd7f02b7dae9582c00e0591644b01c838","compiler_version":"v0.52.1"}
 
 name: "News: EU Parliament Monthly Review"
 "on":
