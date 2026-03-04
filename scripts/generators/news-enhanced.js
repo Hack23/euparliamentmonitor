@@ -62,7 +62,9 @@ const feedDataArg = args.find((arg) => arg.startsWith('--feed-data='));
 const dryRunArg = args.includes('--dry-run');
 const skipExistingArg = args.includes('--skip-existing');
 /** Path to a JSON file containing pre-fetched EP feed data (optional). */
-const feedDataPath = feedDataArg ? (feedDataArg.split(ARG_SEPARATOR)[1] ?? '').trim() : '';
+const feedDataPath = feedDataArg && feedDataArg.startsWith('--feed-data=')
+    ? feedDataArg.slice('--feed-data='.length).trim()
+    : '';
 const articleTypes = typesArg
     ? (typesArg.split(ARG_SEPARATOR)[1] ?? '').split(',').map((t) => t.trim())
     : [ARTICLE_TYPE_WEEK_AHEAD];

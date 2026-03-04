@@ -4,9 +4,11 @@
  * @module Generators/Pipeline/FetchStage
  * @description MCP data-fetching pipeline stage with circuit breaker protection.
  *
- * All functions are pure with respect to I/O: they accept an explicit
- * `client` argument instead of reading module-level state, making them
- * straightforward to unit-test with a mock client.
+ * MCP-facing functions accept an explicit `client` argument instead of reading
+ * module-level state, making them straightforward to unit-test with a mock
+ * client.  The {@link loadFeedDataFromFile} and {@link loadEPFeedDataFromFile}
+ * helpers introduce filesystem I/O to load pre-fetched feed JSON produced by
+ * agentic workflows.
  *
  * The {@link CircuitBreaker} prevents cascading failures when the MCP server
  * is degraded: after {@link CircuitBreakerOptions.failureThreshold} consecutive
