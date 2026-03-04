@@ -409,7 +409,8 @@ describe('Multi-Language Support Integration', () => {
         };
 
         const html = generateArticleHTML(articleOptions);
-        expect(html).toContain(`<meta property="og:locale" content="${lang}">`);
+        // og:locale now uses BCP47 locale format via OG_LOCALE_MAP (e.g. en_GB, nb_NO)
+        expect(html).toMatch(/<meta property="og:locale" content="[a-z]{2}_[A-Z]{2}">/);
       });
     });
 

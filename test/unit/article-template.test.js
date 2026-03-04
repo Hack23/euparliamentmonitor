@@ -160,7 +160,8 @@ describe('article-template', () => {
         expect(html).toContain(`<meta property="og:title" content="${defaultOptions.title}">`);
         expect(html).toContain(`<meta property="og:description" content="${defaultOptions.subtitle}">`);
         expect(html).toContain('<meta property="og:site_name" content="EU Parliament Monitor">');
-        expect(html).toContain(`<meta property="og:locale" content="${defaultOptions.lang}">`);
+        // og:locale now uses BCP47 locale format (e.g. en_GB instead of en)
+        expect(html).toContain('<meta property="og:locale" content="en_GB">');
       });
 
       it('should include Twitter Card meta tags', () => {
