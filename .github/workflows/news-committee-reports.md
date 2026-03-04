@@ -106,6 +106,8 @@ This focused approach ensures:
 > **Content quality gate**: If the article body mostly discusses historical aggregates (e.g. "1,773 committee meetings in EP10", "fragmentation index 6.59", year-over-year statistics) rather than **specific recent items with concrete titles, dates, and document IDs from feed data**, the article FAILS quality validation and must be rewritten.
 >
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data** (document titles, procedure IDs, event names with dates). Historical context from precomputed stats may appear in later sections ONLY as brief comparative background.
+>
+> **⚠️ EP DOCUMENT NUMBERING — RECENCY RULE**: EP document IDs include the year of original adoption (e.g., `TA-10-2025-xxxx` = adopted in 2025). When writing a 2026 article, the feed will surface 2025-adopted documents because they have been recently updated in the EP system (e.g., published in the Official Journal, entering into force, Council common position adopted). This is acceptable **only if** your article explicitly states **what is NEW about those documents in 2026** (e.g., "entered into force on 1 February 2026", "implementation deadline reached in March 2026"). If the only news angle is that a document was adopted in 2025 — with no 2026 development — do NOT use it as primary news content. An article where every document reference is `TA-10-2025-xxxx` with no stated 2026 milestone is a retrospective, not news, and MUST be rejected in favour of `safeoutputs___noop`.
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
@@ -536,6 +538,7 @@ After article generation, verify EACH article meets these minimum standards **be
 - ❌ Identical metrics across different article types
 - ❌ Articles under 500 words
 - ❌ Stale dates (prior-year dates in current-year articles)
+- ❌ Articles where ALL primary document IDs are from a prior year (e.g. all `TA-10-2025-xxxx`) with no explicit 2026 development stated for each document — use `noop` instead
 - ❌ Untranslated English content in non-English articles
 - ❌ Duplicate "Why It Matters" text across articles
 - ❌ Missing language-switcher navigation (class="language-switcher")
@@ -625,6 +628,19 @@ DUPLICATES=$(
 )
 if [ "$DUPLICATES" -gt 0 ]; then
   echo "WARNING: $DUPLICATES duplicate 'Why It Matters' analysis block(s) detected across generated files — differentiate analysis before committing"
+fi
+
+# 6. Check for prior-year-only document references (recency gate)
+PRIOR_YEAR=$((CURRENT_YEAR - 1))
+FILE="news/${TODAY}-${ARTICLE_TYPE}-en.html"
+if [ -f "$FILE" ]; then
+  PRIOR_YEAR_DOCS=$(grep -Eo "TA-10-${PRIOR_YEAR}-[0-9]+" "$FILE" 2>/dev/null | wc -l || echo 0)
+  CURRENT_YEAR_DOCS=$(grep -Eo "TA-10-${CURRENT_YEAR}-[0-9]+" "$FILE" 2>/dev/null | wc -l || echo 0)
+  if [ "$PRIOR_YEAR_DOCS" -gt 0 ] && [ "$CURRENT_YEAR_DOCS" -eq 0 ]; then
+    echo "ERROR: Article references $PRIOR_YEAR_DOCS prior-year documents (TA-10-${PRIOR_YEAR}-xxxx) but zero current-year documents (TA-10-${CURRENT_YEAR}-xxxx)." >&2
+    echo "Either (a) explicitly state what is NEW about each ${PRIOR_YEAR} document in ${CURRENT_YEAR} (e.g. 'entered into force', 'Council position adopted'), or (b) use safeoutputs___noop if there is no genuine ${CURRENT_YEAR} news angle." >&2
+    exit 1
+  fi
 fi
 ```
 
