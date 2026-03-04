@@ -190,6 +190,53 @@ export async function initializeMCPClient(useMCP) {
 }
 // ─── Pre-fetched feed data loading ───────────────────────────────────────────
 /**
+ * Check whether a value is a non-null, non-array plain object.
+ *
+ * @param v - Value to check
+ * @returns True when v is a plain object
+ */
+function isPlainObject(v) {
+    return typeof v === 'object' && v !== null && !Array.isArray(v);
+}
+/**
+ * Sanitize an array of raw items into feed items with title-based required fields.
+ * Filters out non-objects and coerces `id`, `title`, `date` to strings.
+ *
+ * @param items - Raw array of unknown values from JSON
+ * @returns Sanitized array of typed feed items
+ */
+function sanitizeTitleItems(items) {
+    return items
+        .filter(isPlainObject)
+        .filter((item) => (item['id'] !== undefined && item['id'] !== null) ||
+        (item['title'] !== undefined && item['title'] !== null))
+        .map((item) => ({
+        ...item,
+        id: String(item['id'] ?? ''),
+        title: String(item['title'] ?? ''),
+        date: String(item['date'] ?? ''),
+    }));
+}
+/**
+ * Sanitize an array of raw items into MEP feed items.
+ * Filters out non-objects and coerces `id`, `name`, `date` to strings.
+ *
+ * @param items - Raw array of unknown values from JSON
+ * @returns Sanitized array of MEP feed items
+ */
+function sanitizeMEPItems(items) {
+    return items
+        .filter(isPlainObject)
+        .filter((item) => (item['id'] !== undefined && item['id'] !== null) ||
+        (item['name'] !== undefined && item['name'] !== null))
+        .map((item) => ({
+        ...item,
+        id: String(item['id'] ?? ''),
+        name: String(item['name'] ?? ''),
+        date: String(item['date'] ?? ''),
+    }));
+}
+/**
  * Load pre-fetched feed data from a JSON file on disk.
  *
  * Agentic workflows fetch EP data via framework MCP tools but the TypeScript
@@ -217,18 +264,18 @@ export function loadFeedDataFromFile(filePath) {
             return undefined;
         }
         const obj = parsed;
-        const adoptedTexts = Array.isArray(obj['adoptedTexts']) ? obj['adoptedTexts'] : [];
-        const events = Array.isArray(obj['events']) ? obj['events'] : [];
-        const procedures = Array.isArray(obj['procedures']) ? obj['procedures'] : [];
-        const mepUpdates = Array.isArray(obj['mepUpdates']) ? obj['mepUpdates'] : [];
+        const adoptedTexts = sanitizeTitleItems(Array.isArray(obj['adoptedTexts']) ? obj['adoptedTexts'] : []);
+        const events = sanitizeTitleItems(Array.isArray(obj['events']) ? obj['events'] : []);
+        const procedures = sanitizeTitleItems(Array.isArray(obj['procedures']) ? obj['procedures'] : []);
+        const mepUpdates = sanitizeMEPItems(Array.isArray(obj['mepUpdates']) ? obj['mepUpdates'] : []);
         console.log(`${INFO_PREFIX} Loaded feed data from file: ` +
             `${adoptedTexts.length} adopted texts, ${events.length} events, ` +
             `${procedures.length} procedures, ${mepUpdates.length} MEP updates`);
         return {
-            adoptedTexts: adoptedTexts,
-            events: events,
-            procedures: procedures,
-            mepUpdates: mepUpdates,
+            adoptedTexts,
+            events,
+            procedures,
+            mepUpdates,
         };
     }
     catch (error) {
@@ -265,27 +312,44 @@ export function loadEPFeedDataFromFile(filePath) {
         }
         const obj = parsed;
         const safeArray = (key) => Array.isArray(obj[key]) ? obj[key] : [];
-        const adoptedTexts = safeArray('adoptedTexts');
-        const events = safeArray('events');
-        const procedures = safeArray('procedures');
-        const mepUpdates = safeArray('mepUpdates');
-        const documents = safeArray('documents');
-        const plenaryDocuments = safeArray('plenaryDocuments');
-        const committeeDocuments = safeArray('committeeDocuments');
-        const plenarySessionDocuments = safeArray('plenarySessionDocuments');
-        const externalDocuments = safeArray('externalDocuments');
-        const questions = safeArray('questions');
-        const declarations = safeArray('declarations');
-        const corporateBodies = safeArray('corporateBodies');
-        const totalItems = adoptedTexts.length + events.length + procedures.length + mepUpdates.length +
-            documents.length + plenaryDocuments.length + committeeDocuments.length +
-            plenarySessionDocuments.length + externalDocuments.length +
-            questions.length + declarations.length + corporateBodies.length;
+        const adoptedTexts = sanitizeTitleItems(safeArray('adoptedTexts'));
+        const events = sanitizeTitleItems(safeArray('events'));
+        const procedures = sanitizeTitleItems(safeArray('procedures'));
+        const mepUpdates = sanitizeMEPItems(safeArray('mepUpdates'));
+        const documents = sanitizeTitleItems(safeArray('documents'));
+        const plenaryDocuments = sanitizeTitleItems(safeArray('plenaryDocuments'));
+        const committeeDocuments = sanitizeTitleItems(safeArray('committeeDocuments'));
+        const plenarySessionDocuments = sanitizeTitleItems(safeArray('plenarySessionDocuments'));
+        const externalDocuments = sanitizeTitleItems(safeArray('externalDocuments'));
+        const questions = sanitizeTitleItems(safeArray('questions'));
+        const declarations = sanitizeTitleItems(safeArray('declarations'));
+        const corporateBodies = sanitizeTitleItems(safeArray('corporateBodies'));
+        const totalItems = adoptedTexts.length +
+            events.length +
+            procedures.length +
+            mepUpdates.length +
+            documents.length +
+            plenaryDocuments.length +
+            committeeDocuments.length +
+            plenarySessionDocuments.length +
+            externalDocuments.length +
+            questions.length +
+            declarations.length +
+            corporateBodies.length;
         console.log(`${INFO_PREFIX} Loaded EP feed data from file: ${totalItems} total items across 12 keys`);
         return {
-            adoptedTexts, events, procedures, mepUpdates,
-            documents, plenaryDocuments, committeeDocuments, plenarySessionDocuments,
-            externalDocuments, questions, declarations, corporateBodies,
+            adoptedTexts,
+            events,
+            procedures,
+            mepUpdates,
+            documents,
+            plenaryDocuments,
+            committeeDocuments,
+            plenarySessionDocuments,
+            externalDocuments,
+            questions,
+            declarations,
+            corporateBodies,
         };
     }
     catch (error) {

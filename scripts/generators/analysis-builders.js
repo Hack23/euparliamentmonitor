@@ -230,10 +230,18 @@ export function buildBreakingAnalysis(date, feedData, anomalyRaw, coalitionRaw) 
     return {
         what: `Breaking developments on ${date}: ${adoptedCount} newly adopted texts, ${eventCount} events, ${procCount} procedure updates, ${mepCount} MEP changes.`,
         who: [
-            ...(feedData?.adoptedTexts.slice(0, 3).map((t) => `Adopted: ${t.title}${t.date ? ` (${t.date})` : ''}`) ?? []),
-            ...(feedData?.mepUpdates.slice(0, 2).map((m) => `MEP: ${m.name}${m.date ? ` (${m.date})` : ''}`) ?? []),
+            ...(feedData?.adoptedTexts
+                .slice(0, 3)
+                .map((t) => `Adopted: ${t.title}${t.date ? ` (${t.date})` : ''}`) ?? []),
+            ...(feedData?.mepUpdates
+                .slice(0, 2)
+                .map((m) => `MEP: ${m.name}${m.date ? ` (${m.date})` : ''}`) ?? []),
         ],
-        when: [`Date: ${date}`, ...(feedData?.events.slice(0, 3).map((e) => `${e.title}${e.date ? ` (${e.date})` : ''}`) ?? [])],
+        when: [
+            `Date: ${date}`,
+            ...(feedData?.events.slice(0, 3).map((e) => `${e.title}${e.date ? ` (${e.date})` : ''}`) ??
+                []),
+        ],
         why: anomalyRaw
             ? 'Voting anomalies and coalition shifts signal realignment of political forces within Parliament. These developments may alter the legislative calculus for pending files.'
             : 'Current events reflect the ongoing pace of legislative activity. Feed data provides real-time visibility into parliamentary proceedings.',

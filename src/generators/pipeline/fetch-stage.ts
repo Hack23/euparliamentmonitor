@@ -256,6 +256,70 @@ export async function initializeMCPClient(
 // ─── Pre-fetched feed data loading ───────────────────────────────────────────
 
 /**
+ * Check whether a value is a non-null, non-array plain object.
+ *
+ * @param v - Value to check
+ * @returns True when v is a plain object
+ */
+function isPlainObject(v: unknown): v is Record<string, unknown> {
+  return typeof v === 'object' && v !== null && !Array.isArray(v);
+}
+
+/**
+ * Sanitize an array of raw items into feed items with title-based required fields.
+ * Filters out non-objects and coerces `id`, `title`, `date` to strings.
+ *
+ * @param items - Raw array of unknown values from JSON
+ * @returns Sanitized array of typed feed items
+ */
+function sanitizeTitleItems<T extends { id: string; title: string; date: string }>(
+  items: readonly unknown[]
+): T[] {
+  return items
+    .filter(isPlainObject)
+    .filter(
+      (item) =>
+        (item['id'] !== undefined && item['id'] !== null) ||
+        (item['title'] !== undefined && item['title'] !== null)
+    )
+    .map(
+      (item) =>
+        ({
+          ...item,
+          id: String(item['id'] ?? ''),
+          title: String(item['title'] ?? ''),
+          date: String(item['date'] ?? ''),
+        }) as unknown as T
+    );
+}
+
+/**
+ * Sanitize an array of raw items into MEP feed items.
+ * Filters out non-objects and coerces `id`, `name`, `date` to strings.
+ *
+ * @param items - Raw array of unknown values from JSON
+ * @returns Sanitized array of MEP feed items
+ */
+function sanitizeMEPItems(items: readonly unknown[]): MEPFeedItem[] {
+  return items
+    .filter(isPlainObject)
+    .filter(
+      (item) =>
+        (item['id'] !== undefined && item['id'] !== null) ||
+        (item['name'] !== undefined && item['name'] !== null)
+    )
+    .map(
+      (item) =>
+        ({
+          ...item,
+          id: String(item['id'] ?? ''),
+          name: String(item['name'] ?? ''),
+          date: String(item['date'] ?? ''),
+        }) as unknown as MEPFeedItem
+    );
+}
+
+/**
  * Load pre-fetched feed data from a JSON file on disk.
  *
  * Agentic workflows fetch EP data via framework MCP tools but the TypeScript
@@ -283,20 +347,26 @@ export function loadFeedDataFromFile(filePath: string): BreakingNewsFeedData | u
       return undefined;
     }
     const obj = parsed as Record<string, unknown>;
-    const adoptedTexts = Array.isArray(obj['adoptedTexts']) ? obj['adoptedTexts'] : [];
-    const events = Array.isArray(obj['events']) ? obj['events'] : [];
-    const procedures = Array.isArray(obj['procedures']) ? obj['procedures'] : [];
-    const mepUpdates = Array.isArray(obj['mepUpdates']) ? obj['mepUpdates'] : [];
+    const adoptedTexts = sanitizeTitleItems<AdoptedTextFeedItem>(
+      Array.isArray(obj['adoptedTexts']) ? obj['adoptedTexts'] : []
+    );
+    const events = sanitizeTitleItems<EventFeedItem>(
+      Array.isArray(obj['events']) ? obj['events'] : []
+    );
+    const procedures = sanitizeTitleItems<ProcedureFeedItem>(
+      Array.isArray(obj['procedures']) ? obj['procedures'] : []
+    );
+    const mepUpdates = sanitizeMEPItems(Array.isArray(obj['mepUpdates']) ? obj['mepUpdates'] : []);
     console.log(
       `${INFO_PREFIX} Loaded feed data from file: ` +
         `${adoptedTexts.length} adopted texts, ${events.length} events, ` +
         `${procedures.length} procedures, ${mepUpdates.length} MEP updates`
     );
     return {
-      adoptedTexts: adoptedTexts as AdoptedTextFeedItem[],
-      events: events as EventFeedItem[],
-      procedures: procedures as ProcedureFeedItem[],
-      mepUpdates: mepUpdates as MEPFeedItem[],
+      adoptedTexts,
+      events,
+      procedures,
+      mepUpdates,
     };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -334,18 +404,22 @@ export function loadEPFeedDataFromFile(filePath: string): EPFeedData | undefined
     const obj = parsed as Record<string, unknown>;
     const safeArray = (key: string): readonly unknown[] =>
       Array.isArray(obj[key]) ? (obj[key] as unknown[]) : [];
-    const adoptedTexts = safeArray('adoptedTexts') as AdoptedTextFeedItem[];
-    const events = safeArray('events') as EventFeedItem[];
-    const procedures = safeArray('procedures') as ProcedureFeedItem[];
-    const mepUpdates = safeArray('mepUpdates') as MEPFeedItem[];
-    const documents = safeArray('documents') as DocumentFeedItem[];
-    const plenaryDocuments = safeArray('plenaryDocuments') as DocumentFeedItem[];
-    const committeeDocuments = safeArray('committeeDocuments') as DocumentFeedItem[];
-    const plenarySessionDocuments = safeArray('plenarySessionDocuments') as DocumentFeedItem[];
-    const externalDocuments = safeArray('externalDocuments') as DocumentFeedItem[];
-    const questions = safeArray('questions') as QuestionFeedItem[];
-    const declarations = safeArray('declarations') as DeclarationFeedItem[];
-    const corporateBodies = safeArray('corporateBodies') as CorporateBodyFeedItem[];
+    const adoptedTexts = sanitizeTitleItems<AdoptedTextFeedItem>(safeArray('adoptedTexts'));
+    const events = sanitizeTitleItems<EventFeedItem>(safeArray('events'));
+    const procedures = sanitizeTitleItems<ProcedureFeedItem>(safeArray('procedures'));
+    const mepUpdates = sanitizeMEPItems(safeArray('mepUpdates'));
+    const documents = sanitizeTitleItems<DocumentFeedItem>(safeArray('documents'));
+    const plenaryDocuments = sanitizeTitleItems<DocumentFeedItem>(safeArray('plenaryDocuments'));
+    const committeeDocuments = sanitizeTitleItems<DocumentFeedItem>(
+      safeArray('committeeDocuments')
+    );
+    const plenarySessionDocuments = sanitizeTitleItems<DocumentFeedItem>(
+      safeArray('plenarySessionDocuments')
+    );
+    const externalDocuments = sanitizeTitleItems<DocumentFeedItem>(safeArray('externalDocuments'));
+    const questions = sanitizeTitleItems<QuestionFeedItem>(safeArray('questions'));
+    const declarations = sanitizeTitleItems<DeclarationFeedItem>(safeArray('declarations'));
+    const corporateBodies = sanitizeTitleItems<CorporateBodyFeedItem>(safeArray('corporateBodies'));
     const totalItems =
       adoptedTexts.length +
       events.length +

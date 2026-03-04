@@ -1664,6 +1664,43 @@ describe('loadFeedDataFromFile', () => {
     expect(result.procedures).toEqual([]);
     expect(result.mepUpdates).toEqual([]);
   });
+
+  it('should filter out non-object items and coerce missing fields to strings', () => {
+    const feedData = {
+      adoptedTexts: [
+        { id: 'TA-001', title: 'Good item', date: '2026-03-01' },
+        'not an object',
+        42,
+        null,
+        { title: 'Missing id' },
+      ],
+      events: [{ id: 'EVT-001' }],
+      procedures: [],
+      mepUpdates: [
+        { name: 'Jane Smith' },
+        null,
+        'string',
+      ],
+    };
+    const filePath = path.join(tmpDir, 'malformed.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+    const result = loadFeedDataFromFile(filePath);
+    expect(result).toBeDefined();
+    // Valid object + object with title but no id = 2 items
+    expect(result.adoptedTexts).toHaveLength(2);
+    expect(result.adoptedTexts[0].id).toBe('TA-001');
+    expect(result.adoptedTexts[0].title).toBe('Good item');
+    expect(result.adoptedTexts[1].id).toBe('');
+    expect(result.adoptedTexts[1].title).toBe('Missing id');
+    // Event with only id — title/date coerced to ''
+    expect(result.events).toHaveLength(1);
+    expect(result.events[0].title).toBe('');
+    expect(result.events[0].date).toBe('');
+    // MEP with only name — id/date coerced
+    expect(result.mepUpdates).toHaveLength(1);
+    expect(result.mepUpdates[0].name).toBe('Jane Smith');
+    expect(result.mepUpdates[0].id).toBe('');
+  });
 });
 
 // ─── loadEPFeedDataFromFile ──────────────────────────────────────────────────
@@ -1761,6 +1798,39 @@ describe('loadEPFeedDataFromFile', () => {
     expect(result.events).toEqual([]);
     expect(result.documents).toEqual([]);
     expect(result.questions).toEqual([]);
+  });
+
+  it('should filter out non-object items and coerce missing fields to strings', () => {
+    const feedData = {
+      adoptedTexts: [
+        { id: 'TA-001', title: 'Good item', date: '2026-03-01' },
+        'not an object',
+        null,
+        { title: 'Missing id' },
+      ],
+      mepUpdates: [
+        { name: 'Jane Smith' },
+        42,
+      ],
+      documents: [{ id: 'DOC-001' }],
+    };
+    const filePath = path.join(tmpDir, 'malformed.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+    const result = loadEPFeedDataFromFile(filePath);
+    expect(result).toBeDefined();
+    // Valid + object with title = 2 items
+    expect(result.adoptedTexts).toHaveLength(2);
+    expect(result.adoptedTexts[0].id).toBe('TA-001');
+    expect(result.adoptedTexts[1].id).toBe('');
+    expect(result.adoptedTexts[1].title).toBe('Missing id');
+    // MEP with only name — id/date coerced
+    expect(result.mepUpdates).toHaveLength(1);
+    expect(result.mepUpdates[0].name).toBe('Jane Smith');
+    expect(result.mepUpdates[0].id).toBe('');
+    // Document with only id — title/date coerced
+    expect(result.documents).toHaveLength(1);
+    expect(result.documents[0].title).toBe('');
+    expect(result.documents[0].date).toBe('');
   });
 });
 
