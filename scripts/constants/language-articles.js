@@ -7,6 +7,7 @@ import { ArticleCategory } from '../types/index.js';
  * should include (or extend) when producing articles in each language.
  * Prevents the common issue of English-only keywords in translated articles.
  */
+/* eslint-disable sonarjs/no-duplicate-string -- Localized keyword dictionaries have intentional repetition across categories */
 export const LOCALIZED_KEYWORDS = {
     en: {
         [ArticleCategory.WEEK_AHEAD]: ['EU Parliament', 'week ahead', 'committee meetings', 'plenary debate', 'European Parliament', 'legislation'],
@@ -149,6 +150,7 @@ export const LOCALIZED_KEYWORDS = {
         [ArticleCategory.MONTH_IN_REVIEW]: ['EU议会', '每月回顾', '欧洲议会', '摘要', '立法审查'],
     },
 };
+/* eslint-enable sonarjs/no-duplicate-string */
 /** Week ahead title templates per language */
 export const WEEK_AHEAD_TITLES = {
     en: (start, end) => ({

@@ -50,7 +50,9 @@ const args = process.argv.slice(2);
 
 /**
  * Extract a CLI flag value: --flag=value
- * @param name
+ *
+ * @param name - Flag name to extract
+ * @returns Flag value or undefined if not found
  */
 function getArg(name: string): string | undefined {
   const prefix = `--${name}=`;
@@ -184,38 +186,53 @@ function printReport(report: ValidationReport): void {
   console.log(`  ❌ Failed:       ${report.failed}`);
   console.log(`  ⚠️  With warnings: ${report.warnings}\n`);
 
-  // Show failures first
-  const failures = report.articles.filter((a) => !a.valid);
-  if (failures.length > 0) {
-    console.log('── FAILURES ──────────────────────────────────────────────────\n');
-    for (const article of failures) {
-      console.log(`  ❌ ${article.filename} (${article.wordCount} words)`);
-      for (const error of article.errors) {
-        console.log(`     ERROR: ${error}`);
-      }
-      for (const warning of article.warnings) {
-        console.log(`     WARN:  ${warning}`);
-      }
-      console.log('');
-    }
-  }
+  printFailures(report);
+  printWarnings(report);
 
-  // Show warnings
+  console.log('══════════════════════════════════════════════════════════════\n');
+}
+
+/**
+ * Print failure details from the validation report.
+ *
+ * @param report - Validation report
+ */
+function printFailures(report: ValidationReport): void {
+  const failures = report.articles.filter((a) => !a.valid);
+  if (failures.length === 0) return;
+
+  console.log('── FAILURES ──────────────────────────────────────────────────\n');
+  for (const article of failures) {
+    console.log(`  ❌ ${article.filename} (${article.wordCount} words)`);
+    for (const error of article.errors) {
+      console.log(`     ERROR: ${error}`);
+    }
+    for (const warning of article.warnings) {
+      console.log(`     WARN:  ${warning}`);
+    }
+    console.log('');
+  }
+}
+
+/**
+ * Print warning details from the validation report.
+ *
+ * @param report - Validation report
+ */
+function printWarnings(report: ValidationReport): void {
   const withWarnings = report.articles.filter(
     (a) => a.valid && a.warnings.length > 0
   );
-  if (withWarnings.length > 0) {
-    console.log('── WARNINGS ──────────────────────────────────────────────────\n');
-    for (const article of withWarnings) {
-      console.log(`  ⚠️  ${article.filename} (${article.wordCount} words)`);
-      for (const warning of article.warnings) {
-        console.log(`     WARN:  ${warning}`);
-      }
-      console.log('');
-    }
-  }
+  if (withWarnings.length === 0) return;
 
-  console.log('══════════════════════════════════════════════════════════════\n');
+  console.log('── WARNINGS ──────────────────────────────────────────────────\n');
+  for (const article of withWarnings) {
+    console.log(`  ⚠️  ${article.filename} (${article.wordCount} words)`);
+    for (const warning of article.warnings) {
+      console.log(`     WARN:  ${warning}`);
+    }
+    console.log('');
+  }
 }
 
 // ─── CLI execution ────────────────────────────────────────────────────────────
