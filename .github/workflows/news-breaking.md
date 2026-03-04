@@ -97,9 +97,10 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 > **📅 DATE REQUIREMENT**: ALL document/event/procedure references in articles MUST include their publish or creation date (e.g., "Resolution on Digital Markets (adopted 4 March 2026)"). Documents without a recent date are NOT news.
 
 **Data source hierarchy:**
-1. **PRIMARY (MANDATORY)**: EP API v2 feed endpoints with `timeframe: "today"` — adopted texts, events, procedures, MEP updates, documents, questions
-2. **SECONDARY (OPTIONAL)**: Analytical context — voting anomalies, coalition dynamics
-3. **CONTEXT ONLY (NEVER NEWS)**: Precomputed statistics from `get_all_generated_stats`
+1. **PRIMARY (MANDATORY)**: EP API v2 feed endpoints with `timeframe: "today"` — adopted texts, events, procedures, MEP updates (these 4 feeds are consumed by the generator)
+2. **ADVISORY (NEWSWORTHINESS GATE ONLY)**: Documents, plenary/committee documents, parliamentary questions — inform whether to proceed but are NOT rendered in the article
+3. **SECONDARY (OPTIONAL)**: Analytical context — voting anomalies, coalition dynamics
+4. **CONTEXT ONLY (NEVER NEWS)**: Precomputed statistics from `get_all_generated_stats`
 
 **NEWSWORTHINESS GATE**: If NO events published/updated TODAY are found in feeds, use `safeoutputs___noop` — do NOT generate a breaking news article from stats, analytics, or older documents.
 
@@ -366,10 +367,17 @@ fi
 
 export USE_EP_MCP=true
 
+FEED_DATA_FLAG=""
+if [ -f "/tmp/ep-feed-data.json" ]; then
+  FEED_DATA_FLAG='--feed-data=/tmp/ep-feed-data.json'
+else
+  echo "⚠️ /tmp/ep-feed-data.json not found — generator will fetch live from MCP"
+fi
+
 npx tsx src/generators/news-enhanced.ts \
   --types="breaking" \
   --languages="$LANG_ARG" \
-  --feed-data="/tmp/ep-feed-data.json" \
+  $FEED_DATA_FLAG \
   $SKIP_FLAG
 ```
 
