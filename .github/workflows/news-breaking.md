@@ -291,23 +291,28 @@ so it does not need its own MCP connection.
 ```bash
 cat > /tmp/ep-feed-data.json << 'FEEDEOF'
 {
-  "adoptedTexts": [],
-  "events": [],
-  "procedures": [],
-  "mepUpdates": []
+  "adoptedTexts": [
+    {"id": "TA-10-2026-XXXX", "title": "REPLACE with actual adopted text title", "date": "2026-01-01"}
+  ],
+  "events": [
+    {"id": "EVT-XXXX", "title": "REPLACE with actual event title", "date": "2026-01-01"}
+  ],
+  "procedures": [
+    {"id": "PROC-XXXX", "title": "REPLACE with actual procedure title", "date": "2026-01-01"}
+  ],
+  "mepUpdates": [
+    {"id": "MEP-XXXX", "name": "REPLACE with actual MEP name", "date": "2026-01-01"}
+  ]
 }
 FEEDEOF
 echo "Feed data saved to /tmp/ep-feed-data.json"
 ```
 
-**⚠️ IMPORTANT:** Replace the empty arrays above with the actual data you received from the EP MCP feed endpoints:
-- `adoptedTexts`: data from `european_parliament___get_adopted_texts_feed`
-- `events`: data from `european_parliament___get_events_feed`
-- `procedures`: data from `european_parliament___get_procedures_feed`
-- `mepUpdates`: data from `european_parliament___get_meps_feed`
-
-Each array item must have at minimum: `{ "id": "...", "title": "...", "date": "..." }`.
-For MEP items use `"name"` instead of `"title"`.
+**⚠️ IMPORTANT:** Replace the example items above with the actual data you received from the EP MCP feed endpoints. Use empty arrays `[]` for any feed endpoint that returned no data or timed out:
+- `adoptedTexts`: data from `european_parliament___get_adopted_texts_feed` — each item needs `id`, `title`, `date`
+- `events`: data from `european_parliament___get_events_feed` — each item needs `id`, `title`, `date`
+- `procedures`: data from `european_parliament___get_procedures_feed` — each item needs `id`, `title`, `date`
+- `mepUpdates`: data from `european_parliament___get_meps_feed` — each item needs `id`, `name`, `date`
 
 ### Step 2: Run TypeScript Generator with Feed Data
 
