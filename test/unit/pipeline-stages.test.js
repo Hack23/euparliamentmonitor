@@ -50,6 +50,7 @@ import {
   fetchCorporateBodiesFeed,
   fetchEPFeedData,
   loadFeedDataFromFile,
+  loadEPFeedDataFromFile,
 } from '../../scripts/generators/pipeline/fetch-stage.js';
 
 import {
@@ -1662,5 +1663,160 @@ describe('loadFeedDataFromFile', () => {
     expect(result.events).toEqual([]);
     expect(result.procedures).toEqual([]);
     expect(result.mepUpdates).toEqual([]);
+  });
+});
+
+// ─── loadEPFeedDataFromFile ──────────────────────────────────────────────────
+
+describe('loadEPFeedDataFromFile', () => {
+  let tmpDir;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-feed-data-test-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('should return undefined for non-existent file', () => {
+    const result = loadEPFeedDataFromFile(path.join(tmpDir, 'does-not-exist.json'));
+    expect(result).toBeUndefined();
+  });
+
+  it('should return undefined for invalid JSON', () => {
+    const filePath = path.join(tmpDir, 'invalid.json');
+    fs.writeFileSync(filePath, 'not valid json');
+    const result = loadEPFeedDataFromFile(filePath);
+    expect(result).toBeUndefined();
+  });
+
+  it('should return undefined for non-object JSON (array)', () => {
+    const filePath = path.join(tmpDir, 'array.json');
+    fs.writeFileSync(filePath, '[1, 2, 3]');
+    const result = loadEPFeedDataFromFile(filePath);
+    expect(result).toBeUndefined();
+  });
+
+  it('should return EPFeedData with defaults for missing keys', () => {
+    const filePath = path.join(tmpDir, 'empty.json');
+    fs.writeFileSync(filePath, '{}');
+    const result = loadEPFeedDataFromFile(filePath);
+    expect(result).toBeDefined();
+    expect(result.adoptedTexts).toEqual([]);
+    expect(result.events).toEqual([]);
+    expect(result.procedures).toEqual([]);
+    expect(result.mepUpdates).toEqual([]);
+    expect(result.documents).toEqual([]);
+    expect(result.plenaryDocuments).toEqual([]);
+    expect(result.committeeDocuments).toEqual([]);
+    expect(result.plenarySessionDocuments).toEqual([]);
+    expect(result.externalDocuments).toEqual([]);
+    expect(result.questions).toEqual([]);
+    expect(result.declarations).toEqual([]);
+    expect(result.corporateBodies).toEqual([]);
+  });
+
+  it('should load valid comprehensive EP feed data', () => {
+    const feedData = {
+      adoptedTexts: [{ id: 'TA-001', title: 'Resolution', date: '2026-03-01' }],
+      events: [{ id: 'EVT-001', title: 'Session', date: '2026-03-04' }],
+      procedures: [],
+      mepUpdates: [{ id: 'MEP-001', name: 'Jane Smith', date: '2026-03-01' }],
+      documents: [{ id: 'DOC-001', title: 'Report', date: '2026-03-01' }],
+      plenaryDocuments: [],
+      committeeDocuments: [{ id: 'CDOC-001', title: 'Committee Report', date: '2026-03-01' }],
+      plenarySessionDocuments: [],
+      externalDocuments: [],
+      questions: [{ id: 'Q-001', title: 'Written Question', date: '2026-03-01' }],
+      declarations: [],
+      corporateBodies: [],
+    };
+    const filePath = path.join(tmpDir, 'ep-feed-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+    const result = loadEPFeedDataFromFile(filePath);
+    expect(result).toBeDefined();
+    expect(result.adoptedTexts).toHaveLength(1);
+    expect(result.adoptedTexts[0].id).toBe('TA-001');
+    expect(result.events).toHaveLength(1);
+    expect(result.mepUpdates).toHaveLength(1);
+    expect(result.documents).toHaveLength(1);
+    expect(result.committeeDocuments).toHaveLength(1);
+    expect(result.questions).toHaveLength(1);
+    expect(result.procedures).toHaveLength(0);
+    expect(result.plenaryDocuments).toHaveLength(0);
+  });
+
+  it('should ignore non-array values for feed keys', () => {
+    const filePath = path.join(tmpDir, 'bad-types.json');
+    fs.writeFileSync(filePath, JSON.stringify({
+      adoptedTexts: 'not an array',
+      events: 42,
+      documents: null,
+      questions: { not: 'an array' },
+    }));
+    const result = loadEPFeedDataFromFile(filePath);
+    expect(result).toBeDefined();
+    expect(result.adoptedTexts).toEqual([]);
+    expect(result.events).toEqual([]);
+    expect(result.documents).toEqual([]);
+    expect(result.questions).toEqual([]);
+  });
+});
+
+// ─── fetchEPFeedData with EP_FEED_DATA_FILE ──────────────────────────────────
+
+describe('fetchEPFeedData with pre-fetched file', () => {
+  let tmpDir;
+  const originalEnv = process.env['EP_FEED_DATA_FILE'];
+
+  afterEach(() => {
+    if (originalEnv === undefined) {
+      delete process.env['EP_FEED_DATA_FILE'];
+    } else {
+      process.env['EP_FEED_DATA_FILE'] = originalEnv;
+    }
+    if (tmpDir) {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+      tmpDir = undefined;
+    }
+  });
+
+  it('uses pre-fetched EP feed data when EP_FEED_DATA_FILE is set', async () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-fetch-test-'));
+    const feedData = {
+      adoptedTexts: [{ id: 'TA-001', title: 'Test', date: '2026-03-04' }],
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+      documents: [],
+      plenaryDocuments: [],
+      committeeDocuments: [],
+      plenarySessionDocuments: [],
+      externalDocuments: [],
+      questions: [],
+      declarations: [],
+      corporateBodies: [],
+    };
+    const filePath = path.join(tmpDir, 'ep-feed-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+    process.env['EP_FEED_DATA_FILE'] = filePath;
+
+    const result = await fetchEPFeedData(null, 'one-day');
+    expect(result).toBeDefined();
+    expect(result.adoptedTexts).toHaveLength(1);
+    expect(result.adoptedTexts[0].id).toBe('TA-001');
+  });
+
+  it('falls through to MCP when file does not exist', async () => {
+    process.env['EP_FEED_DATA_FILE'] = '/tmp/nonexistent-ep-feed.json';
+    const result = await fetchEPFeedData(null, 'one-day');
+    expect(result).toBeUndefined();
+  });
+
+  it('returns undefined when no file and client is null', async () => {
+    delete process.env['EP_FEED_DATA_FILE'];
+    const result = await fetchEPFeedData(null, 'one-day');
+    expect(result).toBeUndefined();
   });
 });
