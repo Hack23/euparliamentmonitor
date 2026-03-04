@@ -230,7 +230,7 @@ european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
 // Documents feed — recently updated legislative documents
 european_parliament___get_documents_feed({ timeframe: "one-week", limit: 50 })
 
-// Adopted texts feed — CONDITIONAL: skip if no items from last 12h/today
+// Adopted texts feed — skip if feed returns empty (no new texts in last 12h)
 european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 20 })
 
 // Plenary documents feed — recent plenary documents
@@ -268,7 +268,7 @@ european_parliament___search_documents({ query: "Commission proposal", limit: 20
 // Monitor legislative pipeline
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
 
-// Track a specific procedure (use procedure ID from feed results)
+// Track a specific procedure (use procedure ID from feed results, e.g. "2025/0042(COD)")
 european_parliament___track_legislation({ procedureId: "<ID from feed>" })
 
 // Get committee referral information

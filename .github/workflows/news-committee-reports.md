@@ -225,7 +225,7 @@ european_parliament___get_committee_documents_feed({ timeframe: "one-week", limi
 // Plenary documents feed — recently updated plenary documents
 european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
 
-// Adopted texts feed — CONDITIONAL: skip if no items from last 12h/today
+// Adopted texts feed — skip if feed returns empty (no new texts in last 12h)
 european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 20 })
 
 // Procedures feed — legislative procedure updates

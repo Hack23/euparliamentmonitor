@@ -203,7 +203,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **These feed endpoints provide this month's actual news content. ALL must be called FIRST, before any other data tools:**
 
 ```javascript
-// Adopted texts feed — CONDITIONAL: ignore if no items from last 12h for daily runs; for monthly review use one-month
+// Adopted texts feed — always include for monthly review (one-month timeframe)
 european_parliament___get_adopted_texts_feed({ timeframe: "one-month", limit: 50 })
 
 // Procedures feed — legislative procedure updates this month

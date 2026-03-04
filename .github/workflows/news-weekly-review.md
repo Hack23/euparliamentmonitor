@@ -197,7 +197,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **These feed endpoints provide this week's actual news content. ALL must be called FIRST, before any other data tools:**
 
 ```javascript
-// Adopted texts feed — CONDITIONAL: ignore if no items from last 12h/today; for weekly review use one-week
+// Adopted texts feed — CONDITIONAL: ignore if no items from last 12h for daily runs; for weekly review always include
 european_parliament___get_adopted_texts_feed({ timeframe: "one-week", limit: 50 })
 
 // Procedures feed — legislative procedure updates this week

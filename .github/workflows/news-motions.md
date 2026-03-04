@@ -220,7 +220,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **These feed endpoints provide today's actual news content. ALL must be called FIRST, before any other data tools:**
 
 ```javascript
-// Adopted texts feed — primary for motions, but CONDITIONAL: skip if no items from last 12h/today
+// Adopted texts feed — skip if feed returns empty (no new texts in last 12h)
 european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 50 })
 
 // Parliamentary questions feed — recent questions and interpellations
