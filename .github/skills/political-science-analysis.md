@@ -45,7 +45,7 @@ EU Parliament Political Groups (10th term):
 ├── Renew Europe — Liberal/centrist
 ├── Greens/EFA — Green/regionalist
 ├── ECR (European Conservatives) — Right
-├── The Left (GUE/NGL) — Left-wing
+├── The Left — Left-wing
 ├── PfE (Patriots for Europe) — National-conservative
 ├── ESN (Europe of Sovereign Nations) — Sovereigntist
 └── NI (Non-Inscritti) — Non-attached

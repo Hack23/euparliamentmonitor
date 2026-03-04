@@ -76,14 +76,15 @@ European Parliament (720 seats as of 2024 elections)
 
 | Group | Abbreviation | Ideology | Typical Size | Key Policy Focus |
 |-------|-------------|----------|--------------|-----------------|
-| **European People's Party** | EPP | Centre-right | ~180 MEPs | Single market, security, competitiveness |
-| **Socialists and Democrats** | S&D | Centre-left | ~140 MEPs | Social rights, workers' protection, equality |
-| **Renew Europe** | Renew | Liberal/centrist | ~100 MEPs | Rule of law, digital agenda, trade |
-| **Greens/EFA** | Greens/EFA | Green/regionalist | ~70 MEPs | Climate, environment, minority rights |
-| **European Conservatives** | ECR | Conservative | ~65 MEPs | Sovereignty, subsidiarity, fiscal discipline |
-| **Identity and Democracy** | ID | Right-wing | ~60 MEPs | Immigration control, national identity |
-| **The Left** | GUE/NGL | Left-wing | ~35 MEPs | Social justice, anti-austerity, peace |
-| **Non-Inscritti** | NI | Various | ~30 MEPs | No group affiliation |
+| **European People's Party** | EPP | Centre-right | ~188 MEPs | Single market, security, competitiveness |
+| **Socialists and Democrats** | S&D | Centre-left | ~136 MEPs | Social rights, workers' protection, equality |
+| **Patriots for Europe** | PfE | National-conservative | ~86 MEPs | Sovereignty, immigration control, national identity |
+| **European Conservatives** | ECR | Conservative | ~78 MEPs | Subsidiarity, fiscal discipline, traditional values |
+| **Renew Europe** | Renew | Liberal/centrist | ~77 MEPs | Rule of law, digital agenda, trade |
+| **Greens/EFA** | Greens/EFA | Green/regionalist | ~53 MEPs | Climate, environment, minority rights |
+| **The Left** | The Left | Left-wing | ~46 MEPs | Social justice, anti-austerity, peace |
+| **Europe of Sovereign Nations** | ESN | Sovereigntist | ~25 MEPs | National sovereignty, EU reform |
+| **Non-Inscritti** | NI | Various | ~33 MEPs | No group affiliation |
 
 ### Seat Allocation by Member State
 
@@ -219,6 +220,38 @@ const INSTITUTIONAL_CONTEXT = {
 | First reading | First reading | Première lecture | Erste Lesung |
 | Trilogue | Trilogue | Trilogue | Trilog |
 | Political group | Political group | Groupe politique | Fraktion |
+| Resolution | Resolution | Résolution | Entschließung |
+| Adopted text | Adopted text | Texte adopté | Angenommener Text |
+| Legislative proposal | Legislative proposal | Proposition législative | Gesetzgebungsvorschlag |
+| Committee report | Committee report | Rapport de commission | Ausschussbericht |
+| Parliamentary question | Parliamentary question | Question parlementaire | Parlamentarische Anfrage |
+
+### ⚠️ EP Vocabulary — Common Errors to Avoid
+
+When writing about the European Parliament, use the correct institutional vocabulary:
+
+| ❌ Incorrect Term | ✅ Correct EP Term | Why |
+|-------------------|-------------------|-----|
+| "Motions" (generic) | **Resolutions**, **Adopted texts**, **Plenary votes** | In the EP, a "motion" only appears in "motion for a resolution" (Rule 143) or "motion of censure" (Rule 119). The EP does not use "motions" generically for plenary activity. |
+| "Propositions" | **Legislative proposals**, **Legislative procedures** | "Proposition" is a French/Swedish national parliament term. The EU uses "proposal" (Commission proposal) or "legislative procedure" (COD, CNS, APP). |
+| "Laws" | **Regulations**, **Directives**, **Decisions** | The EU has specific legal instrument types — it does not pass "laws" generically. |
+| "Parliament votes" | **Plenary votes**, **Roll-call votes** | Be specific: plenary votes happen in Strasbourg/Brussels sessions; committee votes happen in committees. |
+| "Committees" (FR: "Commissions") | **Commissions parlementaires** (FR) | In French, distinguish between "la Commission" (European Commission) and "les commissions parlementaires" (EP committees). |
+| "Bills" | **Legislative proposals**, **Draft legislation** | The EU does not use "bills" — this is UK/US parliamentary vocabulary. |
+| "ID" (Identity and Democracy) | **PfE** (Patriots for Europe), **ESN** (Europe of Sovereign Nations) | ID was dissolved after 2024 elections, replaced by PfE and ESN in the 10th parliamentary term. |
+
+### Article Type Vocabulary Mapping
+
+| Internal Slug | Correct EP Display Name | Content Scope |
+|---------------|------------------------|---------------|
+| `motions` | **Plenary Votes & Resolutions** | Adopted texts, roll-call votes, party cohesion, voting anomalies, parliamentary questions |
+| `propositions` | **Legislative Procedures** | Commission proposals, legislative pipeline, procedure tracking (COD/CNS/APP/BUD) |
+| `committee-reports` | **Committee Activity** | Committee documents, rapporteur reports, committee opinions, deliberations |
+| `breaking` | **Breaking News** | Feed-first: adopted texts, events, procedures, MEP updates from EP feeds |
+| `week-ahead` | **Week Ahead** | Upcoming plenary sessions, committee meetings, events |
+| `week-in-review` | **Week in Review** | Past week's votes, decisions, debates |
+| `month-ahead` | **Month Ahead** | 30-day strategic outlook |
+| `month-in-review` | **Month in Review** | Monthly comprehensive analysis |
 
 ## ISMS Compliance Mapping
 

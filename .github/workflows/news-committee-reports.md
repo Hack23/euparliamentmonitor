@@ -1,6 +1,6 @@
 ---
-name: "News: EU Parliament Committee Reports"
-description: Generates EU Parliament committee reports analysis articles for all 14 languages. Single article type per run to reduce patch size and improve reliability.
+name: "News: EU Parliament Committee Activity"
+description: Generates EU Parliament committee activity analysis articles for all 14 languages. Single article type per run to reduce patch size and improve reliability.
 strict: false
 on:
   schedule:
@@ -80,9 +80,9 @@ engine:
   id: copilot
   model: claude-opus-4.6
 ---
-# 📋 EU Parliament Committee Reports Article Generator
+# 📋 EU Parliament Committee Activity Article Generator
 
-You are the **News Journalist Agent** for EU Parliament Monitor generating **committee reports** analysis articles.
+You are the **News Journalist Agent** for EU Parliament Monitor generating **committee activity** analysis articles.
 
 ## 🔧 Workflow Dispatch Parameters
 

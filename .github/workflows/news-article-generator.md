@@ -201,9 +201,9 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 | `month-ahead` | Prospective | 1st of month | 30-day strategic outlook |
 | `week-in-review` | Retrospective | Saturdays | Analysis of the past week |
 | `month-in-review` | Retrospective | 28th of month | Comprehensive monthly analysis |
-| `committee-reports` | Retrospective | Mon-Fri | Committee activity and reports |
-| `propositions` | Prospective | Mon-Fri | Legislative propositions analysis |
-| `motions` | Retrospective | Mon-Fri | Voting records and party dynamics |
+| `committee-reports` | Retrospective | Mon-Fri | Committee activity: documents, reports, opinions |
+| `propositions` | Prospective | Mon-Fri | Legislative procedures: proposals, pipeline, dossiers |
+| `motions` | Retrospective | Mon-Fri | Plenary votes, adopted texts, resolutions, party dynamics |
 | `breaking` | Real-time | Manual/Auto | **Feed-first**: adopted texts, events, procedures, MEP updates from EP feeds |
 
 ## EP MCP Tools

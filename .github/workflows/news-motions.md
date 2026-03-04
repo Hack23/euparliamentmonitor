@@ -1,6 +1,6 @@
 ---
-name: "News: EU Parliament Motions"
-description: Generates EU Parliament motions and resolutions analysis articles for all 14 languages. Single article type per run.
+name: "News: EU Parliament Plenary Votes & Resolutions"
+description: Generates EU Parliament plenary votes, adopted texts, and resolutions analysis articles for all 14 languages. Single article type per run.
 strict: false
 on:
   schedule:
@@ -80,9 +80,9 @@ engine:
   id: copilot
   model: claude-opus-4.6
 ---
-# 🗳️ EU Parliament Motions Article Generator
+# 🗳️ EU Parliament Plenary Votes & Resolutions Article Generator
 
-You are the **News Journalist Agent** for EU Parliament Monitor generating **EU Parliament motions and resolutions** analysis articles.
+You are the **News Journalist Agent** for EU Parliament Monitor generating **EU Parliament plenary votes, adopted texts, and resolutions** analysis articles.
 
 ## 🔧 Workflow Dispatch Parameters
 

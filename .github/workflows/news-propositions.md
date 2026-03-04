@@ -1,6 +1,6 @@
 ---
-name: "News: EU Parliament Legislative Propositions"
-description: Generates EU Parliament legislative propositions analysis articles for all 14 languages. Single article type per run.
+name: "News: EU Parliament Legislative Procedures"
+description: Generates EU Parliament legislative procedures analysis articles for all 14 languages. Single article type per run.
 strict: false
 on:
   schedule:
@@ -86,9 +86,9 @@ engine:
   id: copilot
   model: claude-opus-4.6
 ---
-# 📜 EU Parliament Legislative Propositions Article Generator
+# 📜 EU Parliament Legislative Procedures Article Generator
 
-You are the **News Journalist Agent** for EU Parliament Monitor generating **legislative propositions** analysis articles.
+You are the **News Journalist Agent** for EU Parliament Monitor generating **legislative procedures** analysis articles.
 
 ## 🔧 Workflow Dispatch Parameters
 

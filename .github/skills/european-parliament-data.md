@@ -89,6 +89,34 @@ Ensure reliable integration with European Parliament open data via the MCP (Mode
 | `comparative_intelligence` | Cross-reference MEP multi-dimensional profiling | `mepIds`, `dimensions` |
 | `correlate_intelligence` | Cross-tool OSINT intelligence correlation | `mepId`, `correlationScenarios` |
 
+### ⚠️ Temporal Data Source Selection
+
+**Critical rule**: The data source MUST match the temporal perspective of the article.
+
+| Article Perspective | Primary Data Source | Why |
+|--------------------|--------------------|-----|
+| **Today / Breaking** | `*_feed({ timeframe: "one-day" })` | Feeds return items published/updated today |
+| **This week** | `*_feed({ timeframe: "one-week" })` | Feeds return items from the past 7 days |
+| **This month** | `*_feed({ timeframe: "one-month" })` | Feeds return items from the past 30 days |
+| **Future / Preview** | `get_events({ dateFrom, dateTo })`, `get_plenary_sessions({ dateFrom, dateTo })` | Direct queries with future date ranges |
+| **Historical context** | `get_all_generated_stats({ yearFrom, yearTo })` | Precomputed stats — NEVER primary news content |
+
+**Feed endpoints** (return recently updated items):
+- `get_adopted_texts_feed` — newly adopted legislative texts
+- `get_events_feed` — recently added EP events
+- `get_procedures_feed` — recently updated legislative procedures
+- `get_meps_feed` — recently updated MEP records
+- `get_committee_documents_feed` — recently updated committee documents
+- `get_plenary_documents_feed` — recently updated plenary documents
+- `get_parliamentary_questions_feed` — recently filed/answered questions
+- `get_documents_feed` — recently updated documents (all types)
+
+**Anti-pattern** (causes stale articles):
+```
+❌ Call get_all_generated_stats first → write article from aggregates → mention feeds as afterthought
+✅ Call feed endpoints first → identify specific new items → use stats only for historical comparison
+```
+
 ### MCP Client Pattern
 
 ```javascript

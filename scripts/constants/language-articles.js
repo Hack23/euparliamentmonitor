@@ -239,60 +239,60 @@ export const MONTHLY_REVIEW_TITLES = {
 /** Motions title templates per language */
 export const MOTIONS_TITLES = {
     en: (date) => ({
-        title: `Parliamentary Motions & Votes: ${date}`,
-        subtitle: 'Recent parliamentary motions, voting records, party cohesion analysis, and detected voting anomalies in the European Parliament',
+        title: `Plenary Votes & Resolutions: ${date}`,
+        subtitle: 'Recent plenary votes, adopted texts, party cohesion analysis, and detected voting anomalies in the European Parliament',
     }),
     sv: (date) => ({
-        title: `Parlamentariska Motioner & Omröstningar: ${date}`,
-        subtitle: 'Senaste parlamentariska motioner, omröstningsresultat, analys av partikohesion och upptäckta omröstningsanomalier i Europaparlamentet',
+        title: `Omröstningar & Resolutioner: ${date}`,
+        subtitle: 'Senaste plenarröstningar, antagna texter, analys av partikohesion och upptäckta omröstningsanomalier i Europaparlamentet',
     }),
     da: (date) => ({
-        title: `Parlamentariske Motioner & Afstemninger: ${date}`,
-        subtitle: 'Seneste parlamentariske motioner, afstemningsresultater, analyse af partikohæsion og opdagede afstemningsanomalier i Europa-Parlamentet',
+        title: `Plenar-afstemninger & Beslutninger: ${date}`,
+        subtitle: 'Seneste plenarafstemninger, vedtagne tekster, analyse af partikohæsion og opdagede afstemningsanomalier i Europa-Parlamentet',
     }),
     no: (date) => ({
-        title: `Parlamentariske Forslag & Avstemninger: ${date}`,
-        subtitle: 'Siste parlamentariske forslag, avstemningsresultater, partikohesjon og avvikende avstemninger i Europaparlamentet',
+        title: `Plenaravstemninger & Vedtak: ${date}`,
+        subtitle: 'Siste plenaravstemninger, vedtatte tekster, partikohesjon og avvikende avstemninger i Europaparlamentet',
     }),
     fi: (date) => ({
-        title: `Parlamentaariset Esitykset & Äänestykset: ${date}`,
-        subtitle: 'Viimeisimmät parlamentaariset esitykset, äänestystulokset, puoluekohesio-analyysi ja havaitut äänestyspoikkeamat Euroopan parlamentissa',
+        title: `Täysistuntoäänestykset & Päätöslauselmat: ${date}`,
+        subtitle: 'Viimeisimmät täysistuntoäänestykset, hyväksytyt tekstit, puoluekohesio-analyysi ja havaitut äänestyspoikkeamat Euroopan parlamentissa',
     }),
     de: (date) => ({
-        title: `Parlamentarische Anträge & Abstimmungen: ${date}`,
-        subtitle: 'Aktuelle parlamentarische Anträge, Abstimmungsergebnisse, Fraktionskohäsionsanalyse und erkannte Abstimmungsanomalien im Europäischen Parlament',
+        title: `Plenar-Abstimmungen & Entschließungen: ${date}`,
+        subtitle: 'Aktuelle Plenar-Abstimmungen, angenommene Texte, Fraktionskohäsionsanalyse und erkannte Abstimmungsanomalien im Europäischen Parlament',
     }),
     fr: (date) => ({
-        title: `Motions & Votes Parlementaires: ${date}`,
-        subtitle: 'Motions parlementaires récentes, résultats de votes, analyse de cohésion des groupes politiques et anomalies de vote détectées au Parlement européen',
+        title: `Votes & Résolutions en Plénière: ${date}`,
+        subtitle: 'Votes pléniers récents, textes adoptés, analyse de cohésion des groupes politiques et anomalies de vote détectées au Parlement européen',
     }),
     es: (date) => ({
-        title: `Mociones & Votaciones Parlamentarias: ${date}`,
-        subtitle: 'Mociones parlamentarias recientes, resultados de votaciones, análisis de cohesión de grupos políticos y anomalías de votación detectadas en el Parlamento Europeo',
+        title: `Votaciones y Resoluciones Plenarias: ${date}`,
+        subtitle: 'Votaciones plenarias recientes, textos adoptados, análisis de cohesión de grupos políticos y anomalías de votación detectadas en el Parlamento Europeo',
     }),
     nl: (date) => ({
-        title: `Parlementaire Moties & Stemmingen: ${date}`,
-        subtitle: 'Recente parlementaire moties, stemresultaten, fractiebinding-analyse en gedetecteerde stemanomalieën in het Europees Parlement',
+        title: `Plenaire Stemmingen & Resoluties: ${date}`,
+        subtitle: 'Recente plenaire stemmingen, aangenomen teksten, fractiebinding-analyse en gedetecteerde stemanomalieën in het Europees Parlement',
     }),
     ar: (date) => ({
-        title: `الاقتراحات البرلمانية والتصويت: ${date}`,
-        subtitle: 'أحدث الاقتراحات البرلمانية وسجلات التصويت وتحليل تماسك الأحزاب والشذوذ في التصويت في البرلمان الأوروبي',
+        title: `التصويتات والقرارات العامة: ${date}`,
+        subtitle: 'أحدث التصويتات العامة والنصوص المعتمدة وتحليل تماسك الأحزاب والشذوذ في التصويت في البرلمان الأوروبي',
     }),
     he: (date) => ({
-        title: `הצעות פרלמנטריות והצבעות: ${date}`,
-        subtitle: 'הצעות פרלמנטריות אחרונות, רשומות הצבעה, ניתוח לכידות מפלגתית וחריגות הצבעה בפרלמנט האירופי',
+        title: `הצבעות והחלטות מליאה: ${date}`,
+        subtitle: 'הצבעות מליאה אחרונות, טקסטים שאומצו, ניתוח לכידות מפלגתית וחריגות הצבעה בפרלמנט האירופי',
     }),
     ja: (date) => ({
-        title: `議会動議と投票: ${date}`,
-        subtitle: '欧州議会における最近の議会動議、投票記録、政党結束分析、投票異常',
+        title: `本会議投票・決議: ${date}`,
+        subtitle: '欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常',
     }),
     ko: (date) => ({
-        title: `의회 동의안 및 투표: ${date}`,
-        subtitle: '유럽 의회의 최근 의회 동의안, 투표 기록, 정당 결속 분석 및 투표 이상 감지',
+        title: `본회의 투표 및 결의: ${date}`,
+        subtitle: '유럽 의회의 최근 본회의 투표, 채택 텍스트, 정당 결속 분석 및 투표 이상 감지',
     }),
     zh: (date) => ({
-        title: `议会动议与投票: ${date}`,
-        subtitle: '欧洲议会最近的议会动议、投票记录、政党凝聚力分析和投票异常检测',
+        title: `全体投票与决议: ${date}`,
+        subtitle: '欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测',
     }),
 };
 /** Breaking news title templates per language */
@@ -416,59 +416,59 @@ export const COMMITTEE_REPORTS_TITLES = {
 /** Propositions title templates per language */
 export const PROPOSITIONS_TITLES = {
     en: () => ({
-        title: 'Legislative Proposals: European Parliament Monitor',
+        title: 'Legislative Procedures: European Parliament Monitor',
         subtitle: 'Recent legislative proposals, procedure tracking, and pipeline status in the European Parliament',
     }),
     sv: () => ({
-        title: 'Lagstiftningsförslag: EU-parlamentsmonitor',
+        title: 'Lagstiftningsförfaranden: EU-parlamentsmonitor',
         subtitle: 'Senaste lagstiftningsförslag, procedurspårning och pipeline-status i Europaparlamentet',
     }),
     da: () => ({
-        title: 'Lovgivningsforslag: EU-parlamentsmonitor',
+        title: 'Lovgivningsprocedurer: EU-parlamentsmonitor',
         subtitle: 'Seneste lovgivningsforslag, proceduresporing og pipeline-status i Europa-Parlamentet',
     }),
     no: () => ({
-        title: 'Lovgivningsforslag: EU-parlamentsmonitor',
+        title: 'Lovgivningsprosedyrer: EU-parlamentsmonitor',
         subtitle: 'Siste lovgivningsforslag, prosedyresporing og pipeline-status i Europaparlamentet',
     }),
     fi: () => ({
-        title: 'Lainsäädäntöehdotukset: EU-parlamentin seuranta',
+        title: 'Lainsäädäntömenettelyt: EU-parlamentin seuranta',
         subtitle: 'Viimeisimmät lainsäädäntöehdotukset, menettelyseuranta ja pipeline-tila Euroopan parlamentissa',
     }),
     de: () => ({
-        title: 'Gesetzgebungsvorschläge: EU-Parlamentsmonitor',
+        title: 'Gesetzgebungsverfahren: EU-Parlamentsmonitor',
         subtitle: 'Aktuelle Gesetzgebungsvorschläge, Verfahrensverfolgung und Pipeline-Status im Europäischen Parlament',
     }),
     fr: () => ({
-        title: 'Propositions Législatives: Moniteur du Parlement Européen',
+        title: 'Procédures Législatives: Moniteur du Parlement Européen',
         subtitle: 'Propositions législatives récentes, suivi des procédures et état du pipeline au Parlement européen',
     }),
     es: () => ({
-        title: 'Propuestas Legislativas: Monitor del Parlamento Europeo',
+        title: 'Procedimientos Legislativos: Monitor del Parlamento Europeo',
         subtitle: 'Propuestas legislativas recientes, seguimiento de procedimientos y estado del pipeline en el Parlamento Europeo',
     }),
     nl: () => ({
-        title: 'Wetgevingsvoorstellen: EU Parlementsmonitor',
+        title: 'Wetgevingsprocedures: EU Parlementsmonitor',
         subtitle: 'Recente wetgevingsvoorstellen, procedurebewaking en pipeline-status in het Europees Parlement',
     }),
     ar: () => ({
-        title: 'المقترحات التشريعية: مراقب البرلمان الأوروبي',
+        title: 'الإجراءات التشريعية: مراقب البرلمان الأوروبي',
         subtitle: 'المقترحات التشريعية الأخيرة ومتابعة الإجراءات وحالة خط الأنابيب في البرلمان الأوروبي',
     }),
     he: () => ({
-        title: 'הצעות חקיקה: מוניטור הפרלמנט האירופי',
+        title: 'הליכי חקיקה: מוניטור הפרלמנט האירופי',
         subtitle: 'הצעות חקיקה אחרונות, מעקב אחר הליכים ומצב צינור החקיקה בפרלמנט האירופי',
     }),
     ja: () => ({
-        title: '法案提案: EU議会モニター',
-        subtitle: '欧州議会における最近の法案提案、手続き追跡、パイプライン状況',
+        title: '立法手続: EU議会モニター',
+        subtitle: '欧州議会における最近の立法提案、手続き追跡、パイプライン状況',
     }),
     ko: () => ({
-        title: '입법 제안: EU 의회 모니터',
+        title: '입법 절차: EU 의회 모니터',
         subtitle: '유럽 의회의 최근 입법 제안, 절차 추적 및 파이프라인 상태',
     }),
     zh: () => ({
-        title: '立法提案: EU议会监测',
+        title: '立法程序: EU议会监测',
         subtitle: '欧洲议会最近的立法提案、程序跟踪和流水线状态',
     }),
 };
