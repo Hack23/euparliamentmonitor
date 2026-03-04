@@ -323,7 +323,15 @@ export function buildDeepAnalysisSection(analysis, lang) {
     const consequencesHtml = buildConsequencesSection(analysis.actionConsequences, strings.consequencesHeading, strings, strings);
     const mistakesHtml = buildMistakesSection(analysis.mistakes, strings.mistakesHeading, strings.alternativeLabel);
     const outlookHtml = buildOutlookSection(analysis.outlook, strings.outlookHeading);
-    const innerContent = whatHtml + whoHtml + whenHtml + whyHtml + stakeholderHtml + impactHtml + consequencesHtml + mistakesHtml + outlookHtml;
+    const innerContent = whatHtml +
+        whoHtml +
+        whenHtml +
+        whyHtml +
+        stakeholderHtml +
+        impactHtml +
+        consequencesHtml +
+        mistakesHtml +
+        outlookHtml;
     // If all sub-sections are empty, return nothing
     if (!innerContent.trim())
         return '';

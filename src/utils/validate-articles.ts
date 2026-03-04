@@ -220,9 +220,7 @@ function printFailures(report: ValidationReport): void {
  * @param report - Validation report
  */
 function printWarnings(report: ValidationReport): void {
-  const withWarnings = report.articles.filter(
-    (a) => a.valid && a.warnings.length > 0
-  );
+  const withWarnings = report.articles.filter((a) => a.valid && a.warnings.length > 0);
   if (withWarnings.length === 0) return;
 
   console.log('── WARNINGS ──────────────────────────────────────────────────\n');

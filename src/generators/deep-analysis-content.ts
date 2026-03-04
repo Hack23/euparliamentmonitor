@@ -21,7 +21,12 @@
 
 import { escapeHTML } from '../utils/file-utils.js';
 import { getLocalizedString, DEEP_ANALYSIS_STRINGS } from '../constants/languages.js';
-import type { DeepAnalysis, StakeholderOutcome, ActionConsequence, PoliticalMistake } from '../types/index.js';
+import type {
+  DeepAnalysis,
+  StakeholderOutcome,
+  ActionConsequence,
+  PoliticalMistake,
+} from '../types/index.js';
 
 // ─── Sub-section builders ────────────────────────────────────────────────────
 
@@ -229,7 +234,12 @@ function buildImpactSection(
  */
 function severityLabel(
   severity: ActionConsequence['severity'],
-  strings: { severityLow: string; severityMedium: string; severityHigh: string; severityCritical: string }
+  strings: {
+    severityLow: string;
+    severityMedium: string;
+    severityHigh: string;
+    severityCritical: string;
+  }
 ): string {
   switch (severity) {
     case 'low':
@@ -264,7 +274,12 @@ function buildConsequencesSection(
   items: readonly ActionConsequence[],
   heading: string,
   labels: { actionLabel: string; consequenceLabel: string },
-  strings: { severityLow: string; severityMedium: string; severityHigh: string; severityCritical: string }
+  strings: {
+    severityLow: string;
+    severityMedium: string;
+    severityHigh: string;
+    severityCritical: string;
+  }
 ): string {
   if (items.length === 0) return '';
   const rows = items
@@ -372,7 +387,11 @@ export function buildDeepAnalysisSection(
   const whoHtml = buildWhoSection(analysis.who, strings.whoHeading);
   const whenHtml = buildWhenSection(analysis.when, strings.whenHeading);
   const whyHtml = buildWhySection(analysis.why, strings.whyHeading);
-  const stakeholderHtml = buildStakeholderSection(analysis.stakeholderOutcomes, strings.stakeholderHeading, strings);
+  const stakeholderHtml = buildStakeholderSection(
+    analysis.stakeholderOutcomes,
+    strings.stakeholderHeading,
+    strings
+  );
   const impactHtml = buildImpactSection(analysis.impactAssessment, strings.impactHeading, strings);
   const consequencesHtml = buildConsequencesSection(
     analysis.actionConsequences,
@@ -380,11 +399,23 @@ export function buildDeepAnalysisSection(
     strings,
     strings
   );
-  const mistakesHtml = buildMistakesSection(analysis.mistakes, strings.mistakesHeading, strings.alternativeLabel);
+  const mistakesHtml = buildMistakesSection(
+    analysis.mistakes,
+    strings.mistakesHeading,
+    strings.alternativeLabel
+  );
   const outlookHtml = buildOutlookSection(analysis.outlook, strings.outlookHeading);
 
   const innerContent =
-    whatHtml + whoHtml + whenHtml + whyHtml + stakeholderHtml + impactHtml + consequencesHtml + mistakesHtml + outlookHtml;
+    whatHtml +
+    whoHtml +
+    whenHtml +
+    whyHtml +
+    stakeholderHtml +
+    impactHtml +
+    consequencesHtml +
+    mistakesHtml +
+    outlookHtml;
 
   // If all sub-sections are empty, return nothing
   if (!innerContent.trim()) return '';

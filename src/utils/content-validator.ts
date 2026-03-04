@@ -218,14 +218,8 @@ function extractClaimedReadTime(html: string): number {
  */
 function extractMetaContent(html: string, attr: string, value: string): string {
   // Handle both orderings: <meta name="x" content="y"> and <meta content="y" name="x">
-  const pattern1 = new RegExp(
-    `<meta\\s+${attr}="${value}"\\s+content="([^"]*)"`,
-    'iu'
-  );
-  const pattern2 = new RegExp(
-    `<meta\\s+content="([^"]*)"\\s+${attr}="${value}"`,
-    'iu'
-  );
+  const pattern1 = new RegExp(`<meta\\s+${attr}="${value}"\\s+content="([^"]*)"`, 'iu');
+  const pattern2 = new RegExp(`<meta\\s+content="([^"]*)"\\s+${attr}="${value}"`, 'iu');
   return pattern1.exec(html)?.[1] ?? pattern2.exec(html)?.[1] ?? '';
 }
 

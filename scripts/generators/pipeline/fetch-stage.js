@@ -710,7 +710,11 @@ function mapFeedItemBase(item) {
         id: String(item['id'] ?? item['docId'] ?? ''),
         title: String(item['title'] ?? item['label'] ?? item['name'] ?? item['identifier'] ?? 'Untitled'),
         date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
-        type: item['type'] ? String(item['type']) : item['work_type'] ? String(item['work_type']) : undefined,
+        type: item['type']
+            ? String(item['type'])
+            : item['work_type']
+                ? String(item['work_type'])
+                : undefined,
         url: item['url'] ? String(item['url']) : undefined,
         identifier: item['identifier'] ? String(item['identifier']) : undefined,
         label: item['label'] ? String(item['label']) : undefined,
@@ -1037,10 +1041,18 @@ export async function fetchEPFeedData(client, timeframe = 'one-day') {
         fetchDeclarationsFeed(client, timeframe),
         fetchCorporateBodiesFeed(client, timeframe),
     ]);
-    const totalItems = adoptedTexts.length + events.length + procedures.length + mepUpdates.length +
-        documents.length + plenaryDocuments.length + committeeDocuments.length +
-        plenarySessionDocuments.length + externalDocuments.length + questions.length +
-        declarations.length + corporateBodies.length;
+    const totalItems = adoptedTexts.length +
+        events.length +
+        procedures.length +
+        mepUpdates.length +
+        documents.length +
+        plenaryDocuments.length +
+        committeeDocuments.length +
+        plenarySessionDocuments.length +
+        externalDocuments.length +
+        questions.length +
+        declarations.length +
+        corporateBodies.length;
     console.log(`  ✅ Fetched ${totalItems} total feed items across 12 endpoints`);
     return {
         adoptedTexts,

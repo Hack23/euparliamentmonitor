@@ -969,9 +969,15 @@ function mapFeedItemBase(item: Record<string, unknown>): {
 } {
   return {
     id: String(item['id'] ?? item['docId'] ?? ''),
-    title: String(item['title'] ?? item['label'] ?? item['name'] ?? item['identifier'] ?? 'Untitled'),
+    title: String(
+      item['title'] ?? item['label'] ?? item['name'] ?? item['identifier'] ?? 'Untitled'
+    ),
     date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
-    type: item['type'] ? String(item['type']) : item['work_type'] ? String(item['work_type']) : undefined,
+    type: item['type']
+      ? String(item['type'])
+      : item['work_type']
+        ? String(item['work_type'])
+        : undefined,
     url: item['url'] ? String(item['url']) : undefined,
     identifier: item['identifier'] ? String(item['identifier']) : undefined,
     label: item['label'] ? String(item['label']) : undefined,
@@ -1360,9 +1366,7 @@ export async function fetchEPFeedData(
 ): Promise<EPFeedData | undefined> {
   if (!client) return undefined;
   if (!mcpCircuitBreaker.canRequest()) {
-    console.warn(
-      `${WARN_PREFIX} Circuit breaker OPEN — treating as MCP unavailable for EP feeds`
-    );
+    console.warn(`${WARN_PREFIX} Circuit breaker OPEN — treating as MCP unavailable for EP feeds`);
     return undefined;
   }
   console.log(`${MCP_FETCH_PREFIX} Fetching comprehensive EP feed data (${timeframe})...`);
@@ -1395,10 +1399,18 @@ export async function fetchEPFeedData(
   ]);
 
   const totalItems =
-    adoptedTexts.length + events.length + procedures.length + mepUpdates.length +
-    documents.length + plenaryDocuments.length + committeeDocuments.length +
-    plenarySessionDocuments.length + externalDocuments.length + questions.length +
-    declarations.length + corporateBodies.length;
+    adoptedTexts.length +
+    events.length +
+    procedures.length +
+    mepUpdates.length +
+    documents.length +
+    plenaryDocuments.length +
+    committeeDocuments.length +
+    plenarySessionDocuments.length +
+    externalDocuments.length +
+    questions.length +
+    declarations.length +
+    corporateBodies.length;
   console.log(`  ✅ Fetched ${totalItems} total feed items across 12 endpoints`);
 
   return {

@@ -113,7 +113,8 @@ function deriveMistakesFromAnomalies(anomalies: readonly VotingAnomaly[]): Polit
     .map((a) => ({
       actor: 'Political group leadership',
       description: `${a.type}: ${a.description}`,
-      alternative: 'Stronger whip coordination or earlier compromise negotiation could have maintained party discipline',
+      alternative:
+        'Stronger whip coordination or earlier compromise negotiation could have maintained party discipline',
     }));
 }
 
@@ -145,31 +146,43 @@ export function buildVotingAnalysis(
   return {
     what: `${records.length} votes recorded between ${dateFrom} and ${dateTo}: ${adoptedCount} adopted, ${rejectedCount} rejected. ${anomalies.length} voting anomalies detected across ${patterns.length} political groups. ${questions.length} parliamentary questions filed.`,
     who: [
-      ...patterns.map((p) => `${p.group} — cohesion: ${(p.cohesion * 100).toFixed(0)}%, participation: ${(p.participation * 100).toFixed(0)}%`),
+      ...patterns.map(
+        (p) =>
+          `${p.group} — cohesion: ${(p.cohesion * 100).toFixed(0)}%, participation: ${(p.participation * 100).toFixed(0)}%`
+      ),
       ...questions.slice(0, 3).map((q) => `${q.author} — question on "${q.topic}"`),
     ],
     when: [
       `Period: ${dateFrom} to ${dateTo}`,
       ...records.slice(0, 3).map((r) => `${r.date}: Vote on "${r.title}" — ${r.result}`),
     ],
-    why: patterns.length > 0
-      ? `Voting behaviour reveals the balance of power: groups with high cohesion (${patterns.filter((p) => p.cohesion > 0.8).length} groups above 80%) can form blocking minorities or drive legislation. Anomalies signal shifting alliances and emerging fault lines that may reshape future coalition dynamics.`
-      : 'Voting patterns in this period reflect ongoing legislative negotiations and inter-institutional bargaining positions.',
+    why:
+      patterns.length > 0
+        ? `Voting behaviour reveals the balance of power: groups with high cohesion (${patterns.filter((p) => p.cohesion > 0.8).length} groups above 80%) can form blocking minorities or drive legislation. Anomalies signal shifting alliances and emerging fault lines that may reshape future coalition dynamics.`
+        : 'Voting patterns in this period reflect ongoing legislative negotiations and inter-institutional bargaining positions.',
     stakeholderOutcomes: deriveStakeholderOutcomesFromVoting(records, patterns),
     impactAssessment: {
       political: `${adoptedCount} adopted texts will shape EU policy. ${anomalies.length} anomalies suggest internal disagreements that may affect future negotiations.`,
-      economic: topTopics.length > 0
-        ? `Legislation on ${topTopics.join(', ')} may affect regulatory environments, compliance costs, and market conditions across member states.`
-        : 'The legislative outcomes in this period carry potential economic implications for EU businesses and citizens.',
-      social: `Parliamentary questions on ${questions.slice(0, 2).map((q) => q.topic).join(' and ') || 'key policy areas'} highlight citizen concerns that MEPs are bringing to the legislative agenda.`,
+      economic:
+        topTopics.length > 0
+          ? `Legislation on ${topTopics.join(', ')} may affect regulatory environments, compliance costs, and market conditions across member states.`
+          : 'The legislative outcomes in this period carry potential economic implications for EU businesses and citizens.',
+      social: `Parliamentary questions on ${
+        questions
+          .slice(0, 2)
+          .map((q) => q.topic)
+          .join(' and ') || 'key policy areas'
+      } highlight citizen concerns that MEPs are bringing to the legislative agenda.`,
       legal: `${adoptedCount} adopted texts enter the EU legal framework. Rejected proposals (${rejectedCount}) may return in amended form, creating legal uncertainty in affected policy areas.`,
-      geopolitical: 'Voting patterns reflect evolving EU positions on international affairs, trade relationships, and global governance commitments.',
+      geopolitical:
+        'Voting patterns reflect evolving EU positions on international affairs, trade relationships, and global governance commitments.',
     },
     actionConsequences: deriveConsequencesFromVoting(records, anomalies),
     mistakes: deriveMistakesFromAnomalies(anomalies),
-    outlook: anomalies.length > 0
-      ? `Watch for coalition realignment: ${anomalies.length} anomalies detected. Groups with declining cohesion may seek new alliance partners. Upcoming committee votes will test whether these shifts are temporary or structural.`
-      : 'The legislative trajectory suggests continued consensus-building with potential pressure points in the weeks ahead.',
+    outlook:
+      anomalies.length > 0
+        ? `Watch for coalition realignment: ${anomalies.length} anomalies detected. Groups with declining cohesion may seek new alliance partners. Upcoming committee votes will test whether these shifts are temporary or structural.`
+        : 'The legislative trajectory suggests continued consensus-building with potential pressure points in the weeks ahead.',
   };
 }
 
@@ -197,15 +210,18 @@ export function buildProspectiveAnalysis(
     what: `European Parliament ${label} ahead (${dateRange.start} to ${dateRange.end}): ${eventCount} plenary events, ${committeeCount} committee meetings, ${docCount} legislative documents, ${pipelineCount} pipeline procedures, ${questionCount} parliamentary questions scheduled.`,
     who: [
       ...weekData.events.slice(0, 3).map((e) => `${e.type}: ${e.title}`),
-      ...weekData.committees.slice(0, 3).map((c) => `${c.committeeName ?? c.committee} — ${c.agenda?.length ?? 0} agenda items`),
+      ...weekData.committees
+        .slice(0, 3)
+        .map((c) => `${c.committeeName ?? c.committee} — ${c.agenda?.length ?? 0} agenda items`),
     ],
     when: [
       `Period: ${dateRange.start} to ${dateRange.end}`,
       ...weekData.events.slice(0, 4).map((e) => `${e.date}: ${e.title}`),
     ],
-    why: bottleneckProcedures.length > 0
-      ? `${bottleneckProcedures.length} legislative procedures face bottleneck risks. These delays affect the EU's ability to respond to pressing policy challenges and may create downstream scheduling conflicts.`
-      : `With ${eventCount} events and ${pipelineCount} active procedures, this ${label} represents a significant workload. Scheduling density increases the risk of compressed debate time and last-minute amendments.`,
+    why:
+      bottleneckProcedures.length > 0
+        ? `${bottleneckProcedures.length} legislative procedures face bottleneck risks. These delays affect the EU's ability to respond to pressing policy challenges and may create downstream scheduling conflicts.`
+        : `With ${eventCount} events and ${pipelineCount} active procedures, this ${label} represents a significant workload. Scheduling density increases the risk of compressed debate time and last-minute amendments.`,
     stakeholderOutcomes: [
       ...(bottleneckProcedures.length > 0
         ? [
@@ -228,28 +244,32 @@ export function buildProspectiveAnalysis(
     ],
     impactAssessment: {
       political: `${eventCount} plenary events will test political group discipline and coalition stability. Watch for amendment battles in key legislative files.`,
-      economic: docCount > 0
-        ? `${docCount} legislative documents under consideration may reshape market regulations, trade policies, or fiscal rules.`
-        : 'No major economic legislation currently flagged, though committee discussions may surface new regulatory proposals.',
-      social: questionCount > 0
-        ? `${questionCount} parliamentary questions signal MEP engagement with citizen concerns on policy implementation and accountability.`
-        : 'Social impact depends on the outcomes of plenary debates and committee decisions.',
-      legal: pipelineCount > 0
-        ? `${pipelineCount} pipeline procedures advancing through legislative stages — each vote creates binding legal obligations for member states.`
-        : 'The legal landscape awaits legislative outcomes from scheduled proceedings.',
-      geopolitical: 'External affairs debates and foreign policy questions may signal evolving EU positioning on global matters.',
+      economic:
+        docCount > 0
+          ? `${docCount} legislative documents under consideration may reshape market regulations, trade policies, or fiscal rules.`
+          : 'No major economic legislation currently flagged, though committee discussions may surface new regulatory proposals.',
+      social:
+        questionCount > 0
+          ? `${questionCount} parliamentary questions signal MEP engagement with citizen concerns on policy implementation and accountability.`
+          : 'Social impact depends on the outcomes of plenary debates and committee decisions.',
+      legal:
+        pipelineCount > 0
+          ? `${pipelineCount} pipeline procedures advancing through legislative stages — each vote creates binding legal obligations for member states.`
+          : 'The legal landscape awaits legislative outcomes from scheduled proceedings.',
+      geopolitical:
+        'External affairs debates and foreign policy questions may signal evolving EU positioning on global matters.',
     },
     actionConsequences: [
-      ...(bottleneckProcedures.slice(0, 2).map((p) => ({
+      ...bottleneckProcedures.slice(0, 2).map((p) => ({
         action: `"${p.title}" in ${p.stage ?? 'committee'} stage`,
         consequence: 'Bottleneck risk may cause delay or force procedural shortcuts',
         severity: 'high' as const,
-      }))),
-      ...(weekData.events.slice(0, 2).map((e) => ({
+      })),
+      ...weekData.events.slice(0, 2).map((e) => ({
         action: `${e.type} on "${e.title}"`,
         consequence: e.description || 'Outcome will shape legislative direction',
         severity: 'medium' as const,
-      }))),
+      })),
     ],
     mistakes: bottleneckProcedures.slice(0, 2).map((p) => ({
       actor: 'Legislative coordinators',
@@ -286,27 +306,28 @@ export function buildBreakingAnalysis(
       ...(feedData?.adoptedTexts.slice(0, 3).map((t) => `Adopted: ${t.title}`) ?? []),
       ...(feedData?.mepUpdates.slice(0, 2).map((m) => `MEP: ${m.name}`) ?? []),
     ],
-    when: [
-      `Date: ${date}`,
-      ...(feedData?.events.slice(0, 3).map((e) => `${e.title}`) ?? []),
-    ],
+    when: [`Date: ${date}`, ...(feedData?.events.slice(0, 3).map((e) => `${e.title}`) ?? [])],
     why: anomalyRaw
       ? 'Voting anomalies and coalition shifts signal realignment of political forces within Parliament. These developments may alter the legislative calculus for pending files.'
       : 'Current events reflect the ongoing pace of legislative activity. Feed data provides real-time visibility into parliamentary proceedings.',
     stakeholderOutcomes: [
       ...(adoptedCount > 0
-        ? [{
-            actor: 'Legislative majority',
-            outcome: 'winner' as const,
-            reason: `${adoptedCount} texts adopted — the governing coalition successfully advanced its agenda`,
-          }]
+        ? [
+            {
+              actor: 'Legislative majority',
+              outcome: 'winner' as const,
+              reason: `${adoptedCount} texts adopted — the governing coalition successfully advanced its agenda`,
+            },
+          ]
         : []),
       ...(coalitionRaw
-        ? [{
-            actor: 'Opposition groups',
-            outcome: 'neutral' as const,
-            reason: 'Coalition dynamics in flux — opposition groups may find new leverage points',
-          }]
+        ? [
+            {
+              actor: 'Opposition groups',
+              outcome: 'neutral' as const,
+              reason: 'Coalition dynamics in flux — opposition groups may find new leverage points',
+            },
+          ]
         : []),
     ],
     impactAssessment: {
@@ -333,11 +354,15 @@ export function buildBreakingAnalysis(
       })) ?? []),
     ],
     mistakes: anomalyRaw
-      ? [{
-          actor: 'Political group whips',
-          description: 'Failed to maintain voting discipline — anomalies detected in party-line votes',
-          alternative: 'Pre-vote consultations and compromise amendments could have preserved cohesion',
-        }]
+      ? [
+          {
+            actor: 'Political group whips',
+            description:
+              'Failed to maintain voting discipline — anomalies detected in party-line votes',
+            alternative:
+              'Pre-vote consultations and compromise amendments could have preserved cohesion',
+          },
+        ]
       : [],
     outlook: `Developments on ${date} signal ${adoptedCount > 0 ? 'an active legislative phase' : 'a transitional period'}. Watch for downstream effects on pending committee files and upcoming plenary sessions.`,
   };
@@ -397,54 +422,64 @@ export function buildPropositionsAnalysis(
       'Shadow rapporteurs (political group negotiators)',
       'Council of the EU (co-legislator)',
     ],
-    when: [
-      `Assessment date: ${date}`,
-      'Pipeline health reflects cumulative legislative progress',
-    ],
+    when: [`Assessment date: ${date}`, 'Pipeline health reflects cumulative legislative progress'],
     why: buildPropositionsWhy(healthScore, throughput),
     stakeholderOutcomes: [
       ...(healthScore > 0.7
-        ? [{
-            actor: 'Parliament presidency',
-            outcome: 'winner' as const,
-            reason: `High pipeline health (${pct}%) demonstrates effective legislative management`,
-          }]
-        : [{
-            actor: 'Pending legislation sponsors',
-            outcome: 'loser' as const,
-            reason: `Low pipeline health (${pct}%) means delays and potential session carry-overs`,
-          }]),
+        ? [
+            {
+              actor: 'Parliament presidency',
+              outcome: 'winner' as const,
+              reason: `High pipeline health (${pct}%) demonstrates effective legislative management`,
+            },
+          ]
+        : [
+            {
+              actor: 'Pending legislation sponsors',
+              outcome: 'loser' as const,
+              reason: `Low pipeline health (${pct}%) means delays and potential session carry-overs`,
+            },
+          ]),
     ],
     impactAssessment: {
       political: `Legislative throughput affects each political group's ability to deliver on manifesto commitments. ${healthScore < 0.5 ? 'Current congestion benefits status-quo defenders.' : 'Current pace favours reform-oriented groups.'}`,
-      economic: 'Pending legislation on digital markets, sustainability reporting, and fiscal governance carries significant economic implications for EU businesses.',
-      social: 'Citizens await legislative outcomes on healthcare, education, and social protection proposals currently in the pipeline.',
+      economic:
+        'Pending legislation on digital markets, sustainability reporting, and fiscal governance carries significant economic implications for EU businesses.',
+      social:
+        'Citizens await legislative outcomes on healthcare, education, and social protection proposals currently in the pipeline.',
       legal: `${throughput} procedures at various stages create a complex legal landscape. Overlapping implementation timelines may strain member state transposition capacity.`,
-      geopolitical: 'Trade, foreign aid, and sanctions-related proposals in the pipeline affect EU positioning in international negotiations.',
+      geopolitical:
+        'Trade, foreign aid, and sanctions-related proposals in the pipeline affect EU positioning in international negotiations.',
     },
     actionConsequences: [
       {
         action: `Pipeline health at ${pct}%`,
-        consequence: healthScore < 0.5
-          ? 'Risk of legislative session overrun; may force prioritisation and file abandonment'
-          : 'Sustainable pace; Parliament can accommodate new files without delay',
+        consequence:
+          healthScore < 0.5
+            ? 'Risk of legislative session overrun; may force prioritisation and file abandonment'
+            : 'Sustainable pace; Parliament can accommodate new files without delay',
         severity: healthScore < 0.3 ? 'critical' : healthScore < 0.5 ? 'high' : 'medium',
       },
       {
         action: `Throughput rate at ${throughput}`,
-        consequence: throughput < 5
-          ? 'Slow processing reduces legislative output and postpones policy implementation'
-          : 'Healthy throughput enables timely delivery of policy commitments',
+        consequence:
+          throughput < 5
+            ? 'Slow processing reduces legislative output and postpones policy implementation'
+            : 'Healthy throughput enables timely delivery of policy commitments',
         severity: throughput < 5 ? 'high' : 'low',
       },
     ],
-    mistakes: healthScore < 0.5
-      ? [{
-          actor: 'Conference of Presidents',
-          description: `Pipeline health dropped to ${pct}% — legislative agenda may be overloaded`,
-          alternative: 'Prioritise flagship files and defer low-priority proposals to maintain pipeline flow',
-        }]
-      : [],
+    mistakes:
+      healthScore < 0.5
+        ? [
+            {
+              actor: 'Conference of Presidents',
+              description: `Pipeline health dropped to ${pct}% — legislative agenda may be overloaded`,
+              alternative:
+                'Prioritise flagship files and defer low-priority proposals to maintain pipeline flow',
+            },
+          ]
+        : [],
     outlook: `The legislative pipeline's ${pipelineHealthLabel(healthScore)} health will determine whether current proposals reach plenary before session breaks. Key trilogues and committee votes in the coming weeks will be decisive.`,
   };
 }
@@ -465,29 +500,43 @@ export function buildCommitteeAnalysis(
 
   return {
     what: `Committee activity report as of ${date}: ${committees.length} committees monitored, ${totalDocs} documents processed, ${activeCommittees.length} committees with recent activity.`,
-    who: committees.map((c) => `${c.name} (${c.abbreviation}) — Chair: ${c.chair}, ${c.members} members`),
+    who: committees.map(
+      (c) => `${c.name} (${c.abbreviation}) — Chair: ${c.chair}, ${c.members} members`
+    ),
     when: [
       `Reporting date: ${date}`,
-      ...committees.slice(0, 3).flatMap((c) =>
-        c.documents.slice(0, 1).map((d) => `${c.abbreviation}: ${d.title}${d.date ? ` (${d.date})` : ''}`)
-      ),
+      ...committees
+        .slice(0, 3)
+        .flatMap((c) =>
+          c.documents
+            .slice(0, 1)
+            .map((d) => `${c.abbreviation}: ${d.title}${d.date ? ` (${d.date})` : ''}`)
+        ),
     ],
-    why: `Committees are the legislative engine of the European Parliament — ${(activeCommittees.length / Math.max(committees.length, 1) * 100).toFixed(0)}% active rate signals ${activeCommittees.length >= committees.length * 0.7 ? 'robust' : 'moderate'} legislative productivity. Committee outputs directly shape the texts that reach plenary votes.`,
+    why: `Committees are the legislative engine of the European Parliament — ${((activeCommittees.length / Math.max(committees.length, 1)) * 100).toFixed(0)}% active rate signals ${activeCommittees.length >= committees.length * 0.7 ? 'robust' : 'moderate'} legislative productivity. Committee outputs directly shape the texts that reach plenary votes.`,
     stakeholderOutcomes: committees.slice(0, 4).map((c) => ({
       actor: `${c.name} (${c.abbreviation})`,
-      outcome: (c.documents.length > 2 ? 'winner' : c.documents.length > 0 ? 'neutral' : 'loser') as 'winner' | 'loser' | 'neutral',
-      reason: c.documents.length > 2
-        ? `${c.documents.length} documents — highly productive period`
+      outcome: (c.documents.length > 2
+        ? 'winner'
         : c.documents.length > 0
-          ? `${c.documents.length} document(s) — moderate activity`
-          : 'No recent documents — potential productivity concern',
+          ? 'neutral'
+          : 'loser') as 'winner' | 'loser' | 'neutral',
+      reason:
+        c.documents.length > 2
+          ? `${c.documents.length} documents — highly productive period`
+          : c.documents.length > 0
+            ? `${c.documents.length} document(s) — moderate activity`
+            : 'No recent documents — potential productivity concern',
     })),
     impactAssessment: {
       political: `Committee chairs wield significant agenda-setting power. Active committees (${activeCommittees.length}/${committees.length}) are shaping the legislative pipeline for the current session.`,
-      economic: 'Committee outputs on economic affairs, industry, and trade directly affect EU regulatory environments and business competitiveness.',
-      social: 'Social affairs, employment, and civil liberties committees produce legislation that directly impacts citizens\' daily lives.',
+      economic:
+        'Committee outputs on economic affairs, industry, and trade directly affect EU regulatory environments and business competitiveness.',
+      social:
+        "Social affairs, employment, and civil liberties committees produce legislation that directly impacts citizens' daily lives.",
       legal: `${totalDocs} documents in various stages of committee consideration will eventually create or modify EU law.`,
-      geopolitical: 'Foreign affairs and international trade committee activities signal evolving EU diplomatic and trade priorities.',
+      geopolitical:
+        'Foreign affairs and international trade committee activities signal evolving EU diplomatic and trade priorities.',
     },
     actionConsequences: activeCommittees.slice(0, 3).map((c) => ({
       action: `${c.abbreviation} processed ${c.documents.length} document(s)`,

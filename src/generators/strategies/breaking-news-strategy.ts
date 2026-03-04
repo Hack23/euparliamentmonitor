@@ -141,7 +141,12 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       [],
       data.feedData
     );
-    const analysis = buildBreakingAnalysis(data.date, data.feedData, data.anomalyRaw, data.coalitionRaw);
+    const analysis = buildBreakingAnalysis(
+      data.date,
+      data.feedData,
+      data.anomalyRaw,
+      data.coalitionRaw
+    );
     const deepSection = buildDeepAnalysisSection(analysis, lang);
     // Inject deep analysis before the closing </div> of .article-content
     if (deepSection) {
