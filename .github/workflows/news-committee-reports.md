@@ -480,8 +480,6 @@ npx tsx src/generators/news-enhanced.ts \
 
 **If the generator exits with a non-zero code, the workflow MUST FAIL. Do NOT attempt manual HTML generation as a fallback.**
 
-**Note**: When `USE_EP_MCP=false`, the script generates correct HTML structure with placeholder content sections. **Enrich ONLY the English article** by replacing placeholder `<p>` paragraphs in `<section>` elements with real analysis from the MCP data gathered above. For other language articles, the TypeScript templates already handle localized headings and labels — only update the narrative body paragraphs (the analysis text inside `<p>` tags) by writing translated versions of the English analysis. Do NOT rewrite entire articles — only update narrative `<p>` content.
-
 ### Step 4: MANDATORY Quality Validation
 
 After article generation, verify EACH article meets these minimum standards **before committing**.
