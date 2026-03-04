@@ -28,8 +28,6 @@ pids/
 .vitest/
 
 # Test results
-test-results/
-playwright-report/
 .last-run.json
 
 # Editor directories and files
