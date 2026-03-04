@@ -23,6 +23,8 @@ import {
   fetchEPFeedData,
 } from '../pipeline/fetch-stage.js';
 import { buildPropositionsContent } from '../propositions-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildPropositionsAnalysis } from '../analysis-builders.js';
 import type { PipelineData } from '../propositions-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
@@ -115,13 +117,24 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
    */
   buildContent(data: PropositionsArticleData, lang: LanguageCode): string {
     const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
-    return buildPropositionsContent(
+    const base = buildPropositionsContent(
       data.proposalsHtml,
       data.pipelineData,
       data.procedureHtml,
       strings,
       lang
     );
+    const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date);
+    const deepSection = buildDeepAnalysisSection(analysis, lang);
+    // Inject deep analysis before the closing </div> of .article-content
+    if (deepSection) {
+      const closingTag = '</div>';
+      const lastIdx = base.lastIndexOf(closingTag);
+      if (lastIdx !== -1) {
+        return base.slice(0, lastIdx) + deepSection + '\n' + base.slice(lastIdx);
+      }
+    }
+    return base;
   }
 
   /**

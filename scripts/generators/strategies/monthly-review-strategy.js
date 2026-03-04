@@ -4,6 +4,8 @@ import { ArticleCategory } from '../../types/index.js';
 import { MONTHLY_REVIEW_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchVotingRecords, fetchVotingPatterns, fetchMotionsAnomalies, fetchParliamentaryQuestionsForMotions, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent } from '../motions-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildVotingAnalysis } from '../analysis-builders.js';
 /** Keywords shared by all Monthly Review articles */
 const MONTHLY_REVIEW_KEYWORDS = [
     'European Parliament',
@@ -98,7 +100,10 @@ export class MonthlyReviewStrategy {
      * @returns Article HTML body
      */
     buildContent(data, lang) {
-        return generateMotionsContent(data.dateRange.start, data.dateRange.end, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
+        const base = generateMotionsContent(data.dateRange.start, data.dateRange.end, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
+        const analysis = buildVotingAnalysis(data.dateRange.start, data.dateRange.end, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
+        const deepSection = buildDeepAnalysisSection(analysis, lang);
+        return base.replace('<!-- /article-content -->', deepSection);
     }
     /**
      * Return language-specific metadata for the monthly review article.

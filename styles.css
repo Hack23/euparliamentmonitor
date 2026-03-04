@@ -1952,3 +1952,270 @@ button:focus-visible {
       0 0 0 4px #ffffff;
   }
 }
+
+/* ─── Deep Political Analysis Section ────────────────────────────── */
+.deep-analysis {
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-card) 100%);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.deep-analysis h2 {
+  color: var(--primary-dark);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary);
+}
+
+.deep-analysis h3 {
+  color: var(--primary);
+  font-size: 1.15rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.deep-analysis p {
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+/* 5W Sub-sections */
+.analysis-what,
+.analysis-who,
+.analysis-when,
+.analysis-why,
+.analysis-outlook {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+}
+
+.actor-list,
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.actor-list li {
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.95rem;
+}
+
+.actor-list li:last-child {
+  border-bottom: none;
+}
+
+.timeline-list {
+  list-style: decimal inside;
+}
+
+.timeline-list li {
+  padding: 0.35rem 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* Stakeholder Winners / Losers / Neutral */
+.analysis-stakeholders {
+  margin-bottom: 1rem;
+}
+
+.stakeholder-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.35rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+}
+
+.outcome-badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.stakeholder-winner {
+  background: #e6f9ed;
+  border: 1px solid var(--success);
+}
+
+.stakeholder-winner .stakeholder-badge {
+  background: var(--success);
+  color: #fff;
+}
+
+.stakeholder-loser {
+  background: #fde8ea;
+  border: 1px solid var(--danger);
+}
+
+.stakeholder-loser .stakeholder-badge {
+  background: var(--danger);
+  color: #fff;
+}
+
+.stakeholder-neutral {
+  background: #fff8e1;
+  border: 1px solid var(--warning);
+}
+
+.stakeholder-neutral .stakeholder-badge {
+  background: var(--warning);
+  color: var(--on-secondary);
+}
+
+.stakeholder-actor {
+  font-weight: 600;
+  min-width: 120px;
+}
+
+.stakeholder-reason {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Multi-perspective Impact Grid */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin: 0.75rem 0;
+}
+
+.impact-card {
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+.impact-card h4 {
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.impact-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Action → Consequences Table */
+.consequences-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+}
+
+.consequences-table th {
+  background: var(--primary);
+  color: #fff;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.consequences-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+
+.consequences-table tr:nth-child(even) {
+  background: var(--primary-light);
+}
+
+/* Severity badges */
+.severity-badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.severity-low {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.severity-medium {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.severity-high {
+  background: #fce4ec;
+  color: #c62828;
+}
+
+.severity-critical {
+  background: #880e4f;
+  color: #fff;
+}
+
+/* Political Mistakes */
+.mistake-card {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background: #fff8f8;
+  border-left: 3px solid var(--danger);
+  border-radius: var(--radius-sm);
+}
+
+.mistake-actor {
+  font-weight: 600;
+  color: var(--danger);
+  margin-bottom: 0.25rem;
+}
+
+.mistake-description {
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.mistake-alternative {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Responsive: stack impact grid on small screens */
+@media (max-width: 600px) {
+  .deep-analysis {
+    padding: 1rem;
+  }
+
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stakeholder-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .consequences-table {
+    font-size: 0.8rem;
+  }
+}

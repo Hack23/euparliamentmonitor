@@ -4,6 +4,8 @@ import { ArticleCategory } from '../../types/index.js';
 import { MONTH_AHEAD_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { buildWeekAheadContent, buildKeywords } from '../week-ahead-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildProspectiveAnalysis } from '../analysis-builders.js';
 /** Keywords shared by all Month Ahead articles */
 const MONTH_AHEAD_KEYWORDS = [
     'European Parliament',
@@ -91,7 +93,9 @@ export class MonthAheadStrategy {
      */
     buildContent(data, lang) {
         const base = buildWeekAheadContent(data.monthData, data.dateRange, lang);
-        return base.replace('<!-- /article-content -->', '');
+        const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month');
+        const analysisSection = buildDeepAnalysisSection(analysis, lang);
+        return base.replace('<!-- /article-content -->', analysisSection);
     }
     /**
      * Return language-specific metadata for the month-ahead article.

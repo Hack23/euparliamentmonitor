@@ -28,6 +28,8 @@ import {
   fetchEPFeedData,
 } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent } from '../motions-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildVotingAnalysis } from '../analysis-builders.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -147,7 +149,7 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
    * @returns Article HTML body
    */
   buildContent(data: WeeklyReviewArticleData, lang: LanguageCode): string {
-    return generateMotionsContent(
+    const base = generateMotionsContent(
       data.dateRange.start,
       data.dateRange.end,
       [...data.votingRecords],
@@ -156,6 +158,16 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
       [...data.questions],
       lang
     );
+    const analysis = buildVotingAnalysis(
+      data.dateRange.start,
+      data.dateRange.end,
+      data.votingRecords,
+      data.votingPatterns,
+      data.anomalies,
+      data.questions
+    );
+    const deepSection = buildDeepAnalysisSection(analysis, lang);
+    return base.replace('<!-- /article-content -->', deepSection);
   }
 
   /**

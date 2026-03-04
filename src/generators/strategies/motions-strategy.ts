@@ -21,6 +21,8 @@ import type {
 import { MOTIONS_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchMotionsData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent, buildPoliticalAlignmentSection } from '../motions-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildVotingAnalysis } from '../analysis-builders.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 /** Keywords shared by all Motions articles */
@@ -128,12 +130,22 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
       lang
     );
     const alignmentSection = buildPoliticalAlignmentSection([...data.votingRecords], [], lang);
+    const analysis = buildVotingAnalysis(
+      data.dateFromStr,
+      data.date,
+      data.votingRecords,
+      data.votingPatterns,
+      data.anomalies,
+      data.questions
+    );
+    const deepSection = buildDeepAnalysisSection(analysis, lang);
     // Inject at the explicit <!-- /article-content --> marker so the section
     // stays inside the .article-content styling scope. The marker is always
     // emitted by generateMotionsContent as the last child of that wrapper and
     // is removed from the final HTML during this replacement.
-    if (alignmentSection) {
-      return base.replace('<!-- /article-content -->', `${alignmentSection}\n`);
+    const injection = (alignmentSection || '') + deepSection;
+    if (injection) {
+      return base.replace('<!-- /article-content -->', `${injection}\n`);
     }
     return base.replace('<!-- /article-content -->', '');
   }

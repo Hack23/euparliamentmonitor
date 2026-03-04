@@ -15,6 +15,8 @@ import { COMMITTEE_REPORTS_TITLES, getLocalizedString } from '../../constants/la
 import { fetchCommitteeData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { FEATURED_COMMITTEES } from '../committee-helpers.js';
 import { escapeHTML } from '../../utils/file-utils.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildCommitteeAnalysis } from '../analysis-builders.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import type { ArticleSource } from '../../types/index.js';
 
@@ -152,7 +154,18 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
    * @returns Article HTML body
    */
   buildContent(data: CommitteeReportsArticleData, _lang: LanguageCode): string {
-    return buildCommitteeReportsHTML(data.committeeDataList);
+    const base = buildCommitteeReportsHTML(data.committeeDataList);
+    const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date);
+    const deepSection = buildDeepAnalysisSection(analysis, _lang);
+    // Inject deep analysis before the closing </div> of .article-content
+    if (deepSection) {
+      const closingTag = '</div>';
+      const lastIdx = base.lastIndexOf(closingTag);
+      if (lastIdx !== -1) {
+        return base.slice(0, lastIdx) + deepSection + '\n' + base.slice(lastIdx);
+      }
+    }
+    return base;
   }
 
   /**

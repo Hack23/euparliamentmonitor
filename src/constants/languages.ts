@@ -51,4 +51,5 @@ export {
   MOTIONS_STRINGS,
   WEEK_AHEAD_STRINGS,
   BREAKING_STRINGS,
+  DEEP_ANALYSIS_STRINGS,
 } from './language-articles.js';

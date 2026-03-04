@@ -32,6 +32,11 @@ export {
   type MotionsStrings,
   type WeekAheadStrings,
   type BreakingStrings,
+  type ActionConsequence,
+  type StakeholderOutcome,
+  type PoliticalMistake,
+  type DeepAnalysis,
+  type DeepAnalysisStrings,
 } from './common.js';
 
 export type {

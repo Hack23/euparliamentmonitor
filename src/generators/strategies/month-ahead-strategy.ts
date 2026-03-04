@@ -15,6 +15,8 @@ import type { LanguageCode, DateRange, WeekAheadData, EPFeedData } from '../../t
 import { MONTH_AHEAD_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { buildWeekAheadContent, buildKeywords } from '../week-ahead-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildProspectiveAnalysis } from '../analysis-builders.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -137,7 +139,9 @@ export class MonthAheadStrategy implements ArticleStrategy<MonthAheadArticleData
    */
   buildContent(data: MonthAheadArticleData, lang: LanguageCode): string {
     const base = buildWeekAheadContent(data.monthData, data.dateRange, lang);
-    return base.replace('<!-- /article-content -->', '');
+    const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month');
+    const analysisSection = buildDeepAnalysisSection(analysis, lang);
+    return base.replace('<!-- /article-content -->', analysisSection);
   }
 
   /**

@@ -18,6 +18,8 @@ import {
   buildKeywords,
   buildWhatToWatchSection,
 } from '../week-ahead-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildProspectiveAnalysis } from '../analysis-builders.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -119,11 +121,14 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
   buildContent(data: WeekAheadArticleData, lang: LanguageCode): string {
     const base = buildWeekAheadContent(data.weekData, data.dateRange, lang);
     const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
+    const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
+    const analysisSection = buildDeepAnalysisSection(analysis, lang);
     // Inject at the explicit <!-- /article-content --> marker position so the
     // section stays inside the .article-content styling scope. The marker is
     // removed from the final HTML output to avoid unnecessary bytes.
-    if (watchSection) {
-      return base.replace('<!-- /article-content -->', watchSection);
+    const injection = (watchSection || '') + analysisSection;
+    if (injection) {
+      return base.replace('<!-- /article-content -->', injection);
     }
     return base.replace('<!-- /article-content -->', '');
   }

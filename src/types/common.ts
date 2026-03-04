@@ -231,3 +231,133 @@ export interface BreakingStrings {
   /** Label for the no-feed-data notice */
   noFeedDataNotice: string;
 }
+
+// ─── Deep Analysis types ───────────────────────────────────────────────────
+
+/**
+ * Single consequence resulting from a parliamentary action.
+ * Maps an action to its downstream political, economic, or social effects.
+ */
+export interface ActionConsequence {
+  /** The parliamentary action taken */
+  readonly action: string;
+  /** The resulting consequence or ripple effect */
+  readonly consequence: string;
+  /** How significant is this consequence: low, medium, high, critical */
+  readonly severity: 'low' | 'medium' | 'high' | 'critical';
+}
+
+/**
+ * Political stakeholder assessment: winners, losers, and their reasons.
+ */
+export interface StakeholderOutcome {
+  /** Name of stakeholder, political group, institution, or member state */
+  readonly actor: string;
+  /** Whether this actor benefits or is disadvantaged */
+  readonly outcome: 'winner' | 'loser' | 'neutral';
+  /** Explanation of why */
+  readonly reason: string;
+}
+
+/**
+ * A single identified mistake, miscalculation, or missed opportunity
+ * in parliamentary proceedings.
+ */
+export interface PoliticalMistake {
+  /** Who made the mistake */
+  readonly actor: string;
+  /** What the mistake or miscalculation was */
+  readonly description: string;
+  /** What they should have done differently */
+  readonly alternative: string;
+}
+
+/**
+ * Comprehensive deep political analysis using the "5W + Impact" framework.
+ * Every article type populates this from its available data to provide
+ * parliament-intelligence-grade analysis for sophisticated readers.
+ *
+ * Fields map to the framework:
+ * - **What**: What happened / what is proposed
+ * - **Who**: Key actors, political groups, rapporteurs, shadows
+ * - **When**: Timeline, deadlines, key dates
+ * - **Why**: Root causes, political motivations, strategic calculations
+ * - **Winners/Losers**: Who benefits, who loses, stakeholder impact
+ * - **Impact**: Multi-perspective consequences (political, economic, social, legal)
+ * - **Actions → Consequences**: Causal chains from decisions to outcomes
+ * - **Mistakes**: Miscalculations, missed opportunities
+ * - **Outlook**: What happens next, strategic implications
+ */
+export interface DeepAnalysis {
+  /** WHAT: Core subject — what happened or is being proposed */
+  readonly what: string;
+  /** WHO: Key actors — political groups, rapporteurs, MEPs, institutions */
+  readonly who: readonly string[];
+  /** WHEN: Key dates — timeline, deadlines, procedural milestones */
+  readonly when: readonly string[];
+  /** WHY: Root causes — political motivations, strategic calculations */
+  readonly why: string;
+  /** WINNERS & LOSERS: Stakeholder impact assessment */
+  readonly stakeholderOutcomes: readonly StakeholderOutcome[];
+  /** IMPACT: Multi-perspective analysis of consequences */
+  readonly impactAssessment: {
+    readonly political: string;
+    readonly economic: string;
+    readonly social: string;
+    readonly legal: string;
+    readonly geopolitical: string;
+  };
+  /** ACTIONS → CONSEQUENCES: Causal chains */
+  readonly actionConsequences: readonly ActionConsequence[];
+  /** MISTAKES: Miscalculations and missed opportunities */
+  readonly mistakes: readonly PoliticalMistake[];
+  /** OUTLOOK: What happens next — strategic forward look */
+  readonly outlook: string;
+}
+
+/** Localized strings for deep analysis section headings */
+export interface DeepAnalysisStrings {
+  /** Main section heading */
+  readonly sectionHeading: string;
+  /** Sub-heading for "What" */
+  readonly whatHeading: string;
+  /** Sub-heading for "Who" */
+  readonly whoHeading: string;
+  /** Sub-heading for "When" */
+  readonly whenHeading: string;
+  /** Sub-heading for "Why" */
+  readonly whyHeading: string;
+  /** Sub-heading for Winners & Losers */
+  readonly stakeholderHeading: string;
+  /** Label for winner outcome */
+  readonly winnerLabel: string;
+  /** Label for loser outcome */
+  readonly loserLabel: string;
+  /** Label for neutral outcome */
+  readonly neutralLabel: string;
+  /** Sub-heading for impact assessment */
+  readonly impactHeading: string;
+  /** Impact perspective labels */
+  readonly politicalLabel: string;
+  readonly economicLabel: string;
+  readonly socialLabel: string;
+  readonly legalLabel: string;
+  readonly geopoliticalLabel: string;
+  /** Sub-heading for actions → consequences */
+  readonly consequencesHeading: string;
+  /** Label for action column */
+  readonly actionLabel: string;
+  /** Label for consequence column */
+  readonly consequenceLabel: string;
+  /** Sub-heading for mistakes */
+  readonly mistakesHeading: string;
+  /** Label for "should have" alternative */
+  readonly alternativeLabel: string;
+  /** Sub-heading for outlook */
+  readonly outlookHeading: string;
+  /** Severity labels */
+  readonly severityLow: string;
+  readonly severityMedium: string;
+  readonly severityHigh: string;
+  readonly severityCritical: string;
+}

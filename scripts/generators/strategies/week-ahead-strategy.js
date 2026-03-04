@@ -4,6 +4,8 @@ import { ArticleCategory } from '../../types/index.js';
 import { WEEK_AHEAD_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { buildWeekAheadContent, buildKeywords, buildWhatToWatchSection, } from '../week-ahead-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildProspectiveAnalysis } from '../analysis-builders.js';
 // ─── Date-range helper ────────────────────────────────────────────────────────
 /**
  * Compute the week-ahead date range starting the day after `baseDate`.
@@ -74,11 +76,14 @@ export class WeekAheadStrategy {
     buildContent(data, lang) {
         const base = buildWeekAheadContent(data.weekData, data.dateRange, lang);
         const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
+        const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
+        const analysisSection = buildDeepAnalysisSection(analysis, lang);
         // Inject at the explicit <!-- /article-content --> marker position so the
         // section stays inside the .article-content styling scope. The marker is
         // removed from the final HTML output to avoid unnecessary bytes.
-        if (watchSection) {
-            return base.replace('<!-- /article-content -->', watchSection);
+        const injection = (watchSection || '') + analysisSection;
+        if (injection) {
+            return base.replace('<!-- /article-content -->', injection);
         }
         return base.replace('<!-- /article-content -->', '');
     }
