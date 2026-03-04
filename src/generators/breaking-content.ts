@@ -138,6 +138,7 @@ function buildMEPUpdatesSection(items: readonly MEPFeedItem[], lang: string): st
       (item) =>
         `<li class="feed-item mep-item">` +
         `<strong>${escapeHTML(item.name)}</strong>` +
+        `${item.date ? ` <span class="feed-date">(${escapeHTML(item.date)})</span>` : ''}` +
         `${item.country ? ` <span class="feed-country">(${escapeHTML(item.country)})</span>` : ''}` +
         `${item.group ? ` <span class="feed-group">${escapeHTML(item.group)}</span>` : ''}` +
         `</li>`

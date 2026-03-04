@@ -405,6 +405,13 @@ describe('Breaking News feed-based sections', () => {
     expect(html).toContain('MEP Updates');
   });
 
+  it('should include publish dates in MEP updates section', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], sampleFeedData);
+    // MEP updates should display date alongside name
+    expect(html).toContain('feed-date');
+    expect(html).toContain('2025-01-15');
+  });
+
   it('should show feed-first lede when only feed data is present (no analytical data)', () => {
     const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], sampleFeedData);
     expect(html).not.toContain('placeholder content');
