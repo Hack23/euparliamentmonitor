@@ -202,6 +202,10 @@ function isPlainObject(v) {
  * Sanitize an array of raw items into feed items with title-based required fields.
  * Filters out non-objects and coerces `id`, `title`, `date` to strings.
  *
+ * Uses `as unknown as T` because the spread preserves optional properties from
+ * the source JSON while the explicit field assignments guarantee the required
+ * base fields — TypeScript cannot infer this mixed provenance automatically.
+ *
  * @param items - Raw array of unknown values from JSON
  * @returns Sanitized array of typed feed items
  */
