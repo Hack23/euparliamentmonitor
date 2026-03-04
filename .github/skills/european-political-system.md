@@ -232,10 +232,10 @@ When writing about the European Parliament, use the correct institutional vocabu
 
 | ❌ Incorrect Term | ✅ Correct EP Term | Why |
 |-------------------|-------------------|-----|
-| "Motions" (generic) | **Resolutions**, **Adopted texts**, **Plenary votes** | In the EP, a "motion" only appears in "motion for a resolution" (Rule 143) or "motion of censure" (Rule 119). The EP does not use "motions" generically for plenary activity. |
+| "Motions" (generic) | **Resolutions**, **Adopted Texts**, **Plenary Votes** | In the EP, a "motion" only appears in "motion for a resolution" (Rule 143) or "motion of censure" (Rule 119). The EP does not use "motions" generically for plenary activity. |
 | "Propositions" | **Legislative proposals**, **Legislative procedures** | "Proposition" is a French/Swedish national parliament term. The EU uses "proposal" (Commission proposal) or "legislative procedure" (COD, CNS, APP). |
 | "Laws" | **Regulations**, **Directives**, **Decisions** | The EU has specific legal instrument types — it does not pass "laws" generically. |
-| "Parliament votes" | **Plenary votes**, **Roll-call votes** | Be specific: plenary votes happen in Strasbourg/Brussels sessions; committee votes happen in committees. |
+| "Parliament votes" | **Plenary Votes**, **Roll-call Votes** | Be specific: plenary votes happen in Strasbourg/Brussels sessions; committee votes happen in committees. |
 | "Committees" (FR: "Commissions") | **Commissions parlementaires** (FR) | In French, distinguish between "la Commission" (European Commission) and "les commissions parlementaires" (EP committees). |
 | "Bills" | **Legislative proposals**, **Draft legislation** | The EU does not use "bills" — this is UK/US parliamentary vocabulary. |
 | "ID" (Identity and Democracy) | **PfE** (Patriots for Europe), **ESN** (Europe of Sovereign Nations) | ID was dissolved after 2024 elections, replaced by PfE and ESN in the 10th parliamentary term. |

@@ -4,7 +4,7 @@
 /**
  * @module Constants/LanguageArticles
  * @description Article-type-specific title generators and body-text strings per language.
- * Each article type (week-ahead, plenary votes & resolutions, breaking, committee activity, legislative procedures)
+ * Each article type (week-ahead, Plenary Votes & Resolutions, breaking, Committee Activity, Legislative Procedures)
  * has its own localized title template returning `LangTitleSubtitle`.
  */
 
