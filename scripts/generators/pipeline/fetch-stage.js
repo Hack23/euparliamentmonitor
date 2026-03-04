@@ -250,9 +250,9 @@ function sanitizeMEPItems(items) {
  * results to a JSON file and the generator reads them via this function,
  * avoiding the need to manually construct article HTML.
  *
- * The file must contain a JSON object. It may define any of the keys
- * `adoptedTexts`, `events`, `procedures`, `mepUpdates`; missing or non-array
- * values for these keys are treated as empty arrays.
+ * The file must contain a JSON object. The optional keys
+ * `adoptedTexts`, `events`, `procedures`, and `mepUpdates` are treated as
+ * arrays and default to empty arrays when missing (an empty object `{}` is valid).
  *
  * @param filePath - Absolute or relative path to the JSON file
  * @returns Parsed {@link BreakingNewsFeedData}, or `undefined` on any error
