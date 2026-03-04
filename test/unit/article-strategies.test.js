@@ -8,7 +8,10 @@
  * and null/mock MCP clients — no real MCP server calls required.
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach } from 'vitest';
+import fs from 'fs';
+import path from 'path';
+import os from 'os';
 
 // ─── Imports from compiled output ────────────────────────────────────────────
 
@@ -516,6 +519,57 @@ describe('BreakingNewsStrategy.fetchData with mock client', () => {
     expect(data.anomalyRaw).toBe('');
     expect(data.coalitionRaw).toBe('');
     expect(data.reportRaw).toBe('');
+  });
+});
+
+describe('BreakingNewsStrategy.fetchData with pre-fetched feed data file', () => {
+  let tmpDir;
+  const originalEnv = process.env['EP_FEED_DATA_FILE'];
+
+  afterEach(() => {
+    // Restore env var
+    if (originalEnv === undefined) {
+      delete process.env['EP_FEED_DATA_FILE'];
+    } else {
+      process.env['EP_FEED_DATA_FILE'] = originalEnv;
+    }
+    // Clean up temp dir
+    if (tmpDir) {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+      tmpDir = undefined;
+    }
+  });
+
+  it('uses pre-fetched feed data when EP_FEED_DATA_FILE is set', async () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'feed-test-'));
+    const feedData = {
+      adoptedTexts: [
+        { id: 'TA-10-2026-0042', title: 'Test Adopted Text', date: '2026-03-04' },
+      ],
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+    };
+    const filePath = path.join(tmpDir, 'feed-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+    process.env['EP_FEED_DATA_FILE'] = filePath;
+
+    const strategy = new BreakingNewsStrategy();
+    const data = await strategy.fetchData(null, '2026-03-04');
+    expect(data.feedData).toBeDefined();
+    expect(data.feedData.adoptedTexts).toHaveLength(1);
+    expect(data.feedData.adoptedTexts[0].id).toBe('TA-10-2026-0042');
+    expect(data.anomalyRaw).toBe('');
+    expect(data.coalitionRaw).toBe('');
+  });
+
+  it('falls through to MCP fetch when feed data file does not exist', async () => {
+    process.env['EP_FEED_DATA_FILE'] = '/tmp/nonexistent-feed-data.json';
+
+    const strategy = new BreakingNewsStrategy();
+    const data = await strategy.fetchData(null, '2026-03-04');
+    // Falls through: null client → MCP unavailable → feedData undefined
+    expect(data.feedData).toBeUndefined();
   });
 });
 

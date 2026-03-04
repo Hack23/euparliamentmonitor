@@ -49,6 +49,7 @@ import {
   fetchDeclarationsFeed,
   fetchCorporateBodiesFeed,
   fetchEPFeedData,
+  loadFeedDataFromFile,
 } from '../../scripts/generators/pipeline/fetch-stage.js';
 
 import {
@@ -1569,5 +1570,97 @@ describe('fetchParliamentaryQuestionsForMotions with throwing client', () => {
   it('returns empty array when client throws', async () => {
     const result = await fetchParliamentaryQuestionsForMotions(mockClientThrowing, '2025-01-01', '2025-01-31');
     expect(result).toEqual([]);
+  });
+});
+
+// ─── loadFeedDataFromFile ────────────────────────────────────────────────────
+
+describe('loadFeedDataFromFile', () => {
+  let tmpDir;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'feed-data-test-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('should return undefined for non-existent file', () => {
+    const result = loadFeedDataFromFile(path.join(tmpDir, 'does-not-exist.json'));
+    expect(result).toBeUndefined();
+  });
+
+  it('should return undefined for invalid JSON', () => {
+    const filePath = path.join(tmpDir, 'invalid.json');
+    fs.writeFileSync(filePath, 'not valid json');
+    const result = loadFeedDataFromFile(filePath);
+    expect(result).toBeUndefined();
+  });
+
+  it('should return undefined for non-object JSON (array)', () => {
+    const filePath = path.join(tmpDir, 'array.json');
+    fs.writeFileSync(filePath, '[1, 2, 3]');
+    const result = loadFeedDataFromFile(filePath);
+    expect(result).toBeUndefined();
+  });
+
+  it('should return undefined for JSON null', () => {
+    const filePath = path.join(tmpDir, 'null.json');
+    fs.writeFileSync(filePath, 'null');
+    const result = loadFeedDataFromFile(filePath);
+    expect(result).toBeUndefined();
+  });
+
+  it('should return feed data with defaults for missing keys', () => {
+    const filePath = path.join(tmpDir, 'empty.json');
+    fs.writeFileSync(filePath, '{}');
+    const result = loadFeedDataFromFile(filePath);
+    expect(result).toBeDefined();
+    expect(result.adoptedTexts).toEqual([]);
+    expect(result.events).toEqual([]);
+    expect(result.procedures).toEqual([]);
+    expect(result.mepUpdates).toEqual([]);
+  });
+
+  it('should load valid feed data from file', () => {
+    const feedData = {
+      adoptedTexts: [
+        { id: 'TA-10-2026-0001', title: 'Test Resolution', date: '2026-03-01' },
+      ],
+      events: [
+        { id: 'EVT-001', title: 'Plenary Session', date: '2026-03-04' },
+      ],
+      procedures: [],
+      mepUpdates: [
+        { id: 'MEP-001', name: 'Jane Smith', date: '2026-03-01' },
+      ],
+    };
+    const filePath = path.join(tmpDir, 'feed-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+    const result = loadFeedDataFromFile(filePath);
+    expect(result).toBeDefined();
+    expect(result.adoptedTexts).toHaveLength(1);
+    expect(result.adoptedTexts[0].id).toBe('TA-10-2026-0001');
+    expect(result.events).toHaveLength(1);
+    expect(result.procedures).toHaveLength(0);
+    expect(result.mepUpdates).toHaveLength(1);
+    expect(result.mepUpdates[0].name).toBe('Jane Smith');
+  });
+
+  it('should ignore non-array values for feed keys', () => {
+    const filePath = path.join(tmpDir, 'bad-types.json');
+    fs.writeFileSync(filePath, JSON.stringify({
+      adoptedTexts: 'not an array',
+      events: 42,
+      procedures: null,
+      mepUpdates: { not: 'an array' },
+    }));
+    const result = loadFeedDataFromFile(filePath);
+    expect(result).toBeDefined();
+    expect(result.adoptedTexts).toEqual([]);
+    expect(result.events).toEqual([]);
+    expect(result.procedures).toEqual([]);
+    expect(result.mepUpdates).toEqual([]);
   });
 });
