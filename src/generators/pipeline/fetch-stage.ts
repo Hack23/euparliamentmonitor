@@ -14,6 +14,7 @@
  * errors the circuit opens and subsequent calls short-circuit immediately.
  */
 
+import fs from 'fs';
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
 import { getEPMCPClient } from '../../mcp/ep-mcp-client.js';
 import type {
@@ -249,6 +250,58 @@ export async function initializeMCPClient(
     console.warn('⚠️ Could not connect to MCP server:', message);
     console.warn('⚠️ Falling back to placeholder content');
     return null;
+  }
+}
+
+// ─── Pre-fetched feed data loading ───────────────────────────────────────────
+
+/**
+ * Load pre-fetched feed data from a JSON file on disk.
+ *
+ * Agentic workflows fetch EP data via framework MCP tools but the TypeScript
+ * generator cannot access those tools directly.  The workflow saves the MCP
+ * results to a JSON file and the generator reads them via this function,
+ * avoiding the need to manually construct article HTML.
+ *
+ * The file must contain a JSON object with at least one of the keys:
+ * `adoptedTexts`, `events`, `procedures`, `mepUpdates`.  Missing keys
+ * default to empty arrays.
+ *
+ * @param filePath - Absolute or relative path to the JSON file
+ * @returns Parsed {@link BreakingNewsFeedData}, or `undefined` on any error
+ */
+export function loadFeedDataFromFile(filePath: string): BreakingNewsFeedData | undefined {
+  try {
+    if (!fs.existsSync(filePath)) {
+      console.warn(`${WARN_PREFIX} Feed data file not found: ${filePath}`);
+      return undefined;
+    }
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const parsed: unknown = JSON.parse(raw);
+    if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+      console.warn(`${WARN_PREFIX} Feed data file must contain a JSON object`);
+      return undefined;
+    }
+    const obj = parsed as Record<string, unknown>;
+    const adoptedTexts = Array.isArray(obj['adoptedTexts']) ? obj['adoptedTexts'] : [];
+    const events = Array.isArray(obj['events']) ? obj['events'] : [];
+    const procedures = Array.isArray(obj['procedures']) ? obj['procedures'] : [];
+    const mepUpdates = Array.isArray(obj['mepUpdates']) ? obj['mepUpdates'] : [];
+    console.log(
+      `${INFO_PREFIX} Loaded feed data from file: ` +
+        `${adoptedTexts.length} adopted texts, ${events.length} events, ` +
+        `${procedures.length} procedures, ${mepUpdates.length} MEP updates`
+    );
+    return {
+      adoptedTexts: adoptedTexts as AdoptedTextFeedItem[],
+      events: events as EventFeedItem[],
+      procedures: procedures as ProcedureFeedItem[],
+      mepUpdates: mepUpdates as MEPFeedItem[],
+    };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} Failed to load feed data from file: ${message}`);
+    return undefined;
   }
 }
 

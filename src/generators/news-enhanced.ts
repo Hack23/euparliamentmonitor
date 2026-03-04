@@ -127,8 +127,12 @@ const useMCP = process.env['USE_EP_MCP'] !== 'false';
 const args = process.argv.slice(2);
 const typesArg = args.find((arg) => arg.startsWith('--types='));
 const languagesArg = args.find((arg) => arg.startsWith('--languages='));
+const feedDataArg = args.find((arg) => arg.startsWith('--feed-data='));
 const dryRunArg = args.includes('--dry-run');
 const skipExistingArg = args.includes('--skip-existing');
+
+/** Path to a JSON file containing pre-fetched EP feed data (optional). */
+const feedDataPath = feedDataArg ? (feedDataArg.split(ARG_SEPARATOR)[1] ?? '').trim() : '';
 
 const articleTypes = typesArg
   ? (typesArg.split(ARG_SEPARATOR)[1] ?? '').split(',').map((t) => t.trim())
@@ -166,6 +170,9 @@ console.log('Article types:', articleTypes.join(', '));
 console.log('Languages:', languages.join(', '));
 console.log('Dry run:', dryRunArg ? 'Yes (no files written)' : 'No');
 console.log('Skip existing:', skipExistingArg ? 'Yes' : 'No');
+if (feedDataPath) {
+  console.log('Feed data file:', feedDataPath);
+}
 
 // Ensure directories exist
 ensureDirectoryExists(METADATA_DIR);
@@ -191,6 +198,13 @@ async function main(): Promise<void> {
   console.log('');
   console.log('🚀 Starting news generation...');
   console.log('');
+
+  // When --feed-data is provided, expose the path via env so strategies can
+  // load pre-fetched data without requiring a live MCP connection.
+  if (feedDataPath) {
+    process.env['EP_FEED_DATA_FILE'] = feedDataPath;
+    console.log(`📂 Pre-fetched feed data will be loaded from: ${feedDataPath}`);
+  }
 
   const client = await initializeMCPClient(useMCP);
 

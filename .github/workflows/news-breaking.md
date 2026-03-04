@@ -160,6 +160,7 @@ Before generating ANY articles, verify MCP connectivity:
 - Cached or stale data
 - AI-generated content without MCP source data
 - Synthetic/test IDs (VOTE-2024-001, DOC-2024-001, etc.)
+- Manually constructed HTML by studying existing article patterns
 
 ## MANDATORY PR Creation
 
@@ -269,7 +270,46 @@ european_parliament___analyze_coalition_dynamics({})
 
 ## 📝 Article Generation
 
-### TypeScript Generator (Preferred)
+### 🚫 ABSOLUTE PROHIBITION: Manual Article Construction
+
+> **❌ NEVER manually construct article HTML.** Do NOT:
+> - Read, study, or copy patterns from existing articles in `news/`
+> - Use `cat > news/file.html << 'HTMLEOF'` to write raw HTML
+> - Use `head`, `tail`, `grep`, or `sed` to extract templates from existing articles
+> - Hand-craft HTML using any method outside the TypeScript generator
+>
+> **The TypeScript generator (`npx tsx src/generators/news-enhanced.ts`) is the ONLY permitted way to create article HTML files.** It handles templates, localization, accessibility, SEO, language switchers, navigation, and all structural requirements automatically.
+>
+> If the generator fails, the workflow MUST FAIL — do NOT fall back to manual HTML construction.
+
+### Step 1: Save MCP Feed Data to JSON
+
+Before running the generator, save the MCP feed data you already fetched to a JSON file.
+The generator accepts a `--feed-data` argument that reads pre-fetched data from this file,
+so it does not need its own MCP connection.
+
+```bash
+cat > /tmp/ep-feed-data.json << 'FEEDEOF'
+{
+  "adoptedTexts": [],
+  "events": [],
+  "procedures": [],
+  "mepUpdates": []
+}
+FEEDEOF
+echo "Feed data saved to /tmp/ep-feed-data.json"
+```
+
+**⚠️ IMPORTANT:** Replace the empty arrays above with the actual data you received from the EP MCP feed endpoints:
+- `adoptedTexts`: data from `european_parliament___get_adopted_texts_feed`
+- `events`: data from `european_parliament___get_events_feed`
+- `procedures`: data from `european_parliament___get_procedures_feed`
+- `mepUpdates`: data from `european_parliament___get_meps_feed`
+
+Each array item must have at minimum: `{ "id": "...", "title": "...", "date": "..." }`.
+For MEP items use `"name"` instead of `"title"`.
+
+### Step 2: Run TypeScript Generator with Feed Data
 
 ```bash
 LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
@@ -292,8 +332,11 @@ export USE_EP_MCP=true
 npx tsx src/generators/news-enhanced.ts \
   --types="breaking" \
   --languages="$LANG_ARG" \
+  --feed-data="/tmp/ep-feed-data.json" \
   $SKIP_FLAG
 ```
+
+**If the generator exits with a non-zero code, the workflow MUST FAIL. Do NOT attempt manual HTML generation as a fallback.**
 
 ### Quality Validation
 
@@ -366,4 +409,4 @@ safeoutputs___create_pull_request({
 
 ## MANDATORY Article HTML Structure
 
-**Every generated article MUST include all required structural elements.** See `news-article-generator.md` for the full template specification. The TypeScript generator handles this automatically when using `generateArticleHTML`.
+**Every generated article MUST include all required structural elements.** The TypeScript generator handles this automatically when using `generateArticleHTML`. Manual HTML construction is NOT permitted — see the prohibition above.
