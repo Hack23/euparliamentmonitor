@@ -121,13 +121,20 @@ function buildFooterLanguageGrid(currentLang: string): string {
  * @param meta - Real title and description extracted from the article HTML
  * @param meta.title - Article title
  * @param meta.description - Article description/excerpt
+ * @param categoryLabels - Optional localized article category labels
  * @returns HTML string for one card
  */
-function renderCard(article: ParsedArticle, meta: { title: string; description: string }): string {
+function renderCard(
+  article: ParsedArticle,
+  meta: { title: string; description: string },
+  categoryLabels?: ArticleCategoryLabels
+): string {
   const category = detectCategory(article.slug);
   // Sanitize the category for safe use in CSS class names (allow only alphanumeric and hyphens)
   const safeCategory = category.replace(/[^a-z0-9-]/gi, '');
   const title = escapeHTML(meta.title || formatSlug(article.slug));
+  const badgeLabel =
+    categoryLabels?.[category as keyof ArticleCategoryLabels] ?? formatSlug(safeCategory);
   const excerpt = meta.description
     ? `\n            <p class="news-card__excerpt">${escapeHTML(meta.description)}</p>`
     : '';
@@ -138,7 +145,7 @@ function renderCard(article: ParsedArticle, meta: { title: string; description: 
           <div class="news-card__accent news-card__accent--${safeCategory}"></div>
           <div class="news-card__body">
             <div class="news-card__meta">
-              <span class="news-card__badge news-card__badge--${safeCategory}">${formatSlug(safeCategory)}</span>
+              <span class="news-card__badge news-card__badge--${safeCategory}">${escapeHTML(badgeLabel)}</span>
               <time class="news-card__date" datetime="${escapeHTML(article.date)}">${escapeHTML(article.date)}</time>
             </div>
             <h3 class="news-card__title">${title}</h3>${excerpt}
@@ -211,7 +218,11 @@ export function generateIndexHTML(
     <ul class="news-grid" role="list">
       ${articles
         .map((a) =>
-          renderCard(a, metaMap.get(a.filename) ?? { title: formatSlug(a.slug), description: '' })
+          renderCard(
+            a,
+            metaMap.get(a.filename) ?? { title: formatSlug(a.slug), description: '' },
+            categoryLabels
+          )
         )
         .join('\n')}
     </ul>`;

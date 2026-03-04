@@ -157,6 +157,16 @@ Before generating ANY articles, verify MCP connectivity:
 
 **CRITICAL**: ALL article content MUST originate from live MCP data.
 
+## 🚨 FEED-FIRST CONTENT RULE (Applies to ALL Article Types)
+
+> **⚠️ FUNDAMENTAL RULE**: Every article MUST lead with and focus on **specific recent items** found in EP feed endpoints (documents, adopted texts, procedures, events updated today or recently). Precomputed statistics (`get_all_generated_stats`) are **background context ONLY** — they provide historical comparison but are NEVER the news itself.
+>
+> **Content quality gate**: If any article mostly discusses historical aggregates (e.g. "1,773 committee meetings in EP10", "fragmentation index 6.59", year-over-year statistics, "pipeline health score 100") rather than **specific recent items with concrete titles, dates, and reference IDs from feed data**, the article FAILS quality validation and must be rewritten.
+>
+> **Article structure**: The lede paragraph and first two sections of EVERY article MUST reference **specific items from today's feed data** (document titles, procedure IDs, event names with dates). Historical context from precomputed stats may appear in later sections ONLY as brief comparative background.
+>
+> **Adopted texts**: Can be ignored if no recent items in last 12 hours.
+
 ## MANDATORY PR Creation
 
 - ✅ `safeoutputs___create_pull_request` when articles generated
@@ -191,137 +201,129 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 | `month-ahead` | Prospective | 1st of month | 30-day strategic outlook |
 | `week-in-review` | Retrospective | Saturdays | Analysis of the past week |
 | `month-in-review` | Retrospective | 28th of month | Comprehensive monthly analysis |
-| `committee-reports` | Retrospective | Mon-Fri | Committee activity and reports |
-| `propositions` | Prospective | Mon-Fri | Legislative propositions analysis |
-| `motions` | Retrospective | Mon-Fri | Voting records and party dynamics |
+| `committee-reports` | Retrospective | Mon-Fri | Committee activity: documents, reports, opinions |
+| `propositions` | Prospective | Mon-Fri | Legislative procedures: proposals, pipeline, dossiers |
+| `motions` | Retrospective | Mon-Fri | Plenary votes, adopted texts, resolutions, party dynamics |
 | `breaking` | Real-time | Manual/Auto | **Feed-first**: adopted texts, events, procedures, MEP updates from EP feeds |
 
 ## EP MCP Tools
 
-### ⚡ MANDATORY: Precomputed Statistics for Context
+### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source for ALL Article Types)
 
-**ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This returns the **complete** precomputed EP activity statistics (2004–2025) with yearly breakdowns, monthly activity data, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Always read ALL stats to provide full value and context.
+> **⚠️ FUNDAMENTAL RULE**: ALL article types MUST use EP feed endpoints as the PRIMARY data source. Feed data provides what actually happened recently — specific documents, adopted texts, procedures, events with concrete titles, dates, and IDs. Precomputed statistics are background context ONLY.
+>
+> **Content quality gate**: If any article mostly discusses historical aggregates (e.g. "1,773 committee meetings", "fragmentation index 6.59", year-over-year statistics) rather than **specific recent items with concrete titles, dates, and IDs from feed data**, the article FAILS quality validation. Adopted texts feeds can be ignored if no recent news in the last 12 hours.
 
-> **⚠️ CONTEXT ONLY — NEVER THE NEWS ITSELF**: Precomputed statistics provide historical background and analytical context. They are **NEVER newsworthy on their own** and must NEVER be the primary content of any article. The actual news content MUST come from **live EP feed endpoints** (adopted texts, new procedures, recent events, committee documents) that reflect **what actually happened recently**. Stats from `get_all_generated_stats` only answer "how does this compare historically?" — they never answer "what happened?"
+**ALWAYS call relevant feed endpoints FIRST, before any other data tools. Use `timeframe` to control recency:**
+- `"one-day"` — items updated today (use for adopted texts in daily articles)
+- `"one-week"` — items updated in last 7 days (default for daily/weekly articles)
+- `"one-month"` — items updated in last 30 days (for monthly articles)
+
+### 📊 OPTIONAL: Background Context (Secondary — NEVER the news)
 
 ```javascript
-european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
+// Precomputed stats — background context ONLY, NEVER primary content
+european_parliament___get_all_generated_stats({ category: "all", includePredictions: false, includeMonthlyBreakdown: false, includeRankings: false })
 ```
 
-### ⚡ MCP Call Budget (STRICT)
+> **⚠️ CONTEXT ONLY — NEVER THE NEWS ITSELF**: Precomputed statistics provide historical background and analytical context. They are **NEVER newsworthy on their own** and must NEVER be the primary content of any article. Stats from `get_all_generated_stats` only answer "how does this compare historically?" — they never answer "what happened?"
 
-- **Health-gate connectivity check**: attempt `european_parliament___get_plenary_sessions({ limit: 1 })` **up to 3 times** at startup as a single health-gate step to verify MCP health — this step does **not** count toward the per-type data-gathering budget
-- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once globally — reuse across all article types (does **not** count toward per-type budget)
-- **Per article type**: call **at most 4 distinct tools**, each **at most once** — the tool sets below use up to 4 tools per type
-- **Across all types in a multi-type run**: each tool may still only be called once globally — if a tool appears in multiple type lists, use the same single call's result for all types
-- If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
-- If you notice you are about to call a tool you already called in this run, **STOP data gathering for that type and move to generation**
+### ⚡ MCP Call Budget
 
-**Always verify connectivity first (health gate — up to 3 attempts, does not count toward data budget):**
+- **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
+- **Health-gate connectivity check**: attempt `european_parliament___get_plenary_sessions({ limit: 1 })` **up to 3 times** at startup to verify MCP health
+- **Feed endpoints (MANDATORY)**: call all relevant feed endpoints for each article type FIRST
+- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all article types
+- **Across all types in a multi-type run**: each tool may be called once globally — reuse results
+- If data looks sparse after the first call: **proceed to article generation immediately — do NOT retry**
+
+**Always verify connectivity first (health gate — up to 3 attempts):**
 ```javascript
 european_parliament___get_plenary_sessions({ limit: 1 })
 ```
 
-**Then fetch precomputed stats (reuse across all types):**
-```javascript
-european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
-```
-
-**Data gathering tools by article type (call each at most once, reuse results if shared across types):**
+**Feed endpoints by article type (MANDATORY — call FIRST):**
 
 **Prospective (week-ahead, month-ahead):**
 ```javascript
-european_parliament___get_plenary_sessions({ startDate: today, endDate: endDate, limit: 50 })
-european_parliament___get_committee_info({ limit: 20 })
-european_parliament___search_documents({ query: "plenary agenda", limit: 20 })
-european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 })
+european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_plenary_session_documents_feed({ timeframe: "one-week", limit: 20 })
 ```
 
-**Retrospective (week-in-review, month-in-review, motions):**
+**Retrospective (week-in-review, month-in-review):**
 ```javascript
-european_parliament___get_voting_records({ dateFrom: startDate, dateTo: today, limit: 20 })
-european_parliament___analyze_voting_patterns({ dateFrom: startDate, dateTo: today })
-european_parliament___detect_voting_anomalies({ dateFrom: startDate, dateTo: today })
-european_parliament___get_parliamentary_questions({ startDate: startDate, limit: 20 })
+european_parliament___get_adopted_texts_feed({ timeframe: "one-week", limit: 50 })  // or one-month for monthly
+european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_parliamentary_questions_feed({ timeframe: "one-week", limit: 20 })
 ```
 
 **Committee Reports:**
 ```javascript
-european_parliament___get_committee_info({ committeeId: "ENVI" })
-european_parliament___search_documents({ query: "committee report", type: "REPORT" })
-european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
+european_parliament___get_committee_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 20 })  // skip if empty
+european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
+```
+
+**Propositions:**
+```javascript
+european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 20 })  // skip if empty
+european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 20 })
+```
+
+**Motions:**
+```javascript
+european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 50 })  // skip if empty
+european_parliament___get_parliamentary_questions_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_meps_feed({ timeframe: "one-week", limit: 20 })
+european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
 ```
 
 **Breaking News (MANDATORY: Feed-First — stats are context only):**
 
-> **🚨 NEWSWORTHINESS GATE**: Breaking news MUST be triggered by **actual recent events** found in EP feed endpoints. Precomputed statistics (`get_all_generated_stats`) — already fetched above as the first data-gathering step — provide historical context only and are NEVER breaking news. After fetching stats for context, **immediately check feeds** for newsworthy events. If NO recent newsworthy events are found in feeds, use `safeoutputs___noop` — do NOT generate a breaking news article from stats alone.
-
-**Data-gathering order:** (1) `get_all_generated_stats` for historical context (already called above), then (2) feed endpoints below for actual news content:
+> **🚨 NEWSWORTHINESS GATE**: Breaking news MUST be triggered by **actual recent events** found in EP feed endpoints. If NO recent newsworthy events are found in feeds, use `safeoutputs___noop`.
 
 ```javascript
-// Feed checks (MANDATORY) — these provide the actual news content
-european_parliament___get_adopted_texts_feed({ limit: 20 })
-european_parliament___get_events_feed({ limit: 20 })
-european_parliament___get_procedures_feed({ limit: 20 })
-european_parliament___get_meps_feed({ limit: 20 })
+european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 20 })  // skip if empty
+european_parliament___get_events_feed({ timeframe: "one-day", limit: 50 })
+european_parliament___get_procedures_feed({ timeframe: "one-day", limit: 50 })
+european_parliament___get_meps_feed({ timeframe: "one-day", limit: 20 })
+```
 
-// Analytical context (OPTIONAL) — only if feeds contain newsworthy events
+**OPTIONAL supplementary tools (call after feeds, for analytical context):**
+
+```javascript
+// Analytical context — only if feeds contain newsworthy events
 european_parliament___detect_voting_anomalies({})
-european_parliament___analyze_coalition_dynamics({})  // Analytical context only, not news content
+european_parliament___analyze_coalition_dynamics({})
+european_parliament___get_committee_info({ committeeId: "ENVI" })
+european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 })
+european_parliament___generate_political_landscape({})
 ```
 
-### 📡 EP API v2 Feed Endpoints (Preferred for Recent Updates)
+### 📡 All Available EP API v2 Feed Endpoints
 
-**ALWAYS prefer feed endpoints when fetching the most recent parliamentary updates.** Feed tools return the latest data from the EP API v2 Atom/RSS feeds, ordered by most recently updated. Use these instead of the standard list endpoints when you need to know what changed recently:
+Feed tools return the latest data from the EP API v2 Atom/RSS feeds, ordered by most recently updated:
 
 ```javascript
-// MEPs feed — latest MEP updates
-european_parliament___get_meps_feed({ limit: 20 })
-
-// Events feed — latest EP events
-european_parliament___get_events_feed({ limit: 20 })
-
-// Procedures feed — latest legislative procedures
-european_parliament___get_procedures_feed({ limit: 20 })
-
-// Adopted texts feed — latest adopted texts
-european_parliament___get_adopted_texts_feed({ limit: 20 })
-
-// MEP declarations feed — latest financial declarations
-european_parliament___get_mep_declarations_feed({ limit: 20 })
-
-// Documents feed — latest documents
-european_parliament___get_documents_feed({ limit: 20 })
-
-// Plenary documents feed — latest plenary documents
-european_parliament___get_plenary_documents_feed({ limit: 20 })
-
-// Committee documents feed — latest committee documents
-european_parliament___get_committee_documents_feed({ limit: 20 })
-
-// Plenary session documents feed — latest session documents
-european_parliament___get_plenary_session_documents_feed({ limit: 20 })
-
-// External documents feed — latest non-EP documents
-european_parliament___get_external_documents_feed({ limit: 20 })
-
-// Parliamentary questions feed — latest questions
-european_parliament___get_parliamentary_questions_feed({ limit: 20 })
-
-// Corporate bodies feed — latest committee/body updates
-european_parliament___get_corporate_bodies_feed({ limit: 20 })
-
-// Controlled vocabularies feed — latest vocabulary updates
-european_parliament___get_controlled_vocabularies_feed({ limit: 20 })
+european_parliament___get_meps_feed({ timeframe: "one-week", limit: 20 })
+european_parliament___get_events_feed({ timeframe: "one-week", limit: 20 })
+european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
+european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 20 })
+european_parliament___get_mep_declarations_feed({ timeframe: "one-week", limit: 20 })
+european_parliament___get_documents_feed({ timeframe: "one-week", limit: 20 })
+european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 20 })
+european_parliament___get_committee_documents_feed({ timeframe: "one-week", limit: 20 })
+european_parliament___get_plenary_session_documents_feed({ timeframe: "one-week", limit: 20 })
+european_parliament___get_external_documents_feed({ timeframe: "one-week", limit: 20 })
+european_parliament___get_parliamentary_questions_feed({ timeframe: "one-week", limit: 20 })
+european_parliament___get_corporate_bodies_feed({ timeframe: "one-week", limit: 20 })
 ```
-
-**Feed tool selection by article type:**
-- **Prospective (week-ahead, month-ahead)**: `get_events_feed`, `get_procedures_feed`, `get_plenary_documents_feed`
-- **Retrospective (week-in-review, month-in-review)**: `get_adopted_texts_feed`, `get_procedures_feed`, `get_plenary_documents_feed`
-- **Committee Reports**: `get_committee_documents_feed`, `get_plenary_documents_feed`
-- **Propositions**: `get_procedures_feed`, `get_documents_feed`
-- **Motions**: `get_adopted_texts_feed`, `get_parliamentary_questions_feed`
-- **Breaking News** (**MANDATORY** — feeds are the primary data source, not stats): `get_adopted_texts_feed`, `get_events_feed`, `get_procedures_feed`, `get_meps_feed`
 
 
 ## 🌍 World Bank Economic Context (Optional Enrichment)

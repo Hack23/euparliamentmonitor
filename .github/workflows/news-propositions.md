@@ -1,6 +1,6 @@
 ---
-name: "News: EU Parliament Legislative Propositions"
-description: Generates EU Parliament legislative propositions analysis articles for all 14 languages. Single article type per run.
+name: "News: EU Parliament Legislative Procedures"
+description: Generates EU Parliament legislative procedures analysis articles for all 14 languages. Single article type per run.
 strict: false
 on:
   schedule:
@@ -86,9 +86,9 @@ engine:
   id: copilot
   model: claude-opus-4.6
 ---
-# 📜 EU Parliament Legislative Propositions Article Generator
+# 📜 EU Parliament Legislative Procedures Article Generator
 
-You are the **News Journalist Agent** for EU Parliament Monitor generating **legislative propositions** analysis articles.
+You are the **News Journalist Agent** for EU Parliament Monitor generating **legislative procedures** analysis articles.
 
 ## 🔧 Workflow Dispatch Parameters
 
@@ -102,6 +102,14 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 **This workflow generates ONLY `propositions` articles.** Do not generate other article types.
 
 **ALL article data MUST come exclusively from the European Parliament MCP server** (`european-parliament-mcp-server`). No other data sources should be used for article content.
+
+## 🚨 FEED-FIRST CONTENT RULE
+
+> **⚠️ FUNDAMENTAL RULE**: Today's article MUST lead with and focus on **specific recent items** found in EP feed endpoints (new procedures, recently updated documents, adopted texts from the last 24–48 hours). Precomputed statistics (`get_all_generated_stats`) are **background context ONLY** — they provide historical comparison but are NEVER the news itself.
+>
+> **Content quality gate**: If the article body mostly discusses historical aggregates (e.g. "20+ procedures filed in 2025", "pipeline health score 100", year-over-year statistics, "fragmentation index") rather than **specific recent legislative proposals with concrete titles, procedure IDs, and dates from feed data**, the article FAILS quality validation and must be rewritten.
+>
+> **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data** (procedure titles, document names, dates). Historical stats may appear in later sections ONLY as brief comparative background.
 
 ## 🔒 Required Skills
 
@@ -211,26 +219,47 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## 🏛️ EP MCP Tools for Propositions
 
-### ⚡ MANDATORY: Precomputed Statistics for Context
+### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 
-**ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This returns the **complete** precomputed EP activity statistics (2004–2025) with yearly breakdowns, monthly activity data, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Always read ALL stats to provide full value and context.
-
-> **⚠️ CONTEXT ONLY — NEVER THE NEWS ITSELF**: Precomputed statistics provide historical background and analytical context. They are **NEVER newsworthy on their own** and must NEVER be the primary content of any article. The actual news content MUST come from **live EP feed endpoints** and **recent MCP data** reflecting what actually happened recently.
+**These feed endpoints provide today's actual news content. ALL must be called FIRST, before any other data tools:**
 
 ```javascript
-european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
+// Procedures feed — THE primary data source for propositions articles
+european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
+
+// Documents feed — recently updated legislative documents
+european_parliament___get_documents_feed({ timeframe: "one-week", limit: 50 })
+
+// Adopted texts feed — skip if feed returns empty (no new texts in last 12h)
+european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 20 })
+
+// Plenary documents feed — recent plenary documents
+european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 20 })
 ```
 
-### ⚡ MCP Call Budget (STRICT)
+> **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific procedures, documents, or adopted texts** found in these feed results. If feeds return items, those items ARE the news. If feeds return no recent items, use `safeoutputs___noop` — do NOT fall back to writing an article from precomputed stats.
 
-- This budget applies to **content data gathering only** — the mandatory MCP Health Gate (including up to 3 retries of `european_parliament___get_plenary_sessions`) is **explicitly exempt** from this budget
-- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once globally — reuse across all sections (does **not** count toward per-tool budget)
+### 📊 OPTIONAL: Background Context (Secondary — NEVER the news)
+
+**Only fetch after feed endpoints have been called. Use ONLY for brief historical comparison paragraphs:**
+
+```javascript
+// Precomputed stats — background context ONLY, NEVER primary content
+european_parliament___get_all_generated_stats({ category: "all", includePredictions: false, includeMonthlyBreakdown: false, includeRankings: false })
+```
+
+> **⚠️ CONTEXT ONLY — NEVER THE NEWS ITSELF**: Precomputed statistics provide historical background. They are **NEVER newsworthy on their own**. If you find yourself writing about "pipeline health score" or "fragmentation index" as the main story, you are doing it WRONG — go back to the feed data.
+
+### ⚡ MCP Call Budget
+
+- **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
+- **Feed endpoints (MANDATORY)**: call all feed endpoints listed above FIRST — these are non-negotiable
+- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all sections
 - **Call each tool at most once** — never call the same tool a second time during data gathering
-- **Maximum 8 MCP tool calls** total for content data gathering (health-gate calls and precomputed stats do not count)
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 - If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
 
-**ALL data MUST come from these EP MCP tools:**
+**OPTIONAL supplementary tools** (call only if feed data suggests relevant legislative activity):
 
 ```javascript
 // Fetch latest legislative proposals
@@ -239,8 +268,8 @@ european_parliament___search_documents({ query: "Commission proposal", limit: 20
 // Monitor legislative pipeline
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
 
-// Track a specific procedure (use procedure ID from search_documents results)
-european_parliament___track_legislation({ procedureId: "2024/0001(COD)" })
+// Track a specific procedure (use procedure ID from feed results, e.g. "2025/0042(COD)")
+european_parliament___track_legislation({ procedureId: "<ID from feed>" })
 
 // Get committee referral information
 european_parliament___get_committee_info({ committeeId: "ENVI" })
@@ -249,14 +278,12 @@ european_parliament___get_committee_info({ committeeId: "ENVI" })
 european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
 ```
 
-### 📡 Preferred: EP API v2 Feed Endpoints for Recent Updates
+### 📡 Feed Timeframe Parameters
 
-**Prefer feed endpoints for the latest legislative updates:**
-
-```javascript
-european_parliament___get_procedures_feed({ limit: 20 })
-european_parliament___get_documents_feed({ limit: 20 })
-```
+Use `timeframe` parameter on feed calls to control recency:
+- `"one-day"` — items updated today
+- `"one-week"` — items updated in last 7 days (recommended default)
+- `"one-month"` — items updated in last 30 days
 
 ## 🏛️ EU Legislative Procedures Reference
 

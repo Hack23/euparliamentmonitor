@@ -102,11 +102,12 @@ function buildFooterLanguageGrid(currentLang) {
  * @param meta.description - Article description/excerpt
  * @returns HTML string for one card
  */
-function renderCard(article, meta) {
+function renderCard(article, meta, categoryLabels) {
     const category = detectCategory(article.slug);
     // Sanitize the category for safe use in CSS class names (allow only alphanumeric and hyphens)
     const safeCategory = category.replace(/[^a-z0-9-]/gi, '');
     const title = escapeHTML(meta.title || formatSlug(article.slug));
+    const badgeLabel = categoryLabels?.[category] ?? formatSlug(safeCategory);
     const excerpt = meta.description
         ? `\n            <p class="news-card__excerpt">${escapeHTML(meta.description)}</p>`
         : '';
@@ -116,7 +117,7 @@ function renderCard(article, meta) {
           <div class="news-card__accent news-card__accent--${safeCategory}"></div>
           <div class="news-card__body">
             <div class="news-card__meta">
-              <span class="news-card__badge news-card__badge--${safeCategory}">${formatSlug(safeCategory)}</span>
+              <span class="news-card__badge news-card__badge--${safeCategory}">${escapeHTML(badgeLabel)}</span>
               <time class="news-card__date" datetime="${escapeHTML(article.date)}">${escapeHTML(article.date)}</time>
             </div>
             <h3 class="news-card__title">${title}</h3>${excerpt}
@@ -179,7 +180,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
         : `
     <ul class="news-grid" role="list">
       ${articles
-            .map((a) => renderCard(a, metaMap.get(a.filename) ?? { title: formatSlug(a.slug), description: '' }))
+            .map((a) => renderCard(a, metaMap.get(a.filename) ?? { title: formatSlug(a.slug), description: '' }, categoryLabels))
             .join('\n')}
     </ul>`;
     const ai = getLocalizedString(AI_SECTION_CONTENT, lang);
