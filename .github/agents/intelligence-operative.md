@@ -2,23 +2,6 @@
 name: intelligence-operative
 description: EU Parliament political intelligence analyst specializing in OSINT, behavioral analysis, and data-driven parliamentary transparency
 tools: ["*"]
-mcp-servers:
-  github:
-    type: local
-    command: npx
-    args:
-      - "-y"
-      - "@modelcontextprotocol/server-github@2025.4.8"
-      - "--toolsets"
-      - "all"
-      - "--tools"
-      - "*"
-    env:
-      GITHUB_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
-      GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
-      GITHUB_OWNER: Hack23
-      GITHUB_API_URL: https://api.githubcopilot.com/mcp/insiders
-    tools: ["*"]
 ---
 
 # Intelligence Operative - EU Parliament Political Intelligence Analyst

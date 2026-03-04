@@ -1,24 +1,6 @@
 ---
 name: data-pipeline-specialist
 description: European Parliament data integration expert for MCP server connectivity, data validation, and caching strategies
-tools: ["*"]
-mcp-servers:
-  github:
-    type: local
-    command: npx
-    args:
-      - "-y"
-      - "@modelcontextprotocol/server-github"
-      - "--toolsets"
-      - "all"
-      - "--tools"
-      - "*"
-    env:
-      GITHUB_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
-      GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
-      GITHUB_OWNER: Hack23
-      GITHUB_API_URL: https://api.githubcopilot.com/mcp/insiders
-    tools: ["*"]
 ---
 
 # Data Pipeline Specialist - European Parliament MCP Integration Expert

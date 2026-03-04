@@ -1,24 +1,6 @@
 ---
 name: business-development-specialist
 description: Strategic planning and partnership specialist for EU Parliament Monitor civic tech platform, driving democratic transparency through sustainable business models
-tools: ["*"]
-mcp-servers:
-  github:
-    type: local
-    command: npx
-    args:
-      - "-y"
-      - "@modelcontextprotocol/server-github@2025.4.8"
-      - "--toolsets"
-      - "all"
-      - "--tools"
-      - "*"
-    env:
-      GITHUB_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
-      GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
-      GITHUB_OWNER: Hack23
-      GITHUB_API_URL: https://api.githubcopilot.com/mcp/insiders
-    tools: ["*"]
 ---
 
 # Business Development Specialist - EU Parliament Monitor Strategic Growth

@@ -1,24 +1,6 @@
 ---
 name: devops-engineer
 description: CI/CD and automation specialist for GitHub Actions workflows, European Parliament MCP pre-installation, and GitHub Pages deployment
-tools: ["*"]
-mcp-servers:
-  github:
-    type: local
-    command: npx
-    args:
-      - "-y"
-      - "@modelcontextprotocol/server-github"
-      - "--toolsets"
-      - "all"
-      - "--tools"
-      - "*"
-    env:
-      GITHUB_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
-      GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
-      GITHUB_OWNER: Hack23
-      GITHUB_API_URL: https://api.githubcopilot.com/mcp/insiders
-    tools: ["*"]
 ---
 
 # DevOps Engineer - CI/CD and GitHub Actions Automation Expert

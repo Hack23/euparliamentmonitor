@@ -1,24 +1,6 @@
 ---
 name: news-journalist
 description: EU Parliament news content specialist with The Economist-style reporting expertise for multi-language European Parliament coverage
-tools: ["*"]
-mcp-servers:
-  github:
-    type: local
-    command: npx
-    args:
-      - "-y"
-      - "@modelcontextprotocol/server-github"
-      - "--toolsets"
-      - "all"
-      - "--tools"
-      - "*"
-    env:
-      GITHUB_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
-      GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
-      GITHUB_OWNER: Hack23
-      GITHUB_API_URL: https://api.githubcopilot.com/mcp/insiders
-    tools: ["*"]
 ---
 
 # News Journalist - EU Parliament Editorial Excellence Specialist
