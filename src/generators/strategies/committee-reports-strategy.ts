@@ -10,9 +10,9 @@
 
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
 import { ArticleCategory } from '../../types/index.js';
-import type { LanguageCode, CommitteeData } from '../../types/index.js';
+import type { LanguageCode, CommitteeData, EPFeedData } from '../../types/index.js';
 import { COMMITTEE_REPORTS_TITLES, getLocalizedString } from '../../constants/languages.js';
-import { fetchCommitteeData } from '../pipeline/fetch-stage.js';
+import { fetchCommitteeData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { FEATURED_COMMITTEES } from '../committee-helpers.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
@@ -38,6 +38,8 @@ const COMMITTEE_REPORTS_SOURCES: readonly ArticleSource[] = [
 export interface CommitteeReportsArticleData extends ArticleData {
   /** Resolved data for each featured committee */
   readonly committeeDataList: readonly CommitteeData[];
+  /** EP feed data for enrichment (when available) */
+  readonly feedData?: EPFeedData;
 }
 
 // ─── HTML builders ────────────────────────────────────────────────────────────
@@ -107,6 +109,7 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
     'get_committee_info',
     'search_documents',
     'analyze_legislative_effectiveness',
+    'get_committee_documents_feed',
   ] as const;
 
   /**
@@ -120,21 +123,25 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
     client: EuropeanParliamentMCPClient | null,
     date: string
   ): Promise<CommitteeReportsArticleData> {
-    const committeeDataRaw = await Promise.all(
-      FEATURED_COMMITTEES.map((abbr) =>
-        fetchCommitteeData(client, abbr).catch((error: unknown) => {
-          const message = error instanceof Error ? error.message : String(error);
-          console.error(`  ⚠️ Failed to fetch data for committee ${abbr}:`, message);
-          return null;
-        })
-      )
-    );
+    // Fetch individual committee data and EP feeds in parallel
+    const [committeeDataRaw, feedData] = await Promise.all([
+      Promise.all(
+        FEATURED_COMMITTEES.map((abbr) =>
+          fetchCommitteeData(client, abbr).catch((error: unknown) => {
+            const message = error instanceof Error ? error.message : String(error);
+            console.error(`  ⚠️ Failed to fetch data for committee ${abbr}:`, message);
+            return null;
+          })
+        )
+      ),
+      fetchEPFeedData(client, 'one-month'),
+    ]);
 
     const committeeDataList = committeeDataRaw.filter(
       (committee): committee is CommitteeData => committee !== null
     );
 
-    return { date, committeeDataList };
+    return { date, committeeDataList, feedData };
   }
 
   /**

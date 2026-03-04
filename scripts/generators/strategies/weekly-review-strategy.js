@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { ArticleCategory } from '../../types/index.js';
 import { WEEKLY_REVIEW_TITLES, getLocalizedString } from '../../constants/languages.js';
-import { fetchVotingRecords, fetchVotingPatterns, fetchMotionsAnomalies, fetchParliamentaryQuestionsForMotions, } from '../pipeline/fetch-stage.js';
+import { fetchVotingRecords, fetchVotingPatterns, fetchMotionsAnomalies, fetchParliamentaryQuestionsForMotions, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent } from '../motions-content.js';
 /** Keywords shared by all Weekly Review articles */
 const WEEKLY_REVIEW_KEYWORDS = [
@@ -45,6 +45,9 @@ export class WeeklyReviewStrategy {
         'analyze_voting_patterns',
         'detect_voting_anomalies',
         'get_parliamentary_questions',
+        'get_adopted_texts_feed',
+        'get_procedures_feed',
+        'get_events_feed',
     ];
     /**
      * Fetch weekly review data from MCP.
@@ -56,11 +59,13 @@ export class WeeklyReviewStrategy {
     async fetchData(client, date) {
         const dateRange = computeWeeklyReviewDateRange(date);
         console.log(`  📊 Weekly review range: ${dateRange.start} to ${dateRange.end}`);
-        const [votingRecords, votingPatterns, anomalies, questions] = await Promise.all([
+        // Fetch voting data and EP feed data in parallel
+        const [votingRecords, votingPatterns, anomalies, questions, feedData] = await Promise.all([
             fetchVotingRecords(client, dateRange.start, dateRange.end),
             fetchVotingPatterns(client, dateRange.start, dateRange.end),
             fetchMotionsAnomalies(client, dateRange.start, dateRange.end),
             fetchParliamentaryQuestionsForMotions(client, dateRange.start, dateRange.end),
+            fetchEPFeedData(client, 'one-week'),
         ]);
         return {
             date,
@@ -70,6 +75,7 @@ export class WeeklyReviewStrategy {
             votingPatterns,
             anomalies,
             questions,
+            feedData,
         };
     }
     /**

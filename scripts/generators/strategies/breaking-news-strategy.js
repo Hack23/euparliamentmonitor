@@ -43,7 +43,7 @@ export class BreakingNewsStrategy {
             console.log('  📡 Fetching EP feed data (primary) and analytical context...');
         }
         // Step 1: Fetch feed data (PRIMARY news content)
-        const feedData = await fetchBreakingNewsFeedData(client);
+        const feedData = await fetchBreakingNewsFeedData(client, 'one-day');
         // When client is null, feedData is undefined — MCP unavailable
         if (!feedData) {
             console.log('  ⚠️ MCP unavailable — no feed data or analytical context');

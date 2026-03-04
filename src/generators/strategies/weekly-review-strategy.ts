@@ -17,6 +17,7 @@ import type {
   VotingPattern,
   VotingAnomaly,
   MotionsQuestion,
+  EPFeedData,
 } from '../../types/index.js';
 import { WEEKLY_REVIEW_TITLES, getLocalizedString } from '../../constants/languages.js';
 import {
@@ -24,6 +25,7 @@ import {
   fetchVotingPatterns,
   fetchMotionsAnomalies,
   fetchParliamentaryQuestionsForMotions,
+  fetchEPFeedData,
 } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent } from '../motions-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
@@ -44,6 +46,8 @@ export interface WeeklyReviewArticleData extends ArticleData {
   readonly questions: readonly MotionsQuestion[];
   /** Start date string for display */
   readonly dateFromStr: string;
+  /** EP feed data for enrichment (when available) */
+  readonly feedData?: EPFeedData;
 }
 
 /** Keywords shared by all Weekly Review articles */
@@ -95,6 +99,9 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
     'analyze_voting_patterns',
     'detect_voting_anomalies',
     'get_parliamentary_questions',
+    'get_adopted_texts_feed',
+    'get_procedures_feed',
+    'get_events_feed',
   ] as const;
 
   /**
@@ -111,11 +118,13 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
     const dateRange = computeWeeklyReviewDateRange(date);
     console.log(`  📊 Weekly review range: ${dateRange.start} to ${dateRange.end}`);
 
-    const [votingRecords, votingPatterns, anomalies, questions] = await Promise.all([
+    // Fetch voting data and EP feed data in parallel
+    const [votingRecords, votingPatterns, anomalies, questions, feedData] = await Promise.all([
       fetchVotingRecords(client, dateRange.start, dateRange.end),
       fetchVotingPatterns(client, dateRange.start, dateRange.end),
       fetchMotionsAnomalies(client, dateRange.start, dateRange.end),
       fetchParliamentaryQuestionsForMotions(client, dateRange.start, dateRange.end),
+      fetchEPFeedData(client, 'one-week'),
     ]);
 
     return {
@@ -126,6 +135,7 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
       votingPatterns,
       anomalies,
       questions,
+      feedData,
     };
   }
 

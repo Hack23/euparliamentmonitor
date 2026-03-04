@@ -44,10 +44,13 @@ describe('WeekAheadStrategy', () => {
     expect(strategy.type).toBe('week-ahead');
   });
 
-  it('declares required MCP tools', () => {
+  it('declares required MCP tools including feed endpoints', () => {
     expect(strategy.requiredMCPTools).toContain('get_plenary_sessions');
     expect(strategy.requiredMCPTools).toContain('get_committee_info');
     expect(strategy.requiredMCPTools).toContain('search_documents');
+    expect(strategy.requiredMCPTools).toContain('get_events_feed');
+    expect(strategy.requiredMCPTools).toContain('get_plenary_documents_feed');
+    expect(strategy.requiredMCPTools).toContain('get_adopted_texts_feed');
   });
 
   it('buildContent returns non-empty HTML for the given language', () => {
@@ -278,11 +281,13 @@ describe('MotionsStrategy', () => {
     expect(strategy.type).toBe('motions');
   });
 
-  it('declares required MCP tools', () => {
+  it('declares required MCP tools including feed endpoints', () => {
     expect(strategy.requiredMCPTools).toContain('get_voting_records');
     expect(strategy.requiredMCPTools).toContain('analyze_voting_patterns');
     expect(strategy.requiredMCPTools).toContain('detect_voting_anomalies');
     expect(strategy.requiredMCPTools).toContain('get_parliamentary_questions');
+    expect(strategy.requiredMCPTools).toContain('get_adopted_texts_feed');
+    expect(strategy.requiredMCPTools).toContain('get_parliamentary_questions_feed');
   });
 
   it('buildContent renders voting record title', () => {

@@ -51,11 +51,17 @@ export type {
   CoalitionIntelligence,
   MEPInfluenceScore,
   LegislativeVelocity,
+  EPFeedItem,
   AdoptedTextFeedItem,
   EventFeedItem,
   ProcedureFeedItem,
   MEPFeedItem,
+  DocumentFeedItem,
+  QuestionFeedItem,
+  DeclarationFeedItem,
+  CorporateBodyFeedItem,
   BreakingNewsFeedData,
+  EPFeedData,
 } from './parliament.js';
 
 export type {
@@ -124,6 +130,8 @@ export {
   type CorrelateIntelligenceOptions,
   type GeneratedStatsCategory,
   type GetAllGeneratedStatsOptions,
+  type FeedTimeframe,
+  type FeedBaseOptions,
   type GetMEPsFeedOptions,
   type GetEventsFeedOptions,
   type GetProceduresFeedOptions,

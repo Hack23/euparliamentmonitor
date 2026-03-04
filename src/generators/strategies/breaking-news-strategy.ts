@@ -85,7 +85,7 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
     }
 
     // Step 1: Fetch feed data (PRIMARY news content)
-    const feedData = await fetchBreakingNewsFeedData(client);
+    const feedData = await fetchBreakingNewsFeedData(client, 'one-day');
 
     // When client is null, feedData is undefined — MCP unavailable
     if (!feedData) {

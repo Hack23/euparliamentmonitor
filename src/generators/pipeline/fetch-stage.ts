@@ -30,7 +30,13 @@ import type {
   EventFeedItem,
   ProcedureFeedItem,
   MEPFeedItem,
+  DocumentFeedItem,
+  QuestionFeedItem,
+  DeclarationFeedItem,
+  CorporateBodyFeedItem,
   BreakingNewsFeedData,
+  EPFeedData,
+  FeedTimeframe,
 } from '../../types/index.js';
 import {
   parsePlenarySessions,
@@ -918,7 +924,10 @@ export async function fetchProcedureStatusFromMCP(
 
 /**
  * Parse a feed result from MCP into a flat array of items.
- * Handles various EP API v2 feed response shapes safely.
+ * EP API v2 feeds return items under the `data` key:
+ * `{ data: [{ id, type, work_type, identifier, label }], "@context": [...] }`
+ *
+ * Also handles legacy shapes (`feed`, `entries`, `items`) and bare arrays.
  *
  * @param result - Raw MCP tool result
  * @returns Array of parsed feed entry objects (may be empty)
@@ -927,8 +936,9 @@ function parseFeedResult(result: MCPToolResult | undefined): Record<string, unkn
   if (!result?.content?.[0]?.text) return [];
   const parsed = parseJSON<unknown>(result.content[0].text, 'feed');
   if (!parsed) return [];
-  // EP feeds may wrap items under "feed", "entries", "items", or return an array directly
+  // EP API v2 feeds use `data` key; also check legacy shapes
   const candidates = [
+    (parsed as Record<string, unknown>)['data'],
     (parsed as Record<string, unknown>)['feed'],
     (parsed as Record<string, unknown>)['entries'],
     (parsed as Record<string, unknown>)['items'],
@@ -941,29 +951,53 @@ function parseFeedResult(result: MCPToolResult | undefined): Record<string, unkn
 }
 
 /**
+ * Map a raw EP API v2 feed item to a normalized feed item.
+ * EP feeds return `{ id, type, work_type, identifier, label }` — we normalize
+ * these into the domain feed item shape, using `label` as `title` when no title exists.
+ *
+ * @param item - Raw feed item record
+ * @returns Common feed item fields
+ */
+function mapFeedItemBase(item: Record<string, unknown>): {
+  id: string;
+  title: string;
+  date: string;
+  type?: string;
+  url?: string;
+  identifier?: string;
+  label?: string;
+} {
+  return {
+    id: String(item['id'] ?? item['docId'] ?? ''),
+    title: String(item['title'] ?? item['label'] ?? item['name'] ?? item['identifier'] ?? 'Untitled'),
+    date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
+    type: item['type'] ? String(item['type']) : item['work_type'] ? String(item['work_type']) : undefined,
+    url: item['url'] ? String(item['url']) : undefined,
+    identifier: item['identifier'] ? String(item['identifier']) : undefined,
+    label: item['label'] ? String(item['label']) : undefined,
+  };
+}
+
+/**
  * Fetch adopted texts feed from MCP.
  *
  * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
  * @returns Array of adopted text feed items
  */
 export async function fetchAdoptedTextsFeed(
-  client: EuropeanParliamentMCPClient | null
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
 ): Promise<AdoptedTextFeedItem[]> {
   if (!client) return [];
   try {
-    console.log(`${MCP_FETCH_PREFIX} Fetching adopted texts feed...`);
+    console.log(`${MCP_FETCH_PREFIX} Fetching adopted texts feed (${timeframe})...`);
     const result = await callMCP(
-      () => client.getAdoptedTextsFeed({ limit: 20 }),
+      () => client.getAdoptedTextsFeed({ timeframe, limit: 20 }),
       undefined,
       'get_adopted_texts_feed'
     );
-    return parseFeedResult(result).map((item) => ({
-      id: String(item['id'] ?? item['docId'] ?? ''),
-      title: String(item['title'] ?? item['name'] ?? 'Untitled'),
-      date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
-      type: item['type'] ? String(item['type']) : undefined,
-      url: item['url'] ? String(item['url']) : undefined,
-    }));
+    return parseFeedResult(result).map((item) => mapFeedItemBase(item));
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     console.warn(`${WARN_PREFIX} get_adopted_texts_feed failed:`, message);
@@ -975,26 +1009,24 @@ export async function fetchAdoptedTextsFeed(
  * Fetch events feed from MCP.
  *
  * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
  * @returns Array of event feed items
  */
 export async function fetchEventsFeed(
-  client: EuropeanParliamentMCPClient | null
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
 ): Promise<EventFeedItem[]> {
   if (!client) return [];
   try {
-    console.log(`${MCP_FETCH_PREFIX} Fetching events feed...`);
+    console.log(`${MCP_FETCH_PREFIX} Fetching events feed (${timeframe})...`);
     const result = await callMCP(
-      () => client.getEventsFeed({ limit: 20 }),
+      () => client.getEventsFeed({ timeframe, limit: 20 }),
       undefined,
       'get_events_feed'
     );
     return parseFeedResult(result).map((item) => ({
-      id: String(item['id'] ?? item['eventId'] ?? ''),
-      title: String(item['title'] ?? item['name'] ?? 'Untitled'),
-      date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
-      type: item['type'] ? String(item['type']) : undefined,
+      ...mapFeedItemBase(item),
       location: item['location'] ? String(item['location']) : undefined,
-      url: item['url'] ? String(item['url']) : undefined,
     }));
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -1007,26 +1039,24 @@ export async function fetchEventsFeed(
  * Fetch procedures feed from MCP.
  *
  * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
  * @returns Array of procedure feed items
  */
 export async function fetchProceduresFeed(
-  client: EuropeanParliamentMCPClient | null
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
 ): Promise<ProcedureFeedItem[]> {
   if (!client) return [];
   try {
-    console.log(`${MCP_FETCH_PREFIX} Fetching procedures feed...`);
+    console.log(`${MCP_FETCH_PREFIX} Fetching procedures feed (${timeframe})...`);
     const result = await callMCP(
-      () => client.getProceduresFeed({ limit: 20 }),
+      () => client.getProceduresFeed({ timeframe, limit: 20 }),
       undefined,
       'get_procedures_feed'
     );
     return parseFeedResult(result).map((item) => ({
-      id: String(item['id'] ?? item['processId'] ?? ''),
-      title: String(item['title'] ?? item['name'] ?? 'Untitled'),
-      date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
+      ...mapFeedItemBase(item),
       stage: item['stage'] ? String(item['stage']) : undefined,
-      type: item['type'] ? String(item['type']) : undefined,
-      url: item['url'] ? String(item['url']) : undefined,
     }));
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -1039,30 +1069,250 @@ export async function fetchProceduresFeed(
  * Fetch MEPs feed from MCP.
  *
  * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
  * @returns Array of MEP feed items
  */
 export async function fetchMEPsFeed(
-  client: EuropeanParliamentMCPClient | null
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
 ): Promise<MEPFeedItem[]> {
   if (!client) return [];
   try {
-    console.log(`${MCP_FETCH_PREFIX} Fetching MEPs feed...`);
+    console.log(`${MCP_FETCH_PREFIX} Fetching MEPs feed (${timeframe})...`);
     const result = await callMCP(
-      () => client.getMEPsFeed({ limit: 20 }),
+      () => client.getMEPsFeed({ timeframe, limit: 20 }),
       undefined,
       'get_meps_feed'
     );
     return parseFeedResult(result).map((item) => ({
       id: String(item['id'] ?? item['mepId'] ?? ''),
-      name: String(item['name'] ?? item['title'] ?? 'Unknown'),
+      name: String(item['name'] ?? item['label'] ?? item['title'] ?? 'Unknown'),
       date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
       country: item['country'] ? String(item['country']) : undefined,
       group: item['group'] ? String(item['group']) : undefined,
       url: item['url'] ? String(item['url']) : undefined,
+      identifier: item['identifier'] ? String(item['identifier']) : undefined,
+      label: item['label'] ? String(item['label']) : undefined,
     }));
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     console.warn(`${WARN_PREFIX} get_meps_feed failed:`, message);
+    return [];
+  }
+}
+
+/**
+ * Fetch documents feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
+ * @returns Array of document feed items
+ */
+export async function fetchDocumentsFeed(
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
+): Promise<DocumentFeedItem[]> {
+  if (!client) return [];
+  try {
+    console.log(`${MCP_FETCH_PREFIX} Fetching documents feed (${timeframe})...`);
+    const result = await callMCP(
+      () => client.getDocumentsFeed({ timeframe, limit: 20 }),
+      undefined,
+      'get_documents_feed'
+    );
+    return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} get_documents_feed failed:`, message);
+    return [];
+  }
+}
+
+/**
+ * Fetch plenary documents feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
+ * @returns Array of document feed items
+ */
+export async function fetchPlenaryDocumentsFeed(
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
+): Promise<DocumentFeedItem[]> {
+  if (!client) return [];
+  try {
+    console.log(`${MCP_FETCH_PREFIX} Fetching plenary documents feed (${timeframe})...`);
+    const result = await callMCP(
+      () => client.getPlenaryDocumentsFeed({ timeframe, limit: 20 }),
+      undefined,
+      'get_plenary_documents_feed'
+    );
+    return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} get_plenary_documents_feed failed:`, message);
+    return [];
+  }
+}
+
+/**
+ * Fetch committee documents feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
+ * @returns Array of document feed items
+ */
+export async function fetchCommitteeDocumentsFeed(
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
+): Promise<DocumentFeedItem[]> {
+  if (!client) return [];
+  try {
+    console.log(`${MCP_FETCH_PREFIX} Fetching committee documents feed (${timeframe})...`);
+    const result = await callMCP(
+      () => client.getCommitteeDocumentsFeed({ timeframe, limit: 20 }),
+      undefined,
+      'get_committee_documents_feed'
+    );
+    return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} get_committee_documents_feed failed:`, message);
+    return [];
+  }
+}
+
+/**
+ * Fetch plenary session documents feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
+ * @returns Array of document feed items
+ */
+export async function fetchPlenarySessionDocumentsFeed(
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
+): Promise<DocumentFeedItem[]> {
+  if (!client) return [];
+  try {
+    console.log(`${MCP_FETCH_PREFIX} Fetching plenary session documents feed (${timeframe})...`);
+    const result = await callMCP(
+      () => client.getPlenarySessionDocumentsFeed({ timeframe, limit: 20 }),
+      undefined,
+      'get_plenary_session_documents_feed'
+    );
+    return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} get_plenary_session_documents_feed failed:`, message);
+    return [];
+  }
+}
+
+/**
+ * Fetch external documents feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
+ * @returns Array of document feed items
+ */
+export async function fetchExternalDocumentsFeed(
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
+): Promise<DocumentFeedItem[]> {
+  if (!client) return [];
+  try {
+    console.log(`${MCP_FETCH_PREFIX} Fetching external documents feed (${timeframe})...`);
+    const result = await callMCP(
+      () => client.getExternalDocumentsFeed({ timeframe, limit: 20 }),
+      undefined,
+      'get_external_documents_feed'
+    );
+    return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} get_external_documents_feed failed:`, message);
+    return [];
+  }
+}
+
+/**
+ * Fetch parliamentary questions feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
+ * @returns Array of question feed items
+ */
+export async function fetchQuestionsFeed(
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
+): Promise<QuestionFeedItem[]> {
+  if (!client) return [];
+  try {
+    console.log(`${MCP_FETCH_PREFIX} Fetching parliamentary questions feed (${timeframe})...`);
+    const result = await callMCP(
+      () => client.getParliamentaryQuestionsFeed({ timeframe, limit: 20 }),
+      undefined,
+      'get_parliamentary_questions_feed'
+    );
+    return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} get_parliamentary_questions_feed failed:`, message);
+    return [];
+  }
+}
+
+/**
+ * Fetch MEP declarations feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
+ * @returns Array of declaration feed items
+ */
+export async function fetchDeclarationsFeed(
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
+): Promise<DeclarationFeedItem[]> {
+  if (!client) return [];
+  try {
+    console.log(`${MCP_FETCH_PREFIX} Fetching MEP declarations feed (${timeframe})...`);
+    const result = await callMCP(
+      () => client.getMEPDeclarationsFeed({ timeframe, limit: 20 }),
+      undefined,
+      'get_mep_declarations_feed'
+    );
+    return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} get_mep_declarations_feed failed:`, message);
+    return [];
+  }
+}
+
+/**
+ * Fetch corporate bodies feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
+ * @returns Array of corporate body feed items
+ */
+export async function fetchCorporateBodiesFeed(
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
+): Promise<CorporateBodyFeedItem[]> {
+  if (!client) return [];
+  try {
+    console.log(`${MCP_FETCH_PREFIX} Fetching corporate bodies feed (${timeframe})...`);
+    const result = await callMCP(
+      () => client.getCorporateBodiesFeed({ timeframe, limit: 20 }),
+      undefined,
+      'get_corporate_bodies_feed'
+    );
+    return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} get_corporate_bodies_feed failed:`, message);
     return [];
   }
 }
@@ -1073,10 +1323,12 @@ export async function fetchMEPsFeed(
  * Returns `undefined` when client is null (MCP unavailable).
  *
  * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
  * @returns Aggregated feed data for breaking news, or undefined when client is null
  */
 export async function fetchBreakingNewsFeedData(
-  client: EuropeanParliamentMCPClient | null
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
 ): Promise<BreakingNewsFeedData | undefined> {
   if (!client) return undefined;
   if (!mcpCircuitBreaker.canRequest()) {
@@ -1086,10 +1338,81 @@ export async function fetchBreakingNewsFeedData(
     return undefined;
   }
   const [adoptedTexts, events, procedures, mepUpdates] = await Promise.all([
-    fetchAdoptedTextsFeed(client),
-    fetchEventsFeed(client),
-    fetchProceduresFeed(client),
-    fetchMEPsFeed(client),
+    fetchAdoptedTextsFeed(client, timeframe),
+    fetchEventsFeed(client, timeframe),
+    fetchProceduresFeed(client, timeframe),
+    fetchMEPsFeed(client, timeframe),
   ]);
   return { adoptedTexts, events, procedures, mepUpdates };
+}
+
+/**
+ * Fetch comprehensive EP feed data from all 12 feed endpoints in parallel.
+ * This is the primary data source for all article strategies.
+ *
+ * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
+ * @returns Full EPFeedData or undefined when client is null
+ */
+export async function fetchEPFeedData(
+  client: EuropeanParliamentMCPClient | null,
+  timeframe: FeedTimeframe = 'one-day'
+): Promise<EPFeedData | undefined> {
+  if (!client) return undefined;
+  if (!mcpCircuitBreaker.canRequest()) {
+    console.warn(
+      `${WARN_PREFIX} Circuit breaker OPEN — treating as MCP unavailable for EP feeds`
+    );
+    return undefined;
+  }
+  console.log(`${MCP_FETCH_PREFIX} Fetching comprehensive EP feed data (${timeframe})...`);
+  const [
+    adoptedTexts,
+    events,
+    procedures,
+    mepUpdates,
+    documents,
+    plenaryDocuments,
+    committeeDocuments,
+    plenarySessionDocuments,
+    externalDocuments,
+    questions,
+    declarations,
+    corporateBodies,
+  ] = await Promise.all([
+    fetchAdoptedTextsFeed(client, timeframe),
+    fetchEventsFeed(client, timeframe),
+    fetchProceduresFeed(client, timeframe),
+    fetchMEPsFeed(client, timeframe),
+    fetchDocumentsFeed(client, timeframe),
+    fetchPlenaryDocumentsFeed(client, timeframe),
+    fetchCommitteeDocumentsFeed(client, timeframe),
+    fetchPlenarySessionDocumentsFeed(client, timeframe),
+    fetchExternalDocumentsFeed(client, timeframe),
+    fetchQuestionsFeed(client, timeframe),
+    fetchDeclarationsFeed(client, timeframe),
+    fetchCorporateBodiesFeed(client, timeframe),
+  ]);
+
+  const totalItems =
+    adoptedTexts.length + events.length + procedures.length + mepUpdates.length +
+    documents.length + plenaryDocuments.length + committeeDocuments.length +
+    plenarySessionDocuments.length + externalDocuments.length + questions.length +
+    declarations.length + corporateBodies.length;
+  console.log(`  ✅ Fetched ${totalItems} total feed items across 12 endpoints`);
+
+  return {
+    adoptedTexts,
+    events,
+    procedures,
+    mepUpdates,
+    documents,
+    plenaryDocuments,
+    committeeDocuments,
+    plenarySessionDocuments,
+    externalDocuments,
+    questions,
+    declarations,
+    corporateBodies,
+  };
 }

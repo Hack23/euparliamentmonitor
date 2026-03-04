@@ -16,9 +16,10 @@ import type {
   VotingPattern,
   VotingAnomaly,
   MotionsQuestion,
+  EPFeedData,
 } from '../../types/index.js';
 import { MOTIONS_TITLES, getLocalizedString } from '../../constants/languages.js';
-import { fetchMotionsData } from '../pipeline/fetch-stage.js';
+import { fetchMotionsData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent, buildPoliticalAlignmentSection } from '../motions-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
@@ -48,6 +49,8 @@ export interface MotionsArticleData extends ArticleData {
   readonly anomalies: readonly VotingAnomaly[];
   /** Parliamentary questions raised in the period */
   readonly questions: readonly MotionsQuestion[];
+  /** EP feed data for enrichment (when available) */
+  readonly feedData?: EPFeedData;
 }
 
 // ─── Strategy implementation ──────────────────────────────────────────────────
@@ -65,6 +68,8 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
     'analyze_voting_patterns',
     'detect_voting_anomalies',
     'get_parliamentary_questions',
+    'get_adopted_texts_feed',
+    'get_parliamentary_questions_feed',
   ] as const;
 
   /**
@@ -86,11 +91,13 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
     }
     const dateFromStr = dateFromParts[0];
 
-    const { votingRecords, votingPatterns, anomalies, questions } = await fetchMotionsData(
-      client,
-      dateFromStr,
-      date
-    );
+    // Fetch voting data and EP feed data in parallel
+    const [motionsDataResult, feedData] = await Promise.all([
+      fetchMotionsData(client, dateFromStr, date),
+      fetchEPFeedData(client, 'one-month'),
+    ]);
+
+    const { votingRecords, votingPatterns, anomalies, questions } = motionsDataResult;
 
     return {
       date,
@@ -99,6 +106,7 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
       votingPatterns,
       anomalies,
       questions,
+      feedData,
     };
   }
 

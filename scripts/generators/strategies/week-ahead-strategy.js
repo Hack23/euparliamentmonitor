@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { ArticleCategory } from '../../types/index.js';
 import { WEEK_AHEAD_TITLES, getLocalizedString } from '../../constants/languages.js';
-import { fetchWeekAheadData } from '../pipeline/fetch-stage.js';
+import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { buildWeekAheadContent, buildKeywords, buildWhatToWatchSection, } from '../week-ahead-content.js';
 // ─── Date-range helper ────────────────────────────────────────────────────────
 /**
@@ -42,6 +42,9 @@ export class WeekAheadStrategy {
         'monitor_legislative_pipeline',
         'get_parliamentary_questions',
         'get_events',
+        'get_events_feed',
+        'get_plenary_documents_feed',
+        'get_adopted_texts_feed',
     ];
     /**
      * Fetch week-ahead data from MCP.
@@ -53,9 +56,13 @@ export class WeekAheadStrategy {
     async fetchData(client, date) {
         const dateRange = computeWeekAheadDateRange(date);
         console.log(`  📆 Date range: ${dateRange.start} to ${dateRange.end}`);
-        const weekData = await fetchWeekAheadData(client, dateRange);
+        // Fetch traditional MCP data and EP feeds in parallel
+        const [weekData, feedData] = await Promise.all([
+            fetchWeekAheadData(client, dateRange),
+            fetchEPFeedData(client, 'one-week'),
+        ]);
         const keywords = buildKeywords(weekData);
-        return { date, dateRange, weekData, keywords };
+        return { date, dateRange, weekData, keywords, feedData };
     }
     /**
      * Build the week-ahead HTML body for the specified language.
