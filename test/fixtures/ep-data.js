@@ -214,6 +214,12 @@ export const breakingNewsData = {
   anomalyRaw: 'EPP defection detected',
   coalitionRaw: 'Coalition stress rising',
   reportRaw: 'High abstention rate',
+  feedData: {
+    adoptedTexts: [{ id: 'AT-001', title: 'Resolution on climate action', date: STRATEGY_DATE }],
+    events: [{ id: 'EV-001', title: 'Plenary session', date: STRATEGY_DATE }],
+    procedures: [{ id: 'PR-001', title: 'New regulation proposal', date: STRATEGY_DATE }],
+    mepUpdates: [{ id: 'MEP-001', name: 'Jane Smith', date: STRATEGY_DATE }],
+  },
 };
 
 /** Minimal CommitteeReportsArticleData fixture */

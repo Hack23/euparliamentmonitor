@@ -51,6 +51,11 @@ export type {
   CoalitionIntelligence,
   MEPInfluenceScore,
   LegislativeVelocity,
+  AdoptedTextFeedItem,
+  EventFeedItem,
+  ProcedureFeedItem,
+  MEPFeedItem,
+  BreakingNewsFeedData,
 } from './parliament.js';
 
 export type {

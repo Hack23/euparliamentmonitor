@@ -2,15 +2,147 @@
 // SPDX-License-Identifier: Apache-2.0
 /**
  * @module Generators/BreakingContent
- * @description Pure functions for building breaking-news article HTML,
- * including optional structured intelligence briefing sections derived
- * from typed MCP intelligence data.
+ * @description Pure functions for building breaking-news article HTML.
+ *
+ * **Feed-first approach**: EP feed data (adopted texts, events, procedures,
+ * MEP updates) is the primary news content. Analytical intelligence sections
+ * (voting anomalies, coalition dynamics) are supplementary context only.
+ * Precomputed statistics are NEVER the news itself.
  */
 import { escapeHTML } from '../utils/file-utils.js';
 import { getLocalizedString, EDITORIAL_STRINGS, BREAKING_STRINGS } from '../constants/languages.js';
 /** Maximum characters to display from raw MCP intelligence data */
 const MAX_DATA_CHARS = 2000;
-// ─── Private section builders ────────────────────────────────────────────────
+/** Maximum feed items to render per section */
+const MAX_FEED_ITEMS = 10;
+// ─── Feed section builders ───────────────────────────────────────────────────
+/**
+ * Build adopted texts section HTML from feed items.
+ *
+ * @param items - Adopted text feed items
+ * @param lang - Language code for localized strings
+ * @returns HTML section string or empty string
+ */
+function buildAdoptedTextsSection(items, lang) {
+    if (items.length === 0)
+        return '';
+    const strings = getLocalizedString(BREAKING_STRINGS, lang);
+    const listItems = items
+        .slice(0, MAX_FEED_ITEMS)
+        .map((item) => `<li class="feed-item adopted-text-item">` +
+        `<strong>${escapeHTML(item.title)}</strong>` +
+        `${item.date ? ` <span class="feed-date">(${escapeHTML(item.date)})</span>` : ''}` +
+        `${item.type ? ` <span class="feed-type">[${escapeHTML(item.type)}]</span>` : ''}` +
+        `</li>`)
+        .join('\n            ');
+    return `
+        <section class="adopted-texts-feed">
+          <h2>${escapeHTML(strings.adoptedTextsHeading)}</h2>
+          <ul>
+            ${listItems}
+          </ul>
+        </section>`;
+}
+/**
+ * Build recent events section HTML from feed items.
+ *
+ * @param items - Event feed items
+ * @param lang - Language code for localized strings
+ * @returns HTML section string or empty string
+ */
+function buildRecentEventsSection(items, lang) {
+    if (items.length === 0)
+        return '';
+    const strings = getLocalizedString(BREAKING_STRINGS, lang);
+    const listItems = items
+        .slice(0, MAX_FEED_ITEMS)
+        .map((item) => `<li class="feed-item event-item">` +
+        `<strong>${escapeHTML(item.title)}</strong>` +
+        `${item.date ? ` <span class="feed-date">(${escapeHTML(item.date)})</span>` : ''}` +
+        `${item.location ? ` <span class="feed-location">${escapeHTML(item.location)}</span>` : ''}` +
+        `</li>`)
+        .join('\n            ');
+    return `
+        <section class="events-feed">
+          <h2>${escapeHTML(strings.recentEventsHeading)}</h2>
+          <ul>
+            ${listItems}
+          </ul>
+        </section>`;
+}
+/**
+ * Build procedure updates section HTML from feed items.
+ *
+ * @param items - Procedure feed items
+ * @param lang - Language code for localized strings
+ * @returns HTML section string or empty string
+ */
+function buildProcedureUpdatesSection(items, lang) {
+    if (items.length === 0)
+        return '';
+    const strings = getLocalizedString(BREAKING_STRINGS, lang);
+    const listItems = items
+        .slice(0, MAX_FEED_ITEMS)
+        .map((item) => `<li class="feed-item procedure-item">` +
+        `<strong>${escapeHTML(item.title)}</strong>` +
+        `${item.stage ? ` <span class="feed-stage">[${escapeHTML(item.stage)}]</span>` : ''}` +
+        `${item.date ? ` <span class="feed-date">(${escapeHTML(item.date)})</span>` : ''}` +
+        `</li>`)
+        .join('\n            ');
+    return `
+        <section class="procedures-feed">
+          <h2>${escapeHTML(strings.procedureUpdatesHeading)}</h2>
+          <ul>
+            ${listItems}
+          </ul>
+        </section>`;
+}
+/**
+ * Build MEP updates section HTML from feed items.
+ *
+ * @param items - MEP feed items
+ * @param lang - Language code for localized strings
+ * @returns HTML section string or empty string
+ */
+function buildMEPUpdatesSection(items, lang) {
+    if (items.length === 0)
+        return '';
+    const strings = getLocalizedString(BREAKING_STRINGS, lang);
+    const listItems = items
+        .slice(0, MAX_FEED_ITEMS)
+        .map((item) => `<li class="feed-item mep-item">` +
+        `<strong>${escapeHTML(item.name)}</strong>` +
+        `${item.country ? ` <span class="feed-country">(${escapeHTML(item.country)})</span>` : ''}` +
+        `${item.group ? ` <span class="feed-group">${escapeHTML(item.group)}</span>` : ''}` +
+        `</li>`)
+        .join('\n            ');
+    return `
+        <section class="mep-updates-feed">
+          <h2>${escapeHTML(strings.mepUpdatesHeading)}</h2>
+          <ul>
+            ${listItems}
+          </ul>
+        </section>`;
+}
+/**
+ * Build the combined feed-based news sections (primary content).
+ *
+ * @param feedData - Aggregated feed data
+ * @param lang - Language code
+ * @returns HTML string with all feed sections
+ */
+function buildFeedSections(feedData, lang) {
+    if (!feedData)
+        return '';
+    const sections = [
+        buildAdoptedTextsSection(feedData.adoptedTexts, lang),
+        buildRecentEventsSection(feedData.events, lang),
+        buildProcedureUpdatesSection(feedData.procedures, lang),
+        buildMEPUpdatesSection(feedData.mepUpdates, lang),
+    ];
+    return sections.filter(Boolean).join('');
+}
+// ─── Private intelligence section builders ───────────────────────────────────
 /**
  * Build intelligence briefing section HTML from structured anomaly data
  *
@@ -111,32 +243,56 @@ function buildIntelligenceBriefingSection(anomalies, coalitions, mepScores, lang
 // ─── Exported function ────────────────────────────────────────────────────────
 /**
  * Build breaking news article HTML content.
- * Accepts both raw MCP string data (rendered as narrative blocks) and optional
- * structured intelligence data (rendered as formatted HTML sections).
- * When no data is provided, returns a placeholder notice.
+ *
+ * **Feed-first**: When `feedData` is provided, feed sections are the primary
+ * content and appear first. Raw MCP analytical data and structured intelligence
+ * sections are rendered as supplementary context below.
+ *
+ * When no data is provided at all, returns a placeholder notice.
  *
  * @param date - Current date string for the article
- * @param anomalyRaw - Raw anomaly data from MCP
- * @param coalitionRaw - Raw coalition dynamics data from MCP
- * @param reportRaw - Raw analytical report from MCP
- * @param influenceRaw - Raw MEP influence data from MCP
+ * @param anomalyRaw - Raw anomaly data from MCP (context only)
+ * @param coalitionRaw - Raw coalition dynamics data from MCP (context only)
+ * @param reportRaw - Raw analytical report from MCP (context only)
+ * @param influenceRaw - Raw MEP influence data from MCP (context only)
  * @param lang - Language code for localized editorial strings (default: 'en')
  * @param anomalies - Optional structured voting anomaly intelligence items
  * @param coalitions - Optional structured coalition intelligence items
  * @param mepScores - Optional structured MEP influence score items
+ * @param feedData - Optional EP feed data (adopted texts, events, procedures, MEPs)
  * @returns Full article HTML content string
  */
-export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, lang = 'en', anomalies = [], coalitions = [], mepScores = []) {
+export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportRaw, influenceRaw, lang = 'en', anomalies = [], coalitions = [], mepScores = [], feedData) {
     const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
     const strings = getLocalizedString(BREAKING_STRINGS, lang);
-    const hasData = Boolean(anomalyRaw ||
+    // Feed data is the primary news content
+    const hasFeedData = Boolean(feedData &&
+        (feedData.adoptedTexts.length > 0 ||
+            feedData.events.length > 0 ||
+            feedData.procedures.length > 0 ||
+            feedData.mepUpdates.length > 0));
+    // Analytical data is context only
+    const hasAnalyticalData = Boolean(anomalyRaw ||
         coalitionRaw ||
         reportRaw ||
         influenceRaw ||
         anomalies.length ||
         coalitions.length ||
         mepScores.length);
+    const hasData = hasFeedData || hasAnalyticalData;
+    // MCP is truly unavailable only when feedData is undefined AND no analytical data
+    const isMCPUnavailable = !feedData && !hasAnalyticalData;
     const timestamp = new Date().toISOString();
+    // ─── Feed sections (PRIMARY news content) ──────────────────────────────
+    // When feedData is present but empty AND hasAnalyticalData is false,
+    // the lede already conveys noFeedDataNotice — skip the duplicate section.
+    const feedSections = feedData && !hasFeedData && hasAnalyticalData
+        ? `
+        <section class="feed-empty-notice">
+          <p>${escapeHTML(strings.noFeedDataNotice)}</p>
+        </section>`
+        : buildFeedSections(feedData, lang);
+    // ─── Analytical context sections (SECONDARY) ──────────────────────────
     const anomalySection = anomalyRaw
         ? `
         <section class="analysis">
@@ -180,7 +336,12 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
         </section>`
         : '';
     const intelligenceBriefing = buildIntelligenceBriefingSection(anomalies, coalitions, mepScores, lang);
-    const placeholderNotice = !hasData
+    const ledeText = hasAnalyticalData
+        ? strings.lede
+        : hasFeedData
+            ? strings.feedLede
+            : strings.noFeedDataNotice;
+    const placeholderNotice = isMCPUnavailable
         ? `
         <div class="notice">
           <p><strong>Note:</strong> ${escapeHTML(strings.placeholderNotice)}</p>
@@ -190,7 +351,7 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
         </section>`
         : `
         <section class="lede">
-          <p>${escapeHTML(strings.lede)} as of ${escapeHTML(date)}.</p>
+          <p>${escapeHTML(ledeText)} as of ${escapeHTML(date)}.</p>
         </section>`;
     return `
         <div class="article-content">
@@ -198,6 +359,7 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
             <p class="breaking-timestamp">${escapeHTML(strings.breakingBanner)} — ${escapeHTML(timestamp)}</p>
           </section>
           ${placeholderNotice}
+          ${feedSections}
           ${intelligenceBriefing}
           ${anomalySection}
           ${coalitionSection}

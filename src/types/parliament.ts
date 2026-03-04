@@ -155,3 +155,52 @@ export interface LegislativeVelocity {
   bottleneckRisk: 'high' | 'medium' | 'low';
   predictedCompletion: string;
 }
+
+// ─── EP Feed item types ──────────────────────────────────────────────────────
+
+/** A single adopted-text item from the EP adopted-texts feed */
+export interface AdoptedTextFeedItem {
+  id: string;
+  title: string;
+  date: string;
+  type?: string;
+  url?: string;
+}
+
+/** A single event item from the EP events feed */
+export interface EventFeedItem {
+  id: string;
+  title: string;
+  date: string;
+  type?: string;
+  location?: string;
+  url?: string;
+}
+
+/** A single procedure item from the EP procedures feed */
+export interface ProcedureFeedItem {
+  id: string;
+  title: string;
+  date: string;
+  stage?: string;
+  type?: string;
+  url?: string;
+}
+
+/** A single MEP update item from the EP MEPs feed */
+export interface MEPFeedItem {
+  id: string;
+  name: string;
+  date: string;
+  country?: string;
+  group?: string;
+  url?: string;
+}
+
+/** Aggregated feed data for breaking news articles */
+export interface BreakingNewsFeedData {
+  adoptedTexts: readonly AdoptedTextFeedItem[];
+  events: readonly EventFeedItem[];
+  procedures: readonly ProcedureFeedItem[];
+  mepUpdates: readonly MEPFeedItem[];
+}

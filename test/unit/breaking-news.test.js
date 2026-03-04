@@ -11,6 +11,7 @@ import { buildBreakingNewsContent } from '../../scripts/generators/news-enhanced
 import { generateArticleHTML } from '../../scripts/templates/article-template.js';
 import { BREAKING_NEWS_TITLES, ALL_LANGUAGES, getLocalizedString, BREAKING_STRINGS } from '../../scripts/constants/languages.js';
 import { validateHTML } from '../helpers/test-utils.js';
+import { breakingNewsData } from '../fixtures/ep-data.js';
 
 describe('Breaking News Generator', () => {
   describe('buildBreakingNewsContent', () => {
@@ -362,5 +363,163 @@ describe('Breaking News multi-language section headings', () => {
       expect(strings.intelligenceBriefing).toBeDefined();
       expect(strings.lede).toBeDefined();
     }
+  });
+});
+
+describe('Breaking News feed-based sections', () => {
+  // Use shared fixture from test/fixtures/ep-data.js
+  const sampleFeedData = breakingNewsData.feedData;
+
+  const emptyFeedData = {
+    adoptedTexts: [],
+    events: [],
+    procedures: [],
+    mepUpdates: [],
+  };
+
+  it('should render adopted texts section when feed data is provided', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], sampleFeedData);
+    expect(html).toContain('adopted-texts-feed');
+    expect(html).toContain('Resolution on climate action');
+    expect(html).toContain('Recently Adopted Texts');
+  });
+
+  it('should render events section when feed data is provided', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], sampleFeedData);
+    expect(html).toContain('events-feed');
+    expect(html).toContain('Plenary session');
+    expect(html).toContain('Recent Parliamentary Events');
+  });
+
+  it('should render procedures section when feed data is provided', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], sampleFeedData);
+    expect(html).toContain('procedures-feed');
+    expect(html).toContain('New regulation proposal');
+    expect(html).toContain('Legislative Procedure Updates');
+  });
+
+  it('should render MEP updates section when feed data is provided', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], sampleFeedData);
+    expect(html).toContain('mep-updates-feed');
+    expect(html).toContain('Jane Smith');
+    expect(html).toContain('MEP Updates');
+  });
+
+  it('should show feed-first lede when only feed data is present (no analytical data)', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], sampleFeedData);
+    expect(html).not.toContain('placeholder content');
+    expect(html).not.toContain('Intelligence analysis from the European Parliament MCP Server');
+    expect(html).toContain('The latest European Parliament feed data highlights recent parliamentary activity');
+  });
+
+  it('should show placeholder when MCP is truly unavailable (no feedData, no analytical data)', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], []);
+    expect(html).toContain('placeholder content');
+    expect(html).toContain('MCP Server is unavailable');
+  });
+
+  it('should render noFeedDataNotice when feedData is present but empty', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], emptyFeedData);
+    // noFeedDataNotice appears in the lede (not duplicated in feed-empty-notice section)
+    expect(html).toContain('No recent feed data available from the European Parliament');
+    expect(html).not.toContain('MCP Server is unavailable');
+    // Lede should not claim "recent parliamentary activity" when feeds are empty
+    expect(html).not.toContain('highlights recent parliamentary activity');
+    // No duplicate: feed-empty-notice section should NOT render when lede already conveys it
+    expect(html).not.toContain('feed-empty-notice');
+  });
+
+  it('should not render feed sections when feedData is undefined', () => {
+    const html = buildBreakingNewsContent('2025-01-15', 'anomaly', '', '', '', 'en');
+    expect(html).not.toContain('adopted-texts-feed');
+    expect(html).not.toContain('events-feed');
+    expect(html).not.toContain('procedures-feed');
+    expect(html).not.toContain('mep-updates-feed');
+  });
+
+  it('should not render empty feed sections', () => {
+    const partialFeed = {
+      adoptedTexts: [{ id: 'AT-001', title: 'Test', date: '2025-01-15' }],
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+    };
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], partialFeed);
+    expect(html).toContain('adopted-texts-feed');
+    expect(html).not.toContain('events-feed');
+    expect(html).not.toContain('procedures-feed');
+    expect(html).not.toContain('mep-updates-feed');
+  });
+
+  it('should escape XSS in feed item titles', () => {
+    const xssFeed = {
+      adoptedTexts: [{ id: 'XSS', title: '<script>alert("xss")</script>', date: '2025-01-15' }],
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+    };
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], xssFeed);
+    expect(html).not.toContain('<script>alert("xss")</script>');
+    expect(html).toContain('&lt;script&gt;');
+  });
+
+  it('should render feed sections before analytical sections', () => {
+    const html = buildBreakingNewsContent(
+      '2025-01-15', 'anomaly data', '', '', '', 'en', [], [], [], sampleFeedData
+    );
+    const feedPos = html.indexOf('adopted-texts-feed');
+    const analysisPos = html.indexOf('class="analysis"');
+    expect(feedPos).toBeLessThan(analysisPos);
+  });
+
+  it('should have BREAKING_STRINGS with feed-related fields for all 14 languages', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const strings = getLocalizedString(BREAKING_STRINGS, lang);
+      expect(strings.adoptedTextsHeading).toBeDefined();
+      expect(strings.adoptedTextsHeading.length).toBeGreaterThan(0);
+      expect(strings.recentEventsHeading).toBeDefined();
+      expect(strings.recentEventsHeading.length).toBeGreaterThan(0);
+      expect(strings.procedureUpdatesHeading).toBeDefined();
+      expect(strings.procedureUpdatesHeading.length).toBeGreaterThan(0);
+      expect(strings.mepUpdatesHeading).toBeDefined();
+      expect(strings.mepUpdatesHeading.length).toBeGreaterThan(0);
+      expect(strings.noFeedDataNotice).toBeDefined();
+      expect(strings.noFeedDataNotice.length).toBeGreaterThan(0);
+      expect(strings.feedLede).toBeDefined();
+      expect(strings.feedLede.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('should use localized feed headings for German', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'de', [], [], [], sampleFeedData);
+    expect(html).toContain('Kürzlich Angenommene Texte');
+    expect(html).toContain('Aktuelle Parlamentarische Ereignisse');
+  });
+
+  it('should use localized feed headings for French', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'fr', [], [], [], sampleFeedData);
+    expect(html).toContain('Textes Récemment Adoptés');
+    expect(html).toContain('Événements Parlementaires Récents');
+  });
+
+  it('should use localized feed headings for Japanese', () => {
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'ja', [], [], [], sampleFeedData);
+    expect(html).toContain('最近採択されたテキスト');
+  });
+
+  it('should render feed data alongside analytical context', () => {
+    const html = buildBreakingNewsContent(
+      '2025-01-15', 'anomaly data', 'coalition data', '', '', 'en', [], [], [], sampleFeedData
+    );
+    // Feed sections (primary)
+    expect(html).toContain('adopted-texts-feed');
+    expect(html).toContain('events-feed');
+    // Analytical context (secondary)
+    expect(html).toContain('Voting Anomaly Intelligence');
+    expect(html).toContain('Coalition Dynamics Assessment');
+    // Analytical lede should appear when analytical data is present
+    expect(html).toContain('Intelligence analysis from the European Parliament MCP Server');
+    // Both should not show placeholder
+    expect(html).not.toContain('placeholder content');
   });
 });

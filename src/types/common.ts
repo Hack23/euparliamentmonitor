@@ -218,4 +218,16 @@ export interface BreakingStrings {
   placeholderNotice: string;
   placeholderLede: string;
   lede: string;
+  /** Neutral feed-first lede used when analytical data is absent */
+  feedLede: string;
+  /** Section heading for recently adopted texts from EP feeds */
+  adoptedTextsHeading: string;
+  /** Section heading for recent EP events from feeds */
+  recentEventsHeading: string;
+  /** Section heading for legislative procedure updates from feeds */
+  procedureUpdatesHeading: string;
+  /** Section heading for MEP updates from feeds */
+  mepUpdatesHeading: string;
+  /** Label for the no-feed-data notice */
+  noFeedDataNotice: string;
 }

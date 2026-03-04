@@ -110,7 +110,10 @@ describe('BreakingNewsStrategy', () => {
   it('declares required MCP tools', () => {
     expect(strategy.requiredMCPTools).toContain('detect_voting_anomalies');
     expect(strategy.requiredMCPTools).toContain('analyze_coalition_dynamics');
-    expect(strategy.requiredMCPTools).toContain('generate_report');
+    expect(strategy.requiredMCPTools).toContain('get_adopted_texts_feed');
+    expect(strategy.requiredMCPTools).toContain('get_events_feed');
+    expect(strategy.requiredMCPTools).toContain('get_procedures_feed');
+    expect(strategy.requiredMCPTools).toContain('get_meps_feed');
   });
 
   it('buildContent returns non-empty HTML for the given language', () => {

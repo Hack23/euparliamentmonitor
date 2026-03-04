@@ -666,4 +666,161 @@ export async function fetchProcedureStatusFromMCP(client, procedureId) {
         return '';
     }
 }
+// ─── EP Feed-based fetches (Breaking News) ──────────────────────────────────
+/**
+ * Parse a feed result from MCP into a flat array of items.
+ * Handles various EP API v2 feed response shapes safely.
+ *
+ * @param result - Raw MCP tool result
+ * @returns Array of parsed feed entry objects (may be empty)
+ */
+function parseFeedResult(result) {
+    if (!result?.content?.[0]?.text)
+        return [];
+    const parsed = parseJSON(result.content[0].text, 'feed');
+    if (!parsed)
+        return [];
+    // EP feeds may wrap items under "feed", "entries", "items", or return an array directly
+    const candidates = [
+        parsed['feed'],
+        parsed['entries'],
+        parsed['items'],
+        parsed,
+    ];
+    for (const candidate of candidates) {
+        if (Array.isArray(candidate))
+            return candidate;
+    }
+    return [];
+}
+/**
+ * Fetch adopted texts feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @returns Array of adopted text feed items
+ */
+export async function fetchAdoptedTextsFeed(client) {
+    if (!client)
+        return [];
+    try {
+        console.log(`${MCP_FETCH_PREFIX} Fetching adopted texts feed...`);
+        const result = await callMCP(() => client.getAdoptedTextsFeed({ limit: 20 }), undefined, 'get_adopted_texts_feed');
+        return parseFeedResult(result).map((item) => ({
+            id: String(item['id'] ?? item['docId'] ?? ''),
+            title: String(item['title'] ?? item['name'] ?? 'Untitled'),
+            date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
+            type: item['type'] ? String(item['type']) : undefined,
+            url: item['url'] ? String(item['url']) : undefined,
+        }));
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.warn(`${WARN_PREFIX} get_adopted_texts_feed failed:`, message);
+        return [];
+    }
+}
+/**
+ * Fetch events feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @returns Array of event feed items
+ */
+export async function fetchEventsFeed(client) {
+    if (!client)
+        return [];
+    try {
+        console.log(`${MCP_FETCH_PREFIX} Fetching events feed...`);
+        const result = await callMCP(() => client.getEventsFeed({ limit: 20 }), undefined, 'get_events_feed');
+        return parseFeedResult(result).map((item) => ({
+            id: String(item['id'] ?? item['eventId'] ?? ''),
+            title: String(item['title'] ?? item['name'] ?? 'Untitled'),
+            date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
+            type: item['type'] ? String(item['type']) : undefined,
+            location: item['location'] ? String(item['location']) : undefined,
+            url: item['url'] ? String(item['url']) : undefined,
+        }));
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.warn(`${WARN_PREFIX} get_events_feed failed:`, message);
+        return [];
+    }
+}
+/**
+ * Fetch procedures feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @returns Array of procedure feed items
+ */
+export async function fetchProceduresFeed(client) {
+    if (!client)
+        return [];
+    try {
+        console.log(`${MCP_FETCH_PREFIX} Fetching procedures feed...`);
+        const result = await callMCP(() => client.getProceduresFeed({ limit: 20 }), undefined, 'get_procedures_feed');
+        return parseFeedResult(result).map((item) => ({
+            id: String(item['id'] ?? item['processId'] ?? ''),
+            title: String(item['title'] ?? item['name'] ?? 'Untitled'),
+            date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
+            stage: item['stage'] ? String(item['stage']) : undefined,
+            type: item['type'] ? String(item['type']) : undefined,
+            url: item['url'] ? String(item['url']) : undefined,
+        }));
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.warn(`${WARN_PREFIX} get_procedures_feed failed:`, message);
+        return [];
+    }
+}
+/**
+ * Fetch MEPs feed from MCP.
+ *
+ * @param client - MCP client or null
+ * @returns Array of MEP feed items
+ */
+export async function fetchMEPsFeed(client) {
+    if (!client)
+        return [];
+    try {
+        console.log(`${MCP_FETCH_PREFIX} Fetching MEPs feed...`);
+        const result = await callMCP(() => client.getMEPsFeed({ limit: 20 }), undefined, 'get_meps_feed');
+        return parseFeedResult(result).map((item) => ({
+            id: String(item['id'] ?? item['mepId'] ?? ''),
+            name: String(item['name'] ?? item['title'] ?? 'Unknown'),
+            date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
+            country: item['country'] ? String(item['country']) : undefined,
+            group: item['group'] ? String(item['group']) : undefined,
+            url: item['url'] ? String(item['url']) : undefined,
+        }));
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.warn(`${WARN_PREFIX} get_meps_feed failed:`, message);
+        return [];
+    }
+}
+/**
+ * Fetch all EP feed data for breaking news articles.
+ * Calls adopted texts, events, procedures, and MEPs feeds in parallel.
+ * Returns `undefined` when client is null (MCP unavailable).
+ *
+ * @param client - MCP client or null
+ * @returns Aggregated feed data for breaking news, or undefined when client is null
+ */
+export async function fetchBreakingNewsFeedData(client) {
+    if (!client)
+        return undefined;
+    if (!mcpCircuitBreaker.canRequest()) {
+        console.warn(`${WARN_PREFIX} Circuit breaker OPEN — treating as MCP unavailable for breaking news feeds`);
+        return undefined;
+    }
+    const [adoptedTexts, events, procedures, mepUpdates] = await Promise.all([
+        fetchAdoptedTextsFeed(client),
+        fetchEventsFeed(client),
+        fetchProceduresFeed(client),
+        fetchMEPsFeed(client),
+    ]);
+    return { adoptedTexts, events, procedures, mepUpdates };
+}
 //# sourceMappingURL=fetch-stage.js.map
