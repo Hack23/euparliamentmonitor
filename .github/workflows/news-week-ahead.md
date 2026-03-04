@@ -101,6 +101,14 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 **Note:** EU Parliament API responses can be slow (30+ seconds is common). The workflow timeout has been set to 60 minutes to accommodate this. Use `Promise.allSettled()` for parallel queries and handle timeouts gracefully.
 
+## 🚨 FEED-FIRST CONTENT RULE
+
+> **⚠️ FUNDAMENTAL RULE**: Today's article MUST lead with and focus on **specific upcoming events and procedures** found in EP feed endpoints (events, procedures, plenary documents updated in the last 24–48 hours). Precomputed statistics (`get_all_generated_stats`) are **background context ONLY**.
+>
+> **Content quality gate**: If the article body mostly discusses historical aggregates rather than **specific upcoming plenary sessions, committee meetings, events, or legislative procedures with concrete titles, dates, and IDs from feed data**, the article FAILS quality validation.
+>
+> **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data**. Historical stats may appear in later sections ONLY as brief background.
+
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
@@ -210,27 +218,48 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools for Week Ahead
 
-### ⚡ MANDATORY: Precomputed Statistics for Context
+### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 
-**ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This returns the **complete** precomputed EP activity statistics (2004–2025) with yearly breakdowns, monthly activity data, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Always read ALL stats to provide full value and context.
-
-> **⚠️ CONTEXT ONLY — NEVER THE NEWS ITSELF**: Precomputed statistics provide historical background and analytical context. They are **NEVER newsworthy on their own** and must NEVER be the primary content of any article. The actual news content MUST come from **live EP feed endpoints** and **recent MCP data** reflecting what actually happened recently.
+**These feed endpoints provide the actual upcoming events content. ALL must be called FIRST, before any other data tools:**
 
 ```javascript
-european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
+// Events feed — THE primary data source for week-ahead (upcoming events, hearings, conferences)
+european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })
+
+// Procedures feed — legislative procedure updates and upcoming stages
+european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
+
+// Plenary documents feed — recently published plenary documents and agendas
+european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
+
+// Plenary session documents feed — session agendas and voting lists
+european_parliament___get_plenary_session_documents_feed({ timeframe: "one-week", limit: 20 })
 ```
 
-### ⚡ MCP Call Budget (STRICT)
+> **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific upcoming events, sessions, or agenda items** found in these feed results. If feeds return items, those items ARE the news.
 
-- These limits apply to **content-generation data gathering only**, after the mandatory MCP Health Gate has completed
-- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once globally — reuse across all sections (does **not** count toward per-tool budget)
+### 📊 OPTIONAL: Background Context (Secondary — NEVER the news)
+
+**Only fetch after feed endpoints have been called. Use ONLY for brief historical comparison paragraphs:**
+
+```javascript
+// Precomputed stats — background context ONLY, NEVER primary content
+european_parliament___get_all_generated_stats({ category: "all", includePredictions: false, includeMonthlyBreakdown: false, includeRankings: false })
+```
+
+> **⚠️ CONTEXT ONLY — NEVER THE NEWS ITSELF**: Precomputed statistics provide historical background. They are **NEVER newsworthy on their own**.
+
+### ⚡ MCP Call Budget
+
+- **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
+- **Feed endpoints (MANDATORY)**: call all feed endpoints listed above FIRST — these are non-negotiable
+- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all sections
 - Within the data-gathering phase, **call each tool at most once** — never call the same tool a second time
-- **Maximum 8 MCP tool calls** total for data gathering (excluding the MCP Health Gate and precomputed stats)
-- The MCP Health Gate call `european_parliament___get_plenary_sessions({ limit: 1 })` is a dedicated health-check and does **not** count toward this per-tool limit or the 8-call budget
+- The MCP Health Gate call `european_parliament___get_plenary_sessions({ limit: 1 })` is a dedicated health-check
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 - If you notice you are about to call a tool you already called during data gathering, **STOP data gathering and move to generation**
 
-**For the data-gathering phase, query each of these tools at most once to gather data for the week ahead:**
+**OPTIONAL supplementary tools** (call only if feed data suggests relevant upcoming activity):
 
 ```javascript
 // Get upcoming plenary sessions
@@ -242,30 +271,11 @@ european_parliament___get_plenary_sessions({ startDate: today, endDate: nextWeek
 // Get committee meetings
 european_parliament___get_committee_info({ dateFrom: today, dateTo: nextWeek, limit: 20 })
 
-// Get upcoming legislative documents on the agenda
-european_parliament___search_documents({ query: "plenary agenda", limit: 20 })
-
 // Monitor legislation at critical stages
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 })
 
-// Get MEPs involved in upcoming debates
-european_parliament___get_meps({ limit: 20 })
-
-// Committee workload analysis for the week
-european_parliament___analyze_committee_activity({ dateFrom: today, dateTo: nextWeek })
-
 // Parliament-wide political landscape overview
 european_parliament___generate_political_landscape({})
-```
-
-### 📡 Preferred: EP API v2 Feed Endpoints for Recent Updates
-
-**Prefer feed endpoints for the latest parliamentary updates.** These return the most recently updated items:
-
-```javascript
-european_parliament___get_events_feed({ limit: 20 })
-european_parliament___get_procedures_feed({ limit: 20 })
-european_parliament___get_plenary_documents_feed({ limit: 20 })
 ```
 
 ### Handling Slow API Responses

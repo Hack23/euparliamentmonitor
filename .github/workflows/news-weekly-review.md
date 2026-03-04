@@ -101,6 +101,14 @@ This is a **retrospective** article analyzing the past 7 days of parliamentary a
 
 **ALL article data MUST be fetched from the `european-parliament` MCP server.**
 
+## 🚨 FEED-FIRST CONTENT RULE
+
+> **⚠️ FUNDAMENTAL RULE**: This week's review article MUST lead with and focus on **specific items** found in EP feed endpoints (adopted texts, procedures, documents, events from the past 7 days). Precomputed statistics (`get_all_generated_stats`) are **background context ONLY**.
+>
+> **Content quality gate**: If the article body mostly discusses historical aggregates rather than **specific adopted texts, voting results, committee documents, or procedure updates with concrete titles, dates, and IDs from the past week's feed data**, the article FAILS quality validation.
+>
+> **Article structure**: The lede paragraph and first two sections MUST reference **specific items from this week's feed data**. Historical stats may appear in later sections ONLY as brief background.
+
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (up to 3 attempts)
@@ -184,48 +192,57 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools for Weekly Review
 
-### ⚡ MANDATORY: Precomputed Statistics for Context
+### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 
-**ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This returns the **complete** precomputed EP activity statistics (2004–2025) with yearly breakdowns, monthly activity data, category rankings, political landscape history, and predictions — **no live API calls needed**, sub-200ms response. Always read ALL stats to provide full value and context.
-
-> **⚠️ CONTEXT ONLY — NEVER THE NEWS ITSELF**: Precomputed statistics provide historical background and analytical context. They are **NEVER newsworthy on their own** and must NEVER be the primary content of any article. The actual news content MUST come from **live EP feed endpoints** and **recent MCP data** reflecting what actually happened recently.
+**These feed endpoints provide this week's actual news content. ALL must be called FIRST, before any other data tools:**
 
 ```javascript
-european_parliament___get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })
+// Adopted texts feed — CONDITIONAL: ignore if no items from last 12h/today; for weekly review use one-week
+european_parliament___get_adopted_texts_feed({ timeframe: "one-week", limit: 50 })
+
+// Procedures feed — legislative procedure updates this week
+european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
+
+// Plenary documents feed — recently published plenary documents
+european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
+
+// Parliamentary questions feed — recent questions and interpellations
+european_parliament___get_parliamentary_questions_feed({ timeframe: "one-week", limit: 20 })
 ```
 
-### ⚡ MCP Call Budget (STRICT)
+> **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific adopted texts, voting results, or procedure updates** found in these feed results. If feeds return items, those items ARE the news.
 
-- **Total maximum 8 MCP tool calls**, including the single mandatory health-gate/warm-up `european_parliament___get_plenary_sessions` call
-- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once globally — reuse across all sections (does **not** count toward the 8-call budget)
-- **Health-gate connectivity check (also the MCP warm-up)**: call `european_parliament___get_plenary_sessions` at the start of data gathering to verify MCP health (up to 3 attempts with 30-second delays); this call **counts as 1** toward the 8-call budget, serves as the only "MCP warm-up" mentioned in the Time Budget section, and must **not** be invoked again later in the run after it succeeds
-- **Per-tool limit after the health gate (no retries)**: apart from the initial health-gate call, each remaining MCP tool may be called **at most once per workflow run**, even on failure — never call the same tool a second time or implement retry/backoff loops
+### 📊 OPTIONAL: Background Context (Secondary — NEVER the news)
+
+**Only fetch after feed endpoints have been called. Use ONLY for brief historical comparison paragraphs:**
+
+```javascript
+// Precomputed stats — background context ONLY, NEVER primary content
+european_parliament___get_all_generated_stats({ category: "all", includePredictions: false, includeMonthlyBreakdown: false, includeRankings: false })
+```
+
+> **⚠️ CONTEXT ONLY — NEVER THE NEWS ITSELF**: Precomputed statistics provide historical background. They are **NEVER newsworthy on their own**.
+
+### ⚡ MCP Call Budget
+
+- **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
+- **Feed endpoints (MANDATORY)**: call all feed endpoints listed above FIRST — these are non-negotiable (adopted texts may be skipped if no items from last 12h)
+- **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all sections
+- **Health-gate connectivity check**: call `european_parliament___get_plenary_sessions` at the start to verify MCP health (up to 3 attempts with 30-second delays); must **not** be invoked again later in the run after it succeeds
+- **Per-tool limit (no retries)**: each MCP tool may be called **at most once per workflow run** — never call the same tool a second time
 - If data from a tool looks sparse, generic, historical, or placeholder after its first call, **proceed to article generation immediately — do NOT retry that tool**
-- If you notice you are about to call a tool you already called, or you would exceed the 8-call budget, **STOP data gathering and move to generation**
 
-**ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate and connectivity check (up to 3 attempts). Do not call it again after it succeeds. This Health Gate call is the same call as the "MCP Health Gate" step in the Time Budget above — do NOT make a separate warm-up call.**
+**ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate and connectivity check (up to 3 attempts). Do not call it again after it succeeds.**
+
+**OPTIONAL supplementary tools** (call only if feed data suggests relevant activity this week):
 
 ```javascript
 const lastWeek = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0];
 
 // Retrospective data — past 7 days
 european_parliament___get_voting_records({ dateFrom: lastWeek, dateTo: today, limit: 20 })
-european_parliament___analyze_voting_patterns({ dateFrom: lastWeek, dateTo: today })
 european_parliament___detect_voting_anomalies({ dateFrom: lastWeek, dateTo: today })
-european_parliament___get_parliamentary_questions({ startDate: lastWeek, limit: 20 })
-european_parliament___search_documents({ query: "adopted text", limit: 20 })
 european_parliament___generate_political_landscape({})
-```
-
-### 📡 Preferred: EP API v2 Feed Endpoints for Recent Updates
-
-**Prefer feed endpoints for the latest parliamentary updates.** These return the most recently updated items:
-
-```javascript
-european_parliament___get_adopted_texts_feed({ limit: 20 })
-european_parliament___get_procedures_feed({ limit: 20 })
-european_parliament___get_plenary_documents_feed({ limit: 20 })
-european_parliament___get_parliamentary_questions_feed({ limit: 20 })
 ```
 
 
