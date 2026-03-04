@@ -105,6 +105,8 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 > **⚠️ FUNDAMENTAL RULE**: Today's article MUST lead with and focus on **specific upcoming events and procedures** found in EP feed endpoints (events, procedures, plenary documents updated in the last 24–48 hours). Precomputed statistics (`get_all_generated_stats`) are **background context ONLY**.
 >
+> **📅 DATE REQUIREMENT**: ALL event/procedure/document references in articles MUST include their publish or scheduled date (e.g., "Plenary Session on Digital Services (scheduled 10 March 2026)"). References without dates are incomplete.
+>
 > **Content quality gate**: If the article body mostly discusses historical aggregates rather than **specific upcoming plenary sessions, committee meetings, events, or legislative procedures with concrete titles, dates, and IDs from feed data**, the article FAILS quality validation.
 >
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data**. Historical stats may appear in later sections ONLY as brief background.

@@ -116,8 +116,8 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       console.log('  📡 Fetching EP feed data (primary) and analytical context...');
     }
 
-    // Step 1: Fetch feed data (PRIMARY news content)
-    const feedData = await fetchBreakingNewsFeedData(client, 'one-day');
+    // Step 1: Fetch feed data (PRIMARY news content) — 'today' for realtime breaking news
+    const feedData = await fetchBreakingNewsFeedData(client, 'today');
 
     // When client is null, feedData is undefined — MCP unavailable
     if (!feedData) {

@@ -103,6 +103,8 @@ This focused approach ensures:
 
 > **⚠️ FUNDAMENTAL RULE**: Today's article MUST lead with and focus on **specific recent items** found in EP feed endpoints (committee documents, plenary documents, adopted texts updated today or in the last 24–48 hours). Precomputed statistics (`get_all_generated_stats`) are **background context ONLY** — they provide historical comparison but are NEVER the news itself. Analytical tools are OPTIONAL supplementary context.
 >
+> **📅 DATE REQUIREMENT**: ALL document/event/procedure references in articles MUST include their publish or creation date (e.g., "Report on Digital Services (published 4 March 2026)"). News is about RECENTLY published items, not old documents.
+>
 > **Content quality gate**: If the article body mostly discusses historical aggregates (e.g. "1,773 committee meetings in EP10", "fragmentation index 6.59", year-over-year statistics) rather than **specific recent items with concrete titles, dates, and document IDs from feed data**, the article FAILS quality validation and must be rewritten.
 >
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data** (document titles, procedure IDs, event names with dates). Historical context from precomputed stats may appear in later sections ONLY as brief comparative background.

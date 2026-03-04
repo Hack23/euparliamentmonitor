@@ -430,7 +430,7 @@ export interface GetAllGeneratedStatsOptions {
  * Allowed timeframe values for EP API v2 feed endpoints.
  * Controls how far back the feed looks for recently updated items.
  */
-export type FeedTimeframe = 'one-day' | 'one-week' | 'one-month' | 'three-months' | 'one-year';
+export type FeedTimeframe = 'today' | 'one-day' | 'one-week' | 'one-month' | 'three-months' | 'one-year';
 
 /** Common options shared by all EP API v2 feed endpoints */
 export interface FeedBaseOptions {

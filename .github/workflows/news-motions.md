@@ -103,6 +103,8 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 > **⚠️ FUNDAMENTAL RULE**: Today's article MUST lead with and focus on **specific recent items** found in EP feed endpoints (recently adopted texts, new motions/resolutions, parliamentary questions from the last 24–48 hours). Precomputed statistics (`get_all_generated_stats`) are **background context ONLY** — they provide historical comparison but are NEVER the news itself.
 >
+> **📅 DATE REQUIREMENT**: ALL document/vote/resolution references in articles MUST include their publish or creation date (e.g., "Resolution on Digital Markets (adopted 4 March 2026)"). News is about RECENTLY published items, not old documents.
+>
 > **Content quality gate**: If the article body mostly discusses historical aggregates rather than **specific recent motions, resolutions, or voting records with concrete titles, dates, and reference IDs from feed data**, the article FAILS quality validation.
 >
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data**. Historical stats may appear in later sections ONLY as brief comparative background.

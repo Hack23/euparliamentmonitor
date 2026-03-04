@@ -105,6 +105,8 @@ This is a **retrospective** article analyzing the past 7 days of parliamentary a
 
 > **⚠️ FUNDAMENTAL RULE**: This week's review article MUST lead with and focus on **specific items** found in EP feed endpoints (adopted texts, procedures, documents, events from the past 7 days). Precomputed statistics (`get_all_generated_stats`) are **background context ONLY**.
 >
+> **📅 DATE REQUIREMENT**: ALL document/vote/procedure references in articles MUST include their publish or creation date (e.g., "Resolution on AI Act (adopted 28 February 2026)"). References without dates are incomplete.
+>
 > **Content quality gate**: If the article body mostly discusses historical aggregates rather than **specific adopted texts, voting results, committee documents, or procedure updates with concrete titles, dates, and IDs from the past week's feed data**, the article FAILS quality validation.
 >
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from this week's feed data**. Historical stats may appear in later sections ONLY as brief background.

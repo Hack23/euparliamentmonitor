@@ -168,6 +168,8 @@ Before generating ANY articles, verify MCP connectivity:
 
 > **⚠️ FUNDAMENTAL RULE**: Every article MUST lead with and focus on **specific recent items** found in EP feed endpoints (documents, adopted texts, procedures, events updated today or recently). Precomputed statistics (`get_all_generated_stats`) are **background context ONLY** — they provide historical comparison but are NEVER the news itself.
 >
+> **📅 DATE REQUIREMENT**: ALL document/event/procedure references in articles MUST include their publish or creation date (e.g., "Resolution on Digital Markets (adopted 4 March 2026)"). News is about RECENTLY published items — documents without a recent date are not news.
+>
 > **Content quality gate**: If any article mostly discusses historical aggregates (e.g. "1,773 committee meetings in EP10", "fragmentation index 6.59", year-over-year statistics, "pipeline health score 100") rather than **specific recent items with concrete titles, dates, and reference IDs from feed data**, the article FAILS quality validation and must be rewritten.
 >
 > **Article structure**: The lede paragraph and first two sections of EVERY article MUST reference **specific items from today's feed data** (document titles, procedure IDs, event names with dates). Historical context from precomputed stats may appear in later sections ONLY as brief comparative background.
@@ -291,15 +293,19 @@ european_parliament___get_meps_feed({ timeframe: "one-week", limit: 20 })
 european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
 ```
 
-**Breaking News (MANDATORY: Feed-First — stats are context only):**
+**Breaking News (MANDATORY: Feed-First REALTIME — only TODAY's events):**
 
-> **🚨 NEWSWORTHINESS GATE**: Breaking news MUST be triggered by **actual recent events** found in EP feed endpoints. If NO recent newsworthy events are found in feeds, use `safeoutputs___noop`.
+> **🚨 NEWSWORTHINESS GATE**: Breaking news covers ONLY events published/updated TODAY. Use `timeframe: "today"` for ALL feed calls. If NO items from today are found, use `safeoutputs___noop`. ALL document references MUST include their publish date.
 
 ```javascript
-european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 20 })  // skip if empty
-european_parliament___get_events_feed({ timeframe: "one-day", limit: 50 })
-european_parliament___get_procedures_feed({ timeframe: "one-day", limit: 50 })
-european_parliament___get_meps_feed({ timeframe: "one-day", limit: 20 })
+european_parliament___get_adopted_texts_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_events_feed({ timeframe: "today", limit: 50 })
+european_parliament___get_procedures_feed({ timeframe: "today", limit: 50 })
+european_parliament___get_meps_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_documents_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_plenary_documents_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_committee_documents_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_parliamentary_questions_feed({ timeframe: "today", limit: 20 })
 ```
 
 **OPTIONAL supplementary tools (call after feeds, for analytical context):**

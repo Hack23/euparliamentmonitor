@@ -107,6 +107,8 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 > **⚠️ FUNDAMENTAL RULE**: Today's article MUST lead with and focus on **specific recent items** found in EP feed endpoints (new procedures, recently updated documents, adopted texts from the last 24–48 hours). Precomputed statistics (`get_all_generated_stats`) are **background context ONLY** — they provide historical comparison but are NEVER the news itself.
 >
+> **📅 DATE REQUIREMENT**: ALL procedure/document references in articles MUST include their publish or creation date (e.g., "Proposal 2026/0042(COD) — Digital Infrastructure (filed 4 March 2026)"). News is about RECENTLY published items, not old documents.
+>
 > **Content quality gate**: If the article body mostly discusses historical aggregates (e.g. "20+ procedures filed in 2025", "pipeline health score 100", year-over-year statistics, "fragmentation index") rather than **specific recent legislative proposals with concrete titles, procedure IDs, and dates from feed data**, the article FAILS quality validation and must be rewritten.
 >
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data** (procedure titles, document names, dates). Historical stats may appear in later sections ONLY as brief comparative background.
