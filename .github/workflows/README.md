@@ -116,7 +116,7 @@ The project uses **8 agentic workflow markdown files** (`.md`) that are compiled
 ---
 
 **Common features across all news workflows**:
-- Uses `european-parliament-mcp-server@1.1.0` as primary data source
+- Uses `european-parliament-mcp-server@1.1.1` as primary data source
 - Mandatory date context establishment via `date -u` command
 - Supports 14 languages: en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
 - HTML validation and quality checks before PR creation
