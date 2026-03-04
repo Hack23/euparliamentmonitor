@@ -14,6 +14,28 @@ const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
 const SLUG_PATTERN = /^[a-z0-9-]+$/u;
 /** Pattern for valid SRI integrity hashes (sha256/sha384/sha512 + base64) */
 const SRI_HASH_PATTERN = /^sha(?:256|384|512)-[A-Za-z0-9+/]+={0,2}$/u;
+/** Words per minute for read-time calculation */
+const TEMPLATE_WORDS_PER_MINUTE = 250;
+/**
+ * BCP47 / Open Graph locale mapping for og:locale meta tag.
+ * Maps our 2-letter language codes to proper BCP47 locale strings.
+ */
+const OG_LOCALE_MAP = {
+    en: 'en_GB',
+    sv: 'sv_SE',
+    da: 'da_DK',
+    no: 'nb_NO',
+    fi: 'fi_FI',
+    de: 'de_DE',
+    fr: 'fr_FR',
+    es: 'es_ES',
+    nl: 'nl_NL',
+    ar: 'ar_SA',
+    he: 'he_IL',
+    ja: 'ja_JP',
+    ko: 'ko_KR',
+    zh: 'zh_CN',
+};
 /**
  * Build the article language switcher nav HTML.
  * Links to the same article in all 14 languages using the filename pattern {date}-{slug}-{lang}.html.
@@ -89,7 +111,15 @@ export function generateArticleHTML(options) {
     const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang);
     const categoryLabel = categoryLabels[category] ?? category;
     const readTimeFormatter = getLocalizedString(READ_TIME_LABELS, lang);
-    const readTimeLabel = readTimeFormatter(readTime);
+    // Auto-compute read-time from content word count if not explicitly set
+    const contentWordCount = content
+        .replace(/<[^>]+>/gu, ' ')
+        .replace(/\s+/gu, ' ')
+        .trim()
+        .split(' ').length;
+    const computedReadTime = Math.max(1, Math.ceil(contentWordCount / TEMPLATE_WORDS_PER_MINUTE));
+    const effectiveReadTime = readTime > 0 ? readTime : computedReadTime;
+    const readTimeLabel = readTimeFormatter(effectiveReadTime);
     const backLabel = getLocalizedString(BACK_TO_NEWS_LABELS, lang);
     const articleNavLabel = getLocalizedString(ARTICLE_NAV_LABELS, lang);
     const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
@@ -151,7 +181,7 @@ export function generateArticleHTML(options) {
   <meta property="og:title" content="${safeTitle}">
   <meta property="og:description" content="${safeSubtitle}">
   <meta property="og:site_name" content="EU Parliament Monitor">
-  <meta property="og:locale" content="${lang}">
+  <meta property="og:locale" content="${OG_LOCALE_MAP[lang] ?? lang}">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">

@@ -116,7 +116,9 @@ function validateAllArticles(): ValidationReport {
     const match = ARTICLE_FILENAME_PATTERN.exec(filename);
     if (!match) continue;
 
-    const [, date, slug, lang] = match;
+    const date = match[1] ?? '';
+    const slug = match[2] ?? '';
+    const lang = match[3] ?? '';
     const filePath = path.join(NEWS_DIR, filename);
     const html = fs.readFileSync(filePath, 'utf-8');
     const articleType = slugToArticleType(slug);

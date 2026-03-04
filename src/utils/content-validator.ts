@@ -201,11 +201,11 @@ function extractClaimedReadTime(html: string): number {
   const readTimeMatch =
     /class="article-read-time"[^>]*>([^<]*)/iu.exec(html) ??
     /article-read-time[^>]*>([^<]*)/iu.exec(html);
-  if (!readTimeMatch) return 0;
+  if (!readTimeMatch?.[1]) return 0;
   const text = readTimeMatch[1].trim();
   // Extract the numeric portion — handles "5 min read", "5分で読了", "٥ دقائق قراءة"
   const numMatch = /(\d+)/u.exec(text);
-  return numMatch ? parseInt(numMatch[1], 10) : 0;
+  return numMatch?.[1] ? parseInt(numMatch[1], 10) : 0;
 }
 
 /**
