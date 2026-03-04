@@ -426,80 +426,74 @@ export interface GetAllGeneratedStatsOptions {
 
 // ─── EP API v2 Feed Endpoint Options ───────────────────────────────────────────
 
-/** Options for getMEPsFeed */
-export interface GetMEPsFeedOptions {
+/**
+ * Allowed timeframe values for EP API v2 feed endpoints.
+ * Controls how far back the feed looks for recently updated items.
+ */
+export type FeedTimeframe = 'one-day' | 'one-week' | 'one-month' | 'three-months' | 'one-year';
+
+/** Common options shared by all EP API v2 feed endpoints */
+export interface FeedBaseOptions {
+  /** How far back to look for recently-updated items (default: `'one-day'`) */
+  timeframe?: FeedTimeframe;
+  /** Explicit start date (YYYY-MM-DD) — overrides `timeframe` when specified */
+  startDate?: string;
+  /** Maximum number of results to return */
   limit?: number;
+  /** Pagination offset */
   offset?: number;
 }
 
+/** Options for getMEPsFeed */
+export interface GetMEPsFeedOptions extends FeedBaseOptions {}
+
 /** Options for getEventsFeed */
-export interface GetEventsFeedOptions {
-  limit?: number;
-  offset?: number;
+export interface GetEventsFeedOptions extends FeedBaseOptions {
+  /** Filter by activity type */
+  activityType?: string;
 }
 
 /** Options for getProceduresFeed */
-export interface GetProceduresFeedOptions {
-  limit?: number;
-  offset?: number;
+export interface GetProceduresFeedOptions extends FeedBaseOptions {
+  /** Filter by process type */
+  processType?: string;
 }
 
 /** Options for getAdoptedTextsFeed */
-export interface GetAdoptedTextsFeedOptions {
-  limit?: number;
-  offset?: number;
+export interface GetAdoptedTextsFeedOptions extends FeedBaseOptions {
+  /** Filter by work type */
+  workType?: string;
 }
 
 /** Options for getMEPDeclarationsFeed */
-export interface GetMEPDeclarationsFeedOptions {
-  limit?: number;
-  offset?: number;
+export interface GetMEPDeclarationsFeedOptions extends FeedBaseOptions {
+  /** Filter by work type */
+  workType?: string;
 }
 
 /** Options for getDocumentsFeed */
-export interface GetDocumentsFeedOptions {
-  limit?: number;
-  offset?: number;
-}
+export interface GetDocumentsFeedOptions extends FeedBaseOptions {}
 
 /** Options for getPlenaryDocumentsFeed */
-export interface GetPlenaryDocumentsFeedOptions {
-  limit?: number;
-  offset?: number;
-}
+export interface GetPlenaryDocumentsFeedOptions extends FeedBaseOptions {}
 
 /** Options for getCommitteeDocumentsFeed */
-export interface GetCommitteeDocumentsFeedOptions {
-  limit?: number;
-  offset?: number;
-}
+export interface GetCommitteeDocumentsFeedOptions extends FeedBaseOptions {}
 
 /** Options for getPlenarySessionDocumentsFeed */
-export interface GetPlenarySessionDocumentsFeedOptions {
-  limit?: number;
-  offset?: number;
-}
+export interface GetPlenarySessionDocumentsFeedOptions extends FeedBaseOptions {}
 
 /** Options for getExternalDocumentsFeed */
-export interface GetExternalDocumentsFeedOptions {
-  limit?: number;
-  offset?: number;
+export interface GetExternalDocumentsFeedOptions extends FeedBaseOptions {
+  /** Filter by work type */
+  workType?: string;
 }
 
 /** Options for getParliamentaryQuestionsFeed */
-export interface GetParliamentaryQuestionsFeedOptions {
-  limit?: number;
-  offset?: number;
-}
+export interface GetParliamentaryQuestionsFeedOptions extends FeedBaseOptions {}
 
 /** Options for getCorporateBodiesFeed */
-export interface GetCorporateBodiesFeedOptions {
-  limit?: number;
-  offset?: number;
-}
+export interface GetCorporateBodiesFeedOptions extends FeedBaseOptions {}
 
 /** Options for getControlledVocabulariesFeed */
-export interface GetControlledVocabulariesFeedOptions {
-  limit?: number;
-  offset?: number;
-}
+export interface GetControlledVocabulariesFeedOptions extends FeedBaseOptions {}

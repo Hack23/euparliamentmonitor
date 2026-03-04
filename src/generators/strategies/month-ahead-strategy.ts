@@ -11,10 +11,12 @@
 
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
 import { ArticleCategory } from '../../types/index.js';
-import type { LanguageCode, DateRange, WeekAheadData } from '../../types/index.js';
+import type { LanguageCode, DateRange, WeekAheadData, EPFeedData } from '../../types/index.js';
 import { MONTH_AHEAD_TITLES, getLocalizedString } from '../../constants/languages.js';
-import { fetchWeekAheadData } from '../pipeline/fetch-stage.js';
+import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { buildWeekAheadContent, buildKeywords } from '../week-ahead-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildProspectiveAnalysis } from '../analysis-builders.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -29,6 +31,8 @@ export interface MonthAheadArticleData extends ArticleData {
   readonly keywords: readonly string[];
   /** Display label for the target month */
   readonly monthLabel: string;
+  /** EP feed data for enrichment (when available) */
+  readonly feedData?: EPFeedData;
 }
 
 /** Keywords shared by all Month Ahead articles */
@@ -96,6 +100,9 @@ export class MonthAheadStrategy implements ArticleStrategy<MonthAheadArticleData
     'monitor_legislative_pipeline',
     'get_parliamentary_questions',
     'get_events',
+    'get_events_feed',
+    'get_adopted_texts_feed',
+    'get_procedures_feed',
   ] as const;
 
   /**
@@ -112,11 +119,15 @@ export class MonthAheadStrategy implements ArticleStrategy<MonthAheadArticleData
     const dateRange = computeMonthAheadDateRange(date);
     console.log(`  📆 Month-ahead range: ${dateRange.start} to ${dateRange.end}`);
 
-    const monthData = await fetchWeekAheadData(client, dateRange);
+    // Fetch traditional MCP data and EP feeds in parallel
+    const [monthData, feedData] = await Promise.all([
+      fetchWeekAheadData(client, dateRange),
+      fetchEPFeedData(client, 'one-month'),
+    ]);
     const keywords = [...MONTH_AHEAD_KEYWORDS, ...buildKeywords(monthData)];
     const monthLabel = formatMonthLabel(dateRange.start);
 
-    return { date, dateRange, monthData, keywords, monthLabel };
+    return { date, dateRange, monthData, keywords, monthLabel, feedData };
   }
 
   /**
@@ -128,7 +139,9 @@ export class MonthAheadStrategy implements ArticleStrategy<MonthAheadArticleData
    */
   buildContent(data: MonthAheadArticleData, lang: LanguageCode): string {
     const base = buildWeekAheadContent(data.monthData, data.dateRange, lang);
-    return base.replace('<!-- /article-content -->', '');
+    const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month');
+    const analysisSection = buildDeepAnalysisSection(analysis, lang);
+    return base.replace('<!-- /article-content -->', analysisSection);
   }
 
   /**

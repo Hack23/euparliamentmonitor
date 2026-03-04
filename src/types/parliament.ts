@@ -158,6 +158,26 @@ export interface LegislativeVelocity {
 
 // ─── EP Feed item types ──────────────────────────────────────────────────────
 
+/** A single item from any EP API v2 feed response (`data[]` array) */
+export interface EPFeedItem {
+  /** Full ELI identifier (e.g. `"eli/dl/doc/TA-10-2025-0281"`) */
+  id: string;
+  /** RDF type (usually `"Work"`) */
+  type?: string;
+  /** EP document type URI (e.g. `"def/ep-document-types/TEXT_ADOPTED"`) */
+  work_type?: string;
+  /** Short document identifier (e.g. `"TA-10-2025-0281"`) */
+  identifier?: string;
+  /** Human-readable label (e.g. `"T10-0281/2025"`) */
+  label?: string;
+  /** Title, when available */
+  title?: string;
+  /** Date string (ISO 8601 or free-form) */
+  date?: string;
+  /** URL link to the source document */
+  url?: string;
+}
+
 /** A single adopted-text item from the EP adopted-texts feed */
 export interface AdoptedTextFeedItem {
   id: string;
@@ -165,6 +185,10 @@ export interface AdoptedTextFeedItem {
   date: string;
   type?: string;
   url?: string;
+  /** Short identifier (e.g. `"TA-10-2025-0281"`) */
+  identifier?: string;
+  /** Human-readable label (e.g. `"T10-0281/2025"`) */
+  label?: string;
 }
 
 /** A single event item from the EP events feed */
@@ -175,6 +199,8 @@ export interface EventFeedItem {
   type?: string;
   location?: string;
   url?: string;
+  identifier?: string;
+  label?: string;
 }
 
 /** A single procedure item from the EP procedures feed */
@@ -185,6 +211,8 @@ export interface ProcedureFeedItem {
   stage?: string;
   type?: string;
   url?: string;
+  identifier?: string;
+  label?: string;
 }
 
 /** A single MEP update item from the EP MEPs feed */
@@ -195,12 +223,89 @@ export interface MEPFeedItem {
   country?: string;
   group?: string;
   url?: string;
+  identifier?: string;
+  label?: string;
 }
 
-/** Aggregated feed data for breaking news articles */
+/** A single document item from EP document feeds */
+export interface DocumentFeedItem {
+  id: string;
+  title: string;
+  date: string;
+  type?: string;
+  url?: string;
+  identifier?: string;
+  label?: string;
+}
+
+/** A single parliamentary question item from the EP questions feed */
+export interface QuestionFeedItem {
+  id: string;
+  title: string;
+  date: string;
+  type?: string;
+  url?: string;
+  identifier?: string;
+  label?: string;
+}
+
+/** A single MEP declaration item from the EP declarations feed */
+export interface DeclarationFeedItem {
+  id: string;
+  title: string;
+  date: string;
+  type?: string;
+  url?: string;
+  identifier?: string;
+  label?: string;
+}
+
+/** A single corporate body item from the EP corporate bodies feed */
+export interface CorporateBodyFeedItem {
+  id: string;
+  title: string;
+  date: string;
+  type?: string;
+  url?: string;
+  identifier?: string;
+  label?: string;
+}
+
+/** Aggregated feed data for breaking news articles (legacy compat) */
 export interface BreakingNewsFeedData {
   adoptedTexts: readonly AdoptedTextFeedItem[];
   events: readonly EventFeedItem[];
   procedures: readonly ProcedureFeedItem[];
   mepUpdates: readonly MEPFeedItem[];
+}
+
+/**
+ * Comprehensive feed data aggregation from all EP API v2 feed endpoints.
+ * Used by all article strategies as the primary data source for current/recent events.
+ */
+export interface EPFeedData {
+  /** Recently adopted texts (resolutions, directives, regulations) */
+  adoptedTexts: readonly AdoptedTextFeedItem[];
+  /** Recent parliamentary events, hearings, conferences */
+  events: readonly EventFeedItem[];
+  /** Recently updated legislative procedures */
+  procedures: readonly ProcedureFeedItem[];
+  /** Recent MEP updates (new members, departures, changes) */
+  mepUpdates: readonly MEPFeedItem[];
+  /** Recently published or updated documents */
+  documents: readonly DocumentFeedItem[];
+  /** Recently published plenary documents */
+  plenaryDocuments: readonly DocumentFeedItem[];
+  /** Recently published committee documents */
+  committeeDocuments: readonly DocumentFeedItem[];
+  /** Recently published plenary session documents */
+  plenarySessionDocuments: readonly DocumentFeedItem[];
+  /** Recently published external documents */
+  externalDocuments: readonly DocumentFeedItem[];
+  /** Recently tabled parliamentary questions */
+  questions: readonly QuestionFeedItem[];
+  /** Recently updated MEP declarations */
+  declarations: readonly DeclarationFeedItem[];
+  /** Recently updated corporate bodies */
+  corporateBodies: readonly CorporateBodyFeedItem[];
 }

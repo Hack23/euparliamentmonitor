@@ -2,8 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 import { ArticleCategory } from '../../types/index.js';
 import { PROPOSITIONS_TITLES, PROPOSITIONS_STRINGS, getLocalizedString, } from '../../constants/languages.js';
-import { fetchProposalsFromMCP, fetchPipelineFromMCP, fetchProcedureStatusFromMCP, } from '../pipeline/fetch-stage.js';
+import { fetchProposalsFromMCP, fetchPipelineFromMCP, fetchProcedureStatusFromMCP, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
 import { buildPropositionsContent } from '../propositions-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildPropositionsAnalysis } from '../analysis-builders.js';
 /** Keywords shared by all Propositions articles */
 const PROPOSITIONS_KEYWORDS = [
     'European Parliament',
@@ -24,6 +26,8 @@ export class PropositionsStrategy {
         'search_documents',
         'monitor_legislative_pipeline',
         'track_legislation',
+        'get_procedures_feed',
+        'get_adopted_texts_feed',
     ];
     /**
      * Fetch legislative proposals and pipeline data in parallel.
@@ -36,19 +40,22 @@ export class PropositionsStrategy {
         if (client) {
             console.log('  📡 Fetching legislative data from MCP server...');
         }
-        const [proposalsResult, pipelineResult] = await Promise.allSettled([
+        // Fetch proposals, pipeline, and EP feed data in parallel
+        const [proposalsResult, pipelineResult, feedData] = await Promise.allSettled([
             fetchProposalsFromMCP(client),
             fetchPipelineFromMCP(client),
+            fetchEPFeedData(client, 'one-month'),
         ]);
         const { html: proposalsHtml, firstProcedureId } = proposalsResult.status === 'fulfilled'
             ? proposalsResult.value
             : { html: '', firstProcedureId: '' };
         const pipelineData = pipelineResult.status === 'fulfilled' ? pipelineResult.value : null;
+        const feedResult = feedData.status === 'fulfilled' ? feedData.value : undefined;
         const procedureHtml = await fetchProcedureStatusFromMCP(client, firstProcedureId);
         if (!proposalsHtml) {
             console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
         }
-        return { date, proposalsHtml, pipelineData, procedureHtml };
+        return { date, proposalsHtml, pipelineData, procedureHtml, feedData: feedResult };
     }
     /**
      * Build the propositions HTML body using language-specific strings.
@@ -59,7 +66,18 @@ export class PropositionsStrategy {
      */
     buildContent(data, lang) {
         const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
-        return buildPropositionsContent(data.proposalsHtml, data.pipelineData, data.procedureHtml, strings, lang);
+        const base = buildPropositionsContent(data.proposalsHtml, data.pipelineData, data.procedureHtml, strings, lang);
+        const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date);
+        const deepSection = buildDeepAnalysisSection(analysis, lang);
+        // Inject deep analysis before the closing </div> of .article-content
+        if (deepSection) {
+            const closingTag = '</div>';
+            const lastIdx = base.lastIndexOf(closingTag);
+            if (lastIdx !== -1) {
+                return base.slice(0, lastIdx) + deepSection + '\n' + base.slice(lastIdx);
+            }
+        }
+        return base;
     }
     /**
      * Return language-specific metadata for the propositions article.

@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament plenary votes, adopted texts, and resolutions analysis articles for all 14 languages. Single article type per run.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"54b782dbb418a81ea46d17b3286bea375145a25552fd4e47f9264514727c22ea","compiler_version":"v0.53.0"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"7dffcd429a182e107d158ab331b097ddbd2cd6c07c3a0bb2fd9b566b6c418abd","compiler_version":"v0.53.0"}
 
 name: "News: EU Parliament Plenary Votes & Resolutions"
 "on":
@@ -672,7 +672,7 @@ jobs:
                 "entrypointArgs": [
                   "npx",
                   "-y",
-                  "european-parliament-mcp-server@1.1.1"
+                  "european-parliament-mcp-server@1.1.2"
                 ],
                 "tools": [
                   "*"

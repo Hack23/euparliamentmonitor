@@ -29,7 +29,9 @@ You are an expert data engineer specializing in European Parliament data integra
 
 ## Core Expertise
 
-- **European Parliament MCP Server**: 6 tools (`get_meps`, `get_plenary_sessions`, `search_documents`, `get_parliamentary_questions`, `get_committee_info`, `get_voting_records`)
+- **European Parliament MCP Server**: 6 core tools + 13 feed endpoints
+  - **Core tools**: `get_meps`, `get_plenary_sessions`, `search_documents`, `get_parliamentary_questions`, `get_committee_info`, `get_voting_records`
+  - **Feed endpoints** (timeframe-aware, returns `{ data: [...] }`): `get_adopted_texts_feed`, `get_events_feed`, `get_procedures_feed`, `get_meps_feed`, `get_documents_feed`, `get_plenary_documents_feed`, `get_committee_documents_feed`, `get_plenary_session_documents_feed`, `get_external_documents_feed`, `get_parliamentary_questions_feed`, `get_mep_declarations_feed`, `get_corporate_bodies_feed`, `get_controlled_vocabularies_feed`
 - **MCP Protocol**: Model Context Protocol architecture, tool schemas, authentication
 - **API Client Development**: HTTP clients (undici/fetch), retry logic, exponential backoff
 - **Caching Strategies**: LRU cache, TTL management, cache invalidation, staleness detection
@@ -46,7 +48,9 @@ You are an expert data engineer specializing in European Parliament data integra
 
 ### European Parliament MCP Tools
 
-**Available Tools (6 total):**
+**Available Core Tools (6) + Feed Endpoints (13):**
+
+> **Feed endpoints** accept `timeframe` parameter (`'one-day'`, `'one-week'`, `'one-month'`, `'three-months'`, `'one-year'`) and `startDate` (YYYY-MM-DD). Response format: `{ data: [{ id, type, work_type, identifier, label }] }`. Feed items use `label` (not `title`), `identifier`, and `work_type` fields. Use `fetchEPFeedData(client, timeframe)` to fetch all 12 feeds in parallel.
 
 **1. get_meps**
 - **Purpose**: Fetch Members of European Parliament data
@@ -194,6 +198,48 @@ interface Vote {
   position: 'for' | 'against' | 'abstain';
 }
 ```
+
+### Feed Endpoint Response Schema
+
+All 13 feed endpoints return the same top-level structure with type-specific item fields:
+
+```typescript
+// EP API v2 feed response
+interface EPFeedResponse {
+  data: EPFeedItem[];
+  "@context": string[];
+}
+
+interface EPFeedItem {
+  id: string;        // EP API item URL
+  type: string;      // Item type classification
+  work_type: string; // EP work type code
+  identifier: string; // Document/item reference
+  label: string;     // Human-readable title (use this, NOT title)
+}
+
+// Feed parameters accepted by all endpoints
+type FeedTimeframe = 'one-day' | 'one-week' | 'one-month' | 'three-months' | 'one-year';
+
+interface FeedBaseOptions {
+  timeframe?: FeedTimeframe;
+  startDate?: string;  // YYYY-MM-DD
+  limit?: number;
+  offset?: number;
+}
+```
+
+**Timeframe Usage Per Article Type:**
+| Article Type | Timeframe | Rationale |
+|-------------|-----------|-----------|
+| Breaking News | `one-day` | Most recent events only |
+| Week Ahead | `one-week` | Preview upcoming week |
+| Weekly Review | `one-week` | Summarize past week |
+| Month Ahead | `one-month` | Preview upcoming month |
+| Monthly Review | `one-month` | Summarize past month |
+| Propositions | `one-month` | Recent legislative proposals |
+| Motions | `one-month` | Recent resolutions and motions |
+| Committee Reports | `one-month` | Recent committee activity |
 
 ### MCP Client Implementation
 
@@ -583,7 +629,7 @@ describe('European Parliament MCP Integration', () => {
 ### What You MUST Do
 
 **MCP Integration:**
-- Implement all 6 European Parliament MCP tools
+- Implement all 6 European Parliament MCP core tools + 13 feed endpoints
 - Add retry logic with exponential backoff
 - Implement LRU caching with appropriate TTLs
 - Validate all responses against schemas
@@ -713,7 +759,7 @@ describe('European Parliament MCP Integration', () => {
 ### Pre-Deployment Checklist
 
 **MCP Integration:**
-- [ ] All 6 tools implemented
+- [ ] All 6 core tools + 13 feed endpoints implemented
 - [ ] Retry logic with exponential backoff (3 retries)
 - [ ] Circuit breaker pattern implemented
 - [ ] Timeouts configured (30s default)

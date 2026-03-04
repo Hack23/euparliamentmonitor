@@ -10,7 +10,7 @@
 
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
 import { ArticleCategory } from '../../types/index.js';
-import type { LanguageCode } from '../../types/index.js';
+import type { LanguageCode, EPFeedData } from '../../types/index.js';
 import {
   PROPOSITIONS_TITLES,
   PROPOSITIONS_STRINGS,
@@ -20,8 +20,11 @@ import {
   fetchProposalsFromMCP,
   fetchPipelineFromMCP,
   fetchProcedureStatusFromMCP,
+  fetchEPFeedData,
 } from '../pipeline/fetch-stage.js';
 import { buildPropositionsContent } from '../propositions-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildPropositionsAnalysis } from '../analysis-builders.js';
 import type { PipelineData } from '../propositions-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
@@ -44,6 +47,8 @@ export interface PropositionsArticleData extends ArticleData {
   readonly pipelineData: PipelineData | null;
   /** Pre-sanitised HTML for the tracked procedure section */
   readonly procedureHtml: string;
+  /** EP feed data for enrichment (when available) */
+  readonly feedData?: EPFeedData;
 }
 
 // ─── Strategy implementation ──────────────────────────────────────────────────
@@ -60,6 +65,8 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
     'search_documents',
     'monitor_legislative_pipeline',
     'track_legislation',
+    'get_procedures_feed',
+    'get_adopted_texts_feed',
   ] as const;
 
   /**
@@ -77,9 +84,11 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
       console.log('  📡 Fetching legislative data from MCP server...');
     }
 
-    const [proposalsResult, pipelineResult] = await Promise.allSettled([
+    // Fetch proposals, pipeline, and EP feed data in parallel
+    const [proposalsResult, pipelineResult, feedData] = await Promise.allSettled([
       fetchProposalsFromMCP(client),
       fetchPipelineFromMCP(client),
+      fetchEPFeedData(client, 'one-month'),
     ]);
 
     const { html: proposalsHtml, firstProcedureId } =
@@ -88,6 +97,7 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
         : { html: '', firstProcedureId: '' };
 
     const pipelineData = pipelineResult.status === 'fulfilled' ? pipelineResult.value : null;
+    const feedResult = feedData.status === 'fulfilled' ? feedData.value : undefined;
 
     const procedureHtml = await fetchProcedureStatusFromMCP(client, firstProcedureId);
 
@@ -95,7 +105,7 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
       console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
     }
 
-    return { date, proposalsHtml, pipelineData, procedureHtml };
+    return { date, proposalsHtml, pipelineData, procedureHtml, feedData: feedResult };
   }
 
   /**
@@ -107,13 +117,24 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
    */
   buildContent(data: PropositionsArticleData, lang: LanguageCode): string {
     const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
-    return buildPropositionsContent(
+    const base = buildPropositionsContent(
       data.proposalsHtml,
       data.pipelineData,
       data.procedureHtml,
       strings,
       lang
     );
+    const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date);
+    const deepSection = buildDeepAnalysisSection(analysis, lang);
+    // Inject deep analysis before the closing </div> of .article-content
+    if (deepSection) {
+      const closingTag = '</div>';
+      const lastIdx = base.lastIndexOf(closingTag);
+      if (lastIdx !== -1) {
+        return base.slice(0, lastIdx) + deepSection + '\n' + base.slice(lastIdx);
+      }
+    }
+    return base;
   }
 
   /**

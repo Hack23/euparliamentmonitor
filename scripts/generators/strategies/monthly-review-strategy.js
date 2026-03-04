@@ -2,8 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 import { ArticleCategory } from '../../types/index.js';
 import { MONTHLY_REVIEW_TITLES, getLocalizedString } from '../../constants/languages.js';
-import { fetchVotingRecords, fetchVotingPatterns, fetchMotionsAnomalies, fetchParliamentaryQuestionsForMotions, } from '../pipeline/fetch-stage.js';
+import { fetchVotingRecords, fetchVotingPatterns, fetchMotionsAnomalies, fetchParliamentaryQuestionsForMotions, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent } from '../motions-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildVotingAnalysis } from '../analysis-builders.js';
 /** Keywords shared by all Monthly Review articles */
 const MONTHLY_REVIEW_KEYWORDS = [
     'European Parliament',
@@ -55,6 +57,9 @@ export class MonthlyReviewStrategy {
         'analyze_voting_patterns',
         'detect_voting_anomalies',
         'get_parliamentary_questions',
+        'get_adopted_texts_feed',
+        'get_procedures_feed',
+        'get_events_feed',
     ];
     /**
      * Fetch monthly review data from MCP.
@@ -66,11 +71,13 @@ export class MonthlyReviewStrategy {
     async fetchData(client, date) {
         const dateRange = computeMonthlyReviewDateRange(date);
         console.log(`  📊 Monthly review range: ${dateRange.start} to ${dateRange.end}`);
-        const [votingRecords, votingPatterns, anomalies, questions] = await Promise.all([
+        // Fetch voting data and EP feed data in parallel
+        const [votingRecords, votingPatterns, anomalies, questions, feedData] = await Promise.all([
             fetchVotingRecords(client, dateRange.start, dateRange.end),
             fetchVotingPatterns(client, dateRange.start, dateRange.end),
             fetchMotionsAnomalies(client, dateRange.start, dateRange.end),
             fetchParliamentaryQuestionsForMotions(client, dateRange.start, dateRange.end),
+            fetchEPFeedData(client, 'one-month'),
         ]);
         const monthLabel = formatMonthLabel(dateRange.start);
         return {
@@ -82,6 +89,7 @@ export class MonthlyReviewStrategy {
             anomalies,
             questions,
             monthLabel,
+            feedData,
         };
     }
     /**
@@ -92,7 +100,10 @@ export class MonthlyReviewStrategy {
      * @returns Article HTML body
      */
     buildContent(data, lang) {
-        return generateMotionsContent(data.dateRange.start, data.dateRange.end, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
+        const base = generateMotionsContent(data.dateRange.start, data.dateRange.end, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
+        const analysis = buildVotingAnalysis(data.dateRange.start, data.dateRange.end, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
+        const deepSection = buildDeepAnalysisSection(analysis, lang);
+        return base.replace('<!-- /article-content -->', deepSection);
     }
     /**
      * Return language-specific metadata for the monthly review article.

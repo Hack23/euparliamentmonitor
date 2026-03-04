@@ -2,8 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 import { ArticleCategory } from '../../types/index.js';
 import { MOTIONS_TITLES, getLocalizedString } from '../../constants/languages.js';
-import { fetchMotionsData } from '../pipeline/fetch-stage.js';
+import { fetchMotionsData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent, buildPoliticalAlignmentSection } from '../motions-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildVotingAnalysis } from '../analysis-builders.js';
 /** Keywords shared by all Motions articles */
 const MOTIONS_KEYWORDS = [
     'European Parliament',
@@ -27,6 +29,8 @@ export class MotionsStrategy {
         'analyze_voting_patterns',
         'detect_voting_anomalies',
         'get_parliamentary_questions',
+        'get_adopted_texts_feed',
+        'get_parliamentary_questions_feed',
     ];
     /**
      * Fetch all motions data for the last 30 days.
@@ -43,7 +47,12 @@ export class MotionsStrategy {
             throw new Error('Invalid date format generated for motions look-back window');
         }
         const dateFromStr = dateFromParts[0];
-        const { votingRecords, votingPatterns, anomalies, questions } = await fetchMotionsData(client, dateFromStr, date);
+        // Fetch voting data and EP feed data in parallel
+        const [motionsDataResult, feedData] = await Promise.all([
+            fetchMotionsData(client, dateFromStr, date),
+            fetchEPFeedData(client, 'one-month'),
+        ]);
+        const { votingRecords, votingPatterns, anomalies, questions } = motionsDataResult;
         return {
             date,
             dateFromStr,
@@ -51,6 +60,7 @@ export class MotionsStrategy {
             votingPatterns,
             anomalies,
             questions,
+            feedData,
         };
     }
     /**
@@ -63,12 +73,15 @@ export class MotionsStrategy {
     buildContent(data, lang) {
         const base = generateMotionsContent(data.dateFromStr, data.date, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
         const alignmentSection = buildPoliticalAlignmentSection([...data.votingRecords], [], lang);
+        const analysis = buildVotingAnalysis(data.dateFromStr, data.date, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
+        const deepSection = buildDeepAnalysisSection(analysis, lang);
         // Inject at the explicit <!-- /article-content --> marker so the section
         // stays inside the .article-content styling scope. The marker is always
         // emitted by generateMotionsContent as the last child of that wrapper and
         // is removed from the final HTML during this replacement.
-        if (alignmentSection) {
-            return base.replace('<!-- /article-content -->', `${alignmentSection}\n`);
+        const injection = (alignmentSection || '') + deepSection;
+        if (injection) {
+            return base.replace('<!-- /article-content -->', `${injection}\n`);
         }
         return base.replace('<!-- /article-content -->', '');
     }

@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament committee activity analysis articles for all 14 languages. Single article type per run to reduce patch size and improve reliability.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"cc30760af97e97154b70388cf5b7f7aea1b79af666b73b2bf38e3a6b83e771b5","compiler_version":"v0.53.0"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"3defa946686cb5b4b18ccb81baf91e8da525a10219fd4a7641c062653ab0c3cc","compiler_version":"v0.53.0"}
 
 name: "News: EU Parliament Committee Activity"
 "on":
@@ -672,7 +672,7 @@ jobs:
                 "entrypointArgs": [
                   "npx",
                   "-y",
-                  "european-parliament-mcp-server@1.1.1"
+                  "european-parliament-mcp-server@1.1.2"
                 ],
                 "tools": [
                   "*"

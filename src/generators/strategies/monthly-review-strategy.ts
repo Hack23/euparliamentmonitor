@@ -18,6 +18,7 @@ import type {
   VotingPattern,
   VotingAnomaly,
   MotionsQuestion,
+  EPFeedData,
 } from '../../types/index.js';
 import { MONTHLY_REVIEW_TITLES, getLocalizedString } from '../../constants/languages.js';
 import {
@@ -25,8 +26,11 @@ import {
   fetchVotingPatterns,
   fetchMotionsAnomalies,
   fetchParliamentaryQuestionsForMotions,
+  fetchEPFeedData,
 } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent } from '../motions-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildVotingAnalysis } from '../analysis-builders.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -47,6 +51,8 @@ export interface MonthlyReviewArticleData extends ArticleData {
   readonly dateFromStr: string;
   /** Display label for the review month */
   readonly monthLabel: string;
+  /** EP feed data for enrichment (when available) */
+  readonly feedData?: EPFeedData;
 }
 
 /** Keywords shared by all Monthly Review articles */
@@ -109,6 +115,9 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
     'analyze_voting_patterns',
     'detect_voting_anomalies',
     'get_parliamentary_questions',
+    'get_adopted_texts_feed',
+    'get_procedures_feed',
+    'get_events_feed',
   ] as const;
 
   /**
@@ -125,11 +134,13 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
     const dateRange = computeMonthlyReviewDateRange(date);
     console.log(`  📊 Monthly review range: ${dateRange.start} to ${dateRange.end}`);
 
-    const [votingRecords, votingPatterns, anomalies, questions] = await Promise.all([
+    // Fetch voting data and EP feed data in parallel
+    const [votingRecords, votingPatterns, anomalies, questions, feedData] = await Promise.all([
       fetchVotingRecords(client, dateRange.start, dateRange.end),
       fetchVotingPatterns(client, dateRange.start, dateRange.end),
       fetchMotionsAnomalies(client, dateRange.start, dateRange.end),
       fetchParliamentaryQuestionsForMotions(client, dateRange.start, dateRange.end),
+      fetchEPFeedData(client, 'one-month'),
     ]);
 
     const monthLabel = formatMonthLabel(dateRange.start);
@@ -143,6 +154,7 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
       anomalies,
       questions,
       monthLabel,
+      feedData,
     };
   }
 
@@ -154,7 +166,7 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
    * @returns Article HTML body
    */
   buildContent(data: MonthlyReviewArticleData, lang: LanguageCode): string {
-    return generateMotionsContent(
+    const base = generateMotionsContent(
       data.dateRange.start,
       data.dateRange.end,
       [...data.votingRecords],
@@ -163,6 +175,16 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
       [...data.questions],
       lang
     );
+    const analysis = buildVotingAnalysis(
+      data.dateRange.start,
+      data.dateRange.end,
+      data.votingRecords,
+      data.votingPatterns,
+      data.anomalies,
+      data.questions
+    );
+    const deepSection = buildDeepAnalysisSection(analysis, lang);
+    return base.replace('<!-- /article-content -->', deepSection);
   }
 
   /**

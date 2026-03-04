@@ -32,6 +32,11 @@ export {
   type MotionsStrings,
   type WeekAheadStrings,
   type BreakingStrings,
+  type ActionConsequence,
+  type StakeholderOutcome,
+  type PoliticalMistake,
+  type DeepAnalysis,
+  type DeepAnalysisStrings,
 } from './common.js';
 
 export type {
@@ -51,11 +56,17 @@ export type {
   CoalitionIntelligence,
   MEPInfluenceScore,
   LegislativeVelocity,
+  EPFeedItem,
   AdoptedTextFeedItem,
   EventFeedItem,
   ProcedureFeedItem,
   MEPFeedItem,
+  DocumentFeedItem,
+  QuestionFeedItem,
+  DeclarationFeedItem,
+  CorporateBodyFeedItem,
   BreakingNewsFeedData,
+  EPFeedData,
 } from './parliament.js';
 
 export type {
@@ -124,6 +135,8 @@ export {
   type CorrelateIntelligenceOptions,
   type GeneratedStatsCategory,
   type GetAllGeneratedStatsOptions,
+  type FeedTimeframe,
+  type FeedBaseOptions,
   type GetMEPsFeedOptions,
   type GetEventsFeedOptions,
   type GetProceduresFeedOptions,

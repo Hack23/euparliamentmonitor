@@ -22,6 +22,8 @@ import {
   fetchCoalitionDynamics,
 } from '../pipeline/fetch-stage.js';
 import { buildBreakingNewsContent } from '../breaking-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildBreakingAnalysis } from '../analysis-builders.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 /** Keywords shared by all Breaking News articles */
@@ -85,7 +87,7 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
     }
 
     // Step 1: Fetch feed data (PRIMARY news content)
-    const feedData = await fetchBreakingNewsFeedData(client);
+    const feedData = await fetchBreakingNewsFeedData(client, 'one-day');
 
     // When client is null, feedData is undefined — MCP unavailable
     if (!feedData) {
@@ -127,7 +129,7 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
    * @returns Article HTML body
    */
   buildContent(data: BreakingNewsArticleData, lang: LanguageCode): string {
-    return buildBreakingNewsContent(
+    const base = buildBreakingNewsContent(
       data.date,
       data.anomalyRaw,
       data.coalitionRaw,
@@ -139,6 +141,22 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       [],
       data.feedData
     );
+    const analysis = buildBreakingAnalysis(
+      data.date,
+      data.feedData,
+      data.anomalyRaw,
+      data.coalitionRaw
+    );
+    const deepSection = buildDeepAnalysisSection(analysis, lang);
+    // Inject deep analysis before the closing </div> of .article-content
+    if (deepSection) {
+      const closingTag = '</div>';
+      const lastIdx = base.lastIndexOf(closingTag);
+      if (lastIdx !== -1) {
+        return base.slice(0, lastIdx) + deepSection + '\n' + base.slice(lastIdx);
+      }
+    }
+    return base;
   }
 
   /**

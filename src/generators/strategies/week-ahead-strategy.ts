@@ -10,14 +10,16 @@
 
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
 import { ArticleCategory } from '../../types/index.js';
-import type { LanguageCode, DateRange, WeekAheadData } from '../../types/index.js';
+import type { LanguageCode, DateRange, WeekAheadData, EPFeedData } from '../../types/index.js';
 import { WEEK_AHEAD_TITLES, getLocalizedString } from '../../constants/languages.js';
-import { fetchWeekAheadData } from '../pipeline/fetch-stage.js';
+import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import {
   buildWeekAheadContent,
   buildKeywords,
   buildWhatToWatchSection,
 } from '../week-ahead-content.js';
+import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
+import { buildProspectiveAnalysis } from '../analysis-builders.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -30,6 +32,8 @@ export interface WeekAheadArticleData extends ArticleData {
   readonly weekData: WeekAheadData;
   /** SEO keywords derived from the week-ahead data */
   readonly keywords: readonly string[];
+  /** EP feed data for enrichment (when available) */
+  readonly feedData?: EPFeedData;
 }
 
 // ─── Date-range helper ────────────────────────────────────────────────────────
@@ -78,6 +82,9 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     'monitor_legislative_pipeline',
     'get_parliamentary_questions',
     'get_events',
+    'get_events_feed',
+    'get_plenary_documents_feed',
+    'get_adopted_texts_feed',
   ] as const;
 
   /**
@@ -94,10 +101,14 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     const dateRange = computeWeekAheadDateRange(date);
     console.log(`  📆 Date range: ${dateRange.start} to ${dateRange.end}`);
 
-    const weekData = await fetchWeekAheadData(client, dateRange);
+    // Fetch traditional MCP data and EP feeds in parallel
+    const [weekData, feedData] = await Promise.all([
+      fetchWeekAheadData(client, dateRange),
+      fetchEPFeedData(client, 'one-week'),
+    ]);
     const keywords = buildKeywords(weekData);
 
-    return { date, dateRange, weekData, keywords };
+    return { date, dateRange, weekData, keywords, feedData };
   }
 
   /**
@@ -110,11 +121,14 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
   buildContent(data: WeekAheadArticleData, lang: LanguageCode): string {
     const base = buildWeekAheadContent(data.weekData, data.dateRange, lang);
     const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
+    const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
+    const analysisSection = buildDeepAnalysisSection(analysis, lang);
     // Inject at the explicit <!-- /article-content --> marker position so the
     // section stays inside the .article-content styling scope. The marker is
     // removed from the final HTML output to avoid unnecessary bytes.
-    if (watchSection) {
-      return base.replace('<!-- /article-content -->', watchSection);
+    const injection = (watchSection || '') + analysisSection;
+    if (injection) {
+      return base.replace('<!-- /article-content -->', injection);
     }
     return base.replace('<!-- /article-content -->', '');
   }

@@ -40,6 +40,15 @@ import {
   fetchProceduresFeed,
   fetchMEPsFeed,
   fetchBreakingNewsFeedData,
+  fetchDocumentsFeed,
+  fetchPlenaryDocumentsFeed,
+  fetchCommitteeDocumentsFeed,
+  fetchPlenarySessionDocumentsFeed,
+  fetchExternalDocumentsFeed,
+  fetchQuestionsFeed,
+  fetchDeclarationsFeed,
+  fetchCorporateBodiesFeed,
+  fetchEPFeedData,
 } from '../../scripts/generators/pipeline/fetch-stage.js';
 
 import {
@@ -660,6 +669,122 @@ describe('fetchBreakingNewsFeedData with circuit breaker OPEN', () => {
 
     // Reset circuit breaker for other tests
     cb.recordSuccess();
+  });
+});
+
+// ─── New feed fetcher tests (null client) ────────────────────────────────────
+
+describe('fetchDocumentsFeed with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchDocumentsFeed(null);
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchPlenaryDocumentsFeed with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchPlenaryDocumentsFeed(null);
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchCommitteeDocumentsFeed with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchCommitteeDocumentsFeed(null);
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchPlenarySessionDocumentsFeed with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchPlenarySessionDocumentsFeed(null);
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchExternalDocumentsFeed with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchExternalDocumentsFeed(null);
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchQuestionsFeed with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchQuestionsFeed(null);
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchDeclarationsFeed with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchDeclarationsFeed(null);
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchCorporateBodiesFeed with null client', () => {
+  it('returns empty array when client is null', async () => {
+    const result = await fetchCorporateBodiesFeed(null);
+    expect(result).toEqual([]);
+  });
+});
+
+describe('fetchEPFeedData with null client', () => {
+  it('returns undefined when client is null', async () => {
+    const result = await fetchEPFeedData(null);
+    expect(result).toBeUndefined();
+  });
+});
+
+describe('fetchEPFeedData with circuit breaker OPEN', () => {
+  it('returns undefined when circuit breaker is OPEN', async () => {
+    const cb = mcpCircuitBreaker;
+    cb.recordFailure();
+    cb.recordFailure();
+    cb.recordFailure();
+
+    const result = await fetchEPFeedData(mockClientWithData);
+    expect(result).toBeUndefined();
+
+    cb.recordSuccess();
+  });
+});
+
+describe('feed fetchers accept timeframe parameter', () => {
+  it('fetchAdoptedTextsFeed accepts timeframe', async () => {
+    const result = await fetchAdoptedTextsFeed(null, 'one-week');
+    expect(result).toEqual([]);
+  });
+
+  it('fetchEventsFeed accepts timeframe', async () => {
+    const result = await fetchEventsFeed(null, 'one-month');
+    expect(result).toEqual([]);
+  });
+
+  it('fetchProceduresFeed accepts timeframe', async () => {
+    const result = await fetchProceduresFeed(null, 'one-week');
+    expect(result).toEqual([]);
+  });
+
+  it('fetchMEPsFeed accepts timeframe', async () => {
+    const result = await fetchMEPsFeed(null, 'one-day');
+    expect(result).toEqual([]);
+  });
+
+  it('fetchDocumentsFeed accepts timeframe', async () => {
+    const result = await fetchDocumentsFeed(null, 'three-months');
+    expect(result).toEqual([]);
+  });
+
+  it('fetchBreakingNewsFeedData accepts timeframe', async () => {
+    const result = await fetchBreakingNewsFeedData(null, 'one-day');
+    expect(result).toBeUndefined();
+  });
+
+  it('fetchEPFeedData accepts timeframe', async () => {
+    const result = await fetchEPFeedData(null, 'one-week');
+    expect(result).toBeUndefined();
   });
 });
 
