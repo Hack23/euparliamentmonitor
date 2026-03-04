@@ -347,15 +347,34 @@ export function loadEPFeedDataFromFile(filePath: string): EPFeedData | undefined
     const declarations = safeArray('declarations') as DeclarationFeedItem[];
     const corporateBodies = safeArray('corporateBodies') as CorporateBodyFeedItem[];
     const totalItems =
-      adoptedTexts.length + events.length + procedures.length + mepUpdates.length +
-      documents.length + plenaryDocuments.length + committeeDocuments.length +
-      plenarySessionDocuments.length + externalDocuments.length +
-      questions.length + declarations.length + corporateBodies.length;
-    console.log(`${INFO_PREFIX} Loaded EP feed data from file: ${totalItems} total items across 12 keys`);
+      adoptedTexts.length +
+      events.length +
+      procedures.length +
+      mepUpdates.length +
+      documents.length +
+      plenaryDocuments.length +
+      committeeDocuments.length +
+      plenarySessionDocuments.length +
+      externalDocuments.length +
+      questions.length +
+      declarations.length +
+      corporateBodies.length;
+    console.log(
+      `${INFO_PREFIX} Loaded EP feed data from file: ${totalItems} total items across 12 keys`
+    );
     return {
-      adoptedTexts, events, procedures, mepUpdates,
-      documents, plenaryDocuments, committeeDocuments, plenarySessionDocuments,
-      externalDocuments, questions, declarations, corporateBodies,
+      adoptedTexts,
+      events,
+      procedures,
+      mepUpdates,
+      documents,
+      plenaryDocuments,
+      committeeDocuments,
+      plenarySessionDocuments,
+      externalDocuments,
+      questions,
+      declarations,
+      corporateBodies,
     };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -1483,7 +1502,9 @@ export async function fetchEPFeedData(
   if (feedDataFile) {
     const fileData = loadEPFeedDataFromFile(feedDataFile);
     if (fileData) return fileData;
-    console.log(`${WARN_PREFIX} Pre-fetched EP feed data failed to load — falling through to MCP fetch`);
+    console.log(
+      `${WARN_PREFIX} Pre-fetched EP feed data failed to load — falling through to MCP fetch`
+    );
   }
   if (!client) return undefined;
   if (!mcpCircuitBreaker.canRequest()) {
