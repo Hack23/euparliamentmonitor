@@ -52,4 +52,5 @@ export {
   WEEK_AHEAD_STRINGS,
   BREAKING_STRINGS,
   DEEP_ANALYSIS_STRINGS,
+  LOCALIZED_KEYWORDS,
 } from './language-articles.js';
