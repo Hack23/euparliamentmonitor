@@ -305,6 +305,65 @@ export function loadFeedDataFromFile(filePath: string): BreakingNewsFeedData | u
   }
 }
 
+/**
+ * Load pre-fetched comprehensive EP feed data from a JSON file on disk.
+ *
+ * Agentic workflows fetch EP data via framework MCP tools but the TypeScript
+ * generator cannot access those tools directly.  The workflow saves the MCP
+ * results to a JSON file and the generator reads them via this function,
+ * avoiding the need to manually construct article HTML.
+ *
+ * The file must contain a JSON object with EP feed data keys.
+ * Missing keys default to empty arrays.
+ *
+ * @param filePath - Absolute or relative path to the JSON file
+ * @returns Parsed {@link EPFeedData}, or `undefined` on any error
+ */
+export function loadEPFeedDataFromFile(filePath: string): EPFeedData | undefined {
+  try {
+    if (!fs.existsSync(filePath)) {
+      console.warn(`${WARN_PREFIX} EP feed data file not found: ${filePath}`);
+      return undefined;
+    }
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const parsed: unknown = JSON.parse(raw);
+    if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+      console.warn(`${WARN_PREFIX} EP feed data file must contain a JSON object`);
+      return undefined;
+    }
+    const obj = parsed as Record<string, unknown>;
+    const safeArray = (key: string): readonly unknown[] =>
+      Array.isArray(obj[key]) ? (obj[key] as unknown[]) : [];
+    const adoptedTexts = safeArray('adoptedTexts') as AdoptedTextFeedItem[];
+    const events = safeArray('events') as EventFeedItem[];
+    const procedures = safeArray('procedures') as ProcedureFeedItem[];
+    const mepUpdates = safeArray('mepUpdates') as MEPFeedItem[];
+    const documents = safeArray('documents') as DocumentFeedItem[];
+    const plenaryDocuments = safeArray('plenaryDocuments') as DocumentFeedItem[];
+    const committeeDocuments = safeArray('committeeDocuments') as DocumentFeedItem[];
+    const plenarySessionDocuments = safeArray('plenarySessionDocuments') as DocumentFeedItem[];
+    const externalDocuments = safeArray('externalDocuments') as DocumentFeedItem[];
+    const questions = safeArray('questions') as QuestionFeedItem[];
+    const declarations = safeArray('declarations') as DeclarationFeedItem[];
+    const corporateBodies = safeArray('corporateBodies') as CorporateBodyFeedItem[];
+    const totalItems =
+      adoptedTexts.length + events.length + procedures.length + mepUpdates.length +
+      documents.length + plenaryDocuments.length + committeeDocuments.length +
+      plenarySessionDocuments.length + externalDocuments.length +
+      questions.length + declarations.length + corporateBodies.length;
+    console.log(`${INFO_PREFIX} Loaded EP feed data from file: ${totalItems} total items across 12 keys`);
+    return {
+      adoptedTexts, events, procedures, mepUpdates,
+      documents, plenaryDocuments, committeeDocuments, plenarySessionDocuments,
+      externalDocuments, questions, declarations, corporateBodies,
+    };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} Failed to load EP feed data from file: ${message}`);
+    return undefined;
+  }
+}
+
 // ─── Week-Ahead fetches ──────────────────────────────────────────────────────
 
 /**
@@ -1417,6 +1476,15 @@ export async function fetchEPFeedData(
   client: EuropeanParliamentMCPClient | null,
   timeframe: FeedTimeframe = 'one-day'
 ): Promise<EPFeedData | undefined> {
+  // Check for pre-fetched feed data file (set by --feed-data CLI arg).
+  // This allows agentic workflows to pass MCP data fetched via framework tools
+  // into the generator without requiring a direct MCP connection.
+  const feedDataFile = process.env['EP_FEED_DATA_FILE'];
+  if (feedDataFile) {
+    const fileData = loadEPFeedDataFromFile(feedDataFile);
+    if (fileData) return fileData;
+    console.log(`${WARN_PREFIX} Pre-fetched EP feed data failed to load — falling through to MCP fetch`);
+  }
   if (!client) return undefined;
   if (!mcpCircuitBreaker.canRequest()) {
     console.warn(`${WARN_PREFIX} Circuit breaker OPEN — treating as MCP unavailable for EP feeds`);

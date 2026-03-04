@@ -173,7 +173,7 @@ Before generating ANY articles, verify MCP connectivity:
 The gh-aw framework **automatically captures all file changes** you make in the working directory as a patch. You do NOT manage git operations yourself.
 
 **The mechanism:**
-1. You write/edit article files to `news/` using `bash` (e.g., `cat > news/file.html << 'HTMLEOF' ... HTMLEOF`)
+1. The TypeScript generator (`npx tsx src/generators/news-enhanced.ts`) writes article files to `news/`
 2. You call `safeoutputs___create_pull_request` with `title`, `body`, `base`, and `head`
 3. The framework diffs your working directory, creates a branch, applies the patch, and opens the PR
 
