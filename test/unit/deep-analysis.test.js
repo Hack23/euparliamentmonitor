@@ -382,7 +382,7 @@ describe('analysis-builders', () => {
       };
       const result = buildBreakingAnalysis('2026-02-24', feedData, '', '');
       expect(result.what).toContain('1 newly adopted texts');
-      expect(result.who).toContain('Adopted: DMA Regulation');
+      expect(result.who).toContain('Adopted: DMA Regulation (2026-02-24)');
     });
 
     it('should include anomaly context in why', () => {
@@ -405,6 +405,26 @@ describe('analysis-builders', () => {
       const result = buildBreakingAnalysis('2026-02-24', feedData, '', '');
       expect(result.actionConsequences.length).toBeGreaterThan(0);
       expect(result.actionConsequences[0].action).toContain('Adoption');
+    });
+
+    it('should include publish dates in all feed item references', () => {
+      const feedData = {
+        adoptedTexts: [{ id: '1', title: 'AI Act', date: '2026-03-04', url: '' }],
+        events: [{ id: '1', title: 'Plenary debate', date: '2026-03-04' }],
+        procedures: [{ id: '1', title: 'Green Deal', date: '2026-03-04' }],
+        mepUpdates: [{ id: '1', name: 'MEP Jones', date: '2026-03-04' }],
+      };
+      const result = buildBreakingAnalysis('2026-03-04', feedData, '', '');
+      // who section: adopted texts include date
+      expect(result.who).toContain('Adopted: AI Act (2026-03-04)');
+      // who section: MEP updates include date
+      expect(result.who).toContain('MEP: MEP Jones (2026-03-04)');
+      // when section: events include date
+      expect(result.when).toContain('Plenary debate (2026-03-04)');
+      // actionConsequences: adopted texts include date
+      expect(result.actionConsequences[0].action).toContain('(2026-03-04)');
+      // actionConsequences: procedures include date
+      expect(result.actionConsequences[1].action).toContain('(2026-03-04)');
     });
   });
 

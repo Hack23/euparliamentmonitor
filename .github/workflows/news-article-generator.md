@@ -153,13 +153,22 @@ Before generating ANY articles, verify MCP connectivity:
 3. If ALL 3 attempts fail:
    - Use `safeoutputs___noop` with message: "MCP server unavailable after 3 connection attempts. No articles generated."
    - DO NOT fabricate or recycle content
+   - DO NOT analyze existing articles in the repository
+   - DO NOT manually construct HTML by studying existing article patterns
    - The workflow MUST end with noop
 
-**CRITICAL**: ALL article content MUST originate from live MCP data.
+**CRITICAL**: ALL article content MUST originate from live MCP data. Never generate content from:
+- Existing articles in the news/ directory
+- Cached or stale data
+- AI-generated content without MCP source data
+- Synthetic/test IDs (VOTE-2024-001, DOC-2024-001, etc.)
+- Manually constructed HTML by studying existing article patterns
 
 ## 🚨 FEED-FIRST CONTENT RULE (Applies to ALL Article Types)
 
 > **⚠️ FUNDAMENTAL RULE**: Every article MUST lead with and focus on **specific recent items** found in EP feed endpoints (documents, adopted texts, procedures, events updated today or recently). Precomputed statistics (`get_all_generated_stats`) are **background context ONLY** — they provide historical comparison but are NEVER the news itself.
+>
+> **📅 DATE REQUIREMENT**: ALL document/event/procedure references in articles MUST include their publish or creation date (e.g., "Resolution on Digital Markets (adopted 4 March 2026)"). News is about RECENTLY published items — documents without a recent date are not news.
 >
 > **Content quality gate**: If any article mostly discusses historical aggregates (e.g. "1,773 committee meetings in EP10", "fragmentation index 6.59", year-over-year statistics, "pipeline health score 100") rather than **specific recent items with concrete titles, dates, and reference IDs from feed data**, the article FAILS quality validation and must be rewritten.
 >
@@ -178,7 +187,7 @@ Before generating ANY articles, verify MCP connectivity:
 The gh-aw framework **automatically captures all file changes** you make in the working directory as a patch. You do NOT manage git operations yourself.
 
 **The mechanism:**
-1. You write/edit article files to `news/` using `bash` (e.g., `cat > news/file.html << 'HTMLEOF' ... HTMLEOF`)
+1. The TypeScript generator (`npx tsx src/generators/news-enhanced.ts`) writes article files to `news/`
 2. You call `safeoutputs___create_pull_request` with `title`, `body`, `base`, and `head`
 3. The framework diffs your working directory, creates a branch, applies the patch, and opens the PR
 
@@ -284,15 +293,26 @@ european_parliament___get_meps_feed({ timeframe: "one-week", limit: 20 })
 european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
 ```
 
-**Breaking News (MANDATORY: Feed-First — stats are context only):**
+**Breaking News (MANDATORY: Feed-First REALTIME — only TODAY's events):**
 
-> **🚨 NEWSWORTHINESS GATE**: Breaking news MUST be triggered by **actual recent events** found in EP feed endpoints. If NO recent newsworthy events are found in feeds, use `safeoutputs___noop`.
+> **🚨 NEWSWORTHINESS GATE**: Breaking news covers ONLY events published/updated TODAY. Use `timeframe: "today"` for ALL feed calls. If NO items from today are found, use `safeoutputs___noop`. ALL document references MUST include their publish date.
+
+These 4 feeds map directly to the breaking news generator's data model (`adoptedTexts`, `events`, `procedures`, `mepUpdates`):
 
 ```javascript
-european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 20 })  // skip if empty
-european_parliament___get_events_feed({ timeframe: "one-day", limit: 50 })
-european_parliament___get_procedures_feed({ timeframe: "one-day", limit: 50 })
-european_parliament___get_meps_feed({ timeframe: "one-day", limit: 20 })
+european_parliament___get_adopted_texts_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_events_feed({ timeframe: "today", limit: 50 })
+european_parliament___get_procedures_feed({ timeframe: "today", limit: 50 })
+european_parliament___get_meps_feed({ timeframe: "today", limit: 20 })
+```
+
+Optional advisory feeds (for newsworthiness gate context only — not rendered in the generated article):
+
+```javascript
+european_parliament___get_documents_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_plenary_documents_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_committee_documents_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_parliamentary_questions_feed({ timeframe: "today", limit: 20 })
 ```
 
 **OPTIONAL supplementary tools (call after feeds, for analytical context):**
@@ -345,51 +365,13 @@ world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NE.EX
 
 ## MANDATORY Article HTML Structure
 
-**Every generated article MUST include the following structural elements in this exact order after `<body>`.** Articles missing these elements will fail quality validation. When using `cat > news/file.html << 'HTMLEOF'` or editing existing articles, ALWAYS include this complete structure.
+**Every generated article MUST include the following structural elements in this exact order after `<body>`.** The TypeScript generator (`npx tsx src/generators/news-enhanced.ts`) handles this automatically via `generateArticleHTML`. Manual HTML construction is NOT permitted.
 
-**If articles are generated by the TypeScript script (`npx tsx src/generators/news-enhanced.ts`), the template handles this automatically.** This section applies when you manually write or edit article HTML files.
+> **🚫 ABSOLUTE PROHIBITION**: Do NOT manually construct article HTML by reading, studying, or copying patterns from existing articles in `news/`. Do NOT use `cat > news/file.html << 'HTMLEOF'` or any other method to write raw HTML. ALL articles MUST be generated by the TypeScript generator. If the generator fails, the workflow MUST FAIL.
 
-### Required Elements (in order)
+The TypeScript generator (`generateArticleHTML` in `src/templates/article-template.ts`) automatically produces all required structural elements including: reading progress bar, skip link, site header, language switcher (14 languages), article navigation, main content, and footer. There is no need to know the HTML structure — the generator handles it.
 
-```html
-<body>
-  <div class="reading-progress" aria-hidden="true"></div>
-  <a href="#main" class="skip-link">{LOCALIZED_SKIP_LINK_TEXT}</a>
-
-  <header class="site-header" role="banner">
-    <div class="site-header__inner">
-      <a href="{INDEX_HREF}" class="site-header__brand" aria-label="EU Parliament Monitor">
-        <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
-        <span>
-          <span class="site-header__title">EU Parliament Monitor</span>
-          <span class="site-header__subtitle">European Parliament Intelligence</span>
-        </span>
-      </a>
-    </div>
-  </header>
-
-  <nav class="language-switcher" role="navigation" aria-label="Language selection">
-    <!-- One <a> per language: 14 links for en,sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh -->
-    <a href="{DATE}-{SLUG}-en.html" class="lang-link active" hreflang="en" lang="en" title="English">🇬🇧 EN</a>
-    <a href="{DATE}-{SLUG}-sv.html" class="lang-link" hreflang="sv" lang="sv" title="Svenska">🇸🇪 SV</a>
-    <!-- ... all 14 languages ... -->
-  </nav>
-
-  <nav class="article-top-nav" aria-label="{LOCALIZED_ARTICLE_NAV_LABEL}">
-    <a href="{INDEX_HREF}" class="back-to-news">{LOCALIZED_BACK_LABEL}</a>
-  </nav>
-
-  <main id="main" class="site-main">
-  <article class="news-article" lang="{LANG}">
-    <!-- article content -->
-  </article>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <!-- footer content -->
-  </footer>
-</body>
-```
+> **🚫 Reminder**: Do NOT read existing articles to learn the HTML structure. Do NOT manually write `<header>`, `<nav>`, `<footer>`, or any structural HTML. The generator does this automatically.
 
 ### Key Rules
 
@@ -516,9 +498,16 @@ fi
 
 export USE_EP_MCP=true
 
+# If feed data was saved to /tmp/ep-feed-data.json (from MCP tool calls), pass it
+FEED_DATA_FLAG=""
+if [ -f "/tmp/ep-feed-data.json" ]; then
+  FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"
+fi
+
 npx tsx src/generators/news-enhanced.ts \
   --types="$ARTICLE_TYPES" \
   --languages="$LANG_ARG" \
+  $FEED_DATA_FLAG \
   $SKIP_FLAG
 ```
 

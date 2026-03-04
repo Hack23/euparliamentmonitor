@@ -88,18 +88,21 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **bre
 
 If **force_generation** is `true`, generate articles even if recent ones exist. Use the **languages** value to determine which languages to generate.
 
-## 🚨 CRITICAL: Feed-First Breaking News
+## 🚨 CRITICAL: Realtime Feed-First Breaking News
 
-**This workflow generates ONLY `breaking` articles using a FEED-FIRST approach.**
+**This workflow generates ONLY `breaking` articles using a FEED-FIRST approach for REALTIME news.**
 
-> **⚠️ FUNDAMENTAL RULE**: Breaking news MUST be triggered by **actual recent events** found in EP feed endpoints. Precomputed statistics (`get_all_generated_stats`) provide historical context ONLY and are NEVER breaking news. Analytical tools (voting anomalies, coalition dynamics) are OPTIONAL supplementary context.
+> **⚠️ FUNDAMENTAL RULE**: Breaking news covers ONLY what happened TODAY (within the last 12 hours). Use `timeframe: "today"` for ALL feed endpoints. ONLY items published/updated TODAY qualify as breaking news. Precomputed statistics (`get_all_generated_stats`) provide historical context ONLY and are NEVER breaking news. Analytical tools (voting anomalies, coalition dynamics) are OPTIONAL supplementary context.
+
+> **📅 DATE REQUIREMENT**: ALL document/event/procedure references in articles MUST include their publish or creation date (e.g., "Resolution on Digital Markets (adopted 4 March 2026)"). Documents without a recent date are NOT news.
 
 **Data source hierarchy:**
-1. **PRIMARY (MANDATORY)**: EP API v2 feed endpoints — adopted texts, events, procedures, MEP updates
-2. **SECONDARY (OPTIONAL)**: Analytical context — voting anomalies, coalition dynamics
-3. **CONTEXT ONLY (NEVER NEWS)**: Precomputed statistics from `get_all_generated_stats`
+1. **PRIMARY (MANDATORY)**: EP API v2 feed endpoints with `timeframe: "today"` — adopted texts, events, procedures, MEP updates (these 4 feeds are consumed by the generator)
+2. **ADVISORY (NEWSWORTHINESS GATE ONLY)**: Documents, plenary/committee documents, parliamentary questions — inform whether to proceed but are NOT rendered in the article
+3. **SECONDARY (OPTIONAL)**: Analytical context — voting anomalies, coalition dynamics
+4. **CONTEXT ONLY (NEVER NEWS)**: Precomputed statistics from `get_all_generated_stats`
 
-**NEWSWORTHINESS GATE**: If NO recent newsworthy events are found in feeds, use `safeoutputs___noop` — do NOT generate a breaking news article from stats or analytics alone.
+**NEWSWORTHINESS GATE**: If NO events published/updated TODAY are found in feeds, use `safeoutputs___noop` — do NOT generate a breaking news article from stats, analytics, or older documents.
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
@@ -160,6 +163,7 @@ Before generating ANY articles, verify MCP connectivity:
 - Cached or stale data
 - AI-generated content without MCP source data
 - Synthetic/test IDs (VOTE-2024-001, DOC-2024-001, etc.)
+- Manually constructed HTML by studying existing article patterns
 
 ## MANDATORY PR Creation
 
@@ -172,7 +176,7 @@ Before generating ANY articles, verify MCP connectivity:
 The gh-aw framework **automatically captures all file changes** you make in the working directory as a patch. You do NOT manage git operations yourself.
 
 **The mechanism:**
-1. You write/edit article files to `news/` using `bash` (e.g., `cat > news/file.html << 'HTMLEOF' ... HTMLEOF`)
+1. The TypeScript generator (`npx tsx src/generators/news-enhanced.ts`) writes article files to `news/`
 2. You call `safeoutputs___create_pull_request` with `title`, `body`, `base`, and `head`
 3. The framework diffs your working directory, creates a branch, applies the patch, and opens the PR
 
@@ -220,31 +224,45 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 
-**These feed endpoints provide the actual breaking news content. ALL must be checked:**
+**These 4 feed endpoints map directly to the breaking news generator's data model. ALL must use `timeframe: "today"` to get ONLY items published/updated today:**
 
 ```javascript
-// Adopted texts — recently passed resolutions, directives, regulations
-european_parliament___get_adopted_texts_feed({ limit: 20 })
+// Adopted texts — resolutions, directives, regulations adopted TODAY
+european_parliament___get_adopted_texts_feed({ timeframe: "today", limit: 20 })
 
-// Events — recent parliamentary events, hearings, conferences
-european_parliament___get_events_feed({ limit: 20 })
+// Events — parliamentary events, hearings, conferences TODAY
+european_parliament___get_events_feed({ timeframe: "today", limit: 20 })
 
-// Procedures — legislative procedure updates and new proposals
-european_parliament___get_procedures_feed({ limit: 20 })
+// Procedures — legislative procedure updates TODAY
+european_parliament___get_procedures_feed({ timeframe: "today", limit: 20 })
 
-// MEP updates — recent MEP changes, new members, departures
-european_parliament___get_meps_feed({ limit: 20 })
+// MEP updates — MEP changes, new members, departures TODAY
+european_parliament___get_meps_feed({ timeframe: "today", limit: 20 })
+```
+
+> **📅 IMPORTANT**: Every item returned from feeds has a publish/update date. ONLY include items from TODAY in the article. If an item's date is older than 12 hours, it is NOT breaking news.
+
+**OPTIONAL: Advisory feeds (for newsworthiness context only — not rendered in the generated article):**
+
+```javascript
+// These feeds inform the NEWSWORTHINESS GATE but are NOT consumed by the generator.
+// Use them to decide whether to proceed with article generation, but do NOT
+// include their items directly in the article output.
+european_parliament___get_documents_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_plenary_documents_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_committee_documents_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_parliamentary_questions_feed({ timeframe: "today", limit: 20 })
 ```
 
 ### 🔍 NEWSWORTHINESS GATE
 
 After fetching all feed data, evaluate newsworthiness:
-1. Are there recently adopted texts (passed in last 7 days)?
-2. Are there significant parliamentary events?
-3. Are there new legislative procedures or major stage changes?
-4. Are there notable MEP changes (new members, departures)?
+1. Are there adopted texts published/updated TODAY?
+2. Are there significant parliamentary events happening TODAY?
+3. Are there legislative procedures updated TODAY?
+4. Are there notable MEP changes announced TODAY?
 
-**If YES to any**: Proceed with article generation
+**If YES to any**: Proceed with article generation — include publish dates for ALL referenced items
 **If NO to all**: Use `safeoutputs___noop` — no breaking news today
 
 ### 📊 OPTIONAL: Analytical Context (Secondary)
@@ -269,7 +287,67 @@ european_parliament___analyze_coalition_dynamics({})
 
 ## 📝 Article Generation
 
-### TypeScript Generator (Preferred)
+### 🚫 ABSOLUTE PROHIBITION: Manual Article Construction
+
+> **❌ NEVER manually construct article HTML.** Do NOT:
+> - Read, study, or copy patterns from existing articles in `news/`
+> - Use `cat > news/file.html << 'HTMLEOF'` to write raw HTML
+> - Use `head`, `tail`, `grep`, or `sed` to extract templates from existing articles
+> - Hand-craft HTML using any method outside the TypeScript generator
+>
+> **The TypeScript generator (`npx tsx src/generators/news-enhanced.ts`) is the ONLY permitted way to create article HTML files.** It handles templates, localization, accessibility, SEO, language switchers, navigation, and all structural requirements automatically.
+>
+> If the generator fails, the workflow MUST FAIL — do NOT fall back to manual HTML construction.
+
+### Step 1: Save MCP Feed Data to JSON
+
+Before running the generator, save the MCP feed data you already fetched to a JSON file.
+The generator accepts a `--feed-data` argument that reads pre-fetched data from this file,
+so it does not need its own MCP connection.
+
+> **📅 DATE REQUIREMENT**: Each item MUST include its publish/created `date` field. Only include items with TODAY's date.
+
+```bash
+cat > /tmp/ep-feed-data.json << 'FEEDEOF'
+{
+  "adoptedTexts": [
+    {"id": "TA-10-2026-XXXX", "title": "REPLACE with actual adopted text title", "date": "2026-03-04"}
+  ],
+  "events": [
+    {"id": "EVT-XXXX", "title": "REPLACE with actual event title", "date": "2026-03-04"}
+  ],
+  "procedures": [
+    {"id": "PROC-XXXX", "title": "REPLACE with actual procedure title", "date": "2026-03-04"}
+  ],
+  "mepUpdates": [
+    {"id": "MEP-XXXX", "name": "REPLACE with actual MEP name", "date": "2026-03-04"}
+  ],
+  "documents": [
+    {"id": "DOC-XXXX", "title": "REPLACE with actual document title", "date": "2026-03-04"}
+  ],
+  "plenaryDocuments": [],
+  "committeeDocuments": [],
+  "plenarySessionDocuments": [],
+  "externalDocuments": [],
+  "questions": [],
+  "declarations": [],
+  "corporateBodies": []
+}
+FEEDEOF
+echo "Feed data saved to /tmp/ep-feed-data.json"
+```
+
+**⚠️ IMPORTANT:** Replace the example items above with the actual data you received from the EP MCP feed endpoints (using `timeframe: "today"`). Use empty arrays `[]` for any feed endpoint that returned no data or timed out. **ONLY include items published/updated TODAY — filter out anything older:**
+- `adoptedTexts`: data from `get_adopted_texts_feed` — each item needs `id`, `title`, `date`
+- `events`: data from `get_events_feed` — each item needs `id`, `title`, `date`
+- `procedures`: data from `get_procedures_feed` — each item needs `id`, `title`, `date`
+- `mepUpdates`: data from `get_meps_feed` — each item needs `id`, `name`, `date`
+- `documents`: data from `get_documents_feed` — each item needs `id`, `title`, `date`
+- `plenaryDocuments`: data from `get_plenary_documents_feed`
+- `committeeDocuments`: data from `get_committee_documents_feed`
+- `questions`: data from `get_parliamentary_questions_feed`
+
+### Step 2: Run TypeScript Generator with Feed Data
 
 ```bash
 LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
@@ -289,11 +367,21 @@ fi
 
 export USE_EP_MCP=true
 
+FEED_DATA_FLAG=""
+if [ -f "/tmp/ep-feed-data.json" ]; then
+  FEED_DATA_FLAG='--feed-data=/tmp/ep-feed-data.json'
+else
+  echo "⚠️ /tmp/ep-feed-data.json not found — generator will fetch live from MCP"
+fi
+
 npx tsx src/generators/news-enhanced.ts \
   --types="breaking" \
   --languages="$LANG_ARG" \
+  $FEED_DATA_FLAG \
   $SKIP_FLAG
 ```
+
+**If the generator exits with a non-zero code, the workflow MUST FAIL. Do NOT attempt manual HTML generation as a fallback.**
 
 ### Quality Validation
 
@@ -366,4 +454,4 @@ safeoutputs___create_pull_request({
 
 ## MANDATORY Article HTML Structure
 
-**Every generated article MUST include all required structural elements.** See `news-article-generator.md` for the full template specification. The TypeScript generator handles this automatically when using `generateArticleHTML`.
+**Every generated article MUST include all required structural elements.** The TypeScript generator handles this automatically when using `generateArticleHTML`. Manual HTML construction is NOT permitted — see the prohibition above.

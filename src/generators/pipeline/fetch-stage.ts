@@ -5,15 +5,18 @@
  * @module Generators/Pipeline/FetchStage
  * @description MCP data-fetching pipeline stage with circuit breaker protection.
  *
- * All functions are pure with respect to I/O: they accept an explicit
- * `client` argument instead of reading module-level state, making them
- * straightforward to unit-test with a mock client.
+ * MCP-facing functions accept an explicit `client` argument instead of reading
+ * module-level state, making them straightforward to unit-test with a mock
+ * client.  The {@link loadFeedDataFromFile} and {@link loadEPFeedDataFromFile}
+ * helpers introduce filesystem I/O to load pre-fetched feed JSON produced by
+ * agentic workflows.
  *
  * The {@link CircuitBreaker} prevents cascading failures when the MCP server
  * is degraded: after {@link CircuitBreakerOptions.failureThreshold} consecutive
  * errors the circuit opens and subsequent calls short-circuit immediately.
  */
 
+import fs from 'fs';
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
 import { getEPMCPClient } from '../../mcp/ep-mcp-client.js';
 import type {
@@ -249,6 +252,214 @@ export async function initializeMCPClient(
     console.warn('⚠️ Could not connect to MCP server:', message);
     console.warn('⚠️ Falling back to placeholder content');
     return null;
+  }
+}
+
+// ─── Pre-fetched feed data loading ───────────────────────────────────────────
+
+/**
+ * Check whether a value is a non-null, non-array plain object.
+ *
+ * @param v - Value to check
+ * @returns True when v is a plain object
+ */
+function isPlainObject(v: unknown): v is Record<string, unknown> {
+  return typeof v === 'object' && v !== null && !Array.isArray(v);
+}
+
+/**
+ * Sanitize an array of raw items into feed items with title-based required fields.
+ * Filters out non-objects and coerces `id`, `title`, `date` to strings.
+ *
+ * Uses `as unknown as T` because the spread preserves optional properties from
+ * the source JSON while the explicit field assignments guarantee the required
+ * base fields — TypeScript cannot infer this mixed provenance automatically.
+ *
+ * @param items - Raw array of unknown values from JSON
+ * @returns Sanitized array of typed feed items
+ */
+function sanitizeTitleItems<T extends { id: string; title: string; date: string }>(
+  items: readonly unknown[]
+): T[] {
+  return items
+    .filter(isPlainObject)
+    .filter(
+      (item) =>
+        (item['id'] !== undefined && item['id'] !== null) ||
+        (item['title'] !== undefined && item['title'] !== null)
+    )
+    .map(
+      (item) =>
+        ({
+          ...item,
+          id: String(item['id'] ?? ''),
+          title: String(item['title'] ?? ''),
+          date: String(item['date'] ?? ''),
+        }) as unknown as T
+    );
+}
+
+/**
+ * Sanitize an array of raw items into MEP feed items.
+ * Filters out non-objects and coerces `id`, `name`, `date` to strings.
+ *
+ * @param items - Raw array of unknown values from JSON
+ * @returns Sanitized array of MEP feed items
+ */
+function sanitizeMEPItems(items: readonly unknown[]): MEPFeedItem[] {
+  return items
+    .filter(isPlainObject)
+    .filter(
+      (item) =>
+        (item['id'] !== undefined && item['id'] !== null) ||
+        (item['name'] !== undefined && item['name'] !== null)
+    )
+    .map(
+      (item) =>
+        ({
+          ...item,
+          id: String(item['id'] ?? ''),
+          name: String(item['name'] ?? ''),
+          date: String(item['date'] ?? ''),
+        }) as unknown as MEPFeedItem
+    );
+}
+
+/**
+ * Load pre-fetched feed data from a JSON file on disk.
+ *
+ * Agentic workflows fetch EP data via framework MCP tools but the TypeScript
+ * generator cannot access those tools directly.  The workflow saves the MCP
+ * results to a JSON file and the generator reads them via this function,
+ * avoiding the need to manually construct article HTML.
+ *
+ * The file must contain a JSON object. The optional keys
+ * `adoptedTexts`, `events`, `procedures`, and `mepUpdates` are treated as
+ * arrays and default to empty arrays when missing (an empty object `{}` is valid).
+ *
+ * @param filePath - Absolute or relative path to the JSON file
+ * @returns Parsed {@link BreakingNewsFeedData}, or `undefined` on any error
+ */
+export function loadFeedDataFromFile(filePath: string): BreakingNewsFeedData | undefined {
+  try {
+    if (!fs.existsSync(filePath)) {
+      console.warn(`${WARN_PREFIX} Feed data file not found: ${filePath}`);
+      return undefined;
+    }
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const parsed: unknown = JSON.parse(raw);
+    if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+      console.warn(`${WARN_PREFIX} Feed data file must contain a JSON object`);
+      return undefined;
+    }
+    const obj = parsed as Record<string, unknown>;
+    const adoptedTexts = sanitizeTitleItems<AdoptedTextFeedItem>(
+      Array.isArray(obj['adoptedTexts']) ? obj['adoptedTexts'] : []
+    );
+    const events = sanitizeTitleItems<EventFeedItem>(
+      Array.isArray(obj['events']) ? obj['events'] : []
+    );
+    const procedures = sanitizeTitleItems<ProcedureFeedItem>(
+      Array.isArray(obj['procedures']) ? obj['procedures'] : []
+    );
+    const mepUpdates = sanitizeMEPItems(Array.isArray(obj['mepUpdates']) ? obj['mepUpdates'] : []);
+    console.log(
+      `${INFO_PREFIX} Loaded feed data from file: ` +
+        `${adoptedTexts.length} adopted texts, ${events.length} events, ` +
+        `${procedures.length} procedures, ${mepUpdates.length} MEP updates`
+    );
+    return {
+      adoptedTexts,
+      events,
+      procedures,
+      mepUpdates,
+    };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} Failed to load feed data from file: ${message}`);
+    return undefined;
+  }
+}
+
+/**
+ * Load pre-fetched comprehensive EP feed data from a JSON file on disk.
+ *
+ * Agentic workflows fetch EP data via framework MCP tools but the TypeScript
+ * generator cannot access those tools directly.  The workflow saves the MCP
+ * results to a JSON file and the generator reads them via this function,
+ * avoiding the need to manually construct article HTML.
+ *
+ * The file must contain a JSON object with EP feed data keys.
+ * Missing keys default to empty arrays.
+ *
+ * @param filePath - Absolute or relative path to the JSON file
+ * @returns Parsed {@link EPFeedData}, or `undefined` on any error
+ */
+export function loadEPFeedDataFromFile(filePath: string): EPFeedData | undefined {
+  try {
+    if (!fs.existsSync(filePath)) {
+      console.warn(`${WARN_PREFIX} EP feed data file not found: ${filePath}`);
+      return undefined;
+    }
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const parsed: unknown = JSON.parse(raw);
+    if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+      console.warn(`${WARN_PREFIX} EP feed data file must contain a JSON object`);
+      return undefined;
+    }
+    const obj = parsed as Record<string, unknown>;
+    const safeArray = (key: string): readonly unknown[] =>
+      Array.isArray(obj[key]) ? (obj[key] as unknown[]) : [];
+    const adoptedTexts = sanitizeTitleItems<AdoptedTextFeedItem>(safeArray('adoptedTexts'));
+    const events = sanitizeTitleItems<EventFeedItem>(safeArray('events'));
+    const procedures = sanitizeTitleItems<ProcedureFeedItem>(safeArray('procedures'));
+    const mepUpdates = sanitizeMEPItems(safeArray('mepUpdates'));
+    const documents = sanitizeTitleItems<DocumentFeedItem>(safeArray('documents'));
+    const plenaryDocuments = sanitizeTitleItems<DocumentFeedItem>(safeArray('plenaryDocuments'));
+    const committeeDocuments = sanitizeTitleItems<DocumentFeedItem>(
+      safeArray('committeeDocuments')
+    );
+    const plenarySessionDocuments = sanitizeTitleItems<DocumentFeedItem>(
+      safeArray('plenarySessionDocuments')
+    );
+    const externalDocuments = sanitizeTitleItems<DocumentFeedItem>(safeArray('externalDocuments'));
+    const questions = sanitizeTitleItems<QuestionFeedItem>(safeArray('questions'));
+    const declarations = sanitizeTitleItems<DeclarationFeedItem>(safeArray('declarations'));
+    const corporateBodies = sanitizeTitleItems<CorporateBodyFeedItem>(safeArray('corporateBodies'));
+    const totalItems =
+      adoptedTexts.length +
+      events.length +
+      procedures.length +
+      mepUpdates.length +
+      documents.length +
+      plenaryDocuments.length +
+      committeeDocuments.length +
+      plenarySessionDocuments.length +
+      externalDocuments.length +
+      questions.length +
+      declarations.length +
+      corporateBodies.length;
+    console.log(
+      `${INFO_PREFIX} Loaded EP feed data from file: ${totalItems} total items across 12 keys`
+    );
+    return {
+      adoptedTexts,
+      events,
+      procedures,
+      mepUpdates,
+      documents,
+      plenaryDocuments,
+      committeeDocuments,
+      plenarySessionDocuments,
+      externalDocuments,
+      questions,
+      declarations,
+      corporateBodies,
+    };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} Failed to load EP feed data from file: ${message}`);
+    return undefined;
   }
 }
 
@@ -1364,6 +1575,17 @@ export async function fetchEPFeedData(
   client: EuropeanParliamentMCPClient | null,
   timeframe: FeedTimeframe = 'one-day'
 ): Promise<EPFeedData | undefined> {
+  // Check for pre-fetched feed data file (set by --feed-data CLI arg).
+  // This allows agentic workflows to pass MCP data fetched via framework tools
+  // into the generator without requiring a direct MCP connection.
+  const feedDataFile = process.env['EP_FEED_DATA_FILE'];
+  if (feedDataFile) {
+    const fileData = loadEPFeedDataFromFile(feedDataFile);
+    if (fileData) return fileData;
+    console.log(
+      `${WARN_PREFIX} Pre-fetched EP feed data failed to load — falling through to MCP fetch`
+    );
+  }
   if (!client) return undefined;
   if (!mcpCircuitBreaker.canRequest()) {
     console.warn(`${WARN_PREFIX} Circuit breaker OPEN — treating as MCP unavailable for EP feeds`);
