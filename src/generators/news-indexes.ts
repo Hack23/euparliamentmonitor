@@ -121,6 +121,7 @@ function buildFooterLanguageGrid(currentLang: string): string {
  * @param meta - Real title and description extracted from the article HTML
  * @param meta.title - Article title
  * @param meta.description - Article description/excerpt
+ * @param categoryLabels - Optional localized article category labels
  * @returns HTML string for one card
  */
 function renderCard(
