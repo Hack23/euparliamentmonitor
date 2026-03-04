@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { ArticleCategory } from '../../types/index.js';
 import { BREAKING_NEWS_TITLES, getLocalizedString } from '../../constants/languages.js';
-import { fetchBreakingNewsFeedData, fetchVotingAnomalies, fetchCoalitionDynamics, } from '../pipeline/fetch-stage.js';
+import { fetchBreakingNewsFeedData, fetchVotingAnomalies, fetchCoalitionDynamics, loadFeedDataFromFile, } from '../pipeline/fetch-stage.js';
 import { buildBreakingNewsContent } from '../breaking-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildBreakingAnalysis } from '../analysis-builders.js';
@@ -41,11 +41,37 @@ export class BreakingNewsStrategy {
      * @returns Populated breaking news data payload
      */
     async fetchData(client, date) {
+        // Step 0: Check for pre-fetched feed data file (set by --feed-data CLI arg).
+        // This allows agentic workflows to pass MCP data fetched via framework tools
+        // into the generator without requiring a direct MCP connection.
+        const feedDataFile = process.env['EP_FEED_DATA_FILE'];
+        if (feedDataFile) {
+            console.log(`  📂 Loading pre-fetched feed data from: ${feedDataFile}`);
+            const fileFeedData = loadFeedDataFromFile(feedDataFile);
+            if (fileFeedData) {
+                const totalItems = fileFeedData.adoptedTexts.length +
+                    fileFeedData.events.length +
+                    fileFeedData.procedures.length +
+                    fileFeedData.mepUpdates.length;
+                console.log(`  📰 Pre-fetched feed data: ${totalItems} total items`);
+                // Fetch analytical context from MCP if client available, else skip
+                let anomalyRaw = '';
+                let coalitionRaw = '';
+                if (client && totalItems > 0) {
+                    [anomalyRaw, coalitionRaw] = await Promise.all([
+                        fetchVotingAnomalies(client),
+                        fetchCoalitionDynamics(client),
+                    ]);
+                }
+                return { date, feedData: fileFeedData, anomalyRaw, coalitionRaw, reportRaw: '' };
+            }
+            console.log('  ⚠️ Pre-fetched feed data failed to load — falling through to MCP fetch');
+        }
         if (client) {
             console.log('  📡 Fetching EP feed data (primary) and analytical context...');
         }
-        // Step 1: Fetch feed data (PRIMARY news content)
-        const feedData = await fetchBreakingNewsFeedData(client, 'one-day');
+        // Step 1: Fetch feed data (PRIMARY news content) — 'today' for realtime breaking news
+        const feedData = await fetchBreakingNewsFeedData(client, 'today');
         // When client is null, feedData is undefined — MCP unavailable
         if (!feedData) {
             console.log('  ⚠️ MCP unavailable — no feed data or analytical context');
