@@ -347,8 +347,10 @@ export function buildBreakingNewsContent(
   const timestamp = new Date().toISOString();
 
   // ─── Feed sections (PRIMARY news content) ──────────────────────────────
+  // When feedData is present but empty AND hasAnalyticalData is false,
+  // the lede already conveys noFeedDataNotice — skip the duplicate section.
   const feedSections =
-    feedData && !hasFeedData
+    feedData && !hasFeedData && hasAnalyticalData
       ? `
         <section class="feed-empty-notice">
           <p>${escapeHTML(strings.noFeedDataNotice)}</p>

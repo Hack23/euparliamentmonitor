@@ -284,7 +284,9 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
     const isMCPUnavailable = !feedData && !hasAnalyticalData;
     const timestamp = new Date().toISOString();
     // ─── Feed sections (PRIMARY news content) ──────────────────────────────
-    const feedSections = feedData && !hasFeedData
+    // When feedData is present but empty AND hasAnalyticalData is false,
+    // the lede already conveys noFeedDataNotice — skip the duplicate section.
+    const feedSections = feedData && !hasFeedData && hasAnalyticalData
         ? `
         <section class="feed-empty-notice">
           <p>${escapeHTML(strings.noFeedDataNotice)}</p>

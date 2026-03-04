@@ -420,11 +420,13 @@ describe('Breaking News feed-based sections', () => {
 
   it('should render noFeedDataNotice when feedData is present but empty', () => {
     const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], emptyFeedData);
-    expect(html).toContain('feed-empty-notice');
+    // noFeedDataNotice appears in the lede (not duplicated in feed-empty-notice section)
     expect(html).toContain('No recent feed data available from the European Parliament');
     expect(html).not.toContain('MCP Server is unavailable');
     // Lede should not claim "recent parliamentary activity" when feeds are empty
     expect(html).not.toContain('highlights recent parliamentary activity');
+    // No duplicate: feed-empty-notice section should NOT render when lede already conveys it
+    expect(html).not.toContain('feed-empty-notice');
   });
 
   it('should not render feed sections when feedData is undefined', () => {

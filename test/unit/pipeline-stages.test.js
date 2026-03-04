@@ -647,6 +647,22 @@ describe('fetchBreakingNewsFeedData with null client', () => {
   });
 });
 
+describe('fetchBreakingNewsFeedData with circuit breaker OPEN', () => {
+  it('returns undefined when circuit breaker is OPEN', async () => {
+    const cb = mcpCircuitBreaker;
+    // Force circuit breaker to OPEN state
+    cb.recordFailure();
+    cb.recordFailure();
+    cb.recordFailure(); // default threshold=3 → OPEN
+
+    const result = await fetchBreakingNewsFeedData(mockClientWithData);
+    expect(result).toBeUndefined();
+
+    // Reset circuit breaker for other tests
+    cb.recordSuccess();
+  });
+});
+
 // ─── generateArticleForStrategy tests ─────────────────────────────────────────
 
 describe('generateArticleForStrategy', () => {
