@@ -217,7 +217,7 @@ function buildImpactSection(
   const items = perspectives
     .map(
       (p) =>
-        `<div class="impact-perspective ${p.css}">` +
+        `<div class="impact-card ${p.css}">` +
         `<h4>${escapeHTML(p.label)}</h4>` +
         `<p${langAttr}>${escapeHTML(p.text)}</p>` +
         `</div>`
@@ -346,10 +346,10 @@ function buildMistakesSection(
   const items = mistakes
     .map(
       (m) =>
-        `<div class="mistake-item">` +
+        `<div class="mistake-card">` +
         `<p class="mistake-actor"><strong>${escapeHTML(m.actor)}</strong></p>` +
-        `<p class="mistake-desc"${langAttr}>${escapeHTML(m.description)}</p>` +
-        `<p class="mistake-alt"${langAttr}><em>${escapeHTML(alternativeLabel)}:</em> ${escapeHTML(m.alternative)}</p>` +
+        `<p class="mistake-description"${langAttr}>${escapeHTML(m.description)}</p>` +
+        `<p class="mistake-alternative"${langAttr}><em>${escapeHTML(alternativeLabel)}:</em> ${escapeHTML(m.alternative)}</p>` +
         `</div>`
     )
     .join('\n              ');
@@ -412,12 +412,21 @@ export function buildDeepAnalysisSection(
   const whoHtml = buildWhoSection(analysis.who, strings.whoHeading, cl);
   const whenHtml = buildWhenSection(analysis.when, strings.whenHeading, cl);
   const whyHtml = buildWhySection(analysis.why, strings.whyHeading, cl);
-  const stakeholderHtml = buildStakeholderSection(
+  const stakeholderRawHtml = buildStakeholderSection(
     analysis.stakeholderOutcomes,
     strings.stakeholderHeading,
     strings
   );
-  const impactHtml = buildImpactSection(analysis.impactAssessment, strings.impactHeading, strings, cl);
+  const stakeholderHtml =
+    cl !== undefined
+      ? `<div lang="${escapeHTML(cl)}">${stakeholderRawHtml}</div>`
+      : stakeholderRawHtml;
+  const impactHtml = buildImpactSection(
+    analysis.impactAssessment,
+    strings.impactHeading,
+    strings,
+    cl
+  );
   const consequencesHtml = buildConsequencesSection(
     analysis.actionConsequences,
     strings.consequencesHeading,

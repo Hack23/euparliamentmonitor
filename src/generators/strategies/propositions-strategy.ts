@@ -124,7 +124,12 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
       strings,
       lang
     );
-    const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date, lang);
+    const analysis = buildPropositionsAnalysis(
+      data.proposalsHtml,
+      data.pipelineData,
+      data.date,
+      lang
+    );
     const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
     // Inject deep analysis before the closing </div> of .article-content
     if (deepSection) {

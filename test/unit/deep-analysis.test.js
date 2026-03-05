@@ -153,7 +153,7 @@ describe('deep-analysis-content', () => {
     it('should include impact grid with all 5 perspectives', () => {
       const html = buildDeepAnalysisSection(SAMPLE_ANALYSIS, 'en');
       expect(html).toContain('impact-grid');
-      expect(html).toContain('impact-perspective');
+      expect(html).toContain('impact-card');
       // All 5 impact dimensions
       expect(html).toContain('Shifts power balance');
       expect(html).toContain('compliance requirements');
@@ -172,9 +172,9 @@ describe('deep-analysis-content', () => {
 
     it('should include mistakes section', () => {
       const html = buildDeepAnalysisSection(SAMPLE_ANALYSIS, 'en');
-      expect(html).toContain('mistake-item');
+      expect(html).toContain('mistake-card');
       expect(html).toContain('S&amp;D leadership');
-      expect(html).toContain('mistake-alt');
+      expect(html).toContain('mistake-alternative');
     });
 
     it('should include outlook section', () => {
