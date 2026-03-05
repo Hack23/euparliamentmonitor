@@ -75,7 +75,7 @@
     "eslint-plugin-security": "^4.0.0",
     "eslint-plugin-sonarjs": "^4.0.0",
     "happy-dom": "^20.8.3",
-    "htmlhint": "^1.9.1",
+    "htmlhint": "^1.9.2",
     "husky": "^9.1.7",
     "jscpd": "^4.0.8",
     "jsdoc": "^4.0.5",
@@ -93,6 +93,6 @@
     "node": ">=24"
   },
   "dependencies": {
-    "european-parliament-mcp-server": "^1.1.2"
+    "european-parliament-mcp-server": "^1.1.3"
   }
 }
