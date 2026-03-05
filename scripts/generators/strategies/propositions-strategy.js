@@ -67,8 +67,8 @@ export class PropositionsStrategy {
     buildContent(data, lang) {
         const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
         const base = buildPropositionsContent(data.proposalsHtml, data.pipelineData, data.procedureHtml, strings, lang);
-        const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date);
-        const deepSection = buildDeepAnalysisSection(analysis, lang);
+        const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date, lang);
+        const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
         // Inject deep analysis before the closing </div> of .article-content
         if (deepSection) {
             const closingTag = '</div>';
