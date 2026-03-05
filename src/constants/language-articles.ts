@@ -2391,7 +2391,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionUnavailable:
       'Detailed coalition dynamics assessment cannot be displayed at this time as the necessary underlying data is temporarily unavailable.',
     adoptedTextTypeLabel: 'Adopted text',
-    adoptedTextItemLabelFn: (label) => `${label} — adopted text`,
+    adoptedTextItemLabelFn: (label) => label,
   },
   sv: {
     breakingBanner: '⚡ SENASTE NYTT',
@@ -2461,7 +2461,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionUnavailable:
       'Fördjupad bedömning av koalitionsdynamik kan inte visas just nu eftersom nödvändiga underlagsdata tillfälligt saknas.',
     adoptedTextTypeLabel: 'Antagen text',
-    adoptedTextItemLabelFn: (label) => `Europaparlamentets antagna text ${label}`,
+    adoptedTextItemLabelFn: (label) => label,
   },
   da: {
     breakingBanner: '⚡ SENESTE NYT',
@@ -2531,7 +2531,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionUnavailable:
       'Detaljeret vurdering af koalitionsdynamik kan ikke vises i øjeblikket, da de nødvendige underliggende data midlertidigt mangler.',
     adoptedTextTypeLabel: 'Vedtaget tekst',
-    adoptedTextItemLabelFn: (label) => `Europa-Parlamentets vedtagne tekst ${label}`,
+    adoptedTextItemLabelFn: (label) => label,
   },
   no: {
     breakingBanner: '⚡ SISTE NYTT',
@@ -2601,7 +2601,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionUnavailable:
       'Detaljert vurdering av koalisjonsdynamikk kan ikke vises for øyeblikket siden de nødvendige underliggende dataene midlertidig mangler.',
     adoptedTextTypeLabel: 'Vedtatt tekst',
-    adoptedTextItemLabelFn: (label) => `Europaparlamentets vedtatte tekst ${label}`,
+    adoptedTextItemLabelFn: (label) => label,
   },
   fi: {
     breakingBanner: '⚡ TUOREET UUTISET',
@@ -2672,7 +2672,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionUnavailable:
       'Koalitiodynamiikan yksityiskohtaista arviointia ei voida näyttää tällä hetkellä, koska tarvittavat taustatiedot ovat tilapäisesti poissa.',
     adoptedTextTypeLabel: 'Hyväksytty teksti',
-    adoptedTextItemLabelFn: (label) => `Euroopan parlamentin hyväksymä teksti ${label}`,
+    adoptedTextItemLabelFn: (label) => label,
   },
   de: {
     breakingBanner: '⚡ EILMELDUNG',
@@ -2743,7 +2743,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionUnavailable:
       'Eine detaillierte Bewertung der Koalitionsdynamik kann derzeit nicht angezeigt werden, da die erforderlichen Grundlagendaten vorübergehend fehlen.',
     adoptedTextTypeLabel: 'Angenommener Text',
-    adoptedTextItemLabelFn: (label) => `Vom Europäischen Parlament angenommener Text ${label}`,
+    adoptedTextItemLabelFn: (label) => label,
   },
   fr: {
     breakingBanner: '⚡ DERNIÈRES NOUVELLES',
@@ -2814,7 +2814,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionUnavailable:
       "L'évaluation détaillée de la dynamique de coalition ne peut pas être affichée pour le moment, car les données sous-jacentes nécessaires sont temporairement indisponibles.",
     adoptedTextTypeLabel: 'Texte adopté',
-    adoptedTextItemLabelFn: (label) => `Texte adopté par le Parlement européen ${label}`,
+    adoptedTextItemLabelFn: (label) => label,
   },
   es: {
     breakingBanner: '⚡ ÚLTIMA HORA',
@@ -2885,7 +2885,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionUnavailable:
       'La evaluación detallada de la dinámica de coalición no se puede mostrar en este momento, ya que los datos subyacentes necesarios no están disponibles temporalmente.',
     adoptedTextTypeLabel: 'Texto aprobado',
-    adoptedTextItemLabelFn: (label) => `Texto aprobado por el Parlamento Europeo ${label}`,
+    adoptedTextItemLabelFn: (label) => label,
   },
   nl: {
     breakingBanner: '⚡ LAATSTE NIEUWS',
@@ -2956,7 +2956,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionUnavailable:
       'Gedetailleerde beoordeling van coalitiedynamiek kan momenteel niet worden weergegeven, omdat de benodigde onderliggende gegevens tijdelijk niet beschikbaar zijn.',
     adoptedTextTypeLabel: 'Aangenomen tekst',
-    adoptedTextItemLabelFn: (label) => `Door het Europees Parlement aangenomen tekst ${label}`,
+    adoptedTextItemLabelFn: (label) => label,
   },
   ar: {
     breakingBanner: '⚡ عاجل',
@@ -3024,7 +3024,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionUnavailable:
       'لا يمكن عرض التقييم التفصيلي لديناميات الائتلاف في الوقت الحالي نظرًا لعدم توفر البيانات الأساسية اللازمة مؤقتًا.',
     adoptedTextTypeLabel: 'نص معتمد',
-    adoptedTextItemLabelFn: (label) => `${label} — نص معتمد من البرلمان الأوروبي`,
+    adoptedTextItemLabelFn: (label) => label,
   },
   he: {
     breakingBanner: '⚡ חדשות דחופות',
@@ -3091,7 +3091,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionUnavailable:
       'הערכה מפורטת של דינמיקת הקואליציה אינה יכולה להיות מוצגת כעת, מכיוון שנתוני הבסיס הנחוצים אינם זמינים זמנית.',
     adoptedTextTypeLabel: 'טקסט שאומץ',
-    adoptedTextItemLabelFn: (label) => `${label} — טקסט שאומץ על ידי הפרלמנט האירופי`,
+    adoptedTextItemLabelFn: (label) => label,
   },
   ja: {
     breakingBanner: '⚡ 速報',
@@ -3159,7 +3159,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionUnavailable:
       '連立力学の詳細な評価は、必要な基礎データが一時的に利用できないため、現時点では表示できません。',
     adoptedTextTypeLabel: '採択テキスト',
-    adoptedTextItemLabelFn: (label) => `欧州議会採択テキスト ${label}`,
+    adoptedTextItemLabelFn: (label) => label,
   },
   ko: {
     breakingBanner: '⚡ 속보',
@@ -3226,7 +3226,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     coalitionUnavailable:
       '연합 역학의 상세 평가는 필요한 기본 데이터가 일시적으로 이용 불가능하여 현재 표시할 수 없습니다.',
     adoptedTextTypeLabel: '채택 문서',
-    adoptedTextItemLabelFn: (label) => `유럽의회 채택 문서 ${label}`,
+    adoptedTextItemLabelFn: (label) => label,
   },
   zh: {
     breakingBanner: '⚡ 突发',
@@ -3283,7 +3283,7 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     anomalyUnavailable: '由于源数据存在技术限制，投票异常的详细分析目前不可用。',
     coalitionUnavailable: '目前无法显示联盟动态的详细评估，因为所需的基础数据暂时不可用。',
     adoptedTextTypeLabel: '通过文本',
-    adoptedTextItemLabelFn: (label) => `欧洲议会通过文本 ${label}`,
+    adoptedTextItemLabelFn: (label) => label,
   },
 };
 

@@ -43,6 +43,8 @@ export default defineConfig({
         // Exclude documentation generation scripts (utility scripts)
         'scripts/utils/generate-docs-index.js',
         'scripts/utils/copy-test-reports.js',
+        // Exclude CLI validation script (runs at module level, no unit test surface)
+        'scripts/utils/validate-articles.js',
         // Exclude type definitions
         'scripts/**/*.d.ts',
       ],

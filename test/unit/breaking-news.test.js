@@ -764,3 +764,60 @@ describe('Breaking News feed-based sections', () => {
     expect(html).not.toContain('placeholder content');
   });
 });
+
+describe('Breaking News adoptedTextItemLabelFn', () => {
+  it('should render adopted-text label directly without duplication for English', () => {
+    const feedWithLabel = {
+      adoptedTexts: [{ id: 'TA-10-2026-0035', title: 'Ukraine Support Loan', date: '2025-01-15', label: 'T10-0035/2026', type: 'TEXT_ADOPTED' }],
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+    };
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], feedWithLabel);
+    // Should contain label (not duplicated as "label — adopted text")
+    expect(html).toContain('T10-0035/2026');
+    // Should NOT contain "T10-0035/2026 — adopted text" (duplication)
+    expect(html).not.toContain('T10-0035/2026 — adopted text');
+    // Should show type label in the separate feed-type span
+    expect(html).toContain('Adopted text');
+  });
+
+  it('should render adopted-text identifier when label is absent', () => {
+    const feedWithIdentifier = {
+      adoptedTexts: [{ id: 'TA-10-2026-0048', title: 'Agri-food enforcement', date: '2025-01-15', identifier: 'TA-10-2026-0048' }],
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+    };
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], feedWithIdentifier);
+    expect(html).toContain('TA-10-2026-0048');
+  });
+
+  it('should have adoptedTextTypeLabel and adoptedTextItemLabelFn for all 14 languages', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const strings = getLocalizedString(BREAKING_STRINGS, lang);
+      expect(strings.adoptedTextTypeLabel).toBeDefined();
+      expect(strings.adoptedTextTypeLabel.length).toBeGreaterThan(0);
+      expect(typeof strings.adoptedTextItemLabelFn).toBe('function');
+      // Function should return label unchanged
+      const result = strings.adoptedTextItemLabelFn('T10-0035/2026');
+      expect(result).toBe('T10-0035/2026');
+    }
+  });
+
+  it('should render adopted-text items with label across all 14 languages', () => {
+    const feedWithLabel = {
+      adoptedTexts: [{ id: 'TA-10-2026-0035', title: 'Ukraine Support Loan', date: '2025-01-15', label: 'T10-0035/2026', type: 'TEXT_ADOPTED' }],
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+    };
+    for (const lang of ALL_LANGUAGES) {
+      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', lang, [], [], [], feedWithLabel);
+      // All languages should display the label identifier
+      expect(html).toContain('T10-0035/2026');
+      // None should duplicate type info in the title
+      expect(html).not.toContain('T10-0035/2026 — adopted text');
+    }
+  });
+});
