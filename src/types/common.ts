@@ -288,6 +288,10 @@ export interface BreakingStrings {
   anomalyUnavailable: string;
   /** User-friendly fallback shown when coalition dynamics data is unavailable */
   coalitionUnavailable: string;
+  /** Human-readable localized label for the adopted-text type (replaces raw "[TEXT_ADOPTED]" token) */
+  adoptedTextTypeLabel: string;
+  /** Template to format an adopted-text item title from its label/identifier (e.g. "T10-0315/2025") */
+  adoptedTextItemLabelFn: (label: string) => string;
 }
 
 // ─── Deep Analysis types ───────────────────────────────────────────────────
