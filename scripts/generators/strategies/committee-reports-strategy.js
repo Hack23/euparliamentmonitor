@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 import { ArticleCategory } from '../../types/index.js';
-import { COMMITTEE_REPORTS_TITLES, getLocalizedString } from '../../constants/languages.js';
+import { COMMITTEE_REPORTS_TITLES, COMMITTEE_ANALYSIS_CONTENT_STRINGS, getLocalizedString } from '../../constants/languages.js';
 import { fetchCommitteeData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { FEATURED_COMMITTEES } from '../committee-helpers.js';
 import { escapeHTML } from '../../utils/file-utils.js';
@@ -22,9 +22,11 @@ const COMMITTEE_REPORTS_SOURCES = [
  * Build the HTML body for a committee reports article.
  *
  * @param committeeDataList - Pre-fetched committee data
+ * @param lang - Language code for localized strings
  * @returns Article HTML body
  */
-function buildCommitteeReportsHTML(committeeDataList) {
+function buildCommitteeReportsHTML(committeeDataList, lang) {
+    const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
     const committeeSections = committeeDataList
         .map((committee) => {
         const docItems = committee.documents.length > 0
@@ -36,7 +38,7 @@ function buildCommitteeReportsHTML(committeeDataList) {
                   ${doc.date ? `<span class="document-date">${escapeHTML(doc.date)}</span>` : ''}
                 </li>`)
                 .join('')
-            : '<li>No recent documents available</li>';
+            : `<li>${escapeHTML(s.noRecentDocs)}</li>`;
         const effectivenessHtml = committee.effectiveness
             ? `<p class="effectiveness-score">${escapeHTML(committee.effectiveness)}</p>`
             : '';
@@ -44,8 +46,8 @@ function buildCommitteeReportsHTML(committeeDataList) {
       <section class="committee-card">
         <h3 class="committee-name">${escapeHTML(committee.name)} (${escapeHTML(committee.abbreviation)})</h3>
         <div class="committee-meta">
-          <span class="committee-chair">Chair: ${escapeHTML(committee.chair)}</span>
-          <span class="committee-members">Members: ${committee.members}</span>
+          <span class="committee-chair">${escapeHTML(s.chairLabel)} ${escapeHTML(committee.chair)}</span>
+          <span class="committee-members">${committee.members} ${escapeHTML(s.membersLabel)}</span>
         </div>
         <section class="recent-activity">
           <ul class="document-list">${docItems}</ul>
@@ -57,7 +59,7 @@ function buildCommitteeReportsHTML(committeeDataList) {
     return `
     <div class="article-content">
       <section class="committee-overview">
-        <p class="lede">${escapeHTML(EP_DISPLAY_NAME)} committee activity and legislative effectiveness analysis.</p>
+        <p class="lede">${escapeHTML(s.lede)}</p>
       </section>
       <section class="committee-reports">${committeeSections}</section>
     </div>`;
@@ -104,7 +106,7 @@ export class CommitteeReportsStrategy {
      * @returns Article HTML body
      */
     buildContent(data, lang) {
-        const base = buildCommitteeReportsHTML(data.committeeDataList);
+        const base = buildCommitteeReportsHTML(data.committeeDataList, lang);
         const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date, lang);
         const deepSection = buildDeepAnalysisSection(analysis, lang);
         // Inject deep analysis before the closing </div> of .article-content

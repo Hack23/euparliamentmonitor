@@ -406,4 +406,8 @@ export interface CommitteeAnalysisContentStrings {
   readonly outlookGood: string;
   /** Outlook when pipeline has concerns */
   readonly outlookConcern: string;
+  /** Lede paragraph for the committee-reports article overview */
+  readonly lede: string;
+  /** "No recent documents available" fallback list item */
+  readonly noRecentDocs: string;
 }

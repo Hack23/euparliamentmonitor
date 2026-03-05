@@ -7,7 +7,7 @@
  */
 
 import { createHash } from 'crypto';
-import type { ArticleOptions, ArticleSource, ArticleCategoryLabels } from '../types/index.js';
+import type { ArticleOptions, ArticleSource, ArticleCategoryLabels, LanguageCode } from '../types/index.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_FLAGS,
@@ -17,6 +17,7 @@ import {
   BACK_TO_NEWS_LABELS,
   ARTICLE_NAV_LABELS,
   SKIP_LINK_TEXTS,
+  SOURCES_HEADING_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -285,7 +286,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     
     ${content}
     
-    ${renderSourcesSection(sources)}
+    ${renderSourcesSection(sources, lang)}
     
     <nav class="article-nav" aria-label="${escapeHTML(articleNavLabel)}">
       <a href="${indexHref}" class="back-to-news">${backLabel}</a>
@@ -334,17 +335,21 @@ export function generateArticleHTML(options: ArticleOptions): string {
  * Render the sources section if sources are provided
  *
  * @param sources - Article source references
+ * @param lang - Language code for localized heading
  * @returns HTML string for sources section or empty string
  */
-function renderSourcesSection(sources: ArticleSource[]): string {
+function renderSourcesSection(sources: ArticleSource[], lang: string): string {
   if (sources.length === 0) {
     return '';
   }
 
+  const sourcesHeading = escapeHTML(
+    getLocalizedString(SOURCES_HEADING_LABELS, lang as LanguageCode)
+  );
   return `
     <footer class="article-footer">
       <section class="article-sources">
-        <h2>Sources</h2>
+        <h2>${sourcesHeading}</h2>
         <ul>
           ${sources
             .map((source) => {

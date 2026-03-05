@@ -2663,6 +2663,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
       'With {n} of {total} committees actively producing documents, the current pace supports a productive plenary calendar.',
     outlookConcern:
       'The legislative pipeline may face bottlenecks if committee output does not increase.',
+    lede: 'European Parliament committee activity and legislative effectiveness analysis.',
+    noRecentDocs: 'No recent documents available',
   },
   sv: {
     what: 'Utskottsaktivitetsrapport per {date}: {total} utskott övervakade, {docs} dokument behandlade, {active} utskott med aktuell aktivitet.',
@@ -2696,6 +2698,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
       'Med {n} av {total} utskott som aktivt producerar dokument stöder det nuvarande tempot en produktiv plenarkalender.',
     outlookConcern:
       'Den lagstiftande pipeline kan möta flaskhalsar om utskottens produktion inte ökar.',
+    lede: 'Analys av Europaparlamentets utskottsaktivitet och lagstiftningseffektivitet.',
+    noRecentDocs: 'Inga aktuella dokument tillgängliga',
   },
   da: {
     what: 'Udvalgsaktivitetsrapport pr. {date}: {total} udvalg overvåget, {docs} dokumenter behandlet, {active} udvalg med nylig aktivitet.',
@@ -2729,6 +2733,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
       'Med {n} af {total} udvalg, der aktivt producerer dokumenter, understøtter det nuværende tempo en produktiv plenarkalender.',
     outlookConcern:
       'Den lovgivningsmæssige pipeline kan møde flaskehalse, hvis udvalgets produktion ikke øges.',
+    lede: 'Analyse af Europa-Parlamentets udvalgsaktivitet og lovgivningsmæssig effektivitet.',
+    noRecentDocs: 'Ingen nylige dokumenter tilgængelige',
   },
   no: {
     what: 'Komitéaktivitetsrapport per {date}: {total} komiteer overvåket, {docs} dokumenter behandlet, {active} komiteer med nylig aktivitet.',
@@ -2762,6 +2768,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
       'Med {n} av {total} komiteer som aktivt produserer dokumenter, støtter det nåværende tempoet en produktiv plenarkalender.',
     outlookConcern:
       'Den lovgivende pipeline kan møte flaskehalser hvis komitéens produksjon ikke øker.',
+    lede: 'Analyse av Europaparlamentets komitéaktivitet og lovgivningseffektivitet.',
+    noRecentDocs: 'Ingen nylige dokumenter tilgjengelig',
   },
   fi: {
     what: 'Valiokuntatoimintaraportti {date}: {total} valiokuntaa seurannassa, {docs} asiakirjaa käsitelty, {active} valiokuntaa viimeaikaisella toiminnalla.',
@@ -2795,6 +2803,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
       'Kun {n}/{total} valiokuntaa tuottaa aktiivisesti asiakirjoja, nykyinen tahti tukee tuottoisaa täysistuntokalenteria.',
     outlookConcern:
       'Lainsäädäntöprosessi saattaa kohdata pullonkauloja, jos valiokuntien tuotanto ei kasva.',
+    lede: 'Analyysi Euroopan parlamentin valiokuntien toiminnasta ja lainsäädäntötehokkuudesta.',
+    noRecentDocs: 'Ei viimeaikaisia asiakirjoja saatavilla',
   },
   de: {
     what: 'Ausschussaktivitätsbericht vom {date}: {total} Ausschüsse beobachtet, {docs} Dokumente verarbeitet, {active} Ausschüsse mit aktueller Aktivität.',
@@ -2828,6 +2838,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
       'Mit {n} von {total} Ausschüssen, die aktiv Dokumente erstellen, unterstützt das aktuelle Tempo einen produktiven Plenarkalender.',
     outlookConcern:
       'Die Gesetzgebungspipeline könnte auf Engpässe stoßen, wenn die Ausschussproduktion nicht zunimmt.',
+    lede: 'Analyse der Ausschusstätigkeit des Europäischen Parlaments und seiner Gesetzgebungswirksamkeit.',
+    noRecentDocs: 'Keine aktuellen Dokumente verfügbar',
   },
   fr: {
     what: "Rapport d'activité des commissions du {date} : {total} commissions surveillées, {docs} documents traités, {active} commissions avec activité récente.",
@@ -2861,6 +2873,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
       'Avec {n} commissions sur {total} produisant activement des documents, le rythme actuel soutient un calendrier plénaire productif.',
     outlookConcern:
       "Le pipeline législatif pourrait rencontrer des goulots d'étranglement si la production des commissions n'augmente pas.",
+    lede: "Analyse de l'activité des commissions du Parlement européen et de l'efficacité législative.",
+    noRecentDocs: 'Aucun document récent disponible',
   },
   es: {
     what: 'Informe de actividad de las comisiones a fecha {date}: {total} comisiones supervisadas, {docs} documentos procesados, {active} comisiones con actividad reciente.',
@@ -2894,6 +2908,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
       'Con {n} de {total} comisiones produciendo documentos activamente, el ritmo actual sostiene un calendario plenario productivo.',
     outlookConcern:
       'El proceso legislativo puede enfrentarse a cuellos de botella si la producción de las comisiones no aumenta.',
+    lede: 'Análisis de la actividad de las comisiones del Parlamento Europeo y de su efectividad legislativa.',
+    noRecentDocs: 'No hay documentos recientes disponibles',
   },
   nl: {
     what: 'Rapport commissieactiviteiten per {date}: {total} commissies gemonitord, {docs} documenten verwerkt, {active} commissies met recente activiteit.',
@@ -2927,6 +2943,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
       'Met {n} van {total} commissies die actief documenten produceren, ondersteunt het huidige tempo een productieve plenaire agenda.',
     outlookConcern:
       'De wetgevende pipeline kan knelpunten ondervinden als de commissieproductie niet toeneemt.',
+    lede: 'Analyse van commissieactiviteiten en wetgevende effectiviteit van het Europees Parlement.',
+    noRecentDocs: 'Geen recente documenten beschikbaar',
   },
   ar: {
     what: 'تقرير نشاط اللجان بتاريخ {date}: {total} لجنة مراقبة، {docs} وثيقة معالجة، {active} لجنة ذات نشاط حديث.',
@@ -2957,6 +2975,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     outlookGood:
       'مع إنتاج {n} من {total} لجنة للوثائق بصورة نشطة، يدعم الوتيرة الحالية جدولاً جلسةً عامة منتجاً.',
     outlookConcern: 'قد يواجه المسار التشريعي اختناقات إذا لم يزداد إنتاج اللجان.',
+    lede: 'تحليل نشاط لجان البرلمان الأوروبي وفعالية عملها التشريعية.',
+    noRecentDocs: 'لا توجد وثائق حديثة متاحة',
   },
   he: {
     what: 'דוח פעילות ועדות מתאריך {date}: {total} ועדות במעקב, {docs} מסמכים עובדו, {active} ועדות עם פעילות אחרונה.',
@@ -2986,6 +3006,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     outlookGood:
       'עם {n} מתוך {total} ועדות המייצרות מסמכים באופן פעיל, הקצב הנוכחי תומך בלוח שנה פרודוקטיבי של מליאה.',
     outlookConcern: 'צינור החקיקה עלול להיתקל בצווארי בקבוק אם תפוקת הוועדה לא תגדל.',
+    lede: 'ניתוח פעילות ועדות הפרלמנט האירופי ויעילותו החקיקתית.',
+    noRecentDocs: 'אין מסמכים אחרונים זמינים',
   },
   ja: {
     what: '{date}付け委員会活動報告: {total}委員会を監視中、{docs}文書処理済み、{active}委員会で最近の活動あり。',
@@ -3018,6 +3040,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
       '{total}委員会中{n}委員会が積極的に文書を作成しており、現在のペースは生産的な本会議カレンダーを支えています。',
     outlookConcern:
       '委員会の文書作成が増加しない場合、立法パイプラインにボトルネックが生じる可能性があります。',
+    lede: '欧州議会委員会の最近の立法成果と活動の有効性を分析します。',
+    noRecentDocs: '最近の文書はありません',
   },
   ko: {
     what: '{date} 기준 위원회 활동 보고서: {total}개 위원회 모니터링, {docs}개 문서 처리, {active}개 위원회 최근 활동.',
@@ -3050,6 +3074,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
       '{total}개 위원회 중 {n}개가 적극적으로 문서를 생산하고 있어, 현재 속도는 생산적인 본회의 일정을 지원합니다.',
     outlookConcern:
       '위원회 문서 생산이 증가하지 않으면 입법 파이프라인에 병목 현상이 발생할 수 있습니다.',
+    lede: '유럽 의회의 주요 위원회 활동과 입법 효율성을 종합적으로 분석합니다.',
+    noRecentDocs: '최근 문서가 없습니다',
   },
   zh: {
     what: '{date}委员会活动报告：监测{total}个委员会，处理{docs}份文件，{active}个委员会有近期活动。',
@@ -3074,5 +3100,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     mistakeAlternative: '召开额外会议或重新分配资源以处理待审文件',
     outlookGood: '{total}个委员会中有{n}个正在积极产出文件，当前速度支持富有成效的全体会议日历。',
     outlookConcern: '如果委员会产出不增加，立法管道可能面临瓶颈。',
+    lede: '对欧洲议会各专门委员会近期活动和立法效率的系统分析。',
+    noRecentDocs: '近期无可用文件',
   },
 };
