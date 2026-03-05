@@ -657,8 +657,97 @@ export async function fetchMEPInfluence(
 // ─── Committee-Reports fetches ───────────────────────────────────────────────
 
 /**
+ * Load pre-fetched committee data for a given abbreviation from a JSON file.
+ *
+ * The file must be a JSON object keyed by committee abbreviation, where each
+ * value conforms to {@link CommitteeData}.  This allows agentic workflows to
+ * inject real EP committee data into the generator without a live MCP
+ * connection (same pattern as {@link loadEPFeedDataFromFile}).
+ *
+ * @param filePath - Path to the JSON file
+ * @param abbreviation - Committee code (e.g. `"ENVI"`)
+ * @returns Parsed {@link CommitteeData} for the committee, or `undefined`
+ */
+export function loadCommitteeDataFromFile(
+  filePath: string,
+  abbreviation: string
+): CommitteeData | undefined {
+  try {
+    if (!fs.existsSync(filePath)) {
+      console.warn(`${WARN_PREFIX} Committee data file not found: ${filePath}`);
+      return undefined;
+    }
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const parsed: unknown = JSON.parse(raw);
+    if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+      console.warn(`${WARN_PREFIX} Committee data file must contain a JSON object`);
+      return undefined;
+    }
+    const obj = parsed as Record<string, unknown>;
+    const entry = obj[abbreviation];
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+      return undefined;
+    }
+    const e = entry as Record<string, unknown>;
+    const docs = Array.isArray(e['documents'])
+      ? (e['documents'] as unknown[]).map((d) => {
+          const doc = d as Record<string, unknown>;
+          return {
+            title: typeof doc['title'] === 'string' ? doc['title'] : 'Document',
+            type: typeof doc['type'] === 'string' ? doc['type'] : 'Document',
+            date: typeof doc['date'] === 'string' ? doc['date'] : '',
+          };
+        })
+      : [];
+    const result: CommitteeData = {
+      name: typeof e['name'] === 'string' ? e['name'] : `${abbreviation} Committee`,
+      abbreviation,
+      chair: typeof e['chair'] === 'string' ? e['chair'] : 'N/A',
+      members:
+        typeof e['members'] === 'number' && Number.isFinite(e['members']) ? e['members'] : 0,
+      documents: docs,
+      effectiveness: typeof e['effectiveness'] === 'string' ? e['effectiveness'] : null,
+    };
+    console.log(
+      `${INFO_PREFIX} Loaded committee data from file: ${result.name} (${docs.length} documents)`
+    );
+    return result;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`${WARN_PREFIX} Failed to load committee data from file: ${message}`);
+    return undefined;
+  }
+}
+
+/**
+ * Try to load committee data from the `EP_COMMITTEE_DATA_FILE` env var.
+ * Returns the loaded {@link CommitteeData} when available, or `undefined` when
+ * the env var is unset or the file does not contain an entry for the given
+ * committee abbreviation.  Logs a warning when the file exists but the entry
+ * is missing so callers can fall through to an MCP fetch.
+ *
+ * @param abbreviation - Committee code (e.g. `"ENVI"`)
+ * @returns Pre-fetched committee data or `undefined`
+ */
+function tryLoadCommitteeDataFromEnv(abbreviation: string): CommitteeData | undefined {
+  const filePath = process.env['EP_COMMITTEE_DATA_FILE'];
+  if (!filePath) return undefined;
+  const data = loadCommitteeDataFromFile(filePath, abbreviation);
+  if (!data) {
+    console.log(
+      `${WARN_PREFIX} Committee data for ${abbreviation} not found in file — falling through to MCP fetch`
+    );
+  }
+  return data;
+}
+
+/**
  * Fetch committee data from three MCP sources for the given abbreviation.
  * Each source failure is caught individually so partial data is still returned.
+ *
+ * When the environment variable `EP_COMMITTEE_DATA_FILE` is set, pre-fetched
+ * committee data is loaded from that JSON file instead of calling the MCP
+ * client.  This enables agentic workflows to inject real EP data.
  *
  * @param client - MCP client or null
  * @param abbreviation - Committee code (e.g. `"ENVI"`)
@@ -676,6 +765,11 @@ export async function fetchCommitteeData(
     documents: [],
     effectiveness: null,
   };
+
+  // Check for pre-fetched committee data file (set by EP_COMMITTEE_DATA_FILE env var).
+  // This mirrors the EP_FEED_DATA_FILE pattern for fetchEPFeedData.
+  const fromFile = tryLoadCommitteeDataFromEnv(abbreviation);
+  if (fromFile) return fromFile;
 
   if (!client) return defaultResult;
 
