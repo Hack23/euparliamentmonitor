@@ -13,6 +13,24 @@ import { escapeHTML } from '../utils/file-utils.js';
 import { getLocalizedString, EDITORIAL_STRINGS, BREAKING_STRINGS } from '../constants/languages.js';
 /** Maximum characters to display from raw MCP intelligence data */
 const MAX_DATA_CHARS = 2000;
+/**
+ * Return true when `raw` is a JSON error object (contains an `"error"` key),
+ * indicating that the MCP tool call failed rather than returning useful data.
+ *
+ * @param raw - Raw string from MCP tool call
+ * @returns `true` when raw is a tool-error JSON payload
+ */
+function isToolError(raw) {
+    try {
+        const parsed = JSON.parse(raw.trim());
+        return (typeof parsed === 'object' &&
+            parsed !== null &&
+            'error' in parsed);
+    }
+    catch {
+        return false;
+    }
+}
 /** Maximum feed items to render per section */
 const MAX_FEED_ITEMS = 10;
 // ─── Feed section builders ───────────────────────────────────────────────────
@@ -29,11 +47,15 @@ function buildAdoptedTextsSection(items, lang) {
     const strings = getLocalizedString(BREAKING_STRINGS, lang);
     const listItems = items
         .slice(0, MAX_FEED_ITEMS)
-        .map((item) => `<li class="feed-item adopted-text-item">` +
-        `<strong>${escapeHTML(item.title)}</strong>` +
-        `${item.date ? ` <span class="feed-date">(${escapeHTML(item.date)})</span>` : ''}` +
-        `${item.type ? ` <span class="feed-type">[${escapeHTML(item.type)}]</span>` : ''}` +
-        `</li>`)
+        .map((item) => {
+        const displayLabel = item.label ?? item.identifier;
+        const displayTitle = displayLabel ? strings.adoptedTextItemLabelFn(displayLabel) : item.title;
+        return (`<li class="feed-item adopted-text-item">` +
+            `<strong>${escapeHTML(displayTitle)}</strong>` +
+            `${item.date ? ` <span class="feed-date">(${escapeHTML(item.date)})</span>` : ''}` +
+            `${item.type ? ` <span class="feed-type">${escapeHTML(strings.adoptedTextTypeLabel)}</span>` : ''}` +
+            `</li>`);
+    })
         .join('\n            ');
     return `
         <section class="adopted-texts-feed">
@@ -241,6 +263,60 @@ function buildIntelligenceBriefingSection(anomalies, coalitions, mepScores, lang
           ${buildKeyPlayersIntelSection(mepScores, lang)}
         </section>`;
 }
+/**
+ * Build voting anomaly section HTML, showing a localized fallback when the raw
+ * data is a tool-error payload rather than useful intelligence.
+ *
+ * @param raw - Raw anomaly data string from MCP (may be empty or an error JSON)
+ * @param strings - Localized breaking-news strings for the target language
+ * @param sourceAttribution - Localized source attribution label
+ * @returns HTML section string or empty string
+ */
+function buildAnomalyRawSection(raw, strings, sourceAttribution) {
+    if (!raw)
+        return '';
+    const heading = `<h2>${escapeHTML(strings.votingAnomalyIntel)}</h2>`;
+    if (isToolError(raw)) {
+        return `
+        <section class="analysis">
+          ${heading}
+          <p class="data-narrative">${escapeHTML(strings.anomalyUnavailable)}</p>
+        </section>`;
+    }
+    return `
+        <section class="analysis">
+          ${heading}
+          <p class="source-attribution">${escapeHTML(sourceAttribution)}:</p>
+          <p class="data-narrative">${escapeHTML(raw.slice(0, MAX_DATA_CHARS))}</p>
+        </section>`;
+}
+/**
+ * Build coalition dynamics section HTML, showing a localized fallback when the
+ * raw data is a tool-error payload rather than useful intelligence.
+ *
+ * @param raw - Raw coalition data string from MCP (may be empty or an error JSON)
+ * @param strings - Localized breaking-news strings for the target language
+ * @param sourceAttribution - Localized source attribution label
+ * @returns HTML section string or empty string
+ */
+function buildCoalitionRawSection(raw, strings, sourceAttribution) {
+    if (!raw)
+        return '';
+    const heading = `<h2>${escapeHTML(strings.coalitionDynamics)}</h2>`;
+    if (isToolError(raw)) {
+        return `
+        <section class="coalition-impact">
+          ${heading}
+          <p class="data-narrative">${escapeHTML(strings.coalitionUnavailable)}</p>
+        </section>`;
+    }
+    return `
+        <section class="coalition-impact">
+          ${heading}
+          <p class="source-attribution">${escapeHTML(sourceAttribution)}:</p>
+          <p class="data-narrative">${escapeHTML(raw.slice(0, MAX_DATA_CHARS))}</p>
+        </section>`;
+}
 // ─── Exported function ────────────────────────────────────────────────────────
 /**
  * Build breaking news article HTML content.
@@ -294,22 +370,8 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
         </section>`
         : buildFeedSections(feedData, lang);
     // ─── Analytical context sections (SECONDARY) ──────────────────────────
-    const anomalySection = anomalyRaw
-        ? `
-        <section class="analysis">
-          <h2>${escapeHTML(strings.votingAnomalyIntel)}</h2>
-          <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
-          <p class="data-narrative">${escapeHTML(anomalyRaw.slice(0, MAX_DATA_CHARS))}</p>
-        </section>`
-        : '';
-    const coalitionSection = coalitionRaw
-        ? `
-        <section class="coalition-impact">
-          <h2>${escapeHTML(strings.coalitionDynamics)}</h2>
-          <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
-          <p class="data-narrative">${escapeHTML(coalitionRaw.slice(0, MAX_DATA_CHARS))}</p>
-        </section>`
-        : '';
+    const anomalySection = buildAnomalyRawSection(anomalyRaw, strings, editorial.sourceAttribution);
+    const coalitionSection = buildCoalitionRawSection(coalitionRaw, strings, editorial.sourceAttribution);
     const reportSection = reportRaw
         ? `
         <section class="context">
@@ -352,7 +414,7 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
         </section>`
         : `
         <section class="lede">
-          <p>${escapeHTML(ledeText)} as of ${escapeHTML(date)}.</p>
+          <p>${escapeHTML(ledeText)} ${escapeHTML(strings.asOf)} ${escapeHTML(date)}.</p>
         </section>`;
     return `
         <div class="article-content">
