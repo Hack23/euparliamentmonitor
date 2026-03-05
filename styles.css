@@ -2219,3 +2219,298 @@ button:focus-visible {
     font-size: 0.8rem;
   }
 }
+
+/* ─── SWOT Analysis ──────────────────────────────────────────────────────── */
+
+.swot-analysis {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--surface, #f8f9fa);
+  border-radius: 8px;
+}
+
+.swot-analysis h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary, #1a1a2e);
+}
+
+.swot-matrix {
+  position: relative;
+}
+
+.swot-axis-labels {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted, #6c757d);
+}
+
+.swot-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px;
+  background: var(--border-light, #dee2e6);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.swot-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+}
+
+.swot-quadrant {
+  padding: 1rem;
+  min-height: 120px;
+}
+
+.swot-quadrant-heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.swot-quadrant-desc {
+  font-size: 0.7rem;
+  color: var(--text-muted, #6c757d);
+  margin: 0 0 0.75rem;
+  font-style: italic;
+}
+
+.swot-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.swot-item {
+  padding: 0.35rem 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.swot-item:last-child {
+  border-bottom: none;
+}
+
+.swot-empty {
+  color: var(--text-muted, #6c757d);
+  font-style: italic;
+}
+
+.swot-severity-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+/* Quadrant colors — Strengths: green, Weaknesses: red, Opportunities: blue, Threats: orange */
+.swot-strengths {
+  background: #e8f5e9;
+}
+
+.swot-strengths .swot-quadrant-heading {
+  color: #2e7d32;
+}
+
+.swot-weaknesses {
+  background: #ffebee;
+}
+
+.swot-weaknesses .swot-quadrant-heading {
+  color: #c62828;
+}
+
+.swot-opportunities {
+  background: #e3f2fd;
+}
+
+.swot-opportunities .swot-quadrant-heading {
+  color: #1565c0;
+}
+
+.swot-threats {
+  background: #fff3e0;
+}
+
+.swot-threats .swot-quadrant-heading {
+  color: #e65100;
+}
+
+/* Severity levels */
+.swot-severity-low .swot-severity-badge {
+  background: #c8e6c9;
+  color: #2e7d32;
+}
+
+.swot-severity-medium .swot-severity-badge {
+  background: #fff9c4;
+  color: #f57f17;
+}
+
+.swot-severity-high .swot-severity-badge {
+  background: #ffcdd2;
+  color: #c62828;
+}
+
+/* ─── Dashboard ──────────────────────────────────────────────────────────── */
+
+.dashboard {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--surface, #f8f9fa);
+  border-radius: 8px;
+}
+
+.dashboard h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary, #1a1a2e);
+}
+
+.dashboard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dashboard-panel {
+  background: var(--surface-alt, #ffffff);
+  border-radius: 6px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.panel-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: var(--text-primary, #1a1a2e);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.metric-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--surface, #f8f9fa);
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid var(--border-light, #dee2e6);
+}
+
+.metric-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted, #6c757d);
+  margin-bottom: 0.25rem;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary, #1a1a2e);
+  line-height: 1.2;
+}
+
+.metric-unit {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-muted, #6c757d);
+}
+
+.metric-trend-up {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.metric-trend-down {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #c62828;
+}
+
+.metric-trend-stable {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted, #6c757d);
+}
+
+.chart-container {
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.chart-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--text-secondary, #495057);
+}
+
+.dashboard-chart {
+  max-width: 100%;
+  height: auto;
+}
+
+.chart-fallback-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.chart-fallback-table th,
+.chart-fallback-table td {
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  border: 1px solid var(--border-light, #dee2e6);
+}
+
+.chart-fallback-table thead th {
+  background: var(--surface, #f8f9fa);
+  font-weight: 600;
+}
+
+.chart-no-data {
+  font-style: italic;
+  color: var(--text-muted, #6c757d);
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Responsive: stack SWOT quadrants on small screens */
+@media (max-width: 600px) {
+  .swot-row {
+    grid-template-columns: 1fr;
+  }
+
+  .swot-axis-labels {
+    display: none;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
