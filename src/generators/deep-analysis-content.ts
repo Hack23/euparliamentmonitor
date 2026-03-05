@@ -35,14 +35,16 @@ import type {
  *
  * @param what - Description of what happened
  * @param heading - Localized heading
+ * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
-function buildWhatSection(what: string, heading: string): string {
+function buildWhatSection(what: string, heading: string, contentLang?: string): string {
   if (!what) return '';
+  const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
   return `
             <div class="analysis-what">
               <h3>${escapeHTML(heading)}</h3>
-              <p>${escapeHTML(what)}</p>
+              <p${langAttr}>${escapeHTML(what)}</p>
             </div>`;
 }
 
@@ -51,15 +53,17 @@ function buildWhatSection(what: string, heading: string): string {
  *
  * @param who - Array of actor names/descriptions
  * @param heading - Localized heading
+ * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
-function buildWhoSection(who: readonly string[], heading: string): string {
+function buildWhoSection(who: readonly string[], heading: string, contentLang?: string): string {
   if (who.length === 0) return '';
+  const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
   const items = who.map((actor) => `<li>${escapeHTML(actor)}</li>`).join('\n                ');
   return `
             <div class="analysis-who">
               <h3>${escapeHTML(heading)}</h3>
-              <ul class="actor-list">
+              <ul class="actor-list"${langAttr}>
                 ${items}
               </ul>
             </div>`;
@@ -70,17 +74,19 @@ function buildWhoSection(who: readonly string[], heading: string): string {
  *
  * @param when - Array of date/milestone descriptions
  * @param heading - Localized heading
+ * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
-function buildWhenSection(when: readonly string[], heading: string): string {
+function buildWhenSection(when: readonly string[], heading: string, contentLang?: string): string {
   if (when.length === 0) return '';
+  const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
   const items = when
     .map((milestone) => `<li class="timeline-item">${escapeHTML(milestone)}</li>`)
     .join('\n                ');
   return `
             <div class="analysis-when">
               <h3>${escapeHTML(heading)}</h3>
-              <ol class="timeline-list">
+              <ol class="timeline-list"${langAttr}>
                 ${items}
               </ol>
             </div>`;
@@ -91,14 +97,16 @@ function buildWhenSection(when: readonly string[], heading: string): string {
  *
  * @param why - Root cause analysis text
  * @param heading - Localized heading
+ * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
-function buildWhySection(why: string, heading: string): string {
+function buildWhySection(why: string, heading: string, contentLang?: string): string {
   if (!why) return '';
+  const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
   return `
             <div class="analysis-why">
               <h3>${escapeHTML(heading)}</h3>
-              <p>${escapeHTML(why)}</p>
+              <p${langAttr}>${escapeHTML(why)}</p>
             </div>`;
 }
 
@@ -182,6 +190,7 @@ function buildStakeholderSection(
  * @param labels.socialLabel
  * @param labels.legalLabel
  * @param labels.geopoliticalLabel
+ * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
 function buildImpactSection(
@@ -193,8 +202,10 @@ function buildImpactSection(
     socialLabel: string;
     legalLabel: string;
     geopoliticalLabel: string;
-  }
+  },
+  contentLang?: string
 ): string {
+  const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
   const perspectives = [
     { label: labels.politicalLabel, text: impact.political, css: 'impact-political' },
     { label: labels.economicLabel, text: impact.economic, css: 'impact-economic' },
@@ -208,7 +219,7 @@ function buildImpactSection(
       (p) =>
         `<div class="impact-perspective ${p.css}">` +
         `<h4>${escapeHTML(p.label)}</h4>` +
-        `<p>${escapeHTML(p.text)}</p>` +
+        `<p${langAttr}>${escapeHTML(p.text)}</p>` +
         `</div>`
     )
     .join('\n              ');
@@ -268,6 +279,7 @@ function severityLabel(
  * @param strings.severityMedium
  * @param strings.severityHigh
  * @param strings.severityCritical
+ * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
 function buildConsequencesSection(
@@ -279,16 +291,18 @@ function buildConsequencesSection(
     severityMedium: string;
     severityHigh: string;
     severityCritical: string;
-  }
+  },
+  contentLang?: string
 ): string {
   if (items.length === 0) return '';
+  const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
   const rows = items
     .map(
       (item) =>
         `<tr class="consequence-row severity-${escapeHTML(item.severity)}">` +
-        `<td class="action-cell">${escapeHTML(item.action)}</td>` +
+        `<td class="action-cell"${langAttr}>${escapeHTML(item.action)}</td>` +
         `<td class="arrow-cell">→</td>` +
-        `<td class="consequence-cell">${escapeHTML(item.consequence)}</td>` +
+        `<td class="consequence-cell"${langAttr}>${escapeHTML(item.consequence)}</td>` +
         `<td class="severity-cell"><span class="severity-badge severity-${escapeHTML(item.severity)}">${escapeHTML(severityLabel(item.severity, strings))}</span></td>` +
         `</tr>`
     )
@@ -318,21 +332,24 @@ function buildConsequencesSection(
  * @param mistakes - Political mistake assessments
  * @param heading - Localized heading
  * @param alternativeLabel - Localized "should have" label
+ * @param contentLang - Language of the description/alternative text (omit when same as display language)
  * @returns HTML string
  */
 function buildMistakesSection(
   mistakes: readonly PoliticalMistake[],
   heading: string,
-  alternativeLabel: string
+  alternativeLabel: string,
+  contentLang?: string
 ): string {
   if (mistakes.length === 0) return '';
+  const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
   const items = mistakes
     .map(
       (m) =>
         `<div class="mistake-item">` +
         `<p class="mistake-actor"><strong>${escapeHTML(m.actor)}</strong></p>` +
-        `<p class="mistake-desc">${escapeHTML(m.description)}</p>` +
-        `<p class="mistake-alt"><em>${escapeHTML(alternativeLabel)}:</em> ${escapeHTML(m.alternative)}</p>` +
+        `<p class="mistake-desc"${langAttr}>${escapeHTML(m.description)}</p>` +
+        `<p class="mistake-alt"${langAttr}><em>${escapeHTML(alternativeLabel)}:</em> ${escapeHTML(m.alternative)}</p>` +
         `</div>`
     )
     .join('\n              ');
@@ -348,14 +365,16 @@ function buildMistakesSection(
  *
  * @param outlook - Forward-looking analysis text
  * @param heading - Localized heading
+ * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
-function buildOutlookSection(outlook: string, heading: string): string {
+function buildOutlookSection(outlook: string, heading: string, contentLang?: string): string {
   if (!outlook) return '';
+  const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
   return `
             <div class="analysis-outlook">
               <h3>${escapeHTML(heading)}</h3>
-              <p>${escapeHTML(outlook)}</p>
+              <p${langAttr}>${escapeHTML(outlook)}</p>
             </div>`;
 }
 
@@ -373,38 +392,46 @@ function buildOutlookSection(outlook: string, heading: string): string {
  *
  * @param analysis - Deep analysis data (null/undefined returns empty string)
  * @param lang - BCP 47 language code for localized headings
+ * @param contentLang - BCP 47 language code for the content text; when it
+ *   differs from `lang`, each content element gets a `lang` attribute so
+ *   screen readers and translation tools handle the language switch correctly.
+ *   Defaults to `lang` (no extra attributes added).
  * @returns HTML section string or empty string
  */
 export function buildDeepAnalysisSection(
   analysis: DeepAnalysis | null | undefined,
-  lang: string
+  lang: string,
+  contentLang = lang
 ): string {
   if (!analysis) return '';
 
   const strings = getLocalizedString(DEEP_ANALYSIS_STRINGS, lang);
+  const cl = contentLang !== lang ? contentLang : undefined;
 
-  const whatHtml = buildWhatSection(analysis.what, strings.whatHeading);
-  const whoHtml = buildWhoSection(analysis.who, strings.whoHeading);
-  const whenHtml = buildWhenSection(analysis.when, strings.whenHeading);
-  const whyHtml = buildWhySection(analysis.why, strings.whyHeading);
+  const whatHtml = buildWhatSection(analysis.what, strings.whatHeading, cl);
+  const whoHtml = buildWhoSection(analysis.who, strings.whoHeading, cl);
+  const whenHtml = buildWhenSection(analysis.when, strings.whenHeading, cl);
+  const whyHtml = buildWhySection(analysis.why, strings.whyHeading, cl);
   const stakeholderHtml = buildStakeholderSection(
     analysis.stakeholderOutcomes,
     strings.stakeholderHeading,
     strings
   );
-  const impactHtml = buildImpactSection(analysis.impactAssessment, strings.impactHeading, strings);
+  const impactHtml = buildImpactSection(analysis.impactAssessment, strings.impactHeading, strings, cl);
   const consequencesHtml = buildConsequencesSection(
     analysis.actionConsequences,
     strings.consequencesHeading,
     strings,
-    strings
+    strings,
+    cl
   );
   const mistakesHtml = buildMistakesSection(
     analysis.mistakes,
     strings.mistakesHeading,
-    strings.alternativeLabel
+    strings.alternativeLabel,
+    cl
   );
-  const outlookHtml = buildOutlookSection(analysis.outlook, strings.outlookHeading);
+  const outlookHtml = buildOutlookSection(analysis.outlook, strings.outlookHeading, cl);
 
   const innerContent =
     whatHtml +
