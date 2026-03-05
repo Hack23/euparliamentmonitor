@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 import { ArticleCategory } from '../../types/index.js';
-import { COMMITTEE_REPORTS_TITLES, COMMITTEE_ANALYSIS_CONTENT_STRINGS, getLocalizedString } from '../../constants/languages.js';
+import { COMMITTEE_REPORTS_TITLES, COMMITTEE_ANALYSIS_CONTENT_STRINGS, getLocalizedString, } from '../../constants/languages.js';
 import { fetchCommitteeData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { FEATURED_COMMITTEES } from '../committee-helpers.js';
 import { escapeHTML } from '../../utils/file-utils.js';

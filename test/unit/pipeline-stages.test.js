@@ -51,6 +51,7 @@ import {
   fetchEPFeedData,
   loadFeedDataFromFile,
   loadEPFeedDataFromFile,
+  loadCommitteeDataFromFile,
 } from '../../scripts/generators/pipeline/fetch-stage.js';
 
 import {
@@ -1888,5 +1889,184 @@ describe('fetchEPFeedData with pre-fetched file', () => {
     delete process.env['EP_FEED_DATA_FILE'];
     const result = await fetchEPFeedData(null, 'one-day');
     expect(result).toBeUndefined();
+  });
+});
+
+// ─── loadCommitteeDataFromFile ───────────────────────────────────────────────
+
+describe('loadCommitteeDataFromFile', () => {
+  let tmpDir;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'committee-data-test-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('should return undefined for non-existent file', () => {
+    const result = loadCommitteeDataFromFile(path.join(tmpDir, 'does-not-exist.json'), 'ENVI');
+    expect(result).toBeUndefined();
+  });
+
+  it('should return undefined for invalid JSON', () => {
+    const filePath = path.join(tmpDir, 'invalid.json');
+    fs.writeFileSync(filePath, 'not valid json');
+    const result = loadCommitteeDataFromFile(filePath, 'ENVI');
+    expect(result).toBeUndefined();
+  });
+
+  it('should return undefined for non-object JSON (array)', () => {
+    const filePath = path.join(tmpDir, 'array.json');
+    fs.writeFileSync(filePath, '[1, 2, 3]');
+    const result = loadCommitteeDataFromFile(filePath, 'ENVI');
+    expect(result).toBeUndefined();
+  });
+
+  it('should return undefined when committee key is missing', () => {
+    const filePath = path.join(tmpDir, 'no-key.json');
+    fs.writeFileSync(filePath, JSON.stringify({ AGRI: { name: 'Agriculture' } }));
+    const result = loadCommitteeDataFromFile(filePath, 'ENVI');
+    expect(result).toBeUndefined();
+  });
+
+  it('should load valid committee data from file', () => {
+    const data = {
+      ENVI: {
+        name: 'Environment Committee',
+        chair: 'Jane Doe',
+        members: 88,
+        documents: [
+          { title: 'Climate Report', type: 'REPORT', date: '2026-03-01' },
+        ],
+        effectiveness: 'High',
+      },
+    };
+    const filePath = path.join(tmpDir, 'committee-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(data));
+    const result = loadCommitteeDataFromFile(filePath, 'ENVI');
+    expect(result).toBeDefined();
+    expect(result.name).toBe('Environment Committee');
+    expect(result.abbreviation).toBe('ENVI');
+    expect(result.chair).toBe('Jane Doe');
+    expect(result.members).toBe(88);
+    expect(result.documents).toHaveLength(1);
+    expect(result.documents[0].title).toBe('Climate Report');
+    expect(result.effectiveness).toBe('High');
+  });
+
+  it('should use defaults for missing fields', () => {
+    const data = { ECON: {} };
+    const filePath = path.join(tmpDir, 'defaults.json');
+    fs.writeFileSync(filePath, JSON.stringify(data));
+    const result = loadCommitteeDataFromFile(filePath, 'ECON');
+    expect(result).toBeDefined();
+    expect(result.name).toBe('ECON Committee');
+    expect(result.chair).toBe('N/A');
+    expect(result.members).toBe(0);
+    expect(result.documents).toEqual([]);
+    expect(result.effectiveness).toBeNull();
+  });
+
+  it('should filter out non-object document entries and coerce missing fields', () => {
+    const data = {
+      LIBE: {
+        name: 'Civil Liberties',
+        documents: [
+          { title: 'Rights Report', type: 'REPORT', date: '2026-03-01' },
+          null,
+          'string entry',
+          42,
+          { title: 'No type or date' },
+        ],
+      },
+    };
+    const filePath = path.join(tmpDir, 'malformed-docs.json');
+    fs.writeFileSync(filePath, JSON.stringify(data));
+    const result = loadCommitteeDataFromFile(filePath, 'LIBE');
+    expect(result).toBeDefined();
+    expect(result.documents).toHaveLength(2);
+    expect(result.documents[0].title).toBe('Rights Report');
+    expect(result.documents[1].title).toBe('No type or date');
+    expect(result.documents[1].type).toBe('Document');
+    expect(result.documents[1].date).toBe('');
+  });
+});
+
+// ─── fetchCommitteeData with EP_COMMITTEE_DATA_FILE ──────────────────────────
+
+describe('fetchCommitteeData with pre-fetched file', () => {
+  let tmpDir;
+  const originalEnv = process.env['EP_COMMITTEE_DATA_FILE'];
+
+  afterEach(() => {
+    if (originalEnv === undefined) {
+      delete process.env['EP_COMMITTEE_DATA_FILE'];
+    } else {
+      process.env['EP_COMMITTEE_DATA_FILE'] = originalEnv;
+    }
+    if (tmpDir) {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+      tmpDir = undefined;
+    }
+  });
+
+  it('uses pre-fetched committee data when EP_COMMITTEE_DATA_FILE is set', async () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'committee-fetch-test-'));
+    const data = {
+      ENVI: {
+        name: 'Environment Committee',
+        chair: 'John Smith',
+        members: 88,
+        documents: [{ title: 'Green Deal Report', type: 'REPORT', date: '2026-03-01' }],
+        effectiveness: 'High',
+      },
+    };
+    const filePath = path.join(tmpDir, 'committee-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(data));
+    process.env['EP_COMMITTEE_DATA_FILE'] = filePath;
+
+    const result = await fetchCommitteeData(null, 'ENVI');
+    expect(result.name).toBe('Environment Committee');
+    expect(result.chair).toBe('John Smith');
+    expect(result.members).toBe(88);
+    expect(result.documents).toHaveLength(1);
+  });
+
+  it('falls through to default when committee entry is missing', async () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'committee-fetch-test-'));
+    const data = { AGRI: { name: 'Agriculture' } };
+    const filePath = path.join(tmpDir, 'committee-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(data));
+    process.env['EP_COMMITTEE_DATA_FILE'] = filePath;
+
+    const result = await fetchCommitteeData(null, 'ENVI');
+    // Falls through to default (no MCP client)
+    expect(result.name).toContain('ENVI');
+    expect(result.chair).toBe('N/A');
+    expect(result.members).toBe(0);
+  });
+
+  it('falls through to default when file has malformed JSON', async () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'committee-fetch-test-'));
+    const filePath = path.join(tmpDir, 'bad.json');
+    fs.writeFileSync(filePath, 'not valid json');
+    process.env['EP_COMMITTEE_DATA_FILE'] = filePath;
+
+    const result = await fetchCommitteeData(null, 'ENVI');
+    expect(result.name).toContain('ENVI');
+    expect(result.chair).toBe('N/A');
+  });
+
+  it('returns default result when env var is not set and client is null', async () => {
+    delete process.env['EP_COMMITTEE_DATA_FILE'];
+    const result = await fetchCommitteeData(null, 'AFET');
+    expect(result.name).toContain('AFET');
+    expect(result.abbreviation).toBe('AFET');
+    expect(result.chair).toBe('N/A');
+    expect(result.members).toBe(0);
+    expect(result.documents).toEqual([]);
+    expect(result.effectiveness).toBeNull();
   });
 });
