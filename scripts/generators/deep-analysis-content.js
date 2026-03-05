@@ -138,15 +138,17 @@ function outcomeLabel(outcome, strings) {
  * @param strings.winnerLabel
  * @param strings.loserLabel
  * @param strings.neutralLabel
+ * @param contentLang - Language of the actor/reason text (omit when same as display language)
  * @returns HTML string
  */
-function buildStakeholderSection(outcomes, heading, strings) {
+function buildStakeholderSection(outcomes, heading, strings, contentLang) {
     if (outcomes.length === 0)
         return '';
+    const contentLangAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const items = outcomes
         .map((s) => `<li class="stakeholder-item ${outcomeClass(s.outcome)}">` +
         `<span class="stakeholder-badge">${escapeHTML(outcomeLabel(s.outcome, strings))}</span> ` +
-        `<strong>${escapeHTML(s.actor)}</strong>: ${escapeHTML(s.reason)}` +
+        `<span${contentLangAttr}><strong>${escapeHTML(s.actor)}</strong>: ${escapeHTML(s.reason)}</span>` +
         `</li>`)
         .join('\n                ');
     return `
@@ -284,7 +286,7 @@ function buildMistakesSection(mistakes, heading, alternativeLabel, contentLang) 
         .map((m) => `<div class="mistake-card">` +
         `<p class="mistake-actor"><strong>${escapeHTML(m.actor)}</strong></p>` +
         `<p class="mistake-description"${langAttr}>${escapeHTML(m.description)}</p>` +
-        `<p class="mistake-alternative"${langAttr}><em>${escapeHTML(alternativeLabel)}:</em> ${escapeHTML(m.alternative)}</p>` +
+        `<p class="mistake-alternative"><em>${escapeHTML(alternativeLabel)}:</em> <span${langAttr}>${escapeHTML(m.alternative)}</span></p>` +
         `</div>`)
         .join('\n              ');
     return `
@@ -339,10 +341,7 @@ export function buildDeepAnalysisSection(analysis, lang, contentLang = lang) {
     const whoHtml = buildWhoSection(analysis.who, strings.whoHeading, cl);
     const whenHtml = buildWhenSection(analysis.when, strings.whenHeading, cl);
     const whyHtml = buildWhySection(analysis.why, strings.whyHeading, cl);
-    const stakeholderRawHtml = buildStakeholderSection(analysis.stakeholderOutcomes, strings.stakeholderHeading, strings);
-    const stakeholderHtml = cl !== undefined
-        ? `<div lang="${escapeHTML(cl)}">${stakeholderRawHtml}</div>`
-        : stakeholderRawHtml;
+    const stakeholderHtml = buildStakeholderSection(analysis.stakeholderOutcomes, strings.stakeholderHeading, strings, cl);
     const impactHtml = buildImpactSection(analysis.impactAssessment, strings.impactHeading, strings, cl);
     const consequencesHtml = buildConsequencesSection(analysis.actionConsequences, strings.consequencesHeading, strings, strings, cl);
     const mistakesHtml = buildMistakesSection(analysis.mistakes, strings.mistakesHeading, strings.alternativeLabel, cl);
