@@ -1,10 +1,25 @@
 {
+  "timestamp": "2026-03-05T12:13:40.484Z",
   "timestamp": "2026-03-05T07:46:44.360Z",
   "generated": 14,
   "skipped": 0,
   "dryRun": 0,
   "errors": 0,
   "articles": [
+    "2026-03-05-breaking-en.html",
+    "2026-03-05-breaking-sv.html",
+    "2026-03-05-breaking-da.html",
+    "2026-03-05-breaking-no.html",
+    "2026-03-05-breaking-fi.html",
+    "2026-03-05-breaking-de.html",
+    "2026-03-05-breaking-fr.html",
+    "2026-03-05-breaking-es.html",
+    "2026-03-05-breaking-nl.html",
+    "2026-03-05-breaking-ar.html",
+    "2026-03-05-breaking-he.html",
+    "2026-03-05-breaking-ja.html",
+    "2026-03-05-breaking-ko.html",
+    "2026-03-05-breaking-zh.html"
     "2026-03-05-committee-reports-en.html",
     "2026-03-05-committee-reports-sv.html",
     "2026-03-05-committee-reports-da.html",
@@ -24,6 +39,10 @@
     {
       "success": true,
       "files": 14,
+      "slug": "2026-03-05-breaking"
+    }
+  ],
+  "usedMCP": true
       "slug": "2026-03-05-committee-reports"
     }
   ],
