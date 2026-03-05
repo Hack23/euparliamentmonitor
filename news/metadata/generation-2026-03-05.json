@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-05T04:42:25.133Z",
+  "timestamp": "2026-03-05T07:46:44.360Z",
   "generated": 14,
   "skipped": 0,
   "dryRun": 0,
@@ -27,5 +27,15 @@
       "slug": "2026-03-05-committee-reports"
     }
   ],
-  "usedMCP": false
+  "usedMCP": true,
+  "dataSource": "EP precomputed stats (get_all_generated_stats) + EP_COMMITTEE_DATA_FILE + EP_FEED_DATA_FILE",
+  "committeeDataInjected": true,
+  "committeesWithData": [
+    "ENVI",
+    "ECON",
+    "AFET",
+    "LIBE",
+    "AGRI"
+  ],
+  "totalDocuments": 21
 }
