@@ -7,7 +7,7 @@
  * sitemap entries, and generation statistics.
  */
 
-import type { AnalysisPerspective, ArticleCategory } from './common.js';
+import type { AnalysisPerspective, ArticleCategory, LanguageCode } from './common.js';
 
 /** Parsed article metadata from filename */
 export interface ParsedArticle {
@@ -31,7 +31,7 @@ export interface ArticleOptions {
   date: string;
   category: ArticleCategory;
   readTime: number;
-  lang: string;
+  lang: LanguageCode;
   content: string;
   keywords?: string[];
   sources?: ArticleSource[];
