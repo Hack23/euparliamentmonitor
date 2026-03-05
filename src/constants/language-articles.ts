@@ -3104,6 +3104,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     outlookConcern: '如果委员会产出不增加，立法管道可能面临瓶颈。',
     lede: '对欧洲议会各专门委员会近期活动和立法效率的系统分析。',
     noRecentDocs: '近期无可用文件',
+  },
+};
 // ─── SWOT localization strings ───────────────────────────────────────────────
 
 /** Shared Scandinavian/Dutch SWOT heading */

@@ -7,6 +7,7 @@
 import fs from 'fs';
 import path from 'path';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
+import { ALL_LANGUAGES } from '../constants/language-core.js';
 /**
  * Get all news article HTML files from the news directory
  *
@@ -32,10 +33,14 @@ export function parseArticleFilename(filename) {
     if (!match) {
         return null;
     }
+    const langCandidate = match[3];
+    if (!ALL_LANGUAGES.includes(langCandidate)) {
+        return null;
+    }
     return {
         date: match[1],
         slug: match[2],
-        lang: match[3],
+        lang: langCandidate,
         filename,
     };
 }
