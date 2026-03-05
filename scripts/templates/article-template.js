@@ -5,7 +5,7 @@
  * @description Generates HTML templates for news articles with proper structure and metadata
  */
 import { createHash } from 'crypto';
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, SOURCES_HEADING_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 import { APP_VERSION } from '../constants/config.js';
 /** Pattern for valid article dates (YYYY-MM-DD) */
@@ -233,7 +233,7 @@ export function generateArticleHTML(options) {
     
     ${content}
     
-    ${renderSourcesSection(sources)}
+    ${renderSourcesSection(sources, lang)}
     
     <nav class="article-nav" aria-label="${escapeHTML(articleNavLabel)}">
       <a href="${indexHref}" class="back-to-news">${backLabel}</a>
@@ -272,16 +272,18 @@ export function generateArticleHTML(options) {
  * Render the sources section if sources are provided
  *
  * @param sources - Article source references
+ * @param lang - Language code for localized heading
  * @returns HTML string for sources section or empty string
  */
-function renderSourcesSection(sources) {
+function renderSourcesSection(sources, lang) {
     if (sources.length === 0) {
         return '';
     }
+    const sourcesHeading = escapeHTML(getLocalizedString(SOURCES_HEADING_LABELS, lang));
     return `
     <footer class="article-footer">
       <section class="article-sources">
-        <h2>Sources</h2>
+        <h2>${sourcesHeading}</h2>
         <ul>
           ${sources
         .map((source) => {
