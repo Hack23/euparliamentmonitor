@@ -690,14 +690,16 @@ export function loadCommitteeDataFromFile(
     }
     const e = entry as Record<string, unknown>;
     const docs = Array.isArray(e['documents'])
-      ? (e['documents'] as unknown[]).map((d) => {
-          const doc = d as Record<string, unknown>;
-          return {
+      ? (e['documents'] as unknown[])
+          .filter(
+            (d): d is Record<string, unknown> =>
+              typeof d === 'object' && d !== null && !Array.isArray(d)
+          )
+          .map((doc) => ({
             title: typeof doc['title'] === 'string' ? doc['title'] : 'Document',
             type: typeof doc['type'] === 'string' ? doc['type'] : 'Document',
             date: typeof doc['date'] === 'string' ? doc['date'] : '',
-          };
-        })
+          }))
       : [];
     const result: CommitteeData = {
       name: typeof e['name'] === 'string' ? e['name'] : `${abbreviation} Committee`,
@@ -733,8 +735,8 @@ function tryLoadCommitteeDataFromEnv(abbreviation: string): CommitteeData | unde
   const filePath = process.env['EP_COMMITTEE_DATA_FILE'];
   if (!filePath) return undefined;
   const data = loadCommitteeDataFromFile(filePath, abbreviation);
-  if (!data) {
-    console.log(
+  if (!data && fs.existsSync(filePath)) {
+    console.warn(
       `${WARN_PREFIX} Committee data for ${abbreviation} not found in file — falling through to MCP fetch`
     );
   }
