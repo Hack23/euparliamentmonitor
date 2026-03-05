@@ -24,9 +24,9 @@ import type {
   DateRange,
   CommitteeData,
   LanguageCode,
+  BreakingNewsFeedData,
 } from '../types/index.js';
 import type { PipelineData } from './propositions-content.js';
-import type { BreakingNewsFeedData } from '../types/index.js';
 import { getLocalizedString, COMMITTEE_ANALYSIS_CONTENT_STRINGS } from '../constants/languages.js';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
