@@ -13,7 +13,7 @@ import type { AnalysisPerspective, ArticleCategory, LanguageCode } from './commo
 export interface ParsedArticle {
   date: string;
   slug: string;
-  lang: string;
+  lang: LanguageCode;
   filename: string;
 }
 
@@ -53,7 +53,7 @@ export interface ArticleMetadataEntry {
   filename: string;
   date: string;
   slug: string;
-  lang: string;
+  lang: LanguageCode;
   title: string;
   description?: string;
   type?: string;
