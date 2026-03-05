@@ -531,4 +531,22 @@ export const FILTER_LABELS = {
     ko: { all: '\uc804\uccb4', search: '\uae30\uc0ac \uac80\uc0c9\u2026' },
     zh: { all: '\u5168\u90e8', search: '\u641c\u7d22\u6587\u7ae0\u2026' },
 };
+/* ─── Sources section heading ────────────────────────────────────── */
+/** Localized "Sources" heading used in the article footer sources section */
+export const SOURCES_HEADING_LABELS = {
+    en: 'Sources',
+    sv: 'Källor',
+    da: 'Kilder',
+    no: 'Kilder',
+    fi: 'Lähteet',
+    de: 'Quellen',
+    fr: 'Sources',
+    es: 'Fuentes',
+    nl: 'Bronnen',
+    ar: 'المصادر',
+    he: 'מקורות',
+    ja: '出典',
+    ko: '출처',
+    zh: '来源',
+};
 //# sourceMappingURL=language-ui.js.map

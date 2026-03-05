@@ -23,9 +23,11 @@ import type {
   WeekAheadData,
   DateRange,
   CommitteeData,
+  LanguageCode,
+  BreakingNewsFeedData,
 } from '../types/index.js';
 import type { PipelineData } from './propositions-content.js';
-import type { BreakingNewsFeedData } from '../types/index.js';
+import { getLocalizedString, COMMITTEE_ANALYSIS_CONTENT_STRINGS } from '../constants/languages.js';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -520,22 +522,35 @@ export function buildPropositionsAnalysis(
  *
  * @param committees - Committee data list
  * @param date - Publication date
+ * @param lang - Target language code for localized content
  * @returns Deep analysis object
  */
 export function buildCommitteeAnalysis(
   committees: readonly CommitteeData[],
-  date: string
+  date: string,
+  lang: LanguageCode = 'en'
 ): DeepAnalysis {
   const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
   const activeCommittees = committees.filter((c) => c.documents.length > 0);
+  const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
+  const pct = ((activeCommittees.length / Math.max(committees.length, 1)) * 100).toFixed(0);
+  const descriptor =
+    committees.length > 0 && activeCommittees.length >= committees.length * 0.7
+      ? s.productivityRobust
+      : s.productivityModerate;
 
   return {
-    what: `Committee activity report as of ${date}: ${committees.length} committees monitored, ${totalDocs} documents processed, ${activeCommittees.length} committees with recent activity.`,
+    what: s.what
+      .replace('{date}', date)
+      .replace('{total}', String(committees.length))
+      .replace('{docs}', String(totalDocs))
+      .replace('{active}', String(activeCommittees.length)),
     who: committees.map(
-      (c) => `${c.name} (${c.abbreviation}) — Chair: ${c.chair}, ${c.members} members`
+      (c) =>
+        `${c.name} (${c.abbreviation}) — ${s.chairLabel} ${c.chair}, ${c.members} ${s.membersLabel}`
     ),
     when: [
-      `Reporting date: ${date}`,
+      `${s.reportDateLabel} ${date}`,
       ...committees
         .slice(0, 3)
         .flatMap((c) =>
@@ -544,7 +559,7 @@ export function buildCommitteeAnalysis(
             .map((d) => `${c.abbreviation}: ${d.title}${d.date ? ` (${d.date})` : ''}`)
         ),
     ],
-    why: `Committees are the legislative engine of the European Parliament — ${((activeCommittees.length / Math.max(committees.length, 1)) * 100).toFixed(0)}% active rate signals ${activeCommittees.length >= committees.length * 0.7 ? 'robust' : 'moderate'} legislative productivity. Committee outputs directly shape the texts that reach plenary votes.`,
+    why: s.why.replace('{pct}', pct).replace('{descriptor}', descriptor),
     stakeholderOutcomes: committees.slice(0, 4).map((c) => ({
       actor: `${c.name} (${c.abbreviation})`,
       outcome: (c.documents.length > 2
@@ -554,24 +569,25 @@ export function buildCommitteeAnalysis(
           : 'loser') as 'winner' | 'loser' | 'neutral',
       reason:
         c.documents.length > 2
-          ? `${c.documents.length} documents — highly productive period`
+          ? s.stakeholderHighlyProductive.replace('{n}', String(c.documents.length))
           : c.documents.length > 0
-            ? `${c.documents.length} document(s) — moderate activity`
-            : 'No recent documents — potential productivity concern',
+            ? s.stakeholderModerateActivity.replace('{n}', String(c.documents.length))
+            : s.stakeholderNoDocs,
     })),
     impactAssessment: {
-      political: `Committee chairs wield significant agenda-setting power. Active committees (${activeCommittees.length}/${committees.length}) are shaping the legislative pipeline for the current session.`,
-      economic:
-        'Committee outputs on economic affairs, industry, and trade directly affect EU regulatory environments and business competitiveness.',
-      social:
-        "Social affairs, employment, and civil liberties committees produce legislation that directly impacts citizens' daily lives.",
-      legal: `${totalDocs} documents in various stages of committee consideration will eventually create or modify EU law.`,
-      geopolitical:
-        'Foreign affairs and international trade committee activities signal evolving EU diplomatic and trade priorities.',
+      political: s.impactPolitical
+        .replace('{active}', String(activeCommittees.length))
+        .replace('{total}', String(committees.length)),
+      economic: s.impactEconomic,
+      social: s.impactSocial,
+      legal: s.impactLegal.replace('{docs}', String(totalDocs)),
+      geopolitical: s.impactGeopolitical,
     },
     actionConsequences: activeCommittees.slice(0, 3).map((c) => ({
-      action: `${c.abbreviation} processed ${c.documents.length} document(s)`,
-      consequence: `Legislative proposals advance to next stage; affected stakeholders should prepare for implementation`,
+      action: s.actionProcessed
+        .replace('{abbr}', c.abbreviation)
+        .replace('{n}', String(c.documents.length)),
+      consequence: s.actionConsequence,
       severity: (c.documents.length > 3 ? 'high' : 'medium') as 'high' | 'medium',
     })),
     mistakes: committees
@@ -579,9 +595,14 @@ export function buildCommitteeAnalysis(
       .slice(0, 2)
       .map((c) => ({
         actor: `${c.name} (${c.abbreviation})`,
-        description: 'No recent documents produced — legislative backlog may be developing',
-        alternative: 'Convene additional sessions or reassign resources to clear pending files',
+        description: s.mistakeDescription,
+        alternative: s.mistakeAlternative,
       })),
-    outlook: `With ${activeCommittees.length} of ${committees.length} committees actively producing documents, the ${activeCommittees.length >= committees.length * 0.7 ? 'current pace supports a productive plenary calendar' : 'legislative pipeline may face bottlenecks if committee output does not increase'}.`,
+    outlook:
+      committees.length > 0 && activeCommittees.length >= committees.length * 0.7
+        ? s.outlookGood
+            .replace('{n}', String(activeCommittees.length))
+            .replace('{total}', String(committees.length))
+        : s.outlookConcern,
   };
 }
