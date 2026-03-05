@@ -73,8 +73,7 @@ function buildAdoptedTextsSection(items: readonly AdoptedTextFeedItem[], lang: s
     .slice(0, MAX_FEED_ITEMS)
     .map((item) => {
       const labelOrId = item.label ?? item.identifier;
-      const titleIsPlaceholder =
-        !item.title || ADOPTED_TEXT_PLACEHOLDER_PATTERN.test(item.title);
+      const titleIsPlaceholder = !item.title || ADOPTED_TEXT_PLACEHOLDER_PATTERN.test(item.title);
       const displayTitle = titleIsPlaceholder
         ? labelOrId
           ? strings.adoptedTextItemLabelFn(labelOrId)
