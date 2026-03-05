@@ -55,11 +55,11 @@ function buildAdoptedTextsSection(items, lang) {
         .map((item) => {
         const labelOrId = item.label ?? item.identifier;
         const titleIsPlaceholder = !item.title || ADOPTED_TEXT_PLACEHOLDER_PATTERN.test(item.title);
-        const displayTitle = titleIsPlaceholder
+        const displayTitle = (titleIsPlaceholder
             ? labelOrId
                 ? strings.adoptedTextItemLabelFn(labelOrId)
                 : item.title
-            : item.title;
+            : item.title) ?? '';
         const showSecondaryLabel = !titleIsPlaceholder && labelOrId;
         return (`<li class="feed-item adopted-text-item">` +
             `<strong>${escapeHTML(displayTitle)}</strong>` +
