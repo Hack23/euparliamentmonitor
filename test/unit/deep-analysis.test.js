@@ -172,9 +172,9 @@ describe('deep-analysis-content', () => {
 
     it('should include mistakes section', () => {
       const html = buildDeepAnalysisSection(SAMPLE_ANALYSIS, 'en');
-      expect(html).toContain('mistake-item');
+      expect(html).toContain('mistake-card');
       expect(html).toContain('S&amp;D leadership');
-      expect(html).toContain('mistake-alt');
+      expect(html).toContain('mistake-alternative');
     });
 
     it('should include outlook section', () => {

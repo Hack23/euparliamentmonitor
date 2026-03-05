@@ -330,14 +330,35 @@ function buildPropositionsWhy(healthScore, throughput) {
     return `Pipeline health at ${pct}% with throughput ${throughput} indicates ${quality} legislative progress. The co-decision process is functioning within normal parameters.`;
 }
 /**
+ * Localized names for the EP Conference of Presidents across supported languages.
+ * Used to translate the actor name in the propositions deep-analysis mistake card.
+ */
+const CONFERENCE_OF_PRESIDENTS = {
+    en: 'Conference of Presidents',
+    sv: 'Presidentkonferensen',
+    da: 'Formandskabskonferencen',
+    no: 'Presidentkonferansen',
+    fi: 'Puheenjohtajakonferenssi',
+    de: 'Konferenz der Präsidenten',
+    fr: 'Conférence des présidents',
+    es: 'Conferencia de Presidentes',
+    nl: 'Conferentie van voorzitters',
+    ar: 'مؤتمر الرؤساء',
+    he: 'ועידת הנשיאים',
+    ja: '議長会議',
+    ko: '의장단 회의',
+    zh: '主席团会议',
+};
+/**
  * Build deep analysis for propositions articles.
  *
  * @param proposalsHtml - Proposals HTML (used to detect content presence)
  * @param pipelineData - Pipeline metrics
  * @param date - Publication date
+ * @param lang - Target display language (default: 'en')
  * @returns Deep analysis object
  */
-export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date) {
+export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lang = 'en') {
     const hasProposals = proposalsHtml.length > 0;
     const healthScore = pipelineData?.healthScore ?? 0;
     const throughput = pipelineData?.throughput ?? 0;
@@ -395,7 +416,7 @@ export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date) {
         mistakes: healthScore < 0.5
             ? [
                 {
-                    actor: 'Conference of Presidents',
+                    actor: CONFERENCE_OF_PRESIDENTS[lang] ?? CONFERENCE_OF_PRESIDENTS['en'],
                     description: `Pipeline health dropped to ${pct}% — legislative agenda may be overloaded`,
                     alternative: 'Prioritise flagship files and defer low-priority proposals to maintain pipeline flow',
                 },
