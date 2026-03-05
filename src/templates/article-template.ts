@@ -291,7 +291,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     
     ${content}
     
-    ${renderSourcesSection(sources, lang as LanguageCode)}
+    ${renderSourcesSection(sources, lang)}
     
     <nav class="article-nav" aria-label="${escapeHTML(articleNavLabel)}">
       <a href="${indexHref}" class="back-to-news">${backLabel}</a>

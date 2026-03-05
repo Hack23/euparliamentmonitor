@@ -535,7 +535,7 @@ export function buildCommitteeAnalysis(
   const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
   const pct = ((activeCommittees.length / Math.max(committees.length, 1)) * 100).toFixed(0);
   const descriptor =
-    activeCommittees.length >= committees.length * 0.7
+    committees.length > 0 && activeCommittees.length >= committees.length * 0.7
       ? s.productivityRobust
       : s.productivityModerate;
 
@@ -599,7 +599,7 @@ export function buildCommitteeAnalysis(
         alternative: s.mistakeAlternative,
       })),
     outlook:
-      activeCommittees.length >= committees.length * 0.7
+      committees.length > 0 && activeCommittees.length >= committees.length * 0.7
         ? s.outlookGood
             .replace('{n}', String(activeCommittees.length))
             .replace('{total}', String(committees.length))
