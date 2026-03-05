@@ -183,7 +183,7 @@ function buildImpactSection(impact, heading, labels, contentLang) {
     if (perspectives.length === 0)
         return '';
     const items = perspectives
-        .map((p) => `<div class="impact-perspective ${p.css}">` +
+        .map((p) => `<div class="impact-card ${p.css}">` +
         `<h4>${escapeHTML(p.label)}</h4>` +
         `<p${langAttr}>${escapeHTML(p.text)}</p>` +
         `</div>`)
@@ -281,10 +281,10 @@ function buildMistakesSection(mistakes, heading, alternativeLabel, contentLang) 
         return '';
     const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const items = mistakes
-        .map((m) => `<div class="mistake-item">` +
+        .map((m) => `<div class="mistake-card">` +
         `<p class="mistake-actor"><strong>${escapeHTML(m.actor)}</strong></p>` +
-        `<p class="mistake-desc"${langAttr}>${escapeHTML(m.description)}</p>` +
-        `<p class="mistake-alt"${langAttr}><em>${escapeHTML(alternativeLabel)}:</em> ${escapeHTML(m.alternative)}</p>` +
+        `<p class="mistake-description"${langAttr}>${escapeHTML(m.description)}</p>` +
+        `<p class="mistake-alternative"${langAttr}><em>${escapeHTML(alternativeLabel)}:</em> ${escapeHTML(m.alternative)}</p>` +
         `</div>`)
         .join('\n              ');
     return `
@@ -339,7 +339,10 @@ export function buildDeepAnalysisSection(analysis, lang, contentLang = lang) {
     const whoHtml = buildWhoSection(analysis.who, strings.whoHeading, cl);
     const whenHtml = buildWhenSection(analysis.when, strings.whenHeading, cl);
     const whyHtml = buildWhySection(analysis.why, strings.whyHeading, cl);
-    const stakeholderHtml = buildStakeholderSection(analysis.stakeholderOutcomes, strings.stakeholderHeading, strings);
+    const stakeholderRawHtml = buildStakeholderSection(analysis.stakeholderOutcomes, strings.stakeholderHeading, strings);
+    const stakeholderHtml = cl !== undefined
+        ? `<div lang="${escapeHTML(cl)}">${stakeholderRawHtml}</div>`
+        : stakeholderRawHtml;
     const impactHtml = buildImpactSection(analysis.impactAssessment, strings.impactHeading, strings, cl);
     const consequencesHtml = buildConsequencesSection(analysis.actionConsequences, strings.consequencesHeading, strings, strings, cl);
     const mistakesHtml = buildMistakesSection(analysis.mistakes, strings.mistakesHeading, strings.alternativeLabel, cl);
