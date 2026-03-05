@@ -161,3 +161,16 @@ export type {
   EUCountryCodeMap,
   PolicyRelevantIndicators,
 } from './world-bank.js';
+
+export type {
+  SwotItem,
+  SwotAnalysis,
+  SwotStrings,
+  DashboardMetric,
+  ChartDataset,
+  ChartData,
+  ChartConfig,
+  DashboardPanel,
+  DashboardConfig,
+  DashboardStrings,
+} from './visualization.js';
