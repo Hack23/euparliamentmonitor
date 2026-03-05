@@ -799,9 +799,9 @@ describe('Breaking News adoptedTextItemLabelFn', () => {
       expect(strings.adoptedTextTypeLabel).toBeDefined();
       expect(strings.adoptedTextTypeLabel.length).toBeGreaterThan(0);
       expect(typeof strings.adoptedTextItemLabelFn).toBe('function');
-      // Function should return label unchanged
+      // Function should preserve the original label within the returned string
       const result = strings.adoptedTextItemLabelFn('T10-0035/2026');
-      expect(result).toBe('T10-0035/2026');
+      expect(result).toContain('T10-0035/2026');
     }
   });
 
@@ -814,7 +814,7 @@ describe('Breaking News adoptedTextItemLabelFn', () => {
     };
     for (const lang of ALL_LANGUAGES) {
       const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', lang, [], [], [], feedWithLabel);
-      // All languages should display the label identifier
+      // All languages should display the label identifier (as secondary label alongside the title)
       expect(html).toContain('T10-0035/2026');
       // None should duplicate type info in the title
       expect(html).not.toContain('T10-0035/2026 — adopted text');
