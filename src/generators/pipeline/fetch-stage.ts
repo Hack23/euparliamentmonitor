@@ -705,8 +705,7 @@ export function loadCommitteeDataFromFile(
       name: typeof e['name'] === 'string' ? e['name'] : `${abbreviation} Committee`,
       abbreviation,
       chair: typeof e['chair'] === 'string' ? e['chair'] : 'N/A',
-      members:
-        typeof e['members'] === 'number' && Number.isFinite(e['members']) ? e['members'] : 0,
+      members: typeof e['members'] === 'number' && Number.isFinite(e['members']) ? e['members'] : 0,
       documents: docs,
       effectiveness: typeof e['effectiveness'] === 'string' ? e['effectiveness'] : null,
     };

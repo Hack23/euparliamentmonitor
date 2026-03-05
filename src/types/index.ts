@@ -37,6 +37,7 @@ export {
   type PoliticalMistake,
   type DeepAnalysis,
   type DeepAnalysisStrings,
+  type CommitteeAnalysisContentStrings,
 } from './common.js';
 
 export type {

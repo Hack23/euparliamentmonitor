@@ -100,13 +100,13 @@ export class CommitteeReportsStrategy {
      * Build the committee reports HTML body.
      *
      * @param data - Committee reports data payload
-     * @param _lang - Language code (unused — content is language-independent)
+     * @param lang - Language code for localized content
      * @returns Article HTML body
      */
-    buildContent(data, _lang) {
+    buildContent(data, lang) {
         const base = buildCommitteeReportsHTML(data.committeeDataList);
-        const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date);
-        const deepSection = buildDeepAnalysisSection(analysis, _lang);
+        const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date, lang);
+        const deepSection = buildDeepAnalysisSection(analysis, lang);
         // Inject deep analysis before the closing </div> of .article-content
         if (deepSection) {
             const closingTag = '</div>';

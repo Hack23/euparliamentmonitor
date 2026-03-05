@@ -361,3 +361,49 @@ export interface DeepAnalysisStrings {
   readonly severityHigh: string;
   readonly severityCritical: string;
 }
+
+/** Localized content strings for the committee analysis deep analysis body text */
+export interface CommitteeAnalysisContentStrings {
+  /** Template: what happened. {date}, {total}, {docs}, {active} placeholders */
+  readonly what: string;
+  /** "Reporting date:" label prefix */
+  readonly reportDateLabel: string;
+  /** "members" label */
+  readonly membersLabel: string;
+  /** "Chair:" label */
+  readonly chairLabel: string;
+  /** "robust" productivity descriptor */
+  readonly productivityRobust: string;
+  /** "moderate" productivity descriptor */
+  readonly productivityModerate: string;
+  /** Why section text. {pct}, {descriptor} placeholders */
+  readonly why: string;
+  /** Stakeholder reason: highly productive. {n} placeholder */
+  readonly stakeholderHighlyProductive: string;
+  /** Stakeholder reason: moderate activity. {n} placeholder */
+  readonly stakeholderModerateActivity: string;
+  /** Stakeholder reason: no documents */
+  readonly stakeholderNoDocs: string;
+  /** Impact political text. {active}, {total} placeholders */
+  readonly impactPolitical: string;
+  /** Impact economic text */
+  readonly impactEconomic: string;
+  /** Impact social text */
+  readonly impactSocial: string;
+  /** Impact legal text. {docs} placeholder */
+  readonly impactLegal: string;
+  /** Impact geopolitical text */
+  readonly impactGeopolitical: string;
+  /** Action label. {abbr}, {n} placeholders */
+  readonly actionProcessed: string;
+  /** Consequence text */
+  readonly actionConsequence: string;
+  /** Mistake description */
+  readonly mistakeDescription: string;
+  /** Mistake alternative */
+  readonly mistakeAlternative: string;
+  /** Outlook when pipeline is healthy. {n}, {total} placeholders */
+  readonly outlookGood: string;
+  /** Outlook when pipeline has concerns */
+  readonly outlookConcern: string;
+}

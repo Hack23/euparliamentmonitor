@@ -206,7 +206,7 @@ function buildImpactSection(
   const items = perspectives
     .map(
       (p) =>
-        `<div class="impact-perspective ${p.css}">` +
+        `<div class="impact-card ${p.css}">` +
         `<h4>${escapeHTML(p.label)}</h4>` +
         `<p>${escapeHTML(p.text)}</p>` +
         `</div>`
