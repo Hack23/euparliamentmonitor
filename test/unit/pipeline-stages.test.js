@@ -1957,7 +1957,8 @@ describe('loadCommitteeDataFromFile', () => {
   });
 
   it('should use defaults for missing fields', () => {
-    const data = { ECON: {} };
+    // All fields intentionally omitted to verify default values
+    const data = { ECON: { /* name, chair, members, documents, effectiveness all absent */ } };
     const filePath = path.join(tmpDir, 'defaults.json');
     fs.writeFileSync(filePath, JSON.stringify(data));
     const result = loadCommitteeDataFromFile(filePath, 'ECON');
