@@ -270,6 +270,17 @@ describe('dashboard-content', () => {
       expect(html).toContain('Trendi:');
     });
 
+    it('should not include raw trend enum value in aria-label', () => {
+      const dashboard = {
+        panels: [{ title: 'P1', metrics: [{ label: 'X', value: '1', trend: 'up', change: 5.0 }] }],
+      };
+      const html = buildDashboardSection(dashboard);
+      // aria-label should contain prefix + change but not the raw 'up' direction
+      expect(html).toContain('Trend:');
+      expect(html).toContain('+5.0%');
+      expect(html).not.toMatch(/aria-label="Trend:\s+up/);
+    });
+
     it('should localize no-data message in fallback', () => {
       const dashboard = {
         panels: [{

@@ -103,6 +103,14 @@ describe('swot-content', () => {
       expect(html).toContain('swot-severity-badge');
     });
 
+    it('should render severity badges as ARIA-only labels without visible text', () => {
+      const html = buildSwotSection(SAMPLE_SWOT);
+      expect(html).toContain('role="img"');
+      expect(html).toContain('aria-label="high"');
+      // Badge content should be empty (no visible severity text)
+      expect(html).toMatch(/swot-severity-badge[^>]*><\/span>/);
+    });
+
     it('should not include severity badges when severity is not set', () => {
       const html = buildSwotSection(MINIMAL_SWOT);
       expect(html).not.toContain('swot-severity-badge');
@@ -118,6 +126,11 @@ describe('swot-content', () => {
       const html = buildSwotSection(SAMPLE_SWOT);
       expect(html).not.toContain('role="table"');
       expect(html).not.toContain('role="row"');
+    });
+
+    it('should not have hard-coded English aria-label on SWOT grid', () => {
+      const html = buildSwotSection(SAMPLE_SWOT);
+      expect(html).not.toContain('aria-label="SWOT Matrix"');
     });
 
     it('should include axis labels for internal/external dimensions', () => {

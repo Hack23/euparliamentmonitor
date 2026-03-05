@@ -30,7 +30,7 @@ import type { SwotAnalysis, SwotItem, SwotStrings } from '../types/index.js';
 function buildSwotItem(item: SwotItem): string {
   const severityClass = item.severity ? ` swot-severity-${escapeHTML(item.severity)}` : '';
   const severityBadge = item.severity
-    ? ` <span class="swot-severity-badge">${escapeHTML(item.severity)}</span>`
+    ? ` <span class="swot-severity-badge" role="img" aria-label="${escapeHTML(item.severity)}"></span>`
     : '';
   return `<li class="swot-item${severityClass}">${escapeHTML(item.text)}${severityBadge}</li>`;
 }
@@ -131,7 +131,7 @@ export function buildSwotSection(
                 <span class="swot-axis-internal">${escapeHTML(strings.internalLabel)}</span>
                 <span class="swot-axis-external">${escapeHTML(strings.externalLabel)}</span>
               </div>
-              <div class="swot-grid" aria-label="SWOT Matrix">
+              <div class="swot-grid">
                 <div class="swot-row swot-row-positive">
                   ${strengthsHtml}
                   ${opportunitiesHtml}

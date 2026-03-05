@@ -54,7 +54,9 @@ const TREND_CLASSES: Readonly<Record<string, string>> = {
  */
 function buildMetricCard(metric: DashboardMetric, trendPrefix: string): string {
   const trendHtml = buildTrendIndicator(metric, trendPrefix);
-  const unitHtml = metric.unit ? ` <span class="metric-unit">${escapeHTML(metric.unit)}</span>` : '';
+  const unitHtml = metric.unit
+    ? ` <span class="metric-unit">${escapeHTML(metric.unit)}</span>`
+    : '';
 
   return `<div class="metric-card">
                 <span class="metric-label">${escapeHTML(metric.label)}</span>
@@ -97,7 +99,7 @@ function buildTrendIndicator(metric: DashboardMetric, trendPrefix: string): stri
     metric.change !== undefined
       ? ` ${metric.change > 0 ? '+' : ''}${metric.change.toFixed(1)}%`
       : '';
-  const ariaLabel = `${trendPrefix} ${trend}${changeText}`;
+  const ariaLabel = `${trendPrefix}${changeText}`;
 
   return `<span class="${escapeHTML(trendClass)}" aria-label="${escapeHTML(ariaLabel)}">${trendSymbol}${escapeHTML(changeText)}</span>`;
 }
@@ -129,12 +131,14 @@ function buildMetricsGrid(metrics: readonly DashboardMetric[], trendPrefix: stri
  * @param strings - Localized strings
  * @returns HTML string for chart container
  */
-function buildChartContainer(chart: ChartConfig, panelIndex: number, strings: DashboardStrings): string {
+function buildChartContainer(
+  chart: ChartConfig,
+  panelIndex: number,
+  strings: DashboardStrings
+): string {
   const canvasId = `dashboard-chart-${panelIndex}`;
   const safeConfig = escapeHTML(JSON.stringify(chart));
-  const titleHtml = chart.title
-    ? `<h4 class="chart-title">${escapeHTML(chart.title)}</h4>`
-    : '';
+  const titleHtml = chart.title ? `<h4 class="chart-title">${escapeHTML(chart.title)}</h4>` : '';
 
   const fallbackTable = buildChartFallbackTable(chart, strings);
 
@@ -163,9 +167,7 @@ function buildChartFallbackTable(chart: ChartConfig, strings: DashboardStrings):
     return `<p class="chart-no-data">${escapeHTML(strings.noChartData)}</p>`;
   }
 
-  const headerCells = datasets
-    .map((ds) => `<th scope="col">${escapeHTML(ds.label)}</th>`)
-    .join('');
+  const headerCells = datasets.map((ds) => `<th scope="col">${escapeHTML(ds.label)}</th>`).join('');
   const header = `<tr><th scope="col" aria-hidden="true"></th>${headerCells}</tr>`;
 
   const rows = labels
@@ -196,7 +198,11 @@ function buildChartFallbackTable(chart: ChartConfig, strings: DashboardStrings):
  * @param strings - Localized strings
  * @returns HTML string for one panel
  */
-function buildDashboardPanel(panel: DashboardPanel, index: number, strings: DashboardStrings): string {
+function buildDashboardPanel(
+  panel: DashboardPanel,
+  index: number,
+  strings: DashboardStrings
+): string {
   const metricsHtml = panel.metrics ? buildMetricsGrid(panel.metrics, strings.trendPrefix) : '';
   const chartHtml = panel.chart ? buildChartContainer(panel.chart, index, strings) : '';
 

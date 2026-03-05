@@ -41,7 +41,9 @@ const TREND_CLASSES = {
  */
 function buildMetricCard(metric, trendPrefix) {
     const trendHtml = buildTrendIndicator(metric, trendPrefix);
-    const unitHtml = metric.unit ? ` <span class="metric-unit">${escapeHTML(metric.unit)}</span>` : '';
+    const unitHtml = metric.unit
+        ? ` <span class="metric-unit">${escapeHTML(metric.unit)}</span>`
+        : '';
     return `<div class="metric-card">
                 <span class="metric-label">${escapeHTML(metric.label)}</span>
                 <span class="metric-value">${escapeHTML(metric.value)}${unitHtml}</span>
@@ -80,7 +82,7 @@ function buildTrendIndicator(metric, trendPrefix) {
     const changeText = metric.change !== undefined
         ? ` ${metric.change > 0 ? '+' : ''}${metric.change.toFixed(1)}%`
         : '';
-    const ariaLabel = `${trendPrefix} ${trend}${changeText}`;
+    const ariaLabel = `${trendPrefix}${changeText}`;
     return `<span class="${escapeHTML(trendClass)}" aria-label="${escapeHTML(ariaLabel)}">${trendSymbol}${escapeHTML(changeText)}</span>`;
 }
 /**
@@ -113,9 +115,7 @@ function buildMetricsGrid(metrics, trendPrefix) {
 function buildChartContainer(chart, panelIndex, strings) {
     const canvasId = `dashboard-chart-${panelIndex}`;
     const safeConfig = escapeHTML(JSON.stringify(chart));
-    const titleHtml = chart.title
-        ? `<h4 class="chart-title">${escapeHTML(chart.title)}</h4>`
-        : '';
+    const titleHtml = chart.title ? `<h4 class="chart-title">${escapeHTML(chart.title)}</h4>` : '';
     const fallbackTable = buildChartFallbackTable(chart, strings);
     return `<div class="chart-container">
               ${titleHtml}
@@ -139,9 +139,7 @@ function buildChartFallbackTable(chart, strings) {
     if (labels.length === 0 || datasets.length === 0) {
         return `<p class="chart-no-data">${escapeHTML(strings.noChartData)}</p>`;
     }
-    const headerCells = datasets
-        .map((ds) => `<th scope="col">${escapeHTML(ds.label)}</th>`)
-        .join('');
+    const headerCells = datasets.map((ds) => `<th scope="col">${escapeHTML(ds.label)}</th>`).join('');
     const header = `<tr><th scope="col" aria-hidden="true"></th>${headerCells}</tr>`;
     const rows = labels
         .map((label, i) => {
