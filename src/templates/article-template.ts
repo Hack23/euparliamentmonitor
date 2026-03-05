@@ -7,7 +7,12 @@
  */
 
 import { createHash } from 'crypto';
-import type { ArticleOptions, ArticleSource, ArticleCategoryLabels, LanguageCode } from '../types/index.js';
+import type {
+  ArticleOptions,
+  ArticleSource,
+  ArticleCategoryLabels,
+  LanguageCode,
+} from '../types/index.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_FLAGS,
@@ -286,7 +291,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     
     ${content}
     
-    ${renderSourcesSection(sources, lang)}
+    ${renderSourcesSection(sources, lang as LanguageCode)}
     
     <nav class="article-nav" aria-label="${escapeHTML(articleNavLabel)}">
       <a href="${indexHref}" class="back-to-news">${backLabel}</a>
@@ -338,14 +343,12 @@ export function generateArticleHTML(options: ArticleOptions): string {
  * @param lang - Language code for localized heading
  * @returns HTML string for sources section or empty string
  */
-function renderSourcesSection(sources: ArticleSource[], lang: string): string {
+function renderSourcesSection(sources: ArticleSource[], lang: LanguageCode): string {
   if (sources.length === 0) {
     return '';
   }
 
-  const sourcesHeading = escapeHTML(
-    getLocalizedString(SOURCES_HEADING_LABELS, lang as LanguageCode)
-  );
+  const sourcesHeading = escapeHTML(getLocalizedString(SOURCES_HEADING_LABELS, lang));
   return `
     <footer class="article-footer">
       <section class="article-sources">
