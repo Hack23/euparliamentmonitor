@@ -23,6 +23,7 @@ import type {
   WeekAheadData,
   DateRange,
   CommitteeData,
+  LanguageCode,
 } from '../types/index.js';
 import type { PipelineData } from './propositions-content.js';
 import type { BreakingNewsFeedData } from '../types/index.js';
@@ -504,7 +505,7 @@ export function buildPropositionsAnalysis(
 export function buildCommitteeAnalysis(
   committees: readonly CommitteeData[],
   date: string,
-  lang = 'en'
+  lang: LanguageCode = 'en'
 ): DeepAnalysis {
   const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
   const activeCommittees = committees.filter((c) => c.documents.length > 0);
