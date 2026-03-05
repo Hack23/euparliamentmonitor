@@ -55,8 +55,8 @@ export interface SwotAnalysis {
 
 /**
  * Localized strings for SWOT analysis section headings, quadrant labels,
- * and accessible descriptions. Callers can pass localized strings to
- * `buildSwotSection()` for multi-language article generation.
+ * and accessible descriptions. Used by SWOT visualization generators
+ * (including `buildSwotSection()`) for multi-language article rendering.
  */
 export interface SwotStrings {
   /** Section heading (e.g. "SWOT Analysis") */
@@ -188,8 +188,7 @@ export interface DashboardConfig {
 
 /**
  * Localized strings for dashboard section UI text.
- * Callers can pass localized strings to `buildDashboardSection()` for
- * multi-language article generation.
+ * Used for multi-language dashboard and article rendering.
  */
 export interface DashboardStrings {
   /** Default section heading (e.g. "Dashboard") */
