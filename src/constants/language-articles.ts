@@ -2341,6 +2341,52 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: 'Legislative Procedure Updates',
     mepUpdatesHeading: 'MEP Updates',
     noFeedDataNotice: 'No recent feed data available from the European Parliament.',
+    asOf: 'as of',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `Breaking developments on ${date}: ${adopted} newly adopted texts, ${events} events, ${procedures} procedure updates, ${meps} MEP changes.`,
+    breakingWhyAnomalies:
+      'Voting anomalies and coalition shifts signal realignment of political forces within Parliament. These developments may alter the legislative calculus for pending files.',
+    breakingWhyNormal:
+      'Parliamentary activity reflects the ongoing legislative cycle. Adopted texts create binding EU law, while procedure updates indicate the trajectory of upcoming legislation.',
+    breakingWinnerActor: 'Legislative Majority',
+    breakingWinnerReasonFn: (count) =>
+      `${count} legislative texts have been advanced through the parliamentary process.`,
+    breakingNeutralActor: 'Opposition Groups',
+    breakingNeutralReason:
+      'Opposition groups are monitoring developments and may propose amendments in subsequent readings.',
+    breakingOutlookActiveFn: (date) =>
+      `Following the parliamentary session of ${date}, expect continued legislative momentum across key committees.`,
+    breakingOutlookTransitionalFn: (date) =>
+      `The parliamentary calendar following ${date} suggests a transitional period as committees rebalance legislative priorities.`,
+    breakingLegalObligationsConsequence:
+      'New legal obligations enter into force for EU member states and regulated entities.',
+    breakingProcedureConsequence:
+      'Legislative trajectory altered; upcoming committee votes and plenary sessions will be pivotal.',
+    breakingImpactPoliticalAnomalies:
+      'Unusual voting patterns suggest internal party tensions or cross-group negotiations on key dossiers.',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `${count} legislative texts reflect the current parliamentary majority's legislative priorities.`,
+    breakingImpactEconomic:
+      'New regulations may affect business operations, market access, and compliance costs across the EU.',
+    breakingImpactSocial:
+      "Legislative changes could affect citizens' rights, public services, and social standards across member states.",
+    breakingImpactLegalFn: (count) =>
+      `${count} new legal instruments create binding obligations for EU member states and stakeholders.`,
+    breakingImpactGeopoliticalCoalition:
+      'Coalition dynamics within the Parliament signal shifts in EU external policy positions and priorities.',
+    breakingImpactGeopoliticalNormal:
+      "Parliamentary decisions shape the EU's international standing and its relationships with third countries.",
+    breakingMistakeActor: 'Political Group Whips',
+    breakingMistakeDescription:
+      'Risk of insufficient scrutiny of complex legislative texts in accelerated procedures.',
+    breakingMistakeAlternative:
+      'Extend committee deliberation periods and commission independent legal analysis for contentious provisions.',
+    breakingAdoptedPrefix: 'Adopted:',
+    breakingMEPPrefix: 'MEP:',
+    anomalyUnavailable:
+      'Detailed voting anomaly analysis is currently unavailable due to technical limitations in the source data.',
+    coalitionUnavailable:
+      'Detailed coalition dynamics assessment cannot be displayed at this time as the necessary underlying data is temporarily unavailable.',
   },
   sv: {
     breakingBanner: '⚡ SENASTE NYTT',
@@ -2363,6 +2409,52 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: 'Uppdateringar av Lagstiftningsförfaranden',
     mepUpdatesHeading: 'Uppdateringar om Ledamöter',
     noFeedDataNotice: 'Inga nya flödesdata tillgängliga från Europaparlamentet.',
+    asOf: 'per',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `Senaste händelserna ${date}: ${adopted} nyligen antagna texter, ${events} händelser, ${procedures} proceduruppdateringar, ${meps} MEP-ändringar.`,
+    breakingWhyAnomalies:
+      'Röstningsanomalier och koalitionsförändringar signalerar en omgruppering av politiska krafter inom parlamentet. Dessa händelser kan förändra den lagstiftande kalkylen för pågående ärenden.',
+    breakingWhyNormal:
+      'Parlamentarisk aktivitet återspeglar den pågående lagstiftningscykeln. Antagna texter skapar bindande EU-rätt, medan procedureruppdateringar indikerar riktningen för kommande lagstiftning.',
+    breakingWinnerActor: 'Lagstiftande majoritet',
+    breakingWinnerReasonFn: (count) =>
+      `${count} lagstiftningstexter har drivits fram i den parlamentariska processen.`,
+    breakingNeutralActor: 'Oppositionsgrupper',
+    breakingNeutralReason:
+      'Oppositionsgrupperna övervakar händelseutvecklingen och kan föreslå ändringar i efterföljande behandlingar.',
+    breakingOutlookActiveFn: (date) =>
+      `Efter den parlamentariska sessionen ${date} väntas fortsatt lagstiftningsdynamik i centrala utskott.`,
+    breakingOutlookTransitionalFn: (date) =>
+      `Den parlamentariska kalendern efter ${date} tyder på en övergångsperiod när utskotten ombalanserar lagstiftningsprioriteringarna.`,
+    breakingLegalObligationsConsequence:
+      'Nya rättsliga skyldigheter träder i kraft för EU:s medlemsstater och berörda aktörer.',
+    breakingProcedureConsequence:
+      'Lagstiftningsinriktningen förändras; kommande utskottsomröstningar och plenarsammanträden blir avgörande.',
+    breakingImpactPoliticalAnomalies:
+      'Ovanliga röstningsönster tyder på interna partispänningar eller förhandlingar mellan grupper om centrala ärenden.',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `${count} lagstiftningstexter återspeglar den nuvarande parlamentsmajoritetens lagstiftningsprioriteringar.`,
+    breakingImpactEconomic:
+      'Nya förordningar kan påverka företagsverksamhet, marknadstillträde och regelefterlevnadskostnader i EU.',
+    breakingImpactSocial:
+      'Lagändringar kan påverka medborgarnas rättigheter, offentliga tjänster och sociala standarder i medlemsstaterna.',
+    breakingImpactLegalFn: (count) =>
+      `${count} nya rättsliga instrument skapar bindande skyldigheter för EU:s medlemsstater och intressenter.`,
+    breakingImpactGeopoliticalCoalition:
+      'Koalitionsdynamiken inom parlamentet signalerar förändringar i EU:s utrikespolitiska ståndpunkter och prioriteringar.',
+    breakingImpactGeopoliticalNormal:
+      'Parlamentariska beslut formar EU:s internationella ställning och relationerna med tredjeländer.',
+    breakingMistakeActor: 'Partigruppernas piskare',
+    breakingMistakeDescription:
+      'Risk för otillräcklig granskning av komplexa lagstiftningstexter i accelererade förfaranden.',
+    breakingMistakeAlternative:
+      'Förläng utskottens överläggningsperioder och beställ oberoende juridisk analys för kontroversiella bestämmelser.',
+    breakingAdoptedPrefix: 'Antagen:',
+    breakingMEPPrefix: 'MEP:',
+    anomalyUnavailable:
+      'Detaljerad analys av möjliga röstningsavvikelser är för närvarande inte tillgänglig på grund av tekniska begränsningar i källdatan.',
+    coalitionUnavailable:
+      'Fördjupad bedömning av koalitionsdynamik kan inte visas just nu eftersom nödvändiga underlagsdata tillfälligt saknas.',
   },
   da: {
     breakingBanner: '⚡ SENESTE NYT',
@@ -2385,6 +2477,52 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: 'Opdateringer af Lovgivningsprocedurer',
     mepUpdatesHeading: 'MEP-Opdateringer',
     noFeedDataNotice: 'Ingen nye feeddata tilgængelige fra Europa-Parlamentet.',
+    asOf: 'pr.',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `Seneste begivenheder den ${date}: ${adopted} nyvedtagne tekster, ${events} begivenheder, ${procedures} procedureopdateringer, ${meps} MEP-ændringer.`,
+    breakingWhyAnomalies:
+      'Afstemningsanomalier og koalitionsforskydninger signalerer en omgruppering af politiske kræfter i parlamentet. Disse begivenheder kan ændre den lovgivningsmæssige kalkule for verserende sager.',
+    breakingWhyNormal:
+      'Parlamentarisk aktivitet afspejler den igangværende lovgivningscyklus. Vedtagne tekster skaber bindende EU-ret, mens procedureopdateringer angiver retningen for kommende lovgivning.',
+    breakingWinnerActor: 'Lovgivningsmæssigt flertal',
+    breakingWinnerReasonFn: (count) =>
+      `${count} lovgivningstekster er ført frem i den parlamentariske proces.`,
+    breakingNeutralActor: 'Oppositionsgrupper',
+    breakingNeutralReason:
+      'Oppositionsgrupper følger udviklingen og kan foreslå ændringsforslag ved efterfølgende behandlinger.',
+    breakingOutlookActiveFn: (date) =>
+      `Efter den parlamentariske session den ${date} forventes fortsat lovgivningsdynamik i centrale udvalg.`,
+    breakingOutlookTransitionalFn: (date) =>
+      `Den parlamentariske kalender efter ${date} tyder på en overgangsperiode, mens udvalgene ombalancerer lovgivningsprioriteterne.`,
+    breakingLegalObligationsConsequence:
+      "Nye retlige forpligtelser træder i kraft for EU's medlemsstater og berørte aktører.",
+    breakingProcedureConsequence:
+      'Lovgivningsindsatsen ændres; kommende udvalgsafstemninger og plenarmøder bliver afgørende.',
+    breakingImpactPoliticalAnomalies:
+      'Usædvanlige afstemningsm\u00f8nstre tyder på interne partispændinger eller forhandlinger på tværs af grupper om centrale sager.',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `${count} lovgivningstekster afspejler det nuværende parlamentariske flertals lovgivningsprioriteter.`,
+    breakingImpactEconomic:
+      'Nye regler kan påvirke erhvervslivet, markedsadgang og efterlevelsesomkostninger i EU.',
+    breakingImpactSocial:
+      'Lovændringer kan påvirke borgernes rettigheder, offentlige tjenester og sociale standarder i medlemsstaterne.',
+    breakingImpactLegalFn: (count) =>
+      `${count} nye retlige instrumenter skaber bindende forpligtelser for EU's medlemsstater og interessenter.`,
+    breakingImpactGeopoliticalCoalition:
+      "Koalitionsdynamikken i parlamentet signalerer forskydninger i EU's udenrigspolitiske positioner og prioriteter.",
+    breakingImpactGeopoliticalNormal:
+      "Parlamentariske beslutninger former EU's internationale position og forholdet til tredjelande.",
+    breakingMistakeActor: 'Partigruppernes piskere',
+    breakingMistakeDescription:
+      'Risiko for utilstrækkelig granskning af komplekse lovgivningstekster i accelererede procedurer.',
+    breakingMistakeAlternative:
+      'Forlæng udvalgenes drøftelsesperioder og bestil uafhængig juridisk analyse for kontroversielle bestemmelser.',
+    breakingAdoptedPrefix: 'Vedtaget:',
+    breakingMEPPrefix: 'MEP:',
+    anomalyUnavailable:
+      'Detaljeret analyse af afstemningsanomalier er i øjeblikket ikke tilgængelig på grund af tekniske begrænsninger i kildedata.',
+    coalitionUnavailable:
+      'Detaljeret vurdering af koalitionsdynamik kan ikke vises i øjeblikket, da de nødvendige underliggende data midlertidigt mangler.',
   },
   no: {
     breakingBanner: '⚡ SISTE NYTT',
@@ -2407,6 +2545,52 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: 'Oppdateringer av Lovgivningsprosedyrer',
     mepUpdatesHeading: 'MEP-Oppdateringer',
     noFeedDataNotice: 'Ingen nye feeddata tilgjengelige fra Europaparlamentet.',
+    asOf: 'per',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `Siste hendelser ${date}: ${adopted} nylig vedtatte tekster, ${events} hendelser, ${procedures} prosedyreoppdateringer, ${meps} MEP-endringer.`,
+    breakingWhyAnomalies:
+      'Avstemningsavvik og koalisjonsforskyvninger signaliserer en omgruppering av politiske krefter i parlamentet. Disse hendelsene kan endre den lovgivningsmessige kalkylen for pågående saker.',
+    breakingWhyNormal:
+      'Parlamentarisk aktivitet gjenspeiler den pågående lovgivningssyklusen. Vedtatte tekster skaper bindende EU-rett, mens prosedyreoppdateringer indikerer retningen for kommende lovgivning.',
+    breakingWinnerActor: 'Lovgivningsmessig flertall',
+    breakingWinnerReasonFn: (count) =>
+      `${count} lovgivningstekster er fremmet i den parlamentariske prosessen.`,
+    breakingNeutralActor: 'Opposisjonsgrupper',
+    breakingNeutralReason:
+      'Opposisjonsgrupper overvåker utviklingen og kan foreslå endringer i etterfølgende behandlinger.',
+    breakingOutlookActiveFn: (date) =>
+      `Etter den parlamentariske sesjonen ${date} forventes fortsatt lovgivningsdynamikk i sentrale komiteer.`,
+    breakingOutlookTransitionalFn: (date) =>
+      `Den parlamentariske kalenderen etter ${date} tyder på en overgangsperiode når komiteene ombalanserer lovgivningsprioriteringene.`,
+    breakingLegalObligationsConsequence:
+      'Nye rettslige forpliktelser trer i kraft for EUs medlemsstater og berørte aktører.',
+    breakingProcedureConsequence:
+      'Lovgivningsforløpet endres; kommende komitéavstemninger og plenarmøter vil være avgjørende.',
+    breakingImpactPoliticalAnomalies:
+      'Uvanlige avstemningsmønstre tyder på interne partispenninger eller forhandlinger på tvers av grupper om sentrale saker.',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `${count} lovgivningstekster gjenspeiler det nåværende parlamentariske flertalls lovgivingsprioriteter.`,
+    breakingImpactEconomic:
+      'Nye forskrifter kan påvirke næringsvirksomhet, markedsadgang og etterlevelseskostnader i EU.',
+    breakingImpactSocial:
+      'Lovendringer kan påvirke borgernes rettigheter, offentlige tjenester og sosiale standarder i medlemsstatene.',
+    breakingImpactLegalFn: (count) =>
+      `${count} nye rettslige instrumenter skaper bindende forpliktelser for EUs medlemsstater og interessenter.`,
+    breakingImpactGeopoliticalCoalition:
+      'Koalisjonsdynamikken i parlamentet signaliserer skifter i EUs utenrikspolitiske posisjoner og prioriteringer.',
+    breakingImpactGeopoliticalNormal:
+      'Parlamentariske beslutninger former EUs internasjonale posisjon og forholdet til tredjeland.',
+    breakingMistakeActor: 'Partigruppers innpisker',
+    breakingMistakeDescription:
+      'Risiko for utilstrekkelig granskning av komplekse lovgivningstekster i akselererte prosedyrer.',
+    breakingMistakeAlternative:
+      'Forleng komiteens drøftingsperioder og bestill uavhengig juridisk analyse for kontroversielle bestemmelser.',
+    breakingAdoptedPrefix: 'Vedtatt:',
+    breakingMEPPrefix: 'MEP:',
+    anomalyUnavailable:
+      'Detaljert analyse av mulige avstemningsavvik er for øyeblikket ikke tilgjengelig på grunn av tekniske begrensninger i kildedataene.',
+    coalitionUnavailable:
+      'Detaljert vurdering av koalisjonsdynamikk kan ikke vises for øyeblikket siden de nødvendige underliggende dataene midlertidig mangler.',
   },
   fi: {
     breakingBanner: '⚡ TUOREET UUTISET',
@@ -2430,6 +2614,52 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: 'Lainsäädäntömenettelyjen Päivitykset',
     mepUpdatesHeading: 'MEP-Päivitykset',
     noFeedDataNotice: 'Ei uusia syötetietoja saatavilla Euroopan parlamentista.',
+    asOf: 'tilanne',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `Uusimmat tapahtumat ${date}: ${adopted} äskettäin hyväksyttyä tekstiä, ${events} tapahtumaa, ${procedures} menettelypäivitystä, ${meps} MEP-muutosta.`,
+    breakingWhyAnomalies:
+      'Äänestyspoikkeamat ja koalitiomuutokset viittaavat poliittisten voimien uudelleenryhmittymiseen parlamentissa. Nämä tapahtumat saattavat muuttaa vireillä olevien asioiden lainsäädännöllistä laskentaa.',
+    breakingWhyNormal:
+      'Parlamentaarinen toiminta heijastaa käynnissä olevaa lainsäädäntösykliä. Hyväksytyt tekstit luovat sitovaa EU-oikeutta, kun taas menettelypäivitykset osoittavat tulevan lainsäädännön suunnan.',
+    breakingWinnerActor: 'Lainsäädännöllinen enemmistö',
+    breakingWinnerReasonFn: (count) =>
+      `${count} lainsäädäntötekstiä on edistetty parlamentaarisessa prosessissa.`,
+    breakingNeutralActor: 'Oppositioryhmät',
+    breakingNeutralReason:
+      'Oppositioryhmät seuraavat kehitystä ja voivat ehdottaa muutoksia myöhemmissä käsittelyissä.',
+    breakingOutlookActiveFn: (date) =>
+      `Parlamentaarisen istunnon ${date} jälkeen odotetaan jatkuvaa lainsäädäntövauhtia keskeisillä valiokunnilla.`,
+    breakingOutlookTransitionalFn: (date) =>
+      `Parlamentaarinen kalenteri ${date} jälkeen viittaa siirtymäkauteen, kun valiokunnat tasapainottavat lainsäädäntöprioriteetit uudelleen.`,
+    breakingLegalObligationsConsequence:
+      'Uudet oikeudelliset velvoitteet tulevat voimaan EU:n jäsenvaltioille ja säännellyille toimijoille.',
+    breakingProcedureConsequence:
+      'Lainsäädäntöpolku muuttuu; tulevat valiokuntaäänestykset ja täysistunnot ovat ratkaisevia.',
+    breakingImpactPoliticalAnomalies:
+      'Epätavalliset äänestysmallit viittaavat sisäisiin puoluejännitteisiin tai ryhmien välisiin neuvotteluihin keskeisistä asiakirjoista.',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `${count} lainsäädäntötekstiä heijastaa nykyisen parlamentaarisen enemmistön lainsäädäntöprioriteetit.`,
+    breakingImpactEconomic:
+      'Uudet asetukset voivat vaikuttaa yritysten toimintaan, markkinapääsyyn ja vaatimustenmukaisuuskustannuksiin EU:ssa.',
+    breakingImpactSocial:
+      'Lakimuutokset voivat vaikuttaa kansalaisten oikeuksiin, julkisiin palveluihin ja sosiaalisiin standardeihin jäsenvaltioissa.',
+    breakingImpactLegalFn: (count) =>
+      `${count} uutta oikeudellista välinettä luo sitovia velvoitteita EU:n jäsenvaltioille ja sidosryhmille.`,
+    breakingImpactGeopoliticalCoalition:
+      'Koalitiodynamiikka parlamentissa viestii muutoksista EU:n ulkopoliittisissa kannoissa ja prioriteeteissa.',
+    breakingImpactGeopoliticalNormal:
+      'Parlamentaariset päätökset muovaavat EU:n kansainvälistä asemaa ja sen suhteita kolmansiin maihin.',
+    breakingMistakeActor: 'Ryhmien parlamenttipiiskurit',
+    breakingMistakeDescription:
+      'Riski monimutkaisten lainsäädäntötekstien riittämättömälle tarkastukselle nopeutetuissa menettelyissä.',
+    breakingMistakeAlternative:
+      'Pidennä valiokuntien harkinta-aikoja ja tilaa riippumaton oikeudellinen analyysi kiistanalaisia säännöksiä varten.',
+    breakingAdoptedPrefix: 'Hyväksytty:',
+    breakingMEPPrefix: 'MEP:',
+    anomalyUnavailable:
+      'Äänestyspoikkeamien yksityiskohtainen analyysi ei ole tällä hetkellä saatavilla lähdetietojen teknisten rajoitusten vuoksi.',
+    coalitionUnavailable:
+      'Koalitiodynamiikan yksityiskohtaista arviointia ei voida näyttää tällä hetkellä, koska tarvittavat taustatiedot ovat tilapäisesti poissa.',
   },
   de: {
     breakingBanner: '⚡ EILMELDUNG',
@@ -2453,6 +2683,52 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: 'Aktualisierungen der Gesetzgebungsverfahren',
     mepUpdatesHeading: 'MdEP-Aktualisierungen',
     noFeedDataNotice: 'Keine neuen Feeddaten vom Europäischen Parlament verfügbar.',
+    asOf: 'zum',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `Neueste Entwicklungen am ${date}: ${adopted} neu angenommene Texte, ${events} Ereignisse, ${procedures} Verfahrensupdates, ${meps} MdEP-Änderungen.`,
+    breakingWhyAnomalies:
+      'Abstimmungsanomalien und Koalitionsverschiebungen signalisieren eine Neuausrichtung politischer Kräfte im Parlament. Diese Entwicklungen könnten die gesetzgeberische Kalkulation für laufende Akten verändern.',
+    breakingWhyNormal:
+      'Parlamentarische Aktivitäten spiegeln den laufenden Gesetzgebungszyklus wider. Angenommene Texte schaffen bindendes EU-Recht, während Verfahrensupdates die Richtung der kommenden Gesetzgebung anzeigen.',
+    breakingWinnerActor: 'Gesetzgebende Mehrheit',
+    breakingWinnerReasonFn: (count) =>
+      `${count} Gesetzestexte wurden im parlamentarischen Verfahren vorangebracht.`,
+    breakingNeutralActor: 'Oppositionsgruppen',
+    breakingNeutralReason:
+      'Oppositionsgruppen beobachten die Entwicklungen und können in nachfolgenden Lesungen Änderungsanträge einbringen.',
+    breakingOutlookActiveFn: (date) =>
+      `Im Anschluss an die parlamentarische Sitzung vom ${date} ist in den zentralen Ausschüssen weiterer Gesetzgebungsschwung zu erwarten.`,
+    breakingOutlookTransitionalFn: (date) =>
+      `Der parlamentarische Kalender nach dem ${date} deutet auf eine Übergangsphase hin, in der Ausschüsse ihre Gesetzgebungsprioritäten neu ausbalancieren.`,
+    breakingLegalObligationsConsequence:
+      'Neue rechtliche Verpflichtungen treten für EU-Mitgliedstaaten und regulierte Akteure in Kraft.',
+    breakingProcedureConsequence:
+      'Der Gesetzgebungsweg ändert sich; bevorstehende Ausschussabstimmungen und Plenartagungen werden entscheidend sein.',
+    breakingImpactPoliticalAnomalies:
+      'Ungewöhnliche Abstimmungsmuster deuten auf interne Parteispannungen oder fraktionsübergreifende Verhandlungen zu Schlüsseldossiers hin.',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `${count} Gesetzestexte spiegeln die Gesetzgebungsprioritäten der aktuellen parlamentarischen Mehrheit wider.`,
+    breakingImpactEconomic:
+      'Neue Vorschriften können Geschäftsbetrieb, Marktzugang und Compliance-Kosten in der EU beeinflussen.',
+    breakingImpactSocial:
+      'Gesetzesänderungen könnten Bürgerrechte, öffentliche Dienste und Sozialstandards in den Mitgliedstaaten beeinflussen.',
+    breakingImpactLegalFn: (count) =>
+      `${count} neue Rechtsinstrumente schaffen verbindliche Verpflichtungen für EU-Mitgliedstaaten und Interessenträger.`,
+    breakingImpactGeopoliticalCoalition:
+      'Die Koalitionsdynamik im Parlament signalisiert Verschiebungen in den außenpolitischen Positionen und Prioritäten der EU.',
+    breakingImpactGeopoliticalNormal:
+      'Parlamentarische Entscheidungen prägen die internationale Stellung der EU und ihre Beziehungen zu Drittländern.',
+    breakingMistakeActor: 'Fraktionsgeschäftsführer',
+    breakingMistakeDescription:
+      'Risiko einer unzureichenden Prüfung komplexer Gesetzestexte in beschleunigten Verfahren.',
+    breakingMistakeAlternative:
+      'Ausschussberatungszeiten verlängern und unabhängige Rechtsanalysen für streitige Bestimmungen in Auftrag geben.',
+    breakingAdoptedPrefix: 'Angenommen:',
+    breakingMEPPrefix: 'MdEP:',
+    anomalyUnavailable:
+      'Detaillierte Analyse von Abstimmungsanomalien ist aufgrund technischer Einschränkungen der Quelldaten derzeit nicht verfügbar.',
+    coalitionUnavailable:
+      'Eine detaillierte Bewertung der Koalitionsdynamik kann derzeit nicht angezeigt werden, da die erforderlichen Grundlagendaten vorübergehend fehlen.',
   },
   fr: {
     breakingBanner: '⚡ DERNIÈRES NOUVELLES',
@@ -2476,6 +2752,52 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: 'Mises à Jour des Procédures Législatives',
     mepUpdatesHeading: 'Mises à Jour des Eurodéputés',
     noFeedDataNotice: 'Aucune donnée de flux récente disponible du Parlement européen.',
+    asOf: 'au',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `Dernières évolutions au ${date}\u00a0: ${adopted} textes nouvellement adoptés, ${events} événements, ${procedures} mises à jour procédurales, ${meps} changements de députés.`,
+    breakingWhyAnomalies:
+      'Les anomalies de vote et les changements de coalition signalent une recomposition des forces politiques au sein du Parlement. Ces développements pourraient modifier les calculs législatifs des dossiers en cours.',
+    breakingWhyNormal:
+      "L'activité parlementaire reflète le cycle législatif en cours. Les textes adoptés créent du droit européen contraignant, tandis que les mises à jour procédurales indiquent la trajectoire de la législation à venir.",
+    breakingWinnerActor: 'Majorité législative',
+    breakingWinnerReasonFn: (count) =>
+      `${count} textes législatifs ont été avancés dans le cadre du processus parlementaire.`,
+    breakingNeutralActor: "Groupes d'opposition",
+    breakingNeutralReason:
+      "Les groupes d'opposition suivent les développements et peuvent proposer des amendements lors des lectures suivantes.",
+    breakingOutlookActiveFn: (date) =>
+      `À la suite de la session parlementaire du ${date}, un élan législatif continu est attendu dans les commissions clés.`,
+    breakingOutlookTransitionalFn: (date) =>
+      `Le calendrier parlementaire après le ${date} suggère une période de transition tandis que les commissions rééquilibrent leurs priorités législatives.`,
+    breakingLegalObligationsConsequence:
+      "De nouvelles obligations juridiques entrent en vigueur pour les États membres de l'UE et les entités réglementées.",
+    breakingProcedureConsequence:
+      'La trajectoire législative est modifiée\u00a0; les prochains votes en commission et les sessions plénières seront décisifs.',
+    breakingImpactPoliticalAnomalies:
+      'Des schémas de vote inhabituels suggèrent des tensions internes aux partis ou des négociations inter-groupes sur des dossiers clés.',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `${count} textes législatifs reflètent les priorités législatives de la majorité parlementaire actuelle.`,
+    breakingImpactEconomic:
+      "De nouvelles réglementations peuvent affecter les opérations commerciales, l'accès aux marchés et les coûts de conformité dans l'UE.",
+    breakingImpactSocial:
+      'Les changements législatifs pourraient affecter les droits des citoyens, les services publics et les normes sociales dans les États membres.',
+    breakingImpactLegalFn: (count) =>
+      `${count} nouveaux instruments juridiques créent des obligations contraignantes pour les États membres de l'UE et les parties prenantes.`,
+    breakingImpactGeopoliticalCoalition:
+      "La dynamique de coalition au sein du Parlement signale des changements dans les positions et priorités de politique étrangère de l'UE.",
+    breakingImpactGeopoliticalNormal:
+      "Les décisions parlementaires façonnent la position internationale de l'UE et ses relations avec les pays tiers.",
+    breakingMistakeActor: 'Chefs de file des groupes politiques',
+    breakingMistakeDescription:
+      "Risque d'examen insuffisant des textes législatifs complexes dans les procédures accélérées.",
+    breakingMistakeAlternative:
+      'Prolonger les périodes de délibération en commission et commander des analyses juridiques indépendantes pour les dispositions controversées.',
+    breakingAdoptedPrefix: 'Adopté\u00a0:',
+    breakingMEPPrefix: 'Député\u00a0:',
+    anomalyUnavailable:
+      "L'analyse détaillée des anomalies de vote n'est pas disponible pour le moment en raison de limitations techniques des données sources.",
+    coalitionUnavailable:
+      "L'évaluation détaillée de la dynamique de coalition ne peut pas être affichée pour le moment, car les données sous-jacentes nécessaires sont temporairement indisponibles.",
   },
   es: {
     breakingBanner: '⚡ ÚLTIMA HORA',
@@ -2499,6 +2821,52 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: 'Actualizaciones de Procedimientos Legislativos',
     mepUpdatesHeading: 'Actualizaciones de Eurodiputados',
     noFeedDataNotice: 'No hay datos de feeds recientes disponibles del Parlamento Europeo.',
+    asOf: 'a',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `Últimas novedades el ${date}: ${adopted} textos recién adoptados, ${events} eventos, ${procedures} actualizaciones de procedimientos, ${meps} cambios de eurodiputados.`,
+    breakingWhyAnomalies:
+      'Las anomalías de votación y los cambios en la coalición señalan una recomposición de fuerzas políticas dentro del Parlamento. Estos desarrollos pueden alterar el cálculo legislativo de los expedientes pendientes.',
+    breakingWhyNormal:
+      'La actividad parlamentaria refleja el ciclo legislativo en curso. Los textos adoptados crean derecho vinculante de la UE, mientras que las actualizaciones de procedimientos indican la trayectoria de la legislación venidera.',
+    breakingWinnerActor: 'Mayoría legislativa',
+    breakingWinnerReasonFn: (count) =>
+      `${count} textos legislativos han sido avanzados en el proceso parlamentario.`,
+    breakingNeutralActor: 'Grupos de oposición',
+    breakingNeutralReason:
+      'Los grupos de oposición están monitoreando los desarrollos y pueden proponer enmiendas en lecturas posteriores.',
+    breakingOutlookActiveFn: (date) =>
+      `Tras la sesión parlamentaria del ${date}, se espera un impulso legislativo continuo en las comisiones clave.`,
+    breakingOutlookTransitionalFn: (date) =>
+      `El calendario parlamentario posterior al ${date} sugiere un período de transición a medida que las comisiones reequilibran las prioridades legislativas.`,
+    breakingLegalObligationsConsequence:
+      'Nuevas obligaciones jurídicas entran en vigor para los Estados miembros de la UE y las entidades reguladas.',
+    breakingProcedureConsequence:
+      'La trayectoria legislativa se altera; los próximos votos en comisión y las sesiones plenarias serán fundamentales.',
+    breakingImpactPoliticalAnomalies:
+      'Patrones de votación inusuales sugieren tensiones internas en los partidos o negociaciones entre grupos sobre expedientes clave.',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `${count} textos legislativos reflejan las prioridades legislativas de la mayoría parlamentaria actual.`,
+    breakingImpactEconomic:
+      'Los nuevos reglamentos pueden afectar las operaciones empresariales, el acceso al mercado y los costos de cumplimiento en la UE.',
+    breakingImpactSocial:
+      'Los cambios legislativos podrían afectar los derechos de los ciudadanos, los servicios públicos y los estándares sociales en los Estados miembros.',
+    breakingImpactLegalFn: (count) =>
+      `${count} nuevos instrumentos jurídicos crean obligaciones vinculantes para los Estados miembros de la UE y las partes interesadas.`,
+    breakingImpactGeopoliticalCoalition:
+      'La dinámica de coalición dentro del Parlamento señala cambios en las posiciones y prioridades de política exterior de la UE.',
+    breakingImpactGeopoliticalNormal:
+      'Las decisiones parlamentarias configuran la posición internacional de la UE y sus relaciones con terceros países.',
+    breakingMistakeActor: 'Jefes de delegación de grupos políticos',
+    breakingMistakeDescription:
+      'Riesgo de escrutinio insuficiente de textos legislativos complejos en procedimientos acelerados.',
+    breakingMistakeAlternative:
+      'Ampliar los períodos de deliberación en comisión y encargar análisis jurídicos independientes para las disposiciones controvertidas.',
+    breakingAdoptedPrefix: 'Adoptado:',
+    breakingMEPPrefix: 'Eurodiputado:',
+    anomalyUnavailable:
+      'El análisis detallado de anomalías de votación no está disponible actualmente debido a limitaciones técnicas en los datos fuente.',
+    coalitionUnavailable:
+      'La evaluación detallada de la dinámica de coalición no se puede mostrar en este momento, ya que los datos subyacentes necesarios no están disponibles temporalmente.',
   },
   nl: {
     breakingBanner: '⚡ LAATSTE NIEUWS',
@@ -2522,6 +2890,52 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: 'Updates van Wetgevingsprocedures',
     mepUpdatesHeading: 'Updates van Europarlementsleden',
     noFeedDataNotice: 'Geen recente feedgegevens beschikbaar van het Europees Parlement.',
+    asOf: 'per',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `Laatste ontwikkelingen op ${date}: ${adopted} nieuw aangenomen teksten, ${events} evenementen, ${procedures} procedurebijwerkingen, ${meps} MEP-wijzigingen.`,
+    breakingWhyAnomalies:
+      'Stemanomalieën en coalitieverschuivingen signaleren een hergroepering van politieke krachten binnen het Parlement. Deze ontwikkelingen kunnen de wetgevende berekening voor lopende dossiers wijzigen.',
+    breakingWhyNormal:
+      'Parlementaire activiteit weerspiegelt de lopende wetgevingscyclus. Aangenomen teksten creëren bindend EU-recht, terwijl procedurebijwerkingen de richting van komende wetgeving aangeven.',
+    breakingWinnerActor: 'Wetgevende meerderheid',
+    breakingWinnerReasonFn: (count) =>
+      `${count} wetgevingsteksten zijn gevorderd in het parlementaire proces.`,
+    breakingNeutralActor: 'Oppositiegroepen',
+    breakingNeutralReason:
+      'Oppositiegroepen volgen de ontwikkelingen en kunnen bij volgende lezingen amendementen voorstellen.',
+    breakingOutlookActiveFn: (date) =>
+      `Na de parlementaire zitting van ${date} wordt verdere wetgevingsdynamiek in kerncommissies verwacht.`,
+    breakingOutlookTransitionalFn: (date) =>
+      `De parlementaire kalender na ${date} suggereert een transitieperiode terwijl commissies wetgevingsprioriteiten opnieuw in evenwicht brengen.`,
+    breakingLegalObligationsConsequence:
+      'Nieuwe wettelijke verplichtingen treden in werking voor EU-lidstaten en gereguleerde entiteiten.',
+    breakingProcedureConsequence:
+      'De wetgevingsweg verandert; komende commissiestemmingen en plenaire vergaderingen zullen cruciaal zijn.',
+    breakingImpactPoliticalAnomalies:
+      'Ongewone stempatronen wijzen op interne partijspanningen of onderhandelingen tussen groepen over sleuteldossiers.',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `${count} wetgevingsteksten weerspiegelen de wetgevingsprioriteiten van de huidige parlementaire meerderheid.`,
+    breakingImpactEconomic:
+      'Nieuwe regelgeving kan zakelijke activiteiten, markttoegang en nalevingskosten in de EU beïnvloeden.',
+    breakingImpactSocial:
+      'Wetswijzigingen kunnen de rechten van burgers, openbare diensten en sociale normen in de lidstaten beïnvloeden.',
+    breakingImpactLegalFn: (count) =>
+      `${count} nieuwe juridische instrumenten scheppen bindende verplichtingen voor EU-lidstaten en belanghebbenden.`,
+    breakingImpactGeopoliticalCoalition:
+      'Coalitiedynamiek in het Parlement signaleert verschuivingen in de buitenlandse beleidsposities en prioriteiten van de EU.',
+    breakingImpactGeopoliticalNormal:
+      'Parlementaire beslissingen bepalen de internationale positie van de EU en haar relaties met derde landen.',
+    breakingMistakeActor: 'Fractiedisciplineurs',
+    breakingMistakeDescription:
+      'Risico op onvoldoende controle van complexe wetgevingsteksten in versnelde procedures.',
+    breakingMistakeAlternative:
+      'Verleng commissieberaadslagingsperioden en bestel onafhankelijke juridische analyses voor omstreden bepalingen.',
+    breakingAdoptedPrefix: 'Aangenomen:',
+    breakingMEPPrefix: 'MEP:',
+    anomalyUnavailable:
+      'Gedetailleerde analyse van stemanomalieën is momenteel niet beschikbaar vanwege technische beperkingen in de brondata.',
+    coalitionUnavailable:
+      'Gedetailleerde beoordeling van coalitiedynamiek kan momenteel niet worden weergegeven, omdat de benodigde onderliggende gegevens tijdelijk niet beschikbaar zijn.',
   },
   ar: {
     breakingBanner: '⚡ عاجل',
@@ -2543,6 +2957,51 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: 'تحديثات الإجراءات التشريعية',
     mepUpdatesHeading: 'تحديثات أعضاء البرلمان',
     noFeedDataNotice: 'لا تتوفر بيانات تغذية حديثة من البرلمان الأوروبي.',
+    asOf: 'اعتباراً من',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `آخر التطورات في ${date}: ${adopted} نصًا معتمدًا حديثًا، ${events} أحداث، ${procedures} تحديثات إجراءات، ${meps} تغييرات في أعضاء البرلمان.`,
+    breakingWhyAnomalies:
+      'تشير شذوذات التصويت وتحولات الائتلاف إلى إعادة توازن القوى السياسية داخل البرلمان. قد تؤثر هذه التطورات على الحسابات التشريعية للملفات المعلقة.',
+    breakingWhyNormal:
+      'يعكس النشاط البرلماني الدورة التشريعية الجارية. تنشئ النصوص المعتمدة قانونًا أوروبيًا ملزمًا، فيما تشير تحديثات الإجراءات إلى مسار التشريعات القادمة.',
+    breakingWinnerActor: 'الأغلبية التشريعية',
+    breakingWinnerReasonFn: (count) => `تم تقديم ${count} نصًا تشريعيًا في العملية البرلمانية.`,
+    breakingNeutralActor: 'مجموعات المعارضة',
+    breakingNeutralReason:
+      'تراقب مجموعات المعارضة التطورات ويمكنها اقتراح تعديلات في القراءات اللاحقة.',
+    breakingOutlookActiveFn: (date) =>
+      `في أعقاب الجلسة البرلمانية في ${date}، يُتوقع استمرار الزخم التشريعي في اللجان الرئيسية.`,
+    breakingOutlookTransitionalFn: (date) =>
+      `يشير التقويم البرلماني بعد ${date} إلى مرحلة انتقالية مع إعادة اللجان لتوازن أولوياتها التشريعية.`,
+    breakingLegalObligationsConsequence:
+      'تدخل التزامات قانونية جديدة حيز التنفيذ للدول الأعضاء في الاتحاد الأوروبي والكيانات الخاضعة للتنظيم.',
+    breakingProcedureConsequence:
+      'يتغير المسار التشريعي؛ ستكون تصويتات اللجان وجلسات الاجتماعات العامة القادمة محورية.',
+    breakingImpactPoliticalAnomalies:
+      'تشير أنماط التصويت غير المعتادة إلى توترات داخل الأحزاب أو مفاوضات بين المجموعات حول الملفات الرئيسية.',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `تعكس ${count} نصًا تشريعيًا الأولويات التشريعية للأغلبية البرلمانية الحالية.`,
+    breakingImpactEconomic:
+      'قد تؤثر اللوائح الجديدة على العمليات التجارية والوصول إلى الأسواق وتكاليف الامتثال في الاتحاد الأوروبي.',
+    breakingImpactSocial:
+      'قد تؤثر التغييرات التشريعية على حقوق المواطنين والخدمات العامة والمعايير الاجتماعية في الدول الأعضاء.',
+    breakingImpactLegalFn: (count) =>
+      `تنشئ ${count} صكًا قانونيًا جديدًا التزامات ملزمة للدول الأعضاء في الاتحاد الأوروبي وأصحاب المصلحة.`,
+    breakingImpactGeopoliticalCoalition:
+      'تشير ديناميات الائتلاف داخل البرلمان إلى تحولات في مواقف وأولويات السياسة الخارجية للاتحاد الأوروبي.',
+    breakingImpactGeopoliticalNormal:
+      'تشكّل القرارات البرلمانية المكانة الدولية للاتحاد الأوروبي وعلاقاته مع الدول الثالثة.',
+    breakingMistakeActor: 'مسؤولو الانضباط الحزبي',
+    breakingMistakeDescription:
+      'خطر عدم كفاية التدقيق في النصوص التشريعية المعقدة في الإجراءات المعجّلة.',
+    breakingMistakeAlternative:
+      'تمديد فترات مداولات اللجان وطلب تحليل قانوني مستقل للأحكام الخلافية.',
+    breakingAdoptedPrefix: 'معتمد:',
+    breakingMEPPrefix: 'عضو البرلمان:',
+    anomalyUnavailable:
+      'تحليل شذوذات التصويت التفصيلي غير متاح حاليًا بسبب قيود تقنية في بيانات المصدر.',
+    coalitionUnavailable:
+      'لا يمكن عرض التقييم التفصيلي لديناميات الائتلاف في الوقت الحالي نظرًا لعدم توفر البيانات الأساسية اللازمة مؤقتًا.',
   },
   he: {
     breakingBanner: '⚡ חדשות דחופות',
@@ -2564,6 +3023,50 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: 'עדכוני הליכי חקיקה',
     mepUpdatesHeading: 'עדכוני חברי פרלמנט',
     noFeedDataNotice: 'אין נתוני הזנה עדכניים זמינים מהפרלמנט האירופי.',
+    asOf: 'נכון ל-',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `ההתפתחויות האחרונות ב-${date}: ${adopted} טקסטים שאומצו לאחרונה, ${events} אירועים, ${procedures} עדכוני הליכים, ${meps} שינויים בחברי פרלמנט.`,
+    breakingWhyAnomalies:
+      'חריגות הצבעה ושינויים בקואליציה מסמנים ארגון מחדש של הכוחות הפוליטיים בפרלמנט. התפתחויות אלו עשויות לשנות את התחשיב החקיקתי לתיקים הממתינים.',
+    breakingWhyNormal:
+      'הפעילות הפרלמנטרית משקפת את מחזור החקיקה השוטף. טקסטים שאומצו יוצרים חוק אירופי מחייב, בעוד שעדכוני הליכים מצביעים על מסלול החקיקה הקרובה.',
+    breakingWinnerActor: 'הרוב החקיקתי',
+    breakingWinnerReasonFn: (count) => `${count} טקסטים חקיקתיים קודמו בתהליך הפרלמנטרי.`,
+    breakingNeutralActor: 'קבוצות האופוזיציה',
+    breakingNeutralReason:
+      'קבוצות האופוזיציה עוקבות אחר ההתפתחויות ועשויות להציע תיקונים בקריאות הבאות.',
+    breakingOutlookActiveFn: (date) =>
+      `בעקבות הישיבה הפרלמנטרית של ${date}, צפוי מומנטום חקיקתי מתמשך בוועדות המרכזיות.`,
+    breakingOutlookTransitionalFn: (date) =>
+      `לוח הזמנים הפרלמנטרי לאחר ${date} מרמז על תקופת מעבר בה הוועדות מאזנות מחדש את סדרי העדיפויות החקיקתיים.`,
+    breakingLegalObligationsConsequence:
+      'חובות משפטיות חדשות נכנסות לתוקף עבור מדינות החברות באיחוד האירופי וגורמים מוסדרים.',
+    breakingProcedureConsequence:
+      'מסלול החקיקה משתנה; הצבעות ועדה ומושבי מליאה קרובים יהיו מכריעים.',
+    breakingImpactPoliticalAnomalies:
+      'דפוסי הצבעה חריגים מרמזים על מתחים פנים-מפלגתיים או משא ומתן בין-קבוצתי על תיקים מרכזיים.',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `${count} טקסטים חקיקתיים משקפים את סדרי העדיפויות החקיקתיים של הרוב הפרלמנטרי הנוכחי.`,
+    breakingImpactEconomic:
+      'תקנות חדשות עשויות להשפיע על פעילות עסקית, גישה לשוק ועלויות ציות ברחבי האיחוד האירופי.',
+    breakingImpactSocial:
+      'שינויים חקיקתיים עשויים להשפיע על זכויות אזרחים, שירותים ציבוריים ותקנים חברתיים במדינות החברות.',
+    breakingImpactLegalFn: (count) =>
+      `${count} מכשירים משפטיים חדשים יוצרים חובות מחייבות למדינות החברות באיחוד האירופי ולבעלי עניין.`,
+    breakingImpactGeopoliticalCoalition:
+      'דינמיקת הקואליציה בפרלמנט מסמנת שינויים בעמדות ובסדרי העדיפויות של המדיניות החוץ-אירופית.',
+    breakingImpactGeopoliticalNormal:
+      'החלטות פרלמנטריות מעצבות את מעמדה הבינלאומי של האיחוד האירופי ואת יחסיו עם מדינות שלישיות.',
+    breakingMistakeActor: 'מנהיגי הסיעות',
+    breakingMistakeDescription:
+      'סיכון לבחינה בלתי מספקת של טקסטים חקיקתיים מורכבים בהליכים מואצים.',
+    breakingMistakeAlternative:
+      'הארכת תקופות הדיון בוועדות והזמנת ניתוח משפטי עצמאי עבור הוראות שנויות במחלוקת.',
+    breakingAdoptedPrefix: 'אומץ:',
+    breakingMEPPrefix: 'חבר פרלמנט:',
+    anomalyUnavailable: 'ניתוח מפורט של חריגות הצבעה אינו זמין כעת עקב מגבלות טכניות בנתוני המקור.',
+    coalitionUnavailable:
+      'הערכה מפורטת של דינמיקת הקואליציה אינה יכולה להיות מוצגת כעת, מכיוון שנתוני הבסיס הנחוצים אינם זמינים זמנית.',
   },
   ja: {
     breakingBanner: '⚡ 速報',
@@ -2586,6 +3089,50 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: '立法手続きの更新',
     mepUpdatesHeading: 'MEPの更新',
     noFeedDataNotice: '欧州議会からの最新フィードデータはありません。',
+    asOf: '現在',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `${date}の最新動向：新たに採択されたテキスト${adopted}件、イベント${events}件、手続き更新${procedures}件、MEP変更${meps}件。`,
+    breakingWhyAnomalies:
+      '投票の異常と連立の変動が、議会内の政治的勢力の再編を示しています。これらの動向は、係属中の案件の立法的計算を変える可能性があります。',
+    breakingWhyNormal:
+      '議会活動は進行中の立法サイクルを反映しています。採択されたテキストは拘束力のあるEU法を生み出し、手続き更新は今後の法律の方向性を示します。',
+    breakingWinnerActor: '立法多数派',
+    breakingWinnerReasonFn: (count) => `${count}件の立法テキストが議会プロセスで進められました。`,
+    breakingNeutralActor: '野党グループ',
+    breakingNeutralReason:
+      '野党グループは動向を監視しており、後続の審議で修正案を提案する可能性があります。',
+    breakingOutlookActiveFn: (date) =>
+      `${date}の議会会期後、主要な委員会で立法の勢いが続くことが期待されます。`,
+    breakingOutlookTransitionalFn: (date) =>
+      `${date}以降の議会日程は、委員会が立法上の優先事項を再調整する移行期間を示唆しています。`,
+    breakingLegalObligationsConsequence:
+      'EU加盟国および規制対象事業体に対し、新たな法的義務が発効します。',
+    breakingProcedureConsequence:
+      '立法の経路が変わります；今後の委員会投票と本会議が鍵となります。',
+    breakingImpactPoliticalAnomalies:
+      '異例の投票パターンは、党内の緊張または主要案件に関するグループ間の交渉を示唆しています。',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `${count}件の立法テキストは、現在の議会多数派の立法優先事項を反映しています。`,
+    breakingImpactEconomic:
+      '新規制は、EU全体のビジネス運営、市場アクセス、コンプライアンスコストに影響を与える可能性があります。',
+    breakingImpactSocial:
+      '法制上の変更は、加盟国における市民の権利、公共サービス、社会基準に影響を与える可能性があります。',
+    breakingImpactLegalFn: (count) =>
+      `${count}件の新たな法的手段が、EU加盟国および利害関係者に対して拘束力のある義務を生み出します。`,
+    breakingImpactGeopoliticalCoalition:
+      '議会内の連立力学は、EUの対外政策の立場と優先事項の変化を示しています。',
+    breakingImpactGeopoliticalNormal: '議会の決定は、EUの国際的地位と第三国との関係を形成します。',
+    breakingMistakeActor: '会派院内幹事',
+    breakingMistakeDescription:
+      '迅速化された手続きにおける複雑な立法テキストの精査が不十分になるリスク。',
+    breakingMistakeAlternative:
+      '委員会の審議期間を延長し、論争的な条項については独立した法的分析を委託してください。',
+    breakingAdoptedPrefix: '採択：',
+    breakingMEPPrefix: 'MEP：',
+    anomalyUnavailable:
+      '投票異常の詳細分析は、ソースデータの技術的な制限により現在利用できません。',
+    coalitionUnavailable:
+      '連立力学の詳細な評価は、必要な基礎データが一時的に利用できないため、現時点では表示できません。',
   },
   ko: {
     breakingBanner: '⚡ 속보',
@@ -2607,6 +3154,50 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: '입법 절차 업데이트',
     mepUpdatesHeading: 'MEP 업데이트',
     noFeedDataNotice: '유럽 의회의 최신 피드 데이터가 없습니다.',
+    asOf: '기준',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `${date} 최신 동향: 새로 채택된 텍스트 ${adopted}건, 이벤트 ${events}건, 절차 업데이트 ${procedures}건, MEP 변경 ${meps}건.`,
+    breakingWhyAnomalies:
+      '투표 이상과 연합 변동은 의회 내 정치적 세력의 재편을 나타냅니다. 이러한 발전은 계류 중인 안건에 대한 입법적 계산을 변경할 수 있습니다.',
+    breakingWhyNormal:
+      '의회 활동은 진행 중인 입법 주기를 반영합니다. 채택된 텍스트는 구속력 있는 EU 법을 생성하고, 절차 업데이트는 다가올 입법의 방향을 나타냅니다.',
+    breakingWinnerActor: '입법 다수파',
+    breakingWinnerReasonFn: (count) =>
+      `${count}건의 입법 텍스트가 의회 절차를 통해 진행되었습니다.`,
+    breakingNeutralActor: '야당 그룹',
+    breakingNeutralReason:
+      '야당 그룹은 동향을 모니터링하고 있으며 후속 심의에서 수정안을 제안할 수 있습니다.',
+    breakingOutlookActiveFn: (date) =>
+      `${date} 의회 회기 이후 주요 위원회에서 지속적인 입법 모멘텀이 예상됩니다.`,
+    breakingOutlookTransitionalFn: (date) =>
+      `${date} 이후의 의회 일정은 위원회가 입법 우선순위를 재조정하는 전환 기간을 시사합니다.`,
+    breakingLegalObligationsConsequence:
+      'EU 회원국 및 규제 대상 기업에 새로운 법적 의무가 발효됩니다.',
+    breakingProcedureConsequence:
+      '입법 경로가 변경됩니다; 앞으로 있을 위원회 투표와 본회의 회기가 중요합니다.',
+    breakingImpactPoliticalAnomalies:
+      '비정상적인 투표 패턴은 주요 안건에 대한 당내 긴장 또는 그룹 간 협상을 시사합니다.',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `${count}건의 입법 텍스트는 현재 의회 다수파의 입법 우선순위를 반영합니다.`,
+    breakingImpactEconomic:
+      '새로운 규정은 EU 전반에서 기업 운영, 시장 접근 및 규정 준수 비용에 영향을 미칠 수 있습니다.',
+    breakingImpactSocial:
+      '입법 변경은 회원국의 시민 권리, 공공 서비스 및 사회적 기준에 영향을 미칠 수 있습니다.',
+    breakingImpactLegalFn: (count) =>
+      `${count}건의 새로운 법적 수단이 EU 회원국과 이해 관계자에게 구속력 있는 의무를 부여합니다.`,
+    breakingImpactGeopoliticalCoalition:
+      '의회 내 연합 역학은 EU 외교 정책 입장과 우선순위의 변화를 나타냅니다.',
+    breakingImpactGeopoliticalNormal: '의회 결정은 EU의 국제적 위상과 제3국과의 관계를 형성합니다.',
+    breakingMistakeActor: '정치 그룹 원내총무',
+    breakingMistakeDescription: '가속화된 절차에서 복잡한 입법 텍스트를 충분히 검토하지 않을 위험.',
+    breakingMistakeAlternative:
+      '위원회 심의 기간을 연장하고 논쟁적인 조항에 대해 독립적인 법적 분석을 의뢰하십시오.',
+    breakingAdoptedPrefix: '채택:',
+    breakingMEPPrefix: 'MEP:',
+    anomalyUnavailable:
+      '투표 이상의 상세 분석은 소스 데이터의 기술적 제한으로 현재 이용할 수 없습니다.',
+    coalitionUnavailable:
+      '연합 역학의 상세 평가는 필요한 기본 데이터가 일시적으로 이용 불가능하여 현재 표시할 수 없습니다.',
   },
   zh: {
     breakingBanner: '⚡ 突发',
@@ -2627,5 +3218,40 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     procedureUpdatesHeading: '立法程序更新',
     mepUpdatesHeading: 'MEP更新',
     noFeedDataNotice: '没有来自欧洲议会的最新订阅数据。',
+    asOf: '截至',
+    breakingWhatFn: (date, adopted, events, procedures, meps) =>
+      `${date}最新动态：${adopted}项新通过文本，${events}项活动，${procedures}项程序更新，${meps}项议员变更。`,
+    breakingWhyAnomalies:
+      '投票异常和联盟变动表明议会内部政治力量正在重新排列。这些动态可能改变待处理议案的立法计算。',
+    breakingWhyNormal:
+      '议会活动反映了正在进行的立法周期。通过的文本创造了具有约束力的欧盟法律，而程序更新则表明了即将出台的立法方向。',
+    breakingWinnerActor: '立法多数派',
+    breakingWinnerReasonFn: (count) => `${count}项立法文本已通过议会程序推进。`,
+    breakingNeutralActor: '反对派团体',
+    breakingNeutralReason: '反对派团体正在监测动态，可能在后续读会中提出修订意见。',
+    breakingOutlookActiveFn: (date) =>
+      `在${date}议会会议之后，预计主要委员会的立法势头将持续推进。`,
+    breakingOutlookTransitionalFn: (date) =>
+      `${date}之后的议会日程表明，随着各委员会重新平衡立法优先事项，将进入过渡期。`,
+    breakingLegalObligationsConsequence: '欧盟成员国和受监管实体将面临新的法律义务。',
+    breakingProcedureConsequence: '立法路径已发生变化；即将举行的委员会投票和全体会议至关重要。',
+    breakingImpactPoliticalAnomalies:
+      '不寻常的投票模式表明党内存在紧张局势，或各团体就关键议案进行跨党派谈判。',
+    breakingImpactPoliticalNormalFn: (count) =>
+      `${count}项立法文本反映了当前议会多数派的立法优先事项。`,
+    breakingImpactEconomic: '新法规可能影响欧盟各地的商业运营、市场准入和合规成本。',
+    breakingImpactSocial: '立法变化可能影响成员国公民的权利、公共服务和社会标准。',
+    breakingImpactLegalFn: (count) =>
+      `${count}项新法律文书为欧盟成员国和利益相关者创造了具有约束力的义务。`,
+    breakingImpactGeopoliticalCoalition:
+      '议会内部的联盟动态表明欧盟对外政策立场和优先事项正在发生转变。',
+    breakingImpactGeopoliticalNormal: '议会决定塑造了欧盟的国际地位及其与第三国的关系。',
+    breakingMistakeActor: '政治团体党鞭',
+    breakingMistakeDescription: '在加快程序中对复杂立法文本审查不足的风险。',
+    breakingMistakeAlternative: '延长委员会审议期，并针对争议性条款委托独立法律分析。',
+    breakingAdoptedPrefix: '通过：',
+    breakingMEPPrefix: '议员：',
+    anomalyUnavailable: '由于源数据存在技术限制，投票异常的详细分析目前不可用。',
+    coalitionUnavailable: '目前无法显示联盟动态的详细评估，因为所需的基础数据暂时不可用。',
   },
 };
