@@ -48,6 +48,22 @@ function buildMetricCard(metric) {
               </div>`;
 }
 /**
+ * Derive trend direction from an explicit trend value or numeric change.
+ *
+ * @param trend - Explicit trend or undefined
+ * @param change - Numeric percentage change or undefined
+ * @returns Resolved trend direction
+ */
+function resolveTrend(trend, change) {
+    if (trend)
+        return trend;
+    if (change !== undefined && change > 0)
+        return 'up';
+    if (change !== undefined && change < 0)
+        return 'down';
+    return 'stable';
+}
+/**
  * Build trend indicator HTML for a metric.
  *
  * @param metric - Metric with optional trend and change
@@ -56,7 +72,7 @@ function buildMetricCard(metric) {
 function buildTrendIndicator(metric) {
     if (!metric.trend && metric.change === undefined)
         return '';
-    const trend = metric.trend ?? (metric.change !== undefined && metric.change > 0 ? 'up' : metric.change !== undefined && metric.change < 0 ? 'down' : 'stable');
+    const trend = resolveTrend(metric.trend, metric.change);
     const trendClass = TREND_CLASSES[trend] ?? 'metric-trend-stable';
     const trendSymbol = TREND_INDICATORS[trend] ?? '→';
     const changeText = metric.change !== undefined

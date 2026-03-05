@@ -208,6 +208,29 @@ describe('dashboard-content', () => {
     it('should generate unique canvas IDs per panel', () => {
       const html = buildDashboardSection(SAMPLE_DASHBOARD);
       expect(html).toContain('dashboard-chart-0');
+      // SAMPLE_DASHBOARD only has one chart panel (index 0), second panel has no chart
+      // Verify the ID pattern is present and unique
+      const idMatches = html.match(/dashboard-chart-\d+/g) || [];
+      const uniqueIds = new Set(idMatches);
+      expect(uniqueIds.size).toBe(idMatches.length);
+    });
+
+    it('should generate distinct canvas IDs for multi-chart dashboards', () => {
+      const multiChart = {
+        panels: [
+          {
+            title: 'Panel A',
+            chart: { type: 'bar', data: { labels: ['A'], datasets: [{ label: 'X', data: [1] }] } },
+          },
+          {
+            title: 'Panel B',
+            chart: { type: 'line', data: { labels: ['B'], datasets: [{ label: 'Y', data: [2] }] } },
+          },
+        ],
+      };
+      const html = buildDashboardSection(multiChart);
+      expect(html).toContain('dashboard-chart-0');
+      expect(html).toContain('dashboard-chart-1');
     });
 
     it('should render multiple panels', () => {
