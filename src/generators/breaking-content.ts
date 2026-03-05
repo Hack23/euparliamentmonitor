@@ -65,14 +65,17 @@ function buildAdoptedTextsSection(items: readonly AdoptedTextFeedItem[], lang: s
   const strings = getLocalizedString(BREAKING_STRINGS, lang);
   const listItems = items
     .slice(0, MAX_FEED_ITEMS)
-    .map(
-      (item) =>
+    .map((item) => {
+      const displayLabel = item.label ?? item.identifier;
+      const displayTitle = displayLabel ? strings.adoptedTextItemLabelFn(displayLabel) : item.title;
+      return (
         `<li class="feed-item adopted-text-item">` +
-        `<strong>${escapeHTML(item.title)}</strong>` +
+        `<strong>${escapeHTML(displayTitle)}</strong>` +
         `${item.date ? ` <span class="feed-date">(${escapeHTML(item.date)})</span>` : ''}` +
-        `${item.type ? ` <span class="feed-type">[${escapeHTML(item.type)}]</span>` : ''}` +
+        `${item.type ? ` <span class="feed-type">${escapeHTML(strings.adoptedTextTypeLabel)}</span>` : ''}` +
         `</li>`
-    )
+      );
+    })
     .join('\n            ');
   return `
         <section class="adopted-texts-feed">
@@ -443,7 +446,11 @@ export function buildBreakingNewsContent(
 
   // ─── Analytical context sections (SECONDARY) ──────────────────────────
   const anomalySection = buildAnomalyRawSection(anomalyRaw, strings, editorial.sourceAttribution);
-  const coalitionSection = buildCoalitionRawSection(coalitionRaw, strings, editorial.sourceAttribution);
+  const coalitionSection = buildCoalitionRawSection(
+    coalitionRaw,
+    strings,
+    editorial.sourceAttribution
+  );
 
   const reportSection = reportRaw
     ? `
