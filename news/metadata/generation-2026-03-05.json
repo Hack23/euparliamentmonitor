@@ -1,5 +1,6 @@
 {
   "timestamp": "2026-03-05T12:13:40.484Z",
+  "timestamp": "2026-03-05T07:46:44.360Z",
   "generated": 14,
   "skipped": 0,
   "dryRun": 0,
@@ -19,6 +20,20 @@
     "2026-03-05-breaking-ja.html",
     "2026-03-05-breaking-ko.html",
     "2026-03-05-breaking-zh.html"
+    "2026-03-05-committee-reports-en.html",
+    "2026-03-05-committee-reports-sv.html",
+    "2026-03-05-committee-reports-da.html",
+    "2026-03-05-committee-reports-no.html",
+    "2026-03-05-committee-reports-fi.html",
+    "2026-03-05-committee-reports-de.html",
+    "2026-03-05-committee-reports-fr.html",
+    "2026-03-05-committee-reports-es.html",
+    "2026-03-05-committee-reports-nl.html",
+    "2026-03-05-committee-reports-ar.html",
+    "2026-03-05-committee-reports-he.html",
+    "2026-03-05-committee-reports-ja.html",
+    "2026-03-05-committee-reports-ko.html",
+    "2026-03-05-committee-reports-zh.html"
   ],
   "results": [
     {
@@ -28,4 +43,18 @@
     }
   ],
   "usedMCP": true
+      "slug": "2026-03-05-committee-reports"
+    }
+  ],
+  "usedMCP": true,
+  "dataSource": "EP precomputed stats (get_all_generated_stats) + EP_COMMITTEE_DATA_FILE + EP_FEED_DATA_FILE",
+  "committeeDataInjected": true,
+  "committeesWithData": [
+    "ENVI",
+    "ECON",
+    "AFET",
+    "LIBE",
+    "AGRI"
+  ],
+  "totalDocuments": 21
 }

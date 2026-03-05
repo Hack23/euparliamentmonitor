@@ -17,6 +17,7 @@ import type {
   WeekAheadStrings,
   BreakingStrings,
   DeepAnalysisStrings,
+  CommitteeAnalysisContentStrings,
   SwotStrings,
   DashboardStrings,
 } from '../types/index.js';
@@ -3258,6 +3259,479 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
   },
 };
 
+/** Localized body-text strings for the committee-analysis deep-analysis section */
+export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisContentStrings> = {
+  en: {
+    what: 'Committee activity report as of {date}: {total} committees monitored, {docs} documents processed, {active} committees with recent activity.',
+    reportDateLabel: 'Reporting date:',
+    membersLabel: 'members',
+    chairLabel: 'Chair:',
+    productivityRobust: 'robust',
+    productivityModerate: 'moderate',
+    why: 'Committees are the legislative engine of the European Parliament — {pct}% active rate signals {descriptor} legislative productivity. Committee outputs directly shape the texts that reach plenary votes.',
+    stakeholderHighlyProductive: '{n} documents — highly productive period',
+    stakeholderModerateActivity: '{n} document(s) — moderate activity',
+    stakeholderNoDocs: 'No recent documents — potential productivity concern',
+    impactPolitical:
+      'Committee chairs wield significant agenda-setting power. Active committees ({active}/{total}) are shaping the legislative pipeline for the current session.',
+    impactEconomic:
+      'Committee outputs on economic affairs, industry, and trade directly affect EU regulatory environments and business competitiveness.',
+    impactSocial:
+      "Social affairs, employment, and civil liberties committees produce legislation that directly impacts citizens' daily lives.",
+    impactLegal:
+      '{docs} documents in various stages of committee consideration will eventually create or modify EU law.',
+    impactGeopolitical:
+      'Foreign affairs and international trade committee activities signal evolving EU diplomatic and trade priorities.',
+    actionProcessed: '{abbr} processed {n} document(s)',
+    actionConsequence:
+      'Legislative proposals advance to next stage; affected stakeholders should prepare for implementation',
+    mistakeDescription: 'No recent documents produced — legislative backlog may be developing',
+    mistakeAlternative: 'Convene additional sessions or reassign resources to clear pending files',
+    outlookGood:
+      'With {n} of {total} committees actively producing documents, the current pace supports a productive plenary calendar.',
+    outlookConcern:
+      'The legislative pipeline may face bottlenecks if committee output does not increase.',
+    lede: 'European Parliament committee activity and legislative effectiveness analysis.',
+    noRecentDocs: 'No recent documents available',
+  },
+  sv: {
+    what: 'Utskottsaktivitetsrapport per {date}: {total} utskott övervakade, {docs} dokument behandlade, {active} utskott med aktuell aktivitet.',
+    reportDateLabel: 'Rapportdatum:',
+    membersLabel: 'ledamöter',
+    chairLabel: 'Ordförande:',
+    productivityRobust: 'robust',
+    productivityModerate: 'måttlig',
+    why: 'Utskotten är Europaparlamentets lagstiftningsmotor — {pct}% aktiv andel signalerar {descriptor} lagstiftningsproduktivitet. Utskottens arbete formar direkt de texter som når plenarvoteringar.',
+    stakeholderHighlyProductive: '{n} dokument — mycket produktiv period',
+    stakeholderModerateActivity: '{n} dokument — måttlig aktivitet',
+    stakeholderNoDocs: 'Inga aktuella dokument — potentiellt produktivitetsproblem',
+    impactPolitical:
+      'Utskottsordföranden har betydande dagordningsmakt. Aktiva utskott ({active}/{total}) formar den lagstiftande pipeline för innevarande session.',
+    impactEconomic:
+      'Utskottens arbete inom ekonomi, industri och handel påverkar direkt EU:s regleringsmiljöer och affärskonkurrenskraft.',
+    impactSocial:
+      'Utskott för sociala frågor, sysselsättning och medborgerliga friheter producerar lagstiftning som direkt påverkar medborgarnas dagliga liv.',
+    impactLegal:
+      '{docs} dokument i olika stadier av utskottsprövning kommer slutligen att skapa eller ändra EU-lagstiftning.',
+    impactGeopolitical:
+      'Utskottsaktiviteter för utrikesfrågor och internationell handel signalerar föränderliga diplomatiska och handelsmässiga EU-prioriteringar.',
+    actionProcessed: '{abbr} behandlade {n} dokument',
+    actionConsequence:
+      'Lagstiftningsförslag går vidare till nästa steg; berörda intressenter bör förbereda sig för genomförande',
+    mistakeDescription:
+      'Inga aktuella dokument producerade — lagstiftningsefterskott kan hålla på att utvecklas',
+    mistakeAlternative:
+      'Sammankalla ytterligare sessioner eller omfördela resurser för att rensa väntande ärenden',
+    outlookGood:
+      'Med {n} av {total} utskott som aktivt producerar dokument stöder det nuvarande tempot en produktiv plenarkalender.',
+    outlookConcern:
+      'Den lagstiftande pipeline kan möta flaskhalsar om utskottens produktion inte ökar.',
+    lede: 'Analys av Europaparlamentets utskottsaktivitet och lagstiftningseffektivitet.',
+    noRecentDocs: 'Inga aktuella dokument tillgängliga',
+  },
+  da: {
+    what: 'Udvalgsaktivitetsrapport pr. {date}: {total} udvalg overvåget, {docs} dokumenter behandlet, {active} udvalg med nylig aktivitet.',
+    reportDateLabel: 'Rapportdato:',
+    membersLabel: 'medlemmer',
+    chairLabel: 'Formand:',
+    productivityRobust: 'robust',
+    productivityModerate: 'moderat',
+    why: 'Udvalgene er Europa-Parlamentets lovgivningsmæssige motor — {pct}% aktiv rate signalerer {descriptor} lovgivningsmæssig produktivitet. Udvalgsresultater former direkte de tekster, der når plenarvoteringe.',
+    stakeholderHighlyProductive: '{n} dokumenter — meget produktiv periode',
+    stakeholderModerateActivity: '{n} dokument(er) — moderat aktivitet',
+    stakeholderNoDocs: 'Ingen nylige dokumenter — potentielt produktivitetsproblem',
+    impactPolitical:
+      'Udvalgsformænd har betydelig dagsordensættende magt. Aktive udvalg ({active}/{total}) former den lovgivningsmæssige pipeline for den aktuelle session.',
+    impactEconomic:
+      "Udvalgsresultater inden for økonomi, industri og handel påvirker direkte EU's reguleringsmiljøer og erhvervskonkurrenceevne.",
+    impactSocial:
+      'Udvalg for sociale anliggender, beskæftigelse og borgerlige friheder producerer lovgivning, der direkte påvirker borgernes daglige liv.',
+    impactLegal:
+      '{docs} dokumenter i forskellige stadier af udvalgsbehandling vil i sidste ende skabe eller ændre EU-lovgivning.',
+    impactGeopolitical:
+      'Udvalgsaktiviteter for udenrigsanliggender og international handel signalerer udviklende EU-diplomatiske og handelsmæssige prioriteter.',
+    actionProcessed: '{abbr} behandlede {n} dokument(er)',
+    actionConsequence:
+      'Lovgivningsforslag skrider frem til næste trin; berørte interessenter bør forberede sig på gennemførelse',
+    mistakeDescription:
+      'Ingen nylige dokumenter produceret — lovgivningsmæssig efterslæb kan være under udvikling',
+    mistakeAlternative:
+      'Indkald yderligere møder eller omfordel ressourcer for at fjerne ventende sager',
+    outlookGood:
+      'Med {n} af {total} udvalg, der aktivt producerer dokumenter, understøtter det nuværende tempo en produktiv plenarkalender.',
+    outlookConcern:
+      'Den lovgivningsmæssige pipeline kan møde flaskehalse, hvis udvalgets produktion ikke øges.',
+    lede: 'Analyse af Europa-Parlamentets udvalgsaktivitet og lovgivningsmæssig effektivitet.',
+    noRecentDocs: 'Ingen nylige dokumenter tilgængelige',
+  },
+  no: {
+    what: 'Komitéaktivitetsrapport per {date}: {total} komiteer overvåket, {docs} dokumenter behandlet, {active} komiteer med nylig aktivitet.',
+    reportDateLabel: 'Rapportdato:',
+    membersLabel: 'medlemmer',
+    chairLabel: 'Leder:',
+    productivityRobust: 'robust',
+    productivityModerate: 'moderat',
+    why: 'Komiteene er Europaparlamentets lovgivende motor — {pct}% aktiv rate signaliserer {descriptor} lovgivende produktivitet. Komitéresultater former direkte tekstene som når plenumstemmer.',
+    stakeholderHighlyProductive: '{n} dokumenter — svært produktiv periode',
+    stakeholderModerateActivity: '{n} dokument(er) — moderat aktivitet',
+    stakeholderNoDocs: 'Ingen nylige dokumenter — potensielt produktivitetsproblem',
+    impactPolitical:
+      'Komitéledere har betydelig dagsordensmakt. Aktive komiteer ({active}/{total}) former den lovgivende pipeline for den nåværende sesjonen.',
+    impactEconomic:
+      'Komitéresultater innen økonomi, industri og handel påvirker direkte EUs reguleringsmiljøer og næringskonkurranse.',
+    impactSocial:
+      'Komiteer for sosiale anliggender, sysselsetting og sivile friheter produserer lovgivning som direkte påvirker borgernes daglige liv.',
+    impactLegal:
+      '{docs} dokumenter i ulike stadier av komitébehandling vil til slutt skape eller endre EU-lovgivning.',
+    impactGeopolitical:
+      'Komitéaktiviteter for utenriksanliggender og internasjonal handel signaliserer utviklende EU-diplomatiske og handelsmessige prioriteringer.',
+    actionProcessed: '{abbr} behandlet {n} dokument(er)',
+    actionConsequence:
+      'Lovgivningsforslag går videre til neste trinn; berørte interessenter bør forberede seg på implementering',
+    mistakeDescription:
+      'Ingen nylige dokumenter produsert — lovgivende etterslep kan være under utvikling',
+    mistakeAlternative:
+      'Innkall ytterligere sesjoner eller omfordel ressurser for å rydde ventende saker',
+    outlookGood:
+      'Med {n} av {total} komiteer som aktivt produserer dokumenter, støtter det nåværende tempoet en produktiv plenarkalender.',
+    outlookConcern:
+      'Den lovgivende pipeline kan møte flaskehalser hvis komitéens produksjon ikke øker.',
+    lede: 'Analyse av Europaparlamentets komitéaktivitet og lovgivningseffektivitet.',
+    noRecentDocs: 'Ingen nylige dokumenter tilgjengelig',
+  },
+  fi: {
+    what: 'Valiokuntatoimintaraportti {date}: {total} valiokuntaa seurannassa, {docs} asiakirjaa käsitelty, {active} valiokuntaa viimeaikaisella toiminnalla.',
+    reportDateLabel: 'Raportointipäivä:',
+    membersLabel: 'jäsentä',
+    chairLabel: 'Puheenjohtaja:',
+    productivityRobust: 'vankka',
+    productivityModerate: 'kohtalainen',
+    why: 'Valiokunnat ovat Euroopan parlamentin lainsäädäntömoottori — {pct}%:n aktiivisuusaste merkitsee {descriptor} lainsäädäntötuottavuutta. Valiokuntien tuotokset muovaavat suoraan täysistuntoäänestyksiin päätyviä tekstejä.',
+    stakeholderHighlyProductive: '{n} asiakirjaa — erittäin tuottoisa kausi',
+    stakeholderModerateActivity: '{n} asiakirja(a) — kohtalainen aktiivisuus',
+    stakeholderNoDocs: 'Ei viimeaikaisia asiakirjoja — mahdollinen tuottavuusongelma',
+    impactPolitical:
+      'Valiokuntien puheenjohtajilla on merkittävä esityslistalle asettamisen valta. Aktiiviset valiokunnat ({active}/{total}) muovaavat nykyisen istuntokauden lainsäädäntöprosessia.',
+    impactEconomic:
+      'Valiokuntien tuotokset talous-, teollisuus- ja kauppa-asioissa vaikuttavat suoraan EU:n sääntelymiljöihin ja liiketoiminnan kilpailukykyyn.',
+    impactSocial:
+      'Sosiaali-, työllisyys- ja kansalaisvapauksien valiokunnat tuottavat lainsäädäntöä, joka vaikuttaa suoraan kansalaisten jokapäiväiseen elämään.',
+    impactLegal:
+      '{docs} asiakirjaa eri vaiheissa valiokuntakäsittelyä tulee lopulta luomaan tai muuttamaan EU:n lainsäädäntöä.',
+    impactGeopolitical:
+      'Ulkoasioiden ja kansainvälisen kaupan valiokuntien toiminta merkitsee EU:n kehittyvien diplomatia- ja kauppaprioriteetien muutoksia.',
+    actionProcessed: '{abbr} käsitteli {n} asiakirja(a)',
+    actionConsequence:
+      'Lainsäädäntöehdotukset etenevät seuraavaan vaiheeseen; asianomaisten sidosryhmien tulisi valmistautua täytäntöönpanoon',
+    mistakeDescription:
+      'Ei viimeaikaisia asiakirjoja tuotettu — lainsäädäntörästejä saattaa olla kehittymässä',
+    mistakeAlternative:
+      'Kokoontukaa lisäistunnoille tai kohdentakaa resursseja uudelleen odottavien asioiden selvittämiseksi',
+    outlookGood:
+      'Kun {n}/{total} valiokuntaa tuottaa aktiivisesti asiakirjoja, nykyinen tahti tukee tuottoisaa täysistuntokalenteria.',
+    outlookConcern:
+      'Lainsäädäntöprosessi saattaa kohdata pullonkauloja, jos valiokuntien tuotanto ei kasva.',
+    lede: 'Analyysi Euroopan parlamentin valiokuntien toiminnasta ja lainsäädäntötehokkuudesta.',
+    noRecentDocs: 'Ei viimeaikaisia asiakirjoja saatavilla',
+  },
+  de: {
+    what: 'Ausschussaktivitätsbericht vom {date}: {total} Ausschüsse beobachtet, {docs} Dokumente verarbeitet, {active} Ausschüsse mit aktueller Aktivität.',
+    reportDateLabel: 'Berichtsdatum:',
+    membersLabel: 'Mitglieder',
+    chairLabel: 'Vorsitzender:',
+    productivityRobust: 'robuste',
+    productivityModerate: 'moderate',
+    why: 'Ausschüsse sind die Gesetzgebungsmaschine des Europäischen Parlaments — {pct}% Aktivitätsrate signalisiert {descriptor} Gesetzgebungsproduktivität. Ausschussergebnisse gestalten direkt die Texte, die zur Plenarvorabstimmung gelangen.',
+    stakeholderHighlyProductive: '{n} Dokumente — sehr produktiver Zeitraum',
+    stakeholderModerateActivity: '{n} Dokument(e) — moderate Aktivität',
+    stakeholderNoDocs: 'Keine aktuellen Dokumente — mögliches Produktivitätsproblem',
+    impactPolitical:
+      'Ausschussvorsitzende haben erhebliche Tagesordnungsmacht. Aktive Ausschüsse ({active}/{total}) gestalten den Gesetzgebungsprozess der laufenden Session.',
+    impactEconomic:
+      'Ausschussergebnisse in Wirtschafts-, Industrie- und Handelsfragen beeinflussen direkt das EU-Regulierungsumfeld und die Wettbewerbsfähigkeit.',
+    impactSocial:
+      'Ausschüsse für Soziales, Beschäftigung und bürgerliche Freiheiten erarbeiten Gesetze, die das tägliche Leben der Bürger direkt betreffen.',
+    impactLegal:
+      '{docs} Dokumente in verschiedenen Stadien der Ausschussbehandlung werden schließlich EU-Recht schaffen oder ändern.',
+    impactGeopolitical:
+      'Ausschussaktivitäten in Außen- und Handelsfragen signalisieren die Entwicklung diplomatischer und handelspolitischer Prioritäten der EU.',
+    actionProcessed: '{abbr} hat {n} Dokument(e) bearbeitet',
+    actionConsequence:
+      'Gesetzgebungsvorschläge schreiten zur nächsten Stufe voran; betroffene Interessenträger sollten sich auf die Umsetzung vorbereiten',
+    mistakeDescription:
+      'Keine aktuellen Dokumente erstellt — Gesetzgebungsrückstand könnte sich entwickeln',
+    mistakeAlternative:
+      'Zusätzliche Sitzungen einberufen oder Ressourcen umverteilen, um ausstehende Akten zu klären',
+    outlookGood:
+      'Mit {n} von {total} Ausschüssen, die aktiv Dokumente erstellen, unterstützt das aktuelle Tempo einen produktiven Plenarkalender.',
+    outlookConcern:
+      'Die Gesetzgebungspipeline könnte auf Engpässe stoßen, wenn die Ausschussproduktion nicht zunimmt.',
+    lede: 'Analyse der Ausschusstätigkeit des Europäischen Parlaments und seiner Gesetzgebungswirksamkeit.',
+    noRecentDocs: 'Keine aktuellen Dokumente verfügbar',
+  },
+  fr: {
+    what: "Rapport d'activité des commissions du {date} : {total} commissions surveillées, {docs} documents traités, {active} commissions avec activité récente.",
+    reportDateLabel: 'Date du rapport :',
+    membersLabel: 'membres',
+    chairLabel: 'Président(e) :',
+    productivityRobust: 'robuste',
+    productivityModerate: 'modérée',
+    why: "Les commissions sont le moteur législatif du Parlement européen — un taux d'activité de {pct}% signale une productivité législative {descriptor}. Les résultats des commissions façonnent directement les textes soumis aux votes en séance plénière.",
+    stakeholderHighlyProductive: '{n} documents — période très productive',
+    stakeholderModerateActivity: '{n} document(s) — activité modérée',
+    stakeholderNoDocs: 'Aucun document récent — préoccupation potentielle de productivité',
+    impactPolitical:
+      "Les présidents de commission exercent un pouvoir considérable sur la définition de l'ordre du jour. Les commissions actives ({active}/{total}) façonnent le pipeline législatif de la session en cours.",
+    impactEconomic:
+      "Les résultats des commissions sur les affaires économiques, industrielles et commerciales affectent directement les environnements réglementaires de l'UE et la compétitivité des entreprises.",
+    impactSocial:
+      "Les commissions chargées des affaires sociales, de l'emploi et des libertés civiles produisent des lois qui ont un impact direct sur la vie quotidienne des citoyens.",
+    impactLegal:
+      "{docs} documents à différents stades d'examen en commission créeront ou modifieront à terme le droit de l'UE.",
+    impactGeopolitical:
+      "Les activités des commissions chargées des affaires étrangères et du commerce international signalent l'évolution des priorités diplomatiques et commerciales de l'UE.",
+    actionProcessed: '{abbr} a traité {n} document(s)',
+    actionConsequence:
+      "Les propositions législatives progressent vers l'étape suivante ; les parties prenantes concernées doivent se préparer à la mise en œuvre",
+    mistakeDescription:
+      'Aucun document récent produit — un arriéré législatif pourrait se développer',
+    mistakeAlternative:
+      'Convoquer des séances supplémentaires ou réaffecter des ressources pour traiter les dossiers en attente',
+    outlookGood:
+      'Avec {n} commissions sur {total} produisant activement des documents, le rythme actuel soutient un calendrier plénaire productif.',
+    outlookConcern:
+      "Le pipeline législatif pourrait rencontrer des goulots d'étranglement si la production des commissions n'augmente pas.",
+    lede: "Analyse de l'activité des commissions du Parlement européen et de l'efficacité législative.",
+    noRecentDocs: 'Aucun document récent disponible',
+  },
+  es: {
+    what: 'Informe de actividad de las comisiones a fecha {date}: {total} comisiones supervisadas, {docs} documentos procesados, {active} comisiones con actividad reciente.',
+    reportDateLabel: 'Fecha del informe:',
+    membersLabel: 'miembros',
+    chairLabel: 'Presidente/a:',
+    productivityRobust: 'sólida',
+    productivityModerate: 'moderada',
+    why: 'Las comisiones son el motor legislativo del Parlamento Europeo — una tasa de actividad del {pct}% indica una productividad legislativa {descriptor}. Los resultados de las comisiones moldean directamente los textos que llegan a las votaciones plenarias.',
+    stakeholderHighlyProductive: '{n} documentos — período muy productivo',
+    stakeholderModerateActivity: '{n} documento(s) — actividad moderada',
+    stakeholderNoDocs: 'No hay documentos recientes — posible preocupación de productividad',
+    impactPolitical:
+      'Los presidentes de comisión ejercen un poder considerable en la fijación del orden del día. Las comisiones activas ({active}/{total}) están configurando el proceso legislativo para la sesión actual.',
+    impactEconomic:
+      'Los resultados de las comisiones en materia económica, industrial y comercial afectan directamente a los entornos regulatorios de la UE y la competitividad empresarial.',
+    impactSocial:
+      'Las comisiones de asuntos sociales, empleo y libertades civiles producen legislación que afecta directamente a la vida cotidiana de los ciudadanos.',
+    impactLegal:
+      '{docs} documentos en diversas etapas de consideración en comisión crearán o modificarán eventualmente el derecho de la UE.',
+    impactGeopolitical:
+      'Las actividades de las comisiones de asuntos exteriores y comercio internacional señalan la evolución de las prioridades diplomáticas y comerciales de la UE.',
+    actionProcessed: '{abbr} procesó {n} documento(s)',
+    actionConsequence:
+      'Las propuestas legislativas avanzan a la siguiente etapa; las partes interesadas afectadas deben prepararse para la implementación',
+    mistakeDescription:
+      'No se han producido documentos recientes — puede estar desarrollándose un retraso legislativo',
+    mistakeAlternative:
+      'Convocar sesiones adicionales o reasignar recursos para resolver los expedientes pendientes',
+    outlookGood:
+      'Con {n} de {total} comisiones produciendo documentos activamente, el ritmo actual sostiene un calendario plenario productivo.',
+    outlookConcern:
+      'El proceso legislativo puede enfrentarse a cuellos de botella si la producción de las comisiones no aumenta.',
+    lede: 'Análisis de la actividad de las comisiones del Parlamento Europeo y de su efectividad legislativa.',
+    noRecentDocs: 'No hay documentos recientes disponibles',
+  },
+  nl: {
+    what: 'Rapport commissieactiviteiten per {date}: {total} commissies gemonitord, {docs} documenten verwerkt, {active} commissies met recente activiteit.',
+    reportDateLabel: 'Rapportdatum:',
+    membersLabel: 'leden',
+    chairLabel: 'Voorzitter:',
+    productivityRobust: 'robuuste',
+    productivityModerate: 'matige',
+    why: 'Commissies zijn de wetgevende motor van het Europees Parlement — {pct}% activiteitsgraad duidt op {descriptor} wetgevende productiviteit. Commissieresultaten bepalen direct de teksten die ter stemming in de plenaire vergadering komen.',
+    stakeholderHighlyProductive: '{n} documenten — zeer productieve periode',
+    stakeholderModerateActivity: '{n} document(en) — matige activiteit',
+    stakeholderNoDocs: 'Geen recente documenten — mogelijke productiviteitszorg',
+    impactPolitical:
+      'Commissievoorzitters hebben aanzienlijke agendavormende macht. Actieve commissies ({active}/{total}) bepalen de wetgevende pipeline voor de huidige zitting.',
+    impactEconomic:
+      'Commissieresultaten op het gebied van economische zaken, industrie en handel beïnvloeden direct de EU-regelgevingsomgevingen en het bedrijfsconcurrentievermogen.',
+    impactSocial:
+      'Commissies voor sociale zaken, werkgelegenheid en burgerlijke vrijheden produceren wetgeving die direct invloed heeft op het dagelijks leven van burgers.',
+    impactLegal:
+      '{docs} documenten in verschillende stadia van commissiebehandeling zullen uiteindelijk EU-recht creëren of wijzigen.',
+    impactGeopolitical:
+      'Commissieactiviteiten inzake buitenlandse zaken en internationale handel duiden op de ontwikkeling van diplomatieke en handelsmatige EU-prioriteiten.',
+    actionProcessed: '{abbr} verwerkte {n} document(en)',
+    actionConsequence:
+      'Wetgevingsvoorstellen ronden de volgende stap af; betrokken belanghebbenden dienen zich voor te bereiden op implementatie',
+    mistakeDescription:
+      'Geen recente documenten geproduceerd — wetgevingsachterstand kan zich ontwikkelen',
+    mistakeAlternative:
+      'Extra zittingen bijeenroepen of middelen herindelen om lopende dossiers af te handelen',
+    outlookGood:
+      'Met {n} van {total} commissies die actief documenten produceren, ondersteunt het huidige tempo een productieve plenaire agenda.',
+    outlookConcern:
+      'De wetgevende pipeline kan knelpunten ondervinden als de commissieproductie niet toeneemt.',
+    lede: 'Analyse van commissieactiviteiten en wetgevende effectiviteit van het Europees Parlement.',
+    noRecentDocs: 'Geen recente documenten beschikbaar',
+  },
+  ar: {
+    what: 'تقرير نشاط اللجان بتاريخ {date}: {total} لجنة مراقبة، {docs} وثيقة معالجة، {active} لجنة ذات نشاط حديث.',
+    reportDateLabel: 'تاريخ التقرير:',
+    membersLabel: 'عضو',
+    chairLabel: 'الرئيس:',
+    productivityRobust: 'قوية',
+    productivityModerate: 'معتدلة',
+    why: 'تُعدّ اللجان المحرك التشريعي للبرلمان الأوروبي — تُشير نسبة النشاط {pct}٪ إلى إنتاجية تشريعية {descriptor}. تُشكّل مخرجات اللجان مباشرةً النصوص التي تصل إلى تصويتات الجلسة العامة.',
+    stakeholderHighlyProductive: '{n} وثيقة — فترة منتجة جداً',
+    stakeholderModerateActivity: '{n} وثيقة/وثائق — نشاط معتدل',
+    stakeholderNoDocs: 'لا وثائق حديثة — مخاوف إنتاجية محتملة',
+    impactPolitical:
+      'يتمتع رؤساء اللجان بسلطة تحديد جدول الأعمال. تُشكّل اللجان النشطة ({active}/{total}) مسار التشريع للدورة الحالية.',
+    impactEconomic:
+      'تؤثر مخرجات اللجان في الشؤون الاقتصادية والصناعية والتجارية مباشرةً على بيئات اللوائح التنظيمية الأوروبية وتنافسية الأعمال.',
+    impactSocial:
+      'تُنتج لجان الشؤون الاجتماعية والتوظيف والحريات المدنية تشريعات تؤثر مباشرةً على الحياة اليومية للمواطنين.',
+    impactLegal:
+      'ستُنشئ {docs} وثيقة في مراحل مختلفة من الدراسة باللجان أو تُعدّل القانون الأوروبي في نهاية المطاف.',
+    impactGeopolitical:
+      'تُشير أنشطة لجان الشؤون الخارجية والتجارة الدولية إلى تطور الأولويات الدبلوماسية والتجارية للاتحاد الأوروبي.',
+    actionProcessed: 'عالجت لجنة {abbr} {n} وثيقة/وثائق',
+    actionConsequence:
+      'تتقدم المقترحات التشريعية إلى المرحلة التالية؛ ينبغي على أصحاب المصلحة المعنيين الاستعداد للتنفيذ',
+    mistakeDescription: 'لم تُنتج وثائق حديثة — قد تتشكّل متأخرات تشريعية',
+    mistakeAlternative: 'عقد جلسات إضافية أو إعادة تخصيص الموارد لمعالجة الملفات المعلقة',
+    outlookGood:
+      'مع إنتاج {n} من {total} لجنة للوثائق بصورة نشطة، يدعم الوتيرة الحالية جدولاً جلسةً عامة منتجاً.',
+    outlookConcern: 'قد يواجه المسار التشريعي اختناقات إذا لم يزداد إنتاج اللجان.',
+    lede: 'تحليل نشاط لجان البرلمان الأوروبي وفعالية عملها التشريعية.',
+    noRecentDocs: 'لا توجد وثائق حديثة متاحة',
+  },
+  he: {
+    what: 'דוח פעילות ועדות מתאריך {date}: {total} ועדות במעקב, {docs} מסמכים עובדו, {active} ועדות עם פעילות אחרונה.',
+    reportDateLabel: 'תאריך הדוח:',
+    membersLabel: 'חברים',
+    chairLabel: 'יו"ר:',
+    productivityRobust: 'חזקה',
+    productivityModerate: 'מתונה',
+    why: 'הוועדות הן המנוע החקיקתי של הפרלמנט האירופי — שיעור פעילות של {pct}% מצביע על פריון חקיקתי {descriptor}. תפוקות הוועדות מעצבות ישירות את הטקסטים המגיעים להצבעות מליאה.',
+    stakeholderHighlyProductive: '{n} מסמכים — תקופה פרודוקטיבית מאוד',
+    stakeholderModerateActivity: '{n} מסמך/ים — פעילות מתונה',
+    stakeholderNoDocs: 'אין מסמכים אחרונים — חשש פוטנציאלי לפריון',
+    impactPolitical:
+      'לראשי ועדות יש כוח קביעת סדר יום משמעותי. ועדות פעילות ({active}/{total}) מעצבות את צינור החקיקה לפגישה הנוכחית.',
+    impactEconomic:
+      'תפוקות הוועדות בענייני כלכלה, תעשייה ומסחר משפיעות ישירות על סביבות הרגולציה של האיחוד האירופי ועל תחרותיות העסקים.',
+    impactSocial:
+      'ועדות ענייני חברה, תעסוקה וחירויות אזרחיות מייצרות חקיקה המשפיעה ישירות על חייהם היומיומיים של האזרחים.',
+    impactLegal:
+      '{docs} מסמכים בשלבים שונים של דיון ועדה יצרו או ישנו בסופו של דבר את חוק האיחוד האירופי.',
+    impactGeopolitical:
+      'פעילויות ועדות ענייני החוץ והסחר הבינלאומי מצביעות על התפתחות עדיפויות דיפלומטיות ומסחריות של האיחוד האירופי.',
+    actionProcessed: '{abbr} עיבד {n} מסמך/ים',
+    actionConsequence: 'הצעות חוק מתקדמות לשלב הבא; בעלי עניין מושפעים צריכים להתכונן ליישום',
+    mistakeDescription: 'לא הופקו מסמכים אחרונים — עיכוב חקיקתי עלול להתפתח',
+    mistakeAlternative: 'לכנס ישיבות נוספות או להקצות מחדש משאבים לטיפול בתיקים ממתינים',
+    outlookGood:
+      'עם {n} מתוך {total} ועדות המייצרות מסמכים באופן פעיל, הקצב הנוכחי תומך בלוח שנה פרודוקטיבי של מליאה.',
+    outlookConcern: 'צינור החקיקה עלול להיתקל בצווארי בקבוק אם תפוקת הוועדה לא תגדל.',
+    lede: 'ניתוח פעילות ועדות הפרלמנט האירופי ויעילותו החקיקתית.',
+    noRecentDocs: 'אין מסמכים אחרונים זמינים',
+  },
+  ja: {
+    what: '{date}付け委員会活動報告: {total}委員会を監視中、{docs}文書処理済み、{active}委員会で最近の活動あり。',
+    reportDateLabel: '報告日:',
+    membersLabel: '名',
+    chairLabel: '委員長:',
+    productivityRobust: '堅調な',
+    productivityModerate: '中程度の',
+    why: '委員会は欧州議会の立法エンジンです — 活動率{pct}%は{descriptor}立法生産性を示しています。委員会の成果物は、本会議投票に提出されるテキストを直接形成します。',
+    stakeholderHighlyProductive: '{n}文書 — 非常に生産的な期間',
+    stakeholderModerateActivity: '{n}文書 — 中程度の活動',
+    stakeholderNoDocs: '最近の文書なし — 生産性に関する懸念の可能性',
+    impactPolitical:
+      '委員会委員長は重要な議題設定権を持っています。活発な委員会({active}/{total})が現会期の立法パイプラインを形成しています。',
+    impactEconomic:
+      '経済、産業、貿易問題に関する委員会の成果物はEU規制環境とビジネス競争力に直接影響します。',
+    impactSocial:
+      '社会問題、雇用、市民の自由を担当する委員会は、市民の日常生活に直接影響する法律を制定しています。',
+    impactLegal:
+      '委員会審議のさまざまな段階にある{docs}文書は、最終的にEU法を創設または改正することになります。',
+    impactGeopolitical:
+      '外交問題と国際貿易の委員会活動は、EUの外交・貿易優先事項の変化を示しています。',
+    actionProcessed: '{abbr}が{n}文書を処理しました',
+    actionConsequence:
+      '立法提案が次の段階に進みます。関係するステークホルダーは実施に向けて準備が必要です',
+    mistakeDescription: '最近の文書が作成されていません — 立法の遅延が発生する可能性があります',
+    mistakeAlternative:
+      '追加会議を招集するか、係属中のファイルを処理するためにリソースを再配分してください',
+    outlookGood:
+      '{total}委員会中{n}委員会が積極的に文書を作成しており、現在のペースは生産的な本会議カレンダーを支えています。',
+    outlookConcern:
+      '委員会の文書作成が増加しない場合、立法パイプラインにボトルネックが生じる可能性があります。',
+    lede: '欧州議会委員会の最近の立法成果と活動の有効性を分析します。',
+    noRecentDocs: '最近の文書はありません',
+  },
+  ko: {
+    what: '{date} 기준 위원회 활동 보고서: {total}개 위원회 모니터링, {docs}개 문서 처리, {active}개 위원회 최근 활동.',
+    reportDateLabel: '보고 날짜:',
+    membersLabel: '명',
+    chairLabel: '의장:',
+    productivityRobust: '강력한',
+    productivityModerate: '보통의',
+    why: '위원회는 유럽 의회의 입법 엔진입니다 — 활동률 {pct}%는 {descriptor} 입법 생산성을 나타냅니다. 위원회 결과물은 본회의 투표에 상정되는 텍스트를 직접 형성합니다.',
+    stakeholderHighlyProductive: '{n}개 문서 — 매우 생산적인 기간',
+    stakeholderModerateActivity: '{n}개 문서 — 보통 활동',
+    stakeholderNoDocs: '최근 문서 없음 — 잠재적 생산성 우려',
+    impactPolitical:
+      '위원회 의장들은 의사일정 설정에 상당한 권한을 가집니다. 활동적인 위원회({active}/{total})가 현 회기의 입법 파이프라인을 형성하고 있습니다.',
+    impactEconomic:
+      '경제, 산업, 무역 문제에 관한 위원회 결과물은 EU 규제 환경과 기업 경쟁력에 직접적인 영향을 미칩니다.',
+    impactSocial:
+      '사회 문제, 고용, 시민 자유 위원회는 시민들의 일상생활에 직접적인 영향을 미치는 법률을 제정합니다.',
+    impactLegal:
+      '위원회 심의의 다양한 단계에 있는 {docs}개 문서는 궁극적으로 EU 법률을 만들거나 수정할 것입니다.',
+    impactGeopolitical:
+      '외교 문제 및 국제 무역 위원회 활동은 EU의 외교 및 무역 우선순위의 변화를 나타냅니다.',
+    actionProcessed: '{abbr}에서 {n}개 문서 처리',
+    actionConsequence:
+      '입법 제안이 다음 단계로 진행됩니다. 영향을 받는 이해관계자들은 이행을 준비해야 합니다',
+    mistakeDescription: '최근 문서가 작성되지 않음 — 입법 지연이 발생할 수 있습니다',
+    mistakeAlternative:
+      '추가 회의를 소집하거나 계류 중인 파일을 처리하기 위해 리소스를 재배치하십시오',
+    outlookGood:
+      '{total}개 위원회 중 {n}개가 적극적으로 문서를 생산하고 있어, 현재 속도는 생산적인 본회의 일정을 지원합니다.',
+    outlookConcern:
+      '위원회 문서 생산이 증가하지 않으면 입법 파이프라인에 병목 현상이 발생할 수 있습니다.',
+    lede: '유럽 의회의 주요 위원회 활동과 입법 효율성을 종합적으로 분석합니다.',
+    noRecentDocs: '최근 문서가 없습니다',
+  },
+  zh: {
+    what: '{date}委员会活动报告：监测{total}个委员会，处理{docs}份文件，{active}个委员会有近期活动。',
+    reportDateLabel: '报告日期：',
+    membersLabel: '名成员',
+    chairLabel: '主席：',
+    productivityRobust: '强劲的',
+    productivityModerate: '温和的',
+    why: '委员会是欧洲议会的立法引擎——{pct}%的活跃率表明{descriptor}立法生产力。委员会的成果直接塑造提交全体会议投票的文本。',
+    stakeholderHighlyProductive: '{n}份文件——非常高产的时期',
+    stakeholderModerateActivity: '{n}份文件——中等活跃度',
+    stakeholderNoDocs: '近期无文件——潜在的生产力问题',
+    impactPolitical:
+      '委员会主席在制定议程方面拥有重要权力。活跃委员会({active}/{total})正在为当前会期塑造立法管道。',
+    impactEconomic: '委员会在经济、工业和贸易事务方面的成果直接影响欧盟监管环境和商业竞争力。',
+    impactSocial: '社会事务、就业及公民自由委员会制定的立法直接影响公民的日常生活。',
+    impactLegal: '{docs}份文件处于委员会审议的不同阶段，最终将创建或修改欧盟法律。',
+    impactGeopolitical: '外交事务和国际贸易委员会活动反映了欧盟外交和贸易优先事项的演变。',
+    actionProcessed: '{abbr}处理了{n}份文件',
+    actionConsequence: '立法提案进入下一阶段；受影响的利益相关方应为实施做好准备',
+    mistakeDescription: '近期未产出文件——立法积压可能正在形成',
+    mistakeAlternative: '召开额外会议或重新分配资源以处理待审文件',
+    outlookGood: '{total}个委员会中有{n}个正在积极产出文件，当前速度支持富有成效的全体会议日历。',
+    outlookConcern: '如果委员会产出不增加，立法管道可能面临瓶颈。',
+    lede: '对欧洲议会各专门委员会近期活动和立法效率的系统分析。',
+    noRecentDocs: '近期无可用文件',
+  },
+};
 // ─── SWOT localization strings ───────────────────────────────────────────────
 
 /** Shared Scandinavian/Dutch SWOT heading */
