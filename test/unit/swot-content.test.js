@@ -74,11 +74,11 @@ describe('swot-content', () => {
     });
 
     it('should use custom heading when provided', () => {
-      const html = buildSwotSection(SAMPLE_SWOT, 'Custom Analysis');
+      const html = buildSwotSection(SAMPLE_SWOT, 'en', 'Custom Analysis');
       expect(html).toContain('Custom Analysis');
     });
 
-    it('should default heading to "SWOT Analysis" when no title or heading', () => {
+    it('should default heading to localized "SWOT Analysis" when no title or heading', () => {
       const html = buildSwotSection(MINIMAL_SWOT);
       expect(html).toContain('SWOT Analysis');
     });
@@ -112,6 +112,12 @@ describe('swot-content', () => {
       const html = buildSwotSection(SAMPLE_SWOT);
       expect(html).toContain('role="region"');
       expect(html).toContain('aria-label=');
+    });
+
+    it('should not use invalid ARIA table roles on grid divs', () => {
+      const html = buildSwotSection(SAMPLE_SWOT);
+      expect(html).not.toContain('role="table"');
+      expect(html).not.toContain('role="row"');
     });
 
     it('should include axis labels for internal/external dimensions', () => {
@@ -175,6 +181,25 @@ describe('swot-content', () => {
       // Count swot-empty occurrences (weaknesses, opportunities, threats = 3)
       const emptyCount = (html.match(/swot-empty/g) || []).length;
       expect(emptyCount).toBe(3);
+    });
+
+    it('should localize labels when lang is provided', () => {
+      const html = buildSwotSection(SAMPLE_SWOT, 'sv');
+      expect(html).toContain('Styrkor');
+      expect(html).toContain('Svagheter');
+      expect(html).toContain('Möjligheter');
+      expect(html).toContain('Hot');
+    });
+
+    it('should localize section heading when lang is provided and no custom title', () => {
+      const html = buildSwotSection(MINIMAL_SWOT, 'de');
+      expect(html).toContain('SWOT-Analyse');
+    });
+
+    it('should localize axis labels when lang is provided', () => {
+      const html = buildSwotSection(SAMPLE_SWOT, 'fr');
+      expect(html).toContain('Interne');
+      expect(html).toContain('Externe');
     });
   });
 });

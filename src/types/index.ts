@@ -165,10 +165,12 @@ export type {
 export type {
   SwotItem,
   SwotAnalysis,
+  SwotStrings,
   DashboardMetric,
   ChartDataset,
   ChartData,
   ChartConfig,
   DashboardPanel,
   DashboardConfig,
+  DashboardStrings,
 } from './visualization.js';

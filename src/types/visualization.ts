@@ -51,6 +51,31 @@ export interface SwotAnalysis {
   readonly threats: readonly SwotItem[];
 }
 
+// ─── SWOT Localization ───────────────────────────────────────────────────────
+
+/**
+ * Localized strings for SWOT analysis section headings, quadrant labels,
+ * and accessible descriptions. Callers can pass localized strings to
+ * `buildSwotSection()` for multi-language article generation.
+ */
+export interface SwotStrings {
+  /** Section heading (e.g. "SWOT Analysis") */
+  readonly sectionHeading: string;
+  /** Quadrant labels */
+  readonly strengthsLabel: string;
+  readonly weaknessesLabel: string;
+  readonly opportunitiesLabel: string;
+  readonly threatsLabel: string;
+  /** Accessible quadrant descriptions */
+  readonly strengthsDesc: string;
+  readonly weaknessesDesc: string;
+  readonly opportunitiesDesc: string;
+  readonly threatsDesc: string;
+  /** Axis labels */
+  readonly internalLabel: string;
+  readonly externalLabel: string;
+}
+
 // ─── Dashboard types ─────────────────────────────────────────────────────────
 
 /**
@@ -157,4 +182,22 @@ export interface DashboardConfig {
   readonly title?: string;
   /** Dashboard panels — each contains metrics and/or a chart */
   readonly panels: readonly DashboardPanel[];
+}
+
+// ─── Dashboard Localization ──────────────────────────────────────────────────
+
+/**
+ * Localized strings for dashboard section UI text.
+ * Callers can pass localized strings to `buildDashboardSection()` for
+ * multi-language article generation.
+ */
+export interface DashboardStrings {
+  /** Default section heading (e.g. "Dashboard") */
+  readonly sectionHeading: string;
+  /** Trend aria-label prefix (e.g. "Trend:") */
+  readonly trendPrefix: string;
+  /** Fallback text when chart has no data */
+  readonly noChartData: string;
+  /** Default chart aria-label */
+  readonly chartLabel: string;
 }

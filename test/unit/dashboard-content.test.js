@@ -107,7 +107,7 @@ describe('dashboard-content', () => {
     });
 
     it('should use custom heading when provided', () => {
-      const html = buildDashboardSection(SAMPLE_DASHBOARD, 'Custom Dashboard');
+      const html = buildDashboardSection(SAMPLE_DASHBOARD, 'en', 'Custom Dashboard');
       expect(html).toContain('Custom Dashboard');
     });
 
@@ -171,6 +171,11 @@ describe('dashboard-content', () => {
       expect(html).toContain('chart-fallback-table');
       expect(html).toContain('EPP');
       expect(html).toContain('400');
+    });
+
+    it('should include aria-hidden on empty fallback table header cell', () => {
+      const html = buildDashboardSection(SAMPLE_DASHBOARD);
+      expect(html).toContain('aria-hidden="true"');
     });
 
     it('should escape HTML in metric values', () => {
@@ -249,6 +254,31 @@ describe('dashboard-content', () => {
       const html = buildDashboardSection(dashboard);
       expect(html).not.toContain('Empty Panel');
       expect(html).toContain('Full Panel');
+    });
+
+    it('should localize section heading when lang is provided', () => {
+      const dashboard = { panels: [{ title: 'P1', metrics: [{ label: 'X', value: '1' }] }] };
+      const html = buildDashboardSection(dashboard, 'sv');
+      expect(html).toContain('Instrumentpanel');
+    });
+
+    it('should localize trend prefix in aria-label', () => {
+      const dashboard = {
+        panels: [{ title: 'P1', metrics: [{ label: 'X', value: '1', trend: 'up' }] }],
+      };
+      const html = buildDashboardSection(dashboard, 'fi');
+      expect(html).toContain('Trendi:');
+    });
+
+    it('should localize no-data message in fallback', () => {
+      const dashboard = {
+        panels: [{
+          title: 'P1',
+          chart: { type: 'bar', data: { labels: [], datasets: [] } },
+        }],
+      };
+      const html = buildDashboardSection(dashboard, 'de');
+      expect(html).toContain('Keine Diagrammdaten verfügbar');
     });
   });
 

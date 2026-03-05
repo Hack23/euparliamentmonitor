@@ -14,22 +14,7 @@
  * - **Threats**: External negative factors
  */
 import { escapeHTML } from '../utils/file-utils.js';
-/** Default SWOT section heading */
-const DEFAULT_SWOT_HEADING = 'SWOT Analysis';
-/** Quadrant labels */
-const QUADRANT_LABELS = {
-    strengths: 'Strengths',
-    weaknesses: 'Weaknesses',
-    opportunities: 'Opportunities',
-    threats: 'Threats',
-};
-/** Quadrant accessible descriptions */
-const QUADRANT_DESCRIPTIONS = {
-    strengths: 'Internal positive factors',
-    weaknesses: 'Internal negative factors',
-    opportunities: 'External positive factors',
-    threats: 'External negative factors',
-};
+import { getLocalizedString, SWOT_STRINGS } from '../constants/languages.js';
 // ─── Sub-section builders ────────────────────────────────────────────────────
 /**
  * Build a single SWOT item HTML.
@@ -77,10 +62,11 @@ function buildSwotQuadrant(quadrantKey, items, label, description) {
  * no items in any quadrant.
  *
  * @param analysis - SWOT analysis data (null/undefined returns empty string)
- * @param heading - Optional custom section heading (defaults to "SWOT Analysis")
+ * @param lang - BCP 47 language code for localized headings (defaults to "en")
+ * @param heading - Optional custom section heading override
  * @returns HTML section string or empty string
  */
-export function buildSwotSection(analysis, heading) {
+export function buildSwotSection(analysis, lang = 'en', heading) {
     if (!analysis)
         return '';
     const totalItems = analysis.strengths.length +
@@ -89,25 +75,26 @@ export function buildSwotSection(analysis, heading) {
         analysis.threats.length;
     if (totalItems === 0)
         return '';
-    const sectionHeading = heading ?? analysis.title ?? DEFAULT_SWOT_HEADING;
-    const strengthsHtml = buildSwotQuadrant('strengths', analysis.strengths, QUADRANT_LABELS['strengths'] ?? 'Strengths', QUADRANT_DESCRIPTIONS['strengths'] ?? 'Internal positive factors');
-    const weaknessesHtml = buildSwotQuadrant('weaknesses', analysis.weaknesses, QUADRANT_LABELS['weaknesses'] ?? 'Weaknesses', QUADRANT_DESCRIPTIONS['weaknesses'] ?? 'Internal negative factors');
-    const opportunitiesHtml = buildSwotQuadrant('opportunities', analysis.opportunities, QUADRANT_LABELS['opportunities'] ?? 'Opportunities', QUADRANT_DESCRIPTIONS['opportunities'] ?? 'External positive factors');
-    const threatsHtml = buildSwotQuadrant('threats', analysis.threats, QUADRANT_LABELS['threats'] ?? 'Threats', QUADRANT_DESCRIPTIONS['threats'] ?? 'External negative factors');
+    const strings = getLocalizedString(SWOT_STRINGS, lang);
+    const sectionHeading = heading ?? analysis.title ?? strings.sectionHeading;
+    const strengthsHtml = buildSwotQuadrant('strengths', analysis.strengths, strings.strengthsLabel, strings.strengthsDesc);
+    const weaknessesHtml = buildSwotQuadrant('weaknesses', analysis.weaknesses, strings.weaknessesLabel, strings.weaknessesDesc);
+    const opportunitiesHtml = buildSwotQuadrant('opportunities', analysis.opportunities, strings.opportunitiesLabel, strings.opportunitiesDesc);
+    const threatsHtml = buildSwotQuadrant('threats', analysis.threats, strings.threatsLabel, strings.threatsDesc);
     return `
           <section class="swot-analysis" role="region" aria-label="${escapeHTML(sectionHeading)}">
             <h2>${escapeHTML(sectionHeading)}</h2>
             <div class="swot-matrix">
               <div class="swot-axis-labels">
-                <span class="swot-axis-internal">Internal</span>
-                <span class="swot-axis-external">External</span>
+                <span class="swot-axis-internal">${escapeHTML(strings.internalLabel)}</span>
+                <span class="swot-axis-external">${escapeHTML(strings.externalLabel)}</span>
               </div>
-              <div class="swot-grid" role="table" aria-label="SWOT Matrix">
-                <div class="swot-row swot-row-positive" role="row">
+              <div class="swot-grid" aria-label="SWOT Matrix">
+                <div class="swot-row swot-row-positive">
                   ${strengthsHtml}
                   ${opportunitiesHtml}
                 </div>
-                <div class="swot-row swot-row-negative" role="row">
+                <div class="swot-row swot-row-negative">
                   ${weaknessesHtml}
                   ${threatsHtml}
                 </div>

@@ -14,20 +14,20 @@
  *   as data attributes, ready for client-side hydration
  *
  * Chart configurations are embedded as JSON in `data-chart-config` attributes
- * on `<canvas>` elements. A companion initialization script (`dashboard-charts.js`)
- * can hydrate these using Chart.js at runtime.
+ * on `<canvas>` elements. An external client-side initialization script
+ * provided by the embedding application can hydrate these using Chart.js
+ * at runtime by reading the `data-chart-config` attributes.
  */
 
 import { escapeHTML } from '../utils/file-utils.js';
+import { getLocalizedString, DASHBOARD_STRINGS } from '../constants/languages.js';
 import type {
   DashboardConfig,
   DashboardPanel,
   DashboardMetric,
+  DashboardStrings,
   ChartConfig,
 } from '../types/index.js';
-
-/** Default dashboard section heading */
-const DEFAULT_DASHBOARD_HEADING = 'Dashboard';
 
 /** Trend indicator symbols (accessible) */
 const TREND_INDICATORS: Readonly<Record<string, string>> = {
@@ -49,10 +49,11 @@ const TREND_CLASSES: Readonly<Record<string, string>> = {
  * Build a single metric card HTML.
  *
  * @param metric - Metric data
+ * @param trendPrefix - Localized prefix for trend aria-label
  * @returns HTML string for one metric card
  */
-function buildMetricCard(metric: DashboardMetric): string {
-  const trendHtml = buildTrendIndicator(metric);
+function buildMetricCard(metric: DashboardMetric, trendPrefix: string): string {
+  const trendHtml = buildTrendIndicator(metric, trendPrefix);
   const unitHtml = metric.unit ? ` <span class="metric-unit">${escapeHTML(metric.unit)}</span>` : '';
 
   return `<div class="metric-card">
@@ -83,9 +84,10 @@ function resolveTrend(
  * Build trend indicator HTML for a metric.
  *
  * @param metric - Metric with optional trend and change
+ * @param trendPrefix - Localized prefix for trend aria-label
  * @returns HTML string for trend indicator or empty string
  */
-function buildTrendIndicator(metric: DashboardMetric): string {
+function buildTrendIndicator(metric: DashboardMetric, trendPrefix: string): string {
   if (!metric.trend && metric.change === undefined) return '';
 
   const trend = resolveTrend(metric.trend, metric.change);
@@ -95,7 +97,7 @@ function buildTrendIndicator(metric: DashboardMetric): string {
     metric.change !== undefined
       ? ` ${metric.change > 0 ? '+' : ''}${metric.change.toFixed(1)}%`
       : '';
-  const ariaLabel = `Trend: ${trend}${changeText}`;
+  const ariaLabel = `${trendPrefix} ${trend}${changeText}`;
 
   return `<span class="${escapeHTML(trendClass)}" aria-label="${escapeHTML(ariaLabel)}">${trendSymbol}${escapeHTML(changeText)}</span>`;
 }
@@ -104,11 +106,12 @@ function buildTrendIndicator(metric: DashboardMetric): string {
  * Build a metrics grid from an array of metrics.
  *
  * @param metrics - Array of metric data
+ * @param trendPrefix - Localized prefix for trend aria-label
  * @returns HTML string for the metrics grid
  */
-function buildMetricsGrid(metrics: readonly DashboardMetric[]): string {
+function buildMetricsGrid(metrics: readonly DashboardMetric[], trendPrefix: string): string {
   if (metrics.length === 0) return '';
-  const cards = metrics.map((m) => buildMetricCard(m)).join('\n              ');
+  const cards = metrics.map((m) => buildMetricCard(m, trendPrefix)).join('\n              ');
   return `<div class="metrics-grid">
               ${cards}
             </div>`;
@@ -123,20 +126,21 @@ function buildMetricsGrid(metrics: readonly DashboardMetric[]): string {
  *
  * @param chart - Chart configuration
  * @param panelIndex - Panel index for unique canvas ID
+ * @param strings - Localized strings
  * @returns HTML string for chart container
  */
-function buildChartContainer(chart: ChartConfig, panelIndex: number): string {
+function buildChartContainer(chart: ChartConfig, panelIndex: number, strings: DashboardStrings): string {
   const canvasId = `dashboard-chart-${panelIndex}`;
   const safeConfig = escapeHTML(JSON.stringify(chart));
   const titleHtml = chart.title
     ? `<h4 class="chart-title">${escapeHTML(chart.title)}</h4>`
     : '';
 
-  const fallbackTable = buildChartFallbackTable(chart);
+  const fallbackTable = buildChartFallbackTable(chart, strings);
 
   return `<div class="chart-container">
               ${titleHtml}
-              <canvas id="${canvasId}" class="dashboard-chart" data-chart-config="${safeConfig}" role="img" aria-label="${escapeHTML(chart.title ?? 'Chart')}"></canvas>
+              <canvas id="${canvasId}" class="dashboard-chart" data-chart-config="${safeConfig}" role="img" aria-label="${escapeHTML(chart.title ?? strings.chartLabel)}"></canvas>
               <noscript>
                 ${fallbackTable}
               </noscript>
@@ -148,20 +152,21 @@ function buildChartContainer(chart: ChartConfig, panelIndex: number): string {
  * Displayed when JavaScript is disabled.
  *
  * @param chart - Chart configuration
+ * @param strings - Localized strings
  * @returns HTML table string
  */
-function buildChartFallbackTable(chart: ChartConfig): string {
+function buildChartFallbackTable(chart: ChartConfig, strings: DashboardStrings): string {
   const labels = chart.data.labels;
   const datasets = chart.data.datasets;
 
   if (labels.length === 0 || datasets.length === 0) {
-    return '<p class="chart-no-data">No chart data available</p>';
+    return `<p class="chart-no-data">${escapeHTML(strings.noChartData)}</p>`;
   }
 
   const headerCells = datasets
     .map((ds) => `<th scope="col">${escapeHTML(ds.label)}</th>`)
     .join('');
-  const header = `<tr><th scope="col"></th>${headerCells}</tr>`;
+  const header = `<tr><th scope="col" aria-hidden="true"></th>${headerCells}</tr>`;
 
   const rows = labels
     .map((label, i) => {
@@ -188,11 +193,12 @@ function buildChartFallbackTable(chart: ChartConfig): string {
  *
  * @param panel - Panel configuration
  * @param index - Panel index for unique IDs
+ * @param strings - Localized strings
  * @returns HTML string for one panel
  */
-function buildDashboardPanel(panel: DashboardPanel, index: number): string {
-  const metricsHtml = panel.metrics ? buildMetricsGrid(panel.metrics) : '';
-  const chartHtml = panel.chart ? buildChartContainer(panel.chart, index) : '';
+function buildDashboardPanel(panel: DashboardPanel, index: number, strings: DashboardStrings): string {
+  const metricsHtml = panel.metrics ? buildMetricsGrid(panel.metrics, strings.trendPrefix) : '';
+  const chartHtml = panel.chart ? buildChartContainer(panel.chart, index, strings) : '';
 
   if (!metricsHtml && !chartHtml) return '';
 
@@ -217,20 +223,23 @@ function buildDashboardPanel(panel: DashboardPanel, index: number): string {
  * no panels with content.
  *
  * @param config - Dashboard configuration (null/undefined returns empty string)
- * @param heading - Optional custom section heading (defaults to "Dashboard")
+ * @param lang - BCP 47 language code for localized UI text (defaults to "en")
+ * @param heading - Optional custom section heading override
  * @returns HTML section string or empty string
  */
 export function buildDashboardSection(
   config: DashboardConfig | null | undefined,
+  lang: string = 'en',
   heading?: string
 ): string {
   if (!config) return '';
   if (config.panels.length === 0) return '';
 
-  const sectionHeading = heading ?? config.title ?? DEFAULT_DASHBOARD_HEADING;
+  const strings: DashboardStrings = getLocalizedString(DASHBOARD_STRINGS, lang);
+  const sectionHeading = heading ?? config.title ?? strings.sectionHeading;
 
   const panelsHtml = config.panels
-    .map((panel, index) => buildDashboardPanel(panel, index))
+    .map((panel, index) => buildDashboardPanel(panel, index, strings))
     .filter((html) => html.length > 0)
     .join('\n            ');
 

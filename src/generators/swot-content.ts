@@ -16,26 +16,8 @@
  */
 
 import { escapeHTML } from '../utils/file-utils.js';
-import type { SwotAnalysis, SwotItem } from '../types/index.js';
-
-/** Default SWOT section heading */
-const DEFAULT_SWOT_HEADING = 'SWOT Analysis';
-
-/** Quadrant labels */
-const QUADRANT_LABELS: Readonly<Record<string, string>> = {
-  strengths: 'Strengths',
-  weaknesses: 'Weaknesses',
-  opportunities: 'Opportunities',
-  threats: 'Threats',
-};
-
-/** Quadrant accessible descriptions */
-const QUADRANT_DESCRIPTIONS: Readonly<Record<string, string>> = {
-  strengths: 'Internal positive factors',
-  weaknesses: 'Internal negative factors',
-  opportunities: 'External positive factors',
-  threats: 'External negative factors',
-};
+import { getLocalizedString, SWOT_STRINGS } from '../constants/languages.js';
+import type { SwotAnalysis, SwotItem, SwotStrings } from '../types/index.js';
 
 // ─── Sub-section builders ────────────────────────────────────────────────────
 
@@ -94,11 +76,13 @@ function buildSwotQuadrant(
  * no items in any quadrant.
  *
  * @param analysis - SWOT analysis data (null/undefined returns empty string)
- * @param heading - Optional custom section heading (defaults to "SWOT Analysis")
+ * @param lang - BCP 47 language code for localized headings (defaults to "en")
+ * @param heading - Optional custom section heading override
  * @returns HTML section string or empty string
  */
 export function buildSwotSection(
   analysis: SwotAnalysis | null | undefined,
+  lang: string = 'en',
   heading?: string
 ): string {
   if (!analysis) return '';
@@ -111,31 +95,32 @@ export function buildSwotSection(
 
   if (totalItems === 0) return '';
 
-  const sectionHeading = heading ?? analysis.title ?? DEFAULT_SWOT_HEADING;
+  const strings: SwotStrings = getLocalizedString(SWOT_STRINGS, lang);
+  const sectionHeading = heading ?? analysis.title ?? strings.sectionHeading;
 
   const strengthsHtml = buildSwotQuadrant(
     'strengths',
     analysis.strengths,
-    QUADRANT_LABELS['strengths'] ?? 'Strengths',
-    QUADRANT_DESCRIPTIONS['strengths'] ?? 'Internal positive factors'
+    strings.strengthsLabel,
+    strings.strengthsDesc
   );
   const weaknessesHtml = buildSwotQuadrant(
     'weaknesses',
     analysis.weaknesses,
-    QUADRANT_LABELS['weaknesses'] ?? 'Weaknesses',
-    QUADRANT_DESCRIPTIONS['weaknesses'] ?? 'Internal negative factors'
+    strings.weaknessesLabel,
+    strings.weaknessesDesc
   );
   const opportunitiesHtml = buildSwotQuadrant(
     'opportunities',
     analysis.opportunities,
-    QUADRANT_LABELS['opportunities'] ?? 'Opportunities',
-    QUADRANT_DESCRIPTIONS['opportunities'] ?? 'External positive factors'
+    strings.opportunitiesLabel,
+    strings.opportunitiesDesc
   );
   const threatsHtml = buildSwotQuadrant(
     'threats',
     analysis.threats,
-    QUADRANT_LABELS['threats'] ?? 'Threats',
-    QUADRANT_DESCRIPTIONS['threats'] ?? 'External negative factors'
+    strings.threatsLabel,
+    strings.threatsDesc
   );
 
   return `
@@ -143,15 +128,15 @@ export function buildSwotSection(
             <h2>${escapeHTML(sectionHeading)}</h2>
             <div class="swot-matrix">
               <div class="swot-axis-labels">
-                <span class="swot-axis-internal">Internal</span>
-                <span class="swot-axis-external">External</span>
+                <span class="swot-axis-internal">${escapeHTML(strings.internalLabel)}</span>
+                <span class="swot-axis-external">${escapeHTML(strings.externalLabel)}</span>
               </div>
-              <div class="swot-grid" role="table" aria-label="SWOT Matrix">
-                <div class="swot-row swot-row-positive" role="row">
+              <div class="swot-grid" aria-label="SWOT Matrix">
+                <div class="swot-row swot-row-positive">
                   ${strengthsHtml}
                   ${opportunitiesHtml}
                 </div>
-                <div class="swot-row swot-row-negative" role="row">
+                <div class="swot-row swot-row-negative">
                   ${weaknessesHtml}
                   ${threatsHtml}
                 </div>
