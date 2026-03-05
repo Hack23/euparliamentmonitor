@@ -230,6 +230,64 @@ export interface BreakingStrings {
   mepUpdatesHeading: string;
   /** Label for the no-feed-data notice */
   noFeedDataNotice: string;
+  /** Localized "as of" phrase used in lede section (e.g. "as of", "zum", "au") */
+  asOf: string;
+  /** Template function for "what happened" deep-analysis text */
+  breakingWhatFn: (
+    date: string,
+    adopted: number,
+    events: number,
+    procedures: number,
+    meps: number
+  ) => string;
+  /** "Why it matters" text when voting anomalies are present */
+  breakingWhyAnomalies: string;
+  /** "Why it matters" text for normal parliamentary activity */
+  breakingWhyNormal: string;
+  /** Localized name for the legislative majority stakeholder */
+  breakingWinnerActor: string;
+  /** Template function for winner stakeholder reason */
+  breakingWinnerReasonFn: (count: number) => string;
+  /** Localized name for the opposition groups stakeholder */
+  breakingNeutralActor: string;
+  /** Neutral stakeholder reason text */
+  breakingNeutralReason: string;
+  /** Template function for active-legislative-phase outlook */
+  breakingOutlookActiveFn: (date: string) => string;
+  /** Template function for transitional-period outlook */
+  breakingOutlookTransitionalFn: (date: string) => string;
+  /** Consequence text for adopted texts ("New legal obligations…") */
+  breakingLegalObligationsConsequence: string;
+  /** Consequence text for procedure updates ("Legislative trajectory altered…") */
+  breakingProcedureConsequence: string;
+  /** Political impact text when voting anomalies are present */
+  breakingImpactPoliticalAnomalies: string;
+  /** Template function for political impact text in normal activity */
+  breakingImpactPoliticalNormalFn: (count: number) => string;
+  /** Economic impact text */
+  breakingImpactEconomic: string;
+  /** Social impact text */
+  breakingImpactSocial: string;
+  /** Template function for legal impact text */
+  breakingImpactLegalFn: (count: number) => string;
+  /** Geopolitical impact text when coalition data available */
+  breakingImpactGeopoliticalCoalition: string;
+  /** Geopolitical impact text for normal activity */
+  breakingImpactGeopoliticalNormal: string;
+  /** "Political group whips" mistake actor name */
+  breakingMistakeActor: string;
+  /** Mistake description text */
+  breakingMistakeDescription: string;
+  /** Mistake alternative text */
+  breakingMistakeAlternative: string;
+  /** Localized prefix for adopted text items in the "Who" list (e.g. "Adopted:", "Angenommen:") */
+  breakingAdoptedPrefix: string;
+  /** Localized prefix for MEP items in the "Who" list (e.g. "MEP:", "MdEP:") */
+  breakingMEPPrefix: string;
+  /** User-friendly fallback shown when voting anomaly data is unavailable */
+  anomalyUnavailable: string;
+  /** User-friendly fallback shown when coalition dynamics data is unavailable */
+  coalitionUnavailable: string;
 }
 
 // ─── Deep Analysis types ───────────────────────────────────────────────────
