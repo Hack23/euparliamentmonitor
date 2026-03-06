@@ -52,7 +52,7 @@ function isToolError(raw: string): boolean {
 const MAX_FEED_ITEMS = 10;
 
 /**
- * Build a feed truncation note paragraph when displayed items is fewer than total items.
+ * Build a feed truncation note paragraph when displayed items are fewer than total items.
  *
  * @param shown - Number of items shown
  * @param total - Total number of items available
@@ -500,7 +500,7 @@ export function buildBreakingNewsContent(
     : '';
 
   const context = escapeHTML(editorial.parliamentaryContext);
-  const finding = escapeHTML(editorial.keyTakeaway).toLowerCase();
+  const finding = escapeHTML(editorial.keyTakeaway);
   const attribution = escapeHTML(editorial.sourceAttribution);
 
   const whyThisMattersSection = hasData
