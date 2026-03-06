@@ -17,7 +17,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
+import { NEWS_DIR, ARTICLE_FILENAME_PATTERN, APP_VERSION } from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_FLAGS,
@@ -128,9 +128,9 @@ function buildFooterLanguageGrid(currentLang: string): string {
 }
 
 /**
- * Build the site footer HTML.
+ * Build the site footer HTML with localized section headings and text.
  *
- * @param lang - Language code for the language grid active state
+ * @param lang - Language code for all localized footer content
  * @returns HTML string for the site footer
  */
 function buildSiteFooter(lang: string): string {
@@ -200,6 +200,7 @@ function injectTypeA(html: string, ctx: InjectionContext): InjectionResult | nul
         <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__subtitle">${escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, ctx.lang))}</span>
           <span class="site-header__subtitle">${ctx.headerSubtitle}</span>
         </span>
       </a>
@@ -350,6 +351,139 @@ function injectSiteFooter(html: string, lang: string): InjectionResult | null {
 }
 
 /**
+ * Inject a `<meta name="generator">` tag if the article lacks one.
+ * Inserts the tag after `<meta name="author" content="EU Parliament Monitor">`.
+ *
+ * @param html - Current article HTML
+ * @returns Updated HTML and change description, or null if already present
+ */
+function patchGeneratorMeta(html: string): InjectionResult | null {
+  if (html.includes('<meta name="generator"')) {
+    return null;
+  }
+  const authorMeta = '<meta name="author" content="EU Parliament Monitor">';
+  if (!html.includes(authorMeta)) {
+    return null;
+  }
+  return {
+    html: html.replace(
+      authorMeta,
+      `${authorMeta}\n  <meta name="generator" content="EU Parliament Monitor v${escapeHTML(APP_VERSION)}">`
+    ),
+    change: 'Added generator meta tag',
+  };
+}
+
+/**
+ * Patch the header subtitle if it contains the English fallback.
+ * Safe to call regardless of whether the article was just created or existed before.
+ *
+ * @param html - Current article HTML
+ * @param lang - Language code for the localized subtitle
+ * @returns Updated HTML and change description, or null if no change needed
+ */
+function patchHeaderSubtitle(html: string, lang: string): InjectionResult | null {
+  const englishSubtitle =
+    '<span class="site-header__subtitle">European Parliament Intelligence</span>';
+  if (!html.includes(englishSubtitle)) {
+    return null;
+  }
+  const localizedSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
+  return {
+    html: html.replace(
+      englishSubtitle,
+      `<span class="site-header__subtitle">${localizedSubtitle}</span>`
+    ),
+    change: 'Localized header subtitle',
+  };
+}
+
+/** CSS selector fragment used to detect the full footer-content div */
+const FOOTER_CONTENT_CLASS = 'class="footer-content"';
+
+/** CSS selector fragment used to detect the legacy footer-bottom div */
+const FOOTER_BOTTOM_CLASS = 'class="footer-bottom"';
+
+/**
+ * Upgrade a minimal footer (footer-bottom only) to the full localized footer.
+ * Only applies when the footer has the legacy footer-bottom pattern but lacks footer-section content.
+ *
+ * @param html - Current article HTML
+ * @param lang - Language code for localized content
+ * @returns Updated HTML and change description, or null if not applicable
+ */
+function upgradeMinimalFooter(html: string, lang: string): InjectionResult | null {
+  if (
+    !html.includes(SITE_FOOTER_CLASS) ||
+    !html.includes(FOOTER_BOTTOM_CLASS) ||
+    html.includes(FOOTER_CONTENT_CLASS)
+  ) {
+    return null;
+  }
+  const footerPattern = /<footer class="site-footer"[^>]*>[\s\S]*?<\/footer>/;
+  if (!footerPattern.test(html)) {
+    return null;
+  }
+  return {
+    html: html.replace(footerPattern, buildSiteFooter(lang)),
+    change: 'Upgraded minimal footer to full localized footer',
+  };
+}
+
+/**
+ * Patch English footer section headings and body text to localized equivalents.
+ * Applied after footer-section elements are confirmed present.
+ *
+ * @param html - Current article HTML
+ * @param lang - Language code for localized content
+ * @returns Updated HTML and change description, or null if no change needed
+ */
+function patchFooterSectionText(html: string, lang: string): InjectionResult | null {
+  const englishAboutHeading = '<h3>About EU Parliament Monitor</h3>';
+  const englishAboutText =
+    'European Parliament Intelligence Platform — monitoring political activity with systematic transparency. Powered by European Parliament open data.';
+  const englishQuickLinks = '<h3>Quick Links</h3>';
+  const englishBuiltBy = '<h3>Built by Hack23 AB</h3>';
+  const englishLanguages = '<h3>Languages</h3>';
+
+  const hasEnglishContent =
+    html.includes(englishAboutHeading) ||
+    html.includes(englishAboutText) ||
+    html.includes(englishQuickLinks) ||
+    html.includes(englishBuiltBy) ||
+    html.includes(englishLanguages);
+
+  if (!hasEnglishContent) {
+    return null;
+  }
+
+  const aboutHeading = getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang);
+  const aboutText = getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang);
+  const quickLinksHeading = getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang);
+  const builtByHeading = getLocalizedString(FOOTER_BUILT_BY_LABELS, lang);
+  const languagesHeading = getLocalizedString(FOOTER_LANGUAGES_LABELS, lang);
+
+  let result = html;
+  if (result.includes(englishAboutHeading)) {
+    result = result.replace(englishAboutHeading, `<h3>${aboutHeading}</h3>`);
+  }
+  if (result.includes(englishAboutText)) {
+    result = result.replace(englishAboutText, aboutText);
+  }
+  if (result.includes(englishQuickLinks)) {
+    result = result.replace(englishQuickLinks, `<h3>${quickLinksHeading}</h3>`);
+  }
+  if (result.includes(englishBuiltBy)) {
+    result = result.replace(englishBuiltBy, `<h3>${builtByHeading}</h3>`);
+  }
+  if (result.includes(englishLanguages)) {
+    result = result.replace(englishLanguages, `<h3>${languagesHeading}</h3>`);
+  }
+
+  return { html: result, change: 'Localized footer section headings and text' };
+}
+
+/**
  * Apply an injection result if present.
  *
  * @param current - Current HTML content
@@ -402,14 +536,6 @@ export function fixArticle(
   /** True when article has any language switcher (new or legacy) */
   const hasAnyLangSwitcher = hasNewLangSwitcher || html.includes(LANG_SWITCHER_LEGACY_CLASS);
 
-  if (
-    hasNewLangSwitcher &&
-    html.includes(ARTICLE_TOP_NAV_CLASS) &&
-    html.includes(SITE_FOOTER_CLASS)
-  ) {
-    return { changed: false, description: `Already complete: ${filename}` };
-  }
-
   const changes: string[] = [];
   const hasSiteHeader = html.includes(SITE_HEADER_CLASS);
   const hasTopNav = html.includes(ARTICLE_TOP_NAV_CLASS);
@@ -435,8 +561,20 @@ export function fixArticle(
   // Add site-footer if missing
   html = applyInjection(html, () => injectSiteFooter(html, lang), changes);
 
+  // Upgrade minimal footer (footer-bottom only) to full localized footer
+  html = applyInjection(html, () => upgradeMinimalFooter(html, lang), changes);
+
+  // Inject generator meta tag if missing
+  html = applyInjection(html, () => patchGeneratorMeta(html), changes);
+
+  // Patch English header subtitle to localized version
+  html = applyInjection(html, () => patchHeaderSubtitle(html, lang), changes);
+
+  // Patch English footer section headings and text to localized versions
+  html = applyInjection(html, () => patchFooterSectionText(html, lang), changes);
+
   if (changes.length === 0) {
-    return { changed: false, description: `No changes needed: ${filename}` };
+    return { changed: false, description: `Already complete: ${filename}` };
   }
 
   if (!dryRun) {

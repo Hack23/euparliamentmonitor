@@ -242,6 +242,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta name="description" content="${safeSubtitle}">
   <meta name="keywords" content="${safeKeywords}">
   <meta name="author" content="EU Parliament Monitor">
+  <meta name="generator" content="EU Parliament Monitor v${escapeHTML(APP_VERSION)}">
   <meta name="date" content="${date}">
   <meta name="article:published_time" content="${date}">
   <meta name="article:author" content="EU Parliament Monitor">
