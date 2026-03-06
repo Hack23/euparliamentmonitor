@@ -821,3 +821,68 @@ describe('Breaking News adoptedTextItemLabelFn', () => {
     }
   });
 });
+
+describe('Breaking News feed truncation', () => {
+  it('should have showingXofNFn for all 14 languages that returns a localized string with both counts', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const strings = getLocalizedString(BREAKING_STRINGS, lang);
+      expect(typeof strings.showingXofNFn).toBe('function');
+      const result = strings.showingXofNFn(10, 25);
+      expect(result).toContain('10');
+      expect(result).toContain('25');
+      expect(result.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('should show truncation note when adopted texts exceed MAX_FEED_ITEMS for all 14 languages', () => {
+    const manyAdoptedTexts = Array.from({ length: 15 }, (_, i) => ({
+      id: `AT-00${i}`,
+      title: `Adopted Text ${i}`,
+      date: '2025-01-15',
+    }));
+    const feedData = {
+      adoptedTexts: manyAdoptedTexts,
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+    };
+    for (const lang of ALL_LANGUAGES) {
+      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', lang, [], [], [], feedData);
+      expect(html).toContain('feed-truncation-note');
+    }
+  });
+
+  it('should show truncation note when MEP updates exceed MAX_FEED_ITEMS for all 14 languages', () => {
+    const manyMEPs = Array.from({ length: 15 }, (_, i) => ({
+      id: `mep-${i}`,
+      name: `MEP ${i}`,
+      date: '2025-01-15',
+    }));
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [],
+      mepUpdates: manyMEPs,
+    };
+    for (const lang of ALL_LANGUAGES) {
+      const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', lang, [], [], [], feedData);
+      expect(html).toContain('feed-truncation-note');
+    }
+  });
+
+  it('should not show truncation note when feed items are within limit', () => {
+    const fewItems = Array.from({ length: 5 }, (_, i) => ({
+      id: `AT-00${i}`,
+      title: `Adopted Text ${i}`,
+      date: '2025-01-15',
+    }));
+    const feedData = {
+      adoptedTexts: fewItems,
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+    };
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], feedData);
+    expect(html).not.toContain('feed-truncation-note');
+  });
+});
