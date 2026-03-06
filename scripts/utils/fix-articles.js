@@ -16,7 +16,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, getLocalizedString, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, getLocalizedString, } from '../constants/languages.js';
 import { escapeHTML } from './file-utils.js';
 /** CSS class selector for the NEW language switcher nav element (inside header) */
 const LANG_SWITCHER_NEW_CLASS = 'class="site-header__langs"';
@@ -85,14 +85,19 @@ function buildFooterLanguageGrid(currentLang) {
  */
 function buildSiteFooter(lang) {
     const year = new Date().getFullYear();
+    const aboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
+    const aboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
+    const quickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
+    const builtByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
+    const languagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
     return `<footer class="site-footer" role="contentinfo">
     <div class="footer-content">
       <div class="footer-section">
-        <h3>About EU Parliament Monitor</h3>
-        <p>European Parliament Intelligence Platform — monitoring political activity with systematic transparency. Powered by European Parliament open data.</p>
+        <h3>${aboutHeading}</h3>
+        <p>${aboutText}</p>
       </div>
       <div class="footer-section">
-        <h3>Quick Links</h3>
+        <h3>${quickLinksHeading}</h3>
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
@@ -101,7 +106,7 @@ function buildSiteFooter(lang) {
         </ul>
       </div>
       <div class="footer-section">
-        <h3>Built by Hack23 AB</h3>
+        <h3>${builtByHeading}</h3>
         <ul>
           <li><a href="https://hack23.com">hack23.com</a></li>
           <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
@@ -110,7 +115,7 @@ function buildSiteFooter(lang) {
         </ul>
       </div>
       <div class="footer-section">
-        <h3>Languages</h3>
+        <h3>${languagesHeading}</h3>
         <div class="language-grid">
           ${buildFooterLanguageGrid(lang)}
         </div>
@@ -143,7 +148,7 @@ function injectTypeA(html, ctx) {
         <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
-          <span class="site-header__subtitle">European Parliament Intelligence</span>
+          <span class="site-header__subtitle">${ctx.headerSubtitle}</span>
         </span>
       </a>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
@@ -310,7 +315,8 @@ export function fixArticle(filepath, dryRun = false) {
     const lang = match[3];
     const indexHref = lang === 'en' ? '../index.html' : `../index-${lang}.html`;
     const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
-    const ctx = { date, slug, lang, indexHref, skipLinkText };
+    const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
+    const ctx = { date, slug, lang, indexHref, skipLinkText, headerSubtitle };
     let html = fs.readFileSync(filepath, 'utf-8');
     /** True when article already has the NEW header-integrated language nav */
     const hasNewLangSwitcher = html.includes(LANG_SWITCHER_NEW_CLASS);
