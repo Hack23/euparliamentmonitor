@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-03-06T18:15:38.475Z",
+  "generated": 14,
+  "skipped": 0,
+  "dryRun": 0,
+  "errors": 0,
+  "articles": [
+    "2026-03-06-breaking-en.html",
+    "2026-03-06-breaking-sv.html",
+    "2026-03-06-breaking-da.html",
+    "2026-03-06-breaking-no.html",
+    "2026-03-06-breaking-fi.html",
+    "2026-03-06-breaking-de.html",
+    "2026-03-06-breaking-fr.html",
+    "2026-03-06-breaking-es.html",
+    "2026-03-06-breaking-nl.html",
+    "2026-03-06-breaking-ar.html",
+    "2026-03-06-breaking-he.html",
+    "2026-03-06-breaking-ja.html",
+    "2026-03-06-breaking-ko.html",
+    "2026-03-06-breaking-zh.html"
+  ],
+  "results": [
+    {
+      "success": true,
+      "files": 14,
+      "slug": "2026-03-06-breaking"
+    }
+  ],
+  "usedMCP": true
+}
