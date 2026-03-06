@@ -623,5 +623,56 @@ describe('article-template', () => {
         expect(result.errors).toContain('Missing required element: site-footer');
       });
     });
+
+    describe('Localized header subtitle and footer sections', () => {
+      it('should render English header subtitle in English articles', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: 'en' });
+        expect(html).toContain('<span class="site-header__subtitle">European Parliament Intelligence</span>');
+      });
+
+      it('should render German header subtitle in German articles', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: 'de' });
+        expect(html).toContain('class="site-header__subtitle"');
+        expect(html).not.toContain('<span class="site-header__subtitle">European Parliament Intelligence</span>');
+      });
+
+      it('should render localized footer "About" heading in English', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: 'en' });
+        expect(html).toContain('About EU Parliament Monitor');
+      });
+
+      it('should render localized footer "Quick Links" heading in English', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: 'en' });
+        expect(html).toContain('Quick Links');
+      });
+
+      it('should render localized footer "Built by Hack23 AB" heading in English', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: 'en' });
+        expect(html).toContain('Built by Hack23 AB');
+      });
+
+      it('should render localized footer "Languages" heading in English', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: 'en' });
+        expect(html).toContain('Languages');
+      });
+
+      it('should render localized footer heading in Swedish', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: 'sv' });
+        expect(html).toContain('Om EU Parliament Monitor');
+      });
+
+      it('should render localized footer heading in French', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: 'fr' });
+        expect(html).toContain('\u00c0 propos du EU Parliament Monitor');
+      });
+
+      it('should render localized header subtitle for all 14 languages', () => {
+        const nonEnglishLangs = ['sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+        for (const lang of nonEnglishLangs) {
+          const html = generateArticleHTML({ ...defaultOptions, lang });
+          expect(html).toContain('class="site-header__subtitle"');
+        }
+      });
+    });
   });
 });
