@@ -260,7 +260,7 @@ function buildConsequencesSection(items, heading, labels, strings, contentLang) 
                     <th scope="col">${escapeHTML(labels.actionLabel)}</th>
                     <th scope="col" aria-hidden="true"></th>
                     <th scope="col">${escapeHTML(labels.consequenceLabel)}</th>
-                    <th scope="col"></th>
+                    <th scope="col">${escapeHTML(labels.severityColumnLabel)}</th>
                   </tr>
                 </thead>
                 <tbody>

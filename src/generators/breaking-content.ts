@@ -69,8 +69,8 @@ const ADOPTED_TEXT_PLACEHOLDER_PATTERN = /^(Adopted text|European Parliament ado
 function buildAdoptedTextsSection(items: readonly AdoptedTextFeedItem[], lang: string): string {
   if (items.length === 0) return '';
   const strings = getLocalizedString(BREAKING_STRINGS, lang);
-  const listItems = items
-    .slice(0, MAX_FEED_ITEMS)
+  const displayItems = items.slice(0, MAX_FEED_ITEMS);
+  const listItems = displayItems
     .map((item) => {
       const labelOrId = item.label ?? item.identifier;
       const titleIsPlaceholder = !item.title || ADOPTED_TEXT_PLACEHOLDER_PATTERN.test(item.title);
@@ -91,12 +91,16 @@ function buildAdoptedTextsSection(items: readonly AdoptedTextFeedItem[], lang: s
       );
     })
     .join('\n            ');
+  const truncationNote =
+    items.length > MAX_FEED_ITEMS
+      ? `\n          <p class="feed-truncation-note">${escapeHTML(strings.showingXofNFn(displayItems.length, items.length))}</p>`
+      : '';
   return `
         <section class="adopted-texts-feed">
           <h2>${escapeHTML(strings.adoptedTextsHeading)}</h2>
           <ul>
             ${listItems}
-          </ul>
+          </ul>${truncationNote}
         </section>`;
 }
 
@@ -170,8 +174,8 @@ function buildProcedureUpdatesSection(items: readonly ProcedureFeedItem[], lang:
 function buildMEPUpdatesSection(items: readonly MEPFeedItem[], lang: string): string {
   if (items.length === 0) return '';
   const strings = getLocalizedString(BREAKING_STRINGS, lang);
-  const listItems = items
-    .slice(0, MAX_FEED_ITEMS)
+  const displayItems = items.slice(0, MAX_FEED_ITEMS);
+  const listItems = displayItems
     .map(
       (item) =>
         `<li class="feed-item mep-item">` +
@@ -182,12 +186,16 @@ function buildMEPUpdatesSection(items: readonly MEPFeedItem[], lang: string): st
         `</li>`
     )
     .join('\n            ');
+  const truncationNote =
+    items.length > MAX_FEED_ITEMS
+      ? `\n          <p class="feed-truncation-note">${escapeHTML(strings.showingXofNFn(displayItems.length, items.length))}</p>`
+      : '';
   return `
         <section class="mep-updates-feed">
           <h2>${escapeHTML(strings.mepUpdatesHeading)}</h2>
           <ul>
             ${listItems}
-          </ul>
+          </ul>${truncationNote}
         </section>`;
 }
 
@@ -486,7 +494,7 @@ export function buildBreakingNewsContent(
 
   const context = escapeHTML(editorial.parliamentaryContext);
   const finding = escapeHTML(editorial.keyTakeaway).toLowerCase();
-  const attribution = escapeHTML(editorial.sourceAttribution).toLowerCase();
+  const attribution = escapeHTML(editorial.sourceAttribution);
 
   const whyThisMattersSection = hasData
     ? `

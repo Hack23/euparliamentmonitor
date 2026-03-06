@@ -288,7 +288,7 @@ function severityLabel(
 function buildConsequencesSection(
   items: readonly ActionConsequence[],
   heading: string,
-  labels: { actionLabel: string; consequenceLabel: string },
+  labels: { actionLabel: string; consequenceLabel: string; severityColumnLabel: string },
   strings: {
     severityLow: string;
     severityMedium: string;
@@ -319,7 +319,7 @@ function buildConsequencesSection(
                     <th scope="col">${escapeHTML(labels.actionLabel)}</th>
                     <th scope="col" aria-hidden="true"></th>
                     <th scope="col">${escapeHTML(labels.consequenceLabel)}</th>
-                    <th scope="col"></th>
+                    <th scope="col">${escapeHTML(labels.severityColumnLabel)}</th>
                   </tr>
                 </thead>
                 <tbody>
