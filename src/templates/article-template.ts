@@ -247,17 +247,31 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta name="article:published_time" content="${date}">
   <meta name="article:author" content="EU Parliament Monitor">
   
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#003399">
+
   <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="${safeTitle}">
   <meta property="og:description" content="${safeSubtitle}">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${OG_LOCALE_MAP[lang] ?? lang}">
+  <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${safeTitle}">
   <meta name="twitter:description" content="${safeSubtitle}">
+  <meta name="twitter:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
+  <meta name="twitter:image:alt" content="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence">
   
   <link rel="stylesheet" href="../styles.css"${safeSriAttrs}>
   
@@ -273,7 +287,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a href="${indexHref}" class="site-header__brand" aria-label="EU Parliament Monitor">
-        <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
+        <img class="site-header__logo" src="../images/favicon-48x48.png" alt="" width="48" height="48" aria-hidden="true">
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
           <span class="site-header__subtitle">${headerSubtitle}</span>

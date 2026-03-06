@@ -411,6 +411,16 @@ export function generateSitemapHTML(
   <meta property="og:description" content="${escapeHTML(description)}">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${lang}">
+  <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#003399">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -419,7 +429,7 @@ export function generateSitemapHTML(
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a href="${getIndexFilename(lang)}" class="site-header__brand" aria-label="${escapeHTML(heroTitle)}">
-        <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
+        <img class="site-header__logo" src="images/favicon-48x48.png" alt="" width="48" height="48" aria-hidden="true">
         <span>
           <span class="site-header__title">${escapeHTML(heroTitle)}</span>
           <span class="site-header__subtitle">European Parliament Intelligence</span>
