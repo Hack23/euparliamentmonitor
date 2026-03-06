@@ -20,6 +20,7 @@ import {
   PAGE_TITLES,
   PAGE_DESCRIPTIONS,
   SKIP_LINK_TEXTS,
+  HEADER_SUBTITLE_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -360,6 +361,7 @@ export function generateSitemapHTML(
   const sections = SITEMAP_SECTIONS[lang] ?? SITEMAP_SECTIONS['en']!;
   const docsLabels = DOCS_LABELS[lang] ?? DOCS_LABELS['en']!;
   const heroTitle = getLocalizedString(PAGE_TITLES, lang).split(' - ')[0] ?? '';
+  const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
 
   // Pages section
   const pagesSection = ALL_LANGUAGES.map((code) => {
@@ -411,6 +413,16 @@ export function generateSitemapHTML(
   <meta property="og:description" content="${escapeHTML(description)}">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${lang}">
+  <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#003399">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -419,10 +431,13 @@ export function generateSitemapHTML(
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a href="${getIndexFilename(lang)}" class="site-header__brand" aria-label="${escapeHTML(heroTitle)}">
-        <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
+        <picture class="site-header__logo-picture">
+          <source srcset="images/favicon-96x96.webp" type="image/webp">
+          <img class="site-header__logo" src="images/favicon-96x96.png" alt="" width="96" height="96" aria-hidden="true">
+        </picture>
         <span>
           <span class="site-header__title">${escapeHTML(heroTitle)}</span>
-          <span class="site-header__subtitle">European Parliament Intelligence</span>
+          <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
     </div>
@@ -460,6 +475,7 @@ ${articlesSection}
         <h3>Quick Links</h3>
         <ul>
           <li><a href="${getIndexFilename(lang)}">Home</a></li>
+          <li><a href="rss.xml">RSS Feed</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
           <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>

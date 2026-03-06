@@ -26,6 +26,12 @@ import {
   AI_SECTION_CONTENT,
   FILTER_LABELS,
   ARTICLE_TYPE_LABELS,
+  HEADER_SUBTITLE_LABELS,
+  FOOTER_ABOUT_HEADING_LABELS,
+  FOOTER_ABOUT_TEXT_LABELS,
+  FOOTER_QUICK_LINKS_LABELS,
+  FOOTER_BUILT_BY_LABELS,
+  FOOTER_LANGUAGES_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -229,7 +235,13 @@ export function generateIndexHTML(
 
   const ai = getLocalizedString(AI_SECTION_CONTENT, lang);
 
-  // Build filter buttons from used categories
+  // Build filter buttons from used categories (with article count)
+  const categoryCounts = new Map<string, number>();
+  for (const a of articles) {
+    const cat = detectCategory(a.slug);
+    categoryCounts.set(cat, (categoryCounts.get(cat) ?? 0) + 1);
+  }
+
   const filterButtons =
     articles.length > 0
       ? Array.from(usedCategories)
@@ -237,10 +249,19 @@ export function generateIndexHTML(
           .map((cat) => {
             const safeCat = cat.replace(/[^a-z0-9-]/gi, '');
             const label = categoryLabels[cat as keyof ArticleCategoryLabels] ?? formatSlug(safeCat);
-            return `<button type="button" class="filter-btn" data-category="${safeCat}">${escapeHTML(label)}</button>`;
+            const count = categoryCounts.get(cat) ?? 0;
+            return `<button type="button" class="filter-btn" data-category="${safeCat}">${escapeHTML(label)}<span class="filter-btn__count">${count}</span></button>`;
           })
           .join('\n          ')
       : '';
+
+  const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
+  const footerAboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
+  const footerAboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
+  const footerQuickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
+  const footerBuiltByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
+  const footerLanguagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
+  const canonicalUrl = `https://hack23.github.io/euparliamentmonitor/${selfHref}`;
 
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
@@ -252,12 +273,31 @@ export function generateIndexHTML(
   <meta name="generator" content="EU Parliament Monitor v${escapeHTML(APP_VERSION)}">
   <title>${title}</title>
   <meta name="description" content="${description}">
+  <link rel="canonical" href="${canonicalUrl}">
   <meta property="og:type" content="website">
   <meta property="og:title" content="${heroTitle}">
   <meta property="og:description" content="${description}">
+  <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${lang}">
+  <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${heroTitle}">
+  <meta name="twitter:description" content="${description}">
+  <meta name="twitter:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
+  <meta name="twitter:image:alt" content="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence">
   ${buildHreflangTags()}
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#003399">
+  <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="rss.xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -266,10 +306,13 @@ export function generateIndexHTML(
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
-        <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
+        <picture class="site-header__logo-picture">
+          <source srcset="images/favicon-96x96.webp" type="image/webp">
+          <img class="site-header__logo" src="images/favicon-96x96.png" alt="" width="96" height="96" aria-hidden="true">
+        </picture>
         <span>
           <span class="site-header__title">${heroTitle}</span>
-          <span class="site-header__subtitle">European Parliament Intelligence</span>
+          <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
@@ -279,8 +322,14 @@ export function generateIndexHTML(
   </header>
 
   <section class="hero">
-    <h1 class="hero__title">${heroTitle}</h1>
-    <p class="hero__description">${description}</p>
+    <picture class="hero__banner">
+      <source srcset="images/banner.webp" type="image/webp">
+      <img src="images/banner.jpg" alt="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence" class="hero__banner-img" width="1200" height="400" loading="eager">
+    </picture>
+    <div class="hero__overlay">
+      <h1 class="hero__title">${heroTitle}</h1>
+      <p class="hero__description">${description}</p>
+    </div>
   </section>
 
   <section class="ai-intelligence" aria-labelledby="ai-heading">
@@ -301,7 +350,7 @@ export function generateIndexHTML(
         ? `
     <div class="filter-toolbar" role="toolbar" aria-label="Filter articles">
       <div class="filter-buttons">
-        <button type="button" class="filter-btn active" data-category="all">${escapeHTML(filterLabels.all)}</button>
+        <button type="button" class="filter-btn active" data-category="all">${escapeHTML(filterLabels.all)}<span class="filter-btn__count">${articles.length}</span></button>
         ${filterButtons}
       </div>
       <div class="filter-search">
@@ -316,21 +365,23 @@ export function generateIndexHTML(
   <footer class="site-footer" role="contentinfo">
     <div class="footer-content">
       <div class="footer-section">
-        <h3>About EU Parliament Monitor</h3>
-        <p>European Parliament Intelligence Platform — monitoring political activity with systematic transparency. Powered by European Parliament open data.</p>
+        <h3>${footerAboutHeading}</h3>
+        <p>${footerAboutText}</p>
         <p class="footer-stats">${articles.length} articles available</p>
       </div>
       <div class="footer-section">
-        <h3>Quick Links</h3>
+        <h3>${footerQuickLinksHeading}</h3>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+          <li><a href="rss.xml">RSS Feed</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
           <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
         </ul>
       </div>
       <div class="footer-section">
-        <h3>Built by Hack23 AB</h3>
+        <h3>${footerBuiltByHeading}</h3>
         <ul>
           <li><a href="https://hack23.com">hack23.com</a></li>
           <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
@@ -339,7 +390,7 @@ export function generateIndexHTML(
         </ul>
       </div>
       <div class="footer-section">
-        <h3>Languages</h3>
+        <h3>${footerLanguagesHeading}</h3>
         <div class="language-grid">
           ${buildFooterLanguageGrid(lang)}
         </div>

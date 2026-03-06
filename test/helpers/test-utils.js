@@ -141,7 +141,7 @@ export function validateHTML(html) {
   // Extract tag names
   const openTagNames = openTags
     .map((tag) => tag.match(/<(\w+)/)?.[1])
-    .filter((tag) => !['meta', 'link', 'br', 'hr', 'img', 'input'].includes(tag));
+    .filter((tag) => !['meta', 'link', 'br', 'hr', 'img', 'input', 'source'].includes(tag));
   
   const closeTagNames = closeTags.map((tag) => tag.match(/<\/(\w+)>/)?.[1]);
 

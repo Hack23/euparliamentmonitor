@@ -45,6 +45,11 @@
   --transition: 0.25s ease;
 }
 
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
 /* ─── Skip Navigation ────────────────────────────────────────────── */
 .skip-link {
   position: absolute;
@@ -154,6 +159,21 @@ img {
   flex-shrink: 0;
 }
 
+.site-header__logo-picture {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.site-header__logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25), 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
 .site-header__title {
   display: block;
   font-size: 1.1rem;
@@ -239,26 +259,52 @@ img {
 
 /* ─── Hero Section (Index pages) ─────────────────────────────────── */
 .hero {
-  background: linear-gradient(160deg, var(--primary-light) 0%, #fff 60%);
+  position: relative;
   border-bottom: 3px solid var(--secondary);
-  padding: 36px 24px 28px;
   text-align: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+.hero__banner {
+  display: block;
+  width: 100%;
+}
+
+.hero__banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 400px;
+}
+
+.hero__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 36px 24px 28px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.4) 55%, transparent 100%);
+  color: #fff;
 }
 
 .hero__title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
-  color: var(--primary);
-  margin-bottom: 6px;
+  color: #fff;
+  margin-bottom: 8px;
   letter-spacing: -0.02em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 0, 0, 0.3);
 }
 
 .hero__description {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  max-width: 600px;
+  font-size: 1.08rem;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 640px;
   margin: 0 auto;
-  line-height: 1.5;
+  line-height: 1.55;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* ─── AI Intelligence Section ────────────────────────────────────── */
@@ -394,6 +440,9 @@ img {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 58px;
+  z-index: 90;
 }
 
 .filter-buttons {
@@ -429,6 +478,25 @@ img {
   background: var(--primary);
   color: #fff;
   border-color: var(--primary);
+}
+
+.filter-btn__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  margin-left: 6px;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.1);
+  line-height: 1;
+}
+
+.filter-btn.active .filter-btn__count {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .filter-search {
@@ -610,6 +678,10 @@ img {
   line-height: 1.35;
   margin-bottom: 8px;
   flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .news-card__link:hover .news-card__title {
@@ -688,7 +760,7 @@ img {
 }
 
 .footer-section ul li a {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   transition: color var(--transition);
 }
@@ -699,9 +771,17 @@ img {
 }
 
 .footer-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   font-style: italic;
+  margin-top: 8px;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .language-grid {
@@ -711,7 +791,7 @@ img {
 }
 
 .language-grid a {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-size: 0.82rem;
   padding: 3px 6px;
@@ -1130,7 +1210,11 @@ img {
   }
 
   .hero {
-    padding: 24px 16px 20px;
+    padding: 0;
+  }
+
+  .hero__overlay {
+    padding: 20px 16px 16px;
   }
 
   .hero__title {
@@ -1260,18 +1344,27 @@ img {
   .article-nav,
   .article-top-nav,
   .language-switcher,
-  .site-header__langs {
-    display: none;
+  .site-header__langs,
+  .filter-toolbar,
+  .hero,
+  .ai-intelligence,
+  .reading-progress,
+  .skip-link,
+  .footer-disclaimer {
+    display: none !important;
   }
 
   .news-article {
     box-shadow: none;
     padding: 0;
+    border: none;
+    max-width: 100%;
   }
 
   body {
     background: #fff;
     color: #000;
+    font-size: 11pt;
   }
 
   .news-card {
@@ -1572,9 +1665,9 @@ button:focus-visible {
 
 /* ─── Reading Progress Bar ───────────────────────────────────── */
 /*
- * Requires JavaScript to update `element.style.width` on scroll.
- * Hidden until a JS implementation is added to this static site.
- * Re-enable by removing display:none and adding a scroll listener.
+ * Shown on article pages only — a scroll listener updates width.
+ * Hidden by default (display:none); the article-template inline script
+ * sets display:block on page load so the bar appears only when JS runs.
  */
 .reading-progress {
   display: none;
@@ -1583,9 +1676,10 @@ button:focus-visible {
   left: 0;
   width: 0;
   height: 4px;
-  background-color: var(--secondary);
+  background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
   z-index: 1000;
-  transition: width var(--transition);
+  transition: width 0.1s linear;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* ─── RTL Enhancements for New Components ───────────────────── */

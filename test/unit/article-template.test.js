@@ -422,8 +422,8 @@ describe('article-template', () => {
         
         // Template should only have JSON-LD script tags
         expect(jsonLdScripts.length).toBeGreaterThan(0);
-        // Any executable script should come from the content parameter only
-        expect(executableScripts.length).toBe(1); // Only from the malicious content we passed
+        // Executable scripts: 1 from the malicious content + 1 reading-progress bar script
+        expect(executableScripts.length).toBe(2);
       });
 
       it('should properly escape special characters in title', () => {
