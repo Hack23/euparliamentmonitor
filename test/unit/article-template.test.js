@@ -47,6 +47,7 @@ describe('article-template', () => {
         expect(html).toContain('<meta name="description"');
         expect(html).toContain('<meta name="keywords"');
         expect(html).toContain('<meta name="author"');
+        expect(html).toContain('<meta name="generator" content="EU Parliament Monitor v');
       });
 
       it('should include article title in multiple places', () => {

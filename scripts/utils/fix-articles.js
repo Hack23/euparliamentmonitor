@@ -15,7 +15,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
+import { NEWS_DIR, ARTICLE_FILENAME_PATTERN, APP_VERSION } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, getLocalizedString, } from '../constants/languages.js';
 import { escapeHTML } from './file-utils.js';
 /** CSS class selector for the NEW language switcher nav element (inside header) */
@@ -283,6 +283,26 @@ function injectSiteFooter(html, lang) {
     };
 }
 /**
+ * Inject a `<meta name="generator">` tag if the article lacks one.
+ * Inserts the tag after `<meta name="author" content="EU Parliament Monitor">`.
+ *
+ * @param html - Current article HTML
+ * @returns Updated HTML and change description, or null if already present
+ */
+function patchGeneratorMeta(html) {
+    if (html.includes('<meta name="generator"')) {
+        return null;
+    }
+    const authorMeta = '<meta name="author" content="EU Parliament Monitor">';
+    if (!html.includes(authorMeta)) {
+        return null;
+    }
+    return {
+        html: html.replace(authorMeta, `${authorMeta}\n  <meta name="generator" content="EU Parliament Monitor v${escapeHTML(APP_VERSION)}">`),
+        change: 'Added generator meta tag',
+    };
+}
+/**
  * Patch the header subtitle if it contains the English fallback.
  * Safe to call regardless of whether the article was just created or existed before.
  *
@@ -437,6 +457,8 @@ export function fixArticle(filepath, dryRun = false) {
     html = applyInjection(html, () => injectSiteFooter(html, lang), changes);
     // Upgrade minimal footer (footer-bottom only) to full localized footer
     html = applyInjection(html, () => upgradeMinimalFooter(html, lang), changes);
+    // Inject generator meta tag if missing
+    html = applyInjection(html, () => patchGeneratorMeta(html), changes);
     // Patch English header subtitle to localized version
     html = applyInjection(html, () => patchHeaderSubtitle(html, lang), changes);
     // Patch English footer section headings and text to localized versions

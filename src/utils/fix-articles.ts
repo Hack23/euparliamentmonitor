@@ -17,7 +17,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
+import { NEWS_DIR, ARTICLE_FILENAME_PATTERN, APP_VERSION } from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_FLAGS,
@@ -351,6 +351,30 @@ function injectSiteFooter(html: string, lang: string): InjectionResult | null {
 }
 
 /**
+ * Inject a `<meta name="generator">` tag if the article lacks one.
+ * Inserts the tag after `<meta name="author" content="EU Parliament Monitor">`.
+ *
+ * @param html - Current article HTML
+ * @returns Updated HTML and change description, or null if already present
+ */
+function patchGeneratorMeta(html: string): InjectionResult | null {
+  if (html.includes('<meta name="generator"')) {
+    return null;
+  }
+  const authorMeta = '<meta name="author" content="EU Parliament Monitor">';
+  if (!html.includes(authorMeta)) {
+    return null;
+  }
+  return {
+    html: html.replace(
+      authorMeta,
+      `${authorMeta}\n  <meta name="generator" content="EU Parliament Monitor v${escapeHTML(APP_VERSION)}">`
+    ),
+    change: 'Added generator meta tag',
+  };
+}
+
+/**
  * Patch the header subtitle if it contains the English fallback.
  * Safe to call regardless of whether the article was just created or existed before.
  *
@@ -539,6 +563,9 @@ export function fixArticle(
 
   // Upgrade minimal footer (footer-bottom only) to full localized footer
   html = applyInjection(html, () => upgradeMinimalFooter(html, lang), changes);
+
+  // Inject generator meta tag if missing
+  html = applyInjection(html, () => patchGeneratorMeta(html), changes);
 
   // Patch English header subtitle to localized version
   html = applyInjection(html, () => patchHeaderSubtitle(html, lang), changes);
