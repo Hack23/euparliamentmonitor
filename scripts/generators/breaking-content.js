@@ -34,7 +34,7 @@ function isToolError(raw) {
 /** Maximum feed items to render per section */
 const MAX_FEED_ITEMS = 10;
 /**
- * Build a feed truncation note paragraph when fewer items are displayed than the total number of items.
+ * Build a feed truncation note paragraph when displayed items are fewer than total items.
  *
  * @param shown - Number of items shown
  * @param total - Total number of items available
