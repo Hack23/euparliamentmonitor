@@ -292,6 +292,8 @@ export interface BreakingStrings {
   adoptedTextTypeLabel: string;
   /** Template to format an adopted-text item title from its label/identifier (e.g. "T10-0315/2025") */
   adoptedTextItemLabelFn: (label: string) => string;
+  /** Template to show truncation note: "Showing {shown} of {total}" */
+  showingXofNFn: (shown: number, total: number) => string;
 }
 
 // ─── Deep Analysis types ───────────────────────────────────────────────────
@@ -411,6 +413,8 @@ export interface DeepAnalysisStrings {
   readonly actionLabel: string;
   /** Label for consequence column */
   readonly consequenceLabel: string;
+  /** Label for severity column header */
+  readonly severityColumnLabel: string;
   /** Sub-heading for mistakes */
   readonly mistakesHeading: string;
   /** Label for "should have" alternative */
