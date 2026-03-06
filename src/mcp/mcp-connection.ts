@@ -421,7 +421,7 @@ export class MCPConnection {
         Accept: 'application/json, text/event-stream',
       };
       if (this.gatewayApiKey) {
-        headers['Authorization'] = `Bearer ${this.gatewayApiKey}`;
+        headers['Authorization'] = this.gatewayApiKey;
       }
 
       const initRequest: JSONRPCRequest = {
@@ -625,7 +625,7 @@ export class MCPConnection {
       Accept: 'application/json, text/event-stream',
     };
     if (this.gatewayApiKey) {
-      headers['Authorization'] = `Bearer ${this.gatewayApiKey}`;
+      headers['Authorization'] = this.gatewayApiKey;
     }
     if (this.mcpSessionId) {
       headers['Mcp-Session-Id'] = this.mcpSessionId;
