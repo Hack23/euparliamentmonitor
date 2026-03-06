@@ -12,6 +12,7 @@ import {
   getMotionsFallbackData,
   PLACEHOLDER_MARKER,
 } from '../../scripts/generators/news-enhanced.js';
+import { buildAdoptedTextsSection } from '../../scripts/generators/motions-content.js';
 import { MOTIONS_TITLES, ALL_LANGUAGES, getLocalizedString, MOTIONS_STRINGS } from '../../scripts/constants/languages.js';
 
 const DATE_STR = '2025-01-15';
@@ -305,5 +306,83 @@ describe('Motions multi-language section headings', () => {
       expect(strings.lede).toBeDefined();
       expect(strings.keyTakeawayText).toBeDefined();
     }
+  });
+});
+
+describe('buildAdoptedTextsSection', () => {
+  const mockAdoptedTexts = [
+    { id: 'AT-001', title: 'Climate Action Resolution', date: '2025-01-15', identifier: 'TA-10-2025-0001' },
+    { id: 'AT-002', title: 'Digital Services Update', date: '2025-01-15', identifier: 'TA-10-2025-0002' },
+    { id: 'AT-003', title: 'Budget Amendment', date: '2025-01-14' },
+  ];
+
+  it('should return empty string for empty array', () => {
+    const html = buildAdoptedTextsSection([], 'en');
+    expect(html).toBe('');
+  });
+
+  it('should render adopted texts as HTML section', () => {
+    const html = buildAdoptedTextsSection(mockAdoptedTexts, 'en');
+    expect(html).toContain('class="adopted-texts-feed"');
+    expect(html).toContain('class="adopted-texts-list"');
+    expect(html).toContain('Climate Action Resolution');
+    expect(html).toContain('Digital Services Update');
+    expect(html).toContain('Budget Amendment');
+  });
+
+  it('should include lang attribute matching the language parameter', () => {
+    const html = buildAdoptedTextsSection(mockAdoptedTexts, 'fr');
+    expect(html).toContain('lang="fr"');
+  });
+
+  it('should use localized heading for each of the 14 languages', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const html = buildAdoptedTextsSection(mockAdoptedTexts, lang);
+      expect(html).toContain('class="adopted-texts-feed"');
+      expect(html).toContain(`lang="${lang}"`);
+      expect(html).not.toContain('undefined');
+      expect(html).not.toContain('null');
+    }
+  });
+
+  it('should handle unknown language by falling back to English heading', () => {
+    const html = buildAdoptedTextsSection(mockAdoptedTexts, 'xx');
+    expect(html).toContain('Recently Adopted Texts');
+    expect(html).toContain('lang="xx"');
+  });
+
+  it('should escape HTML in titles to prevent XSS', () => {
+    const xssTexts = [
+      { id: 'XSS-1', title: '<script>alert("xss")</script>', date: '2025-01-15' },
+    ];
+    const html = buildAdoptedTextsSection(xssTexts, 'en');
+    expect(html).not.toContain('<script>');
+    expect(html).toContain('&lt;script&gt;');
+  });
+
+  it('should group texts by date and sort most recent first', () => {
+    const html = buildAdoptedTextsSection(mockAdoptedTexts, 'en');
+    const pos2025_01_15 = html.indexOf('2025-01-15');
+    const pos2025_01_14 = html.indexOf('2025-01-14');
+    expect(pos2025_01_15).toBeLessThan(pos2025_01_14);
+  });
+
+  it('should use identifier when available as feed-label', () => {
+    const html = buildAdoptedTextsSection(mockAdoptedTexts, 'en');
+    expect(html).toContain('TA-10-2025-0001');
+    expect(html).toContain('class="feed-label"');
+  });
+
+  it('should fall back to id when identifier is missing', () => {
+    const textsWithoutIdentifier = [
+      { id: 'AT-FALLBACK', title: 'Test Text', date: '2025-01-15' },
+    ];
+    const html = buildAdoptedTextsSection(textsWithoutIdentifier, 'en');
+    expect(html).toContain('AT-FALLBACK');
+  });
+
+  it('should display item count in the description', () => {
+    const html = buildAdoptedTextsSection(mockAdoptedTexts, 'en');
+    expect(html).toContain('3 texts adopted');
   });
 });
