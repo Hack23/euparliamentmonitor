@@ -277,6 +277,7 @@ function severityLabel(
  * @param labels - Localized column labels
  * @param labels.actionLabel
  * @param labels.consequenceLabel
+ * @param labels.severityColumnLabel
  * @param strings - Localized severity strings
  * @param strings.severityLow
  * @param strings.severityMedium
