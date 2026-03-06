@@ -305,7 +305,8 @@ export function buildAdoptedTextsSection(
 ): string {
   if (adoptedTexts.length === 0) return '';
 
-  const heading = ADOPTED_TEXTS_HEADINGS[language] ?? ADOPTED_TEXTS_HEADINGS['en'] ?? 'Recently Adopted Texts';
+  const heading =
+    ADOPTED_TEXTS_HEADINGS[language] ?? ADOPTED_TEXTS_HEADINGS['en'] ?? 'Recently Adopted Texts';
 
   // Group by date, sort most recent first
   const byDate = new Map<string, AdoptedTextFeedItem[]>();

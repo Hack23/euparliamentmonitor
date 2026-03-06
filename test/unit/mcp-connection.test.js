@@ -713,4 +713,91 @@ describe('mcp-connection', () => {
       });
     });
   });
+
+  describe('_buildAuthorizationHeader', () => {
+    let client;
+
+    beforeEach(() => {
+      client = new MCPConnection({ gatewayUrl: 'http://fake-gateway/mcp' });
+    });
+
+    it('should return empty string for an empty API key', () => {
+      expect(client._buildAuthorizationHeader('')).toBe('');
+    });
+
+    it('should return empty string for a whitespace-only API key', () => {
+      expect(client._buildAuthorizationHeader('   ')).toBe('');
+    });
+
+    it('should return raw token unchanged when no scheme prefix is present', () => {
+      expect(client._buildAuthorizationHeader('my-raw-token')).toBe('my-raw-token');
+    });
+
+    it('should pass through pre-prefixed Bearer value unchanged', () => {
+      expect(client._buildAuthorizationHeader('Bearer my-token')).toBe('Bearer my-token');
+    });
+
+    it('should pass through pre-prefixed Token value unchanged', () => {
+      expect(client._buildAuthorizationHeader('Token abc123')).toBe('Token abc123');
+    });
+
+    it('should pass through pre-prefixed AWS4-HMAC-SHA256 scheme unchanged', () => {
+      const value = 'AWS4-HMAC-SHA256 Credential=AKID/20130708/us-east-1/s3/aws4_request';
+      expect(client._buildAuthorizationHeader(value)).toBe(value);
+    });
+
+    it('should prepend EP_MCP_GATEWAY_AUTH_SCHEME when set to a valid token', () => {
+      const original = process.env['EP_MCP_GATEWAY_AUTH_SCHEME'];
+      try {
+        process.env['EP_MCP_GATEWAY_AUTH_SCHEME'] = 'Bearer';
+        expect(client._buildAuthorizationHeader('my-raw-token')).toBe('Bearer my-raw-token');
+      } finally {
+        if (original === undefined) {
+          delete process.env['EP_MCP_GATEWAY_AUTH_SCHEME'];
+        } else {
+          process.env['EP_MCP_GATEWAY_AUTH_SCHEME'] = original;
+        }
+      }
+    });
+
+    it('should not prepend EP_MCP_GATEWAY_AUTH_SCHEME when key is already prefixed', () => {
+      const original = process.env['EP_MCP_GATEWAY_AUTH_SCHEME'];
+      try {
+        process.env['EP_MCP_GATEWAY_AUTH_SCHEME'] = 'Bearer';
+        expect(client._buildAuthorizationHeader('Token already-prefixed')).toBe('Token already-prefixed');
+      } finally {
+        if (original === undefined) {
+          delete process.env['EP_MCP_GATEWAY_AUTH_SCHEME'];
+        } else {
+          process.env['EP_MCP_GATEWAY_AUTH_SCHEME'] = original;
+        }
+      }
+    });
+
+    it('should ignore EP_MCP_GATEWAY_AUTH_SCHEME when it contains invalid tchar characters', () => {
+      const original = process.env['EP_MCP_GATEWAY_AUTH_SCHEME'];
+      try {
+        process.env['EP_MCP_GATEWAY_AUTH_SCHEME'] = 'Invalid Scheme';
+        expect(client._buildAuthorizationHeader('my-raw-token')).toBe('my-raw-token');
+      } finally {
+        if (original === undefined) {
+          delete process.env['EP_MCP_GATEWAY_AUTH_SCHEME'];
+        } else {
+          process.env['EP_MCP_GATEWAY_AUTH_SCHEME'] = original;
+        }
+      }
+    });
+
+    it('should throw when API key contains CR character (header injection risk)', () => {
+      expect(() => client._buildAuthorizationHeader('token\rInjected: header')).toThrow(
+        /control characters/,
+      );
+    });
+
+    it('should throw when API key contains LF character (header injection risk)', () => {
+      expect(() => client._buildAuthorizationHeader('token\nInjected: header')).toThrow(
+        /control characters/,
+      );
+    });
+  });
 });

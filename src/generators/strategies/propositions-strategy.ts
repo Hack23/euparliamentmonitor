@@ -49,14 +49,13 @@ function buildProposalsFromFeed(feedData: EPFeedData): string {
   const items: string[] = [];
 
   for (const proc of feedData.procedures.slice(0, 8)) {
-    const procStatus = proc.stage ?? proc.type;
     items.push(`
       <div class="proposal-card">
         <h3>${escapeHTML(proc.title || proc.id)}</h3>
         <div class="proposal-meta">
           <span class="proposal-id">${escapeHTML(proc.identifier ?? proc.id)}</span>
           ${proc.date ? `<span class="proposal-date">${escapeHTML(proc.date)}</span>` : ''}
-          ${procStatus ? `<span class="proposal-status">${escapeHTML(procStatus)}</span>` : ''}
+          ${proc.stage ? `<span class="proposal-status">${escapeHTML(proc.stage)}</span>` : ''}
         </div>
       </div>`);
   }
@@ -68,7 +67,6 @@ function buildProposalsFromFeed(feedData: EPFeedData): string {
         <div class="proposal-meta">
           <span class="proposal-id">${escapeHTML(text.identifier ?? text.id)}</span>
           ${text.date ? `<span class="proposal-date">${escapeHTML(text.date)}</span>` : ''}
-          ${text.type ? `<span class="proposal-status">${escapeHTML(text.type)}</span>` : ''}
         </div>
       </div>`);
   }
