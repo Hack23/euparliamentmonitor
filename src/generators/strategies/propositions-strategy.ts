@@ -11,6 +11,7 @@
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
 import { ArticleCategory } from '../../types/index.js';
 import type { LanguageCode, EPFeedData } from '../../types/index.js';
+import { escapeHTML } from '../../utils/file-utils.js';
 import {
   PROPOSITIONS_TITLES,
   PROPOSITIONS_STRINGS,
@@ -36,6 +37,43 @@ const PROPOSITIONS_KEYWORDS = [
   'procedure',
   'OLP',
 ] as const;
+
+/**
+ * Build proposals HTML from EP feed data when search_documents returns empty.
+ * Uses procedures and adopted texts from the feed as fallback content.
+ *
+ * @param feedData - EP feed data containing procedures and adopted texts
+ * @returns Pre-sanitized HTML for the proposals section
+ */
+function buildProposalsFromFeed(feedData: EPFeedData): string {
+  const items: string[] = [];
+
+  for (const proc of feedData.procedures.slice(0, 8)) {
+    items.push(`
+      <div class="proposal-card">
+        <h3>${escapeHTML(proc.title || proc.id)}</h3>
+        <div class="proposal-meta">
+          <span class="proposal-id">${escapeHTML(proc.identifier ?? proc.id)}</span>
+          ${proc.date ? `<span class="proposal-date">${escapeHTML(proc.date)}</span>` : ''}
+          ${proc.type ? `<span class="proposal-type">${escapeHTML(proc.type)}</span>` : ''}
+        </div>
+      </div>`);
+  }
+
+  for (const text of feedData.adoptedTexts.slice(0, 8)) {
+    items.push(`
+      <div class="proposal-card">
+        <h3>${escapeHTML(text.title || text.id)}</h3>
+        <div class="proposal-meta">
+          <span class="proposal-id">${escapeHTML(text.identifier ?? text.id)}</span>
+          ${text.date ? `<span class="proposal-date">${escapeHTML(text.date)}</span>` : ''}
+          ${text.type ? `<span class="proposal-type">${escapeHTML(text.type)}</span>` : ''}
+        </div>
+      </div>`);
+  }
+
+  return items.join('\n');
+}
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
 
@@ -101,11 +139,25 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
 
     const procedureHtml = await fetchProcedureStatusFromMCP(client, firstProcedureId);
 
-    if (!proposalsHtml) {
+    // When search_documents returns empty but feed data has procedures/adopted texts,
+    // build proposals HTML from the feed data as fallback
+    let finalProposalsHtml = proposalsHtml;
+    if (!finalProposalsHtml && feedResult) {
+      const hasFeedItems =
+        feedResult.procedures.length > 0 || feedResult.adoptedTexts.length > 0;
+      if (hasFeedItems) {
+        console.log(
+          `  📰 Building proposals from feed data: ${feedResult.procedures.length} procedures, ${feedResult.adoptedTexts.length} adopted texts`
+        );
+        finalProposalsHtml = buildProposalsFromFeed(feedResult);
+      }
+    }
+
+    if (!finalProposalsHtml) {
       console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
     }
 
-    return { date, proposalsHtml, pipelineData, procedureHtml, feedData: feedResult };
+    return { date, proposalsHtml: finalProposalsHtml, pipelineData, procedureHtml, feedData: feedResult };
   }
 
   /**
