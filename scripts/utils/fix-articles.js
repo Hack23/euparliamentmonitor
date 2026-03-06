@@ -85,11 +85,6 @@ function buildFooterLanguageGrid(currentLang) {
  */
 function buildSiteFooter(lang) {
     const year = new Date().getFullYear();
-    const aboutHeading = getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang);
-    const aboutText = getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang);
-    const quickLinksHeading = getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang);
-    const builtByHeading = getLocalizedString(FOOTER_BUILT_BY_LABELS, lang);
-    const languagesHeading = getLocalizedString(FOOTER_LANGUAGES_LABELS, lang);
     const aboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
     const aboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
     const quickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));

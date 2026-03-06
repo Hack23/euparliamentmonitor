@@ -275,7 +275,6 @@ export function generateArticleHTML(options: ArticleOptions): string {
         <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
-          <span class="site-header__subtitle">${escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang))}</span>
           <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
@@ -314,9 +313,6 @@ export function generateArticleHTML(options: ArticleOptions): string {
 
   <footer class="site-footer" role="contentinfo">
     <div class="footer-content">
-      ${buildFooterSection(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang), `<p>${escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang))}</p>`)}
-      ${buildFooterSection(
-        getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang),
       ${buildFooterSection(footerAboutHeading, `<p>${footerAboutText}</p>`)}
       ${buildFooterSection(
         footerQuickLinksHeading,
@@ -328,7 +324,6 @@ export function generateArticleHTML(options: ArticleOptions): string {
         </ul>`
       )}
       ${buildFooterSection(
-        getLocalizedString(FOOTER_BUILT_BY_LABELS, lang),
         footerBuiltByHeading,
         `<ul>
           <li><a href="https://hack23.com">hack23.com</a></li>
@@ -338,7 +333,6 @@ export function generateArticleHTML(options: ArticleOptions): string {
         </ul>`
       )}
       ${buildFooterSection(
-        getLocalizedString(FOOTER_LANGUAGES_LABELS, lang),
         footerLanguagesHeading,
         `<div class="language-grid">
           ${buildArticleFooterLanguageGrid(lang)}

@@ -211,7 +211,6 @@ export function generateArticleHTML(options) {
         <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
-          <span class="site-header__subtitle">${escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang))}</span>
           <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
@@ -250,8 +249,6 @@ export function generateArticleHTML(options) {
 
   <footer class="site-footer" role="contentinfo">
     <div class="footer-content">
-      ${buildFooterSection(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang), `<p>${escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang))}</p>`)}
-      ${buildFooterSection(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang), `<ul>
       ${buildFooterSection(footerAboutHeading, `<p>${footerAboutText}</p>`)}
       ${buildFooterSection(footerQuickLinksHeading, `<ul>
           <li><a href="../index.html">Home</a></li>
@@ -259,14 +256,12 @@ export function generateArticleHTML(options) {
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
           <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
         </ul>`)}
-      ${buildFooterSection(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang), `<ul>
       ${buildFooterSection(footerBuiltByHeading, `<ul>
           <li><a href="https://hack23.com">hack23.com</a></li>
           <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
           <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Security &amp; Privacy Policy</a></li>
           <li><a href="mailto:james@hack23.com">Contact</a></li>
         </ul>`)}
-      ${buildFooterSection(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang), `<div class="language-grid">
       ${buildFooterSection(footerLanguagesHeading, `<div class="language-grid">
           ${buildArticleFooterLanguageGrid(lang)}
         </div>`)}
