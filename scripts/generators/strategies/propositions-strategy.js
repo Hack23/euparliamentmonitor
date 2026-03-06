@@ -99,7 +99,13 @@ export class PropositionsStrategy {
         if (!finalProposalsHtml) {
             console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
         }
-        return { date, proposalsHtml: finalProposalsHtml, pipelineData, procedureHtml, feedData: feedResult };
+        return {
+            date,
+            proposalsHtml: finalProposalsHtml,
+            pipelineData,
+            procedureHtml,
+            feedData: feedResult,
+        };
     }
     /**
      * Build the propositions HTML body using language-specific strings.
