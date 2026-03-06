@@ -106,8 +106,8 @@ export class BreakingNewsStrategy {
      */
     buildContent(data, lang) {
         const base = buildBreakingNewsContent(data.date, data.anomalyRaw, data.coalitionRaw, data.reportRaw, '', lang, [], [], [], data.feedData);
-        const analysis = buildBreakingAnalysis(data.date, data.feedData, data.anomalyRaw, data.coalitionRaw);
-        const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        const analysis = buildBreakingAnalysis(data.date, data.feedData, data.anomalyRaw, data.coalitionRaw, lang);
+        const deepSection = buildDeepAnalysisSection(analysis, lang);
         // Inject deep analysis before the closing </div> of .article-content
         if (deepSection) {
             const closingTag = '</div>';
