@@ -253,8 +253,8 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
     <div class="site-header__inner">
       <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
         <picture class="site-header__logo-picture">
-          <source srcset="images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo" src="images/header-logo.png" alt="" width="48" height="48" aria-hidden="true">
+          <source srcset="images/favicon-96x96.webp" type="image/webp">
+          <img class="site-header__logo" src="images/favicon-96x96.png" alt="" width="96" height="96" aria-hidden="true">
         </picture>
         <span>
           <span class="site-header__title">${heroTitle}</span>
