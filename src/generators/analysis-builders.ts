@@ -27,7 +27,11 @@ import type {
   BreakingNewsFeedData,
 } from '../types/index.js';
 import type { PipelineData } from './propositions-content.js';
-import { getLocalizedString, COMMITTEE_ANALYSIS_CONTENT_STRINGS } from '../constants/languages.js';
+import {
+  getLocalizedString,
+  COMMITTEE_ANALYSIS_CONTENT_STRINGS,
+  BREAKING_STRINGS,
+} from '../constants/languages.js';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -289,92 +293,94 @@ export function buildProspectiveAnalysis(
  * @param feedData - EP feed data
  * @param anomalyRaw - Raw anomaly text
  * @param coalitionRaw - Raw coalition text
+ * @param lang - Target display language (default: 'en')
  * @returns Deep analysis object
  */
 export function buildBreakingAnalysis(
   date: string,
   feedData: BreakingNewsFeedData | undefined,
   anomalyRaw: string,
-  coalitionRaw: string
+  coalitionRaw: string,
+  lang = 'en'
 ): DeepAnalysis {
   const adoptedCount = feedData?.adoptedTexts.length ?? 0;
   const eventCount = feedData?.events.length ?? 0;
   const procCount = feedData?.procedures.length ?? 0;
   const mepCount = feedData?.mepUpdates.length ?? 0;
+  const s = getLocalizedString(BREAKING_STRINGS, lang);
 
   return {
-    what: `Breaking developments on ${date}: ${adoptedCount} newly adopted texts, ${eventCount} events, ${procCount} procedure updates, ${mepCount} MEP changes.`,
+    what: s.breakingWhatFn(date, adoptedCount, eventCount, procCount, mepCount),
     who: [
       ...(feedData?.adoptedTexts
         .slice(0, 3)
-        .map((t) => `Adopted: ${t.title}${t.date ? ` (${t.date})` : ''}`) ?? []),
+        .map((t) => `${s.breakingAdoptedPrefix} ${t.title}${t.date ? ` (${t.date})` : ''}`) ?? []),
       ...(feedData?.mepUpdates
         .slice(0, 2)
-        .map((m) => `MEP: ${m.name}${m.date ? ` (${m.date})` : ''}`) ?? []),
+        .map((m) => `${s.breakingMEPPrefix} ${m.name}${m.date ? ` (${m.date})` : ''}`) ?? []),
     ],
     when: [
-      `Date: ${date}`,
+      `${date}`,
       ...(feedData?.events.slice(0, 3).map((e) => `${e.title}${e.date ? ` (${e.date})` : ''}`) ??
         []),
     ],
-    why: anomalyRaw
-      ? 'Voting anomalies and coalition shifts signal realignment of political forces within Parliament. These developments may alter the legislative calculus for pending files.'
-      : 'Current events reflect the ongoing pace of legislative activity. Feed data provides real-time visibility into parliamentary proceedings.',
+    why: anomalyRaw ? s.breakingWhyAnomalies : s.breakingWhyNormal,
     stakeholderOutcomes: [
       ...(adoptedCount > 0
         ? [
             {
-              actor: 'Legislative majority',
+              actor: s.breakingWinnerActor,
               outcome: 'winner' as const,
-              reason: `${adoptedCount} texts adopted — the governing coalition successfully advanced its agenda`,
+              reason: s.breakingWinnerReasonFn(adoptedCount),
             },
           ]
         : []),
       ...(coalitionRaw
         ? [
             {
-              actor: 'Opposition groups',
+              actor: s.breakingNeutralActor,
               outcome: 'neutral' as const,
-              reason: 'Coalition dynamics in flux — opposition groups may find new leverage points',
+              reason: s.breakingNeutralReason,
             },
           ]
         : []),
     ],
     impactAssessment: {
       political: anomalyRaw
-        ? 'Voting anomalies detected suggest shifting alliances that could reshape committee compositions and rapporteur assignments.'
-        : `${adoptedCount} adopted texts reflect the current balance of political forces.`,
-      economic: `New legislation may affect regulatory compliance, market conditions, and fiscal planning for EU businesses.`,
-      social: 'Citizens are directly affected by adopted texts and legislative procedure outcomes.',
-      legal: `${adoptedCount} adopted texts create new legal obligations. Procedure updates may signal changes to pending legislation.`,
+        ? s.breakingImpactPoliticalAnomalies
+        : s.breakingImpactPoliticalNormalFn(adoptedCount),
+      economic: s.breakingImpactEconomic,
+      social: s.breakingImpactSocial,
+      legal: s.breakingImpactLegalFn(adoptedCount),
       geopolitical: coalitionRaw
-        ? 'Coalition dynamics may influence EU external policy positions and international negotiation strategies.'
-        : 'Legislative outcomes carry implications for EU international commitments and trade negotiations.',
+        ? s.breakingImpactGeopoliticalCoalition
+        : s.breakingImpactGeopoliticalNormal,
     },
     actionConsequences: [
       ...(feedData?.adoptedTexts.slice(0, 2).map((t) => ({
-        action: `Adoption of "${t.title}"${t.date ? ` (${t.date})` : ''}`,
-        consequence: 'New legal obligations for member states; implementation deadlines begin',
+        action: `${s.breakingAdoptedPrefix} "${t.title}"${t.date ? ` (${t.date})` : ''}`,
+        consequence: s.breakingLegalObligationsConsequence,
         severity: 'high' as const,
       })) ?? []),
       ...(feedData?.procedures.slice(0, 2).map((p) => ({
-        action: `Procedure update: "${p.title}"${p.date ? ` (${p.date})` : ''}`,
-        consequence: 'Legislative trajectory altered; stakeholders must adjust positions',
+        action: `${p.title}${p.date ? ` (${p.date})` : ''}`,
+        consequence: s.breakingProcedureConsequence,
         severity: 'medium' as const,
       })) ?? []),
     ],
     mistakes: anomalyRaw
       ? [
           {
-            actor: 'Political group whips',
-            description:
-              'Failed to maintain voting discipline — anomalies detected in party-line votes',
-            alternative:
-              'Pre-vote consultations and compromise amendments could have preserved cohesion',
+            actor: s.breakingMistakeActor,
+            description: s.breakingMistakeDescription,
+            alternative: s.breakingMistakeAlternative,
           },
         ]
       : [],
-    outlook: `Developments on ${date} signal ${adoptedCount > 0 ? 'an active legislative phase' : 'a transitional period'}. Watch for downstream effects on pending committee files and upcoming plenary sessions.`,
+    outlook:
+      adoptedCount > 0
+        ? s.breakingOutlookActiveFn(date)
+        : s.breakingOutlookTransitionalFn(date),
   };
 }
 

@@ -83,6 +83,8 @@ function buildAdoptedTextsSection(items: readonly AdoptedTextFeedItem[], lang: s
   if (items.length === 0) return '';
   const strings = getLocalizedString(BREAKING_STRINGS, lang);
   const displayItems = items.slice(0, MAX_FEED_ITEMS);
+  // EP API provides titles in English only — mark non-English articles accordingly
+  const titleLangAttr = lang !== 'en' ? ' lang="en"' : '';
   const listItems = displayItems
     .map((item) => {
       const labelOrId = item.label ?? item.identifier;
@@ -96,7 +98,7 @@ function buildAdoptedTextsSection(items: readonly AdoptedTextFeedItem[], lang: s
       const showSecondaryLabel = !titleIsPlaceholder && labelOrId;
       return (
         `<li class="feed-item adopted-text-item">` +
-        `<strong>${escapeHTML(displayTitle)}</strong>` +
+        `<strong${titleLangAttr}>${escapeHTML(displayTitle)}</strong>` +
         `${showSecondaryLabel && labelOrId ? ` <span class="feed-label">${escapeHTML(labelOrId)}</span>` : ''}` +
         `${item.date ? ` <span class="feed-date">(${escapeHTML(item.date)})</span>` : ''}` +
         `${item.type ? ` <span class="feed-type">${escapeHTML(strings.adoptedTextTypeLabel)}</span>` : ''}` +
