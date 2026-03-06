@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-06T18:15:38.475Z",
+  "timestamp": "2026-03-06T22:16:25.512Z",
   "generated": 14,
   "skipped": 0,
   "dryRun": 0,
@@ -27,5 +27,5 @@
       "slug": "2026-03-06-breaking"
     }
   ],
-  "usedMCP": true
+  "usedMCP": false
 }

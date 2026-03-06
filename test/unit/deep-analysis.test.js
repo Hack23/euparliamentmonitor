@@ -404,7 +404,7 @@ describe('analysis-builders', () => {
       };
       const result = buildBreakingAnalysis('2026-02-24', feedData, '', '');
       expect(result.actionConsequences.length).toBeGreaterThan(0);
-      expect(result.actionConsequences[0].action).toContain('Adoption');
+      expect(result.actionConsequences[0].action).toContain('Data Act');
     });
 
     it('should include publish dates in all feed item references', () => {
