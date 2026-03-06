@@ -23,6 +23,7 @@ import { escapeHTML } from '../utils/file-utils.js';
 import { getLocalizedString, DEEP_ANALYSIS_STRINGS } from '../constants/languages.js';
 import type {
   DeepAnalysis,
+  DeepAnalysisStrings,
   StakeholderOutcome,
   ActionConsequence,
   PoliticalMistake,
@@ -289,7 +290,7 @@ function severityLabel(
 function buildConsequencesSection(
   items: readonly ActionConsequence[],
   heading: string,
-  labels: { actionLabel: string; consequenceLabel: string; severityColumnLabel: string },
+  labels: Readonly<Pick<DeepAnalysisStrings, 'actionLabel' | 'consequenceLabel' | 'severityColumnLabel'>>,
   strings: {
     severityLow: string;
     severityMedium: string;
