@@ -422,6 +422,7 @@ export class MCPConnection {
    *
    * @param apiKey - Raw or pre-prefixed gateway API key
    * @returns The full Authorization header value, or empty string for empty keys
+   * @throws {Error} When the API key contains CR or LF characters (header injection risk)
    */
   private _buildAuthorizationHeader(apiKey: string): string {
     const trimmedKey = apiKey.trim();
@@ -429,9 +430,17 @@ export class MCPConnection {
       return '';
     }
 
+    // Reject CR/LF in the key to prevent HTTP header injection.
+    if (/[\r\n]/.test(trimmedKey)) {
+      throw new Error(
+        'Invalid gateway API key: control characters (CR/LF) are not allowed in Authorization header values.'
+      );
+    }
+
     // RFC 7235 tchar token pattern for scheme validation.
     // This regex exclusively allows valid tchar characters, which by definition
-    // excludes control characters — no separate control-char check is needed.
+    // excludes control characters — no separate control-char check is needed
+    // for the scheme token itself.
     const tokenRegex = /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/;
 
     // If the key already starts with a valid RFC 7235 scheme token followed
