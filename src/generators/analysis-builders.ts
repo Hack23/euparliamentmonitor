@@ -378,9 +378,7 @@ export function buildBreakingAnalysis(
         ]
       : [],
     outlook:
-      adoptedCount > 0
-        ? s.breakingOutlookActiveFn(date)
-        : s.breakingOutlookTransitionalFn(date),
+      adoptedCount > 0 ? s.breakingOutlookActiveFn(date) : s.breakingOutlookTransitionalFn(date),
   };
 }
 
