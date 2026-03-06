@@ -15,6 +15,7 @@ import type {
   VotingAnomaly,
   MotionsQuestion,
   CoalitionIntelligence,
+  AdoptedTextFeedItem,
 } from '../types/index.js';
 
 /** Marker string used in all fallback/placeholder data to indicate MCP data is unavailable */
@@ -269,5 +270,74 @@ export function buildPoliticalAlignmentSection(
           <h2>${escapeHTML(strings.politicalAlignmentHeading)}</h2>
           ${recordsHtml}
           ${coalitionsHtml}
+        </section>`;
+}
+
+/** Localized headings for the adopted texts feed section */
+const ADOPTED_TEXTS_HEADINGS: Record<string, string> = {
+  en: 'Recently Adopted Texts',
+  sv: 'Nyligen Antagna Texter',
+  da: 'Nyligt Vedtagne Tekster',
+  no: 'Nylig Vedtatte Tekster',
+  fi: 'Äskettäin Hyväksytyt Tekstit',
+  de: 'Kürzlich Angenommene Texte',
+  fr: 'Textes Récemment Adoptés',
+  es: 'Textos Recientemente Adoptados',
+  nl: 'Recent Aangenomen Teksten',
+  ar: 'النصوص المعتمدة مؤخراً',
+  he: 'טקסטים שאומצו לאחרונה',
+  ja: '最近採択されたテキスト',
+  ko: '최근 채택된 텍스트',
+  zh: '最近通过的文本',
+};
+
+/**
+ * Build an HTML section listing recently adopted texts from EP feed data.
+ * Groups texts by adoption date and renders them as a structured list.
+ *
+ * @param adoptedTexts - Adopted text feed items
+ * @param language - BCP 47 language code
+ * @returns HTML section string, or empty string if no texts
+ */
+export function buildAdoptedTextsSection(
+  adoptedTexts: readonly AdoptedTextFeedItem[],
+  language: string
+): string {
+  if (adoptedTexts.length === 0) return '';
+
+  const heading = ADOPTED_TEXTS_HEADINGS[language] ?? ADOPTED_TEXTS_HEADINGS['en'];
+
+  // Group by date, sort most recent first
+  const byDate = new Map<string, AdoptedTextFeedItem[]>();
+  for (const item of adoptedTexts) {
+    const date = item.date || 'Unknown';
+    const group = byDate.get(date) ?? [];
+    group.push(item);
+    byDate.set(date, group);
+  }
+  const sortedDates = [...byDate.keys()].sort().reverse();
+
+  let itemsHtml = '';
+  for (const date of sortedDates) {
+    const items = byDate.get(date) ?? [];
+    for (const item of items) {
+      const ref = item.identifier ?? item.id;
+      const title = item.title || ref;
+      itemsHtml += `
+            <li class="adopted-text-item">
+              <strong>${escapeHTML(title)}</strong>
+              <span class="feed-label">${escapeHTML(ref)}</span>
+              <span class="feed-date">${escapeHTML(date)}</span>
+            </li>`;
+    }
+  }
+
+  return `
+        <section class="adopted-texts-feed" lang="${escapeHTML(language)}">
+          <h2>${escapeHTML(heading)}</h2>
+          <p>${adoptedTexts.length} texts adopted in recent plenary sessions:</p>
+          <ul class="adopted-texts-list">
+            ${itemsHtml}
+          </ul>
         </section>`;
 }
