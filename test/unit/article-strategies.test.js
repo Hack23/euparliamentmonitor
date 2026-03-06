@@ -583,6 +583,154 @@ describe('PropositionsStrategy.fetchData with mock client', () => {
   });
 });
 
+// ─── PropositionsStrategy feed fallback tests ──────────────────────────────────
+
+describe('PropositionsStrategy feed fallback', () => {
+  let tmpDir;
+  const originalEnv = process.env['EP_FEED_DATA_FILE'];
+
+  afterEach(() => {
+    if (originalEnv === undefined) {
+      delete process.env['EP_FEED_DATA_FILE'];
+    } else {
+      process.env['EP_FEED_DATA_FILE'] = originalEnv;
+    }
+    if (tmpDir) {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+      tmpDir = undefined;
+    }
+  });
+
+  it('builds proposals from feed procedures when search_documents returns empty', async () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'props-feed-test-'));
+    const feedData = {
+      procedures: [
+        {
+          id: 'proc-1',
+          identifier: '2026/0001(COD)',
+          title: 'Regulation on AI Liability',
+          date: '2026-03-01',
+          stage: 'First reading',
+          type: 'Work',
+        },
+        {
+          id: 'proc-2',
+          identifier: '2026/0002(COD)',
+          title: 'Digital Markets Act Amendment',
+          date: '2026-03-02',
+          stage: 'Committee stage',
+          type: 'Work',
+        },
+      ],
+      adoptedTexts: [],
+      events: [],
+      mepUpdates: [],
+    };
+    const filePath = path.join(tmpDir, 'feed-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+    process.env['EP_FEED_DATA_FILE'] = filePath;
+
+    const strategy = new PropositionsStrategy();
+    const data = await strategy.fetchData(null, '2026-03-06');
+
+    expect(data.proposalsHtml).toBeTruthy();
+    expect(data.proposalsHtml).toContain('proposal-card');
+    expect(data.proposalsHtml).toContain('Regulation on AI Liability');
+    expect(data.proposalsHtml).toContain('2026/0001(COD)');
+  });
+
+  it('renders proc.stage (not proc.type) as proposal-status in feed fallback', async () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'props-feed-stage-'));
+    const feedData = {
+      procedures: [
+        {
+          id: 'proc-stage',
+          identifier: '2026/0003(NLE)',
+          title: 'Procedure with Stage',
+          date: '2026-03-01',
+          stage: 'First reading',
+          type: 'Work',
+        },
+      ],
+      adoptedTexts: [],
+      events: [],
+      mepUpdates: [],
+    };
+    const filePath = path.join(tmpDir, 'feed-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+    process.env['EP_FEED_DATA_FILE'] = filePath;
+
+    const strategy = new PropositionsStrategy();
+    const data = await strategy.fetchData(null, '2026-03-06');
+
+    // stage should be rendered, not the RDF type "Work"
+    expect(data.proposalsHtml).toContain('First reading');
+    expect(data.proposalsHtml).not.toContain('>Work<');
+  });
+
+  it('omits proposal-status badge for procedures with no stage', async () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'props-feed-nostage-'));
+    const feedData = {
+      procedures: [
+        {
+          id: 'proc-no-stage',
+          identifier: '2026/0004(INI)',
+          title: 'Procedure Without Stage',
+          date: '2026-03-01',
+          type: 'Work',
+          // no stage field
+        },
+      ],
+      adoptedTexts: [],
+      events: [],
+      mepUpdates: [],
+    };
+    const filePath = path.join(tmpDir, 'feed-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+    process.env['EP_FEED_DATA_FILE'] = filePath;
+
+    const strategy = new PropositionsStrategy();
+    const data = await strategy.fetchData(null, '2026-03-06');
+
+    expect(data.proposalsHtml).toContain('Procedure Without Stage');
+    // No status badge should be rendered at all
+    expect(data.proposalsHtml).not.toContain('proposal-status');
+    // RDF type "Work" must not appear as a status
+    expect(data.proposalsHtml).not.toContain('>Work<');
+  });
+
+  it('builds proposals from feed adopted texts when procedures list is empty', async () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'props-feed-adopted-'));
+    const feedData = {
+      procedures: [],
+      adoptedTexts: [
+        {
+          id: 'ta-1',
+          identifier: 'TA-10-2026-0099',
+          title: 'Adopted Text on Climate Finance',
+          date: '2026-03-04',
+          type: 'Work',
+        },
+      ],
+      events: [],
+      mepUpdates: [],
+    };
+    const filePath = path.join(tmpDir, 'feed-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+    process.env['EP_FEED_DATA_FILE'] = filePath;
+
+    const strategy = new PropositionsStrategy();
+    const data = await strategy.fetchData(null, '2026-03-06');
+
+    expect(data.proposalsHtml).toBeTruthy();
+    expect(data.proposalsHtml).toContain('Adopted Text on Climate Finance');
+    expect(data.proposalsHtml).toContain('TA-10-2026-0099');
+    // RDF type "Work" must not appear as a status badge for adopted texts
+    expect(data.proposalsHtml).not.toContain('proposal-status');
+    expect(data.proposalsHtml).not.toContain('>Work<');
+  });
+});
+
 describe('WeekAheadStrategy — error branch', () => {
   it('fetchData throws on invalid date input', async () => {
     const strategy = new WeekAheadStrategy();
