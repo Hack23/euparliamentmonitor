@@ -166,6 +166,9 @@ export function generateArticleHTML(options) {
     //   </script>
     const jsonLdScriptContent = `\n  ${jsonLd}\n  `;
     const jsonLdHash = `sha256-${createHash('sha256').update(jsonLdScriptContent).digest('base64')}`;
+    // Reading-progress script hash — content must exactly match the <script> block.
+    const readingProgressScript = `\n  (function(){\n    var bar=document.querySelector('.reading-progress');\n    if(!bar)return;\n    bar.style.display='block';\n    window.addEventListener('scroll',function(){\n      var h=document.documentElement;\n      var scrollTop=h.scrollTop||document.body.scrollTop;\n      var scrollHeight=h.scrollHeight-h.clientHeight;\n      bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';\n    },{passive:true});\n  })();\n  `;
+    const readingProgressHash = `sha256-${createHash('sha256').update(readingProgressScript).digest('base64')}`;
     return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -173,7 +176,7 @@ export function generateArticleHTML(options) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${jsonLdHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${jsonLdHash}' '${readingProgressHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
   <title>${safeTitle} | EU Parliament Monitor</title>
   <meta name="description" content="${safeSubtitle}">
   <meta name="keywords" content="${safeKeywords}">
@@ -195,6 +198,7 @@ export function generateArticleHTML(options) {
   <meta property="og:type" content="article">
   <meta property="og:title" content="${safeTitle}">
   <meta property="og:description" content="${safeSubtitle}">
+  <meta property="og:url" content="https://hack23.github.io/euparliamentmonitor/news/${date}-${slug}-${lang}.html">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${OG_LOCALE_MAP[lang] ?? lang}">
   <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
@@ -209,6 +213,7 @@ export function generateArticleHTML(options) {
   <meta name="twitter:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
   <meta name="twitter:image:alt" content="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence">
   
+  <link rel="canonical" href="https://hack23.github.io/euparliamentmonitor/news/${date}-${slug}-${lang}.html">
   <link rel="stylesheet" href="../styles.css"${safeSriAttrs}>
   
   <!-- Schema.org structured data -->
@@ -223,7 +228,10 @@ export function generateArticleHTML(options) {
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a href="${indexHref}" class="site-header__brand" aria-label="EU Parliament Monitor">
-        <img class="site-header__logo" src="../images/favicon-48x48.png" alt="" width="48" height="48" aria-hidden="true">
+        <picture class="site-header__logo-picture">
+          <source srcset="../images/header-logo.webp" type="image/webp">
+          <img class="site-header__logo" src="../images/header-logo.png" alt="" width="48" height="48" aria-hidden="true">
+        </picture>
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
           <span class="site-header__subtitle">${headerSubtitle}</span>
@@ -286,6 +294,20 @@ export function generateArticleHTML(options) {
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> This platform is under ongoing improvement. Please <a href="https://github.com/Hack23/euparliamentmonitor/issues">report any issues on GitHub</a>.</p>
     </div>
   </footer>
+
+  <script>
+  (function(){
+    var bar=document.querySelector('.reading-progress');
+    if(!bar)return;
+    bar.style.display='block';
+    window.addEventListener('scroll',function(){
+      var h=document.documentElement;
+      var scrollTop=h.scrollTop||document.body.scrollTop;
+      var scrollHeight=h.scrollHeight-h.clientHeight;
+      bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';
+    },{passive:true});
+  })();
+  </script>
 </body>
 </html>`;
 }

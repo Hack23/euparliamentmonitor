@@ -45,6 +45,11 @@
   --transition: 0.25s ease;
 }
 
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
 /* ─── Skip Navigation ────────────────────────────────────────────── */
 .skip-link {
   position: absolute;
@@ -154,11 +159,16 @@ img {
   flex-shrink: 0;
 }
 
+.site-header__logo-picture {
+  display: flex;
+  flex-shrink: 0;
+}
+
 .site-header__logo {
   width: 42px;
   height: 42px;
   border-radius: 8px;
-  object-fit: cover;
+  object-fit: contain;
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.1);
 }
@@ -723,7 +733,7 @@ img {
 }
 
 .footer-section ul li a {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   transition: color var(--transition);
 }
@@ -746,7 +756,7 @@ img {
 }
 
 .language-grid a {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-size: 0.82rem;
   padding: 3px 6px;
@@ -1611,9 +1621,9 @@ button:focus-visible {
 
 /* ─── Reading Progress Bar ───────────────────────────────────── */
 /*
- * Requires JavaScript to update `element.style.width` on scroll.
- * Hidden until a JS implementation is added to this static site.
- * Re-enable by removing display:none and adding a scroll listener.
+ * Shown on article pages only — a scroll listener updates width.
+ * Hidden by default (display:none); the article-template inline script
+ * sets display:block on page load so the bar appears only when JS runs.
  */
 .reading-progress {
   display: none;
@@ -1622,9 +1632,10 @@ button:focus-visible {
   left: 0;
   width: 0;
   height: 4px;
-  background-color: var(--secondary);
+  background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
   z-index: 1000;
-  transition: width var(--transition);
+  transition: width 0.1s linear;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* ─── RTL Enhancements for New Components ───────────────────── */

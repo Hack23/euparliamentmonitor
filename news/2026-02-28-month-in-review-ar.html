@@ -14,6 +14,7 @@
   <meta property="og:type" content="article">
   <meta property="og:title" content="مراجعة الشهر: فبراير 2026">
   <meta property="og:description" content="تحليل شامل لنشاط البرلمان الأوروبي في فبراير 2026">
+  <meta property="og:url" content="https://hack23.github.io/euparliamentmonitor/news/2026-02-28-month-in-review-ar.html">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="ar">
   <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
@@ -33,6 +34,7 @@
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#003399">
 
+  <link rel="canonical" href="https://hack23.github.io/euparliamentmonitor/news/2026-02-28-month-in-review-ar.html">
   <link rel="stylesheet" href="../styles.css">
   <script type="application/ld+json">
   {
@@ -54,7 +56,7 @@
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a href="../index-ar.html" class="site-header__brand" aria-label="EU Parliament Monitor">
-        <img class="site-header__logo" src="../images/favicon-48x48.png" alt="" width="48" height="48" aria-hidden="true">
+        <picture class="site-header__logo-picture"><source srcset="../images/header-logo.webp" type="image/webp"><img class="site-header__logo" src="../images/header-logo.png" alt="" width="48" height="48" aria-hidden="true"></picture>
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
           <span class="site-header__subtitle">استخبارات البرلمان الأوروبي</span>
@@ -202,5 +204,18 @@
       <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden</p>
     </div>
   </footer>
+  <script>
+  (function(){
+    var bar=document.querySelector('.reading-progress');
+    if(!bar)return;
+    bar.style.display='block';
+    window.addEventListener('scroll',function(){
+      var h=document.documentElement;
+      var scrollTop=h.scrollTop||document.body.scrollTop;
+      var scrollHeight=h.scrollHeight-h.clientHeight;
+      bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';
+    },{passive:true});
+  })();
+  </script>
 </body>
 </html>

@@ -26,6 +26,12 @@ import {
   AI_SECTION_CONTENT,
   FILTER_LABELS,
   ARTICLE_TYPE_LABELS,
+  HEADER_SUBTITLE_LABELS,
+  FOOTER_ABOUT_HEADING_LABELS,
+  FOOTER_ABOUT_TEXT_LABELS,
+  FOOTER_QUICK_LINKS_LABELS,
+  FOOTER_BUILT_BY_LABELS,
+  FOOTER_LANGUAGES_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -242,6 +248,14 @@ export function generateIndexHTML(
           .join('\n          ')
       : '';
 
+  const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
+  const footerAboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
+  const footerAboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
+  const footerQuickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
+  const footerBuiltByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
+  const footerLanguagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
+  const canonicalUrl = `https://hack23.github.io/euparliamentmonitor/${selfHref}`;
+
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -252,9 +266,11 @@ export function generateIndexHTML(
   <meta name="generator" content="EU Parliament Monitor v${escapeHTML(APP_VERSION)}">
   <title>${title}</title>
   <meta name="description" content="${description}">
+  <link rel="canonical" href="${canonicalUrl}">
   <meta property="og:type" content="website">
   <meta property="og:title" content="${heroTitle}">
   <meta property="og:description" content="${description}">
+  <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${lang}">
   <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
@@ -282,10 +298,13 @@ export function generateIndexHTML(
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
-        <img class="site-header__logo" src="images/favicon-48x48.png" alt="" width="48" height="48" aria-hidden="true">
+        <picture class="site-header__logo-picture">
+          <source srcset="images/header-logo.webp" type="image/webp">
+          <img class="site-header__logo" src="images/header-logo.png" alt="" width="48" height="48" aria-hidden="true">
+        </picture>
         <span>
           <span class="site-header__title">${heroTitle}</span>
-          <span class="site-header__subtitle">European Parliament Intelligence</span>
+          <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
@@ -338,12 +357,12 @@ export function generateIndexHTML(
   <footer class="site-footer" role="contentinfo">
     <div class="footer-content">
       <div class="footer-section">
-        <h3>About EU Parliament Monitor</h3>
-        <p>European Parliament Intelligence Platform — monitoring political activity with systematic transparency. Powered by European Parliament open data.</p>
+        <h3>${footerAboutHeading}</h3>
+        <p>${footerAboutText}</p>
         <p class="footer-stats">${articles.length} articles available</p>
       </div>
       <div class="footer-section">
-        <h3>Quick Links</h3>
+        <h3>${footerQuickLinksHeading}</h3>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
@@ -352,7 +371,7 @@ export function generateIndexHTML(
         </ul>
       </div>
       <div class="footer-section">
-        <h3>Built by Hack23 AB</h3>
+        <h3>${footerBuiltByHeading}</h3>
         <ul>
           <li><a href="https://hack23.com">hack23.com</a></li>
           <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
@@ -361,7 +380,7 @@ export function generateIndexHTML(
         </ul>
       </div>
       <div class="footer-section">
-        <h3>Languages</h3>
+        <h3>${footerLanguagesHeading}</h3>
         <div class="language-grid">
           ${buildFooterLanguageGrid(lang)}
         </div>

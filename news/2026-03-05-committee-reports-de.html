@@ -19,6 +19,7 @@
   <meta property="og:type" content="article">
   <meta property="og:title" content="EU-Parlament Ausschussbericht: ENVI, ECON, AFET, LIBE, AGRI">
   <meta property="og:description" content="Analyse der Gesetzgebungsleistung, Effektivitätskennzahlen und wichtiger Ausschussaktivitäten">
+  <meta property="og:url" content="https://hack23.github.io/euparliamentmonitor/news/2026-03-05-committee-reports-de.html">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="de_DE">
   <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
@@ -39,6 +40,7 @@
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#003399">
 
+  <link rel="canonical" href="https://hack23.github.io/euparliamentmonitor/news/2026-03-05-committee-reports-de.html">
   <link rel="stylesheet" href="../styles.css">
   
   <!-- Schema.org structured data -->
@@ -70,7 +72,7 @@
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a href="../index-de.html" class="site-header__brand" aria-label="EU Parliament Monitor">
-        <img class="site-header__logo" src="../images/favicon-48x48.png" alt="" width="48" height="48" aria-hidden="true">
+        <picture class="site-header__logo-picture"><source srcset="../images/header-logo.webp" type="image/webp"><img class="site-header__logo" src="../images/header-logo.png" alt="" width="48" height="48" aria-hidden="true"></picture>
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
           <span class="site-header__subtitle">EU-Parlaments-Nachrichtenanalyse</span>
@@ -419,5 +421,18 @@
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> This platform is under ongoing improvement. Please <a href="https://github.com/Hack23/euparliamentmonitor/issues">report any issues on GitHub</a>.</p>
     </div>
   </footer>
+  <script>
+  (function(){
+    var bar=document.querySelector('.reading-progress');
+    if(!bar)return;
+    bar.style.display='block';
+    window.addEventListener('scroll',function(){
+      var h=document.documentElement;
+      var scrollTop=h.scrollTop||document.body.scrollTop;
+      var scrollHeight=h.scrollHeight-h.clientHeight;
+      bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';
+    },{passive:true});
+  })();
+  </script>
 </body>
 </html>

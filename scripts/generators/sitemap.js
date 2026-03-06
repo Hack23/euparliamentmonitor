@@ -10,7 +10,7 @@ import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
 import { NEWS_DIR, BASE_URL, PROJECT_ROOT } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { getNewsArticles, getModifiedDate, parseArticleFilename, formatSlug, extractArticleMeta, escapeHTML, } from '../utils/file-utils.js';
 /** Absolute docs directory under project root */
 const DOCS_DIR = path.join(PROJECT_ROOT, 'docs');
@@ -304,6 +304,7 @@ export function generateSitemapHTML(lang, articleInfos, hasDocsDir = false) {
     const sections = SITEMAP_SECTIONS[lang] ?? SITEMAP_SECTIONS['en'];
     const docsLabels = DOCS_LABELS[lang] ?? DOCS_LABELS['en'];
     const heroTitle = getLocalizedString(PAGE_TITLES, lang).split(' - ')[0] ?? '';
+    const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
     // Pages section
     const pagesSection = ALL_LANGUAGES.map((code) => {
         const name = getLocalizedString(LANGUAGE_NAMES, code);
@@ -365,10 +366,13 @@ export function generateSitemapHTML(lang, articleInfos, hasDocsDir = false) {
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a href="${getIndexFilename(lang)}" class="site-header__brand" aria-label="${escapeHTML(heroTitle)}">
-        <img class="site-header__logo" src="images/favicon-48x48.png" alt="" width="48" height="48" aria-hidden="true">
+        <picture class="site-header__logo-picture">
+          <source srcset="images/header-logo.webp" type="image/webp">
+          <img class="site-header__logo" src="images/header-logo.png" alt="" width="48" height="48" aria-hidden="true">
+        </picture>
         <span>
           <span class="site-header__title">${escapeHTML(heroTitle)}</span>
-          <span class="site-header__subtitle">European Parliament Intelligence</span>
+          <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
     </div>

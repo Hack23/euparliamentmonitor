@@ -18,6 +18,7 @@
   <meta property="og:type" content="article">
   <meta property="og:title" content="פעילות ועדות הפרלמנט האירופי: חמש ועדות מרכזיות מעצבות את האגנדה הפוליטית האירופית">
   <meta property="og:description" content="ניתוח מעמיק של פעילות ועדות הפרלמנט האירופי המכסה רגולציה כימית, מיסוי דיגיטלי, יחסי חוץ, חירויות אזרחיות וסחר חקלאי.">
+  <meta property="og:url" content="https://hack23.github.io/euparliamentmonitor/news/2026-02-26-committee-reports-he.html">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="he">
   <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
@@ -38,6 +39,7 @@
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#003399">
 
+  <link rel="canonical" href="https://hack23.github.io/euparliamentmonitor/news/2026-02-26-committee-reports-he.html">
   <link rel="stylesheet" href="../styles.css">
 
   <!-- Schema.org structured data -->
@@ -69,7 +71,7 @@
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a href="../index-he.html" class="site-header__brand" aria-label="EU Parliament Monitor">
-        <img class="site-header__logo" src="../images/favicon-48x48.png" alt="" width="48" height="48" aria-hidden="true">
+        <picture class="site-header__logo-picture"><source srcset="../images/header-logo.webp" type="image/webp"><img class="site-header__logo" src="../images/header-logo.png" alt="" width="48" height="48" aria-hidden="true"></picture>
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
           <span class="site-header__subtitle">מודיעין הפרלמנט האירופי</span>
@@ -258,5 +260,18 @@
       <p>© 2024-2026 <a href="https://hack23.com">Hack23 AB</a>. Licensed under <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0</a>. Data from <a href="https://www.europarl.europa.eu/">European Parliament</a>.</p>
     </div>
   </footer>
+  <script>
+  (function(){
+    var bar=document.querySelector('.reading-progress');
+    if(!bar)return;
+    bar.style.display='block';
+    window.addEventListener('scroll',function(){
+      var h=document.documentElement;
+      var scrollTop=h.scrollTop||document.body.scrollTop;
+      var scrollHeight=h.scrollHeight-h.clientHeight;
+      bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';
+    },{passive:true});
+  })();
+  </script>
 </body>
 </html>
