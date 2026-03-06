@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 import { ArticleCategory } from '../../types/index.js';
+import { escapeHTML } from '../../utils/file-utils.js';
 import { PROPOSITIONS_TITLES, PROPOSITIONS_STRINGS, getLocalizedString, } from '../../constants/languages.js';
 import { fetchProposalsFromMCP, fetchPipelineFromMCP, fetchProcedureStatusFromMCP, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
 import { buildPropositionsContent } from '../propositions-content.js';
@@ -14,6 +15,38 @@ const PROPOSITIONS_KEYWORDS = [
     'procedure',
     'OLP',
 ];
+/**
+ * Build proposals HTML from EP feed data when search_documents returns empty.
+ * Uses procedures and adopted texts from the feed as fallback content.
+ *
+ * @param feedData - EP feed data containing procedures and adopted texts
+ * @returns Pre-sanitized HTML for the proposals section
+ */
+function buildProposalsFromFeed(feedData) {
+    const items = [];
+    for (const proc of feedData.procedures.slice(0, 8)) {
+        items.push(`
+      <div class="proposal-card">
+        <h3>${escapeHTML(proc.title || proc.id)}</h3>
+        <div class="proposal-meta">
+          <span class="proposal-id">${escapeHTML(proc.identifier ?? proc.id)}</span>
+          ${proc.date ? `<span class="proposal-date">${escapeHTML(proc.date)}</span>` : ''}
+          ${proc.stage ? `<span class="proposal-status">${escapeHTML(proc.stage)}</span>` : ''}
+        </div>
+      </div>`);
+    }
+    for (const text of feedData.adoptedTexts.slice(0, 8)) {
+        items.push(`
+      <div class="proposal-card">
+        <h3>${escapeHTML(text.title || text.id)}</h3>
+        <div class="proposal-meta">
+          <span class="proposal-id">${escapeHTML(text.identifier ?? text.id)}</span>
+          ${text.date ? `<span class="proposal-date">${escapeHTML(text.date)}</span>` : ''}
+        </div>
+      </div>`);
+    }
+    return items.join('\n');
+}
 // ─── Strategy implementation ──────────────────────────────────────────────────
 /**
  * Article strategy for {@link ArticleCategory.PROPOSITIONS}.
@@ -52,10 +85,26 @@ export class PropositionsStrategy {
         const pipelineData = pipelineResult.status === 'fulfilled' ? pipelineResult.value : null;
         const feedResult = feedData.status === 'fulfilled' ? feedData.value : undefined;
         const procedureHtml = await fetchProcedureStatusFromMCP(client, firstProcedureId);
-        if (!proposalsHtml) {
+        // When search_documents returns empty but feed data has procedures/adopted texts,
+        // build proposals HTML from the feed data as fallback
+        let finalProposalsHtml = proposalsHtml;
+        if (!finalProposalsHtml && feedResult) {
+            const hasFeedItems = feedResult.procedures.length > 0 || feedResult.adoptedTexts.length > 0;
+            if (hasFeedItems) {
+                console.log(`  📰 Building proposals from feed data: ${feedResult.procedures.length} procedures, ${feedResult.adoptedTexts.length} adopted texts`);
+                finalProposalsHtml = buildProposalsFromFeed(feedResult);
+            }
+        }
+        if (!finalProposalsHtml) {
             console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
         }
-        return { date, proposalsHtml, pipelineData, procedureHtml, feedData: feedResult };
+        return {
+            date,
+            proposalsHtml: finalProposalsHtml,
+            pipelineData,
+            procedureHtml,
+            feedData: feedResult,
+        };
     }
     /**
      * Build the propositions HTML body using language-specific strings.

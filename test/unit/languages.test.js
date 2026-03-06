@@ -25,6 +25,12 @@ import {
   PROPOSITIONS_TITLES,
   PROPOSITIONS_STRINGS,
   EDITORIAL_STRINGS,
+  HEADER_SUBTITLE_LABELS,
+  FOOTER_ABOUT_HEADING_LABELS,
+  FOOTER_ABOUT_TEXT_LABELS,
+  FOOTER_QUICK_LINKS_LABELS,
+  FOOTER_BUILT_BY_LABELS,
+  FOOTER_LANGUAGES_LABELS,
   getLocalizedString,
   isSupportedLanguage,
   getTextDirection,
@@ -311,5 +317,80 @@ describe('PROPOSITIONS_STRINGS whyThisMatters', () => {
       expect(typeof strings.whyThisMatters).toBe('string');
       expect(strings.whyThisMatters.length).toBeGreaterThan(0);
     }
+  });
+});
+
+describe('Footer and header localization constants', () => {
+  it('should have entries for all 14 languages in HEADER_SUBTITLE_LABELS', () => {
+    for (const lang of ALL_LANGUAGES) {
+      expect(HEADER_SUBTITLE_LABELS[lang]).toBeDefined();
+      expect(typeof HEADER_SUBTITLE_LABELS[lang]).toBe('string');
+      expect(HEADER_SUBTITLE_LABELS[lang].length).toBeGreaterThan(0);
+    }
+  });
+
+  it('should have English value "European Parliament Intelligence" in HEADER_SUBTITLE_LABELS', () => {
+    expect(HEADER_SUBTITLE_LABELS['en']).toBe('European Parliament Intelligence');
+  });
+
+  it('should have entries for all 14 languages in FOOTER_ABOUT_HEADING_LABELS', () => {
+    for (const lang of ALL_LANGUAGES) {
+      expect(FOOTER_ABOUT_HEADING_LABELS[lang]).toBeDefined();
+      expect(typeof FOOTER_ABOUT_HEADING_LABELS[lang]).toBe('string');
+      expect(FOOTER_ABOUT_HEADING_LABELS[lang].length).toBeGreaterThan(0);
+    }
+  });
+
+  it('should have English value in FOOTER_ABOUT_HEADING_LABELS', () => {
+    expect(FOOTER_ABOUT_HEADING_LABELS['en']).toBe('About EU Parliament Monitor');
+  });
+
+  it('should have entries for all 14 languages in FOOTER_ABOUT_TEXT_LABELS', () => {
+    for (const lang of ALL_LANGUAGES) {
+      expect(FOOTER_ABOUT_TEXT_LABELS[lang]).toBeDefined();
+      expect(typeof FOOTER_ABOUT_TEXT_LABELS[lang]).toBe('string');
+      expect(FOOTER_ABOUT_TEXT_LABELS[lang].length).toBeGreaterThan(0);
+    }
+  });
+
+  it('should have entries for all 14 languages in FOOTER_QUICK_LINKS_LABELS', () => {
+    for (const lang of ALL_LANGUAGES) {
+      expect(FOOTER_QUICK_LINKS_LABELS[lang]).toBeDefined();
+      expect(typeof FOOTER_QUICK_LINKS_LABELS[lang]).toBe('string');
+      expect(FOOTER_QUICK_LINKS_LABELS[lang].length).toBeGreaterThan(0);
+    }
+  });
+
+  it('should have English value "Quick Links" in FOOTER_QUICK_LINKS_LABELS', () => {
+    expect(FOOTER_QUICK_LINKS_LABELS['en']).toBe('Quick Links');
+  });
+
+  it('should have entries for all 14 languages in FOOTER_BUILT_BY_LABELS', () => {
+    for (const lang of ALL_LANGUAGES) {
+      expect(FOOTER_BUILT_BY_LABELS[lang]).toBeDefined();
+      expect(typeof FOOTER_BUILT_BY_LABELS[lang]).toBe('string');
+      expect(FOOTER_BUILT_BY_LABELS[lang].length).toBeGreaterThan(0);
+    }
+  });
+
+  it('should have English value "Built by Hack23 AB" in FOOTER_BUILT_BY_LABELS', () => {
+    expect(FOOTER_BUILT_BY_LABELS['en']).toBe('Built by Hack23 AB');
+  });
+
+  it('should have entries for all 14 languages in FOOTER_LANGUAGES_LABELS', () => {
+    for (const lang of ALL_LANGUAGES) {
+      expect(FOOTER_LANGUAGES_LABELS[lang]).toBeDefined();
+      expect(typeof FOOTER_LANGUAGES_LABELS[lang]).toBe('string');
+      expect(FOOTER_LANGUAGES_LABELS[lang].length).toBeGreaterThan(0);
+    }
+  });
+
+  it('should have English value "Languages" in FOOTER_LANGUAGES_LABELS', () => {
+    expect(FOOTER_LANGUAGES_LABELS['en']).toBe('Languages');
+  });
+
+  it('should return fallback English value for unknown lang in HEADER_SUBTITLE_LABELS', () => {
+    const value = getLocalizedString(HEADER_SUBTITLE_LABELS, 'xx');
+    expect(value).toBe('European Parliament Intelligence');
   });
 });

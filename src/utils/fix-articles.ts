@@ -65,6 +65,8 @@ interface InjectionContext {
   indexHref: string;
   /** Localized skip link text */
   skipLinkText: string;
+  /** Localized site header subtitle */
+  headerSubtitle: string;
 }
 
 /** Result of an injection attempt */
@@ -138,6 +140,11 @@ function buildSiteFooter(lang: string): string {
   const quickLinksHeading = getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang);
   const builtByHeading = getLocalizedString(FOOTER_BUILT_BY_LABELS, lang);
   const languagesHeading = getLocalizedString(FOOTER_LANGUAGES_LABELS, lang);
+  const aboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
+  const aboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
+  const quickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
+  const builtByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
+  const languagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
   return `<footer class="site-footer" role="contentinfo">
     <div class="footer-content">
       <div class="footer-section">
@@ -199,6 +206,7 @@ function injectTypeA(html: string, ctx: InjectionContext): InjectionResult | nul
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
           <span class="site-header__subtitle">${escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, ctx.lang))}</span>
+          <span class="site-header__subtitle">${ctx.headerSubtitle}</span>
         </span>
       </a>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
@@ -499,7 +507,8 @@ export function fixArticle(
   const lang = match[3] as string;
   const indexHref = lang === 'en' ? '../index.html' : `../index-${lang}.html`;
   const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
-  const ctx: InjectionContext = { date, slug, lang, indexHref, skipLinkText };
+  const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
+  const ctx: InjectionContext = { date, slug, lang, indexHref, skipLinkText, headerSubtitle };
 
   let html = fs.readFileSync(filepath, 'utf-8');
 

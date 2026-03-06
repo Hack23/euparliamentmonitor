@@ -123,6 +123,12 @@ export function generateArticleHTML(options) {
     const backLabel = getLocalizedString(BACK_TO_NEWS_LABELS, lang);
     const articleNavLabel = getLocalizedString(ARTICLE_NAV_LABELS, lang);
     const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
+    const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
+    const footerAboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
+    const footerAboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
+    const footerQuickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
+    const footerBuiltByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
+    const footerLanguagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
     const indexHref = lang === 'en' ? '../index.html' : `../index-${lang}.html`;
     // Escape values for safe HTML embedding
     const safeTitle = escapeHTML(title);
@@ -206,6 +212,7 @@ export function generateArticleHTML(options) {
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
           <span class="site-header__subtitle">${escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang))}</span>
+          <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
@@ -245,18 +252,22 @@ export function generateArticleHTML(options) {
     <div class="footer-content">
       ${buildFooterSection(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang), `<p>${escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang))}</p>`)}
       ${buildFooterSection(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang), `<ul>
+      ${buildFooterSection(footerAboutHeading, `<p>${footerAboutText}</p>`)}
+      ${buildFooterSection(footerQuickLinksHeading, `<ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
           <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
         </ul>`)}
       ${buildFooterSection(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang), `<ul>
+      ${buildFooterSection(footerBuiltByHeading, `<ul>
           <li><a href="https://hack23.com">hack23.com</a></li>
           <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
           <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Security &amp; Privacy Policy</a></li>
           <li><a href="mailto:james@hack23.com">Contact</a></li>
         </ul>`)}
       ${buildFooterSection(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang), `<div class="language-grid">
+      ${buildFooterSection(footerLanguagesHeading, `<div class="language-grid">
           ${buildArticleFooterLanguageGrid(lang)}
         </div>`)}
     </div>
