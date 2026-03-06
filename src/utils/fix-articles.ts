@@ -197,11 +197,13 @@ function injectTypeA(html: string, ctx: InjectionContext): InjectionResult | nul
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a href="${ctx.indexHref}" class="site-header__brand" aria-label="EU Parliament Monitor">
-        <span class="site-header__flag" aria-hidden="true">🇪🇺</span>
+        <picture class="site-header__logo-picture">
+          <source srcset="../images/header-logo.webp" type="image/webp">
+          <img class="site-header__logo" src="../images/header-logo.png" alt="" width="48" height="48" aria-hidden="true">
+        </picture>
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
           <span class="site-header__subtitle">${escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, ctx.lang))}</span>
-          <span class="site-header__subtitle">${ctx.headerSubtitle}</span>
         </span>
       </a>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">

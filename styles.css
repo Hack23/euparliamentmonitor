@@ -165,12 +165,13 @@ img {
 }
 
 .site-header__logo {
-  width: 42px;
-  height: 42px;
-  border-radius: 8px;
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
   object-fit: contain;
   flex-shrink: 0;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .site-header__title {
@@ -283,27 +284,27 @@ img {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 32px 24px 24px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.25) 60%, transparent 100%);
+  padding: 36px 24px 28px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.4) 55%, transparent 100%);
   color: #fff;
 }
 
 .hero__title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
   color: #fff;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   letter-spacing: -0.02em;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 0, 0, 0.3);
 }
 
 .hero__description {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 600px;
+  font-size: 1.08rem;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 640px;
   margin: 0 auto;
-  line-height: 1.5;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  line-height: 1.55;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* ─── AI Intelligence Section ────────────────────────────────────── */
