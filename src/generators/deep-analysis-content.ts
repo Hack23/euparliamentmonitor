@@ -290,7 +290,9 @@ function severityLabel(
 function buildConsequencesSection(
   items: readonly ActionConsequence[],
   heading: string,
-  labels: Readonly<Pick<DeepAnalysisStrings, 'actionLabel' | 'consequenceLabel' | 'severityColumnLabel'>>,
+  labels: Readonly<
+    Pick<DeepAnalysisStrings, 'actionLabel' | 'consequenceLabel' | 'severityColumnLabel'>
+  >,
   strings: {
     severityLow: string;
     severityMedium: string;
