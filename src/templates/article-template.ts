@@ -258,6 +258,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#003399">
+  <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="../rss.xml">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
@@ -342,6 +343,8 @@ export function generateArticleHTML(options: ArticleOptions): string {
         footerQuickLinksHeading,
         `<ul>
           <li><a href="../index.html">Home</a></li>
+          <li><a href="../sitemap.html">Sitemap</a></li>
+          <li><a href="../rss.xml">RSS Feed</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
           <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>

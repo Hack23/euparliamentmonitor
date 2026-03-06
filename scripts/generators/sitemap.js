@@ -410,6 +410,7 @@ ${articlesSection}
         <h3>Quick Links</h3>
         <ul>
           <li><a href="${getIndexFilename(lang)}">Home</a></li>
+          <li><a href="rss.xml">RSS Feed</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
           <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>

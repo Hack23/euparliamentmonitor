@@ -185,14 +185,20 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
             .join('\n')}
     </ul>`;
     const ai = getLocalizedString(AI_SECTION_CONTENT, lang);
-    // Build filter buttons from used categories
+    // Build filter buttons from used categories (with article count)
+    const categoryCounts = new Map();
+    for (const a of articles) {
+        const cat = detectCategory(a.slug);
+        categoryCounts.set(cat, (categoryCounts.get(cat) ?? 0) + 1);
+    }
     const filterButtons = articles.length > 0
         ? Array.from(usedCategories)
             .sort()
             .map((cat) => {
             const safeCat = cat.replace(/[^a-z0-9-]/gi, '');
             const label = categoryLabels[cat] ?? formatSlug(safeCat);
-            return `<button type="button" class="filter-btn" data-category="${safeCat}">${escapeHTML(label)}</button>`;
+            const count = categoryCounts.get(cat) ?? 0;
+            return `<button type="button" class="filter-btn" data-category="${safeCat}">${escapeHTML(label)}<span class="filter-btn__count">${count}</span></button>`;
         })
             .join('\n          ')
         : '';
@@ -237,6 +243,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#003399">
+  <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="rss.xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -288,7 +295,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
         ? `
     <div class="filter-toolbar" role="toolbar" aria-label="Filter articles">
       <div class="filter-buttons">
-        <button type="button" class="filter-btn active" data-category="all">${escapeHTML(filterLabels.all)}</button>
+        <button type="button" class="filter-btn active" data-category="all">${escapeHTML(filterLabels.all)}<span class="filter-btn__count">${articles.length}</span></button>
         ${filterButtons}
       </div>
       <div class="filter-search">
@@ -310,6 +317,8 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
         <h3>${footerQuickLinksHeading}</h3>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+          <li><a href="rss.xml">RSS Feed</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
           <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
