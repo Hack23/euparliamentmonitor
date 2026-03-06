@@ -636,6 +636,121 @@ export const FILTER_LABELS: LanguageMap<{ all: string; search: string }> = {
   zh: { all: '\u5168\u90e8', search: '\u641c\u7d22\u6587\u7ae0\u2026' },
 };
 
+/* ─── Site header subtitle ───────────────────────────────────────── */
+
+/** Site header subtitle per language (displayed under "EU Parliament Monitor") */
+export const HEADER_SUBTITLE_LABELS: LanguageMap = {
+  en: 'European Parliament Intelligence',
+  sv: 'Europeiska parlamentets underr\u00e4ttelsetj\u00e4nst',
+  da: 'Europ\u00e6isk parlamentarisk efterretning',
+  no: 'Europeisk parlamentarisk etterretning',
+  fi: 'Euroopan parlamentin tiedustelutoiminta',
+  de: 'Europ\u00e4ische Parlamentsnachrichten',
+  fr: 'Renseignements du Parlement europ\u00e9en',
+  es: 'Inteligencia del Parlamento Europeo',
+  nl: 'Europees Parlementaire Inlichtingendienst',
+  ar: '\u0645\u0639\u0644\u0648\u0645\u0627\u062a \u0627\u0644\u0628\u0631\u0644\u0645\u0627\u0646 \u0627\u0644\u0623\u0648\u0631\u0648\u0628\u064a',
+  he: '\u05de\u05d9\u05d3\u05e2 \u05d4\u05e4\u05e8\u05dc\u05de\u05e0\u05d8 \u05d4\u05d0\u05d9\u05e8\u05d5\u05e4\u05d9',
+  ja: '\u6b27\u5dde\u8b70\u4f1a\u60c5\u5831',
+  ko: '\uc720\ub7fd \uc758\ud68c \uc778\ud154\ub9ac\uc804\uc2a4',
+  zh: '\u6b27\u6d32\u8bae\u4f1a\u60c5\u62a5',
+};
+
+/* ─── Footer section headings ────────────────────────────────────── */
+
+/** Shared Scandinavian "About EU Parliament Monitor" label (sv/da/no) */
+const ABOUT_HEADING_NORDIC = 'Om EU Parliament Monitor';
+
+/** "About EU Parliament Monitor" footer section heading per language */
+export const FOOTER_ABOUT_HEADING_LABELS: LanguageMap = {
+  en: 'About EU Parliament Monitor',
+  sv: ABOUT_HEADING_NORDIC,
+  da: ABOUT_HEADING_NORDIC,
+  no: ABOUT_HEADING_NORDIC,
+  fi: 'Tietoa EU Parliament Monitorista',
+  de: '\u00dcber EU Parliament Monitor',
+  fr: '\u00c0 propos du EU Parliament Monitor',
+  es: 'Acerca del EU Parliament Monitor',
+  nl: 'Over EU Parliament Monitor',
+  ar: '\u062d\u0648\u0644 EU Parliament Monitor',
+  he: '\u05d0\u05d5\u05d3\u05d5\u05ea EU Parliament Monitor',
+  ja: 'EU Parliament Monitor\u306b\u3064\u3044\u3066',
+  ko: 'EU Parliament Monitor \uc18c\uac1c',
+  zh: '\u5173\u4e8e EU Parliament Monitor',
+};
+
+/** "About" footer description text per language */
+export const FOOTER_ABOUT_TEXT_LABELS: LanguageMap = {
+  en: 'European Parliament Intelligence Platform \u2014 monitoring political activity with systematic transparency. Powered by European Parliament open data.',
+  sv: 'Europ\u00e4isk parlamentarisk underr\u00e4ttelseplattform \u2014 \u00f6vervakar politisk verksamhet med systematisk \u00f6ppenhet. Drivs av Europaparlamentets \u00f6ppna data.',
+  da: 'Europ\u00e6isk parlamentarisk efterretningsplatform \u2014 overv\u00e5ger politisk aktivitet med systematisk gennemsigtighed. Drevet af Europa-Parlamentets \u00e5bne data.',
+  no: 'Europeisk parlamentarisk etterretningsplattform \u2014 overv\u00e5ker politisk aktivitet med systematisk \u00e5penhet. Drevet av Europaparlamentets \u00e5pne data.',
+  fi: 'Euroopan parlamentin tiedustelualusta \u2014 seuraa poliittista toimintaa j\u00e4rjestelm\u00e4llisell\u00e4 avoimuudella. Perustuu Euroopan parlamentin avoimeen dataan.',
+  de: 'Europ\u00e4ische Parlamentsnachrichten-Plattform \u2014 \u00dcberwachung politischer Aktivit\u00e4ten mit systematischer Transparenz. Angetrieben von offenen Daten des Europ\u00e4ischen Parlaments.',
+  fr: "Plateforme de renseignements du Parlement europ\u00e9en \u2014 surveillance de l'activit\u00e9 politique avec une transparence syst\u00e9matique. Aliment\u00e9e par les donn\u00e9es ouvertes du Parlement europ\u00e9en.",
+  es: 'Plataforma de inteligencia del Parlamento Europeo \u2014 monitorizando la actividad pol\u00edtica con transparencia sistem\u00e1tica. Impulsada por datos abiertos del Parlamento Europeo.',
+  nl: 'Europees parlementair inlichtingenplatform \u2014 monitoring van politieke activiteit met systematische transparantie. Aangedreven door open data van het Europees Parlement.',
+  ar: '\u0645\u0646\u0635\u0629 \u0645\u0639\u0644\u0648\u0645\u0627\u062a \u0627\u0644\u0628\u0631\u0644\u0645\u0627\u0646 \u0627\u0644\u0623\u0648\u0631\u0648\u0628\u064a \u2014 \u0631\u0635\u062f \u0627\u0644\u0646\u0634\u0627\u0637 \u0627\u0644\u0633\u064a\u0627\u0633\u064a \u0628\u0634\u0641\u0627\u0641\u064a\u0629 \u0645\u0646\u0647\u062c\u064a\u0629. \u0645\u062f\u0639\u0648\u0645\u0629 \u0628\u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0645\u0641\u062a\u0648\u062d\u0629 \u0644\u0644\u0628\u0631\u0644\u0645\u0627\u0646 \u0627\u0644\u0623\u0648\u0631\u0648\u0628\u064a.',
+  he: '\u05e4\u05dc\u05d8\u05e4\u05d5\u05e8\u05de\u05ea \u05de\u05d9\u05d3\u05e2 \u05d4\u05e4\u05e8\u05dc\u05de\u05e0\u05d8 \u05d4\u05d0\u05d9\u05e8\u05d5\u05e4\u05d9 \u2014 \u05e0\u05d9\u05d8\u05d5\u05e8 \u05e4\u05e2\u05d9\u05dc\u05d5\u05ea \u05e4\u05d5\u05dc\u05d9\u05d8\u05d9\u05ea \u05d1\u05e9\u05e7\u05d9\u05e4\u05d5\u05ea \u05e9\u05d9\u05d8\u05ea\u05d9\u05ea. \u05de\u05d5\u05e0\u05e2 \u05e2\u05dc \u05d9\u05d3\u05d9 \u05e0\u05ea\u05d5\u05e0\u05d9\u05dd \u05e4\u05ea\u05d5\u05d7\u05d9\u05dd \u05e9\u05dc \u05d4\u05e4\u05e8\u05dc\u05de\u05e0\u05d8 \u05d4\u05d0\u05d9\u05e8\u05d5\u05e4\u05d9.',
+  ja: '\u6b27\u5dde\u8b70\u4f1a\u60c5\u5831\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0 \u2014 \u7d44\u7e54\u7684\u306a\u900f\u660e\u6027\u3067\u653f\u6cbb\u6d3b\u52d5\u3092\u76e3\u8996\u3002\u6b27\u5dde\u8b70\u4f1a\u306e\u30aa\u30fc\u30d7\u30f3\u30c7\u30fc\u30bf\u306b\u3088\u308b\u3002',
+  ko: '\uc720\ub7fd \uc758\ud68c \uc778\ud154\ub9ac\uc804\uc2a4 \ud50c\ub7ab\ud3fc \u2014 \uccb4\uacc4\uc801\uc778 \ud22c\uba85\uc131\uc73c\ub85c \uc815\uce58 \ud65c\ub3d9\uc744 \ubaa8\ub2c8\ud130\ub9c1. \uc720\ub7fd \uc758\ud68c \uacf5\uac1c \ub370\uc774\ud130\ub97c \uae30\ubc18\uc73c\ub85c \ud568.',
+  zh: '\u6b27\u6d32\u8bae\u4f1a\u60c5\u62a5\u5e73\u53f0 \u2014 \u4ee5\u7cfb\u7edf\u6027\u900f\u660e\u5ea6\u76d1\u6d4b\u653f\u6cbb\u6d3b\u52a8\u3002\u7531\u6b27\u6d32\u8bae\u4f1a\u5f00\u653e\u6570\u636e\u9a71\u52a8\u3002',
+};
+
+/** "Quick Links" footer section heading per language */
+export const FOOTER_QUICK_LINKS_LABELS: LanguageMap = {
+  en: 'Quick Links',
+  sv: 'Snabbl\u00e4nkar',
+  da: 'Hurtige links',
+  no: 'Hurtiglenker',
+  fi: 'Pikavalinnat',
+  de: 'Schnelllinks',
+  fr: 'Liens rapides',
+  es: 'Enlaces r\u00e1pidos',
+  nl: 'Snelle links',
+  ar: '\u0631\u0648\u0627\u0628\u0637 \u0633\u0631\u064a\u0639\u0629',
+  he: '\u05e7\u05d9\u05e9\u05d5\u05e8\u05d9\u05dd \u05de\u05d4\u05d9\u05e8\u05d9\u05dd',
+  ja: '\u30af\u30a4\u30c3\u30af\u30ea\u30f3\u30af',
+  ko: '\ube60\ub978 \ub9c1\ud06c',
+  zh: '\u5feb\u901f\u94fe\u63a5',
+};
+
+/** "Built by Hack23 AB" footer section heading per language */
+export const FOOTER_BUILT_BY_LABELS: LanguageMap = {
+  en: 'Built by Hack23 AB',
+  sv: 'Byggd av Hack23 AB',
+  da: 'Bygget af Hack23 AB',
+  no: 'Bygget av Hack23 AB',
+  fi: 'Rakennettu Hack23 AB:n toimesta',
+  de: 'Erstellt von Hack23 AB',
+  fr: 'Cr\u00e9\u00e9 par Hack23 AB',
+  es: 'Construido por Hack23 AB',
+  nl: 'Gebouwd door Hack23 AB',
+  ar: '\u0645\u0646 \u062a\u0637\u0648\u064a\u0631 Hack23 AB',
+  he: '\u05e0\u05d1\u05e0\u05d4 \u05e2\u05dc \u05d9\u05d3\u05d9 Hack23 AB',
+  ja: 'Hack23 AB\u306b\u3088\u308b\u958b\u767a',
+  ko: 'Hack23 AB \uc81c\uc791',
+  zh: '\u7531 Hack23 AB \u6784\u5efa',
+};
+
+/** "Languages" footer section heading per language */
+export const FOOTER_LANGUAGES_LABELS: LanguageMap = {
+  en: 'Languages',
+  sv: 'Spr\u00e5k',
+  da: 'Sprog',
+  no: 'Spr\u00e5k',
+  fi: 'Kielet',
+  de: 'Sprachen',
+  fr: 'Langues',
+  es: 'Idiomas',
+  nl: 'Talen',
+  ar: '\u0627\u0644\u0644\u063a\u0627\u062a',
+  he: '\u05e9\u05e4\u05d5\u05ea',
+  ja: '\u8a00\u8a9e',
+  ko: '\uc5b8\uc5b4',
+  zh: '\u8bed\u8a00',
+};
+
 /* ─── Sources section heading ────────────────────────────────────── */
 
 /** Localized "Sources" heading used in the article footer sources section */
