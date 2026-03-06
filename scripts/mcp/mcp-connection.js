@@ -364,22 +364,25 @@ export class MCPConnection {
     }
     /**
      * Build the Authorization header value for gateway requests.
-     * Passes through keys that already contain a scheme prefix (e.g. "Bearer …"),
-     * otherwise prepends the value of EP_MCP_GATEWAY_AUTH_SCHEME (default: "Bearer").
+     * Keys that already contain an RFC 7235-style scheme prefix (e.g. "Bearer …",
+     * "Token …") are passed through unchanged. Otherwise the raw key is sent
+     * directly unless EP_MCP_GATEWAY_AUTH_SCHEME is set, in which case that
+     * scheme prefix is prepended. The EP MCP gateway expects raw-token auth by
+     * default (no "Bearer " prefix).
      *
      * @param apiKey - Raw or pre-prefixed gateway API key
      * @returns The full Authorization header value
      */
     _buildAuthorizationHeader(apiKey) {
         const trimmedKey = apiKey.trim();
-        if (/^Bearer\s+/i.test(trimmedKey)) {
+        if (/^\w+\s+/.test(trimmedKey)) {
             return trimmedKey;
         }
-        const authScheme = (typeof process !== 'undefined' &&
-            process.env &&
-            process.env['EP_MCP_GATEWAY_AUTH_SCHEME']) ||
-            'Bearer';
-        return `${authScheme} ${trimmedKey}`;
+        const authScheme = typeof process !== 'undefined' && process.env && process.env['EP_MCP_GATEWAY_AUTH_SCHEME'];
+        if (authScheme) {
+            return `${authScheme} ${trimmedKey}`;
+        }
+        return trimmedKey;
     }
     /**
      * Attempt a single connection via MCP Gateway (HTTP transport)

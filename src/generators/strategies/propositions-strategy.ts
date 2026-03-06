@@ -143,8 +143,7 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
     // build proposals HTML from the feed data as fallback
     let finalProposalsHtml = proposalsHtml;
     if (!finalProposalsHtml && feedResult) {
-      const hasFeedItems =
-        feedResult.procedures.length > 0 || feedResult.adoptedTexts.length > 0;
+      const hasFeedItems = feedResult.procedures.length > 0 || feedResult.adoptedTexts.length > 0;
       if (hasFeedItems) {
         console.log(
           `  📰 Building proposals from feed data: ${feedResult.procedures.length} procedures, ${feedResult.adoptedTexts.length} adopted texts`
@@ -157,7 +156,13 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
       console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
     }
 
-    return { date, proposalsHtml: finalProposalsHtml, pipelineData, procedureHtml, feedData: feedResult };
+    return {
+      date,
+      proposalsHtml: finalProposalsHtml,
+      pipelineData,
+      procedureHtml,
+      feedData: feedResult,
+    };
   }
 
   /**
