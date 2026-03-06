@@ -25,13 +25,14 @@ const PROPOSITIONS_KEYWORDS = [
 function buildProposalsFromFeed(feedData) {
     const items = [];
     for (const proc of feedData.procedures.slice(0, 8)) {
+        const procStatus = proc.stage ?? proc.type;
         items.push(`
       <div class="proposal-card">
         <h3>${escapeHTML(proc.title || proc.id)}</h3>
         <div class="proposal-meta">
           <span class="proposal-id">${escapeHTML(proc.identifier ?? proc.id)}</span>
           ${proc.date ? `<span class="proposal-date">${escapeHTML(proc.date)}</span>` : ''}
-          ${proc.type ? `<span class="proposal-status">${escapeHTML(proc.type)}</span>` : ''}
+          ${procStatus ? `<span class="proposal-status">${escapeHTML(procStatus)}</span>` : ''}
         </div>
       </div>`);
     }
