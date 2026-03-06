@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.3% </span>
+                <span class="strong">96.77% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>58/59</span>
+                <span class='fraction'>60/62</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96% </span>
+                <span class="strong">92.59% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>24/25</span>
+                <span class='fraction'>25/27</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.24% </span>
+                <span class="strong">96.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>56/57</span>
+                <span class='fraction'>58/60</span>
             </div>
         
             
@@ -352,7 +352,14 @@
 <a name='L287'></a><a href='#L287'>287</a>
 <a name='L288'></a><a href='#L288'>288</a>
 <a name='L289'></a><a href='#L289'>289</a>
-<a name='L290'></a><a href='#L290'>290</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L290'></a><a href='#L290'>290</a>
+<a name='L291'></a><a href='#L291'>291</a>
+<a name='L292'></a><a href='#L292'>292</a>
+<a name='L293'></a><a href='#L293'>293</a>
+<a name='L294'></a><a href='#L294'>294</a>
+<a name='L295'></a><a href='#L295'>295</a>
+<a name='L296'></a><a href='#L296'>296</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -392,6 +399,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
@@ -569,7 +581,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">25043x</span>
+<span class="cline-any cline-yes">31960x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -584,9 +596,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
-<span class="cline-any cline-yes">202x</span>
+<span class="cline-any cline-yes">244x</span>
+<span class="cline-any cline-yes">244x</span>
+<span class="cline-any cline-yes">244x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -604,7 +616,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -652,7 +664,8 @@
 import fs from 'fs';
 import path from 'path';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
-import type { ParsedArticle } from '../types/index.js';
+import { ALL_LANGUAGES } from '../constants/language-core.js';
+import type { LanguageCode, ParsedArticle } from '../types/index.js';
 &nbsp;
 /**
  * Get all news article HTML files from the news directory
@@ -683,10 +696,15 @@ export function parseArticleFilename(filename: string): ParsedArticle | null {
     return null;
   }
 &nbsp;
+  const langCandidate = match[3] as string;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!ALL_LANGUAGES.includes(langCandidate as LanguageCode)) {
+<span class="cstat-no" title="statement not covered" >    return null;</span>
+  }
+&nbsp;
   return {
     date: match[1] as string,
     slug: match[2] as string,
-    lang: match[3] as string,
+    lang: langCandidate as LanguageCode,
     filename,
   };
 }
@@ -937,7 +955,7 @@ export function validateArticleHTML(html: string): ArticleValidationResult {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-04T21:17:58.394Z
+                at 2026-03-06T17:02:42.354Z
             </div>
         <script src="../prettify.js"></script>
         <script>

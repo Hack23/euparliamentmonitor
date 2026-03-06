@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.23% </span>
+                <span class="strong">88.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>30/34</span>
+                <span class='fraction'>31/35</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.23% </span>
+                <span class="strong">88.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>30/34</span>
+                <span class='fraction'>31/35</span>
             </div>
         
             
@@ -256,7 +256,20 @@
 <a name='L191'></a><a href='#L191'>191</a>
 <a name='L192'></a><a href='#L192'>192</a>
 <a name='L193'></a><a href='#L193'>193</a>
-<a name='L194'></a><a href='#L194'>194</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L194'></a><a href='#L194'>194</a>
+<a name='L195'></a><a href='#L195'>195</a>
+<a name='L196'></a><a href='#L196'>196</a>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a>
+<a name='L199'></a><a href='#L199'>199</a>
+<a name='L200'></a><a href='#L200'>200</a>
+<a name='L201'></a><a href='#L201'>201</a>
+<a name='L202'></a><a href='#L202'>202</a>
+<a name='L203'></a><a href='#L203'>203</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -311,6 +324,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -462,7 +480,11 @@
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
 import { ArticleCategory } from '../../types/index.js';
 import type { LanguageCode, CommitteeData, EPFeedData } from '../../types/index.js';
-import { COMMITTEE_REPORTS_TITLES, getLocalizedString } from '../../constants/languages.js';
+import {
+  COMMITTEE_REPORTS_TITLES,
+  COMMITTEE_ANALYSIS_CONTENT_STRINGS,
+  getLocalizedString,
+} from '../../constants/languages.js';
 import { fetchCommitteeData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { FEATURED_COMMITTEES } from '../committee-helpers.js';
 import { escapeHTML } from '../../utils/file-utils.js';
@@ -501,9 +523,14 @@ export interface CommitteeReportsArticleData extends ArticleData {
  * Build the HTML body for a committee reports article.
  *
  * @param committeeDataList - Pre-fetched committee data
+ * @param lang - Language code for localized strings
  * @returns Article HTML body
  */
-function buildCommitteeReportsHTML(committeeDataList: readonly CommitteeData[]): string {
+function buildCommitteeReportsHTML(
+  committeeDataList: readonly CommitteeData[],
+  lang: LanguageCode
+): string {
+  const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
   const committeeSections = committeeDataList
     .map((committee) =&gt; {
       const docItems =
@@ -518,7 +545,7 @@ function buildCommitteeReportsHTML(committeeDataList: readonly CommitteeData[]):
                 &lt;/li&gt;`
               )
               .join('')
-          : '&lt;li&gt;No recent documents available&lt;/li&gt;';
+          : `&lt;li&gt;${escapeHTML(s.noRecentDocs)}&lt;/li&gt;`;
 &nbsp;
       const effectivenessHtml = committee.effectiveness
         ? `&lt;p class="effectiveness-score"&gt;${escapeHTML(committee.effectiveness)}&lt;/p&gt;`
@@ -528,8 +555,8 @@ function buildCommitteeReportsHTML(committeeDataList: readonly CommitteeData[]):
       &lt;section class="committee-card"&gt;
         &lt;h3 class="committee-name"&gt;${escapeHTML(committee.name)} (${escapeHTML(committee.abbreviation)})&lt;/h3&gt;
         &lt;div class="committee-meta"&gt;
-          &lt;span class="committee-chair"&gt;Chair: ${escapeHTML(committee.chair)}&lt;/span&gt;
-          &lt;span class="committee-members"&gt;Members: ${committee.members}&lt;/span&gt;
+          &lt;span class="committee-chair"&gt;${escapeHTML(s.chairLabel)} ${escapeHTML(committee.chair)}&lt;/span&gt;
+          &lt;span class="committee-members"&gt;${committee.members} ${escapeHTML(s.membersLabel)}&lt;/span&gt;
         &lt;/div&gt;
         &lt;section class="recent-activity"&gt;
           &lt;ul class="document-list"&gt;${docItems}&lt;/ul&gt;
@@ -542,7 +569,7 @@ function buildCommitteeReportsHTML(committeeDataList: readonly CommitteeData[]):
   return `
     &lt;div class="article-content"&gt;
       &lt;section class="committee-overview"&gt;
-        &lt;p class="lede"&gt;${escapeHTML(EP_DISPLAY_NAME)} committee activity and legislative effectiveness analysis.&lt;/p&gt;
+        &lt;p class="lede"&gt;${escapeHTML(s.lede)}&lt;/p&gt;
       &lt;/section&gt;
       &lt;section class="committee-reports"&gt;${committeeSections}&lt;/section&gt;
     &lt;/div&gt;`;
@@ -601,13 +628,13 @@ export class CommitteeReportsStrategy implements ArticleStrategy&lt;CommitteeRep
    * Build the committee reports HTML body.
    *
    * @param data - Committee reports data payload
-   * @param _lang - Language code (unused — content is language-independent)
+   * @param lang - Language code for localized content
    * @returns Article HTML body
    */
-  buildContent(data: CommitteeReportsArticleData, _lang: LanguageCode): string {
-    const base = buildCommitteeReportsHTML(data.committeeDataList);
-    const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date);
-    const deepSection = buildDeepAnalysisSection(analysis, _lang);
+  buildContent(data: CommitteeReportsArticleData, lang: LanguageCode): string {
+    const base = buildCommitteeReportsHTML(data.committeeDataList, lang);
+    const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date, lang);
+    const deepSection = buildDeepAnalysisSection(analysis, lang);
     // Inject deep analysis before the closing &lt;/div&gt; of .article-content
     <span class="missing-if-branch" title="else path not taken" >E</span>if (deepSection) {
       const closingTag = '&lt;/div&gt;';
@@ -649,7 +676,7 @@ export const committeeReportsStrategy = new CommitteeReportsStrategy();
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-04T21:17:58.340Z
+                at 2026-03-06T17:02:42.296Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
