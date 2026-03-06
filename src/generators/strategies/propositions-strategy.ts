@@ -55,7 +55,7 @@ function buildProposalsFromFeed(feedData: EPFeedData): string {
         <div class="proposal-meta">
           <span class="proposal-id">${escapeHTML(proc.identifier ?? proc.id)}</span>
           ${proc.date ? `<span class="proposal-date">${escapeHTML(proc.date)}</span>` : ''}
-          ${proc.type ? `<span class="proposal-type">${escapeHTML(proc.type)}</span>` : ''}
+          ${proc.type ? `<span class="proposal-status">${escapeHTML(proc.type)}</span>` : ''}
         </div>
       </div>`);
   }
@@ -67,7 +67,7 @@ function buildProposalsFromFeed(feedData: EPFeedData): string {
         <div class="proposal-meta">
           <span class="proposal-id">${escapeHTML(text.identifier ?? text.id)}</span>
           ${text.date ? `<span class="proposal-date">${escapeHTML(text.date)}</span>` : ''}
-          ${text.type ? `<span class="proposal-type">${escapeHTML(text.type)}</span>` : ''}
+          ${text.type ? `<span class="proposal-status">${escapeHTML(text.type)}</span>` : ''}
         </div>
       </div>`);
   }

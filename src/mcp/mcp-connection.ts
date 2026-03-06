@@ -412,6 +412,27 @@ export class MCPConnection {
   }
 
   /**
+   * Build the Authorization header value for gateway requests.
+   * Passes through keys that already contain a scheme prefix (e.g. "Bearer …"),
+   * otherwise prepends the value of EP_MCP_GATEWAY_AUTH_SCHEME (default: "Bearer").
+   *
+   * @param apiKey - Raw or pre-prefixed gateway API key
+   * @returns The full Authorization header value
+   */
+  private _buildAuthorizationHeader(apiKey: string): string {
+    const trimmedKey = apiKey.trim();
+    if (/^Bearer\s+/i.test(trimmedKey)) {
+      return trimmedKey;
+    }
+    const authScheme =
+      (typeof process !== 'undefined' &&
+        process.env &&
+        process.env['EP_MCP_GATEWAY_AUTH_SCHEME']) ||
+      'Bearer';
+    return `${authScheme} ${trimmedKey}`;
+  }
+
+  /**
    * Attempt a single connection via MCP Gateway (HTTP transport)
    */
   private async _attemptGatewayConnection(): Promise<void> {
@@ -421,7 +442,7 @@ export class MCPConnection {
         Accept: 'application/json, text/event-stream',
       };
       if (this.gatewayApiKey) {
-        headers['Authorization'] = this.gatewayApiKey;
+        headers['Authorization'] = this._buildAuthorizationHeader(this.gatewayApiKey);
       }
 
       const initRequest: JSONRPCRequest = {
@@ -625,7 +646,7 @@ export class MCPConnection {
       Accept: 'application/json, text/event-stream',
     };
     if (this.gatewayApiKey) {
-      headers['Authorization'] = this.gatewayApiKey;
+      headers['Authorization'] = this._buildAuthorizationHeader(this.gatewayApiKey);
     }
     if (this.mcpSessionId) {
       headers['Mcp-Session-Id'] = this.mcpSessionId;
