@@ -412,6 +412,60 @@ export class MCPConnection {
   }
 
   /**
+   * Build the Authorization header value for gateway requests.
+   * Keys that already contain a valid RFC 7235 scheme token followed by
+   * whitespace (e.g. "Bearer …", "Token …", "AWS4-HMAC-SHA256 …") are passed
+   * through unchanged. Otherwise the raw key is sent directly unless
+   * EP_MCP_GATEWAY_AUTH_SCHEME is set to a valid token, in which case that
+   * scheme prefix is prepended. The EP MCP gateway expects raw-token auth by
+   * default (no "Bearer " prefix).
+   *
+   * @param apiKey - Raw or pre-prefixed gateway API key
+   * @returns The full Authorization header value, or empty string for empty keys
+   * @throws {Error} When the API key contains CR or LF characters (header injection risk)
+   */
+  private _buildAuthorizationHeader(apiKey: string): string {
+    const trimmedKey = apiKey.trim();
+    if (!trimmedKey) {
+      return '';
+    }
+
+    // Reject CR/LF in the key to prevent HTTP header injection.
+    if (/[\r\n]/.test(trimmedKey)) {
+      throw new Error(
+        'Invalid gateway API key: control characters (CR/LF) are not allowed in Authorization header values.'
+      );
+    }
+
+    // RFC 7235 tchar token pattern for scheme validation.
+    // This regex exclusively allows valid tchar characters, which by definition
+    // excludes control characters — no separate control-char check is needed
+    // for the scheme token itself.
+    const tokenRegex = /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/;
+
+    // If the key already starts with a valid RFC 7235 scheme token followed
+    // by whitespace, treat it as a fully formed Authorization value and pass
+    // it through unchanged.
+    const firstSpaceIndex = trimmedKey.indexOf(' ');
+    if (firstSpaceIndex > 0) {
+      const possibleScheme = trimmedKey.slice(0, firstSpaceIndex);
+      if (tokenRegex.test(possibleScheme)) {
+        return trimmedKey;
+      }
+    }
+
+    const rawScheme =
+      typeof process !== 'undefined' && process.env && process.env['EP_MCP_GATEWAY_AUTH_SCHEME'];
+    const scheme = typeof rawScheme === 'string' ? rawScheme.trim() : '';
+
+    if (scheme && tokenRegex.test(scheme)) {
+      return `${scheme} ${trimmedKey}`;
+    }
+
+    return trimmedKey;
+  }
+
+  /**
    * Attempt a single connection via MCP Gateway (HTTP transport)
    */
   private async _attemptGatewayConnection(): Promise<void> {
@@ -421,7 +475,7 @@ export class MCPConnection {
         Accept: 'application/json, text/event-stream',
       };
       if (this.gatewayApiKey) {
-        headers['Authorization'] = `Bearer ${this.gatewayApiKey}`;
+        headers['Authorization'] = this._buildAuthorizationHeader(this.gatewayApiKey);
       }
 
       const initRequest: JSONRPCRequest = {
@@ -625,7 +679,7 @@ export class MCPConnection {
       Accept: 'application/json, text/event-stream',
     };
     if (this.gatewayApiKey) {
-      headers['Authorization'] = `Bearer ${this.gatewayApiKey}`;
+      headers['Authorization'] = this._buildAuthorizationHeader(this.gatewayApiKey);
     }
     if (this.mcpSessionId) {
       headers['Mcp-Session-Id'] = this.mcpSessionId;

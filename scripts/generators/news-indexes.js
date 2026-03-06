@@ -203,6 +203,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="no-referrer">
+  <meta name="generator" content="EU Parliament Monitor v${escapeHTML(APP_VERSION)}">
   <title>${title}</title>
   <meta name="description" content="${description}">
   <meta property="og:type" content="website">
