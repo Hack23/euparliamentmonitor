@@ -11,7 +11,9 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'fs';
 import path from 'path';
+import { Window } from 'happy-dom';
 import { createTempDir, cleanupTempDir, validateHTML } from '../helpers/test-utils.js';
+import * as languageConstants from '../../scripts/constants/languages.js';
 import { generateIndexHTML } from '../../scripts/generators/news-indexes.js';
 
 describe('generate-news-indexes', () => {
@@ -411,6 +413,89 @@ describe('generate-news-indexes', () => {
       expect(aiSection[0]).not.toContain('lang="en"');
     });
 
+    it('should render the news feed before the AI section', () => {
+      const html = generateIndexHTML('en', []);
+      const document = createDocument(html);
+      const newsFeed = document.querySelector('main#main');
+      const aiSection = document.querySelector('.ai-intelligence');
+      const { Node } = document.defaultView;
+
+      expect(newsFeed).not.toBeNull();
+      expect(aiSection).not.toBeNull();
+      expect(newsFeed.compareDocumentPosition(aiSection)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
+    });
+
+    it('should mark the active language link with aria-current and lang attributes', () => {
+      const document = createDocument(generateIndexHTML('de', []));
+      const activeGermanLink = document.querySelector('a.lang-link.active[href="index-de.html"]');
+
+      expect(activeGermanLink).not.toBeNull();
+      expect(activeGermanLink.getAttribute('hreflang')).toBe('de');
+      expect(activeGermanLink.getAttribute('lang')).toBe('de');
+      expect(activeGermanLink.getAttribute('aria-label')).toBe('Deutsch');
+      expect(activeGermanLink.getAttribute('aria-current')).toBe('page');
+    });
+
+    it('should escape localized language names in link attributes', () => {
+      const maliciousName = 'English" onclick="alert(1)" & <b>bold</b>';
+      const expectedEscaped =
+        'English&quot; onclick=&quot;alert(1)&quot; &amp; &lt;b&gt;bold&lt;/b&gt;';
+      const originalEnglishName = languageConstants.LANGUAGE_NAMES.en;
+
+      languageConstants.LANGUAGE_NAMES.en = maliciousName;
+
+      try {
+        const html = generateIndexHTML('en', []);
+        const document = createDocument(html);
+        const activeEnglishLink = document.querySelector('a.lang-link.active[href="index.html"]');
+
+        expect(html).toContain(`title="${expectedEscaped}"`);
+        expect(html).toContain(`aria-label="${expectedEscaped}"`);
+        expect(activeEnglishLink).not.toBeNull();
+        expect(activeEnglishLink.getAttribute('title')).toBe(maliciousName);
+        expect(activeEnglishLink.getAttribute('aria-label')).toBe(maliciousName);
+        expect(activeEnglishLink.getAttribute('onclick')).toBeNull();
+        expect(activeEnglishLink.onclick).toBeNull();
+      } finally {
+        languageConstants.LANGUAGE_NAMES.en = originalEnglishName;
+      }
+    });
+
+    it('should include a stacked homepage header and full-width hero banner layout', () => {
+      const html = generateIndexHTML('en', []);
+      const document = createDocument(html);
+      const headerInner = document.querySelector('.site-header__inner');
+      const headerLogoPicture = document.querySelector('.site-header__logo-picture');
+      const headerLogo = document.querySelector('.site-header__logo');
+      const heroInner = document.querySelector('.hero__inner');
+      const heroContent = document.querySelector('.hero__content');
+      const heroBanner = document.querySelector('.hero__banner');
+
+      expect(html).toContain('site-header__inner--stacked');
+      expect(html).toContain('images/header-logo.webp');
+      expect(html).toContain('images/header-logo.png');
+      expect(html).not.toContain('images/favicon-96x96.png');
+      expect(headerInner).not.toBeNull();
+      expect(headerInner.classList.contains('site-header__inner--stacked')).toBe(true);
+      expect(headerLogoPicture).not.toBeNull();
+      const headerLogoSource = headerLogoPicture.querySelector('source');
+      expect(headerLogoSource).not.toBeNull();
+      expect(headerLogoSource.getAttribute('srcset')).toBe('images/header-logo.webp');
+      expect(headerLogo).not.toBeNull();
+      expect(headerLogo.classList.contains('site-header__logo--header')).toBe(true);
+      expect(headerLogo.getAttribute('src')).toBe('images/header-logo.png');
+      expect(html).toContain('class="hero__inner"');
+      expect(html).toContain('class="hero__content"');
+      expect(html).toContain('class="hero__kicker"');
+      expect(html).not.toContain('hero__overlay');
+      expect(heroInner).not.toBeNull();
+      expect(heroContent).not.toBeNull();
+      expect(heroBanner).not.toBeNull();
+      expect(heroInner.children[0]).toBe(heroContent);
+      expect(heroInner.children[1]).toBe(heroBanner);
+      expect(heroBanner.contains(heroContent)).toBe(false);
+    });
+
     it('should contain German localized AI heading on German page', () => {
       const html = generateIndexHTML('de', []);
       expect(html).toContain('KI-disruptierte Nachrichtenerzeugung');
@@ -605,6 +690,12 @@ function generateMockIndexHTML(lang, articles) {
   </footer>
 </body>
 </html>`;
+}
+
+function createDocument(html) {
+  const window = new Window();
+  window.document.write(html);
+  return window.document;
 }
 
 function formatSlug(slug) {

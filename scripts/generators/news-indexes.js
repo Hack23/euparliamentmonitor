@@ -75,7 +75,11 @@ function buildLangSwitcher(currentLang) {
         const name = getLocalizedString(LANGUAGE_NAMES, code);
         const active = code === currentLang ? ' active' : '';
         const href = getIndexFilename(code);
-        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${name}">${flag} ${code.toUpperCase()}</a>`;
+        const current = code === currentLang ? ' aria-current="page"' : '';
+        const safeHref = escapeHTML(href);
+        const safeCode = escapeHTML(code);
+        const safeName = escapeHTML(name);
+        return `<a href="${safeHref}" class="lang-link${active}" hreflang="${safeCode}" lang="${safeCode}" title="${safeName}" aria-label="${safeName}"${current}>${flag} ${code.toUpperCase()}</a>`;
     }).join('\n        ');
 }
 /**
@@ -90,7 +94,10 @@ function buildFooterLanguageGrid(currentLang) {
         const name = getLocalizedString(LANGUAGE_NAMES, code);
         const href = getIndexFilename(code);
         const active = code === currentLang ? ' class="active"' : '';
-        return `<a href="${href}"${active} hreflang="${code}">${flag} ${name}</a>`;
+        const safeHref = escapeHTML(href);
+        const safeCode = escapeHTML(code);
+        const safeName = escapeHTML(name);
+        return `<a href="${safeHref}"${active} hreflang="${safeCode}">${flag} ${safeName}</a>`;
     }).join('\n            ');
 }
 /**
@@ -250,15 +257,14 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
   <a href="#main" class="skip-link">${skipLinkText}</a>
 
   <header class="site-header" role="banner">
-    <div class="site-header__inner">
+    <div class="site-header__inner site-header__inner--stacked">
       <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
         <picture class="site-header__logo-picture">
-          <source srcset="images/favicon-96x96.webp" type="image/webp">
-          <img class="site-header__logo" src="images/favicon-96x96.png" alt="" width="96" height="96" aria-hidden="true">
+          <source srcset="images/header-logo.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--header" src="images/header-logo.png" alt="" width="72" height="48" aria-hidden="true">
         </picture>
         <span>
           <span class="site-header__title">${heroTitle}</span>
-          <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
@@ -268,26 +274,17 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
   </header>
 
   <section class="hero">
-    <picture class="hero__banner">
-      <source srcset="images/banner.webp" type="image/webp">
-      <img src="images/banner.jpg" alt="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence" class="hero__banner-img" width="1200" height="400" loading="eager">
-    </picture>
-    <div class="hero__overlay">
-      <h1 class="hero__title">${heroTitle}</h1>
-      <p class="hero__description">${description}</p>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <p class="hero__kicker">${headerSubtitle}</p>
+        <h1 class="hero__title">${heroTitle}</h1>
+        <p class="hero__description">${description}</p>
+      </div>
+      <picture class="hero__banner">
+        <source srcset="images/banner.webp" type="image/webp">
+        <img src="images/banner.jpg" alt="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence" class="hero__banner-img" width="1200" height="400" loading="eager">
+      </picture>
     </div>
-  </section>
-
-  <section class="ai-intelligence" aria-labelledby="ai-heading">
-    <h2 id="ai-heading"><span aria-hidden="true">🤖</span> ${escapeHTML(ai.heading)}</h2>
-    <blockquote class="ai-intelligence__quote">${escapeHTML(ai.quote)}</blockquote>
-    <p>${escapeHTML(ai.description)}</p>
-    <ul class="ai-intelligence__features">
-      <li><strong>${escapeHTML(ai.featureAgents)}</strong> &mdash; ${escapeHTML(ai.featureAgentsDesc)}</li>
-      <li><strong>${escapeHTML(ai.featureSchedule)}</strong> &mdash; ${escapeHTML(ai.featureScheduleDesc)}</li>
-      <li><strong>${escapeHTML(ai.featureHuman)}</strong> &mdash; ${escapeHTML(ai.featureHumanDesc)}</li>
-      <li><strong>${escapeHTML(ai.featureData)}</strong> &mdash; ${escapeHTML(ai.featureDataDesc)}</li>
-    </ul>
   </section>
 
   <main id="main" class="site-main">
@@ -305,6 +302,18 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
         : ''}
     ${content}
   </main>
+
+  <section class="ai-intelligence" aria-labelledby="ai-heading">
+    <h2 id="ai-heading"><span aria-hidden="true">🤖</span> ${escapeHTML(ai.heading)}</h2>
+    <blockquote class="ai-intelligence__quote">${escapeHTML(ai.quote)}</blockquote>
+    <p>${escapeHTML(ai.description)}</p>
+    <ul class="ai-intelligence__features">
+      <li><strong>${escapeHTML(ai.featureAgents)}</strong> &mdash; ${escapeHTML(ai.featureAgentsDesc)}</li>
+      <li><strong>${escapeHTML(ai.featureSchedule)}</strong> &mdash; ${escapeHTML(ai.featureScheduleDesc)}</li>
+      <li><strong>${escapeHTML(ai.featureHuman)}</strong> &mdash; ${escapeHTML(ai.featureHumanDesc)}</li>
+      <li><strong>${escapeHTML(ai.featureData)}</strong> &mdash; ${escapeHTML(ai.featureDataDesc)}</li>
+    </ul>
+  </section>
 
   <footer class="site-footer" role="contentinfo">
     <div class="footer-content">
