@@ -385,4 +385,19 @@ describe('buildAdoptedTextsSection', () => {
     const html = buildAdoptedTextsSection(mockAdoptedTexts, 'en');
     expect(html).toContain('3 texts adopted');
   });
+
+  it('should use localized fallback date label when item has no date', () => {
+    const textsWithoutDate = [{ id: 'AT-NODATE', title: 'Undated Text' }];
+    const enHtml = buildAdoptedTextsSection(textsWithoutDate, 'en');
+    expect(enHtml).toContain('Unknown');
+    const deHtml = buildAdoptedTextsSection(textsWithoutDate, 'de');
+    expect(deHtml).toContain('Unbekannt');
+    expect(deHtml).not.toContain('>Unknown<');
+    const frHtml = buildAdoptedTextsSection(textsWithoutDate, 'fr');
+    expect(frHtml).toContain('Inconnu');
+    const zhHtml = buildAdoptedTextsSection(textsWithoutDate, 'zh');
+    expect(zhHtml).toContain('未知');
+    const arHtml = buildAdoptedTextsSection(textsWithoutDate, 'ar');
+    expect(arHtml).toContain('غير معروف');
+  });
 });

@@ -243,6 +243,40 @@ const ADOPTED_TEXTS_HEADINGS = {
     ko: '최근 채택된 텍스트',
     zh: '最近通过的文本',
 };
+/** Localized fallback label for items with no adoption date */
+const ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS = {
+    en: 'Unknown',
+    sv: 'Okänt',
+    da: 'Ukendt',
+    no: 'Ukjent',
+    fi: 'Tuntematon',
+    de: 'Unbekannt',
+    fr: 'Inconnu',
+    es: 'Desconocido',
+    nl: 'Onbekend',
+    ar: 'غير معروف',
+    he: 'לא ידוע',
+    ja: '不明',
+    ko: '알 수 없음',
+    zh: '未知',
+};
+/** Localized count descriptions for the adopted texts feed section */
+const ADOPTED_TEXTS_COUNT_STRINGS = {
+    en: (n) => `${n} texts adopted in recent plenary sessions:`,
+    sv: (n) => `${n} texter antagna i nyliga plenarsammanträden:`,
+    da: (n) => `${n} tekster vedtaget i seneste plenarmøder:`,
+    no: (n) => `${n} tekster vedtatt i nylige plenumsmøter:`,
+    fi: (n) => `${n} tekstiä hyväksytty viimeisimmissä täysistunnoissa:`,
+    de: (n) => `${n} Texte in jüngsten Plenarsitzungen angenommen:`,
+    fr: (n) => `${n}\u00a0textes adoptés lors des récentes sessions plénières\u00a0:`,
+    es: (n) => `${n} textos adoptados en recientes sesiones plenarias:`,
+    nl: (n) => `${n} teksten aangenomen in recente plenaire vergaderingen:`,
+    ar: (n) => `تم اعتماد ${n} نصاً في جلسات البرلمان الأخيرة:`,
+    he: (n) => `${n} טקסטים אומצו בישיבות המליאה האחרונות:`,
+    ja: (n) => `最近の本会議セッションで ${n} 件のテキストが採択されました：`,
+    ko: (n) => `최근 전체 회의에서 ${n}개의 텍스트가 채택되었습니다:`,
+    zh: (n) => `最近全体会议共通过了 ${n} 份文本：`,
+};
 /**
  * Build an HTML section listing recently adopted texts from EP feed data.
  * Groups texts by adoption date and renders them as a structured list.
@@ -255,10 +289,13 @@ export function buildAdoptedTextsSection(adoptedTexts, language) {
     if (adoptedTexts.length === 0)
         return '';
     const heading = ADOPTED_TEXTS_HEADINGS[language] ?? ADOPTED_TEXTS_HEADINGS['en'] ?? 'Recently Adopted Texts';
+    const countFn = ADOPTED_TEXTS_COUNT_STRINGS[language] ?? ADOPTED_TEXTS_COUNT_STRINGS['en'];
+    const countText = countFn(adoptedTexts.length);
+    const unknownDate = ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS[language] ?? ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS['en'];
     // Group by date, sort most recent first
     const byDate = new Map();
     for (const item of adoptedTexts) {
-        const date = item.date || 'Unknown';
+        const date = item.date || unknownDate;
         const group = byDate.get(date) ?? [];
         group.push(item);
         byDate.set(date, group);
@@ -281,7 +318,7 @@ export function buildAdoptedTextsSection(adoptedTexts, language) {
     return `
         <section class="adopted-texts-feed" lang="${escapeHTML(language)}">
           <h2>${escapeHTML(heading)}</h2>
-          <p>${adoptedTexts.length} texts adopted in recent plenary sessions:</p>
+          <p>${escapeHTML(countText)}</p>
           <ul class="adopted-texts-list">
             ${itemsHtml}
           </ul>
