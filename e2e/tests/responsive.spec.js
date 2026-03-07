@@ -24,8 +24,8 @@ const VIEWPORTS = [
 // Allow a tiny amount of browser/layout rounding when comparing stacked blocks.
 const HERO_LAYOUT_VIEWPORTS = [VIEWPORTS[0], VIEWPORTS[4]];
 const HERO_STACKING_TOLERANCE_PX = 2;
-// Keep a small edge tolerance for full-bleed banners to account for viewport rounding.
-const HERO_BANNER_EDGE_TOLERANCE_PX = 16;
+// Allow minor viewport rounding while still proving the banner reaches the page edges.
+const HERO_BANNER_EDGE_TOLERANCE_PX = 8;
 
 test.describe('Responsive Design', () => {
   test('should keep hero text above a full-width banner across viewports', async ({ page }) => {

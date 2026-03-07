@@ -228,7 +228,7 @@ img {
   flex-wrap: wrap;
   width: 100%;
   overflow: visible;
-  /* Slightly roomier on desktop so wrapped language rows don't crowd the brand. */
+  /* Base padding for wrapped language rows; reduced on mobile for compactness. */
   padding-top: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
@@ -317,6 +317,7 @@ img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  /* Scale with the viewport while keeping a sensible min/max hero height. */
   min-height: clamp(220px, 32vw, 420px);
 }
 
