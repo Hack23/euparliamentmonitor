@@ -5,7 +5,9 @@ import { MOTIONS_TITLES, getLocalizedString } from '../../constants/languages.js
 import { fetchMotionsData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent, buildPoliticalAlignmentSection, buildAdoptedTextsSection, } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildVotingAnalysis } from '../analysis-builders.js';
+import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard } from '../analysis-builders.js';
+import { buildSwotSection } from '../swot-content.js';
+import { buildDashboardSection } from '../dashboard-content.js';
 /** Keywords shared by all Motions articles */
 const MOTIONS_KEYWORDS = [
     'European Parliament',
@@ -78,11 +80,19 @@ export class MotionsStrategy {
         const alignmentSection = buildPoliticalAlignmentSection([...data.votingRecords], [], lang);
         const analysis = buildVotingAnalysis(data.dateFromStr, data.date, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
         const deepSection = buildDeepAnalysisSection(analysis, lang);
+        const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies);
+        const swotSection = buildSwotSection(swotData, lang);
+        const dashboardData = buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies);
+        const dashboardSection = buildDashboardSection(dashboardData, lang);
         // Inject at the explicit <!-- /article-content --> marker so the section
         // stays inside the .article-content styling scope. The marker is always
         // emitted by generateMotionsContent as the last child of that wrapper and
         // is removed from the final HTML during this replacement.
-        const injection = adoptedTextsSection + (alignmentSection || '') + deepSection;
+        const injection = adoptedTextsSection +
+            (alignmentSection || '') +
+            deepSection +
+            swotSection +
+            dashboardSection;
         if (injection) {
             return base.replace('<!-- /article-content -->', `${injection}\n`);
         }

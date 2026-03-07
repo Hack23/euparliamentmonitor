@@ -5,7 +5,9 @@ import { WEEK_AHEAD_TITLES, getLocalizedString } from '../../constants/languages
 import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { buildWeekAheadContent, buildKeywords, buildWhatToWatchSection, } from '../week-ahead-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildProspectiveAnalysis } from '../analysis-builders.js';
+import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard } from '../analysis-builders.js';
+import { buildSwotSection } from '../swot-content.js';
+import { buildDashboardSection } from '../dashboard-content.js';
 // ─── Date-range helper ────────────────────────────────────────────────────────
 /**
  * Compute the week-ahead date range starting the day after `baseDate`.
@@ -78,10 +80,14 @@ export class WeekAheadStrategy {
         const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
         const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
         const analysisSection = buildDeepAnalysisSection(analysis, lang);
+        const swotData = buildProspectiveSwot(data.weekData, 'week');
+        const swotSection = buildSwotSection(swotData, lang);
+        const dashboardData = buildProspectiveDashboard(data.weekData, 'week');
+        const dashboardSection = buildDashboardSection(dashboardData, lang);
         // Inject at the explicit <!-- /article-content --> marker position so the
         // section stays inside the .article-content styling scope. The marker is
         // removed from the final HTML output to avoid unnecessary bytes.
-        const injection = (watchSection || '') + analysisSection;
+        const injection = (watchSection || '') + analysisSection + swotSection + dashboardSection;
         if (injection) {
             return base.replace('<!-- /article-content -->', injection);
         }

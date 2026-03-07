@@ -25,6 +25,8 @@ import type {
   CommitteeData,
   LanguageCode,
   BreakingNewsFeedData,
+  SwotAnalysis,
+  DashboardConfig,
 } from '../types/index.js';
 import type { PipelineData } from './propositions-content.js';
 import {
@@ -609,4 +611,681 @@ export function buildCommitteeAnalysis(
             .replace('{total}', String(committees.length))
         : s.outlookConcern,
   };
+}
+
+// ─── SWOT builders ───────────────────────────────────────────────────────────
+
+/**
+ * Build SWOT analysis for voting-based articles (motions, weekly/monthly review).
+ *
+ * @param records - Voting records
+ * @param patterns - Voting patterns
+ * @param anomalies - Detected anomalies
+ * @returns SWOT analysis data
+ */
+export function buildVotingSwot(
+  records: readonly VotingRecord[],
+  patterns: readonly VotingPattern[],
+  anomalies: readonly VotingAnomaly[]
+): SwotAnalysis {
+  const adoptedCount = records.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
+  const highCohesionGroups = patterns.filter((p) => p.cohesion > 0.8);
+  const lowCohesionGroups = patterns.filter((p) => p.cohesion < 0.5);
+
+  return {
+    title: 'Parliamentary Voting — Strategic Assessment',
+    strengths: [
+      ...(highCohesionGroups.length > 0
+        ? [
+            {
+              text: `${highCohesionGroups.length} political groups with cohesion above 80% — disciplined voting blocs`,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(adoptedCount > 0
+        ? [
+            {
+              text: `${adoptedCount} texts adopted — demonstrates legislative productivity`,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+      ...(records.length > 0
+        ? [
+            {
+              text: `${records.length} votes recorded — active plenary engagement`,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    weaknesses: [
+      ...(lowCohesionGroups.length > 0
+        ? [
+            {
+              text: `${lowCohesionGroups.length} groups with cohesion below 50% — internal divisions weaken bargaining power`,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(anomalies.length > 0
+        ? [
+            {
+              text: `${anomalies.length} voting anomalies detected — signals unpredictable coalition behaviour`,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    opportunities: [
+      {
+        text: 'Cross-party alliances on specific legislation can build broader consensus',
+        severity: 'medium' as const,
+      },
+      ...(patterns.length > 0
+        ? [
+            {
+              text: `${patterns.length} active political groups — diverse coalition formation possibilities`,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    threats: [
+      ...(anomalies.filter((a) => a.severity?.toUpperCase() === 'HIGH').length > 0
+        ? [
+            {
+              text: `${anomalies.filter((a) => a.severity?.toUpperCase() === 'HIGH').length} high-severity anomalies — risk of coalition fragmentation`,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      {
+        text: 'Shifting alliances may delay legislative progress on key files',
+        severity: 'medium' as const,
+      },
+    ],
+  };
+}
+
+/**
+ * Build SWOT analysis for week-ahead / month-ahead articles.
+ *
+ * @param weekData - Aggregated week/month data
+ * @param label - "week" or "month"
+ * @returns SWOT analysis data
+ */
+export function buildProspectiveSwot(weekData: WeekAheadData, label: string): SwotAnalysis {
+  const bottleneckCount = weekData.pipeline.filter((p) => p.bottleneck === true).length;
+  return {
+    title: `${label.charAt(0).toUpperCase() + label.slice(1)} Ahead — Strategic Assessment`,
+    strengths: [
+      ...(weekData.events.length > 0
+        ? [
+            {
+              text: `${weekData.events.length} plenary events scheduled — active legislative agenda`,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(weekData.committees.length > 0
+        ? [
+            {
+              text: `${weekData.committees.length} committee meetings — broad policy engagement`,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    weaknesses: [
+      ...(bottleneckCount > 0
+        ? [
+            {
+              text: `${bottleneckCount} legislative procedures facing bottleneck risks`,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(weekData.events.length > 5
+        ? [
+            {
+              text: `High event density (${weekData.events.length}) risks compressed debate time`,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    opportunities: [
+      ...(weekData.documents.length > 0
+        ? [
+            {
+              text: `${weekData.documents.length} documents under consideration — legislative momentum`,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+      ...(weekData.questions.length > 0
+        ? [
+            {
+              text: `${weekData.questions.length} parliamentary questions — MEP engagement with citizen concerns`,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    threats: [
+      ...(bottleneckCount > 0
+        ? [
+            {
+              text: `Bottleneck procedures may force procedural shortcuts or defer key files`,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      {
+        text: 'Scheduling density increases risk of last-minute amendments',
+        severity: 'medium' as const,
+      },
+    ],
+  };
+}
+
+/**
+ * Build SWOT analysis for breaking news articles.
+ *
+ * @param feedData - EP feed data
+ * @param anomalyRaw - Raw anomaly text
+ * @param coalitionRaw - Raw coalition text
+ * @returns SWOT analysis data
+ */
+export function buildBreakingSwot(
+  feedData: BreakingNewsFeedData | undefined,
+  anomalyRaw: string,
+  coalitionRaw: string
+): SwotAnalysis {
+  const adoptedCount = feedData?.adoptedTexts.length ?? 0;
+  const eventCount = feedData?.events.length ?? 0;
+  const procCount = feedData?.procedures.length ?? 0;
+
+  return {
+    title: 'Breaking Developments — Strategic Assessment',
+    strengths: [
+      ...(adoptedCount > 0
+        ? [
+            {
+              text: `${adoptedCount} texts adopted — Parliament demonstrating legislative capacity`,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(eventCount > 0
+        ? [
+            {
+              text: `${eventCount} parliamentary events — active institutional engagement`,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    weaknesses: [
+      ...(anomalyRaw
+        ? [
+            {
+              text: 'Voting anomalies detected — potential coalition instability',
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(procCount === 0
+        ? [
+            {
+              text: 'No new legislative procedures — limited pipeline momentum',
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    opportunities: [
+      ...(procCount > 0
+        ? [
+            {
+              text: `${procCount} procedures advancing — legislative pipeline active`,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+      ...(coalitionRaw
+        ? [
+            {
+              text: 'Coalition dynamics shifting — new alliance opportunities emerging',
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    threats: [
+      ...(anomalyRaw
+        ? [
+            {
+              text: 'Detected anomalies may signal deeper political realignment',
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      {
+        text: 'Rapidly evolving events may outpace legislative response capacity',
+        severity: 'medium' as const,
+      },
+    ],
+  };
+}
+
+/**
+ * Build SWOT analysis for propositions articles.
+ *
+ * @param pipelineData - Pipeline metrics
+ * @returns SWOT analysis data
+ */
+export function buildPropositionsSwot(pipelineData: PipelineData | null): SwotAnalysis {
+  const healthScore = pipelineData?.healthScore ?? 0;
+  const throughput = pipelineData?.throughput ?? 0;
+  const pct = (healthScore * 100).toFixed(0);
+
+  return {
+    title: 'Legislative Pipeline — Strategic Assessment',
+    strengths: [
+      ...(healthScore > 0.7
+        ? [
+            {
+              text: `Pipeline health at ${pct}% — strong legislative management`,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(throughput >= 5
+        ? [
+            {
+              text: `Throughput rate ${throughput} — healthy processing pace`,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    weaknesses: [
+      ...(healthScore < 0.5
+        ? [
+            {
+              text: `Pipeline health at ${pct}% — legislative congestion risk`,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(throughput < 5
+        ? [
+            {
+              text: `Low throughput (${throughput}) — slow processing delays policy implementation`,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    opportunities: [
+      {
+        text: 'Prioritisation of flagship files can improve pipeline efficiency',
+        severity: 'medium' as const,
+      },
+      {
+        text: 'Trilogue acceleration on mature files can boost throughput',
+        severity: 'medium' as const,
+      },
+    ],
+    threats: [
+      ...(healthScore < 0.3
+        ? [
+            {
+              text: 'Critical pipeline congestion may force legislative file abandonment',
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      {
+        text: 'Overlapping implementation timelines strain member state transposition capacity',
+        severity: 'medium' as const,
+      },
+    ],
+  };
+}
+
+/**
+ * Build SWOT analysis for committee reports articles.
+ *
+ * @param committees - Committee data list
+ * @returns SWOT analysis data
+ */
+export function buildCommitteeSwot(committees: readonly CommitteeData[]): SwotAnalysis {
+  const activeCommittees = committees.filter((c) => c.documents.length > 0);
+  const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
+  const inactiveCount = committees.length - activeCommittees.length;
+
+  return {
+    title: 'Committee Activity — Strategic Assessment',
+    strengths: [
+      ...(activeCommittees.length > 0
+        ? [
+            {
+              text: `${activeCommittees.length} of ${committees.length} committees actively producing documents`,
+              severity: activeCommittees.length >= committees.length * 0.7 ? ('high' as const) : ('medium' as const),
+            },
+          ]
+        : []),
+      ...(totalDocs > 0
+        ? [
+            {
+              text: `${totalDocs} documents produced — strong legislative output`,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    weaknesses: [
+      ...(inactiveCount > 0
+        ? [
+            {
+              text: `${inactiveCount} committees with no recent document activity`,
+              severity: inactiveCount > committees.length * 0.3 ? ('high' as const) : ('medium' as const),
+            },
+          ]
+        : []),
+    ],
+    opportunities: [
+      {
+        text: 'Cross-committee collaboration on horizontal policy files can increase impact',
+        severity: 'medium' as const,
+      },
+      ...(committees.length > 0
+        ? [
+            {
+              text: 'Committee hearings provide platform for expert stakeholder engagement',
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    threats: [
+      ...(inactiveCount > committees.length * 0.3
+        ? [
+            {
+              text: 'Low committee activity risks legislative bottlenecks downstream',
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      {
+        text: 'Competing policy priorities may dilute committee focus',
+        severity: 'medium' as const,
+      },
+    ],
+  };
+}
+
+// ─── Dashboard builders ──────────────────────────────────────────────────────
+
+/**
+ * Build dashboard for voting-based articles (motions, weekly/monthly review).
+ *
+ * @param records - Voting records
+ * @param patterns - Voting patterns
+ * @param anomalies - Detected anomalies
+ * @returns Dashboard configuration
+ */
+export function buildVotingDashboard(
+  records: readonly VotingRecord[],
+  patterns: readonly VotingPattern[],
+  anomalies: readonly VotingAnomaly[]
+): DashboardConfig {
+  const adoptedCount = records.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
+  const rejectedCount = records.filter((r) => r.result?.toLowerCase().includes('reject')).length;
+
+  const overviewPanel = {
+    title: 'Voting Overview',
+    metrics: [
+      { label: 'Total Votes', value: String(records.length), trend: 'stable' as const },
+      {
+        label: 'Adopted',
+        value: String(adoptedCount),
+        trend: adoptedCount > 0 ? ('up' as const) : ('stable' as const),
+      },
+      { label: 'Rejected', value: String(rejectedCount) },
+      { label: 'Anomalies', value: String(anomalies.length) },
+    ],
+  };
+
+  const cohesionPanel =
+    patterns.length > 0
+      ? {
+          title: 'Political Group Cohesion',
+          metrics: patterns.slice(0, 4).map((p) => ({
+            label: p.group,
+            value: `${(p.cohesion * 100).toFixed(0)}%`,
+            trend: (p.cohesion > 0.8 ? 'up' : p.cohesion < 0.5 ? 'down' : 'stable') as
+              | 'up'
+              | 'down'
+              | 'stable',
+          })),
+          chart: {
+            type: 'bar' as const,
+            title: 'Group Cohesion Rates',
+            data: {
+              labels: patterns.slice(0, 6).map((p) => p.group),
+              datasets: [
+                {
+                  label: 'Cohesion %',
+                  data: patterns.slice(0, 6).map((p) => Math.round(p.cohesion * 100)),
+                },
+              ],
+            },
+          },
+        }
+      : null;
+
+  const panels = cohesionPanel ? [overviewPanel, cohesionPanel] : [overviewPanel];
+
+  return { title: 'Voting Activity Dashboard', panels };
+}
+
+/**
+ * Build dashboard for week-ahead / month-ahead articles.
+ *
+ * @param weekData - Aggregated week/month data
+ * @param label - "week" or "month"
+ * @returns Dashboard configuration
+ */
+export function buildProspectiveDashboard(weekData: WeekAheadData, label: string): DashboardConfig {
+  const bottleneckCount = weekData.pipeline.filter((p) => p.bottleneck === true).length;
+
+  return {
+    title: `${label.charAt(0).toUpperCase() + label.slice(1)} Ahead — Activity Dashboard`,
+    panels: [
+      {
+        title: 'Scheduled Activity',
+        metrics: [
+          { label: 'Plenary Events', value: String(weekData.events.length) },
+          { label: 'Committee Meetings', value: String(weekData.committees.length) },
+          { label: 'Documents', value: String(weekData.documents.length) },
+          {
+            label: 'Pipeline Procedures',
+            value: String(weekData.pipeline.length),
+            trend: bottleneckCount > 0 ? ('down' as const) : ('stable' as const),
+          },
+        ],
+      },
+      {
+        title: 'Parliamentary Questions',
+        metrics: [
+          { label: 'Questions Filed', value: String(weekData.questions.length) },
+          {
+            label: 'Bottleneck Procedures',
+            value: String(bottleneckCount),
+            trend: bottleneckCount > 0 ? ('down' as const) : ('up' as const),
+          },
+        ],
+      },
+    ],
+  };
+}
+
+/**
+ * Build dashboard for breaking news articles.
+ *
+ * @param feedData - EP feed data
+ * @returns Dashboard configuration
+ */
+export function buildBreakingDashboard(feedData: BreakingNewsFeedData | undefined): DashboardConfig {
+  const adoptedCount = feedData?.adoptedTexts.length ?? 0;
+  const eventCount = feedData?.events.length ?? 0;
+  const procCount = feedData?.procedures.length ?? 0;
+  const mepCount = feedData?.mepUpdates.length ?? 0;
+  const totalItems = adoptedCount + eventCount + procCount + mepCount;
+
+  return {
+    title: 'Breaking News Dashboard',
+    panels: [
+      {
+        title: 'Feed Activity',
+        metrics: [
+          {
+            label: 'Adopted Texts',
+            value: String(adoptedCount),
+            trend: adoptedCount > 0 ? ('up' as const) : ('stable' as const),
+          },
+          { label: 'Events', value: String(eventCount) },
+          { label: 'Procedures', value: String(procCount) },
+          { label: 'MEP Updates', value: String(mepCount) },
+        ],
+      },
+      {
+        title: 'Activity Summary',
+        metrics: [{ label: 'Total Items', value: String(totalItems) }],
+        ...(adoptedCount > 0 || eventCount > 0 || procCount > 0
+          ? {
+              chart: {
+                type: 'doughnut' as const,
+                title: 'Feed Breakdown',
+                data: {
+                  labels: ['Adopted Texts', 'Events', 'Procedures', 'MEP Updates'],
+                  datasets: [
+                    {
+                      label: 'Items',
+                      data: [adoptedCount, eventCount, procCount, mepCount],
+                    },
+                  ],
+                },
+              },
+            }
+          : {}),
+      },
+    ],
+  };
+}
+
+/**
+ * Build dashboard for propositions articles.
+ *
+ * @param pipelineData - Pipeline metrics
+ * @returns Dashboard configuration
+ */
+export function buildPropositionsDashboard(pipelineData: PipelineData | null): DashboardConfig {
+  const healthScore = pipelineData?.healthScore ?? 0;
+  const throughput = pipelineData?.throughput ?? 0;
+  const pct = (healthScore * 100).toFixed(0);
+
+  return {
+    title: 'Legislative Pipeline Dashboard',
+    panels: [
+      {
+        title: 'Pipeline Health',
+        metrics: [
+          {
+            label: 'Health Score',
+            value: `${pct}%`,
+            trend: (healthScore > 0.7 ? 'up' : healthScore < 0.5 ? 'down' : 'stable') as
+              | 'up'
+              | 'down'
+              | 'stable',
+          },
+          {
+            label: 'Throughput',
+            value: String(throughput),
+            trend: throughput >= 5 ? ('up' as const) : ('down' as const),
+          },
+          {
+            label: 'Status',
+            value: pipelineHealthLabel(healthScore),
+          },
+        ],
+      },
+    ],
+  };
+}
+
+/**
+ * Build dashboard for committee reports articles.
+ *
+ * @param committees - Committee data list
+ * @returns Dashboard configuration
+ */
+export function buildCommitteeDashboard(committees: readonly CommitteeData[]): DashboardConfig {
+  const activeCommittees = committees.filter((c) => c.documents.length > 0);
+  const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
+  const activePct =
+    committees.length > 0
+      ? ((activeCommittees.length / committees.length) * 100).toFixed(0)
+      : '0';
+
+  const overviewPanel = {
+    title: 'Committee Overview',
+    metrics: [
+      { label: 'Total Committees', value: String(committees.length) },
+      {
+        label: 'Active Committees',
+        value: String(activeCommittees.length),
+        trend:
+          activeCommittees.length >= committees.length * 0.7
+            ? ('up' as const)
+            : ('down' as const),
+      },
+      { label: 'Activity Rate', value: `${activePct}%` },
+      { label: 'Documents Produced', value: String(totalDocs) },
+    ],
+  };
+
+  const chartPanel =
+    committees.length > 0
+      ? (() => {
+          const topCommittees = [...committees]
+            .sort((a, b) => b.documents.length - a.documents.length)
+            .slice(0, 6);
+          return {
+            title: 'Document Output by Committee',
+            chart: {
+              type: 'bar' as const,
+              title: 'Documents per Committee',
+              data: {
+                labels: topCommittees.map((c) => c.abbreviation),
+                datasets: [
+                  {
+                    label: 'Documents',
+                    data: topCommittees.map((c) => c.documents.length),
+                  },
+                ],
+              },
+            },
+          };
+        })()
+      : null;
+
+  const panels = chartPanel ? [overviewPanel, chartPanel] : [overviewPanel];
+
+  return { title: 'Committee Activity Dashboard', panels };
 }

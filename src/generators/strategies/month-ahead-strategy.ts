@@ -16,7 +16,9 @@ import { MONTH_AHEAD_TITLES, getLocalizedString } from '../../constants/language
 import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { buildWeekAheadContent, buildKeywords } from '../week-ahead-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildProspectiveAnalysis } from '../analysis-builders.js';
+import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard } from '../analysis-builders.js';
+import { buildSwotSection } from '../swot-content.js';
+import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -141,7 +143,11 @@ export class MonthAheadStrategy implements ArticleStrategy<MonthAheadArticleData
     const base = buildWeekAheadContent(data.monthData, data.dateRange, lang);
     const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month');
     const analysisSection = buildDeepAnalysisSection(analysis, lang);
-    return base.replace('<!-- /article-content -->', analysisSection);
+    const swotData = buildProspectiveSwot(data.monthData, 'month');
+    const swotSection = buildSwotSection(swotData, lang);
+    const dashboardData = buildProspectiveDashboard(data.monthData, 'month');
+    const dashboardSection = buildDashboardSection(dashboardData, lang);
+    return base.replace('<!-- /article-content -->', analysisSection + swotSection + dashboardSection);
   }
 
   /**
