@@ -461,13 +461,23 @@ describe('generate-news-indexes', () => {
       }
     });
 
-    it('should include a compact split hero layout', () => {
+    it('should include a stacked homepage header and full-width hero banner layout', () => {
       const html = generateIndexHTML('en', []);
       const document = createDocument(html);
+      const headerInner = document.querySelector('.site-header__inner');
+      const headerLogo = document.querySelector('.site-header__logo');
       const heroInner = document.querySelector('.hero__inner');
       const heroContent = document.querySelector('.hero__content');
       const heroBanner = document.querySelector('.hero__banner');
 
+      expect(html).toContain('site-header__inner--stacked');
+      expect(html).toContain('images/header-logo.webp');
+      expect(html).toContain('images/header-logo.png');
+      expect(html).not.toContain('images/favicon-96x96.png');
+      expect(headerInner).not.toBeNull();
+      expect(headerInner.classList.contains('site-header__inner--stacked')).toBe(true);
+      expect(headerLogo).not.toBeNull();
+      expect(headerLogo.getAttribute('src')).toBe('images/header-logo.png');
       expect(html).toContain('class="hero__inner"');
       expect(html).toContain('class="hero__content"');
       expect(html).toContain('class="hero__kicker"');

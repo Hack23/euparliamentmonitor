@@ -24,7 +24,7 @@ const VIEWPORTS = [
 const HERO_LAYOUT_VIEWPORTS = [VIEWPORTS[0], VIEWPORTS[4]];
 
 test.describe('Responsive Design', () => {
-  test('should keep hero text outside the hero image across viewports', async ({ page }) => {
+  test('should keep hero text above a full-width banner across viewports', async ({ page }) => {
     for (const viewport of HERO_LAYOUT_VIEWPORTS) {
       await page.setViewportSize(viewport);
       await page.goto('/');
@@ -42,13 +42,9 @@ test.describe('Responsive Design', () => {
       expect(bannerBox).toBeTruthy();
 
       if (contentBox && bannerBox) {
-        const noOverlap =
-          contentBox.x + contentBox.width <= bannerBox.x ||
-          bannerBox.x + bannerBox.width <= contentBox.x ||
-          contentBox.y + contentBox.height <= bannerBox.y ||
-          bannerBox.y + bannerBox.height <= contentBox.y;
-
-        expect(noOverlap).toBe(true);
+        expect(contentBox.y + contentBox.height).toBeLessThanOrEqual(bannerBox.y + 2);
+        expect(bannerBox.x).toBeLessThanOrEqual(16);
+        expect(bannerBox.x + bannerBox.width).toBeGreaterThanOrEqual(viewport.width - 16);
       }
     }
   });
