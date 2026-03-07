@@ -291,6 +291,24 @@ const ADOPTED_TEXTS_HEADINGS: Record<string, string> = {
   zh: '最近通过的文本',
 };
 
+/** Localized fallback label for items with no adoption date */
+const ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS: Record<string, string> = {
+  en: 'Unknown',
+  sv: 'Okänt',
+  da: 'Ukendt',
+  no: 'Ukjent',
+  fi: 'Tuntematon',
+  de: 'Unbekannt',
+  fr: 'Inconnu',
+  es: 'Desconocido',
+  nl: 'Onbekend',
+  ar: 'غير معروف',
+  he: 'לא ידוע',
+  ja: '不明',
+  ko: '알 수 없음',
+  zh: '未知',
+};
+
 /** Localized count descriptions for the adopted texts feed section */
 const ADOPTED_TEXTS_COUNT_STRINGS: Record<string, (n: number) => string> = {
   en: (n) => `${n} texts adopted in recent plenary sessions:`,
@@ -327,11 +345,13 @@ export function buildAdoptedTextsSection(
     ADOPTED_TEXTS_HEADINGS[language] ?? ADOPTED_TEXTS_HEADINGS['en'] ?? 'Recently Adopted Texts';
   const countFn = ADOPTED_TEXTS_COUNT_STRINGS[language] ?? ADOPTED_TEXTS_COUNT_STRINGS['en']!;
   const countText = countFn(adoptedTexts.length);
+  const unknownDate =
+    ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS[language] ?? ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS['en']!;
 
   // Group by date, sort most recent first
   const byDate = new Map<string, AdoptedTextFeedItem[]>();
   for (const item of adoptedTexts) {
-    const date = item.date || 'Unknown';
+    const date = item.date || unknownDate;
     const group = byDate.get(date) ?? [];
     group.push(item);
     byDate.set(date, group);
