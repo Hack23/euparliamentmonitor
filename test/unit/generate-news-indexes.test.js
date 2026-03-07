@@ -11,6 +11,7 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'fs';
 import path from 'path';
+import { Window } from 'happy-dom';
 import { createTempDir, cleanupTempDir, validateHTML } from '../helpers/test-utils.js';
 import { generateIndexHTML } from '../../scripts/generators/news-indexes.js';
 
@@ -413,21 +414,25 @@ describe('generate-news-indexes', () => {
 
     it('should render the news feed before the AI section', () => {
       const html = generateIndexHTML('en', []);
-      const mainIndex = html.indexOf('<main id="main"');
-      const aiIndex = html.indexOf('<section class="ai-intelligence"');
+      const document = createDocument(html);
+      const newsFeed = document.querySelector('main#main');
+      const aiSection = document.querySelector('.ai-intelligence');
+      const { Node } = document.defaultView;
 
-      expect(mainIndex).toBeGreaterThan(-1);
-      expect(aiIndex).toBeGreaterThan(-1);
-      expect(mainIndex).toBeLessThan(aiIndex);
+      expect(newsFeed).not.toBeNull();
+      expect(aiSection).not.toBeNull();
+      expect(newsFeed.compareDocumentPosition(aiSection)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
     });
 
     it('should mark the active language link with aria-current and lang attributes', () => {
-      const html = generateIndexHTML('de', []);
+      const document = createDocument(generateIndexHTML('de', []));
+      const activeGermanLink = document.querySelector('a.lang-link.active[href="index-de.html"]');
 
-      expect(html).toContain('class="lang-link active"');
-      expect(html).toContain('hreflang="de" lang="de"');
-      expect(html).toContain('aria-current="page"');
-      expect(html).toContain('aria-label="Deutsch"');
+      expect(activeGermanLink).not.toBeNull();
+      expect(activeGermanLink.getAttribute('hreflang')).toBe('de');
+      expect(activeGermanLink.getAttribute('lang')).toBe('de');
+      expect(activeGermanLink.getAttribute('aria-label')).toBe('Deutsch');
+      expect(activeGermanLink.getAttribute('aria-current')).toBe('page');
     });
 
     it('should include a compact split hero layout', () => {
@@ -435,7 +440,7 @@ describe('generate-news-indexes', () => {
 
       expect(html).toContain('class="hero__inner"');
       expect(html).toContain('class="hero__content"');
-      expect(html).toContain('class="hero__eyebrow"');
+      expect(html).toContain('class="hero__kicker"');
     });
 
     it('should contain German localized AI heading on German page', () => {
@@ -632,6 +637,12 @@ function generateMockIndexHTML(lang, articles) {
   </footer>
 </body>
 </html>`;
+}
+
+function createDocument(html) {
+  const window = new Window();
+  window.document.write(html);
+  return window.document;
 }
 
 function formatSlug(slug) {

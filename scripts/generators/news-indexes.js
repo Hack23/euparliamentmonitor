@@ -259,7 +259,6 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
         </picture>
         <span>
           <span class="site-header__title">${heroTitle}</span>
-          <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
@@ -271,7 +270,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
   <section class="hero">
     <div class="hero__inner">
       <div class="hero__content">
-        <p class="hero__eyebrow">${headerSubtitle}</p>
+        <p class="hero__kicker">${headerSubtitle}</p>
         <h1 class="hero__title">${heroTitle}</h1>
         <p class="hero__description">${description}</p>
       </div>
