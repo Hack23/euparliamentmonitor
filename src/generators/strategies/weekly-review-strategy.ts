@@ -27,7 +27,7 @@ import {
   fetchParliamentaryQuestionsForMotions,
   fetchEPFeedData,
 } from '../pipeline/fetch-stage.js';
-import { generateMotionsContent } from '../motions-content.js';
+import { generateMotionsContent, buildAdoptedTextsSection } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import {
   buildVotingAnalysis,
@@ -173,6 +173,13 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
       data.questions
     );
     const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+
+    // Enrich with adopted texts from feed data when available
+    const adoptedTextsHtml =
+      data.feedData && data.feedData.adoptedTexts.length > 0
+        ? buildAdoptedTextsSection(data.feedData.adoptedTexts, lang)
+        : '';
+
     const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildVotingDashboard(
@@ -182,7 +189,10 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
       lang
     );
     const dashboardSection = buildDashboardSection(dashboardData, lang);
-    return base.replace('<!-- /article-content -->', deepSection + swotSection + dashboardSection);
+    return base.replace(
+      '<!-- /article-content -->',
+      adoptedTextsHtml + deepSection + swotSection + dashboardSection
+    );
   }
 
   /**

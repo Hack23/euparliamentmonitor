@@ -919,6 +919,25 @@ describe('WeeklyReviewStrategy', () => {
     expect(content.length).toBeGreaterThan(0);
   });
 
+  it('buildContent injects adopted texts section when feedData is provided', () => {
+    const content = strategy.buildContent(weeklyReviewData, 'en');
+    expect(content).toContain('class="adopted-texts-feed"');
+    expect(content).toContain('Resolution on climate action');
+  });
+
+  it('buildContent adopted texts count is localized per language', () => {
+    const en = strategy.buildContent(weeklyReviewData, 'en');
+    const zh = strategy.buildContent(weeklyReviewData, 'zh');
+    expect(en).toContain('1 texts adopted in recent plenary sessions:');
+    expect(zh).toContain('最近全体会议共通过了 1 份文本：');
+  });
+
+  it('buildContent omits adopted texts section when feedData is absent', () => {
+    const dataWithoutFeed = { ...weeklyReviewData, feedData: undefined };
+    const content = strategy.buildContent(dataWithoutFeed, 'en');
+    expect(content).not.toContain('class="adopted-texts-feed"');
+  });
+
   it('buildContent returns non-empty content for multiple languages', () => {
     const en = strategy.buildContent(weeklyReviewData, 'en');
     const es = strategy.buildContent(weeklyReviewData, 'es');

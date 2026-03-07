@@ -291,6 +291,24 @@ const ADOPTED_TEXTS_HEADINGS: Record<string, string> = {
   zh: '最近通过的文本',
 };
 
+/** Localized count descriptions for the adopted texts feed section */
+const ADOPTED_TEXTS_COUNT_STRINGS: Record<string, (n: number) => string> = {
+  en: (n) => `${n} texts adopted in recent plenary sessions:`,
+  sv: (n) => `${n} texter antagna i nyliga plenarsammanträden:`,
+  da: (n) => `${n} tekster vedtaget i seneste plenarmøder:`,
+  no: (n) => `${n} tekster vedtatt i nylige plenumsmøter:`,
+  fi: (n) => `${n} tekstiä hyväksytty viimeisimmissä täysistunnoissa:`,
+  de: (n) => `${n} Texte in jüngsten Plenarsitzungen angenommen:`,
+  fr: (n) => `${n}\u00a0textes adoptés lors des récentes sessions plénières\u00a0:`,
+  es: (n) => `${n} textos adoptados en recientes sesiones plenarias:`,
+  nl: (n) => `${n} teksten aangenomen in recente plenaire vergaderingen:`,
+  ar: (n) => `تم اعتماد ${n} نصاً في جلسات البرلمان الأخيرة:`,
+  he: (n) => `${n} טקסטים אומצו בישיבות המליאה האחרונות:`,
+  ja: (n) => `最近の本会議セッションで ${n} 件のテキストが採択されました：`,
+  ko: (n) => `최근 전체 회의에서 ${n}개의 텍스트가 채택되었습니다:`,
+  zh: (n) => `最近全体会议共通过了 ${n} 份文本：`,
+};
+
 /**
  * Build an HTML section listing recently adopted texts from EP feed data.
  * Groups texts by adoption date and renders them as a structured list.
@@ -307,6 +325,8 @@ export function buildAdoptedTextsSection(
 
   const heading =
     ADOPTED_TEXTS_HEADINGS[language] ?? ADOPTED_TEXTS_HEADINGS['en'] ?? 'Recently Adopted Texts';
+  const countFn = ADOPTED_TEXTS_COUNT_STRINGS[language] ?? ADOPTED_TEXTS_COUNT_STRINGS['en']!;
+  const countText = countFn(adoptedTexts.length);
 
   // Group by date, sort most recent first
   const byDate = new Map<string, AdoptedTextFeedItem[]>();
@@ -336,7 +356,7 @@ export function buildAdoptedTextsSection(
   return `
         <section class="adopted-texts-feed" lang="${escapeHTML(language)}">
           <h2>${escapeHTML(heading)}</h2>
-          <p>${adoptedTexts.length} texts adopted in recent plenary sessions:</p>
+          <p>${escapeHTML(countText)}</p>
           <ul class="adopted-texts-list">
             ${itemsHtml}
           </ul>
