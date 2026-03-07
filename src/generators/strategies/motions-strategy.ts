@@ -100,9 +100,10 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
     const dateFromStr = dateFromParts[0];
 
     // Fetch voting data and EP feed data in parallel
+    const feedDateRange = { start: dateFromStr, end: date };
     const [motionsDataResult, feedData] = await Promise.all([
       fetchMotionsData(client, dateFromStr, date),
-      fetchEPFeedData(client, 'one-month'),
+      fetchEPFeedData(client, 'one-month', feedDateRange),
     ]);
 
     const { votingRecords, votingPatterns, anomalies, questions } = motionsDataResult;

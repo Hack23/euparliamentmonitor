@@ -142,7 +142,7 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
       fetchVotingPatterns(client, dateRange.start, dateRange.end),
       fetchMotionsAnomalies(client, dateRange.start, dateRange.end),
       fetchParliamentaryQuestionsForMotions(client, dateRange.start, dateRange.end),
-      fetchEPFeedData(client, 'one-month'),
+      fetchEPFeedData(client, 'one-month', dateRange),
     ]);
 
     const monthLabel = formatMonthLabel(dateRange.start);

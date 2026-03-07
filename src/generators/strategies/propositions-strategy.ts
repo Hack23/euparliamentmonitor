@@ -18,6 +18,7 @@ import {
   getLocalizedString,
 } from '../../constants/languages.js';
 import {
+  computeRollingDateRange,
   fetchProposalsFromMCP,
   fetchPipelineFromMCP,
   fetchProcedureStatusFromMCP,
@@ -119,6 +120,8 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
     client: EuropeanParliamentMCPClient | null,
     date: string
   ): Promise<PropositionsArticleData> {
+    const feedDateRange = computeRollingDateRange(date, 7, 'propositions feed window');
+
     if (client) {
       console.log('  📡 Fetching legislative data from MCP server...');
     }
@@ -127,7 +130,7 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
     const [proposalsResult, pipelineResult, feedData] = await Promise.allSettled([
       fetchProposalsFromMCP(client),
       fetchPipelineFromMCP(client),
-      fetchEPFeedData(client, 'one-month'),
+      fetchEPFeedData(client, 'one-week', feedDateRange),
     ]);
 
     const { html: proposalsHtml, firstProcedureId } =

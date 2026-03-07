@@ -110,6 +110,8 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 > **Content quality gate**: If the article body mostly discusses historical aggregates rather than **specific upcoming plenary sessions, committee meetings, events, or legislative procedures with concrete titles, dates, and IDs from feed data**, the article FAILS quality validation.
 >
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data**. Historical stats may appear in later sections ONLY as brief background.
+>
+> **Window rule**: Only items whose scheduled/action date falls within the coming parliamentary week qualify for week-ahead coverage. Fresh feed recency alone is not enough if the event itself sits outside the next-week window.
 
 ## ⏱️ Time Budget (60 minutes)
 
@@ -473,7 +475,8 @@ fi
 # Set USE_EP_MCP=true to enable the script's built-in MCP client
 export USE_EP_MCP=true
 
-# If feed data was saved to /tmp/ep-feed-data.json (from MCP tool calls), pass it
+# Pass prefetched feed data only when this run created /tmp/ep-feed-data.json for
+# the exact week-ahead UTC window; otherwise let the generator fetch live MCP data.
 FEED_DATA_FLAG=""
 if [ -f "/tmp/ep-feed-data.json" ]; then
   FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"

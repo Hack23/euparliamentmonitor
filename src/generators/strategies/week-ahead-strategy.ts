@@ -106,7 +106,7 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     // Fetch traditional MCP data and EP feeds in parallel
     const [weekData, feedData] = await Promise.all([
       fetchWeekAheadData(client, dateRange),
-      fetchEPFeedData(client, 'one-week'),
+      fetchEPFeedData(client, 'one-week', dateRange),
     ]);
     const keywords = buildKeywords(weekData);
 

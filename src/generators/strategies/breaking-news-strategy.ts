@@ -91,7 +91,7 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
     const feedDataFile = process.env['EP_FEED_DATA_FILE'];
     if (feedDataFile) {
       console.log(`  📂 Loading pre-fetched feed data from: ${feedDataFile}`);
-      const fileFeedData = loadFeedDataFromFile(feedDataFile);
+      const fileFeedData = loadFeedDataFromFile(feedDataFile, { start: date, end: date });
       if (fileFeedData) {
         const totalItems =
           fileFeedData.adoptedTexts.length +

@@ -563,6 +563,29 @@ describe('BreakingNewsStrategy.fetchData with pre-fetched feed data file', () =>
     expect(data.coalitionRaw).toBe('');
   });
 
+  it('filters prefetched breaking feed data to the publication date', async () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'feed-date-window-'));
+    const feedData = {
+      adoptedTexts: [
+        { id: 'TA-10-2026-0042', title: 'Today item', date: '2026-03-04' },
+        { id: 'TA-10-2026-0001', title: 'Old item', date: '2026-02-24' },
+      ],
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+    };
+    const filePath = path.join(tmpDir, 'feed-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+    process.env['EP_FEED_DATA_FILE'] = filePath;
+
+    const strategy = new BreakingNewsStrategy();
+    const data = await strategy.fetchData(null, '2026-03-04');
+
+    expect(data.feedData).toBeDefined();
+    expect(data.feedData.adoptedTexts).toHaveLength(1);
+    expect(data.feedData.adoptedTexts[0].title).toBe('Today item');
+  });
+
   it('falls through to MCP fetch when feed data file does not exist', async () => {
     process.env['EP_FEED_DATA_FILE'] = '/tmp/nonexistent-feed-data.json';
 
@@ -729,6 +752,40 @@ describe('PropositionsStrategy feed fallback', () => {
     expect(data.proposalsHtml).not.toContain('proposal-status');
     expect(data.proposalsHtml).not.toContain('>Work<');
   });
+
+  it('filters stale prefetched feed procedures outside the recent article window', async () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'props-feed-window-'));
+    const feedData = {
+      procedures: [
+        {
+          id: 'proc-fresh',
+          identifier: '2026/0005(COD)',
+          title: 'Fresh Procedure',
+          date: '2026-03-04',
+          stage: 'First reading',
+        },
+        {
+          id: 'proc-old',
+          identifier: '2026/0006(COD)',
+          title: 'Old Procedure',
+          date: '2026-02-20',
+          stage: 'First reading',
+        },
+      ],
+      adoptedTexts: [],
+      events: [],
+      mepUpdates: [],
+    };
+    const filePath = path.join(tmpDir, 'feed-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+    process.env['EP_FEED_DATA_FILE'] = filePath;
+
+    const strategy = new PropositionsStrategy();
+    const data = await strategy.fetchData(null, '2026-03-06');
+
+    expect(data.proposalsHtml).toContain('Fresh Procedure');
+    expect(data.proposalsHtml).not.toContain('Old Procedure');
+  });
 });
 
 describe('WeekAheadStrategy — error branch', () => {
@@ -891,6 +948,49 @@ describe('WeeklyReviewStrategy', () => {
     expect(data.votingPatterns).toEqual([]);
     expect(data.anomalies).toEqual([]);
     expect(data.questions).toEqual([]);
+  });
+
+  it('filters prefetched review feed data to the weekly review window', async () => {
+    const originalEnv = process.env['EP_FEED_DATA_FILE'];
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'weekly-review-feed-'));
+    const feedData = {
+      adoptedTexts: [
+        { id: 'TA-001', title: 'In range', date: '2026-03-04' },
+        { id: 'TA-002', title: 'From February', date: '2026-02-24' },
+      ],
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+      documents: [],
+      plenaryDocuments: [{ id: 'PDOC-001', title: 'Recent plenary doc', date: '2026-03-06' }],
+      committeeDocuments: [{ id: 'CDOC-001', title: 'Old committee doc', date: '2026-02-18' }],
+      plenarySessionDocuments: [],
+      externalDocuments: [],
+      questions: [],
+      declarations: [],
+      corporateBodies: [],
+    };
+
+    try {
+      const filePath = path.join(tmpDir, 'ep-feed-data.json');
+      fs.writeFileSync(filePath, JSON.stringify(feedData));
+      process.env['EP_FEED_DATA_FILE'] = filePath;
+
+      const data = await strategy.fetchData(null, '2026-03-07');
+
+      expect(data.feedData).toBeDefined();
+      expect(data.feedData.adoptedTexts).toHaveLength(1);
+      expect(data.feedData.adoptedTexts[0].title).toBe('In range');
+      expect(data.feedData.plenaryDocuments).toHaveLength(1);
+      expect(data.feedData.committeeDocuments).toHaveLength(0);
+    } finally {
+      if (originalEnv === undefined) {
+        delete process.env['EP_FEED_DATA_FILE'];
+      } else {
+        process.env['EP_FEED_DATA_FILE'] = originalEnv;
+      }
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
   });
 });
 
