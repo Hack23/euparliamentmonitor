@@ -26,7 +26,13 @@ import {
   buildAdoptedTextsSection,
 } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildVotingAnalysis } from '../analysis-builders.js';
+import {
+  buildVotingAnalysis,
+  buildVotingSwot,
+  buildVotingDashboard,
+} from '../analysis-builders.js';
+import { buildSwotSection } from '../swot-content.js';
+import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 /** Keywords shared by all Motions articles */
@@ -146,12 +152,22 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
       data.anomalies,
       data.questions
     );
-    const deepSection = buildDeepAnalysisSection(analysis, lang);
+    const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+    const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);
+    const swotSection = buildSwotSection(swotData, lang);
+    const dashboardData = buildVotingDashboard(
+      data.votingRecords,
+      data.votingPatterns,
+      data.anomalies,
+      lang
+    );
+    const dashboardSection = buildDashboardSection(dashboardData, lang);
     // Inject at the explicit <!-- /article-content --> marker so the section
     // stays inside the .article-content styling scope. The marker is always
     // emitted by generateMotionsContent as the last child of that wrapper and
     // is removed from the final HTML during this replacement.
-    const injection = adoptedTextsSection + (alignmentSection || '') + deepSection;
+    const injection =
+      adoptedTextsSection + (alignmentSection || '') + deepSection + swotSection + dashboardSection;
     if (injection) {
       return base.replace('<!-- /article-content -->', `${injection}\n`);
     }

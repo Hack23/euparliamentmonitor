@@ -25,12 +25,18 @@ import type {
   CommitteeData,
   LanguageCode,
   BreakingNewsFeedData,
+  SwotAnalysis,
+  DashboardConfig,
+  SwotBuilderStrings,
+  DashboardBuilderStrings,
 } from '../types/index.js';
 import type { PipelineData } from './propositions-content.js';
 import {
   getLocalizedString,
   COMMITTEE_ANALYSIS_CONTENT_STRINGS,
   BREAKING_STRINGS,
+  SWOT_BUILDER_STRINGS,
+  DASHBOARD_BUILDER_STRINGS,
 } from '../constants/languages.js';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -609,4 +615,726 @@ export function buildCommitteeAnalysis(
             .replace('{total}', String(committees.length))
         : s.outlookConcern,
   };
+}
+
+// ─── SWOT builders ───────────────────────────────────────────────────────────
+
+/**
+ * Build SWOT analysis for voting-based articles (motions, weekly/monthly review).
+ *
+ * @param records - Voting records
+ * @param patterns - Voting patterns
+ * @param anomalies - Detected anomalies
+ * @param lang - Target language code
+ * @returns SWOT analysis data
+ */
+export function buildVotingSwot(
+  records: readonly VotingRecord[],
+  patterns: readonly VotingPattern[],
+  anomalies: readonly VotingAnomaly[],
+  lang: LanguageCode = 'en'
+): SwotAnalysis {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
+  const adoptedCount = records.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
+  const highCohesionGroups = patterns.filter((p) => p.cohesion > 0.8);
+  const lowCohesionGroups = patterns.filter((p) => p.cohesion < 0.5);
+
+  const highSeverityAnomalies = anomalies.filter((a) => a.severity?.toUpperCase() === 'HIGH');
+
+  return {
+    strengths: [
+      ...(highCohesionGroups.length > 0
+        ? [
+            {
+              text: s.votingHighCohesion(highCohesionGroups.length),
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(adoptedCount > 0
+        ? [
+            {
+              text: s.votingAdopted(adoptedCount),
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+      ...(records.length > 0
+        ? [
+            {
+              text: s.votingActiveVotes(records.length),
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    weaknesses: [
+      ...(lowCohesionGroups.length > 0
+        ? [
+            {
+              text: s.votingLowCohesion(lowCohesionGroups.length),
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(anomalies.length > 0
+        ? [
+            {
+              text: s.votingAnomalies(anomalies.length),
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    opportunities: [
+      {
+        text: s.votingCrossParty,
+        severity: 'medium' as const,
+      },
+      ...(patterns.length > 0
+        ? [
+            {
+              text: s.votingDiverseGroups(patterns.length),
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    threats: [
+      ...(highSeverityAnomalies.length > 0
+        ? [
+            {
+              text: s.votingHighSeverity(highSeverityAnomalies.length),
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      {
+        text: s.votingShiftingAlliances,
+        severity: 'medium' as const,
+      },
+    ],
+  };
+}
+
+/**
+ * Build SWOT analysis for week-ahead / month-ahead articles.
+ *
+ * @param weekData - Aggregated week/month data
+ * @param _label - "week" or "month" (reserved for future localisation)
+ * @param lang - Target language code
+ * @returns SWOT analysis data
+ */
+export function buildProspectiveSwot(
+  weekData: WeekAheadData,
+  _label: string,
+  lang: LanguageCode = 'en'
+): SwotAnalysis {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
+  const bottleneckCount = weekData.pipeline.filter((p) => p.bottleneck === true).length;
+  return {
+    strengths: [
+      ...(weekData.events.length > 0
+        ? [
+            {
+              text: s.prospectiveEvents(weekData.events.length),
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(weekData.committees.length > 0
+        ? [
+            {
+              text: s.prospectiveCommittees(weekData.committees.length),
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    weaknesses: [
+      ...(bottleneckCount > 0
+        ? [
+            {
+              text: s.prospectiveBottlenecks(bottleneckCount),
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(weekData.events.length > 5
+        ? [
+            {
+              text: s.prospectiveHighDensity(weekData.events.length),
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    opportunities: [
+      ...(weekData.documents.length > 0
+        ? [
+            {
+              text: s.prospectiveDocuments(weekData.documents.length),
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+      ...(weekData.questions.length > 0
+        ? [
+            {
+              text: s.prospectiveQuestions(weekData.questions.length),
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    threats: [
+      ...(bottleneckCount > 0
+        ? [
+            {
+              text: s.prospectiveBottleneckRisk,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      {
+        text: s.prospectiveSchedulingRisk,
+        severity: 'medium' as const,
+      },
+    ],
+  };
+}
+
+/**
+ * Build SWOT analysis for breaking news articles.
+ *
+ * @param feedData - EP feed data
+ * @param anomalyRaw - Raw anomaly text
+ * @param coalitionRaw - Raw coalition text
+ * @param lang - Target language code
+ * @returns SWOT analysis data
+ */
+export function buildBreakingSwot(
+  feedData: BreakingNewsFeedData | undefined,
+  anomalyRaw: string,
+  coalitionRaw: string,
+  lang: LanguageCode = 'en'
+): SwotAnalysis {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
+  const adoptedCount = feedData?.adoptedTexts.length ?? 0;
+  const eventCount = feedData?.events.length ?? 0;
+  const procCount = feedData?.procedures.length ?? 0;
+
+  return {
+    strengths: [
+      ...(adoptedCount > 0
+        ? [
+            {
+              text: s.breakingAdopted(adoptedCount),
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(eventCount > 0
+        ? [
+            {
+              text: s.breakingEvents(eventCount),
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    weaknesses: [
+      ...(anomalyRaw
+        ? [
+            {
+              text: s.breakingAnomalyWeakness,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(procCount === 0
+        ? [
+            {
+              text: s.breakingNoProcedures,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    opportunities: [
+      ...(procCount > 0
+        ? [
+            {
+              text: s.breakingProceduresActive(procCount),
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+      ...(coalitionRaw
+        ? [
+            {
+              text: s.breakingCoalitionOpportunity,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    threats: [
+      ...(anomalyRaw
+        ? [
+            {
+              text: s.breakingAnomalyThreat,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      {
+        text: s.breakingRapidEvents,
+        severity: 'medium' as const,
+      },
+    ],
+  };
+}
+
+/**
+ * Build SWOT analysis for propositions articles.
+ *
+ * @param pipelineData - Pipeline metrics
+ * @param lang - Target language code
+ * @returns SWOT analysis data
+ */
+export function buildPropositionsSwot(
+  pipelineData: PipelineData | null,
+  lang: LanguageCode = 'en'
+): SwotAnalysis {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
+  const healthScore = pipelineData?.healthScore ?? 0;
+  const throughput = pipelineData?.throughput ?? 0;
+  const pct = (healthScore * 100).toFixed(0);
+
+  return {
+    strengths: [
+      ...(healthScore > 0.7
+        ? [
+            {
+              text: s.propositionsHealthStrong(pct),
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(throughput >= 5
+        ? [
+            {
+              text: s.propositionsThroughputGood(throughput),
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    weaknesses: [
+      ...(healthScore < 0.5
+        ? [
+            {
+              text: s.propositionsHealthWeak(pct),
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      ...(throughput < 5
+        ? [
+            {
+              text: s.propositionsThroughputLow(throughput),
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    opportunities: [
+      {
+        text: s.propositionsPrioritisation,
+        severity: 'medium' as const,
+      },
+      {
+        text: s.propositionsTrilogueAcceleration,
+        severity: 'medium' as const,
+      },
+    ],
+    threats: [
+      ...(healthScore < 0.3
+        ? [
+            {
+              text: s.propositionsCriticalCongestion,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      {
+        text: s.propositionsOverlapping,
+        severity: 'medium' as const,
+      },
+    ],
+  };
+}
+
+/**
+ * Build SWOT analysis for committee reports articles.
+ *
+ * @param committees - Committee data list
+ * @param lang - Target language code
+ * @returns SWOT analysis data
+ */
+export function buildCommitteeSwot(
+  committees: readonly CommitteeData[],
+  lang: LanguageCode = 'en'
+): SwotAnalysis {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
+  const activeCommittees = committees.filter((c) => c.documents.length > 0);
+  const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
+  const inactiveCount = committees.length - activeCommittees.length;
+
+  return {
+    strengths: [
+      ...(activeCommittees.length > 0
+        ? [
+            {
+              text: s.committeeActive(activeCommittees.length, committees.length),
+              severity:
+                activeCommittees.length >= committees.length * 0.7
+                  ? ('high' as const)
+                  : ('medium' as const),
+            },
+          ]
+        : []),
+      ...(totalDocs > 0
+        ? [
+            {
+              text: s.committeeDocuments(totalDocs),
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    weaknesses: [
+      ...(inactiveCount > 0
+        ? [
+            {
+              text: s.committeeInactive(inactiveCount),
+              severity:
+                inactiveCount > committees.length * 0.3 ? ('high' as const) : ('medium' as const),
+            },
+          ]
+        : []),
+    ],
+    opportunities: [
+      {
+        text: s.committeeCrossCollaboration,
+        severity: 'medium' as const,
+      },
+      ...(committees.length > 0
+        ? [
+            {
+              text: s.committeeHearings,
+              severity: 'medium' as const,
+            },
+          ]
+        : []),
+    ],
+    threats: [
+      ...(inactiveCount > committees.length * 0.3
+        ? [
+            {
+              text: s.committeeLowActivity,
+              severity: 'high' as const,
+            },
+          ]
+        : []),
+      {
+        text: s.committeeCompetingPriorities,
+        severity: 'medium' as const,
+      },
+    ],
+  };
+}
+
+// ─── Dashboard builders ──────────────────────────────────────────────────────
+
+/**
+ * Build dashboard for voting-based articles (motions, weekly/monthly review).
+ *
+ * @param records - Voting records
+ * @param patterns - Voting patterns
+ * @param anomalies - Detected anomalies
+ * @param lang - Target language code
+ * @returns Dashboard configuration
+ */
+export function buildVotingDashboard(
+  records: readonly VotingRecord[],
+  patterns: readonly VotingPattern[],
+  anomalies: readonly VotingAnomaly[],
+  lang: LanguageCode = 'en'
+): DashboardConfig {
+  const d: DashboardBuilderStrings = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
+  const adoptedCount = records.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
+  const rejectedCount = records.filter((r) => r.result?.toLowerCase().includes('reject')).length;
+
+  const overviewPanel = {
+    title: d.votingOverview,
+    metrics: [
+      { label: d.totalVotes, value: String(records.length), trend: 'stable' as const },
+      {
+        label: d.adopted,
+        value: String(adoptedCount),
+        trend: adoptedCount > 0 ? ('up' as const) : ('stable' as const),
+      },
+      { label: d.rejected, value: String(rejectedCount) },
+      { label: d.anomalies, value: String(anomalies.length) },
+    ],
+  };
+
+  const cohesionPanel =
+    patterns.length > 0
+      ? {
+          title: d.politicalGroupCohesion,
+          metrics: patterns.slice(0, 4).map((p) => ({
+            label: p.group,
+            value: `${(p.cohesion * 100).toFixed(0)}%`,
+            trend: (p.cohesion > 0.8 ? 'up' : p.cohesion < 0.5 ? 'down' : 'stable') as
+              | 'up'
+              | 'down'
+              | 'stable',
+          })),
+          chart: {
+            type: 'bar' as const,
+            title: d.groupCohesionRates,
+            data: {
+              labels: patterns.slice(0, 6).map((p) => p.group),
+              datasets: [
+                {
+                  label: d.cohesionPct,
+                  data: patterns.slice(0, 6).map((p) => Math.round(p.cohesion * 100)),
+                },
+              ],
+            },
+          },
+        }
+      : null;
+
+  const panels = cohesionPanel ? [overviewPanel, cohesionPanel] : [overviewPanel];
+
+  return { panels };
+}
+
+/**
+ * Build dashboard for week-ahead / month-ahead articles.
+ *
+ * @param weekData - Aggregated week/month data
+ * @param _label - "week" or "month" (reserved for future localisation)
+ * @param lang - Target language code
+ * @returns Dashboard configuration
+ */
+export function buildProspectiveDashboard(
+  weekData: WeekAheadData,
+  _label: string,
+  lang: LanguageCode = 'en'
+): DashboardConfig {
+  const d: DashboardBuilderStrings = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
+  const bottleneckCount = weekData.pipeline.filter((p) => p.bottleneck === true).length;
+
+  return {
+    panels: [
+      {
+        title: d.scheduledActivity,
+        metrics: [
+          { label: d.plenaryEvents, value: String(weekData.events.length) },
+          { label: d.committeeMeetings, value: String(weekData.committees.length) },
+          { label: d.documents, value: String(weekData.documents.length) },
+          {
+            label: d.pipelineProcedures,
+            value: String(weekData.pipeline.length),
+            trend: bottleneckCount > 0 ? ('down' as const) : ('stable' as const),
+          },
+        ],
+      },
+      {
+        title: d.parliamentaryQuestions,
+        metrics: [
+          { label: d.questionsFiled, value: String(weekData.questions.length) },
+          {
+            label: d.bottleneckProcedures,
+            value: String(bottleneckCount),
+            trend: bottleneckCount > 0 ? ('down' as const) : ('up' as const),
+          },
+        ],
+      },
+    ],
+  };
+}
+
+/**
+ * Build dashboard for breaking news articles.
+ *
+ * @param feedData - EP feed data
+ * @param lang - Target language code
+ * @returns Dashboard configuration
+ */
+export function buildBreakingDashboard(
+  feedData: BreakingNewsFeedData | undefined,
+  lang: LanguageCode = 'en'
+): DashboardConfig {
+  const d: DashboardBuilderStrings = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
+  const adoptedCount = feedData?.adoptedTexts.length ?? 0;
+  const eventCount = feedData?.events.length ?? 0;
+  const procCount = feedData?.procedures.length ?? 0;
+  const mepCount = feedData?.mepUpdates.length ?? 0;
+  const totalItems = adoptedCount + eventCount + procCount + mepCount;
+
+  return {
+    panels: [
+      {
+        title: d.feedActivity,
+        metrics: [
+          {
+            label: d.adoptedTexts,
+            value: String(adoptedCount),
+            trend: adoptedCount > 0 ? ('up' as const) : ('stable' as const),
+          },
+          { label: d.events, value: String(eventCount) },
+          { label: d.procedures, value: String(procCount) },
+          { label: d.mepUpdates, value: String(mepCount) },
+        ],
+      },
+      {
+        title: d.activitySummary,
+        metrics: [{ label: d.totalItems, value: String(totalItems) }],
+        ...(totalItems > 0
+          ? {
+              chart: {
+                type: 'doughnut' as const,
+                title: d.feedBreakdown,
+                data: {
+                  labels: [d.adoptedTexts, d.events, d.procedures, d.mepUpdates],
+                  datasets: [
+                    {
+                      label: d.items,
+                      data: [adoptedCount, eventCount, procCount, mepCount],
+                    },
+                  ],
+                },
+              },
+            }
+          : {}),
+      },
+    ],
+  };
+}
+
+/**
+ * Build dashboard for propositions articles.
+ *
+ * @param pipelineData - Pipeline metrics
+ * @param lang - Target language code
+ * @returns Dashboard configuration
+ */
+export function buildPropositionsDashboard(
+  pipelineData: PipelineData | null,
+  lang: LanguageCode = 'en'
+): DashboardConfig {
+  const d: DashboardBuilderStrings = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
+  const healthScore = pipelineData?.healthScore ?? 0;
+  const throughput = pipelineData?.throughput ?? 0;
+  const pct = (healthScore * 100).toFixed(0);
+
+  return {
+    panels: [
+      {
+        title: d.pipelineHealth,
+        metrics: [
+          {
+            label: d.healthScore,
+            value: `${pct}%`,
+            trend: (healthScore > 0.7 ? 'up' : healthScore < 0.5 ? 'down' : 'stable') as
+              | 'up'
+              | 'down'
+              | 'stable',
+          },
+          {
+            label: d.throughput,
+            value: String(throughput),
+            trend: throughput >= 5 ? ('up' as const) : ('down' as const),
+          },
+          {
+            label: d.status,
+            value:
+              healthScore > 0.7
+                ? d.pipelineStrong
+                : healthScore > 0.4
+                  ? d.pipelineModerate
+                  : d.pipelineWeak,
+          },
+        ],
+      },
+    ],
+  };
+}
+
+/**
+ * Build dashboard for committee reports articles.
+ *
+ * @param committees - Committee data list
+ * @param lang - Target language code
+ * @returns Dashboard configuration
+ */
+export function buildCommitteeDashboard(
+  committees: readonly CommitteeData[],
+  lang: LanguageCode = 'en'
+): DashboardConfig {
+  const d: DashboardBuilderStrings = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
+  const activeCommittees = committees.filter((c) => c.documents.length > 0);
+  const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
+  const activePct =
+    committees.length > 0 ? ((activeCommittees.length / committees.length) * 100).toFixed(0) : '0';
+
+  const overviewPanel = {
+    title: d.committeeOverview,
+    metrics: [
+      { label: d.totalCommittees, value: String(committees.length) },
+      {
+        label: d.activeCommittees,
+        value: String(activeCommittees.length),
+        trend:
+          activeCommittees.length >= committees.length * 0.7 ? ('up' as const) : ('down' as const),
+      },
+      { label: d.activityRate, value: `${activePct}%` },
+      { label: d.documentsProduced, value: String(totalDocs) },
+    ],
+  };
+
+  const chartPanel =
+    committees.length > 0
+      ? (() => {
+          const topCommittees = [...committees]
+            .sort((a, b) => b.documents.length - a.documents.length)
+            .slice(0, 6);
+          return {
+            title: d.documentOutputByCommittee,
+            chart: {
+              type: 'bar' as const,
+              title: d.documentsPerCommittee,
+              data: {
+                labels: topCommittees.map((c) => c.abbreviation),
+                datasets: [
+                  {
+                    label: d.documents,
+                    data: topCommittees.map((c) => c.documents.length),
+                  },
+                ],
+              },
+            },
+          };
+        })()
+      : null;
+
+  const panels = chartPanel ? [overviewPanel, chartPanel] : [overviewPanel];
+
+  return { panels };
 }

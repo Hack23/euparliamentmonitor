@@ -1049,3 +1049,121 @@ describe('MonthlyReviewStrategy', () => {
     expect(data.questions).toEqual([]);
   });
 });
+
+// ─── SWOT and Dashboard integration tests ────────────────────────────────────
+
+describe('SWOT and Dashboard integration across all strategies', () => {
+  it('WeekAheadStrategy.buildContent includes SWOT section', () => {
+    const strategy = new WeekAheadStrategy();
+    const content = strategy.buildContent(weekAheadData, 'en');
+    expect(content).toContain('class="swot-analysis"');
+    expect(content).toContain('class="swot-matrix"');
+  });
+
+  it('WeekAheadStrategy.buildContent includes Dashboard section', () => {
+    const strategy = new WeekAheadStrategy();
+    const content = strategy.buildContent(weekAheadData, 'en');
+    expect(content).toContain('class="dashboard"');
+    expect(content).toContain('class="metrics-grid"');
+  });
+
+  it('MonthAheadStrategy.buildContent includes SWOT section', () => {
+    const strategy = new MonthAheadStrategy();
+    const content = strategy.buildContent(monthAheadData, 'en');
+    expect(content).toContain('class="swot-analysis"');
+  });
+
+  it('MonthAheadStrategy.buildContent includes Dashboard section', () => {
+    const strategy = new MonthAheadStrategy();
+    const content = strategy.buildContent(monthAheadData, 'en');
+    expect(content).toContain('class="dashboard"');
+  });
+
+  it('BreakingNewsStrategy.buildContent includes SWOT section', () => {
+    const strategy = new BreakingNewsStrategy();
+    const content = strategy.buildContent(breakingNewsData, 'en');
+    expect(content).toContain('class="swot-analysis"');
+  });
+
+  it('BreakingNewsStrategy.buildContent includes Dashboard section', () => {
+    const strategy = new BreakingNewsStrategy();
+    const content = strategy.buildContent(breakingNewsData, 'en');
+    expect(content).toContain('class="dashboard"');
+  });
+
+  it('CommitteeReportsStrategy.buildContent includes SWOT section', () => {
+    const strategy = new CommitteeReportsStrategy();
+    const content = strategy.buildContent(committeeReportsData, 'en');
+    expect(content).toContain('class="swot-analysis"');
+  });
+
+  it('CommitteeReportsStrategy.buildContent includes Dashboard section', () => {
+    const strategy = new CommitteeReportsStrategy();
+    const content = strategy.buildContent(committeeReportsData, 'en');
+    expect(content).toContain('class="dashboard"');
+  });
+
+  it('PropositionsStrategy.buildContent includes SWOT section', () => {
+    const strategy = new PropositionsStrategy();
+    const content = strategy.buildContent(propositionsData, 'en');
+    expect(content).toContain('class="swot-analysis"');
+  });
+
+  it('PropositionsStrategy.buildContent includes Dashboard section', () => {
+    const strategy = new PropositionsStrategy();
+    const content = strategy.buildContent(propositionsData, 'en');
+    expect(content).toContain('class="dashboard"');
+  });
+
+  it('MotionsStrategy.buildContent includes SWOT section', () => {
+    const strategy = new MotionsStrategy();
+    const content = strategy.buildContent(motionsData, 'en');
+    expect(content).toContain('class="swot-analysis"');
+  });
+
+  it('MotionsStrategy.buildContent includes Dashboard section', () => {
+    const strategy = new MotionsStrategy();
+    const content = strategy.buildContent(motionsData, 'en');
+    expect(content).toContain('class="dashboard"');
+  });
+
+  it('WeeklyReviewStrategy.buildContent includes SWOT section', () => {
+    const strategy = new WeeklyReviewStrategy();
+    const content = strategy.buildContent(weeklyReviewData, 'en');
+    expect(content).toContain('class="swot-analysis"');
+  });
+
+  it('WeeklyReviewStrategy.buildContent includes Dashboard section', () => {
+    const strategy = new WeeklyReviewStrategy();
+    const content = strategy.buildContent(weeklyReviewData, 'en');
+    expect(content).toContain('class="dashboard"');
+  });
+
+  it('MonthlyReviewStrategy.buildContent includes SWOT section', () => {
+    const strategy = new MonthlyReviewStrategy();
+    const content = strategy.buildContent(monthlyReviewData, 'en');
+    expect(content).toContain('class="swot-analysis"');
+  });
+
+  it('MonthlyReviewStrategy.buildContent includes Dashboard section', () => {
+    const strategy = new MonthlyReviewStrategy();
+    const content = strategy.buildContent(monthlyReviewData, 'en');
+    expect(content).toContain('class="dashboard"');
+  });
+
+  it('SWOT section is localized for German', () => {
+    const strategy = new WeekAheadStrategy();
+    const content = strategy.buildContent(weekAheadData, 'de');
+    expect(content).toContain('class="swot-analysis"');
+    // Assert German-localized SWOT heading is present
+    expect(content).toMatch(/SWOT-Analyse/);
+  });
+
+  it('Dashboard section is localized for French', () => {
+    const strategy = new BreakingNewsStrategy();
+    const content = strategy.buildContent(breakingNewsData, 'fr');
+    expect(content).toContain('class="dashboard"');
+    // Assert French-localized dashboard heading is present
+    expect(content).toMatch(/Tableau de bord/);
+  });
+});
