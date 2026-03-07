@@ -452,10 +452,8 @@ describe('generate-news-indexes', () => {
         expect(html).toContain(`title="${expectedEscaped}"`);
         expect(html).toContain(`aria-label="${expectedEscaped}"`);
         expect(activeEnglishLink).not.toBeNull();
-        expect(activeEnglishLink.getAttribute('title')).toBe('English" onclick="alert(1)" & <b>bold</b>');
-        expect(activeEnglishLink.getAttribute('aria-label')).toBe(
-          'English" onclick="alert(1)" & <b>bold</b>',
-        );
+        expect(activeEnglishLink.getAttribute('title')).toBe(maliciousName);
+        expect(activeEnglishLink.getAttribute('aria-label')).toBe(maliciousName);
         expect(activeEnglishLink.getAttribute('onclick')).toBeNull();
         expect(activeEnglishLink.onclick).toBeNull();
       } finally {
