@@ -368,6 +368,8 @@ fi
 export USE_EP_MCP=true
 
 FEED_DATA_FLAG=""
+# Pass prefetched feed data only when this run created /tmp/ep-feed-data.json for
+# today's breaking-news window; otherwise let the generator fetch live MCP data.
 if [ -f "/tmp/ep-feed-data.json" ]; then
   FEED_DATA_FLAG='--feed-data=/tmp/ep-feed-data.json'
 else

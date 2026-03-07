@@ -116,6 +116,8 @@ This is a **retrospective** article providing comprehensive analysis of the past
 > **Content quality gate**: If the article body mostly discusses historical aggregates rather than **specific adopted texts, voting results, committee documents, or procedure updates with concrete titles, dates, and IDs from the past month's feed data**, the article FAILS quality validation.
 >
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from this month's feed data**. Historical stats may appear in later sections ONLY as brief background.
+>
+> **Window rule**: Only items whose substantive parliamentary date falls within `$LAST_MONTH` through `$TODAY` UTC qualify for month-in-review coverage. Older resurfaced dossiers outside that monthly window do NOT qualify as the main story.
 
 ## ⏱️ Time Budget (60 minutes)
 
@@ -396,7 +398,8 @@ fi
 
 export USE_EP_MCP=true
 
-# If feed data was saved to /tmp/ep-feed-data.json (from MCP tool calls), pass it
+# Pass prefetched feed data only when this run created /tmp/ep-feed-data.json for
+# the exact month-in-review UTC window; otherwise let the generator fetch live MCP data.
 FEED_DATA_FLAG=""
 if [ -f "/tmp/ep-feed-data.json" ]; then
   FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"

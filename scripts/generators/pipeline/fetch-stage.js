@@ -164,6 +164,90 @@ function parseJSON(text, context) {
         return null;
     }
 }
+/**
+ * Normalize a feed-item date into canonical UTC `YYYY-MM-DD` form.
+ *
+ * @param value - Raw date string from MCP or a prefetched feed file
+ * @returns Canonical date string, or undefined when the value is missing/invalid
+ */
+function normalizeFeedItemDate(value) {
+    const trimmed = value.trim();
+    if (trimmed === '')
+        return undefined;
+    const directDate = trimmed.slice(0, 10);
+    if (directDate.length === 10) {
+        const direct = new Date(`${directDate}T00:00:00Z`);
+        if (!Number.isNaN(direct.getTime())) {
+            return directDate;
+        }
+    }
+    const parsed = new Date(trimmed);
+    if (Number.isNaN(parsed.getTime()))
+        return undefined;
+    const parts = parsed.toISOString().split('T');
+    return parts[0];
+}
+/**
+ * Filter dated feed items to an inclusive UTC date window.
+ *
+ * Items without a parseable `date` are dropped when a window is supplied.
+ *
+ * @param items - Feed items to filter
+ * @param dateRange - Inclusive UTC window, or undefined to keep all items
+ * @param label - Human-readable label used in logs
+ * @returns Filtered array
+ */
+function filterFeedItemsByDateRange(items, dateRange, label) {
+    if (!dateRange)
+        return [...items];
+    const filtered = items.filter((item) => {
+        const normalized = normalizeFeedItemDate(item.date);
+        return normalized !== undefined && normalized >= dateRange.start && normalized <= dateRange.end;
+    });
+    if (filtered.length !== items.length) {
+        console.log(`${INFO_PREFIX} Filtered ${label} to ${filtered.length}/${items.length} items within ` +
+            `${dateRange.start}..${dateRange.end}`);
+    }
+    return filtered;
+}
+/**
+ * Apply a date-range filter across all breaking-news feed arrays.
+ *
+ * @param feedData - Feed data to filter
+ * @param dateRange - Inclusive UTC window, or undefined to keep all items
+ * @returns Filtered feed payload
+ */
+function filterBreakingNewsFeedDataByDateRange(feedData, dateRange) {
+    return {
+        adoptedTexts: filterFeedItemsByDateRange(feedData.adoptedTexts, dateRange, 'adopted texts'),
+        events: filterFeedItemsByDateRange(feedData.events, dateRange, 'events'),
+        procedures: filterFeedItemsByDateRange(feedData.procedures, dateRange, 'procedures'),
+        mepUpdates: filterFeedItemsByDateRange(feedData.mepUpdates, dateRange, 'MEP updates'),
+    };
+}
+/**
+ * Apply a date-range filter across all comprehensive EP feed arrays.
+ *
+ * @param feedData - Feed data to filter
+ * @param dateRange - Inclusive UTC window, or undefined to keep all items
+ * @returns Filtered feed payload
+ */
+function filterEPFeedDataByDateRange(feedData, dateRange) {
+    return {
+        adoptedTexts: filterFeedItemsByDateRange(feedData.adoptedTexts, dateRange, 'adopted texts'),
+        events: filterFeedItemsByDateRange(feedData.events, dateRange, 'events'),
+        procedures: filterFeedItemsByDateRange(feedData.procedures, dateRange, 'procedures'),
+        mepUpdates: filterFeedItemsByDateRange(feedData.mepUpdates, dateRange, 'MEP updates'),
+        documents: filterFeedItemsByDateRange(feedData.documents, dateRange, 'documents'),
+        plenaryDocuments: filterFeedItemsByDateRange(feedData.plenaryDocuments, dateRange, 'plenary documents'),
+        committeeDocuments: filterFeedItemsByDateRange(feedData.committeeDocuments, dateRange, 'committee documents'),
+        plenarySessionDocuments: filterFeedItemsByDateRange(feedData.plenarySessionDocuments, dateRange, 'plenary session documents'),
+        externalDocuments: filterFeedItemsByDateRange(feedData.externalDocuments, dateRange, 'external documents'),
+        questions: filterFeedItemsByDateRange(feedData.questions, dateRange, 'questions'),
+        declarations: filterFeedItemsByDateRange(feedData.declarations, dateRange, 'declarations'),
+        corporateBodies: filterFeedItemsByDateRange(feedData.corporateBodies, dateRange, 'corporate bodies'),
+    };
+}
 // ─── MCP client initialisation ───────────────────────────────────────────────
 /**
  * Attempt to connect to the European Parliament MCP server.
@@ -255,9 +339,10 @@ function sanitizeMEPItems(items) {
  * arrays and default to empty arrays when missing (an empty object `{}` is valid).
  *
  * @param filePath - Absolute or relative path to the JSON file
+ * @param dateRange - Optional inclusive UTC window for filtering loaded items
  * @returns Parsed {@link BreakingNewsFeedData}, or `undefined` on any error
  */
-export function loadFeedDataFromFile(filePath) {
+export function loadFeedDataFromFile(filePath, dateRange) {
     try {
         if (!fs.existsSync(filePath)) {
             console.warn(`${WARN_PREFIX} Feed data file not found: ${filePath}`);
@@ -277,12 +362,12 @@ export function loadFeedDataFromFile(filePath) {
         console.log(`${INFO_PREFIX} Loaded feed data from file: ` +
             `${adoptedTexts.length} adopted texts, ${events.length} events, ` +
             `${procedures.length} procedures, ${mepUpdates.length} MEP updates`);
-        return {
+        return filterBreakingNewsFeedDataByDateRange({
             adoptedTexts,
             events,
             procedures,
             mepUpdates,
-        };
+        }, dateRange);
     }
     catch (error) {
         const message = error instanceof Error ? error.message : String(error);
@@ -302,9 +387,10 @@ export function loadFeedDataFromFile(filePath) {
  * Missing keys default to empty arrays.
  *
  * @param filePath - Absolute or relative path to the JSON file
+ * @param dateRange - Optional inclusive UTC window for filtering loaded items
  * @returns Parsed {@link EPFeedData}, or `undefined` on any error
  */
-export function loadEPFeedDataFromFile(filePath) {
+export function loadEPFeedDataFromFile(filePath, dateRange) {
     try {
         if (!fs.existsSync(filePath)) {
             console.warn(`${WARN_PREFIX} EP feed data file not found: ${filePath}`);
@@ -343,7 +429,7 @@ export function loadEPFeedDataFromFile(filePath) {
             declarations.length +
             corporateBodies.length;
         console.log(`${INFO_PREFIX} Loaded EP feed data from file: ${totalItems} total items across 12 keys`);
-        return {
+        return filterEPFeedDataByDateRange({
             adoptedTexts,
             events,
             procedures,
@@ -356,7 +442,7 @@ export function loadEPFeedDataFromFile(filePath) {
             questions,
             declarations,
             corporateBodies,
-        };
+        }, dateRange);
     }
     catch (error) {
         const message = error instanceof Error ? error.message : String(error);
@@ -1291,15 +1377,16 @@ export async function fetchBreakingNewsFeedData(client, timeframe = 'one-day') {
  *
  * @param client - MCP client or null
  * @param timeframe - How far back to look (default: 'one-day')
+ * @param dateRange - Optional inclusive UTC window for filtering feed items
  * @returns Full EPFeedData or undefined when client is null
  */
-export async function fetchEPFeedData(client, timeframe = 'one-day') {
+export async function fetchEPFeedData(client, timeframe = 'one-day', dateRange) {
     // Check for pre-fetched feed data file (set by --feed-data CLI arg).
     // This allows agentic workflows to pass MCP data fetched via framework tools
     // into the generator without requiring a direct MCP connection.
     const feedDataFile = process.env['EP_FEED_DATA_FILE'];
     if (feedDataFile) {
-        const fileData = loadEPFeedDataFromFile(feedDataFile);
+        const fileData = loadEPFeedDataFromFile(feedDataFile, dateRange);
         if (fileData)
             return fileData;
         console.log(`${WARN_PREFIX} Pre-fetched EP feed data failed to load — falling through to MCP fetch`);
@@ -1338,7 +1425,7 @@ export async function fetchEPFeedData(client, timeframe = 'one-day') {
         declarations.length +
         corporateBodies.length;
     console.log(`  ✅ Fetched ${totalItems} total feed items across 12 endpoints`);
-    return {
+    return filterEPFeedDataByDateRange({
         adoptedTexts,
         events,
         procedures,
@@ -1351,6 +1438,6 @@ export async function fetchEPFeedData(client, timeframe = 'one-day') {
         questions,
         declarations,
         corporateBodies,
-    };
+    }, dateRange);
 }
 //# sourceMappingURL=fetch-stage.js.map

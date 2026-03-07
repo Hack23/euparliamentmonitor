@@ -86,6 +86,13 @@ export class CommitteeReportsStrategy {
      * @returns Populated committee reports data payload
      */
     async fetchData(client, date) {
+        const feedWindowStart = new Date(`${date}T00:00:00Z`);
+        feedWindowStart.setUTCDate(feedWindowStart.getUTCDate() - 7);
+        const feedWindowStartParts = feedWindowStart.toISOString().split('T');
+        if (!feedWindowStartParts[0]) {
+            throw new Error('Invalid date format generated for committee feed window');
+        }
+        const feedDateRange = { start: feedWindowStartParts[0], end: date };
         // Fetch individual committee data and EP feeds in parallel
         const [committeeDataRaw, feedData] = await Promise.all([
             Promise.all(FEATURED_COMMITTEES.map((abbr) => fetchCommitteeData(client, abbr).catch((error) => {
@@ -93,7 +100,7 @@ export class CommitteeReportsStrategy {
                 console.error(`  ⚠️ Failed to fetch data for committee ${abbr}:`, message);
                 return null;
             }))),
-            fetchEPFeedData(client, 'one-month'),
+            fetchEPFeedData(client, 'one-week', feedDateRange),
         ]);
         const committeeDataList = committeeDataRaw.filter((committee) => committee !== null);
         return { date, committeeDataList, feedData };

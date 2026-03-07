@@ -112,6 +112,8 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 > **Content quality gate**: If the article body mostly discusses historical aggregates (e.g. "20+ procedures filed in 2025", "pipeline health score 100", year-over-year statistics, "fragmentation index") rather than **specific recent legislative proposals with concrete titles, procedure IDs, and dates from feed data**, the article FAILS quality validation and must be rewritten.
 >
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data** (procedure titles, document names, dates). Historical stats may appear in later sections ONLY as brief comparative background.
+>
+> **Window rule**: Treat feed items as primary news only when their substantive parliamentary date falls inside this article's current UTC window. Older backlog procedures may be background context, but they are not today's lead.
 
 ## 🔒 Required Skills
 
@@ -484,7 +486,8 @@ fi
 # Set USE_EP_MCP=true to enable the script's built-in MCP client
 export USE_EP_MCP=true
 
-# If feed data was saved to /tmp/ep-feed-data.json (from MCP tool calls), pass it
+# Pass prefetched feed data only when this run created /tmp/ep-feed-data.json for
+# this propositions article window; otherwise let the generator fetch live MCP data.
 FEED_DATA_FLAG=""
 if [ -f "/tmp/ep-feed-data.json" ]; then
   FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"

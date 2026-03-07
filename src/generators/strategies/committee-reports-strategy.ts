@@ -134,6 +134,14 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
     client: EuropeanParliamentMCPClient | null,
     date: string
   ): Promise<CommitteeReportsArticleData> {
+    const feedWindowStart = new Date(`${date}T00:00:00Z`);
+    feedWindowStart.setUTCDate(feedWindowStart.getUTCDate() - 7);
+    const feedWindowStartParts = feedWindowStart.toISOString().split('T');
+    if (!feedWindowStartParts[0]) {
+      throw new Error('Invalid date format generated for committee feed window');
+    }
+    const feedDateRange = { start: feedWindowStartParts[0], end: date };
+
     // Fetch individual committee data and EP feeds in parallel
     const [committeeDataRaw, feedData] = await Promise.all([
       Promise.all(
@@ -145,7 +153,7 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
           })
         )
       ),
-      fetchEPFeedData(client, 'one-month'),
+      fetchEPFeedData(client, 'one-week', feedDateRange),
     ]);
 
     const committeeDataList = committeeDataRaw.filter(

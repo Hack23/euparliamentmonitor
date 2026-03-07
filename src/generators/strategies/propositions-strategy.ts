@@ -117,6 +117,14 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
     client: EuropeanParliamentMCPClient | null,
     date: string
   ): Promise<PropositionsArticleData> {
+    const feedWindowStart = new Date(`${date}T00:00:00Z`);
+    feedWindowStart.setUTCDate(feedWindowStart.getUTCDate() - 7);
+    const feedWindowStartParts = feedWindowStart.toISOString().split('T');
+    if (!feedWindowStartParts[0]) {
+      throw new Error('Invalid date format generated for propositions feed window');
+    }
+    const feedDateRange = { start: feedWindowStartParts[0], end: date };
+
     if (client) {
       console.log('  📡 Fetching legislative data from MCP server...');
     }
@@ -125,7 +133,7 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
     const [proposalsResult, pipelineResult, feedData] = await Promise.allSettled([
       fetchProposalsFromMCP(client),
       fetchPipelineFromMCP(client),
-      fetchEPFeedData(client, 'one-month'),
+      fetchEPFeedData(client, 'one-week', feedDateRange),
     ]);
 
     const { html: proposalsHtml, firstProcedureId } =
