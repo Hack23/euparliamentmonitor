@@ -1082,7 +1082,11 @@ export function buildPropositionsDashboard(pipelineData, lang = 'en') {
                     },
                     {
                         label: d.status,
-                        value: pipelineHealthLabel(healthScore),
+                        value: healthScore > 0.7
+                            ? d.pipelineStrong
+                            : healthScore > 0.4
+                                ? d.pipelineModerate
+                                : d.pipelineWeak,
                     },
                 ],
             },

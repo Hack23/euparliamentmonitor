@@ -47,6 +47,15 @@ export default defineConfig({
         'scripts/utils/validate-articles.js',
         // Exclude type definitions
         'scripts/**/*.d.ts',
+        // Exclude TypeScript type-only stubs (interfaces/enums, no testable logic)
+        'scripts/types/generation.js',
+        'scripts/types/index.js',
+        'scripts/types/mcp.js',
+        'scripts/types/parliament.js',
+        'scripts/types/visualization.js',
+        'scripts/types/world-bank.js',
+        // Exclude language string maps (pure data/config, 500+ arrow fns across 14 languages)
+        'scripts/constants/language-articles.js',
       ],
     },
     

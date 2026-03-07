@@ -295,6 +295,9 @@ export interface DashboardBuilderStrings {
   readonly healthScore: string;
   readonly throughput: string;
   readonly status: string;
+  readonly pipelineStrong: string;
+  readonly pipelineModerate: string;
+  readonly pipelineWeak: string;
   // ── Committee Dashboard ──
   readonly committeeOverview: string;
   readonly totalCommittees: string;
