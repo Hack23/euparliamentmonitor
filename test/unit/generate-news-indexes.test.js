@@ -411,6 +411,33 @@ describe('generate-news-indexes', () => {
       expect(aiSection[0]).not.toContain('lang="en"');
     });
 
+    it('should render the news feed before the AI section', () => {
+      const html = generateIndexHTML('en', []);
+      const mainIndex = html.indexOf('<main id="main"');
+      const aiIndex = html.indexOf('<section class="ai-intelligence"');
+
+      expect(mainIndex).toBeGreaterThan(-1);
+      expect(aiIndex).toBeGreaterThan(-1);
+      expect(mainIndex).toBeLessThan(aiIndex);
+    });
+
+    it('should mark the active language link with aria-current and lang attributes', () => {
+      const html = generateIndexHTML('de', []);
+
+      expect(html).toContain('class="lang-link active"');
+      expect(html).toContain('hreflang="de" lang="de"');
+      expect(html).toContain('aria-current="page"');
+      expect(html).toContain('aria-label="Deutsch"');
+    });
+
+    it('should include a compact split hero layout', () => {
+      const html = generateIndexHTML('en', []);
+
+      expect(html).toContain('class="hero__inner"');
+      expect(html).toContain('class="hero__content"');
+      expect(html).toContain('class="hero__eyebrow"');
+    });
+
     it('should contain German localized AI heading on German page', () => {
       const html = generateIndexHTML('de', []);
       expect(html).toContain('KI-disruptierte Nachrichtenerzeugung');

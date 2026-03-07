@@ -75,7 +75,8 @@ function buildLangSwitcher(currentLang) {
         const name = getLocalizedString(LANGUAGE_NAMES, code);
         const active = code === currentLang ? ' active' : '';
         const href = getIndexFilename(code);
-        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${name}">${flag} ${code.toUpperCase()}</a>`;
+        const current = code === currentLang ? ' aria-current="page"' : '';
+        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${name}" aria-label="${name}"${current}>${flag} ${code.toUpperCase()}</a>`;
     }).join('\n        ');
 }
 /**
@@ -249,7 +250,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
 <body>
   <a href="#main" class="skip-link">${skipLinkText}</a>
 
-  <header class="site-header" role="banner">
+  <header class="site-header site-header--index" role="banner">
     <div class="site-header__inner">
       <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
         <picture class="site-header__logo-picture">
@@ -268,26 +269,17 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
   </header>
 
   <section class="hero">
-    <picture class="hero__banner">
-      <source srcset="images/banner.webp" type="image/webp">
-      <img src="images/banner.jpg" alt="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence" class="hero__banner-img" width="1200" height="400" loading="eager">
-    </picture>
-    <div class="hero__overlay">
-      <h1 class="hero__title">${heroTitle}</h1>
-      <p class="hero__description">${description}</p>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <p class="hero__eyebrow">${headerSubtitle}</p>
+        <h1 class="hero__title">${heroTitle}</h1>
+        <p class="hero__description">${description}</p>
+      </div>
+      <picture class="hero__banner">
+        <source srcset="images/banner.webp" type="image/webp">
+        <img src="images/banner.jpg" alt="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence" class="hero__banner-img" width="1200" height="400" loading="eager">
+      </picture>
     </div>
-  </section>
-
-  <section class="ai-intelligence" aria-labelledby="ai-heading">
-    <h2 id="ai-heading"><span aria-hidden="true">🤖</span> ${escapeHTML(ai.heading)}</h2>
-    <blockquote class="ai-intelligence__quote">${escapeHTML(ai.quote)}</blockquote>
-    <p>${escapeHTML(ai.description)}</p>
-    <ul class="ai-intelligence__features">
-      <li><strong>${escapeHTML(ai.featureAgents)}</strong> &mdash; ${escapeHTML(ai.featureAgentsDesc)}</li>
-      <li><strong>${escapeHTML(ai.featureSchedule)}</strong> &mdash; ${escapeHTML(ai.featureScheduleDesc)}</li>
-      <li><strong>${escapeHTML(ai.featureHuman)}</strong> &mdash; ${escapeHTML(ai.featureHumanDesc)}</li>
-      <li><strong>${escapeHTML(ai.featureData)}</strong> &mdash; ${escapeHTML(ai.featureDataDesc)}</li>
-    </ul>
   </section>
 
   <main id="main" class="site-main">
@@ -305,6 +297,18 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
         : ''}
     ${content}
   </main>
+
+  <section class="ai-intelligence" aria-labelledby="ai-heading">
+    <h2 id="ai-heading"><span aria-hidden="true">🤖</span> ${escapeHTML(ai.heading)}</h2>
+    <blockquote class="ai-intelligence__quote">${escapeHTML(ai.quote)}</blockquote>
+    <p>${escapeHTML(ai.description)}</p>
+    <ul class="ai-intelligence__features">
+      <li><strong>${escapeHTML(ai.featureAgents)}</strong> &mdash; ${escapeHTML(ai.featureAgentsDesc)}</li>
+      <li><strong>${escapeHTML(ai.featureSchedule)}</strong> &mdash; ${escapeHTML(ai.featureScheduleDesc)}</li>
+      <li><strong>${escapeHTML(ai.featureHuman)}</strong> &mdash; ${escapeHTML(ai.featureHumanDesc)}</li>
+      <li><strong>${escapeHTML(ai.featureData)}</strong> &mdash; ${escapeHTML(ai.featureDataDesc)}</li>
+    </ul>
+  </section>
 
   <footer class="site-footer" role="contentinfo">
     <div class="footer-content">

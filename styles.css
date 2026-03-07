@@ -191,6 +191,10 @@ img {
   text-transform: uppercase;
 }
 
+.site-header--index .site-header__subtitle {
+  display: none;
+}
+
 /* Language switcher — inline in header, single row */
 .site-header__langs {
   display: flex;
@@ -261,61 +265,93 @@ img {
 .hero {
   position: relative;
   border-bottom: 3px solid var(--secondary);
-  text-align: center;
   overflow: hidden;
   background: linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 100%);
+  padding: 24px;
+}
+
+.hero__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+  gap: 24px;
+  align-items: stretch;
 }
 
 .hero__banner {
   display: block;
   width: 100%;
+  min-height: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
 
 .hero__banner-img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-  max-height: 400px;
+  min-height: 260px;
 }
 
-.hero__overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 36px 24px 28px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.4) 55%, transparent 100%);
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: start;
+  gap: 14px;
+  padding: 36px;
   color: #fff;
+  background:
+    radial-gradient(circle at top right, rgba(255, 214, 51, 0.18), transparent 35%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(8px);
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .hero__title {
-  font-size: 2.2rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   color: #fff;
-  margin-bottom: 8px;
   letter-spacing: -0.02em;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 0, 0, 0.3);
+  line-height: 1.05;
 }
 
 .hero__description {
   font-size: 1.08rem;
   color: rgba(255, 255, 255, 0.95);
-  max-width: 640px;
-  margin: 0 auto;
+  max-width: 40rem;
+  margin: 0;
   line-height: 1.55;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* ─── AI Intelligence Section ────────────────────────────────────── */
 .ai-intelligence {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 40px 32px 32px;
+  padding: 28px 28px 24px;
   background: linear-gradient(135deg, var(--primary) 0%, #0044aa 60%, #0055cc 100%);
   border-radius: var(--radius-lg);
-  margin-top: 24px;
-  margin-bottom: 8px;
+  margin-top: 0;
+  margin-bottom: 32px;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -409,7 +445,7 @@ img {
 .site-main {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 32px 24px 64px;
+  padding: 24px 24px 28px;
 }
 
 .section-heading {
@@ -1201,20 +1237,27 @@ img {
   .site-header__langs {
     flex-basis: 100%;
     order: 2;
-    padding-bottom: 2px;
+    padding-bottom: 4px;
   }
 
   .lang-link {
-    padding: 3px 5px;
-    font-size: 0.65rem;
+    padding: 5px 8px;
+    font-size: 0.72rem;
   }
 
   .hero {
-    padding: 0;
+    padding: 16px 14px 18px;
   }
 
-  .hero__overlay {
-    padding: 20px 16px 16px;
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .hero__content {
+    padding: 24px 20px;
+    text-align: center;
+    align-items: center;
   }
 
   .hero__title {
@@ -1223,10 +1266,15 @@ img {
 
   .hero__description {
     font-size: 0.92rem;
+    max-width: 32rem;
+  }
+
+  .hero__banner-img {
+    min-height: 200px;
   }
 
   .site-main {
-    padding: 20px 14px 48px;
+    padding: 18px 14px 24px;
   }
 
   .news-grid {
@@ -1308,8 +1356,8 @@ img {
   }
 
   .ai-intelligence {
-    margin: 16px 14px 8px;
-    padding: 24px 18px 20px;
+    margin: 0 14px 24px;
+    padding: 22px 18px 18px;
   }
 
   .ai-intelligence h2 {
@@ -1324,8 +1372,16 @@ img {
 
 @media (max-width: 480px) {
   .lang-link {
-    padding: 2px 4px;
-    font-size: 0.62rem;
+    padding: 4px 7px;
+    font-size: 0.68rem;
+  }
+
+  .hero__content {
+    padding: 20px 16px;
+  }
+
+  .hero__eyebrow {
+    font-size: 0.68rem;
   }
 
   .news-card__body {
