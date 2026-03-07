@@ -8,12 +8,12 @@
 
 /* eslint-disable no-undef */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { Window } from 'happy-dom';
 import { createTempDir, cleanupTempDir, validateHTML } from '../helpers/test-utils.js';
-import { LANGUAGE_NAMES } from '../../scripts/constants/languages.js';
+import * as languageConstants from '../../scripts/constants/languages.js';
 import { generateIndexHTML } from '../../scripts/generators/news-indexes.js';
 
 describe('generate-news-indexes', () => {
@@ -26,6 +26,7 @@ describe('generate-news-indexes', () => {
   });
 
   afterEach(() => {
+    vi.restoreAllMocks();
     cleanupTempDir(tempDir);
     process.chdir(originalCwd);
   });
@@ -437,29 +438,33 @@ describe('generate-news-indexes', () => {
     });
 
     it('should escape localized language names in link attributes', () => {
-      const originalEnglishName = LANGUAGE_NAMES.en;
-      LANGUAGE_NAMES.en = 'English" onclick="alert(1)" & <b>bold</b>';
+      const maliciousName = 'English" onclick="alert(1)" & <b>bold</b>';
+      const originalGetLocalizedString = languageConstants.getLocalizedString;
 
-      try {
-        const html = generateIndexHTML('en', []);
-        const document = createDocument(html);
-        const activeEnglishLink = document.querySelector('a.lang-link.active[href="index.html"]');
+      vi.spyOn(languageConstants, 'getLocalizedString').mockImplementation((map, lang) => {
+        if (map === languageConstants.LANGUAGE_NAMES && lang === 'en') {
+          return maliciousName;
+        }
 
-        expect(html).toContain(
-          'title="English&quot; onclick=&quot;alert(1)&quot; &amp; &lt;b&gt;bold&lt;/b&gt;"',
-        );
-        expect(html).toContain(
-          'aria-label="English&quot; onclick=&quot;alert(1)&quot; &amp; &lt;b&gt;bold&lt;/b&gt;"',
-        );
-        expect(activeEnglishLink).not.toBeNull();
-        expect(activeEnglishLink.getAttribute('title')).toBe('English" onclick="alert(1)" & <b>bold</b>');
-        expect(activeEnglishLink.getAttribute('aria-label')).toBe(
-          'English" onclick="alert(1)" & <b>bold</b>',
-        );
-        expect(activeEnglishLink.getAttribute('onclick')).toBeNull();
-      } finally {
-        LANGUAGE_NAMES.en = originalEnglishName;
-      }
+        return originalGetLocalizedString(map, lang);
+      });
+
+      const html = generateIndexHTML('en', []);
+      const document = createDocument(html);
+      const activeEnglishLink = document.querySelector('a.lang-link.active[href="index.html"]');
+
+      expect(html).toContain(
+        'title="English&quot; onclick=&quot;alert(1)&quot; &amp; &lt;b&gt;bold&lt;/b&gt;"',
+      );
+      expect(html).toContain(
+        'aria-label="English&quot; onclick=&quot;alert(1)&quot; &amp; &lt;b&gt;bold&lt;/b&gt;"',
+      );
+      expect(activeEnglishLink).not.toBeNull();
+      expect(activeEnglishLink.getAttribute('title')).toBe('English" onclick="alert(1)" & <b>bold</b>');
+      expect(activeEnglishLink.getAttribute('aria-label')).toBe(
+        'English" onclick="alert(1)" & <b>bold</b>',
+      );
+      expect(activeEnglishLink.getAttribute('onclick')).toBeNull();
     });
 
     it('should include a compact split hero layout', () => {
