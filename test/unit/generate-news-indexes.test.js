@@ -8,7 +8,7 @@
 
 /* eslint-disable no-undef */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { Window } from 'happy-dom';
@@ -26,7 +26,6 @@ describe('generate-news-indexes', () => {
   });
 
   afterEach(() => {
-    vi.restoreAllMocks();
     cleanupTempDir(tempDir);
     process.chdir(originalCwd);
   });
@@ -441,29 +440,27 @@ describe('generate-news-indexes', () => {
       const maliciousName = 'English" onclick="alert(1)" & <b>bold</b>';
       const expectedEscaped =
         'English&quot; onclick=&quot;alert(1)&quot; &amp; &lt;b&gt;bold&lt;/b&gt;';
-      const fallbackGetLocalizedString = languageConstants.getLocalizedString;
+      const originalEnglishName = languageConstants.LANGUAGE_NAMES.en;
 
-      vi.spyOn(languageConstants, 'getLocalizedString').mockImplementation((map, lang) => {
-        if (map === languageConstants.LANGUAGE_NAMES && lang === 'en') {
-          return maliciousName;
-        }
+      languageConstants.LANGUAGE_NAMES.en = maliciousName;
 
-        return fallbackGetLocalizedString(map, lang);
-      });
+      try {
+        const html = generateIndexHTML('en', []);
+        const document = createDocument(html);
+        const activeEnglishLink = document.querySelector('a.lang-link.active[href="index.html"]');
 
-      const html = generateIndexHTML('en', []);
-      const document = createDocument(html);
-      const activeEnglishLink = document.querySelector('a.lang-link.active[href="index.html"]');
-
-      expect(html).toContain(`title="${expectedEscaped}"`);
-      expect(html).toContain(`aria-label="${expectedEscaped}"`);
-      expect(activeEnglishLink).not.toBeNull();
-      expect(activeEnglishLink.getAttribute('title')).toBe('English" onclick="alert(1)" & <b>bold</b>');
-      expect(activeEnglishLink.getAttribute('aria-label')).toBe(
-        'English" onclick="alert(1)" & <b>bold</b>',
-      );
-      expect(activeEnglishLink.getAttribute('onclick')).toBeNull();
-      expect(activeEnglishLink.onclick).toBeNull();
+        expect(html).toContain(`title="${expectedEscaped}"`);
+        expect(html).toContain(`aria-label="${expectedEscaped}"`);
+        expect(activeEnglishLink).not.toBeNull();
+        expect(activeEnglishLink.getAttribute('title')).toBe('English" onclick="alert(1)" & <b>bold</b>');
+        expect(activeEnglishLink.getAttribute('aria-label')).toBe(
+          'English" onclick="alert(1)" & <b>bold</b>',
+        );
+        expect(activeEnglishLink.getAttribute('onclick')).toBeNull();
+        expect(activeEnglishLink.onclick).toBeNull();
+      } finally {
+        languageConstants.LANGUAGE_NAMES.en = originalEnglishName;
+      }
     });
 
     it('should include a compact split hero layout', () => {
