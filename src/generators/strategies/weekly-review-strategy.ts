@@ -29,7 +29,13 @@ import {
 } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent, buildAdoptedTextsSection } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildVotingAnalysis } from '../analysis-builders.js';
+import {
+  buildVotingAnalysis,
+  buildVotingSwot,
+  buildVotingDashboard,
+} from '../analysis-builders.js';
+import { buildSwotSection } from '../swot-content.js';
+import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -126,7 +132,7 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
       fetchVotingPatterns(client, dateRange.start, dateRange.end),
       fetchMotionsAnomalies(client, dateRange.start, dateRange.end),
       fetchParliamentaryQuestionsForMotions(client, dateRange.start, dateRange.end),
-      fetchEPFeedData(client, 'one-week'),
+      fetchEPFeedData(client, 'one-week', dateRange),
     ]);
 
     return {
@@ -178,6 +184,17 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
       ? base.replace('<!-- /article-content -->', adoptedTextsHtml + deepSection)
       : base.replace('<!-- /article-content -->', deepSection);
     return enriched;
+    const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+    const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);
+    const swotSection = buildSwotSection(swotData, lang);
+    const dashboardData = buildVotingDashboard(
+      data.votingRecords,
+      data.votingPatterns,
+      data.anomalies,
+      lang
+    );
+    const dashboardSection = buildDashboardSection(dashboardData, lang);
+    return base.replace('<!-- /article-content -->', deepSection + swotSection + dashboardSection);
   }
 
   /**

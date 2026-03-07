@@ -5,7 +5,9 @@ import { BREAKING_NEWS_TITLES, getLocalizedString } from '../../constants/langua
 import { fetchBreakingNewsFeedData, fetchVotingAnomalies, fetchCoalitionDynamics, loadFeedDataFromFile, } from '../pipeline/fetch-stage.js';
 import { buildBreakingNewsContent } from '../breaking-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildBreakingAnalysis } from '../analysis-builders.js';
+import { buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, } from '../analysis-builders.js';
+import { buildSwotSection } from '../swot-content.js';
+import { buildDashboardSection } from '../dashboard-content.js';
 /** Keywords shared by all Breaking News articles */
 const BREAKING_NEWS_KEYWORDS = [
     'European Parliament',
@@ -47,7 +49,7 @@ export class BreakingNewsStrategy {
         const feedDataFile = process.env['EP_FEED_DATA_FILE'];
         if (feedDataFile) {
             console.log(`  📂 Loading pre-fetched feed data from: ${feedDataFile}`);
-            const fileFeedData = loadFeedDataFromFile(feedDataFile);
+            const fileFeedData = loadFeedDataFromFile(feedDataFile, { start: date, end: date });
             if (fileFeedData) {
                 const totalItems = fileFeedData.adoptedTexts.length +
                     fileFeedData.events.length +
@@ -108,12 +110,17 @@ export class BreakingNewsStrategy {
         const base = buildBreakingNewsContent(data.date, data.anomalyRaw, data.coalitionRaw, data.reportRaw, '', lang, [], [], [], data.feedData);
         const analysis = buildBreakingAnalysis(data.date, data.feedData, data.anomalyRaw, data.coalitionRaw, lang);
         const deepSection = buildDeepAnalysisSection(analysis, lang);
-        // Inject deep analysis before the closing </div> of .article-content
-        if (deepSection) {
+        const swotData = buildBreakingSwot(data.feedData, data.anomalyRaw, data.coalitionRaw, lang);
+        const swotSection = buildSwotSection(swotData, lang);
+        const dashboardData = buildBreakingDashboard(data.feedData, lang);
+        const dashboardSection = buildDashboardSection(dashboardData, lang);
+        const injection = deepSection + swotSection + dashboardSection;
+        // Inject before the closing </div> of .article-content
+        if (injection) {
             const closingTag = '</div>';
             const lastIdx = base.lastIndexOf(closingTag);
             if (lastIdx !== -1) {
-                return base.slice(0, lastIdx) + deepSection + '\n' + base.slice(lastIdx);
+                return base.slice(0, lastIdx) + injection + '\n' + base.slice(lastIdx);
             }
         }
         return base;

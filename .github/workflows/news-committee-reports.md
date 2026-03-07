@@ -108,6 +108,8 @@ This focused approach ensures:
 > **Content quality gate**: If the article body mostly discusses historical aggregates (e.g. "1,773 committee meetings in EP10", "fragmentation index 6.59", year-over-year statistics) rather than **specific recent items with concrete titles, dates, and document IDs from feed data**, the article FAILS quality validation and must be rewritten.
 >
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data** (document titles, procedure IDs, event names with dates). Historical context from precomputed stats may appear in later sections ONLY as brief comparative background.
+>
+> **Window rule**: Treat feed items as primary news only when their substantive parliamentary date falls inside this article's current UTC window. Older committee documents can inform context but must not dominate the lead.
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
@@ -467,7 +469,8 @@ fi
 # Set USE_EP_MCP=true to enable the script's built-in MCP client
 export USE_EP_MCP=true
 
-# If feed data was saved to /tmp/ep-feed-data.json (from MCP tool calls), pass it
+# Pass prefetched feed data only when this run created /tmp/ep-feed-data.json for
+# this committee-reports article window; otherwise let the generator fetch live MCP data.
 FEED_DATA_FLAG=""
 if [ -f "/tmp/ep-feed-data.json" ]; then
   FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"

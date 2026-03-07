@@ -5,7 +5,9 @@ import { MONTH_AHEAD_TITLES, getLocalizedString } from '../../constants/language
 import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { buildWeekAheadContent, buildKeywords } from '../week-ahead-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildProspectiveAnalysis } from '../analysis-builders.js';
+import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, } from '../analysis-builders.js';
+import { buildSwotSection } from '../swot-content.js';
+import { buildDashboardSection } from '../dashboard-content.js';
 /** Keywords shared by all Month Ahead articles */
 const MONTH_AHEAD_KEYWORDS = [
     'European Parliament',
@@ -78,7 +80,7 @@ export class MonthAheadStrategy {
         // Fetch traditional MCP data and EP feeds in parallel
         const [monthData, feedData] = await Promise.all([
             fetchWeekAheadData(client, dateRange),
-            fetchEPFeedData(client, 'one-month'),
+            fetchEPFeedData(client, 'one-month', dateRange),
         ]);
         const keywords = [...MONTH_AHEAD_KEYWORDS, ...buildKeywords(monthData)];
         const monthLabel = formatMonthLabel(dateRange.start);
@@ -94,8 +96,12 @@ export class MonthAheadStrategy {
     buildContent(data, lang) {
         const base = buildWeekAheadContent(data.monthData, data.dateRange, lang);
         const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month');
-        const analysisSection = buildDeepAnalysisSection(analysis, lang);
-        return base.replace('<!-- /article-content -->', analysisSection);
+        const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        const swotData = buildProspectiveSwot(data.monthData, 'month', lang);
+        const swotSection = buildSwotSection(swotData, lang);
+        const dashboardData = buildProspectiveDashboard(data.monthData, 'month', lang);
+        const dashboardSection = buildDashboardSection(dashboardData, lang);
+        return base.replace('<!-- /article-content -->', analysisSection + swotSection + dashboardSection);
     }
     /**
      * Return language-specific metadata for the month-ahead article.

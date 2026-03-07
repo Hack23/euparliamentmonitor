@@ -3,10 +3,12 @@
 import { ArticleCategory } from '../../types/index.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { PROPOSITIONS_TITLES, PROPOSITIONS_STRINGS, getLocalizedString, } from '../../constants/languages.js';
-import { fetchProposalsFromMCP, fetchPipelineFromMCP, fetchProcedureStatusFromMCP, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
+import { computeRollingDateRange, fetchProposalsFromMCP, fetchPipelineFromMCP, fetchProcedureStatusFromMCP, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
 import { buildPropositionsContent } from '../propositions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildPropositionsAnalysis } from '../analysis-builders.js';
+import { buildPropositionsAnalysis, buildPropositionsSwot, buildPropositionsDashboard, } from '../analysis-builders.js';
+import { buildSwotSection } from '../swot-content.js';
+import { buildDashboardSection } from '../dashboard-content.js';
 /** Keywords shared by all Propositions articles */
 const PROPOSITIONS_KEYWORDS = [
     'European Parliament',
@@ -70,6 +72,7 @@ export class PropositionsStrategy {
      * @returns Populated propositions data payload
      */
     async fetchData(client, date) {
+        const feedDateRange = computeRollingDateRange(date, 7, 'propositions feed window');
         if (client) {
             console.log('  📡 Fetching legislative data from MCP server...');
         }
@@ -77,7 +80,7 @@ export class PropositionsStrategy {
         const [proposalsResult, pipelineResult, feedData] = await Promise.allSettled([
             fetchProposalsFromMCP(client),
             fetchPipelineFromMCP(client),
-            fetchEPFeedData(client, 'one-month'),
+            fetchEPFeedData(client, 'one-week', feedDateRange),
         ]);
         const { html: proposalsHtml, firstProcedureId } = proposalsResult.status === 'fulfilled'
             ? proposalsResult.value
@@ -118,12 +121,17 @@ export class PropositionsStrategy {
         const base = buildPropositionsContent(data.proposalsHtml, data.pipelineData, data.procedureHtml, strings, lang);
         const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date, lang);
         const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
-        // Inject deep analysis before the closing </div> of .article-content
-        if (deepSection) {
+        const swotData = buildPropositionsSwot(data.pipelineData, lang);
+        const swotSection = buildSwotSection(swotData, lang);
+        const dashboardData = buildPropositionsDashboard(data.pipelineData, lang);
+        const dashboardSection = buildDashboardSection(dashboardData, lang);
+        const injection = deepSection + swotSection + dashboardSection;
+        // Inject before the closing </div> of .article-content
+        if (injection) {
             const closingTag = '</div>';
             const lastIdx = base.lastIndexOf(closingTag);
             if (lastIdx !== -1) {
-                return base.slice(0, lastIdx) + deepSection + '\n' + base.slice(lastIdx);
+                return base.slice(0, lastIdx) + injection + '\n' + base.slice(lastIdx);
             }
         }
         return base;

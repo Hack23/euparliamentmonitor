@@ -1702,6 +1702,29 @@ describe('loadFeedDataFromFile', () => {
     expect(result.mepUpdates[0].name).toBe('Jane Smith');
     expect(result.mepUpdates[0].id).toBe('');
   });
+
+  it('should filter loaded breaking feed items to the requested date range', () => {
+    const feedData = {
+      adoptedTexts: [
+        { id: 'TA-001', title: 'Keep me', date: '2026-03-04' },
+        { id: 'TA-002', title: 'Drop me', date: '2026-02-12' },
+      ],
+      events: [{ id: 'EVT-001', title: 'Today event', date: '2026-03-04T09:00:00Z' }],
+      procedures: [{ id: 'PROC-001', title: 'Missing date', date: '' }],
+      mepUpdates: [{ id: 'MEP-001', name: 'Jane Smith', date: '2026-03-03' }],
+    };
+    const filePath = path.join(tmpDir, 'windowed-feed.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+
+    const result = loadFeedDataFromFile(filePath, { start: '2026-03-04', end: '2026-03-04' });
+
+    expect(result).toBeDefined();
+    expect(result.adoptedTexts).toHaveLength(1);
+    expect(result.adoptedTexts[0].id).toBe('TA-001');
+    expect(result.events).toHaveLength(1);
+    expect(result.procedures).toHaveLength(0);
+    expect(result.mepUpdates).toHaveLength(0);
+  });
 });
 
 // ─── loadEPFeedDataFromFile ──────────────────────────────────────────────────
@@ -1833,6 +1856,45 @@ describe('loadEPFeedDataFromFile', () => {
     expect(result.documents[0].title).toBe('');
     expect(result.documents[0].date).toBe('');
   });
+
+  it('should filter loaded EP feed items to the requested date range', () => {
+    const feedData = {
+      adoptedTexts: [
+        { id: 'TA-001', title: 'Keep me', date: '2026-03-05' },
+        { id: 'TA-002', title: 'Drop me', date: '2026-02-24' },
+      ],
+      events: [{ id: 'EVT-001', title: 'Window event', date: '2026-03-06T12:00:00Z' }],
+      procedures: [{ id: 'PROC-001', title: 'Outside window', date: '2026-02-28' }],
+      mepUpdates: [{ id: 'MEP-001', name: 'Jane Smith', date: '2026-03-07' }],
+      documents: [{ id: 'DOC-001', title: 'Keep doc', date: '2026-03-04' }],
+      plenaryDocuments: [{ id: 'PDOC-001', title: 'Drop doc', date: '2026-02-20' }],
+      committeeDocuments: [],
+      plenarySessionDocuments: [],
+      externalDocuments: [],
+      questions: [{ id: 'Q-001', title: 'Keep question', date: '2026-03-03' }],
+      declarations: [{ id: 'DECL-001', title: 'Drop declaration', date: '2026-02-10' }],
+      corporateBodies: [{ id: 'CB-001', title: 'Keep body', date: '2026-03-02' }],
+    };
+    const filePath = path.join(tmpDir, 'windowed-ep-feed.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+
+    const result = loadEPFeedDataFromFile(filePath, {
+      start: '2026-03-01',
+      end: '2026-03-07',
+    });
+
+    expect(result).toBeDefined();
+    expect(result.adoptedTexts).toHaveLength(1);
+    expect(result.adoptedTexts[0].id).toBe('TA-001');
+    expect(result.events).toHaveLength(1);
+    expect(result.mepUpdates).toHaveLength(1);
+    expect(result.procedures).toHaveLength(0);
+    expect(result.documents).toHaveLength(1);
+    expect(result.plenaryDocuments).toHaveLength(0);
+    expect(result.questions).toHaveLength(1);
+    expect(result.declarations).toHaveLength(0);
+    expect(result.corporateBodies).toHaveLength(1);
+  });
 });
 
 // ─── fetchEPFeedData with EP_FEED_DATA_FILE ──────────────────────────────────
@@ -1877,6 +1939,40 @@ describe('fetchEPFeedData with pre-fetched file', () => {
     expect(result).toBeDefined();
     expect(result.adoptedTexts).toHaveLength(1);
     expect(result.adoptedTexts[0].id).toBe('TA-001');
+  });
+
+  it('filters pre-fetched EP feed data to the supplied article window', async () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-fetch-window-'));
+    const feedData = {
+      adoptedTexts: [
+        { id: 'TA-001', title: 'Keep', date: '2026-03-04' },
+        { id: 'TA-002', title: 'Drop', date: '2026-02-11' },
+      ],
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+      documents: [{ id: 'DOC-001', title: 'Keep doc', date: '2026-03-05' }],
+      plenaryDocuments: [],
+      committeeDocuments: [],
+      plenarySessionDocuments: [],
+      externalDocuments: [],
+      questions: [],
+      declarations: [],
+      corporateBodies: [],
+    };
+    const filePath = path.join(tmpDir, 'ep-feed-window.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+    process.env['EP_FEED_DATA_FILE'] = filePath;
+
+    const result = await fetchEPFeedData(null, 'one-week', {
+      start: '2026-03-01',
+      end: '2026-03-07',
+    });
+
+    expect(result).toBeDefined();
+    expect(result.adoptedTexts).toHaveLength(1);
+    expect(result.adoptedTexts[0].id).toBe('TA-001');
+    expect(result.documents).toHaveLength(1);
   });
 
   it('falls through to MCP when file does not exist', async () => {

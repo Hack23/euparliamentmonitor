@@ -19,7 +19,13 @@ import {
   buildWhatToWatchSection,
 } from '../week-ahead-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildProspectiveAnalysis } from '../analysis-builders.js';
+import {
+  buildProspectiveAnalysis,
+  buildProspectiveSwot,
+  buildProspectiveDashboard,
+} from '../analysis-builders.js';
+import { buildSwotSection } from '../swot-content.js';
+import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -104,7 +110,7 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     // Fetch traditional MCP data and EP feeds in parallel
     const [weekData, feedData] = await Promise.all([
       fetchWeekAheadData(client, dateRange),
-      fetchEPFeedData(client, 'one-week'),
+      fetchEPFeedData(client, 'one-week', dateRange),
     ]);
     const keywords = buildKeywords(weekData);
 
@@ -122,11 +128,15 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     const base = buildWeekAheadContent(data.weekData, data.dateRange, lang);
     const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
     const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
-    const analysisSection = buildDeepAnalysisSection(analysis, lang);
+    const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
+    const swotData = buildProspectiveSwot(data.weekData, 'week', lang);
+    const swotSection = buildSwotSection(swotData, lang);
+    const dashboardData = buildProspectiveDashboard(data.weekData, 'week', lang);
+    const dashboardSection = buildDashboardSection(dashboardData, lang);
     // Inject at the explicit <!-- /article-content --> marker position so the
     // section stays inside the .article-content styling scope. The marker is
     // removed from the final HTML output to avoid unnecessary bytes.
-    const injection = (watchSection || '') + analysisSection;
+    const injection = (watchSection || '') + analysisSection + swotSection + dashboardSection;
     if (injection) {
       return base.replace('<!-- /article-content -->', injection);
     }

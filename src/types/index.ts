@@ -167,6 +167,7 @@ export type {
   SwotItem,
   SwotAnalysis,
   SwotStrings,
+  SwotBuilderStrings,
   DashboardMetric,
   ChartDataset,
   ChartData,
@@ -174,4 +175,5 @@ export type {
   DashboardPanel,
   DashboardConfig,
   DashboardStrings,
+  DashboardBuilderStrings,
 } from './visualization.js';

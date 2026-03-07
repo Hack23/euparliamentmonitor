@@ -24,6 +24,10 @@
   --bg-card: #ffffff;
   --border: #dde1e6;
   --border-light: #eef0f3;
+  --hero-glow-accent: rgba(255, 214, 51, 0.18);
+  --hero-surface-strong: rgba(255, 255, 255, 0.12);
+  --hero-surface-soft: rgba(255, 255, 255, 0.06);
+  --hero-surface-border: rgba(255, 255, 255, 0.14);
 
   --success: #28a745;
   --warning: #e6a817;
@@ -133,6 +137,13 @@ img {
   gap: 12px;
 }
 
+.site-header__inner--stacked {
+  flex-direction: column;
+  align-items: stretch;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
 .site-header__brand {
   display: flex;
   align-items: center;
@@ -174,6 +185,15 @@ img {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
+.site-header__logo--header {
+  width: 72px;
+  height: 48px;
+  border-radius: 0;
+  object-fit: contain;
+  background: transparent;
+  box-shadow: none;
+}
+
 .site-header__title {
   display: block;
   font-size: 1.1rem;
@@ -201,6 +221,16 @@ img {
   min-width: 0;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+}
+
+.site-header__inner--stacked .site-header__langs {
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: visible;
+  /* Base padding for wrapped language rows; reduced on mobile for compactness. */
+  padding-top: 10px;
+  border-top: 1px solid var(--hero-surface-border);
 }
 
 .site-header__langs::-webkit-scrollbar {
@@ -261,14 +291,25 @@ img {
 .hero {
   position: relative;
   border-bottom: 3px solid var(--secondary);
-  text-align: center;
   overflow: hidden;
   background: linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 100%);
+  padding: 28px 0 0;
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: stretch;
 }
 
 .hero__banner {
   display: block;
-  width: 100%;
+  width: 100vw;
+  max-width: none;
+  /* Break out of the centered content container so the banner spans the viewport. */
+  margin-inline: calc(50% - 50vw);
+  overflow: hidden;
 }
 
 .hero__banner-img {
@@ -276,46 +317,59 @@ img {
   width: 100%;
   height: auto;
   object-fit: cover;
-  max-height: 400px;
+  /* Scale with the viewport while keeping a sensible min/max hero height. */
+  min-height: clamp(220px, 32vw, 420px);
 }
 
-.hero__overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 36px 24px 28px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.4) 55%, transparent 100%);
+.hero__content {
+  width: min(calc(100% - 48px), var(--max-width));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 0 0 4px;
   color: #fff;
+}
+
+.hero__kicker {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--hero-surface-strong);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .hero__title {
-  font-size: 2.2rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   color: #fff;
-  margin-bottom: 8px;
   letter-spacing: -0.02em;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 0, 0, 0.3);
+  line-height: 1.05;
 }
 
 .hero__description {
   font-size: 1.08rem;
   color: rgba(255, 255, 255, 0.95);
-  max-width: 640px;
-  margin: 0 auto;
+  max-width: 40rem;
+  margin: 0;
   line-height: 1.55;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* ─── AI Intelligence Section ────────────────────────────────────── */
 .ai-intelligence {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 40px 32px 32px;
+  padding: 28px 28px 24px;
   background: linear-gradient(135deg, var(--primary) 0%, #0044aa 60%, #0055cc 100%);
   border-radius: var(--radius-lg);
-  margin-top: 24px;
-  margin-bottom: 8px;
+  margin-top: 0;
+  margin-bottom: 32px;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -409,7 +463,7 @@ img {
 .site-main {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 32px 24px 64px;
+  padding: 24px 24px 28px;
 }
 
 .section-heading {
@@ -1201,20 +1255,29 @@ img {
   .site-header__langs {
     flex-basis: 100%;
     order: 2;
-    padding-bottom: 2px;
+    padding-bottom: 4px;
+  }
+
+  .site-header__inner--stacked .site-header__langs {
+    /* Tighten the stacked header on smaller screens to keep the top bar compact. */
+    padding-top: 8px;
   }
 
   .lang-link {
-    padding: 3px 5px;
-    font-size: 0.65rem;
+    padding: 5px 8px;
+    font-size: 0.72rem;
   }
 
   .hero {
-    padding: 0;
+    padding: 20px 0 0;
   }
 
-  .hero__overlay {
-    padding: 20px 16px 16px;
+  .hero__inner {
+    gap: 16px;
+  }
+
+  .hero__content {
+    width: min(calc(100% - 28px), var(--max-width));
   }
 
   .hero__title {
@@ -1223,10 +1286,15 @@ img {
 
   .hero__description {
     font-size: 0.92rem;
+    max-width: 32rem;
+  }
+
+  .hero__banner-img {
+    min-height: 200px;
   }
 
   .site-main {
-    padding: 20px 14px 48px;
+    padding: 18px 14px 24px;
   }
 
   .news-grid {
@@ -1308,8 +1376,8 @@ img {
   }
 
   .ai-intelligence {
-    margin: 16px 14px 8px;
-    padding: 24px 18px 20px;
+    margin: 0 14px 24px;
+    padding: 22px 18px 18px;
   }
 
   .ai-intelligence h2 {
@@ -1324,8 +1392,16 @@ img {
 
 @media (max-width: 480px) {
   .lang-link {
-    padding: 2px 4px;
-    font-size: 0.62rem;
+    padding: 4px 7px;
+    font-size: 0.68rem;
+  }
+
+  .hero__content {
+    width: min(calc(100% - 24px), var(--max-width));
+  }
+
+  .hero__kicker {
+    font-size: 0.68rem;
   }
 
   .news-card__body {

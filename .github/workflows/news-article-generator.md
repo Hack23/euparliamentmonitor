@@ -172,9 +172,11 @@ Before generating ANY articles, verify MCP connectivity:
 >
 > **Content quality gate**: If any article mostly discusses historical aggregates (e.g. "1,773 committee meetings in EP10", "fragmentation index 6.59", year-over-year statistics, "pipeline health score 100") rather than **specific recent items with concrete titles, dates, and reference IDs from feed data**, the article FAILS quality validation and must be rewritten.
 >
-> **Article structure**: The lede paragraph and first two sections of EVERY article MUST reference **specific items from today's feed data** (document titles, procedure IDs, event names with dates). Historical context from precomputed stats may appear in later sections ONLY as brief comparative background.
+> **Article structure**: The lede paragraph and first two sections of EVERY article MUST reference **specific items from that article type's own UTC window** (for example: today for breaking, the past 7 days for weekly review, the past 30 days for monthly review, or the upcoming week/month for ahead articles). Historical context from precomputed stats may appear in later sections ONLY as brief comparative background.
 >
 > **Adopted texts**: Can be ignored if no recent items in last 12 hours.
+
+> **Shared feed-file guard**: Never reuse one saved `/tmp/ep-feed-data.json` across multiple article types with different windows. In multi-type runs, either let the generator fetch live MCP data per strategy or create a separate feed file per article type and UTC window.
 
 ## MANDATORY PR Creation
 
@@ -498,10 +500,15 @@ fi
 
 export USE_EP_MCP=true
 
-# If feed data was saved to /tmp/ep-feed-data.json (from MCP tool calls), pass it
+# Only pass a prefetched feed file for single-type runs. Multi-type runs must not
+# reuse one shared /tmp/ep-feed-data.json across different article windows.
 FEED_DATA_FLAG=""
 if [ -f "/tmp/ep-feed-data.json" ]; then
-  FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"
+  if [[ "$ARTICLE_TYPES" != *,* ]]; then
+    FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"
+  else
+    echo "ℹ️ Skipping shared --feed-data for multi-type run; each article type must use live or window-specific feed data"
+  fi
 fi
 
 npx tsx src/generators/news-enhanced.ts \

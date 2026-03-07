@@ -16,11 +16,21 @@ import {
   COMMITTEE_ANALYSIS_CONTENT_STRINGS,
   getLocalizedString,
 } from '../../constants/languages.js';
-import { fetchCommitteeData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
+import {
+  computeRollingDateRange,
+  fetchCommitteeData,
+  fetchEPFeedData,
+} from '../pipeline/fetch-stage.js';
 import { FEATURED_COMMITTEES } from '../committee-helpers.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildCommitteeAnalysis } from '../analysis-builders.js';
+import {
+  buildCommitteeAnalysis,
+  buildCommitteeSwot,
+  buildCommitteeDashboard,
+} from '../analysis-builders.js';
+import { buildSwotSection } from '../swot-content.js';
+import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import type { ArticleSource } from '../../types/index.js';
 
@@ -134,6 +144,8 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
     client: EuropeanParliamentMCPClient | null,
     date: string
   ): Promise<CommitteeReportsArticleData> {
+    const feedDateRange = computeRollingDateRange(date, 7, 'committee feed window');
+
     // Fetch individual committee data and EP feeds in parallel
     const [committeeDataRaw, feedData] = await Promise.all([
       Promise.all(
@@ -145,7 +157,7 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
           })
         )
       ),
-      fetchEPFeedData(client, 'one-month'),
+      fetchEPFeedData(client, 'one-week', feedDateRange),
     ]);
 
     const committeeDataList = committeeDataRaw.filter(
@@ -166,12 +178,17 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
     const base = buildCommitteeReportsHTML(data.committeeDataList, lang);
     const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date, lang);
     const deepSection = buildDeepAnalysisSection(analysis, lang);
-    // Inject deep analysis before the closing </div> of .article-content
-    if (deepSection) {
+    const swotData = buildCommitteeSwot(data.committeeDataList, lang);
+    const swotSection = buildSwotSection(swotData, lang);
+    const dashboardData = buildCommitteeDashboard(data.committeeDataList, lang);
+    const dashboardSection = buildDashboardSection(dashboardData, lang);
+    const injection = deepSection + swotSection + dashboardSection;
+    // Inject before the closing </div> of .article-content
+    if (injection) {
       const closingTag = '</div>';
       const lastIdx = base.lastIndexOf(closingTag);
       if (lastIdx !== -1) {
-        return base.slice(0, lastIdx) + deepSection + '\n' + base.slice(lastIdx);
+        return base.slice(0, lastIdx) + injection + '\n' + base.slice(lastIdx);
       }
     }
     return base;

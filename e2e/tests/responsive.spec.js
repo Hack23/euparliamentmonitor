@@ -21,8 +21,44 @@ const VIEWPORTS = [
   { name: 'Tablet Landscape', width: 1024, height: 768 },
   { name: 'Desktop', width: 1920, height: 1080 },
 ];
+// Allow a tiny amount of browser/layout rounding when comparing stacked blocks.
+const HERO_LAYOUT_VIEWPORTS = VIEWPORTS.filter(
+  (viewport) => viewport.name === 'Mobile Portrait' || viewport.name === 'Desktop',
+);
+const HERO_STACKING_TOLERANCE_PX = 2;
+// Allow minor viewport rounding while still proving the banner reaches the page edges.
+const HERO_BANNER_EDGE_TOLERANCE_PX = 8;
 
 test.describe('Responsive Design', () => {
+  test('should keep hero text above a full-width banner across viewports', async ({ page }) => {
+    for (const viewport of HERO_LAYOUT_VIEWPORTS) {
+      await page.setViewportSize({ width: viewport.width, height: viewport.height });
+      await page.goto('/');
+
+      const heroContent = page.locator('.hero__content');
+      const heroBanner = page.locator('.hero__banner');
+
+      await expect(heroContent).toBeVisible();
+      await expect(heroBanner).toBeVisible();
+
+      const contentBox = await heroContent.boundingBox();
+      const bannerBox = await heroBanner.boundingBox();
+
+      expect(contentBox).toBeTruthy();
+      expect(bannerBox).toBeTruthy();
+
+      if (contentBox && bannerBox) {
+        expect(contentBox.y + contentBox.height).toBeLessThanOrEqual(
+          bannerBox.y + HERO_STACKING_TOLERANCE_PX,
+        );
+        expect(bannerBox.x).toBeLessThanOrEqual(HERO_BANNER_EDGE_TOLERANCE_PX);
+        expect(bannerBox.x + bannerBox.width).toBeGreaterThanOrEqual(
+          viewport.width - HERO_BANNER_EDGE_TOLERANCE_PX,
+        );
+      }
+    }
+  });
+
   test('should render correctly on Mobile Portrait', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
