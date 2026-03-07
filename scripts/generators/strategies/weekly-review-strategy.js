@@ -67,7 +67,7 @@ export class WeeklyReviewStrategy {
             fetchVotingPatterns(client, dateRange.start, dateRange.end),
             fetchMotionsAnomalies(client, dateRange.start, dateRange.end),
             fetchParliamentaryQuestionsForMotions(client, dateRange.start, dateRange.end),
-            fetchEPFeedData(client, 'one-week'),
+            fetchEPFeedData(client, 'one-week', dateRange),
         ]);
         return {
             date,

@@ -108,6 +108,8 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 > **Content quality gate**: If the article body mostly discusses historical aggregates rather than **specific recent motions, resolutions, or voting records with concrete titles, dates, and reference IDs from feed data**, the article FAILS quality validation.
 >
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data**. Historical stats may appear in later sections ONLY as brief comparative background.
+>
+> **Window rule**: Use feed items as primary news only when their substantive parliamentary date falls inside this article's rolling analysis window. Older resurfaced texts may be cited as background, not as today's lead.
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date validation, MCP warm-up
@@ -457,7 +459,8 @@ fi
 # Set USE_EP_MCP=true to enable the script's built-in MCP client
 export USE_EP_MCP=true
 
-# If feed data was saved to /tmp/ep-feed-data.json (from MCP tool calls), pass it
+# Pass prefetched feed data only when this run created /tmp/ep-feed-data.json for
+# this motions article window; otherwise let the generator fetch live MCP data.
 FEED_DATA_FLAG=""
 if [ -f "/tmp/ep-feed-data.json" ]; then
   FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"
