@@ -482,6 +482,7 @@ describe('generate-news-indexes', () => {
       expect(headerLogoSource).not.toBeNull();
       expect(headerLogoSource.getAttribute('srcset')).toBe('images/header-logo.webp');
       expect(headerLogo).not.toBeNull();
+      expect(headerLogo.classList.contains('site-header__logo--header')).toBe(true);
       expect(headerLogo.getAttribute('src')).toBe('images/header-logo.png');
       expect(html).toContain('class="hero__inner"');
       expect(html).toContain('class="hero__content"');
