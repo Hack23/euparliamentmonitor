@@ -21,15 +21,11 @@ const VIEWPORTS = [
   { name: 'Tablet Landscape', width: 1024, height: 768 },
   { name: 'Desktop', width: 1920, height: 1080 },
 ];
+const HERO_LAYOUT_VIEWPORTS = [VIEWPORTS[0], VIEWPORTS[4]];
 
 test.describe('Responsive Design', () => {
   test('should keep hero text outside the hero image across viewports', async ({ page }) => {
-    const viewports = [
-      { width: 375, height: 667 },
-      { width: 1280, height: 960 },
-    ];
-
-    for (const viewport of viewports) {
+    for (const viewport of HERO_LAYOUT_VIEWPORTS) {
       await page.setViewportSize(viewport);
       await page.goto('/');
 

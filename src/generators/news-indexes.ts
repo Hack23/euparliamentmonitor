@@ -310,7 +310,7 @@ export function generateIndexHTML(
 <body>
   <a href="#main" class="skip-link">${skipLinkText}</a>
 
-  <header class="site-header site-header--index" role="banner">
+  <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
         <picture class="site-header__logo-picture">
