@@ -228,6 +228,7 @@ img {
   flex-wrap: wrap;
   width: 100%;
   overflow: visible;
+  /* Slightly roomier on desktop so wrapped language rows don't crowd the brand. */
   padding-top: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
@@ -306,6 +307,7 @@ img {
   display: block;
   width: 100vw;
   max-width: none;
+  /* Break out of the centered content container so the banner spans the viewport. */
   margin-inline: calc(50% - 50vw);
   overflow: hidden;
 }
@@ -1256,6 +1258,7 @@ img {
   }
 
   .site-header__inner--stacked .site-header__langs {
+    /* Tighten the stacked header on smaller screens to keep the top bar compact. */
     padding-top: 8px;
   }
 

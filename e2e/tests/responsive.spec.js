@@ -21,8 +21,10 @@ const VIEWPORTS = [
   { name: 'Tablet Landscape', width: 1024, height: 768 },
   { name: 'Desktop', width: 1920, height: 1080 },
 ];
+// Allow a tiny amount of browser/layout rounding when comparing stacked blocks.
 const HERO_LAYOUT_VIEWPORTS = [VIEWPORTS[0], VIEWPORTS[4]];
 const HERO_STACKING_TOLERANCE_PX = 2;
+// Keep a small edge tolerance for full-bleed banners to account for viewport rounding.
 const HERO_BANNER_EDGE_TOLERANCE_PX = 16;
 
 test.describe('Responsive Design', () => {

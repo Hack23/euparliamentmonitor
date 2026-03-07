@@ -465,6 +465,8 @@ describe('generate-news-indexes', () => {
       const html = generateIndexHTML('en', []);
       const document = createDocument(html);
       const headerInner = document.querySelector('.site-header__inner');
+      const headerLogoPicture = document.querySelector('.site-header__logo-picture');
+      const headerLogoSource = headerLogoPicture?.querySelector('source');
       const headerLogo = document.querySelector('.site-header__logo');
       const heroInner = document.querySelector('.hero__inner');
       const heroContent = document.querySelector('.hero__content');
@@ -476,6 +478,9 @@ describe('generate-news-indexes', () => {
       expect(html).not.toContain('images/favicon-96x96.png');
       expect(headerInner).not.toBeNull();
       expect(headerInner.classList.contains('site-header__inner--stacked')).toBe(true);
+      expect(headerLogoPicture).not.toBeNull();
+      expect(headerLogoSource).not.toBeNull();
+      expect(headerLogoSource.getAttribute('srcset')).toBe('images/header-logo.webp');
       expect(headerLogo).not.toBeNull();
       expect(headerLogo.getAttribute('src')).toBe('images/header-logo.png');
       expect(html).toContain('class="hero__inner"');
