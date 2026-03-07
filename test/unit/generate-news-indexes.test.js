@@ -463,10 +463,21 @@ describe('generate-news-indexes', () => {
 
     it('should include a compact split hero layout', () => {
       const html = generateIndexHTML('en', []);
+      const document = createDocument(html);
+      const heroInner = document.querySelector('.hero__inner');
+      const heroContent = document.querySelector('.hero__content');
+      const heroBanner = document.querySelector('.hero__banner');
 
       expect(html).toContain('class="hero__inner"');
       expect(html).toContain('class="hero__content"');
       expect(html).toContain('class="hero__kicker"');
+      expect(html).not.toContain('hero__overlay');
+      expect(heroInner).not.toBeNull();
+      expect(heroContent).not.toBeNull();
+      expect(heroBanner).not.toBeNull();
+      expect(heroInner.children[0]).toBe(heroContent);
+      expect(heroInner.children[1]).toBe(heroBanner);
+      expect(heroBanner.contains(heroContent)).toBe(false);
     });
 
     it('should contain German localized AI heading on German page', () => {

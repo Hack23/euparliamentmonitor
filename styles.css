@@ -274,12 +274,14 @@ img {
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
+  grid-template-areas: 'content media';
   grid-template-columns: 1fr minmax(280px, 520px);
   gap: 24px;
   align-items: stretch;
 }
 
 .hero__banner {
+  grid-area: media;
   display: block;
   width: 100%;
   min-height: 100%;
@@ -297,6 +299,7 @@ img {
 }
 
 .hero__content {
+  grid-area: content;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -1251,6 +1254,9 @@ img {
   }
 
   .hero__inner {
+    grid-template-areas:
+      'content'
+      'media';
     grid-template-columns: 1fr;
     gap: 16px;
   }

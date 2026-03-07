@@ -23,6 +23,40 @@ const VIEWPORTS = [
 ];
 
 test.describe('Responsive Design', () => {
+  test('should keep hero text outside the hero image across viewports', async ({ page }) => {
+    const viewports = [
+      { width: 375, height: 667 },
+      { width: 1280, height: 960 },
+    ];
+
+    for (const viewport of viewports) {
+      await page.setViewportSize(viewport);
+      await page.goto('/');
+
+      const heroContent = page.locator('.hero__content');
+      const heroBanner = page.locator('.hero__banner');
+
+      await expect(heroContent).toBeVisible();
+      await expect(heroBanner).toBeVisible();
+
+      const contentBox = await heroContent.boundingBox();
+      const bannerBox = await heroBanner.boundingBox();
+
+      expect(contentBox).toBeTruthy();
+      expect(bannerBox).toBeTruthy();
+
+      if (contentBox && bannerBox) {
+        const noOverlap =
+          contentBox.x + contentBox.width <= bannerBox.x ||
+          bannerBox.x + bannerBox.width <= contentBox.x ||
+          contentBox.y + contentBox.height <= bannerBox.y ||
+          bannerBox.y + bannerBox.height <= contentBox.y;
+
+        expect(noOverlap).toBe(true);
+      }
+    }
+  });
+
   test('should render correctly on Mobile Portrait', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
