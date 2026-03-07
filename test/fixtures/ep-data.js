@@ -297,6 +297,16 @@ export const weeklyReviewData = {
   questions: [
     { author: 'MEP Dubois', topic: 'AI regulation', date: '2025-01-10', status: 'ANSWERED' },
   ],
+  feedData: {
+    adoptedTexts: [
+      { id: 'AT-001', title: 'Resolution on climate action', date: '2025-01-12' },
+    ],
+    plenaryDocuments: [],
+    committeeDocuments: [],
+    parliamentaryQuestions: [],
+    procedures: [],
+    events: [],
+  },
 };
 
 /** Minimal MonthlyReviewArticleData fixture */
