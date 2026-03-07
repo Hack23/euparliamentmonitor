@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.1% </span>
+                <span class="strong">93.93% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/29</span>
+                <span class='fraction'>31/33</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.1% </span>
+                <span class="strong">93.93% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>27/29</span>
+                <span class='fraction'>31/33</span>
             </div>
         
             
@@ -220,7 +220,23 @@
 <a name='L155'></a><a href='#L155'>155</a>
 <a name='L156'></a><a href='#L156'>156</a>
 <a name='L157'></a><a href='#L157'>157</a>
-<a name='L158'></a><a href='#L158'>158</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -295,9 +311,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -341,16 +357,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -398,7 +418,13 @@ import {
   buildWhatToWatchSection,
 } from '../week-ahead-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildProspectiveAnalysis } from '../analysis-builders.js';
+import {
+  buildProspectiveAnalysis,
+  buildProspectiveSwot,
+  buildProspectiveDashboard,
+} from '../analysis-builders.js';
+import { buildSwotSection } from '../swot-content.js';
+import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 &nbsp;
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -483,7 +509,7 @@ export class WeekAheadStrategy implements ArticleStrategy&lt;WeekAheadArticleDat
     // Fetch traditional MCP data and EP feeds in parallel
     const [weekData, feedData] = await Promise.all([
       fetchWeekAheadData(client, dateRange),
-      fetchEPFeedData(client, 'one-week'),
+      fetchEPFeedData(client, 'one-week', dateRange),
     ]);
     const keywords = buildKeywords(weekData);
 &nbsp;
@@ -501,11 +527,15 @@ export class WeekAheadStrategy implements ArticleStrategy&lt;WeekAheadArticleDat
     const base = buildWeekAheadContent(data.weekData, data.dateRange, lang);
     const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
     const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
-    const analysisSection = buildDeepAnalysisSection(analysis, lang);
+    const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
+    const swotData = buildProspectiveSwot(data.weekData, 'week', lang);
+    const swotSection = buildSwotSection(swotData, lang);
+    const dashboardData = buildProspectiveDashboard(data.weekData, 'week', lang);
+    const dashboardSection = buildDashboardSection(dashboardData, lang);
     // Inject at the explicit &lt;!-- /article-content --&gt; marker position so the
     // section stays inside the .article-content styling scope. The marker is
     // removed from the final HTML output to avoid unnecessary bytes.
-    const injection = (watchSection || '') + analysisSection;
+    const injection = (watchSection || '') + analysisSection + swotSection + dashboardSection;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (injection) {
       return base.replace('&lt;!-- /article-content --&gt;', injection);
     }
@@ -541,7 +571,7 @@ export const weekAheadStrategy = new WeekAheadStrategy();
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-06T17:02:42.354Z
+                at 2026-03-07T23:43:40.252Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

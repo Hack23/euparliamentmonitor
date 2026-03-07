@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.15% </span>
+                <span class="strong">96.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>25/26</span>
+                <span class='fraction'>29/30</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.15% </span>
+                <span class="strong">96.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>25/26</span>
+                <span class='fraction'>29/30</span>
             </div>
         
             
@@ -274,7 +274,28 @@
 <a name='L209'></a><a href='#L209'>209</a>
 <a name='L210'></a><a href='#L210'>210</a>
 <a name='L211'></a><a href='#L211'>211</a>
-<a name='L212'></a><a href='#L212'>212</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L212'></a><a href='#L212'>212</a>
+<a name='L213'></a><a href='#L213'>213</a>
+<a name='L214'></a><a href='#L214'>214</a>
+<a name='L215'></a><a href='#L215'>215</a>
+<a name='L216'></a><a href='#L216'>216</a>
+<a name='L217'></a><a href='#L217'>217</a>
+<a name='L218'></a><a href='#L218'>218</a>
+<a name='L219'></a><a href='#L219'>219</a>
+<a name='L220'></a><a href='#L220'>220</a>
+<a name='L221'></a><a href='#L221'>221</a>
+<a name='L222'></a><a href='#L222'>222</a>
+<a name='L223'></a><a href='#L223'>223</a>
+<a name='L224'></a><a href='#L224'>224</a>
+<a name='L225'></a><a href='#L225'>225</a>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -384,9 +405,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -442,7 +463,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -451,7 +472,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -459,8 +480,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -517,7 +547,13 @@ import {
 } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildVotingAnalysis } from '../analysis-builders.js';
+import {
+  buildVotingAnalysis,
+  buildVotingSwot,
+  buildVotingDashboard,
+} from '../analysis-builders.js';
+import { buildSwotSection } from '../swot-content.js';
+import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 &nbsp;
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -627,7 +663,7 @@ export class MonthlyReviewStrategy implements ArticleStrategy&lt;MonthlyReviewAr
       fetchVotingPatterns(client, dateRange.start, dateRange.end),
       fetchMotionsAnomalies(client, dateRange.start, dateRange.end),
       fetchParliamentaryQuestionsForMotions(client, dateRange.start, dateRange.end),
-      fetchEPFeedData(client, 'one-month'),
+      fetchEPFeedData(client, 'one-month', dateRange),
     ]);
 &nbsp;
     const monthLabel = formatMonthLabel(dateRange.start);
@@ -670,8 +706,17 @@ export class MonthlyReviewStrategy implements ArticleStrategy&lt;MonthlyReviewAr
       data.anomalies,
       data.questions
     );
-    const deepSection = buildDeepAnalysisSection(analysis, lang);
-    return base.replace('&lt;!-- /article-content --&gt;', deepSection);
+    const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+    const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);
+    const swotSection = buildSwotSection(swotData, lang);
+    const dashboardData = buildVotingDashboard(
+      data.votingRecords,
+      data.votingPatterns,
+      data.anomalies,
+      lang
+    );
+    const dashboardSection = buildDashboardSection(dashboardData, lang);
+    return base.replace('&lt;!-- /article-content --&gt;', deepSection + swotSection + dashboardSection);
   }
 &nbsp;
   /**
@@ -703,7 +748,7 @@ export const monthlyReviewStrategy = new MonthlyReviewStrategy();
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-06T17:02:42.354Z
+                at 2026-03-07T23:43:40.252Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
