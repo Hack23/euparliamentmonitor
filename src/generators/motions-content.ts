@@ -325,8 +325,7 @@ export function buildAdoptedTextsSection(
 
   const heading =
     ADOPTED_TEXTS_HEADINGS[language] ?? ADOPTED_TEXTS_HEADINGS['en'] ?? 'Recently Adopted Texts';
-  const countFn =
-    ADOPTED_TEXTS_COUNT_STRINGS[language] ?? ADOPTED_TEXTS_COUNT_STRINGS['en']!;
+  const countFn = ADOPTED_TEXTS_COUNT_STRINGS[language] ?? ADOPTED_TEXTS_COUNT_STRINGS['en']!;
   const countText = countFn(adoptedTexts.length);
 
   // Group by date, sort most recent first
