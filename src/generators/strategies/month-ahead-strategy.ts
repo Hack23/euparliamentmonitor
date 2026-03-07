@@ -122,7 +122,7 @@ export class MonthAheadStrategy implements ArticleStrategy<MonthAheadArticleData
     // Fetch traditional MCP data and EP feeds in parallel
     const [monthData, feedData] = await Promise.all([
       fetchWeekAheadData(client, dateRange),
-      fetchEPFeedData(client, 'one-month'),
+      fetchEPFeedData(client, 'one-month', dateRange),
     ]);
     const keywords = [...MONTH_AHEAD_KEYWORDS, ...buildKeywords(monthData)];
     const monthLabel = formatMonthLabel(dateRange.start);

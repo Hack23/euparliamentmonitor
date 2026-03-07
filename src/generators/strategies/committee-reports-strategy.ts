@@ -16,7 +16,11 @@ import {
   COMMITTEE_ANALYSIS_CONTENT_STRINGS,
   getLocalizedString,
 } from '../../constants/languages.js';
-import { fetchCommitteeData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
+import {
+  computeRollingDateRange,
+  fetchCommitteeData,
+  fetchEPFeedData,
+} from '../pipeline/fetch-stage.js';
 import { FEATURED_COMMITTEES } from '../committee-helpers.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
@@ -134,6 +138,8 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
     client: EuropeanParliamentMCPClient | null,
     date: string
   ): Promise<CommitteeReportsArticleData> {
+    const feedDateRange = computeRollingDateRange(date, 7, 'committee feed window');
+
     // Fetch individual committee data and EP feeds in parallel
     const [committeeDataRaw, feedData] = await Promise.all([
       Promise.all(
@@ -145,7 +151,7 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
           })
         )
       ),
-      fetchEPFeedData(client, 'one-month'),
+      fetchEPFeedData(client, 'one-week', feedDateRange),
     ]);
 
     const committeeDataList = committeeDataRaw.filter(
