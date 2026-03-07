@@ -22,7 +22,9 @@ const VIEWPORTS = [
   { name: 'Desktop', width: 1920, height: 1080 },
 ];
 // Allow a tiny amount of browser/layout rounding when comparing stacked blocks.
-const HERO_LAYOUT_VIEWPORTS = [VIEWPORTS[0], VIEWPORTS[4]];
+const HERO_LAYOUT_VIEWPORTS = VIEWPORTS.filter(
+  (viewport) => viewport.name === 'Mobile Portrait' || viewport.name === 'Desktop',
+);
 const HERO_STACKING_TOLERANCE_PX = 2;
 // Allow minor viewport rounding while still proving the banner reaches the page edges.
 const HERO_BANNER_EDGE_TOLERANCE_PX = 8;
