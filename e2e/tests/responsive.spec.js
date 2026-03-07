@@ -22,6 +22,8 @@ const VIEWPORTS = [
   { name: 'Desktop', width: 1920, height: 1080 },
 ];
 const HERO_LAYOUT_VIEWPORTS = [VIEWPORTS[0], VIEWPORTS[4]];
+const HERO_STACKING_TOLERANCE_PX = 2;
+const HERO_BANNER_EDGE_TOLERANCE_PX = 16;
 
 test.describe('Responsive Design', () => {
   test('should keep hero text above a full-width banner across viewports', async ({ page }) => {
@@ -42,9 +44,13 @@ test.describe('Responsive Design', () => {
       expect(bannerBox).toBeTruthy();
 
       if (contentBox && bannerBox) {
-        expect(contentBox.y + contentBox.height).toBeLessThanOrEqual(bannerBox.y + 2);
-        expect(bannerBox.x).toBeLessThanOrEqual(16);
-        expect(bannerBox.x + bannerBox.width).toBeGreaterThanOrEqual(viewport.width - 16);
+        expect(contentBox.y + contentBox.height).toBeLessThanOrEqual(
+          bannerBox.y + HERO_STACKING_TOLERANCE_PX,
+        );
+        expect(bannerBox.x).toBeLessThanOrEqual(HERO_BANNER_EDGE_TOLERANCE_PX);
+        expect(bannerBox.x + bannerBox.width).toBeGreaterThanOrEqual(
+          viewport.width - HERO_BANNER_EDGE_TOLERANCE_PX,
+        );
       }
     }
   });
