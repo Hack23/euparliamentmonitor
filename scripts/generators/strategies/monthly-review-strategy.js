@@ -5,7 +5,9 @@ import { MONTHLY_REVIEW_TITLES, getLocalizedString } from '../../constants/langu
 import { fetchVotingRecords, fetchVotingPatterns, fetchMotionsAnomalies, fetchParliamentaryQuestionsForMotions, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildVotingAnalysis } from '../analysis-builders.js';
+import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, } from '../analysis-builders.js';
+import { buildSwotSection } from '../swot-content.js';
+import { buildDashboardSection } from '../dashboard-content.js';
 /** Keywords shared by all Monthly Review articles */
 const MONTHLY_REVIEW_KEYWORDS = [
     'European Parliament',
@@ -102,8 +104,12 @@ export class MonthlyReviewStrategy {
     buildContent(data, lang) {
         const base = generateMotionsContent(data.dateRange.start, data.dateRange.end, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
         const analysis = buildVotingAnalysis(data.dateRange.start, data.dateRange.end, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
-        const deepSection = buildDeepAnalysisSection(analysis, lang);
-        return base.replace('<!-- /article-content -->', deepSection);
+        const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);
+        const swotSection = buildSwotSection(swotData, lang);
+        const dashboardData = buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies, lang);
+        const dashboardSection = buildDashboardSection(dashboardData, lang);
+        return base.replace('<!-- /article-content -->', deepSection + swotSection + dashboardSection);
     }
     /**
      * Return language-specific metadata for the monthly review article.

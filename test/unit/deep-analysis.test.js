@@ -9,6 +9,16 @@ import {
   buildBreakingAnalysis,
   buildPropositionsAnalysis,
   buildCommitteeAnalysis,
+  buildVotingSwot,
+  buildProspectiveSwot,
+  buildBreakingSwot,
+  buildPropositionsSwot,
+  buildCommitteeSwot,
+  buildVotingDashboard,
+  buildProspectiveDashboard,
+  buildBreakingDashboard,
+  buildPropositionsDashboard,
+  buildCommitteeDashboard,
 } from '../../scripts/generators/analysis-builders.js';
 
 // ─── Fixtures ──────────────────────────────────────────────────────────────────
@@ -540,5 +550,187 @@ describe('deep analysis integration', () => {
       // Each language should produce non-empty content
       expect(html.length).toBeGreaterThan(100);
     }
+  });
+});
+
+// ─── SWOT builder tests ──────────────────────────────────────────────────────
+
+describe('SWOT builders', () => {
+  describe('buildVotingSwot', () => {
+    it('returns a valid SwotAnalysis without hardcoded title (uses localized heading)', () => {
+      const result = buildVotingSwot(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      expect(result.title).toBeUndefined();
+      expect(result.strengths.length).toBeGreaterThan(0);
+      expect(result.threats.length).toBeGreaterThan(0);
+    });
+
+    it('includes high-cohesion groups in strengths', () => {
+      const result = buildVotingSwot(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      const strengthTexts = result.strengths.map((s) => s.text);
+      expect(strengthTexts.some((t) => t.includes('cohesion above 80%'))).toBe(true);
+    });
+
+    it('includes anomalies in weaknesses', () => {
+      const result = buildVotingSwot(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      const weaknessTexts = result.weaknesses.map((w) => w.text);
+      expect(weaknessTexts.some((t) => t.includes('anomalies'))).toBe(true);
+    });
+
+    it('handles empty inputs gracefully', () => {
+      const result = buildVotingSwot([], [], []);
+      expect(result.strengths).toEqual([]);
+      expect(result.weaknesses).toEqual([]);
+      expect(result.opportunities.length).toBeGreaterThan(0);
+      expect(result.threats.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('buildProspectiveSwot', () => {
+    it('returns a valid SwotAnalysis without hardcoded title', () => {
+      const result = buildProspectiveSwot(WEEK_AHEAD_DATA, 'week');
+      expect(result.title).toBeUndefined();
+      expect(result.strengths.length).toBeGreaterThan(0);
+    });
+
+    it('includes bottleneck risk in weaknesses', () => {
+      const result = buildProspectiveSwot(WEEK_AHEAD_DATA, 'week');
+      const weaknessTexts = result.weaknesses.map((w) => w.text);
+      expect(weaknessTexts.some((t) => t.includes('bottleneck'))).toBe(true);
+    });
+  });
+
+  describe('buildBreakingSwot', () => {
+    it('returns a valid SwotAnalysis with adopted texts as strengths', () => {
+      const feedData = {
+        adoptedTexts: [{ title: 'Tax Reform', date: '2026-01-15' }],
+        events: [{ title: 'Summit', date: '2026-01-15' }],
+        procedures: [],
+        mepUpdates: [],
+      };
+      const result = buildBreakingSwot(feedData, '', '');
+      expect(result.title).toBeUndefined();
+      expect(result.strengths.some((s) => s.text.includes('adopted'))).toBe(true);
+    });
+
+    it('handles undefined feedData', () => {
+      const result = buildBreakingSwot(undefined, '', '');
+      expect(result.strengths).toEqual([]);
+    });
+  });
+
+  describe('buildPropositionsSwot', () => {
+    it('returns healthy pipeline as strength', () => {
+      const result = buildPropositionsSwot({ healthScore: 0.8, throughput: 10 });
+      expect(result.strengths.some((s) => s.text.includes('80%'))).toBe(true);
+    });
+
+    it('returns unhealthy pipeline as weakness', () => {
+      const result = buildPropositionsSwot({ healthScore: 0.3, throughput: 2 });
+      expect(result.weaknesses.some((w) => w.text.includes('congestion'))).toBe(true);
+    });
+
+    it('handles null pipeline data', () => {
+      const result = buildPropositionsSwot(null);
+      expect(result.weaknesses.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('buildCommitteeSwot', () => {
+    it('returns active committees as strengths', () => {
+      const result = buildCommitteeSwot(COMMITTEE_DATA);
+      expect(result.strengths.length).toBeGreaterThan(0);
+    });
+
+    it('identifies inactive committees as weaknesses', () => {
+      const result = buildCommitteeSwot(COMMITTEE_DATA);
+      const weaknessTexts = result.weaknesses.map((w) => w.text);
+      // LIBE has 0 docs so it should appear
+      expect(weaknessTexts.some((t) => t.includes('no recent document'))).toBe(true);
+    });
+  });
+});
+
+// ─── Dashboard builder tests ─────────────────────────────────────────────────
+
+describe('Dashboard builders', () => {
+  describe('buildVotingDashboard', () => {
+    it('returns a valid DashboardConfig with panels (no hardcoded title)', () => {
+      const result = buildVotingDashboard(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      expect(result.title).toBeUndefined();
+      expect(result.panels.length).toBeGreaterThan(0);
+    });
+
+    it('includes voting overview metrics', () => {
+      const result = buildVotingDashboard(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      const overviewPanel = result.panels[0];
+      expect(overviewPanel.metrics.length).toBeGreaterThan(0);
+      expect(overviewPanel.metrics.some((m) => m.label === 'Total Votes')).toBe(true);
+    });
+
+    it('includes cohesion chart when patterns available', () => {
+      const result = buildVotingDashboard(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      expect(result.panels.length).toBe(2);
+      expect(result.panels[1].chart).toBeDefined();
+      expect(result.panels[1].chart.type).toBe('bar');
+    });
+
+    it('handles empty inputs', () => {
+      const result = buildVotingDashboard([], [], []);
+      expect(result.panels.length).toBe(1);
+    });
+  });
+
+  describe('buildProspectiveDashboard', () => {
+    it('returns panels with scheduled activity metrics (no hardcoded title)', () => {
+      const result = buildProspectiveDashboard(WEEK_AHEAD_DATA, 'week');
+      expect(result.title).toBeUndefined();
+      expect(result.panels.length).toBe(2);
+    });
+  });
+
+  describe('buildBreakingDashboard', () => {
+    it('returns panels with feed activity metrics', () => {
+      const feedData = {
+        adoptedTexts: [{ title: 'Tax Reform', date: '2026-01-15' }],
+        events: [],
+        procedures: [],
+        mepUpdates: [],
+      };
+      const result = buildBreakingDashboard(feedData);
+      expect(result.title).toBeUndefined();
+      expect(result.panels[0].metrics.some((m) => m.label === 'Adopted Texts')).toBe(true);
+    });
+
+    it('handles undefined feedData', () => {
+      const result = buildBreakingDashboard(undefined);
+      expect(result.panels.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('buildPropositionsDashboard', () => {
+    it('returns pipeline health metrics', () => {
+      const result = buildPropositionsDashboard({ healthScore: 0.85, throughput: 12 });
+      expect(result.panels[0].metrics.some((m) => m.label === 'Health Score')).toBe(true);
+      expect(result.panels[0].metrics.some((m) => m.value === '85%')).toBe(true);
+    });
+
+    it('handles null pipeline data', () => {
+      const result = buildPropositionsDashboard(null);
+      expect(result.panels[0].metrics.some((m) => m.value === '0%')).toBe(true);
+    });
+  });
+
+  describe('buildCommitteeDashboard', () => {
+    it('returns committee overview and chart (no hardcoded title)', () => {
+      const result = buildCommitteeDashboard(COMMITTEE_DATA);
+      expect(result.title).toBeUndefined();
+      expect(result.panels.length).toBe(2);
+      expect(result.panels[1].chart).toBeDefined();
+    });
+
+    it('handles empty committee list', () => {
+      const result = buildCommitteeDashboard([]);
+      expect(result.panels.length).toBe(1);
+    });
   });
 });
