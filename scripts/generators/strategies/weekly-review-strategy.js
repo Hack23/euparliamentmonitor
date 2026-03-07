@@ -5,7 +5,7 @@ import { WEEKLY_REVIEW_TITLES, getLocalizedString } from '../../constants/langua
 import { fetchVotingRecords, fetchVotingPatterns, fetchMotionsAnomalies, fetchParliamentaryQuestionsForMotions, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard } from '../analysis-builders.js';
+import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 /** Keywords shared by all Weekly Review articles */
@@ -92,7 +92,7 @@ export class WeeklyReviewStrategy {
     buildContent(data, lang) {
         const base = generateMotionsContent(data.dateRange.start, data.dateRange.end, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
         const analysis = buildVotingAnalysis(data.dateRange.start, data.dateRange.end, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
-        const deepSection = buildDeepAnalysisSection(analysis, lang);
+        const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
         const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies);
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies);

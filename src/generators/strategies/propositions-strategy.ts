@@ -26,7 +26,11 @@ import {
 } from '../pipeline/fetch-stage.js';
 import { buildPropositionsContent } from '../propositions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildPropositionsAnalysis, buildPropositionsSwot, buildPropositionsDashboard } from '../analysis-builders.js';
+import {
+  buildPropositionsAnalysis,
+  buildPropositionsSwot,
+  buildPropositionsDashboard,
+} from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { PipelineData } from '../propositions-content.js';

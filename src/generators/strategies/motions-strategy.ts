@@ -26,7 +26,11 @@ import {
   buildAdoptedTextsSection,
 } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard } from '../analysis-builders.js';
+import {
+  buildVotingAnalysis,
+  buildVotingSwot,
+  buildVotingDashboard,
+} from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
@@ -148,7 +152,7 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
       data.anomalies,
       data.questions
     );
-    const deepSection = buildDeepAnalysisSection(analysis, lang);
+    const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
     const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies);
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildVotingDashboard(
@@ -162,11 +166,7 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
     // emitted by generateMotionsContent as the last child of that wrapper and
     // is removed from the final HTML during this replacement.
     const injection =
-      adoptedTextsSection +
-      (alignmentSection || '') +
-      deepSection +
-      swotSection +
-      dashboardSection;
+      adoptedTextsSection + (alignmentSection || '') + deepSection + swotSection + dashboardSection;
     if (injection) {
       return base.replace('<!-- /article-content -->', `${injection}\n`);
     }

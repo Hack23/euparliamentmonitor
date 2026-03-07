@@ -24,7 +24,11 @@ import {
 import { FEATURED_COMMITTEES } from '../committee-helpers.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildCommitteeAnalysis, buildCommitteeSwot, buildCommitteeDashboard } from '../analysis-builders.js';
+import {
+  buildCommitteeAnalysis,
+  buildCommitteeSwot,
+  buildCommitteeDashboard,
+} from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';

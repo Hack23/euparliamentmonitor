@@ -842,7 +842,9 @@ export function buildCommitteeSwot(committees) {
                 ? [
                     {
                         text: `${activeCommittees.length} of ${committees.length} committees actively producing documents`,
-                        severity: activeCommittees.length >= committees.length * 0.7 ? 'high' : 'medium',
+                        severity: activeCommittees.length >= committees.length * 0.7
+                            ? 'high'
+                            : 'medium',
                     },
                 ]
                 : []),
@@ -1078,9 +1080,7 @@ export function buildPropositionsDashboard(pipelineData) {
 export function buildCommitteeDashboard(committees) {
     const activeCommittees = committees.filter((c) => c.documents.length > 0);
     const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
-    const activePct = committees.length > 0
-        ? ((activeCommittees.length / committees.length) * 100).toFixed(0)
-        : '0';
+    const activePct = committees.length > 0 ? ((activeCommittees.length / committees.length) * 100).toFixed(0) : '0';
     const overviewPanel = {
         title: 'Committee Overview',
         metrics: [
@@ -1088,9 +1088,7 @@ export function buildCommitteeDashboard(committees) {
             {
                 label: 'Active Committees',
                 value: String(activeCommittees.length),
-                trend: activeCommittees.length >= committees.length * 0.7
-                    ? 'up'
-                    : 'down',
+                trend: activeCommittees.length >= committees.length * 0.7 ? 'up' : 'down',
             },
             { label: 'Activity Rate', value: `${activePct}%` },
             { label: 'Documents Produced', value: String(totalDocs) },

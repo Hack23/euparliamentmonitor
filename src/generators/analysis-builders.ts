@@ -972,7 +972,10 @@ export function buildCommitteeSwot(committees: readonly CommitteeData[]): SwotAn
         ? [
             {
               text: `${activeCommittees.length} of ${committees.length} committees actively producing documents`,
-              severity: activeCommittees.length >= committees.length * 0.7 ? ('high' as const) : ('medium' as const),
+              severity:
+                activeCommittees.length >= committees.length * 0.7
+                  ? ('high' as const)
+                  : ('medium' as const),
             },
           ]
         : []),
@@ -990,7 +993,8 @@ export function buildCommitteeSwot(committees: readonly CommitteeData[]): SwotAn
         ? [
             {
               text: `${inactiveCount} committees with no recent document activity`,
-              severity: inactiveCount > committees.length * 0.3 ? ('high' as const) : ('medium' as const),
+              severity:
+                inactiveCount > committees.length * 0.3 ? ('high' as const) : ('medium' as const),
             },
           ]
         : []),
@@ -1098,7 +1102,10 @@ export function buildVotingDashboard(
  * @param _label - "week" or "month" (reserved for future localisation)
  * @returns Dashboard configuration
  */
-export function buildProspectiveDashboard(weekData: WeekAheadData, _label: string): DashboardConfig {
+export function buildProspectiveDashboard(
+  weekData: WeekAheadData,
+  _label: string
+): DashboardConfig {
   const bottleneckCount = weekData.pipeline.filter((p) => p.bottleneck === true).length;
 
   return {
@@ -1137,7 +1144,9 @@ export function buildProspectiveDashboard(weekData: WeekAheadData, _label: strin
  * @param feedData - EP feed data
  * @returns Dashboard configuration
  */
-export function buildBreakingDashboard(feedData: BreakingNewsFeedData | undefined): DashboardConfig {
+export function buildBreakingDashboard(
+  feedData: BreakingNewsFeedData | undefined
+): DashboardConfig {
   const adoptedCount = feedData?.adoptedTexts.length ?? 0;
   const eventCount = feedData?.events.length ?? 0;
   const procCount = feedData?.procedures.length ?? 0;
@@ -1233,9 +1242,7 @@ export function buildCommitteeDashboard(committees: readonly CommitteeData[]): D
   const activeCommittees = committees.filter((c) => c.documents.length > 0);
   const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
   const activePct =
-    committees.length > 0
-      ? ((activeCommittees.length / committees.length) * 100).toFixed(0)
-      : '0';
+    committees.length > 0 ? ((activeCommittees.length / committees.length) * 100).toFixed(0) : '0';
 
   const overviewPanel = {
     title: 'Committee Overview',
@@ -1245,9 +1252,7 @@ export function buildCommitteeDashboard(committees: readonly CommitteeData[]): D
         label: 'Active Committees',
         value: String(activeCommittees.length),
         trend:
-          activeCommittees.length >= committees.length * 0.7
-            ? ('up' as const)
-            : ('down' as const),
+          activeCommittees.length >= committees.length * 0.7 ? ('up' as const) : ('down' as const),
       },
       { label: 'Activity Rate', value: `${activePct}%` },
       { label: 'Documents Produced', value: String(totalDocs) },

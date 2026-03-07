@@ -5,7 +5,7 @@ import { MONTH_AHEAD_TITLES, getLocalizedString } from '../../constants/language
 import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { buildWeekAheadContent, buildKeywords } from '../week-ahead-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard } from '../analysis-builders.js';
+import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 /** Keywords shared by all Month Ahead articles */
@@ -96,7 +96,7 @@ export class MonthAheadStrategy {
     buildContent(data, lang) {
         const base = buildWeekAheadContent(data.monthData, data.dateRange, lang);
         const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month');
-        const analysisSection = buildDeepAnalysisSection(analysis, lang);
+        const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
         const swotData = buildProspectiveSwot(data.monthData, 'month');
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildProspectiveDashboard(data.monthData, 'month');

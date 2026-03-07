@@ -19,7 +19,11 @@ import {
   buildWhatToWatchSection,
 } from '../week-ahead-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard } from '../analysis-builders.js';
+import {
+  buildProspectiveAnalysis,
+  buildProspectiveSwot,
+  buildProspectiveDashboard,
+} from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
@@ -124,7 +128,7 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     const base = buildWeekAheadContent(data.weekData, data.dateRange, lang);
     const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
     const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
-    const analysisSection = buildDeepAnalysisSection(analysis, lang);
+    const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
     const swotData = buildProspectiveSwot(data.weekData, 'week');
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildProspectiveDashboard(data.weekData, 'week');

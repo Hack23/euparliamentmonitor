@@ -6,7 +6,7 @@ import { PROPOSITIONS_TITLES, PROPOSITIONS_STRINGS, getLocalizedString, } from '
 import { computeRollingDateRange, fetchProposalsFromMCP, fetchPipelineFromMCP, fetchProcedureStatusFromMCP, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
 import { buildPropositionsContent } from '../propositions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildPropositionsAnalysis, buildPropositionsSwot, buildPropositionsDashboard } from '../analysis-builders.js';
+import { buildPropositionsAnalysis, buildPropositionsSwot, buildPropositionsDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 /** Keywords shared by all Propositions articles */

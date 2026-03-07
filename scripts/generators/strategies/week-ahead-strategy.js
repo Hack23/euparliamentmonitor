@@ -5,7 +5,7 @@ import { WEEK_AHEAD_TITLES, getLocalizedString } from '../../constants/languages
 import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { buildWeekAheadContent, buildKeywords, buildWhatToWatchSection, } from '../week-ahead-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard } from '../analysis-builders.js';
+import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 // ─── Date-range helper ────────────────────────────────────────────────────────
@@ -79,7 +79,7 @@ export class WeekAheadStrategy {
         const base = buildWeekAheadContent(data.weekData, data.dateRange, lang);
         const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
         const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
-        const analysisSection = buildDeepAnalysisSection(analysis, lang);
+        const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
         const swotData = buildProspectiveSwot(data.weekData, 'week');
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildProspectiveDashboard(data.weekData, 'week');

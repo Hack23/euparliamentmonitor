@@ -30,7 +30,11 @@ import {
 } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard } from '../analysis-builders.js';
+import {
+  buildVotingAnalysis,
+  buildVotingSwot,
+  buildVotingDashboard,
+} from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
@@ -185,7 +189,7 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
       data.anomalies,
       data.questions
     );
-    const deepSection = buildDeepAnalysisSection(analysis, lang);
+    const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
     const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies);
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildVotingDashboard(
@@ -194,10 +198,7 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
       data.anomalies
     );
     const dashboardSection = buildDashboardSection(dashboardData, lang);
-    return base.replace(
-      '<!-- /article-content -->',
-      deepSection + swotSection + dashboardSection
-    );
+    return base.replace('<!-- /article-content -->', deepSection + swotSection + dashboardSection);
   }
 
   /**

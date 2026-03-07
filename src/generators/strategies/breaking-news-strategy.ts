@@ -24,7 +24,11 @@ import {
 } from '../pipeline/fetch-stage.js';
 import { buildBreakingNewsContent } from '../breaking-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard } from '../analysis-builders.js';
+import {
+  buildBreakingAnalysis,
+  buildBreakingSwot,
+  buildBreakingDashboard,
+} from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
