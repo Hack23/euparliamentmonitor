@@ -76,7 +76,10 @@ function buildLangSwitcher(currentLang) {
         const active = code === currentLang ? ' active' : '';
         const href = getIndexFilename(code);
         const current = code === currentLang ? ' aria-current="page"' : '';
-        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${name}" aria-label="${name}"${current}>${flag} ${code.toUpperCase()}</a>`;
+        const safeHref = escapeHTML(href);
+        const safeCode = escapeHTML(code);
+        const safeName = escapeHTML(name);
+        return `<a href="${safeHref}" class="lang-link${active}" hreflang="${safeCode}" lang="${safeCode}" title="${safeName}" aria-label="${safeName}"${current}>${flag} ${code.toUpperCase()}</a>`;
     }).join('\n        ');
 }
 /**
@@ -91,7 +94,10 @@ function buildFooterLanguageGrid(currentLang) {
         const name = getLocalizedString(LANGUAGE_NAMES, code);
         const href = getIndexFilename(code);
         const active = code === currentLang ? ' class="active"' : '';
-        return `<a href="${href}"${active} hreflang="${code}">${flag} ${name}</a>`;
+        const safeHref = escapeHTML(href);
+        const safeCode = escapeHTML(code);
+        const safeName = escapeHTML(name);
+        return `<a href="${safeHref}"${active} hreflang="${safeCode}">${flag} ${safeName}</a>`;
     }).join('\n            ');
 }
 /**
