@@ -1887,6 +1887,7 @@ describe('loadEPFeedDataFromFile', () => {
     expect(result.adoptedTexts).toHaveLength(1);
     expect(result.adoptedTexts[0].id).toBe('TA-001');
     expect(result.events).toHaveLength(1);
+    expect(result.mepUpdates).toHaveLength(1);
     expect(result.procedures).toHaveLength(0);
     expect(result.documents).toHaveLength(1);
     expect(result.plenaryDocuments).toHaveLength(0);
