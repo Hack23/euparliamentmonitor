@@ -503,10 +503,12 @@ export USE_EP_MCP=true
 # Only pass a prefetched feed file for single-type runs. Multi-type runs must not
 # reuse one shared /tmp/ep-feed-data.json across different article windows.
 FEED_DATA_FLAG=""
-if [ -f "/tmp/ep-feed-data.json" ] && [[ "$ARTICLE_TYPES" != *,* ]]; then
-  FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"
-else
-  echo "ℹ️ Skipping shared --feed-data for multi-type run; each article type must use live or window-specific feed data"
+if [ -f "/tmp/ep-feed-data.json" ]; then
+  if [[ "$ARTICLE_TYPES" != *,* ]]; then
+    FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"
+  else
+    echo "ℹ️ Skipping shared --feed-data for multi-type run; each article type must use live or window-specific feed data"
+  fi
 fi
 
 npx tsx src/generators/news-enhanced.ts \

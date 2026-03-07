@@ -352,6 +352,28 @@ function filterEPFeedDataByDateRange(
   };
 }
 
+/**
+ * Compute an inclusive UTC date window ending on `endDate`.
+ *
+ * @param endDate - Inclusive UTC end date in `YYYY-MM-DD` form
+ * @param lookbackDays - Number of calendar days to subtract for the start date
+ * @param context - Label used in error messages
+ * @returns Inclusive date range
+ */
+export function computeRollingDateRange(
+  endDate: string,
+  lookbackDays: number,
+  context: string
+): DateRange {
+  const startDate = new Date(`${endDate}T00:00:00Z`);
+  startDate.setUTCDate(startDate.getUTCDate() - lookbackDays);
+  const startDateParts = startDate.toISOString().split('T');
+  if (!startDateParts[0]) {
+    throw new Error(`Invalid date format generated for ${context}`);
+  }
+  return { start: startDateParts[0], end: endDate };
+}
+
 // ─── MCP client initialisation ───────────────────────────────────────────────
 
 /**
@@ -493,20 +515,21 @@ export function loadFeedDataFromFile(
       Array.isArray(obj['procedures']) ? obj['procedures'] : []
     );
     const mepUpdates = sanitizeMEPItems(Array.isArray(obj['mepUpdates']) ? obj['mepUpdates'] : []);
-    console.log(
-      `${INFO_PREFIX} Loaded feed data from file: ` +
-        `${adoptedTexts.length} adopted texts, ${events.length} events, ` +
-        `${procedures.length} procedures, ${mepUpdates.length} MEP updates`
-    );
-    return filterBreakingNewsFeedDataByDateRange(
+    const filteredData = filterBreakingNewsFeedDataByDateRange(
       {
-      adoptedTexts,
-      events,
-      procedures,
-      mepUpdates,
+        adoptedTexts,
+        events,
+        procedures,
+        mepUpdates,
       },
       dateRange
     );
+    console.log(
+      `${INFO_PREFIX} Loaded feed data from file: ` +
+        `${filteredData.adoptedTexts.length} adopted texts, ${filteredData.events.length} events, ` +
+        `${filteredData.procedures.length} procedures, ${filteredData.mepUpdates.length} MEP updates`
+    );
+    return filteredData;
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     console.warn(`${WARN_PREFIX} Failed to load feed data from file: ${message}`);
@@ -563,39 +586,40 @@ export function loadEPFeedDataFromFile(
     const questions = sanitizeTitleItems<QuestionFeedItem>(safeArray('questions'));
     const declarations = sanitizeTitleItems<DeclarationFeedItem>(safeArray('declarations'));
     const corporateBodies = sanitizeTitleItems<CorporateBodyFeedItem>(safeArray('corporateBodies'));
-    const totalItems =
-      adoptedTexts.length +
-      events.length +
-      procedures.length +
-      mepUpdates.length +
-      documents.length +
-      plenaryDocuments.length +
-      committeeDocuments.length +
-      plenarySessionDocuments.length +
-      externalDocuments.length +
-      questions.length +
-      declarations.length +
-      corporateBodies.length;
-    console.log(
-      `${INFO_PREFIX} Loaded EP feed data from file: ${totalItems} total items across 12 keys`
-    );
-    return filterEPFeedDataByDateRange(
+    const filteredData = filterEPFeedDataByDateRange(
       {
-      adoptedTexts,
-      events,
-      procedures,
-      mepUpdates,
-      documents,
-      plenaryDocuments,
-      committeeDocuments,
-      plenarySessionDocuments,
-      externalDocuments,
-      questions,
-      declarations,
-      corporateBodies,
+        adoptedTexts,
+        events,
+        procedures,
+        mepUpdates,
+        documents,
+        plenaryDocuments,
+        committeeDocuments,
+        plenarySessionDocuments,
+        externalDocuments,
+        questions,
+        declarations,
+        corporateBodies,
       },
       dateRange
     );
+    const totalItems =
+      filteredData.adoptedTexts.length +
+      filteredData.events.length +
+      filteredData.procedures.length +
+      filteredData.mepUpdates.length +
+      filteredData.documents.length +
+      filteredData.plenaryDocuments.length +
+      filteredData.committeeDocuments.length +
+      filteredData.plenarySessionDocuments.length +
+      filteredData.externalDocuments.length +
+      filteredData.questions.length +
+      filteredData.declarations.length +
+      filteredData.corporateBodies.length;
+    console.log(
+      `${INFO_PREFIX} Loaded EP feed data from file: ${totalItems} total items across 12 keys`
+    );
+    return filteredData;
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     console.warn(`${WARN_PREFIX} Failed to load EP feed data from file: ${message}`);
@@ -1857,33 +1881,37 @@ export async function fetchEPFeedData(
     fetchCorporateBodiesFeed(client, timeframe),
   ]);
 
+  const filteredData = filterEPFeedDataByDateRange(
+    {
+      adoptedTexts,
+      events,
+      procedures,
+      mepUpdates,
+      documents,
+      plenaryDocuments,
+      committeeDocuments,
+      plenarySessionDocuments,
+      externalDocuments,
+      questions,
+      declarations,
+      corporateBodies,
+    },
+    dateRange
+  );
   const totalItems =
-    adoptedTexts.length +
-    events.length +
-    procedures.length +
-    mepUpdates.length +
-    documents.length +
-    plenaryDocuments.length +
-    committeeDocuments.length +
-    plenarySessionDocuments.length +
-    externalDocuments.length +
-    questions.length +
-    declarations.length +
-    corporateBodies.length;
+    filteredData.adoptedTexts.length +
+    filteredData.events.length +
+    filteredData.procedures.length +
+    filteredData.mepUpdates.length +
+    filteredData.documents.length +
+    filteredData.plenaryDocuments.length +
+    filteredData.committeeDocuments.length +
+    filteredData.plenarySessionDocuments.length +
+    filteredData.externalDocuments.length +
+    filteredData.questions.length +
+    filteredData.declarations.length +
+    filteredData.corporateBodies.length;
   console.log(`  ✅ Fetched ${totalItems} total feed items across 12 endpoints`);
 
-  return filterEPFeedDataByDateRange({
-    adoptedTexts,
-    events,
-    procedures,
-    mepUpdates,
-    documents,
-    plenaryDocuments,
-    committeeDocuments,
-    plenarySessionDocuments,
-    externalDocuments,
-    questions,
-    declarations,
-    corporateBodies,
-  }, dateRange);
+  return filteredData;
 }

@@ -3,7 +3,7 @@
 import { ArticleCategory } from '../../types/index.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { PROPOSITIONS_TITLES, PROPOSITIONS_STRINGS, getLocalizedString, } from '../../constants/languages.js';
-import { fetchProposalsFromMCP, fetchPipelineFromMCP, fetchProcedureStatusFromMCP, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
+import { computeRollingDateRange, fetchProposalsFromMCP, fetchPipelineFromMCP, fetchProcedureStatusFromMCP, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
 import { buildPropositionsContent } from '../propositions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildPropositionsAnalysis } from '../analysis-builders.js';
@@ -70,13 +70,7 @@ export class PropositionsStrategy {
      * @returns Populated propositions data payload
      */
     async fetchData(client, date) {
-        const feedWindowStart = new Date(`${date}T00:00:00Z`);
-        feedWindowStart.setUTCDate(feedWindowStart.getUTCDate() - 7);
-        const feedWindowStartParts = feedWindowStart.toISOString().split('T');
-        if (!feedWindowStartParts[0]) {
-            throw new Error('Invalid date format generated for propositions feed window');
-        }
-        const feedDateRange = { start: feedWindowStartParts[0], end: date };
+        const feedDateRange = computeRollingDateRange(date, 7, 'propositions feed window');
         if (client) {
             console.log('  📡 Fetching legislative data from MCP server...');
         }

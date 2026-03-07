@@ -16,7 +16,11 @@ import {
   COMMITTEE_ANALYSIS_CONTENT_STRINGS,
   getLocalizedString,
 } from '../../constants/languages.js';
-import { fetchCommitteeData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
+import {
+  computeRollingDateRange,
+  fetchCommitteeData,
+  fetchEPFeedData,
+} from '../pipeline/fetch-stage.js';
 import { FEATURED_COMMITTEES } from '../committee-helpers.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
@@ -134,13 +138,7 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
     client: EuropeanParliamentMCPClient | null,
     date: string
   ): Promise<CommitteeReportsArticleData> {
-    const feedWindowStart = new Date(`${date}T00:00:00Z`);
-    feedWindowStart.setUTCDate(feedWindowStart.getUTCDate() - 7);
-    const feedWindowStartParts = feedWindowStart.toISOString().split('T');
-    if (!feedWindowStartParts[0]) {
-      throw new Error('Invalid date format generated for committee feed window');
-    }
-    const feedDateRange = { start: feedWindowStartParts[0], end: date };
+    const feedDateRange = computeRollingDateRange(date, 7, 'committee feed window');
 
     // Fetch individual committee data and EP feeds in parallel
     const [committeeDataRaw, feedData] = await Promise.all([
