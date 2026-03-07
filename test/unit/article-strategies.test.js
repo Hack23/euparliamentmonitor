@@ -1155,11 +1155,15 @@ describe('SWOT and Dashboard integration across all strategies', () => {
     const strategy = new WeekAheadStrategy();
     const content = strategy.buildContent(weekAheadData, 'de');
     expect(content).toContain('class="swot-analysis"');
+    // Assert German-localized SWOT heading is present
+    expect(content).toMatch(/SWOT-Analyse/);
   });
 
   it('Dashboard section is localized for French', () => {
     const strategy = new BreakingNewsStrategy();
     const content = strategy.buildContent(breakingNewsData, 'fr');
     expect(content).toContain('class="dashboard"');
+    // Assert French-localized dashboard heading is present
+    expect(content).toMatch(/Tableau de bord/);
   });
 });

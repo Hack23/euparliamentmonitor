@@ -632,8 +632,9 @@ export function buildVotingSwot(
   const highCohesionGroups = patterns.filter((p) => p.cohesion > 0.8);
   const lowCohesionGroups = patterns.filter((p) => p.cohesion < 0.5);
 
+  const highSeverityAnomalies = anomalies.filter((a) => a.severity?.toUpperCase() === 'HIGH');
+
   return {
-    title: 'Parliamentary Voting — Strategic Assessment',
     strengths: [
       ...(highCohesionGroups.length > 0
         ? [
@@ -693,10 +694,10 @@ export function buildVotingSwot(
         : []),
     ],
     threats: [
-      ...(anomalies.filter((a) => a.severity?.toUpperCase() === 'HIGH').length > 0
+      ...(highSeverityAnomalies.length > 0
         ? [
             {
-              text: `${anomalies.filter((a) => a.severity?.toUpperCase() === 'HIGH').length} high-severity anomalies — risk of coalition fragmentation`,
+              text: `${highSeverityAnomalies.length} high-severity anomalies — risk of coalition fragmentation`,
               severity: 'high' as const,
             },
           ]
@@ -713,13 +714,12 @@ export function buildVotingSwot(
  * Build SWOT analysis for week-ahead / month-ahead articles.
  *
  * @param weekData - Aggregated week/month data
- * @param label - "week" or "month"
+ * @param _label - "week" or "month" (reserved for future localisation)
  * @returns SWOT analysis data
  */
-export function buildProspectiveSwot(weekData: WeekAheadData, label: string): SwotAnalysis {
+export function buildProspectiveSwot(weekData: WeekAheadData, _label: string): SwotAnalysis {
   const bottleneckCount = weekData.pipeline.filter((p) => p.bottleneck === true).length;
   return {
-    title: `${label.charAt(0).toUpperCase() + label.slice(1)} Ahead — Strategic Assessment`,
     strengths: [
       ...(weekData.events.length > 0
         ? [
@@ -809,7 +809,6 @@ export function buildBreakingSwot(
   const procCount = feedData?.procedures.length ?? 0;
 
   return {
-    title: 'Breaking Developments — Strategic Assessment',
     strengths: [
       ...(adoptedCount > 0
         ? [
@@ -893,7 +892,6 @@ export function buildPropositionsSwot(pipelineData: PipelineData | null): SwotAn
   const pct = (healthScore * 100).toFixed(0);
 
   return {
-    title: 'Legislative Pipeline — Strategic Assessment',
     strengths: [
       ...(healthScore > 0.7
         ? [
@@ -969,7 +967,6 @@ export function buildCommitteeSwot(committees: readonly CommitteeData[]): SwotAn
   const inactiveCount = committees.length - activeCommittees.length;
 
   return {
-    title: 'Committee Activity — Strategic Assessment',
     strengths: [
       ...(activeCommittees.length > 0
         ? [
@@ -1091,21 +1088,20 @@ export function buildVotingDashboard(
 
   const panels = cohesionPanel ? [overviewPanel, cohesionPanel] : [overviewPanel];
 
-  return { title: 'Voting Activity Dashboard', panels };
+  return { panels };
 }
 
 /**
  * Build dashboard for week-ahead / month-ahead articles.
  *
  * @param weekData - Aggregated week/month data
- * @param label - "week" or "month"
+ * @param _label - "week" or "month" (reserved for future localisation)
  * @returns Dashboard configuration
  */
-export function buildProspectiveDashboard(weekData: WeekAheadData, label: string): DashboardConfig {
+export function buildProspectiveDashboard(weekData: WeekAheadData, _label: string): DashboardConfig {
   const bottleneckCount = weekData.pipeline.filter((p) => p.bottleneck === true).length;
 
   return {
-    title: `${label.charAt(0).toUpperCase() + label.slice(1)} Ahead — Activity Dashboard`,
     panels: [
       {
         title: 'Scheduled Activity',
@@ -1149,7 +1145,6 @@ export function buildBreakingDashboard(feedData: BreakingNewsFeedData | undefine
   const totalItems = adoptedCount + eventCount + procCount + mepCount;
 
   return {
-    title: 'Breaking News Dashboard',
     panels: [
       {
         title: 'Feed Activity',
@@ -1167,7 +1162,7 @@ export function buildBreakingDashboard(feedData: BreakingNewsFeedData | undefine
       {
         title: 'Activity Summary',
         metrics: [{ label: 'Total Items', value: String(totalItems) }],
-        ...(adoptedCount > 0 || eventCount > 0 || procCount > 0
+        ...(totalItems > 0
           ? {
               chart: {
                 type: 'doughnut' as const,
@@ -1201,7 +1196,6 @@ export function buildPropositionsDashboard(pipelineData: PipelineData | null): D
   const pct = (healthScore * 100).toFixed(0);
 
   return {
-    title: 'Legislative Pipeline Dashboard',
     panels: [
       {
         title: 'Pipeline Health',
@@ -1287,5 +1281,5 @@ export function buildCommitteeDashboard(committees: readonly CommitteeData[]): D
 
   const panels = chartPanel ? [overviewPanel, chartPanel] : [overviewPanel];
 
-  return { title: 'Committee Activity Dashboard', panels };
+  return { panels };
 }

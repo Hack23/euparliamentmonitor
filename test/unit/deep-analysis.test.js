@@ -557,9 +557,9 @@ describe('deep analysis integration', () => {
 
 describe('SWOT builders', () => {
   describe('buildVotingSwot', () => {
-    it('returns a valid SwotAnalysis with title', () => {
+    it('returns a valid SwotAnalysis without hardcoded title (uses localized heading)', () => {
       const result = buildVotingSwot(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
-      expect(result.title).toContain('Strategic Assessment');
+      expect(result.title).toBeUndefined();
       expect(result.strengths.length).toBeGreaterThan(0);
       expect(result.threats.length).toBeGreaterThan(0);
     });
@@ -586,9 +586,9 @@ describe('SWOT builders', () => {
   });
 
   describe('buildProspectiveSwot', () => {
-    it('returns a valid SwotAnalysis', () => {
+    it('returns a valid SwotAnalysis without hardcoded title', () => {
       const result = buildProspectiveSwot(WEEK_AHEAD_DATA, 'week');
-      expect(result.title).toContain('Week Ahead');
+      expect(result.title).toBeUndefined();
       expect(result.strengths.length).toBeGreaterThan(0);
     });
 
@@ -608,7 +608,7 @@ describe('SWOT builders', () => {
         mepUpdates: [],
       };
       const result = buildBreakingSwot(feedData, '', '');
-      expect(result.title).toContain('Strategic Assessment');
+      expect(result.title).toBeUndefined();
       expect(result.strengths.some((s) => s.text.includes('adopted'))).toBe(true);
     });
 
@@ -654,9 +654,9 @@ describe('SWOT builders', () => {
 
 describe('Dashboard builders', () => {
   describe('buildVotingDashboard', () => {
-    it('returns a valid DashboardConfig with panels', () => {
+    it('returns a valid DashboardConfig with panels (no hardcoded title)', () => {
       const result = buildVotingDashboard(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
-      expect(result.title).toContain('Voting');
+      expect(result.title).toBeUndefined();
       expect(result.panels.length).toBeGreaterThan(0);
     });
 
@@ -681,9 +681,9 @@ describe('Dashboard builders', () => {
   });
 
   describe('buildProspectiveDashboard', () => {
-    it('returns panels with scheduled activity metrics', () => {
+    it('returns panels with scheduled activity metrics (no hardcoded title)', () => {
       const result = buildProspectiveDashboard(WEEK_AHEAD_DATA, 'week');
-      expect(result.title).toContain('Week Ahead');
+      expect(result.title).toBeUndefined();
       expect(result.panels.length).toBe(2);
     });
   });
@@ -697,7 +697,7 @@ describe('Dashboard builders', () => {
         mepUpdates: [],
       };
       const result = buildBreakingDashboard(feedData);
-      expect(result.title).toContain('Breaking');
+      expect(result.title).toBeUndefined();
       expect(result.panels[0].metrics.some((m) => m.label === 'Adopted Texts')).toBe(true);
     });
 
@@ -721,9 +721,9 @@ describe('Dashboard builders', () => {
   });
 
   describe('buildCommitteeDashboard', () => {
-    it('returns committee overview and chart', () => {
+    it('returns committee overview and chart (no hardcoded title)', () => {
       const result = buildCommitteeDashboard(COMMITTEE_DATA);
-      expect(result.title).toContain('Committee');
+      expect(result.title).toBeUndefined();
       expect(result.panels.length).toBe(2);
       expect(result.panels[1].chart).toBeDefined();
     });
