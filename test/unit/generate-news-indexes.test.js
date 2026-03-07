@@ -439,26 +439,24 @@ describe('generate-news-indexes', () => {
 
     it('should escape localized language names in link attributes', () => {
       const maliciousName = 'English" onclick="alert(1)" & <b>bold</b>';
-      const originalGetLocalizedString = languageConstants.getLocalizedString;
+      const expectedEscaped =
+        'English&quot; onclick=&quot;alert(1)&quot; &amp; &lt;b&gt;bold&lt;/b&gt;';
+      const fallbackGetLocalizedString = languageConstants.getLocalizedString;
 
       vi.spyOn(languageConstants, 'getLocalizedString').mockImplementation((map, lang) => {
         if (map === languageConstants.LANGUAGE_NAMES && lang === 'en') {
           return maliciousName;
         }
 
-        return originalGetLocalizedString(map, lang);
+        return fallbackGetLocalizedString(map, lang);
       });
 
       const html = generateIndexHTML('en', []);
       const document = createDocument(html);
       const activeEnglishLink = document.querySelector('a.lang-link.active[href="index.html"]');
 
-      expect(html).toContain(
-        'title="English&quot; onclick=&quot;alert(1)&quot; &amp; &lt;b&gt;bold&lt;/b&gt;"',
-      );
-      expect(html).toContain(
-        'aria-label="English&quot; onclick=&quot;alert(1)&quot; &amp; &lt;b&gt;bold&lt;/b&gt;"',
-      );
+      expect(html).toContain(`title="${expectedEscaped}"`);
+      expect(html).toContain(`aria-label="${expectedEscaped}"`);
       expect(activeEnglishLink).not.toBeNull();
       expect(activeEnglishLink.getAttribute('title')).toBe('English" onclick="alert(1)" & <b>bold</b>');
       expect(activeEnglishLink.getAttribute('aria-label')).toBe(
