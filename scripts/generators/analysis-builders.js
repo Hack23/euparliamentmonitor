@@ -298,7 +298,9 @@ export function buildBreakingAnalysis(date, feedData, anomalyRaw, coalitionRaw, 
                 },
             ]
             : [],
-        outlook: adoptedCount > 0 ? s.breakingOutlookActiveFn(date) : s.breakingOutlookTransitionalFn(date),
+        outlook: adoptedCount > 0
+            ? s.breakingOutlookActiveFn(date)
+            : s.breakingOutlookTransitionalFn(date),
     };
 }
 /**
