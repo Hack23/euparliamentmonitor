@@ -172,7 +172,7 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
       data.anomalies,
       data.questions
     );
-    const deepSection = buildDeepAnalysisSection(analysis, lang);
+    const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
 
     // Enrich with adopted texts from feed data when available
     const adoptedTextsHtml =
@@ -180,11 +180,6 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
         ? buildAdoptedTextsSection(data.feedData.adoptedTexts, lang)
         : '';
 
-    const enriched = adoptedTextsHtml
-      ? base.replace('<!-- /article-content -->', adoptedTextsHtml + deepSection)
-      : base.replace('<!-- /article-content -->', deepSection);
-    return enriched;
-    const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
     const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildVotingDashboard(
@@ -194,7 +189,10 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
       lang
     );
     const dashboardSection = buildDashboardSection(dashboardData, lang);
-    return base.replace('<!-- /article-content -->', deepSection + swotSection + dashboardSection);
+    return base.replace(
+      '<!-- /article-content -->',
+      adoptedTextsHtml + deepSection + swotSection + dashboardSection
+    );
   }
 
   /**
