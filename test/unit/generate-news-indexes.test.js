@@ -463,6 +463,7 @@ describe('generate-news-indexes', () => {
         'English" onclick="alert(1)" & <b>bold</b>',
       );
       expect(activeEnglishLink.getAttribute('onclick')).toBeNull();
+      expect(activeEnglishLink.onclick).toBeNull();
     });
 
     it('should include a compact split hero layout', () => {
