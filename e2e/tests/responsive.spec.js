@@ -30,7 +30,7 @@ const HERO_BANNER_EDGE_TOLERANCE_PX = 8;
 test.describe('Responsive Design', () => {
   test('should keep hero text above a full-width banner across viewports', async ({ page }) => {
     for (const viewport of HERO_LAYOUT_VIEWPORTS) {
-      await page.setViewportSize(viewport);
+      await page.setViewportSize({ width: viewport.width, height: viewport.height });
       await page.goto('/');
 
       const heroContent = page.locator('.hero__content');

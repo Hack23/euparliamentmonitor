@@ -230,7 +230,7 @@ img {
   overflow: visible;
   /* Base padding for wrapped language rows; reduced on mobile for compactness. */
   padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 1px solid var(--hero-surface-border);
 }
 
 .site-header__langs::-webkit-scrollbar {
@@ -337,7 +337,7 @@ img {
   align-items: center;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--hero-surface-strong);
   color: rgba(255, 255, 255, 0.92);
   font-size: 0.78rem;
   font-weight: 700;
