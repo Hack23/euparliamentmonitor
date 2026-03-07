@@ -185,9 +185,9 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       lang
     );
     const deepSection = buildDeepAnalysisSection(analysis, lang);
-    const swotData = buildBreakingSwot(data.feedData, data.anomalyRaw, data.coalitionRaw);
+    const swotData = buildBreakingSwot(data.feedData, data.anomalyRaw, data.coalitionRaw, lang);
     const swotSection = buildSwotSection(swotData, lang);
-    const dashboardData = buildBreakingDashboard(data.feedData);
+    const dashboardData = buildBreakingDashboard(data.feedData, lang);
     const dashboardSection = buildDashboardSection(dashboardData, lang);
     const injection = deepSection + swotSection + dashboardSection;
     // Inject before the closing </div> of .article-content

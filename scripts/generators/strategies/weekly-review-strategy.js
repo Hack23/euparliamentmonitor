@@ -93,9 +93,9 @@ export class WeeklyReviewStrategy {
         const base = generateMotionsContent(data.dateRange.start, data.dateRange.end, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
         const analysis = buildVotingAnalysis(data.dateRange.start, data.dateRange.end, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
         const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
-        const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies);
+        const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const swotSection = buildSwotSection(swotData, lang);
-        const dashboardData = buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies);
+        const dashboardData = buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
         return base.replace('<!-- /article-content -->', deepSection + swotSection + dashboardSection);
     }

@@ -81,9 +81,9 @@ export class MotionsStrategy {
         const alignmentSection = buildPoliticalAlignmentSection([...data.votingRecords], [], lang);
         const analysis = buildVotingAnalysis(data.dateFromStr, data.date, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
         const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
-        const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies);
+        const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const swotSection = buildSwotSection(swotData, lang);
-        const dashboardData = buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies);
+        const dashboardData = buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
         // Inject at the explicit <!-- /article-content --> marker so the section
         // stays inside the .article-content styling scope. The marker is always

@@ -129,9 +129,9 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
     const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
     const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
-    const swotData = buildProspectiveSwot(data.weekData, 'week');
+    const swotData = buildProspectiveSwot(data.weekData, 'week', lang);
     const swotSection = buildSwotSection(swotData, lang);
-    const dashboardData = buildProspectiveDashboard(data.weekData, 'week');
+    const dashboardData = buildProspectiveDashboard(data.weekData, 'week', lang);
     const dashboardSection = buildDashboardSection(dashboardData, lang);
     // Inject at the explicit <!-- /article-content --> marker position so the
     // section stays inside the .article-content styling scope. The marker is

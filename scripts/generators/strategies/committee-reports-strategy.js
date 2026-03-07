@@ -112,9 +112,9 @@ export class CommitteeReportsStrategy {
         const base = buildCommitteeReportsHTML(data.committeeDataList, lang);
         const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date, lang);
         const deepSection = buildDeepAnalysisSection(analysis, lang);
-        const swotData = buildCommitteeSwot(data.committeeDataList);
+        const swotData = buildCommitteeSwot(data.committeeDataList, lang);
         const swotSection = buildSwotSection(swotData, lang);
-        const dashboardData = buildCommitteeDashboard(data.committeeDataList);
+        const dashboardData = buildCommitteeDashboard(data.committeeDataList, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
         const injection = deepSection + swotSection + dashboardSection;
         // Inject before the closing </div> of .article-content

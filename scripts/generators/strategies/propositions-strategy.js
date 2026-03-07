@@ -121,9 +121,9 @@ export class PropositionsStrategy {
         const base = buildPropositionsContent(data.proposalsHtml, data.pipelineData, data.procedureHtml, strings, lang);
         const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date, lang);
         const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
-        const swotData = buildPropositionsSwot(data.pipelineData);
+        const swotData = buildPropositionsSwot(data.pipelineData, lang);
         const swotSection = buildSwotSection(swotData, lang);
-        const dashboardData = buildPropositionsDashboard(data.pipelineData);
+        const dashboardData = buildPropositionsDashboard(data.pipelineData, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
         const injection = deepSection + swotSection + dashboardSection;
         // Inject before the closing </div> of .article-content

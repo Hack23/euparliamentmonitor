@@ -200,3 +200,107 @@ export interface DashboardStrings {
   /** Default chart aria-label */
   readonly chartLabel: string;
 }
+
+// ─── SWOT Builder Localization ───────────────────────────────────────────────
+
+/**
+ * Localized strings for SWOT builder item text across all 5 analysis types.
+ * Template functions accept dynamic counts; plain strings are static prose.
+ */
+export interface SwotBuilderStrings {
+  // ── Voting SWOT ──
+  readonly votingHighCohesion: (count: number) => string;
+  readonly votingAdopted: (count: number) => string;
+  readonly votingActiveVotes: (count: number) => string;
+  readonly votingLowCohesion: (count: number) => string;
+  readonly votingAnomalies: (count: number) => string;
+  readonly votingCrossParty: string;
+  readonly votingDiverseGroups: (count: number) => string;
+  readonly votingHighSeverity: (count: number) => string;
+  readonly votingShiftingAlliances: string;
+  // ── Prospective SWOT ──
+  readonly prospectiveEvents: (count: number) => string;
+  readonly prospectiveCommittees: (count: number) => string;
+  readonly prospectiveBottlenecks: (count: number) => string;
+  readonly prospectiveHighDensity: (count: number) => string;
+  readonly prospectiveDocuments: (count: number) => string;
+  readonly prospectiveQuestions: (count: number) => string;
+  readonly prospectiveBottleneckRisk: string;
+  readonly prospectiveSchedulingRisk: string;
+  // ── Breaking SWOT ──
+  readonly breakingAdopted: (count: number) => string;
+  readonly breakingEvents: (count: number) => string;
+  readonly breakingAnomalyWeakness: string;
+  readonly breakingNoProcedures: string;
+  readonly breakingProceduresActive: (count: number) => string;
+  readonly breakingCoalitionOpportunity: string;
+  readonly breakingAnomalyThreat: string;
+  readonly breakingRapidEvents: string;
+  // ── Propositions SWOT ──
+  readonly propositionsHealthStrong: (pct: string) => string;
+  readonly propositionsThroughputGood: (rate: number) => string;
+  readonly propositionsHealthWeak: (pct: string) => string;
+  readonly propositionsThroughputLow: (rate: number) => string;
+  readonly propositionsPrioritisation: string;
+  readonly propositionsTrilogueAcceleration: string;
+  readonly propositionsCriticalCongestion: string;
+  readonly propositionsOverlapping: string;
+  // ── Committee SWOT ──
+  readonly committeeActive: (active: number, total: number) => string;
+  readonly committeeDocuments: (count: number) => string;
+  readonly committeeInactive: (count: number) => string;
+  readonly committeeCrossCollaboration: string;
+  readonly committeeHearings: string;
+  readonly committeeLowActivity: string;
+  readonly committeeCompetingPriorities: string;
+}
+
+// ─── Dashboard Builder Localization ──────────────────────────────────────────
+
+/**
+ * Localized strings for Dashboard builder panel titles and metric labels
+ * across all 5 analysis types.
+ */
+export interface DashboardBuilderStrings {
+  // ── Voting Dashboard ──
+  readonly votingOverview: string;
+  readonly totalVotes: string;
+  readonly adopted: string;
+  readonly rejected: string;
+  readonly anomalies: string;
+  readonly politicalGroupCohesion: string;
+  readonly groupCohesionRates: string;
+  readonly cohesionPct: string;
+  // ── Prospective Dashboard ──
+  readonly scheduledActivity: string;
+  readonly plenaryEvents: string;
+  readonly committeeMeetings: string;
+  readonly documents: string;
+  readonly pipelineProcedures: string;
+  readonly parliamentaryQuestions: string;
+  readonly questionsFiled: string;
+  readonly bottleneckProcedures: string;
+  // ── Breaking Dashboard ──
+  readonly feedActivity: string;
+  readonly adoptedTexts: string;
+  readonly events: string;
+  readonly procedures: string;
+  readonly mepUpdates: string;
+  readonly activitySummary: string;
+  readonly totalItems: string;
+  readonly feedBreakdown: string;
+  readonly items: string;
+  // ── Propositions Dashboard ──
+  readonly pipelineHealth: string;
+  readonly healthScore: string;
+  readonly throughput: string;
+  readonly status: string;
+  // ── Committee Dashboard ──
+  readonly committeeOverview: string;
+  readonly totalCommittees: string;
+  readonly activeCommittees: string;
+  readonly activityRate: string;
+  readonly documentsProduced: string;
+  readonly documentOutputByCommittee: string;
+  readonly documentsPerCommittee: string;
+}

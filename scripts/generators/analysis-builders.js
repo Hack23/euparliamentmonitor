@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-import { getLocalizedString, COMMITTEE_ANALYSIS_CONTENT_STRINGS, BREAKING_STRINGS, } from '../constants/languages.js';
+import { getLocalizedString, COMMITTEE_ANALYSIS_CONTENT_STRINGS, BREAKING_STRINGS, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../constants/languages.js';
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 /**
  * Derive stakeholder outcomes from voting records.
@@ -508,9 +508,11 @@ export function buildCommitteeAnalysis(committees, date, lang = 'en') {
  * @param records - Voting records
  * @param patterns - Voting patterns
  * @param anomalies - Detected anomalies
+ * @param lang - Target language code
  * @returns SWOT analysis data
  */
-export function buildVotingSwot(records, patterns, anomalies) {
+export function buildVotingSwot(records, patterns, anomalies, lang = 'en') {
+    const s = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
     const adoptedCount = records.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
     const highCohesionGroups = patterns.filter((p) => p.cohesion > 0.8);
     const lowCohesionGroups = patterns.filter((p) => p.cohesion < 0.5);
@@ -520,7 +522,7 @@ export function buildVotingSwot(records, patterns, anomalies) {
             ...(highCohesionGroups.length > 0
                 ? [
                     {
-                        text: `${highCohesionGroups.length} political groups with cohesion above 80% — disciplined voting blocs`,
+                        text: s.votingHighCohesion(highCohesionGroups.length),
                         severity: 'high',
                     },
                 ]
@@ -528,7 +530,7 @@ export function buildVotingSwot(records, patterns, anomalies) {
             ...(adoptedCount > 0
                 ? [
                     {
-                        text: `${adoptedCount} texts adopted — demonstrates legislative productivity`,
+                        text: s.votingAdopted(adoptedCount),
                         severity: 'medium',
                     },
                 ]
@@ -536,7 +538,7 @@ export function buildVotingSwot(records, patterns, anomalies) {
             ...(records.length > 0
                 ? [
                     {
-                        text: `${records.length} votes recorded — active plenary engagement`,
+                        text: s.votingActiveVotes(records.length),
                         severity: 'medium',
                     },
                 ]
@@ -546,7 +548,7 @@ export function buildVotingSwot(records, patterns, anomalies) {
             ...(lowCohesionGroups.length > 0
                 ? [
                     {
-                        text: `${lowCohesionGroups.length} groups with cohesion below 50% — internal divisions weaken bargaining power`,
+                        text: s.votingLowCohesion(lowCohesionGroups.length),
                         severity: 'high',
                     },
                 ]
@@ -554,7 +556,7 @@ export function buildVotingSwot(records, patterns, anomalies) {
             ...(anomalies.length > 0
                 ? [
                     {
-                        text: `${anomalies.length} voting anomalies detected — signals unpredictable coalition behaviour`,
+                        text: s.votingAnomalies(anomalies.length),
                         severity: 'medium',
                     },
                 ]
@@ -562,13 +564,13 @@ export function buildVotingSwot(records, patterns, anomalies) {
         ],
         opportunities: [
             {
-                text: 'Cross-party alliances on specific legislation can build broader consensus',
+                text: s.votingCrossParty,
                 severity: 'medium',
             },
             ...(patterns.length > 0
                 ? [
                     {
-                        text: `${patterns.length} active political groups — diverse coalition formation possibilities`,
+                        text: s.votingDiverseGroups(patterns.length),
                         severity: 'medium',
                     },
                 ]
@@ -578,13 +580,13 @@ export function buildVotingSwot(records, patterns, anomalies) {
             ...(highSeverityAnomalies.length > 0
                 ? [
                     {
-                        text: `${highSeverityAnomalies.length} high-severity anomalies — risk of coalition fragmentation`,
+                        text: s.votingHighSeverity(highSeverityAnomalies.length),
                         severity: 'high',
                     },
                 ]
                 : []),
             {
-                text: 'Shifting alliances may delay legislative progress on key files',
+                text: s.votingShiftingAlliances,
                 severity: 'medium',
             },
         ],
@@ -595,16 +597,18 @@ export function buildVotingSwot(records, patterns, anomalies) {
  *
  * @param weekData - Aggregated week/month data
  * @param _label - "week" or "month" (reserved for future localisation)
+ * @param lang - Target language code
  * @returns SWOT analysis data
  */
-export function buildProspectiveSwot(weekData, _label) {
+export function buildProspectiveSwot(weekData, _label, lang = 'en') {
+    const s = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
     const bottleneckCount = weekData.pipeline.filter((p) => p.bottleneck === true).length;
     return {
         strengths: [
             ...(weekData.events.length > 0
                 ? [
                     {
-                        text: `${weekData.events.length} plenary events scheduled — active legislative agenda`,
+                        text: s.prospectiveEvents(weekData.events.length),
                         severity: 'high',
                     },
                 ]
@@ -612,7 +616,7 @@ export function buildProspectiveSwot(weekData, _label) {
             ...(weekData.committees.length > 0
                 ? [
                     {
-                        text: `${weekData.committees.length} committee meetings — broad policy engagement`,
+                        text: s.prospectiveCommittees(weekData.committees.length),
                         severity: 'medium',
                     },
                 ]
@@ -622,7 +626,7 @@ export function buildProspectiveSwot(weekData, _label) {
             ...(bottleneckCount > 0
                 ? [
                     {
-                        text: `${bottleneckCount} legislative procedures facing bottleneck risks`,
+                        text: s.prospectiveBottlenecks(bottleneckCount),
                         severity: 'high',
                     },
                 ]
@@ -630,7 +634,7 @@ export function buildProspectiveSwot(weekData, _label) {
             ...(weekData.events.length > 5
                 ? [
                     {
-                        text: `High event density (${weekData.events.length}) risks compressed debate time`,
+                        text: s.prospectiveHighDensity(weekData.events.length),
                         severity: 'medium',
                     },
                 ]
@@ -640,7 +644,7 @@ export function buildProspectiveSwot(weekData, _label) {
             ...(weekData.documents.length > 0
                 ? [
                     {
-                        text: `${weekData.documents.length} documents under consideration — legislative momentum`,
+                        text: s.prospectiveDocuments(weekData.documents.length),
                         severity: 'medium',
                     },
                 ]
@@ -648,7 +652,7 @@ export function buildProspectiveSwot(weekData, _label) {
             ...(weekData.questions.length > 0
                 ? [
                     {
-                        text: `${weekData.questions.length} parliamentary questions — MEP engagement with citizen concerns`,
+                        text: s.prospectiveQuestions(weekData.questions.length),
                         severity: 'medium',
                     },
                 ]
@@ -658,13 +662,13 @@ export function buildProspectiveSwot(weekData, _label) {
             ...(bottleneckCount > 0
                 ? [
                     {
-                        text: `Bottleneck procedures may force procedural shortcuts or defer key files`,
+                        text: s.prospectiveBottleneckRisk,
                         severity: 'high',
                     },
                 ]
                 : []),
             {
-                text: 'Scheduling density increases risk of last-minute amendments',
+                text: s.prospectiveSchedulingRisk,
                 severity: 'medium',
             },
         ],
@@ -676,9 +680,11 @@ export function buildProspectiveSwot(weekData, _label) {
  * @param feedData - EP feed data
  * @param anomalyRaw - Raw anomaly text
  * @param coalitionRaw - Raw coalition text
+ * @param lang - Target language code
  * @returns SWOT analysis data
  */
-export function buildBreakingSwot(feedData, anomalyRaw, coalitionRaw) {
+export function buildBreakingSwot(feedData, anomalyRaw, coalitionRaw, lang = 'en') {
+    const s = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
     const adoptedCount = feedData?.adoptedTexts.length ?? 0;
     const eventCount = feedData?.events.length ?? 0;
     const procCount = feedData?.procedures.length ?? 0;
@@ -687,7 +693,7 @@ export function buildBreakingSwot(feedData, anomalyRaw, coalitionRaw) {
             ...(adoptedCount > 0
                 ? [
                     {
-                        text: `${adoptedCount} texts adopted — Parliament demonstrating legislative capacity`,
+                        text: s.breakingAdopted(adoptedCount),
                         severity: 'high',
                     },
                 ]
@@ -695,7 +701,7 @@ export function buildBreakingSwot(feedData, anomalyRaw, coalitionRaw) {
             ...(eventCount > 0
                 ? [
                     {
-                        text: `${eventCount} parliamentary events — active institutional engagement`,
+                        text: s.breakingEvents(eventCount),
                         severity: 'medium',
                     },
                 ]
@@ -705,7 +711,7 @@ export function buildBreakingSwot(feedData, anomalyRaw, coalitionRaw) {
             ...(anomalyRaw
                 ? [
                     {
-                        text: 'Voting anomalies detected — potential coalition instability',
+                        text: s.breakingAnomalyWeakness,
                         severity: 'high',
                     },
                 ]
@@ -713,7 +719,7 @@ export function buildBreakingSwot(feedData, anomalyRaw, coalitionRaw) {
             ...(procCount === 0
                 ? [
                     {
-                        text: 'No new legislative procedures — limited pipeline momentum',
+                        text: s.breakingNoProcedures,
                         severity: 'medium',
                     },
                 ]
@@ -723,7 +729,7 @@ export function buildBreakingSwot(feedData, anomalyRaw, coalitionRaw) {
             ...(procCount > 0
                 ? [
                     {
-                        text: `${procCount} procedures advancing — legislative pipeline active`,
+                        text: s.breakingProceduresActive(procCount),
                         severity: 'medium',
                     },
                 ]
@@ -731,7 +737,7 @@ export function buildBreakingSwot(feedData, anomalyRaw, coalitionRaw) {
             ...(coalitionRaw
                 ? [
                     {
-                        text: 'Coalition dynamics shifting — new alliance opportunities emerging',
+                        text: s.breakingCoalitionOpportunity,
                         severity: 'medium',
                     },
                 ]
@@ -741,13 +747,13 @@ export function buildBreakingSwot(feedData, anomalyRaw, coalitionRaw) {
             ...(anomalyRaw
                 ? [
                     {
-                        text: 'Detected anomalies may signal deeper political realignment',
+                        text: s.breakingAnomalyThreat,
                         severity: 'high',
                     },
                 ]
                 : []),
             {
-                text: 'Rapidly evolving events may outpace legislative response capacity',
+                text: s.breakingRapidEvents,
                 severity: 'medium',
             },
         ],
@@ -757,9 +763,11 @@ export function buildBreakingSwot(feedData, anomalyRaw, coalitionRaw) {
  * Build SWOT analysis for propositions articles.
  *
  * @param pipelineData - Pipeline metrics
+ * @param lang - Target language code
  * @returns SWOT analysis data
  */
-export function buildPropositionsSwot(pipelineData) {
+export function buildPropositionsSwot(pipelineData, lang = 'en') {
+    const s = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
     const healthScore = pipelineData?.healthScore ?? 0;
     const throughput = pipelineData?.throughput ?? 0;
     const pct = (healthScore * 100).toFixed(0);
@@ -768,7 +776,7 @@ export function buildPropositionsSwot(pipelineData) {
             ...(healthScore > 0.7
                 ? [
                     {
-                        text: `Pipeline health at ${pct}% — strong legislative management`,
+                        text: s.propositionsHealthStrong(pct),
                         severity: 'high',
                     },
                 ]
@@ -776,7 +784,7 @@ export function buildPropositionsSwot(pipelineData) {
             ...(throughput >= 5
                 ? [
                     {
-                        text: `Throughput rate ${throughput} — healthy processing pace`,
+                        text: s.propositionsThroughputGood(throughput),
                         severity: 'medium',
                     },
                 ]
@@ -786,7 +794,7 @@ export function buildPropositionsSwot(pipelineData) {
             ...(healthScore < 0.5
                 ? [
                     {
-                        text: `Pipeline health at ${pct}% — legislative congestion risk`,
+                        text: s.propositionsHealthWeak(pct),
                         severity: 'high',
                     },
                 ]
@@ -794,7 +802,7 @@ export function buildPropositionsSwot(pipelineData) {
             ...(throughput < 5
                 ? [
                     {
-                        text: `Low throughput (${throughput}) — slow processing delays policy implementation`,
+                        text: s.propositionsThroughputLow(throughput),
                         severity: 'medium',
                     },
                 ]
@@ -802,11 +810,11 @@ export function buildPropositionsSwot(pipelineData) {
         ],
         opportunities: [
             {
-                text: 'Prioritisation of flagship files can improve pipeline efficiency',
+                text: s.propositionsPrioritisation,
                 severity: 'medium',
             },
             {
-                text: 'Trilogue acceleration on mature files can boost throughput',
+                text: s.propositionsTrilogueAcceleration,
                 severity: 'medium',
             },
         ],
@@ -814,13 +822,13 @@ export function buildPropositionsSwot(pipelineData) {
             ...(healthScore < 0.3
                 ? [
                     {
-                        text: 'Critical pipeline congestion may force legislative file abandonment',
+                        text: s.propositionsCriticalCongestion,
                         severity: 'high',
                     },
                 ]
                 : []),
             {
-                text: 'Overlapping implementation timelines strain member state transposition capacity',
+                text: s.propositionsOverlapping,
                 severity: 'medium',
             },
         ],
@@ -830,9 +838,11 @@ export function buildPropositionsSwot(pipelineData) {
  * Build SWOT analysis for committee reports articles.
  *
  * @param committees - Committee data list
+ * @param lang - Target language code
  * @returns SWOT analysis data
  */
-export function buildCommitteeSwot(committees) {
+export function buildCommitteeSwot(committees, lang = 'en') {
+    const s = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
     const activeCommittees = committees.filter((c) => c.documents.length > 0);
     const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
     const inactiveCount = committees.length - activeCommittees.length;
@@ -841,7 +851,7 @@ export function buildCommitteeSwot(committees) {
             ...(activeCommittees.length > 0
                 ? [
                     {
-                        text: `${activeCommittees.length} of ${committees.length} committees actively producing documents`,
+                        text: s.committeeActive(activeCommittees.length, committees.length),
                         severity: activeCommittees.length >= committees.length * 0.7
                             ? 'high'
                             : 'medium',
@@ -851,7 +861,7 @@ export function buildCommitteeSwot(committees) {
             ...(totalDocs > 0
                 ? [
                     {
-                        text: `${totalDocs} documents produced — strong legislative output`,
+                        text: s.committeeDocuments(totalDocs),
                         severity: 'medium',
                     },
                 ]
@@ -861,7 +871,7 @@ export function buildCommitteeSwot(committees) {
             ...(inactiveCount > 0
                 ? [
                     {
-                        text: `${inactiveCount} committees with no recent document activity`,
+                        text: s.committeeInactive(inactiveCount),
                         severity: inactiveCount > committees.length * 0.3 ? 'high' : 'medium',
                     },
                 ]
@@ -869,13 +879,13 @@ export function buildCommitteeSwot(committees) {
         ],
         opportunities: [
             {
-                text: 'Cross-committee collaboration on horizontal policy files can increase impact',
+                text: s.committeeCrossCollaboration,
                 severity: 'medium',
             },
             ...(committees.length > 0
                 ? [
                     {
-                        text: 'Committee hearings provide platform for expert stakeholder engagement',
+                        text: s.committeeHearings,
                         severity: 'medium',
                     },
                 ]
@@ -885,13 +895,13 @@ export function buildCommitteeSwot(committees) {
             ...(inactiveCount > committees.length * 0.3
                 ? [
                     {
-                        text: 'Low committee activity risks legislative bottlenecks downstream',
+                        text: s.committeeLowActivity,
                         severity: 'high',
                     },
                 ]
                 : []),
             {
-                text: 'Competing policy priorities may dilute committee focus',
+                text: s.committeeCompetingPriorities,
                 severity: 'medium',
             },
         ],
@@ -904,27 +914,29 @@ export function buildCommitteeSwot(committees) {
  * @param records - Voting records
  * @param patterns - Voting patterns
  * @param anomalies - Detected anomalies
+ * @param lang - Target language code
  * @returns Dashboard configuration
  */
-export function buildVotingDashboard(records, patterns, anomalies) {
+export function buildVotingDashboard(records, patterns, anomalies, lang = 'en') {
+    const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
     const adoptedCount = records.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
     const rejectedCount = records.filter((r) => r.result?.toLowerCase().includes('reject')).length;
     const overviewPanel = {
-        title: 'Voting Overview',
+        title: d.votingOverview,
         metrics: [
-            { label: 'Total Votes', value: String(records.length), trend: 'stable' },
+            { label: d.totalVotes, value: String(records.length), trend: 'stable' },
             {
-                label: 'Adopted',
+                label: d.adopted,
                 value: String(adoptedCount),
                 trend: adoptedCount > 0 ? 'up' : 'stable',
             },
-            { label: 'Rejected', value: String(rejectedCount) },
-            { label: 'Anomalies', value: String(anomalies.length) },
+            { label: d.rejected, value: String(rejectedCount) },
+            { label: d.anomalies, value: String(anomalies.length) },
         ],
     };
     const cohesionPanel = patterns.length > 0
         ? {
-            title: 'Political Group Cohesion',
+            title: d.politicalGroupCohesion,
             metrics: patterns.slice(0, 4).map((p) => ({
                 label: p.group,
                 value: `${(p.cohesion * 100).toFixed(0)}%`,
@@ -932,12 +944,12 @@ export function buildVotingDashboard(records, patterns, anomalies) {
             })),
             chart: {
                 type: 'bar',
-                title: 'Group Cohesion Rates',
+                title: d.groupCohesionRates,
                 data: {
                     labels: patterns.slice(0, 6).map((p) => p.group),
                     datasets: [
                         {
-                            label: 'Cohesion %',
+                            label: d.cohesionPct,
                             data: patterns.slice(0, 6).map((p) => Math.round(p.cohesion * 100)),
                         },
                     ],
@@ -953,31 +965,33 @@ export function buildVotingDashboard(records, patterns, anomalies) {
  *
  * @param weekData - Aggregated week/month data
  * @param _label - "week" or "month" (reserved for future localisation)
+ * @param lang - Target language code
  * @returns Dashboard configuration
  */
-export function buildProspectiveDashboard(weekData, _label) {
+export function buildProspectiveDashboard(weekData, _label, lang = 'en') {
+    const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
     const bottleneckCount = weekData.pipeline.filter((p) => p.bottleneck === true).length;
     return {
         panels: [
             {
-                title: 'Scheduled Activity',
+                title: d.scheduledActivity,
                 metrics: [
-                    { label: 'Plenary Events', value: String(weekData.events.length) },
-                    { label: 'Committee Meetings', value: String(weekData.committees.length) },
-                    { label: 'Documents', value: String(weekData.documents.length) },
+                    { label: d.plenaryEvents, value: String(weekData.events.length) },
+                    { label: d.committeeMeetings, value: String(weekData.committees.length) },
+                    { label: d.documents, value: String(weekData.documents.length) },
                     {
-                        label: 'Pipeline Procedures',
+                        label: d.pipelineProcedures,
                         value: String(weekData.pipeline.length),
                         trend: bottleneckCount > 0 ? 'down' : 'stable',
                     },
                 ],
             },
             {
-                title: 'Parliamentary Questions',
+                title: d.parliamentaryQuestions,
                 metrics: [
-                    { label: 'Questions Filed', value: String(weekData.questions.length) },
+                    { label: d.questionsFiled, value: String(weekData.questions.length) },
                     {
-                        label: 'Bottleneck Procedures',
+                        label: d.bottleneckProcedures,
                         value: String(bottleneckCount),
                         trend: bottleneckCount > 0 ? 'down' : 'up',
                     },
@@ -990,9 +1004,11 @@ export function buildProspectiveDashboard(weekData, _label) {
  * Build dashboard for breaking news articles.
  *
  * @param feedData - EP feed data
+ * @param lang - Target language code
  * @returns Dashboard configuration
  */
-export function buildBreakingDashboard(feedData) {
+export function buildBreakingDashboard(feedData, lang = 'en') {
+    const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
     const adoptedCount = feedData?.adoptedTexts.length ?? 0;
     const eventCount = feedData?.events.length ?? 0;
     const procCount = feedData?.procedures.length ?? 0;
@@ -1001,31 +1017,31 @@ export function buildBreakingDashboard(feedData) {
     return {
         panels: [
             {
-                title: 'Feed Activity',
+                title: d.feedActivity,
                 metrics: [
                     {
-                        label: 'Adopted Texts',
+                        label: d.adoptedTexts,
                         value: String(adoptedCount),
                         trend: adoptedCount > 0 ? 'up' : 'stable',
                     },
-                    { label: 'Events', value: String(eventCount) },
-                    { label: 'Procedures', value: String(procCount) },
-                    { label: 'MEP Updates', value: String(mepCount) },
+                    { label: d.events, value: String(eventCount) },
+                    { label: d.procedures, value: String(procCount) },
+                    { label: d.mepUpdates, value: String(mepCount) },
                 ],
             },
             {
-                title: 'Activity Summary',
-                metrics: [{ label: 'Total Items', value: String(totalItems) }],
+                title: d.activitySummary,
+                metrics: [{ label: d.totalItems, value: String(totalItems) }],
                 ...(totalItems > 0
                     ? {
                         chart: {
                             type: 'doughnut',
-                            title: 'Feed Breakdown',
+                            title: d.feedBreakdown,
                             data: {
-                                labels: ['Adopted Texts', 'Events', 'Procedures', 'MEP Updates'],
+                                labels: [d.adoptedTexts, d.events, d.procedures, d.mepUpdates],
                                 datasets: [
                                     {
-                                        label: 'Items',
+                                        label: d.items,
                                         data: [adoptedCount, eventCount, procCount, mepCount],
                                     },
                                 ],
@@ -1041,29 +1057,31 @@ export function buildBreakingDashboard(feedData) {
  * Build dashboard for propositions articles.
  *
  * @param pipelineData - Pipeline metrics
+ * @param lang - Target language code
  * @returns Dashboard configuration
  */
-export function buildPropositionsDashboard(pipelineData) {
+export function buildPropositionsDashboard(pipelineData, lang = 'en') {
+    const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
     const healthScore = pipelineData?.healthScore ?? 0;
     const throughput = pipelineData?.throughput ?? 0;
     const pct = (healthScore * 100).toFixed(0);
     return {
         panels: [
             {
-                title: 'Pipeline Health',
+                title: d.pipelineHealth,
                 metrics: [
                     {
-                        label: 'Health Score',
+                        label: d.healthScore,
                         value: `${pct}%`,
                         trend: (healthScore > 0.7 ? 'up' : healthScore < 0.5 ? 'down' : 'stable'),
                     },
                     {
-                        label: 'Throughput',
+                        label: d.throughput,
                         value: String(throughput),
                         trend: throughput >= 5 ? 'up' : 'down',
                     },
                     {
-                        label: 'Status',
+                        label: d.status,
                         value: pipelineHealthLabel(healthScore),
                     },
                 ],
@@ -1075,23 +1093,25 @@ export function buildPropositionsDashboard(pipelineData) {
  * Build dashboard for committee reports articles.
  *
  * @param committees - Committee data list
+ * @param lang - Target language code
  * @returns Dashboard configuration
  */
-export function buildCommitteeDashboard(committees) {
+export function buildCommitteeDashboard(committees, lang = 'en') {
+    const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
     const activeCommittees = committees.filter((c) => c.documents.length > 0);
     const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
     const activePct = committees.length > 0 ? ((activeCommittees.length / committees.length) * 100).toFixed(0) : '0';
     const overviewPanel = {
-        title: 'Committee Overview',
+        title: d.committeeOverview,
         metrics: [
-            { label: 'Total Committees', value: String(committees.length) },
+            { label: d.totalCommittees, value: String(committees.length) },
             {
-                label: 'Active Committees',
+                label: d.activeCommittees,
                 value: String(activeCommittees.length),
                 trend: activeCommittees.length >= committees.length * 0.7 ? 'up' : 'down',
             },
-            { label: 'Activity Rate', value: `${activePct}%` },
-            { label: 'Documents Produced', value: String(totalDocs) },
+            { label: d.activityRate, value: `${activePct}%` },
+            { label: d.documentsProduced, value: String(totalDocs) },
         ],
     };
     const chartPanel = committees.length > 0
@@ -1100,15 +1120,15 @@ export function buildCommitteeDashboard(committees) {
                 .sort((a, b) => b.documents.length - a.documents.length)
                 .slice(0, 6);
             return {
-                title: 'Document Output by Committee',
+                title: d.documentOutputByCommittee,
                 chart: {
                     type: 'bar',
-                    title: 'Documents per Committee',
+                    title: d.documentsPerCommittee,
                     data: {
                         labels: topCommittees.map((c) => c.abbreviation),
                         datasets: [
                             {
-                                label: 'Documents',
+                                label: d.documents,
                                 data: topCommittees.map((c) => c.documents.length),
                             },
                         ],

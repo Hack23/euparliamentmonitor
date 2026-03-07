@@ -27,12 +27,16 @@ import type {
   BreakingNewsFeedData,
   SwotAnalysis,
   DashboardConfig,
+  SwotBuilderStrings,
+  DashboardBuilderStrings,
 } from '../types/index.js';
 import type { PipelineData } from './propositions-content.js';
 import {
   getLocalizedString,
   COMMITTEE_ANALYSIS_CONTENT_STRINGS,
   BREAKING_STRINGS,
+  SWOT_BUILDER_STRINGS,
+  DASHBOARD_BUILDER_STRINGS,
 } from '../constants/languages.js';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -621,13 +625,16 @@ export function buildCommitteeAnalysis(
  * @param records - Voting records
  * @param patterns - Voting patterns
  * @param anomalies - Detected anomalies
+ * @param lang - Target language code
  * @returns SWOT analysis data
  */
 export function buildVotingSwot(
   records: readonly VotingRecord[],
   patterns: readonly VotingPattern[],
-  anomalies: readonly VotingAnomaly[]
+  anomalies: readonly VotingAnomaly[],
+  lang: LanguageCode = 'en'
 ): SwotAnalysis {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
   const adoptedCount = records.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
   const highCohesionGroups = patterns.filter((p) => p.cohesion > 0.8);
   const lowCohesionGroups = patterns.filter((p) => p.cohesion < 0.5);
@@ -639,7 +646,7 @@ export function buildVotingSwot(
       ...(highCohesionGroups.length > 0
         ? [
             {
-              text: `${highCohesionGroups.length} political groups with cohesion above 80% — disciplined voting blocs`,
+              text: s.votingHighCohesion(highCohesionGroups.length),
               severity: 'high' as const,
             },
           ]
@@ -647,7 +654,7 @@ export function buildVotingSwot(
       ...(adoptedCount > 0
         ? [
             {
-              text: `${adoptedCount} texts adopted — demonstrates legislative productivity`,
+              text: s.votingAdopted(adoptedCount),
               severity: 'medium' as const,
             },
           ]
@@ -655,7 +662,7 @@ export function buildVotingSwot(
       ...(records.length > 0
         ? [
             {
-              text: `${records.length} votes recorded — active plenary engagement`,
+              text: s.votingActiveVotes(records.length),
               severity: 'medium' as const,
             },
           ]
@@ -665,7 +672,7 @@ export function buildVotingSwot(
       ...(lowCohesionGroups.length > 0
         ? [
             {
-              text: `${lowCohesionGroups.length} groups with cohesion below 50% — internal divisions weaken bargaining power`,
+              text: s.votingLowCohesion(lowCohesionGroups.length),
               severity: 'high' as const,
             },
           ]
@@ -673,7 +680,7 @@ export function buildVotingSwot(
       ...(anomalies.length > 0
         ? [
             {
-              text: `${anomalies.length} voting anomalies detected — signals unpredictable coalition behaviour`,
+              text: s.votingAnomalies(anomalies.length),
               severity: 'medium' as const,
             },
           ]
@@ -681,13 +688,13 @@ export function buildVotingSwot(
     ],
     opportunities: [
       {
-        text: 'Cross-party alliances on specific legislation can build broader consensus',
+        text: s.votingCrossParty,
         severity: 'medium' as const,
       },
       ...(patterns.length > 0
         ? [
             {
-              text: `${patterns.length} active political groups — diverse coalition formation possibilities`,
+              text: s.votingDiverseGroups(patterns.length),
               severity: 'medium' as const,
             },
           ]
@@ -697,13 +704,13 @@ export function buildVotingSwot(
       ...(highSeverityAnomalies.length > 0
         ? [
             {
-              text: `${highSeverityAnomalies.length} high-severity anomalies — risk of coalition fragmentation`,
+              text: s.votingHighSeverity(highSeverityAnomalies.length),
               severity: 'high' as const,
             },
           ]
         : []),
       {
-        text: 'Shifting alliances may delay legislative progress on key files',
+        text: s.votingShiftingAlliances,
         severity: 'medium' as const,
       },
     ],
@@ -715,16 +722,22 @@ export function buildVotingSwot(
  *
  * @param weekData - Aggregated week/month data
  * @param _label - "week" or "month" (reserved for future localisation)
+ * @param lang - Target language code
  * @returns SWOT analysis data
  */
-export function buildProspectiveSwot(weekData: WeekAheadData, _label: string): SwotAnalysis {
+export function buildProspectiveSwot(
+  weekData: WeekAheadData,
+  _label: string,
+  lang: LanguageCode = 'en'
+): SwotAnalysis {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
   const bottleneckCount = weekData.pipeline.filter((p) => p.bottleneck === true).length;
   return {
     strengths: [
       ...(weekData.events.length > 0
         ? [
             {
-              text: `${weekData.events.length} plenary events scheduled — active legislative agenda`,
+              text: s.prospectiveEvents(weekData.events.length),
               severity: 'high' as const,
             },
           ]
@@ -732,7 +745,7 @@ export function buildProspectiveSwot(weekData: WeekAheadData, _label: string): S
       ...(weekData.committees.length > 0
         ? [
             {
-              text: `${weekData.committees.length} committee meetings — broad policy engagement`,
+              text: s.prospectiveCommittees(weekData.committees.length),
               severity: 'medium' as const,
             },
           ]
@@ -742,7 +755,7 @@ export function buildProspectiveSwot(weekData: WeekAheadData, _label: string): S
       ...(bottleneckCount > 0
         ? [
             {
-              text: `${bottleneckCount} legislative procedures facing bottleneck risks`,
+              text: s.prospectiveBottlenecks(bottleneckCount),
               severity: 'high' as const,
             },
           ]
@@ -750,7 +763,7 @@ export function buildProspectiveSwot(weekData: WeekAheadData, _label: string): S
       ...(weekData.events.length > 5
         ? [
             {
-              text: `High event density (${weekData.events.length}) risks compressed debate time`,
+              text: s.prospectiveHighDensity(weekData.events.length),
               severity: 'medium' as const,
             },
           ]
@@ -760,7 +773,7 @@ export function buildProspectiveSwot(weekData: WeekAheadData, _label: string): S
       ...(weekData.documents.length > 0
         ? [
             {
-              text: `${weekData.documents.length} documents under consideration — legislative momentum`,
+              text: s.prospectiveDocuments(weekData.documents.length),
               severity: 'medium' as const,
             },
           ]
@@ -768,7 +781,7 @@ export function buildProspectiveSwot(weekData: WeekAheadData, _label: string): S
       ...(weekData.questions.length > 0
         ? [
             {
-              text: `${weekData.questions.length} parliamentary questions — MEP engagement with citizen concerns`,
+              text: s.prospectiveQuestions(weekData.questions.length),
               severity: 'medium' as const,
             },
           ]
@@ -778,13 +791,13 @@ export function buildProspectiveSwot(weekData: WeekAheadData, _label: string): S
       ...(bottleneckCount > 0
         ? [
             {
-              text: `Bottleneck procedures may force procedural shortcuts or defer key files`,
+              text: s.prospectiveBottleneckRisk,
               severity: 'high' as const,
             },
           ]
         : []),
       {
-        text: 'Scheduling density increases risk of last-minute amendments',
+        text: s.prospectiveSchedulingRisk,
         severity: 'medium' as const,
       },
     ],
@@ -797,13 +810,16 @@ export function buildProspectiveSwot(weekData: WeekAheadData, _label: string): S
  * @param feedData - EP feed data
  * @param anomalyRaw - Raw anomaly text
  * @param coalitionRaw - Raw coalition text
+ * @param lang - Target language code
  * @returns SWOT analysis data
  */
 export function buildBreakingSwot(
   feedData: BreakingNewsFeedData | undefined,
   anomalyRaw: string,
-  coalitionRaw: string
+  coalitionRaw: string,
+  lang: LanguageCode = 'en'
 ): SwotAnalysis {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
   const adoptedCount = feedData?.adoptedTexts.length ?? 0;
   const eventCount = feedData?.events.length ?? 0;
   const procCount = feedData?.procedures.length ?? 0;
@@ -813,7 +829,7 @@ export function buildBreakingSwot(
       ...(adoptedCount > 0
         ? [
             {
-              text: `${adoptedCount} texts adopted — Parliament demonstrating legislative capacity`,
+              text: s.breakingAdopted(adoptedCount),
               severity: 'high' as const,
             },
           ]
@@ -821,7 +837,7 @@ export function buildBreakingSwot(
       ...(eventCount > 0
         ? [
             {
-              text: `${eventCount} parliamentary events — active institutional engagement`,
+              text: s.breakingEvents(eventCount),
               severity: 'medium' as const,
             },
           ]
@@ -831,7 +847,7 @@ export function buildBreakingSwot(
       ...(anomalyRaw
         ? [
             {
-              text: 'Voting anomalies detected — potential coalition instability',
+              text: s.breakingAnomalyWeakness,
               severity: 'high' as const,
             },
           ]
@@ -839,7 +855,7 @@ export function buildBreakingSwot(
       ...(procCount === 0
         ? [
             {
-              text: 'No new legislative procedures — limited pipeline momentum',
+              text: s.breakingNoProcedures,
               severity: 'medium' as const,
             },
           ]
@@ -849,7 +865,7 @@ export function buildBreakingSwot(
       ...(procCount > 0
         ? [
             {
-              text: `${procCount} procedures advancing — legislative pipeline active`,
+              text: s.breakingProceduresActive(procCount),
               severity: 'medium' as const,
             },
           ]
@@ -857,7 +873,7 @@ export function buildBreakingSwot(
       ...(coalitionRaw
         ? [
             {
-              text: 'Coalition dynamics shifting — new alliance opportunities emerging',
+              text: s.breakingCoalitionOpportunity,
               severity: 'medium' as const,
             },
           ]
@@ -867,13 +883,13 @@ export function buildBreakingSwot(
       ...(anomalyRaw
         ? [
             {
-              text: 'Detected anomalies may signal deeper political realignment',
+              text: s.breakingAnomalyThreat,
               severity: 'high' as const,
             },
           ]
         : []),
       {
-        text: 'Rapidly evolving events may outpace legislative response capacity',
+        text: s.breakingRapidEvents,
         severity: 'medium' as const,
       },
     ],
@@ -884,9 +900,14 @@ export function buildBreakingSwot(
  * Build SWOT analysis for propositions articles.
  *
  * @param pipelineData - Pipeline metrics
+ * @param lang - Target language code
  * @returns SWOT analysis data
  */
-export function buildPropositionsSwot(pipelineData: PipelineData | null): SwotAnalysis {
+export function buildPropositionsSwot(
+  pipelineData: PipelineData | null,
+  lang: LanguageCode = 'en'
+): SwotAnalysis {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
   const healthScore = pipelineData?.healthScore ?? 0;
   const throughput = pipelineData?.throughput ?? 0;
   const pct = (healthScore * 100).toFixed(0);
@@ -896,7 +917,7 @@ export function buildPropositionsSwot(pipelineData: PipelineData | null): SwotAn
       ...(healthScore > 0.7
         ? [
             {
-              text: `Pipeline health at ${pct}% — strong legislative management`,
+              text: s.propositionsHealthStrong(pct),
               severity: 'high' as const,
             },
           ]
@@ -904,7 +925,7 @@ export function buildPropositionsSwot(pipelineData: PipelineData | null): SwotAn
       ...(throughput >= 5
         ? [
             {
-              text: `Throughput rate ${throughput} — healthy processing pace`,
+              text: s.propositionsThroughputGood(throughput),
               severity: 'medium' as const,
             },
           ]
@@ -914,7 +935,7 @@ export function buildPropositionsSwot(pipelineData: PipelineData | null): SwotAn
       ...(healthScore < 0.5
         ? [
             {
-              text: `Pipeline health at ${pct}% — legislative congestion risk`,
+              text: s.propositionsHealthWeak(pct),
               severity: 'high' as const,
             },
           ]
@@ -922,7 +943,7 @@ export function buildPropositionsSwot(pipelineData: PipelineData | null): SwotAn
       ...(throughput < 5
         ? [
             {
-              text: `Low throughput (${throughput}) — slow processing delays policy implementation`,
+              text: s.propositionsThroughputLow(throughput),
               severity: 'medium' as const,
             },
           ]
@@ -930,11 +951,11 @@ export function buildPropositionsSwot(pipelineData: PipelineData | null): SwotAn
     ],
     opportunities: [
       {
-        text: 'Prioritisation of flagship files can improve pipeline efficiency',
+        text: s.propositionsPrioritisation,
         severity: 'medium' as const,
       },
       {
-        text: 'Trilogue acceleration on mature files can boost throughput',
+        text: s.propositionsTrilogueAcceleration,
         severity: 'medium' as const,
       },
     ],
@@ -942,13 +963,13 @@ export function buildPropositionsSwot(pipelineData: PipelineData | null): SwotAn
       ...(healthScore < 0.3
         ? [
             {
-              text: 'Critical pipeline congestion may force legislative file abandonment',
+              text: s.propositionsCriticalCongestion,
               severity: 'high' as const,
             },
           ]
         : []),
       {
-        text: 'Overlapping implementation timelines strain member state transposition capacity',
+        text: s.propositionsOverlapping,
         severity: 'medium' as const,
       },
     ],
@@ -959,9 +980,14 @@ export function buildPropositionsSwot(pipelineData: PipelineData | null): SwotAn
  * Build SWOT analysis for committee reports articles.
  *
  * @param committees - Committee data list
+ * @param lang - Target language code
  * @returns SWOT analysis data
  */
-export function buildCommitteeSwot(committees: readonly CommitteeData[]): SwotAnalysis {
+export function buildCommitteeSwot(
+  committees: readonly CommitteeData[],
+  lang: LanguageCode = 'en'
+): SwotAnalysis {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
   const activeCommittees = committees.filter((c) => c.documents.length > 0);
   const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
   const inactiveCount = committees.length - activeCommittees.length;
@@ -971,7 +997,7 @@ export function buildCommitteeSwot(committees: readonly CommitteeData[]): SwotAn
       ...(activeCommittees.length > 0
         ? [
             {
-              text: `${activeCommittees.length} of ${committees.length} committees actively producing documents`,
+              text: s.committeeActive(activeCommittees.length, committees.length),
               severity:
                 activeCommittees.length >= committees.length * 0.7
                   ? ('high' as const)
@@ -982,7 +1008,7 @@ export function buildCommitteeSwot(committees: readonly CommitteeData[]): SwotAn
       ...(totalDocs > 0
         ? [
             {
-              text: `${totalDocs} documents produced — strong legislative output`,
+              text: s.committeeDocuments(totalDocs),
               severity: 'medium' as const,
             },
           ]
@@ -992,7 +1018,7 @@ export function buildCommitteeSwot(committees: readonly CommitteeData[]): SwotAn
       ...(inactiveCount > 0
         ? [
             {
-              text: `${inactiveCount} committees with no recent document activity`,
+              text: s.committeeInactive(inactiveCount),
               severity:
                 inactiveCount > committees.length * 0.3 ? ('high' as const) : ('medium' as const),
             },
@@ -1001,13 +1027,13 @@ export function buildCommitteeSwot(committees: readonly CommitteeData[]): SwotAn
     ],
     opportunities: [
       {
-        text: 'Cross-committee collaboration on horizontal policy files can increase impact',
+        text: s.committeeCrossCollaboration,
         severity: 'medium' as const,
       },
       ...(committees.length > 0
         ? [
             {
-              text: 'Committee hearings provide platform for expert stakeholder engagement',
+              text: s.committeeHearings,
               severity: 'medium' as const,
             },
           ]
@@ -1017,13 +1043,13 @@ export function buildCommitteeSwot(committees: readonly CommitteeData[]): SwotAn
       ...(inactiveCount > committees.length * 0.3
         ? [
             {
-              text: 'Low committee activity risks legislative bottlenecks downstream',
+              text: s.committeeLowActivity,
               severity: 'high' as const,
             },
           ]
         : []),
       {
-        text: 'Competing policy priorities may dilute committee focus',
+        text: s.committeeCompetingPriorities,
         severity: 'medium' as const,
       },
     ],
@@ -1038,34 +1064,37 @@ export function buildCommitteeSwot(committees: readonly CommitteeData[]): SwotAn
  * @param records - Voting records
  * @param patterns - Voting patterns
  * @param anomalies - Detected anomalies
+ * @param lang - Target language code
  * @returns Dashboard configuration
  */
 export function buildVotingDashboard(
   records: readonly VotingRecord[],
   patterns: readonly VotingPattern[],
-  anomalies: readonly VotingAnomaly[]
+  anomalies: readonly VotingAnomaly[],
+  lang: LanguageCode = 'en'
 ): DashboardConfig {
+  const d: DashboardBuilderStrings = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
   const adoptedCount = records.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
   const rejectedCount = records.filter((r) => r.result?.toLowerCase().includes('reject')).length;
 
   const overviewPanel = {
-    title: 'Voting Overview',
+    title: d.votingOverview,
     metrics: [
-      { label: 'Total Votes', value: String(records.length), trend: 'stable' as const },
+      { label: d.totalVotes, value: String(records.length), trend: 'stable' as const },
       {
-        label: 'Adopted',
+        label: d.adopted,
         value: String(adoptedCount),
         trend: adoptedCount > 0 ? ('up' as const) : ('stable' as const),
       },
-      { label: 'Rejected', value: String(rejectedCount) },
-      { label: 'Anomalies', value: String(anomalies.length) },
+      { label: d.rejected, value: String(rejectedCount) },
+      { label: d.anomalies, value: String(anomalies.length) },
     ],
   };
 
   const cohesionPanel =
     patterns.length > 0
       ? {
-          title: 'Political Group Cohesion',
+          title: d.politicalGroupCohesion,
           metrics: patterns.slice(0, 4).map((p) => ({
             label: p.group,
             value: `${(p.cohesion * 100).toFixed(0)}%`,
@@ -1076,12 +1105,12 @@ export function buildVotingDashboard(
           })),
           chart: {
             type: 'bar' as const,
-            title: 'Group Cohesion Rates',
+            title: d.groupCohesionRates,
             data: {
               labels: patterns.slice(0, 6).map((p) => p.group),
               datasets: [
                 {
-                  label: 'Cohesion %',
+                  label: d.cohesionPct,
                   data: patterns.slice(0, 6).map((p) => Math.round(p.cohesion * 100)),
                 },
               ],
@@ -1100,35 +1129,38 @@ export function buildVotingDashboard(
  *
  * @param weekData - Aggregated week/month data
  * @param _label - "week" or "month" (reserved for future localisation)
+ * @param lang - Target language code
  * @returns Dashboard configuration
  */
 export function buildProspectiveDashboard(
   weekData: WeekAheadData,
-  _label: string
+  _label: string,
+  lang: LanguageCode = 'en'
 ): DashboardConfig {
+  const d: DashboardBuilderStrings = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
   const bottleneckCount = weekData.pipeline.filter((p) => p.bottleneck === true).length;
 
   return {
     panels: [
       {
-        title: 'Scheduled Activity',
+        title: d.scheduledActivity,
         metrics: [
-          { label: 'Plenary Events', value: String(weekData.events.length) },
-          { label: 'Committee Meetings', value: String(weekData.committees.length) },
-          { label: 'Documents', value: String(weekData.documents.length) },
+          { label: d.plenaryEvents, value: String(weekData.events.length) },
+          { label: d.committeeMeetings, value: String(weekData.committees.length) },
+          { label: d.documents, value: String(weekData.documents.length) },
           {
-            label: 'Pipeline Procedures',
+            label: d.pipelineProcedures,
             value: String(weekData.pipeline.length),
             trend: bottleneckCount > 0 ? ('down' as const) : ('stable' as const),
           },
         ],
       },
       {
-        title: 'Parliamentary Questions',
+        title: d.parliamentaryQuestions,
         metrics: [
-          { label: 'Questions Filed', value: String(weekData.questions.length) },
+          { label: d.questionsFiled, value: String(weekData.questions.length) },
           {
-            label: 'Bottleneck Procedures',
+            label: d.bottleneckProcedures,
             value: String(bottleneckCount),
             trend: bottleneckCount > 0 ? ('down' as const) : ('up' as const),
           },
@@ -1142,11 +1174,14 @@ export function buildProspectiveDashboard(
  * Build dashboard for breaking news articles.
  *
  * @param feedData - EP feed data
+ * @param lang - Target language code
  * @returns Dashboard configuration
  */
 export function buildBreakingDashboard(
-  feedData: BreakingNewsFeedData | undefined
+  feedData: BreakingNewsFeedData | undefined,
+  lang: LanguageCode = 'en'
 ): DashboardConfig {
+  const d: DashboardBuilderStrings = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
   const adoptedCount = feedData?.adoptedTexts.length ?? 0;
   const eventCount = feedData?.events.length ?? 0;
   const procCount = feedData?.procedures.length ?? 0;
@@ -1156,31 +1191,31 @@ export function buildBreakingDashboard(
   return {
     panels: [
       {
-        title: 'Feed Activity',
+        title: d.feedActivity,
         metrics: [
           {
-            label: 'Adopted Texts',
+            label: d.adoptedTexts,
             value: String(adoptedCount),
             trend: adoptedCount > 0 ? ('up' as const) : ('stable' as const),
           },
-          { label: 'Events', value: String(eventCount) },
-          { label: 'Procedures', value: String(procCount) },
-          { label: 'MEP Updates', value: String(mepCount) },
+          { label: d.events, value: String(eventCount) },
+          { label: d.procedures, value: String(procCount) },
+          { label: d.mepUpdates, value: String(mepCount) },
         ],
       },
       {
-        title: 'Activity Summary',
-        metrics: [{ label: 'Total Items', value: String(totalItems) }],
+        title: d.activitySummary,
+        metrics: [{ label: d.totalItems, value: String(totalItems) }],
         ...(totalItems > 0
           ? {
               chart: {
                 type: 'doughnut' as const,
-                title: 'Feed Breakdown',
+                title: d.feedBreakdown,
                 data: {
-                  labels: ['Adopted Texts', 'Events', 'Procedures', 'MEP Updates'],
+                  labels: [d.adoptedTexts, d.events, d.procedures, d.mepUpdates],
                   datasets: [
                     {
-                      label: 'Items',
+                      label: d.items,
                       data: [adoptedCount, eventCount, procCount, mepCount],
                     },
                   ],
@@ -1197,9 +1232,14 @@ export function buildBreakingDashboard(
  * Build dashboard for propositions articles.
  *
  * @param pipelineData - Pipeline metrics
+ * @param lang - Target language code
  * @returns Dashboard configuration
  */
-export function buildPropositionsDashboard(pipelineData: PipelineData | null): DashboardConfig {
+export function buildPropositionsDashboard(
+  pipelineData: PipelineData | null,
+  lang: LanguageCode = 'en'
+): DashboardConfig {
+  const d: DashboardBuilderStrings = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
   const healthScore = pipelineData?.healthScore ?? 0;
   const throughput = pipelineData?.throughput ?? 0;
   const pct = (healthScore * 100).toFixed(0);
@@ -1207,10 +1247,10 @@ export function buildPropositionsDashboard(pipelineData: PipelineData | null): D
   return {
     panels: [
       {
-        title: 'Pipeline Health',
+        title: d.pipelineHealth,
         metrics: [
           {
-            label: 'Health Score',
+            label: d.healthScore,
             value: `${pct}%`,
             trend: (healthScore > 0.7 ? 'up' : healthScore < 0.5 ? 'down' : 'stable') as
               | 'up'
@@ -1218,12 +1258,12 @@ export function buildPropositionsDashboard(pipelineData: PipelineData | null): D
               | 'stable',
           },
           {
-            label: 'Throughput',
+            label: d.throughput,
             value: String(throughput),
             trend: throughput >= 5 ? ('up' as const) : ('down' as const),
           },
           {
-            label: 'Status',
+            label: d.status,
             value: pipelineHealthLabel(healthScore),
           },
         ],
@@ -1236,26 +1276,31 @@ export function buildPropositionsDashboard(pipelineData: PipelineData | null): D
  * Build dashboard for committee reports articles.
  *
  * @param committees - Committee data list
+ * @param lang - Target language code
  * @returns Dashboard configuration
  */
-export function buildCommitteeDashboard(committees: readonly CommitteeData[]): DashboardConfig {
+export function buildCommitteeDashboard(
+  committees: readonly CommitteeData[],
+  lang: LanguageCode = 'en'
+): DashboardConfig {
+  const d: DashboardBuilderStrings = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
   const activeCommittees = committees.filter((c) => c.documents.length > 0);
   const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
   const activePct =
     committees.length > 0 ? ((activeCommittees.length / committees.length) * 100).toFixed(0) : '0';
 
   const overviewPanel = {
-    title: 'Committee Overview',
+    title: d.committeeOverview,
     metrics: [
-      { label: 'Total Committees', value: String(committees.length) },
+      { label: d.totalCommittees, value: String(committees.length) },
       {
-        label: 'Active Committees',
+        label: d.activeCommittees,
         value: String(activeCommittees.length),
         trend:
           activeCommittees.length >= committees.length * 0.7 ? ('up' as const) : ('down' as const),
       },
-      { label: 'Activity Rate', value: `${activePct}%` },
-      { label: 'Documents Produced', value: String(totalDocs) },
+      { label: d.activityRate, value: `${activePct}%` },
+      { label: d.documentsProduced, value: String(totalDocs) },
     ],
   };
 
@@ -1266,15 +1311,15 @@ export function buildCommitteeDashboard(committees: readonly CommitteeData[]): D
             .sort((a, b) => b.documents.length - a.documents.length)
             .slice(0, 6);
           return {
-            title: 'Document Output by Committee',
+            title: d.documentOutputByCommittee,
             chart: {
               type: 'bar' as const,
-              title: 'Documents per Committee',
+              title: d.documentsPerCommittee,
               data: {
                 labels: topCommittees.map((c) => c.abbreviation),
                 datasets: [
                   {
-                    label: 'Documents',
+                    label: d.documents,
                     data: topCommittees.map((c) => c.documents.length),
                   },
                 ],
