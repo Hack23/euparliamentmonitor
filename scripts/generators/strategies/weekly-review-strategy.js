@@ -3,7 +3,7 @@
 import { ArticleCategory } from '../../types/index.js';
 import { WEEKLY_REVIEW_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchVotingRecords, fetchVotingPatterns, fetchMotionsAnomalies, fetchParliamentaryQuestionsForMotions, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
-import { generateMotionsContent } from '../motions-content.js';
+import { generateMotionsContent, buildAdoptedTextsSection } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildVotingAnalysis } from '../analysis-builders.js';
 /** Keywords shared by all Weekly Review articles */
@@ -91,7 +91,14 @@ export class WeeklyReviewStrategy {
         const base = generateMotionsContent(data.dateRange.start, data.dateRange.end, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
         const analysis = buildVotingAnalysis(data.dateRange.start, data.dateRange.end, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
         const deepSection = buildDeepAnalysisSection(analysis, lang);
-        return base.replace('<!-- /article-content -->', deepSection);
+        // Enrich with adopted texts from feed data when available
+        const adoptedTextsHtml = data.feedData && data.feedData.adoptedTexts.length > 0
+            ? buildAdoptedTextsSection(data.feedData.adoptedTexts, lang)
+            : '';
+        const enriched = adoptedTextsHtml
+            ? base.replace('<!-- /article-content -->', adoptedTextsHtml + deepSection)
+            : base.replace('<!-- /article-content -->', deepSection);
+        return enriched;
     }
     /**
      * Return language-specific metadata for the weekly review article.
