@@ -16,9 +16,9 @@
 (function () {
   'use strict';
 
-  /* ── EU Parliament colour palette ────────────────────────────────── */
+  /* ── EU Parliament color palette ─────────────────────────────────── */
 
-  var EU_COLORS = [
+  const EU_COLORS = [
     '#003399', // EU blue
     '#FFD700', // EU gold
     '#E63946', // red
@@ -31,9 +31,9 @@
     '#A8DADC', // light teal
   ];
 
-  var GRID_COLOR = 'rgba(0, 0, 0, 0.06)';
-  var TICK_COLOR = '#6c757d';
-  var FONT_FAMILY = "'Segoe UI', system-ui, -apple-system, sans-serif";
+  const GRID_COLOR = 'rgba(0, 0, 0, 0.06)';
+  const TICK_COLOR = '#6c757d';
+  const FONT_FAMILY = "'Segoe UI', system-ui, -apple-system, sans-serif";
 
   /* ── Chart.js global defaults ────────────────────────────────────── */
 
@@ -62,15 +62,15 @@
 
   function assignColors(datasets) {
     if (!datasets || !datasets.length) return;
-    for (var i = 0; i < datasets.length; i++) {
-      var ds = datasets[i];
+    for (let i = 0; i < datasets.length; i++) {
+      const ds = datasets[i];
       if (!ds.backgroundColor) {
         if (
           datasets.length === 1 &&
           ds.data &&
           ds.data.length <= EU_COLORS.length
         ) {
-          /* Per-segment colours for pie / doughnut / polar */
+          /* Per-segment colors for pie / doughnut / polar */
           ds.backgroundColor = ds.data.map(function (_, j) {
             return EU_COLORS[j % EU_COLORS.length] + 'CC'; /* 80% opacity */
           });
@@ -87,7 +87,7 @@
   }
 
   function buildOptions(type, userOpts) {
-    var opts = Object.assign({}, userOpts || {});
+    const opts = Object.assign({}, userOpts || {});
 
     /* Scale defaults for cartesian charts */
     if (type === 'bar' || type === 'line' || type === 'scatter') {
@@ -141,35 +141,53 @@
     return opts;
   }
 
+  /**
+   * Decode HTML entities in a string using the browser's native parser.
+   * Falls back to manual replacement if DOMParser is unavailable.
+   *
+   * @param {string} html - HTML-entity-encoded string
+   * @returns {string} Decoded string
+   */
+  function decodeHTMLEntities(html) {
+    /* Use a temporary textarea to let the browser decode entities safely */
+    if (typeof document !== 'undefined' && document.createElement) {
+      const textarea = document.createElement('textarea');
+      textarea.innerHTML = html;
+      return textarea.value;
+    }
+    /* Fallback for non-browser environments (should not normally run) */
+    return html
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/&#x27;/g, "'")
+      .replace(/&#x2F;/g, '/');
+  }
+
   /* ── Hydration ───────────────────────────────────────────────────── */
 
   function hydrateCharts() {
     if (typeof Chart === 'undefined') return;
 
-    var canvases = document.querySelectorAll('canvas[data-chart-config]');
-    for (var i = 0; i < canvases.length; i++) {
-      var canvas = canvases[i];
+    const canvases = document.querySelectorAll('canvas[data-chart-config]');
+    for (let i = 0; i < canvases.length; i++) {
+      const canvas = canvases[i];
       if (canvas._chartInstance) continue; /* already initialised */
 
-      var raw = canvas.getAttribute('data-chart-config');
+      const raw = canvas.getAttribute('data-chart-config');
       if (!raw) continue;
 
       try {
-        /* The attribute value is HTML-entity-encoded JSON */
-        var decoded = raw
-          .replace(/&amp;/g, '&')
-          .replace(/&lt;/g, '<')
-          .replace(/&gt;/g, '>')
-          .replace(/&quot;/g, '"')
-          .replace(/&#39;/g, "'");
-
-        var config = JSON.parse(decoded);
+        const decoded = decodeHTMLEntities(raw);
+        const config = JSON.parse(decoded);
         if (!config || !config.type || !config.data) continue;
 
         assignColors(config.data.datasets);
-        var options = buildOptions(config.type, config.options);
+        const options = buildOptions(config.type, config.options);
 
-        var instance = new Chart(canvas, {
+        const instance = new Chart(canvas, {
           type: config.type,
           data: config.data,
           options: options,
@@ -178,7 +196,7 @@
 
         /* Hide the noscript fallback table sibling (already hidden by browser,
            but mark for clarity) */
-        var noscript = canvas.parentNode
+        const noscript = canvas.parentNode
           ? canvas.parentNode.querySelector('noscript')
           : null;
         if (noscript) noscript.setAttribute('aria-hidden', 'true');
