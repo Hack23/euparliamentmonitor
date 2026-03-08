@@ -143,27 +143,15 @@
 
   /**
    * Decode HTML entities in a string using the browser's native parser.
-   * Falls back to manual replacement if DOMParser is unavailable.
+   * This script only runs in browsers, so document is always available.
    *
    * @param {string} html - HTML-entity-encoded string
    * @returns {string} Decoded string
    */
   function decodeHTMLEntities(html) {
-    /* Use a temporary textarea to let the browser decode entities safely */
-    if (typeof document !== 'undefined' && document.createElement) {
-      const textarea = document.createElement('textarea');
-      textarea.innerHTML = html;
-      return textarea.value;
-    }
-    /* Fallback for non-browser environments (should not normally run) */
-    return html
-      .replace(/&amp;/g, '&')
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&quot;/g, '"')
-      .replace(/&#39;/g, "'")
-      .replace(/&#x27;/g, "'")
-      .replace(/&#x2F;/g, '/');
+    const textarea = document.createElement('textarea');
+    textarea.innerHTML = html;
+    return textarea.value;
   }
 
   /* ── Hydration ───────────────────────────────────────────────────── */
