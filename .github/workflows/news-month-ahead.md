@@ -515,6 +515,20 @@ Month-ahead articles should include:
 6. **Watch Points**: Issues likely to generate political significance
 7. **International Context**: EU external relations, global coordination events
 
+### Available Visualization Sections
+
+The generator pipeline supports rich data-driven visualizations. These are produced automatically when the article strategy populates the corresponding data fields:
+
+| Section | Generator | What it shows |
+|---------|-----------|---------------|
+| **SWOT Analysis** | `buildSwotSection()` | Strengths / Weaknesses / Opportunities / Threats grid |
+| **Dashboard** | `buildDashboardSection()` | Metric cards, bar/line charts with data tables |
+| **Mindmap** | `buildMindmapSection()` | Central topic → color-coded policy branches → leaf items |
+| **Sankey Flow** | `buildSankeySection()` | Inline SVG flow diagram: source nodes → target nodes |
+| **Deep Analysis** | `buildDeepAnalysisSection()` | Free-form analytical narrative |
+
+The **Mindmap** section is ideal for month-ahead articles to visualise upcoming policy domains and their interconnections. The **Sankey** section works well for showing the flow of legislative procedures from committees to plenary outcomes.
+
 ## Translation Rules
 - Political group abbreviations MUST NEVER be translated
 - Committee abbreviations kept as-is

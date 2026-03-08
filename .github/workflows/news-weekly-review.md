@@ -470,6 +470,20 @@ safeoutputs___create_pull_request({
 })
 ```
 
+## Available Visualization Sections
+
+The generator pipeline supports rich data-driven visualizations. These are produced automatically when the article strategy populates the corresponding data fields:
+
+| Section | Generator | What it shows |
+|---------|-----------|---------------|
+| **SWOT Analysis** | `buildSwotSection()` | Strengths / Weaknesses / Opportunities / Threats grid |
+| **Dashboard** | `buildDashboardSection()` | Metric cards, bar/line charts with data tables |
+| **Mindmap** | `buildMindmapSection()` | Central topic → color-coded policy branches → leaf items |
+| **Sankey Flow** | `buildSankeySection()` | Inline SVG flow diagram: source nodes → target nodes |
+| **Deep Analysis** | `buildDeepAnalysisSection()` | Free-form analytical narrative |
+
+The **SWOT** section works well for weekly reviews to assess the week's political dynamics. The **Dashboard** section is ideal for quantitative summaries. The **Mindmap** visualises interconnected policy topics.
+
 ## Translation Rules
 - Political group abbreviations MUST NEVER be translated
 - Committee abbreviations kept as-is

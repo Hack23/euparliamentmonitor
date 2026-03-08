@@ -56,7 +56,16 @@ const NODE_WIDTH = 22;
 const NODE_GAP = 14;
 const COL_LEFT = 20;
 const COL_RIGHT = SVG_WIDTH - NODE_WIDTH - 20;
-/** Build a cubic bezier SVG path between two columns. */
+/**
+ * Build a cubic bezier SVG path between two columns.
+ *
+ * @param x1 - Start x coordinate.
+ * @param y1 - Start y coordinate.
+ * @param x2 - End x coordinate.
+ * @param y2 - End y coordinate.
+ * @param h - Height of the flow path.
+ * @returns SVG path data string.
+ */
 function buildBezierPath(x1, y1, x2, y2, h) {
     const mx = (x1 + x2) / 2;
     return [
@@ -67,7 +76,14 @@ function buildBezierPath(x1, y1, x2, y2, h) {
         'Z',
     ].join(' ');
 }
-/** Compute SVG element strings for the Sankey diagram. */
+/**
+ * Compute SVG element strings for the Sankey diagram.
+ *
+ * @param nodes - Array of Sankey nodes.
+ * @param flows - Array of directed flows between nodes.
+ * @param svgHeight - Height of the SVG canvas in pixels.
+ * @returns Array of SVG element strings.
+ */
 function layoutSankey(nodes, flows, svgHeight) {
     const sourceIds = new Set(flows.map((f) => f.source));
     const targetIds = new Set(flows.map((f) => f.target));

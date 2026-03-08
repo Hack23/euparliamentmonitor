@@ -688,6 +688,20 @@ Every generated article must include:
 | ESN | Europe of Sovereign Nations |
 | NI | Non-Inscrits (Non-attached Members) |
 
+## Available Visualization Sections
+
+The generator pipeline supports rich data-driven visualizations. These are produced automatically when the article strategy populates the corresponding data fields:
+
+| Section | Generator | What it shows |
+|---------|-----------|---------------|
+| **SWOT Analysis** | `buildSwotSection()` | Strengths / Weaknesses / Opportunities / Threats grid |
+| **Dashboard** | `buildDashboardSection()` | Metric cards, bar/line charts with data tables |
+| **Mindmap** | `buildMindmapSection()` | Central topic → color-coded policy branches → leaf items |
+| **Sankey Flow** | `buildSankeySection()` | Inline SVG flow diagram: source nodes → target nodes |
+| **Deep Analysis** | `buildDeepAnalysisSection()` | Free-form analytical narrative |
+
+The **Sankey** section is ideal for motions articles to visualise voting flows from political groups to outcomes (adopted/rejected). The **SWOT** section helps assess political implications of plenary votes.
+
 ## Translation Rules
 
 - Motion reference numbers (e.g., `B10-0001/2025`, `RC-B10-0001/2025`) are NEVER translated

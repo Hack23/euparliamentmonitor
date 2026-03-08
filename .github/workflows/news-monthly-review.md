@@ -509,6 +509,20 @@ Monthly review articles should include:
 7. **Month's Most Consequential**: Deep analysis of the month's defining development
 8. **Looking Ahead**: Preview of next month's parliamentary calendar
 
+### Available Visualization Sections
+
+The generator pipeline supports rich data-driven visualizations. These are produced automatically when the article strategy populates the corresponding data fields:
+
+| Section | Generator | What it shows |
+|---------|-----------|---------------|
+| **SWOT Analysis** | `buildSwotSection()` | Strengths / Weaknesses / Opportunities / Threats grid |
+| **Dashboard** | `buildDashboardSection()` | Metric cards, bar/line charts with data tables |
+| **Mindmap** | `buildMindmapSection()` | Central topic → color-coded policy branches → leaf items |
+| **Sankey Flow** | `buildSankeySection()` | Inline SVG flow diagram: source nodes → target nodes |
+| **Deep Analysis** | `buildDeepAnalysisSection()` | Free-form analytical narrative |
+
+The **SWOT** section is ideal for monthly reviews to assess political strengths and risks. The **Sankey** section visualises legislative flow from committees to adopted texts.
+
 ## Translation Rules
 - Political group abbreviations MUST NEVER be translated
 - Committee abbreviations kept as-is
