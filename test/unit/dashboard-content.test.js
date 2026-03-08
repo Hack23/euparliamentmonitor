@@ -339,7 +339,17 @@ describe('dashboard-content', () => {
           chart: {
             type: 'scatter',
             title: 'Activity vs Attendance',
-            data: { labels: [], datasets: [{ label: 'MEPs', data: [10, 20, 30] }] },
+            data: {
+              labels: [],
+              datasets: [{
+                label: 'MEPs',
+                data: [
+                  { x: 10, y: 20 },
+                  { x: 20, y: 40 },
+                  { x: 30, y: 60 },
+                ],
+              }],
+            },
           },
         }],
       };
@@ -355,7 +365,17 @@ describe('dashboard-content', () => {
           chart: {
             type: 'bubble',
             title: 'Legislation Impact',
-            data: { labels: [], datasets: [{ label: 'Laws', data: [5, 10, 15] }] },
+            data: {
+              labels: [],
+              datasets: [{
+                label: 'Laws',
+                data: [
+                  { x: 1, y: 5, r: 5 },
+                  { x: 2, y: 10, r: 10 },
+                  { x: 3, y: 15, r: 15 },
+                ],
+              }],
+            },
           },
         }],
       };

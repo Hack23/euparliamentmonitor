@@ -47,30 +47,27 @@
     Chart.defaults.maintainAspectRatio = true;
     Chart.defaults.animation = { duration: 600, easing: 'easeOutQuart' };
 
-    /* Register annotation plugin if available */
-    if (typeof window.ChartAnnotation !== 'undefined') {
-      Chart.register(window.ChartAnnotation);
-    } else if (
-      typeof chartjsPluginAnnotation !== 'undefined' &&
-      chartjsPluginAnnotation.default
-    ) {
-      Chart.register(chartjsPluginAnnotation.default);
-    }
+    /* The annotation plugin UMD bundle self-registers with Chart.js
+       when both are loaded — no manual registration needed. */
   }
 
   /* ── Theme helper ────────────────────────────────────────────────── */
 
-  function assignColors(datasets) {
+  /** Chart types that use per-segment (per-slice) coloring */
+  const SEGMENT_TYPES = { pie: 1, doughnut: 1, polarArea: 1 };
+
+  function assignColors(datasets, chartType) {
     if (!datasets || !datasets.length) return;
     for (let i = 0; i < datasets.length; i++) {
       const ds = datasets[i];
       if (!ds.backgroundColor) {
         if (
+          SEGMENT_TYPES[chartType] &&
           datasets.length === 1 &&
           ds.data &&
           ds.data.length <= EU_COLORS.length
         ) {
-          /* Per-segment colors for pie / doughnut / polar */
+          /* Per-segment colors for pie / doughnut / polarArea */
           ds.backgroundColor = ds.data.map(function (_, j) {
             return EU_COLORS[j % EU_COLORS.length] + 'CC'; /* 80% opacity */
           });
@@ -178,7 +175,7 @@
         const config = JSON.parse(decoded);
         if (!config || !config.type || !config.data) continue;
 
-        assignColors(config.data.datasets);
+        assignColors(config.data.datasets, config.type);
         const options = buildOptions(config.type, config.options);
 
         const instance = new Chart(canvas, {
