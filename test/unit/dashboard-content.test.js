@@ -314,4 +314,54 @@ describe('dashboard-content', () => {
       expect(dashboardHasCharts(CHART_ONLY_DASHBOARD)).toBe(true);
     });
   });
+
+  describe('extended chart types', () => {
+    it('should render polarArea chart config as data attribute', () => {
+      const dashboard = {
+        panels: [{
+          title: 'Group Coverage',
+          chart: {
+            type: 'polarArea',
+            title: 'Political Group Seats',
+            data: { labels: ['EPP', 'S&D'], datasets: [{ label: 'Seats', data: [188, 136] }] },
+          },
+        }],
+      };
+      const html = buildDashboardSection(dashboard, 'en');
+      expect(html).toContain('data-chart-config');
+      expect(html).toContain('polarArea');
+    });
+
+    it('should render scatter chart config as data attribute', () => {
+      const dashboard = {
+        panels: [{
+          title: 'Correlation',
+          chart: {
+            type: 'scatter',
+            title: 'Activity vs Attendance',
+            data: { labels: [], datasets: [{ label: 'MEPs', data: [10, 20, 30] }] },
+          },
+        }],
+      };
+      const html = buildDashboardSection(dashboard, 'en');
+      expect(html).toContain('data-chart-config');
+      expect(html).toContain('scatter');
+    });
+
+    it('should render bubble chart config as data attribute', () => {
+      const dashboard = {
+        panels: [{
+          title: 'Impact Matrix',
+          chart: {
+            type: 'bubble',
+            title: 'Legislation Impact',
+            data: { labels: [], datasets: [{ label: 'Laws', data: [5, 10, 15] }] },
+          },
+        }],
+      };
+      const html = buildDashboardSection(dashboard, 'en');
+      expect(html).toContain('data-chart-config');
+      expect(html).toContain('bubble');
+    });
+  });
 });

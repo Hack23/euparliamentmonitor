@@ -127,12 +127,12 @@ export interface ChartData {
  */
 export interface ChartConfig {
   /** Chart type — matches Chart.js chart types */
-  readonly type: 'bar' | 'line' | 'pie' | 'doughnut' | 'radar';
+  readonly type: 'bar' | 'line' | 'pie' | 'doughnut' | 'radar' | 'polarArea' | 'scatter' | 'bubble';
   /** Chart title displayed above the chart */
   readonly title?: string;
   /** Chart data (labels + datasets) */
   readonly data: ChartData;
-  /** Optional Chart.js options override */
+  /** Optional Chart.js options override (scales, plugins, annotation, etc.) */
   readonly options?: Record<string, unknown>;
 }
 
