@@ -2684,3 +2684,187 @@ button:focus-visible {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ===================================================================
+   Mindmap Section
+   CSS-only mindmap with central topic node and colored branches.
+   =================================================================== */
+
+.mindmap-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--surface, #f8f9fa);
+  border: 2px solid var(--primary, #1565c0);
+  border-radius: 8px;
+}
+
+.mindmap-section h2 {
+  font-size: 1.4rem;
+  color: var(--primary, #1565c0);
+  border-bottom: 2px solid var(--primary, #1565c0);
+  padding-bottom: 0.75rem;
+  margin: 0 0 1rem 0;
+}
+
+.mindmap-summary {
+  color: var(--text-muted, #6c757d);
+  font-size: 0.95rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.mindmap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mindmap-center {
+  background: var(--surface-alt, #ffffff);
+  border: 3px solid var(--primary, #1565c0);
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  color: var(--primary, #1565c0);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 0.85rem + 0.5vw, 1.15rem);
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 280px;
+}
+
+.mindmap-branches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.mindmap-branch {
+  background: var(--branch-bg, #e3f2fd);
+  border: 2px solid var(--branch-border, #1565c0);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  min-width: 180px;
+  max-width: 240px;
+  flex: 1 1 180px;
+}
+
+.mindmap-branch-label {
+  color: var(--branch-text, #1565c0);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.mindmap-leaf-list {
+  list-style: disc;
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--text-secondary, #495057);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.mindmap-leaf-list li {
+  margin-bottom: 0.2rem;
+}
+
+@media (min-width: 768px) {
+  .mindmap-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .mindmap-center {
+    flex: 0 0 auto;
+    align-self: center;
+  }
+
+  .mindmap-branches {
+    width: auto;
+    flex: 1;
+  }
+}
+
+[dir="rtl"] .mindmap-section {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .mindmap-leaf-list {
+  padding-left: 0;
+  padding-right: 1.25rem;
+}
+
+/* ===================================================================
+   Sankey Flow Chart Section
+   Inline SVG Sankey with accessible fallback table.
+   =================================================================== */
+
+.sankey-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--surface, #f8f9fa);
+  border: 2px solid var(--text-muted, #7b1fa2);
+  border-radius: 8px;
+}
+
+.sankey-section h2 {
+  font-size: 1.4rem;
+  color: var(--text-primary, #1a1a2e);
+  border-bottom: 2px solid var(--border-light, #dee2e6);
+  padding-bottom: 0.75rem;
+  margin: 0 0 1rem 0;
+}
+
+.sankey-summary {
+  color: var(--text-muted, #6c757d);
+  font-size: 0.95rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.sankey-chart-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sankey-chart-wrapper svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sankey-fallback-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.sankey-fallback-table th,
+.sankey-fallback-table td {
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  border: 1px solid var(--border-light, #dee2e6);
+}
+
+.sankey-fallback-table thead th {
+  background: var(--surface, #f8f9fa);
+  font-weight: 600;
+}
+
+[dir="rtl"] .sankey-section {
+  direction: rtl;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .mindmap-branch {
+    min-width: 140px;
+    max-width: 100%;
+  }
+}
