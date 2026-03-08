@@ -384,7 +384,14 @@ export function generateArticleHTML(options: ArticleOptions): string {
       bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';
     },{passive:true});
   })();
-  </script>
+  </script>${
+    content.includes('data-chart-config')
+      ? `
+  <script src="../js/vendor/chart.umd.min.js" defer></script>
+  <script src="../js/vendor/chartjs-plugin-annotation.min.js" defer></script>
+  <script src="../js/chart-init.js" defer></script>`
+      : ''
+  }
 </body>
 </html>`;
 }

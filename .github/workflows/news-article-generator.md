@@ -432,9 +432,14 @@ fi
 echo "📰 Article types: $ARTICLE_TYPES"
 ```
 
-### Step 2: Setup MCP Gateway
+### Step 2: Setup MCP Gateway & Generate Articles
+
+> ⚠️ **CRITICAL — MCP env vars and the generation script MUST run in the same bash block.**
+> Environment variables (`EP_MCP_GATEWAY_URL`, `USE_EP_MCP`) set via `export` in one bash block
+> do NOT persist to the next block in agentic workflow execution. Keep setup and generation together.
 
 ```bash
+# --- MCP Gateway Setup ---
 MCP_CONFIG="${GH_AW_MCP_CONFIG:-/home/runner/.copilot/mcp-config.json}"
 
 if [ -f "$MCP_CONFIG" ]; then
@@ -473,11 +478,8 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     npm install --no-save european-parliament-mcp-server@1.1.2
   fi
 fi
-```
 
-### Step 3: Generate Articles
-
-```bash
+# --- Generate Articles ---
 LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
@@ -561,6 +563,18 @@ safeoutputs___create_pull_request({
   head: BRANCH_NAME
 })
 ```
+
+## Available Visualization Sections
+
+The generator pipeline supports rich data-driven visualizations. These are produced automatically when the article strategy populates the corresponding data fields:
+
+| Section | Generator | What it shows |
+|---------|-----------|---------------|
+| **SWOT Analysis** | `buildSwotSection()` | Strengths / Weaknesses / Opportunities / Threats grid |
+| **Dashboard** | `buildDashboardSection()` | Metric cards, bar/line charts with data tables |
+| **Mindmap** | `buildMindmapSection()` | Central topic → color-coded policy branches → leaf items |
+| **Sankey Flow** | `buildSankeySection()` | Inline SVG flow diagram: source nodes → target nodes |
+| **Deep Analysis** | `buildDeepAnalysisSection()` | Free-form analytical narrative |
 
 ## Translation Rules
 

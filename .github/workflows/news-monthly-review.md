@@ -336,12 +336,18 @@ if [ -n "$EXISTING_ARTICLE" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
 fi
 ```
 
-### Step 1: Setup MCP Gateway
+### Step 1: Setup MCP Gateway & Generate Articles
+
+> ⚠️ **CRITICAL — MCP env vars and the generation script MUST run in the same bash block.**
+> Environment variables (`EP_MCP_GATEWAY_URL`, `USE_EP_MCP`) set via `export` in one bash block
+> do NOT persist to the next block in agentic workflow execution. Keep setup and generation together.
 
 ```bash
+# --- MCP Gateway Setup ---
 MCP_CONFIG="${GH_AW_MCP_CONFIG:-/home/runner/.copilot/mcp-config.json}"
 
 if [ -f "$MCP_CONFIG" ]; then
+  echo "✅ MCP gateway config found at $MCP_CONFIG"
   if command -v jq >/dev/null 2>&1; then
     GATEWAY_PORT=$(jq -r '.gateway.port // empty' "$MCP_CONFIG")
     GATEWAY_DOMAIN=$(jq -r '.gateway.domain // empty' "$MCP_CONFIG")
@@ -363,7 +369,10 @@ if [ -f "$MCP_CONFIG" ]; then
     esac
     export EP_MCP_GATEWAY_URL="${GATEWAY_SCHEME}://${GATEWAY_DOMAIN}:${GATEWAY_PORT}/mcp/european-parliament"
     export EP_MCP_GATEWAY_API_KEY="${GATEWAY_API_KEY:-}"
+    echo "✅ Gateway mode: EP_MCP_GATEWAY_URL=$EP_MCP_GATEWAY_URL"
   fi
+else
+  echo "ℹ️ No gateway config found, will use stdio mode"
 fi
 
 if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
@@ -371,11 +380,8 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     npm install --no-save european-parliament-mcp-server@1.1.2
   fi
 fi
-```
 
-### Step 2: Generate Articles
-
-```bash
+# --- Generate Articles ---
 LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
@@ -398,8 +404,6 @@ fi
 
 export USE_EP_MCP=true
 
-# Pass prefetched feed data only when this run created /tmp/ep-feed-data.json for
-# the exact month-in-review UTC window; otherwise let the generator fetch live MCP data.
 FEED_DATA_FLAG=""
 if [ -f "/tmp/ep-feed-data.json" ]; then
   FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"
@@ -504,6 +508,20 @@ Monthly review articles should include:
 6. **Policy Trends**: Emerging patterns in EU policy priorities
 7. **Month's Most Consequential**: Deep analysis of the month's defining development
 8. **Looking Ahead**: Preview of next month's parliamentary calendar
+
+### Available Visualization Sections
+
+The generator pipeline supports rich data-driven visualizations. These are produced automatically when the article strategy populates the corresponding data fields:
+
+| Section | Generator | What it shows |
+|---------|-----------|---------------|
+| **SWOT Analysis** | `buildSwotSection()` | Strengths / Weaknesses / Opportunities / Threats grid |
+| **Dashboard** | `buildDashboardSection()` | Metric cards, bar/line charts with data tables |
+| **Mindmap** | `buildMindmapSection()` | Central topic → color-coded policy branches → leaf items |
+| **Sankey Flow** | `buildSankeySection()` | Inline SVG flow diagram: source nodes → target nodes |
+| **Deep Analysis** | `buildDeepAnalysisSection()` | Free-form analytical narrative |
+
+The **SWOT** section is ideal for monthly reviews to assess political strengths and risks. The **Sankey** section visualises legislative flow from committees to adopted texts.
 
 ## Translation Rules
 - Political group abbreviations MUST NEVER be translated

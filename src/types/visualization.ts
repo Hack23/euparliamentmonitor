@@ -95,14 +95,39 @@ export interface DashboardMetric {
 }
 
 /**
+ * A single point in a scatter dataset.
+ */
+export interface ScatterPoint {
+  /** X-axis value */
+  readonly x: number;
+  /** Y-axis value */
+  readonly y: number;
+}
+
+/**
+ * A single point in a bubble dataset.
+ */
+export interface BubblePoint {
+  /** X-axis value */
+  readonly x: number;
+  /** Y-axis value */
+  readonly y: number;
+  /** Bubble radius in pixels */
+  readonly r: number;
+}
+
+/**
  * A single dataset within a chart.
+ * For bar/line/pie/doughnut/radar/polarArea charts, `data` is `number[]`.
+ * For scatter charts, `data` is `ScatterPoint[]`.
+ * For bubble charts, `data` is `BubblePoint[]`.
  * Maps to Chart.js dataset configuration.
  */
 export interface ChartDataset {
   /** Dataset label (shown in legend) */
   readonly label: string;
-  /** Numeric data points */
-  readonly data: readonly number[];
+  /** Data points — numbers for most chart types, point objects for scatter/bubble */
+  readonly data: readonly number[] | readonly ScatterPoint[] | readonly BubblePoint[];
   /** Background color(s) — single color or array for per-point colors */
   readonly backgroundColor?: string | readonly string[];
   /** Border color(s) — single color or array for per-point colors */
@@ -127,12 +152,12 @@ export interface ChartData {
  */
 export interface ChartConfig {
   /** Chart type — matches Chart.js chart types */
-  readonly type: 'bar' | 'line' | 'pie' | 'doughnut' | 'radar';
+  readonly type: 'bar' | 'line' | 'pie' | 'doughnut' | 'radar' | 'polarArea' | 'scatter' | 'bubble';
   /** Chart title displayed above the chart */
   readonly title?: string;
   /** Chart data (labels + datasets) */
   readonly data: ChartData;
-  /** Optional Chart.js options override */
+  /** Optional Chart.js options override (scales, plugins, annotation, etc.) */
   readonly options?: Record<string, unknown>;
 }
 

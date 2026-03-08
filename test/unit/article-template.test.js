@@ -675,5 +675,28 @@ describe('article-template', () => {
         }
       });
     });
+
+    describe('Chart.js conditional inclusion', () => {
+      it('should NOT include Chart.js scripts when content has no charts', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).not.toContain('chart.umd.min.js');
+        expect(html).not.toContain('chart-init.js');
+        expect(html).not.toContain('chartjs-plugin-annotation');
+      });
+
+      it('should include Chart.js scripts when content has data-chart-config', () => {
+        const chartContent = `<div class="dashboard"><canvas data-chart-config='{"type":"bar"}'></canvas></div>`;
+        const html = generateArticleHTML({ ...defaultOptions, content: chartContent });
+        expect(html).toContain('js/vendor/chart.umd.min.js');
+        expect(html).toContain('js/vendor/chartjs-plugin-annotation.min.js');
+        expect(html).toContain('js/chart-init.js');
+      });
+
+      it('should use defer attribute on Chart.js scripts', () => {
+        const chartContent = `<canvas data-chart-config='{"type":"pie"}'></canvas>`;
+        const html = generateArticleHTML({ ...defaultOptions, content: chartContent });
+        expect(html).toContain('defer></script>');
+      });
+    });
   });
 });

@@ -395,7 +395,12 @@ The generation script (`src/generators/news-enhanced.ts`) has its own built-in M
 
 **In this agentic workflow, use gateway mode.** The MCP Gateway is already running and provides access to the EP MCP server. Read the gateway configuration to pass credentials to the script:
 
+> ⚠️ **CRITICAL — MCP env vars and the generation script MUST run in the same bash block.**
+> Environment variables (`EP_MCP_GATEWAY_URL`, `USE_EP_MCP`) set via `export` in one bash block
+> do NOT persist to the next block in agentic workflow execution. Keep setup and generation together.
+
 ```bash
+# --- MCP Gateway Setup ---
 # Read MCP gateway config from the environment
 MCP_CONFIG="${GH_AW_MCP_CONFIG:-/home/runner/.copilot/mcp-config.json}"
 
@@ -439,11 +444,8 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     npm install --no-save european-parliament-mcp-server@1.1.2
   fi
 fi
-```
 
-Parse the `languages` input and generate using the automated script:
-
-```bash
+# --- Generate Articles ---
 LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
@@ -469,8 +471,6 @@ fi
 # Set USE_EP_MCP=true to enable the script's built-in MCP client
 export USE_EP_MCP=true
 
-# Pass prefetched feed data only when this run created /tmp/ep-feed-data.json for
-# this committee-reports article window; otherwise let the generator fetch live MCP data.
 FEED_DATA_FLAG=""
 if [ -f "/tmp/ep-feed-data.json" ]; then
   FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"
@@ -662,6 +662,20 @@ safeoutputs___create_pull_request({
   head: BRANCH_NAME
 })
 ```
+
+## Available Visualization Sections
+
+The generator pipeline supports rich data-driven visualizations. These are produced automatically when the article strategy populates the corresponding data fields:
+
+| Section | Generator | What it shows |
+|---------|-----------|---------------|
+| **SWOT Analysis** | `buildSwotSection()` | Strengths / Weaknesses / Opportunities / Threats grid |
+| **Dashboard** | `buildDashboardSection()` | Metric cards, bar/line charts with data tables |
+| **Mindmap** | `buildMindmapSection()` | Central topic → color-coded policy branches → leaf items |
+| **Sankey Flow** | `buildSankeySection()` | Inline SVG flow diagram: source nodes → target nodes |
+| **Deep Analysis** | `buildDeepAnalysisSection()` | Free-form analytical narrative |
+
+The **Mindmap** section is ideal for committee reports to visualise topic coverage across committees. The **Dashboard** shows committee activity metrics and document counts.
 
 ## Translation Rules
 - Committee abbreviations (ENVI, ECON, AFET) are kept as-is in document references
