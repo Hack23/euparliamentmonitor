@@ -137,8 +137,8 @@ function layoutSankey(nodes, flows, svgHeight) {
             continue;
         const srcPalette = NODE_COLORS[srcNode.color] ?? NODE_COLORS.cyan;
         const tgtVal = valuePer[tgtNode.id] ?? 1;
-        const scaledH = Math.max(4, Math.round((flow.value / Math.max(tgtVal, valuePer[srcNode.id] ?? 1)) *
-            (srcNode.height + tgtNode.height) /
+        const scaledH = Math.max(4, Math.round(((flow.value / Math.max(tgtVal, valuePer[srcNode.id] ?? 1)) *
+            (srcNode.height + tgtNode.height)) /
             2));
         const srcIsLeft = leftLayout.some((l) => l.id === srcNode.id);
         const x1 = srcIsLeft ? COL_LEFT + NODE_WIDTH : COL_RIGHT;

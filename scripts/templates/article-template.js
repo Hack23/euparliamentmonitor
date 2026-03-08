@@ -310,10 +310,12 @@ export function generateArticleHTML(options) {
       bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';
     },{passive:true});
   })();
-  </script>${content.includes('data-chart-config') ? `
+  </script>${content.includes('data-chart-config')
+        ? `
   <script src="../js/vendor/chart.umd.min.js" defer></script>
   <script src="../js/vendor/chartjs-plugin-annotation.min.js" defer></script>
-  <script src="../js/chart-init.js" defer></script>` : ''}
+  <script src="../js/chart-init.js" defer></script>`
+        : ''}
 </body>
 </html>`;
 }

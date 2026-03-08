@@ -142,16 +142,22 @@
   }
 
   /**
-   * Decode HTML entities in a string using the browser's native parser.
-   * This script only runs in browsers, so document is always available.
+   * Decode the five HTML entities produced by the server-side escapeHTML()
+   * helper: &amp; &lt; &gt; &quot; &#39;.
    *
-   * @param {string} html - HTML-entity-encoded string
+   * Uses pure string replacement instead of DOM innerHTML to avoid
+   * CodeQL security warnings and potential XSS vectors.
+   *
+   * @param {string} str - HTML-entity-encoded string
    * @returns {string} Decoded string
    */
-  function decodeHTMLEntities(html) {
-    const textarea = document.createElement('textarea');
-    textarea.innerHTML = html;
-    return textarea.value;
+  function decodeHTMLEntities(str) {
+    return str
+      .replace(/&#39;/g, "'")
+      .replace(/&quot;/g, '"')
+      .replace(/&gt;/g, '>')
+      .replace(/&lt;/g, '<')
+      .replace(/&amp;/g, '&');
   }
 
   /* ── Hydration ───────────────────────────────────────────────────── */

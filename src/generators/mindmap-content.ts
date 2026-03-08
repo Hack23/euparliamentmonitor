@@ -134,14 +134,13 @@ function renderBranch(branch: MindmapBranch): string {
 export function buildMindmapSection(
   config: MindmapConfig | null | undefined,
   lang: string = 'en',
-  heading?: string,
+  heading?: string
 ): string {
   if (!config || !config.branches || config.branches.length === 0) {
     return '';
   }
 
-  const titleText: string =
-    heading?.trim() || MINDMAP_HEADINGS[lang] || 'Policy Mindmap';
+  const titleText: string = heading?.trim() || MINDMAP_HEADINGS[lang] || 'Policy Mindmap';
   const summaryBlock = config.summary?.trim()
     ? `  <p class="mindmap-summary">${escapeHTML(config.summary.trim())}</p>\n`
     : '';

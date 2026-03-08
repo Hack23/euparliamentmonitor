@@ -135,13 +135,7 @@ interface LayoutNode {
  * @param h - Height of the flow path.
  * @returns SVG path data string.
  */
-function buildBezierPath(
-  x1: number,
-  y1: number,
-  x2: number,
-  y2: number,
-  h: number,
-): string {
+function buildBezierPath(x1: number, y1: number, x2: number, y2: number, h: number): string {
   const mx = (x1 + x2) / 2;
   return [
     `M${x1},${y1}`,
@@ -163,7 +157,7 @@ function buildBezierPath(
 function layoutSankey(
   nodes: readonly SankeyNode[],
   flows: readonly SankeyFlow[],
-  svgHeight: number,
+  svgHeight: number
 ): string[] {
   const sourceIds = new Set(flows.map((f) => f.source));
   const targetIds = new Set(flows.map((f) => f.target));
@@ -174,18 +168,12 @@ function layoutSankey(
     valuePer[f.target] = (valuePer[f.target] ?? 0) + f.value;
   }
 
-  const totalValue =
-    Object.values(valuePer).reduce((a, b) => a + b, 0) || 1;
+  const totalValue = Object.values(valuePer).reduce((a, b) => a + b, 0) || 1;
   const usableHeight = svgHeight - 40;
-  const scaleFactor =
-    usableHeight / (totalValue / 2 + (nodes.length - 1) * NODE_GAP);
+  const scaleFactor = usableHeight / (totalValue / 2 + (nodes.length - 1) * NODE_GAP);
 
-  const leftNodes = nodes.filter(
-    (n) => sourceIds.has(n.id) || !targetIds.has(n.id),
-  );
-  const rightNodes = nodes.filter(
-    (n) => targetIds.has(n.id) && !sourceIds.has(n.id),
-  );
+  const leftNodes = nodes.filter((n) => sourceIds.has(n.id) || !targetIds.has(n.id));
+  const rightNodes = nodes.filter((n) => targetIds.has(n.id) && !sourceIds.has(n.id));
 
   function placeNodes(nds: readonly SankeyNode[]): LayoutNode[] {
     const result: LayoutNode[] = [];
@@ -211,9 +199,7 @@ function layoutSankey(
   const leftLayout = placeNodes(leftNodes);
   const rightLayout = placeNodes(rightNodes);
   const allLayout = [...leftLayout, ...rightLayout];
-  const layoutMap = new Map<string, LayoutNode>(
-    allLayout.map((n) => [n.id, n]),
-  );
+  const layoutMap = new Map<string, LayoutNode>(allLayout.map((n) => [n.id, n]));
 
   const svgElements: string[] = [];
 
@@ -225,7 +211,7 @@ function layoutSankey(
     const textAnchor = isLeft ? 'start' : 'end';
     svgElements.push(
       `<rect x="${xPos}" y="${ln.y}" width="${NODE_WIDTH}" height="${ln.height}" fill="${palette.fill}" stroke="${palette.stroke}" stroke-width="2" rx="3"/>`,
-      `<text x="${labelX}" y="${ln.y + ln.height / 2}" text-anchor="${textAnchor}" dominant-baseline="middle" font-size="11" fill="${palette.text}" font-family="sans-serif">${escapeHTML(ln.label)}</text>`,
+      `<text x="${labelX}" y="${ln.y + ln.height / 2}" text-anchor="${textAnchor}" dominant-baseline="middle" font-size="11" fill="${palette.text}" font-family="sans-serif">${escapeHTML(ln.label)}</text>`
     );
   }
 
@@ -239,10 +225,10 @@ function layoutSankey(
     const scaledH = Math.max(
       4,
       Math.round(
-        (flow.value / Math.max(tgtVal, valuePer[srcNode.id] ?? 1)) *
-          (srcNode.height + tgtNode.height) /
-          2,
-      ),
+        ((flow.value / Math.max(tgtVal, valuePer[srcNode.id] ?? 1)) *
+          (srcNode.height + tgtNode.height)) /
+          2
+      )
     );
 
     const srcIsLeft = leftLayout.some((l) => l.id === srcNode.id);
@@ -256,14 +242,14 @@ function layoutSankey(
 
     const pathD = buildBezierPath(x1, y1, x2, y2, scaledH);
     svgElements.push(
-      `<path d="${pathD}" fill="${srcPalette.stroke}33" stroke="${srcPalette.stroke}" stroke-width="0.5" opacity="0.7"/>`,
+      `<path d="${pathD}" fill="${srcPalette.stroke}33" stroke="${srcPalette.stroke}" stroke-width="0.5" opacity="0.7"/>`
     );
 
     if (flow.label) {
       const midX = SVG_WIDTH / 2;
       const midY = (y1 + y2) / 2 + scaledH / 2;
       svgElements.push(
-        `<text x="${midX}" y="${midY}" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#495057" font-family="sans-serif">${escapeHTML(flow.label)}</text>`,
+        `<text x="${midX}" y="${midY}" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#495057" font-family="sans-serif">${escapeHTML(flow.label)}</text>`
       );
     }
   }
@@ -275,10 +261,7 @@ function layoutSankey(
 // Accessible table fallback
 // ---------------------------------------------------------------------------
 
-function renderFallbackTable(
-  nodes: readonly SankeyNode[],
-  flows: readonly SankeyFlow[],
-): string {
+function renderFallbackTable(nodes: readonly SankeyNode[], flows: readonly SankeyFlow[]): string {
   const rows = flows
     .map((f) => {
       const srcNode = nodes.find((n) => n.id === f.source);
@@ -322,15 +305,14 @@ ${rows}
 export function buildSankeySection(
   config: SankeyConfig | null | undefined,
   lang: string = 'en',
-  heading?: string,
+  heading?: string
 ): string {
   if (!config || !config.flows || config.flows.length === 0) {
     return '';
   }
 
   const svgHeight = 340;
-  const titleText: string =
-    heading?.trim() || SANKEY_HEADINGS[lang] || 'Policy Flow';
+  const titleText: string = heading?.trim() || SANKEY_HEADINGS[lang] || 'Policy Flow';
   const summaryBlock = config.summary?.trim()
     ? `  <p class="sankey-summary">${escapeHTML(config.summary.trim())}</p>\n`
     : '';
