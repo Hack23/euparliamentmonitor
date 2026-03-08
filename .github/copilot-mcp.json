@@ -30,17 +30,6 @@
         "/home/runner/work/euparliamentmonitor/euparliamentmonitor"
       ]
     },
-    "git": {
-      "type": "local",
-      "command": "npx",
-      "tools": ["*"],
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-git",
-        "--repository",
-        "/home/runner/work/euparliamentmonitor/euparliamentmonitor"
-      ]
-    },
     "memory": {
       "type": "local",
       "tools": ["*"],
