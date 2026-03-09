@@ -545,9 +545,11 @@ export function buildCommitteeAnalysis(
   const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
   const pct = ((activeCommittees.length / Math.max(committees.length, 1)) * 100).toFixed(0);
   const descriptor =
-    committees.length > 0 && activeCommittees.length >= committees.length * 0.7
-      ? s.productivityRobust
-      : s.productivityModerate;
+    activeCommittees.length === 0
+      ? s.productivityLow
+      : committees.length > 0 && activeCommittees.length >= committees.length * 0.7
+        ? s.productivityRobust
+        : s.productivityModerate;
 
   return {
     what: s.what
@@ -585,9 +587,12 @@ export function buildCommitteeAnalysis(
             : s.stakeholderNoDocs,
     })),
     impactAssessment: {
-      political: s.impactPolitical
-        .replace('{active}', String(activeCommittees.length))
-        .replace('{total}', String(committees.length)),
+      political:
+        activeCommittees.length === 0
+          ? s.impactPoliticalNone.replace('{total}', String(committees.length))
+          : s.impactPolitical
+              .replace('{active}', String(activeCommittees.length))
+              .replace('{total}', String(committees.length)),
       economic: s.impactEconomic,
       social: s.impactSocial,
       legal: s.impactLegal.replace('{docs}', String(totalDocs)),

@@ -491,6 +491,22 @@ describe('analysis-builders', () => {
       expect(result.mistakes[0].description).toContain('No recent documents');
     });
 
+    it('should use low productivity descriptor when no committees are active', () => {
+      const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
+      const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
+      expect(result.why).toContain('0% active rate signals low legislative productivity');
+      expect(result.why).not.toContain('moderate');
+    });
+
+    it('should use impactPoliticalNone when no committees are active', () => {
+      const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
+      const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
+      expect(result.impactAssessment.political).toContain(
+        'No committees have published recent documents'
+      );
+      expect(result.impactAssessment.political).not.toContain('Active committees');
+    });
+
     it('should handle empty committee list', () => {
       const result = buildCommitteeAnalysis([], '2026-02-24');
       expect(result.what).toContain('0 committees');
