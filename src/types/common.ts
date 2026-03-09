@@ -189,6 +189,7 @@ export interface MotionsStrings {
   statusLabel: string;
   keyTakeawayText: string;
   politicalAlignmentHeading: string;
+  ledeAnalysis: string;
 }
 
 /** Localized section heading strings for week-ahead articles */

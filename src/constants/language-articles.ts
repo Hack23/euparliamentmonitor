@@ -1929,6 +1929,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       'Voting records and party cohesion data reveal political alignment across the European Parliament, helping citizens understand how their elected representatives make legislative decisions.',
     politicalAlignmentHeading: 'Political Alignment',
+    ledeAnalysis: 'analysis of voting records from {DATE_FROM} to {DATE_TO} provides insights into legislative decision-making and party discipline.',
   },
   sv: {
     lede: 'Senaste parlamentariska aktiviteter avslöjar viktiga röstmönster, partikohesionstrender och anmärkningsvärda politiska dynamiker i Europaparlamentet.',
@@ -1948,6 +1949,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       'Omröstningsresultat och partikohesionsdata avslöjar politisk samstämmighet i Europaparlamentet och hjälper medborgare att förstå hur deras valda representanter fattar lagstiftningsbeslut.',
     politicalAlignmentHeading: 'Politisk Samstämmighet',
+    ledeAnalysis: 'analys av omröstningsprotokoll från {DATE_FROM} till {DATE_TO} ger insikter om lagstiftningsbeslut och partidisciplin.',
   },
   da: {
     lede: 'Seneste parlamentariske aktiviteter afslører vigtige afstemningmønstre, partikohæsionstendenser og bemærkelsesværdige politiske dynamikker i Europa-Parlamentet.',
@@ -1967,6 +1969,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       'Afstemningsresultater og partikohæsionsdata afslører politisk tilpasning i Europa-Parlamentet og hjælper borgere med at forstå, hvordan deres valgte repræsentanter træffer lovgivningsbeslutninger.',
     politicalAlignmentHeading: 'Politisk Tilpasning',
+    ledeAnalysis: 'analyse af afstemningsoptegnelser fra {DATE_FROM} til {DATE_TO} giver indsigt i lovgivningsmæssig beslutningstagning og partidisciplin.',
   },
   no: {
     lede: 'Nylige parlamentariske aktiviteter avslører viktige avstemningsmønstre, partikohesjonstrender og bemerkelsesverdige politiske dynamikker i Europaparlamentet.',
@@ -1986,6 +1989,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       'Avstemningsresultater og partikohesjonsdata avslører politisk samsvar i Europaparlamentet og hjelper borgere med å forstå hvordan deres valgte representanter tar lovgivningsbeslutninger.',
     politicalAlignmentHeading: 'Politisk Samsvar',
+    ledeAnalysis: 'analyse av avstemningsregistreringer fra {DATE_FROM} til {DATE_TO} gir innsikt i lovgivningsmessig beslutningstaking og partidisiplin.',
   },
   fi: {
     lede: 'Viimeaikaiset parlamentaariset toimet paljastavat keskeisiä äänestyskuvioita, puoluekohesiotrendejä ja merkittäviä poliittisia dynamiikkoja Euroopan parlamentissa.',
@@ -2005,6 +2009,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       'Äänestystulokset ja puoluekohesiotiedot paljastavat poliittisen linjauksen Euroopan parlamentissa ja auttavat kansalaisia ymmärtämään, miten heidän valitsemansa edustajat tekevät lainsäädäntöpäätöksiä.',
     politicalAlignmentHeading: 'Poliittinen Linjaus',
+    ledeAnalysis: 'äänestysasiakirjojen analyysi ajalta {DATE_FROM} – {DATE_TO} antaa näkemyksiä lainsäädäntöpäätöksistä ja puoluedisipliinistä.',
   },
   de: {
     lede: 'Jüngste parlamentarische Aktivitäten zeigen wichtige Abstimmungsmuster, Fraktionskohäsionstrends und bemerkenswerte politische Dynamiken im Europäischen Parlament.',
@@ -2024,6 +2029,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       'Abstimmungsergebnisse und Fraktionskohäsionsdaten zeigen die politische Ausrichtung im Europäischen Parlament und helfen den Bürgern zu verstehen, wie ihre gewählten Vertreter Gesetzgebungsentscheidungen treffen.',
     politicalAlignmentHeading: 'Politische Ausrichtung',
+    ledeAnalysis: 'Analyse der Abstimmungsunterlagen vom {DATE_FROM} bis {DATE_TO} bietet Einblicke in die gesetzgeberische Entscheidungsfindung und Parteidisziplin.',
   },
   fr: {
     lede: 'Les activités parlementaires récentes révèlent des schémas de vote clés, des tendances de cohésion des groupes politiques et des dynamiques politiques notables au Parlement européen.',
@@ -2043,6 +2049,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       "Les résultats de vote et les données de cohésion des groupes révèlent l'alignement politique au Parlement européen, aidant les citoyens à comprendre comment leurs représentants élus prennent des décisions législatives.",
     politicalAlignmentHeading: 'Alignement Politique',
+    ledeAnalysis: "l'analyse des résultats de vote du {DATE_FROM} au {DATE_TO} fournit des informations sur la prise de décision législative et la discipline de parti.",
   },
   es: {
     lede: 'Las actividades parlamentarias recientes revelan patrones de votación clave, tendencias de cohesión de grupos políticos y dinámicas políticas notables en el Parlamento Europeo.',
@@ -2062,6 +2069,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       'Los resultados de votación y los datos de cohesión de grupos revelan la alineación política en el Parlamento Europeo, ayudando a los ciudadanos a comprender cómo sus representantes electos toman decisiones legislativas.',
     politicalAlignmentHeading: 'Alineación Política',
+    ledeAnalysis: 'el análisis de registros de votación del {DATE_FROM} al {DATE_TO} proporciona información sobre la toma de decisiones legislativas y la disciplina de partido.',
   },
   nl: {
     lede: 'Recente parlementaire activiteiten onthullen belangrijke stempatronen, fractiebindingtrends en opmerkelijke politieke dynamieken in het Europees Parlement.',
@@ -2081,6 +2089,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       'Stemresultaten en fractiebindingsgegevens onthullen de politieke afstemming in het Europees Parlement en helpen burgers te begrijpen hoe hun gekozen vertegenwoordigers wetgevingsbeslissingen nemen.',
     politicalAlignmentHeading: 'Politieke Afstemming',
+    ledeAnalysis: 'analyse van stemmingsregistraties van {DATE_FROM} tot {DATE_TO} geeft inzicht in wetgevende besluitvorming en partijdiscipline.',
   },
   ar: {
     lede: 'تكشف الأنشطة البرلمانية الأخيرة أنماط تصويت رئيسية واتجاهات تماسك الأحزاب وديناميات سياسية بارزة في البرلمان الأوروبي.',
@@ -2100,6 +2109,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       'تكشف سجلات التصويت وبيانات تماسك الأحزاب التوافق السياسي في البرلمان الأوروبي، مما يساعد المواطنين على فهم كيفية اتخاذ ممثليهم المنتخبين للقرارات التشريعية.',
     politicalAlignmentHeading: 'التوافق السياسي',
+    ledeAnalysis: 'يوفر تحليل سجلات التصويت من {DATE_FROM} إلى {DATE_TO} رؤى حول صنع القرار التشريعي والانضباط الحزبي.',
   },
   he: {
     lede: 'פעילויות פרלמנטריות אחרונות חושפות דפוסי הצבעה מרכזיים, מגמות לכידות מפלגתית ודינמיקות פוליטיות בולטות בפרלמנט האירופי.',
@@ -2119,6 +2129,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       'רשומות הצבעה ונתוני לכידות מפלגתית חושפים את ההתאמה הפוליטית בפרלמנט האירופי, ומסייעים לאזרחים להבין כיצד נבחריהם מקבלים החלטות חקיקה.',
     politicalAlignmentHeading: 'התאמה פוליטית',
+    ledeAnalysis: 'ניתוח רשומות ההצבעה מ-{DATE_FROM} עד {DATE_TO} מספק תובנות על קבלת החלטות חקיקתיות ועל משמעת מפלגתית.',
   },
   ja: {
     lede: '最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。',
@@ -2138,6 +2149,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       '投票記録と政党結束データは、欧州議会における政治的連携を明らかにし、市民が選出された代表者がどのように立法上の決定を行うかを理解するのに役立ちます。',
     politicalAlignmentHeading: '政治的連携',
+    ledeAnalysis: '{DATE_FROM}から{DATE_TO}までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。',
   },
   ko: {
     lede: '최근 의회 활동은 유럽 의회의 주요 투표 패턴, 정당 결속 동향 및 주목할 만한 정치적 역학을 보여줍니다.',
@@ -2157,6 +2169,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       '투표 기록과 정당 결속 데이터는 유럽 의회의 정치적 정렬을 보여주며, 시민들이 선출된 대표자가 입법 결정을 내리는 방식을 이해하는 데 도움을 줍니다.',
     politicalAlignmentHeading: '정치적 정렬',
+    ledeAnalysis: '{DATE_FROM}부터 {DATE_TO}까지의 투표 기록 분석은 입법 의사결정 및 정당 규율에 대한 통찰력을 제공합니다.',
   },
   zh: {
     lede: '最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。',
@@ -2176,6 +2189,7 @@ export const MOTIONS_STRINGS: LanguageMap<MotionsStrings> = {
     keyTakeawayText:
       '投票记录和政党凝聚力数据揭示了欧洲议会中的政治一致性，帮助公民了解其当选代表如何做出立法决定。',
     politicalAlignmentHeading: '政治一致性',
+    ledeAnalysis: '对{DATE_FROM}至{DATE_TO}投票记录的分析为立法决策和政党纪律提供了见解。',
   },
 };
 
