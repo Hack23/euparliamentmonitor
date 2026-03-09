@@ -223,7 +223,7 @@ describe('CommitteeReportsStrategy', () => {
     expect(strategy.shouldSkip(committeeReportsData)).toBe(false);
   });
 
-  it('buildContent renders normal committee cards for real data (no committee-card--unavailable)', () => {
+  it('buildContent renders committee-card--unavailable for placeholder-shaped committee data', () => {
     const data = {
       ...committeeReportsData,
       committeeDataList: [
@@ -237,11 +237,11 @@ describe('CommitteeReportsStrategy', () => {
         },
       ],
     };
-    // buildContent is only called when shouldSkip() === false; when called directly
-    // with placeholder data it renders normal (but N/A) cards, not unavailable cards
+    // shouldSkip() would prevent this in production (all-placeholder triggers a skip),
+    // but when buildContent is called directly it now renders an unavailable notice
     const content = strategy.buildContent(data, 'en');
-    expect(content).not.toContain('committee-card--unavailable');
-    expect(content).not.toContain('committee-metadata-unavailable');
+    expect(content).toContain('committee-card--unavailable');
+    expect(content).toContain('committee-metadata-unavailable');
   });
 
   it('buildContent escapes HTML in committee name', () => {

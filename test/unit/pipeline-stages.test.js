@@ -445,7 +445,7 @@ describe('writeGenerationMetadata', () => {
 
   it('merges stats and results when a metadata file already exists for the same day', () => {
     const today = new Date();
-    const dateSlug = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    const dateSlug = today.toISOString().split('T')[0];
     const metadataPath = path.join(tmpDir, `generation-${dateSlug}.json`);
 
     // Write an existing metadata file (first workflow run)
@@ -489,7 +489,7 @@ describe('writeGenerationMetadata', () => {
 
   it('deduplicates results by slug when re-running the same strategy', () => {
     const today = new Date();
-    const dateSlug = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    const dateSlug = today.toISOString().split('T')[0];
     const metadataPath = path.join(tmpDir, `generation-${dateSlug}.json`);
 
     const existing = {
