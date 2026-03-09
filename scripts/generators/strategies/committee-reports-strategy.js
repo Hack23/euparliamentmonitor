@@ -3,7 +3,7 @@
 import { ArticleCategory } from '../../types/index.js';
 import { COMMITTEE_REPORTS_TITLES, COMMITTEE_ANALYSIS_CONTENT_STRINGS, getLocalizedString, } from '../../constants/languages.js';
 import { computeRollingDateRange, fetchCommitteeData, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
-import { FEATURED_COMMITTEES, isPlaceholderCommitteeData, PLACEHOLDER_CHAIR, PLACEHOLDER_MEMBERS } from '../committee-helpers.js';
+import { FEATURED_COMMITTEES, isPlaceholderCommitteeData, PLACEHOLDER_CHAIR, PLACEHOLDER_MEMBERS, } from '../committee-helpers.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildCommitteeAnalysis, buildCommitteeSwot, buildCommitteeDashboard, } from '../analysis-builders.js';

@@ -106,7 +106,22 @@ export function writeGenerationMetadata(stats, results, usedMCP, metadataDir, dr
             const existingResults = existing.results ?? [];
             const newSlugs = new Set(results.map((r) => r.slug).filter(Boolean));
             const priorResults = existingResults.filter((r) => !newSlugs.has(r.slug));
-            mergedResults = [...priorResults, ...results];
+            const combinedResults = [...priorResults, ...results];
+            // Additionally de-duplicate entries that do not have a slug by using a
+            // stable structural key (JSON representation). This prevents repeated
+            // same-day runs from accumulating duplicate slug-less error entries.
+            const seenAnonymousKeys = new Set();
+            mergedResults = combinedResults.filter((result) => {
+                if (result.slug) {
+                    return true;
+                }
+                const key = JSON.stringify(result);
+                if (seenAnonymousKeys.has(key)) {
+                    return false;
+                }
+                seenAnonymousKeys.add(key);
+                return true;
+            });
             // usedMCP is true if either run connected to MCP
             mergedUsedMCP = mergedUsedMCP || (existing.usedMCP ?? false);
         }
