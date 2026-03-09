@@ -20,6 +20,10 @@ import {
   buildPropositionsDashboard,
   buildCommitteeDashboard,
 } from '../../scripts/generators/analysis-builders.js';
+import {
+  PLACEHOLDER_CHAIR,
+  PLACEHOLDER_MEMBERS,
+} from '../../scripts/generators/committee-helpers.js';
 
 // ─── Fixtures ──────────────────────────────────────────────────────────────────
 
@@ -125,6 +129,20 @@ const COMMITTEE_DATA = [
     effectiveness: null,
   },
 ];
+
+/**
+ * Create placeholder committee data from the fixture. Uses the exported
+ * sentinel constants so the helper stays in sync with production code.
+ */
+function makePlaceholderCommittees(committees = COMMITTEE_DATA) {
+  return committees.map((c) => ({
+    ...c,
+    chair: PLACEHOLDER_CHAIR,
+    members: PLACEHOLDER_MEMBERS,
+    documents: [],
+    effectiveness: null,
+  }));
+}
 
 // ─── buildDeepAnalysisSection ────────────────────────────────────────────────
 
@@ -541,14 +559,7 @@ describe('analysis-builders', () => {
     });
 
     it('should return null when all committees are placeholder (chair=N/A, members=0, docs=[])', () => {
-      const placeholder = COMMITTEE_DATA.map((c) => ({
-        ...c,
-        chair: 'N/A',
-        members: 0,
-        documents: [],
-        effectiveness: null,
-      }));
-      expect(buildCommitteeAnalysis(placeholder, '2026-02-24')).toBeNull();
+      expect(buildCommitteeAnalysis(makePlaceholderCommittees(), '2026-02-24')).toBeNull();
     });
   });
 });
@@ -703,14 +714,7 @@ describe('SWOT builders', () => {
     });
 
     it('returns null when all committees are placeholder (chair=N/A, members=0, docs=[])', () => {
-      const placeholder = COMMITTEE_DATA.map((c) => ({
-        ...c,
-        chair: 'N/A',
-        members: 0,
-        documents: [],
-        effectiveness: null,
-      }));
-      expect(buildCommitteeSwot(placeholder)).toBeNull();
+      expect(buildCommitteeSwot(makePlaceholderCommittees())).toBeNull();
     });
   });
 });
@@ -799,14 +803,7 @@ describe('Dashboard builders', () => {
     });
 
     it('returns null when all committees are placeholder (chair=N/A, members=0, docs=[])', () => {
-      const placeholder = COMMITTEE_DATA.map((c) => ({
-        ...c,
-        chair: 'N/A',
-        members: 0,
-        documents: [],
-        effectiveness: null,
-      }));
-      expect(buildCommitteeDashboard(placeholder)).toBeNull();
+      expect(buildCommitteeDashboard(makePlaceholderCommittees())).toBeNull();
     });
   });
 });
