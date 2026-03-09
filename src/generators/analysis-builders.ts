@@ -161,7 +161,9 @@ export function buildVotingAnalysis(
   const realQuestions = questions.filter((q) => q.status !== PLACEHOLDER_MARKER);
 
   const adoptedCount = realRecords.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
-  const rejectedCount = realRecords.filter((r) => r.result?.toLowerCase().includes('reject')).length;
+  const rejectedCount = realRecords.filter((r) =>
+    r.result?.toLowerCase().includes('reject')
+  ).length;
   const topTopics = realRecords.slice(0, 3).map((r) => r.title);
 
   return {
@@ -1112,7 +1114,9 @@ export function buildVotingDashboard(
   const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
   const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
   const adoptedCount = realRecords.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
-  const rejectedCount = realRecords.filter((r) => r.result?.toLowerCase().includes('reject')).length;
+  const rejectedCount = realRecords.filter((r) =>
+    r.result?.toLowerCase().includes('reject')
+  ).length;
 
   const overviewPanel = {
     title: d.votingOverview,
