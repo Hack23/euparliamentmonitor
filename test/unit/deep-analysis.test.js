@@ -522,6 +522,17 @@ describe('analysis-builders', () => {
       expect(result.what).not.toContain('committees with recent activity');
       expect(result.what).toContain('No recent documents');
     });
+
+    it('should return null when all committees are placeholder (chair=N/A, members=0, docs=[])', () => {
+      const placeholder = COMMITTEE_DATA.map((c) => ({
+        ...c,
+        chair: 'N/A',
+        members: 0,
+        documents: [],
+        effectiveness: null,
+      }));
+      expect(buildCommitteeAnalysis(placeholder, '2026-02-24')).toBeNull();
+    });
   });
 });
 
@@ -673,6 +684,17 @@ describe('SWOT builders', () => {
       // LIBE has 0 docs so it should appear
       expect(weaknessTexts.some((t) => t.includes('no recent document'))).toBe(true);
     });
+
+    it('returns null when all committees are placeholder (chair=N/A, members=0, docs=[])', () => {
+      const placeholder = COMMITTEE_DATA.map((c) => ({
+        ...c,
+        chair: 'N/A',
+        members: 0,
+        documents: [],
+        effectiveness: null,
+      }));
+      expect(buildCommitteeSwot(placeholder)).toBeNull();
+    });
   });
 });
 
@@ -757,6 +779,17 @@ describe('Dashboard builders', () => {
     it('handles empty committee list', () => {
       const result = buildCommitteeDashboard([]);
       expect(result.panels.length).toBe(1);
+    });
+
+    it('returns null when all committees are placeholder (chair=N/A, members=0, docs=[])', () => {
+      const placeholder = COMMITTEE_DATA.map((c) => ({
+        ...c,
+        chair: 'N/A',
+        members: 0,
+        documents: [],
+        effectiveness: null,
+      }));
+      expect(buildCommitteeDashboard(placeholder)).toBeNull();
     });
   });
 });
