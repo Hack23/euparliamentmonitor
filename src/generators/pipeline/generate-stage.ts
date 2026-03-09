@@ -192,6 +192,15 @@ export async function generateArticleForStrategy(
 
     const data = await strategy.fetchData(client, dateStr);
 
+    // Check if the strategy wants to skip generation (e.g. all data is placeholder)
+    if (strategy.shouldSkip?.(data)) {
+      console.log(
+        `  ⚠️  ${strategy.type} article skipped: all fetched data is placeholder (MCP unavailable or API gap). No files written.`
+      );
+      stats.skipped += languages.length;
+      return { success: true, files: 0, slug };
+    }
+
     let writtenCount = 0;
     for (const lang of languages) {
       if (

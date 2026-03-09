@@ -179,15 +179,15 @@ describe('CommitteeReportsStrategy', () => {
     expect(content).toContain('Draft Report');
   });
 
-  it('buildContent shows "No recent documents available" when empty', () => {
+  it('buildContent shows "No recent documents available" when committee has real metadata but no docs', () => {
     const data = {
       ...committeeReportsData,
       committeeDataList: [
         {
-          name: 'Test',
+          name: 'Test Committee',
           abbreviation: 'TEST',
-          chair: 'N/A',
-          members: 0,
+          chair: 'Real Chair', // non-placeholder chair prevents metadata-unavailable path
+          members: 10,
           documents: [],
           effectiveness: null,
         },
@@ -197,6 +197,53 @@ describe('CommitteeReportsStrategy', () => {
     expect(content).toContain('No recent documents available');
   });
 
+  it('shouldSkip returns true when committeeDataList is empty (all fetches failed)', () => {
+    const data = { ...committeeReportsData, committeeDataList: [] };
+    expect(strategy.shouldSkip(data)).toBe(true);
+  });
+
+  it('shouldSkip returns true when all committees are placeholder', () => {
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Test Committee',
+          abbreviation: 'TEST',
+          chair: 'N/A',
+          members: 0,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+    };
+    expect(strategy.shouldSkip(data)).toBe(true);
+  });
+
+  it('shouldSkip returns false when there is real committee data', () => {
+    expect(strategy.shouldSkip(committeeReportsData)).toBe(false);
+  });
+
+  it('buildContent renders committee-card--unavailable for placeholder-shaped committee data', () => {
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Test Committee',
+          abbreviation: 'TEST',
+          chair: 'N/A',
+          members: 0,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+    };
+    // shouldSkip() would prevent this in production (all-placeholder triggers a skip),
+    // but when buildContent is called directly it now renders an unavailable notice
+    const content = strategy.buildContent(data, 'en');
+    expect(content).toContain('committee-card--unavailable');
+    expect(content).toContain('committee-metadata-unavailable');
+  });
+
   it('buildContent escapes HTML in committee name', () => {
     const data = {
       ...committeeReportsData,
@@ -204,8 +251,8 @@ describe('CommitteeReportsStrategy', () => {
         {
           name: '<script>alert(1)</script>',
           abbreviation: 'XSS',
-          chair: 'N/A',
-          members: 0,
+          chair: 'Real Chair', // non-placeholder chair
+          members: 5,
           documents: [],
           effectiveness: null,
         },
@@ -543,9 +590,7 @@ describe('BreakingNewsStrategy.fetchData with pre-fetched feed data file', () =>
   it('uses pre-fetched feed data when EP_FEED_DATA_FILE is set', async () => {
     tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'feed-test-'));
     const feedData = {
-      adoptedTexts: [
-        { id: 'TA-10-2026-0042', title: 'Test Adopted Text', date: '2026-03-04' },
-      ],
+      adoptedTexts: [{ id: 'TA-10-2026-0042', title: 'Test Adopted Text', date: '2026-03-04' }],
       events: [],
       procedures: [],
       mepUpdates: [],
@@ -805,8 +850,12 @@ describe('PropositionsStrategy.fetchData with rejected promises', () => {
       callTool: async () => undefined,
       getPlenarySessions: async () => undefined,
       getCommitteeInfo: async () => undefined,
-      searchDocuments: async () => { throw new Error('network failure'); },
-      monitorLegislativePipeline: async () => { throw new Error('timeout'); },
+      searchDocuments: async () => {
+        throw new Error('network failure');
+      },
+      monitorLegislativePipeline: async () => {
+        throw new Error('timeout');
+      },
       getParliamentaryQuestions: async () => undefined,
       trackLegislation: async () => undefined,
     };

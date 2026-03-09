@@ -21,7 +21,12 @@ import {
   fetchCommitteeData,
   fetchEPFeedData,
 } from '../pipeline/fetch-stage.js';
-import { FEATURED_COMMITTEES } from '../committee-helpers.js';
+import {
+  FEATURED_COMMITTEES,
+  isPlaceholderCommitteeData,
+  PLACEHOLDER_CHAIR,
+  PLACEHOLDER_MEMBERS,
+} from '../committee-helpers.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import {
@@ -72,8 +77,22 @@ function buildCommitteeReportsHTML(
   lang: LanguageCode
 ): string {
   const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
+
   const committeeSections = committeeDataList
     .map((committee) => {
+      // Render an unavailable notice for individual placeholder committee entries
+      if (
+        committee.chair === PLACEHOLDER_CHAIR &&
+        committee.members === PLACEHOLDER_MEMBERS &&
+        committee.documents.length === 0
+      ) {
+        return `
+      <section class="committee-card committee-card--unavailable">
+        <h3 class="committee-name">${escapeHTML(committee.name)} (${escapeHTML(committee.abbreviation)})</h3>
+        <p class="committee-metadata-unavailable">${escapeHTML(s.committeeMetadataUnavailable)}</p>
+      </section>`;
+      }
+
       const docItems =
         committee.documents.length > 0
           ? committee.documents
@@ -212,6 +231,29 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
       category: ArticleCategory.COMMITTEE_REPORTS,
       sources: COMMITTEE_REPORTS_SOURCES,
     };
+  }
+
+  /**
+   * Skip generation when no real committee data is available.
+   *
+   * This happens when:
+   * - All committee fetches failed (empty committeeDataList), or
+   * - All fetched committee data is placeholder (MCP unavailable or EP Open Data
+   *   API returned no real data).
+   * Publishing all-placeholder or empty committee articles would mislead readers
+   * and undermine the transparency mission of the platform.
+   *
+   * @param data - Committee reports data payload
+   * @returns `true` when there is no usable committee data
+   */
+  shouldSkip(data: CommitteeReportsArticleData): boolean {
+    const { committeeDataList } = data;
+
+    if (committeeDataList.length === 0) {
+      return true;
+    }
+
+    return isPlaceholderCommitteeData(committeeDataList);
   }
 }
 

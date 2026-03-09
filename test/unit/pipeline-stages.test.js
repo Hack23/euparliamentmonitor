@@ -10,7 +10,7 @@
  *   - generateArticleForStrategy, createStrategyRegistry (generate-stage)
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
@@ -391,6 +391,7 @@ describe('writeGenerationMetadata', () => {
   });
 
   afterEach(() => {
+    vi.useRealTimers();
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 
@@ -441,6 +442,93 @@ describe('writeGenerationMetadata', () => {
     const content = JSON.parse(fs.readFileSync(path.join(tmpDir, files[0]), 'utf-8'));
     expect(content.results).toHaveLength(1);
     expect(content.results[0].slug).toBe('2025-01-15-week-ahead');
+  });
+
+  it('merges stats and results when a metadata file already exists for the same day', () => {
+    const fixedDate = new Date('2025-01-15T12:00:00.000Z');
+    vi.useFakeTimers();
+    vi.setSystemTime(fixedDate);
+    const dateSlug = fixedDate.toISOString().split('T')[0];
+    const metadataPath = path.join(tmpDir, `generation-${dateSlug}.json`);
+
+    // Write an existing metadata file (first workflow run)
+    const existingMetadata = {
+      timestamp: fixedDate.toISOString(),
+      generated: 14,
+      skipped: 0,
+      dryRun: 0,
+      errors: 0,
+      articles: ['2025-01-15-motions-en.html', '2025-01-15-motions-fr.html'],
+      results: [{ success: true, files: 14, slug: '2025-01-15-motions' }],
+      usedMCP: false,
+    };
+    fs.writeFileSync(metadataPath, JSON.stringify(existingMetadata), 'utf-8');
+
+    // Second workflow run (committee-reports, skipped)
+    const stats2 = {
+      generated: 0,
+      skipped: 14,
+      dryRun: 0,
+      errors: 0,
+      articles: [],
+      timestamp: fixedDate.toISOString(),
+    };
+    const results2 = [{ success: true, files: 0, slug: '2025-01-15-committee-reports' }];
+    writeGenerationMetadata(stats2, results2, true, tmpDir, false);
+
+    const content = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+    // Totals should be merged
+    expect(content.generated).toBe(14);
+    expect(content.skipped).toBe(14);
+    // Articles from first run should be preserved
+    expect(content.articles).toContain('2025-01-15-motions-en.html');
+    // Results from both runs should be present
+    expect(content.results).toHaveLength(2);
+    expect(content.results.some((r) => r.slug === '2025-01-15-motions')).toBe(true);
+    expect(content.results.some((r) => r.slug === '2025-01-15-committee-reports')).toBe(true);
+    // usedMCP true if either run used it
+    expect(content.usedMCP).toBe(true);
+  });
+
+  it('deduplicates results by slug when re-running the same strategy', () => {
+    const fixedDate = new Date('2025-01-15T12:00:00.000Z');
+    vi.useFakeTimers();
+    vi.setSystemTime(fixedDate);
+    const dateSlug = fixedDate.toISOString().split('T')[0];
+    const metadataPath = path.join(tmpDir, `generation-${dateSlug}.json`);
+
+    const existing = {
+      timestamp: fixedDate.toISOString(),
+      generated: 5,
+      skipped: 0,
+      dryRun: 0,
+      errors: 0,
+      articles: ['2025-01-15-week-ahead-en.html'],
+      results: [{ success: true, files: 1, slug: '2025-01-15-week-ahead' }],
+      usedMCP: false,
+    };
+    fs.writeFileSync(metadataPath, JSON.stringify(existing), 'utf-8');
+
+    // Re-run same strategy (e.g. retry)
+    const stats2 = {
+      generated: 1,
+      skipped: 0,
+      dryRun: 0,
+      errors: 0,
+      articles: ['2025-01-15-week-ahead-en.html'],
+      timestamp: fixedDate.toISOString(),
+    };
+    writeGenerationMetadata(
+      stats2,
+      [{ success: true, files: 1, slug: '2025-01-15-week-ahead' }],
+      false,
+      tmpDir,
+      false
+    );
+
+    const content = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+    // Results should not be duplicated
+    expect(content.results.filter((r) => r.slug === '2025-01-15-week-ahead')).toHaveLength(1);
   });
 });
 
@@ -890,6 +978,30 @@ describe('generateArticleForStrategy', () => {
     const result = await generateArticleForStrategy(strategy, null, [], opts, stats);
     expect(result.success).toBe(true);
     expect(result.files).toBe(0);
+  });
+
+  it('increments stats.skipped by languages.length when shouldSkip returns true', async () => {
+    const { generateArticleForStrategy } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const skippingStrategy = {
+      type: 'committee-reports',
+      requiredMCPTools: [],
+      fetchData: async () => ({ committees: [] }),
+      buildContent: () => '',
+      getMetadata: () => ({ title: '', subtitle: '', category: 'committee-reports', keywords: [] }),
+      shouldSkip: () => true,
+    };
+    const stats = { generated: 0, skipped: 0, dryRun: 0, errors: 0, articles: [], timestamp: '' };
+    const opts = { dryRun: false, skipExisting: false, newsDir: tmpDir };
+    const languages = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+
+    const result = await generateArticleForStrategy(skippingStrategy, null, languages, opts, stats);
+    expect(result.success).toBe(true);
+    expect(result.files).toBe(0);
+    expect(stats.skipped).toBe(14);
+    expect(stats.generated).toBe(0);
+    expect(stats.articles).toHaveLength(0);
   });
 });
 

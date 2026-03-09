@@ -12,6 +12,7 @@ import {
   applyDocuments,
   applyEffectiveness,
 } from '../../scripts/generators/news-enhanced.js';
+import { isPlaceholderCommitteeData } from '../../scripts/generators/committee-helpers.js';
 
 /**
  * Build a minimal MCPToolResult from a plain object
@@ -174,5 +175,39 @@ describe('committee-reports helpers', () => {
       applyEffectiveness({ content: [{ type: 'text', text: 'not-json' }] }, data);
       expect(data.effectiveness).toBeNull();
     });
+  });
+});
+
+describe('isPlaceholderCommitteeData', () => {
+  it('returns true when all committees have chair=N/A, members=0, docs=[]', () => {
+    const placeholder = [defaultData(), defaultData()];
+    expect(isPlaceholderCommitteeData(placeholder)).toBe(true);
+  });
+
+  it('returns false for an empty array', () => {
+    expect(isPlaceholderCommitteeData([])).toBe(false);
+  });
+
+  it('returns false when at least one committee has a real chair', () => {
+    const mixed = [defaultData(), { ...defaultData(), chair: 'Jane Doe' }];
+    expect(isPlaceholderCommitteeData(mixed)).toBe(false);
+  });
+
+  it('returns false when at least one committee has members > 0', () => {
+    const mixed = [defaultData(), { ...defaultData(), members: 42 }];
+    expect(isPlaceholderCommitteeData(mixed)).toBe(false);
+  });
+
+  it('returns false when at least one committee has documents', () => {
+    const mixed = [
+      defaultData(),
+      { ...defaultData(), documents: [{ title: 'Test', type: 'Report', date: '2026-01-01' }] },
+    ];
+    expect(isPlaceholderCommitteeData(mixed)).toBe(false);
+  });
+
+  it('returns false for a single committee with real data', () => {
+    const real = [{ ...defaultData(), chair: 'Carlos Tavares', members: 60 }];
+    expect(isPlaceholderCommitteeData(real)).toBe(false);
   });
 });

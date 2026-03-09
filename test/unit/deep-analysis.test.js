@@ -20,6 +20,10 @@ import {
   buildPropositionsDashboard,
   buildCommitteeDashboard,
 } from '../../scripts/generators/analysis-builders.js';
+import {
+  PLACEHOLDER_CHAIR,
+  PLACEHOLDER_MEMBERS,
+} from '../../scripts/generators/committee-helpers.js';
 
 // ─── Fixtures ──────────────────────────────────────────────────────────────────
 
@@ -125,6 +129,20 @@ const COMMITTEE_DATA = [
     effectiveness: null,
   },
 ];
+
+/**
+ * Create placeholder committee data from the fixture. Uses the exported
+ * sentinel constants so the helper stays in sync with production code.
+ */
+function makePlaceholderCommittees(committees = COMMITTEE_DATA) {
+  return committees.map((c) => ({
+    ...c,
+    chair: PLACEHOLDER_CHAIR,
+    members: PLACEHOLDER_MEMBERS,
+    documents: [],
+    effectiveness: null,
+  }));
+}
 
 // ─── buildDeepAnalysisSection ────────────────────────────────────────────────
 
@@ -508,10 +526,40 @@ describe('analysis-builders', () => {
       expect(result.mistakes[0].description).toContain('No recent documents');
     });
 
+    it('should use low productivity descriptor when no committees are active', () => {
+      const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
+      const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
+      expect(result.why).toContain('0% active rate');
+      expect(result.why).toContain('low legislative productivity');
+      expect(result.why).not.toContain('moderate');
+    });
+
+    it('should use impactPoliticalNone when no committees are active', () => {
+      const baseline = buildCommitteeAnalysis(COMMITTEE_DATA, '2026-02-24');
+      const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
+      const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
+      expect(result.impactAssessment.political).toContain('No committees');
+      expect(result.impactAssessment.political).not.toBe(
+        baseline.impactAssessment.political
+      );
+    });
+
     it('should handle empty committee list', () => {
       const result = buildCommitteeAnalysis([], '2026-02-24');
       expect(result.what).toContain('0 committees');
       expect(result.stakeholderOutcomes).toEqual([]);
+    });
+
+    it('should use whatNoData when no documents are available', () => {
+      const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
+      const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
+      expect(result.what).not.toContain('documents processed');
+      expect(result.what).not.toContain('committees with recent activity');
+      expect(result.what).toContain('No recent documents');
+    });
+
+    it('should return null when all committees are placeholder (chair=N/A, members=0, docs=[])', () => {
+      expect(buildCommitteeAnalysis(makePlaceholderCommittees(), '2026-02-24')).toBeNull();
     });
   });
 });
@@ -664,6 +712,10 @@ describe('SWOT builders', () => {
       // LIBE has 0 docs so it should appear
       expect(weaknessTexts.some((t) => t.includes('no recent document'))).toBe(true);
     });
+
+    it('returns null when all committees are placeholder (chair=N/A, members=0, docs=[])', () => {
+      expect(buildCommitteeSwot(makePlaceholderCommittees())).toBeNull();
+    });
   });
 });
 
@@ -748,6 +800,10 @@ describe('Dashboard builders', () => {
     it('handles empty committee list', () => {
       const result = buildCommitteeDashboard([]);
       expect(result.panels.length).toBe(1);
+    });
+
+    it('returns null when all committees are placeholder (chair=N/A, members=0, docs=[])', () => {
+      expect(buildCommitteeDashboard(makePlaceholderCommittees())).toBeNull();
     });
   });
 });

@@ -70,6 +70,9 @@ export function writeSingleArticle(html, slug, lang, options, stats) {
 }
 /**
  * Persist a generation metadata JSON file to the metadata directory.
+ * If a metadata file already exists for today, merges the current run's stats
+ * and results with the existing ones so multiple workflow runs on the same day
+ * do not overwrite each other's data.
  * Skips writing when `dryRun` is true.
  *
  * @param stats - Final generation statistics
@@ -81,17 +84,46 @@ export function writeSingleArticle(html, slug, lang, options, stats) {
 export function writeGenerationMetadata(stats, results, usedMCP, metadataDir, dryRun) {
     if (dryRun)
         return;
-    const metadata = {
-        timestamp: stats.timestamp,
-        generated: stats.generated,
-        skipped: stats.skipped,
-        dryRun: stats.dryRun,
-        errors: stats.errors,
-        articles: stats.articles,
-        results,
-        usedMCP,
-    };
     const metadataPath = path.join(metadataDir, `generation-${formatDateForSlug()}.json`);
+    // Merge with existing metadata when another workflow already ran today
+    let mergedStats = { ...stats };
+    let mergedResults = [...results];
+    let mergedUsedMCP = usedMCP;
+    if (fs.existsSync(metadataPath)) {
+        try {
+            const existing = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+            // Accumulate counters from both runs
+            mergedStats = {
+                ...mergedStats,
+                generated: (existing.generated ?? 0) + stats.generated,
+                skipped: (existing.skipped ?? 0) + stats.skipped,
+                dryRun: (existing.dryRun ?? 0) + stats.dryRun,
+                errors: (existing.errors ?? 0) + stats.errors,
+                // Merge article lists, removing any duplicates
+                articles: [...new Set([...(existing.articles ?? []), ...stats.articles])],
+            };
+            // Keep prior results; append new ones (dedup by slug if present)
+            const existingResults = existing.results ?? [];
+            const newSlugs = new Set(results.map((r) => r.slug).filter(Boolean));
+            const priorResults = existingResults.filter((r) => !newSlugs.has(r.slug));
+            mergedResults = [...priorResults, ...results];
+            // usedMCP is true if either run connected to MCP
+            mergedUsedMCP = mergedUsedMCP || (existing.usedMCP ?? false);
+        }
+        catch {
+            // If the existing file is malformed, proceed with current run's data only
+        }
+    }
+    const metadata = {
+        timestamp: mergedStats.timestamp,
+        generated: mergedStats.generated,
+        skipped: mergedStats.skipped,
+        dryRun: mergedStats.dryRun,
+        errors: mergedStats.errors,
+        articles: mergedStats.articles,
+        results: mergedResults,
+        usedMCP: mergedUsedMCP,
+    };
     fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf-8');
     console.log(`📝 Metadata written to: ${metadataPath}`);
 }

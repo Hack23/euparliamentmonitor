@@ -433,6 +433,8 @@ export interface DeepAnalysisStrings {
 export interface CommitteeAnalysisContentStrings {
   /** Template: what happened. {date}, {total}, {docs}, {active} placeholders */
   readonly what: string;
+  /** Template: what happened when no documents are available. {date}, {total} placeholders */
+  readonly whatNoData: string;
   /** "Reporting date:" label prefix */
   readonly reportDateLabel: string;
   /** "members" label */
@@ -443,8 +445,12 @@ export interface CommitteeAnalysisContentStrings {
   readonly productivityRobust: string;
   /** "moderate" productivity descriptor */
   readonly productivityModerate: string;
+  /** "low" productivity descriptor used when 0% of committees have recent documents */
+  readonly productivityLow: string;
   /** Why section text. {pct}, {descriptor} placeholders */
   readonly why: string;
+  /** Impact political text when no committees are active. */
+  readonly impactPoliticalNone: string;
   /** Stakeholder reason: highly productive. {n} placeholder */
   readonly stakeholderHighlyProductive: string;
   /** Stakeholder reason: moderate activity. {n} placeholder */
@@ -477,4 +483,6 @@ export interface CommitteeAnalysisContentStrings {
   readonly lede: string;
   /** "No recent documents available" fallback list item */
   readonly noRecentDocs: string;
+  /** Notice shown in committee cards when all committee metadata is unavailable from the EP API */
+  readonly committeeMetadataUnavailable: string;
 }

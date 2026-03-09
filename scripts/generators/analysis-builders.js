@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 import { getLocalizedString, COMMITTEE_ANALYSIS_CONTENT_STRINGS, BREAKING_STRINGS, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../constants/languages.js';
+import { isPlaceholderCommitteeData } from './committee-helpers.js';
 import { PLACEHOLDER_MARKER } from './motions-content.js';
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 /**
@@ -448,22 +449,28 @@ export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lan
  * @param committees - Committee data list
  * @param date - Publication date
  * @param lang - Target language code for localized content
- * @returns Deep analysis object
+ * @returns Deep analysis object, or `null` when all committee data is placeholder
  */
 export function buildCommitteeAnalysis(committees, date, lang = 'en') {
+    if (isPlaceholderCommitteeData(committees))
+        return null;
     const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
     const activeCommittees = committees.filter((c) => c.documents.length > 0);
     const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
     const pct = ((activeCommittees.length / Math.max(committees.length, 1)) * 100).toFixed(0);
-    const descriptor = committees.length > 0 && activeCommittees.length >= committees.length * 0.7
-        ? s.productivityRobust
-        : s.productivityModerate;
+    const descriptor = activeCommittees.length === 0
+        ? s.productivityLow
+        : committees.length > 0 && activeCommittees.length >= committees.length * 0.7
+            ? s.productivityRobust
+            : s.productivityModerate;
     return {
-        what: s.what
-            .replace('{date}', date)
-            .replace('{total}', String(committees.length))
-            .replace('{docs}', String(totalDocs))
-            .replace('{active}', String(activeCommittees.length)),
+        what: totalDocs === 0
+            ? s.whatNoData.replace('{date}', date).replace('{total}', String(committees.length))
+            : s.what
+                .replace('{date}', date)
+                .replace('{total}', String(committees.length))
+                .replace('{docs}', String(totalDocs))
+                .replace('{active}', String(activeCommittees.length)),
         who: committees.map((c) => `${c.name} (${c.abbreviation}) — ${s.chairLabel} ${c.chair}, ${c.members} ${s.membersLabel}`),
         when: [
             `${s.reportDateLabel} ${date}`,
@@ -488,9 +495,11 @@ export function buildCommitteeAnalysis(committees, date, lang = 'en') {
                     : s.stakeholderNoDocs,
         })),
         impactAssessment: {
-            political: s.impactPolitical
-                .replace('{active}', String(activeCommittees.length))
-                .replace('{total}', String(committees.length)),
+            political: activeCommittees.length === 0
+                ? s.impactPoliticalNone
+                : s.impactPolitical
+                    .replace('{active}', String(activeCommittees.length))
+                    .replace('{total}', String(committees.length)),
             economic: s.impactEconomic,
             social: s.impactSocial,
             legal: s.impactLegal.replace('{docs}', String(totalDocs)),
@@ -859,9 +868,11 @@ export function buildPropositionsSwot(pipelineData, lang = 'en') {
  *
  * @param committees - Committee data list
  * @param lang - Target language code
- * @returns SWOT analysis data
+ * @returns SWOT analysis data, or `null` when all committee data is placeholder
  */
 export function buildCommitteeSwot(committees, lang = 'en') {
+    if (isPlaceholderCommitteeData(committees))
+        return null;
     const s = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
     const activeCommittees = committees.filter((c) => c.documents.length > 0);
     const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
@@ -1121,9 +1132,11 @@ export function buildPropositionsDashboard(pipelineData, lang = 'en') {
  *
  * @param committees - Committee data list
  * @param lang - Target language code
- * @returns Dashboard configuration
+ * @returns Dashboard configuration, or `null` when all committee data is placeholder
  */
 export function buildCommitteeDashboard(committees, lang = 'en') {
+    if (isPlaceholderCommitteeData(committees))
+        return null;
     const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
     const activeCommittees = committees.filter((c) => c.documents.length > 0);
     const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
