@@ -38,6 +38,7 @@ import {
   SWOT_BUILDER_STRINGS,
   DASHBOARD_BUILDER_STRINGS,
 } from '../constants/languages.js';
+import { isPlaceholderCommitteeData } from './committee-helpers.js';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -533,13 +534,14 @@ export function buildPropositionsAnalysis(
  * @param committees - Committee data list
  * @param date - Publication date
  * @param lang - Target language code for localized content
- * @returns Deep analysis object
+ * @returns Deep analysis object, or `null` when all committee data is placeholder
  */
 export function buildCommitteeAnalysis(
   committees: readonly CommitteeData[],
   date: string,
   lang: LanguageCode = 'en'
-): DeepAnalysis {
+): DeepAnalysis | null {
+  if (isPlaceholderCommitteeData(committees)) return null;
   const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
   const activeCommittees = committees.filter((c) => c.documents.length > 0);
   const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
@@ -989,12 +991,13 @@ export function buildPropositionsSwot(
  *
  * @param committees - Committee data list
  * @param lang - Target language code
- * @returns SWOT analysis data
+ * @returns SWOT analysis data, or `null` when all committee data is placeholder
  */
 export function buildCommitteeSwot(
   committees: readonly CommitteeData[],
   lang: LanguageCode = 'en'
-): SwotAnalysis {
+): SwotAnalysis | null {
+  if (isPlaceholderCommitteeData(committees)) return null;
   const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
   const activeCommittees = committees.filter((c) => c.documents.length > 0);
   const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
@@ -1290,12 +1293,13 @@ export function buildPropositionsDashboard(
  *
  * @param committees - Committee data list
  * @param lang - Target language code
- * @returns Dashboard configuration
+ * @returns Dashboard configuration, or `null` when all committee data is placeholder
  */
 export function buildCommitteeDashboard(
   committees: readonly CommitteeData[],
   lang: LanguageCode = 'en'
-): DashboardConfig {
+): DashboardConfig | null {
+  if (isPlaceholderCommitteeData(committees)) return null;
   const d: DashboardBuilderStrings = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
   const activeCommittees = committees.filter((c) => c.documents.length > 0);
   const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
