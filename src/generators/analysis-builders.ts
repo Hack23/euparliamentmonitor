@@ -38,6 +38,7 @@ import {
   SWOT_BUILDER_STRINGS,
   DASHBOARD_BUILDER_STRINGS,
 } from '../constants/languages.js';
+import { PLACEHOLDER_MARKER } from './motions-content.js';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -96,6 +97,7 @@ function deriveConsequencesFromVoting(
 ): ActionConsequence[] {
   const consequences: ActionConsequence[] = [];
   for (const record of records.slice(0, 3)) {
+    if (record.result === PLACEHOLDER_MARKER) continue;
     consequences.push({
       action: `Vote on "${record.title}"`,
       consequence: `Result: ${record.result} (${record.votes.for}+ / ${record.votes.against}− / ${record.votes.abstain} abstain)`,
@@ -103,6 +105,7 @@ function deriveConsequencesFromVoting(
     });
   }
   for (const anomaly of anomalies.slice(0, 2)) {
+    if (/placeholder/i.test(anomaly.type)) continue;
     consequences.push({
       action: `${anomaly.type} detected`,
       consequence: anomaly.description,

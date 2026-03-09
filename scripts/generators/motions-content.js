@@ -68,6 +68,26 @@ export function getMotionsFallbackData(dateStr, dateFromStr) {
     };
 }
 /**
+ * Returns true when every voting record carries the placeholder marker,
+ * indicating no real roll-call data was retrieved from MCP.
+ *
+ * @param records - Voting records to test
+ * @returns `true` if all records are placeholder-only data
+ */
+function isPlaceholderVotingRecords(records) {
+    return records.length === 0 || records.every((r) => r.result === PLACEHOLDER_MARKER);
+}
+/**
+ * Returns true when every voting pattern is placeholder/fallback data
+ * (groups whose name contains the word "placeholder" — case-insensitive).
+ *
+ * @param patterns - Voting patterns to test
+ * @returns `true` if all patterns are placeholder-only data
+ */
+function isPlaceholderVotingPatterns(patterns) {
+    return patterns.length === 0 || patterns.every((p) => /placeholder/i.test(p.group));
+}
+/**
  * Generate HTML content for motions article
  *
  * @param dateFromStr - Start date
@@ -82,12 +102,14 @@ export function getMotionsFallbackData(dateStr, dateFromStr) {
 export function generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions, lang = 'en') {
     const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
     const strings = getLocalizedString(MOTIONS_STRINGS, lang);
+    const showVotingResults = !isPlaceholderVotingRecords(votingRecords);
+    const showVotingPatterns = !isPlaceholderVotingPatterns(votingPatterns);
     return `
     <div class="article-content">
       <section class="lede">
         <p>${escapeHTML(strings.lede)} ${escapeHTML(editorial.sourceAttribution)}, analysis of voting records from ${escapeHTML(dateFromStr)} to ${escapeHTML(dateStr)} provides insights into legislative decision-making and party discipline.</p>
       </section>
-      
+      ${showVotingResults ? `
       <section class="voting-results">
         <h2>${escapeHTML(strings.votingRecordsHeading)}</h2>
         ${votingRecords
@@ -104,8 +126,8 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
           </div>
         `)
         .join('')}
-      </section>
-      
+      </section>` : ''}
+      ${showVotingPatterns ? `
       <section class="voting-patterns">
         <h2>${escapeHTML(strings.partyCohesionHeading)}</h2>
         <p>${escapeHTML(editorial.parliamentaryContext)}: Analysis of voting behavior reveals varying levels of party discipline across political groups:</p>
@@ -118,7 +140,7 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
           </div>
         `)
         .join('')}
-      </section>
+      </section>` : ''}
       
       <section class="anomalies">
         <h2>${escapeHTML(strings.anomaliesHeading)}</h2>
@@ -170,7 +192,10 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
 function buildVoteAlignmentHtml(records) {
     if (records.length === 0)
         return '';
-    const items = records
+    const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
+    if (realRecords.length === 0)
+        return '';
+    const items = realRecords
         .map((r) => {
         const forVotes = escapeHTML(String(r.votes.for));
         const againstVotes = escapeHTML(String(r.votes.against));
