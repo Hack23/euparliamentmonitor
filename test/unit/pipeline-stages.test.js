@@ -442,6 +442,89 @@ describe('writeGenerationMetadata', () => {
     expect(content.results).toHaveLength(1);
     expect(content.results[0].slug).toBe('2025-01-15-week-ahead');
   });
+
+  it('merges stats and results when a metadata file already exists for the same day', () => {
+    const today = new Date();
+    const dateSlug = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    const metadataPath = path.join(tmpDir, `generation-${dateSlug}.json`);
+
+    // Write an existing metadata file (first workflow run)
+    const existingMetadata = {
+      timestamp: today.toISOString(),
+      generated: 14,
+      skipped: 0,
+      dryRun: 0,
+      errors: 0,
+      articles: ['2025-01-15-motions-en.html', '2025-01-15-motions-fr.html'],
+      results: [{ success: true, files: 14, slug: '2025-01-15-motions' }],
+      usedMCP: false,
+    };
+    fs.writeFileSync(metadataPath, JSON.stringify(existingMetadata), 'utf-8');
+
+    // Second workflow run (committee-reports, skipped)
+    const stats2 = {
+      generated: 0,
+      skipped: 14,
+      dryRun: 0,
+      errors: 0,
+      articles: [],
+      timestamp: today.toISOString(),
+    };
+    const results2 = [{ success: true, files: 0, slug: '2025-01-15-committee-reports' }];
+    writeGenerationMetadata(stats2, results2, true, tmpDir, false);
+
+    const content = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+    // Totals should be merged
+    expect(content.generated).toBe(14);
+    expect(content.skipped).toBe(14);
+    // Articles from first run should be preserved
+    expect(content.articles).toContain('2025-01-15-motions-en.html');
+    // Results from both runs should be present
+    expect(content.results).toHaveLength(2);
+    expect(content.results.some((r) => r.slug === '2025-01-15-motions')).toBe(true);
+    expect(content.results.some((r) => r.slug === '2025-01-15-committee-reports')).toBe(true);
+    // usedMCP true if either run used it
+    expect(content.usedMCP).toBe(true);
+  });
+
+  it('deduplicates results by slug when re-running the same strategy', () => {
+    const today = new Date();
+    const dateSlug = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    const metadataPath = path.join(tmpDir, `generation-${dateSlug}.json`);
+
+    const existing = {
+      timestamp: today.toISOString(),
+      generated: 5,
+      skipped: 0,
+      dryRun: 0,
+      errors: 0,
+      articles: ['2025-01-15-week-ahead-en.html'],
+      results: [{ success: true, files: 1, slug: '2025-01-15-week-ahead' }],
+      usedMCP: false,
+    };
+    fs.writeFileSync(metadataPath, JSON.stringify(existing), 'utf-8');
+
+    // Re-run same strategy (e.g. retry)
+    const stats2 = {
+      generated: 1,
+      skipped: 0,
+      dryRun: 0,
+      errors: 0,
+      articles: ['2025-01-15-week-ahead-en.html'],
+      timestamp: today.toISOString(),
+    };
+    writeGenerationMetadata(
+      stats2,
+      [{ success: true, files: 1, slug: '2025-01-15-week-ahead' }],
+      false,
+      tmpDir,
+      false
+    );
+
+    const content = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+    // Results should not be duplicated
+    expect(content.results.filter((r) => r.slug === '2025-01-15-week-ahead')).toHaveLength(1);
+  });
 });
 
 // ─── createStrategyRegistry tests ─────────────────────────────────────────────

@@ -197,7 +197,12 @@ describe('CommitteeReportsStrategy', () => {
     expect(content).toContain('No recent documents available');
   });
 
-  it('buildContent shows committeeMetadataUnavailable notice when all committees are placeholder', () => {
+  it('shouldSkip returns true when committeeDataList is empty (all fetches failed)', () => {
+    const data = { ...committeeReportsData, committeeDataList: [] };
+    expect(strategy.shouldSkip(data)).toBe(true);
+  });
+
+  it('shouldSkip returns true when all committees are placeholder', () => {
     const data = {
       ...committeeReportsData,
       committeeDataList: [
@@ -211,11 +216,32 @@ describe('CommitteeReportsStrategy', () => {
         },
       ],
     };
+    expect(strategy.shouldSkip(data)).toBe(true);
+  });
+
+  it('shouldSkip returns false when there is real committee data', () => {
+    expect(strategy.shouldSkip(committeeReportsData)).toBe(false);
+  });
+
+  it('buildContent renders normal committee cards for real data (no committee-card--unavailable)', () => {
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Test Committee',
+          abbreviation: 'TEST',
+          chair: 'N/A',
+          members: 0,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+    };
+    // buildContent is only called when shouldSkip() === false; when called directly
+    // with placeholder data it renders normal (but N/A) cards, not unavailable cards
     const content = strategy.buildContent(data, 'en');
-    expect(content).toContain('committee-card--unavailable');
-    expect(content).toContain('committee-metadata-unavailable');
-    expect(content).not.toContain('Chair: N/A');
-    expect(content).not.toContain('0 members');
+    expect(content).not.toContain('committee-card--unavailable');
+    expect(content).not.toContain('committee-metadata-unavailable');
   });
 
   it('buildContent escapes HTML in committee name', () => {

@@ -29,24 +29,6 @@ const COMMITTEE_REPORTS_SOURCES = [
  */
 function buildCommitteeReportsHTML(committeeDataList, lang) {
     const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
-    // When all committee entries are placeholder (MCP unavailable or API gap),
-    // render a "data unavailable" notice instead of misleading N/A cards.
-    if (isPlaceholderCommitteeData(committeeDataList)) {
-        const unavailableCards = committeeDataList
-            .map((committee) => `
-      <section class="committee-card committee-card--unavailable">
-        <h3 class="committee-name">${escapeHTML(committee.name)} (${escapeHTML(committee.abbreviation)})</h3>
-        <p class="committee-metadata-unavailable">${escapeHTML(s.committeeMetadataUnavailable)}</p>
-      </section>`)
-            .join('');
-        return `
-    <div class="article-content">
-      <section class="committee-overview">
-        <p class="lede">${escapeHTML(s.lede)}</p>
-      </section>
-      <section class="committee-reports">${unavailableCards}</section>
-    </div>`;
-    }
     const committeeSections = committeeDataList
         .map((committee) => {
         const docItems = committee.documents.length > 0
@@ -165,16 +147,24 @@ export class CommitteeReportsStrategy {
         };
     }
     /**
-     * Skip generation when all fetched committee data is placeholder
-     * (MCP unavailable or EP Open Data API returned no real data).
-     * Publishing all-placeholder committee articles would mislead readers
+     * Skip generation when no real committee data is available.
+     *
+     * This happens when:
+     * - All committee fetches failed (empty committeeDataList), or
+     * - All fetched committee data is placeholder (MCP unavailable or EP Open Data
+     *   API returned no real data).
+     * Publishing all-placeholder or empty committee articles would mislead readers
      * and undermine the transparency mission of the platform.
      *
      * @param data - Committee reports data payload
-     * @returns `true` when all committee entries are placeholder
+     * @returns `true` when there is no usable committee data
      */
     shouldSkip(data) {
-        return isPlaceholderCommitteeData(data.committeeDataList);
+        const { committeeDataList } = data;
+        if (committeeDataList.length === 0) {
+            return true;
+        }
+        return isPlaceholderCommitteeData(committeeDataList);
     }
 }
 /** Singleton instance for use by the strategy registry */
