@@ -183,6 +183,19 @@ describe('Motions Generator', () => {
       expect(html).toContain('article-content');
       expect(html).not.toContain('undefined');
     });
+
+    it('should filter placeholder pattern entries in mixed-data voting-patterns section', () => {
+      const mixedPatterns = [
+        { group: 'EPP', cohesion: 0.88, participation: 0.94 },
+        { group: 'placeholder group', cohesion: 0.0, participation: 0.0 },
+        { group: 'S&D', cohesion: 0.82, participation: 0.91 },
+      ];
+      const html = generateMotionsContent(DATE_FROM_STR, DATE_STR, mockRecords, mixedPatterns, mockAnomalies, mockQuestions);
+      expect(html).toContain('class="voting-patterns"');
+      expect(html).toContain('EPP');
+      expect(html).toContain('S&amp;D');
+      expect(html).not.toContain('placeholder group');
+    });
   });
 
   describe('MOTIONS_TITLES multi-language', () => {
