@@ -432,6 +432,8 @@ export interface DeepAnalysisStrings {
 export interface CommitteeAnalysisContentStrings {
   /** Template: what happened. {date}, {total}, {docs}, {active} placeholders */
   readonly what: string;
+  /** Template: what happened when no documents are available. {date}, {total} placeholders */
+  readonly whatNoData: string;
   /** "Reporting date:" label prefix */
   readonly reportDateLabel: string;
   /** "members" label */
