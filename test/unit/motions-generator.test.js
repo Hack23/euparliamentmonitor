@@ -159,6 +159,30 @@ describe('Motions Generator', () => {
       ).not.toThrow();
     });
 
+    it('should omit voting-results section when all records are placeholder', () => {
+      const fallback = getMotionsFallbackData(DATE_STR, DATE_FROM_STR);
+      const html = generateMotionsContent(DATE_FROM_STR, DATE_STR, fallback.votingRecords, fallback.votingPatterns, fallback.anomalies, fallback.questions);
+      expect(html).not.toContain('class="voting-results"');
+    });
+
+    it('should omit voting-patterns section when all patterns are placeholder', () => {
+      const fallback = getMotionsFallbackData(DATE_STR, DATE_FROM_STR);
+      const html = generateMotionsContent(DATE_FROM_STR, DATE_STR, fallback.votingRecords, fallback.votingPatterns, fallback.anomalies, fallback.questions);
+      expect(html).not.toContain('class="voting-patterns"');
+    });
+
+    it('should omit voting-results section when records array is empty', () => {
+      const html = generateMotionsContent(DATE_FROM_STR, DATE_STR, [], [], [], []);
+      expect(html).not.toContain('class="voting-results"');
+      expect(html).not.toContain('class="voting-patterns"');
+    });
+
+    it('should still include voting-results section for real (non-placeholder) data', () => {
+      const html = generateMotionsContent(DATE_FROM_STR, DATE_STR, mockRecords, mockPatterns, mockAnomalies, mockQuestions);
+      expect(html).toContain('class="voting-results"');
+      expect(html).toContain('class="voting-patterns"');
+    });
+
     it('should handle empty arrays gracefully', () => {
       const html = generateMotionsContent(DATE_FROM_STR, DATE_STR, [], [], [], []);
       expect(html).toContain('article-content');
