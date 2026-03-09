@@ -148,6 +148,7 @@ export function generateMotionsContent(
       <section class="voting-results">
         <h2>${escapeHTML(strings.votingRecordsHeading)}</h2>
         ${votingRecords
+          .filter((r) => r.result !== PLACEHOLDER_MARKER)
           .map(
             (record) => `
           <div class="vote-item">

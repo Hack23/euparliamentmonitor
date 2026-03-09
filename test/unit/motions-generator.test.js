@@ -159,15 +159,10 @@ describe('Motions Generator', () => {
       ).not.toThrow();
     });
 
-    it('should omit voting-results section when all records are placeholder', () => {
+    it('should omit voting-results and voting-patterns sections when all data is placeholder', () => {
       const fallback = getMotionsFallbackData(DATE_STR, DATE_FROM_STR);
       const html = generateMotionsContent(DATE_FROM_STR, DATE_STR, fallback.votingRecords, fallback.votingPatterns, fallback.anomalies, fallback.questions);
       expect(html).not.toContain('class="voting-results"');
-    });
-
-    it('should omit voting-patterns section when all patterns are placeholder', () => {
-      const fallback = getMotionsFallbackData(DATE_STR, DATE_FROM_STR);
-      const html = generateMotionsContent(DATE_FROM_STR, DATE_STR, fallback.votingRecords, fallback.votingPatterns, fallback.anomalies, fallback.questions);
       expect(html).not.toContain('class="voting-patterns"');
     });
 
