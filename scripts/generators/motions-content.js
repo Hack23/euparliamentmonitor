@@ -163,6 +163,7 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
         <h2>${escapeHTML(strings.partyCohesionHeading)}</h2>
         <p>${escapeHTML(editorial.parliamentaryContext)}: Analysis of voting behavior reveals varying levels of party discipline across political groups:</p>
         ${votingPatterns
+            .filter((p) => !/placeholder/i.test(p.group))
             .map((pattern) => `
           <div class="pattern-item">
             <h3>${escapeHTML(pattern.group)}</h3>
