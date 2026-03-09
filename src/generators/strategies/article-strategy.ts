@@ -97,6 +97,20 @@ export interface ArticleStrategyBase {
    * @returns Article metadata
    */
   getMetadata(data: ArticleData, lang: LanguageCode): ArticleMetadata;
+  /**
+   * Optional guard that lets a strategy opt out of generation when the
+   * fetched data contains only placeholder / fallback values (e.g. MCP
+   * unavailable).  When `true` is returned the orchestrator skips writing
+   * all language variants and logs a notice rather than publishing empty
+   * placeholder articles.
+   *
+   * Strategies that do not implement this method are treated as always
+   * wanting to generate (i.e. the default is `false`).
+   *
+   * @param data - Data payload returned by {@link fetchData}
+   * @returns `true` when all fetched data is placeholder and generation should be skipped
+   */
+  shouldSkip?(data: ArticleData): boolean;
 }
 
 /**

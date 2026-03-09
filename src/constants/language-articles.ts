@@ -3438,7 +3438,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: 'robust',
     productivityModerate: 'moderat',
     productivityLow: 'lav',
-    why: 'Udvalgene er Europa-Parlamentets lovgivningsmæssige motor — {pct}% aktiv rate signalerer {descriptor} lovgivningsmæssig produktivitet. Udvalgsresultater former direkte de tekster, der når plenarvoteringe.',
+    why: 'Udvalgene er Europa-Parlamentets lovgivningsmæssige motor — {pct}% aktiv rate signalerer {descriptor} lovgivningsmæssig produktivitet. Udvalgsresultater former direkte de tekster, der når plenarvoteringer.',
     stakeholderHighlyProductive: '{n} dokumenter — meget produktiv periode',
     stakeholderModerateActivity: '{n} dokument(er) — moderat aktivitet',
     stakeholderNoDocs: 'Ingen nylige dokumenter — potentielt produktivitetsproblem',
