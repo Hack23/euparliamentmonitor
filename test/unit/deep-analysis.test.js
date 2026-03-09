@@ -325,10 +325,27 @@ describe('analysis-builders', () => {
 
     it('should handle empty data gracefully', () => {
       const result = buildVotingAnalysis('2026-02-01', '2026-02-28', [], [], [], []);
-      expect(result.what).toContain('0 votes recorded');
+      expect(result.what).toContain('2026-02-01');
+      expect(result.what).toContain('2026-02-28');
       expect(result.stakeholderOutcomes).toEqual([]);
       expect(result.actionConsequences).toEqual([]);
       expect(result.mistakes).toEqual([]);
+    });
+
+    it('should exclude placeholder records from actionConsequences', () => {
+      const placeholderRecords = [
+        { title: 'Example (placeholder)', date: '2026-02-01', result: 'DATA_UNAVAILABLE (placeholder)', votes: { for: 0, against: 0, abstain: 0 } },
+      ];
+      const result = buildVotingAnalysis('2026-02-01', '2026-02-28', placeholderRecords, [], [], []);
+      expect(result.actionConsequences).toEqual([]);
+    });
+
+    it('should exclude placeholder anomalies from actionConsequences', () => {
+      const placeholderAnomalies = [
+        { type: 'Placeholder example', description: 'Illustrative placeholder only', severity: 'medium' },
+      ];
+      const result = buildVotingAnalysis('2026-02-01', '2026-02-28', [], [], placeholderAnomalies, []);
+      expect(result.actionConsequences).toEqual([]);
     });
   });
 

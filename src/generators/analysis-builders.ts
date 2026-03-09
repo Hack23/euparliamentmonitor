@@ -170,6 +170,14 @@ export function buildVotingAnalysis(
   return {
     what:
       hasRealData || allInputEmpty
+  const rejectedCount = realRecords.filter((r) =>
+    r.result?.toLowerCase().includes('reject')
+  ).length;
+  const topTopics = realRecords.slice(0, 3).map((r) => r.title);
+
+  return {
+    what:
+      realRecords.length > 0 || realPatterns.length > 0 || realQuestions.length > 0
         ? `${realRecords.length} votes recorded between ${dateFrom} and ${dateTo}: ${adoptedCount} adopted, ${rejectedCount} rejected. ${realAnomalies.length} voting anomalies detected across ${realPatterns.length} political groups. ${realQuestions.length} parliamentary questions filed.`
         : `Parliamentary activity from ${dateFrom} to ${dateTo}. Detailed roll-call data unavailable for this period.`,
     who: [
@@ -1116,6 +1124,9 @@ export function buildVotingDashboard(
   const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
   const adoptedCount = realRecords.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
   const rejectedCount = realRecords.filter((r) => r.result?.toLowerCase().includes('reject')).length;
+  const rejectedCount = realRecords.filter((r) =>
+    r.result?.toLowerCase().includes('reject')
+  ).length;
 
   const overviewPanel = {
     title: d.votingOverview,

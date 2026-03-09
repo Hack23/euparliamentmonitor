@@ -112,6 +112,8 @@ export function buildVotingAnalysis(dateFrom, dateTo, records, patterns, anomali
     const allInputEmpty = records.length === 0 && patterns.length === 0 && questions.length === 0;
     return {
         what: hasRealData || allInputEmpty
+    return {
+        what: realRecords.length > 0 || realPatterns.length > 0 || realQuestions.length > 0
             ? `${realRecords.length} votes recorded between ${dateFrom} and ${dateTo}: ${adoptedCount} adopted, ${rejectedCount} rejected. ${realAnomalies.length} voting anomalies detected across ${realPatterns.length} political groups. ${realQuestions.length} parliamentary questions filed.`
             : `Parliamentary activity from ${dateFrom} to ${dateTo}. Detailed roll-call data unavailable for this period.`,
         who: [
