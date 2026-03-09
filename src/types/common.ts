@@ -446,7 +446,7 @@ export interface CommitteeAnalysisContentStrings {
   readonly productivityLow: string;
   /** Why section text. {pct}, {descriptor} placeholders */
   readonly why: string;
-  /** Impact political text when no committees are active. {total} placeholder */
+  /** Impact political text when no committees are active. */
   readonly impactPoliticalNone: string;
   /** Stakeholder reason: highly productive. {n} placeholder */
   readonly stakeholderHighlyProductive: string;

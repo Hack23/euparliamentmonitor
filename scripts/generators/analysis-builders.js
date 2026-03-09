@@ -474,7 +474,7 @@ export function buildCommitteeAnalysis(committees, date, lang = 'en') {
         })),
         impactAssessment: {
             political: activeCommittees.length === 0
-                ? s.impactPoliticalNone.replace('{total}', String(committees.length))
+                ? s.impactPoliticalNone
                 : s.impactPolitical
                     .replace('{active}', String(activeCommittees.length))
                     .replace('{total}', String(committees.length)),
