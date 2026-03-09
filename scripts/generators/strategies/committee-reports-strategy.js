@@ -164,6 +164,18 @@ export class CommitteeReportsStrategy {
             sources: COMMITTEE_REPORTS_SOURCES,
         };
     }
+    /**
+     * Skip generation when all fetched committee data is placeholder
+     * (MCP unavailable or EP Open Data API returned no real data).
+     * Publishing all-placeholder committee articles would mislead readers
+     * and undermine the transparency mission of the platform.
+     *
+     * @param data - Committee reports data payload
+     * @returns `true` when all committee entries are placeholder
+     */
+    shouldSkip(data) {
+        return isPlaceholderCommitteeData(data.committeeDataList);
+    }
 }
 /** Singleton instance for use by the strategy registry */
 export const committeeReportsStrategy = new CommitteeReportsStrategy();
