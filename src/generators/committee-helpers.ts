@@ -12,6 +12,12 @@ import type { CommitteeData, MCPToolResult } from '../types/index.js';
 /** Featured committees to include in committee reports */
 export const FEATURED_COMMITTEES = ['ENVI', 'ECON', 'AFET', 'LIBE', 'AGRI'] as const;
 
+/** Sentinel value used when no real chair data is available from MCP */
+export const PLACEHOLDER_CHAIR = 'N/A';
+
+/** Sentinel value used when no real member count data is available from MCP */
+export const PLACEHOLDER_MEMBERS = 0;
+
 /**
  * Apply committee info from MCP result to the data object
  *
@@ -32,7 +38,7 @@ export function applyCommitteeInfo(
     if (!parsed.committee) return;
     data.name = parsed.committee.name ?? data.name;
     data.abbreviation = parsed.committee.abbreviation ?? abbreviation;
-    data.chair = parsed.committee.chair ?? 'N/A';
+    data.chair = parsed.committee.chair ?? PLACEHOLDER_CHAIR;
     const memberCountRaw = parsed.committee.memberCount;
     let memberCount = 0;
     if (typeof memberCountRaw === 'number' && Number.isFinite(memberCountRaw)) {
@@ -97,7 +103,9 @@ export function applyDocuments(result: MCPToolResult, data: CommitteeData): void
 export function isPlaceholderCommitteeData(committees: readonly CommitteeData[]): boolean {
   return (
     committees.length > 0 &&
-    committees.every((c) => c.chair === 'N/A' && c.members === 0 && c.documents.length === 0)
+    committees.every(
+      (c) => c.chair === PLACEHOLDER_CHAIR && c.members === PLACEHOLDER_MEMBERS && c.documents.length === 0
+    )
   );
 }
 
