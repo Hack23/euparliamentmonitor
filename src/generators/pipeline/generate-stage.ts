@@ -197,7 +197,7 @@ export async function generateArticleForStrategy(
       console.log(
         `  ⚠️  ${strategy.type} article skipped: all fetched data is placeholder (MCP unavailable or API gap). No files written.`
       );
-      stats.skipped++;
+      stats.skipped += languages.length;
       return { success: true, files: 0, slug };
     }
 

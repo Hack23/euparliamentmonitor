@@ -891,6 +891,30 @@ describe('generateArticleForStrategy', () => {
     expect(result.success).toBe(true);
     expect(result.files).toBe(0);
   });
+
+  it('increments stats.skipped by languages.length when shouldSkip returns true', async () => {
+    const { generateArticleForStrategy } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const skippingStrategy = {
+      type: 'committee-reports',
+      requiredMCPTools: [],
+      fetchData: async () => ({ committees: [] }),
+      buildContent: () => '',
+      getMetadata: () => ({ title: '', subtitle: '', category: 'committee-reports', keywords: [] }),
+      shouldSkip: () => true,
+    };
+    const stats = { generated: 0, skipped: 0, dryRun: 0, errors: 0, articles: [], timestamp: '' };
+    const opts = { dryRun: false, skipExisting: false, newsDir: tmpDir };
+    const languages = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+
+    const result = await generateArticleForStrategy(skippingStrategy, null, languages, opts, stats);
+    expect(result.success).toBe(true);
+    expect(result.files).toBe(0);
+    expect(stats.skipped).toBe(14);
+    expect(stats.generated).toBe(0);
+    expect(stats.articles).toHaveLength(0);
+  });
 });
 
 // ─── fetch-stage with mock client (covers if(client) true branches) ────────────
