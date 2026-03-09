@@ -90,25 +90,49 @@ export function getMotionsFallbackData(
 }
 
 /**
- * Returns true when every voting record carries the placeholder marker,
+ * Returns true when there is no real roll-call data: either the records
+ * array is empty or every voting record carries the placeholder marker,
  * indicating no real roll-call data was retrieved from MCP.
  *
  * @param records - Voting records to test
- * @returns `true` if all records are placeholder-only data
+ * @returns `true` if the array is empty or all records are placeholder-only data
  */
 function isPlaceholderVotingRecords(records: readonly VotingRecord[]): boolean {
   return records.length === 0 || records.every((r) => r.result === PLACEHOLDER_MARKER);
 }
 
 /**
- * Returns true when every voting pattern is placeholder/fallback data
+ * Returns true when there is no real voting pattern data: either the patterns
+ * array is empty or every voting pattern is placeholder/fallback data
  * (groups whose name contains the word "placeholder" — case-insensitive).
  *
  * @param patterns - Voting patterns to test
- * @returns `true` if all patterns are placeholder-only data
+ * @returns `true` if the array is empty or all patterns are placeholder-only data
  */
 function isPlaceholderVotingPatterns(patterns: readonly VotingPattern[]): boolean {
   return patterns.length === 0 || patterns.every((p) => /placeholder/i.test(p.group));
+}
+
+/**
+ * Returns true when there is no real anomaly data: either the array is empty
+ * or every anomaly type contains the word "placeholder" (case-insensitive).
+ *
+ * @param anomalies - Anomalies to test
+ * @returns `true` if the array is empty or all anomalies are placeholder-only data
+ */
+function isPlaceholderAnomalies(anomalies: readonly VotingAnomaly[]): boolean {
+  return anomalies.length === 0 || anomalies.every((a) => /placeholder/i.test(a.type));
+}
+
+/**
+ * Returns true when there is no real questions data: either the array is empty
+ * or every question carries the placeholder marker in its status field.
+ *
+ * @param questions - Parliamentary questions to test
+ * @returns `true` if the array is empty or all questions are placeholder-only data
+ */
+function isPlaceholderQuestions(questions: readonly MotionsQuestion[]): boolean {
+  return questions.length === 0 || questions.every((q) => q.status === PLACEHOLDER_MARKER);
 }
 
 /**
@@ -139,12 +163,16 @@ export function generateMotionsContent(
     .replace('{DATE_TO}', dateStr);
   const showVotingResults = !isPlaceholderVotingRecords(votingRecords);
   const showVotingPatterns = !isPlaceholderVotingPatterns(votingPatterns);
+  const showAnomalies = !isPlaceholderAnomalies(anomalies);
+  const showQuestions = !isPlaceholderQuestions(questions);
   return `
     <div class="article-content">
       <section class="lede">
         <p>${escapeHTML(strings.lede)} ${escapeHTML(editorial.sourceAttribution)}, ${escapeHTML(ledeAnalysisRaw)}</p>
       </section>
-      ${showVotingResults ? `
+      ${
+        showVotingResults
+          ? `
       <section class="voting-results">
         <h2>${escapeHTML(strings.votingRecordsHeading)}</h2>
         ${votingRecords
@@ -164,8 +192,12 @@ export function generateMotionsContent(
         `
           )
           .join('')}
-      </section>` : ''}
-      ${showVotingPatterns ? `
+      </section>`
+          : ''
+      }
+      ${
+        showVotingPatterns
+          ? `
       <section class="voting-patterns">
         <h2>${escapeHTML(strings.partyCohesionHeading)}</h2>
         <p>${escapeHTML(editorial.parliamentaryContext)}: Analysis of voting behavior reveals varying levels of party discipline across political groups:</p>
@@ -180,12 +212,17 @@ export function generateMotionsContent(
         `
           )
           .join('')}
-      </section>` : ''}
-      
+      </section>`
+          : ''
+      }
+      ${
+        showAnomalies
+          ? `
       <section class="anomalies">
         <h2>${escapeHTML(strings.anomaliesHeading)}</h2>
         <p>${escapeHTML(editorial.analysisNote)}: Unusual voting patterns that deviate from typical party lines:</p>
         ${anomalies
+          .filter((a) => !/placeholder/i.test(a.type))
           .map((anomaly) => {
             const rawSeverity = anomaly.severity ?? 'unknown';
             const severityDisplay =
@@ -200,11 +237,16 @@ export function generateMotionsContent(
         `;
           })
           .join('')}
-      </section>
-      
+      </section>`
+          : ''
+      }
+      ${
+        showQuestions
+          ? `
       <section class="questions">
         <h2>${escapeHTML(strings.questionsHeading)}</h2>
         ${questions
+          .filter((q) => q.status !== PLACEHOLDER_MARKER)
           .map(
             (question) => `
           <div class="question-item">
@@ -215,7 +257,9 @@ export function generateMotionsContent(
         `
           )
           .join('')}
-      </section>
+      </section>`
+          : ''
+      }
 
       <section class="why-this-matters">
         <h2>${escapeHTML(editorial.whyThisMatters)}</h2>

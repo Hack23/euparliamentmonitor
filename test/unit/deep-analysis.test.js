@@ -325,7 +325,8 @@ describe('analysis-builders', () => {
 
     it('should handle empty data gracefully', () => {
       const result = buildVotingAnalysis('2026-02-01', '2026-02-28', [], [], [], []);
-      expect(result.what).toContain('0 votes recorded');
+      expect(result.what).toContain('2026-02-01');
+      expect(result.what).toContain('2026-02-28');
       expect(result.stakeholderOutcomes).toEqual([]);
       expect(result.actionConsequences).toEqual([]);
       expect(result.mistakes).toEqual([]);
