@@ -514,6 +514,14 @@ describe('analysis-builders', () => {
       expect(result.what).toContain('0 committees');
       expect(result.stakeholderOutcomes).toEqual([]);
     });
+
+    it('should use whatNoData when no documents are available', () => {
+      const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
+      const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
+      expect(result.what).not.toContain('documents processed');
+      expect(result.what).not.toContain('committees with recent activity');
+      expect(result.what).toContain('No recent documents');
+    });
   });
 });
 

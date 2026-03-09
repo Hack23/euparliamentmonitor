@@ -444,11 +444,13 @@ export function buildCommitteeAnalysis(committees, date, lang = 'en') {
             ? s.productivityRobust
             : s.productivityModerate;
     return {
-        what: s.what
-            .replace('{date}', date)
-            .replace('{total}', String(committees.length))
-            .replace('{docs}', String(totalDocs))
-            .replace('{active}', String(activeCommittees.length)),
+        what: totalDocs === 0
+            ? s.whatNoData.replace('{date}', date).replace('{total}', String(committees.length))
+            : s.what
+                .replace('{date}', date)
+                .replace('{total}', String(committees.length))
+                .replace('{docs}', String(totalDocs))
+                .replace('{active}', String(activeCommittees.length)),
         who: committees.map((c) => `${c.name} (${c.abbreviation}) — ${s.chairLabel} ${c.chair}, ${c.members} ${s.membersLabel}`),
         when: [
             `${s.reportDateLabel} ${date}`,
