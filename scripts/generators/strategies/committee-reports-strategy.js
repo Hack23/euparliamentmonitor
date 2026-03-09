@@ -3,7 +3,7 @@
 import { ArticleCategory } from '../../types/index.js';
 import { COMMITTEE_REPORTS_TITLES, COMMITTEE_ANALYSIS_CONTENT_STRINGS, getLocalizedString, } from '../../constants/languages.js';
 import { computeRollingDateRange, fetchCommitteeData, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
-import { FEATURED_COMMITTEES } from '../committee-helpers.js';
+import { FEATURED_COMMITTEES, isPlaceholderCommitteeData } from '../committee-helpers.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildCommitteeAnalysis, buildCommitteeSwot, buildCommitteeDashboard, } from '../analysis-builders.js';
@@ -29,6 +29,24 @@ const COMMITTEE_REPORTS_SOURCES = [
  */
 function buildCommitteeReportsHTML(committeeDataList, lang) {
     const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
+    // When all committee entries are placeholder (MCP unavailable or API gap),
+    // render a "data unavailable" notice instead of misleading N/A cards.
+    if (isPlaceholderCommitteeData(committeeDataList)) {
+        const unavailableCards = committeeDataList
+            .map((committee) => `
+      <section class="committee-card committee-card--unavailable">
+        <h3 class="committee-name">${escapeHTML(committee.name)} (${escapeHTML(committee.abbreviation)})</h3>
+        <p class="committee-metadata-unavailable">${escapeHTML(s.committeeMetadataUnavailable)}</p>
+      </section>`)
+            .join('');
+        return `
+    <div class="article-content">
+      <section class="committee-overview">
+        <p class="lede">${escapeHTML(s.lede)}</p>
+      </section>
+      <section class="committee-reports">${unavailableCards}</section>
+    </div>`;
+    }
     const committeeSections = committeeDataList
         .map((committee) => {
         const docItems = committee.documents.length > 0

@@ -179,15 +179,15 @@ describe('CommitteeReportsStrategy', () => {
     expect(content).toContain('Draft Report');
   });
 
-  it('buildContent shows "No recent documents available" when empty', () => {
+  it('buildContent shows "No recent documents available" when committee has real metadata but no docs', () => {
     const data = {
       ...committeeReportsData,
       committeeDataList: [
         {
-          name: 'Test',
+          name: 'Test Committee',
           abbreviation: 'TEST',
-          chair: 'N/A',
-          members: 0,
+          chair: 'Real Chair', // non-placeholder chair prevents metadata-unavailable path
+          members: 10,
           documents: [],
           effectiveness: null,
         },
@@ -197,6 +197,27 @@ describe('CommitteeReportsStrategy', () => {
     expect(content).toContain('No recent documents available');
   });
 
+  it('buildContent shows committeeMetadataUnavailable notice when all committees are placeholder', () => {
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Test Committee',
+          abbreviation: 'TEST',
+          chair: 'N/A',
+          members: 0,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+    };
+    const content = strategy.buildContent(data, 'en');
+    expect(content).toContain('committee-card--unavailable');
+    expect(content).toContain('committee-metadata-unavailable');
+    expect(content).not.toContain('Chair: N/A');
+    expect(content).not.toContain('0 members');
+  });
+
   it('buildContent escapes HTML in committee name', () => {
     const data = {
       ...committeeReportsData,
@@ -204,8 +225,8 @@ describe('CommitteeReportsStrategy', () => {
         {
           name: '<script>alert(1)</script>',
           abbreviation: 'XSS',
-          chair: 'N/A',
-          members: 0,
+          chair: 'Real Chair', // non-placeholder chair
+          members: 5,
           documents: [],
           effectiveness: null,
         },
@@ -543,9 +564,7 @@ describe('BreakingNewsStrategy.fetchData with pre-fetched feed data file', () =>
   it('uses pre-fetched feed data when EP_FEED_DATA_FILE is set', async () => {
     tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'feed-test-'));
     const feedData = {
-      adoptedTexts: [
-        { id: 'TA-10-2026-0042', title: 'Test Adopted Text', date: '2026-03-04' },
-      ],
+      adoptedTexts: [{ id: 'TA-10-2026-0042', title: 'Test Adopted Text', date: '2026-03-04' }],
       events: [],
       procedures: [],
       mepUpdates: [],
@@ -805,8 +824,12 @@ describe('PropositionsStrategy.fetchData with rejected promises', () => {
       callTool: async () => undefined,
       getPlenarySessions: async () => undefined,
       getCommitteeInfo: async () => undefined,
-      searchDocuments: async () => { throw new Error('network failure'); },
-      monitorLegislativePipeline: async () => { throw new Error('timeout'); },
+      searchDocuments: async () => {
+        throw new Error('network failure');
+      },
+      monitorLegislativePipeline: async () => {
+        throw new Error('timeout');
+      },
       getParliamentaryQuestions: async () => undefined,
       trackLegislation: async () => undefined,
     };

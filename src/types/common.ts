@@ -483,4 +483,6 @@ export interface CommitteeAnalysisContentStrings {
   readonly lede: string;
   /** "No recent documents available" fallback list item */
   readonly noRecentDocs: string;
+  /** Notice shown in committee cards when all committee metadata is unavailable from the EP API */
+  readonly committeeMetadataUnavailable: string;
 }

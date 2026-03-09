@@ -2915,6 +2915,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: 'The legislative pipeline may face bottlenecks if committee output does not increase.',
         lede: 'European Parliament committee activity and legislative effectiveness analysis.',
         noRecentDocs: 'No recent documents available',
+        committeeMetadataUnavailable: 'Committee chair and membership data are not currently available from the EP Open Data API for this reporting period. Committee activity monitoring continues with available data sources.',
     },
     sv: {
         what: 'Utskottsaktivitetsrapport per {date}: {total} utskott övervakade, {docs} dokument behandlade, {active} utskott med aktuell aktivitet.',
@@ -2943,6 +2944,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: 'Den lagstiftande pipeline kan möta flaskhalsar om utskottens produktion inte ökar.',
         lede: 'Analys av Europaparlamentets utskottsaktivitet och lagstiftningseffektivitet.',
         noRecentDocs: 'Inga aktuella dokument tillgängliga',
+        committeeMetadataUnavailable: 'Uppgifter om utskottsordförande och medlemskap är för närvarande inte tillgängliga från EP:s Open Data API för denna rapporteringsperiod. Utskottsaktivitetsövervakning fortsätter med tillgängliga datakällor.',
     },
     da: {
         what: 'Udvalgsaktivitetsrapport pr. {date}: {total} udvalg overvåget, {docs} dokumenter behandlet, {active} udvalg med nylig aktivitet.',
@@ -2971,6 +2973,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: 'Den lovgivningsmæssige pipeline kan møde flaskehalse, hvis udvalgets produktion ikke øges.',
         lede: 'Analyse af Europa-Parlamentets udvalgsaktivitet og lovgivningsmæssig effektivitet.',
         noRecentDocs: 'Ingen nylige dokumenter tilgængelige',
+        committeeMetadataUnavailable: 'Data om udvalgsformand og medlemskab er i øjeblikket ikke tilgængelige fra EP Open Data API for denne rapporteringsperiode. Udvalgsaktivitetsovervågning fortsætter med tilgængelige datakilder.',
     },
     no: {
         what: 'Komitéaktivitetsrapport per {date}: {total} komiteer overvåket, {docs} dokumenter behandlet, {active} komiteer med nylig aktivitet.',
@@ -2999,6 +3002,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: 'Den lovgivende pipeline kan møte flaskehalser hvis komitéens produksjon ikke øker.',
         lede: 'Analyse av Europaparlamentets komitéaktivitet og lovgivningseffektivitet.',
         noRecentDocs: 'Ingen nylige dokumenter tilgjengelig',
+        committeeMetadataUnavailable: 'Data om komitéleder og medlemskap er for øyeblikket ikke tilgjengelige fra EP Open Data API for denne rapporteringsperioden. Overvåking av komitéaktivitet fortsetter med tilgjengelige datakilder.',
     },
     fi: {
         what: 'Valiokuntatoimintaraportti {date}: {total} valiokuntaa seurannassa, {docs} asiakirjaa käsitelty, {active} valiokuntaa viimeaikaisella toiminnalla.',
@@ -3027,6 +3031,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: 'Lainsäädäntöprosessi saattaa kohdata pullonkauloja, jos valiokuntien tuotanto ei kasva.',
         lede: 'Analyysi Euroopan parlamentin valiokuntien toiminnasta ja lainsäädäntötehokkuudesta.',
         noRecentDocs: 'Ei viimeaikaisia asiakirjoja saatavilla',
+        committeeMetadataUnavailable: 'Valiokunnan puheenjohtajan ja jäsenyyden tiedot eivät ole tällä hetkellä saatavilla EP:n Open Data -rajapinnasta tältä raportointijaksolta. Valiokuntien toiminnan seuranta jatkuu käytettävissä olevilla tietolähteillä.',
     },
     de: {
         what: 'Ausschussaktivitätsbericht vom {date}: {total} Ausschüsse beobachtet, {docs} Dokumente verarbeitet, {active} Ausschüsse mit aktueller Aktivität.',
@@ -3055,6 +3060,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: 'Die Gesetzgebungspipeline könnte auf Engpässe stoßen, wenn die Ausschussproduktion nicht zunimmt.',
         lede: 'Analyse der Ausschusstätigkeit des Europäischen Parlaments und seiner Gesetzgebungswirksamkeit.',
         noRecentDocs: 'Keine aktuellen Dokumente verfügbar',
+        committeeMetadataUnavailable: 'Daten zu Ausschussvorsitz und Mitgliedschaft sind für diesen Berichtszeitraum derzeit nicht über die EP Open Data API verfügbar. Die Überwachung der Ausschusstätigkeit wird mit den verfügbaren Datenquellen fortgesetzt.',
     },
     fr: {
         what: "Rapport d'activité des commissions du {date} : {total} commissions surveillées, {docs} documents traités, {active} commissions avec activité récente.",
@@ -3083,6 +3089,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: "Le pipeline législatif pourrait rencontrer des goulots d'étranglement si la production des commissions n'augmente pas.",
         lede: "Analyse de l'activité des commissions du Parlement européen et de l'efficacité législative.",
         noRecentDocs: 'Aucun document récent disponible',
+        committeeMetadataUnavailable: "Les données sur le président et les membres des commissions ne sont actuellement pas disponibles via l'API Open Data du PE pour cette période de rapport. La surveillance de l'activité des commissions se poursuit avec les sources de données disponibles.",
     },
     es: {
         what: 'Informe de actividad de las comisiones a fecha {date}: {total} comisiones supervisadas, {docs} documentos procesados, {active} comisiones con actividad reciente.',
@@ -3111,6 +3118,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: 'El proceso legislativo puede enfrentarse a cuellos de botella si la producción de las comisiones no aumenta.',
         lede: 'Análisis de la actividad de las comisiones del Parlamento Europeo y de su efectividad legislativa.',
         noRecentDocs: 'No hay documentos recientes disponibles',
+        committeeMetadataUnavailable: 'Los datos sobre el presidente y la membresía de las comisiones no están disponibles actualmente a través de la API Open Data del PE para este período de informe. El monitoreo de la actividad de las comisiones continúa con las fuentes de datos disponibles.',
     },
     nl: {
         what: 'Rapport commissieactiviteiten per {date}: {total} commissies gemonitord, {docs} documenten verwerkt, {active} commissies met recente activiteit.',
@@ -3139,6 +3147,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: 'De wetgevende pipeline kan knelpunten ondervinden als de commissieproductie niet toeneemt.',
         lede: 'Analyse van commissieactiviteiten en wetgevende effectiviteit van het Europees Parlement.',
         noRecentDocs: 'Geen recente documenten beschikbaar',
+        committeeMetadataUnavailable: 'Gegevens over de voorzitter en het lidmaatschap van commissies zijn momenteel niet beschikbaar via de EP Open Data API voor deze rapportageperiode. De monitoring van commissieactiviteiten gaat door met de beschikbare gegevensbronnen.',
     },
     ar: {
         what: 'تقرير نشاط اللجان بتاريخ {date}: {total} لجنة مراقبة، {docs} وثيقة معالجة، {active} لجنة ذات نشاط حديث.',
@@ -3167,6 +3176,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: 'قد يواجه المسار التشريعي اختناقات إذا لم يزداد إنتاج اللجان.',
         lede: 'تحليل نشاط لجان البرلمان الأوروبي وفعالية عملها التشريعية.',
         noRecentDocs: 'لا توجد وثائق حديثة متاحة',
+        committeeMetadataUnavailable: 'بيانات رئيس اللجنة والعضوية غير متاحة حالياً من خلال واجهة برمجة تطبيقات EP Open Data لفترة الإبلاغ هذه. تستمر مراقبة نشاط اللجان بمصادر البيانات المتاحة.',
     },
     he: {
         what: 'דוח פעילות ועדות מתאריך {date}: {total} ועדות במעקב, {docs} מסמכים עובדו, {active} ועדות עם פעילות אחרונה.',
@@ -3195,6 +3205,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: 'צינור החקיקה עלול להיתקל בצווארי בקבוק אם תפוקת הוועדה לא תגדל.',
         lede: 'ניתוח פעילות ועדות הפרלמנט האירופי ויעילותו החקיקתית.',
         noRecentDocs: 'אין מסמכים אחרונים זמינים',
+        committeeMetadataUnavailable: 'נתוני יו"ר הוועדה וחברותה אינם זמינים כרגע דרך ממשק ה-API של EP Open Data לתקופת הדיווח זו. ניטור פעילות הוועדות ממשיך עם מקורות הנתונים הזמינים.',
     },
     ja: {
         what: '{date}付け委員会活動報告: {total}委員会を監視中、{docs}文書処理済み、{active}委員会で最近の活動あり。',
@@ -3223,6 +3234,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: '委員会の文書作成が増加しない場合、立法パイプラインにボトルネックが生じる可能性があります。',
         lede: '欧州議会委員会の最近の立法成果と活動の有効性を分析します。',
         noRecentDocs: '最近の文書はありません',
+        committeeMetadataUnavailable: '委員会の委員長および構成員データは、この報告期間において EP Open Data API から現在入手できません。委員会活動の監視は利用可能なデータソースで継続します。',
     },
     ko: {
         what: '{date} 기준 위원회 활동 보고서: {total}개 위원회 모니터링, {docs}개 문서 처리, {active}개 위원회 최근 활동.',
@@ -3251,6 +3263,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: '위원회 문서 생산이 증가하지 않으면 입법 파이프라인에 병목 현상이 발생할 수 있습니다.',
         lede: '유럽 의회의 주요 위원회 활동과 입법 효율성을 종합적으로 분석합니다.',
         noRecentDocs: '최근 문서가 없습니다',
+        committeeMetadataUnavailable: '이 보고 기간 동안 EP Open Data API에서 위원회 위원장 및 구성원 데이터를 현재 사용할 수 없습니다. 위원회 활동 모니터링은 사용 가능한 데이터 소스로 계속됩니다.',
     },
     zh: {
         what: '{date}委员会活动报告：监测{total}个委员会，处理{docs}份文件，{active}个委员会有近期活动。',
@@ -3279,6 +3292,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS = {
         outlookConcern: '如果委员会产出不增加，立法管道可能面临瓶颈。',
         lede: '对欧洲议会各专门委员会近期活动和立法效率的系统分析。',
         noRecentDocs: '近期无可用文件',
+        committeeMetadataUnavailable: '该报告期内委员会主席和成员数据目前无法通过欧洲议会开放数据API获取。委员会活动监测将继续使用可用数据源。',
     },
 };
 // ─── SWOT localization strings ───────────────────────────────────────────────
