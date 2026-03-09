@@ -134,12 +134,15 @@ export function generateMotionsContent(
 ): string {
   const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
   const strings = getLocalizedString(MOTIONS_STRINGS, lang);
+  const ledeAnalysisRaw = strings.ledeAnalysis
+    .replace('{DATE_FROM}', dateFromStr)
+    .replace('{DATE_TO}', dateStr);
   const showVotingResults = !isPlaceholderVotingRecords(votingRecords);
   const showVotingPatterns = !isPlaceholderVotingPatterns(votingPatterns);
   return `
     <div class="article-content">
       <section class="lede">
-        <p>${escapeHTML(strings.lede)} ${escapeHTML(editorial.sourceAttribution)}, analysis of voting records from ${escapeHTML(dateFromStr)} to ${escapeHTML(dateStr)} provides insights into legislative decision-making and party discipline.</p>
+        <p>${escapeHTML(strings.lede)} ${escapeHTML(editorial.sourceAttribution)}, ${escapeHTML(ledeAnalysisRaw)}</p>
       </section>
       ${showVotingResults ? `
       <section class="voting-results">
