@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-03-09T15:02:22.178Z",
+  "generated": 14,
+  "skipped": 0,
+  "dryRun": 0,
+  "errors": 0,
+  "articles": [
+    "2026-03-09-motions-en.html",
+    "2026-03-09-motions-sv.html",
+    "2026-03-09-motions-da.html",
+    "2026-03-09-motions-no.html",
+    "2026-03-09-motions-fi.html",
+    "2026-03-09-motions-de.html",
+    "2026-03-09-motions-fr.html",
+    "2026-03-09-motions-es.html",
+    "2026-03-09-motions-nl.html",
+    "2026-03-09-motions-ar.html",
+    "2026-03-09-motions-he.html",
+    "2026-03-09-motions-ja.html",
+    "2026-03-09-motions-ko.html",
+    "2026-03-09-motions-zh.html"
+  ],
+  "results": [
+    {
+      "success": true,
+      "files": 14,
+      "slug": "2026-03-09-motions"
+    }
+  ],
+  "usedMCP": true
+}
