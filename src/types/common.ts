@@ -442,8 +442,12 @@ export interface CommitteeAnalysisContentStrings {
   readonly productivityRobust: string;
   /** "moderate" productivity descriptor */
   readonly productivityModerate: string;
+  /** "low" productivity descriptor used when 0% of committees have recent documents */
+  readonly productivityLow: string;
   /** Why section text. {pct}, {descriptor} placeholders */
   readonly why: string;
+  /** Impact political text when no committees are active. {total} placeholder */
+  readonly impactPoliticalNone: string;
   /** Stakeholder reason: highly productive. {n} placeholder */
   readonly stakeholderHighlyProductive: string;
   /** Stakeholder reason: moderate activity. {n} placeholder */
