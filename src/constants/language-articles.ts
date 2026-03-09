@@ -3321,7 +3321,8 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
 export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisContentStrings> = {
   en: {
     what: 'Committee activity report as of {date}: {total} committees monitored, {docs} documents processed, {active} committees with recent activity.',
-    whatNoData: 'Committee activity monitoring as of {date}: {total} committees tracked. No recent documents were available from the EP data feed for this reporting period.',
+    whatNoData:
+      'Committee activity monitoring as of {date}: {total} committees tracked. No recent documents were available from the EP data feed for this reporting period.',
     reportDateLabel: 'Reporting date:',
     membersLabel: 'members',
     chairLabel: 'Chair:',
@@ -3358,7 +3359,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
   },
   sv: {
     what: 'Utskottsaktivitetsrapport per {date}: {total} utskott övervakade, {docs} dokument behandlade, {active} utskott med aktuell aktivitet.',
-    whatNoData: 'Utskottsaktivitetsövervakning per {date}: {total} utskott spårade. Inga aktuella dokument var tillgängliga från EP:s dataflöde för denna rapporteringsperiod.',
+    whatNoData:
+      'Utskottsaktivitetsövervakning per {date}: {total} utskott spårade. Inga aktuella dokument var tillgängliga från EP:s dataflöde för denna rapporteringsperiod.',
     reportDateLabel: 'Rapportdatum:',
     membersLabel: 'ledamöter',
     chairLabel: 'Ordförande:',
@@ -3397,7 +3399,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
   },
   da: {
     what: 'Udvalgsaktivitetsrapport pr. {date}: {total} udvalg overvåget, {docs} dokumenter behandlet, {active} udvalg med nylig aktivitet.',
-    whatNoData: 'Udvalgsaktivitetsovervågning pr. {date}: {total} udvalg sporet. Ingen nylige dokumenter var tilgængelige fra EP-datastrømmen for denne rapporteringsperiode.',
+    whatNoData:
+      'Udvalgsaktivitetsovervågning pr. {date}: {total} udvalg sporet. Ingen nylige dokumenter var tilgængelige fra EP-datastrømmen for denne rapporteringsperiode.',
     reportDateLabel: 'Rapportdato:',
     membersLabel: 'medlemmer',
     chairLabel: 'Formand:',
@@ -3436,7 +3439,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
   },
   no: {
     what: 'Komitéaktivitetsrapport per {date}: {total} komiteer overvåket, {docs} dokumenter behandlet, {active} komiteer med nylig aktivitet.',
-    whatNoData: 'Komitéaktivitetsovervåkning per {date}: {total} komiteer sporet. Ingen nylige dokumenter var tilgjengelige fra EP-datastrømmen for denne rapporteringsperioden.',
+    whatNoData:
+      'Komitéaktivitetsovervåkning per {date}: {total} komiteer sporet. Ingen nylige dokumenter var tilgjengelige fra EP-datastrømmen for denne rapporteringsperioden.',
     reportDateLabel: 'Rapportdato:',
     membersLabel: 'medlemmer',
     chairLabel: 'Leder:',
@@ -3475,7 +3479,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
   },
   fi: {
     what: 'Valiokuntatoimintaraportti {date}: {total} valiokuntaa seurannassa, {docs} asiakirjaa käsitelty, {active} valiokuntaa viimeaikaisella toiminnalla.',
-    whatNoData: 'Valiokuntatoiminnan seuranta {date}: {total} valiokuntaa seurannassa. EP:n datavirrasta ei ollut saatavilla uusia asiakirjoja tällä raportointijaksolla.',
+    whatNoData:
+      'Valiokuntatoiminnan seuranta {date}: {total} valiokuntaa seurannassa. EP:n datavirrasta ei ollut saatavilla uusia asiakirjoja tällä raportointijaksolla.',
     reportDateLabel: 'Raportointipäivä:',
     membersLabel: 'jäsentä',
     chairLabel: 'Puheenjohtaja:',
@@ -3514,7 +3519,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
   },
   de: {
     what: 'Ausschussaktivitätsbericht vom {date}: {total} Ausschüsse beobachtet, {docs} Dokumente verarbeitet, {active} Ausschüsse mit aktueller Aktivität.',
-    whatNoData: 'Ausschussaktivitätsüberwachung vom {date}: {total} Ausschüsse verfolgt. Für diesen Berichtszeitraum waren keine aktuellen Dokumente aus dem EP-Datenfeed verfügbar.',
+    whatNoData:
+      'Ausschussaktivitätsüberwachung vom {date}: {total} Ausschüsse verfolgt. Für diesen Berichtszeitraum waren keine aktuellen Dokumente aus dem EP-Datenfeed verfügbar.',
     reportDateLabel: 'Berichtsdatum:',
     membersLabel: 'Mitglieder',
     chairLabel: 'Vorsitzender:',
@@ -3553,7 +3559,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
   },
   fr: {
     what: "Rapport d'activité des commissions du {date} : {total} commissions surveillées, {docs} documents traités, {active} commissions avec activité récente.",
-    whatNoData: "Surveillance des activités des commissions du {date} : {total} commissions suivies. Aucun document récent n'était disponible depuis le flux de données du PE pour cette période de rapport.",
+    whatNoData:
+      "Surveillance des activités des commissions du {date} : {total} commissions suivies. Aucun document récent n'était disponible depuis le flux de données du PE pour cette période de rapport.",
     reportDateLabel: 'Date du rapport :',
     membersLabel: 'membres',
     chairLabel: 'Président(e) :',
@@ -3592,7 +3599,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
   },
   es: {
     what: 'Informe de actividad de las comisiones a fecha {date}: {total} comisiones supervisadas, {docs} documentos procesados, {active} comisiones con actividad reciente.',
-    whatNoData: 'Monitoreo de actividad de las comisiones a fecha {date}: {total} comisiones rastreadas. No había documentos recientes disponibles del feed de datos del PE para este período de informe.',
+    whatNoData:
+      'Monitoreo de actividad de las comisiones a fecha {date}: {total} comisiones rastreadas. No había documentos recientes disponibles del feed de datos del PE para este período de informe.',
     reportDateLabel: 'Fecha del informe:',
     membersLabel: 'miembros',
     chairLabel: 'Presidente/a:',
@@ -3631,7 +3639,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
   },
   nl: {
     what: 'Rapport commissieactiviteiten per {date}: {total} commissies gemonitord, {docs} documenten verwerkt, {active} commissies met recente activiteit.',
-    whatNoData: 'Commissieactiviteitsbewaking per {date}: {total} commissies gevolgd. Er waren geen recente documenten beschikbaar vanuit de EP-gegevensfeed voor deze rapportageperiode.',
+    whatNoData:
+      'Commissieactiviteitsbewaking per {date}: {total} commissies gevolgd. Er waren geen recente documenten beschikbaar vanuit de EP-gegevensfeed voor deze rapportageperiode.',
     reportDateLabel: 'Rapportdatum:',
     membersLabel: 'leden',
     chairLabel: 'Voorzitter:',
@@ -3670,7 +3679,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
   },
   ar: {
     what: 'تقرير نشاط اللجان بتاريخ {date}: {total} لجنة مراقبة، {docs} وثيقة معالجة، {active} لجنة ذات نشاط حديث.',
-    whatNoData: 'مراقبة نشاط اللجان بتاريخ {date}: {total} لجنة متابعة. لم تكن هناك وثائق حديثة متاحة من موجز بيانات البرلمان الأوروبي لفترة التقرير هذه.',
+    whatNoData:
+      'مراقبة نشاط اللجان بتاريخ {date}: {total} لجنة متابعة. لم تكن هناك وثائق حديثة متاحة من موجز بيانات البرلمان الأوروبي لفترة التقرير هذه.',
     reportDateLabel: 'تاريخ التقرير:',
     membersLabel: 'عضو',
     chairLabel: 'الرئيس:',
@@ -3706,7 +3716,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
   },
   he: {
     what: 'דוח פעילות ועדות מתאריך {date}: {total} ועדות במעקב, {docs} מסמכים עובדו, {active} ועדות עם פעילות אחרונה.',
-    whatNoData: 'מעקב אחר פעילות ועדות מתאריך {date}: {total} ועדות במעקב. לא היו מסמכים אחרונים זמינים מעדכון הנתונים של הפרלמנט האירופי לחלון דיווח זה.',
+    whatNoData:
+      'מעקב אחר פעילות ועדות מתאריך {date}: {total} ועדות במעקב. לא היו מסמכים אחרונים זמינים מעדכון הנתונים של הפרלמנט האירופי לחלון דיווח זה.',
     reportDateLabel: 'תאריך הדוח:',
     membersLabel: 'חברים',
     chairLabel: 'יו"ר:',
@@ -3741,7 +3752,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
   },
   ja: {
     what: '{date}付け委員会活動報告: {total}委員会を監視中、{docs}文書処理済み、{active}委員会で最近の活動あり。',
-    whatNoData: '{date}付け委員会活動監視：{total}委員会を追跡中。このレポート期間にEPデータフィードから入手可能な最新文書はありませんでした。',
+    whatNoData:
+      '{date}付け委員会活動監視：{total}委員会を追跡中。このレポート期間にEPデータフィードから入手可能な最新文書はありませんでした。',
     reportDateLabel: '報告日:',
     membersLabel: '名',
     chairLabel: '委員長:',
@@ -3779,7 +3791,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
   },
   ko: {
     what: '{date} 기준 위원회 활동 보고서: {total}개 위원회 모니터링, {docs}개 문서 처리, {active}개 위원회 최근 활동.',
-    whatNoData: '{date} 기준 위원회 활동 모니터링: {total}개 위원회 추적 중. 이 보고 기간에 EP 데이터 피드에서 사용 가능한 최근 문서가 없었습니다.',
+    whatNoData:
+      '{date} 기준 위원회 활동 모니터링: {total}개 위원회 추적 중. 이 보고 기간에 EP 데이터 피드에서 사용 가능한 최근 문서가 없었습니다.',
     reportDateLabel: '보고 날짜:',
     membersLabel: '명',
     chairLabel: '의장:',
@@ -3817,7 +3830,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
   },
   zh: {
     what: '{date}委员会活动报告：监测{total}个委员会，处理{docs}份文件，{active}个委员会有近期活动。',
-    whatNoData: '{date}委员会活动监测：追踪{total}个委员会。本报告期内EP数据feed中没有可用的近期文件。',
+    whatNoData:
+      '{date}委员会活动监测：追踪{total}个委员会。本报告期内EP数据feed中没有可用的近期文件。',
     reportDateLabel: '报告日期：',
     membersLabel: '名成员',
     chairLabel: '主席：',
