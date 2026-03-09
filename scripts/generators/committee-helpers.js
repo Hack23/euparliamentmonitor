@@ -87,7 +87,9 @@ export function applyDocuments(result, data) {
  */
 export function isPlaceholderCommitteeData(committees) {
     return (committees.length > 0 &&
-        committees.every((c) => c.chair === PLACEHOLDER_CHAIR && c.members === PLACEHOLDER_MEMBERS && c.documents.length === 0));
+        committees.every((c) => c.chair === PLACEHOLDER_CHAIR &&
+            c.members === PLACEHOLDER_MEMBERS &&
+            c.documents.length === 0));
 }
 /**
  * Apply effectiveness metrics from MCP result to the data object

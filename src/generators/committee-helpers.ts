@@ -104,7 +104,10 @@ export function isPlaceholderCommitteeData(committees: readonly CommitteeData[])
   return (
     committees.length > 0 &&
     committees.every(
-      (c) => c.chair === PLACEHOLDER_CHAIR && c.members === PLACEHOLDER_MEMBERS && c.documents.length === 0
+      (c) =>
+        c.chair === PLACEHOLDER_CHAIR &&
+        c.members === PLACEHOLDER_MEMBERS &&
+        c.documents.length === 0
     )
   );
 }
