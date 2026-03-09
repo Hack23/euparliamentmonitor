@@ -10,7 +10,7 @@
  *   - generateArticleForStrategy, createStrategyRegistry (generate-stage)
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
@@ -391,6 +391,7 @@ describe('writeGenerationMetadata', () => {
   });
 
   afterEach(() => {
+    vi.useRealTimers();
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 
@@ -444,13 +445,15 @@ describe('writeGenerationMetadata', () => {
   });
 
   it('merges stats and results when a metadata file already exists for the same day', () => {
-    const today = new Date();
-    const dateSlug = today.toISOString().split('T')[0];
+    const fixedDate = new Date('2025-01-15T12:00:00.000Z');
+    vi.useFakeTimers();
+    vi.setSystemTime(fixedDate);
+    const dateSlug = fixedDate.toISOString().split('T')[0];
     const metadataPath = path.join(tmpDir, `generation-${dateSlug}.json`);
 
     // Write an existing metadata file (first workflow run)
     const existingMetadata = {
-      timestamp: today.toISOString(),
+      timestamp: fixedDate.toISOString(),
       generated: 14,
       skipped: 0,
       dryRun: 0,
@@ -468,7 +471,7 @@ describe('writeGenerationMetadata', () => {
       dryRun: 0,
       errors: 0,
       articles: [],
-      timestamp: today.toISOString(),
+      timestamp: fixedDate.toISOString(),
     };
     const results2 = [{ success: true, files: 0, slug: '2025-01-15-committee-reports' }];
     writeGenerationMetadata(stats2, results2, true, tmpDir, false);
@@ -488,12 +491,14 @@ describe('writeGenerationMetadata', () => {
   });
 
   it('deduplicates results by slug when re-running the same strategy', () => {
-    const today = new Date();
-    const dateSlug = today.toISOString().split('T')[0];
+    const fixedDate = new Date('2025-01-15T12:00:00.000Z');
+    vi.useFakeTimers();
+    vi.setSystemTime(fixedDate);
+    const dateSlug = fixedDate.toISOString().split('T')[0];
     const metadataPath = path.join(tmpDir, `generation-${dateSlug}.json`);
 
     const existing = {
-      timestamp: today.toISOString(),
+      timestamp: fixedDate.toISOString(),
       generated: 5,
       skipped: 0,
       dryRun: 0,
@@ -511,7 +516,7 @@ describe('writeGenerationMetadata', () => {
       dryRun: 0,
       errors: 0,
       articles: ['2025-01-15-week-ahead-en.html'],
-      timestamp: today.toISOString(),
+      timestamp: fixedDate.toISOString(),
     };
     writeGenerationMetadata(
       stats2,
