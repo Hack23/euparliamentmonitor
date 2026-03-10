@@ -215,7 +215,7 @@ export async function generateArticleForStrategy(
           slug,
           outputOptions,
           stats,
-          languages
+          [lang]
         )
       ) {
         writtenCount++;
