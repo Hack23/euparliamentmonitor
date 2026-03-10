@@ -100,6 +100,7 @@ function getIsoDatePart(date: Date): string {
  * @param slug - File slug (date-type)
  * @param outputOptions - Output configuration
  * @param stats - Mutable generation stats
+ * @param availableLanguages - Languages for which the article exists; used to restrict language switcher links
  * @returns true if a file was written
  */
 function generateSingleLanguageArticle(
@@ -109,7 +110,8 @@ function generateSingleLanguageArticle(
   dateStr: string,
   slug: string,
   outputOptions: OutputOptions,
-  stats: GenerationStats
+  stats: GenerationStats,
+  availableLanguages?: ReadonlyArray<LanguageCode>
 ): boolean {
   console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
@@ -127,6 +129,7 @@ function generateSingleLanguageArticle(
     content,
     keywords: [...metadata.keywords],
     sources: metadata.sources ? [...metadata.sources] : [],
+    availableLanguages,
   });
 
   // Validate generated HTML has all required structural elements
@@ -204,7 +207,16 @@ export async function generateArticleForStrategy(
     let writtenCount = 0;
     for (const lang of languages) {
       if (
-        generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outputOptions, stats)
+        generateSingleLanguageArticle(
+          strategy,
+          data,
+          lang,
+          dateStr,
+          slug,
+          outputOptions,
+          stats,
+          [lang]
+        )
       ) {
         writtenCount++;
       }

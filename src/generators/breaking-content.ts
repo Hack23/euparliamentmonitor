@@ -179,11 +179,16 @@ function buildProcedureUpdatesSection(items: readonly ProcedureFeedItem[], lang:
 /**
  * Build MEP updates section HTML from feed items.
  *
- * @param items - MEP feed items
+ * @param items - MEP feed items (up to the fetch limit)
  * @param lang - Language code for localized strings
+ * @param totalCount - Optional total MEP updates reported by the feed API (may exceed fetched items)
  * @returns HTML section string or empty string
  */
-function buildMEPUpdatesSection(items: readonly MEPFeedItem[], lang: string): string {
+function buildMEPUpdatesSection(
+  items: readonly MEPFeedItem[],
+  lang: string,
+  totalCount?: number
+): string {
   if (items.length === 0) return '';
   const strings = getLocalizedString(BREAKING_STRINGS, lang);
   const displayItems = items.slice(0, MAX_FEED_ITEMS);
@@ -198,7 +203,10 @@ function buildMEPUpdatesSection(items: readonly MEPFeedItem[], lang: string): st
         `</li>`
     )
     .join('\n            ');
-  const truncationNote = buildFeedTruncationNote(displayItems.length, items.length, strings);
+  // Use API total count when available and larger than fetched count; otherwise fall back to fetched count
+  const reportedTotal =
+    totalCount !== undefined && totalCount > items.length ? totalCount : items.length;
+  const truncationNote = buildFeedTruncationNote(displayItems.length, reportedTotal, strings);
   return `
         <section class="mep-updates-feed">
           <h2>${escapeHTML(strings.mepUpdatesHeading)}</h2>
@@ -221,7 +229,7 @@ function buildFeedSections(feedData: BreakingNewsFeedData | undefined, lang: str
     buildAdoptedTextsSection(feedData.adoptedTexts, lang),
     buildRecentEventsSection(feedData.events, lang),
     buildProcedureUpdatesSection(feedData.procedures, lang),
-    buildMEPUpdatesSection(feedData.mepUpdates, lang),
+    buildMEPUpdatesSection(feedData.mepUpdates, lang, feedData.totalMEPUpdates),
   ];
   return sections.filter(Boolean).join('');
 }

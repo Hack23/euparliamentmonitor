@@ -5,6 +5,7 @@
   "dryRun": 0,
   "errors": 0,
   "articles": [
+    "2026-03-10-breaking-en.html",
     "2026-03-10-motions-en.html",
     "2026-03-10-motions-sv.html",
     "2026-03-10-motions-da.html",
@@ -21,6 +22,11 @@
     "2026-03-10-motions-zh.html"
   ],
   "results": [
+    {
+      "success": true,
+      "files": 1,
+      "slug": "2026-03-10-breaking"
+    },
     {
       "success": true,
       "files": 14,

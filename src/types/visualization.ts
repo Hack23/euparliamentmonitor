@@ -220,10 +220,18 @@ export interface DashboardStrings {
   readonly sectionHeading: string;
   /** Trend aria-label prefix (e.g. "Trend:") */
   readonly trendPrefix: string;
+  /** Localized direction label for upward trend (e.g. "increasing") */
+  readonly trendUp: string;
+  /** Localized direction label for downward trend (e.g. "decreasing") */
+  readonly trendDown: string;
+  /** Localized direction label for stable trend (e.g. "stable") */
+  readonly trendStable: string;
   /** Fallback text when chart has no data */
   readonly noChartData: string;
   /** Default chart aria-label */
   readonly chartLabel: string;
+  /** Column header for category column in chart fallback tables (e.g. "Category") */
+  readonly categoryLabel: string;
 }
 
 // ─── SWOT Builder Localization ───────────────────────────────────────────────
