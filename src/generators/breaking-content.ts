@@ -543,7 +543,7 @@ export function buildBreakingNewsContent(
         </section>`
     : `
         <section class="lede">
-          <p>${escapeHTML(ledeText)} ${escapeHTML(strings.asOf)} ${escapeHTML(date)}.</p>
+          <p>${escapeHTML(ledeText.replace(/[.。]$/, '').trimEnd())} ${escapeHTML(strings.asOf)} ${escapeHTML(date)}.</p>
         </section>`;
 
   return `
