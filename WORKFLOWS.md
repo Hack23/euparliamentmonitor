@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--21-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--10-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-02-21 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-24
+**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:** 2026-03-10 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-10
 
 ---
 
@@ -60,68 +60,115 @@
 
 ## 📋 Executive Summary
 
-EU Parliament Monitor employs a comprehensive suite of GitHub Actions workflows for automated intelligence operations, quality assurance, security scanning, and release management. All workflows follow [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) standards.
+EU Parliament Monitor employs a comprehensive suite of **22 GitHub Actions workflows** (13 standard + 9 agentic) for automated intelligence operations, quality assurance, security scanning, and release management. All workflows follow [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) standards.
 
 ### Workflow Portfolio
 
-| Workflow | Purpose | Schedule | ISMS Alignment |
-|----------|---------|----------|----------------|
-| **News Generation** | Generate multi-language news articles | Daily 06:00 UTC | Integrity controls (Medium) |
-| **Test & Report** | Unit tests, integration tests, coverage | On PR/push | Quality assurance (ISO 27001 A.12.1.4) |
-| **CodeQL** | SAST security scanning | On PR/push | Vulnerability management (ISO 27001 A.12.6) |
-| **E2E Tests** | End-to-end Playwright tests | On PR/push | Functional validation |
-| **Release** | Build, attest, document, release | Manual/tag push | SLSA L3, Documentation-as-code |
-| **Dependency Review** | Supply chain security scanning | On PR | Supply chain security (NIST CSF ID.SC) |
-| **OpenSSF Scorecard** | Security posture assessment | Weekly | Continuous improvement |
-| **Deploy S3** | Production deployment to AWS | Post-release | Infrastructure as Code |
-| **REUSE Compliance** | License and copyright verification | On PR/push/weekly | Open Source Policy |
-| **SonarCloud Analysis** | Continuous code quality & SAST | On PR/push/weekly | Vulnerability management |
-| **SLSA Provenance** | Build provenance attestation | On release | Supply chain security (SLSA L3) |
+| # | Workflow | Purpose | Schedule / Trigger | ISMS Alignment |
+|---|---------|---------|-------------------|----------------|
+| 1 | **Agentic News Workflows** (×9) | AI-generated multi-language news articles | Varied schedules (see §1) | Integrity controls (Medium) |
+| 2 | **Test & Report** | Unit tests, integration tests, coverage, performance | On PR/push to main | Quality assurance (ISO 27001 A.12.1.4) |
+| 3 | **CodeQL** | SAST security scanning (JS/TS + GitHub Actions) | On PR/push + weekly Saturday | Vulnerability management (ISO 27001 A.12.6) |
+| 4 | **E2E Tests** | End-to-end Playwright tests | On PR/push + daily midnight UTC | Functional validation |
+| 5 | **Release** | Build, attest, document, release | Manual/tag push | SLSA L3, Documentation-as-code |
+| 6 | **Dependency Review** | Supply chain security scanning | On PR | Supply chain security (NIST CSF ID.SC) |
+| 7 | **OpenSSF Scorecard** | Security posture assessment | Weekly Tuesday 07:20 UTC | Continuous improvement |
+| 8 | **Deploy S3** | Production deployment to AWS | Push to main | Infrastructure as Code |
+| 9 | **REUSE Compliance** | License and copyright verification | On PR/push + weekly Monday | Open Source Policy |
+| 10 | **SLSA Provenance** | Build provenance attestation | On release + manual | Supply chain security (SLSA L3) |
+| 11 | **Compile Agentic Workflows** | Compile .md → .lock.yml via gh-aw CLI | Manual dispatch | Automation governance |
+| 12 | **Labeler** | Automatic PR labeling | On pull_request_target | Workflow governance |
+| 13 | **Setup Labels** | Repository label management | Manual dispatch | Repository governance |
+| 14 | **Copilot Setup Steps** | GitHub Copilot agent environment setup | Push/PR to itself + manual | Agent infrastructure |
 
-**🔒 Security Posture:** All workflows use SHA-pinned actions, Harden Runner, and minimal permissions following least privilege principle.
+**🔒 Security Posture:** All 13 standard workflows use SHA-pinned actions (100%), Harden Runner (`step-security/harden-runner@58077d3c7e43986b6b15fba718e8ea69e387dfcc # v2.15.1`), and minimal permissions following least privilege principle.
 
 ---
 
 ## 🚀 Workflow Detailed Documentation
 
-### 1. News Generation Workflow
+### 1. Agentic News Workflows (×9)
 
-**📄 File:** `.github/workflows/news-generation.yml`  
-**🎯 Purpose:** Automated generation of multi-language news articles about European Parliament activities  
-**⏰ Schedule:** Daily at 06:00 UTC + Manual trigger  
-**📊 Status:** [![News Generation](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml)
+**🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot with the `claude-opus-4.6` model  
+**📁 Architecture:** 9 markdown source files compiled to 9 `.lock.yml` files via `gh aw compile` (GitHub Agentic Workflows CLI)  
+**🌐 Languages:** 14 (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 
-#### Workflow Steps
+#### Agentic Workflow Schedule Matrix
+
+| Workflow | File | Schedule | Timeout |
+|----------|------|----------|---------|
+| **EU Parliament Week Ahead** | `news-week-ahead.lock.yml` | Friday 07:00 UTC | 60 min |
+| **EU Parliament Weekly Review** | `news-weekly-review.lock.yml` | Saturday 09:00 UTC | 60 min |
+| **EU Parliament Plenary Votes & Resolutions** | `news-motions.lock.yml` | Weekdays (Mon–Fri) 06:00 UTC | 60 min |
+| **EU Parliament Legislative Procedures** | `news-propositions.lock.yml` | Weekdays (Mon–Fri) 05:00 UTC | 60 min |
+| **EU Parliament Committee Activity** | `news-committee-reports.lock.yml` | Weekdays (Mon–Fri) 04:00 UTC | 60 min |
+| **EU Parliament Month Ahead** | `news-month-ahead.lock.yml` | 1st of month 08:00 UTC | 60 min |
+| **EU Parliament Monthly Review** | `news-monthly-review.lock.yml` | 28th of month 10:00 UTC | 60 min |
+| **EU Parliament Breaking News** | `news-breaking.lock.yml` | Every 6 hours (`0 */6 * * *`) | 60 min |
+| **EU Parliament Article Generator** | `news-article-generator.lock.yml` | Manual dispatch only | 120 min |
+
+#### Agentic Workflow Architecture
+
+All 9 agentic workflows share a common architecture:
 
 ```mermaid
 graph TD
-    A[🚀 Trigger: Schedule/Manual] --> B[📥 Checkout Repository]
-    B --> C[⚙️ Setup Node.js 20]
-    C --> D[📦 Install Dependencies]
-    D --> E{📡 MCP Server Available?}
-    E -->|✅ Yes| F[🔗 Connect to EP MCP Server]
-    E -->|❌ No| G[⚠️ Use Placeholder Content]
-    F --> H[📰 Generate News Articles]
-    G --> H
-    H --> I[📋 Generate Index Pages]
-    I --> J[🗺️ Generate Sitemap]
-    J --> K[✅ Validate HTML]
-    K --> L[💾 Commit & Push Changes]
+    A[🕐 Schedule / Manual Trigger] --> B[🔑 Activation Job]
+    B --> C{Conditions Met?}
+    C -->|✅ Yes| D[🤖 Agent Job<br/>GitHub Copilot + claude-opus-4.6]
+    C -->|❌ No| E[⏭️ Skip]
+    D --> F[📥 Checkout Repository]
+    F --> G[⚙️ Setup Node.js 24]
+    G --> H[📦 Install Dependencies]
+    H --> I[🔗 Install EP MCP Server v1.1.5]
+    I --> J[📰 Generate News Articles<br/>npx tsx src/generators/news-enhanced.ts]
+    J --> K[🌐 14-Language HTML Output]
+    K --> L[📝 Create Pull Request]
+    L --> M[✅ PR Ready for Review]
 ```
+
+#### Common Agentic Workflow Properties
+
+| Property | Value |
+|----------|-------|
+| **Source format** | Markdown (`.md`) compiled by `gh aw compile` |
+| **Lock format** | YAML (`.lock.yml`) — auto-generated, do not edit directly |
+| **AI Model** | `claude-opus-4.6` via GitHub Copilot CLI |
+| **Top-level permissions** | `{}` (empty — no default permissions) |
+| **Activation job permissions** | `contents: read` |
+| **Agent job permissions** | `contents: write`, `pull-requests: write`, `issues: write`, `models: read` |
+| **Concurrency group** | `gh-aw-${{ github.workflow }}` |
+| **Node.js version** | 24 |
+| **EP MCP Server** | `european-parliament-mcp-server@1.1.5` (globally installed) |
+| **Data sources** | European Parliament MCP Server (primary), World Bank MCP (optional) |
+
+#### Compilation Process
+
+Source markdown files are compiled to lock files using the GitHub Agentic Workflows CLI:
+
+```bash
+# Compile all agentic workflow definitions
+gh aw compile
+```
+
+The `compile-agentic-workflows.yml` workflow automates this process (see §11).
 
 #### Security Controls
 
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
-| **Input Validation** | MCP data validated before use | ISO 27001 A.14.2.1 |
-| **HTML Sanitization** | Strip scripts, encode entities | OWASP Top 10 (XSS) |
-| **Minimal Permissions** | `contents: write` only | Least privilege |
-| **Automated Commit** | Git auto-commit action (SHA-pinned) | Audit trail |
+| **Input Validation** | MCP data validated via schema before use | ISO 27001 A.14.2.1 |
+| **HTML Sanitization** | Strip scripts, encode entities in generated content | OWASP Top 10 (XSS) |
+| **Empty Top-Level Permissions** | `permissions: {}` — no default permissions | Least privilege |
+| **Scoped Job Permissions** | Write permissions only on agent job | Least privilege |
+| **Concurrency Control** | Single concurrent run per workflow | Resource governance |
+| **PR-Based Output** | All generated content via PR, not direct push | Change review |
 
 #### ISMS Evidence
 
 - **Policy:** [Secure Development Policy §4.1 - CI/CD Security](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md#41-cicd-security)
-- **Workflow:** [news-generation.yml](.github/workflows/news-generation.yml)
+- **Workflows:** [`.github/workflows/news-*.lock.yml`](.github/workflows/)
+- **Source definitions:** [`.github/workflows/news-*.md`](.github/workflows/)
 - **Process Flow:** [FLOWCHART.md §News Generation Security Flow](FLOWCHART.md#-news-generation-security-flow)
 
 ---
@@ -129,8 +176,8 @@ graph TD
 ### 2. Test & Report Workflow
 
 **📄 File:** `.github/workflows/test-and-report.yml`  
-**🎯 Purpose:** Comprehensive testing with unit tests, integration tests, and coverage reporting  
-**⏰ Schedule:** On push to main, on PR  
+**🎯 Purpose:** Comprehensive testing with unit tests, integration tests, coverage reporting, and performance benchmarks  
+**⏰ Trigger:** On push to main, on PR to main  
 **📊 Status:** [![Test and Report](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml)
 
 #### Test Coverage
@@ -139,21 +186,32 @@ graph TD
 |-----------|-----------|----------------|----------------|
 | **Unit Tests** | Vitest | 169 tests | ✅ 169/169 passing |
 | **Integration Tests** | Vitest | N/A | ✅ All passing |
-| **Line Coverage** | Vitest (V8) | ≥80% | ✅ 82.44% |
-| **Branch Coverage** | Vitest (V8) | ≥75% | ✅ 83.07% |
-| **Function Coverage** | Vitest (V8) | ≥80% | ✅ 89.47% |
+| **Line Coverage** | Vitest (V8) | ≥80% | ✅ 82%+ |
+| **Branch Coverage** | Vitest (V8) | ≥75% | ✅ 83%+ |
+| **Function Coverage** | Vitest (V8) | ≥80% | ✅ 89%+ |
 
-#### Workflow Jobs
+#### Workflow Jobs (6 Jobs)
 
 ```mermaid
 graph LR
     A[Prepare] --> B[Validation]
     A --> C[Functional Tests]
-    A --> D[Security Check]
-    B --> E[Report]
-    C --> E
-    D --> E
+    A --> D[Performance]
+    A --> E[Security Check]
+    B --> F[Report]
+    C --> F
+    D --> F
+    E --> F
 ```
+
+| Job | Name | Purpose | Key Steps |
+|-----|------|---------|-----------|
+| `prepare` | Prepare Environment | Cache dependencies, setup Node.js 24 | Checkout, npm ci, cache |
+| `validation` | Validate Code | ESLint, Prettier, HTMLHint, npm audit | Lint, format check, HTML validation |
+| `functional-tests` | Functional Tests | Vitest unit + integration tests | Run tests, coverage report |
+| `performance` | Performance Testing | Lighthouse CI + article generation benchmarks | `@lhci/cli@0.15.1`, performance metrics |
+| `security-check` | Security Check | npm audit analysis | Vulnerability triage, CodeQL integration |
+| `report` | Generate Report | Aggregate results, PR comments | Coverage summary, status checks |
 
 #### Security Controls
 
@@ -162,6 +220,7 @@ graph LR
 | **Code Quality** | ESLint + Prettier | Code quality standards |
 | **Vulnerability Scanning** | npm audit | ISO 27001 A.12.6.1 |
 | **Coverage Thresholds** | 80%+ lines, 75%+ branches | Quality gates |
+| **Performance Benchmarks** | Lighthouse CI scoring | Performance validation |
 | **False Positive Handling** | Intelligent npm audit triage | Risk acceptance process |
 
 #### ISMS Evidence
@@ -175,27 +234,32 @@ graph LR
 ### 3. CodeQL Security Scanning
 
 **📄 File:** `.github/workflows/codeql.yml`  
-**🎯 Purpose:** Static Application Security Testing (SAST) for JavaScript/TypeScript  
-**⏰ Schedule:** On push to main, on PR, weekly  
+**🎯 Purpose:** Static Application Security Testing (SAST) for JavaScript/TypeScript and GitHub Actions  
+**⏰ Schedule:** On push to main, on PR to main, weekly Saturday 21:33 UTC  
 **📊 Status:** [![CodeQL](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml)
 
 #### Security Analysis
 
-- **Language:** JavaScript/TypeScript
-- **Query Suite:** Security Extended
-- **Analysis Type:** Source code + dependencies
-- **Vulnerability Types:** 
-  - SQL Injection
-  - XSS (Cross-Site Scripting)
-  - Path Traversal
-  - Command Injection
-  - Unsafe Deserialization
+| Parameter | Value |
+|-----------|-------|
+| **Languages** | `javascript-typescript`, `actions` |
+| **Build Mode** | `none` (interpreted languages) |
+| **Query Suite** | Security Extended |
+| **Analysis Type** | Source code + dependencies |
+
+**Vulnerability Types Detected:**
+- SQL Injection
+- XSS (Cross-Site Scripting)
+- Path Traversal
+- Command Injection
+- Unsafe Deserialization
+- GitHub Actions expression injection
 
 #### Security Controls
 
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
-| **SAST Scanning** | CodeQL security-extended | ISO 27001 A.14.2.5 |
+| **SAST Scanning** | CodeQL security-extended (JS/TS + Actions) | ISO 27001 A.14.2.5 |
 | **Automated Analysis** | On every PR + push | Shift-left security |
 | **SHA-Pinned Actions** | All actions pinned to SHA | Supply chain security |
 | **Security Alerts** | GitHub Security tab integration | Incident response |
@@ -211,18 +275,19 @@ graph LR
 ### 4. E2E Testing Workflow
 
 **📄 File:** `.github/workflows/e2e.yml`  
-**🎯 Purpose:** End-to-end testing with Playwright across multiple browsers  
-**⏰ Schedule:** On push to main, on PR  
+**🎯 Purpose:** End-to-end testing with Playwright across browsers  
+**⏰ Schedule:** On push to main, on PR to main, daily at midnight UTC  
 **📊 Status:** [![E2E Tests](https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml)
 
 #### Test Coverage
 
-- **Browser:** Chromium (optimized for speed)
+- **Browser:** Chromium (optimised for speed)
+- **Timeout:** 60 minutes
 - **Test Categories:**
   - Homepage validation
   - Accessibility (axe-core integration)
   - Responsive design
-  - Multi-language support
+  - Multi-language support (14 languages)
 - **Artifacts:** Screenshots, videos, HTML reports
 
 #### Security Controls
@@ -232,13 +297,12 @@ graph LR
 | **Accessibility Testing** | axe-core WCAG AA compliance | Inclusive security |
 | **Visual Regression** | Screenshot comparison | Quality assurance |
 | **Functional Validation** | User workflow testing | Requirements validation |
+| **Daily Regression** | Scheduled midnight UTC | Continuous validation |
 
 #### ISMS Evidence
 
 - **Workflow:** [e2e.yml](.github/workflows/e2e.yml)
 - **Test Reports:** [Live E2E Report](https://hack23.github.io/euparliamentmonitor/playwright-report/)
-
-**⚠️ Note:** E2E workflow uses version tags (not SHA-pinned). Tracked for Phase 2 improvement.
 
 ---
 
@@ -246,7 +310,7 @@ graph LR
 
 **📄 File:** `.github/workflows/release.yml`  
 **🎯 Purpose:** Comprehensive release automation with attestations and documentation  
-**⏰ Schedule:** Manual trigger or tag push  
+**⏰ Trigger:** Manual dispatch (with version input) or tag push (`v*`)  
 **📊 Status:** [![Release](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml)
 
 #### Release Pipeline
@@ -270,6 +334,14 @@ graph TD
     O --> P[📝 Draft Release Notes]
     P --> Q[🎉 Create GitHub Release]
 ```
+
+#### Release Jobs
+
+| Job | Name | Key Permissions |
+|-----|------|----------------|
+| `prepare` | Prepare Release | `contents: write` |
+| `build` | Build Release Package | `contents: read`, `id-token: write`, `attestations: write` |
+| `release` | Create Release | `contents: write`, `id-token: write` |
 
 #### Documentation as Code
 
@@ -306,7 +378,7 @@ Every release automatically generates:
 
 **📄 File:** `.github/workflows/dependency-review.yml`  
 **🎯 Purpose:** Supply chain security scanning for pull requests  
-**⏰ Schedule:** On pull request  
+**⏰ Trigger:** On pull request  
 **📊 Status:** Dependency review enabled
 
 #### Security Controls
@@ -328,7 +400,7 @@ Every release automatically generates:
 
 **📄 File:** `.github/workflows/scorecards.yml`  
 **🎯 Purpose:** Security posture assessment against OpenSSF best practices  
-**⏰ Schedule:** Weekly on Monday  
+**⏰ Schedule:** Weekly on Tuesday 07:20 UTC, push to main, branch protection rule  
 **📊 Status:** [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge)](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor)
 
 #### Assessed Security Practices
@@ -360,26 +432,31 @@ Every release automatically generates:
 
 **📄 File:** `.github/workflows/deploy-s3.yml`  
 **🎯 Purpose:** Production deployment to AWS S3 + CloudFront  
-**⏰ Schedule:** Post-release  
+**⏰ Trigger:** Push to main  
 **📊 Status:** Production deployment
 
 #### Deployment Pipeline
 
 ```mermaid
 graph LR
-    A[Release Created] --> B[Checkout Code]
-    B --> C[Configure AWS]
-    C --> D[Sync to S3]
-    D --> E[Invalidate CloudFront]
-    E --> F[✅ Deployed]
+    A[Push to main] --> B[Checkout Code]
+    B --> C[🔒 Harden Runner<br/>egress: BLOCK]
+    C --> D[Configure AWS OIDC]
+    D --> E[Sync to S3]
+    E --> F[Invalidate CloudFront]
+    F --> G[✅ Production Live]
 ```
+
+> **Note:** `deploy-s3.yml` is the **only workflow** using `egress-policy: block` (all other workflows use `audit`). Outbound network calls are restricted to an explicit allowlist defined in the `allowed-endpoints` parameter of the Harden Runner step within [deploy-s3.yml](.github/workflows/deploy-s3.yml).
 
 #### Security Controls
 
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
-| **IAM Least Privilege** | Minimal S3 permissions | AWS security best practices |
-| **HTTPS Only** | CloudFront SSL/TLS | Data in transit protection |
+| **OIDC Federation** | `aws-actions/configure-aws-credentials` with role ARN | No long-lived secrets |
+| **Egress Block Mode** | Harden Runner blocks all non-allowlisted endpoints | Network security |
+| **IAM Least Privilege** | Minimal S3 + CloudFront permissions | AWS security best practices |
+| **HTTPS Only** | CloudFront SSL/TLS distribution | Data in transit protection |
 | **Infrastructure as Code** | GitHub Actions workflow | Reproducible deployments |
 
 #### ISMS Evidence
@@ -393,7 +470,7 @@ graph LR
 
 **📄 File:** `.github/workflows/reuse.yml`  
 **🎯 Purpose:** License and copyright compliance verification using the [REUSE Specification](https://reuse.software/spec/)  
-**⏰ Schedule:** On push to main, on PR, weekly Monday 06:00 UTC  
+**⏰ Schedule:** On push to main, on PR to main, weekly Monday 06:00 UTC  
 **📊 Status:** [![REUSE Compliance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml)
 
 #### License Compliance Scope
@@ -413,7 +490,7 @@ graph LR
 | **License Verification** | SPDX header validation on every file | Open Source Policy |
 | **Copyright Compliance** | Per-file copyright tracking | IP management |
 | **Supply Chain Clarity** | Machine-readable `REUSE.toml` | NIST CSF ID.SC-4 |
-| **SHA-Pinned Action** | `fsfe/reuse-action@676e2d560c9a403aa252096d99fcab3e1132b0f5` | Supply chain security |
+| **SHA-Pinned Action** | `fsfe/reuse-action` pinned to SHA | Supply chain security |
 
 #### ISMS Evidence
 
@@ -423,46 +500,11 @@ graph LR
 
 ---
 
-### 10. SonarCloud Analysis Workflow
-
-**📄 File:** `.github/workflows/sonarcloud.yml`  
-**🎯 Purpose:** Continuous code quality and security analysis with SonarCloud SAST integration  
-**⏰ Schedule:** On push to main, on PR, weekly Monday 07:00 UTC  
-**📊 Status:** [![SonarCloud Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=Hack23_euparliamentmonitor&metric=alert_status)](https://sonarcloud.io/dashboard?id=Hack23_euparliamentmonitor)
-
-#### Analysis Configuration
-
-| Parameter | Value | Purpose |
-|-----------|-------|---------|
-| **Project Key** | `Hack23_euparliamentmonitor` | SonarCloud project identity |
-| **Sources** | `scripts/` | Production code only |
-| **Tests** | `test/`, `e2e/` | Test code separation |
-| **Coverage Report** | `coverage/lcov.info` | LCOV format from Vitest V8 |
-| **JS Node Max Space** | 4096 MB | Large project analysis |
-| **Fetch Depth** | `0` (full clone) | Accurate blame analysis |
-
-#### Security Controls
-
-| Control | Implementation | ISMS Reference |
-|---------|----------------|----------------|
-| **Security Hotspot Detection** | SONAR_TOKEN secret (org-level) | ISO 27001 A.14.2.5 |
-| **Quality Gate Status** | Analysis only (no merge-blocking quality gate) | Shift-left security |
-| **PR Decoration** | Inline code review comments | Developer feedback loop |
-| **Coverage Integration** | LCOV → SonarCloud metrics | Testing quality assurance |
-
-#### ISMS Evidence
-
-- **Policy:** [Secure Development Policy §4.3](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md#43-security-scanning)
-- **Workflow:** [sonarcloud.yml](.github/workflows/sonarcloud.yml)
-- **Dashboard:** [SonarCloud Project](https://sonarcloud.io/dashboard?id=Hack23_euparliamentmonitor)
-
----
-
-### 11. SLSA Provenance Workflow
+### 10. SLSA Provenance Workflow
 
 **📄 File:** `.github/workflows/slsa-provenance.yml`  
 **🎯 Purpose:** Generate cryptographic build provenance for supply chain integrity verification  
-**⏰ Schedule:** On release creation + manual trigger with version input  
+**⏰ Trigger:** On release creation + manual dispatch with version input  
 **📊 Status:** [![SLSA Provenance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/slsa-provenance.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/slsa-provenance.yml)
 
 #### Provenance Generation Pipeline
@@ -487,8 +529,8 @@ graph TD
 
 | Artifact | Action | Verification Command |
 |----------|--------|----------------------|
-| **Build Provenance** | `actions/attest-build-provenance@96278af6caaf10aea03fd8d33a09a777ca52d62f` | `gh attestation verify --owner Hack23 <file>` |
-| **SBOM (CycloneDX)** | `actions/attest-sbom@4cb5f8d7f70b69c98b0271f47c5bcbc87faa8c3a` | `gh attestation verify --owner Hack23 <file>` |
+| **Build Provenance** | `actions/attest-build-provenance` (SHA-pinned) | `gh attestation verify --owner Hack23 <file>` |
+| **SBOM (CycloneDX)** | `actions/attest-sbom` (SHA-pinned) | `gh attestation verify --owner Hack23 <file>` |
 | **Distribution Archive** | `tar.gz` with excluded dev files | SHA-256 checksum |
 | **SBOM JSON** | CycloneDX NPM format | License compliance check |
 
@@ -510,6 +552,88 @@ graph TD
 
 ---
 
+### 11. Compile Agentic Workflows
+
+**📄 File:** `.github/workflows/compile-agentic-workflows.yml`  
+**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI  
+**⏰ Trigger:** Manual dispatch only (`workflow_dispatch`)  
+**📊 Status:** [![Compile Agentic Workflows](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml)
+
+#### Compilation Pipeline
+
+```mermaid
+graph LR
+    A[Manual Trigger] --> B[Checkout Repository]
+    B --> C[Install gh-aw CLI]
+    C --> D[Compile .md → .lock.yml]
+    D --> E[Commit & Push Lock Files]
+```
+
+#### Security Controls
+
+| Control | Implementation | ISMS Reference |
+|---------|----------------|----------------|
+| **Manual Trigger Only** | `workflow_dispatch` — no automatic runs | Change control |
+| **Token Fallback** | `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` with `GITHUB_TOKEN` fallback | Credential management |
+| **Write Permissions** | `contents: write`, `pull-requests: write`, `actions: write`, `issues: write` | Least privilege for compilation |
+
+---
+
+### 12. Pull Request Automatic Labeler
+
+**📄 File:** `.github/workflows/labeler.yml`  
+**🎯 Purpose:** Automatically label pull requests based on file paths and content  
+**⏰ Trigger:** `pull_request_target` (opened, synchronize, reopened, edited)
+
+#### Security Controls
+
+| Control | Implementation | ISMS Reference |
+|---------|----------------|----------------|
+| **Minimal Job Permissions** | `contents: read`, `pull-requests: write`, `issues: read` | Least privilege |
+| **Target Event** | `pull_request_target` — runs on base branch code | Workflow security |
+
+---
+
+### 13. Setup Repository Labels
+
+**📄 File:** `.github/workflows/setup-labels.yml`  
+**🎯 Purpose:** Create and manage repository labels for issue/PR governance  
+**⏰ Trigger:** Manual dispatch only (`workflow_dispatch` with `recreate_all` input)
+
+#### Security Controls
+
+| Control | Implementation | ISMS Reference |
+|---------|----------------|----------------|
+| **Manual Trigger Only** | `workflow_dispatch` — deliberate action required | Change control |
+| **Minimal Permissions** | `contents: read`, `issues: write` | Least privilege |
+
+---
+
+### 14. Copilot Setup Steps
+
+**📄 File:** `.github/workflows/copilot-setup-steps.yml`  
+**🎯 Purpose:** Set up the development environment for GitHub Copilot coding agents  
+**⏰ Trigger:** Push/PR to `copilot-setup-steps.yml` file + manual dispatch
+
+#### Environment Setup
+
+| Component | Version / Configuration |
+|-----------|------------------------|
+| **Node.js** | 24 |
+| **EP MCP Server** | `european-parliament-mcp-server@1.1.5` (global) |
+| **Playwright Browsers** | Installed for E2E |
+| **Virtual Display** | Xvfb (`:99`) |
+
+#### Security Controls
+
+| Control | Implementation | ISMS Reference |
+|---------|----------------|----------------|
+| **Broad Read Permissions** | Multiple read scopes for agent access | Copilot agent requirement |
+| **Write Limited** | Only `pull-requests: write`, `issues: write` | Least privilege for agents |
+| **Token Management** | `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` | Credential management |
+
+---
+
 ## 📊 Workflow Metrics
 
 ### Execution Statistics
@@ -528,8 +652,8 @@ graph TD
 |--------|--------|---------|--------|
 | **Critical Vulnerabilities** | 0 | 0 | ✅ Secure |
 | **High Vulnerabilities** | 0 | 0 | ✅ Secure |
-| **Code Coverage** | ≥80% | 82.44% | ✅ Above target |
-| **SHA-Pinned Actions** | 100% | ~90% | 🟡 In progress |
+| **Code Coverage** | ≥80% | 82%+ | ✅ Above target |
+| **SHA-Pinned Actions** | 100% | 100% | ✅ Complete |
 | **OpenSSF Score** | ≥8.0 | TBD | 🔄 Monitoring |
 
 ---
@@ -542,17 +666,20 @@ Every workflow declares explicit, minimal permissions following the principle of
 
 | Workflow | Top-Level | Job-Level Overrides | Secrets Used |
 |----------|-----------|---------------------|--------------|
-| **news-generation** | `contents: write` | — | `GITHUB_TOKEN` |
-| **test-and-report** | `read-all` | validation: `pull-requests: write`; report: `pull-requests: write`; security: `security-events: write` | None |
-| **codeql** | `contents: read` | analyze: `security-events: write`, `packages: read` | None |
-| **e2e** | `contents: read` | — | None |
-| **release** | `read-all` | prepare: `contents: write`; build: `id-token: write`, `attestations: write`; release: `contents: write`, `id-token: write` | `GITHUB_TOKEN` |
+| **codeql** | `contents: read` | analyze: `security-events: write`, `packages: read`, `actions: read` | None |
+| **compile-agentic-workflows** | `contents: write`, `pull-requests: write`, `actions: write`, `issues: write` | — | `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` |
+| **copilot-setup-steps** | `contents: read`, `actions: read`, `attestations: read`, `checks: read`, `issues: write`, `models: read`, `discussions: read`, `pages: read`, `pull-requests: write`, `security-events: read`, `statuses: read` | — | `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` |
 | **dependency-review** | `contents: read` | — | None |
-| **scorecards** | `read-all` | analysis: `security-events: write`, `id-token: write`, `issues: read` | None |
 | **deploy-s3** | `contents: read`, `id-token: write`, `actions: write` | — | AWS OIDC role |
+| **e2e** | `contents: read` | e2e-tests: `contents: read` | None |
+| **labeler** | `read-all` | labeler: `contents: read`, `pull-requests: write`, `issues: read` | `GITHUB_TOKEN` |
+| **release** | `read-all` | prepare: `contents: write`; build: `contents: read`, `id-token: write`, `attestations: write`; release: `contents: write`, `id-token: write` | `GITHUB_TOKEN` |
 | **reuse** | `contents: read` | — | None |
-| **sonarcloud** | `contents: read` | sonarcloud: `pull-requests: read` | `SONAR_TOKEN` |
-| **slsa-provenance** | `read-all` | build: `contents: write`, `id-token: write`, `attestations: write` | None |
+| **scorecards** | `read-all` | analysis: `security-events: write`, `id-token: write`, `contents: read`, `actions: read`, `issues: read`, `pull-requests: read`, `checks: read` | None |
+| **setup-labels** | `contents: read`, `issues: write` | — | `GITHUB_TOKEN` |
+| **slsa-provenance** | `read-all` | build: `id-token: write`, `contents: write`, `attestations: write` | None |
+| **test-and-report** | `read-all` | validation: `contents: read`, `pull-requests: write`; functional-tests: `contents: read`; performance: `contents: read`; security-check: `contents: read`, `security-events: write`; report: `contents: read`, `pull-requests: write` | None |
+| **news-\* (agentic ×9)** | `{}` (empty) | activation: `contents: read`; agent: `contents: write`, `pull-requests: write`, `issues: write`, `models: read` | `GITHUB_TOKEN` |
 
 ### Security Control Layers
 
@@ -571,16 +698,16 @@ graph TD
     end
 
     subgraph Layer3["🟡 Layer 3: CI Pipeline"]
-        HR[Harden Runner<br/>Egress policy: audit/block]
-        ST[SHA-Pinned Actions<br/>Supply chain integrity]
+        HR[Harden Runner v2.15.1<br/>Egress policy: audit/block]
+        ST[SHA-Pinned Actions 100%<br/>Supply chain integrity]
         HR --> ST
     end
 
     subgraph Layer4["🔴 Layer 4: Security Scanning"]
-        CQL[CodeQL SAST<br/>JS + Actions analysis]
-        SC[SonarCloud SAST<br/>Quality + hotspots]
+        CQL[CodeQL SAST<br/>JS/TS + Actions analysis]
         DR[Dependency Review<br/>CVE blocking on PR]
-        CQL --> SC --> DR
+        NA[npm audit<br/>CVE check]
+        CQL --> DR --> NA
     end
 
     subgraph Layer5["🟣 Layer 5: Build Integrity"]
@@ -709,14 +836,13 @@ Security scanning tools are integrated into the CI/CD pipeline with triggers as 
 
 | Tool | Type | Triggers | Findings Location | Blocks Merge? |
 |------|------|---------|-------------------|---------------|
-| **CodeQL** | SAST | Push, PR, weekly | GitHub Security tab | Yes (via required check) |
-| **SonarCloud** | SAST + Quality | Push, PR, weekly | SonarCloud dashboard | Configurable |
+| **CodeQL** | SAST | Push, PR, weekly Saturday | GitHub Security tab | Yes (via required check) |
 | **npm audit** | SCA | Push, PR | Workflow logs | Yes (new ≥ moderate, allowlist exceptions) |
 | **Dependency Review** | SCA | PR only | PR comments | Yes |
 | **ESLint** | SAST Lint | Push, PR, pre-commit | Workflow logs | Yes |
 | **HTMLHint** | Validation | Push, PR, pre-commit | Workflow logs | Warning |
-| **REUSE** | Compliance | Push, PR, weekly | Workflow logs | Yes |
-| **OpenSSF Scorecard** | Posture | Push, weekly | SARIF → Security tab | Advisory |
+| **REUSE** | Compliance | Push, PR, weekly Monday | Workflow logs | Yes |
+| **OpenSSF Scorecard** | Posture | Push, weekly Tuesday | SARIF → Security tab | Advisory |
 | **gitleaks** | Secret Scan | Pre-commit | Terminal | Yes (pre-commit) |
 
 ### Integrated Scanning Flow
@@ -730,8 +856,7 @@ graph LR
     end
 
     subgraph Scanning["🔍 Security Scanning"]
-        CQL[CodeQL SAST<br/>JS + Actions]
-        SLD[SonarCloud<br/>Quality + Hotspots]
+        CQL[CodeQL SAST<br/>JS/TS + Actions]
         NA[npm audit<br/>CVE check]
         DR[Dependency Review<br/>CVE block on PR]
         RL[REUSE<br/>License compliance]
@@ -740,18 +865,15 @@ graph LR
 
     subgraph Output["📊 Results"]
         GH[GitHub Security<br/>Alerts Dashboard]
-        SCL[SonarCloud<br/>Dashboard]
         PRC[PR Comments<br/>Inline feedback]
         SAR[SARIF Upload<br/>Code scanning tab]
         WL[Workflow Logs<br/>Actions tab]
     end
 
-    PR --> CQL & SLD & NA & DR & RL
-    PS --> CQL & SLD & NA & RL & SC2
-    SC --> CQL & SLD & RL & SC2
+    PR --> CQL & NA & DR & RL
+    PS --> CQL & NA & RL & SC2
 
     CQL --> SAR
-    SLD --> SCL & PRC
     NA --> WL
     DR --> PRC
     RL --> WL
@@ -815,6 +937,7 @@ graph TD
 | **Deployment failure** | S3 sync / CF invalidation error | Workflow failed, previous version still live | Check AWS CloudWatch, re-run |
 | **Attestation failure** | Sigstore API / OIDC error | Release blocked | Retry workflow, check OIDC config |
 | **REUSE non-compliance** | Missing SPDX header | PR blocked | Add `SPDX-FileCopyrightText` headers |
+| **Agentic workflow failure** | Agent timeout or error | PR not created, workflow marked failed | Review agent logs, re-trigger manually |
 
 ### Rollback Procedure
 
@@ -910,14 +1033,13 @@ All primary workflows expose real-time status badges in README.md and this docum
 
 ### GitHub Security Dashboard Integration
 
-The following tools integrate with the GitHub Security Dashboard via SARIF or native mechanisms; others report to external dashboards:
+The following tools integrate with the GitHub Security Dashboard via SARIF or native mechanisms:
 
 | Tool | Integration Type | Destination |
 |------|------------------|-------------|
 | **CodeQL** | SARIF via `github/codeql-action/analyze` | GitHub Security Dashboard (code scanning alerts) |
 | **OpenSSF Scorecard** | SARIF via `github/codeql-action/upload-sarif` | GitHub Security Dashboard (code scanning alerts) |
 | **Dependabot** | Native GitHub integration | GitHub Security Dashboard (Dependabot alerts) |
-| **SonarCloud** | External dashboard (no SARIF upload to GitHub in this setup) | SonarCloud Security Reports |
 
 ### Alerting Channels
 
@@ -937,13 +1059,11 @@ The following tools integrate with the GitHub Security Dashboard via SARIF or na
 | Policy | Workflows Implementing Controls | Evidence |
 |--------|--------------------------------|----------|
 | **Secure Development Policy** | All workflows | This document |
-| **Information Security Policy** | CodeQL, SonarCloud, OpenSSF | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
+| **Information Security Policy** | CodeQL, OpenSSF Scorecard | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
 | **Access Control Policy** | deploy-s3 (OIDC), release (minimal permissions) | Workflow files |
 | **Cryptography Policy** | deploy-s3 (TLS), release (Sigstore/SLSA) | [Attestations](https://github.com/Hack23/euparliamentmonitor/attestations) |
 | **Open Source Policy** | REUSE compliance workflow | [REUSE.toml](REUSE.toml) |
 | **Vulnerability Management** | CodeQL, npm audit, Dependency Review | CodeQL: GitHub Security tab; npm audit: workflow logs (Actions); Dependency Review: PR checks & review comments |
-
----
 
 
 
@@ -954,7 +1074,7 @@ The following tools integrate with the GitHub Security Dashboard via SARIF or na
 | **§3.2 Architecture Documentation** | Documentation-as-code in release workflow | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
 | **§3.3 Testing Requirements** | 169 unit tests, E2E tests, 82%+ coverage | [Test & Report Workflow](.github/workflows/test-and-report.yml) |
 | **§4.1 CI/CD Security** | All workflows with security controls | This document |
-| **§4.3 Security Scanning** | CodeQL, SonarCloud, npm audit, Dependabot | [CodeQL Workflow](.github/workflows/codeql.yml) |
+| **§4.3 Security Scanning** | CodeQL, npm audit, Dependabot | [CodeQL Workflow](.github/workflows/codeql.yml) |
 | **§4.4 Supply Chain Security** | SLSA L3, SBOM, Dependency Review, REUSE | [Release Workflow](.github/workflows/release.yml) |
 
 ### Compliance Frameworks
@@ -965,24 +1085,20 @@ The following tools integrate with the GitHub Security Dashboard via SARIF or na
 | **NIST CSF 2.0** | ID.SC (Supply Chain), DE.CM (Detection), PR.DS (Data Security) | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
 | **CIS Controls v8.1** | 16.1, 16.5, 16.7, 16.12 | [Scorecard](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor) |
 | **SLSA** | Level 3 (Build provenance, hermetic, non-falsifiable, authenticated) | [Attestations](https://github.com/Hack23/euparliamentmonitor/attestations) |
-| **OpenSSF Best Practices** | SHA-pinned actions, Harden Runner, branch protection | [Scorecard Report](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor) |
+| **OpenSSF Best Practices** | SHA-pinned actions (100%), Harden Runner, branch protection | [Scorecard Report](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor) |
 
 ---
 
 ## 🔄 Continuous Improvement
 
-### Current Limitations
-
-1. **SonarCloud Quality Gate:** Analysis only — no merge-blocking quality gate step configured in `sonarcloud.yml`
-2. **Fuzzing:** Not yet implemented (planned in FUTURE_WORKFLOWS.md)
-
 ### Planned Enhancements
 
 See [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) for:
 - Advanced security scanning
-- Performance testing
+- Performance testing enhancements
 - Deployment automation improvements
 - Multi-environment support
+- Fuzzing integration
 
 ---
 
@@ -1005,4 +1121,4 @@ See [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) for:
 
 ---
 
-*Last updated: 2026-02-21 by Security Architect / DevOps Engineer*
+*Last updated: 2026-03-10 by Documentation Architect / DevOps Engineer*
