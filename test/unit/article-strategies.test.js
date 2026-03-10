@@ -349,6 +349,102 @@ describe('CommitteeReportsStrategy', () => {
     expect(content).not.toContain('adopted-texts-overview');
   });
 
+  it('buildContent uses singular summary when exactly one adopted text', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Climate Decision', date: '2026-03-01' }],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    // Should use singular form: "1 text" not "1 texts"
+    expect(content).toContain('adopted 1 text in a recent session');
+    expect(content).not.toContain('1 texts');
+  });
+
+  it('buildContent uses plural summary when multiple adopted texts', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-1', title: 'Climate Decision', date: '2026-03-01' },
+          { id: 'AT-2', title: 'Financial Report', date: '2026-03-02' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    // Should use plural form with count
+    expect(content).toContain('adopted 2 texts in recent sessions');
+  });
+
+  it('buildContent does not categorize civil aviation under LIBE', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-3', title: 'Civil aviation safety standards regulation', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // Should not appear under Civil Liberties heading since 'civil aviation' is not 'civil liberties'
+    expect(overviewHtml).not.toContain('Civil Liberties');
+  });
+
+  it('buildContent does not categorize social security under AFET', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-4', title: 'Social security coordination across member states', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // Should not appear under Foreign Affairs heading since 'social security' is not 'security policy'
+    expect(overviewHtml).not.toContain('Foreign Affairs');
+  });
+
+  it('buildContent categorizes Ukraine defence under AFET', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-5', title: 'Ukraine defence support and military assistance', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // Should appear under Foreign Affairs heading
+    expect(overviewHtml).toContain('Foreign Affairs');
+  });
+
+  it('buildContent categorizes asylum migration under LIBE', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-6', title: 'Safe countries of origin asylum migration rules', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // Should appear under Civil Liberties heading
+    expect(overviewHtml).toContain('Civil Liberties');
+  });
+
   it('getMetadata returns "committee-reports" category', () => {
     const meta = strategy.getMetadata(committeeReportsData, 'en');
     expect(meta.category).toBe('committee-reports');
