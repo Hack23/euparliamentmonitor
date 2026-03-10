@@ -396,10 +396,14 @@ describe('ep-mcp-client', () => {
         const options = { query: 'climate', type: 'proposal' };
         await client.searchDocuments(options);
 
-        expect(client.callTool).toHaveBeenCalledWith('search_documents', options);
+        // query is mapped to keyword for the MCP tool
+        expect(client.callTool).toHaveBeenCalledWith('search_documents', {
+          keyword: 'climate',
+          type: 'proposal',
+        });
       });
 
-      it('should normalize keyword to query in searchDocuments', async () => {
+      it('should normalize keyword to keyword in searchDocuments', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"documents": []}' }],
         });
@@ -408,10 +412,10 @@ describe('ep-mcp-client', () => {
 
         expect(client.callTool).toHaveBeenCalledWith(
           'search_documents',
-          expect.objectContaining({ query: 'parliament', limit: 20 })
+          expect.objectContaining({ keyword: 'parliament', limit: 20 })
         );
         const callArgs = client.callTool.mock.calls[0][1];
-        expect(callArgs).not.toHaveProperty('keyword');
+        expect(callArgs).not.toHaveProperty('query');
       });
 
       it('should handle missing search documents tool gracefully', async () => {
@@ -466,7 +470,11 @@ describe('ep-mcp-client', () => {
         const options = { committeeId: 'ENVI', limit: 20 };
         await client.getCommitteeInfo(options);
 
-        expect(client.callTool).toHaveBeenCalledWith('get_committee_info', options);
+        // committeeId is mapped to abbreviation for the MCP tool
+        expect(client.callTool).toHaveBeenCalledWith('get_committee_info', {
+          abbreviation: 'ENVI',
+          limit: 20,
+        });
       });
 
       it('should handle missing committee info tool gracefully', async () => {

@@ -63,6 +63,84 @@ export interface CommitteeReportsArticleData extends ArticleData {
   readonly feedData?: EPFeedData;
 }
 
+// ─── Feed data enrichment ─────────────────────────────────────────────────────
+
+/**
+ * Build an HTML section from adopted texts feed data.
+ * Groups texts by thematic area and provides committee-relevant context.
+ *
+ * @param feedData - EP feed data with adopted texts
+ * @param lang - Language code for localized strings
+ * @returns HTML string, or empty string when no feed data
+ */
+function buildAdoptedTextsSection(
+  feedData: EPFeedData | undefined,
+  lang: LanguageCode
+): string {
+  if (!feedData?.adoptedTexts?.length) return '';
+  const texts = feedData.adoptedTexts;
+
+  // Map adopted texts to committee themes
+  const envKeywords = ['environment', 'climate', 'health', 'food', 'medicinal', 'detergent', 'GMO', 'genetically', 'cancer'];
+  const econKeywords = ['economic', 'financial', 'Central Bank', 'monetary', 'fiscal', '28th Regime'];
+  const afetKeywords = ['foreign', 'security', 'defence', 'defense', 'sanctions', 'Magnitsky', 'Ukraine', 'aggression', 'peace'];
+  const libeKeywords = ['civil', 'justice', 'rights', 'safe countries', 'safe third', 'asylum', 'migration'];
+  const agriKeywords = ['agriculture', 'wine', 'agri-food', 'Mercosur', 'rural', 'farming'];
+
+  const categorize = (title: string) => {
+    const t = title.toLowerCase();
+    if (envKeywords.some(k => t.includes(k.toLowerCase()))) return 'ENVI';
+    if (econKeywords.some(k => t.includes(k.toLowerCase()))) return 'ECON';
+    if (afetKeywords.some(k => t.includes(k.toLowerCase()))) return 'AFET';
+    if (libeKeywords.some(k => t.includes(k.toLowerCase()))) return 'LIBE';
+    if (agriKeywords.some(k => t.includes(k.toLowerCase()))) return 'AGRI';
+    return 'OTHER';
+  };
+
+  const grouped: Record<string, Array<{ id: string; title: string; date: string }>> = {};
+  for (const text of texts) {
+    const cat = categorize(text.title);
+    if (!grouped[cat]) grouped[cat] = [];
+    grouped[cat].push(text);
+  }
+
+  const committeeNames: Record<string, string> = {
+    ENVI: 'Environment, Public Health and Food Safety',
+    ECON: 'Economic and Monetary Affairs',
+    AFET: 'Foreign Affairs',
+    LIBE: 'Civil Liberties, Justice and Home Affairs',
+    AGRI: 'Agriculture and Rural Development',
+    OTHER: 'Cross-Committee and Plenary',
+  };
+
+  const sectionLabel = lang === 'en' ? 'Recent Adopted Texts by Committee Theme' : 'Recent Adopted Texts';
+  const displayOrder = ['ENVI', 'ECON', 'AFET', 'LIBE', 'AGRI', 'OTHER'] as const;
+
+  const sections = displayOrder
+    .filter(cat => grouped[cat]?.length)
+    .map(cat => {
+      const items = grouped[cat]!;
+      const listItems = items
+        .map(item => `<li class="adopted-text-item"><strong>${escapeHTML(item.title)}</strong> <span class="document-date">(${escapeHTML(item.date)})</span></li>`)
+        .join('\n                ');
+      return `
+            <div class="committee-theme-group">
+              <h4>${escapeHTML(committeeNames[cat] ?? cat)}</h4>
+              <ul class="adopted-texts-list">${listItems}</ul>
+            </div>`;
+    })
+    .join('');
+
+  if (!sections) return '';
+
+  return `
+          <section class="adopted-texts-overview">
+            <h3>${escapeHTML(sectionLabel)}</h3>
+            <p>The European Parliament adopted ${texts.length} texts in recent sessions, spanning environmental, economic, security, civil liberties, and agricultural policy domains.</p>
+            ${sections}
+          </section>`;
+}
+
 // ─── HTML builders ────────────────────────────────────────────────────────────
 
 /**
@@ -163,7 +241,7 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
     client: EuropeanParliamentMCPClient | null,
     date: string
   ): Promise<CommitteeReportsArticleData> {
-    const feedDateRange = computeRollingDateRange(date, 7, 'committee feed window');
+    const feedDateRange = computeRollingDateRange(date, 30, 'committee feed window');
 
     // Fetch individual committee data and EP feeds in parallel
     const [committeeDataRaw, feedData] = await Promise.all([
@@ -176,7 +254,7 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
           })
         )
       ),
-      fetchEPFeedData(client, 'one-week', feedDateRange),
+      fetchEPFeedData(client, 'one-month', feedDateRange),
     ]);
 
     const committeeDataList = committeeDataRaw.filter(
@@ -195,13 +273,14 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
    */
   buildContent(data: CommitteeReportsArticleData, lang: LanguageCode): string {
     const base = buildCommitteeReportsHTML(data.committeeDataList, lang);
+    const feedSection = buildAdoptedTextsSection(data.feedData, lang);
     const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date, lang);
     const deepSection = buildDeepAnalysisSection(analysis, lang);
     const swotData = buildCommitteeSwot(data.committeeDataList, lang);
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildCommitteeDashboard(data.committeeDataList, lang);
     const dashboardSection = buildDashboardSection(dashboardData, lang);
-    const injection = deepSection + swotSection + dashboardSection;
+    const injection = feedSection + deepSection + swotSection + dashboardSection;
     // Inject before the closing </div> of .article-content
     if (injection) {
       const closingTag = '</div>';
@@ -234,23 +313,35 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
   }
 
   /**
-   * Skip generation when no real committee data is available.
+   * Skip generation when no real data is available.
    *
-   * This happens when:
+   * Skips when:
    * - All committee fetches failed (empty committeeDataList), or
-   * - All fetched committee data is placeholder (MCP unavailable or EP Open Data
-   *   API returned no real data).
-   * Publishing all-placeholder or empty committee articles would mislead readers
-   * and undermine the transparency mission of the platform.
+   * - All fetched committee data is placeholder AND no feed data is available.
+   * When EP feed data contains adopted texts or other items, the article can still
+   * provide valuable content even if individual committee metadata is sparse.
    *
    * @param data - Committee reports data payload
-   * @returns `true` when there is no usable committee data
+   * @returns `true` when there is no usable data at all
    */
   shouldSkip(data: CommitteeReportsArticleData): boolean {
-    const { committeeDataList } = data;
+    const { committeeDataList, feedData } = data;
 
     if (committeeDataList.length === 0) {
       return true;
+    }
+
+    // If feed data has any items, generate even with placeholder committees
+    if (feedData) {
+      const feedItemCount =
+        (feedData.adoptedTexts?.length ?? 0) +
+        (feedData.committeeDocuments?.length ?? 0) +
+        (feedData.plenaryDocuments?.length ?? 0) +
+        (feedData.documents?.length ?? 0) +
+        (feedData.procedures?.length ?? 0);
+      if (feedItemCount > 0) {
+        return false;
+      }
     }
 
     return isPlaceholderCommitteeData(committeeDataList);

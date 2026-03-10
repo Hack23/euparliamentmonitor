@@ -18,14 +18,29 @@ export function applyCommitteeInfo(result, data, abbreviation) {
         if (!result?.content?.[0])
             return;
         const parsed = JSON.parse(result.content[0].text);
-        if (!parsed.committee)
+        // Support both wrapped { committee: {...} } and flat { name, chair, ... } formats.
+        // When 'committee' key exists, use it (original format). Otherwise use top-level keys
+        // (EP Open Data Portal response format).
+        const hasWrapped = typeof parsed.committee === 'object' && parsed.committee !== null;
+        const info = (hasWrapped ? parsed.committee : parsed);
+        if (!info || typeof info !== 'object')
             return;
-        data.name = parsed.committee.name ?? data.name;
-        data.abbreviation = parsed.committee.abbreviation ?? abbreviation;
-        data.chair = parsed.committee.chair ?? PLACEHOLDER_CHAIR;
-        const memberCountRaw = parsed.committee.memberCount;
+        // For flat format, require at least a name to confirm real data
+        if (!hasWrapped && !info.name && !info.abbreviation)
+            return;
+        data.name = info.name ?? data.name;
+        data.abbreviation =
+            typeof info.abbreviation === 'string' && !info.abbreviation.startsWith('org/')
+                ? info.abbreviation
+                : abbreviation;
+        data.chair = info.chair && info.chair.length > 0 ? info.chair : PLACEHOLDER_CHAIR;
+        // memberCount may be a number, string, or an array (EP API returns members as array)
+        const memberCountRaw = info.memberCount ?? info.members;
         let memberCount = 0;
-        if (typeof memberCountRaw === 'number' && Number.isFinite(memberCountRaw)) {
+        if (Array.isArray(memberCountRaw)) {
+            memberCount = memberCountRaw.length;
+        }
+        else if (typeof memberCountRaw === 'number' && Number.isFinite(memberCountRaw)) {
             memberCount = memberCountRaw;
         }
         else if (typeof memberCountRaw === 'string') {
@@ -53,9 +68,11 @@ export function applyDocuments(result, data) {
         if (!result?.content?.[0])
             return;
         const parsed = JSON.parse(result.content[0].text);
-        if (!parsed.documents || parsed.documents.length === 0)
+        // Support both { documents: [...] } and { data: [...] } response formats
+        const docs = parsed.documents ?? parsed.data;
+        if (!docs || docs.length === 0)
             return;
-        data.documents = parsed.documents.map((d) => ({
+        data.documents = docs.map((d) => ({
             title: d.title ?? 'Untitled Document',
             type: d.type ?? d.documentType ?? 'Document',
             date: d.date ?? '',

@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-03-10T04:58:22.665Z",
+  "generated": 2,
+  "skipped": 3,
+  "dryRun": 0,
+  "errors": 0,
+  "articles": [
+    "2026-03-10-committee-reports-en.html"
+  ],
+  "results": [
+    {
+      "success": true,
+      "files": 1,
+      "slug": "2026-03-10-committee-reports"
+    }
+  ],
+  "usedMCP": true
+}

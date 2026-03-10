@@ -92,12 +92,13 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      */
     async searchDocuments(options = {}) {
         return this.safeCallTool('search_documents', () => {
-            const { keyword, ...rest } = options;
+            const { query, ...rest } = options;
             const normalizedOptions = { ...rest };
-            if (normalizedOptions['query'] === undefined && keyword !== undefined) {
-                const trimmed = String(keyword).trim();
+            // MCP tool schema expects 'keyword', not 'query'
+            if (normalizedOptions['keyword'] === undefined && query !== undefined) {
+                const trimmed = String(query).trim();
                 if (trimmed.length > 0) {
-                    normalizedOptions['query'] = trimmed;
+                    normalizedOptions['keyword'] = trimmed;
                 }
             }
             return normalizedOptions;
@@ -128,7 +129,15 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Committee info data
      */
     async getCommitteeInfo(options = {}) {
-        return this.safeCallTool('get_committee_info', options, '{"committees": []}');
+        return this.safeCallTool('get_committee_info', () => {
+            const { committeeId, ...rest } = options;
+            const toolOptions = { ...rest };
+            // MCP tool schema expects 'abbreviation', not 'committeeId'
+            if (toolOptions['abbreviation'] === undefined && committeeId !== undefined) {
+                toolOptions['abbreviation'] = committeeId;
+            }
+            return toolOptions;
+        }, '{"committees": []}');
     }
     /**
      * Monitor legislative pipeline
