@@ -81,8 +81,8 @@ const OG_LOCALE_MAP: Readonly<Record<string, string>> = {
 function buildArticleLangSwitcher(
   date: string,
   slug: string,
-  currentLang: string,
-  availableLanguages?: ReadonlyArray<string>
+  currentLang: LanguageCode,
+  availableLanguages?: ReadonlyArray<LanguageCode>
 ): string {
   if (!DATE_PATTERN.test(date)) {
     throw new Error(`Invalid article date format: "${date}"`);
@@ -96,14 +96,16 @@ function buildArticleLangSwitcher(
   const safeSlug = escapeHTML(slug);
 
   const langs = availableLanguages ?? ALL_LANGUAGES;
-  return langs.map((code) => {
-    const flag = getLocalizedString(LANGUAGE_FLAGS, code);
-    const name = getLocalizedString(LANGUAGE_NAMES, code);
-    const active = code === currentLang ? ' active' : '';
-    const href = `${safeDate}-${safeSlug}-${code}.html`;
-    const safeTitle = escapeHTML(name);
-    return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeTitle}">${flag} ${code.toUpperCase()}</a>`;
-  }).join('\n        ');
+  return langs
+    .map((code) => {
+      const flag = getLocalizedString(LANGUAGE_FLAGS, code);
+      const name = getLocalizedString(LANGUAGE_NAMES, code);
+      const active = code === currentLang ? ' active' : '';
+      const href = `${safeDate}-${safeSlug}-${code}.html`;
+      const safeTitle = escapeHTML(name);
+      return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeTitle}">${flag} ${code.toUpperCase()}</a>`;
+    })
+    .join('\n        ');
 }
 
 /**
