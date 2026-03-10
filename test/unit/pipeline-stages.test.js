@@ -2297,7 +2297,7 @@ describe('fetchMEPsFeedWithTotal with null client', () => {
   });
 });
 
-describe('fetchMEPsFeedWithTotal — parseFeedTotal via mock client', () => {
+describe('fetchMEPsFeedWithTotal — total parsing via mock client', () => {
   beforeEach(() => { mcpCircuitBreaker.recordSuccess(); });
 
   it('returns total from API response when total field is present', async () => {
