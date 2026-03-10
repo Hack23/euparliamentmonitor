@@ -38,14 +38,15 @@ const OG_LOCALE_MAP = {
 };
 /**
  * Build the article language switcher nav HTML.
- * Links to the same article in all 14 languages using the filename pattern {date}-{slug}-{lang}.html.
+ * Links to the same article in all available languages using the filename pattern {date}-{slug}-{lang}.html.
  *
  * @param date - Article date (YYYY-MM-DD)
  * @param slug - Article slug
  * @param currentLang - Active language code
+ * @param availableLanguages - Languages for which the article exists; defaults to all supported languages
  * @returns HTML string
  */
-function buildArticleLangSwitcher(date, slug, currentLang) {
+function buildArticleLangSwitcher(date, slug, currentLang, availableLanguages) {
     if (!DATE_PATTERN.test(date)) {
         throw new Error(`Invalid article date format: "${date}"`);
     }
@@ -54,14 +55,17 @@ function buildArticleLangSwitcher(date, slug, currentLang) {
     }
     const safeDate = escapeHTML(date);
     const safeSlug = escapeHTML(slug);
-    return ALL_LANGUAGES.map((code) => {
+    const langs = availableLanguages ?? ALL_LANGUAGES;
+    return langs
+        .map((code) => {
         const flag = getLocalizedString(LANGUAGE_FLAGS, code);
         const name = getLocalizedString(LANGUAGE_NAMES, code);
         const active = code === currentLang ? ' active' : '';
         const href = `${safeDate}-${safeSlug}-${code}.html`;
         const safeTitle = escapeHTML(name);
         return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeTitle}">${flag} ${code.toUpperCase()}</a>`;
-    }).join('\n        ');
+    })
+        .join('\n        ');
 }
 /**
  * Build a single footer section with title and content.
@@ -98,7 +102,7 @@ function buildArticleFooterLanguageGrid(currentLang) {
  * @returns Complete HTML document string
  */
 export function generateArticleHTML(options) {
-    const { slug, title, subtitle, date, category, readTime, lang, content, keywords = [], sources = [], stylesHash, } = options;
+    const { slug, title, subtitle, date, category, readTime, lang, content, keywords = [], sources = [], stylesHash, availableLanguages, } = options;
     const dir = getTextDirection(lang);
     const year = new Date().getFullYear();
     // Format date for display
@@ -239,7 +243,7 @@ export function generateArticleHTML(options) {
         </span>
       </a>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
-        ${buildArticleLangSwitcher(date, slug, lang)}
+        ${buildArticleLangSwitcher(date, slug, lang, availableLanguages)}
       </nav>
     </div>
   </header>

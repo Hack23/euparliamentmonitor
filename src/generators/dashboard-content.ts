@@ -49,11 +49,11 @@ const TREND_CLASSES: Readonly<Record<string, string>> = {
  * Build a single metric card HTML.
  *
  * @param metric - Metric data
- * @param trendPrefix - Localized prefix for trend aria-label
+ * @param strings - Localized dashboard strings
  * @returns HTML string for one metric card
  */
-function buildMetricCard(metric: DashboardMetric, trendPrefix: string): string {
-  const trendHtml = buildTrendIndicator(metric, trendPrefix);
+function buildMetricCard(metric: DashboardMetric, strings: DashboardStrings): string {
+  const trendHtml = buildTrendIndicator(metric, strings);
   const unitHtml = metric.unit
     ? ` <span class="metric-unit">${escapeHTML(metric.unit)}</span>`
     : '';
@@ -86,10 +86,10 @@ function resolveTrend(
  * Build trend indicator HTML for a metric.
  *
  * @param metric - Metric with optional trend and change
- * @param trendPrefix - Localized prefix for trend aria-label
+ * @param strings - Localized dashboard strings
  * @returns HTML string for trend indicator or empty string
  */
-function buildTrendIndicator(metric: DashboardMetric, trendPrefix: string): string {
+function buildTrendIndicator(metric: DashboardMetric, strings: DashboardStrings): string {
   if (!metric.trend && metric.change === undefined) return '';
 
   const trend = resolveTrend(metric.trend, metric.change);
@@ -99,7 +99,9 @@ function buildTrendIndicator(metric: DashboardMetric, trendPrefix: string): stri
     metric.change !== undefined
       ? ` ${metric.change > 0 ? '+' : ''}${metric.change.toFixed(1)}%`
       : '';
-  const ariaLabel = `${trendPrefix}${changeText}`;
+  const directionLabel =
+    trend === 'up' ? strings.trendUp : trend === 'down' ? strings.trendDown : strings.trendStable;
+  const ariaLabel = `${strings.trendPrefix} ${directionLabel}${changeText}`;
 
   return `<span class="${escapeHTML(trendClass)}" aria-label="${escapeHTML(ariaLabel)}">${trendSymbol}${escapeHTML(changeText)}</span>`;
 }
@@ -108,12 +110,12 @@ function buildTrendIndicator(metric: DashboardMetric, trendPrefix: string): stri
  * Build a metrics grid from an array of metrics.
  *
  * @param metrics - Array of metric data
- * @param trendPrefix - Localized prefix for trend aria-label
+ * @param strings - Localized dashboard strings
  * @returns HTML string for the metrics grid
  */
-function buildMetricsGrid(metrics: readonly DashboardMetric[], trendPrefix: string): string {
+function buildMetricsGrid(metrics: readonly DashboardMetric[], strings: DashboardStrings): string {
   if (metrics.length === 0) return '';
-  const cards = metrics.map((m) => buildMetricCard(m, trendPrefix)).join('\n              ');
+  const cards = metrics.map((m) => buildMetricCard(m, strings)).join('\n              ');
   return `<div class="metrics-grid">
               ${cards}
             </div>`;
@@ -168,7 +170,7 @@ function buildChartFallbackTable(chart: ChartConfig, strings: DashboardStrings):
   }
 
   const headerCells = datasets.map((ds) => `<th scope="col">${escapeHTML(ds.label)}</th>`).join('');
-  const header = `<tr><th scope="col" aria-hidden="true"></th>${headerCells}</tr>`;
+  const header = `<tr><th scope="col">${escapeHTML(strings.categoryLabel)}</th>${headerCells}</tr>`;
 
   const rows = labels
     .map((label, i) => {
@@ -203,7 +205,7 @@ function buildDashboardPanel(
   index: number,
   strings: DashboardStrings
 ): string {
-  const metricsHtml = panel.metrics ? buildMetricsGrid(panel.metrics, strings.trendPrefix) : '';
+  const metricsHtml = panel.metrics ? buildMetricsGrid(panel.metrics, strings) : '';
   const chartHtml = panel.chart ? buildChartContainer(panel.chart, index, strings) : '';
 
   if (!metricsHtml && !chartHtml) return '';

@@ -870,6 +870,25 @@ describe('Breaking News feed truncation', () => {
     }
   });
 
+  it('should show truncation note using totalMEPUpdates even when fetched items fit within limit', () => {
+    // Simulate: API fetched only 10 MEPs but reported total=525 (more available in feed)
+    const tenMEPs = Array.from({ length: 10 }, (_, i) => ({
+      id: `mep-${i}`,
+      name: `MEP ${i}`,
+      date: '2025-01-15',
+    }));
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [],
+      mepUpdates: tenMEPs,
+      totalMEPUpdates: 525,
+    };
+    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], feedData);
+    expect(html).toContain('feed-truncation-note');
+    expect(html).toContain('525');
+  });
+
   it('should not show truncation note when feed items are within limit', () => {
     const fewItems = Array.from({ length: 5 }, (_, i) => ({
       id: `AT-00${i}`,
