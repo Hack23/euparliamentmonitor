@@ -220,6 +220,50 @@ describe('CommitteeReportsStrategy', () => {
     expect(strategy.shouldSkip(data)).toBe(true);
   });
 
+  it('shouldSkip returns false when committees are all-placeholder but feedData has adoptedTexts', () => {
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Test Committee',
+          abbreviation: 'TEST',
+          chair: 'N/A',
+          members: 0,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Climate Decision', date: '2026-03-01' }],
+      },
+    };
+    expect(strategy.shouldSkip(data)).toBe(false);
+  });
+
+  it('shouldSkip returns true when committees are all-placeholder and feedData has no items', () => {
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Test Committee',
+          abbreviation: 'TEST',
+          chair: 'N/A',
+          members: 0,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+      feedData: {
+        adoptedTexts: [],
+        committeeDocuments: [],
+        plenaryDocuments: [],
+        documents: [],
+        procedures: [],
+      },
+    };
+    expect(strategy.shouldSkip(data)).toBe(true);
+  });
+
   it('shouldSkip returns false when there is real committee data', () => {
     expect(strategy.shouldSkip(committeeReportsData)).toBe(false);
   });
@@ -261,6 +305,194 @@ describe('CommitteeReportsStrategy', () => {
     };
     const content = strategy.buildContent(data, 'en');
     expect(content).not.toContain('<script>');
+  });
+
+  it('buildContent renders adopted-texts-overview section when feedData has adoptedTexts', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Climate Decision', date: '2026-03-01' }],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    expect(content).toContain('adopted-texts-overview');
+    expect(content).toContain('Climate Decision');
+  });
+
+  it('buildContent categorizes agri-food titles under AGRI not ENVI', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          {
+            id: 'AT-2',
+            title: 'Cooperation among enforcement authorities regarding unfair trading practices in the agri-food supply chain',
+            date: '2026-03-01',
+          },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    // Extract just the adopted-texts-overview section for targeted assertions
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    expect(overviewHtml).toContain('agri-food supply chain');
+    // Should appear under Agriculture heading, not Environment heading
+    expect(overviewHtml).toContain('Agriculture');
+    expect(overviewHtml).not.toContain('Environment');
+  });
+
+  it('buildContent omits adopted-texts-overview section when feedData has no adoptedTexts', () => {
+    const dataNoFeed = { ...committeeReportsData, feedData: undefined };
+    const content = strategy.buildContent(dataNoFeed, 'en');
+    expect(content).not.toContain('adopted-texts-overview');
+  });
+
+  it('buildContent uses singular summary when exactly one adopted text', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Climate Decision', date: '2026-03-01' }],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    // Should use singular form: "1 text" not "1 texts"
+    expect(content).toContain('adopted 1 text in a recent session');
+    expect(content).not.toContain('1 texts');
+  });
+
+  it('buildContent uses plural summary when multiple adopted texts', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-1', title: 'Climate Decision', date: '2026-03-01' },
+          { id: 'AT-2', title: 'Financial Report', date: '2026-03-02' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    // Should use plural form with count
+    expect(content).toContain('adopted 2 texts in recent sessions');
+  });
+
+  it('buildContent does not categorize civil aviation under LIBE', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-3', title: 'Civil aviation safety standards regulation', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // Should not appear under Civil Liberties heading since 'civil aviation' is not 'civil liberties'
+    expect(overviewHtml).not.toContain('Civil Liberties');
+  });
+
+  it('buildContent does not categorize social security under AFET', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-4', title: 'Social security coordination across member states', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // Should not appear under Foreign Affairs heading since 'social security' is not 'security policy'
+    expect(overviewHtml).not.toContain('Foreign Affairs');
+  });
+
+  it('buildContent categorizes Ukraine defence under AFET', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-5', title: 'Ukraine defence support and military assistance', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // Should appear under Foreign Affairs heading
+    expect(overviewHtml).toContain('Foreign Affairs');
+  });
+
+  it('buildContent categorizes asylum migration under LIBE', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-6', title: 'Safe countries of origin asylum migration rules', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // Should appear under Civil Liberties heading
+    expect(overviewHtml).toContain('Civil Liberties');
+  });
+
+  it('buildContent does not categorize "justice" alone under LIBE (too broad)', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-7', title: 'Environmental justice framework for green transition', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // 'justice' alone should not route to LIBE — only specific multi-word phrases do
+    expect(overviewHtml).not.toContain('Civil Liberties');
+  });
+
+  it('buildContent categorizes justice and home affairs under LIBE', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-8', title: 'Justice and home affairs cooperation framework', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    expect(overviewHtml).toContain('Civil Liberties');
+  });
+
+  it('buildContent does not categorize "peace" alone under AFET (too broad)', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-9', title: 'Peaceful nuclear energy cooperation', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // 'peace' alone (e.g. 'peaceful') should not route to AFET — only 'peace agreement/process/mission/operation' does
+    expect(overviewHtml).not.toContain('Foreign Affairs');
   });
 
   it('getMetadata returns "committee-reports" category', () => {

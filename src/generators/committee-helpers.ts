@@ -19,6 +19,55 @@ export const PLACEHOLDER_CHAIR = 'N/A';
 export const PLACEHOLDER_MEMBERS = 0;
 
 /**
+ * Resolve a raw memberCount/members field to a numeric count.
+ * Handles arrays (EP API returns members as array), numbers, and numeric strings.
+ *
+ * @param memberCountRaw - Raw value from MCP response
+ * @returns Numeric member count, or 0 if not resolvable
+ */
+function resolveMemberCount(memberCountRaw: unknown): number {
+  if (Array.isArray(memberCountRaw)) {
+    return memberCountRaw.length;
+  }
+  if (typeof memberCountRaw === 'number' && Number.isFinite(memberCountRaw)) {
+    return memberCountRaw;
+  }
+  if (typeof memberCountRaw === 'string') {
+    const parsedNumber = Number(memberCountRaw);
+    if (Number.isFinite(parsedNumber)) {
+      return parsedNumber;
+    }
+  }
+  return 0;
+}
+
+/** Shape of a committee info record extracted from an MCP response */
+interface CommitteeInfoRecord {
+  name?: string;
+  abbreviation?: string;
+  chair?: string;
+  memberCount?: unknown;
+  members?: unknown;
+}
+
+/**
+ * Extract the committee info record from a parsed MCP response.
+ * Supports both the wrapped `{ committee: {...} }` format and the flat
+ * EP Open Data Portal format `{ name, chair, ... }`.
+ *
+ * @param parsed - Parsed JSON object from MCP response
+ * @returns The info record, or null when the payload is unrecognised
+ */
+function extractCommitteeInfoRecord(parsed: Record<string, unknown>): CommitteeInfoRecord | null {
+  const hasWrapped = typeof parsed.committee === 'object' && parsed.committee !== null;
+  const info = (hasWrapped ? parsed.committee : parsed) as CommitteeInfoRecord;
+  if (!info || typeof info !== 'object') return null;
+  // For flat format, require at least a name/abbreviation to confirm real data
+  if (!hasWrapped && !info.name && !info.abbreviation) return null;
+  return info;
+}
+
+/**
  * Apply committee info from MCP result to the data object
  *
  * @param result - MCP tool result
@@ -32,24 +81,16 @@ export function applyCommitteeInfo(
 ): void {
   try {
     if (!result?.content?.[0]) return;
-    const parsed = JSON.parse(result.content[0].text) as {
-      committee?: { name?: string; abbreviation?: string; chair?: string; memberCount?: unknown };
-    };
-    if (!parsed.committee) return;
-    data.name = parsed.committee.name ?? data.name;
-    data.abbreviation = parsed.committee.abbreviation ?? abbreviation;
-    data.chair = parsed.committee.chair ?? PLACEHOLDER_CHAIR;
-    const memberCountRaw = parsed.committee.memberCount;
-    let memberCount = 0;
-    if (typeof memberCountRaw === 'number' && Number.isFinite(memberCountRaw)) {
-      memberCount = memberCountRaw;
-    } else if (typeof memberCountRaw === 'string') {
-      const parsedNumber = Number(memberCountRaw);
-      if (Number.isFinite(parsedNumber)) {
-        memberCount = parsedNumber;
-      }
-    }
-    data.members = memberCount;
+    const parsed = JSON.parse(result.content[0].text) as Record<string, unknown>;
+    const info = extractCommitteeInfoRecord(parsed);
+    if (!info) return;
+    data.name = info.name ?? data.name;
+    data.abbreviation =
+      typeof info.abbreviation === 'string' && !info.abbreviation.startsWith('org/')
+        ? info.abbreviation
+        : abbreviation;
+    data.chair = info.chair && info.chair.length > 0 ? info.chair : PLACEHOLDER_CHAIR;
+    data.members = resolveMemberCount(info.memberCount ?? info.members);
     console.log(`  ✅ Committee info: ${data.name} (${data.members} members)`);
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
@@ -68,9 +109,12 @@ export function applyDocuments(result: MCPToolResult, data: CommitteeData): void
     if (!result?.content?.[0]) return;
     const parsed = JSON.parse(result.content[0].text) as {
       documents?: Array<{ title?: string; type?: string; documentType?: string; date?: string }>;
+      data?: Array<{ title?: string; type?: string; documentType?: string; date?: string }>;
     };
-    if (!parsed.documents || parsed.documents.length === 0) return;
-    data.documents = parsed.documents.map((d) => ({
+    // Support both { documents: [...] } and { data: [...] } response formats
+    const docs = parsed.documents ?? parsed.data;
+    if (!docs || docs.length === 0) return;
+    data.documents = docs.map((d) => ({
       title: d.title ?? 'Untitled Document',
       type: d.type ?? d.documentType ?? 'Document',
       date: d.date ?? '',

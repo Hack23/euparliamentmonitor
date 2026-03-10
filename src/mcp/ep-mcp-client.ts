@@ -170,19 +170,21 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Search legislative documents
    *
-   * @param options - Search options (normalizes `keyword` to `query` if `query` is absent)
+   * @param options - Search options (normalizes `query` to `keyword` if `keyword` is absent,
+   *   since the MCP tool schema requires the `keyword` parameter)
    * @returns Search results
    */
   async searchDocuments(options: SearchDocumentsOptions = {}): Promise<MCPToolResult> {
     return this.safeCallTool(
       'search_documents',
       () => {
-        const { keyword, ...rest } = options;
+        const { query, ...rest } = options;
         const normalizedOptions: Record<string, unknown> = { ...rest };
-        if (normalizedOptions['query'] === undefined && keyword !== undefined) {
-          const trimmed = String(keyword).trim();
+        // MCP tool schema expects 'keyword', not 'query'
+        if (normalizedOptions['keyword'] === undefined && query !== undefined) {
+          const trimmed = String(query).trim();
           if (trimmed.length > 0) {
-            normalizedOptions['query'] = trimmed;
+            normalizedOptions['keyword'] = trimmed;
           }
         }
         return normalizedOptions;
@@ -223,7 +225,19 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    * @returns Committee info data
    */
   async getCommitteeInfo(options: GetCommitteeInfoOptions = {}): Promise<MCPToolResult> {
-    return this.safeCallTool('get_committee_info', options, '{"committees": []}');
+    return this.safeCallTool(
+      'get_committee_info',
+      () => {
+        const { committeeId, ...rest } = options;
+        const toolOptions: Record<string, unknown> = { ...rest };
+        // MCP tool schema expects 'abbreviation', not 'committeeId'
+        if (toolOptions['abbreviation'] === undefined && committeeId !== undefined) {
+          toolOptions['abbreviation'] = committeeId;
+        }
+        return toolOptions;
+      },
+      '{"committees": []}'
+    );
   }
 
   /**
