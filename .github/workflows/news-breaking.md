@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Breaking News"
-description: Generates EU Parliament breaking news articles using EP feed endpoints as the primary data source. Feed-first approach — stats are context only, never news.
+description: Generates EU Parliament breaking news English articles using EP feed endpoints as the primary data source. Translations are handled by the separate news-translate workflow.
 strict: false
 on:
   schedule:
@@ -13,9 +13,9 @@ on:
         required: false
         default: false
       languages:
-        description: 'Languages to generate (en | eu-core | nordic | all | custom comma-separated)'
+        description: 'Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow'
         required: false
-        default: all
+        default: en
 
 permissions:
   contents: read

@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Legislative Procedures"
-description: Generates EU Parliament legislative procedures analysis articles for all 14 languages. Single article type per run.
+description: Generates EU Parliament legislative procedures English analysis article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 strict: false
 on:
   schedule:
@@ -13,9 +13,9 @@ on:
         required: false
         default: false
       languages:
-        description: 'Languages to generate (en | eu-core | nordic | all | custom comma-separated)'
+        description: 'Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow'
         required: false
-        default: all
+        default: en
 
 permissions:
   contents: read

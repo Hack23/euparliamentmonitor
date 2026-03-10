@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Article Generator"
-description: Manual dispatch workflow to generate any combination of EU Parliament news article types. High-level invoker for multi-type article generation.
+description: Manual dispatch workflow to generate any combination of EU Parliament news article types (English). Translations handled by the separate news-translate workflow.
 strict: false
 on:
   workflow_dispatch:
@@ -15,9 +15,9 @@ on:
         required: false
         default: false
       languages:
-        description: 'Languages to generate (en | eu-core | nordic | all)'
+        description: 'Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow'
         required: false
-        default: all
+        default: en
 
 permissions:
   contents: read

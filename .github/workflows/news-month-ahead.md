@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Month Ahead"
-description: Generates EU Parliament month-ahead strategic outlook articles for all 14 languages. Runs on 1st of each month.
+description: Generates EU Parliament month-ahead strategic outlook English article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 strict: false
 on:
   schedule:
@@ -13,9 +13,9 @@ on:
         required: false
         default: false
       languages:
-        description: 'Languages to generate (en | eu-core | nordic | all)'
+        description: 'Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow'
         required: false
-        default: all
+        default: en
 
 permissions:
   contents: read
