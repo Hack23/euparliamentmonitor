@@ -107,6 +107,8 @@ export interface GetParliamentaryQuestionsOptions {
 /** Options for getCommitteeInfo */
 export interface GetCommitteeInfoOptions {
   committeeId?: string;
+  /** Alternative field name used by callers — maps to `abbreviation` in the MCP tool schema */
+  abbreviation?: string;
   dateFrom?: string;
   dateTo?: string;
   limit?: number;

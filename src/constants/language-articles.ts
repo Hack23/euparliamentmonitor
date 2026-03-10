@@ -3707,7 +3707,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       'Le Parlement européen a adopté {count} textes lors des sessions récentes, couvrant les domaines de la politique environnementale, économique, sécuritaire, des libertés civiles et agricole.',
     adoptedTextsSummarySingular:
-      'Le Parlement européen a adopté 1 texte lors d\'une session récente, couvrant les domaines de la politique environnementale, économique, sécuritaire, des libertés civiles et agricole.',
+      "Le Parlement européen a adopté 1 texte lors d'une session récente, couvrant les domaines de la politique environnementale, économique, sécuritaire, des libertés civiles et agricole.",
     committeeNameENVI: 'Environnement, santé publique et sécurité alimentaire',
     committeeNameECON: 'Affaires économiques et monétaires',
     committeeNameAFET: 'Affaires étrangères',

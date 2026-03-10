@@ -445,6 +445,56 @@ describe('CommitteeReportsStrategy', () => {
     expect(overviewHtml).toContain('Civil Liberties');
   });
 
+  it('buildContent does not categorize "justice" alone under LIBE (too broad)', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-7', title: 'Environmental justice framework for green transition', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // 'justice' alone should not route to LIBE — only specific multi-word phrases do
+    expect(overviewHtml).not.toContain('Civil Liberties');
+  });
+
+  it('buildContent categorizes justice and home affairs under LIBE', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-8', title: 'Justice and home affairs cooperation framework', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    expect(overviewHtml).toContain('Civil Liberties');
+  });
+
+  it('buildContent does not categorize "peace" alone under AFET (too broad)', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-9', title: 'Peaceful nuclear energy cooperation', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // 'peace' alone (e.g. 'peaceful') should not route to AFET — only 'peace agreement/process/mission/operation' does
+    expect(overviewHtml).not.toContain('Foreign Affairs');
+  });
+
   it('getMetadata returns "committee-reports" category', () => {
     const meta = strategy.getMetadata(committeeReportsData, 'en');
     expect(meta.category).toBe('committee-reports');
