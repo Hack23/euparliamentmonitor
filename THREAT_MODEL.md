@@ -489,7 +489,7 @@ techniques:
 
 ### **🔌 EP MCP Server Attack Surface Analysis**
 
-The European Parliament MCP Server integration (`european-parliament-mcp-server@1.1.5`) introduces a specific attack surface that requires dedicated threat analysis. As an ephemeral, localhost-only process invoked during GitHub Actions builds, its exposure window is narrow — but its role in data ingestion makes integrity controls critical.
+The European Parliament MCP Server integration (`european-parliament-mcp-server@1.1.6`) introduces a specific attack surface that requires dedicated threat analysis. As an ephemeral, localhost-only process invoked during GitHub Actions builds, its exposure window is narrow — but its role in data ingestion makes integrity controls critical.
 
 | Attack Vector | MITRE Technique | Threat Description | Likelihood | Impact | Mitigation |
 |---|---|---|---|---|---|
