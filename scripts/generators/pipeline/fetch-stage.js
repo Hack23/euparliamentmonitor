@@ -1084,23 +1084,6 @@ function parseFeedResult(result) {
     return [];
 }
 /**
- * Extract the total item count from an EP API v2 feed response.
- * The EP API returns `{ data: [...], total: N }` where `total` is the
- * full count of matching records (may exceed the `limit` parameter).
- *
- * @param result - Raw MCP tool result
- * @returns Total count from the API response, or 0 when not present
- */
-function parseFeedTotal(result) {
-    if (!result?.content?.[0]?.text)
-        return 0;
-    const parsed = parseJSON(result.content[0].text, 'feed');
-    if (!parsed || typeof parsed !== 'object')
-        return 0;
-    const total = parsed['total'];
-    return typeof total === 'number' ? total : 0;
-}
-/**
  * Parse an EP API v2 feed response envelope in a single JSON parse, returning
  * both the array of feed items and the API-reported total count.
  * Avoids parsing the same JSON payload twice when both values are needed.
