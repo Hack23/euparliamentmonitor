@@ -1,6 +1,6 @@
 {
   "timestamp": "2026-03-10T18:21:09.847Z",
-  "generated": 42,
+  "generated": 43,
   "skipped": 16,
   "dryRun": 0,
   "errors": 0,
@@ -34,6 +34,7 @@
     "2026-03-10-breaking-ja.html",
     "2026-03-10-breaking-ko.html",
     "2026-03-10-breaking-zh.html",
+    "2026-03-10-propositions-en.html",
     "2026-03-10-propositions-sv.html",
     "2026-03-10-propositions-da.html",
     "2026-03-10-propositions-no.html",
@@ -56,7 +57,7 @@
     },
     {
       "success": true,
-      "files": 0,
+      "files": 1,
       "slug": "2026-03-10-committee-reports"
     },
     {
