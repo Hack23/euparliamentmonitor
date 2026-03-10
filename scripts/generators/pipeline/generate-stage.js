@@ -71,9 +71,10 @@ function getIsoDatePart(date) {
  * @param slug - File slug (date-type)
  * @param outputOptions - Output configuration
  * @param stats - Mutable generation stats
+ * @param availableLanguages - Languages for which the article exists; used to restrict language switcher links
  * @returns true if a file was written
  */
-function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outputOptions, stats) {
+function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outputOptions, stats, availableLanguages) {
     console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
     const content = strategy.buildContent(data, lang);
     const metadata = strategy.getMetadata(data, lang);
@@ -88,6 +89,7 @@ function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outp
         content,
         keywords: [...metadata.keywords],
         sources: metadata.sources ? [...metadata.sources] : [],
+        availableLanguages,
     });
     // Validate generated HTML has all required structural elements
     const validation = validateArticleHTML(html);
@@ -143,7 +145,7 @@ export async function generateArticleForStrategy(strategy, client, languages, ou
         }
         let writtenCount = 0;
         for (const lang of languages) {
-            if (generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outputOptions, stats)) {
+            if (generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outputOptions, stats, languages)) {
                 writtenCount++;
             }
         }
