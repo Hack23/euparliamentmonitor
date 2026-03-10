@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Breaking News"
-description: Generates EU Parliament breaking news articles using EP feed endpoints as the primary data source. Feed-first approach — stats are context only, never news.
+description: Generates EU Parliament breaking news English articles using EP feed endpoints as the primary data source. Translations are handled by the separate news-translate workflow.
 strict: false
 on:
   schedule:
@@ -13,9 +13,9 @@ on:
         required: false
         default: false
       languages:
-        description: 'Languages to generate (en | eu-core | nordic | all | custom comma-separated)'
+        description: 'Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow'
         required: false
-        default: all
+        default: en
 
 permissions:
   contents: read
@@ -106,12 +106,14 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
-- **Minutes 3–10**: Query EP feed endpoints for breaking news content
-- **Minutes 10–40**: Generate articles for all 14 languages
-- **Minutes 40–50**: Validate and finalize changes
-- **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 3–15**: Query EP feed endpoints for breaking news content
+- **Minutes 15–45**: Generate English article with deep political intelligence analysis
+- **Minutes 45–52**: Validate and finalize changes
+- **Minutes 52–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 50 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
+> **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
+
+**If you reach minute 52 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 
 ## Required Skills
 
@@ -410,7 +412,16 @@ fi
 
 ```bash
 TODAY=$(date -u +%Y-%m-%d)
-EXPECTED_COUNT=14
+
+# Determine expected languages from LANG_ARG (set during generation)
+if [ "$LANG_ARG" = "en" ]; then
+  EXPECTED_LANGS="en"
+  EXPECTED_COUNT=1
+else
+  EXPECTED_LANGS="$LANG_ARG"
+  EXPECTED_COUNT=$(echo "$LANG_ARG" | tr ',' '\n' | wc -l)
+fi
+
 ACTUAL_COUNT=$(ls -1 news/${TODAY}-breaking-*.html 2>/dev/null | wc -l || echo 0)
 
 echo "📊 File count: ${ACTUAL_COUNT}/${EXPECTED_COUNT}"
@@ -419,7 +430,7 @@ if [ "$ACTUAL_COUNT" -lt "$EXPECTED_COUNT" ]; then
   echo "⚠️  WARNING: Expected $EXPECTED_COUNT files, found $ACTUAL_COUNT"
 fi
 
-for LANG in en sv da no fi de fr es nl ar he ja ko zh; do
+for LANG in $(echo "$EXPECTED_LANGS" | tr ',' ' '); do
   FILE="news/${TODAY}-breaking-${LANG}.html"
   if [ ! -f "$FILE" ]; then
     echo "❌ MISSING: $FILE"
@@ -460,7 +471,9 @@ The generator pipeline supports rich data-driven visualizations. These are produ
 
 The **SWOT** section helps assess breaking news implications. The **Mindmap** section visualises the key actors and policy domains affected by the breaking development.
 
-## Translation Rules
+## Translation Notes
+
+> **📝 Translation is handled by the separate `news-translate` workflow.** This workflow focuses exclusively on generating excellent English breaking news content.
 
 - EP document reference IDs (e.g., `2024/0001(COD)`) MUST be kept as-is
 - Political group abbreviations (EPP, S&D, Renew, Greens/EFA, ECR, PfE, ESN) MUST NEVER be translated
