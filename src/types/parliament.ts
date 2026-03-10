@@ -277,6 +277,8 @@ export interface BreakingNewsFeedData {
   events: readonly EventFeedItem[];
   procedures: readonly ProcedureFeedItem[];
   mepUpdates: readonly MEPFeedItem[];
+  /** Total number of MEP updates reported by the feed API (may exceed the fetched/displayed count) */
+  totalMEPUpdates?: number;
 }
 
 /**
