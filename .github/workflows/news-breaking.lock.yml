@@ -21,9 +21,9 @@
 #
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
-# Generates EU Parliament breaking news articles using EP feed endpoints as the primary data source. Feed-first approach — stats are context only, never news.
+# Generates EU Parliament breaking news English articles using EP feed endpoints as the primary data source. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"549b6de4149fa2261a2df10e9860efeb63c83e37533a2c97d9495da3344f8949","compiler_version":"v0.57.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"7d60f2231d7da0137ec8a39aafb8ab35dc4e4c5890ca940d92593149e36f8792","compiler_version":"v0.57.0"}
 
 name: "News: EU Parliament Breaking News"
 "on":
@@ -37,8 +37,8 @@ name: "News: EU Parliament Breaking News"
         required: false
         type: boolean
       languages:
-        default: all
-        description: Languages to generate (en | eu-core | nordic | all | custom comma-separated)
+        default: en
+        description: Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow
         required: false
 
 permissions: {}
@@ -976,7 +976,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           WORKFLOW_NAME: "News: EU Parliament Breaking News"
-          WORKFLOW_DESCRIPTION: "Generates EU Parliament breaking news articles using EP feed endpoints as the primary data source. Feed-first approach — stats are context only, never news."
+          WORKFLOW_DESCRIPTION: "Generates EU Parliament breaking news English articles using EP feed endpoints as the primary data source. Translations are handled by the separate news-translate workflow."
           HAS_PATCH: ${{ steps.collect_output.outputs.has_patch }}
         with:
           script: |

@@ -21,9 +21,9 @@
 #
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
-# Manual dispatch workflow to generate any combination of EU Parliament news article types. High-level invoker for multi-type article generation.
+# Manual dispatch workflow to generate any combination of EU Parliament news article types (English). Translations handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"5b86dbc5763386ffa1ab938ba641c3e9bd736fb7ec69fa4c7f9859043163903c","compiler_version":"v0.57.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"297bad6b7aebf09b9b9c754a987385dabf1ad26d20ef9acbe434ada4050a85a8","compiler_version":"v0.57.0"}
 
 name: "News: EU Parliament Article Generator"
 "on":
@@ -39,8 +39,8 @@ name: "News: EU Parliament Article Generator"
         required: false
         type: boolean
       languages:
-        default: all
-        description: Languages to generate (en | eu-core | nordic | all)
+        default: en
+        description: Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow
         required: false
 
 permissions: {}
@@ -993,7 +993,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           WORKFLOW_NAME: "News: EU Parliament Article Generator"
-          WORKFLOW_DESCRIPTION: "Manual dispatch workflow to generate any combination of EU Parliament news article types. High-level invoker for multi-type article generation."
+          WORKFLOW_DESCRIPTION: "Manual dispatch workflow to generate any combination of EU Parliament news article types (English). Translations handled by the separate news-translate workflow."
           HAS_PATCH: ${{ steps.collect_output.outputs.has_patch }}
         with:
           script: |

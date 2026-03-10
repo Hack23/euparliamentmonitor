@@ -21,24 +21,34 @@
 #
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
-# Generates EU Parliament weekly review retrospective English article with deep political intelligence. Translations are handled by the separate news-translate workflow.
+# Translates English EU Parliament news articles to 13 other languages. Runs after content workflows generate English articles, ensuring high-quality translations with full linguistic fidelity.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"c19f9dd9e1fd95cdc09fb1d0382b4d4733cc2d73c3e1f5b1465d3cff0aecb005","compiler_version":"v0.57.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"a17c85d657e8f0b5b1c0ed8ebf4be9735e49a39b956076872e99d239b471e901","compiler_version":"v0.57.0"}
 
-name: "News: EU Parliament Weekly Review"
+name: "News: Translate Articles"
 "on":
   schedule:
-  - cron: "0 9 * * 6"
+  - cron: "0 9,12,15 * * 1-5"
+  - cron: "0 12 * * 6"
+  - cron: "0 12 1,28 * *"
   workflow_dispatch:
     inputs:
-      force_generation:
+      article_date:
+        default: ""
+        description: "Date of articles to translate (YYYY-MM-DD, default: today)"
+        required: false
+      article_types:
+        default: ""
+        description: "Article types to translate (comma-separated: week-ahead,motions,propositions,committee-reports,breaking,week-in-review,month-in-review,month-ahead)"
+        required: false
+      force_translation:
         default: false
-        description: Force generation even if recent articles exist
+        description: Force translation even if translations already exist
         required: false
         type: boolean
       languages:
-        default: en
-        description: Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow
+        default: all-non-en
+        description: Target languages (all-non-en | eu-core | nordic | comma-separated)
         required: false
 
 permissions: {}
@@ -46,7 +56,7 @@ permissions: {}
 concurrency:
   group: "gh-aw-${{ github.workflow }}"
 
-run-name: "News: EU Parliament Weekly Review"
+run-name: "News: Translate Articles"
 
 jobs:
   activation:
@@ -72,7 +82,7 @@ jobs:
           GH_AW_INFO_VERSION: ""
           GH_AW_INFO_AGENT_VERSION: "latest"
           GH_AW_INFO_CLI_VERSION: "v0.57.0"
-          GH_AW_INFO_WORKFLOW_NAME: "News: EU Parliament Weekly Review"
+          GH_AW_INFO_WORKFLOW_NAME: "News: Translate Articles"
           GH_AW_INFO_EXPERIMENTAL: "false"
           GH_AW_INFO_SUPPORTS_TOOLS_ALLOWLIST: "true"
           GH_AW_INFO_STAGED: "false"
@@ -104,7 +114,7 @@ jobs:
       - name: Check workflow file timestamps
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
-          GH_AW_WORKFLOW_FILE: "news-weekly-review.lock.yml"
+          GH_AW_WORKFLOW_FILE: "news-translate.lock.yml"
         with:
           script: |
             const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
@@ -118,7 +128,9 @@ jobs:
           GH_AW_GITHUB_ACTOR: ${{ github.actor }}
           GH_AW_GITHUB_EVENT_COMMENT_ID: ${{ github.event.comment.id }}
           GH_AW_GITHUB_EVENT_DISCUSSION_NUMBER: ${{ github.event.discussion.number }}
-          GH_AW_GITHUB_EVENT_INPUTS_FORCE_GENERATION: ${{ github.event.inputs.force_generation }}
+          GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_DATE: ${{ github.event.inputs.article_date }}
+          GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_TYPES: ${{ github.event.inputs.article_types }}
+          GH_AW_GITHUB_EVENT_INPUTS_FORCE_TRANSLATION: ${{ github.event.inputs.force_translation }}
           GH_AW_GITHUB_EVENT_INPUTS_LANGUAGES: ${{ github.event.inputs.languages }}
           GH_AW_GITHUB_EVENT_ISSUE_NUMBER: ${{ github.event.issue.number }}
           GH_AW_GITHUB_EVENT_PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
@@ -175,14 +187,16 @@ jobs:
           </system>
           GH_AW_PROMPT_EOF
           cat << 'GH_AW_PROMPT_EOF'
-          {{#runtime-import .github/workflows/news-weekly-review.md}}
+          {{#runtime-import .github/workflows/news-translate.md}}
           GH_AW_PROMPT_EOF
           } > "$GH_AW_PROMPT"
       - name: Interpolate variables and render templates
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
-          GH_AW_GITHUB_EVENT_INPUTS_FORCE_GENERATION: ${{ github.event.inputs.force_generation }}
+          GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_DATE: ${{ github.event.inputs.article_date }}
+          GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_TYPES: ${{ github.event.inputs.article_types }}
+          GH_AW_GITHUB_EVENT_INPUTS_FORCE_TRANSLATION: ${{ github.event.inputs.force_translation }}
           GH_AW_GITHUB_EVENT_INPUTS_LANGUAGES: ${{ github.event.inputs.languages }}
         with:
           script: |
@@ -197,7 +211,9 @@ jobs:
           GH_AW_GITHUB_ACTOR: ${{ github.actor }}
           GH_AW_GITHUB_EVENT_COMMENT_ID: ${{ github.event.comment.id }}
           GH_AW_GITHUB_EVENT_DISCUSSION_NUMBER: ${{ github.event.discussion.number }}
-          GH_AW_GITHUB_EVENT_INPUTS_FORCE_GENERATION: ${{ github.event.inputs.force_generation }}
+          GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_DATE: ${{ github.event.inputs.article_date }}
+          GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_TYPES: ${{ github.event.inputs.article_types }}
+          GH_AW_GITHUB_EVENT_INPUTS_FORCE_TRANSLATION: ${{ github.event.inputs.force_translation }}
           GH_AW_GITHUB_EVENT_INPUTS_LANGUAGES: ${{ github.event.inputs.languages }}
           GH_AW_GITHUB_EVENT_ISSUE_NUMBER: ${{ github.event.issue.number }}
           GH_AW_GITHUB_EVENT_PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
@@ -218,7 +234,9 @@ jobs:
                 GH_AW_GITHUB_ACTOR: process.env.GH_AW_GITHUB_ACTOR,
                 GH_AW_GITHUB_EVENT_COMMENT_ID: process.env.GH_AW_GITHUB_EVENT_COMMENT_ID,
                 GH_AW_GITHUB_EVENT_DISCUSSION_NUMBER: process.env.GH_AW_GITHUB_EVENT_DISCUSSION_NUMBER,
-                GH_AW_GITHUB_EVENT_INPUTS_FORCE_GENERATION: process.env.GH_AW_GITHUB_EVENT_INPUTS_FORCE_GENERATION,
+                GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_DATE: process.env.GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_DATE,
+                GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_TYPES: process.env.GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_TYPES,
+                GH_AW_GITHUB_EVENT_INPUTS_FORCE_TRANSLATION: process.env.GH_AW_GITHUB_EVENT_INPUTS_FORCE_TRANSLATION,
                 GH_AW_GITHUB_EVENT_INPUTS_LANGUAGES: process.env.GH_AW_GITHUB_EVENT_INPUTS_LANGUAGES,
                 GH_AW_GITHUB_EVENT_ISSUE_NUMBER: process.env.GH_AW_GITHUB_EVENT_ISSUE_NUMBER,
                 GH_AW_GITHUB_EVENT_PULL_REQUEST_NUMBER: process.env.GH_AW_GITHUB_EVENT_PULL_REQUEST_NUMBER,
@@ -256,7 +274,7 @@ jobs:
       pull-requests: read
       security-events: read
     concurrency:
-      group: "gh-aw-copilot-${{ github.workflow }}"
+      group: "gh-aw-copilot-${{ github.workflow }}-translate-${{ github.event.inputs.article_date || 'scheduled' }}"
     env:
       DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
       GH_AW_ASSETS_ALLOWED_EXTS: ""
@@ -266,7 +284,7 @@ jobs:
       GH_AW_SAFE_OUTPUTS: /opt/gh-aw/safeoutputs/outputs.jsonl
       GH_AW_SAFE_OUTPUTS_CONFIG_PATH: /opt/gh-aw/safeoutputs/config.json
       GH_AW_SAFE_OUTPUTS_TOOLS_PATH: /opt/gh-aw/safeoutputs/tools.json
-      GH_AW_WORKFLOW_ID_SANITIZED: newsweeklyreview
+      GH_AW_WORKFLOW_ID_SANITIZED: newstranslate
     outputs:
       checkout_pr_success: ${{ steps.checkout-pr.outputs.checkout_pr_success || 'true' }}
       detection_conclusion: ${{ steps.detection_conclusion.outputs.conclusion }}
@@ -721,7 +739,7 @@ jobs:
                 "entrypointArgs": [
                   "npx",
                   "-y",
-                  "european-parliament-mcp-server@1.1.5"
+                  "european-parliament-mcp-server@1.1.2"
                 ],
                 "tools": [
                   "*"
@@ -766,7 +784,7 @@ jobs:
       - name: Execute GitHub Copilot CLI
         id: agentic_execution
         # Copilot CLI tool arguments (sorted):
-        timeout-minutes: 60
+        timeout-minutes: 90
         run: |
           set -o pipefail
           touch /tmp/gh-aw/agent-step-summary.md
@@ -975,8 +993,8 @@ jobs:
         if: always() && steps.detection_guard.outputs.run_detection == 'true'
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
-          WORKFLOW_NAME: "News: EU Parliament Weekly Review"
-          WORKFLOW_DESCRIPTION: "Generates EU Parliament weekly review retrospective English article with deep political intelligence. Translations are handled by the separate news-translate workflow."
+          WORKFLOW_NAME: "News: Translate Articles"
+          WORKFLOW_DESCRIPTION: "Translates English EU Parliament news articles to 13 other languages. Runs after content workflows generate English articles, ensuring high-quality translations with full linguistic fidelity."
           HAS_PATCH: ${{ steps.collect_output.outputs.has_patch }}
         with:
           script: |
@@ -1074,7 +1092,7 @@ jobs:
       issues: write
       pull-requests: write
     concurrency:
-      group: "gh-aw-conclusion-news-weekly-review"
+      group: "gh-aw-conclusion-news-translate"
       cancel-in-progress: false
     outputs:
       noop_message: ${{ steps.noop.outputs.noop_message }}
@@ -1104,7 +1122,7 @@ jobs:
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
           GH_AW_NOOP_MAX: "1"
-          GH_AW_WORKFLOW_NAME: "News: EU Parliament Weekly Review"
+          GH_AW_WORKFLOW_NAME: "News: Translate Articles"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1117,7 +1135,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "News: EU Parliament Weekly Review"
+          GH_AW_WORKFLOW_NAME: "News: Translate Articles"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1130,17 +1148,17 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "News: EU Parliament Weekly Review"
+          GH_AW_WORKFLOW_NAME: "News: Translate Articles"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_AGENT_CONCLUSION: ${{ needs.agent.result }}
-          GH_AW_WORKFLOW_ID: "news-weekly-review"
+          GH_AW_WORKFLOW_ID: "news-translate"
           GH_AW_SECRET_VERIFICATION_RESULT: ${{ needs.activation.outputs.secret_verification_result }}
           GH_AW_CHECKOUT_PR_SUCCESS: ${{ needs.agent.outputs.checkout_pr_success }}
           GH_AW_INFERENCE_ACCESS_ERROR: ${{ needs.agent.outputs.inference_access_error }}
           GH_AW_CODE_PUSH_FAILURE_ERRORS: ${{ needs.safe_outputs.outputs.code_push_failure_errors }}
           GH_AW_CODE_PUSH_FAILURE_COUNT: ${{ needs.safe_outputs.outputs.code_push_failure_count }}
           GH_AW_GROUP_REPORTS: "false"
-          GH_AW_TIMEOUT_MINUTES: "60"
+          GH_AW_TIMEOUT_MINUTES: "90"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1153,7 +1171,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "News: EU Parliament Weekly Review"
+          GH_AW_WORKFLOW_NAME: "News: Translate Articles"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_AGENT_CONCLUSION: ${{ needs.agent.result }}
           GH_AW_NOOP_MESSAGE: ${{ steps.noop.outputs.noop_message }}
@@ -1170,7 +1188,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "News: EU Parliament Weekly Review"
+          GH_AW_WORKFLOW_NAME: "News: Translate Articles"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
@@ -1193,11 +1211,11 @@ jobs:
       pull-requests: write
     timeout-minutes: 15
     env:
-      GH_AW_CALLER_WORKFLOW_ID: "${{ github.repository }}/news-weekly-review"
+      GH_AW_CALLER_WORKFLOW_ID: "${{ github.repository }}/news-translate"
       GH_AW_ENGINE_ID: "copilot"
       GH_AW_ENGINE_MODEL: "claude-opus-4.6"
-      GH_AW_WORKFLOW_ID: "news-weekly-review"
-      GH_AW_WORKFLOW_NAME: "News: EU Parliament Weekly Review"
+      GH_AW_WORKFLOW_ID: "news-translate"
+      GH_AW_WORKFLOW_NAME: "News: Translate Articles"
     outputs:
       code_push_failure_count: ${{ steps.process_safe_outputs.outputs.code_push_failure_count }}
       code_push_failure_errors: ${{ steps.process_safe_outputs.outputs.code_push_failure_errors }}

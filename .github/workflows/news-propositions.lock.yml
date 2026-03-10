@@ -21,9 +21,9 @@
 #
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
-# Generates EU Parliament legislative procedures analysis articles for all 14 languages. Single article type per run.
+# Generates EU Parliament legislative procedures English analysis article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"3891e27e54c0cbebbd47034870797351970ff0e577fe6c7dda4e467a4eb0df88","compiler_version":"v0.57.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"9aa1fe00fe3d5b58e603414178a88dd04eeed4e38929fa3a7608cf67764ff5e7","compiler_version":"v0.57.0"}
 
 name: "News: EU Parliament Legislative Procedures"
 "on":
@@ -37,8 +37,8 @@ name: "News: EU Parliament Legislative Procedures"
         required: false
         type: boolean
       languages:
-        default: all
-        description: Languages to generate (en | eu-core | nordic | all | custom comma-separated)
+        default: en
+        description: Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow
         required: false
 
 permissions: {}
@@ -989,7 +989,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           WORKFLOW_NAME: "News: EU Parliament Legislative Procedures"
-          WORKFLOW_DESCRIPTION: "Generates EU Parliament legislative procedures analysis articles for all 14 languages. Single article type per run."
+          WORKFLOW_DESCRIPTION: "Generates EU Parliament legislative procedures English analysis article with deep political intelligence. Translations are handled by the separate news-translate workflow."
           HAS_PATCH: ${{ steps.collect_output.outputs.has_patch }}
         with:
           script: |
