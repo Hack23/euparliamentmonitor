@@ -98,6 +98,9 @@ export function writeSingleArticle(
 
 /**
  * Persist a generation metadata JSON file to the metadata directory.
+ * If a metadata file already exists for today, merges the current run's stats
+ * and results with the existing ones so multiple workflow runs on the same day
+ * do not overwrite each other's data.
  * Skips writing when `dryRun` is true.
  *
  * @param stats - Final generation statistics
@@ -115,18 +118,75 @@ export function writeGenerationMetadata(
 ): void {
   if (dryRun) return;
 
+  const metadataPath = path.join(metadataDir, `generation-${formatDateForSlug()}.json`);
+
+  // Merge with existing metadata when another workflow already ran today
+  let mergedStats = { ...stats };
+  let mergedResults = [...results];
+  let mergedUsedMCP = usedMCP;
+
+  if (fs.existsSync(metadataPath)) {
+    try {
+      const existing = JSON.parse(fs.readFileSync(metadataPath, 'utf-8')) as {
+        generated?: number;
+        skipped?: number;
+        dryRun?: number;
+        errors?: number;
+        articles?: string[];
+        results?: GenerationResult[];
+        usedMCP?: boolean;
+      };
+
+      // Accumulate counters from both runs
+      mergedStats = {
+        ...mergedStats,
+        generated: (existing.generated ?? 0) + stats.generated,
+        skipped: (existing.skipped ?? 0) + stats.skipped,
+        dryRun: (existing.dryRun ?? 0) + stats.dryRun,
+        errors: (existing.errors ?? 0) + stats.errors,
+        // Merge article lists, removing any duplicates
+        articles: [...new Set([...(existing.articles ?? []), ...stats.articles])],
+      };
+
+      // Keep prior results; append new ones (dedup by slug if present)
+      const existingResults: GenerationResult[] = existing.results ?? [];
+      const newSlugs = new Set(results.map((r) => r.slug).filter(Boolean));
+      const priorResults = existingResults.filter((r) => !newSlugs.has(r.slug));
+      const combinedResults = [...priorResults, ...results];
+
+      // Additionally de-duplicate entries that do not have a slug by using a
+      // stable structural key (JSON representation). This prevents repeated
+      // same-day runs from accumulating duplicate slug-less error entries.
+      const seenAnonymousKeys = new Set<string>();
+      mergedResults = combinedResults.filter((result) => {
+        if (result.slug) {
+          return true;
+        }
+        const key = JSON.stringify(result);
+        if (seenAnonymousKeys.has(key)) {
+          return false;
+        }
+        seenAnonymousKeys.add(key);
+        return true;
+      });
+      // usedMCP is true if either run connected to MCP
+      mergedUsedMCP = mergedUsedMCP || (existing.usedMCP ?? false);
+    } catch {
+      // If the existing file is malformed, proceed with current run's data only
+    }
+  }
+
   const metadata = {
-    timestamp: stats.timestamp,
-    generated: stats.generated,
-    skipped: stats.skipped,
-    dryRun: stats.dryRun,
-    errors: stats.errors,
-    articles: stats.articles,
-    results,
-    usedMCP,
+    timestamp: mergedStats.timestamp,
+    generated: mergedStats.generated,
+    skipped: mergedStats.skipped,
+    dryRun: mergedStats.dryRun,
+    errors: mergedStats.errors,
+    articles: mergedStats.articles,
+    results: mergedResults,
+    usedMCP: mergedUsedMCP,
   };
 
-  const metadataPath = path.join(metadataDir, `generation-${formatDateForSlug()}.json`);
   fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf-8');
   console.log(`📝 Metadata written to: ${metadataPath}`);
 }

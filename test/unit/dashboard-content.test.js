@@ -173,9 +173,9 @@ describe('dashboard-content', () => {
       expect(html).toContain('400');
     });
 
-    it('should include aria-hidden on empty fallback table header cell', () => {
+    it('should include accessible category column header in fallback table', () => {
       const html = buildDashboardSection(SAMPLE_DASHBOARD);
-      expect(html).toContain('aria-hidden="true"');
+      expect(html).toContain('<th scope="col">Category</th>');
     });
 
     it('should escape HTML in metric values', () => {
@@ -312,6 +312,76 @@ describe('dashboard-content', () => {
 
     it('should return true for chart-only dashboard', () => {
       expect(dashboardHasCharts(CHART_ONLY_DASHBOARD)).toBe(true);
+    });
+  });
+
+  describe('extended chart types', () => {
+    it('should render polarArea chart config as data attribute', () => {
+      const dashboard = {
+        panels: [{
+          title: 'Group Coverage',
+          chart: {
+            type: 'polarArea',
+            title: 'Political Group Seats',
+            data: { labels: ['EPP', 'S&D'], datasets: [{ label: 'Seats', data: [188, 136] }] },
+          },
+        }],
+      };
+      const html = buildDashboardSection(dashboard, 'en');
+      expect(html).toContain('data-chart-config');
+      expect(html).toContain('polarArea');
+    });
+
+    it('should render scatter chart config as data attribute', () => {
+      const dashboard = {
+        panels: [{
+          title: 'Correlation',
+          chart: {
+            type: 'scatter',
+            title: 'Activity vs Attendance',
+            data: {
+              labels: [],
+              datasets: [{
+                label: 'MEPs',
+                data: [
+                  { x: 10, y: 20 },
+                  { x: 20, y: 40 },
+                  { x: 30, y: 60 },
+                ],
+              }],
+            },
+          },
+        }],
+      };
+      const html = buildDashboardSection(dashboard, 'en');
+      expect(html).toContain('data-chart-config');
+      expect(html).toContain('scatter');
+    });
+
+    it('should render bubble chart config as data attribute', () => {
+      const dashboard = {
+        panels: [{
+          title: 'Impact Matrix',
+          chart: {
+            type: 'bubble',
+            title: 'Legislation Impact',
+            data: {
+              labels: [],
+              datasets: [{
+                label: 'Laws',
+                data: [
+                  { x: 1, y: 5, r: 5 },
+                  { x: 2, y: 10, r: 10 },
+                  { x: 3, y: 15, r: 15 },
+                ],
+              }],
+            },
+          },
+        }],
+      };
+      const html = buildDashboardSection(dashboard, 'en');
+      expect(html).toContain('data-chart-config');
+      expect(html).toContain('bubble');
     });
   });
 });

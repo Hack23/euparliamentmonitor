@@ -30,17 +30,6 @@
         "/home/runner/work/euparliamentmonitor/euparliamentmonitor"
       ]
     },
-    "git": {
-      "type": "local",
-      "command": "npx",
-      "tools": ["*"],
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-git",
-        "--repository",
-        "/home/runner/work/euparliamentmonitor/euparliamentmonitor"
-      ]
-    },
     "memory": {
       "type": "local",
       "tools": ["*"],
@@ -77,7 +66,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "european-parliament-mcp-server@1.1.2"
+        "european-parliament-mcp-server@1.1.5"
       ],
       "env": {
         "EP_REQUEST_TIMEOUT_MS": "30000"

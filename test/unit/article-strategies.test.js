@@ -20,6 +20,7 @@ import { BreakingNewsStrategy } from '../../scripts/generators/strategies/breaki
 import { CommitteeReportsStrategy } from '../../scripts/generators/strategies/committee-reports-strategy.js';
 import { PropositionsStrategy } from '../../scripts/generators/strategies/propositions-strategy.js';
 import { MotionsStrategy } from '../../scripts/generators/strategies/motions-strategy.js';
+import { PLACEHOLDER_MARKER } from '../../scripts/generators/motions-content.js';
 import { MonthAheadStrategy } from '../../scripts/generators/strategies/month-ahead-strategy.js';
 import { WeeklyReviewStrategy } from '../../scripts/generators/strategies/weekly-review-strategy.js';
 import { MonthlyReviewStrategy } from '../../scripts/generators/strategies/monthly-review-strategy.js';
@@ -179,15 +180,15 @@ describe('CommitteeReportsStrategy', () => {
     expect(content).toContain('Draft Report');
   });
 
-  it('buildContent shows "No recent documents available" when empty', () => {
+  it('buildContent shows "No recent documents available" when committee has real metadata but no docs', () => {
     const data = {
       ...committeeReportsData,
       committeeDataList: [
         {
-          name: 'Test',
+          name: 'Test Committee',
           abbreviation: 'TEST',
-          chair: 'N/A',
-          members: 0,
+          chair: 'Real Chair', // non-placeholder chair prevents metadata-unavailable path
+          members: 10,
           documents: [],
           effectiveness: null,
         },
@@ -197,13 +198,18 @@ describe('CommitteeReportsStrategy', () => {
     expect(content).toContain('No recent documents available');
   });
 
-  it('buildContent escapes HTML in committee name', () => {
+  it('shouldSkip returns true when committeeDataList is empty (all fetches failed)', () => {
+    const data = { ...committeeReportsData, committeeDataList: [] };
+    expect(strategy.shouldSkip(data)).toBe(true);
+  });
+
+  it('shouldSkip returns true when all committees are placeholder', () => {
     const data = {
       ...committeeReportsData,
       committeeDataList: [
         {
-          name: '<script>alert(1)</script>',
-          abbreviation: 'XSS',
+          name: 'Test Committee',
+          abbreviation: 'TEST',
           chair: 'N/A',
           members: 0,
           documents: [],
@@ -211,8 +217,282 @@ describe('CommitteeReportsStrategy', () => {
         },
       ],
     };
+    expect(strategy.shouldSkip(data)).toBe(true);
+  });
+
+  it('shouldSkip returns false when committees are all-placeholder but feedData has adoptedTexts', () => {
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Test Committee',
+          abbreviation: 'TEST',
+          chair: 'N/A',
+          members: 0,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Climate Decision', date: '2026-03-01' }],
+      },
+    };
+    expect(strategy.shouldSkip(data)).toBe(false);
+  });
+
+  it('shouldSkip returns true when committees are all-placeholder and feedData has no items', () => {
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Test Committee',
+          abbreviation: 'TEST',
+          chair: 'N/A',
+          members: 0,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+      feedData: {
+        adoptedTexts: [],
+        committeeDocuments: [],
+        plenaryDocuments: [],
+        documents: [],
+        procedures: [],
+      },
+    };
+    expect(strategy.shouldSkip(data)).toBe(true);
+  });
+
+  it('shouldSkip returns false when there is real committee data', () => {
+    expect(strategy.shouldSkip(committeeReportsData)).toBe(false);
+  });
+
+  it('buildContent renders committee-card--unavailable for placeholder-shaped committee data', () => {
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Test Committee',
+          abbreviation: 'TEST',
+          chair: 'N/A',
+          members: 0,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+    };
+    // shouldSkip() would prevent this in production (all-placeholder triggers a skip),
+    // but when buildContent is called directly it now renders an unavailable notice
+    const content = strategy.buildContent(data, 'en');
+    expect(content).toContain('committee-card--unavailable');
+    expect(content).toContain('committee-metadata-unavailable');
+  });
+
+  it('buildContent escapes HTML in committee name', () => {
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: '<script>alert(1)</script>',
+          abbreviation: 'XSS',
+          chair: 'Real Chair', // non-placeholder chair
+          members: 5,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+    };
     const content = strategy.buildContent(data, 'en');
     expect(content).not.toContain('<script>');
+  });
+
+  it('buildContent renders adopted-texts-overview section when feedData has adoptedTexts', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Climate Decision', date: '2026-03-01' }],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    expect(content).toContain('adopted-texts-overview');
+    expect(content).toContain('Climate Decision');
+  });
+
+  it('buildContent categorizes agri-food titles under AGRI not ENVI', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          {
+            id: 'AT-2',
+            title: 'Cooperation among enforcement authorities regarding unfair trading practices in the agri-food supply chain',
+            date: '2026-03-01',
+          },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    // Extract just the adopted-texts-overview section for targeted assertions
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    expect(overviewHtml).toContain('agri-food supply chain');
+    // Should appear under Agriculture heading, not Environment heading
+    expect(overviewHtml).toContain('Agriculture');
+    expect(overviewHtml).not.toContain('Environment');
+  });
+
+  it('buildContent omits adopted-texts-overview section when feedData has no adoptedTexts', () => {
+    const dataNoFeed = { ...committeeReportsData, feedData: undefined };
+    const content = strategy.buildContent(dataNoFeed, 'en');
+    expect(content).not.toContain('adopted-texts-overview');
+  });
+
+  it('buildContent uses singular summary when exactly one adopted text', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Climate Decision', date: '2026-03-01' }],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    // Should use singular form: "1 text" not "1 texts"
+    expect(content).toContain('adopted 1 text in a recent session');
+    expect(content).not.toContain('1 texts');
+  });
+
+  it('buildContent uses plural summary when multiple adopted texts', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-1', title: 'Climate Decision', date: '2026-03-01' },
+          { id: 'AT-2', title: 'Financial Report', date: '2026-03-02' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    // Should use plural form with count
+    expect(content).toContain('adopted 2 texts in recent sessions');
+  });
+
+  it('buildContent does not categorize civil aviation under LIBE', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-3', title: 'Civil aviation safety standards regulation', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // Should not appear under Civil Liberties heading since 'civil aviation' is not 'civil liberties'
+    expect(overviewHtml).not.toContain('Civil Liberties');
+  });
+
+  it('buildContent does not categorize social security under AFET', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-4', title: 'Social security coordination across member states', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // Should not appear under Foreign Affairs heading since 'social security' is not 'security policy'
+    expect(overviewHtml).not.toContain('Foreign Affairs');
+  });
+
+  it('buildContent categorizes Ukraine defence under AFET', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-5', title: 'Ukraine defence support and military assistance', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // Should appear under Foreign Affairs heading
+    expect(overviewHtml).toContain('Foreign Affairs');
+  });
+
+  it('buildContent categorizes asylum migration under LIBE', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-6', title: 'Safe countries of origin asylum migration rules', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // Should appear under Civil Liberties heading
+    expect(overviewHtml).toContain('Civil Liberties');
+  });
+
+  it('buildContent does not categorize "justice" alone under LIBE (too broad)', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-7', title: 'Environmental justice framework for green transition', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // 'justice' alone should not route to LIBE — only specific multi-word phrases do
+    expect(overviewHtml).not.toContain('Civil Liberties');
+  });
+
+  it('buildContent categorizes justice and home affairs under LIBE', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-8', title: 'Justice and home affairs cooperation framework', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    expect(overviewHtml).toContain('Civil Liberties');
+  });
+
+  it('buildContent does not categorize "peace" alone under AFET (too broad)', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          { id: 'AT-9', title: 'Peaceful nuclear energy cooperation', date: '2026-03-01' },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    // 'peace' alone (e.g. 'peaceful') should not route to AFET — only 'peace agreement/process/mission/operation' does
+    expect(overviewHtml).not.toContain('Foreign Affairs');
   });
 
   it('getMetadata returns "committee-reports" category', () => {
@@ -543,9 +823,7 @@ describe('BreakingNewsStrategy.fetchData with pre-fetched feed data file', () =>
   it('uses pre-fetched feed data when EP_FEED_DATA_FILE is set', async () => {
     tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'feed-test-'));
     const feedData = {
-      adoptedTexts: [
-        { id: 'TA-10-2026-0042', title: 'Test Adopted Text', date: '2026-03-04' },
-      ],
+      adoptedTexts: [{ id: 'TA-10-2026-0042', title: 'Test Adopted Text', date: '2026-03-04' }],
       events: [],
       procedures: [],
       mepUpdates: [],
@@ -805,8 +1083,12 @@ describe('PropositionsStrategy.fetchData with rejected promises', () => {
       callTool: async () => undefined,
       getPlenarySessions: async () => undefined,
       getCommitteeInfo: async () => undefined,
-      searchDocuments: async () => { throw new Error('network failure'); },
-      monitorLegislativePipeline: async () => { throw new Error('timeout'); },
+      searchDocuments: async () => {
+        throw new Error('network failure');
+      },
+      monitorLegislativePipeline: async () => {
+        throw new Error('timeout');
+      },
       getParliamentaryQuestions: async () => undefined,
       trackLegislation: async () => undefined,
     };
@@ -1144,6 +1426,19 @@ describe('SWOT and Dashboard integration across all strategies', () => {
     const strategy = new MotionsStrategy();
     const content = strategy.buildContent(motionsData, 'en');
     expect(content).toContain('class="dashboard"');
+  });
+
+  it('MotionsStrategy.buildContent omits Dashboard section when all votingRecords have placeholder results', () => {
+    const strategy = new MotionsStrategy();
+    const placeholderMotionsData = {
+      ...motionsData,
+      votingRecords: motionsData.votingRecords.map((r) => ({
+        ...r,
+        result: PLACEHOLDER_MARKER,
+      })),
+    };
+    const content = strategy.buildContent(placeholderMotionsData, 'en');
+    expect(content).not.toContain('class="dashboard"');
   });
 
   it('WeeklyReviewStrategy.buildContent includes SWOT section', () => {

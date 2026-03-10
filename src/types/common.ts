@@ -189,6 +189,7 @@ export interface MotionsStrings {
   statusLabel: string;
   keyTakeawayText: string;
   politicalAlignmentHeading: string;
+  ledeAnalysis: string;
 }
 
 /** Localized section heading strings for week-ahead articles */
@@ -432,6 +433,8 @@ export interface DeepAnalysisStrings {
 export interface CommitteeAnalysisContentStrings {
   /** Template: what happened. {date}, {total}, {docs}, {active} placeholders */
   readonly what: string;
+  /** Template: what happened when no documents are available. {date}, {total} placeholders */
+  readonly whatNoData: string;
   /** "Reporting date:" label prefix */
   readonly reportDateLabel: string;
   /** "members" label */
@@ -442,8 +445,12 @@ export interface CommitteeAnalysisContentStrings {
   readonly productivityRobust: string;
   /** "moderate" productivity descriptor */
   readonly productivityModerate: string;
+  /** "low" productivity descriptor used when 0% of committees have recent documents */
+  readonly productivityLow: string;
   /** Why section text. {pct}, {descriptor} placeholders */
   readonly why: string;
+  /** Impact political text when no committees are active. */
+  readonly impactPoliticalNone: string;
   /** Stakeholder reason: highly productive. {n} placeholder */
   readonly stakeholderHighlyProductive: string;
   /** Stakeholder reason: moderate activity. {n} placeholder */
@@ -476,4 +483,24 @@ export interface CommitteeAnalysisContentStrings {
   readonly lede: string;
   /** "No recent documents available" fallback list item */
   readonly noRecentDocs: string;
+  /** Notice shown in committee cards when all committee metadata is unavailable from the EP API */
+  readonly committeeMetadataUnavailable: string;
+  /** Section heading for the adopted texts overview in feed-enriched articles */
+  readonly adoptedTextsSectionHeading: string;
+  /** Summary paragraph for adopted texts section (plural). {count} placeholder is replaced with the number of texts */
+  readonly adoptedTextsSummary: string;
+  /** Summary paragraph for adopted texts section when exactly one text was adopted (singular form) */
+  readonly adoptedTextsSummarySingular: string;
+  /** Full name of the ENVI committee */
+  readonly committeeNameENVI: string;
+  /** Full name of the ECON committee */
+  readonly committeeNameECON: string;
+  /** Full name of the AFET committee */
+  readonly committeeNameAFET: string;
+  /** Full name of the LIBE committee */
+  readonly committeeNameLIBE: string;
+  /** Full name of the AGRI committee */
+  readonly committeeNameAGRI: string;
+  /** Label for texts not fitting the named committee themes */
+  readonly committeeNameOTHER: string;
 }

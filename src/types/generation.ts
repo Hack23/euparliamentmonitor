@@ -38,6 +38,8 @@ export interface ArticleOptions {
   analysisPerspectives?: AnalysisPerspective[];
   /** SRI hash (sha256/sha384/sha512) for the styles.css link (e.g. "sha384-…"). If provided, adds integrity and crossorigin attributes. */
   stylesHash?: string;
+  /** Languages for which this article has been generated. When provided, the language switcher only shows links for these languages. Defaults to all supported languages. */
+  availableLanguages?: ReadonlyArray<LanguageCode>;
 }
 
 /** Sitemap URL entry */

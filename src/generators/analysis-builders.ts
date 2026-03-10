@@ -38,6 +38,8 @@ import {
   SWOT_BUILDER_STRINGS,
   DASHBOARD_BUILDER_STRINGS,
 } from '../constants/languages.js';
+import { isPlaceholderCommitteeData } from './committee-helpers.js';
+import { PLACEHOLDER_MARKER } from './motions-content.js';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -96,6 +98,7 @@ function deriveConsequencesFromVoting(
 ): ActionConsequence[] {
   const consequences: ActionConsequence[] = [];
   for (const record of records.slice(0, 3)) {
+    if (record.result === PLACEHOLDER_MARKER) continue;
     consequences.push({
       action: `Vote on "${record.title}"`,
       consequence: `Result: ${record.result} (${record.votes.for}+ / ${record.votes.against}− / ${record.votes.abstain} abstain)`,
@@ -103,6 +106,7 @@ function deriveConsequencesFromVoting(
     });
   }
   for (const anomaly of anomalies.slice(0, 2)) {
+    if (/placeholder/i.test(anomaly.type)) continue;
     consequences.push({
       action: `${anomaly.type} detected`,
       consequence: anomaly.description,
@@ -151,49 +155,68 @@ export function buildVotingAnalysis(
   anomalies: readonly VotingAnomaly[],
   questions: readonly MotionsQuestion[]
 ): DeepAnalysis {
-  const adoptedCount = records.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
-  const rejectedCount = records.filter((r) => r.result?.toLowerCase().includes('reject')).length;
-  const topTopics = records.slice(0, 3).map((r) => r.title);
+  const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
+  const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
+  const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
+  const realQuestions = questions.filter((q) => q.status !== PLACEHOLDER_MARKER);
+
+  const adoptedCount = realRecords.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
+  const rejectedCount = realRecords.filter((r) =>
+    r.result?.toLowerCase().includes('reject')
+  ).length;
+  const topTopics = realRecords.slice(0, 3).map((r) => r.title);
 
   return {
-    what: `${records.length} votes recorded between ${dateFrom} and ${dateTo}: ${adoptedCount} adopted, ${rejectedCount} rejected. ${anomalies.length} voting anomalies detected across ${patterns.length} political groups. ${questions.length} parliamentary questions filed.`,
+    what:
+      realRecords.length > 0 || realPatterns.length > 0 || realQuestions.length > 0
+        ? `${realRecords.length} votes recorded between ${dateFrom} and ${dateTo}: ${adoptedCount} adopted, ${rejectedCount} rejected. ${realAnomalies.length} voting anomalies detected across ${realPatterns.length} political groups. ${realQuestions.length} parliamentary questions filed.`
+        : `Parliamentary activity from ${dateFrom} to ${dateTo}. Detailed roll-call data unavailable for this period.`,
     who: [
-      ...patterns.map(
+      ...realPatterns.map(
         (p) =>
           `${p.group} — cohesion: ${(p.cohesion * 100).toFixed(0)}%, participation: ${(p.participation * 100).toFixed(0)}%`
       ),
-      ...questions.slice(0, 3).map((q) => `${q.author} — question on "${q.topic}"`),
+      ...realQuestions.slice(0, 3).map((q) => `${q.author} — question on "${q.topic}"`),
     ],
     when: [
       `Period: ${dateFrom} to ${dateTo}`,
-      ...records.slice(0, 3).map((r) => `${r.date}: Vote on "${r.title}" — ${r.result}`),
+      ...realRecords.slice(0, 3).map((r) => `${r.date}: Vote on "${r.title}" — ${r.result}`),
     ],
     why:
-      patterns.length > 0
-        ? `Voting behaviour reveals the balance of power: groups with high cohesion (${patterns.filter((p) => p.cohesion > 0.8).length} groups above 80%) can form blocking minorities or drive legislation. Anomalies signal shifting alliances and emerging fault lines that may reshape future coalition dynamics.`
+      realPatterns.length > 0
+        ? `Voting behaviour reveals the balance of power: groups with high cohesion (${realPatterns.filter((p) => p.cohesion > 0.8).length} groups above 80%) can form blocking minorities or drive legislation. Anomalies signal shifting alliances and emerging fault lines that may reshape future coalition dynamics.`
         : 'Voting patterns in this period reflect ongoing legislative negotiations and inter-institutional bargaining positions.',
-    stakeholderOutcomes: deriveStakeholderOutcomesFromVoting(records, patterns),
+    stakeholderOutcomes: deriveStakeholderOutcomesFromVoting(realRecords, realPatterns),
     impactAssessment: {
-      political: `${adoptedCount} adopted texts will shape EU policy. ${anomalies.length} anomalies suggest internal disagreements that may affect future negotiations.`,
+      political:
+        realRecords.length > 0
+          ? `${adoptedCount} adopted texts will shape EU policy. ${realAnomalies.length} anomalies suggest internal disagreements that may affect future negotiations.`
+          : 'Legislative outcomes in this period will shape EU policy priorities and inter-institutional dynamics.',
       economic:
         topTopics.length > 0
           ? `Legislation on ${topTopics.join(', ')} may affect regulatory environments, compliance costs, and market conditions across member states.`
           : 'The legislative outcomes in this period carry potential economic implications for EU businesses and citizens.',
-      social: `Parliamentary questions on ${
-        questions
-          .slice(0, 2)
-          .map((q) => q.topic)
-          .join(' and ') || 'key policy areas'
-      } highlight citizen concerns that MEPs are bringing to the legislative agenda.`,
-      legal: `${adoptedCount} adopted texts enter the EU legal framework. Rejected proposals (${rejectedCount}) may return in amended form, creating legal uncertainty in affected policy areas.`,
+      social:
+        realQuestions.length > 0
+          ? `Parliamentary questions on ${realQuestions
+              .slice(0, 2)
+              .map((q) => q.topic)
+              .join(
+                ' and '
+              )} highlight citizen concerns that MEPs are bringing to the legislative agenda.`
+          : 'Parliamentary questions in this period reflect citizens\u2019 concerns and MEPs\u2019 oversight role.',
+      legal:
+        realRecords.length > 0
+          ? `${adoptedCount} adopted texts enter the EU legal framework. Rejected proposals (${rejectedCount}) may return in amended form, creating legal uncertainty in affected policy areas.`
+          : 'Adopted texts from this period will enter the EU legal framework, while any rejected proposals may be reintroduced in amended form.',
       geopolitical:
         'Voting patterns reflect evolving EU positions on international affairs, trade relationships, and global governance commitments.',
     },
-    actionConsequences: deriveConsequencesFromVoting(records, anomalies),
-    mistakes: deriveMistakesFromAnomalies(anomalies),
+    actionConsequences: deriveConsequencesFromVoting(realRecords, realAnomalies),
+    mistakes: deriveMistakesFromAnomalies(realAnomalies),
     outlook:
-      anomalies.length > 0
-        ? `Watch for coalition realignment: ${anomalies.length} anomalies detected. Groups with declining cohesion may seek new alliance partners. Upcoming committee votes will test whether these shifts are temporary or structural.`
+      realAnomalies.length > 0
+        ? `Watch for coalition realignment: ${realAnomalies.length} anomalies detected. Groups with declining cohesion may seek new alliance partners. Upcoming committee votes will test whether these shifts are temporary or structural.`
         : 'The legislative trajectory suggests continued consensus-building with potential pressure points in the weeks ahead.',
   };
 }
@@ -533,28 +556,34 @@ export function buildPropositionsAnalysis(
  * @param committees - Committee data list
  * @param date - Publication date
  * @param lang - Target language code for localized content
- * @returns Deep analysis object
+ * @returns Deep analysis object, or `null` when all committee data is placeholder
  */
 export function buildCommitteeAnalysis(
   committees: readonly CommitteeData[],
   date: string,
   lang: LanguageCode = 'en'
-): DeepAnalysis {
+): DeepAnalysis | null {
+  if (isPlaceholderCommitteeData(committees)) return null;
   const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
   const activeCommittees = committees.filter((c) => c.documents.length > 0);
   const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
   const pct = ((activeCommittees.length / Math.max(committees.length, 1)) * 100).toFixed(0);
   const descriptor =
-    committees.length > 0 && activeCommittees.length >= committees.length * 0.7
-      ? s.productivityRobust
-      : s.productivityModerate;
+    activeCommittees.length === 0
+      ? s.productivityLow
+      : committees.length > 0 && activeCommittees.length >= committees.length * 0.7
+        ? s.productivityRobust
+        : s.productivityModerate;
 
   return {
-    what: s.what
-      .replace('{date}', date)
-      .replace('{total}', String(committees.length))
-      .replace('{docs}', String(totalDocs))
-      .replace('{active}', String(activeCommittees.length)),
+    what:
+      totalDocs === 0
+        ? s.whatNoData.replace('{date}', date).replace('{total}', String(committees.length))
+        : s.what
+            .replace('{date}', date)
+            .replace('{total}', String(committees.length))
+            .replace('{docs}', String(totalDocs))
+            .replace('{active}', String(activeCommittees.length)),
     who: committees.map(
       (c) =>
         `${c.name} (${c.abbreviation}) — ${s.chairLabel} ${c.chair}, ${c.members} ${s.membersLabel}`
@@ -585,9 +614,12 @@ export function buildCommitteeAnalysis(
             : s.stakeholderNoDocs,
     })),
     impactAssessment: {
-      political: s.impactPolitical
-        .replace('{active}', String(activeCommittees.length))
-        .replace('{total}', String(committees.length)),
+      political:
+        activeCommittees.length === 0
+          ? s.impactPoliticalNone
+          : s.impactPolitical
+              .replace('{active}', String(activeCommittees.length))
+              .replace('{total}', String(committees.length)),
       economic: s.impactEconomic,
       social: s.impactSocial,
       legal: s.impactLegal.replace('{docs}', String(totalDocs)),
@@ -635,11 +667,14 @@ export function buildVotingSwot(
   lang: LanguageCode = 'en'
 ): SwotAnalysis {
   const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
-  const adoptedCount = records.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
-  const highCohesionGroups = patterns.filter((p) => p.cohesion > 0.8);
-  const lowCohesionGroups = patterns.filter((p) => p.cohesion < 0.5);
+  const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
+  const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
+  const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
+  const adoptedCount = realRecords.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
+  const highCohesionGroups = realPatterns.filter((p) => p.cohesion > 0.8);
+  const lowCohesionGroups = realPatterns.filter((p) => p.cohesion < 0.5);
 
-  const highSeverityAnomalies = anomalies.filter((a) => a.severity?.toUpperCase() === 'HIGH');
+  const highSeverityAnomalies = realAnomalies.filter((a) => a.severity?.toUpperCase() === 'HIGH');
 
   return {
     strengths: [
@@ -659,10 +694,10 @@ export function buildVotingSwot(
             },
           ]
         : []),
-      ...(records.length > 0
+      ...(realRecords.length > 0
         ? [
             {
-              text: s.votingActiveVotes(records.length),
+              text: s.votingActiveVotes(realRecords.length),
               severity: 'medium' as const,
             },
           ]
@@ -677,10 +712,10 @@ export function buildVotingSwot(
             },
           ]
         : []),
-      ...(anomalies.length > 0
+      ...(realAnomalies.length > 0
         ? [
             {
-              text: s.votingAnomalies(anomalies.length),
+              text: s.votingAnomalies(realAnomalies.length),
               severity: 'medium' as const,
             },
           ]
@@ -691,10 +726,10 @@ export function buildVotingSwot(
         text: s.votingCrossParty,
         severity: 'medium' as const,
       },
-      ...(patterns.length > 0
+      ...(realPatterns.length > 0
         ? [
             {
-              text: s.votingDiverseGroups(patterns.length),
+              text: s.votingDiverseGroups(realPatterns.length),
               severity: 'medium' as const,
             },
           ]
@@ -981,12 +1016,13 @@ export function buildPropositionsSwot(
  *
  * @param committees - Committee data list
  * @param lang - Target language code
- * @returns SWOT analysis data
+ * @returns SWOT analysis data, or `null` when all committee data is placeholder
  */
 export function buildCommitteeSwot(
   committees: readonly CommitteeData[],
   lang: LanguageCode = 'en'
-): SwotAnalysis {
+): SwotAnalysis | null {
+  if (isPlaceholderCommitteeData(committees)) return null;
   const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
   const activeCommittees = committees.filter((c) => c.documents.length > 0);
   const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
@@ -1074,28 +1110,33 @@ export function buildVotingDashboard(
   lang: LanguageCode = 'en'
 ): DashboardConfig {
   const d: DashboardBuilderStrings = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
-  const adoptedCount = records.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
-  const rejectedCount = records.filter((r) => r.result?.toLowerCase().includes('reject')).length;
+  const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
+  const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
+  const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
+  const adoptedCount = realRecords.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
+  const rejectedCount = realRecords.filter((r) =>
+    r.result?.toLowerCase().includes('reject')
+  ).length;
 
   const overviewPanel = {
     title: d.votingOverview,
     metrics: [
-      { label: d.totalVotes, value: String(records.length), trend: 'stable' as const },
+      { label: d.totalVotes, value: String(realRecords.length), trend: 'stable' as const },
       {
         label: d.adopted,
         value: String(adoptedCount),
         trend: adoptedCount > 0 ? ('up' as const) : ('stable' as const),
       },
       { label: d.rejected, value: String(rejectedCount) },
-      { label: d.anomalies, value: String(anomalies.length) },
+      { label: d.anomalies, value: String(realAnomalies.length) },
     ],
   };
 
   const cohesionPanel =
-    patterns.length > 0
+    realPatterns.length > 0
       ? {
           title: d.politicalGroupCohesion,
-          metrics: patterns.slice(0, 4).map((p) => ({
+          metrics: realPatterns.slice(0, 4).map((p) => ({
             label: p.group,
             value: `${(p.cohesion * 100).toFixed(0)}%`,
             trend: (p.cohesion > 0.8 ? 'up' : p.cohesion < 0.5 ? 'down' : 'stable') as
@@ -1107,11 +1148,11 @@ export function buildVotingDashboard(
             type: 'bar' as const,
             title: d.groupCohesionRates,
             data: {
-              labels: patterns.slice(0, 6).map((p) => p.group),
+              labels: realPatterns.slice(0, 6).map((p) => p.group),
               datasets: [
                 {
                   label: d.cohesionPct,
-                  data: patterns.slice(0, 6).map((p) => Math.round(p.cohesion * 100)),
+                  data: realPatterns.slice(0, 6).map((p) => Math.round(p.cohesion * 100)),
                 },
               ],
             },
@@ -1282,12 +1323,13 @@ export function buildPropositionsDashboard(
  *
  * @param committees - Committee data list
  * @param lang - Target language code
- * @returns Dashboard configuration
+ * @returns Dashboard configuration, or `null` when all committee data is placeholder
  */
 export function buildCommitteeDashboard(
   committees: readonly CommitteeData[],
   lang: LanguageCode = 'en'
-): DashboardConfig {
+): DashboardConfig | null {
+  if (isPlaceholderCommitteeData(committees)) return null;
   const d: DashboardBuilderStrings = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
   const activeCommittees = committees.filter((c) => c.documents.length > 0);
   const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);

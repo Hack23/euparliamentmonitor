@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Week Ahead"
-description: Generates EU Parliament week-ahead prospective articles for all 14 languages. Runs Fridays to preview the upcoming parliamentary week using European Parliament MCP data.
+description: Generates EU Parliament week-ahead English article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 strict: false
 on:
   schedule:
@@ -13,9 +13,9 @@ on:
         required: false
         default: false
       languages:
-        description: 'Languages to generate (en | eu-core | nordic | all)'
+        description: 'Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow'
         required: false
-        default: all
+        default: en
 
 permissions:
   contents: read
@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.1.2
+      - european-parliament-mcp-server@1.1.5
     env:
       EP_REQUEST_TIMEOUT_MS: "30000"
 
@@ -116,12 +116,14 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
-- **Minutes 3–10**: Query plenary sessions, committee meetings, and legislative pipeline for next 7 days
-- **Minutes 10–40**: Generate articles for all requested languages
-- **Minutes 40–50**: Validate generated HTML
-- **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 3–15**: Query plenary sessions, committee meetings, and legislative pipeline for next 7 days
+- **Minutes 15–45**: Generate English article with deep political intelligence analysis
+- **Minutes 45–52**: Validate generated HTML
+- **Minutes 52–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 50 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
+> **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
+
+**If you reach minute 52 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 
 ## Required Skills
 
@@ -398,7 +400,12 @@ The generation script (`src/generators/news-enhanced.ts`) has its own built-in M
 
 **In this agentic workflow, use gateway mode.** The MCP Gateway is already running and provides access to the EP MCP server. Read the gateway configuration to pass credentials to the script:
 
+> ⚠️ **CRITICAL — MCP env vars and the generation script MUST run in the same bash block.**
+> Environment variables (`EP_MCP_GATEWAY_URL`, `USE_EP_MCP`) set via `export` in one bash block
+> do NOT persist to the next block in agentic workflow execution. Keep setup and generation together.
+
 ```bash
+# --- MCP Gateway Setup ---
 # Read MCP gateway config from the environment
 MCP_CONFIG="${GH_AW_MCP_CONFIG:-/home/runner/.copilot/mcp-config.json}"
 
@@ -439,16 +446,11 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ EP MCP server binary not found, attempting reinstall..."
-    npm install --no-save european-parliament-mcp-server@1.1.2
+    npm install --no-save european-parliament-mcp-server@1.1.5
   fi
 fi
-```
 
-Then generate articles:
-
-```bash
-# EP_LANG_INPUT is provided via the workflow step env: block
-# e.g., env: EP_LANG_INPUT: ${{ github.event.inputs.languages }}
+# --- Generate Articles ---
 LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
@@ -466,7 +468,6 @@ case "$LANGUAGES_INPUT" in
   *)         LANG_ARG="$LANGUAGES_INPUT" ;;
 esac
 
-# EP_FORCE_GENERATION is provided via the workflow step env: block
 SKIP_FLAG=""
 if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
@@ -475,8 +476,6 @@ fi
 # Set USE_EP_MCP=true to enable the script's built-in MCP client
 export USE_EP_MCP=true
 
-# Pass prefetched feed data only when this run created /tmp/ep-feed-data.json for
-# the exact week-ahead UTC window; otherwise let the generator fetch live MCP data.
 FEED_DATA_FLAG=""
 if [ -f "/tmp/ep-feed-data.json" ]; then
   FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"
@@ -629,13 +628,22 @@ fi
 ```bash
 # Reuse $TODAY from Date Context Establishment — do NOT recompute to avoid midnight drift
 ARTICLE_TYPE="week-ahead"
-EXPECTED_LANGS="en sv da no fi de fr es nl ar he ja ko zh"
-EXPECTED_COUNT=14
+
+# Determine expected languages from LANG_ARG (set during generation)
+# Default scheduled runs produce English only; manual dispatch may override
+if [ "$LANG_ARG" = "en" ]; then
+  EXPECTED_LANGS="en"
+  EXPECTED_COUNT=1
+else
+  EXPECTED_LANGS="$LANG_ARG"
+  EXPECTED_COUNT=$(echo "$LANG_ARG" | tr ',' '\n' | wc -l)
+fi
+
 ACTUAL_COUNT=$(ls news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null | wc -l)
 echo "📊 File count: $ACTUAL_COUNT / $EXPECTED_COUNT expected"
-# Unconditionally validate each expected language file exists (guards against stray files inflating count)
+# Validate each expected language file exists
 MISSING_LANGS=""
-for LANG in $EXPECTED_LANGS; do
+for LANG in $(echo "$EXPECTED_LANGS" | tr ',' ' '); do
   if [ ! -f "news/${TODAY}-${ARTICLE_TYPE}-${LANG}.html" ]; then
     MISSING_LANGS="$MISSING_LANGS $LANG"
   fi
@@ -646,7 +654,7 @@ if [ -n "$MISSING_LANGS" ]; then
   for LANG in $MISSING_LANGS; do
     echo "  - $LANG"
   done
-  echo "❌ ERROR: Incomplete language coverage. All $EXPECTED_COUNT languages must be generated before creating the PR." >&2
+  echo "❌ ERROR: Incomplete language coverage. All $EXPECTED_COUNT language(s) must be generated before creating the PR." >&2
   exit 1
 fi
 
@@ -656,6 +664,7 @@ fi
 ```
 
 > **⚠️ Do NOT commit generated files**: `sitemap.xml`, `sitemap*.html`, `rss.xml`, `index.html`, `index-*.html`, and `news/articles-metadata.json` are generated at deploy time. Only commit article HTML files: `news/{YYYY-MM-DD}-week-ahead-{lang}.html`
+> **📝 Translations note**: Non-English language articles are generated by the separate `news-translate` workflow after this PR is merged.
 
 Set the deterministic branch name for the PR.
 
@@ -677,7 +686,23 @@ safeoutputs___create_pull_request({
 })
 ```
 
-## Translation Rules
+## Available Visualization Sections
+
+The generator pipeline supports rich data-driven visualizations. These are produced automatically when the article strategy populates the corresponding data fields:
+
+| Section | Generator | What it shows |
+|---------|-----------|---------------|
+| **SWOT Analysis** | `buildSwotSection()` | Strengths / Weaknesses / Opportunities / Threats grid |
+| **Dashboard** | `buildDashboardSection()` | Metric cards, bar/line charts with data tables |
+| **Mindmap** | `buildMindmapSection()` | Central topic → color-coded policy branches → leaf items |
+| **Sankey Flow** | `buildSankeySection()` | Inline SVG flow diagram: source nodes → target nodes |
+| **Deep Analysis** | `buildDeepAnalysisSection()` | Free-form analytical narrative |
+
+The **Mindmap** section is ideal for week-ahead articles to show the interconnections between upcoming policy topics, committees, and key actors. The **Dashboard** provides scheduled event counts and committee activity previews.
+
+## Translation Notes
+
+> **📝 Translation is handled by the separate `news-translate` workflow.** This workflow focuses exclusively on generating excellent English content with deep political intelligence. When manually dispatching with `languages=all`, the following rules apply:
 
 - EP document reference IDs (e.g., `2024/0001(COD)`) MUST be kept as-is — never translated
 - Political group abbreviations (EPP, S&D, Renew, Greens/EFA, ECR, PfE, ESN) MUST NEVER be translated
@@ -695,20 +720,6 @@ The following UI elements are already localized in the TypeScript source code vi
 - Lede paragraph template
 - "Why This Matters" heading and editorial attribution
 - Article titles and subtitles (via `WEEK_AHEAD_TITLES`)
-
-### LLM Must Translate
-
-When generating articles for non-English languages, the LLM MUST translate:
-- The narrative body paragraphs (analysis, context, what-to-watch explanations)
-- Event descriptions and committee agenda summaries
-- Any free-text editorial content beyond the structured headings
-- Calendar and scheduling descriptions
-
-### Language-Specific Requirements (ja, ko, zh)
-
-- **Japanese (ja)**: Use formal Japanese (です/ます form), CJK punctuation (。、), no spaces between words
-- **Korean (ko)**: Use formal Korean (합니다 form), CJK punctuation, proper spacing between words
-- **Chinese (zh)**: Use Simplified Chinese, CJK punctuation (。、), no spaces between characters
 
 ## Article Naming Convention
 

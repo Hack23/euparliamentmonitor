@@ -68,6 +68,48 @@ export function getMotionsFallbackData(dateStr, dateFromStr) {
     };
 }
 /**
+ * Returns true when there is no real roll-call data: either the records
+ * array is empty or every voting record carries the placeholder marker,
+ * indicating no real roll-call data was retrieved from MCP.
+ *
+ * @param records - Voting records to test
+ * @returns `true` if the array is empty or all records are placeholder-only data
+ */
+function isPlaceholderVotingRecords(records) {
+    return records.length === 0 || records.every((r) => r.result === PLACEHOLDER_MARKER);
+}
+/**
+ * Returns true when there is no real voting pattern data: either the patterns
+ * array is empty or every voting pattern is placeholder/fallback data
+ * (groups whose name contains the word "placeholder" — case-insensitive).
+ *
+ * @param patterns - Voting patterns to test
+ * @returns `true` if the array is empty or all patterns are placeholder-only data
+ */
+function isPlaceholderVotingPatterns(patterns) {
+    return patterns.length === 0 || patterns.every((p) => /placeholder/i.test(p.group));
+}
+/**
+ * Returns true when there is no real anomaly data: either the array is empty
+ * or every anomaly type contains the word "placeholder" (case-insensitive).
+ *
+ * @param anomalies - Anomalies to test
+ * @returns `true` if the array is empty or all anomalies are placeholder-only data
+ */
+function isPlaceholderAnomalies(anomalies) {
+    return anomalies.length === 0 || anomalies.every((a) => /placeholder/i.test(a.type));
+}
+/**
+ * Returns true when there is no real questions data: either the array is empty
+ * or every question carries the placeholder marker in its status field.
+ *
+ * @param questions - Parliamentary questions to test
+ * @returns `true` if the array is empty or all questions are placeholder-only data
+ */
+function isPlaceholderQuestions(questions) {
+    return questions.length === 0 || questions.every((q) => q.status === PLACEHOLDER_MARKER);
+}
+/**
  * Generate HTML content for motions article
  *
  * @param dateFromStr - Start date
@@ -82,16 +124,25 @@ export function getMotionsFallbackData(dateStr, dateFromStr) {
 export function generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions, lang = 'en') {
     const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
     const strings = getLocalizedString(MOTIONS_STRINGS, lang);
+    const ledeAnalysisRaw = strings.ledeAnalysis
+        .replace('{DATE_FROM}', dateFromStr)
+        .replace('{DATE_TO}', dateStr);
+    const showVotingResults = !isPlaceholderVotingRecords(votingRecords);
+    const showVotingPatterns = !isPlaceholderVotingPatterns(votingPatterns);
+    const showAnomalies = !isPlaceholderAnomalies(anomalies);
+    const showQuestions = !isPlaceholderQuestions(questions);
     return `
     <div class="article-content">
       <section class="lede">
-        <p>${escapeHTML(strings.lede)} ${escapeHTML(editorial.sourceAttribution)}, analysis of voting records from ${escapeHTML(dateFromStr)} to ${escapeHTML(dateStr)} provides insights into legislative decision-making and party discipline.</p>
+        <p>${escapeHTML(strings.lede)} ${escapeHTML(editorial.sourceAttribution)}, ${escapeHTML(ledeAnalysisRaw)}</p>
       </section>
-      
+      ${showVotingResults
+        ? `
       <section class="voting-results">
         <h2>${escapeHTML(strings.votingRecordsHeading)}</h2>
         ${votingRecords
-        .map((record) => `
+            .filter((r) => r.result !== PLACEHOLDER_MARKER)
+            .map((record) => `
           <div class="vote-item">
             <h3>${escapeHTML(record.title)}</h3>
             <p class="vote-date">${escapeHTML(strings.dateLabel)}: ${escapeHTML(record.date)}</p>
@@ -103,54 +154,64 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
             </div>
           </div>
         `)
-        .join('')}
-      </section>
-      
+            .join('')}
+      </section>`
+        : ''}
+      ${showVotingPatterns
+        ? `
       <section class="voting-patterns">
         <h2>${escapeHTML(strings.partyCohesionHeading)}</h2>
         <p>${escapeHTML(editorial.parliamentaryContext)}: Analysis of voting behavior reveals varying levels of party discipline across political groups:</p>
         ${votingPatterns
-        .map((pattern) => `
+            .filter((p) => !/placeholder/i.test(p.group))
+            .map((pattern) => `
           <div class="pattern-item">
             <h3>${escapeHTML(pattern.group)}</h3>
             <p><strong>${escapeHTML(strings.cohesionLabel)}:</strong> ${escapeHTML(String((pattern.cohesion * 100).toFixed(1)))}%</p>
             <p><strong>${escapeHTML(strings.participationLabel)}:</strong> ${escapeHTML(String((pattern.participation * 100).toFixed(1)))}%</p>
           </div>
         `)
-        .join('')}
-      </section>
-      
+            .join('')}
+      </section>`
+        : ''}
+      ${showAnomalies
+        ? `
       <section class="anomalies">
         <h2>${escapeHTML(strings.anomaliesHeading)}</h2>
         <p>${escapeHTML(editorial.analysisNote)}: Unusual voting patterns that deviate from typical party lines:</p>
         ${anomalies
-        .map((anomaly) => {
-        const rawSeverity = anomaly.severity ?? 'unknown';
-        const severityDisplay = typeof rawSeverity === 'string' ? rawSeverity : String(rawSeverity);
-        const severityClass = severityDisplay.toLowerCase();
-        return `
+            .filter((a) => !/placeholder/i.test(a.type))
+            .map((anomaly) => {
+            const rawSeverity = anomaly.severity ?? 'unknown';
+            const severityDisplay = typeof rawSeverity === 'string' ? rawSeverity : String(rawSeverity);
+            const severityClass = severityDisplay.toLowerCase();
+            return `
           <div class="anomaly-item severity-${escapeHTML(severityClass)}">
             <h3>${escapeHTML(anomaly.type)}</h3>
             <p>${escapeHTML(anomaly.description)}</p>
             <p class="severity">${escapeHTML(strings.severityLabel)}: ${escapeHTML(severityDisplay)}</p>
           </div>
         `;
-    })
-        .join('')}
-      </section>
-      
+        })
+            .join('')}
+      </section>`
+        : ''}
+      ${showQuestions
+        ? `
       <section class="questions">
         <h2>${escapeHTML(strings.questionsHeading)}</h2>
         ${questions
-        .map((question) => `
+            .filter((q) => q.status !== PLACEHOLDER_MARKER)
+            .map((question) => `
           <div class="question-item">
             <p class="question-author">${escapeHTML(question.author)}</p>
             <p class="question-topic"><strong>${escapeHTML(question.topic)}</strong></p>
             <p class="question-meta">${escapeHTML(strings.dateLabel)}: ${escapeHTML(question.date)} | ${escapeHTML(strings.statusLabel)}: ${escapeHTML(question.status)}</p>
           </div>
         `)
-        .join('')}
-      </section>
+            .join('')}
+      </section>`
+        : ''}
 
       <section class="why-this-matters">
         <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
@@ -170,7 +231,10 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
 function buildVoteAlignmentHtml(records) {
     if (records.length === 0)
         return '';
-    const items = records
+    const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
+    if (realRecords.length === 0)
+        return '';
+    const items = realRecords
         .map((r) => {
         const forVotes = escapeHTML(String(r.votes.for));
         const againstVotes = escapeHTML(String(r.votes.against));

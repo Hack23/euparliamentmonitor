@@ -2395,14 +2395,16 @@ button:focus-visible {
 .swot-analysis {
   margin: 2rem 0;
   padding: 1.5rem;
-  background: var(--surface, #f8f9fa);
-  border-radius: 8px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
 .swot-analysis h2 {
   font-size: 1.4rem;
   margin-bottom: 1rem;
   color: var(--text-primary, #1a1a2e);
+  letter-spacing: 0.02em;
 }
 
 .swot-matrix {
@@ -2423,27 +2425,53 @@ button:focus-visible {
 .swot-grid {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  gap: 1px;
-  background: var(--border-light, #dee2e6);
-  border-radius: 8px;
+  gap: 2px;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .swot-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1px;
+  gap: 2px;
 }
 
 .swot-quadrant {
-  padding: 1rem;
-  min-height: 120px;
+  padding: 1.25rem;
+  min-height: 130px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.swot-quadrant::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.swot-quadrant:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
 .swot-quadrant-heading {
   font-size: 0.95rem;
   font-weight: 700;
   margin: 0 0 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.swot-quadrant-heading::before {
+  display: inline-block;
+  font-size: 1rem;
 }
 
 .swot-quadrant-desc {
@@ -2460,10 +2488,16 @@ button:focus-visible {
 }
 
 .swot-item {
-  padding: 0.35rem 0;
+  padding: 0.4rem 0.5rem;
   font-size: 0.85rem;
   line-height: 1.4;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  transition: background 0.15s ease;
+}
+
+.swot-item:hover {
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .swot-item:last-child {
@@ -2477,62 +2511,83 @@ button:focus-visible {
 
 .swot-severity-badge {
   display: inline-block;
-  font-size: 0.65rem;
-  font-weight: 600;
+  font-size: 0.6rem;
+  font-weight: 700;
   text-transform: uppercase;
-  padding: 0.1rem 0.4rem;
-  border-radius: 3px;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
   margin-left: 0.35rem;
   vertical-align: middle;
 }
 
-/* Quadrant colors — Strengths: green, Weaknesses: red, Opportunities: blue, Threats: orange */
+/* Quadrant colors — gradient backgrounds for a modern look */
 .swot-strengths {
-  background: #e8f5e9;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
 }
 
 .swot-strengths .swot-quadrant-heading {
+  color: #1b5e20;
+}
+
+.swot-strengths .swot-quadrant-heading::before {
+  content: '✦';
   color: #2e7d32;
 }
 
 .swot-weaknesses {
-  background: #ffebee;
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
 }
 
 .swot-weaknesses .swot-quadrant-heading {
+  color: #b71c1c;
+}
+
+.swot-weaknesses .swot-quadrant-heading::before {
+  content: '▼';
   color: #c62828;
 }
 
 .swot-opportunities {
-  background: #e3f2fd;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
 }
 
 .swot-opportunities .swot-quadrant-heading {
+  color: #0d47a1;
+}
+
+.swot-opportunities .swot-quadrant-heading::before {
+  content: '◆';
   color: #1565c0;
 }
 
 .swot-threats {
-  background: #fff3e0;
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
 }
 
 .swot-threats .swot-quadrant-heading {
+  color: #bf360c;
+}
+
+.swot-threats .swot-quadrant-heading::before {
+  content: '▲';
   color: #e65100;
 }
 
-/* Severity levels */
+/* Severity levels — pill badges */
 .swot-severity-low .swot-severity-badge {
-  background: #c8e6c9;
-  color: #2e7d32;
+  background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+  color: #1b5e20;
 }
 
 .swot-severity-medium .swot-severity-badge {
-  background: #fff9c4;
+  background: linear-gradient(135deg, #fff9c4, #fff176);
   color: #f57f17;
 }
 
 .swot-severity-high .swot-severity-badge {
-  background: #ffcdd2;
-  color: #c62828;
+  background: linear-gradient(135deg, #ffcdd2, #ef9a9a);
+  color: #b71c1c;
 }
 
 /* ─── Dashboard ──────────────────────────────────────────────────────────── */
@@ -2540,14 +2595,16 @@ button:focus-visible {
 .dashboard {
   margin: 2rem 0;
   padding: 1.5rem;
-  background: var(--surface, #f8f9fa);
-  border-radius: 8px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
 .dashboard h2 {
   font-size: 1.4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   color: var(--text-primary, #1a1a2e);
+  letter-spacing: 0.02em;
 }
 
 .dashboard-grid {
@@ -2558,9 +2615,16 @@ button:focus-visible {
 
 .dashboard-panel {
   background: var(--surface-alt, #ffffff);
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 1.25rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.dashboard-panel:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
 }
 
 .panel-title {
@@ -2568,6 +2632,18 @@ button:focus-visible {
   font-weight: 600;
   margin: 0 0 1rem;
   color: var(--text-primary, #1a1a2e);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.panel-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 1.1em;
+  background: linear-gradient(180deg, #003399, #FFD700);
+  border-radius: 2px;
 }
 
 .metrics-grid {
@@ -2581,26 +2657,36 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.75rem;
-  background: var(--surface, #f8f9fa);
-  border-radius: 6px;
+  padding: 0.85rem;
+  background: linear-gradient(145deg, #ffffff, #f0f2f5);
+  border-radius: 10px;
   text-align: center;
-  border: 1px solid var(--border-light, #dee2e6);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 51, 153, 0.1);
 }
 
 .metric-label {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.68rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   color: var(--text-muted, #6c757d);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
 }
 
 .metric-value {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary, #1a1a2e);
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #003399, #1565c0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   line-height: 1.2;
 }
 
@@ -2612,14 +2698,24 @@ button:focus-visible {
 
 .metric-trend-up {
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #2e7d32;
+}
+
+.metric-trend-up::before {
+  content: '▲ ';
+  font-size: 0.65rem;
 }
 
 .metric-trend-down {
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #c62828;
+}
+
+.metric-trend-down::before {
+  content: '▼ ';
+  font-size: 0.65rem;
 }
 
 .metric-trend-stable {
@@ -2628,9 +2724,18 @@ button:focus-visible {
   color: var(--text-muted, #6c757d);
 }
 
+.metric-trend-stable::before {
+  content: '● ';
+  font-size: 0.5rem;
+}
+
 .chart-container {
   position: relative;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: var(--surface-alt, #ffffff);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .chart-title {
@@ -2643,31 +2748,44 @@ button:focus-visible {
 .dashboard-chart {
   max-width: 100%;
   height: auto;
+  min-height: 200px;
 }
 
 .chart-fallback-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   font-size: 0.8rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-light, #dee2e6);
 }
 
 .chart-fallback-table th,
 .chart-fallback-table td {
-  padding: 0.4rem 0.6rem;
+  padding: 0.5rem 0.75rem;
   text-align: left;
-  border: 1px solid var(--border-light, #dee2e6);
+  border-bottom: 1px solid var(--border-light, #dee2e6);
 }
 
 .chart-fallback-table thead th {
-  background: var(--surface, #f8f9fa);
-  font-weight: 600;
+  background: linear-gradient(135deg, #f0f2f5, #e9ecef);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary, #495057);
+}
+
+.chart-fallback-table tbody tr:hover {
+  background: rgba(0, 51, 153, 0.03);
 }
 
 .chart-no-data {
   font-style: italic;
   color: var(--text-muted, #6c757d);
   text-align: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
 }
 
 /* Responsive: stack SWOT quadrants on small screens */
@@ -2682,5 +2800,255 @@ button:focus-visible {
 
   .metrics-grid {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ===================================================================
+   Mindmap Section
+   CSS-only mindmap with central topic node and colored branches.
+   =================================================================== */
+
+.mindmap-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(160deg, #f0f4ff 0%, #e8eaf6 50%, #f3e5f5 100%);
+  border: 2px solid var(--primary, #1565c0);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(21, 101, 192, 0.1);
+}
+
+.mindmap-section h2 {
+  font-size: 1.4rem;
+  color: var(--primary, #1565c0);
+  border-bottom: 2px solid var(--primary, #1565c0);
+  padding-bottom: 0.75rem;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.02em;
+}
+
+.mindmap-summary {
+  color: var(--text-muted, #6c757d);
+  font-size: 0.95rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.mindmap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mindmap-center {
+  background: linear-gradient(135deg, #003399, #1565c0);
+  border: 3px solid #003399;
+  border-radius: 16px;
+  padding: 1rem 2rem;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 0.85rem + 0.5vw, 1.15rem);
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 51, 153, 0.25);
+  max-width: 280px;
+  position: relative;
+}
+
+.mindmap-center::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 12px;
+  background: var(--primary, #1565c0);
+}
+
+.mindmap-branches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.mindmap-branch {
+  background: var(--branch-bg, #e3f2fd);
+  border: 2px solid var(--branch-border, #1565c0);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  min-width: 180px;
+  max-width: 240px;
+  flex: 1 1 180px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.mindmap-branch:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.mindmap-branch::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 0;
+}
+
+.mindmap-branch-label {
+  color: var(--branch-text, #1565c0);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--branch-border, #1565c0);
+}
+
+.mindmap-leaf-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  color: var(--text-secondary, #495057);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.mindmap-leaf-list li {
+  margin-bottom: 0.2rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.mindmap-leaf-list li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--branch-border, #1565c0);
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .mindmap-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .mindmap-center {
+    flex: 0 0 auto;
+    align-self: center;
+  }
+
+  .mindmap-center::after {
+    display: none;
+  }
+
+  .mindmap-branches {
+    width: auto;
+    flex: 1;
+  }
+}
+
+[dir="rtl"] .mindmap-section {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .mindmap-leaf-list li {
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+[dir="rtl"] .mindmap-leaf-list li::before {
+  left: auto;
+  right: 0;
+}
+
+/* ===================================================================
+   Sankey Flow Chart Section
+   Inline SVG Sankey with accessible fallback table.
+   =================================================================== */
+
+.sankey-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(160deg, #faf5ff 0%, #f3e5f5 50%, #f0f4ff 100%);
+  border: 2px solid #7b1fa2;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(123, 31, 162, 0.1);
+}
+
+.sankey-section h2 {
+  font-size: 1.4rem;
+  color: var(--text-primary, #1a1a2e);
+  border-bottom: 2px solid #7b1fa2;
+  padding-bottom: 0.75rem;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.02em;
+}
+
+.sankey-summary {
+  color: var(--text-muted, #6c757d);
+  font-size: 0.95rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.sankey-chart-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem;
+  background: var(--surface-alt, #ffffff);
+  border-radius: 8px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.sankey-chart-wrapper svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sankey-fallback-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.8rem;
+  margin-top: 0.75rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-light, #dee2e6);
+}
+
+.sankey-fallback-table th,
+.sankey-fallback-table td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-light, #dee2e6);
+}
+
+.sankey-fallback-table thead th {
+  background: linear-gradient(135deg, #f3e5f5, #e8eaf6);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+[dir="rtl"] .sankey-section {
+  direction: rtl;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .mindmap-branch {
+    min-width: 140px;
+    max-width: 100%;
   }
 }

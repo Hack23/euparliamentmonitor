@@ -10,7 +10,7 @@
  *   - generateArticleForStrategy, createStrategyRegistry (generate-stage)
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
@@ -39,6 +39,7 @@ import {
   fetchEventsFeed,
   fetchProceduresFeed,
   fetchMEPsFeed,
+  fetchMEPsFeedWithTotal,
   fetchBreakingNewsFeedData,
   fetchDocumentsFeed,
   fetchPlenaryDocumentsFeed,
@@ -391,6 +392,7 @@ describe('writeGenerationMetadata', () => {
   });
 
   afterEach(() => {
+    vi.useRealTimers();
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 
@@ -441,6 +443,93 @@ describe('writeGenerationMetadata', () => {
     const content = JSON.parse(fs.readFileSync(path.join(tmpDir, files[0]), 'utf-8'));
     expect(content.results).toHaveLength(1);
     expect(content.results[0].slug).toBe('2025-01-15-week-ahead');
+  });
+
+  it('merges stats and results when a metadata file already exists for the same day', () => {
+    const fixedDate = new Date('2025-01-15T12:00:00.000Z');
+    vi.useFakeTimers();
+    vi.setSystemTime(fixedDate);
+    const dateSlug = fixedDate.toISOString().split('T')[0];
+    const metadataPath = path.join(tmpDir, `generation-${dateSlug}.json`);
+
+    // Write an existing metadata file (first workflow run)
+    const existingMetadata = {
+      timestamp: fixedDate.toISOString(),
+      generated: 14,
+      skipped: 0,
+      dryRun: 0,
+      errors: 0,
+      articles: ['2025-01-15-motions-en.html', '2025-01-15-motions-fr.html'],
+      results: [{ success: true, files: 14, slug: '2025-01-15-motions' }],
+      usedMCP: false,
+    };
+    fs.writeFileSync(metadataPath, JSON.stringify(existingMetadata), 'utf-8');
+
+    // Second workflow run (committee-reports, skipped)
+    const stats2 = {
+      generated: 0,
+      skipped: 14,
+      dryRun: 0,
+      errors: 0,
+      articles: [],
+      timestamp: fixedDate.toISOString(),
+    };
+    const results2 = [{ success: true, files: 0, slug: '2025-01-15-committee-reports' }];
+    writeGenerationMetadata(stats2, results2, true, tmpDir, false);
+
+    const content = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+    // Totals should be merged
+    expect(content.generated).toBe(14);
+    expect(content.skipped).toBe(14);
+    // Articles from first run should be preserved
+    expect(content.articles).toContain('2025-01-15-motions-en.html');
+    // Results from both runs should be present
+    expect(content.results).toHaveLength(2);
+    expect(content.results.some((r) => r.slug === '2025-01-15-motions')).toBe(true);
+    expect(content.results.some((r) => r.slug === '2025-01-15-committee-reports')).toBe(true);
+    // usedMCP true if either run used it
+    expect(content.usedMCP).toBe(true);
+  });
+
+  it('deduplicates results by slug when re-running the same strategy', () => {
+    const fixedDate = new Date('2025-01-15T12:00:00.000Z');
+    vi.useFakeTimers();
+    vi.setSystemTime(fixedDate);
+    const dateSlug = fixedDate.toISOString().split('T')[0];
+    const metadataPath = path.join(tmpDir, `generation-${dateSlug}.json`);
+
+    const existing = {
+      timestamp: fixedDate.toISOString(),
+      generated: 5,
+      skipped: 0,
+      dryRun: 0,
+      errors: 0,
+      articles: ['2025-01-15-week-ahead-en.html'],
+      results: [{ success: true, files: 1, slug: '2025-01-15-week-ahead' }],
+      usedMCP: false,
+    };
+    fs.writeFileSync(metadataPath, JSON.stringify(existing), 'utf-8');
+
+    // Re-run same strategy (e.g. retry)
+    const stats2 = {
+      generated: 1,
+      skipped: 0,
+      dryRun: 0,
+      errors: 0,
+      articles: ['2025-01-15-week-ahead-en.html'],
+      timestamp: fixedDate.toISOString(),
+    };
+    writeGenerationMetadata(
+      stats2,
+      [{ success: true, files: 1, slug: '2025-01-15-week-ahead' }],
+      false,
+      tmpDir,
+      false
+    );
+
+    const content = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+    // Results should not be duplicated
+    expect(content.results.filter((r) => r.slug === '2025-01-15-week-ahead')).toHaveLength(1);
   });
 });
 
@@ -890,6 +979,30 @@ describe('generateArticleForStrategy', () => {
     const result = await generateArticleForStrategy(strategy, null, [], opts, stats);
     expect(result.success).toBe(true);
     expect(result.files).toBe(0);
+  });
+
+  it('increments stats.skipped by languages.length when shouldSkip returns true', async () => {
+    const { generateArticleForStrategy } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const skippingStrategy = {
+      type: 'committee-reports',
+      requiredMCPTools: [],
+      fetchData: async () => ({ committees: [] }),
+      buildContent: () => '',
+      getMetadata: () => ({ title: '', subtitle: '', category: 'committee-reports', keywords: [] }),
+      shouldSkip: () => true,
+    };
+    const stats = { generated: 0, skipped: 0, dryRun: 0, errors: 0, articles: [], timestamp: '' };
+    const opts = { dryRun: false, skipExisting: false, newsDir: tmpDir };
+    const languages = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+
+    const result = await generateArticleForStrategy(skippingStrategy, null, languages, opts, stats);
+    expect(result.success).toBe(true);
+    expect(result.files).toBe(0);
+    expect(stats.skipped).toBe(14);
+    expect(stats.generated).toBe(0);
+    expect(stats.articles).toHaveLength(0);
   });
 });
 
@@ -2165,5 +2278,162 @@ describe('fetchCommitteeData with pre-fetched file', () => {
     expect(result.members).toBe(0);
     expect(result.documents).toEqual([]);
     expect(result.effectiveness).toBeNull();
+  });
+});
+
+// ─── fetchMEPsFeedWithTotal ───────────────────────────────────────────────────
+
+describe('fetchMEPsFeedWithTotal with null client', () => {
+  it('returns empty items and total 0 when client is null', async () => {
+    const result = await fetchMEPsFeedWithTotal(null);
+    expect(result.items).toEqual([]);
+    expect(result.total).toBe(0);
+  });
+
+  it('accepts an optional timeframe parameter', async () => {
+    const result = await fetchMEPsFeedWithTotal(null, 'one-week');
+    expect(result.items).toEqual([]);
+    expect(result.total).toBe(0);
+  });
+});
+
+describe('fetchMEPsFeedWithTotal — total parsing via mock client', () => {
+  beforeEach(() => { mcpCircuitBreaker.recordSuccess(); });
+
+  it('returns total from API response when total field is present', async () => {
+    const mockClientMEPTotal = {
+      ...mockClientEmpty,
+      getMEPsFeed: async () => ({
+        content: [{ text: JSON.stringify({
+          total: 525,
+          data: [
+            { id: 'MEP-001', name: 'Alice Mueller', date: '2026-03-10', country: 'DE', group: 'EPP' },
+            { id: 'MEP-002', name: 'Bob Dupont', date: '2026-03-10', country: 'FR', group: 'S&D' },
+          ],
+        }) }],
+      }),
+    };
+
+    const result = await fetchMEPsFeedWithTotal(mockClientMEPTotal, 'one-day');
+    expect(result.total).toBe(525);
+    expect(result.items).toHaveLength(2);
+    expect(result.items[0].id).toBe('MEP-001');
+    expect(result.items[0].name).toBe('Alice Mueller');
+    expect(result.items[0].country).toBe('DE');
+    expect(result.items[0].group).toBe('EPP');
+    expect(result.items[1].id).toBe('MEP-002');
+  });
+
+  it('returns total 0 when API response has no total field', async () => {
+    const mockClientMEPNoTotal = {
+      ...mockClientEmpty,
+      getMEPsFeed: async () => ({
+        content: [{ text: JSON.stringify({
+          data: [
+            { id: 'MEP-003', name: 'Carlos Ruiz', date: '2026-03-10' },
+          ],
+        }) }],
+      }),
+    };
+
+    const result = await fetchMEPsFeedWithTotal(mockClientMEPNoTotal, 'one-day');
+    expect(result.total).toBe(0);
+    expect(result.items).toHaveLength(1);
+    expect(result.items[0].id).toBe('MEP-003');
+  });
+
+  it('returns total 0 when API response total is not a number', async () => {
+    const mockClientMEPBadTotal = {
+      ...mockClientEmpty,
+      getMEPsFeed: async () => ({
+        content: [{ text: JSON.stringify({
+          total: 'not-a-number',
+          data: [{ id: 'MEP-004', name: 'Diana Kovac', date: '2026-03-10' }],
+        }) }],
+      }),
+    };
+
+    const result = await fetchMEPsFeedWithTotal(mockClientMEPBadTotal, 'one-day');
+    expect(result.total).toBe(0);
+    expect(result.items).toHaveLength(1);
+  });
+
+  it('returns total 0 and empty items when API response is empty content', async () => {
+    const mockClientMEPEmpty = {
+      ...mockClientEmpty,
+      getMEPsFeed: async () => ({ content: [{ text: '{}' }] }),
+    };
+
+    const result = await fetchMEPsFeedWithTotal(mockClientMEPEmpty, 'one-day');
+    expect(result.total).toBe(0);
+    expect(result.items).toEqual([]);
+  });
+
+  it('returns empty items and total 0 when client throws', async () => {
+    const mockClientMEPThrow = {
+      ...mockClientEmpty,
+      getMEPsFeed: async () => { throw new Error('network error'); },
+    };
+
+    const result = await fetchMEPsFeedWithTotal(mockClientMEPThrow, 'one-day');
+    expect(result.items).toEqual([]);
+    expect(result.total).toBe(0);
+  });
+});
+
+// ─── filterBreakingNewsFeedDataByDateRange via loadFeedDataFromFile ───────────
+
+describe('filterBreakingNewsFeedDataByDateRange clears totalMEPUpdates on date-range filter', () => {
+  let tmpDir;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'filter-total-test-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('clears totalMEPUpdates when a date-range filter is applied', () => {
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [],
+      mepUpdates: [
+        { id: 'MEP-001', name: 'Alice Mueller', date: '2026-03-10' },
+        { id: 'MEP-002', name: 'Bob Dupont', date: '2026-02-01' },
+      ],
+      totalMEPUpdates: 525,
+    };
+    const filePath = path.join(tmpDir, 'feed-with-total.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+
+    // Apply a date-range filter — totalMEPUpdates should be cleared
+    const result = loadFeedDataFromFile(filePath, { start: '2026-03-10', end: '2026-03-10' });
+    expect(result).toBeDefined();
+    expect(result.mepUpdates).toHaveLength(1);
+    expect(result.mepUpdates[0].id).toBe('MEP-001');
+    // totalMEPUpdates must be cleared when filtering to avoid incorrect truncation note
+    expect(result.totalMEPUpdates).toBeUndefined();
+  });
+
+  it('preserves totalMEPUpdates when no date-range filter is applied', () => {
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [],
+      mepUpdates: [
+        { id: 'MEP-001', name: 'Alice Mueller', date: '2026-03-10' },
+      ],
+      totalMEPUpdates: 525,
+    };
+    const filePath = path.join(tmpDir, 'feed-no-filter.json');
+    fs.writeFileSync(filePath, JSON.stringify(feedData));
+
+    // No date-range filter — totalMEPUpdates should be preserved
+    const result = loadFeedDataFromFile(filePath);
+    expect(result).toBeDefined();
+    expect(result.mepUpdates).toHaveLength(1);
+    expect(result.totalMEPUpdates).toBe(525);
   });
 });

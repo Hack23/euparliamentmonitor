@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Weekly Review"
-description: Generates EU Parliament weekly review retrospective articles for all 14 languages. Runs Saturdays to review the past week.
+description: Generates EU Parliament weekly review retrospective English article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 strict: false
 on:
   schedule:
@@ -13,9 +13,9 @@ on:
         required: false
         default: false
       languages:
-        description: 'Languages to generate (en | eu-core | nordic | all)'
+        description: 'Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow'
         required: false
-        default: all
+        default: en
 
 permissions:
   contents: read
@@ -44,7 +44,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.1.2
+      - european-parliament-mcp-server@1.1.5
     env:
       EP_REQUEST_TIMEOUT_MS: "30000"
 
@@ -116,12 +116,14 @@ This is a **retrospective** article analyzing the past 7 days of parliamentary a
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (up to 3 attempts)
-- **Minutes 3–10**: Query voting records, documents, and questions from past 7 days
-- **Minutes 10–40**: Generate articles for all requested languages
-- **Minutes 40–50**: Validate generated HTML
-- **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 3–15**: Query voting records, documents, and questions from past 7 days
+- **Minutes 15–45**: Generate English article with deep political intelligence analysis
+- **Minutes 45–52**: Validate generated HTML
+- **Minutes 52–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 40 without having prepared the PR**: Stop generating. Finish your current file edits and immediately create the PR using `safeoutputs___create_pull_request` (do not run any git commands; the framework will capture your working-directory changes).
+> **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
+
+**If you reach minute 45 without having prepared the PR**: Stop generating. Finish your current file edits and immediately create the PR using `safeoutputs___create_pull_request` (do not run any git commands; the framework will capture your working-directory changes).
 
 ## Required Skills
 
@@ -310,12 +312,18 @@ if [ -n "$EXISTING_ARTICLE" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
 fi
 ```
 
-### Step 1: Setup MCP Gateway
+### Step 1: Setup MCP Gateway & Generate Articles
+
+> ⚠️ **CRITICAL — MCP env vars and the generation script MUST run in the same bash block.**
+> Environment variables (`EP_MCP_GATEWAY_URL`, `USE_EP_MCP`) set via `export` in one bash block
+> do NOT persist to the next block in agentic workflow execution. Keep setup and generation together.
 
 ```bash
+# --- MCP Gateway Setup ---
 MCP_CONFIG="${GH_AW_MCP_CONFIG:-/home/runner/.copilot/mcp-config.json}"
 
 if [ -f "$MCP_CONFIG" ]; then
+  echo "✅ MCP gateway config found at $MCP_CONFIG"
   if command -v jq >/dev/null 2>&1; then
     GATEWAY_PORT=$(jq -r '.gateway.port // empty' "$MCP_CONFIG")
     GATEWAY_DOMAIN=$(jq -r '.gateway.domain // empty' "$MCP_CONFIG")
@@ -337,19 +345,19 @@ if [ -f "$MCP_CONFIG" ]; then
     esac
     export EP_MCP_GATEWAY_URL="${GATEWAY_SCHEME}://${GATEWAY_DOMAIN}:${GATEWAY_PORT}/mcp/european-parliament"
     export EP_MCP_GATEWAY_API_KEY="${GATEWAY_API_KEY:-}"
+    echo "✅ Gateway mode: EP_MCP_GATEWAY_URL=$EP_MCP_GATEWAY_URL"
   fi
+else
+  echo "ℹ️ No gateway config found, will use stdio mode"
 fi
 
 if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ ! -f "node_modules/.bin/european-parliament-mcp-server" ]; then
-    npm install --no-save european-parliament-mcp-server@1.1.2
+    npm install --no-save european-parliament-mcp-server@1.1.5
   fi
 fi
-```
 
-### Step 2: Generate Articles
-
-```bash
+# --- Generate Articles ---
 LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
@@ -372,8 +380,6 @@ fi
 
 export USE_EP_MCP=true
 
-# Pass prefetched feed data only when this run created /tmp/ep-feed-data.json for
-# the exact week-in-review UTC window; otherwise let the generator fetch live MCP data.
 FEED_DATA_FLAG=""
 if [ -f "/tmp/ep-feed-data.json" ]; then
   FEED_DATA_FLAG="--feed-data=/tmp/ep-feed-data.json"
@@ -423,13 +429,20 @@ fi
 ```bash
 # Reuse $TODAY from Date Context Establishment — do NOT recompute to avoid midnight drift
 ARTICLE_TYPE="week-in-review"
-EXPECTED_LANGS="en sv da no fi de fr es nl ar he ja ko zh"
-EXPECTED_COUNT=14
+
+# Determine expected languages from LANG_ARG (set during generation)
+if [ "$LANG_ARG" = "en" ]; then
+  EXPECTED_LANGS="en"
+  EXPECTED_COUNT=1
+else
+  EXPECTED_LANGS="$LANG_ARG"
+  EXPECTED_COUNT=$(echo "$LANG_ARG" | tr ',' '\n' | wc -l)
+fi
+
 ACTUAL_COUNT=$(ls news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null | wc -l)
 echo "📊 File count: $ACTUAL_COUNT / $EXPECTED_COUNT expected"
-# Unconditionally validate each expected language file exists (guards against stray files inflating count)
 MISSING_LANGS=""
-for LANG in $EXPECTED_LANGS; do
+for LANG in $(echo "$EXPECTED_LANGS" | tr ',' ' '); do
   if [ ! -f "news/${TODAY}-${ARTICLE_TYPE}-${LANG}.html" ]; then
     MISSING_LANGS="$MISSING_LANGS $LANG"
   fi
@@ -440,7 +453,7 @@ if [ -n "$MISSING_LANGS" ]; then
   for LANG in $MISSING_LANGS; do
     echo "  - $LANG"
   done
-  echo "❌ ERROR: Incomplete language coverage. All $EXPECTED_COUNT languages must be generated before creating the PR." >&2
+  echo "❌ ERROR: Incomplete language coverage. All $EXPECTED_COUNT language(s) must be generated before creating the PR." >&2
   exit 1
 fi
 
@@ -450,6 +463,7 @@ fi
 ```
 
 > **⚠️ Do NOT commit generated files**: `sitemap.xml`, `sitemap*.html`, `rss.xml`, `index.html`, `index-*.html`, and `news/articles-metadata.json` are generated at deploy time. Only commit article HTML files: `news/{YYYY-MM-DD}-week-in-review-{lang}.html`
+> **📝 Translations note**: Non-English language articles are generated by the separate `news-translate` workflow after this PR is merged.
 
 ```bash
 # Reuse $TODAY from Date Context Establishment
@@ -466,7 +480,24 @@ safeoutputs___create_pull_request({
 })
 ```
 
-## Translation Rules
+## Available Visualization Sections
+
+The generator pipeline supports rich data-driven visualizations. These are produced automatically when the article strategy populates the corresponding data fields:
+
+| Section | Generator | What it shows |
+|---------|-----------|---------------|
+| **SWOT Analysis** | `buildSwotSection()` | Strengths / Weaknesses / Opportunities / Threats grid |
+| **Dashboard** | `buildDashboardSection()` | Metric cards, bar/line charts with data tables |
+| **Mindmap** | `buildMindmapSection()` | Central topic → color-coded policy branches → leaf items |
+| **Sankey Flow** | `buildSankeySection()` | Inline SVG flow diagram: source nodes → target nodes |
+| **Deep Analysis** | `buildDeepAnalysisSection()` | Free-form analytical narrative |
+
+The **SWOT** section works well for weekly reviews to assess the week's political dynamics. The **Dashboard** section is ideal for quantitative summaries. The **Mindmap** visualises interconnected policy topics.
+
+## Translation Notes
+
+> **📝 Translation is handled by the separate `news-translate` workflow.** This workflow focuses exclusively on generating excellent English weekly review content with deep political intelligence.
+
 - Political group abbreviations MUST NEVER be translated
 - Committee abbreviations kept as-is
 - MEP names are NEVER translated
@@ -476,17 +507,6 @@ safeoutputs___create_pull_request({
 ### Pre-Localized Strings (handled by code)
 
 Section headings and editorial strings are localized via `EDITORIAL_STRINGS` and `WEEKLY_REVIEW_TITLES` for all 14 languages. The `lang` parameter must be passed to content generators.
-
-### LLM Must Translate
-
-- All narrative body paragraphs (weekly analysis, key takeaways, voting summaries)
-- Context explanations and policy impact descriptions
-
-### Language-Specific Requirements (ja, ko, zh)
-
-- **Japanese (ja)**: Use formal Japanese (です/ます form), CJK punctuation (。、)
-- **Korean (ko)**: Use formal Korean (합니다 form), CJK punctuation
-- **Chinese (zh)**: Use Simplified Chinese, CJK punctuation (。、)
 
 ## Article Naming Convention
 Files: `YYYY-MM-DD-week-in-review-{lang}.html`

@@ -1,6 +1,6 @@
 ---
 name: "News: EU Parliament Article Generator"
-description: Manual dispatch workflow to generate any combination of EU Parliament news article types. High-level invoker for multi-type article generation.
+description: Manual dispatch workflow to generate any combination of EU Parliament news article types (English). Translations handled by the separate news-translate workflow.
 strict: false
 on:
   workflow_dispatch:
@@ -15,9 +15,9 @@ on:
         required: false
         default: false
       languages:
-        description: 'Languages to generate (en | eu-core | nordic | all)'
+        description: 'Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow'
         required: false
-        default: all
+        default: en
 
 permissions:
   contents: read
@@ -47,7 +47,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.1.2
+      - european-parliament-mcp-server@1.1.5
     env:
       EP_REQUEST_TIMEOUT_MS: "30000"
   world-bank:
@@ -105,10 +105,12 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 ## ⏱️ Time Budget (120 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up
-- **Minutes 3–10**: Parse article types and verify MCP connectivity
-- **Minutes 10–100**: Generate articles for each requested type and language
+- **Minutes 3–15**: Parse article types and verify MCP connectivity
+- **Minutes 15–100**: Generate English articles for each requested type with deep political intelligence
 - **Minutes 100–110**: Validate generated HTML
 - **Minutes 110–120**: Create PR with `safeoutputs___create_pull_request`
+
+> **🔑 ENGLISH-ONLY FOCUS**: By default this workflow generates English content only. Use the extra time to produce deeper political analysis. Translations to other languages are handled by the separate `news-translate` workflow.
 
 **If you reach minute 100 and the PR has not been created yet**: Stop generating more content and immediately create the PR using `safeoutputs___create_pull_request` with the content generated so far. Partial content in a PR is better than a timeout with no PR.
 
@@ -432,9 +434,14 @@ fi
 echo "📰 Article types: $ARTICLE_TYPES"
 ```
 
-### Step 2: Setup MCP Gateway
+### Step 2: Setup MCP Gateway & Generate Articles
+
+> ⚠️ **CRITICAL — MCP env vars and the generation script MUST run in the same bash block.**
+> Environment variables (`EP_MCP_GATEWAY_URL`, `USE_EP_MCP`) set via `export` in one bash block
+> do NOT persist to the next block in agentic workflow execution. Keep setup and generation together.
 
 ```bash
+# --- MCP Gateway Setup ---
 MCP_CONFIG="${GH_AW_MCP_CONFIG:-/home/runner/.copilot/mcp-config.json}"
 
 if [ -f "$MCP_CONFIG" ]; then
@@ -470,14 +477,11 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ -f "node_modules/.bin/european-parliament-mcp-server" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
-    npm install --no-save european-parliament-mcp-server@1.1.2
+    npm install --no-save european-parliament-mcp-server@1.1.5
   fi
 fi
-```
 
-### Step 3: Generate Articles
-
-```bash
+# --- Generate Articles ---
 LANGUAGES_INPUT="${EP_LANG_INPUT:-}"
 [ -z "$LANGUAGES_INPUT" ] && LANGUAGES_INPUT="all"
 
@@ -562,7 +566,21 @@ safeoutputs___create_pull_request({
 })
 ```
 
-## Translation Rules
+## Available Visualization Sections
+
+The generator pipeline supports rich data-driven visualizations. These are produced automatically when the article strategy populates the corresponding data fields:
+
+| Section | Generator | What it shows |
+|---------|-----------|---------------|
+| **SWOT Analysis** | `buildSwotSection()` | Strengths / Weaknesses / Opportunities / Threats grid |
+| **Dashboard** | `buildDashboardSection()` | Metric cards, bar/line charts with data tables |
+| **Mindmap** | `buildMindmapSection()` | Central topic → color-coded policy branches → leaf items |
+| **Sankey Flow** | `buildSankeySection()` | Inline SVG flow diagram: source nodes → target nodes |
+| **Deep Analysis** | `buildDeepAnalysisSection()` | Free-form analytical narrative |
+
+## Translation Notes
+
+> **📝 Translation is handled by the separate `news-translate` workflow.** This workflow focuses exclusively on generating excellent English content. When manually dispatching with `languages=all`, the following rules apply:
 
 - EP document reference IDs (e.g., `2024/0001(COD)`) MUST be kept as-is
 - Political group abbreviations (EPP, S&D, Renew, Greens/EFA, ECR, PfE, ESN) MUST NEVER be translated
@@ -581,16 +599,3 @@ The TypeScript source code provides localized strings for all 14 languages (en, 
 - `*_TITLES` — Article title/subtitle generators per article type
 
 These are applied automatically when the `lang` parameter is passed to content generators.
-
-### LLM Must Translate
-
-When generating articles for non-English languages, the LLM MUST translate:
-- All narrative body paragraphs and analytical text
-- Context explanations and policy impact descriptions
-- Any free-text editorial content beyond the structured headings
-
-### Language-Specific Requirements (ja, ko, zh)
-
-- **Japanese (ja)**: Use formal Japanese (です/ます form), CJK punctuation (。、), no spaces between words
-- **Korean (ko)**: Use formal Korean (합니다 form), CJK punctuation, proper spacing between words
-- **Chinese (zh)**: Use Simplified Chinese, CJK punctuation (。、), no spaces between characters
