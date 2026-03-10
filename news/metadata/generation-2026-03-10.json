@@ -1,10 +1,11 @@
 {
   "timestamp": "2026-03-10T09:16:08.810Z",
-  "generated": 14,
-  "skipped": 0,
+  "generated": 15,
+  "skipped": 3,
   "dryRun": 0,
   "errors": 0,
   "articles": [
+    "2026-03-10-committee-reports-en.html",
     "2026-03-10-breaking-en.html",
     "2026-03-10-motions-en.html",
     "2026-03-10-motions-sv.html",
@@ -25,7 +26,7 @@
     {
       "success": true,
       "files": 1,
-      "slug": "2026-03-10-breaking"
+      "slug": "2026-03-10-committee-reports"
     },
     {
       "success": true,

@@ -87,6 +87,56 @@ describe('committee-reports helpers', () => {
       applyCommitteeInfo({ content: [] }, data, 'TEST');
       expect(data.name).toBe('TEST Committee');
     });
+
+    it('should populate data from flat EP MCP response format (no committee wrapper)', () => {
+      const data = defaultData();
+      applyCommitteeInfo(
+        mcpResult({ name: 'ENVI Committee', abbreviation: 'ENVI', chair: 'Alice Smith', memberCount: 88 }),
+        data,
+        'ENVI'
+      );
+      expect(data.name).toBe('ENVI Committee');
+      expect(data.chair).toBe('Alice Smith');
+      expect(data.members).toBe(88);
+      expect(data.abbreviation).toBe('ENVI');
+    });
+
+    it('should fall back to parameter abbreviation when response has org/-prefixed abbreviation', () => {
+      const data = defaultData();
+      applyCommitteeInfo(
+        mcpResult({ name: 'ENVI Committee', abbreviation: 'org/ENVI', chair: 'Alice Smith' }),
+        data,
+        'ENVI'
+      );
+      expect(data.abbreviation).toBe('ENVI');
+    });
+
+    it('should compute memberCount from members array length in flat format', () => {
+      const data = defaultData();
+      applyCommitteeInfo(
+        mcpResult({ name: 'ENVI Committee', members: [{ id: 1 }, { id: 2 }, { id: 3 }] }),
+        data,
+        'ENVI'
+      );
+      expect(data.members).toBe(3);
+    });
+
+    it('should set chair to PLACEHOLDER_CHAIR when flat format has empty chair string', () => {
+      const data = defaultData();
+      applyCommitteeInfo(
+        mcpResult({ name: 'ENVI Committee', chair: '', members: [] }),
+        data,
+        'ENVI'
+      );
+      expect(data.chair).toBe('N/A');
+    });
+
+    it('should ignore flat format when both name and abbreviation are absent', () => {
+      const data = defaultData();
+      applyCommitteeInfo(mcpResult({ chair: 'Alice' }), data, 'TEST');
+      expect(data.name).toBe('TEST Committee');
+      expect(data.chair).toBe('N/A');
+    });
   });
 
   describe('applyDocuments', () => {
@@ -133,6 +183,23 @@ describe('committee-reports helpers', () => {
       const data = defaultData();
       applyDocuments({ content: [{ type: 'text', text: '{bad json' }] }, data);
       expect(data.documents).toHaveLength(0);
+    });
+
+    it('should populate documents from EP MCP data[] response format', () => {
+      const data = defaultData();
+      applyDocuments(
+        mcpResult({
+          data: [
+            { title: 'Green Deal Report', type: 'Report' },
+            { title: 'Budget Resolution', type: 'Resolution' },
+          ],
+        }),
+        data
+      );
+      expect(data.documents).toHaveLength(2);
+      expect(data.documents[0].title).toBe('Green Deal Report');
+      expect(data.documents[0].type).toBe('Report');
+      expect(data.documents[1].title).toBe('Budget Resolution');
     });
   });
 
