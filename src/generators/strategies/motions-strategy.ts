@@ -24,6 +24,7 @@ import {
   generateMotionsContent,
   buildPoliticalAlignmentSection,
   buildAdoptedTextsSection,
+  PLACEHOLDER_MARKER,
 } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import {
@@ -33,7 +34,6 @@ import {
 } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
-import { PLACEHOLDER_MARKER } from '../motions-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
 /** Keywords shared by all Motions articles */
