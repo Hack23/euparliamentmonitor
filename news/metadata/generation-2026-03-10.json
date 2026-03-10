@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-03-10T09:16:08.810Z",
-  "generated": 15,
-  "skipped": 3,
+  "timestamp": "2026-03-10T15:20:10.002Z",
+  "generated": 41,
+  "skipped": 16,
   "dryRun": 0,
   "errors": 0,
   "articles": [
@@ -20,18 +20,54 @@
     "2026-03-10-motions-he.html",
     "2026-03-10-motions-ja.html",
     "2026-03-10-motions-ko.html",
-    "2026-03-10-motions-zh.html"
+    "2026-03-10-motions-zh.html",
+    "2026-03-10-breaking-sv.html",
+    "2026-03-10-breaking-da.html",
+    "2026-03-10-breaking-no.html",
+    "2026-03-10-breaking-fi.html",
+    "2026-03-10-breaking-de.html",
+    "2026-03-10-breaking-fr.html",
+    "2026-03-10-breaking-es.html",
+    "2026-03-10-breaking-nl.html",
+    "2026-03-10-breaking-ar.html",
+    "2026-03-10-breaking-he.html",
+    "2026-03-10-breaking-ja.html",
+    "2026-03-10-breaking-ko.html",
+    "2026-03-10-breaking-zh.html",
+    "2026-03-10-propositions-sv.html",
+    "2026-03-10-propositions-da.html",
+    "2026-03-10-propositions-no.html",
+    "2026-03-10-propositions-fi.html",
+    "2026-03-10-propositions-de.html",
+    "2026-03-10-propositions-fr.html",
+    "2026-03-10-propositions-es.html",
+    "2026-03-10-propositions-nl.html",
+    "2026-03-10-propositions-ar.html",
+    "2026-03-10-propositions-he.html",
+    "2026-03-10-propositions-ja.html",
+    "2026-03-10-propositions-ko.html",
+    "2026-03-10-propositions-zh.html"
   ],
   "results": [
     {
       "success": true,
-      "files": 1,
+      "files": 14,
+      "slug": "2026-03-10-motions"
+    },
+    {
+      "success": true,
+      "files": 13,
+      "slug": "2026-03-10-breaking"
+    },
+    {
+      "success": true,
+      "files": 0,
       "slug": "2026-03-10-committee-reports"
     },
     {
       "success": true,
-      "files": 14,
-      "slug": "2026-03-10-motions"
+      "files": 13,
+      "slug": "2026-03-10-propositions"
     }
   ],
   "usedMCP": true
