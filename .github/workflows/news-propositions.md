@@ -127,12 +127,14 @@ Read each skill file before proceeding:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, EP MCP server warm-up
-- **Minutes 3–10**: Query EP MCP tools for legislative proposals and pipeline data
-- **Minutes 10–40**: Generate articles for requested languages
-- **Minutes 40–50**: Validate HTML
-- **Minutes 50–60**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 3–15**: Query EP MCP tools for legislative proposals and pipeline data
+- **Minutes 15–45**: Generate English article with deep political intelligence analysis
+- **Minutes 45–52**: Validate HTML
+- **Minutes 52–60**: Create PR with `safeoutputs___create_pull_request`
 
-**If you reach minute 40 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately trigger PR creation using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
+> **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
+
+**If you reach minute 45 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately trigger PR creation using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 
 ## MANDATORY Date Context Establishment
 
@@ -631,13 +633,20 @@ fi
 ```bash
 # Reuse $TODAY from Date Context Establishment — do NOT recompute to avoid midnight drift
 ARTICLE_TYPE="propositions"
-EXPECTED_LANGS="en sv da no fi de fr es nl ar he ja ko zh"
-EXPECTED_COUNT=14
+
+# Determine expected languages from LANG_ARG (set during generation)
+if [ "$LANG_ARG" = "en" ]; then
+  EXPECTED_LANGS="en"
+  EXPECTED_COUNT=1
+else
+  EXPECTED_LANGS="$LANG_ARG"
+  EXPECTED_COUNT=$(echo "$LANG_ARG" | tr ',' '\n' | wc -l)
+fi
+
 ACTUAL_COUNT=$(ls news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null | wc -l)
 echo "📊 File count: $ACTUAL_COUNT / $EXPECTED_COUNT expected"
-# Unconditionally validate each expected language file exists (guards against stray files inflating count)
 MISSING_LANGS=""
-for LANG in $EXPECTED_LANGS; do
+for LANG in $(echo "$EXPECTED_LANGS" | tr ',' ' '); do
   if [ ! -f "news/${TODAY}-${ARTICLE_TYPE}-${LANG}.html" ]; then
     MISSING_LANGS="$MISSING_LANGS $LANG"
   fi
@@ -648,7 +657,7 @@ if [ -n "$MISSING_LANGS" ]; then
   for LANG in $MISSING_LANGS; do
     echo "  - $LANG"
   done
-  echo "❌ ERROR: Incomplete language coverage. All $EXPECTED_COUNT languages must be generated before creating the PR." >&2
+  echo "❌ ERROR: Incomplete language coverage. All $EXPECTED_COUNT language(s) must be generated before creating the PR." >&2
   exit 1
 fi
 
@@ -691,7 +700,9 @@ The generator pipeline supports rich data-driven visualizations. These are produ
 
 The **Sankey** section is ideal for propositions articles to visualise the legislative pipeline: initiator → committee → outcome. The **Dashboard** works well for tracking procedure counts and stage distributions.
 
-## Translation Rules
+## Translation Notes
+
+> **📝 Translation is handled by the separate `news-translate` workflow.** This workflow focuses exclusively on generating excellent English content with deep political intelligence. When manually dispatching with `languages=all`, the following rules apply:
 
 - EU document reference formats (COM(2024)123, SWD(2024)456) are NEVER translated
 - Political group abbreviations (EPP, S&D, Renew, Greens/EFA, ECR, PfE, ESN, Left) are NEVER translated
@@ -707,19 +718,6 @@ The following UI elements are already localized in the TypeScript source code vi
 - Pipeline metric labels (health score, throughput rate)
 - "Why This Matters" heading and editorial attribution
 - Article titles and subtitles (via `PROPOSITIONS_TITLES`)
-
-### LLM Must Translate
-
-When generating articles for non-English languages, the LLM MUST translate:
-- Lede paragraphs and narrative analysis
-- Policy impact descriptions and stakeholder positions
-- Any free-text editorial content beyond the structured headings
-
-### Language-Specific Requirements (ja, ko, zh)
-
-- **Japanese (ja)**: Use formal Japanese (です/ます form), CJK punctuation (。、)
-- **Korean (ko)**: Use formal Korean (합니다 form), CJK punctuation
-- **Chinese (zh)**: Use Simplified Chinese, CJK punctuation (。、)
 
 ## Article Naming Convention
 

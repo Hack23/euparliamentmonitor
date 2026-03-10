@@ -67,6 +67,8 @@ EU Parliament Monitor employs a comprehensive suite of GitHub Actions workflows 
 | Workflow | Purpose | Schedule | ISMS Alignment |
 |----------|---------|----------|----------------|
 | **News Generation** | Generate multi-language news articles | Daily 06:00 UTC | Integrity controls (Medium) |
+| **Agentic News (9 workflows)** | AI-generated English news articles | Various schedules | Integrity controls (Medium) |
+| **News Translation** | Translate English articles to 13 languages | 3x daily + weekends | Integrity controls (Medium) |
 | **Test & Report** | Unit tests, integration tests, coverage | On PR/push | Quality assurance (ISO 27001 A.12.1.4) |
 | **CodeQL** | SAST security scanning | On PR/push | Vulnerability management (ISO 27001 A.12.6) |
 | **E2E Tests** | End-to-end Playwright tests | On PR/push | Functional validation |
@@ -126,7 +128,69 @@ graph TD
 
 ---
 
-### 2. Test & Report Workflow
+### 1b. Agentic News Workflows (gh-aw)
+
+**📄 Files:** `.github/workflows/news-*.md` (9 content workflows + 1 translation workflow)
+**🎯 Purpose:** AI-powered news article generation using GitHub Agentic Workflows (gh-aw) with European Parliament MCP Server data
+**⏰ Schedule:** Various (see table below)
+
+#### Architecture: Content/Translation Split
+
+The agentic news system uses a **separation of concerns** architecture:
+
+1. **Content Workflows** (9 workflows) → Generate English-only articles with deep political intelligence
+2. **Translation Workflow** (1 workflow) → Translates English articles to 13 other languages
+
+This split ensures content workflows spend their full time budget on political intelligence quality, while translations maintain fidelity to the English source content.
+
+```mermaid
+graph TD
+    A[📋 Content Workflows<br/>English only] -->|Generate| B[📰 English Articles]
+    B -->|Merge PR| C[main branch]
+    C -->|Schedule trigger| D[🌐 Translation Workflow]
+    D -->|Generate| E[🌍 13 Language Translations]
+    E -->|Merge PR| C
+    C -->|Deploy| F[📊 GitHub Pages<br/>Language Switchers + Sitemaps]
+```
+
+#### Content Workflow Schedule
+
+| Workflow | Article Type | Schedule | Focus |
+|----------|-------------|----------|-------|
+| `news-committee-reports.md` | Committee reports | Mon–Fri 04:00 UTC | Committee activity analysis |
+| `news-propositions.md` | Legislative procedures | Mon–Fri 05:00 UTC | Legislative pipeline tracking |
+| `news-motions.md` | Plenary votes | Mon–Fri 06:00 UTC | Voting patterns & resolutions |
+| `news-week-ahead.md` | Week ahead | Fri 07:00 UTC | Upcoming parliamentary agenda |
+| `news-month-ahead.md` | Month ahead | 1st of month 08:00 UTC | Monthly strategic outlook |
+| `news-weekly-review.md` | Weekly review | Sat 09:00 UTC | Week in review |
+| `news-monthly-review.md` | Monthly review | 28th of month 10:00 UTC | Monthly retrospective |
+| `news-breaking.md` | Breaking news | Every 6 hours | Real-time EP feed events |
+| `news-article-generator.md` | Multi-type | Manual dispatch | On-demand article generation |
+
+#### Translation Workflow
+
+| Workflow | Schedule | Purpose |
+|----------|----------|---------|
+| `news-translate.md` | Mon–Fri 09/12/15 UTC, Sat 12 UTC, 1st+28th 12 UTC | Translate English articles to sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh |
+
+#### Supported Languages (14 total)
+
+| English (en) | Swedish (sv) | Danish (da) | Norwegian (no) | Finnish (fi) |
+|:---:|:---:|:---:|:---:|:---:|
+| **German (de)** | **French (fr)** | **Spanish (es)** | **Dutch (nl)** | **Arabic (ar)** |
+| **Hebrew (he)** | **Japanese (ja)** | **Korean (ko)** | **Chinese (zh)** | |
+
+#### Security Controls
+
+| Control | Implementation | ISMS Reference |
+|---------|----------------|----------------|
+| **MCP Data Source** | European Parliament MCP Server (live data) | ISO 27001 A.14.2.1 |
+| **Content Integrity** | Quality validation, synthetic ID detection | Data integrity |
+| **Safe Outputs** | gh-aw safe-outputs for PR creation | Least privilege |
+| **Concurrency** | Shared concurrency group prevents conflicts | Resource management |
+| **Network Allowlist** | Explicit domain allowlisting via gh-aw | Network security |
+
+---
 
 **📄 File:** `.github/workflows/test-and-report.yml`  
 **🎯 Purpose:** Comprehensive testing with unit tests, integration tests, and coverage reporting  
