@@ -173,9 +173,9 @@ describe('dashboard-content', () => {
       expect(html).toContain('400');
     });
 
-    it('should include aria-hidden on empty fallback table header cell', () => {
+    it('should include accessible category column header in fallback table', () => {
       const html = buildDashboardSection(SAMPLE_DASHBOARD);
-      expect(html).toContain('aria-hidden="true"');
+      expect(html).toContain('<th scope="col">Category</th>');
     });
 
     it('should escape HTML in metric values', () => {
