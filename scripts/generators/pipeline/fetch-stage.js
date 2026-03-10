@@ -1101,6 +1101,35 @@ function parseFeedTotal(result) {
     return typeof total === 'number' ? total : 0;
 }
 /**
+ * Parse an EP API v2 feed response envelope in a single JSON parse, returning
+ * both the array of feed items and the API-reported total count.
+ * Avoids parsing the same JSON payload twice when both values are needed.
+ *
+ * @param result - Raw MCP tool result
+ * @returns Object with `items` array and `total` count from the API
+ */
+function parseFeedEnvelope(result) {
+    if (!result?.content?.[0]?.text)
+        return { items: [], total: 0 };
+    const parsed = parseJSON(result.content[0].text, 'feed');
+    if (!parsed || typeof parsed !== 'object')
+        return { items: [], total: 0 };
+    const envelope = parsed;
+    const total = typeof envelope['total'] === 'number' ? envelope['total'] : 0;
+    const candidates = [
+        envelope['data'],
+        envelope['feed'],
+        envelope['entries'],
+        envelope['items'],
+        parsed,
+    ];
+    for (const candidate of candidates) {
+        if (Array.isArray(candidate))
+            return { items: candidate, total };
+    }
+    return { items: [], total };
+}
+/**
  * Map a raw EP API v2 feed item to a normalized feed item.
  * EP feeds return `{ id, type, work_type, identifier, label }` — we normalize
  * these into the domain feed item shape, using `label` as `title` when no title exists.
@@ -1222,8 +1251,8 @@ export async function fetchMEPsFeedWithTotal(client, timeframe = 'one-day') {
     try {
         console.log(`${MCP_FETCH_PREFIX} Fetching MEPs feed (${timeframe})...`);
         const result = await callMCP(() => client.getMEPsFeed({ timeframe, limit: 100 }), undefined, 'get_meps_feed');
-        const total = parseFeedTotal(result);
-        const items = parseFeedResult(result).map((item) => ({
+        const { items: rawItems, total } = parseFeedEnvelope(result);
+        const items = rawItems.map((item) => ({
             id: String(item['id'] ?? item['mepId'] ?? ''),
             name: String(item['name'] ?? item['label'] ?? item['title'] ?? 'Unknown'),
             date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
