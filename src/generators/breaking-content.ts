@@ -204,7 +204,8 @@ function buildMEPUpdatesSection(
     )
     .join('\n            ');
   // Use API total count when available and larger than fetched count; otherwise fall back to fetched count
-  const reportedTotal = totalCount !== undefined && totalCount > items.length ? totalCount : items.length;
+  const reportedTotal =
+    totalCount !== undefined && totalCount > items.length ? totalCount : items.length;
   const truncationNote = buildFeedTruncationNote(displayItems.length, reportedTotal, strings);
   return `
         <section class="mep-updates-feed">

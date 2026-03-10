@@ -56,14 +56,16 @@ function buildArticleLangSwitcher(date, slug, currentLang, availableLanguages) {
     const safeDate = escapeHTML(date);
     const safeSlug = escapeHTML(slug);
     const langs = availableLanguages ?? ALL_LANGUAGES;
-    return langs.map((code) => {
+    return langs
+        .map((code) => {
         const flag = getLocalizedString(LANGUAGE_FLAGS, code);
         const name = getLocalizedString(LANGUAGE_NAMES, code);
         const active = code === currentLang ? ' active' : '';
         const href = `${safeDate}-${safeSlug}-${code}.html`;
         const safeTitle = escapeHTML(name);
         return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeTitle}">${flag} ${code.toUpperCase()}</a>`;
-    }).join('\n        ');
+    })
+        .join('\n        ');
 }
 /**
  * Build a single footer section with title and content.
