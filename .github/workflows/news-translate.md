@@ -42,7 +42,7 @@ permissions:
 timeout-minutes: 90
 
 concurrency:
-  job-discriminator: ${{ github.run_id }}
+  job-discriminator: translate-${{ github.event.inputs.article_date || 'scheduled' }}
 
 network:
   allowed:
