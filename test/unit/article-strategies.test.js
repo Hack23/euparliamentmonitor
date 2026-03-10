@@ -20,6 +20,7 @@ import { BreakingNewsStrategy } from '../../scripts/generators/strategies/breaki
 import { CommitteeReportsStrategy } from '../../scripts/generators/strategies/committee-reports-strategy.js';
 import { PropositionsStrategy } from '../../scripts/generators/strategies/propositions-strategy.js';
 import { MotionsStrategy } from '../../scripts/generators/strategies/motions-strategy.js';
+import { PLACEHOLDER_MARKER } from '../../scripts/generators/motions-content.js';
 import { MonthAheadStrategy } from '../../scripts/generators/strategies/month-ahead-strategy.js';
 import { WeeklyReviewStrategy } from '../../scripts/generators/strategies/weekly-review-strategy.js';
 import { MonthlyReviewStrategy } from '../../scripts/generators/strategies/monthly-review-strategy.js';
@@ -1279,6 +1280,19 @@ describe('SWOT and Dashboard integration across all strategies', () => {
     const strategy = new MotionsStrategy();
     const content = strategy.buildContent(motionsData, 'en');
     expect(content).toContain('class="dashboard"');
+  });
+
+  it('MotionsStrategy.buildContent omits Dashboard section when all votingRecords have placeholder results', () => {
+    const strategy = new MotionsStrategy();
+    const placeholderMotionsData = {
+      ...motionsData,
+      votingRecords: motionsData.votingRecords.map((r) => ({
+        ...r,
+        result: PLACEHOLDER_MARKER,
+      })),
+    };
+    const content = strategy.buildContent(placeholderMotionsData, 'en');
+    expect(content).not.toContain('class="dashboard"');
   });
 
   it('WeeklyReviewStrategy.buildContent includes SWOT section', () => {
