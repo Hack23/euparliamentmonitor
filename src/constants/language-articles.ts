@@ -3385,6 +3385,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: 'No recent documents available',
     committeeMetadataUnavailable:
       'Committee chair and membership data are not currently available from the EP Open Data API for this reporting period. Committee activity monitoring continues with available data sources.',
+    adoptedTextsSectionHeading: 'Recent Adopted Texts by Committee Theme',
+    adoptedTextsSummary:
+      'The European Parliament adopted {count} texts in recent sessions, spanning environmental, economic, security, civil liberties, and agricultural policy domains.',
+    committeeNameENVI: 'Environment, Public Health and Food Safety',
+    committeeNameECON: 'Economic and Monetary Affairs',
+    committeeNameAFET: 'Foreign Affairs',
+    committeeNameLIBE: 'Civil Liberties, Justice and Home Affairs',
+    committeeNameAGRI: 'Agriculture and Rural Development',
+    committeeNameOTHER: 'Cross-Committee and Plenary',
   },
   sv: {
     what: 'Utskottsaktivitetsrapport per {date}: {total} utskott övervakade, {docs} dokument behandlade, {active} utskott med aktuell aktivitet.',
@@ -3427,6 +3436,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: 'Inga aktuella dokument tillgängliga',
     committeeMetadataUnavailable:
       'Uppgifter om utskottsordförande och medlemskap är för närvarande inte tillgängliga från EP:s Open Data API för denna rapporteringsperiod. Utskottsaktivitetsövervakning fortsätter med tillgängliga datakällor.',
+    adoptedTextsSectionHeading: 'Nyligen antagna texter efter utskottsområde',
+    adoptedTextsSummary:
+      'Europaparlamentet antog {count} texter under de senaste sessionerna inom miljö-, ekonomi-, säkerhets-, medborgerliga friheter- och jordbrukspolitiska områden.',
+    committeeNameENVI: 'Miljö, folkhälsa och livsmedelssäkerhet',
+    committeeNameECON: 'Ekonomi och valutafrågor',
+    committeeNameAFET: 'Utrikesfrågor',
+    committeeNameLIBE: 'Medborgerliga fri- och rättigheter samt rättsliga och inrikes frågor',
+    committeeNameAGRI: 'Jordbruk och landsbygdens utveckling',
+    committeeNameOTHER: 'Tvärsövergripande och plenum',
   },
   da: {
     what: 'Udvalgsaktivitetsrapport pr. {date}: {total} udvalg overvåget, {docs} dokumenter behandlet, {active} udvalg med nylig aktivitet.',
@@ -3469,6 +3487,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: 'Ingen nylige dokumenter tilgængelige',
     committeeMetadataUnavailable:
       'Data om udvalgsformand og medlemskab er i øjeblikket ikke tilgængelige fra EP Open Data API for denne rapporteringsperiode. Udvalgsaktivitetsovervågning fortsætter med tilgængelige datakilder.',
+    adoptedTextsSectionHeading: 'Nylig vedtagne tekster efter udvalgsemne',
+    adoptedTextsSummary:
+      'Europa-Parlamentet vedtog {count} tekster under de seneste sessioner inden for miljø-, økonomi-, sikkerheds-, borgerrettigheds- og landbrugspolitiske områder.',
+    committeeNameENVI: 'Miljø, Folkesundhed og Fødevaresikkerhed',
+    committeeNameECON: 'Økonomi og Valutaspørgsmål',
+    committeeNameAFET: 'Udenrigsanliggender',
+    committeeNameLIBE: 'Borgernes Rettigheder og Retlige og Indre Anliggender',
+    committeeNameAGRI: 'Landbrug og Landdistrikternes Udvikling',
+    committeeNameOTHER: 'Tværgående og Plenarmøde',
   },
   no: {
     what: 'Komitéaktivitetsrapport per {date}: {total} komiteer overvåket, {docs} dokumenter behandlet, {active} komiteer med nylig aktivitet.',
@@ -3511,6 +3538,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: 'Ingen nylige dokumenter tilgjengelig',
     committeeMetadataUnavailable:
       'Data om komitéleder og medlemskap er for øyeblikket ikke tilgjengelige fra EP Open Data API for denne rapporteringsperioden. Overvåking av komitéaktivitet fortsetter med tilgjengelige datakilder.',
+    adoptedTextsSectionHeading: 'Nylig vedtatte tekster etter komitétema',
+    adoptedTextsSummary:
+      'Europaparlamentet vedtok {count} tekster under de siste sesjonene innen miljø-, økonomi-, sikkerhets-, borgerrettighets- og landbrukspolitiske områder.',
+    committeeNameENVI: 'Miljø, Folkehelse og Mattrygghet',
+    committeeNameECON: 'Økonomi og Valutaspørsmål',
+    committeeNameAFET: 'Utenrikssaker',
+    committeeNameLIBE: 'Borgerrettigheter og Rettslige og Indre Anliggender',
+    committeeNameAGRI: 'Landbruk og Bygdeutvikling',
+    committeeNameOTHER: 'Tverrgående og Plenarmøte',
   },
   fi: {
     what: 'Valiokuntatoimintaraportti {date}: {total} valiokuntaa seurannassa, {docs} asiakirjaa käsitelty, {active} valiokuntaa viimeaikaisella toiminnalla.',
@@ -3553,6 +3589,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: 'Ei viimeaikaisia asiakirjoja saatavilla',
     committeeMetadataUnavailable:
       'Valiokunnan puheenjohtajan ja jäsenyyden tiedot eivät ole tällä hetkellä saatavilla EP:n Open Data -rajapinnasta tältä raportointijaksolta. Valiokuntien toiminnan seuranta jatkuu käytettävissä olevilla tietolähteillä.',
+    adoptedTextsSectionHeading: 'Viimeksi hyväksytyt tekstit valiokunta-aiheen mukaan',
+    adoptedTextsSummary:
+      'Euroopan parlamentti hyväksyi {count} tekstiä viimeisimmissä istunnoissaan ympäristö-, talous-, turvallisuus-, kansalaisvapauksien ja maatalouspolitiikan aloilla.',
+    committeeNameENVI: 'Ympäristö, kansanterveys ja elintarvikkeiden turvallisuus',
+    committeeNameECON: 'Talous- ja raha-asiat',
+    committeeNameAFET: 'Ulkoasiat',
+    committeeNameLIBE: 'Kansalaisvapaudet sekä oikeus- ja sisäasiat',
+    committeeNameAGRI: 'Maatalous ja maaseudun kehittäminen',
+    committeeNameOTHER: 'Monialatoimikunta ja täysistunto',
   },
   de: {
     what: 'Ausschussaktivitätsbericht vom {date}: {total} Ausschüsse beobachtet, {docs} Dokumente verarbeitet, {active} Ausschüsse mit aktueller Aktivität.',
@@ -3595,6 +3640,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: 'Keine aktuellen Dokumente verfügbar',
     committeeMetadataUnavailable:
       'Daten zu Ausschussvorsitz und Mitgliedschaft sind für diesen Berichtszeitraum derzeit nicht über die EP Open Data API verfügbar. Die Überwachung der Ausschusstätigkeit wird mit den verfügbaren Datenquellen fortgesetzt.',
+    adoptedTextsSectionHeading: 'Kürzlich angenommene Texte nach Ausschussthema',
+    adoptedTextsSummary:
+      'Das Europäische Parlament hat in den letzten Sitzungsperioden {count} Texte in den Bereichen Umwelt-, Wirtschafts-, Sicherheits-, Bürgerrechte- und Agrarpolitik verabschiedet.',
+    committeeNameENVI: 'Umweltfragen, öffentliche Gesundheit und Lebensmittelsicherheit',
+    committeeNameECON: 'Wirtschaft und Währung',
+    committeeNameAFET: 'Auswärtige Angelegenheiten',
+    committeeNameLIBE: 'Bürgerliche Freiheiten, Justiz und Inneres',
+    committeeNameAGRI: 'Landwirtschaft und ländliche Entwicklung',
+    committeeNameOTHER: 'Ausschussübergreifend und Plenum',
   },
   fr: {
     what: "Rapport d'activité des commissions du {date} : {total} commissions surveillées, {docs} documents traités, {active} commissions avec activité récente.",
@@ -3637,6 +3691,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: 'Aucun document récent disponible',
     committeeMetadataUnavailable:
       "Les données sur le président et les membres des commissions ne sont actuellement pas disponibles via l'API Open Data du PE pour cette période de rapport. La surveillance de l'activité des commissions se poursuit avec les sources de données disponibles.",
+    adoptedTextsSectionHeading: 'Textes récemment adoptés par thème de commission',
+    adoptedTextsSummary:
+      "Le Parlement européen a adopté {count} textes lors des sessions récentes, couvrant les domaines de la politique environnementale, économique, sécuritaire, des libertés civiles et agricole.",
+    committeeNameENVI: "Environnement, santé publique et sécurité alimentaire",
+    committeeNameECON: 'Affaires économiques et monétaires',
+    committeeNameAFET: 'Affaires étrangères',
+    committeeNameLIBE: 'Libertés civiles, justice et affaires intérieures',
+    committeeNameAGRI: 'Agriculture et développement rural',
+    committeeNameOTHER: 'Intercommissions et plénière',
   },
   es: {
     what: 'Informe de actividad de las comisiones a fecha {date}: {total} comisiones supervisadas, {docs} documentos procesados, {active} comisiones con actividad reciente.',
@@ -3679,6 +3742,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: 'No hay documentos recientes disponibles',
     committeeMetadataUnavailable:
       'Los datos sobre el presidente y la membresía de las comisiones no están disponibles actualmente a través de la API Open Data del PE para este período de informe. El monitoreo de la actividad de las comisiones continúa con las fuentes de datos disponibles.',
+    adoptedTextsSectionHeading: 'Textos recientemente adoptados por tema de comisión',
+    adoptedTextsSummary:
+      'El Parlamento Europeo adoptó {count} textos en las sesiones recientes, abarcando los dominios de la política medioambiental, económica, de seguridad, de libertades civiles y agrícola.',
+    committeeNameENVI: 'Medio Ambiente, Salud Pública y Seguridad Alimentaria',
+    committeeNameECON: 'Asuntos Económicos y Monetarios',
+    committeeNameAFET: 'Asuntos Exteriores',
+    committeeNameLIBE: 'Libertades Civiles, Justicia y Asuntos de Interior',
+    committeeNameAGRI: 'Agricultura y Desarrollo Rural',
+    committeeNameOTHER: 'Intercomisiones y Plenario',
   },
   nl: {
     what: 'Rapport commissieactiviteiten per {date}: {total} commissies gemonitord, {docs} documenten verwerkt, {active} commissies met recente activiteit.',
@@ -3721,6 +3793,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: 'Geen recente documenten beschikbaar',
     committeeMetadataUnavailable:
       'Gegevens over de voorzitter en het lidmaatschap van commissies zijn momenteel niet beschikbaar via de EP Open Data API voor deze rapportageperiode. De monitoring van commissieactiviteiten gaat door met de beschikbare gegevensbronnen.',
+    adoptedTextsSectionHeading: 'Recent aangenomen teksten per commissiethema',
+    adoptedTextsSummary:
+      'Het Europees Parlement nam {count} teksten aan in recente plenaire vergaderingen over milieu-, economisch, veiligheids-, burgerlijke vrijheden- en landbouwbeleid.',
+    committeeNameENVI: 'Milieubeheer, volksgezondheid en voedselveiligheid',
+    committeeNameECON: 'Economische en monetaire zaken',
+    committeeNameAFET: 'Buitenlandse zaken',
+    committeeNameLIBE: 'Burgerlijke vrijheden, justitie en binnenlandse zaken',
+    committeeNameAGRI: 'Landbouw en plattelandsontwikkeling',
+    committeeNameOTHER: 'Commissieoverstijgend en Plenaire',
   },
   ar: {
     what: 'تقرير نشاط اللجان بتاريخ {date}: {total} لجنة مراقبة، {docs} وثيقة معالجة، {active} لجنة ذات نشاط حديث.',
@@ -3760,6 +3841,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: 'لا توجد وثائق حديثة متاحة',
     committeeMetadataUnavailable:
       'بيانات رئيس اللجنة والعضوية غير متاحة حالياً من خلال واجهة برمجة تطبيقات EP Open Data لفترة الإبلاغ هذه. تستمر مراقبة نشاط اللجان بمصادر البيانات المتاحة.',
+    adoptedTextsSectionHeading: 'النصوص المعتمدة مؤخراً حسب موضوع اللجنة',
+    adoptedTextsSummary:
+      'اعتمد البرلمان الأوروبي {count} نصاً في الجلسات الأخيرة، تشمل مجالات السياسات البيئية والاقتصادية والأمنية والحريات المدنية والزراعية.',
+    committeeNameENVI: 'البيئة والصحة العامة وسلامة الغذاء',
+    committeeNameECON: 'الشؤون الاقتصادية والنقدية',
+    committeeNameAFET: 'الشؤون الخارجية',
+    committeeNameLIBE: 'الحريات المدنية والعدالة والشؤون الداخلية',
+    committeeNameAGRI: 'الزراعة والتنمية الريفية',
+    committeeNameOTHER: 'بين اللجان والجلسة العامة',
   },
   he: {
     what: 'דוח פעילות ועדות מתאריך {date}: {total} ועדות במעקב, {docs} מסמכים עובדו, {active} ועדות עם פעילות אחרונה.',
@@ -3798,6 +3888,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: 'אין מסמכים אחרונים זמינים',
     committeeMetadataUnavailable:
       'נתוני יו"ר הוועדה וחברותה אינם זמינים כרגע דרך ממשק ה-API של EP Open Data לתקופת הדיווח זו. ניטור פעילות הוועדות ממשיך עם מקורות הנתונים הזמינים.',
+    adoptedTextsSectionHeading: 'טקסטים שהתקבלו לאחרונה לפי נושא ועדה',
+    adoptedTextsSummary:
+      'הפרלמנט האירופי אישר {count} טקסטים בפגישות האחרונות, הכוללים תחומי מדיניות סביבתית, כלכלית, ביטחונית, חירויות אזרחיות וחקלאית.',
+    committeeNameENVI: 'איכות הסביבה, בריאות הציבור ובטיחות המזון',
+    committeeNameECON: 'ענייני כלכלה ומטבע',
+    committeeNameAFET: 'ענייני חוץ',
+    committeeNameLIBE: 'חירויות אזרחיות, צדק וענייני פנים',
+    committeeNameAGRI: 'חקלאות ופיתוח כפרי',
+    committeeNameOTHER: 'בין-ועדתי ומליאה',
   },
   ja: {
     what: '{date}付け委員会活動報告: {total}委員会を監視中、{docs}文書処理済み、{active}委員会で最近の活動あり。',
@@ -3839,6 +3938,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: '最近の文書はありません',
     committeeMetadataUnavailable:
       '委員会の委員長および構成員データは、この報告期間において EP Open Data API から現在入手できません。委員会活動の監視は利用可能なデータソースで継続します。',
+    adoptedTextsSectionHeading: '委員会テーマ別の最近採択されたテキスト',
+    adoptedTextsSummary:
+      '欧州議会は最近の会期に{count}件のテキストを採択し、環境、経済、安全保障、市民的自由、農業政策の分野をカバーしています。',
+    committeeNameENVI: '環境・公衆衛生・食品安全',
+    committeeNameECON: '経済・通貨問題',
+    committeeNameAFET: '外交問題',
+    committeeNameLIBE: '市民的自由・司法・内務',
+    committeeNameAGRI: '農業・農村開発',
+    committeeNameOTHER: '委員会横断・本会議',
   },
   ko: {
     what: '{date} 기준 위원회 활동 보고서: {total}개 위원회 모니터링, {docs}개 문서 처리, {active}개 위원회 최근 활동.',
@@ -3880,6 +3988,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: '최근 문서가 없습니다',
     committeeMetadataUnavailable:
       '이 보고 기간 동안 EP Open Data API에서 위원회 위원장 및 구성원 데이터를 현재 사용할 수 없습니다. 위원회 활동 모니터링은 사용 가능한 데이터 소스로 계속됩니다.',
+    adoptedTextsSectionHeading: '위원회 주제별 최근 채택된 텍스트',
+    adoptedTextsSummary:
+      '유럽 의회는 최근 회기에서 환경, 경제, 안보, 시민 자유 및 농업 정책 분야에 걸쳐 {count}개의 텍스트를 채택했습니다.',
+    committeeNameENVI: '환경, 공중보건 및 식품안전',
+    committeeNameECON: '경제·통화 문제',
+    committeeNameAFET: '외교 문제',
+    committeeNameLIBE: '시민적 자유, 사법 및 내무',
+    committeeNameAGRI: '농업 및 농촌 개발',
+    committeeNameOTHER: '위원회 공통 및 본회의',
   },
   zh: {
     what: '{date}委员会活动报告：监测{total}个委员会，处理{docs}份文件，{active}个委员会有近期活动。',
@@ -3913,6 +4030,15 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     noRecentDocs: '近期无可用文件',
     committeeMetadataUnavailable:
       '该报告期内委员会主席和成员数据目前无法通过欧洲议会开放数据API获取。委员会活动监测将继续使用可用数据源。',
+    adoptedTextsSectionHeading: '按委员会主题的最新通过文本',
+    adoptedTextsSummary:
+      '欧洲议会在最近几届会议上通过了{count}项文本，涵盖环境、经济、安全、公民自由和农业政策领域。',
+    committeeNameENVI: '环境、公共卫生和食品安全',
+    committeeNameECON: '经济和货币事务',
+    committeeNameAFET: '对外事务',
+    committeeNameLIBE: '公民自由、司法和内政',
+    committeeNameAGRI: '农业和农村发展',
+    committeeNameOTHER: '跨委员会和全体会议',
   },
 };
 // ─── SWOT localization strings ───────────────────────────────────────────────

@@ -87,7 +87,8 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Search legislative documents
      *
-     * @param options - Search options (normalizes `keyword` to `query` if `query` is absent)
+     * @param options - Search options (normalizes `query` to `keyword` if `keyword` is absent,
+     *   since the MCP tool schema requires the `keyword` parameter)
      * @returns Search results
      */
     async searchDocuments(options = {}) {

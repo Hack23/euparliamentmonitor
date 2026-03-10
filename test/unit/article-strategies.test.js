@@ -219,6 +219,50 @@ describe('CommitteeReportsStrategy', () => {
     expect(strategy.shouldSkip(data)).toBe(true);
   });
 
+  it('shouldSkip returns false when committees are all-placeholder but feedData has adoptedTexts', () => {
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Test Committee',
+          abbreviation: 'TEST',
+          chair: 'N/A',
+          members: 0,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Climate Decision', date: '2026-03-01' }],
+      },
+    };
+    expect(strategy.shouldSkip(data)).toBe(false);
+  });
+
+  it('shouldSkip returns true when committees are all-placeholder and feedData has no items', () => {
+    const data = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Test Committee',
+          abbreviation: 'TEST',
+          chair: 'N/A',
+          members: 0,
+          documents: [],
+          effectiveness: null,
+        },
+      ],
+      feedData: {
+        adoptedTexts: [],
+        committeeDocuments: [],
+        plenaryDocuments: [],
+        documents: [],
+        procedures: [],
+      },
+    };
+    expect(strategy.shouldSkip(data)).toBe(true);
+  });
+
   it('shouldSkip returns false when there is real committee data', () => {
     expect(strategy.shouldSkip(committeeReportsData)).toBe(false);
   });
