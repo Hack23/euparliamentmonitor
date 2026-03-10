@@ -6,12 +6,34 @@
   "errors": 0,
   "articles": [
     "2026-03-10-committee-reports-en.html"
+  "timestamp": "2026-03-10T09:16:08.810Z",
+  "generated": 14,
+  "skipped": 0,
+  "dryRun": 0,
+  "errors": 0,
+  "articles": [
+    "2026-03-10-motions-en.html",
+    "2026-03-10-motions-sv.html",
+    "2026-03-10-motions-da.html",
+    "2026-03-10-motions-no.html",
+    "2026-03-10-motions-fi.html",
+    "2026-03-10-motions-de.html",
+    "2026-03-10-motions-fr.html",
+    "2026-03-10-motions-es.html",
+    "2026-03-10-motions-nl.html",
+    "2026-03-10-motions-ar.html",
+    "2026-03-10-motions-he.html",
+    "2026-03-10-motions-ja.html",
+    "2026-03-10-motions-ko.html",
+    "2026-03-10-motions-zh.html"
   ],
   "results": [
     {
       "success": true,
       "files": 1,
       "slug": "2026-03-10-committee-reports"
+      "files": 14,
+      "slug": "2026-03-10-motions"
     }
   ],
   "usedMCP": true
