@@ -81,20 +81,22 @@ function buildAdoptedTextsSection(
   const texts = feedData.adoptedTexts;
   const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
 
-  // Map adopted texts to committee themes
+  // Map adopted texts to committee themes.
+  // AGRI is checked before ENVI so that titles containing 'agri-food' are not
+  // incorrectly captured by ENVI's broader 'food' keyword.
+  const agriKeywords = ['agriculture', 'wine', 'agri-food', 'Mercosur', 'rural', 'farming'];
   const envKeywords = ['environment', 'climate', 'health', 'food', 'medicinal', 'detergent', 'GMO', 'genetically', 'cancer'];
   const econKeywords = ['economic', 'financial', 'Central Bank', 'monetary', 'fiscal', '28th Regime'];
   const afetKeywords = ['foreign', 'security', 'defence', 'defense', 'sanctions', 'Magnitsky', 'Ukraine', 'aggression', 'peace'];
   const libeKeywords = ['civil', 'justice', 'rights', 'safe countries', 'safe third', 'asylum', 'migration'];
-  const agriKeywords = ['agriculture', 'wine', 'agri-food', 'Mercosur', 'rural', 'farming'];
 
   const categorize = (title: string) => {
     const t = title.toLowerCase();
+    if (agriKeywords.some(k => t.includes(k.toLowerCase()))) return 'AGRI';
     if (envKeywords.some(k => t.includes(k.toLowerCase()))) return 'ENVI';
     if (econKeywords.some(k => t.includes(k.toLowerCase()))) return 'ECON';
     if (afetKeywords.some(k => t.includes(k.toLowerCase()))) return 'AFET';
     if (libeKeywords.some(k => t.includes(k.toLowerCase()))) return 'LIBE';
-    if (agriKeywords.some(k => t.includes(k.toLowerCase()))) return 'AGRI';
     return 'OTHER';
   };
 

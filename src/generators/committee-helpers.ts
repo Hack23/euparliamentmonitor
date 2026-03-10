@@ -19,6 +19,57 @@ export const PLACEHOLDER_CHAIR = 'N/A';
 export const PLACEHOLDER_MEMBERS = 0;
 
 /**
+ * Resolve a raw memberCount/members field to a numeric count.
+ * Handles arrays (EP API returns members as array), numbers, and numeric strings.
+ *
+ * @param memberCountRaw - Raw value from MCP response
+ * @returns Numeric member count, or 0 if not resolvable
+ */
+function resolveMemberCount(memberCountRaw: unknown): number {
+  if (Array.isArray(memberCountRaw)) {
+    return memberCountRaw.length;
+  }
+  if (typeof memberCountRaw === 'number' && Number.isFinite(memberCountRaw)) {
+    return memberCountRaw;
+  }
+  if (typeof memberCountRaw === 'string') {
+    const parsedNumber = Number(memberCountRaw);
+    if (Number.isFinite(parsedNumber)) {
+      return parsedNumber;
+    }
+  }
+  return 0;
+}
+
+/** Shape of a committee info record extracted from an MCP response */
+interface CommitteeInfoRecord {
+  name?: string;
+  abbreviation?: string;
+  chair?: string;
+  memberCount?: unknown;
+  members?: unknown;
+}
+
+/**
+ * Extract the committee info record from a parsed MCP response.
+ * Supports both the wrapped `{ committee: {...} }` format and the flat
+ * EP Open Data Portal format `{ name, chair, ... }`.
+ *
+ * @param parsed - Parsed JSON object from MCP response
+ * @returns The info record, or null when the payload is unrecognised
+ */
+function extractCommitteeInfoRecord(
+  parsed: Record<string, unknown>
+): CommitteeInfoRecord | null {
+  const hasWrapped = typeof parsed.committee === 'object' && parsed.committee !== null;
+  const info = (hasWrapped ? parsed.committee : parsed) as CommitteeInfoRecord;
+  if (!info || typeof info !== 'object') return null;
+  // For flat format, require at least a name/abbreviation to confirm real data
+  if (!hasWrapped && !info.name && !info.abbreviation) return null;
+  return info;
+}
+
+/**
  * Apply committee info from MCP result to the data object
  *
  * @param result - MCP tool result
@@ -33,40 +84,15 @@ export function applyCommitteeInfo(
   try {
     if (!result?.content?.[0]) return;
     const parsed = JSON.parse(result.content[0].text) as Record<string, unknown>;
-    // Support both wrapped { committee: {...} } and flat { name, chair, ... } formats.
-    // When 'committee' key exists, use it (original format). Otherwise use top-level keys
-    // (EP Open Data Portal response format).
-    const hasWrapped = typeof parsed.committee === 'object' && parsed.committee !== null;
-    const info = (hasWrapped ? parsed.committee : parsed) as {
-      name?: string;
-      abbreviation?: string;
-      chair?: string;
-      memberCount?: unknown;
-      members?: unknown;
-    };
-    if (!info || typeof info !== 'object') return;
-    // For flat format, require at least a name to confirm real data
-    if (!hasWrapped && !info.name && !info.abbreviation) return;
+    const info = extractCommitteeInfoRecord(parsed);
+    if (!info) return;
     data.name = info.name ?? data.name;
     data.abbreviation =
       typeof info.abbreviation === 'string' && !info.abbreviation.startsWith('org/')
         ? info.abbreviation
         : abbreviation;
     data.chair = info.chair && info.chair.length > 0 ? info.chair : PLACEHOLDER_CHAIR;
-    // memberCount may be a number, string, or an array (EP API returns members as array)
-    const memberCountRaw = info.memberCount ?? info.members;
-    let memberCount = 0;
-    if (Array.isArray(memberCountRaw)) {
-      memberCount = memberCountRaw.length;
-    } else if (typeof memberCountRaw === 'number' && Number.isFinite(memberCountRaw)) {
-      memberCount = memberCountRaw;
-    } else if (typeof memberCountRaw === 'string') {
-      const parsedNumber = Number(memberCountRaw);
-      if (Number.isFinite(parsedNumber)) {
-        memberCount = parsedNumber;
-      }
-    }
-    data.members = memberCount;
+    data.members = resolveMemberCount(info.memberCount ?? info.members);
     console.log(`  ✅ Committee info: ${data.name} (${data.members} members)`);
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
