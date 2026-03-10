@@ -218,12 +218,16 @@ function filterFeedItemsByDateRange(items, dateRange, label) {
  * @returns Filtered feed payload
  */
 function filterBreakingNewsFeedDataByDateRange(feedData, dateRange) {
+    const filteredMEPUpdates = filterFeedItemsByDateRange(feedData.mepUpdates, dateRange, 'MEP updates');
     return {
         adoptedTexts: filterFeedItemsByDateRange(feedData.adoptedTexts, dateRange, 'adopted texts'),
         events: filterFeedItemsByDateRange(feedData.events, dateRange, 'events'),
         procedures: filterFeedItemsByDateRange(feedData.procedures, dateRange, 'procedures'),
-        mepUpdates: filterFeedItemsByDateRange(feedData.mepUpdates, dateRange, 'MEP updates'),
-        totalMEPUpdates: feedData.totalMEPUpdates,
+        mepUpdates: filteredMEPUpdates,
+        // When a date-range filter is applied the API-reported total covers the full
+        // feed window, not the filtered subset — clear it to avoid a misleading
+        // truncation note ("showing 10 of 525" on a single-day slice).
+        totalMEPUpdates: dateRange === undefined ? feedData.totalMEPUpdates : undefined,
     };
 }
 /**
