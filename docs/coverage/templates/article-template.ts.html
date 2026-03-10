@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>66/66</span>
+                <span class='fraction'>67/67</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.66% </span>
+                <span class="strong">96.87% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>29/30</span>
+                <span class='fraction'>31/32</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>65/65</span>
+                <span class='fraction'>66/66</span>
             </div>
         
             
@@ -491,7 +491,17 @@
 <a name='L426'></a><a href='#L426'>426</a>
 <a name='L427'></a><a href='#L427'>427</a>
 <a name='L428'></a><a href='#L428'>428</a>
-<a name='L429'></a><a href='#L429'>429</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L429'></a><a href='#L429'>429</a>
+<a name='L430'></a><a href='#L430'>430</a>
+<a name='L431'></a><a href='#L431'>431</a>
+<a name='L432'></a><a href='#L432'>432</a>
+<a name='L433'></a><a href='#L433'>433</a>
+<a name='L434'></a><a href='#L434'>434</a>
+<a name='L435'></a><a href='#L435'>435</a>
+<a name='L436'></a><a href='#L436'>436</a>
+<a name='L437'></a><a href='#L437'>437</a>
+<a name='L438'></a><a href='#L438'>438</a>
+<a name='L439'></a><a href='#L439'>439</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -545,6 +555,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -583,12 +599,15 @@
 <span class="cline-any cline-yes">396x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">396x</span>
-<span class="cline-any cline-yes">5544x</span>
-<span class="cline-any cline-yes">5544x</span>
-<span class="cline-any cline-yes">5544x</span>
-<span class="cline-any cline-yes">5544x</span>
-<span class="cline-any cline-yes">5544x</span>
-<span class="cline-any cline-yes">5544x</span>
+<span class="cline-any cline-yes">404x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5466x</span>
+<span class="cline-any cline-yes">5466x</span>
+<span class="cline-any cline-yes">5466x</span>
+<span class="cline-any cline-yes">5466x</span>
+<span class="cline-any cline-yes">5466x</span>
+<span class="cline-any cline-yes">5466x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -619,6 +638,7 @@
 <span class="cline-any cline-yes">5544x</span>
 <span class="cline-any cline-yes">5544x</span>
 <span class="cline-any cline-yes">5544x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -991,14 +1011,20 @@ const OG_LOCALE_MAP: Readonly&lt;Record&lt;string, string&gt;&gt; = {
 &nbsp;
 /**
  * Build the article language switcher nav HTML.
- * Links to the same article in all 14 languages using the filename pattern {date}-{slug}-{lang}.html.
+ * Links to the same article in all available languages using the filename pattern {date}-{slug}-{lang}.html.
  *
  * @param date - Article date (YYYY-MM-DD)
  * @param slug - Article slug
  * @param currentLang - Active language code
+ * @param availableLanguages - Languages for which the article exists; defaults to all supported languages
  * @returns HTML string
  */
-function buildArticleLangSwitcher(date: string, slug: string, currentLang: string): string {
+function buildArticleLangSwitcher(
+  date: string,
+  slug: string,
+  currentLang: LanguageCode,
+  availableLanguages?: ReadonlyArray&lt;LanguageCode&gt;
+): string {
   if (!DATE_PATTERN.test(date)) {
     throw new Error(`Invalid article date format: "${date}"`);
   }
@@ -1010,14 +1036,17 @@ function buildArticleLangSwitcher(date: string, slug: string, currentLang: strin
   const safeDate = escapeHTML(date);
   const safeSlug = escapeHTML(slug);
 &nbsp;
-  return ALL_LANGUAGES.map((code) =&gt; {
-    const flag = getLocalizedString(LANGUAGE_FLAGS, code);
-    const name = getLocalizedString(LANGUAGE_NAMES, code);
-    const active = code === currentLang ? ' active' : '';
-    const href = `${safeDate}-${safeSlug}-${code}.html`;
-    const safeTitle = escapeHTML(name);
-    return `&lt;a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeTitle}"&gt;${flag} ${code.toUpperCase()}&lt;/a&gt;`;
-  }).join('\n        ');
+  const langs = availableLanguages ?? ALL_LANGUAGES;
+  return langs
+    .map((code) =&gt; {
+      const flag = getLocalizedString(LANGUAGE_FLAGS, code);
+      const name = getLocalizedString(LANGUAGE_NAMES, code);
+      const active = code === currentLang ? ' active' : '';
+      const href = `${safeDate}-${safeSlug}-${code}.html`;
+      const safeTitle = escapeHTML(name);
+      return `&lt;a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeTitle}"&gt;${flag} ${code.toUpperCase()}&lt;/a&gt;`;
+    })
+    .join('\n        ');
 }
 &nbsp;
 /**
@@ -1069,6 +1098,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     keywords = [],
     sources = [],
     stylesHash,
+    availableLanguages,
   } = options;
 &nbsp;
   const dir = getTextDirection(lang);
@@ -1225,7 +1255,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
         &lt;/span&gt;
       &lt;/a&gt;
       &lt;nav class="site-header__langs" role="navigation" aria-label="Language selection"&gt;
-        ${buildArticleLangSwitcher(date, slug, lang)}
+        ${buildArticleLangSwitcher(date, slug, lang, availableLanguages)}
       &lt;/nav&gt;
     &lt;/div&gt;
   &lt;/header&gt;
@@ -1354,7 +1384,7 @@ function renderSourcesSection(sources: ArticleSource[], lang: LanguageCode): str
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-10T01:23:28.825Z
+                at 2026-03-10T23:52:33.831Z
             </div>
         <script src="../prettify.js"></script>
         <script>

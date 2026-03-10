@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>154/154</span>
+                <span class='fraction'>159/159</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.32% </span>
+                <span class="strong">96.42% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>131/136</span>
+                <span class='fraction'>135/140</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>68/68</span>
+                <span class='fraction'>69/69</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>154/154</span>
+                <span class='fraction'>159/159</span>
             </div>
         
             
@@ -1100,7 +1100,21 @@
 <a name='L1035'></a><a href='#L1035'>1035</a>
 <a name='L1036'></a><a href='#L1036'>1036</a>
 <a name='L1037'></a><a href='#L1037'>1037</a>
-<a name='L1038'></a><a href='#L1038'>1038</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L1038'></a><a href='#L1038'>1038</a>
+<a name='L1039'></a><a href='#L1039'>1039</a>
+<a name='L1040'></a><a href='#L1040'>1040</a>
+<a name='L1041'></a><a href='#L1041'>1041</a>
+<a name='L1042'></a><a href='#L1042'>1042</a>
+<a name='L1043'></a><a href='#L1043'>1043</a>
+<a name='L1044'></a><a href='#L1044'>1044</a>
+<a name='L1045'></a><a href='#L1045'>1045</a>
+<a name='L1046'></a><a href='#L1046'>1046</a>
+<a name='L1047'></a><a href='#L1047'>1047</a>
+<a name='L1048'></a><a href='#L1048'>1048</a>
+<a name='L1049'></a><a href='#L1049'>1049</a>
+<a name='L1050'></a><a href='#L1050'>1050</a>
+<a name='L1051'></a><a href='#L1051'>1051</a>
+<a name='L1052'></a><a href='#L1052'>1052</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1276,15 +1290,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
@@ -1326,6 +1342,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -2309,19 +2337,21 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Search legislative documents
    *
-   * @param options - Search options (normalizes `keyword` to `query` if `query` is absent)
+   * @param options - Search options (normalizes `query` to `keyword` if `keyword` is absent,
+   *   since the MCP tool schema requires the `keyword` parameter)
    * @returns Search results
    */
   async searchDocuments(options: SearchDocumentsOptions = {}): Promise&lt;MCPToolResult&gt; {
     return this.safeCallTool(
       'search_documents',
       () =&gt; {
-        const { keyword, ...rest } = options;
+        const { query, ...rest } = options;
         const normalizedOptions: Record&lt;string, unknown&gt; = { ...rest };
-        if (normalizedOptions['query'] === undefined &amp;&amp; keyword !== undefined) {
-          const trimmed = String(keyword).trim();
+        // MCP tool schema expects 'keyword', not 'query'
+        if (normalizedOptions['keyword'] === undefined &amp;&amp; query !== undefined) {
+          const trimmed = String(query).trim();
           <span class="missing-if-branch" title="else path not taken" >E</span>if (trimmed.length &gt; 0) {
-            normalizedOptions['query'] = trimmed;
+            normalizedOptions['keyword'] = trimmed;
           }
         }
         return normalizedOptions;
@@ -2362,7 +2392,19 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    * @returns Committee info data
    */
   async getCommitteeInfo(options: GetCommitteeInfoOptions = {}): Promise&lt;MCPToolResult&gt; {
-    return this.safeCallTool('get_committee_info', options, '{"committees": []}');
+    return this.safeCallTool(
+      'get_committee_info',
+      () =&gt; {
+        const { committeeId, ...rest } = options;
+        const toolOptions: Record&lt;string, unknown&gt; = { ...rest };
+        // MCP tool schema expects 'abbreviation', not 'committeeId'
+        if (toolOptions['abbreviation'] === undefined &amp;&amp; committeeId !== undefined) {
+          toolOptions['abbreviation'] = committeeId;
+        }
+        return toolOptions;
+      },
+      '{"committees": []}'
+    );
   }
 &nbsp;
   /**
@@ -3181,7 +3223,7 @@ export async function closeEPMCPClient(): Promise&lt;void&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-10T01:23:28.876Z
+                at 2026-03-10T23:52:33.884Z
             </div>
         <script src="../prettify.js"></script>
         <script>
