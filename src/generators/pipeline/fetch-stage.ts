@@ -1433,19 +1433,33 @@ function parseFeedResult(result: MCPToolResult | undefined): Record<string, unkn
 }
 
 /**
- * Extract the total item count from an EP API v2 feed response.
- * The EP API returns `{ data: [...], total: N }` where `total` is the
- * full count of matching records (may exceed the `limit` parameter).
+ * Parse an EP API v2 feed response envelope in a single JSON parse, returning
+ * both the array of feed items and the API-reported total count.
+ * Avoids parsing the same JSON payload twice when both values are needed.
  *
  * @param result - Raw MCP tool result
- * @returns Total count from the API response, or 0 when not present
+ * @returns Object with `items` array and `total` count from the API
  */
-function parseFeedTotal(result: MCPToolResult | undefined): number {
-  if (!result?.content?.[0]?.text) return 0;
+function parseFeedEnvelope(result: MCPToolResult | undefined): {
+  items: Record<string, unknown>[];
+  total: number;
+} {
+  if (!result?.content?.[0]?.text) return { items: [], total: 0 };
   const parsed = parseJSON<unknown>(result.content[0].text, 'feed');
-  if (!parsed || typeof parsed !== 'object') return 0;
-  const total = (parsed as Record<string, unknown>)['total'];
-  return typeof total === 'number' ? total : 0;
+  if (!parsed || typeof parsed !== 'object') return { items: [], total: 0 };
+  const envelope = parsed as Record<string, unknown>;
+  const total = typeof envelope['total'] === 'number' ? envelope['total'] : 0;
+  const candidates = [
+    envelope['data'],
+    envelope['feed'],
+    envelope['entries'],
+    envelope['items'],
+    parsed,
+  ];
+  for (const candidate of candidates) {
+    if (Array.isArray(candidate)) return { items: candidate as Record<string, unknown>[], total };
+  }
+  return { items: [], total };
 }
 
 /**
@@ -1609,8 +1623,8 @@ export async function fetchMEPsFeedWithTotal(
       undefined,
       'get_meps_feed'
     );
-    const total = parseFeedTotal(result);
-    const items = parseFeedResult(result).map((item) => ({
+    const { items: rawItems, total } = parseFeedEnvelope(result);
+    const items = rawItems.map((item) => ({
       id: String(item['id'] ?? item['mepId'] ?? ''),
       name: String(item['name'] ?? item['label'] ?? item['title'] ?? 'Unknown'),
       date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
