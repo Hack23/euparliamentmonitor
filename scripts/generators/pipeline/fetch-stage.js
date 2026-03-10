@@ -223,6 +223,7 @@ function filterBreakingNewsFeedDataByDateRange(feedData, dateRange) {
         events: filterFeedItemsByDateRange(feedData.events, dateRange, 'events'),
         procedures: filterFeedItemsByDateRange(feedData.procedures, dateRange, 'procedures'),
         mepUpdates: filterFeedItemsByDateRange(feedData.mepUpdates, dateRange, 'MEP updates'),
+        totalMEPUpdates: feedData.totalMEPUpdates,
     };
 }
 /**
@@ -376,11 +377,13 @@ export function loadFeedDataFromFile(filePath, dateRange) {
         const events = sanitizeTitleItems(Array.isArray(obj['events']) ? obj['events'] : []);
         const procedures = sanitizeTitleItems(Array.isArray(obj['procedures']) ? obj['procedures'] : []);
         const mepUpdates = sanitizeMEPItems(Array.isArray(obj['mepUpdates']) ? obj['mepUpdates'] : []);
+        const totalMEPUpdates = typeof obj['totalMEPUpdates'] === 'number' ? obj['totalMEPUpdates'] : undefined;
         const filteredData = filterBreakingNewsFeedDataByDateRange({
             adoptedTexts,
             events,
             procedures,
             mepUpdates,
+            totalMEPUpdates,
         }, dateRange);
         console.log(`${INFO_PREFIX} Loaded feed data from file: ` +
             `${filteredData.adoptedTexts.length} adopted texts, ${filteredData.events.length} events, ` +
@@ -1077,6 +1080,23 @@ function parseFeedResult(result) {
     return [];
 }
 /**
+ * Extract the total item count from an EP API v2 feed response.
+ * The EP API returns `{ data: [...], total: N }` where `total` is the
+ * full count of matching records (may exceed the `limit` parameter).
+ *
+ * @param result - Raw MCP tool result
+ * @returns Total count from the API response, or 0 when not present
+ */
+function parseFeedTotal(result) {
+    if (!result?.content?.[0]?.text)
+        return 0;
+    const parsed = parseJSON(result.content[0].text, 'feed');
+    if (!parsed || typeof parsed !== 'object')
+        return 0;
+    const total = parsed['total'];
+    return typeof total === 'number' ? total : 0;
+}
+/**
  * Map a raw EP API v2 feed item to a normalized feed item.
  * EP feeds return `{ id, type, work_type, identifier, label }` — we normalize
  * these into the domain feed item shape, using `label` as `title` when no title exists.
@@ -1176,12 +1196,30 @@ export async function fetchProceduresFeed(client, timeframe = 'one-day') {
  * @returns Array of MEP feed items
  */
 export async function fetchMEPsFeed(client, timeframe = 'one-day') {
+    return (await fetchMEPsFeedWithTotal(client, timeframe)).items;
+}
+/**
+ * Fetch MEPs feed from MCP, returning both items and the API's reported total count.
+ * The `total` from the API response reflects all matching records in the feed,
+ * which may exceed the `limit` parameter (currently capped at 100 per request).
+ *
+ * The limit is set to 100 (the EP API maximum) so the fetched sample is large
+ * enough to populate a meaningful truncation note ("showing 10 of N") while
+ * keeping each request bounded.  When the feed contains more than 100 MEP
+ * updates, the `total` field in the API response carries the true count.
+ *
+ * @param client - MCP client or null
+ * @param timeframe - How far back to look (default: 'one-day')
+ * @returns Object with `items` array and `total` count from the API
+ */
+export async function fetchMEPsFeedWithTotal(client, timeframe = 'one-day') {
     if (!client)
-        return [];
+        return { items: [], total: 0 };
     try {
         console.log(`${MCP_FETCH_PREFIX} Fetching MEPs feed (${timeframe})...`);
-        const result = await callMCP(() => client.getMEPsFeed({ timeframe, limit: 20 }), undefined, 'get_meps_feed');
-        return parseFeedResult(result).map((item) => ({
+        const result = await callMCP(() => client.getMEPsFeed({ timeframe, limit: 100 }), undefined, 'get_meps_feed');
+        const total = parseFeedTotal(result);
+        const items = parseFeedResult(result).map((item) => ({
             id: String(item['id'] ?? item['mepId'] ?? ''),
             name: String(item['name'] ?? item['label'] ?? item['title'] ?? 'Unknown'),
             date: String(item['date'] ?? item['published'] ?? item['updated'] ?? ''),
@@ -1191,11 +1229,12 @@ export async function fetchMEPsFeed(client, timeframe = 'one-day') {
             identifier: item['identifier'] ? String(item['identifier']) : undefined,
             label: item['label'] ? String(item['label']) : undefined,
         }));
+        return { items, total };
     }
     catch (error) {
         const message = error instanceof Error ? error.message : String(error);
         console.warn(`${WARN_PREFIX} get_meps_feed failed:`, message);
-        return [];
+        return { items: [], total: 0 };
     }
 }
 /**
@@ -1382,13 +1421,20 @@ export async function fetchBreakingNewsFeedData(client, timeframe = 'one-day') {
         console.warn(`${WARN_PREFIX} Circuit breaker OPEN — treating as MCP unavailable for breaking news feeds`);
         return undefined;
     }
-    const [adoptedTexts, events, procedures, mepUpdates] = await Promise.all([
+    const [adoptedTexts, events, procedures, mepFeedResult] = await Promise.all([
         fetchAdoptedTextsFeed(client, timeframe),
         fetchEventsFeed(client, timeframe),
         fetchProceduresFeed(client, timeframe),
-        fetchMEPsFeed(client, timeframe),
+        fetchMEPsFeedWithTotal(client, timeframe),
     ]);
-    return { adoptedTexts, events, procedures, mepUpdates };
+    const { items: mepUpdates, total: totalMEPUpdates } = mepFeedResult;
+    return {
+        adoptedTexts,
+        events,
+        procedures,
+        mepUpdates,
+        totalMEPUpdates: totalMEPUpdates > 0 ? totalMEPUpdates : undefined,
+    };
 }
 /**
  * Fetch comprehensive EP feed data from all 12 feed endpoints in parallel.
