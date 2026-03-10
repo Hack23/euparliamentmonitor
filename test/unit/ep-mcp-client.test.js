@@ -403,7 +403,7 @@ describe('ep-mcp-client', () => {
         });
       });
 
-      it('should normalize keyword to keyword in searchDocuments', async () => {
+      it('should pass keyword directly to MCP tool without renaming in searchDocuments', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"documents": []}' }],
         });

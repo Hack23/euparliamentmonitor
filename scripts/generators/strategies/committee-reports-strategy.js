@@ -32,6 +32,7 @@ function buildAdoptedTextsSection(feedData, lang) {
     if (!feedData?.adoptedTexts?.length)
         return '';
     const texts = feedData.adoptedTexts;
+    const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
     // Map adopted texts to committee themes
     const envKeywords = ['environment', 'climate', 'health', 'food', 'medicinal', 'detergent', 'GMO', 'genetically', 'cancer'];
     const econKeywords = ['economic', 'financial', 'Central Bank', 'monetary', 'fiscal', '28th Regime'];
@@ -60,14 +61,15 @@ function buildAdoptedTextsSection(feedData, lang) {
         grouped[cat].push(text);
     }
     const committeeNames = {
-        ENVI: 'Environment, Public Health and Food Safety',
-        ECON: 'Economic and Monetary Affairs',
-        AFET: 'Foreign Affairs',
-        LIBE: 'Civil Liberties, Justice and Home Affairs',
-        AGRI: 'Agriculture and Rural Development',
-        OTHER: 'Cross-Committee and Plenary',
+        ENVI: s.committeeNameENVI,
+        ECON: s.committeeNameECON,
+        AFET: s.committeeNameAFET,
+        LIBE: s.committeeNameLIBE,
+        AGRI: s.committeeNameAGRI,
+        OTHER: s.committeeNameOTHER,
     };
-    const sectionLabel = lang === 'en' ? 'Recent Adopted Texts by Committee Theme' : 'Recent Adopted Texts';
+    const sectionLabel = s.adoptedTextsSectionHeading;
+    const summary = s.adoptedTextsSummary.replace('{count}', String(texts.length));
     const displayOrder = ['ENVI', 'ECON', 'AFET', 'LIBE', 'AGRI', 'OTHER'];
     const sections = displayOrder
         .filter(cat => grouped[cat]?.length)
@@ -88,7 +90,7 @@ function buildAdoptedTextsSection(feedData, lang) {
     return `
           <section class="adopted-texts-overview">
             <h3>${escapeHTML(sectionLabel)}</h3>
-            <p>The European Parliament adopted ${texts.length} texts in recent sessions, spanning environmental, economic, security, civil liberties, and agricultural policy domains.</p>
+            <p>${escapeHTML(summary)}</p>
             ${sections}
           </section>`;
 }

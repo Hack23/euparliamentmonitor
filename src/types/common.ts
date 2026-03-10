@@ -485,4 +485,20 @@ export interface CommitteeAnalysisContentStrings {
   readonly noRecentDocs: string;
   /** Notice shown in committee cards when all committee metadata is unavailable from the EP API */
   readonly committeeMetadataUnavailable: string;
+  /** Section heading for the adopted texts overview in feed-enriched articles */
+  readonly adoptedTextsSectionHeading: string;
+  /** Summary paragraph for adopted texts section. {count} placeholder is replaced with the number of texts */
+  readonly adoptedTextsSummary: string;
+  /** Full name of the ENVI committee */
+  readonly committeeNameENVI: string;
+  /** Full name of the ECON committee */
+  readonly committeeNameECON: string;
+  /** Full name of the AFET committee */
+  readonly committeeNameAFET: string;
+  /** Full name of the LIBE committee */
+  readonly committeeNameLIBE: string;
+  /** Full name of the AGRI committee */
+  readonly committeeNameAGRI: string;
+  /** Label for texts not fitting the named committee themes */
+  readonly committeeNameOTHER: string;
 }
