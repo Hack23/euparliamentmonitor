@@ -3389,7 +3389,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       'The European Parliament adopted {count} texts in recent sessions, spanning environmental, economic, security, civil liberties, and agricultural policy domains.',
     adoptedTextsSummarySingular:
-      'The European Parliament adopted 1 text in a recent session, spanning environmental, economic, security, civil liberties, and agricultural policy domains.',
+      'The European Parliament adopted 1 text in a recent session.',
     committeeNameENVI: 'Environment, Public Health and Food Safety',
     committeeNameECON: 'Economic and Monetary Affairs',
     committeeNameAFET: 'Foreign Affairs',
@@ -3442,7 +3442,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       'Europaparlamentet antog {count} texter under de senaste sessionerna inom miljö-, ekonomi-, säkerhets-, medborgerliga friheter- och jordbrukspolitiska områden.',
     adoptedTextsSummarySingular:
-      'Europaparlamentet antog 1 text under den senaste sessionen inom miljö-, ekonomi-, säkerhets-, medborgerliga friheter- och jordbrukspolitiska områden.',
+      'Europaparlamentet antog 1 text under en nyligen hållen session.',
     committeeNameENVI: 'Miljö, folkhälsa och livsmedelssäkerhet',
     committeeNameECON: 'Ekonomi och valutafrågor',
     committeeNameAFET: 'Utrikesfrågor',
@@ -3495,7 +3495,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       'Europa-Parlamentet vedtog {count} tekster under de seneste sessioner inden for miljø-, økonomi-, sikkerheds-, borgerrettigheds- og landbrugspolitiske områder.',
     adoptedTextsSummarySingular:
-      'Europa-Parlamentet vedtog 1 tekst under den seneste session inden for miljø-, økonomi-, sikkerheds-, borgerrettigheds- og landbrugspolitiske områder.',
+      'Europa-Parlamentet vedtog 1 tekst under en nylig session.',
     committeeNameENVI: 'Miljø, Folkesundhed og Fødevaresikkerhed',
     committeeNameECON: 'Økonomi og Valutaspørgsmål',
     committeeNameAFET: 'Udenrigsanliggender',
@@ -3548,7 +3548,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       'Europaparlamentet vedtok {count} tekster under de siste sesjonene innen miljø-, økonomi-, sikkerhets-, borgerrettighets- og landbrukspolitiske områder.',
     adoptedTextsSummarySingular:
-      'Europaparlamentet vedtok 1 tekst under den siste sesjonen innen miljø-, økonomi-, sikkerhets-, borgerrettighets- og landbrukspolitiske områder.',
+      'Europaparlamentet vedtok 1 tekst under en nylig sesjon.',
     committeeNameENVI: 'Miljø, Folkehelse og Mattrygghet',
     committeeNameECON: 'Økonomi og Valutaspørsmål',
     committeeNameAFET: 'Utenrikssaker',
@@ -3601,7 +3601,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       'Euroopan parlamentti hyväksyi {count} tekstiä viimeisimmissä istunnoissaan ympäristö-, talous-, turvallisuus-, kansalaisvapauksien ja maatalouspolitiikan aloilla.',
     adoptedTextsSummarySingular:
-      'Euroopan parlamentti hyväksyi 1 tekstin viimeisimmässä istunnossaan ympäristö-, talous-, turvallisuus-, kansalaisvapauksien ja maatalouspolitiikan aloilla.',
+      'Euroopan parlamentti hyväksyi 1 tekstin äskettäisessä istunnossaan.',
     committeeNameENVI: 'Ympäristö, kansanterveys ja elintarvikkeiden turvallisuus',
     committeeNameECON: 'Talous- ja raha-asiat',
     committeeNameAFET: 'Ulkoasiat',
@@ -3654,7 +3654,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       'Das Europäische Parlament hat in den letzten Sitzungsperioden {count} Texte in den Bereichen Umwelt-, Wirtschafts-, Sicherheits-, Bürgerrechte- und Agrarpolitik verabschiedet.',
     adoptedTextsSummarySingular:
-      'Das Europäische Parlament hat in der letzten Sitzungsperiode 1 Text in den Bereichen Umwelt-, Wirtschafts-, Sicherheits-, Bürgerrechte- und Agrarpolitik verabschiedet.',
+      'Das Europäische Parlament hat in einer aktuellen Sitzungsperiode 1 Text verabschiedet.',
     committeeNameENVI: 'Umweltfragen, öffentliche Gesundheit und Lebensmittelsicherheit',
     committeeNameECON: 'Wirtschaft und Währung',
     committeeNameAFET: 'Auswärtige Angelegenheiten',
@@ -3707,7 +3707,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       'Le Parlement européen a adopté {count} textes lors des sessions récentes, couvrant les domaines de la politique environnementale, économique, sécuritaire, des libertés civiles et agricole.',
     adoptedTextsSummarySingular:
-      "Le Parlement européen a adopté 1 texte lors d'une session récente, couvrant les domaines de la politique environnementale, économique, sécuritaire, des libertés civiles et agricole.",
+      "Le Parlement européen a adopté 1 texte lors d'une session récente.",
     committeeNameENVI: 'Environnement, santé publique et sécurité alimentaire',
     committeeNameECON: 'Affaires économiques et monétaires',
     committeeNameAFET: 'Affaires étrangères',
@@ -3760,7 +3760,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       'El Parlamento Europeo adoptó {count} textos en las sesiones recientes, abarcando los dominios de la política medioambiental, económica, de seguridad, de libertades civiles y agrícola.',
     adoptedTextsSummarySingular:
-      'El Parlamento Europeo adoptó 1 texto en una sesión reciente, abarcando los dominios de la política medioambiental, económica, de seguridad, de libertades civiles y agrícola.',
+      'El Parlamento Europeo adoptó 1 texto en una sesión reciente.',
     committeeNameENVI: 'Medio Ambiente, Salud Pública y Seguridad Alimentaria',
     committeeNameECON: 'Asuntos Económicos y Monetarios',
     committeeNameAFET: 'Asuntos Exteriores',
@@ -3813,7 +3813,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       'Het Europees Parlement nam {count} teksten aan in recente plenaire vergaderingen over milieu-, economisch, veiligheids-, burgerlijke vrijheden- en landbouwbeleid.',
     adoptedTextsSummarySingular:
-      'Het Europees Parlement nam 1 tekst aan in een recente plenaire vergadering over milieu-, economisch, veiligheids-, burgerlijke vrijheden- en landbouwbeleid.',
+      'Het Europees Parlement nam 1 tekst aan in een recente plenaire vergadering.',
     committeeNameENVI: 'Milieubeheer, volksgezondheid en voedselveiligheid',
     committeeNameECON: 'Economische en monetaire zaken',
     committeeNameAFET: 'Buitenlandse zaken',
@@ -3863,7 +3863,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       'اعتمد البرلمان الأوروبي {count} نصاً في الجلسات الأخيرة، تشمل مجالات السياسات البيئية والاقتصادية والأمنية والحريات المدنية والزراعية.',
     adoptedTextsSummarySingular:
-      'اعتمد البرلمان الأوروبي نصاً واحداً في جلسة أخيرة، يشمل مجالات السياسات البيئية والاقتصادية والأمنية والحريات المدنية والزراعية.',
+      'اعتمد البرلمان الأوروبي نصاً واحداً في جلسة أخيرة.',
     committeeNameENVI: 'البيئة والصحة العامة وسلامة الغذاء',
     committeeNameECON: 'الشؤون الاقتصادية والنقدية',
     committeeNameAFET: 'الشؤون الخارجية',
@@ -3912,7 +3912,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       'הפרלמנט האירופי אישר {count} טקסטים בפגישות האחרונות, הכוללים תחומי מדיניות סביבתית, כלכלית, ביטחונית, חירויות אזרחיות וחקלאית.',
     adoptedTextsSummarySingular:
-      'הפרלמנט האירופי אישר טקסט אחד בפגישה האחרונה, הכולל תחומי מדיניות סביבתית, כלכלית, ביטחונית, חירויות אזרחיות וחקלאית.',
+      'הפרלמנט האירופי אישר טקסט אחד בפגישה האחרונה.',
     committeeNameENVI: 'איכות הסביבה, בריאות הציבור ובטיחות המזון',
     committeeNameECON: 'ענייני כלכלה ומטבע',
     committeeNameAFET: 'ענייני חוץ',
@@ -3964,7 +3964,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       '欧州議会は最近の会期に{count}件のテキストを採択し、環境、経済、安全保障、市民的自由、農業政策の分野をカバーしています。',
     adoptedTextsSummarySingular:
-      '欧州議会は最近の会期に1件のテキストを採択し、環境、経済、安全保障、市民的自由、農業政策の分野をカバーしています。',
+      '欧州議会は最近の会期に1件のテキストを採択しました。',
     committeeNameENVI: '環境・公衆衛生・食品安全',
     committeeNameECON: '経済・通貨問題',
     committeeNameAFET: '外交問題',
@@ -4016,7 +4016,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       '유럽 의회는 최근 회기에서 환경, 경제, 안보, 시민 자유 및 농업 정책 분야에 걸쳐 {count}개의 텍스트를 채택했습니다.',
     adoptedTextsSummarySingular:
-      '유럽 의회는 최근 회기에서 환경, 경제, 안보, 시민 자유 및 농업 정책 분야에 걸쳐 1개의 텍스트를 채택했습니다.',
+      '유럽 의회는 최근 회기에서 1개의 텍스트를 채택했습니다.',
     committeeNameENVI: '환경, 공중보건 및 식품안전',
     committeeNameECON: '경제·통화 문제',
     committeeNameAFET: '외교 문제',
@@ -4060,7 +4060,7 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     adoptedTextsSummary:
       '欧洲议会在最近几届会议上通过了{count}项文本，涵盖环境、经济、安全、公民自由和农业政策领域。',
     adoptedTextsSummarySingular:
-      '欧洲议会在最近一届会议上通过了1项文本，涵盖环境、经济、安全、公民自由和农业政策领域。',
+      '欧洲议会在最近一届会议上通过了1项文本。',
     committeeNameENVI: '环境、公共卫生和食品安全',
     committeeNameECON: '经济和货币事务',
     committeeNameAFET: '对外事务',
