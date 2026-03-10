@@ -306,6 +306,48 @@ describe('CommitteeReportsStrategy', () => {
     expect(content).not.toContain('<script>');
   });
 
+  it('buildContent renders adopted-texts-overview section when feedData has adoptedTexts', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Climate Decision', date: '2026-03-01' }],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    expect(content).toContain('adopted-texts-overview');
+    expect(content).toContain('Climate Decision');
+  });
+
+  it('buildContent categorizes agri-food titles under AGRI not ENVI', () => {
+    const data = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [
+          {
+            id: 'AT-2',
+            title: 'Cooperation among enforcement authorities regarding unfair trading practices in the agri-food supply chain',
+            date: '2026-03-01',
+          },
+        ],
+      },
+    };
+    const content = strategy.buildContent(data, 'en');
+    // Extract just the adopted-texts-overview section for targeted assertions
+    const overviewStart = content.indexOf('class="adopted-texts-overview"');
+    const overviewEnd = content.indexOf('</section>', overviewStart) + '</section>'.length;
+    const overviewHtml = content.slice(overviewStart, overviewEnd);
+    expect(overviewHtml).toContain('agri-food supply chain');
+    // Should appear under Agriculture heading, not Environment heading
+    expect(overviewHtml).toContain('Agriculture');
+    expect(overviewHtml).not.toContain('Environment');
+  });
+
+  it('buildContent omits adopted-texts-overview section when feedData has no adoptedTexts', () => {
+    const dataNoFeed = { ...committeeReportsData, feedData: undefined };
+    const content = strategy.buildContent(dataNoFeed, 'en');
+    expect(content).not.toContain('adopted-texts-overview');
+  });
+
   it('getMetadata returns "committee-reports" category', () => {
     const meta = strategy.getMetadata(committeeReportsData, 'en');
     expect(meta.category).toBe('committee-reports');
