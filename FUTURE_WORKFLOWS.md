@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Timeline-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-02-24 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-24  
+**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:** 2026-03-10 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-10  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
 
 ---
@@ -103,32 +103,75 @@ This document outlines planned enhancements to the EU Parliament Monitor CI/CD w
 
 ### Roadmap Overview
 
-| Phase | Timeline | Focus | Key Deliverables |
-|-------|----------|-------|------------------|
-| **Phase 1** | Q2 2026 | Security Hardening | SHA-pinning, FOSSA, knip, advanced scanning |
-| **Phase 2** | Q3 2026 | Performance & Quality | Load testing, mutation testing, E2E expansion |
-| **Phase 3** | Q4 2026 | Advanced Automation | Multi-environment, canary deployments |
+| Phase | Timeline | Focus | Key Deliverables | Status |
+|-------|----------|-------|------------------|--------|
+| **Phase 0** | ✅ Completed | Agentic Workflows | 9 gh-aw news workflows, Copilot agent setup, 100% SHA-pinning | ✅ Done |
+| **Phase 1** | Q2 2026 | Security Hardening | FOSSA, knip, advanced scanning | 🔄 In Progress |
+| **Phase 2** | Q3 2026 | Performance & Quality | Load testing, mutation testing, E2E expansion | 📋 Planned |
+| **Phase 3** | Q4 2026 | Advanced Automation | Multi-environment, canary deployments | 📋 Planned |
+
+---
+
+## ✅ Phase 0: Completed Enhancements (Pre-Q2 2026)
+
+The following capabilities have already been delivered and are documented in [WORKFLOWS.md](WORKFLOWS.md):
+
+### 0.1 Complete SHA-Pinning Migration — ✅ COMPLETED
+
+**Status:** All 13 standard workflows now use 100% SHA-pinned actions.  
+**Evidence:** Verified in [WORKFLOWS.md §Workflow Permissions Matrix](WORKFLOWS.md)
+
+### 0.2 Agentic News Workflows — ✅ COMPLETED
+
+**Status:** 9 agentic news workflows compiled via `gh-aw` (GitHub Agentic Workflows v0.57.0) are in production.  
+**Engine:** GitHub Copilot CLI with `claude-opus-4.6` model  
+**Data Source:** `european-parliament-mcp-server@1.1.5` via MCP protocol  
+**Coverage:** 14 languages (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH)
+
+| Workflow | Schedule | Purpose |
+|----------|----------|---------|
+| `news-week-ahead.lock.yml` | Friday 07:00 UTC | Parliamentary week preview |
+| `news-weekly-review.lock.yml` | Saturday 09:00 UTC | Week retrospective |
+| `news-motions.lock.yml` | Weekdays 06:00 UTC | Plenary votes & resolutions |
+| `news-propositions.lock.yml` | Weekdays 05:00 UTC | Legislative procedures |
+| `news-committee-reports.lock.yml` | Weekdays 04:00 UTC | Committee activity |
+| `news-month-ahead.lock.yml` | 1st of month 08:00 UTC | Monthly outlook |
+| `news-monthly-review.lock.yml` | 28th of month 10:00 UTC | Monthly retrospective |
+| `news-breaking.lock.yml` | Every 6 hours | Breaking news |
+| `news-article-generator.lock.yml` | Manual dispatch | Multi-type generator |
+
+### 0.3 Copilot Agent Setup — ✅ COMPLETED
+
+**Status:** `copilot-setup-steps.yml` configures the environment for 8 specialized Copilot agents with MCP server integrations.  
+**Compile Workflow:** `compile-agentic-workflows.yml` compiles `.md` source → `.lock.yml` via `gh aw compile`.
+
+### 0.4 Lighthouse CI Performance Testing — ✅ COMPLETED
+
+**Status:** Lighthouse CI (`@lhci/cli@0.15.1`) is integrated into the `performance` job of `test-and-report.yml`.  
+**Metrics:** Performance budgets, accessibility scores, SEO audits, best practices validation.
+
+### 0.5 Article Generation Benchmarks — ✅ COMPLETED
+
+**Status:** The `performance` job in `test-and-report.yml` includes article generation benchmarks with a 30-second budget (`GENERATION_BUDGET_MS=30000`).
 
 ---
 
 ## 🔐 Phase 1: Security Hardening (Q2 2026)
 
-### 1.1 Complete SHA-Pinning Migration
+### ~~1.1 Complete SHA-Pinning Migration~~ — ✅ COMPLETED
 
-**Current State:** ~90% of actions are SHA-pinned  
-**Target:** 100% SHA-pinned actions  
-**Timeline:** Q2 2026 Week 1-2
+**Current State:** ✅ 100% of actions are SHA-pinned (achieved pre-Q2 2026)  
+**Target:** ~~100% SHA-pinned actions~~ **Done**  
+**Timeline:** ~~Q2 2026 Week 1-2~~ **Completed**
 
 #### Implementation
 
-```yaml
-# BEFORE (e2e.yml)
-- uses: actions/checkout@v6
-- uses: actions/setup-node@v6
+All 13 standard workflows now use SHA-pinned actions:
 
-# AFTER
+```yaml
+# All workflows now use SHA-pinned actions (example from e2e.yml)
 - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-- uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+- uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
 ```
 
 **Benefits:**
@@ -257,12 +300,21 @@ jobs:
 
 ## ⚡ Phase 2: Performance & Quality (Q3 2026)
 
-### 2.1 Load Testing & Performance
+### ~~2.1 Load Testing & Performance~~ — ⚡ PARTIALLY COMPLETED
 
 **Purpose:** Validate performance under load  
-**Timeline:** Q3 2026 Week 1-4
+**Timeline:** Q3 2026 Week 1-4  
+**Status:** Lighthouse CI is already integrated. k6 load testing remains planned.
 
-#### New Workflow: `performance.yml`
+#### ✅ Completed: Lighthouse CI
+
+Lighthouse CI (`@lhci/cli@0.15.1`) is integrated into the `performance` job of `test-and-report.yml` with:
+- Performance budgets (30-second article generation budget)
+- Accessibility audits
+- SEO validation
+- Best practices checks
+
+#### Remaining: k6 Load Testing
 
 ```yaml
 name: Performance Testing
@@ -516,21 +568,21 @@ jobs:
 
 ### Phase 1 Metrics (Q2 2026)
 
-| Metric | Baseline | Target | Measurement |
-|--------|----------|--------|-------------|
-| **SHA-Pinned Actions** | 90% | 100% | Workflow audit |
-| **License Compliance** | Manual | Automated | FOSSA reports |
-| **Unused Dependencies** | Unknown | 0 | Knip reports |
-| **Security Tools** | 2 | 5 | Tool count |
+| Metric | Baseline | Target | Current | Status |
+|--------|----------|--------|---------|--------|
+| **SHA-Pinned Actions** | ~~90%~~ | 100% | 100% | ✅ Completed |
+| **License Compliance** | Manual | Automated | Manual | 📋 Planned |
+| **Unused Dependencies** | Unknown | 0 | Unknown | 📋 Planned |
+| **Security Tools** | 3 (CodeQL, npm audit, Dep Review) | 5 | 3 | 📋 Planned |
 
 ### Phase 2 Metrics (Q3 2026)
 
-| Metric | Baseline | Target | Measurement |
-|--------|----------|--------|-------------|
-| **Page Load Time** | ~1.5s | <1s | Lighthouse |
-| **Lighthouse Score** | 85 | >95 | Lighthouse |
-| **Mutation Score** | Unknown | ≥80% | Stryker |
-| **Browser Coverage** | 1 | 5 | Playwright |
+| Metric | Baseline | Target | Current | Status |
+|--------|----------|--------|---------|--------|
+| **Page Load Time** | ~1.5s | <1s | Monitored via Lighthouse CI | ⚡ Partial |
+| **Lighthouse Score** | 85 | >95 | Monitored via test-and-report | ⚡ Partial |
+| **Mutation Score** | Unknown | ≥80% | Unknown | 📋 Planned |
+| **Browser Coverage** | 1 | 5 | 1 (Chromium) | 📋 Planned |
 
 ### Phase 3 Metrics (Q4 2026)
 
@@ -595,9 +647,9 @@ jobs:
 ### Phase 1: Security Hardening (Q2 2026)
 
 **Week 1-2:**
-- [ ] Complete SHA-pinning migration for all workflows
-- [ ] Test all workflows with SHA-pinned actions
-- [ ] Document action versions
+- [x] Complete SHA-pinning migration for all workflows ✅ (achieved pre-Q2 2026)
+- [x] Test all workflows with SHA-pinned actions ✅
+- [x] Document action versions ✅ (in WORKFLOWS.md v3.0)
 
 **Week 3-4:**
 - [ ] Set up FOSSA account and integration
@@ -613,9 +665,9 @@ jobs:
 ### Phase 2: Performance & Quality (Q3 2026)
 
 **Week 1-4:**
-- [ ] Set up Lighthouse CI
+- [x] Set up Lighthouse CI ✅ (integrated in test-and-report.yml performance job)
 - [ ] Create k6 load test scripts
-- [ ] Configure performance budgets
+- [x] Configure performance budgets ✅ (GENERATION_BUDGET_MS=30000)
 - [ ] Automate performance reporting
 
 **Week 5-8:**
@@ -739,7 +791,7 @@ This document will be reviewed quarterly to assess progress and adjust prioritie
 - Resource availability
 - Compliance requirements
 
-**Next Review:** 2026-05-24
+**Next Review:** 2026-06-10
 
 ---
 
@@ -748,4 +800,4 @@ This document will be reviewed quarterly to assess progress and adjust prioritie
 
 ---
 
-*Last updated: 2026-02-24 by CEO*
+*Last updated: 2026-03-10 by Security Architect*
