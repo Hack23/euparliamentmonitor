@@ -58,9 +58,7 @@ interface CommitteeInfoRecord {
  * @param parsed - Parsed JSON object from MCP response
  * @returns The info record, or null when the payload is unrecognised
  */
-function extractCommitteeInfoRecord(
-  parsed: Record<string, unknown>
-): CommitteeInfoRecord | null {
+function extractCommitteeInfoRecord(parsed: Record<string, unknown>): CommitteeInfoRecord | null {
   const hasWrapped = typeof parsed.committee === 'object' && parsed.committee !== null;
   const info = (hasWrapped ? parsed.committee : parsed) as CommitteeInfoRecord;
   if (!info || typeof info !== 'object') return null;

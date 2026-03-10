@@ -3693,8 +3693,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
       "Les données sur le président et les membres des commissions ne sont actuellement pas disponibles via l'API Open Data du PE pour cette période de rapport. La surveillance de l'activité des commissions se poursuit avec les sources de données disponibles.",
     adoptedTextsSectionHeading: 'Textes récemment adoptés par thème de commission',
     adoptedTextsSummary:
-      "Le Parlement européen a adopté {count} textes lors des sessions récentes, couvrant les domaines de la politique environnementale, économique, sécuritaire, des libertés civiles et agricole.",
-    committeeNameENVI: "Environnement, santé publique et sécurité alimentaire",
+      'Le Parlement européen a adopté {count} textes lors des sessions récentes, couvrant les domaines de la politique environnementale, économique, sécuritaire, des libertés civiles et agricole.',
+    committeeNameENVI: 'Environnement, santé publique et sécurité alimentaire',
     committeeNameECON: 'Affaires économiques et monétaires',
     committeeNameAFET: 'Affaires étrangères',
     committeeNameLIBE: 'Libertés civiles, justice et affaires intérieures',
