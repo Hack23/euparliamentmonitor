@@ -3,12 +3,11 @@
 import { ArticleCategory } from '../../types/index.js';
 import { MOTIONS_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchMotionsData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
-import { generateMotionsContent, buildPoliticalAlignmentSection, buildAdoptedTextsSection, } from '../motions-content.js';
+import { generateMotionsContent, buildPoliticalAlignmentSection, buildAdoptedTextsSection, PLACEHOLDER_MARKER, } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
-import { PLACEHOLDER_MARKER } from '../motions-content.js';
 /** Keywords shared by all Motions articles */
 const MOTIONS_KEYWORDS = [
     'European Parliament',
