@@ -487,8 +487,10 @@ export interface CommitteeAnalysisContentStrings {
   readonly committeeMetadataUnavailable: string;
   /** Section heading for the adopted texts overview in feed-enriched articles */
   readonly adoptedTextsSectionHeading: string;
-  /** Summary paragraph for adopted texts section. {count} placeholder is replaced with the number of texts */
+  /** Summary paragraph for adopted texts section (plural). {count} placeholder is replaced with the number of texts */
   readonly adoptedTextsSummary: string;
+  /** Summary paragraph for adopted texts section when exactly one text was adopted (singular form) */
+  readonly adoptedTextsSummarySingular: string;
   /** Full name of the ENVI committee */
   readonly committeeNameENVI: string;
   /** Full name of the ECON committee */

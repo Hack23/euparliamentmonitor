@@ -103,7 +103,8 @@ function buildAdoptedTextsSection(feedData: EPFeedData | undefined, lang: Langua
   ];
   const afetKeywords = [
     'foreign',
-    'security',
+    'security policy',
+    'security cooperation',
     'defence',
     'defense',
     'sanctions',
@@ -113,9 +114,12 @@ function buildAdoptedTextsSection(feedData: EPFeedData | undefined, lang: Langua
     'peace',
   ];
   const libeKeywords = [
-    'civil',
+    'civil liberties',
+    'civil rights',
     'justice',
-    'rights',
+    'fundamental rights',
+    'human rights',
+    'workers\' rights',
     'safe countries',
     'safe third',
     'asylum',
@@ -149,7 +153,10 @@ function buildAdoptedTextsSection(feedData: EPFeedData | undefined, lang: Langua
   };
 
   const sectionLabel = s.adoptedTextsSectionHeading;
-  const summary = s.adoptedTextsSummary.replace('{count}', String(texts.length));
+  const summary =
+    texts.length === 1
+      ? s.adoptedTextsSummarySingular
+      : s.adoptedTextsSummary.replace('{count}', String(texts.length));
   const displayOrder = ['ENVI', 'ECON', 'AFET', 'LIBE', 'AGRI', 'OTHER'] as const;
 
   const sections = displayOrder

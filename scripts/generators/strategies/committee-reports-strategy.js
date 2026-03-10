@@ -37,21 +37,60 @@ function buildAdoptedTextsSection(feedData, lang) {
     // AGRI is checked before ENVI so that titles containing 'agri-food' are not
     // incorrectly captured by ENVI's broader 'food' keyword.
     const agriKeywords = ['agriculture', 'wine', 'agri-food', 'Mercosur', 'rural', 'farming'];
-    const envKeywords = ['environment', 'climate', 'health', 'food', 'medicinal', 'detergent', 'GMO', 'genetically', 'cancer'];
-    const econKeywords = ['economic', 'financial', 'Central Bank', 'monetary', 'fiscal', '28th Regime'];
-    const afetKeywords = ['foreign', 'security', 'defence', 'defense', 'sanctions', 'Magnitsky', 'Ukraine', 'aggression', 'peace'];
-    const libeKeywords = ['civil', 'justice', 'rights', 'safe countries', 'safe third', 'asylum', 'migration'];
+    const envKeywords = [
+        'environment',
+        'climate',
+        'health',
+        'food',
+        'medicinal',
+        'detergent',
+        'GMO',
+        'genetically',
+        'cancer',
+    ];
+    const econKeywords = [
+        'economic',
+        'financial',
+        'Central Bank',
+        'monetary',
+        'fiscal',
+        '28th Regime',
+    ];
+    const afetKeywords = [
+        'foreign',
+        'security policy',
+        'security cooperation',
+        'defence',
+        'defense',
+        'sanctions',
+        'Magnitsky',
+        'Ukraine',
+        'aggression',
+        'peace',
+    ];
+    const libeKeywords = [
+        'civil liberties',
+        'civil rights',
+        'justice',
+        'fundamental rights',
+        'human rights',
+        'workers\' rights',
+        'safe countries',
+        'safe third',
+        'asylum',
+        'migration',
+    ];
     const categorize = (title) => {
         const t = title.toLowerCase();
-        if (agriKeywords.some(k => t.includes(k.toLowerCase())))
+        if (agriKeywords.some((k) => t.includes(k.toLowerCase())))
             return 'AGRI';
-        if (envKeywords.some(k => t.includes(k.toLowerCase())))
+        if (envKeywords.some((k) => t.includes(k.toLowerCase())))
             return 'ENVI';
-        if (econKeywords.some(k => t.includes(k.toLowerCase())))
+        if (econKeywords.some((k) => t.includes(k.toLowerCase())))
             return 'ECON';
-        if (afetKeywords.some(k => t.includes(k.toLowerCase())))
+        if (afetKeywords.some((k) => t.includes(k.toLowerCase())))
             return 'AFET';
-        if (libeKeywords.some(k => t.includes(k.toLowerCase())))
+        if (libeKeywords.some((k) => t.includes(k.toLowerCase())))
             return 'LIBE';
         return 'OTHER';
     };
@@ -71,14 +110,16 @@ function buildAdoptedTextsSection(feedData, lang) {
         OTHER: s.committeeNameOTHER,
     };
     const sectionLabel = s.adoptedTextsSectionHeading;
-    const summary = s.adoptedTextsSummary.replace('{count}', String(texts.length));
+    const summary = texts.length === 1
+        ? s.adoptedTextsSummarySingular
+        : s.adoptedTextsSummary.replace('{count}', String(texts.length));
     const displayOrder = ['ENVI', 'ECON', 'AFET', 'LIBE', 'AGRI', 'OTHER'];
     const sections = displayOrder
-        .filter(cat => grouped[cat]?.length)
-        .map(cat => {
+        .filter((cat) => grouped[cat]?.length)
+        .map((cat) => {
         const items = grouped[cat];
         const listItems = items
-            .map(item => `<li class="adopted-text-item"><strong>${escapeHTML(item.title)}</strong> <span class="document-date">(${escapeHTML(item.date)})</span></li>`)
+            .map((item) => `<li class="adopted-text-item"><strong>${escapeHTML(item.title)}</strong> <span class="document-date">(${escapeHTML(item.date)})</span></li>`)
             .join('\n                ');
         return `
             <div class="committee-theme-group">
