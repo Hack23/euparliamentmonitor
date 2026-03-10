@@ -8,6 +8,7 @@ import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { PLACEHOLDER_MARKER } from '../motions-content.js';
 /** Keywords shared by all Motions articles */
 const MOTIONS_KEYWORDS = [
     'European Parliament',
@@ -83,7 +84,10 @@ export class MotionsStrategy {
         const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
         const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const swotSection = buildSwotSection(swotData, lang);
-        const dashboardData = buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies, lang);
+        const hasRealVotingData = data.votingRecords.some((r) => r.result !== PLACEHOLDER_MARKER);
+        const dashboardData = hasRealVotingData
+            ? buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies, lang)
+            : null;
         const dashboardSection = buildDashboardSection(dashboardData, lang);
         // Inject at the explicit <!-- /article-content --> marker so the section
         // stays inside the .article-content styling scope. The marker is always
