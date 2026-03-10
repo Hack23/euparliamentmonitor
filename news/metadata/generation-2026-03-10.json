@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-03-10T15:20:10.002Z",
-  "generated": 41,
+  "timestamp": "2026-03-10T18:21:09.847Z",
+  "generated": 42,
   "skipped": 16,
   "dryRun": 0,
   "errors": 0,
@@ -56,11 +56,6 @@
     },
     {
       "success": true,
-      "files": 13,
-      "slug": "2026-03-10-breaking"
-    },
-    {
-      "success": true,
       "files": 0,
       "slug": "2026-03-10-committee-reports"
     },
@@ -68,6 +63,11 @@
       "success": true,
       "files": 13,
       "slug": "2026-03-10-propositions"
+    },
+    {
+      "success": true,
+      "files": 1,
+      "slug": "2026-03-10-breaking"
     }
   ],
   "usedMCP": true
