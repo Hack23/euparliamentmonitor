@@ -53,9 +53,6 @@ name: "News: Translate Articles"
 
 permissions: {}
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 concurrency:
   group: "gh-aw-${{ github.workflow }}"
 
