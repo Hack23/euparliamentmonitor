@@ -18,16 +18,18 @@ const PROPOSITIONS_KEYWORDS = [
     'OLP',
 ];
 /**
- * Build proposals HTML from EP feed data when search_documents returns empty.
- * Uses procedures and adopted texts from the feed as fallback content.
+ * Build procedures and adopted-texts HTML separately from EP feed data when
+ * search_documents returns empty. Uses procedures and adopted texts from the
+ * feed as fallback content, rendering each as a distinct section.
  *
  * @param feedData - EP feed data containing procedures and adopted texts
- * @returns Pre-sanitized HTML for the proposals section
+ * @returns Pre-sanitized HTML for procedures and adopted texts sections separately
  */
-function buildProposalsFromFeed(feedData) {
-    const items = [];
+function buildProceduresAndAdoptedTextsFromFeed(feedData) {
+    const procedureItems = [];
+    const adoptedTextItems = [];
     for (const proc of feedData.procedures.slice(0, 8)) {
-        items.push(`
+        procedureItems.push(`
       <div class="proposal-card">
         <h3>${escapeHTML(proc.title || proc.id)}</h3>
         <div class="proposal-meta">
@@ -38,7 +40,7 @@ function buildProposalsFromFeed(feedData) {
       </div>`);
     }
     for (const text of feedData.adoptedTexts.slice(0, 8)) {
-        items.push(`
+        adoptedTextItems.push(`
       <div class="proposal-card">
         <h3>${escapeHTML(text.title || text.id)}</h3>
         <div class="proposal-meta">
@@ -47,7 +49,10 @@ function buildProposalsFromFeed(feedData) {
         </div>
       </div>`);
     }
-    return items.join('\n');
+    return {
+        proceduresHtml: procedureItems.join('\n'),
+        adoptedTextsHtml: adoptedTextItems.join('\n'),
+    };
 }
 // ─── Strategy implementation ──────────────────────────────────────────────────
 /**
@@ -91,19 +96,23 @@ export class PropositionsStrategy {
         // When search_documents returns empty but feed data has procedures/adopted texts,
         // build proposals HTML from the feed data as fallback
         let finalProposalsHtml = proposalsHtml;
+        let finalAdoptedTextsHtml = '';
         if (!finalProposalsHtml && feedResult) {
             const hasFeedItems = feedResult.procedures.length > 0 || feedResult.adoptedTexts.length > 0;
             if (hasFeedItems) {
-                console.log(`  📰 Building proposals from feed data: ${feedResult.procedures.length} procedures, ${feedResult.adoptedTexts.length} adopted texts`);
-                finalProposalsHtml = buildProposalsFromFeed(feedResult);
+                console.log(`  📰 Building procedures/adopted-texts from feed data: ${feedResult.procedures.length} procedures, ${feedResult.adoptedTexts.length} adopted texts`);
+                const feedHtml = buildProceduresAndAdoptedTextsFromFeed(feedResult);
+                finalProposalsHtml = feedHtml.proceduresHtml;
+                finalAdoptedTextsHtml = feedHtml.adoptedTextsHtml;
             }
         }
-        if (!finalProposalsHtml) {
+        if (!finalProposalsHtml && !finalAdoptedTextsHtml) {
             console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
         }
         return {
             date,
             proposalsHtml: finalProposalsHtml,
+            adoptedTextsHtml: finalAdoptedTextsHtml,
             pipelineData,
             procedureHtml,
             feedData: feedResult,
@@ -118,8 +127,8 @@ export class PropositionsStrategy {
      */
     buildContent(data, lang) {
         const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
-        const base = buildPropositionsContent(data.proposalsHtml, data.pipelineData, data.procedureHtml, strings, lang);
-        const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date, lang);
+        const base = buildPropositionsContent(data.proposalsHtml, data.adoptedTextsHtml, data.pipelineData, data.procedureHtml, strings, lang);
+        const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date, lang, data.adoptedTextsHtml);
         const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
         const swotData = buildPropositionsSwot(data.pipelineData, lang);
         const swotSection = buildSwotSection(swotData, lang);

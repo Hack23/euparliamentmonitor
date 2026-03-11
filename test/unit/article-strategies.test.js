@@ -1023,12 +1023,13 @@ describe('PropositionsStrategy feed fallback', () => {
     const strategy = new PropositionsStrategy();
     const data = await strategy.fetchData(null, '2026-03-06');
 
-    expect(data.proposalsHtml).toBeTruthy();
-    expect(data.proposalsHtml).toContain('Adopted Text on Climate Finance');
-    expect(data.proposalsHtml).toContain('TA-10-2026-0099');
+    // adopted texts are now in their own field, not in proposalsHtml
+    expect(data.adoptedTextsHtml).toBeTruthy();
+    expect(data.adoptedTextsHtml).toContain('Adopted Text on Climate Finance');
+    expect(data.adoptedTextsHtml).toContain('TA-10-2026-0099');
     // RDF type "Work" must not appear as a status badge for adopted texts
-    expect(data.proposalsHtml).not.toContain('proposal-status');
-    expect(data.proposalsHtml).not.toContain('>Work<');
+    expect(data.adoptedTextsHtml).not.toContain('proposal-status');
+    expect(data.adoptedTextsHtml).not.toContain('>Work<');
   });
 
   it('filters stale prefetched feed procedures outside the recent article window', async () => {

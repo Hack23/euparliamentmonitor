@@ -1122,7 +1122,8 @@ export const PROPOSITIONS_TITLES = {
 export const PROPOSITIONS_STRINGS = {
     en: {
         lede: 'The European Parliament is actively processing multiple legislative proposals across key policy areas. This report tracks current proposals, their procedure status, and the overall legislative pipeline.',
-        proposalsHeading: 'Recent Legislative Proposals',
+        proposalsHeading: 'Recent Legislative Procedures',
+        adoptedTextsHeading: 'Recently Adopted Texts',
         pipelineHeading: 'Legislative Pipeline Overview',
         procedureHeading: 'Procedure Status',
         analysisHeading: 'Impact Assessment',
@@ -1133,7 +1134,8 @@ export const PROPOSITIONS_STRINGS = {
     },
     sv: {
         lede: 'Europaparlamentet bearbetar aktivt flera lagstiftningsförslag inom viktiga politikområden. Denna rapport spårar aktuella förslag, deras procedurstatus och den övergripande lagstiftningspipelinen.',
-        proposalsHeading: 'Senaste Lagstiftningsförslag',
+        proposalsHeading: 'Senaste Lagstiftningsförfaranden',
+        adoptedTextsHeading: 'Nyligen Antagna Texter',
         pipelineHeading: 'Översikt av Lagstiftnings-Pipeline',
         procedureHeading: 'Procedurstatus',
         analysisHeading: 'Konsekvensbedömning',
@@ -1144,7 +1146,8 @@ export const PROPOSITIONS_STRINGS = {
     },
     da: {
         lede: 'Europa-Parlamentet behandler aktivt adskillige lovgivningsforslag inden for vigtige politikområder.',
-        proposalsHeading: 'Seneste Lovgivningsforslag',
+        proposalsHeading: 'Seneste Lovgivningsprocedurer',
+        adoptedTextsHeading: 'Nyligt Vedtagne Tekster',
         pipelineHeading: 'Oversigt over Lovgivningspipeline',
         procedureHeading: 'Procedurestatus',
         analysisHeading: 'Konsekvensvurdering',
@@ -1155,7 +1158,8 @@ export const PROPOSITIONS_STRINGS = {
     },
     no: {
         lede: 'Europaparlamentet behandler aktivt flere lovgivningsforslag innenfor viktige politikkområder.',
-        proposalsHeading: 'Siste Lovgivningsforslag',
+        proposalsHeading: 'Siste Lovgivningsprosedyrer',
+        adoptedTextsHeading: 'Nylig Vedtatte Tekster',
         pipelineHeading: 'Oversikt over Lovgivningspipeline',
         procedureHeading: 'Prosedyrestatus',
         analysisHeading: 'Konsekvensanalyse',
@@ -1166,7 +1170,8 @@ export const PROPOSITIONS_STRINGS = {
     },
     fi: {
         lede: 'Euroopan parlamentti käsittelee aktiivisesti useita lainsäädäntöehdotuksia keskeisillä politiikka-alueilla.',
-        proposalsHeading: 'Viimeisimmät Lainsäädäntöehdotukset',
+        proposalsHeading: 'Viimeisimmät Lainsäädäntömenettelyt',
+        adoptedTextsHeading: 'Äskettäin Hyväksytyt Tekstit',
         pipelineHeading: 'Lainsäädäntöputken Yleiskatsaus',
         procedureHeading: 'Menettelyn Tila',
         analysisHeading: 'Vaikutustenarviointi',
@@ -1177,7 +1182,8 @@ export const PROPOSITIONS_STRINGS = {
     },
     de: {
         lede: 'Das Europäische Parlament bearbeitet aktiv mehrere Gesetzgebungsvorschläge in wichtigen Politikbereichen.',
-        proposalsHeading: 'Aktuelle Gesetzgebungsvorschläge',
+        proposalsHeading: 'Aktuelle Gesetzgebungsverfahren',
+        adoptedTextsHeading: 'Kürzlich Angenommene Texte',
         pipelineHeading: 'Überblick über die Gesetzgebungspipeline',
         procedureHeading: 'Verfahrensstatus',
         analysisHeading: 'Folgenabschätzung',
@@ -1188,7 +1194,8 @@ export const PROPOSITIONS_STRINGS = {
     },
     fr: {
         lede: 'Le Parlement européen traite activement de multiples propositions législatives dans des domaines politiques clés.',
-        proposalsHeading: 'Propositions Législatives Récentes',
+        proposalsHeading: 'Procédures Législatives Récentes',
+        adoptedTextsHeading: 'Textes Récemment Adoptés',
         pipelineHeading: "Vue d'ensemble du Pipeline Législatif",
         procedureHeading: 'Statut de la Procédure',
         analysisHeading: "Évaluation de l'Impact",
@@ -1199,7 +1206,8 @@ export const PROPOSITIONS_STRINGS = {
     },
     es: {
         lede: 'El Parlamento Europeo está procesando activamente múltiples propuestas legislativas en áreas clave de política.',
-        proposalsHeading: 'Propuestas Legislativas Recientes',
+        proposalsHeading: 'Procedimientos Legislativos Recientes',
+        adoptedTextsHeading: 'Textos Recientemente Adoptados',
         pipelineHeading: 'Descripción General del Pipeline Legislativo',
         procedureHeading: 'Estado del Procedimiento',
         analysisHeading: 'Evaluación de Impacto',
@@ -1210,7 +1218,8 @@ export const PROPOSITIONS_STRINGS = {
     },
     nl: {
         lede: 'Het Europees Parlement behandelt actief meerdere wetgevende voorstellen op belangrijke beleidsterreinen.',
-        proposalsHeading: 'Recente Wetgevingsvoorstellen',
+        proposalsHeading: 'Recente Wetgevingsprocedures',
+        adoptedTextsHeading: 'Recent Aangenomen Teksten',
         pipelineHeading: 'Overzicht van de Wetgevende Pipeline',
         procedureHeading: 'Procedurestatus',
         analysisHeading: 'Impactbeoordeling',
@@ -1221,7 +1230,8 @@ export const PROPOSITIONS_STRINGS = {
     },
     ar: {
         lede: 'يقوم البرلمان الأوروبي بمعالجة العديد من المقترحات التشريعية في مجالات السياسة الرئيسية.',
-        proposalsHeading: 'المقترحات التشريعية الأخيرة',
+        proposalsHeading: 'الإجراءات التشريعية الأخيرة',
+        adoptedTextsHeading: 'النصوص المعتمدة مؤخراً',
         pipelineHeading: 'نظرة عامة على خط الأنابيب التشريعي',
         procedureHeading: 'حالة الإجراء',
         analysisHeading: 'تقييم الأثر',
@@ -1232,7 +1242,8 @@ export const PROPOSITIONS_STRINGS = {
     },
     he: {
         lede: 'הפרלמנט האירופי מעבד באופן פעיל הצעות חקיקה מרובות בתחומי מדיניות מרכזיים.',
-        proposalsHeading: 'הצעות חקיקה אחרונות',
+        proposalsHeading: 'הליכי חקיקה אחרונים',
+        adoptedTextsHeading: 'טקסטים שאומצו לאחרונה',
         pipelineHeading: 'סקירת צינור החקיקה',
         procedureHeading: 'מצב ההליך',
         analysisHeading: 'הערכת השפעה',
@@ -1243,7 +1254,8 @@ export const PROPOSITIONS_STRINGS = {
     },
     ja: {
         lede: '欧州議会は主要な政策分野にわたる複数の法案提案を積極的に処理しています。',
-        proposalsHeading: '最近の法案提案',
+        proposalsHeading: '最近の立法手続き',
+        adoptedTextsHeading: '最近採択されたテキスト',
         pipelineHeading: '立法パイプライン概要',
         procedureHeading: '手続き状況',
         analysisHeading: '影響評価',
@@ -1254,7 +1266,8 @@ export const PROPOSITIONS_STRINGS = {
     },
     ko: {
         lede: '유럽 의회는 주요 정책 분야에 걸쳐 다수의 입법 제안을 적극적으로 처리하고 있습니다.',
-        proposalsHeading: '최근 입법 제안',
+        proposalsHeading: '최근 입법 절차',
+        adoptedTextsHeading: '최근 채택된 텍스트',
         pipelineHeading: '입법 파이프라인 개요',
         procedureHeading: '절차 상태',
         analysisHeading: '영향 평가',
@@ -1265,7 +1278,8 @@ export const PROPOSITIONS_STRINGS = {
     },
     zh: {
         lede: '欧洲议会正在积极处理多项关键政策领域的立法提案。',
-        proposalsHeading: '最近的立法提案',
+        proposalsHeading: '最近的立法程序',
+        adoptedTextsHeading: '最近通过的文本',
         pipelineHeading: '立法管道概述',
         procedureHeading: '程序状态',
         analysisHeading: '影响评估',
