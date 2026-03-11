@@ -7,13 +7,15 @@
  * Used to enrich EU Parliament articles with economic context from World Bank indicators.
  */
 
+import type { MCPClientOptions } from './mcp.js';
+
 /**
  * World Bank MCP client connection options.
  *
  * Alias for {@link MCPClientOptions} to ensure all base connection options
  * (including `serverLabel`) are always available for the World Bank client.
  */
-export type WBMCPClientOptions = import('./mcp.js').MCPClientOptions;
+export type WBMCPClientOptions = MCPClientOptions;
 
 /** World Bank indicator data point */
 export interface WorldBankIndicator {

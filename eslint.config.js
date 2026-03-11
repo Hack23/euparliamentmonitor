@@ -58,6 +58,20 @@ export default [
       'prefer-const': 'error',
       'require-await': 'off',
 
+      // TypeScript Type Safety
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/consistent-type-assertions': [
+        'error',
+        { assertionStyle: 'as', objectLiteralTypeAssertions: 'allow-as-parameter' },
+      ],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        { prefer: 'type-imports', fixStyle: 'separate-type-imports' },
+      ],
+      '@typescript-eslint/no-non-null-assertion': 'warn',
+      '@typescript-eslint/prefer-optional-chain': 'warn',
+      '@typescript-eslint/prefer-nullish-coalescing': 'warn',
+
       // Security
       'security/detect-object-injection': 'warn',
       'security/detect-non-literal-regexp': 'warn',
