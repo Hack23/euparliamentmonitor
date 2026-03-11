@@ -1370,7 +1370,11 @@ export async function fetchPipelineFromMCP(
     pipelineHealthScore?: number | undefined;
     throughputRate?: number | undefined;
     procedures?:
-      | Array<{ id?: string | undefined; title?: string | undefined; stage?: string }>
+      | Array<{
+          id?: string | undefined;
+          title?: string | undefined;
+          stage?: string | undefined;
+        }>
       | undefined;
   }>(pipelineResult.content[0].text, 'pipeline');
 

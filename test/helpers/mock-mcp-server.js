@@ -8,7 +8,12 @@
  * Simulates European Parliament MCP Server responses
  */
 
-import { mockPlenarySession, mockParliamentaryQuestions, mockDocuments, mockMEPs } from '../fixtures/ep-data.js';
+import {
+  mockPlenarySession,
+  mockParliamentaryQuestions,
+  mockDocuments,
+  mockMEPs,
+} from '../fixtures/ep-data.js';
 
 /**
  * @typedef {{ method: string, params: Record<string, unknown> }} MockRequest
@@ -93,7 +98,7 @@ export class MockMCPServer {
         if (typeof params['name'] !== 'string') {
           throw new Error('Invalid tool call: missing or non-string "name" parameter');
         }
-        return this._handleToolCall(params['name']);
+        return this._handleToolCall(params['name'], params['arguments']);
 
       default:
         throw new Error(`Unknown method: ${method}`);
@@ -103,9 +108,10 @@ export class MockMCPServer {
   /**
    * Handle tool call
    * @param {string} toolName - The tool name to call
+   * @param {Record<string, unknown>} [toolArguments] - The tool call arguments
    * @returns {MCPToolResponse}
    */
-  _handleToolCall(toolName) {
+  _handleToolCall(toolName, toolArguments) {
     switch (toolName) {
       case 'get_plenary_sessions':
         return {
@@ -158,7 +164,10 @@ export class MockMCPServer {
    * @returns {Promise<MCPToolResponse>}
    */
   async getPlenarySessions(options = {}) {
-    this.requests.push({ method: 'tools/call', params: { name: 'get_plenary_sessions', arguments: options } });
+    this.requests.push({
+      method: 'tools/call',
+      params: { name: 'get_plenary_sessions', arguments: options },
+    });
     return {
       content: [
         {
@@ -175,7 +184,10 @@ export class MockMCPServer {
    * @returns {Promise<MCPToolResponse>}
    */
   async searchDocuments(options = {}) {
-    this.requests.push({ method: 'tools/call', params: { name: 'search_documents', arguments: options } });
+    this.requests.push({
+      method: 'tools/call',
+      params: { name: 'search_documents', arguments: options },
+    });
     return {
       content: [
         {
@@ -192,7 +204,10 @@ export class MockMCPServer {
    * @returns {Promise<MCPToolResponse>}
    */
   async getParliamentaryQuestions(options = {}) {
-    this.requests.push({ method: 'tools/call', params: { name: 'get_parliamentary_questions', arguments: options } });
+    this.requests.push({
+      method: 'tools/call',
+      params: { name: 'get_parliamentary_questions', arguments: options },
+    });
     return {
       content: [
         {
