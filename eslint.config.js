@@ -103,4 +103,56 @@ export default [
       'jsdoc/require-returns-type': 'off',
     },
   },
+  {
+    files: ['test/**/*.js'],
+    plugins: {
+      security: securityPlugin,
+      jsdoc: jsdocPlugin,
+    },
+    languageOptions: {
+      ecmaVersion: 2024,
+      sourceType: 'module',
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+        Buffer: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        NodeJS: 'readonly',
+        fetch: 'readonly',
+        AbortSignal: 'readonly',
+        global: 'readonly',
+        vi: 'readonly',
+        describe: 'readonly',
+        it: 'readonly',
+        expect: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+        beforeAll: 'readonly',
+        afterAll: 'readonly',
+      },
+    },
+    rules: {
+      'no-console': 'off',
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      eqeqeq: ['error', 'always'],
+      'no-eval': 'error',
+      'no-implied-eval': 'error',
+      'prefer-const': 'error',
+
+      // Security
+      'security/detect-object-injection': 'off',
+      'security/detect-unsafe-regex': 'error',
+      'security/detect-eval-with-expression': 'error',
+
+      // Documentation — encourage JSDoc in test helpers/fixtures
+      'jsdoc/check-alignment': 'error',
+      'jsdoc/check-param-names': 'warn',
+      'jsdoc/check-tag-names': 'error',
+    },
+  },
 ];

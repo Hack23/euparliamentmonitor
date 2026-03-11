@@ -8,6 +8,7 @@
     "prebuild": "node scripts/generators/news-indexes.js && node scripts/generators/sitemap.js",
     "build": "tsc",
     "build:check": "tsc --noEmit",
+    "build:check-tests": "tsc --project tsconfig.test.json --noEmit",
     "copy-vendor": "mkdir -p js/vendor && cp node_modules/chart.js/dist/chart.umd.min.js js/vendor/ && cp node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js js/vendor/",
     "generate-news": "node scripts/generators/news-enhanced.js",
     "generate-news-indexes": "node scripts/generators/news-indexes.js",

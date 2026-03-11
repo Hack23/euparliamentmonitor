@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
+// @ts-check
+
 /**
  * Unit tests for constants/languages module
  * Tests consolidated language data and utility functions

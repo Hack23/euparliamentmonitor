@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
+// @ts-check
+
 /**
  * Mock MCP Server for testing
  * Simulates European Parliament MCP Server responses
@@ -9,18 +11,39 @@
 import { mockPlenarySession, mockParliamentaryQuestions, mockDocuments, mockMEPs } from '../fixtures/ep-data.js';
 
 /**
+ * @typedef {{ method: string, params: Record<string, unknown> }} MockRequest
+ */
+
+/**
+ * @typedef {{ type: string, text: string }} MCPContent
+ */
+
+/**
+ * @typedef {{ content: MCPContent[] }} MCPToolResponse
+ */
+
+/**
+ * @typedef {{ tools: Array<{ name: string, description: string }> }} MCPToolsList
+ */
+
+/**
  * Mock MCP Server class
  */
 export class MockMCPServer {
   constructor() {
+    /** @type {boolean} */
     this.connected = false;
+    /** @type {MockRequest[]} */
     this.requests = [];
+    /** @type {boolean} */
     this.shouldFail = false;
+    /** @type {string} */
     this.failureMessage = 'Mock server error';
   }
 
   /**
    * Simulate connection
+   * @returns {Promise<void>}
    */
   async connect() {
     if (this.shouldFail) {
@@ -31,6 +54,7 @@ export class MockMCPServer {
 
   /**
    * Simulate disconnection
+   * @returns {void}
    */
   disconnect() {
     this.connected = false;
@@ -38,6 +62,9 @@ export class MockMCPServer {
 
   /**
    * Mock sendRequest
+   * @param {string} method - The RPC method name
+   * @param {Record<string, unknown>} [params] - The request parameters
+   * @returns {Promise<MCPToolsList | MCPToolResponse>}
    */
   async sendRequest(method, params = {}) {
     this.requests.push({ method, params });
@@ -63,7 +90,7 @@ export class MockMCPServer {
         };
 
       case 'tools/call':
-        return this._handleToolCall(params.name, params.arguments);
+        return this._handleToolCall(/** @type {string} */ (params['name']));
 
       default:
         throw new Error(`Unknown method: ${method}`);
@@ -72,6 +99,8 @@ export class MockMCPServer {
 
   /**
    * Handle tool call
+   * @param {string} toolName - The tool name to call
+   * @returns {MCPToolResponse}
    */
   _handleToolCall(toolName) {
     switch (toolName) {
@@ -122,6 +151,8 @@ export class MockMCPServer {
 
   /**
    * Mock getPlenarySessions
+   * @param {Record<string, unknown>} [options] - Query options
+   * @returns {Promise<MCPToolResponse>}
    */
   async getPlenarySessions(options = {}) {
     this.requests.push({ method: 'tools/call', params: { name: 'get_plenary_sessions', arguments: options } });
@@ -137,6 +168,8 @@ export class MockMCPServer {
 
   /**
    * Mock searchDocuments
+   * @param {Record<string, unknown>} [options] - Search options
+   * @returns {Promise<MCPToolResponse>}
    */
   async searchDocuments(options = {}) {
     this.requests.push({ method: 'tools/call', params: { name: 'search_documents', arguments: options } });
@@ -152,6 +185,8 @@ export class MockMCPServer {
 
   /**
    * Mock getParliamentaryQuestions
+   * @param {Record<string, unknown>} [options] - Query options
+   * @returns {Promise<MCPToolResponse>}
    */
   async getParliamentaryQuestions(options = {}) {
     this.requests.push({ method: 'tools/call', params: { name: 'get_parliamentary_questions', arguments: options } });
@@ -167,6 +202,7 @@ export class MockMCPServer {
 
   /**
    * Mock getMEPs
+   * @returns {Promise<MCPToolResponse>}
    */
   async getMEPs() {
     return {
@@ -181,6 +217,9 @@ export class MockMCPServer {
 
   /**
    * Set mock to fail
+   * @param {boolean} shouldFail - Whether mock should fail
+   * @param {string} [message] - Error message
+   * @returns {void}
    */
   setFailure(shouldFail, message = 'Mock server error') {
     this.shouldFail = shouldFail;
@@ -189,6 +228,7 @@ export class MockMCPServer {
 
   /**
    * Get all requests made
+   * @returns {MockRequest[]}
    */
   getRequests() {
     return this.requests;
@@ -196,6 +236,7 @@ export class MockMCPServer {
 
   /**
    * Clear request history
+   * @returns {void}
    */
   clearRequests() {
     this.requests = [];
@@ -204,6 +245,7 @@ export class MockMCPServer {
 
 /**
  * Create a mock MCP client
+ * @returns {MockMCPServer}
  */
 export function createMockMCPClient() {
   return new MockMCPServer();

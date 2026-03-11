@@ -1,9 +1,14 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
+// @ts-check
+
 /**
  * Unit tests for ep-mcp-client.js
  * Tests MCP client connection, retries, validation, and error handling
+ *
+ * @typedef {import('../../scripts/mcp/ep-mcp-client.js').EuropeanParliamentMCPClient} EPMCPClient
+ * @typedef {import('../helpers/test-utils.js').MockConsoleResult} MockConsoleResult
  */
 
 /* eslint-disable no-undef */
@@ -15,7 +20,9 @@ import { mockConsole } from '../helpers/test-utils.js';
 
 describe('ep-mcp-client', () => {
   describe('EuropeanParliamentMCPClient', () => {
+    /** @type {EPMCPClient} */
     let client;
+    /** @type {MockConsoleResult} */
     let consoleOutput;
 
     beforeEach(() => {

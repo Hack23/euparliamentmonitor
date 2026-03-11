@@ -4,12 +4,17 @@
 /**
  * Test setup file
  * Runs before all tests
+ *
+ * @typedef {import('vitest').Mock} VitestMock
  */
+
+/* global vi */
 
 // Global test utilities
 global.testUtils = {
   /**
    * Create a mock date that's consistent across tests
+   * @returns {Date}
    */
   getMockDate() {
     return new Date('2025-01-15T12:00:00Z');
@@ -17,18 +22,21 @@ global.testUtils = {
   
   /**
    * Suppress console output during tests
+   * @returns {typeof console}
    */
   suppressConsole() {
     const originalConsole = { ...console };
-    console.log = vi.fn();
-    console.info = vi.fn();
-    console.warn = vi.fn();
-    console.error = vi.fn();
+    console.log = /** @type {typeof console.log} */ (vi.fn());
+    console.info = /** @type {typeof console.info} */ (vi.fn());
+    console.warn = /** @type {typeof console.warn} */ (vi.fn());
+    console.error = /** @type {typeof console.error} */ (vi.fn());
     return originalConsole;
   },
   
   /**
    * Restore console output
+   * @param {typeof console} originalConsole - Original console methods
+   * @returns {void}
    */
   restoreConsole(originalConsole) {
     Object.assign(console, originalConsole);
