@@ -1,6 +1,8 @@
 {
   "timestamp": "2026-03-11T08:39:55.757Z",
   "generated": 14,
+  "timestamp": "2026-03-11T06:22:01.559Z",
+  "generated": 1,
   "skipped": 0,
   "dryRun": 0,
   "errors": 0,
@@ -19,12 +21,19 @@
     "2026-03-11-breaking-ja.html",
     "2026-03-11-breaking-ko.html",
     "2026-03-11-breaking-zh.html"
+    "2026-03-11-motions-en.html"
   ],
   "results": [
     {
       "success": true,
       "files": 14,
       "slug": "2026-03-11-breaking"
+    }
+  ],
+  "usedMCP": true
+}
+      "files": 1,
+      "slug": "2026-03-11-motions"
     }
   ],
   "usedMCP": true
