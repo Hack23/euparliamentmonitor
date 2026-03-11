@@ -20,12 +20,12 @@ const PROPOSITIONS_KEYWORDS = [
 /**
  * Build procedures and adopted-texts HTML separately from EP feed data when
  * search_documents returns empty. Uses procedures and adopted texts from the
- * feed as fallback content.
+ * feed as fallback content, rendering each as a distinct section.
  *
  * @param feedData - EP feed data containing procedures and adopted texts
  * @returns Pre-sanitized HTML for procedures and adopted texts sections separately
  */
-function buildProposalsFromFeed(feedData) {
+function buildProceduresAndAdoptedTextsFromFeed(feedData) {
     const procedureItems = [];
     const adoptedTextItems = [];
     for (const proc of feedData.procedures.slice(0, 8)) {
@@ -100,8 +100,8 @@ export class PropositionsStrategy {
         if (!finalProposalsHtml && feedResult) {
             const hasFeedItems = feedResult.procedures.length > 0 || feedResult.adoptedTexts.length > 0;
             if (hasFeedItems) {
-                console.log(`  📰 Building proposals from feed data: ${feedResult.procedures.length} procedures, ${feedResult.adoptedTexts.length} adopted texts`);
-                const feedHtml = buildProposalsFromFeed(feedResult);
+                console.log(`  📰 Building procedures/adopted-texts from feed data: ${feedResult.procedures.length} procedures, ${feedResult.adoptedTexts.length} adopted texts`);
+                const feedHtml = buildProceduresAndAdoptedTextsFromFeed(feedResult);
                 finalProposalsHtml = feedHtml.proceduresHtml;
                 finalAdoptedTextsHtml = feedHtml.adoptedTextsHtml;
             }
