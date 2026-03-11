@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">89.23% </span>
+                <span class="strong">89.39% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>58/65</span>
+                <span class='fraction'>59/66</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">76.66% </span>
+                <span class="strong">79.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>46/60</span>
+                <span class='fraction'>47/59</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>16/16</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.23% </span>
+                <span class="strong">94.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>49/52</span>
+                <span class='fraction'>50/53</span>
             </div>
         
             
@@ -338,7 +338,9 @@
 <a name='L273'></a><a href='#L273'>273</a>
 <a name='L274'></a><a href='#L274'>274</a>
 <a name='L275'></a><a href='#L275'>275</a>
-<a name='L276'></a><a href='#L276'>276</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L276'></a><a href='#L276'>276</a>
+<a name='L277'></a><a href='#L277'>277</a>
+<a name='L278'></a><a href='#L278'>278</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -364,20 +366,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -429,14 +417,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">195x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">119x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">55x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">439x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">195x</span>
 <span class="cline-any cline-yes">195x</span>
-<span class="cline-any cline-yes">439x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">439x</span>
+<span class="cline-any cline-yes">195x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -644,20 +648,6 @@ import type {
   ChartConfig,
 } from '../types/index.js';
 &nbsp;
-/** Trend indicator symbols (accessible) */
-const TREND_INDICATORS: Readonly&lt;Record&lt;string, string&gt;&gt; = {
-  up: '↑',
-  down: '↓',
-  stable: '→',
-};
-&nbsp;
-/** CSS class for trend direction */
-const TREND_CLASSES: Readonly&lt;Record&lt;string, string&gt;&gt; = {
-  up: 'metric-trend-up',
-  down: 'metric-trend-down',
-  stable: 'metric-trend-stable',
-};
-&nbsp;
 // ─── Sub-section builders ────────────────────────────────────────────────────
 &nbsp;
 /**
@@ -698,6 +688,23 @@ function resolveTrend(
 }
 &nbsp;
 /**
+ * Resolve the CSS class and symbol for a trend direction.
+ *
+ * @param trend - Resolved trend direction
+ * @returns Tuple of CSS class and display symbol
+ */
+function trendPresentation(trend: 'up' | 'down' | 'stable'): [string, string] {
+  switch (trend) {
+    case 'up':
+      return ['metric-trend-up', '↑'];
+    case 'down':
+      return ['metric-trend-down', '↓'];
+    case 'stable':
+      return ['metric-trend-stable', '→'];
+  }
+}
+&nbsp;
+/**
  * Build trend indicator HTML for a metric.
  *
  * @param metric - Metric with optional trend and change
@@ -708,8 +715,7 @@ function buildTrendIndicator(metric: DashboardMetric, strings: DashboardStrings)
   if (!metric.trend &amp;&amp; metric.change === undefined) return '';
 &nbsp;
   const trend = resolveTrend(metric.trend, metric.change);
-  const trendClass = TREND_CLASSES[trend] ?? <span class="branch-1 cbranch-no" title="branch not covered" >'metric-trend-stable';</span>
-  const trendSymbol = TREND_INDICATORS[trend] ?? <span class="branch-1 cbranch-no" title="branch not covered" >'→';</span>
+  const [trendClass, trendSymbol] = trendPresentation(trend);
   const changeText =
     metric.change !== undefined
       ? ` ${metric.change &gt; 0 ? '+' : ''}${metric.change.toFixed(1)}%`
@@ -791,7 +797,7 @@ function buildChartFallbackTable(chart: ChartConfig, strings: DashboardStrings):
     .map((label, i) =&gt; {
       const cells = datasets
         .map((ds) =&gt; {
-          const val = ds.data[i];
+          const val = ds.data.at(i);
           return `&lt;td&gt;${val !== undefined ? escapeHTML(String(val)) : <span class="branch-1 cbranch-no" title="branch not covered" >'—'}</span>&lt;/td&gt;`;
         })
         .join('');
@@ -895,7 +901,7 @@ export function dashboardHasCharts(config: DashboardConfig | null | undefined): 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-10T23:52:33.831Z
+                at 2026-03-11T19:54:00.270Z
             </div>
         <script src="../prettify.js"></script>
         <script>

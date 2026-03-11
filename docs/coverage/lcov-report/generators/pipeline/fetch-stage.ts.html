@@ -2052,7 +2052,31 @@
 <a name='L1987'></a><a href='#L1987'>1987</a>
 <a name='L1988'></a><a href='#L1988'>1988</a>
 <a name='L1989'></a><a href='#L1989'>1989</a>
-<a name='L1990'></a><a href='#L1990'>1990</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L1990'></a><a href='#L1990'>1990</a>
+<a name='L1991'></a><a href='#L1991'>1991</a>
+<a name='L1992'></a><a href='#L1992'>1992</a>
+<a name='L1993'></a><a href='#L1993'>1993</a>
+<a name='L1994'></a><a href='#L1994'>1994</a>
+<a name='L1995'></a><a href='#L1995'>1995</a>
+<a name='L1996'></a><a href='#L1996'>1996</a>
+<a name='L1997'></a><a href='#L1997'>1997</a>
+<a name='L1998'></a><a href='#L1998'>1998</a>
+<a name='L1999'></a><a href='#L1999'>1999</a>
+<a name='L2000'></a><a href='#L2000'>2000</a>
+<a name='L2001'></a><a href='#L2001'>2001</a>
+<a name='L2002'></a><a href='#L2002'>2002</a>
+<a name='L2003'></a><a href='#L2003'>2003</a>
+<a name='L2004'></a><a href='#L2004'>2004</a>
+<a name='L2005'></a><a href='#L2005'>2005</a>
+<a name='L2006'></a><a href='#L2006'>2006</a>
+<a name='L2007'></a><a href='#L2007'>2007</a>
+<a name='L2008'></a><a href='#L2008'>2008</a>
+<a name='L2009'></a><a href='#L2009'>2009</a>
+<a name='L2010'></a><a href='#L2010'>2010</a>
+<a name='L2011'></a><a href='#L2011'>2011</a>
+<a name='L2012'></a><a href='#L2012'>2012</a>
+<a name='L2013'></a><a href='#L2013'>2013</a>
+<a name='L2014'></a><a href='#L2014'>2014</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -3091,6 +3115,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">4x</span>
@@ -3143,6 +3173,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -3187,6 +3223,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -3403,6 +3445,12 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -4117,9 +4165,9 @@ export type CircuitState = 'CLOSED' | 'OPEN' | 'HALF_OPEN';
 /** Constructor options for {@link CircuitBreaker} */
 export interface CircuitBreakerOptions {
   /** Consecutive failures before opening the circuit (default: 3) */
-  failureThreshold?: number;
+  failureThreshold?: number | undefined;
   /** Milliseconds to wait before probing recovery (default: 60 000) */
-  resetTimeoutMs?: number;
+  resetTimeoutMs?: number | undefined;
 }
 &nbsp;
 /**
@@ -5073,10 +5121,16 @@ export async function fetchVotingRecords(
     if (votingResult?.content?.[0]) {
       const data = parseJSON&lt;{
         records?: Array&lt;{
-          title?: string;
-          date?: string;
-          result?: string;
-          votes?: { for?: number; against?: number; abstain?: number };
+          title?: string | undefined;
+          date?: string | undefined;
+          result?: string | undefined;
+          votes?:
+            | {
+                for?: number | undefined;
+                against?: number | undefined;
+                abstain?: number | undefined;
+              }
+            | undefined;
         }&gt;;
       }&gt;(votingResult.content[0].text, 'voting records');
 &nbsp;
@@ -5129,7 +5183,13 @@ export async function fetchVotingPatterns(
 &nbsp;
     if (patternsResult?.content?.[0]) {
       const data = parseJSON&lt;{
-        patterns?: Array&lt;{ group?: string; cohesion?: number; participation?: number }&gt;;
+        patterns?:
+          | Array&lt;{
+              group?: string | undefined;
+              cohesion?: number | undefined;
+              participation?: number | undefined;
+            }&gt;
+          | undefined;
       }&gt;(patternsResult.content[0].text, 'voting patterns');
 &nbsp;
       <span class="missing-if-branch" title="else path not taken" >E</span>if (data?.patterns &amp;&amp; data.patterns.length &gt; 0) {
@@ -5176,7 +5236,13 @@ export async function fetchMotionsAnomalies(
 &nbsp;
     if (anomaliesResult?.content?.[0]) {
       const data = parseJSON&lt;{
-        anomalies?: Array&lt;{ type?: string; description?: string; severity?: string }&gt;;
+        anomalies?:
+          | Array&lt;{
+              type?: string | undefined;
+              description?: string | undefined;
+              severity?: string | undefined;
+            }&gt;
+          | undefined;
       }&gt;(anomaliesResult.content[0].text, 'voting anomalies');
 &nbsp;
       <span class="missing-if-branch" title="else path not taken" >E</span>if (data?.anomalies &amp;&amp; data.anomalies.length &gt; 0) {
@@ -5225,11 +5291,11 @@ export async function fetchParliamentaryQuestionsForMotions(
     if (questionsResult?.content?.[0]) {
       const data = parseJSON&lt;{
         questions?: Array&lt;{
-          author?: string;
-          topic?: string;
-          subject?: string;
-          date?: string;
-          status?: string;
+          author?: string | undefined;
+          topic?: string | undefined;
+          subject?: string | undefined;
+          date?: string | undefined;
+          status?: string | undefined;
         }&gt;;
       }&gt;(questionsResult.content[0].text, 'parliamentary questions');
 &nbsp;
@@ -5392,9 +5458,15 @@ export async function fetchPipelineFromMCP(
   if (!pipelineResult?.content?.[0]) return null;
 &nbsp;
   const pipeData = parseJSON&lt;{
-    pipelineHealthScore?: number;
-    throughputRate?: number;
-    procedures?: Array&lt;{ id?: string; title?: string; stage?: string }&gt;;
+    pipelineHealthScore?: number | undefined;
+    throughputRate?: number | undefined;
+    procedures?:
+      | Array&lt;{
+          id?: string | undefined;
+          title?: string | undefined;
+          stage?: string | undefined;
+        }&gt;
+      | undefined;
   }&gt;(pipelineResult.content[0].text, 'pipeline');
 &nbsp;
   if (!pipeData) return null;
@@ -5517,10 +5589,10 @@ function <span class="fstat-no" title="function not covered" >mapFeedItemBase(</
   id: string;
   title: string;
   date: string;
-  type?: string;
-  url?: string;
-  identifier?: string;
-  label?: string;
+  type?: string | undefined;
+  url?: string | undefined;
+  identifier?: string | undefined;
+  label?: string | undefined;
 } {
 <span class="cstat-no" title="statement not covered" >  return {</span>
     id: String(item['id'] ?? item['docId'] ?? ''),
@@ -6037,7 +6109,7 @@ export async function fetchEPFeedData(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-10T23:52:33.884Z
+                at 2026-03-11T19:54:00.324Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
