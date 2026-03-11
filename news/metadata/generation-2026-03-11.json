@@ -32,6 +32,27 @@
     "2026-03-11-propositions-ja.html",
     "2026-03-11-propositions-ko.html",
     "2026-03-11-propositions-zh.html"
+  "timestamp": "2026-03-11T08:39:55.757Z",
+  "generated": 15,
+  "skipped": 0,
+  "dryRun": 0,
+  "errors": 0,
+  "articles": [
+    "2026-03-11-breaking-en.html",
+    "2026-03-11-breaking-sv.html",
+    "2026-03-11-breaking-da.html",
+    "2026-03-11-breaking-no.html",
+    "2026-03-11-breaking-fi.html",
+    "2026-03-11-breaking-de.html",
+    "2026-03-11-breaking-fr.html",
+    "2026-03-11-breaking-es.html",
+    "2026-03-11-breaking-nl.html",
+    "2026-03-11-breaking-ar.html",
+    "2026-03-11-breaking-he.html",
+    "2026-03-11-breaking-ja.html",
+    "2026-03-11-breaking-ko.html",
+    "2026-03-11-breaking-zh.html",
+    "2026-03-11-motions-en.html"
   ],
   "results": [
     {
@@ -42,6 +63,12 @@
     {
       "success": true,
       "files": 13,
+      "files": 14,
+      "slug": "2026-03-11-breaking"
+    },
+    {
+      "success": true,
+      "files": 1,
       "slug": "2026-03-11-motions"
     },
     {
