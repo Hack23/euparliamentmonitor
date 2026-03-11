@@ -77,13 +77,14 @@ describe('Propositions Generator', () => {
         pipelineHeading: 'Pipeline',
         procedureHeading: 'Procedure',
         analysisHeading: 'Analysis',
-        adoptedTextsHeading: 'Adopted',
+        adoptedTextsHeading: '<img onerror=alert(2)>',
       };
-      const html = buildPropositionsContent('', '', null, '', maliciousStrings);
+      const html = buildPropositionsContent('', '<p>adopted</p>', null, '', maliciousStrings);
       expect(html).not.toContain('<script>');
       expect(html).not.toContain('<img');
       expect(html).toContain('&lt;script&gt;');
       expect(html).toContain('&lt;b&gt;');
+      expect(html).toContain('&lt;img');
     });
 
     it('should include proposals HTML verbatim (proposals content is pre-sanitized)', () => {
