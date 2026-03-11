@@ -17,6 +17,9 @@ on:
 # Declare default permissions as read only.
 permissions: read-all
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   analysis:
     name: Scorecard analysis

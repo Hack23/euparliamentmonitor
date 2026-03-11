@@ -29,20 +29,6 @@ import type {
   ChartConfig,
 } from '../types/index.js';
 
-/** Trend indicator symbols (accessible) */
-const TREND_INDICATORS: Readonly<Record<string, string>> = {
-  up: '↑',
-  down: '↓',
-  stable: '→',
-};
-
-/** CSS class for trend direction */
-const TREND_CLASSES: Readonly<Record<string, string>> = {
-  up: 'metric-trend-up',
-  down: 'metric-trend-down',
-  stable: 'metric-trend-stable',
-};
-
 // ─── Sub-section builders ────────────────────────────────────────────────────
 
 /**
@@ -83,6 +69,23 @@ function resolveTrend(
 }
 
 /**
+ * Resolve the CSS class and symbol for a trend direction.
+ *
+ * @param trend - Resolved trend direction
+ * @returns Tuple of CSS class and display symbol
+ */
+function trendPresentation(trend: 'up' | 'down' | 'stable'): [string, string] {
+  switch (trend) {
+    case 'up':
+      return ['metric-trend-up', '↑'];
+    case 'down':
+      return ['metric-trend-down', '↓'];
+    case 'stable':
+      return ['metric-trend-stable', '→'];
+  }
+}
+
+/**
  * Build trend indicator HTML for a metric.
  *
  * @param metric - Metric with optional trend and change
@@ -93,8 +96,7 @@ function buildTrendIndicator(metric: DashboardMetric, strings: DashboardStrings)
   if (!metric.trend && metric.change === undefined) return '';
 
   const trend = resolveTrend(metric.trend, metric.change);
-  const trendClass = TREND_CLASSES[trend] ?? 'metric-trend-stable';
-  const trendSymbol = TREND_INDICATORS[trend] ?? '→';
+  const [trendClass, trendSymbol] = trendPresentation(trend);
   const changeText =
     metric.change !== undefined
       ? ` ${metric.change > 0 ? '+' : ''}${metric.change.toFixed(1)}%`
@@ -176,7 +178,7 @@ function buildChartFallbackTable(chart: ChartConfig, strings: DashboardStrings):
     .map((label, i) => {
       const cells = datasets
         .map((ds) => {
-          const val = ds.data[i];
+          const val = ds.data.at(i);
           return `<td>${val !== undefined ? escapeHTML(String(val)) : '—'}</td>`;
         })
         .join('');

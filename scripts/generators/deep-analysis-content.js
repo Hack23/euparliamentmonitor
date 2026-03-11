@@ -114,9 +114,9 @@ function outcomeClass(outcome) {
  *
  * @param outcome - Winner/loser/neutral
  * @param strings - Localized strings
- * @param strings.winnerLabel
- * @param strings.loserLabel
- * @param strings.neutralLabel
+ * @param strings.winnerLabel - Label for winning stakeholders
+ * @param strings.loserLabel - Label for losing stakeholders
+ * @param strings.neutralLabel - Label for neutral stakeholders
  * @returns Localized label
  */
 function outcomeLabel(outcome, strings) {
@@ -135,9 +135,9 @@ function outcomeLabel(outcome, strings) {
  * @param outcomes - Stakeholder assessments
  * @param heading - Localized heading
  * @param strings - Localized label strings
- * @param strings.winnerLabel
- * @param strings.loserLabel
- * @param strings.neutralLabel
+ * @param strings.winnerLabel - Label for winning stakeholders
+ * @param strings.loserLabel - Label for losing stakeholders
+ * @param strings.neutralLabel - Label for neutral stakeholders
  * @param contentLang - Language of the actor/reason text (omit when same as display language)
  * @returns HTML string
  */
@@ -165,11 +165,11 @@ function buildStakeholderSection(outcomes, heading, strings, contentLang) {
  * @param impact - Impact strings per perspective
  * @param heading - Localized heading
  * @param labels - Localized perspective labels
- * @param labels.politicalLabel
- * @param labels.economicLabel
- * @param labels.socialLabel
- * @param labels.legalLabel
- * @param labels.geopoliticalLabel
+ * @param labels.politicalLabel - Label for political perspective
+ * @param labels.economicLabel - Label for economic perspective
+ * @param labels.socialLabel - Label for social perspective
+ * @param labels.legalLabel - Label for legal perspective
+ * @param labels.geopoliticalLabel - Label for geopolitical perspective
  * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
@@ -203,10 +203,10 @@ function buildImpactSection(impact, heading, labels, contentLang) {
  *
  * @param severity - Severity level
  * @param strings - Localized strings
- * @param strings.severityLow
- * @param strings.severityMedium
- * @param strings.severityHigh
- * @param strings.severityCritical
+ * @param strings.severityLow - Label for low severity
+ * @param strings.severityMedium - Label for medium severity
+ * @param strings.severityHigh - Label for high severity
+ * @param strings.severityCritical - Label for critical severity
  * @returns Localized label
  */
 function severityLabel(severity, strings) {
@@ -229,14 +229,14 @@ function severityLabel(severity, strings) {
  * @param items - Action-consequence pairs
  * @param heading - Localized heading
  * @param labels - Localized column labels
- * @param labels.actionLabel
- * @param labels.consequenceLabel
- * @param labels.severityColumnLabel
+ * @param labels.actionLabel - Column header for action
+ * @param labels.consequenceLabel - Column header for consequence
+ * @param labels.severityColumnLabel - Column header for severity
  * @param strings - Localized severity strings
- * @param strings.severityLow
- * @param strings.severityMedium
- * @param strings.severityHigh
- * @param strings.severityCritical
+ * @param strings.severityLow - Label for low severity
+ * @param strings.severityMedium - Label for medium severity
+ * @param strings.severityHigh - Label for high severity
+ * @param strings.severityCritical - Label for critical severity
  * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */

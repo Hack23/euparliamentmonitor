@@ -80,7 +80,8 @@ export const LANGUAGE_NAMES: LanguageMap = {
  */
 export function getLocalizedString<T>(map: LanguageMap<T>, lang: string): T {
   const code = lang as LanguageCode;
-  return map[code] ?? map.en;
+  // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn
+  return Object.hasOwn(map, code) ? (map[code] ?? map.en) : map.en;
 }
 
 /**

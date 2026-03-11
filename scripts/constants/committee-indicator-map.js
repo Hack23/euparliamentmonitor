@@ -1177,6 +1177,10 @@ export function getCommitteePrimaryIndicators(abbreviation) {
  * @returns Category indicator entry with enrichment guidance
  */
 export function getCategoryIndicators(category) {
+    if (!Object.hasOwn(CATEGORY_INDICATOR_MAP, category)) {
+        return getCategoryIndicators(ArticleCategory.BREAKING_NEWS);
+    }
+    // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn
     return CATEGORY_INDICATOR_MAP[category];
 }
 /**
@@ -1207,7 +1211,7 @@ export function getIndicatorIdsForCommittees(abbreviations, primaryOnly = false)
  * @returns Deduplicated array of World Bank indicator IDs
  */
 export function getAllCategoryIndicatorIds(category) {
-    const entry = CATEGORY_INDICATOR_MAP[category];
+    const entry = getCategoryIndicators(category);
     const ids = new Set();
     for (const ind of entry.primaryIndicators) {
         ids.add(ind.indicatorId);
