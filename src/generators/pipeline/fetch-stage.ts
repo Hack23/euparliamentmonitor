@@ -1033,7 +1033,7 @@ export async function fetchVotingRecords(
           title?: string | undefined;
           date?: string | undefined;
           result?: string | undefined;
-          votes?: { for?: number | undefined; against?: number | undefined; abstain?: number } | undefined;
+          votes?: { for?: number | undefined; against?: number | undefined; abstain?: number | undefined } | undefined;
         }>;
       }>(votingResult.content[0].text, 'voting records');
 
@@ -1086,7 +1086,7 @@ export async function fetchVotingPatterns(
 
     if (patternsResult?.content?.[0]) {
       const data = parseJSON<{
-        patterns?: Array<{ group?: string | undefined; cohesion?: number | undefined; participation?: number }> | undefined;
+        patterns?: Array<{ group?: string | undefined; cohesion?: number | undefined; participation?: number | undefined }> | undefined;
       }>(patternsResult.content[0].text, 'voting patterns');
 
       if (data?.patterns && data.patterns.length > 0) {
@@ -1133,7 +1133,7 @@ export async function fetchMotionsAnomalies(
 
     if (anomaliesResult?.content?.[0]) {
       const data = parseJSON<{
-        anomalies?: Array<{ type?: string | undefined; description?: string | undefined; severity?: string }> | undefined;
+        anomalies?: Array<{ type?: string | undefined; description?: string | undefined; severity?: string | undefined }> | undefined;
       }>(anomaliesResult.content[0].text, 'voting anomalies');
 
       if (data?.anomalies && data.anomalies.length > 0) {

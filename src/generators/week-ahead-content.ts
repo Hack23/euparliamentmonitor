@@ -127,7 +127,7 @@ export function parseCommitteeMeetings(
     date: (c.date as string | undefined) ?? fallbackDate ?? '',
     time: c.time as string | undefined,
     location: c.location as string | undefined,
-    agenda: (c.agenda as Array<{ item?: number | undefined; title?: string | undefined; type?: string }> | undefined)?.map(
+    agenda: (c.agenda as Array<{ item?: number | undefined; title?: string | undefined; type?: string | undefined }> | undefined)?.map(
       (a) => ({
         item: a.item,
         title: a.title ?? '',

@@ -149,10 +149,20 @@ export function validateHTML(html) {
   const openTags = html.match(/<(\w+)[^>]*>/g) || [];
   const closeTags = html.match(/<\/(\w+)>/g) || [];
   
+  /** Self-closing tags that should be excluded from balance checking */
+  const VOID_ELEMENTS = ['meta', 'link', 'br', 'hr', 'img', 'input', 'source'];
+
+  /**
+   * Filter out undefined entries and void/self-closing elements
+   * @param {string | undefined} tag - Tag name to check
+   * @returns {boolean} True if tag should be counted for balance check
+   */
+  const isCountableTag = (tag) => tag !== undefined && !VOID_ELEMENTS.includes(tag);
+
   // Extract tag names
   const openTagNames = openTags
     .map((tag) => tag.match(/<(\w+)/)?.[1])
-    .filter((/** @type {string | undefined} */ tag) => tag !== undefined && !['meta', 'link', 'br', 'hr', 'img', 'input', 'source'].includes(tag));
+    .filter(isCountableTag);
   
   const closeTagNames = closeTags.map((tag) => tag.match(/<\/(\w+)>/)?.[1]);
 
