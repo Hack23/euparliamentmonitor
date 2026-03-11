@@ -207,8 +207,16 @@ export async function generateArticleForStrategy(
     let writtenCount = 0;
     for (const lang of languages) {
       if (
-        generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outputOptions, stats,
-          languages)
+        generateSingleLanguageArticle(
+          strategy,
+          data,
+          lang,
+          dateStr,
+          slug,
+          outputOptions,
+          stats,
+          languages
+        )
       ) {
         writtenCount++;
       }
