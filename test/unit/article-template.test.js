@@ -1,9 +1,13 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
+// @ts-check
+
 /**
  * Unit tests for article-template.js
  * Tests HTML generation, sanitization, RTL support, and SEO
+ *
+ * @typedef {import('../../scripts/types/generation.js').ArticleOptions} ArticleOptions
  */
 
 import { describe, it, expect, beforeEach } from 'vitest';
@@ -15,6 +19,7 @@ import { validateHTML } from '../helpers/test-utils.js';
 
 describe('article-template', () => {
   describe('generateArticleHTML', () => {
+    /** @type {ArticleOptions} */
     let defaultOptions;
 
     beforeEach(() => {

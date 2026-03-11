@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
+// @ts-check
+
 /**
  * Test helper utilities
  * Common functions used across tests
@@ -35,6 +37,7 @@ export function createTempDir() {
 /**
  * Clean up temporary directory
  * @param {string} dir - Directory path to clean up
+ * @returns {void}
  */
 export function cleanupTempDir(dir) {
   if (!fs.existsSync(dir)) {
@@ -51,10 +54,11 @@ export function cleanupTempDir(dir) {
       maxRetries: 5,
       retryDelay: 200
     });
-  } catch (error) {
+  } catch (/** @type {unknown} */ error) {
     // If cleanup still fails after retries, log but don't throw
     // This prevents test failures due to file system timing issues
-    console.warn(`Failed to cleanup ${dir}: ${error.message}`);
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`Failed to cleanup ${dir}: ${message}`);
   }
 }
 
@@ -71,6 +75,7 @@ export function readFile(filepath) {
  * Write content to file
  * @param {string} filepath - Path to file
  * @param {string} content - Content to write
+ * @returns {void}
  */
 export function writeFile(filepath, content) {
   const dir = path.dirname(filepath);
@@ -92,6 +97,7 @@ export function writeFile(filepath, content) {
 export function containsXSSVulnerability(html) {
   // These patterns detect common XSS vectors for testing purposes
   // They are intentionally simplified - real security requires proper escaping
+  /** @type {RegExp[]} */
   const xssPatterns = [
     /<script(\s+[^>]*)?>.*?<\/\s*script\s*>/gis, // Match script tags with optional attributes and whitespace
     /javascript:/gi,
@@ -103,11 +109,16 @@ export function containsXSSVulnerability(html) {
 }
 
 /**
+ * @typedef {{ valid: boolean, issues: string[] }} HTMLValidationResult
+ */
+
+/**
  * Validate HTML structure
  * @param {string} html - HTML string to validate
- * @returns {object} Validation result
+ * @returns {HTMLValidationResult} Validation result
  */
 export function validateHTML(html) {
+  /** @type {string[]} */
   const issues = [];
 
   // Check for DOCTYPE
@@ -138,10 +149,20 @@ export function validateHTML(html) {
   const openTags = html.match(/<(\w+)[^>]*>/g) || [];
   const closeTags = html.match(/<\/(\w+)>/g) || [];
   
+  /** Self-closing tags that should be excluded from balance checking */
+  const VOID_ELEMENTS = ['meta', 'link', 'br', 'hr', 'img', 'input', 'source'];
+
+  /**
+   * Filter out undefined entries and void/self-closing elements
+   * @param {string | undefined} tag - Tag name to check
+   * @returns {tag is string} True if tag should be counted for balance check
+   */
+  const isCountableTag = (tag) => tag !== undefined && !VOID_ELEMENTS.includes(tag);
+
   // Extract tag names
   const openTagNames = openTags
     .map((tag) => tag.match(/<(\w+)/)?.[1])
-    .filter((tag) => !['meta', 'link', 'br', 'hr', 'img', 'input', 'source'].includes(tag));
+    .filter(isCountableTag);
   
   const closeTagNames = closeTags.map((tag) => tag.match(/<\/(\w+)>/)?.[1]);
 
@@ -157,11 +178,16 @@ export function validateHTML(html) {
 }
 
 /**
+ * @typedef {{ title?: string, description?: string, keywords?: string[], lang?: string, date?: string }} HTMLMetadata
+ */
+
+/**
  * Extract metadata from HTML
  * @param {string} html - HTML string
- * @returns {object} Extracted metadata
+ * @returns {HTMLMetadata} Extracted metadata
  */
 export function extractHTMLMetadata(html) {
+  /** @type {HTMLMetadata} */
   const metadata = {};
 
   // Extract title
@@ -198,10 +224,19 @@ export function extractHTMLMetadata(html) {
 }
 
 /**
+ * @typedef {{ log: (...args: unknown[]) => void, error: (...args: unknown[]) => void, warn: (...args: unknown[]) => void, info: (...args: unknown[]) => void }} ConsoleMethods
+ */
+
+/**
+ * @typedef {{ logs: string[], errors: string[], warnings: string[], info: string[], restore: () => void }} MockConsoleResult
+ */
+
+/**
  * Mock console methods
- * @returns {object} Original console methods and restore function
+ * @returns {MockConsoleResult} Original console methods and restore function
  */
 export function mockConsole() {
+  /** @type {ConsoleMethods} */
   const originalConsole = {
     log: console.log,
     error: console.error,
@@ -209,15 +244,19 @@ export function mockConsole() {
     info: console.info,
   };
 
+  /** @type {string[]} */
   const logs = [];
+  /** @type {string[]} */
   const errors = [];
+  /** @type {string[]} */
   const warnings = [];
+  /** @type {string[]} */
   const info = [];
 
-  console.log = (...args) => logs.push(args.join(' '));
-  console.error = (...args) => errors.push(args.join(' '));
-  console.warn = (...args) => warnings.push(args.join(' '));
-  console.info = (...args) => info.push(args.join(' '));
+  console.log = (/** @type {unknown[]} */ ...args) => logs.push(args.join(' '));
+  console.error = (/** @type {unknown[]} */ ...args) => errors.push(args.join(' '));
+  console.warn = (/** @type {unknown[]} */ ...args) => warnings.push(args.join(' '));
+  console.info = (/** @type {unknown[]} */ ...args) => info.push(args.join(' '));
 
   return {
     logs,

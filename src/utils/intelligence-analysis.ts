@@ -229,7 +229,11 @@ export function calculateLegislativeVelocity(rawProcedure: unknown): Legislative
  * @returns New sorted array ordered by significance then score
  */
 export function rankBySignificance<
-  T extends { significance?: string; overallScore?: number; cohesionScore?: number },
+  T extends {
+    significance?: string | undefined;
+    overallScore?: number | undefined;
+    cohesionScore?: number | undefined;
+  },
 >(items: T[]): T[] {
   return [...items].sort((a, b) => {
     const sigA = SIGNIFICANCE_WEIGHTS[a.significance ?? ''] ?? 0;

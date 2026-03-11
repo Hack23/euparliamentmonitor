@@ -58,7 +58,7 @@ export interface MonthlyReviewArticleData extends ArticleData {
   /** Display label for the review month */
   readonly monthLabel: string;
   /** EP feed data for enrichment (when available) */
-  readonly feedData?: EPFeedData;
+  readonly feedData?: EPFeedData | undefined;
 }
 
 /** Keywords shared by all Monthly Review articles */

@@ -43,11 +43,11 @@ function resolveMemberCount(memberCountRaw: unknown): number {
 
 /** Shape of a committee info record extracted from an MCP response */
 interface CommitteeInfoRecord {
-  name?: string;
-  abbreviation?: string;
-  chair?: string;
-  memberCount?: unknown;
-  members?: unknown;
+  name?: string | undefined;
+  abbreviation?: string | undefined;
+  chair?: string | undefined;
+  memberCount?: unknown | undefined;
+  members?: unknown | undefined;
 }
 
 /**
@@ -108,8 +108,22 @@ export function applyDocuments(result: MCPToolResult, data: CommitteeData): void
   try {
     if (!result?.content?.[0]) return;
     const parsed = JSON.parse(result.content[0].text) as {
-      documents?: Array<{ title?: string; type?: string; documentType?: string; date?: string }>;
-      data?: Array<{ title?: string; type?: string; documentType?: string; date?: string }>;
+      documents?:
+        | Array<{
+            title?: string | undefined;
+            type?: string | undefined;
+            documentType?: string | undefined;
+            date?: string | undefined;
+          }>
+        | undefined;
+      data?:
+        | Array<{
+            title?: string | undefined;
+            type?: string | undefined;
+            documentType?: string | undefined;
+            date?: string | undefined;
+          }>
+        | undefined;
     };
     // Support both { documents: [...] } and { data: [...] } response formats
     const docs = parsed.documents ?? parsed.data;
@@ -166,7 +180,7 @@ export function applyEffectiveness(result: MCPToolResult, data: CommitteeData): 
   try {
     if (!result?.content?.[0]) return;
     const parsed = JSON.parse(result.content[0].text) as {
-      effectiveness?: { overallScore?: unknown; rank?: string };
+      effectiveness?: { overallScore?: unknown | undefined; rank?: string } | undefined;
     };
     if (!parsed.effectiveness) return;
     const score = parsed.effectiveness.overallScore;

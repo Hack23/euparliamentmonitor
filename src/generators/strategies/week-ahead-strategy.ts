@@ -39,7 +39,7 @@ export interface WeekAheadArticleData extends ArticleData {
   /** SEO keywords derived from the week-ahead data */
   readonly keywords: readonly string[];
   /** EP feed data for enrichment (when available) */
-  readonly feedData?: EPFeedData;
+  readonly feedData?: EPFeedData | undefined;
 }
 
 // ─── Date-range helper ────────────────────────────────────────────────────────

@@ -38,7 +38,7 @@ export interface MonthAheadArticleData extends ArticleData {
   /** Display label for the target month */
   readonly monthLabel: string;
   /** EP feed data for enrichment (when available) */
-  readonly feedData?: EPFeedData;
+  readonly feedData?: EPFeedData | undefined;
 }
 
 /** Keywords shared by all Month Ahead articles */

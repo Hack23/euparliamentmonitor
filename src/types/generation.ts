@@ -33,13 +33,13 @@ export interface ArticleOptions {
   readTime: number;
   lang: LanguageCode;
   content: string;
-  keywords?: string[];
-  sources?: ArticleSource[];
-  analysisPerspectives?: AnalysisPerspective[];
+  keywords?: string[] | undefined;
+  sources?: ArticleSource[] | undefined;
+  analysisPerspectives?: AnalysisPerspective[] | undefined;
   /** SRI hash (sha256/sha384/sha512) for the styles.css link (e.g. "sha384-…"). If provided, adds integrity and crossorigin attributes. */
-  stylesHash?: string;
+  stylesHash?: string | undefined;
   /** Languages for which this article has been generated. When provided, the language switcher only shows links for these languages. Defaults to all supported languages. */
-  availableLanguages?: ReadonlyArray<LanguageCode>;
+  availableLanguages?: ReadonlyArray<LanguageCode> | undefined;
 }
 
 /** Sitemap URL entry */
@@ -57,8 +57,8 @@ export interface ArticleMetadataEntry {
   slug: string;
   lang: LanguageCode;
   title: string;
-  description?: string;
-  type?: string;
+  description?: string | undefined;
+  type?: string | undefined;
 }
 
 /** News metadata database */
@@ -86,7 +86,7 @@ export interface GenerationStats {
 /** Generation result */
 export interface GenerationResult {
   success: boolean;
-  files?: number;
-  slug?: string;
-  error?: string;
+  files?: number | undefined;
+  slug?: string | undefined;
+  error?: string | undefined;
 }

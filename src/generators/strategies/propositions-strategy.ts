@@ -102,7 +102,7 @@ export interface PropositionsArticleData extends ArticleData {
   /** Pre-sanitised HTML for the tracked procedure section */
   readonly procedureHtml: string;
   /** EP feed data for enrichment (when available) */
-  readonly feedData?: EPFeedData;
+  readonly feedData?: EPFeedData | undefined;
 }
 
 // ─── Strategy implementation ──────────────────────────────────────────────────

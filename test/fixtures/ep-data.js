@@ -1,13 +1,36 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
+// @ts-check
+
 /**
  * Test fixtures for EU Parliament data
  * Mock data for testing article generation
  */
 
 /**
+ * @typedef {{ id: string, title: string, type: string, duration: number, speakers?: Array<{ name: string, group: string, country: string }>, expectedResult?: string, documents?: string[] }} AgendaItem
+ */
+
+/**
+ * @typedef {{ id: string, date: string, title: string, location: string, agenda: AgendaItem[] }} PlenarySession
+ */
+
+/**
+ * @typedef {{ id: string, type: string, author: string, country: string, group: string, subject: string, date: string, text: string }} QuestionItem
+ */
+
+/**
+ * @typedef {{ id: string, type: string, title: string, date: string, status: string, committee: string, rapporteur: string }} DocumentItem
+ */
+
+/**
+ * @typedef {{ id: string, name: string, country: string, group: string, committees: string[], email: string }} MEPItem
+ */
+
+/**
  * Sample plenary session data
+ * @type {PlenarySession}
  */
 export const mockPlenarySession = {
   id: 'PV-2025-01-20',
@@ -37,6 +60,7 @@ export const mockPlenarySession = {
 
 /**
  * Sample parliamentary questions
+ * @type {{ questions: QuestionItem[] }}
  */
 export const mockParliamentaryQuestions = {
   questions: [
@@ -65,6 +89,7 @@ export const mockParliamentaryQuestions = {
 
 /**
  * Sample legislative documents
+ * @type {{ documents: DocumentItem[] }}
  */
 export const mockDocuments = {
   documents: [
@@ -91,6 +116,7 @@ export const mockDocuments = {
 
 /**
  * Sample MEPs data
+ * @type {MEPItem[]}
  */
 export const mockMEPs = [
   {

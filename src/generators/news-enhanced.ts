@@ -52,7 +52,7 @@ import type {
   GenerationStats,
   GenerationResult,
 } from '../types/index.js';
-import { ArticleCategory } from '../types/index.js';
+import type { ArticleCategory } from '../types/index.js';
 
 // ─── Pipeline-stage imports ───────────────────────────────────────────────────
 
@@ -132,10 +132,9 @@ const dryRunArg = args.includes('--dry-run');
 const skipExistingArg = args.includes('--skip-existing');
 
 /** Path to a JSON file containing pre-fetched EP feed data (optional). */
-const feedDataPath =
-  feedDataArg && feedDataArg.startsWith('--feed-data=')
-    ? feedDataArg.slice('--feed-data='.length).trim()
-    : '';
+const feedDataPath = feedDataArg?.startsWith('--feed-data=')
+  ? feedDataArg.slice('--feed-data='.length).trim()
+  : '';
 
 const articleTypes = typesArg
   ? (typesArg.split(ARG_SEPARATOR)[1] ?? '').split(',').map((t) => t.trim())
