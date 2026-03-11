@@ -60,7 +60,7 @@ export interface CommitteeReportsArticleData extends ArticleData {
   /** Resolved data for each featured committee */
   readonly committeeDataList: readonly CommitteeData[];
   /** EP feed data for enrichment (when available) */
-  readonly feedData?: EPFeedData;
+  readonly feedData?: EPFeedData | undefined;
 }
 
 // ─── Feed data enrichment ─────────────────────────────────────────────────────

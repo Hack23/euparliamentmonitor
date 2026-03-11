@@ -40,9 +40,9 @@ export interface MindmapBranch {
   /** Semantic color for the branch node. */
   readonly color: MindmapBranchColor;
   /** Child leaf items displayed below the branch node. */
-  readonly items?: readonly string[];
+  readonly items?: readonly string[] | undefined;
   /** Optional icon/emoji prefix for the branch label. */
-  readonly icon?: string;
+  readonly icon?: string | undefined;
 }
 
 /** Full mindmap configuration. */
@@ -52,7 +52,7 @@ export interface MindmapConfig {
   /** Array of branches radiating from the central node. */
   readonly branches: readonly MindmapBranch[];
   /** Optional introductory paragraph rendered above the mindmap. */
-  readonly summary?: string;
+  readonly summary?: string | undefined;
 }
 
 // ---------------------------------------------------------------------------

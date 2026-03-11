@@ -53,7 +53,7 @@ export interface SankeyFlow {
   /** Flow magnitude (relative — values are scaled to fit the SVG height). */
   readonly value: number;
   /** Optional label shown on the flow path. */
-  readonly label?: string;
+  readonly label?: string | undefined;
 }
 
 /** Full Sankey diagram configuration. */
@@ -63,7 +63,7 @@ export interface SankeyConfig {
   /** Array of directed flows between nodes. */
   readonly flows: readonly SankeyFlow[];
   /** Optional narrative summary. */
-  readonly summary?: string;
+  readonly summary?: string | undefined;
 }
 
 // ---------------------------------------------------------------------------

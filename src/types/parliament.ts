@@ -17,44 +17,44 @@ export interface ParliamentEvent {
 
 /** Committee meeting data from MCP */
 export interface CommitteeMeeting {
-  id?: string;
+  id?: string | undefined;
   committee: string;
-  committeeName?: string;
+  committeeName?: string | undefined;
   date: string;
-  time?: string;
-  location?: string;
-  agenda?: Array<{ item?: number; title: string; type?: string }>;
+  time?: string | undefined;
+  location?: string | undefined;
+  agenda?: Array<{ item?: number | undefined; title: string; type?: string | undefined }> | undefined;
 }
 
 /** Legislative document from MCP */
 export interface LegislativeDocument {
-  id?: string;
-  type?: string;
+  id?: string | undefined;
+  type?: string | undefined;
   title: string;
-  date?: string;
-  status?: string;
-  committee?: string;
-  rapporteur?: string;
+  date?: string | undefined;
+  status?: string | undefined;
+  committee?: string | undefined;
+  rapporteur?: string | undefined;
 }
 
 /** Legislative pipeline procedure */
 export interface LegislativeProcedure {
-  id?: string;
+  id?: string | undefined;
   title: string;
-  stage?: string;
-  committee?: string;
-  status?: string;
-  bottleneck?: boolean;
+  stage?: string | undefined;
+  committee?: string | undefined;
+  status?: string | undefined;
+  bottleneck?: boolean | undefined;
 }
 
 /** Parliamentary question */
 export interface ParliamentaryQuestion {
-  id?: string;
-  type?: string;
-  author?: string;
+  id?: string | undefined;
+  type?: string | undefined;
+  author?: string | undefined;
   subject: string;
-  date?: string;
-  status?: string;
+  date?: string | undefined;
+  status?: string | undefined;
 }
 
 /** Aggregated week-ahead data from multiple MCP sources */
@@ -163,19 +163,19 @@ export interface EPFeedItem {
   /** Full ELI identifier (e.g. `"eli/dl/doc/TA-10-2025-0281"`) */
   id: string;
   /** RDF type (usually `"Work"`) */
-  type?: string;
+  type?: string | undefined;
   /** EP document type URI (e.g. `"def/ep-document-types/TEXT_ADOPTED"`) */
-  work_type?: string;
+  work_type?: string | undefined;
   /** Short document identifier (e.g. `"TA-10-2025-0281"`) */
-  identifier?: string;
+  identifier?: string | undefined;
   /** Human-readable label (e.g. `"T10-0281/2025"`) */
-  label?: string;
+  label?: string | undefined;
   /** Title, when available */
-  title?: string;
+  title?: string | undefined;
   /** Date string (ISO 8601 or free-form) */
-  date?: string;
+  date?: string | undefined;
   /** URL link to the source document */
-  url?: string;
+  url?: string | undefined;
 }
 
 /** A single adopted-text item from the EP adopted-texts feed */
@@ -183,12 +183,12 @@ export interface AdoptedTextFeedItem {
   id: string;
   title: string;
   date: string;
-  type?: string;
-  url?: string;
+  type?: string | undefined;
+  url?: string | undefined;
   /** Short identifier (e.g. `"TA-10-2025-0281"`) */
-  identifier?: string;
+  identifier?: string | undefined;
   /** Human-readable label (e.g. `"T10-0281/2025"`) */
-  label?: string;
+  label?: string | undefined;
 }
 
 /** A single event item from the EP events feed */
@@ -196,11 +196,11 @@ export interface EventFeedItem {
   id: string;
   title: string;
   date: string;
-  type?: string;
-  location?: string;
-  url?: string;
-  identifier?: string;
-  label?: string;
+  type?: string | undefined;
+  location?: string | undefined;
+  url?: string | undefined;
+  identifier?: string | undefined;
+  label?: string | undefined;
 }
 
 /** A single procedure item from the EP procedures feed */
@@ -208,11 +208,11 @@ export interface ProcedureFeedItem {
   id: string;
   title: string;
   date: string;
-  stage?: string;
-  type?: string;
-  url?: string;
-  identifier?: string;
-  label?: string;
+  stage?: string | undefined;
+  type?: string | undefined;
+  url?: string | undefined;
+  identifier?: string | undefined;
+  label?: string | undefined;
 }
 
 /** A single MEP update item from the EP MEPs feed */
@@ -220,11 +220,11 @@ export interface MEPFeedItem {
   id: string;
   name: string;
   date: string;
-  country?: string;
-  group?: string;
-  url?: string;
-  identifier?: string;
-  label?: string;
+  country?: string | undefined;
+  group?: string | undefined;
+  url?: string | undefined;
+  identifier?: string | undefined;
+  label?: string | undefined;
 }
 
 /** A single document item from EP document feeds */
@@ -232,10 +232,10 @@ export interface DocumentFeedItem {
   id: string;
   title: string;
   date: string;
-  type?: string;
-  url?: string;
-  identifier?: string;
-  label?: string;
+  type?: string | undefined;
+  url?: string | undefined;
+  identifier?: string | undefined;
+  label?: string | undefined;
 }
 
 /** A single parliamentary question item from the EP questions feed */
@@ -243,10 +243,10 @@ export interface QuestionFeedItem {
   id: string;
   title: string;
   date: string;
-  type?: string;
-  url?: string;
-  identifier?: string;
-  label?: string;
+  type?: string | undefined;
+  url?: string | undefined;
+  identifier?: string | undefined;
+  label?: string | undefined;
 }
 
 /** A single MEP declaration item from the EP declarations feed */
@@ -254,10 +254,10 @@ export interface DeclarationFeedItem {
   id: string;
   title: string;
   date: string;
-  type?: string;
-  url?: string;
-  identifier?: string;
-  label?: string;
+  type?: string | undefined;
+  url?: string | undefined;
+  identifier?: string | undefined;
+  label?: string | undefined;
 }
 
 /** A single corporate body item from the EP corporate bodies feed */
@@ -265,10 +265,10 @@ export interface CorporateBodyFeedItem {
   id: string;
   title: string;
   date: string;
-  type?: string;
-  url?: string;
-  identifier?: string;
-  label?: string;
+  type?: string | undefined;
+  url?: string | undefined;
+  identifier?: string | undefined;
+  label?: string | undefined;
 }
 
 /** Aggregated feed data for breaking news articles (legacy compat) */
@@ -278,7 +278,7 @@ export interface BreakingNewsFeedData {
   procedures: readonly ProcedureFeedItem[];
   mepUpdates: readonly MEPFeedItem[];
   /** Total number of MEP updates reported by the feed API (may exceed the fetched/displayed count) */
-  totalMEPUpdates?: number;
+  totalMEPUpdates?: number | undefined;
 }
 
 /**

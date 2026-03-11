@@ -37,7 +37,7 @@ export interface ArticleMetadata {
   /** Article category */
   readonly category: ArticleCategory;
   /** Optional source references */
-  readonly sources?: readonly ArticleSource[];
+  readonly sources?: readonly ArticleSource[] | undefined;
 }
 
 /**

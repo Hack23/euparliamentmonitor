@@ -74,9 +74,9 @@ export type CircuitState = 'CLOSED' | 'OPEN' | 'HALF_OPEN';
 /** Constructor options for {@link CircuitBreaker} */
 export interface CircuitBreakerOptions {
   /** Consecutive failures before opening the circuit (default: 3) */
-  failureThreshold?: number;
+  failureThreshold?: number | undefined;
   /** Milliseconds to wait before probing recovery (default: 60 000) */
-  resetTimeoutMs?: number;
+  resetTimeoutMs?: number | undefined;
 }
 
 /**
@@ -1030,10 +1030,10 @@ export async function fetchVotingRecords(
     if (votingResult?.content?.[0]) {
       const data = parseJSON<{
         records?: Array<{
-          title?: string;
-          date?: string;
-          result?: string;
-          votes?: { for?: number; against?: number; abstain?: number };
+          title?: string | undefined;
+          date?: string | undefined;
+          result?: string | undefined;
+          votes?: { for?: number | undefined; against?: number | undefined; abstain?: number } | undefined;
         }>;
       }>(votingResult.content[0].text, 'voting records');
 
@@ -1086,7 +1086,7 @@ export async function fetchVotingPatterns(
 
     if (patternsResult?.content?.[0]) {
       const data = parseJSON<{
-        patterns?: Array<{ group?: string; cohesion?: number; participation?: number }>;
+        patterns?: Array<{ group?: string | undefined; cohesion?: number | undefined; participation?: number }> | undefined;
       }>(patternsResult.content[0].text, 'voting patterns');
 
       if (data?.patterns && data.patterns.length > 0) {
@@ -1133,7 +1133,7 @@ export async function fetchMotionsAnomalies(
 
     if (anomaliesResult?.content?.[0]) {
       const data = parseJSON<{
-        anomalies?: Array<{ type?: string; description?: string; severity?: string }>;
+        anomalies?: Array<{ type?: string | undefined; description?: string | undefined; severity?: string }> | undefined;
       }>(anomaliesResult.content[0].text, 'voting anomalies');
 
       if (data?.anomalies && data.anomalies.length > 0) {
@@ -1182,11 +1182,11 @@ export async function fetchParliamentaryQuestionsForMotions(
     if (questionsResult?.content?.[0]) {
       const data = parseJSON<{
         questions?: Array<{
-          author?: string;
-          topic?: string;
-          subject?: string;
-          date?: string;
-          status?: string;
+          author?: string | undefined;
+          topic?: string | undefined;
+          subject?: string | undefined;
+          date?: string | undefined;
+          status?: string | undefined;
         }>;
       }>(questionsResult.content[0].text, 'parliamentary questions');
 
@@ -1349,9 +1349,9 @@ export async function fetchPipelineFromMCP(
   if (!pipelineResult?.content?.[0]) return null;
 
   const pipeData = parseJSON<{
-    pipelineHealthScore?: number;
-    throughputRate?: number;
-    procedures?: Array<{ id?: string; title?: string; stage?: string }>;
+    pipelineHealthScore?: number | undefined;
+    throughputRate?: number | undefined;
+    procedures?: Array<{ id?: string | undefined; title?: string | undefined; stage?: string }> | undefined;
   }>(pipelineResult.content[0].text, 'pipeline');
 
   if (!pipeData) return null;
@@ -1474,10 +1474,10 @@ function mapFeedItemBase(item: Record<string, unknown>): {
   id: string;
   title: string;
   date: string;
-  type?: string;
-  url?: string;
-  identifier?: string;
-  label?: string;
+  type?: string | undefined;
+  url?: string | undefined;
+  identifier?: string | undefined;
+  label?: string | undefined;
 } {
   return {
     id: String(item['id'] ?? item['docId'] ?? ''),

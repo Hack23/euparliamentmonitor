@@ -128,13 +128,13 @@ export function writeGenerationMetadata(
   if (fs.existsSync(metadataPath)) {
     try {
       const existing = JSON.parse(fs.readFileSync(metadataPath, 'utf-8')) as {
-        generated?: number;
-        skipped?: number;
-        dryRun?: number;
-        errors?: number;
-        articles?: string[];
-        results?: GenerationResult[];
-        usedMCP?: boolean;
+        generated?: number | undefined;
+        skipped?: number | undefined;
+        dryRun?: number | undefined;
+        errors?: number | undefined;
+        articles?: string[] | undefined;
+        results?: GenerationResult[] | undefined;
+        usedMCP?: boolean | undefined;
       };
 
       // Accumulate counters from both runs

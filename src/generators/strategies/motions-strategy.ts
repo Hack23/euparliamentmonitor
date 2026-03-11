@@ -63,7 +63,7 @@ export interface MotionsArticleData extends ArticleData {
   /** Parliamentary questions raised in the period */
   readonly questions: readonly MotionsQuestion[];
   /** EP feed data for enrichment (when available) */
-  readonly feedData?: EPFeedData;
+  readonly feedData?: EPFeedData | undefined;
 }
 
 // ─── Strategy implementation ──────────────────────────────────────────────────

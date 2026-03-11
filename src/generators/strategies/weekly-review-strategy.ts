@@ -55,7 +55,7 @@ export interface WeeklyReviewArticleData extends ArticleData {
   /** Start date string for display */
   readonly dateFromStr: string;
   /** EP feed data for enrichment (when available) */
-  readonly feedData?: EPFeedData;
+  readonly feedData?: EPFeedData | undefined;
 }
 
 /** Keywords shared by all Weekly Review articles */

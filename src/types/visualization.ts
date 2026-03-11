@@ -19,7 +19,7 @@ export interface SwotItem {
   /** Description of the SWOT item */
   readonly text: string;
   /** Optional severity/importance level */
-  readonly severity?: 'low' | 'medium' | 'high';
+  readonly severity?: 'low' | 'medium' | 'high' | undefined;
 }
 
 /**
@@ -40,7 +40,7 @@ export interface SwotItem {
  */
 export interface SwotAnalysis {
   /** Optional title for the SWOT analysis */
-  readonly title?: string;
+  readonly title?: string | undefined;
   /** Internal strengths — positive factors within EU Parliament control */
   readonly strengths: readonly SwotItem[];
   /** Internal weaknesses — negative factors within EU Parliament control */
@@ -87,11 +87,11 @@ export interface DashboardMetric {
   /** Formatted display value (e.g. "85%", "1,234", "€2.5M") */
   readonly value: string;
   /** Optional percentage change from previous period */
-  readonly change?: number;
+  readonly change?: number | undefined;
   /** Optional trend direction */
-  readonly trend?: 'up' | 'down' | 'stable';
+  readonly trend?: 'up' | 'down' | 'stable' | undefined;
   /** Optional unit suffix (e.g. "%", "MEPs", "votes") */
-  readonly unit?: string;
+  readonly unit?: string | undefined;
 }
 
 /**
@@ -129,9 +129,9 @@ export interface ChartDataset {
   /** Data points — numbers for most chart types, point objects for scatter/bubble */
   readonly data: readonly number[] | readonly ScatterPoint[] | readonly BubblePoint[];
   /** Background color(s) — single color or array for per-point colors */
-  readonly backgroundColor?: string | readonly string[];
+  readonly backgroundColor?: string | readonly string[] | undefined;
   /** Border color(s) — single color or array for per-point colors */
-  readonly borderColor?: string | readonly string[];
+  readonly borderColor?: string | readonly string[] | undefined;
 }
 
 /**
@@ -154,11 +154,11 @@ export interface ChartConfig {
   /** Chart type — matches Chart.js chart types */
   readonly type: 'bar' | 'line' | 'pie' | 'doughnut' | 'radar' | 'polarArea' | 'scatter' | 'bubble';
   /** Chart title displayed above the chart */
-  readonly title?: string;
+  readonly title?: string | undefined;
   /** Chart data (labels + datasets) */
   readonly data: ChartData;
   /** Optional Chart.js options override (scales, plugins, annotation, etc.) */
-  readonly options?: Record<string, unknown>;
+  readonly options?: Record<string, unknown> | undefined;
 }
 
 /**
@@ -169,9 +169,9 @@ export interface DashboardPanel {
   /** Panel heading */
   readonly title: string;
   /** Optional key metrics displayed as cards */
-  readonly metrics?: readonly DashboardMetric[];
+  readonly metrics?: readonly DashboardMetric[] | undefined;
   /** Optional chart configuration */
-  readonly chart?: ChartConfig;
+  readonly chart?: ChartConfig | undefined;
 }
 
 /**
@@ -204,7 +204,7 @@ export interface DashboardPanel {
  */
 export interface DashboardConfig {
   /** Dashboard heading */
-  readonly title?: string;
+  readonly title?: string | undefined;
   /** Dashboard panels — each contains metrics and/or a chart */
   readonly panels: readonly DashboardPanel[];
 }
