@@ -108,10 +108,10 @@ export class MockMCPServer {
   /**
    * Handle tool call
    * @param {string} toolName - The tool name to call
-   * @param {Record<string, unknown>} [toolArguments] - The tool call arguments
+   * @param {Record<string, unknown>} [_toolArguments] - The tool call arguments (reserved for future argument-dependent mock behaviour)
    * @returns {MCPToolResponse}
    */
-  _handleToolCall(toolName, toolArguments) {
+  _handleToolCall(toolName, _toolArguments) {
     switch (toolName) {
       case 'get_plenary_sessions':
         return {
