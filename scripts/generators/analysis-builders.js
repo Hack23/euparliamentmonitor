@@ -374,10 +374,11 @@ const CONFERENCE_OF_PRESIDENTS = {
  * @param pipelineData - Pipeline metrics
  * @param date - Publication date
  * @param lang - Target display language (default: 'en')
+ * @param adoptedTextsHtml - Adopted texts HTML (also used to detect content presence)
  * @returns Deep analysis object
  */
-export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lang = 'en') {
-    const hasProposals = proposalsHtml.length > 0;
+export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lang = 'en', adoptedTextsHtml = '') {
+    const hasProposals = proposalsHtml.length > 0 || adoptedTextsHtml.length > 0;
     const healthScore = pipelineData?.healthScore ?? 0;
     const throughput = pipelineData?.throughput ?? 0;
     const pct = (healthScore * 100).toFixed(0);

@@ -499,6 +499,12 @@ describe('analysis-builders', () => {
       expect(result.what).toContain('0%');
       expect(result.outlook).toContain('weak');
     });
+
+    it('should detect proposals from adoptedTextsHtml when proposalsHtml is empty', () => {
+      const pipeline = { healthScore: 0.7, throughput: 8, procRowsHtml: '' };
+      const result = buildPropositionsAnalysis('', pipeline, '2026-02-24', 'en', '<p>adopted text</p>');
+      expect(result.what).toContain('Active proposals');
+    });
   });
 
   describe('buildCommitteeAnalysis', () => {
