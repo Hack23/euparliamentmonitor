@@ -17,7 +17,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": false,
     "exactOptionalPropertyTypes": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "types": ["vitest/globals", "node"]
   },
   "include": [
     "test/**/*.js"

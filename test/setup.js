@@ -4,14 +4,18 @@
 /**
  * Test setup file
  * Runs before all tests
- *
- * @typedef {import('vitest').Mock} VitestMock
  */
 
-/* global vi */
+/**
+ * @typedef {Object} TestUtilsType
+ * @property {() => Date} getMockDate
+ * @property {() => typeof console} suppressConsole
+ * @property {(originalConsole: typeof console) => void} restoreConsole
+ */
 
-// Global test utilities
-global.testUtils = {
+// Augment globalThis for testUtils
+/** @type {TestUtilsType} */
+const testUtils = {
   /**
    * Create a mock date that's consistent across tests
    * @returns {Date}
@@ -19,7 +23,7 @@ global.testUtils = {
   getMockDate() {
     return new Date('2025-01-15T12:00:00Z');
   },
-  
+
   /**
    * Suppress console output during tests
    * @returns {typeof console}
@@ -32,7 +36,7 @@ global.testUtils = {
     console.error = /** @type {typeof console.error} */ (vi.fn());
     return originalConsole;
   },
-  
+
   /**
    * Restore console output
    * @param {typeof console} originalConsole - Original console methods
@@ -42,6 +46,8 @@ global.testUtils = {
     Object.assign(console, originalConsole);
   },
 };
+
+/** @type {Record<string, unknown>} */ (globalThis).testUtils = testUtils;
 
 // Set consistent timezone for tests
 process.env.TZ = 'UTC';

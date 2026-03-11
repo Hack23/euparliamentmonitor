@@ -108,8 +108,22 @@ export function applyDocuments(result: MCPToolResult, data: CommitteeData): void
   try {
     if (!result?.content?.[0]) return;
     const parsed = JSON.parse(result.content[0].text) as {
-      documents?: Array<{ title?: string | undefined; type?: string | undefined; documentType?: string | undefined; date?: string | undefined }> | undefined;
-      data?: Array<{ title?: string | undefined; type?: string | undefined; documentType?: string | undefined; date?: string | undefined }> | undefined;
+      documents?:
+        | Array<{
+            title?: string | undefined;
+            type?: string | undefined;
+            documentType?: string | undefined;
+            date?: string | undefined;
+          }>
+        | undefined;
+      data?:
+        | Array<{
+            title?: string | undefined;
+            type?: string | undefined;
+            documentType?: string | undefined;
+            date?: string | undefined;
+          }>
+        | undefined;
     };
     // Support both { documents: [...] } and { data: [...] } response formats
     const docs = parsed.documents ?? parsed.data;

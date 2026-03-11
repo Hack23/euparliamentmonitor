@@ -23,7 +23,9 @@ export interface CommitteeMeeting {
   date: string;
   time?: string | undefined;
   location?: string | undefined;
-  agenda?: Array<{ item?: number | undefined; title: string; type?: string | undefined }> | undefined;
+  agenda?:
+    | Array<{ item?: number | undefined; title: string; type?: string | undefined }>
+    | undefined;
 }
 
 /** Legislative document from MCP */

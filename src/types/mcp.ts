@@ -395,7 +395,9 @@ export interface ComparativeIntelligenceOptions {
 /** Options for correlateIntelligence */
 export interface CorrelateIntelligenceOptions {
   mepId?: number | undefined;
-  correlationScenarios?: ('influence_anomaly' | 'coalition_stress' | 'network_activity')[] | undefined;
+  correlationScenarios?:
+    | ('influence_anomaly' | 'coalition_stress' | 'network_activity')[]
+    | undefined;
 }
 
 /** Allowed category values for getAllGeneratedStats */
