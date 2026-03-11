@@ -412,7 +412,9 @@ export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lan
             political: `Legislative throughput affects each political group's ability to deliver on manifesto commitments. ${healthScore < 0.5 ? 'Current congestion benefits status-quo defenders.' : 'Current pace favours reform-oriented groups.'}`,
             economic: 'Pending legislation on digital markets, sustainability reporting, and fiscal governance carries significant economic implications for EU businesses.',
             social: 'Citizens await legislative outcomes on healthcare, education, and social protection proposals currently in the pipeline.',
-            legal: `${throughput} procedures at various stages create a complex legal landscape. Overlapping implementation timelines may strain member state transposition capacity.`,
+            legal: throughput > 0
+                ? `${throughput} procedures at various stages create a complex legal landscape. Overlapping implementation timelines may strain member state transposition capacity.`
+                : `Legislative procedures at various stages create a complex legal landscape. Overlapping implementation timelines may strain member state transposition capacity.`,
             geopolitical: 'Trade, foreign aid, and sanctions-related proposals in the pipeline affect EU positioning in international negotiations.',
         },
         actionConsequences: [

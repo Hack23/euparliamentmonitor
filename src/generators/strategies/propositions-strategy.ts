@@ -46,17 +46,22 @@ const PROPOSITIONS_KEYWORDS = [
 ] as const;
 
 /**
- * Build proposals HTML from EP feed data when search_documents returns empty.
- * Uses procedures and adopted texts from the feed as fallback content.
+ * Build procedures and adopted-texts HTML separately from EP feed data when
+ * search_documents returns empty. Uses procedures and adopted texts from the
+ * feed as fallback content.
  *
  * @param feedData - EP feed data containing procedures and adopted texts
- * @returns Pre-sanitized HTML for the proposals section
+ * @returns Pre-sanitized HTML for procedures and adopted texts sections separately
  */
-function buildProposalsFromFeed(feedData: EPFeedData): string {
-  const items: string[] = [];
+function buildProposalsFromFeed(feedData: EPFeedData): {
+  proceduresHtml: string;
+  adoptedTextsHtml: string;
+} {
+  const procedureItems: string[] = [];
+  const adoptedTextItems: string[] = [];
 
   for (const proc of feedData.procedures.slice(0, 8)) {
-    items.push(`
+    procedureItems.push(`
       <div class="proposal-card">
         <h3>${escapeHTML(proc.title || proc.id)}</h3>
         <div class="proposal-meta">
@@ -68,7 +73,7 @@ function buildProposalsFromFeed(feedData: EPFeedData): string {
   }
 
   for (const text of feedData.adoptedTexts.slice(0, 8)) {
-    items.push(`
+    adoptedTextItems.push(`
       <div class="proposal-card">
         <h3>${escapeHTML(text.title || text.id)}</h3>
         <div class="proposal-meta">
@@ -78,15 +83,20 @@ function buildProposalsFromFeed(feedData: EPFeedData): string {
       </div>`);
   }
 
-  return items.join('\n');
+  return {
+    proceduresHtml: procedureItems.join('\n'),
+    adoptedTextsHtml: adoptedTextItems.join('\n'),
+  };
 }
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
 
 /** Data fetched and pre-processed by {@link PropositionsStrategy} */
 export interface PropositionsArticleData extends ArticleData {
-  /** Pre-sanitised HTML for the proposals list section */
+  /** Pre-sanitised HTML for the legislative procedures list section */
   readonly proposalsHtml: string;
+  /** Pre-sanitised HTML for the recently adopted texts section */
+  readonly adoptedTextsHtml: string;
   /** Active legislative pipeline data (null when MCP unavailable) */
   readonly pipelineData: PipelineData | null;
   /** Pre-sanitised HTML for the tracked procedure section */
@@ -150,23 +160,27 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
     // When search_documents returns empty but feed data has procedures/adopted texts,
     // build proposals HTML from the feed data as fallback
     let finalProposalsHtml = proposalsHtml;
+    let finalAdoptedTextsHtml = '';
     if (!finalProposalsHtml && feedResult) {
       const hasFeedItems = feedResult.procedures.length > 0 || feedResult.adoptedTexts.length > 0;
       if (hasFeedItems) {
         console.log(
           `  📰 Building proposals from feed data: ${feedResult.procedures.length} procedures, ${feedResult.adoptedTexts.length} adopted texts`
         );
-        finalProposalsHtml = buildProposalsFromFeed(feedResult);
+        const feedHtml = buildProposalsFromFeed(feedResult);
+        finalProposalsHtml = feedHtml.proceduresHtml;
+        finalAdoptedTextsHtml = feedHtml.adoptedTextsHtml;
       }
     }
 
-    if (!finalProposalsHtml) {
+    if (!finalProposalsHtml && !finalAdoptedTextsHtml) {
       console.log('  ℹ️ No proposals from MCP — pipeline article will be data-free');
     }
 
     return {
       date,
       proposalsHtml: finalProposalsHtml,
+      adoptedTextsHtml: finalAdoptedTextsHtml,
       pipelineData,
       procedureHtml,
       feedData: feedResult,
@@ -184,6 +198,7 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
     const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
     const base = buildPropositionsContent(
       data.proposalsHtml,
+      data.adoptedTextsHtml,
       data.pipelineData,
       data.procedureHtml,
       strings,
