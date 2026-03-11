@@ -19,18 +19,6 @@
  */
 import { escapeHTML } from '../utils/file-utils.js';
 import { getLocalizedString, DASHBOARD_STRINGS } from '../constants/languages.js';
-/** Trend indicator symbols (accessible) */
-const TREND_INDICATORS = {
-    up: '↑',
-    down: '↓',
-    stable: '→',
-};
-/** CSS class for trend direction */
-const TREND_CLASSES = {
-    up: 'metric-trend-up',
-    down: 'metric-trend-down',
-    stable: 'metric-trend-stable',
-};
 // ─── Sub-section builders ────────────────────────────────────────────────────
 /**
  * Build a single metric card HTML.
@@ -77,8 +65,8 @@ function buildTrendIndicator(metric, strings) {
     if (!metric.trend && metric.change === undefined)
         return '';
     const trend = resolveTrend(metric.trend, metric.change);
-    const trendClass = TREND_CLASSES[trend] ?? 'metric-trend-stable';
-    const trendSymbol = TREND_INDICATORS[trend] ?? '→';
+    const trendClass = trend === 'up' ? 'metric-trend-up' : trend === 'down' ? 'metric-trend-down' : 'metric-trend-stable';
+    const trendSymbol = trend === 'up' ? '↑' : trend === 'down' ? '↓' : '→';
     const changeText = metric.change !== undefined
         ? ` ${metric.change > 0 ? '+' : ''}${metric.change.toFixed(1)}%`
         : '';
@@ -146,7 +134,7 @@ function buildChartFallbackTable(chart, strings) {
         .map((label, i) => {
         const cells = datasets
             .map((ds) => {
-            const val = ds.data[i];
+            const val = ds.data.at(i);
             return `<td>${val !== undefined ? escapeHTML(String(val)) : '—'}</td>`;
         })
             .join('');

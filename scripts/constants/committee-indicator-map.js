@@ -1177,7 +1177,11 @@ export function getCommitteePrimaryIndicators(abbreviation) {
  * @returns Category indicator entry with enrichment guidance
  */
 export function getCategoryIndicators(category) {
-    return CATEGORY_INDICATOR_MAP[category];
+    if (!Object.hasOwn(CATEGORY_INDICATOR_MAP, category)) {
+        return CATEGORY_INDICATOR_MAP[ArticleCategory.BREAKING_NEWS];
+    }
+    // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn
+    return CATEGORY_INDICATOR_MAP[category] ?? CATEGORY_INDICATOR_MAP[ArticleCategory.BREAKING_NEWS];
 }
 /**
  * Get all unique indicator IDs needed for a set of committees.
@@ -1207,7 +1211,7 @@ export function getIndicatorIdsForCommittees(abbreviations, primaryOnly = false)
  * @returns Deduplicated array of World Bank indicator IDs
  */
 export function getAllCategoryIndicatorIds(category) {
-    const entry = CATEGORY_INDICATOR_MAP[category];
+    const entry = getCategoryIndicators(category);
     const ids = new Set();
     for (const ind of entry.primaryIndicators) {
         ids.add(ind.indicatorId);

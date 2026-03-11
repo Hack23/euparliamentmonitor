@@ -7,6 +7,9 @@ on:
 # Set default permissions to read-only
 permissions: read-all
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   labeler:
     name: Label Pull Request

@@ -443,8 +443,10 @@ function buildPropositionsWhy(healthScore: number, throughput: number): string {
  * Localized names for the EP Conference of Presidents across supported languages.
  * Used to translate the actor name in the propositions deep-analysis mistake card.
  */
+const CONFERENCE_OF_PRESIDENTS_EN = 'Conference of Presidents';
+
 const CONFERENCE_OF_PRESIDENTS: Record<string, string> = {
-  en: 'Conference of Presidents',
+  en: CONFERENCE_OF_PRESIDENTS_EN,
   sv: 'Presidentkonferensen',
   da: 'Formandskabskonferencen',
   no: 'Presidentkonferansen',
@@ -459,6 +461,18 @@ const CONFERENCE_OF_PRESIDENTS: Record<string, string> = {
   ko: '의장단 회의',
   zh: '主席团会议',
 };
+
+/**
+ * Get the localized Conference of Presidents name.
+ *
+ * @param lang - Target language code
+ * @returns Localized name or English fallback
+ */
+function getConferenceOfPresidents(lang: string): string {
+  if (!Object.hasOwn(CONFERENCE_OF_PRESIDENTS, lang)) return CONFERENCE_OF_PRESIDENTS_EN;
+  // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn
+  return CONFERENCE_OF_PRESIDENTS[lang] ?? CONFERENCE_OF_PRESIDENTS_EN;
+}
 
 /**
  * Build deep analysis for propositions articles.
@@ -544,7 +558,7 @@ export function buildPropositionsAnalysis(
       healthScore < 0.5
         ? [
             {
-              actor: CONFERENCE_OF_PRESIDENTS[lang] ?? CONFERENCE_OF_PRESIDENTS['en']!,
+              actor: getConferenceOfPresidents(lang),
               description: `Pipeline health dropped to ${pct}% — legislative agenda may be overloaded`,
               alternative:
                 'Prioritise flagship files and defer low-priority proposals to maintain pipeline flow',

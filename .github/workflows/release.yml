@@ -18,6 +18,9 @@ on:
 # Restrict top-level permissions to minimum required defaults
 permissions: read-all
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   prepare:
     name: Prepare Release

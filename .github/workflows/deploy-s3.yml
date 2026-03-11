@@ -12,6 +12,8 @@ env:
   AWS_REGION_ZONE : "us-east-1"
   S3_BUCKET_NAME: "euparliamentmonitor-frontend-us-east-1-172017021075"
   CLOUDFRONT_STACK_NAME: "euparliamentmonitor-frontend"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
