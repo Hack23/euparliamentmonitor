@@ -148,6 +148,7 @@ export interface LangTitleSubtitle {
 export interface PropositionsStrings {
   lede: string;
   proposalsHeading: string;
+  adoptedTextsHeading: string;
   pipelineHeading: string;
   procedureHeading: string;
   analysisHeading: string;

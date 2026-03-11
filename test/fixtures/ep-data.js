@@ -241,6 +241,7 @@ export const committeeReportsData = {
 export const propositionsData = {
   date: STRATEGY_DATE,
   proposalsHtml: '<div class="proposal-card"><h3>Green Deal Directive</h3></div>',
+  adoptedTextsHtml: '',
   pipelineData: { healthScore: 0.85, throughput: 12, procRowsHtml: '' },
   procedureHtml: '',
 };
