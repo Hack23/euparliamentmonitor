@@ -22,6 +22,7 @@ describe('Propositions Generator', () => {
     it('should return HTML with localized section headings', () => {
       const html = buildPropositionsContent(
         '<div class="proposal-card"><h3>Test Proposal</h3></div>',
+        '',
         SAMPLE_PIPELINE,
         '',
         EN_STRINGS
@@ -35,7 +36,7 @@ describe('Propositions Generator', () => {
     });
 
     it('should include localized pipeline metric labels', () => {
-      const html = buildPropositionsContent('', SAMPLE_PIPELINE, '', EN_STRINGS);
+      const html = buildPropositionsContent('', '', SAMPLE_PIPELINE, '', EN_STRINGS);
       expect(html).toContain(EN_STRINGS.pipelineHealthLabel);
       expect(html).toContain(EN_STRINGS.throughputRateLabel);
       expect(html).toContain('85%');
@@ -43,14 +44,14 @@ describe('Propositions Generator', () => {
     });
 
     it('should render empty pipeline section when pipelineData is null', () => {
-      const html = buildPropositionsContent('<p>proposals</p>', null, '', EN_STRINGS);
+      const html = buildPropositionsContent('<p>proposals</p>', '', null, '', EN_STRINGS);
       // pipeline-status section heading still appears; content inside is empty
       expect(html).toContain('pipeline-status');
       expect(html).not.toContain('pipeline-metrics');
     });
 
     it('should omit procedure section when procedureHtml is empty', () => {
-      const html = buildPropositionsContent('<p>proposals</p>', null, '', EN_STRINGS);
+      const html = buildPropositionsContent('<p>proposals</p>', '', null, '', EN_STRINGS);
       expect(html).not.toContain('procedure-status');
       expect(html).not.toContain(EN_STRINGS.procedureHeading);
     });
@@ -58,6 +59,7 @@ describe('Propositions Generator', () => {
     it('should include procedure section when procedureHtml is provided', () => {
       const html = buildPropositionsContent(
         '<p>proposals</p>',
+        '',
         null,
         '<pre>{"status": "first_reading"}</pre>',
         EN_STRINGS
@@ -75,26 +77,41 @@ describe('Propositions Generator', () => {
         pipelineHeading: 'Pipeline',
         procedureHeading: 'Procedure',
         analysisHeading: 'Analysis',
+        adoptedTextsHeading: '<img onerror=alert(2)>',
       };
-      const html = buildPropositionsContent('', null, '', maliciousStrings);
+      const html = buildPropositionsContent('', '<p>adopted</p>', null, '', maliciousStrings);
       expect(html).not.toContain('<script>');
       expect(html).not.toContain('<img');
       expect(html).toContain('&lt;script&gt;');
       expect(html).toContain('&lt;b&gt;');
+      expect(html).toContain('&lt;img');
     });
 
     it('should include proposals HTML verbatim (proposals content is pre-sanitized)', () => {
       const proposalsHtml = '<div class="proposal-card"><h3>Test Proposal</h3></div>';
-      const html = buildPropositionsContent(proposalsHtml, null, '', EN_STRINGS);
+      const html = buildPropositionsContent(proposalsHtml, '', null, '', EN_STRINGS);
       expect(html).toContain('proposal-card');
       expect(html).toContain('Test Proposal');
     });
 
     it('should include pipeline proc rows HTML verbatim', () => {
       const pipelineData = { healthScore: 0.5, throughput: 5, procRowsHtml: '<div class="procedure-item"><span class="procedure-id">2024/0001(COD)</span></div>' };
-      const html = buildPropositionsContent('', pipelineData, '', EN_STRINGS);
+      const html = buildPropositionsContent('', '', pipelineData, '', EN_STRINGS);
       expect(html).toContain('procedure-item');
       expect(html).toContain('2024/0001(COD)');
+    });
+
+    it('should render adopted-texts-section when adoptedTextsHtml is provided', () => {
+      const adoptedTextsHtml = '<div class="proposal-card"><h3>Adopted Text</h3></div>';
+      const html = buildPropositionsContent('', adoptedTextsHtml, null, '', EN_STRINGS);
+      expect(html).toContain('adopted-texts-section');
+      expect(html).toContain(EN_STRINGS.adoptedTextsHeading);
+      expect(html).toContain('Adopted Text');
+    });
+
+    it('should omit adopted-texts-section when adoptedTextsHtml is empty', () => {
+      const html = buildPropositionsContent('<p>proposals</p>', '', null, '', EN_STRINGS);
+      expect(html).not.toContain('adopted-texts-section');
     });
   });
 
@@ -103,6 +120,7 @@ describe('Propositions Generator', () => {
       const strings = getLocalizedString(PROPOSITIONS_STRINGS, 'en');
       const content = buildPropositionsContent(
         '<div class="proposal-card"><h3>Test</h3></div>',
+        '',
         SAMPLE_PIPELINE,
         '',
         strings
@@ -136,7 +154,7 @@ describe('Propositions Generator', () => {
         expect(strings.pipelineHealthLabel.length).toBeGreaterThan(0);
         expect(strings.throughputRateLabel.length).toBeGreaterThan(0);
 
-        const content = buildPropositionsContent('<p>proposals</p>', SAMPLE_PIPELINE, '', strings);
+        const content = buildPropositionsContent('<p>proposals</p>', '', SAMPLE_PIPELINE, '', strings);
         const html = generateArticleHTML({
           slug: 'propositions',
           title: titles.title,
@@ -157,7 +175,7 @@ describe('Propositions Generator', () => {
 
     it('should generate minimal article when MCP is unavailable (null pipeline)', () => {
       const strings = getLocalizedString(PROPOSITIONS_STRINGS, 'en');
-      const content = buildPropositionsContent('', null, '', strings);
+      const content = buildPropositionsContent('', '', null, '', strings);
       const titles = getLocalizedString(PROPOSITIONS_TITLES, 'en')();
       const html = generateArticleHTML({
         slug: 'propositions',
@@ -182,7 +200,7 @@ describe('Propositions Generator', () => {
 describe('Propositions editorial quality', () => {
   it('should include "Why This Matters" section', () => {
     const strings = PROPOSITIONS_STRINGS.en;
-    const html = buildPropositionsContent('<p>proposals</p>', null, '', strings);
+    const html = buildPropositionsContent('<p>proposals</p>', '', null, '', strings);
     expect(html).toContain('why-this-matters');
     expect(html).toContain('Why This Matters');
   });
@@ -197,7 +215,7 @@ describe('Propositions editorial quality', () => {
       ...PROPOSITIONS_STRINGS.en,
       whyThisMatters: '<script>alert(1)</script>',
     };
-    const html = buildPropositionsContent('', null, '', maliciousStrings);
+    const html = buildPropositionsContent('', '', null, '', maliciousStrings);
     expect(html).not.toContain('<script>');
     expect(html).toContain('&lt;script&gt;');
   });

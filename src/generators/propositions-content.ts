@@ -21,15 +21,16 @@ export interface PipelineData {
 /**
  * Build propositions article HTML content with localized strings.
  *
- * **Security contract**: `proposalsHtml`, `procedureHtml`, and
- * `pipelineData.procRowsHtml` MUST be pre-sanitized HTML — all external
+ * **Security contract**: `proposalsHtml`, `adoptedTextsHtml`, `procedureHtml`,
+ * and `pipelineData.procRowsHtml` MUST be pre-sanitized HTML — all external
  * (MCP-sourced) values must have been passed through `escapeHTML()` before
  * being interpolated into these strings.  The fetch helpers
  * (`fetchProposalsFromMCP`, `fetchPipelineFromMCP`,
  * `fetchProcedureStatusFromMCP`) fulfil this contract; callers must do the
  * same if they construct these arguments independently.
  *
- * @param proposalsHtml - Pre-sanitized HTML for proposals list section
+ * @param proposalsHtml - Pre-sanitized HTML for legislative procedures list section
+ * @param adoptedTextsHtml - Pre-sanitized HTML for recently adopted texts section (may be empty)
  * @param pipelineData - Structured pipeline data from MCP (null when unavailable);
  *   `pipelineData.procRowsHtml` must be pre-sanitized HTML
  * @param procedureHtml - Pre-sanitized HTML for tracked procedure status section (may be empty)
@@ -39,6 +40,7 @@ export interface PipelineData {
  */
 export function buildPropositionsContent(
   proposalsHtml: string,
+  adoptedTextsHtml: string,
   pipelineData: PipelineData | null,
   procedureHtml: string,
   strings: PropositionsStrings,
@@ -66,6 +68,13 @@ export function buildPropositionsContent(
             ${procedureHtml}
           </section>`
     : '';
+  const adoptedTextsSection = adoptedTextsHtml
+    ? `
+          <section class="adopted-texts-section">
+            <h2>${escapeHTML(strings.adoptedTextsHeading)}</h2>
+            ${adoptedTextsHtml}
+          </section>`
+    : '';
   return `
         <div class="article-content">
           <section class="lede">
@@ -76,7 +85,7 @@ export function buildPropositionsContent(
             <h2>${escapeHTML(strings.proposalsHeading)}</h2>
             ${proposalsHtml}
           </section>
-
+          ${adoptedTextsSection}
           <section class="pipeline-status">
             <h2>${escapeHTML(strings.pipelineHeading)}</h2>
             ${pipelineHtml}
