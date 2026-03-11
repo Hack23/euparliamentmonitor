@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament monthly review retrospective English article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"e10cc582e99a5b85998cf79cb85cebc69edac53632f8c1eb64f3bb64b06f3af1","compiler_version":"v0.57.2"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"85deeddd0a826c235332439da0be638c0978a80a94071ea0bdf127ebbf74011b","compiler_version":"v0.57.2"}
 
 name: "News: EU Parliament Monthly Review"
 "on":
