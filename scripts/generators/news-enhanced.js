@@ -62,7 +62,7 @@ const feedDataArg = args.find((arg) => arg.startsWith('--feed-data='));
 const dryRunArg = args.includes('--dry-run');
 const skipExistingArg = args.includes('--skip-existing');
 /** Path to a JSON file containing pre-fetched EP feed data (optional). */
-const feedDataPath = feedDataArg && feedDataArg.startsWith('--feed-data=')
+const feedDataPath = feedDataArg?.startsWith('--feed-data=')
     ? feedDataArg.slice('--feed-data='.length).trim()
     : '';
 const articleTypes = typesArg

@@ -90,7 +90,10 @@ export class MockMCPServer {
         };
 
       case 'tools/call':
-        return this._handleToolCall(/** @type {string} */ (params['name']));
+        if (typeof params['name'] !== 'string') {
+          throw new Error('Invalid tool call: missing or non-string "name" parameter');
+        }
+        return this._handleToolCall(params['name']);
 
       default:
         throw new Error(`Unknown method: ${method}`);

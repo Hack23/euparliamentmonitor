@@ -155,7 +155,7 @@ export function validateHTML(html) {
   /**
    * Filter out undefined entries and void/self-closing elements
    * @param {string | undefined} tag - Tag name to check
-   * @returns {boolean} True if tag should be counted for balance check
+   * @returns {tag is string} True if tag should be counted for balance check
    */
   const isCountableTag = (tag) => tag !== undefined && !VOID_ELEMENTS.includes(tag);
 
