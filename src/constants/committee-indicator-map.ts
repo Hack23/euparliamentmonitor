@@ -1300,7 +1300,7 @@ export function getCommitteePrimaryIndicators(abbreviation: string): readonly In
  */
 export function getCategoryIndicators(category: ArticleCategory): CategoryIndicatorEntry {
   if (!Object.hasOwn(CATEGORY_INDICATOR_MAP, category)) {
-    return CATEGORY_INDICATOR_MAP[ArticleCategory.BREAKING_NEWS];
+    return getCategoryIndicators(ArticleCategory.BREAKING_NEWS);
   }
   // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn
   return CATEGORY_INDICATOR_MAP[category];
