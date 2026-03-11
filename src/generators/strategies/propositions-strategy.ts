@@ -208,7 +208,8 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
       data.proposalsHtml,
       data.pipelineData,
       data.date,
-      lang
+      lang,
+      data.adoptedTextsHtml
     );
     const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
     const swotData = buildPropositionsSwot(data.pipelineData, lang);
