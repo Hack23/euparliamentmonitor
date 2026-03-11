@@ -69,6 +69,23 @@ function resolveTrend(
 }
 
 /**
+ * Resolve the CSS class and symbol for a trend direction.
+ *
+ * @param trend - Resolved trend direction
+ * @returns Tuple of CSS class and display symbol
+ */
+function trendPresentation(trend: 'up' | 'down' | 'stable'): [string, string] {
+  switch (trend) {
+    case 'up':
+      return ['metric-trend-up', '↑'];
+    case 'down':
+      return ['metric-trend-down', '↓'];
+    case 'stable':
+      return ['metric-trend-stable', '→'];
+  }
+}
+
+/**
  * Build trend indicator HTML for a metric.
  *
  * @param metric - Metric with optional trend and change
@@ -79,9 +96,7 @@ function buildTrendIndicator(metric: DashboardMetric, strings: DashboardStrings)
   if (!metric.trend && metric.change === undefined) return '';
 
   const trend = resolveTrend(metric.trend, metric.change);
-  const trendClass =
-    trend === 'up' ? 'metric-trend-up' : trend === 'down' ? 'metric-trend-down' : 'metric-trend-stable';
-  const trendSymbol = trend === 'up' ? '↑' : trend === 'down' ? '↓' : '→';
+  const [trendClass, trendSymbol] = trendPresentation(trend);
   const changeText =
     metric.change !== undefined
       ? ` ${metric.change > 0 ? '+' : ''}${metric.change.toFixed(1)}%`

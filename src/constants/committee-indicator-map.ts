@@ -1303,7 +1303,7 @@ export function getCategoryIndicators(category: ArticleCategory): CategoryIndica
     return CATEGORY_INDICATOR_MAP[ArticleCategory.BREAKING_NEWS];
   }
   // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn
-  return CATEGORY_INDICATOR_MAP[category] ?? CATEGORY_INDICATOR_MAP[ArticleCategory.BREAKING_NEWS];
+  return CATEGORY_INDICATOR_MAP[category];
 }
 
 /**
