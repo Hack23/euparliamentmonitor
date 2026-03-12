@@ -39,6 +39,7 @@ Create or update a `gh-pages` branch that contains **only** the deployable stati
 ```bash
 # Save the deployable artifacts from the current working tree into a temporary directory
 TMP_DIR="$(mktemp -d)"
+trap 'rm -rf "$TMP_DIR"' EXIT ERR
 cp -p index.html "$TMP_DIR"/ 2>/dev/null || true
 cp -p index-*.html "$TMP_DIR"/ 2>/dev/null || true
 cp -pr news "$TMP_DIR"/ 2>/dev/null || true
