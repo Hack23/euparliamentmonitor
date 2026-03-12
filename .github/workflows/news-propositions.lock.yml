@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament legislative procedures English analysis article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"cea2047acaa397dcb7c2c48e4d7f21384b3ea32032883debc7e7738ebab46d2d","compiler_version":"v0.57.2"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"c34109bfb23170aff6b648a337f45519839175b23158e623b1e73a3eca2ff4c9","compiler_version":"v0.57.2"}
 
 name: "News: EU Parliament Legislative Procedures"
 "on":
@@ -721,7 +721,7 @@ jobs:
                 "entrypointArgs": [
                   "npx",
                   "-y",
-                  "european-parliament-mcp-server@1.1.7"
+                  "european-parliament-mcp-server@1.1.8"
                 ],
                 "tools": [
                   "*"

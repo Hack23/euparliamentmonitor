@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament committee activity English analysis article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"cbac3afcc140720217965751e54eacea67deea10255a18ea63e327167ab0fa56","compiler_version":"v0.57.2"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"20570b368ace086c1117a4df6bd2f4e1eeb24d6ec8973db05eff82d085bf61d4","compiler_version":"v0.57.2"}
 
 name: "News: EU Parliament Committee Activity"
 "on":
@@ -721,7 +721,7 @@ jobs:
                 "entrypointArgs": [
                   "npx",
                   "-y",
-                  "european-parliament-mcp-server@1.1.7"
+                  "european-parliament-mcp-server@1.1.8"
                 ],
                 "tools": [
                   "*"

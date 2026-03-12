@@ -23,7 +23,7 @@
 #
 # Translates English EU Parliament news articles to 13 other languages. Runs after content workflows generate English articles, ensuring high-quality translations with full linguistic fidelity.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"56e7fa0a4e6d77b7ed60d11cfc29bfb8a2ad75e2941ae5081a0cdeeaf8576435","compiler_version":"v0.57.2"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"f1fe16da8fff9d69cf4524a71f1ecb53ce2ef77d5d1ea3e470044be3458b4124","compiler_version":"v0.57.2"}
 
 name: "News: Translate Articles"
 "on":
@@ -739,7 +739,7 @@ jobs:
                 "entrypointArgs": [
                   "npx",
                   "-y",
-                  "european-parliament-mcp-server@1.1.7"
+                  "european-parliament-mcp-server@1.1.8"
                 ],
                 "tools": [
                   "*"
