@@ -377,9 +377,9 @@ gantt
     Node.js 26 LTS              :node26, 2026-04-22, 2029-04-30
 
     section Runtime (New Schedule - 1/year, all LTS)
-    Node.js 27 (Target)         :node27, 2027-04-01, 2030-04-30
-    Node.js 28                  :node28, 2028-04-01, 2031-04-30
-    Node.js 29                  :node29, 2029-04-01, 2032-04-30
+    Node.js 27 Current+LTS (Target) :node27, 2027-04-01, 2030-04-30
+    Node.js 28 Current+LTS          :node28, 2028-04-01, 2031-04-30
+    Node.js 29 Current+LTS          :node29, 2029-04-01, 2032-04-30
 
     section Build and Tooling
     TypeScript 5.x              :active, ts5, 2023-03-16, 2026-12-31

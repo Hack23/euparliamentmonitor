@@ -37,26 +37,34 @@ npm run generate-news  # if content regeneration is needed
 Create or update a `gh-pages` branch that contains **only** the deployable static site artifacts: the root HTML files (`index.html`, `index-*.html`), the `news/` directory, the `scripts/` directory, and the generated sitemap (`sitemap.xml`). Use an orphan branch to avoid carrying the full repository history and contents.
 
 ```bash
+# If gh-pages branch already exists locally, delete it first
+git branch -D gh-pages 2>/dev/null || true
+
+# Also delete any remote tracking ref (if gh-pages was previously pushed)
+git push origin --delete gh-pages 2>/dev/null || true
+
 # Create an orphan branch (no parent commits, clean working tree)
 git checkout --orphan gh-pages
 
 # Remove all tracked files from the index
 git rm -rf .
 
-# Re-add only the deployable artifacts
-git checkout main -- index.html 'index-*.html' news/ scripts/ sitemap.xml
+# Re-add only the deployable artifacts from main using explicit pathspecs
+git checkout main -- index.html ':(glob)index-*.html' news/ scripts/ sitemap.xml
 
-# If gh-pages branch already exists, delete it first:
-#   git branch -D gh-pages
-#   Then re-run the orphan checkout above
-
-git add index.html index-*.html news/ scripts/ sitemap.xml
+git add index.html ':(glob)index-*.html' news/ scripts/ sitemap.xml
 git commit -m "Deploy static site to GitHub Pages (incident failover)"
 ```
 
 ### Step 3: Deploy to GitHub Pages
 
-Push the `gh-pages` branch to GitHub and configure GitHub Pages (under **Settings → Pages**) to serve from the `gh-pages` branch, root directory. Reference the configuration change (who/when/what) in the incident ticket so that it is auditable.
+Push the `gh-pages` branch to GitHub (force-push is expected since the orphan branch has no common history with any previous `gh-pages` contents):
+
+```bash
+git push --force origin gh-pages
+```
+
+Then configure GitHub Pages (under **Settings → Pages**) to serve from the `gh-pages` branch, root directory. Reference the configuration change (who/when/what) in the incident ticket so that it is auditable.
 
 ### Step 4: Validate Availability
 

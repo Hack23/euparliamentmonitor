@@ -533,7 +533,7 @@ gantt
     Enhanced BCP v2.0                  :active, 2026-02, 2026-04
     
     section Phase 3: Optimization
-    Alternative Hosting Runbook        :2026-04, 2026-06
+    Alternative Hosting Runbook        :done, 2026-02, 2026-03
     Automated Recovery Testing         :2026-06, 2026-09
     Quarterly BCP Exercises            :2026-06, 2026-12
     
