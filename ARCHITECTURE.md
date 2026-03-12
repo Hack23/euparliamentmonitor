@@ -571,7 +571,7 @@ C4Deployment
 ### Dependency Management
 
 **Production Dependencies (1):**
-- **`european-parliament-mcp-server`** (`^1.1.6`) - Provides European Parliament data access at build time via MCP protocol (stdio JSON-RPC)
+- **`european-parliament-mcp-server`** (`^1.1.8`) - Provides European Parliament data access at build time via MCP protocol (stdio JSON-RPC)
 
 **Development Dependencies (28 total):**
 

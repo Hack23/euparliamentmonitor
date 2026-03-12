@@ -27,7 +27,7 @@ This directory contains GitHub Actions workflows for the EU Parliament Monitor p
 
 ### 📰 News Generation (Agentic Workflows)
 
-The project uses **8 agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files. Each workflow generates a specific type of EU Parliament news article using the European Parliament MCP server as the primary data source, with optional World Bank MCP enrichment for economic context.
+The project uses **10 agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files. Each workflow generates a specific type of EU Parliament news article using the European Parliament MCP server as the primary data source, with optional World Bank MCP enrichment for economic context.
 
 #### `news-article-generator.md`
 **Purpose**: Manual dispatch workflow to generate any combination of article types
@@ -116,7 +116,7 @@ The project uses **8 agentic workflow markdown files** (`.md`) that are compiled
 ---
 
 **Common features across all news workflows**:
-- Uses `european-parliament-mcp-server@1.1.7` as primary data source
+- Uses `european-parliament-mcp-server@1.1.8` as primary data source
 - Mandatory date context establishment via `date -u` command
 - Supports 14 languages: en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
 - HTML validation and quality checks before PR creation
