@@ -85,7 +85,8 @@ function buildAdoptedTextsSection(feedData: EPFeedData | undefined, lang: Langua
   // AGRI is then checked before ENVI so that titles containing 'agri-food' are
   // not incorrectly captured by ENVI's broader 'food' keyword.
   const afetKeywords = [
-    'foreign',
+    'foreign affairs',
+    'foreign policy',
     'security policy',
     'security cooperation',
     'defence',
@@ -101,8 +102,6 @@ function buildAdoptedTextsSection(feedData: EPFeedData | undefined, lang: Langua
     'post-election',
     'opposition leader',
     'threats against',
-    'situation in',
-    'regime in',
   ];
   const libeKeywords = [
     'civil liberties',
