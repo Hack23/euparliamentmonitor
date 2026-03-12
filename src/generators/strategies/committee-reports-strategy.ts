@@ -63,6 +63,107 @@ export interface CommitteeReportsArticleData extends ArticleData {
   readonly feedData?: EPFeedData | undefined;
 }
 
+// ─── Adopted-texts categorization ─────────────────────────────────────────────
+
+// Keyword lists are pre-normalized to lowercase so that each call to
+// categorizeAdoptedText only needs to lowercase the title once.
+//
+// AFET and LIBE are checked first so that political-situation and human-rights
+// titles are not captured by AGRI keywords (e.g. person name "Wine" matching
+// the agricultural keyword "wine").
+// AGRI is then checked before ENVI so that titles containing 'agri-food' are
+// not incorrectly captured by ENVI's broader 'food' keyword.
+
+/** Lowercase keywords that map an adopted-text title to the AFET theme group */
+export const AFET_KEYWORDS: readonly string[] = [
+  'foreign affairs',
+  'foreign policy',
+  'security policy',
+  'security cooperation',
+  'defence',
+  'defense',
+  'sanctions',
+  'magnitsky',
+  'ukraine',
+  'aggression',
+  'peace agreement',
+  'peace process',
+  'peace mission',
+  'peace operation',
+  'post-election',
+  'opposition leader',
+  'threats against',
+];
+
+/** Lowercase keywords that map an adopted-text title to the LIBE theme group */
+export const LIBE_KEYWORDS: readonly string[] = [
+  'civil liberties',
+  'civil rights',
+  'justice and home affairs',
+  'justice cooperation',
+  'criminal justice',
+  'fundamental rights',
+  'human rights',
+  "workers' rights",
+  'safe countries',
+  'safe third',
+  'asylum',
+  'migration',
+];
+
+/** Lowercase keywords that map an adopted-text title to the AGRI theme group */
+export const AGRI_KEYWORDS: readonly string[] = [
+  'agriculture',
+  'wine',
+  'agri-food',
+  'mercosur',
+  'rural',
+  'farming',
+];
+
+/** Lowercase keywords that map an adopted-text title to the ENVI theme group */
+export const ENVI_KEYWORDS: readonly string[] = [
+  'environment',
+  'climate',
+  'health',
+  'food',
+  'medicinal',
+  'detergent',
+  'gmo',
+  'genetically',
+  'cancer',
+];
+
+/** Lowercase keywords that map an adopted-text title to the ECON theme group */
+export const ECON_KEYWORDS: readonly string[] = [
+  'economic',
+  'financial',
+  'central bank',
+  'monetary',
+  'fiscal',
+  '28th regime',
+];
+
+/**
+ * Categorize an adopted-text title into a committee theme group.
+ *
+ * AFET and LIBE are tested before AGRI so that titles mentioning a person name
+ * such as "Bobi Wine" are correctly classified under AFET (post-election /
+ * opposition leader keywords) rather than AGRI ("wine" keyword).
+ *
+ * @param title - Adopted text title to categorize
+ * @returns Committee theme key: 'AFET' | 'LIBE' | 'AGRI' | 'ENVI' | 'ECON' | 'OTHER'
+ */
+export function categorizeAdoptedText(title: string): string {
+  const t = title.toLowerCase();
+  if (AFET_KEYWORDS.some((k) => t.includes(k))) return 'AFET';
+  if (LIBE_KEYWORDS.some((k) => t.includes(k))) return 'LIBE';
+  if (AGRI_KEYWORDS.some((k) => t.includes(k))) return 'AGRI';
+  if (ENVI_KEYWORDS.some((k) => t.includes(k))) return 'ENVI';
+  if (ECON_KEYWORDS.some((k) => t.includes(k))) return 'ECON';
+  return 'OTHER';
+}
+
 // ─── Feed data enrichment ─────────────────────────────────────────────────────
 
 /**
@@ -78,79 +179,9 @@ function buildAdoptedTextsSection(feedData: EPFeedData | undefined, lang: Langua
   const texts = feedData.adoptedTexts;
   const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
 
-  // Map adopted texts to committee themes.
-  // AFET and LIBE are checked first so that political-situation and human-rights
-  // titles are not captured by AGRI keywords (e.g. person name "Wine" matching
-  // the agricultural keyword "wine").
-  // AGRI is then checked before ENVI so that titles containing 'agri-food' are
-  // not incorrectly captured by ENVI's broader 'food' keyword.
-  const afetKeywords = [
-    'foreign affairs',
-    'foreign policy',
-    'security policy',
-    'security cooperation',
-    'defence',
-    'defense',
-    'sanctions',
-    'Magnitsky',
-    'Ukraine',
-    'aggression',
-    'peace agreement',
-    'peace process',
-    'peace mission',
-    'peace operation',
-    'post-election',
-    'opposition leader',
-    'threats against',
-  ];
-  const libeKeywords = [
-    'civil liberties',
-    'civil rights',
-    'justice and home affairs',
-    'justice cooperation',
-    'criminal justice',
-    'fundamental rights',
-    'human rights',
-    "workers' rights",
-    'safe countries',
-    'safe third',
-    'asylum',
-    'migration',
-  ];
-  const agriKeywords = ['agriculture', 'wine', 'agri-food', 'Mercosur', 'rural', 'farming'];
-  const envKeywords = [
-    'environment',
-    'climate',
-    'health',
-    'food',
-    'medicinal',
-    'detergent',
-    'GMO',
-    'genetically',
-    'cancer',
-  ];
-  const econKeywords = [
-    'economic',
-    'financial',
-    'Central Bank',
-    'monetary',
-    'fiscal',
-    '28th Regime',
-  ];
-
-  const categorize = (title: string) => {
-    const t = title.toLowerCase();
-    if (afetKeywords.some((k) => t.includes(k.toLowerCase()))) return 'AFET';
-    if (libeKeywords.some((k) => t.includes(k.toLowerCase()))) return 'LIBE';
-    if (agriKeywords.some((k) => t.includes(k.toLowerCase()))) return 'AGRI';
-    if (envKeywords.some((k) => t.includes(k.toLowerCase()))) return 'ENVI';
-    if (econKeywords.some((k) => t.includes(k.toLowerCase()))) return 'ECON';
-    return 'OTHER';
-  };
-
   const grouped: Record<string, Array<{ id: string; title: string; date: string }>> = {};
   for (const text of texts) {
-    const cat = categorize(text.title);
+    const cat = categorizeAdoptedText(text.title);
     if (!grouped[cat]) grouped[cat] = [];
     grouped[cat].push(text);
   }
