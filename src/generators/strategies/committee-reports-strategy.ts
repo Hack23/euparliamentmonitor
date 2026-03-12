@@ -158,7 +158,7 @@ export const ECON_KEYWORDS: readonly string[] = [
  * opposition leader keywords) rather than AGRI ("wine" keyword).
  *
  * @param title - Adopted text title to categorize
- * @returns Committee theme key — one of the {@link CommitteeTheme} values
+ * @returns Committee theme key — one of `'ENVI'` | `'ECON'` | `'AFET'` | `'LIBE'` | `'AGRI'` | `'OTHER'`
  */
 export function categorizeAdoptedText(title: string): CommitteeTheme {
   const t = title.toLowerCase();

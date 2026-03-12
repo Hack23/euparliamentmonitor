@@ -100,7 +100,7 @@ export const ECON_KEYWORDS = [
  * opposition leader keywords) rather than AGRI ("wine" keyword).
  *
  * @param title - Adopted text title to categorize
- * @returns Committee theme key — one of the {@link CommitteeTheme} values
+ * @returns Committee theme key — one of `'ENVI'` | `'ECON'` | `'AFET'` | `'LIBE'` | `'AGRI'` | `'OTHER'`
  */
 export function categorizeAdoptedText(title) {
     const t = title.toLowerCase();
@@ -133,9 +133,9 @@ function buildAdoptedTextsSection(feedData, lang) {
     const grouped = {};
     for (const text of texts) {
         const cat = categorizeAdoptedText(text.title);
-        if (!grouped[cat])
-            grouped[cat] = [];
-        grouped[cat].push(text);
+        const bucket = grouped[cat] ?? [];
+        bucket.push(text);
+        grouped[cat] = bucket;
     }
     const committeeNames = {
         ENVI: s.committeeNameENVI,
