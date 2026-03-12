@@ -185,11 +185,14 @@ function buildAdoptedTextsSection(feedData: EPFeedData | undefined, lang: Langua
   const texts = feedData.adoptedTexts;
   const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
 
-  const grouped: Partial<Record<CommitteeTheme, Array<{ id: string; title: string; date: string }>>> = {};
+  const grouped: Partial<
+    Record<CommitteeTheme, Array<{ id: string; title: string; date: string }>>
+  > = {};
   for (const text of texts) {
     const cat = categorizeAdoptedText(text.title);
-    if (!grouped[cat]) grouped[cat] = [];
-    grouped[cat].push(text);
+    const bucket = grouped[cat] ?? [];
+    bucket.push(text);
+    grouped[cat] = bucket;
   }
 
   const committeeNames: Record<CommitteeTheme, string> = {
