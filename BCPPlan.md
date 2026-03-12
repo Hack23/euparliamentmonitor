@@ -365,13 +365,7 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 5. **🔒 If Security**: Isolate affected components, roll back to known-good state
 
 **Critical System Procedures:**
-- Static site: If AWS S3 + CloudFront experiences an extended outage (>30 minutes), perform a **GitHub Pages fallback** using the current static site layout, or deploy from local build to an alternative CDN:
-  1. Run `npm install` (if needed) and `npm run build` locally to compile TypeScript into `./scripts`. If news content or index/sitemap files need to be regenerated, also run `npm run generate-news` (and any other required content-generation commands) so that the repository root contains the up-to-date HTML entry points, `news/` directory, and generated index/sitemap files.
-  2. Create or update a `gh-pages` branch that contains the deployable static site: the root HTML files (`index.html`, `index-*.html`), the `news/` directory, and the generated sitemap (`sitemap.xml`). Exclude build tooling, tests, and non-essential development artifacts to keep the branch minimal.
-  3. Push the `gh-pages` branch to GitHub and configure GitHub Pages (under **Settings → Pages**) to serve from the `gh-pages` branch, root directory. Reference the configuration change (who/when/what) in the incident ticket so that it is auditable.
-  4. Wait for GitHub Pages to report as active, then validate availability via the GitHub Pages URL for all 14 language paths (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH), confirming that root HTML, `news/`, and the generated index and sitemap files load correctly.
-  5. Record the fallback URL in the incident ticket and, if applicable, update status communications to direct users to the GitHub Pages fallback or alternative CDN endpoint.
-  6. **Post-incident:** After the primary AWS S3 + CloudFront service is restored, revert any manual GitHub Pages configuration changes and document the incident resolution. If this fallback procedure is needed frequently, create a version-controlled `workflow_dispatch` workflow in `.github/workflows/` to automate these steps.
+- Static site: If AWS S3 + CloudFront experiences an extended outage (>30 minutes), perform a **GitHub Pages fallback** using the current static site layout, or deploy from local build to an alternative CDN, following the dedicated runbook: [`GitHub Pages Failover`](runbooks/github-pages-failover.md).
 - Build pipeline: Run `npm run build` locally, push static assets directly
 - Source repository: Restore from contributor forks (distributed backup)
 

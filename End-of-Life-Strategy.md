@@ -195,33 +195,34 @@ Following [Hack23 AB's Proactive Runtime Management](https://github.com/Hack23/I
 ```mermaid
 gantt
     title Node.js Lifecycle & EU Parliament Monitor Transition Timeline
-    dateFormat YYYY-MM-DD
+    dateFormat YYYY-MM
     axisFormat %Y-%m
 
     section Old Schedule Releases
-    Node.js 22 LTS              :done, node22, 2023-10-17, 2027-04-30
-    Node.js 24 LTS (Current)    :active, node24, 2025-04-22, 2028-04-30
-    Node.js 26 LTS              :node26, 2026-04-22, 2029-04-30
+    %% LTS support windows (month-level, aligned with Node.js LTS/EOL schedule)
+    Node.js 22 LTS              :done, node22, 2024-10, 2027-10
+    Node.js 24 LTS (Planned)    :active, node24, 2025-10, 2028-10
+    Node.js 26 LTS (Planned)    :node26, 2026-10, 2029-10
 
     section New Schedule Releases (1/year, all LTS)
-    Node.js 27 Alpha            :node27a, 2026-10-01, 2027-03-31
-    Node.js 27 Current          :node27c, 2027-04-01, 2027-09-30
-    Node.js 27 LTS              :node27, 2027-10-01, 2030-04-30
-    Node.js 28 Alpha            :node28a, 2027-10-01, 2028-03-31
-    Node.js 28 Current          :node28c, 2028-04-01, 2028-09-30
-    Node.js 28 LTS              :node28, 2028-10-01, 2031-04-30
+    Node.js 27 Alpha            :node27a, 2026-10, 2027-03
+    Node.js 27 Current          :node27c, 2027-04, 2027-09
+    Node.js 27 LTS              :node27, 2027-10, 2030-04
+    Node.js 28 Alpha            :node28a, 2027-10, 2028-03
+    Node.js 28 Current          :node28c, 2028-04, 2028-09
+    Node.js 28 LTS              :node28, 2028-10, 2031-04
 
     section EU Parliament Monitor Strategy
-    Node.js 24 Production       :active, ep24, 2025-06-01, 2027-10-01
-    Node.js 27 Alpha CI Testing :ep27a, 2026-10-01, 2027-03-31
-    Node.js 27 Migration        :ep27m, 2027-04-01, 2027-10-01
-    Node.js 27 Production       :ep27p, 2027-10-01, 2030-04-01
-    Node.js 28 Alpha CI Testing :ep28a, 2027-10-01, 2028-03-31
+    Node.js 24 Production       :active, ep24, 2025-06, 2027-10
+    Node.js 27 Alpha CI Testing :ep27a, 2026-10, 2027-03
+    Node.js 27 Migration        :ep27m, 2027-04, 2027-10
+    Node.js 27 Production       :ep27p, 2027-10, 2030-04
+    Node.js 28 Alpha CI Testing :ep28a, 2027-10, 2028-03
 
     section Critical Milestones
-    Node.js 24 EOL              :milestone, node24eol, 2028-04-30, 0d
-    New Schedule Takes Effect   :milestone, newschedule, 2026-10-01, 0d
-    Node.js 27 LTS Promotion    :milestone, node27lts, 2027-10-01, 0d
+    Node.js 24 EOL              :milestone, node24eol, 2028-10, 0d
+    New Schedule Takes Effect   :milestone, newschedule, 2026-10, 0d
+    Node.js 27 LTS Promotion    :milestone, node27lts, 2027-10, 0d
 ```
 
 ### 📋 Node.js Transition Trigger Conditions
@@ -266,7 +267,7 @@ flowchart TB
     end
 
     subgraph MIGRATION["🚀 LTS Migration (Oct 2027)"]
-        UPDATE_ENGINES["📝 Update package.json<br/>• engines: '>=27'<br/>• Update CI workflows<br/>• Update documentation<br/>• Rename FORCE_JAVASCRIPT_ACTIONS_TO_NODE24 env → NODE27 in GitHub Actions workflows"]
+        UPDATE_ENGINES["📝 Update package.json<br/>• engines: '>=27'<br/>• Update CI workflows<br/>• Update documentation<br/>• Rename FORCE_JAVASCRIPT_ACTIONS_TO_NODE24 env var → FORCE_JAVASCRIPT_ACTIONS_TO_NODE27 in GitHub Actions workflows"]
         FINAL_VALIDATION["✅ Final Validation<br/>• Complete test suite pass<br/>• All 14 languages generate<br/>• E2E tests pass<br/>• Security scans clean"]
     end
 
