@@ -126,7 +126,7 @@ xychart-beta
 | **GitHub Advanced Security (CodeQL)** | $0 (free for public repos) | SAST scanning, vulnerability detection | ∞ (zero cost, high value) |
 | **Dependabot** | $0 (built-in) | Automated dependency updates, security alerts | ∞ |
 | **OpenSSF Scorecard** | $0 (free service) | Supply chain security assessment | ∞ |
-| **SonarCloud** | $0 (free for OSS) | Code quality, security hotspots | ∞ |
+| **SonarCloud (Planned)** | $0 (free for OSS) | Code quality, security hotspots (not yet configured in CI) | Planned |
 | **GitHub Branch Protection** | $0 (built-in) | PR reviews, status checks | ∞ |
 | **GitHub Secret Scanning** | $0 (free for public repos) | Leaked credential detection | ∞ |
 | **Playwright a11y Testing** | $0 (open-source) | WCAG 2.1 AA compliance verification | ∞ |
@@ -151,7 +151,7 @@ quadrantChart
     "Secret Scanning": [0.05, 0.75]
     "OpenSSF Scorecard": [0.05, 0.7]
     "SLSA Attestation": [0.1, 0.8]
-    "SonarCloud": [0.05, 0.65]
+    "SonarCloud (Planned)": [0.05, 0.65]
     "ESLint Security": [0.05, 0.6]
     "Playwright A11y": [0.1, 0.5]
     "SHA-Pinned Actions": [0.05, 0.7]
@@ -215,7 +215,7 @@ quadrantChart
 
 | 🚨 **Risk** | 📊 **Probability** | 💥 **Impact** | 🔧 **Mitigation** |
 |------------|--------------------|--------------|--------------------|
-| AWS S3/CloudFront pricing change | Very Low | Low–Medium | Portable static files; GitHub Pages fallback + migrate to any CDN |
+| AWS S3/CloudFront pricing change | Very Low | Low–Medium | Portable static files; manual GitHub Pages failover (see BCPPlan.md §Phase 2) or migrate to any CDN |
 | GitHub Actions minute limits | Low | Low | Optimize workflows; local build fallback |
 | Domain name cost increase | Very Low | Negligible | Annual registration; alternative registrars |
 | EP MCP Server becomes paid | Very Low | Medium | Open-source; fork and self-host if needed |
@@ -227,7 +227,7 @@ quadrantChart
 | Incident Type | Direct Cost | Indirect Cost | Mitigation Cost |
 |--------------|:----------:|:-------------:|:---------------:|
 | **Supply Chain Attack** | $0 (no customer data) | Reputational | $0 (automated rollback) |
-| **Primary Hosting Outage (AWS S3 + CloudFront)** | $0 | Content unavailability | $0 (automatic recovery; GitHub Pages fallback) |
+| **Primary Hosting Outage (AWS S3 + CloudFront)** | $0 | Content unavailability | $0 (manual GitHub Pages failover per BCPPlan.md §Phase 2, or local build to alternative CDN) |
 | **Dependency Vulnerability** | $0 | Potential exploitation window | $0 (Dependabot auto-fix) |
 | **CI/CD Pipeline Breach** | $0 | Compromised deployment | $0 (SHA-pinned actions) |
 
@@ -246,7 +246,7 @@ pie title Security Budget Allocation (All Free)
     "SAST (CodeQL)" : 1
     "SCA (Dependabot)" : 1
     "Supply Chain (SLSA)" : 1
-    "Code Quality (SonarCloud)" : 1
+    "Code Quality (SonarCloud — Planned)" : 1
     "A11y Testing (Playwright)" : 1
     "Secret Scanning" : 1
     "Branch Protection" : 1

@@ -154,7 +154,9 @@ mindmap
 | **🧪 Vitest**           | Latest                    | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **🔧 Playwright**       | Latest                    | Monthly releases                | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **🇪🇺 EP MCP Server**   | Latest                    | Hack23-maintained               | Active development | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
-| **📦 GitHub Pages**     | Platform                  | Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
+| **☁️ AWS S3**           | Platform (Primary hosting)| Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
+| **🌐 AWS CloudFront**   | Platform (Primary CDN)    | Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
+| **📦 GitHub Pages**     | Alternative platform (fallback) | Ongoing                    | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **⚙️ GitHub Actions**   | Platform                  | Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 
 ---

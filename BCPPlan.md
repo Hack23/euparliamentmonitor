@@ -136,7 +136,7 @@ Based on [CLASSIFICATION.md](CLASSIFICATION.md) analysis:
 
 | 🎯 **Metric** | 📊 **Target** | 📋 **Rationale** |
 |---------------|--------------|-------------------|
-| **RTO (Recovery Time Objective)** | 4 hours | AWS S3 + CloudFront rebuild from repository via deploy-s3 workflow |
+| **RTO (Recovery Time Objective)** | 2 hours | AWS S3 + CloudFront rebuild from repository via deploy-s3 workflow within critical BIA threshold |
 | **RPO (Recovery Point Objective)** | 0 minutes | Git repository provides full history |
 | **MTTR (Mean Time to Repair)** | 2 hours | Automated CI/CD pipeline rebuild |
 | **MTPD (Max Tolerable Period of Disruption)** | 72 hours | After 3 days, democratic monitoring impact becomes significant |
@@ -363,7 +363,12 @@ flowchart TD
 5. **🔒 If Security**: Isolate affected components, roll back to known-good state
 
 **Critical System Procedures:**
-- Static site: Activate GitHub Pages fallback or deploy from local build to alternative CDN if AWS S3 + CloudFront extended outage
+- Static site: If AWS S3 + CloudFront experiences an extended outage (>30 minutes), perform manual GitHub Pages failover or deploy from local build to an alternative CDN:
+  1. Run `npm install` (if needed) and `npm run build` locally to generate the static site assets.
+  2. Create or update a `gh-pages` branch containing only the built static assets (for example, contents of the `dist` or `build` directory at the repository root).
+  3. In the GitHub repository, go to **Settings → Pages** and configure GitHub Pages to serve from the `gh-pages` branch and the site root (or appropriate folder).
+  4. Wait for GitHub Pages to report as active, then validate availability via the GitHub Pages URL for all 14 language paths (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH).
+  5. Record the fallback URL in the incident ticket and, if applicable, update status communications to direct users to the GitHub Pages fallback or alternative CDN endpoint.
 - Build pipeline: Run `npm run build` locally, push static assets directly
 - Source repository: Restore from contributor forks (distributed backup)
 
@@ -520,7 +525,7 @@ gantt
     dateFormat YYYY-MM
     section Phase 1: Foundation (Complete)
     BCP Documentation                   :done, 2025-01, 2025-03
-    Primary AWS S3 + CloudFront Hosting :done, 2025-01, 2025-02
+    AWS S3 + CloudFront Pilot Setup (pre-ADR eval) :done, 2025-01, 2025-02
     Automated CI/CD Pipeline            :done, 2025-02, 2025-03
     
     section Phase 2: Enhancement (Current)
