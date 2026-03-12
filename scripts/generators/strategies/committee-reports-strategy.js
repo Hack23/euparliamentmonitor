@@ -34,8 +34,45 @@ function buildAdoptedTextsSection(feedData, lang) {
     const texts = feedData.adoptedTexts;
     const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
     // Map adopted texts to committee themes.
-    // AGRI is checked before ENVI so that titles containing 'agri-food' are not
-    // incorrectly captured by ENVI's broader 'food' keyword.
+    // AFET and LIBE are checked first so that political-situation and human-rights
+    // titles are not captured by AGRI keywords (e.g. person name "Wine" matching
+    // the agricultural keyword "wine").
+    // AGRI is then checked before ENVI so that titles containing 'agri-food' are
+    // not incorrectly captured by ENVI's broader 'food' keyword.
+    const afetKeywords = [
+        'foreign',
+        'security policy',
+        'security cooperation',
+        'defence',
+        'defense',
+        'sanctions',
+        'Magnitsky',
+        'Ukraine',
+        'aggression',
+        'peace agreement',
+        'peace process',
+        'peace mission',
+        'peace operation',
+        'post-election',
+        'opposition leader',
+        'threats against',
+        'situation in',
+        'regime in',
+    ];
+    const libeKeywords = [
+        'civil liberties',
+        'civil rights',
+        'justice and home affairs',
+        'justice cooperation',
+        'criminal justice',
+        'fundamental rights',
+        'human rights',
+        "workers' rights",
+        'safe countries',
+        'safe third',
+        'asylum',
+        'migration',
+    ];
     const agriKeywords = ['agriculture', 'wine', 'agri-food', 'Mercosur', 'rural', 'farming'];
     const envKeywords = [
         'environment',
@@ -56,47 +93,18 @@ function buildAdoptedTextsSection(feedData, lang) {
         'fiscal',
         '28th Regime',
     ];
-    const afetKeywords = [
-        'foreign',
-        'security policy',
-        'security cooperation',
-        'defence',
-        'defense',
-        'sanctions',
-        'Magnitsky',
-        'Ukraine',
-        'aggression',
-        'peace agreement',
-        'peace process',
-        'peace mission',
-        'peace operation',
-    ];
-    const libeKeywords = [
-        'civil liberties',
-        'civil rights',
-        'justice and home affairs',
-        'justice cooperation',
-        'criminal justice',
-        'fundamental rights',
-        'human rights',
-        "workers' rights",
-        'safe countries',
-        'safe third',
-        'asylum',
-        'migration',
-    ];
     const categorize = (title) => {
         const t = title.toLowerCase();
+        if (afetKeywords.some((k) => t.includes(k.toLowerCase())))
+            return 'AFET';
+        if (libeKeywords.some((k) => t.includes(k.toLowerCase())))
+            return 'LIBE';
         if (agriKeywords.some((k) => t.includes(k.toLowerCase())))
             return 'AGRI';
         if (envKeywords.some((k) => t.includes(k.toLowerCase())))
             return 'ENVI';
         if (econKeywords.some((k) => t.includes(k.toLowerCase())))
             return 'ECON';
-        if (afetKeywords.some((k) => t.includes(k.toLowerCase())))
-            return 'AFET';
-        if (libeKeywords.some((k) => t.includes(k.toLowerCase())))
-            return 'LIBE';
         return 'OTHER';
     };
     const grouped = {};
