@@ -363,12 +363,13 @@ flowchart TD
 5. **🔒 If Security**: Isolate affected components, roll back to known-good state
 
 **Critical System Procedures:**
-- Static site: If AWS S3 + CloudFront experiences an extended outage (>30 minutes), perform manual GitHub Pages failover or deploy from local build to an alternative CDN:
+- Static site: If AWS S3 + CloudFront experiences an extended outage (>30 minutes), perform a **GitHub Pages fallback via managed automation**, or deploy from local build to an alternative CDN:
   1. Run `npm install` (if needed) and `npm run build` locally to generate the static site assets.
-  2. Create or update a `gh-pages` branch containing only the built static assets (for example, contents of the `dist` or `build` directory at the repository root).
-  3. In the GitHub repository, go to **Settings → Pages** and configure GitHub Pages to serve from the `gh-pages` branch and the site root (or appropriate folder).
+  2. Create or update a `gh-pages` branch containing only the built static assets (for example, contents of the `dist` or `build` directory at the repository root). Prefer to do this via the dedicated CI workflow (e.g. `deploy-github-pages-fallback`) using a manual `workflow_dispatch` run, so that all actions are logged and repeatable.
+  3. Trigger the GitHub Actions workflow that publishes the built assets to GitHub Pages (for example, a workflow using the official GitHub Pages deployment action to serve from the `gh-pages` branch). Reference the workflow run URL in the incident ticket.
   4. Wait for GitHub Pages to report as active, then validate availability via the GitHub Pages URL for all 14 language paths (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH).
   5. Record the fallback URL in the incident ticket and, if applicable, update status communications to direct users to the GitHub Pages fallback or alternative CDN endpoint.
+  6. **Emergency-only manual exception (if GitHub Actions is unavailable):** As a last resort, in the GitHub repository go to **Settings → Pages** and temporarily configure GitHub Pages to serve from the `gh-pages` branch. This manual click-ops change MUST be documented in the incident log (who/when/what/why) and reverted back to the workflow-driven configuration as soon as the incident is resolved.
 - Build pipeline: Run `npm run build` locally, push static assets directly
 - Source repository: Restore from contributor forks (distributed backup)
 
@@ -430,8 +431,9 @@ flowchart TD
 **Infrastructure as Code:**
 - Primary: AWS S3 + CloudFront static hosting managed via GitHub Actions (`deploy-s3` workflow)
 - CloudFront distribution, S3 bucket policies and DNS managed via code/automation (no unmanaged click-ops)
-- Fallback: GitHub Pages deployment workflow retained as secondary publishing path
-- All infrastructure and CI/CD configuration declarative and version-controlled; no unmanaged/manual infrastructure to back up
+- Fallback: Automated GitHub Pages deployment workflow retained as secondary publishing path (publishes built artifacts to `gh-pages`/GitHub Pages via a controlled workflow run)
+- Emergency exception: If GitHub Pages **Settings → Pages** configuration must be changed manually during an incident, the change MUST be documented in the incident log (who/when/what/why) and reverted back to the workflow-driven configuration as soon as the incident is resolved
+- All steady-state infrastructure and CI/CD configuration is declarative and version-controlled; any emergency console changes are temporary and either codified or rolled back
 
 ---
 
@@ -469,7 +471,7 @@ EU Parliament Monitor BCP aligns with ISO 22301:2019 (Business Continuity Manage
 | **4.2** | Interested parties needs | European citizens, researchers, MEPs, media | ✅ |
 | **5.1** | Leadership commitment | CEO document ownership and approval | ✅ |
 | **6.1** | Risk assessment | THREAT_MODEL.md STRIDE analysis | ✅ |
-| **6.2** | Business continuity objectives | RTO ≤ 4h, RPO = 0, MTPD ≤ 72h | ✅ |
+| **6.2** | Business continuity objectives | RTO ≤ 2h, RPO = 0, MTPD ≤ 72h | ✅ |
 | **7.5** | Documented information | This BCP, SECURITY_ARCHITECTURE.md, WORKFLOWS.md | ✅ |
 | **8.2** | Business impact analysis (BIA) | CLASSIFICATION.md CIA triad analysis + impact matrix | ✅ |
 | **8.3** | Business continuity strategy | Static site + Git backup + CDN + alternative hosting | ✅ |

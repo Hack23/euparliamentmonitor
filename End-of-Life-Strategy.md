@@ -77,7 +77,7 @@ Based on [Hack23 AB Classification Framework](https://github.com/Hack23/ISMS-PUB
 | **🔒 Integrity**       | [![Moderate](https://img.shields.io/badge/I-Moderate-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#integrity-levels)        | Medium     | News content accuracy matters for democratic transparency |
 | **⚡ Availability**    | [![Standard](https://img.shields.io/badge/A-Standard-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#availability-levels) | Medium     | Static site with CDN caching provides inherent resilience |
 
-**🎯 RTO/RPO Alignment:** Standard RTO (4hrs), RPO 0 minutes (Git-backed), acceptable for public intelligence platform
+**🎯 RTO/RPO Alignment:** Standard RTO (2hrs for critical recovery per BCPPlan.md), RPO 0 minutes (Git-backed), acceptable for public intelligence platform
 
 ---
 
@@ -207,7 +207,8 @@ gantt
     Node.js 27 Current          :node27c, 2027-04-01, 2027-09-30
     Node.js 27 LTS              :node27, 2027-10-01, 2030-04-30
     Node.js 28 Alpha            :node28a, 2027-10-01, 2028-03-31
-    Node.js 28 Current + LTS    :node28, 2028-04-01, 2031-04-30
+    Node.js 28 Current          :node28c, 2028-04-01, 2028-09-30
+    Node.js 28 LTS              :node28, 2028-10-01, 2031-04-30
 
     section EU Parliament Monitor Strategy
     Node.js 24 Production       :active, ep24, 2025-06-01, 2027-10-01
@@ -503,7 +504,7 @@ Should EOL conditions trigger migration, the successor platform will maintain **
 | **☕ Runtime** | Node.js 24 | Node.js 27+ (new annual schedule) | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **📝 Language** | TypeScript 5.x | TypeScript 6.x+ | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **📄 Frontend** | HTML5/CSS3 (static) | HTML5/CSS3 (evergreen, no change) | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
-| **📦 Hosting** | GitHub Pages | GitHub Pages / Cloudflare Pages | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **📦 Hosting** | AWS S3 + CloudFront (primary), GitHub Pages (fallback) | AWS S3 + CloudFront / Cloudflare Pages | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **📡 Data** | EP MCP Server | EP MCP Server v2+ | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 
 ---

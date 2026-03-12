@@ -66,7 +66,7 @@ Based on [Hack23 AB Classification Framework](https://github.com/Hack23/ISMS-PUB
 
 ```mermaid
 pie title EU Parliament Monitor Annual Cost Distribution
-    "AWS S3 + CloudFront Hosting" : 0
+    "AWS S3 + CloudFront Hosting (~$5)" : 5
     "GitHub Actions CI/CD" : 0
     "GitHub Repository" : 0
     "Security Scanning (CodeQL)" : 0
@@ -172,7 +172,7 @@ quadrantChart
 | **Year 3 (2027-2028)** | ~$12 (domain) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **~$12** |
 | **3-Year TCO** | **~$36** | **$0** | **$0** | **$0** | **~$36** |
 
-> **Note:** Domain costs vary by registrar and TLD ($10–$20/year typical). Domain registration is optional — the platform operates on `github.io` subdomain at zero cost. Estimates assume current registrar pricing and may fluctuate.
+> **Note:** Domain costs vary by registrar and TLD ($10–$20/year typical). Domain registration is optional — the primary production site is hosted on AWS S3 + CloudFront, with a zero-cost `github.io` subdomain maintained as a fallback endpoint. Estimates assume current registrar pricing and may fluctuate.
 
 ### 📈 TCO Comparison with Alternative Architectures
 
