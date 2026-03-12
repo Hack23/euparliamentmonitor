@@ -184,7 +184,7 @@ mindmap
 |--------|---------------------|----------------------|
 | **Major releases/year** | 2 (even = LTS, odd = Current only) | 1 (every release becomes LTS) |
 | **LTS eligibility** | Even-numbered only | Every release |
-| **Version naming** | Sequential | Calendar-year aligned (27 = 2027) |
+| **Version naming** | Sequential | Sequential (future naming subject to Node.js TSC decisions) |
 | **Alpha channel** | None | 6-month alpha with semver-major |
 | **Concurrent release lines** | 4–5 | Fewer (reduced volunteer burden) |
 
@@ -373,8 +373,8 @@ gantt
     axisFormat %Y
 
     section Runtime (Old Schedule)
-    Node.js 24 LTS (Current)    :active, node24, 2025-04-22, 2028-04-30
-    Node.js 26 LTS              :node26, 2026-04-22, 2029-04-30
+    Node.js 24 Current (Major)  :active, node24, 2025-04-22, 2028-04-30
+    Node.js 26 Current (Major)  :node26, 2026-04-22, 2029-04-30
 
     section Runtime (New Schedule - 1/year, all LTS)
     Node.js 27 Current+LTS (Target) :node27, 2027-04-01, 2030-04-30

@@ -49,9 +49,6 @@ cp -p sitemap.xml "$TMP_DIR"/ 2>/dev/null || true
 # If gh-pages branch already exists locally, delete it first
 git branch -D gh-pages 2>/dev/null || true
 
-# Also delete any remote tracking ref (if gh-pages was previously pushed)
-git push origin --delete gh-pages 2>/dev/null || true
-
 # Create an orphan branch (no parent commits, clean working tree)
 git checkout --orphan gh-pages
 
