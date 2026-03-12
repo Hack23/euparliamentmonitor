@@ -204,8 +204,9 @@ graph TB
     end
 
     subgraph "Technical Components"
-        B -.-> B1[GitHub Pages Hosting]
+        B -.-> B1[AWS S3 + CloudFront Hosting (Primary)]
         B -.-> B2[14-Language HTML Generation]
+        B -.-> B3[GitHub Pages Hosting (Fallback)]
         C -.-> C1[EP MCP Server Integration]
         C -.-> C2[Data Processing Pipeline]
         D -.-> D1[Committee Document Fetching]
@@ -348,20 +349,21 @@ flowchart TD
 **Initial Actions:**
 - Check [GitHub Status](https://www.githubstatus.com/) for platform issues
 - Verify repository integrity (`git log`, branch protection status)
-- Verify GitHub Pages deployment status
+- Verify AWS S3 sync and CloudFront invalidation status (`deploy-s3` workflow)
+- Check GitHub Pages fallback deployment status
 - Assess which of the 14 language versions are affected
 
 ### Phase 2: Short-Term Recovery (30 min – 4 hours)
 
 **Operational Continuity:**
-1. **🌐 If GitHub Pages**: Wait for restoration or deploy to alternative host
+1. **🌐 If AWS S3/CloudFront**: Check S3 bucket status, CloudFront distribution health; failover to GitHub Pages fallback
 2. **⚙️ If CI/CD**: Debug and fix workflow, trigger manual run with `workflow_dispatch`
 3. **📡 If Data Source**: Existing content serves users, monitor EP API status
 4. **📦 If Repository**: Restore from fork or local clone
 5. **🔒 If Security**: Isolate affected components, roll back to known-good state
 
 **Critical System Procedures:**
-- Static site: Deploy from local build to alternative CDN if GitHub Pages is extended outage
+- Static site: Activate GitHub Pages fallback or deploy from local build to alternative CDN if AWS S3 + CloudFront extended outage
 - Build pipeline: Run `npm run build` locally, push static assets directly
 - Source repository: Restore from contributor forks (distributed backup)
 
@@ -410,7 +412,8 @@ flowchart TD
 **Generated Content Backup:**
 - All generated HTML in `news/` directory committed to Git
 - 14-language article archive in repository
-- GitHub Pages CDN caches latest deployment
+- AWS CloudFront caches the primary static site path (S3-backed)
+- GitHub Pages CDN caches fallback deployment if activated
 - Static files portable to any alternative host
 
 **Configuration Backup:**
@@ -420,9 +423,10 @@ flowchart TD
 - No secrets in repository — all via GitHub Secrets/Environment
 
 **Infrastructure as Code:**
-- GitHub Pages deployment via GitHub Actions
-- All configuration declarative and version-controlled
-- No manual infrastructure to back up
+- Primary: AWS S3 + CloudFront static hosting managed via GitHub Actions (`deploy-s3` workflow)
+- CloudFront distribution, S3 bucket policies and DNS managed via code/automation (no unmanaged click-ops)
+- Fallback: GitHub Pages deployment workflow retained as secondary publishing path
+- All infrastructure and CI/CD configuration declarative and version-controlled; no unmanaged/manual infrastructure to back up
 
 ---
 
@@ -467,7 +471,7 @@ EU Parliament Monitor BCP aligns with ISO 22301:2019 (Business Continuity Manage
 | **8.4** | Business continuity plans and procedures | This document + recovery runbooks | ✅ |
 | **8.5** | Exercise and testing | GitHub Actions pipeline validates recovery monthly | ✅ |
 | **8.6** | Evaluation of business continuity docs | Semi-annual review cycle | ✅ |
-| **9.1** | Monitoring, measurement, analysis | GitHub Pages uptime monitoring | ✅ |
+| **9.1** | Monitoring, measurement, analysis | AWS CloudFront + S3 health monitoring; GitHub Pages fallback monitoring | ✅ |
 | **10.1** | Nonconformity and corrective action | GitHub Issues for incident tracking | ✅ |
 | **10.2** | Continual improvement | Quarterly threat model review | ✅ |
 
@@ -503,7 +507,7 @@ EU Parliament Monitor BCP aligns with ISO 22301:2019 (Business Continuity Manage
 | **NIST CSF 2.0 RC** | Recover function | 9/9 subcategories | This document |
 | **CIS Controls v8.1 #11** | Data recovery | Git-based backup strategy | BCPPlan.md + WORKFLOWS.md |
 | **NIS2 Art.21(2)(c)** | Business continuity | RTO/RPO defined | This document |
-| **GDPR Art.32** | Availability of systems | 99%+ GitHub Pages SLA | Architecture design |
+| **GDPR Art.32** | Availability of systems | AWS S3 + CloudFront high-availability SLA | Architecture design |
 | **EU CRA Annex I §2** | Security update capability | Automated CI/CD pipeline | WORKFLOWS.md |
 
 ---
@@ -515,9 +519,9 @@ gantt
     title EU Parliament Monitor BCP Maturity Roadmap
     dateFormat YYYY-MM
     section Phase 1: Foundation (Complete)
-    BCP Documentation              :done, 2025-01, 2025-03
-    GitHub Pages Deployment        :done, 2025-01, 2025-02
-    Automated CI/CD Pipeline       :done, 2025-02, 2025-03
+    BCP Documentation                   :done, 2025-01, 2025-03
+    Primary AWS S3 + CloudFront Hosting :done, 2025-01, 2025-02
+    Automated CI/CD Pipeline            :done, 2025-02, 2025-03
     
     section Phase 2: Enhancement (Current)
     Multi-Language Content (14 langs)  :done, 2025-03, 2025-06

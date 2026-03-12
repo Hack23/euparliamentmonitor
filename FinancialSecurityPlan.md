@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>🛡️ Cost Analysis and Security Investment Planning for European Parliament Intelligence</strong><br>
-  <em>💰 Zero Infrastructure Cost • 🔒 Maximum Security ROI • ⚡ GitHub-Hosted Architecture</em>
+  <em>💰 Zero Infrastructure Cost • 🔒 Maximum Security ROI • ⚡ GitHub-hosted CI/CD + AWS-hosted static site</em>
 </p>
 
 <p align="center">
@@ -80,7 +80,7 @@ pie title EU Parliament Monitor Annual Cost Distribution
 
 | 💰 **Cost Category** | 📊 **Monthly** | 📅 **Annual** | 📋 **Notes** |
 |----------------------|---------------|--------------|-------------|
-| **🌐 AWS S3 + CloudFront Hosting** | $0* | $0* | Free-tier eligible; S3 costs negligible for static site. *Domain and ACM certificate managed via AWS |
+| **🌐 AWS S3 + CloudFront Hosting** | <$1 | <$5 | Low-traffic static site within AWS free tier; S3 storage + request charges negligible (~$0.02/GB). CloudFront free tier: 1TB transfer/mo. *ACM certificate free. Costs scale only with significant traffic growth |
 | **⚙️ GitHub Actions CI/CD** | $0 | $0 | GitHub-hosted runners: unlimited for public repos; 2,000 min/month for private repos on Free plan |
 | **📦 GitHub Repository** | $0 | $0 | Free for public open-source repositories |
 | **🔒 CodeQL SAST Scanning** | $0 | $0 | Free for public repos (GitHub Advanced Security) |
@@ -101,14 +101,14 @@ pie title EU Parliament Monitor Annual Cost Distribution
 ```mermaid
 xychart-beta
     title "Annual Infrastructure Cost Comparison (USD)"
-    x-axis ["EP Monitor (GitHub Pages)", "Typical SaaS (AWS)", "Enterprise CMS", "Custom Cloud Platform"]
+    x-axis ["EP Monitor (S3+CloudFront)", "Typical SaaS (AWS)", "Enterprise CMS", "Custom Cloud Platform"]
     y-axis "Annual Cost (USD)" 0 --> 50000
     bar [12, 5000, 25000, 50000]
 ```
 
 | Architecture Option | Annual Cost | Maintenance Burden | Security Overhead |
 |--------------------|-----------:|------------------:|----------------:|
-| **EU Parliament Monitor (GitHub Pages)** | **~$12** | Minimal (automated) | Low (platform-managed) |
+| **EU Parliament Monitor (S3+CloudFront)** | **~$12** | Minimal (automated) | Low (platform-managed) |
 | Typical SaaS on AWS | ~$5,000 | Medium (EC2, RDS, CloudFront) | Medium (IAM, SGs, WAF) |
 | Enterprise CMS | ~$25,000 | High (server management) | High (patching, configs) |
 | Custom Cloud Platform | ~$50,000+ | Very High (full ops team) | Very High (full stack) |
@@ -157,7 +157,7 @@ quadrantChart
     "SHA-Pinned Actions": [0.05, 0.7]
 ```
 
-> **Result:** All security controls fall in the **High Value** quadrant — zero-cost tools with high security impact. This is the optimal outcome enabled by the open-source GitHub Pages architecture.
+> **Result:** All security controls fall in the **High Value** quadrant — zero-cost tools with high security impact. This is the optimal outcome enabled by the open-source, AWS-hosted static site architecture.
 
 ---
 
@@ -192,7 +192,7 @@ quadrantChart
 | Strategy | Implementation | Annual Savings vs. Cloud Alternative |
 |----------|---------------|-------------------------------------|
 | **Static Site Generation** | Pre-render all content at build time | ~$3,000/yr (no server costs) |
-| **GitHub Pages CDN** | Free global CDN distribution | ~$1,200/yr (no CDN costs) |
+| **CloudFront CDN (Primary) + GitHub Pages (Fallback)** | ADR-002: AWS S3 + CloudFront for production, GitHub Pages as zero-cost backup CDN | ~$1,200/yr (no managed PaaS/CDN costs) |
 | **GitHub Actions CI/CD** | Free CI/CD for public repos | ~$600/yr (no CI/CD platform) |
 | **Open-Source Security** | CodeQL, Dependabot, OpenSSF | ~$2,000/yr (no security platform) |
 | **Git-Based Backup** | No separate backup infrastructure | ~$200/yr (no backup service) |
@@ -203,8 +203,8 @@ quadrantChart
 | Scenario | Trigger | Estimated Annual Cost | Probability |
 |----------|---------|----------------------:|:-----------:|
 | **Custom Domain + SSL** | Brand enhancement | $12-50 | Low |
-| **Cloudflare CDN** | GitHub Pages extended outage | $0-240 | Very Low |
-| **AWS CloudFront + S3** | Multi-region requirement | $120-600 | Very Low |
+| **Cloudflare CDN** | AWS S3/CloudFront extended outage | $0-240 | Very Low |
+| **Azure CDN + Blob Storage** | Migration to Azure ecosystem | $120-600 | Very Low |
 | **Monitoring Service** | SLA requirement | $0-300 | Low |
 
 ---
@@ -215,7 +215,7 @@ quadrantChart
 
 | 🚨 **Risk** | 📊 **Probability** | 💥 **Impact** | 🔧 **Mitigation** |
 |------------|--------------------|--------------|--------------------|
-| GitHub Pages pricing change | Very Low | Low–Medium | Portable static files; migrate to any CDN |
+| AWS S3/CloudFront pricing change | Very Low | Low–Medium | Portable static files; GitHub Pages fallback + migrate to any CDN |
 | GitHub Actions minute limits | Low | Low | Optimize workflows; local build fallback |
 | Domain name cost increase | Very Low | Negligible | Annual registration; alternative registrars |
 | EP MCP Server becomes paid | Very Low | Medium | Open-source; fork and self-host if needed |
@@ -227,7 +227,7 @@ quadrantChart
 | Incident Type | Direct Cost | Indirect Cost | Mitigation Cost |
 |--------------|:----------:|:-------------:|:---------------:|
 | **Supply Chain Attack** | $0 (no customer data) | Reputational | $0 (automated rollback) |
-| **GitHub Pages Outage** | $0 | Content unavailability | $0 (automatic recovery) |
+| **Primary Hosting Outage (AWS S3 + CloudFront)** | $0 | Content unavailability | $0 (automatic recovery; GitHub Pages fallback) |
 | **Dependency Vulnerability** | $0 | Potential exploitation window | $0 (Dependabot auto-fix) |
 | **CI/CD Pipeline Breach** | $0 | Compromised deployment | $0 (SHA-pinned actions) |
 
@@ -270,10 +270,10 @@ pie title Security Budget Allocation (All Free)
 | Framework | Requirement | Financial Control | Status |
 |-----------|-------------|-------------------|--------|
 | **ISO 27001:2022 A.5.12** | Information classification | Public data = minimal financial exposure | ✅ |
-| **ISO 27001:2022 A.5.23** | Cloud service security | GitHub Pages = managed infrastructure | ✅ |
+| **ISO 27001:2022 A.5.23** | Cloud service security | AWS S3 + CloudFront = managed infrastructure (ADR-002) | ✅ |
 | **ISO 27001:2022 A.8.9** | Configuration management | All config in version control ($0 cost) | ✅ |
 | **NIST CSF PR.DS-01** | Data-at-rest protection | Static HTML, no sensitive data | ✅ |
-| **NIST CSF PR.DS-02** | Data-in-transit protection | HTTPS enforced by GitHub Pages (free) | ✅ |
+| **NIST CSF PR.DS-02** | Data-in-transit protection | HTTPS enforced by CloudFront + ACM certificate | ✅ |
 | **CIS Controls 1.1** | Enterprise asset inventory | GitHub repository is the inventory | ✅ |
 | **CIS Controls 16.1** | Security awareness program | Open-source transparency = public review | ✅ |
 | **NIS2 Art.21(2)(e)** | Supply chain security | Dependabot + SLSA attestation (free) | ✅ |
@@ -285,7 +285,7 @@ pie title Security Budget Allocation (All Free)
 ## 📅 Financial Planning Timeline
 
 ```
-2025-2026    $12/yr  — GitHub Pages + domain, all security tools free
+2025-2026    $12/yr  — AWS S3 + CloudFront hosting + domain, all security tools free
 2026-2027    $12/yr  — Same architecture, Node.js 27 migration (no cost impact)
 2027-2028    $12/yr  — Continued operations, evaluate scaling needs
 2028-2029    $12-50  — Potential custom domain SSL or CDN if growth warrants
