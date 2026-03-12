@@ -6,18 +6,18 @@
 
 <p align="center">
   <strong>🛡️ Proactive Technology Lifecycle Management for European Parliament Intelligence</strong><br>
-  <em>📦 Current Stack Maintenance • 🔄 Node.js 24 Platform • ⚡ Future-Ready Architecture</em>
+  <em>📦 Current Stack Maintenance • 🔄 Node.js Lifecycle Planning • ⚡ Future-Ready Architecture</em>
 </p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--25-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--12-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-02-25 (UTC)  
-**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-02-25  
+**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-12 (UTC)  
+**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-03-12  
 **🏷️ Classification:** Public (Static Site European Parliament Intelligence Platform)
 
 ---
@@ -63,46 +63,347 @@
 
 ### 📋 Strategic Objective
 
-**EU Parliament Monitor** maintains a modern frontend-only static site architecture using HTML5, CSS3, and Node.js 24 toolchain for build and content generation. The project will reach EOL when the European Parliament data sources fundamentally change or when the static site architecture can no longer be maintained cost-effectively.
+**EU Parliament Monitor** maintains a modern frontend-only static site architecture using HTML5, CSS3, and the Node.js 24 LTS toolchain for build and content generation. This strategy ensures proactive lifecycle management of all technology components to prevent security exposure, maintain platform stability, and align with [Hack23 AB's Vulnerability Management Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) **"Living on the Edge"** philosophy.
 
-### 🏗️ Current Technology Stack
+This strategy aligns with the [Hack23 AB Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) requirement for comprehensive lifecycle documentation.
 
-| 🔧 **Component** | 📊 **Version** | 📅 **EOL Date** | 🔄 **Migration Plan** |
-|------------------|---------------|-----------------|----------------------|
-| **Node.js** | 24 LTS | ~2028-04 | Upgrade to next LTS |
-| **HTML5/CSS3** | Living Standard | Evergreen | No migration needed |
-| **Vitest** | Latest | Active maintenance | Track major versions |
-| **Playwright** | Latest | Active maintenance | Track major versions |
-| **ESLint** | Latest | Active maintenance | Track major versions |
-| **GitHub Pages** | Platform | Ongoing | No migration needed |
-| **GitHub Actions** | Platform | Ongoing | No migration needed |
+### 🏷️ Business Impact Classification
+
+Based on [Hack23 AB Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md):
+
+| Security Dimension     | Level                                                                                                                                                                      | EOL Impact | Business Rationale                                                     |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------------------------------------------- |
+| **🔐 Confidentiality** | [![Public](https://img.shields.io/badge/C-Public-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#confidentiality-levels)   | Low        | All EP data is publicly available open data |
+| **🔒 Integrity**       | [![Moderate](https://img.shields.io/badge/I-Moderate-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#integrity-levels)        | Medium     | News content accuracy matters for democratic transparency |
+| **⚡ Availability**    | [![Standard](https://img.shields.io/badge/A-Standard-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#availability-levels) | Medium     | Static site with CDN caching provides inherent resilience |
+
+**🎯 RTO/RPO Alignment:** Standard RTO (4hrs), RPO 0 minutes (Git-backed), acceptable for public intelligence platform
+
+---
+
+## 📦 Current Technology Stack Analysis
+
+### 🏗️ Core Technology Matrix
+
+```mermaid
+mindmap
+  root)🇪🇺 EU Parliament Monitor Stack(
+    (🖥️ Runtime)
+      ☕ Node.js 24.x LTS
+        📅 Current LTS
+        ⏰ EOL: ~Apr 2028
+        🔄 Next: Node.js 27
+      🌐 Browser Runtime
+        📅 Evergreen Updates
+        ⏰ EOL: N/A
+        🔄 HTML5 Living Standard
+    (🏗️ Frontend)
+      📄 HTML5 Living Standard
+        📅 Evergreen
+        ⏰ EOL: N/A
+        🔄 No migration needed
+      🎨 CSS3 Living Standard
+        📅 Evergreen
+        ⏰ EOL: N/A
+        🔄 No migration needed
+      📱 Responsive Design
+        📅 Standards-based
+        ⏰ EOL: N/A
+        🔄 Progressive Enhancement
+    (🛠️ Build & Tooling)
+      📝 TypeScript 5.x
+        📅 Current: Latest
+        ⏰ EOL: ~6-month cycles
+        🔄 Strict Mode Enabled
+      ⚡ ESLint 9.x
+        📅 Current: Latest
+        ⏰ EOL: Active
+        🔄 Flat Config System
+      📋 HTMLHint
+        📅 Current: Stable
+        ⏰ EOL: Active
+        🔄 HTML Validation
+    (🧪 Testing & Quality)
+      🧪 Vitest
+        📅 Current: Latest
+        ⏰ EOL: Active
+        🔄 Native ESM Support
+      🔧 Playwright
+        📅 Current: Latest
+        ⏰ EOL: Active
+        🔄 E2E Testing
+    (📡 Data & Integration)
+      🇪🇺 EP MCP Server
+        📅 Active Development
+        ⏰ EOL: Hack23-maintained
+        🔄 European Parliament API
+      📰 News Generation
+        📅 Custom Pipeline
+        ⏰ EOL: Internal
+        🔄 14-Language Output
+```
+
+### 📊 Technology Lifecycle Overview
+
+| **Technology Category** | **Current Version**       | **Release Model**               | **EOL Timeline**   | **Migration Complexity**                                                                                                                                |
+| ----------------------- | ------------------------- | ------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **☕ Node.js Runtime**  | 24.x (LTS)               | Annual LTS (new schedule from v27) | **~Apr 2028**   | [![High](https://img.shields.io/badge/Complexity-High-orange?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)     |
+| **📝 TypeScript**       | 5.x (Latest)             | Major every 6 months            | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **📄 HTML5/CSS3**       | Living Standard           | Evergreen                       | N/A (Perpetual)    | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
+| **⚡ ESLint**           | 9.x (Latest)             | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **🧪 Vitest**           | Latest                    | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **🔧 Playwright**       | Latest                    | Monthly releases                | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **🇪🇺 EP MCP Server**   | Latest                    | Hack23-maintained               | Active development | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **📦 GitHub Pages**     | Platform                  | Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
+| **⚙️ GitHub Actions**   | Platform                  | Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
+
+---
+
+## ☕ Node.js Lifecycle & Transition Strategy
+
+### 🔄 New Node.js Release Schedule (Effective October 2026)
+
+> **Important:** Starting with Node.js 27.x, the Node.js project has moved from two major releases per year to **one major release per year**. Every release becomes LTS — the odd/even distinction is eliminated. See [Evolving the Node.js Release Schedule](https://nodejs.org/en/blog/announcements/evolving-the-nodejs-release-schedule) for details.
+
+#### New Schedule Phases
+
+| Phase | Duration | Description |
+|-------|----------|-------------|
+| **Alpha** | 6 months (Oct–Mar) | Early testing, semver-major changes allowed |
+| **Current** | 6 months (Apr–Oct) | Stabilization, production-ready |
+| **LTS** | 30 months | Long-term support with security fixes |
+| **EOL** | — | No further support |
+| **Total Support** | **36 months** | From first Current release to End of Life |
+
+#### Key Changes from Old Schedule
+
+| Aspect | Old Schedule (≤ v26) | New Schedule (≥ v27) |
+|--------|---------------------|----------------------|
+| **Major releases/year** | 2 (even = LTS, odd = Current only) | 1 (every release becomes LTS) |
+| **LTS eligibility** | Even-numbered only | Every release |
+| **Version naming** | Sequential | Calendar-year aligned (27 = 2027) |
+| **Alpha channel** | None | 6-month alpha with semver-major |
+| **Concurrent release lines** | 4–5 | Fewer (reduced volunteer burden) |
+
+### 🎯 Strategic Node.js Lifecycle Management
+
+Following [Hack23 AB's Proactive Runtime Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md), EU Parliament Monitor implements a **current-LTS-first** approach for optimal security and performance.
+
+```mermaid
+gantt
+    title Node.js Lifecycle & EU Parliament Monitor Transition Timeline
+    dateFormat YYYY-MM-DD
+    axisFormat %Y-%m
+
+    section Old Schedule Releases
+    Node.js 22 LTS              :done, node22, 2023-10-17, 2027-04-30
+    Node.js 24 LTS (Current)    :active, node24, 2025-04-22, 2028-04-30
+    Node.js 26 LTS              :node26, 2026-04-22, 2029-04-30
+
+    section New Schedule Releases (1/year, all LTS)
+    Node.js 27 Alpha            :node27a, 2026-10-01, 2027-03-31
+    Node.js 27 Current          :node27c, 2027-04-01, 2027-09-30
+    Node.js 27 LTS              :node27, 2027-10-01, 2030-04-30
+    Node.js 28 Alpha            :node28a, 2027-10-01, 2028-03-31
+    Node.js 28 Current + LTS    :node28, 2028-04-01, 2031-04-30
+
+    section EU Parliament Monitor Strategy
+    Node.js 24 Production       :active, ep24, 2025-06-01, 2027-10-01
+    Node.js 27 Alpha CI Testing :ep27a, 2026-10-01, 2027-03-31
+    Node.js 27 Migration        :ep27m, 2027-04-01, 2027-10-01
+    Node.js 27 Production       :ep27p, 2027-10-01, 2030-04-01
+    Node.js 28 Alpha CI Testing :ep28a, 2027-10-01, 2028-03-31
+
+    section Critical Milestones
+    Node.js 24 EOL              :milestone, node24eol, 2028-04-30, 0d
+    New Schedule Takes Effect   :milestone, newschedule, 2026-10-01, 0d
+    Node.js 27 LTS Promotion    :milestone, node27lts, 2027-10-01, 0d
+```
+
+### 📋 Node.js Transition Trigger Conditions
+
+#### 🟢 Proactive Migration Triggers (Preferred)
+
+1. **📅 Node.js 27 Alpha Release:** October 2026 — Begin CI integration testing
+2. **📅 Node.js 27 Current Release:** April 2027 — Begin migration planning
+3. **🛡️ Security Feature Advantages:** Enhanced security features in Node.js 27
+4. **⚡ Performance Improvements:** Significant V8 or runtime optimizations
+5. **📦 Ecosystem Compatibility:** Major dependencies requiring Node.js 27+
+
+#### 🟡 Risk-Based Migration Triggers (Monitored)
+
+1. **⏰ 12-Month Warning:** April 2027 — 12 months before Node.js 24 EOL
+2. **🚨 Security Support Concerns:** Security patch availability degradation
+3. **🔧 Tooling Incompatibility:** Build/development tools requiring newer Node.js
+4. **📦 Dependency Requirements:** npm packages dropping Node.js 24 support
+
+#### 🔴 Critical Migration Triggers (Mandatory)
+
+1. **⛔ Node.js 24 EOL:** April 2028 — End of security support
+2. **🚨 Critical Vulnerability:** Unpatched security issues in Node.js 24
+3. **🔧 Build System Incompatibility:** Essential tools no longer supporting Node.js 24
+4. **📦 EP MCP Server Requirements:** European Parliament MCP Server requiring newer Node.js
+
+### 🧪 Node.js 27 Testing & Validation Strategy
+
+> **Per the new Node.js release schedule:** Library authors and application maintainers should integrate Alpha releases into CI as early as possible. If you only test on LTS releases, you will not be able to report bugs before they affect your users.
+
+```mermaid
+flowchart TB
+    subgraph ALPHA["🔬 Alpha Phase CI Integration (Oct 2026 – Mar 2027)"]
+        ALPHA_CI["🧪 Alpha CI Testing<br/>• Add Node.js 27-alpha to CI matrix<br/>• Run full test suite weekly<br/>• Report breaking changes upstream<br/>• Track compatibility issues"]
+        DEP_COMPAT["📦 Dependency Compatibility<br/>• Vitest compatibility validation<br/>• Playwright compatibility check<br/>• ESLint + TypeScript validation<br/>• EP MCP Server testing"]
+    end
+
+    subgraph CURRENT["✅ Current Phase Validation (Apr 2027 – Oct 2027)"]
+        FULL_TEST["🧪 Full Test Suite<br/>• Unit tests (1400+ tests)<br/>• E2E tests (Playwright)<br/>• HTML validation (HTMLHint)<br/>• Security scanning (CodeQL)"]
+        NEWS_GEN["📰 News Generation Pipeline<br/>• Multi-language generation (14 langs)<br/>• EP MCP data fetching<br/>• Article template rendering<br/>• Sitemap generation"]
+        PERF_BENCH["📊 Performance Benchmarks<br/>• Build time comparison<br/>• News generation timing<br/>• Memory usage analysis<br/>• Bundle output validation"]
+    end
+
+    subgraph MIGRATION["🚀 LTS Migration (Oct 2027)"]
+        UPDATE_ENGINES["📝 Update package.json<br/>• engines: '>=27'<br/>• Update CI workflows<br/>• Update documentation<br/>• Update FORCE_JAVASCRIPT_ACTIONS_TO_NODE env"]
+        FINAL_VALIDATION["✅ Final Validation<br/>• Complete test suite pass<br/>• All 14 languages generate<br/>• E2E tests pass<br/>• Security scans clean"]
+    end
+
+    ALPHA_CI --> DEP_COMPAT
+    DEP_COMPAT --> FULL_TEST
+    FULL_TEST --> NEWS_GEN
+    NEWS_GEN --> PERF_BENCH
+    PERF_BENCH --> UPDATE_ENGINES
+    UPDATE_ENGINES --> FINAL_VALIDATION
+
+    style ALPHA fill:#bbdefb
+    style CURRENT fill:#c8e6c9
+    style MIGRATION fill:#ffecb3
+```
+
+### 📊 Node.js Migration Risk Assessment
+
+| Risk Category                     | Probability | Impact | Mitigation Strategy                  | Success Criteria            |
+| --------------------------------- | ----------- | ------ | ------------------------------------ | --------------------------- |
+| **📦 Dependency Incompatibility** | [![Medium](https://img.shields.io/badge/Risk-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | [![High](https://img.shields.io/badge/Impact-High-orange?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Early alpha CI integration + dependency audit | All dependencies compatible |
+| **⚡ Performance Regression**     | [![Low](https://img.shields.io/badge/Risk-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | [![Medium](https://img.shields.io/badge/Impact-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Performance benchmarking before/after | <5% performance degradation |
+| **🔧 Build System Changes**       | [![Low](https://img.shields.io/badge/Risk-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | [![Medium](https://img.shields.io/badge/Impact-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | TypeScript + ESLint compatibility testing | Build process unchanged     |
+| **📰 News Generation Impact**     | [![Low](https://img.shields.io/badge/Risk-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | [![High](https://img.shields.io/badge/Impact-High-orange?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Validate all 14 language outputs | All languages generate correctly |
+| **🔒 Security Control Impact**    | [![Low](https://img.shields.io/badge/Risk-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | [![High](https://img.shields.io/badge/Impact-High-orange?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Security scanning + SLSA attestation | Security posture maintained |
 
 ---
 
 ## 📊 Dependency Lifecycle Management
 
-### 🔄 Node.js LTS Schedule
-
-| Version | Status | Active LTS Start | Maintenance EOL |
-|---------|--------|------------------|-----------------|
-| Node.js 22 | LTS Maintenance | 2024-10 | 2027-04 |
-| Node.js 24 | ✅ **Current LTS** | 2025-10 | **~2028-04** |
-| Node.js 26 | Planned | 2027-10 | ~2031-04 |
-
-**Migration Strategy:** Upgrade to next LTS version 6 months before current LTS reaches maintenance end. Test full suite including news generation pipeline.
-
-> **Note:** Node.js 22 LTS reaches End of Life April 2027. Migration to Node.js 24 is already complete per `package.json` engines requirement `>=24`.
-
 ### 📦 Key Dependencies
 
 | 📋 **Dependency** | 🔧 **Purpose** | 📊 **Risk Level** | 🔄 **Update Strategy** |
 |-------------------|---------------|-------------------|----------------------|
-| **Vitest** | Unit testing | 🟢 Low | Dependabot auto-updates |
+| **Vitest** | Unit testing (1400+ tests) | 🟢 Low | Dependabot auto-updates |
 | **Playwright** | E2E testing | 🟢 Low | Dependabot auto-updates |
-| **ESLint** | Code quality | 🟢 Low | Dependabot auto-updates |
+| **ESLint** | Code quality & security | 🟢 Low | Dependabot auto-updates |
+| **TypeScript** | Type-safe development | 🟢 Low | Dependabot auto-updates |
 | **HTMLHint** | HTML validation | 🟢 Low | Dependabot auto-updates |
-| **JSDoc** | API documentation | 🟢 Low | Manual major version review |
+| **JSDoc/TypeDoc** | API documentation | 🟢 Low | Manual major version review |
 | **EP MCP Server** | EU Parliament data | 🟡 Moderate | Monitor for API changes |
+| **@axe-core/playwright** | Accessibility testing | 🟢 Low | Dependabot auto-updates |
+| **Prettier** | Code formatting | 🟢 Low | Dependabot auto-updates |
+
+### 📦 Dependency Management Philosophy
+
+Aligned with [Hack23 AB's "Living on the Edge" Strategy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md):
+
+- **📦 Always Latest:** Accept Dependabot PRs for latest stable releases
+- **🛡️ Security Gates:** Automated testing and security validation before merge
+- **🔍 Dependency Review:** GitHub's Dependency Review Action with OpenSSF Scorecard
+- **✅ Test-Driven Confidence:** Trust comprehensive test suites (1400+ unit tests, E2E tests)
+- **🚨 Rapid Response:** <4 hours for critical security vulnerabilities
+
+### 🔍 Automated Dependency Updates
+
+```mermaid
+flowchart LR
+    subgraph MONITORING["📊 Daily Monitoring"]
+        DEPENDABOT["🤖 Dependabot<br/>• npm security advisories<br/>• Version compatibility<br/>• License compliance"]
+        SECURITY_SCAN["🔒 Security Scanning<br/>• GitHub Security Advisories<br/>• CVE database updates<br/>• CodeQL analysis"]
+    end
+
+    subgraph VALIDATION["✅ Automated Validation"]
+        QUALITY_GATES["🛡️ Quality Gates<br/>• Unit tests (1400+ tests)<br/>• E2E tests (Playwright)<br/>• ESLint + HTMLHint<br/>• TypeScript strict mode"]
+        REVIEW_ACTION["📋 Dependency Review<br/>• License compatibility<br/>• Vulnerability check<br/>• Supply chain security"]
+    end
+
+    subgraph DEPLOYMENT["🚀 Auto-Deployment"]
+        AUTO_MERGE["🔄 Merge Logic<br/>• Security patches: immediate<br/>• Minor updates: auto-merge<br/>• Major updates: review required"]
+        ROLLBACK["↩️ Rollback<br/>• Test failure detection<br/>• Performance regression<br/>• Build errors"]
+    end
+
+    DEPENDABOT --> QUALITY_GATES
+    SECURITY_SCAN --> REVIEW_ACTION
+    QUALITY_GATES --> AUTO_MERGE
+    REVIEW_ACTION --> AUTO_MERGE
+    AUTO_MERGE --> ROLLBACK
+
+    style MONITORING fill:#e1bee7
+    style VALIDATION fill:#c8e6c9
+    style DEPLOYMENT fill:#ffecb3
+```
+
+### 📋 Update Classification & Response Times
+
+| Update Type             | Response Time | Security Gate             | Merge Strategy       |
+| ----------------------- | ------------- | ------------------------- | -------------------- |
+| **🔴 Security Patches** | <4 hours      | Dependency Review + Tests | Auto-merge on green  |
+| **🟠 Major Releases**   | <24 hours     | Full test suite + review  | Manual review required |
+| **🟡 Minor Releases**   | <8 hours      | Standard testing          | Auto-merge on green  |
+| **🟢 Patch Releases**   | <2 hours      | Basic validation          | Immediate auto-merge |
+
+---
+
+## ⏰ End-of-Life Tracking & Monitoring
+
+### 📊 Technology EOL Dashboard
+
+```mermaid
+gantt
+    title EU Parliament Monitor Technology End-of-Life Timeline (2026-2032)
+    dateFormat YYYY-MM-DD
+    axisFormat %Y
+
+    section Runtime (Old Schedule)
+    Node.js 24 LTS (Current)    :active, node24, 2025-04-22, 2028-04-30
+    Node.js 26 LTS              :node26, 2026-04-22, 2029-04-30
+
+    section Runtime (New Schedule - 1/year, all LTS)
+    Node.js 27 (Target)         :node27, 2027-04-01, 2030-04-30
+    Node.js 28                  :node28, 2028-04-01, 2031-04-30
+    Node.js 29                  :node29, 2029-04-01, 2032-04-30
+
+    section Build and Tooling
+    TypeScript 5.x              :active, ts5, 2023-03-16, 2026-12-31
+    TypeScript 6.x (Future)     :ts6, 2026-06-01, 2028-12-31
+    ESLint 9.x                  :active, eslint9, 2024-04-01, 2026-12-31
+
+    section Frontend (Evergreen)
+    HTML5 Living Standard       :active, html5, 2024-01-01, 2032-12-31
+    CSS3 Living Standard        :active, css3, 2024-01-01, 2032-12-31
+
+    section Platform (No EOL)
+    GitHub Pages                :active, ghpages, 2024-01-01, 2032-12-31
+    GitHub Actions              :active, ghactions, 2024-01-01, 2032-12-31
+
+    section Critical Milestones
+    New Node.js Schedule Start  :milestone, newschedule, 2026-10-01, 0d
+    Node.js 24 EOL              :milestone, node24eol, 2028-04-30, 0d
+    Node.js 27 LTS Promotion    :milestone, node27lts, 2027-10-01, 0d
+```
+
+### 🚨 EOL Warning System
+
+| Warning Level         | Timeline   | Actions Required                              | Escalation |
+| --------------------- | ---------- | --------------------------------------------- | ---------- |
+| **🟢 Early Warning**  | 24+ months | Technology assessment, alternative evaluation | [![Low Priority](https://img.shields.io/badge/Priority-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **🟡 Planning Phase** | 18+ months | Migration strategy development, CI testing    | [![Medium Priority](https://img.shields.io/badge/Priority-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **🟠 Implementation** | 12+ months | Active migration, compatibility testing       | [![High Priority](https://img.shields.io/badge/Priority-High-orange?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **🔴 Critical Phase** | 6+ months  | Final testing, production migration           | [![Critical Priority](https://img.shields.io/badge/Priority-Critical-red?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **⛔ Emergency**      | <6 months  | Mandatory migration, risk acceptance review   | [![Emergency](https://img.shields.io/badge/Priority-Emergency-darkred?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 
 ---
 
@@ -112,30 +413,96 @@
 
 | 🚨 **Risk** | 📊 **Probability** | 💥 **Impact** | 🔧 **Mitigation** |
 |------------|--------------------|--------------|--------------------|
-| Node.js LTS EOL | Planned | Low | Automated upgrade path |
-| GitHub Pages discontinuation | Very Low | High | Static files portable to any host |
-| EP data source changes | Low | High | MCP Server abstraction layer |
-| Dependency abandonment | Low | Medium | Minimal dependency footprint |
-| Browser compatibility changes | Very Low | Low | Standard HTML5/CSS3 only |
+| Node.js LTS EOL | Planned (Apr 2028) | Low | Proactive upgrade to Node.js 27 with alpha CI integration |
+| GitHub Pages discontinuation | Very Low | High | Static files portable to any CDN host (Cloudflare, Netlify, S3) |
+| EP data source changes | Low | High | MCP Server abstraction layer isolates data format changes |
+| Dependency abandonment | Low | Medium | Minimal dependency footprint; all devDependencies only |
+| Browser compatibility changes | Very Low | Low | Standard HTML5/CSS3 only; no framework-specific rendering |
+| TypeScript major breaking change | Low | Medium | Incremental adoption of new TS features; strict mode already enabled |
+| ESLint flat config migration | Done | None | Already migrated to flat config (eslint.config.js) |
 
-### Sunset Criteria
+### 🛑 Project Retirement Triggers
 
-The project would enter sunset phase if:
+The project would enter sunset phase if ANY of these conditions occur:
 
-1. ❌ European Parliament permanently discontinues open data APIs
-2. ❌ GitHub Pages and all alternatives become unavailable
-3. ❌ Node.js ecosystem becomes unmaintainable
-4. ❌ No community or organizational interest in EP monitoring
+#### 🔴 Critical EOL Triggers (Immediate Retirement)
+
+1. **🚨 Security Support Failure:** No security patches available for critical vulnerabilities in core runtime
+2. **🌐 EP Data Source Permanent Loss:** European Parliament permanently discontinues all open data APIs
+3. **📦 Dependency Chain Collapse:** Multiple critical build dependencies reach EOL simultaneously
+
+#### 🟠 Business EOL Triggers (Planned Retirement)
+
+1. **💰 Maintenance Cost Exceeds Value:** Security maintenance costs exceed democratic transparency value
+2. **🏆 Technology Replacement:** Superior EP monitoring platform renders this obsolete
+3. **📋 Regulatory Incompatibility:** New regulations incompatible with static site architecture
+
+#### 🟡 Technical EOL Triggers (Migration Required)
+
+1. **☕ Node.js Runtime End:** No supported Node.js LTS version available
+2. **🏗️ GitHub Pages Architecture Change:** Platform changes breaking static site deployment
+3. **📡 MCP Protocol Evolution:** EP MCP Server protocol breaking changes requiring full rewrite
+
+### 📊 EOL Decision Matrix
+
+```mermaid
+flowchart TD
+    START[🎯 EOL Assessment Trigger] --> SECURITY{🔒 Security Support Available?}
+
+    SECURITY -->|❌ No| CRITICAL[🚨 Critical EOL — Immediate Retirement]
+    SECURITY -->|✅ Yes| EPDATA{🇪🇺 EP Data Sources Available?}
+
+    EPDATA -->|❌ No| CRITICAL
+    EPDATA -->|✅ Yes| MAINTENANCE{💰 Maintenance Cost Reasonable?}
+
+    MAINTENANCE -->|❌ No| BUSINESS[🟠 Business EOL — Planned Retirement]
+    MAINTENANCE -->|✅ Yes| RUNTIME{☕ Node.js LTS Supported?}
+
+    RUNTIME -->|❌ No| TECHNICAL[🟡 Technical EOL — Migration Required]
+    RUNTIME -->|✅ Yes| CONTINUE[✅ Continue Maintenance — Monitor EOL Triggers]
+
+    CRITICAL --> ARCHIVE[📦 Archive Repository — Read-Only State]
+    BUSINESS --> MIGRATE_OR_ARCHIVE{🤔 Migration Feasible?}
+    TECHNICAL --> PLAN_MIGRATION[📋 Plan Migration — Upgrade Runtime]
+
+    MIGRATE_OR_ARCHIVE -->|❌ No| ARCHIVE
+    MIGRATE_OR_ARCHIVE -->|✅ Yes| PLAN_MIGRATION
+
+    PLAN_MIGRATION --> NEW_VERSION[🚀 Upgraded Platform — Modern Runtime]
+
+    style CRITICAL fill:#ffcdd2,stroke:#d32f2f
+    style BUSINESS fill:#fff3e0,stroke:#f57c00
+    style TECHNICAL fill:#fff9c4,stroke:#fbc02d
+    style CONTINUE fill:#c8e6c9,stroke:#388e3c
+    style ARCHIVE fill:#f3e5f5,stroke:#7b1fa2
+```
 
 ### Graceful Sunset Process
 
 If sunset is triggered:
 
-1. 📢 Announce deprecation 12 months in advance
+1. 📢 Announce deprecation 12 months in advance via GitHub and platform
 2. 🔒 Freeze feature development, security patches only
-3. 📦 Archive repository with documentation
-4. 🔄 Transfer to community maintainers if interest exists
-5. 📋 Document lessons learned
+3. 📰 Generate final set of news articles in all 14 languages
+4. 📦 Archive repository with full documentation
+5. 🔄 Transfer to community maintainers if interest exists
+6. 📋 Document lessons learned and technology retrospective
+
+---
+
+## 🔄 Technology Succession Planning
+
+### 🚀 Future Platform Vision
+
+Should EOL conditions trigger migration, the successor platform will maintain **democratic transparency mission** while leveraging modern technology:
+
+| Component | Current | Future Candidate | Migration Complexity |
+|-----------|---------|-------------------|---------------------|
+| **☕ Runtime** | Node.js 24 | Node.js 27+ (new annual schedule) | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **📝 Language** | TypeScript 5.x | TypeScript 6.x+ | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **📄 Frontend** | HTML5/CSS3 (static) | HTML5/CSS3 (evergreen, no change) | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **📦 Hosting** | GitHub Pages | GitHub Pages / Cloudflare Pages | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **📡 Data** | EP MCP Server | EP MCP Server v2+ | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 
 ---
 
@@ -143,11 +510,12 @@ If sunset is triggered:
 
 | Framework Requirement | EOL Control | Implementation | Status |
 |-----------------------|-------------|----------------|--------|
-| ISO 27001:2022 A.8.8 | Technical vulnerability management | Dependabot auto-update, npm audit | ✅ |
+| ISO 27001:2022 A.8.8 | Technical vulnerability management | Dependabot auto-update, npm audit, CodeQL | ✅ |
 | CIS Controls 2.2 | Ensure authorized software is supported | Node.js LTS-only policy, Dependabot | ✅ |
-| NIST CSF PR.PS-02 | Software maintained | package.json `engines: >=24`, LTS upgrades | ✅ |
-| NIS2 Art.21(2)(d) | Supply chain security | Dependency lifecycle tracking | ✅ |
-| EU CRA Annex I §2 | Security updates | Automated patch management process | ✅ |
+| NIST CSF PR.PS-02 | Software maintained and supported | package.json `engines: >=24`, LTS upgrades | ✅ |
+| NIS2 Art.21(2)(d) | Supply chain security | Dependency lifecycle tracking, SBOM | ✅ |
+| EU CRA Annex I §2 | Security updates throughout lifecycle | Automated patch management process | ✅ |
+| ISO 27001:2022 A.5.37 | Documented operating procedures | This EOL Strategy + WORKFLOWS.md | ✅ |
 
 **EOL Policy Alignment**: ✅ **All framework requirements met through automated tooling**
 
@@ -156,12 +524,15 @@ If sunset is triggered:
 ## 📅 EOL Action Timeline
 
 ```
-2026-02-25 (Now)    Node.js 24 current LTS ✅ Active
-2026-Q3             Review Node.js 24 LTS status
-2027-04             ⚠️  Node.js 22 reaches EOL (already on v24, no action needed)
-2027-Q3             Evaluate Node.js 26 release (planned Oct 2027)
-2028-04             ⚠️  Node.js 24 maintenance end — plan upgrade to Node.js 26
-2028-Q3             Migrate to Node.js 26 LTS
+2026-03-12 (Now)    Node.js 24 LTS ✅ Active Production
+2026-10-01          🆕 New Node.js release schedule takes effect
+2026-10-01          🔬 Node.js 27 Alpha — Add to CI matrix for early testing
+2027-04-01          📦 Node.js 27 Current — Begin migration validation
+2027-10-01          ✅ Node.js 27 LTS — Complete migration, update engines
+2028-04-30          ⚠️  Node.js 24 EOL — Must be on Node.js 27+ by this date
+2028-10-01          🔬 Node.js 28 Alpha — Add to CI matrix
+2029-04-01          📦 Node.js 28 Current — Evaluate for next migration cycle
+2030-04-30          ⚠️  Node.js 27 EOL — Plan Node.js 28+ migration
 ```
 
 ---
@@ -171,11 +542,32 @@ If sunset is triggered:
 | 📅 **Activity** | 🔄 **Frequency** | 📋 **Responsible** |
 |-----------------|------------------|-------------------|
 | Dependency updates (Dependabot) | Daily | Automated |
-| Security vulnerability patches | As needed | Development team |
-| Node.js version upgrade | Every 2 years | Development team |
+| Security vulnerability patches | As needed (<4hrs critical) | Development team |
+| Node.js Alpha CI integration | Per new Alpha release (annual) | Development team |
+| Node.js LTS version upgrade | Per new LTS release (annual) | Development team |
 | Framework major version review | Quarterly | Development team |
 | EOL strategy review | Annual | CEO |
 | Content freshness validation | Monthly | News generation pipeline |
+| SBOM generation and review | Per release | Automated (GitHub Actions) |
+
+---
+
+## 📊 Monitoring & Alerting Framework
+
+### 📈 Key EOL Metrics
+
+- **⏰ Days Until EOL:** Automated countdown for Node.js 24 (target: migrate before Apr 2028)
+- **🛡️ Security Patch Availability:** Response time and availability tracking via Dependabot
+- **📦 Dependency Health Score:** OpenSSF Scorecard and vulnerability status
+- **⚡ Build Performance Tracking:** TypeScript compilation and news generation timing
+- **🧪 Test Pass Rate:** 1400+ unit tests + E2E test suite health
+
+### 🚨 Alerting Thresholds
+
+- **🔴 Critical (0-6 months to EOL):** Weekly alerts, mandatory migration completion
+- **🟠 High (6-12 months to EOL):** Monthly status reports, active migration
+- **🟡 Medium (12-18 months to EOL):** Quarterly reviews, CI integration testing
+- **🟢 Low (18+ months to EOL):** Annual strategic planning inclusion
 
 ---
 
@@ -186,14 +578,23 @@ If sunset is triggered:
 - [🔍 Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)
 - [📝 Change Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Change_Management.md)
 - [📋 Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)
+- [🏷️ Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)
+- [🚨 Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md)
 
 ### 🏛️ Project Documentation
-- [🏛️ Architecture](ARCHITECTURE.md) — System design
-- [🛡️ Security Architecture](SECURITY_ARCHITECTURE.md) — Security controls
+- [🏛️ Architecture](ARCHITECTURE.md) — System design with EOL considerations
+- [🚀 Future Architecture](FUTURE_ARCHITECTURE.md) — Migration path and next-generation vision
+- [🛡️ Security Architecture](SECURITY_ARCHITECTURE.md) — Security controls aligned with EOL timeline
 - [🔄 Business Continuity Plan](BCPPlan.md) — Recovery planning
 - [💰 Financial Security Plan](FinancialSecurityPlan.md) — Cost analysis
 - [🛡️ CRA Assessment](CRA-ASSESSMENT.md) — Cyber Resilience Act
 - [⚙️ Workflows](WORKFLOWS.md) — CI/CD documentation
+
+### 📋 External References
+- [☕ Node.js Release Schedule (New)](https://nodejs.org/en/blog/announcements/evolving-the-nodejs-release-schedule) — New annual release model
+- [☕ Node.js EOL Dates](https://endoflife.date/nodejs) — Node.js runtime lifecycle tracking
+- [📝 TypeScript Releases](https://endoflife.date/typescript) — TypeScript lifecycle
+- [📦 endoflife.date](https://endoflife.date/) — General technology end-of-life tracking
 
 ---
 

@@ -5,19 +5,20 @@
 <h1 align="center">💰 EU Parliament Monitor — Financial Security Plan</h1>
 
 <p align="center">
-  <strong>Cost-Efficient Infrastructure for European Parliament Intelligence</strong><br>
-  <em>🏗️ GitHub Pages Deployment • 🔐 Security Services • 📊 Budget Analysis</em>
+  <strong>🛡️ Cost Analysis and Security Investment Planning for European Parliament Intelligence</strong><br>
+  <em>💰 Zero Infrastructure Cost • 🔒 Maximum Security ROI • ⚡ GitHub-Hosted Architecture</em>
 </p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--25-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--12-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-02-25 (UTC)  
-**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-02-25
+**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-12 (UTC)  
+**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-03-12  
+**🏷️ Classification:** Public (Open Source European Parliament Intelligence Platform)
 
 ---
 
@@ -29,148 +30,279 @@
 | ------------------------------------------------------------------- | --------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | **[Architecture](ARCHITECTURE.md)**                                 | 🏛️ Architecture | C4 model showing current system structure      | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md)                 |
 | **[Future Architecture](FUTURE_ARCHITECTURE.md)**                   | 🏛️ Architecture | C4 model showing future system structure       | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md)          |
-| **[Mindmaps](MINDMAP.md)**                                          | 🧠 Concept      | Current system component relationships         | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md)                      |
-| **[Future Mindmaps](FUTURE_MINDMAP.md)**                            | 🧠 Concept      | Future capability evolution                    | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_MINDMAP.md)               |
-| **[SWOT Analysis](SWOT.md)**                                        | 💼 Business     | Current strategic assessment                   | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md)                         |
-| **[Future SWOT Analysis](FUTURE_SWOT.md)**                          | 💼 Business     | Future strategic opportunities                 | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SWOT.md)                  |
-| **[Data Model](DATA_MODEL.md)**                                     | 📊 Data         | Current data structures and relationships      | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md)                   |
-| **[Future Data Model](FUTURE_DATA_MODEL.md)**                       | 📊 Data         | Enhanced European Parliament data architecture | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_DATA_MODEL.md)            |
-| **[Flowcharts](FLOWCHART.md)**                                      | 🔄 Process      | Current data processing workflows              | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FLOWCHART.md)                    |
-| **[Future Flowcharts](FUTURE_FLOWCHART.md)**                        | 🔄 Process      | Enhanced AI-driven workflows                   | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_FLOWCHART.md)             |
-| **[State Diagrams](STATEDIAGRAM.md)**                               | 🔄 Behavior     | Current system state transitions               | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/STATEDIAGRAM.md)                 |
-| **[Future State Diagrams](FUTURE_STATEDIAGRAM.md)**                 | 🔄 Behavior     | Enhanced adaptive state transitions            | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_STATEDIAGRAM.md)          |
 | **[Security Architecture](SECURITY_ARCHITECTURE.md)**               | 🛡️ Security     | Current security implementation                | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md)        |
 | **[Future Security Architecture](FUTURE_SECURITY_ARCHITECTURE.md)** | 🛡️ Security     | Security enhancement roadmap                   | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md) |
 | **[Threat Model](THREAT_MODEL.md)**                                 | 🎯 Security     | STRIDE threat analysis                         | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md)                 |
 | **[Classification](CLASSIFICATION.md)**                             | 🏷️ Governance   | CIA classification & BCP                       | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/CLASSIFICATION.md)               |
 | **[CRA Assessment](CRA-ASSESSMENT.md)**                             | 🛡️ Compliance   | Cyber Resilience Act                           | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md)               |
 | **[Workflows](WORKFLOWS.md)**                                       | ⚙️ DevOps       | CI/CD documentation                            | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md)                    |
-| **[Future Workflows](FUTURE_WORKFLOWS.md)**                         | 🚀 DevOps       | Planned CI/CD enhancements                     | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_WORKFLOWS.md)             |
 | **[Business Continuity Plan](BCPPlan.md)**                          | 🔄 Resilience   | Recovery planning                              | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/BCPPlan.md)                      |
 | **[Financial Security Plan](FinancialSecurityPlan.md)**             | 💰 Financial    | Cost & security analysis                       | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FinancialSecurityPlan.md)        |
 | **[End-of-Life Strategy](End-of-Life-Strategy.md)**                 | 📦 Lifecycle    | Technology EOL planning                        | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/End-of-Life-Strategy.md)         |
-| **[Unit Test Plan](UnitTestPlan.md)**                               | 🧪 Testing      | Unit testing strategy                          | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/UnitTestPlan.md)                 |
-| **[E2E Test Plan](E2ETestPlan.md)**                                 | 🔍 Testing      | End-to-end testing                             | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/E2ETestPlan.md)                  |
-| **[Performance Testing](performance-testing.md)**                   | ⚡ Performance  | Performance benchmarks                         | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/performance-testing.md)          |
-| **[Security Policy](SECURITY.md)**                                  | 🔒 Security     | Vulnerability reporting & security policy      | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md)                     |
 
 </div>
 
 ---
 
-## 🎯 Financial Overview
+## 🎯 Financial Strategy Overview
 
-This financial and security plan provides a structured cost analysis for the EU Parliament Monitor infrastructure. As a **static site deployed on GitHub Pages**, the platform achieves exceptional cost efficiency while maintaining enterprise-grade security through GitHub's platform services.
+EU Parliament Monitor achieves **maximum democratic transparency value at near-zero infrastructure cost** through a fully open-source, GitHub-hosted architecture. This Financial Security Plan demonstrates how strategic use of free-tier platform services and automated tooling minimizes operational cost while maintaining enterprise-grade security posture aligned with [Hack23 AB ISMS](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md).
 
-For architectural context, see [Architecture Documentation](ARCHITECTURE.md) and [Security Architecture](SECURITY_ARCHITECTURE.md).
+### 🏷️ Business Impact Classification
 
----
+Based on [Hack23 AB Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md):
 
-## 📊 Cost Breakdown: Infrastructure
-
-### GitHub Platform Services (Primary)
-
-| **Component** | **Monthly (USD)** | **Annual (USD)** | **Notes** |
-|---------------|-------------------|------------------|-----------|
-| **GitHub Pages Hosting** | $0.00 | $0.00 | Free for public repositories |
-| **GitHub Actions CI/CD** | $0.00 | $0.00 | Free tier (2,000 min/month) |
-| **GitHub Dependabot** | $0.00 | $0.00 | Free for all repositories |
-| **GitHub CodeQL** | $0.00 | $0.00 | Free for public repositories |
-| **GitHub Secret Scanning** | $0.00 | $0.00 | Free for public repositories |
-| **Total Infrastructure** | **$0.00** | **$0.00** | Zero-cost deployment |
-
-### Cost Advantages of Static Site Architecture
-
-| 🏗️ **Feature** | 💰 **Cost Benefit** |
-|----------------|-------------------|
-| **No servers** | Zero compute costs |
-| **No databases** | Zero storage costs |
-| **GitHub Pages CDN** | Free global distribution |
-| **GitHub Actions** | Free CI/CD automation |
-| **Static HTML/CSS** | No runtime dependencies |
+| Security Dimension     | Level | Financial Impact | Rationale |
+| ---------------------- | ----- | ---------------- | --------- |
+| **🔐 Confidentiality** | Public | Negligible | All data is publicly available EP open data |
+| **🔒 Integrity**       | Moderate | Low | Incorrect content affects credibility, not finances |
+| **⚡ Availability**    | Standard | Low | Static site with CDN caching provides inherent resilience |
 
 ---
 
-## 🔐 Security Services Investment
+## 💰 Cost Structure Analysis
 
-### Included Security Services (Zero Cost)
+### 📊 Annual Cost Summary
 
-| 🛡️ **Service** | 💰 **Cost** | 📋 **ISMS Policy** | 📊 **Value** |
-|----------------|-----------|-------------------|-------------|
-| **CodeQL SAST** | $0.00 | [Secure Development](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Automated code scanning |
-| **Dependabot SCA** | $0.00 | [Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | Dependency vulnerability alerts |
-| **Secret Scanning** | $0.00 | [Information Security](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Credential leak prevention |
-| **OpenSSF Scorecard** | $0.00 | [Secure Development](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Security posture assessment |
-| **SLSA L3 Attestations** | $0.00 | [Secure Development](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Supply chain integrity |
-| **Total Security** | **$0.00** | — | Enterprise-grade security at zero cost |
+```mermaid
+pie title EU Parliament Monitor Annual Cost Distribution
+    "GitHub Pages Hosting" : 0
+    "GitHub Actions CI/CD" : 0
+    "GitHub Repository" : 0
+    "Security Scanning (CodeQL)" : 0
+    "Dependabot" : 0
+    "EP MCP Server (Open Source)" : 0
+    "Domain (euparliamentmonitor.com)" : 12
+    "Developer Time (Volunteer)" : 0
+```
 
-### Security ROI Analysis
+### 📋 Detailed Cost Breakdown
 
-| 📊 **Metric** | 📋 **Value** |
-|---------------|-------------|
-| **Security Controls Active** | 5+ automated tools |
-| **Vulnerability Detection** | Real-time via Dependabot |
-| **SAST Coverage** | Every push and PR |
-| **Supply Chain Integrity** | SLSA Level 3 verified |
-| **Cost per Security Control** | $0.00 |
-| **Total Annual Security Investment** | $0.00 (platform-included) |
+| 💰 **Cost Category** | 📊 **Monthly** | 📅 **Annual** | 📋 **Notes** |
+|----------------------|---------------|--------------|-------------|
+| **🌐 GitHub Pages Hosting** | $0 | $0 | Free tier, unlimited bandwidth for public repos |
+| **⚙️ GitHub Actions CI/CD** | $0 | $0 | Free tier (2,000 min/month for public repos) |
+| **📦 GitHub Repository** | $0 | $0 | Free for public open-source repositories |
+| **🔒 CodeQL SAST Scanning** | $0 | $0 | Free for public repos (GitHub Advanced Security) |
+| **🤖 Dependabot Security** | $0 | $0 | Free, built into GitHub |
+| **🛡️ OpenSSF Scorecard** | $0 | $0 | Free service for open-source projects |
+| **📊 SonarCloud** | $0 | $0 | Free for public open-source projects |
+| **🧪 Vitest Testing** | $0 | $0 | Open-source testing framework |
+| **🔧 Playwright E2E** | $0 | $0 | Open-source E2E framework |
+| **🇪🇺 EP MCP Server** | $0 | $0 | Hack23-maintained open-source data source |
+| **🌍 Domain Name** | ~$1 | ~$12 | Annual domain registration (if custom domain) |
+| **👨‍💻 Development Labor** | Volunteer | $0 | Open-source volunteer contributions |
+| **📚 Documentation** | Volunteer | $0 | Copilot-assisted documentation generation |
+| | | | |
+| **📊 Total Annual Cost** | **~$1/mo** | **~$12/yr** | **Domain only (optional)** |
 
----
+### 💵 Cost Comparison: Static Site vs. Dynamic Architecture
 
-## 📈 Total Cost of Ownership
+```mermaid
+xychart-beta
+    title "Annual Infrastructure Cost Comparison (USD)"
+    x-axis ["EP Monitor (GitHub Pages)", "Typical SaaS (AWS)", "Enterprise CMS", "Custom Cloud Platform"]
+    y-axis "Annual Cost (USD)" 0 --> 50000
+    bar [12, 5000, 25000, 50000]
+```
 
-### Annual Summary
+| Architecture Option | Annual Cost | Maintenance Burden | Security Overhead |
+|--------------------|-----------:|------------------:|----------------:|
+| **EU Parliament Monitor (GitHub Pages)** | **~$12** | Minimal (automated) | Low (platform-managed) |
+| Typical SaaS on AWS | ~$5,000 | Medium (EC2, RDS, CloudFront) | Medium (IAM, SGs, WAF) |
+| Enterprise CMS | ~$25,000 | High (server management) | High (patching, configs) |
+| Custom Cloud Platform | ~$50,000+ | Very High (full ops team) | Very High (full stack) |
 
-| 📋 **Category** | 💰 **Annual Cost (USD)** |
-|-----------------|------------------------|
-| **Infrastructure (GitHub Pages)** | $0.00 |
-| **CI/CD (GitHub Actions)** | $0.00 |
-| **Security Services** | $0.00 |
-| **Domain & DNS** | $0.00 (GitHub subdomain) |
-| **Monitoring & Alerts** | $0.00 (GitHub native) |
-| **Total Annual Cost** | **$0.00** |
-
-### Cost Comparison with Alternatives
-
-| 🏗️ **Architecture** | 💰 **Annual Cost** | 📊 **Capability** |
-|--------------------|-------------------|-------------------|
-| **EU Parliament Monitor (GitHub Pages)** | **$0.00** | ✅ Full static site with CDN |
-| AWS S3 + CloudFront | ~$120.00 | Static hosting with CDN |
-| AWS EC2 + RDS | ~$9,000.00 | Dynamic application |
-| Vercel/Netlify Pro | ~$240.00 | Static hosting with builds |
-
----
-
-## 📊 Security Investment ROI Analysis
-
-| Security Investment | Annual Cost (€) | Risk Reduction | Incidents Prevented/Year (est.) | ROI Score |
-|--------------------|-----------------|----------------|--------------------------------|-----------|
-| GitHub Actions CI/CD (free tier) | €0 | High | 3-5 build failures | ♾️ Infinite |
-| Dependabot automated updates | €0 | High | 2-4 CVE exposures/year | ♾️ Infinite |
-| CodeQL SAST scanning | €0 | Medium | 1-2 code vulnerabilities/year | ♾️ Infinite |
-| GitHub Branch Protection | €0 | High | Prevents unauthorized commits | ♾️ Infinite |
-| SBOM generation | €0 | Medium | Supply chain visibility | ♾️ Infinite |
-| htmlhint HTML validation | €0 | Low | 5-10 HTML errors/month | ♾️ Infinite |
-| ESLint security plugin | €0 | Medium | 2-3 security issues/year | ♾️ Infinite |
-
-**Key Finding**: All implemented security controls carry €0 direct cost due to GitHub free tier and open-source tooling. The security investment ROI is effectively infinite for this open-source civic technology platform.
+> **Key Insight:** The static site architecture delivers >99% cost savings compared to equivalent dynamic platforms, while maintaining comparable security posture through GitHub's enterprise-grade infrastructure.
 
 ---
 
-## 🛡️ ISMS Cost-Security Framework Alignment
+## 🛡️ Security Investment Analysis
 
-| Framework Control | Cost Center | Budget Allocation | Annual Cost |
-|-------------------|-------------|------------------|-------------|
-| ISO 27001:2022 A.8.8 (Vulnerability Management) | GitHub Dependabot | Free tier | €0 |
-| ISO 27001:2022 A.8.25 (Secure Development Lifecycle) | CodeQL + ESLint | Free tier | €0 |
-| CIS Controls 7 (Vulnerability Management) | npm audit + Dependabot | Automated | €0 |
-| NIST CSF DE.CM-01 (Vulnerability Detection) | CodeQL scans | Free tier | €0 |
-| NIS2 Art.21(2)(d) Supply Chain Security | SHA-pinned actions | Configuration | €0 |
-| EU CRA SBOM requirement | GitHub Actions SBOM | Free tier | €0 |
+### 📊 Security Controls — Cost vs. Value
 
-**Total Security Control Budget**: €0/year (open-source platform on GitHub free tier)  
-**Total Platform Infrastructure Cost**: €0/year (GitHub Pages + Actions free tier)  
-**External Security Tools**: €0/year (all tools in free/open-source tier)
+| 🛡️ **Security Control** | 💰 **Cost** | 📊 **Value** | 🎯 **ROI** |
+|--------------------------|------------|-------------|-----------|
+| **GitHub Advanced Security (CodeQL)** | $0 (free for public repos) | SAST scanning, vulnerability detection | ∞ (zero cost, high value) |
+| **Dependabot** | $0 (built-in) | Automated dependency updates, security alerts | ∞ |
+| **OpenSSF Scorecard** | $0 (free service) | Supply chain security assessment | ∞ |
+| **SonarCloud** | $0 (free for OSS) | Code quality, security hotspots | ∞ |
+| **GitHub Branch Protection** | $0 (built-in) | PR reviews, status checks | ∞ |
+| **GitHub Secret Scanning** | $0 (free for public repos) | Leaked credential detection | ∞ |
+| **Playwright a11y Testing** | $0 (open-source) | WCAG 2.1 AA compliance verification | ∞ |
+| **SLSA Level 3 Attestation** | $0 (GitHub Actions) | Supply chain provenance | ∞ |
+| **ESLint Security Plugin** | $0 (open-source) | Code-level security linting | ∞ |
+| **SHA-Pinned Actions** | $0 (best practice) | Supply chain attack prevention | ∞ |
+
+### 📊 Security Investment ROI Summary
+
+```mermaid
+quadrantChart
+    title Security Control Investment vs. Impact
+    x-axis "Low Cost" --> "High Cost"
+    y-axis "Low Security Impact" --> "High Security Impact"
+    quadrant-1 "High Value"
+    quadrant-2 "Premium"
+    quadrant-3 "Nice to Have"
+    quadrant-4 "Evaluate"
+    "CodeQL SAST": [0.05, 0.9]
+    "Dependabot": [0.05, 0.85]
+    "Branch Protection": [0.05, 0.8]
+    "Secret Scanning": [0.05, 0.75]
+    "OpenSSF Scorecard": [0.05, 0.7]
+    "SLSA Attestation": [0.1, 0.8]
+    "SonarCloud": [0.05, 0.65]
+    "ESLint Security": [0.05, 0.6]
+    "Playwright A11y": [0.1, 0.5]
+    "SHA-Pinned Actions": [0.05, 0.7]
+```
+
+> **Result:** All security controls fall in the **High Value** quadrant — zero-cost tools with high security impact. This is the optimal outcome enabled by the open-source GitHub Pages architecture.
+
+---
+
+## 📊 Total Cost of Ownership (TCO)
+
+### 3-Year TCO Projection
+
+| Year | Infrastructure | Security Tooling | Development | Documentation | Total |
+|------|---------------|------------------|-------------|---------------|-------|
+| **Year 1 (2025-2026)** | $12 (domain) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **$12** |
+| **Year 2 (2026-2027)** | $12 (domain) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **$12** |
+| **Year 3 (2027-2028)** | $12 (domain) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **$12** |
+| **3-Year TCO** | **$36** | **$0** | **$0** | **$0** | **$36** |
+
+### 📈 TCO Comparison with Alternative Architectures
+
+| Architecture | 3-Year TCO | Annual Maintenance Hours | Security Overhead |
+|-------------|----------:|:------------------------:|:-----------------:|
+| **EU Parliament Monitor (Static)** | **$36** | ~20h/yr (automated) | Low |
+| Equivalent on AWS (EC2+RDS+CF) | ~$15,000 | ~200h/yr | High |
+| Equivalent on Vercel Pro | ~$720 | ~50h/yr | Medium |
+| Equivalent on Cloudflare Workers | ~$180 | ~40h/yr | Medium |
+
+---
+
+## 🔄 Cost Optimization Strategy
+
+### Current Cost Optimization Measures
+
+| Strategy | Implementation | Annual Savings vs. Cloud Alternative |
+|----------|---------------|-------------------------------------|
+| **Static Site Generation** | Pre-render all content at build time | ~$3,000/yr (no server costs) |
+| **GitHub Pages CDN** | Free global CDN distribution | ~$1,200/yr (no CDN costs) |
+| **GitHub Actions CI/CD** | Free CI/CD for public repos | ~$600/yr (no CI/CD platform) |
+| **Open-Source Security** | CodeQL, Dependabot, OpenSSF | ~$2,000/yr (no security platform) |
+| **Git-Based Backup** | No separate backup infrastructure | ~$200/yr (no backup service) |
+| **Copilot-Assisted Docs** | AI-generated documentation | ~$500/yr (no technical writer) |
+
+### Potential Future Costs (If Migration Required)
+
+| Scenario | Trigger | Estimated Annual Cost | Probability |
+|----------|---------|----------------------:|:-----------:|
+| **Custom Domain + SSL** | Brand enhancement | $12-50 | Low |
+| **Cloudflare CDN** | GitHub Pages extended outage | $0-240 | Very Low |
+| **AWS CloudFront + S3** | Multi-region requirement | $120-600 | Very Low |
+| **Monitoring Service** | SLA requirement | $0-300 | Low |
+
+---
+
+## 🛡️ Financial Risk Management
+
+### Financial Risks
+
+| 🚨 **Risk** | 📊 **Probability** | 💥 **Impact** | 🔧 **Mitigation** |
+|------------|--------------------|--------------|--------------------|
+| GitHub Pages pricing change | Very Low | Low–Medium | Portable static files; migrate to any CDN |
+| GitHub Actions minute limits | Low | Low | Optimize workflows; local build fallback |
+| Domain name cost increase | Very Low | Negligible | Annual registration; alternative registrars |
+| EP MCP Server becomes paid | Very Low | Medium | Open-source; fork and self-host if needed |
+| SonarCloud pricing change for OSS | Low | Low | Alternative: CodeQL + ESLint (both free) |
+| Contributor availability decline | Medium | Low | Copilot-assisted development; minimal maintenance needs |
+
+### Financial Impact of Security Incidents
+
+| Incident Type | Direct Cost | Indirect Cost | Mitigation Cost |
+|--------------|:----------:|:-------------:|:---------------:|
+| **Supply Chain Attack** | $0 (no customer data) | Reputational | $0 (automated rollback) |
+| **GitHub Pages Outage** | $0 | Content unavailability | $0 (automatic recovery) |
+| **Dependency Vulnerability** | $0 | Potential exploitation window | $0 (Dependabot auto-fix) |
+| **CI/CD Pipeline Breach** | $0 | Compromised deployment | $0 (SHA-pinned actions) |
+
+> **Key Insight:** The static site architecture with no user data, no databases, and no backend eliminates almost all financial risk from security incidents. The maximum impact of any incident is temporary content unavailability.
+
+---
+
+## 📊 Security Budget Allocation
+
+### Current Security Spending: $0/year
+
+All security controls are provided through free-tier services:
+
+```mermaid
+pie title Security Budget Allocation (All Free)
+    "SAST (CodeQL)" : 1
+    "SCA (Dependabot)" : 1
+    "Supply Chain (SLSA)" : 1
+    "Code Quality (SonarCloud)" : 1
+    "A11y Testing (Playwright)" : 1
+    "Secret Scanning" : 1
+    "Branch Protection" : 1
+    "ESLint Security" : 1
+```
+
+### Security Investment Recommendations
+
+| Priority | Recommendation | Cost | Expected Benefit |
+|----------|---------------|:----:|-----------------|
+| **🟢 Continue** | All current free-tier tools | $0 | Maintain current security posture |
+| **🟢 Continue** | Dependabot auto-merge for patches | $0 | Faster vulnerability remediation |
+| **🟡 Consider** | GitHub Enterprise (if team grows) | $0-$252/yr | Advanced security features |
+| **🟡 Consider** | External penetration test | $0-$500 | Independent security validation |
+| **🔵 Future** | Bug bounty program | $0-$1,000 | Community security testing |
+
+---
+
+## 🎖️ Framework Compliance — Financial Controls
+
+| Framework | Requirement | Financial Control | Status |
+|-----------|-------------|-------------------|--------|
+| **ISO 27001:2022 A.5.12** | Information classification | Public data = minimal financial exposure | ✅ |
+| **ISO 27001:2022 A.5.23** | Cloud service security | GitHub Pages = managed infrastructure | ✅ |
+| **ISO 27001:2022 A.8.9** | Configuration management | All config in version control ($0 cost) | ✅ |
+| **NIST CSF PR.DS-01** | Data-at-rest protection | Static HTML, no sensitive data | ✅ |
+| **NIST CSF PR.DS-02** | Data-in-transit protection | HTTPS enforced by GitHub Pages (free) | ✅ |
+| **CIS Controls 1.1** | Enterprise asset inventory | GitHub repository is the inventory | ✅ |
+| **CIS Controls 16.1** | Security awareness program | Open-source transparency = public review | ✅ |
+| **NIS2 Art.21(2)(e)** | Supply chain security | Dependabot + SLSA attestation (free) | ✅ |
+| **EU CRA Annex I** | Security throughout lifecycle | Automated CI/CD security pipeline (free) | ✅ |
+| **GDPR Art.32** | Appropriate technical measures | No personal data processing = minimal measures needed | ✅ |
+
+---
+
+## 📅 Financial Planning Timeline
+
+```
+2025-2026    $12/yr  — GitHub Pages + domain, all security tools free
+2026-2027    $12/yr  — Same architecture, Node.js 27 migration (no cost impact)
+2027-2028    $12/yr  — Continued operations, evaluate scaling needs
+2028-2029    $12-50  — Potential custom domain SSL or CDN if growth warrants
+2029-2030    $12-250 — Evaluate enterprise features if contributor team grows
+```
+
+---
+
+## 📋 Maintenance Cost Schedule
+
+| 📅 **Activity** | 🔄 **Frequency** | 💰 **Cost** | 📋 **Notes** |
+|-----------------|------------------|------------|--------------|
+| Domain renewal | Annual | ~$12 | Only recurring infrastructure cost |
+| Dependency updates | Daily (automated) | $0 | Dependabot handles automatically |
+| Security patching | As needed | $0 | Automated via CI/CD pipeline |
+| Documentation updates | Monthly | $0 | Copilot-assisted generation |
+| Test suite maintenance | Per change | $0 | 1400+ tests maintained in CI |
+| Node.js version upgrade | Annual | $0 | Developer time only (volunteer) |
+| BCP/EOL plan review | Semi-annual/Annual | $0 | Internal review process |
 
 ---
 
@@ -178,18 +310,21 @@ For architectural context, see [Architecture Documentation](ARCHITECTURE.md) and
 
 ### 🔐 ISMS Policies
 - [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
-- [🔐 Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
-- [🔍 Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)
+- [📋 Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
 - [🏷️ Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)
-- [💰 Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)
+- [📉 Risk Register](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Register.md)
+- [🤝 Third Party Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md)
+- [💾 Backup & Recovery Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md)
 
 ### 🏛️ Project Documentation
 - [🏛️ Architecture](ARCHITECTURE.md) — System design
 - [🛡️ Security Architecture](SECURITY_ARCHITECTURE.md) — Security controls
 - [🔄 Business Continuity Plan](BCPPlan.md) — Recovery planning
 - [📦 End-of-Life Strategy](End-of-Life-Strategy.md) — Technology lifecycle
-- [🛡️ CRA Assessment](CRA-ASSESSMENT.md) — Cyber Resilience Act
 - [⚙️ Workflows](WORKFLOWS.md) — CI/CD documentation
+- [🎯 Threat Model](THREAT_MODEL.md) — STRIDE threat analysis
+- [🏷️ Classification](CLASSIFICATION.md) — CIA classification
+- [🛡️ CRA Assessment](CRA-ASSESSMENT.md) — Cyber Resilience Act
 
 ---
 
