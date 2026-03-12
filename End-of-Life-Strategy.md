@@ -165,7 +165,7 @@ mindmap
 
 ### 🔄 New Node.js Release Schedule (Effective October 2026)
 
-> **Important:** Starting with Node.js 27.x, the Node.js project has moved from two major releases per year to **one major release per year**. Every release becomes LTS — the odd/even distinction is eliminated. See [Evolving the Node.js Release Schedule](https://nodejs.org/en/blog/announcements/evolving-the-nodejs-release-schedule) for details.
+> **Important (announced as of March 2025; subject to Node.js TSC updates):** Starting with Node.js 27.x, the Node.js project has moved from two major releases per year to **one major release per year**. Every release becomes LTS — the odd/even distinction is eliminated. The calendar-year alignment (e.g., 27 = 2027) and phase timings described below are based on the [Evolving the Node.js Release Schedule](https://nodejs.org/en/blog/announcements/evolving-the-nodejs-release-schedule) announcement and may be revised by the Node.js Technical Steering Committee. This document will be updated if the schedule changes materially.
 
 #### New Schedule Phases
 
@@ -177,9 +177,9 @@ mindmap
 | **EOL** | — | No further support |
 | **Total Support** | **36 months** | From first Current release to End of Life |
 
-#### Key Changes from Old Schedule
+#### Key Changes from Old Schedule (as announced March 2025; subject to Node.js TSC revisions)
 
-| Aspect | Old Schedule (≤ v26) | New Schedule (≥ v27) |
+| Aspect | Old Schedule (≤ v26) | New Schedule (≥ v27, proposed) |
 |--------|---------------------|----------------------|
 | **Major releases/year** | 2 (even = LTS, odd = Current only) | 1 (every release becomes LTS) |
 | **LTS eligibility** | Even-numbered only | Every release |

@@ -76,6 +76,8 @@ pie title EU Parliament Monitor Annual Cost Distribution
     "Developer Time (Volunteer)" : 0
 ```
 
+> **Textual summary (if chart does not render):** Annual costs are dominated by domain registration (~$12) and AWS S3+CloudFront hosting (~$5). All other components (GitHub Actions, repository, CodeQL, Dependabot, EP MCP Server, volunteer labor) are $0. Total: ~$17/yr.
+
 ### 📋 Detailed Cost Breakdown
 
 | 💰 **Cost Category** | 📊 **Monthly** | 📅 **Annual** | 📋 **Notes** |
@@ -105,6 +107,8 @@ xychart-beta
     y-axis "Annual Cost (USD)" 0 --> 50000
     bar [17, 5000, 25000, 50000]
 ```
+
+> **Textual summary (if chart does not render):** Annual infrastructure costs — EP Monitor (S3+CloudFront): ~$17 | Typical SaaS (AWS): ~$5,000 | Enterprise CMS: ~$25,000 | Custom Cloud Platform: ~$50,000+
 
 | Architecture Option | Annual Cost | Maintenance Burden | Security Overhead |
 |--------------------|-----------:|------------------:|----------------:|
@@ -157,6 +161,8 @@ quadrantChart
     "SHA-Pinned Actions": [0.05, 0.7]
 ```
 
+> **Textual summary (if chart does not render):** All security controls are zero-cost (or near-zero) and high impact, placing them in the "High Value" quadrant. Top-impact: CodeQL SAST, Dependabot, Branch Protection, SLSA Attestation. All others (Secret Scanning, OpenSSF Scorecard, SonarCloud [Planned], ESLint Security, Playwright A11y, SHA-Pinned Actions) also fall in the high-value zone.
+
 > **Result:** All security controls fall in the **High Value** quadrant — zero-cost tools with high security impact. This is the optimal outcome enabled by the open-source, AWS-hosted static site architecture.
 
 ---
@@ -167,18 +173,18 @@ quadrantChart
 
 | Year | Infrastructure | Security Tooling | Development | Documentation | Total |
 |------|---------------|------------------|-------------|---------------|-------|
-| **Year 1 (2025-2026)** | ~$12 (domain) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **~$12** |
-| **Year 2 (2026-2027)** | ~$12 (domain) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **~$12** |
-| **Year 3 (2027-2028)** | ~$12 (domain) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **~$12** |
-| **3-Year TCO** | **~$36** | **$0** | **$0** | **$0** | **~$36** |
+| **Year 1 (2025-2026)** | ~$17 (domain + AWS S3/CloudFront) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **~$17** |
+| **Year 2 (2026-2027)** | ~$17 (domain + AWS S3/CloudFront) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **~$17** |
+| **Year 3 (2027-2028)** | ~$17 (domain + AWS S3/CloudFront) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **~$17** |
+| **3-Year TCO** | **~$51** | **$0** | **$0** | **$0** | **~$51** |
 
-> **Note:** Domain costs vary by registrar and TLD ($10–$20/year typical). Domain registration is optional — the primary production site is hosted on AWS S3 + CloudFront, with a zero-cost `github.io` subdomain maintained as a fallback endpoint. Estimates assume current registrar pricing and may fluctuate.
+> **Note:** Domain costs vary by registrar and TLD ($10–$20/year typical). Domain registration is optional — the primary production site is hosted on AWS S3 + CloudFront (estimated at ~$5/year and included in the Infrastructure totals above), with a zero-cost `github.io` subdomain maintained as a fallback endpoint. Estimates assume current registrar pricing and may fluctuate.
 
 ### 📈 TCO Comparison with Alternative Architectures
 
 | Architecture | 3-Year TCO | Annual Maintenance Hours | Security Overhead |
 |-------------|----------:|:------------------------:|:-----------------:|
-| **EU Parliament Monitor (Static)** | **$36** | ~20h/yr (automated) | Low |
+| **EU Parliament Monitor (Static)** | **~$51** | ~20h/yr (automated) | Low |
 | Equivalent on AWS (EC2+RDS+CF) | ~$15,000 | ~200h/yr | High |
 | Equivalent on Vercel Pro | ~$720 | ~50h/yr | Medium |
 | Equivalent on Cloudflare Workers | ~$180 | ~40h/yr | Medium |

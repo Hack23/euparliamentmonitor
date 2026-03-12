@@ -353,7 +353,9 @@ flowchart TD
 - Check GitHub Pages fallback deployment status
 - Assess which of the 14 language versions are affected
 
-### Phase 2: Short-Term Recovery (30 min – 4 hours)
+### Phase 2: Short-Term Recovery (30 min – 2 hours for critical static-site serving; up to 4 hours for non-critical/high-priority functions)
+
+For **critical static-site availability (primary S3/CloudFront or GitHub Pages fallback)**, full restoration **must occur within 2 hours** (the documented RTO). The broader 2–4 hour window applies only to **non-critical or high-priority supporting functions** (e.g., news content generation, auxiliary automation).
 
 **Operational Continuity:**
 1. **🌐 If AWS S3/CloudFront**: Check S3 bucket status, CloudFront distribution health; failover to GitHub Pages fallback
