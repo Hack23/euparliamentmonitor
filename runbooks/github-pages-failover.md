@@ -34,9 +34,17 @@ npm run generate-news  # if content regeneration is needed
 
 ### Step 2: Create Deployable Branch
 
-Create or update a `gh-pages` branch that contains **only** the deployable static site artifacts: the root HTML files (`index.html`, `index-*.html`), the `news/` directory, the `scripts/` directory, and the generated sitemap (`sitemap.xml`). Use an orphan branch to avoid carrying the full repository history and contents.
+Create or update a `gh-pages` branch that contains **only** the deployable static site artifacts: the root HTML files (`index.html`, `index-*.html`), the `news/` directory, the `scripts/` directory, and the generated sitemap (`sitemap.xml`). The procedure first saves the build artifacts from the current working tree into a temporary directory, then creates an orphan branch with a clean state, and copies the artifacts back in.
 
 ```bash
+# Save the deployable artifacts from the current working tree into a temporary directory
+TMP_DIR="$(mktemp -d)"
+cp -p index.html "$TMP_DIR"/ 2>/dev/null || true
+cp -p index-*.html "$TMP_DIR"/ 2>/dev/null || true
+cp -pr news "$TMP_DIR"/ 2>/dev/null || true
+cp -pr scripts "$TMP_DIR"/ 2>/dev/null || true
+cp -p sitemap.xml "$TMP_DIR"/ 2>/dev/null || true
+
 # If gh-pages branch already exists locally, delete it first
 git branch -D gh-pages 2>/dev/null || true
 
@@ -46,12 +54,17 @@ git push origin --delete gh-pages 2>/dev/null || true
 # Create an orphan branch (no parent commits, clean working tree)
 git checkout --orphan gh-pages
 
-# Remove all tracked files from the index
-git rm -rf .
+# Remove all tracked files and clean untracked files from the working tree
+git reset --hard
+git clean -fdx
 
-# Re-add only the deployable artifacts from main using explicit pathspecs
-git checkout main -- index.html ':(glob)index-*.html' news/ scripts/ sitemap.xml
+# Copy the deployable artifacts from the temporary directory into the repository root
+cp -pr "$TMP_DIR"/. .
 
+# Clean up the temporary directory
+rm -rf "$TMP_DIR"
+
+# Add and commit only the deployable artifacts
 git add index.html ':(glob)index-*.html' news/ scripts/ sitemap.xml
 git commit -m "Deploy static site to GitHub Pages (incident failover)"
 ```

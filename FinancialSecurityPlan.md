@@ -96,7 +96,7 @@ pie title EU Parliament Monitor Annual Cost Distribution
 | **👨‍💻 Development Labor** | Volunteer | $0 | Open-source volunteer contributions |
 | **📚 Documentation** | Volunteer | $0 | Copilot-assisted documentation generation |
 | | | | |
-| **📊 Total Annual Cost** | **~$1.50/mo** | **~$17/yr** | **AWS hosting (<$5) + Domain (~$12, optional)** |
+| **📊 Total Annual Cost** | **~$1.50/mo** | **~$17/yr** | **AWS hosting (≤ $5) + Domain (~$12, optional)** |
 
 ### 💵 Cost Comparison: Static Site vs. Dynamic Architecture
 

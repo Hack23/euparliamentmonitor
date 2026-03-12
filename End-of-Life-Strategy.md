@@ -201,8 +201,8 @@ gantt
     section Old Schedule Releases
     %% LTS support windows (month-level, aligned with Node.js LTS/EOL schedule)
     Node.js 22 LTS              :done, node22, 2024-10, 2027-04
-    Node.js 24 LTS (Planned)    :active, node24, 2025-10, 2028-04
-    Node.js 26 LTS (Planned)    :node26, 2026-10, 2029-04
+    Node.js 24 LTS              :active, node24, 2025-10, 2028-04
+    Node.js 26 LTS              :node26, 2026-10, 2029-04
 
     section New Schedule Releases (1/year, all LTS)
     Node.js 27 Alpha            :node27a, 2026-10, 2027-03

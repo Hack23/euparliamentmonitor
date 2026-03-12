@@ -359,7 +359,7 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 
 **Operational Continuity:**
 1. **🌐 If AWS S3/CloudFront**: Check S3 bucket status, CloudFront distribution health; failover to GitHub Pages fallback
-2. **⚙️ If CI/CD**: Debug and fix workflow, trigger manual run with `workflow_dispatch`
+2. **⚙️ If CI/CD**: Debug and fix the workflow, then redeploy by rerunning the last successful `deploy-s3` workflow run from the GitHub Actions UI or by pushing a no-op commit to the `main` branch in accordance with change-control rules
 3. **📡 If Data Source**: Existing content serves users, monitor EP API status
 4. **📦 If Repository**: Restore from fork or local clone
 5. **🔒 If Security**: Isolate affected components, roll back to known-good state
