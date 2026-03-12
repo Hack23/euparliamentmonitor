@@ -65,6 +65,12 @@ export interface CommitteeReportsArticleData extends ArticleData {
 
 // ─── Adopted-texts categorization ─────────────────────────────────────────────
 
+/**
+ * Narrow union type for the committee theme category keys used when
+ * grouping and displaying adopted texts.
+ */
+export type CommitteeTheme = 'ENVI' | 'ECON' | 'AFET' | 'LIBE' | 'AGRI' | 'OTHER';
+
 // Keyword lists are pre-normalized to lowercase so that each call to
 // categorizeAdoptedText only needs to lowercase the title once.
 //
@@ -152,9 +158,9 @@ export const ECON_KEYWORDS: readonly string[] = [
  * opposition leader keywords) rather than AGRI ("wine" keyword).
  *
  * @param title - Adopted text title to categorize
- * @returns Committee theme key: 'AFET' | 'LIBE' | 'AGRI' | 'ENVI' | 'ECON' | 'OTHER'
+ * @returns Committee theme key — one of the {@link CommitteeTheme} values
  */
-export function categorizeAdoptedText(title: string): string {
+export function categorizeAdoptedText(title: string): CommitteeTheme {
   const t = title.toLowerCase();
   if (AFET_KEYWORDS.some((k) => t.includes(k))) return 'AFET';
   if (LIBE_KEYWORDS.some((k) => t.includes(k))) return 'LIBE';
@@ -179,14 +185,14 @@ function buildAdoptedTextsSection(feedData: EPFeedData | undefined, lang: Langua
   const texts = feedData.adoptedTexts;
   const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
 
-  const grouped: Record<string, Array<{ id: string; title: string; date: string }>> = {};
+  const grouped: Partial<Record<CommitteeTheme, Array<{ id: string; title: string; date: string }>>> = {};
   for (const text of texts) {
     const cat = categorizeAdoptedText(text.title);
     if (!grouped[cat]) grouped[cat] = [];
     grouped[cat].push(text);
   }
 
-  const committeeNames: Record<string, string> = {
+  const committeeNames: Record<CommitteeTheme, string> = {
     ENVI: s.committeeNameENVI,
     ECON: s.committeeNameECON,
     AFET: s.committeeNameAFET,

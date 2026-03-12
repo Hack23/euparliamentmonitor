@@ -19,7 +19,6 @@ const COMMITTEE_REPORTS_KEYWORDS = ['committee', 'EU Parliament', 'legislation']
 const COMMITTEE_REPORTS_SOURCES = [
     { title: EP_DISPLAY_NAME, url: EP_SOURCE_URL },
 ];
-// ─── Adopted-texts categorization ─────────────────────────────────────────────
 // Keyword lists are pre-normalized to lowercase so that each call to
 // categorizeAdoptedText only needs to lowercase the title once.
 //
@@ -101,7 +100,7 @@ export const ECON_KEYWORDS = [
  * opposition leader keywords) rather than AGRI ("wine" keyword).
  *
  * @param title - Adopted text title to categorize
- * @returns Committee theme key: 'AFET' | 'LIBE' | 'AGRI' | 'ENVI' | 'ECON' | 'OTHER'
+ * @returns Committee theme key — one of the {@link CommitteeTheme} values
  */
 export function categorizeAdoptedText(title) {
     const t = title.toLowerCase();
