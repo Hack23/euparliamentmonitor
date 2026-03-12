@@ -167,10 +167,12 @@ quadrantChart
 
 | Year | Infrastructure | Security Tooling | Development | Documentation | Total |
 |------|---------------|------------------|-------------|---------------|-------|
-| **Year 1 (2025-2026)** | $12 (domain) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **$12** |
-| **Year 2 (2026-2027)** | $12 (domain) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **$12** |
-| **Year 3 (2027-2028)** | $12 (domain) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **$12** |
-| **3-Year TCO** | **$36** | **$0** | **$0** | **$0** | **$36** |
+| **Year 1 (2025-2026)** | ~$12 (domain) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **~$12** |
+| **Year 2 (2026-2027)** | ~$12 (domain) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **~$12** |
+| **Year 3 (2027-2028)** | ~$12 (domain) | $0 | $0 (volunteer) | $0 (Copilot-assisted) | **~$12** |
+| **3-Year TCO** | **~$36** | **$0** | **$0** | **$0** | **~$36** |
+
+> **Note:** Domain costs vary by registrar and TLD ($10–$20/year typical). Domain registration is optional — the platform operates on `github.io` subdomain at zero cost. Estimates assume current registrar pricing and may fluctuate.
 
 ### 📈 TCO Comparison with Alternative Architectures
 
