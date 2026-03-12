@@ -94,7 +94,7 @@ pie title EU Parliament Monitor Annual Cost Distribution
 | **👨‍💻 Development Labor** | Volunteer | $0 | Open-source volunteer contributions |
 | **📚 Documentation** | Volunteer | $0 | Copilot-assisted documentation generation |
 | | | | |
-| **📊 Total Annual Cost** | **~$1/mo** | **~$12/yr** | **Domain only (optional)** |
+| **📊 Total Annual Cost** | **~$1.50/mo** | **~$17/yr** | **AWS hosting (<$5) + Domain (~$12, optional)** |
 
 ### 💵 Cost Comparison: Static Site vs. Dynamic Architecture
 
@@ -103,12 +103,12 @@ xychart-beta
     title "Annual Infrastructure Cost Comparison (USD)"
     x-axis ["EP Monitor (S3+CloudFront)", "Typical SaaS (AWS)", "Enterprise CMS", "Custom Cloud Platform"]
     y-axis "Annual Cost (USD)" 0 --> 50000
-    bar [12, 5000, 25000, 50000]
+    bar [17, 5000, 25000, 50000]
 ```
 
 | Architecture Option | Annual Cost | Maintenance Burden | Security Overhead |
 |--------------------|-----------:|------------------:|----------------:|
-| **EU Parliament Monitor (S3+CloudFront)** | **~$12** | Minimal (automated) | Low (platform-managed) |
+| **EU Parliament Monitor (S3+CloudFront)** | **~$17** | Minimal (automated) | Low (platform-managed) |
 | Typical SaaS on AWS | ~$5,000 | Medium (EC2, RDS, CloudFront) | Medium (IAM, SGs, WAF) |
 | Enterprise CMS | ~$25,000 | High (server management) | High (patching, configs) |
 | Custom Cloud Platform | ~$50,000+ | Very High (full ops team) | Very High (full stack) |

@@ -363,13 +363,13 @@ flowchart TD
 5. **🔒 If Security**: Isolate affected components, roll back to known-good state
 
 **Critical System Procedures:**
-- Static site: If AWS S3 + CloudFront experiences an extended outage (>30 minutes), perform a **GitHub Pages fallback via managed automation**, or deploy from local build to an alternative CDN:
-  1. Run `npm install` (if needed) and `npm run build` locally to generate the static site assets.
-  2. Create or update a `gh-pages` branch containing only the built static assets (for example, contents of the `dist` or `build` directory at the repository root). Prefer to do this via the dedicated CI workflow (e.g. `deploy-github-pages-fallback`) using a manual `workflow_dispatch` run, so that all actions are logged and repeatable.
-  3. Trigger the GitHub Actions workflow that publishes the built assets to GitHub Pages (for example, a workflow using the official GitHub Pages deployment action to serve from the `gh-pages` branch). Reference the workflow run URL in the incident ticket.
-  4. Wait for GitHub Pages to report as active, then validate availability via the GitHub Pages URL for all 14 language paths (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH).
+- Static site: If AWS S3 + CloudFront experiences an extended outage (>30 minutes), perform a **GitHub Pages fallback** using the current static site layout, or deploy from local build to an alternative CDN:
+  1. Run `npm install` (if needed) and `npm run build` locally to compile TypeScript into `./scripts`. If news content or index/sitemap files need to be regenerated, also run `npm run generate-news` (and any other required content-generation commands) so that the repository root contains the up-to-date HTML entry points, `news/` directory, and generated index/sitemap files.
+  2. Create or update a `gh-pages` branch that contains the deployable static site: the root HTML files (`index.html`, `index-*.html`), the `news/` directory, and the generated sitemap (`sitemap.xml`). Exclude build tooling, tests, and non-essential development artifacts to keep the branch minimal.
+  3. Push the `gh-pages` branch to GitHub and configure GitHub Pages (under **Settings → Pages**) to serve from the `gh-pages` branch, root directory. Reference the configuration change (who/when/what) in the incident ticket so that it is auditable.
+  4. Wait for GitHub Pages to report as active, then validate availability via the GitHub Pages URL for all 14 language paths (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH), confirming that root HTML, `news/`, and the generated index and sitemap files load correctly.
   5. Record the fallback URL in the incident ticket and, if applicable, update status communications to direct users to the GitHub Pages fallback or alternative CDN endpoint.
-  6. **Emergency-only manual exception (if GitHub Actions is unavailable):** As a last resort, in the GitHub repository go to **Settings → Pages** and temporarily configure GitHub Pages to serve from the `gh-pages` branch. This manual click-ops change MUST be documented in the incident log (who/when/what/why) and reverted back to the workflow-driven configuration as soon as the incident is resolved.
+  6. **Post-incident:** After the primary AWS S3 + CloudFront service is restored, revert any manual GitHub Pages configuration changes and document the incident resolution. If this fallback procedure is needed frequently, create a version-controlled `workflow_dispatch` workflow in `.github/workflows/` to automate these steps.
 - Build pipeline: Run `npm run build` locally, push static assets directly
 - Source repository: Restore from contributor forks (distributed backup)
 
@@ -431,8 +431,8 @@ flowchart TD
 **Infrastructure as Code:**
 - Primary: AWS S3 + CloudFront static hosting managed via GitHub Actions (`deploy-s3` workflow)
 - CloudFront distribution, S3 bucket policies and DNS managed via code/automation (no unmanaged click-ops)
-- Fallback: Automated GitHub Pages deployment workflow retained as secondary publishing path (publishes built artifacts to `gh-pages`/GitHub Pages via a controlled workflow run)
-- Emergency exception: If GitHub Pages **Settings → Pages** configuration must be changed manually during an incident, the change MUST be documented in the incident log (who/when/what/why) and reverted back to the workflow-driven configuration as soon as the incident is resolved
+- Fallback: GitHub Pages deployment path reserved as a secondary publishing option; if activated, the configuration and procedure MUST be documented and, when automated, expressed as a version-controlled workflow in `.github/workflows/`
+- Emergency exception: If GitHub Pages **Settings → Pages** configuration must be changed manually during an incident, the change MUST be documented in the incident log (who/when/what/why) and, after resolution, either codified into automation or reverted back to the documented default configuration (primary S3 + CloudFront path)
 - All steady-state infrastructure and CI/CD configuration is declarative and version-controlled; any emergency console changes are temporary and either codified or rolled back
 
 ---
