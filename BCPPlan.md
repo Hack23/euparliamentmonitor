@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>🛡️ Classification-Driven Business Resilience for European Parliament Intelligence</strong><br>
-  <em>🎯 Systematic Recovery Planning Through GitHub Pages Static Site Architecture</em>
+  <em>🎯 Systematic Recovery Planning Through AWS S3 + CloudFront Static Site Architecture</em>
 </p>
 
 <p align="center">
@@ -136,11 +136,11 @@ Based on [CLASSIFICATION.md](CLASSIFICATION.md) analysis:
 
 | 🎯 **Metric** | 📊 **Target** | 📋 **Rationale** |
 |---------------|--------------|-------------------|
-| **RTO (Recovery Time Objective)** | 4 hours | GitHub Pages rebuild from repository |
+| **RTO (Recovery Time Objective)** | 4 hours | AWS S3 + CloudFront rebuild from repository via deploy-s3 workflow |
 | **RPO (Recovery Point Objective)** | 0 minutes | Git repository provides full history |
 | **MTTR (Mean Time to Repair)** | 2 hours | Automated CI/CD pipeline rebuild |
 | **MTPD (Max Tolerable Period of Disruption)** | 72 hours | After 3 days, democratic monitoring impact becomes significant |
-| **SDO (Service Delivery Objective)** | 95% availability | Monthly target for GitHub Pages service |
+| **SDO (Service Delivery Objective)** | 95% availability | Monthly target for AWS S3 + CloudFront service |
 | **WRT (Work Recovery Time)** | 30 minutes | Time to validate restored content integrity |
 | **NBD (Normal Business Day)** | N/A (24/7 operations) | No business-day distinction; recovery procedures identical at all times |
 
@@ -150,14 +150,14 @@ Based on [CLASSIFICATION.md](CLASSIFICATION.md) analysis:
 
 ### Static Site Architecture Advantages
 
-EU Parliament Monitor's **static site architecture** (HTML5/CSS3 on GitHub Pages) provides inherent business continuity advantages:
+EU Parliament Monitor's **static site architecture** (HTML5/CSS3 on AWS S3 + CloudFront, per [ADR-002](ARCHITECTURE.md)) provides inherent business continuity advantages:
 
 ```mermaid
 graph TB
-    subgraph "Primary Infrastructure"
+    subgraph "Primary Infrastructure (AWS)"
         GH[GitHub Repository] --> GA[GitHub Actions CI/CD]
-        GA --> GP[GitHub Pages CDN]
-        GP --> U[End Users — 14 Languages]
+        GA -->|S3 Sync + CF Invalidation| AWS[AWS S3 + CloudFront CDN]
+        AWS --> U[End Users — 14 Languages]
     end
     
     subgraph "Data Sources"
@@ -169,12 +169,12 @@ graph TB
     subgraph "Recovery Options"
         GH --> |git clone| LB[Local Backup]
         GH --> |fork| FR[Fork Recovery]
-        GP --> |CDN Cache| CC[Cached Content]
-        GH --> |deploy| ALT[Alternative Hosting<br/>Cloudflare/Netlify/S3]
+        AWS --> |CDN Cache| CC[Cached Content]
+        GH --> |deploy| ALT[Alternative Hosting<br/>GitHub Pages/Cloudflare/Netlify]
     end
     
     style GH fill:#e3f2fd
-    style GP fill:#c8e6c9
+    style AWS fill:#c8e6c9
     style CC fill:#fff9c4
     style ALT fill:#f3e5f5
 ```
@@ -183,7 +183,7 @@ graph TB
 |---------------------------|----------------------|--------------|
 | **No Server Dependencies** | Pure static HTML/CSS/JS | ✅ Active |
 | **Git-Based Backup** | Full history in distributed VCS | ✅ Active |
-| **CDN Distribution** | GitHub Pages global CDN | ✅ Active |
+| **CDN Distribution** | AWS CloudFront global CDN | ✅ Active |
 | **Automated Rebuild** | GitHub Actions CI/CD pipeline | ✅ Active |
 | **Multi-Language Content** | 14 languages pre-generated | ✅ Active |
 | **Portable Artifacts** | Static files deployable to any host | ✅ Active |
@@ -255,7 +255,7 @@ flowchart TD
     OPERATIONAL -->|Medium/Low| STANDARD[📅 Standard Response<br/>≤ 24 hours]
     TECHNICAL -->|Low| STANDARD
     
-    IMMEDIATE --> CRITICAL_RECOVERY[🔴 Critical Recovery<br/>Full Resources<br/>GitHub Pages Rebuild]
+    IMMEDIATE --> CRITICAL_RECOVERY[🔴 Critical Recovery<br/>Full Resources<br/>AWS S3 + CF Rebuild]
     URGENT --> HIGH_RECOVERY[🟠 High Priority Recovery<br/>Debug & Fix Pipeline]
     STANDARD --> NORMAL_RECOVERY[🟢 Normal Recovery<br/>Scheduled Maintenance]
 
@@ -279,13 +279,13 @@ flowchart TD
 
 ## 🔄 Business Continuity Scenarios
 
-### Scenario 1: GitHub Pages Outage
+### Scenario 1: AWS S3 + CloudFront Outage
 
 | 📋 **Aspect** | 📊 **Detail** |
 |---------------|--------------|
 | **Impact** | Site temporarily unavailable across all 14 languages |
 | **Probability** | Low (99.9% SLA) |
-| **Recovery** | Automatic upon GitHub Pages restoration |
+| **Recovery** | Automatic upon AWS service restoration; GitHub Pages as fallback |
 | **Mitigation** | CDN caching preserves recent content; deploy to alternative host if extended |
 
 ### Scenario 2: CI/CD Pipeline Failure
@@ -389,11 +389,11 @@ flowchart TD
 
 | Supplier/Service            | Service Type          | Criticality | Backup Strategy                    | Recovery Time |
 | --------------------------- | --------------------- | ----------- | ---------------------------------- | ------------- |
-| **GitHub Pages**            | Static Site Hosting   | Critical    | Alternative CDN (Cloudflare/Netlify/S3) | 2 hours |
+| **AWS S3 + CloudFront**     | Static Site Hosting   | Critical    | GitHub Pages fallback; alternative CDN (Cloudflare/Netlify) | 2 hours |
 | **GitHub Repository**       | Source Code Storage   | Critical    | Local clones, contributor forks    | 30 minutes |
 | **GitHub Actions**          | CI/CD Pipeline        | High        | Manual local build + deploy        | 4 hours |
 | **EP MCP Server**           | EU Parliament Data    | High        | Cached content; existing articles  | N/A (graceful degrade) |
-| **npm Registry**            | Dependency Delivery   | High        | `node_modules` cached in CI; lockfile | 2 hours |
+| **npm Registry**            | Dependency Delivery   | High        | npm cache (package tarballs) in CI; lockfile + `npm ci` | 2 hours |
 | **GitHub Dependabot**       | Security Scanning     | Medium      | Manual npm audit; CodeQL           | Low priority |
 | **GitHub CodeQL**           | SAST Scanning         | Medium      | ESLint security plugin fallback    | Low priority |
 

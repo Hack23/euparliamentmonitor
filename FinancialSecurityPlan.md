@@ -46,7 +46,7 @@
 
 ## 🎯 Financial Strategy Overview
 
-EU Parliament Monitor achieves **maximum democratic transparency value at near-zero infrastructure cost** through a fully open-source, GitHub-hosted architecture. This Financial Security Plan demonstrates how strategic use of free-tier platform services and automated tooling minimizes operational cost while maintaining enterprise-grade security posture aligned with [Hack23 AB ISMS](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md).
+EU Parliament Monitor achieves **maximum democratic transparency value at near-zero infrastructure cost** through a fully open-source architecture deployed to **AWS S3 + CloudFront** (per [ADR-002](ARCHITECTURE.md)) with GitHub-hosted CI/CD and security tooling. This Financial Security Plan demonstrates how strategic use of free-tier and low-cost platform services and automated tooling minimizes operational cost while maintaining enterprise-grade security posture aligned with [Hack23 AB ISMS](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md).
 
 ### 🏷️ Business Impact Classification
 
@@ -66,7 +66,7 @@ Based on [Hack23 AB Classification Framework](https://github.com/Hack23/ISMS-PUB
 
 ```mermaid
 pie title EU Parliament Monitor Annual Cost Distribution
-    "GitHub Pages Hosting" : 0
+    "AWS S3 + CloudFront Hosting" : 0
     "GitHub Actions CI/CD" : 0
     "GitHub Repository" : 0
     "Security Scanning (CodeQL)" : 0
@@ -80,13 +80,13 @@ pie title EU Parliament Monitor Annual Cost Distribution
 
 | 💰 **Cost Category** | 📊 **Monthly** | 📅 **Annual** | 📋 **Notes** |
 |----------------------|---------------|--------------|-------------|
-| **🌐 GitHub Pages Hosting** | $0 | $0 | Free tier, unlimited bandwidth for public repos |
+| **🌐 AWS S3 + CloudFront Hosting** | $0* | $0* | Free-tier eligible; S3 costs negligible for static site. *Domain and ACM certificate managed via AWS |
 | **⚙️ GitHub Actions CI/CD** | $0 | $0 | GitHub-hosted runners: unlimited for public repos; 2,000 min/month for private repos on Free plan |
 | **📦 GitHub Repository** | $0 | $0 | Free for public open-source repositories |
 | **🔒 CodeQL SAST Scanning** | $0 | $0 | Free for public repos (GitHub Advanced Security) |
 | **🤖 Dependabot Security** | $0 | $0 | Free, built into GitHub |
 | **🛡️ OpenSSF Scorecard** | $0 | $0 | Free service for open-source projects |
-| **📊 SonarCloud** | $0 | $0 | Free for public open-source projects |
+| **📊 SonarCloud (Planned)** | $0 | $0 | Planned optional integration; not yet configured in CI |
 | **🧪 Vitest Testing** | $0 | $0 | Open-source testing framework |
 | **🔧 Playwright E2E** | $0 | $0 | Open-source E2E framework |
 | **🇪🇺 EP MCP Server** | $0 | $0 | Hack23-maintained open-source data source |

@@ -87,7 +87,7 @@ Based on [Hack23 AB Classification Framework](https://github.com/Hack23/ISMS-PUB
 
 ```mermaid
 mindmap
-  root)🇪🇺 EU Parliament Monitor Stack(
+  root((🇪🇺 EU Parliament Monitor Stack))
     (🖥️ Runtime)
       ☕ Node.js 24.x LTS
         📅 Current LTS
