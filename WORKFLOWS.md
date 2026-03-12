@@ -120,7 +120,7 @@ graph TD
     D --> F[📥 Checkout Repository]
     F --> G[⚙️ Setup Node.js 24]
     G --> H[📦 Install Dependencies]
-    H --> I[🔗 Install EP MCP Server v1.1.5]
+    H --> I[🔗 Install EP MCP Server v1.1.8]
     I --> J[📰 Generate News Articles<br/>npx tsx src/generators/news-enhanced.ts]
     J --> K[🌐 14-Language HTML Output]
     K --> L[📝 Create Pull Request]
