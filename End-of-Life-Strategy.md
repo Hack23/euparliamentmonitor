@@ -200,9 +200,9 @@ gantt
 
     section Old Schedule Releases
     %% LTS support windows (month-level, aligned with Node.js LTS/EOL schedule)
-    Node.js 22 LTS              :done, node22, 2024-10, 2027-10
-    Node.js 24 LTS (Planned)    :active, node24, 2025-10, 2028-10
-    Node.js 26 LTS (Planned)    :node26, 2026-10, 2029-10
+    Node.js 22 LTS              :done, node22, 2024-10, 2027-04
+    Node.js 24 LTS (Planned)    :active, node24, 2025-10, 2028-04
+    Node.js 26 LTS (Planned)    :node26, 2026-10, 2029-04
 
     section New Schedule Releases (1/year, all LTS)
     Node.js 27 Alpha            :node27a, 2026-10, 2027-03
@@ -220,7 +220,7 @@ gantt
     Node.js 28 Alpha CI Testing :ep28a, 2027-10, 2028-03
 
     section Critical Milestones
-    Node.js 24 EOL              :milestone, node24eol, 2028-10, 0d
+    Node.js 24 EOL              :milestone, node24eol, 2028-04, 0d
     New Schedule Takes Effect   :milestone, newschedule, 2026-10, 0d
     Node.js 27 LTS Promotion    :milestone, node27lts, 2027-10, 0d
 ```
@@ -267,7 +267,7 @@ flowchart TB
     end
 
     subgraph MIGRATION["🚀 LTS Migration (Oct 2027)"]
-        UPDATE_ENGINES["📝 Update package.json<br/>• engines: '>=27'<br/>• Update CI workflows<br/>• Update documentation<br/>• Rename FORCE_JAVASCRIPT_ACTIONS_TO_NODE24 env var → FORCE_JAVASCRIPT_ACTIONS_TO_NODE27 in GitHub Actions workflows"]
+        UPDATE_ENGINES["📝 Update package.json<br/>• engines: '>=27'<br/>• Update CI workflows<br/>• Update documentation<br/>• Review FORCE_JAVASCRIPT_ACTIONS_TO_NODE24 env var usage in GitHub Actions workflows (keep name unless GitHub documents a NODE27 replacement)"]
         FINAL_VALIDATION["✅ Final Validation<br/>• Complete test suite pass<br/>• All 14 languages generate<br/>• E2E tests pass<br/>• Security scans clean"]
     end
 

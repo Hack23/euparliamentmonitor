@@ -374,7 +374,7 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 **Sustained Operations:**
 1. ✅ Verify all 14 language versions are serving correctly
 2. 🧪 Run full test suite (`npm run lint && npm run test`)
-3. 📰 Trigger news generation pipeline (`npm run generate-news`)
+3. 📰 Run full content pipeline to regenerate news, indexes, and sitemap (`npm run build`)
 4. 🔍 Validate E2E tests pass (`npm run test:e2e`)
 5. 📋 Document incident and lessons learned in GitHub Issue
 

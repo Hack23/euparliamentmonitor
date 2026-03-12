@@ -19,26 +19,39 @@
 
 ### Step 1: Build and Prepare Content
 
-Run `npm install` (if needed) and `npm run build` locally to compile TypeScript into `./scripts`. If news content or index/sitemap files need to be regenerated, also run `npm run generate-news` (and any other required content-generation commands) so that the repository root contains the up-to-date HTML entry points, `news/` directory, and generated index/sitemap files.
+Run `npm ci` (preferred, when `package-lock.json` is present; otherwise run `npm install`) and `npm run build` locally to compile TypeScript into `./scripts`. If news content or index/sitemap files need to be regenerated, also run `npm run generate-news` (and any other required content-generation commands) so that the repository root contains the up-to-date HTML entry points, `news/` directory, and generated index/sitemap files.
 
 ```bash
-npm install
+# Prefer npm ci for reproducible builds (matches CI pipeline)
+if [ -f package-lock.json ]; then
+  npm ci
+else
+  npm install
+fi
 npm run build
 npm run generate-news  # if content regeneration is needed
 ```
 
 ### Step 2: Create Deployable Branch
 
-Create or update a `gh-pages` branch that contains the deployable static site: the root HTML files (`index.html`, `index-*.html`), the `news/` directory, and the generated sitemap (`sitemap.xml`). Exclude build tooling, tests, and non-essential development artifacts to keep the branch minimal.
+Create or update a `gh-pages` branch that contains **only** the deployable static site artifacts: the root HTML files (`index.html`, `index-*.html`), the `news/` directory, the `scripts/` directory, and the generated sitemap (`sitemap.xml`). Use an orphan branch to avoid carrying the full repository history and contents.
 
 ```bash
-git checkout -b gh-pages
-# Include only deployable artifacts:
-# - index.html, index-*.html (root HTML entry points)
-# - news/ directory
-# - sitemap.xml
-# - scripts/ directory (compiled JS)
-# Exclude: src/, test/, e2e/, node_modules/, .github/
+# Create an orphan branch (no parent commits, clean working tree)
+git checkout --orphan gh-pages
+
+# Remove all tracked files from the index
+git rm -rf .
+
+# Re-add only the deployable artifacts
+git checkout main -- index.html 'index-*.html' news/ scripts/ sitemap.xml
+
+# If gh-pages branch already exists, delete it first:
+#   git branch -D gh-pages
+#   Then re-run the orphan checkout above
+
+git add index.html index-*.html news/ scripts/ sitemap.xml
+git commit -m "Deploy static site to GitHub Pages (incident failover)"
 ```
 
 ### Step 3: Deploy to GitHub Pages
@@ -47,24 +60,30 @@ Push the `gh-pages` branch to GitHub and configure GitHub Pages (under **Setting
 
 ### Step 4: Validate Availability
 
-Wait for GitHub Pages to report as active, then validate availability via the GitHub Pages URL for all 14 language paths:
+Wait for GitHub Pages to report as active, then validate availability using the GitHub Pages **project page** base URL for this repository:
 
-| Language | Path |
-|----------|------|
-| English | `/index.html` |
-| Swedish | `/index-sv.html` |
-| Danish | `/index-da.html` |
-| Norwegian | `/index-no.html` |
-| Finnish | `/index-fi.html` |
-| German | `/index-de.html` |
-| French | `/index-fr.html` |
-| Spanish | `/index-es.html` |
-| Dutch | `/index-nl.html` |
-| Arabic | `/index-ar.html` |
-| Hebrew | `/index-he.html` |
-| Japanese | `/index-ja.html` |
-| Korean | `/index-ko.html` |
-| Chinese | `/index-zh.html` |
+- Base URL: `https://hack23.github.io/euparliamentmonitor`
+
+Validate that all 14 language variants are available at the following full URLs:
+
+| Language | Full URL |
+|----------|----------|
+| English | `https://hack23.github.io/euparliamentmonitor/index.html` |
+| Swedish | `https://hack23.github.io/euparliamentmonitor/index-sv.html` |
+| Danish | `https://hack23.github.io/euparliamentmonitor/index-da.html` |
+| Norwegian | `https://hack23.github.io/euparliamentmonitor/index-no.html` |
+| Finnish | `https://hack23.github.io/euparliamentmonitor/index-fi.html` |
+| German | `https://hack23.github.io/euparliamentmonitor/index-de.html` |
+| French | `https://hack23.github.io/euparliamentmonitor/index-fr.html` |
+| Spanish | `https://hack23.github.io/euparliamentmonitor/index-es.html` |
+| Dutch | `https://hack23.github.io/euparliamentmonitor/index-nl.html` |
+| Arabic | `https://hack23.github.io/euparliamentmonitor/index-ar.html` |
+| Hebrew | `https://hack23.github.io/euparliamentmonitor/index-he.html` |
+| Japanese | `https://hack23.github.io/euparliamentmonitor/index-ja.html` |
+| Korean | `https://hack23.github.io/euparliamentmonitor/index-ko.html` |
+| Chinese | `https://hack23.github.io/euparliamentmonitor/index-zh.html` |
+
+> **Note:** If this runbook is used from a fork, replace `hack23` in the base URL with your GitHub username or organization.
 
 Confirm that root HTML, `news/`, and the generated index and sitemap files load correctly.
 
