@@ -84,7 +84,7 @@ graph TB
     end
     
     subgraph RECOVERY["🔄 Recovery Prioritization"]
-        CRITICAL[🔴 Critical Recovery<br/>RTO < 2 hours]
+        CRITICAL[🔴 Critical Recovery<br/>RTO ≤ 2 hours]
         HIGH[🟠 High Priority<br/>RTO 2-4 hours]
         MEDIUM[🟡 Medium Priority<br/>RTO 4-24 hours]
         STANDARD[🟢 Standard Recovery<br/>RTO > 24 hours]

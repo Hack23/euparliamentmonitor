@@ -92,7 +92,8 @@ mindmap
       ☕ Node.js 24.x LTS
         📅 Current LTS
         ⏰ EOL: ~Apr 2028
-        🔄 Next: Node.js 27
+        🔄 Next LTS: Node.js 26
+        🎯 Target (annual cadence): Node.js 27
       🌐 Browser Runtime
         📅 Evergreen Updates
         ⏰ EOL: N/A
@@ -532,7 +533,7 @@ Should EOL conditions trigger migration, the successor platform will maintain **
 2026-10-01          🔬 Node.js 27 Alpha — Add to CI matrix for early testing
 2027-04-01          📦 Node.js 27 Current — Begin migration validation
 2027-10-01          ✅ Node.js 27 LTS — Complete migration, update engines
-2028-04-30          ⚠️  Node.js 24 EOL — Must be on Node.js 27+ by this date
+2028-04-30          ⚠️  Node.js 24 EOL — Must be on a supported Node.js LTS (26/27+) by this date
 2028-10-01          🔬 Node.js 28 Alpha — Add to CI matrix
 2029-04-01          📦 Node.js 28 Current — Evaluate for next migration cycle
 2030-04-30          ⚠️  Node.js 27 EOL — Plan Node.js 28+ migration

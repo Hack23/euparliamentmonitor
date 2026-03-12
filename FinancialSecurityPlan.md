@@ -291,11 +291,11 @@ pie title Security Budget Allocation (All Free)
 ## 📅 Financial Planning Timeline
 
 ```
-2025-2026    $12/yr  — AWS S3 + CloudFront hosting + domain, all security tools free
-2026-2027    $12/yr  — Same architecture, Node.js 27 migration (no cost impact)
-2027-2028    $12/yr  — Continued operations, evaluate scaling needs
-2028-2029    $12-50  — Potential custom domain SSL or CDN if growth warrants
-2029-2030    $12-250 — Evaluate enterprise features if contributor team grows
+2025-2026    ~$17/yr   — Domain (~$12) + AWS S3 + CloudFront hosting (~$5), all security tools free
+2026-2027    ~$17/yr   — Same architecture (domain + AWS hosting), Node.js 27 migration (no cost impact)
+2027-2028    ~$17/yr   — Continued operations on domain + AWS hosting baseline, evaluate scaling needs
+2028-2029    ~$17-55   — Potential custom domain SSL or enhanced CDN if growth warrants
+2029-2030    ~$17-255  — Evaluate enterprise features if contributor team grows
 ```
 
 ---
@@ -304,7 +304,7 @@ pie title Security Budget Allocation (All Free)
 
 | 📅 **Activity** | 🔄 **Frequency** | 💰 **Cost** | 📋 **Notes** |
 |-----------------|------------------|------------|--------------|
-| Domain renewal | Annual | ~$12 | Only recurring infrastructure cost |
+| Domain + AWS S3/CloudFront hosting renewal | Annual | ~$17 | Primary recurring infrastructure cost (domain ~$12 + AWS hosting ~$5) |
 | Dependency updates | Daily (automated) | $0 | Dependabot handles automatically |
 | Security patching | As needed | $0 | Automated via CI/CD pipeline |
 | Documentation updates | Monthly | $0 | Copilot-assisted generation |
