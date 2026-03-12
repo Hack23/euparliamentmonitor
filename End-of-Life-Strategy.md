@@ -381,10 +381,10 @@ gantt
     Node.js 28 Current+LTS          :node28, 2028-04-01, 2031-04-30
     Node.js 29 Current+LTS          :node29, 2029-04-01, 2032-04-30
 
-    section Build and Tooling
-    TypeScript 5.x              :active, ts5, 2023-03-16, 2026-12-31
-    TypeScript 6.x (Future)     :ts6, 2026-06-01, 2028-12-31
-    ESLint 9.x                  :active, eslint9, 2024-04-01, 2026-12-31
+    section Build and Tooling (Review Horizon)
+    TypeScript 5.x (Active)     :active, ts5, 2023-03-16, 2026-12-31
+    TypeScript 6.x (Planning)   :ts6, 2026-06-01, 2028-12-31
+    ESLint 9.x (Active)         :active, eslint9, 2024-04-01, 2026-12-31
 
     section Frontend (Evergreen)
     HTML5 Living Standard       :active, html5, 2024-01-01, 2032-12-31

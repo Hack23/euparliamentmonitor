@@ -52,6 +52,14 @@ git branch -D gh-pages 2>/dev/null || true
 # Create an orphan branch (no parent commits, clean working tree)
 git checkout --orphan gh-pages
 
+# Safety check: refuse to proceed if the working tree has uncommitted changes
+# (artifacts were already saved to TMP_DIR above; this guards against accidental data loss)
+if [ -n "$(git status --porcelain)" ]; then
+  echo "WARNING: Working tree is not clean. Stash or discard local changes before proceeding."
+  echo "Run: git stash  OR  git checkout -- ."
+  exit 1
+fi
+
 # Remove all tracked files and clean untracked files from the working tree
 git reset --hard
 git clean -fdx
