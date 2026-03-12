@@ -262,7 +262,7 @@ flowchart TB
     end
 
     subgraph MIGRATION["🚀 LTS Migration (Oct 2027)"]
-        UPDATE_ENGINES["📝 Update package.json<br/>• engines: '>=27'<br/>• Update CI workflows<br/>• Update documentation<br/>• Update FORCE_JAVASCRIPT_ACTIONS_TO_NODE env"]
+        UPDATE_ENGINES["📝 Update package.json<br/>• engines: '>=27'<br/>• Update CI workflows<br/>• Update documentation<br/>• Update FORCE_JAVASCRIPT_ACTIONS_TO_NODE27 env in GitHub Actions workflows"]
         FINAL_VALIDATION["✅ Final Validation<br/>• Complete test suite pass<br/>• All 14 languages generate<br/>• E2E tests pass<br/>• Security scans clean"]
     end
 

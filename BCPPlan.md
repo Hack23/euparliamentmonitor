@@ -244,15 +244,15 @@ flowchart TD
     ASSESS --> OPERATIONAL{⚙️ Operational<br/>Impact Level?}
     ASSESS --> TECHNICAL{💻 Technical<br/>Impact Level?}
     
-    DEMOCRATIC -->|Critical/High| IMMEDIATE[⚡ Immediate Response<br/>< 30 minutes]
+    DEMOCRATIC -->|Critical/High| IMMEDIATE[⚡ Immediate Response<br/>≤ 30 minutes]
     OPERATIONAL -->|Critical| IMMEDIATE
     TECHNICAL -->|Critical| IMMEDIATE
     
-    DEMOCRATIC -->|Medium| URGENT[🔄 Urgent Response<br/>< 4 hours]
+    DEMOCRATIC -->|Medium| URGENT[🔄 Urgent Response<br/>≤ 4 hours]
     OPERATIONAL -->|High| URGENT
     TECHNICAL -->|High| URGENT
     
-    OPERATIONAL -->|Medium/Low| STANDARD[📅 Standard Response<br/>< 24 hours]
+    OPERATIONAL -->|Medium/Low| STANDARD[📅 Standard Response<br/>≤ 24 hours]
     TECHNICAL -->|Low| STANDARD
     
     IMMEDIATE --> CRITICAL_RECOVERY[🔴 Critical Recovery<br/>Full Resources<br/>GitHub Pages Rebuild]

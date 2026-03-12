@@ -81,7 +81,7 @@ pie title EU Parliament Monitor Annual Cost Distribution
 | 💰 **Cost Category** | 📊 **Monthly** | 📅 **Annual** | 📋 **Notes** |
 |----------------------|---------------|--------------|-------------|
 | **🌐 GitHub Pages Hosting** | $0 | $0 | Free tier, unlimited bandwidth for public repos |
-| **⚙️ GitHub Actions CI/CD** | $0 | $0 | Free tier (2,000 min/month for public repos) |
+| **⚙️ GitHub Actions CI/CD** | $0 | $0 | GitHub-hosted runners: unlimited for public repos; 2,000 min/month for private repos on Free plan |
 | **📦 GitHub Repository** | $0 | $0 | Free for public open-source repositories |
 | **🔒 CodeQL SAST Scanning** | $0 | $0 | Free for public repos (GitHub Advanced Security) |
 | **🤖 Dependabot Security** | $0 | $0 | Free, built into GitHub |
@@ -139,12 +139,12 @@ xychart-beta
 ```mermaid
 quadrantChart
     title Security Control Investment vs. Impact
-    x-axis "Low Cost" --> "High Cost"
-    y-axis "Low Security Impact" --> "High Security Impact"
-    quadrant-1 "High Value"
-    quadrant-2 "Premium"
-    quadrant-3 "Nice to Have"
-    quadrant-4 "Evaluate"
+    x-axis Low Cost --> High Cost
+    y-axis Low Security Impact --> High Security Impact
+    quadrant-1 High Value
+    quadrant-2 Premium
+    quadrant-3 Nice to Have
+    quadrant-4 Evaluate
     "CodeQL SAST": [0.05, 0.9]
     "Dependabot": [0.05, 0.85]
     "Branch Protection": [0.05, 0.8]
