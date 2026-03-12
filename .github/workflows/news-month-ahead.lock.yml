@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament month-ahead strategic outlook English article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"d6f697410be9134e992240212665aeba0420ff4e96c8ad4871b9f042ac7d273f","compiler_version":"v0.57.2"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"37fd2f3523356a0cbf22fca677785526ba6a107d25bbc04df017c7705aeaf144","compiler_version":"v0.57.2"}
 
 name: "News: EU Parliament Month Ahead"
 "on":

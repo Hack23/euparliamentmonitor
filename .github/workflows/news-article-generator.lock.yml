@@ -23,7 +23,7 @@
 #
 # Manual dispatch workflow to generate any combination of EU Parliament news article types (English). Translations handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"0b3eec3cd03b964eedc5c7446e2917b7c0d0f92cd0c65ce88e6eba1c2cfda87b","compiler_version":"v0.57.2"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"3b816db133173568075f3b11bd04a610eba3ba72f384fc04acc8e11e45f300b0","compiler_version":"v0.57.2"}
 
 name: "News: EU Parliament Article Generator"
 "on":

@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament breaking news English articles using EP feed endpoints as the primary data source. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"58e793d7ea7dc52a40677038a3e71adb608d9497b86d962cbc1e60dae6071a90","compiler_version":"v0.57.2"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"dc7dea8a5771f2a989a20a8d685c1bf1ab53fe70a508f6aec2d4777104ddb0a7","compiler_version":"v0.57.2"}
 
 name: "News: EU Parliament Breaking News"
 "on":

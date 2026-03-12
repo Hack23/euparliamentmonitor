@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament plenary votes, adopted texts, and resolutions English analysis article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"d59243dddedccf3f2a66af237cb3487e0f6b63149dcd6074153138a8f52181d2","compiler_version":"v0.57.2"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"ab2abe6a97def3cf5fc5fa8f7aeb2059e0b7c09e6c22c521f44ddbec13f2920e","compiler_version":"v0.57.2"}
 
 name: "News: EU Parliament Plenary Votes & Resolutions"
 "on":
