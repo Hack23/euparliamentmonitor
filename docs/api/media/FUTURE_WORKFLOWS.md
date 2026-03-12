@@ -125,7 +125,7 @@ The following capabilities have already been delivered and are documented in [WO
 
 **Status:** 9 agentic news workflows compiled via `gh-aw` (GitHub Agentic Workflows v0.57.0) are in production.  
 **Engine:** GitHub Copilot CLI with `claude-opus-4.6` model  
-**Data Source:** `european-parliament-mcp-server@1.1.6` via MCP protocol  
+**Data Source:** `european-parliament-mcp-server@1.1.8` via MCP protocol  
 **Coverage:** 14 languages (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH)
 
 | Workflow | Schedule | Purpose |
