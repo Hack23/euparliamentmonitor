@@ -23,7 +23,7 @@
 #
 # Generates EU Parliament week-ahead English article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"96d3843c49dfaaf92a93dcbaac43f0d6c558efbc6e1801bc5b84077513557356","compiler_version":"v0.58.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"d2a73b4e4aa27536e9652d3ad19780d1b353850f8ea19a78f01876b6ba3f8695","compiler_version":"v0.58.0"}
 
 name: "News: EU Parliament Week Ahead"
 "on":
