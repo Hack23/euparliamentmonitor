@@ -84,7 +84,6 @@ export const ENVI_KEYWORDS = [
     'gmo',
     'genetically',
     'cancer',
-    'package travel',
 ];
 /** Lowercase keywords that map an adopted-text title to the ECON theme group */
 export const ECON_KEYWORDS = [
