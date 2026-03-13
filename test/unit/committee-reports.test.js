@@ -288,7 +288,7 @@ describe('isPlaceholderCommitteeData', () => {
 });
 
 describe('categorizeAdoptedText', () => {
-  describe('AFET precedence (guards against AGRI false-positives)', () => {
+  describe('AFET precedence (guards against AGRI false-positives, checked after LIBE)', () => {
     it('classifies "Post-election situation in Uganda and threats against opposition leader Bobi Wine" as AFET not AGRI', () => {
       const title =
         'Post-election situation in Uganda and threats against opposition leader Bobi Wine';
@@ -314,7 +314,7 @@ describe('categorizeAdoptedText', () => {
     });
   });
 
-  describe('LIBE precedence', () => {
+  describe('LIBE precedence (checked before AFET)', () => {
     it('classifies "Safe countries of origin list" as LIBE', () => {
       expect(categorizeAdoptedText('Safe countries of origin list revision')).toBe('LIBE');
     });
@@ -327,6 +327,12 @@ describe('categorizeAdoptedText', () => {
 
     it('classifies "Human rights defenders" as LIBE', () => {
       expect(categorizeAdoptedText('Human rights defenders and civil society')).toBe('LIBE');
+    });
+
+    it('classifies human trafficking title mentioning Ukraine as LIBE not AFET', () => {
+      expect(categorizeAdoptedText(
+        'Human trafficking and grave human rights violations linked to the recruitment of non-Russian nationals for Russia\'s war in Ukraine'
+      )).toBe('LIBE');
     });
   });
 
@@ -346,6 +352,10 @@ describe('categorizeAdoptedText', () => {
     it('classifies "wine" keyword alone as AGRI when no AFET/LIBE match', () => {
       expect(categorizeAdoptedText('Regulation on wine labelling standards')).toBe('AGRI');
     });
+
+    it('classifies fisheries-related title as AGRI', () => {
+      expect(categorizeAdoptedText('Fisheries management approaches for safeguarding sensitive species, tackling invasive species and benefiting local economies')).toBe('AGRI');
+    });
   });
 
   describe('ENVI matches', () => {
@@ -355,6 +365,10 @@ describe('categorizeAdoptedText', () => {
 
     it('classifies "climate targets" as ENVI', () => {
       expect(categorizeAdoptedText('Revised climate targets for 2040')).toBe('ENVI');
+    });
+
+    it('classifies emission-related title as ENVI', () => {
+      expect(categorizeAdoptedText('Calculation of emission credits for heavy-duty vehicles for 2025 to 2029')).toBe('ENVI');
     });
   });
 
