@@ -392,22 +392,24 @@ echo "✅ Validation complete"
 echo "=== Scope Verification ==="
 
 # Check for any modifications outside news/ directory
-OUT_OF_SCOPE=$(git diff --name-only 2>/dev/null | grep -v '^news/' || true)
-UNTRACKED_OOS=$(git ls-files --others --exclude-standard 2>/dev/null | grep -v '^news/' || true)
+OUT_OF_SCOPE=$(git diff --name-only 2>/dev/null | grep -Ev '^news(/|$)' || true)
+UNTRACKED_OOS=$(git ls-files --others --exclude-standard 2>/dev/null | grep -Ev '^news(/|$)' || true)
 
 if [ -n "$OUT_OF_SCOPE" ] || [ -n "$UNTRACKED_OOS" ]; then
   echo "⚠️ Out-of-scope file modifications detected — reverting to prevent patch conflicts:"
-  echo "$OUT_OF_SCOPE"
-  echo "$UNTRACKED_OOS"
 
   # Revert tracked file changes outside news/
   if [ -n "$OUT_OF_SCOPE" ]; then
-    echo "$OUT_OF_SCOPE" | xargs git checkout -- 2>/dev/null || true
+    echo "Reverting tracked files:"
+    echo "$OUT_OF_SCOPE"
+    echo "$OUT_OF_SCOPE" | xargs -r git checkout -- 2>/dev/null || echo "⚠️ Some files could not be reverted"
   fi
 
   # Remove untracked files outside news/
   if [ -n "$UNTRACKED_OOS" ]; then
-    echo "$UNTRACKED_OOS" | xargs rm -f 2>/dev/null || true
+    echo "Removing untracked out-of-scope files:"
+    echo "$UNTRACKED_OOS"
+    echo "$UNTRACKED_OOS" | xargs -r rm -f 2>/dev/null || echo "⚠️ Some files could not be removed"
   fi
 
   echo "✅ Out-of-scope changes reverted"
