@@ -90,7 +90,7 @@ export interface ScenarioPlanning {
 
 /** A single refinement pass in the multi-iteration analysis process */
 export interface AnalysisIteration {
-  /** Pass number (1 = initial, 4 = synthesis) */
+  /** Pass number (1 = initial, 2 = stakeholder_challenge, 3 = evidence_validation, 4 = synthesis) */
   readonly pass: 1 | 2 | 3 | 4;
   /** Type of analytical work performed in this pass */
   readonly type: 'initial' | 'stakeholder_challenge' | 'evidence_validation' | 'synthesis';

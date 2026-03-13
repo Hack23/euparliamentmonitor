@@ -1556,7 +1556,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     severityMedium: 'Medium',
     severityHigh: 'High',
     severityCritical: 'Critical',
-    /* eslint-disable sonarjs/no-duplicate-string -- EN fallback values repeated across all 14 language entries */
+    /* eslint-disable sonarjs/no-duplicate-string -- EN fallback values repeated across all 13 non-EN language entries */
     executiveSummaryHeading: 'Executive Summary',
     confidenceHigh: 'High Confidence',
     confidenceMedium: 'Medium Confidence',
