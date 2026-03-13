@@ -235,6 +235,78 @@ graph TD
 | **Concurrency** | Shared concurrency group prevents conflicts | Resource management |
 | **Network Allowlist** | Explicit domain allowlisting via gh-aw | Network security |
 
+#### Enhanced Analysis Features (v2)
+
+All content workflows (except `news-translate.md`) have been upgraded with the following mandatory analytical enhancements:
+
+##### 🎭 Multi-Stakeholder Perspective Requirements
+
+Every major parliamentary action must be analyzed from **at least 3 of 5 stakeholder perspectives**:
+
+| Perspective | Analysis Focus |
+|-------------|---------------|
+| **EP Political Groups** | Coalition dynamics, group influence, voting alliances |
+| **Civil Society & NGOs** | Citizens' rights, democratic participation, transparency |
+| **Industry & Business** | Regulatory burden, market effects, compliance dynamics |
+| **National Governments** | Subsidiarity, implementation requirements, national interests |
+| **EU Citizens** | Direct life impact, rights, services, democratic representation |
+
+Stakeholder analysis is rendered using `<div class="stakeholder-grid">` HTML sections in each article's deep-analysis portion, backed by specific EP MCP data citations.
+
+##### 🔄 Iterative AI Content Refinement Cycle
+
+All analytical content sections follow a mandatory 4-pass refinement process:
+
+| Pass | Activity | Output |
+|------|----------|--------|
+| **Pass 1 — Initial Assessment** | Gather MCP baseline data; identify actors, actions, outcomes | Draft narrative |
+| **Pass 2 — Stakeholder Challenge** | Re-examine from each stakeholder angle; flag blind spots | Revised draft with gaps identified |
+| **Pass 3 — Evidence Cross-Validation** | Verify claims against EP documents/votes; add 🟢/🟡/🔴 confidence indicators | Evidenced assertions only |
+| **Pass 4 — Synthesis & Scenarios** | Produce balanced conclusions; provide 2–3 forward-looking scenarios with probability labels | Final publishable analysis |
+
+##### ✅ Enhanced Analysis Quality Gates
+
+In addition to the existing content quality gates (500-word minimum, no synthetic IDs, current dates), all articles must pass **two new quality gate categories**:
+
+**Analysis Depth Gates:**
+- Minimum 3 stakeholder perspectives analyzed per key development
+- SWOT dimensions cover both political AND economic/regulatory aspects
+- Dashboard trend indicators included (↑↓→), not just current values
+- Cross-domain policy links shown (e.g., environment ↔ trade ↔ social)
+- Evidence chains cite specific document IDs, vote counts, or MCP data points
+- Outlook provides at least 2 named scenarios with probability labels
+
+**Political Intelligence Gates:**
+- Coalition dynamics named explicitly (not just "EPP and S&D voted together")
+- Each group's position explained with reasoning (incentives, ideology, constituency)
+- Winner/loser analysis identified with supporting evidence
+- Historical EP context referenced where comparable precedents exist
+
+##### 📄 EP Document Analysis Framework
+
+Every EP document referenced in an article must include structured analysis covering:
+1. **Political Context** — Why introduced? Who pushed it? What problem does it solve?
+2. **Stakeholder Impact** — Who benefits/faces costs? Quantified where possible.
+3. **Procedure Stage** — Where in the legislative pipeline? Next steps and timeline.
+4. **Coalition Dynamics** — Which groups support/oppose? Key fault lines.
+5. **Significance Rating** — 🔴 High / 🟡 Medium / 🟢 Low with one-sentence justification.
+
+##### 🔬 Workflow-Specific Intelligence Modules
+
+Each content workflow includes a tailored intelligence module beyond the shared framework:
+
+| Workflow | Module | Focus |
+|----------|--------|-------|
+| `news-week-ahead.md` | 🔭 Strategic Preview Analysis | What to watch, coalitions under stress, legislative inflection points, geopolitical triggers |
+| `news-month-ahead.md` | 📈 Long-Term Trend Context | Term trajectory, policy momentum, coalition evolution, EU external context |
+| `news-breaking.md` | ⚡ Rapid Stakeholder Impact Assessment | Immediate winners/losers, market/policy signals, next 24–48 hour tracking |
+| `news-committee-reports.md` | 🏛️ Committee Power Dynamics Analysis | Rapporteur influence, shadow rapporteur positions, amendment landscape, trilogue implications |
+| `news-propositions.md` | 🗓️ Legislative Pipeline Intelligence | Passage probability, amendment expectations, timeline forecast, blocking coalitions |
+| `news-motions.md` | 🗳️ Voting Pattern Intelligence | Coalition map, abstention analysis, cross-party defections, margin analysis |
+| `news-weekly-review.md` | 📊 Week-in-Context Analysis | Parliamentary landscape shift, promises vs. delivery, surprise developments |
+| `news-monthly-review.md` | 🗺️ Monthly Trend Synthesis | Legislative productivity, coalition stability index, policy trajectory, emerging themes |
+| `news-translate.md` | 🌐 Analysis Fidelity Requirements | Stakeholder framing preservation, confidence indicator translation, EP official terminology |
+
 ---
 
 **📄 File:** `.github/workflows/test-and-report.yml`  
