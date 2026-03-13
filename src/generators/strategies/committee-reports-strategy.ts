@@ -125,12 +125,14 @@ export const AGRI_KEYWORDS: readonly string[] = [
   'mercosur',
   'rural',
   'farming',
+  'fisheries',
 ];
 
 /** Lowercase keywords that map an adopted-text title to the ENVI theme group */
 export const ENVI_KEYWORDS: readonly string[] = [
   'environment',
   'climate',
+  'emission',
   'health',
   'food',
   'medicinal',
@@ -138,6 +140,7 @@ export const ENVI_KEYWORDS: readonly string[] = [
   'gmo',
   'genetically',
   'cancer',
+  'package travel',
 ];
 
 /** Lowercase keywords that map an adopted-text title to the ECON theme group */
