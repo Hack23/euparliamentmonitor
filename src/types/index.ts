@@ -177,3 +177,15 @@ export type {
   DashboardStrings,
   DashboardBuilderStrings,
 } from './visualization.js';
+
+export type {
+  StakeholderType,
+  StakeholderImpact,
+  StakeholderSeverity,
+  StakeholderPerspective,
+  AnalysisIterationType,
+  AnalysisIteration,
+  StakeholderOutcomeMatrix,
+} from './stakeholder.js';
+
+export { ALL_STAKEHOLDER_TYPES } from './stakeholder.js';

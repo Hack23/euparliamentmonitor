@@ -14,7 +14,11 @@ import type {
   CoalitionIntelligence,
   MEPInfluenceScore,
   LegislativeVelocity,
+  StakeholderPerspective,
+  StakeholderOutcomeMatrix,
+  StakeholderType,
 } from '../types/index.js';
+import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
 
 // ─── Internal type aliases ────────────────────────────────────────────────────
 
@@ -270,4 +274,141 @@ export function buildIntelligenceSection(
           ${itemsHtml}
         </ul>
       </section>`;
+}
+
+// ─── Stakeholder scoring functions ───────────────────────────────────────────
+
+/**
+ * Derive a severity level from a numeric 0-1 importance score.
+ *
+ * @param score - Normalised importance score (0 = least important, 1 = most)
+ * @returns Severity level
+ */
+function severityFromScore(score: number): StakeholderPerspective['severity'] {
+  if (score >= 0.7) return 'high';
+  if (score >= 0.4) return 'medium';
+  return 'low';
+}
+
+/**
+ * Build a default set of stakeholder perspectives for a parliamentary action.
+ * Each perspective is seeded with a reasoning string and evidence items derived
+ * from the provided topic and impact scores. All six stakeholder groups receive
+ * a perspective entry.
+ *
+ * @param topic - Short description of the parliamentary action (e.g. vote title)
+ * @param scores - Optional per-stakeholder importance scores (0-1); defaults to 0.5
+ * @returns Array of six StakeholderPerspective objects, one per stakeholder group
+ */
+export function buildDefaultStakeholderPerspectives(
+  topic: string,
+  scores?: Partial<Record<StakeholderType, number>>
+): StakeholderPerspective[] {
+  return ALL_STAKEHOLDER_TYPES.map((stakeholder) => {
+    const score = scores?.[stakeholder] ?? 0.5;
+    const severity = severityFromScore(score);
+    return {
+      stakeholder,
+      impact: score >= 0.6 ? ('positive' as const) : score <= 0.3 ? ('negative' as const) : ('neutral' as const),
+      severity,
+      reasoning: `Impact of "${topic}" on ${stakeholder.replace(/_/g, ' ')}: ${severity} significance.`,
+      evidence: [topic],
+    };
+  });
+}
+
+/**
+ * Score stakeholder influence from raw MCP data.
+ * Returns null for null, undefined, non-object, or missing stakeholder type.
+ *
+ * @param rawData - Raw stakeholder influence data (unknown shape)
+ * @returns Structured StakeholderPerspective or null if input is invalid
+ */
+export function scoreStakeholderInfluence(rawData: unknown): StakeholderPerspective | null {
+  const d = toRecord(rawData);
+  if (!d) return null;
+  const stakeholderRaw = asStr(d['stakeholder']);
+  if (!(ALL_STAKEHOLDER_TYPES as readonly string[]).includes(stakeholderRaw)) return null;
+  const stakeholder = stakeholderRaw as StakeholderType;
+  const impactRaw = asStr(d['impact']).toLowerCase();
+  const validImpacts = ['positive', 'negative', 'neutral', 'mixed'] as const;
+  const impact = (validImpacts as readonly string[]).includes(impactRaw)
+    ? (impactRaw as StakeholderPerspective['impact'])
+    : 'neutral';
+  const severityRaw = asStr(d['severity']).toLowerCase();
+  const validSeverities = ['high', 'medium', 'low'] as const;
+  const severity = (validSeverities as readonly string[]).includes(severityRaw)
+    ? (severityRaw as StakeholderPerspective['severity'])
+    : 'medium';
+  return {
+    stakeholder,
+    impact,
+    severity,
+    reasoning: asStr(d['reasoning']),
+    evidence: asStrArr(d['evidence']),
+  };
+}
+
+/**
+ * Build a StakeholderOutcomeMatrix row for a single parliamentary action.
+ * Derives outcomes from per-stakeholder scores: score > 0.6 → winner,
+ * score < 0.4 → loser, otherwise neutral.
+ *
+ * @param action - The parliamentary action being assessed
+ * @param scores - Per-stakeholder importance scores (0-1); defaults to 0.5
+ * @param confidence - Confidence level for the outcome assessments
+ * @returns A StakeholderOutcomeMatrix row
+ */
+export function buildStakeholderOutcomeMatrix(
+  action: string,
+  scores: Partial<Record<StakeholderType, number>> = {},
+  confidence: StakeholderOutcomeMatrix['confidence'] = 'medium'
+): StakeholderOutcomeMatrix {
+  const entries = ALL_STAKEHOLDER_TYPES.map((stakeholder): [StakeholderType, 'winner' | 'loser' | 'neutral'] => {
+    const score = scores[stakeholder] ?? 0.5;
+    const outcome: 'winner' | 'loser' | 'neutral' =
+      score > 0.6 ? 'winner' : score < 0.4 ? 'loser' : 'neutral';
+    return [stakeholder, outcome];
+  });
+  const outcomes: Record<StakeholderType, 'winner' | 'loser' | 'neutral'> = {
+    political_groups: entries.find(([k]) => k === 'political_groups')?.[1] ?? 'neutral',
+    civil_society: entries.find(([k]) => k === 'civil_society')?.[1] ?? 'neutral',
+    industry: entries.find(([k]) => k === 'industry')?.[1] ?? 'neutral',
+    national_govts: entries.find(([k]) => k === 'national_govts')?.[1] ?? 'neutral',
+    citizens: entries.find(([k]) => k === 'citizens')?.[1] ?? 'neutral',
+    eu_institutions: entries.find(([k]) => k === 'eu_institutions')?.[1] ?? 'neutral',
+  };
+  return { action, outcomes, confidence };
+}
+
+/**
+ * Map an array of StakeholderPerspective objects to a simple influence ranking.
+ * Returns stakeholder types sorted by severity (high → medium → low), then by
+ * impact direction (negative before positive, as negative impacts require more
+ * political attention).
+ *
+ * @param perspectives - Array of stakeholder perspectives to rank
+ * @returns Stakeholder types sorted by influence priority
+ */
+export function rankStakeholdersByInfluence(
+  perspectives: readonly StakeholderPerspective[]
+): StakeholderType[] {
+  const severityWeight: Record<StakeholderPerspective['severity'], number> = {
+    high: 3,
+    medium: 2,
+    low: 1,
+  };
+  const impactWeight: Record<StakeholderPerspective['impact'], number> = {
+    negative: 2,
+    mixed: 1,
+    positive: 1,
+    neutral: 0,
+  };
+  return [...perspectives]
+    .sort((a, b) => {
+      const sw = severityWeight[b.severity] - severityWeight[a.severity];
+      if (sw !== 0) return sw;
+      return impactWeight[b.impact] - impactWeight[a.impact];
+    })
+    .map((p) => p.stakeholder);
 }

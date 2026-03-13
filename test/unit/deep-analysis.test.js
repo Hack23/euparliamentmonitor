@@ -813,3 +813,283 @@ describe('Dashboard builders', () => {
     });
   });
 });
+
+// ─── Multi-Stakeholder Perspective Tests ──────────────────────────────────────
+
+// Shared fixtures for multi-stakeholder tests
+const DATE_RANGE = { start: '2026-03-01', end: '2026-03-07' };
+
+const BREAKING_FEED_DATA = {
+  adoptedTexts: [{ id: '1', title: 'DMA Regulation', date: '2026-01-13', url: '' }],
+  events: [{ id: '1', title: 'Emergency debate', date: '2026-01-13' }],
+  procedures: [{ id: '1', title: 'Climate procedure', date: '2026-01-13' }],
+  mepUpdates: [{ id: '1', name: 'MEP Smith', date: '2026-01-13' }],
+};
+
+const PIPELINE_DATA = { healthScore: 0.75, throughput: 12, bottleneckCount: 2 };
+
+describe('Multi-stakeholder perspectives in analysis builders', () => {
+  const ALL_STAKEHOLDER_TYPES = [
+    'political_groups',
+    'civil_society',
+    'industry',
+    'national_govts',
+    'citizens',
+    'eu_institutions',
+  ];
+
+  describe('buildVotingAnalysis — stakeholder fields', () => {
+    it('should populate stakeholderPerspectives with 6 entries', () => {
+      const result = buildVotingAnalysis('2026-01-01', '2026-01-07', VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS);
+      expect(result.stakeholderPerspectives).toHaveLength(6);
+    });
+
+    it('should cover all 6 stakeholder types in perspectives', () => {
+      const result = buildVotingAnalysis('2026-01-01', '2026-01-07', VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS);
+      const types = result.stakeholderPerspectives?.map((p) => p.stakeholder) ?? [];
+      for (const t of ALL_STAKEHOLDER_TYPES) {
+        expect(types).toContain(t);
+      }
+    });
+
+    it('should populate stakeholderOutcomeMatrix with at least 1 row', () => {
+      const result = buildVotingAnalysis('2026-01-01', '2026-01-07', VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS);
+      expect(result.stakeholderOutcomeMatrix?.length).toBeGreaterThan(0);
+    });
+
+    it('should assign high confidence when records are present', () => {
+      const result = buildVotingAnalysis('2026-01-01', '2026-01-07', VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS);
+      expect(result.stakeholderOutcomeMatrix?.[0]?.confidence).toBe('high');
+    });
+
+    it('should assign low confidence when no real records', () => {
+      const result = buildVotingAnalysis('2026-01-01', '2026-01-07', [], [], [], []);
+      expect(result.stakeholderOutcomeMatrix?.[0]?.confidence).toBe('low');
+    });
+
+    it('stakeholderPerspectives should have valid impact and severity for each entry', () => {
+      const result = buildVotingAnalysis('2026-01-01', '2026-01-07', VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS);
+      for (const p of result.stakeholderPerspectives ?? []) {
+        expect(['positive', 'negative', 'neutral', 'mixed']).toContain(p.impact);
+        expect(['high', 'medium', 'low']).toContain(p.severity);
+      }
+    });
+  });
+
+  describe('buildProspectiveAnalysis — stakeholder fields', () => {
+    it('should populate stakeholderPerspectives with 6 entries', () => {
+      const result = buildProspectiveAnalysis(WEEK_AHEAD_DATA, DATE_RANGE, 'week');
+      expect(result.stakeholderPerspectives).toHaveLength(6);
+    });
+
+    it('should populate stakeholderOutcomeMatrix', () => {
+      const result = buildProspectiveAnalysis(WEEK_AHEAD_DATA, DATE_RANGE, 'week');
+      expect(result.stakeholderOutcomeMatrix?.length).toBeGreaterThan(0);
+    });
+
+    it('each matrix row should have all 6 stakeholder outcomes', () => {
+      const result = buildProspectiveAnalysis(WEEK_AHEAD_DATA, DATE_RANGE, 'week');
+      const row = result.stakeholderOutcomeMatrix?.[0];
+      for (const t of ALL_STAKEHOLDER_TYPES) {
+        expect(row?.outcomes[t]).toBeDefined();
+        expect(['winner', 'loser', 'neutral']).toContain(row?.outcomes[t]);
+      }
+    });
+  });
+
+  describe('buildBreakingAnalysis — stakeholder fields', () => {
+    it('should populate stakeholderPerspectives with 6 entries', () => {
+      const result = buildBreakingAnalysis('2026-01-13', BREAKING_FEED_DATA, 'EPP defection detected', 'Coalition forming', 'en');
+      expect(result.stakeholderPerspectives).toHaveLength(6);
+    });
+
+    it('should populate stakeholderOutcomeMatrix', () => {
+      const result = buildBreakingAnalysis('2026-01-13', BREAKING_FEED_DATA, '', '', 'en');
+      expect(result.stakeholderOutcomeMatrix?.length).toBeGreaterThan(0);
+    });
+
+    it('should assign high confidence when adopted texts present', () => {
+      const result = buildBreakingAnalysis('2026-01-13', BREAKING_FEED_DATA, '', '', 'en');
+      expect(result.stakeholderOutcomeMatrix?.[0]?.confidence).toBe('high');
+    });
+  });
+
+  describe('buildPropositionsAnalysis — stakeholder fields', () => {
+    it('should populate stakeholderPerspectives with 6 entries', () => {
+      const result = buildPropositionsAnalysis('<p>proposals</p>', PIPELINE_DATA, '2026-01-13', 'en', '');
+      expect(result.stakeholderPerspectives).toHaveLength(6);
+    });
+
+    it('should populate stakeholderOutcomeMatrix', () => {
+      const result = buildPropositionsAnalysis('<p>proposals</p>', PIPELINE_DATA, '2026-01-13', 'en', '');
+      expect(result.stakeholderOutcomeMatrix?.length).toBeGreaterThan(0);
+    });
+
+    it('should assign low confidence when pipelineData is null', () => {
+      const result = buildPropositionsAnalysis('', null, '2026-01-13', 'en', '');
+      expect(result.stakeholderOutcomeMatrix?.[0]?.confidence).toBe('low');
+    });
+
+    it('should reflect health score in stakeholder perspectives', () => {
+      const weakResult = buildPropositionsAnalysis('', { healthScore: 0.2, throughput: 1, bottleneckCount: 5 }, '2026-01-13');
+      const strongResult = buildPropositionsAnalysis('', { healthScore: 0.9, throughput: 15, bottleneckCount: 0 }, '2026-01-13');
+      const weakPg = weakResult.stakeholderPerspectives?.find((p) => p.stakeholder === 'political_groups');
+      const strongPg = strongResult.stakeholderPerspectives?.find((p) => p.stakeholder === 'political_groups');
+      // Both should have a political_groups entry
+      expect(weakPg).toBeDefined();
+      expect(strongPg).toBeDefined();
+    });
+  });
+
+  describe('buildCommitteeAnalysis — stakeholder fields', () => {
+    it('should populate stakeholderPerspectives with 6 entries for valid data', () => {
+      const result = buildCommitteeAnalysis(COMMITTEE_DATA, '2026-01-13', 'en');
+      expect(result?.stakeholderPerspectives).toHaveLength(6);
+    });
+
+    it('should populate stakeholderOutcomeMatrix for valid data', () => {
+      const result = buildCommitteeAnalysis(COMMITTEE_DATA, '2026-01-13', 'en');
+      expect(result?.stakeholderOutcomeMatrix?.length).toBeGreaterThan(0);
+    });
+
+    it('should return null for placeholder data (no perspective fields)', () => {
+      expect(buildCommitteeAnalysis(makePlaceholderCommittees(), '2026-01-13', 'en')).toBeNull();
+    });
+  });
+});
+
+// ─── Multi-stakeholder HTML rendering tests ────────────────────────────────────
+
+describe('buildDeepAnalysisSection — multi-stakeholder HTML rendering', () => {
+  const ANALYSIS_WITH_PERSPECTIVES = {
+    ...SAMPLE_ANALYSIS,
+    stakeholderPerspectives: [
+      {
+        stakeholder: 'political_groups',
+        impact: 'positive',
+        severity: 'high',
+        reasoning: 'Coalition secured majority',
+        evidence: ['Vote tally', 'Press release'],
+      },
+      {
+        stakeholder: 'civil_society',
+        impact: 'mixed',
+        severity: 'medium',
+        reasoning: 'Some NGO demands met, others rejected',
+        evidence: ['NGO statement'],
+      },
+    ],
+    stakeholderOutcomeMatrix: [
+      {
+        action: 'Digital Markets Act vote',
+        outcomes: {
+          political_groups: 'winner',
+          civil_society: 'neutral',
+          industry: 'loser',
+          national_govts: 'winner',
+          citizens: 'neutral',
+          eu_institutions: 'winner',
+        },
+        confidence: 'high',
+      },
+    ],
+  };
+
+  it('should render stakeholder perspectives section', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('analysis-stakeholder-perspectives');
+  });
+
+  it('should render stakeholder group names in perspectives', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('political groups');
+    expect(html).toContain('civil society');
+  });
+
+  it('should render impact badges in perspectives', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('perspective-impact-positive');
+    expect(html).toContain('perspective-impact-mixed');
+  });
+
+  it('should render reasoning text', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('Coalition secured majority');
+    expect(html).toContain('Some NGO demands met');
+  });
+
+  it('should render evidence items', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('Vote tally');
+    expect(html).toContain('Press release');
+  });
+
+  it('should render stakeholder outcome matrix section', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('analysis-outcome-matrix');
+  });
+
+  it('should render the action in the matrix', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('Digital Markets Act vote');
+  });
+
+  it('should render outcome cells in the matrix', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('outcome-winner');
+    expect(html).toContain('outcome-loser');
+    expect(html).toContain('outcome-neutral');
+  });
+
+  it('should render confidence in the matrix', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('confidence-high');
+  });
+
+  it('should not render perspectives section when field is absent', () => {
+    const html = buildDeepAnalysisSection(SAMPLE_ANALYSIS, 'en');
+    expect(html).not.toContain('analysis-stakeholder-perspectives');
+  });
+
+  it('should not render matrix section when field is absent', () => {
+    const html = buildDeepAnalysisSection(SAMPLE_ANALYSIS, 'en');
+    expect(html).not.toContain('analysis-outcome-matrix');
+  });
+
+  it('should escape XSS in perspective reasoning', () => {
+    const xssAnalysis = {
+      ...SAMPLE_ANALYSIS,
+      stakeholderPerspectives: [{
+        stakeholder: 'citizens',
+        impact: 'negative',
+        severity: 'high',
+        reasoning: '<script>alert("xss")</script>',
+        evidence: [],
+      }],
+    };
+    const html = buildDeepAnalysisSection(xssAnalysis, 'en');
+    expect(html).not.toContain('<script>alert');
+    expect(html).toContain('&lt;script&gt;');
+  });
+
+  it('should escape XSS in matrix action text', () => {
+    const xssAnalysis = {
+      ...SAMPLE_ANALYSIS,
+      stakeholderOutcomeMatrix: [{
+        action: '<img onerror="alert(1)">',
+        outcomes: {
+          political_groups: 'winner',
+          civil_society: 'neutral',
+          industry: 'neutral',
+          national_govts: 'neutral',
+          citizens: 'neutral',
+          eu_institutions: 'neutral',
+        },
+        confidence: 'low',
+      }],
+    };
+    const html = buildDeepAnalysisSection(xssAnalysis, 'en');
+    expect(html).not.toContain('<img onerror');
+    expect(html).toContain('&lt;img');
+  });
+});

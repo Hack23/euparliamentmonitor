@@ -316,6 +316,116 @@ function buildOutlookSection(outlook, heading, contentLang) {
 }
 // ─── Main builder ────────────────────────────────────────────────────────────
 /**
+ * Map a StakeholderPerspective impact to a CSS class suffix.
+ *
+ * @param impact - Stakeholder impact direction
+ * @returns CSS class suffix
+ */
+function perspectiveImpactClass(impact) {
+    return `perspective-${impact}`;
+}
+/**
+ * Build the "Multi-Stakeholder Perspectives" sub-section.
+ * Renders a card grid with one card per stakeholder group showing
+ * impact direction, severity, reasoning, and evidence.
+ *
+ * @param perspectives - Array of stakeholder perspectives
+ * @param heading - Localized section heading
+ * @param contentLang - Language of the reasoning/evidence text
+ * @returns HTML string, or empty string if no perspectives provided
+ */
+function buildStakeholderPerspectivesSection(perspectives, heading, contentLang) {
+    if (!perspectives || perspectives.length === 0)
+        return '';
+    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
+    const cards = perspectives
+        .map((p) => {
+        const evidenceItems = p.evidence
+            .map((e) => `<li>${escapeHTML(e)}</li>`)
+            .join('');
+        const evidenceHtml = evidenceItems
+            ? `<ul class="perspective-evidence">${evidenceItems}</ul>`
+            : '';
+        return (`<div class="stakeholder-perspective-card ${escapeHTML(perspectiveImpactClass(p.impact))} severity-${escapeHTML(p.severity)}">` +
+            `<div class="perspective-header">` +
+            `<span class="perspective-stakeholder">${escapeHTML(p.stakeholder.replace(/_/g, ' '))}</span>` +
+            `<span class="perspective-impact-badge perspective-impact-${escapeHTML(p.impact)}">${escapeHTML(p.impact)}</span>` +
+            `<span class="perspective-severity-badge severity-${escapeHTML(p.severity)}">${escapeHTML(p.severity)}</span>` +
+            `</div>` +
+            `<p class="perspective-reasoning"${langAttr}>${escapeHTML(p.reasoning)}</p>` +
+            evidenceHtml +
+            `</div>`);
+    })
+        .join('\n              ');
+    return `
+            <div class="analysis-stakeholder-perspectives">
+              <h3>${escapeHTML(heading)}</h3>
+              <div class="stakeholder-perspectives-grid">
+              ${cards}
+              </div>
+            </div>`;
+}
+/**
+ * Build the "Stakeholder Outcome Matrix" sub-section.
+ * Renders an accessible table mapping each action to winner/loser/neutral
+ * outcomes per stakeholder group.
+ *
+ * @param matrix - Array of stakeholder outcome matrix rows
+ * @param heading - Localized section heading
+ * @param contentLang - Language of the action text
+ * @returns HTML string, or empty string if no matrix rows provided
+ */
+function buildStakeholderOutcomeMatrixSection(matrix, heading, contentLang) {
+    if (!matrix || matrix.length === 0)
+        return '';
+    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
+    const stakeholderCols = [
+        'political_groups',
+        'civil_society',
+        'industry',
+        'national_govts',
+        'citizens',
+        'eu_institutions',
+    ];
+    const headerCells = stakeholderCols
+        .map((s) => `<th scope="col">${escapeHTML(s.replace(/_/g, ' '))}</th>`)
+        .join('');
+    const rows = matrix
+        .map((row) => {
+        const cells = stakeholderCols
+            .map((s) => {
+            // eslint-disable-next-line security/detect-object-injection -- key from const array
+            const outcome = row.outcomes[s];
+            return `<td class="matrix-cell outcome-${escapeHTML(outcome)}">${escapeHTML(outcome)}</td>`;
+        })
+            .join('');
+        return (`<tr>` +
+            `<td class="matrix-action"${langAttr}>${escapeHTML(row.action)}</td>` +
+            `<td class="matrix-confidence confidence-${escapeHTML(row.confidence)}">${escapeHTML(row.confidence)}</td>` +
+            cells +
+            `</tr>`);
+    })
+        .join('\n                ');
+    return `
+            <div class="analysis-outcome-matrix">
+              <h3>${escapeHTML(heading)}</h3>
+              <div class="outcome-matrix-scroll">
+              <table class="outcome-matrix-table" role="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Action</th>
+                    <th scope="col">Confidence</th>
+                    ${headerCells}
+                  </tr>
+                </thead>
+                <tbody>
+                ${rows}
+                </tbody>
+              </table>
+              </div>
+            </div>`;
+}
+/**
  * Build the complete deep political analysis section HTML.
  *
  * This section provides parliament-intelligence-grade analysis using the
@@ -347,6 +457,8 @@ export function buildDeepAnalysisSection(analysis, lang, contentLang = lang) {
     const consequencesHtml = buildConsequencesSection(analysis.actionConsequences, strings.consequencesHeading, strings, strings, cl);
     const mistakesHtml = buildMistakesSection(analysis.mistakes, strings.mistakesHeading, strings.alternativeLabel, cl);
     const outlookHtml = buildOutlookSection(analysis.outlook, strings.outlookHeading, cl);
+    const perspectivesHtml = buildStakeholderPerspectivesSection(analysis.stakeholderPerspectives, 'Multi-Stakeholder Perspectives', cl);
+    const outcomeMatrixHtml = buildStakeholderOutcomeMatrixSection(analysis.stakeholderOutcomeMatrix, 'Stakeholder Outcome Matrix', cl);
     const innerContent = whatHtml +
         whoHtml +
         whenHtml +
@@ -355,7 +467,9 @@ export function buildDeepAnalysisSection(analysis, lang, contentLang = lang) {
         impactHtml +
         consequencesHtml +
         mistakesHtml +
-        outlookHtml;
+        outlookHtml +
+        perspectivesHtml +
+        outcomeMatrixHtml;
     // If all sub-sections are empty, return nothing
     if (!innerContent.trim())
         return '';
