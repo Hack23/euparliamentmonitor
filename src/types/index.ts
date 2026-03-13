@@ -176,4 +176,11 @@ export type {
   DashboardConfig,
   DashboardStrings,
   DashboardBuilderStrings,
+  VotingBloc,
+  VoteHighlight,
+  CoalitionMetrics,
+  LegislativePipeline,
+  TrendMetric,
+  TrendAnalytics,
+  StakeholderMetric,
 } from './visualization.js';
