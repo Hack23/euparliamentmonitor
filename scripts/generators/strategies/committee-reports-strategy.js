@@ -70,11 +70,13 @@ export const AGRI_KEYWORDS = [
     'mercosur',
     'rural',
     'farming',
+    'fisheries',
 ];
 /** Lowercase keywords that map an adopted-text title to the ENVI theme group */
 export const ENVI_KEYWORDS = [
     'environment',
     'climate',
+    'emission',
     'health',
     'food',
     'medicinal',
