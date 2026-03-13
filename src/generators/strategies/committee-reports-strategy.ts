@@ -74,9 +74,12 @@ export type CommitteeTheme = 'ENVI' | 'ECON' | 'AFET' | 'LIBE' | 'AGRI' | 'OTHER
 // Keyword lists are pre-normalized to lowercase so that each call to
 // categorizeAdoptedText only needs to lowercase the title once.
 //
-// AFET and LIBE are checked first so that political-situation and human-rights
-// titles are not captured by AGRI keywords (e.g. person name "Wine" matching
-// the agricultural keyword "wine").
+// LIBE is checked before AFET so that human-rights and human-trafficking
+// titles are correctly classified under civil liberties even when the title
+// also mentions a country (e.g. "Ukraine") that would match AFET.
+// Both LIBE and AFET are checked before AGRI so that person-name false
+// positives (e.g. "Bobi Wine" matching the agricultural keyword "wine")
+// are avoided.
 // AGRI is then checked before ENVI so that titles containing 'agri-food' are
 // not incorrectly captured by ENVI's broader 'food' keyword.
 
@@ -110,6 +113,7 @@ export const LIBE_KEYWORDS: readonly string[] = [
   'criminal justice',
   'fundamental rights',
   'human rights',
+  'human trafficking',
   "workers' rights",
   'safe countries',
   'safe third',
@@ -155,17 +159,18 @@ export const ECON_KEYWORDS: readonly string[] = [
 /**
  * Categorize an adopted-text title into a committee theme group.
  *
- * AFET and LIBE are tested before AGRI so that titles mentioning a person name
- * such as "Bobi Wine" are correctly classified under AFET (post-election /
- * opposition leader keywords) rather than AGRI ("wine" keyword).
+ * LIBE is tested before AFET so that human-rights and human-trafficking
+ * titles are classified under civil liberties even when they also mention
+ * an AFET country keyword (e.g. "Ukraine").  Both are tested before AGRI
+ * to avoid person-name false positives (e.g. "Bobi Wine").
  *
  * @param title - Adopted text title to categorize
  * @returns Committee theme key — one of `'ENVI'` | `'ECON'` | `'AFET'` | `'LIBE'` | `'AGRI'` | `'OTHER'`
  */
 export function categorizeAdoptedText(title: string): CommitteeTheme {
   const t = title.toLowerCase();
-  if (AFET_KEYWORDS.some((k) => t.includes(k))) return 'AFET';
   if (LIBE_KEYWORDS.some((k) => t.includes(k))) return 'LIBE';
+  if (AFET_KEYWORDS.some((k) => t.includes(k))) return 'AFET';
   if (AGRI_KEYWORDS.some((k) => t.includes(k))) return 'AGRI';
   if (ENVI_KEYWORDS.some((k) => t.includes(k))) return 'ENVI';
   if (ECON_KEYWORDS.some((k) => t.includes(k))) return 'ECON';
