@@ -177,3 +177,11 @@ export type {
   DashboardStrings,
   DashboardBuilderStrings,
 } from './visualization.js';
+
+export type {
+  ArticleGrade,
+  AnalysisDepthScore,
+  StakeholderCoverage,
+  VisualizationQuality,
+  ArticleQualityReport,
+} from './quality.js';

@@ -22,6 +22,7 @@ import {
 } from '../../utils/file-utils.js';
 import type { ArticleStrategyBase, ArticleData } from '../strategies/article-strategy.js';
 import { validateArticleContent } from '../../utils/content-validator.js';
+import { scoreArticleQuality } from '../../utils/article-quality-scorer.js';
 import { weekAheadStrategy } from '../strategies/week-ahead-strategy.js';
 import { breakingNewsStrategy } from '../strategies/breaking-news-strategy.js';
 import { committeeReportsStrategy } from '../strategies/committee-reports-strategy.js';
@@ -153,6 +154,18 @@ function generateSingleLanguageArticle(
   }
   for (const warning of contentValidation.warnings) {
     console.warn(`  ⚠️  ${lang.toUpperCase()} content warning: ${warning}`);
+  }
+
+  // Quality scoring — informational only, never blocks generation
+  const qualityReport = scoreArticleQuality(html, slug, lang, strategy.type);
+  console.log(
+    `  📊 ${lang.toUpperCase()} quality: Grade ${qualityReport.grade} (${qualityReport.overallScore}/100)`
+  );
+  if (!qualityReport.passesQualityGate) {
+    console.warn(`  ⚠️  ${lang.toUpperCase()} article did not pass quality gate (score ${qualityReport.overallScore} < 40). Recommendations:`);
+    for (const rec of qualityReport.recommendations.slice(0, 3)) {
+      console.warn(`       💡 ${rec}`);
+    }
   }
 
   if (writeSingleArticle(html, slug, lang, outputOptions, stats)) {

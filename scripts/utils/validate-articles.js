@@ -13,11 +13,14 @@
  * - Validate specific date: `npx tsx src/utils/validate-articles.ts --date=2026-03-04`
  * - Strict mode (warnings are errors): `npx tsx src/utils/validate-articles.ts --strict`
  * - Dry run (no exit code): `npx tsx src/utils/validate-articles.ts --dry-run`
+ * - Quality scoring: `npx tsx src/utils/validate-articles.ts --quality`
+ * - JSON output: `npx tsx src/utils/validate-articles.ts --quality --output=json`
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
 import { validateArticleContent } from './content-validator.js';
+import { scoreArticleQuality } from './article-quality-scorer.js';
 // ─── CLI argument parsing ─────────────────────────────────────────────────────
 const args = process.argv.slice(2);
 /**
@@ -34,6 +37,8 @@ function getArg(name) {
 const filterDate = getArg('date');
 const strictMode = args.includes('--strict');
 const dryRun = args.includes('--dry-run');
+const qualityMode = args.includes('--quality');
+const outputFormat = getArg('output');
 // ─── Slug-to-article-type mapping ─────────────────────────────────────────────
 /**
  * Map article slug to article type for validator word-count thresholds.
@@ -59,6 +64,41 @@ function slugToArticleType(slug) {
 }
 // ─── Main validation logic ────────────────────────────────────────────────────
 /**
+ * Validate a single article file and return a summary.
+ *
+ * @param filename - Filename of the article to validate
+ * @returns Article validation summary or null if the filename does not match
+ */
+function validateSingleFile(filename) {
+    const match = ARTICLE_FILENAME_PATTERN.exec(filename);
+    if (!match)
+        return null;
+    const date = match[1] ?? '';
+    const slug = match[2] ?? '';
+    const lang = match[3] ?? '';
+    const filePath = path.join(NEWS_DIR, filename);
+    const html = fs.readFileSync(filePath, 'utf-8');
+    const articleType = slugToArticleType(slug);
+    const result = validateArticleContent(html, lang, articleType);
+    const summary = {
+        filename,
+        lang,
+        slug,
+        date,
+        valid: strictMode ? result.valid && result.warnings.length === 0 : result.valid,
+        errors: [...result.errors],
+        warnings: [...result.warnings],
+        wordCount: result.metrics.wordCount,
+    };
+    if (strictMode && result.warnings.length > 0) {
+        summary.errors.push(...result.warnings.map((w) => `[strict] ${w}`));
+    }
+    if (qualityMode) {
+        summary.qualityReport = scoreArticleQuality(html, filename, lang, articleType);
+    }
+    return summary;
+}
+/**
  * Validate all news articles in the news directory.
  *
  * @returns Validation report with per-article summaries
@@ -79,47 +119,46 @@ function validateAllArticles() {
     let failed = 0;
     let warningCount = 0;
     for (const filename of files) {
-        const match = ARTICLE_FILENAME_PATTERN.exec(filename);
-        if (!match)
+        const summary = validateSingleFile(filename);
+        if (!summary)
             continue;
-        const date = match[1] ?? '';
-        const slug = match[2] ?? '';
-        const lang = match[3] ?? '';
-        const filePath = path.join(NEWS_DIR, filename);
-        const html = fs.readFileSync(filePath, 'utf-8');
-        const articleType = slugToArticleType(slug);
-        const result = validateArticleContent(html, lang, articleType);
-        const summary = {
-            filename,
-            lang,
-            slug,
-            date,
-            valid: strictMode ? result.valid && result.warnings.length === 0 : result.valid,
-            errors: [...result.errors],
-            warnings: [...result.warnings],
-            wordCount: result.metrics.wordCount,
-        };
-        if (strictMode && result.warnings.length > 0) {
-            summary.errors.push(...result.warnings.map((w) => `[strict] ${w}`));
-        }
         if (summary.valid) {
             passed++;
         }
         else {
             failed++;
         }
-        if (result.warnings.length > 0) {
+        if (summary.warnings.length > 0) {
             warningCount++;
         }
         articles.push(summary);
     }
-    return {
+    const report = {
         totalArticles: files.length,
         passed,
         failed,
         warnings: warningCount,
         articles,
     };
+    if (qualityMode) {
+        report.gradeDistribution = buildGradeDistribution(articles);
+    }
+    return report;
+}
+/**
+ * Build a grade distribution map from article quality reports.
+ *
+ * @param articles - Array of article validation summaries
+ * @returns Grade distribution counts
+ */
+function buildGradeDistribution(articles) {
+    const distribution = { A: 0, B: 0, C: 0, D: 0, F: 0 };
+    for (const article of articles) {
+        if (article.qualityReport) {
+            distribution[article.qualityReport.grade]++;
+        }
+    }
+    return distribution;
 }
 /**
  * Print a formatted validation report to the console.
@@ -136,12 +175,19 @@ function printReport(report) {
     if (strictMode) {
         console.log('  Mode: STRICT (warnings treated as errors)');
     }
+    if (qualityMode) {
+        console.log('  Mode: QUALITY scoring enabled');
+    }
     console.log(`  Total articles:  ${report.totalArticles}`);
     console.log(`  ✅ Passed:       ${report.passed}`);
     console.log(`  ❌ Failed:       ${report.failed}`);
     console.log(`  ⚠️  With warnings: ${report.warnings}\n`);
     printFailures(report);
     printWarnings(report);
+    if (qualityMode) {
+        printQualityScores(report);
+        printGradeDistribution(report);
+    }
     console.log('══════════════════════════════════════════════════════════════\n');
 }
 /**
@@ -183,9 +229,51 @@ function printWarnings(report) {
         console.log('');
     }
 }
+/**
+ * Print quality scores for all articles (only in --quality mode).
+ *
+ * @param report - Validation report
+ */
+function printQualityScores(report) {
+    const articlesWithQuality = report.articles.filter((a) => a.qualityReport);
+    if (articlesWithQuality.length === 0)
+        return;
+    console.log('── QUALITY SCORES ────────────────────────────────────────────\n');
+    for (const article of articlesWithQuality) {
+        const qr = article.qualityReport;
+        if (!qr)
+            continue;
+        const gate = qr.passesQualityGate ? '✅' : '⚠️ ';
+        console.log(`  ${gate} ${article.filename} — Grade: ${qr.grade} (${qr.overallScore}/100, ${qr.wordCount} words)`);
+        if (!qr.passesQualityGate && qr.recommendations.length > 0) {
+            for (const rec of qr.recommendations.slice(0, 3)) {
+                console.log(`       💡 ${rec}`);
+            }
+        }
+    }
+    console.log('');
+}
+/**
+ * Print the grade distribution summary (only in --quality mode).
+ *
+ * @param report - Validation report
+ */
+function printGradeDistribution(report) {
+    if (!report.gradeDistribution)
+        return;
+    const dist = report.gradeDistribution;
+    console.log('── GRADE DISTRIBUTION ────────────────────────────────────────\n');
+    console.log(`  A (≥80): ${dist['A']}   B (≥65): ${dist['B']}   C (≥40): ${dist['C']}   D (≥25): ${dist['D']}   F (<25): ${dist['F']}`);
+    console.log('');
+}
 // ─── CLI execution ────────────────────────────────────────────────────────────
 const report = validateAllArticles();
 printReport(report);
+if (qualityMode && outputFormat === 'json') {
+    const outputPath = path.join(process.cwd(), 'quality-report.json');
+    fs.writeFileSync(outputPath, JSON.stringify(report, null, 2), 'utf-8');
+    console.log(`📄 Quality report written to ${outputPath}`);
+}
 if (!dryRun && report.failed > 0) {
     console.error(`❌ Validation failed: ${report.failed} article(s) have errors`);
     process.exit(1);
