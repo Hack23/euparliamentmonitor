@@ -103,7 +103,7 @@ export const ECON_KEYWORDS = [
  *
  * LIBE is tested before AFET so that human-rights and human-trafficking
  * titles are classified under civil liberties even when they also mention
- * an AFET country keyword (e.g. "Ukraine").  Both are tested before AGRI
+ * an AFET country keyword (e.g. "Ukraine"). Both are tested before AGRI
  * to avoid person-name false positives (e.g. "Bobi Wine").
  *
  * @param title - Adopted text title to categorize
