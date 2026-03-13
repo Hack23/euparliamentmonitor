@@ -125,6 +125,54 @@ This focused approach ensures:
 >
 > **Window rule**: Treat feed items as primary news only when their substantive parliamentary date falls inside this article's current UTC window. Older committee documents can inform context but must not dominate the lead.
 
+
+## 🎭 STAKEHOLDER PERSPECTIVE ANALYSIS (MANDATORY)
+
+For EVERY major parliamentary action in the article, analyze from ALL these perspectives:
+
+1. **EP Political Groups**: How does this affect group dynamics? Coalition implications? Which groups benefit or lose influence?
+2. **Civil Society & NGOs**: Impact on citizens' rights, transparency, democratic participation, and civic engagement?
+3. **Industry & Business**: Regulatory implications, market effects, compliance burden, competitive dynamics?
+4. **National Governments**: Subsidiarity concerns, implementation requirements, diverging national interests?
+5. **EU Citizens**: Direct impact on daily life, rights, services, and democratic representation?
+
+**Minimum requirement**: Every key legislative action or political development MUST be analyzed from at least 3 of these perspectives. Each perspective MUST cite specific evidence from EP MCP data.
+
+**Format**: Use dedicated `<div class="stakeholder-grid">` sections within the deep-analysis article section.
+
+## 🔄 AI ANALYSIS REFINEMENT CYCLE (MANDATORY)
+
+Follow this iterative 4-pass process for ALL analytical content sections:
+
+### Pass 1 — Initial Assessment
+- Gather baseline data from MCP tools
+- Identify key actors, actions, and outcomes
+- Draft initial analysis narrative
+
+### Pass 2 — Stakeholder Challenge
+- Re-examine analysis from each stakeholder perspective
+- Identify blind spots, omissions, and alternative interpretations
+- Flag any oversimplifications or missing context
+
+### Pass 3 — Evidence Cross-Validation
+- Verify each analytical claim against specific EP documents, votes, or MCP data points
+- Add confidence indicators: 🟢 High / 🟡 Medium / 🔴 Low confidence
+- Remove or qualify unsupported assertions
+
+### Pass 4 — Synthesis & Scenarios
+- Produce balanced, multi-perspective conclusions
+- Highlight areas of consensus and disagreement between stakeholders
+- Provide 2–3 forward-looking scenarios with probability indicators (likely/possible/unlikely)
+
+## 🏛️ COMMITTEE POWER DYNAMICS ANALYSIS (committee-reports specific)
+
+For each committee report, analyze:
+- **Rapporteur influence**: What is the rapporteur's political group, national delegation, and track record?
+- **Shadow rapporteur positions**: What are the key shadow rapporteur stances and where do they diverge?
+- **Amendment landscape**: How many amendments were tabled? What are the major fault lines?
+- **Trilogue implications**: If this goes to trilogue, what are the Council's likely positions?
+- **Lobbying footprint**: Which industry or civil society actors have engaged most heavily?
+
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–15**: Query EP MCP tools for committee reports data
@@ -325,6 +373,18 @@ EU Parliament API responses commonly take 30+ seconds. To handle this:
 | DEVE | Development |
 | CONT | Budgetary Control |
 
+
+## 📄 EP DOCUMENT ANALYSIS FRAMEWORK (MANDATORY)
+
+For EVERY EP document referenced in the article, provide analysis covering:
+
+1. **Political Context** — Why was this document introduced? Which actors pushed it? What problem does it address?
+2. **Stakeholder Impact** — Who benefits from this document? Who faces costs or constraints? Quantify where possible.
+3. **Procedure Stage** — Where is it in the legislative pipeline? What are the next procedural steps and timeline?
+4. **Coalition Dynamics** — Which political groups support or oppose? What are the key fault lines?
+5. **Significance Rating** — Rate as 🔴 High / 🟡 Medium / 🟢 Low significance with one-sentence evidence justification.
+
+This analysis MUST appear in the article's deep-analysis section for all featured documents.
 
 ## MANDATORY Article HTML Structure
 
@@ -616,6 +676,29 @@ fi
 4. Add thematic grouping headers (by committee or policy domain)
 5. Ensure all dates reference the current year (`${CURRENT_YEAR}`)
 6. Translate any remaining untranslated content in non-English articles
+
+
+## ✅ ANALYSIS QUALITY GATES (ENHANCED)
+
+### Content Quality (existing gates — maintained)
+- ✅ Min 500 words analytical content
+- ✅ No synthetic IDs or placeholder data (VOTE-2024-001, DOC-2024-001 are FORBIDDEN)
+- ✅ Current dates with specific EP references
+- ✅ Feed-first content with dated event references
+
+### Analysis Depth (NEW gates — required)
+- ✅ **Stakeholder coverage**: Min 3 perspectives analyzed per key development
+- ✅ **SWOT dimensions**: Must include both political AND economic/regulatory dimensions
+- ✅ **Dashboard trends**: Must include trend indicators (↑↓→) not just current values
+- ✅ **Mindmap connections**: Must show cross-domain policy links (e.g., environment ↔ trade ↔ social)
+- ✅ **Evidence chains**: Deep analysis must cite specific document IDs, vote counts, or MCP data
+- ✅ **Outlook scenarios**: Must provide at least 2 named scenarios with probability labels
+
+### Political Intelligence (NEW gates — required)
+- ✅ **Coalition dynamics**: Identify voting alliances for key items (not just "EPP and S&D voted together")
+- ✅ **Group positions explained**: State WHY each group holds its position (incentives, ideology, constituency)
+- ✅ **Winner/loser analysis**: Identify who gains/loses from each outcome WITH evidence
+- ✅ **Historical context**: Reference comparable past EP actions where relevant
 
 ### Step 5: Validate & Create PR
 
