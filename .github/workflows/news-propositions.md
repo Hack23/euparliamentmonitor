@@ -96,7 +96,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **leg
 
 **FORBIDDEN modifications (will cause patch conflicts and workflow failure):**
 - ❌ `src/` — NEVER modify TypeScript source files
-- ❌ `scripts/` — NEVER modify compiled JavaScript files
+- ❌ `scripts/` — NEVER modify JavaScript build output files
 - ❌ `test/` — NEVER modify test files
 - ❌ `.github/` — NEVER modify workflow or configuration files
 - ❌ `index*.html` — NEVER modify index pages

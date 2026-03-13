@@ -111,7 +111,7 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 
 **FORBIDDEN modifications (will cause patch conflicts and workflow failure):**
 - ❌ `src/` — NEVER modify TypeScript source files
-- ❌ `scripts/` — NEVER modify compiled JavaScript files
+- ❌ `scripts/` — NEVER modify JavaScript build output files
 - ❌ `test/` — NEVER modify test files
 - ❌ `e2e/` — NEVER modify E2E test files
 - ❌ `.github/` — NEVER modify workflow or configuration files
@@ -391,18 +391,27 @@ echo "✅ Validation complete"
 ```bash
 echo "=== Scope Verification ==="
 
-# Check for any modifications outside news/ directory
+# Check for any modifications outside news/ directory (unstaged, staged, and untracked)
 OUT_OF_SCOPE=$(git diff --name-only 2>/dev/null | grep -Ev '^news(/|$)' || true)
+STAGED_OOS=$(git diff --name-only --staged 2>/dev/null | grep -Ev '^news(/|$)' || true)
 UNTRACKED_OOS=$(git ls-files --others --exclude-standard 2>/dev/null | grep -Ev '^news(/|$)' || true)
 
-if [ -n "$OUT_OF_SCOPE" ] || [ -n "$UNTRACKED_OOS" ]; then
+if [ -n "$OUT_OF_SCOPE" ] || [ -n "$STAGED_OOS" ] || [ -n "$UNTRACKED_OOS" ]; then
   echo "⚠️ Out-of-scope file modifications detected — reverting to prevent patch conflicts:"
 
-  # Revert tracked file changes outside news/
+  # Revert unstaged tracked file changes outside news/
   if [ -n "$OUT_OF_SCOPE" ]; then
-    echo "Reverting tracked files:"
+    echo "Reverting unstaged tracked files:"
     echo "$OUT_OF_SCOPE"
     echo "$OUT_OF_SCOPE" | xargs -r git checkout -- 2>/dev/null || echo "⚠️ Some files could not be reverted"
+  fi
+
+  # Unstage and revert staged file changes outside news/
+  if [ -n "$STAGED_OOS" ]; then
+    echo "Reverting staged files:"
+    echo "$STAGED_OOS"
+    echo "$STAGED_OOS" | xargs -r git reset HEAD -- 2>/dev/null || echo "⚠️ Some files could not be unstaged"
+    echo "$STAGED_OOS" | xargs -r git checkout -- 2>/dev/null || echo "⚠️ Some files could not be reverted"
   fi
 
   # Remove untracked files outside news/
