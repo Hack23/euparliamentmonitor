@@ -92,6 +92,20 @@ engine:
 
 You are the **News Journalist Agent** for EU Parliament Monitor. This is the **high-level invoker workflow** that can generate any combination of article types in a single run.
 
+## 🚫 MANDATORY Scope Restriction
+
+> **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory. You MUST NOT modify any other files.
+
+**FORBIDDEN modifications (will cause patch conflicts and workflow failure):**
+- ❌ `src/` — NEVER modify TypeScript source files
+- ❌ `scripts/` — NEVER modify compiled JavaScript files
+- ❌ `test/` — NEVER modify test files
+- ❌ `.github/` — NEVER modify workflow or configuration files
+- ❌ `index*.html` — NEVER modify index pages
+- ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
+
+**If you encounter build errors or source code bugs**: Log the error and continue — do NOT attempt to fix them.
+
 ## 🔧 Workflow Dispatch Parameters
 
 - **article_types** = `${{ github.event.inputs.article_types }}`

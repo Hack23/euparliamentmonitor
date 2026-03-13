@@ -101,6 +101,28 @@ engine:
 
 You are the **Translation Agent** for EU Parliament Monitor. Your job is to take **existing English articles** and produce **high-quality translations** in 13 other languages.
 
+## 🚫 MANDATORY Scope Restriction
+
+> **⚠️ CRITICAL — READ FIRST**: This workflow ONLY creates translated article files in the `news/` directory. You MUST NOT modify any other files.
+
+**ALLOWED modifications:**
+- ✅ Create new `news/*.html` translation files
+- ✅ Read existing `news/*-en.html` English source articles
+
+**FORBIDDEN modifications (will cause patch conflicts and workflow failure):**
+- ❌ `src/` — NEVER modify TypeScript source files
+- ❌ `scripts/` — NEVER modify compiled JavaScript files
+- ❌ `test/` — NEVER modify test files
+- ❌ `e2e/` — NEVER modify E2E test files
+- ❌ `.github/` — NEVER modify workflow or configuration files
+- ❌ `index*.html` — NEVER modify index pages
+- ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
+
+**If you encounter build errors, test failures, or source code bugs:**
+- ❌ DO NOT attempt to fix them — that is outside this workflow's scope
+- ✅ Log the error and continue with translation
+- ✅ The translation generator handles all code logic; your job is to RUN it, not FIX it
+
 ## 🔧 Workflow Dispatch Parameters
 
 - **article_types** = `${{ github.event.inputs.article_types }}`
@@ -360,6 +382,38 @@ for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
 done
 
 echo "✅ Validation complete"
+```
+
+## Step 4b: Scope Verification (Prevent Patch Conflicts)
+
+> **⚠️ CRITICAL**: This step prevents patch apply failures caused by unintended file modifications.
+
+```bash
+echo "=== Scope Verification ==="
+
+# Check for any modifications outside news/ directory
+OUT_OF_SCOPE=$(git diff --name-only 2>/dev/null | grep -v '^news/' || true)
+UNTRACKED_OOS=$(git ls-files --others --exclude-standard 2>/dev/null | grep -v '^news/' || true)
+
+if [ -n "$OUT_OF_SCOPE" ] || [ -n "$UNTRACKED_OOS" ]; then
+  echo "⚠️ Out-of-scope file modifications detected — reverting to prevent patch conflicts:"
+  echo "$OUT_OF_SCOPE"
+  echo "$UNTRACKED_OOS"
+
+  # Revert tracked file changes outside news/
+  if [ -n "$OUT_OF_SCOPE" ]; then
+    echo "$OUT_OF_SCOPE" | xargs git checkout -- 2>/dev/null || true
+  fi
+
+  # Remove untracked files outside news/
+  if [ -n "$UNTRACKED_OOS" ]; then
+    echo "$UNTRACKED_OOS" | xargs rm -f 2>/dev/null || true
+  fi
+
+  echo "✅ Out-of-scope changes reverted"
+else
+  echo "✅ All changes are within news/ directory — scope verified"
+fi
 ```
 
 ## Step 5: Create Pull Request
