@@ -120,7 +120,7 @@ graph TD
     D --> F[📥 Checkout Repository]
     F --> G[⚙️ Setup Node.js 24]
     G --> H[📦 Install Dependencies]
-    H --> I[🔗 Install EP MCP Server v1.1.8]
+    H --> I[🔗 Install EP MCP Server v1.1.9]
     I --> J[📰 Generate News Articles<br/>npx tsx src/generators/news-enhanced.ts]
     J --> K[🌐 14-Language HTML Output]
     K --> L[📝 Create Pull Request]
@@ -139,7 +139,7 @@ graph TD
 | **Agent job permissions** | `contents: write`, `pull-requests: write`, `issues: write`, `models: read` |
 | **Concurrency group** | `gh-aw-${{ github.workflow }}` |
 | **Node.js version** | 24 |
-| **EP MCP Server** | `european-parliament-mcp-server@1.1.8` (globally installed) |
+| **EP MCP Server** | `european-parliament-mcp-server@1.1.9` (globally installed) |
 | **Data sources** | European Parliament MCP Server (primary), World Bank MCP (optional) |
 
 #### Compilation Process
@@ -682,7 +682,7 @@ graph LR
 | Component | Version / Configuration |
 |-----------|------------------------|
 | **Node.js** | 24 |
-| **EP MCP Server** | `european-parliament-mcp-server@1.1.8` (global) |
+| **EP MCP Server** | `european-parliament-mcp-server@1.1.9` (global) |
 | **Playwright Browsers** | Installed for E2E |
 | **Virtual Display** | Xvfb (`:99`) |
 

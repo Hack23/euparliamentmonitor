@@ -105,7 +105,7 @@ jobs:
           npm install -g @playwright/mcp
           
           # Install European Parliament MCP Server for parliamentary data access
-          npm install -g european-parliament-mcp-server@1.1.8
+          npm install -g european-parliament-mcp-server@1.1.9
                     
           echo "✅ Node.js MCP server packages installed globally"
 
