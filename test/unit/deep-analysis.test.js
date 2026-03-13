@@ -271,6 +271,284 @@ describe('deep-analysis-content', () => {
       const html = buildDeepAnalysisSection(SAMPLE_ANALYSIS, 'xx');
       expect(html).toContain('Deep Political Analysis');
     });
+
+    // ─── EnhancedDeepAnalysis tests ────────────────────────────────────────
+
+    const SAMPLE_ENHANCED_ANALYSIS = {
+      ...SAMPLE_ANALYSIS,
+      executiveSummary: 'This analysis covers the Digital Markets Act vote with high confidence.',
+      qualityMetadata: {
+        overallConfidence: 'high',
+        evidenceStrength: 'strong',
+        iterationCount: 3,
+        iterations: [
+          {
+            pass: 1,
+            type: 'initial',
+            confidence: 'medium',
+            findings: ['EPP gained majority support', 'S&D lost key amendment'],
+            evidenceRefs: [
+              { id: 'vote-001', type: 'vote', title: 'DMA Article 5 vote', date: '2026-02-24' },
+            ],
+            refinements: [],
+          },
+          {
+            pass: 2,
+            type: 'stakeholder_challenge',
+            confidence: 'medium',
+            findings: ['Greens abstention was strategic'],
+            evidenceRefs: [],
+            refinements: ['Revised stakeholder impact of Greens/EFA'],
+          },
+          {
+            pass: 3,
+            type: 'synthesis',
+            confidence: 'high',
+            findings: ['DMA enforcement capacity is the critical unknown'],
+            evidenceRefs: [],
+            refinements: ['Elevated overall confidence to high'],
+          },
+        ],
+      },
+      reasoningChains: [
+        {
+          premise: 'EPP secured key amendment on Article 5',
+          evidence: [
+            {
+              id: 'vote-001',
+              type: 'vote',
+              title: 'DMA Article 5 roll-call vote',
+              date: '2026-02-24',
+              url: 'https://example.ep.eu/votes/vote-001',
+            },
+          ],
+          inference: 'EPP now controls digital market gatekeeper definitions',
+          confidence: 'high',
+          counterArguments: ['Council may reject EPP position in trilogue'],
+          conclusion: 'EPP is the decisive actor in DMA implementation',
+        },
+      ],
+      scenarioPlanning: {
+        bestCase: {
+          description: 'Full enforcement within 18 months',
+          probability: 0.25,
+          triggers: ['Commission allocates full DMA budget', 'No court challenges'],
+          implications: [
+            { stakeholder: 'Big Tech', impact: 'Must comply immediately', severity: 'high' },
+          ],
+          timeline: 'Q3 2027',
+        },
+        worstCase: {
+          description: 'Enforcement delayed by litigation',
+          probability: 0.20,
+          triggers: ['Multiple court challenges', 'Budget cuts'],
+          implications: [
+            { stakeholder: 'SMEs', impact: 'Competition remains distorted', severity: 'critical' },
+          ],
+          timeline: 'Q1 2029+',
+        },
+        mostLikely: {
+          description: 'Partial enforcement with selective priorities',
+          probability: 0.55,
+          triggers: ['Commission prioritises 3 gatekeepers'],
+          implications: [
+            { stakeholder: 'Consumers', impact: 'Gradual improvement in choice', severity: 'medium' },
+          ],
+          timeline: 'Q2 2028',
+        },
+        wildcards: ['US retaliatory digital tariffs', 'Major gatekeeper bankruptcy'],
+      },
+    };
+
+    it('should render EnhancedDeepAnalysis with executive summary section', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('analysis-executive-summary');
+      expect(html).toContain('Digital Markets Act vote with high confidence');
+    });
+
+    it('should render executive summary before What section', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      const execPos = html.indexOf('analysis-executive-summary');
+      const whatPos = html.indexOf('analysis-what');
+      expect(execPos).toBeGreaterThan(-1);
+      expect(whatPos).toBeGreaterThan(-1);
+      expect(execPos).toBeLessThan(whatPos);
+    });
+
+    it('should render confidence badge for high confidence', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('confidence-badge');
+      expect(html).toContain('confidence-high');
+      expect(html).toContain('High Confidence');
+    });
+
+    it('should render confidence badge for medium confidence', () => {
+      const mediumAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        qualityMetadata: {
+          ...SAMPLE_ENHANCED_ANALYSIS.qualityMetadata,
+          overallConfidence: 'medium',
+        },
+      };
+      const html = buildDeepAnalysisSection(mediumAnalysis, 'en');
+      expect(html).toContain('confidence-medium');
+      expect(html).toContain('Medium Confidence');
+    });
+
+    it('should render confidence badge for low confidence', () => {
+      const lowAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        qualityMetadata: {
+          ...SAMPLE_ENHANCED_ANALYSIS.qualityMetadata,
+          overallConfidence: 'low',
+        },
+      };
+      const html = buildDeepAnalysisSection(lowAnalysis, 'en');
+      expect(html).toContain('confidence-low');
+      expect(html).toContain('Low Confidence');
+    });
+
+    it('should render reasoning chains section after Why', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('analysis-reasoning-chains');
+      expect(html).toContain('Reasoning Chains');
+      const whyPos = html.indexOf('analysis-why');
+      const chainsPos = html.indexOf('analysis-reasoning-chains');
+      expect(whyPos).toBeLessThan(chainsPos);
+    });
+
+    it('should render reasoning chain with premise, inference and conclusion', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('EPP secured key amendment on Article 5');
+      expect(html).toContain('EPP now controls digital market gatekeeper definitions');
+      expect(html).toContain('EPP is the decisive actor in DMA implementation');
+      expect(html).toContain('Premise:');
+      expect(html).toContain('Inference:');
+      expect(html).toContain('Conclusion:');
+    });
+
+    it('should render evidence reference with hyperlink when URL present', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('href="https://example.ep.eu/votes/vote-001"');
+      expect(html).toContain('rel="noopener noreferrer"');
+      expect(html).toContain('DMA Article 5 roll-call vote');
+    });
+
+    it('should render counter-arguments list', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('counter-arguments');
+      expect(html).toContain('Counter-arguments');
+      expect(html).toContain('Council may reject EPP position in trilogue');
+    });
+
+    it('should render scenario planning section after Outlook', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('analysis-scenario-planning');
+      expect(html).toContain('Scenario Planning');
+      const outlookPos = html.indexOf('analysis-outlook');
+      const scenarioPos = html.indexOf('analysis-scenario-planning');
+      expect(outlookPos).toBeLessThan(scenarioPos);
+    });
+
+    it('should render all three scenario cards', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('scenario-best');
+      expect(html).toContain('scenario-likely');
+      expect(html).toContain('scenario-worst');
+      expect(html).toContain('Best Case');
+      expect(html).toContain('Most Likely');
+      expect(html).toContain('Worst Case');
+    });
+
+    it('should render probability bars with correct values', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('role="progressbar"');
+      expect(html).toContain('aria-valuenow="55"');
+      expect(html).toContain('aria-valuenow="25"');
+      expect(html).toContain('aria-valuenow="20"');
+      expect(html).toContain('aria-valuemin="0"');
+      expect(html).toContain('aria-valuemax="100"');
+    });
+
+    it('should render wildcards list', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('wildcard-list');
+      expect(html).toContain('Wildcards');
+      expect(html).toContain('US retaliatory digital tariffs');
+      expect(html).toContain('Major gatekeeper bankruptcy');
+    });
+
+    it('should render analysis methodology section last', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('analysis-methodology');
+      expect(html).toContain('Analysis Methodology');
+      const scenarioPos = html.indexOf('analysis-scenario-planning');
+      const methodPos = html.indexOf('analysis-methodology');
+      expect(scenarioPos).toBeLessThan(methodPos);
+    });
+
+    it('should render iteration timeline with pass details', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('iteration-timeline');
+      expect(html).toContain('Pass 1');
+      expect(html).toContain('Pass 2');
+      expect(html).toContain('Pass 3');
+      expect(html).toContain('Initial Assessment');
+      expect(html).toContain('Stakeholder Challenge');
+      expect(html).toContain('Synthesis');
+    });
+
+    it('should render methodology stats in dl element', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('methodology-stats');
+      expect(html).toContain('Evidence Strength');
+      expect(html).toContain('Strong');
+      expect(html).toContain('Iterations');
+    });
+
+    it('should handle EnhancedDeepAnalysis with zero iterations gracefully', () => {
+      const zeroIter = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        qualityMetadata: {
+          overallConfidence: 'low',
+          evidenceStrength: 'weak',
+          iterationCount: 0,
+          iterations: [],
+        },
+      };
+      const html = buildDeepAnalysisSection(zeroIter, 'en');
+      expect(html).toContain('analysis-methodology');
+      expect(html).not.toContain('iteration-timeline');
+    });
+
+    it('should fall back gracefully when optional enhanced fields are undefined', () => {
+      const noEnhanced = { ...SAMPLE_ANALYSIS };
+      const html = buildDeepAnalysisSection(noEnhanced, 'en');
+      expect(html).not.toContain('analysis-executive-summary');
+      expect(html).not.toContain('analysis-reasoning-chains');
+      expect(html).not.toContain('analysis-scenario-planning');
+      expect(html).not.toContain('analysis-methodology');
+      expect(html).toContain('analysis-what');
+    });
+
+    it('should escape HTML in enhanced analysis content', () => {
+      const xssAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        executiveSummary: '<script>alert("xss")</script>',
+        reasoningChains: [
+          {
+            ...SAMPLE_ENHANCED_ANALYSIS.reasoningChains[0],
+            premise: '<img src=x onerror=alert(1)>',
+            conclusion: 'Safe conclusion',
+          },
+        ],
+      };
+      const html = buildDeepAnalysisSection(xssAnalysis, 'en');
+      expect(html).not.toContain('<script>');
+      expect(html).not.toContain('<img ');
+      expect(html).toContain('&lt;script&gt;');
+      expect(html).toContain('&lt;img');
+    });
   });
 });
 

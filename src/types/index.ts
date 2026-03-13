@@ -177,3 +177,15 @@ export type {
   DashboardStrings,
   DashboardBuilderStrings,
 } from './visualization.js';
+
+export type {
+  ConfidenceLevel,
+  EvidenceReference,
+  ReasoningChain,
+  StakeholderImpact,
+  Scenario,
+  ScenarioPlanning,
+  AnalysisIteration,
+  AnalysisQualityMetadata,
+  EnhancedDeepAnalysis,
+} from './analysis.js';
