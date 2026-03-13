@@ -101,6 +101,29 @@ engine:
 
 You are the **Translation Agent** for EU Parliament Monitor. Your job is to take **existing English articles** and produce **high-quality translations** in 13 other languages.
 
+## 🚫 MANDATORY Scope Restriction
+
+> **⚠️ CRITICAL — READ FIRST**: This workflow ONLY creates translated article files in the `news/` directory. You MUST NOT modify any other files.
+
+**ALLOWED modifications:**
+- ✅ Create new `news/*.html` translation files (non-English only)
+- ✅ Read existing `news/*-en.html` English source articles
+
+**FORBIDDEN modifications (will cause patch conflicts and workflow failure):**
+- ❌ `news/*-en.html` — NEVER modify English source articles (read-only)
+- ❌ `src/` — NEVER modify TypeScript source files
+- ❌ `scripts/` — NEVER modify JavaScript build output files
+- ❌ `test/` — NEVER modify test files
+- ❌ `e2e/` — NEVER modify E2E test files
+- ❌ `.github/` — NEVER modify workflow or configuration files
+- ❌ `index*.html` — NEVER modify index pages
+- ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
+
+**If you encounter build errors, test failures, or source code bugs:**
+- ❌ DO NOT attempt to fix them — that is outside this workflow's scope
+- ✅ Log the error and continue with translation
+- ✅ The translation generator handles all code logic; your job is to RUN it, not FIX it
+
 ## 🔧 Workflow Dispatch Parameters
 
 - **article_types** = `${{ github.event.inputs.article_types }}`
@@ -360,6 +383,71 @@ for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
 done
 
 echo "✅ Validation complete"
+```
+
+## Step 4b: Scope Verification (Prevent Patch Conflicts)
+
+> **⚠️ CRITICAL**: This step prevents patch apply failures caused by unintended file modifications.
+
+```bash
+echo "=== Scope Verification ==="
+
+# Use NUL-delimited output for safe handling of all filenames
+# Check for modifications outside news/ directory (unstaged, staged, and untracked)
+OUT_OF_SCOPE=$(git diff -z --name-only 2>/dev/null | tr '\0' '\n' | grep -Ev '^news(/|$)' || true)
+STAGED_OOS=$(git diff -z --name-only --staged 2>/dev/null | tr '\0' '\n' | grep -Ev '^news(/|$)' || true)
+UNTRACKED_OOS=$(git ls-files -z --others --exclude-standard 2>/dev/null | tr '\0' '\n' | grep -Ev '^news(/|$)' || true)
+
+# Check for modifications to English source articles (translate must not edit originals)
+EN_MODIFIED=$(git diff -z --name-only 2>/dev/null | tr '\0' '\n' | grep -E '^news/.*-en\.html$' || true)
+EN_STAGED=$(git diff -z --name-only --staged 2>/dev/null | tr '\0' '\n' | grep -E '^news/.*-en\.html$' || true)
+
+SCOPE_VIOLATION=""
+[ -n "$OUT_OF_SCOPE" ] || [ -n "$STAGED_OOS" ] || [ -n "$UNTRACKED_OOS" ] && SCOPE_VIOLATION="yes"
+[ -n "$EN_MODIFIED" ] || [ -n "$EN_STAGED" ] && SCOPE_VIOLATION="yes"
+
+if [ -n "$SCOPE_VIOLATION" ]; then
+  echo "⚠️ Scope violations detected — reverting to prevent patch conflicts:"
+
+  # Revert unstaged tracked file changes outside news/
+  if [ -n "$OUT_OF_SCOPE" ]; then
+    echo "Reverting unstaged out-of-scope tracked files:"
+    echo "$OUT_OF_SCOPE"
+    echo "$OUT_OF_SCOPE" | xargs -d '\n' -r git checkout -- 2>/dev/null || echo "⚠️ Some files could not be reverted"
+  fi
+
+  # Unstage and revert staged file changes outside news/
+  if [ -n "$STAGED_OOS" ]; then
+    echo "Reverting staged out-of-scope files:"
+    echo "$STAGED_OOS"
+    echo "$STAGED_OOS" | xargs -d '\n' -r git reset HEAD -- 2>/dev/null || echo "⚠️ Some files could not be unstaged"
+    echo "$STAGED_OOS" | xargs -d '\n' -r git checkout -- 2>/dev/null || echo "⚠️ Some files could not be reverted"
+  fi
+
+  # Remove untracked files outside news/
+  if [ -n "$UNTRACKED_OOS" ]; then
+    echo "Removing untracked out-of-scope files:"
+    echo "$UNTRACKED_OOS"
+    echo "$UNTRACKED_OOS" | xargs -d '\n' -r rm -f -- 2>/dev/null || echo "⚠️ Some files could not be removed"
+  fi
+
+  # Revert modifications to English source articles
+  if [ -n "$EN_MODIFIED" ]; then
+    echo "Reverting modified English source articles (read-only for translation):"
+    echo "$EN_MODIFIED"
+    echo "$EN_MODIFIED" | xargs -d '\n' -r git checkout -- 2>/dev/null || echo "⚠️ Some English sources could not be reverted"
+  fi
+  if [ -n "$EN_STAGED" ]; then
+    echo "Reverting staged English source articles:"
+    echo "$EN_STAGED"
+    echo "$EN_STAGED" | xargs -d '\n' -r git reset HEAD -- 2>/dev/null || echo "⚠️ Some English sources could not be unstaged"
+    echo "$EN_STAGED" | xargs -d '\n' -r git checkout -- 2>/dev/null || echo "⚠️ Some English sources could not be reverted"
+  fi
+
+  echo "✅ Scope violations reverted"
+else
+  echo "✅ All changes are within scope — only non-English news/ files modified"
+fi
 ```
 
 ## Step 5: Create Pull Request
