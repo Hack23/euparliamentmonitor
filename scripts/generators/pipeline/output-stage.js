@@ -142,4 +142,30 @@ export function writeGenerationMetadata(stats, results, usedMCP, metadataDir, dr
     fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf-8');
     console.log(`📝 Metadata written to: ${metadataPath}`);
 }
+import { addArticleToIndex, detectTrends, saveIntelligenceIndex, } from '../../utils/intelligence-index.js';
+/** Default path for the intelligence index file */
+const DEFAULT_INTELLIGENCE_INDEX_PATH = 'news/intelligence-index.json';
+/**
+ * Add a newly generated article entry to the intelligence index and refresh
+ * trend detections.
+ *
+ * @param index - The current intelligence index
+ * @param entry - The article index entry to add
+ * @returns Updated intelligence index with refreshed trends
+ */
+export function updateIndexWithArticle(index, entry) {
+    const updated = addArticleToIndex(index, entry);
+    const trends = detectTrends(updated);
+    return { ...updated, trends, lastUpdated: new Date().toISOString() };
+}
+/**
+ * Persist the intelligence index to disk after article generation.
+ *
+ * @param index - Intelligence index to save
+ * @param indexPath - Path to write the index JSON file
+ */
+export function saveUpdatedIndex(index, indexPath = DEFAULT_INTELLIGENCE_INDEX_PATH) {
+    saveIntelligenceIndex(index, indexPath);
+    console.log(`  🧠 Intelligence index saved: ${index.articles.length} articles, ${index.trends.length} trends`);
+}
 //# sourceMappingURL=output-stage.js.map

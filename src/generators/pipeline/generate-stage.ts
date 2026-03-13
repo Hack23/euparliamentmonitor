@@ -245,3 +245,72 @@ export async function generateArticleForStrategy(
     return { success: false, error: message };
   }
 }
+
+// ─── Intelligence Index helpers ───────────────────────────────────────────────
+
+import type { ArticleIndexEntry, IntelligenceIndex, ArticleCrossReference, TrendDetection } from '../../types/intelligence.js';
+import {
+  findRelatedArticles,
+  generateCrossReferences,
+  buildRelatedArticlesHTML,
+} from '../../utils/intelligence-index.js';
+
+/**
+ * Build an {@link ArticleIndexEntry} for a freshly generated article so it can
+ * be registered in the intelligence index by the output stage.
+ *
+ * @param slug - Article slug (e.g. "2025-01-15-week-ahead")
+ * @param lang - Language code
+ * @param category - Article category
+ * @param date - ISO date string
+ * @param keyTopics - Key topics extracted from the article data
+ * @param keyActors - Key actors extracted from the article data
+ * @param procedures - EP procedure references covered
+ * @returns A populated {@link ArticleIndexEntry}
+ */
+export function buildArticleIndexEntry(
+  slug: string,
+  lang: LanguageCode,
+  category: ArticleCategory,
+  date: string,
+  keyTopics: string[] = [],
+  keyActors: string[] = [],
+  procedures: string[] = []
+): ArticleIndexEntry {
+  const id = `${slug}-${lang}`;
+  return {
+    id,
+    date,
+    type: category,
+    lang,
+    keyTopics,
+    keyActors,
+    procedures,
+    crossReferences: [],
+    trendContributions: [],
+  };
+}
+
+/**
+ * Use the intelligence index to find related articles and produce an HTML snippet
+ * for inclusion in the generated article.
+ *
+ * @param index - The current intelligence index
+ * @param entry - The article index entry being generated
+ * @param lang - Language code for optional localisation
+ * @returns HTML string for the "Related Analysis" section
+ */
+export function enrichArticleWithIntelligence(
+  index: IntelligenceIndex,
+  entry: ArticleIndexEntry,
+  lang?: LanguageCode
+): string {
+  const related = findRelatedArticles(index, entry.keyTopics, entry.keyActors);
+  const crossRefs: ArticleCrossReference[] = generateCrossReferences(index, entry);
+  const relevantTrends: TrendDetection[] = index.trends.filter((trend) =>
+    entry.keyTopics.some((topic) =>
+      trend.name.toLowerCase().includes(topic.toLowerCase())
+    )
+  );
+  return buildRelatedArticlesHTML(related, crossRefs, relevantTrends, lang);
+}

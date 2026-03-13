@@ -19,6 +19,14 @@ import {
   extractArticleMeta,
 } from './file-utils.js';
 import type { ArticleMetadataEntry, NewsMetadataDatabase } from '../types/index.js';
+import type { IntelligenceIndex } from '../types/intelligence.js';
+import {
+  loadIntelligenceIndex,
+  addArticleToIndex,
+  detectTrends,
+  saveIntelligenceIndex,
+} from './intelligence-index.js';
+import { ArticleCategory } from '../types/common.js';
 
 /** Default path for the metadata database file */
 const METADATA_DB_PATH = path.join(NEWS_DIR, 'articles-metadata.json');
@@ -106,4 +114,88 @@ export function updateMetadataDatabase(
   const database = buildMetadataDatabase(newsDir);
   writeMetadataDatabase(database, outputPath);
   return database;
+}
+
+/** Default path for the intelligence index JSON file */
+const INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
+
+/**
+ * Scan the news directory, build or update the intelligence index from article metadata,
+ * and persist the updated index to disk.
+ *
+ * Each article file is parsed to extract its date, type, language, and metadata.
+ * The resulting {@link ArticleIndexEntry} objects are accumulated into an
+ * {@link IntelligenceIndex} whose trend detections are refreshed on every call.
+ *
+ * @param newsDir - News directory to scan for article HTML files
+ * @param indexPath - Path to the intelligence index JSON file
+ * @returns The updated {@link IntelligenceIndex}
+ */
+export function updateIntelligenceIndex(
+  newsDir: string = NEWS_DIR,
+  indexPath: string = INTELLIGENCE_INDEX_PATH
+): IntelligenceIndex {
+  let index = loadIntelligenceIndex(indexPath);
+
+  const articleFiles = getNewsArticles(newsDir);
+
+  for (const filename of articleFiles) {
+    const parsed = parseArticleFilename(filename);
+    if (!parsed) continue;
+
+    const articleId = `${parsed.date}-${parsed.slug}-${parsed.lang}`;
+
+    // Skip if already indexed
+    if (index.articles.some((a) => a.id === articleId)) continue;
+
+    const filepath = path.join(newsDir, filename);
+    // Extract metadata for future enrichment (title/description); keyTopics derived from slug
+    void extractArticleMeta(filepath);
+
+    // Derive the ArticleCategory from the slug; fall back to a sensible default
+    const category = deriveArticleCategory(parsed.slug);
+
+    const entry = {
+      id: articleId,
+      date: parsed.date,
+      type: category,
+      lang: parsed.lang,
+      keyTopics: [],
+      keyActors: [],
+      procedures: [],
+      crossReferences: [],
+      trendContributions: [],
+    };
+
+    index = addArticleToIndex(index, entry);
+  }
+
+  // Refresh trend detections
+  const trends = detectTrends(index);
+  index = { ...index, trends, lastUpdated: new Date().toISOString() };
+
+  saveIntelligenceIndex(index, indexPath);
+  return index;
+}
+
+/**
+ * Derive the closest matching {@link ArticleCategory} from an article slug.
+ *
+ * @param slug - Article slug extracted from filename
+ * @returns Best-matching {@link ArticleCategory}
+ */
+function deriveArticleCategory(slug: string): ArticleCategory {
+  const lower = slug.toLowerCase();
+  if (lower.includes('week-ahead') || lower.includes('weekahead')) return ArticleCategory.WEEK_AHEAD;
+  if (lower.includes('month-ahead') || lower.includes('monthahead')) return ArticleCategory.MONTH_AHEAD;
+  if (lower.includes('year-ahead') || lower.includes('yearahead')) return ArticleCategory.YEAR_AHEAD;
+  if (lower.includes('week-in-review') || lower.includes('weekinreview')) return ArticleCategory.WEEK_IN_REVIEW;
+  if (lower.includes('month-in-review') || lower.includes('monthinreview')) return ArticleCategory.MONTH_IN_REVIEW;
+  if (lower.includes('year-in-review') || lower.includes('yearinreview')) return ArticleCategory.YEAR_IN_REVIEW;
+  if (lower.includes('breaking')) return ArticleCategory.BREAKING_NEWS;
+  if (lower.includes('committee')) return ArticleCategory.COMMITTEE_REPORTS;
+  if (lower.includes('motion')) return ArticleCategory.MOTIONS;
+  if (lower.includes('proposition') || lower.includes('proposal')) return ArticleCategory.PROPOSITIONS;
+  if (lower.includes('deep') || lower.includes('analysis')) return ArticleCategory.DEEP_ANALYSIS;
+  return ArticleCategory.WEEK_AHEAD;
 }

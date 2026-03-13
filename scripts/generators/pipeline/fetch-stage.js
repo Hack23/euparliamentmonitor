@@ -1522,4 +1522,22 @@ export async function fetchEPFeedData(client, timeframe = 'one-day', dateRange) 
     console.log(`  ✅ Fetched ${totalItems} total feed items across 12 endpoints`);
     return filteredData;
 }
+// ─── Intelligence Index loading ───────────────────────────────────────────────
+import { loadIntelligenceIndex } from '../../utils/intelligence-index.js';
+/** Default path for the intelligence index file */
+const DEFAULT_INTELLIGENCE_INDEX_PATH = 'news/intelligence-index.json';
+/**
+ * Load the intelligence index at pipeline start so downstream stages can use it.
+ *
+ * Returns an empty index if the file does not exist yet (first run).
+ *
+ * @param indexPath - Path to the intelligence index JSON file
+ * @returns The loaded {@link IntelligenceIndex}
+ */
+export function loadPipelineIntelligenceIndex(indexPath = DEFAULT_INTELLIGENCE_INDEX_PATH) {
+    console.log(`  🧠 Loading intelligence index from: ${indexPath}`);
+    const index = loadIntelligenceIndex(indexPath);
+    console.log(`  ✅ Intelligence index loaded: ${index.articles.length} articles, ${index.trends.length} trends`);
+    return index;
+}
 //# sourceMappingURL=fetch-stage.js.map
