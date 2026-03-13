@@ -45,7 +45,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.1.8
+      - european-parliament-mcp-server@1.1.9
     env:
       EP_REQUEST_TIMEOUT_MS: "30000"
   world-bank:
@@ -388,7 +388,7 @@ fi
 
 if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ ! -f "node_modules/.bin/european-parliament-mcp-server" ]; then
-    npm install --no-save european-parliament-mcp-server@1.1.8
+    npm install --no-save european-parliament-mcp-server@1.1.9
   fi
 fi
 
