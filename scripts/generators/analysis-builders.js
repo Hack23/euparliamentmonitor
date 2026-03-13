@@ -1196,4 +1196,528 @@ export function buildCommitteeDashboard(committees, lang = 'en') {
     const panels = chartPanel ? [overviewPanel, chartPanel] : [overviewPanel];
     return { panels };
 }
+// ─── Intelligence Mindmap Builders ───────────────────────────────────────────
+/** Reusable stakeholder group name for civil society actors. */
+const CIVIL_SOCIETY = 'Civil Society';
+/**
+ * Build intelligence mindmap for voting analysis articles.
+ *
+ * Constructs a policy domain intelligence map with political group nodes
+ * as the primary domain layer, voting pattern sub-topics, and anomaly actors.
+ *
+ * @param records - Voting records for the period
+ * @param patterns - Political group voting pattern data
+ * @param anomalies - Detected voting anomalies
+ * @param lang - Target language code (default: 'en')
+ * @returns Intelligence mindmap data, or null when all data is placeholder
+ */
+export function buildVotingMindmap(records, patterns, anomalies, lang = 'en') {
+    void lang;
+    const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
+    const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
+    const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
+    if (realRecords.length === 0 && realPatterns.length === 0)
+        return null;
+    const domainNodes = realPatterns.slice(0, 8).map((p, i) => {
+        const cohesion = p.cohesion ?? 0;
+        const children = realRecords
+            .filter((r) => r.result !== PLACEHOLDER_MARKER)
+            .slice(0, 3)
+            .map((r, ri) => ({
+            id: `record-${i}-${ri}`,
+            label: r.title.slice(0, 50),
+            category: 'action',
+            influence: r.votes.for / Math.max(1, r.votes.for + r.votes.against + r.votes.abstain),
+            color: r.result?.toLowerCase().includes('adopt') ? 'green' : 'red',
+            children: [],
+            metadata: { documentRef: r.title.slice(0, 30) },
+        }));
+        return {
+            id: `group-${i}`,
+            label: p.group,
+            category: 'policy_domain',
+            influence: cohesion,
+            color: cohesion > 0.8 ? 'green' : cohesion > 0.5 ? 'cyan' : 'red',
+            children,
+            metadata: { politicalGroup: p.group },
+        };
+    });
+    const actorNetwork = [
+        ...realPatterns.slice(0, 6).map((p, i) => ({
+            id: `actor-group-${i}`,
+            name: p.group,
+            type: 'group',
+            influence: p.cohesion ?? 0,
+            connections: realAnomalies
+                .filter((a) => a.type && !a.type.includes('placeholder'))
+                .slice(0, 2)
+                .map((_, ai) => `anomaly-${ai}`),
+        })),
+        ...realAnomalies.slice(0, 3).map((a, i) => ({
+            id: `anomaly-${i}`,
+            name: a.type,
+            type: 'external',
+            influence: a.severity?.toUpperCase() === 'HIGH' ? 0.9 : 0.5,
+            connections: [],
+        })),
+    ];
+    const connections = realAnomalies.slice(0, 4).map((a, i) => ({
+        from: `group-${i % Math.max(1, realPatterns.length)}`,
+        to: `anomaly-${i}`,
+        strength: a.severity?.toUpperCase() === 'HIGH' ? 'strong' : 'moderate',
+        type: 'political',
+        evidence: a.type,
+    }));
+    const adoptedCount = realRecords.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
+    return {
+        centralTopic: 'Voting Intelligence Analysis',
+        layers: [{ depth: 1, nodes: domainNodes }],
+        connections,
+        actorNetwork,
+        stakeholderGroups: ['Political Groups', CIVIL_SOCIETY, 'Member States'],
+        summary: `Analysing ${realRecords.length} votes across ${realPatterns.length} political groups. ${adoptedCount} measures adopted.`,
+    };
+}
+/**
+ * Build intelligence mindmap for week-ahead / month-ahead (prospective) articles.
+ *
+ * Maps scheduled parliamentary activities by policy domain with committee nodes
+ * and pipeline bottleneck indicators.
+ *
+ * @param weekData - Aggregated week/month-ahead data
+ * @param lang - Target language code (default: 'en')
+ * @returns Intelligence mindmap data
+ */
+export function buildProspectiveMindmap(weekData, lang = 'en') {
+    void lang;
+    const policyDomains = [
+        { id: 'envi', label: 'Environment & Climate', color: 'green' },
+        { id: 'econ', label: 'Economy & Finance', color: 'cyan' },
+        { id: 'afet', label: 'Foreign Affairs', color: 'blue' },
+        { id: 'libe', label: 'Civil Liberties', color: 'purple' },
+        { id: 'agri', label: 'Agriculture', color: 'yellow' },
+    ];
+    const events = weekData.events ?? [];
+    const pipeline = weekData.pipeline ?? [];
+    const bottleneckCount = pipeline.filter((p) => p.bottleneck === true).length;
+    const domainNodes = policyDomains.map((domain, i) => {
+        const relatedEvents = events.slice(i * 2, i * 2 + 2);
+        const children = relatedEvents.map((ev, ei) => ({
+            id: `event-${i}-${ei}`,
+            label: ev.title ? ev.title.slice(0, 50) : 'Scheduled event',
+            category: 'action',
+            influence: 0.6,
+            color: 'orange',
+            children: [],
+        }));
+        return {
+            id: domain.id,
+            label: domain.label,
+            category: 'policy_domain',
+            influence: 0.5 + (relatedEvents.length > 0 ? 0.3 : 0),
+            color: domain.color,
+            children,
+        };
+    });
+    const actorNetwork = [
+        {
+            id: 'ep-plenary',
+            name: 'Plenary Session',
+            type: 'committee',
+            influence: 0.95,
+            connections: policyDomains.map((d) => d.id),
+        },
+        ...pipeline.slice(0, 4).map((p, i) => ({
+            id: `pipeline-${i}`,
+            name: p.title ? p.title.slice(0, 40) : 'Legislative procedure',
+            type: 'external',
+            influence: p.bottleneck === true ? 0.85 : 0.5,
+            connections: [],
+        })),
+    ];
+    const connections = pipeline
+        .filter((p) => p.bottleneck === true)
+        .slice(0, 3)
+        .map((p, i) => ({
+        from: policyDomains[i % policyDomains.length]?.id ?? 'envi',
+        to: `pipeline-${i}`,
+        strength: 'strong',
+        type: 'legislative',
+        evidence: p.title ? p.title.slice(0, 60) : 'Legislative bottleneck',
+    }));
+    return {
+        centralTopic: 'Week Ahead: Parliamentary Priorities',
+        layers: [{ depth: 1, nodes: domainNodes }],
+        connections,
+        actorNetwork,
+        stakeholderGroups: ['Parliament', 'Council', 'Commission', CIVIL_SOCIETY],
+        summary: `${events.length} events scheduled. ${bottleneckCount} legislative bottlenecks identified.`,
+    };
+}
+/**
+ * Build intelligence mindmap for breaking news articles.
+ *
+ * Maps EP feed categories (adopted texts, events, procedures, MEP updates)
+ * as policy domain nodes with recent activity sub-nodes.
+ *
+ * @param feedData - Breaking news EP feed data
+ * @param lang - Target language code (default: 'en')
+ * @returns Intelligence mindmap data
+ */
+export function buildBreakingMindmap(feedData, lang = 'en') {
+    void lang;
+    const adoptedTexts = feedData?.adoptedTexts ?? [];
+    const events = feedData?.events ?? [];
+    const procedures = feedData?.procedures ?? [];
+    const mepUpdates = feedData?.mepUpdates ?? [];
+    const domainNodes = [
+        {
+            id: 'adopted',
+            label: 'Adopted Texts',
+            category: 'policy_domain',
+            influence: Math.min(1, adoptedTexts.length / 5),
+            color: 'green',
+            children: adoptedTexts.slice(0, 3).map((t, i) => ({
+                id: `adopted-${i}`,
+                label: t.title ? t.title.slice(0, 50) : 'Adopted measure',
+                category: 'outcome',
+                influence: 0.7,
+                color: 'green',
+                children: [],
+                metadata: { documentRef: t.title?.slice(0, 30) },
+            })),
+        },
+        {
+            id: 'events',
+            label: 'Parliamentary Events',
+            category: 'policy_domain',
+            influence: Math.min(1, events.length / 5),
+            color: 'blue',
+            children: events.slice(0, 3).map((ev, i) => ({
+                id: `event-${i}`,
+                label: ev.title ? ev.title.slice(0, 50) : 'Parliamentary event',
+                category: 'action',
+                influence: 0.6,
+                color: 'blue',
+                children: [],
+            })),
+        },
+        {
+            id: 'procedures',
+            label: 'Active Procedures',
+            category: 'policy_domain',
+            influence: Math.min(1, procedures.length / 5),
+            color: 'orange',
+            children: procedures.slice(0, 3).map((p, i) => ({
+                id: `procedure-${i}`,
+                label: p.title ? p.title.slice(0, 50) : 'Legislative procedure',
+                category: 'action',
+                influence: 0.65,
+                color: 'orange',
+                children: [],
+            })),
+        },
+        {
+            id: 'meps',
+            label: 'MEP Updates',
+            category: 'policy_domain',
+            influence: Math.min(1, mepUpdates.length / 5),
+            color: 'purple',
+            children: mepUpdates.slice(0, 2).map((m, i) => ({
+                id: `mep-${i}`,
+                label: m.name ? m.name.slice(0, 50) : 'MEP activity',
+                category: 'actor',
+                influence: 0.55,
+                color: 'purple',
+                children: [],
+            })),
+        },
+    ].filter((n) => n.influence > 0 || n.children.length > 0);
+    const actorNetwork = [
+        {
+            id: 'ep-parliament',
+            name: 'European Parliament',
+            type: 'committee',
+            influence: 1.0,
+            connections: domainNodes.map((n) => n.id),
+        },
+        ...mepUpdates.slice(0, 3).map((m, i) => ({
+            id: `mep-actor-${i}`,
+            name: m.name ? m.name.slice(0, 40) : 'MEP',
+            type: 'mep',
+            influence: 0.6,
+            connections: ['meps'],
+        })),
+    ];
+    const connections = [
+        ...(adoptedTexts.length > 0 && procedures.length > 0
+            ? [
+                {
+                    from: 'adopted',
+                    to: 'procedures',
+                    strength: 'strong',
+                    type: 'legislative',
+                    evidence: 'Adopted texts conclude active legislative procedures',
+                },
+            ]
+            : []),
+        ...(events.length > 0 && procedures.length > 0
+            ? [
+                {
+                    from: 'events',
+                    to: 'procedures',
+                    strength: 'moderate',
+                    type: 'procedural',
+                    evidence: 'Parliamentary events drive procedure progression',
+                },
+            ]
+            : []),
+    ];
+    const totalItems = adoptedTexts.length + events.length + procedures.length + mepUpdates.length;
+    return {
+        centralTopic: 'Breaking News Intelligence',
+        layers: [{ depth: 1, nodes: domainNodes }],
+        connections,
+        actorNetwork,
+        stakeholderGroups: ['Parliament', 'Commission', 'Council', 'Public'],
+        summary: `${totalItems} feed items detected across ${domainNodes.length} activity categories.`,
+    };
+}
+/**
+ * Build intelligence mindmap for propositions / legislative pipeline articles.
+ *
+ * Maps the legislative pipeline stages as policy domain nodes with procedure
+ * health and throughput indicators.
+ *
+ * @param pipelineData - Legislative pipeline metrics (null when unavailable)
+ * @param lang - Target language code (default: 'en')
+ * @returns Intelligence mindmap data
+ */
+export function buildPropositionsMindmap(pipelineData, lang = 'en') {
+    void lang;
+    const healthScore = pipelineData?.healthScore ?? 0;
+    const throughput = pipelineData?.throughput ?? 0;
+    const healthPct = (healthScore * 100).toFixed(0);
+    const pipelineStages = [
+        {
+            id: 'proposal',
+            label: 'Commission Proposals',
+            category: 'policy_domain',
+            influence: 0.9,
+            color: 'cyan',
+            children: [
+                {
+                    id: 'proposal-review',
+                    label: 'Initial Committee Review',
+                    category: 'action',
+                    influence: 0.7,
+                    color: 'cyan',
+                    children: [],
+                    metadata: { committee: 'Lead Committee' },
+                },
+            ],
+        },
+        {
+            id: 'committee',
+            label: 'Committee Stage',
+            category: 'policy_domain',
+            influence: 0.85,
+            color: 'green',
+            children: [
+                {
+                    id: 'rapporteur',
+                    label: 'Rapporteur Report',
+                    category: 'action',
+                    influence: 0.8,
+                    color: 'green',
+                    children: [],
+                },
+                {
+                    id: 'amendments',
+                    label: 'Amendments',
+                    category: 'action',
+                    influence: 0.75,
+                    color: 'yellow',
+                    children: [],
+                },
+            ],
+        },
+        {
+            id: 'plenary',
+            label: 'Plenary Vote',
+            category: 'policy_domain',
+            influence: healthScore,
+            color: healthScore > 0.7 ? 'green' : healthScore > 0.4 ? 'yellow' : 'red',
+            children: [
+                {
+                    id: 'plenary-debate',
+                    label: 'Debate',
+                    category: 'action',
+                    influence: 0.7,
+                    color: 'blue',
+                    children: [],
+                },
+            ],
+        },
+        {
+            id: 'trilogue',
+            label: 'Inter-institutional Trilogue',
+            category: 'policy_domain',
+            influence: 0.8,
+            color: 'orange',
+            children: [
+                {
+                    id: 'council-position',
+                    label: 'Council Position',
+                    category: 'actor',
+                    influence: 0.85,
+                    color: 'orange',
+                    children: [],
+                    metadata: { committee: 'Council of the EU' },
+                },
+            ],
+        },
+        {
+            id: 'adoption',
+            label: 'Final Adoption',
+            category: 'outcome',
+            influence: healthScore > 0.5 ? 0.9 : 0.4,
+            color: healthScore > 0.5 ? 'green' : 'red',
+            children: [],
+        },
+    ];
+    const actorNetwork = [
+        {
+            id: 'commission',
+            name: 'European Commission',
+            type: 'external',
+            influence: 0.9,
+            connections: ['proposal'],
+        },
+        {
+            id: 'parliament',
+            name: 'European Parliament',
+            type: 'committee',
+            influence: 0.95,
+            connections: ['committee', 'plenary'],
+        },
+        {
+            id: 'council',
+            name: 'Council of the EU',
+            type: 'external',
+            influence: 0.9,
+            connections: ['trilogue', 'adoption'],
+        },
+    ];
+    const connections = [
+        {
+            from: 'proposal',
+            to: 'committee',
+            strength: 'strong',
+            type: 'legislative',
+            evidence: 'Formal referral to committee',
+        },
+        {
+            from: 'committee',
+            to: 'plenary',
+            strength: 'strong',
+            type: 'procedural',
+            evidence: 'Committee report referred to plenary',
+        },
+        {
+            from: 'plenary',
+            to: 'trilogue',
+            strength: throughput > 5 ? 'strong' : 'moderate',
+            type: 'legislative',
+            evidence: 'Parliament position triggers inter-institutional negotiations',
+        },
+        {
+            from: 'trilogue',
+            to: 'adoption',
+            strength: healthScore > 0.6 ? 'strong' : 'weak',
+            type: 'legislative',
+            evidence: `Pipeline health: ${healthPct}%`,
+        },
+    ];
+    return {
+        centralTopic: 'Legislative Pipeline Intelligence',
+        layers: [{ depth: 1, nodes: pipelineStages }],
+        connections,
+        actorNetwork,
+        stakeholderGroups: ['Commission', 'Parliament', 'Council', 'Businesses', CIVIL_SOCIETY],
+        summary: `Pipeline health: ${healthPct}%. Throughput rate: ${throughput}. ${throughput > 5 ? 'Strong legislative momentum.' : 'Moderate legislative pace.'}`,
+    };
+}
+/**
+ * Build intelligence mindmap for committee reports articles.
+ *
+ * Maps committee activity as policy domain nodes with document output
+ * and inter-committee relationship indicators.
+ *
+ * @param committees - Committee data list
+ * @param lang - Target language code (default: 'en')
+ * @returns Intelligence mindmap data, or null when all data is placeholder
+ */
+export function buildCommitteeMindmap(committees, lang = 'en') {
+    void lang;
+    if (isPlaceholderCommitteeData(committees))
+        return null;
+    const activeCommittees = committees.filter((c) => c.documents.length > 0);
+    if (activeCommittees.length === 0)
+        return null;
+    const domainNodes = activeCommittees.slice(0, 8).map((c, i) => {
+        const influence = Math.min(1, c.documents.length / 10);
+        const children = c.documents.slice(0, 3).map((doc, di) => ({
+            id: `doc-${i}-${di}`,
+            label: doc.title ? doc.title.slice(0, 50) : 'Committee document',
+            category: 'action',
+            influence: 0.6,
+            color: 'blue',
+            children: [],
+            metadata: { committee: c.abbreviation, documentRef: doc.title?.slice(0, 30) },
+        }));
+        const colors = [
+            'green', 'cyan', 'blue', 'purple', 'orange', 'yellow', 'magenta', 'red',
+        ];
+        return {
+            id: `committee-${c.abbreviation}`,
+            label: c.abbreviation,
+            category: 'policy_domain',
+            influence,
+            color: colors[i % colors.length] ?? 'cyan',
+            children,
+            metadata: { committee: c.abbreviation },
+        };
+    });
+    const actorNetwork = activeCommittees.slice(0, 6).map((c, i) => ({
+        id: `committee-actor-${i}`,
+        name: c.abbreviation,
+        type: 'committee',
+        influence: Math.min(1, c.documents.length / 10),
+        connections: domainNodes
+            .filter((n) => n.id !== `committee-${c.abbreviation}`)
+            .slice(0, 2)
+            .map((n) => n.id),
+    }));
+    const connections = activeCommittees
+        .slice(0, 3)
+        .flatMap((c, i) => activeCommittees
+        .slice(i + 1, i + 2)
+        .map((c2) => ({
+        from: `committee-${c.abbreviation}`,
+        to: `committee-${c2.abbreviation}`,
+        strength: 'moderate',
+        type: 'thematic',
+        evidence: `Inter-committee collaboration between ${c.abbreviation} and ${c2.abbreviation}`,
+    })));
+    const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
+    return {
+        centralTopic: 'Committee Intelligence Network',
+        layers: [{ depth: 1, nodes: domainNodes }],
+        connections,
+        actorNetwork,
+        stakeholderGroups: ['MEPs', 'Political Groups', 'Secretariat', 'External Experts'],
+        summary: `${activeCommittees.length} active committees producing ${totalDocs} documents.`,
+    };
+}
 //# sourceMappingURL=analysis-builders.js.map
