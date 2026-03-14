@@ -147,6 +147,22 @@ const ACTOR_NETWORK_LABELS = {
     ko: '행위자 네트워크',
     zh: '行动者网络',
 };
+const POLICY_DOMAINS_LABELS = {
+    en: 'Policy Domains',
+    sv: 'Policyområden',
+    da: 'Politikområder',
+    no: 'Politikkområder',
+    fi: 'Politiikan alat',
+    de: 'Politikbereiche',
+    fr: 'Domaines politiques',
+    es: 'Ámbitos políticos',
+    nl: 'Beleidsdomeinen',
+    ar: 'مجالات السياسة',
+    he: 'תחומי מדיניות',
+    ja: '政策分野',
+    ko: '정책 분야',
+    zh: '政策领域',
+};
 // ---------------------------------------------------------------------------
 // Rendering helpers — standard mindmap
 // ---------------------------------------------------------------------------
@@ -167,6 +183,21 @@ function renderBranch(branch) {
 // ---------------------------------------------------------------------------
 // Rendering helpers — intelligence mindmap
 // ---------------------------------------------------------------------------
+/**
+ * Recursively count all nodes in the tree, including nested children.
+ *
+ * @param nodes - Root-level nodes to count
+ * @returns Total node count including all descendants
+ */
+function countNodesRecursive(nodes) {
+    let count = nodes.length;
+    for (const node of nodes) {
+        if (node.children.length > 0) {
+            count += countNodesRecursive(node.children);
+        }
+    }
+    return count;
+}
 /**
  * Get color palette entry for a mindmap node category.
  * Falls back to `policy_domain` palette when category is unknown.
@@ -237,10 +268,10 @@ function renderConnectionsOverlay(connections, label) {
         return '';
     const items = connections
         .map((c) => `      <li class="mindmap-connection mindmap-connection-${escapeHTML(c.strength)} mindmap-connection-type-${escapeHTML(c.type)}"
-         aria-label="${escapeHTML(c.evidence)}">
-        <span class="connection-from" aria-hidden="true">${escapeHTML(c.from)}</span>
+         aria-label="${escapeHTML(c.from)} → ${escapeHTML(c.to)}: ${escapeHTML(c.type)} (${escapeHTML(c.strength)}) — ${escapeHTML(c.evidence)}">
+        <span class="connection-from">${escapeHTML(c.from)}</span>
         <span class="connection-arrow" aria-hidden="true"> → </span>
-        <span class="connection-to" aria-hidden="true">${escapeHTML(c.to)}</span>
+        <span class="connection-to">${escapeHTML(c.to)}</span>
         <span class="connection-meta">[${escapeHTML(c.type)}, ${escapeHTML(c.strength)}]</span>
         <span class="connection-evidence">${escapeHTML(c.evidence)}</span>
       </li>`)
@@ -373,6 +404,7 @@ export function buildIntelligenceMindmapSection(imap, lang = 'en', heading) {
     const stakeholderLabel = STAKEHOLDER_PERSPECTIVES_LABELS[lang] ?? 'Stakeholder Perspectives';
     const connectionsLabel = POLICY_CONNECTIONS_LABELS[lang] ?? 'Policy Connections';
     const actorNetworkLabel = ACTOR_NETWORK_LABELS[lang] ?? 'Actor Network';
+    const policyDomainsLabel = POLICY_DOMAINS_LABELS[lang] ?? 'Policy Domains';
     const summaryBlock = imap.summary?.trim()
         ? `  <p class="mindmap-summary">${escapeHTML(imap.summary.trim())}</p>\n`
         : '';
@@ -384,14 +416,14 @@ export function buildIntelligenceMindmapSection(imap, lang = 'en', heading) {
     const connectionsHtml = renderConnectionsOverlay(imap.connections, connectionsLabel);
     const actorNetworkHtml = renderActorNetworkOverlay(imap.actorNetwork, actorNetworkLabel);
     const stakeholderHtml = renderStakeholderOverlays(imap.stakeholderGroups, stakeholderLabel);
-    const totalNodes = allNodes.length;
+    const totalNodes = countNodesRecursive(allNodes);
     const totalConnections = imap.connections.length;
     const totalActors = imap.actorNetwork.length;
     return `<section class="mindmap-section intelligence-mindmap" role="region" aria-label="${escapeHTML(titleText)}">
   <h2>${escapeHTML(titleText)}</h2>
 ${summaryBlock}  <div class="mindmap-container intelligence-map" data-branch-count="${domainNodes.length}" data-total-nodes="${totalNodes}" data-connections="${totalConnections}" data-actors="${totalActors}">
     <div class="mindmap-center" role="heading" aria-level="3">${escapeHTML(imap.centralTopic)}</div>
-    <div class="mindmap-branches mindmap-layer-1" role="list" aria-label="Policy Domains">
+    <div class="mindmap-branches mindmap-layer-1" role="list" aria-label="${escapeHTML(policyDomainsLabel)}">
 ${domainItems}
     </div>
 ${connectionsHtml}

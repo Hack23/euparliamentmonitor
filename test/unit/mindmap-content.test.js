@@ -335,6 +335,8 @@ describe('mindmap-content', () => {
       expect(html).toContain('Shared climate policy theme');
       expect(html).toContain('mindmap-connection-moderate');
       expect(html).toContain('mindmap-connection-type-thematic');
+      // Connections aria-label includes direction, type and strength for accessibility
+      expect(html).toContain('aria-label="n1 → n2: thematic (moderate) — Shared climate policy theme"');
     });
 
     it('should render actor network overlay', () => {
@@ -547,6 +549,57 @@ describe('mindmap-content', () => {
       expect(html).toContain('data-actors="1"');
     });
 
+    it('should count nested children in data-total-nodes recursively', () => {
+      const html = buildIntelligenceMindmapSection({
+        centralTopic: 'Test',
+        layers: [
+          {
+            depth: 1,
+            nodes: [
+              {
+                id: 'domain1',
+                label: 'Domain',
+                category: 'policy_domain',
+                influence: 0.8,
+                color: 'cyan',
+                children: [
+                  { id: 'child1', label: 'Child 1', category: 'sub_topic', influence: 0.5, color: 'green', children: [] },
+                  { id: 'child2', label: 'Child 2', category: 'sub_topic', influence: 0.5, color: 'green', children: [
+                    { id: 'grandchild1', label: 'Grandchild', category: 'actor', influence: 0.3, color: 'purple', children: [] },
+                  ] },
+                ],
+              },
+            ],
+          },
+        ],
+        connections: [],
+        actorNetwork: [],
+      });
+
+      // 1 domain + 2 children + 1 grandchild = 4
+      expect(html).toContain('data-total-nodes="4"');
+    });
+
+    it('should use localized Policy Domains aria-label', () => {
+      const imap = {
+        centralTopic: 'Test',
+        layers: [
+          {
+            depth: 1,
+            nodes: [
+              { id: 'n1', label: 'Node', category: 'policy_domain', influence: 0.5, color: 'cyan', children: [] },
+            ],
+          },
+        ],
+        connections: [],
+        actorNetwork: [],
+      };
+
+      expect(buildIntelligenceMindmapSection(imap, 'de')).toContain('aria-label="Politikbereiche"');
+      expect(buildIntelligenceMindmapSection(imap, 'fr')).toContain('aria-label="Domaines politiques"');
+      expect(buildIntelligenceMindmapSection(imap, 'en')).toContain('aria-label="Policy Domains"');
+    });
+
     it('should render child nodes as nested actor overlays using details/summary', () => {
       const html = buildIntelligenceMindmapSection({
         centralTopic: 'Test',
@@ -634,6 +687,15 @@ describe('mindmap-content', () => {
       const result = buildVotingMindmap(
         [{ title: 'DATA_UNAVAILABLE (placeholder)', result: 'DATA_UNAVAILABLE (placeholder)', votes: { for: 0, against: 0, abstain: 0 } }],
         [{ group: 'placeholder_group', cohesion: 0, participation: 0 }],
+        [],
+      );
+      expect(result).toBeNull();
+    });
+
+    it('should return null when patterns are empty but records exist', () => {
+      const result = buildVotingMindmap(
+        [{ title: 'Digital Markets Act', result: 'Adopted', votes: { for: 450, against: 100, abstain: 50 } }],
+        [],
         [],
       );
       expect(result).toBeNull();

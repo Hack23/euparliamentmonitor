@@ -1418,21 +1418,21 @@ const CIVIL_SOCIETY = 'Civil Society';
  * @param records - Voting records for the period
  * @param patterns - Political group voting pattern data
  * @param anomalies - Detected voting anomalies
- * @param lang - Target language code (default: 'en')
+ * @param _lang - Reserved for future localisation (default: 'en')
  * @returns Intelligence mindmap data, or null when all data is placeholder
  */
 export function buildVotingMindmap(
   records: readonly VotingRecord[],
   patterns: readonly VotingPattern[],
   anomalies: readonly VotingAnomaly[],
-  lang: LanguageCode = 'en'
+  _lang: LanguageCode = 'en'
 ): IntelligenceMindmap | null {
-  void lang;
   const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
   const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
   const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
 
   if (realRecords.length === 0 && realPatterns.length === 0) return null;
+  if (realPatterns.length === 0) return null;
 
   const domainNodes: MindmapNode[] = realPatterns.slice(0, 8).map((p, i) => {
     const cohesion = p.cohesion ?? 0;
@@ -1481,7 +1481,7 @@ export function buildVotingMindmap(
   ];
 
   const connections: PolicyConnection[] = realAnomalies.slice(0, 4).map((a, i) => ({
-    from: `group-${i % Math.max(1, realPatterns.length)}`,
+    from: `group-${i % Math.max(1, domainNodes.length)}`,
     to: `anomaly-${i}`,
     strength: a.severity?.toUpperCase() === 'HIGH' ? 'strong' : 'moderate',
     type: 'political' as const,
@@ -1509,14 +1509,13 @@ export function buildVotingMindmap(
  * and pipeline bottleneck indicators.
  *
  * @param weekData - Aggregated week/month-ahead data
- * @param lang - Target language code (default: 'en')
+ * @param _lang - Reserved for future localisation (default: 'en')
  * @returns Intelligence mindmap data
  */
 export function buildProspectiveMindmap(
   weekData: WeekAheadData,
-  lang: LanguageCode = 'en'
+  _lang: LanguageCode = 'en'
 ): IntelligenceMindmap {
-  void lang;
   const policyDomains = [
     { id: 'envi', label: 'Environment & Climate', color: 'green' as const },
     { id: 'econ', label: 'Economy & Finance', color: 'cyan' as const },
@@ -1595,14 +1594,13 @@ export function buildProspectiveMindmap(
  * as policy domain nodes with recent activity sub-nodes.
  *
  * @param feedData - Breaking news EP feed data
- * @param lang - Target language code (default: 'en')
+ * @param _lang - Reserved for future localisation (default: 'en')
  * @returns Intelligence mindmap data
  */
 export function buildBreakingMindmap(
   feedData: BreakingNewsFeedData | undefined,
-  lang: LanguageCode = 'en'
+  _lang: LanguageCode = 'en'
 ): IntelligenceMindmap {
-  void lang;
   const adoptedTexts = feedData?.adoptedTexts ?? [];
   const events = feedData?.events ?? [];
   const procedures = feedData?.procedures ?? [];
@@ -1734,14 +1732,13 @@ export function buildBreakingMindmap(
  * health and throughput indicators.
  *
  * @param pipelineData - Legislative pipeline metrics (null when unavailable)
- * @param lang - Target language code (default: 'en')
+ * @param _lang - Reserved for future localisation (default: 'en')
  * @returns Intelligence mindmap data
  */
 export function buildPropositionsMindmap(
   pipelineData: { healthScore: number; throughput: number } | null,
-  lang: LanguageCode = 'en'
+  _lang: LanguageCode = 'en'
 ): IntelligenceMindmap {
-  void lang;
   const healthScore = pipelineData?.healthScore ?? 0;
   const throughput = pipelineData?.throughput ?? 0;
   const healthPct = (healthScore * 100).toFixed(0);
@@ -1907,14 +1904,13 @@ export function buildPropositionsMindmap(
  * and inter-committee relationship indicators.
  *
  * @param committees - Committee data list
- * @param lang - Target language code (default: 'en')
+ * @param _lang - Reserved for future localisation (default: 'en')
  * @returns Intelligence mindmap data, or null when all data is placeholder
  */
 export function buildCommitteeMindmap(
   committees: readonly CommitteeData[],
-  lang: LanguageCode = 'en'
+  _lang: LanguageCode = 'en'
 ): IntelligenceMindmap | null {
-  void lang;
   if (isPlaceholderCommitteeData(committees)) return null;
 
   const activeCommittees = committees.filter((c) => c.documents.length > 0);

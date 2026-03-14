@@ -1208,15 +1208,16 @@ const CIVIL_SOCIETY = 'Civil Society';
  * @param records - Voting records for the period
  * @param patterns - Political group voting pattern data
  * @param anomalies - Detected voting anomalies
- * @param lang - Target language code (default: 'en')
+ * @param _lang - Reserved for future localisation (default: 'en')
  * @returns Intelligence mindmap data, or null when all data is placeholder
  */
-export function buildVotingMindmap(records, patterns, anomalies, lang = 'en') {
-    void lang;
+export function buildVotingMindmap(records, patterns, anomalies, _lang = 'en') {
     const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
     const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
     const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
     if (realRecords.length === 0 && realPatterns.length === 0)
+        return null;
+    if (realPatterns.length === 0)
         return null;
     const domainNodes = realPatterns.slice(0, 8).map((p, i) => {
         const cohesion = p.cohesion ?? 0;
@@ -1262,7 +1263,7 @@ export function buildVotingMindmap(records, patterns, anomalies, lang = 'en') {
         })),
     ];
     const connections = realAnomalies.slice(0, 4).map((a, i) => ({
-        from: `group-${i % Math.max(1, realPatterns.length)}`,
+        from: `group-${i % Math.max(1, domainNodes.length)}`,
         to: `anomaly-${i}`,
         strength: a.severity?.toUpperCase() === 'HIGH' ? 'strong' : 'moderate',
         type: 'political',
@@ -1285,11 +1286,10 @@ export function buildVotingMindmap(records, patterns, anomalies, lang = 'en') {
  * and pipeline bottleneck indicators.
  *
  * @param weekData - Aggregated week/month-ahead data
- * @param lang - Target language code (default: 'en')
+ * @param _lang - Reserved for future localisation (default: 'en')
  * @returns Intelligence mindmap data
  */
-export function buildProspectiveMindmap(weekData, lang = 'en') {
-    void lang;
+export function buildProspectiveMindmap(weekData, _lang = 'en') {
     const policyDomains = [
         { id: 'envi', label: 'Environment & Climate', color: 'green' },
         { id: 'econ', label: 'Economy & Finance', color: 'cyan' },
@@ -1361,11 +1361,10 @@ export function buildProspectiveMindmap(weekData, lang = 'en') {
  * as policy domain nodes with recent activity sub-nodes.
  *
  * @param feedData - Breaking news EP feed data
- * @param lang - Target language code (default: 'en')
+ * @param _lang - Reserved for future localisation (default: 'en')
  * @returns Intelligence mindmap data
  */
-export function buildBreakingMindmap(feedData, lang = 'en') {
-    void lang;
+export function buildBreakingMindmap(feedData, _lang = 'en') {
     const adoptedTexts = feedData?.adoptedTexts ?? [];
     const events = feedData?.events ?? [];
     const procedures = feedData?.procedures ?? [];
@@ -1490,11 +1489,10 @@ export function buildBreakingMindmap(feedData, lang = 'en') {
  * health and throughput indicators.
  *
  * @param pipelineData - Legislative pipeline metrics (null when unavailable)
- * @param lang - Target language code (default: 'en')
+ * @param _lang - Reserved for future localisation (default: 'en')
  * @returns Intelligence mindmap data
  */
-export function buildPropositionsMindmap(pipelineData, lang = 'en') {
-    void lang;
+export function buildPropositionsMindmap(pipelineData, _lang = 'en') {
     const healthScore = pipelineData?.healthScore ?? 0;
     const throughput = pipelineData?.throughput ?? 0;
     const healthPct = (healthScore * 100).toFixed(0);
@@ -1655,11 +1653,10 @@ export function buildPropositionsMindmap(pipelineData, lang = 'en') {
  * and inter-committee relationship indicators.
  *
  * @param committees - Committee data list
- * @param lang - Target language code (default: 'en')
+ * @param _lang - Reserved for future localisation (default: 'en')
  * @returns Intelligence mindmap data, or null when all data is placeholder
  */
-export function buildCommitteeMindmap(committees, lang = 'en') {
-    void lang;
+export function buildCommitteeMindmap(committees, _lang = 'en') {
     if (isPlaceholderCommitteeData(committees))
         return null;
     const activeCommittees = committees.filter((c) => c.documents.length > 0);
