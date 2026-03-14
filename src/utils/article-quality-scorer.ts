@@ -151,12 +151,13 @@ const GENERIC_PHRASE_PATTERNS: ReadonlyArray<RegExp> = [
 /**
  * Patterns matching known EP document reference formats.
  * Uses separate patterns to avoid alternation complexity flagged by security/detect-unsafe-regex.
- * Covers: TA-10-2026-0123, PE-123.456, A9-0123, B9-0123, C9-0123, P9_TA(2024)0001
+ * Covers: TA-10-2026-0123, PE-123, PE-123.456, A9-0123, B9-0123, C9-0123, P9_TA(2024)0001
  * Excludes broad matches like EU-27 or EEA-32.
  */
 const EP_DOC_PATTERNS: ReadonlyArray<RegExp> = [
   /\bTA-\d+-\d+-\d+\b/gu, // TA-10-2026-0001 (TA prefix + three numeric segments)
-  /\bPE-\d+\b/gu, // PE-123 or PE-123456
+  /\bPE-\d+\.\d+\b/gu, // PE-123.456 (dotted PE reference)
+  /\bPE-\d+\b/gu, // PE-123 (simple PE reference)
   /\b[A-C]\d-\d+\b/gu, // A9-0123, B9-0002, C9-0003 (variable-length digits)
   /\bP\d_TA\(\d{4}\)\d+\b/gu, // P9_TA(2024)0001
 ];
@@ -254,18 +255,6 @@ function extractPlainText(html: string): string {
 }
 
 /**
- * Count the approximate number of words in an HTML document's main content.
- *
- * @param html - Raw HTML string
- * @returns Word count
- */
-function countWords(html: string): number {
-  const text = extractPlainText(html);
-  if (!text) return 0;
-  return text.split(' ').length;
-}
-
-/**
  * Count structural analysis sections in HTML.
  * Uses a Set to avoid double-counting elements that have both a `<section` tag
  * and an `analysis-section` or `deep-analysis` class on the same element.
@@ -325,10 +314,17 @@ function countEvidenceRefs(html: string): number {
   const evidenceClasses = countOccurrences(html, 'class="evidence"');
   const dataRefs = countOccurrences(html, 'data-reference');
   let epRefs = 0;
+  const matched = new Set<string>();
   for (const pattern of EP_DOC_PATTERNS) {
     pattern.lastIndex = 0;
-    epRefs += html.match(pattern)?.length ?? 0;
+    const hits = html.match(pattern);
+    if (hits) {
+      for (const hit of hits) {
+        matched.add(hit);
+      }
+    }
   }
+  epRefs = matched.size;
   return evidenceClasses + dataRefs + epRefs;
 }
 
@@ -446,11 +442,16 @@ function clamp100(value: number): number {
 /**
  * Assess the analytical depth of an article by detecting keyword signals.
  *
- * @param html - Raw HTML string of the article
+ * Accepts either raw HTML or pre-extracted plain text. When called from
+ * {@link scoreArticleQuality} the text is already extracted, avoiding
+ * redundant HTML stripping.
+ *
+ * @param htmlOrText - Raw HTML string or pre-extracted plain text
+ * @param preExtracted - If true, treat `htmlOrText` as already-extracted plain text
  * @returns Analysis depth score with per-dimension flags and composite score
  */
-export function assessAnalysisDepth(html: string): AnalysisDepthScore {
-  const text = extractPlainText(html);
+export function assessAnalysisDepth(htmlOrText: string, preExtracted = false): AnalysisDepthScore {
+  const text = preExtracted ? htmlOrText : extractPlainText(htmlOrText);
 
   const politicalContextPresent = containsAnyKeyword(text, POLITICAL_CONTEXT_KEYWORDS);
   const coalitionDynamicsAnalyzed = containsAnyKeyword(text, COALITION_DYNAMICS_KEYWORDS);
@@ -486,11 +487,19 @@ export function assessAnalysisDepth(html: string): AnalysisDepthScore {
 /**
  * Assess how many stakeholder perspectives are covered in the article text.
  *
- * @param html - Raw HTML string of the article
+ * Accepts either raw HTML or pre-extracted plain text. When called from
+ * {@link scoreArticleQuality} the text is already extracted, avoiding
+ * redundant HTML stripping.
+ *
+ * @param htmlOrText - Raw HTML string or pre-extracted plain text
+ * @param preExtracted - If true, treat `htmlOrText` as already-extracted plain text
  * @returns Stakeholder coverage assessment with present/missing lists and scores
  */
-export function assessStakeholderCoverage(html: string): StakeholderCoverage {
-  const text = extractPlainText(html);
+export function assessStakeholderCoverage(
+  htmlOrText: string,
+  preExtracted = false
+): StakeholderCoverage {
+  const text = preExtracted ? htmlOrText : extractPlainText(htmlOrText);
 
   const perspectivesPresent: string[] = [];
   const perspectivesMissing: string[] = [];
@@ -507,7 +516,7 @@ export function assessStakeholderCoverage(html: string): StakeholderCoverage {
   const balanceScore = clamp100(Math.round((perspectivesPresent.length / total) * 100));
 
   // Reasoning quality: bonus for not using generic phrases, penalty if they are present
-  const genericPenalty = hasGenericPhrases(html) ? 20 : 0;
+  const genericPenalty = hasGenericPhrases(text) ? 20 : 0;
   const baseReasoningScore = balanceScore;
   const reasoningQuality = clamp100(baseReasoningScore - genericPenalty);
 
@@ -676,6 +685,49 @@ function scoreToGrade(score: number): ArticleGrade {
   return 'F';
 }
 
+// ─── Non-English language adjustments ─────────────────────────────────────────
+
+/**
+ * Baseline score assigned to keyword-based analysis dimensions for non-English
+ * articles, so that translated content is not systematically penalised by the
+ * English-only keyword lists.
+ */
+const NON_ENGLISH_BASELINE = 50;
+
+/**
+ * Adjust analysis depth for non-English articles.
+ *
+ * English keyword lists do not apply to translated text, so we raise the
+ * composite score to at least a baseline when the raw keyword scan scored low.
+ * This prevents non-English articles from being systematically under-scored.
+ *
+ * @param depth - Raw analysis depth from keyword scanning
+ * @returns Adjusted analysis depth with a baseline floor
+ */
+function adjustNonEnglishAnalysisDepth(depth: AnalysisDepthScore): AnalysisDepthScore {
+  return {
+    ...depth,
+    score: Math.max(depth.score, NON_ENGLISH_BASELINE),
+  };
+}
+
+/**
+ * Adjust stakeholder coverage for non-English articles.
+ *
+ * English stakeholder keyword lists may not match translated terms, so we apply
+ * a baseline floor to prevent systematically low balance and reasoning scores.
+ *
+ * @param coverage - Raw stakeholder coverage from keyword scanning
+ * @returns Adjusted coverage with baseline floors on balance and reasoning scores
+ */
+function adjustNonEnglishStakeholderCoverage(coverage: StakeholderCoverage): StakeholderCoverage {
+  return {
+    ...coverage,
+    balanceScore: Math.max(coverage.balanceScore, NON_ENGLISH_BASELINE),
+    reasoningQuality: Math.max(coverage.reasoningQuality, NON_ENGLISH_BASELINE),
+  };
+}
+
 // ─── Recommendation generation ────────────────────────────────────────────────
 
 /**
@@ -835,12 +887,25 @@ export function scoreArticleQuality(
   lang: string,
   articleType: string
 ): ArticleQualityReport {
-  const wordCount = countWords(html);
+  // Extract plain text once to avoid redundant HTML stripping in sub-assessors
+  const plainText = extractPlainText(html);
+
+  const wordCount = plainText ? plainText.split(' ').length : 0;
   const analysisSections = countAnalysisSections(html);
   const evidenceReferences = countEvidenceRefs(html);
 
-  const analysisDepth = assessAnalysisDepth(html);
-  const stakeholderCoverage = assessStakeholderCoverage(html);
+  // For non-English articles, keyword-based analysis-depth and stakeholder scoring
+  // uses English keywords which may not appear in translated text. Weight structural
+  // signals (visualization, word count, evidence) more heavily by treating keyword
+  // dimensions as partially present when the language is not English.
+  const isEnglish = lang === 'en';
+
+  const analysisDepth = isEnglish
+    ? assessAnalysisDepth(plainText, true)
+    : adjustNonEnglishAnalysisDepth(assessAnalysisDepth(plainText, true));
+  const stakeholderCoverage = isEnglish
+    ? assessStakeholderCoverage(plainText, true)
+    : adjustNonEnglishStakeholderCoverage(assessStakeholderCoverage(plainText, true));
   const visualizationQuality = assessVisualizationQuality(html);
 
   const overallScore = calculateOverallScore(

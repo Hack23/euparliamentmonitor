@@ -51,7 +51,9 @@ describe('assessAnalysisDepth', () => {
   });
 
   it('detects political context keywords', () => {
-    const html = buildHtml('<p>The political coalition achieved a majority over the opposition.</p>');
+    const html = buildHtml(
+      '<p>The political coalition achieved a majority over the opposition.</p>'
+    );
     const result = assessAnalysisDepth(html);
     expect(result.politicalContextPresent).toBe(true);
   });
@@ -75,19 +77,25 @@ describe('assessAnalysisDepth', () => {
   });
 
   it('detects evidence-based keywords', () => {
-    const html = buildHtml('<p>According to the data, evidence suggests the figures are rising.</p>');
+    const html = buildHtml(
+      '<p>According to the data, evidence suggests the figures are rising.</p>'
+    );
     const result = assessAnalysisDepth(html);
     expect(result.evidenceBasedConclusions).toBe(true);
   });
 
   it('detects scenario planning keywords', () => {
-    const html = buildHtml('<p>The scenario could lead to a projection and forecast of growth.</p>');
+    const html = buildHtml(
+      '<p>The scenario could lead to a projection and forecast of growth.</p>'
+    );
     const result = assessAnalysisDepth(html);
     expect(result.scenarioPlanning).toBe(true);
   });
 
   it('detects confidence level keywords', () => {
-    const html = buildHtml('<p>The outcome is likely and probably uncertain with high confidence.</p>');
+    const html = buildHtml(
+      '<p>The outcome is likely and probably uncertain with high confidence.</p>'
+    );
     const result = assessAnalysisDepth(html);
     expect(result.confidenceLevelsIndicated).toBe(true);
   });
@@ -135,7 +143,9 @@ describe('assessStakeholderCoverage', () => {
   });
 
   it('detects Commission stakeholder', () => {
-    const html = buildHtml('<p>The European Commission commissioner proposed a new regulation.</p>');
+    const html = buildHtml(
+      '<p>The European Commission commissioner proposed a new regulation.</p>'
+    );
     const result = assessStakeholderCoverage(html);
     expect(result.perspectivesPresent).toContain('Commission');
   });
@@ -147,7 +157,9 @@ describe('assessStakeholderCoverage', () => {
   });
 
   it('detects civil society/NGOs stakeholder', () => {
-    const html = buildHtml('<p>Civil society NGO and non-governmental advocacy groups responded.</p>');
+    const html = buildHtml(
+      '<p>Civil society NGO and non-governmental advocacy groups responded.</p>'
+    );
     const result = assessStakeholderCoverage(html);
     expect(result.perspectivesPresent).toContain('civil society/NGOs');
   });
@@ -238,26 +250,34 @@ describe('assessVisualizationQuality', () => {
   });
 
   it('detects dashboard by class', () => {
-    const html = buildHtml('<section class="dashboard"><div class="metric-card">42</div></section>');
+    const html = buildHtml(
+      '<section class="dashboard"><div class="metric-card">42</div></section>'
+    );
     const result = assessVisualizationQuality(html);
     expect(result.dashboardPresent).toBe(true);
     expect(result.dashboardMetrics).toBeGreaterThan(0);
   });
 
   it('detects dashboard trends via arrow symbols', () => {
-    const html = buildHtml('<section class="dashboard"><span class="metric-trend-up">↑ 5%</span><span class="metric-trend-down">↓ 2%</span></section>');
+    const html = buildHtml(
+      '<section class="dashboard"><span class="metric-trend-up">↑ 5%</span><span class="metric-trend-down">↓ 2%</span></section>'
+    );
     const result = assessVisualizationQuality(html);
     expect(result.dashboardTrends).toBe(true);
   });
 
   it('detects dashboard trends via class', () => {
-    const html = buildHtml('<section class="dashboard"><span class="metric-trend-up">rising</span></section>');
+    const html = buildHtml(
+      '<section class="dashboard"><span class="metric-trend-up">rising</span></section>'
+    );
     const result = assessVisualizationQuality(html);
     expect(result.dashboardTrends).toBe(true);
   });
 
   it('detects mindmap by class', () => {
-    const html = buildHtml('<section class="mindmap-section"><div class="mindmap-container"><ul><li>Node 1</li></ul></div></section>');
+    const html = buildHtml(
+      '<section class="mindmap-section"><div class="mindmap-container"><ul><li>Node 1</li></ul></div></section>'
+    );
     const result = assessVisualizationQuality(html);
     expect(result.mindmapPresent).toBe(true);
   });
@@ -351,16 +371,26 @@ describe('calculateOverallScore', () => {
 
   /** Build a zero-value StakeholderCoverage */
   function zeroCoverage() {
-    return { perspectivesPresent: [], perspectivesMissing: [], balanceScore: 0, reasoningQuality: 0 };
+    return {
+      perspectivesPresent: [],
+      perspectivesMissing: [],
+      balanceScore: 0,
+      reasoningQuality: 0,
+    };
   }
 
   /** Build a zero-value VisualizationQuality */
   function zeroViz() {
     return {
-      swotPresent: false, swotDimensions: 0,
-      dashboardPresent: false, dashboardMetrics: 0, dashboardTrends: false,
-      mindmapPresent: false, mindmapDepth: 0,
-      deepAnalysisPresent: false, deepAnalysisEvidence: 0,
+      swotPresent: false,
+      swotDimensions: 0,
+      dashboardPresent: false,
+      dashboardMetrics: 0,
+      dashboardTrends: false,
+      mindmapPresent: false,
+      mindmapDepth: 0,
+      deepAnalysisPresent: false,
+      deepAnalysisEvidence: 0,
       score: 0,
     };
   }
@@ -507,6 +537,27 @@ describe('scoreArticleQuality', () => {
     expect(report.lang).toBe('fr');
     expect(report.type).toBe('breaking');
   });
+
+  it('non-English articles are not penalised by English-only keyword lists', () => {
+    // German text without any English keywords — should still get a reasonable score
+    // due to the non-English baseline adjustment
+    const html = buildHtml(`<p>${words(800)} Zusammenfassung der politischen Lage.</p>`);
+    const reportDe = scoreArticleQuality(html, 'de-test', 'de', 'week-ahead');
+    const reportEn = scoreArticleQuality(html, 'en-test', 'en', 'week-ahead');
+    // Non-English score should be at least as high as English for the same content
+    expect(reportDe.analysisDepth.score).toBeGreaterThanOrEqual(reportEn.analysisDepth.score);
+    expect(reportDe.stakeholderCoverage.balanceScore).toBeGreaterThanOrEqual(
+      reportEn.stakeholderCoverage.balanceScore
+    );
+  });
+
+  it('non-English articles receive baseline floors on keyword-dependent scores', () => {
+    const html = buildHtml('<p>Simple text without English keywords.</p>');
+    const report = scoreArticleQuality(html, 'fr-test', 'fr', 'week-ahead');
+    // The non-English baseline is 50
+    expect(report.analysisDepth.score).toBeGreaterThanOrEqual(50);
+    expect(report.stakeholderCoverage.balanceScore).toBeGreaterThanOrEqual(50);
+  });
 });
 
 // ─── Grade boundaries ─────────────────────────────────────────────────────────
@@ -567,10 +618,9 @@ describe('grade boundaries via scoreArticleQuality', () => {
     return buildHtml(`<p>${words(100)}</p>`);
   }
 
-  it('grade A is assigned when score >= 80', () => {
+  it('rich content produces a high score (B or A)', () => {
     const html = buildHtmlForScore(85);
     const report = scoreArticleQuality(html, 'a-test', 'en', 'week-ahead');
-    // Allow A or B as exact score depends on content parsing
     expect(['A', 'B']).toContain(report.grade);
     expect(report.overallScore).toBeGreaterThanOrEqual(40);
   });
@@ -623,10 +673,15 @@ describe('generateRecommendations', () => {
         reasoningQuality: 0,
       },
       visualizationQuality: {
-        swotPresent: false, swotDimensions: 0,
-        dashboardPresent: false, dashboardMetrics: 0, dashboardTrends: false,
-        mindmapPresent: false, mindmapDepth: 0,
-        deepAnalysisPresent: false, deepAnalysisEvidence: 0,
+        swotPresent: false,
+        swotDimensions: 0,
+        dashboardPresent: false,
+        dashboardMetrics: 0,
+        dashboardTrends: false,
+        mindmapPresent: false,
+        mindmapDepth: 0,
+        deepAnalysisPresent: false,
+        deepAnalysisEvidence: 0,
         score: 0,
       },
       overallScore: 0,
@@ -691,10 +746,15 @@ describe('generateRecommendations', () => {
         reasoningQuality: 100,
       },
       visualizationQuality: {
-        swotPresent: true, swotDimensions: 4,
-        dashboardPresent: true, dashboardMetrics: 5, dashboardTrends: true,
-        mindmapPresent: true, mindmapDepth: 3,
-        deepAnalysisPresent: true, deepAnalysisEvidence: 10,
+        swotPresent: true,
+        swotDimensions: 4,
+        dashboardPresent: true,
+        dashboardMetrics: 5,
+        dashboardTrends: true,
+        mindmapPresent: true,
+        mindmapDepth: 3,
+        deepAnalysisPresent: true,
+        deepAnalysisEvidence: 10,
         score: 100,
       },
       overallScore: 100,
