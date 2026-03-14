@@ -29,6 +29,11 @@ import type {
   DashboardConfig,
   SwotBuilderStrings,
   DashboardBuilderStrings,
+  MultiDimensionalSwot,
+  SwotDimension,
+  SwotItem,
+  TemporalSwotAssessment,
+  StakeholderType,
 } from '../types/index.js';
 import type { PipelineData } from './propositions-content.js';
 import {
@@ -1398,4 +1403,735 @@ export function buildCommitteeDashboard(
   const panels = chartPanel ? [overviewPanel, chartPanel] : [overviewPanel];
 
   return { panels };
+}
+
+// ─── Multi-dimensional SWOT builders ────────────────────────────────────────
+
+/**
+ * Build a dimension object from sets of pre-computed SWOT items.
+ *
+ * @param name - Dimension name
+ * @param strengths - Strength items for this dimension
+ * @param weaknesses - Weakness items for this dimension
+ * @param opportunities - Opportunity items for this dimension
+ * @param threats - Threat items for this dimension
+ * @returns Typed SwotDimension
+ */
+function makeDimension(
+  name: SwotDimension['name'],
+  strengths: SwotItem[],
+  weaknesses: SwotItem[],
+  opportunities: SwotItem[],
+  threats: SwotItem[]
+): SwotDimension {
+  return { name, strengths, weaknesses, opportunities, threats };
+}
+
+/**
+ * Build stakeholder views for voting multi-dimensional SWOT.
+ *
+ * @param adoptedCount - Number of adopted votes
+ * @param realAnomalies - Non-placeholder anomalies
+ * @param highSeverity - High-severity anomalies
+ * @param highCohesion - High-cohesion patterns
+ * @param lowCohesion - Low-cohesion patterns
+ * @param realPatterns - Non-placeholder patterns
+ * @param s - Localized SWOT builder strings
+ * @returns Stakeholder views map
+ */
+function buildVotingMDStakeholders(
+  adoptedCount: number,
+  realAnomalies: readonly VotingAnomaly[],
+  highSeverity: readonly VotingAnomaly[],
+  highCohesion: readonly VotingPattern[],
+  lowCohesion: readonly VotingPattern[],
+  realPatterns: readonly VotingPattern[],
+  s: SwotBuilderStrings
+): Partial<Record<StakeholderType, SwotAnalysis>> {
+  return {
+    citizen: {
+      strengths:
+        adoptedCount > 0
+          ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' as const }]
+          : [],
+      weaknesses:
+        realAnomalies.length > 0
+          ? [{ text: s.votingAnomalies(realAnomalies.length), severity: 'medium' as const }]
+          : [],
+      opportunities: [{ text: s.votingCrossParty, severity: 'medium' as const }],
+      threats:
+        highSeverity.length > 0
+          ? [{ text: s.votingHighSeverity(highSeverity.length), severity: 'high' as const }]
+          : [],
+    },
+    mep: {
+      strengths:
+        highCohesion.length > 0
+          ? [{ text: s.votingHighCohesion(highCohesion.length), severity: 'high' as const }]
+          : [],
+      weaknesses:
+        lowCohesion.length > 0
+          ? [{ text: s.votingLowCohesion(lowCohesion.length), severity: 'high' as const }]
+          : [],
+      opportunities:
+        realPatterns.length > 0
+          ? [{ text: s.votingDiverseGroups(realPatterns.length), severity: 'medium' as const }]
+          : [],
+      threats: [{ text: s.votingShiftingAlliances, severity: 'medium' as const }],
+    },
+  };
+}
+
+/**
+ * Build stakeholder views for breaking multi-dimensional SWOT.
+ *
+ * @param adoptedCount - Number of adopted texts
+ * @param anomalyRaw - Raw anomaly text
+ * @param procCount - Number of active procedures
+ * @param eventCount - Number of events
+ * @param coalitionRaw - Raw coalition text
+ * @param s - Localized SWOT builder strings
+ * @returns Stakeholder views map
+ */
+function buildBreakingMDStakeholders(
+  adoptedCount: number,
+  anomalyRaw: string,
+  procCount: number,
+  eventCount: number,
+  coalitionRaw: string,
+  s: SwotBuilderStrings
+): Partial<Record<StakeholderType, SwotAnalysis>> {
+  return {
+    citizen: {
+      strengths:
+        adoptedCount > 0
+          ? [{ text: s.breakingAdopted(adoptedCount), severity: 'medium' as const }]
+          : [],
+      weaknesses: anomalyRaw
+        ? [{ text: s.breakingAnomalyWeakness, severity: 'high' as const }]
+        : [],
+      opportunities:
+        procCount > 0
+          ? [{ text: s.breakingProceduresActive(procCount), severity: 'medium' as const }]
+          : [],
+      threats: anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' as const }] : [],
+    },
+    media: {
+      strengths:
+        eventCount > 0 ? [{ text: s.breakingEvents(eventCount), severity: 'high' as const }] : [],
+      weaknesses: [],
+      opportunities: coalitionRaw
+        ? [{ text: s.breakingCoalitionOpportunity, severity: 'medium' as const }]
+        : [],
+      threats: [{ text: s.breakingRapidEvents, severity: 'medium' as const }],
+    },
+  };
+}
+
+/**
+ * Build stakeholder views for committee multi-dimensional SWOT.
+ *
+ * @param active - Active committees
+ * @param committees - All committees
+ * @param totalDocs - Total document count
+ * @param inactiveCount - Number of inactive committees
+ * @param s - Localized SWOT builder strings
+ * @returns Stakeholder views map
+ */
+function buildCommitteeMDStakeholders(
+  active: readonly CommitteeData[],
+  committees: readonly CommitteeData[],
+  totalDocs: number,
+  inactiveCount: number,
+  s: SwotBuilderStrings
+): Partial<Record<StakeholderType, SwotAnalysis>> {
+  return {
+    mep: {
+      strengths:
+        active.length > 0
+          ? [
+              {
+                text: s.committeeActive(active.length, committees.length),
+                severity: 'high' as const,
+              },
+            ]
+          : [],
+      weaknesses:
+        inactiveCount > 0
+          ? [{ text: s.committeeInactive(inactiveCount), severity: 'medium' as const }]
+          : [],
+      opportunities: [{ text: s.committeeHearings, severity: 'medium' as const }],
+      threats: [{ text: s.committeeCompetingPriorities, severity: 'medium' as const }],
+    },
+    ngo: {
+      strengths:
+        totalDocs > 0
+          ? [{ text: s.committeeDocuments(totalDocs), severity: 'medium' as const }]
+          : [],
+      weaknesses:
+        inactiveCount > committees.length * 0.3
+          ? [{ text: s.committeeLowActivity, severity: 'high' as const }]
+          : [],
+      opportunities: [{ text: s.committeeCrossCollaboration, severity: 'medium' as const }],
+      threats: [],
+    },
+  };
+}
+
+/**
+ * Build multi-dimensional SWOT analysis for voting-based articles.
+ *
+ * Produces dimension-specific breakdowns (political, economic, social,
+ * legal, geopolitical), temporal assessments, and stakeholder views
+ * derived from voting records, patterns, and anomaly data.
+ *
+ * @param records - Voting records
+ * @param patterns - Voting patterns
+ * @param anomalies - Detected anomalies
+ * @param lang - Target language code
+ * @returns Multi-dimensional SWOT data
+ */
+export function buildVotingMultiDimensionalSwot(
+  records: readonly VotingRecord[],
+  patterns: readonly VotingPattern[],
+  anomalies: readonly VotingAnomaly[],
+  lang: LanguageCode = 'en'
+): MultiDimensionalSwot {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
+  const base = buildVotingSwot(records, patterns, anomalies, lang);
+
+  const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
+  const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
+  const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
+  const adoptedCount = realRecords.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
+  const highCohesion = realPatterns.filter((p) => p.cohesion > 0.8);
+  const lowCohesion = realPatterns.filter((p) => p.cohesion < 0.5);
+  const highSeverity = realAnomalies.filter((a) => a.severity?.toUpperCase() === 'HIGH');
+
+  const political = makeDimension(
+    'political',
+    highCohesion.length > 0
+      ? [{ text: s.votingHighCohesion(highCohesion.length), severity: 'high' as const }]
+      : [],
+    lowCohesion.length > 0
+      ? [{ text: s.votingLowCohesion(lowCohesion.length), severity: 'high' as const }]
+      : [],
+    [{ text: s.votingCrossParty, severity: 'medium' as const }],
+    highSeverity.length > 0
+      ? [{ text: s.votingHighSeverity(highSeverity.length), severity: 'high' as const }]
+      : []
+  );
+
+  const economic = makeDimension(
+    'economic',
+    adoptedCount > 0 ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' as const }] : [],
+    [],
+    realPatterns.length > 0
+      ? [{ text: s.votingDiverseGroups(realPatterns.length), severity: 'medium' as const }]
+      : [],
+    [{ text: s.votingShiftingAlliances, severity: 'medium' as const }]
+  );
+
+  const social = makeDimension(
+    'social',
+    realRecords.length > 0
+      ? [{ text: s.votingActiveVotes(realRecords.length), severity: 'medium' as const }]
+      : [],
+    realAnomalies.length > 0
+      ? [{ text: s.votingAnomalies(realAnomalies.length), severity: 'medium' as const }]
+      : [],
+    [],
+    []
+  );
+
+  const legal = makeDimension(
+    'legal',
+    adoptedCount > 0 ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' as const }] : [],
+    [],
+    [],
+    highSeverity.length > 0
+      ? [{ text: s.votingHighSeverity(highSeverity.length), severity: 'high' as const }]
+      : []
+  );
+
+  const geopolitical = makeDimension(
+    'geopolitical',
+    [],
+    lowCohesion.length > 0
+      ? [{ text: s.votingLowCohesion(lowCohesion.length), severity: 'medium' as const }]
+      : [],
+    highCohesion.length > 0
+      ? [{ text: s.votingHighCohesion(highCohesion.length), severity: 'medium' as const }]
+      : [],
+    [{ text: s.votingShiftingAlliances, severity: 'medium' as const }]
+  );
+
+  const temporal: TemporalSwotAssessment = {
+    shortTerm: base,
+    mediumTerm: {
+      strengths: base.strengths.filter((i) => i.severity === 'high'),
+      weaknesses: base.weaknesses.filter((i) => i.severity === 'high'),
+      opportunities: base.opportunities,
+      threats: base.threats.filter((i) => i.severity === 'high'),
+    },
+  };
+
+  const stakeholderViews = buildVotingMDStakeholders(
+    adoptedCount,
+    realAnomalies,
+    highSeverity,
+    highCohesion,
+    lowCohesion,
+    realPatterns,
+    s
+  );
+
+  return {
+    title: base.title,
+    dimensions: [political, economic, social, legal, geopolitical],
+    temporal,
+    stakeholderViews,
+  };
+}
+
+/**
+ * Build multi-dimensional SWOT analysis for prospective (week/month-ahead) articles.
+ *
+ * @param weekData - Aggregated week/month data
+ * @param _label - "week" or "month" (reserved for future localisation)
+ * @param lang - Target language code
+ * @returns Multi-dimensional SWOT data
+ */
+export function buildProspectiveMultiDimensionalSwot(
+  weekData: WeekAheadData,
+  _label: string,
+  lang: LanguageCode = 'en'
+): MultiDimensionalSwot {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
+  const base = buildProspectiveSwot(weekData, _label, lang);
+  const bottlenecks = weekData.pipeline.filter((p) => p.bottleneck === true).length;
+
+  const political = makeDimension(
+    'political',
+    weekData.events.length > 0
+      ? [{ text: s.prospectiveEvents(weekData.events.length), severity: 'high' as const }]
+      : [],
+    bottlenecks > 0
+      ? [{ text: s.prospectiveBottlenecks(bottlenecks), severity: 'high' as const }]
+      : [],
+    [],
+    bottlenecks > 0 ? [{ text: s.prospectiveBottleneckRisk, severity: 'high' as const }] : []
+  );
+
+  const economic = makeDimension(
+    'economic',
+    [],
+    weekData.events.length > 5
+      ? [{ text: s.prospectiveHighDensity(weekData.events.length), severity: 'medium' as const }]
+      : [],
+    weekData.documents.length > 0
+      ? [{ text: s.prospectiveDocuments(weekData.documents.length), severity: 'medium' as const }]
+      : [],
+    [{ text: s.prospectiveSchedulingRisk, severity: 'medium' as const }]
+  );
+
+  const social = makeDimension(
+    'social',
+    weekData.committees.length > 0
+      ? [{ text: s.prospectiveCommittees(weekData.committees.length), severity: 'medium' as const }]
+      : [],
+    [],
+    weekData.questions.length > 0
+      ? [{ text: s.prospectiveQuestions(weekData.questions.length), severity: 'medium' as const }]
+      : [],
+    []
+  );
+
+  const legal = makeDimension(
+    'legal',
+    [],
+    bottlenecks > 0
+      ? [{ text: s.prospectiveBottlenecks(bottlenecks), severity: 'high' as const }]
+      : [],
+    weekData.documents.length > 0
+      ? [{ text: s.prospectiveDocuments(weekData.documents.length), severity: 'medium' as const }]
+      : [],
+    bottlenecks > 0 ? [{ text: s.prospectiveBottleneckRisk, severity: 'high' as const }] : []
+  );
+
+  const geopolitical = makeDimension(
+    'geopolitical',
+    weekData.events.length > 0
+      ? [{ text: s.prospectiveEvents(weekData.events.length), severity: 'medium' as const }]
+      : [],
+    [],
+    [],
+    [{ text: s.prospectiveSchedulingRisk, severity: 'medium' as const }]
+  );
+
+  const temporal: TemporalSwotAssessment = {
+    shortTerm: base,
+    mediumTerm: {
+      strengths: base.strengths,
+      weaknesses: base.weaknesses.filter((i) => i.severity === 'high'),
+      opportunities: base.opportunities,
+      threats: base.threats.filter((i) => i.severity === 'high'),
+    },
+  };
+
+  return {
+    dimensions: [political, economic, social, legal, geopolitical],
+    temporal,
+  };
+}
+
+/**
+ * Compute weakness and opportunity items for breaking news based on procedure count.
+ * Returns a weakness when no procedures exist, or an opportunity when they do.
+ *
+ * @param procCount - Number of active procedures
+ * @param s - Localized SWOT builder strings
+ * @returns Tuple of weakness items and opportunity items
+ */
+function getBreakingProcedureItems(
+  procCount: number,
+  s: SwotBuilderStrings
+): [SwotItem[], SwotItem[]] {
+  if (procCount === 0) {
+    return [[{ text: s.breakingNoProcedures, severity: 'medium' as const }], []];
+  }
+  return [[], [{ text: s.breakingProceduresActive(procCount), severity: 'medium' as const }]];
+}
+
+/**
+ * Build the 5 SWOT dimensions for breaking news multi-dimensional SWOT.
+ *
+ * @param adoptedCount - Number of adopted texts
+ * @param anomalyRaw - Raw anomaly text
+ * @param coalitionRaw - Raw coalition text
+ * @param procCount - Number of active procedures
+ * @param eventCount - Number of events
+ * @param s - Localized SWOT builder strings
+ * @returns Array of 5 SwotDimension objects
+ */
+function buildBreakingMDDimensions(
+  adoptedCount: number,
+  anomalyRaw: string,
+  coalitionRaw: string,
+  procCount: number,
+  eventCount: number,
+  s: SwotBuilderStrings
+): SwotDimension[] {
+  const [procWeakness, procOpportunity] = getBreakingProcedureItems(procCount, s);
+  const political = makeDimension(
+    'political',
+    adoptedCount > 0 ? [{ text: s.breakingAdopted(adoptedCount), severity: 'high' as const }] : [],
+    anomalyRaw ? [{ text: s.breakingAnomalyWeakness, severity: 'high' as const }] : [],
+    coalitionRaw ? [{ text: s.breakingCoalitionOpportunity, severity: 'medium' as const }] : [],
+    anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' as const }] : []
+  );
+  const economic = makeDimension(
+    'economic',
+    adoptedCount > 0
+      ? [{ text: s.breakingAdopted(adoptedCount), severity: 'medium' as const }]
+      : [],
+    procWeakness,
+    procOpportunity,
+    [{ text: s.breakingRapidEvents, severity: 'medium' as const }]
+  );
+  const social = makeDimension(
+    'social',
+    eventCount > 0 ? [{ text: s.breakingEvents(eventCount), severity: 'medium' as const }] : [],
+    [],
+    procOpportunity,
+    [{ text: s.breakingRapidEvents, severity: 'medium' as const }]
+  );
+  const legal = makeDimension(
+    'legal',
+    adoptedCount > 0 ? [{ text: s.breakingAdopted(adoptedCount), severity: 'high' as const }] : [],
+    procWeakness,
+    procOpportunity,
+    anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' as const }] : []
+  );
+  const geopolitical = makeDimension(
+    'geopolitical',
+    eventCount > 0 ? [{ text: s.breakingEvents(eventCount), severity: 'medium' as const }] : [],
+    [],
+    coalitionRaw ? [{ text: s.breakingCoalitionOpportunity, severity: 'medium' as const }] : [],
+    anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'medium' as const }] : []
+  );
+  return [political, economic, social, legal, geopolitical];
+}
+
+/**
+ * Build multi-dimensional SWOT analysis for breaking news articles.
+ *
+ * @param feedData - EP feed data
+ * @param anomalyRaw - Raw anomaly text
+ * @param coalitionRaw - Raw coalition text
+ * @param lang - Target language code
+ * @returns Multi-dimensional SWOT data
+ */
+export function buildBreakingMultiDimensionalSwot(
+  feedData: BreakingNewsFeedData | undefined,
+  anomalyRaw: string,
+  coalitionRaw: string,
+  lang: LanguageCode = 'en'
+): MultiDimensionalSwot {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
+  const base = buildBreakingSwot(feedData, anomalyRaw, coalitionRaw, lang);
+  const adoptedCount = feedData?.adoptedTexts.length ?? 0;
+  const eventCount = feedData?.events.length ?? 0;
+  const procCount = feedData?.procedures.length ?? 0;
+
+  const dimensions = buildBreakingMDDimensions(
+    adoptedCount,
+    anomalyRaw,
+    coalitionRaw,
+    procCount,
+    eventCount,
+    s
+  );
+
+  const temporal: TemporalSwotAssessment = {
+    shortTerm: base,
+    mediumTerm: {
+      strengths: base.strengths.filter((i) => i.severity === 'high'),
+      weaknesses: base.weaknesses,
+      opportunities: base.opportunities,
+      threats: base.threats.filter((i) => i.severity === 'high'),
+    },
+  };
+
+  const stakeholderViews = buildBreakingMDStakeholders(
+    adoptedCount,
+    anomalyRaw,
+    procCount,
+    eventCount,
+    coalitionRaw,
+    s
+  );
+
+  return {
+    dimensions,
+    temporal,
+    stakeholderViews,
+  };
+}
+
+/**
+ * Build multi-dimensional SWOT analysis for propositions articles.
+ *
+ * @param pipelineData - Pipeline metrics
+ * @param lang - Target language code
+ * @returns Multi-dimensional SWOT data
+ */
+export function buildPropositionsMultiDimensionalSwot(
+  pipelineData: PipelineData | null,
+  lang: LanguageCode = 'en'
+): MultiDimensionalSwot {
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
+  const base = buildPropositionsSwot(pipelineData, lang);
+  const healthScore = pipelineData?.healthScore ?? 0;
+  const throughput = pipelineData?.throughput ?? 0;
+  const pct = (healthScore * 100).toFixed(0);
+
+  const political = makeDimension(
+    'political',
+    healthScore > 0.7 ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' as const }] : [],
+    healthScore < 0.5 ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' as const }] : [],
+    [{ text: s.propositionsPrioritisation, severity: 'medium' as const }],
+    healthScore < 0.3 ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }] : []
+  );
+
+  const economic = makeDimension(
+    'economic',
+    throughput >= 5
+      ? [{ text: s.propositionsThroughputGood(throughput), severity: 'medium' as const }]
+      : [],
+    throughput < 5
+      ? [{ text: s.propositionsThroughputLow(throughput), severity: 'medium' as const }]
+      : [],
+    [{ text: s.propositionsTrilogueAcceleration, severity: 'medium' as const }],
+    [{ text: s.propositionsOverlapping, severity: 'medium' as const }]
+  );
+
+  const social = makeDimension(
+    'social',
+    [],
+    [],
+    [{ text: s.propositionsPrioritisation, severity: 'medium' as const }],
+    healthScore < 0.3 ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }] : []
+  );
+
+  const legal = makeDimension(
+    'legal',
+    healthScore > 0.7 ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' as const }] : [],
+    healthScore < 0.5 ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' as const }] : [],
+    [{ text: s.propositionsTrilogueAcceleration, severity: 'medium' as const }],
+    [{ text: s.propositionsOverlapping, severity: 'medium' as const }]
+  );
+
+  const geopolitical = makeDimension(
+    'geopolitical',
+    throughput >= 5
+      ? [{ text: s.propositionsThroughputGood(throughput), severity: 'medium' as const }]
+      : [],
+    [],
+    [],
+    healthScore < 0.3
+      ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }]
+      : [{ text: s.propositionsOverlapping, severity: 'medium' as const }]
+  );
+
+  const temporal: TemporalSwotAssessment = {
+    shortTerm: base,
+    mediumTerm: {
+      strengths: base.strengths,
+      weaknesses: base.weaknesses.filter((i) => i.severity === 'high'),
+      opportunities: base.opportunities,
+      threats: base.threats.filter((i) => i.severity === 'high'),
+    },
+  };
+
+  const stakeholderViews: Partial<Record<StakeholderType, SwotAnalysis>> = {
+    industry: {
+      strengths:
+        throughput >= 5
+          ? [{ text: s.propositionsThroughputGood(throughput), severity: 'medium' as const }]
+          : [],
+      weaknesses:
+        throughput < 5
+          ? [{ text: s.propositionsThroughputLow(throughput), severity: 'medium' as const }]
+          : [],
+      opportunities: [{ text: s.propositionsTrilogueAcceleration, severity: 'medium' as const }],
+      threats: [{ text: s.propositionsOverlapping, severity: 'medium' as const }],
+    },
+    government: {
+      strengths:
+        healthScore > 0.7
+          ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' as const }]
+          : [],
+      weaknesses:
+        healthScore < 0.5
+          ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' as const }]
+          : [],
+      opportunities: [{ text: s.propositionsPrioritisation, severity: 'medium' as const }],
+      threats:
+        healthScore < 0.3
+          ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }]
+          : [],
+    },
+  };
+
+  return {
+    dimensions: [political, economic, social, legal, geopolitical],
+    temporal,
+    stakeholderViews,
+  };
+}
+
+/**
+ * Build multi-dimensional SWOT analysis for committee reports articles.
+ *
+ * @param committees - Committee data list
+ * @param lang - Target language code
+ * @returns Multi-dimensional SWOT data, or `null` when all committee data is placeholder
+ */
+export function buildCommitteeMultiDimensionalSwot(
+  committees: readonly CommitteeData[],
+  lang: LanguageCode = 'en'
+): MultiDimensionalSwot | null {
+  if (isPlaceholderCommitteeData(committees)) return null;
+  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
+  const base = buildCommitteeSwot(committees, lang);
+  if (!base) return null;
+
+  const active = committees.filter((c) => c.documents.length > 0);
+  const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
+  const inactiveCount = committees.length - active.length;
+  const highActivity = active.length >= committees.length * 0.7;
+
+  const political = makeDimension(
+    'political',
+    active.length > 0
+      ? [
+          {
+            text: s.committeeActive(active.length, committees.length),
+            severity: highActivity ? ('high' as const) : ('medium' as const),
+          },
+        ]
+      : [],
+    inactiveCount > committees.length * 0.3
+      ? [{ text: s.committeeInactive(inactiveCount), severity: 'high' as const }]
+      : [],
+    [{ text: s.committeeCrossCollaboration, severity: 'medium' as const }],
+    inactiveCount > committees.length * 0.3
+      ? [{ text: s.committeeLowActivity, severity: 'high' as const }]
+      : [{ text: s.committeeCompetingPriorities, severity: 'medium' as const }]
+  );
+
+  const economic = makeDimension(
+    'economic',
+    totalDocs > 0 ? [{ text: s.committeeDocuments(totalDocs), severity: 'medium' as const }] : [],
+    inactiveCount > 0
+      ? [{ text: s.committeeInactive(inactiveCount), severity: 'medium' as const }]
+      : [],
+    committees.length > 0 ? [{ text: s.committeeHearings, severity: 'medium' as const }] : [],
+    [{ text: s.committeeCompetingPriorities, severity: 'medium' as const }]
+  );
+
+  const social = makeDimension(
+    'social',
+    active.length > 0
+      ? [{ text: s.committeeActive(active.length, committees.length), severity: 'medium' as const }]
+      : [],
+    [],
+    [{ text: s.committeeCrossCollaboration, severity: 'medium' as const }],
+    []
+  );
+
+  const legal = makeDimension(
+    'legal',
+    totalDocs > 0 ? [{ text: s.committeeDocuments(totalDocs), severity: 'high' as const }] : [],
+    inactiveCount > committees.length * 0.3
+      ? [{ text: s.committeeInactive(inactiveCount), severity: 'high' as const }]
+      : [],
+    committees.length > 0 ? [{ text: s.committeeHearings, severity: 'medium' as const }] : [],
+    inactiveCount > committees.length * 0.3
+      ? [{ text: s.committeeLowActivity, severity: 'high' as const }]
+      : []
+  );
+
+  const geopolitical = makeDimension(
+    'geopolitical',
+    [],
+    [],
+    [{ text: s.committeeCrossCollaboration, severity: 'medium' as const }],
+    [{ text: s.committeeCompetingPriorities, severity: 'medium' as const }]
+  );
+
+  const temporal: TemporalSwotAssessment = {
+    shortTerm: base,
+    mediumTerm: {
+      strengths: base.strengths.filter((i) => i.severity === 'high'),
+      weaknesses: base.weaknesses,
+      opportunities: base.opportunities,
+      threats: base.threats,
+    },
+  };
+
+  const stakeholderViews = buildCommitteeMDStakeholders(
+    active,
+    committees,
+    totalDocs,
+    inactiveCount,
+    s
+  );
+
+  return {
+    dimensions: [political, economic, social, legal, geopolitical],
+    temporal,
+    stakeholderViews,
+  };
 }
