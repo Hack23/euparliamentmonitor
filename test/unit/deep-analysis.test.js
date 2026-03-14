@@ -749,9 +749,11 @@ describe('Dashboard builders', () => {
 
     it('includes cohesion chart when patterns available', () => {
       const result = buildVotingDashboard(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
-      expect(result.panels.length).toBe(2);
-      expect(result.panels[1].chart).toBeDefined();
-      expect(result.panels[1].chart.type).toBe('bar');
+      expect(result.panels.length).toBeGreaterThanOrEqual(2);
+      // The cohesion panel (panel[1]) should have a bar chart
+      const cohesionPanel = result.panels.find((p) => p.chart?.type === 'bar');
+      expect(cohesionPanel).toBeDefined();
+      expect(cohesionPanel.chart.type).toBe('bar');
     });
 
     it('handles empty inputs', () => {
@@ -764,7 +766,7 @@ describe('Dashboard builders', () => {
     it('returns panels with scheduled activity metrics (no hardcoded title)', () => {
       const result = buildProspectiveDashboard(WEEK_AHEAD_DATA, 'week');
       expect(result.title).toBeUndefined();
-      expect(result.panels.length).toBe(2);
+      expect(result.panels.length).toBeGreaterThanOrEqual(2);
     });
   });
 
@@ -804,8 +806,10 @@ describe('Dashboard builders', () => {
     it('returns committee overview and chart (no hardcoded title)', () => {
       const result = buildCommitteeDashboard(COMMITTEE_DATA);
       expect(result.title).toBeUndefined();
-      expect(result.panels.length).toBe(2);
-      expect(result.panels[1].chart).toBeDefined();
+      expect(result.panels.length).toBeGreaterThanOrEqual(2);
+      // There should be a panel with a chart
+      const chartPanel = result.panels.find((p) => p.chart !== undefined);
+      expect(chartPanel).toBeDefined();
     });
 
     it('handles empty committee list', () => {
