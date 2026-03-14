@@ -2531,6 +2531,9 @@ export function buildCommitteeMindmap(
     actorNetwork,
     stakeholderGroups: ['MEPs', 'Political Groups', 'Secretariat', 'External Experts'],
     summary: `${activeCommittees.length} active committees producing ${totalDocs} documents.`,
+  };
+}
+
 // ─── Multi-dimensional SWOT builders ────────────────────────────────────────
 
 /**

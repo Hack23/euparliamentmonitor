@@ -743,6 +743,105 @@ describe('mindmap-content', () => {
 
       expect(html).toContain('Inflytande: 80%');
     });
+
+    it('should not include role="listitem" on inner node divs (li wrapper provides it)', () => {
+      const html = buildIntelligenceMindmapSection({
+        centralTopic: 'Test',
+        layers: [
+          {
+            depth: 1,
+            nodes: [
+              {
+                id: 'n1',
+                label: 'Node',
+                category: 'policy_domain',
+                influence: 0.5,
+                color: 'cyan',
+                children: [
+                  { id: 'n2', label: 'Child', category: 'sub_topic', influence: 0.3, color: 'green', children: [] },
+                ],
+              },
+            ],
+          },
+        ],
+        connections: [],
+        actorNetwork: [],
+      });
+
+      // The <div class="mindmap-intel-node"> should NOT have role="listitem"
+      expect(html).not.toMatch(/mindmap-intel-node[^"]*" role="listitem"/);
+    });
+
+    it('should use "Details" instead of "Key Actors" for child toggle label', () => {
+      const html = buildIntelligenceMindmapSection({
+        centralTopic: 'Test',
+        layers: [
+          {
+            depth: 1,
+            nodes: [
+              {
+                id: 'n1',
+                label: 'Node',
+                category: 'policy_domain',
+                influence: 0.5,
+                color: 'cyan',
+                children: [
+                  { id: 'n2', label: 'Sub', category: 'sub_topic', influence: 0.3, color: 'green', children: [] },
+                ],
+              },
+            ],
+          },
+        ],
+        connections: [],
+        actorNetwork: [],
+      });
+
+      expect(html).toContain('>Details</summary>');
+      expect(html).not.toContain('>Key Actors</summary>');
+    });
+
+    it('should localize stakeholder panel aria-label "perspective" suffix', () => {
+      const html = buildIntelligenceMindmapSection(
+        {
+          centralTopic: 'Test',
+          layers: [
+            {
+              depth: 1,
+              nodes: [
+                { id: 'n1', label: 'Node', category: 'policy_domain', influence: 0.5, color: 'cyan', children: [] },
+              ],
+            },
+          ],
+          connections: [],
+          actorNetwork: [],
+          stakeholderGroups: ['Industry'],
+        },
+        'de'
+      );
+
+      expect(html).toContain('Industry Perspektive');
+      expect(html).not.toContain('Industry perspective');
+    });
+
+    it('should fall back to allNodes when depth-1 layer has zero nodes', () => {
+      const html = buildIntelligenceMindmapSection({
+        centralTopic: 'Test',
+        layers: [
+          { depth: 1, nodes: [] },
+          {
+            depth: 2,
+            nodes: [
+              { id: 'n1', label: 'Fallback Node', category: 'sub_topic', influence: 0.5, color: 'green', children: [] },
+            ],
+          },
+        ],
+        connections: [],
+        actorNetwork: [],
+      });
+
+      expect(html).toContain('Fallback Node');
+      expect(html).not.toBe('');
+    });
   });
 
   // ---------------------------------------------------------------------------

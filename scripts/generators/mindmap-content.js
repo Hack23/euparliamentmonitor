@@ -36,8 +36,8 @@ const BRANCH_PALETTE = {
 /** Color mapping for intelligence mindmap node categories. */
 const CATEGORY_PALETTE = {
     policy_domain: { bg: '#e3f2fd', border: '#1565c0', text: '#1565c0' },
-    sub_topic: { bg: '#e8f5e9', border: '#2e7d32', text: '#2e7d32' },
-    actor: { bg: '#f3e5f5', border: '#7b1fa2', text: '#7b1fa2' },
+    sub_topic: { bg: '#f3e5f5', border: '#7b1fa2', text: '#7b1fa2' },
+    actor: { bg: '#e8f5e9', border: '#2e7d32', text: '#2e7d32' },
     action: { bg: '#fff3e0', border: '#e65100', text: '#e65100' },
     outcome: { bg: '#e8eaf6', border: '#283593', text: '#283593' },
 };
@@ -82,22 +82,6 @@ const INTELLIGENCE_MINDMAP_HEADINGS = {
     ja: '政策インテリジェンスマップ',
     ko: '정책 인텔리전스 맵',
     zh: '政策情报图谱',
-};
-const KEY_ACTORS_LABELS = {
-    en: 'Key Actors',
-    sv: 'Nyckelaktörer',
-    da: 'Nøgleaktører',
-    no: 'Nøkkelaktører',
-    fi: 'Avaintoimijat',
-    de: 'Hauptakteure',
-    fr: 'Acteurs clés',
-    es: 'Actores clave',
-    nl: 'Sleutelspelers',
-    ar: 'الجهات الفاعلة الرئيسية',
-    he: 'גורמים מרכזיים',
-    ja: '主要アクター',
-    ko: '주요 행위자',
-    zh: '关键行动者',
 };
 const STAKEHOLDER_PERSPECTIVES_LABELS = {
     en: 'Stakeholder Perspectives',
@@ -179,6 +163,38 @@ const INFLUENCE_LABELS = {
     ko: '영향력',
     zh: '影响力',
 };
+const PERSPECTIVE_LABELS = {
+    en: 'perspective',
+    sv: 'perspektiv',
+    da: 'perspektiv',
+    no: 'perspektiv',
+    fi: 'näkökulma',
+    de: 'Perspektive',
+    fr: 'perspective',
+    es: 'perspectiva',
+    nl: 'perspectief',
+    ar: 'منظور',
+    he: 'נקודת מבט',
+    ja: '視点',
+    ko: '관점',
+    zh: '视角',
+};
+const DETAILS_LABELS = {
+    en: 'Details',
+    sv: 'Detaljer',
+    da: 'Detaljer',
+    no: 'Detaljer',
+    fi: 'Yksityiskohdat',
+    de: 'Details',
+    fr: 'Détails',
+    es: 'Detalles',
+    nl: 'Details',
+    ar: 'التفاصيل',
+    he: 'פרטים',
+    ja: '詳細',
+    ko: '세부 정보',
+    zh: '详情',
+};
 // ---------------------------------------------------------------------------
 // Rendering helpers — standard mindmap
 // ---------------------------------------------------------------------------
@@ -240,11 +256,11 @@ function clampInfluence(value) {
  *
  * @param node - The mindmap node to render
  * @param depth - Current depth in the hierarchy (1 = domain layer)
- * @param actorsLabel - Localized label for the actors toggle
+ * @param detailsLabel - Localized label for the child details toggle
  * @param influenceLabel - Localized label for influence meter
  * @returns HTML string for this node and its children
  */
-function renderIntelligenceNode(node, depth, actorsLabel, influenceLabel) {
+function renderIntelligenceNode(node, depth, detailsLabel, influenceLabel) {
     const palette = getCategoryPalette(node.category);
     const influence = clampInfluence(node.influence);
     const influencePct = (influence * 100).toFixed(0);
@@ -258,11 +274,11 @@ function renderIntelligenceNode(node, depth, actorsLabel, influenceLabel) {
         ? ` data-doc="${escapeHTML(node.metadata.documentRef)}"`
         : '';
     const childrenHtml = node.children.length > 0
-        ? `\n        <details class="mindmap-actor-overlay" aria-label="${escapeHTML(actorsLabel)}: ${escapeHTML(node.label)}">\n          <summary class="mindmap-actor-toggle">${escapeHTML(actorsLabel)}</summary>\n          <ul class="mindmap-subnodes mindmap-layer-${depth + 1}" role="list">\n${node.children
-            .map((child) => `            <li>${renderIntelligenceNode(child, depth + 1, actorsLabel, influenceLabel)}</li>`)
+        ? `\n        <details class="mindmap-actor-overlay" aria-label="${escapeHTML(detailsLabel)}: ${escapeHTML(node.label)}">\n          <summary class="mindmap-actor-toggle">${escapeHTML(detailsLabel)}</summary>\n          <ul class="mindmap-subnodes mindmap-layer-${depth + 1}" role="list">\n${node.children
+            .map((child) => `            <li>${renderIntelligenceNode(child, depth + 1, detailsLabel, influenceLabel)}</li>`)
             .join('\n')}\n          </ul>\n        </details>`
         : '';
-    return `<div class="mindmap-intel-node mindmap-node-${escapeHTML(node.category)}" role="listitem"
+    return `<div class="mindmap-intel-node mindmap-node-${escapeHTML(node.category)}"
         data-node-id="${escapeHTML(node.id)}" data-influence="${influencePct}"
         style="--branch-bg:${palette.bg};--branch-border:${palette.border};--branch-text:${palette.text};--node-influence:${influence.toFixed(2)}"${metaCommittee}${metaGroup}${metaDoc}
         aria-label="${escapeHTML(node.label)} (${escapeHTML(influenceLabel)}: ${influencePct}%)">
@@ -341,13 +357,14 @@ ${items}
  *
  * @param groups - Stakeholder group labels to render as panels
  * @param label - Localized heading label for the outer toggle
+ * @param perspectiveLabel - Localized suffix for stakeholder perspective aria-label
  * @returns HTML string for the stakeholder overlay, or empty string
  */
-function renderStakeholderOverlays(groups, label) {
+function renderStakeholderOverlays(groups, label, perspectiveLabel) {
     if (!groups || groups.length === 0)
         return '';
     const panels = groups
-        .map((g) => `      <details class="mindmap-stakeholder-panel" aria-label="${escapeHTML(g)} perspective">
+        .map((g) => `      <details class="mindmap-stakeholder-panel" aria-label="${escapeHTML(g)} ${escapeHTML(perspectiveLabel)}">
         <summary>${escapeHTML(g)}</summary>
         <p class="mindmap-stakeholder-desc">${escapeHTML(g)}</p>
       </details>`)
@@ -418,23 +435,26 @@ export function buildIntelligenceMindmapSection(imap, lang = 'en', heading) {
     if (allNodes.length === 0)
         return '';
     const titleText = heading?.trim() || INTELLIGENCE_MINDMAP_HEADINGS[lang] || 'Intelligence Policy Map';
-    const actorsLabel = KEY_ACTORS_LABELS[lang] ?? 'Key Actors';
+    const detailsLabel = DETAILS_LABELS[lang] ?? 'Details';
     const stakeholderLabel = STAKEHOLDER_PERSPECTIVES_LABELS[lang] ?? 'Stakeholder Perspectives';
     const connectionsLabel = POLICY_CONNECTIONS_LABELS[lang] ?? 'Policy Connections';
     const actorNetworkLabel = ACTOR_NETWORK_LABELS[lang] ?? 'Actor Network';
     const policyDomainsLabel = POLICY_DOMAINS_LABELS[lang] ?? 'Policy Domains';
     const influenceLabel = INFLUENCE_LABELS[lang] ?? 'Influence';
+    const perspectiveLabel = PERSPECTIVE_LABELS[lang] ?? 'perspective';
     const summaryBlock = imap.summary?.trim()
         ? `  <p class="mindmap-summary">${escapeHTML(imap.summary.trim())}</p>\n`
         : '';
-    // Render domain layer (depth 1 nodes as primary branches)
-    const domainNodes = imap.layers.find((l) => l.depth === 1)?.nodes ?? allNodes;
+    // Render domain layer (depth 1 nodes as primary branches); fall back to
+    // allNodes when the depth-1 layer is missing *or* empty.
+    const depth1Nodes = imap.layers.find((l) => l.depth === 1)?.nodes ?? [];
+    const domainNodes = depth1Nodes.length > 0 ? depth1Nodes : allNodes;
     const domainItems = domainNodes
-        .map((node) => renderIntelligenceNode(node, 1, actorsLabel, influenceLabel))
+        .map((node) => renderIntelligenceNode(node, 1, detailsLabel, influenceLabel))
         .join('\n');
     const connectionsHtml = renderConnectionsOverlay(imap.connections, connectionsLabel);
     const actorNetworkHtml = renderActorNetworkOverlay(imap.actorNetwork, actorNetworkLabel, influenceLabel);
-    const stakeholderHtml = renderStakeholderOverlays(imap.stakeholderGroups, stakeholderLabel);
+    const stakeholderHtml = renderStakeholderOverlays(imap.stakeholderGroups, stakeholderLabel, perspectiveLabel);
     const totalNodes = countNodesRecursive(allNodes);
     const totalConnections = imap.connections.length;
     const totalActors = imap.actorNetwork.length;

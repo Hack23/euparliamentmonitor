@@ -3315,6 +3315,13 @@ button:focus-visible {
   display: none;
 }
 
+.mindmap-actor-toggle::marker,
+.mindmap-connections-toggle::marker,
+.mindmap-actor-network-toggle::marker,
+.mindmap-stakeholder-toggle::marker {
+  content: '';
+}
+
 .mindmap-actor-toggle::before,
 .mindmap-connections-toggle::before,
 .mindmap-actor-network-toggle::before,
@@ -3458,7 +3465,7 @@ details[open] > .mindmap-stakeholder-toggle::before {
 }
 
 .mindmap-node-outcome {
-  border-left: 4px solid #00838f;
+  border-left: 4px solid #283593;
 }
 
 @media print {

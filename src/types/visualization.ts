@@ -579,6 +579,8 @@ export interface IntelligenceMindmap {
   readonly stakeholderGroups?: readonly string[] | undefined;
   /** Optional summary rendered above the mindmap. */
   readonly summary?: string | undefined;
+}
+
 // ─── Political Intelligence Dashboard types ───────────────────────────────────
 
 /**
