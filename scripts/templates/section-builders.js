@@ -25,7 +25,7 @@ function countMatches(content, pattern) {
  */
 export function computeArticleQualityScore(content) {
   // Remove script blocks before tag-stripping to avoid inflating word count
-  const noScripts = content.replace(/<script[^>]*>[\s\S]*?<\/script>/giu, ' ');
+  const noScripts = content.replace(/<script[^>]*>[\s\S]*?<\/script\s*>/giu, ' ');
   // Strip HTML tags to get plain text, then count words
   const plainText = noScripts
     .replace(/<[^>]*>/g, ' ')
