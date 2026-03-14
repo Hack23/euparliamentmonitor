@@ -1533,13 +1533,19 @@ const DEFAULT_INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.
  *
  * Returns an empty index if the file does not exist yet (first run).
  *
+ * @internal Not yet wired into the pipeline — will be exported once the fetch
+ * stage calls into the intelligence layer.
+ *
  * @param indexPath - Path to the intelligence index JSON file
  * @returns The loaded {@link IntelligenceIndex}
  */
-export function loadPipelineIntelligenceIndex(indexPath = DEFAULT_INTELLIGENCE_INDEX_PATH) {
+// istanbul ignore next -- not yet wired into pipeline
+function loadPipelineIntelligenceIndex(indexPath = DEFAULT_INTELLIGENCE_INDEX_PATH) {
     console.log(`  🧠 Loading intelligence index from: ${indexPath}`);
     const index = loadIntelligenceIndex(indexPath);
     console.log(`  ✅ Intelligence index loaded: ${index.articles.length} articles, ${index.trends.length} trends`);
     return index;
 }
+// Suppress unused-variable warning — will be wired into the pipeline in a follow-up PR
+void loadPipelineIntelligenceIndex;
 //# sourceMappingURL=fetch-stage.js.map

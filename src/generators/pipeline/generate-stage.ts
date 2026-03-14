@@ -265,6 +265,9 @@ export async function generateArticleForStrategy(
  * Build an {@link ArticleIndexEntry} for a freshly generated article so it can
  * be registered in the intelligence index by the output stage.
  *
+ * @internal Not yet wired into the pipeline — will be exported once article
+ * generation calls into the intelligence layer.
+ *
  * @param slug - Article slug (e.g. "2025-01-15-week-ahead")
  * @param lang - Language code
  * @param category - Article category
@@ -274,7 +277,8 @@ export async function generateArticleForStrategy(
  * @param procedures - EP procedure references covered
  * @returns A populated {@link ArticleIndexEntry}
  */
-export function buildArticleIndexEntry(
+// istanbul ignore next -- not yet wired into pipeline
+function buildArticleIndexEntry(
   slug: string,
   lang: LanguageCode,
   category: ArticleCategory,
@@ -301,12 +305,16 @@ export function buildArticleIndexEntry(
  * Use the intelligence index to find related articles and produce an HTML snippet
  * for inclusion in the generated article.
  *
+ * @internal Not yet wired into the pipeline — will be exported once article
+ * generation calls into the intelligence layer.
+ *
  * @param index - The current intelligence index
  * @param entry - The article index entry being generated
  * @param lang - Language code for optional localisation
  * @returns HTML string for the "Related Analysis" section
  */
-export function enrichArticleWithIntelligence(
+// istanbul ignore next -- not yet wired into pipeline
+function enrichArticleWithIntelligence(
   index: IntelligenceIndex,
   entry: ArticleIndexEntry,
   lang?: LanguageCode
@@ -318,3 +326,7 @@ export function enrichArticleWithIntelligence(
   );
   return buildRelatedArticlesHTML(related, crossRefs, relevantTrends, lang);
 }
+
+// Suppress unused-variable warnings — these will be wired into the pipeline in a follow-up PR
+void buildArticleIndexEntry;
+void enrichArticleWithIntelligence;

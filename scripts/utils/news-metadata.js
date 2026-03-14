@@ -11,8 +11,8 @@ import fs from 'fs';
 import path from 'path';
 import { NEWS_DIR } from '../constants/config.js';
 import { getNewsArticles, parseArticleFilename, formatSlug, extractArticleMeta, } from './file-utils.js';
+import { ArticleCategory } from '../types/index.js';
 import { loadIntelligenceIndex, addArticleToIndex, detectTrends, saveIntelligenceIndex, } from './intelligence-index.js';
-import { ArticleCategory } from '../types/common.js';
 /** Default path for the metadata database file */
 const METADATA_DB_PATH = path.join(NEWS_DIR, 'articles-metadata.json');
 /**

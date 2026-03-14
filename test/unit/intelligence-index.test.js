@@ -365,6 +365,24 @@ describe('detectTrends', () => {
     const t = trends.find((t) => t.name.includes('strong-topic'));
     expect(t?.direction).toBe('strengthening');
   });
+
+  it('should produce non-colliding trend IDs for non-Latin scripts', () => {
+    let index = createEmptyIndex();
+    // Arabic topic
+    index = addArticleToIndex(index, makeEntry({ id: 'art-ar-1', keyTopics: ['سياسة المناخ'] }));
+    index = addArticleToIndex(index, makeEntry({ id: 'art-ar-2', keyTopics: ['سياسة المناخ'] }));
+    // Japanese topic
+    index = addArticleToIndex(index, makeEntry({ id: 'art-ja-1', keyTopics: ['気候政策'] }));
+    index = addArticleToIndex(index, makeEntry({ id: 'art-ja-2', keyTopics: ['気候政策'] }));
+
+    const trends = detectTrends(index);
+    const arTrend = trends.find((t) => t.name.includes('سياسة المناخ'));
+    const jaTrend = trends.find((t) => t.name.includes('気候政策'));
+    expect(arTrend).toBeDefined();
+    expect(jaTrend).toBeDefined();
+    // IDs should be distinct (not both collapsing to "trend-topic-")
+    expect(arTrend?.id).not.toBe(jaTrend?.id);
+  });
 });
 
 // ─── findOrCreateSeries ───────────────────────────────────────────────────────
@@ -433,6 +451,26 @@ describe('loadIntelligenceIndex', () => {
     expect(index.trends).toEqual([]);
     expect(index.series).toEqual([]);
     expect(typeof index.lastUpdated).toBe('string');
+  });
+
+  it('should normalize article entries missing required arrays', () => {
+    const partialPath = path.join(tempDir, 'entry-partial.json');
+    // Article entry with only id and date — all arrays are missing
+    fs.writeFileSync(
+      partialPath,
+      JSON.stringify({ articles: [{ id: 'a1', date: '2025-01-01' }] }),
+      'utf-8'
+    );
+    const index = loadIntelligenceIndex(partialPath);
+    const entry = index.articles[0];
+    expect(entry.id).toBe('a1');
+    expect(entry.date).toBe('2025-01-01');
+    expect(entry.keyTopics).toEqual([]);
+    expect(entry.keyActors).toEqual([]);
+    expect(entry.procedures).toEqual([]);
+    expect(entry.crossReferences).toEqual([]);
+    expect(entry.trendContributions).toEqual([]);
+    expect(entry.lang).toBe('en'); // default
   });
 });
 

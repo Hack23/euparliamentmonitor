@@ -352,6 +352,32 @@ export function findOrCreateSeries(
   return newSeries;
 }
 
+// ─── normalizeArticleEntry ────────────────────────────────────────────────────
+
+/**
+ * Ensure an {@link ArticleIndexEntry} loaded from disk has all required fields.
+ *
+ * Persisted JSON may be missing arrays or strings after schema evolution; this
+ * function fills safe defaults so downstream code never crashes on `undefined`.
+ *
+ * @param entry - Potentially partial article entry from parsed JSON
+ * @returns A fully populated {@link ArticleIndexEntry}
+ */
+function normalizeArticleEntry(entry: Partial<ArticleIndexEntry>): ArticleIndexEntry {
+  return {
+    id: typeof entry.id === 'string' ? entry.id : '',
+    date: typeof entry.date === 'string' ? entry.date : '',
+    type: typeof entry.type === 'string' ? entry.type : ('unknown' as ArticleIndexEntry['type']),
+    lang: typeof entry.lang === 'string' ? entry.lang : 'en',
+    keyTopics: Array.isArray(entry.keyTopics) ? entry.keyTopics : [],
+    keyActors: Array.isArray(entry.keyActors) ? entry.keyActors : [],
+    procedures: Array.isArray(entry.procedures) ? entry.procedures : [],
+    crossReferences: Array.isArray(entry.crossReferences) ? entry.crossReferences : [],
+    trendContributions: Array.isArray(entry.trendContributions) ? entry.trendContributions : [],
+    ...(entry.seriesId !== undefined && { seriesId: entry.seriesId }),
+  };
+}
+
 // ─── loadIntelligenceIndex ───────────────────────────────────────────────────
 
 /**
@@ -359,6 +385,10 @@ export function findOrCreateSeries(
  *
  * Returns an empty index (via {@link createEmptyIndex}) if the file does not exist
  * or cannot be parsed.
+ *
+ * Each loaded {@link ArticleIndexEntry} is normalised so that missing arrays
+ * and strings are filled with safe defaults, preventing crashes in downstream
+ * code that iterates over `keyTopics`, `keyActors`, etc.
  *
  * @param indexPath - Absolute or relative path to the index JSON file
  * @returns Loaded index, or a fresh empty index on failure
@@ -374,8 +404,11 @@ export function loadIntelligenceIndex(indexPath: string): IntelligenceIndex {
     // Merge onto an empty index to ensure all fields are present and safe
     // even after schema evolution or partial/corrupt files.
     const empty = createEmptyIndex();
+    const articles = Array.isArray(parsed.articles)
+      ? parsed.articles.map(normalizeArticleEntry)
+      : empty.articles;
     return {
-      articles: Array.isArray(parsed.articles) ? parsed.articles : empty.articles,
+      articles,
       actors:
         parsed.actors && typeof parsed.actors === 'object' && !Array.isArray(parsed.actors)
           ? parsed.actors
@@ -786,14 +819,27 @@ function addIdToMap(
 
 /**
  * Convert a string to a URL-safe slug.
+ *
+ * Uses Unicode-aware character classes so non-Latin scripts (e.g. Arabic,
+ * Hebrew, CJK) produce meaningful slugs instead of collapsing to `""`.
+ * When the result would still be empty (e.g. purely punctuation input) a
+ * short deterministic hash is returned as a fallback.
+ *
  * @param text - Input string
- * @returns Slugified string
+ * @returns Slugified string (never empty)
  */
 function slugify(text: string): string {
-  return text
+  const slug = text
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '');
+  if (slug.length > 0) return slug;
+  // Deterministic fallback: simple DJB2-style hash of the original text
+  let hash = 5381;
+  for (let i = 0; i < text.length; i++) {
+    hash = ((hash << 5) + hash + text.charCodeAt(i)) | 0;
+  }
+  return `h${Math.abs(hash).toString(36)}`;
 }
 
 /**

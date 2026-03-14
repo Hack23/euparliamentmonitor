@@ -211,11 +211,15 @@ const DEFAULT_INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.
  * Add a newly generated article entry to the intelligence index and refresh
  * trend detections.
  *
+ * @internal Not yet wired into the pipeline — will be exported once the output
+ * stage calls into the intelligence layer.
+ *
  * @param index - The current intelligence index
  * @param entry - The article index entry to add
  * @returns Updated intelligence index with refreshed trends
  */
-export function updateIndexWithArticle(
+// istanbul ignore next -- not yet wired into pipeline
+function updateIndexWithArticle(
   index: IntelligenceIndex,
   entry: ArticleIndexEntry
 ): IntelligenceIndex {
@@ -227,10 +231,14 @@ export function updateIndexWithArticle(
 /**
  * Persist the intelligence index to disk after article generation.
  *
+ * @internal Not yet wired into the pipeline — will be exported once the output
+ * stage calls into the intelligence layer.
+ *
  * @param index - Intelligence index to save
  * @param indexPath - Path to write the index JSON file
  */
-export function saveUpdatedIndex(
+// istanbul ignore next -- not yet wired into pipeline
+function saveUpdatedIndex(
   index: IntelligenceIndex,
   indexPath: string = DEFAULT_INTELLIGENCE_INDEX_PATH
 ): void {
@@ -239,3 +247,7 @@ export function saveUpdatedIndex(
     `  🧠 Intelligence index saved: ${index.articles.length} articles, ${index.trends.length} trends`
   );
 }
+
+// Suppress unused-variable warnings — these will be wired into the pipeline in a follow-up PR
+void updateIndexWithArticle;
+void saveUpdatedIndex;

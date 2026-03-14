@@ -18,15 +18,18 @@ import {
   formatSlug,
   extractArticleMeta,
 } from './file-utils.js';
-import type { ArticleMetadataEntry, NewsMetadataDatabase } from '../types/index.js';
-import type { IntelligenceIndex } from '../types/intelligence.js';
+import type {
+  ArticleMetadataEntry,
+  NewsMetadataDatabase,
+  IntelligenceIndex,
+} from '../types/index.js';
+import { ArticleCategory } from '../types/index.js';
 import {
   loadIntelligenceIndex,
   addArticleToIndex,
   detectTrends,
   saveIntelligenceIndex,
 } from './intelligence-index.js';
-import { ArticleCategory } from '../types/common.js';
 
 /** Default path for the metadata database file */
 const METADATA_DB_PATH = path.join(NEWS_DIR, 'articles-metadata.json');
