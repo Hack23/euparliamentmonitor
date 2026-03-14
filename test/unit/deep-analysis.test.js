@@ -24,6 +24,7 @@ import {
   PLACEHOLDER_CHAIR,
   PLACEHOLDER_MEMBERS,
 } from '../../scripts/generators/committee-helpers.js';
+import { ALL_STAKEHOLDER_TYPES } from '../../scripts/types/index.js';
 
 // ─── Fixtures ──────────────────────────────────────────────────────────────────
 
@@ -829,15 +830,6 @@ const BREAKING_FEED_DATA = {
 const PIPELINE_DATA = { healthScore: 0.75, throughput: 12, bottleneckCount: 2 };
 
 describe('Multi-stakeholder perspectives in analysis builders', () => {
-  const ALL_STAKEHOLDER_TYPES = [
-    'political_groups',
-    'civil_society',
-    'industry',
-    'national_govts',
-    'citizens',
-    'eu_institutions',
-  ];
-
   describe('buildVotingAnalysis — stakeholder fields', () => {
     it('should populate stakeholderPerspectives with 6 entries', () => {
       const result = buildVotingAnalysis('2026-01-01', '2026-01-07', VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS);
@@ -1002,8 +994,8 @@ describe('buildDeepAnalysisSection — multi-stakeholder HTML rendering', () => 
 
   it('should render stakeholder group names in perspectives', () => {
     const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
-    expect(html).toContain('political groups');
-    expect(html).toContain('civil society');
+    expect(html).toContain('Political Groups');
+    expect(html).toContain('Civil Society');
   });
 
   it('should render impact badges in perspectives', () => {

@@ -545,8 +545,16 @@ function buildPropositionsConsequences(pct, healthScore, throughput) {
         ? 'Slow processing reduces legislative output and postpones policy implementation'
         : 'Healthy throughput enables timely delivery of policy commitments';
     return [
-        { action: `Pipeline health at ${pct}%`, consequence: healthConsequence, severity: healthSeverity },
-        { action: `Throughput rate at ${throughput}`, consequence: throughputConsequence, severity: throughput < 5 ? 'high' : 'low' },
+        {
+            action: `Pipeline health at ${pct}%`,
+            consequence: healthConsequence,
+            severity: healthSeverity,
+        },
+        {
+            action: `Throughput rate at ${throughput}`,
+            consequence: throughputConsequence,
+            severity: throughput < 5 ? 'high' : 'low',
+        },
     ];
 }
 /**

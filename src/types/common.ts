@@ -458,6 +458,10 @@ export interface DeepAnalysisStrings {
   readonly nationalGovtsLabel: string;
   readonly citizensLabel: string;
   readonly euInstitutionsLabel: string;
+  /** Impact direction labels for stakeholder perspective cards */
+  readonly positiveLabel: string;
+  readonly negativeLabel: string;
+  readonly mixedLabel: string;
 }
 
 /** Localized content strings for the committee analysis deep analysis body text */

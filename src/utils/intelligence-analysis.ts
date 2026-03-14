@@ -309,7 +309,12 @@ export function buildDefaultStakeholderPerspectives(
     const severity = severityFromScore(score);
     return {
       stakeholder,
-      impact: score >= 0.6 ? ('positive' as const) : score <= 0.3 ? ('negative' as const) : ('neutral' as const),
+      impact:
+        score >= 0.6
+          ? ('positive' as const)
+          : score <= 0.3
+            ? ('negative' as const)
+            : ('neutral' as const),
       severity,
       reasoning: `Impact of "${topic}" on ${stakeholder.replace(/_/g, ' ')}: ${severity} significance.`,
       evidence: [topic],
@@ -364,12 +369,14 @@ export function buildStakeholderOutcomeMatrix(
   scores: Partial<Record<StakeholderType, number>> = {},
   confidence: StakeholderOutcomeMatrix['confidence'] = 'medium'
 ): StakeholderOutcomeMatrix {
-  const entries = ALL_STAKEHOLDER_TYPES.map((stakeholder): [StakeholderType, 'winner' | 'loser' | 'neutral'] => {
-    const score = scores[stakeholder] ?? 0.5;
-    const outcome: 'winner' | 'loser' | 'neutral' =
-      score > 0.6 ? 'winner' : score < 0.4 ? 'loser' : 'neutral';
-    return [stakeholder, outcome];
-  });
+  const entries = ALL_STAKEHOLDER_TYPES.map(
+    (stakeholder): [StakeholderType, 'winner' | 'loser' | 'neutral'] => {
+      const score = scores[stakeholder] ?? 0.5;
+      const outcome: 'winner' | 'loser' | 'neutral' =
+        score > 0.6 ? 'winner' : score < 0.4 ? 'loser' : 'neutral';
+      return [stakeholder, outcome];
+    }
+  );
   const outcomes: Record<StakeholderType, 'winner' | 'loser' | 'neutral'> = {
     political_groups: entries.find(([k]) => k === 'political_groups')?.[1] ?? 'neutral',
     civil_society: entries.find(([k]) => k === 'civil_society')?.[1] ?? 'neutral',
@@ -399,8 +406,8 @@ export function rankStakeholdersByInfluence(
     low: 1,
   };
   const impactWeight: Record<StakeholderPerspective['impact'], number> = {
-    negative: 2,
-    mixed: 1,
+    negative: 3,
+    mixed: 2,
     positive: 1,
     neutral: 0,
   };

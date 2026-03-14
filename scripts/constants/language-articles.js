@@ -1428,6 +1428,9 @@ export const DEEP_ANALYSIS_STRINGS = {
         nationalGovtsLabel: 'National Governments',
         citizensLabel: 'Citizens',
         euInstitutionsLabel: 'EU Institutions',
+        positiveLabel: 'Positive',
+        negativeLabel: 'Negative',
+        mixedLabel: 'Mixed',
     },
     sv: {
         sectionHeading: 'Fördjupad Politisk Analys',
@@ -1465,6 +1468,9 @@ export const DEEP_ANALYSIS_STRINGS = {
         nationalGovtsLabel: 'Nationella regeringar',
         citizensLabel: 'Medborgare',
         euInstitutionsLabel: 'EU-institutioner',
+        positiveLabel: 'Positiv',
+        negativeLabel: 'Negativ',
+        mixedLabel: 'Blandad',
     },
     da: {
         sectionHeading: 'Dybdegående Politisk Analyse',
@@ -1502,6 +1508,9 @@ export const DEEP_ANALYSIS_STRINGS = {
         nationalGovtsLabel: 'Nationale regeringer',
         citizensLabel: 'Borgere',
         euInstitutionsLabel: 'EU-institutioner',
+        positiveLabel: 'Positiv',
+        negativeLabel: 'Negativ',
+        mixedLabel: 'Blandet',
     },
     no: {
         sectionHeading: 'Dyptgående Politisk Analyse',
@@ -1539,6 +1548,9 @@ export const DEEP_ANALYSIS_STRINGS = {
         nationalGovtsLabel: 'Nasjonale regjeringer',
         citizensLabel: 'Borgere',
         euInstitutionsLabel: 'EU-institusjoner',
+        positiveLabel: 'Positiv',
+        negativeLabel: 'Negativ',
+        mixedLabel: 'Blandet',
     },
     fi: {
         sectionHeading: 'Syvällinen Poliittinen Analyysi',
@@ -1576,6 +1588,9 @@ export const DEEP_ANALYSIS_STRINGS = {
         nationalGovtsLabel: 'Kansalliset hallitukset',
         citizensLabel: 'Kansalaiset',
         euInstitutionsLabel: 'EU:n toimielimet',
+        positiveLabel: 'Positiivinen',
+        negativeLabel: 'Negatiivinen',
+        mixedLabel: 'Sekalainen',
     },
     de: {
         sectionHeading: 'Vertiefte Politische Analyse',
@@ -1613,6 +1628,9 @@ export const DEEP_ANALYSIS_STRINGS = {
         nationalGovtsLabel: 'Nationale Regierungen',
         citizensLabel: 'Bürger',
         euInstitutionsLabel: 'EU-Institutionen',
+        positiveLabel: 'Positiv',
+        negativeLabel: 'Negativ',
+        mixedLabel: 'Gemischt',
     },
     fr: {
         sectionHeading: 'Analyse Politique Approfondie',
@@ -1649,7 +1667,10 @@ export const DEEP_ANALYSIS_STRINGS = {
         industryLabel: 'Industrie',
         nationalGovtsLabel: 'Gouvernements nationaux',
         citizensLabel: 'Citoyens',
-        euInstitutionsLabel: 'Institutions de l\'UE',
+        euInstitutionsLabel: "Institutions de l'UE",
+        positiveLabel: 'Positif',
+        negativeLabel: 'Négatif',
+        mixedLabel: 'Mixte',
     },
     es: {
         sectionHeading: 'Análisis Político Profundo',
@@ -1687,6 +1708,9 @@ export const DEEP_ANALYSIS_STRINGS = {
         nationalGovtsLabel: 'Gobiernos nacionales',
         citizensLabel: 'Ciudadanos',
         euInstitutionsLabel: 'Instituciones de la UE',
+        positiveLabel: 'Positivo',
+        negativeLabel: 'Negativo',
+        mixedLabel: 'Mixto',
     },
     nl: {
         sectionHeading: 'Diepgaande Politieke Analyse',
@@ -1724,6 +1748,9 @@ export const DEEP_ANALYSIS_STRINGS = {
         nationalGovtsLabel: 'Nationale regeringen',
         citizensLabel: 'Burgers',
         euInstitutionsLabel: 'EU-instellingen',
+        positiveLabel: 'Positief',
+        negativeLabel: 'Negatief',
+        mixedLabel: 'Gemengd',
     },
     ar: {
         sectionHeading: 'تحليل سياسي معمّق',
@@ -1761,6 +1788,9 @@ export const DEEP_ANALYSIS_STRINGS = {
         nationalGovtsLabel: 'الحكومات الوطنية',
         citizensLabel: 'المواطنون',
         euInstitutionsLabel: 'مؤسسات الاتحاد الأوروبي',
+        positiveLabel: 'إيجابي',
+        negativeLabel: 'سلبي',
+        mixedLabel: 'مختلط',
     },
     he: {
         sectionHeading: 'ניתוח פוליטי מעמיק',
@@ -1798,6 +1828,9 @@ export const DEEP_ANALYSIS_STRINGS = {
         nationalGovtsLabel: 'ממשלות לאומיות',
         citizensLabel: 'אזרחים',
         euInstitutionsLabel: 'מוסדות האיחוד האירופי',
+        positiveLabel: 'חיובי',
+        negativeLabel: 'שלילי',
+        mixedLabel: 'מעורב',
     },
     ja: {
         sectionHeading: '深層政治分析',
@@ -1835,6 +1868,9 @@ export const DEEP_ANALYSIS_STRINGS = {
         nationalGovtsLabel: '各国政府',
         citizensLabel: '市民',
         euInstitutionsLabel: 'EU機関',
+        positiveLabel: '肯定的',
+        negativeLabel: '否定的',
+        mixedLabel: '混合',
     },
     ko: {
         sectionHeading: '심층 정치 분석',
@@ -1872,6 +1908,9 @@ export const DEEP_ANALYSIS_STRINGS = {
         nationalGovtsLabel: '각국 정부',
         citizensLabel: '시민',
         euInstitutionsLabel: 'EU 기관',
+        positiveLabel: '긍정적',
+        negativeLabel: '부정적',
+        mixedLabel: '혼합',
     },
     zh: {
         sectionHeading: '深度政治分析',
@@ -1909,6 +1948,9 @@ export const DEEP_ANALYSIS_STRINGS = {
         nationalGovtsLabel: '各国政府',
         citizensLabel: '公民',
         euInstitutionsLabel: '欧盟机构',
+        positiveLabel: '积极',
+        negativeLabel: '消极',
+        mixedLabel: '混合',
     },
 };
 /** Localized section heading strings for motions articles */

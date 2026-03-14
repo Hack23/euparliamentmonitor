@@ -269,7 +269,11 @@ export function buildDefaultStakeholderPerspectives(topic, scores) {
         const severity = severityFromScore(score);
         return {
             stakeholder,
-            impact: score >= 0.6 ? 'positive' : score <= 0.3 ? 'negative' : 'neutral',
+            impact: score >= 0.6
+                ? 'positive'
+                : score <= 0.3
+                    ? 'negative'
+                    : 'neutral',
             severity,
             reasoning: `Impact of "${topic}" on ${stakeholder.replace(/_/g, ' ')}: ${severity} significance.`,
             evidence: [topic],
@@ -351,8 +355,8 @@ export function rankStakeholdersByInfluence(perspectives) {
         low: 1,
     };
     const impactWeight = {
-        negative: 2,
-        mixed: 1,
+        negative: 3,
+        mixed: 2,
         positive: 1,
         neutral: 0,
     };

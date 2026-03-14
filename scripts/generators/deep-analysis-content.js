@@ -326,32 +326,95 @@ function perspectiveImpactClass(impact) {
     return `perspective-${impact}`;
 }
 /**
+ * Map a stakeholder type to its localized display label.
+ *
+ * @param stakeholder - Internal stakeholder type identifier
+ * @param strings - Localized label strings
+ * @returns Localized stakeholder label
+ */
+function localizedStakeholderLabel(stakeholder, strings) {
+    const map = {
+        political_groups: strings.politicalGroupsLabel,
+        civil_society: strings.civilSocietyLabel,
+        industry: strings.industryLabel,
+        national_govts: strings.nationalGovtsLabel,
+        citizens: strings.citizensLabel,
+        eu_institutions: strings.euInstitutionsLabel,
+    };
+    return map[stakeholder];
+}
+/**
+ * Map a stakeholder impact direction to its localized display label.
+ *
+ * @param impact - Impact direction value
+ * @param strings - Localized label strings
+ * @returns Localized impact label
+ */
+function localizedImpactLabel(impact, strings) {
+    const map = {
+        positive: strings.positiveLabel,
+        negative: strings.negativeLabel,
+        neutral: strings.neutralLabel,
+        mixed: strings.mixedLabel,
+    };
+    return map[impact];
+}
+/**
+ * Map a severity level to its localized display label.
+ *
+ * @param severity - Severity level value
+ * @param strings - Localized label strings
+ * @returns Localized severity label
+ */
+function localizedSeverityLabel(severity, strings) {
+    const map = {
+        high: strings.severityHigh,
+        medium: strings.severityMedium,
+        low: strings.severityLow,
+    };
+    return map[severity];
+}
+/**
+ * Map an outcome value to its localized display label.
+ *
+ * @param outcome - Outcome value (winner/loser/neutral)
+ * @param strings - Localized label strings
+ * @returns Localized outcome label
+ */
+function localizedOutcomeLabel(outcome, strings) {
+    const map = {
+        winner: strings.winnerLabel,
+        loser: strings.loserLabel,
+        neutral: strings.neutralLabel,
+    };
+    return map[outcome] ?? outcome;
+}
+/**
  * Build the "Multi-Stakeholder Perspectives" sub-section.
  * Renders a card grid with one card per stakeholder group showing
  * impact direction, severity, reasoning, and evidence.
  *
  * @param perspectives - Array of stakeholder perspectives
  * @param heading - Localized section heading
+ * @param strings - Localized label strings for stakeholder names, impact, and severity
  * @param contentLang - Language of the reasoning/evidence text
  * @returns HTML string, or empty string if no perspectives provided
  */
-function buildStakeholderPerspectivesSection(perspectives, heading, contentLang) {
+function buildStakeholderPerspectivesSection(perspectives, heading, strings, contentLang) {
     if (!perspectives || perspectives.length === 0)
         return '';
     const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const cards = perspectives
         .map((p) => {
-        const evidenceItems = p.evidence
-            .map((e) => `<li>${escapeHTML(e)}</li>`)
-            .join('');
+        const evidenceItems = p.evidence.map((e) => `<li>${escapeHTML(e)}</li>`).join('');
         const evidenceHtml = evidenceItems
             ? `<ul class="perspective-evidence">${evidenceItems}</ul>`
             : '';
         return (`<div class="stakeholder-perspective-card ${escapeHTML(perspectiveImpactClass(p.impact))} severity-${escapeHTML(p.severity)}">` +
             `<div class="perspective-header">` +
-            `<span class="perspective-stakeholder">${escapeHTML(p.stakeholder.replace(/_/g, ' '))}</span>` +
-            `<span class="perspective-impact-badge perspective-impact-${escapeHTML(p.impact)}">${escapeHTML(p.impact)}</span>` +
-            `<span class="perspective-severity-badge severity-${escapeHTML(p.severity)}">${escapeHTML(p.severity)}</span>` +
+            `<span class="perspective-stakeholder">${escapeHTML(localizedStakeholderLabel(p.stakeholder, strings))}</span>` +
+            `<span class="perspective-impact-badge perspective-impact-${escapeHTML(p.impact)}">${escapeHTML(localizedImpactLabel(p.impact, strings))}</span>` +
+            `<span class="perspective-severity-badge severity-${escapeHTML(p.severity)}">${escapeHTML(localizedSeverityLabel(p.severity, strings))}</span>` +
             `</div>` +
             `<p class="perspective-reasoning"${langAttr}>${escapeHTML(p.reasoning)}</p>` +
             evidenceHtml +
@@ -394,16 +457,14 @@ function buildStakeholderOutcomeMatrixSection(matrix, heading, strings, contentL
         .join('');
     const rows = matrix
         .map((row) => {
-        const cells = ALL_STAKEHOLDER_TYPES
-            .map((s) => {
+        const cells = ALL_STAKEHOLDER_TYPES.map((s) => {
             // eslint-disable-next-line security/detect-object-injection -- key from const array
             const outcome = row.outcomes[s];
-            return `<td class="matrix-cell outcome-${escapeHTML(outcome)}">${escapeHTML(outcome)}</td>`;
-        })
-            .join('');
+            return `<td class="matrix-cell outcome-${escapeHTML(outcome)}">${escapeHTML(localizedOutcomeLabel(outcome, strings))}</td>`;
+        }).join('');
         return (`<tr>` +
             `<th scope="row" class="matrix-action"${langAttr}>${escapeHTML(row.action)}</th>` +
-            `<td class="matrix-confidence confidence-${escapeHTML(row.confidence)}">${escapeHTML(row.confidence)}</td>` +
+            `<td class="matrix-confidence confidence-${escapeHTML(row.confidence)}">${escapeHTML(localizedSeverityLabel(row.confidence, strings))}</td>` +
             cells +
             `</tr>`);
     })
@@ -459,7 +520,7 @@ export function buildDeepAnalysisSection(analysis, lang, contentLang = lang) {
     const consequencesHtml = buildConsequencesSection(analysis.actionConsequences, strings.consequencesHeading, strings, strings, cl);
     const mistakesHtml = buildMistakesSection(analysis.mistakes, strings.mistakesHeading, strings.alternativeLabel, cl);
     const outlookHtml = buildOutlookSection(analysis.outlook, strings.outlookHeading, cl);
-    const perspectivesHtml = buildStakeholderPerspectivesSection(analysis.stakeholderPerspectives, strings.perspectivesHeading, cl);
+    const perspectivesHtml = buildStakeholderPerspectivesSection(analysis.stakeholderPerspectives, strings.perspectivesHeading, strings, cl);
     const outcomeMatrixHtml = buildStakeholderOutcomeMatrixSection(analysis.stakeholderOutcomeMatrix, strings.outcomeMatrixHeading, strings, cl);
     const innerContent = whatHtml +
         whoHtml +

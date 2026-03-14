@@ -696,8 +696,16 @@ function buildPropositionsConsequences(
       ? 'Slow processing reduces legislative output and postpones policy implementation'
       : 'Healthy throughput enables timely delivery of policy commitments';
   return [
-    { action: `Pipeline health at ${pct}%`, consequence: healthConsequence, severity: healthSeverity },
-    { action: `Throughput rate at ${throughput}`, consequence: throughputConsequence, severity: throughput < 5 ? 'high' : 'low' },
+    {
+      action: `Pipeline health at ${pct}%`,
+      consequence: healthConsequence,
+      severity: healthSeverity,
+    },
+    {
+      action: `Throughput rate at ${throughput}`,
+      consequence: throughputConsequence,
+      severity: throughput < 5 ? 'high' : 'low',
+    },
   ];
 }
 
@@ -739,10 +747,7 @@ function buildPropositionsImpact(
  * @param pct - Pipeline health percentage as string
  * @returns Single stakeholder outcome
  */
-function buildPropositionsStakeholderOutcome(
-  healthScore: number,
-  pct: string
-): StakeholderOutcome {
+function buildPropositionsStakeholderOutcome(healthScore: number, pct: string): StakeholderOutcome {
   if (healthScore > 0.7) {
     return {
       actor: 'Parliament presidency',

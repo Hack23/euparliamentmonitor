@@ -20,6 +20,7 @@ import {
   buildStakeholderOutcomeMatrix,
   rankStakeholdersByInfluence,
 } from '../../scripts/utils/intelligence-analysis.js';
+import { ALL_STAKEHOLDER_TYPES } from '../../scripts/types/index.js';
 import {
   buildWhatToWatchSection,
   buildPoliticalAlignmentSection,
@@ -749,8 +750,7 @@ describe('scoreStakeholderInfluence', () => {
   });
 
   it('should handle all 6 valid stakeholder types', () => {
-    const types = ['political_groups', 'civil_society', 'industry', 'national_govts', 'citizens', 'eu_institutions'];
-    for (const t of types) {
+    for (const t of ALL_STAKEHOLDER_TYPES) {
       const result = scoreStakeholderInfluence({ stakeholder: t });
       expect(result).not.toBeNull();
       expect(result?.stakeholder).toBe(t);
