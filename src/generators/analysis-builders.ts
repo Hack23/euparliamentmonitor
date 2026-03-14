@@ -2036,8 +2036,8 @@ export function buildVotingMindmap(
 
   const anomalyActorCount = Math.min(realAnomalies.length, 3);
   const connections: PolicyConnection[] = realAnomalies.slice(0, anomalyActorCount).map((a, i) => ({
-    from: `group-${i % Math.max(1, domainNodes.length)}`,
-    to: `anomaly-${i}`,
+    from: `anomaly-${i}`,
+    to: `group-${i % Math.max(1, domainNodes.length)}`,
     strength: a.severity?.toUpperCase() === 'HIGH' ? 'strong' : 'moderate',
     type: 'political' as const,
     evidence: a.type,

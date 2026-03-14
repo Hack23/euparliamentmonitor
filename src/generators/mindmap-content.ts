@@ -567,7 +567,9 @@ export function buildIntelligenceMindmapSection(
   const depth1Nodes = imap.layers.find((l) => l.depth === 1)?.nodes ?? [];
   const domainNodes = depth1Nodes.length > 0 ? depth1Nodes : allNodes;
   const domainItems = domainNodes
-    .map((node) => renderIntelligenceNode(node, 1, detailsLabel, influenceLabel))
+    .map(
+      (node) => `      <li>${renderIntelligenceNode(node, 1, detailsLabel, influenceLabel)}</li>`
+    )
     .join('\n');
 
   const connectionsHtml = renderConnectionsOverlay(imap.connections, connectionsLabel);
@@ -590,9 +592,9 @@ export function buildIntelligenceMindmapSection(
   <h2>${escapeHTML(titleText)}</h2>
 ${summaryBlock}  <div class="mindmap-container intelligence-map" data-branch-count="${domainNodes.length}" data-total-nodes="${totalNodes}" data-connections="${totalConnections}" data-actors="${totalActors}">
     <div class="mindmap-center" role="heading" aria-level="3">${escapeHTML(imap.centralTopic)}</div>
-    <div class="mindmap-branches mindmap-layer-1" role="list" aria-label="${escapeHTML(policyDomainsLabel)}">
+    <ul class="mindmap-branches mindmap-layer-1" role="list" aria-label="${escapeHTML(policyDomainsLabel)}">
 ${domainItems}
-    </div>
+    </ul>
 ${connectionsHtml}
 ${actorNetworkHtml}
 ${stakeholderHtml}  </div>

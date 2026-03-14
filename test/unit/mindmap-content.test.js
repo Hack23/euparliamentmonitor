@@ -770,6 +770,8 @@ describe('mindmap-content', () => {
 
       // The <div class="mindmap-intel-node"> should NOT have role="listitem"
       expect(html).not.toMatch(/mindmap-intel-node[^"]*" role="listitem"/);
+      // Domain items should be wrapped in <li> elements for proper list semantics
+      expect(html).toMatch(/<li>\s*<div class="mindmap-intel-node/);
     });
 
     it('should use "Details" instead of "Key Actors" for child toggle label', () => {
@@ -946,13 +948,15 @@ describe('mindmap-content', () => {
       expect(imap).not.toBeNull();
 
       const actorIds = new Set(imap.actorNetwork.map((a) => a.id));
+      // Connections go from anomaly → group (anomaly IDs in `from`)
       for (const conn of imap.connections) {
-        expect(actorIds.has(conn.to) || conn.to.startsWith('group-')).toBe(true);
+        expect(actorIds.has(conn.from) || conn.from.startsWith('group-')).toBe(true);
+        expect(conn.to.startsWith('group-')).toBe(true);
       }
       // Connections should reference at most anomaly-0, anomaly-1, anomaly-2
-      const anomalyTargets = imap.connections.map((c) => c.to).filter((t) => t.startsWith('anomaly-'));
-      for (const target of anomalyTargets) {
-        const idx = parseInt(target.replace('anomaly-', ''), 10);
+      const anomalySources = imap.connections.map((c) => c.from).filter((t) => t.startsWith('anomaly-'));
+      for (const source of anomalySources) {
+        const idx = parseInt(source.replace('anomaly-', ''), 10);
         expect(idx).toBeLessThanOrEqual(2);
       }
     });
