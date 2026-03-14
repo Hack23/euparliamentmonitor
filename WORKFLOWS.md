@@ -289,11 +289,11 @@ Every key EP document featured in the deep-analysis section must include structu
 2. **Stakeholder Impact** — Who benefits/faces costs? Quantified where possible.
 3. **Procedure Stage** — Where in the legislative pipeline? Next steps and timeline.
 4. **Coalition Dynamics** — Which groups support/oppose? Key fault lines.
-5. **Significance Rating** — 🔴 High / 🟡 Medium / 🟢 Low with one-sentence justification.
+5. **Significance Rating** — High / Medium / Low with one-sentence justification. (Note: significance ratings use text labels, not color indicators, to avoid confusion with the 🟢/🟡/🔴 confidence scale used in the refinement cycle.)
 
 ##### 🔬 Workflow-Specific Intelligence Modules
 
-Each content workflow includes a tailored intelligence module beyond the shared framework:
+Each scheduled content workflow includes a tailored intelligence module beyond the shared framework:
 
 | Workflow | Module | Focus |
 |----------|--------|-------|
@@ -305,6 +305,11 @@ Each content workflow includes a tailored intelligence module beyond the shared 
 | `news-motions.md` | 🗳️ Voting Pattern Intelligence | Coalition map, abstention analysis, cross-party defections, margin analysis |
 | `news-weekly-review.md` | 📊 Week-in-Context Analysis | Parliamentary landscape shift, promises vs. delivery, surprise developments |
 | `news-monthly-review.md` | 🗺️ Monthly Trend Synthesis | Legislative productivity, coalition stability index, policy trajectory, emerging themes |
+
+The translation workflow has its own fidelity module:
+
+| Workflow | Module | Focus |
+|----------|--------|-------|
 | `news-translate.md` | 🌐 Analysis Fidelity Requirements | Stakeholder framing preservation, confidence indicator translation, EP official terminology |
 
 ---

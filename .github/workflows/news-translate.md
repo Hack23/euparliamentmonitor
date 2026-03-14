@@ -161,7 +161,7 @@ When translating articles, preserve ALL analytical nuance:
 - **Scenario labels**: Preserve the probability *category* (likely/possible/unlikely) by mapping each label to its correct equivalent in the target language — do not upgrade or downgrade certainty during translation
 - **Technical terms**: Use EP official terminology in each target language (not ad-hoc translations)
 - **Coalition dynamics**: Preserve all references to political group interactions and voting patterns
-- **Cultural adaptation**: Adapt examples for local context where helpful, but never at the expense of analytical accuracy
+- **Cultural adaptation**: Adapt *existing* examples, idioms, or references from the source article for local context where helpful, but do not introduce new facts, examples, or analysis not present in the English source
 
 ## ⏱️ Time Budget (90 minutes)
 

@@ -573,7 +573,7 @@ For every key EP document featured in the deep-analysis section, provide structu
 2. **Stakeholder Impact** — Who benefits from this document? Who faces costs or constraints? Quantify where possible.
 3. **Procedure Stage** — Where is it in the legislative pipeline? What are the next procedural steps and timeline?
 4. **Coalition Dynamics** — Which political groups support or oppose? What are the key fault lines?
-5. **Significance Rating** — Rate as 🔴 High / 🟡 Medium / 🟢 Low significance with one-sentence evidence justification.
+5. **Significance Rating** — Rate as High / Medium / Low significance with one-sentence evidence justification. (Text labels only — color indicators are reserved for the confidence scale.)
 
 This analysis MUST appear in the article's deep-analysis section for all featured documents.
 
