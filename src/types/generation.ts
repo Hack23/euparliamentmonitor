@@ -95,7 +95,7 @@ export interface GenerationResult {
 export interface ArticleQualityScore {
   /** Approximate word count (HTML-stripped) */
   wordCount: number;
-  /** Number of distinct analysis sections detected */
+  /** Number of analysis sections (excludes visualization sections like dashboard, mindmap, SWOT) */
   analysisSections: number;
   /** Number of data visualizations (charts, dashboards, mindmaps) */
   visualizationCount: number;

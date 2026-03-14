@@ -27,18 +27,20 @@ describe('section-builders', () => {
       expect(score.analysisSections).toBe(2);
     });
 
-    it('should count dashboard and mindmap as visualizations', () => {
+    it('should count dashboard, mindmap, and SWOT as visualizations not analysis sections', () => {
       const content =
-        '<section class="dashboard" role="region">x</section><section class="mindmap-section" role="region">y</section>';
+        '<section class="dashboard" role="region">x</section>' +
+        '<section class="mindmap-section" role="region">y</section>' +
+        '<section class="swot-analysis" role="region">z</section>';
       const score = computeArticleQualityScore(content);
-      expect(score.visualizationCount).toBe(2);
+      expect(score.visualizationCount).toBe(3);
+      expect(score.analysisSections).toBe(0);
     });
 
     it('should rate excellent for rich content', () => {
       // 810 words exceeds the 800-word threshold required for 'excellent' rating
       const words = Array(810).fill('word').join(' ');
-      const sections =
-        '<section>a</section><section>b</section><section>c</section>';
+      const sections = '<section>a</section><section>b</section><section>c</section>';
       const visuals =
         '<section class="dashboard" role="region">x</section><section class="mindmap-section" role="region">y</section>';
       const score = computeArticleQualityScore(words + sections + visuals);

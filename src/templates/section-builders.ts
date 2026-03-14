@@ -12,6 +12,18 @@ import type { ArticleQualityScore, TOCEntry } from '../types/generation.js';
 import type { LanguageCode } from '../types/common.js';
 
 /**
+ * Count occurrences of a regex pattern in a string.
+ *
+ * @param content - String to search.
+ * @param pattern - Global regex pattern to match.
+ * @returns Number of matches found.
+ */
+function countMatches(content: string, pattern: RegExp): number {
+  const matches = content.match(pattern);
+  return matches !== null ? matches.length : 0;
+}
+
+/**
  * Compute an article quality score by analysing the rendered HTML content.
  *
  * @param content - Full HTML content string of the article body.
@@ -19,25 +31,28 @@ import type { LanguageCode } from '../types/common.js';
  */
 export function computeArticleQualityScore(content: string): ArticleQualityScore {
   // Strip HTML tags to get plain text, then count words
-  const plainText = content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-  const wordCount = plainText.length > 0 ? plainText.split(' ').filter((w) => w.length > 0).length : 0;
+  const plainText = content
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const wordCount =
+    plainText.length > 0 ? plainText.split(' ').filter((w) => w.length > 0).length : 0;
 
-  // Count <section tags as analysis sections
-  const sectionMatches = content.match(/<section/g);
-  const analysisSections = sectionMatches !== null ? sectionMatches.length : 0;
+  // Count total <section tags, then subtract known visualization sections
+  const totalSections = countMatches(content, /<section/g);
 
-  // Count data visualizations: data-chart-config, dashboard (class="dashboard"), mindmap-section
-  const chartMatches = content.match(/data-chart-config/g);
-  const dashboardMatches = content.match(/class="dashboard"/g);
-  const mindmapMatches = content.match(/class="mindmap-section"/g);
-  const visualizationCount =
-    (chartMatches !== null ? chartMatches.length : 0) +
-    (dashboardMatches !== null ? dashboardMatches.length : 0) +
-    (mindmapMatches !== null ? mindmapMatches.length : 0);
+  // Count data visualizations: data-chart-config, dashboard, mindmap-section, swot-analysis
+  const chartCount = countMatches(content, /data-chart-config/g);
+  const dashboardCount = countMatches(content, /class="dashboard"/g);
+  const mindmapCount = countMatches(content, /class="mindmap-section"/g);
+  const swotCount = countMatches(content, /class="swot-analysis"/g);
+  const visualizationCount = chartCount + dashboardCount + mindmapCount + swotCount;
+
+  // Exclude visualization sections from analysis section count
+  const analysisSections = totalSections - dashboardCount - mindmapCount - swotCount;
 
   // Count external EP document links as evidence references
-  const evidenceMatches = content.match(/href="https:\/\/www\.europarl\.europa\.eu/g);
-  const evidenceReferences = evidenceMatches !== null ? evidenceMatches.length : 0;
+  const evidenceReferences = countMatches(content, /href="https:\/\/www\.europarl\.europa\.eu/g);
 
   // Determine overall quality score
   let overallScore: ArticleQualityScore['overallScore'];
@@ -100,7 +115,8 @@ export function buildQualityScoreBadge(score: ArticleQualityScore): string {
     return '';
   }
 
-  return `<div class="article-quality-score" data-score="${score.overallScore}" aria-hidden="true">
+  const safeScore = escapeHTML(score.overallScore);
+  return `<div class="article-quality-score" data-score="${safeScore}" aria-hidden="true">
   <span class="qs-words">${score.wordCount}</span>
   <span class="qs-sections">${score.analysisSections}</span>
   <span class="qs-visuals">${score.visualizationCount}</span>

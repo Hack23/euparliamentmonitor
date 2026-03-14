@@ -7,43 +7,54 @@
  */
 import { escapeHTML } from '../utils/file-utils.js';
 /**
+ * Count occurrences of a regex pattern in a string.
+ *
+ * @param content - String to search.
+ * @param pattern - Global regex pattern to match.
+ * @returns Number of matches found.
+ */
+function countMatches(content, pattern) {
+  const matches = content.match(pattern);
+  return matches !== null ? matches.length : 0;
+}
+/**
  * Compute an article quality score by analysing the rendered HTML content.
  *
  * @param content - Full HTML content string of the article body.
  * @returns {@link ArticleQualityScore} with word count, section counts, and overall rating.
  */
 export function computeArticleQualityScore(content) {
-    // Strip HTML tags to get plain text, then count words
-    const plainText = content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-    const wordCount = plainText.length > 0 ? plainText.split(' ').filter((w) => w.length > 0).length : 0;
-    // Count <section tags as analysis sections
-    const sectionMatches = content.match(/<section/g);
-    const analysisSections = sectionMatches !== null ? sectionMatches.length : 0;
-    // Count data visualizations: data-chart-config, dashboard (class="dashboard"), mindmap-section
-    const chartMatches = content.match(/data-chart-config/g);
-    const dashboardMatches = content.match(/class="dashboard"/g);
-    const mindmapMatches = content.match(/class="mindmap-section"/g);
-    const visualizationCount = (chartMatches !== null ? chartMatches.length : 0) +
-        (dashboardMatches !== null ? dashboardMatches.length : 0) +
-        (mindmapMatches !== null ? mindmapMatches.length : 0);
-    // Count external EP document links as evidence references
-    const evidenceMatches = content.match(/href="https:\/\/www\.europarl\.europa\.eu/g);
-    const evidenceReferences = evidenceMatches !== null ? evidenceMatches.length : 0;
-    // Determine overall quality score
-    let overallScore;
-    if (wordCount >= 800 && analysisSections >= 3 && visualizationCount >= 2) {
-        overallScore = 'excellent';
-    }
-    else if (wordCount >= 500 && analysisSections >= 2) {
-        overallScore = 'good';
-    }
-    else if (wordCount >= 200 && analysisSections >= 1) {
-        overallScore = 'adequate';
-    }
-    else {
-        overallScore = 'needs-improvement';
-    }
-    return { wordCount, analysisSections, visualizationCount, evidenceReferences, overallScore };
+  // Strip HTML tags to get plain text, then count words
+  const plainText = content
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const wordCount =
+    plainText.length > 0 ? plainText.split(' ').filter((w) => w.length > 0).length : 0;
+  // Count total <section tags, then subtract known visualization sections
+  const totalSections = countMatches(content, /<section/g);
+  // Count data visualizations: data-chart-config, dashboard, mindmap-section, swot-analysis
+  const chartCount = countMatches(content, /data-chart-config/g);
+  const dashboardCount = countMatches(content, /class="dashboard"/g);
+  const mindmapCount = countMatches(content, /class="mindmap-section"/g);
+  const swotCount = countMatches(content, /class="swot-analysis"/g);
+  const visualizationCount = chartCount + dashboardCount + mindmapCount + swotCount;
+  // Exclude visualization sections from analysis section count
+  const analysisSections = totalSections - dashboardCount - mindmapCount - swotCount;
+  // Count external EP document links as evidence references
+  const evidenceReferences = countMatches(content, /href="https:\/\/www\.europarl\.europa\.eu/g);
+  // Determine overall quality score
+  let overallScore;
+  if (wordCount >= 800 && analysisSections >= 3 && visualizationCount >= 2) {
+    overallScore = 'excellent';
+  } else if (wordCount >= 500 && analysisSections >= 2) {
+    overallScore = 'good';
+  } else if (wordCount >= 200 && analysisSections >= 1) {
+    overallScore = 'adequate';
+  } else {
+    overallScore = 'needs-improvement';
+  }
+  return { wordCount, analysisSections, visualizationCount, evidenceReferences, overallScore };
 }
 /**
  * Build an HTML table of contents navigation element from a list of entries.
@@ -53,20 +64,20 @@ export function computeArticleQualityScore(content) {
  * @returns HTML string for the TOC `<nav>` element, or empty string when entries is empty.
  */
 export function buildTableOfContents(entries, lang) {
-    if (entries.length === 0) {
-        return '';
-    }
-    // lang is accepted for future i18n use (aria-label localisation)
-    void lang;
-    const items = entries
-        .map((entry) => {
-        const safeLabel = escapeHTML(entry.label);
-        const safeId = escapeHTML(entry.id);
-        const classAttr = entry.level === 2 ? ' class="toc-sub"' : '';
-        return `<li${classAttr}><a href="#${safeId}">${safeLabel}</a></li>`;
+  if (entries.length === 0) {
+    return '';
+  }
+  // lang is accepted for future i18n use (aria-label localisation)
+  void lang;
+  const items = entries
+    .map((entry) => {
+      const safeLabel = escapeHTML(entry.label);
+      const safeId = escapeHTML(entry.id);
+      const classAttr = entry.level === 2 ? ' class="toc-sub"' : '';
+      return `<li${classAttr}><a href="#${safeId}">${safeLabel}</a></li>`;
     })
-        .join('\n      ');
-    return `<nav class="article-toc" aria-label="Table of contents">
+    .join('\n      ');
+  return `<nav class="article-toc" aria-label="Table of contents">
   <ol>
       ${items}
   </ol>
@@ -83,10 +94,11 @@ export function buildTableOfContents(entries, lang) {
  * @returns HTML string for the badge `<div>`, or empty string for needs-improvement.
  */
 export function buildQualityScoreBadge(score) {
-    if (score.overallScore === 'needs-improvement') {
-        return '';
-    }
-    return `<div class="article-quality-score" data-score="${score.overallScore}" aria-hidden="true">
+  if (score.overallScore === 'needs-improvement') {
+    return '';
+  }
+  const safeScore = escapeHTML(score.overallScore);
+  return `<div class="article-quality-score" data-score="${safeScore}" aria-hidden="true">
   <span class="qs-words">${score.wordCount}</span>
   <span class="qs-sections">${score.analysisSections}</span>
   <span class="qs-visuals">${score.visualizationCount}</span>
