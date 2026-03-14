@@ -344,11 +344,13 @@ export interface MindmapNode {
   /** Child nodes one layer deeper in the hierarchy. */
   readonly children: readonly MindmapNode[];
   /** Optional EP-specific metadata for hover/detail rendering. */
-  readonly metadata?: {
-    readonly committee?: string | undefined;
-    readonly politicalGroup?: string | undefined;
-    readonly documentRef?: string | undefined;
-  } | undefined;
+  readonly metadata?:
+    | {
+        readonly committee?: string | undefined;
+        readonly politicalGroup?: string | undefined;
+        readonly documentRef?: string | undefined;
+      }
+    | undefined;
 }
 
 /**

@@ -1480,7 +1480,8 @@ export function buildVotingMindmap(
     })),
   ];
 
-  const connections: PolicyConnection[] = realAnomalies.slice(0, 4).map((a, i) => ({
+  const anomalyActorCount = Math.min(realAnomalies.length, 3);
+  const connections: PolicyConnection[] = realAnomalies.slice(0, anomalyActorCount).map((a, i) => ({
     from: `group-${i % Math.max(1, domainNodes.length)}`,
     to: `anomaly-${i}`,
     strength: a.severity?.toUpperCase() === 'HIGH' ? 'strong' : 'moderate',
@@ -1488,9 +1489,7 @@ export function buildVotingMindmap(
     evidence: a.type,
   }));
 
-  const adoptedCount = realRecords.filter((r) =>
-    r.result?.toLowerCase().includes('adopt')
-  ).length;
+  const adoptedCount = realRecords.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
 
   return {
     centralTopic: 'Voting Intelligence Analysis',
@@ -1712,8 +1711,7 @@ export function buildBreakingMindmap(
       : []),
   ];
 
-  const totalItems =
-    adoptedTexts.length + events.length + procedures.length + mepUpdates.length;
+  const totalItems = adoptedTexts.length + events.length + procedures.length + mepUpdates.length;
 
   return {
     centralTopic: 'Breaking News Intelligence',
@@ -1929,7 +1927,14 @@ export function buildCommitteeMindmap(
     }));
 
     const colors: readonly string[] = [
-      'green', 'cyan', 'blue', 'purple', 'orange', 'yellow', 'magenta', 'red',
+      'green',
+      'cyan',
+      'blue',
+      'purple',
+      'orange',
+      'yellow',
+      'magenta',
+      'red',
     ];
     return {
       id: `committee-${c.abbreviation}`,
@@ -1953,19 +1958,15 @@ export function buildCommitteeMindmap(
       .map((n) => n.id),
   }));
 
-  const connections: PolicyConnection[] = activeCommittees
-    .slice(0, 3)
-    .flatMap((c, i) =>
-      activeCommittees
-        .slice(i + 1, i + 2)
-        .map((c2) => ({
-          from: `committee-${c.abbreviation}`,
-          to: `committee-${c2.abbreviation}`,
-          strength: 'moderate' as const,
-          type: 'thematic' as const,
-          evidence: `Inter-committee collaboration between ${c.abbreviation} and ${c2.abbreviation}`,
-        }))
-    );
+  const connections: PolicyConnection[] = activeCommittees.slice(0, 3).flatMap((c, i) =>
+    activeCommittees.slice(i + 1, i + 2).map((c2) => ({
+      from: `committee-${c.abbreviation}`,
+      to: `committee-${c2.abbreviation}`,
+      strength: 'moderate' as const,
+      type: 'thematic' as const,
+      evidence: `Inter-committee collaboration between ${c.abbreviation} and ${c2.abbreviation}`,
+    }))
+  );
 
   const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
 

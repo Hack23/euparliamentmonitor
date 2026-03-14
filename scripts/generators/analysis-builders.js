@@ -1262,7 +1262,8 @@ export function buildVotingMindmap(records, patterns, anomalies, _lang = 'en') {
             connections: [],
         })),
     ];
-    const connections = realAnomalies.slice(0, 4).map((a, i) => ({
+    const anomalyActorCount = Math.min(realAnomalies.length, 3);
+    const connections = realAnomalies.slice(0, anomalyActorCount).map((a, i) => ({
         from: `group-${i % Math.max(1, domainNodes.length)}`,
         to: `anomaly-${i}`,
         strength: a.severity?.toUpperCase() === 'HIGH' ? 'strong' : 'moderate',
@@ -1674,7 +1675,14 @@ export function buildCommitteeMindmap(committees, _lang = 'en') {
             metadata: { committee: c.abbreviation, documentRef: doc.title?.slice(0, 30) },
         }));
         const colors = [
-            'green', 'cyan', 'blue', 'purple', 'orange', 'yellow', 'magenta', 'red',
+            'green',
+            'cyan',
+            'blue',
+            'purple',
+            'orange',
+            'yellow',
+            'magenta',
+            'red',
         ];
         return {
             id: `committee-${c.abbreviation}`,
@@ -1696,11 +1704,7 @@ export function buildCommitteeMindmap(committees, _lang = 'en') {
             .slice(0, 2)
             .map((n) => n.id),
     }));
-    const connections = activeCommittees
-        .slice(0, 3)
-        .flatMap((c, i) => activeCommittees
-        .slice(i + 1, i + 2)
-        .map((c2) => ({
+    const connections = activeCommittees.slice(0, 3).flatMap((c, i) => activeCommittees.slice(i + 1, i + 2).map((c2) => ({
         from: `committee-${c.abbreviation}`,
         to: `committee-${c2.abbreviation}`,
         strength: 'moderate',

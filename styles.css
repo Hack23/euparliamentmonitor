@@ -2969,6 +2969,265 @@ button:focus-visible {
 }
 
 /* ===================================================================
+   Intelligence Mindmap — Multi-layer policy domain intelligence map
+   with influence weighting and actor-network overlays.
+   =================================================================== */
+
+.intelligence-mindmap {
+  background: linear-gradient(160deg, #f0f4ff 0%, #e8eaf6 40%, #f3e5f5 100%);
+}
+
+.intelligence-map {
+  position: relative;
+}
+
+.mindmap-intel-node {
+  background: var(--branch-bg, #e3f2fd);
+  border: 2px solid var(--branch-border, #1565c0);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  min-width: 160px;
+  max-width: 260px;
+  flex: 1 1 160px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform: scale(calc(0.85 + var(--node-influence, 0.5) * 0.15));
+}
+
+.mindmap-intel-node:hover {
+  transform: scale(calc(0.9 + var(--node-influence, 0.5) * 0.15));
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.mindmap-intel-label {
+  color: var(--branch-text, #1565c0);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.mindmap-influence-bar {
+  height: 6px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 0.3rem;
+}
+
+.mindmap-influence-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--branch-border, #1565c0), var(--branch-text, #003399));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.mindmap-subnodes {
+  list-style: none;
+  padding: 0.5rem 0 0 0.75rem;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mindmap-actor-overlay,
+.mindmap-connections-overlay,
+.mindmap-actor-network-overlay,
+.mindmap-stakeholder-overlay {
+  margin-top: 0.75rem;
+  border: 1px solid var(--border-light, #dee2e6);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mindmap-actor-toggle,
+.mindmap-connections-toggle,
+.mindmap-actor-network-toggle,
+.mindmap-stakeholder-toggle {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--primary, #1565c0);
+  background: var(--surface-alt, #f8f9fa);
+  list-style: none;
+}
+
+.mindmap-actor-toggle::-webkit-details-marker,
+.mindmap-connections-toggle::-webkit-details-marker,
+.mindmap-actor-network-toggle::-webkit-details-marker,
+.mindmap-stakeholder-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.mindmap-actor-toggle::before,
+.mindmap-connections-toggle::before,
+.mindmap-actor-network-toggle::before,
+.mindmap-stakeholder-toggle::before {
+  content: '▸ ';
+}
+
+details[open] > .mindmap-actor-toggle::before,
+details[open] > .mindmap-connections-toggle::before,
+details[open] > .mindmap-actor-network-toggle::before,
+details[open] > .mindmap-stakeholder-toggle::before {
+  content: '▾ ';
+}
+
+.mindmap-connections-list,
+.mindmap-actor-network-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.mindmap-connection {
+  padding: 0.35rem 0.5rem;
+  font-size: 0.82rem;
+  border-bottom: 1px solid var(--border-light, #dee2e6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.mindmap-connection:last-child {
+  border-bottom: none;
+}
+
+.mindmap-connection-strong {
+  border-left: 3px solid #2e7d32;
+}
+
+.mindmap-connection-moderate {
+  border-left: 3px solid #f9a825;
+}
+
+.mindmap-connection-weak {
+  border-left: 3px solid #bdbdbd;
+}
+
+.connection-from,
+.connection-to {
+  font-weight: 600;
+  color: var(--primary, #1565c0);
+}
+
+.connection-arrow {
+  color: var(--text-muted, #6c757d);
+}
+
+.connection-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted, #6c757d);
+}
+
+.connection-evidence {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--text-secondary, #495057);
+}
+
+.mindmap-actor {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--border-light, #dee2e6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.mindmap-actor:last-child {
+  border-bottom: none;
+}
+
+.actor-icon {
+  font-size: 1.1rem;
+}
+
+.actor-name {
+  font-weight: 600;
+}
+
+.actor-type-badge {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.4rem;
+  background: var(--surface-alt, #e8eaf6);
+  border-radius: 4px;
+  color: var(--text-muted, #6c757d);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mindmap-stakeholder-panels {
+  padding: 0.5rem;
+}
+
+.mindmap-stakeholder-panel {
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border-light, #dee2e6);
+  border-radius: 6px;
+}
+
+.mindmap-stakeholder-panel > summary {
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  font-weight: 600;
+  font-size: 0.82rem;
+  background: var(--surface-alt, #f8f9fa);
+}
+
+.mindmap-stakeholder-desc {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary, #495057);
+  margin: 0;
+}
+
+/* Node category semantic colors */
+.mindmap-node-policy_domain {
+  border-left: 4px solid #1565c0;
+}
+
+.mindmap-node-sub_topic {
+  border-left: 4px solid #7b1fa2;
+}
+
+.mindmap-node-actor {
+  border-left: 4px solid #2e7d32;
+}
+
+.mindmap-node-action {
+  border-left: 4px solid #e65100;
+}
+
+.mindmap-node-outcome {
+  border-left: 4px solid #00838f;
+}
+
+@media print {
+  .mindmap-actor-overlay,
+  .mindmap-connections-overlay,
+  .mindmap-actor-network-overlay,
+  .mindmap-stakeholder-overlay {
+    display: block;
+  }
+
+  .mindmap-actor-overlay[open],
+  .mindmap-connections-overlay[open],
+  .mindmap-actor-network-overlay[open],
+  .mindmap-stakeholder-overlay[open] {
+    display: block;
+  }
+
+  .mindmap-intel-node {
+    transform: none !important;
+    break-inside: avoid;
+  }
+}
+
+/* ===================================================================
    Sankey Flow Chart Section
    Inline SVG Sankey with accessible fallback table.
    =================================================================== */

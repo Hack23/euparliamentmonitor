@@ -79,9 +79,7 @@ const BRANCH_PALETTE: Readonly<
 };
 
 /** Color mapping for intelligence mindmap node categories. */
-const CATEGORY_PALETTE: Readonly<
-  Record<string, { bg: string; border: string; text: string }>
-> = {
+const CATEGORY_PALETTE: Readonly<Record<string, { bg: string; border: string; text: string }>> = {
   policy_domain: { bg: '#e3f2fd', border: '#1565c0', text: '#1565c0' },
   sub_topic: { bg: '#e8f5e9', border: '#2e7d32', text: '#2e7d32' },
   actor: { bg: '#f3e5f5', border: '#7b1fa2', text: '#7b1fa2' },
@@ -220,6 +218,23 @@ const POLICY_DOMAINS_LABELS: Readonly<Record<string, string>> = {
   zh: '政策领域',
 };
 
+const INFLUENCE_LABELS: Readonly<Record<string, string>> = {
+  en: 'Influence',
+  sv: 'Inflytande',
+  da: 'Indflydelse',
+  no: 'Innflytelse',
+  fi: 'Vaikutusvalta',
+  de: 'Einfluss',
+  fr: 'Influence',
+  es: 'Influencia',
+  nl: 'Invloed',
+  ar: 'التأثير',
+  he: 'השפעה',
+  ja: '影響力',
+  ko: '영향력',
+  zh: '影响力',
+};
+
 // ---------------------------------------------------------------------------
 // Rendering helpers — standard mindmap
 // ---------------------------------------------------------------------------
@@ -291,9 +306,15 @@ function clampInfluence(value: number): number {
  * @param node - The mindmap node to render
  * @param depth - Current depth in the hierarchy (1 = domain layer)
  * @param actorsLabel - Localized label for the actors toggle
+ * @param influenceLabel - Localized label for influence meter
  * @returns HTML string for this node and its children
  */
-function renderIntelligenceNode(node: MindmapNode, depth: number, actorsLabel: string): string {
+function renderIntelligenceNode(
+  node: MindmapNode,
+  depth: number,
+  actorsLabel: string,
+  influenceLabel: string
+): string {
   const palette = getCategoryPalette(node.category);
   const influence = clampInfluence(node.influence);
   const influencePct = (influence * 100).toFixed(0);
@@ -310,16 +331,19 @@ function renderIntelligenceNode(node: MindmapNode, depth: number, actorsLabel: s
   const childrenHtml =
     node.children.length > 0
       ? `\n        <details class="mindmap-actor-overlay" aria-label="${escapeHTML(actorsLabel)}: ${escapeHTML(node.label)}">\n          <summary class="mindmap-actor-toggle">${escapeHTML(actorsLabel)}</summary>\n          <ul class="mindmap-subnodes mindmap-layer-${depth + 1}" role="list">\n${node.children
-          .map((child) => `            <li>${renderIntelligenceNode(child, depth + 1, actorsLabel)}</li>`)
+          .map(
+            (child) =>
+              `            <li>${renderIntelligenceNode(child, depth + 1, actorsLabel, influenceLabel)}</li>`
+          )
           .join('\n')}\n          </ul>\n        </details>`
       : '';
 
   return `<div class="mindmap-intel-node mindmap-node-${escapeHTML(node.category)}" role="listitem"
         data-node-id="${escapeHTML(node.id)}" data-influence="${influencePct}"
         style="--branch-bg:${palette.bg};--branch-border:${palette.border};--branch-text:${palette.text};--node-influence:${influence.toFixed(2)}"${metaCommittee}${metaGroup}${metaDoc}
-        aria-label="${escapeHTML(node.label)} (influence: ${influencePct}%)">
+        aria-label="${escapeHTML(node.label)} (${escapeHTML(influenceLabel)}: ${influencePct}%)">
         <div class="mindmap-intel-label">${escapeHTML(node.label)}</div>
-        <div class="mindmap-influence-bar" role="meter" aria-valuenow="${influencePct}" aria-valuemin="0" aria-valuemax="100" aria-label="Influence: ${influencePct}%">
+        <div class="mindmap-influence-bar" role="meter" aria-valuenow="${influencePct}" aria-valuemin="0" aria-valuemax="100" aria-label="${escapeHTML(influenceLabel)}: ${influencePct}%">
           <div class="mindmap-influence-fill" style="width:${influencePct}%"></div>
         </div>${childrenHtml}
       </div>`;
@@ -366,11 +390,13 @@ ${items}
  *
  * @param actorNetwork - Actor nodes to render in the network panel
  * @param label - Localized heading label for the toggle
+ * @param influenceLabel - Localized label for influence meter
  * @returns HTML string for the actor network overlay, or empty string
  */
 function renderActorNetworkOverlay(
   actorNetwork: IntelligenceMindmap['actorNetwork'],
-  label: string
+  label: string,
+  influenceLabel: string
 ): string {
   if (actorNetwork.length === 0) return '';
 
@@ -382,11 +408,11 @@ function renderActorNetworkOverlay(
       return `      <li class="mindmap-actor mindmap-actor-${escapeHTML(actor.type)}"
          data-actor-id="${escapeHTML(actor.id)}"
          style="--node-influence:${influence.toFixed(2)}"
-         aria-label="${escapeHTML(typeIcon)} ${escapeHTML(actor.name)} (${escapeHTML(actor.type)}, influence: ${influencePct}%)">
+         aria-label="${escapeHTML(actor.name)} (${escapeHTML(actor.type)}, ${escapeHTML(influenceLabel)}: ${influencePct}%)">
         <span class="actor-icon" aria-hidden="true">${escapeHTML(typeIcon)}</span>
         <span class="actor-name">${escapeHTML(actor.name)}</span>
         <span class="actor-type-badge">${escapeHTML(actor.type)}</span>
-        <div class="mindmap-influence-bar" role="meter" aria-valuenow="${influencePct}" aria-valuemin="0" aria-valuemax="100" aria-label="Influence: ${influencePct}%">
+        <div class="mindmap-influence-bar" role="meter" aria-valuenow="${influencePct}" aria-valuemin="0" aria-valuemax="100" aria-label="${escapeHTML(influenceLabel)}: ${influencePct}%">
           <div class="mindmap-influence-fill" style="width:${influencePct}%"></div>
         </div>
       </li>`;
@@ -408,10 +434,7 @@ ${items}
  * @param label - Localized heading label for the outer toggle
  * @returns HTML string for the stakeholder overlay, or empty string
  */
-function renderStakeholderOverlays(
-  groups: readonly string[] | undefined,
-  label: string
-): string {
+function renderStakeholderOverlays(groups: readonly string[] | undefined, label: string): string {
   if (!groups || groups.length === 0) return '';
 
   const panels = groups
@@ -510,6 +533,7 @@ export function buildIntelligenceMindmapSection(
   const connectionsLabel = POLICY_CONNECTIONS_LABELS[lang] ?? 'Policy Connections';
   const actorNetworkLabel = ACTOR_NETWORK_LABELS[lang] ?? 'Actor Network';
   const policyDomainsLabel = POLICY_DOMAINS_LABELS[lang] ?? 'Policy Domains';
+  const influenceLabel = INFLUENCE_LABELS[lang] ?? 'Influence';
 
   const summaryBlock = imap.summary?.trim()
     ? `  <p class="mindmap-summary">${escapeHTML(imap.summary.trim())}</p>\n`
@@ -518,11 +542,15 @@ export function buildIntelligenceMindmapSection(
   // Render domain layer (depth 1 nodes as primary branches)
   const domainNodes = imap.layers.find((l) => l.depth === 1)?.nodes ?? allNodes;
   const domainItems = domainNodes
-    .map((node) => renderIntelligenceNode(node, 1, actorsLabel))
+    .map((node) => renderIntelligenceNode(node, 1, actorsLabel, influenceLabel))
     .join('\n');
 
   const connectionsHtml = renderConnectionsOverlay(imap.connections, connectionsLabel);
-  const actorNetworkHtml = renderActorNetworkOverlay(imap.actorNetwork, actorNetworkLabel);
+  const actorNetworkHtml = renderActorNetworkOverlay(
+    imap.actorNetwork,
+    actorNetworkLabel,
+    influenceLabel
+  );
   const stakeholderHtml = renderStakeholderOverlays(imap.stakeholderGroups, stakeholderLabel);
 
   const totalNodes = countNodesRecursive(allNodes);
@@ -541,4 +569,3 @@ ${actorNetworkHtml}
 ${stakeholderHtml}  </div>
 </section>`;
 }
-

@@ -672,6 +672,77 @@ describe('mindmap-content', () => {
 
       expect(html).not.toContain('mindmap-actor-network-overlay');
     });
+
+    it('should use localized influence label in meter aria-label', () => {
+      const imap = {
+        centralTopic: 'Test',
+        layers: [
+          {
+            depth: 1,
+            nodes: [
+              { id: 'n1', label: 'Node', category: 'policy_domain', influence: 0.7, color: 'cyan', children: [] },
+            ],
+          },
+        ],
+        connections: [],
+        actorNetwork: [],
+      };
+
+      const htmlDe = buildIntelligenceMindmapSection(imap, 'de');
+      expect(htmlDe).toContain('aria-label="Einfluss: 70%"');
+
+      const htmlFr = buildIntelligenceMindmapSection(imap, 'fr');
+      expect(htmlFr).toContain('aria-label="Influence: 70%"');
+
+      const htmlEn = buildIntelligenceMindmapSection(imap, 'en');
+      expect(htmlEn).toContain('aria-label="Influence: 70%"');
+    });
+
+    it('should not include emoji in actor network aria-label', () => {
+      const html = buildIntelligenceMindmapSection({
+        centralTopic: 'Test',
+        layers: [
+          {
+            depth: 1,
+            nodes: [
+              { id: 'n1', label: 'Node', category: 'policy_domain', influence: 0.5, color: 'cyan', children: [] },
+            ],
+          },
+        ],
+        connections: [],
+        actorNetwork: [
+          { id: 'a1', name: 'ENVI Committee', type: 'committee', influence: 0.9, connections: [] },
+        ],
+      });
+
+      // aria-label should NOT contain the emoji, only the actor name and type
+      expect(html).toContain('aria-label="ENVI Committee (committee');
+      // The emoji should only appear in the aria-hidden icon span
+      expect(html).toContain('aria-hidden="true">📋</span>');
+    });
+
+    it('should localize influence label in actor network overlay', () => {
+      const html = buildIntelligenceMindmapSection(
+        {
+          centralTopic: 'Test',
+          layers: [
+            {
+              depth: 1,
+              nodes: [
+                { id: 'n1', label: 'Node', category: 'policy_domain', influence: 0.5, color: 'cyan', children: [] },
+              ],
+            },
+          ],
+          connections: [],
+          actorNetwork: [
+            { id: 'a1', name: 'EPP', type: 'group', influence: 0.8, connections: [] },
+          ],
+        },
+        'sv'
+      );
+
+      expect(html).toContain('Inflytande: 80%');
+    });
   });
 
   // ---------------------------------------------------------------------------
@@ -753,6 +824,38 @@ describe('mindmap-content', () => {
       expect(imap).not.toBeNull();
       const ecrNode = imap.layers[0].nodes.find((n) => n.label === 'ECR');
       expect(ecrNode?.color).toBe('red');
+    });
+
+    it('should not produce connection targets exceeding anomaly actor IDs', () => {
+      const votingRecords = [
+        { title: 'Vote 1', result: 'Adopted', votes: { for: 400, against: 50, abstain: 10 } },
+      ];
+      const votingPatterns = [
+        { group: 'EPP', cohesion: 0.85, participation: 0.9 },
+        { group: 'S&D', cohesion: 0.75, participation: 0.8 },
+      ];
+      // Provide more than 3 anomalies to verify connections are capped at 3
+      const anomalies = [
+        { type: 'Anomaly A', severity: 'HIGH', group: 'EPP' },
+        { type: 'Anomaly B', severity: 'LOW', group: 'S&D' },
+        { type: 'Anomaly C', severity: 'HIGH', group: 'EPP' },
+        { type: 'Anomaly D', severity: 'LOW', group: 'S&D' },
+        { type: 'Anomaly E', severity: 'HIGH', group: 'EPP' },
+      ];
+
+      const imap = buildVotingMindmap(votingRecords, votingPatterns, anomalies);
+      expect(imap).not.toBeNull();
+
+      const actorIds = new Set(imap.actorNetwork.map((a) => a.id));
+      for (const conn of imap.connections) {
+        expect(actorIds.has(conn.to) || conn.to.startsWith('group-')).toBe(true);
+      }
+      // Connections should reference at most anomaly-0, anomaly-1, anomaly-2
+      const anomalyTargets = imap.connections.map((c) => c.to).filter((t) => t.startsWith('anomaly-'));
+      for (const target of anomalyTargets) {
+        const idx = parseInt(target.replace('anomaly-', ''), 10);
+        expect(idx).toBeLessThanOrEqual(2);
+      }
     });
   });
 
