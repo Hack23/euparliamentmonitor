@@ -11,6 +11,24 @@ import { escapeHTML } from '../utils/file-utils.js';
 import type { ArticleQualityScore, TOCEntry } from '../types/generation.js';
 import type { LanguageCode } from '../types/common.js';
 
+/** Localized aria-label for the table of contents navigation. */
+const TOC_ARIA_LABELS: Record<LanguageCode, string> = {
+  en: 'Table of contents',
+  sv: 'Innehållsförteckning',
+  da: 'Indholdsfortegnelse',
+  no: 'Innholdsfortegnelse',
+  fi: 'Sisällysluettelo',
+  de: 'Inhaltsverzeichnis',
+  fr: 'Table des matières',
+  es: 'Tabla de contenidos',
+  nl: 'Inhoudsopgave',
+  ar: 'جدول المحتويات',
+  he: 'תוכן עניינים',
+  ja: '目次',
+  ko: '목차',
+  zh: '目录',
+};
+
 /**
  * Count occurrences of a regex pattern in a string.
  *
@@ -43,11 +61,11 @@ export function computeArticleQualityScore(content: string): ArticleQualityScore
   // Count total <section tags, then subtract known visualization sections
   const totalSections = countMatches(content, /<section/g);
 
-  // Count data visualizations: data-chart-config, dashboard, mindmap-section, swot-analysis
+  // Count data visualizations using class-token matching for multi-class attributes
   const chartCount = countMatches(content, /data-chart-config/g);
-  const dashboardCount = countMatches(content, /class="dashboard"/g);
-  const mindmapCount = countMatches(content, /class="mindmap-section"/g);
-  const swotCount = countMatches(content, /class="swot-analysis"/g);
+  const dashboardCount = countMatches(content, /class="[^"]*\bdashboard\b[^"]*"/g);
+  const mindmapCount = countMatches(content, /class="[^"]*\bmindmap-section\b[^"]*"/g);
+  const swotCount = countMatches(content, /class="[^"]*\bswot-analysis\b[^"]*"/g);
   const visualizationCount = chartCount + dashboardCount + mindmapCount + swotCount;
 
   // Exclude visualization sections from analysis section count
@@ -75,7 +93,7 @@ export function computeArticleQualityScore(content: string): ArticleQualityScore
  * Build an HTML table of contents navigation element from a list of entries.
  *
  * @param entries - Ordered list of {@link TOCEntry} items to render.
- * @param lang - Language code for the article (reserved for future i18n label).
+ * @param lang - Language code used for the localised aria-label.
  * @returns HTML string for the TOC `<nav>` element, or empty string when entries is empty.
  */
 export function buildTableOfContents(entries: TOCEntry[], lang: LanguageCode): string {
@@ -83,8 +101,7 @@ export function buildTableOfContents(entries: TOCEntry[], lang: LanguageCode): s
     return '';
   }
 
-  // lang is accepted for future i18n use (aria-label localisation)
-  void lang;
+  const ariaLabel = escapeHTML(TOC_ARIA_LABELS[lang] ?? TOC_ARIA_LABELS.en);
 
   const items = entries
     .map((entry) => {
@@ -96,7 +113,7 @@ export function buildTableOfContents(entries: TOCEntry[], lang: LanguageCode): s
     })
     .join('\n      ');
 
-  return `<nav class="article-toc" aria-label="Table of contents">
+  return `<nav class="article-toc" aria-label="${ariaLabel}">
   <ol>
       ${items}
   </ol>

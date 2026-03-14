@@ -39,6 +39,14 @@ describe('section-builders', () => {
       expect(score.analysisSections).toBe(0);
     });
 
+    it('should detect multi-class SWOT sections like swot-multidimensional', () => {
+      const content =
+        '<section class="swot-analysis swot-multidimensional" role="region">z</section>';
+      const score = computeArticleQualityScore(content);
+      expect(score.visualizationCount).toBe(1);
+      expect(score.analysisSections).toBe(0);
+    });
+
     it('should rate excellent for rich content', () => {
       // 810 words exceeds the 800-word threshold required for 'excellent' rating
       const words = Array(810).fill('word').join(' ');
@@ -76,6 +84,13 @@ describe('section-builders', () => {
       expect(html).toContain('<nav');
       expect(html).toContain('href="#intro"');
       expect(html).toContain('Introduction');
+      expect(html).toContain('aria-label="Table of contents"');
+    });
+
+    it('should use localised aria-label for non-English languages', () => {
+      const entries = [{ id: 'intro', label: 'Einleitung', level: /** @type {1} */ (1) }];
+      const html = buildTableOfContents(entries, 'de');
+      expect(html).toContain('aria-label="Inhaltsverzeichnis"');
     });
 
     it('should add toc-sub class for level-2 entries', () => {
