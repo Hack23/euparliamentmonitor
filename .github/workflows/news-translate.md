@@ -158,7 +158,7 @@ This workflow is the **dedicated translation workflow**. Content generation work
 When translating articles, preserve ALL analytical nuance:
 - **Stakeholder framing**: Do not simplify stakeholder analysis — translate the full context, not just the conclusion
 - **Confidence indicators**: Preserve 🟢/🟡/🔴 confidence markers exactly as in the source
-- **Scenario labels**: Translate scenario names meaningfully (e.g., "likely" = "probable" in target language, NOT "possible")
+- **Scenario labels**: Preserve the probability *category* (likely/possible/unlikely) by mapping each label to its correct equivalent in the target language — do not upgrade or downgrade certainty during translation
 - **Technical terms**: Use EP official terminology in each target language (not ad-hoc translations)
 - **Coalition dynamics**: Preserve all references to political group interactions and voting patterns
 - **Cultural adaptation**: Adapt examples for local context where helpful, but never at the expense of analytical accuracy

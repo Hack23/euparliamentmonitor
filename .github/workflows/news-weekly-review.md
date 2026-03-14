@@ -317,7 +317,7 @@ european_parliament___generate_political_landscape({})
 
 ## 📄 EP DOCUMENT ANALYSIS FRAMEWORK (MANDATORY)
 
-For EVERY EP document referenced in the article, provide analysis covering:
+For every key EP document featured in the deep-analysis section, provide structured analysis covering (other document references may remain as citations without full framework analysis):
 
 1. **Political Context** — Why was this document introduced? Which actors pushed it? What problem does it address?
 2. **Stakeholder Impact** — Who benefits from this document? Who faces costs or constraints? Quantify where possible.

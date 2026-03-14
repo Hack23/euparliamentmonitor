@@ -237,7 +237,7 @@ graph TD
 
 #### Enhanced Analysis Features (v2)
 
-The following 8 article-generation workflows have been upgraded with mandatory analytical enhancements: `news-week-ahead.md`, `news-month-ahead.md`, `news-breaking.md`, `news-committee-reports.md`, `news-propositions.md`, `news-motions.md`, `news-weekly-review.md`, `news-monthly-review.md`. The `news-translate.md` workflow has complementary analysis-fidelity requirements for preserving these elements in translation.
+The following 8 scheduled article-generation workflows have been upgraded with mandatory analytical enhancements: `news-week-ahead.md`, `news-month-ahead.md`, `news-breaking.md`, `news-committee-reports.md`, `news-propositions.md`, `news-motions.md`, `news-weekly-review.md`, `news-monthly-review.md`. The on-demand `news-article-generator.md` workflow is not included in this upgrade as it dispatches to the above workflows. The `news-translate.md` workflow has complementary analysis-fidelity requirements for preserving these elements in translation.
 
 ##### 🎭 Multi-Stakeholder Perspective Requirements
 
@@ -284,7 +284,7 @@ In addition to the existing content quality gates (500-word minimum, no syntheti
 
 ##### 📄 EP Document Analysis Framework
 
-Every EP document referenced in an article must include structured analysis covering:
+Every key EP document featured in the deep-analysis section must include structured analysis (other document references may remain as citations without full framework analysis):
 1. **Political Context** — Why introduced? Who pushed it? What problem does it solve?
 2. **Stakeholder Impact** — Who benefits/faces costs? Quantified where possible.
 3. **Procedure Stage** — Where in the legislative pipeline? Next steps and timeline.
