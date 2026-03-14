@@ -19,9 +19,9 @@ export function computeArticleQualityScore(content) {
     // Count <section tags as analysis sections
     const sectionMatches = content.match(/<section/g);
     const analysisSections = sectionMatches !== null ? sectionMatches.length : 0;
-    // Count data visualizations: data-chart-config, dashboard-section, mindmap-section
+    // Count data visualizations: data-chart-config, dashboard (class="dashboard"), mindmap-section
     const chartMatches = content.match(/data-chart-config/g);
-    const dashboardMatches = content.match(/class="dashboard-section"/g);
+    const dashboardMatches = content.match(/class="dashboard"/g);
     const mindmapMatches = content.match(/class="mindmap-section"/g);
     const visualizationCount = (chartMatches !== null ? chartMatches.length : 0) +
         (dashboardMatches !== null ? dashboardMatches.length : 0) +

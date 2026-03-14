@@ -29,7 +29,7 @@ describe('section-builders', () => {
 
     it('should count dashboard and mindmap as visualizations', () => {
       const content =
-        '<div class="dashboard-section">x</div><div class="mindmap-section">y</div>';
+        '<section class="dashboard" role="region">x</section><section class="mindmap-section" role="region">y</section>';
       const score = computeArticleQualityScore(content);
       expect(score.visualizationCount).toBe(2);
     });
@@ -40,7 +40,7 @@ describe('section-builders', () => {
       const sections =
         '<section>a</section><section>b</section><section>c</section>';
       const visuals =
-        '<div class="dashboard-section">x</div><div class="mindmap-section">y</div>';
+        '<section class="dashboard" role="region">x</section><section class="mindmap-section" role="region">y</section>';
       const score = computeArticleQualityScore(words + sections + visuals);
       expect(score.overallScore).toBe('excellent');
     });
