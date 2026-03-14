@@ -234,6 +234,146 @@ export interface DashboardStrings {
   readonly categoryLabel: string;
 }
 
+// ─── Multi-Dimensional SWOT types ────────────────────────────────────────────
+
+/**
+ * Dimension name for multi-dimensional SWOT analysis.
+ * Covers political, economic, social, legal, and geopolitical perspectives.
+ */
+export type SwotDimensionName = 'political' | 'economic' | 'social' | 'legal' | 'geopolitical';
+
+/**
+ * Stakeholder type for perspective-based SWOT views.
+ */
+export type StakeholderType = 'citizen' | 'industry' | 'ngo' | 'mep' | 'government' | 'media';
+
+/**
+ * A single analytical dimension within a multi-dimensional SWOT assessment.
+ * Each dimension contains its own complete SWOT quadrant data, allowing
+ * drill-down analysis from political, economic, social, legal, or geopolitical angles.
+ */
+export interface SwotDimension {
+  /** Dimension identifier */
+  readonly name: SwotDimensionName;
+  /** Internal strengths relevant to this dimension */
+  readonly strengths: readonly SwotItem[];
+  /** Internal weaknesses relevant to this dimension */
+  readonly weaknesses: readonly SwotItem[];
+  /** External opportunities relevant to this dimension */
+  readonly opportunities: readonly SwotItem[];
+  /** External threats relevant to this dimension */
+  readonly threats: readonly SwotItem[];
+}
+
+/**
+ * Cross-reference linking a SWOT item to a specific EP document or vote.
+ * Provides evidence anchoring for AI-generated SWOT assessments.
+ */
+export interface SwotCrossReference {
+  /** Excerpt or key text of the SWOT item being referenced */
+  readonly itemText: string;
+  /** EP document or vote identifier (e.g. "TA-10-2024-0001") */
+  readonly documentId: string;
+  /** Human-readable document or vote title */
+  readonly documentTitle: string;
+  /** Optional URL to the EP document */
+  readonly url?: string | undefined;
+}
+
+/**
+ * Temporal SWOT assessment showing evolution of the analysis
+ * across short, medium, and long time horizons.
+ */
+export interface TemporalSwotAssessment {
+  /** Short-term view — covers the current week's agenda and immediate impacts */
+  readonly shortTerm: SwotAnalysis;
+  /** Medium-term view — covers the current quarter's legislative activity */
+  readonly mediumTerm: SwotAnalysis;
+  /** Long-term view — covers the current parliamentary term (optional) */
+  readonly longTerm?: SwotAnalysis | undefined;
+}
+
+/**
+ * Multi-dimensional SWOT analysis with political context depth.
+ * Extends the basic SWOT framework with dimension-specific drill-downs,
+ * stakeholder perspectives, temporal tracking, and evidence cross-references.
+ *
+ * @example
+ * ```typescript
+ * const mdSwot: MultiDimensionalSwot = {
+ *   title: 'AI Act — Multi-Dimensional Assessment',
+ *   dimensions: [
+ *     {
+ *       name: 'political',
+ *       strengths: [{ text: 'Broad cross-party consensus', severity: 'high' }],
+ *       weaknesses: [], opportunities: [], threats: [],
+ *     },
+ *   ],
+ *   temporal: {
+ *     shortTerm: { strengths: [], weaknesses: [], opportunities: [], threats: [] },
+ *     mediumTerm: { strengths: [], weaknesses: [], opportunities: [], threats: [] },
+ *   },
+ * };
+ * ```
+ */
+export interface MultiDimensionalSwot {
+  /** Optional title for the full analysis */
+  readonly title?: string | undefined;
+  /** Per-dimension SWOT quadrant data */
+  readonly dimensions: readonly SwotDimension[];
+  /** Temporal assessment (short / medium / long term) */
+  readonly temporal?: TemporalSwotAssessment | undefined;
+  /** Stakeholder-specific perspectives */
+  readonly stakeholderViews?: Readonly<Partial<Record<StakeholderType, SwotAnalysis>>> | undefined;
+  /** Links from SWOT items to specific EP documents or votes */
+  readonly crossReferences?: readonly SwotCrossReference[] | undefined;
+}
+
+/**
+ * Localized UI strings for the multi-dimensional SWOT visualization.
+ * Covers dimension labels, stakeholder names, temporal headings, and evidence labels.
+ */
+export interface MultiDimensionalSwotStrings {
+  /** Heading for the dimensions drill-down section */
+  readonly dimensionsLabel: string;
+  /** Heading for the stakeholder perspectives section */
+  readonly stakeholderPerspectivesLabel: string;
+  /** Heading for the temporal analysis section */
+  readonly temporalAnalysisLabel: string;
+  /** Label for the short-term temporal period */
+  readonly shortTermLabel: string;
+  /** Label for the medium-term temporal period */
+  readonly mediumTermLabel: string;
+  /** Label for the long-term temporal period */
+  readonly longTermLabel: string;
+  /** Localized name for the political dimension */
+  readonly dimensionPolitical: string;
+  /** Localized name for the economic dimension */
+  readonly dimensionEconomic: string;
+  /** Localized name for the social dimension */
+  readonly dimensionSocial: string;
+  /** Localized name for the legal dimension */
+  readonly dimensionLegal: string;
+  /** Localized name for the geopolitical dimension */
+  readonly dimensionGeopolitical: string;
+  /** Localized label for citizen stakeholder */
+  readonly stakeholderCitizen: string;
+  /** Localized label for industry stakeholder */
+  readonly stakeholderIndustry: string;
+  /** Localized label for NGO / civil society stakeholder */
+  readonly stakeholderNgo: string;
+  /** Localized label for MEP stakeholder */
+  readonly stakeholderMep: string;
+  /** Localized label for government stakeholder */
+  readonly stakeholderGovernment: string;
+  /** Localized label for media stakeholder */
+  readonly stakeholderMedia: string;
+  /** Label for evidence items */
+  readonly evidenceLabel: string;
+  /** Heading for the cross-references section */
+  readonly crossReferencesLabel: string;
+}
+
 // ─── SWOT Builder Localization ───────────────────────────────────────────────
 
 /**
