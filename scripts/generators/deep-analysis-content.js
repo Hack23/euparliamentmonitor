@@ -325,8 +325,7 @@ function isEnhancedDeepAnalysis(a) {
     return ('qualityMetadata' in a ||
         'scenarioPlanning' in a ||
         'reasoningChains' in a ||
-        'executiveSummary' in a ||
-        'comparativeContext' in a);
+        'executiveSummary' in a);
 }
 /**
  * Build a confidence badge with emoji indicator and text label
@@ -395,14 +394,14 @@ function buildReasoningChainSection(chains, heading, strings, contentLang) {
             .map((ref) => {
             const dateText = ref.date ? ` (${escapeHTML(ref.date)})` : '';
             if (ref.url && isSafeURL(ref.url)) {
-                return `<li><a href="${escapeHTML(ref.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(ref.title)}${dateText}</a></li>`;
+                return `<li${langAttr}><a href="${escapeHTML(ref.url)}" target="_blank" rel="noopener noreferrer"${langAttr}>${escapeHTML(ref.title)}${dateText}</a></li>`;
             }
-            return `<li>${escapeHTML(ref.title)}${dateText}</li>`;
+            return `<li${langAttr}>${escapeHTML(ref.title)}${dateText}</li>`;
         })
             .join('\n                  ');
         const evidenceHtml = chain.evidence.length > 0
             ? `<div class="evidence-refs-block">
-                  <h5>${escapeHTML(strings.evidenceRefsHeading)}</h5>
+                  <h4>${escapeHTML(strings.evidenceRefsHeading)}</h4>
                   <ul class="evidence-refs">
                   ${evidenceItems}
                   </ul>
@@ -413,7 +412,7 @@ function buildReasoningChainSection(chains, heading, strings, contentLang) {
             .join('\n                  ');
         const counterHtml = chain.counterArguments.length > 0
             ? `<div class="counter-args-block">
-                  <h5>${escapeHTML(strings.counterArgumentsHeading)}</h5>
+                  <h4>${escapeHTML(strings.counterArgumentsHeading)}</h4>
                   <ul class="counter-arguments">
                   ${counterItems}
                   </ul>
@@ -447,7 +446,8 @@ function buildReasoningChainSection(chains, heading, strings, contentLang) {
 function buildScenarioPlanningSection(scenarios, heading, strings, contentLang) {
     const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     function renderScenario(scenario, cssClass, label) {
-        const pct = Math.max(0, Math.min(100, Math.round(scenario.probability * 100)));
+        const rawPct = Number.isFinite(scenario.probability) ? scenario.probability * 100 : 0;
+        const pct = Math.max(0, Math.min(100, Math.round(rawPct)));
         const triggerItems = scenario.triggers
             .map((t) => `<li${langAttr}>${escapeHTML(t)}</li>`)
             .join('\n                  ');

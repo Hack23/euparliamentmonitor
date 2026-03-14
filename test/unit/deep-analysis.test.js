@@ -640,6 +640,68 @@ describe('deep-analysis-content', () => {
       expect(firstDt).not.toBeNull();
       expect(firstDt[1]).not.toBe('Analysis Methodology');
     });
+
+    it('should use h4 (not h5) for evidence and counter-argument headings', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      // Evidence and counter-argument blocks should use h4 for proper heading hierarchy
+      expect(html).toContain('<h4>Evidence</h4>');
+      expect(html).toContain('<h4>Counter-arguments</h4>');
+      // Must NOT use h5 (would skip heading level under h3)
+      expect(html).not.toMatch(/<h5>Evidence<\/h5>/);
+      expect(html).not.toMatch(/<h5>Counter-arguments<\/h5>/);
+    });
+
+    it('should apply lang attribute to evidence reference list items', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en', 'fr');
+      // Evidence items should get lang attribute when contentLang differs
+      expect(html).toMatch(/<li lang="fr">/);
+    });
+
+    it('should handle NaN probability gracefully', () => {
+      const nanAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        scenarioPlanning: {
+          ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning,
+          bestCase: {
+            ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning.bestCase,
+            probability: NaN,
+          },
+        },
+      };
+      const html = buildDeepAnalysisSection(nanAnalysis, 'en');
+      // NaN should fall back to 0%
+      expect(html).toContain('aria-valuenow="0"');
+      expect(html).not.toContain('NaN');
+    });
+
+    it('should handle Infinity probability gracefully', () => {
+      const infAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        scenarioPlanning: {
+          ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning,
+          worstCase: {
+            ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning.worstCase,
+            probability: Infinity,
+          },
+        },
+      };
+      const html = buildDeepAnalysisSection(infAnalysis, 'en');
+      // Infinity should fall back to 0%
+      expect(html).toContain('aria-valuenow="0"');
+      expect(html).not.toContain('Infinity');
+    });
+
+    it('should not check comparativeContext in type guard', () => {
+      // An analysis with ONLY comparativeContext should NOT be treated as enhanced
+      const contextOnlyAnalysis = {
+        ...SAMPLE_ANALYSIS,
+        comparativeContext: 'Some historical context',
+      };
+      const html = buildDeepAnalysisSection(contextOnlyAnalysis, 'en');
+      // Should NOT render enhanced sections
+      expect(html).not.toContain('analysis-executive-summary');
+      expect(html).not.toContain('analysis-methodology');
+    });
   });
 });
 

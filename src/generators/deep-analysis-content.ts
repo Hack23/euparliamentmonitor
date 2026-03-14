@@ -405,8 +405,7 @@ function isEnhancedDeepAnalysis(a: DeepAnalysis): a is EnhancedDeepAnalysis {
     'qualityMetadata' in a ||
     'scenarioPlanning' in a ||
     'reasoningChains' in a ||
-    'executiveSummary' in a ||
-    'comparativeContext' in a
+    'executiveSummary' in a
   );
 }
 
@@ -488,15 +487,15 @@ function buildReasoningChainSection(
         .map((ref) => {
           const dateText = ref.date ? ` (${escapeHTML(ref.date)})` : '';
           if (ref.url && isSafeURL(ref.url)) {
-            return `<li><a href="${escapeHTML(ref.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(ref.title)}${dateText}</a></li>`;
+            return `<li${langAttr}><a href="${escapeHTML(ref.url)}" target="_blank" rel="noopener noreferrer"${langAttr}>${escapeHTML(ref.title)}${dateText}</a></li>`;
           }
-          return `<li>${escapeHTML(ref.title)}${dateText}</li>`;
+          return `<li${langAttr}>${escapeHTML(ref.title)}${dateText}</li>`;
         })
         .join('\n                  ');
       const evidenceHtml =
         chain.evidence.length > 0
           ? `<div class="evidence-refs-block">
-                  <h5>${escapeHTML(strings.evidenceRefsHeading)}</h5>
+                  <h4>${escapeHTML(strings.evidenceRefsHeading)}</h4>
                   <ul class="evidence-refs">
                   ${evidenceItems}
                   </ul>
@@ -509,7 +508,7 @@ function buildReasoningChainSection(
       const counterHtml =
         chain.counterArguments.length > 0
           ? `<div class="counter-args-block">
-                  <h5>${escapeHTML(strings.counterArgumentsHeading)}</h5>
+                  <h4>${escapeHTML(strings.counterArgumentsHeading)}</h4>
                   <ul class="counter-arguments">
                   ${counterItems}
                   </ul>
@@ -555,7 +554,8 @@ function buildScenarioPlanningSection(
     cssClass: string,
     label: string
   ): string {
-    const pct = Math.max(0, Math.min(100, Math.round(scenario.probability * 100)));
+    const rawPct = Number.isFinite(scenario.probability) ? scenario.probability * 100 : 0;
+    const pct = Math.max(0, Math.min(100, Math.round(rawPct)));
     const triggerItems = scenario.triggers
       .map((t) => `<li${langAttr}>${escapeHTML(t)}</li>`)
       .join('\n                  ');

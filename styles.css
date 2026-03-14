@@ -2370,6 +2370,295 @@ button:focus-visible {
   font-size: 0.9rem;
 }
 
+/* ─── Enhanced Deep Analysis: Confidence Badges ─────────────────────────── */
+
+.confidence-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.confidence-high {
+  background: #e6f9ed;
+  color: #157a3b;
+  border: 1px solid var(--success, #28a745);
+}
+
+.confidence-medium {
+  background: #fff8e1;
+  color: #8a6d00;
+  border: 1px solid #ffc107;
+}
+
+.confidence-low {
+  background: #fde8e8;
+  color: #b71c1c;
+  border: 1px solid var(--danger, #dc3545);
+}
+
+/* ─── Enhanced Deep Analysis: Executive Summary ─────────────────────────── */
+
+.analysis-executive-summary {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #eef2ff, var(--bg-card, #fff));
+  border-radius: var(--radius-sm, 6px);
+  border-left: 4px solid var(--primary, #003399);
+}
+
+.analysis-executive-summary .summary-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.analysis-executive-summary .summary-header p {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* ─── Enhanced Deep Analysis: Reasoning Chains ──────────────────────────── */
+
+.analysis-reasoning-chains {
+  margin-bottom: 1.25rem;
+}
+
+.reasoning-chain-card {
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card, #fff);
+  border-radius: var(--radius-sm, 6px);
+  border: 1px solid var(--border-light, #dee2e6);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.04));
+}
+
+.reasoning-chain-card .chain-conclusion {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-light, #dee2e6);
+  font-weight: 500;
+}
+
+.evidence-refs-block,
+.counter-args-block {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
+  background: #f8f9fa;
+  border-radius: var(--radius-sm, 6px);
+}
+
+.evidence-refs-block h4,
+.counter-args-block h4 {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #6c757d);
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.evidence-refs,
+.counter-arguments {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.evidence-refs li,
+.counter-arguments li {
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border-light, #dee2e6);
+}
+
+.evidence-refs li:last-child,
+.counter-arguments li:last-child {
+  border-bottom: none;
+}
+
+.evidence-refs a {
+  color: var(--primary, #003399);
+  text-decoration: none;
+}
+
+.evidence-refs a:hover {
+  text-decoration: underline;
+}
+
+/* ─── Enhanced Deep Analysis: Scenario Planning ─────────────────────────── */
+
+.analysis-scenario-planning {
+  margin-bottom: 1.25rem;
+}
+
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.scenario-card {
+  padding: 1rem;
+  border-radius: var(--radius-sm, 6px);
+  border: 1px solid var(--border-light, #dee2e6);
+  background: var(--bg-card, #fff);
+}
+
+.scenario-best {
+  border-left: 4px solid var(--success, #28a745);
+}
+
+.scenario-likely {
+  border-left: 4px solid #ffc107;
+}
+
+.scenario-worst {
+  border-left: 4px solid var(--danger, #dc3545);
+}
+
+.scenario-probability {
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary, #6c757d);
+}
+
+.probability-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--primary, #003399);
+  margin-top: 0.25rem;
+  transition: width 0.3s ease;
+}
+
+.scenario-best .probability-bar {
+  background: var(--success, #28a745);
+}
+
+.scenario-likely .probability-bar {
+  background: #ffc107;
+}
+
+.scenario-worst .probability-bar {
+  background: var(--danger, #dc3545);
+}
+
+.scenario-triggers,
+.scenario-impacts {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.scenario-triggers summary,
+.scenario-impacts summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-secondary, #6c757d);
+}
+
+.scenario-impact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.scenario-impact {
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.severity-critical {
+  color: #b71c1c;
+}
+
+.severity-high {
+  color: var(--danger, #dc3545);
+}
+
+.severity-medium {
+  color: #8a6d00;
+}
+
+.severity-low {
+  color: var(--text-secondary, #6c757d);
+}
+
+.scenario-timeline {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary, #6c757d);
+}
+
+.scenario-wildcards {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: #fff8e1;
+  border-radius: var(--radius-sm, 6px);
+  border: 1px dashed #ffc107;
+}
+
+.wildcard-list {
+  list-style: disc inside;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+/* ─── Enhanced Deep Analysis: Methodology ───────────────────────────────── */
+
+.analysis-methodology {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: #f8f9fa;
+  border-radius: var(--radius-sm, 6px);
+  border: 1px solid var(--border-light, #dee2e6);
+}
+
+.methodology-stats {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1rem;
+  margin: 0.5rem 0 1rem;
+  font-size: 0.9rem;
+}
+
+.methodology-stats dt {
+  font-weight: 600;
+  color: var(--text-secondary, #6c757d);
+}
+
+.methodology-stats dd {
+  margin: 0;
+}
+
+.iteration-timeline {
+  margin-top: 0.75rem;
+}
+
+.iteration-item {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  background: var(--bg-card, #fff);
+  border-radius: var(--radius-sm, 6px);
+  border-left: 3px solid var(--primary, #003399);
+  font-size: 0.9rem;
+}
+
+.iteration-findings,
+.iteration-refinements {
+  list-style: disc inside;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary, #6c757d);
+}
+
 /* Responsive: stack impact grid on small screens */
 @media (max-width: 600px) {
   .deep-analysis {
@@ -2387,6 +2676,14 @@ button:focus-visible {
 
   .consequences-table {
     font-size: 0.8rem;
+  }
+
+  .scenario-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .methodology-stats {
+    grid-template-columns: 1fr;
   }
 }
 
