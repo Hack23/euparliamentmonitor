@@ -106,6 +106,8 @@ function slugToArticleType(slug: string): string {
  * @returns Article validation summary or null if the filename does not match
  */
 function validateSingleFile(filename: string): ArticleValidationSummary | null {
+  // Reset lastIndex to avoid stateful regex issues when the pattern has g/y flags
+  ARTICLE_FILENAME_PATTERN.lastIndex = 0;
   const match = ARTICLE_FILENAME_PATTERN.exec(filename);
   if (!match) return null;
 

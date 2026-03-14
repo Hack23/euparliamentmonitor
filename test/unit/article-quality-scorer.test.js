@@ -62,6 +62,12 @@ describe('assessAnalysisDepth', () => {
     expect(result.coalitionDynamicsAnalyzed).toBe(true);
   });
 
+  it('detects coalition dynamics with HTML-encoded entities (S&amp;D)', () => {
+    const html = buildHtml('<p>The EPP and S&amp;D formed an alliance with Renew.</p>');
+    const result = assessAnalysisDepth(html);
+    expect(result.coalitionDynamicsAnalyzed).toBe(true);
+  });
+
   it('detects historical context keywords', () => {
     const html = buildHtml('<p>Historically, compared to the previous term since 2019.</p>');
     const result = assessAnalysisDepth(html);
@@ -266,6 +272,33 @@ describe('assessVisualizationQuality', () => {
     );
     const result = assessVisualizationQuality(html);
     expect(result.mindmapDepth).toBe(3);
+  });
+
+  it('counts mindmap ul nesting depth with inner divs (balanced tag matching)', () => {
+    const html = buildHtml(
+      `<div class="mindmap">
+        <div class="inner">
+          <ul><li>Top
+            <ul><li>Mid
+              <ul><li>Deep</li></ul>
+            </li></ul>
+          </li></ul>
+        </div>
+      </div>`
+    );
+    const result = assessVisualizationQuality(html);
+    expect(result.mindmapDepth).toBe(3);
+  });
+
+  it('does not double-count sections with analysis-section class on a section tag', () => {
+    const html = buildHtml(
+      `<section class="analysis-section"><p>Analysis A</p></section>
+       <section class="deep-analysis"><p>Analysis B</p></section>
+       <section><p>Plain section</p></section>`
+    );
+    // Should count exactly 3 unique sections, not 5 (which would happen with naive sum)
+    const report = scoreArticleQuality(html, 'test', 'en', 'week-ahead');
+    expect(report.analysisSections).toBe(3);
   });
 
   it('detects deep analysis by class', () => {

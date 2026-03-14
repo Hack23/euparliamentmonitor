@@ -151,7 +151,46 @@ const GENERIC_PHRASE_PATTERNS: ReadonlyArray<RegExp> = [
 /** Pattern matching EP document reference codes such as A9-0123 or PE-456 */
 const EP_DOCUMENT_REF_PATTERN = /[A-Z]+-\d+/gu;
 
+/** CSS class selector for deep-analysis sections (extracted to avoid duplication) */
+const CLASS_DEEP_ANALYSIS = 'class="deep-analysis"';
+
+// ─── HTML entity map ──────────────────────────────────────────────────────────
+
+/** Common HTML entities to decode when extracting plain text */
+const HTML_ENTITY_MAP: Readonly<Record<string, string>> = {
+  '&amp;': '&',
+  '&lt;': '<',
+  '&gt;': '>',
+  '&quot;': '"',
+  '&#39;': "'",
+  '&apos;': "'",
+  '&nbsp;': ' ',
+};
+
+/** Pattern matching named and numeric HTML entities */
+const HTML_ENTITY_PATTERN = /&(?:#(\d+)|#x([0-9a-fA-F]+)|([a-zA-Z]+));/gu;
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
+
+/**
+ * Decode HTML entities in a string.
+ * Handles named entities (&amp;, &lt;, &gt;, &quot;, &#39;, &apos;, &nbsp;)
+ * and numeric references (&#123;, &#x7B;).
+ *
+ * @param text - Text possibly containing HTML entities
+ * @returns Text with entities replaced by their character equivalents
+ */
+function decodeHtmlEntities(text: string): string {
+  return text.replace(HTML_ENTITY_PATTERN, (match, decimal, hex, named) => {
+    if (decimal !== undefined) return String.fromCharCode(parseInt(decimal, 10));
+    if (hex !== undefined) return String.fromCharCode(parseInt(hex, 16));
+    if (named !== undefined) {
+      const key = `&${named};`;
+      return HTML_ENTITY_MAP[key] ?? match;
+    }
+    return match;
+  });
+}
 
 /**
  * Count non-overlapping occurrences of a CSS class or id string in HTML.
@@ -185,18 +224,20 @@ function containsAnyKeyword(text: string, keywords: ReadonlyArray<string>): bool
 /**
  * Extract the plain text content from the `<main>` element of an HTML string.
  * Falls back to the full document when no `<main>` is found.
+ * Decodes HTML entities so keyword detection works on real article HTML.
  *
  * @param html - Raw HTML string
- * @returns Plain text stripped of tags and scripts
+ * @returns Plain text stripped of tags, scripts, and HTML entities
  */
 function extractPlainText(html: string): string {
   const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
   const source = mainMatch?.[1] ?? html;
-  return source
+  const stripped = source
     .replace(/<script[^>]*>[\s\S]*?<\/script[^>]*>/giu, ' ')
     .replace(/<[^>]+>/gu, ' ')
     .replace(/\s+/gu, ' ')
     .trim();
+  return decodeHtmlEntities(stripped);
 }
 
 /**
@@ -213,16 +254,51 @@ function countWords(html: string): number {
 
 /**
  * Count structural analysis sections in HTML.
- * Detects `<section` elements, `class="analysis-section"`, and `class="deep-analysis"`.
+ * Uses a Set to avoid double-counting elements that have both a `<section` tag
+ * and an `analysis-section` or `deep-analysis` class on the same element.
  *
  * @param html - Raw HTML string
- * @returns Number of analysis sections found
+ * @returns Number of unique analysis sections found
  */
 function countAnalysisSections(html: string): number {
-  const sections = countOccurrences(html, '<section');
-  const analysisSections = countOccurrences(html, 'class="analysis-section"');
-  const deepAnalysis = countOccurrences(html, 'class="deep-analysis"');
-  return sections + analysisSections + deepAnalysis;
+  const positions = new Set<number>();
+
+  addTagPositions(html, '<section', positions);
+  addClassPositions(html, 'class="analysis-section"', positions);
+  addClassPositions(html, CLASS_DEEP_ANALYSIS, positions);
+
+  return positions.size;
+}
+
+/**
+ * Add start positions of a tag or selector to the position set.
+ *
+ * @param html - HTML string
+ * @param token - Token to search for
+ * @param positions - Mutable set to add positions into
+ */
+function addTagPositions(html: string, token: string, positions: Set<number>): void {
+  let idx = html.indexOf(token);
+  while (idx !== -1) {
+    positions.add(idx);
+    idx = html.indexOf(token, idx + 1);
+  }
+}
+
+/**
+ * Add positions of class attributes, mapped to their enclosing tag start.
+ *
+ * @param html - HTML string
+ * @param classAttr - Class attribute string to search for
+ * @param positions - Mutable set to add enclosing tag positions into
+ */
+function addClassPositions(html: string, classAttr: string, positions: Set<number>): void {
+  let idx = html.indexOf(classAttr);
+  while (idx !== -1) {
+    const tagStart = html.lastIndexOf('<', idx);
+    if (tagStart !== -1) positions.add(tagStart);
+    idx = html.indexOf(classAttr, idx + 1);
+  }
 }
 
 /**
@@ -242,6 +318,7 @@ function countEvidenceRefs(html: string): number {
 /**
  * Compute the mindmap depth by counting `class="mindmap-level"` or
  * nested `ul > li` depth within a mindmap section.
+ * Uses balanced tag matching to avoid truncating at inner closing tags.
  *
  * @param html - Raw HTML string
  * @returns Estimated mindmap depth
@@ -250,19 +327,72 @@ function computeMindmapDepth(html: string): number {
   const levelCount = countOccurrences(html, 'class="mindmap-level"');
   if (levelCount > 0) return levelCount;
 
-  // Fall back: measure ul nesting depth inside a mindmap section
-  const mindmapMatch = /(?:class="mindmap"|id="mindmap")([\s\S]*?)(?:<\/(?:div|section|article)>)/u.exec(html);
-  if (!mindmapMatch?.[1]) return 0;
+  const sectionContent = extractMindmapSection(html);
+  if (!sectionContent) return 0;
 
-  const section = mindmapMatch[1];
+  return measureUlNestingDepth(sectionContent);
+}
+
+/**
+ * Extract the full content of a mindmap container using balanced tag matching.
+ *
+ * @param html - Raw HTML string
+ * @returns Inner HTML of the mindmap container, or empty string if not found
+ */
+function extractMindmapSection(html: string): string {
+  const openPatterns = [/class="mindmap"[^>]*>/u, /id="mindmap"[^>]*>/u];
+
+  for (const pattern of openPatterns) {
+    const openMatch = pattern.exec(html);
+    if (!openMatch) continue;
+
+    const startIdx = openMatch.index + openMatch[0].length;
+    const content = findBalancedContent(html, startIdx);
+    if (content) return content;
+  }
+
+  return '';
+}
+
+/**
+ * Walk forward from a starting position to find balanced closing tag content.
+ *
+ * @param html - HTML string
+ * @param startIdx - Position right after the opening tag
+ * @returns Content between the opening and its balanced closing tag, or empty string
+ */
+function findBalancedContent(html: string, startIdx: number): string {
+  let depth = 1;
+  const closeTagPattern = /<\/?(?:div|section|article)[\s>/]/giu;
+  closeTagPattern.lastIndex = startIdx;
+  let tagMatch = closeTagPattern.exec(html);
+  while (tagMatch) {
+    if (tagMatch[0].startsWith('</')) {
+      depth--;
+      if (depth === 0) return html.slice(startIdx, tagMatch.index);
+    } else {
+      depth++;
+    }
+    tagMatch = closeTagPattern.exec(html);
+  }
+  return '';
+}
+
+/**
+ * Measure the maximum `<ul>` nesting depth within a section of HTML.
+ *
+ * @param section - HTML section content
+ * @returns Maximum nesting depth
+ */
+function measureUlNestingDepth(section: string): number {
   let maxDepth = 0;
-  let depth = 0;
+  let ulDepth = 0;
   for (let i = 0; i < section.length - 3; i++) {
     if (section.slice(i, i + 3) === '<ul') {
-      depth++;
-      if (depth > maxDepth) maxDepth = depth;
+      ulDepth++;
+      if (ulDepth > maxDepth) maxDepth = ulDepth;
     } else if (section.slice(i, i + 5) === '</ul>') {
-      depth--;
+      ulDepth--;
     }
   }
   return maxDepth;
@@ -392,7 +522,7 @@ export function assessVisualizationQuality(html: string): VisualizationQuality {
   const mindmapDepth = mindmapPresent ? computeMindmapDepth(html) : 0;
 
   const deepAnalysisPresent =
-    html.includes('class="deep-analysis"') || /id="[^"]*deep[^"]*"/iu.test(html);
+    html.includes(CLASS_DEEP_ANALYSIS) || /id="[^"]*deep[^"]*"/iu.test(html);
   const deepAnalysisEvidence = deepAnalysisPresent
     ? countOccurrences(html, 'class="evidence"') +
       countOccurrences(html, 'data-reference')
