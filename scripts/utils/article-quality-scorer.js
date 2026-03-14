@@ -114,7 +114,7 @@ const GENERIC_PHRASE_PATTERNS = [
  * Excludes broad matches like EU-27 or EEA-32.
  */
 const EP_DOC_PATTERNS = [
-    /\bTA-\d+-\d+-\d+\b/gu, // TA-10-2026-0001 (full four-segment TA reference)
+    /\bTA-\d+-\d+-\d+\b/gu, // TA-10-2026-0001 (TA prefix + three numeric segments)
     /\bPE-\d+\b/gu, // PE-123 or PE-123456
     /\b[A-C]\d-\d+\b/gu, // A9-0123, B9-0002, C9-0003 (variable-length digits)
     /\bP\d_TA\(\d{4}\)\d+\b/gu, // P9_TA(2024)0001
