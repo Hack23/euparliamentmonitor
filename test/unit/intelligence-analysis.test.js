@@ -15,6 +15,10 @@ import {
   calculateLegislativeVelocity,
   rankBySignificance,
   buildIntelligenceSection,
+  buildDefaultStakeholderPerspectives,
+  scoreStakeholderInfluence,
+  buildStakeholderOutcomeMatrix,
+  rankStakeholdersByInfluence,
 } from '../../scripts/utils/intelligence-analysis.js';
 import {
   buildWhatToWatchSection,
@@ -630,13 +634,6 @@ describe('buildPoliticalAlignmentSection', () => {
 });
 
 // ─── buildDefaultStakeholderPerspectives ─────────────────────────────────────
-
-import {
-  buildDefaultStakeholderPerspectives,
-  scoreStakeholderInfluence,
-  buildStakeholderOutcomeMatrix,
-  rankStakeholdersByInfluence,
-} from '../../scripts/utils/intelligence-analysis.js';
 
 describe('buildDefaultStakeholderPerspectives', () => {
   it('should return exactly 6 perspectives (one per stakeholder group)', () => {

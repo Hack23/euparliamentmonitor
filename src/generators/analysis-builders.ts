@@ -31,6 +31,7 @@ import type {
   DashboardBuilderStrings,
   StakeholderPerspective,
   StakeholderOutcomeMatrix,
+  StakeholderType,
 } from '../types/index.js';
 import type { PipelineData } from './propositions-content.js';
 import {
@@ -266,7 +267,7 @@ function buildCommitteeStakeholderPerspectives(
 function buildOutcomeMatrix(
   actions: Array<{
     action: string;
-    scores: Partial<Record<'political_groups' | 'civil_society' | 'industry' | 'national_govts' | 'citizens' | 'eu_institutions', number>>;
+    scores: Partial<Record<StakeholderType, number>>;
     confidence: 'high' | 'medium' | 'low';
   }>
 ): StakeholderOutcomeMatrix[] {

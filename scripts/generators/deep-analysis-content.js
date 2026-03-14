@@ -373,15 +373,24 @@ function buildStakeholderPerspectivesSection(perspectives, heading, contentLang)
  *
  * @param matrix - Array of stakeholder outcome matrix rows
  * @param heading - Localized section heading
+ * @param strings - Localized label strings for columns and stakeholder groups
  * @param contentLang - Language of the action text
  * @returns HTML string, or empty string if no matrix rows provided
  */
-function buildStakeholderOutcomeMatrixSection(matrix, heading, contentLang) {
+function buildStakeholderOutcomeMatrixSection(matrix, heading, strings, contentLang) {
     if (!matrix || matrix.length === 0)
         return '';
     const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
-    const headerCells = ALL_STAKEHOLDER_TYPES
-        .map((s) => `<th scope="col">${escapeHTML(s.replace(/_/g, ' '))}</th>`)
+    const stakeholderLabels = [
+        strings.politicalGroupsLabel,
+        strings.civilSocietyLabel,
+        strings.industryLabel,
+        strings.nationalGovtsLabel,
+        strings.citizensLabel,
+        strings.euInstitutionsLabel,
+    ];
+    const headerCells = stakeholderLabels
+        .map((label) => `<th scope="col">${escapeHTML(label)}</th>`)
         .join('');
     const rows = matrix
         .map((row) => {
@@ -393,7 +402,7 @@ function buildStakeholderOutcomeMatrixSection(matrix, heading, contentLang) {
         })
             .join('');
         return (`<tr>` +
-            `<td class="matrix-action"${langAttr}>${escapeHTML(row.action)}</td>` +
+            `<th scope="row" class="matrix-action"${langAttr}>${escapeHTML(row.action)}</th>` +
             `<td class="matrix-confidence confidence-${escapeHTML(row.confidence)}">${escapeHTML(row.confidence)}</td>` +
             cells +
             `</tr>`);
@@ -406,8 +415,8 @@ function buildStakeholderOutcomeMatrixSection(matrix, heading, contentLang) {
               <table class="outcome-matrix-table" role="table">
                 <thead>
                   <tr>
-                    <th scope="col">Action</th>
-                    <th scope="col">Confidence</th>
+                    <th scope="col">${escapeHTML(strings.actionLabel)}</th>
+                    <th scope="col">${escapeHTML(strings.confidenceLabel)}</th>
                     ${headerCells}
                   </tr>
                 </thead>
@@ -450,8 +459,8 @@ export function buildDeepAnalysisSection(analysis, lang, contentLang = lang) {
     const consequencesHtml = buildConsequencesSection(analysis.actionConsequences, strings.consequencesHeading, strings, strings, cl);
     const mistakesHtml = buildMistakesSection(analysis.mistakes, strings.mistakesHeading, strings.alternativeLabel, cl);
     const outlookHtml = buildOutlookSection(analysis.outlook, strings.outlookHeading, cl);
-    const perspectivesHtml = buildStakeholderPerspectivesSection(analysis.stakeholderPerspectives, 'Multi-Stakeholder Perspectives', cl);
-    const outcomeMatrixHtml = buildStakeholderOutcomeMatrixSection(analysis.stakeholderOutcomeMatrix, 'Stakeholder Outcome Matrix', cl);
+    const perspectivesHtml = buildStakeholderPerspectivesSection(analysis.stakeholderPerspectives, strings.perspectivesHeading, cl);
+    const outcomeMatrixHtml = buildStakeholderOutcomeMatrixSection(analysis.stakeholderOutcomeMatrix, strings.outcomeMatrixHeading, strings, cl);
     const innerContent = whatHtml +
         whoHtml +
         whenHtml +

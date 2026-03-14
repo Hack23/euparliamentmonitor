@@ -445,6 +445,19 @@ export interface DeepAnalysisStrings {
   readonly severityMedium: string;
   readonly severityHigh: string;
   readonly severityCritical: string;
+  /** Sub-heading for multi-stakeholder perspectives section */
+  readonly perspectivesHeading: string;
+  /** Sub-heading for stakeholder outcome matrix section */
+  readonly outcomeMatrixHeading: string;
+  /** Column header for "Confidence" in the outcome matrix */
+  readonly confidenceLabel: string;
+  /** Localized stakeholder group labels for the outcome matrix columns */
+  readonly politicalGroupsLabel: string;
+  readonly civilSocietyLabel: string;
+  readonly industryLabel: string;
+  readonly nationalGovtsLabel: string;
+  readonly citizensLabel: string;
+  readonly euInstitutionsLabel: string;
 }
 
 /** Localized content strings for the committee analysis deep analysis body text */
