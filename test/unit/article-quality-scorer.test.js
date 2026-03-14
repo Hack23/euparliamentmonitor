@@ -490,6 +490,17 @@ describe('scoreArticleQuality', () => {
     expect(report.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 
+  it('derives date from articleId when it contains a date prefix', () => {
+    const report = scoreArticleQuality('', '2026-03-13-week-ahead', 'en', 'week-ahead');
+    expect(report.date).toBe('2026-03-13');
+  });
+
+  it('falls back to current date when articleId has no date prefix', () => {
+    const today = new Date().toISOString().split('T')[0];
+    const report = scoreArticleQuality('', 'no-date-slug', 'en', 'week-ahead');
+    expect(report.date).toBe(today);
+  });
+
   it('articleId, lang, type are preserved from inputs', () => {
     const report = scoreArticleQuality('', 'my-id', 'fr', 'breaking');
     expect(report.articleId).toBe('my-id');

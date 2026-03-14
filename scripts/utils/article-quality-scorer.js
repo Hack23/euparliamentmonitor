@@ -114,13 +114,15 @@ const GENERIC_PHRASE_PATTERNS = [
  * Excludes broad matches like EU-27 or EEA-32.
  */
 const EP_DOC_PATTERNS = [
-    /\bTA-\d+-\d+/gu, // TA-10-2026-0001
-    /\bPE-\d+/gu, // PE-123 or PE-123.456
+    /\bTA-\d+-\d+-\d+\b/gu, // TA-10-2026-0001 (full four-segment TA reference)
+    /\bPE-\d+\b/gu, // PE-123 or PE-123456
     /\b[A-C]\d-\d+\b/gu, // A9-0123, B9-0002, C9-0003 (variable-length digits)
     /\bP\d_TA\(\d{4}\)\d+\b/gu, // P9_TA(2024)0001
 ];
 /** CSS class selector for deep-analysis sections (extracted to avoid duplication) */
 const CLASS_DEEP_ANALYSIS = 'class="deep-analysis"';
+/** Pattern to extract a leading ISO date (YYYY-MM-DD) from an article identifier */
+const ARTICLE_DATE_PATTERN = /^(\d{4}-\d{2}-\d{2})/u;
 // ─── HTML entity map ──────────────────────────────────────────────────────────
 /** Common HTML entities to decode when extracting plain text */
 const HTML_ENTITY_MAP = {
@@ -715,7 +717,10 @@ export function scoreArticleQuality(html, articleId, lang, articleType) {
     const overallScore = calculateOverallScore(analysisDepth, stakeholderCoverage, visualizationQuality, wordCount, evidenceReferences);
     const grade = scoreToGrade(overallScore);
     const passesQualityGate = overallScore >= QUALITY_GATE_THRESHOLD;
-    const date = new Date().toISOString().split('T')[0] ?? '';
+    // Derive the article's date from its ID when possible (slug format: YYYY-MM-DD-…),
+    // falling back to the current execution date only if the ID does not contain a date prefix.
+    const dateMatch = ARTICLE_DATE_PATTERN.exec(articleId);
+    const date = dateMatch?.[1] ?? new Date().toISOString().split('T')[0] ?? '';
     const partial = {
         articleId,
         date,

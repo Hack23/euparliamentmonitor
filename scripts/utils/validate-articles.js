@@ -70,8 +70,6 @@ function slugToArticleType(slug) {
  * @returns Article validation summary or null if the filename does not match
  */
 function validateSingleFile(filename) {
-    // Reset lastIndex to avoid stateful regex issues when the pattern has g/y flags
-    ARTICLE_FILENAME_PATTERN.lastIndex = 0;
     const match = ARTICLE_FILENAME_PATTERN.exec(filename);
     if (!match)
         return null;
@@ -96,7 +94,7 @@ function validateSingleFile(filename) {
         summary.errors.push(...result.warnings.map((w) => `[strict] ${w}`));
     }
     if (qualityMode) {
-        summary.qualityReport = scoreArticleQuality(html, filename, lang, articleType);
+        summary.qualityReport = scoreArticleQuality(html, `${date}-${slug}`, lang, articleType);
     }
     return summary;
 }
