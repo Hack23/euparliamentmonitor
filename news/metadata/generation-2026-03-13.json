@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-03-13T12:17:39.096Z",
-  "generated": 52,
-  "skipped": 0,
+  "timestamp": "2026-03-13T12:00:00.000Z",
+  "generated": 65,
+  "skipped": 26,
   "dryRun": 0,
   "errors": 0,
   "articles": [
@@ -56,7 +56,20 @@
     "2026-03-13-week-ahead-he.html",
     "2026-03-13-week-ahead-ja.html",
     "2026-03-13-week-ahead-ko.html",
-    "2026-03-13-week-ahead-zh.html"
+    "2026-03-13-week-ahead-zh.html",
+    "2026-03-13-committee-reports-sv.html",
+    "2026-03-13-committee-reports-da.html",
+    "2026-03-13-committee-reports-no.html",
+    "2026-03-13-committee-reports-fi.html",
+    "2026-03-13-committee-reports-de.html",
+    "2026-03-13-committee-reports-fr.html",
+    "2026-03-13-committee-reports-es.html",
+    "2026-03-13-committee-reports-nl.html",
+    "2026-03-13-committee-reports-ar.html",
+    "2026-03-13-committee-reports-he.html",
+    "2026-03-13-committee-reports-ja.html",
+    "2026-03-13-committee-reports-ko.html",
+    "2026-03-13-committee-reports-zh.html"
   ],
   "results": [
     {
@@ -78,6 +91,11 @@
       "success": true,
       "files": 13,
       "slug": "2026-03-13-week-ahead"
+    },
+    {
+      "success": true,
+      "files": 13,
+      "slug": "2026-03-13-committee-reports"
     }
   ],
   "usedMCP": true
