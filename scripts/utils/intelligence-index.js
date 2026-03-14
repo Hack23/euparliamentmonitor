@@ -560,9 +560,8 @@ const RELATED_ANALYSIS_STRINGS = {
  * @returns Localised string set
  */
 function getRelatedAnalysisStrings(lang) {
-    const strings = RELATED_ANALYSIS_STRINGS[lang ?? 'en'];
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- 'en' is always present
-    return strings ?? RELATED_ANALYSIS_STRINGS['en'];
+    const EN_STRINGS = RELATED_ANALYSIS_STRINGS['en'];
+    return RELATED_ANALYSIS_STRINGS[lang ?? 'en'] ?? EN_STRINGS;
 }
 /**
  * Generate an HTML `<section>` listing related articles, cross-references, and
