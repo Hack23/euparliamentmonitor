@@ -7,7 +7,7 @@
  * cross-reference generation, and HTML output.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { createTempDir, cleanupTempDir } from '../helpers/test-utils.js';
@@ -113,6 +113,24 @@ describe('addArticleToIndex', () => {
 
     expect(updated2.articles).toHaveLength(1);
     expect(updated2.articles[0].keyTopics).toContain('topic-b');
+  });
+
+  it('should clean up stale map associations when replacing an article', () => {
+    const index = createEmptyIndex();
+    const entry = makeEntry({ keyTopics: ['old-topic'], keyActors: ['old-actor'], procedures: ['old-proc'] });
+    const updated1 = addArticleToIndex(index, entry);
+    // Replace the same article id with completely different topics/actors/procedures
+    const entryV2 = makeEntry({ keyTopics: ['new-topic'], keyActors: ['new-actor'], procedures: ['new-proc'] });
+    const updated2 = addArticleToIndex(updated1, entryV2);
+
+    // Old keys should be removed from maps
+    expect(updated2.policyDomains['old-topic']).toBeUndefined();
+    expect(updated2.actors['old-actor']).toBeUndefined();
+    expect(updated2.procedures['old-proc']).toBeUndefined();
+    // New keys should be present
+    expect(updated2.policyDomains['new-topic']).toContain(entry.id);
+    expect(updated2.actors['new-actor']).toContain(entry.id);
+    expect(updated2.procedures['new-proc']).toContain(entry.id);
   });
 
   it('should not duplicate article IDs in maps', () => {
@@ -489,9 +507,10 @@ describe('buildRelatedArticlesHTML', () => {
     expect(html).toContain('confidence: low');
   });
 
-  it('should include the article count in the trend description', () => {
+  it('should include the article count (plus 1 for current article) in the trend description', () => {
     const html = buildRelatedArticlesHTML([articleEntry], [], [trend]);
-    expect(html).toContain('2nd');
+    // trend has 2 article references, +1 for current article = 3rd
+    expect(html).toContain('3rd');
   });
 
   it('should show "Related" links when there are articles but no explicit cross-refs', () => {

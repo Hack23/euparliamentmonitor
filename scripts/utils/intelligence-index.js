@@ -46,33 +46,24 @@ export function createEmptyIndex() {
 export function addArticleToIndex(index, entry) {
     // Replace or append
     const existingIdx = index.articles.findIndex((a) => a.id === entry.id);
+    const oldEntry = existingIdx >= 0 ? index.articles[existingIdx] : undefined;
     const articles = existingIdx >= 0
         ? [...index.articles.slice(0, existingIdx), entry, ...index.articles.slice(existingIdx + 1)]
         : [...index.articles, entry];
-    // Update actor map
+    // Clone lookup maps
     const actors = { ...index.actors };
-    for (const actor of entry.keyActors) {
-        const existing = actors[actor] ?? [];
-        if (!existing.includes(entry.id)) {
-            actors[actor] = [...existing, entry.id];
-        }
-    }
-    // Update policyDomains map
     const policyDomains = { ...index.policyDomains };
-    for (const topic of entry.keyTopics) {
-        const existing = policyDomains[topic] ?? [];
-        if (!existing.includes(entry.id)) {
-            policyDomains[topic] = [...existing, entry.id];
-        }
-    }
-    // Update procedures map
     const procedures = { ...index.procedures };
-    for (const proc of entry.procedures) {
-        const existing = procedures[proc] ?? [];
-        if (!existing.includes(entry.id)) {
-            procedures[proc] = [...existing, entry.id];
-        }
+    // Remove stale associations from the old entry (if replacing)
+    if (oldEntry) {
+        removeIdFromMap(actors, oldEntry.keyActors, entry.id);
+        removeIdFromMap(policyDomains, oldEntry.keyTopics, entry.id);
+        removeIdFromMap(procedures, oldEntry.procedures, entry.id);
     }
+    // Add new associations
+    addIdToMap(actors, entry.keyActors, entry.id);
+    addIdToMap(policyDomains, entry.keyTopics, entry.id);
+    addIdToMap(procedures, entry.procedures, entry.id);
     return {
         ...index,
         articles,
@@ -123,9 +114,14 @@ export function findRelatedArticles(index, topics, actors, maxResults = DEFAULT_
  * Auto-generate {@link ArticleCrossReference} objects for an article based on
  * topic and actor overlap with existing index entries.
  *
- * - ≥3 shared items → `strong`, relationship `related`
- * - 2 shared items → `moderate`, relationship `follows_up`
- * - 1 shared item  → `weak`, relationship `related`
+ * **Strength** is determined by total overlap (topics + actors):
+ * - ≥3 shared items → `strong`
+ * - 2 shared items → `moderate`
+ * - 1 shared item  → `weak`
+ *
+ * **Relationship** is determined by date comparison:
+ * - Target article is older (`date < entry.date`) → `follows_up`
+ * - Target article is the same date or newer → `related`
  *
  * @param index - Intelligence index containing previously indexed articles
  * @param entry - The article for which cross-references should be generated
@@ -367,7 +363,9 @@ export function buildRelatedArticlesHTML(relatedArticles, crossRefs, trends, _la
     }
     const trendBlocks = trends
         .map((trend) => {
-        const count = trend.articleReferences.length;
+        // The current article being generated is not yet counted in trend.articleReferences,
+        // so display count + 1 for an accurate reader-facing message.
+        const count = trend.articleReferences.length + 1;
         return `  <div class="emerging-trends">
     <h4>Emerging Trend: ${escapeText(trend.name)}</h4>
     <p>This is the ${count}${ordinalSuffix(count)} article tracking ${escapeText(trend.name.toLowerCase())} (confidence: ${escapeText(trend.confidence)})</p>
@@ -387,6 +385,41 @@ export function buildRelatedArticlesHTML(relatedArticles, crossRefs, trends, _la
     return parts.join('\n');
 }
 // ─── Private helpers ──────────────────────────────────────────────────────────
+/**
+ * Remove an article ID from every key's list in a lookup map.
+ * Cleans up empty arrays left behind.
+ * @param map - Lookup map (actor/domain/procedure → article IDs)
+ * @param keys - Keys to remove the article ID from
+ * @param articleId - Article ID to remove
+ */
+function removeIdFromMap(map, keys, articleId) {
+    for (const key of keys) {
+        const list = map[key];
+        if (!list)
+            continue;
+        const filtered = list.filter((id) => id !== articleId);
+        if (filtered.length === 0) {
+            delete map[key];
+        }
+        else {
+            map[key] = filtered;
+        }
+    }
+}
+/**
+ * Add an article ID to every key's list in a lookup map (deduplicating).
+ * @param map - Lookup map (actor/domain/procedure → article IDs)
+ * @param keys - Keys under which to register the article ID
+ * @param articleId - Article ID to add
+ */
+function addIdToMap(map, keys, articleId) {
+    for (const key of keys) {
+        const existing = map[key] ?? [];
+        if (!existing.includes(articleId)) {
+            map[key] = [...existing, articleId];
+        }
+    }
+}
 /**
  * Convert a string to a URL-safe slug.
  * @param text - Input string
