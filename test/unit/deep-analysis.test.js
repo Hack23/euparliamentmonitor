@@ -19,6 +19,11 @@ import {
   buildBreakingDashboard,
   buildPropositionsDashboard,
   buildCommitteeDashboard,
+  buildVotingMultiDimensionalSwot,
+  buildProspectiveMultiDimensionalSwot,
+  buildBreakingMultiDimensionalSwot,
+  buildPropositionsMultiDimensionalSwot,
+  buildCommitteeMultiDimensionalSwot,
 } from '../../scripts/generators/analysis-builders.js';
 import {
   PLACEHOLDER_CHAIR,
@@ -1083,5 +1088,191 @@ describe('buildDeepAnalysisSection — multi-stakeholder HTML rendering', () => 
     const html = buildDeepAnalysisSection(xssAnalysis, 'en');
     expect(html).not.toContain('<img onerror');
     expect(html).toContain('&lt;img');
+// ─── Multi-dimensional SWOT builder tests ────────────────────────────────────
+
+describe('Multi-dimensional SWOT builders', () => {
+  describe('buildVotingMultiDimensionalSwot', () => {
+    it('returns all 5 dimensions', () => {
+      const result = buildVotingMultiDimensionalSwot(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      expect(result.dimensions).toHaveLength(5);
+      expect(result.dimensions.map((d) => d.name)).toEqual([
+        'political', 'economic', 'social', 'legal', 'geopolitical',
+      ]);
+    });
+
+    it('includes temporal assessment with shortTerm and mediumTerm', () => {
+      const result = buildVotingMultiDimensionalSwot(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      expect(result.temporal).toBeDefined();
+      expect(result.temporal.shortTerm).toBeDefined();
+      expect(result.temporal.mediumTerm).toBeDefined();
+    });
+
+    it('includes stakeholder views for citizen and mep', () => {
+      const result = buildVotingMultiDimensionalSwot(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      expect(result.stakeholderViews).toBeDefined();
+      expect(result.stakeholderViews.citizen).toBeDefined();
+      expect(result.stakeholderViews.mep).toBeDefined();
+    });
+
+    it('populates political dimension with cohesion data', () => {
+      const result = buildVotingMultiDimensionalSwot(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      const political = result.dimensions.find((d) => d.name === 'political');
+      expect(political.strengths.some((s) => s.text.includes('cohesion above 80%'))).toBe(true);
+    });
+
+    it('handles empty inputs gracefully', () => {
+      const result = buildVotingMultiDimensionalSwot([], [], []);
+      expect(result.dimensions).toHaveLength(5);
+      expect(result.temporal).toBeDefined();
+    });
+  });
+
+  describe('buildProspectiveMultiDimensionalSwot', () => {
+    it('returns all 5 dimensions', () => {
+      const result = buildProspectiveMultiDimensionalSwot(WEEK_AHEAD_DATA, 'week');
+      expect(result.dimensions).toHaveLength(5);
+      expect(result.dimensions.map((d) => d.name)).toEqual([
+        'political', 'economic', 'social', 'legal', 'geopolitical',
+      ]);
+    });
+
+    it('includes temporal assessment', () => {
+      const result = buildProspectiveMultiDimensionalSwot(WEEK_AHEAD_DATA, 'week');
+      expect(result.temporal).toBeDefined();
+      expect(result.temporal.shortTerm.strengths.length).toBeGreaterThan(0);
+    });
+
+    it('includes political dimension with event data', () => {
+      const result = buildProspectiveMultiDimensionalSwot(WEEK_AHEAD_DATA, 'week');
+      const political = result.dimensions.find((d) => d.name === 'political');
+      expect(political.strengths.length).toBeGreaterThan(0);
+    });
+
+    it('includes bottleneck data in weaknesses', () => {
+      const result = buildProspectiveMultiDimensionalSwot(WEEK_AHEAD_DATA, 'week');
+      const political = result.dimensions.find((d) => d.name === 'political');
+      expect(political.weaknesses.some((w) => w.text.includes('bottleneck'))).toBe(true);
+    });
+  });
+
+  describe('buildBreakingMultiDimensionalSwot', () => {
+    it('returns all 5 dimensions with feed data', () => {
+      const feedData = {
+        adoptedTexts: [{ title: 'Tax Reform', date: '2026-01-15' }],
+        events: [{ title: 'Summit', date: '2026-01-15' }],
+        procedures: [{ title: 'DSA II', stage: 'committee' }],
+        mepUpdates: [],
+      };
+      const result = buildBreakingMultiDimensionalSwot(feedData, 'anomaly detected', 'coalition shift');
+      expect(result.dimensions).toHaveLength(5);
+    });
+
+    it('includes stakeholder views for citizen and media', () => {
+      const feedData = {
+        adoptedTexts: [{ title: 'Tax Reform', date: '2026-01-15' }],
+        events: [{ title: 'Summit', date: '2026-01-15' }],
+        procedures: [],
+        mepUpdates: [],
+      };
+      const result = buildBreakingMultiDimensionalSwot(feedData, '', '');
+      expect(result.stakeholderViews).toBeDefined();
+      expect(result.stakeholderViews.citizen).toBeDefined();
+      expect(result.stakeholderViews.media).toBeDefined();
+    });
+
+    it('includes temporal assessment', () => {
+      const feedData = {
+        adoptedTexts: [{ title: 'Tax Reform', date: '2026-01-15' }],
+        events: [],
+        procedures: [],
+        mepUpdates: [],
+      };
+      const result = buildBreakingMultiDimensionalSwot(feedData, '', '');
+      expect(result.temporal).toBeDefined();
+      expect(result.temporal.shortTerm).toBeDefined();
+      expect(result.temporal.mediumTerm).toBeDefined();
+    });
+
+    it('handles undefined feedData', () => {
+      const result = buildBreakingMultiDimensionalSwot(undefined, '', '');
+      expect(result.dimensions).toHaveLength(5);
+    });
+
+    it('includes anomaly data in political weaknesses and threats', () => {
+      const feedData = {
+        adoptedTexts: [],
+        events: [],
+        procedures: [],
+        mepUpdates: [],
+      };
+      const result = buildBreakingMultiDimensionalSwot(feedData, 'detected anomaly', '');
+      const political = result.dimensions.find((d) => d.name === 'political');
+      expect(political.weaknesses.length).toBeGreaterThan(0);
+      expect(political.threats.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('buildPropositionsMultiDimensionalSwot', () => {
+    it('returns all 5 dimensions with healthy pipeline', () => {
+      const result = buildPropositionsMultiDimensionalSwot({ healthScore: 0.8, throughput: 10 });
+      expect(result.dimensions).toHaveLength(5);
+    });
+
+    it('includes stakeholder views for industry and government', () => {
+      const result = buildPropositionsMultiDimensionalSwot({ healthScore: 0.8, throughput: 10 });
+      expect(result.stakeholderViews).toBeDefined();
+      expect(result.stakeholderViews.industry).toBeDefined();
+      expect(result.stakeholderViews.government).toBeDefined();
+    });
+
+    it('includes temporal assessment', () => {
+      const result = buildPropositionsMultiDimensionalSwot({ healthScore: 0.5, throughput: 3 });
+      expect(result.temporal).toBeDefined();
+      expect(result.temporal.shortTerm).toBeDefined();
+    });
+
+    it('reflects weak pipeline in political dimension', () => {
+      const result = buildPropositionsMultiDimensionalSwot({ healthScore: 0.3, throughput: 2 });
+      const political = result.dimensions.find((d) => d.name === 'political');
+      expect(political.weaknesses.length).toBeGreaterThan(0);
+    });
+
+    it('handles null pipeline data', () => {
+      const result = buildPropositionsMultiDimensionalSwot(null);
+      expect(result.dimensions).toHaveLength(5);
+    });
+  });
+
+  describe('buildCommitteeMultiDimensionalSwot', () => {
+    it('returns all 5 dimensions', () => {
+      const result = buildCommitteeMultiDimensionalSwot(COMMITTEE_DATA);
+      expect(result.dimensions).toHaveLength(5);
+      expect(result.dimensions.map((d) => d.name)).toEqual([
+        'political', 'economic', 'social', 'legal', 'geopolitical',
+      ]);
+    });
+
+    it('includes stakeholder views for mep and ngo', () => {
+      const result = buildCommitteeMultiDimensionalSwot(COMMITTEE_DATA);
+      expect(result.stakeholderViews).toBeDefined();
+      expect(result.stakeholderViews.mep).toBeDefined();
+      expect(result.stakeholderViews.ngo).toBeDefined();
+    });
+
+    it('includes temporal assessment', () => {
+      const result = buildCommitteeMultiDimensionalSwot(COMMITTEE_DATA);
+      expect(result.temporal).toBeDefined();
+      expect(result.temporal.shortTerm).toBeDefined();
+    });
+
+    it('includes active committee data in political dimension', () => {
+      const result = buildCommitteeMultiDimensionalSwot(COMMITTEE_DATA);
+      const political = result.dimensions.find((d) => d.name === 'political');
+      expect(political.strengths.length).toBeGreaterThan(0);
+    });
+
+    it('returns null when all committees are placeholder', () => {
+      expect(buildCommitteeMultiDimensionalSwot(makePlaceholderCommittees())).toBeNull();
+    });
   });
 });
