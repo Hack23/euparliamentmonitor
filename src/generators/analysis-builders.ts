@@ -1450,27 +1450,33 @@ function buildVotingMDStakeholders(
 ): Partial<Record<StakeholderType, SwotAnalysis>> {
   return {
     citizen: {
-      strengths: adoptedCount > 0
-        ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' as const }]
-        : [],
-      weaknesses: realAnomalies.length > 0
-        ? [{ text: s.votingAnomalies(realAnomalies.length), severity: 'medium' as const }]
-        : [],
+      strengths:
+        adoptedCount > 0
+          ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' as const }]
+          : [],
+      weaknesses:
+        realAnomalies.length > 0
+          ? [{ text: s.votingAnomalies(realAnomalies.length), severity: 'medium' as const }]
+          : [],
       opportunities: [{ text: s.votingCrossParty, severity: 'medium' as const }],
-      threats: highSeverity.length > 0
-        ? [{ text: s.votingHighSeverity(highSeverity.length), severity: 'high' as const }]
-        : [],
+      threats:
+        highSeverity.length > 0
+          ? [{ text: s.votingHighSeverity(highSeverity.length), severity: 'high' as const }]
+          : [],
     },
     mep: {
-      strengths: highCohesion.length > 0
-        ? [{ text: s.votingHighCohesion(highCohesion.length), severity: 'high' as const }]
-        : [],
-      weaknesses: lowCohesion.length > 0
-        ? [{ text: s.votingLowCohesion(lowCohesion.length), severity: 'high' as const }]
-        : [],
-      opportunities: realPatterns.length > 0
-        ? [{ text: s.votingDiverseGroups(realPatterns.length), severity: 'medium' as const }]
-        : [],
+      strengths:
+        highCohesion.length > 0
+          ? [{ text: s.votingHighCohesion(highCohesion.length), severity: 'high' as const }]
+          : [],
+      weaknesses:
+        lowCohesion.length > 0
+          ? [{ text: s.votingLowCohesion(lowCohesion.length), severity: 'high' as const }]
+          : [],
+      opportunities:
+        realPatterns.length > 0
+          ? [{ text: s.votingDiverseGroups(realPatterns.length), severity: 'medium' as const }]
+          : [],
       threats: [{ text: s.votingShiftingAlliances, severity: 'medium' as const }],
     },
   };
@@ -1497,23 +1503,22 @@ function buildBreakingMDStakeholders(
 ): Partial<Record<StakeholderType, SwotAnalysis>> {
   return {
     citizen: {
-      strengths: adoptedCount > 0
-        ? [{ text: s.breakingAdopted(adoptedCount), severity: 'medium' as const }]
-        : [],
+      strengths:
+        adoptedCount > 0
+          ? [{ text: s.breakingAdopted(adoptedCount), severity: 'medium' as const }]
+          : [],
       weaknesses: anomalyRaw
         ? [{ text: s.breakingAnomalyWeakness, severity: 'high' as const }]
         : [],
-      opportunities: procCount > 0
-        ? [{ text: s.breakingProceduresActive(procCount), severity: 'medium' as const }]
-        : [],
-      threats: anomalyRaw
-        ? [{ text: s.breakingAnomalyThreat, severity: 'high' as const }]
-        : [],
+      opportunities:
+        procCount > 0
+          ? [{ text: s.breakingProceduresActive(procCount), severity: 'medium' as const }]
+          : [],
+      threats: anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' as const }] : [],
     },
     media: {
-      strengths: eventCount > 0
-        ? [{ text: s.breakingEvents(eventCount), severity: 'high' as const }]
-        : [],
+      strengths:
+        eventCount > 0 ? [{ text: s.breakingEvents(eventCount), severity: 'high' as const }] : [],
       weaknesses: [],
       opportunities: coalitionRaw
         ? [{ text: s.breakingCoalitionOpportunity, severity: 'medium' as const }]
@@ -1542,22 +1547,31 @@ function buildCommitteeMDStakeholders(
 ): Partial<Record<StakeholderType, SwotAnalysis>> {
   return {
     mep: {
-      strengths: active.length > 0
-        ? [{ text: s.committeeActive(active.length, committees.length), severity: 'high' as const }]
-        : [],
-      weaknesses: inactiveCount > 0
-        ? [{ text: s.committeeInactive(inactiveCount), severity: 'medium' as const }]
-        : [],
+      strengths:
+        active.length > 0
+          ? [
+              {
+                text: s.committeeActive(active.length, committees.length),
+                severity: 'high' as const,
+              },
+            ]
+          : [],
+      weaknesses:
+        inactiveCount > 0
+          ? [{ text: s.committeeInactive(inactiveCount), severity: 'medium' as const }]
+          : [],
       opportunities: [{ text: s.committeeHearings, severity: 'medium' as const }],
       threats: [{ text: s.committeeCompetingPriorities, severity: 'medium' as const }],
     },
     ngo: {
-      strengths: totalDocs > 0
-        ? [{ text: s.committeeDocuments(totalDocs), severity: 'medium' as const }]
-        : [],
-      weaknesses: inactiveCount > committees.length * 0.3
-        ? [{ text: s.committeeLowActivity, severity: 'high' as const }]
-        : [],
+      strengths:
+        totalDocs > 0
+          ? [{ text: s.committeeDocuments(totalDocs), severity: 'medium' as const }]
+          : [],
+      weaknesses:
+        inactiveCount > committees.length * 0.3
+          ? [{ text: s.committeeLowActivity, severity: 'high' as const }]
+          : [],
       opportunities: [{ text: s.committeeCrossCollaboration, severity: 'medium' as const }],
       threats: [],
     },
@@ -1610,9 +1624,7 @@ export function buildVotingMultiDimensionalSwot(
 
   const economic = makeDimension(
     'economic',
-    adoptedCount > 0
-      ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' as const }]
-      : [],
+    adoptedCount > 0 ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' as const }] : [],
     [],
     realPatterns.length > 0
       ? [{ text: s.votingDiverseGroups(realPatterns.length), severity: 'medium' as const }]
@@ -1634,9 +1646,7 @@ export function buildVotingMultiDimensionalSwot(
 
   const legal = makeDimension(
     'legal',
-    adoptedCount > 0
-      ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' as const }]
-      : [],
+    adoptedCount > 0 ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' as const }] : [],
     [],
     [],
     highSeverity.length > 0
@@ -1710,9 +1720,7 @@ export function buildProspectiveMultiDimensionalSwot(
       ? [{ text: s.prospectiveBottlenecks(bottlenecks), severity: 'high' as const }]
       : [],
     [],
-    bottlenecks > 0
-      ? [{ text: s.prospectiveBottleneckRisk, severity: 'high' as const }]
-      : []
+    bottlenecks > 0 ? [{ text: s.prospectiveBottleneckRisk, severity: 'high' as const }] : []
   );
 
   const economic = makeDimension(
@@ -1748,9 +1756,7 @@ export function buildProspectiveMultiDimensionalSwot(
     weekData.documents.length > 0
       ? [{ text: s.prospectiveDocuments(weekData.documents.length), severity: 'medium' as const }]
       : [],
-    bottlenecks > 0
-      ? [{ text: s.prospectiveBottleneckRisk, severity: 'high' as const }]
-      : []
+    bottlenecks > 0 ? [{ text: s.prospectiveBottleneckRisk, severity: 'high' as const }] : []
   );
 
   const geopolitical = makeDimension(
@@ -1819,9 +1825,7 @@ function buildBreakingMDDimensions(
   const [procWeakness, procOpportunity] = getBreakingProcedureItems(procCount, s);
   const political = makeDimension(
     'political',
-    adoptedCount > 0
-      ? [{ text: s.breakingAdopted(adoptedCount), severity: 'high' as const }]
-      : [],
+    adoptedCount > 0 ? [{ text: s.breakingAdopted(adoptedCount), severity: 'high' as const }] : [],
     anomalyRaw ? [{ text: s.breakingAnomalyWeakness, severity: 'high' as const }] : [],
     coalitionRaw ? [{ text: s.breakingCoalitionOpportunity, severity: 'medium' as const }] : [],
     anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' as const }] : []
@@ -1844,9 +1848,7 @@ function buildBreakingMDDimensions(
   );
   const legal = makeDimension(
     'legal',
-    adoptedCount > 0
-      ? [{ text: s.breakingAdopted(adoptedCount), severity: 'high' as const }]
-      : [],
+    adoptedCount > 0 ? [{ text: s.breakingAdopted(adoptedCount), severity: 'high' as const }] : [],
     procWeakness,
     procOpportunity,
     anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' as const }] : []
@@ -1936,16 +1938,10 @@ export function buildPropositionsMultiDimensionalSwot(
 
   const political = makeDimension(
     'political',
-    healthScore > 0.7
-      ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' as const }]
-      : [],
-    healthScore < 0.5
-      ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' as const }]
-      : [],
+    healthScore > 0.7 ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' as const }] : [],
+    healthScore < 0.5 ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' as const }] : [],
     [{ text: s.propositionsPrioritisation, severity: 'medium' as const }],
-    healthScore < 0.3
-      ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }]
-      : []
+    healthScore < 0.3 ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }] : []
   );
 
   const economic = makeDimension(
@@ -1965,19 +1961,13 @@ export function buildPropositionsMultiDimensionalSwot(
     [],
     [],
     [{ text: s.propositionsPrioritisation, severity: 'medium' as const }],
-    healthScore < 0.3
-      ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }]
-      : []
+    healthScore < 0.3 ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }] : []
   );
 
   const legal = makeDimension(
     'legal',
-    healthScore > 0.7
-      ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' as const }]
-      : [],
-    healthScore < 0.5
-      ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' as const }]
-      : [],
+    healthScore > 0.7 ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' as const }] : [],
+    healthScore < 0.5 ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' as const }] : [],
     [{ text: s.propositionsTrilogueAcceleration, severity: 'medium' as const }],
     [{ text: s.propositionsOverlapping, severity: 'medium' as const }]
   );
@@ -2006,26 +1996,31 @@ export function buildPropositionsMultiDimensionalSwot(
 
   const stakeholderViews: Partial<Record<StakeholderType, SwotAnalysis>> = {
     industry: {
-      strengths: throughput >= 5
-        ? [{ text: s.propositionsThroughputGood(throughput), severity: 'medium' as const }]
-        : [],
-      weaknesses: throughput < 5
-        ? [{ text: s.propositionsThroughputLow(throughput), severity: 'medium' as const }]
-        : [],
+      strengths:
+        throughput >= 5
+          ? [{ text: s.propositionsThroughputGood(throughput), severity: 'medium' as const }]
+          : [],
+      weaknesses:
+        throughput < 5
+          ? [{ text: s.propositionsThroughputLow(throughput), severity: 'medium' as const }]
+          : [],
       opportunities: [{ text: s.propositionsTrilogueAcceleration, severity: 'medium' as const }],
       threats: [{ text: s.propositionsOverlapping, severity: 'medium' as const }],
     },
     government: {
-      strengths: healthScore > 0.7
-        ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' as const }]
-        : [],
-      weaknesses: healthScore < 0.5
-        ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' as const }]
-        : [],
+      strengths:
+        healthScore > 0.7
+          ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' as const }]
+          : [],
+      weaknesses:
+        healthScore < 0.5
+          ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' as const }]
+          : [],
       opportunities: [{ text: s.propositionsPrioritisation, severity: 'medium' as const }],
-      threats: healthScore < 0.3
-        ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }]
-        : [],
+      threats:
+        healthScore < 0.3
+          ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }]
+          : [],
     },
   };
 
@@ -2060,7 +2055,12 @@ export function buildCommitteeMultiDimensionalSwot(
   const political = makeDimension(
     'political',
     active.length > 0
-      ? [{ text: s.committeeActive(active.length, committees.length), severity: highActivity ? 'high' as const : 'medium' as const }]
+      ? [
+          {
+            text: s.committeeActive(active.length, committees.length),
+            severity: highActivity ? ('high' as const) : ('medium' as const),
+          },
+        ]
       : [],
     inactiveCount > committees.length * 0.3
       ? [{ text: s.committeeInactive(inactiveCount), severity: 'high' as const }]
@@ -2073,15 +2073,11 @@ export function buildCommitteeMultiDimensionalSwot(
 
   const economic = makeDimension(
     'economic',
-    totalDocs > 0
-      ? [{ text: s.committeeDocuments(totalDocs), severity: 'medium' as const }]
-      : [],
+    totalDocs > 0 ? [{ text: s.committeeDocuments(totalDocs), severity: 'medium' as const }] : [],
     inactiveCount > 0
       ? [{ text: s.committeeInactive(inactiveCount), severity: 'medium' as const }]
       : [],
-    committees.length > 0
-      ? [{ text: s.committeeHearings, severity: 'medium' as const }]
-      : [],
+    committees.length > 0 ? [{ text: s.committeeHearings, severity: 'medium' as const }] : [],
     [{ text: s.committeeCompetingPriorities, severity: 'medium' as const }]
   );
 
@@ -2097,15 +2093,11 @@ export function buildCommitteeMultiDimensionalSwot(
 
   const legal = makeDimension(
     'legal',
-    totalDocs > 0
-      ? [{ text: s.committeeDocuments(totalDocs), severity: 'high' as const }]
-      : [],
+    totalDocs > 0 ? [{ text: s.committeeDocuments(totalDocs), severity: 'high' as const }] : [],
     inactiveCount > committees.length * 0.3
       ? [{ text: s.committeeInactive(inactiveCount), severity: 'high' as const }]
       : [],
-    committees.length > 0
-      ? [{ text: s.committeeHearings, severity: 'medium' as const }]
-      : [],
+    committees.length > 0 ? [{ text: s.committeeHearings, severity: 'medium' as const }] : [],
     inactiveCount > committees.length * 0.3
       ? [{ text: s.committeeLowActivity, severity: 'high' as const }]
       : []

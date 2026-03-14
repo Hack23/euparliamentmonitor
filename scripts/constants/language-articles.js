@@ -5034,7 +5034,7 @@ export const MULTI_DIMENSIONAL_SWOT_STRINGS = {
     },
     fi: {
         dimensionsLabel: 'Dimensiot',
-        stakeholderPerspectivesLabel: 'Sidosryhmänäkökulmat',
+        stakeholderPerspectivesLabel: 'Sidosryhmien näkökulmat',
         temporalAnalysisLabel: 'Aikaanalyysi',
         shortTermLabel: 'Lyhytaikainen (tämä viikko)',
         mediumTermLabel: 'Keskipitkä aikaväli (tämä vuosineljännes)',

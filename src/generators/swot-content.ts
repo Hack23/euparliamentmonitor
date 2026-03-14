@@ -387,9 +387,10 @@ function buildCrossReferencesSection(
 
   const refsHtml = crossReferences
     .map((ref) => {
-      const urlPart = ref.url && isSafeURL(ref.url)
-        ? `<a href="${escapeHTML(ref.url)}" class="swot-ref-link" rel="noopener noreferrer">${escapeHTML(ref.documentId)}</a>`
-        : `<span class="swot-ref-id">${escapeHTML(ref.documentId)}</span>`;
+      const urlPart =
+        ref.url && isSafeURL(ref.url)
+          ? `<a href="${escapeHTML(ref.url)}" class="swot-ref-link" rel="noopener noreferrer">${escapeHTML(ref.documentId)}</a>`
+          : `<span class="swot-ref-id">${escapeHTML(ref.documentId)}</span>`;
       return `<li class="swot-ref-item">
                 <span class="swot-ref-evidence">${escapeHTML(mdStrings.evidenceLabel)}: ${escapeHTML(ref.itemText)}</span>
                 — ${urlPart}: <cite class="swot-ref-title">${escapeHTML(ref.documentTitle)}</cite>
@@ -464,7 +465,11 @@ export function buildMultiDimensionalSwotSection(
 
   const primaryMatrix = buildSwotMiniGrid(aggregated, swotStrings);
   const dimensionsHtml = buildDimensionsDrillDown(analysis.dimensions, swotStrings, mdStrings);
-  const stakeholderHtml = buildStakeholderSection(analysis.stakeholderViews, swotStrings, mdStrings);
+  const stakeholderHtml = buildStakeholderSection(
+    analysis.stakeholderViews,
+    swotStrings,
+    mdStrings
+  );
   const temporalHtml = buildTemporalSection(analysis.temporal, swotStrings, mdStrings);
   const refsHtml = buildCrossReferencesSection(analysis.crossReferences, mdStrings);
 

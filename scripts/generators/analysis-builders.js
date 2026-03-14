@@ -1273,14 +1273,10 @@ function buildBreakingMDStakeholders(adoptedCount, anomalyRaw, procCount, eventC
             opportunities: procCount > 0
                 ? [{ text: s.breakingProceduresActive(procCount), severity: 'medium' }]
                 : [],
-            threats: anomalyRaw
-                ? [{ text: s.breakingAnomalyThreat, severity: 'high' }]
-                : [],
+            threats: anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' }] : [],
         },
         media: {
-            strengths: eventCount > 0
-                ? [{ text: s.breakingEvents(eventCount), severity: 'high' }]
-                : [],
+            strengths: eventCount > 0 ? [{ text: s.breakingEvents(eventCount), severity: 'high' }] : [],
             weaknesses: [],
             opportunities: coalitionRaw
                 ? [{ text: s.breakingCoalitionOpportunity, severity: 'medium' }]
@@ -1303,7 +1299,12 @@ function buildCommitteeMDStakeholders(active, committees, totalDocs, inactiveCou
     return {
         mep: {
             strengths: active.length > 0
-                ? [{ text: s.committeeActive(active.length, committees.length), severity: 'high' }]
+                ? [
+                    {
+                        text: s.committeeActive(active.length, committees.length),
+                        severity: 'high',
+                    },
+                ]
                 : [],
             weaknesses: inactiveCount > 0
                 ? [{ text: s.committeeInactive(inactiveCount), severity: 'medium' }]
@@ -1353,9 +1354,7 @@ export function buildVotingMultiDimensionalSwot(records, patterns, anomalies, la
         : [], [{ text: s.votingCrossParty, severity: 'medium' }], highSeverity.length > 0
         ? [{ text: s.votingHighSeverity(highSeverity.length), severity: 'high' }]
         : []);
-    const economic = makeDimension('economic', adoptedCount > 0
-        ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' }]
-        : [], [], realPatterns.length > 0
+    const economic = makeDimension('economic', adoptedCount > 0 ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' }] : [], [], realPatterns.length > 0
         ? [{ text: s.votingDiverseGroups(realPatterns.length), severity: 'medium' }]
         : [], [{ text: s.votingShiftingAlliances, severity: 'medium' }]);
     const social = makeDimension('social', realRecords.length > 0
@@ -1363,9 +1362,7 @@ export function buildVotingMultiDimensionalSwot(records, patterns, anomalies, la
         : [], realAnomalies.length > 0
         ? [{ text: s.votingAnomalies(realAnomalies.length), severity: 'medium' }]
         : [], [], []);
-    const legal = makeDimension('legal', adoptedCount > 0
-        ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' }]
-        : [], [], [], highSeverity.length > 0
+    const legal = makeDimension('legal', adoptedCount > 0 ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' }] : [], [], [], highSeverity.length > 0
         ? [{ text: s.votingHighSeverity(highSeverity.length), severity: 'high' }]
         : []);
     const geopolitical = makeDimension('geopolitical', [], lowCohesion.length > 0
@@ -1406,9 +1403,7 @@ export function buildProspectiveMultiDimensionalSwot(weekData, _label, lang = 'e
         ? [{ text: s.prospectiveEvents(weekData.events.length), severity: 'high' }]
         : [], bottlenecks > 0
         ? [{ text: s.prospectiveBottlenecks(bottlenecks), severity: 'high' }]
-        : [], [], bottlenecks > 0
-        ? [{ text: s.prospectiveBottleneckRisk, severity: 'high' }]
-        : []);
+        : [], [], bottlenecks > 0 ? [{ text: s.prospectiveBottleneckRisk, severity: 'high' }] : []);
     const economic = makeDimension('economic', [], weekData.events.length > 5
         ? [{ text: s.prospectiveHighDensity(weekData.events.length), severity: 'medium' }]
         : [], weekData.documents.length > 0
@@ -1423,9 +1418,7 @@ export function buildProspectiveMultiDimensionalSwot(weekData, _label, lang = 'e
         ? [{ text: s.prospectiveBottlenecks(bottlenecks), severity: 'high' }]
         : [], weekData.documents.length > 0
         ? [{ text: s.prospectiveDocuments(weekData.documents.length), severity: 'medium' }]
-        : [], bottlenecks > 0
-        ? [{ text: s.prospectiveBottleneckRisk, severity: 'high' }]
-        : []);
+        : [], bottlenecks > 0 ? [{ text: s.prospectiveBottleneckRisk, severity: 'high' }] : []);
     const geopolitical = makeDimension('geopolitical', weekData.events.length > 0
         ? [{ text: s.prospectiveEvents(weekData.events.length), severity: 'medium' }]
         : [], [], [], [{ text: s.prospectiveSchedulingRisk, severity: 'medium' }]);
@@ -1470,16 +1463,12 @@ function getBreakingProcedureItems(procCount, s) {
  */
 function buildBreakingMDDimensions(adoptedCount, anomalyRaw, coalitionRaw, procCount, eventCount, s) {
     const [procWeakness, procOpportunity] = getBreakingProcedureItems(procCount, s);
-    const political = makeDimension('political', adoptedCount > 0
-        ? [{ text: s.breakingAdopted(adoptedCount), severity: 'high' }]
-        : [], anomalyRaw ? [{ text: s.breakingAnomalyWeakness, severity: 'high' }] : [], coalitionRaw ? [{ text: s.breakingCoalitionOpportunity, severity: 'medium' }] : [], anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' }] : []);
+    const political = makeDimension('political', adoptedCount > 0 ? [{ text: s.breakingAdopted(adoptedCount), severity: 'high' }] : [], anomalyRaw ? [{ text: s.breakingAnomalyWeakness, severity: 'high' }] : [], coalitionRaw ? [{ text: s.breakingCoalitionOpportunity, severity: 'medium' }] : [], anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' }] : []);
     const economic = makeDimension('economic', adoptedCount > 0
         ? [{ text: s.breakingAdopted(adoptedCount), severity: 'medium' }]
         : [], procWeakness, procOpportunity, [{ text: s.breakingRapidEvents, severity: 'medium' }]);
     const social = makeDimension('social', eventCount > 0 ? [{ text: s.breakingEvents(eventCount), severity: 'medium' }] : [], [], procOpportunity, [{ text: s.breakingRapidEvents, severity: 'medium' }]);
-    const legal = makeDimension('legal', adoptedCount > 0
-        ? [{ text: s.breakingAdopted(adoptedCount), severity: 'high' }]
-        : [], procWeakness, procOpportunity, anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' }] : []);
+    const legal = makeDimension('legal', adoptedCount > 0 ? [{ text: s.breakingAdopted(adoptedCount), severity: 'high' }] : [], procWeakness, procOpportunity, anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' }] : []);
     const geopolitical = makeDimension('geopolitical', eventCount > 0 ? [{ text: s.breakingEvents(eventCount), severity: 'medium' }] : [], [], coalitionRaw ? [{ text: s.breakingCoalitionOpportunity, severity: 'medium' }] : [], anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'medium' }] : []);
     return [political, economic, social, legal, geopolitical];
 }
@@ -1528,26 +1517,14 @@ export function buildPropositionsMultiDimensionalSwot(pipelineData, lang = 'en')
     const healthScore = pipelineData?.healthScore ?? 0;
     const throughput = pipelineData?.throughput ?? 0;
     const pct = (healthScore * 100).toFixed(0);
-    const political = makeDimension('political', healthScore > 0.7
-        ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' }]
-        : [], healthScore < 0.5
-        ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' }]
-        : [], [{ text: s.propositionsPrioritisation, severity: 'medium' }], healthScore < 0.3
-        ? [{ text: s.propositionsCriticalCongestion, severity: 'high' }]
-        : []);
+    const political = makeDimension('political', healthScore > 0.7 ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' }] : [], healthScore < 0.5 ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' }] : [], [{ text: s.propositionsPrioritisation, severity: 'medium' }], healthScore < 0.3 ? [{ text: s.propositionsCriticalCongestion, severity: 'high' }] : []);
     const economic = makeDimension('economic', throughput >= 5
         ? [{ text: s.propositionsThroughputGood(throughput), severity: 'medium' }]
         : [], throughput < 5
         ? [{ text: s.propositionsThroughputLow(throughput), severity: 'medium' }]
         : [], [{ text: s.propositionsTrilogueAcceleration, severity: 'medium' }], [{ text: s.propositionsOverlapping, severity: 'medium' }]);
-    const social = makeDimension('social', [], [], [{ text: s.propositionsPrioritisation, severity: 'medium' }], healthScore < 0.3
-        ? [{ text: s.propositionsCriticalCongestion, severity: 'high' }]
-        : []);
-    const legal = makeDimension('legal', healthScore > 0.7
-        ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' }]
-        : [], healthScore < 0.5
-        ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' }]
-        : [], [{ text: s.propositionsTrilogueAcceleration, severity: 'medium' }], [{ text: s.propositionsOverlapping, severity: 'medium' }]);
+    const social = makeDimension('social', [], [], [{ text: s.propositionsPrioritisation, severity: 'medium' }], healthScore < 0.3 ? [{ text: s.propositionsCriticalCongestion, severity: 'high' }] : []);
+    const legal = makeDimension('legal', healthScore > 0.7 ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' }] : [], healthScore < 0.5 ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' }] : [], [{ text: s.propositionsTrilogueAcceleration, severity: 'medium' }], [{ text: s.propositionsOverlapping, severity: 'medium' }]);
     const geopolitical = makeDimension('geopolitical', throughput >= 5
         ? [{ text: s.propositionsThroughputGood(throughput), severity: 'medium' }]
         : [], [], [], healthScore < 0.3
@@ -1611,29 +1588,26 @@ export function buildCommitteeMultiDimensionalSwot(committees, lang = 'en') {
     const inactiveCount = committees.length - active.length;
     const highActivity = active.length >= committees.length * 0.7;
     const political = makeDimension('political', active.length > 0
-        ? [{ text: s.committeeActive(active.length, committees.length), severity: highActivity ? 'high' : 'medium' }]
+        ? [
+            {
+                text: s.committeeActive(active.length, committees.length),
+                severity: highActivity ? 'high' : 'medium',
+            },
+        ]
         : [], inactiveCount > committees.length * 0.3
         ? [{ text: s.committeeInactive(inactiveCount), severity: 'high' }]
         : [], [{ text: s.committeeCrossCollaboration, severity: 'medium' }], inactiveCount > committees.length * 0.3
         ? [{ text: s.committeeLowActivity, severity: 'high' }]
         : [{ text: s.committeeCompetingPriorities, severity: 'medium' }]);
-    const economic = makeDimension('economic', totalDocs > 0
-        ? [{ text: s.committeeDocuments(totalDocs), severity: 'medium' }]
-        : [], inactiveCount > 0
+    const economic = makeDimension('economic', totalDocs > 0 ? [{ text: s.committeeDocuments(totalDocs), severity: 'medium' }] : [], inactiveCount > 0
         ? [{ text: s.committeeInactive(inactiveCount), severity: 'medium' }]
-        : [], committees.length > 0
-        ? [{ text: s.committeeHearings, severity: 'medium' }]
-        : [], [{ text: s.committeeCompetingPriorities, severity: 'medium' }]);
+        : [], committees.length > 0 ? [{ text: s.committeeHearings, severity: 'medium' }] : [], [{ text: s.committeeCompetingPriorities, severity: 'medium' }]);
     const social = makeDimension('social', active.length > 0
         ? [{ text: s.committeeActive(active.length, committees.length), severity: 'medium' }]
         : [], [], [{ text: s.committeeCrossCollaboration, severity: 'medium' }], []);
-    const legal = makeDimension('legal', totalDocs > 0
-        ? [{ text: s.committeeDocuments(totalDocs), severity: 'high' }]
-        : [], inactiveCount > committees.length * 0.3
+    const legal = makeDimension('legal', totalDocs > 0 ? [{ text: s.committeeDocuments(totalDocs), severity: 'high' }] : [], inactiveCount > committees.length * 0.3
         ? [{ text: s.committeeInactive(inactiveCount), severity: 'high' }]
-        : [], committees.length > 0
-        ? [{ text: s.committeeHearings, severity: 'medium' }]
-        : [], inactiveCount > committees.length * 0.3
+        : [], committees.length > 0 ? [{ text: s.committeeHearings, severity: 'medium' }] : [], inactiveCount > committees.length * 0.3
         ? [{ text: s.committeeLowActivity, severity: 'high' }]
         : []);
     const geopolitical = makeDimension('geopolitical', [], [], [{ text: s.committeeCrossCollaboration, severity: 'medium' }], [{ text: s.committeeCompetingPriorities, severity: 'medium' }]);
