@@ -7,6 +7,7 @@
  * safely handle malformed or missing MCP data. No side effects.
  */
 import { escapeHTML } from './file-utils.js';
+import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
 // ─── Validation constants ─────────────────────────────────────────────────────
 /** Valid significance levels in descending priority order */
 const SIGNIFICANCE_LEVELS = ['critical', 'high', 'medium', 'low'];
@@ -239,15 +240,6 @@ export function buildIntelligenceSection(title, items, className) {
       </section>`;
 }
 // ─── Stakeholder scoring functions ───────────────────────────────────────────
-/** All six stakeholder types in a stable iteration order */
-const ALL_STAKEHOLDER_TYPES = [
-    'political_groups',
-    'civil_society',
-    'industry',
-    'national_govts',
-    'citizens',
-    'eu_institutions',
-];
 /**
  * Derive a severity level from a numeric 0-1 importance score.
  *

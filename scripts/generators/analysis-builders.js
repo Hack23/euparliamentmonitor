@@ -572,6 +572,27 @@ function buildPropositionsImpact(healthScore, throughput) {
     };
 }
 /**
+ * Build the primary stakeholder outcome for propositions analysis.
+ *
+ * @param healthScore - Pipeline health score (0-1)
+ * @param pct - Pipeline health percentage as string
+ * @returns Single stakeholder outcome
+ */
+function buildPropositionsStakeholderOutcome(healthScore, pct) {
+    if (healthScore > 0.7) {
+        return {
+            actor: 'Parliament presidency',
+            outcome: 'winner',
+            reason: `High pipeline health (${pct}%) demonstrates effective legislative management`,
+        };
+    }
+    return {
+        actor: 'Pending legislation sponsors',
+        outcome: 'loser',
+        reason: `Low pipeline health (${pct}%) means delays and potential session carry-overs`,
+    };
+}
+/**
  * Build deep analysis for propositions articles.
  *
  * @param proposalsHtml - Proposals HTML (used to detect content presence)
@@ -586,17 +607,6 @@ export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lan
     const healthScore = pipelineData?.healthScore ?? 0;
     const throughput = pipelineData?.throughput ?? 0;
     const pct = (healthScore * 100).toFixed(0);
-    const stakeholderOutcome = healthScore > 0.7
-        ? {
-            actor: 'Parliament presidency',
-            outcome: 'winner',
-            reason: `High pipeline health (${pct}%) demonstrates effective legislative management`,
-        }
-        : {
-            actor: 'Pending legislation sponsors',
-            outcome: 'loser',
-            reason: `Low pipeline health (${pct}%) means delays and potential session carry-overs`,
-        };
     return {
         what: `Legislative pipeline assessment as of ${date}: Health score ${pct}%, throughput rate ${throughput}. ${hasProposals ? 'Active proposals under consideration.' : 'No new proposals detected in this period.'}`,
         who: [
@@ -607,7 +617,7 @@ export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lan
         ],
         when: [`Assessment date: ${date}`, 'Pipeline health reflects cumulative legislative progress'],
         why: buildPropositionsWhy(healthScore, throughput),
-        stakeholderOutcomes: [stakeholderOutcome],
+        stakeholderOutcomes: [buildPropositionsStakeholderOutcome(healthScore, pct)],
         impactAssessment: buildPropositionsImpact(healthScore, throughput),
         actionConsequences: buildPropositionsConsequences(pct, healthScore, throughput),
         mistakes: healthScore < 0.5

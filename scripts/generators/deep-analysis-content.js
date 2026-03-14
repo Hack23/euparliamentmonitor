@@ -19,6 +19,7 @@
  */
 import { escapeHTML } from '../utils/file-utils.js';
 import { getLocalizedString, DEEP_ANALYSIS_STRINGS } from '../constants/languages.js';
+import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
 // ─── Sub-section builders ────────────────────────────────────────────────────
 /**
  * Build the "What" sub-section
@@ -379,20 +380,12 @@ function buildStakeholderOutcomeMatrixSection(matrix, heading, contentLang) {
     if (!matrix || matrix.length === 0)
         return '';
     const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
-    const stakeholderCols = [
-        'political_groups',
-        'civil_society',
-        'industry',
-        'national_govts',
-        'citizens',
-        'eu_institutions',
-    ];
-    const headerCells = stakeholderCols
+    const headerCells = ALL_STAKEHOLDER_TYPES
         .map((s) => `<th scope="col">${escapeHTML(s.replace(/_/g, ' '))}</th>`)
         .join('');
     const rows = matrix
         .map((row) => {
-        const cells = stakeholderCols
+        const cells = ALL_STAKEHOLDER_TYPES
             .map((s) => {
             // eslint-disable-next-line security/detect-object-injection -- key from const array
             const outcome = row.outcomes[s];
