@@ -30,8 +30,10 @@ function countMatches(content: string, pattern: RegExp): number {
  * @returns {@link ArticleQualityScore} with word count, section counts, and overall rating.
  */
 export function computeArticleQualityScore(content: string): ArticleQualityScore {
+  // Remove script blocks before tag-stripping to avoid inflating word count
+  const noScripts = content.replace(/<script[^>]*>[\s\S]*?<\/script>/giu, ' ');
   // Strip HTML tags to get plain text, then count words
-  const plainText = content
+  const plainText = noScripts
     .replace(/<[^>]*>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
@@ -87,7 +89,8 @@ export function buildTableOfContents(entries: TOCEntry[], lang: LanguageCode): s
   const items = entries
     .map((entry) => {
       const safeLabel = escapeHTML(entry.label);
-      const safeId = escapeHTML(entry.id);
+      // Strip leading # to prevent href="##foo"
+      const safeId = escapeHTML(entry.id.replace(/^#/, ''));
       const classAttr = entry.level === 2 ? ' class="toc-sub"' : '';
       return `<li${classAttr}><a href="#${safeId}">${safeLabel}</a></li>`;
     })

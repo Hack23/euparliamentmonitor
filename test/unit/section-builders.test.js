@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
+// @ts-check
+
 import { describe, it, expect } from 'vitest';
 import {
   computeArticleQualityScore,
@@ -54,6 +56,13 @@ describe('section-builders', () => {
       const score = computeArticleQualityScore(words + sections);
       expect(score.overallScore).toBe('good');
     });
+
+    it('should exclude script content from word count', () => {
+      const content =
+        '<p>Hello world</p><script type="application/json">{"lots":"of","fake":"words","that":"inflate","the":"count"}</script>';
+      const score = computeArticleQualityScore(content);
+      expect(score.wordCount).toBe(2);
+    });
   });
 
   describe('buildTableOfContents', () => {
@@ -85,6 +94,13 @@ describe('section-builders', () => {
       const html = buildTableOfContents(entries, 'en');
       expect(html).not.toContain('<script>');
       expect(html).toContain('&lt;script&gt;');
+    });
+
+    it('should strip leading # from entry ids', () => {
+      const entries = [{ id: '#section', label: 'Section', level: /** @type {1} */ (1) }];
+      const html = buildTableOfContents(entries, 'en');
+      expect(html).toContain('href="#section"');
+      expect(html).not.toContain('href="##section"');
     });
   });
 
