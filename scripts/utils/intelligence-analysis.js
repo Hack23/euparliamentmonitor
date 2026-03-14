@@ -275,7 +275,7 @@ export function buildDefaultStakeholderPerspectives(topic, scores) {
                     ? 'negative'
                     : 'neutral',
             severity,
-            reasoning: `Impact of "${topic}" on ${stakeholder.replace(/_/g, ' ')}: ${severity} significance.`,
+            reasoning: `Impact on this stakeholder group: ${severity} significance based on "${topic}".`,
             evidence: [topic],
         };
     });
@@ -324,19 +324,11 @@ export function scoreStakeholderInfluence(rawData) {
  * @returns A StakeholderOutcomeMatrix row
  */
 export function buildStakeholderOutcomeMatrix(action, scores = {}, confidence = 'medium') {
-    const entries = ALL_STAKEHOLDER_TYPES.map((stakeholder) => {
+    const outcomes = Object.fromEntries(ALL_STAKEHOLDER_TYPES.map((stakeholder) => {
         const score = scores[stakeholder] ?? 0.5;
         const outcome = score > 0.6 ? 'winner' : score < 0.4 ? 'loser' : 'neutral';
         return [stakeholder, outcome];
-    });
-    const outcomes = {
-        political_groups: entries.find(([k]) => k === 'political_groups')?.[1] ?? 'neutral',
-        civil_society: entries.find(([k]) => k === 'civil_society')?.[1] ?? 'neutral',
-        industry: entries.find(([k]) => k === 'industry')?.[1] ?? 'neutral',
-        national_govts: entries.find(([k]) => k === 'national_govts')?.[1] ?? 'neutral',
-        citizens: entries.find(([k]) => k === 'citizens')?.[1] ?? 'neutral',
-        eu_institutions: entries.find(([k]) => k === 'eu_institutions')?.[1] ?? 'neutral',
-    };
+    }));
     return { action, outcomes, confidence };
 }
 /**
@@ -365,7 +357,11 @@ export function rankStakeholdersByInfluence(perspectives) {
         const sw = severityWeight[b.severity] - severityWeight[a.severity];
         if (sw !== 0)
             return sw;
-        return impactWeight[b.impact] - impactWeight[a.impact];
+        const iw = impactWeight[b.impact] - impactWeight[a.impact];
+        if (iw !== 0)
+            return iw;
+        // Deterministic tie-breaker: canonical ALL_STAKEHOLDER_TYPES order
+        return (ALL_STAKEHOLDER_TYPES.indexOf(a.stakeholder) - ALL_STAKEHOLDER_TYPES.indexOf(b.stakeholder));
     })
         .map((p) => p.stakeholder);
 }

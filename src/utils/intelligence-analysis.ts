@@ -16,7 +16,7 @@ import type {
   LegislativeVelocity,
   StakeholderPerspective,
   StakeholderOutcomeMatrix,
-  StakeholderType,
+  AnalysisStakeholderType,
 } from '../types/index.js';
 import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
 
@@ -302,7 +302,7 @@ function severityFromScore(score: number): StakeholderPerspective['severity'] {
  */
 export function buildDefaultStakeholderPerspectives(
   topic: string,
-  scores?: Partial<Record<StakeholderType, number>>
+  scores?: Partial<Record<AnalysisStakeholderType, number>>
 ): StakeholderPerspective[] {
   return ALL_STAKEHOLDER_TYPES.map((stakeholder) => {
     const score = scores?.[stakeholder] ?? 0.5;
@@ -316,7 +316,7 @@ export function buildDefaultStakeholderPerspectives(
             ? ('negative' as const)
             : ('neutral' as const),
       severity,
-      reasoning: `Impact of "${topic}" on ${stakeholder.replace(/_/g, ' ')}: ${severity} significance.`,
+      reasoning: `Impact on this stakeholder group: ${severity} significance based on "${topic}".`,
       evidence: [topic],
     };
   });
@@ -334,7 +334,7 @@ export function scoreStakeholderInfluence(rawData: unknown): StakeholderPerspect
   if (!d) return null;
   const stakeholderRaw = asStr(d['stakeholder']);
   if (!(ALL_STAKEHOLDER_TYPES as readonly string[]).includes(stakeholderRaw)) return null;
-  const stakeholder = stakeholderRaw as StakeholderType;
+  const stakeholder = stakeholderRaw as AnalysisStakeholderType;
   const impactRaw = asStr(d['impact']).toLowerCase();
   const validImpacts = ['positive', 'negative', 'neutral', 'mixed'] as const;
   const impact = (validImpacts as readonly string[]).includes(impactRaw)
@@ -366,25 +366,17 @@ export function scoreStakeholderInfluence(rawData: unknown): StakeholderPerspect
  */
 export function buildStakeholderOutcomeMatrix(
   action: string,
-  scores: Partial<Record<StakeholderType, number>> = {},
+  scores: Partial<Record<AnalysisStakeholderType, number>> = {},
   confidence: StakeholderOutcomeMatrix['confidence'] = 'medium'
 ): StakeholderOutcomeMatrix {
-  const entries = ALL_STAKEHOLDER_TYPES.map(
-    (stakeholder): [StakeholderType, 'winner' | 'loser' | 'neutral'] => {
+  const outcomes = Object.fromEntries(
+    ALL_STAKEHOLDER_TYPES.map((stakeholder) => {
       const score = scores[stakeholder] ?? 0.5;
       const outcome: 'winner' | 'loser' | 'neutral' =
         score > 0.6 ? 'winner' : score < 0.4 ? 'loser' : 'neutral';
       return [stakeholder, outcome];
-    }
-  );
-  const outcomes: Record<StakeholderType, 'winner' | 'loser' | 'neutral'> = {
-    political_groups: entries.find(([k]) => k === 'political_groups')?.[1] ?? 'neutral',
-    civil_society: entries.find(([k]) => k === 'civil_society')?.[1] ?? 'neutral',
-    industry: entries.find(([k]) => k === 'industry')?.[1] ?? 'neutral',
-    national_govts: entries.find(([k]) => k === 'national_govts')?.[1] ?? 'neutral',
-    citizens: entries.find(([k]) => k === 'citizens')?.[1] ?? 'neutral',
-    eu_institutions: entries.find(([k]) => k === 'eu_institutions')?.[1] ?? 'neutral',
-  };
+    })
+  ) as Record<AnalysisStakeholderType, 'winner' | 'loser' | 'neutral'>;
   return { action, outcomes, confidence };
 }
 
@@ -399,7 +391,7 @@ export function buildStakeholderOutcomeMatrix(
  */
 export function rankStakeholdersByInfluence(
   perspectives: readonly StakeholderPerspective[]
-): StakeholderType[] {
+): AnalysisStakeholderType[] {
   const severityWeight: Record<StakeholderPerspective['severity'], number> = {
     high: 3,
     medium: 2,
@@ -415,7 +407,12 @@ export function rankStakeholdersByInfluence(
     .sort((a, b) => {
       const sw = severityWeight[b.severity] - severityWeight[a.severity];
       if (sw !== 0) return sw;
-      return impactWeight[b.impact] - impactWeight[a.impact];
+      const iw = impactWeight[b.impact] - impactWeight[a.impact];
+      if (iw !== 0) return iw;
+      // Deterministic tie-breaker: canonical ALL_STAKEHOLDER_TYPES order
+      return (
+        ALL_STAKEHOLDER_TYPES.indexOf(a.stakeholder) - ALL_STAKEHOLDER_TYPES.indexOf(b.stakeholder)
+      );
     })
     .map((p) => p.stakeholder);
 }

@@ -36,6 +36,7 @@ import type {
   SwotItem,
   TemporalSwotAssessment,
   StakeholderType,
+  AnalysisStakeholderType,
 } from '../types/index.js';
 import type { PipelineData } from './propositions-content.js';
 import {
@@ -271,7 +272,7 @@ function buildCommitteeStakeholderPerspectives(
 function buildOutcomeMatrix(
   actions: Array<{
     action: string;
-    scores: Partial<Record<StakeholderType, number>>;
+    scores: Partial<Record<AnalysisStakeholderType, number>>;
     confidence: 'high' | 'medium' | 'low';
   }>
 ): StakeholderOutcomeMatrix[] {

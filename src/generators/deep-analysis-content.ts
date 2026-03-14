@@ -29,7 +29,7 @@ import type {
   PoliticalMistake,
   StakeholderPerspective,
   StakeholderOutcomeMatrix,
-  StakeholderType,
+  AnalysisStakeholderType,
 } from '../types/index.js';
 import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
 
@@ -409,10 +409,10 @@ function perspectiveImpactClass(impact: StakeholderPerspective['impact']): strin
  * @returns Localized stakeholder label
  */
 function localizedStakeholderLabel(
-  stakeholder: StakeholderType,
+  stakeholder: AnalysisStakeholderType,
   strings: DeepAnalysisStrings
 ): string {
-  const map: Record<StakeholderType, string> = {
+  const map: Record<AnalysisStakeholderType, string> = {
     political_groups: strings.politicalGroupsLabel,
     civil_society: strings.civilSocietyLabel,
     industry: strings.industryLabel,
@@ -545,18 +545,9 @@ function buildStakeholderOutcomeMatrixSection(
   if (!matrix || matrix.length === 0) return '';
   const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
 
-  const stakeholderLabels: readonly string[] = [
-    strings.politicalGroupsLabel,
-    strings.civilSocietyLabel,
-    strings.industryLabel,
-    strings.nationalGovtsLabel,
-    strings.citizensLabel,
-    strings.euInstitutionsLabel,
-  ];
-
-  const headerCells = stakeholderLabels
-    .map((label) => `<th scope="col">${escapeHTML(label)}</th>`)
-    .join('');
+  const headerCells = ALL_STAKEHOLDER_TYPES.map(
+    (s) => `<th scope="col">${escapeHTML(localizedStakeholderLabel(s, strings))}</th>`
+  ).join('');
 
   const rows = matrix
     .map((row) => {

@@ -444,17 +444,7 @@ function buildStakeholderOutcomeMatrixSection(matrix, heading, strings, contentL
     if (!matrix || matrix.length === 0)
         return '';
     const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
-    const stakeholderLabels = [
-        strings.politicalGroupsLabel,
-        strings.civilSocietyLabel,
-        strings.industryLabel,
-        strings.nationalGovtsLabel,
-        strings.citizensLabel,
-        strings.euInstitutionsLabel,
-    ];
-    const headerCells = stakeholderLabels
-        .map((label) => `<th scope="col">${escapeHTML(label)}</th>`)
-        .join('');
+    const headerCells = ALL_STAKEHOLDER_TYPES.map((s) => `<th scope="col">${escapeHTML(localizedStakeholderLabel(s, strings))}</th>`).join('');
     const rows = matrix
         .map((row) => {
         const cells = ALL_STAKEHOLDER_TYPES.map((s) => {

@@ -17,7 +17,7 @@
  * - **citizens**: EU citizens in general; voters and rights-holders
  * - **eu_institutions**: Commission, Council, Court of Justice, ECB etc.
  */
-export type StakeholderType =
+export type AnalysisStakeholderType =
   | 'political_groups'
   | 'civil_society'
   | 'industry'
@@ -30,7 +30,7 @@ export type StakeholderType =
  * Use this constant in any code that needs to iterate over all groups
  * to avoid duplicating the list in multiple files.
  */
-export const ALL_STAKEHOLDER_TYPES: readonly StakeholderType[] = [
+export const ALL_STAKEHOLDER_TYPES: readonly AnalysisStakeholderType[] = [
   'political_groups',
   'civil_society',
   'industry',
@@ -60,7 +60,7 @@ export type StakeholderSeverity = 'high' | 'medium' | 'low';
  */
 export interface StakeholderPerspective {
   /** Which stakeholder group this perspective describes */
-  readonly stakeholder: StakeholderType;
+  readonly stakeholder: AnalysisStakeholderType;
   /** Direction of the impact on this stakeholder */
   readonly impact: StakeholderImpact;
   /** Magnitude of the impact */
@@ -109,7 +109,7 @@ export interface StakeholderOutcomeMatrix {
   /** The parliamentary action being assessed */
   readonly action: string;
   /** How each stakeholder group fares as a result of the action */
-  readonly outcomes: Readonly<Record<StakeholderType, 'winner' | 'loser' | 'neutral'>>;
+  readonly outcomes: Readonly<Record<AnalysisStakeholderType, 'winner' | 'loser' | 'neutral'>>;
   /** Confidence in the outcome assessments */
   readonly confidence: 'high' | 'medium' | 'low';
 }

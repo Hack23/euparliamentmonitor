@@ -186,7 +186,7 @@ export type {
 } from './visualization.js';
 
 export type {
-  StakeholderType,
+  AnalysisStakeholderType,
   StakeholderImpact,
   StakeholderSeverity,
   StakeholderPerspective,

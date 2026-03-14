@@ -1088,6 +1088,9 @@ describe('buildDeepAnalysisSection — multi-stakeholder HTML rendering', () => 
     const html = buildDeepAnalysisSection(xssAnalysis, 'en');
     expect(html).not.toContain('<img onerror');
     expect(html).toContain('&lt;img');
+  });
+});
+
 // ─── Multi-dimensional SWOT builder tests ────────────────────────────────────
 
 describe('Multi-dimensional SWOT builders', () => {
