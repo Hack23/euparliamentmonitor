@@ -237,7 +237,7 @@ graph TD
 
 #### Enhanced Analysis Features (v2)
 
-All content workflows (except `news-translate.md`) have been upgraded with the following mandatory analytical enhancements:
+The following 8 article-generation workflows have been upgraded with mandatory analytical enhancements: `news-week-ahead.md`, `news-month-ahead.md`, `news-breaking.md`, `news-committee-reports.md`, `news-propositions.md`, `news-motions.md`, `news-weekly-review.md`, `news-monthly-review.md`. The `news-translate.md` workflow has complementary analysis-fidelity requirements for preserving these elements in translation.
 
 ##### 🎭 Multi-Stakeholder Perspective Requirements
 
@@ -251,7 +251,7 @@ Every major parliamentary action must be analyzed from **at least 3 of 5 stakeho
 | **National Governments** | Subsidiarity, implementation requirements, national interests |
 | **EU Citizens** | Direct life impact, rights, services, democratic representation |
 
-Stakeholder analysis is rendered using `<div class="stakeholder-grid">` HTML sections in each article's deep-analysis portion, backed by specific EP MCP data citations.
+Stakeholder analysis is rendered using `<div class="analysis-stakeholders">` with `<ul class="stakeholder-list">` markup in each article's deep-analysis portion, backed by specific EP MCP data citations.
 
 ##### 🔄 Iterative AI Content Refinement Cycle
 

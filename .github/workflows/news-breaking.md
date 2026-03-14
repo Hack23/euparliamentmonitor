@@ -121,7 +121,7 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 ## 🎭 STAKEHOLDER PERSPECTIVE ANALYSIS (MANDATORY)
 
-For EVERY major parliamentary action in the article, analyze from ALL these perspectives:
+For EVERY major parliamentary action in the article, analyze from at least 3 of the following 5 perspectives:
 
 1. **EP Political Groups**: How does this affect group dynamics? Coalition implications? Which groups benefit or lose influence?
 2. **Civil Society & NGOs**: Impact on citizens' rights, transparency, democratic participation, and civic engagement?
@@ -131,7 +131,7 @@ For EVERY major parliamentary action in the article, analyze from ALL these pers
 
 **Minimum requirement**: Every key legislative action or political development MUST be analyzed from at least 3 of these perspectives. Each perspective MUST cite specific evidence from EP MCP data.
 
-**Format**: Use dedicated `<div class="stakeholder-grid">` sections within the deep-analysis article section.
+**Format**: Use dedicated `<div class="analysis-stakeholders">` with `<ul class="stakeholder-list">` sections within the deep-analysis article section.
 
 ## 🔄 AI ANALYSIS REFINEMENT CYCLE (MANDATORY)
 
