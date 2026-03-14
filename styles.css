@@ -2887,6 +2887,261 @@ button:focus-visible {
   color: #b71c1c;
 }
 
+/* ─── Multi-Dimensional SWOT Extensions ──────────────────────────────────── */
+
+.swot-multidimensional {
+  /* Outer wrapper shares .swot-analysis styles; adds extra spacing below */
+  padding-bottom: 2rem;
+}
+
+.swot-mini-grid {
+  /* Compact grid used inside dimension / stakeholder / temporal panels */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  margin-top: 0.5rem;
+}
+
+.swot-section-subheading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+  color: var(--text-primary, #1a1a2e);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-bottom: 2px solid rgba(0, 51, 153, 0.15);
+  padding-bottom: 0.3rem;
+}
+
+/* ── Dimension drill-downs ─────────────────────────────────────────────── */
+
+.swot-dimensions {
+  margin-top: 1.5rem;
+}
+
+.swot-dimension {
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: var(--surface-alt, #ffffff);
+}
+
+.swot-dimension-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: rgba(0, 51, 153, 0.04);
+  list-style: none;
+  transition: background 0.15s ease;
+}
+
+.swot-dimension-summary::-webkit-details-marker {
+  display: none;
+}
+
+.swot-dimension-summary::before {
+  content: '▶';
+  font-size: 0.65rem;
+  color: var(--text-muted, #6c757d);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.swot-dimension[open] .swot-dimension-summary::before {
+  transform: rotate(90deg);
+}
+
+.swot-dimension-summary:hover {
+  background: rgba(0, 51, 153, 0.08);
+}
+
+.swot-dimension-content {
+  padding: 0.75rem;
+}
+
+/* Dimension color accents */
+.swot-dimension-political .swot-dimension-summary { border-left: 3px solid #003399; }
+.swot-dimension-economic .swot-dimension-summary  { border-left: 3px solid #FFD700; }
+.swot-dimension-social .swot-dimension-summary    { border-left: 3px solid #2e7d32; }
+.swot-dimension-legal .swot-dimension-summary     { border-left: 3px solid #7b1fa2; }
+.swot-dimension-geopolitical .swot-dimension-summary { border-left: 3px solid #c62828; }
+
+/* ── Stakeholder perspectives ──────────────────────────────────────────── */
+
+.swot-stakeholders {
+  margin-top: 1.5rem;
+}
+
+.swot-stakeholder {
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: var(--surface-alt, #ffffff);
+}
+
+.swot-stakeholder-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.025);
+  list-style: none;
+  transition: background 0.15s ease;
+}
+
+.swot-stakeholder-summary::-webkit-details-marker {
+  display: none;
+}
+
+.swot-stakeholder-summary::before {
+  content: '▶';
+  font-size: 0.65rem;
+  color: var(--text-muted, #6c757d);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.swot-stakeholder[open] .swot-stakeholder-summary::before {
+  transform: rotate(90deg);
+}
+
+.swot-stakeholder-summary:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.swot-stakeholder-content {
+  padding: 0.75rem;
+}
+
+/* ── Temporal analysis ─────────────────────────────────────────────────── */
+
+.swot-temporal {
+  margin-top: 1.5rem;
+}
+
+.swot-temporal-period {
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: var(--surface-alt, #ffffff);
+}
+
+.swot-temporal-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: rgba(46, 125, 50, 0.05);
+  list-style: none;
+  transition: background 0.15s ease;
+}
+
+.swot-temporal-summary::-webkit-details-marker {
+  display: none;
+}
+
+.swot-temporal-summary::before {
+  content: '▶';
+  font-size: 0.65rem;
+  color: var(--text-muted, #6c757d);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.swot-temporal-period[open] .swot-temporal-summary::before {
+  transform: rotate(90deg);
+}
+
+.swot-temporal-summary:hover {
+  background: rgba(46, 125, 50, 0.1);
+}
+
+.swot-temporal-content {
+  padding: 0.75rem;
+}
+
+/* ── Cross-references ──────────────────────────────────────────────────── */
+
+.swot-cross-references {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.swot-ref-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.swot-ref-item {
+  padding: 0.5rem 0;
+  font-size: 0.82rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  line-height: 1.5;
+}
+
+.swot-ref-item:last-child {
+  border-bottom: none;
+}
+
+.swot-ref-evidence {
+  font-weight: 500;
+  color: var(--text-primary, #1a1a2e);
+}
+
+.swot-ref-link {
+  color: #003399;
+  text-decoration: none;
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+.swot-ref-link:hover {
+  text-decoration: underline;
+}
+
+.swot-ref-id {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted, #6c757d);
+}
+
+.swot-ref-title {
+  color: var(--text-secondary, #495057);
+  font-style: italic;
+}
+
+/* ── Responsive — stack quadrants on small screens ─────────────────────── */
+
+@media (max-width: 600px) {
+  .swot-mini-grid .swot-row {
+    grid-template-columns: 1fr;
+  }
+
+  .swot-dimension-summary,
+  .swot-stakeholder-summary,
+  .swot-temporal-summary {
+    font-size: 0.85rem;
+  }
+}
+
 /* ─── Dashboard ──────────────────────────────────────────────────────────── */
 
 .dashboard {
