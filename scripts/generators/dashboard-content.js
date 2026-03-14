@@ -441,7 +441,7 @@ export function buildTrendPanel(trend, panelIndex, lang = 'en') {
               <canvas id="${canvasId}" class="dashboard-chart" data-chart-config="${safeConfig}" role="img" aria-label="${escapeHTML(d.activityTrendChart)}"></canvas>
               <noscript>
                 <table class="chart-fallback-table" role="table">
-                  <thead><tr><th scope="col">${escapeHTML(d.trendAnalysis)}</th><th scope="col">${escapeHTML(d.impactScore)}</th></tr></thead>
+                  <thead><tr><th scope="col">${escapeHTML(d.trendAnalysis)}</th><th scope="col">${escapeHTML(d.status)}</th></tr></thead>
                   <tbody>
               ${noscriptRows}
                   </tbody>
@@ -518,7 +518,7 @@ export function buildStakeholderScorecardPanel(stakeholders, panelIndex, lang = 
             </div>
             <noscript>
               <table class="chart-fallback-table" role="table">
-                <thead><tr><th scope="col">${escapeHTML(d.stakeholderImpact)}</th><th scope="col">${escapeHTML(d.impactScore)}</th><th scope="col">${escapeHTML(d.coalitionShift)}</th></tr></thead>
+                <thead><tr><th scope="col">${escapeHTML(d.stakeholderImpact)}</th><th scope="col">${escapeHTML(d.impactScore)}</th><th scope="col">${escapeHTML(d.status)}</th></tr></thead>
                 <tbody>
               ${noscriptRows}
                 </tbody>
