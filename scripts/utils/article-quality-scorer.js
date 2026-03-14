@@ -107,8 +107,18 @@ const GENERIC_PHRASE_PATTERNS = [
     /some countries/iu,
 ];
 // ─── EP document-reference pattern ───────────────────────────────────────────
-/** Pattern matching EP document reference codes such as A9-0123 or PE-456 */
-const EP_DOCUMENT_REF_PATTERN = /[A-Z]+-\d+/gu;
+/**
+ * Patterns matching known EP document reference formats.
+ * Uses separate patterns to avoid alternation complexity flagged by security/detect-unsafe-regex.
+ * Covers: TA-10-2026-0123, PE-123.456, A9-0123, B9-0123, C9-0123, P9_TA(2024)0001
+ * Excludes broad matches like EU-27 or EEA-32.
+ */
+const EP_DOC_PATTERNS = [
+    /\bTA-\d+-\d+/gu, // TA-10-2026-0001
+    /\bPE-\d+/gu, // PE-123 or PE-123.456
+    /\b[A-C]\d-\d+\b/gu, // A9-0123, B9-0002, C9-0003 (variable-length digits)
+    /\bP\d_TA\(\d{4}\)\d+\b/gu, // P9_TA(2024)0001
+];
 /** CSS class selector for deep-analysis sections (extracted to avoid duplication) */
 const CLASS_DEEP_ANALYSIS = 'class="deep-analysis"';
 // ─── HTML entity map ──────────────────────────────────────────────────────────
@@ -258,11 +268,15 @@ function addClassPositions(html, classAttr, positions) {
 function countEvidenceRefs(html) {
     const evidenceClasses = countOccurrences(html, 'class="evidence"');
     const dataRefs = countOccurrences(html, 'data-reference');
-    const epRefs = html.match(EP_DOCUMENT_REF_PATTERN)?.length ?? 0;
+    let epRefs = 0;
+    for (const pattern of EP_DOC_PATTERNS) {
+        pattern.lastIndex = 0;
+        epRefs += html.match(pattern)?.length ?? 0;
+    }
     return evidenceClasses + dataRefs + epRefs;
 }
 /**
- * Compute the mindmap depth by counting `class="mindmap-level"` or
+ * Compute the mindmap depth by counting `class="mindmap-branch"` elements or
  * nested `ul > li` depth within a mindmap section.
  * Uses balanced tag matching to avoid truncating at inner closing tags.
  *
@@ -270,9 +284,10 @@ function countEvidenceRefs(html) {
  * @returns Estimated mindmap depth
  */
 function computeMindmapDepth(html) {
-    const levelCount = countOccurrences(html, 'class="mindmap-level"');
-    if (levelCount > 0)
-        return levelCount;
+    // Real mindmap HTML uses class="mindmap-branch" elements
+    const branchCount = countOccurrences(html, 'class="mindmap-branch"');
+    if (branchCount > 0)
+        return branchCount;
     const sectionContent = extractMindmapSection(html);
     if (!sectionContent)
         return 0;
@@ -285,7 +300,12 @@ function computeMindmapDepth(html) {
  * @returns Inner HTML of the mindmap container, or empty string if not found
  */
 function extractMindmapSection(html) {
-    const openPatterns = [/class="mindmap"[^>]*>/u, /id="mindmap"[^>]*>/u];
+    // Real mindmap uses: class="mindmap-section", class="mindmap-container"
+    const openPatterns = [
+        /class="mindmap-section"[^>]*>/u,
+        /class="mindmap-container"[^>]*>/u,
+        /id="mindmap"[^>]*>/u,
+    ];
     for (const pattern of openPatterns) {
         const openMatch = pattern.exec(html);
         if (!openMatch)
@@ -436,19 +456,24 @@ export function assessStakeholderCoverage(html) {
  * @returns Visualization quality assessment with per-element flags and composite score
  */
 export function assessVisualizationQuality(html) {
-    const swotPresent = html.includes('class="swot"') || html.includes('id="swot"');
-    const swotDimensions = countOccurrences(html, 'class="swot-dimension"') +
-        countOccurrences(html, 'data-dimension');
+    // SWOT: real HTML uses class="swot-analysis" with class="swot-quadrant swot-*" elements
+    const swotPresent = html.includes('class="swot-analysis"') || html.includes('id="swot-analysis"');
+    // Partial match: quadrant classes include a variant suffix (e.g. "swot-quadrant swot-strengths")
+    const swotDimensions = countOccurrences(html, 'swot-quadrant') + countOccurrences(html, 'data-dimension');
+    // Dashboard: real HTML uses class="dashboard" with class="metric-card" elements
     const dashboardPresent = html.includes('class="dashboard"') || html.includes('id="dashboard"');
-    const dashboardMetrics = countOccurrences(html, 'class="metric"') +
+    const dashboardMetrics = countOccurrences(html, 'class="metric-card"') +
         countOccurrences(html, 'class="dashboard-metric"');
-    const dashboardTrends = html.includes('class="trend"') || html.includes('↑') || html.includes('↓');
-    const mindmapPresent = html.includes('class="mindmap"') || html.includes('id="mindmap"');
+    // Trend indicators: metric-trend-up/-down/-stable classes, or arrow symbols
+    const dashboardTrends = html.includes('class="metric-trend-') || html.includes('↑') || html.includes('↓');
+    // Mindmap: real HTML uses class="mindmap-section" / class="mindmap-container"
+    const mindmapPresent = html.includes('class="mindmap-section"') ||
+        html.includes('class="mindmap-container"') ||
+        html.includes('id="mindmap"');
     const mindmapDepth = mindmapPresent ? computeMindmapDepth(html) : 0;
     const deepAnalysisPresent = html.includes(CLASS_DEEP_ANALYSIS) || /id="[^"]*deep[^"]*"/iu.test(html);
     const deepAnalysisEvidence = deepAnalysisPresent
-        ? countOccurrences(html, 'class="evidence"') +
-            countOccurrences(html, 'data-reference')
+        ? countOccurrences(html, 'class="evidence"') + countOccurrences(html, 'data-reference')
         : 0;
     const score = computeVisualizationScore({
         swotPresent,

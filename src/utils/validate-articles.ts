@@ -201,7 +201,9 @@ function validateAllArticles(): ValidationReport {
  * @param articles - Array of article validation summaries
  * @returns Grade distribution counts
  */
-function buildGradeDistribution(articles: ArticleValidationSummary[]): Record<ArticleGrade, number> {
+function buildGradeDistribution(
+  articles: ArticleValidationSummary[]
+): Record<ArticleGrade, number> {
   const distribution: Record<ArticleGrade, number> = { A: 0, B: 0, C: 0, D: 0, F: 0 };
   for (const article of articles) {
     if (article.qualityReport) {
@@ -323,7 +325,9 @@ function printGradeDistribution(report: ValidationReport): void {
   if (!report.gradeDistribution) return;
   const dist = report.gradeDistribution;
   console.log('── GRADE DISTRIBUTION ────────────────────────────────────────\n');
-  console.log(`  A (≥80): ${dist['A']}   B (≥65): ${dist['B']}   C (≥40): ${dist['C']}   D (≥25): ${dist['D']}   F (<25): ${dist['F']}`);
+  console.log(
+    `  A (≥80): ${dist['A']}   B (≥65): ${dist['B']}   C (≥40): ${dist['C']}   D (≥25): ${dist['D']}   F (<25): ${dist['F']}`
+  );
   console.log('');
 }
 

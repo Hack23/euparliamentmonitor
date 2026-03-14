@@ -213,62 +213,64 @@ describe('assessVisualizationQuality', () => {
   });
 
   it('detects SWOT by class', () => {
-    const html = buildHtml('<div class="swot"><p>Strengths</p></div>');
+    const html = buildHtml('<section class="swot-analysis"><p>Strengths</p></section>');
     const result = assessVisualizationQuality(html);
     expect(result.swotPresent).toBe(true);
   });
 
   it('detects SWOT by id', () => {
-    const html = buildHtml('<div id="swot"><p>Analysis</p></div>');
+    const html = buildHtml('<section id="swot-analysis"><p>Analysis</p></section>');
     const result = assessVisualizationQuality(html);
     expect(result.swotPresent).toBe(true);
   });
 
   it('counts SWOT dimensions', () => {
     const html = buildHtml(
-      `<div class="swot">
-        <div class="swot-dimension">S</div>
-        <div class="swot-dimension">W</div>
-        <div class="swot-dimension">O</div>
-        <div class="swot-dimension">T</div>
-      </div>`
+      `<section class="swot-analysis">
+        <div class="swot-quadrant swot-strengths">S</div>
+        <div class="swot-quadrant swot-weaknesses">W</div>
+        <div class="swot-quadrant swot-opportunities">O</div>
+        <div class="swot-quadrant swot-threats">T</div>
+      </section>`
     );
     const result = assessVisualizationQuality(html);
     expect(result.swotDimensions).toBe(4);
   });
 
   it('detects dashboard by class', () => {
-    const html = buildHtml('<div class="dashboard"><span class="metric">42</span></div>');
+    const html = buildHtml('<section class="dashboard"><div class="metric-card">42</div></section>');
     const result = assessVisualizationQuality(html);
     expect(result.dashboardPresent).toBe(true);
     expect(result.dashboardMetrics).toBeGreaterThan(0);
   });
 
   it('detects dashboard trends via arrow symbols', () => {
-    const html = buildHtml('<div class="dashboard"><span>↑ 5%</span><span>↓ 2%</span></div>');
+    const html = buildHtml('<section class="dashboard"><span class="metric-trend-up">↑ 5%</span><span class="metric-trend-down">↓ 2%</span></section>');
     const result = assessVisualizationQuality(html);
     expect(result.dashboardTrends).toBe(true);
   });
 
   it('detects dashboard trends via class', () => {
-    const html = buildHtml('<div class="dashboard"><span class="trend">rising</span></div>');
+    const html = buildHtml('<section class="dashboard"><span class="metric-trend-up">rising</span></section>');
     const result = assessVisualizationQuality(html);
     expect(result.dashboardTrends).toBe(true);
   });
 
   it('detects mindmap by class', () => {
-    const html = buildHtml('<div class="mindmap"><ul><li>Node 1</li></ul></div>');
+    const html = buildHtml('<section class="mindmap-section"><div class="mindmap-container"><ul><li>Node 1</li></ul></div></section>');
     const result = assessVisualizationQuality(html);
     expect(result.mindmapPresent).toBe(true);
   });
 
-  it('counts mindmap depth via mindmap-level classes', () => {
+  it('counts mindmap depth via mindmap-branch classes', () => {
     const html = buildHtml(
-      `<div class="mindmap">
-        <div class="mindmap-level">L1</div>
-        <div class="mindmap-level">L2</div>
-        <div class="mindmap-level">L3</div>
-      </div>`
+      `<section class="mindmap-section">
+        <div class="mindmap-container">
+          <div class="mindmap-branch">B1</div>
+          <div class="mindmap-branch">B2</div>
+          <div class="mindmap-branch">B3</div>
+        </div>
+      </section>`
     );
     const result = assessVisualizationQuality(html);
     expect(result.mindmapDepth).toBe(3);
@@ -276,15 +278,15 @@ describe('assessVisualizationQuality', () => {
 
   it('counts mindmap ul nesting depth with inner divs (balanced tag matching)', () => {
     const html = buildHtml(
-      `<div class="mindmap">
-        <div class="inner">
+      `<section class="mindmap-section">
+        <div class="mindmap-container">
           <ul><li>Top
             <ul><li>Mid
               <ul><li>Deep</li></ul>
             </li></ul>
           </li></ul>
         </div>
-      </div>`
+      </section>`
     );
     const result = assessVisualizationQuality(html);
     expect(result.mindmapDepth).toBe(3);
@@ -315,9 +317,9 @@ describe('assessVisualizationQuality', () => {
 
   it('score is > 0 for article with all visual elements', () => {
     const html = buildHtml(`
-      <div class="swot"><div class="swot-dimension">S</div><div class="swot-dimension">W</div><div class="swot-dimension">O</div></div>
-      <div class="dashboard"><span class="metric">10</span><span class="metric">20</span><span class="trend">↑</span></div>
-      <div class="mindmap"><div class="mindmap-level">L1</div><div class="mindmap-level">L2</div><div class="mindmap-level">L3</div></div>
+      <section class="swot-analysis"><div class="swot-quadrant swot-s">S</div><div class="swot-quadrant swot-w">W</div><div class="swot-quadrant swot-o">O</div></section>
+      <section class="dashboard"><div class="metric-card">10</div><div class="metric-card">20</div><span class="metric-trend-up">↑</span></section>
+      <section class="mindmap-section"><div class="mindmap-container"><div class="mindmap-branch">B1</div><div class="mindmap-branch">B2</div><div class="mindmap-branch">B3</div></div></section>
       <section class="deep-analysis"><span class="evidence">Ref 1</span><span class="evidence">Ref 2</span></section>
     `);
     const result = assessVisualizationQuality(html);
@@ -452,23 +454,25 @@ describe('scoreArticleQuality', () => {
       The scenario could project forecast, likely probably uncertain confidence.
       MEP parliament commissioner Council member states government civil society NGO
       industry business citizens voters media press.</p>
-      <div class="swot">
-        <div class="swot-dimension">S</div>
-        <div class="swot-dimension">W</div>
-        <div class="swot-dimension">O</div>
-        <div class="swot-dimension">T</div>
-      </div>
-      <div class="dashboard">
-        <span class="metric">1</span><span class="metric">2</span>
-        <span class="metric">3</span><span class="metric">4</span>
-        <span class="metric">5</span>
-        <span class="trend">↑</span>
-      </div>
-      <div class="mindmap">
-        <div class="mindmap-level">L1</div>
-        <div class="mindmap-level">L2</div>
-        <div class="mindmap-level">L3</div>
-      </div>
+      <section class="swot-analysis">
+        <div class="swot-quadrant swot-strengths">S</div>
+        <div class="swot-quadrant swot-weaknesses">W</div>
+        <div class="swot-quadrant swot-opportunities">O</div>
+        <div class="swot-quadrant swot-threats">T</div>
+      </section>
+      <section class="dashboard">
+        <div class="metric-card">1</div><div class="metric-card">2</div>
+        <div class="metric-card">3</div><div class="metric-card">4</div>
+        <div class="metric-card">5</div>
+        <span class="metric-trend-up">↑</span>
+      </section>
+      <section class="mindmap-section">
+        <div class="mindmap-container">
+          <div class="mindmap-branch">B1</div>
+          <div class="mindmap-branch">B2</div>
+          <div class="mindmap-branch">B3</div>
+        </div>
+      </section>
       <section class="deep-analysis">
         <span class="evidence">Ref 1</span>
         <span class="evidence">Ref 2</span>
@@ -513,21 +517,23 @@ describe('grade boundaries via scoreArticleQuality', () => {
         <p>${words(1600)} political coalition majority EPP S&D Renew according to data evidence historically since 2019
         scenario could forecast likely probably uncertain confidence
         MEP parliament commissioner Council member states government civil society NGO
-        industry business citizens voters media press journalist A9-1234 B7-5678 C3-9012 D1-3456
-        E5-7890 F2-3456 G8-9012 H4-5678 I6-7890 J0-1234</p>
-        <div class="swot">
-          <div class="swot-dimension">S</div><div class="swot-dimension">W</div>
-          <div class="swot-dimension">O</div><div class="swot-dimension">T</div>
-        </div>
-        <div class="dashboard">
-          <span class="metric">1</span><span class="metric">2</span>
-          <span class="metric">3</span><span class="metric">4</span>
-          <span class="metric">5</span><span class="trend">↑</span>
-        </div>
-        <div class="mindmap">
-          <div class="mindmap-level">L1</div><div class="mindmap-level">L2</div>
-          <div class="mindmap-level">L3</div>
-        </div>
+        industry business citizens voters media press journalist TA-10-2026-0001 TA-10-2026-0002 TA-10-2026-0003
+        PE-123.456 A9-0001 B9-0002 C9-0003 TA-10-2026-0004 TA-10-2026-0005 TA-10-2026-0006</p>
+        <section class="swot-analysis">
+          <div class="swot-quadrant swot-s">S</div><div class="swot-quadrant swot-w">W</div>
+          <div class="swot-quadrant swot-o">O</div><div class="swot-quadrant swot-t">T</div>
+        </section>
+        <section class="dashboard">
+          <div class="metric-card">1</div><div class="metric-card">2</div>
+          <div class="metric-card">3</div><div class="metric-card">4</div>
+          <div class="metric-card">5</div><span class="metric-trend-up">↑</span>
+        </section>
+        <section class="mindmap-section">
+          <div class="mindmap-container">
+            <div class="mindmap-branch">B1</div><div class="mindmap-branch">B2</div>
+            <div class="mindmap-branch">B3</div>
+          </div>
+        </section>
         <section class="deep-analysis">
           <span class="evidence">R1</span><span class="evidence">R2</span><span class="evidence">R3</span>
         </section>
@@ -537,14 +543,14 @@ describe('grade boundaries via scoreArticleQuality', () => {
       return buildHtml(`
         <p>${words(1000)} political coalition EPP S&D according to data evidence historically since 2019
         scenario likely uncertain MEP parliament commissioner Council citizens</p>
-        <div class="swot"><div class="swot-dimension">S</div><div class="swot-dimension">W</div></div>
-        <div class="dashboard"><span class="metric">1</span><span class="metric">2</span><span class="trend">↑</span></div>
+        <section class="swot-analysis"><div class="swot-quadrant swot-s">S</div><div class="swot-quadrant swot-w">W</div></section>
+        <section class="dashboard"><div class="metric-card">1</div><div class="metric-card">2</div><span class="metric-trend-up">↑</span></section>
       `);
     }
     if (needsLowMedScore) {
       return buildHtml(`
         <p>${words(500)} political parliament MEP commissioner</p>
-        <div class="swot"><div class="swot-dimension">S</div></div>
+        <section class="swot-analysis"><div class="swot-quadrant swot-s">S</div></section>
       `);
     }
     return buildHtml(`<p>${words(100)}</p>`);
@@ -711,9 +717,16 @@ describe('edge cases', () => {
     expect(() => scoreArticleQuality(html, 'no-main', 'en', 'week-ahead')).not.toThrow();
   });
 
-  it('EP document references are counted (pattern [A-Z]+-\\d+)', () => {
-    const html = buildHtml('<p>See PE-456 and ENVI-789 and ECON-123 in the report.</p>');
+  it('EP document references are counted (known formats TA-, PE-, A9-)', () => {
+    const html = buildHtml('<p>See TA-10-2026-0001 and PE-456.789 and A9-0123 in the report.</p>');
     const report = scoreArticleQuality(html, 'ep-refs', 'en', 'week-ahead');
     expect(report.evidenceReferences).toBeGreaterThanOrEqual(3);
+  });
+
+  it('EP document ref pattern excludes generic codes like EU-27', () => {
+    const html = buildHtml('<p>The EU-27 members and EEA-32 discussed the proposal.</p>');
+    const report = scoreArticleQuality(html, 'no-ep-refs', 'en', 'week-ahead');
+    // EU-27 and EEA-32 should NOT be counted as evidence references
+    expect(report.evidenceReferences).toBe(0);
   });
 });

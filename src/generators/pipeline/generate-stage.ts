@@ -162,7 +162,9 @@ function generateSingleLanguageArticle(
     `  📊 ${lang.toUpperCase()} quality: Grade ${qualityReport.grade} (${qualityReport.overallScore}/100)`
   );
   if (!qualityReport.passesQualityGate) {
-    console.warn(`  ⚠️  ${lang.toUpperCase()} article did not pass quality gate (score ${qualityReport.overallScore} < 40). Recommendations:`);
+    console.warn(
+      `  ⚠️  ${lang.toUpperCase()} article did not pass quality gate (score ${qualityReport.overallScore} < 40). Recommendations:`
+    );
     for (const rec of qualityReport.recommendations.slice(0, 3)) {
       console.warn(`       💡 ${rec}`);
     }
