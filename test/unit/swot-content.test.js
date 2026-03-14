@@ -555,6 +555,28 @@ describe('swot-content', () => {
       expect(html).not.toContain('swot-ref-link');
     });
 
+    it('should reject javascript: URLs and render as plain text ID', () => {
+      const jsUrlSwot = {
+        dimensions: [SAMPLE_DIMENSION],
+        crossReferences: [
+          {
+            itemText: 'Some evidence',
+            documentId: 'TA-10-2024-0099',
+            documentTitle: 'Injected Doc',
+            url: 'javascript:alert(1)',
+          },
+        ],
+      };
+      const html = buildMultiDimensionalSwotSection(jsUrlSwot);
+      // Should NOT render as a link
+      expect(html).not.toContain('swot-ref-link');
+      expect(html).not.toContain('javascript:');
+      expect(html).not.toContain('href=');
+      // Should render as plain text ID instead
+      expect(html).toContain('swot-ref-id');
+      expect(html).toContain('TA-10-2024-0099');
+    });
+
     it('should skip empty temporal periods', () => {
       const noLongTermSwot = {
         dimensions: [SAMPLE_DIMENSION],

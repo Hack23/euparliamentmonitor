@@ -21,7 +21,7 @@
  * - **Cross-references** linking items to EP documents/votes
  */
 
-import { escapeHTML } from '../utils/file-utils.js';
+import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 import {
   getLocalizedString,
   SWOT_STRINGS,
@@ -387,7 +387,7 @@ function buildCrossReferencesSection(
 
   const refsHtml = crossReferences
     .map((ref) => {
-      const urlPart = ref.url
+      const urlPart = ref.url && isSafeURL(ref.url)
         ? `<a href="${escapeHTML(ref.url)}" class="swot-ref-link" rel="noopener noreferrer">${escapeHTML(ref.documentId)}</a>`
         : `<span class="swot-ref-id">${escapeHTML(ref.documentId)}</span>`;
       return `<li class="swot-ref-item">
