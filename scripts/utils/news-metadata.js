@@ -228,13 +228,16 @@ const ARTICLE_TYPE_NOISE = new Set([
  * Extract meaningful words from a text string, excluding stop-words and
  * tokens shorter than `minLength`.
  *
+ * Uses Unicode-aware character classes to preserve accented characters
+ * (e.g. "é", "ü") and non-Latin scripts (AR, HE, JA, KO, ZH).
+ *
  * @param text - Input text to tokenise
  * @param tokens - Set to accumulate tokens into
  * @param minLength - Minimum cleaned token length (inclusive)
  */
 function extractTokens(text, tokens, minLength) {
     for (const word of text.toLowerCase().split(/[\s\-_]+/)) {
-        const cleaned = word.replace(/[^a-z0-9]/g, '');
+        const cleaned = word.replace(/[^\p{L}\p{N}]/gu, '');
         if (cleaned.length >= minLength &&
             !STOP_WORDS.has(cleaned) &&
             !ARTICLE_TYPE_NOISE.has(cleaned)) {

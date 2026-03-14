@@ -11,9 +11,19 @@
 
 import fs from 'fs';
 import path from 'path';
-import type { GenerationStats, GenerationResult } from '../../types/index.js';
+import type {
+  GenerationStats,
+  GenerationResult,
+  ArticleIndexEntry,
+  IntelligenceIndex,
+} from '../../types/index.js';
 import { formatDateForSlug } from '../../utils/file-utils.js';
 import { NEWS_DIR } from '../../constants/config.js';
+import {
+  addArticleToIndex,
+  detectTrends,
+  saveIntelligenceIndex,
+} from '../../utils/intelligence-index.js';
 
 // ─── Output options ───────────────────────────────────────────────────────────
 
@@ -193,13 +203,6 @@ export function writeGenerationMetadata(
 }
 
 // ─── Intelligence Index update helpers ───────────────────────────────────────
-
-import type { ArticleIndexEntry, IntelligenceIndex } from '../../types/intelligence.js';
-import {
-  addArticleToIndex,
-  detectTrends,
-  saveIntelligenceIndex,
-} from '../../utils/intelligence-index.js';
 
 /** Default path for the intelligence index file */
 const DEFAULT_INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');

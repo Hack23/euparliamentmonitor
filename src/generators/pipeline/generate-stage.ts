@@ -13,7 +13,15 @@
 
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
 import { ArticleCategory } from '../../types/index.js';
-import type { LanguageCode, GenerationStats, GenerationResult } from '../../types/index.js';
+import type {
+  LanguageCode,
+  GenerationStats,
+  GenerationResult,
+  ArticleIndexEntry,
+  IntelligenceIndex,
+  ArticleCrossReference,
+  TrendDetection,
+} from '../../types/index.js';
 import { generateArticleHTML } from '../../templates/article-template.js';
 import {
   calculateReadTime,
@@ -32,6 +40,11 @@ import { weeklyReviewStrategy } from '../strategies/weekly-review-strategy.js';
 import { monthlyReviewStrategy } from '../strategies/monthly-review-strategy.js';
 import type { OutputOptions } from './output-stage.js';
 import { writeSingleArticle } from './output-stage.js';
+import {
+  findRelatedArticles,
+  generateCrossReferences,
+  buildRelatedArticlesHTML,
+} from '../../utils/intelligence-index.js';
 
 // ─── Registry ────────────────────────────────────────────────────────────────
 
@@ -247,18 +260,6 @@ export async function generateArticleForStrategy(
 }
 
 // ─── Intelligence Index helpers ───────────────────────────────────────────────
-
-import type {
-  ArticleIndexEntry,
-  IntelligenceIndex,
-  ArticleCrossReference,
-  TrendDetection,
-} from '../../types/intelligence.js';
-import {
-  findRelatedArticles,
-  generateCrossReferences,
-  buildRelatedArticlesHTML,
-} from '../../utils/intelligence-index.js';
 
 /**
  * Build an {@link ArticleIndexEntry} for a freshly generated article so it can

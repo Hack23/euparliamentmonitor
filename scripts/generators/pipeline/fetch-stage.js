@@ -21,6 +21,8 @@ import { parsePlenarySessions, parseCommitteeMeetings, parseLegislativeDocuments
 import { applyCommitteeInfo, applyDocuments, applyEffectiveness } from '../committee-helpers.js';
 import { getMotionsFallbackData } from '../motions-content.js';
 import { escapeHTML } from '../../utils/file-utils.js';
+import { NEWS_DIR } from '../../constants/config.js';
+import { loadIntelligenceIndex } from '../../utils/intelligence-index.js';
 // ─── Shared string constants ─────────────────────────────────────────────────
 /** Log prefix for MCP fetch operations */
 const MCP_FETCH_PREFIX = '  📡';
@@ -1524,8 +1526,6 @@ export async function fetchEPFeedData(client, timeframe = 'one-day', dateRange) 
     return filteredData;
 }
 // ─── Intelligence Index loading ───────────────────────────────────────────────
-import { loadIntelligenceIndex } from '../../utils/intelligence-index.js';
-import { NEWS_DIR } from '../../constants/config.js';
 /** Default path for the intelligence index file */
 const DEFAULT_INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
 /**

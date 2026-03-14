@@ -339,38 +339,257 @@ export function saveIntelligenceIndex(index, indexPath) {
     }
     fs.writeFileSync(indexPath, JSON.stringify(index, null, 2), 'utf-8');
 }
-// ─── buildRelatedArticlesHTML ────────────────────────────────────────────────
-/** Labels used in HTML output for link text prefixes */
-const RELATIONSHIP_LABELS = {
-    follows_up: 'Previous',
-    preceded_by: 'Next',
-    related: 'Related',
-    contradicts: 'Contrast',
-    deepens: 'Deeper analysis',
+/** Localised strings for all 14 supported languages */
+const RELATED_ANALYSIS_STRINGS = {
+    en: {
+        sectionLabel: 'Related Analysis',
+        heading: 'Related Analysis',
+        emergingTrend: 'Emerging Trend',
+        trendTracking: 'article tracking',
+        confidence: 'confidence',
+        relatedArticle: 'Related',
+        relationships: {
+            follows_up: 'Previous',
+            preceded_by: 'Next',
+            related: 'Related',
+            contradicts: 'Contrast',
+            deepens: 'Deeper analysis',
+        },
+    },
+    sv: {
+        sectionLabel: 'Relaterad analys',
+        heading: 'Relaterad analys',
+        emergingTrend: 'Framväxande trend',
+        trendTracking: 'artikel som följer',
+        confidence: 'konfidens',
+        relatedArticle: 'Relaterad',
+        relationships: {
+            follows_up: 'Föregående',
+            preceded_by: 'Nästa',
+            related: 'Relaterad',
+            contradicts: 'Kontrast',
+            deepens: 'Djupare analys',
+        },
+    },
+    da: {
+        sectionLabel: 'Relateret analyse',
+        heading: 'Relateret analyse',
+        emergingTrend: 'Fremvoksende tendens',
+        trendTracking: 'artikel der følger',
+        confidence: 'konfidens',
+        relatedArticle: 'Relateret',
+        relationships: {
+            follows_up: 'Foregående',
+            preceded_by: 'Næste',
+            related: 'Relateret',
+            contradicts: 'Kontrast',
+            deepens: 'Dybere analyse',
+        },
+    },
+    no: {
+        sectionLabel: 'Relatert analyse',
+        heading: 'Relatert analyse',
+        emergingTrend: 'Fremvoksende trend',
+        trendTracking: 'artikkel som følger',
+        confidence: 'konfidens',
+        relatedArticle: 'Relatert',
+        relationships: {
+            follows_up: 'Forrige',
+            preceded_by: 'Neste',
+            related: 'Relatert',
+            contradicts: 'Kontrast',
+            deepens: 'Dypere analyse',
+        },
+    },
+    fi: {
+        sectionLabel: 'Liittyvä analyysi',
+        heading: 'Liittyvä analyysi',
+        emergingTrend: 'Kehittyvä trendi',
+        trendTracking: 'artikkeli seuraa',
+        confidence: 'luottamus',
+        relatedArticle: 'Liittyvä',
+        relationships: {
+            follows_up: 'Edellinen',
+            preceded_by: 'Seuraava',
+            related: 'Liittyvä',
+            contradicts: 'Kontrasti',
+            deepens: 'Syvempi analyysi',
+        },
+    },
+    de: {
+        sectionLabel: 'Verwandte Analyse',
+        heading: 'Verwandte Analyse',
+        emergingTrend: 'Aufkommender Trend',
+        trendTracking: 'Artikel verfolgt',
+        confidence: 'Konfidenz',
+        relatedArticle: 'Verwandt',
+        relationships: {
+            follows_up: 'Vorheriger',
+            preceded_by: 'Nächster',
+            related: 'Verwandt',
+            contradicts: 'Kontrast',
+            deepens: 'Tiefere Analyse',
+        },
+    },
+    fr: {
+        sectionLabel: 'Analyse connexe',
+        heading: 'Analyse connexe',
+        emergingTrend: 'Tendance émergente',
+        trendTracking: 'article suivant',
+        confidence: 'confiance',
+        relatedArticle: 'Connexe',
+        relationships: {
+            follows_up: 'Précédent',
+            preceded_by: 'Suivant',
+            related: 'Connexe',
+            contradicts: 'Contraste',
+            deepens: 'Analyse approfondie',
+        },
+    },
+    es: {
+        sectionLabel: 'Análisis relacionado',
+        heading: 'Análisis relacionado',
+        emergingTrend: 'Tendencia emergente',
+        trendTracking: 'artículo siguiendo',
+        confidence: 'confianza',
+        relatedArticle: 'Relacionado',
+        relationships: {
+            follows_up: 'Anterior',
+            preceded_by: 'Siguiente',
+            related: 'Relacionado',
+            contradicts: 'Contraste',
+            deepens: 'Análisis profundo',
+        },
+    },
+    nl: {
+        sectionLabel: 'Gerelateerde analyse',
+        heading: 'Gerelateerde analyse',
+        emergingTrend: 'Opkomende trend',
+        trendTracking: 'artikel volgt',
+        confidence: 'vertrouwen',
+        relatedArticle: 'Gerelateerd',
+        relationships: {
+            follows_up: 'Vorige',
+            preceded_by: 'Volgende',
+            related: 'Gerelateerd',
+            contradicts: 'Contrast',
+            deepens: 'Diepere analyse',
+        },
+    },
+    ar: {
+        sectionLabel: 'تحليل ذو صلة',
+        heading: 'تحليل ذو صلة',
+        emergingTrend: 'اتجاه ناشئ',
+        trendTracking: 'مقال يتتبع',
+        confidence: 'الثقة',
+        relatedArticle: 'ذو صلة',
+        relationships: {
+            follows_up: 'السابق',
+            preceded_by: 'التالي',
+            related: 'ذو صلة',
+            contradicts: 'تباين',
+            deepens: 'تحليل أعمق',
+        },
+    },
+    he: {
+        sectionLabel: 'ניתוח קשור',
+        heading: 'ניתוח קשור',
+        emergingTrend: 'מגמה מתפתחת',
+        trendTracking: 'מאמר עוקב',
+        confidence: 'ביטחון',
+        relatedArticle: 'קשור',
+        relationships: {
+            follows_up: 'הקודם',
+            preceded_by: 'הבא',
+            related: 'קשור',
+            contradicts: 'ניגוד',
+            deepens: 'ניתוח מעמיק',
+        },
+    },
+    ja: {
+        sectionLabel: '関連分析',
+        heading: '関連分析',
+        emergingTrend: '新たなトレンド',
+        trendTracking: '記事が追跡中',
+        confidence: '信頼度',
+        relatedArticle: '関連',
+        relationships: {
+            follows_up: '前回',
+            preceded_by: '次回',
+            related: '関連',
+            contradicts: '対比',
+            deepens: '深掘り分析',
+        },
+    },
+    ko: {
+        sectionLabel: '관련 분석',
+        heading: '관련 분석',
+        emergingTrend: '새로운 트렌드',
+        trendTracking: '기사 추적 중',
+        confidence: '신뢰도',
+        relatedArticle: '관련',
+        relationships: {
+            follows_up: '이전',
+            preceded_by: '다음',
+            related: '관련',
+            contradicts: '대비',
+            deepens: '심층 분석',
+        },
+    },
+    zh: {
+        sectionLabel: '相关分析',
+        heading: '相关分析',
+        emergingTrend: '新兴趋势',
+        trendTracking: '篇文章追踪',
+        confidence: '置信度',
+        relatedArticle: '相关',
+        relationships: {
+            follows_up: '上一篇',
+            preceded_by: '下一篇',
+            related: '相关',
+            contradicts: '对比',
+            deepens: '深入分析',
+        },
+    },
 };
+/**
+ * Resolve localised UI strings for the Related Analysis section.
+ * Falls back to English for unknown language codes.
+ *
+ * @param lang - Language code (e.g. "en", "fr", "ja")
+ * @returns Localised string set
+ */
+function getRelatedAnalysisStrings(lang) {
+    const strings = RELATED_ANALYSIS_STRINGS[lang ?? 'en'];
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- 'en' is always present
+    return strings ?? RELATED_ANALYSIS_STRINGS['en'];
+}
 /**
  * Generate an HTML `<section>` listing related articles, cross-references, and
  * emerging trends for embedding in a generated article.
  *
  * Produces accessible markup with `aria-label` and `rel="noopener noreferrer"`.
+ * UI strings and date formatting are localised based on the `lang` parameter.
  *
  * @param relatedArticles - Articles related to the current article
  * @param crossRefs - Cross-references from the current article
  * @param trends - Trends relevant to the current article
- * @param _lang - Language code (reserved for future localisation, currently unused)
+ * @param lang - Language code for localisation (defaults to 'en')
  * @returns HTML string for the "Related Analysis" section, or empty string if nothing to show
  */
-export function buildRelatedArticlesHTML(relatedArticles, crossRefs, trends, _lang) {
+export function buildRelatedArticlesHTML(relatedArticles, crossRefs, trends, lang) {
     if (relatedArticles.length === 0 && trends.length === 0) {
         return '';
     }
+    const strings = getRelatedAnalysisStrings(lang);
     const listItems = crossRefs
         .map((ref) => {
         const article = relatedArticles.find((a) => a.id === ref.targetArticleId);
         if (!article)
             return '';
-        const label = RELATIONSHIP_LABELS[ref.relationship] ?? 'Related';
-        const displayDate = formatDisplayDate(article.date);
+        const label = strings.relationships[ref.relationship] ??
+            strings.relatedArticle;
+        const displayDate = formatDisplayDate(article.date, lang);
         const filename = `${article.id}.html`;
         return `    <li><a href="${escapeAttr(filename)}" rel="noopener noreferrer">${escapeText(label)}: ${escapeText(ref.context)} (${escapeText(displayDate)})</a></li>`;
     })
@@ -378,23 +597,25 @@ export function buildRelatedArticlesHTML(relatedArticles, crossRefs, trends, _la
     // Fall back: show related articles without explicit cross-refs
     if (listItems.length === 0 && relatedArticles.length > 0) {
         for (const article of relatedArticles) {
-            const displayDate = formatDisplayDate(article.date);
+            const displayDate = formatDisplayDate(article.date, lang);
             const filename = `${article.id}.html`;
-            listItems.push(`    <li><a href="${escapeAttr(filename)}" rel="noopener noreferrer">Related: ${escapeText(article.type)} article (${escapeText(displayDate)})</a></li>`);
+            listItems.push(`    <li><a href="${escapeAttr(filename)}" rel="noopener noreferrer">${escapeText(strings.relatedArticle)}: ${escapeText(article.type)} (${escapeText(displayDate)})</a></li>`);
         }
     }
     const trendBlocks = trends
         .map((trend) => {
         const count = trend.articleReferences.length;
         return `  <div class="emerging-trends">
-    <h4>Emerging Trend: ${escapeText(trend.name)}</h4>
-    <p>This is the ${count}${ordinalSuffix(count)} article tracking ${escapeText(trend.name.toLowerCase())} (confidence: ${escapeText(trend.confidence)})</p>
+    <h4>${escapeText(strings.emergingTrend)}: ${escapeText(trend.name)}</h4>
+    <p>${count} ${escapeText(strings.trendTracking)} ${escapeText(trend.name.toLowerCase())} (${escapeText(strings.confidence)}: ${escapeText(trend.confidence)})</p>
   </div>`;
     })
         .join('\n');
     const listSection = listItems.length > 0 ? `  <ul>\n${listItems.join('\n')}\n  </ul>` : '';
-    const parts = ['<section class="related-articles" aria-label="Related Analysis">'];
-    parts.push('  <h3>Related Analysis</h3>');
+    const parts = [
+        `<section class="related-articles" aria-label="${escapeAttr(strings.sectionLabel)}">`,
+    ];
+    parts.push(`  <h3>${escapeText(strings.heading)}</h3>`);
     if (listSection)
         parts.push(listSection);
     if (trendBlocks)
@@ -470,12 +691,30 @@ function escapeAttr(text) {
 function escapeText(text) {
     return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
+/** Map from 2-letter language codes to BCP 47 locale tags for date formatting */
+const LANG_TO_LOCALE = {
+    en: 'en-GB',
+    sv: 'sv-SE',
+    da: 'da-DK',
+    no: 'nb-NO',
+    fi: 'fi-FI',
+    de: 'de-DE',
+    fr: 'fr-FR',
+    es: 'es-ES',
+    nl: 'nl-NL',
+    ar: 'ar-SA',
+    he: 'he-IL',
+    ja: 'ja-JP',
+    ko: 'ko-KR',
+    zh: 'zh-CN',
+};
 /**
- * Format an ISO date string as a human-readable date.
+ * Format an ISO date string as a human-readable date in the given locale.
  * @param date - ISO date string (YYYY-MM-DD)
+ * @param lang - Language code (defaults to 'en')
  * @returns Formatted date string
  */
-function formatDisplayDate(date) {
+function formatDisplayDate(date, lang) {
     const parts = date.split('-');
     const year = parts[0] ?? '';
     const month = parts[1] ?? '';
@@ -483,24 +722,7 @@ function formatDisplayDate(date) {
     if (!year || !month || !day)
         return date;
     const d = new Date(Date.UTC(parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10)));
-    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
-}
-/**
- * Return the English ordinal suffix for a positive integer (1st, 2nd, 3rd, …).
- * @param n - Positive integer
- * @returns Ordinal suffix string
- */
-function ordinalSuffix(n) {
-    const mod100 = n % 100;
-    if (mod100 >= 11 && mod100 <= 13)
-        return 'th';
-    const mod10 = n % 10;
-    if (mod10 === 1)
-        return 'st';
-    if (mod10 === 2)
-        return 'nd';
-    if (mod10 === 3)
-        return 'rd';
-    return 'th';
+    const locale = LANG_TO_LOCALE[lang ?? 'en'] ?? 'en-GB';
+    return d.toLocaleDateString(locale, { day: 'numeric', month: 'short', timeZone: 'UTC' });
 }
 //# sourceMappingURL=intelligence-index.js.map

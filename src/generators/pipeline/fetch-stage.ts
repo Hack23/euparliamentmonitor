@@ -41,6 +41,7 @@ import type {
   BreakingNewsFeedData,
   EPFeedData,
   FeedTimeframe,
+  IntelligenceIndex,
 } from '../../types/index.js';
 import {
   parsePlenarySessions,
@@ -55,6 +56,8 @@ import { applyCommitteeInfo, applyDocuments, applyEffectiveness } from '../commi
 import { getMotionsFallbackData } from '../motions-content.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import type { PipelineData } from '../propositions-content.js';
+import { NEWS_DIR } from '../../constants/config.js';
+import { loadIntelligenceIndex } from '../../utils/intelligence-index.js';
 
 // ─── Shared string constants ─────────────────────────────────────────────────
 
@@ -2014,10 +2017,6 @@ export async function fetchEPFeedData(
 }
 
 // ─── Intelligence Index loading ───────────────────────────────────────────────
-
-import { loadIntelligenceIndex } from '../../utils/intelligence-index.js';
-import type { IntelligenceIndex } from '../../types/intelligence.js';
-import { NEWS_DIR } from '../../constants/config.js';
 
 /** Default path for the intelligence index file */
 const DEFAULT_INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');

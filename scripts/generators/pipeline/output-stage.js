@@ -11,6 +11,7 @@ import fs from 'fs';
 import path from 'path';
 import { formatDateForSlug } from '../../utils/file-utils.js';
 import { NEWS_DIR } from '../../constants/config.js';
+import { addArticleToIndex, detectTrends, saveIntelligenceIndex, } from '../../utils/intelligence-index.js';
 // ─── File-write helpers ───────────────────────────────────────────────────────
 /** Log prefix for write operations */
 const DRY_RUN_PREFIX = '  [DRY RUN]';
@@ -143,7 +144,7 @@ export function writeGenerationMetadata(stats, results, usedMCP, metadataDir, dr
     fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf-8');
     console.log(`📝 Metadata written to: ${metadataPath}`);
 }
-import { addArticleToIndex, detectTrends, saveIntelligenceIndex, } from '../../utils/intelligence-index.js';
+// ─── Intelligence Index update helpers ───────────────────────────────────────
 /** Default path for the intelligence index file */
 const DEFAULT_INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
 /**

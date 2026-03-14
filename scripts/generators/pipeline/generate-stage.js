@@ -13,6 +13,7 @@ import { monthAheadStrategy } from '../strategies/month-ahead-strategy.js';
 import { weeklyReviewStrategy } from '../strategies/weekly-review-strategy.js';
 import { monthlyReviewStrategy } from '../strategies/monthly-review-strategy.js';
 import { writeSingleArticle } from './output-stage.js';
+import { findRelatedArticles, generateCrossReferences, buildRelatedArticlesHTML, } from '../../utils/intelligence-index.js';
 /**
  * Build the default strategy registry containing all built-in strategies.
  *
@@ -169,7 +170,7 @@ export async function generateArticleForStrategy(strategy, client, languages, ou
         return { success: false, error: message };
     }
 }
-import { findRelatedArticles, generateCrossReferences, buildRelatedArticlesHTML, } from '../../utils/intelligence-index.js';
+// ─── Intelligence Index helpers ───────────────────────────────────────────────
 /**
  * Build an {@link ArticleIndexEntry} for a freshly generated article so it can
  * be registered in the intelligence index by the output stage.

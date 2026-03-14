@@ -519,13 +519,15 @@ describe('buildRelatedArticlesHTML', () => {
     const html = buildRelatedArticlesHTML([articleEntry], [], [trend]);
     expect(html).toContain('emerging-trends');
     expect(html).toContain('digital regulation trend');
-    expect(html).toContain('confidence: low');
+    expect(html).toContain('confidence');
+    expect(html).toContain('low');
   });
 
   it('should include the article count in the trend description', () => {
     const html = buildRelatedArticlesHTML([articleEntry], [], [trend]);
-    // trend has 2 article references — displayed as "2nd"
-    expect(html).toContain('2nd');
+    // trend has 2 article references
+    expect(html).toContain('2 ');
+    expect(html).toContain('article tracking');
   });
 
   it('should show "Related" links when there are articles but no explicit cross-refs', () => {
@@ -541,5 +543,24 @@ describe('buildRelatedArticlesHTML', () => {
     const html = buildRelatedArticlesHTML([articleEntry], [dangerousRef], []);
     expect(html).not.toContain('<script>');
     expect(html).toContain('&lt;script&gt;');
+  });
+
+  it('should localise UI strings when a non-English lang is passed', () => {
+    const html = buildRelatedArticlesHTML([articleEntry], [crossRef], [], 'fr');
+    expect(html).toContain('aria-label="Analyse connexe"');
+    expect(html).toContain('<h3>Analyse connexe</h3>');
+    expect(html).toContain('Précédent:');
+  });
+
+  it('should localise trend labels for German', () => {
+    const html = buildRelatedArticlesHTML([articleEntry], [], [trend], 'de');
+    expect(html).toContain('Aufkommender Trend');
+    expect(html).toContain('Konfidenz');
+  });
+
+  it('should fall back to English for unknown language codes', () => {
+    const html = buildRelatedArticlesHTML([articleEntry], [crossRef], [], 'xx');
+    expect(html).toContain('aria-label="Related Analysis"');
+    expect(html).toContain('Previous:');
   });
 });
