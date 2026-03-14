@@ -685,7 +685,7 @@ function buildAnalysisMethodologySection(
       const refinementItems = iter.refinements
         .map((r) => `<li${langAttr}>${escapeHTML(r)}</li>`)
         .join('\n                  ');
-      return `<div class="iteration-card">
+      return `<div class="iteration-item">
                 <div class="iteration-header">
                   <span class="iteration-pass">Pass ${iter.pass}</span>
                   <span class="iteration-type">${escapeHTML(iterationTypeLabel(iter.type, strings))}</span>

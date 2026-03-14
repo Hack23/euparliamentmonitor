@@ -394,7 +394,7 @@ function buildReasoningChainSection(chains, heading, strings, contentLang) {
             .map((ref) => {
             const dateText = ref.date ? ` (${escapeHTML(ref.date)})` : '';
             if (ref.url && isSafeURL(ref.url)) {
-                return `<li${langAttr}><a href="${escapeHTML(ref.url)}" target="_blank" rel="noopener noreferrer"${langAttr}>${escapeHTML(ref.title)}${dateText}</a></li>`;
+                return `<li${langAttr}><a href="${escapeHTML(ref.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(ref.title)}${dateText}</a></li>`;
             }
             return `<li${langAttr}>${escapeHTML(ref.title)}${dateText}</li>`;
         })
@@ -553,7 +553,7 @@ function buildAnalysisMethodologySection(metadata, heading, strings, contentLang
         const refinementItems = iter.refinements
             .map((r) => `<li${langAttr}>${escapeHTML(r)}</li>`)
             .join('\n                  ');
-        return `<div class="iteration-card">
+        return `<div class="iteration-item">
                 <div class="iteration-header">
                   <span class="iteration-pass">Pass ${iter.pass}</span>
                   <span class="iteration-type">${escapeHTML(iterationTypeLabel(iter.type, strings))}</span>

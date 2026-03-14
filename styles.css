@@ -2650,6 +2650,24 @@ button:focus-visible {
   font-size: 0.9rem;
 }
 
+.iteration-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+
+.iteration-pass {
+  font-weight: 700;
+  color: var(--primary, #003399);
+}
+
+.iteration-type {
+  color: var(--text-secondary, #6c757d);
+  font-size: 0.85rem;
+}
+
 .iteration-findings,
 .iteration-refinements {
   list-style: disc inside;
