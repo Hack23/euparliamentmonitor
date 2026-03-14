@@ -5,6 +5,10 @@ import { describe, it, expect } from 'vitest';
 import {
   buildDashboardSection,
   dashboardHasCharts,
+  buildCoalitionPanel,
+  buildPipelinePanel,
+  buildTrendPanel,
+  buildStakeholderScorecardPanel,
 } from '../../scripts/generators/dashboard-content.js';
 
 // ─── Fixtures ──────────────────────────────────────────────────────────────────
@@ -383,5 +387,390 @@ describe('dashboard-content', () => {
       expect(html).toContain('data-chart-config');
       expect(html).toContain('bubble');
     });
+  });
+});
+
+// ─── Political Intelligence Panel Tests ─────────────────────────────────────
+
+const SAMPLE_COALITION = {
+  alignmentScore: 72,
+  votingBlocs: [
+    { group: 'EPP', alignmentScore: 85 },
+    { group: 'S&D', alignmentScore: 68 },
+    { group: 'Renew', alignmentScore: 75 },
+  ],
+  shiftIndicator: 'strengthening',
+};
+
+const SAMPLE_PIPELINE = {
+  healthScore: 80,
+  onTrack: 12,
+  delayed: 3,
+  blocked: 1,
+  fastTracked: 2,
+  total: 18,
+};
+
+const SAMPLE_TREND = {
+  period: 'weekly',
+  metrics: [
+    { period: 'W1', value: 10 },
+    { period: 'W2', value: 14 },
+    { period: 'W3', value: 12 },
+    { period: 'W4', value: 18 },
+  ],
+  direction: 'improving',
+  weekOverWeekChange: 50,
+};
+
+const SAMPLE_STAKEHOLDERS = [
+  { stakeholder: 'EPP', impactScore: 85, impactDirection: 'positive', description: 'High cohesion' },
+  { stakeholder: 'S&D', impactScore: 62, impactDirection: 'neutral' },
+  { stakeholder: 'Minority blocs', impactScore: 30, impactDirection: 'negative' },
+];
+
+describe('buildCoalitionPanel', () => {
+  it('should return empty string for null coalition', () => {
+    expect(buildCoalitionPanel(null, 0)).toBe('');
+  });
+
+  it('should return empty string for undefined coalition', () => {
+    expect(buildCoalitionPanel(undefined, 0)).toBe('');
+  });
+
+  it('should return empty string for coalition with no blocs', () => {
+    expect(buildCoalitionPanel({ alignmentScore: 50, votingBlocs: [], shiftIndicator: 'stable' }, 0)).toBe('');
+  });
+
+  it('should render coalition panel with alignment score', () => {
+    const html = buildCoalitionPanel(SAMPLE_COALITION, 0);
+    expect(html).toContain('Coalition Alignment');
+    expect(html).toContain('72%');
+  });
+
+  it('should render voting blocs count', () => {
+    const html = buildCoalitionPanel(SAMPLE_COALITION, 0);
+    expect(html).toContain('3');
+  });
+
+  it('should render shift indicator as strengthening', () => {
+    const html = buildCoalitionPanel(SAMPLE_COALITION, 0);
+    expect(html).toContain('Strengthening');
+  });
+
+  it('should render shift indicator as weakening', () => {
+    const weakening = { ...SAMPLE_COALITION, shiftIndicator: 'weakening' };
+    const html = buildCoalitionPanel(weakening, 0);
+    expect(html).toContain('Weakening');
+  });
+
+  it('should render shift indicator as stable', () => {
+    const stable = { ...SAMPLE_COALITION, shiftIndicator: 'stable' };
+    const html = buildCoalitionPanel(stable, 0);
+    expect(html).toContain('Stable');
+  });
+
+  it('should embed radar chart configuration as JSON data attribute', () => {
+    const html = buildCoalitionPanel(SAMPLE_COALITION, 0);
+    expect(html).toContain('data-chart-config');
+    expect(html).toContain('radar');
+    expect(html).toContain('EPP');
+  });
+
+  it('should include noscript fallback table with blocs', () => {
+    const html = buildCoalitionPanel(SAMPLE_COALITION, 0);
+    expect(html).toContain('<noscript>');
+    expect(html).toContain('EPP');
+    expect(html).toContain('S&amp;D');
+  });
+
+  it('should include accessible ARIA attributes', () => {
+    const html = buildCoalitionPanel(SAMPLE_COALITION, 0);
+    expect(html).toContain('role="region"');
+    expect(html).toContain('aria-label=');
+  });
+
+  it('should generate unique canvas ID using panelIndex', () => {
+    const html0 = buildCoalitionPanel(SAMPLE_COALITION, 0);
+    const html1 = buildCoalitionPanel(SAMPLE_COALITION, 1);
+    expect(html0).toContain('coalition-chart-0');
+    expect(html1).toContain('coalition-chart-1');
+  });
+
+  it('should escape HTML in group names', () => {
+    const xss = {
+      alignmentScore: 50,
+      votingBlocs: [{ group: '<script>alert(1)</script>', alignmentScore: 50 }],
+      shiftIndicator: 'stable',
+    };
+    const html = buildCoalitionPanel(xss, 0);
+    expect(html).not.toContain('<script>');
+    expect(html).toContain('&lt;script&gt;');
+  });
+
+  it('should localize labels when lang is provided', () => {
+    const html = buildCoalitionPanel(SAMPLE_COALITION, 0, 'de');
+    expect(html).toContain('Koalitionsausrichtung');
+  });
+});
+
+describe('buildPipelinePanel', () => {
+  it('should return empty string for null pipeline', () => {
+    expect(buildPipelinePanel(null, 0)).toBe('');
+  });
+
+  it('should return empty string for undefined pipeline', () => {
+    expect(buildPipelinePanel(undefined, 0)).toBe('');
+  });
+
+  it('should return empty string for pipeline with zero total', () => {
+    const empty = { healthScore: 100, onTrack: 0, delayed: 0, blocked: 0, fastTracked: 0, total: 0 };
+    expect(buildPipelinePanel(empty, 0)).toBe('');
+  });
+
+  it('should render pipeline panel with health score', () => {
+    const html = buildPipelinePanel(SAMPLE_PIPELINE, 0);
+    expect(html).toContain('Pipeline Status');
+    expect(html).toContain('80%');
+  });
+
+  it('should render on-track, delayed, blocked, fast-tracked counts', () => {
+    const html = buildPipelinePanel(SAMPLE_PIPELINE, 0);
+    expect(html).toContain('12');
+    expect(html).toContain('3');
+    expect(html).toContain('1');
+    expect(html).toContain('2');
+  });
+
+  it('should apply healthy CSS class for high health score', () => {
+    const html = buildPipelinePanel(SAMPLE_PIPELINE, 0);
+    expect(html).toContain('pipeline-healthy');
+  });
+
+  it('should apply moderate CSS class for mid-range health score', () => {
+    const moderate = { ...SAMPLE_PIPELINE, healthScore: 55 };
+    const html = buildPipelinePanel(moderate, 0);
+    expect(html).toContain('pipeline-moderate');
+  });
+
+  it('should apply critical CSS class for low health score', () => {
+    const critical = { ...SAMPLE_PIPELINE, healthScore: 25 };
+    const html = buildPipelinePanel(critical, 0);
+    expect(html).toContain('pipeline-critical');
+  });
+
+  it('should embed bar chart configuration as JSON data attribute', () => {
+    const html = buildPipelinePanel(SAMPLE_PIPELINE, 0);
+    expect(html).toContain('data-chart-config');
+    // JSON is HTML-escaped in the attribute value
+    expect(html).toContain('&quot;bar&quot;');
+  });
+
+  it('should include noscript fallback list', () => {
+    const html = buildPipelinePanel(SAMPLE_PIPELINE, 0);
+    expect(html).toContain('<noscript>');
+    expect(html).toContain('On Track');
+    expect(html).toContain('Delayed');
+  });
+
+  it('should include accessible ARIA attributes', () => {
+    const html = buildPipelinePanel(SAMPLE_PIPELINE, 0);
+    expect(html).toContain('role="region"');
+    expect(html).toContain('aria-label=');
+  });
+
+  it('should generate unique canvas ID using panelIndex', () => {
+    const html0 = buildPipelinePanel(SAMPLE_PIPELINE, 0);
+    const html3 = buildPipelinePanel(SAMPLE_PIPELINE, 3);
+    expect(html0).toContain('pipeline-chart-0');
+    expect(html3).toContain('pipeline-chart-3');
+  });
+
+  it('should localize labels when lang is provided', () => {
+    const html = buildPipelinePanel(SAMPLE_PIPELINE, 0, 'fr');
+    expect(html).toContain('État du pipeline');
+  });
+});
+
+describe('buildTrendPanel', () => {
+  it('should return empty string for null trend', () => {
+    expect(buildTrendPanel(null, 0)).toBe('');
+  });
+
+  it('should return empty string for undefined trend', () => {
+    expect(buildTrendPanel(undefined, 0)).toBe('');
+  });
+
+  it('should return empty string for trend with no metrics', () => {
+    const empty = { period: 'weekly', metrics: [], direction: 'stable' };
+    expect(buildTrendPanel(empty, 0)).toBe('');
+  });
+
+  it('should render trend panel with direction label', () => {
+    const html = buildTrendPanel(SAMPLE_TREND, 0);
+    expect(html).toContain('Trend Analysis');
+    expect(html).toContain('Improving');
+  });
+
+  it('should render declining direction', () => {
+    const declining = { ...SAMPLE_TREND, direction: 'declining' };
+    const html = buildTrendPanel(declining, 0);
+    expect(html).toContain('Declining');
+  });
+
+  it('should render stable direction', () => {
+    const stable = { ...SAMPLE_TREND, direction: 'stable' };
+    const html = buildTrendPanel(stable, 0);
+    expect(html).toContain('Stable');
+  });
+
+  it('should render week-over-week change when provided', () => {
+    const html = buildTrendPanel(SAMPLE_TREND, 0);
+    expect(html).toContain('Week-over-Week');
+    expect(html).toContain('+50%');
+  });
+
+  it('should render month-over-month change when provided', () => {
+    const monthly = { ...SAMPLE_TREND, period: 'monthly', weekOverWeekChange: undefined, monthOverMonthChange: -5 };
+    const html = buildTrendPanel(monthly, 0);
+    expect(html).toContain('Month-over-Month');
+    expect(html).toContain('-5%');
+  });
+
+  it('should embed line chart configuration as JSON data attribute', () => {
+    const html = buildTrendPanel(SAMPLE_TREND, 0);
+    expect(html).toContain('data-chart-config');
+    // JSON is HTML-escaped in the attribute value
+    expect(html).toContain('&quot;line&quot;');
+    expect(html).toContain('W1');
+  });
+
+  it('should include noscript fallback table with period data', () => {
+    const html = buildTrendPanel(SAMPLE_TREND, 0);
+    expect(html).toContain('<noscript>');
+    expect(html).toContain('W1');
+    expect(html).toContain('10');
+  });
+
+  it('should include accessible ARIA attributes', () => {
+    const html = buildTrendPanel(SAMPLE_TREND, 0);
+    expect(html).toContain('role="region"');
+    expect(html).toContain('aria-label=');
+  });
+
+  it('should generate unique canvas ID using panelIndex', () => {
+    const html2 = buildTrendPanel(SAMPLE_TREND, 2);
+    expect(html2).toContain('trend-chart-2');
+  });
+
+  it('should localize labels when lang is provided', () => {
+    const html = buildTrendPanel(SAMPLE_TREND, 0, 'sv');
+    expect(html).toContain('Trendanalys');
+  });
+
+  it('should not render week-over-week when undefined', () => {
+    const noWow = { ...SAMPLE_TREND, weekOverWeekChange: undefined };
+    const html = buildTrendPanel(noWow, 0);
+    expect(html).not.toContain('Week-over-Week');
+  });
+});
+
+describe('buildStakeholderScorecardPanel', () => {
+  it('should return empty string for null stakeholders', () => {
+    expect(buildStakeholderScorecardPanel(null, 0)).toBe('');
+  });
+
+  it('should return empty string for undefined stakeholders', () => {
+    expect(buildStakeholderScorecardPanel(undefined, 0)).toBe('');
+  });
+
+  it('should return empty string for empty stakeholders array', () => {
+    expect(buildStakeholderScorecardPanel([], 0)).toBe('');
+  });
+
+  it('should render stakeholder scorecard panel', () => {
+    const html = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0);
+    expect(html).toContain('Stakeholder Impact');
+    expect(html).toContain('stakeholder-scorecard');
+  });
+
+  it('should render all stakeholder names', () => {
+    const html = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0);
+    expect(html).toContain('EPP');
+    expect(html).toContain('S&amp;D');
+    expect(html).toContain('Minority blocs');
+  });
+
+  it('should render impact scores', () => {
+    const html = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0);
+    expect(html).toContain('85/100');
+    expect(html).toContain('62/100');
+    expect(html).toContain('30/100');
+  });
+
+  it('should apply positive CSS class for positive impact', () => {
+    const html = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0);
+    expect(html).toContain('impact-positive');
+  });
+
+  it('should apply negative CSS class for negative impact', () => {
+    const html = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0);
+    expect(html).toContain('impact-negative');
+  });
+
+  it('should apply neutral CSS class for neutral impact', () => {
+    const html = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0);
+    expect(html).toContain('impact-neutral');
+  });
+
+  it('should render direction labels (Positive, Negative, Neutral)', () => {
+    const html = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0);
+    expect(html).toContain('Positive');
+    expect(html).toContain('Negative');
+    expect(html).toContain('Neutral');
+  });
+
+  it('should render description when provided', () => {
+    const html = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0);
+    expect(html).toContain('High cohesion');
+  });
+
+  it('should include noscript fallback table', () => {
+    const html = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0);
+    expect(html).toContain('<noscript>');
+    expect(html).toContain('chart-fallback-table');
+  });
+
+  it('should include accessible ARIA attributes', () => {
+    const html = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0);
+    expect(html).toContain('role="region"');
+    expect(html).toContain('aria-label=');
+  });
+
+  it('should generate unique ID using panelIndex', () => {
+    const html0 = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0);
+    const html5 = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 5);
+    expect(html0).toContain('stakeholder-scorecard-0');
+    expect(html5).toContain('stakeholder-scorecard-5');
+  });
+
+  it('should escape HTML in stakeholder names', () => {
+    const xss = [
+      { stakeholder: '<script>xss()</script>', impactScore: 50, impactDirection: 'neutral' },
+    ];
+    const html = buildStakeholderScorecardPanel(xss, 0);
+    expect(html).not.toContain('<script>');
+    expect(html).toContain('&lt;script&gt;');
+  });
+
+  it('should localize labels when lang is provided', () => {
+    const html = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0, 'de');
+    expect(html).toContain('Stakeholder-Einfluss');
+  });
+
+  it('should render stakeholder-grid with list role', () => {
+    const html = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0);
+    expect(html).toContain('stakeholder-grid');
+    expect(html).toContain('role="list"');
   });
 });
