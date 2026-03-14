@@ -549,6 +549,97 @@ describe('deep-analysis-content', () => {
       expect(html).toContain('&lt;script&gt;');
       expect(html).toContain('&lt;img');
     });
+
+    it('should reject unsafe URLs (javascript: scheme) in evidence references', () => {
+      const unsafeAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        reasoningChains: [
+          {
+            ...SAMPLE_ENHANCED_ANALYSIS.reasoningChains[0],
+            evidence: [
+              {
+                id: 'xss-1',
+                type: 'vote',
+                title: 'Malicious link',
+                url: 'javascript:alert(1)',
+              },
+            ],
+          },
+        ],
+      };
+      const html = buildDeepAnalysisSection(unsafeAnalysis, 'en');
+      expect(html).not.toContain('href="javascript:');
+      expect(html).toContain('Malicious link');
+    });
+
+    it('should reject unsafe URLs (data: scheme) in evidence references', () => {
+      const unsafeAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        reasoningChains: [
+          {
+            ...SAMPLE_ENHANCED_ANALYSIS.reasoningChains[0],
+            evidence: [
+              {
+                id: 'xss-2',
+                type: 'document',
+                title: 'Data URI exploit',
+                url: 'data:text/html,<script>alert(1)</script>',
+              },
+            ],
+          },
+        ],
+      };
+      const html = buildDeepAnalysisSection(unsafeAnalysis, 'en');
+      expect(html).not.toContain('href="data:');
+      expect(html).toContain('Data URI exploit');
+    });
+
+    it('should render safe https URLs as hyperlinks with target="_blank"', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('target="_blank"');
+      expect(html).toContain('rel="noopener noreferrer"');
+    });
+
+    it('should clamp probability bar to 0-100 range', () => {
+      const extremeScenarios = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        scenarioPlanning: {
+          ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning,
+          bestCase: {
+            ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning.bestCase,
+            probability: 1.5, // > 1.0 should clamp to 100%
+          },
+          worstCase: {
+            ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning.worstCase,
+            probability: -0.3, // negative should clamp to 0%
+          },
+        },
+      };
+      const html = buildDeepAnalysisSection(extremeScenarios, 'en');
+      expect(html).toContain('aria-valuenow="100"');
+      expect(html).toContain('aria-valuenow="0"');
+      expect(html).not.toContain('aria-valuenow="150"');
+      expect(html).not.toContain('aria-valuenow="-30"');
+    });
+
+    it('should include aria-label on probability bars for accessibility', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toMatch(/aria-label="Best Case 25%"/);
+      expect(html).toMatch(/aria-label="Most Likely 55%"/);
+      expect(html).toMatch(/aria-label="Worst Case 20%"/);
+    });
+
+    it('should use overallConfidenceLabel (not section heading) as dt in methodology dl', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      const dlMatch = html.match(/<dl class="methodology-stats">([\s\S]*?)<\/dl>/);
+      expect(dlMatch).not.toBeNull();
+      const dlContent = dlMatch[1];
+      expect(dlContent).toContain('Overall Confidence');
+      // First dt should NOT be the section heading
+      const firstDt = dlContent.match(/<dt>(.*?)<\/dt>/);
+      expect(firstDt).not.toBeNull();
+      expect(firstDt[1]).not.toBe('Analysis Methodology');
+    });
   });
 });
 

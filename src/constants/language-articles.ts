@@ -1586,7 +1586,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
-    /* eslint-enable sonarjs/no-duplicate-string */
+    overallConfidenceLabel: 'Overall Confidence',
   },
   sv: {
     sectionHeading: 'Fördjupad Politisk Analys',
@@ -1644,6 +1644,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
+    overallConfidenceLabel: 'Overall Confidence',
   },
   da: {
     sectionHeading: 'Dybdegående Politisk Analyse',
@@ -1701,6 +1702,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
+    overallConfidenceLabel: 'Overall Confidence',
   },
   no: {
     sectionHeading: 'Dyptgående Politisk Analyse',
@@ -1758,6 +1760,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
+    overallConfidenceLabel: 'Overall Confidence',
   },
   fi: {
     sectionHeading: 'Syvällinen Poliittinen Analyysi',
@@ -1815,6 +1818,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
+    overallConfidenceLabel: 'Overall Confidence',
   },
   de: {
     sectionHeading: 'Vertiefte Politische Analyse',
@@ -1872,6 +1876,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
+    overallConfidenceLabel: 'Overall Confidence',
   },
   fr: {
     sectionHeading: 'Analyse Politique Approfondie',
@@ -1929,6 +1934,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
+    overallConfidenceLabel: 'Overall Confidence',
   },
   es: {
     sectionHeading: 'Análisis Político Profundo',
@@ -1986,6 +1992,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
+    overallConfidenceLabel: 'Overall Confidence',
   },
   nl: {
     sectionHeading: 'Diepgaande Politieke Analyse',
@@ -2043,6 +2050,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
+    overallConfidenceLabel: 'Overall Confidence',
   },
   ar: {
     sectionHeading: 'تحليل سياسي معمّق',
@@ -2100,6 +2108,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
+    overallConfidenceLabel: 'Overall Confidence',
   },
   he: {
     sectionHeading: 'ניתוח פוליטי מעמיק',
@@ -2157,6 +2166,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
+    overallConfidenceLabel: 'Overall Confidence',
   },
   ja: {
     sectionHeading: '深層政治分析',
@@ -2214,6 +2224,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
+    overallConfidenceLabel: 'Overall Confidence',
   },
   ko: {
     sectionHeading: '심층 정치 분석',
@@ -2271,6 +2282,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
+    overallConfidenceLabel: 'Overall Confidence',
   },
   zh: {
     sectionHeading: '深度政治分析',
@@ -2328,6 +2340,8 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationStakeholderChallenge: 'Stakeholder Challenge',
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
+    overallConfidenceLabel: 'Overall Confidence',
+    /* eslint-enable sonarjs/no-duplicate-string */
   },
 };
 

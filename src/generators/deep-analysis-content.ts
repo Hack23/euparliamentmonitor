@@ -19,7 +19,7 @@
  * - **Outlook**: Strategic forward look
  */
 
-import { escapeHTML } from '../utils/file-utils.js';
+import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 import { getLocalizedString, DEEP_ANALYSIS_STRINGS } from '../constants/languages.js';
 import type {
   DeepAnalysis,
@@ -411,7 +411,7 @@ function isEnhancedDeepAnalysis(a: DeepAnalysis): a is EnhancedDeepAnalysis {
 }
 
 /**
- * Build a CSS-only confidence badge
+ * Build a confidence badge with emoji indicator and text label
  *
  * @param confidence - Confidence level
  * @param strings - Localized strings
@@ -487,8 +487,8 @@ function buildReasoningChainSection(
       const evidenceItems = chain.evidence
         .map((ref) => {
           const dateText = ref.date ? ` (${escapeHTML(ref.date)})` : '';
-          if (ref.url) {
-            return `<li><a href="${escapeHTML(ref.url)}" rel="noopener noreferrer">${escapeHTML(ref.title)}${dateText}</a></li>`;
+          if (ref.url && isSafeURL(ref.url)) {
+            return `<li><a href="${escapeHTML(ref.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(ref.title)}${dateText}</a></li>`;
           }
           return `<li>${escapeHTML(ref.title)}${dateText}</li>`;
         })
@@ -555,7 +555,7 @@ function buildScenarioPlanningSection(
     cssClass: string,
     label: string
   ): string {
-    const pct = Math.round(scenario.probability * 100);
+    const pct = Math.max(0, Math.min(100, Math.round(scenario.probability * 100)));
     const triggerItems = scenario.triggers
       .map((t) => `<li${langAttr}>${escapeHTML(t)}</li>`)
       .join('\n                  ');
@@ -572,7 +572,7 @@ function buildScenarioPlanningSection(
                 <p${langAttr}>${escapeHTML(scenario.description)}</p>
                 <div class="scenario-probability">
                   <span>${escapeHTML(strings.probabilityLabel)}: ${pct}%</span>
-                  <div class="probability-bar" style="width:${pct}%" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="probability-bar" style="width:${pct}%" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="${escapeHTML(label)} ${pct}%"></div>
                 </div>
                 ${
                   scenario.triggers.length > 0
@@ -708,7 +708,7 @@ function buildAnalysisMethodologySection(
             <div class="analysis-methodology">
               <h3>${escapeHTML(heading)}</h3>
               <dl class="methodology-stats">
-                <dt>${escapeHTML(strings.analysisMethodologyHeading)}</dt>
+                <dt>${escapeHTML(strings.overallConfidenceLabel)}</dt>
                 <dd>${buildConfidenceBadge(metadata.overallConfidence, strings)}</dd>
                 <dt>${escapeHTML(strings.evidenceStrengthLabel)}</dt>
                 <dd>${escapeHTML(evidenceStrengthLabel(metadata.evidenceStrength, strings))}</dd>

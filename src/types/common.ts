@@ -470,6 +470,8 @@ export interface DeepAnalysisStrings {
   readonly iterationStakeholderChallenge: string;
   readonly iterationEvidenceValidation: string;
   readonly iterationSynthesis: string;
+  /** Label for overall confidence in methodology stats */
+  readonly overallConfidenceLabel: string;
 }
 
 /** Localized content strings for the committee analysis deep analysis body text */
