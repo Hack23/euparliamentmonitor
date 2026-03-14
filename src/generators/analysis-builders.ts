@@ -1133,8 +1133,7 @@ function buildCoalitionMetricsFromPatterns(
   const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
   if (realPatterns.length === 0) return null;
 
-  const avgCohesion =
-    realPatterns.reduce((sum, p) => sum + p.cohesion, 0) / realPatterns.length;
+  const avgCohesion = realPatterns.reduce((sum, p) => sum + p.cohesion, 0) / realPatterns.length;
   const alignmentScore = Math.round(avgCohesion * 100);
 
   // Detect shift from cohesion spread
@@ -1285,7 +1284,8 @@ function buildStakeholderMetricsFromPipeline(
     {
       stakeholder: 'Legislators',
       impactScore: pipeline.healthScore,
-      impactDirection: pipeline.healthScore > 70 ? 'positive' : pipeline.healthScore < 40 ? 'negative' : 'neutral',
+      impactDirection:
+        pipeline.healthScore > 70 ? 'positive' : pipeline.healthScore < 40 ? 'negative' : 'neutral',
     },
     {
       stakeholder: 'Pending proposals',

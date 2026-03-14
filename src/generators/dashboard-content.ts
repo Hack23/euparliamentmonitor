@@ -24,7 +24,11 @@
  */
 
 import { escapeHTML } from '../utils/file-utils.js';
-import { getLocalizedString, DASHBOARD_STRINGS, DASHBOARD_BUILDER_STRINGS } from '../constants/languages.js';
+import {
+  getLocalizedString,
+  DASHBOARD_STRINGS,
+  DASHBOARD_BUILDER_STRINGS,
+} from '../constants/languages.js';
 import type {
   DashboardConfig,
   DashboardPanel,
