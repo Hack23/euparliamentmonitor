@@ -370,7 +370,32 @@ export function loadIntelligenceIndex(indexPath: string): IntelligenceIndex {
 
   try {
     const content = fs.readFileSync(indexPath, 'utf-8');
-    return JSON.parse(content) as IntelligenceIndex;
+    const parsed = JSON.parse(content) as Partial<IntelligenceIndex>;
+    // Merge onto an empty index to ensure all fields are present and safe
+    // even after schema evolution or partial/corrupt files.
+    const empty = createEmptyIndex();
+    return {
+      articles: Array.isArray(parsed.articles) ? parsed.articles : empty.articles,
+      actors:
+        parsed.actors && typeof parsed.actors === 'object' && !Array.isArray(parsed.actors)
+          ? parsed.actors
+          : empty.actors,
+      policyDomains:
+        parsed.policyDomains &&
+        typeof parsed.policyDomains === 'object' &&
+        !Array.isArray(parsed.policyDomains)
+          ? parsed.policyDomains
+          : empty.policyDomains,
+      procedures:
+        parsed.procedures &&
+        typeof parsed.procedures === 'object' &&
+        !Array.isArray(parsed.procedures)
+          ? parsed.procedures
+          : empty.procedures,
+      trends: Array.isArray(parsed.trends) ? parsed.trends : empty.trends,
+      series: Array.isArray(parsed.series) ? parsed.series : empty.series,
+      lastUpdated: typeof parsed.lastUpdated === 'string' ? parsed.lastUpdated : empty.lastUpdated,
+    };
   } catch {
     return createEmptyIndex();
   }
@@ -451,9 +476,7 @@ export function buildRelatedArticlesHTML(
 
   const trendBlocks = trends
     .map((trend) => {
-      // The current article being generated is not yet counted in trend.articleReferences,
-      // so display count + 1 for an accurate reader-facing message.
-      const count = trend.articleReferences.length + 1;
+      const count = trend.articleReferences.length;
       return `  <div class="emerging-trends">
     <h4>Emerging Trend: ${escapeText(trend.name)}</h4>
     <p>This is the ${count}${ordinalSuffix(count)} article tracking ${escapeText(trend.name.toLowerCase())} (confidence: ${escapeText(trend.confidence)})</p>
@@ -461,10 +484,7 @@ export function buildRelatedArticlesHTML(
     })
     .join('\n');
 
-  const listSection =
-    listItems.length > 0
-      ? `  <ul>\n${listItems.join('\n')}\n  </ul>`
-      : '';
+  const listSection = listItems.length > 0 ? `  <ul>\n${listItems.join('\n')}\n  </ul>` : '';
 
   const parts = ['<section class="related-articles" aria-label="Related Analysis">'];
   parts.push('  <h3>Related Analysis</h3>');
@@ -538,7 +558,12 @@ function slugify(text: string): string {
  * @returns Escaped text safe for HTML attributes
  */
 function escapeAttr(text: string): string {
-  return text.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
 
 /**
@@ -547,10 +572,7 @@ function escapeAttr(text: string): string {
  * @returns Escaped text safe for HTML text nodes
  */
 function escapeText(text: string): string {
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 /**

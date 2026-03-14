@@ -10,6 +10,7 @@
 import fs from 'fs';
 import path from 'path';
 import { formatDateForSlug } from '../../utils/file-utils.js';
+import { NEWS_DIR } from '../../constants/config.js';
 // ─── File-write helpers ───────────────────────────────────────────────────────
 /** Log prefix for write operations */
 const DRY_RUN_PREFIX = '  [DRY RUN]';
@@ -144,7 +145,7 @@ export function writeGenerationMetadata(stats, results, usedMCP, metadataDir, dr
 }
 import { addArticleToIndex, detectTrends, saveIntelligenceIndex, } from '../../utils/intelligence-index.js';
 /** Default path for the intelligence index file */
-const DEFAULT_INTELLIGENCE_INDEX_PATH = 'news/intelligence-index.json';
+const DEFAULT_INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
 /**
  * Add a newly generated article entry to the intelligence index and refresh
  * trend detections.

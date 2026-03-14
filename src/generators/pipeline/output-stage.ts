@@ -13,6 +13,7 @@ import fs from 'fs';
 import path from 'path';
 import type { GenerationStats, GenerationResult } from '../../types/index.js';
 import { formatDateForSlug } from '../../utils/file-utils.js';
+import { NEWS_DIR } from '../../constants/config.js';
 
 // ─── Output options ───────────────────────────────────────────────────────────
 
@@ -201,7 +202,7 @@ import {
 } from '../../utils/intelligence-index.js';
 
 /** Default path for the intelligence index file */
-const DEFAULT_INTELLIGENCE_INDEX_PATH = 'news/intelligence-index.json';
+const DEFAULT_INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
 
 /**
  * Add a newly generated article entry to the intelligence index and refresh

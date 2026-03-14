@@ -17,6 +17,7 @@
  */
 
 import fs from 'fs';
+import path from 'path';
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
 import { getEPMCPClient } from '../../mcp/ep-mcp-client.js';
 import type {
@@ -2016,9 +2017,10 @@ export async function fetchEPFeedData(
 
 import { loadIntelligenceIndex } from '../../utils/intelligence-index.js';
 import type { IntelligenceIndex } from '../../types/intelligence.js';
+import { NEWS_DIR } from '../../constants/config.js';
 
 /** Default path for the intelligence index file */
-const DEFAULT_INTELLIGENCE_INDEX_PATH = 'news/intelligence-index.json';
+const DEFAULT_INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
 
 /**
  * Load the intelligence index at pipeline start so downstream stages can use it.

@@ -248,7 +248,12 @@ export async function generateArticleForStrategy(
 
 // ─── Intelligence Index helpers ───────────────────────────────────────────────
 
-import type { ArticleIndexEntry, IntelligenceIndex, ArticleCrossReference, TrendDetection } from '../../types/intelligence.js';
+import type {
+  ArticleIndexEntry,
+  IntelligenceIndex,
+  ArticleCrossReference,
+  TrendDetection,
+} from '../../types/intelligence.js';
 import {
   findRelatedArticles,
   generateCrossReferences,
@@ -308,9 +313,7 @@ export function enrichArticleWithIntelligence(
   const related = findRelatedArticles(index, entry.keyTopics, entry.keyActors);
   const crossRefs: ArticleCrossReference[] = generateCrossReferences(index, entry);
   const relevantTrends: TrendDetection[] = index.trends.filter((trend) =>
-    entry.keyTopics.some((topic) =>
-      trend.name.toLowerCase().includes(topic.toLowerCase())
-    )
+    entry.keyTopics.some((topic) => trend.name.toLowerCase().includes(topic.toLowerCase()))
   );
   return buildRelatedArticlesHTML(related, crossRefs, relevantTrends, lang);
 }

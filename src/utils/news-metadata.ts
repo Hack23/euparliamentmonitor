@@ -145,9 +145,6 @@ export function updateIntelligenceIndex(
 
     const articleId = `${parsed.date}-${parsed.slug}-${parsed.lang}`;
 
-    // Skip if already indexed
-    if (index.articles.some((a) => a.id === articleId)) continue;
-
     const filepath = path.join(newsDir, filename);
     const meta = extractArticleMeta(filepath);
 
@@ -188,16 +185,23 @@ export function updateIntelligenceIndex(
  */
 function deriveArticleCategory(slug: string): ArticleCategory {
   const lower = slug.toLowerCase();
-  if (lower.includes('week-ahead') || lower.includes('weekahead')) return ArticleCategory.WEEK_AHEAD;
-  if (lower.includes('month-ahead') || lower.includes('monthahead')) return ArticleCategory.MONTH_AHEAD;
-  if (lower.includes('year-ahead') || lower.includes('yearahead')) return ArticleCategory.YEAR_AHEAD;
-  if (lower.includes('week-in-review') || lower.includes('weekinreview')) return ArticleCategory.WEEK_IN_REVIEW;
-  if (lower.includes('month-in-review') || lower.includes('monthinreview')) return ArticleCategory.MONTH_IN_REVIEW;
-  if (lower.includes('year-in-review') || lower.includes('yearinreview')) return ArticleCategory.YEAR_IN_REVIEW;
+  if (lower.includes('week-ahead') || lower.includes('weekahead'))
+    return ArticleCategory.WEEK_AHEAD;
+  if (lower.includes('month-ahead') || lower.includes('monthahead'))
+    return ArticleCategory.MONTH_AHEAD;
+  if (lower.includes('year-ahead') || lower.includes('yearahead'))
+    return ArticleCategory.YEAR_AHEAD;
+  if (lower.includes('week-in-review') || lower.includes('weekinreview'))
+    return ArticleCategory.WEEK_IN_REVIEW;
+  if (lower.includes('month-in-review') || lower.includes('monthinreview'))
+    return ArticleCategory.MONTH_IN_REVIEW;
+  if (lower.includes('year-in-review') || lower.includes('yearinreview'))
+    return ArticleCategory.YEAR_IN_REVIEW;
   if (lower.includes('breaking')) return ArticleCategory.BREAKING_NEWS;
   if (lower.includes('committee')) return ArticleCategory.COMMITTEE_REPORTS;
   if (lower.includes('motion')) return ArticleCategory.MOTIONS;
-  if (lower.includes('proposition') || lower.includes('proposal')) return ArticleCategory.PROPOSITIONS;
+  if (lower.includes('proposition') || lower.includes('proposal'))
+    return ArticleCategory.PROPOSITIONS;
   if (lower.includes('deep') || lower.includes('analysis')) return ArticleCategory.DEEP_ANALYSIS;
   return ArticleCategory.WEEK_AHEAD;
 }
@@ -208,9 +212,61 @@ function deriveArticleCategory(slug: string): ArticleCategory {
  * Expand this set as needed for EU Parliament domain-specific noise.
  */
 const STOP_WORDS = new Set([
-  'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
-  'of', 'with', 'by', 'from', 'is', 'are', 'was', 'were', 'be', 'been',
-  'has', 'have', 'had', 'this', 'that', 'it', 'its', 'as', 'not', 'no',
+  'the',
+  'a',
+  'an',
+  'and',
+  'or',
+  'but',
+  'in',
+  'on',
+  'at',
+  'to',
+  'for',
+  'of',
+  'with',
+  'by',
+  'from',
+  'is',
+  'are',
+  'was',
+  'were',
+  'be',
+  'been',
+  'has',
+  'have',
+  'had',
+  'this',
+  'that',
+  'it',
+  'its',
+  'as',
+  'not',
+  'no',
+]);
+
+/**
+ * Article-type taxonomy tokens that should be excluded from keyTopics
+ * to prevent unrelated articles of the same type from appearing "related".
+ */
+const ARTICLE_TYPE_NOISE = new Set([
+  'week',
+  'month',
+  'year',
+  'ahead',
+  'review',
+  'breaking',
+  'committee',
+  'motions',
+  'motion',
+  'propositions',
+  'proposition',
+  'proposal',
+  'deep',
+  'analysis',
+  'reports',
+  'report',
+  'news',
 ]);
 
 /**
@@ -224,7 +280,11 @@ const STOP_WORDS = new Set([
 function extractTokens(text: string, tokens: Set<string>, minLength: number): void {
   for (const word of text.toLowerCase().split(/[\s\-_]+/)) {
     const cleaned = word.replace(/[^a-z0-9]/g, '');
-    if (cleaned.length >= minLength && !STOP_WORDS.has(cleaned)) {
+    if (
+      cleaned.length >= minLength &&
+      !STOP_WORDS.has(cleaned) &&
+      !ARTICLE_TYPE_NOISE.has(cleaned)
+    ) {
       tokens.add(cleaned);
     }
   }

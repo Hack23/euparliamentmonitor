@@ -419,6 +419,21 @@ describe('loadIntelligenceIndex', () => {
     const index = loadIntelligenceIndex(badPath);
     expect(index.articles).toEqual([]);
   });
+
+  it('should normalize partial JSON (missing fields) to a complete index', () => {
+    const partialPath = path.join(tempDir, 'partial.json');
+    fs.writeFileSync(partialPath, JSON.stringify({ articles: [{ id: 'test' }] }), 'utf-8');
+    const index = loadIntelligenceIndex(partialPath);
+    // articles loaded from file
+    expect(index.articles).toHaveLength(1);
+    // missing fields default to empty collections
+    expect(index.actors).toEqual({});
+    expect(index.policyDomains).toEqual({});
+    expect(index.procedures).toEqual({});
+    expect(index.trends).toEqual([]);
+    expect(index.series).toEqual([]);
+    expect(typeof index.lastUpdated).toBe('string');
+  });
 });
 
 describe('saveIntelligenceIndex + loadIntelligenceIndex (round-trip)', () => {
@@ -507,10 +522,10 @@ describe('buildRelatedArticlesHTML', () => {
     expect(html).toContain('confidence: low');
   });
 
-  it('should include the article count (plus 1 for current article) in the trend description', () => {
+  it('should include the article count in the trend description', () => {
     const html = buildRelatedArticlesHTML([articleEntry], [], [trend]);
-    // trend has 2 article references, +1 for current article = 3rd
-    expect(html).toContain('3rd');
+    // trend has 2 article references — displayed as "2nd"
+    expect(html).toContain('2nd');
   });
 
   it('should show "Related" links when there are articles but no explicit cross-refs', () => {

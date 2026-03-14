@@ -15,6 +15,7 @@
  * errors the circuit opens and subsequent calls short-circuit immediately.
  */
 import fs from 'fs';
+import path from 'path';
 import { getEPMCPClient } from '../../mcp/ep-mcp-client.js';
 import { parsePlenarySessions, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, parseParliamentaryQuestions, parseEPEvents, PLACEHOLDER_EVENTS, } from '../week-ahead-content.js';
 import { applyCommitteeInfo, applyDocuments, applyEffectiveness } from '../committee-helpers.js';
@@ -1524,8 +1525,9 @@ export async function fetchEPFeedData(client, timeframe = 'one-day', dateRange) 
 }
 // ─── Intelligence Index loading ───────────────────────────────────────────────
 import { loadIntelligenceIndex } from '../../utils/intelligence-index.js';
+import { NEWS_DIR } from '../../constants/config.js';
 /** Default path for the intelligence index file */
-const DEFAULT_INTELLIGENCE_INDEX_PATH = 'news/intelligence-index.json';
+const DEFAULT_INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
 /**
  * Load the intelligence index at pipeline start so downstream stages can use it.
  *

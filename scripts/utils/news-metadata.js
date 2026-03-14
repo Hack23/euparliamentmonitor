@@ -106,9 +106,6 @@ export function updateIntelligenceIndex(newsDir = NEWS_DIR, indexPath = INTELLIG
         if (!parsed)
             continue;
         const articleId = `${parsed.date}-${parsed.slug}-${parsed.lang}`;
-        // Skip if already indexed
-        if (index.articles.some((a) => a.id === articleId))
-            continue;
         const filepath = path.join(newsDir, filename);
         const meta = extractArticleMeta(filepath);
         // Derive the ArticleCategory from the slug; fall back to a sensible default
@@ -172,9 +169,60 @@ function deriveArticleCategory(slug) {
  * Expand this set as needed for EU Parliament domain-specific noise.
  */
 const STOP_WORDS = new Set([
-    'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
-    'of', 'with', 'by', 'from', 'is', 'are', 'was', 'were', 'be', 'been',
-    'has', 'have', 'had', 'this', 'that', 'it', 'its', 'as', 'not', 'no',
+    'the',
+    'a',
+    'an',
+    'and',
+    'or',
+    'but',
+    'in',
+    'on',
+    'at',
+    'to',
+    'for',
+    'of',
+    'with',
+    'by',
+    'from',
+    'is',
+    'are',
+    'was',
+    'were',
+    'be',
+    'been',
+    'has',
+    'have',
+    'had',
+    'this',
+    'that',
+    'it',
+    'its',
+    'as',
+    'not',
+    'no',
+]);
+/**
+ * Article-type taxonomy tokens that should be excluded from keyTopics
+ * to prevent unrelated articles of the same type from appearing "related".
+ */
+const ARTICLE_TYPE_NOISE = new Set([
+    'week',
+    'month',
+    'year',
+    'ahead',
+    'review',
+    'breaking',
+    'committee',
+    'motions',
+    'motion',
+    'propositions',
+    'proposition',
+    'proposal',
+    'deep',
+    'analysis',
+    'reports',
+    'report',
+    'news',
 ]);
 /**
  * Extract meaningful words from a text string, excluding stop-words and
@@ -187,7 +235,9 @@ const STOP_WORDS = new Set([
 function extractTokens(text, tokens, minLength) {
     for (const word of text.toLowerCase().split(/[\s\-_]+/)) {
         const cleaned = word.replace(/[^a-z0-9]/g, '');
-        if (cleaned.length >= minLength && !STOP_WORDS.has(cleaned)) {
+        if (cleaned.length >= minLength &&
+            !STOP_WORDS.has(cleaned) &&
+            !ARTICLE_TYPE_NOISE.has(cleaned)) {
             tokens.add(cleaned);
         }
     }
