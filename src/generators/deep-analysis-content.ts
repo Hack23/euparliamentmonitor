@@ -487,7 +487,7 @@ function buildReasoningChainSection(
         .map((ref) => {
           const dateText = ref.date ? ` (${escapeHTML(ref.date)})` : '';
           if (ref.url && isSafeURL(ref.url)) {
-            return `<li${langAttr}><a href="${escapeHTML(ref.url)}" target="_blank" rel="noopener noreferrer"${langAttr}>${escapeHTML(ref.title)}${dateText}</a></li>`;
+            return `<li${langAttr}><a href="${escapeHTML(ref.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(ref.title)}${dateText}</a></li>`;
           }
           return `<li${langAttr}>${escapeHTML(ref.title)}${dateText}</li>`;
         })
