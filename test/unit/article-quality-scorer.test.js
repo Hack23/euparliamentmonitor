@@ -539,16 +539,17 @@ describe('scoreArticleQuality', () => {
   });
 
   it('non-English articles are not penalised by English-only keyword lists', () => {
-    // German text without any English keywords — should still get a reasonable score
-    // due to the non-English baseline adjustment
+    // Content without any English analysis keywords — English scorer gets score=0,
+    // but non-English scorer applies a baseline floor of 50 to compensate for the
+    // fact that translated content cannot match the English keyword lists.
     const html = buildHtml(`<p>${words(800)} Zusammenfassung der politischen Lage.</p>`);
     const reportDe = scoreArticleQuality(html, 'de-test', 'de', 'week-ahead');
     const reportEn = scoreArticleQuality(html, 'en-test', 'en', 'week-ahead');
-    // Non-English score should be at least as high as English for the same content
-    expect(reportDe.analysisDepth.score).toBeGreaterThanOrEqual(reportEn.analysisDepth.score);
-    expect(reportDe.stakeholderCoverage.balanceScore).toBeGreaterThanOrEqual(
-      reportEn.stakeholderCoverage.balanceScore
-    );
+    // English analysis depth score is 0 (no keywords matched)
+    expect(reportEn.analysisDepth.score).toBe(0);
+    // German score is raised to at least the baseline floor
+    expect(reportDe.analysisDepth.score).toBeGreaterThanOrEqual(50);
+    expect(reportDe.stakeholderCoverage.balanceScore).toBeGreaterThanOrEqual(50);
   });
 
   it('non-English articles receive baseline floors on keyword-dependent scores', () => {
