@@ -955,14 +955,267 @@ export function buildCommitteeSwot(committees, lang = 'en') {
     };
 }
 // ─── Dashboard builders ──────────────────────────────────────────────────────
+// ─── Political intelligence data builders ─────────────────────────────────────
+/**
+ * Build coalition metrics from voting patterns data.
+ * Derives alignment scores and shift indicators for the coalition radar chart.
+ *
+ * @param patterns - Voting pattern data
+ * @returns Coalition metrics object or null if no real patterns
+ */
+function buildCoalitionMetricsFromPatterns(patterns) {
+    const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
+    if (realPatterns.length === 0)
+        return null;
+    const avgCohesion = realPatterns.reduce((sum, p) => sum + p.cohesion, 0) / realPatterns.length;
+    const alignmentScore = Math.round(avgCohesion * 100);
+    // Detect shift from cohesion spread
+    const maxCohesion = Math.max(...realPatterns.map((p) => p.cohesion));
+    const minCohesion = Math.min(...realPatterns.map((p) => p.cohesion));
+    const spread = maxCohesion - minCohesion;
+    const shiftIndicator = spread > 0.3 ? 'weakening' : avgCohesion > 0.7 ? 'strengthening' : 'stable';
+    return {
+        alignmentScore,
+        votingBlocs: realPatterns.slice(0, 6).map((p) => ({
+            group: p.group,
+            alignmentScore: Math.round(p.cohesion * 100),
+        })),
+        shiftIndicator,
+    };
+}
+/**
+ * Build legislative pipeline data from WeekAheadData.
+ *
+ * @param weekData - Aggregated week/month data
+ * @returns Legislative pipeline object
+ */
+function buildPipelineFromWeekData(weekData) {
+    const bottlenecked = weekData.pipeline.filter((p) => p.bottleneck === true).length;
+    const total = weekData.pipeline.length;
+    const onTrack = total - bottlenecked;
+    const healthScore = total > 0 ? Math.round((onTrack / total) * 100) : 100;
+    return {
+        healthScore,
+        onTrack,
+        delayed: bottlenecked,
+        blocked: 0,
+        fastTracked: 0,
+        total,
+    };
+}
+/**
+ * Build legislative pipeline data from PipelineData.
+ *
+ * @param pipelineData - Pipeline metrics or null
+ * @returns Legislative pipeline object
+ */
+function buildPipelineFromPipelineData(pipelineData) {
+    if (!pipelineData)
+        return null;
+    const healthScore = Math.round(pipelineData.healthScore * 100);
+    const total = pipelineData.throughput;
+    if (total === 0)
+        return null;
+    const onTrack = Math.round(total * pipelineData.healthScore);
+    const remaining = total - onTrack;
+    const blocked = Math.round(remaining * 0.3);
+    const delayed = remaining - blocked;
+    return {
+        healthScore,
+        onTrack,
+        delayed,
+        blocked,
+        fastTracked: 0,
+        total,
+    };
+}
+/**
+ * Build trend analytics from feed data counts using the last 4 items as periods.
+ *
+ * @param counts - Array of activity counts per period
+ * @param period - Trend period label
+ * @returns Trend analytics object or null if no data
+ */
+function buildTrendFromCounts(counts, period) {
+    if (counts.length === 0 || counts.every((c) => c === 0))
+        return null;
+    const periodLabels = counts.map((_, i) => {
+        if (period === 'weekly')
+            return `W${i + 1}`;
+        if (period === 'monthly')
+            return `M${i + 1}`;
+        return `Q${i + 1}`;
+    });
+    const metrics = counts.map((value, i) => ({ period: periodLabels[i] ?? `${i + 1}`, value }));
+    const last = counts.at(-1) ?? 0;
+    const prev = counts.at(-2) ?? last;
+    const change = prev > 0 ? ((last - prev) / prev) * 100 : 0;
+    const direction = change > 5 ? 'improving' : change < -5 ? 'declining' : 'stable';
+    return {
+        period,
+        metrics,
+        direction,
+        weekOverWeekChange: period === 'weekly' ? Math.round(change * 10) / 10 : undefined,
+        monthOverMonthChange: period === 'monthly' ? Math.round(change * 10) / 10 : undefined,
+    };
+}
+/**
+ * Build stakeholder metrics from voting patterns.
+ *
+ * @param patterns - Voting patterns
+ * @param anomalyCount - Number of anomalies
+ * @returns Stakeholder metric array
+ */
+function buildStakeholderMetricsFromVoting(patterns, anomalyCount) {
+    const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
+    const metrics = realPatterns.slice(0, 4).map((p) => ({
+        stakeholder: p.group,
+        impactScore: Math.round(p.cohesion * 100),
+        impactDirection: (p.cohesion > 0.7 ? 'positive' : p.cohesion < 0.4 ? 'negative' : 'neutral'),
+    }));
+    if (anomalyCount > 0) {
+        metrics.push({
+            stakeholder: 'Coalition stability',
+            impactScore: Math.max(0, 100 - anomalyCount * 15),
+            impactDirection: anomalyCount > 3 ? 'negative' : 'neutral',
+        });
+    }
+    return metrics;
+}
+/**
+ * Build stakeholder metrics for legislative pipeline actors.
+ *
+ * @param pipeline - Legislative pipeline data
+ * @returns Stakeholder metric array
+ */
+function buildStakeholderMetricsFromPipeline(pipeline) {
+    if (!pipeline || pipeline.total === 0)
+        return [];
+    return [
+        {
+            stakeholder: 'Legislators',
+            impactScore: pipeline.healthScore,
+            impactDirection: pipeline.healthScore > 70 ? 'positive' : pipeline.healthScore < 40 ? 'negative' : 'neutral',
+        },
+        {
+            stakeholder: 'Pending proposals',
+            impactScore: pipeline.total > 0 ? Math.round((pipeline.blocked / pipeline.total) * 100) : 0,
+            impactDirection: pipeline.blocked > 0 ? 'negative' : 'neutral',
+            description: pipeline.blocked > 0
+                ? `${pipeline.blocked} blocked procedure${pipeline.blocked > 1 ? 's' : ''}`
+                : undefined,
+        },
+    ];
+}
+// ─── Dashboard builders ──────────────────────────────────────────────────────
+/** EP blue transparent color used for chart backgrounds */
+const EP_BLUE_TRANSPARENT = 'rgba(0,51,153,0.1)';
+/** EP blue border color used for chart lines */
+const EP_BLUE_BORDER = '#003399';
+/**
+ * Build the coalition alignment panel for a voting dashboard.
+ *
+ * @param d - Localized dashboard strings
+ * @param coalition - Coalition metrics
+ * @returns Panel object or null
+ */
+function buildVotingCoalitionPanel(d, coalition) {
+    if (!coalition)
+        return null;
+    const shiftLabel = coalition.shiftIndicator === 'strengthening'
+        ? d.coalitionStrengthening
+        : coalition.shiftIndicator === 'weakening'
+            ? d.coalitionWeakening
+            : d.coalitionStable;
+    const shiftTrend = coalition.shiftIndicator === 'strengthening'
+        ? 'up'
+        : coalition.shiftIndicator === 'weakening'
+            ? 'down'
+            : 'stable';
+    return {
+        title: d.coalitionAlignment,
+        metrics: [
+            { label: d.alignmentScore, value: `${coalition.alignmentScore}%`, trend: shiftTrend },
+            { label: d.coalitionShift, value: shiftLabel },
+        ],
+        chart: {
+            type: 'radar',
+            title: d.coalitionRadarChart,
+            data: {
+                labels: coalition.votingBlocs.map((b) => b.group),
+                datasets: [
+                    {
+                        label: d.alignmentScore,
+                        data: coalition.votingBlocs.map((b) => b.alignmentScore),
+                        backgroundColor: EP_BLUE_TRANSPARENT,
+                        borderColor: EP_BLUE_BORDER,
+                    },
+                ],
+            },
+        },
+    };
+}
+/**
+ * Build the trend panel for a voting dashboard.
+ *
+ * @param d - Localized dashboard strings
+ * @param realRecords - Filtered real voting records
+ * @param adoptedCount - Number of adopted votes
+ * @param rejectedCount - Number of rejected votes
+ * @returns Panel object or null
+ */
+function buildVotingTrendPanel(d, realRecords, adoptedCount, rejectedCount) {
+    if (realRecords.length < 2)
+        return null;
+    return {
+        title: d.trendAnalysis,
+        metrics: [
+            {
+                label: d.adopted,
+                value: String(adoptedCount),
+                trend: (adoptedCount > rejectedCount ? 'up' : 'stable'),
+            },
+        ],
+        chart: {
+            type: 'line',
+            title: d.activityTrendChart,
+            data: {
+                labels: realRecords.slice(0, 6).map((r) => r.date ?? ''),
+                datasets: [
+                    {
+                        label: d.adopted,
+                        data: realRecords
+                            .slice(0, 6)
+                            .map((r) => (r.result?.toLowerCase().includes('adopt') ? 1 : 0)),
+                        borderColor: '#28a745',
+                        backgroundColor: 'rgba(40,167,69,0.1)',
+                    },
+                ],
+            },
+        },
+    };
+}
+/**
+ * Build the stakeholder panel for a voting dashboard.
+ *
+ * @param d - Localized dashboard strings
+ * @param patterns - Voting patterns
+ * @param anomalyCount - Number of voting anomalies
+ * @returns Panel object or null
+ */
+function buildVotingStakeholderPanel(d, patterns, anomalyCount) {
+    const stakeholderMetrics = buildStakeholderMetricsFromVoting(patterns, anomalyCount);
+    return buildStakeholderPanel(d, stakeholderMetrics);
+}
 /**
  * Build dashboard for voting-based articles (motions, weekly/monthly review).
+ * Includes a coalition alignment radar chart and stakeholder impact scorecard.
  *
  * @param records - Voting records
  * @param patterns - Voting patterns
  * @param anomalies - Detected anomalies
  * @param lang - Target language code
- * @returns Dashboard configuration
+ * @returns Dashboard configuration with coalition and stakeholder intelligence
  */
 export function buildVotingDashboard(records, patterns, anomalies, lang = 'en') {
     const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
@@ -1007,55 +1260,164 @@ export function buildVotingDashboard(records, patterns, anomalies, lang = 'en') 
             },
         }
         : null;
-    const panels = cohesionPanel ? [overviewPanel, cohesionPanel] : [overviewPanel];
+    const coalition = buildCoalitionMetricsFromPatterns(realPatterns);
+    const coalitionPanel = buildVotingCoalitionPanel(d, coalition);
+    const trendPanel = buildVotingTrendPanel(d, realRecords, adoptedCount, rejectedCount);
+    const stakeholderPanel = buildVotingStakeholderPanel(d, realPatterns, realAnomalies.length);
+    const panels = [
+        overviewPanel,
+        ...(cohesionPanel ? [cohesionPanel] : []),
+        ...(coalitionPanel ? [coalitionPanel] : []),
+        ...(trendPanel ? [trendPanel] : []),
+        ...(stakeholderPanel ? [stakeholderPanel] : []),
+    ];
     return { panels };
 }
 /**
+ * Resolve a direction label from trend direction.
+ *
+ * @param d - Localized strings
+ * @param direction - Trend direction
+ * @returns Localized direction label
+ */
+function resolveTrendDirectionLabel(d, direction) {
+    if (direction === 'improving')
+        return d.trendImproving;
+    if (direction === 'declining')
+        return d.trendDeclining;
+    return d.trendStableLabel;
+}
+/**
+ * Build a generic trend panel from a trend object.
+ *
+ * @param d - Localized strings
+ * @param trend - Trend analytics
+ * @param labels - Labels for x-axis
+ * @param datasetLabel - Label for the dataset
+ * @returns Panel object or null
+ */
+function buildGenericTrendPanel(d, trend, labels, datasetLabel) {
+    if (!trend)
+        return null;
+    return {
+        title: d.trendAnalysis,
+        metrics: [
+            {
+                label: d.trendAnalysis,
+                value: resolveTrendDirectionLabel(d, trend.direction),
+            },
+        ],
+        chart: {
+            type: 'line',
+            title: d.activityTrendChart,
+            data: {
+                labels,
+                datasets: [
+                    {
+                        label: datasetLabel,
+                        data: trend.metrics.map((m) => m.value),
+                        borderColor: EP_BLUE_BORDER,
+                        backgroundColor: EP_BLUE_TRANSPARENT,
+                    },
+                ],
+            },
+        },
+    };
+}
+/**
  * Build dashboard for week-ahead / month-ahead articles.
+ * Includes pipeline status bars and trend analytics panels.
  *
  * @param weekData - Aggregated week/month data
  * @param _label - "week" or "month" (reserved for future localisation)
  * @param lang - Target language code
- * @returns Dashboard configuration
+ * @returns Dashboard configuration with pipeline and trend intelligence
  */
 export function buildProspectiveDashboard(weekData, _label, lang = 'en') {
     const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
     const bottleneckCount = weekData.pipeline.filter((p) => p.bottleneck === true).length;
-    return {
-        panels: [
+    const scheduledPanel = {
+        title: d.scheduledActivity,
+        metrics: [
+            { label: d.plenaryEvents, value: String(weekData.events.length) },
+            { label: d.committeeMeetings, value: String(weekData.committees.length) },
+            { label: d.documents, value: String(weekData.documents.length) },
             {
-                title: d.scheduledActivity,
-                metrics: [
-                    { label: d.plenaryEvents, value: String(weekData.events.length) },
-                    { label: d.committeeMeetings, value: String(weekData.committees.length) },
-                    { label: d.documents, value: String(weekData.documents.length) },
-                    {
-                        label: d.pipelineProcedures,
-                        value: String(weekData.pipeline.length),
-                        trend: bottleneckCount > 0 ? 'down' : 'stable',
-                    },
-                ],
-            },
-            {
-                title: d.parliamentaryQuestions,
-                metrics: [
-                    { label: d.questionsFiled, value: String(weekData.questions.length) },
-                    {
-                        label: d.bottleneckProcedures,
-                        value: String(bottleneckCount),
-                        trend: bottleneckCount > 0 ? 'down' : 'up',
-                    },
-                ],
+                label: d.pipelineProcedures,
+                value: String(weekData.pipeline.length),
+                trend: bottleneckCount > 0 ? 'down' : 'stable',
             },
         ],
     };
+    const questionsPanel = {
+        title: d.parliamentaryQuestions,
+        metrics: [
+            { label: d.questionsFiled, value: String(weekData.questions.length) },
+            {
+                label: d.bottleneckProcedures,
+                value: String(bottleneckCount),
+                trend: bottleneckCount > 0 ? 'down' : 'up',
+            },
+        ],
+    };
+    // Pipeline status panel
+    const pipeline = buildPipelineFromWeekData(weekData);
+    const pipelinePanel = pipeline.total > 0
+        ? {
+            title: d.pipelineStatus,
+            metrics: [
+                {
+                    label: d.onTrack,
+                    value: String(pipeline.onTrack),
+                    trend: pipeline.onTrack > pipeline.delayed ? 'up' : 'stable',
+                },
+                {
+                    label: d.delayed,
+                    value: String(pipeline.delayed),
+                    trend: pipeline.delayed > 0 ? 'down' : 'stable',
+                },
+                { label: d.healthScore, value: `${pipeline.healthScore}%` },
+            ],
+            chart: {
+                type: 'bar',
+                title: d.pipelineStatusChart,
+                data: {
+                    labels: [d.onTrack, d.delayed],
+                    datasets: [
+                        {
+                            label: d.procedures,
+                            data: [pipeline.onTrack, pipeline.delayed],
+                            backgroundColor: ['#28a745', '#ffc107'],
+                        },
+                    ],
+                },
+            },
+        }
+        : null;
+    // Trend analytics from activity counts
+    const activityCounts = [
+        weekData.events.length,
+        weekData.committees.length,
+        weekData.documents.length,
+        weekData.questions.length,
+    ].filter((c) => c > 0);
+    const trend = activityCounts.length >= 2 ? buildTrendFromCounts(activityCounts, 'weekly') : null;
+    const trendPanel = buildGenericTrendPanel(d, trend, [d.plenaryEvents, d.committeeMeetings, d.documents, d.questionsFiled], d.scheduledActivity);
+    const panels = [
+        scheduledPanel,
+        questionsPanel,
+        ...(pipelinePanel ? [pipelinePanel] : []),
+        ...(trendPanel ? [trendPanel] : []),
+    ];
+    return { panels };
 }
 /**
  * Build dashboard for breaking news articles.
+ * Includes activity trend sparklines for cross-article analysis.
  *
  * @param feedData - EP feed data
  * @param lang - Target language code
- * @returns Dashboard configuration
+ * @returns Dashboard configuration with trend intelligence
  */
 export function buildBreakingDashboard(feedData, lang = 'en') {
     const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
@@ -1064,87 +1426,177 @@ export function buildBreakingDashboard(feedData, lang = 'en') {
     const procCount = feedData?.procedures.length ?? 0;
     const mepCount = feedData?.mepUpdates.length ?? 0;
     const totalItems = adoptedCount + eventCount + procCount + mepCount;
-    return {
-        panels: [
+    const feedPanel = {
+        title: d.feedActivity,
+        metrics: [
             {
-                title: d.feedActivity,
-                metrics: [
-                    {
-                        label: d.adoptedTexts,
-                        value: String(adoptedCount),
-                        trend: adoptedCount > 0 ? 'up' : 'stable',
-                    },
-                    { label: d.events, value: String(eventCount) },
-                    { label: d.procedures, value: String(procCount) },
-                    { label: d.mepUpdates, value: String(mepCount) },
-                ],
+                label: d.adoptedTexts,
+                value: String(adoptedCount),
+                trend: adoptedCount > 0 ? 'up' : 'stable',
             },
-            {
-                title: d.activitySummary,
-                metrics: [{ label: d.totalItems, value: String(totalItems) }],
-                ...(totalItems > 0
-                    ? {
-                        chart: {
-                            type: 'doughnut',
-                            title: d.feedBreakdown,
-                            data: {
-                                labels: [d.adoptedTexts, d.events, d.procedures, d.mepUpdates],
-                                datasets: [
-                                    {
-                                        label: d.items,
-                                        data: [adoptedCount, eventCount, procCount, mepCount],
-                                    },
-                                ],
-                            },
-                        },
-                    }
-                    : {}),
-            },
+            { label: d.events, value: String(eventCount) },
+            { label: d.procedures, value: String(procCount) },
+            { label: d.mepUpdates, value: String(mepCount) },
         ],
+    };
+    const summaryPanel = {
+        title: d.activitySummary,
+        metrics: [{ label: d.totalItems, value: String(totalItems) }],
+        ...(totalItems > 0
+            ? {
+                chart: {
+                    type: 'doughnut',
+                    title: d.feedBreakdown,
+                    data: {
+                        labels: [d.adoptedTexts, d.events, d.procedures, d.mepUpdates],
+                        datasets: [
+                            {
+                                label: d.items,
+                                data: [adoptedCount, eventCount, procCount, mepCount],
+                            },
+                        ],
+                    },
+                },
+            }
+            : {}),
+    };
+    // Trend analytics from feed counts
+    const feedCounts = [adoptedCount, eventCount, procCount, mepCount];
+    const trend = buildTrendFromCounts(feedCounts, 'weekly');
+    const trendPanel = buildGenericTrendPanel(d, trend, [d.adoptedTexts, d.events, d.procedures, d.mepUpdates], d.feedActivity);
+    const panels = [feedPanel, summaryPanel, ...(trendPanel ? [trendPanel] : [])];
+    return { panels };
+}
+/**
+ * Build a stakeholder panel from stakeholder metric array.
+ *
+ * @param d - Localized strings
+ * @param stakeholderMetrics - Stakeholder metric data
+ * @returns Panel object or null
+ */
+function buildStakeholderPanel(d, stakeholderMetrics) {
+    if (stakeholderMetrics.length === 0)
+        return null;
+    return {
+        title: d.stakeholderImpact,
+        metrics: stakeholderMetrics.map((s) => ({
+            label: s.stakeholder,
+            value: `${s.impactScore}/100`,
+            trend: (s.impactDirection === 'positive'
+                ? 'up'
+                : s.impactDirection === 'negative'
+                    ? 'down'
+                    : 'stable'),
+        })),
     };
 }
 /**
+ * Build a pipeline status breakdown panel for propositions dashboard.
+ *
+ * @param d - Localized strings
+ * @param pipeline - Legislative pipeline data
+ * @returns Panel object or null
+ */
+function buildPropositionsPipelinePanel(d, pipeline) {
+    if (!pipeline)
+        return null;
+    return {
+        title: d.pipelineStatus,
+        metrics: [
+            {
+                label: d.onTrack,
+                value: String(pipeline.onTrack),
+                trend: (pipeline.onTrack > 0 ? 'up' : 'stable'),
+            },
+            {
+                label: d.delayed,
+                value: String(pipeline.delayed),
+                trend: (pipeline.delayed > 0 ? 'down' : 'stable'),
+            },
+            {
+                label: d.blocked,
+                value: String(pipeline.blocked),
+                trend: (pipeline.blocked > 0 ? 'down' : 'stable'),
+            },
+        ],
+        chart: {
+            type: 'bar',
+            title: d.pipelineStatusChart,
+            data: {
+                labels: [d.onTrack, d.delayed, d.blocked],
+                datasets: [
+                    {
+                        label: d.procedures,
+                        data: [pipeline.onTrack, pipeline.delayed, pipeline.blocked],
+                        backgroundColor: ['#28a745', '#ffc107', '#dc3545'],
+                    },
+                ],
+            },
+        },
+    };
+}
+/**
+ * Resolve the pipeline strength label from a health score.
+ *
+ * @param d - Localized strings
+ * @param healthScore - Health score 0-1
+ * @returns Localized pipeline strength label
+ */
+function resolvePipelineStrengthLabel(d, healthScore) {
+    if (healthScore > 0.7)
+        return d.pipelineStrong;
+    if (healthScore > 0.4)
+        return d.pipelineModerate;
+    return d.pipelineWeak;
+}
+/**
  * Build dashboard for propositions articles.
+ * Includes color-coded pipeline status chart and stakeholder scorecard.
  *
  * @param pipelineData - Pipeline metrics
  * @param lang - Target language code
- * @returns Dashboard configuration
+ * @returns Dashboard configuration with pipeline intelligence panels
  */
 export function buildPropositionsDashboard(pipelineData, lang = 'en') {
     const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
     const healthScore = pipelineData?.healthScore ?? 0;
     const throughput = pipelineData?.throughput ?? 0;
     const pct = (healthScore * 100).toFixed(0);
-    return {
-        panels: [
+    const healthPanel = {
+        title: d.pipelineHealth,
+        metrics: [
             {
-                title: d.pipelineHealth,
-                metrics: [
-                    {
-                        label: d.healthScore,
-                        value: `${pct}%`,
-                        trend: (healthScore > 0.7 ? 'up' : healthScore < 0.5 ? 'down' : 'stable'),
-                    },
-                    {
-                        label: d.throughput,
-                        value: String(throughput),
-                        trend: throughput >= 5 ? 'up' : 'down',
-                    },
-                    {
-                        label: d.status,
-                        value: healthScore > 0.7
-                            ? d.pipelineStrong
-                            : healthScore > 0.4
-                                ? d.pipelineModerate
-                                : d.pipelineWeak,
-                    },
-                ],
+                label: d.healthScore,
+                value: `${pct}%`,
+                trend: (healthScore > 0.7 ? 'up' : healthScore < 0.5 ? 'down' : 'stable'),
+            },
+            {
+                label: d.throughput,
+                value: String(throughput),
+                trend: throughput >= 5 ? 'up' : 'down',
+            },
+            {
+                label: d.status,
+                value: resolvePipelineStrengthLabel(d, healthScore),
             },
         ],
     };
+    // Pipeline status breakdown panel
+    const pipeline = buildPipelineFromPipelineData(pipelineData);
+    const pipelinePanel = buildPropositionsPipelinePanel(d, pipeline);
+    // Stakeholder impact scorecard for pipeline actors
+    const stakeholderMetrics = buildStakeholderMetricsFromPipeline(pipeline);
+    const stakeholderPanel = buildStakeholderPanel(d, stakeholderMetrics);
+    const panels = [
+        healthPanel,
+        ...(pipelinePanel ? [pipelinePanel] : []),
+        ...(stakeholderPanel ? [stakeholderPanel] : []),
+    ];
+    return { panels };
 }
 /**
  * Build dashboard for committee reports articles.
+ * Includes document trend analytics alongside committee activity metrics.
  *
  * @param committees - Committee data list
  * @param lang - Target language code
@@ -1193,7 +1645,16 @@ export function buildCommitteeDashboard(committees, lang = 'en') {
             };
         })()
         : null;
-    const panels = chartPanel ? [overviewPanel, chartPanel] : [overviewPanel];
+    // Trend analytics from committee document counts
+    const docCounts = committees.slice(0, 6).map((c) => c.documents.length);
+    const trend = docCounts.length >= 2 ? buildTrendFromCounts(docCounts, 'monthly') : null;
+    const committeeLabels = committees.slice(0, 6).map((c) => c.abbreviation);
+    const trendPanel = buildGenericTrendPanel(d, trend, committeeLabels, d.documentsProduced);
+    const panels = [
+        overviewPanel,
+        ...(chartPanel ? [chartPanel] : []),
+        ...(trendPanel ? [trendPanel] : []),
+    ];
     return { panels };
 }
 // ─── Intelligence Mindmap Builders ───────────────────────────────────────────

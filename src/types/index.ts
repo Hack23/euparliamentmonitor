@@ -193,4 +193,11 @@ export type {
   ActorNode,
   InfluenceWeight,
   IntelligenceMindmap,
+  VotingBloc,
+  VoteHighlight,
+  CoalitionMetrics,
+  LegislativePipeline,
+  TrendMetric,
+  TrendAnalytics,
+  StakeholderMetric,
 } from './visualization.js';
