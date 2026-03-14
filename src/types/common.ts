@@ -7,6 +7,11 @@
  * These foundational types are used across all bounded contexts.
  */
 
+import type { StakeholderPerspective, StakeholderOutcomeMatrix } from './stakeholder.js';
+
+// re-export so consumers don't need a separate import
+export type { StakeholderPerspective, StakeholderOutcomeMatrix } from './stakeholder.js';
+
 /** Supported language codes */
 export type LanguageCode =
   | 'en'
@@ -353,6 +358,8 @@ export interface PoliticalMistake {
  * - **Actions → Consequences**: Causal chains from decisions to outcomes
  * - **Mistakes**: Miscalculations, missed opportunities
  * - **Outlook**: What happens next, strategic implications
+ * - **Stakeholder Perspectives**: Multi-stakeholder impact assessment per group
+ * - **Stakeholder Outcome Matrix**: Winner/loser/neutral matrix per action per group
  */
 export interface DeepAnalysis {
   /** WHAT: Core subject — what happened or is being proposed */
@@ -379,6 +386,16 @@ export interface DeepAnalysis {
   readonly mistakes: readonly PoliticalMistake[];
   /** OUTLOOK: What happens next — strategic forward look */
   readonly outlook: string;
+  /**
+   * MULTI-STAKEHOLDER PERSPECTIVES: Detailed impact per stakeholder group.
+   * Optional — populated by enhanced analysis builders.
+   */
+  readonly stakeholderPerspectives?: readonly StakeholderPerspective[];
+  /**
+   * STAKEHOLDER OUTCOME MATRIX: Winner/loser/neutral per action per group.
+   * Optional — populated by enhanced analysis builders.
+   */
+  readonly stakeholderOutcomeMatrix?: readonly StakeholderOutcomeMatrix[];
 }
 
 /** Localized strings for deep analysis section headings */
@@ -428,6 +445,23 @@ export interface DeepAnalysisStrings {
   readonly severityMedium: string;
   readonly severityHigh: string;
   readonly severityCritical: string;
+  /** Sub-heading for multi-stakeholder perspectives section */
+  readonly perspectivesHeading: string;
+  /** Sub-heading for stakeholder outcome matrix section */
+  readonly outcomeMatrixHeading: string;
+  /** Column header for "Confidence" in the outcome matrix */
+  readonly confidenceLabel: string;
+  /** Localized stakeholder group labels for the outcome matrix columns */
+  readonly politicalGroupsLabel: string;
+  readonly civilSocietyLabel: string;
+  readonly industryLabel: string;
+  readonly nationalGovtsLabel: string;
+  readonly citizensLabel: string;
+  readonly euInstitutionsLabel: string;
+  /** Impact direction labels for stakeholder perspective cards */
+  readonly positiveLabel: string;
+  readonly negativeLabel: string;
+  readonly mixedLabel: string;
 }
 
 /** Localized content strings for the committee analysis deep analysis body text */
