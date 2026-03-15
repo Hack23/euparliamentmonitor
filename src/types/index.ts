@@ -80,6 +80,8 @@ export type {
   DateRange,
   GenerationStats,
   GenerationResult,
+  ArticleQualityScore,
+  TOCEntry,
 } from './generation.js';
 
 export {
