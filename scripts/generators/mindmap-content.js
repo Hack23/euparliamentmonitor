@@ -462,6 +462,9 @@ export function buildIntelligenceMindmapSection(imap, lang = 'en', heading) {
         : '';
     // Render domain layer (depth 1 nodes as primary branches); fall back to
     // allNodes when the depth-1 layer is missing *or* empty.
+    // Deeper hierarchy (depth 2–4) is expressed via MindmapNode.children and
+    // rendered recursively by renderIntelligenceNode — separate layer entries
+    // at depth > 1 are used only for label resolution, not for direct rendering.
     const depth1Nodes = imap.layers.find((l) => l.depth === 1)?.nodes ?? [];
     const domainNodes = depth1Nodes.length > 0 ? depth1Nodes : allNodes;
     const domainItems = domainNodes
@@ -469,7 +472,10 @@ export function buildIntelligenceMindmapSection(imap, lang = 'en', heading) {
         .join('\n');
     // Build label lookup for connection endpoint resolution.
     // This allows connections referencing actorNetwork IDs to display
-    // human-readable names instead of raw IDs.
+    // human-readable names instead of raw IDs.  We index *all* layer nodes
+    // (including depth > 1) so that connections referencing deeper nodes still
+    // resolve to human-readable names even though those nodes are rendered via
+    // children rather than as standalone layer entries.
     const nodeLabels = new Map();
     const addLabels = (nodes) => {
         for (const n of nodes) {
@@ -485,7 +491,10 @@ export function buildIntelligenceMindmapSection(imap, lang = 'en', heading) {
     const connectionsHtml = renderConnectionsOverlay(imap.connections, connectionsLabel, nodeLabels);
     const actorNetworkHtml = renderActorNetworkOverlay(imap.actorNetwork, actorNetworkLabel, influenceLabel);
     const stakeholderHtml = renderStakeholderOverlays(imap.stakeholderGroups, stakeholderLabel, perspectiveLabel);
-    const totalNodes = countNodesRecursive(allNodes);
+    // Count from the rendered tree (domainNodes + their children recursively)
+    // rather than allNodes, so data-total-nodes reflects only what the renderer
+    // actually outputs.
+    const totalNodes = countNodesRecursive(domainNodes);
     const totalConnections = imap.connections.length;
     const totalActors = imap.actorNetwork.length;
     return `<section class="mindmap-section intelligence-mindmap" role="region" aria-label="${escapeHTML(titleText)}">
