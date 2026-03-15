@@ -6,23 +6,7 @@
  * Provides quality scoring, table of contents generation, and quality badge rendering.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-/** Localized aria-label for the table of contents navigation. */
-const TOC_ARIA_LABELS = {
-  en: 'Table of contents',
-  sv: 'Innehållsförteckning',
-  da: 'Indholdsfortegnelse',
-  no: 'Innholdsfortegnelse',
-  fi: 'Sisällysluettelo',
-  de: 'Inhaltsverzeichnis',
-  fr: 'Table des matières',
-  es: 'Tabla de contenidos',
-  nl: 'Inhoudsopgave',
-  ar: 'جدول المحتويات',
-  he: 'תוכן עניינים',
-  ja: '目次',
-  ko: '목차',
-  zh: '目录',
-};
+import { getLocalizedString, TOC_ARIA_LABELS } from '../constants/languages.js';
 /**
  * Count occurrences of a regex pattern in a string.
  *
@@ -115,7 +99,7 @@ export function buildTableOfContents(entries, lang) {
   if (entries.length === 0) {
     return '';
   }
-  const ariaLabel = escapeHTML(TOC_ARIA_LABELS[lang] ?? TOC_ARIA_LABELS.en);
+  const ariaLabel = escapeHTML(getLocalizedString(TOC_ARIA_LABELS, lang));
   const items = entries
     .map((entry) => {
       const safeLabel = escapeHTML(entry.label);

@@ -770,3 +770,23 @@ export const SOURCES_HEADING_LABELS: LanguageMap = {
   ko: '출처',
   zh: '来源',
 };
+
+/* ─── Table of contents aria-label ───────────────────────────────── */
+
+/** Localized aria-label for article table-of-contents navigation */
+export const TOC_ARIA_LABELS: LanguageMap = {
+  en: 'Table of contents',
+  sv: 'Innehållsförteckning',
+  da: 'Indholdsfortegnelse',
+  no: 'Innholdsfortegnelse',
+  fi: 'Sisällysluettelo',
+  de: 'Inhaltsverzeichnis',
+  fr: 'Table des matières',
+  es: 'Tabla de contenidos',
+  nl: 'Inhoudsopgave',
+  ar: 'جدول المحتويات',
+  he: 'תוכן עניינים',
+  ja: '目次',
+  ko: '목차',
+  zh: '目录',
+};
