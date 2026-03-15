@@ -163,14 +163,14 @@ Follow this iterative 4-pass process for ALL analytical content sections:
 - Flag any oversimplifications or missing context
 
 ### Pass 3 — Evidence Cross-Validation
-- Verify each analytical claim against specific EP documents, votes, or MCP data points
-- Add confidence indicators: 🟢 High / 🟡 Medium / 🔴 Low confidence
+- Cross-check each analytical claim against EP documents, votes, or data already fetched in the MCP gathering phase (do NOT make additional MCP calls — use the data you have)
+- Add confidence indicators: 🟢 High / 🟡 Medium / 🔴 Low confidence — use the localized equivalent of High/Medium/Low in the article's output language while keeping the 🟢/🟡/🔴 emoji markers unchanged
 - Remove or qualify unsupported assertions
 
 ### Pass 4 — Synthesis & Scenarios
 - Produce balanced, multi-perspective conclusions
 - Highlight areas of consensus and disagreement between stakeholders
-- Provide 2–3 forward-looking scenarios with probability indicators (likely/possible/unlikely)
+- Provide 2–3 forward-looking scenarios with probability indicators (likely/possible/unlikely) — use the localized equivalents of these labels in the article's output language while preserving the 3-level scale
 
 ## 🗺️ MONTHLY TREND SYNTHESIS (monthly-review specific)
 
@@ -350,7 +350,7 @@ For every key EP document featured in the deep-analysis section, provide structu
 2. **Stakeholder Impact** — Who benefits from this document? Who faces costs or constraints? Quantify where possible.
 3. **Procedure Stage** — Where is it in the legislative pipeline? What are the next procedural steps and timeline?
 4. **Coalition Dynamics** — Which political groups support or oppose? What are the key fault lines?
-5. **Significance Rating** — Rate as High / Medium / Low significance with one-sentence evidence justification. (Text labels only — color indicators are reserved for the confidence scale.)
+5. **Significance Rating** — Rate as High / Medium / Low significance with one-sentence evidence justification. Use the localized equivalents of these labels in the article's output language while keeping the 3-level scale consistent. (Text labels only — color indicators are reserved for the confidence scale.)
 
 This analysis MUST appear in the article's deep-analysis section for all featured documents.
 
