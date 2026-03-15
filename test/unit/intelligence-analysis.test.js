@@ -15,7 +15,12 @@ import {
   calculateLegislativeVelocity,
   rankBySignificance,
   buildIntelligenceSection,
+  buildDefaultStakeholderPerspectives,
+  scoreStakeholderInfluence,
+  buildStakeholderOutcomeMatrix,
+  rankStakeholdersByInfluence,
 } from '../../scripts/utils/intelligence-analysis.js';
+import { ALL_STAKEHOLDER_TYPES } from '../../scripts/types/index.js';
 import {
   buildWhatToWatchSection,
   buildPoliticalAlignmentSection,
@@ -626,5 +631,222 @@ describe('buildPoliticalAlignmentSection', () => {
     const html = buildPoliticalAlignmentSection(sampleRecords, sampleCoalitions, 'en');
     expect(html).not.toContain('undefined');
     expect(html).not.toContain('null');
+  });
+});
+
+// ─── buildDefaultStakeholderPerspectives ─────────────────────────────────────
+
+describe('buildDefaultStakeholderPerspectives', () => {
+  it('should return exactly 6 perspectives (one per stakeholder group)', () => {
+    const result = buildDefaultStakeholderPerspectives('Test action');
+    expect(result).toHaveLength(6);
+  });
+
+  it('should cover all 6 stakeholder types', () => {
+    const result = buildDefaultStakeholderPerspectives('Test action');
+    const types = result.map((p) => p.stakeholder);
+    expect(types).toContain('political_groups');
+    expect(types).toContain('civil_society');
+    expect(types).toContain('industry');
+    expect(types).toContain('national_govts');
+    expect(types).toContain('citizens');
+    expect(types).toContain('eu_institutions');
+  });
+
+  it('should set severity based on score thresholds', () => {
+    const result = buildDefaultStakeholderPerspectives('Test action', {
+      political_groups: 0.8,  // → high
+      civil_society: 0.5,     // → medium
+      industry: 0.2,          // → low
+    });
+    const pg = result.find((p) => p.stakeholder === 'political_groups');
+    const cs = result.find((p) => p.stakeholder === 'civil_society');
+    const ind = result.find((p) => p.stakeholder === 'industry');
+    expect(pg?.severity).toBe('high');
+    expect(cs?.severity).toBe('medium');
+    expect(ind?.severity).toBe('low');
+  });
+
+  it('should set positive impact for score >= 0.6', () => {
+    const result = buildDefaultStakeholderPerspectives('Vote', { political_groups: 0.9 });
+    const pg = result.find((p) => p.stakeholder === 'political_groups');
+    expect(pg?.impact).toBe('positive');
+  });
+
+  it('should set negative impact for score <= 0.3', () => {
+    const result = buildDefaultStakeholderPerspectives('Vote', { citizens: 0.2 });
+    const cit = result.find((p) => p.stakeholder === 'citizens');
+    expect(cit?.impact).toBe('negative');
+  });
+
+  it('should set neutral impact for score between 0.3 and 0.6 exclusive', () => {
+    const result = buildDefaultStakeholderPerspectives('Vote', { industry: 0.5 });
+    const ind = result.find((p) => p.stakeholder === 'industry');
+    expect(ind?.impact).toBe('neutral');
+  });
+
+  it('should include the topic in evidence', () => {
+    const topic = 'Digital Markets Act vote';
+    const result = buildDefaultStakeholderPerspectives(topic);
+    for (const p of result) {
+      expect(p.evidence).toContain(topic);
+    }
+  });
+
+  it('should default to score 0.5 (medium / neutral) when no scores provided', () => {
+    const result = buildDefaultStakeholderPerspectives('Default topic');
+    for (const p of result) {
+      expect(p.severity).toBe('medium');
+      expect(p.impact).toBe('neutral');
+    }
+  });
+});
+
+// ─── scoreStakeholderInfluence ────────────────────────────────────────────────
+
+describe('scoreStakeholderInfluence', () => {
+  it('should return null for null input', () => {
+    expect(scoreStakeholderInfluence(null)).toBeNull();
+  });
+
+  it('should return null for undefined input', () => {
+    expect(scoreStakeholderInfluence(undefined)).toBeNull();
+  });
+
+  it('should return null when stakeholder type is invalid', () => {
+    expect(scoreStakeholderInfluence({ stakeholder: 'unknown_type' })).toBeNull();
+  });
+
+  it('should return null for non-object input', () => {
+    expect(scoreStakeholderInfluence('string')).toBeNull();
+    expect(scoreStakeholderInfluence(42)).toBeNull();
+  });
+
+  it('should parse a valid stakeholder perspective', () => {
+    const raw = {
+      stakeholder: 'civil_society',
+      impact: 'positive',
+      severity: 'high',
+      reasoning: 'Improves transparency',
+      evidence: ['EP press release', 'NGO statement'],
+    };
+    const result = scoreStakeholderInfluence(raw);
+    expect(result).not.toBeNull();
+    expect(result?.stakeholder).toBe('civil_society');
+    expect(result?.impact).toBe('positive');
+    expect(result?.severity).toBe('high');
+    expect(result?.reasoning).toBe('Improves transparency');
+    expect(result?.evidence).toEqual(['EP press release', 'NGO statement']);
+  });
+
+  it('should default impact to neutral for unknown impact values', () => {
+    const result = scoreStakeholderInfluence({ stakeholder: 'industry', impact: 'unknown' });
+    expect(result?.impact).toBe('neutral');
+  });
+
+  it('should default severity to medium for unknown severity values', () => {
+    const result = scoreStakeholderInfluence({ stakeholder: 'industry', severity: 'extreme' });
+    expect(result?.severity).toBe('medium');
+  });
+
+  it('should handle all 6 valid stakeholder types', () => {
+    for (const t of ALL_STAKEHOLDER_TYPES) {
+      const result = scoreStakeholderInfluence({ stakeholder: t });
+      expect(result).not.toBeNull();
+      expect(result?.stakeholder).toBe(t);
+    }
+  });
+});
+
+// ─── buildStakeholderOutcomeMatrix ────────────────────────────────────────────
+
+describe('buildStakeholderOutcomeMatrix', () => {
+  it('should return a matrix row with the provided action', () => {
+    const result = buildStakeholderOutcomeMatrix('Vote on DMA');
+    expect(result.action).toBe('Vote on DMA');
+  });
+
+  it('should default to medium confidence', () => {
+    const result = buildStakeholderOutcomeMatrix('Test');
+    expect(result.confidence).toBe('medium');
+  });
+
+  it('should accept a confidence override', () => {
+    const result = buildStakeholderOutcomeMatrix('Test', {}, 'high');
+    expect(result.confidence).toBe('high');
+  });
+
+  it('should produce outcomes for all 6 stakeholder types', () => {
+    const result = buildStakeholderOutcomeMatrix('Test');
+    expect(Object.keys(result.outcomes)).toHaveLength(6);
+    expect(result.outcomes.political_groups).toBeDefined();
+    expect(result.outcomes.civil_society).toBeDefined();
+    expect(result.outcomes.industry).toBeDefined();
+    expect(result.outcomes.national_govts).toBeDefined();
+    expect(result.outcomes.citizens).toBeDefined();
+    expect(result.outcomes.eu_institutions).toBeDefined();
+  });
+
+  it('should mark winner for score > 0.6', () => {
+    const result = buildStakeholderOutcomeMatrix('Vote', { political_groups: 0.9 });
+    expect(result.outcomes.political_groups).toBe('winner');
+  });
+
+  it('should mark loser for score < 0.4', () => {
+    const result = buildStakeholderOutcomeMatrix('Vote', { citizens: 0.2 });
+    expect(result.outcomes.citizens).toBe('loser');
+  });
+
+  it('should mark neutral for score == 0.5 (default)', () => {
+    const result = buildStakeholderOutcomeMatrix('Vote');
+    expect(result.outcomes.industry).toBe('neutral');
+  });
+
+  it('should use neutral outcome for missing scores', () => {
+    const result = buildStakeholderOutcomeMatrix('Test', {
+      political_groups: 0.8,
+    });
+    // civil_society has no score → defaults to 0.5 → neutral
+    expect(result.outcomes.civil_society).toBe('neutral');
+  });
+});
+
+// ─── rankStakeholdersByInfluence ──────────────────────────────────────────────
+
+describe('rankStakeholdersByInfluence', () => {
+  it('should return an empty array for empty input', () => {
+    expect(rankStakeholdersByInfluence([])).toEqual([]);
+  });
+
+  it('should rank high-severity before medium and low', () => {
+    const perspectives = [
+      { stakeholder: 'citizens', impact: 'neutral', severity: 'low', reasoning: '', evidence: [] },
+      { stakeholder: 'industry', impact: 'positive', severity: 'high', reasoning: '', evidence: [] },
+      { stakeholder: 'civil_society', impact: 'neutral', severity: 'medium', reasoning: '', evidence: [] },
+    ];
+    const result = rankStakeholdersByInfluence(perspectives);
+    expect(result[0]).toBe('industry');
+    expect(result[1]).toBe('civil_society');
+    expect(result[2]).toBe('citizens');
+  });
+
+  it('should rank negative impact before positive at the same severity', () => {
+    const perspectives = [
+      { stakeholder: 'national_govts', impact: 'positive', severity: 'high', reasoning: '', evidence: [] },
+      { stakeholder: 'eu_institutions', impact: 'negative', severity: 'high', reasoning: '', evidence: [] },
+    ];
+    const result = rankStakeholdersByInfluence(perspectives);
+    expect(result[0]).toBe('eu_institutions');
+    expect(result[1]).toBe('national_govts');
+  });
+
+  it('should not mutate the input array', () => {
+    const perspectives = [
+      { stakeholder: 'citizens', impact: 'positive', severity: 'low', reasoning: '', evidence: [] },
+      { stakeholder: 'industry', impact: 'negative', severity: 'high', reasoning: '', evidence: [] },
+    ];
+    const copy = [...perspectives];
+    rankStakeholdersByInfluence(perspectives);
+    expect(perspectives).toEqual(copy);
   });
 });

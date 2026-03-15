@@ -3,6 +3,7 @@
 import { getLocalizedString, COMMITTEE_ANALYSIS_CONTENT_STRINGS, BREAKING_STRINGS, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../constants/languages.js';
 import { isPlaceholderCommitteeData } from './committee-helpers.js';
 import { PLACEHOLDER_MARKER } from './motions-content.js';
+import { buildDefaultStakeholderPerspectives, buildStakeholderOutcomeMatrix, } from '../utils/intelligence-analysis.js';
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 /**
  * Derive stakeholder outcomes from voting records.
@@ -88,6 +89,108 @@ function deriveMistakesFromAnomalies(anomalies) {
         alternative: 'Stronger whip coordination or earlier compromise negotiation could have maintained party discipline',
     }));
 }
+// ─── Stakeholder perspective builders ────────────────────────────────────────
+/**
+ * Build multi-stakeholder perspectives for a voting analysis.
+ * Derives per-group importance scores based on adopted/rejected counts and
+ * cohesion anomalies.
+ *
+ * @param adoptedCount - Number of adopted texts
+ * @param anomalies - Detected voting anomalies
+ * @param topic - Primary topic string for context
+ * @returns Array of stakeholder perspectives
+ */
+function buildVotingStakeholderPerspectives(adoptedCount, anomalies, topic) {
+    const hasHighAnomalies = anomalies.some((a) => a.severity?.toUpperCase() === 'HIGH');
+    return buildDefaultStakeholderPerspectives(topic, {
+        political_groups: hasHighAnomalies ? 0.9 : adoptedCount > 0 ? 0.8 : 0.5,
+        civil_society: adoptedCount > 0 ? 0.6 : 0.4,
+        industry: adoptedCount > 0 ? 0.7 : 0.4,
+        national_govts: 0.7,
+        citizens: adoptedCount > 0 ? 0.6 : 0.3,
+        eu_institutions: 0.8,
+    });
+}
+/**
+ * Build multi-stakeholder perspectives for a prospective (week/month-ahead) analysis.
+ *
+ * @param eventCount - Number of scheduled events
+ * @param bottleneckCount - Number of bottlenecked procedures
+ * @param topic - Primary topic string for context
+ * @returns Array of stakeholder perspectives
+ */
+function buildProspectiveStakeholderPerspectives(eventCount, bottleneckCount, topic) {
+    return buildDefaultStakeholderPerspectives(topic, {
+        political_groups: eventCount > 5 ? 0.8 : 0.6,
+        civil_society: 0.5,
+        industry: bottleneckCount > 0 ? 0.3 : 0.6,
+        national_govts: 0.7,
+        citizens: 0.5,
+        eu_institutions: 0.8,
+    });
+}
+/**
+ * Build multi-stakeholder perspectives for a breaking news analysis.
+ *
+ * @param adoptedCount - Number of adopted texts in the feed
+ * @param topic - Primary topic string for context
+ * @returns Array of stakeholder perspectives
+ */
+function buildBreakingStakeholderPerspectives(adoptedCount, topic) {
+    return buildDefaultStakeholderPerspectives(topic, {
+        political_groups: 0.9,
+        civil_society: adoptedCount > 0 ? 0.6 : 0.4,
+        industry: adoptedCount > 0 ? 0.7 : 0.4,
+        national_govts: 0.7,
+        citizens: adoptedCount > 0 ? 0.6 : 0.3,
+        eu_institutions: 0.9,
+    });
+}
+/**
+ * Build multi-stakeholder perspectives for a propositions pipeline analysis.
+ *
+ * @param healthScore - Pipeline health score (0-1)
+ * @param topic - Primary topic string for context
+ * @returns Array of stakeholder perspectives
+ */
+function buildPropositionsStakeholderPerspectives(healthScore, topic) {
+    return buildDefaultStakeholderPerspectives(topic, {
+        political_groups: 0.7,
+        civil_society: healthScore < 0.5 ? 0.3 : 0.5,
+        industry: healthScore < 0.5 ? 0.3 : 0.6,
+        national_govts: healthScore < 0.5 ? 0.3 : 0.6,
+        citizens: healthScore < 0.5 ? 0.2 : 0.5,
+        eu_institutions: 0.8,
+    });
+}
+/**
+ * Build multi-stakeholder perspectives for a committee reports analysis.
+ *
+ * @param activePct - Percentage of committees with documents (0-100)
+ * @param totalDocs - Total document count
+ * @param topic - Primary topic string for context
+ * @returns Array of stakeholder perspectives
+ */
+function buildCommitteeStakeholderPerspectives(activePct, totalDocs, topic) {
+    return buildDefaultStakeholderPerspectives(topic, {
+        political_groups: activePct > 70 ? 0.8 : 0.5,
+        civil_society: totalDocs > 5 ? 0.6 : 0.4,
+        industry: totalDocs > 5 ? 0.7 : 0.4,
+        national_govts: activePct > 70 ? 0.7 : 0.4,
+        citizens: totalDocs > 5 ? 0.5 : 0.3,
+        eu_institutions: 0.8,
+    });
+}
+/**
+ * Build the stakeholder outcome matrix for a list of key actions.
+ * Used by all 5 analysis builders to populate the outcome matrix.
+ *
+ * @param actions - Array of (action, scores) pairs to include in the matrix
+ * @returns Stakeholder outcome matrix rows
+ */
+function buildOutcomeMatrix(actions) {
+    return actions.map(({ action, scores, confidence }) => buildStakeholderOutcomeMatrix(action, scores, confidence));
+}
 // ─── Strategy-specific builders ──────────────────────────────────────────────
 /**
  * Build deep analysis for voting-based articles (motions, weekly/monthly review).
@@ -147,6 +250,21 @@ export function buildVotingAnalysis(dateFrom, dateTo, records, patterns, anomali
         outlook: realAnomalies.length > 0
             ? `Watch for coalition realignment: ${realAnomalies.length} anomalies detected. Groups with declining cohesion may seek new alliance partners. Upcoming committee votes will test whether these shifts are temporary or structural.`
             : 'The legislative trajectory suggests continued consensus-building with potential pressure points in the weeks ahead.',
+        stakeholderPerspectives: buildVotingStakeholderPerspectives(adoptedCount, realAnomalies, topTopics[0] ?? `voting period ${dateFrom}–${dateTo}`),
+        stakeholderOutcomeMatrix: buildOutcomeMatrix([
+            {
+                action: `Voting outcomes ${dateFrom}–${dateTo}`,
+                scores: {
+                    political_groups: realAnomalies.length > 0 ? 0.8 : 0.6,
+                    civil_society: adoptedCount > 0 ? 0.6 : 0.4,
+                    industry: adoptedCount > 0 ? 0.7 : 0.4,
+                    national_govts: 0.7,
+                    citizens: adoptedCount > 0 ? 0.6 : 0.3,
+                    eu_institutions: 0.8,
+                },
+                confidence: realRecords.length > 0 ? 'high' : 'low',
+            },
+        ]),
     };
 }
 /**
@@ -230,6 +348,21 @@ export function buildProspectiveAnalysis(weekData, dateRange, label) {
             alternative: 'Earlier trilogue engagement or simplified procedure could have prevented delay',
         })),
         outlook: `The coming ${label} will test Parliament's capacity to manage ${eventCount} events and ${pipelineCount} active files simultaneously. Key decisions on ${weekData.events[0]?.title ?? 'pending matters'} may set the tone for the legislative session.`,
+        stakeholderPerspectives: buildProspectiveStakeholderPerspectives(eventCount, bottleneckProcedures.length, weekData.events[0]?.title ?? `${label} ahead`),
+        stakeholderOutcomeMatrix: buildOutcomeMatrix([
+            {
+                action: `${label}-ahead schedule (${dateRange.start}–${dateRange.end})`,
+                scores: {
+                    political_groups: eventCount > 5 ? 0.8 : 0.6,
+                    civil_society: 0.5,
+                    industry: bottleneckProcedures.length > 0 ? 0.3 : 0.6,
+                    national_govts: 0.7,
+                    citizens: questionCount > 0 ? 0.6 : 0.4,
+                    eu_institutions: 0.8,
+                },
+                confidence: eventCount > 0 ? 'medium' : 'low',
+            },
+        ]),
     };
 }
 /**
@@ -317,6 +450,21 @@ export function buildBreakingAnalysis(date, feedData, anomalyRaw, coalitionRaw, 
             ]
             : [],
         outlook: adoptedCount > 0 ? s.breakingOutlookActiveFn(date) : s.breakingOutlookTransitionalFn(date),
+        stakeholderPerspectives: buildBreakingStakeholderPerspectives(adoptedCount, feedData?.adoptedTexts[0]?.title ?? `EP activity ${date}`),
+        stakeholderOutcomeMatrix: buildOutcomeMatrix([
+            {
+                action: `EP breaking news ${date}`,
+                scores: {
+                    political_groups: 0.9,
+                    civil_society: adoptedCount > 0 ? 0.6 : 0.4,
+                    industry: adoptedCount > 0 ? 0.7 : 0.4,
+                    national_govts: 0.7,
+                    citizens: adoptedCount > 0 ? 0.6 : 0.3,
+                    eu_institutions: 0.9,
+                },
+                confidence: adoptedCount > 0 ? 'high' : 'medium',
+            },
+        ]),
     };
 }
 /**
@@ -381,6 +529,78 @@ function getConferenceOfPresidents(lang) {
     return CONFERENCE_OF_PRESIDENTS[lang] ?? CONFERENCE_OF_PRESIDENTS_EN;
 }
 /**
+ * Build the action-consequence pairs for propositions analysis.
+ *
+ * @param pct - Pipeline health percentage as string
+ * @param healthScore - Pipeline health score (0-1)
+ * @param throughput - Throughput rate
+ * @returns Action-consequence pairs
+ */
+function buildPropositionsConsequences(pct, healthScore, throughput) {
+    const healthConsequence = healthScore < 0.5
+        ? 'Risk of legislative session overrun; may force prioritisation and file abandonment'
+        : 'Sustainable pace; Parliament can accommodate new files without delay';
+    const healthSeverity = healthScore < 0.3 ? 'critical' : healthScore < 0.5 ? 'high' : 'medium';
+    const throughputConsequence = throughput < 5
+        ? 'Slow processing reduces legislative output and postpones policy implementation'
+        : 'Healthy throughput enables timely delivery of policy commitments';
+    return [
+        {
+            action: `Pipeline health at ${pct}%`,
+            consequence: healthConsequence,
+            severity: healthSeverity,
+        },
+        {
+            action: `Throughput rate at ${throughput}`,
+            consequence: throughputConsequence,
+            severity: throughput < 5 ? 'high' : 'low',
+        },
+    ];
+}
+/**
+ * Build the impact assessment for propositions analysis.
+ *
+ * @param healthScore - Pipeline health score (0-1)
+ * @param throughput - Throughput rate
+ * @returns Impact assessment object
+ */
+function buildPropositionsImpact(healthScore, throughput) {
+    const politicalTail = healthScore < 0.5
+        ? 'Current congestion benefits status-quo defenders.'
+        : 'Current pace favours reform-oriented groups.';
+    const legalText = throughput > 0
+        ? `${throughput} procedures at various stages create a complex legal landscape. Overlapping implementation timelines may strain member state transposition capacity.`
+        : 'Legislative procedures at various stages create a complex legal landscape. Overlapping implementation timelines may strain member state transposition capacity.';
+    return {
+        political: `Legislative throughput affects each political group's ability to deliver on manifesto commitments. ${politicalTail}`,
+        economic: 'Pending legislation on digital markets, sustainability reporting, and fiscal governance carries significant economic implications for EU businesses.',
+        social: 'Citizens await legislative outcomes on healthcare, education, and social protection proposals currently in the pipeline.',
+        legal: legalText,
+        geopolitical: 'Trade, foreign aid, and sanctions-related proposals in the pipeline affect EU positioning in international negotiations.',
+    };
+}
+/**
+ * Build the primary stakeholder outcome for propositions analysis.
+ *
+ * @param healthScore - Pipeline health score (0-1)
+ * @param pct - Pipeline health percentage as string
+ * @returns Single stakeholder outcome
+ */
+function buildPropositionsStakeholderOutcome(healthScore, pct) {
+    if (healthScore > 0.7) {
+        return {
+            actor: 'Parliament presidency',
+            outcome: 'winner',
+            reason: `High pipeline health (${pct}%) demonstrates effective legislative management`,
+        };
+    }
+    return {
+        actor: 'Pending legislation sponsors',
+        outcome: 'loser',
+        reason: `Low pipeline health (${pct}%) means delays and potential session carry-overs`,
+    };
+}
+/**
  * Build deep analysis for propositions articles.
  *
  * @param proposalsHtml - Proposals HTML (used to detect content presence)
@@ -405,48 +625,9 @@ export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lan
         ],
         when: [`Assessment date: ${date}`, 'Pipeline health reflects cumulative legislative progress'],
         why: buildPropositionsWhy(healthScore, throughput),
-        stakeholderOutcomes: [
-            ...(healthScore > 0.7
-                ? [
-                    {
-                        actor: 'Parliament presidency',
-                        outcome: 'winner',
-                        reason: `High pipeline health (${pct}%) demonstrates effective legislative management`,
-                    },
-                ]
-                : [
-                    {
-                        actor: 'Pending legislation sponsors',
-                        outcome: 'loser',
-                        reason: `Low pipeline health (${pct}%) means delays and potential session carry-overs`,
-                    },
-                ]),
-        ],
-        impactAssessment: {
-            political: `Legislative throughput affects each political group's ability to deliver on manifesto commitments. ${healthScore < 0.5 ? 'Current congestion benefits status-quo defenders.' : 'Current pace favours reform-oriented groups.'}`,
-            economic: 'Pending legislation on digital markets, sustainability reporting, and fiscal governance carries significant economic implications for EU businesses.',
-            social: 'Citizens await legislative outcomes on healthcare, education, and social protection proposals currently in the pipeline.',
-            legal: throughput > 0
-                ? `${throughput} procedures at various stages create a complex legal landscape. Overlapping implementation timelines may strain member state transposition capacity.`
-                : `Legislative procedures at various stages create a complex legal landscape. Overlapping implementation timelines may strain member state transposition capacity.`,
-            geopolitical: 'Trade, foreign aid, and sanctions-related proposals in the pipeline affect EU positioning in international negotiations.',
-        },
-        actionConsequences: [
-            {
-                action: `Pipeline health at ${pct}%`,
-                consequence: healthScore < 0.5
-                    ? 'Risk of legislative session overrun; may force prioritisation and file abandonment'
-                    : 'Sustainable pace; Parliament can accommodate new files without delay',
-                severity: healthScore < 0.3 ? 'critical' : healthScore < 0.5 ? 'high' : 'medium',
-            },
-            {
-                action: `Throughput rate at ${throughput}`,
-                consequence: throughput < 5
-                    ? 'Slow processing reduces legislative output and postpones policy implementation'
-                    : 'Healthy throughput enables timely delivery of policy commitments',
-                severity: throughput < 5 ? 'high' : 'low',
-            },
-        ],
+        stakeholderOutcomes: [buildPropositionsStakeholderOutcome(healthScore, pct)],
+        impactAssessment: buildPropositionsImpact(healthScore, throughput),
+        actionConsequences: buildPropositionsConsequences(pct, healthScore, throughput),
         mistakes: healthScore < 0.5
             ? [
                 {
@@ -457,6 +638,21 @@ export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lan
             ]
             : [],
         outlook: `The legislative pipeline's ${pipelineHealthLabel(healthScore)} health will determine whether current proposals reach plenary before session breaks. Key trilogues and committee votes in the coming weeks will be decisive.`,
+        stakeholderPerspectives: buildPropositionsStakeholderPerspectives(healthScore, `legislative pipeline as of ${date}`),
+        stakeholderOutcomeMatrix: buildOutcomeMatrix([
+            {
+                action: `Pipeline health at ${pct}% (throughput ${throughput})`,
+                scores: {
+                    political_groups: 0.7,
+                    civil_society: healthScore < 0.5 ? 0.3 : 0.5,
+                    industry: healthScore < 0.5 ? 0.3 : 0.6,
+                    national_govts: healthScore < 0.5 ? 0.3 : 0.6,
+                    citizens: healthScore < 0.5 ? 0.2 : 0.5,
+                    eu_institutions: 0.8,
+                },
+                confidence: pipelineData !== null ? 'high' : 'low',
+            },
+        ]),
     };
 }
 /**
@@ -541,6 +737,21 @@ export function buildCommitteeAnalysis(committees, date, lang = 'en') {
                 .replace('{n}', String(activeCommittees.length))
                 .replace('{total}', String(committees.length))
             : s.outlookConcern,
+        stakeholderPerspectives: buildCommitteeStakeholderPerspectives(Number(pct), totalDocs, committees[0]?.name ?? 'EP committees'),
+        stakeholderOutcomeMatrix: buildOutcomeMatrix([
+            {
+                action: `Committee activity as of ${date} (${activeCommittees.length}/${committees.length} active)`,
+                scores: {
+                    political_groups: Number(pct) > 70 ? 0.8 : 0.5,
+                    civil_society: totalDocs > 5 ? 0.6 : 0.4,
+                    industry: totalDocs > 5 ? 0.7 : 0.4,
+                    national_govts: Number(pct) > 70 ? 0.7 : 0.4,
+                    citizens: totalDocs > 5 ? 0.5 : 0.3,
+                    eu_institutions: 0.8,
+                },
+                confidence: committees.length > 0 ? 'high' : 'low',
+            },
+        ]),
     };
 }
 // ─── SWOT builders ───────────────────────────────────────────────────────────
