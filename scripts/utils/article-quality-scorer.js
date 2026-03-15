@@ -148,10 +148,24 @@ const HTML_ENTITY_PATTERN = /&(?:#(\d+)|#x([0-9a-fA-F]+)|([a-zA-Z]+));/gu;
  */
 function decodeHtmlEntities(text) {
     return text.replace(HTML_ENTITY_PATTERN, (match, decimal, hex, named) => {
-        if (decimal !== undefined)
-            return String.fromCharCode(parseInt(decimal, 10));
-        if (hex !== undefined)
-            return String.fromCharCode(parseInt(hex, 16));
+        if (decimal !== undefined) {
+            const cp = parseInt(decimal, 10);
+            try {
+                return String.fromCodePoint(cp);
+            }
+            catch {
+                return match;
+            }
+        }
+        if (hex !== undefined) {
+            const cp = parseInt(hex, 16);
+            try {
+                return String.fromCodePoint(cp);
+            }
+            catch {
+                return match;
+            }
+        }
         if (named !== undefined) {
             const key = `&${named};`;
             return HTML_ENTITY_MAP[key] ?? match;
@@ -252,6 +266,8 @@ function addClassPositions(html, classAttr, positions) {
 /**
  * Count evidence and document references in HTML.
  * Detects `class="evidence"`, `data-reference`, and EP document reference codes.
+ * Strips `<script>` blocks before scanning for EP doc patterns so that JSON-LD
+ * metadata does not inflate evidence counts.
  *
  * @param html - Raw HTML string
  * @returns Number of evidence references found
@@ -259,11 +275,14 @@ function addClassPositions(html, classAttr, positions) {
 function countEvidenceRefs(html) {
     const evidenceClasses = countOccurrences(html, 'class="evidence"');
     const dataRefs = countOccurrences(html, 'data-reference');
+    // Strip script blocks (e.g. JSON-LD) to avoid double-counting EP doc IDs
+    // that appear in both visible content and structured metadata.
+    const htmlNoScripts = html.replace(/<script[^>]*>[\s\S]*?<\/script[^>]*>/giu, ' ');
     let epRefs = 0;
     const matched = new Set();
     for (const pattern of EP_DOC_PATTERNS) {
         pattern.lastIndex = 0;
-        const hits = html.match(pattern);
+        const hits = htmlNoScripts.match(pattern);
         if (hits) {
             for (const hit of hits) {
                 matched.add(hit);
@@ -464,19 +483,20 @@ export function assessStakeholderCoverage(htmlOrText, preExtracted = false) {
  * @returns Visualization quality assessment with per-element flags and composite score
  */
 export function assessVisualizationQuality(html) {
-    // SWOT: real HTML uses class="swot-analysis" with class="swot-quadrant swot-*" elements
-    const swotPresent = html.includes('class="swot-analysis"') || html.includes('id="swot-analysis"');
+    // SWOT: class-token match supports multi-class attributes
+    // (e.g. class="swot-analysis swot-multidimensional")
+    const swotPresent = /class="[^"]*\bswot-analysis\b[^"]*"/u.test(html) || html.includes('id="swot-analysis"');
     // Partial match: quadrant classes include a variant suffix (e.g. "swot-quadrant swot-strengths")
     const swotDimensions = countOccurrences(html, 'swot-quadrant') + countOccurrences(html, 'data-dimension');
-    // Dashboard: real HTML uses class="dashboard" with class="metric-card" elements
-    const dashboardPresent = html.includes('class="dashboard"') || html.includes('id="dashboard"');
+    // Dashboard: class-token match supports multi-class attributes
+    const dashboardPresent = /class="[^"]*\bdashboard\b[^"]*"/u.test(html) || html.includes('id="dashboard"');
     const dashboardMetrics = countOccurrences(html, 'class="metric-card"') +
         countOccurrences(html, 'class="dashboard-metric"');
     // Trend indicators: metric-trend-up/-down/-stable classes, or arrow symbols
     const dashboardTrends = html.includes('class="metric-trend-') || html.includes('↑') || html.includes('↓');
-    // Mindmap: real HTML uses class="mindmap-section" / class="mindmap-container"
-    const mindmapPresent = html.includes('class="mindmap-section"') ||
-        html.includes('class="mindmap-container"') ||
+    // Mindmap: class-token match supports multi-class attributes
+    const mindmapPresent = /class="[^"]*\bmindmap-section\b[^"]*"/u.test(html) ||
+        /class="[^"]*\bmindmap-container\b[^"]*"/u.test(html) ||
         html.includes('id="mindmap"');
     const mindmapDepth = mindmapPresent ? computeMindmapDepth(html) : 0;
     const deepAnalysisPresent = html.includes(CLASS_DEEP_ANALYSIS) || /id="[^"]*deep[^"]*"/iu.test(html);

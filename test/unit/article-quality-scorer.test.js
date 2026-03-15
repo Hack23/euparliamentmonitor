@@ -230,6 +230,14 @@ describe('assessVisualizationQuality', () => {
     expect(result.swotPresent).toBe(true);
   });
 
+  it('detects SWOT with multi-class attributes (e.g. swot-multidimensional)', () => {
+    const html = buildHtml(
+      '<section class="swot-analysis swot-multidimensional"><p>SWOT</p></section>'
+    );
+    const result = assessVisualizationQuality(html);
+    expect(result.swotPresent).toBe(true);
+  });
+
   it('detects SWOT by id', () => {
     const html = buildHtml('<section id="swot-analysis"><p>Analysis</p></section>');
     const result = assessVisualizationQuality(html);
@@ -800,5 +808,19 @@ describe('edge cases', () => {
     const report = scoreArticleQuality(html, 'no-ep-refs', 'en', 'week-ahead');
     // EU-27 and EEA-32 should NOT be counted as evidence references
     expect(report.evidenceReferences).toBe(0);
+  });
+
+  it('EP doc refs inside script blocks (JSON-LD) are not double-counted', () => {
+    const html = buildHtml(
+      `<p>See TA-10-2026-0001 in the report.</p>
+       <script type="application/ld+json">{"keywords":"TA-10-2026-0001"}</script>`
+    );
+    const report = scoreArticleQuality(html, 'script-dedup', 'en', 'week-ahead');
+    // TA-10-2026-0001 appears in both body and script; only the body occurrence should count
+    expect(report.evidenceReferences).toBeGreaterThanOrEqual(1);
+    // Should NOT be 2 (double-counted via JSON-LD)
+    const htmlNoDup = buildHtml('<p>See TA-10-2026-0001 in the report.</p>');
+    const reportNoDup = scoreArticleQuality(htmlNoDup, 'no-script', 'en', 'week-ahead');
+    expect(report.evidenceReferences).toBe(reportNoDup.evidenceReferences);
   });
 });
