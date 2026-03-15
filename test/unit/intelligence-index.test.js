@@ -699,6 +699,38 @@ describe('loadIntelligenceIndex', () => {
     expect(index.trends[0].articleReferences).toContain('a1');
     expect(index.trends[0].articleReferences).toContain('a2');
   });
+
+  it('should sanitize unsafe keys from structurally valid persisted maps', () => {
+    const tamperedPath = path.join(tempDir, 'tampered.json');
+    // Write raw JSON to preserve __proto__ as a literal key (JSON.stringify drops it)
+    const rawJson = [
+      '{',
+      '  "articles": [{',
+      '    "id": "a1", "date": "2025-01-01", "type": "week_ahead", "lang": "en",',
+      '    "keyTopics": ["climate"], "keyActors": ["EPP"], "procedures": [],',
+      '    "crossReferences": [], "trendContributions": []',
+      '  }],',
+      '  "actors": { "EPP": ["a1"], "__proto__": ["a1"], "constructor": ["a1"] },',
+      '  "policyDomains": { "climate": ["a1"], "prototype": ["a1"] },',
+      '  "procedures": { "__proto__": ["a1"] },',
+      '  "trends": [], "series": [], "lastUpdated": "2025-01-01T00:00:00.000Z"',
+      '}',
+    ].join('\n');
+    fs.writeFileSync(tamperedPath, rawJson, 'utf-8');
+    const index = loadIntelligenceIndex(tamperedPath);
+    // Safe keys should survive
+    expect(index.actors['EPP']).toEqual(['a1']);
+    expect(index.policyDomains['climate']).toEqual(['a1']);
+    // Dangerous keys must be stripped
+    expect(Object.keys(index.actors)).not.toContain('__proto__');
+    expect(Object.keys(index.actors)).not.toContain('constructor');
+    expect(Object.keys(index.policyDomains)).not.toContain('prototype');
+    expect(Object.keys(index.procedures)).not.toContain('__proto__');
+    // Maps should be null-prototype objects
+    expect(Object.getPrototypeOf(index.actors)).toBeNull();
+    expect(Object.getPrototypeOf(index.policyDomains)).toBeNull();
+    expect(Object.getPrototypeOf(index.procedures)).toBeNull();
+  });
 });
 
 describe('saveIntelligenceIndex + loadIntelligenceIndex (round-trip)', () => {

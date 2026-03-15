@@ -468,8 +468,34 @@ function isValidMap(value) {
     return Object.values(record).every((v) => Array.isArray(v) && v.every((item) => typeof item === 'string'));
 }
 /**
+ * Copy a structurally valid parsed map into a fresh null-prototype object,
+ * filtering out dangerous keys to maintain prototype-pollution protection
+ * even when loading from potentially tampered JSON.
+ *
+ * @param source - Validated lookup map from parsed JSON
+ * @returns A sanitised null-prototype copy with dangerous keys removed
+ */
+function sanitizeMap(source) {
+    const safe = createNullMap();
+    for (const key of Object.keys(source)) {
+        if (!isSafeKey(key))
+            continue;
+        // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
+        const val = source[key];
+        if (val) {
+            // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
+            safe[key] = val;
+        }
+    }
+    return safe;
+}
+/**
  * Return lookup maps from the parsed JSON when all three are valid, or rebuild
  * them from the article entries when any map is missing/invalid.
+ *
+ * Valid parsed maps are always copied into fresh null-prototype objects with
+ * unsafe keys filtered out, so that tampered index JSON cannot reintroduce
+ * prototype-pollution vectors (e.g. `__proto__` keys).
  *
  * @param parsed - Partially parsed index from disk
  * @param articles - Normalised article entries
@@ -484,12 +510,12 @@ function resolveOrRebuildMaps(parsed, articles, empty) {
         return { ...rebuildLookupMaps(articles), rebuilt: true };
     }
     return {
-        actors: validActors ? parsed.actors : empty.actors,
+        actors: validActors ? sanitizeMap(parsed.actors) : empty.actors,
         policyDomains: validDomains
-            ? parsed.policyDomains
+            ? sanitizeMap(parsed.policyDomains)
             : empty.policyDomains,
         procedures: validProcedures
-            ? parsed.procedures
+            ? sanitizeMap(parsed.procedures)
             : empty.procedures,
         rebuilt: false,
     };
