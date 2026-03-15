@@ -18,7 +18,7 @@
  * Both renderers produce WCAG 2.1 AA compliant HTML with appropriate ARIA
  * roles, labels, and heading levels.
  *
- * @module generators/mindmap-content
+ * @module Generators/MindmapContent
  */
 
 import { escapeHTML } from '../utils/file-utils.js';

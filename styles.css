@@ -3838,6 +3838,53 @@ details[open] > .mindmap-stakeholder-toggle::before {
   border-left: 4px solid var(--branch-border, #283593);
 }
 
+/* RTL overrides for intelligence mindmap accents */
+[dir='rtl'] .mindmap-connection-strong,
+[dir='rtl'] .mindmap-connection-moderate,
+[dir='rtl'] .mindmap-connection-weak {
+  border-left: none;
+}
+
+[dir='rtl'] .mindmap-connection-strong {
+  border-right: 3px solid #2e7d32;
+}
+
+[dir='rtl'] .mindmap-connection-moderate {
+  border-right: 3px solid #f9a825;
+}
+
+[dir='rtl'] .mindmap-connection-weak {
+  border-right: 3px solid #bdbdbd;
+}
+
+[dir='rtl'] .mindmap-node-policy_domain,
+[dir='rtl'] .mindmap-node-sub_topic,
+[dir='rtl'] .mindmap-node-actor,
+[dir='rtl'] .mindmap-node-action,
+[dir='rtl'] .mindmap-node-outcome {
+  border-left: none;
+}
+
+[dir='rtl'] .mindmap-node-policy_domain {
+  border-right: 4px solid var(--branch-border, #1565c0);
+}
+
+[dir='rtl'] .mindmap-node-sub_topic {
+  border-right: 4px solid var(--branch-border, #7b1fa2);
+}
+
+[dir='rtl'] .mindmap-node-actor {
+  border-right: 4px solid var(--branch-border, #2e7d32);
+}
+
+[dir='rtl'] .mindmap-node-action {
+  border-right: 4px solid var(--branch-border, #e65100);
+}
+
+[dir='rtl'] .mindmap-node-outcome {
+  border-right: 4px solid var(--branch-border, #283593);
+}
+
 @media print {
   .mindmap-actor-overlay,
   .mindmap-connections-overlay,
