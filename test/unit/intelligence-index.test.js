@@ -199,8 +199,7 @@ describe('buildIndexFromEntries', () => {
     expect(index.policyDomains['safe-topic']).toEqual(['a1']);
 
     // Prototype chain is not polluted
-    const freshObj = {};
-    expect(freshObj['a1']).toBeUndefined();
+    expect(Object.prototype.hasOwnProperty.call({}, 'a1')).toBe(false);
   });
 });
 

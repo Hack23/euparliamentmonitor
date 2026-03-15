@@ -34,6 +34,10 @@ const DEFAULT_MAX_RELATED = 10;
 /**
  * Keys that must never be used as lookup-map indices to prevent
  * prototype-pollution attacks from untrusted article metadata.
+ *
+ * - `__proto__` — directly sets the prototype chain of plain objects
+ * - `constructor` — can be used to reach `Object` and mutate shared prototypes
+ * - `prototype` — when combined with `constructor`, enables prototype injection
  */
 const DANGEROUS_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
 
