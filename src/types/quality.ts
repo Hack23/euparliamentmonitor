@@ -108,7 +108,7 @@ export interface ArticleQualityReport {
   lang: string;
   /** Plain-text word count of the main article content */
   wordCount: number;
-  /** Number of structural analysis sections detected */
+  /** Number of analysis-content sections detected (e.g. analysis, deep-analysis, SWOT, dashboard, mindmap) */
   analysisSections: number;
   /** Number of evidence or document references detected */
   evidenceReferences: number;

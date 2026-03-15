@@ -293,52 +293,44 @@ function extractPlainText(html: string): string {
 }
 
 /**
+ * Tokens that identify a `<section>` element as analysis content.
+ * Non-analysis sections (e.g. `article-sources`, `sitemap-section`) are excluded.
+ */
+const ANALYSIS_SECTION_TOKENS: ReadonlyArray<string> = [
+  'analysis',
+  'analysis-section',
+  'deep-analysis',
+  'swot-analysis',
+  'dashboard',
+  'mindmap-section',
+  'sankey-section',
+];
+
+/**
  * Count structural analysis sections in HTML.
- * Uses a Set to avoid double-counting elements that have both a `<section` tag
- * and an `analysis-section` or `deep-analysis` class on the same element.
+ * Only counts `<section>` elements whose class attribute contains a known
+ * analysis-related token, preventing inflation from non-analysis sections
+ * like sources or footer wrappers.
  *
  * @param html - Raw HTML string
- * @returns Number of unique analysis sections found
+ * @returns Number of analysis-content sections found
  */
 function countAnalysisSections(html: string): number {
-  const positions = new Set<number>();
-
-  addTagPositions(html, '<section', positions);
-  addClassPositions(html, 'class="analysis-section"', positions);
-  addClassPositions(html, CLASS_DEEP_ANALYSIS, positions);
-
-  return positions.size;
-}
-
-/**
- * Add start positions of a tag or selector to the position set.
- *
- * @param html - HTML string
- * @param token - Token to search for
- * @param positions - Mutable set to add positions into
- */
-function addTagPositions(html: string, token: string, positions: Set<number>): void {
-  let idx = html.indexOf(token);
-  while (idx !== -1) {
-    positions.add(idx);
-    idx = html.indexOf(token, idx + 1);
+  const SECTION_TAG = /<section\b[^>]*>/giu;
+  const CLASS_VAL = /class="([^"]*)"/iu;
+  let count = 0;
+  let m: RegExpExecArray | null;
+  while ((m = SECTION_TAG.exec(html)) !== null) {
+    const tag = m[0];
+    const cv = CLASS_VAL.exec(tag);
+    if (cv) {
+      const tokens = (cv[1] ?? '').split(/\s+/);
+      if (tokens.some((t) => ANALYSIS_SECTION_TOKENS.includes(t))) {
+        count++;
+      }
+    }
   }
-}
-
-/**
- * Add positions of class attributes, mapped to their enclosing tag start.
- *
- * @param html - HTML string
- * @param classAttr - Class attribute string to search for
- * @param positions - Mutable set to add enclosing tag positions into
- */
-function addClassPositions(html: string, classAttr: string, positions: Set<number>): void {
-  let idx = html.indexOf(classAttr);
-  while (idx !== -1) {
-    const tagStart = html.lastIndexOf('<', idx);
-    if (tagStart !== -1) positions.add(tagStart);
-    idx = html.indexOf(classAttr, idx + 1);
-  }
+  return count;
 }
 
 /**

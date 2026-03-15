@@ -330,15 +330,16 @@ describe('assessVisualizationQuality', () => {
     expect(result.mindmapBranches).toBe(3);
   });
 
-  it('does not double-count sections with analysis-section class on a section tag', () => {
+  it('counts only analysis-content sections, not generic or non-analysis sections', () => {
     const html = buildHtml(
       `<section class="analysis-section"><p>Analysis A</p></section>
        <section class="deep-analysis"><p>Analysis B</p></section>
-       <section><p>Plain section</p></section>`
+       <section><p>Plain section (no class — not counted)</p></section>
+       <section class="article-sources"><p>Sources (not counted)</p></section>`
     );
-    // Should count exactly 3 unique sections, not 5 (which would happen with naive sum)
+    // Only the 2 sections with analysis-related classes are counted
     const report = scoreArticleQuality(html, 'test', 'en', 'week-ahead');
-    expect(report.analysisSections).toBe(3);
+    expect(report.analysisSections).toBe(2);
   });
 
   it('detects deep analysis by class', () => {
