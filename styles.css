@@ -2436,7 +2436,7 @@ button:focus-visible {
   background: var(--bg-card, #fff);
   border-radius: var(--radius-sm, 6px);
   border: 1px solid var(--border-light, #dee2e6);
-  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.04));
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.04));
 }
 
 .reasoning-chain-card .chain-conclusion {

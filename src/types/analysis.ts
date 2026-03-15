@@ -51,7 +51,7 @@ export interface ReasoningChain {
 // ─── Scenario Planning ───────────────────────────────────────────────────────
 
 /** Impact on a specific stakeholder within a scenario */
-export interface StakeholderImpact {
+export interface ScenarioStakeholderImpact {
   /** Name or description of the stakeholder */
   readonly stakeholder: string;
   /** Description of how they are affected */
@@ -69,7 +69,7 @@ export interface Scenario {
   /** Conditions that would trigger or confirm this scenario */
   readonly triggers: readonly string[];
   /** How different stakeholders are affected */
-  readonly implications: readonly StakeholderImpact[];
+  readonly implications: readonly ScenarioStakeholderImpact[];
   /** Expected timeframe for the scenario to materialise */
   readonly timeline: string;
 }
@@ -89,7 +89,7 @@ export interface ScenarioPlanning {
 // ─── Multi-Iteration Analysis Metadata ───────────────────────────────────────
 
 /** A single refinement pass in the multi-iteration analysis process */
-export interface AnalysisIteration {
+export interface EnhancedAnalysisIteration {
   /** Pass number (1 = initial, 2 = stakeholder_challenge, 3 = evidence_validation, 4 = synthesis) */
   readonly pass: 1 | 2 | 3 | 4;
   /** Type of analytical work performed in this pass */
@@ -113,7 +113,7 @@ export interface AnalysisQualityMetadata {
   /** Total number of refinement iterations performed */
   readonly iterationCount: number;
   /** Individual iteration records */
-  readonly iterations: readonly AnalysisIteration[];
+  readonly iterations: readonly EnhancedAnalysisIteration[];
 }
 
 // ─── Enhanced Deep Analysis ───────────────────────────────────────────────────

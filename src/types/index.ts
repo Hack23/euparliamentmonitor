@@ -196,10 +196,22 @@ export type {
   ConfidenceLevel,
   EvidenceReference,
   ReasoningChain,
-  StakeholderImpact,
+  ScenarioStakeholderImpact,
   Scenario,
   ScenarioPlanning,
-  AnalysisIteration,
+  EnhancedAnalysisIteration,
   AnalysisQualityMetadata,
   EnhancedDeepAnalysis,
 } from './analysis.js';
+
+export type {
+  AnalysisStakeholderType,
+  StakeholderImpact,
+  StakeholderSeverity,
+  StakeholderPerspective,
+  AnalysisIterationType,
+  AnalysisIteration,
+  StakeholderOutcomeMatrix,
+} from './stakeholder.js';
+
+export { ALL_STAKEHOLDER_TYPES } from './stakeholder.js';
