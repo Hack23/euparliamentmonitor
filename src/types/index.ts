@@ -80,6 +80,8 @@ export type {
   DateRange,
   GenerationStats,
   GenerationResult,
+  ArticleQualityScore,
+  TOCEntry,
 } from './generation.js';
 
 export {
@@ -168,6 +170,13 @@ export type {
   SwotAnalysis,
   SwotStrings,
   SwotBuilderStrings,
+  SwotDimensionName,
+  StakeholderType,
+  SwotDimension,
+  SwotCrossReference,
+  TemporalSwotAssessment,
+  MultiDimensionalSwot,
+  MultiDimensionalSwotStrings,
   DashboardMetric,
   ChartDataset,
   ChartData,
@@ -176,4 +185,60 @@ export type {
   DashboardConfig,
   DashboardStrings,
   DashboardBuilderStrings,
+  MindmapNodeCategory,
+  PolicyConnectionType,
+  PolicyConnectionStrength,
+  ActorType,
+  MindmapBranchColor,
+  MindmapNode,
+  MindmapLayer,
+  PolicyConnection,
+  ActorNode,
+  InfluenceWeight,
+  IntelligenceMindmap,
+  VotingBloc,
+  VoteHighlight,
+  CoalitionMetrics,
+  LegislativePipeline,
+  TrendMetric,
+  TrendAnalytics,
+  StakeholderMetric,
 } from './visualization.js';
+
+export type {
+  CrossReferenceRelationship,
+  CrossReferenceStrength,
+  ArticleCrossReference,
+  TrendCategory,
+  TrendDirection,
+  TrendConfidence,
+  TrendDetection,
+  ArticleSeriesStatus,
+  ArticleSeries,
+  ArticleIndexEntry,
+  IntelligenceIndex,
+} from './intelligence.js';
+
+export type {
+  ConfidenceLevel,
+  EvidenceReference,
+  ReasoningChain,
+  ScenarioStakeholderImpact,
+  Scenario,
+  ScenarioPlanning,
+  EnhancedAnalysisIteration,
+  AnalysisQualityMetadata,
+  EnhancedDeepAnalysis,
+} from './analysis.js';
+
+export type {
+  AnalysisStakeholderType,
+  StakeholderImpact,
+  StakeholderSeverity,
+  StakeholderPerspective,
+  AnalysisIterationType,
+  AnalysisIteration,
+  StakeholderOutcomeMatrix,
+} from './stakeholder.js';
+
+export { ALL_STAKEHOLDER_TYPES } from './stakeholder.js';

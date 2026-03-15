@@ -234,6 +234,146 @@ export interface DashboardStrings {
   readonly categoryLabel: string;
 }
 
+// ─── Multi-Dimensional SWOT types ────────────────────────────────────────────
+
+/**
+ * Dimension name for multi-dimensional SWOT analysis.
+ * Covers political, economic, social, legal, and geopolitical perspectives.
+ */
+export type SwotDimensionName = 'political' | 'economic' | 'social' | 'legal' | 'geopolitical';
+
+/**
+ * Stakeholder type for perspective-based SWOT views.
+ */
+export type StakeholderType = 'citizen' | 'industry' | 'ngo' | 'mep' | 'government' | 'media';
+
+/**
+ * A single analytical dimension within a multi-dimensional SWOT assessment.
+ * Each dimension contains its own complete SWOT quadrant data, allowing
+ * drill-down analysis from political, economic, social, legal, or geopolitical angles.
+ */
+export interface SwotDimension {
+  /** Dimension identifier */
+  readonly name: SwotDimensionName;
+  /** Internal strengths relevant to this dimension */
+  readonly strengths: readonly SwotItem[];
+  /** Internal weaknesses relevant to this dimension */
+  readonly weaknesses: readonly SwotItem[];
+  /** External opportunities relevant to this dimension */
+  readonly opportunities: readonly SwotItem[];
+  /** External threats relevant to this dimension */
+  readonly threats: readonly SwotItem[];
+}
+
+/**
+ * Cross-reference linking a SWOT item to a specific EP document or vote.
+ * Provides evidence anchoring for AI-generated SWOT assessments.
+ */
+export interface SwotCrossReference {
+  /** Excerpt or key text of the SWOT item being referenced */
+  readonly itemText: string;
+  /** EP document or vote identifier (e.g. "TA-10-2024-0001") */
+  readonly documentId: string;
+  /** Human-readable document or vote title */
+  readonly documentTitle: string;
+  /** Optional URL to the EP document */
+  readonly url?: string | undefined;
+}
+
+/**
+ * Temporal SWOT assessment showing evolution of the analysis
+ * across short, medium, and long time horizons.
+ */
+export interface TemporalSwotAssessment {
+  /** Short-term view — covers the current week's agenda and immediate impacts */
+  readonly shortTerm: SwotAnalysis;
+  /** Medium-term view — covers the current quarter's legislative activity */
+  readonly mediumTerm: SwotAnalysis;
+  /** Long-term view — covers the current parliamentary term (optional) */
+  readonly longTerm?: SwotAnalysis | undefined;
+}
+
+/**
+ * Multi-dimensional SWOT analysis with political context depth.
+ * Extends the basic SWOT framework with dimension-specific drill-downs,
+ * stakeholder perspectives, temporal tracking, and evidence cross-references.
+ *
+ * @example
+ * ```typescript
+ * const mdSwot: MultiDimensionalSwot = {
+ *   title: 'AI Act — Multi-Dimensional Assessment',
+ *   dimensions: [
+ *     {
+ *       name: 'political',
+ *       strengths: [{ text: 'Broad cross-party consensus', severity: 'high' }],
+ *       weaknesses: [], opportunities: [], threats: [],
+ *     },
+ *   ],
+ *   temporal: {
+ *     shortTerm: { strengths: [], weaknesses: [], opportunities: [], threats: [] },
+ *     mediumTerm: { strengths: [], weaknesses: [], opportunities: [], threats: [] },
+ *   },
+ * };
+ * ```
+ */
+export interface MultiDimensionalSwot {
+  /** Optional title for the full analysis */
+  readonly title?: string | undefined;
+  /** Per-dimension SWOT quadrant data */
+  readonly dimensions: readonly SwotDimension[];
+  /** Temporal assessment (short / medium / long term) */
+  readonly temporal?: TemporalSwotAssessment | undefined;
+  /** Stakeholder-specific perspectives */
+  readonly stakeholderViews?: Readonly<Partial<Record<StakeholderType, SwotAnalysis>>> | undefined;
+  /** Links from SWOT items to specific EP documents or votes */
+  readonly crossReferences?: readonly SwotCrossReference[] | undefined;
+}
+
+/**
+ * Localized UI strings for the multi-dimensional SWOT visualization.
+ * Covers dimension labels, stakeholder names, temporal headings, and evidence labels.
+ */
+export interface MultiDimensionalSwotStrings {
+  /** Heading for the dimensions drill-down section */
+  readonly dimensionsLabel: string;
+  /** Heading for the stakeholder perspectives section */
+  readonly stakeholderPerspectivesLabel: string;
+  /** Heading for the temporal analysis section */
+  readonly temporalAnalysisLabel: string;
+  /** Label for the short-term temporal period */
+  readonly shortTermLabel: string;
+  /** Label for the medium-term temporal period */
+  readonly mediumTermLabel: string;
+  /** Label for the long-term temporal period */
+  readonly longTermLabel: string;
+  /** Localized name for the political dimension */
+  readonly dimensionPolitical: string;
+  /** Localized name for the economic dimension */
+  readonly dimensionEconomic: string;
+  /** Localized name for the social dimension */
+  readonly dimensionSocial: string;
+  /** Localized name for the legal dimension */
+  readonly dimensionLegal: string;
+  /** Localized name for the geopolitical dimension */
+  readonly dimensionGeopolitical: string;
+  /** Localized label for citizen stakeholder */
+  readonly stakeholderCitizen: string;
+  /** Localized label for industry stakeholder */
+  readonly stakeholderIndustry: string;
+  /** Localized label for NGO / civil society stakeholder */
+  readonly stakeholderNgo: string;
+  /** Localized label for MEP stakeholder */
+  readonly stakeholderMep: string;
+  /** Localized label for government stakeholder */
+  readonly stakeholderGovernment: string;
+  /** Localized label for media stakeholder */
+  readonly stakeholderMedia: string;
+  /** Label for evidence items */
+  readonly evidenceLabel: string;
+  /** Heading for the cross-references section */
+  readonly crossReferencesLabel: string;
+}
+
 // ─── SWOT Builder Localization ───────────────────────────────────────────────
 
 /**
@@ -288,6 +428,285 @@ export interface SwotBuilderStrings {
   readonly committeeCompetingPriorities: string;
 }
 
+// ─── Intelligence Mindmap types ──────────────────────────────────────────────
+
+/**
+ * Category of a node within an intelligence mindmap.
+ * - `policy_domain` — top-level EU policy area (e.g. ENVI, ECON, AFET)
+ * - `sub_topic` — sub-issue within a policy domain
+ * - `actor` — MEP, political group, committee, or external stakeholder
+ * - `action` — a specific legislative act or parliamentary action
+ * - `outcome` — the result or consequence of an action
+ */
+export type MindmapNodeCategory = 'policy_domain' | 'sub_topic' | 'actor' | 'action' | 'outcome';
+
+/**
+ * Type of connection between two nodes in an intelligence mindmap.
+ * - `legislative` — formal procedural/legal link between nodes
+ * - `political` — alliance, coalition, or adversarial political relationship
+ * - `procedural` — committee-stage or plenary procedural link
+ * - `thematic` — shared policy theme or topic overlap
+ */
+export type PolicyConnectionType = 'legislative' | 'political' | 'procedural' | 'thematic';
+
+/**
+ * Strength of a policy connection.
+ * - `strong` — clearly evidenced, high-confidence link
+ * - `moderate` — supported by indirect evidence
+ * - `weak` — emerging or low-confidence relationship
+ */
+export type PolicyConnectionStrength = 'strong' | 'moderate' | 'weak';
+
+/**
+ * Type of actor in the actor-network.
+ * - `mep` — individual Member of European Parliament
+ * - `group` — political group (EPP, S&D, Renew, etc.)
+ * - `committee` — EP standing committee (ENVI, ECON, etc.)
+ * - `external` — non-EP stakeholder (Commission, Council, NGO, etc.)
+ */
+export type ActorType = 'mep' | 'group' | 'committee' | 'external';
+
+/**
+ * Pre-defined semantic color roles for mindmap branch nodes.
+ * When assigned to `MindmapNode.color`, selects the corresponding branch
+ * palette entry (overriding the default category-based colors).
+ */
+export type MindmapBranchColor =
+  | 'cyan'
+  | 'magenta'
+  | 'yellow'
+  | 'green'
+  | 'purple'
+  | 'orange'
+  | 'blue'
+  | 'red';
+
+/**
+ * A single node in the intelligence mindmap.
+ * Nodes are arranged in depth layers: domain → sub-topic → actor → action → outcome.
+ */
+export interface MindmapNode {
+  /** Unique node identifier (used for connection references). */
+  readonly id: string;
+  /** Human-readable label rendered inside the node. */
+  readonly label: string;
+  /** Node category determining visual styling. */
+  readonly category: MindmapNodeCategory;
+  /** Normalized influence weight 0–1 (drives `--node-influence` CSS var). */
+  readonly influence: number;
+  /**
+   * Optional semantic color key from the 8-color branch palette.
+   * When set to a valid `MindmapBranchColor` key (cyan, green, red, etc.),
+   * overrides the default category-based palette for this node.
+   * When omitted, the renderer falls back to the category palette.
+   */
+  readonly color?: MindmapBranchColor | undefined;
+  /** Child nodes one layer deeper in the hierarchy. */
+  readonly children: readonly MindmapNode[];
+  /** Optional EP-specific metadata for hover/detail rendering. */
+  readonly metadata?:
+    | {
+        readonly committee?: string | undefined;
+        readonly politicalGroup?: string | undefined;
+        readonly documentRef?: string | undefined;
+      }
+    | undefined;
+}
+
+/**
+ * A single depth layer in the intelligence mindmap hierarchy.
+ * Layer 0 is the central topic; higher depths are progressively detailed.
+ */
+export interface MindmapLayer {
+  /** Layer depth (0 = center, 1 = domains, 2 = sub-topics, 3 = actors, 4 = actions/outcomes). */
+  readonly depth: number;
+  /** Nodes belonging to this layer. */
+  readonly nodes: readonly MindmapNode[];
+}
+
+/**
+ * A directed connection between two endpoints in the intelligence mindmap.
+ * Endpoints may reference either layer node IDs or actorNetwork IDs,
+ * allowing connections between rendered domain nodes and actor-network
+ * entities (e.g., anomaly or pipeline procedure nodes).
+ */
+export interface PolicyConnection {
+  /** ID of the source endpoint (layer node or actorNetwork node). */
+  readonly from: string;
+  /** ID of the target endpoint (layer node or actorNetwork node). */
+  readonly to: string;
+  /** Confidence level of the relationship. */
+  readonly strength: PolicyConnectionStrength;
+  /** Nature of the relationship. */
+  readonly type: PolicyConnectionType;
+  /** EP document reference or description serving as evidence. */
+  readonly evidence: string;
+}
+
+/**
+ * A parliamentary or external actor node in the network.
+ * Used to represent MEPs, political groups, committees, or external stakeholders.
+ */
+export interface ActorNode {
+  /** Unique actor identifier. */
+  readonly id: string;
+  /** Display name of the actor. */
+  readonly name: string;
+  /** Category of actor. */
+  readonly type: ActorType;
+  /** Normalized influence score 0–1. */
+  readonly influence: number;
+  /** IDs of connected nodes in the network. */
+  readonly connections: readonly string[];
+}
+
+/**
+ * Influence weight entry for a mindmap node.
+ * Provides justification for a node's computed influence score.
+ */
+export interface InfluenceWeight {
+  /** Node being scored. */
+  readonly nodeId: string;
+  /** Normalized weight 0–1. */
+  readonly weight: number;
+  /** Human-readable factors explaining the score. */
+  readonly factors: readonly string[];
+}
+
+/**
+ * Complete intelligence mindmap data structure.
+ * Combines layered policy domain nodes, actor-network relationships,
+ * policy connections, and optional stakeholder perspective overlays.
+ *
+ * @example
+ * ```typescript
+ * const imap: IntelligenceMindmap = {
+ *   centralTopic: 'EU Climate Policy Intelligence',
+ *   layers: [{ depth: 1, nodes: [{ id: 'envi', label: 'Environment', category: 'policy_domain', ... }] }],
+ *   connections: [{ from: 'envi', to: 'econ', strength: 'strong', type: 'legislative', evidence: 'Green Deal' }],
+ *   actorNetwork: [{ id: 'envi-cmt', name: 'ENVI Committee', type: 'committee', influence: 0.9, connections: [] }],
+ *   stakeholderGroups: ['Industry', 'Civil Society', 'Member States'],
+ * };
+ * ```
+ */
+export interface IntelligenceMindmap {
+  /** Central topic label for the root node. */
+  readonly centralTopic: string;
+  /** Ordered depth layers from domains (1) to outcomes (4). */
+  readonly layers: readonly MindmapLayer[];
+  /** Cross-cutting connections between nodes in different branches. */
+  readonly connections: readonly PolicyConnection[];
+  /** Actor-network nodes (MEPs, groups, committees, external). */
+  readonly actorNetwork: readonly ActorNode[];
+  /** Optional stakeholder group labels for `<details>` overlay sections. */
+  readonly stakeholderGroups?: readonly string[] | undefined;
+  /** Optional summary rendered above the mindmap. */
+  readonly summary?: string | undefined;
+}
+
+// ─── Political Intelligence Dashboard types ───────────────────────────────────
+
+/**
+ * A single voting bloc within a coalition.
+ */
+export interface VotingBloc {
+  /** Name of the political group */
+  readonly group: string;
+  /** Alignment score with the coalition (0–100) */
+  readonly alignmentScore: number;
+  /** Optional seat count */
+  readonly seats?: number | undefined;
+}
+
+/**
+ * A defining vote that shaped coalition dynamics.
+ */
+export interface VoteHighlight {
+  /** Vote title or description */
+  readonly title: string;
+  /** Outcome of the vote */
+  readonly outcome: 'adopted' | 'rejected' | 'split';
+  /** Votes in favour */
+  readonly votesFor: number;
+  /** Votes against */
+  readonly votesAgainst: number;
+}
+
+/**
+ * Coalition dynamics metrics for a parliamentary period.
+ * Used to build coalition radar charts and alignment visualizations.
+ */
+export interface CoalitionMetrics {
+  /** Overall alignment score (0–100) */
+  readonly alignmentScore: number;
+  /** Identified voting blocs and their cohesion */
+  readonly votingBlocs: readonly VotingBloc[];
+  /** Overall trend direction */
+  readonly shiftIndicator: 'strengthening' | 'weakening' | 'stable';
+  /** Defining votes that illustrate coalition dynamics */
+  readonly keyVotes?: readonly VoteHighlight[] | undefined;
+}
+
+/**
+ * Legislative pipeline status with color-coded health indicators.
+ * Used to build pipeline bar charts and status visualizations.
+ */
+export interface LegislativePipeline {
+  /** Overall pipeline health (0–100) */
+  readonly healthScore: number;
+  /** Number of on-track procedures */
+  readonly onTrack: number;
+  /** Number of delayed procedures */
+  readonly delayed: number;
+  /** Number of blocked procedures */
+  readonly blocked: number;
+  /** Number of fast-tracked procedures */
+  readonly fastTracked: number;
+  /** Total procedures in pipeline */
+  readonly total: number;
+}
+
+/**
+ * A single trend metric data point for sparkline charts.
+ */
+export interface TrendMetric {
+  /** Period label (e.g., "Week 1", "Jan") */
+  readonly period: string;
+  /** Numeric value for this period */
+  readonly value: number;
+}
+
+/**
+ * Trend analytics for cross-article activity patterns.
+ * Used to build sparkline charts and comparison tables.
+ */
+export interface TrendAnalytics {
+  /** Trend period granularity */
+  readonly period: 'weekly' | 'monthly' | 'quarterly';
+  /** Trend metrics over time */
+  readonly metrics: readonly TrendMetric[];
+  /** Overall direction of the trend */
+  readonly direction: 'improving' | 'declining' | 'stable';
+  /** Week-over-week change percentage */
+  readonly weekOverWeekChange?: number | undefined;
+  /** Month-over-month change percentage */
+  readonly monthOverMonthChange?: number | undefined;
+}
+
+/**
+ * Stakeholder impact metric for scorecards.
+ */
+export interface StakeholderMetric {
+  /** Stakeholder group name */
+  readonly stakeholder: string;
+  /** Impact intensity (0–100) */
+  readonly impactScore: number;
+  /** Impact direction */
+  readonly impactDirection: 'positive' | 'negative' | 'neutral';
+  /** Brief description of impact */
+  readonly description?: string | undefined;
+}
+
 // ─── Dashboard Builder Localization ──────────────────────────────────────────
 
 /**
@@ -339,4 +758,34 @@ export interface DashboardBuilderStrings {
   readonly documentsProduced: string;
   readonly documentOutputByCommittee: string;
   readonly documentsPerCommittee: string;
+  // ── Coalition Dynamics Panel ──
+  readonly coalitionAlignment: string;
+  readonly alignmentScore: string;
+  readonly votingBlocs: string;
+  readonly coalitionShift: string;
+  readonly coalitionStrengthening: string;
+  readonly coalitionWeakening: string;
+  readonly coalitionStable: string;
+  readonly coalitionRadarChart: string;
+  // ── Pipeline Status Panel ──
+  readonly pipelineStatus: string;
+  readonly onTrack: string;
+  readonly delayed: string;
+  readonly blocked: string;
+  readonly fastTracked: string;
+  readonly pipelineStatusChart: string;
+  // ── Trend Analytics Panel ──
+  readonly trendAnalysis: string;
+  readonly weekOverWeek: string;
+  readonly monthOverMonth: string;
+  readonly trendImproving: string;
+  readonly trendDeclining: string;
+  readonly trendStableLabel: string;
+  readonly activityTrendChart: string;
+  // ── Stakeholder Impact Scorecard ──
+  readonly stakeholderImpact: string;
+  readonly impactScore: string;
+  readonly impactPositive: string;
+  readonly impactNegative: string;
+  readonly impactNeutral: string;
 }

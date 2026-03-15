@@ -7,6 +7,7 @@
  * safely handle malformed or missing MCP data. No side effects.
  */
 import { escapeHTML } from './file-utils.js';
+import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
 // ─── Validation constants ─────────────────────────────────────────────────────
 /** Valid significance levels in descending priority order */
 const SIGNIFICANCE_LEVELS = ['critical', 'high', 'medium', 'low'];
@@ -237,5 +238,131 @@ export function buildIntelligenceSection(title, items, className) {
           ${itemsHtml}
         </ul>
       </section>`;
+}
+// ─── Stakeholder scoring functions ───────────────────────────────────────────
+/**
+ * Derive a severity level from a numeric 0-1 importance score.
+ *
+ * @param score - Normalised importance score (0 = least important, 1 = most)
+ * @returns Severity level
+ */
+function severityFromScore(score) {
+    if (score >= 0.7)
+        return 'high';
+    if (score >= 0.4)
+        return 'medium';
+    return 'low';
+}
+/**
+ * Build a default set of stakeholder perspectives for a parliamentary action.
+ * Each perspective is seeded with a reasoning string and evidence items derived
+ * from the provided topic and impact scores. All six stakeholder groups receive
+ * a perspective entry.
+ *
+ * @param topic - Short description of the parliamentary action (e.g. vote title)
+ * @param scores - Optional per-stakeholder importance scores (0-1); defaults to 0.5
+ * @returns Array of six StakeholderPerspective objects, one per stakeholder group
+ */
+export function buildDefaultStakeholderPerspectives(topic, scores) {
+    return ALL_STAKEHOLDER_TYPES.map((stakeholder) => {
+        const score = scores?.[stakeholder] ?? 0.5;
+        const severity = severityFromScore(score);
+        return {
+            stakeholder,
+            impact: score >= 0.6
+                ? 'positive'
+                : score <= 0.3
+                    ? 'negative'
+                    : 'neutral',
+            severity,
+            reasoning: `Impact on this stakeholder group: ${severity} significance based on "${topic}".`,
+            evidence: [topic],
+        };
+    });
+}
+/**
+ * Score stakeholder influence from raw MCP data.
+ * Returns null for null, undefined, non-object, or missing stakeholder type.
+ *
+ * @param rawData - Raw stakeholder influence data (unknown shape)
+ * @returns Structured StakeholderPerspective or null if input is invalid
+ */
+export function scoreStakeholderInfluence(rawData) {
+    const d = toRecord(rawData);
+    if (!d)
+        return null;
+    const stakeholderRaw = asStr(d['stakeholder']);
+    if (!ALL_STAKEHOLDER_TYPES.includes(stakeholderRaw))
+        return null;
+    const stakeholder = stakeholderRaw;
+    const impactRaw = asStr(d['impact']).toLowerCase();
+    const validImpacts = ['positive', 'negative', 'neutral', 'mixed'];
+    const impact = validImpacts.includes(impactRaw)
+        ? impactRaw
+        : 'neutral';
+    const severityRaw = asStr(d['severity']).toLowerCase();
+    const validSeverities = ['high', 'medium', 'low'];
+    const severity = validSeverities.includes(severityRaw)
+        ? severityRaw
+        : 'medium';
+    return {
+        stakeholder,
+        impact,
+        severity,
+        reasoning: asStr(d['reasoning']),
+        evidence: asStrArr(d['evidence']),
+    };
+}
+/**
+ * Build a StakeholderOutcomeMatrix row for a single parliamentary action.
+ * Derives outcomes from per-stakeholder scores: score > 0.6 → winner,
+ * score < 0.4 → loser, otherwise neutral.
+ *
+ * @param action - The parliamentary action being assessed
+ * @param scores - Per-stakeholder importance scores (0-1); defaults to 0.5
+ * @param confidence - Confidence level for the outcome assessments
+ * @returns A StakeholderOutcomeMatrix row
+ */
+export function buildStakeholderOutcomeMatrix(action, scores = {}, confidence = 'medium') {
+    const outcomes = Object.fromEntries(ALL_STAKEHOLDER_TYPES.map((stakeholder) => {
+        const score = scores[stakeholder] ?? 0.5;
+        const outcome = score > 0.6 ? 'winner' : score < 0.4 ? 'loser' : 'neutral';
+        return [stakeholder, outcome];
+    }));
+    return { action, outcomes, confidence };
+}
+/**
+ * Map an array of StakeholderPerspective objects to a simple influence ranking.
+ * Returns stakeholder types sorted by severity (high → medium → low), then by
+ * impact direction (negative before positive, as negative impacts require more
+ * political attention).
+ *
+ * @param perspectives - Array of stakeholder perspectives to rank
+ * @returns Stakeholder types sorted by influence priority
+ */
+export function rankStakeholdersByInfluence(perspectives) {
+    const severityWeight = {
+        high: 3,
+        medium: 2,
+        low: 1,
+    };
+    const impactWeight = {
+        negative: 3,
+        mixed: 2,
+        positive: 1,
+        neutral: 0,
+    };
+    return [...perspectives]
+        .sort((a, b) => {
+        const sw = severityWeight[b.severity] - severityWeight[a.severity];
+        if (sw !== 0)
+            return sw;
+        const iw = impactWeight[b.impact] - impactWeight[a.impact];
+        if (iw !== 0)
+            return iw;
+        // Deterministic tie-breaker: canonical ALL_STAKEHOLDER_TYPES order
+        return (ALL_STAKEHOLDER_TYPES.indexOf(a.stakeholder) - ALL_STAKEHOLDER_TYPES.indexOf(b.stakeholder));
+    })
+        .map((p) => p.stakeholder);
 }
 //# sourceMappingURL=intelligence-analysis.js.map

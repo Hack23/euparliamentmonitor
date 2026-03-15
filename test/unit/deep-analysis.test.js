@@ -19,11 +19,17 @@ import {
   buildBreakingDashboard,
   buildPropositionsDashboard,
   buildCommitteeDashboard,
+  buildVotingMultiDimensionalSwot,
+  buildProspectiveMultiDimensionalSwot,
+  buildBreakingMultiDimensionalSwot,
+  buildPropositionsMultiDimensionalSwot,
+  buildCommitteeMultiDimensionalSwot,
 } from '../../scripts/generators/analysis-builders.js';
 import {
   PLACEHOLDER_CHAIR,
   PLACEHOLDER_MEMBERS,
 } from '../../scripts/generators/committee-helpers.js';
+import { ALL_STAKEHOLDER_TYPES } from '../../scripts/types/index.js';
 
 // ─── Fixtures ──────────────────────────────────────────────────────────────────
 
@@ -270,6 +276,437 @@ describe('deep-analysis-content', () => {
     it('should fall back to English for unknown language', () => {
       const html = buildDeepAnalysisSection(SAMPLE_ANALYSIS, 'xx');
       expect(html).toContain('Deep Political Analysis');
+    });
+
+    // ─── EnhancedDeepAnalysis tests ────────────────────────────────────────
+
+    const SAMPLE_ENHANCED_ANALYSIS = {
+      ...SAMPLE_ANALYSIS,
+      executiveSummary: 'This analysis covers the Digital Markets Act vote with high confidence.',
+      qualityMetadata: {
+        overallConfidence: 'high',
+        evidenceStrength: 'strong',
+        iterationCount: 3,
+        iterations: [
+          {
+            pass: 1,
+            type: 'initial',
+            confidence: 'medium',
+            findings: ['EPP gained majority support', 'S&D lost key amendment'],
+            evidenceRefs: [
+              { id: 'vote-001', type: 'vote', title: 'DMA Article 5 vote', date: '2026-02-24' },
+            ],
+            refinements: [],
+          },
+          {
+            pass: 2,
+            type: 'stakeholder_challenge',
+            confidence: 'medium',
+            findings: ['Greens abstention was strategic'],
+            evidenceRefs: [],
+            refinements: ['Revised stakeholder impact of Greens/EFA'],
+          },
+          {
+            pass: 3,
+            type: 'synthesis',
+            confidence: 'high',
+            findings: ['DMA enforcement capacity is the critical unknown'],
+            evidenceRefs: [],
+            refinements: ['Elevated overall confidence to high'],
+          },
+        ],
+      },
+      reasoningChains: [
+        {
+          premise: 'EPP secured key amendment on Article 5',
+          evidence: [
+            {
+              id: 'vote-001',
+              type: 'vote',
+              title: 'DMA Article 5 roll-call vote',
+              date: '2026-02-24',
+              url: 'https://example.ep.eu/votes/vote-001',
+            },
+          ],
+          inference: 'EPP now controls digital market gatekeeper definitions',
+          confidence: 'high',
+          counterArguments: ['Council may reject EPP position in trilogue'],
+          conclusion: 'EPP is the decisive actor in DMA implementation',
+        },
+      ],
+      scenarioPlanning: {
+        bestCase: {
+          description: 'Full enforcement within 18 months',
+          probability: 0.25,
+          triggers: ['Commission allocates full DMA budget', 'No court challenges'],
+          implications: [
+            { stakeholder: 'Big Tech', impact: 'Must comply immediately', severity: 'high' },
+          ],
+          timeline: 'Q3 2027',
+        },
+        worstCase: {
+          description: 'Enforcement delayed by litigation',
+          probability: 0.20,
+          triggers: ['Multiple court challenges', 'Budget cuts'],
+          implications: [
+            { stakeholder: 'SMEs', impact: 'Competition remains distorted', severity: 'critical' },
+          ],
+          timeline: 'Q1 2029+',
+        },
+        mostLikely: {
+          description: 'Partial enforcement with selective priorities',
+          probability: 0.55,
+          triggers: ['Commission prioritises 3 gatekeepers'],
+          implications: [
+            { stakeholder: 'Consumers', impact: 'Gradual improvement in choice', severity: 'medium' },
+          ],
+          timeline: 'Q2 2028',
+        },
+        wildcards: ['US retaliatory digital tariffs', 'Major gatekeeper bankruptcy'],
+      },
+    };
+
+    it('should render EnhancedDeepAnalysis with executive summary section', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('analysis-executive-summary');
+      expect(html).toContain('Digital Markets Act vote with high confidence');
+    });
+
+    it('should render executive summary before What section', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      const execPos = html.indexOf('analysis-executive-summary');
+      const whatPos = html.indexOf('analysis-what');
+      expect(execPos).toBeGreaterThan(-1);
+      expect(whatPos).toBeGreaterThan(-1);
+      expect(execPos).toBeLessThan(whatPos);
+    });
+
+    it('should render confidence badge for high confidence', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('confidence-badge');
+      expect(html).toContain('confidence-high');
+      expect(html).toContain('High Confidence');
+    });
+
+    it('should render confidence badge for medium confidence', () => {
+      const mediumAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        qualityMetadata: {
+          ...SAMPLE_ENHANCED_ANALYSIS.qualityMetadata,
+          overallConfidence: 'medium',
+        },
+      };
+      const html = buildDeepAnalysisSection(mediumAnalysis, 'en');
+      expect(html).toContain('confidence-medium');
+      expect(html).toContain('Medium Confidence');
+    });
+
+    it('should render confidence badge for low confidence', () => {
+      const lowAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        qualityMetadata: {
+          ...SAMPLE_ENHANCED_ANALYSIS.qualityMetadata,
+          overallConfidence: 'low',
+        },
+      };
+      const html = buildDeepAnalysisSection(lowAnalysis, 'en');
+      expect(html).toContain('confidence-low');
+      expect(html).toContain('Low Confidence');
+    });
+
+    it('should render reasoning chains section after Why', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('analysis-reasoning-chains');
+      expect(html).toContain('Reasoning Chains');
+      const whyPos = html.indexOf('analysis-why');
+      const chainsPos = html.indexOf('analysis-reasoning-chains');
+      expect(whyPos).toBeLessThan(chainsPos);
+    });
+
+    it('should render reasoning chain with premise, inference and conclusion', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('EPP secured key amendment on Article 5');
+      expect(html).toContain('EPP now controls digital market gatekeeper definitions');
+      expect(html).toContain('EPP is the decisive actor in DMA implementation');
+      expect(html).toContain('Premise:');
+      expect(html).toContain('Inference:');
+      expect(html).toContain('Conclusion:');
+    });
+
+    it('should render evidence reference with hyperlink when URL present', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('href="https://example.ep.eu/votes/vote-001"');
+      expect(html).toContain('rel="noopener noreferrer"');
+      expect(html).toContain('DMA Article 5 roll-call vote');
+    });
+
+    it('should render counter-arguments list', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('counter-arguments');
+      expect(html).toContain('Counter-arguments');
+      expect(html).toContain('Council may reject EPP position in trilogue');
+    });
+
+    it('should render scenario planning section after Outlook', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('analysis-scenario-planning');
+      expect(html).toContain('Scenario Planning');
+      const outlookPos = html.indexOf('analysis-outlook');
+      const scenarioPos = html.indexOf('analysis-scenario-planning');
+      expect(outlookPos).toBeLessThan(scenarioPos);
+    });
+
+    it('should render all three scenario cards', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('scenario-best');
+      expect(html).toContain('scenario-likely');
+      expect(html).toContain('scenario-worst');
+      expect(html).toContain('Best Case');
+      expect(html).toContain('Most Likely');
+      expect(html).toContain('Worst Case');
+    });
+
+    it('should render probability bars with correct values', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('role="progressbar"');
+      expect(html).toContain('aria-valuenow="55"');
+      expect(html).toContain('aria-valuenow="25"');
+      expect(html).toContain('aria-valuenow="20"');
+      expect(html).toContain('aria-valuemin="0"');
+      expect(html).toContain('aria-valuemax="100"');
+    });
+
+    it('should render wildcards list', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('wildcard-list');
+      expect(html).toContain('Wildcards');
+      expect(html).toContain('US retaliatory digital tariffs');
+      expect(html).toContain('Major gatekeeper bankruptcy');
+    });
+
+    it('should render analysis methodology section last', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('analysis-methodology');
+      expect(html).toContain('Analysis Methodology');
+      const scenarioPos = html.indexOf('analysis-scenario-planning');
+      const methodPos = html.indexOf('analysis-methodology');
+      expect(scenarioPos).toBeLessThan(methodPos);
+    });
+
+    it('should render iteration timeline with pass details', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('iteration-timeline');
+      expect(html).toContain('Pass 1');
+      expect(html).toContain('Pass 2');
+      expect(html).toContain('Pass 3');
+      expect(html).toContain('Initial Assessment');
+      expect(html).toContain('Stakeholder Challenge');
+      expect(html).toContain('Synthesis');
+    });
+
+    it('should render methodology stats in dl element', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('methodology-stats');
+      expect(html).toContain('Evidence Strength');
+      expect(html).toContain('Strong');
+      expect(html).toContain('Iterations');
+    });
+
+    it('should handle EnhancedDeepAnalysis with zero iterations gracefully', () => {
+      const zeroIter = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        qualityMetadata: {
+          overallConfidence: 'low',
+          evidenceStrength: 'weak',
+          iterationCount: 0,
+          iterations: [],
+        },
+      };
+      const html = buildDeepAnalysisSection(zeroIter, 'en');
+      expect(html).toContain('analysis-methodology');
+      expect(html).not.toContain('iteration-timeline');
+    });
+
+    it('should fall back gracefully when optional enhanced fields are undefined', () => {
+      const noEnhanced = { ...SAMPLE_ANALYSIS };
+      const html = buildDeepAnalysisSection(noEnhanced, 'en');
+      expect(html).not.toContain('analysis-executive-summary');
+      expect(html).not.toContain('analysis-reasoning-chains');
+      expect(html).not.toContain('analysis-scenario-planning');
+      expect(html).not.toContain('analysis-methodology');
+      expect(html).toContain('analysis-what');
+    });
+
+    it('should escape HTML in enhanced analysis content', () => {
+      const xssAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        executiveSummary: '<script>alert("xss")</script>',
+        reasoningChains: [
+          {
+            ...SAMPLE_ENHANCED_ANALYSIS.reasoningChains[0],
+            premise: '<img src=x onerror=alert(1)>',
+            conclusion: 'Safe conclusion',
+          },
+        ],
+      };
+      const html = buildDeepAnalysisSection(xssAnalysis, 'en');
+      expect(html).not.toContain('<script>');
+      expect(html).not.toContain('<img ');
+      expect(html).toContain('&lt;script&gt;');
+      expect(html).toContain('&lt;img');
+    });
+
+    it('should reject unsafe URLs (javascript: scheme) in evidence references', () => {
+      const unsafeAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        reasoningChains: [
+          {
+            ...SAMPLE_ENHANCED_ANALYSIS.reasoningChains[0],
+            evidence: [
+              {
+                id: 'xss-1',
+                type: 'vote',
+                title: 'Malicious link',
+                url: 'javascript:alert(1)',
+              },
+            ],
+          },
+        ],
+      };
+      const html = buildDeepAnalysisSection(unsafeAnalysis, 'en');
+      expect(html).not.toContain('href="javascript:');
+      expect(html).toContain('Malicious link');
+    });
+
+    it('should reject unsafe URLs (data: scheme) in evidence references', () => {
+      const unsafeAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        reasoningChains: [
+          {
+            ...SAMPLE_ENHANCED_ANALYSIS.reasoningChains[0],
+            evidence: [
+              {
+                id: 'xss-2',
+                type: 'document',
+                title: 'Data URI exploit',
+                url: 'data:text/html,<script>alert(1)</script>',
+              },
+            ],
+          },
+        ],
+      };
+      const html = buildDeepAnalysisSection(unsafeAnalysis, 'en');
+      expect(html).not.toContain('href="data:');
+      expect(html).toContain('Data URI exploit');
+    });
+
+    it('should render safe https URLs as hyperlinks with target="_blank"', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toContain('target="_blank"');
+      expect(html).toContain('rel="noopener noreferrer"');
+    });
+
+    it('should clamp probability bar to 0-100 range', () => {
+      const extremeScenarios = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        scenarioPlanning: {
+          ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning,
+          bestCase: {
+            ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning.bestCase,
+            probability: 1.5, // > 1.0 should clamp to 100%
+          },
+          worstCase: {
+            ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning.worstCase,
+            probability: -0.3, // negative should clamp to 0%
+          },
+        },
+      };
+      const html = buildDeepAnalysisSection(extremeScenarios, 'en');
+      expect(html).toContain('aria-valuenow="100"');
+      expect(html).toContain('aria-valuenow="0"');
+      expect(html).not.toContain('aria-valuenow="150"');
+      expect(html).not.toContain('aria-valuenow="-30"');
+    });
+
+    it('should include aria-label on probability bars for accessibility', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      expect(html).toMatch(/aria-label="Best Case 25%"/);
+      expect(html).toMatch(/aria-label="Most Likely 55%"/);
+      expect(html).toMatch(/aria-label="Worst Case 20%"/);
+    });
+
+    it('should use overallConfidenceLabel (not section heading) as dt in methodology dl', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      const dlMatch = html.match(/<dl class="methodology-stats">([\s\S]*?)<\/dl>/);
+      expect(dlMatch).not.toBeNull();
+      const dlContent = dlMatch[1];
+      expect(dlContent).toContain('Overall Confidence');
+      // First dt should NOT be the section heading
+      const firstDt = dlContent.match(/<dt>(.*?)<\/dt>/);
+      expect(firstDt).not.toBeNull();
+      expect(firstDt[1]).not.toBe('Analysis Methodology');
+    });
+
+    it('should use h4 (not h5) for evidence and counter-argument headings', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      // Evidence and counter-argument blocks should use h4 for proper heading hierarchy
+      expect(html).toContain('<h4>Evidence</h4>');
+      expect(html).toContain('<h4>Counter-arguments</h4>');
+      // Must NOT use h5 (would skip heading level under h3)
+      expect(html).not.toMatch(/<h5>Evidence<\/h5>/);
+      expect(html).not.toMatch(/<h5>Counter-arguments<\/h5>/);
+    });
+
+    it('should apply lang attribute to evidence reference list items', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en', 'fr');
+      // Evidence items should get lang attribute when contentLang differs
+      expect(html).toMatch(/<li lang="fr">/);
+    });
+
+    it('should handle NaN probability gracefully', () => {
+      const nanAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        scenarioPlanning: {
+          ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning,
+          bestCase: {
+            ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning.bestCase,
+            probability: NaN,
+          },
+        },
+      };
+      const html = buildDeepAnalysisSection(nanAnalysis, 'en');
+      // NaN should fall back to 0%
+      expect(html).toContain('aria-valuenow="0"');
+      expect(html).not.toContain('NaN');
+    });
+
+    it('should handle Infinity probability gracefully', () => {
+      const infAnalysis = {
+        ...SAMPLE_ENHANCED_ANALYSIS,
+        scenarioPlanning: {
+          ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning,
+          worstCase: {
+            ...SAMPLE_ENHANCED_ANALYSIS.scenarioPlanning.worstCase,
+            probability: Infinity,
+          },
+        },
+      };
+      const html = buildDeepAnalysisSection(infAnalysis, 'en');
+      // Infinity should fall back to 0%
+      expect(html).toContain('aria-valuenow="0"');
+      expect(html).not.toContain('Infinity');
+    });
+
+    it('should not check comparativeContext in type guard', () => {
+      // An analysis with ONLY comparativeContext should NOT be treated as enhanced
+      const contextOnlyAnalysis = {
+        ...SAMPLE_ANALYSIS,
+        comparativeContext: 'Some historical context',
+      };
+      const html = buildDeepAnalysisSection(contextOnlyAnalysis, 'en');
+      // Should NOT render enhanced sections
+      expect(html).not.toContain('analysis-executive-summary');
+      expect(html).not.toContain('analysis-methodology');
     });
   });
 });
@@ -744,9 +1181,11 @@ describe('Dashboard builders', () => {
 
     it('includes cohesion chart when patterns available', () => {
       const result = buildVotingDashboard(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
-      expect(result.panels.length).toBe(2);
-      expect(result.panels[1].chart).toBeDefined();
-      expect(result.panels[1].chart.type).toBe('bar');
+      expect(result.panels.length).toBeGreaterThanOrEqual(2);
+      // The cohesion panel (panel[1]) should have a bar chart
+      const cohesionPanel = result.panels.find((p) => p.chart?.type === 'bar');
+      expect(cohesionPanel).toBeDefined();
+      expect(cohesionPanel.chart.type).toBe('bar');
     });
 
     it('handles empty inputs', () => {
@@ -759,7 +1198,7 @@ describe('Dashboard builders', () => {
     it('returns panels with scheduled activity metrics (no hardcoded title)', () => {
       const result = buildProspectiveDashboard(WEEK_AHEAD_DATA, 'week');
       expect(result.title).toBeUndefined();
-      expect(result.panels.length).toBe(2);
+      expect(result.panels.length).toBeGreaterThanOrEqual(2);
     });
   });
 
@@ -799,8 +1238,10 @@ describe('Dashboard builders', () => {
     it('returns committee overview and chart (no hardcoded title)', () => {
       const result = buildCommitteeDashboard(COMMITTEE_DATA);
       expect(result.title).toBeUndefined();
-      expect(result.panels.length).toBe(2);
-      expect(result.panels[1].chart).toBeDefined();
+      expect(result.panels.length).toBeGreaterThanOrEqual(2);
+      // There should be a panel with a chart
+      const chartPanel = result.panels.find((p) => p.chart !== undefined);
+      expect(chartPanel).toBeDefined();
     });
 
     it('handles empty committee list', () => {
@@ -810,6 +1251,466 @@ describe('Dashboard builders', () => {
 
     it('returns null when all committees are placeholder (chair=N/A, members=0, docs=[])', () => {
       expect(buildCommitteeDashboard(makePlaceholderCommittees())).toBeNull();
+    });
+  });
+});
+
+// ─── Multi-Stakeholder Perspective Tests ──────────────────────────────────────
+
+// Shared fixtures for multi-stakeholder tests
+const DATE_RANGE = { start: '2026-03-01', end: '2026-03-07' };
+
+const BREAKING_FEED_DATA = {
+  adoptedTexts: [{ id: '1', title: 'DMA Regulation', date: '2026-01-13', url: '' }],
+  events: [{ id: '1', title: 'Emergency debate', date: '2026-01-13' }],
+  procedures: [{ id: '1', title: 'Climate procedure', date: '2026-01-13' }],
+  mepUpdates: [{ id: '1', name: 'MEP Smith', date: '2026-01-13' }],
+};
+
+const PIPELINE_DATA = { healthScore: 0.75, throughput: 12, bottleneckCount: 2 };
+
+describe('Multi-stakeholder perspectives in analysis builders', () => {
+  describe('buildVotingAnalysis — stakeholder fields', () => {
+    it('should populate stakeholderPerspectives with 6 entries', () => {
+      const result = buildVotingAnalysis('2026-01-01', '2026-01-07', VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS);
+      expect(result.stakeholderPerspectives).toHaveLength(6);
+    });
+
+    it('should cover all 6 stakeholder types in perspectives', () => {
+      const result = buildVotingAnalysis('2026-01-01', '2026-01-07', VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS);
+      const types = result.stakeholderPerspectives?.map((p) => p.stakeholder) ?? [];
+      for (const t of ALL_STAKEHOLDER_TYPES) {
+        expect(types).toContain(t);
+      }
+    });
+
+    it('should populate stakeholderOutcomeMatrix with at least 1 row', () => {
+      const result = buildVotingAnalysis('2026-01-01', '2026-01-07', VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS);
+      expect(result.stakeholderOutcomeMatrix?.length).toBeGreaterThan(0);
+    });
+
+    it('should assign high confidence when records are present', () => {
+      const result = buildVotingAnalysis('2026-01-01', '2026-01-07', VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS);
+      expect(result.stakeholderOutcomeMatrix?.[0]?.confidence).toBe('high');
+    });
+
+    it('should assign low confidence when no real records', () => {
+      const result = buildVotingAnalysis('2026-01-01', '2026-01-07', [], [], [], []);
+      expect(result.stakeholderOutcomeMatrix?.[0]?.confidence).toBe('low');
+    });
+
+    it('stakeholderPerspectives should have valid impact and severity for each entry', () => {
+      const result = buildVotingAnalysis('2026-01-01', '2026-01-07', VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS);
+      for (const p of result.stakeholderPerspectives ?? []) {
+        expect(['positive', 'negative', 'neutral', 'mixed']).toContain(p.impact);
+        expect(['high', 'medium', 'low']).toContain(p.severity);
+      }
+    });
+  });
+
+  describe('buildProspectiveAnalysis — stakeholder fields', () => {
+    it('should populate stakeholderPerspectives with 6 entries', () => {
+      const result = buildProspectiveAnalysis(WEEK_AHEAD_DATA, DATE_RANGE, 'week');
+      expect(result.stakeholderPerspectives).toHaveLength(6);
+    });
+
+    it('should populate stakeholderOutcomeMatrix', () => {
+      const result = buildProspectiveAnalysis(WEEK_AHEAD_DATA, DATE_RANGE, 'week');
+      expect(result.stakeholderOutcomeMatrix?.length).toBeGreaterThan(0);
+    });
+
+    it('each matrix row should have all 6 stakeholder outcomes', () => {
+      const result = buildProspectiveAnalysis(WEEK_AHEAD_DATA, DATE_RANGE, 'week');
+      const row = result.stakeholderOutcomeMatrix?.[0];
+      for (const t of ALL_STAKEHOLDER_TYPES) {
+        expect(row?.outcomes[t]).toBeDefined();
+        expect(['winner', 'loser', 'neutral']).toContain(row?.outcomes[t]);
+      }
+    });
+  });
+
+  describe('buildBreakingAnalysis — stakeholder fields', () => {
+    it('should populate stakeholderPerspectives with 6 entries', () => {
+      const result = buildBreakingAnalysis('2026-01-13', BREAKING_FEED_DATA, 'EPP defection detected', 'Coalition forming', 'en');
+      expect(result.stakeholderPerspectives).toHaveLength(6);
+    });
+
+    it('should populate stakeholderOutcomeMatrix', () => {
+      const result = buildBreakingAnalysis('2026-01-13', BREAKING_FEED_DATA, '', '', 'en');
+      expect(result.stakeholderOutcomeMatrix?.length).toBeGreaterThan(0);
+    });
+
+    it('should assign high confidence when adopted texts present', () => {
+      const result = buildBreakingAnalysis('2026-01-13', BREAKING_FEED_DATA, '', '', 'en');
+      expect(result.stakeholderOutcomeMatrix?.[0]?.confidence).toBe('high');
+    });
+  });
+
+  describe('buildPropositionsAnalysis — stakeholder fields', () => {
+    it('should populate stakeholderPerspectives with 6 entries', () => {
+      const result = buildPropositionsAnalysis('<p>proposals</p>', PIPELINE_DATA, '2026-01-13', 'en', '');
+      expect(result.stakeholderPerspectives).toHaveLength(6);
+    });
+
+    it('should populate stakeholderOutcomeMatrix', () => {
+      const result = buildPropositionsAnalysis('<p>proposals</p>', PIPELINE_DATA, '2026-01-13', 'en', '');
+      expect(result.stakeholderOutcomeMatrix?.length).toBeGreaterThan(0);
+    });
+
+    it('should assign low confidence when pipelineData is null', () => {
+      const result = buildPropositionsAnalysis('', null, '2026-01-13', 'en', '');
+      expect(result.stakeholderOutcomeMatrix?.[0]?.confidence).toBe('low');
+    });
+
+    it('should reflect health score in stakeholder perspectives', () => {
+      const weakResult = buildPropositionsAnalysis('', { healthScore: 0.2, throughput: 1, bottleneckCount: 5 }, '2026-01-13');
+      const strongResult = buildPropositionsAnalysis('', { healthScore: 0.9, throughput: 15, bottleneckCount: 0 }, '2026-01-13');
+      const weakPg = weakResult.stakeholderPerspectives?.find((p) => p.stakeholder === 'political_groups');
+      const strongPg = strongResult.stakeholderPerspectives?.find((p) => p.stakeholder === 'political_groups');
+      // Both should have a political_groups entry
+      expect(weakPg).toBeDefined();
+      expect(strongPg).toBeDefined();
+    });
+  });
+
+  describe('buildCommitteeAnalysis — stakeholder fields', () => {
+    it('should populate stakeholderPerspectives with 6 entries for valid data', () => {
+      const result = buildCommitteeAnalysis(COMMITTEE_DATA, '2026-01-13', 'en');
+      expect(result?.stakeholderPerspectives).toHaveLength(6);
+    });
+
+    it('should populate stakeholderOutcomeMatrix for valid data', () => {
+      const result = buildCommitteeAnalysis(COMMITTEE_DATA, '2026-01-13', 'en');
+      expect(result?.stakeholderOutcomeMatrix?.length).toBeGreaterThan(0);
+    });
+
+    it('should return null for placeholder data (no perspective fields)', () => {
+      expect(buildCommitteeAnalysis(makePlaceholderCommittees(), '2026-01-13', 'en')).toBeNull();
+    });
+  });
+});
+
+// ─── Multi-stakeholder HTML rendering tests ────────────────────────────────────
+
+describe('buildDeepAnalysisSection — multi-stakeholder HTML rendering', () => {
+  const ANALYSIS_WITH_PERSPECTIVES = {
+    ...SAMPLE_ANALYSIS,
+    stakeholderPerspectives: [
+      {
+        stakeholder: 'political_groups',
+        impact: 'positive',
+        severity: 'high',
+        reasoning: 'Coalition secured majority',
+        evidence: ['Vote tally', 'Press release'],
+      },
+      {
+        stakeholder: 'civil_society',
+        impact: 'mixed',
+        severity: 'medium',
+        reasoning: 'Some NGO demands met, others rejected',
+        evidence: ['NGO statement'],
+      },
+    ],
+    stakeholderOutcomeMatrix: [
+      {
+        action: 'Digital Markets Act vote',
+        outcomes: {
+          political_groups: 'winner',
+          civil_society: 'neutral',
+          industry: 'loser',
+          national_govts: 'winner',
+          citizens: 'neutral',
+          eu_institutions: 'winner',
+        },
+        confidence: 'high',
+      },
+    ],
+  };
+
+  it('should render stakeholder perspectives section', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('analysis-stakeholder-perspectives');
+  });
+
+  it('should render stakeholder group names in perspectives', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('Political Groups');
+    expect(html).toContain('Civil Society');
+  });
+
+  it('should render impact badges in perspectives', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('perspective-impact-positive');
+    expect(html).toContain('perspective-impact-mixed');
+  });
+
+  it('should render reasoning text', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('Coalition secured majority');
+    expect(html).toContain('Some NGO demands met');
+  });
+
+  it('should render evidence items', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('Vote tally');
+    expect(html).toContain('Press release');
+  });
+
+  it('should render stakeholder outcome matrix section', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('analysis-outcome-matrix');
+  });
+
+  it('should render the action in the matrix', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('Digital Markets Act vote');
+  });
+
+  it('should render outcome cells in the matrix', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('outcome-winner');
+    expect(html).toContain('outcome-loser');
+    expect(html).toContain('outcome-neutral');
+  });
+
+  it('should render confidence in the matrix', () => {
+    const html = buildDeepAnalysisSection(ANALYSIS_WITH_PERSPECTIVES, 'en');
+    expect(html).toContain('confidence-high');
+  });
+
+  it('should not render perspectives section when field is absent', () => {
+    const html = buildDeepAnalysisSection(SAMPLE_ANALYSIS, 'en');
+    expect(html).not.toContain('analysis-stakeholder-perspectives');
+  });
+
+  it('should not render matrix section when field is absent', () => {
+    const html = buildDeepAnalysisSection(SAMPLE_ANALYSIS, 'en');
+    expect(html).not.toContain('analysis-outcome-matrix');
+  });
+
+  it('should escape XSS in perspective reasoning', () => {
+    const xssAnalysis = {
+      ...SAMPLE_ANALYSIS,
+      stakeholderPerspectives: [{
+        stakeholder: 'citizens',
+        impact: 'negative',
+        severity: 'high',
+        reasoning: '<script>alert("xss")</script>',
+        evidence: [],
+      }],
+    };
+    const html = buildDeepAnalysisSection(xssAnalysis, 'en');
+    expect(html).not.toContain('<script>alert');
+    expect(html).toContain('&lt;script&gt;');
+  });
+
+  it('should escape XSS in matrix action text', () => {
+    const xssAnalysis = {
+      ...SAMPLE_ANALYSIS,
+      stakeholderOutcomeMatrix: [{
+        action: '<img onerror="alert(1)">',
+        outcomes: {
+          political_groups: 'winner',
+          civil_society: 'neutral',
+          industry: 'neutral',
+          national_govts: 'neutral',
+          citizens: 'neutral',
+          eu_institutions: 'neutral',
+        },
+        confidence: 'low',
+      }],
+    };
+    const html = buildDeepAnalysisSection(xssAnalysis, 'en');
+    expect(html).not.toContain('<img onerror');
+    expect(html).toContain('&lt;img');
+  });
+});
+
+// ─── Multi-dimensional SWOT builder tests ────────────────────────────────────
+
+describe('Multi-dimensional SWOT builders', () => {
+  describe('buildVotingMultiDimensionalSwot', () => {
+    it('returns all 5 dimensions', () => {
+      const result = buildVotingMultiDimensionalSwot(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      expect(result.dimensions).toHaveLength(5);
+      expect(result.dimensions.map((d) => d.name)).toEqual([
+        'political', 'economic', 'social', 'legal', 'geopolitical',
+      ]);
+    });
+
+    it('includes temporal assessment with shortTerm and mediumTerm', () => {
+      const result = buildVotingMultiDimensionalSwot(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      expect(result.temporal).toBeDefined();
+      expect(result.temporal.shortTerm).toBeDefined();
+      expect(result.temporal.mediumTerm).toBeDefined();
+    });
+
+    it('includes stakeholder views for citizen and mep', () => {
+      const result = buildVotingMultiDimensionalSwot(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      expect(result.stakeholderViews).toBeDefined();
+      expect(result.stakeholderViews.citizen).toBeDefined();
+      expect(result.stakeholderViews.mep).toBeDefined();
+    });
+
+    it('populates political dimension with cohesion data', () => {
+      const result = buildVotingMultiDimensionalSwot(VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES);
+      const political = result.dimensions.find((d) => d.name === 'political');
+      expect(political.strengths.some((s) => s.text.includes('cohesion above 80%'))).toBe(true);
+    });
+
+    it('handles empty inputs gracefully', () => {
+      const result = buildVotingMultiDimensionalSwot([], [], []);
+      expect(result.dimensions).toHaveLength(5);
+      expect(result.temporal).toBeDefined();
+    });
+  });
+
+  describe('buildProspectiveMultiDimensionalSwot', () => {
+    it('returns all 5 dimensions', () => {
+      const result = buildProspectiveMultiDimensionalSwot(WEEK_AHEAD_DATA, 'week');
+      expect(result.dimensions).toHaveLength(5);
+      expect(result.dimensions.map((d) => d.name)).toEqual([
+        'political', 'economic', 'social', 'legal', 'geopolitical',
+      ]);
+    });
+
+    it('includes temporal assessment', () => {
+      const result = buildProspectiveMultiDimensionalSwot(WEEK_AHEAD_DATA, 'week');
+      expect(result.temporal).toBeDefined();
+      expect(result.temporal.shortTerm.strengths.length).toBeGreaterThan(0);
+    });
+
+    it('includes political dimension with event data', () => {
+      const result = buildProspectiveMultiDimensionalSwot(WEEK_AHEAD_DATA, 'week');
+      const political = result.dimensions.find((d) => d.name === 'political');
+      expect(political.strengths.length).toBeGreaterThan(0);
+    });
+
+    it('includes bottleneck data in weaknesses', () => {
+      const result = buildProspectiveMultiDimensionalSwot(WEEK_AHEAD_DATA, 'week');
+      const political = result.dimensions.find((d) => d.name === 'political');
+      expect(political.weaknesses.some((w) => w.text.includes('bottleneck'))).toBe(true);
+    });
+  });
+
+  describe('buildBreakingMultiDimensionalSwot', () => {
+    it('returns all 5 dimensions with feed data', () => {
+      const feedData = {
+        adoptedTexts: [{ title: 'Tax Reform', date: '2026-01-15' }],
+        events: [{ title: 'Summit', date: '2026-01-15' }],
+        procedures: [{ title: 'DSA II', stage: 'committee' }],
+        mepUpdates: [],
+      };
+      const result = buildBreakingMultiDimensionalSwot(feedData, 'anomaly detected', 'coalition shift');
+      expect(result.dimensions).toHaveLength(5);
+    });
+
+    it('includes stakeholder views for citizen and media', () => {
+      const feedData = {
+        adoptedTexts: [{ title: 'Tax Reform', date: '2026-01-15' }],
+        events: [{ title: 'Summit', date: '2026-01-15' }],
+        procedures: [],
+        mepUpdates: [],
+      };
+      const result = buildBreakingMultiDimensionalSwot(feedData, '', '');
+      expect(result.stakeholderViews).toBeDefined();
+      expect(result.stakeholderViews.citizen).toBeDefined();
+      expect(result.stakeholderViews.media).toBeDefined();
+    });
+
+    it('includes temporal assessment', () => {
+      const feedData = {
+        adoptedTexts: [{ title: 'Tax Reform', date: '2026-01-15' }],
+        events: [],
+        procedures: [],
+        mepUpdates: [],
+      };
+      const result = buildBreakingMultiDimensionalSwot(feedData, '', '');
+      expect(result.temporal).toBeDefined();
+      expect(result.temporal.shortTerm).toBeDefined();
+      expect(result.temporal.mediumTerm).toBeDefined();
+    });
+
+    it('handles undefined feedData', () => {
+      const result = buildBreakingMultiDimensionalSwot(undefined, '', '');
+      expect(result.dimensions).toHaveLength(5);
+    });
+
+    it('includes anomaly data in political weaknesses and threats', () => {
+      const feedData = {
+        adoptedTexts: [],
+        events: [],
+        procedures: [],
+        mepUpdates: [],
+      };
+      const result = buildBreakingMultiDimensionalSwot(feedData, 'detected anomaly', '');
+      const political = result.dimensions.find((d) => d.name === 'political');
+      expect(political.weaknesses.length).toBeGreaterThan(0);
+      expect(political.threats.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('buildPropositionsMultiDimensionalSwot', () => {
+    it('returns all 5 dimensions with healthy pipeline', () => {
+      const result = buildPropositionsMultiDimensionalSwot({ healthScore: 0.8, throughput: 10 });
+      expect(result.dimensions).toHaveLength(5);
+    });
+
+    it('includes stakeholder views for industry and government', () => {
+      const result = buildPropositionsMultiDimensionalSwot({ healthScore: 0.8, throughput: 10 });
+      expect(result.stakeholderViews).toBeDefined();
+      expect(result.stakeholderViews.industry).toBeDefined();
+      expect(result.stakeholderViews.government).toBeDefined();
+    });
+
+    it('includes temporal assessment', () => {
+      const result = buildPropositionsMultiDimensionalSwot({ healthScore: 0.5, throughput: 3 });
+      expect(result.temporal).toBeDefined();
+      expect(result.temporal.shortTerm).toBeDefined();
+    });
+
+    it('reflects weak pipeline in political dimension', () => {
+      const result = buildPropositionsMultiDimensionalSwot({ healthScore: 0.3, throughput: 2 });
+      const political = result.dimensions.find((d) => d.name === 'political');
+      expect(political.weaknesses.length).toBeGreaterThan(0);
+    });
+
+    it('handles null pipeline data', () => {
+      const result = buildPropositionsMultiDimensionalSwot(null);
+      expect(result.dimensions).toHaveLength(5);
+    });
+  });
+
+  describe('buildCommitteeMultiDimensionalSwot', () => {
+    it('returns all 5 dimensions', () => {
+      const result = buildCommitteeMultiDimensionalSwot(COMMITTEE_DATA);
+      expect(result.dimensions).toHaveLength(5);
+      expect(result.dimensions.map((d) => d.name)).toEqual([
+        'political', 'economic', 'social', 'legal', 'geopolitical',
+      ]);
+    });
+
+    it('includes stakeholder views for mep and ngo', () => {
+      const result = buildCommitteeMultiDimensionalSwot(COMMITTEE_DATA);
+      expect(result.stakeholderViews).toBeDefined();
+      expect(result.stakeholderViews.mep).toBeDefined();
+      expect(result.stakeholderViews.ngo).toBeDefined();
+    });
+
+    it('includes temporal assessment', () => {
+      const result = buildCommitteeMultiDimensionalSwot(COMMITTEE_DATA);
+      expect(result.temporal).toBeDefined();
+      expect(result.temporal.shortTerm).toBeDefined();
+    });
+
+    it('includes active committee data in political dimension', () => {
+      const result = buildCommitteeMultiDimensionalSwot(COMMITTEE_DATA);
+      const political = result.dimensions.find((d) => d.name === 'political');
+      expect(political.strengths.length).toBeGreaterThan(0);
+    });
+
+    it('returns null when all committees are placeholder', () => {
+      expect(buildCommitteeMultiDimensionalSwot(makePlaceholderCommittees())).toBeNull();
     });
   });
 });

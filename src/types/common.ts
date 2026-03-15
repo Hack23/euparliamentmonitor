@@ -7,6 +7,11 @@
  * These foundational types are used across all bounded contexts.
  */
 
+import type { StakeholderPerspective, StakeholderOutcomeMatrix } from './stakeholder.js';
+
+// re-export so consumers don't need a separate import
+export type { StakeholderPerspective, StakeholderOutcomeMatrix } from './stakeholder.js';
+
 /** Supported language codes */
 export type LanguageCode =
   | 'en'
@@ -353,6 +358,8 @@ export interface PoliticalMistake {
  * - **Actions → Consequences**: Causal chains from decisions to outcomes
  * - **Mistakes**: Miscalculations, missed opportunities
  * - **Outlook**: What happens next, strategic implications
+ * - **Stakeholder Perspectives**: Multi-stakeholder impact assessment per group
+ * - **Stakeholder Outcome Matrix**: Winner/loser/neutral matrix per action per group
  */
 export interface DeepAnalysis {
   /** WHAT: Core subject — what happened or is being proposed */
@@ -379,6 +386,16 @@ export interface DeepAnalysis {
   readonly mistakes: readonly PoliticalMistake[];
   /** OUTLOOK: What happens next — strategic forward look */
   readonly outlook: string;
+  /**
+   * MULTI-STAKEHOLDER PERSPECTIVES: Detailed impact per stakeholder group.
+   * Optional — populated by enhanced analysis builders.
+   */
+  readonly stakeholderPerspectives?: readonly StakeholderPerspective[];
+  /**
+   * STAKEHOLDER OUTCOME MATRIX: Winner/loser/neutral per action per group.
+   * Optional — populated by enhanced analysis builders.
+   */
+  readonly stakeholderOutcomeMatrix?: readonly StakeholderOutcomeMatrix[];
 }
 
 /** Localized strings for deep analysis section headings */
@@ -428,6 +445,67 @@ export interface DeepAnalysisStrings {
   readonly severityMedium: string;
   readonly severityHigh: string;
   readonly severityCritical: string;
+  /** Sub-heading for multi-stakeholder perspectives section */
+  readonly perspectivesHeading: string;
+  /** Sub-heading for stakeholder outcome matrix section */
+  readonly outcomeMatrixHeading: string;
+  /** Column header for "Confidence" in the outcome matrix */
+  readonly confidenceLabel: string;
+  /** Localized stakeholder group labels for the outcome matrix columns */
+  readonly politicalGroupsLabel: string;
+  readonly civilSocietyLabel: string;
+  readonly industryLabel: string;
+  readonly nationalGovtsLabel: string;
+  readonly citizensLabel: string;
+  readonly euInstitutionsLabel: string;
+  /** Impact direction labels for stakeholder perspective cards */
+  readonly positiveLabel: string;
+  readonly negativeLabel: string;
+  readonly mixedLabel: string;
+  // ─── Enhanced analysis strings ───────────────────────────────────────────
+  /** Heading for executive summary section */
+  readonly executiveSummaryHeading: string;
+  /** Confidence level labels */
+  readonly confidenceHigh: string;
+  readonly confidenceMedium: string;
+  readonly confidenceLow: string;
+  /** Evidence references heading */
+  readonly evidenceRefsHeading: string;
+  /** Counter-arguments heading */
+  readonly counterArgumentsHeading: string;
+  /** Section labels for reasoning chains */
+  readonly conclusionLabel: string;
+  readonly premiseLabel: string;
+  readonly inferenceLabel: string;
+  /** Heading for reasoning chains section */
+  readonly reasoningChainsHeading: string;
+  /** Heading for scenario planning section */
+  readonly scenarioPlanningHeading: string;
+  /** Scenario labels */
+  readonly bestCaseLabel: string;
+  readonly worstCaseLabel: string;
+  readonly mostLikelyLabel: string;
+  readonly wildcardsLabel: string;
+  readonly probabilityLabel: string;
+  readonly triggersLabel: string;
+  readonly impliedImpactsLabel: string;
+  readonly timelineLabel: string;
+  /** Heading for analysis methodology section */
+  readonly analysisMethodologyHeading: string;
+  /** Methodology metadata labels */
+  readonly iterationCountLabel: string;
+  readonly evidenceStrengthLabel: string;
+  /** Evidence strength values */
+  readonly evidenceStrong: string;
+  readonly evidenceModerate: string;
+  readonly evidenceWeak: string;
+  /** Iteration type labels */
+  readonly iterationInitial: string;
+  readonly iterationStakeholderChallenge: string;
+  readonly iterationEvidenceValidation: string;
+  readonly iterationSynthesis: string;
+  /** Label for overall confidence in methodology stats */
+  readonly overallConfidenceLabel: string;
 }
 
 /** Localized content strings for the committee analysis deep analysis body text */
