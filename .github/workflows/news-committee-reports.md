@@ -677,6 +677,8 @@ fi
 5. Ensure all dates reference the current year (`${CURRENT_YEAR}`)
 6. Translate any remaining untranslated content in non-English articles
 
+**Note**: Stakeholder perspective issues must be resolved by adjusting the structured inputs and re-running the TypeScript generator — do NOT manually edit the rendered stakeholder card grid HTML.
+
 
 ## ✅ ANALYSIS QUALITY GATES (ENHANCED)
 

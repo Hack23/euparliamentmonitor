@@ -264,6 +264,8 @@ All analytical content sections follow a mandatory 4-pass refinement process:
 | **Pass 3 — Evidence Cross-Validation** | Verify claims against EP documents/votes; add 🟢/🟡/🔴 confidence indicators | Evidenced assertions only |
 | **Pass 4 — Synthesis & Scenarios** | Produce balanced conclusions; provide 2–3 forward-looking scenarios with probability labels | Final publishable analysis |
 
+> **Localization requirement**: All text labels — confidence (🟢 High / 🟡 Medium / 🔴 Low), probability (likely / possible / unlikely), and significance (High / Medium / Low) — must be rendered in the article's output language while preserving the underlying 3-level scale and keeping emoji markers (🟢/🟡/🔴, ↑↓→) unchanged. Non-English articles must use the equivalent terms in the target language, not English labels.
+
 ##### ✅ Enhanced Analysis Quality Gates
 
 In addition to the existing content quality gates (500-word minimum, no synthetic IDs, current dates), all articles must pass **two new quality gate categories**:
