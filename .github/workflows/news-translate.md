@@ -153,6 +153,17 @@ This workflow is the **dedicated translation workflow**. Content generation work
 | ko | Korean | CJK |
 | zh | Chinese (Simplified) | CJK |
 
+## 🌐 ANALYSIS FIDELITY REQUIREMENTS (translation specific)
+
+When translating articles, preserve ALL analytical nuance:
+- **Stakeholder framing**: Do not simplify stakeholder analysis — translate the full context, not just the conclusion
+- **Confidence indicators**: Preserve 🟢/🟡/🔴 confidence markers exactly as in the source; translate the accompanying text labels (High/Medium/Low) to the target-language equivalents while keeping the emoji markers unchanged and the 3-level scale intact
+- **Significance labels**: Translate document-significance text labels (High/Medium/Low) to the target language — do not leave English labels in non-English articles
+- **Scenario labels**: Preserve the probability *category* (likely/possible/unlikely) by mapping each label to its correct equivalent in the target language — do not upgrade or downgrade certainty during translation
+- **Technical terms**: Use EP official terminology in each target language (not ad-hoc translations)
+- **Coalition dynamics**: Preserve all references to political group interactions and voting patterns
+- **Cultural adaptation**: Adapt *existing* examples, idioms, or references from the source article for local context where helpful, but do not introduce new facts, examples, or analysis not present in the English source
+
 ## ⏱️ Time Budget (90 minutes)
 
 - **Minutes 0–3**: Date validation, discover English articles that need translation
