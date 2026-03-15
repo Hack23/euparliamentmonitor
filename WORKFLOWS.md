@@ -251,7 +251,7 @@ Every major parliamentary action must be analyzed from **at least 3 of 5 stakeho
 | **National Governments** | Subsidiarity, implementation requirements, national interests |
 | **EU Citizens** | Direct life impact, rights, services, democratic representation |
 
-Stakeholder analysis is rendered using `<div class="analysis-stakeholders">` with `<ul class="stakeholder-list">` markup in each article's deep-analysis portion, backed by specific EP MCP data citations.
+Stakeholder perspective analysis is rendered using `<div class="analysis-stakeholder-perspectives">` with a `<div class="stakeholder-perspectives-grid">` card grid in each article's deep-analysis portion. Each stakeholder gets a card with impact direction, severity, reasoning, and evidence backed by specific EP MCP data citations. (Note: the separate winners/losers outcomes list uses `analysis-stakeholders` / `stakeholder-list` — that is a different section.)
 
 ##### 🔄 Iterative AI Content Refinement Cycle
 

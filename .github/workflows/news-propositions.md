@@ -151,7 +151,7 @@ For EVERY major parliamentary action in the article, analyze from at least 3 of 
 
 **Minimum requirement**: Every key legislative action or political development MUST be analyzed from at least 3 of these perspectives. Each perspective MUST cite specific evidence from EP MCP data.
 
-**Format**: Use dedicated `<div class="analysis-stakeholders">` with `<ul class="stakeholder-list">` sections within the deep-analysis article section.
+**Format**: Use dedicated `<div class="analysis-stakeholder-perspectives">` with `<div class="stakeholder-perspectives-grid">` card grid within the deep-analysis article section. Each stakeholder gets a card with impact direction, severity, reasoning, and evidence.
 
 ## 🔄 AI ANALYSIS REFINEMENT CYCLE (MANDATORY)
 
@@ -180,7 +180,7 @@ Follow this iterative 4-pass process for ALL analytical content sections:
 ## 🗓️ LEGISLATIVE PIPELINE INTELLIGENCE (propositions specific)
 
 For each new legislative proposition, assess:
-- **Passage probability**: Rate as High/Medium/Low with supporting reasoning — use the localized equivalents of these labels in the article's output language while keeping the 3-level scale consistent
+- **Passage probability**: Rate as likely/possible/unlikely with supporting reasoning — use the localized equivalents of these labels in the article's output language while preserving the 3-level probability scale (this aligns with the scenario probability labels used in the refinement cycle, distinct from the High/Medium/Low confidence and significance scales)
 - **Amendment expectations**: Which provisions are most likely to be amended and by whom?
 - **Timeline forecast**: Realistic timeline to plenary vote based on committee workload and political calendar
 - **Blocking coalitions**: Could any combination of groups block or significantly delay this?
