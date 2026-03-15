@@ -2360,7 +2360,8 @@ export function buildProspectiveMindmap(
 
   const events = weekData.events ?? [];
   const pipeline = weekData.pipeline ?? [];
-  const bottleneckCount = pipeline.filter((p) => p.bottleneck === true).length;
+  const pipelineSlice = pipeline.slice(0, 4);
+  const bottleneckCount = pipelineSlice.filter((p) => p.bottleneck === true).length;
 
   const domainNodes: MindmapNode[] = policyDomains.map((domain, i) => {
     const relatedEvents = events.slice(i * 2, i * 2 + 2);
@@ -2384,7 +2385,6 @@ export function buildProspectiveMindmap(
   });
 
   // Build pipeline actor nodes preserving original indices as stable IDs
-  const pipelineSlice = pipeline.slice(0, 4);
   const actorNetwork: ActorNode[] = [
     {
       id: 'ep-plenary',

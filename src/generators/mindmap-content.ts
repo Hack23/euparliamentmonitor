@@ -301,12 +301,14 @@ function getNodePalette(
   category: string,
   color?: string
 ): { bg: string; border: string; text: string } {
-  if (color) {
-    const branchPalette = BRANCH_PALETTE[color as MindmapBranchColor];
-    if (branchPalette) return branchPalette;
+  if (color && Object.hasOwn(BRANCH_PALETTE, color)) {
+    return BRANCH_PALETTE[color as MindmapBranchColor];
   }
-  const catPalette = CATEGORY_PALETTE[category];
-  return catPalette ?? { bg: '#e3f2fd', border: '#1565c0', text: '#1565c0' };
+  if (Object.hasOwn(CATEGORY_PALETTE, category)) {
+    const entry = CATEGORY_PALETTE[category];
+    if (entry) return entry;
+  }
+  return { bg: '#e3f2fd', border: '#1565c0', text: '#1565c0' };
 }
 
 /**
