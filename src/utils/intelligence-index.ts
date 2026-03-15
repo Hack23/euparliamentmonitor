@@ -31,6 +31,35 @@ const MIN_TREND_ARTICLES = 2;
 /** Maximum cross-reference results when no limit is specified */
 const DEFAULT_MAX_RELATED = 10;
 
+/**
+ * Keys that must never be used as lookup-map indices to prevent
+ * prototype-pollution attacks from untrusted article metadata.
+ */
+const DANGEROUS_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
+
+/**
+ * Return `true` when `key` is safe to use as a plain-object property.
+ * Rejects `__proto__`, `constructor`, and `prototype` to avoid prototype
+ * pollution when indexing untrusted topic/actor/procedure strings.
+ *
+ * @param key - The key to validate
+ * @returns `true` if the key is safe to use as an object property
+ */
+function isSafeKey(key: string): boolean {
+  return !DANGEROUS_KEYS.has(key);
+}
+
+/**
+ * Create a null-prototype object suitable for use as a lookup map.
+ * Unlike `{}`, these objects have no inherited keys, providing an extra
+ * layer of defence against prototype-pollution.
+ *
+ * @returns A fresh null-prototype Record for use as a lookup map
+ */
+function createNullMap(): Record<string, string[]> {
+  return Object.create(null) as Record<string, string[]>;
+}
+
 // ─── createEmptyIndex ────────────────────────────────────────────────────────
 
 /**
@@ -41,9 +70,9 @@ const DEFAULT_MAX_RELATED = 10;
 export function createEmptyIndex(): IntelligenceIndex {
   return {
     articles: [],
-    actors: {},
-    policyDomains: {},
-    procedures: {},
+    actors: createNullMap(),
+    policyDomains: createNullMap(),
+    procedures: createNullMap(),
     trends: [],
     series: [],
     lastUpdated: new Date().toISOString(),
@@ -68,16 +97,16 @@ export function addArticleToIndex(
 ): IntelligenceIndex {
   // Replace or append
   const existingIdx = index.articles.findIndex((a) => a.id === entry.id);
-  const oldEntry = existingIdx >= 0 ? index.articles[existingIdx] : undefined;
+  const oldEntry = existingIdx >= 0 ? index.articles[existingIdx] : undefined; // eslint-disable-line security/detect-object-injection -- existingIdx from findIndex
   const articles =
     existingIdx >= 0
       ? [...index.articles.slice(0, existingIdx), entry, ...index.articles.slice(existingIdx + 1)]
       : [...index.articles, entry];
 
-  // Clone lookup maps
-  const actors = { ...index.actors };
-  const policyDomains = { ...index.policyDomains };
-  const procedures = { ...index.procedures };
+  // Clone lookup maps (null-prototype to prevent pollution)
+  const actors = Object.assign(createNullMap(), index.actors);
+  const policyDomains = Object.assign(createNullMap(), index.policyDomains);
+  const procedures = Object.assign(createNullMap(), index.procedures);
 
   // Remove stale associations from the old entry (if replacing)
   if (oldEntry) {
@@ -114,20 +143,14 @@ export function addArticleToIndex(
  * @returns A fully populated {@link IntelligenceIndex}
  */
 export function buildIndexFromEntries(entries: ArticleIndexEntry[]): IntelligenceIndex {
-  const actors: Record<string, string[]> = {};
-  const policyDomains: Record<string, string[]> = {};
-  const procedures: Record<string, string[]> = {};
+  const actors = createNullMap();
+  const policyDomains = createNullMap();
+  const procedures = createNullMap();
 
   for (const entry of entries) {
-    for (const actor of entry.keyActors) {
-      (actors[actor] ??= []).push(entry.id);
-    }
-    for (const topic of entry.keyTopics) {
-      (policyDomains[topic] ??= []).push(entry.id);
-    }
-    for (const proc of entry.procedures) {
-      (procedures[proc] ??= []).push(entry.id);
-    }
+    addIdToMap(actors, entry.keyActors, entry.id);
+    addIdToMap(policyDomains, entry.keyTopics, entry.id);
+    addIdToMap(procedures, entry.procedures, entry.id);
   }
 
   return {
@@ -443,9 +466,9 @@ function rebuildLookupMaps(articles: readonly ArticleIndexEntry[]): {
   policyDomains: Record<string, string[]>;
   procedures: Record<string, string[]>;
 } {
-  const actors: Record<string, string[]> = {};
-  const policyDomains: Record<string, string[]> = {};
-  const procedures: Record<string, string[]> = {};
+  const actors = createNullMap();
+  const policyDomains = createNullMap();
+  const procedures = createNullMap();
   for (const article of articles) {
     addIdToMap(actors, article.keyActors, article.id);
     addIdToMap(policyDomains, article.keyTopics, article.id);
@@ -682,6 +705,8 @@ export function buildRelatedArticlesHTML(
 /**
  * Remove an article ID from every key's list in a lookup map.
  * Cleans up empty arrays left behind.
+ * Skips dangerous keys (`__proto__`, `constructor`, `prototype`) to prevent
+ * prototype pollution.
  * @param map - Lookup map (actor/domain/procedure → article IDs)
  * @param keys - Keys to remove the article ID from
  * @param articleId - Article ID to remove
@@ -692,12 +717,16 @@ function removeIdFromMap(
   articleId: string
 ): void {
   for (const key of keys) {
+    if (!isSafeKey(key)) continue;
+    // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
     const list = map[key];
     if (!list) continue;
     const filtered = list.filter((id) => id !== articleId);
     if (filtered.length === 0) {
+      // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
       delete map[key];
     } else {
+      // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
       map[key] = filtered;
     }
   }
@@ -705,6 +734,8 @@ function removeIdFromMap(
 
 /**
  * Add an article ID to every key's list in a lookup map (deduplicating).
+ * Skips dangerous keys (`__proto__`, `constructor`, `prototype`) to prevent
+ * prototype pollution.
  * @param map - Lookup map (actor/domain/procedure → article IDs)
  * @param keys - Keys under which to register the article ID
  * @param articleId - Article ID to add
@@ -715,8 +746,11 @@ function addIdToMap(
   articleId: string
 ): void {
   for (const key of keys) {
+    if (!isSafeKey(key)) continue;
+    // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
     const existing = map[key] ?? [];
     if (!existing.includes(articleId)) {
+      // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
       map[key] = [...existing, articleId];
     }
   }

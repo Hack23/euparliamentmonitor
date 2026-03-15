@@ -15,6 +15,7 @@ import { createTempDir, cleanupTempDir } from '../helpers/test-utils.js';
 import {
   createEmptyIndex,
   addArticleToIndex,
+  buildIndexFromEntries,
   findRelatedArticles,
   generateCrossReferences,
   detectTrends,
@@ -157,6 +158,67 @@ describe('addArticleToIndex', () => {
     addArticleToIndex(index, entry);
 
     expect(index.articles).toHaveLength(0);
+  });
+});
+
+// ─── buildIndexFromEntries ────────────────────────────────────────────────────
+
+describe('buildIndexFromEntries', () => {
+  it('should deduplicate article IDs when entries have duplicate topics', () => {
+    const entry = makeEntry({
+      id: 'a1',
+      keyTopics: ['Green Deal', 'Green Deal', 'AI Act'],
+      keyActors: ['EPP', 'EPP'],
+      procedures: ['2024/0001(COD)', '2024/0001(COD)'],
+    });
+    const index = buildIndexFromEntries([entry]);
+
+    // Each map value should contain the ID exactly once
+    expect(index.policyDomains['Green Deal']).toEqual(['a1']);
+    expect(index.policyDomains['AI Act']).toEqual(['a1']);
+    expect(index.actors['EPP']).toEqual(['a1']);
+    expect(index.procedures['2024/0001(COD)']).toEqual(['a1']);
+  });
+
+  it('should reject prototype-pollution keys like __proto__', () => {
+    const entry = makeEntry({
+      id: 'a1',
+      keyTopics: ['__proto__', 'constructor', 'prototype', 'safe-topic'],
+      keyActors: ['__proto__'],
+      procedures: [],
+    });
+    const index = buildIndexFromEntries([entry]);
+
+    // Dangerous keys must be silently ignored
+    expect(index.policyDomains['__proto__']).toBeUndefined();
+    expect(index.policyDomains['constructor']).toBeUndefined();
+    expect(index.policyDomains['prototype']).toBeUndefined();
+    expect(index.actors['__proto__']).toBeUndefined();
+
+    // Safe keys work normally
+    expect(index.policyDomains['safe-topic']).toEqual(['a1']);
+
+    // Prototype chain is not polluted
+    const freshObj = {};
+    expect(freshObj['a1']).toBeUndefined();
+  });
+});
+
+// ─── addArticleToIndex prototype-safety ──────────────────────────────────────
+
+describe('addArticleToIndex prototype-safety', () => {
+  it('should reject dangerous keys in addArticleToIndex', () => {
+    const entry = makeEntry({
+      id: 'a1',
+      keyTopics: ['__proto__'],
+      keyActors: ['constructor'],
+      procedures: ['prototype'],
+    });
+    const index = addArticleToIndex(createEmptyIndex(), entry);
+
+    expect(index.policyDomains['__proto__']).toBeUndefined();
+    expect(index.actors['constructor']).toBeUndefined();
+    expect(index.procedures['prototype']).toBeUndefined();
   });
 });
 
