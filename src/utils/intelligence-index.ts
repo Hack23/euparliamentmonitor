@@ -449,7 +449,7 @@ function normalizeArticleEntry(entry: Partial<ArticleIndexEntry>): ArticleIndexE
     procedures: Array.isArray(entry.procedures) ? entry.procedures : [],
     crossReferences: Array.isArray(entry.crossReferences) ? entry.crossReferences : [],
     trendContributions: Array.isArray(entry.trendContributions) ? entry.trendContributions : [],
-    ...(entry.seriesId !== undefined && { seriesId: entry.seriesId }),
+    ...(typeof entry.seriesId === 'string' && { seriesId: entry.seriesId }),
   };
 }
 

@@ -173,6 +173,10 @@ export function updateIntelligenceIndex(
     });
   }
 
+  // Sort deterministically (date desc, then id asc) so the persisted index
+  // does not churn between runs due to platform-dependent readdir ordering.
+  entries.sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
+
   let index = buildIndexFromEntries(entries);
 
   // Refresh trend detections

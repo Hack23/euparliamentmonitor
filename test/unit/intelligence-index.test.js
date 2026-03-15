@@ -650,6 +650,26 @@ describe('loadIntelligenceIndex', () => {
     expect(entry.trendContributions).toEqual([]);
     expect(entry.lang).toBe('en'); // default
   });
+  it('should reject non-string seriesId values during normalization', () => {
+    const badSeriesPath = path.join(tempDir, 'bad-series.json');
+    fs.writeFileSync(
+      badSeriesPath,
+      JSON.stringify({
+        articles: [
+          { id: 'a1', date: '2025-01-01', seriesId: 42 },
+          { id: 'a2', date: '2025-01-02', seriesId: ['array'] },
+          { id: 'a3', date: '2025-01-03', seriesId: 'valid-series' },
+        ],
+      }),
+      'utf-8'
+    );
+    const index = loadIntelligenceIndex(badSeriesPath);
+    // Non-string seriesId values should be stripped
+    expect(index.articles[0].seriesId).toBeUndefined();
+    expect(index.articles[1].seriesId).toBeUndefined();
+    // Valid string seriesId should be preserved
+    expect(index.articles[2].seriesId).toBe('valid-series');
+  });
   it('should rebuild lookup maps when values are not string arrays (corrupt map)', () => {
     const corruptPath = path.join(tempDir, 'corrupt-maps.json');
     // Actors map has a string value instead of string[], which is malformed
