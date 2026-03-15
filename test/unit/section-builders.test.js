@@ -47,6 +47,21 @@ describe('section-builders', () => {
       expect(score.analysisSections).toBe(0);
     });
 
+    it('should not count nested dashboard-grid/dashboard-panel as dashboard sections', () => {
+      const content =
+        '<section class="dashboard" role="region">' +
+        '<div class="dashboard-grid">' +
+        '<div class="dashboard-panel">p1</div>' +
+        '<div class="dashboard-panel coalition-panel">p2</div>' +
+        '<canvas class="dashboard-chart" data-chart-config="{}"></canvas>' +
+        '</div>' +
+        '</section>';
+      const score = computeArticleQualityScore(content);
+      // Only 1 dashboard section, not 1 per nested dashboard-* class
+      expect(score.visualizationCount).toBe(2); // 1 dashboard + 1 chart (data-chart-config)
+      expect(score.analysisSections).toBe(0); // 1 total section - 1 dashboard = 0
+    });
+
     it('should rate excellent for rich content', () => {
       // 810 words exceeds the 800-word threshold required for 'excellent' rating
       const words = Array(810).fill('word').join(' ');

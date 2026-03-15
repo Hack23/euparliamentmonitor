@@ -8,8 +8,7 @@
  */
 
 import { escapeHTML } from '../utils/file-utils.js';
-import type { ArticleQualityScore, TOCEntry } from '../types/generation.js';
-import type { LanguageCode } from '../types/common.js';
+import type { ArticleQualityScore, TOCEntry, LanguageCode } from '../types/index.js';
 
 /** Localized aria-label for the table of contents navigation. */
 const TOC_ARIA_LABELS: Record<LanguageCode, string> = {
@@ -42,6 +41,28 @@ function countMatches(content: string, pattern: RegExp): number {
 }
 
 /**
+ * Count elements whose `class` attribute contains a given CSS class token.
+ *
+ * Extracts every `class="…"` attribute, splits the value into tokens, and
+ * checks for an exact match — so `"dashboard"` will NOT match nested
+ * classes like `"dashboard-grid"` or `"dashboard-panel"`.
+ *
+ * @param content - HTML string to search.
+ * @param token - Exact CSS class name to look for.
+ * @returns Number of elements that have the given class token.
+ */
+function countClassToken(content: string, token: string): number {
+  let count = 0;
+  for (const m of content.matchAll(/class="([^"]*)"/g)) {
+    const value = m[1] ?? '';
+    if (value.split(/\s+/).includes(token)) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+/**
  * Compute an article quality score by analysing the rendered HTML content.
  *
  * @param content - Full HTML content string of the article body.
@@ -61,11 +82,13 @@ export function computeArticleQualityScore(content: string): ArticleQualityScore
   // Count total <section tags, then subtract known visualization sections
   const totalSections = countMatches(content, /<section/g);
 
-  // Count data visualizations using class-token matching for multi-class attributes
+  // Count data visualizations using exact class-token matching.
+  // countClassToken splits the class attribute value into tokens, so nested
+  // classes like "dashboard-grid" or "dashboard-panel" are NOT counted.
   const chartCount = countMatches(content, /data-chart-config/g);
-  const dashboardCount = countMatches(content, /class="[^"]*\bdashboard\b[^"]*"/g);
-  const mindmapCount = countMatches(content, /class="[^"]*\bmindmap-section\b[^"]*"/g);
-  const swotCount = countMatches(content, /class="[^"]*\bswot-analysis\b[^"]*"/g);
+  const dashboardCount = countClassToken(content, 'dashboard');
+  const mindmapCount = countClassToken(content, 'mindmap-section');
+  const swotCount = countClassToken(content, 'swot-analysis');
   const visualizationCount = chartCount + dashboardCount + mindmapCount + swotCount;
 
   // Exclude visualization sections from analysis section count
