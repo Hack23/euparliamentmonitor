@@ -193,6 +193,20 @@ export type {
 } from './visualization.js';
 
 export type {
+  CrossReferenceRelationship,
+  CrossReferenceStrength,
+  ArticleCrossReference,
+  TrendCategory,
+  TrendDirection,
+  TrendConfidence,
+  TrendDetection,
+  ArticleSeriesStatus,
+  ArticleSeries,
+  ArticleIndexEntry,
+  IntelligenceIndex,
+} from './intelligence.js';
+
+export type {
   AnalysisStakeholderType,
   StakeholderImpact,
   StakeholderSeverity,
