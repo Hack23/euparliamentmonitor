@@ -314,11 +314,23 @@ describe('assessVisualizationQuality', () => {
     expect(result.mindmapBranches).toBe(3);
   });
 
-  it('counts mindmap <li> nodes as branches (fallback when no mindmap-branch classes)', () => {
+  it('counts mindmap branches from data-branch-count attribute (preferred)', () => {
+    const html = buildHtml(
+      `<section class="mindmap-section">
+        <div class="mindmap-container" data-branch-count="5">
+          <ul class="mindmap-branches"><li>A</li><li>B</li><li>C</li><li>D</li><li>E</li></ul>
+        </div>
+      </section>`
+    );
+    const result = assessVisualizationQuality(html);
+    expect(result.mindmapBranches).toBe(5);
+  });
+
+  it('counts mindmap <li> from mindmap-branches list (fallback when no data-branch-count)', () => {
     const html = buildHtml(
       `<section class="mindmap-section">
         <div class="mindmap-container">
-          <ul><li>Top
+          <ul class="mindmap-branches"><li>Top
             <ul><li>Mid
               <ul><li>Deep</li></ul>
             </li></ul>
@@ -327,7 +339,7 @@ describe('assessVisualizationQuality', () => {
       </section>`
     );
     const result = assessVisualizationQuality(html);
-    // 3 <li> elements = 3 branch nodes
+    // Counts all <li> within the mindmap-branches container (3 total)
     expect(result.mindmapBranches).toBe(3);
   });
 

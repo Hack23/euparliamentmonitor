@@ -595,51 +595,33 @@ function countDeepAnalysisSectionEvidence(html: string): number {
 }
 
 /**
- * Compute the mindmap branch count by counting `class="mindmap-branch"` elements.
- * Falls back to counting `<li>` elements (individual nodes/branches) within the
- * mindmap section when no `mindmap-branch` classes are found, ensuring the metric
- * consistently represents branch count rather than nesting depth.
+ * Compute the mindmap branch count.
+ *
+ * Priority order:
+ * 1. `data-branch-count="N"` attribute on `.mindmap-container` — the generators
+ *    set this to the exact number of top-level branches (`config.branches.length`
+ *    or `domainNodes.length`), so it is the most reliable source.
+ * 2. `class="mindmap-branch"` element count.
+ * 3. Direct `<li>` children of the first `.mindmap-branches` list (layer-1 only)
+ *    to avoid inflating the metric with nested subnodes.
  *
  * @param html - Raw HTML string
  * @returns Number of mindmap branches detected
  */
 function computeMindmapBranches(html: string): number {
-  // Real mindmap HTML uses class="mindmap-branch" elements
+  // 1. Prefer the explicit data-branch-count attribute set by the generators
+  const attrMatch = /data-branch-count="(\d+)"/u.exec(html);
+  if (attrMatch?.[1]) {
+    const parsed = parseInt(attrMatch[1], 10);
+    if (parsed > 0) return parsed;
+  }
+
+  // 2. Count class="mindmap-branch" elements
   const branchCount = countOccurrences(html, 'class="mindmap-branch"');
   if (branchCount > 0) return branchCount;
 
-  const sectionContent = extractMindmapSection(html);
-  if (!sectionContent) return 0;
-
-  // Count <li> elements as branch nodes — each <li> represents an individual
-  // node in the mindmap tree, giving a branch count rather than nesting depth.
-  return countOccurrences(sectionContent, '<li>');
-}
-
-/**
- * Extract the full content of a mindmap container using balanced tag matching.
- *
- * @param html - Raw HTML string
- * @returns Inner HTML of the mindmap container, or empty string if not found
- */
-function extractMindmapSection(html: string): string {
-  // Real mindmap uses: class="mindmap-section", class="mindmap-container"
-  const openPatterns = [
-    /class="mindmap-section"[^>]*>/u,
-    /class="mindmap-container"[^>]*>/u,
-    /id="mindmap"[^>]*>/u,
-  ];
-
-  for (const pattern of openPatterns) {
-    const openMatch = pattern.exec(html);
-    if (!openMatch) continue;
-
-    const startIdx = openMatch.index + openMatch[0].length;
-    const content = findBalancedContent(html, startIdx);
-    if (content) return content;
-  }
-
-  return '';
+  // 3. Count layer-1 <li> children of the mindmap-branches list
+  return countListItemsInClass(html, 'class="mindmap-branches"');
 }
 
 /**

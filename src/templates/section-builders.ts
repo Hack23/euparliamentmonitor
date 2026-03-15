@@ -97,7 +97,6 @@ function stripScriptBlocks(html: string): string {
  * @returns {@link ArticleQualityScore} with word count, section counts, and overall rating.
  */
 export function computeArticleQualityScore(content: string): ArticleQualityScore {
-  // Remove script blocks before tag-stripping to avoid inflating word count
   // Remove script blocks before tag-stripping to avoid inflating word count.
   // Uses iterative scanning instead of regex to avoid CodeQL js/bad-tag-filter.
   const noScripts = stripScriptBlocks(content);
