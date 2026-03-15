@@ -314,7 +314,7 @@ describe('assessVisualizationQuality', () => {
     expect(result.mindmapBranches).toBe(3);
   });
 
-  it('counts mindmap ul nesting depth with inner divs (balanced tag matching)', () => {
+  it('counts mindmap <li> nodes as branches (fallback when no mindmap-branch classes)', () => {
     const html = buildHtml(
       `<section class="mindmap-section">
         <div class="mindmap-container">
@@ -327,6 +327,7 @@ describe('assessVisualizationQuality', () => {
       </section>`
     );
     const result = assessVisualizationQuality(html);
+    // 3 <li> elements = 3 branch nodes
     expect(result.mindmapBranches).toBe(3);
   });
 
@@ -379,6 +380,38 @@ describe('assessVisualizationQuality', () => {
     const result = assessVisualizationQuality(html);
     expect(result.deepAnalysisPresent).toBe(true);
     expect(result.deepAnalysisEvidence).toBe(3);
+  });
+
+  it('counts evidence across multiple deep-analysis sections', () => {
+    const html = buildHtml(`
+      <section class="deep-analysis">
+        <div class="stakeholder-perspective-card">
+          <ul class="perspective-evidence"><li>Evidence A1</li><li>Evidence A2</li></ul>
+        </div>
+      </section>
+      <section class="deep-analysis">
+        <div class="stakeholder-perspective-card">
+          <ul class="perspective-evidence"><li>Evidence B1</li></ul>
+        </div>
+        <span class="evidence">Legacy evidence</span>
+      </section>
+    `);
+    const result = assessVisualizationQuality(html);
+    expect(result.deepAnalysisPresent).toBe(true);
+    // 2 items from first section + 1 item + 1 legacy from second = 4
+    expect(result.deepAnalysisEvidence).toBe(4);
+  });
+
+  it('counts <li> items in perspective-evidence <ul> without requiring div/section wrapper', () => {
+    // Tests that countListItemsInClass works with balanced <ul> matching
+    // even when the container isn't wrapped in a div/section/article
+    const html = buildHtml(`
+      <main>
+        <ul class="perspective-evidence"><li>Direct item 1</li><li>Direct item 2</li></ul>
+      </main>
+    `);
+    const report = scoreArticleQuality(html, 'test-direct-ul', 'en', 'week-ahead');
+    expect(report.evidenceReferences).toBeGreaterThanOrEqual(2);
   });
 
   it('counts swot-ref-evidence markers in SWOT sections', () => {

@@ -286,6 +286,11 @@ function countAnalysisSections(html) {
  * Used to count evidence items in `<ul class="perspective-evidence"><li>…</li></ul>`
  * structures produced by the deep-analysis and stakeholder perspective generators.
  *
+ * Locates each container by its class attribute, determines the enclosing element
+ * tag name, finds the end of the opening tag (`>`), and extracts content up to
+ * the balanced closing tag for that specific element — ensuring correct scoping
+ * even when the container is a `<ul>` (which `findBalancedContent` does not track).
+ *
  * @param html - HTML string to search
  * @param containerClass - Class attribute string to match (e.g. `class="perspective-evidence"`)
  * @returns Number of `<li>` children found across all matching containers
@@ -294,14 +299,63 @@ function countListItemsInClass(html, containerClass) {
     let total = 0;
     let idx = html.indexOf(containerClass);
     while (idx !== -1) {
-        const startIdx = idx + containerClass.length;
-        const content = findBalancedContent(html, startIdx);
+        const content = extractContainerContent(html, idx, containerClass);
         if (content) {
             total += countOccurrences(content, '<li>');
         }
         idx = html.indexOf(containerClass, idx + 1);
     }
     return total;
+}
+/**
+ * Extract the inner content of the HTML element whose opening tag contains the
+ * attribute match at the given position. Identifies the tag name by searching
+ * backwards for `<tagname`, then finds the end of the opening tag (`>`), and
+ * uses balanced tag matching on that specific element to locate the matching
+ * closing tag.
+ *
+ * @param html - Full HTML string
+ * @param attrIdx - Index where the matched attribute starts within `html`
+ * @param attr - The attribute string that was matched
+ * @returns Inner HTML of the container, or empty string if extraction fails
+ */
+function extractContainerContent(html, attrIdx, attr) {
+    // Search backwards from the attribute to find the opening `<`
+    let openBracket = attrIdx - 1;
+    while (openBracket >= 0 && html[openBracket] !== '<')
+        openBracket--;
+    if (openBracket < 0)
+        return '';
+    // Extract the tag name (e.g. "ul", "div", "section")
+    const tagSlice = html.slice(openBracket + 1, attrIdx).trim();
+    const tagNameMatch = /^([a-z][a-z0-9]*)/iu.exec(tagSlice);
+    if (!tagNameMatch)
+        return '';
+    const tagName = tagNameMatch[1];
+    // Find the end of the opening tag
+    const closeAngle = html.indexOf('>', attrIdx + attr.length);
+    if (closeAngle < 0)
+        return '';
+    const contentStart = closeAngle + 1;
+    // Balanced matching for this specific tag name
+    // tagName is validated by /^([a-z][a-z0-9]*)/ — alphanumeric only, safe for RegExp
+    // eslint-disable-next-line security/detect-non-literal-regexp
+    const balancePattern = new RegExp(`</?${tagName}[\\s>/]`, 'giu');
+    balancePattern.lastIndex = contentStart;
+    let depth = 1;
+    let m = balancePattern.exec(html);
+    while (m) {
+        if (m[0].startsWith('</')) {
+            depth--;
+            if (depth === 0)
+                return html.slice(contentStart, m.index);
+        }
+        else {
+            depth++;
+        }
+        m = balancePattern.exec(html);
+    }
+    return '';
 }
 /**
  * Count evidence and document references in HTML.
@@ -346,6 +400,9 @@ function countEvidenceRefs(html) {
  * Count evidence markers inside deep-analysis sections only, preventing
  * inflation from evidence markers elsewhere in the article.
  *
+ * Iterates ALL matching deep-analysis sections (not just the first),
+ * so articles with multiple deep-analysis blocks are fully counted.
+ *
  * Detects:
  * - `<li>` items inside `<ul class="perspective-evidence">` — real generator output
  * - `class="swot-ref-evidence"` — SWOT cross-reference evidence
@@ -356,28 +413,31 @@ function countEvidenceRefs(html) {
  * @returns Evidence count restricted to deep-analysis section(s)
  */
 function countDeepAnalysisSectionEvidence(html) {
-    const openPatterns = [/class="deep-analysis"[^>]*>/u, /id="[^"]*deep[^"]*"[^>]*>/iu];
+    const openPatterns = [/class="deep-analysis"[^>]*>/giu, /id="[^"]*deep[^"]*"[^>]*>/giu];
     let total = 0;
     for (const pattern of openPatterns) {
-        const openMatch = pattern.exec(html);
-        if (!openMatch)
-            continue;
-        const startIdx = openMatch.index + openMatch[0].length;
-        const sectionContent = findBalancedContent(html, startIdx);
-        if (sectionContent) {
-            total +=
-                countListItemsInClass(sectionContent, 'class="perspective-evidence"') +
-                    countOccurrences(sectionContent, 'class="swot-ref-evidence"') +
-                    countOccurrences(sectionContent, 'class="evidence"') +
-                    countOccurrences(sectionContent, 'data-reference');
+        pattern.lastIndex = 0;
+        let openMatch = pattern.exec(html);
+        while (openMatch) {
+            const startIdx = openMatch.index + openMatch[0].length;
+            const sectionContent = findBalancedContent(html, startIdx);
+            if (sectionContent) {
+                total +=
+                    countListItemsInClass(sectionContent, 'class="perspective-evidence"') +
+                        countOccurrences(sectionContent, 'class="swot-ref-evidence"') +
+                        countOccurrences(sectionContent, 'class="evidence"') +
+                        countOccurrences(sectionContent, 'data-reference');
+            }
+            openMatch = pattern.exec(html);
         }
     }
     return total;
 }
 /**
- * Compute the mindmap branch count by counting `class="mindmap-branch"` elements
- * or nested `ul > li` depth within a mindmap section.
- * Uses balanced tag matching to avoid truncating at inner closing tags.
+ * Compute the mindmap branch count by counting `class="mindmap-branch"` elements.
+ * Falls back to counting `<li>` elements (individual nodes/branches) within the
+ * mindmap section when no `mindmap-branch` classes are found, ensuring the metric
+ * consistently represents branch count rather than nesting depth.
  *
  * @param html - Raw HTML string
  * @returns Number of mindmap branches detected
@@ -390,7 +450,9 @@ function computeMindmapBranches(html) {
     const sectionContent = extractMindmapSection(html);
     if (!sectionContent)
         return 0;
-    return measureUlNestingDepth(sectionContent);
+    // Count <li> elements as branch nodes — each <li> represents an individual
+    // node in the mindmap tree, giving a branch count rather than nesting depth.
+    return countOccurrences(sectionContent, '<li>');
 }
 /**
  * Extract the full content of a mindmap container using balanced tag matching.
@@ -440,27 +502,6 @@ function findBalancedContent(html, startIdx) {
         tagMatch = closeTagPattern.exec(html);
     }
     return '';
-}
-/**
- * Measure the maximum `<ul>` nesting depth within a section of HTML.
- *
- * @param section - HTML section content
- * @returns Maximum nesting depth
- */
-function measureUlNestingDepth(section) {
-    let maxDepth = 0;
-    let ulDepth = 0;
-    for (let i = 0; i < section.length - 3; i++) {
-        if (section.slice(i, i + 3) === '<ul') {
-            ulDepth++;
-            if (ulDepth > maxDepth)
-                maxDepth = ulDepth;
-        }
-        else if (section.slice(i, i + 5) === '</ul>') {
-            ulDepth--;
-        }
-    }
-    return maxDepth;
 }
 /**
  * Check whether generic/placeholder phrases appear in the article text.
