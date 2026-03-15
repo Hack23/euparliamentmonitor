@@ -44,37 +44,8 @@ import {
   escapeHTML,
 } from '../utils/file-utils.js';
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
-import type { ParsedArticle, ArticleCategoryLabels } from '../types/index.js';
-import { ArticleCategory } from '../types/index.js';
-
-/**
- * Default category for articles that don't match specific patterns.
- */
-const DEFAULT_CATEGORY = ArticleCategory.WEEK_AHEAD;
-
-/**
- * Detect the article category from a slug.
- * Returns the matching ArticleCategory value used for badge/accent colours.
- *
- * @param slug - Hyphenated slug string
- * @returns ArticleCategory value string
- */
-function detectCategory(slug: string): string {
-  const s = slug.toLowerCase();
-  if (s.includes('week-ahead')) return ArticleCategory.WEEK_AHEAD;
-  if (s.includes('month-ahead')) return ArticleCategory.MONTH_AHEAD;
-  if (s.includes('year-ahead')) return ArticleCategory.YEAR_AHEAD;
-  if (s.includes('week-in-review')) return ArticleCategory.WEEK_IN_REVIEW;
-  if (s.includes('month-in-review')) return ArticleCategory.MONTH_IN_REVIEW;
-  if (s.includes('year-in-review')) return ArticleCategory.YEAR_IN_REVIEW;
-  if (s.includes('committee')) return ArticleCategory.COMMITTEE_REPORTS;
-  if (s.includes('motion') || s.includes('vote') || s.includes('voting'))
-    return ArticleCategory.MOTIONS;
-  if (s.includes('propos') || s.includes('legislat')) return ArticleCategory.PROPOSITIONS;
-  if (s.includes('breaking') || s.includes('urgent')) return ArticleCategory.BREAKING_NEWS;
-  if (s.includes('deep-analysis') || s.includes('5-whys')) return ArticleCategory.DEEP_ANALYSIS;
-  return DEFAULT_CATEGORY;
-}
+import { detectCategory } from '../utils/article-category.js';
+import type { ParsedArticle, ArticleCategoryLabels, ArticleCategory } from '../types/index.js';
 
 /**
  * Get the index filename for a given language code.
@@ -144,10 +115,9 @@ function renderCard(
 ): string {
   const category = detectCategory(article.slug);
   // Sanitize the category for safe use in CSS class names (allow only alphanumeric and hyphens)
-  const safeCategory = category.replace(/[^a-z0-9-]/gi, '');
+  const safeCategory = String(category).replace(/[^a-z0-9-]/gi, '');
   const title = escapeHTML(meta.title || formatSlug(article.slug));
-  const badgeLabel =
-    categoryLabels?.[category as keyof ArticleCategoryLabels] ?? formatSlug(safeCategory);
+  const badgeLabel = categoryLabels?.[category] ?? formatSlug(safeCategory);
   const excerpt = meta.description
     ? `\n            <p class="news-card__excerpt">${escapeHTML(meta.description)}</p>`
     : '';
@@ -215,7 +185,7 @@ export function generateIndexHTML(
   const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang) as ArticleCategoryLabels;
 
   // Collect distinct categories from the current article set
-  const usedCategories = new Set<string>();
+  const usedCategories = new Set<ArticleCategory>();
   for (const a of articles) {
     usedCategories.add(detectCategory(a.slug));
   }
@@ -243,7 +213,7 @@ export function generateIndexHTML(
   const ai = getLocalizedString(AI_SECTION_CONTENT, lang);
 
   // Build filter buttons from used categories (with article count)
-  const categoryCounts = new Map<string, number>();
+  const categoryCounts = new Map<ArticleCategory, number>();
   for (const a of articles) {
     const cat = detectCategory(a.slug);
     categoryCounts.set(cat, (categoryCounts.get(cat) ?? 0) + 1);
@@ -254,8 +224,8 @@ export function generateIndexHTML(
       ? Array.from(usedCategories)
           .sort()
           .map((cat) => {
-            const safeCat = cat.replace(/[^a-z0-9-]/gi, '');
-            const label = categoryLabels[cat as keyof ArticleCategoryLabels] ?? formatSlug(safeCat);
+            const safeCat = String(cat).replace(/[^a-z0-9-]/gi, '');
+            const label = categoryLabels[cat] ?? formatSlug(safeCat);
             const count = categoryCounts.get(cat) ?? 0;
             return `<button type="button" class="filter-btn" data-category="${safeCat}">${escapeHTML(label)}<span class="filter-btn__count">${count}</span></button>`;
           })
