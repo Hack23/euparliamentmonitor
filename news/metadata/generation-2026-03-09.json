@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-03-09T20:19:33.062Z",
-  "generated": 29,
+  "timestamp": "2026-03-14T19:10:00.000Z",
+  "generated": 42,
   "skipped": 14,
   "dryRun": 0,
   "errors": 0,
@@ -33,14 +33,22 @@
     "2026-03-09-propositions-he.html",
     "2026-03-09-propositions-ja.html",
     "2026-03-09-propositions-ko.html",
-    "2026-03-09-propositions-zh.html"
+    "2026-03-09-propositions-zh.html",
+    "2026-03-09-week-ahead-sv.html",
+    "2026-03-09-week-ahead-da.html",
+    "2026-03-09-week-ahead-no.html",
+    "2026-03-09-week-ahead-fi.html",
+    "2026-03-09-week-ahead-de.html",
+    "2026-03-09-week-ahead-fr.html",
+    "2026-03-09-week-ahead-es.html",
+    "2026-03-09-week-ahead-nl.html",
+    "2026-03-09-week-ahead-ar.html",
+    "2026-03-09-week-ahead-he.html",
+    "2026-03-09-week-ahead-ja.html",
+    "2026-03-09-week-ahead-ko.html",
+    "2026-03-09-week-ahead-zh.html"
   ],
   "results": [
-    {
-      "success": true,
-      "files": 1,
-      "slug": "2026-03-09-week-ahead"
-    },
     {
       "success": true,
       "files": 14,
@@ -55,6 +63,11 @@
       "success": true,
       "files": 0,
       "slug": "2026-03-09-committee-reports"
+    },
+    {
+      "success": true,
+      "files": 14,
+      "slug": "2026-03-09-week-ahead"
     }
   ],
   "usedMCP": true
