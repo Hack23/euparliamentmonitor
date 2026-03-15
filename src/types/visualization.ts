@@ -483,9 +483,10 @@ export interface MindmapNode {
    * Optional semantic color key from the 8-color branch palette.
    * When set to a valid `MindmapBranchColor` key (cyan, green, red, etc.),
    * overrides the default category-based palette for this node.
-   * When unrecognized or empty, the renderer falls back to the category palette.
+   * When omitted, unrecognized, or empty, the renderer falls back to the
+   * category palette.
    */
-  readonly color: string;
+  readonly color?: string | undefined;
   /** Child nodes one layer deeper in the hierarchy. */
   readonly children: readonly MindmapNode[];
   /** Optional EP-specific metadata for hover/detail rendering. */

@@ -3173,6 +3173,9 @@ button:focus-visible {
   gap: 1rem;
   justify-content: center;
   width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .mindmap-branch {
