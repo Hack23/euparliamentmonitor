@@ -22,11 +22,7 @@
  */
 
 import { escapeHTML } from '../utils/file-utils.js';
-import type {
-  IntelligenceMindmap,
-  MindmapBranchColor,
-  MindmapNode,
-} from '../types/index.js';
+import type { IntelligenceMindmap, MindmapBranchColor, MindmapNode } from '../types/index.js';
 
 // ---------------------------------------------------------------------------
 // Types
