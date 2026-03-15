@@ -193,3 +193,15 @@ export type {
   TrendAnalytics,
   StakeholderMetric,
 } from './visualization.js';
+
+export type {
+  AnalysisStakeholderType,
+  StakeholderImpact,
+  StakeholderSeverity,
+  StakeholderPerspective,
+  AnalysisIterationType,
+  AnalysisIteration,
+  StakeholderOutcomeMatrix,
+} from './stakeholder.js';
+
+export { ALL_STAKEHOLDER_TYPES } from './stakeholder.js';
