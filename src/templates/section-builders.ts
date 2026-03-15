@@ -79,23 +79,29 @@ export function computeArticleQualityScore(content: string): ArticleQualityScore
   const wordCount =
     plainText.length > 0 ? plainText.split(' ').filter((w) => w.length > 0).length : 0;
 
-  // Count total <section tags, then subtract known visualization sections
-  const totalSections = countMatches(content, /<section/g);
+  // All further counting uses script-stripped HTML to avoid false positives
+  // from embedded JSON-LD or interactive script blocks.
+  const totalSections = countMatches(noScripts, /<section\b/g);
 
   // Count data visualizations using exact class-token matching.
   // countClassToken splits the class attribute value into tokens, so nested
   // classes like "dashboard-grid" or "dashboard-panel" are NOT counted.
-  const chartCount = countMatches(content, /data-chart-config/g);
-  const dashboardCount = countClassToken(content, 'dashboard');
-  const mindmapCount = countClassToken(content, 'mindmap-section');
-  const swotCount = countClassToken(content, 'swot-analysis');
+  const chartCount = countMatches(noScripts, /data-chart-config/g);
+  const dashboardCount = countClassToken(noScripts, 'dashboard');
+  const mindmapCount = countClassToken(noScripts, 'mindmap-section');
+  const swotCount = countClassToken(noScripts, 'swot-analysis');
   const visualizationCount = chartCount + dashboardCount + mindmapCount + swotCount;
 
   // Exclude visualization sections from analysis section count
   const analysisSections = totalSections - dashboardCount - mindmapCount - swotCount;
 
-  // Count external EP document links as evidence references
-  const evidenceReferences = countMatches(content, /href="https:\/\/www\.europarl\.europa\.eu/g);
+  // Count EP document links (with a real path, not just the bare homepage).
+  // This excludes the generic footer link `https://www.europarl.europa.eu/`
+  // while counting links to specific EP resources like /doceo/, /plenary/, etc.
+  const evidenceReferences = countMatches(
+    noScripts,
+    /href="https:\/\/www\.europarl\.europa\.eu\/[a-z][^"]*"/g
+  );
 
   // Determine overall quality score
   let overallScore: ArticleQualityScore['overallScore'];

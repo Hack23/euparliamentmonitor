@@ -86,6 +86,37 @@ describe('section-builders', () => {
       const score = computeArticleQualityScore(content);
       expect(score.wordCount).toBe(2);
     });
+
+    it('should count EP document links as evidence references', () => {
+      const content =
+        '<p>See <a href="https://www.europarl.europa.eu/doceo/document/TA-9-2024-0001_EN.html">this text</a></p>';
+      const score = computeArticleQualityScore(content);
+      expect(score.evidenceReferences).toBe(1);
+    });
+
+    it('should not count bare EP homepage link as evidence', () => {
+      const content =
+        '<footer><a href="https://www.europarl.europa.eu/">European Parliament</a></footer>';
+      const score = computeArticleQualityScore(content);
+      expect(score.evidenceReferences).toBe(0);
+    });
+
+    it('should not count europarl links inside script blocks as evidence', () => {
+      const content =
+        '<p>Hello</p>' +
+        '<script type="application/ld+json">{"url":"https://www.europarl.europa.eu/doceo/document/A-9-2024-0001_EN.html"}</script>';
+      const score = computeArticleQualityScore(content);
+      expect(score.evidenceReferences).toBe(0);
+    });
+
+    it('should not count section tags inside script blocks', () => {
+      const content =
+        '<p>Hello</p>' +
+        '<script>var html = "<section class=\\"dashboard\\">fake</section>";</script>';
+      const score = computeArticleQualityScore(content);
+      expect(score.analysisSections).toBe(0);
+      expect(score.visualizationCount).toBe(0);
+    });
   });
 
   describe('buildTableOfContents', () => {
