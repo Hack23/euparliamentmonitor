@@ -121,17 +121,18 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 ## 🎭 STAKEHOLDER PERSPECTIVE ANALYSIS (MANDATORY)
 
-For EVERY major parliamentary action in the article, analyze from at least 3 of the following 5 perspectives:
+For EVERY major parliamentary action in the article, analyze from at least 3 of the following 6 perspectives:
 
 1. **EP Political Groups**: How does this affect group dynamics? Coalition implications? Which groups benefit or lose influence?
 2. **Civil Society & NGOs**: Impact on citizens' rights, transparency, democratic participation, and civic engagement?
 3. **Industry & Business**: Regulatory implications, market effects, compliance burden, competitive dynamics?
 4. **National Governments**: Subsidiarity concerns, implementation requirements, diverging national interests?
 5. **EU Citizens**: Direct impact on daily life, rights, services, and democratic representation?
+6. **EU Institutions**: How does this affect the Commission, Council, ECB, or Court of Justice? Inter-institutional dynamics?
 
-**Minimum requirement**: Every key legislative action or political development MUST be analyzed from at least 3 of these perspectives. Each perspective MUST cite specific evidence from EP MCP data.
+**Minimum requirement**: Every key legislative action or political development MUST be analyzed from at least 3 of these 6 perspectives. Each perspective MUST cite specific evidence from EP MCP data.
 
-**Format**: The TypeScript generator renders stakeholder perspectives as a card grid in the deep-analysis section. For each stakeholder perspective, provide: impact direction (positive/negative/mixed), severity (high/medium/low), reasoning, and supporting evidence from EP MCP data. Do NOT write raw HTML — supply structured perspective content and let the generator handle markup.
+**Format**: The TypeScript generator renders stakeholder perspectives as a card grid in the deep-analysis section. For each stakeholder perspective, provide: impact direction (positive/negative/neutral/mixed), severity (high/medium/low), reasoning, and supporting evidence from EP MCP data. Do NOT write raw HTML — supply structured perspective content and let the generator handle markup. Impact and severity values must remain as canonical English enum tokens (e.g. `positive`, `high`) even in non-English articles — the generator handles localized display labels and CSS classing from these tokens.
 
 ## 🔄 AI ANALYSIS REFINEMENT CYCLE (MANDATORY)
 

@@ -241,7 +241,7 @@ The following 8 scheduled article-generation workflows have been upgraded with m
 
 ##### 🎭 Multi-Stakeholder Perspective Requirements
 
-Every major parliamentary action must be analyzed from **at least 3 of 5 stakeholder perspectives**:
+Every major parliamentary action must be analyzed from **at least 3 of 6 stakeholder perspectives**:
 
 | Perspective | Analysis Focus |
 |-------------|---------------|
@@ -250,8 +250,9 @@ Every major parliamentary action must be analyzed from **at least 3 of 5 stakeho
 | **Industry & Business** | Regulatory burden, market effects, compliance dynamics |
 | **National Governments** | Subsidiarity, implementation requirements, national interests |
 | **EU Citizens** | Direct life impact, rights, services, democratic representation |
+| **EU Institutions** | Commission, Council, ECB, Court of Justice — inter-institutional dynamics |
 
-Stakeholder perspective analysis is rendered by the TypeScript generator (`buildStakeholderPerspectivesSection`) as a card grid in each article's deep-analysis portion. Agents provide structured perspective content — impact direction (positive/negative/mixed), severity (high/medium/low), reasoning, and evidence backed by specific EP MCP data citations — and the generator handles the HTML markup (`analysis-stakeholder-perspectives` / `stakeholder-perspectives-grid`). Agents must NOT write raw HTML for this section. (Note: the separate winners/losers outcomes list uses `analysis-stakeholders` / `stakeholder-list` — that is a different section rendered by `buildStakeholderSection`.)
+Stakeholder perspective analysis is rendered by the TypeScript generator (`buildStakeholderPerspectivesSection`) as a card grid in each article's deep-analysis portion. Agents provide structured perspective content — impact direction (positive/negative/neutral/mixed), severity (high/medium/low), reasoning, and evidence backed by specific EP MCP data citations — and the generator handles the HTML markup (`analysis-stakeholder-perspectives` / `stakeholder-perspectives-grid`). Agents must NOT write raw HTML for this section. Impact and severity values must remain as canonical English enum tokens (e.g. `positive`, `high`) even in non-English articles — the generator handles localized display labels and CSS classing from these tokens. (Note: the separate winners/losers outcomes list uses `analysis-stakeholders` / `stakeholder-list` — that is a different section rendered by `buildStakeholderSection`.)
 
 ##### 🔄 Iterative AI Content Refinement Cycle
 
