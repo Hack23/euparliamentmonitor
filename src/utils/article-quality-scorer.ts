@@ -157,7 +157,7 @@ const GENERIC_PHRASE_PATTERNS: ReadonlyArray<RegExp> = [
 const EP_DOC_PATTERNS: ReadonlyArray<RegExp> = [
   /\bTA-\d+-\d+-\d+\b/gu, // TA-10-2026-0001 (TA prefix + three numeric segments)
   /\bPE-\d+\.\d+\b/gu, // PE-123.456 (dotted PE reference)
-  /\bPE-\d+\b/gu, // PE-123 (simple PE reference)
+  /\bPE-\d+(?!\.\d)\b/gu, // PE-123 (simple PE reference, excludes dotted)
   /\b[A-C]\d-\d+\b/gu, // A9-0123, B9-0002, C9-0003 (variable-length digits)
   /\bP\d_TA\(\d{4}\)\d+\b/gu, // P9_TA(2024)0001
 ];
@@ -348,14 +348,38 @@ function countEvidenceRefs(html: string): number {
 }
 
 /**
- * Compute the mindmap depth by counting `class="mindmap-branch"` elements or
- * nested `ul > li` depth within a mindmap section.
+ * Count evidence markers (`class="evidence"` and `data-reference`) only within
+ * deep-analysis sections, preventing inflation from evidence markers elsewhere.
+ *
+ * @param html - Raw HTML string
+ * @returns Evidence count restricted to deep-analysis section(s)
+ */
+function countDeepAnalysisSectionEvidence(html: string): number {
+  const openPatterns = [/class="deep-analysis"[^>]*>/u, /id="[^"]*deep[^"]*"[^>]*>/iu];
+  let total = 0;
+  for (const pattern of openPatterns) {
+    const openMatch = pattern.exec(html);
+    if (!openMatch) continue;
+    const startIdx = openMatch.index + openMatch[0].length;
+    const sectionContent = findBalancedContent(html, startIdx);
+    if (sectionContent) {
+      total +=
+        countOccurrences(sectionContent, 'class="evidence"') +
+        countOccurrences(sectionContent, 'data-reference');
+    }
+  }
+  return total;
+}
+
+/**
+ * Compute the mindmap branch count by counting `class="mindmap-branch"` elements
+ * or nested `ul > li` depth within a mindmap section.
  * Uses balanced tag matching to avoid truncating at inner closing tags.
  *
  * @param html - Raw HTML string
- * @returns Estimated mindmap depth
+ * @returns Number of mindmap branches detected
  */
-function computeMindmapDepth(html: string): number {
+function computeMindmapBranches(html: string): number {
   // Real mindmap HTML uses class="mindmap-branch" elements
   const branchCount = countOccurrences(html, 'class="mindmap-branch"');
   if (branchCount > 0) return branchCount;
@@ -579,13 +603,13 @@ export function assessVisualizationQuality(html: string): VisualizationQuality {
     /class="[^"]*\bmindmap-section\b[^"]*"/u.test(html) ||
     /class="[^"]*\bmindmap-container\b[^"]*"/u.test(html) ||
     html.includes('id="mindmap"');
-  const mindmapDepth = mindmapPresent ? computeMindmapDepth(html) : 0;
+  const mindmapBranches = mindmapPresent ? computeMindmapBranches(html) : 0;
 
   const deepAnalysisPresent =
     html.includes(CLASS_DEEP_ANALYSIS) || /id="[^"]*deep[^"]*"/iu.test(html);
-  const deepAnalysisEvidence = deepAnalysisPresent
-    ? countOccurrences(html, 'class="evidence"') + countOccurrences(html, 'data-reference')
-    : 0;
+  // Restrict evidence counting to deep-analysis section(s) only to avoid
+  // inflating the metric with evidence markers elsewhere in the article.
+  const deepAnalysisEvidence = deepAnalysisPresent ? countDeepAnalysisSectionEvidence(html) : 0;
 
   const score = computeVisualizationScore({
     swotPresent,
@@ -594,7 +618,7 @@ export function assessVisualizationQuality(html: string): VisualizationQuality {
     dashboardMetrics,
     dashboardTrends,
     mindmapPresent,
-    mindmapDepth,
+    mindmapBranches,
     deepAnalysisPresent,
     deepAnalysisEvidence,
   });
@@ -606,7 +630,7 @@ export function assessVisualizationQuality(html: string): VisualizationQuality {
     dashboardMetrics,
     dashboardTrends,
     mindmapPresent,
-    mindmapDepth,
+    mindmapBranches,
     deepAnalysisPresent,
     deepAnalysisEvidence,
     score,
@@ -638,7 +662,7 @@ function computeVisualizationScore(v: Omit<VisualizationQuality, 'score'>): numb
   // Mindmap contribution (max 25 points)
   if (v.mindmapPresent) {
     score += 10;
-    score += Math.min(15, v.mindmapDepth * 5);
+    score += Math.min(15, v.mindmapBranches * 5);
   }
 
   // Deep analysis contribution (max 25 points)
@@ -858,8 +882,8 @@ function addVisualizationRecommendations(viz: VisualizationQuality, recs: string
 
   if (!viz.mindmapPresent) {
     recs.push('Add a mindmap to illustrate relationships and conceptual structure');
-  } else if (viz.mindmapDepth < 3) {
-    recs.push(`Deepen mindmap to at least 3 levels (currently ${viz.mindmapDepth})`);
+  } else if (viz.mindmapBranches < 3) {
+    recs.push(`Add more mindmap branches to reach 3 (currently ${viz.mindmapBranches})`);
   }
 
   if (!viz.deepAnalysisPresent) {

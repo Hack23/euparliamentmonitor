@@ -218,7 +218,7 @@ describe('assessVisualizationQuality', () => {
     expect(result.dashboardMetrics).toBe(0);
     expect(result.dashboardTrends).toBe(false);
     expect(result.mindmapPresent).toBe(false);
-    expect(result.mindmapDepth).toBe(0);
+    expect(result.mindmapBranches).toBe(0);
     expect(result.deepAnalysisPresent).toBe(false);
     expect(result.deepAnalysisEvidence).toBe(0);
     expect(result.score).toBe(0);
@@ -301,7 +301,7 @@ describe('assessVisualizationQuality', () => {
       </section>`
     );
     const result = assessVisualizationQuality(html);
-    expect(result.mindmapDepth).toBe(3);
+    expect(result.mindmapBranches).toBe(3);
   });
 
   it('counts mindmap ul nesting depth with inner divs (balanced tag matching)', () => {
@@ -317,7 +317,7 @@ describe('assessVisualizationQuality', () => {
       </section>`
     );
     const result = assessVisualizationQuality(html);
-    expect(result.mindmapDepth).toBe(3);
+    expect(result.mindmapBranches).toBe(3);
   });
 
   it('does not double-count sections with analysis-section class on a section tag', () => {
@@ -396,7 +396,7 @@ describe('calculateOverallScore', () => {
       dashboardMetrics: 0,
       dashboardTrends: false,
       mindmapPresent: false,
-      mindmapDepth: 0,
+      mindmapBranches: 0,
       deepAnalysisPresent: false,
       deepAnalysisEvidence: 0,
       score: 0,
@@ -688,7 +688,7 @@ describe('generateRecommendations', () => {
         dashboardMetrics: 0,
         dashboardTrends: false,
         mindmapPresent: false,
-        mindmapDepth: 0,
+        mindmapBranches: 0,
         deepAnalysisPresent: false,
         deepAnalysisEvidence: 0,
         score: 0,
@@ -761,7 +761,7 @@ describe('generateRecommendations', () => {
         dashboardMetrics: 5,
         dashboardTrends: true,
         mindmapPresent: true,
-        mindmapDepth: 3,
+        mindmapBranches: 3,
         deepAnalysisPresent: true,
         deepAnalysisEvidence: 10,
         score: 100,
@@ -822,5 +822,12 @@ describe('edge cases', () => {
     const htmlNoDup = buildHtml('<p>See TA-10-2026-0001 in the report.</p>');
     const reportNoDup = scoreArticleQuality(htmlNoDup, 'no-script', 'en', 'week-ahead');
     expect(report.evidenceReferences).toBe(reportNoDup.evidenceReferences);
+  });
+
+  it('PE-123.456 is not double-counted as both PE-123.456 and PE-123', () => {
+    const html = buildHtml('<p>See PE-123.456 in the report.</p>');
+    const report = scoreArticleQuality(html, 'pe-dedup', 'en', 'week-ahead');
+    // Should count exactly 1 EP ref (the dotted form), not 2
+    expect(report.evidenceReferences).toBe(1);
   });
 });

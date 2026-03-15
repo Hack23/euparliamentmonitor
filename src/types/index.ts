@@ -199,6 +199,8 @@ export type {
   VisualizationQuality,
   ArticleQualityReport,
 } from './quality.js';
+
+export type {
   AnalysisStakeholderType,
   StakeholderImpact,
   StakeholderSeverity,

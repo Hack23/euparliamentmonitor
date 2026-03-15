@@ -68,8 +68,8 @@ export interface VisualizationQuality {
   dashboardTrends: boolean;
   /** Whether a mindmap section is present */
   mindmapPresent: boolean;
-  /** Number of depth levels detected in the mindmap */
-  mindmapDepth: number;
+  /** Number of mindmap branch elements detected (breadth indicator) */
+  mindmapBranches: number;
   /** Whether deep-analysis sections are present */
   deepAnalysisPresent: boolean;
   /** Number of evidence items detected inside deep-analysis sections */
