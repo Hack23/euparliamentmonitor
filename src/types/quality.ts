@@ -18,19 +18,19 @@
  */
 export interface AnalysisDepthScore {
   /** Whether political context (coalitions, majorities, opposition) is discussed */
-  politicalContextPresent: boolean;
+  readonly politicalContextPresent: boolean;
   /** Whether coalition dynamics and inter-group alliances are analysed */
-  coalitionDynamicsAnalyzed: boolean;
+  readonly coalitionDynamicsAnalyzed: boolean;
   /** Whether historical comparison or timeline context is provided */
-  historicalContextProvided: boolean;
+  readonly historicalContextProvided: boolean;
   /** Whether conclusions are backed by data, figures, or cited evidence */
-  evidenceBasedConclusions: boolean;
+  readonly evidenceBasedConclusions: boolean;
   /** Whether forward-looking scenarios or projections are presented */
-  scenarioPlanning: boolean;
+  readonly scenarioPlanning: boolean;
   /** Whether uncertainty or confidence levels are explicitly stated */
-  confidenceLevelsIndicated: boolean;
+  readonly confidenceLevelsIndicated: boolean;
   /** Composite 0–100 score derived from the boolean dimensions above */
-  score: number;
+  readonly score: number;
 }
 
 // ─── Stakeholder Coverage ─────────────────────────────────────────────────────
@@ -40,13 +40,13 @@ export interface AnalysisDepthScore {
  */
 export interface StakeholderCoverage {
   /** Stakeholder categories whose perspectives are detected in the article */
-  perspectivesPresent: string[];
+  readonly perspectivesPresent: readonly string[];
   /** Stakeholder categories whose perspectives appear absent from the article */
-  perspectivesMissing: string[];
+  readonly perspectivesMissing: readonly string[];
   /** 0–100 score based on how many of the known stakeholder types are covered */
-  balanceScore: number;
+  readonly balanceScore: number;
   /** 0–100 score based on analytical reasoning quality inferred from text signals */
-  reasoningQuality: number;
+  readonly reasoningQuality: number;
 }
 
 // ─── Visualization Quality ────────────────────────────────────────────────────
@@ -57,25 +57,25 @@ export interface StakeholderCoverage {
  */
 export interface VisualizationQuality {
   /** Whether a SWOT analysis section is present */
-  swotPresent: boolean;
+  readonly swotPresent: boolean;
   /** Number of distinct SWOT dimension elements detected */
-  swotDimensions: number;
+  readonly swotDimensions: number;
   /** Whether a data dashboard section is present */
-  dashboardPresent: boolean;
+  readonly dashboardPresent: boolean;
   /** Number of individual metrics detected in the dashboard */
-  dashboardMetrics: number;
+  readonly dashboardMetrics: number;
   /** Whether trend indicators (arrows or CSS classes) are present in the dashboard */
-  dashboardTrends: boolean;
+  readonly dashboardTrends: boolean;
   /** Whether a mindmap section is present */
-  mindmapPresent: boolean;
+  readonly mindmapPresent: boolean;
   /** Number of mindmap branch elements detected (breadth indicator) */
-  mindmapBranches: number;
+  readonly mindmapBranches: number;
   /** Whether deep-analysis sections are present */
-  deepAnalysisPresent: boolean;
+  readonly deepAnalysisPresent: boolean;
   /** Number of evidence items detected inside deep-analysis sections */
-  deepAnalysisEvidence: number;
+  readonly deepAnalysisEvidence: number;
   /** Composite 0–100 score derived from the dimensions above */
-  score: number;
+  readonly score: number;
 }
 
 // ─── Article Quality Report ───────────────────────────────────────────────────
@@ -99,31 +99,31 @@ export type ArticleGrade = 'A' | 'B' | 'C' | 'D' | 'F';
  */
 export interface ArticleQualityReport {
   /** Unique identifier for the article (typically the filename slug) */
-  articleId: string;
+  readonly articleId: string;
   /** ISO date string (YYYY-MM-DD) of the article */
-  date: string;
+  readonly date: string;
   /** Article type / category (e.g. "week-ahead") */
-  type: string;
+  readonly type: string;
   /** Language code of the article (e.g. "en", "de") */
-  lang: string;
+  readonly lang: string;
   /** Plain-text word count of the main article content */
-  wordCount: number;
+  readonly wordCount: number;
   /** Number of analysis-content sections detected (e.g. analysis, deep-analysis, SWOT, dashboard, mindmap) */
-  analysisSections: number;
+  readonly analysisSections: number;
   /** Number of evidence or document references detected */
-  evidenceReferences: number;
+  readonly evidenceReferences: number;
   /** Detailed analysis-depth scoring */
-  analysisDepth: AnalysisDepthScore;
+  readonly analysisDepth: AnalysisDepthScore;
   /** Stakeholder coverage assessment */
-  stakeholderCoverage: StakeholderCoverage;
+  readonly stakeholderCoverage: StakeholderCoverage;
   /** Visualization quality assessment */
-  visualizationQuality: VisualizationQuality;
+  readonly visualizationQuality: VisualizationQuality;
   /** Composite quality score 0–100 */
-  overallScore: number;
+  readonly overallScore: number;
   /** Letter grade derived from overallScore */
-  grade: ArticleGrade;
+  readonly grade: ArticleGrade;
   /** Actionable improvement recommendations */
-  recommendations: string[];
+  readonly recommendations: readonly string[];
   /** true when overallScore ≥ 40 (Grade C or better) */
-  passesQualityGate: boolean;
+  readonly passesQualityGate: boolean;
 }
