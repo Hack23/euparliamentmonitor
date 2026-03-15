@@ -1884,6 +1884,7 @@ const CIVIL_SOCIETY = 'Civil Society';
  * @returns Intelligence mindmap data, or null when all data is placeholder
  */
 export function buildVotingMindmap(records, patterns, anomalies, _lang = 'en') {
+    void _lang;
     const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
     const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
     const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
@@ -1963,6 +1964,7 @@ export function buildVotingMindmap(records, patterns, anomalies, _lang = 'en') {
  * @returns Intelligence mindmap data
  */
 export function buildProspectiveMindmap(weekData, _lang = 'en') {
+    void _lang;
     const policyDomains = [
         { id: 'envi', label: 'Environment & Climate', color: 'green' },
         { id: 'econ', label: 'Economy & Finance', color: 'cyan' },
@@ -2042,6 +2044,7 @@ export function buildProspectiveMindmap(weekData, _lang = 'en') {
  * @returns Intelligence mindmap data
  */
 export function buildBreakingMindmap(feedData, _lang = 'en') {
+    void _lang;
     const adoptedTexts = feedData?.adoptedTexts ?? [];
     const events = feedData?.events ?? [];
     const procedures = feedData?.procedures ?? [];
@@ -2173,6 +2176,7 @@ export function buildBreakingMindmap(feedData, _lang = 'en') {
  * @returns Intelligence mindmap data
  */
 export function buildPropositionsMindmap(pipelineData, _lang = 'en') {
+    void _lang;
     const healthScore = pipelineData?.healthScore ?? 0;
     const throughput = pipelineData?.throughput ?? 0;
     const healthPct = (healthScore * 100).toFixed(0);
@@ -2337,6 +2341,7 @@ export function buildPropositionsMindmap(pipelineData, _lang = 'en') {
  * @returns Intelligence mindmap data, or null when all data is placeholder
  */
 export function buildCommitteeMindmap(committees, _lang = 'en') {
+    void _lang;
     if (isPlaceholderCommitteeData(committees))
         return null;
     const activeCommittees = committees.filter((c) => c.documents.length > 0);

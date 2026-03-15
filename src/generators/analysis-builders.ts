@@ -2262,6 +2262,7 @@ export function buildVotingMindmap(
   anomalies: readonly VotingAnomaly[],
   _lang: LanguageCode = 'en'
 ): IntelligenceMindmap | null {
+  void _lang;
   const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
   const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
   const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
@@ -2350,6 +2351,7 @@ export function buildProspectiveMindmap(
   weekData: WeekAheadData,
   _lang: LanguageCode = 'en'
 ): IntelligenceMindmap {
+  void _lang;
   const policyDomains = [
     { id: 'envi', label: 'Environment & Climate', color: 'green' as const },
     { id: 'econ', label: 'Economy & Finance', color: 'cyan' as const },
@@ -2439,6 +2441,7 @@ export function buildBreakingMindmap(
   feedData: BreakingNewsFeedData | undefined,
   _lang: LanguageCode = 'en'
 ): IntelligenceMindmap | null {
+  void _lang;
   const adoptedTexts = feedData?.adoptedTexts ?? [];
   const events = feedData?.events ?? [];
   const procedures = feedData?.procedures ?? [];
@@ -2580,6 +2583,7 @@ export function buildPropositionsMindmap(
   pipelineData: { healthScore: number; throughput: number } | null,
   _lang: LanguageCode = 'en'
 ): IntelligenceMindmap {
+  void _lang;
   const healthScore = pipelineData?.healthScore ?? 0;
   const throughput = pipelineData?.throughput ?? 0;
   const healthPct = (healthScore * 100).toFixed(0);
@@ -2752,6 +2756,7 @@ export function buildCommitteeMindmap(
   committees: readonly CommitteeData[],
   _lang: LanguageCode = 'en'
 ): IntelligenceMindmap | null {
+  void _lang;
   if (isPlaceholderCommitteeData(committees)) return null;
 
   const activeCommittees = committees.filter((c) => c.documents.length > 0);
