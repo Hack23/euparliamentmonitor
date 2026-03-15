@@ -5,7 +5,7 @@
  * Unit tests for utils/article-quality-scorer module
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import {
   scoreArticleQuality,
   assessAnalysisDepth,
@@ -282,6 +282,16 @@ describe('assessVisualizationQuality', () => {
     expect(result.dashboardTrends).toBe(true);
   });
 
+  it('does not treat hyphenated dashboard classes as dashboardPresent', () => {
+    // Only layout/child classes like dashboard-grid, dashboard-panel, dashboard-chart
+    // should NOT trigger dashboardPresent — the exact "dashboard" token is required.
+    const html = buildHtml(
+      '<div class="dashboard-grid"><div class="dashboard-panel"><canvas class="dashboard-chart"></canvas></div></div>'
+    );
+    const result = assessVisualizationQuality(html);
+    expect(result.dashboardPresent).toBe(false);
+  });
+
   it('detects mindmap by class', () => {
     const html = buildHtml(
       '<section class="mindmap-section"><div class="mindmap-container"><ul><li>Node 1</li></ul></div></section>'
@@ -534,9 +544,14 @@ describe('scoreArticleQuality', () => {
   });
 
   it('falls back to current date when articleId has no date prefix', () => {
-    const today = new Date().toISOString().split('T')[0];
-    const report = scoreArticleQuality('', 'no-date-slug', 'en', 'week-ahead');
-    expect(report.date).toBe(today);
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-06-15T12:00:00Z'));
+    try {
+      const report = scoreArticleQuality('', 'no-date-slug', 'en', 'week-ahead');
+      expect(report.date).toBe('2026-06-15');
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('articleId, lang, type are preserved from inputs', () => {
@@ -772,6 +787,19 @@ describe('generateRecommendations', () => {
     });
     const recs = generateRecommendations(report);
     expect(recs).toHaveLength(0);
+  });
+
+  it('omits keyword-based recommendations for non-English articles', () => {
+    // A non-English report with no keyword-based signals should not emit
+    // analysis-depth or stakeholder recommendations since they derive from
+    // English-only keyword detection.
+    const recs = generateRecommendations(baseReport({ lang: 'de' }));
+    expect(recs.some((r) => r.includes('political context'))).toBe(false);
+    expect(recs.some((r) => r.includes('coalition dynamics'))).toBe(false);
+    expect(recs.some((r) => r.includes('perspectives from missing stakeholders'))).toBe(false);
+    // Non-keyword recommendations (word count, visualization, evidence) should still appear
+    expect(recs.some((r) => r.includes('500 words'))).toBe(true);
+    expect(recs.some((r) => r.includes('SWOT'))).toBe(true);
   });
 });
 

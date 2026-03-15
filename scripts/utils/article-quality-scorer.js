@@ -189,6 +189,29 @@ function countOccurrences(html, selector) {
     }
     return count;
 }
+/** Pattern matching all class attribute values in HTML */
+const CLASS_ATTR_PATTERN = /class="([^"]*)"/gu;
+/**
+ * Check whether any `class="…"` attribute in the HTML contains the given token
+ * as an exact CSS class (whitespace-delimited). Unlike `\b` word-boundary matching,
+ * this prevents false positives from hyphenated classes (e.g. `dashboard-grid` does
+ * not match `dashboard`).
+ *
+ * @param html - HTML string to scan
+ * @param token - Exact CSS class name to detect
+ * @returns true if an exact class token match is found
+ */
+function hasExactClassToken(html, token) {
+    CLASS_ATTR_PATTERN.lastIndex = 0;
+    let match;
+    while ((match = CLASS_ATTR_PATTERN.exec(html)) !== null) {
+        const value = match[1] ?? '';
+        const classes = value.split(/\s+/);
+        if (classes.includes(token))
+            return true;
+    }
+    return false;
+}
 /**
  * Check whether at least one keyword from a list is present in a text string.
  *
@@ -278,7 +301,6 @@ function countEvidenceRefs(html) {
     // Strip script blocks (e.g. JSON-LD) to avoid double-counting EP doc IDs
     // that appear in both visible content and structured metadata.
     const htmlNoScripts = html.replace(/<script[^>]*>[\s\S]*?<\/script[^>]*>/giu, ' ');
-    let epRefs = 0;
     const matched = new Set();
     for (const pattern of EP_DOC_PATTERNS) {
         pattern.lastIndex = 0;
@@ -289,7 +311,7 @@ function countEvidenceRefs(html) {
             }
         }
     }
-    epRefs = matched.size;
+    const epRefs = matched.size;
     return evidenceClasses + dataRefs + epRefs;
 }
 /**
@@ -507,20 +529,21 @@ export function assessStakeholderCoverage(htmlOrText, preExtracted = false) {
  * @returns Visualization quality assessment with per-element flags and composite score
  */
 export function assessVisualizationQuality(html) {
-    // SWOT: class-token match supports multi-class attributes
+    // SWOT: exact class-token match supports multi-class attributes
     // (e.g. class="swot-analysis swot-multidimensional")
-    const swotPresent = /class="[^"]*\bswot-analysis\b[^"]*"/u.test(html) || html.includes('id="swot-analysis"');
+    const swotPresent = hasExactClassToken(html, 'swot-analysis') || html.includes('id="swot-analysis"');
     // Partial match: quadrant classes include a variant suffix (e.g. "swot-quadrant swot-strengths")
     const swotDimensions = countOccurrences(html, 'swot-quadrant') + countOccurrences(html, 'data-dimension');
-    // Dashboard: class-token match supports multi-class attributes
-    const dashboardPresent = /class="[^"]*\bdashboard\b[^"]*"/u.test(html) || html.includes('id="dashboard"');
+    // Dashboard: exact class-token match prevents false positives from hyphenated
+    // classes like "dashboard-grid", "dashboard-panel", "dashboard-chart"
+    const dashboardPresent = hasExactClassToken(html, 'dashboard') || html.includes('id="dashboard"');
     const dashboardMetrics = countOccurrences(html, 'class="metric-card"') +
         countOccurrences(html, 'class="dashboard-metric"');
     // Trend indicators: metric-trend-up/-down/-stable classes, or arrow symbols
     const dashboardTrends = html.includes('class="metric-trend-') || html.includes('↑') || html.includes('↓');
-    // Mindmap: class-token match supports multi-class attributes
-    const mindmapPresent = /class="[^"]*\bmindmap-section\b[^"]*"/u.test(html) ||
-        /class="[^"]*\bmindmap-container\b[^"]*"/u.test(html) ||
+    // Mindmap: exact class-token match supports multi-class attributes
+    const mindmapPresent = hasExactClassToken(html, 'mindmap-section') ||
+        hasExactClassToken(html, 'mindmap-container') ||
         html.includes('id="mindmap"');
     const mindmapBranches = mindmapPresent ? computeMindmapBranches(html) : 0;
     const deepAnalysisPresent = html.includes(CLASS_DEEP_ANALYSIS) || /id="[^"]*deep[^"]*"/iu.test(html);
@@ -672,14 +695,23 @@ function adjustNonEnglishStakeholderCoverage(coverage) {
 /**
  * Generate actionable improvement recommendations based on a partial quality report.
  *
+ * For non-English articles, keyword-based analysis-depth and stakeholder recommendations
+ * are omitted because the underlying boolean flags derive from English-only keyword
+ * lists, making them unreliable for translated content.
+ *
  * @param report - Quality report without the recommendations field
  * @returns Array of recommendation strings (may be empty for high-quality articles)
  */
 export function generateRecommendations(report) {
     const recs = [];
+    const isEnglish = report.lang === 'en';
     addWordCountRecommendations(report, recs);
-    addAnalysisDepthRecommendations(report.analysisDepth, recs);
-    addStakeholderRecommendations(report.stakeholderCoverage, recs);
+    // Only emit keyword-dependent recommendations for English articles; non-English
+    // articles have baseline-adjusted scores and keyword detection is not reliable.
+    if (isEnglish) {
+        addAnalysisDepthRecommendations(report.analysisDepth, recs);
+        addStakeholderRecommendations(report.stakeholderCoverage, recs);
+    }
     addVisualizationRecommendations(report.visualizationQuality, recs);
     addEvidenceRecommendations(report, recs);
     return recs;
