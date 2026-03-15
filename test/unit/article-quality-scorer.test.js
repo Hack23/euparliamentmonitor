@@ -300,7 +300,7 @@ describe('assessVisualizationQuality', () => {
     expect(result.mindmapPresent).toBe(true);
   });
 
-  it('counts mindmap depth via mindmap-branch classes', () => {
+  it('counts mindmap branches via mindmap-branch classes', () => {
     const html = buildHtml(
       `<section class="mindmap-section">
         <div class="mindmap-container">
