@@ -17,8 +17,6 @@ import { getLocalizedString, TOC_ARIA_LABELS } from '../constants/languages.js';
 function countMatches(content, pattern) {
     const matches = content.match(pattern);
     return matches !== null ? matches.length : 0;
-  const matches = content.match(pattern);
-  return matches !== null ? matches.length : 0;
 }
 /**
  * Count elements whose `class` attribute contains a given CSS class token.
@@ -40,14 +38,6 @@ function countClassToken(content, token) {
         }
     }
     return count;
-  let count = 0;
-  for (const m of content.matchAll(/class="([^"]*)"/g)) {
-    const value = m[1] ?? '';
-    if (value.split(/\s+/).includes(token)) {
-      count += 1;
-    }
-  }
-  return count;
 }
 /**
  * Compute an article quality score by analysing the rendered HTML content.
@@ -96,47 +86,6 @@ export function computeArticleQualityScore(content) {
         overallScore = 'needs-improvement';
     }
     return { wordCount, analysisSections, visualizationCount, evidenceReferences, overallScore };
-  // Remove script blocks before tag-stripping to avoid inflating word count
-  const noScripts = content.replace(/<script[^>]*>[\s\S]*?<\/script[^>]*>/giu, ' ');
-  // Strip HTML tags to get plain text, then count words
-  const plainText = noScripts
-    .replace(/<[^>]*>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-  const wordCount =
-    plainText.length > 0 ? plainText.split(' ').filter((w) => w.length > 0).length : 0;
-  // All further counting uses script-stripped HTML to avoid false positives
-  // from embedded JSON-LD or interactive script blocks.
-  const totalSections = countMatches(noScripts, /<section\b/g);
-  // Count data visualizations using exact class-token matching.
-  // countClassToken splits the class attribute value into tokens, so nested
-  // classes like "dashboard-grid" or "dashboard-panel" are NOT counted.
-  const chartCount = countMatches(noScripts, /data-chart-config/g);
-  const dashboardCount = countClassToken(noScripts, 'dashboard');
-  const mindmapCount = countClassToken(noScripts, 'mindmap-section');
-  const swotCount = countClassToken(noScripts, 'swot-analysis');
-  const visualizationCount = chartCount + dashboardCount + mindmapCount + swotCount;
-  // Exclude visualization sections from analysis section count
-  const analysisSections = totalSections - dashboardCount - mindmapCount - swotCount;
-  // Count EP document links (with a real path, not just the bare homepage).
-  // This excludes the generic footer link `https://www.europarl.europa.eu/`
-  // while counting links to specific EP resources like /doceo/, /plenary/, etc.
-  const evidenceReferences = countMatches(
-    noScripts,
-    /href="https:\/\/www\.europarl\.europa\.eu\/\w[^"]*"/g
-  );
-  // Determine overall quality score
-  let overallScore;
-  if (wordCount >= 800 && analysisSections >= 3 && visualizationCount >= 2) {
-    overallScore = 'excellent';
-  } else if (wordCount >= 500 && analysisSections >= 2) {
-    overallScore = 'good';
-  } else if (wordCount >= 200 && analysisSections >= 1) {
-    overallScore = 'adequate';
-  } else {
-    overallScore = 'needs-improvement';
-  }
-  return { wordCount, analysisSections, visualizationCount, evidenceReferences, overallScore };
 }
 /**
  * Build an HTML table of contents navigation element from a list of entries.
@@ -160,20 +109,6 @@ export function buildTableOfContents(entries, lang) {
     })
         .join('\n      ');
     return `<nav class="article-toc" aria-label="${ariaLabel}">
-  if (entries.length === 0) {
-    return '';
-  }
-  const ariaLabel = escapeHTML(getLocalizedString(TOC_ARIA_LABELS, lang));
-  const items = entries
-    .map((entry) => {
-      const safeLabel = escapeHTML(entry.label);
-      // Strip leading # to prevent href="##foo"
-      const safeId = escapeHTML(entry.id.replace(/^#/, ''));
-      const classAttr = entry.level === 2 ? ' class="toc-sub"' : '';
-      return `<li${classAttr}><a href="#${safeId}">${safeLabel}</a></li>`;
-    })
-    .join('\n      ');
-  return `<nav class="article-toc" aria-label="${ariaLabel}">
   <ol>
       ${items}
   </ol>
@@ -195,16 +130,10 @@ export function buildQualityScoreBadge(score) {
     }
     const safeScore = escapeHTML(score.overallScore);
     return `<div class="article-quality-score" data-score="${safeScore}" aria-hidden="true">
-  if (score.overallScore === 'needs-improvement') {
-    return '';
-  }
-  const safeScore = escapeHTML(score.overallScore);
-  return `<div class="article-quality-score" data-score="${safeScore}" aria-hidden="true">
   <span class="qs-words">${score.wordCount}</span>
   <span class="qs-sections">${score.analysisSections}</span>
   <span class="qs-visuals">${score.visualizationCount}</span>
   <span class="qs-evidence">${score.evidenceReferences}</span>
 </div>`;
 }
-//# sourceMappingURL=section-builders.js.map
 //# sourceMappingURL=section-builders.js.map
