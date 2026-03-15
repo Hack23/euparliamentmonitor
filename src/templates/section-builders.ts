@@ -100,7 +100,7 @@ export function computeArticleQualityScore(content: string): ArticleQualityScore
   // while counting links to specific EP resources like /doceo/, /plenary/, etc.
   const evidenceReferences = countMatches(
     noScripts,
-    /href="https:\/\/www\.europarl\.europa\.eu\/[a-z][^"]*"/g
+    /href="https:\/\/www\.europarl\.europa\.eu\/\w[^"]*"/g
   );
 
   // Determine overall quality score
