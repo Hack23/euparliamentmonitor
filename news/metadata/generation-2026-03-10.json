@@ -1,6 +1,6 @@
 {
   "timestamp": "2026-03-14T19:10:00.000Z",
-  "generated": 56,
+  "generated": 57,
   "skipped": 16,
   "dryRun": 0,
   "errors": 0,
@@ -80,7 +80,7 @@
     },
     {
       "success": true,
-      "files": 13,
+      "files": 14,
       "slug": "2026-03-10-committee-reports"
     }
   ],
