@@ -146,7 +146,7 @@ For EVERY major parliamentary action in the article, analyze from at least 3 of 
 
 **Minimum requirement**: Every key legislative action or political development MUST be analyzed from at least 3 of these perspectives. Each perspective MUST cite specific evidence from EP MCP data.
 
-**Format**: Use dedicated `<div class="analysis-stakeholder-perspectives">` with `<div class="stakeholder-perspectives-grid">` card grid within the deep-analysis article section. Each stakeholder gets a card with impact direction, severity, reasoning, and evidence.
+**Format**: The TypeScript generator renders stakeholder perspectives as a card grid in the deep-analysis section. For each stakeholder perspective, provide: impact direction (positive/negative/mixed), severity (high/medium/low), reasoning, and supporting evidence from EP MCP data. Do NOT write raw HTML — supply structured perspective content and let the generator handle markup.
 
 ## 🔄 AI ANALYSIS REFINEMENT CYCLE (MANDATORY)
 

@@ -251,7 +251,7 @@ Every major parliamentary action must be analyzed from **at least 3 of 5 stakeho
 | **National Governments** | Subsidiarity, implementation requirements, national interests |
 | **EU Citizens** | Direct life impact, rights, services, democratic representation |
 
-Stakeholder perspective analysis is rendered using `<div class="analysis-stakeholder-perspectives">` with a `<div class="stakeholder-perspectives-grid">` card grid in each article's deep-analysis portion. Each stakeholder gets a card with impact direction, severity, reasoning, and evidence backed by specific EP MCP data citations. (Note: the separate winners/losers outcomes list uses `analysis-stakeholders` / `stakeholder-list` — that is a different section.)
+Stakeholder perspective analysis is rendered by the TypeScript generator (`buildStakeholderPerspectivesSection`) as a card grid in each article's deep-analysis portion. Agents provide structured perspective content — impact direction (positive/negative/mixed), severity (high/medium/low), reasoning, and evidence backed by specific EP MCP data citations — and the generator handles the HTML markup (`analysis-stakeholder-perspectives` / `stakeholder-perspectives-grid`). Agents must NOT write raw HTML for this section. (Note: the separate winners/losers outcomes list uses `analysis-stakeholders` / `stakeholder-list` — that is a different section rendered by `buildStakeholderSection`.)
 
 ##### 🔄 Iterative AI Content Refinement Cycle
 
