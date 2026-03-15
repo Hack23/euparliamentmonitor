@@ -19,6 +19,7 @@ import type {
   IntelligenceIndex,
   TrendDetection,
 } from '../types/index.js';
+import { ArticleCategory } from '../types/index.js';
 
 // ─── Minimum article count to confirm a trend ────────────────────────────────
 
@@ -178,7 +179,7 @@ export function generateCrossReferences(
         totalOverlap >= 3 ? 'strong' : totalOverlap === 2 ? 'moderate' : 'weak';
 
       const relationship: ArticleCrossReference['relationship'] =
-        a.date < entry.date ? 'follows_up' : 'related';
+        a.date < entry.date ? 'follows_up' : a.date > entry.date ? 'preceded_by' : 'related';
 
       const context =
         topicOverlap > 0 && actorOverlap > 0
@@ -367,7 +368,7 @@ function normalizeArticleEntry(entry: Partial<ArticleIndexEntry>): ArticleIndexE
   return {
     id: typeof entry.id === 'string' ? entry.id : '',
     date: typeof entry.date === 'string' ? entry.date : '',
-    type: typeof entry.type === 'string' ? entry.type : ('unknown' as ArticleIndexEntry['type']),
+    type: typeof entry.type === 'string' ? entry.type : (ArticleCategory.WEEK_AHEAD as ArticleIndexEntry['type']),
     lang: typeof entry.lang === 'string' ? entry.lang : 'en',
     keyTopics: Array.isArray(entry.keyTopics) ? entry.keyTopics : [],
     keyActors: Array.isArray(entry.keyActors) ? entry.keyActors : [],
@@ -804,7 +805,7 @@ export function buildRelatedArticlesHTML(
   trends: TrendDetection[],
   lang?: string
 ): string {
-  if (relatedArticles.length === 0 && trends.length === 0) {
+  if (relatedArticles.length === 0 && crossRefs.length === 0 && trends.length === 0) {
     return '';
   }
 
@@ -813,13 +814,17 @@ export function buildRelatedArticlesHTML(
   const listItems = crossRefs
     .map((ref) => {
       const article = relatedArticles.find((a) => a.id === ref.targetArticleId);
-      if (!article) return '';
       const label =
         strings.relationships[ref.relationship as keyof RelationshipLabels] ??
         strings.relatedArticle;
-      const displayDate = formatDisplayDate(article.date, lang);
-      const filename = `${article.id}.html`;
-      return `    <li><a href="${escapeAttr(filename)}" rel="noopener noreferrer">${escapeText(label)}: ${escapeText(ref.context)} (${escapeText(displayDate)})</a></li>`;
+      if (article) {
+        const displayDate = formatDisplayDate(article.date, lang);
+        const filename = `${article.id}.html`;
+        return `    <li><a href="${escapeAttr(filename)}" rel="noopener noreferrer">${escapeText(label)}: ${escapeText(ref.context)} (${escapeText(displayDate)})</a></li>`;
+      }
+      // Fallback: render using targetArticleId when full article metadata is unavailable
+      const filename = `${ref.targetArticleId}.html`;
+      return `    <li><a href="${escapeAttr(filename)}" rel="noopener noreferrer">${escapeText(label)}: ${escapeText(ref.context)}</a></li>`;
     })
     .filter(Boolean);
 

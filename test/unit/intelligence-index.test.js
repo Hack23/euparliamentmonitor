@@ -301,6 +301,29 @@ describe('generateCrossReferences', () => {
     expect(refs.some((r) => r.relationship === 'follows_up')).toBe(true);
   });
 
+  it('should assign preceded_by for newer target articles', () => {
+    const entry = makeEntry({
+      id: '2025-01-05-analysis-en',
+      date: '2025-01-05',
+      keyTopics: ['digital regulation'],
+      keyActors: [],
+    });
+    // Target article in index is 2025-01-10, which is newer than 2025-01-05
+    const refs = generateCrossReferences(index, entry);
+    expect(refs.some((r) => r.relationship === 'preceded_by')).toBe(true);
+  });
+
+  it('should assign related for same-date target articles', () => {
+    const entry = makeEntry({
+      id: '2025-01-10-different-analysis-en',
+      date: '2025-01-10',
+      keyTopics: ['digital regulation'],
+      keyActors: [],
+    });
+    const refs = generateCrossReferences(index, entry);
+    expect(refs.some((r) => r.relationship === 'related')).toBe(true);
+  });
+
   it('should return empty array for no related articles', () => {
     const entry = makeEntry({
       id: '2025-01-20-unique-en',
@@ -647,6 +670,37 @@ describe('buildRelatedArticlesHTML', () => {
   it('should return empty string when no related articles or trends', () => {
     const html = buildRelatedArticlesHTML([], [], []);
     expect(html).toBe('');
+  });
+
+  it('should return empty string when only empty arrays are provided', () => {
+    const html = buildRelatedArticlesHTML([], [], []);
+    expect(html).toBe('');
+  });
+
+  it('should render crossRefs even when target article is not in relatedArticles', () => {
+    // crossRef targets an article not in the relatedArticles array
+    const orphanRef = {
+      targetArticleId: '2025-02-01-missing-article-en',
+      relationship: 'related',
+      context: 'Shares topics',
+      strength: 'moderate',
+    };
+    const html = buildRelatedArticlesHTML([], [orphanRef], []);
+    expect(html).toContain('2025-02-01-missing-article-en.html');
+    expect(html).toContain('Shares topics');
+    expect(html).toContain('<section class="related-articles"');
+  });
+
+  it('should render output when only crossRefs are provided', () => {
+    const ref = {
+      targetArticleId: '2025-03-01-some-article-en',
+      relationship: 'follows_up',
+      context: 'Follow-up analysis',
+      strength: 'strong',
+    };
+    const html = buildRelatedArticlesHTML([], [ref], []);
+    expect(html).not.toBe('');
+    expect(html).toContain('2025-03-01-some-article-en.html');
   });
 
   it('should generate a section element with aria-label', () => {

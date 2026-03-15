@@ -14,7 +14,9 @@ import {
   buildMetadataDatabase,
   writeMetadataDatabase,
   readMetadataDatabase,
+  updateIntelligenceIndex,
 } from '../../scripts/utils/news-metadata.js';
+import { loadIntelligenceIndex } from '../../scripts/utils/intelligence-index.js';
 
 describe('utils/news-metadata', () => {
   let tempDir;
@@ -130,6 +132,100 @@ describe('utils/news-metadata', () => {
       expect(result.articles).toHaveLength(1);
       expect(result.articles[0].slug).toBe('article');
       expect(fs.existsSync(outputPath)).toBe(true);
+    });
+  });
+
+  // ─── updateIntelligenceIndex ────────────────────────────────────────────────
+
+  describe('updateIntelligenceIndex', () => {
+    it('should build an intelligence index from article files and persist it', () => {
+      // Create two articles with overlapping topics so trends are generated
+      fs.writeFileSync(
+        path.join(newsDir, '2025-01-15-green-deal-week-ahead-en.html'),
+        '<html><head><title>Green Deal Week Ahead</title><meta name="description" content="Green Deal analysis"></head><body></body></html>'
+      );
+      fs.writeFileSync(
+        path.join(newsDir, '2025-01-22-green-deal-week-ahead-en.html'),
+        '<html><head><title>Green Deal Week Ahead 2</title><meta name="description" content="Green Deal follow-up"></head><body></body></html>'
+      );
+
+      const indexPath = path.join(tempDir, 'intelligence-index.json');
+      const index = updateIntelligenceIndex(newsDir, indexPath);
+
+      expect(index.articles).toHaveLength(2);
+      expect(fs.existsSync(indexPath)).toBe(true);
+      expect(index.lastUpdated).toBeDefined();
+    });
+
+    it('should extract key topics from article slugs and metadata', () => {
+      fs.writeFileSync(
+        path.join(newsDir, '2025-02-10-ai-regulation-committee-en.html'),
+        '<html><head><title>AI Regulation Committee</title><meta name="description" content="Committee analysis"></head><body></body></html>'
+      );
+
+      const indexPath = path.join(tempDir, 'intelligence-index.json');
+      const index = updateIntelligenceIndex(newsDir, indexPath);
+
+      expect(index.articles).toHaveLength(1);
+      const entry = index.articles[0];
+      // Key topics should include tokens from slug like 'ai', 'regulation'
+      expect(entry.keyTopics.length).toBeGreaterThan(0);
+    });
+
+    it('should prune deleted articles when rebuilt', () => {
+      // Create two articles
+      const file1 = path.join(newsDir, '2025-01-15-week-ahead-en.html');
+      const file2 = path.join(newsDir, '2025-01-22-analysis-en.html');
+      fs.writeFileSync(file1, '<html></html>');
+      fs.writeFileSync(file2, '<html></html>');
+
+      const indexPath = path.join(tempDir, 'intelligence-index.json');
+
+      // First build: 2 articles
+      const index1 = updateIntelligenceIndex(newsDir, indexPath);
+      expect(index1.articles).toHaveLength(2);
+
+      // Delete one article
+      fs.unlinkSync(file2);
+
+      // Rebuild: should only have 1 article now
+      const index2 = updateIntelligenceIndex(newsDir, indexPath);
+      expect(index2.articles).toHaveLength(1);
+
+      // Verify persisted index also has 1 article
+      const loaded = loadIntelligenceIndex(indexPath);
+      expect(loaded.articles).toHaveLength(1);
+    });
+
+    it('should detect trends when articles share topics', () => {
+      // Create articles sharing the topic "digital" via slug
+      fs.writeFileSync(
+        path.join(newsDir, '2025-03-01-digital-regulation-week-ahead-en.html'),
+        '<html><head><title>Digital Regulation</title></head><body></body></html>'
+      );
+      fs.writeFileSync(
+        path.join(newsDir, '2025-03-08-digital-markets-week-ahead-en.html'),
+        '<html><head><title>Digital Markets</title></head><body></body></html>'
+      );
+
+      const indexPath = path.join(tempDir, 'intelligence-index.json');
+      const index = updateIntelligenceIndex(newsDir, indexPath);
+
+      // Both articles should share "digital" topic, triggering trend detection
+      expect(index.trends.length).toBeGreaterThanOrEqual(1);
+      const digitalTrend = index.trends.find((t) =>
+        t.name.toLowerCase().includes('digital')
+      );
+      expect(digitalTrend).toBeDefined();
+      expect(digitalTrend.articleReferences.length).toBeGreaterThanOrEqual(2);
+    });
+
+    it('should handle empty news directory', () => {
+      const indexPath = path.join(tempDir, 'intelligence-index.json');
+      const index = updateIntelligenceIndex(newsDir, indexPath);
+
+      expect(index.articles).toHaveLength(0);
+      expect(index.trends).toHaveLength(0);
     });
   });
 });

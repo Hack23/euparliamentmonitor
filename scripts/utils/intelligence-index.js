@@ -10,6 +10,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { ArticleCategory } from '../types/index.js';
 // ─── Minimum article count to confirm a trend ────────────────────────────────
 /** Minimum number of articles required to recognise a trend */
 const MIN_TREND_ARTICLES = 2;
@@ -136,7 +137,7 @@ export function generateCrossReferences(index, entry) {
         const actorOverlap = a.keyActors.filter((ac) => entry.keyActors.includes(ac)).length;
         const totalOverlap = topicOverlap + actorOverlap;
         const strength = totalOverlap >= 3 ? 'strong' : totalOverlap === 2 ? 'moderate' : 'weak';
-        const relationship = a.date < entry.date ? 'follows_up' : 'related';
+        const relationship = a.date < entry.date ? 'follows_up' : a.date > entry.date ? 'preceded_by' : 'related';
         const context = topicOverlap > 0 && actorOverlap > 0
             ? `Shares ${topicOverlap} topic(s) and ${actorOverlap} actor(s)`
             : topicOverlap > 0
@@ -293,7 +294,7 @@ function normalizeArticleEntry(entry) {
     return {
         id: typeof entry.id === 'string' ? entry.id : '',
         date: typeof entry.date === 'string' ? entry.date : '',
-        type: typeof entry.type === 'string' ? entry.type : 'unknown',
+        type: typeof entry.type === 'string' ? entry.type : ArticleCategory.WEEK_AHEAD,
         lang: typeof entry.lang === 'string' ? entry.lang : 'en',
         keyTopics: Array.isArray(entry.keyTopics) ? entry.keyTopics : [],
         keyActors: Array.isArray(entry.keyActors) ? entry.keyActors : [],
@@ -675,20 +676,23 @@ function getRelatedAnalysisStrings(lang) {
  * @returns HTML string for the "Related Analysis" section, or empty string if nothing to show
  */
 export function buildRelatedArticlesHTML(relatedArticles, crossRefs, trends, lang) {
-    if (relatedArticles.length === 0 && trends.length === 0) {
+    if (relatedArticles.length === 0 && crossRefs.length === 0 && trends.length === 0) {
         return '';
     }
     const strings = getRelatedAnalysisStrings(lang);
     const listItems = crossRefs
         .map((ref) => {
         const article = relatedArticles.find((a) => a.id === ref.targetArticleId);
-        if (!article)
-            return '';
         const label = strings.relationships[ref.relationship] ??
             strings.relatedArticle;
-        const displayDate = formatDisplayDate(article.date, lang);
-        const filename = `${article.id}.html`;
-        return `    <li><a href="${escapeAttr(filename)}" rel="noopener noreferrer">${escapeText(label)}: ${escapeText(ref.context)} (${escapeText(displayDate)})</a></li>`;
+        if (article) {
+            const displayDate = formatDisplayDate(article.date, lang);
+            const filename = `${article.id}.html`;
+            return `    <li><a href="${escapeAttr(filename)}" rel="noopener noreferrer">${escapeText(label)}: ${escapeText(ref.context)} (${escapeText(displayDate)})</a></li>`;
+        }
+        // Fallback: render using targetArticleId when full article metadata is unavailable
+        const filename = `${ref.targetArticleId}.html`;
+        return `    <li><a href="${escapeAttr(filename)}" rel="noopener noreferrer">${escapeText(label)}: ${escapeText(ref.context)}</a></li>`;
     })
         .filter(Boolean);
     // Fall back: show related articles without explicit cross-refs

@@ -12,7 +12,7 @@ import path from 'path';
 import { NEWS_DIR } from '../constants/config.js';
 import { getNewsArticles, parseArticleFilename, formatSlug, extractArticleMeta, } from './file-utils.js';
 import { createEmptyIndex, addArticleToIndex, detectTrends, saveIntelligenceIndex, } from './intelligence-index.js';
-import { detectCategory } from '../generators/news-indexes.js';
+import { detectCategory } from './article-category.js';
 /** Default path for the metadata database file */
 const METADATA_DB_PATH = path.join(NEWS_DIR, 'articles-metadata.json');
 /**

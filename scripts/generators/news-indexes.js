@@ -14,44 +14,7 @@ import { PROJECT_ROOT, APP_VERSION, NEWS_DIR } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, AI_SECTION_CONTENT, FILTER_LABELS, ARTICLE_TYPE_LABELS, HEADER_SUBTITLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { getNewsArticles, groupArticlesByLanguage, formatSlug, parseArticleFilename, extractArticleMeta, escapeHTML, } from '../utils/file-utils.js';
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
-import { ArticleCategory } from '../types/index.js';
-/**
- * Default category for articles that don't match specific patterns.
- */
-const DEFAULT_CATEGORY = ArticleCategory.WEEK_AHEAD;
-/**
- * Detect the article category from a slug.
- * Returns the matching ArticleCategory value used for badge/accent colours.
- *
- * @param slug - Hyphenated slug string
- * @returns ArticleCategory value string
- */
-export function detectCategory(slug) {
-    const s = slug.toLowerCase();
-    if (s.includes('week-ahead'))
-        return ArticleCategory.WEEK_AHEAD;
-    if (s.includes('month-ahead'))
-        return ArticleCategory.MONTH_AHEAD;
-    if (s.includes('year-ahead'))
-        return ArticleCategory.YEAR_AHEAD;
-    if (s.includes('week-in-review'))
-        return ArticleCategory.WEEK_IN_REVIEW;
-    if (s.includes('month-in-review'))
-        return ArticleCategory.MONTH_IN_REVIEW;
-    if (s.includes('year-in-review'))
-        return ArticleCategory.YEAR_IN_REVIEW;
-    if (s.includes('committee'))
-        return ArticleCategory.COMMITTEE_REPORTS;
-    if (s.includes('motion') || s.includes('vote') || s.includes('voting'))
-        return ArticleCategory.MOTIONS;
-    if (s.includes('propos') || s.includes('legislat'))
-        return ArticleCategory.PROPOSITIONS;
-    if (s.includes('breaking') || s.includes('urgent'))
-        return ArticleCategory.BREAKING_NEWS;
-    if (s.includes('deep-analysis') || s.includes('5-whys'))
-        return ArticleCategory.DEEP_ANALYSIS;
-    return DEFAULT_CATEGORY;
-}
+import { detectCategory } from '../utils/article-category.js';
 /**
  * Get the index filename for a given language code.
  * English uses index.html (the primary homepage), others use index-{lang}.html.

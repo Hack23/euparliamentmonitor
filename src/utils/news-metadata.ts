@@ -22,7 +22,6 @@ import type {
   ArticleMetadataEntry,
   NewsMetadataDatabase,
   IntelligenceIndex,
-  ArticleCategory,
 } from '../types/index.js';
 import {
   createEmptyIndex,
@@ -30,7 +29,7 @@ import {
   detectTrends,
   saveIntelligenceIndex,
 } from './intelligence-index.js';
-import { detectCategory } from '../generators/news-indexes.js';
+import { detectCategory } from './article-category.js';
 
 /** Default path for the metadata database file */
 const METADATA_DB_PATH = path.join(NEWS_DIR, 'articles-metadata.json');
@@ -157,7 +156,7 @@ export function updateIntelligenceIndex(
     const meta = extractArticleMeta(filepath);
 
     // Derive the ArticleCategory from the slug using the shared detection logic
-    const category = detectCategory(parsed.slug) as ArticleCategory;
+    const category = detectCategory(parsed.slug);
 
     // Extract meaningful key topics from the slug and article metadata
     const keyTopics = deriveKeyTopics(parsed.slug, meta.title, meta.description);
