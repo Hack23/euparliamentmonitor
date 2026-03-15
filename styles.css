@@ -2573,19 +2573,19 @@ button:focus-visible {
   font-size: 0.9rem;
 }
 
-.severity-critical {
+.scenario-severity-critical {
   color: #b71c1c;
 }
 
-.severity-high {
+.scenario-severity-high {
   color: var(--danger, #dc3545);
 }
 
-.severity-medium {
+.scenario-severity-medium {
   color: #8a6d00;
 }
 
-.severity-low {
+.scenario-severity-low {
   color: var(--text-secondary, #6c757d);
 }
 

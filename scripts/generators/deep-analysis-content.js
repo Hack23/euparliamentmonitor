@@ -455,7 +455,7 @@ function buildScenarioPlanningSection(scenarios, heading, strings, contentLang) 
             .map((t) => `<li${langAttr}>${escapeHTML(t)}</li>`)
             .join('\n                  ');
         const impactItems = scenario.implications
-            .map((imp) => `<li class="scenario-impact severity-${escapeHTML(imp.severity)}">` +
+            .map((imp) => `<li class="scenario-impact scenario-severity-${escapeHTML(imp.severity)}">` +
             `<strong>${escapeHTML(imp.stakeholder)}</strong>: <span${langAttr}>${escapeHTML(imp.impact)}</span>` +
             `</li>`)
             .join('\n                  ');

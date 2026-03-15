@@ -565,7 +565,7 @@ function buildScenarioPlanningSection(
     const impactItems = scenario.implications
       .map(
         (imp) =>
-          `<li class="scenario-impact severity-${escapeHTML(imp.severity)}">` +
+          `<li class="scenario-impact scenario-severity-${escapeHTML(imp.severity)}">` +
           `<strong>${escapeHTML(imp.stakeholder)}</strong>: <span${langAttr}>${escapeHTML(imp.impact)}</span>` +
           `</li>`
       )
