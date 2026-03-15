@@ -414,23 +414,24 @@ function extractContainerContent(html, attrIdx, attr) {
  * - `data-reference` attributes
  * - EP document reference codes (TA-, PE-, A9-, P9_TA patterns)
  *
- * Strips `<script>` blocks before scanning for EP doc patterns so that JSON-LD
- * metadata does not inflate evidence counts.
+ * Strips `<script>` blocks once up front so that JSON-LD metadata and other
+ * inline scripts do not inflate any evidence counts.
  *
  * @param html - Raw HTML string
  * @returns Number of evidence references found
  */
 function countEvidenceRefs(html) {
-    // Count <li> items inside perspective-evidence containers (deep-analysis generator)
-    const perspectiveEvidenceItems = countListItemsInClass(html, 'class="perspective-evidence"');
-    // Count SWOT cross-reference evidence markers (swot-content generator)
-    const swotRefEvidence = countOccurrences(html, 'class="swot-ref-evidence"');
-    // Legacy / generic evidence markers
-    const evidenceClasses = countOccurrences(html, 'class="evidence"');
-    const dataRefs = countOccurrences(html, 'data-reference');
-    // Strip script blocks (e.g. JSON-LD) to avoid double-counting EP doc IDs
-    // that appear in both visible content and structured metadata.
+    // Strip script blocks (e.g. JSON-LD) once for all evidence counting
+    // to avoid inflated counts from matching substrings inside scripts.
     const htmlNoScripts = stripScriptBlocks(html);
+    // Count <li> items inside perspective-evidence containers (deep-analysis generator)
+    const perspectiveEvidenceItems = countListItemsInClass(htmlNoScripts, 'class="perspective-evidence"');
+    // Count SWOT cross-reference evidence markers (swot-content generator)
+    const swotRefEvidence = countOccurrences(htmlNoScripts, 'class="swot-ref-evidence"');
+    // Legacy / generic evidence markers
+    const evidenceClasses = countOccurrences(htmlNoScripts, 'class="evidence"');
+    const dataRefs = countOccurrences(htmlNoScripts, 'data-reference');
+    // EP document reference codes
     const matched = new Set();
     for (const pattern of EP_DOC_PATTERNS) {
         pattern.lastIndex = 0;
@@ -450,6 +451,8 @@ function countEvidenceRefs(html) {
  *
  * Iterates ALL matching deep-analysis sections (not just the first),
  * so articles with multiple deep-analysis blocks are fully counted.
+ * Deduplicates matches across class and id patterns so that a container
+ * having both `class="deep-analysis"` and `id="…deep…"` is only counted once.
  *
  * Detects:
  * - `<li>` items inside `<ul class="perspective-evidence">` — real generator output
@@ -463,18 +466,24 @@ function countEvidenceRefs(html) {
 function countDeepAnalysisSectionEvidence(html) {
     const openPatterns = [/class="deep-analysis"[^>]*>/giu, /id="[^"]*deep[^"]*"[^>]*>/giu];
     let total = 0;
+    // Track matched opening-tag indices to avoid counting the same section twice
+    // when it matches both the class and id patterns.
+    const countedIndices = new Set();
     for (const pattern of openPatterns) {
         pattern.lastIndex = 0;
         let openMatch = pattern.exec(html);
         while (openMatch) {
-            const startIdx = openMatch.index + openMatch[0].length;
-            const sectionContent = findBalancedContent(html, startIdx);
-            if (sectionContent) {
-                total +=
-                    countListItemsInClass(sectionContent, 'class="perspective-evidence"') +
-                        countOccurrences(sectionContent, 'class="swot-ref-evidence"') +
-                        countOccurrences(sectionContent, 'class="evidence"') +
-                        countOccurrences(sectionContent, 'data-reference');
+            if (!countedIndices.has(openMatch.index)) {
+                countedIndices.add(openMatch.index);
+                const startIdx = openMatch.index + openMatch[0].length;
+                const sectionContent = findBalancedContent(html, startIdx);
+                if (sectionContent) {
+                    total +=
+                        countListItemsInClass(sectionContent, 'class="perspective-evidence"') +
+                            countOccurrences(sectionContent, 'class="swot-ref-evidence"') +
+                            countOccurrences(sectionContent, 'class="evidence"') +
+                            countOccurrences(sectionContent, 'data-reference');
+                }
             }
             openMatch = pattern.exec(html);
         }
