@@ -64,7 +64,7 @@ describe('mindmap-content', () => {
     it('should use localized headings for supported languages', () => {
       const html = buildMindmapSection(
         { topic: 'Test', branches: [{ label: 'A', color: 'cyan' }] },
-        'sv',
+        'sv'
       );
       expect(html).toContain('Policykarta');
     });
@@ -73,7 +73,7 @@ describe('mindmap-content', () => {
       const html = buildMindmapSection(
         { topic: 'Test', branches: [{ label: 'A', color: 'cyan' }] },
         'en',
-        'Custom Heading',
+        'Custom Heading'
       );
       expect(html).toContain('Custom Heading');
       expect(html).not.toContain('Policy Mindmap');
@@ -100,9 +100,7 @@ describe('mindmap-content', () => {
     it('should escape HTML in topic, labels, and items', () => {
       const html = buildMindmapSection({
         topic: '<script>alert("xss")</script>',
-        branches: [
-          { label: '<b>Bold</b>', color: 'red', items: ['Item & "more"'] },
-        ],
+        branches: [{ label: '<b>Bold</b>', color: 'red', items: ['Item & "more"'] }],
       });
       expect(html).toContain('&lt;script&gt;');
       expect(html).toContain('&lt;b&gt;Bold&lt;/b&gt;');
@@ -165,7 +163,7 @@ describe('mindmap-content', () => {
           layers: [],
           connections: [],
           actorNetwork: [],
-        }),
+        })
       ).toBe('');
     });
 
@@ -337,7 +335,9 @@ describe('mindmap-content', () => {
       expect(html).toContain('mindmap-connection-type-thematic');
       // Connections aria-label includes direction, type and strength for accessibility
       // n1 is resolved to its label "Node 1"; n2 is unresolvable so stays as raw ID
-      expect(html).toContain('aria-label="Node 1 → n2: thematic (moderate) — Shared climate policy theme"');
+      expect(html).toContain(
+        'aria-label="Node 1 → n2: thematic (moderate) — Shared climate policy theme"'
+      );
     });
 
     it('should render actor network overlay', () => {
@@ -361,7 +361,13 @@ describe('mindmap-content', () => {
         connections: [],
         actorNetwork: [
           { id: 'a1', name: 'EPP Group', type: 'group', influence: 0.85, connections: [] },
-          { id: 'a2', name: 'ENVI Committee', type: 'committee', influence: 0.9, connections: ['n1'] },
+          {
+            id: 'a2',
+            name: 'ENVI Committee',
+            type: 'committee',
+            influence: 0.9,
+            connections: ['n1'],
+          },
         ],
       });
 
@@ -453,7 +459,9 @@ describe('mindmap-content', () => {
       };
 
       expect(buildIntelligenceMindmapSection(imap, 'de')).toContain('Intelligenz-Politikkarte');
-      expect(buildIntelligenceMindmapSection(imap, 'fr')).toContain('Carte de renseignement politique');
+      expect(buildIntelligenceMindmapSection(imap, 'fr')).toContain(
+        'Carte de renseignement politique'
+      );
     });
 
     it('should allow custom heading override', () => {
@@ -479,7 +487,7 @@ describe('mindmap-content', () => {
           actorNetwork: [],
         },
         'en',
-        'Custom Intelligence Heading',
+        'Custom Intelligence Heading'
       );
 
       expect(html).toContain('Custom Intelligence Heading');
@@ -532,8 +540,22 @@ describe('mindmap-content', () => {
           {
             depth: 1,
             nodes: [
-              { id: 'n1', label: 'A', category: 'policy_domain', influence: 0.5, color: 'cyan', children: [] },
-              { id: 'n2', label: 'B', category: 'policy_domain', influence: 0.6, color: 'green', children: [] },
+              {
+                id: 'n1',
+                label: 'A',
+                category: 'policy_domain',
+                influence: 0.5,
+                color: 'cyan',
+                children: [],
+              },
+              {
+                id: 'n2',
+                label: 'B',
+                category: 'policy_domain',
+                influence: 0.6,
+                color: 'green',
+                children: [],
+              },
             ],
           },
         ],
@@ -564,10 +586,31 @@ describe('mindmap-content', () => {
                 influence: 0.8,
                 color: 'cyan',
                 children: [
-                  { id: 'child1', label: 'Child 1', category: 'sub_topic', influence: 0.5, color: 'green', children: [] },
-                  { id: 'child2', label: 'Child 2', category: 'sub_topic', influence: 0.5, color: 'green', children: [
-                    { id: 'grandchild1', label: 'Grandchild', category: 'actor', influence: 0.3, color: 'purple', children: [] },
-                  ] },
+                  {
+                    id: 'child1',
+                    label: 'Child 1',
+                    category: 'sub_topic',
+                    influence: 0.5,
+                    color: 'green',
+                    children: [],
+                  },
+                  {
+                    id: 'child2',
+                    label: 'Child 2',
+                    category: 'sub_topic',
+                    influence: 0.5,
+                    color: 'green',
+                    children: [
+                      {
+                        id: 'grandchild1',
+                        label: 'Grandchild',
+                        category: 'actor',
+                        influence: 0.3,
+                        color: 'purple',
+                        children: [],
+                      },
+                    ],
+                  },
                 ],
               },
             ],
@@ -588,7 +631,14 @@ describe('mindmap-content', () => {
           {
             depth: 1,
             nodes: [
-              { id: 'n1', label: 'Node', category: 'policy_domain', influence: 0.5, color: 'cyan', children: [] },
+              {
+                id: 'n1',
+                label: 'Node',
+                category: 'policy_domain',
+                influence: 0.5,
+                color: 'cyan',
+                children: [],
+              },
             ],
           },
         ],
@@ -597,7 +647,9 @@ describe('mindmap-content', () => {
       };
 
       expect(buildIntelligenceMindmapSection(imap, 'de')).toContain('aria-label="Politikbereiche"');
-      expect(buildIntelligenceMindmapSection(imap, 'fr')).toContain('aria-label="Domaines politiques"');
+      expect(buildIntelligenceMindmapSection(imap, 'fr')).toContain(
+        'aria-label="Domaines politiques"'
+      );
       expect(buildIntelligenceMindmapSection(imap, 'en')).toContain('aria-label="Policy Domains"');
     });
 
@@ -645,7 +697,14 @@ describe('mindmap-content', () => {
           {
             depth: 1,
             nodes: [
-              { id: 'n1', label: 'Node', category: 'policy_domain', influence: 0.5, color: 'cyan', children: [] },
+              {
+                id: 'n1',
+                label: 'Node',
+                category: 'policy_domain',
+                influence: 0.5,
+                color: 'cyan',
+                children: [],
+              },
             ],
           },
         ],
@@ -663,7 +722,14 @@ describe('mindmap-content', () => {
           {
             depth: 1,
             nodes: [
-              { id: 'n1', label: 'Node', category: 'policy_domain', influence: 0.5, color: 'cyan', children: [] },
+              {
+                id: 'n1',
+                label: 'Node',
+                category: 'policy_domain',
+                influence: 0.5,
+                color: 'cyan',
+                children: [],
+              },
             ],
           },
         ],
@@ -681,7 +747,14 @@ describe('mindmap-content', () => {
           {
             depth: 1,
             nodes: [
-              { id: 'n1', label: 'Node', category: 'policy_domain', influence: 0.7, color: 'cyan', children: [] },
+              {
+                id: 'n1',
+                label: 'Node',
+                category: 'policy_domain',
+                influence: 0.7,
+                color: 'cyan',
+                children: [],
+              },
             ],
           },
         ],
@@ -706,7 +779,14 @@ describe('mindmap-content', () => {
           {
             depth: 1,
             nodes: [
-              { id: 'n1', label: 'Node', category: 'policy_domain', influence: 0.5, color: 'cyan', children: [] },
+              {
+                id: 'n1',
+                label: 'Node',
+                category: 'policy_domain',
+                influence: 0.5,
+                color: 'cyan',
+                children: [],
+              },
             ],
           },
         ],
@@ -730,14 +810,19 @@ describe('mindmap-content', () => {
             {
               depth: 1,
               nodes: [
-                { id: 'n1', label: 'Node', category: 'policy_domain', influence: 0.5, color: 'cyan', children: [] },
+                {
+                  id: 'n1',
+                  label: 'Node',
+                  category: 'policy_domain',
+                  influence: 0.5,
+                  color: 'cyan',
+                  children: [],
+                },
               ],
             },
           ],
           connections: [],
-          actorNetwork: [
-            { id: 'a1', name: 'EPP', type: 'group', influence: 0.8, connections: [] },
-          ],
+          actorNetwork: [{ id: 'a1', name: 'EPP', type: 'group', influence: 0.8, connections: [] }],
         },
         'sv'
       );
@@ -759,7 +844,14 @@ describe('mindmap-content', () => {
                 influence: 0.5,
                 color: 'cyan',
                 children: [
-                  { id: 'n2', label: 'Child', category: 'sub_topic', influence: 0.3, color: 'green', children: [] },
+                  {
+                    id: 'n2',
+                    label: 'Child',
+                    category: 'sub_topic',
+                    influence: 0.3,
+                    color: 'green',
+                    children: [],
+                  },
                 ],
               },
             ],
@@ -789,7 +881,14 @@ describe('mindmap-content', () => {
                 influence: 0.5,
                 color: 'cyan',
                 children: [
-                  { id: 'n2', label: 'Sub', category: 'sub_topic', influence: 0.3, color: 'green', children: [] },
+                  {
+                    id: 'n2',
+                    label: 'Sub',
+                    category: 'sub_topic',
+                    influence: 0.3,
+                    color: 'green',
+                    children: [],
+                  },
                 ],
               },
             ],
@@ -811,7 +910,14 @@ describe('mindmap-content', () => {
             {
               depth: 1,
               nodes: [
-                { id: 'n1', label: 'Node', category: 'policy_domain', influence: 0.5, color: 'cyan', children: [] },
+                {
+                  id: 'n1',
+                  label: 'Node',
+                  category: 'policy_domain',
+                  influence: 0.5,
+                  color: 'cyan',
+                  children: [],
+                },
               ],
             },
           ],
@@ -834,7 +940,14 @@ describe('mindmap-content', () => {
           {
             depth: 2,
             nodes: [
-              { id: 'n1', label: 'Fallback Node', category: 'sub_topic', influence: 0.5, color: 'green', children: [] },
+              {
+                id: 'n1',
+                label: 'Fallback Node',
+                category: 'sub_topic',
+                influence: 0.5,
+                color: 'green',
+                children: [],
+              },
             ],
           },
         ],
@@ -853,7 +966,14 @@ describe('mindmap-content', () => {
           {
             depth: 1,
             nodes: [
-              { id: 'n1', label: 'Red Node', category: 'policy_domain', influence: 0.7, color: 'red', children: [] },
+              {
+                id: 'n1',
+                label: 'Red Node',
+                category: 'policy_domain',
+                influence: 0.7,
+                color: 'red',
+                children: [],
+              },
             ],
           },
         ],
@@ -873,7 +993,14 @@ describe('mindmap-content', () => {
           {
             depth: 1,
             nodes: [
-              { id: 'n1', label: 'Actor Node', category: 'actor', influence: 0.5, color: 'neon-pink', children: [] },
+              {
+                id: 'n1',
+                label: 'Actor Node',
+                category: 'actor',
+                influence: 0.5,
+                color: 'neon-pink',
+                children: [],
+              },
             ],
           },
         ],
@@ -893,15 +1020,34 @@ describe('mindmap-content', () => {
           {
             depth: 1,
             nodes: [
-              { id: 'group-0', label: 'EPP Group', category: 'policy_domain', influence: 0.8, color: 'cyan', children: [] },
+              {
+                id: 'group-0',
+                label: 'EPP Group',
+                category: 'policy_domain',
+                influence: 0.8,
+                color: 'cyan',
+                children: [],
+              },
             ],
           },
         ],
         connections: [
-          { from: 'anomaly-0', to: 'group-0', strength: 'strong', type: 'political', evidence: 'Test' },
+          {
+            from: 'anomaly-0',
+            to: 'group-0',
+            strength: 'strong',
+            type: 'political',
+            evidence: 'Test',
+          },
         ],
         actorNetwork: [
-          { id: 'anomaly-0', name: 'Split Vote Anomaly', type: 'external', influence: 0.9, connections: [] },
+          {
+            id: 'anomaly-0',
+            name: 'Split Vote Anomaly',
+            type: 'external',
+            influence: 0.9,
+            connections: [],
+          },
         ],
       });
 
@@ -922,34 +1068,48 @@ describe('mindmap-content', () => {
 
     it('should return null when records and patterns are all placeholder', () => {
       const result = buildVotingMindmap(
-        [{ title: 'DATA_UNAVAILABLE (placeholder)', result: 'DATA_UNAVAILABLE (placeholder)', votes: { for: 0, against: 0, abstain: 0 } }],
+        [
+          {
+            title: 'DATA_UNAVAILABLE (placeholder)',
+            result: 'DATA_UNAVAILABLE (placeholder)',
+            votes: { for: 0, against: 0, abstain: 0 },
+          },
+        ],
         [{ group: 'placeholder_group', cohesion: 0, participation: 0 }],
-        [],
+        []
       );
       expect(result).toBeNull();
     });
 
     it('should return null when patterns are empty but records exist', () => {
       const result = buildVotingMindmap(
-        [{ title: 'Digital Markets Act', result: 'Adopted', votes: { for: 450, against: 100, abstain: 50 } }],
+        [
+          {
+            title: 'Digital Markets Act',
+            result: 'Adopted',
+            votes: { for: 450, against: 100, abstain: 50 },
+          },
+        ],
         [],
-        [],
+        []
       );
       expect(result).toBeNull();
     });
 
     it('should build a mindmap from voting data', () => {
       const votingRecords = [
-        { title: 'Digital Markets Act', result: 'Adopted', votes: { for: 450, against: 100, abstain: 50 } },
+        {
+          title: 'Digital Markets Act',
+          result: 'Adopted',
+          votes: { for: 450, against: 100, abstain: 50 },
+        },
         { title: 'AI Act', result: 'Rejected', votes: { for: 200, against: 400, abstain: 100 } },
       ];
       const votingPatterns = [
         { group: 'EPP', cohesion: 0.85, participation: 0.9 },
         { group: 'S&D', cohesion: 0.45, participation: 0.8 },
       ];
-      const anomalies = [
-        { type: 'Low cohesion', severity: 'HIGH', group: 'S&D' },
-      ];
+      const anomalies = [{ type: 'Low cohesion', severity: 'HIGH', group: 'S&D' }];
 
       const imap = buildVotingMindmap(votingRecords, votingPatterns, anomalies);
 
@@ -963,13 +1123,11 @@ describe('mindmap-content', () => {
     });
 
     it('should mark high-cohesion groups with green color', () => {
-      const votingPatterns = [
-        { group: 'EPP', cohesion: 0.9, participation: 0.9 },
-      ];
+      const votingPatterns = [{ group: 'EPP', cohesion: 0.9, participation: 0.9 }];
       const imap = buildVotingMindmap(
         [{ title: 'Test Vote', result: 'Adopted', votes: { for: 400, against: 50, abstain: 10 } }],
         votingPatterns,
-        [],
+        []
       );
 
       expect(imap).not.toBeNull();
@@ -978,13 +1136,11 @@ describe('mindmap-content', () => {
     });
 
     it('should mark low-cohesion groups with red color', () => {
-      const votingPatterns = [
-        { group: 'ECR', cohesion: 0.3, participation: 0.6 },
-      ];
+      const votingPatterns = [{ group: 'ECR', cohesion: 0.3, participation: 0.6 }];
       const imap = buildVotingMindmap(
         [{ title: 'Test Vote', result: 'Adopted', votes: { for: 400, against: 50, abstain: 10 } }],
         votingPatterns,
-        [],
+        []
       );
 
       expect(imap).not.toBeNull();
@@ -1019,7 +1175,9 @@ describe('mindmap-content', () => {
         expect(conn.to.startsWith('group-')).toBe(true);
       }
       // Connections should reference at most anomaly-0, anomaly-1, anomaly-2
-      const anomalySources = imap.connections.map((c) => c.from).filter((t) => t.startsWith('anomaly-'));
+      const anomalySources = imap.connections
+        .map((c) => c.from)
+        .filter((t) => t.startsWith('anomaly-'));
       for (const source of anomalySources) {
         const idx = parseInt(source.replace('anomaly-', ''), 10);
         expect(idx).toBeLessThanOrEqual(2);
@@ -1082,6 +1240,38 @@ describe('mindmap-content', () => {
       };
       expect(buildProspectiveMindmap(weekData)).not.toBeNull();
     });
+
+    it('should use stable pipeline IDs when bottleneck follows non-bottleneck', () => {
+      const weekData = {
+        events: [],
+        pipeline: [
+          { title: 'Non-bottleneck first', bottleneck: false },
+          { title: 'Bottleneck second', bottleneck: true },
+          { title: 'Another non-bottleneck', bottleneck: false },
+          { title: 'Third bottleneck', bottleneck: true },
+        ],
+        dateRange: { from: '2026-03-15', to: '2026-03-19' },
+        committees: [],
+        documents: [],
+        questions: [],
+      };
+
+      const imap = buildProspectiveMindmap(weekData);
+
+      // Connections should reference original pipeline indices, not filtered indices
+      const connectionTargets = imap.connections.map((c) => c.to);
+      // The bottlenecks are at original indices 1 and 3
+      expect(connectionTargets).toContain('pipeline-1');
+      expect(connectionTargets).toContain('pipeline-3');
+      // Should NOT contain pipeline-0 (that's the non-bottleneck)
+      expect(connectionTargets).not.toContain('pipeline-0');
+
+      // All connection targets should exist in actorNetwork
+      const actorIds = new Set(imap.actorNetwork.map((a) => a.id));
+      for (const target of connectionTargets) {
+        expect(actorIds.has(target)).toBe(true);
+      }
+    });
   });
 
   describe('buildBreakingMindmap', () => {
@@ -1096,15 +1286,11 @@ describe('mindmap-content', () => {
         adoptedTexts: [
           { title: 'Resolution on Climate', date: '2026-03-12', url: 'https://ep.eu/1' },
         ],
-        events: [
-          { title: 'Plenary vote', date: '2026-03-12', url: 'https://ep.eu/2' },
-        ],
+        events: [{ title: 'Plenary vote', date: '2026-03-12', url: 'https://ep.eu/2' }],
         procedures: [
           { title: 'Digital Infrastructure Act', date: '2026-03-12', url: 'https://ep.eu/3' },
         ],
-        mepUpdates: [
-          { id: '1', name: 'Alice Muster', date: '2026-03-12' },
-        ],
+        mepUpdates: [{ id: '1', name: 'Alice Muster', date: '2026-03-12' }],
       };
 
       const imap = buildBreakingMindmap(feedData);
@@ -1238,4 +1424,3 @@ describe('mindmap-content', () => {
     });
   });
 });
-

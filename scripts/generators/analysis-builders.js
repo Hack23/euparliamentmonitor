@@ -1992,6 +1992,8 @@ export function buildProspectiveMindmap(weekData, _lang = 'en') {
             children,
         };
     });
+    // Build pipeline actor nodes preserving original indices as stable IDs
+    const pipelineSlice = pipeline.slice(0, 4);
     const actorNetwork = [
         {
             id: 'ep-plenary',
@@ -2000,7 +2002,7 @@ export function buildProspectiveMindmap(weekData, _lang = 'en') {
             influence: 0.95,
             connections: policyDomains.map((d) => d.id),
         },
-        ...pipeline.slice(0, 4).map((p, i) => ({
+        ...pipelineSlice.map((p, i) => ({
             id: `pipeline-${i}`,
             name: p.title ? p.title.slice(0, 40) : 'Legislative procedure',
             type: 'external',
@@ -2008,12 +2010,14 @@ export function buildProspectiveMindmap(weekData, _lang = 'en') {
             connections: [],
         })),
     ];
-    const connections = pipeline
-        .filter((p) => p.bottleneck === true)
+    // Filter bottlenecks from the same slice, keeping original index for stable IDs
+    const connections = pipelineSlice
+        .map((p, origIdx) => ({ p, origIdx }))
+        .filter(({ p }) => p.bottleneck === true)
         .slice(0, 3)
-        .map((p, i) => ({
+        .map(({ p, origIdx }, i) => ({
         from: policyDomains[i % policyDomains.length]?.id ?? 'envi',
-        to: `pipeline-${i}`,
+        to: `pipeline-${origIdx}`,
         strength: 'strong',
         type: 'legislative',
         evidence: p.title ? p.title.slice(0, 60) : 'Legislative bottleneck',
