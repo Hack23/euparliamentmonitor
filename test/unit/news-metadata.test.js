@@ -160,7 +160,7 @@ describe('utils/news-metadata', () => {
     it('should extract key topics from article slugs and metadata', () => {
       fs.writeFileSync(
         path.join(newsDir, '2025-02-10-ai-regulation-committee-en.html'),
-        '<html><head><title>AI Regulation Committee</title><meta name="description" content="Committee analysis"></head><body></body></html>'
+        '<html><head><meta name="description" content="Committee analysis of artificial intelligence"></head><body><h1>AI Regulation Committee Report</h1></body></html>'
       );
 
       const indexPath = path.join(tempDir, 'intelligence-index.json');
@@ -168,8 +168,9 @@ describe('utils/news-metadata', () => {
 
       expect(index.articles).toHaveLength(1);
       const entry = index.articles[0];
-      // Key topics should include tokens from slug like 'ai', 'regulation'
+      // Key topics should include tokens from slug ('regulation') and h1 title ('regulation')
       expect(entry.keyTopics.length).toBeGreaterThan(0);
+      expect(entry.keyTopics).toContain('regulation');
     });
 
     it('should prune deleted articles when rebuilt', () => {
@@ -226,6 +227,28 @@ describe('utils/news-metadata', () => {
 
       expect(index.articles).toHaveLength(0);
       expect(index.trends).toHaveLength(0);
+    });
+
+    it('should only use slug tokens for non-English articles', () => {
+      // Non-English article: title/description tokens should be excluded
+      // because STOP_WORDS is English-only
+      fs.writeFileSync(
+        path.join(newsDir, '2025-04-01-environnement-politique-fr.html'),
+        '<html><head><meta name="description" content="Analyse de la politique"></head><body><h1>Environnement et politique européenne</h1></body></html>'
+      );
+
+      const indexPath = path.join(tempDir, 'intelligence-index.json');
+      const index = updateIntelligenceIndex(newsDir, indexPath);
+
+      expect(index.articles).toHaveLength(1);
+      const entry = index.articles[0];
+      // Slug tokens should be present
+      expect(entry.keyTopics).toContain('environnement');
+      expect(entry.keyTopics).toContain('politique');
+      // Title/description tokens like "analyse", "européenne" should NOT be present
+      // because non-English articles only use slug tokenisation
+      expect(entry.keyTopics).not.toContain('analyse');
+      expect(entry.keyTopics).not.toContain('européenne');
     });
   });
 });

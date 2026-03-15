@@ -159,7 +159,7 @@ export function updateIntelligenceIndex(
     const category = detectCategory(parsed.slug);
 
     // Extract meaningful key topics from the slug and article metadata
-    const keyTopics = deriveKeyTopics(parsed.slug, meta.title, meta.description);
+    const keyTopics = deriveKeyTopics(parsed.slug, parsed.lang, meta.title, meta.description);
 
     const entry = {
       id: articleId,
@@ -283,15 +283,31 @@ const MIN_METADATA_TOKEN_LENGTH = 4;
  * meaningful words from the title and description. Common stop-words
  * and very short tokens are filtered out.
  *
+ * For non-English articles, title and description tokens are skipped because
+ * the {@link STOP_WORDS} set is English-only and would let through common
+ * function words in other languages, creating noisy cross-language trends.
+ * The slug (which is structured and language-neutral) is always tokenised.
+ *
  * @param slug - Article slug (e.g. "week-ahead" or "breaking")
+ * @param lang - ISO 639-1 language code (e.g. "en", "fr", "de")
  * @param title - Article title extracted from HTML (may be empty)
  * @param description - Article description extracted from HTML (may be empty)
  * @returns Deduplicated array of key topic strings
  */
-function deriveKeyTopics(slug: string, title?: string, description?: string): string[] {
+function deriveKeyTopics(
+  slug: string,
+  lang: string,
+  title?: string,
+  description?: string
+): string[] {
   const tokens = new Set<string>();
   extractTokens(slug, tokens, MIN_SLUG_TOKEN_LENGTH);
-  if (title) extractTokens(title, tokens, MIN_METADATA_TOKEN_LENGTH);
-  if (description) extractTokens(description, tokens, MIN_METADATA_TOKEN_LENGTH);
+  // Only apply title/description tokenisation for English articles where
+  // STOP_WORDS provides meaningful filtering; non-English articles rely
+  // on slug tokens to avoid noisy cross-language relations.
+  if (lang === 'en') {
+    if (title) extractTokens(title, tokens, MIN_METADATA_TOKEN_LENGTH);
+    if (description) extractTokens(description, tokens, MIN_METADATA_TOKEN_LENGTH);
+  }
   return [...tokens];
 }

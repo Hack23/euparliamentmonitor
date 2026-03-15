@@ -156,7 +156,8 @@ export function findRelatedArticles(
  *
  * **Relationship** is determined by date comparison:
  * - Target article is older (`date < entry.date`) → `follows_up`
- * - Target article is the same date or newer → `related`
+ * - Target article is newer (`date > entry.date`) → `preceded_by`
+ * - Target article has the same date → `related`
  *
  * @param index - Intelligence index containing previously indexed articles
  * @param entry - The article for which cross-references should be generated
@@ -445,7 +446,9 @@ export function loadIntelligenceIndex(indexPath: string): IntelligenceIndex {
 
 /**
  * Merge partially-parsed JSON onto a fresh empty index, normalising articles and
- * rebuilding lookup maps when they are missing or invalid.
+ * rebuilding lookup maps when they are missing or invalid. When maps are rebuilt
+ * (or when persisted trends are missing), trends are also recomputed from articles
+ * so trend detection stays correct across schema upgrades.
  *
  * @param parsed - Potentially partial index from disk
  * @returns Fully populated {@link IntelligenceIndex}
@@ -456,17 +459,27 @@ function mergeOntoEmpty(parsed: Partial<IntelligenceIndex>): IntelligenceIndex {
     ? parsed.articles.map(normalizeArticleEntry)
     : empty.articles;
 
-  const { actors, policyDomains, procedures } = resolveOrRebuildMaps(parsed, articles, empty);
+  const { actors, policyDomains, procedures, rebuilt } = resolveOrRebuildMaps(
+    parsed,
+    articles,
+    empty
+  );
 
-  return {
+  // Build a temporary index so detectTrends can recompute from articles
+  const base: IntelligenceIndex = {
     articles,
     actors,
     policyDomains,
     procedures,
-    trends: Array.isArray(parsed.trends) ? parsed.trends : empty.trends,
+    trends: empty.trends,
     series: Array.isArray(parsed.series) ? parsed.series : empty.series,
     lastUpdated: typeof parsed.lastUpdated === 'string' ? parsed.lastUpdated : empty.lastUpdated,
   };
+
+  // Recompute trends when maps were rebuilt or when persisted trends are missing/invalid
+  const trends = rebuilt || !Array.isArray(parsed.trends) ? detectTrends(base) : parsed.trends;
+
+  return { ...base, trends };
 }
 
 /**
@@ -504,13 +517,14 @@ function resolveOrRebuildMaps(
   actors: Record<string, string[]>;
   policyDomains: Record<string, string[]>;
   procedures: Record<string, string[]>;
+  rebuilt: boolean;
 } {
   const validActors = isValidMap(parsed.actors);
   const validDomains = isValidMap(parsed.policyDomains);
   const validProcedures = isValidMap(parsed.procedures);
 
   if (articles.length > 0 && (!validActors || !validDomains || !validProcedures)) {
-    return rebuildLookupMaps(articles);
+    return { ...rebuildLookupMaps(articles), rebuilt: true };
   }
   return {
     actors: validActors ? (parsed.actors as Record<string, string[]>) : empty.actors,
@@ -520,6 +534,7 @@ function resolveOrRebuildMaps(
     procedures: validProcedures
       ? (parsed.procedures as Record<string, string[]>)
       : empty.procedures,
+    rebuilt: false,
   };
 }
 

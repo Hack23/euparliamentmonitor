@@ -602,6 +602,42 @@ describe('loadIntelligenceIndex', () => {
     expect(index.actors['S&D']).toEqual(['a1']);
     expect(index.policyDomains['trade']).toEqual(['a1']);
   });
+
+  it('should recompute trends when lookup maps are rebuilt on load', () => {
+    const corruptPath = path.join(tempDir, 'missing-maps-trends.json');
+    // Two articles sharing a topic to trigger trend detection, but no maps/trends on disk
+    fs.writeFileSync(
+      corruptPath,
+      JSON.stringify({
+        articles: [
+          {
+            id: 'a1',
+            date: '2025-01-01',
+            keyTopics: ['climate'],
+            keyActors: [],
+            procedures: [],
+          },
+          {
+            id: 'a2',
+            date: '2025-01-15',
+            keyTopics: ['climate'],
+            keyActors: [],
+            procedures: [],
+          },
+        ],
+        // Missing actors/policyDomains/procedures → triggers rebuild
+        // Missing trends → should be recomputed
+      }),
+      'utf-8'
+    );
+    const index = loadIntelligenceIndex(corruptPath);
+    // Lookup maps should be rebuilt
+    expect(index.policyDomains['climate']).toEqual(['a1', 'a2']);
+    // Trends should be recomputed (not empty) because maps were rebuilt
+    expect(index.trends.length).toBeGreaterThan(0);
+    expect(index.trends[0].articleReferences).toContain('a1');
+    expect(index.trends[0].articleReferences).toContain('a2');
+  });
 });
 
 describe('saveIntelligenceIndex + loadIntelligenceIndex (round-trip)', () => {

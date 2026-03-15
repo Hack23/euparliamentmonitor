@@ -122,7 +122,8 @@ export function findRelatedArticles(index, topics, actors, maxResults = DEFAULT_
  *
  * **Relationship** is determined by date comparison:
  * - Target article is older (`date < entry.date`) → `follows_up`
- * - Target article is the same date or newer → `related`
+ * - Target article is newer (`date > entry.date`) → `preceded_by`
+ * - Target article has the same date → `related`
  *
  * @param index - Intelligence index containing previously indexed articles
  * @param entry - The article for which cross-references should be generated
@@ -294,7 +295,9 @@ function normalizeArticleEntry(entry) {
     return {
         id: typeof entry.id === 'string' ? entry.id : '',
         date: typeof entry.date === 'string' ? entry.date : '',
-        type: typeof entry.type === 'string' ? entry.type : ArticleCategory.WEEK_AHEAD,
+        type: typeof entry.type === 'string'
+            ? entry.type
+            : ArticleCategory.WEEK_AHEAD,
         lang: typeof entry.lang === 'string' ? entry.lang : 'en',
         keyTopics: Array.isArray(entry.keyTopics) ? entry.keyTopics : [],
         keyActors: Array.isArray(entry.keyActors) ? entry.keyActors : [],
@@ -359,7 +362,9 @@ export function loadIntelligenceIndex(indexPath) {
 }
 /**
  * Merge partially-parsed JSON onto a fresh empty index, normalising articles and
- * rebuilding lookup maps when they are missing or invalid.
+ * rebuilding lookup maps when they are missing or invalid. When maps are rebuilt
+ * (or when persisted trends are missing), trends are also recomputed from articles
+ * so trend detection stays correct across schema upgrades.
  *
  * @param parsed - Potentially partial index from disk
  * @returns Fully populated {@link IntelligenceIndex}
@@ -369,16 +374,20 @@ function mergeOntoEmpty(parsed) {
     const articles = Array.isArray(parsed.articles)
         ? parsed.articles.map(normalizeArticleEntry)
         : empty.articles;
-    const { actors, policyDomains, procedures } = resolveOrRebuildMaps(parsed, articles, empty);
-    return {
+    const { actors, policyDomains, procedures, rebuilt } = resolveOrRebuildMaps(parsed, articles, empty);
+    // Build a temporary index so detectTrends can recompute from articles
+    const base = {
         articles,
         actors,
         policyDomains,
         procedures,
-        trends: Array.isArray(parsed.trends) ? parsed.trends : empty.trends,
+        trends: empty.trends,
         series: Array.isArray(parsed.series) ? parsed.series : empty.series,
         lastUpdated: typeof parsed.lastUpdated === 'string' ? parsed.lastUpdated : empty.lastUpdated,
     };
+    // Recompute trends when maps were rebuilt or when persisted trends are missing/invalid
+    const trends = rebuilt || !Array.isArray(parsed.trends) ? detectTrends(base) : parsed.trends;
+    return { ...base, trends };
 }
 /**
  * Check whether a value is a valid lookup map (`Record<string, string[]>`).
@@ -410,7 +419,7 @@ function resolveOrRebuildMaps(parsed, articles, empty) {
     const validDomains = isValidMap(parsed.policyDomains);
     const validProcedures = isValidMap(parsed.procedures);
     if (articles.length > 0 && (!validActors || !validDomains || !validProcedures)) {
-        return rebuildLookupMaps(articles);
+        return { ...rebuildLookupMaps(articles), rebuilt: true };
     }
     return {
         actors: validActors ? parsed.actors : empty.actors,
@@ -420,6 +429,7 @@ function resolveOrRebuildMaps(parsed, articles, empty) {
         procedures: validProcedures
             ? parsed.procedures
             : empty.procedures,
+        rebuilt: false,
     };
 }
 // ─── saveIntelligenceIndex ───────────────────────────────────────────────────
