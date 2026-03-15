@@ -25,7 +25,7 @@ import type {
 } from '../types/index.js';
 import { ArticleCategory } from '../types/index.js';
 import {
-  loadIntelligenceIndex,
+  createEmptyIndex,
   addArticleToIndex,
   detectTrends,
   saveIntelligenceIndex,
@@ -123,8 +123,11 @@ export function updateMetadataDatabase(
 const INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
 
 /**
- * Scan the news directory, build or update the intelligence index from article metadata,
+ * Scan the news directory, rebuild the intelligence index from article metadata,
  * and persist the updated index to disk.
+ *
+ * Starts from a fresh empty index on every call so that articles that have been
+ * deleted or renamed are automatically pruned — no stale entries can survive.
  *
  * Each article file is parsed to extract its date, type, language, and metadata.
  * The resulting {@link ArticleIndexEntry} objects are accumulated into an
@@ -132,13 +135,14 @@ const INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
  *
  * @param newsDir - News directory to scan for article HTML files
  * @param indexPath - Path to the intelligence index JSON file
- * @returns The updated {@link IntelligenceIndex}
+ * @returns The rebuilt {@link IntelligenceIndex}
  */
 export function updateIntelligenceIndex(
   newsDir: string = NEWS_DIR,
   indexPath: string = INTELLIGENCE_INDEX_PATH
 ): IntelligenceIndex {
-  let index = loadIntelligenceIndex(indexPath);
+  // Start from a fresh empty index so that deleted/renamed articles are pruned
+  let index = createEmptyIndex();
 
   const articleFiles = getNewsArticles(newsDir);
 

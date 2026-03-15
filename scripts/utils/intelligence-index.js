@@ -303,6 +303,28 @@ function normalizeArticleEntry(entry) {
         ...(entry.seriesId !== undefined && { seriesId: entry.seriesId }),
     };
 }
+// ─── rebuildLookupMaps ──────────────────────────────────────────────────────
+/**
+ * Rebuild the actor/policyDomain/procedure reverse-lookup maps from scratch
+ * by scanning all articles.
+ *
+ * Used during index loading when persisted maps are missing or invalid (e.g.
+ * after a schema evolution), so that trend detection and lookups stay correct.
+ *
+ * @param articles - Normalised article entries to rebuild maps from
+ * @returns Rebuilt lookup maps
+ */
+function rebuildLookupMaps(articles) {
+    const actors = {};
+    const policyDomains = {};
+    const procedures = {};
+    for (const article of articles) {
+        addIdToMap(actors, article.keyActors, article.id);
+        addIdToMap(policyDomains, article.keyTopics, article.id);
+        addIdToMap(procedures, article.procedures, article.id);
+    }
+    return { actors, policyDomains, procedures };
+}
 // ─── loadIntelligenceIndex ───────────────────────────────────────────────────
 /**
  * Load an {@link IntelligenceIndex} from a JSON file.
@@ -313,6 +335,10 @@ function normalizeArticleEntry(entry) {
  * Each loaded {@link ArticleIndexEntry} is normalised so that missing arrays
  * and strings are filled with safe defaults, preventing crashes in downstream
  * code that iterates over `keyTopics`, `keyActors`, etc.
+ *
+ * When any lookup map (actors, policyDomains, procedures) is missing or invalid
+ * but articles are present, all maps are rebuilt from the article entries so that
+ * trend detection and lookups remain correct across schema upgrades.
  *
  * @param indexPath - Absolute or relative path to the index JSON file
  * @returns Loaded index, or a fresh empty index on failure
@@ -330,21 +356,35 @@ export function loadIntelligenceIndex(indexPath) {
         const articles = Array.isArray(parsed.articles)
             ? parsed.articles.map(normalizeArticleEntry)
             : empty.articles;
+        const hasValidActors = parsed.actors && typeof parsed.actors === 'object' && !Array.isArray(parsed.actors);
+        const hasValidDomains = parsed.policyDomains &&
+            typeof parsed.policyDomains === 'object' &&
+            !Array.isArray(parsed.policyDomains);
+        const hasValidProcedures = parsed.procedures &&
+            typeof parsed.procedures === 'object' &&
+            !Array.isArray(parsed.procedures);
+        // If any lookup map is missing/invalid but we have articles, rebuild all
+        // maps from the article entries to stay internally consistent.
+        const needsRebuild = articles.length > 0 && (!hasValidActors || !hasValidDomains || !hasValidProcedures);
+        let actors;
+        let policyDomains;
+        let procedures;
+        if (needsRebuild) {
+            const rebuilt = rebuildLookupMaps(articles);
+            actors = rebuilt.actors;
+            policyDomains = rebuilt.policyDomains;
+            procedures = rebuilt.procedures;
+        }
+        else {
+            actors = hasValidActors ? parsed.actors : empty.actors;
+            policyDomains = hasValidDomains ? parsed.policyDomains : empty.policyDomains;
+            procedures = hasValidProcedures ? parsed.procedures : empty.procedures;
+        }
         return {
             articles,
-            actors: parsed.actors && typeof parsed.actors === 'object' && !Array.isArray(parsed.actors)
-                ? parsed.actors
-                : empty.actors,
-            policyDomains: parsed.policyDomains &&
-                typeof parsed.policyDomains === 'object' &&
-                !Array.isArray(parsed.policyDomains)
-                ? parsed.policyDomains
-                : empty.policyDomains,
-            procedures: parsed.procedures &&
-                typeof parsed.procedures === 'object' &&
-                !Array.isArray(parsed.procedures)
-                ? parsed.procedures
-                : empty.procedures,
+            actors,
+            policyDomains,
+            procedures,
             trends: Array.isArray(parsed.trends) ? parsed.trends : empty.trends,
             series: Array.isArray(parsed.series) ? parsed.series : empty.series,
             lastUpdated: typeof parsed.lastUpdated === 'string' ? parsed.lastUpdated : empty.lastUpdated,

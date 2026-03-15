@@ -12,7 +12,7 @@ import path from 'path';
 import { NEWS_DIR } from '../constants/config.js';
 import { getNewsArticles, parseArticleFilename, formatSlug, extractArticleMeta, } from './file-utils.js';
 import { ArticleCategory } from '../types/index.js';
-import { loadIntelligenceIndex, addArticleToIndex, detectTrends, saveIntelligenceIndex, } from './intelligence-index.js';
+import { createEmptyIndex, addArticleToIndex, detectTrends, saveIntelligenceIndex, } from './intelligence-index.js';
 /** Default path for the metadata database file */
 const METADATA_DB_PATH = path.join(NEWS_DIR, 'articles-metadata.json');
 /**
@@ -87,8 +87,11 @@ export function updateMetadataDatabase(newsDir = NEWS_DIR, outputPath = METADATA
 /** Default path for the intelligence index JSON file */
 const INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
 /**
- * Scan the news directory, build or update the intelligence index from article metadata,
+ * Scan the news directory, rebuild the intelligence index from article metadata,
  * and persist the updated index to disk.
+ *
+ * Starts from a fresh empty index on every call so that articles that have been
+ * deleted or renamed are automatically pruned — no stale entries can survive.
  *
  * Each article file is parsed to extract its date, type, language, and metadata.
  * The resulting {@link ArticleIndexEntry} objects are accumulated into an
@@ -96,10 +99,11 @@ const INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
  *
  * @param newsDir - News directory to scan for article HTML files
  * @param indexPath - Path to the intelligence index JSON file
- * @returns The updated {@link IntelligenceIndex}
+ * @returns The rebuilt {@link IntelligenceIndex}
  */
 export function updateIntelligenceIndex(newsDir = NEWS_DIR, indexPath = INTELLIGENCE_INDEX_PATH) {
-    let index = loadIntelligenceIndex(indexPath);
+    // Start from a fresh empty index so that deleted/renamed articles are pruned
+    let index = createEmptyIndex();
     const articleFiles = getNewsArticles(newsDir);
     for (const filename of articleFiles) {
         const parsed = parseArticleFilename(filename);

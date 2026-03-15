@@ -117,10 +117,18 @@ describe('addArticleToIndex', () => {
 
   it('should clean up stale map associations when replacing an article', () => {
     const index = createEmptyIndex();
-    const entry = makeEntry({ keyTopics: ['old-topic'], keyActors: ['old-actor'], procedures: ['old-proc'] });
+    const entry = makeEntry({
+      keyTopics: ['old-topic'],
+      keyActors: ['old-actor'],
+      procedures: ['old-proc'],
+    });
     const updated1 = addArticleToIndex(index, entry);
     // Replace the same article id with completely different topics/actors/procedures
-    const entryV2 = makeEntry({ keyTopics: ['new-topic'], keyActors: ['new-actor'], procedures: ['new-proc'] });
+    const entryV2 = makeEntry({
+      keyTopics: ['new-topic'],
+      keyActors: ['new-actor'],
+      procedures: ['new-proc'],
+    });
     const updated2 = addArticleToIndex(updated1, entryV2);
 
     // Old keys should be removed from maps
@@ -159,21 +167,30 @@ describe('findRelatedArticles', () => {
 
   beforeEach(() => {
     index = createEmptyIndex();
-    index = addArticleToIndex(index, makeEntry({
-      id: 'article-a',
-      keyTopics: ['digital regulation'],
-      keyActors: ['EPP'],
-    }));
-    index = addArticleToIndex(index, makeEntry({
-      id: 'article-b',
-      keyTopics: ['digital regulation', 'AI Act'],
-      keyActors: ['S&D'],
-    }));
-    index = addArticleToIndex(index, makeEntry({
-      id: 'article-c',
-      keyTopics: ['agriculture'],
-      keyActors: ['Renew'],
-    }));
+    index = addArticleToIndex(
+      index,
+      makeEntry({
+        id: 'article-a',
+        keyTopics: ['digital regulation'],
+        keyActors: ['EPP'],
+      })
+    );
+    index = addArticleToIndex(
+      index,
+      makeEntry({
+        id: 'article-b',
+        keyTopics: ['digital regulation', 'AI Act'],
+        keyActors: ['S&D'],
+      })
+    );
+    index = addArticleToIndex(
+      index,
+      makeEntry({
+        id: 'article-c',
+        keyTopics: ['agriculture'],
+        keyActors: ['Renew'],
+      })
+    );
   });
 
   it('should find articles sharing topics', () => {
@@ -201,11 +218,14 @@ describe('findRelatedArticles', () => {
 
   it('should sort results by relevance score (highest first)', () => {
     // article-b has both topic and actor overlap
-    index = addArticleToIndex(index, makeEntry({
-      id: 'article-d',
-      keyTopics: ['digital regulation'],
-      keyActors: ['EPP'],
-    }));
+    index = addArticleToIndex(
+      index,
+      makeEntry({
+        id: 'article-d',
+        keyTopics: ['digital regulation'],
+        keyActors: ['EPP'],
+      })
+    );
     const results = findRelatedArticles(index, ['digital regulation'], ['EPP'], 10);
     // Both article-a and article-d share topic+actor; article-b shares only topic
     const topId = results[0]?.id;
@@ -225,12 +245,15 @@ describe('generateCrossReferences', () => {
 
   beforeEach(() => {
     index = createEmptyIndex();
-    index = addArticleToIndex(index, makeEntry({
-      id: '2025-01-10-week-ahead-en',
-      date: '2025-01-10',
-      keyTopics: ['digital regulation', 'AI Act'],
-      keyActors: ['EPP', 'S&D'],
-    }));
+    index = addArticleToIndex(
+      index,
+      makeEntry({
+        id: '2025-01-10-week-ahead-en',
+        date: '2025-01-10',
+        keyTopics: ['digital regulation', 'AI Act'],
+        keyActors: ['EPP', 'S&D'],
+      })
+    );
   });
 
   it('should generate cross-references for related articles', () => {
@@ -295,14 +318,20 @@ describe('generateCrossReferences', () => {
 describe('detectTrends', () => {
   it('should detect trends when ≥2 articles share topics', () => {
     let index = createEmptyIndex();
-    index = addArticleToIndex(index, makeEntry({
-      id: 'art-1',
-      keyTopics: ['climate policy'],
-    }));
-    index = addArticleToIndex(index, makeEntry({
-      id: 'art-2',
-      keyTopics: ['climate policy'],
-    }));
+    index = addArticleToIndex(
+      index,
+      makeEntry({
+        id: 'art-1',
+        keyTopics: ['climate policy'],
+      })
+    );
+    index = addArticleToIndex(
+      index,
+      makeEntry({
+        id: 'art-2',
+        keyTopics: ['climate policy'],
+      })
+    );
 
     const trends = detectTrends(index);
     expect(trends.some((t) => t.name.includes('climate policy'))).toBe(true);
@@ -310,10 +339,13 @@ describe('detectTrends', () => {
 
   it('should NOT detect a trend when only 1 article covers a topic', () => {
     let index = createEmptyIndex();
-    index = addArticleToIndex(index, makeEntry({
-      id: 'art-single',
-      keyTopics: ['rare-topic'],
-    }));
+    index = addArticleToIndex(
+      index,
+      makeEntry({
+        id: 'art-single',
+        keyTopics: ['rare-topic'],
+      })
+    );
 
     const trends = detectTrends(index);
     expect(trends.every((t) => !t.name.includes('rare-topic'))).toBe(true);
@@ -321,14 +353,20 @@ describe('detectTrends', () => {
 
   it('should detect procedure-based trends', () => {
     let index = createEmptyIndex();
-    index = addArticleToIndex(index, makeEntry({
-      id: 'art-1',
-      procedures: ['2024/0001(COD)'],
-    }));
-    index = addArticleToIndex(index, makeEntry({
-      id: 'art-2',
-      procedures: ['2024/0001(COD)'],
-    }));
+    index = addArticleToIndex(
+      index,
+      makeEntry({
+        id: 'art-1',
+        procedures: ['2024/0001(COD)'],
+      })
+    );
+    index = addArticleToIndex(
+      index,
+      makeEntry({
+        id: 'art-2',
+        procedures: ['2024/0001(COD)'],
+      })
+    );
 
     const trends = detectTrends(index);
     expect(trends.some((t) => t.category === 'legislative')).toBe(true);
@@ -347,7 +385,10 @@ describe('detectTrends', () => {
     }
     // 5 articles → high confidence
     for (let i = 0; i < 5; i++) {
-      index = addArticleToIndex(index, makeEntry({ id: `art-high-${i}`, keyTopics: ['high-conf'] }));
+      index = addArticleToIndex(
+        index,
+        makeEntry({ id: `art-high-${i}`, keyTopics: ['high-conf'] })
+      );
     }
     const trends = detectTrends(index);
     const lowTrend = trends.find((t) => t.name.includes('low-conf'));
@@ -359,7 +400,10 @@ describe('detectTrends', () => {
   it('should set direction to strengthening when ≥4 articles', () => {
     let index = createEmptyIndex();
     for (let i = 0; i < 4; i++) {
-      index = addArticleToIndex(index, makeEntry({ id: `art-str-${i}`, keyTopics: ['strong-topic'] }));
+      index = addArticleToIndex(
+        index,
+        makeEntry({ id: `art-str-${i}`, keyTopics: ['strong-topic'] })
+      );
     }
     const trends = detectTrends(index);
     const t = trends.find((t) => t.name.includes('strong-topic'));
@@ -422,8 +466,12 @@ describe('findOrCreateSeries', () => {
 describe('loadIntelligenceIndex', () => {
   let tempDir;
 
-  beforeEach(() => { tempDir = createTempDir(); });
-  afterEach(() => { cleanupTempDir(tempDir); });
+  beforeEach(() => {
+    tempDir = createTempDir();
+  });
+  afterEach(() => {
+    cleanupTempDir(tempDir);
+  });
 
   it('should return empty index if file not found', () => {
     const index = loadIntelligenceIndex(path.join(tempDir, 'nonexistent.json'));
@@ -444,13 +492,46 @@ describe('loadIntelligenceIndex', () => {
     const index = loadIntelligenceIndex(partialPath);
     // articles loaded from file
     expect(index.articles).toHaveLength(1);
-    // missing fields default to empty collections
+    // missing lookup maps are rebuilt (empty here since the article has no topics/actors/procedures)
     expect(index.actors).toEqual({});
     expect(index.policyDomains).toEqual({});
     expect(index.procedures).toEqual({});
     expect(index.trends).toEqual([]);
     expect(index.series).toEqual([]);
     expect(typeof index.lastUpdated).toBe('string');
+  });
+
+  it('should rebuild lookup maps from articles when maps are missing', () => {
+    const partialPath = path.join(tempDir, 'maps-missing.json');
+    // Articles with topics/actors but no lookup maps in the persisted JSON
+    fs.writeFileSync(
+      partialPath,
+      JSON.stringify({
+        articles: [
+          {
+            id: 'a1',
+            date: '2025-01-01',
+            keyTopics: ['climate'],
+            keyActors: ['EPP'],
+            procedures: ['COD/2024/0001'],
+          },
+          {
+            id: 'a2',
+            date: '2025-02-01',
+            keyTopics: ['climate', 'energy'],
+            keyActors: [],
+            procedures: [],
+          },
+        ],
+      }),
+      'utf-8'
+    );
+    const index = loadIntelligenceIndex(partialPath);
+    // Lookup maps should be rebuilt from articles
+    expect(index.policyDomains['climate']).toEqual(expect.arrayContaining(['a1', 'a2']));
+    expect(index.policyDomains['energy']).toEqual(['a2']);
+    expect(index.actors['EPP']).toEqual(['a1']);
+    expect(index.procedures['COD/2024/0001']).toEqual(['a1']);
   });
 
   it('should normalize article entries missing required arrays', () => {
@@ -477,8 +558,12 @@ describe('loadIntelligenceIndex', () => {
 describe('saveIntelligenceIndex + loadIntelligenceIndex (round-trip)', () => {
   let tempDir;
 
-  beforeEach(() => { tempDir = createTempDir(); });
-  afterEach(() => { cleanupTempDir(tempDir); });
+  beforeEach(() => {
+    tempDir = createTempDir();
+  });
+  afterEach(() => {
+    cleanupTempDir(tempDir);
+  });
 
   it('should persist and reload an index correctly', () => {
     const indexPath = path.join(tempDir, 'intelligence-index.json');

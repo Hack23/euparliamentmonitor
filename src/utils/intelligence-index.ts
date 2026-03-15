@@ -18,7 +18,7 @@ import type {
   ArticleSeries,
   IntelligenceIndex,
   TrendDetection,
-} from '../types/intelligence.js';
+} from '../types/index.js';
 
 // ─── Minimum article count to confirm a trend ────────────────────────────────
 
@@ -378,6 +378,34 @@ function normalizeArticleEntry(entry: Partial<ArticleIndexEntry>): ArticleIndexE
   };
 }
 
+// ─── rebuildLookupMaps ──────────────────────────────────────────────────────
+
+/**
+ * Rebuild the actor/policyDomain/procedure reverse-lookup maps from scratch
+ * by scanning all articles.
+ *
+ * Used during index loading when persisted maps are missing or invalid (e.g.
+ * after a schema evolution), so that trend detection and lookups stay correct.
+ *
+ * @param articles - Normalised article entries to rebuild maps from
+ * @returns Rebuilt lookup maps
+ */
+function rebuildLookupMaps(articles: readonly ArticleIndexEntry[]): {
+  actors: Record<string, string[]>;
+  policyDomains: Record<string, string[]>;
+  procedures: Record<string, string[]>;
+} {
+  const actors: Record<string, string[]> = {};
+  const policyDomains: Record<string, string[]> = {};
+  const procedures: Record<string, string[]> = {};
+  for (const article of articles) {
+    addIdToMap(actors, article.keyActors, article.id);
+    addIdToMap(policyDomains, article.keyTopics, article.id);
+    addIdToMap(procedures, article.procedures, article.id);
+  }
+  return { actors, policyDomains, procedures };
+}
+
 // ─── loadIntelligenceIndex ───────────────────────────────────────────────────
 
 /**
@@ -390,6 +418,10 @@ function normalizeArticleEntry(entry: Partial<ArticleIndexEntry>): ArticleIndexE
  * and strings are filled with safe defaults, preventing crashes in downstream
  * code that iterates over `keyTopics`, `keyActors`, etc.
  *
+ * When any lookup map (actors, policyDomains, procedures) is missing or invalid
+ * but articles are present, all maps are rebuilt from the article entries so that
+ * trend detection and lookups remain correct across schema upgrades.
+ *
  * @param indexPath - Absolute or relative path to the index JSON file
  * @returns Loaded index, or a fresh empty index on failure
  */
@@ -401,37 +433,82 @@ export function loadIntelligenceIndex(indexPath: string): IntelligenceIndex {
   try {
     const content = fs.readFileSync(indexPath, 'utf-8');
     const parsed = JSON.parse(content) as Partial<IntelligenceIndex>;
-    // Merge onto an empty index to ensure all fields are present and safe
-    // even after schema evolution or partial/corrupt files.
-    const empty = createEmptyIndex();
-    const articles = Array.isArray(parsed.articles)
-      ? parsed.articles.map(normalizeArticleEntry)
-      : empty.articles;
-    return {
-      articles,
-      actors:
-        parsed.actors && typeof parsed.actors === 'object' && !Array.isArray(parsed.actors)
-          ? parsed.actors
-          : empty.actors,
-      policyDomains:
-        parsed.policyDomains &&
-        typeof parsed.policyDomains === 'object' &&
-        !Array.isArray(parsed.policyDomains)
-          ? parsed.policyDomains
-          : empty.policyDomains,
-      procedures:
-        parsed.procedures &&
-        typeof parsed.procedures === 'object' &&
-        !Array.isArray(parsed.procedures)
-          ? parsed.procedures
-          : empty.procedures,
-      trends: Array.isArray(parsed.trends) ? parsed.trends : empty.trends,
-      series: Array.isArray(parsed.series) ? parsed.series : empty.series,
-      lastUpdated: typeof parsed.lastUpdated === 'string' ? parsed.lastUpdated : empty.lastUpdated,
-    };
+    return mergeOntoEmpty(parsed);
   } catch {
     return createEmptyIndex();
   }
+}
+
+/**
+ * Merge partially-parsed JSON onto a fresh empty index, normalising articles and
+ * rebuilding lookup maps when they are missing or invalid.
+ *
+ * @param parsed - Potentially partial index from disk
+ * @returns Fully populated {@link IntelligenceIndex}
+ */
+function mergeOntoEmpty(parsed: Partial<IntelligenceIndex>): IntelligenceIndex {
+  const empty = createEmptyIndex();
+  const articles = Array.isArray(parsed.articles)
+    ? parsed.articles.map(normalizeArticleEntry)
+    : empty.articles;
+
+  const { actors, policyDomains, procedures } = resolveOrRebuildMaps(parsed, articles, empty);
+
+  return {
+    articles,
+    actors,
+    policyDomains,
+    procedures,
+    trends: Array.isArray(parsed.trends) ? parsed.trends : empty.trends,
+    series: Array.isArray(parsed.series) ? parsed.series : empty.series,
+    lastUpdated: typeof parsed.lastUpdated === 'string' ? parsed.lastUpdated : empty.lastUpdated,
+  };
+}
+
+/**
+ * Check whether a value is a non-array object (valid as a lookup map).
+ *
+ * @param value - Value to validate
+ * @returns `true` if the value is a non-array object
+ */
+function isValidMap(value: unknown): value is Record<string, string[]> {
+  return !!value && typeof value === 'object' && !Array.isArray(value);
+}
+
+/**
+ * Return lookup maps from the parsed JSON when all three are valid, or rebuild
+ * them from the article entries when any map is missing/invalid.
+ *
+ * @param parsed - Partially parsed index from disk
+ * @param articles - Normalised article entries
+ * @param empty - Fallback empty index for defaults
+ * @returns Resolved or rebuilt lookup maps
+ */
+function resolveOrRebuildMaps(
+  parsed: Partial<IntelligenceIndex>,
+  articles: ArticleIndexEntry[],
+  empty: IntelligenceIndex
+): {
+  actors: Record<string, string[]>;
+  policyDomains: Record<string, string[]>;
+  procedures: Record<string, string[]>;
+} {
+  const validActors = isValidMap(parsed.actors);
+  const validDomains = isValidMap(parsed.policyDomains);
+  const validProcedures = isValidMap(parsed.procedures);
+
+  if (articles.length > 0 && (!validActors || !validDomains || !validProcedures)) {
+    return rebuildLookupMaps(articles);
+  }
+  return {
+    actors: validActors ? (parsed.actors as Record<string, string[]>) : empty.actors,
+    policyDomains: validDomains
+      ? (parsed.policyDomains as Record<string, string[]>)
+      : empty.policyDomains,
+    procedures: validProcedures
+      ? (parsed.procedures as Record<string, string[]>)
+      : empty.procedures,
+  };
 }
 
 // ─── saveIntelligenceIndex ───────────────────────────────────────────────────
