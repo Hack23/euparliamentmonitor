@@ -22,14 +22,15 @@ import type {
   ArticleMetadataEntry,
   NewsMetadataDatabase,
   IntelligenceIndex,
+  ArticleCategory,
 } from '../types/index.js';
-import { ArticleCategory } from '../types/index.js';
 import {
   createEmptyIndex,
   addArticleToIndex,
   detectTrends,
   saveIntelligenceIndex,
 } from './intelligence-index.js';
+import { detectCategory } from '../generators/news-indexes.js';
 
 /** Default path for the metadata database file */
 const METADATA_DB_PATH = path.join(NEWS_DIR, 'articles-metadata.json');
@@ -155,8 +156,8 @@ export function updateIntelligenceIndex(
     const filepath = path.join(newsDir, filename);
     const meta = extractArticleMeta(filepath);
 
-    // Derive the ArticleCategory from the slug; fall back to a sensible default
-    const category = deriveArticleCategory(parsed.slug);
+    // Derive the ArticleCategory from the slug using the shared detection logic
+    const category = detectCategory(parsed.slug) as ArticleCategory;
 
     // Extract meaningful key topics from the slug and article metadata
     const keyTopics = deriveKeyTopics(parsed.slug, meta.title, meta.description);
@@ -182,35 +183,6 @@ export function updateIntelligenceIndex(
 
   saveIntelligenceIndex(index, indexPath);
   return index;
-}
-
-/**
- * Derive the closest matching {@link ArticleCategory} from an article slug.
- *
- * @param slug - Article slug extracted from filename
- * @returns Best-matching {@link ArticleCategory}
- */
-function deriveArticleCategory(slug: string): ArticleCategory {
-  const lower = slug.toLowerCase();
-  if (lower.includes('week-ahead') || lower.includes('weekahead'))
-    return ArticleCategory.WEEK_AHEAD;
-  if (lower.includes('month-ahead') || lower.includes('monthahead'))
-    return ArticleCategory.MONTH_AHEAD;
-  if (lower.includes('year-ahead') || lower.includes('yearahead'))
-    return ArticleCategory.YEAR_AHEAD;
-  if (lower.includes('week-in-review') || lower.includes('weekinreview'))
-    return ArticleCategory.WEEK_IN_REVIEW;
-  if (lower.includes('month-in-review') || lower.includes('monthinreview'))
-    return ArticleCategory.MONTH_IN_REVIEW;
-  if (lower.includes('year-in-review') || lower.includes('yearinreview'))
-    return ArticleCategory.YEAR_IN_REVIEW;
-  if (lower.includes('breaking')) return ArticleCategory.BREAKING_NEWS;
-  if (lower.includes('committee')) return ArticleCategory.COMMITTEE_REPORTS;
-  if (lower.includes('motion')) return ArticleCategory.MOTIONS;
-  if (lower.includes('proposition') || lower.includes('proposal'))
-    return ArticleCategory.PROPOSITIONS;
-  if (lower.includes('deep') || lower.includes('analysis')) return ArticleCategory.DEEP_ANALYSIS;
-  return ArticleCategory.WEEK_AHEAD;
 }
 
 /**

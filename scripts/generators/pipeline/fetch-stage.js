@@ -15,14 +15,11 @@
  * errors the circuit opens and subsequent calls short-circuit immediately.
  */
 import fs from 'fs';
-import path from 'path';
 import { getEPMCPClient } from '../../mcp/ep-mcp-client.js';
 import { parsePlenarySessions, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, parseParliamentaryQuestions, parseEPEvents, PLACEHOLDER_EVENTS, } from '../week-ahead-content.js';
 import { applyCommitteeInfo, applyDocuments, applyEffectiveness } from '../committee-helpers.js';
 import { getMotionsFallbackData } from '../motions-content.js';
 import { escapeHTML } from '../../utils/file-utils.js';
-import { NEWS_DIR } from '../../constants/config.js';
-import { loadIntelligenceIndex } from '../../utils/intelligence-index.js';
 // ─── Shared string constants ─────────────────────────────────────────────────
 /** Log prefix for MCP fetch operations */
 const MCP_FETCH_PREFIX = '  📡';
@@ -1525,27 +1522,4 @@ export async function fetchEPFeedData(client, timeframe = 'one-day', dateRange) 
     console.log(`  ✅ Fetched ${totalItems} total feed items across 12 endpoints`);
     return filteredData;
 }
-// ─── Intelligence Index loading ───────────────────────────────────────────────
-/** Default path for the intelligence index file */
-const DEFAULT_INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
-/**
- * Load the intelligence index at pipeline start so downstream stages can use it.
- *
- * Returns an empty index if the file does not exist yet (first run).
- *
- * @internal Not yet wired into the pipeline — will be exported once the fetch
- * stage calls into the intelligence layer.
- *
- * @param indexPath - Path to the intelligence index JSON file
- * @returns The loaded {@link IntelligenceIndex}
- */
-// istanbul ignore next -- not yet wired into pipeline
-function loadPipelineIntelligenceIndex(indexPath = DEFAULT_INTELLIGENCE_INDEX_PATH) {
-    console.log(`  🧠 Loading intelligence index from: ${indexPath}`);
-    const index = loadIntelligenceIndex(indexPath);
-    console.log(`  ✅ Intelligence index loaded: ${index.articles.length} articles, ${index.trends.length} trends`);
-    return index;
-}
-// Suppress unused-variable warning — will be wired into the pipeline in a follow-up PR
-void loadPipelineIntelligenceIndex;
 //# sourceMappingURL=fetch-stage.js.map

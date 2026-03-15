@@ -350,49 +350,76 @@ export function loadIntelligenceIndex(indexPath) {
     try {
         const content = fs.readFileSync(indexPath, 'utf-8');
         const parsed = JSON.parse(content);
-        // Merge onto an empty index to ensure all fields are present and safe
-        // even after schema evolution or partial/corrupt files.
-        const empty = createEmptyIndex();
-        const articles = Array.isArray(parsed.articles)
-            ? parsed.articles.map(normalizeArticleEntry)
-            : empty.articles;
-        const hasValidActors = parsed.actors && typeof parsed.actors === 'object' && !Array.isArray(parsed.actors);
-        const hasValidDomains = parsed.policyDomains &&
-            typeof parsed.policyDomains === 'object' &&
-            !Array.isArray(parsed.policyDomains);
-        const hasValidProcedures = parsed.procedures &&
-            typeof parsed.procedures === 'object' &&
-            !Array.isArray(parsed.procedures);
-        // If any lookup map is missing/invalid but we have articles, rebuild all
-        // maps from the article entries to stay internally consistent.
-        const needsRebuild = articles.length > 0 && (!hasValidActors || !hasValidDomains || !hasValidProcedures);
-        let actors;
-        let policyDomains;
-        let procedures;
-        if (needsRebuild) {
-            const rebuilt = rebuildLookupMaps(articles);
-            actors = rebuilt.actors;
-            policyDomains = rebuilt.policyDomains;
-            procedures = rebuilt.procedures;
-        }
-        else {
-            actors = hasValidActors ? parsed.actors : empty.actors;
-            policyDomains = hasValidDomains ? parsed.policyDomains : empty.policyDomains;
-            procedures = hasValidProcedures ? parsed.procedures : empty.procedures;
-        }
-        return {
-            articles,
-            actors,
-            policyDomains,
-            procedures,
-            trends: Array.isArray(parsed.trends) ? parsed.trends : empty.trends,
-            series: Array.isArray(parsed.series) ? parsed.series : empty.series,
-            lastUpdated: typeof parsed.lastUpdated === 'string' ? parsed.lastUpdated : empty.lastUpdated,
-        };
+        return mergeOntoEmpty(parsed);
     }
     catch {
         return createEmptyIndex();
     }
+}
+/**
+ * Merge partially-parsed JSON onto a fresh empty index, normalising articles and
+ * rebuilding lookup maps when they are missing or invalid.
+ *
+ * @param parsed - Potentially partial index from disk
+ * @returns Fully populated {@link IntelligenceIndex}
+ */
+function mergeOntoEmpty(parsed) {
+    const empty = createEmptyIndex();
+    const articles = Array.isArray(parsed.articles)
+        ? parsed.articles.map(normalizeArticleEntry)
+        : empty.articles;
+    const { actors, policyDomains, procedures } = resolveOrRebuildMaps(parsed, articles, empty);
+    return {
+        articles,
+        actors,
+        policyDomains,
+        procedures,
+        trends: Array.isArray(parsed.trends) ? parsed.trends : empty.trends,
+        series: Array.isArray(parsed.series) ? parsed.series : empty.series,
+        lastUpdated: typeof parsed.lastUpdated === 'string' ? parsed.lastUpdated : empty.lastUpdated,
+    };
+}
+/**
+ * Check whether a value is a valid lookup map (`Record<string, string[]>`).
+ *
+ * Validates that the value is a non-array object **and** that every entry
+ * is an array of strings.  Malformed/corrupt JSON (e.g. `{ EPP: "a1" }`)
+ * will return `false`, triggering a map rebuild from articles on load.
+ *
+ * @param value - Value to validate
+ * @returns `true` if the value is a well-formed lookup map
+ */
+function isValidMap(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value))
+        return false;
+    const record = value;
+    return Object.values(record).every((v) => Array.isArray(v) && v.every((item) => typeof item === 'string'));
+}
+/**
+ * Return lookup maps from the parsed JSON when all three are valid, or rebuild
+ * them from the article entries when any map is missing/invalid.
+ *
+ * @param parsed - Partially parsed index from disk
+ * @param articles - Normalised article entries
+ * @param empty - Fallback empty index for defaults
+ * @returns Resolved or rebuilt lookup maps
+ */
+function resolveOrRebuildMaps(parsed, articles, empty) {
+    const validActors = isValidMap(parsed.actors);
+    const validDomains = isValidMap(parsed.policyDomains);
+    const validProcedures = isValidMap(parsed.procedures);
+    if (articles.length > 0 && (!validActors || !validDomains || !validProcedures)) {
+        return rebuildLookupMaps(articles);
+    }
+    return {
+        actors: validActors ? parsed.actors : empty.actors,
+        policyDomains: validDomains
+            ? parsed.policyDomains
+            : empty.policyDomains,
+        procedures: validProcedures
+            ? parsed.procedures
+            : empty.procedures,
+    };
 }
 // ─── saveIntelligenceIndex ───────────────────────────────────────────────────
 /**

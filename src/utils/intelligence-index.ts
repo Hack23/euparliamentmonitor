@@ -466,13 +466,21 @@ function mergeOntoEmpty(parsed: Partial<IntelligenceIndex>): IntelligenceIndex {
 }
 
 /**
- * Check whether a value is a non-array object (valid as a lookup map).
+ * Check whether a value is a valid lookup map (`Record<string, string[]>`).
+ *
+ * Validates that the value is a non-array object **and** that every entry
+ * is an array of strings.  Malformed/corrupt JSON (e.g. `{ EPP: "a1" }`)
+ * will return `false`, triggering a map rebuild from articles on load.
  *
  * @param value - Value to validate
- * @returns `true` if the value is a non-array object
+ * @returns `true` if the value is a well-formed lookup map
  */
 function isValidMap(value: unknown): value is Record<string, string[]> {
-  return !!value && typeof value === 'object' && !Array.isArray(value);
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+  const record = value as Record<string, unknown>;
+  return Object.values(record).every(
+    (v) => Array.isArray(v) && v.every((item) => typeof item === 'string')
+  );
 }
 
 /**

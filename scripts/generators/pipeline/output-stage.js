@@ -10,8 +10,6 @@
 import fs from 'fs';
 import path from 'path';
 import { formatDateForSlug } from '../../utils/file-utils.js';
-import { NEWS_DIR } from '../../constants/config.js';
-import { addArticleToIndex, detectTrends, saveIntelligenceIndex, } from '../../utils/intelligence-index.js';
 // ─── File-write helpers ───────────────────────────────────────────────────────
 /** Log prefix for write operations */
 const DRY_RUN_PREFIX = '  [DRY RUN]';
@@ -144,41 +142,4 @@ export function writeGenerationMetadata(stats, results, usedMCP, metadataDir, dr
     fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf-8');
     console.log(`📝 Metadata written to: ${metadataPath}`);
 }
-// ─── Intelligence Index update helpers ───────────────────────────────────────
-/** Default path for the intelligence index file */
-const DEFAULT_INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
-/**
- * Add a newly generated article entry to the intelligence index and refresh
- * trend detections.
- *
- * @internal Not yet wired into the pipeline — will be exported once the output
- * stage calls into the intelligence layer.
- *
- * @param index - The current intelligence index
- * @param entry - The article index entry to add
- * @returns Updated intelligence index with refreshed trends
- */
-// istanbul ignore next -- not yet wired into pipeline
-function updateIndexWithArticle(index, entry) {
-    const updated = addArticleToIndex(index, entry);
-    const trends = detectTrends(updated);
-    return { ...updated, trends, lastUpdated: new Date().toISOString() };
-}
-/**
- * Persist the intelligence index to disk after article generation.
- *
- * @internal Not yet wired into the pipeline — will be exported once the output
- * stage calls into the intelligence layer.
- *
- * @param index - Intelligence index to save
- * @param indexPath - Path to write the index JSON file
- */
-// istanbul ignore next -- not yet wired into pipeline
-function saveUpdatedIndex(index, indexPath = DEFAULT_INTELLIGENCE_INDEX_PATH) {
-    saveIntelligenceIndex(index, indexPath);
-    console.log(`  🧠 Intelligence index saved: ${index.articles.length} articles, ${index.trends.length} trends`);
-}
-// Suppress unused-variable warnings — these will be wired into the pipeline in a follow-up PR
-void updateIndexWithArticle;
-void saveUpdatedIndex;
 //# sourceMappingURL=output-stage.js.map

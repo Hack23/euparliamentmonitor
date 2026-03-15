@@ -59,7 +59,7 @@ const DEFAULT_CATEGORY = ArticleCategory.WEEK_AHEAD;
  * @param slug - Hyphenated slug string
  * @returns ArticleCategory value string
  */
-function detectCategory(slug: string): string {
+export function detectCategory(slug: string): string {
   const s = slug.toLowerCase();
   if (s.includes('week-ahead')) return ArticleCategory.WEEK_AHEAD;
   if (s.includes('month-ahead')) return ArticleCategory.MONTH_AHEAD;

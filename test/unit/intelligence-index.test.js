@@ -553,6 +553,32 @@ describe('loadIntelligenceIndex', () => {
     expect(entry.trendContributions).toEqual([]);
     expect(entry.lang).toBe('en'); // default
   });
+  it('should rebuild lookup maps when values are not string arrays (corrupt map)', () => {
+    const corruptPath = path.join(tempDir, 'corrupt-maps.json');
+    // Actors map has a string value instead of string[], which is malformed
+    fs.writeFileSync(
+      corruptPath,
+      JSON.stringify({
+        articles: [
+          {
+            id: 'a1',
+            date: '2025-01-01',
+            keyTopics: ['trade'],
+            keyActors: ['S&D'],
+            procedures: [],
+          },
+        ],
+        actors: { 'S&D': 'a1' }, // wrong: should be ["a1"]
+        policyDomains: { trade: ['a1'] },
+        procedures: {},
+      }),
+      'utf-8'
+    );
+    const index = loadIntelligenceIndex(corruptPath);
+    // Corrupt actors map should trigger a full rebuild from articles
+    expect(index.actors['S&D']).toEqual(['a1']);
+    expect(index.policyDomains['trade']).toEqual(['a1']);
+  });
 });
 
 describe('saveIntelligenceIndex + loadIntelligenceIndex (round-trip)', () => {

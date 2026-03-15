@@ -12,8 +12,8 @@ import type { ArticleCategory, LanguageCode } from './common.js';
 
 /**
  * Describes a directional relationship between two articles.
- * - `follows_up`: Current article is a follow-up to the target
- * - `preceded_by`: Target article preceded the current article
+ * - `follows_up`: Current article is a follow-up to the target (target is older)
+ * - `preceded_by`: Current article precedes the target (target is newer)
  * - `related`: Articles share significant topic/actor overlap
  * - `contradicts`: Articles present opposing analyses
  * - `deepens`: Current article provides deeper analysis of the target
