@@ -264,13 +264,20 @@ function hasExactClassToken(html: string, token: string): boolean {
 /**
  * Check whether at least one keyword from a list is present in a text string.
  *
+ * Uses a leading word-boundary anchor (`\b`) so that keywords like "national"
+ * do not false-match inside longer words like "international", while still
+ * matching inflected forms such as "citizens" for the keyword "citizen".
+ *
  * @param text - Text to search (comparison is case-insensitive)
  * @param keywords - Keywords to look for
  * @returns true if any keyword is found
  */
 function containsAnyKeyword(text: string, keywords: ReadonlyArray<string>): boolean {
-  const lower = text.toLowerCase();
-  return keywords.some((kw) => lower.includes(kw.toLowerCase()));
+  return keywords.some((kw) => {
+    const escaped = kw.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+    const pattern = new RegExp(`\\b${escaped}`, 'iu');
+    return pattern.test(text);
+  });
 }
 
 /**
@@ -480,7 +487,10 @@ function countEvidenceRefs(html: string): number {
   // to avoid inflated counts from matching substrings inside scripts.
   const htmlNoScripts = stripScriptBlocks(html);
   // Count <li> items inside perspective-evidence containers (deep-analysis generator)
-  const perspectiveEvidenceItems = countListItemsInClass(htmlNoScripts, 'class="perspective-evidence"');
+  const perspectiveEvidenceItems = countListItemsInClass(
+    htmlNoScripts,
+    'class="perspective-evidence"'
+  );
   // Count SWOT cross-reference evidence markers (swot-content generator)
   const swotRefEvidence = countOccurrences(htmlNoScripts, 'class="swot-ref-evidence"');
   // Legacy / generic evidence markers

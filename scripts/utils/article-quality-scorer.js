@@ -215,13 +215,20 @@ function hasExactClassToken(html, token) {
 /**
  * Check whether at least one keyword from a list is present in a text string.
  *
+ * Uses a leading word-boundary anchor (`\b`) so that keywords like "national"
+ * do not false-match inside longer words like "international", while still
+ * matching inflected forms such as "citizens" for the keyword "citizen".
+ *
  * @param text - Text to search (comparison is case-insensitive)
  * @param keywords - Keywords to look for
  * @returns true if any keyword is found
  */
 function containsAnyKeyword(text, keywords) {
-    const lower = text.toLowerCase();
-    return keywords.some((kw) => lower.includes(kw.toLowerCase()));
+    return keywords.some((kw) => {
+        const escaped = kw.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+        const pattern = new RegExp(`\\b${escaped}`, 'iu');
+        return pattern.test(text);
+    });
 }
 /**
  * Remove all `<script>…</script>` blocks from an HTML string, replacing each
