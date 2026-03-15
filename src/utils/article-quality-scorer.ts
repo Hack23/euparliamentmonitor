@@ -357,7 +357,7 @@ function countListItemsInClass(html: string, containerClass: string): number {
     const startIdx = idx + containerClass.length;
     const content = findBalancedContent(html, startIdx);
     if (content) {
-      total += countOccurrences(content, '<li');
+      total += countOccurrences(content, '<li>');
     }
     idx = html.indexOf(containerClass, idx + 1);
   }

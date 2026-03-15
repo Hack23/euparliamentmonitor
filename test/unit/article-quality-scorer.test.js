@@ -391,8 +391,9 @@ describe('assessVisualizationQuality', () => {
       </section>
     `);
     // swot-ref-evidence markers count toward evidenceReferences (top-level)
+    // Exactly 2 swot-ref-evidence markers, no other evidence sources in this HTML
     const report = scoreArticleQuality(html, 'test-swot', 'en', 'week-ahead');
-    expect(report.evidenceReferences).toBeGreaterThanOrEqual(2);
+    expect(report.evidenceReferences).toBe(2);
   });
 
   it('score is clamped between 0 and 100', () => {
