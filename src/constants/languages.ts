@@ -40,6 +40,7 @@ export {
   FOOTER_QUICK_LINKS_LABELS,
   FOOTER_BUILT_BY_LABELS,
   FOOTER_LANGUAGES_LABELS,
+  TOC_ARIA_LABELS,
 } from './language-ui.js';
 
 export type { AISection } from './language-ui.js';
