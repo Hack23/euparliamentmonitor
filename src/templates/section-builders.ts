@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 /**
- * @module section-builders
+ * @module Templates/SectionBuilders
  * @description Reusable section builder utilities for article template architecture.
  * Provides quality scoring, table of contents generation, and quality badge rendering.
  */

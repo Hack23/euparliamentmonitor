@@ -97,9 +97,9 @@ export interface ArticleQualityScore {
   wordCount: number;
   /** Number of analysis sections (excludes visualization sections like dashboard, mindmap, SWOT) */
   analysisSections: number;
-  /** Number of data visualizations (charts, dashboards, mindmaps) */
+  /** Number of data visualizations (charts, dashboards, mindmaps, SWOT analyses) */
   visualizationCount: number;
-  /** Number of external evidence references (links to EP documents) */
+  /** Number of external evidence references (links to EP resources with a path beyond the homepage) */
   evidenceReferences: number;
   /** Overall quality rating */
   overallScore: 'excellent' | 'good' | 'adequate' | 'needs-improvement';
