@@ -342,8 +342,37 @@ function addClassPositions(html: string, classAttr: string, positions: Set<numbe
 }
 
 /**
+ * Count `<li>` elements inside containers matching the given class attribute.
+ * Used to count evidence items in `<ul class="perspective-evidence"><li>…</li></ul>`
+ * structures produced by the deep-analysis and stakeholder perspective generators.
+ *
+ * @param html - HTML string to search
+ * @param containerClass - Class attribute string to match (e.g. `class="perspective-evidence"`)
+ * @returns Number of `<li>` children found across all matching containers
+ */
+function countListItemsInClass(html: string, containerClass: string): number {
+  let total = 0;
+  let idx = html.indexOf(containerClass);
+  while (idx !== -1) {
+    const startIdx = idx + containerClass.length;
+    const content = findBalancedContent(html, startIdx);
+    if (content) {
+      total += countOccurrences(content, '<li');
+    }
+    idx = html.indexOf(containerClass, idx + 1);
+  }
+  return total;
+}
+
+/**
  * Count evidence and document references in HTML.
- * Detects `class="evidence"`, `data-reference`, and EP document reference codes.
+ * Detects evidence markers from the actual generator output:
+ * - `<ul class="perspective-evidence"><li>…</li></ul>` — deep-analysis evidence items
+ * - `class="swot-ref-evidence"` — SWOT cross-reference evidence markers
+ * - `class="evidence"` — generic evidence markers (legacy / tests)
+ * - `data-reference` attributes
+ * - EP document reference codes (TA-, PE-, A9-, P9_TA patterns)
+ *
  * Strips `<script>` blocks before scanning for EP doc patterns so that JSON-LD
  * metadata does not inflate evidence counts.
  *
@@ -351,6 +380,11 @@ function addClassPositions(html: string, classAttr: string, positions: Set<numbe
  * @returns Number of evidence references found
  */
 function countEvidenceRefs(html: string): number {
+  // Count <li> items inside perspective-evidence containers (deep-analysis generator)
+  const perspectiveEvidenceItems = countListItemsInClass(html, 'class="perspective-evidence"');
+  // Count SWOT cross-reference evidence markers (swot-content generator)
+  const swotRefEvidence = countOccurrences(html, 'class="swot-ref-evidence"');
+  // Legacy / generic evidence markers
   const evidenceClasses = countOccurrences(html, 'class="evidence"');
   const dataRefs = countOccurrences(html, 'data-reference');
   // Strip script blocks (e.g. JSON-LD) to avoid double-counting EP doc IDs
@@ -367,12 +401,18 @@ function countEvidenceRefs(html: string): number {
     }
   }
   const epRefs = matched.size;
-  return evidenceClasses + dataRefs + epRefs;
+  return perspectiveEvidenceItems + swotRefEvidence + evidenceClasses + dataRefs + epRefs;
 }
 
 /**
- * Count evidence markers (`class="evidence"` and `data-reference`) only within
- * deep-analysis sections, preventing inflation from evidence markers elsewhere.
+ * Count evidence markers inside deep-analysis sections only, preventing
+ * inflation from evidence markers elsewhere in the article.
+ *
+ * Detects:
+ * - `<li>` items inside `<ul class="perspective-evidence">` — real generator output
+ * - `class="swot-ref-evidence"` — SWOT cross-reference evidence
+ * - `class="evidence"` — generic/legacy evidence markers
+ * - `data-reference` attributes
  *
  * @param html - Raw HTML string
  * @returns Evidence count restricted to deep-analysis section(s)
@@ -387,6 +427,8 @@ function countDeepAnalysisSectionEvidence(html: string): number {
     const sectionContent = findBalancedContent(html, startIdx);
     if (sectionContent) {
       total +=
+        countListItemsInClass(sectionContent, 'class="perspective-evidence"') +
+        countOccurrences(sectionContent, 'class="swot-ref-evidence"') +
         countOccurrences(sectionContent, 'class="evidence"') +
         countOccurrences(sectionContent, 'data-reference');
     }

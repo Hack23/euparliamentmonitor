@@ -364,6 +364,37 @@ describe('assessVisualizationQuality', () => {
     expect(result.score).toBeGreaterThan(50);
   });
 
+  it('counts perspective-evidence <li> items inside deep-analysis as deepAnalysisEvidence', () => {
+    const html = buildHtml(`
+      <section class="deep-analysis">
+        <div class="stakeholder-perspective-card">
+          <ul class="perspective-evidence"><li>Evidence item 1</li><li>Evidence item 2</li></ul>
+        </div>
+        <div class="stakeholder-perspective-card">
+          <ul class="perspective-evidence"><li>Evidence item 3</li></ul>
+        </div>
+      </section>
+    `);
+    const result = assessVisualizationQuality(html);
+    expect(result.deepAnalysisPresent).toBe(true);
+    expect(result.deepAnalysisEvidence).toBe(3);
+  });
+
+  it('counts swot-ref-evidence markers in SWOT sections', () => {
+    const html = buildHtml(`
+      <section class="swot-analysis">
+        <div class="swot-quadrant swot-s">Strengths</div>
+        <div class="swot-cross-references">
+          <li class="swot-ref-item"><span class="swot-ref-evidence">Evidence: Item 1</span></li>
+          <li class="swot-ref-item"><span class="swot-ref-evidence">Evidence: Item 2</span></li>
+        </div>
+      </section>
+    `);
+    // swot-ref-evidence markers count toward evidenceReferences (top-level)
+    const report = scoreArticleQuality(html, 'test-swot', 'en', 'week-ahead');
+    expect(report.evidenceReferences).toBeGreaterThanOrEqual(2);
+  });
+
   it('score is clamped between 0 and 100', () => {
     const result = assessVisualizationQuality(buildHtml('<p>test</p>'));
     expect(result.score).toBeGreaterThanOrEqual(0);
