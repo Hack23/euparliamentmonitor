@@ -33,7 +33,7 @@ export type CrossReferenceStrength = 'strong' | 'moderate' | 'weak';
  * Used to build navigational and analytical links between related content.
  */
 export interface ArticleCrossReference {
-  /** Identifier of the referenced article (YYYY-MM-DD-type-lang) */
+  /** Identifier of the referenced article (YYYY-MM-DD-slug-lang) */
   targetArticleId: string;
   /** Nature of the relationship from the source article's perspective */
   relationship: CrossReferenceRelationship;
@@ -100,10 +100,11 @@ export interface ArticleSeries {
 
 /**
  * Lightweight index entry for a single generated article.
- * The `id` follows the convention YYYY-MM-DD-type-lang.
+ * The `id` follows the convention YYYY-MM-DD-slug-lang
+ * (e.g. "2025-03-10-week-ahead-en" or "2025-02-14-ai-regulation-committee-fr").
  */
 export interface ArticleIndexEntry {
-  /** Article identifier: YYYY-MM-DD-type-lang */
+  /** Article identifier: YYYY-MM-DD-slug-lang */
   id: string;
   /** ISO date string (YYYY-MM-DD) */
   date: string;
