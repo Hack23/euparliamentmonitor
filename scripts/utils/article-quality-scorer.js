@@ -185,7 +185,7 @@ function countOccurrences(html, selector) {
     let index = html.indexOf(selector);
     while (index !== -1) {
         count++;
-        index = html.indexOf(selector, index + 1);
+        index = html.indexOf(selector, index + selector.length);
     }
     return count;
 }
@@ -211,6 +211,27 @@ function hasExactClassToken(html, token) {
             return true;
     }
     return false;
+}
+/**
+ * Count the number of elements whose `class` attribute contains the given token
+ * as an exact CSS class (whitespace-delimited). Unlike simple substring counting,
+ * this correctly counts multi-class attributes like `class="metric-card pipeline-on-track"`.
+ *
+ * @param html - HTML string to scan
+ * @param token - Exact CSS class name to count
+ * @returns Number of elements with the given class token
+ */
+function countExactClassToken(html, token) {
+    CLASS_ATTR_PATTERN.lastIndex = 0;
+    let count = 0;
+    let match;
+    while ((match = CLASS_ATTR_PATTERN.exec(html)) !== null) {
+        const value = match[1] ?? '';
+        const classes = value.split(/\s+/);
+        if (classes.includes(token))
+            count++;
+    }
+    return count;
 }
 /**
  * Check whether at least one keyword from a list is present in a text string.
@@ -339,12 +360,16 @@ function countAnalysisSections(html) {
 /**
  * Count `<li>` elements inside containers matching the given class attribute.
  * Used to count evidence items in `<ul class="perspective-evidence"><li>…</li></ul>`
- * structures produced by the deep-analysis and stakeholder perspective generators.
+ * and `<ul class="evidence-refs"><li lang="…">…</li></ul>` structures produced by
+ * the deep-analysis and stakeholder perspective generators.
  *
  * Locates each container by its class attribute, determines the enclosing element
  * tag name, finds the end of the opening tag (`>`), and extracts content up to
  * the balanced closing tag for that specific element — ensuring correct scoping
  * even when the container is a `<ul>` (which `findBalancedContent` does not track).
+ *
+ * Counts both `<li>` (bare) and `<li ` (with attributes like `lang="…"`) to handle
+ * attributed list items while avoiding false matches on `<link>` or `<listing>` tags.
  *
  * @param html - HTML string to search
  * @param containerClass - Class attribute string to match (e.g. `class="perspective-evidence"`)
@@ -356,7 +381,9 @@ function countListItemsInClass(html, containerClass) {
     while (idx !== -1) {
         const content = extractContainerContent(html, idx, containerClass);
         if (content) {
-            total += countOccurrences(content, '<li>');
+            // Count both bare <li> and attributed <li ...> (e.g. <li lang="en">)
+            // Using '<li>' and '<li ' avoids false matches on <link> or <listing>
+            total += countOccurrences(content, '<li>') + countOccurrences(content, '<li ');
         }
         idx = html.indexOf(containerClass, idx + 1);
     }
@@ -416,6 +443,7 @@ function extractContainerContent(html, attrIdx, attr) {
  * Count evidence and document references in HTML.
  * Detects evidence markers from the actual generator output:
  * - `<ul class="perspective-evidence"><li>…</li></ul>` — deep-analysis evidence items
+ * - `<ul class="evidence-refs"><li lang="…">…</li></ul>` — reasoning-chain evidence items
  * - `class="swot-ref-evidence"` — SWOT cross-reference evidence markers
  * - `class="evidence"` — generic evidence markers (legacy / tests)
  * - `data-reference` attributes
@@ -433,6 +461,8 @@ function countEvidenceRefs(html) {
     const htmlNoScripts = stripScriptBlocks(html);
     // Count <li> items inside perspective-evidence containers (deep-analysis generator)
     const perspectiveEvidenceItems = countListItemsInClass(htmlNoScripts, 'class="perspective-evidence"');
+    // Count <li> items inside evidence-refs containers (reasoning-chain generator)
+    const evidenceRefsItems = countListItemsInClass(htmlNoScripts, 'class="evidence-refs"');
     // Count SWOT cross-reference evidence markers (swot-content generator)
     const swotRefEvidence = countOccurrences(htmlNoScripts, 'class="swot-ref-evidence"');
     // Legacy / generic evidence markers
@@ -450,7 +480,12 @@ function countEvidenceRefs(html) {
         }
     }
     const epRefs = matched.size;
-    return perspectiveEvidenceItems + swotRefEvidence + evidenceClasses + dataRefs + epRefs;
+    return (perspectiveEvidenceItems +
+        evidenceRefsItems +
+        swotRefEvidence +
+        evidenceClasses +
+        dataRefs +
+        epRefs);
 }
 /**
  * Count evidence markers inside deep-analysis sections only, preventing
@@ -678,8 +713,7 @@ export function assessVisualizationQuality(html) {
     // Dashboard: exact class-token match prevents false positives from hyphenated
     // classes like "dashboard-grid", "dashboard-panel", "dashboard-chart"
     const dashboardPresent = hasExactClassToken(html, 'dashboard') || html.includes('id="dashboard"');
-    const dashboardMetrics = countOccurrences(html, 'class="metric-card"') +
-        countOccurrences(html, 'class="dashboard-metric"');
+    const dashboardMetrics = countExactClassToken(html, 'metric-card') + countExactClassToken(html, 'dashboard-metric');
     // Trend indicators: metric-trend-up/-down/-stable classes, or arrow symbols
     const dashboardTrends = html.includes('class="metric-trend-') || html.includes('↑') || html.includes('↓');
     // Mindmap: exact class-token match supports multi-class attributes

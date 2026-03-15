@@ -51,21 +51,11 @@ function countClassToken(content, token) {
  * @returns The HTML with script blocks replaced by spaces
  */
 function stripScriptBlocks(html) {
-    const OPEN = '<script';
-    const CLOSE = '</script';
- * Remove all `<script>…</script>` blocks from HTML using iterative
- * index-based scanning instead of regex, avoiding CodeQL `js/bad-tag-filter`
- * alerts that fire on regex-based `<script>` stripping.
- *
- * @param html - HTML string to process.
- * @returns HTML with all script blocks replaced by a single space.
- */
-function stripScriptBlocks(html) {
     let result = '';
     let pos = 0;
     const lower = html.toLowerCase();
     while (pos < html.length) {
-        const openIdx = lower.indexOf(OPEN, pos);
+        const openIdx = lower.indexOf('<script', pos);
         if (openIdx < 0) {
             result += html.slice(pos);
             break;
@@ -76,7 +66,7 @@ function stripScriptBlocks(html) {
             result += html.slice(openIdx);
             break;
         }
-        const closeIdx = lower.indexOf(CLOSE, openEnd + 1);
+        const closeIdx = lower.indexOf('</script', openEnd + 1);
         if (closeIdx < 0) {
             result += ' ';
             break;
@@ -88,24 +78,6 @@ function stripScriptBlocks(html) {
         }
         result += ' ';
         pos = closeEnd + 1;
-        const openIdx = lower.indexOf('<script', pos);
-        if (openIdx === -1) {
-            result += html.slice(pos);
-            break;
-        }
-        // Copy everything before the <script tag
-        result += html.slice(pos, openIdx);
-        result += ' ';
-        // Find the closing </script> tag
-        const closeTag = '</script';
-        const closeIdx = lower.indexOf(closeTag, openIdx);
-        if (closeIdx === -1) {
-            // No closing tag found — discard the rest
-            break;
-        }
-        // Skip past the closing `>` of </script…>
-        const endIdx = html.indexOf('>', closeIdx + closeTag.length);
-        pos = endIdx === -1 ? html.length : endIdx + 1;
     }
     return result;
 }
