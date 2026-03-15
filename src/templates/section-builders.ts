@@ -59,6 +59,14 @@ function countClassToken(content: string, token: string): number {
 function stripScriptBlocks(html: string): string {
   const OPEN = '<script';
   const CLOSE = '</script';
+ * Remove all `<script>…</script>` blocks from HTML using iterative
+ * index-based scanning instead of regex, avoiding CodeQL `js/bad-tag-filter`
+ * alerts that fire on regex-based `<script>` stripping.
+ *
+ * @param html - HTML string to process.
+ * @returns HTML with all script blocks replaced by a single space.
+ */
+function stripScriptBlocks(html: string): string {
   let result = '';
   let pos = 0;
   const lower = html.toLowerCase();
@@ -88,6 +96,27 @@ function stripScriptBlocks(html: string): string {
     result += ' ';
     pos = closeEnd + 1;
   }
+    const openIdx = lower.indexOf('<script', pos);
+    if (openIdx === -1) {
+      result += html.slice(pos);
+      break;
+    }
+    // Copy everything before the <script tag
+    result += html.slice(pos, openIdx);
+    result += ' ';
+
+    // Find the closing </script> tag
+    const closeTag = '</script';
+    const closeIdx = lower.indexOf(closeTag, openIdx);
+    if (closeIdx === -1) {
+      // No closing tag found — discard the rest
+      break;
+    }
+    // Skip past the closing `>` of </script…>
+    const endIdx = html.indexOf('>', closeIdx + closeTag.length);
+    pos = endIdx === -1 ? html.length : endIdx + 1;
+  }
+
   return result;
 }
 
@@ -99,6 +128,8 @@ function stripScriptBlocks(html: string): string {
  */
 export function computeArticleQualityScore(content: string): ArticleQualityScore {
   // Remove script blocks before tag-stripping to avoid inflating word count
+  // Remove script blocks before tag-stripping to avoid inflating word count.
+  // Uses iterative scanning instead of regex to avoid CodeQL js/bad-tag-filter.
   const noScripts = stripScriptBlocks(content);
   // Strip HTML tags to get plain text, then count words
   const plainText = noScripts
