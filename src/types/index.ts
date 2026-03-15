@@ -199,6 +199,16 @@ export type {
   VisualizationQuality,
   ArticleQualityReport,
 } from './quality.js';
+  ConfidenceLevel,
+  EvidenceReference,
+  ReasoningChain,
+  ScenarioStakeholderImpact,
+  Scenario,
+  ScenarioPlanning,
+  EnhancedAnalysisIteration,
+  AnalysisQualityMetadata,
+  EnhancedDeepAnalysis,
+} from './analysis.js';
 
 export type {
   AnalysisStakeholderType,
