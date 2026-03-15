@@ -467,6 +467,21 @@ export type PolicyConnectionStrength = 'strong' | 'moderate' | 'weak';
 export type ActorType = 'mep' | 'group' | 'committee' | 'external';
 
 /**
+ * Pre-defined semantic color roles for mindmap branch nodes.
+ * When assigned to `MindmapNode.color`, selects the corresponding branch
+ * palette entry (overriding the default category-based colors).
+ */
+export type MindmapBranchColor =
+  | 'cyan'
+  | 'magenta'
+  | 'yellow'
+  | 'green'
+  | 'purple'
+  | 'orange'
+  | 'blue'
+  | 'red';
+
+/**
  * A single node in the intelligence mindmap.
  * Nodes are arranged in depth layers: domain → sub-topic → actor → action → outcome.
  */
@@ -483,10 +498,9 @@ export interface MindmapNode {
    * Optional semantic color key from the 8-color branch palette.
    * When set to a valid `MindmapBranchColor` key (cyan, green, red, etc.),
    * overrides the default category-based palette for this node.
-   * When omitted, unrecognized, or empty, the renderer falls back to the
-   * category palette.
+   * When omitted, the renderer falls back to the category palette.
    */
-  readonly color?: string | undefined;
+  readonly color?: MindmapBranchColor | undefined;
   /** Child nodes one layer deeper in the hierarchy. */
   readonly children: readonly MindmapNode[];
   /** Optional EP-specific metadata for hover/detail rendering. */

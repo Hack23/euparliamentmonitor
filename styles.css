@@ -3504,23 +3504,23 @@ details[open] > .mindmap-stakeholder-toggle::before {
 
 /* Node category semantic colors */
 .mindmap-node-policy_domain {
-  border-left: 4px solid #1565c0;
+  border-left: 4px solid var(--branch-border, #1565c0);
 }
 
 .mindmap-node-sub_topic {
-  border-left: 4px solid #7b1fa2;
+  border-left: 4px solid var(--branch-border, #7b1fa2);
 }
 
 .mindmap-node-actor {
-  border-left: 4px solid #2e7d32;
+  border-left: 4px solid var(--branch-border, #2e7d32);
 }
 
 .mindmap-node-action {
-  border-left: 4px solid #e65100;
+  border-left: 4px solid var(--branch-border, #e65100);
 }
 
 .mindmap-node-outcome {
-  border-left: 4px solid #283593;
+  border-left: 4px solid var(--branch-border, #283593);
 }
 
 @media print {

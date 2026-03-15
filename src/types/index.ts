@@ -187,6 +187,7 @@ export type {
   PolicyConnectionType,
   PolicyConnectionStrength,
   ActorType,
+  MindmapBranchColor,
   MindmapNode,
   MindmapLayer,
   PolicyConnection,

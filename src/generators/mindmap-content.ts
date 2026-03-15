@@ -22,22 +22,19 @@
  */
 
 import { escapeHTML } from '../utils/file-utils.js';
-import type { IntelligenceMindmap, MindmapNode } from '../types/index.js';
+import type {
+  IntelligenceMindmap,
+  MindmapBranchColor,
+  MindmapNode,
+} from '../types/index.js';
 
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
-/** Pre-defined semantic color roles for mindmap branches. */
-export type MindmapBranchColor =
-  | 'cyan'
-  | 'magenta'
-  | 'yellow'
-  | 'green'
-  | 'purple'
-  | 'orange'
-  | 'blue'
-  | 'red';
+// Re-export the canonical MindmapBranchColor from the types barrel so that
+// existing consumers importing it from this module continue to work.
+export type { MindmapBranchColor } from '../types/index.js';
 
 /** A single branch of the mindmap, attached to the central node. */
 export interface MindmapBranch {
