@@ -679,13 +679,13 @@ describe('buildRelatedArticlesHTML', () => {
 
   it('should render crossRefs even when target article is not in relatedArticles', () => {
     // crossRef targets an article not in the relatedArticles array
-    const orphanRef = {
+    const crossRefWithoutArticleMetadata = {
       targetArticleId: '2025-02-01-missing-article-en',
       relationship: 'related',
       context: 'Shares topics',
       strength: 'moderate',
     };
-    const html = buildRelatedArticlesHTML([], [orphanRef], []);
+    const html = buildRelatedArticlesHTML([], [crossRefWithoutArticleMetadata], []);
     expect(html).toContain('2025-02-01-missing-article-en.html');
     expect(html).toContain('Shares topics');
     expect(html).toContain('<section class="related-articles"');
