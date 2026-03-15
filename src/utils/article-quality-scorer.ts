@@ -306,6 +306,9 @@ const ANALYSIS_SECTION_TOKENS: ReadonlyArray<string> = [
   'sankey-section',
 ];
 
+/** Pattern to extract the class attribute value from a single HTML tag */
+const CLASS_VALUE_PATTERN = /class="([^"]*)"/iu;
+
 /**
  * Count structural analysis sections in HTML.
  * Only counts `<section>` elements whose class attribute contains a known
@@ -317,14 +320,13 @@ const ANALYSIS_SECTION_TOKENS: ReadonlyArray<string> = [
  */
 function countAnalysisSections(html: string): number {
   const SECTION_TAG = /<section\b[^>]*>/giu;
-  const CLASS_VAL = /class="([^"]*)"/iu;
   let count = 0;
   let m: RegExpExecArray | null;
   while ((m = SECTION_TAG.exec(html)) !== null) {
     const tag = m[0];
-    const cv = CLASS_VAL.exec(tag);
-    if (cv) {
-      const tokens = (cv[1] ?? '').split(/\s+/);
+    const cv = CLASS_VALUE_PATTERN.exec(tag);
+    if (cv?.[1]) {
+      const tokens = cv[1].split(/\s+/).filter(Boolean);
       if (tokens.some((t) => ANALYSIS_SECTION_TOKENS.includes(t))) {
         count++;
       }
