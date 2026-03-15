@@ -1275,10 +1275,9 @@ describe('mindmap-content', () => {
   });
 
   describe('buildBreakingMindmap', () => {
-    it('should handle undefined feed data', () => {
+    it('should return null for undefined feed data (no activity)', () => {
       const imap = buildBreakingMindmap(undefined);
-      expect(imap).not.toBeNull();
-      expect(imap.centralTopic).toBe('Breaking News Intelligence');
+      expect(imap).toBeNull();
     });
 
     it('should build a mindmap from breaking news feed data', () => {

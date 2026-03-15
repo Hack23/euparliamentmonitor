@@ -2109,6 +2109,9 @@ export function buildBreakingMindmap(feedData, _lang = 'en') {
             })),
         },
     ].filter((n) => n.influence > 0 || n.children.length > 0);
+    if (domainNodes.length === 0) {
+        return null;
+    }
     const actorNetwork = [
         {
             id: 'ep-parliament',

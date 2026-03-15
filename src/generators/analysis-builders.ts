@@ -2438,7 +2438,7 @@ export function buildProspectiveMindmap(
 export function buildBreakingMindmap(
   feedData: BreakingNewsFeedData | undefined,
   _lang: LanguageCode = 'en'
-): IntelligenceMindmap {
+): IntelligenceMindmap | null {
   const adoptedTexts = feedData?.adoptedTexts ?? [];
   const events = feedData?.events ?? [];
   const procedures = feedData?.procedures ?? [];
@@ -2507,6 +2507,10 @@ export function buildBreakingMindmap(
       })),
     },
   ].filter((n) => n.influence > 0 || n.children.length > 0);
+
+  if (domainNodes.length === 0) {
+    return null;
+  }
 
   const actorNetwork: ActorNode[] = [
     {
