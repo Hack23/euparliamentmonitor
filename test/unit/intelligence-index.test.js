@@ -49,9 +49,12 @@ describe('createEmptyIndex', () => {
   it('should return a valid empty structure', () => {
     const index = createEmptyIndex();
     expect(index.articles).toEqual([]);
-    expect(index.actors).toEqual({});
-    expect(index.policyDomains).toEqual({});
-    expect(index.procedures).toEqual({});
+    expect(Object.keys(index.actors)).toHaveLength(0);
+    expect(Object.getPrototypeOf(index.actors)).toBeNull();
+    expect(Object.keys(index.policyDomains)).toHaveLength(0);
+    expect(Object.getPrototypeOf(index.policyDomains)).toBeNull();
+    expect(Object.keys(index.procedures)).toHaveLength(0);
+    expect(Object.getPrototypeOf(index.procedures)).toBeNull();
     expect(index.trends).toEqual([]);
     expect(index.series).toEqual([]);
     expect(typeof index.lastUpdated).toBe('string');
@@ -198,8 +201,15 @@ describe('buildIndexFromEntries', () => {
     // Safe keys work normally
     expect(index.policyDomains['safe-topic']).toEqual(['a1']);
 
-    // Prototype chain is not polluted
-    expect(Object.prototype.hasOwnProperty.call({}, 'a1')).toBe(false);
+    // Maps have null prototypes — immune to prototype-chain pollution
+    expect(Object.getPrototypeOf(index.policyDomains)).toBeNull();
+    expect(Object.getPrototypeOf(index.actors)).toBeNull();
+    expect(Object.getPrototypeOf(index.procedures)).toBeNull();
+
+    // A fresh plain object is unaffected by dangerous-key indexing above
+    const sentinel = {};
+    expect('a1' in sentinel).toBe(false);
+    expect('__proto__' in Object.create(null)).toBe(false);
   });
 });
 
@@ -577,9 +587,12 @@ describe('loadIntelligenceIndex', () => {
     // articles loaded from file
     expect(index.articles).toHaveLength(1);
     // missing lookup maps are rebuilt (empty here since the article has no topics/actors/procedures)
-    expect(index.actors).toEqual({});
-    expect(index.policyDomains).toEqual({});
-    expect(index.procedures).toEqual({});
+    expect(Object.keys(index.actors)).toHaveLength(0);
+    expect(Object.getPrototypeOf(index.actors)).toBeNull();
+    expect(Object.keys(index.policyDomains)).toHaveLength(0);
+    expect(Object.getPrototypeOf(index.policyDomains)).toBeNull();
+    expect(Object.keys(index.procedures)).toHaveLength(0);
+    expect(Object.getPrototypeOf(index.procedures)).toBeNull();
     expect(index.trends).toEqual([]);
     expect(index.series).toEqual([]);
     expect(typeof index.lastUpdated).toBe('string');
