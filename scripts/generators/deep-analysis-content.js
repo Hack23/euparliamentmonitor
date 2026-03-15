@@ -17,7 +17,7 @@
  * - **Mistakes**: Miscalculations and missed opportunities
  * - **Outlook**: Strategic forward look
  */
-import { escapeHTML } from '../utils/file-utils.js';
+import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 import { getLocalizedString, DEEP_ANALYSIS_STRINGS } from '../constants/languages.js';
 import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
 // ─── Sub-section builders ────────────────────────────────────────────────────
@@ -315,6 +315,276 @@ function buildOutlookSection(outlook, heading, contentLang) {
               <p${langAttr}>${escapeHTML(outlook)}</p>
             </div>`;
 }
+// ─── Enhanced analysis section builders ──────────────────────────────────────
+/**
+ * Type guard — checks whether an analysis object carries enhanced fields
+ *
+ * @param a - Base deep analysis to test
+ * @returns `true` when the object is an `EnhancedDeepAnalysis`
+ */
+function isEnhancedDeepAnalysis(a) {
+    if (typeof a !== 'object' || a === null)
+        return false;
+    return ('qualityMetadata' in a ||
+        'scenarioPlanning' in a ||
+        'reasoningChains' in a ||
+        'executiveSummary' in a);
+}
+/**
+ * Build a confidence badge with emoji indicator and text label
+ *
+ * @param confidence - Confidence level
+ * @param strings - Localized strings
+ * @returns HTML span element
+ */
+function buildConfidenceBadge(confidence, strings) {
+    let emoji;
+    let label;
+    switch (confidence) {
+        case 'high':
+            emoji = '🟢';
+            label = strings.confidenceHigh;
+            break;
+        case 'medium':
+            emoji = '🟡';
+            label = strings.confidenceMedium;
+            break;
+        default:
+            emoji = '🔴';
+            label = strings.confidenceLow;
+    }
+    return `<span class="confidence-badge confidence-${escapeHTML(confidence)}" aria-label="${escapeHTML(label)}">${emoji} ${escapeHTML(label)}</span>`;
+}
+/**
+ * Build the executive summary section
+ *
+ * @param summary - Executive summary text
+ * @param confidence - Optional overall confidence level
+ * @param heading - Localized heading
+ * @param strings - Localized strings
+ * @param contentLang - Language of the content text
+ * @returns HTML string
+ */
+function buildExecutiveSummarySection(summary, confidence, heading, strings, contentLang) {
+    if (!summary)
+        return '';
+    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
+    const badge = confidence ? buildConfidenceBadge(confidence, strings) : '';
+    return `
+            <div class="analysis-executive-summary">
+              <h3>${escapeHTML(heading)}</h3>
+              <div class="summary-header">
+                <p${langAttr}>${escapeHTML(summary)}</p>${badge}
+              </div>
+            </div>`;
+}
+/**
+ * Build the reasoning chains section
+ *
+ * @param chains - Reasoning chain items
+ * @param heading - Localized heading
+ * @param strings - Localized strings
+ * @param contentLang - Language of the content text
+ * @returns HTML string
+ */
+function buildReasoningChainSection(chains, heading, strings, contentLang) {
+    if (chains.length === 0)
+        return '';
+    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
+    const cards = chains
+        .map((chain) => {
+        const evidenceItems = chain.evidence
+            .map((ref) => {
+            const dateText = ref.date ? ` (${escapeHTML(ref.date)})` : '';
+            if (ref.url && isSafeURL(ref.url)) {
+                return `<li${langAttr}><a href="${escapeHTML(ref.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(ref.title)}${dateText}</a></li>`;
+            }
+            return `<li${langAttr}>${escapeHTML(ref.title)}${dateText}</li>`;
+        })
+            .join('\n                  ');
+        const evidenceHtml = chain.evidence.length > 0
+            ? `<div class="evidence-refs-block">
+                  <h4>${escapeHTML(strings.evidenceRefsHeading)}</h4>
+                  <ul class="evidence-refs">
+                  ${evidenceItems}
+                  </ul>
+                </div>`
+            : '';
+        const counterItems = chain.counterArguments
+            .map((ca) => `<li${langAttr}>${escapeHTML(ca)}</li>`)
+            .join('\n                  ');
+        const counterHtml = chain.counterArguments.length > 0
+            ? `<div class="counter-args-block">
+                  <h4>${escapeHTML(strings.counterArgumentsHeading)}</h4>
+                  <ul class="counter-arguments">
+                  ${counterItems}
+                  </ul>
+                </div>`
+            : '';
+        return `<div class="reasoning-chain-card">
+                <p><strong>${escapeHTML(strings.premiseLabel)}</strong> <span${langAttr}>${escapeHTML(chain.premise)}</span></p>
+                ${evidenceHtml}
+                <p><strong>${escapeHTML(strings.inferenceLabel)}</strong> <span${langAttr}>${escapeHTML(chain.inference)}</span></p>
+                ${buildConfidenceBadge(chain.confidence, strings)}
+                ${counterHtml}
+                <p class="chain-conclusion"><strong>${escapeHTML(strings.conclusionLabel)}</strong> <span${langAttr}>${escapeHTML(chain.conclusion)}</span></p>
+              </div>`;
+    })
+        .join('\n              ');
+    return `
+            <div class="analysis-reasoning-chains">
+              <h3>${escapeHTML(heading)}</h3>
+              ${cards}
+            </div>`;
+}
+/**
+ * Build the scenario planning section
+ *
+ * @param scenarios - Scenario planning data
+ * @param heading - Localized heading
+ * @param strings - Localized strings
+ * @param contentLang - Language of the content text
+ * @returns HTML string
+ */
+function buildScenarioPlanningSection(scenarios, heading, strings, contentLang) {
+    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
+    function renderScenario(scenario, cssClass, label) {
+        const rawPct = Number.isFinite(scenario.probability) ? scenario.probability * 100 : 0;
+        const pct = Math.max(0, Math.min(100, Math.round(rawPct)));
+        const triggerItems = scenario.triggers
+            .map((t) => `<li${langAttr}>${escapeHTML(t)}</li>`)
+            .join('\n                  ');
+        const impactItems = scenario.implications
+            .map((imp) => `<li class="scenario-impact severity-${escapeHTML(imp.severity)}">` +
+            `<strong>${escapeHTML(imp.stakeholder)}</strong>: <span${langAttr}>${escapeHTML(imp.impact)}</span>` +
+            `</li>`)
+            .join('\n                  ');
+        return `<div class="scenario-card ${escapeHTML(cssClass)}">
+                <h4>${escapeHTML(label)}</h4>
+                <p${langAttr}>${escapeHTML(scenario.description)}</p>
+                <div class="scenario-probability">
+                  <span>${escapeHTML(strings.probabilityLabel)}: ${pct}%</span>
+                  <div class="probability-bar" style="width:${pct}%" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="${escapeHTML(label)} ${pct}%"></div>
+                </div>
+                ${scenario.triggers.length > 0
+            ? `<details class="scenario-triggers">
+                  <summary>${escapeHTML(strings.triggersLabel)}</summary>
+                  <ul>${triggerItems}</ul>
+                </details>`
+            : ''}
+                ${scenario.implications.length > 0
+            ? `<details class="scenario-impacts">
+                  <summary>${escapeHTML(strings.impliedImpactsLabel)}</summary>
+                  <ul class="scenario-impact-list">${impactItems}</ul>
+                </details>`
+            : ''}
+                <p class="scenario-timeline"><strong>${escapeHTML(strings.timelineLabel)}:</strong> <span${langAttr}>${escapeHTML(scenario.timeline)}</span></p>
+              </div>`;
+    }
+    const wildcardItems = scenarios.wildcards
+        .map((w) => `<li${langAttr}>${escapeHTML(w)}</li>`)
+        .join('\n              ');
+    const wildcardHtml = scenarios.wildcards.length > 0
+        ? `<div class="scenario-wildcards">
+              <h4>${escapeHTML(strings.wildcardsLabel)}</h4>
+              <ul class="wildcard-list">${wildcardItems}</ul>
+            </div>`
+        : '';
+    return `
+            <div class="analysis-scenario-planning">
+              <h3>${escapeHTML(heading)}</h3>
+              <div class="scenario-grid">
+                ${renderScenario(scenarios.bestCase, 'scenario-best', strings.bestCaseLabel)}
+                ${renderScenario(scenarios.mostLikely, 'scenario-likely', strings.mostLikelyLabel)}
+                ${renderScenario(scenarios.worstCase, 'scenario-worst', strings.worstCaseLabel)}
+              </div>
+              ${wildcardHtml}
+            </div>`;
+}
+/**
+ * Map iteration type to localized label
+ *
+ * @param type - Iteration type
+ * @param strings - Localized strings
+ * @returns Localized label
+ */
+function iterationTypeLabel(type, strings) {
+    switch (type) {
+        case 'initial':
+            return strings.iterationInitial;
+        case 'stakeholder_challenge':
+            return strings.iterationStakeholderChallenge;
+        case 'evidence_validation':
+            return strings.iterationEvidenceValidation;
+        default:
+            return strings.iterationSynthesis;
+    }
+}
+/**
+ * Map evidence strength to localized label
+ *
+ * @param strength - Evidence strength
+ * @param strings - Localized strings
+ * @returns Localized label
+ */
+function evidenceStrengthLabel(strength, strings) {
+    switch (strength) {
+        case 'strong':
+            return strings.evidenceStrong;
+        case 'moderate':
+            return strings.evidenceModerate;
+        default:
+            return strings.evidenceWeak;
+    }
+}
+/**
+ * Build the analysis methodology section
+ *
+ * @param metadata - Quality metadata
+ * @param heading - Localized heading
+ * @param strings - Localized strings
+ * @param contentLang - Language of the content text
+ * @returns HTML string
+ */
+function buildAnalysisMethodologySection(metadata, heading, strings, contentLang) {
+    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
+    const iterationItems = metadata.iterations
+        .map((iter) => {
+        const findingItems = iter.findings
+            .map((f) => `<li${langAttr}>${escapeHTML(f)}</li>`)
+            .join('\n                  ');
+        const refinementItems = iter.refinements
+            .map((r) => `<li${langAttr}>${escapeHTML(r)}</li>`)
+            .join('\n                  ');
+        return `<div class="iteration-item">
+                <div class="iteration-header">
+                  <span class="iteration-pass">Pass ${escapeHTML(String(Number.isFinite(iter.pass) ? iter.pass : 0))}</span>
+                  <span class="iteration-type">${escapeHTML(iterationTypeLabel(iter.type, strings))}</span>
+                  ${buildConfidenceBadge(iter.confidence, strings)}
+                </div>
+                ${iter.findings.length > 0
+            ? `<ul class="iteration-findings">${findingItems}</ul>`
+            : ''}
+                ${iter.refinements.length > 0
+            ? `<ul class="iteration-refinements">${refinementItems}</ul>`
+            : ''}
+              </div>`;
+    })
+        .join('\n              ');
+    return `
+            <div class="analysis-methodology">
+              <h3>${escapeHTML(heading)}</h3>
+              <dl class="methodology-stats">
+                <dt>${escapeHTML(strings.overallConfidenceLabel)}</dt>
+                <dd>${buildConfidenceBadge(metadata.overallConfidence, strings)}</dd>
+                <dt>${escapeHTML(strings.evidenceStrengthLabel)}</dt>
+                <dd>${escapeHTML(evidenceStrengthLabel(metadata.evidenceStrength, strings))}</dd>
+                <dt>${escapeHTML(strings.iterationCountLabel)}</dt>
+                <dd>${escapeHTML(String(Number.isFinite(metadata.iterationCount) ? metadata.iterationCount : 0))}</dd>
+              </dl>
+              ${metadata.iterations.length > 0 ? `<div class="iteration-timeline">${iterationItems}</div>` : ''}
+            </div>`;
+}
 // ─── Main builder ────────────────────────────────────────────────────────────
 /**
  * Map a StakeholderPerspective impact to a CSS class suffix.
@@ -482,13 +752,15 @@ function buildStakeholderOutcomeMatrixSection(matrix, heading, strings, contentL
  * Build the complete deep political analysis section HTML.
  *
  * This section provides parliament-intelligence-grade analysis using the
- * "5W + Impact" framework. It is designed for sophisticated readers who
- * want multi-perspective understanding of European Parliament decisions.
+ * "5W + Impact" framework. When the input is an `EnhancedDeepAnalysis` it
+ * additionally renders an executive summary, reasoning chains, scenario
+ * planning, and analysis methodology.
  *
  * Returns an empty string if the analysis object is null/undefined or
  * contains no meaningful content.
  *
- * @param analysis - Deep analysis data (null/undefined returns empty string)
+ * @param analysis - Deep analysis data (null/undefined returns empty string).
+ *   Accepts both `DeepAnalysis` and `EnhancedDeepAnalysis`.
  * @param lang - BCP 47 language code for localized headings
  * @param contentLang - BCP 47 language code for the content text; when it
  *   differs from `lang`, each content element gets a `lang` attribute so
@@ -501,6 +773,26 @@ export function buildDeepAnalysisSection(analysis, lang, contentLang = lang) {
         return '';
     const strings = getLocalizedString(DEEP_ANALYSIS_STRINGS, lang);
     const cl = contentLang !== lang ? contentLang : undefined;
+    // ─── Enhanced sections (before/after base sections) ────────────────────
+    let executiveSummaryHtml = '';
+    let reasoningChainsHtml = '';
+    let scenarioPlanningHtml = '';
+    let methodologyHtml = '';
+    if (isEnhancedDeepAnalysis(analysis)) {
+        if (analysis.executiveSummary) {
+            executiveSummaryHtml = buildExecutiveSummarySection(analysis.executiveSummary, analysis.qualityMetadata?.overallConfidence, strings.executiveSummaryHeading, strings, cl);
+        }
+        if (analysis.reasoningChains && analysis.reasoningChains.length > 0) {
+            reasoningChainsHtml = buildReasoningChainSection(analysis.reasoningChains, strings.reasoningChainsHeading, strings, cl);
+        }
+        if (analysis.scenarioPlanning) {
+            scenarioPlanningHtml = buildScenarioPlanningSection(analysis.scenarioPlanning, strings.scenarioPlanningHeading, strings, cl);
+        }
+        if (analysis.qualityMetadata) {
+            methodologyHtml = buildAnalysisMethodologySection(analysis.qualityMetadata, strings.analysisMethodologyHeading, strings, cl);
+        }
+    }
+    // ─── Base "5W + Impact" sections ───────────────────────────────────────
     const whatHtml = buildWhatSection(analysis.what, strings.whatHeading, cl);
     const whoHtml = buildWhoSection(analysis.who, strings.whoHeading, cl);
     const whenHtml = buildWhenSection(analysis.when, strings.whenHeading, cl);
@@ -512,17 +804,21 @@ export function buildDeepAnalysisSection(analysis, lang, contentLang = lang) {
     const outlookHtml = buildOutlookSection(analysis.outlook, strings.outlookHeading, cl);
     const perspectivesHtml = buildStakeholderPerspectivesSection(analysis.stakeholderPerspectives, strings.perspectivesHeading, strings, cl);
     const outcomeMatrixHtml = buildStakeholderOutcomeMatrixSection(analysis.stakeholderOutcomeMatrix, strings.outcomeMatrixHeading, strings, cl);
-    const innerContent = whatHtml +
+    const innerContent = executiveSummaryHtml +
+        whatHtml +
         whoHtml +
         whenHtml +
         whyHtml +
+        reasoningChainsHtml +
         stakeholderHtml +
         impactHtml +
         consequencesHtml +
         mistakesHtml +
         outlookHtml +
+        scenarioPlanningHtml +
         perspectivesHtml +
-        outcomeMatrixHtml;
+        outcomeMatrixHtml +
+        methodologyHtml;
     // If all sub-sections are empty, return nothing
     if (!innerContent.trim())
         return '';

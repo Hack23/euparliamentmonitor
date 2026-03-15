@@ -462,6 +462,50 @@ export interface DeepAnalysisStrings {
   readonly positiveLabel: string;
   readonly negativeLabel: string;
   readonly mixedLabel: string;
+  // ─── Enhanced analysis strings ───────────────────────────────────────────
+  /** Heading for executive summary section */
+  readonly executiveSummaryHeading: string;
+  /** Confidence level labels */
+  readonly confidenceHigh: string;
+  readonly confidenceMedium: string;
+  readonly confidenceLow: string;
+  /** Evidence references heading */
+  readonly evidenceRefsHeading: string;
+  /** Counter-arguments heading */
+  readonly counterArgumentsHeading: string;
+  /** Section labels for reasoning chains */
+  readonly conclusionLabel: string;
+  readonly premiseLabel: string;
+  readonly inferenceLabel: string;
+  /** Heading for reasoning chains section */
+  readonly reasoningChainsHeading: string;
+  /** Heading for scenario planning section */
+  readonly scenarioPlanningHeading: string;
+  /** Scenario labels */
+  readonly bestCaseLabel: string;
+  readonly worstCaseLabel: string;
+  readonly mostLikelyLabel: string;
+  readonly wildcardsLabel: string;
+  readonly probabilityLabel: string;
+  readonly triggersLabel: string;
+  readonly impliedImpactsLabel: string;
+  readonly timelineLabel: string;
+  /** Heading for analysis methodology section */
+  readonly analysisMethodologyHeading: string;
+  /** Methodology metadata labels */
+  readonly iterationCountLabel: string;
+  readonly evidenceStrengthLabel: string;
+  /** Evidence strength values */
+  readonly evidenceStrong: string;
+  readonly evidenceModerate: string;
+  readonly evidenceWeak: string;
+  /** Iteration type labels */
+  readonly iterationInitial: string;
+  readonly iterationStakeholderChallenge: string;
+  readonly iterationEvidenceValidation: string;
+  readonly iterationSynthesis: string;
+  /** Label for overall confidence in methodology stats */
+  readonly overallConfidenceLabel: string;
 }
 
 /** Localized content strings for the committee analysis deep analysis body text */
