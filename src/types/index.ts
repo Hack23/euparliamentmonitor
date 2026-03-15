@@ -205,3 +205,13 @@ export type {
   ArticleIndexEntry,
   IntelligenceIndex,
 } from './intelligence.js';
+  AnalysisStakeholderType,
+  StakeholderImpact,
+  StakeholderSeverity,
+  StakeholderPerspective,
+  AnalysisIterationType,
+  AnalysisIteration,
+  StakeholderOutcomeMatrix,
+} from './stakeholder.js';
+
+export { ALL_STAKEHOLDER_TYPES } from './stakeholder.js';
