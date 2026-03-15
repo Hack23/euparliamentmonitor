@@ -90,3 +90,27 @@ export interface GenerationResult {
   slug?: string | undefined;
   error?: string | undefined;
 }
+
+/** Article quality score metadata */
+export interface ArticleQualityScore {
+  /** Approximate word count (HTML-stripped) */
+  wordCount: number;
+  /** Number of analysis sections (excludes visualization sections like dashboard, mindmap, SWOT) */
+  analysisSections: number;
+  /** Number of data visualizations (charts, dashboards, mindmaps, SWOT analyses) */
+  visualizationCount: number;
+  /** Number of external evidence references (links to EP resources with a path beyond the homepage) */
+  evidenceReferences: number;
+  /** Overall quality rating */
+  overallScore: 'excellent' | 'good' | 'adequate' | 'needs-improvement';
+}
+
+/** Table of contents entry */
+export interface TOCEntry {
+  /** Anchor id (without #) */
+  id: string;
+  /** Display label */
+  label: string;
+  /** Nesting level (1 = top-level) */
+  level: 1 | 2;
+}
