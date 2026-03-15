@@ -368,7 +368,10 @@ function normalizeArticleEntry(entry: Partial<ArticleIndexEntry>): ArticleIndexE
   return {
     id: typeof entry.id === 'string' ? entry.id : '',
     date: typeof entry.date === 'string' ? entry.date : '',
-    type: typeof entry.type === 'string' ? entry.type : (ArticleCategory.WEEK_AHEAD as ArticleIndexEntry['type']),
+    type:
+      typeof entry.type === 'string'
+        ? entry.type
+        : (ArticleCategory.WEEK_AHEAD as ArticleIndexEntry['type']),
     lang: typeof entry.lang === 'string' ? entry.lang : 'en',
     keyTopics: Array.isArray(entry.keyTopics) ? entry.keyTopics : [],
     keyActors: Array.isArray(entry.keyActors) ? entry.keyActors : [],
