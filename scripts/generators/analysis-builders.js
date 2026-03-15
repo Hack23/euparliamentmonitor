@@ -1972,7 +1972,8 @@ export function buildProspectiveMindmap(weekData, _lang = 'en') {
     ];
     const events = weekData.events ?? [];
     const pipeline = weekData.pipeline ?? [];
-    const bottleneckCount = pipeline.filter((p) => p.bottleneck === true).length;
+    const pipelineSlice = pipeline.slice(0, 4);
+    const bottleneckCount = pipelineSlice.filter((p) => p.bottleneck === true).length;
     const domainNodes = policyDomains.map((domain, i) => {
         const relatedEvents = events.slice(i * 2, i * 2 + 2);
         const children = relatedEvents.map((ev, ei) => ({
@@ -1993,7 +1994,6 @@ export function buildProspectiveMindmap(weekData, _lang = 'en') {
         };
     });
     // Build pipeline actor nodes preserving original indices as stable IDs
-    const pipelineSlice = pipeline.slice(0, 4);
     const actorNetwork = [
         {
             id: 'ep-plenary',

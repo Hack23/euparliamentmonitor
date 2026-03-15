@@ -241,13 +241,15 @@ function countNodesRecursive(nodes) {
  * @returns Color palette object with bg, border, and text properties
  */
 function getNodePalette(category, color) {
-    if (color) {
-        const branchPalette = BRANCH_PALETTE[color];
-        if (branchPalette)
-            return branchPalette;
+    if (color && Object.hasOwn(BRANCH_PALETTE, color)) {
+        return BRANCH_PALETTE[color];
     }
-    const catPalette = CATEGORY_PALETTE[category];
-    return catPalette ?? { bg: '#e3f2fd', border: '#1565c0', text: '#1565c0' };
+    if (Object.hasOwn(CATEGORY_PALETTE, category)) {
+        const entry = CATEGORY_PALETTE[category];
+        if (entry)
+            return entry;
+    }
+    return { bg: '#e3f2fd', border: '#1565c0', text: '#1565c0' };
 }
 /**
  * Clamp influence value to valid 0–1 range.
