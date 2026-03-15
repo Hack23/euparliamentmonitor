@@ -11,7 +11,7 @@ import fs from 'fs';
 import path from 'path';
 import { NEWS_DIR } from '../constants/config.js';
 import { getNewsArticles, parseArticleFilename, formatSlug, extractArticleMeta, } from './file-utils.js';
-import { createEmptyIndex, addArticleToIndex, detectTrends, saveIntelligenceIndex, } from './intelligence-index.js';
+import { buildIndexFromEntries, detectTrends, saveIntelligenceIndex, } from './intelligence-index.js';
 import { detectCategory } from './article-category.js';
 /** Default path for the metadata database file */
 const METADATA_DB_PATH = path.join(NEWS_DIR, 'articles-metadata.json');
@@ -102,9 +102,9 @@ const INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
  * @returns The rebuilt {@link IntelligenceIndex}
  */
 export function updateIntelligenceIndex(newsDir = NEWS_DIR, indexPath = INTELLIGENCE_INDEX_PATH) {
-    // Start from a fresh empty index so that deleted/renamed articles are pruned
-    let index = createEmptyIndex();
     const articleFiles = getNewsArticles(newsDir);
+    // Collect all entries in a single pass, then build the index in O(n) time
+    const entries = [];
     for (const filename of articleFiles) {
         const parsed = parseArticleFilename(filename);
         if (!parsed)
@@ -116,7 +116,7 @@ export function updateIntelligenceIndex(newsDir = NEWS_DIR, indexPath = INTELLIG
         const category = detectCategory(parsed.slug);
         // Extract meaningful key topics from the slug and article metadata
         const keyTopics = deriveKeyTopics(parsed.slug, parsed.lang, meta.title, meta.description);
-        const entry = {
+        entries.push({
             id: articleId,
             date: parsed.date,
             type: category,
@@ -126,9 +126,9 @@ export function updateIntelligenceIndex(newsDir = NEWS_DIR, indexPath = INTELLIG
             procedures: [],
             crossReferences: [],
             trendContributions: [],
-        };
-        index = addArticleToIndex(index, entry);
+        });
     }
+    let index = buildIndexFromEntries(entries);
     // Refresh trend detections
     const trends = detectTrends(index);
     index = { ...index, trends, lastUpdated: new Date().toISOString() };

@@ -40,9 +40,10 @@ export {
   FOOTER_QUICK_LINKS_LABELS,
   FOOTER_BUILT_BY_LABELS,
   FOOTER_LANGUAGES_LABELS,
+  RELATED_ANALYSIS_LABELS,
 } from './language-ui.js';
 
-export type { AISection } from './language-ui.js';
+export type { AISection, RelationshipLabels, RelatedAnalysisStrings } from './language-ui.js';
 
 export {
   WEEK_AHEAD_TITLES,

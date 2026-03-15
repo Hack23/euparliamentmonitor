@@ -22,10 +22,10 @@ import type {
   ArticleMetadataEntry,
   NewsMetadataDatabase,
   IntelligenceIndex,
+  ArticleIndexEntry,
 } from '../types/index.js';
 import {
-  createEmptyIndex,
-  addArticleToIndex,
+  buildIndexFromEntries,
   detectTrends,
   saveIntelligenceIndex,
 } from './intelligence-index.js';
@@ -141,11 +141,10 @@ export function updateIntelligenceIndex(
   newsDir: string = NEWS_DIR,
   indexPath: string = INTELLIGENCE_INDEX_PATH
 ): IntelligenceIndex {
-  // Start from a fresh empty index so that deleted/renamed articles are pruned
-  let index = createEmptyIndex();
-
   const articleFiles = getNewsArticles(newsDir);
 
+  // Collect all entries in a single pass, then build the index in O(n) time
+  const entries: ArticleIndexEntry[] = [];
   for (const filename of articleFiles) {
     const parsed = parseArticleFilename(filename);
     if (!parsed) continue;
@@ -161,7 +160,7 @@ export function updateIntelligenceIndex(
     // Extract meaningful key topics from the slug and article metadata
     const keyTopics = deriveKeyTopics(parsed.slug, parsed.lang, meta.title, meta.description);
 
-    const entry = {
+    entries.push({
       id: articleId,
       date: parsed.date,
       type: category,
@@ -171,10 +170,10 @@ export function updateIntelligenceIndex(
       procedures: [],
       crossReferences: [],
       trendContributions: [],
-    };
-
-    index = addArticleToIndex(index, entry);
+    });
   }
+
+  let index = buildIndexFromEntries(entries);
 
   // Refresh trend detections
   const trends = detectTrends(index);

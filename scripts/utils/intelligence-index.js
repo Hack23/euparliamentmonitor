@@ -11,6 +11,7 @@
 import fs from 'fs';
 import path from 'path';
 import { ArticleCategory } from '../types/index.js';
+import { RELATED_ANALYSIS_LABELS, getLocalizedString } from '../constants/languages.js';
 // ─── Minimum article count to confirm a trend ────────────────────────────────
 /** Minimum number of articles required to recognise a trend */
 const MIN_TREND_ARTICLES = 2;
@@ -71,6 +72,42 @@ export function addArticleToIndex(index, entry) {
         actors,
         policyDomains,
         procedures,
+        lastUpdated: new Date().toISOString(),
+    };
+}
+// ─── buildIndexFromEntries ────────────────────────────────────────────────────
+/**
+ * Build a complete index from an array of entries in O(n) time.
+ *
+ * Unlike calling {@link addArticleToIndex} in a loop (which clones maps on every
+ * call, yielding O(n²) behaviour), this function mutates local maps in a single
+ * pass and returns a final immutable index.
+ *
+ * @param entries - All article entries to include
+ * @returns A fully populated {@link IntelligenceIndex}
+ */
+export function buildIndexFromEntries(entries) {
+    const actors = {};
+    const policyDomains = {};
+    const procedures = {};
+    for (const entry of entries) {
+        for (const actor of entry.keyActors) {
+            (actors[actor] ??= []).push(entry.id);
+        }
+        for (const topic of entry.keyTopics) {
+            (policyDomains[topic] ??= []).push(entry.id);
+        }
+        for (const proc of entry.procedures) {
+            (procedures[proc] ??= []).push(entry.id);
+        }
+    }
+    return {
+        articles: [...entries],
+        actors,
+        policyDomains,
+        procedures,
+        trends: [],
+        series: [],
         lastUpdated: new Date().toISOString(),
     };
 }
@@ -292,10 +329,11 @@ export function findOrCreateSeries(index, procedureRef, name) {
  * @returns A fully populated {@link ArticleIndexEntry}
  */
 function normalizeArticleEntry(entry) {
+    const VALID_CATEGORIES = new Set(Object.values(ArticleCategory));
     return {
         id: typeof entry.id === 'string' ? entry.id : '',
         date: typeof entry.date === 'string' ? entry.date : '',
-        type: typeof entry.type === 'string'
+        type: typeof entry.type === 'string' && VALID_CATEGORIES.has(entry.type)
             ? entry.type
             : ArticleCategory.WEEK_AHEAD,
         lang: typeof entry.lang === 'string' ? entry.lang : 'en',
@@ -448,230 +486,7 @@ export function saveIntelligenceIndex(index, indexPath) {
     }
     fs.writeFileSync(indexPath, JSON.stringify(index, null, 2), 'utf-8');
 }
-/** Localised strings for all 14 supported languages */
-const RELATED_ANALYSIS_STRINGS = {
-    en: {
-        sectionLabel: 'Related Analysis',
-        heading: 'Related Analysis',
-        emergingTrend: 'Emerging Trend',
-        trendTracking: 'article tracking',
-        confidence: 'confidence',
-        relatedArticle: 'Related',
-        relationships: {
-            follows_up: 'Previous',
-            preceded_by: 'Next',
-            related: 'Related',
-            contradicts: 'Contrast',
-            deepens: 'Deeper analysis',
-        },
-    },
-    sv: {
-        sectionLabel: 'Relaterad analys',
-        heading: 'Relaterad analys',
-        emergingTrend: 'Framväxande trend',
-        trendTracking: 'artikel som följer',
-        confidence: 'konfidens',
-        relatedArticle: 'Relaterad',
-        relationships: {
-            follows_up: 'Föregående',
-            preceded_by: 'Nästa',
-            related: 'Relaterad',
-            contradicts: 'Kontrast',
-            deepens: 'Djupare analys',
-        },
-    },
-    da: {
-        sectionLabel: 'Relateret analyse',
-        heading: 'Relateret analyse',
-        emergingTrend: 'Fremvoksende tendens',
-        trendTracking: 'artikel der følger',
-        confidence: 'konfidens',
-        relatedArticle: 'Relateret',
-        relationships: {
-            follows_up: 'Foregående',
-            preceded_by: 'Næste',
-            related: 'Relateret',
-            contradicts: 'Kontrast',
-            deepens: 'Dybere analyse',
-        },
-    },
-    no: {
-        sectionLabel: 'Relatert analyse',
-        heading: 'Relatert analyse',
-        emergingTrend: 'Fremvoksende trend',
-        trendTracking: 'artikkel som følger',
-        confidence: 'konfidens',
-        relatedArticle: 'Relatert',
-        relationships: {
-            follows_up: 'Forrige',
-            preceded_by: 'Neste',
-            related: 'Relatert',
-            contradicts: 'Kontrast',
-            deepens: 'Dypere analyse',
-        },
-    },
-    fi: {
-        sectionLabel: 'Liittyvä analyysi',
-        heading: 'Liittyvä analyysi',
-        emergingTrend: 'Kehittyvä trendi',
-        trendTracking: 'artikkeli seuraa',
-        confidence: 'luottamus',
-        relatedArticle: 'Liittyvä',
-        relationships: {
-            follows_up: 'Edellinen',
-            preceded_by: 'Seuraava',
-            related: 'Liittyvä',
-            contradicts: 'Kontrasti',
-            deepens: 'Syvempi analyysi',
-        },
-    },
-    de: {
-        sectionLabel: 'Verwandte Analyse',
-        heading: 'Verwandte Analyse',
-        emergingTrend: 'Aufkommender Trend',
-        trendTracking: 'Artikel verfolgt',
-        confidence: 'Konfidenz',
-        relatedArticle: 'Verwandt',
-        relationships: {
-            follows_up: 'Vorheriger',
-            preceded_by: 'Nächster',
-            related: 'Verwandt',
-            contradicts: 'Kontrast',
-            deepens: 'Tiefere Analyse',
-        },
-    },
-    fr: {
-        sectionLabel: 'Analyse connexe',
-        heading: 'Analyse connexe',
-        emergingTrend: 'Tendance émergente',
-        trendTracking: 'article suivant',
-        confidence: 'confiance',
-        relatedArticle: 'Connexe',
-        relationships: {
-            follows_up: 'Précédent',
-            preceded_by: 'Suivant',
-            related: 'Connexe',
-            contradicts: 'Contraste',
-            deepens: 'Analyse approfondie',
-        },
-    },
-    es: {
-        sectionLabel: 'Análisis relacionado',
-        heading: 'Análisis relacionado',
-        emergingTrend: 'Tendencia emergente',
-        trendTracking: 'artículo siguiendo',
-        confidence: 'confianza',
-        relatedArticle: 'Relacionado',
-        relationships: {
-            follows_up: 'Anterior',
-            preceded_by: 'Siguiente',
-            related: 'Relacionado',
-            contradicts: 'Contraste',
-            deepens: 'Análisis profundo',
-        },
-    },
-    nl: {
-        sectionLabel: 'Gerelateerde analyse',
-        heading: 'Gerelateerde analyse',
-        emergingTrend: 'Opkomende trend',
-        trendTracking: 'artikel volgt',
-        confidence: 'vertrouwen',
-        relatedArticle: 'Gerelateerd',
-        relationships: {
-            follows_up: 'Vorige',
-            preceded_by: 'Volgende',
-            related: 'Gerelateerd',
-            contradicts: 'Contrast',
-            deepens: 'Diepere analyse',
-        },
-    },
-    ar: {
-        sectionLabel: 'تحليل ذو صلة',
-        heading: 'تحليل ذو صلة',
-        emergingTrend: 'اتجاه ناشئ',
-        trendTracking: 'مقال يتتبع',
-        confidence: 'الثقة',
-        relatedArticle: 'ذو صلة',
-        relationships: {
-            follows_up: 'السابق',
-            preceded_by: 'التالي',
-            related: 'ذو صلة',
-            contradicts: 'تباين',
-            deepens: 'تحليل أعمق',
-        },
-    },
-    he: {
-        sectionLabel: 'ניתוח קשור',
-        heading: 'ניתוח קשור',
-        emergingTrend: 'מגמה מתפתחת',
-        trendTracking: 'מאמר עוקב',
-        confidence: 'ביטחון',
-        relatedArticle: 'קשור',
-        relationships: {
-            follows_up: 'הקודם',
-            preceded_by: 'הבא',
-            related: 'קשור',
-            contradicts: 'ניגוד',
-            deepens: 'ניתוח מעמיק',
-        },
-    },
-    ja: {
-        sectionLabel: '関連分析',
-        heading: '関連分析',
-        emergingTrend: '新たなトレンド',
-        trendTracking: '記事が追跡中',
-        confidence: '信頼度',
-        relatedArticle: '関連',
-        relationships: {
-            follows_up: '前回',
-            preceded_by: '次回',
-            related: '関連',
-            contradicts: '対比',
-            deepens: '深掘り分析',
-        },
-    },
-    ko: {
-        sectionLabel: '관련 분석',
-        heading: '관련 분석',
-        emergingTrend: '새로운 트렌드',
-        trendTracking: '기사 추적 중',
-        confidence: '신뢰도',
-        relatedArticle: '관련',
-        relationships: {
-            follows_up: '이전',
-            preceded_by: '다음',
-            related: '관련',
-            contradicts: '대비',
-            deepens: '심층 분석',
-        },
-    },
-    zh: {
-        sectionLabel: '相关分析',
-        heading: '相关分析',
-        emergingTrend: '新兴趋势',
-        trendTracking: '篇文章追踪',
-        confidence: '置信度',
-        relatedArticle: '相关',
-        relationships: {
-            follows_up: '上一篇',
-            preceded_by: '下一篇',
-            related: '相关',
-            contradicts: '对比',
-            deepens: '深入分析',
-        },
-    },
-};
-/**
- * Resolve localised UI strings for the Related Analysis section.
- * Falls back to English for unknown language codes.
- *
- * @param lang - Language code (e.g. "en", "fr", "ja")
- * @returns Localised string set
- */
-function getRelatedAnalysisStrings(lang) {
-    const EN_STRINGS = RELATED_ANALYSIS_STRINGS['en'];
-    return RELATED_ANALYSIS_STRINGS[lang ?? 'en'] ?? EN_STRINGS;
-}
+// ─── buildRelatedArticlesHTML ────────────────────────────────────────────────
 /**
  * Generate an HTML `<section>` listing related articles, cross-references, and
  * emerging trends for embedding in a generated article.
@@ -689,7 +504,7 @@ export function buildRelatedArticlesHTML(relatedArticles, crossRefs, trends, lan
     if (relatedArticles.length === 0 && crossRefs.length === 0 && trends.length === 0) {
         return '';
     }
-    const strings = getRelatedAnalysisStrings(lang);
+    const strings = getLocalizedString(RELATED_ANALYSIS_LABELS, lang ?? 'en');
     const listItems = crossRefs
         .map((ref) => {
         const article = relatedArticles.find((a) => a.id === ref.targetArticleId);

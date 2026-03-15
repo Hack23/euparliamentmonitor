@@ -76,7 +76,7 @@ function buildFooterLanguageGrid(currentLang) {
 function renderCard(article, meta, categoryLabels) {
     const category = detectCategory(article.slug);
     // Sanitize the category for safe use in CSS class names (allow only alphanumeric and hyphens)
-    const safeCategory = category.replace(/[^a-z0-9-]/gi, '');
+    const safeCategory = String(category).replace(/[^a-z0-9-]/gi, '');
     const title = escapeHTML(meta.title || formatSlug(article.slug));
     const badgeLabel = categoryLabels?.[category] ?? formatSlug(safeCategory);
     const excerpt = meta.description
@@ -165,7 +165,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
         ? Array.from(usedCategories)
             .sort()
             .map((cat) => {
-            const safeCat = cat.replace(/[^a-z0-9-]/gi, '');
+            const safeCat = String(cat).replace(/[^a-z0-9-]/gi, '');
             const label = categoryLabels[cat] ?? formatSlug(safeCat);
             const count = categoryCounts.get(cat) ?? 0;
             return `<button type="button" class="filter-btn" data-category="${safeCat}">${escapeHTML(label)}<span class="filter-btn__count">${count}</span></button>`;

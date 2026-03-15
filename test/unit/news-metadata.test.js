@@ -59,7 +59,8 @@ describe('utils/news-metadata', () => {
     });
 
     it('should use real title from h1 when present in HTML', () => {
-      const html = '<h1>Real Committee Title</h1><meta name="description" content="Real description here">';
+      const html =
+        '<h1>Real Committee Title</h1><meta name="description" content="Real description here">';
       fs.writeFileSync(path.join(newsDir, '2025-03-01-committee-report-fr.html'), html);
 
       const db = buildMetadataDatabase(newsDir);
@@ -142,11 +143,11 @@ describe('utils/news-metadata', () => {
       // Create two articles with overlapping topics so trends are generated
       fs.writeFileSync(
         path.join(newsDir, '2025-01-15-green-deal-week-ahead-en.html'),
-        '<html><head><title>Green Deal Week Ahead</title><meta name="description" content="Green Deal analysis"></head><body></body></html>'
+        '<html><head><meta name="description" content="Green Deal analysis"></head><body><h1>Green Deal Week Ahead</h1></body></html>'
       );
       fs.writeFileSync(
         path.join(newsDir, '2025-01-22-green-deal-week-ahead-en.html'),
-        '<html><head><title>Green Deal Week Ahead 2</title><meta name="description" content="Green Deal follow-up"></head><body></body></html>'
+        '<html><head><meta name="description" content="Green Deal follow-up"></head><body><h1>Green Deal Week Ahead 2</h1></body></html>'
       );
 
       const indexPath = path.join(tempDir, 'intelligence-index.json');
@@ -202,11 +203,11 @@ describe('utils/news-metadata', () => {
       // Create articles sharing the topic "digital" via slug
       fs.writeFileSync(
         path.join(newsDir, '2025-03-01-digital-regulation-week-ahead-en.html'),
-        '<html><head><title>Digital Regulation</title></head><body></body></html>'
+        '<html><head></head><body><h1>Digital Regulation</h1></body></html>'
       );
       fs.writeFileSync(
         path.join(newsDir, '2025-03-08-digital-markets-week-ahead-en.html'),
-        '<html><head><title>Digital Markets</title></head><body></body></html>'
+        '<html><head></head><body><h1>Digital Markets</h1></body></html>'
       );
 
       const indexPath = path.join(tempDir, 'intelligence-index.json');
@@ -214,9 +215,7 @@ describe('utils/news-metadata', () => {
 
       // Both articles should share "digital" topic, triggering trend detection
       expect(index.trends.length).toBeGreaterThanOrEqual(1);
-      const digitalTrend = index.trends.find((t) =>
-        t.name.toLowerCase().includes('digital')
-      );
+      const digitalTrend = index.trends.find((t) => t.name.toLowerCase().includes('digital'));
       expect(digitalTrend).toBeDefined();
       expect(digitalTrend.articleReferences.length).toBeGreaterThanOrEqual(2);
     });

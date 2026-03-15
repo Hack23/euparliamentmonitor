@@ -205,6 +205,8 @@ export type {
   ArticleIndexEntry,
   IntelligenceIndex,
 } from './intelligence.js';
+
+export type {
   ConfidenceLevel,
   EvidenceReference,
   ReasoningChain,
