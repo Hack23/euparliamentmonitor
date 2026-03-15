@@ -7,6 +7,7 @@
  */
 import { escapeHTML } from '../utils/file-utils.js';
 import { getLocalizedString, TOC_ARIA_LABELS } from '../constants/languages.js';
+import { stripScriptBlocks } from '../utils/html-sanitize.js';
 /**
  * Count occurrences of a regex pattern in a string.
  *
@@ -39,48 +40,7 @@ function countClassToken(content, token) {
     }
     return count;
 }
-/**
- * Remove all `<script>…</script>` blocks from an HTML string, replacing each
- * with a single space.
- *
- * Uses iterative index-based scanning instead of a single-pass regex so that
- * CodeQL does not flag the pattern as an insecure HTML tag filter
- * (`js/bad-tag-filter`).
- *
- * @param html - HTML string to strip
- * @returns The HTML with script blocks replaced by spaces
- */
-function stripScriptBlocks(html) {
-    let result = '';
-    let pos = 0;
-    const lower = html.toLowerCase();
-    while (pos < html.length) {
-        const openIdx = lower.indexOf('<script', pos);
-        if (openIdx < 0) {
-            result += html.slice(pos);
-            break;
-        }
-        result += html.slice(pos, openIdx);
-        const openEnd = html.indexOf('>', openIdx);
-        if (openEnd < 0) {
-            result += html.slice(openIdx);
-            break;
-        }
-        const closeIdx = lower.indexOf('</script', openEnd + 1);
-        if (closeIdx < 0) {
-            result += ' ';
-            break;
-        }
-        const closeEnd = html.indexOf('>', closeIdx);
-        if (closeEnd < 0) {
-            result += ' ';
-            break;
-        }
-        result += ' ';
-        pos = closeEnd + 1;
-    }
-    return result;
-}
+// stripScriptBlocks is imported from html-sanitize.ts
 /**
  * Compute an article quality score by analysing the rendered HTML content.
  *

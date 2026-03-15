@@ -9,6 +9,7 @@
  * read-time accuracy, and keyword localization. Produces a structured quality report.
  */
 import { ArticleCategory } from '../types/index.js';
+import { stripScriptBlocks } from './html-sanitize.js';
 // ─── Constants ────────────────────────────────────────────────────────────────
 /** Minimum word counts (plain text) required per article category */
 const MIN_WORD_COUNTS = {
@@ -67,50 +68,7 @@ const LOCALIZED_KEYWORD_INDICATORS = {
     zh: ['议会', '立法', '委员会', '投票', '条例', '欧洲'],
 };
 // ─── Helpers ──────────────────────────────────────────────────────────────────
-/**
- * Remove all `<script>…</script>` blocks from an HTML string, replacing each
- * with a single space.
- *
- * Uses iterative index-based scanning instead of a single-pass regex so that
- * CodeQL does not flag the pattern as an insecure HTML tag filter
- * (`js/bad-tag-filter`).
- *
- * @param html - HTML string to strip
- * @returns The HTML with script blocks replaced by spaces
- */
-function stripScriptBlocks(html) {
-    const OPEN = '<script';
-    const CLOSE = '</script';
-    let result = '';
-    let pos = 0;
-    const lower = html.toLowerCase();
-    while (pos < html.length) {
-        const openIdx = lower.indexOf(OPEN, pos);
-        if (openIdx < 0) {
-            result += html.slice(pos);
-            break;
-        }
-        result += html.slice(pos, openIdx);
-        const openEnd = html.indexOf('>', openIdx);
-        if (openEnd < 0) {
-            result += html.slice(openIdx);
-            break;
-        }
-        const closeIdx = lower.indexOf(CLOSE, openEnd + 1);
-        if (closeIdx < 0) {
-            result += ' ';
-            break;
-        }
-        const closeEnd = html.indexOf('>', closeIdx);
-        if (closeEnd < 0) {
-            result += ' ';
-            break;
-        }
-        result += ' ';
-        pos = closeEnd + 1;
-    }
-    return result;
-}
+// stripScriptBlocks is imported from html-sanitize.ts
 /**
  * Extract plain text from the `<main>` element of an article and count words.
  *

@@ -339,7 +339,25 @@ describe('assessVisualizationQuality', () => {
       </section>`
     );
     const result = assessVisualizationQuality(html);
-    // Counts all <li> within the mindmap-branches container (3 total)
+    // Counts only direct <li> children of the mindmap-branches container,
+    // NOT nested subnodes — so 1 top-level branch, not 3 total nodes
+    expect(result.mindmapBranches).toBe(1);
+  });
+
+  it('counts multiple direct <li> branches but not nested subnodes', () => {
+    const html = buildHtml(
+      `<section class="mindmap-section">
+        <div class="mindmap-container">
+          <ul class="mindmap-branches">
+            <li>Branch A<ul><li>Sub A1</li><li>Sub A2</li></ul></li>
+            <li>Branch B<ul><li>Sub B1</li></ul></li>
+            <li>Branch C</li>
+          </ul>
+        </div>
+      </section>`
+    );
+    const result = assessVisualizationQuality(html);
+    // 3 direct branches — nested <li> in sublists are excluded
     expect(result.mindmapBranches).toBe(3);
   });
 
@@ -412,6 +430,21 @@ describe('assessVisualizationQuality', () => {
     expect(result.deepAnalysisPresent).toBe(true);
     // 2 items from first section + 1 item + 1 legacy from second = 4
     expect(result.deepAnalysisEvidence).toBe(4);
+  });
+
+  it('deduplicates deep-analysis section matching both class and id patterns', () => {
+    // A single section matching both class="deep-analysis" and id containing "deep"
+    // should be counted once, not twice.
+    const html = buildHtml(`
+      <section class="deep-analysis" id="section-deep-1">
+        <span class="evidence">Evidence 1</span>
+        <span class="evidence">Evidence 2</span>
+      </section>
+    `);
+    const result = assessVisualizationQuality(html);
+    expect(result.deepAnalysisPresent).toBe(true);
+    // 2 evidence markers — not 4 (which would indicate double-counting)
+    expect(result.deepAnalysisEvidence).toBe(2);
   });
 
   it('counts <li> items in perspective-evidence <ul> without requiring div/section wrapper', () => {

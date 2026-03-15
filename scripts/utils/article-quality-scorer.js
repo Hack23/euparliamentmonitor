@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
+import { stripScriptBlocks } from './html-sanitize.js';
 // ─── Scoring constants ────────────────────────────────────────────────────────
 /** Weight applied to analysis depth score in overall calculation */
 const WEIGHT_ANALYSIS_DEPTH = 0.25;
@@ -251,55 +252,7 @@ function containsAnyKeyword(text, keywords) {
         return pattern.test(text);
     });
 }
-/**
- * Remove all `<script>…</script>` blocks from an HTML string, replacing each
- * with a single space.
- *
- * Uses iterative index-based scanning instead of a single-pass regex so that
- * CodeQL does not flag the pattern as an insecure HTML tag filter
- * (`js/bad-tag-filter`).
- *
- * @param html - HTML string to strip
- * @returns The HTML with script blocks replaced by spaces
- */
-function stripScriptBlocks(html) {
-    const OPEN = '<script';
-    const CLOSE = '</script';
-    let result = '';
-    let pos = 0;
-    const lower = html.toLowerCase();
-    while (pos < html.length) {
-        const openIdx = lower.indexOf(OPEN, pos);
-        if (openIdx < 0) {
-            result += html.slice(pos);
-            break;
-        }
-        // Copy everything before the opening <script
-        result += html.slice(pos, openIdx);
-        // Find the end of the opening tag
-        const openEnd = html.indexOf('>', openIdx);
-        if (openEnd < 0) {
-            // Malformed — no closing `>`, keep rest as-is
-            result += html.slice(openIdx);
-            break;
-        }
-        // Find the closing </script...> tag
-        const closeIdx = lower.indexOf(CLOSE, openEnd + 1);
-        if (closeIdx < 0) {
-            // No closing tag — drop the rest
-            result += ' ';
-            break;
-        }
-        const closeEnd = html.indexOf('>', closeIdx);
-        if (closeEnd < 0) {
-            result += ' ';
-            break;
-        }
-        result += ' ';
-        pos = closeEnd + 1;
-    }
-    return result;
-}
+// stripScriptBlocks is imported from html-sanitize.ts
 /**
  * Extract the plain text content from the `<main>` element of an HTML string.
  * Falls back to the full document when no `<main>` is found.
@@ -390,7 +343,54 @@ function countListItemsInClass(html, containerClass) {
     return total;
 }
 /**
- * Extract the inner content of the HTML element whose opening tag contains the
+ * Count only direct (top-level) `<li>` children of the first container matching
+ * the given class attribute prefix. Tracks nesting depth of list elements
+ * (`<ul>`, `<ol>`) so that `<li>` tags inside nested sublists are excluded.
+ *
+ * This avoids inflating the count for deep-but-narrow structures where nested
+ * subnodes are also wrapped in `<li>` elements.
+ *
+ * @param html - HTML string to search
+ * @param containerClassPrefix - Class attribute prefix to locate (e.g. `class="mindmap-branches`)
+ * @returns Number of direct `<li>` children in the first matching container
+ */
+function countDirectListChildren(html, containerClassPrefix) {
+    const idx = html.indexOf(containerClassPrefix);
+    if (idx < 0)
+        return 0;
+    // Complete the attribute value to find the closing quote
+    const quoteEnd = html.indexOf('"', idx + containerClassPrefix.length);
+    if (quoteEnd < 0)
+        return 0;
+    const fullAttr = html.slice(idx, quoteEnd + 1);
+    const content = extractContainerContent(html, idx, fullAttr);
+    if (!content)
+        return 0;
+    // Scan through the container content tracking list nesting depth.
+    // Only count <li> tags at depth 0 (direct children of the container).
+    let count = 0;
+    let listDepth = 0;
+    const tagPattern = /<(\/?)(?:ul|ol|li)(?=[\s>/])/giu;
+    let m = tagPattern.exec(content);
+    while (m) {
+        const isClosing = m[1] === '/';
+        const tagLower = m[0].replace(/^<\/?/u, '').toLowerCase();
+        if (tagLower === 'ul' || tagLower === 'ol') {
+            if (isClosing) {
+                listDepth = Math.max(0, listDepth - 1);
+            }
+            else {
+                listDepth++;
+            }
+        }
+        else if (tagLower === 'li' && !isClosing && listDepth === 0) {
+            count++;
+        }
+        m = tagPattern.exec(content);
+    }
+    return count;
+}
+/**
  * attribute match at the given position. Identifies the tag name by searching
  * backwards for `<tagname`, then finds the end of the opening tag (`>`), and
  * uses balanced tag matching on that specific element to locate the matching
@@ -488,13 +488,29 @@ function countEvidenceRefs(html) {
         epRefs);
 }
 /**
+ * Search backwards from a given index to find the opening `<` of the
+ * enclosing HTML tag.
+ *
+ * @param html - HTML string to search
+ * @param fromIdx - Index to start searching backwards from
+ * @param fallback - Value to return if no `<` is found
+ * @returns Index of the opening `<`, or `fallback` if none is found
+ */
+function findTagStartBefore(html, fromIdx, fallback) {
+    let pos = fromIdx - 1;
+    while (pos >= 0 && html[pos] !== '<')
+        pos--;
+    return pos >= 0 ? pos : fallback;
+}
+/**
  * Count evidence markers inside deep-analysis sections only, preventing
  * inflation from evidence markers elsewhere in the article.
  *
  * Iterates ALL matching deep-analysis sections (not just the first),
  * so articles with multiple deep-analysis blocks are fully counted.
- * Deduplicates matches across class and id patterns so that a container
- * having both `class="deep-analysis"` and `id="…deep…"` is only counted once.
+ * Deduplicates matches across class and id patterns using the opening-tag
+ * boundary (`<` position) so that a tag matching both class and id is counted
+ * only once.
  *
  * Detects:
  * - `<li>` items inside `<ul class="perspective-evidence">` — real generator output
@@ -508,15 +524,14 @@ function countEvidenceRefs(html) {
 function countDeepAnalysisSectionEvidence(html) {
     const openPatterns = [/class="deep-analysis"[^>]*>/giu, /id="[^"]*deep[^"]*"[^>]*>/giu];
     let total = 0;
-    // Track matched opening-tag indices to avoid counting the same section twice
-    // when it matches both the class and id patterns.
-    const countedIndices = new Set();
+    const countedTagStarts = new Set();
     for (const pattern of openPatterns) {
         pattern.lastIndex = 0;
         let openMatch = pattern.exec(html);
         while (openMatch) {
-            if (!countedIndices.has(openMatch.index)) {
-                countedIndices.add(openMatch.index);
+            const tagStart = findTagStartBefore(html, openMatch.index, openMatch.index);
+            if (!countedTagStarts.has(tagStart)) {
+                countedTagStarts.add(tagStart);
                 const startIdx = openMatch.index + openMatch[0].length;
                 const sectionContent = findBalancedContent(html, startIdx);
                 if (sectionContent) {
@@ -540,8 +555,8 @@ function countDeepAnalysisSectionEvidence(html) {
  *    set this to the exact number of top-level branches (`config.branches.length`
  *    or `domainNodes.length`), so it is the most reliable source.
  * 2. `class="mindmap-branch"` element count.
- * 3. Direct `<li>` children of the first `.mindmap-branches` list (layer-1 only)
- *    to avoid inflating the metric with nested subnodes.
+ * 3. Direct `<li>` children of the first `.mindmap-branches` container (layer-1
+ *    only), using nesting-depth tracking to exclude nested subnodes.
  *
  * @param html - Raw HTML string
  * @returns Number of mindmap branches detected
@@ -558,8 +573,8 @@ function computeMindmapBranches(html) {
     const branchCount = countOccurrences(html, 'class="mindmap-branch"');
     if (branchCount > 0)
         return branchCount;
-    // 3. Count layer-1 <li> children of the mindmap-branches list
-    return countListItemsInClass(html, 'class="mindmap-branches"');
+    // 3. Count only direct <li> children of the mindmap-branches container
+    return countDirectListChildren(html, 'class="mindmap-branches');
 }
 /**
  * Walk forward from a starting position to find balanced closing tag content.
