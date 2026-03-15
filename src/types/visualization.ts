@@ -479,7 +479,12 @@ export interface MindmapNode {
   readonly category: MindmapNodeCategory;
   /** Normalized influence weight 0–1 (drives `--node-influence` CSS var). */
   readonly influence: number;
-  /** Semantic color key from the 8-color branch palette. */
+  /**
+   * Optional semantic color key from the 8-color branch palette.
+   * When set to a valid `MindmapBranchColor` key (cyan, green, red, etc.),
+   * overrides the default category-based palette for this node.
+   * When unrecognized or empty, the renderer falls back to the category palette.
+   */
   readonly color: string;
   /** Child nodes one layer deeper in the hierarchy. */
   readonly children: readonly MindmapNode[];
@@ -505,12 +510,15 @@ export interface MindmapLayer {
 }
 
 /**
- * A directed connection between two mindmap nodes revealing policy linkages.
+ * A directed connection between two endpoints in the intelligence mindmap.
+ * Endpoints may reference either layer node IDs or actorNetwork IDs,
+ * allowing connections between rendered domain nodes and actor-network
+ * entities (e.g., anomaly or pipeline procedure nodes).
  */
 export interface PolicyConnection {
-  /** ID of the source node. */
+  /** ID of the source endpoint (layer node or actorNetwork node). */
   readonly from: string;
-  /** ID of the target node. */
+  /** ID of the target endpoint (layer node or actorNetwork node). */
   readonly to: string;
   /** Confidence level of the relationship. */
   readonly strength: PolicyConnectionStrength;

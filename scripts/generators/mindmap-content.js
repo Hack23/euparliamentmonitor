@@ -41,7 +41,7 @@ const CATEGORY_PALETTE = {
     action: { bg: '#fff3e0', border: '#e65100', text: '#e65100' },
     outcome: { bg: '#e8eaf6', border: '#283593', text: '#283593' },
 };
-/** Color mapping for actor types within intelligence mindmaps. */
+/** Icon/emoji mapping for actor types within intelligence mindmaps. */
 const ACTOR_TYPE_LABELS = {
     mep: '👤',
     group: '🏛️',
@@ -231,15 +231,23 @@ function countNodesRecursive(nodes) {
     return count;
 }
 /**
- * Get color palette entry for a mindmap node category.
- * Falls back to `policy_domain` palette when category is unknown.
+ * Get color palette entry for a mindmap node.
+ * Checks the node's `color` field against `BRANCH_PALETTE` first (allowing
+ * builders to override category-based colors), then falls back to the
+ * category palette, and finally to the default `policy_domain` palette.
  *
  * @param category - Node category string key
+ * @param color - Optional semantic color key from the branch palette
  * @returns Color palette object with bg, border, and text properties
  */
-function getCategoryPalette(category) {
-    const palette = CATEGORY_PALETTE[category];
-    return palette ?? { bg: '#e3f2fd', border: '#1565c0', text: '#1565c0' };
+function getNodePalette(category, color) {
+    if (color) {
+        const branchPalette = BRANCH_PALETTE[color];
+        if (branchPalette)
+            return branchPalette;
+    }
+    const catPalette = CATEGORY_PALETTE[category];
+    return catPalette ?? { bg: '#e3f2fd', border: '#1565c0', text: '#1565c0' };
 }
 /**
  * Clamp influence value to valid 0–1 range.
@@ -261,7 +269,7 @@ function clampInfluence(value) {
  * @returns HTML string for this node and its children
  */
 function renderIntelligenceNode(node, depth, detailsLabel, influenceLabel) {
-    const palette = getCategoryPalette(node.category);
+    const palette = getNodePalette(node.category, node.color);
     const influence = clampInfluence(node.influence);
     const influencePct = (influence * 100).toFixed(0);
     const metaCommittee = node.metadata?.committee
@@ -291,20 +299,25 @@ function renderIntelligenceNode(node, depth, detailsLabel, influenceLabel) {
 /**
  * Render the connections section as a `<details>` overlay panel.
  * Each connection is rendered with strength and type indicators.
+ * Connection endpoints may reference either layer node IDs or actorNetwork
+ * IDs; when a `nodeLabels` map is provided, IDs are resolved to
+ * human-readable labels for display.
  *
  * @param connections - Policy connections to render
  * @param label - Localized heading label for the toggle
+ * @param nodeLabels - Optional ID → label map for resolving endpoint names
  * @returns HTML string for the connections overlay, or empty string
  */
-function renderConnectionsOverlay(connections, label) {
+function renderConnectionsOverlay(connections, label, nodeLabels) {
     if (connections.length === 0)
         return '';
+    const resolveName = (id) => nodeLabels?.get(id) ?? id;
     const items = connections
         .map((c) => `      <li class="mindmap-connection mindmap-connection-${escapeHTML(c.strength)} mindmap-connection-type-${escapeHTML(c.type)}"
-         aria-label="${escapeHTML(c.from)} → ${escapeHTML(c.to)}: ${escapeHTML(c.type)} (${escapeHTML(c.strength)}) — ${escapeHTML(c.evidence)}">
-        <span class="connection-from">${escapeHTML(c.from)}</span>
+         aria-label="${escapeHTML(resolveName(c.from))} → ${escapeHTML(resolveName(c.to))}: ${escapeHTML(c.type)} (${escapeHTML(c.strength)}) — ${escapeHTML(c.evidence)}">
+        <span class="connection-from">${escapeHTML(resolveName(c.from))}</span>
         <span class="connection-arrow" aria-hidden="true"> → </span>
-        <span class="connection-to">${escapeHTML(c.to)}</span>
+        <span class="connection-to">${escapeHTML(resolveName(c.to))}</span>
         <span class="connection-meta">[${escapeHTML(c.type)}, ${escapeHTML(c.strength)}]</span>
         <span class="connection-evidence">${escapeHTML(c.evidence)}</span>
       </li>`)
@@ -452,7 +465,22 @@ export function buildIntelligenceMindmapSection(imap, lang = 'en', heading) {
     const domainItems = domainNodes
         .map((node) => `      <li>${renderIntelligenceNode(node, 1, detailsLabel, influenceLabel)}</li>`)
         .join('\n');
-    const connectionsHtml = renderConnectionsOverlay(imap.connections, connectionsLabel);
+    // Build label lookup for connection endpoint resolution.
+    // This allows connections referencing actorNetwork IDs to display
+    // human-readable names instead of raw IDs.
+    const nodeLabels = new Map();
+    const addLabels = (nodes) => {
+        for (const n of nodes) {
+            nodeLabels.set(n.id, n.label);
+            if (n.children.length > 0)
+                addLabels(n.children);
+        }
+    };
+    addLabels(allNodes);
+    for (const actor of imap.actorNetwork) {
+        nodeLabels.set(actor.id, actor.name);
+    }
+    const connectionsHtml = renderConnectionsOverlay(imap.connections, connectionsLabel, nodeLabels);
     const actorNetworkHtml = renderActorNetworkOverlay(imap.actorNetwork, actorNetworkLabel, influenceLabel);
     const stakeholderHtml = renderStakeholderOverlays(imap.stakeholderGroups, stakeholderLabel, perspectiveLabel);
     const totalNodes = countNodesRecursive(allNodes);

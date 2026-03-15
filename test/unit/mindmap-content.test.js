@@ -336,7 +336,8 @@ describe('mindmap-content', () => {
       expect(html).toContain('mindmap-connection-moderate');
       expect(html).toContain('mindmap-connection-type-thematic');
       // Connections aria-label includes direction, type and strength for accessibility
-      expect(html).toContain('aria-label="n1 → n2: thematic (moderate) — Shared climate policy theme"');
+      // n1 is resolved to its label "Node 1"; n2 is unresolvable so stays as raw ID
+      expect(html).toContain('aria-label="Node 1 → n2: thematic (moderate) — Shared climate policy theme"');
     });
 
     it('should render actor network overlay', () => {
@@ -843,6 +844,70 @@ describe('mindmap-content', () => {
 
       expect(html).toContain('Fallback Node');
       expect(html).not.toBe('');
+    });
+
+    it('should honor node.color when it maps to a branch palette key', () => {
+      const html = buildIntelligenceMindmapSection({
+        centralTopic: 'Color Override Test',
+        layers: [
+          {
+            depth: 1,
+            nodes: [
+              { id: 'n1', label: 'Red Node', category: 'policy_domain', influence: 0.7, color: 'red', children: [] },
+            ],
+          },
+        ],
+        connections: [],
+        actorNetwork: [],
+      });
+
+      // 'red' from BRANCH_PALETTE should override category palette
+      expect(html).toContain('--branch-bg:#ffebee');
+      expect(html).toContain('--branch-border:#b71c1c');
+    });
+
+    it('should fall back to category palette for unrecognized color keys', () => {
+      const html = buildIntelligenceMindmapSection({
+        centralTopic: 'Fallback Color Test',
+        layers: [
+          {
+            depth: 1,
+            nodes: [
+              { id: 'n1', label: 'Actor Node', category: 'actor', influence: 0.5, color: 'neon-pink', children: [] },
+            ],
+          },
+        ],
+        connections: [],
+        actorNetwork: [],
+      });
+
+      // Invalid color key → falls back to actor category palette (green)
+      expect(html).toContain('--branch-bg:#e8f5e9');
+      expect(html).toContain('--branch-border:#2e7d32');
+    });
+
+    it('should resolve actorNetwork names in connection endpoints', () => {
+      const html = buildIntelligenceMindmapSection({
+        centralTopic: 'Connection Resolution',
+        layers: [
+          {
+            depth: 1,
+            nodes: [
+              { id: 'group-0', label: 'EPP Group', category: 'policy_domain', influence: 0.8, color: 'cyan', children: [] },
+            ],
+          },
+        ],
+        connections: [
+          { from: 'anomaly-0', to: 'group-0', strength: 'strong', type: 'political', evidence: 'Test' },
+        ],
+        actorNetwork: [
+          { id: 'anomaly-0', name: 'Split Vote Anomaly', type: 'external', influence: 0.9, connections: [] },
+        ],
+      });
+
+      // Connection should display resolved actor name, not raw ID
+      expect(html).toContain('Split Vote Anomaly');
+      expect(html).toContain('EPP Group');
     });
   });
 
