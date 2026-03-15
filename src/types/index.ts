@@ -205,6 +205,16 @@ export type {
   ArticleIndexEntry,
   IntelligenceIndex,
 } from './intelligence.js';
+  ConfidenceLevel,
+  EvidenceReference,
+  ReasoningChain,
+  ScenarioStakeholderImpact,
+  Scenario,
+  ScenarioPlanning,
+  EnhancedAnalysisIteration,
+  AnalysisQualityMetadata,
+  EnhancedDeepAnalysis,
+} from './analysis.js';
 
 export type {
   AnalysisStakeholderType,
