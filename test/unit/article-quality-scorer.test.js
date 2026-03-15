@@ -462,6 +462,10 @@ describe('calculateOverallScore', () => {
 // ─── scoreArticleQuality — full integration ───────────────────────────────────
 
 describe('scoreArticleQuality', () => {
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   it('returns a report with all required fields for empty HTML', () => {
     const report = scoreArticleQuality('', 'test-id', 'en', 'week-ahead');
     expect(report).toHaveProperty('articleId', 'test-id');
@@ -546,12 +550,8 @@ describe('scoreArticleQuality', () => {
   it('falls back to current date when articleId has no date prefix', () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2026-06-15T12:00:00Z'));
-    try {
-      const report = scoreArticleQuality('', 'no-date-slug', 'en', 'week-ahead');
-      expect(report.date).toBe('2026-06-15');
-    } finally {
-      vi.useRealTimers();
-    }
+    const report = scoreArticleQuality('', 'no-date-slug', 'en', 'week-ahead');
+    expect(report.date).toBe('2026-06-15');
   });
 
   it('articleId, lang, type are preserved from inputs', () => {
