@@ -19,6 +19,7 @@
  */
 import { escapeHTML } from '../utils/file-utils.js';
 import { getLocalizedString, DEEP_ANALYSIS_STRINGS } from '../constants/languages.js';
+import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
 // ─── Sub-section builders ────────────────────────────────────────────────────
 /**
  * Build the "What" sub-section
@@ -316,6 +317,168 @@ function buildOutlookSection(outlook, heading, contentLang) {
 }
 // ─── Main builder ────────────────────────────────────────────────────────────
 /**
+ * Map a StakeholderPerspective impact to a CSS class suffix.
+ *
+ * @param impact - Stakeholder impact direction
+ * @returns CSS class suffix
+ */
+function perspectiveImpactClass(impact) {
+    return `perspective-${impact}`;
+}
+/**
+ * Map a stakeholder type to its localized display label.
+ *
+ * @param stakeholder - Internal stakeholder type identifier
+ * @param strings - Localized label strings
+ * @returns Localized stakeholder label
+ */
+function localizedStakeholderLabel(stakeholder, strings) {
+    const map = {
+        political_groups: strings.politicalGroupsLabel,
+        civil_society: strings.civilSocietyLabel,
+        industry: strings.industryLabel,
+        national_govts: strings.nationalGovtsLabel,
+        citizens: strings.citizensLabel,
+        eu_institutions: strings.euInstitutionsLabel,
+    };
+    return map[stakeholder];
+}
+/**
+ * Map a stakeholder impact direction to its localized display label.
+ *
+ * @param impact - Impact direction value
+ * @param strings - Localized label strings
+ * @returns Localized impact label
+ */
+function localizedImpactLabel(impact, strings) {
+    const map = {
+        positive: strings.positiveLabel,
+        negative: strings.negativeLabel,
+        neutral: strings.neutralLabel,
+        mixed: strings.mixedLabel,
+    };
+    return map[impact];
+}
+/**
+ * Map a severity level to its localized display label.
+ *
+ * @param severity - Severity level value
+ * @param strings - Localized label strings
+ * @returns Localized severity label
+ */
+function localizedSeverityLabel(severity, strings) {
+    const map = {
+        high: strings.severityHigh,
+        medium: strings.severityMedium,
+        low: strings.severityLow,
+    };
+    return map[severity];
+}
+/**
+ * Map an outcome value to its localized display label.
+ *
+ * @param outcome - Outcome value (winner/loser/neutral)
+ * @param strings - Localized label strings
+ * @returns Localized outcome label
+ */
+function localizedOutcomeLabel(outcome, strings) {
+    const map = {
+        winner: strings.winnerLabel,
+        loser: strings.loserLabel,
+        neutral: strings.neutralLabel,
+    };
+    return map[outcome] ?? outcome;
+}
+/**
+ * Build the "Multi-Stakeholder Perspectives" sub-section.
+ * Renders a card grid with one card per stakeholder group showing
+ * impact direction, severity, reasoning, and evidence.
+ *
+ * @param perspectives - Array of stakeholder perspectives
+ * @param heading - Localized section heading
+ * @param strings - Localized label strings for stakeholder names, impact, and severity
+ * @param contentLang - Language of the reasoning/evidence text
+ * @returns HTML string, or empty string if no perspectives provided
+ */
+function buildStakeholderPerspectivesSection(perspectives, heading, strings, contentLang) {
+    if (!perspectives || perspectives.length === 0)
+        return '';
+    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
+    const cards = perspectives
+        .map((p) => {
+        const evidenceItems = p.evidence.map((e) => `<li>${escapeHTML(e)}</li>`).join('');
+        const evidenceHtml = evidenceItems
+            ? `<ul class="perspective-evidence">${evidenceItems}</ul>`
+            : '';
+        return (`<div class="stakeholder-perspective-card ${escapeHTML(perspectiveImpactClass(p.impact))} severity-${escapeHTML(p.severity)}">` +
+            `<div class="perspective-header">` +
+            `<span class="perspective-stakeholder">${escapeHTML(localizedStakeholderLabel(p.stakeholder, strings))}</span>` +
+            `<span class="perspective-impact-badge perspective-impact-${escapeHTML(p.impact)}">${escapeHTML(localizedImpactLabel(p.impact, strings))}</span>` +
+            `<span class="perspective-severity-badge severity-${escapeHTML(p.severity)}">${escapeHTML(localizedSeverityLabel(p.severity, strings))}</span>` +
+            `</div>` +
+            `<p class="perspective-reasoning"${langAttr}>${escapeHTML(p.reasoning)}</p>` +
+            evidenceHtml +
+            `</div>`);
+    })
+        .join('\n              ');
+    return `
+            <div class="analysis-stakeholder-perspectives">
+              <h3>${escapeHTML(heading)}</h3>
+              <div class="stakeholder-perspectives-grid">
+              ${cards}
+              </div>
+            </div>`;
+}
+/**
+ * Build the "Stakeholder Outcome Matrix" sub-section.
+ * Renders an accessible table mapping each action to winner/loser/neutral
+ * outcomes per stakeholder group.
+ *
+ * @param matrix - Array of stakeholder outcome matrix rows
+ * @param heading - Localized section heading
+ * @param strings - Localized label strings for columns and stakeholder groups
+ * @param contentLang - Language of the action text
+ * @returns HTML string, or empty string if no matrix rows provided
+ */
+function buildStakeholderOutcomeMatrixSection(matrix, heading, strings, contentLang) {
+    if (!matrix || matrix.length === 0)
+        return '';
+    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
+    const headerCells = ALL_STAKEHOLDER_TYPES.map((s) => `<th scope="col">${escapeHTML(localizedStakeholderLabel(s, strings))}</th>`).join('');
+    const rows = matrix
+        .map((row) => {
+        const cells = ALL_STAKEHOLDER_TYPES.map((s) => {
+            // eslint-disable-next-line security/detect-object-injection -- key from const array
+            const outcome = row.outcomes[s];
+            return `<td class="matrix-cell outcome-${escapeHTML(outcome)}">${escapeHTML(localizedOutcomeLabel(outcome, strings))}</td>`;
+        }).join('');
+        return (`<tr>` +
+            `<th scope="row" class="matrix-action"${langAttr}>${escapeHTML(row.action)}</th>` +
+            `<td class="matrix-confidence confidence-${escapeHTML(row.confidence)}">${escapeHTML(localizedSeverityLabel(row.confidence, strings))}</td>` +
+            cells +
+            `</tr>`);
+    })
+        .join('\n                ');
+    return `
+            <div class="analysis-outcome-matrix">
+              <h3>${escapeHTML(heading)}</h3>
+              <div class="outcome-matrix-scroll">
+              <table class="outcome-matrix-table" role="table">
+                <thead>
+                  <tr>
+                    <th scope="col">${escapeHTML(strings.actionLabel)}</th>
+                    <th scope="col">${escapeHTML(strings.confidenceLabel)}</th>
+                    ${headerCells}
+                  </tr>
+                </thead>
+                <tbody>
+                ${rows}
+                </tbody>
+              </table>
+              </div>
+            </div>`;
+}
+/**
  * Build the complete deep political analysis section HTML.
  *
  * This section provides parliament-intelligence-grade analysis using the
@@ -347,6 +510,8 @@ export function buildDeepAnalysisSection(analysis, lang, contentLang = lang) {
     const consequencesHtml = buildConsequencesSection(analysis.actionConsequences, strings.consequencesHeading, strings, strings, cl);
     const mistakesHtml = buildMistakesSection(analysis.mistakes, strings.mistakesHeading, strings.alternativeLabel, cl);
     const outlookHtml = buildOutlookSection(analysis.outlook, strings.outlookHeading, cl);
+    const perspectivesHtml = buildStakeholderPerspectivesSection(analysis.stakeholderPerspectives, strings.perspectivesHeading, strings, cl);
+    const outcomeMatrixHtml = buildStakeholderOutcomeMatrixSection(analysis.stakeholderOutcomeMatrix, strings.outcomeMatrixHeading, strings, cl);
     const innerContent = whatHtml +
         whoHtml +
         whenHtml +
@@ -355,7 +520,9 @@ export function buildDeepAnalysisSection(analysis, lang, contentLang = lang) {
         impactHtml +
         consequencesHtml +
         mistakesHtml +
-        outlookHtml;
+        outlookHtml +
+        perspectivesHtml +
+        outcomeMatrixHtml;
     // If all sub-sections are empty, return nothing
     if (!innerContent.trim())
         return '';
