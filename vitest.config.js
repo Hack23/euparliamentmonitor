@@ -74,7 +74,12 @@ export default defineConfig({
     restoreMocks: true,
     clearMocks: true,
     
-    // Reporters
-    reporters: ['verbose'],
+    // Reporters - verbose for terminal, html for interactive report, json for machine-readable, junit for CI
+    reporters: [
+      'verbose',
+      ['html', { outputFile: './builds/test-results/html/index.html' }],
+      ['json', { outputFile: './builds/test-results/results.json' }],
+      ['junit', { outputFile: './builds/test-results/junit.xml' }],
+    ],
   },
 });

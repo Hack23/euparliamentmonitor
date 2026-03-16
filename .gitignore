@@ -140,7 +140,7 @@ mcp-debug.log
 mcp-*.tmp
 
 # Security scanning reports
-eslint-report.json
+/eslint-report.json
 
 # Derived files — generated at build time by `npm run prebuild`
 # These files cause merge conflicts when multiple news PRs are open simultaneously.
