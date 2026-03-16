@@ -126,18 +126,19 @@ jobs:
           BUCKET="s3://${{ env.S3_BUCKET_NAME }}"
           SRC="."
           # Common exclusions for non-website directories (bash array)
-          EXCL=(--exclude "screenshots/*" --exclude ".git/*" --exclude "scripts/*" --exclude "test/*" --exclude "e2e/*" --exclude "src/*" --exclude ".github/*" --exclude ".devcontainer/*" --exclude "node_modules/*" --exclude "quicksight/*" --exclude "schemas/*")
+          EXCL=(--exclude "screenshots/*" --exclude ".git/*" --exclude "scripts/*" --exclude "test/*" --exclude "e2e/*" --exclude "src/*" --exclude ".github/*" --exclude ".devcontainer/*" --exclude "node_modules/*" --exclude "quicksight/*" --exclude "schemas/*" --exclude "builds/*" --exclude "runbooks/*")
 
           # HTML files - short cache, must-revalidate
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.html' \
             --cache-control 'public, max-age=3600, must-revalidate' \
             --content-type 'text/html; charset=utf-8' \
+            --no-guess-mime-type \
             "${EXCL[@]}"
 
           # CSS files - long cache, immutable
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.css' \
             --cache-control 'public, max-age=31536000, immutable' \
-            --content-type 'text/css' \
+            --content-type 'text/css; charset=utf-8' \
             --no-guess-mime-type \
             "${EXCL[@]}"
 
@@ -145,14 +146,21 @@ jobs:
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.js' \
             --exclude '*.config.js' \
             --cache-control 'public, max-age=31536000, immutable' \
-            --content-type 'application/javascript' \
+            --content-type 'text/javascript; charset=utf-8' \
             --no-guess-mime-type \
             "${EXCL[@]}"
 
-          # Image files - long cache, immutable
+          # SVG files - long cache, immutable (explicit mime type)
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.svg' \
+            --cache-control 'public, max-age=31536000, immutable' \
+            --content-type 'image/svg+xml' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+
+          # Raster image files - long cache, immutable
           aws s3 sync "$SRC" "$BUCKET" --exclude '*' \
             --include '*.webp' --include '*.png' --include '*.jpg' --include '*.jpeg' \
-            --include '*.gif' --include '*.svg' --include '*.ico' \
+            --include '*.gif' --include '*.ico' \
             --cache-control 'public, max-age=31536000, immutable' \
             "${EXCL[@]}"
 
@@ -162,27 +170,51 @@ jobs:
             --cache-control 'public, max-age=31536000, immutable' \
             "${EXCL[@]}"
 
-          # Public metadata files only - medium cache (1 day)
-          aws s3 sync "$SRC" "$BUCKET" --exclude '*' \
-            --include 'sitemap.xml' --include 'rss.xml' \
-            --include 'articles-metadata.json' --include 'robots.txt' \
+          # JSON files - medium cache (coverage-final.json, package metadata, etc.)
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.json' \
+            --exclude 'package*.json' --exclude 'tsconfig.json' --exclude 'typedoc.json' \
+            --exclude 'jsdoc.json' --exclude '.jscpd.json' --exclude '.lintstagedrc.json' \
             --cache-control 'public, max-age=86400' \
+            --content-type 'application/json; charset=utf-8' \
+            --no-guess-mime-type \
             "${EXCL[@]}"
 
-          # Everything else — skip file types already uploaded above and
-          # all source/config/tooling files to avoid overwriting content types.
+          # XML files - medium cache (sitemap, rss)
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.xml' \
+            --cache-control 'public, max-age=86400' \
+            --content-type 'text/xml; charset=utf-8' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+
+          # Plain text files - medium cache (robots.txt, .nojekyll)
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' \
+            --include 'robots.txt' --include '*.txt' --include '.nojekyll' \
+            --cache-control 'public, max-age=86400' \
+            --content-type 'text/plain; charset=utf-8' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+
+          # Web manifest
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.webmanifest' \
+            --cache-control 'public, max-age=86400' \
+            --content-type 'application/manifest+json' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+
+          # Remaining files (favicon, lcov.info, etc.) — skip types already uploaded
+          # and all source/config/tooling files.
           aws s3 sync "$SRC" "$BUCKET" \
             "${EXCL[@]}" \
             --exclude '*.html' --exclude '*.css' --exclude '*.js' \
             --exclude '*.webp' --exclude '*.png' --exclude '*.jpg' --exclude '*.jpeg' \
             --exclude '*.gif' --exclude '*.svg' --exclude '*.ico' \
             --exclude '*.woff' --exclude '*.woff2' --exclude '*.ttf' --exclude '*.eot' --exclude '*.otf' \
-            --exclude '*.xml' --exclude '*.json' --exclude '*.txt' \
+            --exclude '*.xml' --exclude '*.json' --exclude '*.txt' --exclude '*.webmanifest' \
             --exclude '*.md' --exclude 'package*.json' --exclude '.gitignore' \
             --exclude 'tsconfig.json' --exclude 'typedoc.json' --exclude 'jsdoc.json' \
             --exclude '*.config.js' --exclude '.eslintcache' --exclude '.prettierrc.json' \
             --exclude '.lintstagedrc.json' --exclude '.jscpd.json' --exclude '.htmlhintignore' \
-            --exclude '*.patch' --exclude '*.lock' --exclude '*.tgz'
+            --exclude '*.patch' --exclude '*.lock' --exclude '*.tgz' --exclude '.nojekyll'
 
           echo "✅ Deploy with cache headers completed"
       
