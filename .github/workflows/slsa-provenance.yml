@@ -81,6 +81,7 @@ jobs:
             --exclude='e2e' \
             --exclude='playwright-report' \
             --exclude='test-results' \
+            --exclude='builds' \
             --exclude='.husky' \
             index*.html \
             news/ \

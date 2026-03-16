@@ -11,8 +11,8 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: 1, // Single worker for consistent, fast execution
   reporter: [
-    ['html', { outputFolder: 'playwright-report' }],
-    ['junit', { outputFile: 'test-results/junit.xml' }],
+    ['html', { outputFolder: 'builds/playwright-report' }],
+    ['junit', { outputFile: 'builds/test-results/junit.xml' }],
     ['list'],
   ],
   use: {
