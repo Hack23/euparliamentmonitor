@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-03-13T15:20:45.238Z",
-  "generated": 65,
+  "timestamp": "2026-03-13T12:00:00.000Z",
+  "generated": 85,
   "skipped": 13,
   "dryRun": 0,
   "errors": 0,
@@ -75,27 +75,27 @@
     {
       "success": true,
       "files": 13,
-      "slug": "2026-03-13-breaking"
+      "slug": "2026-03-13-committee-reports"
     },
     {
       "success": true,
-      "files": 13,
-      "slug": "2026-03-13-motions"
-    },
-    {
-      "success": true,
-      "files": 13,
-      "slug": "2026-03-13-propositions"
-    },
-    {
-      "success": true,
-      "files": 13,
+      "files": 5,
       "slug": "2026-03-13-week-ahead"
     },
     {
       "success": true,
-      "files": 13,
-      "slug": "2026-03-13-committee-reports"
+      "files": 5,
+      "slug": "2026-03-13-motions"
+    },
+    {
+      "success": true,
+      "files": 5,
+      "slug": "2026-03-13-propositions"
+    },
+    {
+      "success": true,
+      "files": 5,
+      "slug": "2026-03-13-breaking"
     }
   ],
   "usedMCP": true
