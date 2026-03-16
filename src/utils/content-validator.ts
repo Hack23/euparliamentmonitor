@@ -11,6 +11,7 @@
  */
 
 import { ArticleCategory } from '../types/index.js';
+import { stripScriptBlocks } from './html-sanitize.js';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -119,6 +120,8 @@ const LOCALIZED_KEYWORD_INDICATORS: Readonly<Record<string, ReadonlyArray<string
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
+// stripScriptBlocks is imported from html-sanitize.ts
+
 /**
  * Extract plain text from the `<main>` element of an article and count words.
  *
@@ -132,8 +135,7 @@ const LOCALIZED_KEYWORD_INDICATORS: Readonly<Record<string, ReadonlyArray<string
 function countWordsInHtml(html: string): number {
   const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
   const source = mainMatch?.[1] ?? html;
-  const plainText = source
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/giu, ' ')
+  const plainText = stripScriptBlocks(source)
     .replace(/<[^>]+>/gu, ' ')
     .replace(/\s+/gu, ' ')
     .trim();

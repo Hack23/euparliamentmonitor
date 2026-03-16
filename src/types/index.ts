@@ -206,6 +206,14 @@ export type {
 } from './visualization.js';
 
 export type {
+  ArticleGrade,
+  AnalysisDepthScore,
+  StakeholderCoverage,
+  VisualizationQuality,
+  ArticleQualityReport,
+} from './quality.js';
+
+export type {
   CrossReferenceRelationship,
   CrossReferenceStrength,
   ArticleCrossReference,

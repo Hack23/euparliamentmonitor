@@ -53,6 +53,7 @@ export default defineConfig({
         'scripts/types/mcp.js',
         'scripts/types/parliament.js',
         'scripts/types/visualization.js',
+        'scripts/types/quality.js',
         'scripts/types/world-bank.js',
         // Exclude language string maps (pure data/config, 500+ arrow fns across 14 languages)
         'scripts/constants/language-articles.js',

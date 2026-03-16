@@ -9,6 +9,7 @@
  * read-time accuracy, and keyword localization. Produces a structured quality report.
  */
 import { ArticleCategory } from '../types/index.js';
+import { stripScriptBlocks } from './html-sanitize.js';
 // ─── Constants ────────────────────────────────────────────────────────────────
 /** Minimum word counts (plain text) required per article category */
 const MIN_WORD_COUNTS = {
@@ -67,6 +68,7 @@ const LOCALIZED_KEYWORD_INDICATORS = {
     zh: ['议会', '立法', '委员会', '投票', '条例', '欧洲'],
 };
 // ─── Helpers ──────────────────────────────────────────────────────────────────
+// stripScriptBlocks is imported from html-sanitize.ts
 /**
  * Extract plain text from the `<main>` element of an article and count words.
  *
@@ -80,8 +82,7 @@ const LOCALIZED_KEYWORD_INDICATORS = {
 function countWordsInHtml(html) {
     const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
     const source = mainMatch?.[1] ?? html;
-    const plainText = source
-        .replace(/<script[^>]*>[\s\S]*?<\/script>/giu, ' ')
+    const plainText = stripScriptBlocks(source)
         .replace(/<[^>]+>/gu, ' ')
         .replace(/\s+/gu, ' ')
         .trim();
