@@ -239,12 +239,13 @@ async function gatherReportInfo(): Promise<ReportInfo> {
  */
 function buildStatCards(summary: TestSummary, isE2e: boolean): string {
   const failedClass = summary.failed > 0 ? 'failed' : 'passed';
-  const durationCard = summary.duration !== undefined
-    ? `<div class="stat-card">
+  const durationCard =
+    summary.duration !== undefined
+      ? `<div class="stat-card">
         <div class="stat-number">${(summary.duration / 1000).toFixed(1)}s</div>
         <div class="stat-label">Duration</div>
       </div>`
-    : '';
+      : '';
   const totalLabel = isE2e ? 'Total E2E' : 'Total Tests';
   return `<div class="stat-card passed">
         <div class="stat-number">${summary.passed}</div>
@@ -269,13 +270,9 @@ function buildStatCards(summary: TestSummary, isE2e: boolean): string {
 function createTestResultsIndex(info: ReportInfo): string {
   const currentDate = new Date().toISOString().split('T')[0] ?? '';
 
-  const vitestStats = info.vitestSummary
-    ? buildStatCards(info.vitestSummary, false)
-    : '';
+  const vitestStats = info.vitestSummary ? buildStatCards(info.vitestSummary, false) : '';
 
-  const e2eStats = info.e2eSummary
-    ? buildStatCards(info.e2eSummary, true)
-    : '';
+  const e2eStats = info.e2eSummary ? buildStatCards(info.e2eSummary, true) : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -547,7 +544,12 @@ async function main(): Promise<void> {
 
     for (const task of reportCopyTasks) {
       console.log(`  ${task.icon} Copying ${task.label}...`);
-      if (await copyFileSafe(join(buildTestResultsDir, task.file), join(docsTestResultsDir, task.file))) {
+      if (
+        await copyFileSafe(
+          join(buildTestResultsDir, task.file),
+          join(docsTestResultsDir, task.file)
+        )
+      ) {
         console.log(`  ✅ ${task.label} copied`);
       } else {
         console.warn(`  ⚠️  ${task.label} not found (skipped)`);
@@ -557,7 +559,11 @@ async function main(): Promise<void> {
     // 5. Gather report info and generate comprehensive index
     console.log('  📊 Generating test results index...');
     const reportInfo = await gatherReportInfo();
-    await fs.writeFile(join(docsTestResultsDir, INDEX_FILENAME), createTestResultsIndex(reportInfo), 'utf8');
+    await fs.writeFile(
+      join(docsTestResultsDir, INDEX_FILENAME),
+      createTestResultsIndex(reportInfo),
+      'utf8'
+    );
     console.log('  ✅ Test results index generated');
 
     console.log('✅ All test reports copied successfully');

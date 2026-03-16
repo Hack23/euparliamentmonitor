@@ -218,12 +218,8 @@ function buildStatCards(summary, isE2e) {
  */
 function createTestResultsIndex(info) {
     const currentDate = new Date().toISOString().split('T')[0] ?? '';
-    const vitestStats = info.vitestSummary
-        ? buildStatCards(info.vitestSummary, false)
-        : '';
-    const e2eStats = info.e2eSummary
-        ? buildStatCards(info.e2eSummary, true)
-        : '';
+    const vitestStats = info.vitestSummary ? buildStatCards(info.vitestSummary, false) : '';
+    const e2eStats = info.e2eSummary ? buildStatCards(info.e2eSummary, true) : '';
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
