@@ -154,7 +154,7 @@ export function generateArticleHTML(options) {
         publisher: {
             '@type': 'Organization',
             name: 'EU Parliament Monitor',
-            url: 'https://euparliamentmonitor.com',
+            url: 'https://hack23.github.io/euparliamentmonitor',
         },
         keywords: keywords.join(', '),
     }, null, 4);
@@ -171,7 +171,7 @@ export function generateArticleHTML(options) {
     const jsonLdScriptContent = `\n  ${jsonLd}\n  `;
     const jsonLdHash = `sha256-${createHash('sha256').update(jsonLdScriptContent).digest('base64')}`;
     // Reading-progress script hash — content must exactly match the <script> block.
-    const readingProgressScript = `\n  (function(){\n    var bar=document.querySelector('.reading-progress');\n    if(!bar)return;\n    bar.style.display='block';\n    window.addEventListener('scroll',function(){\n      var h=document.documentElement;\n      var scrollTop=h.scrollTop||document.body.scrollTop;\n      var scrollHeight=h.scrollHeight-h.clientHeight;\n      bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';\n    },{passive:true});\n  })();\n  `;
+    const readingProgressScript = `\n  (function(){\n    var bar=document.querySelector('.reading-progress');\n    if(!bar)return;\n    bar.style.display='block';\n    var ticking=false;\n    window.addEventListener('scroll',function(){\n      if(!ticking){\n        window.requestAnimationFrame(function(){\n          var h=document.documentElement;\n          var scrollTop=h.scrollTop||document.body.scrollTop;\n          var scrollHeight=h.scrollHeight-h.clientHeight;\n          bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';\n          ticking=false;\n        });\n        ticking=true;\n      }\n    },{passive:true});\n  })();\n  `;
     const readingProgressHash = `sha256-${createHash('sha256').update(readingProgressScript).digest('base64')}`;
     return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
@@ -187,8 +187,8 @@ export function generateArticleHTML(options) {
   <meta name="author" content="EU Parliament Monitor">
   <meta name="generator" content="EU Parliament Monitor v${escapeHTML(APP_VERSION)}">
   <meta name="date" content="${date}">
-  <meta name="article:published_time" content="${date}">
-  <meta name="article:author" content="EU Parliament Monitor">
+  <meta property="article:published_time" content="${date}">
+  <meta property="article:author" content="EU Parliament Monitor">
   
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
@@ -307,11 +307,18 @@ export function generateArticleHTML(options) {
     var bar=document.querySelector('.reading-progress');
     if(!bar)return;
     bar.style.display='block';
+    var ticking=false;
     window.addEventListener('scroll',function(){
-      var h=document.documentElement;
-      var scrollTop=h.scrollTop||document.body.scrollTop;
-      var scrollHeight=h.scrollHeight-h.clientHeight;
-      bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';
+      if(!ticking){
+        window.requestAnimationFrame(function(){
+          var h=document.documentElement;
+          var scrollTop=h.scrollTop||document.body.scrollTop;
+          var scrollHeight=h.scrollHeight-h.clientHeight;
+          bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';
+          ticking=false;
+        });
+        ticking=true;
+      }
     },{passive:true});
   })();
   </script>${content.includes('data-chart-config')

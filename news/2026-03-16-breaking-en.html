@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-3WQUvK7cQtDqwdq/x256QMbIrMxXXLrR4HIJBXCqQwY=' 'sha256-L9BIB8kqw1hcntpuUEZ95xcC3Y/sks1anOyyqXHAECo='; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-109ZItZ1YJDTeH+A0BMUuWMPWjiHiUXY2SM6M6HBKxI=' 'sha256-ngLhKxckA7RGnfJtCuv+AztHgG4unizeI9r21Sq5O1M='; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
   <title>Breaking: Significant Parliamentary Developments — 2026-03-16 | EU Parliament Monitor</title>
   <meta name="description" content="Intelligence analysis of voting anomalies, coalition shifts, and key MEP activities">
   <meta name="keywords" content="European Parliament, breaking news, adopted texts, legislative updates, parliamentary events">
   <meta name="author" content="EU Parliament Monitor">
   <meta name="generator" content="EU Parliament Monitor v0.7.16">
   <meta name="date" content="2026-03-16">
-  <meta name="article:published_time" content="2026-03-16">
-  <meta name="article:author" content="EU Parliament Monitor">
+  <meta property="article:published_time" content="2026-03-16">
+  <meta property="article:author" content="EU Parliament Monitor">
   
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
@@ -62,7 +62,7 @@
     "publisher": {
         "@type": "Organization",
         "name": "EU Parliament Monitor",
-        "url": "https://euparliamentmonitor.com"
+        "url": "https://hack23.github.io/euparliamentmonitor"
     },
     "keywords": "European Parliament, breaking news, adopted texts, legislative updates, parliamentary events"
 }
@@ -457,11 +457,18 @@
     var bar=document.querySelector('.reading-progress');
     if(!bar)return;
     bar.style.display='block';
+    var ticking=false;
     window.addEventListener('scroll',function(){
-      var h=document.documentElement;
-      var scrollTop=h.scrollTop||document.body.scrollTop;
-      var scrollHeight=h.scrollHeight-h.clientHeight;
-      bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';
+      if(!ticking){
+        window.requestAnimationFrame(function(){
+          var h=document.documentElement;
+          var scrollTop=h.scrollTop||document.body.scrollTop;
+          var scrollHeight=h.scrollHeight-h.clientHeight;
+          bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';
+          ticking=false;
+        });
+        ticking=true;
+      }
     },{passive:true});
   })();
   </script>
