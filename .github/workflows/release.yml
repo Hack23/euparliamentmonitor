@@ -93,6 +93,13 @@ jobs:
       - name: Run tests with coverage
         run: npm run test:coverage
 
+      - name: Generate lint reports
+        run: |
+          echo "🔍 Generating ESLint reports..."
+          mkdir -p builds/test-results
+          npm run lint:report || true
+          npm run lint:report:html || true
+
       - name: Run E2E tests
         run: npm run test:e2e
 
@@ -131,7 +138,7 @@ jobs:
           done
           
           # Check required files exist
-          for file in docs/index.html docs/api/index.html docs/coverage/index.html docs/playwright-report/index.html; do
+          for file in docs/index.html docs/api/index.html docs/coverage/index.html docs/playwright-report/index.html docs/test-results/index.html; do
             if [ -f "$file" ]; then
               echo "✅ $file exists"
             else
@@ -139,6 +146,22 @@ jobs:
               exit 1
             fi
           done
+          
+          # Check optional but expected report files
+          for file in docs/test-results/results.json docs/test-results/junit.xml docs/test-results/eslint-report.html docs/test-results/eslint-report.json; do
+            if [ -f "$file" ]; then
+              echo "✅ $file exists"
+            else
+              echo "⚠️  $file not found (optional)"
+            fi
+          done
+          
+          # Check vitest HTML report directory
+          if [ -d "docs/test-results/html" ]; then
+            echo "✅ docs/test-results/html exists (Vitest HTML report)"
+          else
+            echo "⚠️  docs/test-results/html not found (optional)"
+          fi
           
           echo "✅ Documentation structure validated"
 

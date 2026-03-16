@@ -12,7 +12,8 @@ export default defineConfig({
   workers: 1, // Single worker for consistent, fast execution
   reporter: [
     ['html', { outputFolder: 'builds/playwright-report' }],
-    ['junit', { outputFile: 'builds/test-results/junit.xml' }],
+    ['junit', { outputFile: 'builds/test-results/e2e-junit.xml' }],
+    ['json', { outputFile: 'builds/test-results/e2e-results.json' }],
     ['list'],
   ],
   use: {

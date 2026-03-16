@@ -17,7 +17,7 @@ const DOCS_DIR = join(PROJECT_ROOT, 'docs');
  * @returns HTML content for the documentation index
  */
 export function generateIndexHTML() {
-    const currentDate = new Date().toISOString().split('T')[0];
+    const currentDate = new Date().toISOString().split('T')[0] ?? '';
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -202,8 +202,8 @@ export function generateIndexHTML() {
         
         <a href="test-results/index.html" class="doc-card">
           <div class="icon">✅</div>
-          <h2>Unit Test Results</h2>
-          <p>Detailed unit and integration test results with pass/fail status and execution times.</p>
+          <h2>Test Results Dashboard</h2>
+          <p>Comprehensive test dashboard with Vitest HTML results, JUnit XML, and JSON reports.</p>
           <span class="badge">Vitest</span>
         </a>
         
@@ -212,6 +212,13 @@ export function generateIndexHTML() {
           <h2>E2E Test Report</h2>
           <p>End-to-end test results from Playwright covering user workflows and accessibility.</p>
           <span class="badge">Playwright</span>
+        </a>
+        
+        <a href="test-results/eslint-report.html" class="doc-card">
+          <div class="icon">🔍</div>
+          <h2>ESLint Report</h2>
+          <p>Static analysis and code quality report showing linting results and style compliance.</p>
+          <span class="badge">ESLint</span>
         </a>
         
         <a href="../README.md" class="doc-card">

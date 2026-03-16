@@ -3,28 +3,228 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EU Parliament Monitor - Comprehensive Test Results and Quality Reports">
   <title>Test Results - EU Parliament Monitor</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
       line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem;
     }
-    h1 { color: #1e3c72; }
-    .info { background: #e7f3ff; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
-    a { color: #667eea; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+    header {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    h1 { font-size: 2.2rem; margin-bottom: 0.5rem; font-weight: 700; }
+    .subtitle { font-size: 1.1rem; opacity: 0.9; }
+    .last-updated { font-size: 0.85rem; opacity: 0.7; margin-top: 0.75rem; }
+    main { padding: 2rem; }
+    h2 { color: #1e3c72; font-size: 1.5rem; margin: 2rem 0 1rem; border-bottom: 2px solid #e9ecef; padding-bottom: 0.5rem; }
+    .stats-grid {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .stat-card {
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      min-width: 100px;
+      flex: 1;
+    }
+    .stat-card.passed { border-color: #28a745; background: #d4edda; }
+    .stat-card.failed { border-color: #dc3545; background: #f8d7da; }
+    .stat-number { font-size: 1.8rem; font-weight: 700; color: #1e3c72; }
+    .stat-label { font-size: 0.85rem; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+    .reports-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .report-card {
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1.25rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .report-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      border-color: #667eea;
+    }
+    .report-card.unavailable {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .report-card h3 { color: #1e3c72; font-size: 1.1rem; margin-bottom: 0.25rem; }
+    .report-card .icon { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    .report-card p { color: #666; font-size: 0.85rem; line-height: 1.4; }
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 10px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    .badge-html { background: #667eea; color: white; }
+    .badge-json { background: #28a745; color: white; }
+    .badge-xml { background: #fd7e14; color: white; }
+    .badge-vitest { background: #fcc72b; color: #333; }
+    .badge-playwright { background: #2ead33; color: white; }
+    .badge-eslint { background: #4b32c3; color: white; }
+    footer {
+      background: #f8f9fa;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      color: #666;
+      border-top: 1px solid #e9ecef;
+    }
+    footer a { color: #667eea; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 768px) {
+      body { padding: 1rem; }
+      h1 { font-size: 1.8rem; }
+      .reports-grid { grid-template-columns: 1fr; }
+      .stats-grid { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
-  <h1>📊 Test Results</h1>
-  <div class="info">
-    <p>Unit and integration test results are available in the terminal output and coverage report.</p>
-    <p>For detailed test coverage metrics, see the <a href="../coverage/index.html">Coverage Report</a>.</p>
-    <p>For end-to-end test results, see the <a href="../playwright-report/index.html">E2E Test Report</a>.</p>
+  <div class="container">
+    <header>
+      <h1>📊 Test Results &amp; Quality Reports</h1>
+      <div class="subtitle">EU Parliament Monitor - Comprehensive Test Dashboard</div>
+      <div class="last-updated">Generated: 2026-03-16</div>
+    </header>
+
+    <main>
+      <h2>🧪 Unit &amp; Integration Tests (Vitest)</h2><div class="stats-grid"><div class="stat-card passed">
+        <div class="stat-number">1986</div>
+        <div class="stat-label">Passed</div>
+      </div>
+      <div class="stat-card passed">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Failed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1986</div>
+        <div class="stat-label">Total Tests</div>
+      </div><div class="stat-card">
+        <div class="stat-number">0.0s</div>
+        <div class="stat-label">Duration</div>
+      </div></div>
+
+      
+
+      <h2>📋 Interactive Reports</h2>
+      <div class="reports-grid">
+        <a href="html/index.html" class="report-card">
+          <div class="icon">🧪</div>
+          <h3>Vitest HTML Report</h3>
+          <p>Interactive test explorer with detailed results for all unit and integration tests.</p>
+          <span class="badge badge-vitest">Vitest</span>
+          <span class="badge badge-html">HTML</span>
+        </a>
+
+        <a href="../coverage/index.html" class="report-card">
+          <div class="icon">📊</div>
+          <h3>Code Coverage Report</h3>
+          <p>Line, branch, function, and statement coverage with per-file drill-down.</p>
+          <span class="badge badge-vitest">Vitest V8</span>
+          <span class="badge badge-html">HTML</span>
+        </a>
+
+        <a href="../playwright-report/index.html" class="report-card">
+          <div class="icon">🎭</div>
+          <h3>Playwright E2E Report</h3>
+          <p>End-to-end test results with screenshots, traces, and accessibility checks.</p>
+          <span class="badge badge-playwright">Playwright</span>
+          <span class="badge badge-html">HTML</span>
+        </a>
+
+        <a href="eslint-report.html" class="report-card">
+          <div class="icon">🔍</div>
+          <h3>ESLint Report</h3>
+          <p>Static analysis results showing code quality issues, warnings, and style compliance.</p>
+          <span class="badge badge-eslint">ESLint</span>
+          <span class="badge badge-html">HTML</span>
+        </a>
+      </div>
+
+      <h2>📁 Machine-Readable Reports</h2>
+      <div class="reports-grid">
+        <a href="results.json" class="report-card">
+          <div class="icon">📄</div>
+          <h3>Vitest Results (JSON)</h3>
+          <p>Machine-readable unit test results in JSON format for CI/CD integration.</p>
+          <span class="badge badge-vitest">Vitest</span>
+          <span class="badge badge-json">JSON</span>
+        </a>
+
+        <a href="junit.xml" class="report-card">
+          <div class="icon">📄</div>
+          <h3>Vitest Results (JUnit XML)</h3>
+          <p>JUnit XML format for CI dashboard integration and test trend analysis.</p>
+          <span class="badge badge-vitest">Vitest</span>
+          <span class="badge badge-xml">XML</span>
+        </a>
+
+        <a href="e2e-results.json" class="report-card unavailable">
+          <div class="icon">📄</div>
+          <h3>E2E Results (JSON)</h3>
+          <p>Playwright end-to-end test results in JSON format with detailed timing data.</p>
+          <span class="badge badge-playwright">Playwright</span>
+          <span class="badge badge-json">JSON</span>
+        </a>
+
+        <a href="e2e-junit.xml" class="report-card unavailable">
+          <div class="icon">📄</div>
+          <h3>E2E Results (JUnit XML)</h3>
+          <p>E2E test results in JUnit XML format for cross-platform CI integration.</p>
+          <span class="badge badge-playwright">Playwright</span>
+          <span class="badge badge-xml">XML</span>
+        </a>
+
+        <a href="eslint-report.json" class="report-card">
+          <div class="icon">📄</div>
+          <h3>ESLint Report (JSON)</h3>
+          <p>Detailed linting results in JSON format for automated quality gates.</p>
+          <span class="badge badge-eslint">ESLint</span>
+          <span class="badge badge-json">JSON</span>
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      <p><a href="../index.html">← Back to Documentation Index</a></p>
+      <p style="margin-top: 0.5rem;">
+        <strong>EU Parliament Monitor</strong> -
+        European Parliament Intelligence Platform
+      </p>
+    </footer>
   </div>
-  <p><a href="../index.html">← Back to Documentation Index</a></p>
 </body>
 </html>
