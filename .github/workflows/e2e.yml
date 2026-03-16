@@ -57,7 +57,7 @@ jobs:
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: playwright-report
-          path: playwright-report/
+          path: builds/playwright-report/
           retention-days: 30
 
       - name: Upload test results (JUnit)
@@ -65,7 +65,7 @@ jobs:
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: test-results
-          path: test-results/
+          path: builds/test-results/
           retention-days: 7
 
       - name: Upload screenshots
@@ -73,7 +73,7 @@ jobs:
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: playwright-screenshots
-          path: test-results/**/*.png
+          path: builds/test-results/**/*.png
           retention-days: 7
 
       - name: Upload videos
@@ -81,5 +81,5 @@ jobs:
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: playwright-videos
-          path: test-results/**/*.webm
+          path: builds/test-results/**/*.webm
           retention-days: 7
