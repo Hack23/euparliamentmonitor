@@ -80,6 +80,11 @@
     {
       "success": true,
       "files": 13,
+      "slug": "2026-03-13-committee-reports"
+    },
+    {
+      "success": true,
+      "files": 13,
       "slug": "2026-03-13-motions"
     },
     {
@@ -91,11 +96,6 @@
       "success": true,
       "files": 13,
       "slug": "2026-03-13-week-ahead"
-    },
-    {
-      "success": true,
-      "files": 13,
-      "slug": "2026-03-13-committee-reports"
     }
   ],
   "usedMCP": true
