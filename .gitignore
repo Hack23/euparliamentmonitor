@@ -7,8 +7,8 @@ package-lock.json.tmp
 dist/
 build/
 builds/
-playwright-report/
-test-results/
+/playwright-report/
+/test-results/
 
 # Logs
 logs/
@@ -145,11 +145,11 @@ eslint-report.json
 # Derived files — generated at build time by `npm run prebuild`
 # These files cause merge conflicts when multiple news PRs are open simultaneously.
 # See: https://github.com/Hack23/riksdagsmonitor/pull/512
-sitemap.xml
-sitemap*.html
-rss.xml
-index.html
-index-*.html
+/sitemap.xml
+/sitemap*.html
+/rss.xml
+/index.html
+/index-*.html
 news/articles-metadata.json
 
 homepage-desktop.png
