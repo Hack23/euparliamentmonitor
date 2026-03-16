@@ -2,10 +2,13 @@
 node_modules/
 package-lock.json.tmp
 
-# Build artifacts
+# Build artifacts — intermediate outputs (vitest coverage, typedoc, playwright reports).
+# During release, reports are copied from builds/ → docs/ and committed.
 dist/
 build/
 builds/
+playwright-report/
+test-results/
 
 # Logs
 logs/
@@ -27,7 +30,7 @@ pids/
 # Vitest
 .vitest/
 
-# Test results
+# Test results (Playwright .last-run.json)
 .last-run.json
 
 # Editor directories and files

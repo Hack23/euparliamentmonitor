@@ -40,7 +40,9 @@ export async function copyDirectory(src: string, dest: string): Promise<void> {
     }
   } catch (error) {
     const nodeError = error as NodeJS.ErrnoException;
-    if (nodeError.code !== 'ENOENT') {
+    if (nodeError.code === 'ENOENT') {
+      console.warn(`  ⚠️  Source directory not found (skipped): ${src}`);
+    } else {
       throw error;
     }
   }
@@ -110,7 +112,7 @@ async function main(): Promise<void> {
     await fs.writeFile(join(testResultsDir, 'index.html'), createTestResultsIndex(), 'utf8');
     console.log('  ✅ Test results index created');
 
-    const playwrightSrc = join(PROJECT_ROOT, 'playwright-report');
+    const playwrightSrc = join(PROJECT_ROOT, 'builds', 'playwright-report');
     const playwrightDest = join(DOCS_DIR, 'playwright-report');
     console.log('  🎭 Copying Playwright report...');
     await copyDirectory(playwrightSrc, playwrightDest);
