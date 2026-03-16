@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-03-16T12:17:55.609Z",
-  "generated": 26,
-  "skipped": 26,
+  "timestamp": "2026-03-16T15:25:44.664Z",
+  "generated": 39,
+  "skipped": 39,
   "dryRun": 0,
   "errors": 0,
   "articles": [
@@ -30,7 +30,20 @@
     "2026-03-16-motions-he.html",
     "2026-03-16-motions-ja.html",
     "2026-03-16-motions-ko.html",
-    "2026-03-16-motions-zh.html"
+    "2026-03-16-motions-zh.html",
+    "2026-03-16-breaking-sv.html",
+    "2026-03-16-breaking-da.html",
+    "2026-03-16-breaking-no.html",
+    "2026-03-16-breaking-fi.html",
+    "2026-03-16-breaking-de.html",
+    "2026-03-16-breaking-fr.html",
+    "2026-03-16-breaking-es.html",
+    "2026-03-16-breaking-nl.html",
+    "2026-03-16-breaking-ar.html",
+    "2026-03-16-breaking-he.html",
+    "2026-03-16-breaking-ja.html",
+    "2026-03-16-breaking-ko.html",
+    "2026-03-16-breaking-zh.html"
   ],
   "results": [
     {
@@ -42,6 +55,11 @@
       "success": true,
       "files": 13,
       "slug": "2026-03-16-motions"
+    },
+    {
+      "success": true,
+      "files": 13,
+      "slug": "2026-03-16-breaking"
     },
     {
       "success": true,
