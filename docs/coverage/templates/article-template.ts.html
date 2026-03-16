@@ -501,7 +501,14 @@
 <a name='L436'></a><a href='#L436'>436</a>
 <a name='L437'></a><a href='#L437'>437</a>
 <a name='L438'></a><a href='#L438'>438</a>
-<a name='L439'></a><a href='#L439'>439</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L439'></a><a href='#L439'>439</a>
+<a name='L440'></a><a href='#L440'>440</a>
+<a name='L441'></a><a href='#L441'>441</a>
+<a name='L442'></a><a href='#L442'>442</a>
+<a name='L443'></a><a href='#L443'>443</a>
+<a name='L444'></a><a href='#L444'>444</a>
+<a name='L445'></a><a href='#L445'>445</a>
+<a name='L446'></a><a href='#L446'>446</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -917,6 +924,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">396x</span>
 <span class="cline-any cline-yes">271x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1158,7 +1172,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
       publisher: {
         '@type': 'Organization',
         name: 'EU Parliament Monitor',
-        url: 'https://euparliamentmonitor.com',
+        url: 'https://hack23.github.io/euparliamentmonitor',
       },
       keywords: keywords.join(', '),
     },
@@ -1182,7 +1196,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   const jsonLdHash = `sha256-${createHash('sha256').update(jsonLdScriptContent).digest('base64')}`;
 &nbsp;
   // Reading-progress script hash — content must exactly match the &lt;script&gt; block.
-  const readingProgressScript = `\n  (function(){\n    var bar=document.querySelector('.reading-progress');\n    if(!bar)return;\n    bar.style.display='block';\n    window.addEventListener('scroll',function(){\n      var h=document.documentElement;\n      var scrollTop=h.scrollTop||document.body.scrollTop;\n      var scrollHeight=h.scrollHeight-h.clientHeight;\n      bar.style.width=scrollHeight&gt;0?((scrollTop/scrollHeight)*100)+'%':'0%';\n    },{passive:true});\n  })();\n  `;
+  const readingProgressScript = `\n  (function(){\n    var bar=document.querySelector('.reading-progress');\n    if(!bar)return;\n    bar.style.display='block';\n    var ticking=false;\n    window.addEventListener('scroll',function(){\n      if(!ticking){\n        window.requestAnimationFrame(function(){\n          var h=document.documentElement;\n          var scrollTop=h.scrollTop||document.body.scrollTop;\n          var scrollHeight=h.scrollHeight-h.clientHeight;\n          bar.style.width=scrollHeight&gt;0?((scrollTop/scrollHeight)*100)+'%':'0%';\n          ticking=false;\n        });\n        ticking=true;\n      }\n    },{passive:true});\n  })();\n  `;
   const readingProgressHash = `sha256-${createHash('sha256').update(readingProgressScript).digest('base64')}`;
 &nbsp;
   return `&lt;!DOCTYPE html&gt;
@@ -1199,8 +1213,8 @@ export function generateArticleHTML(options: ArticleOptions): string {
   &lt;meta name="author" content="EU Parliament Monitor"&gt;
   &lt;meta name="generator" content="EU Parliament Monitor v${escapeHTML(APP_VERSION)}"&gt;
   &lt;meta name="date" content="${date}"&gt;
-  &lt;meta name="article:published_time" content="${date}"&gt;
-  &lt;meta name="article:author" content="EU Parliament Monitor"&gt;
+  &lt;meta property="article:published_time" content="${date}"&gt;
+  &lt;meta property="article:author" content="EU Parliament Monitor"&gt;
   
   &lt;!-- Favicons --&gt;
   &lt;link rel="icon" type="image/x-icon" href="../favicon.ico"&gt;
@@ -1328,11 +1342,18 @@ export function generateArticleHTML(options: ArticleOptions): string {
     var bar=document.querySelector('.reading-progress');
     if(!bar)return;
     bar.style.display='block';
+    var ticking=false;
     window.addEventListener('scroll',function(){
-      var h=document.documentElement;
-      var scrollTop=h.scrollTop||document.body.scrollTop;
-      var scrollHeight=h.scrollHeight-h.clientHeight;
-      bar.style.width=scrollHeight&gt;0?((scrollTop/scrollHeight)*100)+'%':'0%';
+      if(!ticking){
+        window.requestAnimationFrame(function(){
+          var h=document.documentElement;
+          var scrollTop=h.scrollTop||document.body.scrollTop;
+          var scrollHeight=h.scrollHeight-h.clientHeight;
+          bar.style.width=scrollHeight&gt;0?((scrollTop/scrollHeight)*100)+'%':'0%';
+          ticking=false;
+        });
+        ticking=true;
+      }
     },{passive:true});
   })();
   &lt;/script&gt;${
@@ -1384,7 +1405,7 @@ function renderSourcesSection(sources: ArticleSource[], lang: LanguageCode): str
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-16T12:35:32.169Z
+                at 2026-03-16T13:16:12.476Z
             </div>
         <script src="../prettify.js"></script>
         <script>
