@@ -75,12 +75,12 @@
     {
       "success": true,
       "files": 13,
-      "slug": "2026-03-13-committee-reports"
+      "slug": "2026-03-13-breaking"
     },
     {
       "success": true,
       "files": 13,
-      "slug": "2026-03-13-week-ahead"
+      "slug": "2026-03-13-committee-reports"
     },
     {
       "success": true,
@@ -95,7 +95,7 @@
     {
       "success": true,
       "files": 13,
-      "slug": "2026-03-13-breaking"
+      "slug": "2026-03-13-week-ahead"
     }
   ],
   "usedMCP": true
