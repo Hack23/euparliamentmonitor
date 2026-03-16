@@ -1,6 +1,6 @@
 {
   "timestamp": "2026-03-13T12:00:00.000Z",
-  "generated": 85,
+  "generated": 65,
   "skipped": 13,
   "dryRun": 0,
   "errors": 0,
@@ -79,22 +79,22 @@
     },
     {
       "success": true,
-      "files": 5,
+      "files": 13,
       "slug": "2026-03-13-week-ahead"
     },
     {
       "success": true,
-      "files": 5,
+      "files": 13,
       "slug": "2026-03-13-motions"
     },
     {
       "success": true,
-      "files": 5,
+      "files": 13,
       "slug": "2026-03-13-propositions"
     },
     {
       "success": true,
-      "files": 5,
+      "files": 13,
       "slug": "2026-03-13-breaking"
     }
   ],
