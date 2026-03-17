@@ -141,6 +141,28 @@ describe('validateCommitteeEndpoint', () => {
     expect(result.success).toBe(true);
     expect(result.name).toBe('Economic and Monetary Affairs');
   });
+
+  it('should return success=false when classification is not a committee', async () => {
+    fetch.mockResolvedValue(
+      mockResponse({
+        data: [
+          {
+            id: 'org/ECON',
+            label: 'ECON',
+            prefLabel: { en: 'Economic and Monetary Affairs' },
+            classification: 'def/ep-entities/DELEGATION_PARLIAMENTARY',
+          },
+        ],
+      })
+    );
+
+    const result = await validateCommitteeEndpoint('ECON');
+
+    expect(result.hasName).toBe(true);
+    expect(result.hasLabel).toBe(true);
+    expect(result.hasClassification).toBe(false);
+    expect(result.success).toBe(false);
+  });
 });
 
 // ─── validateEPAPI ────────────────────────────────────────────────────────────

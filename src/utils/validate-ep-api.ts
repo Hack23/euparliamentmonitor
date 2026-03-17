@@ -12,6 +12,9 @@
  *   npx tsx src/utils/validate-ep-api.ts --committees=ENVI,ECON
  */
 
+import { resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
+
 /** Base URL for the EP Open Data Portal v2 API */
 const EP_API_V2_BASE = 'https://data.europarl.europa.eu/api/v2';
 
@@ -82,11 +85,15 @@ export async function validateCommitteeEndpoint(
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-    const response = await fetch(url, {
-      signal: controller.signal,
-      headers: { Accept: 'application/ld+json' },
-    });
-    clearTimeout(timer);
+    let response: Response;
+    try {
+      response = await fetch(url, {
+        signal: controller.signal,
+        headers: { Accept: 'application/ld+json' },
+      });
+    } finally {
+      clearTimeout(timer);
+    }
     const responseTimeMs = Date.now() - start;
 
     if (!response.ok) {
@@ -128,7 +135,7 @@ export async function validateCommitteeEndpoint(
 
     return {
       abbreviation,
-      success: hasName && hasLabel,
+      success: hasName && hasLabel && hasClassification,
       hasName,
       hasLabel,
       hasClassification,
@@ -210,10 +217,8 @@ async function main(): Promise<void> {
 
 // Only run if executed directly (not imported)
 if (
-  typeof process !== 'undefined' &&
   process.argv[1] &&
-  (process.argv[1].includes('validate-ep-api') ||
-    process.argv[1].includes('validate_ep_api'))
+  import.meta.url === pathToFileURL(resolve(process.argv[1])).href
 ) {
   main().catch((err: unknown) => {
     const message = err instanceof Error ? err.message : String(err);

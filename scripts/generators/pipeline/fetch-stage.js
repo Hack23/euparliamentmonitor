@@ -716,9 +716,10 @@ const EP_API_TIMEOUT_MS = 15_000;
  * returns placeholder data.  Uses `GET /corporate-bodies/{abbreviation}` which
  * is the canonical lookup for a committee by its code (e.g. `ENVI`).
  *
- * This function is intentionally conservative: it only populates `name` and
- * `abbreviation` so that `isPlaceholderCommitteeData` no longer marks the
- * entry as placeholder (which requires chair='N/A' AND members=0 AND docs=[]).
+ * This function is intentionally conservative: it primarily populates `name`
+ * and `abbreviation`, and may populate `members` from `inverse_isVersionOf`
+ * when available. Placeholder status is broken by changing `members` from `0`
+ * (placeholder criteria is chair='N/A' AND members=0 AND docs=[]).
  *
  * @param abbreviation - Committee abbreviation (e.g. `"ENVI"`)
  * @param data - Existing committee data to enrich
@@ -728,11 +729,16 @@ export async function fetchCommitteeInfoFromEPAPI(abbreviation, data) {
     try {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), EP_API_TIMEOUT_MS);
-        const response = await fetch(url, {
-            signal: controller.signal,
-            headers: { Accept: 'application/ld+json' },
-        });
-        clearTimeout(timer);
+        let response;
+        try {
+            response = await fetch(url, {
+                signal: controller.signal,
+                headers: { Accept: 'application/ld+json' },
+            });
+        }
+        finally {
+            clearTimeout(timer);
+        }
         if (!response.ok) {
             console.warn(`${WARN_PREFIX} EP API direct lookup for ${abbreviation} returned ${String(response.status)}`);
             return;
