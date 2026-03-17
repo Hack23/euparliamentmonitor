@@ -32,24 +32,39 @@ interface EPCorporateBodyItem {
 
 /** Result of validating a single committee endpoint */
 export interface CommitteeValidationResult {
+  /** Committee abbreviation code (e.g. `"ENVI"`) */
   abbreviation: string;
+  /** Whether the endpoint returned usable real data */
   success: boolean;
+  /** Whether a human-readable name was found */
   hasName: boolean;
+  /** Whether a label/abbreviation code was found */
   hasLabel: boolean;
+  /** Whether the classification identifies a standing committee */
   hasClassification: boolean;
+  /** English name of the committee, or null when unavailable */
   name: string | null;
+  /** Error message when the request failed, or null on success */
   error: string | null;
+  /** Round-trip time in milliseconds */
   responseTimeMs: number;
 }
 
-/** Overall validation summary */
+/** Overall validation summary for a batch of committee checks */
 export interface EPAPIValidationSummary {
+  /** ISO 8601 timestamp when validation was performed */
   timestamp: string;
+  /** Base URL of the EP API that was validated */
   apiBase: string;
+  /** Number of committees checked */
   totalChecked: number;
+  /** Number of committees that returned valid data */
   totalPassed: number;
+  /** Number of committees that failed validation */
   totalFailed: number;
+  /** Per-committee validation results */
   results: CommitteeValidationResult[];
+  /** Whether all checked committees passed validation */
   allValid: boolean;
 }
 

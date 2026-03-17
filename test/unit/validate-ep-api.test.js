@@ -3,7 +3,7 @@
 
 /**
  * Unit tests for EP v2 API validation utility and direct fallback.
- * Tests data validation, API response parsing, and fallback behaviour.
+ * Tests data validation, API response parsing, and fallback behavior.
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';

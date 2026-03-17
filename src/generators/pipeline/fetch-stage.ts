@@ -932,7 +932,10 @@ const EP_API_V2_BASE = 'https://data.europarl.europa.eu/api/v2';
 /** Timeout for direct EP API requests (ms) */
 const EP_API_TIMEOUT_MS = 15_000;
 
-/** Shape of a corporate body item from the EP v2 API */
+/**
+ * Shape of a corporate body item from the EP Open Data Portal v2 API.
+ * Represents the structure returned by `GET /corporate-bodies/{abbreviation}`.
+ */
 interface EPCorporateBodyItem {
   id?: string;
   label?: string;
