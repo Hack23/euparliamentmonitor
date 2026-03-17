@@ -189,7 +189,8 @@ describe('Propositions Generator', () => {
         keywords: ['legislation'],
         sources: [],
       });
-      expect(html).toContain('proposals-list');
+      // proposals-list section is omitted when proposalsHtml is empty
+      expect(html).not.toContain('proposals-list');
       expect(html).toContain('pipeline-status');
       const result = validateHTML(html);
       expect(result.valid).toBe(true);

@@ -75,16 +75,19 @@ export function buildPropositionsContent(
             ${adoptedTextsHtml}
           </section>`
     : '';
+  const proposalsSection = proposalsHtml
+    ? `
+          <section class="proposals-list">
+            <h2>${escapeHTML(strings.proposalsHeading)}</h2>
+            ${proposalsHtml}
+          </section>`
+    : '';
   return `
         <div class="article-content">
           <section class="lede">
             <p>${escapeHTML(strings.lede)}</p>
           </section>
-
-          <section class="proposals-list">
-            <h2>${escapeHTML(strings.proposalsHeading)}</h2>
-            ${proposalsHtml}
-          </section>
+          ${proposalsSection}
           ${adoptedTextsSection}
           <section class="pipeline-status">
             <h2>${escapeHTML(strings.pipelineHeading)}</h2>
