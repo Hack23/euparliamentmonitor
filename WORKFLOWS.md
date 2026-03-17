@@ -642,54 +642,40 @@ graph LR
 
 ---
 
-### 10. SLSA Provenance Workflow
+### 10. SLSA Provenance (Integrated in Release Workflow)
 
-**📄 File:** `.github/workflows/slsa-provenance.yml`  
+**📄 File:** `.github/workflows/release.yml`  
 **🎯 Purpose:** Generate cryptographic build provenance for supply chain integrity verification  
-**⏰ Trigger:** On release creation + manual dispatch with version input  
-**📊 Status:** [![SLSA Provenance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/slsa-provenance.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/slsa-provenance.yml)
+**⏰ Trigger:** On tag push (v*) + manual dispatch with version input  
+**📊 Status:** [![Release](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml)
 
 #### Provenance Generation Pipeline
 
-```mermaid
-graph TD
-    A[🚀 Release Trigger] --> B[🔒 Harden Runner: egress audit]
-    B --> C[📥 Checkout Code SHA-pinned]
-    C --> D[📦 npm ci: Hermetic Build]
-    D --> E[📰 Generate News USE_EP_MCP=false]
-    E --> F[🗜️ Create tar.gz Archive]
-    F --> G[📋 CycloneDX SBOM Generation]
-    G --> H[🔏 Attest Build Provenance]
-    H --> I[🔏 Attest SBOM]
-    I --> J[📤 Upload Artifacts 90-day retention]
-    J --> K{Release Event?}
-    K -->|Yes| L[📎 Attach to GitHub Release]
-    K -->|No| M[✅ Artifacts Available]
-```
+SLSA Level 3 provenance is generated as part of the release workflow build job. All attestations and SBOM are
+created during the build step and attached to the immutable GitHub Release in a single atomic operation.
 
 #### Attestation Artifacts
 
 | Artifact | Action | Verification Command |
 |----------|--------|----------------------|
 | **Build Provenance** | `actions/attest-build-provenance` (SHA-pinned) | `gh attestation verify --owner Hack23 <file>` |
-| **SBOM (CycloneDX)** | `actions/attest-sbom` (SHA-pinned) | `gh attestation verify --owner Hack23 <file>` |
-| **Distribution Archive** | `tar.gz` with excluded dev files | SHA-256 checksum |
-| **SBOM JSON** | CycloneDX NPM format | License compliance check |
+| **SBOM (SPDX)** | `anchore/sbom-action` + `actions/attest` (SHA-pinned) | `gh attestation verify --owner Hack23 <file>` |
+| **Distribution Archive** | `.zip` with excluded dev files | SHA-256 checksum |
+| **SBOM JSON** | SPDX format | License compliance check |
 
 #### Security Controls
 
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
 | **OIDC Keyless Signing** | `id-token: write` + GitHub Sigstore | SLSA Level 3 |
-| **Hermetic Build** | `USE_EP_MCP=false`, controlled deps | Reproducibility |
+| **Immutable Release** | `immutableCreate: true` — single-write release | Integrity |
 | **Minimal Permissions** | `permissions: read-all` top-level | Least privilege |
-| **90-day Retention** | Artifact retention policy | Evidence management |
 | **Harden Runner** | egress audit on all outbound calls | Network security |
 
 #### ISMS Evidence
 
 - **Policy:** [Secure Development Policy §4.4](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md#44-supply-chain-security)
-- **Workflow:** [slsa-provenance.yml](.github/workflows/slsa-provenance.yml)
+- **Workflow:** [release.yml](.github/workflows/release.yml)
 - **Attestations:** [GitHub Attestations](https://github.com/Hack23/euparliamentmonitor/attestations)
 
 ---
@@ -819,7 +805,6 @@ Every workflow declares explicit, minimal permissions following the principle of
 | **reuse** | `contents: read` | — | None |
 | **scorecards** | `read-all` | analysis: `security-events: write`, `id-token: write`, `contents: read`, `actions: read`, `issues: read`, `pull-requests: read`, `checks: read` | None |
 | **setup-labels** | `contents: read`, `issues: write` | — | `GITHUB_TOKEN` |
-| **slsa-provenance** | `read-all` | build: `id-token: write`, `contents: write`, `attestations: write` | None |
 | **test-and-report** | `read-all` | validation: `contents: read`, `pull-requests: write`; functional-tests: `contents: read`; performance: `contents: read`; security-check: `contents: read`, `security-events: write`; report: `contents: read`, `pull-requests: write` | None |
 | **news-\* (agentic ×9)** | `{}` (empty) | activation: `contents: read`; agent: `contents: write`, `pull-requests: write`, `issues: write`, `models: read` | `GITHUB_TOKEN` |
 
@@ -924,12 +909,12 @@ Supply-chain Levels for Software Artifacts (SLSA) Level 3 compliance is achieved
 |---------------------|----------------|---------|
 | **Source — Version controlled** | Git + GitHub branch protection | All |
 | **Source — Verified history** | Protected `main` branch | All |
-| **Build — Scripted build** | `npm ci` + reproducible steps | release.yml, slsa-provenance.yml |
+| **Build — Scripted build** | `npm ci` + reproducible steps | release.yml |
 | **Build — Build service** | GitHub Actions managed runners | All |
-| **Build — Non-falsifiable provenance** | GitHub Sigstore / OIDC keyless | release.yml, slsa-provenance.yml |
+| **Build — Non-falsifiable provenance** | GitHub Sigstore / OIDC keyless | release.yml |
 | **Build — Isolated** | GitHub-hosted Ubuntu runners | All |
 | **Provenance — Available** | `.intoto.jsonl` attached to release | release.yml |
-| **Provenance — Authenticated** | OIDC `id-token: write` | release.yml, slsa-provenance.yml |
+| **Provenance — Authenticated** | OIDC `id-token: write` | release.yml |
 | **Provenance — Service generated** | `actions/attest-build-provenance` | release.yml |
 | **Provenance — Non-falsifiable** | Sigstore transparency log | release.yml |
 

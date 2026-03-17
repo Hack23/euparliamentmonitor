@@ -343,12 +343,34 @@ jobs:
         with:
           tag: ${{ needs.prepare.outputs.version }}
           name: EU Parliament Monitor ${{ needs.prepare.outputs.version }}
-          body: ${{ steps.release-drafter.outputs.body }}
+          body: |
+            ${{ steps.release-drafter.outputs.body }}
+
+            ## 📦 Release Artifacts
+
+            - `euparliamentmonitor-${{ needs.prepare.outputs.version }}.zip` - Full application package
+            - `euparliamentmonitor-${{ needs.prepare.outputs.version }}.spdx.json` - SBOM (Software Bill of Materials)
+            - `*.intoto.jsonl` - SLSA Build Provenance Attestations
+
+            ## 📚 Documentation
+
+            - [API Documentation](https://hack23.github.io/euparliamentmonitor/docs/api/)
+            - [Test Coverage Report](https://hack23.github.io/euparliamentmonitor/docs/coverage/)
+            - [E2E Test Report](https://hack23.github.io/euparliamentmonitor/docs/playwright-report/)
+            - [Documentation Hub](https://hack23.github.io/euparliamentmonitor/docs/)
+
+            ## 🔐 Security
+
+            All artifacts include SLSA Build Provenance attestations and SBOM for supply chain security.
+            Verify attestations using the GitHub CLI:
+
+            ```bash
+            gh attestation verify euparliamentmonitor-${{ needs.prepare.outputs.version }}.zip -R Hack23/euparliamentmonitor
+            ```
           generateReleaseNotes: false
+          immutableCreate: true
           draft: false
           prerelease: ${{ needs.prepare.outputs.is_prerelease }}
-          allowUpdates: true
-          replacesArtifacts: true
           artifacts: |
             artifacts/build/euparliamentmonitor-${{ needs.prepare.outputs.version }}.zip
             artifacts/security/euparliamentmonitor-${{ needs.prepare.outputs.version }}.spdx.json
