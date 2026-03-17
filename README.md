@@ -721,7 +721,7 @@ EU Parliament Monitor maintains security excellence through continuous complianc
 **Provenance Generation**:
 - ✅ Automated on releases via `.github/workflows/release.yml`
 - ✅ Build attestations using `actions/attest-build-provenance@v2`
-- ✅ SBOM generation using CycloneDX
+- ✅ SBOM generation using SPDX format
 - ✅ Artifacts uploaded to GitHub Releases
 
 **Verification**: View attestations at `https://github.com/Hack23/euparliamentmonitor/attestations/`
