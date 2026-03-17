@@ -50,7 +50,13 @@ import {
   parseEPEvents,
   PLACEHOLDER_EVENTS,
 } from '../week-ahead-content.js';
-import { applyCommitteeInfo, applyDocuments, applyEffectiveness } from '../committee-helpers.js';
+import {
+  applyCommitteeInfo,
+  applyDocuments,
+  applyEffectiveness,
+  PLACEHOLDER_CHAIR,
+  PLACEHOLDER_MEMBERS,
+} from '../committee-helpers.js';
 import { getMotionsFallbackData } from '../motions-content.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import type { PipelineData } from '../propositions-content.js';
@@ -918,6 +924,102 @@ function tryLoadCommitteeDataFromEnv(abbreviation: string): CommitteeData | unde
   return data;
 }
 
+// ─── EP v2 API direct fallback ──────────────────────────────────────────────
+
+/** Base URL for the EP Open Data Portal v2 API */
+const EP_API_V2_BASE = 'https://data.europarl.europa.eu/api/v2';
+
+/** Timeout for direct EP API requests (ms) */
+const EP_API_TIMEOUT_MS = 15_000;
+
+/**
+ * Shape of a corporate body item from the EP Open Data Portal v2 API.
+ * Represents the structure returned by `GET /corporate-bodies/{abbreviation}`.
+ */
+interface EPCorporateBodyItem {
+  id?: string;
+  label?: string;
+  prefLabel?: Record<string, string>;
+  altLabel?: Record<string, string>;
+  classification?: string;
+  inverse_isVersionOf?: string[];
+}
+
+/**
+ * Fetch committee info directly from the EP v2 API as a fallback when MCP
+ * returns placeholder data.  Uses `GET /corporate-bodies/{abbreviation}` which
+ * is the canonical lookup for a committee by its code (e.g. `ENVI`).
+ *
+ * This function is intentionally conservative: it primarily populates `name`
+ * and `abbreviation`, and may populate `members` from `inverse_isVersionOf`
+ * when available. Placeholder status is broken by changing `members` from `0`
+ * (placeholder criteria is chair='N/A' AND members=0 AND docs=[]).
+ *
+ * @param abbreviation - Committee abbreviation (e.g. `"ENVI"`)
+ * @param data - Existing committee data to enrich
+ */
+export async function fetchCommitteeInfoFromEPAPI(
+  abbreviation: string,
+  data: CommitteeData
+): Promise<void> {
+  const url = `${EP_API_V2_BASE}/corporate-bodies/${encodeURIComponent(abbreviation)}?format=application%2Fld%2Bjson`;
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), EP_API_TIMEOUT_MS);
+    let response: Response;
+    try {
+      response = await fetch(url, {
+        signal: controller.signal,
+        headers: { Accept: 'application/ld+json' },
+      });
+    } finally {
+      clearTimeout(timer);
+    }
+    if (!response.ok) {
+      console.warn(
+        `${WARN_PREFIX} EP API direct lookup for ${abbreviation} returned ${String(response.status)}`
+      );
+      return;
+    }
+    const body = (await response.json()) as { data?: EPCorporateBodyItem[] };
+    const items = body.data;
+    if (!Array.isArray(items) || items.length === 0) return;
+    const item = items[0];
+    if (!item) return;
+
+    // Extract name: prefer English prefLabel, then English altLabel, then label
+    const name = item.prefLabel?.['en'] ?? item.altLabel?.['en'] ?? item.label ?? undefined;
+    if (name && name.length > 0) {
+      data.name = name;
+    }
+
+    // Extract abbreviation: the label field holds the abbreviation code
+    const abbr = item.label;
+    if (abbr && abbr.length > 0 && !abbr.startsWith('org/')) {
+      data.abbreviation = abbr;
+    }
+
+    console.log(`  ✅ EP API fallback: ${data.name} (${data.abbreviation})`);
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.warn(`${WARN_PREFIX} EP API direct fallback failed for ${abbreviation}:`, message);
+  }
+}
+
+/**
+ * Check whether a single committee data entry is still in placeholder state.
+ *
+ * @param data - Committee data to inspect
+ * @returns `true` when the entry matches all placeholder criteria
+ */
+function isPlaceholderEntry(data: CommitteeData): boolean {
+  return (
+    data.chair === PLACEHOLDER_CHAIR &&
+    data.members === PLACEHOLDER_MEMBERS &&
+    data.documents.length === 0
+  );
+}
+
 /**
  * Fetch committee data from three MCP sources for the given abbreviation.
  * Each source failure is caught individually so partial data is still returned.
@@ -925,6 +1027,10 @@ function tryLoadCommitteeDataFromEnv(abbreviation: string): CommitteeData | unde
  * When the environment variable `EP_COMMITTEE_DATA_FILE` is set, pre-fetched
  * committee data is loaded from that JSON file instead of calling the MCP
  * client.  This enables agentic workflows to inject real EP data.
+ *
+ * When MCP returns placeholder data (chair=N/A, members=0, docs=[]),
+ * a direct call to the EP v2 API is attempted as a fallback to populate
+ * at least the committee name and abbreviation.
  *
  * @param client - MCP client or null
  * @param abbreviation - Committee code (e.g. `"ENVI"`)
@@ -993,6 +1099,16 @@ export async function fetchCommitteeData(
       `${WARN_PREFIX} analyzeLegislativeEffectiveness failed for ${abbreviation}:`,
       message
     );
+  }
+
+  // Fallback: when MCP left the committee in placeholder state, try the EP v2
+  // API directly.  This provides resilience when the MCP server has issues
+  // parsing committee data (see European-Parliament-MCP-Server#233).
+  if (isPlaceholderEntry(defaultResult)) {
+    console.log(
+      `${INFO_PREFIX} Committee ${abbreviation} still placeholder after MCP — trying EP v2 API directly...`
+    );
+    await fetchCommitteeInfoFromEPAPI(abbreviation, defaultResult);
   }
 
   return defaultResult;
