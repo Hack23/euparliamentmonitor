@@ -988,8 +988,7 @@ export async function fetchCommitteeInfoFromEPAPI(
     if (!item) return;
 
     // Extract name: prefer English prefLabel, then English altLabel, then label
-    const name =
-      item.prefLabel?.['en'] ?? item.altLabel?.['en'] ?? item.label ?? undefined;
+    const name = item.prefLabel?.['en'] ?? item.altLabel?.['en'] ?? item.label ?? undefined;
     if (name && name.length > 0) {
       data.name = name;
     }

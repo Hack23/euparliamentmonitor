@@ -166,9 +166,7 @@ export async function validateCommitteeEndpoint(
 export async function validateEPAPI(
   committees: readonly string[] = DEFAULT_COMMITTEES
 ): Promise<EPAPIValidationSummary> {
-  const results = await Promise.all(
-    committees.map((abbr) => validateCommitteeEndpoint(abbr))
-  );
+  const results = await Promise.all(committees.map((abbr) => validateCommitteeEndpoint(abbr)));
   const totalPassed = results.filter((r) => r.success).length;
   return {
     timestamp: new Date().toISOString(),
@@ -216,10 +214,7 @@ async function main(): Promise<void> {
 }
 
 // Only run if executed directly (not imported)
-if (
-  process.argv[1] &&
-  import.meta.url === pathToFileURL(resolve(process.argv[1])).href
-) {
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   main().catch((err: unknown) => {
     const message = err instanceof Error ? err.message : String(err);
     console.error('Fatal error:', message);
