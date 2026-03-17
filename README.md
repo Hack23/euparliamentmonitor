@@ -528,7 +528,7 @@ and quality assurance:
 - **REUSE Compliance**: License header verification (FSFE REUSE specification)
 - **SonarCloud Analysis**: Automatic server-side code quality, security vulnerabilities, and technical debt tracking
 - **SLSA Provenance**: Level 3 build attestations with SBOM generation on releases
-- **Workflows**: `.github/workflows/reuse.yml`, `.github/workflows/slsa-provenance.yml`
+- **Workflows**: `.github/workflows/reuse.yml`, `.github/workflows/release.yml`
 
 #### ✅ Test & Validation
 
@@ -555,7 +555,7 @@ and quality assurance:
 **Compliance Workflows:**
 
 [![REUSE Compliance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml)
-[![SLSA Provenance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/slsa-provenance.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/slsa-provenance.yml)
+[![SLSA Provenance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml)
 
 ### Manual Release Process
 
@@ -719,7 +719,7 @@ EU Parliament Monitor maintains security excellence through continuous complianc
 #### SLSA Level 3 (Status: ✅ Implemented)
 
 **Provenance Generation**:
-- ✅ Automated on releases via `.github/workflows/slsa-provenance.yml`
+- ✅ Automated on releases via `.github/workflows/release.yml`
 - ✅ Build attestations using `actions/attest-build-provenance@v2`
 - ✅ SBOM generation using CycloneDX
 - ✅ Artifacts uploaded to GitHub Releases

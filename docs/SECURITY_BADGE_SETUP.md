@@ -131,9 +131,9 @@ https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor
 
 **Current Setup**:
 
-- Workflow: `.github/workflows/slsa-provenance.yml`
-- Triggers: On release creation, manual workflow dispatch
-- Attestations: Build provenance + SBOM (CycloneDX)
+- Workflow: `.github/workflows/release.yml`
+- Triggers: On tag push (v*), manual workflow dispatch
+- Attestations: Build provenance + SBOM (SPDX)
 - Level: **SLSA Level 3**
 
 **Features**:
