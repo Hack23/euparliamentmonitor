@@ -149,8 +149,7 @@ async function main() {
     }
 }
 // Only run if executed directly (not imported)
-if (process.argv[1] &&
-    import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
     main().catch((err) => {
         const message = err instanceof Error ? err.message : String(err);
         console.error('Fatal error:', message);
