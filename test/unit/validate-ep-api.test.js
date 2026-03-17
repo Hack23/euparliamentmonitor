@@ -63,6 +63,7 @@ describe('validateCommitteeEndpoint', () => {
 
   afterEach(() => {
     vi.restoreAllMocks();
+    vi.unstubAllGlobals();
   });
 
   it('should return success=true when EP API returns valid committee data', async () => {
@@ -174,6 +175,7 @@ describe('validateEPAPI', () => {
 
   afterEach(() => {
     vi.restoreAllMocks();
+    vi.unstubAllGlobals();
   });
 
   it('should validate all committees and return summary', async () => {
@@ -223,6 +225,7 @@ describe('fetchCommitteeInfoFromEPAPI', () => {
 
   afterEach(() => {
     vi.restoreAllMocks();
+    vi.unstubAllGlobals();
   });
 
   it('should populate committee data from EP v2 API response', async () => {
@@ -237,7 +240,7 @@ describe('fetchCommitteeInfoFromEPAPI', () => {
 
     expect(data.name).toBe('Committee on the Environment, Climate and Food Safety');
     expect(data.abbreviation).toBe('ENVI');
-    expect(data.members).toBe(3); // inverse_isVersionOf has 3 items
+    expect(data.members).toBe(0);
   });
 
   it('should not overwrite existing non-placeholder members', async () => {

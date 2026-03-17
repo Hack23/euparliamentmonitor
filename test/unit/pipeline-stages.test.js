@@ -1104,6 +1104,7 @@ describe('fetchCommitteeData with mock client', () => {
 
   afterEach(() => {
     vi.restoreAllMocks();
+    vi.unstubAllGlobals();
   });
 
   it('returns committee data with defaults when client returns undefined', async () => {
@@ -1145,6 +1146,7 @@ describe('fetch-stage error paths with throwing client', () => {
 
   afterEach(() => {
     vi.restoreAllMocks();
+    vi.unstubAllGlobals();
   });
 
   it('fetchVotingAnomalies returns empty string when client throws', async () => {

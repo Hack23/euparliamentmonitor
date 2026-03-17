@@ -760,11 +760,6 @@ export async function fetchCommitteeInfoFromEPAPI(abbreviation, data) {
         if (abbr && abbr.length > 0 && !abbr.startsWith('org/')) {
             data.abbreviation = abbr;
         }
-        // Count historical versions as a proxy for member activity
-        const versions = item.inverse_isVersionOf;
-        if (Array.isArray(versions) && versions.length > 0 && data.members === PLACEHOLDER_MEMBERS) {
-            data.members = versions.length;
-        }
         console.log(`  ✅ EP API fallback: ${data.name} (${data.abbreviation})`);
     }
     catch (err) {

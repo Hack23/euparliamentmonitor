@@ -122,9 +122,14 @@ export async function validateEPAPI(committees = DEFAULT_COMMITTEES) {
 async function main() {
     const args = process.argv.slice(2);
     const committeesArg = args.find((a) => a.startsWith('--committees='));
-    const committees = committeesArg
-        ? committeesArg.replace('--committees=', '').split(',')
-        : [...DEFAULT_COMMITTEES];
+    const parsedCommittees = committeesArg
+        ? committeesArg
+            .replace('--committees=', '')
+            .split(',')
+            .map((committee) => committee.trim())
+            .filter((committee) => committee.length > 0)
+        : [];
+    const committees = parsedCommittees.length > 0 ? parsedCommittees : [...DEFAULT_COMMITTEES];
     console.log(`\n🔍 Validating EP v2 API for committees: ${committees.join(', ')}\n`);
     const summary = await validateEPAPI(committees);
     for (const r of summary.results) {
