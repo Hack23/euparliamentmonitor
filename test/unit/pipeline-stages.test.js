@@ -1093,6 +1093,19 @@ describe('fetchProcedureStatusFromMCP with mock client', () => {
 });
 
 describe('fetchCommitteeData with mock client', () => {
+  beforeEach(() => {
+    // Mock fetch to prevent real HTTP calls from EP API direct fallback
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: false,
+      status: 503,
+      json: async () => ({}),
+    }));
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('returns committee data with defaults when client returns undefined', async () => {
     const result = await fetchCommitteeData(mockClientEmpty, 'LIBE');
     expect(result.abbreviation).toBe('LIBE');
@@ -1122,6 +1135,16 @@ describe('fetch-stage error paths with throwing client', () => {
   beforeEach(() => {
     // Reset circuit breaker to CLOSED so each test gets a fresh probe
     mcpCircuitBreaker.recordSuccess();
+    // Mock fetch to prevent real HTTP calls from EP API direct fallback
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: false,
+      status: 503,
+      json: async () => ({}),
+    }));
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   it('fetchVotingAnomalies returns empty string when client throws', async () => {
