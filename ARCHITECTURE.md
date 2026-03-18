@@ -131,7 +131,7 @@ architecture.
 
 - **Minimal Runtime Dependencies**: Pure static HTML/CSS output with no server-side
   execution; single production dependency (`european-parliament-mcp-server`) used at build time
-- **TypeScript Source**: All source code in `src/` written in TypeScript (strict mode), compiled via `tsc` to `scripts/` (ES2022 target)
+- **TypeScript Source**: All source code in `src/` written in TypeScript (strict mode), compiled via `tsc` to `scripts/` (ES2024 target)
 - **Multi-Language Support**: Generates content in 14 languages
 - **MCP Integration**: Uses European Parliament MCP Server for data access
 - **Security by Design**: Minimal attack surface through static architecture
@@ -549,7 +549,7 @@ C4Deployment
 | Layer               | Technology | Version | Purpose                          | Rationale |
 | ------------------- | ---------- | ------- | -------------------------------- | --------- |
 | **Runtime**         | Node.js    | 25.x Current | JavaScript execution environment | Current release for latest features, performance improvements; upgrade to Node.js 26 LTS planned April 2026 |
-| **Language**        | TypeScript | 5.x     | Primary development language     | Strict type safety, compile-time error detection; compiles from `src/` to `scripts/` targeting ES2022 |
+| **Language**        | TypeScript | 5.x     | Primary development language     | Strict type safety, compile-time error detection; compiles from `src/` to `scripts/` targeting ES2024 |
 | **Package Manager** | npm        | 10.x    | Dependency management            | Native Node.js package manager, security audit integration |
 | **Testing**         | Vitest     | 4.x     | Unit and integration testing     | Fast, modern, ESM-native test runner with great DX |
 | **E2E Testing**     | Playwright | 1.58.x  | End-to-end browser testing       | Cross-browser support, reliable selectors, parallel execution |
@@ -654,7 +654,7 @@ src/                          → scripts/             (tsc compilation)
 - `npm run generate-news-indexes` — Executes compiled `scripts/generators/news-indexes.js`
 
 **TypeScript configuration** (`tsconfig.json`):
-- `target: ES2022` — Modern JavaScript output
+- `target: ES2024` — Modern JavaScript output
 - `module: ESNext` — ES module syntax
 - `strict: true` — Full strict mode enabled
 - `rootDir: ./src` — TypeScript source root
@@ -1126,17 +1126,17 @@ We will generate content **natively in each language using LLMs** rather than tr
 - Small development team (1-2 developers) benefits from IDE support
 
 **Decision:**
-We will use **TypeScript (strict mode)** as the primary development language, compiling from `src/` to `scripts/` targeting ES2022.
+We will use **TypeScript (strict mode)** as the primary development language, compiling from `src/` to `scripts/` targeting ES2024.
 
 **Rationale:**
 1. **Type Safety**: Strict mode catches errors at compile time, especially important for complex EP data structures and MCP client interfaces
 2. **IDE Support**: Full IntelliSense, refactoring, and navigation in VS Code
 3. **Self-Documenting**: TypeScript interfaces serve as living documentation for data models (ArticleCategory, LanguageCode, MCPToolResult, etc.)
-4. **Build Pipeline**: `tsc` compiles `src/*.ts` → `scripts/*.js`; `rootDir: ./src`, `outDir: ./scripts`, `target: ES2022`, `module: ESNext`
+4. **Build Pipeline**: `tsc` compiles `src/*.ts` → `scripts/*.js`; `rootDir: ./src`, `outDir: ./scripts`, `target: ES2024`, `module: ESNext`
 5. **Ecosystem**: Full access to Node.js and npm ecosystem with type definitions
 
 **Alternatives Considered:**
-- **JavaScript (ES2022) with JSDoc**: Rejected due to weaker type guarantees, less comprehensive IDE support for complex interfaces
+- **JavaScript (ES2024) with JSDoc**: Rejected due to weaker type guarantees, less comprehensive IDE support for complex interfaces
 - **Flow**: Rejected due to declining community support
 - **JavaScript ES2015**: Rejected due to lack of modern features (optional chaining, nullish coalescing)
 
@@ -1291,7 +1291,7 @@ Non-functional requirements define system qualities that are not directly relate
 ### 4. Maintainability
 
 - **Minimal Dependencies**: One production dependency (`european-parliament-mcp-server` for build-time data access), only dev dependencies otherwise
-- **Standard Technologies**: HTML5, CSS3, TypeScript (compiled to ES2022 JavaScript)
+- **Standard Technologies**: HTML5, CSS3, TypeScript (compiled to ES2024 JavaScript)
 - **Comprehensive Testing**: Unit, integration, and E2E tests
 - **Documentation**: Architecture, security, and process docs
 

@@ -618,7 +618,7 @@ builds | 50-70% |
 
 - **Image**: Sharp, ImageOptim, Squoosh
 - **CSS**: PurgeCSS, cssnano
-- **TypeScript**: tsc compilation to ES2022
+- **TypeScript**: tsc compilation to ES2024
 - **HTML**: html-minifier
 - **Build**: Nx, Turborepo caching
 
