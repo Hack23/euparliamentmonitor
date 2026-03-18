@@ -143,7 +143,7 @@ responsive design, and multi-language functionality.
 **Workflow Steps**:
 
 1. Checkout code
-2. Setup Node.js 24 with npm cache
+2. Setup Node.js 25 with npm cache
 3. Install dependencies (npm ci)
 4. Install Playwright browsers
 5. Generate test content (news, indexes, sitemap)

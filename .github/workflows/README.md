@@ -15,7 +15,7 @@ This directory contains GitHub Actions workflows for the EU Parliament Monitor p
 - PR to `.github/workflows/copilot-setup-steps.yml`
 
 **What it does**:
-- Sets up Node.js 24
+- Sets up Node.js 25
 - Installs MCP server packages globally
 - Configures Xvfb for browser-based operations
 - Installs Playwright browsers

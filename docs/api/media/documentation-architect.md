@@ -132,7 +132,7 @@ sequenceDiagram
 ```mermaid
 flowchart TD
     Start([Daily Cron Trigger]) --> Checkout[Checkout Repository]
-    Checkout --> Setup[Setup Node.js 24]
+    Checkout --> Setup[Setup Node.js 25]
     Setup --> InstallDeps[Install Dependencies]
     InstallDeps --> PreInstallMCP[Pre-install EP MCP Server]
     PreInstallMCP --> FetchData{MCP Available?}
@@ -285,7 +285,7 @@ const enviMembers = await client.callTool('get_meps', { committee: 'ENVI' });
 
 ### Prerequisites
 
-- Node.js 24+
+- Node.js 25+
 - npm 10+
 - European Parliament MCP Server access
 

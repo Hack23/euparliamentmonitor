@@ -100,7 +100,7 @@
     "worldbank-mcp": "^1.0.1"
   },
   "engines": {
-    "node": ">=24"
+    "node": ">=25"
   },
   "dependencies": {
     "european-parliament-mcp-server": "^1.1.12"

@@ -151,7 +151,7 @@ All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 - GitHub Actions workflow authoring
 - Daily news generation automation
 - Playwright browser testing in CI
-- Node.js 24 environment setup
+- Node.js 25 environment setup
 - MCP server pre-installation and caching
 - GitHub Pages deployment strategies
 - Security scanning integration (Dependabot, CodeQL)

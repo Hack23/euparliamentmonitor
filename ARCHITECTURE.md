@@ -203,7 +203,7 @@ graph TB
     
     subgraph "GitHub Infrastructure - Trusted Zone"
         subgraph "Build Environment"
-            Actions[GitHub Actions Runner<br/>GitHub-hosted Ubuntu runner<br/>ubuntu-latest + Node.js 24]
+            Actions[GitHub Actions Runner<br/>GitHub-hosted Ubuntu runner<br/>ubuntu-latest + Node.js 25]
             EPServer[European Parliament<br/>MCP Server<br/>(local process, stdio JSON-RPC)]
         end
         
@@ -495,7 +495,7 @@ C4Deployment
     Deployment_Node(github_cloud, "GitHub Cloud", "GitHub Infrastructure") {
         Deployment_Node(actions_runner, "GitHub Actions Runner", "Ubuntu 24.04") {
             Container(workflow, "News Generation Workflow", "GitHub Actions YAML", "Daily scheduled workflow")
-            Container(node_runtime, "Node.js Runtime", "Node.js 24", "Executes generation scripts")
+            Container(node_runtime, "Node.js Runtime", "Node.js 25", "Executes generation scripts")
         }
 
         Deployment_Node(pages_cdn, "AWS Infrastructure", "S3 + CloudFront") {
@@ -532,7 +532,7 @@ C4Deployment
 
 | Infrastructure Component  | Technology               | Purpose                           | Configuration                         |
 | ------------------------- | ------------------------ | --------------------------------- | ------------------------------------- |
-| **GitHub Actions Runner** | ubuntu-latest, Node.js 24 | Execute generation workflow       | .github/workflows/news-*.lock.yml |
+| **GitHub Actions Runner** | ubuntu-latest, Node.js 25 | Execute generation workflow       | .github/workflows/news-*.lock.yml |
 | **Amazon CloudFront**     | AWS CDN                  | Serve static content globally     | CloudFront distribution (deploy-s3.yml) |
 | **Amazon S3**             | AWS Object Storage       | Host static site files            | S3 bucket (deploy-s3.yml)              |
 | **Git Repository**        | GitHub Storage           | Version control + content storage | public repository                      |
@@ -548,7 +548,7 @@ C4Deployment
 
 | Layer               | Technology | Version | Purpose                          | Rationale |
 | ------------------- | ---------- | ------- | -------------------------------- | --------- |
-| **Runtime**         | Node.js    | 24.x LTS | JavaScript execution environment | Latest LTS for long-term stability, security patches, modern ECMAScript support |
+| **Runtime**         | Node.js    | 25.x Current | JavaScript execution environment | Current release for latest features, performance improvements; upgrade to Node.js 26 LTS planned April 2026 |
 | **Language**        | TypeScript | 5.x     | Primary development language     | Strict type safety, compile-time error detection; compiles from `src/` to `scripts/` targeting ES2022 |
 | **Package Manager** | npm        | 10.x    | Dependency management            | Native Node.js package manager, security audit integration |
 | **Testing**         | Vitest     | 4.x     | Unit and integration testing     | Fast, modern, ESM-native test runner with great DX |
@@ -560,8 +560,8 @@ C4Deployment
 
 | Technology | Current Version | Minimum Version | End-of-Life | Update Policy |
 |------------|----------------|-----------------|-------------|---------------|
-| **Node.js** | 24.x (latest) | 24.0.0 | 2029-04-30 (LTS maintenance end, tentative) | Update to latest LTS minor within 30 days of release |
-| **npm** | 10.x (latest) | 10.0.0 | Follows Node.js 24 LTS lifecycle | Auto-updated with Node.js |
+| **Node.js** | 25.x (current) | 25.0.0 | ~Apr 2026 (Current EOL; upgrading to Node.js 26 LTS) | Update to Node.js 26 LTS within days of release (~Apr 2026) |
+| **npm** | 10.x (latest) | 10.0.0 | Follows Node.js lifecycle | Auto-updated with Node.js |
 | **TypeScript** | 5.9.x | 5.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
 | **Vitest** | 4.0.18 | 4.0.0 | N/A | Update to latest minor within 14 days, major within 60 days |
 | **Playwright** | 1.58.2 | 1.50.0 | N/A | Update to latest minor within 14 days, major within 60 days |

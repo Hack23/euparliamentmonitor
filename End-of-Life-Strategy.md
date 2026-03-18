@@ -16,8 +16,8 @@
   <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-12 (UTC)  
-**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-03-12  
+**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-03-18 (UTC)  
+**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-03-18  
 **🏷️ Classification:** Public (Static Site European Parliament Intelligence Platform)
 
 ---
@@ -63,7 +63,7 @@
 
 ### 📋 Strategic Objective
 
-**EU Parliament Monitor** maintains a modern frontend-only static site architecture using HTML5, CSS3, and the Node.js 24 LTS toolchain for build and content generation. This strategy ensures proactive lifecycle management of all technology components to prevent security exposure, maintain platform stability, and align with [Hack23 AB's Vulnerability Management Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) **"Living on the Edge"** philosophy.
+**EU Parliament Monitor** maintains a modern frontend-only static site architecture using HTML5, CSS3, and the Node.js 25 Current toolchain for build and content generation. Node.js 25 is the latest "Current" release (October 2025), and the project is prepared to upgrade to **Node.js 26 LTS** immediately upon its release (~April 2026, within 2 weeks). This strategy ensures proactive lifecycle management of all technology components to prevent security exposure, maintain platform stability, and align with [Hack23 AB's Vulnerability Management Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) **"Living on the Edge"** philosophy.
 
 This strategy aligns with the [Hack23 AB Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) requirement for comprehensive lifecycle documentation.
 
@@ -89,10 +89,10 @@ Based on [Hack23 AB Classification Framework](https://github.com/Hack23/ISMS-PUB
 mindmap
   root((🇪🇺 EU Parliament Monitor Stack))
     (🖥️ Runtime)
-      ☕ Node.js 24.x LTS
-        📅 Current LTS
-        ⏰ EOL: ~Apr 2028
-        🔄 Next LTS: Node.js 26
+      ☕ Node.js 25.x Current
+        📅 Current Release (Oct 2025)
+        ⏰ EOL: ~Apr 2026 (in ~2 weeks)
+        🔄 Next LTS: Node.js 26 (Apr 2026)
         🎯 Target (annual cadence): Node.js 27
       🌐 Browser Runtime
         📅 Evergreen Updates
@@ -148,7 +148,7 @@ mindmap
 
 | **Technology Category** | **Current Version**       | **Release Model**               | **EOL Timeline**   | **Migration Complexity**                                                                                                                                |
 | ----------------------- | ------------------------- | ------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **☕ Node.js Runtime**  | 24.x (LTS)               | Annual LTS (new schedule from v27) | **~Apr 2028**   | [![High](https://img.shields.io/badge/Complexity-High-orange?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)     |
+| **☕ Node.js Runtime**  | 25.x (Current)            | Annual release (odd = Current, even = LTS) | **~Apr 2026** ⚠️ | [![High](https://img.shields.io/badge/Complexity-High-orange?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)     |
 | **📝 TypeScript**       | 5.x (Latest)             | Major every 6 months            | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **📄 HTML5/CSS3**       | Living Standard           | Evergreen                       | N/A (Perpetual)    | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **⚡ ESLint**           | 9.x (Latest)             | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
@@ -190,7 +190,7 @@ mindmap
 
 ### 🎯 Strategic Node.js Lifecycle Management
 
-Following [Hack23 AB's Proactive Runtime Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md), EU Parliament Monitor implements a **current-LTS-first** approach for optimal security and performance.
+Following [Hack23 AB's Proactive Runtime Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md), EU Parliament Monitor implements a **current-latest-first** approach for optimal security and performance, tracking the Node.js release cycle closely.
 
 ```mermaid
 gantt
@@ -201,8 +201,9 @@ gantt
     section Old Schedule Releases
     %% LTS support windows (month-level, aligned with Node.js LTS/EOL schedule)
     Node.js 22 LTS              :done, node22, 2024-10, 2027-04
-    Node.js 24 LTS              :active, node24, 2025-10, 2028-04
-    Node.js 26 LTS              :node26, 2026-10, 2029-04
+    Node.js 24 LTS              :done, node24, 2025-10, 2028-04
+    Node.js 25 Current          :active, node25, 2025-10, 2026-04
+    Node.js 26 LTS              :node26, 2026-04, 2029-04
 
     section New Schedule Releases (1/year, all LTS)
     Node.js 27 Alpha            :node27a, 2026-10, 2027-03
@@ -213,14 +214,16 @@ gantt
     Node.js 28 LTS              :node28, 2028-10, 2031-04
 
     section EU Parliament Monitor Strategy
-    Node.js 24 Production       :active, ep24, 2025-06, 2027-10
+    Node.js 25 Production       :active, ep25, 2026-03, 2026-04
+    Node.js 26 Production       :ep26, 2026-04, 2027-10
     Node.js 27 Alpha CI Testing :ep27a, 2026-10, 2027-03
     Node.js 27 Migration        :ep27m, 2027-04, 2027-10
     Node.js 27 Production       :ep27p, 2027-10, 2030-04
     Node.js 28 Alpha CI Testing :ep28a, 2027-10, 2028-03
 
     section Critical Milestones
-    Node.js 24 EOL              :milestone, node24eol, 2028-04, 0d
+    Node.js 25 EOL              :milestone, node25eol, 2026-04, 0d
+    Node.js 26 Release          :milestone, node26rel, 2026-04, 0d
     New Schedule Takes Effect   :milestone, newschedule, 2026-10, 0d
     Node.js 27 LTS Promotion    :milestone, node27lts, 2027-10, 0d
 ```
@@ -229,24 +232,25 @@ gantt
 
 #### 🟢 Proactive Migration Triggers (Preferred)
 
-1. **📅 Node.js 27 Alpha Release:** October 2026 — Begin CI integration testing
-2. **📅 Node.js 27 Current Release:** April 2027 — Begin migration planning
-3. **🛡️ Security Feature Advantages:** Enhanced security features in Node.js 27
-4. **⚡ Performance Improvements:** Significant V8 or runtime optimizations
-5. **📦 Ecosystem Compatibility:** Major dependencies requiring Node.js 27+
+1. **⚡ Immediate (Now):** Node.js 25 → Node.js 26 — Upgrade within days of Node.js 26 release (~April 2026)
+2. **📅 Node.js 27 Alpha Release:** October 2026 — Begin CI integration testing
+3. **📅 Node.js 27 Current Release:** April 2027 — Begin migration planning
+4. **🛡️ Security Feature Advantages:** Enhanced security features in newer Node.js releases
+5. **⚡ Performance Improvements:** Significant V8 or runtime optimizations
+6. **📦 Ecosystem Compatibility:** Major dependencies requiring newer Node.js
 
 #### 🟡 Risk-Based Migration Triggers (Monitored)
 
-1. **⏰ 12-Month Warning:** April 2027 — 12 months before Node.js 24 EOL
+1. **⏰ Immediate:** Node.js 25 EOL is ~April 2026 — upgrade to Node.js 26 LTS within days of release
 2. **🚨 Security Support Concerns:** Security patch availability degradation
 3. **🔧 Tooling Incompatibility:** Build/development tools requiring newer Node.js
-4. **📦 Dependency Requirements:** npm packages dropping Node.js 24 support
+4. **📦 Dependency Requirements:** npm packages dropping Node.js 25 support
 
 #### 🔴 Critical Migration Triggers (Mandatory)
 
-1. **⛔ Node.js 24 EOL:** April 2028 — End of security support
-2. **🚨 Critical Vulnerability:** Unpatched security issues in Node.js 24
-3. **🔧 Build System Incompatibility:** Essential tools no longer supporting Node.js 24
+1. **⛔ Node.js 25 EOL:** April 2026 — End of security support (upgrade to Node.js 26 LTS immediately)
+2. **🚨 Critical Vulnerability:** Unpatched security issues in Node.js 25
+3. **🔧 Build System Incompatibility:** Essential tools no longer supporting Node.js 25
 4. **📦 EP MCP Server Requirements:** European Parliament MCP Server requiring newer Node.js
 
 ### 🧪 Node.js 27 Testing & Validation Strategy
@@ -373,8 +377,8 @@ gantt
     axisFormat %Y
 
     section Runtime (Old Schedule)
-    Node.js 24 Current (Major)  :active, node24, 2025-04-22, 2028-04-30
-    Node.js 26 Current (Major)  :node26, 2026-04-22, 2029-04-30
+    Node.js 25 Current          :active, node25, 2025-10-22, 2026-04-30
+    Node.js 26 LTS (target)     :node26, 2026-04-22, 2029-04-30
 
     section Runtime (New Schedule - 1/year, all LTS)
     Node.js 27 Current+LTS (Target) :node27, 2027-04-01, 2030-04-30
@@ -395,8 +399,10 @@ gantt
     GitHub Actions              :active, ghactions, 2024-01-01, 2032-12-31
 
     section Critical Milestones
+    Node.js 25 EOL              :milestone, node25eol, 2026-04-30, 0d
+    Node.js 26 Release          :milestone, node26rel, 2026-04-22, 0d
     New Node.js Schedule Start  :milestone, newschedule, 2026-10-01, 0d
-    Node.js 24 EOL              :milestone, node24eol, 2028-04-30, 0d
+    Node.js 26 LTS Promotion    :milestone, node26lts, 2026-10-01, 0d
     Node.js 27 LTS Promotion    :milestone, node27lts, 2027-10-01, 0d
 ```
 
@@ -418,7 +424,7 @@ gantt
 
 | 🚨 **Risk** | 📊 **Probability** | 💥 **Impact** | 🔧 **Mitigation** |
 |------------|--------------------|--------------|--------------------|
-| Node.js LTS EOL | Planned (Apr 2028) | Low | Proactive upgrade to Node.js 27 with alpha CI integration |
+| Node.js Current EOL | Imminent (~Apr 2026) | High | Immediate upgrade to Node.js 26 LTS on release day |
 | GitHub Pages discontinuation | Very Low | High | Static files portable to any CDN host (Cloudflare, Netlify, S3) |
 | EP data source changes | Low | High | MCP Server abstraction layer isolates data format changes |
 | Dependency abandonment | Low | Medium | Minimal dependency footprint; all devDependencies only |
@@ -503,7 +509,7 @@ Should EOL conditions trigger migration, the successor platform will maintain **
 
 | Component | Current | Future Candidate | Migration Complexity |
 |-----------|---------|-------------------|---------------------|
-| **☕ Runtime** | Node.js 24 | Node.js 27+ (new annual schedule) | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **☕ Runtime** | Node.js 25 | Node.js 26 LTS (~Apr 2026, immediate) → Node.js 27+ (new annual schedule) | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **📝 Language** | TypeScript 5.x | TypeScript 6.x+ | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **📄 Frontend** | HTML5/CSS3 (static) | HTML5/CSS3 (evergreen, no change) | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **📦 Hosting** | AWS S3 + CloudFront (primary), GitHub Pages (fallback) | AWS S3 + CloudFront / Cloudflare Pages | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
@@ -517,7 +523,7 @@ Should EOL conditions trigger migration, the successor platform will maintain **
 |-----------------------|-------------|----------------|--------|
 | ISO 27001:2022 A.8.8 | Technical vulnerability management | Dependabot auto-update, npm audit, CodeQL | ✅ |
 | CIS Controls 2.2 | Ensure authorized software is supported | Node.js LTS-only policy, Dependabot | ✅ |
-| NIST CSF PR.PS-02 | Software maintained and supported | package.json `engines: >=24`, LTS upgrades | ✅ |
+| NIST CSF PR.PS-02 | Software maintained and supported | package.json `engines: >=25`, current-version upgrades | ✅ |
 | NIS2 Art.21(2)(d) | Supply chain security | Dependency lifecycle tracking, SBOM | ✅ |
 | EU CRA Annex I §2 | Security updates throughout lifecycle | Automated patch management process | ✅ |
 | ISO 27001:2022 A.5.37 | Documented operating procedures | This EOL Strategy + WORKFLOWS.md | ✅ |
@@ -529,12 +535,15 @@ Should EOL conditions trigger migration, the successor platform will maintain **
 ## 📅 EOL Action Timeline
 
 ```
-2026-03-12 (Now)    Node.js 24 LTS ✅ Active Production
+2026-03-18 (Now)    Node.js 25 Current ✅ Active Production (EOL imminent ~Apr 2026)
+2026-04-22 (est.)   🆕 Node.js 26 Release — Upgrade immediately (within days of release)
+2026-04-30 (est.)   ⚠️  Node.js 25 EOL — Must be on Node.js 26 LTS by this date
+2026-10-01          🔄 Node.js 26 LTS Promotion — Active LTS phase begins
 2026-10-01          🆕 New Node.js release schedule takes effect
 2026-10-01          🔬 Node.js 27 Alpha — Add to CI matrix for early testing
 2027-04-01          📦 Node.js 27 Current — Begin migration validation
 2027-10-01          ✅ Node.js 27 LTS — Complete migration, update engines
-2028-04-30          ⚠️  Node.js 24 EOL — Must be on a supported Node.js LTS (26/27+) by this date
+2029-04-30          ⚠️  Node.js 26 EOL — Must be on a supported Node.js LTS (27+) by this date
 2028-10-01          🔬 Node.js 28 Alpha — Add to CI matrix
 2029-04-01          📦 Node.js 28 Current — Evaluate for next migration cycle
 2030-04-30          ⚠️  Node.js 27 EOL — Plan Node.js 28+ migration
@@ -561,7 +570,7 @@ Should EOL conditions trigger migration, the successor platform will maintain **
 
 ### 📈 Key EOL Metrics
 
-- **⏰ Days Until EOL:** Automated countdown for Node.js 24 (target: migrate before Apr 2028)
+- **⏰ Days Until EOL:** Automated countdown for Node.js 25 (target: migrate to Node.js 26 LTS before Apr 2026 EOL)
 - **🛡️ Security Patch Availability:** Response time and availability tracking via Dependabot
 - **📦 Dependency Health Score:** OpenSSF Scorecard and vulnerability status
 - **⚡ Build Performance Tracking:** TypeScript compilation and news generation timing

@@ -137,7 +137,7 @@ mindmap
 
 - 🌐 Static HTML/CSS site (14 languages: en, sv, da, no, fi, de, fr, es, nl, ar,
   he, ja, ko, zh)
-- 🔄 News generation scripts (Node.js 24, European Parliament MCP integration)
+- 🔄 News generation scripts (Node.js 25, European Parliament MCP integration)
 - 🤖 GitHub Actions CI/CD (daily automation, HTML validation, deployment)
 - 📄 GitHub Pages hosting (static content delivery)
 - 🔌 European Parliament MCP Server integration (MEP data, committees, sessions)
@@ -706,7 +706,7 @@ Following [Hack23 AB Scenario-Centric Threat Modeling](https://github.com/Hack23
 | # | What-If Scenario | Probability | Impact Assessment | Current Resilience | Recommended Action |
 |---|---|---|---|---|---|
 | **WI-001** | What if the European Parliament changes its open data API format? | Medium | News generation fails until adaptation; stale content served | Schema validation catches errors; cached content remains available | Monitor EP API changelog; implement API version detection; maintain fallback templates |
-| **WI-002** | What if a zero-day vulnerability is found in Node.js 24? | Low | Build pipeline compromised during news generation | GitHub Actions auto-updates runners; Dependabot monitors dependencies | Pin Node.js version; implement container-based builds; maintain rollback capability |
+| **WI-002** | What if a zero-day vulnerability is found in Node.js 25? | Low | Build pipeline compromised during news generation | GitHub Actions auto-updates runners; Dependabot monitors dependencies | Pin Node.js version; implement container-based builds; maintain rollback capability |
 | **WI-003** | What if GitHub Pages experiences a multi-day outage? | Very Low | Site unavailable; no news updates for > 24h RTO | Static content cached by CDN; manual deployment possible | Maintain backup deployment target; document manual recovery; accept 24h RTO per classification |
 | **WI-004** | What if a contributor's GitHub account is compromised? | Low | Potential unauthorized code changes or content manipulation | MFA required; branch protection; required reviews; CODEOWNERS | Quarterly access reviews; monitor for anomalous commits; incident response plan |
 | **WI-005** | What if politically motivated content manipulation goes undetected? | Low-Medium | Gradual erosion of platform credibility and democratic trust | Schema validation; automated testing; public source code | Implement automated fact-checking pipeline (P1); add confidence scoring; cross-reference with official EP records |
@@ -1292,7 +1292,7 @@ already secured)
 
 **Existing Controls:**
 
-- ✅ Pinned Node.js 24 version
+- ✅ Pinned Node.js 25 version
 - ✅ GitHub Actions runner auto-updates
 - ✅ Build-time only execution (no runtime server)
 - ✅ Dependabot monitors Node.js advisories

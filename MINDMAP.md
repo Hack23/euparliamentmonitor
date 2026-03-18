@@ -332,7 +332,7 @@ Technology stack, infrastructure, and development practices.
 mindmap
   root((Technical<br/>Architecture))
     Runtime Environment
-      Node.js 24
+      Node.js 25
         LTS Support
         Performance
         ES Modules
@@ -1095,7 +1095,7 @@ graph LR
 
 | Component         | Metric           | Target          | Status           |
 | ----------------- | ---------------- | --------------- | ---------------- |
-| **Node.js**       | Version currency | Latest LTS      | ✅ 24.x          |
+| **Node.js**       | Version currency | Latest LTS      | ✅ 25.x          |
 | **Dependencies**  | Vulnerabilities  | 0 critical/high | ✅ 0             |
 | **Test Coverage** | Code coverage    | >80%            | ✅ 85%           |
 | **Build Time**    | CI/CD duration   | <10 min         | ✅ 6 min         |
@@ -1182,7 +1182,7 @@ graph TB
 
 **Document Classification**: Public  
 **ISMS Compliance**: ISO 27001:2022 compliant, GDPR compliant, NIS2 aligned  
-**Technology Stack**: Node.js 24, GitHub Actions, GitHub Pages, European
+**Technology Stack**: Node.js 25, GitHub Actions, GitHub Pages, European
 Parliament MCP Server  
 **Architecture Pattern**: Static Site Generator with Zero Runtime Dependencies  
 **Review Status**: Active, next review 2026-05-24
