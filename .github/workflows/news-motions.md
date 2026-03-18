@@ -745,7 +745,6 @@ fi
 
 ```bash
 # Remove metadata files to prevent patch conflicts with other same-day workflows
-# The metadata is regenerated during each workflow run and merges automatically
 rm -f news/metadata/generation-*.json
 echo "🧹 Cleaned metadata files from working directory to prevent patch conflicts"
 ```
