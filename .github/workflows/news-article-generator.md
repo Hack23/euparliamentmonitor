@@ -562,9 +562,17 @@ fi
 
 ### Step 5: Create PR
 
-> **⚠️ Do NOT commit generated files**: `sitemap.xml`, `sitemap*.html`, `rss.xml`, `index.html`, `index-*.html`, and `news/articles-metadata.json` are generated at deploy time. Only commit article HTML files: `news/{YYYY-MM-DD}-{type}-{lang}.html`
+> **⚠️ Do NOT commit generated files**: `sitemap.xml`, `sitemap*.html`, `rss.xml`, `index.html`, `index-*.html`, `news/articles-metadata.json`, and `news/metadata/generation-*.json` are generated at deploy time or by other processes. Only commit article HTML files: `news/{YYYY-MM-DD}-{type}-{lang}.html`
+
+#### MANDATORY Metadata Cleanup (Prevent Patch Conflicts)
+
+> **⚠️ CRITICAL**: The generator writes `news/metadata/generation-YYYY-MM-DD.json` during article creation. When multiple news workflows run on the same day, each creates the same date's metadata file. If another workflow's PR is merged before this workflow's patch is applied, the metadata file already exists on `main` and the patch fails with "Failed to apply patch". **Remove the metadata file from the working directory before creating the PR** so it is not included in the diff.
 
 ```bash
+# Remove metadata files to prevent patch conflicts with other same-day workflows
+rm -f news/metadata/generation-*.json
+echo "🧹 Cleaned metadata files from working directory to prevent patch conflicts"
+
 TODAY=$(date -u +%Y-%m-%d)
 BRANCH_NAME="news/articles-$TODAY"
 echo "Branch: $BRANCH_NAME"

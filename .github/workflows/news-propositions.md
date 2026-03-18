@@ -581,7 +581,7 @@ npx tsx src/generators/news-enhanced.ts \
 
 ### Step 4: Validate Articles
 
-**Note**: News index files (`index*.html`), metadata (`news/articles-metadata.json`), and `sitemap.xml` are **NOT committed to git**. They are generated automatically at build time by the `prebuild` script. Do NOT run `generate-news-indexes`, `news-metadata`, or `generate-sitemap` manually — and do NOT commit their output files. Only commit the actual article HTML files: `news/{YYYY-MM-DD}-propositions-{lang}.html`
+**Note**: News index files (`index*.html`), metadata (`news/articles-metadata.json`, `news/metadata/generation-*.json`), and `sitemap.xml` are **NOT committed to git** via this workflow. They are generated automatically at build time or by other processes. Do NOT run `generate-news-indexes`, `news-metadata`, or `generate-sitemap` manually — and do NOT commit their output files. Only commit the actual article HTML files: `news/{YYYY-MM-DD}-propositions-{lang}.html`
 
 ### Step 5: MANDATORY Quality Validation
 
@@ -764,6 +764,16 @@ fi
 if [ "$ACTUAL_COUNT" -ne "$EXPECTED_COUNT" ]; then
   echo "⚠️ WARNING: File count mismatch: $ACTUAL_COUNT files found, $EXPECTED_COUNT expected. Check for stray or duplicate files." >&2
 fi
+```
+
+#### MANDATORY Metadata Cleanup (Prevent Patch Conflicts)
+
+> **⚠️ CRITICAL**: The generator writes `news/metadata/generation-YYYY-MM-DD.json` during article creation. When multiple news workflows run on the same day, each creates the same date's metadata file. If another workflow's PR is merged before this workflow's patch is applied, the metadata file already exists on `main` and the patch fails with "Failed to apply patch". **Remove the metadata file from the working directory before creating the PR** so it is not included in the diff.
+
+```bash
+# Remove metadata files to prevent patch conflicts with other same-day workflows
+rm -f news/metadata/generation-*.json
+echo "🧹 Cleaned metadata files from working directory to prevent patch conflicts"
 ```
 
 Set the deterministic branch name for the PR.
