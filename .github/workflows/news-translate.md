@@ -463,7 +463,15 @@ fi
 
 ## Step 5: Create Pull Request
 
+#### MANDATORY Metadata Cleanup (Prevent Patch Conflicts)
+
+> **⚠️ CRITICAL**: The generator writes `news/metadata/generation-YYYY-MM-DD.json` during article creation. When multiple news workflows run on the same day, each creates the same date's metadata file. If another workflow's PR is merged before this workflow's patch is applied, the metadata file already exists on `main` and the patch fails with "Failed to apply patch". **Remove the metadata file from the working directory before creating the PR** so it is not included in the diff.
+
 ```bash
+# Remove metadata files to prevent patch conflicts with other same-day workflows
+rm -f news/metadata/generation-*.json
+echo "🧹 Cleaned metadata files from working directory to prevent patch conflicts"
+
 ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
 TRANSLATED_COUNT=$(ls news/${ARTICLE_DATE}-*-{sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh}.html 2>/dev/null | wc -l || echo 0)
 echo "📊 Total translated files: $TRANSLATED_COUNT"
