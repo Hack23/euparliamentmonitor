@@ -1144,7 +1144,7 @@ Per
 
 **Document Classification**: Public  
 **ISMS Compliance**: ISO 27001:2022 compliant, GDPR compliant, NIS2 aligned  
-**Technology Stack**: Node.js 24, GitHub Actions, GitHub Pages, European
+**Technology Stack**: Node.js 25, GitHub Actions, GitHub Pages, European
 Parliament MCP Server  
 **Architecture Pattern**: Static Site Generator with Zero Runtime Dependencies  
 **Review Status**: Active, next review 2026-05-24

@@ -102,7 +102,7 @@ Section 4.3.1 — Unit Testing Requirements.
 | **Coverage Tool** | @vitest/coverage-v8 | V8-based code coverage        |
 | **Assertions**    | Vitest built-in     | expect() API                  |
 | **Mocking**       | Vitest vi.mock      | Module and function mocking   |
-| **Environment**   | Node.js 24          | Runtime environment           |
+| **Environment**   | Node.js 25         | Runtime environment           |
 
 ### Configuration
 

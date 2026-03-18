@@ -131,7 +131,7 @@ architecture.
 
 - **Minimal Runtime Dependencies**: Pure static HTML/CSS output with no server-side
   execution; single production dependency (`european-parliament-mcp-server`) used at build time
-- **TypeScript Source**: All source code in `src/` written in TypeScript (strict mode), compiled via `tsc` to `scripts/` (ES2022 target)
+- **TypeScript Source**: All source code in `src/` written in TypeScript (strict mode), compiled via `tsc` to `scripts/` (ES2024 target)
 - **Multi-Language Support**: Generates content in 14 languages
 - **MCP Integration**: Uses European Parliament MCP Server for data access
 - **Security by Design**: Minimal attack surface through static architecture
@@ -203,7 +203,7 @@ graph TB
     
     subgraph "GitHub Infrastructure - Trusted Zone"
         subgraph "Build Environment"
-            Actions[GitHub Actions Runner<br/>GitHub-hosted Ubuntu runner<br/>ubuntu-latest + Node.js 24]
+            Actions[GitHub Actions Runner<br/>GitHub-hosted Ubuntu runner<br/>ubuntu-latest + Node.js 25]
             EPServer[European Parliament<br/>MCP Server<br/>(local process, stdio JSON-RPC)]
         end
         
@@ -495,7 +495,7 @@ C4Deployment
     Deployment_Node(github_cloud, "GitHub Cloud", "GitHub Infrastructure") {
         Deployment_Node(actions_runner, "GitHub Actions Runner", "Ubuntu 24.04") {
             Container(workflow, "News Generation Workflow", "GitHub Actions YAML", "Daily scheduled workflow")
-            Container(node_runtime, "Node.js Runtime", "Node.js 24", "Executes generation scripts")
+            Container(node_runtime, "Node.js Runtime", "Node.js 25", "Executes generation scripts")
         }
 
         Deployment_Node(pages_cdn, "AWS Infrastructure", "S3 + CloudFront") {
@@ -532,7 +532,7 @@ C4Deployment
 
 | Infrastructure Component  | Technology               | Purpose                           | Configuration                         |
 | ------------------------- | ------------------------ | --------------------------------- | ------------------------------------- |
-| **GitHub Actions Runner** | ubuntu-latest, Node.js 24 | Execute generation workflow       | .github/workflows/news-*.lock.yml |
+| **GitHub Actions Runner** | ubuntu-latest, Node.js 25 | Execute generation workflow       | .github/workflows/news-*.lock.yml |
 | **Amazon CloudFront**     | AWS CDN                  | Serve static content globally     | CloudFront distribution (deploy-s3.yml) |
 | **Amazon S3**             | AWS Object Storage       | Host static site files            | S3 bucket (deploy-s3.yml)              |
 | **Git Repository**        | GitHub Storage           | Version control + content storage | public repository                      |
@@ -548,8 +548,8 @@ C4Deployment
 
 | Layer               | Technology | Version | Purpose                          | Rationale |
 | ------------------- | ---------- | ------- | -------------------------------- | --------- |
-| **Runtime**         | Node.js    | 24.x LTS | JavaScript execution environment | Latest LTS for long-term stability, security patches, modern ECMAScript support |
-| **Language**        | TypeScript | 5.x     | Primary development language     | Strict type safety, compile-time error detection; compiles from `src/` to `scripts/` targeting ES2022 |
+| **Runtime**         | Node.js    | 25.x Current | JavaScript execution environment | Current release for latest features, performance improvements; upgrade to Node.js 26 LTS planned April 2026 |
+| **Language**        | TypeScript | 5.x     | Primary development language     | Strict type safety, compile-time error detection; compiles from `src/` to `scripts/` targeting ES2024 |
 | **Package Manager** | npm        | 10.x    | Dependency management            | Native Node.js package manager, security audit integration |
 | **Testing**         | Vitest     | 4.x     | Unit and integration testing     | Fast, modern, ESM-native test runner with great DX |
 | **E2E Testing**     | Playwright | 1.58.x  | End-to-end browser testing       | Cross-browser support, reliable selectors, parallel execution |
@@ -560,8 +560,8 @@ C4Deployment
 
 | Technology | Current Version | Minimum Version | End-of-Life | Update Policy |
 |------------|----------------|-----------------|-------------|---------------|
-| **Node.js** | 24.x (latest) | 24.0.0 | 2029-04-30 (LTS maintenance end, tentative) | Update to latest LTS minor within 30 days of release |
-| **npm** | 10.x (latest) | 10.0.0 | Follows Node.js 24 LTS lifecycle | Auto-updated with Node.js |
+| **Node.js** | 25.x (current) | 25.0.0 | ~Apr 2026 (Current EOL; upgrading to Node.js 26 LTS) | Update to Node.js 26 LTS within days of release (~Apr 2026) |
+| **npm** | 10.x (latest) | 10.0.0 | Follows Node.js lifecycle | Auto-updated with Node.js |
 | **TypeScript** | 5.9.x | 5.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
 | **Vitest** | 4.0.18 | 4.0.0 | N/A | Update to latest minor within 14 days, major within 60 days |
 | **Playwright** | 1.58.2 | 1.50.0 | N/A | Update to latest minor within 14 days, major within 60 days |
@@ -654,7 +654,7 @@ src/                          → scripts/             (tsc compilation)
 - `npm run generate-news-indexes` — Executes compiled `scripts/generators/news-indexes.js`
 
 **TypeScript configuration** (`tsconfig.json`):
-- `target: ES2022` — Modern JavaScript output
+- `target: ES2024` — Modern JavaScript output
 - `module: ESNext` — ES module syntax
 - `strict: true` — Full strict mode enabled
 - `rootDir: ./src` — TypeScript source root
@@ -1126,17 +1126,17 @@ We will generate content **natively in each language using LLMs** rather than tr
 - Small development team (1-2 developers) benefits from IDE support
 
 **Decision:**
-We will use **TypeScript (strict mode)** as the primary development language, compiling from `src/` to `scripts/` targeting ES2022.
+We will use **TypeScript (strict mode)** as the primary development language, compiling from `src/` to `scripts/` targeting ES2024.
 
 **Rationale:**
 1. **Type Safety**: Strict mode catches errors at compile time, especially important for complex EP data structures and MCP client interfaces
 2. **IDE Support**: Full IntelliSense, refactoring, and navigation in VS Code
 3. **Self-Documenting**: TypeScript interfaces serve as living documentation for data models (ArticleCategory, LanguageCode, MCPToolResult, etc.)
-4. **Build Pipeline**: `tsc` compiles `src/*.ts` → `scripts/*.js`; `rootDir: ./src`, `outDir: ./scripts`, `target: ES2022`, `module: ESNext`
+4. **Build Pipeline**: `tsc` compiles `src/*.ts` → `scripts/*.js`; `rootDir: ./src`, `outDir: ./scripts`, `target: ES2024`, `module: ESNext`
 5. **Ecosystem**: Full access to Node.js and npm ecosystem with type definitions
 
 **Alternatives Considered:**
-- **JavaScript (ES2022) with JSDoc**: Rejected due to weaker type guarantees, less comprehensive IDE support for complex interfaces
+- **JavaScript (ES2024) with JSDoc**: Rejected due to weaker type guarantees, less comprehensive IDE support for complex interfaces
 - **Flow**: Rejected due to declining community support
 - **JavaScript ES2015**: Rejected due to lack of modern features (optional chaining, nullish coalescing)
 
@@ -1291,7 +1291,7 @@ Non-functional requirements define system qualities that are not directly relate
 ### 4. Maintainability
 
 - **Minimal Dependencies**: One production dependency (`european-parliament-mcp-server` for build-time data access), only dev dependencies otherwise
-- **Standard Technologies**: HTML5, CSS3, TypeScript (compiled to ES2022 JavaScript)
+- **Standard Technologies**: HTML5, CSS3, TypeScript (compiled to ES2024 JavaScript)
 - **Comprehensive Testing**: Unit, integration, and E2E tests
 - **Documentation**: Architecture, security, and process docs
 

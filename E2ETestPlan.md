@@ -204,7 +204,7 @@ E2E tests run automatically on every push and pull request:
   run: npm run test:e2e
 ```
 
-**Environment:** Ubuntu Latest, Node.js 24, Playwright Chromium
+**Environment:** Ubuntu Latest, Node.js 25, Playwright Chromium
 
 ---
 

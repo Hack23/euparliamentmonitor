@@ -118,7 +118,7 @@ graph TD
     C -->|✅ Yes| D[🤖 Agent Job<br/>GitHub Copilot + claude-opus-4.6]
     C -->|❌ No| E[⏭️ Skip]
     D --> F[📥 Checkout Repository]
-    F --> G[⚙️ Setup Node.js 24]
+    F --> G[⚙️ Setup Node.js 25]
     G --> H[📦 Install Dependencies]
     H --> I[🔗 Install EP MCP Server v1.1.9]
     I --> J[📰 Generate News Articles<br/>npx tsx src/generators/news-enhanced.ts]
@@ -138,8 +138,8 @@ graph TD
 | **Activation job permissions** | `contents: read` |
 | **Agent job permissions** | `contents: write`, `pull-requests: write`, `issues: write`, `models: read` |
 | **Concurrency group** | `gh-aw-${{ github.workflow }}` |
-| **Node.js version** | 24 |
-| **EP MCP Server** | `european-parliament-mcp-server@1.1.9` (globally installed) |
+| **Node.js version** | 25 |
+| **EP MCP Server** | `european-parliament-mcp-server@1.1.12` (globally installed) |
 | **Data sources** | European Parliament MCP Server (primary), World Bank MCP (optional) |
 
 #### Compilation Process
@@ -348,7 +348,7 @@ graph LR
 
 | Job | Name | Purpose | Key Steps |
 |-----|------|---------|-----------|
-| `prepare` | Prepare Environment | Cache dependencies, setup Node.js 24 | Checkout, npm ci, cache |
+| `prepare` | Prepare Environment | Cache dependencies, setup Node.js 25 | Checkout, npm ci, cache |
 | `validation` | Validate Code | ESLint, Prettier, HTMLHint, npm audit | Lint, format check, HTML validation |
 | `functional-tests` | Functional Tests | Vitest unit + integration tests | Run tests, coverage report |
 | `performance` | Performance Testing | Lighthouse CI + article generation benchmarks | `@lhci/cli@0.15.1`, performance metrics |
@@ -747,7 +747,7 @@ graph LR
 
 | Component | Version / Configuration |
 |-----------|------------------------|
-| **Node.js** | 24 |
+| **Node.js** | 25 |
 | **EP MCP Server** | `european-parliament-mcp-server@1.1.9` (global) |
 | **Playwright Browsers** | Installed for E2E |
 | **Virtual Display** | Xvfb (`:99`) |
