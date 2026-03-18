@@ -1743,7 +1743,7 @@ flowchart TD
 
 **4. 🔄 Build Reproducibility**:
 
-- Node.js version pinned (25.x)
+- Node.js version pinned (25.x, upgrading to 26.x LTS ~Apr 2026)
 - Dependencies locked (`package-lock.json`)
 - Environment variables documented
 - Can rebuild on any system with Node.js
@@ -2610,7 +2610,7 @@ graph TD
 | ----------- | --------- | ----------- | -------------- | -------- | ------ |
 | **1** | 1.1 | Establish and maintain detailed enterprise asset inventory | SBOM (sbom.json), package.json | IG1 | ✅ |
 | **2** | 2.1 | Establish and maintain software inventory | npm dependency tree, TypeScript source | IG1 | ✅ |
-| **2** | 2.2 | Ensure authorized software is supported | Dependabot updates, Node.js 25 LTS | IG1 | ✅ |
+| **2** | 2.2 | Ensure authorized software is supported | Dependabot updates, Node.js 25 Current (upgrading to Node.js 26 LTS ~Apr 2026) | IG1 | ✅ |
 | **4** | 4.1 | Establish and maintain secure configuration process | ESLint, Prettier, htmlhint rules | IG1 | ✅ |
 | **4** | 4.7 | Manage default accounts | No default accounts (static site) | IG1 | N/A |
 | **5** | 5.1 | Establish and maintain inventory of accounts | GitHub organization accounts | IG1 | ✅ |
