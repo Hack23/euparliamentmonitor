@@ -87,10 +87,10 @@ jobs:
           fetch-depth: 0 # Full history for git operations
       
       # 2. Setup Node.js with caching
-      - name: Setup Node.js 25
+      - name: Setup Node.js 24
         uses: actions/setup-node@v4
         with:
-          node-version: '25'
+          node-version: '24'
           cache: 'npm'
       
       # 3. Cache APT packages for Playwright
@@ -217,7 +217,7 @@ jobs:
 - name: Setup Node.js with npm cache
   uses: actions/setup-node@v4
   with:
-    node-version: '25'
+    node-version: '24'
     cache: 'npm' # Automatic npm cache
     cache-dependency-path: 'package-lock.json'
 ```
@@ -578,7 +578,7 @@ Configuration:
 - [ ] Environment variables documented
 
 **Node.js Setup:**
-- [ ] Node.js 25 specified
+- [ ] Node.js 24 specified
 - [ ] npm caching enabled
 - [ ] Dependencies installed with npm ci
 - [ ] package-lock.json committed
