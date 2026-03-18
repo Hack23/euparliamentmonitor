@@ -139,7 +139,7 @@ graph TD
 | **Agent job permissions** | `contents: write`, `pull-requests: write`, `issues: write`, `models: read` |
 | **Concurrency group** | `gh-aw-${{ github.workflow }}` |
 | **Node.js version** | 25 |
-| **EP MCP Server** | `european-parliament-mcp-server@1.1.9` (globally installed) |
+| **EP MCP Server** | `european-parliament-mcp-server@1.1.12` (globally installed) |
 | **Data sources** | European Parliament MCP Server (primary), World Bank MCP (optional) |
 
 #### Compilation Process

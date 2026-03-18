@@ -91,7 +91,7 @@ mindmap
     (🖥️ Runtime)
       ☕ Node.js 25.x Current
         📅 Current Release (Oct 2025)
-        ⏰ EOL: ~Apr 2026 (in ~2 weeks)
+        ⏰ EOL: Late Apr 2026
         🔄 Next LTS: Node.js 26 (Apr 2026)
         🎯 Target (annual cadence): Node.js 27
       🌐 Browser Runtime
