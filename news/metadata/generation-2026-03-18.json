@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-03-18T05:39:52.305Z",
+  "generated": 3,
+  "skipped": 0,
+  "dryRun": 0,
+  "errors": 0,
+  "articles": [
+    "2026-03-18-propositions-en.html"
+  ],
+  "results": [
+    {
+      "success": true,
+      "files": 1,
+      "slug": "2026-03-18-propositions"
+    }
+  ],
+  "usedMCP": true
+}
