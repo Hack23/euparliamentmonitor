@@ -92,7 +92,7 @@
     "lint-staged": "^16.4.0",
     "papaparse": "^5.5.3",
     "prettier": "^3.8.1",
-    "ts-api-utils": "^2.4.0",
+    "ts-api-utils": "^2.5.0",
     "tsx": "^4.21.0",
     "typedoc": "^0.28.17",
     "typescript": "^5.9.3",
