@@ -22,7 +22,7 @@
 #
 # Generates EU Parliament month-ahead strategic outlook English article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"2c0e7e8a8222666a55ccb4b7bbaaa1258d6ec55ff6ffa886b23f73d57fea5689","compiler_version":"v0.62.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"609cc65ea6005999c1d9401523e43b20160d2c2bce0fd5ac936c50970c90b4d9","compiler_version":"v0.62.0"}
 
 name: "News: EU Parliament Month Ahead"
 "on":
@@ -297,7 +297,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Setup Node.js
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 6044e13b5dc448c55e2357c09f80417699197238
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # 6044e13b5dc448c55e2357c09f80417699197238
         with:
           node-version: "25"
       - name: Install dependencies

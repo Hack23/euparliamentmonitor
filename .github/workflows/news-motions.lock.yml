@@ -22,7 +22,7 @@
 #
 # Generates EU Parliament plenary votes, adopted texts, and resolutions English analysis article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"c0b6cf9014c520da6c5e9499bc860d6e7be44dd233c27ea691ec2ffaa3153d84","compiler_version":"v0.62.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"fcdc275c00efeff74c27557991c6d4001729fbea22d5256bd3ca82e577fb81f5","compiler_version":"v0.62.0"}
 
 name: "News: EU Parliament Plenary Votes & Resolutions"
 "on":
@@ -297,7 +297,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Setup Node.js
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 6044e13b5dc448c55e2357c09f80417699197238
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # 6044e13b5dc448c55e2357c09f80417699197238
         with:
           node-version: "25"
       - name: Install dependencies

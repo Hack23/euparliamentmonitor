@@ -22,7 +22,7 @@
 #
 # Generates EU Parliament week-ahead English article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"bb6c8573161edc7835a24ddd28bc95c23b2785d0a9706d05366e755875d400af","compiler_version":"v0.62.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"bc548fa413d4613e3535ab5d9568bc6fa44403da6a22463bf74ea0abdf2e0902","compiler_version":"v0.62.0"}
 
 name: "News: EU Parliament Week Ahead"
 "on":
@@ -297,7 +297,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Setup Node.js
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 6044e13b5dc448c55e2357c09f80417699197238
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # 6044e13b5dc448c55e2357c09f80417699197238
         with:
           node-version: "25"
       - name: Install dependencies

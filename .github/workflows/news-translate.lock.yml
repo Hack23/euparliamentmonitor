@@ -22,7 +22,7 @@
 #
 # Translates English EU Parliament news articles to 13 other languages. Runs after content workflows generate English articles, ensuring high-quality translations with full linguistic fidelity.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"d3ba5b33a4760834a447ff9fa701c1e5ce707982cbe80bad91f0c176084c6411","compiler_version":"v0.62.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"390760454b5057f979e6a918f1f5962a0fcdbe78f4ffbc8c71d31202e8acd026","compiler_version":"v0.62.0"}
 
 name: "News: Translate Articles"
 "on":
@@ -315,7 +315,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Setup Node.js
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 6044e13b5dc448c55e2357c09f80417699197238
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # 6044e13b5dc448c55e2357c09f80417699197238
         with:
           node-version: "25"
       - name: Install dependencies
