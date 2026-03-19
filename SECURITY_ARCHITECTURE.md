@@ -679,7 +679,6 @@ As a static site generator, EU Parliament Monitor has a minimal key management f
 | --- | --- | --- | --- |
 | **GitHub Actions GITHUB_TOKEN** | CI/CD authentication | Auto-generated per job | Per-workflow run (ephemeral) |
 | **MCP PAT** | EP MCP Server access | GitHub Secrets (encrypted at rest) | Manual rotation, 90-day recommended |
-| **SSH Deploy Keys** | Repository push access | GitHub-managed | Annually or on compromise |
 | **TLS Certificates** | HTTPS for GitHub Pages | GitHub-managed (Let's Encrypt) | Auto-renewed every 90 days |
 | **GPG Signing Keys** | Commit verification | Developer-managed | Per policy, minimum 2048-bit RSA |
 
@@ -689,7 +688,7 @@ As a static site generator, EU Parliament Monitor has a minimal key management f
 - ✅ **Ephemeral Tokens**: GITHUB_TOKEN scoped to job duration and repository
 - ✅ **Least Privilege**: Token permissions explicitly declared per workflow (`permissions:` block)
 - ✅ **Secret Scanning**: GitHub secret scanning enabled to detect exposed credentials
-- ✅ **No Persistent Keys**: Static site requires no long-lived cryptographic keys
+- ✅ **No Application-Managed Persistent Keys**: Static site requires no application-managed long-lived cryptographic keys; all platform keys (TLS, GPG) are externally managed
 - ✅ **TLS 1.2+**: All external connections use TLS 1.2 or higher; TLS 1.3 preferred where supported by peers (GitHub Pages, npm registry)
 
 **ISMS Alignment:**
