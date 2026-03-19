@@ -1,0 +1,801 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="../"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>DATA_MODEL | EU Parliament Monitor - API Documentation - v0.8.0</title><link rel="icon" href="../assets/favicon.ico"/><meta name="description" content="Documentation for EU Parliament Monitor - API Documentation"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/icons.js" id="tsd-icons-script"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script><script async src="../assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="../index.html" class="title">EU Parliament Monitor - API Documentation - v0.8.0</a><div id="tsd-toolbar-links"><a href="https://euparliamentmonitor.com">EU Parliament Monitor</a><a href="https://github.com/Hack23/euparliamentmonitor">GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC">ISMS</a></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><ul class="tsd-breadcrumb" aria-label="Breadcrumb"><li><a href="" aria-current="page">DATA_MODEL</a></li></ul></div><div class="tsd-panel tsd-typography"><p align="center">
+  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
+</p>
+<h1 align="center">📊 EU Parliament Monitor — Data Model</h1>
+<p align="center">
+  <strong>Data Structures & Relationships for European Parliament Intelligence</strong><br>
+  <em>📊 Entity Models • 🔗 Data Relationships • 📋 Schema Documentation</em>
+</p>
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
+</p>
+<p><strong>📋 Document Owner:</strong> CEO | <strong>📄 Version:</strong> 1.1 | <strong>📅 Last Updated:</strong>
+2026-03-19 (UTC)<br>
+<strong>🔄 Review Cycle:</strong> Quarterly | <strong>⏰ Next Review:</strong> 2026-06-19</p>
+<hr>
+<h2 id="📋-overview" class="tsd-anchor-link">📋 Overview<a href="#📋-overview" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This document defines the data structures and relationships used in the EU
+Parliament Monitor platform for news generation, storage, and delivery.</p>
+<h2 id="🎯-data-model-principles" class="tsd-anchor-link">🎯 Data Model Principles<a href="#🎯-data-model-principles" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ol>
+<li><strong>Simplicity</strong>: Flat file structure, no databases</li>
+<li><strong>Immutability</strong>: Generated articles never modified after creation</li>
+<li><strong>Traceability</strong>: Generation metadata tracks provenance</li>
+<li><strong>Multi-language</strong>: Language-specific content with shared structure</li>
+<li><strong>Public Data</strong>: All data from European Parliament open sources</li>
+</ol>
+<hr>
+<h2 id="📚-architecture-documentation-map" class="tsd-anchor-link">📚 Architecture Documentation Map<a href="#📚-architecture-documentation-map" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<div class="documentation-map">
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Focus</th>
+<th>Description</th>
+<th>Documentation Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="ARCHITECTURE.html">Architecture</a></strong></td>
+<td>🏛️ Architecture</td>
+<td>C4 model showing current system structure</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_ARCHITECTURE.md">Future Architecture</a></strong></td>
+<td>🏛️ Architecture</td>
+<td>C4 model showing future system structure</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/MINDMAP.md">Mindmaps</a></strong></td>
+<td>🧠 Concept</td>
+<td>Current system component relationships</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_MINDMAP.md">Future Mindmaps</a></strong></td>
+<td>🧠 Concept</td>
+<td>Future capability evolution</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_MINDMAP.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/SWOT.md">SWOT Analysis</a></strong></td>
+<td>💼 Business</td>
+<td>Current strategic assessment</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_SWOT.md">Future SWOT Analysis</a></strong></td>
+<td>💼 Business</td>
+<td>Future strategic opportunities</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SWOT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="">Data Model</a></strong></td>
+<td>📊 Data</td>
+<td>Current data structures and relationships</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_DATA_MODEL.md">Future Data Model</a></strong></td>
+<td>📊 Data</td>
+<td>Enhanced European Parliament data architecture</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_DATA_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FLOWCHART.md">Flowcharts</a></strong></td>
+<td>🔄 Process</td>
+<td>Current data processing workflows</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FLOWCHART.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_FLOWCHART.md">Future Flowcharts</a></strong></td>
+<td>🔄 Process</td>
+<td>Enhanced AI-driven workflows</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_FLOWCHART.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/STATEDIAGRAM.md">State Diagrams</a></strong></td>
+<td>🔄 Behavior</td>
+<td>Current system state transitions</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/STATEDIAGRAM.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_STATEDIAGRAM.md">Future State Diagrams</a></strong></td>
+<td>🔄 Behavior</td>
+<td>Enhanced adaptive state transitions</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_STATEDIAGRAM.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="SECURITY_ARCHITECTURE.html">Security Architecture</a></strong></td>
+<td>🛡️ Security</td>
+<td>Current security implementation</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_SECURITY_ARCHITECTURE.md">Future Security Architecture</a></strong></td>
+<td>🛡️ Security</td>
+<td>Security enhancement roadmap</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/THREAT_MODEL.md">Threat Model</a></strong></td>
+<td>🎯 Security</td>
+<td>STRIDE threat analysis</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/CLASSIFICATION.md">Classification</a></strong></td>
+<td>🏷️ Governance</td>
+<td>CIA classification &amp; BCP</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CLASSIFICATION.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/CRA-ASSESSMENT.md">CRA Assessment</a></strong></td>
+<td>🛡️ Compliance</td>
+<td>Cyber Resilience Act</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/WORKFLOWS.md">Workflows</a></strong></td>
+<td>⚙️ DevOps</td>
+<td>CI/CD documentation</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_WORKFLOWS.md">Future Workflows</a></strong></td>
+<td>🚀 DevOps</td>
+<td>Planned CI/CD enhancements</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_WORKFLOWS.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/BCPPlan.md">Business Continuity Plan</a></strong></td>
+<td>🔄 Resilience</td>
+<td>Recovery planning</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/BCPPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FinancialSecurityPlan.md">Financial Security Plan</a></strong></td>
+<td>💰 Financial</td>
+<td>Cost &amp; security analysis</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FinancialSecurityPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/End-of-Life-Strategy.md">End-of-Life Strategy</a></strong></td>
+<td>📦 Lifecycle</td>
+<td>Technology EOL planning</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/End-of-Life-Strategy.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/UnitTestPlan.md">Unit Test Plan</a></strong></td>
+<td>🧪 Testing</td>
+<td>Unit testing strategy</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/UnitTestPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/E2ETestPlan.md">E2E Test Plan</a></strong></td>
+<td>🔍 Testing</td>
+<td>End-to-end testing</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/E2ETestPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/performance-testing.md">Performance Testing</a></strong></td>
+<td>⚡ Performance</td>
+<td>Performance benchmarks</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/performance-testing.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/SECURITY.md">Security Policy</a></strong></td>
+<td>🔒 Security</td>
+<td>Vulnerability reporting &amp; security policy</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md" target="_blank" class="external">View Source</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="🛡️-isms-policy-alignment" class="tsd-anchor-link">🛡️ ISMS Policy Alignment<a href="#🛡️-isms-policy-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This data model aligns with Hack23 ISMS policies to ensure secure data handling, classification, and development practices:</p>
+<h3 id="📋-relevant-isms-policies" class="tsd-anchor-link">📋 Relevant ISMS Policies<a href="#📋-relevant-isms-policies" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Policy</th>
+<th>Relevance</th>
+<th>Implementation in Data Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md" target="_blank" class="external">Data Classification Policy</a></strong></td>
+<td>High</td>
+<td>All data classified as <strong>Public (Level 1)</strong> per <a href="../media/CLASSIFICATION.md">CLASSIFICATION.md</a>. European Parliament data is publicly available open data. No PII or sensitive information processed.</td>
+</tr>
+<tr>
+<td><strong><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md" target="_blank" class="external">Cryptography Policy</a></strong></td>
+<td>Medium</td>
+<td>TLS 1.3 for data in transit from European Parliament API. At-rest encryption via GitHub repository storage. Planned SHA-256 hashes for data integrity verification in future generator updates.</td>
+</tr>
+<tr>
+<td><strong><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" class="external">Secure Development Policy</a></strong></td>
+<td>High</td>
+<td>Planned schema validation for EP API responses and planned HTML sanitization (e.g., DOMPurify) in future generator/client updates. Input validation for external data where implemented. Git-based audit trail for all changes.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="🎯-compliance-framework-mapping" class="tsd-anchor-link">🎯 Compliance Framework Mapping<a href="#🎯-compliance-framework-mapping" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>ISO 27001:2022 Controls:</strong></p>
+<ul>
+<li><strong>A.5.12</strong>: Classification of information — Public data classification documented</li>
+<li><strong>A.8.3</strong>: Management of technical vulnerabilities — Planned schema validation to prevent malformed data in future iterations</li>
+<li><strong>A.8.24</strong>: Use of cryptography — TLS 1.3 for API communication</li>
+<li><strong>A.8.28</strong>: Secure coding — Planned enhancements for input validation and HTML sanitization in the generator/client code</li>
+</ul>
+<p><strong>GDPR Compliance:</strong></p>
+<ul>
+<li><strong>Article 5(1)(c)</strong>: Data minimization — No personal data collected beyond publicly available MEP information</li>
+<li><strong>Article 5(1)(e)</strong>: Storage limitation — Articles immutable, no unnecessary data retention</li>
+<li><strong>Article 5(1)(f)</strong>: Integrity and confidentiality — SHA-256 checksums, TLS 1.3 encryption</li>
+</ul>
+<p><strong>NIST CSF 2.0:</strong></p>
+<ul>
+<li><strong>ID.AM-5</strong>: Resources are prioritized based on classification — Public data classification</li>
+<li><strong>PR.DS-2</strong>: Data-in-transit is protected — TLS 1.3 encryption</li>
+<li><strong>PR.DS-5</strong>: Protections against data leaks — No sensitive data to leak (public data only)</li>
+</ul>
+<hr>
+<h2 id="📐-entity-relationship-diagram" class="tsd-anchor-link">📐 Entity Relationship Diagram<a href="#📐-entity-relationship-diagram" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="mermaid"><span class="hl-1">erDiagram</span><br/><span class="hl-1">    NEWS_ARTICLE ||--o{ METADATA : has</span><br/><span class="hl-1">    NEWS_ARTICLE ||--o{ SOURCE : references</span><br/><span class="hl-1">    NEWS_ARTICLE }o--|| ARTICLE_TYPE : &quot;belongs to&quot;</span><br/><span class="hl-1">    NEWS_ARTICLE }o--|| LANGUAGE : &quot;written in&quot;</span><br/><br/><span class="hl-1">    PLENARY_SESSION ||--o{ NEWS_ARTICLE : &quot;mentioned in&quot;</span><br/><span class="hl-1">    COMMITTEE_MEETING ||--o{ NEWS_ARTICLE : &quot;mentioned in&quot;</span><br/><span class="hl-1">    PARLIAMENTARY_QUESTION ||--o{ NEWS_ARTICLE : &quot;mentioned in&quot;</span><br/><span class="hl-1">    DOCUMENT ||--o{ NEWS_ARTICLE : &quot;referenced in&quot;</span><br/><br/><span class="hl-1">    NEWS_ARTICLE {</span><br/><span class="hl-1">        string slug PK &quot;Unique article identifier&quot;</span><br/><span class="hl-1">        string category &quot;ArticleCategory enum value&quot;</span><br/><span class="hl-1">        string language &quot;en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh&quot;</span><br/><span class="hl-1">        string date &quot;Publication date string&quot;</span><br/><span class="hl-1">        string title &quot;Article title&quot;</span><br/><span class="hl-1">        string subtitle &quot;Article subtitle&quot;</span><br/><span class="hl-1">        string content &quot;Full HTML content&quot;</span><br/><span class="hl-1">        int readTime &quot;Estimated read time (minutes)&quot;</span><br/><span class="hl-1">        array keywords &quot;SEO keywords (optional)&quot;</span><br/><span class="hl-1">        array sources &quot;ArticleSource references (optional)&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    METADATA {</span><br/><span class="hl-1">        string filename &quot;Article filename&quot;</span><br/><span class="hl-1">        string date &quot;Publication date&quot;</span><br/><span class="hl-1">        string slug &quot;Article slug&quot;</span><br/><span class="hl-1">        string lang &quot;Language code&quot;</span><br/><span class="hl-1">        string title &quot;Article title&quot;</span><br/><span class="hl-1">        string type &quot;ArticleCategory value (optional)&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    SOURCE {</span><br/><span class="hl-1">        string title &quot;Source title&quot;</span><br/><span class="hl-1">        string url &quot;Source URL&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    ARTICLE_TYPE {</span><br/><span class="hl-1">        string code PK &quot;ArticleCategory enum value&quot;</span><br/><span class="hl-1">        string perspective &quot;ArticlePerspective (prospective, retrospective, real-time, analytical)&quot;</span><br/><span class="hl-1">        string label_en &quot;English label&quot;</span><br/><span class="hl-1">        string label_de &quot;German label&quot;</span><br/><span class="hl-1">        string label_fr &quot;French label&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    LANGUAGE {</span><br/><span class="hl-1">        string code PK &quot;ISO 639-1 code&quot;</span><br/><span class="hl-1">        string name &quot;Language name&quot;</span><br/><span class="hl-1">        string direction &quot;ltr or rtl&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    PLENARY_SESSION {</span><br/><span class="hl-1">        string session_id PK &quot;EP session identifier&quot;</span><br/><span class="hl-1">        date session_date &quot;Session date&quot;</span><br/><span class="hl-1">        string title &quot;Session title&quot;</span><br/><span class="hl-1">        array agenda_items &quot;Agenda item IDs&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    COMMITTEE_MEETING {</span><br/><span class="hl-1">        string meeting_id PK &quot;EP meeting identifier&quot;</span><br/><span class="hl-1">        string committee_code &quot;Committee code (LIBE, ECON, etc.)&quot;</span><br/><span class="hl-1">        date meeting_date &quot;Meeting date&quot;</span><br/><span class="hl-1">        string title &quot;Meeting title&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    PARLIAMENTARY_QUESTION {</span><br/><span class="hl-1">        string question_id PK &quot;EP question identifier&quot;</span><br/><span class="hl-1">        date submission_date &quot;Date submitted&quot;</span><br/><span class="hl-1">        string question_type &quot;Written, Oral, Priority&quot;</span><br/><span class="hl-1">        string author_mep &quot;MEP name&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    DOCUMENT {</span><br/><span class="hl-1">        string document_id PK &quot;EP document identifier&quot;</span><br/><span class="hl-1">        string document_type &quot;Report, Resolution, Opinion&quot;</span><br/><span class="hl-1">        date publication_date &quot;Publication date&quot;</span><br/><span class="hl-1">        string title &quot;Document title&quot;</span><br/><span class="hl-1">    }</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="📄-data-structures" class="tsd-anchor-link">📄 Data Structures<a href="#📄-data-structures" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="1-news-article" class="tsd-anchor-link">1. News Article<a href="#1-news-article" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>File Location</strong>: <code>news/YYYY-MM-DD-{slug}-{lang}.html</code></p>
+<p><strong>HTML Structure</strong>:</p>
+<pre><code class="html"><span class="hl-10">&lt;!</span><span class="hl-11">DOCTYPE</span><span class="hl-1"> </span><span class="hl-12">html</span><span class="hl-10">&gt;</span><br/><span class="hl-10">&lt;</span><span class="hl-11">html</span><span class="hl-1"> </span><span class="hl-12">lang</span><span class="hl-1">=</span><span class="hl-13">&quot;en&quot;</span><span class="hl-1"> </span><span class="hl-12">dir</span><span class="hl-1">=</span><span class="hl-13">&quot;ltr&quot;</span><span class="hl-10">&gt;</span><br/><span class="hl-1">  </span><span class="hl-10">&lt;</span><span class="hl-11">head</span><span class="hl-10">&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">meta</span><span class="hl-1"> </span><span class="hl-12">charset</span><span class="hl-1">=</span><span class="hl-13">&quot;UTF-8&quot;</span><span class="hl-1"> </span><span class="hl-10">/&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">meta</span><span class="hl-1"> </span><span class="hl-12">name</span><span class="hl-1">=</span><span class="hl-13">&quot;viewport&quot;</span><span class="hl-1"> </span><span class="hl-12">content</span><span class="hl-1">=</span><span class="hl-13">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="hl-1"> </span><span class="hl-10">/&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">title</span><span class="hl-10">&gt;</span><span class="hl-1">Article Title - EU Parliament Monitor</span><span class="hl-10">&lt;/</span><span class="hl-11">title</span><span class="hl-10">&gt;</span><br/><br/><span class="hl-1">    </span><span class="hl-4">&lt;!-- SEO Meta Tags --&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">meta</span><span class="hl-1"> </span><span class="hl-12">name</span><span class="hl-1">=</span><span class="hl-13">&quot;description&quot;</span><span class="hl-1"> </span><span class="hl-12">content</span><span class="hl-1">=</span><span class="hl-13">&quot;Article subtitle&quot;</span><span class="hl-1"> </span><span class="hl-10">/&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">meta</span><span class="hl-1"> </span><span class="hl-12">name</span><span class="hl-1">=</span><span class="hl-13">&quot;keywords&quot;</span><span class="hl-1"> </span><span class="hl-12">content</span><span class="hl-1">=</span><span class="hl-13">&quot;european parliament, keyword1, keyword2&quot;</span><span class="hl-1"> </span><span class="hl-10">/&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">meta</span><span class="hl-1"> </span><span class="hl-12">name</span><span class="hl-1">=</span><span class="hl-13">&quot;author&quot;</span><span class="hl-1"> </span><span class="hl-12">content</span><span class="hl-1">=</span><span class="hl-13">&quot;EU Parliament Monitor&quot;</span><span class="hl-1"> </span><span class="hl-10">/&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">meta</span><span class="hl-1"> </span><span class="hl-12">name</span><span class="hl-1">=</span><span class="hl-13">&quot;publication-date&quot;</span><span class="hl-1"> </span><span class="hl-12">content</span><span class="hl-1">=</span><span class="hl-13">&quot;2026-03-01&quot;</span><span class="hl-1"> </span><span class="hl-10">/&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">meta</span><span class="hl-1"> </span><span class="hl-12">name</span><span class="hl-1">=</span><span class="hl-13">&quot;article-type&quot;</span><span class="hl-1"> </span><span class="hl-12">content</span><span class="hl-1">=</span><span class="hl-13">&quot;prospective&quot;</span><span class="hl-1"> </span><span class="hl-10">/&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">meta</span><span class="hl-1"> </span><span class="hl-12">name</span><span class="hl-1">=</span><span class="hl-13">&quot;language&quot;</span><span class="hl-1"> </span><span class="hl-12">content</span><span class="hl-1">=</span><span class="hl-13">&quot;en&quot;</span><span class="hl-1"> </span><span class="hl-10">/&gt;</span><br/><br/><span class="hl-1">    </span><span class="hl-4">&lt;!-- Open Graph --&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">meta</span><span class="hl-1"> </span><span class="hl-12">property</span><span class="hl-1">=</span><span class="hl-13">&quot;og:title&quot;</span><span class="hl-1"> </span><span class="hl-12">content</span><span class="hl-1">=</span><span class="hl-13">&quot;Article Title&quot;</span><span class="hl-1"> </span><span class="hl-10">/&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">meta</span><span class="hl-1"> </span><span class="hl-12">property</span><span class="hl-1">=</span><span class="hl-13">&quot;og:description&quot;</span><span class="hl-1"> </span><span class="hl-12">content</span><span class="hl-1">=</span><span class="hl-13">&quot;Article subtitle&quot;</span><span class="hl-1"> </span><span class="hl-10">/&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">meta</span><span class="hl-1"> </span><span class="hl-12">property</span><span class="hl-1">=</span><span class="hl-13">&quot;og:type&quot;</span><span class="hl-1"> </span><span class="hl-12">content</span><span class="hl-1">=</span><span class="hl-13">&quot;article&quot;</span><span class="hl-1"> </span><span class="hl-10">/&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">meta</span><br/><span class="hl-1">      </span><span class="hl-12">property</span><span class="hl-1">=</span><span class="hl-13">&quot;og:url&quot;</span><br/><span class="hl-1">      </span><span class="hl-12">content</span><span class="hl-1">=</span><span class="hl-13">&quot;https://euparliamentmonitor.com/news/2026-week-ahead-en.html&quot;</span><br/><span class="hl-1">    </span><span class="hl-10">/&gt;</span><br/><br/><span class="hl-1">    </span><span class="hl-4">&lt;!-- Schema.org structured data --&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">script</span><span class="hl-14"> </span><span class="hl-12">type</span><span class="hl-14">=</span><span class="hl-13">&quot;application/ld+json&quot;</span><span class="hl-10">&gt;</span><br/><span class="hl-14">      {</span><br/><span class="hl-14">        &quot;@context&quot;: &quot;https://schema.org&quot;,</span><br/><span class="hl-14">        &quot;@type&quot;: &quot;NewsArticle&quot;,</span><br/><span class="hl-14">        &quot;headline&quot;: &quot;Article Title&quot;,</span><br/><span class="hl-14">        &quot;description&quot;: &quot;Article subtitle&quot;,</span><br/><span class="hl-14">        &quot;datePublished&quot;: &quot;2026-03-01T06:15:32Z&quot;,</span><br/><span class="hl-14">        &quot;author&quot;: {</span><br/><span class="hl-14">          &quot;@type&quot;: &quot;Organization&quot;,</span><br/><span class="hl-14">          &quot;name&quot;: &quot;EU Parliament Monitor&quot;</span><br/><span class="hl-14">        },</span><br/><span class="hl-14">        &quot;publisher&quot;: {</span><br/><span class="hl-14">          &quot;@type&quot;: &quot;Organization&quot;,</span><br/><span class="hl-14">          &quot;name&quot;: &quot;EU Parliament Monitor&quot;,</span><br/><span class="hl-14">          &quot;logo&quot;: {</span><br/><span class="hl-14">            &quot;@type&quot;: &quot;ImageObject&quot;,</span><br/><span class="hl-14">            &quot;url&quot;: &quot;https://euparliamentmonitor.com/logo.png&quot;</span><br/><span class="hl-14">          }</span><br/><span class="hl-14">        }</span><br/><span class="hl-14">      }</span><br/><span class="hl-14">    </span><span class="hl-10">&lt;/</span><span class="hl-11">script</span><span class="hl-10">&gt;</span><br/><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">link</span><span class="hl-1"> </span><span class="hl-12">rel</span><span class="hl-1">=</span><span class="hl-13">&quot;stylesheet&quot;</span><span class="hl-1"> </span><span class="hl-12">href</span><span class="hl-1">=</span><span class="hl-13">&quot;../styles.css&quot;</span><span class="hl-1"> </span><span class="hl-10">/&gt;</span><br/><span class="hl-1">  </span><span class="hl-10">&lt;/</span><span class="hl-11">head</span><span class="hl-10">&gt;</span><br/><span class="hl-1">  </span><span class="hl-10">&lt;</span><span class="hl-11">body</span><span class="hl-10">&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;</span><span class="hl-11">article</span><span class="hl-1"> </span><span class="hl-12">class</span><span class="hl-1">=</span><span class="hl-13">&quot;news-article&quot;</span><span class="hl-10">&gt;</span><br/><span class="hl-1">      </span><span class="hl-10">&lt;</span><span class="hl-11">header</span><span class="hl-10">&gt;</span><br/><span class="hl-1">        </span><span class="hl-10">&lt;</span><span class="hl-11">span</span><span class="hl-1"> </span><span class="hl-12">class</span><span class="hl-1">=</span><span class="hl-13">&quot;article-type&quot;</span><span class="hl-10">&gt;</span><span class="hl-1">Week Ahead</span><span class="hl-10">&lt;/</span><span class="hl-11">span</span><span class="hl-10">&gt;</span><br/><span class="hl-1">        </span><span class="hl-10">&lt;</span><span class="hl-11">h1</span><span class="hl-10">&gt;</span><span class="hl-1">Article Title</span><span class="hl-10">&lt;/</span><span class="hl-11">h1</span><span class="hl-10">&gt;</span><br/><span class="hl-1">        </span><span class="hl-10">&lt;</span><span class="hl-11">p</span><span class="hl-1"> </span><span class="hl-12">class</span><span class="hl-1">=</span><span class="hl-13">&quot;subtitle&quot;</span><span class="hl-10">&gt;</span><span class="hl-1">Article subtitle</span><span class="hl-10">&lt;/</span><span class="hl-11">p</span><span class="hl-10">&gt;</span><br/><span class="hl-1">        </span><span class="hl-10">&lt;</span><span class="hl-11">div</span><span class="hl-1"> </span><span class="hl-12">class</span><span class="hl-1">=</span><span class="hl-13">&quot;meta&quot;</span><span class="hl-10">&gt;</span><br/><span class="hl-1">          </span><span class="hl-10">&lt;</span><span class="hl-11">time</span><span class="hl-1"> </span><span class="hl-12">datetime</span><span class="hl-1">=</span><span class="hl-13">&quot;2026-03-01&quot;</span><span class="hl-10">&gt;</span><span class="hl-1">March 1, 2026</span><span class="hl-10">&lt;/</span><span class="hl-11">time</span><span class="hl-10">&gt;</span><br/><span class="hl-1">          </span><span class="hl-10">&lt;</span><span class="hl-11">span</span><span class="hl-1"> </span><span class="hl-12">class</span><span class="hl-1">=</span><span class="hl-13">&quot;read-time&quot;</span><span class="hl-10">&gt;</span><span class="hl-1">5 min read</span><span class="hl-10">&lt;/</span><span class="hl-11">span</span><span class="hl-10">&gt;</span><br/><span class="hl-1">        </span><span class="hl-10">&lt;/</span><span class="hl-11">div</span><span class="hl-10">&gt;</span><br/><span class="hl-1">      </span><span class="hl-10">&lt;/</span><span class="hl-11">header</span><span class="hl-10">&gt;</span><br/><br/><span class="hl-1">      </span><span class="hl-10">&lt;</span><span class="hl-11">main</span><span class="hl-1"> </span><span class="hl-12">class</span><span class="hl-1">=</span><span class="hl-13">&quot;content&quot;</span><span class="hl-10">&gt;</span><br/><span class="hl-1">        </span><span class="hl-4">&lt;!-- Generated HTML content --&gt;</span><br/><span class="hl-1">      </span><span class="hl-10">&lt;/</span><span class="hl-11">main</span><span class="hl-10">&gt;</span><br/><br/><span class="hl-1">      </span><span class="hl-10">&lt;</span><span class="hl-11">footer</span><span class="hl-10">&gt;</span><br/><span class="hl-1">        </span><span class="hl-10">&lt;</span><span class="hl-11">section</span><span class="hl-1"> </span><span class="hl-12">class</span><span class="hl-1">=</span><span class="hl-13">&quot;sources&quot;</span><span class="hl-10">&gt;</span><br/><span class="hl-1">          </span><span class="hl-10">&lt;</span><span class="hl-11">h3</span><span class="hl-10">&gt;</span><span class="hl-1">Sources</span><span class="hl-10">&lt;/</span><span class="hl-11">h3</span><span class="hl-10">&gt;</span><br/><span class="hl-1">          </span><span class="hl-10">&lt;</span><span class="hl-11">ul</span><span class="hl-10">&gt;</span><br/><span class="hl-1">            </span><span class="hl-10">&lt;</span><span class="hl-11">li</span><span class="hl-10">&gt;</span><br/><span class="hl-1">              </span><span class="hl-10">&lt;</span><span class="hl-11">a</span><span class="hl-1"> </span><span class="hl-12">href</span><span class="hl-1">=</span><span class="hl-13">&quot;https://data.europarl.europa.eu/...&quot;</span><span class="hl-10">&gt;</span><span class="hl-1">EP Source 1</span><span class="hl-10">&lt;/</span><span class="hl-11">a</span><span class="hl-10">&gt;</span><br/><span class="hl-1">            </span><span class="hl-10">&lt;/</span><span class="hl-11">li</span><span class="hl-10">&gt;</span><br/><span class="hl-1">            </span><span class="hl-10">&lt;</span><span class="hl-11">li</span><span class="hl-10">&gt;</span><br/><span class="hl-1">              </span><span class="hl-10">&lt;</span><span class="hl-11">a</span><span class="hl-1"> </span><span class="hl-12">href</span><span class="hl-1">=</span><span class="hl-13">&quot;https://data.europarl.europa.eu/...&quot;</span><span class="hl-10">&gt;</span><span class="hl-1">EP Source 2</span><span class="hl-10">&lt;/</span><span class="hl-11">a</span><span class="hl-10">&gt;</span><br/><span class="hl-1">            </span><span class="hl-10">&lt;/</span><span class="hl-11">li</span><span class="hl-10">&gt;</span><br/><span class="hl-1">          </span><span class="hl-10">&lt;/</span><span class="hl-11">ul</span><span class="hl-10">&gt;</span><br/><span class="hl-1">        </span><span class="hl-10">&lt;/</span><span class="hl-11">section</span><span class="hl-10">&gt;</span><br/><br/><span class="hl-1">        </span><span class="hl-10">&lt;</span><span class="hl-11">section</span><span class="hl-1"> </span><span class="hl-12">class</span><span class="hl-1">=</span><span class="hl-13">&quot;languages&quot;</span><span class="hl-10">&gt;</span><br/><span class="hl-1">          </span><span class="hl-10">&lt;</span><span class="hl-11">h3</span><span class="hl-10">&gt;</span><span class="hl-1">Available Languages</span><span class="hl-10">&lt;/</span><span class="hl-11">h3</span><span class="hl-10">&gt;</span><br/><span class="hl-1">          </span><span class="hl-10">&lt;</span><span class="hl-11">ul</span><span class="hl-10">&gt;</span><br/><span class="hl-1">            </span><span class="hl-10">&lt;</span><span class="hl-11">li</span><span class="hl-10">&gt;&lt;</span><span class="hl-11">a</span><span class="hl-1"> </span><span class="hl-12">href</span><span class="hl-1">=</span><span class="hl-13">&quot;2026-week-ahead-de.html&quot;</span><span class="hl-10">&gt;</span><span class="hl-1">Deutsch</span><span class="hl-10">&lt;/</span><span class="hl-11">a</span><span class="hl-10">&gt;&lt;/</span><span class="hl-11">li</span><span class="hl-10">&gt;</span><br/><span class="hl-1">            </span><span class="hl-10">&lt;</span><span class="hl-11">li</span><span class="hl-10">&gt;&lt;</span><span class="hl-11">a</span><span class="hl-1"> </span><span class="hl-12">href</span><span class="hl-1">=</span><span class="hl-13">&quot;2026-week-ahead-fr.html&quot;</span><span class="hl-10">&gt;</span><span class="hl-1">Français</span><span class="hl-10">&lt;/</span><span class="hl-11">a</span><span class="hl-10">&gt;&lt;/</span><span class="hl-11">li</span><span class="hl-10">&gt;</span><br/><span class="hl-1">          </span><span class="hl-10">&lt;/</span><span class="hl-11">ul</span><span class="hl-10">&gt;</span><br/><span class="hl-1">        </span><span class="hl-10">&lt;/</span><span class="hl-11">section</span><span class="hl-10">&gt;</span><br/><span class="hl-1">      </span><span class="hl-10">&lt;/</span><span class="hl-11">footer</span><span class="hl-10">&gt;</span><br/><span class="hl-1">    </span><span class="hl-10">&lt;/</span><span class="hl-11">article</span><span class="hl-10">&gt;</span><br/><span class="hl-1">  </span><span class="hl-10">&lt;/</span><span class="hl-11">body</span><span class="hl-10">&gt;</span><br/><span class="hl-10">&lt;/</span><span class="hl-11">html</span><span class="hl-10">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="2-news-metadata-database" class="tsd-anchor-link">2. News Metadata Database<a href="#2-news-metadata-database" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>File Location</strong>: <code>articles-metadata.json</code></p>
+<p><strong>TypeScript Interface</strong> (<code>NewsMetadataDatabase</code>):</p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;lastUpdated&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;2026-03-01T06:15:32Z&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;articles&quot;</span><span class="hl-1">: [</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;filename&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;2026-03-01-week-ahead-en.html&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;date&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;2026-03-01&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;slug&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;week-ahead&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;lang&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;en&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;title&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Week Ahead: European Parliament March Session&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;week-ahead&quot;</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;filename&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;2026-03-01-week-ahead-de.html&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;date&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;2026-03-01&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;slug&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;week-ahead&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;lang&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;de&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;title&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Woche Voraus: Europäisches Parlament Märzsitzung&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;week-ahead&quot;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  ]</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="3-article-type-definitions" class="tsd-anchor-link">3. Article Type Definitions<a href="#3-article-type-definitions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>File Location</strong>: <code>src/types/index.ts</code> (ArticleCategory enum)</p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;article_types&quot;</span><span class="hl-1">: [</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;code&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;week-ahead&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;perspective&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;prospective&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;labels&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;en&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Week Ahead&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;sv&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Vecka Framåt&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;da&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Ugen Fremover&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;no&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Uken Fremover&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;fi&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Viikko Eteenpäin&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;de&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Woche Voraus&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;fr&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Semaine à Venir&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;es&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Semana Próxima&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;nl&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Week Vooruit&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;ar&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;الأسبوع القادم&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;he&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;השבוע הקרוב&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;ja&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;今週の展望&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;ko&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;주간 전망&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;zh&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;一周展望&quot;</span><br/><span class="hl-1">      },</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;description&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Preview of upcoming parliamentary events and committee meetings&quot;</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;code&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;committee-reports&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;perspective&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;retrospective&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;labels&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;en&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Committee Reports&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;de&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Ausschussberichte&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;fr&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Rapports de Commission&quot;</span><br/><span class="hl-1">      },</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;description&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Analysis of committee activities and decisions&quot;</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;code&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;breaking&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;perspective&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;real-time&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;labels&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;en&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Breaking News&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;de&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Eilmeldung&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;fr&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Dernières Nouvelles&quot;</span><br/><span class="hl-1">      },</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;description&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Rapid-response coverage of significant developments&quot;</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;code&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;deep-analysis&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;perspective&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;analytical&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;labels&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;en&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Deep Analysis&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;de&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Tiefenanalyse&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-15">&quot;fr&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Analyse Approfondie&quot;</span><br/><span class="hl-1">      },</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;description&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Multi-perspective deep dive analysis&quot;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  ]</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="4-language-configuration" class="tsd-anchor-link">4. Language Configuration<a href="#4-language-configuration" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>File Location</strong>: <code>src/constants/languages.ts</code></p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;languages&quot;</span><span class="hl-1">: [</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;code&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;en&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;English&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;native_name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;English&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;direction&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;ltr&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;flag&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;🇬🇧&quot;</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;code&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;sv&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Swedish&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;native_name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Svenska&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;direction&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;ltr&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;flag&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;🇸🇪&quot;</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;code&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;de&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;German&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;native_name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Deutsch&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;direction&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;ltr&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;flag&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;🇩🇪&quot;</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;code&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;fr&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;French&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;native_name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Français&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;direction&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;ltr&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;flag&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;🇫🇷&quot;</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;code&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;ar&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Arabic&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;native_name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;العربية&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;direction&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;rtl&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;flag&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;🇸🇦&quot;</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;code&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;he&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Hebrew&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;native_name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;עברית&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;direction&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;rtl&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;flag&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;🇮🇱&quot;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  ],</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;language_groups&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;eu-core&quot;</span><span class="hl-1">: [</span><span class="hl-2">&quot;en&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;de&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;fr&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;es&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;nl&quot;</span><span class="hl-1">],</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;nordic&quot;</span><span class="hl-1">: [</span><span class="hl-2">&quot;en&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;sv&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;da&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;no&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;fi&quot;</span><span class="hl-1">],</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;all&quot;</span><span class="hl-1">: [</span><br/><span class="hl-1">      </span><span class="hl-2">&quot;en&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;sv&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;da&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;no&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;fi&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-2">&quot;de&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;fr&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;es&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;nl&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-2">&quot;ar&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;he&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;ja&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;ko&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;zh&quot;</span><br/><span class="hl-1">    ]</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="🔗-european-parliament-data-structures" class="tsd-anchor-link">🔗 European Parliament Data Structures<a href="#🔗-european-parliament-data-structures" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="plenary-session" class="tsd-anchor-link">Plenary Session<a href="#plenary-session" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EP API Endpoint</strong>:
+<code>https://data.europarl.europa.eu/api/v2/sessions/{session_id}</code></p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;session_id&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;PS-2026-03-01&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;session_date&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;2026-03-01&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;session_type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Plenary&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;title&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;March 2026 Plenary Session I&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;location&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Strasbourg&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;agenda&quot;</span><span class="hl-1">: [</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;item_id&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;AGI-2026-03-001&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;order&quot;</span><span class="hl-1">: </span><span class="hl-8">1</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;title&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Commission statement: European Green Deal progress&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;speaker&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;European Commission&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;duration_minutes&quot;</span><span class="hl-1">: </span><span class="hl-8">60</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;voting_required&quot;</span><span class="hl-1">: </span><span class="hl-3">false</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;item_id&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;AGI-2026-03-002&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;order&quot;</span><span class="hl-1">: </span><span class="hl-8">2</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;title&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Vote: Digital Services Act amendments&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;rapporteur&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;MEP Name&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;duration_minutes&quot;</span><span class="hl-1">: </span><span class="hl-8">30</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;voting_required&quot;</span><span class="hl-1">: </span><span class="hl-3">true</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  ],</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;attendees&quot;</span><span class="hl-1">: </span><span class="hl-8">705</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;status&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;scheduled&quot;</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="committee-meeting" class="tsd-anchor-link">Committee Meeting<a href="#committee-meeting" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EP API Endpoint</strong>:
+<code>https://data.europarl.europa.eu/api/v2/committees/{committee_code}/meetings/{meeting_id}</code></p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;meeting_id&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;LIBE-2026-02-25&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;committee_code&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;LIBE&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;committee_name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Committee on Civil Liberties, Justice and Home Affairs&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;meeting_date&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;2026-02-25&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;meeting_time&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;14:00:00&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;location&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Brussels&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;agenda&quot;</span><span class="hl-1">: [</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;item_id&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;LIBE-AGI-001&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;title&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Artificial Intelligence Act implementation review&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Discussion&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;documents&quot;</span><span class="hl-1">: [</span><span class="hl-2">&quot;DOC-2026-001&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;DOC-2026-002&quot;</span><span class="hl-1">]</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  ],</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;chair&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;MEP Name&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;status&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;completed&quot;</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="parliamentary-question" class="tsd-anchor-link">Parliamentary Question<a href="#parliamentary-question" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EP API Endpoint</strong>:
+<code>https://data.europarl.europa.eu/api/v2/questions/{question_id}</code></p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;question_id&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;PQ-2026-000123&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;question_type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Written&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;priority&quot;</span><span class="hl-1">: </span><span class="hl-3">false</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;submission_date&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;2026-02-20&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;author&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;mep_id&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;MEP-12345&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;MEP Name&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;political_group&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;EPP&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;country&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Germany&quot;</span><br/><span class="hl-1">  },</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;addressee&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;European Commission&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;subject&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Implementation of GDPR enforcement&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;question_text&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;What measures is the Commission taking to...&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;answer&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;answer_date&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;2026-03-05&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;answer_text&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;The Commission has undertaken the following actions...&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;answered_by&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Commissioner Name&quot;</span><br/><span class="hl-1">  },</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;languages&quot;</span><span class="hl-1">: [</span><span class="hl-2">&quot;en&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;de&quot;</span><span class="hl-1">]</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="document" class="tsd-anchor-link">Document<a href="#document" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EP API Endpoint</strong>:
+<code>https://data.europarl.europa.eu/api/v2/documents/{document_id}</code></p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;document_id&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;DOC-2026-001&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;document_type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Report&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;title&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Report on the implementation of the Digital Services Act&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;publication_date&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;2026-02-15&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;rapporteur&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;mep_id&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;MEP-67890&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;MEP Name&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;political_group&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;S&amp;D&quot;</span><br/><span class="hl-1">  },</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;committee&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;LIBE&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;procedure&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;INI&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;languages&quot;</span><span class="hl-1">: [</span><span class="hl-2">&quot;en&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;de&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;fr&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;es&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;it&quot;</span><span class="hl-1">],</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;documents&quot;</span><span class="hl-1">: [</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;language&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;en&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;format&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;PDF&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;url&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;https://data.europarl.europa.eu/documents/DOC-2026-001-EN.pdf&quot;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  ],</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;status&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;published&quot;</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="📊-additional-entity-relationship-diagrams" class="tsd-anchor-link">📊 Additional Entity Relationship Diagrams<a href="#📊-additional-entity-relationship-diagrams" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="mep-entity-model" class="tsd-anchor-link">MEP Entity Model<a href="#mep-entity-model" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="mermaid"><span class="hl-1">erDiagram</span><br/><span class="hl-1">    MEP ||--o{ COMMITTEE_MEMBERSHIP : &quot;serves on&quot;</span><br/><span class="hl-1">    MEP ||--o{ VOTING_RECORD : &quot;casts&quot;</span><br/><span class="hl-1">    MEP ||--o{ PARLIAMENTARY_QUESTION : &quot;authors&quot;</span><br/><span class="hl-1">    MEP }o--|| POLITICAL_GROUP : &quot;belongs to&quot;</span><br/><span class="hl-1">    MEP }o--|| COUNTRY : &quot;represents&quot;</span><br/><span class="hl-1">    MEP }o--|| NATIONAL_PARTY : &quot;member of&quot;</span><br/><br/><span class="hl-1">    POLITICAL_GROUP ||--o{ MEP : &quot;has members&quot;</span><br/><span class="hl-1">    COUNTRY ||--o{ MEP : &quot;has representatives&quot;</span><br/><span class="hl-1">    COMMITTEE ||--o{ COMMITTEE_MEMBERSHIP : &quot;has members&quot;</span><br/><br/><span class="hl-1">    MEP {</span><br/><span class="hl-1">        string id PK &quot;MEP-xxxxx&quot;</span><br/><span class="hl-1">        string name &quot;Full name&quot;</span><br/><span class="hl-1">        string email &quot;Contact email&quot;</span><br/><span class="hl-1">        string photoUrl &quot;Photo URL&quot;</span><br/><span class="hl-1">        date termStart &quot;Term start date&quot;</span><br/><span class="hl-1">        date termEnd &quot;Term end date&quot;</span><br/><span class="hl-1">        boolean active &quot;Active status&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    POLITICAL_GROUP {</span><br/><span class="hl-1">        string code PK &quot;PPE, S&amp;D, Renew, Greens/EFA, ECR, etc.&quot;</span><br/><span class="hl-1">        string name &quot;Full group name&quot;</span><br/><span class="hl-1">        string abbreviation &quot;Short name&quot;</span><br/><span class="hl-1">        int memberCount &quot;Number of MEPs&quot;</span><br/><span class="hl-1">        string politicalOrientation &quot;Left, Center, Right&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    COUNTRY {</span><br/><span class="hl-1">        string code PK &quot;ISO 3166-1 alpha-2&quot;</span><br/><span class="hl-1">        string name &quot;Country name&quot;</span><br/><span class="hl-1">        int seatCount &quot;EP seats allocated&quot;</span><br/><span class="hl-1">        string region &quot;EU region&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    NATIONAL_PARTY {</span><br/><span class="hl-1">        string id PK &quot;Party identifier&quot;</span><br/><span class="hl-1">        string name &quot;Party name&quot;</span><br/><span class="hl-1">        string country FK &quot;Country code&quot;</span><br/><span class="hl-1">        string europeanAffiliation FK &quot;Political group code&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    COMMITTEE_MEMBERSHIP {</span><br/><span class="hl-1">        string mepId FK</span><br/><span class="hl-1">        string committeeCode FK</span><br/><span class="hl-1">        string role &quot;Member, Chair, Vice-Chair&quot;</span><br/><span class="hl-1">        date joinDate</span><br/><span class="hl-1">        date leaveDate</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    VOTING_RECORD {</span><br/><span class="hl-1">        string id PK</span><br/><span class="hl-1">        string mepId FK</span><br/><span class="hl-1">        string documentReference</span><br/><span class="hl-1">        string vote &quot;FOR, AGAINST, ABSTAIN&quot;</span><br/><span class="hl-1">        date voteDate</span><br/><span class="hl-1">        string sessionId</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    PARLIAMENTARY_QUESTION {</span><br/><span class="hl-1">        string questionId PK</span><br/><span class="hl-1">        string authorMepId FK</span><br/><span class="hl-1">        string questionType &quot;Written, Oral, Priority&quot;</span><br/><span class="hl-1">        date submissionDate</span><br/><span class="hl-1">        string subject</span><br/><span class="hl-1">        string addressee</span><br/><span class="hl-1">    }</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="mcp-data-integration-model" class="tsd-anchor-link">MCP Data Integration Model<a href="#mcp-data-integration-model" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="mermaid"><span class="hl-1">erDiagram</span><br/><span class="hl-1">    MCP_SERVER ||--o{ MCP_TOOL : &quot;provides&quot;</span><br/><span class="hl-1">    MCP_TOOL ||--o{ API_ENDPOINT : &quot;calls&quot;</span><br/><span class="hl-1">    API_ENDPOINT }o--|| EP_API : &quot;endpoint of&quot;</span><br/><span class="hl-1">    MCP_TOOL ||--o{ TOOL_RESPONSE : &quot;returns&quot;</span><br/><span class="hl-1">    TOOL_RESPONSE ||--o{ CACHED_RESPONSE : &quot;cached as&quot;</span><br/><br/><span class="hl-1">    NEWS_GENERATOR ||--o{ MCP_CLIENT : &quot;uses&quot;</span><br/><span class="hl-1">    MCP_CLIENT ||--o{ MCP_TOOL : &quot;invokes&quot;</span><br/><span class="hl-1">    MCP_CLIENT ||--o{ RESPONSE_VALIDATOR : &quot;validates with&quot;</span><br/><br/><span class="hl-1">    MCP_SERVER {</span><br/><span class="hl-1">        string version &quot;1.2.3&quot;</span><br/><span class="hl-1">        string connectionType &quot;stdio, SSE&quot;</span><br/><span class="hl-1">        string status &quot;running, stopped&quot;</span><br/><span class="hl-1">        datetime lastHealthCheck</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    MCP_TOOL {</span><br/><span class="hl-1">        string name PK &quot;get_meps, get_plenary_sessions&quot;</span><br/><span class="hl-1">        string description &quot;Tool description&quot;</span><br/><span class="hl-1">        json inputSchema &quot;JSON Schema for parameters&quot;</span><br/><span class="hl-1">        json outputSchema &quot;JSON Schema for response&quot;</span><br/><span class="hl-1">        string endpoint FK &quot;EP API endpoint&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    API_ENDPOINT {</span><br/><span class="hl-1">        string url PK &quot;https://data.europarl.europa.eu/...&quot;</span><br/><span class="hl-1">        string method &quot;GET, POST&quot;</span><br/><span class="hl-1">        json parameters &quot;Query parameters&quot;</span><br/><span class="hl-1">        int rateLimitPerMinute</span><br/><span class="hl-1">        int cacheTTL &quot;Seconds&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    EP_API {</span><br/><span class="hl-1">        string baseUrl &quot;https://data.europarl.europa.eu&quot;</span><br/><span class="hl-1">        string version &quot;v2&quot;</span><br/><span class="hl-1">        string authentication &quot;None (public API; field reserved for future use such as API key, OAuth)&quot;</span><br/><span class="hl-1">        boolean requiresAuth &quot;false for current EP MCP; reserved for future use&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    TOOL_RESPONSE {</span><br/><span class="hl-1">        string id PK</span><br/><span class="hl-1">        string toolName FK</span><br/><span class="hl-1">        json data &quot;Response data&quot;</span><br/><span class="hl-1">        datetime timestamp</span><br/><span class="hl-1">        string dataHash &quot;SHA-256 hash&quot;</span><br/><span class="hl-1">        int statusCode</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    CACHED_RESPONSE {</span><br/><span class="hl-1">        string cacheKey PK</span><br/><span class="hl-1">        string toolName FK</span><br/><span class="hl-1">        json cachedData</span><br/><span class="hl-1">        datetime cachedAt</span><br/><span class="hl-1">        datetime expiresAt</span><br/><span class="hl-1">        int hitCount</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    MCP_CLIENT {</span><br/><span class="hl-1">        string clientId PK</span><br/><span class="hl-1">        string version</span><br/><span class="hl-1">        string connectionType</span><br/><span class="hl-1">        int timeoutSeconds</span><br/><span class="hl-1">        int retryAttempts</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    RESPONSE_VALIDATOR {</span><br/><span class="hl-1">        string toolName FK</span><br/><span class="hl-1">        json schema &quot;JSON Schema&quot;</span><br/><span class="hl-1">        array requiredFields</span><br/><span class="hl-1">        boolean strictMode</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    NEWS_GENERATOR {</span><br/><span class="hl-1">        string version</span><br/><span class="hl-1">        string mode &quot;daily, manual&quot;</span><br/><span class="hl-1">        array supportedLanguages</span><br/><span class="hl-1">    }</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="multi-language-content-model" class="tsd-anchor-link">Multi-Language Content Model<a href="#multi-language-content-model" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="mermaid"><span class="hl-1">erDiagram</span><br/><span class="hl-1">    ARTICLE ||--o{ TRANSLATION : &quot;has&quot;</span><br/><span class="hl-1">    TRANSLATION }o--|| LANGUAGE : &quot;written in&quot;</span><br/><span class="hl-1">    ARTICLE ||--o{ ARTICLE_METADATA : &quot;has&quot;</span><br/><span class="hl-1">    TRANSLATION ||--o{ SEO_METADATA : &quot;has&quot;</span><br/><br/><span class="hl-1">    LANGUAGE ||--o{ TRANSLATION : &quot;used for&quot;</span><br/><span class="hl-1">    LANGUAGE ||--o{ INDEX_PAGE : &quot;has&quot;</span><br/><br/><span class="hl-1">    ARTICLE {</span><br/><span class="hl-1">        string slug PK &quot;2026-01-01-week-ahead&quot;</span><br/><span class="hl-1">        string category &quot;ArticleCategory enum value&quot;</span><br/><span class="hl-1">        datetime generatedAt</span><br/><span class="hl-1">        string commitSha &quot;Git commit hash&quot;</span><br/><span class="hl-1">        array sourceIds &quot;EP data source IDs&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    TRANSLATION {</span><br/><span class="hl-1">        string id PK</span><br/><span class="hl-1">        string articleSlug FK</span><br/><span class="hl-1">        string languageCode FK</span><br/><span class="hl-1">        string title &quot;Translated title&quot;</span><br/><span class="hl-1">        string subtitle &quot;Translated subtitle&quot;</span><br/><span class="hl-1">        string contentHtml &quot;Full HTML content&quot;</span><br/><span class="hl-1">        int wordCount</span><br/><span class="hl-1">        int readTimeMinutes</span><br/><span class="hl-1">        array keywords</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    LANGUAGE {</span><br/><span class="hl-1">        string code PK &quot;ISO 639-1&quot;</span><br/><span class="hl-1">        string name &quot;Native language name&quot;</span><br/><span class="hl-1">        string flag &quot;Flag emoji&quot;</span><br/><span class="hl-1">        string direction &quot;ltr or rtl&quot;</span><br/><span class="hl-1">        string preset &quot;all, eu-core, nordic&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    ARTICLE_METADATA {</span><br/><span class="hl-1">        string articleSlug FK</span><br/><span class="hl-1">        string generatorVersion</span><br/><span class="hl-1">        string workflowRunId</span><br/><span class="hl-1">        string mcpServerVersion</span><br/><span class="hl-1">        json sources &quot;Array of source data&quot;</span><br/><span class="hl-1">        json statistics &quot;Word counts, read times&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    SEO_METADATA {</span><br/><span class="hl-1">        string translationId FK</span><br/><span class="hl-1">        string metaDescription</span><br/><span class="hl-1">        array metaKeywords</span><br/><span class="hl-1">        string ogTitle &quot;Open Graph title&quot;</span><br/><span class="hl-1">        string ogDescription</span><br/><span class="hl-1">        string ogImage</span><br/><span class="hl-1">        string canonicalUrl</span><br/><span class="hl-1">        array hreflangLinks</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    INDEX_PAGE {</span><br/><span class="hl-1">        string languageCode FK</span><br/><span class="hl-1">        string filename &quot;index-{lang}.html&quot;</span><br/><span class="hl-1">        array articleList &quot;Ordered article references&quot;</span><br/><span class="hl-1">        datetime lastUpdated</span><br/><span class="hl-1">        int articleCount</span><br/><span class="hl-1">    }</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="sitemap-seo-metadata-model" class="tsd-anchor-link">Sitemap &amp; SEO Metadata Model<a href="#sitemap-seo-metadata-model" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="mermaid"><span class="hl-1">erDiagram</span><br/><span class="hl-1">    SITEMAP ||--o{ SITEMAP_ENTRY : &quot;contains&quot;</span><br/><span class="hl-1">    SITEMAP_ENTRY }o--|| TRANSLATION : &quot;references&quot;</span><br/><span class="hl-1">    SITEMAP_ENTRY ||--o{ HREFLANG_LINK : &quot;has&quot;</span><br/><br/><span class="hl-1">    INDEX_PAGE ||--o{ INDEX_ENTRY : &quot;lists&quot;</span><br/><span class="hl-1">    INDEX_ENTRY }o--|| TRANSLATION : &quot;links to&quot;</span><br/><br/><span class="hl-1">    SITEMAP {</span><br/><span class="hl-1">        string filename &quot;sitemap.xml&quot;</span><br/><span class="hl-1">        datetime lastModified</span><br/><span class="hl-1">        int urlCount</span><br/><span class="hl-1">        string xmlns &quot;XML namespace&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    SITEMAP_ENTRY {</span><br/><span class="hl-1">        string loc PK &quot;Full URL&quot;</span><br/><span class="hl-1">        datetime lastmod &quot;Last modified&quot;</span><br/><span class="hl-1">        string changefreq &quot;always, daily, weekly&quot;</span><br/><span class="hl-1">        float priority &quot;0.0 to 1.0&quot;</span><br/><span class="hl-1">        string translationId FK</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    HREFLANG_LINK {</span><br/><span class="hl-1">        string sourceUrl FK</span><br/><span class="hl-1">        string targetUrl &quot;Alternate language URL&quot;</span><br/><span class="hl-1">        string hreflang &quot;Language code or x-default&quot;</span><br/><span class="hl-1">        string rel &quot;alternate&quot;</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    INDEX_PAGE {</span><br/><span class="hl-1">        string languageCode PK</span><br/><span class="hl-1">        string filename &quot;index-{lang}.html&quot;</span><br/><span class="hl-1">        string title &quot;Page title&quot;</span><br/><span class="hl-1">        string metaDescription</span><br/><span class="hl-1">        datetime lastUpdated</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    INDEX_ENTRY {</span><br/><span class="hl-1">        string indexLanguage FK</span><br/><span class="hl-1">        string articleUrl &quot;Relative URL&quot;</span><br/><span class="hl-1">        string articleTitle</span><br/><span class="hl-1">        string articleSubtitle</span><br/><span class="hl-1">        string articleType</span><br/><span class="hl-1">        date publicationDate</span><br/><span class="hl-1">        int displayOrder</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    TRANSLATION {</span><br/><span class="hl-1">        string id PK</span><br/><span class="hl-1">        string articleSlug</span><br/><span class="hl-1">        string languageCode</span><br/><span class="hl-1">        string title</span><br/><span class="hl-1">        string filename</span><br/><span class="hl-1">    }</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="🔄-european-parliament-data-flow" class="tsd-anchor-link">🔄 European Parliament Data Flow<a href="#🔄-european-parliament-data-flow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="mermaid"><span class="hl-1">flowchart TB</span><br/><span class="hl-1">    subgraph &quot;European Parliament&quot;</span><br/><span class="hl-1">        EP_API[&quot;European Parliament&lt;br/&gt;Open Data API&quot;]</span><br/><span class="hl-1">        EP_PLENARY[&quot;Plenary Sessions&lt;br/&gt;API Endpoint&quot;]</span><br/><span class="hl-1">        EP_COMMITTEE[&quot;Committee Meetings&lt;br/&gt;API Endpoint&quot;]</span><br/><span class="hl-1">        EP_MEP[&quot;MEPs Data&lt;br/&gt;API Endpoint&quot;]</span><br/><span class="hl-1">        EP_DOCUMENTS[&quot;Documents&lt;br/&gt;API Endpoint&quot;]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;MCP Server Layer&quot;</span><br/><span class="hl-1">        MCP_SERVER[&quot;European Parliament&lt;br/&gt;MCP Server&quot;]</span><br/><span class="hl-1">        TOOL_GET_MEPS[&quot;Tool: get_meps&quot;]</span><br/><span class="hl-1">        TOOL_PLENARY[&quot;Tool: get_plenary_sessions&quot;]</span><br/><span class="hl-1">        TOOL_COMMITTEE[&quot;Tool: get_committee_info&quot;]</span><br/><span class="hl-1">        TOOL_DOCUMENTS[&quot;Tool: search_documents&quot;]</span><br/><span class="hl-1">        MCP_CACHE[&quot;LRU Response Cache&lt;br/&gt;TTL: 24h&quot;]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Generator Layer&quot;</span><br/><span class="hl-1">        GENERATOR[&quot;News Generator&lt;br/&gt;TypeScript Script&quot;]</span><br/><span class="hl-1">        MCP_CLIENT[&quot;MCP Client&lt;br/&gt;stdio connection&quot;]</span><br/><span class="hl-1">        VALIDATOR[&quot;Schema Validator&lt;br/&gt;(Planned)&quot;]</span><br/><span class="hl-1">        SANITIZER[&quot;HTML Sanitizer&lt;br/&gt;(Planned: DOMPurify)&quot;]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Template Layer&quot;</span><br/><span class="hl-1">        TEMPLATE_ENGINE[&quot;Template Module&lt;br/&gt;src/templates/article-template.ts&quot;]</span><br/><span class="hl-1">        TEMPLATE_WEEK[&quot;Article Template&lt;br/&gt;(TS-based)&quot;]</span><br/><span class="hl-1">        TEMPLATE_COMMITTEE[&quot;Committee Reports Template&lt;br/&gt;(TS-based)&quot;]</span><br/><span class="hl-1">        LANGUAGE_PROCESSOR[&quot;Multi-Language&lt;br/&gt;Processor&quot;]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Output Layer&quot;</span><br/><span class="hl-1">        ARTICLE_HTML[&quot;Article HTML&lt;br/&gt;news/*.html&quot;]</span><br/><span class="hl-1">        METADATA_JSON[&quot;Metadata JSON&lt;br/&gt;articles-metadata.json&quot;]</span><br/><span class="hl-1">        INDEX_HTML[&quot;Index Pages&lt;br/&gt;index-*.html&quot;]</span><br/><span class="hl-1">        SITEMAP_XML[&quot;sitemap.xml&quot;]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Deployment&quot;</span><br/><span class="hl-1">        GIT_COMMIT[&quot;Git Commit&lt;br/&gt;&amp; Push&quot;]</span><br/><span class="hl-1">        GHA_DEPLOY[&quot;GitHub Actions&lt;br/&gt;Deploy Workflow&quot;]</span><br/><span class="hl-1">        GH_PAGES[&quot;GitHub Pages&lt;br/&gt;Static Hosting&quot;]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    EP_API --&gt; EP_PLENARY</span><br/><span class="hl-1">    EP_API --&gt; EP_COMMITTEE</span><br/><span class="hl-1">    EP_API --&gt; EP_MEP</span><br/><span class="hl-1">    EP_API --&gt; EP_DOCUMENTS</span><br/><br/><span class="hl-1">    EP_PLENARY --&gt;|&quot;HTTPS GET&lt;br/&gt;TLS 1.3&quot;| MCP_SERVER</span><br/><span class="hl-1">    EP_COMMITTEE --&gt;|&quot;HTTPS GET&lt;br/&gt;TLS 1.3&quot;| MCP_SERVER</span><br/><span class="hl-1">    EP_MEP --&gt;|&quot;HTTPS GET&lt;br/&gt;TLS 1.3&quot;| MCP_SERVER</span><br/><span class="hl-1">    EP_DOCUMENTS --&gt;|&quot;HTTPS GET&lt;br/&gt;TLS 1.3&quot;| MCP_SERVER</span><br/><br/><span class="hl-1">    MCP_SERVER --&gt; TOOL_GET_MEPS</span><br/><span class="hl-1">    MCP_SERVER --&gt; TOOL_PLENARY</span><br/><span class="hl-1">    MCP_SERVER --&gt; TOOL_COMMITTEE</span><br/><span class="hl-1">    MCP_SERVER --&gt; TOOL_DOCUMENTS</span><br/><br/><span class="hl-1">    TOOL_GET_MEPS --&gt; MCP_CACHE</span><br/><span class="hl-1">    TOOL_PLENARY --&gt; MCP_CACHE</span><br/><span class="hl-1">    TOOL_COMMITTEE --&gt; MCP_CACHE</span><br/><span class="hl-1">    TOOL_DOCUMENTS --&gt; MCP_CACHE</span><br/><br/><span class="hl-1">    MCP_CACHE --&gt;|&quot;stdio protocol&quot;| MCP_CLIENT</span><br/><span class="hl-1">    MCP_CLIENT --&gt; GENERATOR</span><br/><span class="hl-1">    GENERATOR --&gt; VALIDATOR</span><br/><span class="hl-1">    VALIDATOR --&gt;|&quot;Valid JSON&quot;| SANITIZER</span><br/><span class="hl-1">    VALIDATOR --&gt;|&quot;Invalid&quot;| GENERATOR</span><br/><br/><span class="hl-1">    SANITIZER --&gt; TEMPLATE_ENGINE</span><br/><span class="hl-1">    TEMPLATE_ENGINE --&gt; TEMPLATE_WEEK</span><br/><span class="hl-1">    TEMPLATE_ENGINE --&gt; TEMPLATE_COMMITTEE</span><br/><span class="hl-1">    TEMPLATE_WEEK --&gt; LANGUAGE_PROCESSOR</span><br/><span class="hl-1">    TEMPLATE_COMMITTEE --&gt; LANGUAGE_PROCESSOR</span><br/><br/><span class="hl-1">    LANGUAGE_PROCESSOR --&gt;|&quot;14 languages&quot;| ARTICLE_HTML</span><br/><span class="hl-1">    LANGUAGE_PROCESSOR --&gt; METADATA_JSON</span><br/><span class="hl-1">    LANGUAGE_PROCESSOR --&gt; INDEX_HTML</span><br/><span class="hl-1">    LANGUAGE_PROCESSOR --&gt; SITEMAP_XML</span><br/><br/><span class="hl-1">    ARTICLE_HTML --&gt; GIT_COMMIT</span><br/><span class="hl-1">    METADATA_JSON --&gt; GIT_COMMIT</span><br/><span class="hl-1">    INDEX_HTML --&gt; GIT_COMMIT</span><br/><span class="hl-1">    SITEMAP_XML --&gt; GIT_COMMIT</span><br/><br/><span class="hl-1">    GIT_COMMIT --&gt;|&quot;Push triggers&lt;br/&gt;deploy workflow&quot;| GHA_DEPLOY</span><br/><span class="hl-1">    GHA_DEPLOY --&gt;|&quot;Deploy to&lt;br/&gt;GitHub Pages&quot;| GH_PAGES</span><br/><br/><span class="hl-1">    style EP_API fill:#fff4e1</span><br/><span class="hl-1">    style MCP_SERVER fill:#e8f5e9</span><br/><span class="hl-1">    style GENERATOR fill:#e1f5ff</span><br/><span class="hl-1">    style TEMPLATE_ENGINE fill:#f3e5f5</span><br/><span class="hl-1">    style ARTICLE_HTML fill:#e3f2fd</span><br/><span class="hl-1">    style GH_PAGES fill:#e0f2f1</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="📁-file-system-structure" class="tsd-anchor-link">📁 File System Structure<a href="#📁-file-system-structure" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code><span class="hl-5">euparliamentmonitor</span><span class="hl-1">/</span><br/><span class="hl-1">├── </span><span class="hl-5">news</span><span class="hl-1">/                           # </span><span class="hl-5">Generated</span><span class="hl-1"> </span><span class="hl-5">articles</span><br/><span class="hl-1">│   ├── </span><span class="hl-8">2026</span><span class="hl-1">-</span><span class="hl-8">01</span><span class="hl-1">-</span><span class="hl-8">01</span><span class="hl-1">-</span><span class="hl-5">week</span><span class="hl-1">-</span><span class="hl-5">ahead</span><span class="hl-1">-</span><span class="hl-5">en</span><span class="hl-1">.</span><span class="hl-5">html</span><br/><span class="hl-1">│   ├── </span><span class="hl-8">2026</span><span class="hl-1">-</span><span class="hl-8">01</span><span class="hl-1">-</span><span class="hl-8">01</span><span class="hl-1">-</span><span class="hl-5">week</span><span class="hl-1">-</span><span class="hl-5">ahead</span><span class="hl-1">-</span><span class="hl-5">de</span><span class="hl-1">.</span><span class="hl-5">html</span><br/><span class="hl-1">│   ├── </span><span class="hl-8">2026</span><span class="hl-1">-</span><span class="hl-8">01</span><span class="hl-1">-</span><span class="hl-8">01</span><span class="hl-1">-</span><span class="hl-5">week</span><span class="hl-1">-</span><span class="hl-5">ahead</span><span class="hl-1">-</span><span class="hl-5">fr</span><span class="hl-1">.</span><span class="hl-5">html</span><br/><span class="hl-1">│   └── ...</span><br/><span class="hl-1">│</span><br/><span class="hl-1">├── </span><span class="hl-5">articles</span><span class="hl-1">-</span><span class="hl-5">metadata</span><span class="hl-1">.</span><span class="hl-5">json</span><span class="hl-1">          # </span><span class="hl-5">News</span><span class="hl-1"> </span><span class="hl-5">metadata</span><span class="hl-1"> </span><span class="hl-5">database</span><br/><span class="hl-1">│</span><br/><span class="hl-1">├── </span><span class="hl-5">index</span><span class="hl-1">-{</span><span class="hl-5">lang</span><span class="hl-1">}.</span><span class="hl-5">html</span><span class="hl-1">               # </span><span class="hl-5">Language</span><span class="hl-1">-</span><span class="hl-5">specific</span><span class="hl-1"> </span><span class="hl-5">indexes</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">index</span><span class="hl-1">.</span><span class="hl-5">html</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">index</span><span class="hl-1">-</span><span class="hl-5">de</span><span class="hl-1">.</span><span class="hl-5">html</span><br/><span class="hl-1">│   └── </span><span class="hl-5">index</span><span class="hl-1">-</span><span class="hl-5">fr</span><span class="hl-1">.</span><span class="hl-5">html</span><br/><span class="hl-1">│</span><br/><span class="hl-1">├── </span><span class="hl-5">sitemap</span><span class="hl-1">.</span><span class="hl-5">xml</span><span class="hl-1">                     # </span><span class="hl-6">SEO</span><span class="hl-1"> </span><span class="hl-5">sitemap</span><br/><span class="hl-1">├── </span><span class="hl-5">robots</span><span class="hl-1">.</span><span class="hl-5">txt</span><span class="hl-1">                      # </span><span class="hl-5">Crawler</span><span class="hl-1"> </span><span class="hl-5">rules</span><br/><span class="hl-1">├── </span><span class="hl-5">styles</span><span class="hl-1">.</span><span class="hl-5">css</span><span class="hl-1">                      # </span><span class="hl-5">Global</span><span class="hl-1"> </span><span class="hl-5">styles</span><br/><span class="hl-1">└── </span><span class="hl-5">favicon</span><span class="hl-1">.</span><span class="hl-5">ico</span><span class="hl-1">                     # </span><span class="hl-5">Site</span><span class="hl-1"> </span><span class="hl-5">icon</span>
+</code><button>Copy</button></pre>
+
+<hr>
+<h2 id="🔄-data-flow" class="tsd-anchor-link">🔄 Data Flow<a href="#🔄-data-flow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="article-generation-data-flow" class="tsd-anchor-link">Article Generation Data Flow<a href="#article-generation-data-flow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="mermaid"><span class="hl-1">flowchart LR</span><br/><span class="hl-1">    subgraph &quot;External Sources&quot;</span><br/><span class="hl-1">        EP_API[European Parliament&lt;br/&gt;Open Data API]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;MCP Layer&quot;</span><br/><span class="hl-1">        MCP[MCP Server]</span><br/><span class="hl-1">        CACHE[Response Cache]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Generation Layer&quot;</span><br/><span class="hl-1">        CLIENT[MCP Client]</span><br/><span class="hl-1">        VALIDATE[Data Validator]</span><br/><span class="hl-1">        SANITIZE[HTML Sanitizer]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Template Layer&quot;</span><br/><span class="hl-1">        TEMPLATE[Article Template]</span><br/><span class="hl-1">        META[Metadata Generator]</span><br/><span class="hl-1">        HTML[HTML Builder]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Storage Layer&quot;</span><br/><span class="hl-1">        FS[File System]</span><br/><span class="hl-1">        ARTICLE[Article HTML]</span><br/><span class="hl-1">        METADATA[Metadata JSON]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    EP_API --&gt;|JSON Response| MCP</span><br/><span class="hl-1">    MCP --&gt; CACHE</span><br/><span class="hl-1">    CACHE --&gt; CLIENT</span><br/><span class="hl-1">    CLIENT --&gt; VALIDATE</span><br/><span class="hl-1">    VALIDATE --&gt; SANITIZE</span><br/><span class="hl-1">    SANITIZE --&gt; TEMPLATE</span><br/><span class="hl-1">    TEMPLATE --&gt; META</span><br/><span class="hl-1">    TEMPLATE --&gt; HTML</span><br/><span class="hl-1">    HTML --&gt; ARTICLE</span><br/><span class="hl-1">    META --&gt; METADATA</span><br/><span class="hl-1">    ARTICLE --&gt; FS</span><br/><span class="hl-1">    METADATA --&gt; FS</span><br/><br/><span class="hl-1">    style EP_API fill:#fff4e1</span><br/><span class="hl-1">    style MCP fill:#e8f5e9</span><br/><span class="hl-1">    style CLIENT fill:#e8f5e9</span><br/><span class="hl-1">    style VALIDATE fill:#e1f5ff</span><br/><span class="hl-1">    style SANITIZE fill:#e1f5ff</span><br/><span class="hl-1">    style TEMPLATE fill:#e8f5e9</span><br/><span class="hl-1">    style ARTICLE fill:#f0f0f0</span><br/><span class="hl-1">    style METADATA fill:#f0f0f0</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="index-generation-data-flow" class="tsd-anchor-link">Index Generation Data Flow<a href="#index-generation-data-flow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="mermaid"><span class="hl-1">flowchart LR</span><br/><span class="hl-1">    subgraph &quot;Input&quot;</span><br/><span class="hl-1">        ARTICLES[Generated Articles&lt;br/&gt;news/*.html]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Scanner&quot;</span><br/><span class="hl-1">        SCAN[File Scanner]</span><br/><span class="hl-1">        PARSE[Metadata Parser]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Processor&quot;</span><br/><span class="hl-1">        GROUP[Group by Language]</span><br/><span class="hl-1">        SORT[Sort by Date]</span><br/><span class="hl-1">        FILTER[Filter by Type]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Generator&quot;</span><br/><span class="hl-1">        TEMPLATE[Index Template]</span><br/><span class="hl-1">        HTML[HTML Builder]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Output&quot;</span><br/><span class="hl-1">        INDEX[index-{lang}.html]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    ARTICLES --&gt; SCAN</span><br/><span class="hl-1">    SCAN --&gt; PARSE</span><br/><span class="hl-1">    PARSE --&gt; GROUP</span><br/><span class="hl-1">    GROUP --&gt; SORT</span><br/><span class="hl-1">    SORT --&gt; FILTER</span><br/><span class="hl-1">    FILTER --&gt; TEMPLATE</span><br/><span class="hl-1">    TEMPLATE --&gt; HTML</span><br/><span class="hl-1">    HTML --&gt; INDEX</span><br/><br/><span class="hl-1">    style ARTICLES fill:#f0f0f0</span><br/><span class="hl-1">    style SCAN fill:#e8f5e9</span><br/><span class="hl-1">    style PARSE fill:#e8f5e9</span><br/><span class="hl-1">    style GROUP fill:#e1f5ff</span><br/><span class="hl-1">    style SORT fill:#e1f5ff</span><br/><span class="hl-1">    style FILTER fill:#e1f5ff</span><br/><span class="hl-1">    style TEMPLATE fill:#e8f5e9</span><br/><span class="hl-1">    style INDEX fill:#f0f0f0</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="📊-data-relationships" class="tsd-anchor-link">📊 Data Relationships<a href="#📊-data-relationships" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="article-→-metadata-relationship" class="tsd-anchor-link">Article → Metadata Relationship<a href="#article-→-metadata-relationship" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>Cardinality</strong>: One-to-One</li>
+<li><strong>Foreign Key</strong>: Article slug</li>
+<li><strong>Purpose</strong>: Track generation provenance and source data</li>
+</ul>
+<h3 id="article-→-sources-relationship" class="tsd-anchor-link">Article → Sources Relationship<a href="#article-→-sources-relationship" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>Cardinality</strong>: One-to-Many</li>
+<li><strong>Foreign Key</strong>: Article slug</li>
+<li><strong>Purpose</strong>: Link articles to European Parliament data sources</li>
+</ul>
+<h3 id="article-→-language-relationship" class="tsd-anchor-link">Article → Language Relationship<a href="#article-→-language-relationship" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>Cardinality</strong>: Many-to-One</li>
+<li><strong>Foreign Key</strong>: Language code</li>
+<li><strong>Purpose</strong>: Multi-language support with shared metadata</li>
+</ul>
+<hr>
+<h2 id="🔐-data-security" class="tsd-anchor-link">🔐 Data Security<a href="#🔐-data-security" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="data-classification" class="tsd-anchor-link">Data Classification<a href="#data-classification" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Classification</th>
+<th>Storage</th>
+<th>Encryption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>News Articles</td>
+<td>Public</td>
+<td>Git repository</td>
+<td>At-rest (GitHub)</td>
+</tr>
+<tr>
+<td>Metadata</td>
+<td>Public</td>
+<td>Git repository</td>
+<td>At-rest (GitHub)</td>
+</tr>
+<tr>
+<td>EP API Responses</td>
+<td>Public</td>
+<td>Ephemeral (runtime)</td>
+<td>In-transit (TLS 1.3)</td>
+</tr>
+<tr>
+<td>Generation Logs</td>
+<td>Internal</td>
+<td>GitHub Actions</td>
+<td>At-rest (GitHub)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-integrity" class="tsd-anchor-link">Data Integrity<a href="#data-integrity" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>Immutability</strong>: Articles never modified after generation</li>
+<li><strong>Checksums</strong>: SHA-256 hashes for verification (future)</li>
+<li><strong>Audit Trail</strong>: Git commit history provides complete provenance</li>
+<li><strong>Validation</strong>: Schema validation on all EP API responses</li>
+</ul>
+<hr>
+<h2 id="🔒-data-security-considerations" class="tsd-anchor-link">🔒 Data Security Considerations<a href="#🔒-data-security-considerations" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="data-classification-framework" class="tsd-anchor-link">Data Classification Framework<a href="#data-classification-framework" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>All data in EU Parliament Monitor is classified according to <a href="../media/CLASSIFICATION.md">CLASSIFICATION.md</a> and the <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md" target="_blank" class="external">Hack23 ISMS Classification Policy</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Classification</th>
+<th>Confidentiality</th>
+<th>Integrity</th>
+<th>Availability</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>News Articles</strong></td>
+<td>Public (Level 1)</td>
+<td>Public</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Derived from public EP data, accuracy critical for democratic transparency</td>
+</tr>
+<tr>
+<td><strong>Generation Metadata</strong></td>
+<td>Public (Level 1)</td>
+<td>Public</td>
+<td>Medium</td>
+<td>Low</td>
+<td>Technical provenance data, publicly accessible</td>
+</tr>
+<tr>
+<td><strong>EP API Responses</strong></td>
+<td>Public (Level 1)</td>
+<td>Public</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Public European Parliament data, temporary runtime storage</td>
+</tr>
+<tr>
+<td><strong>MCP Tool Responses</strong></td>
+<td>Public (Level 1)</td>
+<td>Public</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Cached EP data, integrity critical</td>
+</tr>
+<tr>
+<td><strong>GitHub Actions Logs</strong></td>
+<td>Public (Level 1)</td>
+<td>Public</td>
+<td>Low</td>
+<td>Low</td>
+<td>Actions logs are visible to anyone with read access to this public repo and contain technical build details but no secrets</td>
+</tr>
+</tbody>
+</table>
+<h3 id="personal-identifiable-information-pii-handling" class="tsd-anchor-link">Personal Identifiable Information (PII) Handling<a href="#personal-identifiable-information-pii-handling" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>PII Status</strong>: <strong>No User/Customer PII Collected</strong></p>
+<p>EU Parliament Monitor processes <strong>publicly available European Parliament data</strong> only. MEP names, affiliations, and official contact details are publicly available personal data about public officials in their official capacity:</p>
+<ul>
+<li><strong>MEP Information</strong>: Names, political affiliations, committee memberships (publicly available official data)</li>
+<li><strong>Contact Information</strong>: Official MEP email addresses (publicly available official contact data)</li>
+<li><strong>No User Data</strong>: No user accounts, no tracking, no analytics</li>
+<li><strong>No Cookies</strong>: Static HTML site, no client-side tracking</li>
+<li><strong>No Private Communications</strong>: No private messages, no personal correspondence</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: Publicly available personal data about public officials (MEP names, affiliations, official emails) processed in their official capacity is handled under GDPR Article 6 lawful basis (e.g., Art. 6(1)(e) public task and/or Art. 6(1)(f) legitimate interests). No special category data under Article 9 is processed. No user or private personal data is collected.</p>
+</blockquote>
+<p><strong>GDPR Article 5 Alignment:</strong></p>
+<table>
+<thead>
+<tr>
+<th>GDPR Principle</th>
+<th>Implementation</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Art. 5(1)(a) - Lawfulness</strong></td>
+<td>Processing of publicly available personal data of MEPs from official EP sources under GDPR Art. 6 lawful basis (public task/legitimate interests); no user/customer personal data processed</td>
+<td>✅ Compliant</td>
+</tr>
+<tr>
+<td><strong>Art. 5(1)(b) - Purpose Limitation</strong></td>
+<td>Data used only for news generation about parliamentary activities</td>
+<td>✅ Compliant</td>
+</tr>
+<tr>
+<td><strong>Art. 5(1)(c) - Data Minimization</strong></td>
+<td>Only necessary public EP data collected, no excessive data</td>
+<td>✅ Compliant</td>
+</tr>
+<tr>
+<td><strong>Art. 5(1)(d) - Accuracy</strong></td>
+<td>EP data used as-is from official sources; planned schema validation and HTML sanitization to ensure accurate representation</td>
+<td>✅ Compliant</td>
+</tr>
+<tr>
+<td><strong>Art. 5(1)(e) - Storage Limitation</strong></td>
+<td>Articles immutable, no unnecessary retention, git history for audit</td>
+<td>✅ Compliant</td>
+</tr>
+<tr>
+<td><strong>Art. 5(1)(f) - Integrity &amp; Confidentiality</strong></td>
+<td>TLS 1.3 encryption, SHA-256 hashes, GitHub encryption at rest</td>
+<td>✅ Compliant</td>
+</tr>
+</tbody>
+</table>
+<h3 id="iso-270012022-a512-classification-of-information" class="tsd-anchor-link">ISO 27001:2022 A.5.12 - Classification of Information<a href="#iso-270012022-a512-classification-of-information" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Control Statement</strong>: Information shall be classified in terms of legal requirements, value, criticality, and sensitivity to unauthorized disclosure or modification.</p>
+<p><strong>Implementation</strong>:</p>
+<ol>
+<li>
+<p><strong>Classification Labels</strong>:</p>
+<ul>
+<li>All data marked as <strong>Public (Level 1)</strong> in metadata</li>
+<li>No confidential, restricted, or secret information processed</li>
+<li>Classification documented in <a href="../media/CLASSIFICATION.md">CLASSIFICATION.md</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Handling Requirements</strong>:</p>
+<ul>
+<li>Public data: No access controls required</li>
+<li>Repository logs: GitHub Actions and repository logs accessible to all users with repository read access (public repository, logs contain only data classified as Public)</li>
+<li>No encryption requirements beyond standard TLS 1.3</li>
+</ul>
+</li>
+<li>
+<p><strong>Review Process</strong>:</p>
+<ul>
+<li>Quarterly classification review (per document control)</li>
+<li>Annual ISMS audit includes data classification verification</li>
+<li>Classification changes trigger security impact assessment</li>
+</ul>
+</li>
+</ol>
+<p><strong>Evidence</strong>:</p>
+<ul>
+<li><a href="../media/CLASSIFICATION.md">CLASSIFICATION.md</a> - Full classification framework</li>
+<li><a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a> - Security controls</li>
+<li><a href="https://github.com/Hack23/euparliamentmonitor/settings" target="_blank" class="external">GitHub Repository Settings</a> - Access controls</li>
+</ul>
+<h3 id="data-protection-controls" class="tsd-anchor-link">Data Protection Controls<a href="#data-protection-controls" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Implementation</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TLS 1.3 Encryption</strong></td>
+<td>All EP API calls use HTTPS</td>
+<td>Protect data in transit</td>
+</tr>
+<tr>
+<td><strong>At-Rest Encryption</strong></td>
+<td>GitHub repository encryption</td>
+<td>Protect stored data</td>
+</tr>
+<tr>
+<td><strong>Schema Validation</strong></td>
+<td>Planned: JSON Schema validation for EP API responses</td>
+<td>Prevent malformed data</td>
+</tr>
+<tr>
+<td><strong>HTML Sanitization</strong></td>
+<td>Planned: DOMPurify-based sanitization for rendered HTML</td>
+<td>Prevent XSS attacks</td>
+</tr>
+<tr>
+<td><strong>Input Validation</strong></td>
+<td>Planned: Whitelist-based validation for all configurable inputs</td>
+<td>Prevent injection attacks</td>
+</tr>
+<tr>
+<td><strong>SHA-256 Hashing</strong></td>
+<td>Planned: SHA-256 checksums for source data integrity</td>
+<td>Detect data tampering</td>
+</tr>
+<tr>
+<td><strong>Git Audit Trail</strong></td>
+<td>Complete commit history</td>
+<td>Track all changes</td>
+</tr>
+<tr>
+<td><strong>Immutable Articles</strong></td>
+<td>Articles never modified post-generation</td>
+<td>Preserve integrity</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🗓️-data-model-evolution" class="tsd-anchor-link">🗓️ Data Model Evolution<a href="#🗓️-data-model-evolution" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>The EU Parliament Monitor data model has evolved through multiple phases to support enhanced functionality and multi-language content:</p>
+<pre><code class="mermaid"><span class="hl-1">timeline</span><br/><span class="hl-1">    title Data Model Evolution Timeline</span><br/><span class="hl-1">    section v1.0 - Foundation (2026-Q1)</span><br/><span class="hl-1">      Basic Article Schema : Simple HTML generation</span><br/><span class="hl-1">                            : Single language (English)</span><br/><span class="hl-1">                            : Manual EP data entry</span><br/><span class="hl-1">      File Storage : Git repository</span><br/><span class="hl-1">                   : Static HTML files</span><br/><span class="hl-1">      No Metadata : No generation tracking</span><br/><br/><span class="hl-1">    section v1.1 - Multi-Language (2026-Q1)</span><br/><span class="hl-1">      14 Languages : en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh</span><br/><span class="hl-1">                   : Language-specific index pages</span><br/><span class="hl-1">                   : Hreflang SEO optimization</span><br/><span class="hl-1">      MCP Integration : European Parliament MCP Server</span><br/><span class="hl-1">                      : Automated data fetching</span><br/><span class="hl-1">                      : Tool-based API access</span><br/><span class="hl-1">      Generation Metadata : Provenance tracking</span><br/><span class="hl-1">                          : Source data hashing</span><br/><span class="hl-1">                          : Workflow run IDs</span><br/><br/><span class="hl-1">    section v1.2 - Current (2026-Q1)</span><br/><span class="hl-1">      Enhanced ER Diagrams : MEP entity model</span><br/><span class="hl-1">                           : MCP integration model</span><br/><span class="hl-1">                           : Multi-language content model</span><br/><span class="hl-1">                           : Sitemap &amp; SEO model</span><br/><span class="hl-1">      ISMS Alignment : Data classification documented</span><br/><span class="hl-1">                     : GDPR compliance verified</span><br/><span class="hl-1">                     : ISO 27001 controls mapped</span><br/><span class="hl-1">      Data Flow : Comprehensive data flow diagrams</span><br/><span class="hl-1">                : European Parliament to GitHub Pages</span><br/><br/><span class="hl-1">    section v2.0 - Future (2026-Q3)</span><br/><span class="hl-1">      Real-Time Updates : WebSocket data streams</span><br/><span class="hl-1">                        : Live plenary session updates</span><br/><span class="hl-1">                        : Instant breaking news</span><br/><span class="hl-1">      Enhanced Analytics : Article performance metrics</span><br/><span class="hl-1">                         : Reader engagement tracking</span><br/><span class="hl-1">                         : SEO optimization insights</span><br/><span class="hl-1">      AI-Driven Content : LLM-based content generation</span><br/><span class="hl-1">                        : Automated fact-checking</span><br/><span class="hl-1">                        : Sentiment analysis</span><br/><span class="hl-1">      Database Backend : PostgreSQL for metadata</span><br/><span class="hl-1">                       : Elasticsearch for search</span><br/><span class="hl-1">                       : Redis for caching</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="version-history" class="tsd-anchor-link">Version History<a href="#version-history" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Release Date</th>
+<th>Key Changes</th>
+<th>Diagrams Added</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>v1.0</strong></td>
+<td>2026-02-01</td>
+<td>Initial release, basic article generation</td>
+<td>1 (Main ER diagram)</td>
+</tr>
+<tr>
+<td><strong>v1.1</strong></td>
+<td>2026-02-15</td>
+<td>Multi-language support, MCP integration</td>
+<td>2 (Article &amp; Index generation flows)</td>
+</tr>
+<tr>
+<td><strong>v1.2</strong></td>
+<td>2026-02-20</td>
+<td>Enhanced diagrams, ISMS alignment, data security</td>
+<td>4 (MEP, MCP, Multi-language, Sitemap models) + 1 (EP data flow)</td>
+</tr>
+<tr>
+<td><strong>v2.0</strong></td>
+<td>2026-Q3 (Planned)</td>
+<td>Real-time updates, database backend</td>
+<td>TBD (Real-time state diagrams, DB schema)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="breaking-changes-log" class="tsd-anchor-link">Breaking Changes Log<a href="#breaking-changes-log" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>No breaking changes to date. All schema changes backward-compatible.</p>
+<hr>
+<h2 id="✅-data-validation-and-integrity" class="tsd-anchor-link">✅ Data Validation and Integrity<a href="#✅-data-validation-and-integrity" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="schema-validation-rules" class="tsd-anchor-link">Schema Validation Rules<a href="#schema-validation-rules" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<h4 id="european-parliament-api-response-validation" class="tsd-anchor-link">European Parliament API Response Validation<a href="#european-parliament-api-response-validation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>Planned enhancement: responses from the European Parliament API will be validated against JSON Schemas before processing:</p>
+<p><strong>MEP Data Schema:</strong></p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;$schema&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;object&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;required&quot;</span><span class="hl-1">: [</span><span class="hl-2">&quot;id&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;name&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;country&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;politicalGroup&quot;</span><span class="hl-1">],</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;properties&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;id&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;string&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;pattern&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;^MEP-[0-9]+$&quot;</span><span class="hl-1"> },</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;name&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;string&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;minLength&quot;</span><span class="hl-1">: </span><span class="hl-8">1</span><span class="hl-1">, </span><span class="hl-15">&quot;maxLength&quot;</span><span class="hl-1">: </span><span class="hl-8">200</span><span class="hl-1"> },</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;country&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;string&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;pattern&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;^[A-Z]{2}$&quot;</span><span class="hl-1"> },</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;party&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;string&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;maxLength&quot;</span><span class="hl-1">: </span><span class="hl-8">200</span><span class="hl-1"> },</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;politicalGroup&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;string&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;enum&quot;</span><span class="hl-1">: [</span><span class="hl-2">&quot;PPE&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;S&amp;D&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;Renew&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;Greens/EFA&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;ID&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;ECR&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;The Left&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;NI&quot;</span><span class="hl-1">] },</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;committees&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;array&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;items&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;string&quot;</span><span class="hl-1"> } },</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;email&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;string&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;format&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;email&quot;</span><span class="hl-1"> },</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;photoUrl&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;string&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;format&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;uri&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;pattern&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;^https://&quot;</span><span class="hl-1"> }</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Plenary Session Schema:</strong></p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;$schema&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;object&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;required&quot;</span><span class="hl-1">: [</span><span class="hl-2">&quot;session_id&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;session_date&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;title&quot;</span><span class="hl-1">],</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;properties&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;session_id&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;string&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;pattern&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;^PS-[0-9]{4}-[0-9]{2}-[0-9]{2}$&quot;</span><span class="hl-1"> },</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;session_date&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;string&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;format&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;date&quot;</span><span class="hl-1"> },</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;title&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;string&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;minLength&quot;</span><span class="hl-1">: </span><span class="hl-8">5</span><span class="hl-1">, </span><span class="hl-15">&quot;maxLength&quot;</span><span class="hl-1">: </span><span class="hl-8">500</span><span class="hl-1"> },</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;location&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;string&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;enum&quot;</span><span class="hl-1">: [</span><span class="hl-2">&quot;Strasbourg&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;Brussels&quot;</span><span class="hl-1">] },</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;agenda&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;array&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;items&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;object&quot;</span><span class="hl-1"> } },</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;status&quot;</span><span class="hl-1">: { </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;string&quot;</span><span class="hl-1">, </span><span class="hl-15">&quot;enum&quot;</span><span class="hl-1">: [</span><span class="hl-2">&quot;scheduled&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;ongoing&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;completed&quot;</span><span class="hl-1">, </span><span class="hl-2">&quot;cancelled&quot;</span><span class="hl-1">] }</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Validation Process (Planned Enhancements):</strong></p>
+<ol>
+<li><strong>Pre-Processing Validation</strong>: Planned JSON Schema–based validation before any data transformation</li>
+<li><strong>Type Checking</strong>: Planned strict type enforcement (no implicit coercion) for EP MCP responses</li>
+<li><strong>Range Validation</strong>: Planned validation for string length, number ranges, and array size limits</li>
+<li><strong>Format Validation</strong>: Planned checks for email, URL, date, and ISO codes</li>
+<li><strong>Enum Validation</strong>: Planned fixed vocabularies (political groups, committee codes)</li>
+<li><strong>Error Handling (Current Behavior)</strong>: Invalid or missing EP MCP data causes generation to fail or fall back to minimal/placeholder content; JSON Schema validation and cache/manual fallback for EP API responses are planned enhancements</li>
+</ol>
+<h3 id="article-data-validation-rules" class="tsd-anchor-link">Article Data Validation Rules<a href="#article-data-validation-rules" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Generated Article Validation (Planned Enhancements):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Validation Rule</th>
+<th>Error Handling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>slug</code></td>
+<td>Alphanumeric + hyphens, max 100 chars</td>
+<td>Planned: generation fails and alert is sent</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>Min 10 chars, max 200 chars</td>
+<td>Planned: generation retries with adjusted prompt</td>
+</tr>
+<tr>
+<td><code>subtitle</code></td>
+<td>Min 20 chars, max 500 chars</td>
+<td>Planned: optional, can be empty</td>
+</tr>
+<tr>
+<td><code>content_html</code></td>
+<td>Valid HTML5, no <code>&lt;script&gt;</code> tags</td>
+<td>Planned: HTML sanitization with DOMPurify</td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td>ISO 639-1 code, must be in supported list</td>
+<td>Planned: generation fails for that language</td>
+</tr>
+<tr>
+<td><code>keywords</code></td>
+<td>Array of strings, max 10 keywords</td>
+<td>Planned: truncated to 10 if exceeded</td>
+</tr>
+<tr>
+<td><code>read_time</code></td>
+<td>Integer &gt;= 1, &lt;= 60 minutes</td>
+<td>Planned: calculated from word count</td>
+</tr>
+</tbody>
+</table>
+<h3 id="html-sanitization-requirements-planned" class="tsd-anchor-link">HTML Sanitization Requirements (Planned)<a href="#html-sanitization-requirements-planned" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<blockquote>
+<p><strong>Note</strong>: HTML sanitization via DOMPurify is a planned security enhancement. The current generator (<code>src/templates/article-template.ts</code>) produces HTML from EP API data. The configuration below documents the intended future implementation.</p>
+</blockquote>
+<p><strong>Planned DOMPurify Configuration:</strong></p>
+<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-6">clean</span><span class="hl-1"> = </span><span class="hl-5">DOMPurify</span><span class="hl-1">.</span><span class="hl-0">sanitize</span><span class="hl-1">(</span><span class="hl-5">dirtyHtml</span><span class="hl-1">, {</span><br/><span class="hl-1">  </span><span class="hl-5">ALLOWED_TAGS:</span><span class="hl-1"> [</span><span class="hl-2">&#39;p&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;h1&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;h2&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;h3&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;h4&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;h5&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;h6&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;ul&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;ol&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;li&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;a&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;strong&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;em&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;blockquote&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;code&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;pre&#39;</span><span class="hl-1">],</span><br/><span class="hl-1">  </span><span class="hl-5">ALLOWED_ATTR:</span><span class="hl-1"> [</span><span class="hl-2">&#39;href&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;title&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;class&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;id&#39;</span><span class="hl-1">],</span><br/><span class="hl-1">  </span><span class="hl-5">ALLOWED_URI_REGEXP:</span><span class="hl-16"> /</span><span class="hl-17">^</span><span class="hl-16">https</span><span class="hl-18">?</span><span class="hl-16">:</span><span class="hl-19">\/\/</span><span class="hl-20">(</span><span class="hl-16">data</span><span class="hl-19">\.</span><span class="hl-16">europarl</span><span class="hl-19">\.</span><span class="hl-16">europa</span><span class="hl-19">\.</span><span class="hl-16">eu</span><span class="hl-17">|</span><span class="hl-16">europarl</span><span class="hl-19">\.</span><span class="hl-16">europa</span><span class="hl-19">\.</span><span class="hl-16">eu</span><span class="hl-17">|</span><span class="hl-16">www</span><span class="hl-19">\.</span><span class="hl-16">europarl</span><span class="hl-19">\.</span><span class="hl-16">europa</span><span class="hl-19">\.</span><span class="hl-16">eu</span><span class="hl-20">)</span><span class="hl-19">\/</span><span class="hl-16">.</span><span class="hl-18">*</span><span class="hl-16">/</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">ALLOW_DATA_ATTR:</span><span class="hl-1"> </span><span class="hl-3">false</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">KEEP_CONTENT:</span><span class="hl-1"> </span><span class="hl-3">true</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">RETURN_DOM:</span><span class="hl-1"> </span><span class="hl-3">false</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">RETURN_DOM_FRAGMENT:</span><span class="hl-1"> </span><span class="hl-3">false</span><br/><span class="hl-1">});</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Sanitization Rules:</strong></p>
+<ul>
+<li><strong>Allowed Tags</strong>: Only semantic HTML5 tags (no styling, no scripting)</li>
+<li><strong>Allowed Attributes</strong>: Limited to <code>href</code>, <code>title</code>, <code>class</code>, <code>id</code></li>
+<li><strong>URL Whitelist</strong>: Only European Parliament domains allowed in links</li>
+<li><strong>No JavaScript</strong>: All <code>&lt;script&gt;</code>, <code>&lt;style&gt;</code>, <code>onclick</code>, etc. removed</li>
+<li><strong>No Iframes</strong>: No embedded content</li>
+<li><strong>No Forms</strong>: No user input elements</li>
+</ul>
+<h3 id="data-integrity-guarantees" class="tsd-anchor-link">Data Integrity Guarantees<a href="#data-integrity-guarantees" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<h4 id="immutability" class="tsd-anchor-link">Immutability<a href="#immutability" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Policy</strong>: Once generated, articles are <strong>never modified</strong>.</p>
+<ul>
+<li><strong>Implementation</strong>: Read-only file permissions (conceptual), no update functionality in generator</li>
+<li><strong>Exceptions</strong>: Security vulnerabilities, factual errors (manual correction with audit trail)</li>
+<li><strong>Enforcement</strong>: Git commit history provides complete audit trail</li>
+</ul>
+<h4 id="sha-256-integrity-hashes-planned" class="tsd-anchor-link">SHA-256 Integrity Hashes (Planned)<a href="#sha-256-integrity-hashes-planned" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<blockquote>
+<p><strong>Note</strong>: Source data hashing is a planned integrity enhancement. The metadata structure below shows the intended future implementation; SHA-256 hashing of EP/MCP responses is not yet implemented in the current generator code.</p>
+</blockquote>
+<p><strong>Planned Source Data Hashing Pattern:</strong></p>
+<pre><code class="typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-6">sourceHash</span><span class="hl-1"> = </span><span class="hl-5">crypto</span><span class="hl-1">.</span><span class="hl-0">createHash</span><span class="hl-1">(</span><span class="hl-2">&#39;sha256&#39;</span><span class="hl-1">)</span><br/><span class="hl-1">  .</span><span class="hl-0">update</span><span class="hl-1">(</span><span class="hl-6">JSON</span><span class="hl-1">.</span><span class="hl-0">stringify</span><span class="hl-1">(</span><span class="hl-5">epApiResponse</span><span class="hl-1">))</span><br/><span class="hl-1">  .</span><span class="hl-0">digest</span><span class="hl-1">(</span><span class="hl-2">&#39;hex&#39;</span><span class="hl-1">);</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Metadata Storage:</strong></p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;sources&quot;</span><span class="hl-1">: [</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;plenary_session&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;id&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;PS-2026-03-01&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;data_hash&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;a1b2c3d4e5f6...&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-15">&quot;timestamp&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;2026-03-01T06:00:00Z&quot;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  ]</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Integrity Verification</strong> (future):</p>
+<ul>
+<li>Hash comparison to detect data tampering</li>
+<li>Periodic integrity audits via GitHub Actions</li>
+<li>Alert on hash mismatch</li>
+</ul>
+<h4 id="git-based-audit-trail" class="tsd-anchor-link">Git-Based Audit Trail<a href="#git-based-audit-trail" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Every change tracked:</strong></p>
+<ul>
+<li><strong>Commit SHA</strong>: Unique identifier for every generation</li>
+<li><strong>Author</strong>: GitHub Actions bot (<code>github-actions[bot]</code>)</li>
+<li><strong>Timestamp</strong>: UTC timestamp of commit</li>
+<li><strong>Diff</strong>: Exact changes made (new files, modified files)</li>
+<li><strong>Workflow Run ID</strong>: Link to GitHub Actions run for full logs</li>
+</ul>
+<p><strong>Example Metadata:</strong></p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-15">&quot;generator&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;version&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;1.0.0&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;commit_sha&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;abc123def456...&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;workflow_run_id&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;12345678&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-15">&quot;workflow_url&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;https://github.com/Hack23/euparliamentmonitor/actions/runs/12345678&quot;</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Audit Capabilities:</strong></p>
+<ul>
+<li><code>git log</code> shows complete history</li>
+<li><code>git blame</code> identifies when each line was added</li>
+<li><code>git diff</code> shows exact changes between versions</li>
+<li>GitHub UI provides web-based audit interface</li>
+</ul>
+<hr>
+<h2 id="📚-references" class="tsd-anchor-link">📚 References<a href="#📚-references" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li><a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a></li>
+<li><a href="../media/FLOWCHART.md">FLOWCHART.md</a></li>
+<li><a href="https://data.europarl.europa.eu" target="_blank" class="external">European Parliament Open Data Portal</a></li>
+<li><a href="https://modelcontextprotocol.io" target="_blank" class="external">MCP Protocol Specification</a></li>
+</ul>
+<hr>
+<p><strong>Document Status</strong>: Active<br>
+<strong>Next Review</strong>: 2026-05-24<br>
+<strong>Owner</strong>: Development Team, Hack23 AB</p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#📋-overview"><span>📋 <wbr/>Overview</span></a><a href="#🎯-data-model-principles"><span>🎯 <wbr/>Data <wbr/>Model <wbr/>Principles</span></a><a href="#📚-architecture-documentation-map"><span>📚 <wbr/>Architecture <wbr/>Documentation <wbr/>Map</span></a><a href="#🛡️-isms-policy-alignment"><span>🛡️ <wbr/>ISMS <wbr/>Policy <wbr/>Alignment</span></a><ul><li><a href="#📋-relevant-isms-policies"><span>📋 <wbr/>Relevant <wbr/>ISMS <wbr/>Policies</span></a></li><li><a href="#🎯-compliance-framework-mapping"><span>🎯 <wbr/>Compliance <wbr/>Framework <wbr/>Mapping</span></a></li></ul><a href="#📐-entity-relationship-diagram"><span>📐 <wbr/>Entity <wbr/>Relationship <wbr/>Diagram</span></a><a href="#📄-data-structures"><span>📄 <wbr/>Data <wbr/>Structures</span></a><ul><li><a href="#1-news-article"><span>1. <wbr/>News <wbr/>Article</span></a></li><li><a href="#2-news-metadata-database"><span>2. <wbr/>News <wbr/>Metadata <wbr/>Database</span></a></li><li><a href="#3-article-type-definitions"><span>3. <wbr/>Article <wbr/>Type <wbr/>Definitions</span></a></li><li><a href="#4-language-configuration"><span>4. <wbr/>Language <wbr/>Configuration</span></a></li></ul><a href="#🔗-european-parliament-data-structures"><span>🔗 <wbr/>European <wbr/>Parliament <wbr/>Data <wbr/>Structures</span></a><ul><li><a href="#plenary-session"><span>Plenary <wbr/>Session</span></a></li><li><a href="#committee-meeting"><span>Committee <wbr/>Meeting</span></a></li><li><a href="#parliamentary-question"><span>Parliamentary <wbr/>Question</span></a></li><li><a href="#document"><span>Document</span></a></li></ul><a href="#📊-additional-entity-relationship-diagrams"><span>📊 <wbr/>Additional <wbr/>Entity <wbr/>Relationship <wbr/>Diagrams</span></a><ul><li><a href="#mep-entity-model"><span>MEP <wbr/>Entity <wbr/>Model</span></a></li><li><a href="#mcp-data-integration-model"><span>MCP <wbr/>Data <wbr/>Integration <wbr/>Model</span></a></li><li><a href="#multi-language-content-model"><span>Multi-<wbr/>Language <wbr/>Content <wbr/>Model</span></a></li><li><a href="#sitemap-seo-metadata-model"><span>Sitemap &amp; <wbr/>SEO <wbr/>Metadata <wbr/>Model</span></a></li></ul><a href="#🔄-european-parliament-data-flow"><span>🔄 <wbr/>European <wbr/>Parliament <wbr/>Data <wbr/>Flow</span></a><a href="#📁-file-system-structure"><span>📁 <wbr/>File <wbr/>System <wbr/>Structure</span></a><a href="#🔄-data-flow"><span>🔄 <wbr/>Data <wbr/>Flow</span></a><ul><li><a href="#article-generation-data-flow"><span>Article <wbr/>Generation <wbr/>Data <wbr/>Flow</span></a></li><li><a href="#index-generation-data-flow"><span>Index <wbr/>Generation <wbr/>Data <wbr/>Flow</span></a></li></ul><a href="#📊-data-relationships"><span>📊 <wbr/>Data <wbr/>Relationships</span></a><ul><li><a href="#article-→-metadata-relationship"><span>Article → <wbr/>Metadata <wbr/>Relationship</span></a></li><li><a href="#article-→-sources-relationship"><span>Article → <wbr/>Sources <wbr/>Relationship</span></a></li><li><a href="#article-→-language-relationship"><span>Article → <wbr/>Language <wbr/>Relationship</span></a></li></ul><a href="#🔐-data-security"><span>🔐 <wbr/>Data <wbr/>Security</span></a><ul><li><a href="#data-classification"><span>Data <wbr/>Classification</span></a></li><li><a href="#data-integrity"><span>Data <wbr/>Integrity</span></a></li></ul><a href="#🔒-data-security-considerations"><span>🔒 <wbr/>Data <wbr/>Security <wbr/>Considerations</span></a><ul><li><a href="#data-classification-framework"><span>Data <wbr/>Classification <wbr/>Framework</span></a></li><li><a href="#personal-identifiable-information-pii-handling"><span>Personal <wbr/>Identifiable <wbr/>Information (<wbr/>PII) <wbr/>Handling</span></a></li><li><a href="#iso-270012022-a512-classification-of-information"><span>ISO 27001:2022 <wbr/>A.5.12 -<wbr/> <wbr/>Classification of <wbr/>Information</span></a></li><li><a href="#data-protection-controls"><span>Data <wbr/>Protection <wbr/>Controls</span></a></li></ul><a href="#🗓️-data-model-evolution"><span>🗓️ <wbr/>Data <wbr/>Model <wbr/>Evolution</span></a><ul><li><a href="#version-history"><span>Version <wbr/>History</span></a></li><li><a href="#breaking-changes-log"><span>Breaking <wbr/>Changes <wbr/>Log</span></a></li></ul><a href="#✅-data-validation-and-integrity"><span>✅ <wbr/>Data <wbr/>Validation and <wbr/>Integrity</span></a><ul><li><a href="#schema-validation-rules"><span>Schema <wbr/>Validation <wbr/>Rules</span></a></li><li><ul><li><a href="#european-parliament-api-response-validation"><span>European <wbr/>Parliament <wbr/>API <wbr/>Response <wbr/>Validation</span></a></li></ul></li><li><a href="#article-data-validation-rules"><span>Article <wbr/>Data <wbr/>Validation <wbr/>Rules</span></a></li><li><a href="#html-sanitization-requirements-planned"><span>HTML <wbr/>Sanitization <wbr/>Requirements (<wbr/>Planned)</span></a></li><li><a href="#data-integrity-guarantees"><span>Data <wbr/>Integrity <wbr/>Guarantees</span></a></li><li><ul><li><a href="#immutability"><span>Immutability</span></a></li><li><a href="#sha-256-integrity-hashes-planned"><span>SHA-<wbr/>256 <wbr/>Integrity <wbr/>Hashes (<wbr/>Planned)</span></a></li><li><a href="#git-based-audit-trail"><span>Git-<wbr/>Based <wbr/>Audit <wbr/>Trail</span></a></li></ul></li></ul><a href="#📚-references"><span>📚 <wbr/>References</span></a></div></details></div><div class="site-menu"><nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://euparliamentmonitor.com" class="tsd-nav-link">EU Parliament Monitor</a><a href="https://github.com/Hack23/euparliamentmonitor" class="tsd-nav-link">GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC" class="tsd-nav-link">ISMS</a></nav><nav class="tsd-navigation"><a href="../modules.html">EU Parliament Monitor - API Documentation - v0.8.0</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>
