@@ -566,7 +566,7 @@ jobs:
                 "entrypointArgs": [
                   "npx",
                   "-y",
-                  "european-parliament-mcp-server@latest"
+                  "european-parliament-mcp-server@1.1.14"
                 ],
                 "tools": [
                   "*"
