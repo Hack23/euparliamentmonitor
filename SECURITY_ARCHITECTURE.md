@@ -11,15 +11,15 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--25-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:**
-2026-02-25 (UTC)  
-**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-02-25  
+**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:**
+2026-03-19 (UTC)  
+**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-03-19  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -141,18 +141,23 @@ Per
 - [🔧 Component Architecture (C4 Level 3)](#-component-architecture-c4-level-3)
 - [🔒 Security Controls](#-security-controls)
   - [Authentication & Authorization](#authentication--authorization)
-  - [Data Protection](#data-protection)
-  - [Network Security](#network-security)
+  - [Data Protection & Key Management](#data-protection--key-management)
+  - [Network Security & Perimeter Protection](#network-security--perimeter-protection)
   - [Application Security](#application-security)
   - [Infrastructure Security](#infrastructure-security)
-- [📊 Build & Action Tracking](#-build--action-tracking)
-- [🔍 Security Event Monitoring](#-security-event-monitoring)
-- [🏗️ High Availability Design](#-high-availability-design)
+- [📜 Data Integrity & Auditing](#-data-integrity--auditing)
+- [📊 Session & Action Tracking](#-session--action-tracking)
+- [🔍 Threat Detection & Security Event Monitoring](#-threat-detection--security-event-monitoring)
+- [🔍 Vulnerability Management](#-vulnerability-management)
+- [⚙️ Configuration & Compliance Management](#-configuration--compliance-management)
+- [📈 Security Monitoring & Analytics](#-security-monitoring--analytics)
+- [🏗️ High Availability & Resilience](#-high-availability--resilience)
 - [⚡ Resilience & Operational Readiness](#-resilience--operational-readiness)
 - [🤖 Automated Security Operations](#-automated-security-operations)
-- [🛡️ Defense-in-Depth Strategy](#-defense-in-depth-strategy)
+- [🛡️ Application Security Controls](#-application-security-controls)
+- [🏆 Defense-in-Depth Strategy](#-defense-in-depth-strategy)
 - [🎯 Threat Model](#-threat-model)
-- [📜 Compliance Framework](#-compliance-framework)
+- [📋 Compliance Framework Mapping](#-compliance-framework-mapping)
 - [✅ Compliance Matrix](#-compliance-matrix)
 - [🔍 Security Operations](#-security-operations)
 - [📊 Security Metrics](#-security-metrics)
@@ -561,7 +566,7 @@ flowchart TD
 - No PII or sensitive data
 - Read-only static files eliminate authentication attack surface
 
-### Data Protection
+### Data Protection & Key Management
 
 #### Input Validation & Sanitization
 
@@ -663,7 +668,34 @@ flowchart TD
   personal data
 - No Data Protection Impact Assessment (DPIA) required
 
-### Network Security
+#### Key Management
+
+**Cryptographic Key Lifecycle:**
+
+As a static site generator, EU Parliament Monitor has a minimal key management footprint:
+
+| Key Type | Purpose | Management | Rotation |
+| --- | --- | --- | --- |
+| **GitHub Actions GITHUB_TOKEN** | CI/CD authentication | Auto-generated per job | Per-workflow run (ephemeral) |
+| **MCP PAT** | EP MCP Server access | GitHub Secrets (encrypted at rest) | Manual rotation, 90-day recommended |
+| **SSH Deploy Keys** | Repository push access | GitHub-managed | Annually or on compromise |
+| **TLS Certificates** | HTTPS for GitHub Pages | GitHub-managed (Let's Encrypt) | Auto-renewed every 90 days |
+| **GPG Signing Keys** | Commit verification | Developer-managed | Per policy, minimum 2048-bit RSA |
+
+**Key Security Controls:**
+
+- ✅ **No Hardcoded Secrets**: All secrets stored in GitHub Secrets (encrypted at rest with libsodium sealed boxes)
+- ✅ **Ephemeral Tokens**: GITHUB_TOKEN scoped to job duration and repository
+- ✅ **Least Privilege**: Token permissions explicitly declared per workflow (`permissions:` block)
+- ✅ **Secret Scanning**: GitHub secret scanning enabled to detect exposed credentials
+- ✅ **No Persistent Keys**: Static site requires no long-lived cryptographic keys
+- ✅ **TLS 1.3**: All external connections use TLS 1.3 with strong cipher suites
+
+**ISMS Alignment:**
+
+- [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) — Key management, TLS standards, encryption requirements
+
+### Network Security & Perimeter Protection
 
 #### Network Architecture
 
@@ -1065,7 +1097,67 @@ security controls:
 
 ---
 
-## 📊 Build & Action Tracking
+## 📜 Data Integrity & Auditing
+
+EU Parliament Monitor ensures data integrity throughout its news generation pipeline, from European Parliament source data through to published content. As a static site generator operating on public parliamentary data, integrity controls focus on content accuracy, tamper-evident change tracking, and build reproducibility.
+
+```mermaid
+flowchart TD
+    subgraph "Data Integrity Architecture"
+        direction TB
+        EP[🏛️ EP Open Data API] -->|HTTPS/TLS 1.3| VALIDATE[📋 Input Validation<br/>Schema + Type + Range]
+        VALIDATE -->|Valid Data| TRANSFORM[🔄 Content Transform<br/>Multi-language Generation]
+        VALIDATE -->|Invalid| REJECT[⚠️ Reject & Log<br/>Fallback to Cached]
+        TRANSFORM -->|HTML Output| SANITIZE[🛡️ HTML Sanitization<br/>XSS Prevention]
+        SANITIZE -->|Safe Content| COMMIT[📝 Git Commit<br/>Immutable History]
+        COMMIT -->|SHA Verified| DEPLOY[🚀 GitHub Pages<br/>CDN Distribution]
+    end
+
+    subgraph "Audit Trail"
+        direction TB
+        GIT_LOG[📊 Git Log<br/>Immutable Audit Trail]
+        GHA_LOG[📋 GitHub Actions Logs<br/>90-day Retention]
+        CODEQL[🔍 CodeQL Findings<br/>SAST Audit]
+        DEP_AUDIT[📦 Dependency Audit<br/>npm audit History]
+    end
+
+    COMMIT --> GIT_LOG
+    COMMIT --> GHA_LOG
+
+    style EP fill:#fff4e1
+    style VALIDATE fill:#e1f5ff
+    style SANITIZE fill:#ffe1e1
+    style COMMIT fill:#e8f5e9
+    style DEPLOY fill:#e8f5e9
+```
+
+### Change Tracking & Tamper-Evident Logging
+
+| Control | Implementation | Evidence |
+| --- | --- | --- |
+| **Immutable Commit History** | Git SHA-256 hash chain, signed commits via GPG | Every content change has traceable commit |
+| **Branch Protection** | Required reviews, status checks, no force pushes | Main branch protected against unauthorized changes |
+| **Build Provenance** | GitHub Actions workflow logs with SLSA Level 2 | Reproducible builds with attestation |
+| **Content Checksums** | Generated HTML has deterministic output from same inputs | Build reproducibility verification |
+| **Dependency Lock** | `package-lock.json` ensures reproducible installs | npm ci for deterministic dependency resolution |
+
+### Audit Capabilities
+
+- ✅ **Git Audit Trail**: Complete history of all content changes, author attribution, timestamps
+- ✅ **GitHub Actions Logs**: Build execution logs retained for 90 days
+- ✅ **CodeQL SAST Reports**: Security scan history with finding lifecycle
+- ✅ **Dependabot History**: Dependency vulnerability alerts and resolution timeline
+- ✅ **PR Review Trail**: Code review comments and approval history for all changes
+- ✅ **REUSE Compliance**: License compliance audit trail via REUSE tool
+
+**ISMS Alignment:**
+
+- [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) — Audit logging and change tracking requirements
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) — Data integrity evidence requirements
+
+---
+
+## 📊 Session & Action Tracking
 
 EU Parliament Monitor, as a static website generator, implements tracking
 mechanisms appropriate for its architecture—focusing on build-time operations
@@ -1204,7 +1296,7 @@ Every build step generates trackable events:
 
 ---
 
-## 🔍 Security Event Monitoring
+## ⚡ Threat Detection & Security Event Monitoring
 
 EU Parliament Monitor implements security event monitoring appropriate for a
 static site generator, focusing on build-time security events and dependency
@@ -1387,7 +1479,188 @@ npm audit --audit-level=moderate
 
 ---
 
-## 🏗️ High Availability Design
+## 🔍 Vulnerability Management
+
+EU Parliament Monitor implements a comprehensive vulnerability management program covering code, dependencies, infrastructure, and content delivery.
+
+```mermaid
+flowchart TD
+    subgraph "Vulnerability Detection"
+        direction TB
+        CODEQL[🔍 CodeQL SAST<br/>Push & PR Scans]
+        DEPBOT[🤖 Dependabot<br/>Weekly Scans]
+        NPM_AUDIT[📦 npm audit<br/>CI/CD Pipeline]
+        SECRET[🔑 Secret Scanning<br/>Continuous]
+        ESLINT[📝 ESLint Security<br/>Pre-commit]
+    end
+
+    subgraph "Triage & Prioritization"
+        direction TB
+        CVSS[📊 CVSS Scoring]
+        SLA[⏱️ SLA Assignment]
+        ASSIGN[👤 Owner Assignment]
+    end
+
+    subgraph "Remediation"
+        direction TB
+        PATCH[🔧 Apply Patch]
+        TEST[🧪 Test Fix]
+        DEPLOY[🚀 Deploy]
+        VERIFY[✅ Verify]
+    end
+
+    CODEQL --> CVSS
+    DEPBOT --> CVSS
+    NPM_AUDIT --> CVSS
+    SECRET --> CVSS
+    ESLINT --> CVSS
+    CVSS --> SLA --> ASSIGN
+    ASSIGN --> PATCH --> TEST --> DEPLOY --> VERIFY
+
+    style CODEQL fill:#e1f5ff
+    style DEPBOT fill:#e1f5ff
+    style NPM_AUDIT fill:#e1f5ff
+    style CVSS fill:#fff4e1
+    style VERIFY fill:#e8f5e9
+```
+
+### Vulnerability SLA Targets
+
+| Severity | CVSS Range | Response Time | Resolution Time | Escalation |
+| --- | --- | --- | --- | --- |
+| **🔴 Critical** | 9.0-10.0 | 4 hours | 24 hours | Immediate CEO notification |
+| **🟠 High** | 7.0-8.9 | 24 hours | 7 days | Weekly security review |
+| **🟡 Medium** | 4.0-6.9 | 48 hours | 30 days | Monthly maintenance |
+| **🟢 Low** | 0.1-3.9 | 7 days | 90 days | Quarterly update |
+
+### Current Vulnerability Posture
+
+- ✅ **Zero Known Vulnerabilities**: npm audit clean, no open CodeQL alerts
+- ✅ **Dependabot PRs**: Reviewed and merged within 48 hours
+- ✅ **CodeQL Findings**: Triaged weekly, zero open critical/high findings
+- ✅ **Secret Scanning**: No exposed credentials detected
+- ✅ **SBOM**: Software Bill of Materials generated for supply chain transparency
+
+### Scanning Schedule
+
+| Scanner | Trigger | Frequency | Coverage |
+| --- | --- | --- | --- |
+| **CodeQL** | Push to main, PR | Per-commit | JavaScript/TypeScript SAST |
+| **Dependabot** | Scheduled | Weekly (Monday) | npm ecosystem |
+| **npm audit** | CI pipeline | Every build | Direct + transitive deps |
+| **Secret Scanning** | Push | Continuous | All committed content |
+| **ESLint Security** | Pre-commit | Every commit | Code quality + security rules |
+| **REUSE** | CI pipeline | Every build | License compliance |
+
+**ISMS Alignment:**
+
+- [Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) — Scanning, assessment, and remediation processes
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) — Security testing requirements
+
+---
+
+## ⚙️ Configuration & Compliance Management
+
+EU Parliament Monitor manages configuration as code, ensuring all infrastructure and application settings are version-controlled, reviewed, and auditable.
+
+### Infrastructure as Code
+
+| Configuration | Source of Truth | Validation | Change Process |
+| --- | --- | --- | --- |
+| **GitHub Actions Workflows** | `.github/workflows/*.yml` | YAML lint, action SHA pinning | PR review + required checks |
+| **TypeScript Configuration** | `tsconfig.json` (strict mode) | `tsc --noEmit` type checking | PR review |
+| **ESLint Rules** | `eslint.config.js` | `npm run lint` | PR review |
+| **Dependabot Config** | `.github/dependabot.yml` | GitHub validation | PR review |
+| **Content Security Policy** | `article-template.ts` | E2E tests verify CSP headers | PR review + automated tests |
+| **Branch Protection** | GitHub Repository Settings | GitHub API audit | Admin-only changes |
+| **MCP Server Config** | `.github/copilot-mcp.json` | Schema validation | PR review |
+
+### Configuration Drift Detection
+
+- ✅ **Git Version Control**: All configuration changes tracked with full audit history
+- ✅ **Required PR Reviews**: No direct pushes to main branch
+- ✅ **CI/CD Validation**: Every configuration change validated by automated pipeline
+- ✅ **Lock Files**: `package-lock.json` prevents dependency drift
+- ✅ **SHA-Pinned Actions**: GitHub Actions pinned to commit SHAs for reproducibility
+- ✅ **Strict TypeScript**: `strict: true` with all additional strict checks enabled
+
+### Compliance Monitoring
+
+| Framework | Automated Check | Frequency | Evidence |
+| --- | --- | --- | --- |
+| **REUSE (SPDX)** | `reuse lint` in CI | Every build | License compliance |
+| **OpenSSF Scorecard** | GitHub-integrated | Weekly | Supply chain security |
+| **SLSA** | GitHub attestation | Per-release | Build provenance |
+| **HTMLHint** | `npm run htmlhint` | Every build | Content standards |
+| **TypeScript Strict** | `tsc --noEmit` | Every build | Type safety |
+| **Prettier** | `npm run format:check` | Every build | Code consistency |
+
+**ISMS Alignment:**
+
+- [Compliance Checklist](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Compliance_Checklist.md) — ISO 27001, NIST CSF, CIS Controls alignment
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) — Configuration management requirements
+
+---
+
+## 📈 Security Monitoring & Analytics
+
+EU Parliament Monitor collects security metrics and monitoring data appropriate for its static site architecture, focusing on build-time security events and supply chain monitoring.
+
+### Security Metrics Collection
+
+```mermaid
+flowchart LR
+    subgraph "Data Sources"
+        GHA[📊 GitHub Actions<br/>Build Metrics]
+        CODEQL_M[🔍 CodeQL<br/>Finding Trends]
+        DEP_M[📦 Dependabot<br/>Alert Metrics]
+        AUDIT_M[🔐 npm audit<br/>Vulnerability Count]
+    end
+
+    subgraph "Metrics Dashboard"
+        KPI[📈 Security KPIs]
+        TREND[📉 Trend Analysis]
+        SLA_M[⏱️ SLA Compliance]
+    end
+
+    GHA --> KPI
+    CODEQL_M --> KPI
+    DEP_M --> KPI
+    AUDIT_M --> KPI
+    KPI --> TREND
+    KPI --> SLA_M
+
+    style KPI fill:#e8f5e9
+    style TREND fill:#e1f5ff
+```
+
+### Key Security Indicators
+
+| Metric | Target | Measurement | Current |
+| --- | --- | --- | --- |
+| **Mean Time to Detect (MTTD)** | < 1 hour | Automated scanning detection | ✅ Real-time (CI/CD) |
+| **Mean Time to Remediate (MTTR)** | < 48 hours (high) | Alert to fix merge | ✅ < 48 hours |
+| **Vulnerability Backlog** | 0 critical/high | Open findings count | ✅ 0 |
+| **Dependency Currency** | < 30 days behind | Package age analysis | ✅ Weekly updates |
+| **Build Success Rate** | > 95% | CI/CD pipeline metrics | ✅ > 98% |
+| **Security Test Coverage** | > 80% line | Vitest coverage report | ✅ 82%+ |
+| **SAST False Positive Rate** | < 10% | CodeQL triage ratio | ✅ < 5% |
+
+### Threat Intelligence Integration
+
+- ✅ **GitHub Advisory Database**: Automatic CVE matching via Dependabot
+- ✅ **npm Security Advisories**: Real-time vulnerability alerts for dependencies
+- ✅ **CodeQL Query Packs**: Community-maintained security query updates
+- ✅ **ENISA Threat Landscape**: Annual threat assessment reference (documented in THREAT_MODEL.md)
+
+**ISMS Alignment:**
+
+- [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) — Security monitoring requirements
+- [Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) — Metrics and reporting standards
+
+---
+
+## 🏗️ High Availability & Resilience
 
 EU Parliament Monitor's static architecture inherently provides high
 availability through GitHub Pages' globally distributed CDN infrastructure.
@@ -1995,7 +2268,43 @@ jobs:
 
 ---
 
-## 🛡️ Defense-in-Depth Strategy
+## 🛡️ Application Security Controls
+
+EU Parliament Monitor implements comprehensive application-level security controls focused on input validation, output encoding, and content integrity for its static site generation pipeline.
+
+### Input Validation Framework
+
+| Layer | Control | Implementation |
+| --- | --- | --- |
+| **Schema Validation** | JSON structure verification | MCP response schema validation before processing |
+| **Type Enforcement** | TypeScript strict mode | Compile-time type safety with `strict: true` |
+| **Range Checking** | Bounds validation | Date ranges, string lengths, numeric bounds |
+| **HTML Sanitization** | XSS prevention | `html-sanitize.ts` strips dangerous HTML tags and attributes |
+| **Content Validation** | Article quality scoring | `article-quality-scorer.ts` validates generated content |
+
+### Output Encoding Controls
+
+- ✅ **HTML Entity Encoding**: All European Parliament data HTML-encoded before insertion
+- ✅ **CSP Hash-Based Script Allowlisting**: Inline scripts allowed only via SHA-256 hash
+- ✅ **No Dynamic Script Generation**: All content is static HTML, no runtime script evaluation
+- ✅ **Template Escaping**: `article-template.ts` uses safe template patterns
+- ✅ **Multi-Language Safety**: Content validators check all 14 language variants for XSS vectors
+
+### Content Integrity Verification
+
+- ✅ **Article Validation**: `validate-articles.ts` checks all generated articles for structural integrity
+- ✅ **HTML Standards Compliance**: `htmlhint` validates HTML5 standards compliance
+- ✅ **Accessibility Testing**: WCAG 2.1 AA compliance via axe-core in E2E tests
+- ✅ **Link Integrity**: Internal links validated during build process
+- ✅ **Metadata Consistency**: `news-metadata.ts` ensures article metadata integrity across languages
+
+**ISMS Alignment:**
+
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) — Application security requirements, input validation standards
+
+---
+
+## 🏆 Defense-in-Depth Strategy
 
 EU Parliament Monitor implements a defense-in-depth security strategy with
 multiple overlapping layers of protection, ensuring that a compromise of any
@@ -2510,7 +2819,7 @@ validation prevent compromise
 
 ---
 
-## 📜 Compliance Framework
+## 📋 Compliance Framework Mapping
 
 EU Parliament Monitor aligns with multiple compliance frameworks to ensure
 security, privacy, and operational excellence.
@@ -2888,24 +3197,7 @@ Automated CSIRT reporting (future enhancement)
 
 ### Vulnerability Management
 
-**SLA Targets:**
-
-- **Critical**: 24 hours (same-day patch)
-- **High**: 7 days (weekly sprint)
-- **Medium**: 30 days (monthly release)
-- **Low**: 90 days (quarterly maintenance)
-
-**Current Performance:**
-
-- ✅ Zero known vulnerabilities (npm audit clean)
-- ✅ Dependabot PRs reviewed within 48 hours
-- ✅ CodeQL findings triaged weekly
-
-**Patch Management:**
-
-- Dependabot: Automated weekly scans
-- npm: Security patches applied immediately
-- GitHub Actions: SHA pinning prevents unexpected changes
+> See dedicated [🔍 Vulnerability Management](#-vulnerability-management) section above for comprehensive scanning, SLA targets, and remediation processes.
 
 ---
 
