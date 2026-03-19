@@ -22,7 +22,7 @@
 #
 # Generates EU Parliament weekly review retrospective English article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"3c868ddef4d5780232e28207c5359d9af6bf973ab29b8bd759e89d548cebef97","compiler_version":"v0.62.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"def312d16fe990a2be2f6d290982f6c6f1990b8c9356ece69b5b50679534431c","compiler_version":"v0.62.0"}
 
 name: "News: EU Parliament Weekly Review"
 "on":
@@ -297,7 +297,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Setup Node.js
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 53b83947a5a98c8d113130e565377fae1a50d02f
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: "25"
       - name: Install dependencies

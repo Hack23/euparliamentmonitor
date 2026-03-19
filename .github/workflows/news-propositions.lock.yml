@@ -22,7 +22,7 @@
 #
 # Generates EU Parliament legislative procedures English analysis article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"62120142d820370cd12e16976a6a255c32d87022eee33b01931837f5d9e32fe4","compiler_version":"v0.62.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"7dbf8eae1a7e52a36c9db6ffd325e38afb3b3df50420f24bdf026c9d2982bf20","compiler_version":"v0.62.0"}
 
 name: "News: EU Parliament Legislative Procedures"
 "on":
@@ -297,7 +297,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Setup Node.js
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 53b83947a5a98c8d113130e565377fae1a50d02f
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: "25"
       - name: Install dependencies

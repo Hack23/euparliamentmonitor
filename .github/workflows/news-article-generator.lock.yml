@@ -22,7 +22,7 @@
 #
 # Manual dispatch workflow to generate any combination of EU Parliament news article types (English). Translations handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"378e51e947efd542c76a8f029af0aa57ba6354e62182a6c13bb112a5410ce0b3","compiler_version":"v0.62.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"cacccebaa697a3b83f154abc31fa98239024fbcffe0c9d0645fa3504121cccd6","compiler_version":"v0.62.0"}
 
 name: "News: EU Parliament Article Generator"
 "on":
@@ -301,7 +301,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Setup Node.js
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 53b83947a5a98c8d113130e565377fae1a50d02f
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: "25"
       - name: Install dependencies

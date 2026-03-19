@@ -22,7 +22,7 @@
 #
 # Generates EU Parliament committee activity English analysis article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"c9bcd1db90f5b809dfe13a8defa3002f8b3dbea6d76f99f763f9472806577b27","compiler_version":"v0.62.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"c1d66d4f338c3f91299511e063454c6b91210443ac38befad7e8f45ecc87f9c3","compiler_version":"v0.62.0"}
 
 name: "News: EU Parliament Committee Activity"
 "on":
@@ -297,7 +297,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Setup Node.js
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 53b83947a5a98c8d113130e565377fae1a50d02f
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: "25"
       - name: Install dependencies

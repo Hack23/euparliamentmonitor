@@ -22,7 +22,7 @@
 #
 # Generates EU Parliament breaking news English articles using EP feed endpoints as the primary data source. Translations are handled by the separate news-translate workflow.
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"6d62e098c7ec423ff53b3f90335c82195a7c71c0b11ef8fe849cb9e1f1949b98","compiler_version":"v0.62.0"}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"4e2e52b8de8198008c7abc8cf5cc8732b50b26b6b68067fdce4f9fc297efdf3d","compiler_version":"v0.62.0"}
 
 name: "News: EU Parliament Breaking News"
 "on":
@@ -297,7 +297,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Setup Node.js
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 53b83947a5a98c8d113130e565377fae1a50d02f
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: "25"
       - name: Install dependencies
