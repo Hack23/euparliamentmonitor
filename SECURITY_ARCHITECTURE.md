@@ -181,9 +181,10 @@ available ISMS framework. For complete policy mapping, see the
 | **🔍 Vulnerability**     | [Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)       | Dependabot, CodeQL, npm audit, weekly scans              |
 | **🚨 Incident Response** | [Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md)           | GitHub Security Advisories, coordinated disclosure       |
 | **🤝 Third-Party**       | [Third Party Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md)           | GitHub ecosystem assessment (GitHub Pages, Actions, npm) |
-| **🔓 Open Source**       | [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)                   | MIT licensing, REUSE compliance, SBOM generation         |
+| **🔓 Open Source**       | [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)                   | Apache-2.0 licensing, REUSE compliance, SBOM generation  |
 | **📋 Compliance**        | [Compliance Checklist](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Compliance_Checklist.md)               | ISO 27001, NIST CSF, CIS Controls alignment              |
 | **🏷️ Classification**    | [Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)                 | Public data classification (Level 1 confidentiality)     |
+| **🇪🇺 CRA Compliance**   | [CRA Conformity Assessment Process](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md) | [CRA-ASSESSMENT.md](CRA-ASSESSMENT.md) self-assessment   |
 
 ### Security Control Implementation Status
 

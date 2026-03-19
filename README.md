@@ -178,13 +178,17 @@ security controls and ISMS compliance.
 
 ### Security Posture
 
-**Classification** (per
-[ISMS Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)):
+**Project Classification** (per
+[ISMS Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) and
+[Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)):
 
 - **Confidentiality**: Public (Level 1) - European Parliament open data
 - **Integrity**: Medium (Level 2) - News accuracy critical for democratic
   transparency
 - **Availability**: Medium (Level 2) - Daily updates expected, 24h RTO acceptable
+- **RTO**: 24 hours | **RPO**: 1 day (daily generation schedule)
+- **Business Impact**: Low financial, Medium operational, Medium reputational
+- **Strategic Value**: Democratic transparency, open civic technology leadership
 
 **Key Security Controls**:
 
@@ -750,9 +754,10 @@ This project adheres to [Hack23 ISMS](https://github.com/Hack23/ISMS-PUBLIC) pol
 
 | Policy | Relevance | Implementation |
 |--------|-----------|----------------|
-| [**Open Source Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | Security badge requirements | All required badges implemented |
+| [**Open Source Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | Security badge requirements, governance artifacts | All badges, docs, REUSE compliance |
+| [**CRA Conformity Assessment Process**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md) | EU Cyber Resilience Act compliance | [CRA-ASSESSMENT.md](CRA-ASSESSMENT.md) |
 | [**Secure Development Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Development security standards | SECURITY_ARCHITECTURE.md, SAST/SCA/DAST |
-| [**Threat Modeling Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) | Threat analysis requirements | STRIDE analysis in SECURITY_ARCHITECTURE.md |
+| [**Threat Modeling Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) | Threat analysis requirements | STRIDE analysis in THREAT_MODEL.md |
 | [**Vulnerability Management**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | Remediation SLAs | SECURITY.md disclosure timeline |
 | [**Classification Framework**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Data classification | Public/Medium/Medium (L1/L2/L2) |
 | [**Incident Response Plan**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | Security incident procedures | Linked in SECURITY.md |
@@ -768,7 +773,7 @@ EU Parliament Monitor aligns with multiple compliance frameworks:
 | **CIS Controls v8.1** | 18.3 (Remediate Vulnerabilities), 2.7 (Allowlisting) | Automated scanning, SBOM |
 | **GDPR** | Data Protection by Design | European Parliament open data (public) |
 | **NIS2** | Article 20, 21 (Cybersecurity Risk Management) | Threat model, security controls |
-| **EU Cyber Resilience Act** | SBOM, Vulnerability Disclosure | SLSA provenance, SECURITY.md |
+| **EU Cyber Resilience Act** | SBOM, Vulnerability Disclosure, Annex I/V | [CRA-ASSESSMENT.md](CRA-ASSESSMENT.md), SLSA provenance, SECURITY.md |
 
 ## 🤖 AI-Disrupted News Generation & Agentic Intelligence
 
