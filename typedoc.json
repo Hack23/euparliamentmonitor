@@ -1,6 +1,7 @@
 {
   "$schema": "https://typedoc.org/schema.json",
   "entryPoints": ["src/**/*.ts"],
+  "entryPointStrategy": "expand",
   "out": "builds/api",
   "name": "EU Parliament Monitor - API Documentation",
   "readme": "README.md",
@@ -9,24 +10,87 @@
   "excludePrivate": false,
   "excludeProtected": false,
   "excludeInternal": false,
+  "excludeExternals": true,
+  "excludeNotDocumented": false,
+  "excludeReferences": false,
   "includeVersion": true,
+  "includeHierarchySummary": true,
   "categorizeByGroup": true,
+  "groupReferencesByType": true,
   "categoryOrder": [
+    "Types & Models",
+    "MCP Integration",
     "Intelligence & Data",
     "Content Generation",
+    "Pipeline Stages",
+    "News Strategies",
     "Business & Configuration",
     "Templates & Presentation",
-    "Types & Models",
+    "Constants & Configuration",
     "Utilities",
     "*"
+  ],
+  "groupOrder": [
+    "Functions",
+    "Classes",
+    "Interfaces",
+    "Type Aliases",
+    "Enumerations",
+    "Variables",
+    "Namespaces",
+    "*"
+  ],
+  "kindSortOrder": [
+    "Reference",
+    "Project",
+    "Module",
+    "Namespace",
+    "Enum",
+    "EnumMember",
+    "Class",
+    "Interface",
+    "TypeAlias",
+    "Constructor",
+    "Property",
+    "Variable",
+    "Function",
+    "Accessor",
+    "Method",
+    "Parameter",
+    "TypeParameter",
+    "TypeLiteral",
+    "CallSignature",
+    "ConstructorSignature",
+    "IndexSignature",
+    "GetSignature",
+    "SetSignature"
   ],
   "navigation": {
     "includeCategories": true,
     "includeGroups": true
   },
-  "sort": ["source-order", "alphabetical"],
+  "navigationLinks": {
+    "EU Parliament Monitor": "https://euparliamentmonitor.com",
+    "GitHub": "https://github.com/Hack23/euparliamentmonitor",
+    "ISMS": "https://github.com/Hack23/ISMS-PUBLIC"
+  },
+  "sort": ["kind", "source-order", "alphabetical"],
   "visibilityFilters": {
     "protected": true,
-    "private": true
-  }
+    "private": true,
+    "inherited": true
+  },
+  "searchInComments": true,
+  "cleanOutputDir": true,
+  "githubPages": true,
+  "hideGenerator": false,
+  "markdownLinkExternal": true,
+  "highlightLanguages": ["bash", "console", "css", "html", "javascript", "json", "jsonc", "mermaid", "sh", "shell", "sql", "tsx", "typescript", "xml", "yaml"],
+  "favicon": "favicon.ico",
+  "hostedBaseUrl": "https://hack23.github.io/euparliamentmonitor/api/",
+  "projectDocuments": [
+    "ARCHITECTURE.md",
+    "SECURITY_ARCHITECTURE.md",
+    "DATA_MODEL.md"
+  ]
 }
