@@ -11,13 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--25-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-02-25 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-25
+**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-19 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19  
+**🏛️ Process Reference:** [CRA Conformity Assessment Process](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md)
 
 ---
 
@@ -62,7 +63,7 @@
 
 **Hack23 AB's** CRA conformity assessment process demonstrates how **systematic regulatory compliance directly enables transparency and trust** in open-source European Parliament monitoring. This assessment covers the EU Parliament Monitor's compliance with the EU Cyber Resilience Act (CRA) requirements.
 
-As a static site generating multi-language news articles from European Parliament open data, EU Parliament Monitor has a minimal attack surface while maintaining comprehensive security practices aligned with the CRA framework. This assessment follows the [Hack23 AB CRA Conformity Assessment Process](https://github.com/Hack23/cia/blob/master/CRA-ASSESSMENT.md) reference implementation.
+As a static site generating multi-language news articles from European Parliament open data, EU Parliament Monitor has a minimal attack surface while maintaining comprehensive security practices aligned with the CRA framework. This assessment follows the [Hack23 AB CRA Conformity Assessment Process](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md) and the [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) requirements.
 
 *— James Pether Sörling, CEO/Founder*
 
@@ -323,6 +324,50 @@ flowchart TD
 
 ---
 
+## 6️⃣ᵃ Conformity Assessment Evidence
+
+*Supports CRA Article 19 — Conformity Assessment Documentation*
+
+### 📊 Quality & Security Automation Status
+
+Reference: [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
+
+| 🧪 Control | 🎯 Requirement | ✅ Implementation | 📋 Evidence |
+|-------------|---------------|------------------|-------------|
+| 🧪 Unit Testing | ≥80% line coverage, ≥70% branch | ✅ 82%+ coverage | [UnitTestPlan.md](UnitTestPlan.md) + Vitest reports |
+| 🌐 E2E Testing | Critical user journeys validated | ✅ 14 language pages | [E2ETestPlan.md](E2ETestPlan.md) + Playwright reports |
+| 🔍 SAST Scanning | Zero critical/high vulnerabilities | ✅ CodeQL clean | [![CodeQL](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml) |
+| 📦 SCA Scanning | Zero critical unresolved dependencies | ✅ Dependabot active | [Security Overview](https://github.com/Hack23/euparliamentmonitor/security) |
+| 🔒 Secret Scanning | Zero exposed secrets/credentials | ✅ GitHub Secret Scanning | [Security Overview](https://github.com/Hack23/euparliamentmonitor/security) |
+| 📦 SBOM Generation | CycloneDX per release | ✅ Automated | [Release Artifacts](https://github.com/Hack23/euparliamentmonitor/releases) |
+| 🛡️ Provenance | SLSA Level 3 attestation | ✅ Active | [Attestations](https://github.com/Hack23/euparliamentmonitor/attestations) |
+| 📊 Quality Gates | ESLint + HTMLHint + Prettier | ✅ Enforced in CI | [Validate Workflow](https://github.com/Hack23/euparliamentmonitor/actions/workflows/main.yml) |
+| 📜 License Compliance | REUSE specification | ✅ FSFE REUSE compliant | [![REUSE](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml) |
+
+### 🎖️ Security & Compliance Badges
+
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge)](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/12068/badge)](https://www.bestpractices.dev/projects/12068)
+[![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://github.com/Hack23/euparliamentmonitor/attestations)
+[![CodeQL](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml)
+[![REUSE Compliance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml)
+[![License](https://img.shields.io/github/license/Hack23/euparliamentmonitor.svg)](https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE)
+
+### 📦 Release Evidence Pattern
+
+Each release includes CRA-aligned evidence:
+
+```
+release/v0.7.x/
+├── euparliamentmonitor-v0.7.x-sbom.json    # CycloneDX SBOM (Annex V)
+├── euparliamentmonitor-v0.7.x.tar.gz       # Source archive
+├── SLSA attestation (GitHub)                # Level 3 provenance
+├── OpenSSF Scorecard (weekly)               # Supply chain security
+└── CodeQL results (per-commit)              # SAST findings
+```
+
+---
+
 ## 7️⃣ Security Testing Evidence
 
 ### Automated Security Controls
@@ -397,6 +442,233 @@ The table below maps ISO 27001:2022 controls directly to CRA Annex I references,
 
 ---
 
+## 9️⃣ Post-Market Surveillance
+
+*Supports CRA Article 23 — Obligations of Economic Operators*
+
+| 📡 **CRA Monitoring Obligation** | 🔧 Implementation | ⏱️ Frequency | 🎯 Action Trigger | 📋 Evidence |
+|----------------------------------|-------------------|-------------|------------------|-------------|
+| **🔍 Vulnerability Monitoring** *(Art. 23.1)* | CVE feeds via Dependabot + GitHub Advisory Database | Continuous | Auto-create Dependabot PRs | [Security Overview](https://github.com/Hack23/euparliamentmonitor/security) |
+| **🚨 Incident Reporting** *(Art. 23.2)* | SECURITY.md coordinated disclosure process | Real-time | ENISA 24h notification readiness | [SECURITY.md](SECURITY.md) |
+| **📊 Security Posture Tracking** *(Art. 23.3)* | OpenSSF Scorecard + CodeQL monitoring | Weekly | Score decline triggers investigation | [![Scorecard](https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge)](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor) |
+| **🔄 Update Distribution** *(Art. 23.4)* | GitHub Releases with SLSA attestation | As needed | Critical vulnerability patches | [Releases](https://github.com/Hack23/euparliamentmonitor/releases) |
+
+**📋 CRA Reporting Readiness:** Documentation and procedures prepared for ENISA incident reporting per [Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md)
+
+**🔗 ISMS Monitoring Integration:**
+
+- **📊 Continuous Monitoring:** Security posture tracking per [Security Metrics](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Security_Metrics.md)
+- **🌐 Transparency Framework:** Public disclosure strategy via [ISMS Transparency Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/ISMS_Transparency_Plan.md)
+- **🤝 Third-Party Monitoring:** Supplier surveillance per [Third Party Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md)
+- **✅ Compliance Tracking:** Regulatory adherence via [Compliance Checklist](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Compliance_Checklist.md)
+
+---
+
+## 🤖 AI Agent-Driven CRA Compliance
+
+*Supports CRA Article 16 — Quality Management System through Automated Evidence Generation*
+
+### 📋 Automated Compliance Workflow
+
+Hack23 AB's curated agent ecosystem monitors and validates CRA evidence generated by automated workflows:
+
+```mermaid
+flowchart TD
+    BUILD[🔨 Build Process<br/>GitHub Actions Workflow] --> SBOM_GEN[📦 SBOM Generation<br/>CycloneDX + Dependency Graph]
+    SBOM_GEN --> AGENT_REVIEW[🤖 Task Agent<br/>SBOM Validation & Gap Detection]
+
+    AGENT_REVIEW --> VULN_SCAN[🔍 Vulnerability Scanning<br/>Dependabot + CodeQL]
+    VULN_SCAN --> AGENT_TRIAGE[🤖 Agent Triage<br/>CRA Disclosure Requirements]
+
+    AGENT_TRIAGE --> SLSA[🎖️ SLSA Attestation<br/>Level 3 Provenance]
+    SLSA --> EVIDENCE[📊 GitHub Actions<br/>Evidence Package]
+
+    EVIDENCE --> CE{✅ CRA Conformity<br/>Ready?}
+    CE -->|Yes| APPROVAL[👨‍💼 CEO Final Approval]
+    CE -->|No| GAP[📋 Compliance Gap<br/>Issue Creation]
+
+    GAP --> REMEDIATE[👷 Specialist Agent<br/>Gap Remediation]
+    REMEDIATE --> SBOM_GEN
+    APPROVAL --> PUBLISH[🌐 Assessment Published]
+
+    style BUILD fill:#1565C0,color:#fff
+    style SBOM_GEN fill:#4CAF50,color:#fff
+    style AGENT_REVIEW fill:#FF9800,color:#fff
+    style VULN_SCAN fill:#4CAF50,color:#fff
+    style AGENT_TRIAGE fill:#FF9800,color:#fff
+    style SLSA fill:#1565C0,color:#fff
+    style EVIDENCE fill:#4CAF50,color:#fff
+    style CE fill:#FFD600,color:#000
+    style APPROVAL fill:#4CAF50,color:#fff
+    style GAP fill:#D32F2F,color:#fff
+    style REMEDIATE fill:#FF9800,color:#fff
+    style PUBLISH fill:#4CAF50,color:#fff
+```
+
+### 🎯 Agent Responsibilities Matrix
+
+| 🤖 **Agent** | 📋 **CRA Responsibility** | ⏱️ **Frequency** | 📊 **Output** |
+|-------------|-------------------------|-----------------|--------------|
+| **Security Architect** | Vulnerability scanning, SAST/SCA oversight | Per-commit | CodeQL results, dependency audit |
+| **DevOps Engineer** | SBOM generation, SLSA attestation, CI/CD gates | Per-release | Release artifacts, provenance |
+| **Quality Engineer** | Test coverage, E2E validation, accessibility | Per-PR | Test reports, coverage metrics |
+| **Product Task Agent** | CRA gap detection, issue creation, tracking | Weekly | Compliance issues, gap reports |
+| **Documentation Architect** | CRA assessment updates, evidence documentation | Quarterly | Updated CRA-ASSESSMENT.md |
+
+### 📊 Automated Compliance Evidence Generation
+
+| 📋 **CRA Section** | 🤖 **Automated By** | 📊 **Evidence Type** | ✅ **Status** |
+|-------------------|---------------------|--------------------|----|
+| §1 Project Identification | Release workflow | Version, SBOM, attestation | ✅ Automated |
+| §3 Technical Documentation | TypeDoc + JSDoc | API documentation generation | ✅ Automated |
+| §5 Essential Requirements | CodeQL + Dependabot | SAST/SCA scan results | ✅ Automated |
+| §6 Conformity Evidence | CI/CD pipeline | Badges, test results, attestations | ✅ Automated |
+| §7 Security Testing | Vitest + Playwright | Coverage reports, E2E results | ✅ Automated |
+| §9 Post-Market Surveillance | Dependabot + Scorecard | Vulnerability monitoring | ✅ Automated |
+
+---
+
+## 🔟 EU Declaration of Conformity
+
+*Supports CRA Article 28 — EU Declaration of Conformity*
+
+**🏢 Manufacturer:** Hack23 AB, Stockholm, Sweden  
+**📦 Product:** EU Parliament Monitor v0.7.23  
+**📋 CRA Compliance:** Self-assessment documentation supporting CRA essential cybersecurity requirements evaluation  
+**🔍 Assessment:** Self-assessment documentation per CRA Article 24 (Module A — Internal Production Control)  
+**📊 Standards:** ISO/IEC 27001:2022 • NIST CSF 2.0 • CIS Controls v8.1 • OWASP ASVS
+
+> **📝 Note:** As an open-source project distributed under Apache-2.0 license with no commercial monetization, EU Parliament Monitor falls under the CRA open-source software exemption (Article 18). This declaration is maintained voluntarily to demonstrate security excellence and support downstream users' compliance needs.
+
+**📅 Date & Signature:** 2026-03-19 — James Pether Sörling, CEO/Founder  
+**📂 Technical Documentation:** This assessment + evidence bundle supports CRA Annex V technical documentation requirements
+
+---
+
+## 1️⃣1️⃣ Assessment Completion & Approval
+
+*Supports CRA Article 16 — Quality Management System Documentation*
+
+### 📊 CRA Self-Assessment Summary
+
+**Overall CRA Documentation Status:** ✅ Self-Assessment Documented
+
+**Key CRA Documentation Areas:**
+
+- ✅ Annex I essential requirements documented and assessed (Section 5)
+- ✅ Annex V technical documentation structured (Section 3)
+- ✅ Article 11 security measures documented (Section 7–8)
+- ✅ Article 23 post-market surveillance procedures documented (Section 9)
+- ✅ Article 28 declaration of conformity prepared (Section 10)
+
+**Outstanding Documentation:** None — all CRA sections assessed and documented
+
+### ✅ Formal Approval
+
+| 👤 **Role** | 📝 **Name** | 📅 **Date** | ✍️ **Assessment Attestation** |
+|------------|-------------|-------------|-------------------------------|
+| 🔒 **CRA Security Assessment** | James Pether Sörling | 2026-03-19 | Essential requirements documented and assessed |
+| 🎯 **Product Responsibility** | James Pether Sörling | 2026-03-19 | Technical documentation complete and structured |
+| ⚖️ **Legal Compliance Review** | James Pether Sörling | 2026-03-19 | EU regulatory documentation requirements addressed |
+
+**📊 CRA Assessment Status:** Self-Assessment Documented
+
+---
+
+## 🎨 CRA Assessment Maintenance
+
+### 📋 Update Triggers
+
+*Per CRA Article 15 — Substantial Modification*
+
+CRA assessment updated when changes constitute "substantial modification" under CRA:
+
+1. **🏗️ Security Architecture Changes:** New authentication methods, trust boundaries, or encryption
+2. **🛡️ Essential Requirement Impact:** Changes affecting Annex I compliance
+3. **📦 Critical Dependencies:** New supply chain components with security implications
+4. **🔍 Risk Profile Changes:** New threats or vulnerability classes
+5. **⚖️ Regulatory Updates:** CRA implementing acts or guidance changes
+
+**🎯 Maintenance Principle:** Assessment stability preferred — avoid routine updates that don't impact CRA compliance
+
+### 🔗 CRA Evidence Integration
+
+**🏷️ Product Version:** v0.7.23  
+**📊 Assessment Status:** ✅ Self-Assessment Complete  
+**🔍 OpenSSF Scorecard:** [![Scorecard](https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge)](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor)  
+**🎖️ SLSA Level:** 3 (Build provenance attestation)  
+**📦 SBOM:** CycloneDX generated per release  
+**🔒 Vulnerability Status:** Zero known critical/high vulnerabilities  
+**📅 Last Full Assessment:** 2026-03-19  
+**⏰ Next Scheduled Review:** 2026-06-19
+
+---
+
+## 📚 CRA Regulatory Alignment
+
+### 🔐 CRA Article Cross-References
+
+| 📜 **CRA Article** | 📋 **Requirement** | 📊 **Assessment Section** | ✅ **Status** |
+|-------------------|-------------------|-------------------------|--------------|
+| **Article 6** | Scope determination | Section 2 (CRA Scope & Classification) | ✅ Assessed |
+| **Article 11** | Essential cybersecurity requirements | Section 5 (Essential Requirements) | ✅ Assessed |
+| **Article 15** | Substantial modification | CRA Assessment Maintenance | ✅ Documented |
+| **Article 16** | Quality management system | Section 11 (Assessment Completion) | ✅ Documented |
+| **Article 19** | Conformity assessment | Section 6 (Conformity Assessment) | ✅ Assessed |
+| **Article 23** | Post-market obligations | Section 9 (Post-Market Surveillance) | ✅ Documented |
+| **Article 24** | Module A self-assessment | Section 6 (Self-Assessment Process) | ✅ Complete |
+| **Article 28** | EU Declaration of Conformity | Section 10 (Declaration) | ✅ Prepared |
+| **Annex I** | Essential requirements | Section 5 (Annex I Assessment) | ✅ Assessed |
+| **Annex V** | Technical documentation | Section 3 (Technical Documentation) | ✅ Complete |
+
+### 🌐 ISMS Integration Benefits
+
+- **🔄 Operational Continuity:** CRA self-assessment integrated with existing ISMS security operations and review cycles
+- **📊 Evidence Reuse:** Security metrics, test results, and monitoring data serve dual ISMS/CRA documentation purposes
+- **🎯 Minimal Overhead:** Static site architecture naturally satisfies many CRA requirements through design simplicity
+- **🤝 Stakeholder Confidence:** Transparent assessment demonstrates professional security practices for open-source civic technology
+
+### 📋 Complete ISMS Policy Framework
+
+#### 🔐 Core Security Governance
+
+| **Policy** | **CRA Relevance** | **Link** |
+|-----------|-------------------|----------|
+| Information Security Policy | Overall CRA governance | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) |
+| Secure Development Policy | Annex I Part I (secure development) | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) |
+| Open Source Policy | OSS governance & CRA exemption | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) |
+| Access Control Policy | Annex I Part I §3 (unauthorized access) | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md) |
+
+#### 🛡️ Security Control Implementation
+
+| **Policy** | **CRA Relevance** | **Link** |
+|-----------|-------------------|----------|
+| Cryptography Policy | Annex I Part I §4 (data confidentiality) | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) |
+| Network Security Policy | Annex I Part I §8 (availability) | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Network_Security_Policy.md) |
+| Vulnerability Management | Annex I Part II (vulnerability handling) | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) |
+| Third Party Management | Supply chain security | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md) |
+
+#### ⚙️ Operational Excellence Framework
+
+| **Policy** | **CRA Relevance** | **Link** |
+|-----------|-------------------|----------|
+| Change Management | Security updates (Annex I Part II §5) | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Change_Management.md) |
+| Incident Response Plan | Post-market surveillance (Art. 23) | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) |
+| Business Continuity Plan | Availability (Annex I Part I §7) | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Business_Continuity_Plan.md) |
+| Backup Recovery Policy | Data integrity (Annex I Part I §5) | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md) |
+
+#### 📊 Performance Management & Compliance
+
+| **Policy** | **CRA Relevance** | **Link** |
+|-----------|-------------------|----------|
+| Security Metrics | Monitoring (Annex I Part I §11) | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Security_Metrics.md) |
+| Compliance Checklist | CRA conformity tracking | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Compliance_Checklist.md) |
+| Classification Framework | Risk assessment (Annex I Part I §6) | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| Risk Assessment Methodology | CRA risk evaluation | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md) |
+| CRA Conformity Assessment Process | Process framework | [View](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md) |
+
+---
+
 ## 🔗 Related Documentation
 
 ### 🏛️ Project Documentation
@@ -419,13 +691,22 @@ The table below maps ISO 27001:2022 controls directly to CRA Annex I references,
 - [⚫ Black Trigram — CRA Assessment](https://github.com/Hack23/blacktrigram/blob/main/CRA-ASSESSMENT.md) — Game product assessment
 - [🛡️ CIA Compliance Manager — CRA Assessment](https://github.com/Hack23/cia-compliance-manager/blob/main/CRA-ASSESSMENT.md) — Compliance automation tool
 
+### 📋 ISMS Process References
+- [🛡️ CRA Conformity Assessment Process](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md) — CRA assessment process template
+- [🔓 Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) — Open source governance requirements
+- [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) — Secure SDLC requirements
+- [🔍 Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) — Vulnerability handling SLAs
+- [🏷️ Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) — CIA classification
+
 ---
 
 **📋 Document Control:**  
 **✅ Approved by:** James Pether Sörling, CEO  
 **📤 Distribution:** Public  
 **🏷️ Classification:** [![Confidentiality: Public](https://img.shields.io/badge/C-Public-lightgrey?style=flat-square&logo=shield&logoColor=black)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#confidentiality-levels) [![Integrity: Moderate](https://img.shields.io/badge/I-Moderate-yellow?style=flat-square&logo=check-circle&logoColor=black)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#integrity-levels) [![Availability: Standard](https://img.shields.io/badge/A-Standard-lightgreen?style=flat-square&logo=server&logoColor=white)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#availability-levels)  
-**📅 Effective Date:** 2026-02-25  
+**📅 Effective Date:** 2026-03-19  
 **🔄 CRA Alignment:** Self-assessment per CRA Module A — supports CRA Annex V technical documentation and Annex I essential requirements  
 **🏛️ ISMS Integration:** Comprehensive alignment with [Hack23 ISMS Public Framework](https://github.com/Hack23/ISMS-PUBLIC)  
+**🏛️ Process Reference:** [CRA Conformity Assessment Process](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md)  
+**🔓 Open Source Policy:** [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)  
 **🎯 Framework Compliance:** [![ISO 27001](https://img.shields.io/badge/ISO_27001-2022_Aligned-blue?style=flat-square&logo=iso&logoColor=white)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) [![NIST CSF 2.0](https://img.shields.io/badge/NIST_CSF-2.0_Aligned-green?style=flat-square&logo=nist&logoColor=white)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) [![CIS Controls](https://img.shields.io/badge/CIS_Controls-v8.1_Aligned-orange?style=flat-square&logo=cisecurity&logoColor=white)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)

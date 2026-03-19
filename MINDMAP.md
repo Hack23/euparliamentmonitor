@@ -12,13 +12,13 @@
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--21-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
 **📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:**
-2026-02-21 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-24  
+2026-03-19 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -58,6 +58,21 @@ Platform)
 | **[Security Policy](SECURITY.md)**                                  | 🔒 Security     | Vulnerability reporting & security policy      | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md)                     |
 
 </div>
+
+---
+
+## 🛡️ ISMS Policy Alignment
+
+This conceptual documentation implements controls aligned with Hack23 AB's publicly available ISMS framework.
+
+### Applicable ISMS Policies
+
+| **Policy** | **Relevance** |
+| --- | --- |
+| [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Architecture documentation requirements per C4 model |
+| [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | System design aligned with security governance framework |
+| [Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Data and component classification per CIA triad |
+| [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | Open-source architecture transparency |
 
 ---
 

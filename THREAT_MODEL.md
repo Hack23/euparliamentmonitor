@@ -12,14 +12,14 @@
 <p align="center">
   <a><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
   <a><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a><img src="https://img.shields.io/badge/Effective-2026--02--26-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
   <a><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
 
 **📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:**
-2026-02-26 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-05-26  
+2026-03-19 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -2110,6 +2110,9 @@ V.Low │            │               │                │ T-015             
 | **Incident Response Policy**     | Security incident handling                 | [Hack23 ISMS - Incident Response](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Policy.md)         |
 | **Supply Chain Security Policy** | Third-party risk management                | [Hack23 ISMS - Supply Chain Security](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Supply_Chain_Security_Policy.md) |
 | **Change Management Policy**     | Change control and approval                | [Hack23 ISMS - Change Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Change_Management_Policy.md)         |
+| **Vulnerability Management**     | Vulnerability lifecycle management         | [Hack23 ISMS - Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)  |
+| **Network Security Policy**      | Network segmentation and TLS standards     | [Hack23 ISMS - Network Security](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Network_Security_Policy.md)           |
+| **Cryptography Policy**          | Encryption and key management standards    | [Hack23 ISMS - Cryptography](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md)                   |
 
 ### **🛡️ Security & Compliance**
 
