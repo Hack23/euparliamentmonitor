@@ -690,7 +690,7 @@ As a static site generator, EU Parliament Monitor has a minimal key management f
 - ✅ **Least Privilege**: Token permissions explicitly declared per workflow (`permissions:` block)
 - ✅ **Secret Scanning**: GitHub secret scanning enabled to detect exposed credentials
 - ✅ **No Persistent Keys**: Static site requires no long-lived cryptographic keys
-- ✅ **TLS 1.3**: All external connections use TLS 1.3 with strong cipher suites
+- ✅ **TLS 1.2+**: All external connections use TLS 1.2 or higher; TLS 1.3 preferred where supported by peers (GitHub Pages, npm registry)
 
 **ISMS Alignment:**
 
@@ -1138,7 +1138,7 @@ flowchart TD
 | --- | --- | --- |
 | **Immutable Commit History** | Git SHA-256 hash chain, signed commits via GPG | Every content change has traceable commit |
 | **Branch Protection** | Required reviews, status checks, no force pushes | Main branch protected against unauthorized changes |
-| **Build Provenance** | GitHub Actions workflow logs with SLSA Level 2 | Reproducible builds with attestation |
+| **Build Provenance** | GitHub Actions workflow logs with SLSA Level 3 | Reproducible builds with attestation |
 | **Content Checksums** | Generated HTML has deterministic output from same inputs | Build reproducibility verification |
 | **Dependency Lock** | `package-lock.json` ensures reproducible installs | npm ci for deterministic dependency resolution |
 

@@ -87,7 +87,7 @@
   "markdownLinkExternal": true,
   "highlightLanguages": ["bash", "console", "css", "html", "javascript", "json", "jsonc", "mermaid", "sh", "shell", "sql", "tsx", "typescript", "xml", "yaml"],
   "favicon": "favicon.ico",
-  "hostedBaseUrl": "https://hack23.github.io/euparliamentmonitor/api/",
+  "hostedBaseUrl": "https://hack23.github.io/euparliamentmonitor/docs/api/",
   "projectDocuments": [
     "ARCHITECTURE.md",
     "SECURITY_ARCHITECTURE.md",
