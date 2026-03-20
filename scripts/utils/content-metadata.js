@@ -17,13 +17,13 @@ const MAX_HEADING_KEYWORD_LENGTH = 80;
 function stripHtml(html) {
     return html
         .replace(/<[^>]+>/gu, ' ')
-        .replace(/&amp;/gu, '&')
         .replace(/&lt;/gu, '<')
         .replace(/&gt;/gu, '>')
         .replace(/&quot;/gu, '"')
         .replace(/&#39;/gu, "'")
-        .replace(/&mdash;/gu, '—')
-        .replace(/&ndash;/gu, '–')
+        .replace(/&mdash;/gu, '\u2014')
+        .replace(/&ndash;/gu, '\u2013')
+        .replace(/&amp;/gu, '&')
         .replace(/\s+/gu, ' ')
         .trim();
 }
