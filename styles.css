@@ -1336,6 +1336,7 @@ img {
     max-width: 100%;
     scrollbar-width: none;
     position: relative;
+    padding-inline-end: 32px;
   }
 
   .filter-buttons::after {
@@ -1346,13 +1347,13 @@ img {
     width: 32px;
     height: 100%;
     pointer-events: none;
-    background: linear-gradient(to right, transparent, var(--bg));
+    background: linear-gradient(to right, transparent, var(--bg-card));
   }
 
   [dir='rtl'] .filter-buttons::after {
     right: auto;
     left: 0;
-    background: linear-gradient(to left, transparent, var(--bg));
+    background: linear-gradient(to left, transparent, var(--bg-card));
   }
 
   .filter-buttons::-webkit-scrollbar {
