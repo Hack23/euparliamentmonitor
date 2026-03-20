@@ -288,9 +288,10 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
   getMetadata(data: MonthlyReviewArticleData, lang: LanguageCode): ArticleMetadata {
     const titleFn = getLocalizedString(MONTHLY_REVIEW_TITLES, lang);
     const { title: baseTitle, subtitle: baseSubtitle } = titleFn(data.monthLabel);
-    const suffix = buildMonthlyReviewTitleSuffix(data);
+    const suffix = lang === 'en' ? buildMonthlyReviewTitleSuffix(data) : '';
     const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
-    const subtitle = buildMonthlyReviewDescription(data) || baseSubtitle;
+    const description = lang === 'en' ? buildMonthlyReviewDescription(data) : '';
+    const subtitle = description || baseSubtitle;
     return {
       title,
       subtitle,

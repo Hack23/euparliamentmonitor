@@ -319,9 +319,10 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
   getMetadata(data: PropositionsArticleData, lang: LanguageCode): ArticleMetadata {
     const titleFn = getLocalizedString(PROPOSITIONS_TITLES, lang);
     const { title: baseTitle, subtitle: baseSubtitle } = titleFn();
-    const suffix = buildPropositionsTitleSuffix(data);
+    const suffix = lang === 'en' ? buildPropositionsTitleSuffix(data) : '';
     const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
-    const subtitle = buildPropositionsDescription(data) || baseSubtitle;
+    const helperSubtitle = lang === 'en' ? buildPropositionsDescription(data) : '';
+    const subtitle = helperSubtitle || baseSubtitle;
     return {
       title,
       subtitle,

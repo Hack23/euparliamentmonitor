@@ -182,7 +182,7 @@ export interface CoalitionShift {
   previousCohesion: number;
   /** Current cohesion */
   currentCohesion: number;
-  /** Absolute change in cohesion */
+  /** Signed change in cohesion (currentCohesion - previousCohesion) */
   cohesionDelta: number;
   /** Direction of the shift */
   direction: 'strengthening' | 'weakening' | 'stable';

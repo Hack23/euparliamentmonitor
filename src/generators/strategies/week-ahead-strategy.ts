@@ -221,9 +221,12 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
       data.dateRange.start,
       data.dateRange.end
     );
-    const suffix = buildWeekAheadTitleSuffix(data.weekData);
+    const suffix = lang === 'en' ? buildWeekAheadTitleSuffix(data.weekData) : '';
     const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
-    const subtitle = buildWeekAheadDescription(data.weekData, data.dateRange) || baseSubtitle;
+    const subtitle =
+      lang === 'en'
+        ? buildWeekAheadDescription(data.weekData, data.dateRange) || baseSubtitle
+        : baseSubtitle;
     return {
       title,
       subtitle,

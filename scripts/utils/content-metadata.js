@@ -162,8 +162,8 @@ function extractContentKeywords(content, baseKeywords) {
  * @returns Enriched title string
  */
 function buildContentTitle(content, baseTitle) {
-    // If the base title already contains a long suffix (from agentic override), keep it
-    if (baseTitle.includes('—') && baseTitle.length > 60)
+    // If the strategy already appended a suffix (contains em-dash), do not double-suffix
+    if (baseTitle.includes('—'))
         return baseTitle;
     const headings = extractHeadings(content);
     const stats = extractStatistics(content);

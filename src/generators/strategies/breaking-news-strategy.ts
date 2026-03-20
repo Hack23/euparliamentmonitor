@@ -305,9 +305,10 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
   getMetadata(data: BreakingNewsArticleData, lang: LanguageCode): ArticleMetadata {
     const titleFn = getLocalizedString(BREAKING_NEWS_TITLES, lang);
     const { title: baseTitle, subtitle: baseSubtitle } = titleFn(data.date);
-    const suffix = buildBreakingTitleSuffix(data.feedData);
+    const suffix = lang === 'en' ? buildBreakingTitleSuffix(data.feedData) : '';
     const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
-    const subtitle = buildBreakingDescription(data.date, data.feedData) || baseSubtitle;
+    const description = lang === 'en' ? buildBreakingDescription(data.date, data.feedData) : '';
+    const subtitle = description || baseSubtitle;
     return {
       title,
       subtitle,

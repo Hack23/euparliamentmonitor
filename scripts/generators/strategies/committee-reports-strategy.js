@@ -402,9 +402,11 @@ export class CommitteeReportsStrategy {
         const committeeLabel = FEATURED_COMMITTEES.join(', ');
         const titleFn = getLocalizedString(COMMITTEE_REPORTS_TITLES, lang);
         const { title: baseTitle, subtitle: baseSubtitle } = titleFn(committeeLabel);
-        const suffix = buildCommitteeTitleSuffix(data.committeeDataList, data.feedData);
+        const suffix = lang === 'en' ? buildCommitteeTitleSuffix(data.committeeDataList, data.feedData) : '';
         const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
-        const subtitle = buildCommitteeDescription(data.committeeDataList, data.feedData) || baseSubtitle;
+        const subtitle = lang === 'en'
+            ? buildCommitteeDescription(data.committeeDataList, data.feedData) || baseSubtitle
+            : baseSubtitle;
         return {
             title,
             subtitle,

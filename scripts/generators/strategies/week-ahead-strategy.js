@@ -160,9 +160,11 @@ export class WeekAheadStrategy {
     getMetadata(data, lang) {
         const titleFn = getLocalizedString(WEEK_AHEAD_TITLES, lang);
         const { title: baseTitle, subtitle: baseSubtitle } = titleFn(data.dateRange.start, data.dateRange.end);
-        const suffix = buildWeekAheadTitleSuffix(data.weekData);
+        const suffix = lang === 'en' ? buildWeekAheadTitleSuffix(data.weekData) : '';
         const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
-        const subtitle = buildWeekAheadDescription(data.weekData, data.dateRange) || baseSubtitle;
+        const subtitle = lang === 'en'
+            ? buildWeekAheadDescription(data.weekData, data.dateRange) || baseSubtitle
+            : baseSubtitle;
         return {
             title,
             subtitle,

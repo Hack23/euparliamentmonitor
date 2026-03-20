@@ -294,9 +294,10 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
       data.dateRange.start,
       data.dateRange.end
     );
-    const suffix = buildWeeklyReviewTitleSuffix(data);
+    const suffix = lang === 'en' ? buildWeeklyReviewTitleSuffix(data) : '';
     const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
-    const subtitle = buildWeeklyReviewDescription(data) || baseSubtitle;
+    const description = lang === 'en' ? buildWeeklyReviewDescription(data) : '';
+    const subtitle = description || baseSubtitle;
     return {
       title,
       subtitle,

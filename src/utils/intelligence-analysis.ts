@@ -441,9 +441,11 @@ export function computeVotingIntensity(records: readonly VotingRecord[]): Voting
   let closeVoteCount = 0;
   let decisiveVoteCount = 0;
 
+  let validCount = 0;
   for (const record of records) {
     const total = record.votes.for + record.votes.against + record.votes.abstain;
     if (total === 0) continue;
+    validCount++;
 
     const forPct = record.votes.for / total;
     const againstPct = record.votes.against / total;
@@ -466,11 +468,12 @@ export function computeVotingIntensity(records: readonly VotingRecord[]): Voting
     if (margin > 0.6) decisiveVoteCount++;
   }
 
-  const n = records.length;
+  if (validCount === 0) return null;
+
   return {
-    unanimity: Math.round((totalUnanimity / n) * 100) / 100,
-    polarization: Math.round((totalPolarization / n) * 100) / 100,
-    averageMargin: Math.round((totalMargin / n) * 100) / 100,
+    unanimity: Math.round((totalUnanimity / validCount) * 100) / 100,
+    polarization: Math.round((totalPolarization / validCount) * 100) / 100,
+    averageMargin: Math.round((totalMargin / validCount) * 100) / 100,
     closeVoteCount,
     decisiveVoteCount,
   };
@@ -478,8 +481,8 @@ export function computeVotingIntensity(records: readonly VotingRecord[]): Voting
 
 /**
  * Detect coalition shifts by comparing current cohesion patterns against
- * a baseline. A shift is flagged when cohesion changes significantly
- * (>10% delta), suggesting evolving internal dynamics.
+ * a baseline. Stability threshold is ±5%; severity tiers are >5% (medium),
+ * >10% (high), and >20% (critical).
  *
  * @param currentPatterns - Current period voting patterns
  * @param baselinePatterns - Previous period patterns (or estimated baseline)
@@ -531,14 +534,6 @@ export function detectCoalitionShifts(
 }
 
 /**
- * Compute a polarization index for a parliamentary period based on
- * voting pattern cohesion data. Uses a Laakso-Taagepera–inspired
- * "effective number of blocs" calculation alongside cohesion analysis.
- *
- * @param patterns - Voting patterns for the period
- * @returns PolarizationIndex assessment, or null if patterns are empty
- */
-/**
  * Classify cohesion groups into high-cohesion and fragmented categories.
  *
  * @param patterns - Voting patterns
@@ -585,6 +580,14 @@ function assessPolarization(index: number): PolarizationIndex['assessment'] {
   return 'consensus';
 }
 
+/**
+ * Compute a polarization index for a parliamentary period based on
+ * voting pattern cohesion data. Uses a Laakso-Taagepera–inspired
+ * "effective number of blocs" calculation alongside cohesion analysis.
+ *
+ * @param patterns - Voting patterns for the period
+ * @returns PolarizationIndex assessment, or null if patterns are empty
+ */
 export function computePolarizationIndex(
   patterns: readonly VotingPattern[]
 ): PolarizationIndex | null {

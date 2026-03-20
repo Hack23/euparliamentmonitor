@@ -163,9 +163,11 @@ export class MonthAheadStrategy {
     getMetadata(data, lang) {
         const titleFn = getLocalizedString(MONTH_AHEAD_TITLES, lang);
         const { title: baseTitle, subtitle: baseSubtitle } = titleFn(data.monthLabel);
-        const suffix = buildMonthAheadTitleSuffix(data.monthData);
+        const suffix = lang === 'en' ? buildMonthAheadTitleSuffix(data.monthData) : '';
         const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
-        const subtitle = buildMonthAheadDescription(data.monthData, data.monthLabel) || baseSubtitle;
+        const subtitle = lang === 'en'
+            ? buildMonthAheadDescription(data.monthData, data.monthLabel) || baseSubtitle
+            : baseSubtitle;
         return {
             title,
             subtitle,

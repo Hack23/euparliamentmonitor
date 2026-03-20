@@ -898,13 +898,25 @@ describe('computeVotingIntensity', () => {
     expect(result.averageMargin).toBeGreaterThan(0);
   });
 
-  it('should handle votes with all zeros gracefully', () => {
+  it('should return null when all records have zero total votes', () => {
     const records = [
       { title: 'Empty', date: '2025-01-10', result: 'N/A', votes: { for: 0, against: 0, abstain: 0 } },
     ];
     const result = computeVotingIntensity(records);
+    expect(result).toBeNull();
+  });
+
+  it('should skip zero-vote records and only count valid ones', () => {
+    const records = [
+      { title: 'Empty', date: '2025-01-10', result: 'N/A', votes: { for: 0, against: 0, abstain: 0 } },
+      { title: 'Valid', date: '2025-01-11', result: 'Adopted', votes: { for: 500, against: 50, abstain: 20 } },
+    ];
+    const result = computeVotingIntensity(records);
     expect(result).not.toBeNull();
-    // No votes, so unanimity/polarization are 0 from the division
+    expect(result.unanimity).toBeGreaterThan(0);
+    expect(result.averageMargin).toBeGreaterThan(0);
+    expect(result.closeVoteCount).toBe(0);
+    expect(result.decisiveVoteCount).toBe(1);
   });
 
   it('should return averageMargin between 0 and 1', () => {

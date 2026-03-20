@@ -196,9 +196,10 @@ export class MotionsStrategy {
     getMetadata(data, lang) {
         const titleFn = getLocalizedString(MOTIONS_TITLES, lang);
         const { title: baseTitle, subtitle: baseSubtitle } = titleFn(data.date);
-        const suffix = buildMotionsTitleSuffix(data);
+        const suffix = lang === 'en' ? buildMotionsTitleSuffix(data) : '';
         const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
-        const subtitle = buildMotionsDescription(data) || baseSubtitle;
+        const description = lang === 'en' ? buildMotionsDescription(data) : '';
+        const subtitle = description || baseSubtitle;
         return {
             title,
             subtitle,
