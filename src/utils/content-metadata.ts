@@ -59,11 +59,11 @@ function stripHtml(html: string): string {
  * @returns Array of heading text strings
  */
 function extractHeadings(content: string): string[] {
-  const headingRegex = /<h[23][^>]*>([\s\S]*?)<\/h[23]>/giu;
+  const headingRegex = /<h([23])\b[^>]*>([\s\S]*?)<\/h\1>/giu;
   const headings: string[] = [];
   let match: RegExpExecArray | null = headingRegex.exec(content);
   while (match) {
-    const text = stripHtml(match[1] ?? '').trim();
+    const text = stripHtml(match[2] ?? '').trim();
     if (text.length > 0) headings.push(text);
     match = headingRegex.exec(content);
   }

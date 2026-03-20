@@ -83,7 +83,18 @@ function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outp
     // Enrich metadata by analysing the actual rendered content.
     // This produces insightful titles, descriptions, and keywords
     // that reflect the article's coverage — not generic template text.
-    const metadata = enrichMetadataFromContent(content, baseMetadata);
+    // Title/description enrichment is English-only to avoid overriding
+    // the strategies' localised metadata (their `lang === 'en'` gating).
+    // Language-agnostic keyword additions (committee abbreviations, etc.)
+    // are preserved for all languages.
+    const enrichedMetadata = enrichMetadataFromContent(content, baseMetadata);
+    const metadata = lang === 'en'
+        ? enrichedMetadata
+        : {
+            ...baseMetadata,
+            keywords: enrichedMetadata.keywords ?? baseMetadata.keywords,
+            sources: enrichedMetadata.sources ?? baseMetadata.sources,
+        };
     const html = generateArticleHTML({
         slug: strategy.type,
         title: metadata.title,
