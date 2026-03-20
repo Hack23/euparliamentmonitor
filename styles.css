@@ -1335,9 +1335,24 @@ img {
     -webkit-overflow-scrolling: touch;
     max-width: 100%;
     scrollbar-width: none;
-    /* Inline-end fade hint for scroll overflow */
-    mask-image: linear-gradient(to right, black calc(100% - 32px), transparent);
-    -webkit-mask-image: linear-gradient(to right, black calc(100% - 32px), transparent);
+    position: relative;
+  }
+
+  .filter-buttons::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, transparent, var(--bg));
+  }
+
+  [dir='rtl'] .filter-buttons::after {
+    right: auto;
+    left: 0;
+    background: linear-gradient(to left, transparent, var(--bg));
   }
 
   .filter-buttons::-webkit-scrollbar {
