@@ -68,6 +68,9 @@ export type {
   CorporateBodyFeedItem,
   BreakingNewsFeedData,
   EPFeedData,
+  VotingIntensity,
+  CoalitionShift,
+  PolarizationIndex,
 } from './parliament.js';
 
 export type {

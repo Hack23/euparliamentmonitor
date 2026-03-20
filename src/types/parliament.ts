@@ -158,6 +158,52 @@ export interface LegislativeVelocity {
   predictedCompletion: string;
 }
 
+// ─── Advanced political intelligence types ────────────────────────────────────
+
+/** Voting intensity metrics for a set of voting records */
+export interface VotingIntensity {
+  /** Consensus level: 0 = perfect split, 1 = unanimity */
+  unanimity: number;
+  /** Polarization: 0 = consensus, 1 = highly polarized */
+  polarization: number;
+  /** Average margin of victory across votes */
+  averageMargin: number;
+  /** Number of close votes (margin < 10%) */
+  closeVoteCount: number;
+  /** Number of decisive votes (margin > 60%) */
+  decisiveVoteCount: number;
+}
+
+/** Coalition shift detection result */
+export interface CoalitionShift {
+  /** Name of the political group */
+  group: string;
+  /** Previous cohesion (or baseline) */
+  previousCohesion: number;
+  /** Current cohesion */
+  currentCohesion: number;
+  /** Absolute change in cohesion */
+  cohesionDelta: number;
+  /** Direction of the shift */
+  direction: 'strengthening' | 'weakening' | 'stable';
+  /** Severity of the shift for political intelligence */
+  significance: 'critical' | 'high' | 'medium' | 'low';
+}
+
+/** Polarization index for a parliamentary period */
+export interface PolarizationIndex {
+  /** Overall index 0-1 (0 = consensus, 1 = completely polarized) */
+  overallIndex: number;
+  /** Effective number of voting blocs (Laakso-Taagepera style) */
+  effectiveBlocs: number;
+  /** Groups above 80% cohesion — potential blocking minorities */
+  highCohesionGroups: string[];
+  /** Groups below 50% cohesion — internally divided */
+  fragmentedGroups: string[];
+  /** Assessment label */
+  assessment: 'consensus' | 'moderate' | 'polarized' | 'highly-polarized';
+}
+
 // ─── EP Feed item types ──────────────────────────────────────────────────────
 
 /** A single item from any EP API v2 feed response (`data[]` array) */
