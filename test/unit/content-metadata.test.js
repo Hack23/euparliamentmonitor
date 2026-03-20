@@ -47,6 +47,21 @@ describe('content-metadata', () => {
       expect(enriched.subtitle).toContain('Clean Industrial Deal');
     });
 
+    it('should use section lede paragraph as description', () => {
+      const content = `
+        <div class="article-content">
+          <section class="lede">
+            <p>The European Parliament enters a decisive week with negotiations on defence procurement and climate targets.</p>
+          </section>
+          <h2>Strategic Priorities</h2>
+        </div>`;
+
+      const enriched = enrichMetadataFromContent(content, baseMetadata);
+      expect(enriched.subtitle).toContain('European Parliament');
+      expect(enriched.subtitle).toContain('defence procurement');
+      expect(enriched.subtitle).toContain('climate targets');
+    });
+
     it('should fall back to base subtitle when content has no lede', () => {
       const content = '<div class="article-content"><span>tiny</span></div>';
 

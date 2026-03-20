@@ -925,6 +925,24 @@ describe('computeVotingIntensity', () => {
     expect(result.averageMargin).toBeGreaterThanOrEqual(0);
     expect(result.averageMargin).toBeLessThanOrEqual(1);
   });
+
+  it('should include abstentions when determining unanimity largest faction', () => {
+    const records = [
+      {
+        title: 'Abstain-dominant vote',
+        date: '2025-01-12',
+        result: 'Adopted',
+        votes: { for: 20, against: 10, abstain: 70 },
+      },
+    ];
+    const result = computeVotingIntensity(records);
+    expect(result).not.toBeNull();
+    expect(result.unanimity).toBe(0.7);
+    expect(result.polarization).toBeCloseTo(0.67, 2);
+    expect(result.averageMargin).toBe(0.1);
+    expect(result.closeVoteCount).toBe(0);
+    expect(result.decisiveVoteCount).toBe(0);
+  });
 });
 
 // ─── detectCoalitionShifts ───────────────────────────────────────────────────

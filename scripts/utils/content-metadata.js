@@ -53,17 +53,32 @@ function extractHeadings(content) {
  * @returns Plain-text lede string, or empty string
  */
 function extractLede(content) {
-    // Try class="lede" first — simple non-greedy match
-    const ledeMatch = /class="lede"[^>]*>([^<]+)/iu.exec(content);
-    if (ledeMatch?.[1]) {
-        const text = stripHtml(ledeMatch[1]).trim();
+    // Try explicit lede paragraph first: <p class="lede">...</p>
+    const ledeParagraphMatch = /<p[^>]*class="[^"]*\blede\b[^"]*"[^>]*>([\s\S]*?)<\/p>/iu.exec(content);
+    if (ledeParagraphMatch?.[1]) {
+        const text = stripHtml(ledeParagraphMatch[1]).trim();
         if (text.length > 20)
             return text;
     }
+    // Try section-based lede: <section class="lede"> ... <p>...</p> ... </section>
+    const ledeSectionMatch = /<section[^>]*class="[^"]*\blede\b[^"]*"[^>]*>([\s\S]*?)<\/section>/iu.exec(content);
+    if (ledeSectionMatch?.[1]) {
+        const sectionParagraphMatch = /<p[^>]*>([\s\S]*?)<\/p>/iu.exec(ledeSectionMatch[1]);
+        if (sectionParagraphMatch?.[1]) {
+            const text = stripHtml(sectionParagraphMatch[1]).trim();
+            if (text.length > 20)
+                return text;
+        }
+        const sectionText = stripHtml(ledeSectionMatch[1]).trim();
+        if (sectionText.length > 20)
+            return sectionText;
+    }
     // Fall back to first paragraph in article-content
-    const paraMatch = /<p[^>]*>([^<]{20,})/iu.exec(content);
+    const paraMatch = /<p[^>]*>([\s\S]*?)<\/p>/iu.exec(content);
     if (paraMatch?.[1]) {
-        return stripHtml(paraMatch[1]).trim();
+        const text = stripHtml(paraMatch[1]).trim();
+        if (text.length > 20)
+            return text;
     }
     return '';
 }

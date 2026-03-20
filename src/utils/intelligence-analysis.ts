@@ -449,10 +449,11 @@ export function computeVotingIntensity(records: readonly VotingRecord[]): Voting
 
     const forPct = record.votes.for / total;
     const againstPct = record.votes.against / total;
+    const abstainPct = record.votes.abstain / total;
     const margin = Math.abs(forPct - againstPct);
 
     // Unanimity: how close is the largest faction to 100%?
-    const maxPct = Math.max(forPct, againstPct);
+    const maxPct = Math.max(forPct, againstPct, abstainPct);
     totalUnanimity += maxPct;
 
     // Polarization: how evenly split is for vs against? (excluding abstentions)
