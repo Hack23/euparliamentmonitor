@@ -140,8 +140,8 @@ function buildMonthlyReviewDescription(data: MonthlyReviewArticleData): string {
  */
 function buildMonthlyReviewTitleSuffix(data: MonthlyReviewArticleData): string {
   const parts: string[] = [];
-  if (data.votingRecords.length > 0) parts.push(`${data.votingRecords.length} Votes`);
-  if (data.anomalies.length > 0) parts.push(`${data.anomalies.length} Anomalies`);
+  if (data.votingRecords.length > 0) parts.push(pl(data.votingRecords.length, 'Vote', 'Votes'));
+  if (data.anomalies.length > 0) parts.push(pl(data.anomalies.length, 'Anomaly', 'Anomalies'));
   return parts.join(', ');
 }
 

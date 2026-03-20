@@ -7,7 +7,7 @@
  * the new buildWhatToWatchSection / buildPoliticalAlignmentSection generators.
  */
 
-import { describe, it, expect, beforeAll } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import {
   scoreVotingAnomaly,
   analyzeCoalitionCohesion,
@@ -19,6 +19,9 @@ import {
   scoreStakeholderInfluence,
   buildStakeholderOutcomeMatrix,
   rankStakeholdersByInfluence,
+  computeVotingIntensity,
+  detectCoalitionShifts,
+  computePolarizationIndex,
 } from '../../scripts/utils/intelligence-analysis.js';
 import { ALL_STAKEHOLDER_TYPES } from '../../scripts/types/index.js';
 import {
@@ -854,13 +857,6 @@ describe('rankStakeholdersByInfluence', () => {
 // ─── computeVotingIntensity ──────────────────────────────────────────────────
 
 describe('computeVotingIntensity', () => {
-  // lazy-import to avoid changing the top-level import block
-  let computeVotingIntensity;
-  beforeAll(async () => {
-    const mod = await import('../../scripts/utils/intelligence-analysis.js');
-    computeVotingIntensity = mod.computeVotingIntensity;
-  });
-
   it('should return null for empty records', () => {
     expect(computeVotingIntensity([])).toBeNull();
   });
@@ -934,12 +930,6 @@ describe('computeVotingIntensity', () => {
 // ─── detectCoalitionShifts ───────────────────────────────────────────────────
 
 describe('detectCoalitionShifts', () => {
-  let detectCoalitionShifts;
-  beforeAll(async () => {
-    const mod = await import('../../scripts/utils/intelligence-analysis.js');
-    detectCoalitionShifts = mod.detectCoalitionShifts;
-  });
-
   it('should return empty array when both inputs are empty', () => {
     expect(detectCoalitionShifts([], [])).toEqual([]);
   });
@@ -1003,12 +993,6 @@ describe('detectCoalitionShifts', () => {
 // ─── computePolarizationIndex ────────────────────────────────────────────────
 
 describe('computePolarizationIndex', () => {
-  let computePolarizationIndex;
-  beforeAll(async () => {
-    const mod = await import('../../scripts/utils/intelligence-analysis.js');
-    computePolarizationIndex = mod.computePolarizationIndex;
-  });
-
   it('should return null for empty patterns', () => {
     expect(computePolarizationIndex([])).toBeNull();
   });

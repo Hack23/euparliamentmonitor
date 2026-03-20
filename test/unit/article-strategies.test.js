@@ -103,7 +103,7 @@ describe('WeekAheadStrategy', () => {
     const meta = strategy.getMetadata(weekAheadData, 'en');
     // weekAheadData has 1 event, so title should include suffix
     expect(meta.title).toContain('—');
-    expect(meta.title).toContain('1 Events');
+    expect(meta.title).toContain('1 Event');
   });
 
   it('getMetadata returns different titles for different languages', () => {
@@ -162,7 +162,7 @@ describe('BreakingNewsStrategy', () => {
     const meta = strategy.getMetadata(breakingNewsData, 'en');
     // breakingNewsData has 1 adopted text, 1 event, 1 procedure — title should include suffix
     expect(meta.title).toContain('—');
-    expect(meta.title).toContain('Texts');
+    expect(meta.title).toContain('1 Text');
   });
 
   it('getMetadata subtitle includes feed data highlights', () => {
@@ -558,7 +558,7 @@ describe('CommitteeReportsStrategy', () => {
   it('getMetadata title includes content-aware suffix', () => {
     const meta = strategy.getMetadata(committeeReportsData, 'en');
     expect(meta.title).toContain('—');
-    expect(meta.title).toContain('Documents');
+    expect(meta.title).toContain('Document');
   });
 
   it('getMetadata includes EP source reference', () => {
@@ -735,7 +735,7 @@ describe('MotionsStrategy', () => {
   it('getMetadata title includes content-aware suffix', () => {
     const meta = strategy.getMetadata(motionsData, 'en');
     expect(meta.title).toContain('—');
-    expect(meta.title).toContain('1 Votes');
+    expect(meta.title).toContain('1 Vote');
   });
 
   it('getMetadata differs by language', () => {
@@ -1277,7 +1277,7 @@ describe('MonthAheadStrategy', () => {
   it('getMetadata title includes content-aware suffix when events exist', () => {
     const meta = strategy.getMetadata(monthAheadData, 'en');
     expect(meta.title).toContain('—');
-    expect(meta.title).toContain('1 Events');
+    expect(meta.title).toContain('1 Event');
   });
 
   it('getMetadata returns localized title for de', () => {
@@ -1371,7 +1371,7 @@ describe('WeeklyReviewStrategy', () => {
   it('getMetadata title includes content-aware suffix', () => {
     const meta = strategy.getMetadata(weeklyReviewData, 'en');
     expect(meta.title).toContain('—');
-    expect(meta.title).toContain('1 Votes');
+    expect(meta.title).toContain('1 Vote');
   });
 
   it('getMetadata returns localized title for sv', () => {
@@ -1491,7 +1491,7 @@ describe('MonthlyReviewStrategy', () => {
   it('getMetadata title includes content-aware suffix', () => {
     const meta = strategy.getMetadata(monthlyReviewData, 'en');
     expect(meta.title).toContain('—');
-    expect(meta.title).toContain('1 Votes');
+    expect(meta.title).toContain('1 Vote');
   });
 
   it('getMetadata returns localized title for fr', () => {

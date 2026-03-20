@@ -90,13 +90,16 @@ function buildWeeklyReviewDescription(data) {
  */
 function buildWeeklyReviewTitleSuffix(data) {
     const parts = [];
-    if (data.votingRecords.length > 0)
-        parts.push(`${data.votingRecords.length} Votes`);
-    if (data.anomalies.length > 0)
-        parts.push(`${data.anomalies.length} Anomalies`);
+    if (data.votingRecords.length > 0) {
+        parts.push(pl(data.votingRecords.length, 'Vote', 'Votes'));
+    }
+    if (data.anomalies.length > 0) {
+        parts.push(pl(data.anomalies.length, 'Anomaly', 'Anomalies'));
+    }
     const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
-    if (adoptedCount > 0)
-        parts.push(`${adoptedCount} Texts`);
+    if (adoptedCount > 0) {
+        parts.push(pl(adoptedCount, 'Text', 'Texts'));
+    }
     return parts.join(', ');
 }
 // ─── Date-range helper ────────────────────────────────────────────────────────

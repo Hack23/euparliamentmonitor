@@ -69,10 +69,12 @@ const MONTH_AHEAD_KEYWORDS = [
  */
 function buildMonthAheadTitleSuffix(monthData: WeekAheadData): string {
   const parts: string[] = [];
-  if (monthData.events.length > 0) parts.push(`${monthData.events.length} Events`);
+  if (monthData.events.length > 0)
+    parts.push(pl(monthData.events.length, 'Event', 'Events'));
   if (monthData.committees.length > 0)
-    parts.push(`${monthData.committees.length} Committee Meetings`);
-  if (monthData.pipeline.length > 0) parts.push(`${monthData.pipeline.length} Pipeline Items`);
+    parts.push(pl(monthData.committees.length, 'Committee Meeting', 'Committee Meetings'));
+  if (monthData.pipeline.length > 0)
+    parts.push(pl(monthData.pipeline.length, 'Pipeline Item', 'Pipeline Items'));
   return parts.join(', ');
 }
 

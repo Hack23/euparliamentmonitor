@@ -93,10 +93,11 @@ function computeWeekAheadDateRange(baseDate: string): DateRange {
  */
 function buildWeekAheadTitleSuffix(weekData: WeekAheadData): string {
   const parts: string[] = [];
-  if (weekData.events.length > 0) parts.push(`${weekData.events.length} Events`);
+  if (weekData.events.length > 0) parts.push(pl(weekData.events.length, 'Event', 'Events'));
   if (weekData.committees.length > 0)
-    parts.push(`${weekData.committees.length} Committee Meetings`);
-  if (weekData.pipeline.length > 0) parts.push(`${weekData.pipeline.length} Pipeline Items`);
+    parts.push(pl(weekData.committees.length, 'Committee Meeting', 'Committee Meetings'));
+  if (weekData.pipeline.length > 0)
+    parts.push(pl(weekData.pipeline.length, 'Pipeline Item', 'Pipeline Items'));
   return parts.join(', ');
 }
 

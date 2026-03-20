@@ -102,11 +102,11 @@ function buildBreakingTitleSuffix(feedData) {
         return '';
     const parts = [];
     if (feedData.adoptedTexts.length > 0)
-        parts.push(`${feedData.adoptedTexts.length} Texts`);
+        parts.push(pl(feedData.adoptedTexts.length, 'Text', 'Texts'));
     if (feedData.events.length > 0)
-        parts.push(`${feedData.events.length} Events`);
+        parts.push(pl(feedData.events.length, 'Event', 'Events'));
     if (feedData.procedures.length > 0)
-        parts.push(`${feedData.procedures.length} Procedures`);
+        parts.push(pl(feedData.procedures.length, 'Procedure', 'Procedures'));
     return parts.join(', ');
 }
 // ─── Strategy implementation ──────────────────────────────────────────────────

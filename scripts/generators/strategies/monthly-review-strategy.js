@@ -82,9 +82,9 @@ function buildMonthlyReviewDescription(data) {
 function buildMonthlyReviewTitleSuffix(data) {
     const parts = [];
     if (data.votingRecords.length > 0)
-        parts.push(`${data.votingRecords.length} Votes`);
+        parts.push(pl(data.votingRecords.length, 'Vote', 'Votes'));
     if (data.anomalies.length > 0)
-        parts.push(`${data.anomalies.length} Anomalies`);
+        parts.push(pl(data.anomalies.length, 'Anomaly', 'Anomalies'));
     return parts.join(', ');
 }
 // ─── Date-range helper ────────────────────────────────────────────────────────

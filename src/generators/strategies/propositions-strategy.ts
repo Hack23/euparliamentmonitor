@@ -36,6 +36,18 @@ import { buildDashboardSection } from '../dashboard-content.js';
 import type { PipelineData } from '../propositions-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
+/**
+ * Singular/plural helper for metadata labels.
+ *
+ * @param n - Count
+ * @param singular - Singular form
+ * @param plural - Plural form
+ * @returns `"N singular"` or `"N plural"`
+ */
+function pl(n: number, singular: string, plural: string): string {
+  return `${n} ${n === 1 ? singular : plural}`;
+}
+
 /** Base keywords shared by all Propositions articles */
 const PROPOSITIONS_BASE_KEYWORDS = [
   'European Parliament',
@@ -117,8 +129,8 @@ function buildPropositionsTitleSuffix(data: PropositionsArticleData): string {
   const parts: string[] = [];
   const procCount = data.feedData?.procedures?.length ?? 0;
   const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
-  if (procCount > 0) parts.push(`${procCount} Procedures`);
-  if (adoptedCount > 0) parts.push(`${adoptedCount} Adopted Texts`);
+  if (procCount > 0) parts.push(pl(procCount, 'Procedure', 'Procedures'));
+  if (adoptedCount > 0) parts.push(pl(adoptedCount, 'Adopted Text', 'Adopted Texts'));
   if (data.pipelineData && parts.length === 0) {
     const healthPct = Math.round(data.pipelineData.healthScore * 100);
     parts.push(`Pipeline ${healthPct}%`);

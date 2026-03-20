@@ -35,11 +35,11 @@ const MONTH_AHEAD_KEYWORDS = [
 function buildMonthAheadTitleSuffix(monthData) {
     const parts = [];
     if (monthData.events.length > 0)
-        parts.push(`${monthData.events.length} Events`);
+        parts.push(pl(monthData.events.length, 'Event', 'Events'));
     if (monthData.committees.length > 0)
-        parts.push(`${monthData.committees.length} Committee Meetings`);
+        parts.push(pl(monthData.committees.length, 'Committee Meeting', 'Committee Meetings'));
     if (monthData.pipeline.length > 0)
-        parts.push(`${monthData.pipeline.length} Pipeline Items`);
+        parts.push(pl(monthData.pipeline.length, 'Pipeline Item', 'Pipeline Items'));
     return parts.join(', ');
 }
 /**

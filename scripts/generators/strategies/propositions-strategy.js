@@ -9,6 +9,17 @@ import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildPropositionsAnalysis, buildPropositionsSwot, buildPropositionsDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+/**
+ * Singular/plural helper for metadata labels.
+ *
+ * @param n - Count
+ * @param singular - Singular form
+ * @param plural - Plural form
+ * @returns `"N singular"` or `"N plural"`
+ */
+function pl(n, singular, plural) {
+    return `${n} ${n === 1 ? singular : plural}`;
+}
 /** Base keywords shared by all Propositions articles */
 const PROPOSITIONS_BASE_KEYWORDS = [
     'European Parliament',
@@ -88,9 +99,9 @@ function buildPropositionsTitleSuffix(data) {
     const procCount = data.feedData?.procedures?.length ?? 0;
     const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
     if (procCount > 0)
-        parts.push(`${procCount} Procedures`);
+        parts.push(pl(procCount, 'Procedure', 'Procedures'));
     if (adoptedCount > 0)
-        parts.push(`${adoptedCount} Adopted Texts`);
+        parts.push(pl(adoptedCount, 'Adopted Text', 'Adopted Texts'));
     if (data.pipelineData && parts.length === 0) {
         const healthPct = Math.round(data.pipelineData.healthScore * 100);
         parts.push(`Pipeline ${healthPct}%`);

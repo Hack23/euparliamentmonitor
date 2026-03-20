@@ -140,8 +140,8 @@ function extractStatistics(content: string): string[] {
     match = countPatterns.exec(text);
   }
 
-  // Match percentages — simple integer/decimal followed by %
-  const pctPatterns = /(\d+)%/gu;
+  // Match percentages — integer or decimal followed by %
+  const pctPatterns = /(\d[\d.]*\d|\d)%/gu;
   match = pctPatterns.exec(text);
   while (match) {
     stats.push(`${match[1]}%`);

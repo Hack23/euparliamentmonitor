@@ -52,11 +52,11 @@ function computeWeekAheadDateRange(baseDate) {
 function buildWeekAheadTitleSuffix(weekData) {
     const parts = [];
     if (weekData.events.length > 0)
-        parts.push(`${weekData.events.length} Events`);
+        parts.push(pl(weekData.events.length, 'Event', 'Events'));
     if (weekData.committees.length > 0)
-        parts.push(`${weekData.committees.length} Committee Meetings`);
+        parts.push(pl(weekData.committees.length, 'Committee Meeting', 'Committee Meetings'));
     if (weekData.pipeline.length > 0)
-        parts.push(`${weekData.pipeline.length} Pipeline Items`);
+        parts.push(pl(weekData.pipeline.length, 'Pipeline Item', 'Pipeline Items'));
     return parts.join(', ');
 }
 /**

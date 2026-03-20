@@ -104,11 +104,12 @@ function buildCommitteeTitleSuffix(committeeDataList, feedData) {
     const adoptedCount = feedData?.adoptedTexts?.length ?? 0;
     const parts = [];
     if (totalDocs > 0)
-        parts.push(`${totalDocs} Documents`);
+        parts.push(pl(totalDocs, 'Document', 'Documents'));
     if (adoptedCount > 0)
-        parts.push(`${adoptedCount} Adopted Texts`);
-    if (activeCount > 0 && parts.length === 0)
-        parts.push(`${activeCount} Active Committees`);
+        parts.push(pl(adoptedCount, 'Adopted Text', 'Adopted Texts'));
+    if (activeCount > 0 && parts.length === 0) {
+        parts.push(pl(activeCount, 'Active Committee', 'Active Committees'));
+    }
     return parts.join(', ');
 }
 // Keyword lists are pre-normalized to lowercase so that each call to
