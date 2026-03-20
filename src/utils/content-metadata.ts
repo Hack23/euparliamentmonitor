@@ -79,16 +79,17 @@ function extractHeadings(content: string): string[] {
  */
 function extractLede(content: string): string {
   // Try explicit lede paragraph first: <p class="lede">...</p>
-  const ledeParagraphMatch = /<p[^>]*class="[^"]*\blede\b[^"]*"[^>]*>([\s\S]*?)<\/p>/iu.exec(content);
+  const ledeParagraphMatch = /<p[^>]*class="[^"]*\blede\b[^"]*"[^>]*>([\s\S]*?)<\/p>/iu.exec(
+    content
+  );
   if (ledeParagraphMatch?.[1]) {
     const text = stripHtml(ledeParagraphMatch[1]).trim();
     if (text.length > 20) return text;
   }
 
   // Try section-based lede: <section class="lede"> ... <p>...</p> ... </section>
-  const ledeSectionMatch = /<section[^>]*class="[^"]*\blede\b[^"]*"[^>]*>([\s\S]*?)<\/section>/iu.exec(
-    content
-  );
+  const ledeSectionMatch =
+    /<section[^>]*class="[^"]*\blede\b[^"]*"[^>]*>([\s\S]*?)<\/section>/iu.exec(content);
   if (ledeSectionMatch?.[1]) {
     const sectionParagraphMatch = /<p[^>]*>([\s\S]*?)<\/p>/iu.exec(ledeSectionMatch[1]);
     if (sectionParagraphMatch?.[1]) {
