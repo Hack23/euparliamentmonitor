@@ -18,9 +18,9 @@
   --accent-light: #e6f0ff;
 
   --text: #1a1a2e;
-  --text-secondary: #555;
-  --text-muted: #666;
-  --bg: #f4f5f7;
+  --text-secondary: #4a4f60;
+  --text-muted: #686d7c;
+  --bg: #f0f2f5;
   --bg-card: #ffffff;
   --border: #dde1e6;
   --border-light: #eef0f3;
@@ -33,9 +33,9 @@
   --warning: #e6a817;
   --danger: #dc3545;
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.04);
 
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -45,13 +45,8 @@
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-serif: Georgia, 'Times New Roman', serif;
 
-  --max-width: 1200px;
+  --max-width: 1440px;
   --transition: 0.25s ease;
-}
-
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
 }
 
 /* ─── Skip Navigation ────────────────────────────────────────────── */
@@ -88,6 +83,7 @@ html {
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  color-scheme: light dark;
 }
 
 body {
@@ -541,6 +537,7 @@ img {
   background: var(--primary);
   color: #fff;
   border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 51, 153, 0.25);
 }
 
 .filter-btn__count {
@@ -588,8 +585,8 @@ img {
 /* ─── News Card Grid ─────────────────────────────────────────────── */
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+  gap: 20px;
   list-style: none;
 }
 
@@ -602,13 +599,14 @@ img {
   flex-direction: column;
   transition:
     transform var(--transition),
-    box-shadow var(--transition);
+    box-shadow var(--transition),
+    border-color var(--transition);
   border: 1px solid var(--border-light);
   border-left: 4px solid var(--primary);
 }
 
 .news-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
   border-left-color: var(--accent);
 }
@@ -1062,7 +1060,7 @@ img {
 }
 
 .event-item:hover {
-  background: #dce3f0;
+  background: var(--accent-light);
 }
 
 .event-date {
@@ -1311,12 +1309,12 @@ img {
   }
 
   .site-main {
-    padding: 18px 14px 24px;
+    padding: 18px 16px 24px;
   }
 
   .news-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
   }
 
   .filter-toolbar {
@@ -1337,6 +1335,25 @@ img {
     -webkit-overflow-scrolling: touch;
     max-width: 100%;
     scrollbar-width: none;
+    position: relative;
+    padding-inline-end: 32px;
+  }
+
+  .filter-buttons::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, transparent, var(--bg-card));
+  }
+
+  [dir='rtl'] .filter-buttons::after {
+    right: auto;
+    left: 0;
+    background: linear-gradient(to left, transparent, var(--bg-card));
   }
 
   .filter-buttons::-webkit-scrollbar {
@@ -1526,29 +1543,42 @@ button:focus-visible {
 /* ─── Dark Mode ──────────────────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1a1a2e;
-    --bg-card: #2a2a3e;
-    --text: #e4e4e4;
-    --text-secondary: #b0b0c0;
-    --text-muted: #909090;
-    --border: #444466;
-    --border-light: #333355;
+    --bg: #0f1219;
+    --bg-card: #1a1f2e;
+    --text: #e8eaf0;
+    --text-secondary: #b4b8c8;
+    --text-muted: #8a8fa0;
+    --border: #2d3348;
+    --border-light: #252a3a;
 
     /* Dark mode brand/foreground colors */
     --primary: #4da3ff;
-    --primary-dark: #80b3ff;
-    --primary-light: #1e2a4e;
+    --primary-dark: #1a4a80;
+    --primary-light: #1a2540;
     /* Focus ring — light so it contrasts on dark backgrounds */
     --focus-ring: #cce5ff;
-    --accent: #66c2ff;
-    --accent-light: #27416b;
+    --accent: #5cb8ff;
+    --accent-light: #1a2d4a;
     --secondary: #ffd633;
     --secondary-dark: #e6b800;
-    /* on-secondary stays dark — #1a1a2e on #FFD633 gives ~10:1 contrast */
-    --on-secondary: #1a1a2e;
+    /* on-secondary stays dark — #0f1219 on #FFD633 gives ~12:1 contrast */
+    --on-secondary: #0f1219;
+
+    --success: #34d058;
+    --warning: #f0b429;
+    --danger: #f85149;
+
+    --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 1px rgba(77, 163, 255, 0.06);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 2px rgba(77, 163, 255, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 4px rgba(77, 163, 255, 0.1);
+    --shadow-hover-glow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 0 8px rgba(77, 163, 255, 0.12);
+
+    --hero-surface-strong: rgba(255, 255, 255, 0.1);
+    --hero-surface-soft: rgba(255, 255, 255, 0.04);
+    --hero-surface-border: rgba(255, 255, 255, 0.1);
 
     /* Dark mode political group colors — lighter for visibility on dark cards.
-     * All colors achieve ≥4.5:1 contrast against dark text (var(--bg) = #1a1a2e)
+     * All colors achieve ≥4.5:1 contrast against dark text (var(--bg) = #0f1219)
      * as required by WCAG 2.1 AA for small text.
      */
     --group-epp: #4a9fe6;
@@ -1558,6 +1588,12 @@ button:focus-visible {
     --group-ecr: #33bbee;
     --group-id: #7088d8;
     --group-left: #d46060;
+  }
+
+  /* Smoother header-to-body gradient in dark mode */
+  .site-header {
+    background: linear-gradient(135deg, #0d2a5c 0%, #0a1a38 100%);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5), 0 0 1px rgba(77, 163, 255, 0.15);
   }
 }
 
@@ -1820,8 +1856,8 @@ button:focus-visible {
 /* ─── Dark Mode Component Overrides ─────────────────────────── */
 @media (prefers-color-scheme: dark) {
   .key-findings {
-    background: #2a2400;
-    border-color: #665c00;
+    background: #1c1a08;
+    border-color: #4a4400;
     border-left-color: var(--secondary);
   }
 
@@ -1830,43 +1866,43 @@ button:focus-visible {
   }
 
   .key-findings__list li {
-    border-bottom-color: rgba(255, 255, 255, 0.08);
+    border-bottom-color: rgba(255, 255, 255, 0.06);
   }
 
   .pull-quote {
-    background: #1e2a4e;
+    background: #131d35;
   }
 
   .data-card {
-    border-color: #444466;
+    border-color: var(--border);
     border-left-color: var(--accent);
   }
 
   .status-badge--passed {
-    background: #1a3a1a;
-    color: #90ee90;
+    background: #0d2818;
+    color: #6ee7a0;
   }
 
   .status-badge--pending {
-    background: #3a2e00;
+    background: #2a2000;
     color: #ffd860;
   }
 
   .status-badge--failed {
-    background: #3a0a0a;
+    background: #2a0808;
     color: #ff9090;
   }
 
   /* Group badges use dark text on lighter dark-mode backgrounds
-   * (--bg = #1a1a2e, same as --on-secondary in dark mode) */
+   * (--bg = #0f1219, same as --on-secondary in dark mode) */
   .group-badge {
     color: var(--bg);
   }
 
-  /* Brand hover on light-blue dark-mode header: --secondary (#FFD633) gives
-   * only ~1.5:1 on --primary (#4da3ff). Use --bg (#1a1a2e) instead → ~7:1. */
+  /* Brand hover — use white (#fff) for maximum contrast against
+   * the dark header gradient (#0d2a5c → #0a1a38). */
   .site-header__brand:hover {
-    color: var(--bg);
+    color: #fff;
   }
 
   .ai-intelligence {
@@ -1903,6 +1939,7 @@ button:focus-visible {
   .filter-btn.active {
     background: var(--primary);
     color: #fff;
+    box-shadow: 0 2px 12px rgba(77, 163, 255, 0.3);
   }
 
   .filter-search__input {
@@ -1911,12 +1948,246 @@ button:focus-visible {
     color: var(--text);
   }
 
+  .filter-search__input::placeholder {
+    color: var(--text-muted);
+  }
+
   .news-card {
-    border-color: var(--border);
+    border-top-color: var(--border);
+    border-right-color: var(--border);
+    border-bottom-color: var(--border);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .news-card:hover {
+    box-shadow: var(--shadow-hover-glow);
+    border-color: var(--accent);
   }
 
   .news-article {
     border-top-color: var(--primary);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Dark mode badge backgrounds — use darker, theme-appropriate tints */
+  .news-card__badge--week-ahead {
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+
+  .news-card__badge--committee-reports {
+    background: #0d2818;
+    color: #5ed08a;
+  }
+
+  .news-card__badge--motions {
+    background: #2a2000;
+    color: #f0c040;
+  }
+
+  .news-card__badge--propositions {
+    background: #1e1040;
+    color: #b07aff;
+  }
+
+  .news-card__badge--breaking {
+    background: #2a0808;
+    color: #ff7070;
+  }
+
+  .news-card__badge--month-ahead {
+    background: #0a1e30;
+    color: #4db8e8;
+  }
+
+  .news-card__badge--week-in-review {
+    background: #2a1a08;
+    color: #f0a050;
+  }
+
+  .news-card__badge--month-in-review {
+    background: #0d2818;
+    color: #5ed08a;
+  }
+
+  /* Dark mode context section and event items */
+  .context {
+    background: var(--primary-light);
+    border-left-color: var(--primary);
+  }
+
+  .event-item {
+    background: var(--primary-light);
+    border-left-color: var(--primary);
+  }
+
+  .event-item:hover {
+    background: var(--accent-light);
+  }
+
+  /* Dark mode deep-analysis */
+  .deep-analysis {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-card) 100%);
+  }
+
+  .deep-analysis h2 {
+    color: var(--primary);
+  }
+
+  /* Dark mode stakeholders */
+  .stakeholder-winner {
+    background: #0d2818;
+    border-color: var(--success);
+  }
+
+  .stakeholder-loser {
+    background: #2a0808;
+    border-color: var(--danger);
+  }
+
+  .stakeholder-neutral {
+    background: #2a2000;
+    border-color: var(--warning);
+  }
+
+  /* Dark mode severity badges */
+  .severity-low {
+    background: #0d2818;
+    color: #5ed08a;
+  }
+
+  .severity-medium {
+    background: #2a1a08;
+    color: #f0a050;
+  }
+
+  .severity-high {
+    background: #2a0808;
+    color: #ff7070;
+  }
+
+  .severity-critical {
+    background: #5a0a2a;
+    color: #ff90b0;
+  }
+
+  /* Dark mode analysis blocks */
+  .evidence-refs-block,
+  .counter-args-block {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .analysis-executive-summary {
+    background: linear-gradient(135deg, var(--primary-light), var(--bg-card));
+  }
+
+  /* Dark mode mistake cards */
+  .mistake-card {
+    background: #1a0a0a;
+    border-left-color: var(--danger);
+  }
+
+  .mistake-actor {
+    color: #ff7070;
+  }
+
+  /* Dark mode confidence badges */
+  .confidence-high {
+    background: #0d2818;
+    color: #5ed08a;
+    border-color: var(--success);
+  }
+
+  .confidence-medium {
+    background: #2a2000;
+    color: #f0c040;
+    border-color: #f0c040;
+  }
+
+  .confidence-low {
+    background: #2a0808;
+    color: #ff7070;
+    border-color: var(--danger);
+  }
+
+  /* Dark mode empty state */
+  .empty-state {
+    border-color: var(--border);
+  }
+
+  /* Dark mode section heading */
+  .section-heading {
+    border-bottom-color: var(--border);
+  }
+
+  /* Dark mode footer — deeper background for separation */
+  .site-footer {
+    background: #070a10;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-bottom {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Dark mode tables */
+  .consequences-table th {
+    background: var(--primary-light);
+    color: var(--text);
+  }
+
+  .consequences-table td {
+    border-bottom-color: var(--border);
+  }
+
+  .consequences-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  /* Dark mode impact cards */
+  .impact-card {
+    background: var(--bg-card);
+    border-color: var(--border);
+  }
+
+  /* Dark mode analysis sub-sections */
+  .analysis-what,
+  .analysis-who,
+  .analysis-when,
+  .analysis-why,
+  .analysis-outlook {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-light);
+  }
+
+  /* Dark mode hero section border */
+  .hero {
+    border-bottom-color: var(--secondary-dark);
+  }
+
+  /* Dark mode lede paragraph */
+  .lede {
+    border-left-color: var(--secondary);
+  }
+
+  /* Dark mode article header border */
+  .article-header {
+    border-bottom-color: var(--border);
+  }
+
+  /* Dark mode article footer border */
+  .article-footer {
+    border-top-color: var(--border);
+  }
+
+  /* Dark mode links — ensure visibility */
+  a {
+    color: var(--accent);
+  }
+
+  a:hover {
+    color: var(--primary);
   }
 }
 
@@ -1926,12 +2197,12 @@ button:focus-visible {
  */
 @media (prefers-color-scheme: dark) {
   [dir='rtl'] .key-findings {
-    border-left-color: #665c00;
+    border-left-color: #4a4400;
     border-right-color: var(--secondary);
   }
 
   [dir='rtl'] .data-card {
-    border-left-color: #444466;
+    border-left-color: var(--border);
     border-right-color: var(--accent);
   }
 
