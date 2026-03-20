@@ -49,9 +49,10 @@
   --transition: 0.25s ease;
 }
 
-/* Smooth scroll */
+/* Smooth scroll & native dark-mode integration */
 html {
   scroll-behavior: smooth;
+  color-scheme: light dark;
 }
 
 /* ─── Skip Navigation ────────────────────────────────────────────── */
@@ -541,6 +542,7 @@ img {
   background: var(--primary);
   color: #fff;
   border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 51, 153, 0.25);
 }
 
 .filter-btn__count {
@@ -609,7 +611,7 @@ img {
 }
 
 .news-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
   border-left-color: var(--accent);
 }
@@ -1063,7 +1065,7 @@ img {
 }
 
 .event-item:hover {
-  background: #dce3f0;
+  background: var(--accent-light);
 }
 
 .event-date {
@@ -1338,6 +1340,9 @@ img {
     -webkit-overflow-scrolling: touch;
     max-width: 100%;
     scrollbar-width: none;
+    /* Inline-end fade hint for scroll overflow */
+    mask-image: linear-gradient(to right, black calc(100% - 32px), transparent);
+    -webkit-mask-image: linear-gradient(to right, black calc(100% - 32px), transparent);
   }
 
   .filter-buttons::-webkit-scrollbar {
@@ -1537,7 +1542,7 @@ button:focus-visible {
 
     /* Dark mode brand/foreground colors */
     --primary: #4da3ff;
-    --primary-dark: #80b3ff;
+    --primary-dark: #1a4a80;
     --primary-light: #1a2540;
     /* Focus ring — light so it contrasts on dark backgrounds */
     --focus-ring: #cce5ff;
@@ -1552,9 +1557,9 @@ button:focus-visible {
     --warning: #f0b429;
     --danger: #f85149;
 
-    --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 1px rgba(77, 163, 255, 0.06);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 2px rgba(77, 163, 255, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 4px rgba(77, 163, 255, 0.1);
 
     --hero-surface-strong: rgba(255, 255, 255, 0.1);
     --hero-surface-soft: rgba(255, 255, 255, 0.04);
@@ -1571,6 +1576,12 @@ button:focus-visible {
     --group-ecr: #33bbee;
     --group-id: #7088d8;
     --group-left: #d46060;
+  }
+
+  /* Smoother header-to-body gradient in dark mode */
+  .site-header {
+    background: linear-gradient(135deg, #0d2a5c 0%, #0a1a38 100%);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5), 0 0 1px rgba(77, 163, 255, 0.15);
   }
 }
 
@@ -1916,6 +1927,7 @@ button:focus-visible {
   .filter-btn.active {
     background: var(--primary);
     color: #fff;
+    box-shadow: 0 2px 12px rgba(77, 163, 255, 0.3);
   }
 
   .filter-search__input {
@@ -1931,14 +1943,17 @@ button:focus-visible {
   .news-card {
     border-color: var(--border);
     background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
   }
 
   .news-card:hover {
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 0 8px rgba(77, 163, 255, 0.12);
+    border-color: var(--accent);
   }
 
   .news-article {
     border-top-color: var(--primary);
+    box-shadow: var(--shadow-md);
   }
 
   /* Dark mode badge backgrounds — use darker, theme-appropriate tints */
@@ -2095,10 +2110,70 @@ button:focus-visible {
   /* Dark mode footer — deeper background for separation */
   .site-footer {
     background: #070a10;
+    border-top: 1px solid var(--border);
   }
 
   .footer-bottom {
     border-top-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Dark mode tables */
+  .consequences-table th {
+    background: var(--primary-light);
+    color: var(--text);
+  }
+
+  .consequences-table td {
+    border-bottom-color: var(--border);
+  }
+
+  .consequences-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  /* Dark mode impact cards */
+  .impact-card {
+    background: var(--bg-card);
+    border-color: var(--border);
+  }
+
+  /* Dark mode analysis sub-sections */
+  .analysis-what,
+  .analysis-who,
+  .analysis-when,
+  .analysis-why,
+  .analysis-outlook {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-light);
+  }
+
+  /* Dark mode hero section border */
+  .hero {
+    border-bottom-color: var(--secondary-dark);
+  }
+
+  /* Dark mode lede paragraph */
+  .lede {
+    border-left-color: var(--secondary);
+  }
+
+  /* Dark mode article header border */
+  .article-header {
+    border-bottom-color: var(--border);
+  }
+
+  /* Dark mode article footer border */
+  .article-footer {
+    border-top-color: var(--border);
+  }
+
+  /* Dark mode links — ensure visibility */
+  a {
+    color: var(--accent);
+  }
+
+  a:hover {
+    color: var(--primary);
   }
 }
 
