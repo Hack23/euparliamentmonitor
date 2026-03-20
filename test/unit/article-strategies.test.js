@@ -167,8 +167,8 @@ describe('BreakingNewsStrategy', () => {
 
   it('getMetadata subtitle includes feed data highlights', () => {
     const meta = strategy.getMetadata(breakingNewsData, 'en');
-    // subtitle should mention adopted texts from feed data
-    expect(meta.subtitle).toContain('adopted texts');
+    // subtitle should mention adopted text from feed data (singular since fixture has 1 item)
+    expect(meta.subtitle).toContain('adopted text');
   });
 
   it('getMetadata keywords include adopted text titles from feed data', () => {

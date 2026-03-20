@@ -8,6 +8,17 @@ import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+/**
+ * Return singular or plural form based on count.
+ *
+ * @param n - Item count
+ * @param singular - Singular form
+ * @param plural - Plural form
+ * @returns `"N singular"` or `"N plural"`
+ */
+function pl(n, singular, plural) {
+    return `${n} ${n === 1 ? singular : plural}`;
+}
 /** Base keywords shared by all Breaking News articles */
 const BREAKING_NEWS_BASE_KEYWORDS = [
     'European Parliament',
@@ -57,13 +68,13 @@ function buildBreakingDescription(date, feedData) {
         return `European Parliament breaking developments for ${date}.`;
     const counts = [];
     if (feedData.adoptedTexts.length > 0)
-        counts.push(`${feedData.adoptedTexts.length} adopted texts`);
+        counts.push(pl(feedData.adoptedTexts.length, 'adopted text', 'adopted texts'));
     if (feedData.events.length > 0)
-        counts.push(`${feedData.events.length} events`);
+        counts.push(pl(feedData.events.length, 'event', 'events'));
     if (feedData.procedures.length > 0)
-        counts.push(`${feedData.procedures.length} procedures`);
+        counts.push(pl(feedData.procedures.length, 'procedure', 'procedures'));
     if (feedData.mepUpdates.length > 0)
-        counts.push(`${feedData.mepUpdates.length} MEP updates`);
+        counts.push(pl(feedData.mepUpdates.length, 'MEP update', 'MEP updates'));
     if (counts.length === 0)
         return `European Parliament breaking developments for ${date}.`;
     const highlight = feedData.adoptedTexts[0]?.title ?? feedData.events[0]?.title ?? '';
