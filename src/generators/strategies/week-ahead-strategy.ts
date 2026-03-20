@@ -28,6 +28,18 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
+/**
+ * Return singular or plural form based on count.
+ *
+ * @param n - Item count
+ * @param singular - Singular form
+ * @param plural - Plural form
+ * @returns `"N singular"` or `"N plural"`
+ */
+function pl(n: number, singular: string, plural: string): string {
+  return `${n} ${n === 1 ? singular : plural}`;
+}
+
 // ─── Data payload ─────────────────────────────────────────────────────────────
 
 /** Data fetched and pre-processed by {@link WeekAheadStrategy} */
@@ -98,13 +110,18 @@ function buildWeekAheadTitleSuffix(weekData: WeekAheadData): string {
  */
 function buildWeekAheadDescription(weekData: WeekAheadData, dateRange: DateRange): string {
   const parts: string[] = [];
-  if (weekData.events.length > 0) parts.push(`${weekData.events.length} scheduled events`);
+  if (weekData.events.length > 0)
+    parts.push(`${pl(weekData.events.length, 'scheduled event', 'scheduled events')}`);
   if (weekData.committees.length > 0)
-    parts.push(`${weekData.committees.length} committee meetings`);
+    parts.push(`${pl(weekData.committees.length, 'committee meeting', 'committee meetings')}`);
   if (weekData.pipeline.length > 0)
-    parts.push(`${weekData.pipeline.length} legislative pipeline items`);
+    parts.push(
+      `${pl(weekData.pipeline.length, 'legislative pipeline item', 'legislative pipeline items')}`
+    );
   if (weekData.questions.length > 0)
-    parts.push(`${weekData.questions.length} parliamentary questions`);
+    parts.push(
+      `${pl(weekData.questions.length, 'parliamentary question', 'parliamentary questions')}`
+    );
 
   if (parts.length === 0) {
     return `European Parliament calendar and plenary agenda for ${dateRange.start} to ${dateRange.end}.`;

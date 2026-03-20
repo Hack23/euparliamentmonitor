@@ -8,6 +8,17 @@ import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+/**
+ * Return singular or plural form based on count.
+ *
+ * @param n - Item count
+ * @param singular - Singular form
+ * @param plural - Plural form
+ * @returns `"N singular"` or `"N plural"`
+ */
+function pl(n, singular, plural) {
+    return `${n} ${n === 1 ? singular : plural}`;
+}
 /** Keywords shared by all Month Ahead articles */
 const MONTH_AHEAD_KEYWORDS = [
     'European Parliament',
@@ -41,13 +52,13 @@ function buildMonthAheadTitleSuffix(monthData) {
 function buildMonthAheadDescription(monthData, monthLabel) {
     const parts = [];
     if (monthData.events.length > 0)
-        parts.push(`${monthData.events.length} scheduled events`);
+        parts.push(pl(monthData.events.length, 'scheduled event', 'scheduled events'));
     if (monthData.committees.length > 0)
-        parts.push(`${monthData.committees.length} committee meetings`);
+        parts.push(pl(monthData.committees.length, 'committee meeting', 'committee meetings'));
     if (monthData.pipeline.length > 0)
-        parts.push(`${monthData.pipeline.length} pipeline procedures`);
+        parts.push(pl(monthData.pipeline.length, 'pipeline procedure', 'pipeline procedures'));
     if (monthData.questions.length > 0)
-        parts.push(`${monthData.questions.length} parliamentary questions`);
+        parts.push(pl(monthData.questions.length, 'parliamentary question', 'parliamentary questions'));
     if (parts.length === 0) {
         return `European Parliament strategic outlook for ${monthLabel} — legislative milestones and policy agenda.`;
     }

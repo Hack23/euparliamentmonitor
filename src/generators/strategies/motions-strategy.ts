@@ -36,6 +36,18 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
+/**
+ * Return singular or plural form based on count.
+ *
+ * @param n - Item count
+ * @param singular - Singular form
+ * @param plural - Plural form
+ * @returns `"N singular"` or `"N plural"`
+ */
+function pl(n: number, singular: string, plural: string): string {
+  return `${n} ${n === 1 ? singular : plural}`;
+}
+
 /** Base keywords shared by all Motions articles */
 const MOTIONS_BASE_KEYWORDS = [
   'European Parliament',
@@ -85,11 +97,14 @@ function buildMotionsKeywords(data: MotionsArticleData): string[] {
 function buildMotionsDescription(data: MotionsArticleData): string {
   const parts: string[] = [];
 
-  if (data.votingRecords.length > 0) parts.push(`${data.votingRecords.length} votes analysed`);
-  if (data.anomalies.length > 0) parts.push(`${data.anomalies.length} anomalies detected`);
-  if (data.questions.length > 0) parts.push(`${data.questions.length} parliamentary questions`);
+  if (data.votingRecords.length > 0)
+    parts.push(`${pl(data.votingRecords.length, 'vote', 'votes')} analysed`);
+  if (data.anomalies.length > 0)
+    parts.push(`${pl(data.anomalies.length, 'anomaly', 'anomalies')} detected`);
+  if (data.questions.length > 0)
+    parts.push(pl(data.questions.length, 'parliamentary question', 'parliamentary questions'));
   const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
-  if (adoptedCount > 0) parts.push(`${adoptedCount} adopted texts`);
+  if (adoptedCount > 0) parts.push(pl(adoptedCount, 'adopted text', 'adopted texts'));
 
   if (parts.length === 0) {
     return `European Parliament plenary votes and resolutions from ${data.dateFromStr} to ${data.date}.`;

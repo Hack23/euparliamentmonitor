@@ -8,6 +8,17 @@ import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+/**
+ * Return singular or plural form based on count.
+ *
+ * @param n - Item count
+ * @param singular - Singular form
+ * @param plural - Plural form
+ * @returns `"N singular"` or `"N plural"`
+ */
+function pl(n, singular, plural) {
+    return `${n} ${n === 1 ? singular : plural}`;
+}
 /** Base keywords shared by all Monthly Review articles */
 const MONTHLY_REVIEW_BASE_KEYWORDS = [
     'European Parliament',
@@ -46,11 +57,11 @@ function buildMonthlyReviewKeywords(data) {
 function buildMonthlyReviewDescription(data) {
     const parts = [];
     if (data.votingRecords.length > 0)
-        parts.push(`${data.votingRecords.length} votes analysed`);
+        parts.push(`${pl(data.votingRecords.length, 'vote', 'votes')} analysed`);
     if (data.anomalies.length > 0)
-        parts.push(`${data.anomalies.length} voting anomalies`);
+        parts.push(pl(data.anomalies.length, 'voting anomaly', 'voting anomalies'));
     if (data.questions.length > 0)
-        parts.push(`${data.questions.length} questions tabled`);
+        parts.push(`${pl(data.questions.length, 'question', 'questions')} tabled`);
     if (parts.length === 0) {
         return `European Parliament monthly review for ${data.monthLabel} — legislative output and coalition dynamics.`;
     }

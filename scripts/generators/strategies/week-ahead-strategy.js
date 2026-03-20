@@ -8,6 +8,17 @@ import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+/**
+ * Return singular or plural form based on count.
+ *
+ * @param n - Item count
+ * @param singular - Singular form
+ * @param plural - Plural form
+ * @returns `"N singular"` or `"N plural"`
+ */
+function pl(n, singular, plural) {
+    return `${n} ${n === 1 ? singular : plural}`;
+}
 // ─── Date-range helper ────────────────────────────────────────────────────────
 /**
  * Compute the week-ahead date range starting the day after `baseDate`.
@@ -59,13 +70,13 @@ function buildWeekAheadTitleSuffix(weekData) {
 function buildWeekAheadDescription(weekData, dateRange) {
     const parts = [];
     if (weekData.events.length > 0)
-        parts.push(`${weekData.events.length} scheduled events`);
+        parts.push(`${pl(weekData.events.length, 'scheduled event', 'scheduled events')}`);
     if (weekData.committees.length > 0)
-        parts.push(`${weekData.committees.length} committee meetings`);
+        parts.push(`${pl(weekData.committees.length, 'committee meeting', 'committee meetings')}`);
     if (weekData.pipeline.length > 0)
-        parts.push(`${weekData.pipeline.length} legislative pipeline items`);
+        parts.push(`${pl(weekData.pipeline.length, 'legislative pipeline item', 'legislative pipeline items')}`);
     if (weekData.questions.length > 0)
-        parts.push(`${weekData.questions.length} parliamentary questions`);
+        parts.push(`${pl(weekData.questions.length, 'parliamentary question', 'parliamentary questions')}`);
     if (parts.length === 0) {
         return `European Parliament calendar and plenary agenda for ${dateRange.start} to ${dateRange.end}.`;
     }

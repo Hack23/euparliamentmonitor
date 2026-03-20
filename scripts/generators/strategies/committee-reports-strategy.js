@@ -9,6 +9,17 @@ import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildCommitteeAnalysis, buildCommitteeSwot, buildCommitteeDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+/**
+ * Return singular or plural form based on count.
+ *
+ * @param n - Item count
+ * @param singular - Singular form
+ * @param plural - Plural form
+ * @returns `"N singular"` or `"N plural"`
+ */
+function pl(n, singular, plural) {
+    return `${n} ${n === 1 ? singular : plural}`;
+}
 /** European Parliament home-page URL used as source reference */
 const EP_SOURCE_URL = 'https://www.europarl.europa.eu';
 /** European Parliament display name for source titles and article lede */
@@ -63,11 +74,11 @@ function buildCommitteeDescription(committeeDataList, feedData) {
     const adoptedCount = feedData?.adoptedTexts?.length ?? 0;
     const parts = [];
     if (activeCount > 0)
-        parts.push(`${activeCount} committees reporting`);
+        parts.push(`${pl(activeCount, 'committee', 'committees')} reporting`);
     if (totalDocs > 0)
-        parts.push(`${totalDocs} recent documents`);
+        parts.push(pl(totalDocs, 'recent document', 'recent documents'));
     if (adoptedCount > 0)
-        parts.push(`${adoptedCount} adopted texts`);
+        parts.push(pl(adoptedCount, 'adopted text', 'adopted texts'));
     const abbrs = committeeDataList
         .filter((c) => c.chair !== PLACEHOLDER_CHAIR)
         .map((c) => c.abbreviation)

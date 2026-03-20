@@ -39,6 +39,18 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
+/**
+ * Return singular or plural form based on count.
+ *
+ * @param n - Item count
+ * @param singular - Singular form
+ * @param plural - Plural form
+ * @returns `"N singular"` or `"N plural"`
+ */
+function pl(n: number, singular: string, plural: string): string {
+  return `${n} ${n === 1 ? singular : plural}`;
+}
+
 // ─── Data payload ─────────────────────────────────────────────────────────────
 
 /** Data fetched and pre-processed by {@link MonthlyReviewStrategy} */
@@ -100,9 +112,12 @@ function buildMonthlyReviewKeywords(data: MonthlyReviewArticleData): string[] {
 function buildMonthlyReviewDescription(data: MonthlyReviewArticleData): string {
   const parts: string[] = [];
 
-  if (data.votingRecords.length > 0) parts.push(`${data.votingRecords.length} votes analysed`);
-  if (data.anomalies.length > 0) parts.push(`${data.anomalies.length} voting anomalies`);
-  if (data.questions.length > 0) parts.push(`${data.questions.length} questions tabled`);
+  if (data.votingRecords.length > 0)
+    parts.push(`${pl(data.votingRecords.length, 'vote', 'votes')} analysed`);
+  if (data.anomalies.length > 0)
+    parts.push(pl(data.anomalies.length, 'voting anomaly', 'voting anomalies'));
+  if (data.questions.length > 0)
+    parts.push(`${pl(data.questions.length, 'question', 'questions')} tabled`);
 
   if (parts.length === 0) {
     return `European Parliament monthly review for ${data.monthLabel} — legislative output and coalition dynamics.`;

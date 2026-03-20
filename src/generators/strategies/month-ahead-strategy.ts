@@ -25,6 +25,18 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
+/**
+ * Return singular or plural form based on count.
+ *
+ * @param n - Item count
+ * @param singular - Singular form
+ * @param plural - Plural form
+ * @returns `"N singular"` or `"N plural"`
+ */
+function pl(n: number, singular: string, plural: string): string {
+  return `${n} ${n === 1 ? singular : plural}`;
+}
+
 // ─── Data payload ─────────────────────────────────────────────────────────────
 
 /** Data fetched and pre-processed by {@link MonthAheadStrategy} */
@@ -73,12 +85,14 @@ function buildMonthAheadTitleSuffix(monthData: WeekAheadData): string {
  */
 function buildMonthAheadDescription(monthData: WeekAheadData, monthLabel: string): string {
   const parts: string[] = [];
-  if (monthData.events.length > 0) parts.push(`${monthData.events.length} scheduled events`);
+  if (monthData.events.length > 0)
+    parts.push(pl(monthData.events.length, 'scheduled event', 'scheduled events'));
   if (monthData.committees.length > 0)
-    parts.push(`${monthData.committees.length} committee meetings`);
-  if (monthData.pipeline.length > 0) parts.push(`${monthData.pipeline.length} pipeline procedures`);
+    parts.push(pl(monthData.committees.length, 'committee meeting', 'committee meetings'));
+  if (monthData.pipeline.length > 0)
+    parts.push(pl(monthData.pipeline.length, 'pipeline procedure', 'pipeline procedures'));
   if (monthData.questions.length > 0)
-    parts.push(`${monthData.questions.length} parliamentary questions`);
+    parts.push(pl(monthData.questions.length, 'parliamentary question', 'parliamentary questions'));
 
   if (parts.length === 0) {
     return `European Parliament strategic outlook for ${monthLabel} — legislative milestones and policy agenda.`;

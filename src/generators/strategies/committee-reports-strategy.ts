@@ -39,6 +39,18 @@ import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import type { ArticleSource } from '../../types/index.js';
 
+/**
+ * Return singular or plural form based on count.
+ *
+ * @param n - Item count
+ * @param singular - Singular form
+ * @param plural - Plural form
+ * @returns `"N singular"` or `"N plural"`
+ */
+function pl(n: number, singular: string, plural: string): string {
+  return `${n} ${n === 1 ? singular : plural}`;
+}
+
 /** European Parliament home-page URL used as source reference */
 const EP_SOURCE_URL = 'https://www.europarl.europa.eu';
 
@@ -104,9 +116,9 @@ function buildCommitteeDescription(
   const adoptedCount = feedData?.adoptedTexts?.length ?? 0;
 
   const parts: string[] = [];
-  if (activeCount > 0) parts.push(`${activeCount} committees reporting`);
-  if (totalDocs > 0) parts.push(`${totalDocs} recent documents`);
-  if (adoptedCount > 0) parts.push(`${adoptedCount} adopted texts`);
+  if (activeCount > 0) parts.push(`${pl(activeCount, 'committee', 'committees')} reporting`);
+  if (totalDocs > 0) parts.push(pl(totalDocs, 'recent document', 'recent documents'));
+  if (adoptedCount > 0) parts.push(pl(adoptedCount, 'adopted text', 'adopted texts'));
 
   const abbrs = committeeDataList
     .filter((c) => c.chair !== PLACEHOLDER_CHAIR)

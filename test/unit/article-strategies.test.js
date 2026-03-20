@@ -96,7 +96,7 @@ describe('WeekAheadStrategy', () => {
   it('getMetadata subtitle includes event counts from data', () => {
     const meta = strategy.getMetadata(weekAheadData, 'en');
     // weekAheadData has 1 event
-    expect(meta.subtitle).toContain('1 scheduled events');
+    expect(meta.subtitle).toContain('1 scheduled event');
   });
 
   it('getMetadata title includes content-aware suffix when events exist', () => {
@@ -551,8 +551,8 @@ describe('CommitteeReportsStrategy', () => {
   it('getMetadata subtitle includes committee document counts', () => {
     const meta = strategy.getMetadata(committeeReportsData, 'en');
     // committeeReportsData has 1 committee with 1 doc and a real chair
-    expect(meta.subtitle).toContain('1 committees reporting');
-    expect(meta.subtitle).toContain('1 recent documents');
+    expect(meta.subtitle).toContain('1 committee reporting');
+    expect(meta.subtitle).toContain('1 recent document');
   });
 
   it('getMetadata title includes content-aware suffix', () => {
@@ -728,8 +728,8 @@ describe('MotionsStrategy', () => {
 
   it('getMetadata subtitle includes vote count and anomaly count', () => {
     const meta = strategy.getMetadata(motionsData, 'en');
-    expect(meta.subtitle).toContain('1 votes analysed');
-    expect(meta.subtitle).toContain('1 anomalies detected');
+    expect(meta.subtitle).toContain('1 vote analysed');
+    expect(meta.subtitle).toContain('1 anomaly detected');
   });
 
   it('getMetadata title includes content-aware suffix', () => {
@@ -1271,7 +1271,7 @@ describe('MonthAheadStrategy', () => {
   it('getMetadata subtitle includes event counts from data', () => {
     const meta = strategy.getMetadata(monthAheadData, 'en');
     // monthAheadData has 1 event
-    expect(meta.subtitle).toContain('1 scheduled events');
+    expect(meta.subtitle).toContain('1 scheduled event');
   });
 
   it('getMetadata title includes content-aware suffix when events exist', () => {
@@ -1364,8 +1364,8 @@ describe('WeeklyReviewStrategy', () => {
 
   it('getMetadata subtitle includes vote and anomaly counts', () => {
     const meta = strategy.getMetadata(weeklyReviewData, 'en');
-    expect(meta.subtitle).toContain('1 votes analysed');
-    expect(meta.subtitle).toContain('1 voting anomalies');
+    expect(meta.subtitle).toContain('1 vote analysed');
+    expect(meta.subtitle).toContain('1 voting anomaly');
   });
 
   it('getMetadata title includes content-aware suffix', () => {
@@ -1484,8 +1484,8 @@ describe('MonthlyReviewStrategy', () => {
 
   it('getMetadata subtitle includes vote and anomaly counts', () => {
     const meta = strategy.getMetadata(monthlyReviewData, 'en');
-    expect(meta.subtitle).toContain('1 votes analysed');
-    expect(meta.subtitle).toContain('1 voting anomalies');
+    expect(meta.subtitle).toContain('1 vote analysed');
+    expect(meta.subtitle).toContain('1 voting anomaly');
   });
 
   it('getMetadata title includes content-aware suffix', () => {

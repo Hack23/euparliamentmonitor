@@ -107,8 +107,32 @@ function extractStatistics(content: string): string[] {
 
   // Match "N adopted texts" / "N documents" / "N procedures" / "N events" etc.
   // Use a simple alternation list — no nested quantifiers.
-  const countWords =
-    'adopted texts|adopted text|documents|document|procedures|procedure|events|event|votes|vote|questions|question|anomalies|anomaly|committees|committee|resolutions|resolution|MEPs|MEP|sessions|session|meetings|meeting';
+  const countWords = [
+    'adopted texts',
+    'adopted text',
+    'documents',
+    'document',
+    'procedures',
+    'procedure',
+    'events',
+    'event',
+    'votes',
+    'vote',
+    'questions',
+    'question',
+    'anomalies',
+    'anomaly',
+    'committees',
+    'committee',
+    'resolutions',
+    'resolution',
+    'MEPs',
+    'MEP',
+    'sessions',
+    'session',
+    'meetings',
+    'meeting',
+  ].join('|');
   const countPatterns = new RegExp(`(\\d+)\\s+(${countWords})`, 'giu');
   let match: RegExpExecArray | null = countPatterns.exec(text);
   while (match) {
