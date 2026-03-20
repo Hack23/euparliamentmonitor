@@ -372,7 +372,8 @@ export function rankStakeholdersByInfluence(perspectives) {
  * unanimity, polarization, and margin characteristics.
  *
  * @param records - Voting records to analyse
- * @returns VotingIntensity metrics, or null if records array is empty
+ * @returns VotingIntensity metrics, or null if the records array is empty or contains no
+ * valid vote counts (for example, when all records have a total vote count of 0)
  */
 export function computeVotingIntensity(records) {
     if (records.length === 0)
@@ -396,25 +397,25 @@ export function computeVotingIntensity(records) {
         // Largest-position share: max share among for/against/abstain
         const maxPct = Math.max(forPct, againstPct, abstainPct);
         totalUnanimity += maxPct;
-        // Polarization: how evenly split is for vs against? (only counted when for+against > 0)
+        // Margin, close/decisive, and polarization only meaningful when for+against > 0
         const forAgainstTotal = record.votes.for + record.votes.against;
         if (forAgainstTotal > 0) {
             polarizationCount++;
             const balance = Math.min(record.votes.for, record.votes.against) / forAgainstTotal;
             totalPolarization += balance * 2; // normalise: 0 = one-sided, 1 = perfectly split
+            totalMargin += margin;
+            if (margin < 0.1)
+                closeVoteCount++;
+            if (margin > 0.6)
+                decisiveVoteCount++;
         }
-        totalMargin += margin;
-        if (margin < 0.1)
-            closeVoteCount++;
-        if (margin > 0.6)
-            decisiveVoteCount++;
     }
     if (validCount === 0)
         return null;
     return {
         unanimity: Math.round((totalUnanimity / validCount) * 100) / 100,
         polarization: polarizationCount > 0 ? Math.round((totalPolarization / polarizationCount) * 100) / 100 : 0,
-        averageMargin: Math.round((totalMargin / validCount) * 100) / 100,
+        averageMargin: polarizationCount > 0 ? Math.round((totalMargin / polarizationCount) * 100) / 100 : 0,
         closeVoteCount,
         decisiveVoteCount,
     };

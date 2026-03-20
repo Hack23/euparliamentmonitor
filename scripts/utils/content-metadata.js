@@ -46,8 +46,11 @@ function extractHeadings(content) {
     return headings;
 }
 /**
- * Extract the lede (first paragraph with class="lede", or first <p>)
- * from article content as a plain-text description base.
+ * Extract the lede from article content as a plain-text description base.
+ *
+ * Prefers a <p class="lede">...</p>, then a <section class="lede">...</section>
+ * (using its first paragraph or full text), and finally falls back to
+ * the first <p> in the content if no lede-specific markup is found.
  *
  * @param content - Article HTML body
  * @returns Plain-text lede string, or empty string
