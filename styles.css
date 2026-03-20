@@ -19,7 +19,7 @@
 
   --text: #1a1a2e;
   --text-secondary: #4a4f60;
-  --text-muted: #6b7080;
+  --text-muted: #686d7c;
   --bg: #f0f2f5;
   --bg-card: #ffffff;
   --border: #dde1e6;
@@ -47,12 +47,6 @@
 
   --max-width: 1440px;
   --transition: 0.25s ease;
-}
-
-/* Smooth scroll & native dark-mode integration */
-html {
-  scroll-behavior: smooth;
-  color-scheme: light dark;
 }
 
 /* ─── Skip Navigation ────────────────────────────────────────────── */
@@ -89,6 +83,7 @@ html {
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  color-scheme: light dark;
 }
 
 body {
@@ -1888,10 +1883,10 @@ button:focus-visible {
     color: var(--bg);
   }
 
-  /* Brand hover on light-blue dark-mode header: --secondary (#FFD633) gives
-   * only ~1.5:1 on --primary (#4da3ff). Use --bg (#0f1219) instead → ~7:1. */
+  /* Brand hover — use white (#fff) for maximum contrast against
+   * the dark header gradient (#0d2a5c → #0a1a38). */
   .site-header__brand:hover {
-    color: var(--bg);
+    color: #fff;
   }
 
   .ai-intelligence {
@@ -1942,7 +1937,9 @@ button:focus-visible {
   }
 
   .news-card {
-    border-color: var(--border);
+    border-top-color: var(--border);
+    border-right-color: var(--border);
+    border-bottom-color: var(--border);
     background: var(--bg-card);
     box-shadow: var(--shadow-sm);
   }
