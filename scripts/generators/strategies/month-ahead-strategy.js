@@ -8,17 +8,7 @@ import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
-/**
- * Return singular or plural form based on count.
- *
- * @param n - Item count
- * @param singular - Singular form
- * @param plural - Plural form
- * @returns `"N singular"` or `"N plural"`
- */
-function pl(n, singular, plural) {
-    return `${n} ${n === 1 ? singular : plural}`;
-}
+import { pl } from '../../utils/metadata-utils.js';
 /** Keywords shared by all Month Ahead articles */
 const MONTH_AHEAD_KEYWORDS = [
     'European Parliament',

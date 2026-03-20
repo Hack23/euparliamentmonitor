@@ -162,9 +162,9 @@ export interface LegislativeVelocity {
 
 /** Voting intensity metrics for a set of voting records */
 export interface VotingIntensity {
-  /** Consensus level: 0 = perfect split, 1 = unanimity */
+  /** Largest-position share (including abstentions): 0 = perfect three-way split, 1 = unanimous */
   unanimity: number;
-  /** Polarization: 0 = consensus, 1 = highly polarized */
+  /** Polarization among for/against voters: 0 = one-sided, 1 = perfectly split (abstain-only records excluded) */
   polarization: number;
   /** Average margin of victory across votes */
   averageMargin: number;

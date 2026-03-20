@@ -105,6 +105,18 @@ describe('content-metadata', () => {
       expect(enriched.keywords).toContain('Defence Spending Resolution');
     });
 
+    it('should extract headings with nested markup', () => {
+      const content = `
+        <div class="article-content">
+          <h2><span>Climate</span> Action Plan</h2>
+          <h3><strong>Digital</strong> Services Act Update</h3>
+        </div>`;
+
+      const enriched = enrichMetadataFromContent(content, baseMetadata);
+      expect(enriched.keywords).toContain('Climate Action Plan');
+      expect(enriched.keywords).toContain('Digital Services Act Update');
+    });
+
     it('should preserve base keywords', () => {
       const content = '<div class="article-content"><p>Simple content.</p></div>';
 

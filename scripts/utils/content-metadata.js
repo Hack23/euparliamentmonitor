@@ -34,7 +34,7 @@ function stripHtml(html) {
  * @returns Array of heading text strings
  */
 function extractHeadings(content) {
-    const headingRegex = /<h[23][^>]*>([^<]+)<\/h[23]>/giu;
+    const headingRegex = /<h[23][^>]*>([\s\S]*?)<\/h[23]>/giu;
     const headings = [];
     let match = headingRegex.exec(content);
     while (match) {
@@ -152,19 +152,21 @@ function extractContentKeywords(content, baseKeywords) {
             keywords.push(h);
         }
     }
+    // Work against plain text for entity extraction to avoid false positives from markup
+    const plainText = stripHtml(content);
     // Extract committee abbreviations (ENVI, ECON, AFET, etc.)
     const abbrRegex = /\b(ENVI|ECON|AFET|LIBE|AGRI|ITRE|IMCO|TRAN|REGI|PECH|CULT|JURI|BUDG|CONT|EMPL|INTA|DEVE|DROI|SEDE)\b/gu;
-    let match = abbrRegex.exec(content);
+    let match = abbrRegex.exec(plainText);
     while (match) {
         keywords.push(match[1] ?? '');
-        match = abbrRegex.exec(content);
+        match = abbrRegex.exec(plainText);
     }
     // Extract political group names
-    const groupRegex = /\b(EPP|S&amp;D|S&D|Renew|Greens\/EFA|ECR|The Left|ID|PfE)\b/gu;
-    match = groupRegex.exec(content);
+    const groupRegex = /\b(EPP|S&D|Renew|Greens\/EFA|ECR|The Left|ID|PfE)\b/gu;
+    match = groupRegex.exec(plainText);
     while (match) {
-        keywords.push(match[1]?.replace(/&amp;/gu, '&') ?? '');
-        match = groupRegex.exec(content);
+        keywords.push(match[1] ?? '');
+        match = groupRegex.exec(plainText);
     }
     return [...new Set(keywords)].slice(0, MAX_KEYWORDS);
 }

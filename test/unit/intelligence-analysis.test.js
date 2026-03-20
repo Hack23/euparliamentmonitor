@@ -943,6 +943,21 @@ describe('computeVotingIntensity', () => {
     expect(result.closeVoteCount).toBe(0);
     expect(result.decisiveVoteCount).toBe(0);
   });
+
+  it('should not understate polarization when some records are abstain-only', () => {
+    const records = [
+      // Abstain-only record: no for/against, should not count toward polarization average
+      { title: 'Abstain-only', date: '2025-01-12', result: 'N/A', votes: { for: 0, against: 0, abstain: 100 } },
+      // Highly polarized record: perfectly split for/against
+      { title: 'Split', date: '2025-01-13', result: 'Adopted', votes: { for: 50, against: 50, abstain: 0 } },
+    ];
+    const result = computeVotingIntensity(records);
+    expect(result).not.toBeNull();
+    // Polarization should be 1.0 (perfectly split) — not understated by the abstain-only record
+    expect(result.polarization).toBe(1);
+    // Both records are valid (non-zero total), so validCount = 2
+    expect(result.unanimity).toBeCloseTo(0.75, 2); // avg of 1.0 and 0.5
+  });
 });
 
 // ─── detectCoalitionShifts ───────────────────────────────────────────────────

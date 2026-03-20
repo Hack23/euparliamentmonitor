@@ -9,17 +9,7 @@ import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildPropositionsAnalysis, buildPropositionsSwot, buildPropositionsDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
-/**
- * Singular/plural helper for metadata labels.
- *
- * @param n - Count
- * @param singular - Singular form
- * @param plural - Plural form
- * @returns `"N singular"` or `"N plural"`
- */
-function pl(n, singular, plural) {
-    return `${n} ${n === 1 ? singular : plural}`;
-}
+import { pl } from '../../utils/metadata-utils.js';
 /** Base keywords shared by all Propositions articles */
 const PROPOSITIONS_BASE_KEYWORDS = [
     'European Parliament',

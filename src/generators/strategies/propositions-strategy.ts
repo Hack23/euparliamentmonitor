@@ -35,18 +35,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { PipelineData } from '../propositions-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
-
-/**
- * Singular/plural helper for metadata labels.
- *
- * @param n - Count
- * @param singular - Singular form
- * @param plural - Plural form
- * @returns `"N singular"` or `"N plural"`
- */
-function pl(n: number, singular: string, plural: string): string {
-  return `${n} ${n === 1 ? singular : plural}`;
-}
+import { pl } from '../../utils/metadata-utils.js';
 
 /** Base keywords shared by all Propositions articles */
 const PROPOSITIONS_BASE_KEYWORDS = [

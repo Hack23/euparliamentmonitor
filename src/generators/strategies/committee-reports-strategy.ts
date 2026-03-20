@@ -38,18 +38,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import type { ArticleSource } from '../../types/index.js';
-
-/**
- * Return singular or plural form based on count.
- *
- * @param n - Item count
- * @param singular - Singular form
- * @param plural - Plural form
- * @returns `"N singular"` or `"N plural"`
- */
-function pl(n: number, singular: string, plural: string): string {
-  return `${n} ${n === 1 ? singular : plural}`;
-}
+import { pl } from '../../utils/metadata-utils.js';
 
 /** European Parliament home-page URL used as source reference */
 const EP_SOURCE_URL = 'https://www.europarl.europa.eu';
@@ -90,8 +79,10 @@ function buildCommitteeKeywords(
   // Add adopted text themes from feed
   if (feedData?.adoptedTexts) {
     for (const text of feedData.adoptedTexts.slice(0, 5)) {
-      const theme = categorizeAdoptedText(text.title);
-      if (theme !== 'OTHER') keywords.push(theme);
+      if (text.title) {
+        const theme = categorizeAdoptedText(text.title);
+        if (theme !== 'OTHER') keywords.push(theme);
+      }
     }
   }
 

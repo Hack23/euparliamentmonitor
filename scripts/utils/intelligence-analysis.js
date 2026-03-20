@@ -383,6 +383,7 @@ export function computeVotingIntensity(records) {
     let closeVoteCount = 0;
     let decisiveVoteCount = 0;
     let validCount = 0;
+    let polarizationCount = 0;
     for (const record of records) {
         const total = record.votes.for + record.votes.against + record.votes.abstain;
         if (total === 0)
@@ -392,12 +393,13 @@ export function computeVotingIntensity(records) {
         const againstPct = record.votes.against / total;
         const abstainPct = record.votes.abstain / total;
         const margin = Math.abs(forPct - againstPct);
-        // Unanimity: how close is the largest faction to 100%?
+        // Largest-position share: max share among for/against/abstain
         const maxPct = Math.max(forPct, againstPct, abstainPct);
         totalUnanimity += maxPct;
-        // Polarization: how evenly split is for vs against? (excluding abstentions)
+        // Polarization: how evenly split is for vs against? (only counted when for+against > 0)
         const forAgainstTotal = record.votes.for + record.votes.against;
         if (forAgainstTotal > 0) {
+            polarizationCount++;
             const balance = Math.min(record.votes.for, record.votes.against) / forAgainstTotal;
             totalPolarization += balance * 2; // normalise: 0 = one-sided, 1 = perfectly split
         }
@@ -411,7 +413,7 @@ export function computeVotingIntensity(records) {
         return null;
     return {
         unanimity: Math.round((totalUnanimity / validCount) * 100) / 100,
-        polarization: Math.round((totalPolarization / validCount) * 100) / 100,
+        polarization: polarizationCount > 0 ? Math.round((totalPolarization / polarizationCount) * 100) / 100 : 0,
         averageMargin: Math.round((totalMargin / validCount) * 100) / 100,
         closeVoteCount,
         decisiveVoteCount,
