@@ -5,6 +5,7 @@ import { generateArticleHTML } from '../../templates/article-template.js';
 import { calculateReadTime, formatDateForSlug, validateArticleHTML, } from '../../utils/file-utils.js';
 import { validateArticleContent } from '../../utils/content-validator.js';
 import { scoreArticleQuality } from '../../utils/article-quality-scorer.js';
+import { enrichMetadataFromContent } from '../../utils/content-metadata.js';
 import { weekAheadStrategy } from '../strategies/week-ahead-strategy.js';
 import { breakingNewsStrategy } from '../strategies/breaking-news-strategy.js';
 import { committeeReportsStrategy } from '../strategies/committee-reports-strategy.js';
@@ -78,7 +79,22 @@ function getIsoDatePart(date) {
 function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outputOptions, stats, availableLanguages) {
     console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
     const content = strategy.buildContent(data, lang);
-    const metadata = strategy.getMetadata(data, lang);
+    const baseMetadata = strategy.getMetadata(data, lang);
+    // Enrich metadata by analysing the actual rendered content.
+    // This produces insightful titles, descriptions, and keywords
+    // that reflect the article's coverage — not generic template text.
+    // Title/description enrichment is English-only to avoid overriding
+    // the strategies' localised metadata (their `lang === 'en'` gating).
+    // Language-agnostic keyword additions (committee abbreviations, etc.)
+    // are preserved for all languages.
+    const enrichedMetadata = enrichMetadataFromContent(content, baseMetadata);
+    const metadata = lang === 'en'
+        ? enrichedMetadata
+        : {
+            ...baseMetadata,
+            keywords: enrichedMetadata.keywords ?? baseMetadata.keywords,
+            sources: enrichedMetadata.sources ?? baseMetadata.sources,
+        };
     const html = generateArticleHTML({
         slug: strategy.type,
         title: metadata.title,

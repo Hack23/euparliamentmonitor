@@ -47,6 +47,8 @@ import type {
   TemporalSwotAssessment,
   StakeholderType,
   AnalysisStakeholderType,
+  VotingIntensity,
+  PolarizationIndex,
 } from '../types/index.js';
 import type { PipelineData } from './propositions-content.js';
 import {
@@ -61,6 +63,8 @@ import { PLACEHOLDER_MARKER } from './motions-content.js';
 import {
   buildDefaultStakeholderPerspectives,
   buildStakeholderOutcomeMatrix,
+  computeVotingIntensity,
+  computePolarizationIndex,
 } from '../utils/intelligence-analysis.js';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -291,6 +295,96 @@ function buildOutcomeMatrix(
   );
 }
 
+// ─── Voting analysis text helpers ─────────────────────────────────────────────
+
+/**
+ * Build the "what" summary for a voting analysis, including intensity metrics.
+ *
+ * @param dateFrom - Period start
+ * @param dateTo - Period end
+ * @param recordCount - Real voting record count
+ * @param adoptedCount - Adopted count
+ * @param rejectedCount - Rejected count
+ * @param anomalyCount - Anomaly count
+ * @param patternCount - Pattern count
+ * @param questionCount - Question count
+ * @param intensity - Voting intensity metrics (may be null)
+ * @param polarization - Polarization index (may be null)
+ * @returns Summary text
+ */
+function buildVotingWhatText(
+  dateFrom: string,
+  dateTo: string,
+  recordCount: number,
+  adoptedCount: number,
+  rejectedCount: number,
+  anomalyCount: number,
+  patternCount: number,
+  questionCount: number,
+  intensity: VotingIntensity | null,
+  polarization: PolarizationIndex | null
+): string {
+  if (recordCount === 0 && patternCount === 0 && questionCount === 0) {
+    return `Parliamentary activity from ${dateFrom} to ${dateTo}. Detailed roll-call data unavailable for this period.`;
+  }
+  const base = `${recordCount} votes recorded between ${dateFrom} and ${dateTo}: ${adoptedCount} adopted, ${rejectedCount} rejected. ${anomalyCount} voting anomalies detected across ${patternCount} political groups. ${questionCount} parliamentary questions filed.`;
+  if (!intensity || recordCount === 0) return base;
+  return `${base} Voting intensity: ${intensity.closeVoteCount} close ${intensity.closeVoteCount === 1 ? 'vote' : 'votes'}, ${intensity.decisiveVoteCount} decisive ${intensity.decisiveVoteCount === 1 ? 'vote' : 'votes'}. Polarization index: ${polarization?.assessment ?? 'N/A'}.`;
+}
+
+/**
+ * Build the "why" text for a voting analysis, including polarization insights.
+ *
+ * @param patterns - Real voting patterns
+ * @param polarization - Polarization index (may be null)
+ * @returns Why text
+ */
+function buildVotingWhyText(
+  patterns: readonly VotingPattern[],
+  polarization: PolarizationIndex | null
+): string {
+  if (polarization && patterns.length > 0) {
+    const fragmented =
+      polarization.fragmentedGroups.length > 0
+        ? `Fragmented groups (${polarization.fragmentedGroups.join(', ')}) weaken opposition capacity.`
+        : 'No critically fragmented groups detected.';
+    return `Polarization assessment: ${polarization.assessment} (index ${polarization.overallIndex}). ${polarization.highCohesionGroups.length} ${polarization.highCohesionGroups.length === 1 ? 'group' : 'groups'} above 80% cohesion can form blocking minorities. ${fragmented} Effective number of voting blocs: ${polarization.effectiveBlocs.toFixed(1)}.`;
+  }
+  if (patterns.length > 0) {
+    const highCount = patterns.filter((p) => p.cohesion > 0.8).length;
+    return `Voting behaviour reveals the balance of power: groups with high cohesion (${highCount} groups above 80%) can form blocking minorities or drive legislation. Anomalies signal shifting alliances and emerging fault lines that may reshape future coalition dynamics.`;
+  }
+  return 'Voting patterns in this period reflect ongoing legislative negotiations and inter-institutional bargaining positions.';
+}
+
+/**
+ * Build the political impact text for a voting analysis.
+ *
+ * @param recordCount - Real record count
+ * @param adoptedCount - Adopted count
+ * @param anomalyCount - Anomaly count
+ * @param intensity - Voting intensity metrics (may be null)
+ * @returns Political impact text
+ */
+function buildVotingPoliticalImpact(
+  recordCount: number,
+  adoptedCount: number,
+  anomalyCount: number,
+  intensity: VotingIntensity | null
+): string {
+  if (recordCount === 0) {
+    return 'Legislative outcomes in this period will shape EU policy priorities and inter-institutional dynamics.';
+  }
+  const base = `${adoptedCount} adopted texts will shape EU policy. ${anomalyCount} anomalies suggest internal disagreements that may affect future negotiations.`;
+  if (!intensity) return base;
+  const marginPct = (intensity.averageMargin * 100).toFixed(0);
+  const marginInsight =
+    intensity.averageMargin > 0.3
+      ? 'decisive outcomes signal clear political direction'
+      : 'narrow margins suggest fragile coalitions';
+  return `${base} Average margin: ${marginPct}% — ${marginInsight}.`;
+}
+
 // ─── Strategy-specific builders ──────────────────────────────────────────────
 
 /**
@@ -323,11 +417,23 @@ export function buildVotingAnalysis(
   ).length;
   const topTopics = realRecords.slice(0, 3).map((r) => r.title);
 
+  // ── Advanced political intelligence ────────────────────────────────────────
+  const intensity = computeVotingIntensity(realRecords);
+  const polarization = computePolarizationIndex(realPatterns);
+
   return {
-    what:
-      realRecords.length > 0 || realPatterns.length > 0 || realQuestions.length > 0
-        ? `${realRecords.length} votes recorded between ${dateFrom} and ${dateTo}: ${adoptedCount} adopted, ${rejectedCount} rejected. ${realAnomalies.length} voting anomalies detected across ${realPatterns.length} political groups. ${realQuestions.length} parliamentary questions filed.`
-        : `Parliamentary activity from ${dateFrom} to ${dateTo}. Detailed roll-call data unavailable for this period.`,
+    what: buildVotingWhatText(
+      dateFrom,
+      dateTo,
+      realRecords.length,
+      adoptedCount,
+      rejectedCount,
+      realAnomalies.length,
+      realPatterns.length,
+      realQuestions.length,
+      intensity,
+      polarization
+    ),
     who: [
       ...realPatterns.map(
         (p) =>
@@ -339,16 +445,15 @@ export function buildVotingAnalysis(
       `Period: ${dateFrom} to ${dateTo}`,
       ...realRecords.slice(0, 3).map((r) => `${r.date}: Vote on "${r.title}" — ${r.result}`),
     ],
-    why:
-      realPatterns.length > 0
-        ? `Voting behaviour reveals the balance of power: groups with high cohesion (${realPatterns.filter((p) => p.cohesion > 0.8).length} groups above 80%) can form blocking minorities or drive legislation. Anomalies signal shifting alliances and emerging fault lines that may reshape future coalition dynamics.`
-        : 'Voting patterns in this period reflect ongoing legislative negotiations and inter-institutional bargaining positions.',
+    why: buildVotingWhyText(realPatterns, polarization),
     stakeholderOutcomes: deriveStakeholderOutcomesFromVoting(realRecords, realPatterns),
     impactAssessment: {
-      political:
-        realRecords.length > 0
-          ? `${adoptedCount} adopted texts will shape EU policy. ${realAnomalies.length} anomalies suggest internal disagreements that may affect future negotiations.`
-          : 'Legislative outcomes in this period will shape EU policy priorities and inter-institutional dynamics.',
+      political: buildVotingPoliticalImpact(
+        realRecords.length,
+        adoptedCount,
+        realAnomalies.length,
+        intensity
+      ),
       economic:
         topTopics.length > 0
           ? `Legislation on ${topTopics.join(', ')} may affect regulatory environments, compliance costs, and market conditions across member states.`
@@ -373,7 +478,7 @@ export function buildVotingAnalysis(
     mistakes: deriveMistakesFromAnomalies(realAnomalies),
     outlook:
       realAnomalies.length > 0
-        ? `Watch for coalition realignment: ${realAnomalies.length} anomalies detected. Groups with declining cohesion may seek new alliance partners. Upcoming committee votes will test whether these shifts are temporary or structural.`
+        ? `Watch for coalition realignment: ${realAnomalies.length} anomalies detected.${polarization && polarization.fragmentedGroups.length > 0 ? ` Fragmented groups (${polarization.fragmentedGroups.join(', ')}) may seek new alliance partners.` : ' Groups with declining cohesion may seek new alliance partners.'} Upcoming committee votes will test whether these shifts are temporary or structural.`
         : 'The legislative trajectory suggests continued consensus-building with potential pressure points in the weeks ahead.',
     stakeholderPerspectives: buildVotingStakeholderPerspectives(
       adoptedCount,

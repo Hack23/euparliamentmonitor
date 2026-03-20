@@ -8,14 +8,97 @@ import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
-/** Keywords shared by all Breaking News articles */
-const BREAKING_NEWS_KEYWORDS = [
+import { pl } from '../../utils/metadata-utils.js';
+/** Base keywords shared by all Breaking News articles */
+const BREAKING_NEWS_BASE_KEYWORDS = [
     'European Parliament',
     'breaking news',
     'adopted texts',
     'legislative updates',
     'parliamentary events',
 ];
+/**
+ * Extract content-aware keywords from breaking news feed data.
+ *
+ * Scans adopted text titles, event titles, and procedure titles for
+ * topic-relevant terms that enrich SEO keywords beyond the static base set.
+ *
+ * @param feedData - Breaking news feed data (may be undefined)
+ * @returns Deduplicated array of keywords including base + content-derived terms
+ */
+function buildBreakingKeywords(feedData) {
+    const keywords = [...BREAKING_NEWS_BASE_KEYWORDS];
+    if (!feedData)
+        return keywords;
+    for (const text of feedData.adoptedTexts.slice(0, 5)) {
+        if (text.title)
+            keywords.push(text.title.slice(0, 60));
+    }
+    for (const evt of feedData.events.slice(0, 3)) {
+        if (evt.title)
+            keywords.push(evt.title.slice(0, 60));
+    }
+    for (const proc of feedData.procedures.slice(0, 3)) {
+        if (proc.title)
+            keywords.push(proc.title.slice(0, 60));
+    }
+    return [...new Set(keywords)];
+}
+/**
+ * Build a content-aware description from breaking news feed data.
+ * Summarises the count of adopted texts, events, procedures, and MEP updates
+ * and highlights the first adopted text title when available.
+ *
+ * @param date - Publication date
+ * @param feedData - Breaking news feed data (may be undefined)
+ * @returns SEO-friendly description string (≤ 200 chars)
+ */
+function buildBreakingDescription(date, feedData) {
+    if (!feedData)
+        return `European Parliament breaking developments for ${date}.`;
+    const counts = [];
+    if (feedData.adoptedTexts.length > 0)
+        counts.push(pl(feedData.adoptedTexts.length, 'adopted text', 'adopted texts'));
+    if (feedData.events.length > 0)
+        counts.push(pl(feedData.events.length, 'event', 'events'));
+    if (feedData.procedures.length > 0)
+        counts.push(pl(feedData.procedures.length, 'procedure', 'procedures'));
+    if (feedData.mepUpdates.length > 0)
+        counts.push(pl(feedData.mepUpdates.length, 'MEP update', 'MEP updates'));
+    if (counts.length === 0)
+        return `European Parliament breaking developments for ${date}.`;
+    const highlight = feedData.adoptedTexts[0]?.title ?? feedData.events[0]?.title ?? '';
+    const base = `EP breaking: ${counts.join(', ')}`;
+    if (highlight) {
+        const full = `${base}. Highlights: ${highlight}`;
+        return full.length > 200 ? full.slice(0, 197) + '...' : full;
+    }
+    return base.length > 200 ? base.slice(0, 197) + '...' : base;
+}
+/**
+ * Build a content-aware title suffix from feed data item counts.
+ *
+ * @param feedData - Breaking news feed data (may be undefined)
+ * @returns Short suffix string for appending to the base title, or empty string
+ */
+function buildBreakingTitleSuffix(feedData) {
+    if (!feedData)
+        return '';
+    const total = feedData.adoptedTexts.length +
+        feedData.events.length +
+        feedData.procedures.length +
+        feedData.mepUpdates.length;
+    if (total === 0)
+        return '';
+    const parts = [];
+    if (feedData.adoptedTexts.length > 0)
+        parts.push(pl(feedData.adoptedTexts.length, 'Text', 'Texts'));
+    if (feedData.events.length > 0)
+        parts.push(pl(feedData.events.length, 'Event', 'Events'));
+    if (feedData.procedures.length > 0)
+        parts.push(pl(feedData.procedures.length, 'Procedure', 'Procedures'));
+    return parts.join(', ');
+}
 // ─── Strategy implementation ──────────────────────────────────────────────────
 /**
  * Article strategy for {@link ArticleCategory.BREAKING_NEWS}.
@@ -134,11 +217,15 @@ export class BreakingNewsStrategy {
      */
     getMetadata(data, lang) {
         const titleFn = getLocalizedString(BREAKING_NEWS_TITLES, lang);
-        const { title, subtitle } = titleFn(data.date);
+        const { title: baseTitle, subtitle: baseSubtitle } = titleFn(data.date);
+        const suffix = lang === 'en' ? buildBreakingTitleSuffix(data.feedData) : '';
+        const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
+        const description = lang === 'en' ? buildBreakingDescription(data.date, data.feedData) : '';
+        const subtitle = description || baseSubtitle;
         return {
             title,
             subtitle,
-            keywords: [...BREAKING_NEWS_KEYWORDS],
+            keywords: buildBreakingKeywords(data.feedData),
             category: ArticleCategory.BREAKING_NEWS,
             sources: [],
         };

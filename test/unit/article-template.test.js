@@ -205,6 +205,43 @@ describe('article-template', () => {
         
         expect(html).toContain('"keywords": "parliament, legislation"');
       });
+
+      it('should include article:section Open Graph meta tag', () => {
+        const html = generateArticleHTML(defaultOptions);
+        
+        expect(html).toContain('<meta property="article:section" content="');
+      });
+
+      it('should include article:tag Open Graph meta tags for keywords', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          keywords: ['parliament', 'legislation'],
+        });
+
+        expect(html).toContain('<meta property="article:tag" content="parliament">');
+        expect(html).toContain('<meta property="article:tag" content="legislation">');
+      });
+
+      it('should include article:modified_time meta tag', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain(`<meta property="article:modified_time" content="${defaultOptions.date}">`);
+      });
+
+      it('should include dateModified in structured data', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain(`"dateModified": "${defaultOptions.date}"`);
+      });
+
+      it('should include articleSection in structured data', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain('"articleSection":');
+      });
+
+      it('should include mainEntityOfPage in structured data', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain('"mainEntityOfPage":');
+        expect(html).toContain('"@type": "WebPage"');
+      });
     });
 
     describe('Sources Section', () => {

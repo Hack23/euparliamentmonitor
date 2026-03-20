@@ -27,6 +27,7 @@ import {
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
+import { pl } from '../../utils/metadata-utils.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
 
@@ -69,6 +70,60 @@ function computeWeekAheadDateRange(baseDate: string): DateRange {
     start: startParts[0],
     end: endParts[0],
   };
+}
+
+// ─── Content-aware metadata helpers ───────────────────────────────────────────
+
+/**
+ * Build a content-aware title suffix from week-ahead data counts.
+ *
+ * @param weekData - Aggregated week-ahead domain data
+ * @returns Short suffix for the title, or empty string
+ */
+function buildWeekAheadTitleSuffix(weekData: WeekAheadData): string {
+  const parts: string[] = [];
+  if (weekData.events.length > 0) parts.push(pl(weekData.events.length, 'Event', 'Events'));
+  if (weekData.committees.length > 0)
+    parts.push(pl(weekData.committees.length, 'Committee Meeting', 'Committee Meetings'));
+  if (weekData.pipeline.length > 0)
+    parts.push(pl(weekData.pipeline.length, 'Pipeline Item', 'Pipeline Items'));
+  return parts.join(', ');
+}
+
+/**
+ * Build a content-aware description from week-ahead data.
+ * Summarises event counts, committee meetings, and key highlights.
+ *
+ * @param weekData - Aggregated week-ahead domain data
+ * @param dateRange - Date range for the article
+ * @returns SEO-friendly description (≤ 200 chars)
+ */
+function buildWeekAheadDescription(weekData: WeekAheadData, dateRange: DateRange): string {
+  const parts: string[] = [];
+  if (weekData.events.length > 0)
+    parts.push(`${pl(weekData.events.length, 'scheduled event', 'scheduled events')}`);
+  if (weekData.committees.length > 0)
+    parts.push(`${pl(weekData.committees.length, 'committee meeting', 'committee meetings')}`);
+  if (weekData.pipeline.length > 0)
+    parts.push(
+      `${pl(weekData.pipeline.length, 'legislative pipeline item', 'legislative pipeline items')}`
+    );
+  if (weekData.questions.length > 0)
+    parts.push(
+      `${pl(weekData.questions.length, 'parliamentary question', 'parliamentary questions')}`
+    );
+
+  if (parts.length === 0) {
+    return `European Parliament calendar and plenary agenda for ${dateRange.start} to ${dateRange.end}.`;
+  }
+
+  const highlight = weekData.events[0]?.title ?? '';
+  const base = `EP week ahead (${dateRange.start}–${dateRange.end}): ${parts.join(', ')}`;
+  if (highlight) {
+    const full = `${base}. Key: ${highlight}`;
+    return full.length > 200 ? full.slice(0, 197) + '...' : full;
+  }
+  return base.length > 200 ? base.slice(0, 197) + '...' : base;
 }
 
 // ─── Strategy implementation ──────────────────────────────────────────────────
@@ -152,7 +207,16 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
    */
   getMetadata(data: WeekAheadArticleData, lang: LanguageCode): ArticleMetadata {
     const titleFn = getLocalizedString(WEEK_AHEAD_TITLES, lang);
-    const { title, subtitle } = titleFn(data.dateRange.start, data.dateRange.end);
+    const { title: baseTitle, subtitle: baseSubtitle } = titleFn(
+      data.dateRange.start,
+      data.dateRange.end
+    );
+    const suffix = lang === 'en' ? buildWeekAheadTitleSuffix(data.weekData) : '';
+    const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
+    const subtitle =
+      lang === 'en'
+        ? buildWeekAheadDescription(data.weekData, data.dateRange) || baseSubtitle
+        : baseSubtitle;
     return {
       title,
       subtitle,

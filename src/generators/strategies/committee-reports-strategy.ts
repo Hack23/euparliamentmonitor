@@ -38,6 +38,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import type { ArticleSource } from '../../types/index.js';
+import { pl } from '../../utils/metadata-utils.js';
 
 /** European Parliament home-page URL used as source reference */
 const EP_SOURCE_URL = 'https://www.europarl.europa.eu';
@@ -45,13 +46,109 @@ const EP_SOURCE_URL = 'https://www.europarl.europa.eu';
 /** European Parliament display name for source titles and article lede */
 const EP_DISPLAY_NAME = 'European Parliament';
 
-/** Keywords shared by all Committee Reports articles */
-const COMMITTEE_REPORTS_KEYWORDS = ['committee', 'EU Parliament', 'legislation'] as const;
+/** Base keywords shared by all Committee Reports articles */
+const COMMITTEE_REPORTS_BASE_KEYWORDS = ['committee', 'EU Parliament', 'legislation'] as const;
 
 /** Source reference included in every committee reports article */
 const COMMITTEE_REPORTS_SOURCES: readonly ArticleSource[] = [
   { title: EP_DISPLAY_NAME, url: EP_SOURCE_URL },
 ];
+
+/**
+ * Extract content-aware keywords from committee data and feed data.
+ *
+ * Includes committee abbreviations, names, document types, and adopted-text
+ * themes for richer SEO coverage.
+ *
+ * @param committeeDataList - Fetched committee data
+ * @param feedData - EP feed data (may be undefined)
+ * @returns Deduplicated keyword array
+ */
+function buildCommitteeKeywords(
+  committeeDataList: readonly CommitteeData[],
+  feedData?: EPFeedData | undefined
+): string[] {
+  const keywords: string[] = [...COMMITTEE_REPORTS_BASE_KEYWORDS];
+
+  // Add committee abbreviations and names
+  for (const c of committeeDataList) {
+    if (c.abbreviation) keywords.push(c.abbreviation);
+    if (c.name) keywords.push(c.name);
+  }
+
+  // Add adopted text themes from feed
+  if (feedData?.adoptedTexts) {
+    for (const text of feedData.adoptedTexts.slice(0, 5)) {
+      if (text.title) {
+        const theme = categorizeAdoptedText(text.title);
+        if (theme !== 'OTHER') keywords.push(theme);
+      }
+    }
+  }
+
+  return [...new Set(keywords)];
+}
+
+/**
+ * Build a content-aware description from committee data.
+ * Summarises the number of active committees, document counts, and
+ * effectiveness highlights when available.
+ *
+ * @param committeeDataList - Fetched committee data
+ * @param feedData - EP feed data (may be undefined)
+ * @returns SEO-friendly description (≤ 200 chars)
+ */
+function buildCommitteeDescription(
+  committeeDataList: readonly CommitteeData[],
+  feedData?: EPFeedData | undefined
+): string {
+  const activeCount = committeeDataList.filter((c) => c.chair !== PLACEHOLDER_CHAIR).length;
+  const totalDocs = committeeDataList.reduce((sum, c) => sum + c.documents.length, 0);
+  const adoptedCount = feedData?.adoptedTexts?.length ?? 0;
+
+  const parts: string[] = [];
+  if (activeCount > 0) parts.push(`${pl(activeCount, 'committee', 'committees')} reporting`);
+  if (totalDocs > 0) parts.push(pl(totalDocs, 'recent document', 'recent documents'));
+  if (adoptedCount > 0) parts.push(pl(adoptedCount, 'adopted text', 'adopted texts'));
+
+  const abbrs = committeeDataList
+    .filter((c) => c.chair !== PLACEHOLDER_CHAIR)
+    .map((c) => c.abbreviation)
+    .join(', ');
+  if (abbrs) parts.push(`covering ${abbrs}`);
+
+  if (parts.length === 0) {
+    return 'Analysis of recent legislative output, effectiveness metrics, and key committee activities';
+  }
+
+  const desc = `EP committee activity: ${parts.join('; ')}.`;
+  return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
+}
+
+/**
+ * Build a content-aware title suffix from committee data counts.
+ *
+ * @param committeeDataList - Fetched committee data
+ * @param feedData - EP feed data (may be undefined)
+ * @returns Short suffix for the title, or empty string
+ */
+function buildCommitteeTitleSuffix(
+  committeeDataList: readonly CommitteeData[],
+  feedData?: EPFeedData | undefined
+): string {
+  const activeCount = committeeDataList.filter((c) => c.chair !== PLACEHOLDER_CHAIR).length;
+  const totalDocs = committeeDataList.reduce((sum, c) => sum + c.documents.length, 0);
+  const adoptedCount = feedData?.adoptedTexts?.length ?? 0;
+
+  const parts: string[] = [];
+  if (totalDocs > 0) parts.push(pl(totalDocs, 'Document', 'Documents'));
+  if (adoptedCount > 0) parts.push(pl(adoptedCount, 'Adopted Text', 'Adopted Texts'));
+  if (activeCount > 0 && parts.length === 0) {
+    parts.push(pl(activeCount, 'Active Committee', 'Active Committees'));
+  }
+
+  return parts.join(', ');
+}
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
 
@@ -400,18 +497,25 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
   /**
    * Return language-specific metadata for the committee reports article.
    *
-   * @param _data - Committee reports data payload (unused — metadata is data-independent)
+   * @param data - Committee reports data payload
    * @param lang - Target language code
    * @returns Localised metadata
    */
-  getMetadata(_data: CommitteeReportsArticleData, lang: LanguageCode): ArticleMetadata {
+  getMetadata(data: CommitteeReportsArticleData, lang: LanguageCode): ArticleMetadata {
     const committeeLabel = FEATURED_COMMITTEES.join(', ');
     const titleFn = getLocalizedString(COMMITTEE_REPORTS_TITLES, lang);
-    const { title, subtitle } = titleFn(committeeLabel);
+    const { title: baseTitle, subtitle: baseSubtitle } = titleFn(committeeLabel);
+    const suffix =
+      lang === 'en' ? buildCommitteeTitleSuffix(data.committeeDataList, data.feedData) : '';
+    const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
+    const subtitle =
+      lang === 'en'
+        ? buildCommitteeDescription(data.committeeDataList, data.feedData) || baseSubtitle
+        : baseSubtitle;
     return {
       title,
       subtitle,
-      keywords: [...COMMITTEE_REPORTS_KEYWORDS],
+      keywords: buildCommitteeKeywords(data.committeeDataList, data.feedData),
       category: ArticleCategory.COMMITTEE_REPORTS,
       sources: COMMITTEE_REPORTS_SOURCES,
     };

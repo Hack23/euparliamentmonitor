@@ -38,6 +38,7 @@ import {
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
+import { pl } from '../../utils/metadata-utils.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
 
@@ -61,13 +62,77 @@ export interface MonthlyReviewArticleData extends ArticleData {
   readonly feedData?: EPFeedData | undefined;
 }
 
-/** Keywords shared by all Monthly Review articles */
-const MONTHLY_REVIEW_KEYWORDS = [
+/** Base keywords shared by all Monthly Review articles */
+const MONTHLY_REVIEW_BASE_KEYWORDS = [
   'European Parliament',
   'monthly review',
   'legislative output',
   'coalition dynamics',
 ] as const;
+
+/**
+ * Extract content-aware keywords from monthly review data.
+ *
+ * @param data - Monthly review article data payload
+ * @returns Deduplicated keyword array
+ */
+function buildMonthlyReviewKeywords(data: MonthlyReviewArticleData): string[] {
+  const keywords: string[] = [...MONTHLY_REVIEW_BASE_KEYWORDS];
+
+  for (const r of data.votingRecords.slice(0, 5)) {
+    if (r.title) keywords.push(r.title.slice(0, 60));
+  }
+  for (const a of data.anomalies.slice(0, 3)) {
+    if (a.type) keywords.push(a.type);
+  }
+  for (const q of data.questions.slice(0, 3)) {
+    if (q.topic) keywords.push(q.topic);
+  }
+
+  return [...new Set(keywords)];
+}
+
+/**
+ * Build a content-aware description from monthly review data.
+ *
+ * @param data - Monthly review article data payload
+ * @returns SEO-friendly description (≤ 200 chars)
+ */
+function buildMonthlyReviewDescription(data: MonthlyReviewArticleData): string {
+  const parts: string[] = [];
+
+  if (data.votingRecords.length > 0)
+    parts.push(`${pl(data.votingRecords.length, 'vote', 'votes')} analysed`);
+  if (data.anomalies.length > 0)
+    parts.push(pl(data.anomalies.length, 'voting anomaly', 'voting anomalies'));
+  if (data.questions.length > 0)
+    parts.push(`${pl(data.questions.length, 'question', 'questions')} tabled`);
+
+  if (parts.length === 0) {
+    return `European Parliament monthly review for ${data.monthLabel} — legislative output and coalition dynamics.`;
+  }
+
+  const highlight = data.votingRecords[0]?.title ?? '';
+  const base = `EP month in review (${data.monthLabel}): ${parts.join(', ')}`;
+  if (highlight) {
+    const full = `${base}. Key: ${highlight}`;
+    return full.length > 200 ? full.slice(0, 197) + '...' : full;
+  }
+  return base.length > 200 ? base.slice(0, 197) + '...' : base;
+}
+
+/**
+ * Build a content-aware title suffix from monthly review data counts.
+ *
+ * @param data - Monthly review article data payload
+ * @returns Short suffix for the title, or empty string
+ */
+function buildMonthlyReviewTitleSuffix(data: MonthlyReviewArticleData): string {
+  const parts: string[] = [];
+  if (data.votingRecords.length > 0) parts.push(pl(data.votingRecords.length, 'Vote', 'Votes'));
+  if (data.anomalies.length > 0) parts.push(pl(data.anomalies.length, 'Anomaly', 'Anomalies'));
+  return parts.join(', ');
+}
 
 // ─── Date-range helper ────────────────────────────────────────────────────────
 
@@ -211,11 +276,15 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
    */
   getMetadata(data: MonthlyReviewArticleData, lang: LanguageCode): ArticleMetadata {
     const titleFn = getLocalizedString(MONTHLY_REVIEW_TITLES, lang);
-    const { title, subtitle } = titleFn(data.monthLabel);
+    const { title: baseTitle, subtitle: baseSubtitle } = titleFn(data.monthLabel);
+    const suffix = lang === 'en' ? buildMonthlyReviewTitleSuffix(data) : '';
+    const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
+    const description = lang === 'en' ? buildMonthlyReviewDescription(data) : '';
+    const subtitle = description || baseSubtitle;
     return {
       title,
       subtitle,
-      keywords: [...MONTHLY_REVIEW_KEYWORDS],
+      keywords: buildMonthlyReviewKeywords(data),
       category: ArticleCategory.MONTH_IN_REVIEW,
       sources: [],
     };

@@ -8,6 +8,7 @@ import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { pl } from '../../utils/metadata-utils.js';
 /** Keywords shared by all Month Ahead articles */
 const MONTH_AHEAD_KEYWORDS = [
     'European Parliament',
@@ -15,6 +16,45 @@ const MONTH_AHEAD_KEYWORDS = [
     'strategic outlook',
     'legislative calendar',
 ];
+/**
+ * Build a content-aware title suffix from month-ahead data counts.
+ *
+ * @param monthData - Aggregated month-ahead domain data
+ * @returns Short suffix for the title, or empty string
+ */
+function buildMonthAheadTitleSuffix(monthData) {
+    const parts = [];
+    if (monthData.events.length > 0)
+        parts.push(pl(monthData.events.length, 'Event', 'Events'));
+    if (monthData.committees.length > 0)
+        parts.push(pl(monthData.committees.length, 'Committee Meeting', 'Committee Meetings'));
+    if (monthData.pipeline.length > 0)
+        parts.push(pl(monthData.pipeline.length, 'Pipeline Item', 'Pipeline Items'));
+    return parts.join(', ');
+}
+/**
+ * Build a content-aware description from month-ahead data.
+ *
+ * @param monthData - Aggregated month-ahead domain data
+ * @param monthLabel - Display label for the target month
+ * @returns SEO-friendly description (≤ 200 chars)
+ */
+function buildMonthAheadDescription(monthData, monthLabel) {
+    const parts = [];
+    if (monthData.events.length > 0)
+        parts.push(pl(monthData.events.length, 'scheduled event', 'scheduled events'));
+    if (monthData.committees.length > 0)
+        parts.push(pl(monthData.committees.length, 'committee meeting', 'committee meetings'));
+    if (monthData.pipeline.length > 0)
+        parts.push(pl(monthData.pipeline.length, 'pipeline procedure', 'pipeline procedures'));
+    if (monthData.questions.length > 0)
+        parts.push(pl(monthData.questions.length, 'parliamentary question', 'parliamentary questions'));
+    if (parts.length === 0) {
+        return `European Parliament strategic outlook for ${monthLabel} — legislative milestones and policy agenda.`;
+    }
+    const desc = `EP month ahead (${monthLabel}): ${parts.join(', ')}.`;
+    return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
+}
 // ─── Date-range helper ────────────────────────────────────────────────────────
 /**
  * Compute the month-ahead date range spanning 30 days from the day after `baseDate`.
@@ -112,7 +152,12 @@ export class MonthAheadStrategy {
      */
     getMetadata(data, lang) {
         const titleFn = getLocalizedString(MONTH_AHEAD_TITLES, lang);
-        const { title, subtitle } = titleFn(data.monthLabel);
+        const { title: baseTitle, subtitle: baseSubtitle } = titleFn(data.monthLabel);
+        const suffix = lang === 'en' ? buildMonthAheadTitleSuffix(data.monthData) : '';
+        const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
+        const subtitle = lang === 'en'
+            ? buildMonthAheadDescription(data.monthData, data.monthLabel) || baseSubtitle
+            : baseSubtitle;
         return {
             title,
             subtitle,

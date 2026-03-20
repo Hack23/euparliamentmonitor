@@ -19,6 +19,9 @@ import {
   scoreStakeholderInfluence,
   buildStakeholderOutcomeMatrix,
   rankStakeholdersByInfluence,
+  computeVotingIntensity,
+  detectCoalitionShifts,
+  computePolarizationIndex,
 } from '../../scripts/utils/intelligence-analysis.js';
 import { ALL_STAKEHOLDER_TYPES } from '../../scripts/types/index.js';
 import {
@@ -848,5 +851,242 @@ describe('rankStakeholdersByInfluence', () => {
     const copy = [...perspectives];
     rankStakeholdersByInfluence(perspectives);
     expect(perspectives).toEqual(copy);
+  });
+});
+
+// ─── computeVotingIntensity ──────────────────────────────────────────────────
+
+describe('computeVotingIntensity', () => {
+  it('should return null for empty records', () => {
+    expect(computeVotingIntensity([])).toBeNull();
+  });
+
+  it('should compute metrics for a single decisive vote', () => {
+    const records = [{ title: 'Test', date: '2025-01-10', result: 'Adopted', votes: { for: 500, against: 50, abstain: 20 } }];
+    const result = computeVotingIntensity(records);
+    expect(result).not.toBeNull();
+    expect(result.unanimity).toBeGreaterThan(0.7);
+    expect(result.polarization).toBeLessThan(0.3);
+    expect(result.decisiveVoteCount).toBe(1);
+    expect(result.closeVoteCount).toBe(0);
+  });
+
+  it('should detect close votes (margin < 10%)', () => {
+    const records = [
+      { title: 'Close vote', date: '2025-01-10', result: 'Adopted', votes: { for: 310, against: 300, abstain: 10 } },
+    ];
+    const result = computeVotingIntensity(records);
+    expect(result).not.toBeNull();
+    expect(result.closeVoteCount).toBe(1);
+    expect(result.decisiveVoteCount).toBe(0);
+    expect(result.polarization).toBeGreaterThan(0.8);
+  });
+
+  it('should handle multiple votes and average correctly', () => {
+    const records = [
+      { title: 'Decisive', date: '2025-01-10', result: 'Adopted', votes: { for: 600, against: 10, abstain: 10 } },
+      { title: 'Close', date: '2025-01-11', result: 'Rejected', votes: { for: 300, against: 310, abstain: 10 } },
+    ];
+    const result = computeVotingIntensity(records);
+    expect(result).not.toBeNull();
+    expect(result.decisiveVoteCount).toBe(1);
+    expect(result.closeVoteCount).toBe(1);
+    expect(result.averageMargin).toBeGreaterThan(0);
+  });
+
+  it('should return null when all records have zero total votes', () => {
+    const records = [
+      { title: 'Empty', date: '2025-01-10', result: 'N/A', votes: { for: 0, against: 0, abstain: 0 } },
+    ];
+    const result = computeVotingIntensity(records);
+    expect(result).toBeNull();
+  });
+
+  it('should skip zero-vote records and only count valid ones', () => {
+    const records = [
+      { title: 'Empty', date: '2025-01-10', result: 'N/A', votes: { for: 0, against: 0, abstain: 0 } },
+      { title: 'Valid', date: '2025-01-11', result: 'Adopted', votes: { for: 500, against: 50, abstain: 20 } },
+    ];
+    const result = computeVotingIntensity(records);
+    expect(result).not.toBeNull();
+    expect(result.unanimity).toBeGreaterThan(0);
+    expect(result.averageMargin).toBeGreaterThan(0);
+    expect(result.closeVoteCount).toBe(0);
+    expect(result.decisiveVoteCount).toBe(1);
+  });
+
+  it('should return averageMargin between 0 and 1', () => {
+    const records = [
+      { title: 'A', date: '2025-01-10', result: 'Adopted', votes: { for: 400, against: 200, abstain: 20 } },
+      { title: 'B', date: '2025-01-11', result: 'Adopted', votes: { for: 350, against: 250, abstain: 30 } },
+    ];
+    const result = computeVotingIntensity(records);
+    expect(result).not.toBeNull();
+    expect(result.averageMargin).toBeGreaterThanOrEqual(0);
+    expect(result.averageMargin).toBeLessThanOrEqual(1);
+  });
+
+  it('should include abstentions when determining unanimity largest faction', () => {
+    const records = [
+      {
+        title: 'Abstain-dominant vote',
+        date: '2025-01-12',
+        result: 'Adopted',
+        votes: { for: 20, against: 10, abstain: 70 },
+      },
+    ];
+    const result = computeVotingIntensity(records);
+    expect(result).not.toBeNull();
+    expect(result.unanimity).toBe(0.7);
+    expect(result.polarization).toBeCloseTo(0.67, 2);
+    expect(result.averageMargin).toBe(0.1);
+    expect(result.closeVoteCount).toBe(0);
+    expect(result.decisiveVoteCount).toBe(0);
+  });
+
+  it('should not understate polarization when some records are abstain-only', () => {
+    const records = [
+      // Abstain-only record: no for/against, should not count toward polarization average
+      { title: 'Abstain-only', date: '2025-01-12', result: 'N/A', votes: { for: 0, against: 0, abstain: 100 } },
+      // Highly polarized record: perfectly split for/against
+      { title: 'Split', date: '2025-01-13', result: 'Adopted', votes: { for: 50, against: 50, abstain: 0 } },
+    ];
+    const result = computeVotingIntensity(records);
+    expect(result).not.toBeNull();
+    // Polarization should be 1.0 (perfectly split) — not understated by the abstain-only record
+    expect(result.polarization).toBe(1);
+    // Both records are valid (non-zero total), so validCount = 2
+    expect(result.unanimity).toBeCloseTo(0.75, 2); // avg of 1.0 and 0.5
+  });
+});
+
+// ─── detectCoalitionShifts ───────────────────────────────────────────────────
+
+describe('detectCoalitionShifts', () => {
+  it('should return empty array when both inputs are empty', () => {
+    expect(detectCoalitionShifts([], [])).toEqual([]);
+  });
+
+  it('should detect a weakening shift when cohesion drops significantly', () => {
+    const current = [{ group: 'EPP', cohesion: 0.5, participation: 0.8 }];
+    const baseline = [{ group: 'EPP', cohesion: 0.9, participation: 0.8 }];
+    const shifts = detectCoalitionShifts(current, baseline);
+    expect(shifts).toHaveLength(1);
+    expect(shifts[0].group).toBe('EPP');
+    expect(shifts[0].direction).toBe('weakening');
+    expect(shifts[0].significance).toBe('critical');
+    expect(shifts[0].cohesionDelta).toBeLessThan(0);
+  });
+
+  it('should detect a strengthening shift when cohesion rises', () => {
+    const current = [{ group: 'S&D', cohesion: 0.95, participation: 0.9 }];
+    const baseline = [{ group: 'S&D', cohesion: 0.7, participation: 0.85 }];
+    const shifts = detectCoalitionShifts(current, baseline);
+    expect(shifts).toHaveLength(1);
+    expect(shifts[0].direction).toBe('strengthening');
+    expect(shifts[0].significance).toBe('critical');
+  });
+
+  it('should mark stable when delta is within ±5%', () => {
+    const current = [{ group: 'Renew', cohesion: 0.82, participation: 0.8 }];
+    const baseline = [{ group: 'Renew', cohesion: 0.80, participation: 0.8 }];
+    const shifts = detectCoalitionShifts(current, baseline);
+    expect(shifts).toHaveLength(1);
+    expect(shifts[0].direction).toBe('stable');
+    expect(shifts[0].significance).toBe('low');
+  });
+
+  it('should use current cohesion as baseline when group not in baseline', () => {
+    const current = [{ group: 'NewGroup', cohesion: 0.7, participation: 0.6 }];
+    const shifts = detectCoalitionShifts(current, []);
+    expect(shifts).toHaveLength(1);
+    expect(shifts[0].direction).toBe('stable');
+    expect(shifts[0].cohesionDelta).toBe(0);
+  });
+
+  it('should sort by significance then absolute delta', () => {
+    const current = [
+      { group: 'EPP', cohesion: 0.5, participation: 0.8 },
+      { group: 'S&D', cohesion: 0.85, participation: 0.8 },
+      { group: 'Greens', cohesion: 0.3, participation: 0.6 },
+    ];
+    const baseline = [
+      { group: 'EPP', cohesion: 0.55, participation: 0.8 },
+      { group: 'S&D', cohesion: 0.8, participation: 0.8 },
+      { group: 'Greens', cohesion: 0.7, participation: 0.6 },
+    ];
+    const shifts = detectCoalitionShifts(current, baseline);
+    expect(shifts).toHaveLength(3);
+    // Greens delta -0.4 (critical) should be first
+    expect(shifts[0].group).toBe('Greens');
+    expect(shifts[0].significance).toBe('critical');
+  });
+});
+
+// ─── computePolarizationIndex ────────────────────────────────────────────────
+
+describe('computePolarizationIndex', () => {
+  it('should return null for empty patterns', () => {
+    expect(computePolarizationIndex([])).toBeNull();
+  });
+
+  it('should assess "consensus" when all groups have moderate cohesion', () => {
+    const patterns = [
+      { group: 'EPP', cohesion: 0.65, participation: 0.8 },
+      { group: 'S&D', cohesion: 0.6, participation: 0.75 },
+      { group: 'Renew', cohesion: 0.7, participation: 0.7 },
+      { group: 'Greens', cohesion: 0.55, participation: 0.6 },
+    ];
+    const result = computePolarizationIndex(patterns);
+    expect(result).not.toBeNull();
+    expect(result.assessment).toBe('consensus');
+    expect(result.highCohesionGroups).toHaveLength(0);
+    expect(result.fragmentedGroups).toHaveLength(0);
+  });
+
+  it('should assess "highly-polarized" when most groups are extreme', () => {
+    const patterns = [
+      { group: 'EPP', cohesion: 0.95, participation: 0.9 },
+      { group: 'S&D', cohesion: 0.3, participation: 0.6 },
+      { group: 'Renew', cohesion: 0.9, participation: 0.8 },
+      { group: 'Greens', cohesion: 0.4, participation: 0.5 },
+    ];
+    const result = computePolarizationIndex(patterns);
+    expect(result).not.toBeNull();
+    expect(result.assessment).toBe('highly-polarized');
+    expect(result.highCohesionGroups).toContain('EPP');
+    expect(result.highCohesionGroups).toContain('Renew');
+    expect(result.fragmentedGroups).toContain('S&D');
+    expect(result.fragmentedGroups).toContain('Greens');
+  });
+
+  it('should compute effectiveBlocs using Laakso-Taagepera style', () => {
+    // Two groups with equal participation → effectiveBlocs ≈ 2
+    const patterns = [
+      { group: 'EPP', cohesion: 0.8, participation: 0.5 },
+      { group: 'S&D', cohesion: 0.8, participation: 0.5 },
+    ];
+    const result = computePolarizationIndex(patterns);
+    expect(result).not.toBeNull();
+    expect(result.effectiveBlocs).toBeCloseTo(2, 0);
+  });
+
+  it('should return overallIndex between 0 and 1', () => {
+    const patterns = [
+      { group: 'A', cohesion: 0.9, participation: 0.8 },
+      { group: 'B', cohesion: 0.6, participation: 0.7 },
+    ];
+    const result = computePolarizationIndex(patterns);
+    expect(result).not.toBeNull();
+    expect(result.overallIndex).toBeGreaterThanOrEqual(0);
+    expect(result.overallIndex).toBeLessThanOrEqual(1);
+  });
+
+  it('should handle single group patterns', () => {
+    const patterns = [{ group: 'Only', cohesion: 0.85, participation: 0.9 }];
+    const result = computePolarizationIndex(patterns);
+    expect(result).not.toBeNull();
+    expect(result.highCohesionGroups).toContain('Only');
+    expect(result.effectiveBlocs).toBe(1);
   });
 });

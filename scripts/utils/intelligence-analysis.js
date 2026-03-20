@@ -365,4 +365,186 @@ export function rankStakeholdersByInfluence(perspectives) {
     })
         .map((p) => p.stakeholder);
 }
+// ─── Advanced political intelligence functions ──────────────────────────────
+/**
+ * Compute voting intensity metrics from a set of voting records.
+ * Analyses the distribution of for/against/abstain votes to determine
+ * unanimity, polarization, and margin characteristics.
+ *
+ * @param records - Voting records to analyse
+ * @returns VotingIntensity metrics, or null if the records array is empty or contains no
+ * valid vote counts (for example, when all records have a total vote count of 0)
+ */
+export function computeVotingIntensity(records) {
+    if (records.length === 0)
+        return null;
+    let totalUnanimity = 0;
+    let totalPolarization = 0;
+    let totalMargin = 0;
+    let closeVoteCount = 0;
+    let decisiveVoteCount = 0;
+    let validCount = 0;
+    let polarizationCount = 0;
+    for (const record of records) {
+        const total = record.votes.for + record.votes.against + record.votes.abstain;
+        if (total === 0)
+            continue;
+        validCount++;
+        const forPct = record.votes.for / total;
+        const againstPct = record.votes.against / total;
+        const abstainPct = record.votes.abstain / total;
+        const margin = Math.abs(forPct - againstPct);
+        // Largest-position share: max share among for/against/abstain
+        const maxPct = Math.max(forPct, againstPct, abstainPct);
+        totalUnanimity += maxPct;
+        // Margin, close/decisive, and polarization only meaningful when for+against > 0
+        const forAgainstTotal = record.votes.for + record.votes.against;
+        if (forAgainstTotal > 0) {
+            polarizationCount++;
+            const balance = Math.min(record.votes.for, record.votes.against) / forAgainstTotal;
+            totalPolarization += balance * 2; // normalise: 0 = one-sided, 1 = perfectly split
+            totalMargin += margin;
+            if (margin < 0.1)
+                closeVoteCount++;
+            if (margin > 0.6)
+                decisiveVoteCount++;
+        }
+    }
+    if (validCount === 0)
+        return null;
+    return {
+        unanimity: Math.round((totalUnanimity / validCount) * 100) / 100,
+        polarization: polarizationCount > 0 ? Math.round((totalPolarization / polarizationCount) * 100) / 100 : 0,
+        averageMargin: polarizationCount > 0 ? Math.round((totalMargin / polarizationCount) * 100) / 100 : 0,
+        closeVoteCount,
+        decisiveVoteCount,
+    };
+}
+/**
+ * Detect coalition shifts by comparing current cohesion patterns against
+ * a baseline. Stability threshold is ±5%; severity tiers are >5% (medium),
+ * >10% (high), and >20% (critical).
+ *
+ * @param currentPatterns - Current period voting patterns
+ * @param baselinePatterns - Previous period patterns (or estimated baseline)
+ * @returns Array of detected coalition shifts, sorted by significance
+ */
+export function detectCoalitionShifts(currentPatterns, baselinePatterns) {
+    const baselineMap = new Map();
+    for (const bp of baselinePatterns) {
+        baselineMap.set(bp.group, bp.cohesion);
+    }
+    const shifts = [];
+    for (const current of currentPatterns) {
+        const previous = baselineMap.get(current.group) ?? current.cohesion;
+        const delta = current.cohesion - previous;
+        const absDelta = Math.abs(delta);
+        let direction;
+        if (delta > 0.05)
+            direction = 'strengthening';
+        else if (delta < -0.05)
+            direction = 'weakening';
+        else
+            direction = 'stable';
+        let significance;
+        if (absDelta > 0.2)
+            significance = 'critical';
+        else if (absDelta > 0.1)
+            significance = 'high';
+        else if (absDelta > 0.05)
+            significance = 'medium';
+        else
+            significance = 'low';
+        shifts.push({
+            group: current.group,
+            previousCohesion: Math.round(previous * 100) / 100,
+            currentCohesion: Math.round(current.cohesion * 100) / 100,
+            cohesionDelta: Math.round(delta * 100) / 100,
+            direction,
+            significance,
+        });
+    }
+    // Sort by significance (critical first), then by absolute delta descending
+    const sigOrder = { critical: 4, high: 3, medium: 2, low: 1 };
+    return shifts.sort((a, b) => {
+        const sigDiff = (sigOrder[b.significance] ?? 0) - (sigOrder[a.significance] ?? 0);
+        if (sigDiff !== 0)
+            return sigDiff;
+        return Math.abs(b.cohesionDelta) - Math.abs(a.cohesionDelta);
+    });
+}
+/**
+ * Classify cohesion groups into high-cohesion and fragmented categories.
+ *
+ * @param patterns - Voting patterns
+ * @returns Tuple of [highCohesionGroups, fragmentedGroups]
+ */
+function classifyCohesionGroups(patterns) {
+    const high = [];
+    const fragmented = [];
+    for (const p of patterns) {
+        if (p.cohesion > 0.8)
+            high.push(p.group);
+        if (p.cohesion < 0.5)
+            fragmented.push(p.group);
+    }
+    return [high, fragmented];
+}
+/**
+ * Compute effective number of voting blocs using Laakso-Taagepera style.
+ *
+ * @param patterns - Voting patterns
+ * @returns Effective number of blocs
+ */
+function computeEffectiveBlocs(patterns) {
+    let totalParticipation = 0;
+    for (const p of patterns)
+        totalParticipation += p.participation;
+    if (totalParticipation <= 0)
+        return patterns.length;
+    let sumSquares = 0;
+    for (const p of patterns) {
+        const share = p.participation / totalParticipation;
+        sumSquares += share * share;
+    }
+    return sumSquares > 0 ? 1 / sumSquares : patterns.length;
+}
+/**
+ * Map an overall index to a polarization assessment label.
+ *
+ * @param index - Polarization index (0-1)
+ * @returns Assessment label
+ */
+function assessPolarization(index) {
+    if (index >= 0.75)
+        return 'highly-polarized';
+    if (index >= 0.5)
+        return 'polarized';
+    if (index >= 0.25)
+        return 'moderate';
+    return 'consensus';
+}
+/**
+ * Compute a polarization index for a parliamentary period based on
+ * voting pattern cohesion data. Uses a Laakso-Taagepera–inspired
+ * "effective number of blocs" calculation alongside cohesion analysis.
+ *
+ * @param patterns - Voting patterns for the period
+ * @returns PolarizationIndex assessment, or null if patterns are empty
+ */
+export function computePolarizationIndex(patterns) {
+    if (patterns.length === 0)
+        return null;
+    const [highCohesionGroups, fragmentedGroups] = classifyCohesionGroups(patterns);
+    const effectiveBlocs = computeEffectiveBlocs(patterns);
+    const extremeCount = highCohesionGroups.length + fragmentedGroups.length;
+    const overallIndex = Math.round((extremeCount / patterns.length) * 100) / 100;
+    return {
+        overallIndex,
+        effectiveBlocs: Math.round(effectiveBlocs * 100) / 100,
+        highCohesionGroups,
+        fragmentedGroups,
+        assessment: assessPolarization(overallIndex),
+    };
+}
 //# sourceMappingURL=intelligence-analysis.js.map

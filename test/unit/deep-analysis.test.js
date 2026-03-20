@@ -802,6 +802,48 @@ describe('analysis-builders', () => {
       const result = buildVotingAnalysis('2026-02-01', '2026-02-28', [], [], placeholderAnomalies, []);
       expect(result.actionConsequences).toEqual([]);
     });
+
+    it('should include voting intensity metrics in "what" when records have vote data', () => {
+      const result = buildVotingAnalysis(
+        '2026-02-01', '2026-02-28',
+        VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
+      );
+      expect(result.what).toContain('Voting intensity:');
+      expect(result.what).toContain('Polarization index:');
+    });
+
+    it('should include polarization assessment in "why" when patterns exist', () => {
+      const result = buildVotingAnalysis(
+        '2026-02-01', '2026-02-28',
+        VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
+      );
+      expect(result.why).toContain('Polarization assessment:');
+      expect(result.why).toContain('Effective number of voting blocs:');
+    });
+
+    it('should include average margin insight in political impact', () => {
+      const result = buildVotingAnalysis(
+        '2026-02-01', '2026-02-28',
+        VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
+      );
+      expect(result.impactAssessment.political).toContain('Average margin:');
+    });
+
+    it('should include fragmented groups in outlook when anomalies exist', () => {
+      const fragmentedPatterns = [
+        { group: 'Weak Party', cohesion: 0.3, participation: 0.5 },
+        { group: 'Strong Party', cohesion: 0.95, participation: 0.9 },
+      ];
+      const highAnomalies = [
+        { type: 'Defection', description: 'Mass defection in Weak Party', severity: 'HIGH' },
+      ];
+      const result = buildVotingAnalysis(
+        '2026-02-01', '2026-02-28',
+        VOTING_RECORDS, fragmentedPatterns, highAnomalies, MOTIONS_QUESTIONS
+      );
+      expect(result.outlook).toContain('Fragmented groups');
+      expect(result.outlook).toContain('Weak Party');
+    });
   });
 
   describe('buildProspectiveAnalysis', () => {

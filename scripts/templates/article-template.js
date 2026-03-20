@@ -146,7 +146,9 @@ export function generateArticleHTML(options) {
         headline: title,
         description: subtitle,
         datePublished: date,
+        dateModified: date,
         inLanguage: lang,
+        articleSection: categoryLabel,
         author: {
             '@type': 'Organization',
             name: 'EU Parliament Monitor',
@@ -157,6 +159,10 @@ export function generateArticleHTML(options) {
             url: 'https://hack23.github.io/euparliamentmonitor',
         },
         keywords: keywords.join(', '),
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `https://hack23.github.io/euparliamentmonitor/news/${date}-${slug}-${lang}.html`,
+        },
     }, null, 4);
     // Validate and escape stylesHash — only allow valid SRI hash format
     const safeSriAttrs = stylesHash && SRI_HASH_PATTERN.test(stylesHash)
@@ -188,7 +194,13 @@ export function generateArticleHTML(options) {
   <meta name="generator" content="EU Parliament Monitor v${escapeHTML(APP_VERSION)}">
   <meta name="date" content="${date}">
   <meta property="article:published_time" content="${date}">
+  <meta property="article:modified_time" content="${date}">
   <meta property="article:author" content="EU Parliament Monitor">
+  <meta property="article:section" content="${safeCategoryLabel}">
+  ${keywords
+        .slice(0, 10)
+        .map((k) => `<meta property="article:tag" content="${escapeHTML(k)}">`)
+        .join('\n  ')}
   
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
