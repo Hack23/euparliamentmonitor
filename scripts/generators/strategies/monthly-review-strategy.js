@@ -8,13 +8,74 @@ import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
-/** Keywords shared by all Monthly Review articles */
-const MONTHLY_REVIEW_KEYWORDS = [
+/** Base keywords shared by all Monthly Review articles */
+const MONTHLY_REVIEW_BASE_KEYWORDS = [
     'European Parliament',
     'monthly review',
     'legislative output',
     'coalition dynamics',
 ];
+/**
+ * Extract content-aware keywords from monthly review data.
+ *
+ * @param data - Monthly review article data payload
+ * @returns Deduplicated keyword array
+ */
+function buildMonthlyReviewKeywords(data) {
+    const keywords = [...MONTHLY_REVIEW_BASE_KEYWORDS];
+    for (const r of data.votingRecords.slice(0, 5)) {
+        if (r.title)
+            keywords.push(r.title.slice(0, 60));
+    }
+    for (const a of data.anomalies.slice(0, 3)) {
+        if (a.type)
+            keywords.push(a.type);
+    }
+    for (const q of data.questions.slice(0, 3)) {
+        if (q.topic)
+            keywords.push(q.topic);
+    }
+    return [...new Set(keywords)];
+}
+/**
+ * Build a content-aware description from monthly review data.
+ *
+ * @param data - Monthly review article data payload
+ * @returns SEO-friendly description (≤ 200 chars)
+ */
+function buildMonthlyReviewDescription(data) {
+    const parts = [];
+    if (data.votingRecords.length > 0)
+        parts.push(`${data.votingRecords.length} votes analysed`);
+    if (data.anomalies.length > 0)
+        parts.push(`${data.anomalies.length} voting anomalies`);
+    if (data.questions.length > 0)
+        parts.push(`${data.questions.length} questions tabled`);
+    if (parts.length === 0) {
+        return `European Parliament monthly review for ${data.monthLabel} — legislative output and coalition dynamics.`;
+    }
+    const highlight = data.votingRecords[0]?.title ?? '';
+    const base = `EP month in review (${data.monthLabel}): ${parts.join(', ')}`;
+    if (highlight) {
+        const full = `${base}. Key: ${highlight}`;
+        return full.length > 200 ? full.slice(0, 197) + '...' : full;
+    }
+    return base.length > 200 ? base.slice(0, 197) + '...' : base;
+}
+/**
+ * Build a content-aware title suffix from monthly review data counts.
+ *
+ * @param data - Monthly review article data payload
+ * @returns Short suffix for the title, or empty string
+ */
+function buildMonthlyReviewTitleSuffix(data) {
+    const parts = [];
+    if (data.votingRecords.length > 0)
+        parts.push(`${data.votingRecords.length} Votes`);
+    if (data.anomalies.length > 0)
+        parts.push(`${data.anomalies.length} Anomalies`);
+    return parts.join(', ');
+}
 // ─── Date-range helper ────────────────────────────────────────────────────────
 /**
  * Compute the review period covering the 30 days ending on `baseDate`.
@@ -120,11 +181,14 @@ export class MonthlyReviewStrategy {
      */
     getMetadata(data, lang) {
         const titleFn = getLocalizedString(MONTHLY_REVIEW_TITLES, lang);
-        const { title, subtitle } = titleFn(data.monthLabel);
+        const { title: baseTitle, subtitle: baseSubtitle } = titleFn(data.monthLabel);
+        const suffix = buildMonthlyReviewTitleSuffix(data);
+        const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
+        const subtitle = buildMonthlyReviewDescription(data) || baseSubtitle;
         return {
             title,
             subtitle,
-            keywords: [...MONTHLY_REVIEW_KEYWORDS],
+            keywords: buildMonthlyReviewKeywords(data),
             category: ArticleCategory.MONTH_IN_REVIEW,
             sources: [],
         };

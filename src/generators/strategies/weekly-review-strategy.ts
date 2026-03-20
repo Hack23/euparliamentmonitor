@@ -58,13 +58,83 @@ export interface WeeklyReviewArticleData extends ArticleData {
   readonly feedData?: EPFeedData | undefined;
 }
 
-/** Keywords shared by all Weekly Review articles */
-const WEEKLY_REVIEW_KEYWORDS = [
+/** Base keywords shared by all Weekly Review articles */
+const WEEKLY_REVIEW_BASE_KEYWORDS = [
   'European Parliament',
   'weekly review',
   'voting records',
   'parliamentary activity',
 ] as const;
+
+/**
+ * Extract content-aware keywords from weekly review data.
+ *
+ * @param data - Weekly review article data payload
+ * @returns Deduplicated keyword array
+ */
+function buildWeeklyReviewKeywords(data: WeeklyReviewArticleData): string[] {
+  const keywords: string[] = [...WEEKLY_REVIEW_BASE_KEYWORDS];
+
+  for (const r of data.votingRecords.slice(0, 5)) {
+    if (r.title) keywords.push(r.title.slice(0, 60));
+  }
+  for (const a of data.anomalies.slice(0, 3)) {
+    if (a.type) keywords.push(a.type);
+  }
+  for (const q of data.questions.slice(0, 3)) {
+    if (q.topic) keywords.push(q.topic);
+  }
+  if (data.feedData?.adoptedTexts) {
+    for (const text of data.feedData.adoptedTexts.slice(0, 3)) {
+      if (text.title) keywords.push(text.title.slice(0, 60));
+    }
+  }
+
+  return [...new Set(keywords)];
+}
+
+/**
+ * Build a content-aware description from weekly review data.
+ *
+ * @param data - Weekly review article data payload
+ * @returns SEO-friendly description (≤ 200 chars)
+ */
+function buildWeeklyReviewDescription(data: WeeklyReviewArticleData): string {
+  const parts: string[] = [];
+
+  if (data.votingRecords.length > 0) parts.push(`${data.votingRecords.length} votes analysed`);
+  if (data.anomalies.length > 0) parts.push(`${data.anomalies.length} voting anomalies`);
+  if (data.questions.length > 0) parts.push(`${data.questions.length} questions tabled`);
+  const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
+  if (adoptedCount > 0) parts.push(`${adoptedCount} adopted texts`);
+
+  if (parts.length === 0) {
+    return `European Parliament weekly review for ${data.dateRange.start} to ${data.dateRange.end}.`;
+  }
+
+  const highlight = data.votingRecords[0]?.title ?? '';
+  const base = `EP week in review (${data.dateRange.start}–${data.dateRange.end}): ${parts.join(', ')}`;
+  if (highlight) {
+    const full = `${base}. Key: ${highlight}`;
+    return full.length > 200 ? full.slice(0, 197) + '...' : full;
+  }
+  return base.length > 200 ? base.slice(0, 197) + '...' : base;
+}
+
+/**
+ * Build a content-aware title suffix from weekly review data counts.
+ *
+ * @param data - Weekly review article data payload
+ * @returns Short suffix for the title, or empty string
+ */
+function buildWeeklyReviewTitleSuffix(data: WeeklyReviewArticleData): string {
+  const parts: string[] = [];
+  if (data.votingRecords.length > 0) parts.push(`${data.votingRecords.length} Votes`);
+  if (data.anomalies.length > 0) parts.push(`${data.anomalies.length} Anomalies`);
+  const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
+  if (adoptedCount > 0) parts.push(`${adoptedCount} Texts`);
+  return parts.join(', ');
+}
 
 // ─── Date-range helper ────────────────────────────────────────────────────────
 
@@ -204,11 +274,17 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
    */
   getMetadata(data: WeeklyReviewArticleData, lang: LanguageCode): ArticleMetadata {
     const titleFn = getLocalizedString(WEEKLY_REVIEW_TITLES, lang);
-    const { title, subtitle } = titleFn(data.dateRange.start, data.dateRange.end);
+    const { title: baseTitle, subtitle: baseSubtitle } = titleFn(
+      data.dateRange.start,
+      data.dateRange.end
+    );
+    const suffix = buildWeeklyReviewTitleSuffix(data);
+    const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
+    const subtitle = buildWeeklyReviewDescription(data) || baseSubtitle;
     return {
       title,
       subtitle,
-      keywords: [...WEEKLY_REVIEW_KEYWORDS],
+      keywords: buildWeeklyReviewKeywords(data),
       category: ArticleCategory.WEEK_IN_REVIEW,
       sources: [],
     };

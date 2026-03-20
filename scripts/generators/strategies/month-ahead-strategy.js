@@ -15,6 +15,45 @@ const MONTH_AHEAD_KEYWORDS = [
     'strategic outlook',
     'legislative calendar',
 ];
+/**
+ * Build a content-aware title suffix from month-ahead data counts.
+ *
+ * @param monthData - Aggregated month-ahead domain data
+ * @returns Short suffix for the title, or empty string
+ */
+function buildMonthAheadTitleSuffix(monthData) {
+    const parts = [];
+    if (monthData.events.length > 0)
+        parts.push(`${monthData.events.length} Events`);
+    if (monthData.committees.length > 0)
+        parts.push(`${monthData.committees.length} Committee Meetings`);
+    if (monthData.pipeline.length > 0)
+        parts.push(`${monthData.pipeline.length} Pipeline Items`);
+    return parts.join(', ');
+}
+/**
+ * Build a content-aware description from month-ahead data.
+ *
+ * @param monthData - Aggregated month-ahead domain data
+ * @param monthLabel - Display label for the target month
+ * @returns SEO-friendly description (≤ 200 chars)
+ */
+function buildMonthAheadDescription(monthData, monthLabel) {
+    const parts = [];
+    if (monthData.events.length > 0)
+        parts.push(`${monthData.events.length} scheduled events`);
+    if (monthData.committees.length > 0)
+        parts.push(`${monthData.committees.length} committee meetings`);
+    if (monthData.pipeline.length > 0)
+        parts.push(`${monthData.pipeline.length} pipeline procedures`);
+    if (monthData.questions.length > 0)
+        parts.push(`${monthData.questions.length} parliamentary questions`);
+    if (parts.length === 0) {
+        return `European Parliament strategic outlook for ${monthLabel} — legislative milestones and policy agenda.`;
+    }
+    const desc = `EP month ahead (${monthLabel}): ${parts.join(', ')}.`;
+    return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
+}
 // ─── Date-range helper ────────────────────────────────────────────────────────
 /**
  * Compute the month-ahead date range spanning 30 days from the day after `baseDate`.
@@ -112,7 +151,10 @@ export class MonthAheadStrategy {
      */
     getMetadata(data, lang) {
         const titleFn = getLocalizedString(MONTH_AHEAD_TITLES, lang);
-        const { title, subtitle } = titleFn(data.monthLabel);
+        const { title: baseTitle, subtitle: baseSubtitle } = titleFn(data.monthLabel);
+        const suffix = buildMonthAheadTitleSuffix(data.monthData);
+        const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
+        const subtitle = buildMonthAheadDescription(data.monthData, data.monthLabel) || baseSubtitle;
         return {
             title,
             subtitle,

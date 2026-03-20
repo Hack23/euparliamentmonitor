@@ -36,14 +36,95 @@ import { buildDashboardSection } from '../dashboard-content.js';
 import type { PipelineData } from '../propositions-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 
-/** Keywords shared by all Propositions articles */
-const PROPOSITIONS_KEYWORDS = [
+/** Base keywords shared by all Propositions articles */
+const PROPOSITIONS_BASE_KEYWORDS = [
   'European Parliament',
   'legislation',
   'proposals',
   'procedure',
   'OLP',
 ] as const;
+
+/**
+ * Extract content-aware keywords from propositions data and feed.
+ *
+ * Adds procedure titles, adopted text titles, and pipeline health
+ * indicators to the base keyword set.
+ *
+ * @param data - Propositions article data payload
+ * @returns Deduplicated keyword array
+ */
+function buildPropositionsKeywords(data: PropositionsArticleData): string[] {
+  const keywords: string[] = [...PROPOSITIONS_BASE_KEYWORDS];
+
+  if (data.feedData?.procedures) {
+    for (const proc of data.feedData.procedures.slice(0, 5)) {
+      if (proc.title) keywords.push(proc.title.slice(0, 60));
+    }
+  }
+  if (data.feedData?.adoptedTexts) {
+    for (const text of data.feedData.adoptedTexts.slice(0, 3)) {
+      if (text.title) keywords.push(text.title.slice(0, 60));
+    }
+  }
+  if (data.pipelineData) {
+    keywords.push('legislative pipeline');
+    if (data.pipelineData.healthScore >= 0.8) keywords.push('healthy pipeline');
+  }
+
+  return [...new Set(keywords)];
+}
+
+/**
+ * Build a content-aware description from propositions data.
+ * Summarises pipeline health, procedure counts, and adopted text counts.
+ *
+ * @param data - Propositions article data payload
+ * @returns SEO-friendly description (≤ 200 chars)
+ */
+function buildPropositionsDescription(data: PropositionsArticleData): string {
+  const parts: string[] = [];
+
+  const procCount = data.feedData?.procedures?.length ?? 0;
+  const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
+  // Count proposals by the number of proposal-card divs in the HTML
+  const proposalMatches = data.proposalsHtml.match(/proposal-card/gu);
+  const proposalCount = proposalMatches ? proposalMatches.length : 0;
+
+  if (proposalCount > 0) parts.push(`${proposalCount} active proposals`);
+  if (procCount > 0) parts.push(`${procCount} procedures tracked`);
+  if (adoptedCount > 0) parts.push(`${adoptedCount} recently adopted texts`);
+  if (data.pipelineData) {
+    const healthPct = Math.round(data.pipelineData.healthScore * 100);
+    parts.push(`pipeline health ${healthPct}%`);
+  }
+
+  if (parts.length === 0) {
+    return 'Recent legislative proposals, procedure tracking, and pipeline status in the European Parliament';
+  }
+
+  const desc = `EP legislative tracker: ${parts.join(', ')}.`;
+  return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
+}
+
+/**
+ * Build a content-aware title suffix from propositions data.
+ *
+ * @param data - Propositions article data payload
+ * @returns Short suffix for the title, or empty string
+ */
+function buildPropositionsTitleSuffix(data: PropositionsArticleData): string {
+  const parts: string[] = [];
+  const procCount = data.feedData?.procedures?.length ?? 0;
+  const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
+  if (procCount > 0) parts.push(`${procCount} Procedures`);
+  if (adoptedCount > 0) parts.push(`${adoptedCount} Adopted Texts`);
+  if (data.pipelineData && parts.length === 0) {
+    const healthPct = Math.round(data.pipelineData.healthScore * 100);
+    parts.push(`Pipeline ${healthPct}%`);
+  }
+  return parts.join(', ');
+}
 
 /**
  * Build procedures and adopted-texts HTML separately from EP feed data when
@@ -231,17 +312,20 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
   /**
    * Return language-specific metadata for the propositions article.
    *
-   * @param _data - Propositions data payload (unused — metadata is data-independent)
+   * @param data - Propositions data payload
    * @param lang - Target language code
    * @returns Localised metadata
    */
-  getMetadata(_data: PropositionsArticleData, lang: LanguageCode): ArticleMetadata {
+  getMetadata(data: PropositionsArticleData, lang: LanguageCode): ArticleMetadata {
     const titleFn = getLocalizedString(PROPOSITIONS_TITLES, lang);
-    const { title, subtitle } = titleFn();
+    const { title: baseTitle, subtitle: baseSubtitle } = titleFn();
+    const suffix = buildPropositionsTitleSuffix(data);
+    const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
+    const subtitle = buildPropositionsDescription(data) || baseSubtitle;
     return {
       title,
       subtitle,
-      keywords: [...PROPOSITIONS_KEYWORDS],
+      keywords: buildPropositionsKeywords(data),
       category: ArticleCategory.PROPOSITIONS,
       sources: [],
     };

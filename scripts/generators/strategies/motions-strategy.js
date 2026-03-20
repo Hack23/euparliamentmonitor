@@ -8,14 +8,91 @@ import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
-/** Keywords shared by all Motions articles */
-const MOTIONS_KEYWORDS = [
+/** Base keywords shared by all Motions articles */
+const MOTIONS_BASE_KEYWORDS = [
     'European Parliament',
     'motions',
     'voting records',
     'party cohesion',
     'parliamentary questions',
 ];
+/**
+ * Extract content-aware keywords from motions data.
+ *
+ * Adds voting record titles, anomaly descriptions, question topics,
+ * and adopted text titles to the base keyword set.
+ *
+ * @param data - Motions article data payload
+ * @returns Deduplicated keyword array
+ */
+function buildMotionsKeywords(data) {
+    const keywords = [...MOTIONS_BASE_KEYWORDS];
+    for (const r of data.votingRecords.slice(0, 5)) {
+        if (r.title)
+            keywords.push(r.title.slice(0, 60));
+    }
+    for (const a of data.anomalies.slice(0, 3)) {
+        if (a.type)
+            keywords.push(a.type);
+    }
+    for (const q of data.questions.slice(0, 3)) {
+        if (q.topic)
+            keywords.push(q.topic);
+    }
+    if (data.feedData?.adoptedTexts) {
+        for (const text of data.feedData.adoptedTexts.slice(0, 3)) {
+            if (text.title)
+                keywords.push(text.title.slice(0, 60));
+        }
+    }
+    return [...new Set(keywords)];
+}
+/**
+ * Build a content-aware description from motions data.
+ * Summarises voting record count, anomaly count, and key vote highlights.
+ *
+ * @param data - Motions article data payload
+ * @returns SEO-friendly description (≤ 200 chars)
+ */
+function buildMotionsDescription(data) {
+    const parts = [];
+    if (data.votingRecords.length > 0)
+        parts.push(`${data.votingRecords.length} votes analysed`);
+    if (data.anomalies.length > 0)
+        parts.push(`${data.anomalies.length} anomalies detected`);
+    if (data.questions.length > 0)
+        parts.push(`${data.questions.length} parliamentary questions`);
+    const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
+    if (adoptedCount > 0)
+        parts.push(`${adoptedCount} adopted texts`);
+    if (parts.length === 0) {
+        return `European Parliament plenary votes and resolutions from ${data.dateFromStr} to ${data.date}.`;
+    }
+    const highlight = data.votingRecords[0]?.title ?? '';
+    const base = `EP voting analysis: ${parts.join(', ')}`;
+    if (highlight) {
+        const full = `${base}. Key vote: ${highlight}`;
+        return full.length > 200 ? full.slice(0, 197) + '...' : full;
+    }
+    return base.length > 200 ? base.slice(0, 197) + '...' : base;
+}
+/**
+ * Build a content-aware title suffix from motions data counts.
+ *
+ * @param data - Motions article data payload
+ * @returns Short suffix for the title, or empty string
+ */
+function buildMotionsTitleSuffix(data) {
+    const parts = [];
+    if (data.votingRecords.length > 0)
+        parts.push(`${data.votingRecords.length} Votes`);
+    if (data.anomalies.length > 0)
+        parts.push(`${data.anomalies.length} Anomalies`);
+    const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
+    if (adoptedCount > 0)
+        parts.push(`${adoptedCount} Adopted Texts`);
+    return parts.join(', ');
+}
 /** Number of days to look back when fetching motions data */
 const MOTIONS_LOOKBACK_DAYS = 30;
 // ─── Strategy implementation ──────────────────────────────────────────────────
@@ -107,11 +184,14 @@ export class MotionsStrategy {
      */
     getMetadata(data, lang) {
         const titleFn = getLocalizedString(MOTIONS_TITLES, lang);
-        const { title, subtitle } = titleFn(data.date);
+        const { title: baseTitle, subtitle: baseSubtitle } = titleFn(data.date);
+        const suffix = buildMotionsTitleSuffix(data);
+        const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
+        const subtitle = buildMotionsDescription(data) || baseSubtitle;
         return {
             title,
             subtitle,
-            keywords: [...MOTIONS_KEYWORDS],
+            keywords: buildMotionsKeywords(data),
             category: ArticleCategory.MOTIONS,
             sources: [],
         };
