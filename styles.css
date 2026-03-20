@@ -1560,6 +1560,7 @@ button:focus-visible {
     --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 1px rgba(77, 163, 255, 0.06);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 2px rgba(77, 163, 255, 0.08);
     --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 4px rgba(77, 163, 255, 0.1);
+    --shadow-hover-glow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 0 8px rgba(77, 163, 255, 0.12);
 
     --hero-surface-strong: rgba(255, 255, 255, 0.1);
     --hero-surface-soft: rgba(255, 255, 255, 0.04);
@@ -1947,7 +1948,7 @@ button:focus-visible {
   }
 
   .news-card:hover {
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 0 8px rgba(77, 163, 255, 0.12);
+    box-shadow: var(--shadow-hover-glow);
     border-color: var(--accent);
   }
 
