@@ -197,7 +197,10 @@ export function generateArticleHTML(options) {
   <meta property="article:modified_time" content="${date}">
   <meta property="article:author" content="EU Parliament Monitor">
   <meta property="article:section" content="${safeCategoryLabel}">
-  ${keywords.slice(0, 10).map((k) => `<meta property="article:tag" content="${escapeHTML(k)}">`).join('\n  ')}
+  ${keywords
+        .slice(0, 10)
+        .map((k) => `<meta property="article:tag" content="${escapeHTML(k)}">`)
+        .join('\n  ')}
   
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="../favicon.ico">

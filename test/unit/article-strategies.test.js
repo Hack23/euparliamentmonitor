@@ -93,6 +93,19 @@ describe('WeekAheadStrategy', () => {
     expect(meta.keywords.length).toBeGreaterThan(0);
   });
 
+  it('getMetadata subtitle includes event counts from data', () => {
+    const meta = strategy.getMetadata(weekAheadData, 'en');
+    // weekAheadData has 1 event
+    expect(meta.subtitle).toContain('1 scheduled events');
+  });
+
+  it('getMetadata title includes content-aware suffix when events exist', () => {
+    const meta = strategy.getMetadata(weekAheadData, 'en');
+    // weekAheadData has 1 event, so title should include suffix
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('1 Events');
+  });
+
   it('getMetadata returns different titles for different languages', () => {
     const en = strategy.getMetadata(weekAheadData, 'en');
     const de = strategy.getMetadata(weekAheadData, 'de');
@@ -142,6 +155,33 @@ describe('BreakingNewsStrategy', () => {
     const meta = strategy.getMetadata(breakingNewsData, 'en');
     expect(meta.title).toBeTruthy();
     expect(meta.category).toBe('breaking');
+    expect(meta.keywords).toContain('breaking news');
+  });
+
+  it('getMetadata title includes content-aware suffix from feed data', () => {
+    const meta = strategy.getMetadata(breakingNewsData, 'en');
+    // breakingNewsData has 1 adopted text, 1 event, 1 procedure — title should include suffix
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('Texts');
+  });
+
+  it('getMetadata subtitle includes feed data highlights', () => {
+    const meta = strategy.getMetadata(breakingNewsData, 'en');
+    // subtitle should mention adopted texts from feed data
+    expect(meta.subtitle).toContain('adopted texts');
+  });
+
+  it('getMetadata keywords include adopted text titles from feed data', () => {
+    const meta = strategy.getMetadata(breakingNewsData, 'en');
+    expect(meta.keywords).toContain('Resolution on climate action');
+  });
+
+  it('getMetadata falls back gracefully when feedData is undefined', () => {
+    const noFeedData = { ...breakingNewsData, feedData: undefined };
+    const meta = strategy.getMetadata(noFeedData, 'en');
+    expect(meta.title).toBeTruthy();
+    expect(meta.subtitle).toBeTruthy();
+    expect(meta.keywords.length).toBeGreaterThan(0);
     expect(meta.keywords).toContain('breaking news');
   });
 
@@ -502,6 +542,25 @@ describe('CommitteeReportsStrategy', () => {
     expect(meta.keywords).toContain('committee');
   });
 
+  it('getMetadata keywords include committee abbreviations', () => {
+    const meta = strategy.getMetadata(committeeReportsData, 'en');
+    expect(meta.keywords).toContain('ENVI');
+    expect(meta.keywords).toContain('Environment Committee');
+  });
+
+  it('getMetadata subtitle includes committee document counts', () => {
+    const meta = strategy.getMetadata(committeeReportsData, 'en');
+    // committeeReportsData has 1 committee with 1 doc and a real chair
+    expect(meta.subtitle).toContain('1 committees reporting');
+    expect(meta.subtitle).toContain('1 recent documents');
+  });
+
+  it('getMetadata title includes content-aware suffix', () => {
+    const meta = strategy.getMetadata(committeeReportsData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('Documents');
+  });
+
   it('getMetadata includes EP source reference', () => {
     const meta = strategy.getMetadata(committeeReportsData, 'en');
     expect(meta.sources).toBeDefined();
@@ -555,6 +614,24 @@ describe('PropositionsStrategy', () => {
     expect(meta.category).toBe('propositions');
     expect(meta.title).toBeTruthy();
     expect(meta.keywords).toContain('legislation');
+  });
+
+  it('getMetadata subtitle includes pipeline health when available', () => {
+    const meta = strategy.getMetadata(propositionsData, 'en');
+    // propositionsData has pipelineData with healthScore: 0.85
+    expect(meta.subtitle).toContain('pipeline health 85%');
+  });
+
+  it('getMetadata keywords include legislative pipeline when pipelineData present', () => {
+    const meta = strategy.getMetadata(propositionsData, 'en');
+    expect(meta.keywords).toContain('legislative pipeline');
+    expect(meta.keywords).toContain('healthy pipeline');
+  });
+
+  it('getMetadata title includes content-aware suffix', () => {
+    const meta = strategy.getMetadata(propositionsData, 'en');
+    // propositionsData has 1 proposal card in HTML
+    expect(meta.title).toContain('—');
   });
 });
 
@@ -632,6 +709,33 @@ describe('MotionsStrategy', () => {
     expect(meta.category).toBe('motions');
     expect(meta.title).toBeTruthy();
     expect(meta.keywords).toContain('motions');
+  });
+
+  it('getMetadata keywords include voting record titles', () => {
+    const meta = strategy.getMetadata(motionsData, 'en');
+    expect(meta.keywords).toContain('Budget 2025');
+  });
+
+  it('getMetadata keywords include anomaly types', () => {
+    const meta = strategy.getMetadata(motionsData, 'en');
+    expect(meta.keywords).toContain('Defection');
+  });
+
+  it('getMetadata keywords include question topics', () => {
+    const meta = strategy.getMetadata(motionsData, 'en');
+    expect(meta.keywords).toContain('Energy policy');
+  });
+
+  it('getMetadata subtitle includes vote count and anomaly count', () => {
+    const meta = strategy.getMetadata(motionsData, 'en');
+    expect(meta.subtitle).toContain('1 votes analysed');
+    expect(meta.subtitle).toContain('1 anomalies detected');
+  });
+
+  it('getMetadata title includes content-aware suffix', () => {
+    const meta = strategy.getMetadata(motionsData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('1 Votes');
   });
 
   it('getMetadata differs by language', () => {
@@ -1164,6 +1268,18 @@ describe('MonthAheadStrategy', () => {
     expect(meta.keywords.length).toBeGreaterThan(0);
   });
 
+  it('getMetadata subtitle includes event counts from data', () => {
+    const meta = strategy.getMetadata(monthAheadData, 'en');
+    // monthAheadData has 1 event
+    expect(meta.subtitle).toContain('1 scheduled events');
+  });
+
+  it('getMetadata title includes content-aware suffix when events exist', () => {
+    const meta = strategy.getMetadata(monthAheadData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('1 Events');
+  });
+
   it('getMetadata returns localized title for de', () => {
     const meta = strategy.getMetadata(monthAheadData, 'de');
     expect(meta.title).toContain('Monat Voraus');
@@ -1234,6 +1350,28 @@ describe('WeeklyReviewStrategy', () => {
     expect(meta.subtitle).toBeTruthy();
     expect(meta.category).toBe('week-in-review');
     expect(meta.keywords.length).toBeGreaterThan(0);
+  });
+
+  it('getMetadata keywords include voting record titles', () => {
+    const meta = strategy.getMetadata(weeklyReviewData, 'en');
+    expect(meta.keywords).toContain('Digital Markets Act Amendment');
+  });
+
+  it('getMetadata keywords include adopted text titles from feed', () => {
+    const meta = strategy.getMetadata(weeklyReviewData, 'en');
+    expect(meta.keywords).toContain('Resolution on climate action');
+  });
+
+  it('getMetadata subtitle includes vote and anomaly counts', () => {
+    const meta = strategy.getMetadata(weeklyReviewData, 'en');
+    expect(meta.subtitle).toContain('1 votes analysed');
+    expect(meta.subtitle).toContain('1 voting anomalies');
+  });
+
+  it('getMetadata title includes content-aware suffix', () => {
+    const meta = strategy.getMetadata(weeklyReviewData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('1 Votes');
   });
 
   it('getMetadata returns localized title for sv', () => {
@@ -1332,6 +1470,28 @@ describe('MonthlyReviewStrategy', () => {
     expect(meta.subtitle).toBeTruthy();
     expect(meta.category).toBe('month-in-review');
     expect(meta.keywords.length).toBeGreaterThan(0);
+  });
+
+  it('getMetadata keywords include voting record titles', () => {
+    const meta = strategy.getMetadata(monthlyReviewData, 'en');
+    expect(meta.keywords).toContain('Green Deal Implementation');
+  });
+
+  it('getMetadata keywords include anomaly types', () => {
+    const meta = strategy.getMetadata(monthlyReviewData, 'en');
+    expect(meta.keywords).toContain('Cross-Party Vote');
+  });
+
+  it('getMetadata subtitle includes vote and anomaly counts', () => {
+    const meta = strategy.getMetadata(monthlyReviewData, 'en');
+    expect(meta.subtitle).toContain('1 votes analysed');
+    expect(meta.subtitle).toContain('1 voting anomalies');
+  });
+
+  it('getMetadata title includes content-aware suffix', () => {
+    const meta = strategy.getMetadata(monthlyReviewData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('1 Votes');
   });
 
   it('getMetadata returns localized title for fr', () => {
