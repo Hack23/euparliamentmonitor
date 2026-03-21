@@ -41,7 +41,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@latest
+      - european-parliament-mcp-server@1.1.15
     env:
       EP_REQUEST_TIMEOUT_MS: "30000"
 
