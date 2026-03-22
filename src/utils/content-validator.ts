@@ -507,8 +507,7 @@ function computeCjkCharRatio(text: string): number {
   // CJK Unified Ideographs + Extension A, Hiragana, Katakana, Hangul Syllables
   // Note: Extension B (U+20000–U+2A6DF) is omitted as it triggers unsafe-regex lint
   // and is extremely rare in EU Parliament content.
-  const cjkPattern =
-    /[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7AF]/gu;
+  const cjkPattern = /[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7AF]/gu;
   const matches = text.match(cjkPattern);
   // Use Array.from to correctly count Unicode characters (handles surrogate pairs)
   const charCount = Array.from(text).length;
