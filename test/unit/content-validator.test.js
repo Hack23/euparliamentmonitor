@@ -6,7 +6,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { validateArticleContent } from '../../scripts/utils/content-validator.js';
+import { validateArticleContent, validateTranslationCompleteness } from '../../scripts/utils/content-validator.js';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -463,6 +463,207 @@ describe('utils/content-validator', () => {
         expect(result.metrics).toHaveProperty('dirAttributeValid');
         expect(result.metrics).toHaveProperty('metaTagsSynced');
         expect(result.metrics).toHaveProperty('keywordsLocalized');
+      });
+    });
+  });
+
+  describe('validateTranslationCompleteness', () => {
+    describe('English (source language)', () => {
+      it('should return valid=true and skip all checks for English', () => {
+        const html = buildArticleHtml(`<p>${words(600)}</p>`);
+        const result = validateTranslationCompleteness(html, 'en');
+
+        expect(result.valid).toBe(true);
+        expect(result.warnings).toHaveLength(0);
+        expect(result.metrics.asciiRatio).toBe(1);
+        expect(result.metrics.cjkCharRatio).toBe(0);
+        expect(result.metrics.hasRtlDir).toBe(false);
+        expect(result.metrics.hasBidiMarkers).toBe(false);
+        expect(result.metrics.untranslatedPhrases).toHaveLength(0);
+      });
+    });
+
+    describe('RTL validation (ar, he)', () => {
+      it('should pass for Arabic article with dir="rtl"', () => {
+        const html = buildArticleHtml('<p>البرلمان الأوروبي يناقش التشريعات الجديدة المتعلقة بالسياسة الأوروبية</p>', {
+          lang: 'ar',
+          dir: 'rtl',
+        });
+        const result = validateTranslationCompleteness(html, 'ar');
+
+        expect(result.metrics.hasRtlDir).toBe(true);
+        expect(result.warnings.every((w) => !w.includes('dir="rtl"'))).toBe(true);
+      });
+
+      it('should warn for Arabic article without dir="rtl"', () => {
+        const html = buildArticleHtml('<p>البرلمان الأوروبي يناقش التشريعات الجديدة</p>', {
+          lang: 'ar',
+          dir: 'ltr',
+        });
+        const result = validateTranslationCompleteness(html, 'ar');
+
+        expect(result.valid).toBe(false);
+        expect(result.metrics.hasRtlDir).toBe(false);
+        expect(result.warnings.some((w) => w.includes('RTL') && w.includes('dir="rtl"'))).toBe(true);
+      });
+
+      it('should pass for Hebrew article with dir="rtl"', () => {
+        const html = buildArticleHtml('<p>הפרלמנט האירופי דן בחקיקה חדשה</p>', {
+          lang: 'he',
+          dir: 'rtl',
+        });
+        const result = validateTranslationCompleteness(html, 'he');
+
+        expect(result.metrics.hasRtlDir).toBe(true);
+      });
+
+      it('should warn for Hebrew article without dir="rtl"', () => {
+        const html = buildArticleHtml('<p>הפרלמנט האירופי דן בחקיקה חדשה</p>', {
+          lang: 'he',
+          dir: 'ltr',
+        });
+        const result = validateTranslationCompleteness(html, 'he');
+
+        expect(result.valid).toBe(false);
+        expect(result.warnings.some((w) => w.includes('RTL'))).toBe(true);
+      });
+    });
+
+    describe('CJK density detection (ja, ko, zh)', () => {
+      it('should pass for Japanese article with actual Japanese content', () => {
+        const jaText = '欧州議会は新しい法案について議論しています。委員会は投票の結果を発表しました。規則の改正案が提出されました。';
+        const html = buildArticleHtml(`<p>${jaText}</p>`, { lang: 'ja' });
+        const result = validateTranslationCompleteness(html, 'ja');
+
+        expect(result.metrics.cjkCharRatio).toBeGreaterThan(0.05);
+        expect(result.warnings.every((w) => !w.includes('ASCII'))).toBe(true);
+      });
+
+      it('should warn for Japanese article with mostly ASCII (untranslated)', () => {
+        const html = buildArticleHtml(`<p>${words(200)}</p>`, { lang: 'ja' });
+        const result = validateTranslationCompleteness(html, 'ja');
+
+        expect(result.metrics.asciiRatio).toBeGreaterThan(0.85);
+        expect(result.metrics.cjkCharRatio).toBeLessThan(0.05);
+        expect(result.warnings.some((w) => w.includes('ASCII'))).toBe(true);
+        expect(result.warnings.some((w) => w.includes('CJK'))).toBe(true);
+      });
+
+      it('should pass for Korean article with actual Korean content', () => {
+        const koText = '유럽의회는 새로운 법안에 대해 논의하고 있습니다. 위원회는 투표 결과를 발표했습니다.';
+        const html = buildArticleHtml(`<p>${koText}</p>`, { lang: 'ko' });
+        const result = validateTranslationCompleteness(html, 'ko');
+
+        expect(result.metrics.cjkCharRatio).toBeGreaterThan(0);
+      });
+
+      it('should warn for Korean article with only English content', () => {
+        const html = buildArticleHtml(`<p>${words(200)}</p>`, { lang: 'ko' });
+        const result = validateTranslationCompleteness(html, 'ko');
+
+        expect(result.valid).toBe(false);
+        expect(result.warnings.some((w) => w.includes('KO'))).toBe(true);
+      });
+
+      it('should pass for Chinese article with actual Chinese content', () => {
+        const zhText = '欧洲议会正在讨论新的法案。委员会公布了投票结果。条例修正案已提交。';
+        const html = buildArticleHtml(`<p>${zhText}</p>`, { lang: 'zh' });
+        const result = validateTranslationCompleteness(html, 'zh');
+
+        expect(result.metrics.cjkCharRatio).toBeGreaterThan(0.05);
+      });
+
+      it('should warn for Chinese article with only English content', () => {
+        const html = buildArticleHtml(`<p>${words(200)}</p>`, { lang: 'zh' });
+        const result = validateTranslationCompleteness(html, 'zh');
+
+        expect(result.valid).toBe(false);
+        expect(result.warnings.some((w) => w.includes('ZH'))).toBe(true);
+      });
+    });
+
+    describe('untranslated English phrase detection', () => {
+      it('should warn when "European Parliament" appears in non-English article', () => {
+        const html = buildArticleHtml(
+          '<p>Der Text enthält European Parliament und andere Informationen über die EU-Politik</p>',
+          { lang: 'de' }
+        );
+        const result = validateTranslationCompleteness(html, 'de');
+
+        expect(result.metrics.untranslatedPhrases).toContain('European Parliament');
+        expect(result.warnings.some((w) => w.includes('untranslated'))).toBe(true);
+      });
+
+      it('should warn when "Read more" appears in non-English article', () => {
+        const html = buildArticleHtml(
+          '<p>Texte en français avec Read more et autres informations</p>',
+          { lang: 'fr' }
+        );
+        const result = validateTranslationCompleteness(html, 'fr');
+
+        expect(result.metrics.untranslatedPhrases).toContain('Read more');
+      });
+
+      it('should not warn when no English phrases are found', () => {
+        const html = buildArticleHtml(
+          '<p>Vollständig übersetzter deutscher Text ohne englische Platzhalter</p>',
+          { lang: 'de' }
+        );
+        const result = validateTranslationCompleteness(html, 'de');
+
+        expect(result.metrics.untranslatedPhrases).toHaveLength(0);
+      });
+
+      it('should detect multiple untranslated phrases', () => {
+        const html = buildArticleHtml(
+          '<p>European Parliament discusses. Read more about the Table of Contents here.</p>',
+          { lang: 'de' }
+        );
+        const result = validateTranslationCompleteness(html, 'de');
+
+        expect(result.metrics.untranslatedPhrases.length).toBeGreaterThanOrEqual(2);
+      });
+    });
+
+    describe('edge cases', () => {
+      it('should handle empty content gracefully', () => {
+        const html = buildArticleHtml('', { lang: 'ja' });
+        const result = validateTranslationCompleteness(html, 'ja');
+
+        expect(result.metrics.asciiRatio).toBeGreaterThanOrEqual(0);
+        expect(result.metrics.cjkCharRatio).toBeGreaterThanOrEqual(0);
+      });
+
+      it('should handle mixed-language articles', () => {
+        const mixedText = '議会は新しい regulation について議論した。The committee voted on 条例改正。';
+        const html = buildArticleHtml(`<p>${mixedText}</p>`, { lang: 'ja' });
+        const result = validateTranslationCompleteness(html, 'ja');
+
+        // Mixed content should have some CJK chars
+        expect(result.metrics.cjkCharRatio).toBeGreaterThan(0);
+        expect(result.metrics.asciiRatio).toBeGreaterThan(0);
+      });
+
+      it('should not flag non-CJK non-RTL languages for script density', () => {
+        const html = buildArticleHtml(`<p>${words(200)}</p>`, { lang: 'de' });
+        const result = validateTranslationCompleteness(html, 'de');
+
+        // German (Latin script) should not get CJK density warnings
+        expect(result.warnings.every((w) => !w.includes('ASCII characters'))).toBe(true);
+        expect(result.warnings.every((w) => !w.includes('CJK characters'))).toBe(true);
+      });
+
+      it('should include all metrics fields', () => {
+        const html = buildArticleHtml(`<p>${words(200)}</p>`, { lang: 'de' });
+        const result = validateTranslationCompleteness(html, 'de');
+
+        expect(result).toHaveProperty('valid');
+        expect(result).toHaveProperty('warnings');
+        expect(result.metrics).toHaveProperty('asciiRatio');
+        expect(result.metrics).toHaveProperty('cjkCharRatio');
+        expect(result.metrics).toHaveProperty('hasRtlDir');
+        expect(result.metrics).toHaveProperty('hasBidiMarkers');
+        expect(result.metrics).toHaveProperty('untranslatedPhrases');
       });
     });
   });

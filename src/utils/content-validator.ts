@@ -49,6 +49,34 @@ export interface ContentValidationResult {
   metrics: ContentValidationMetrics;
 }
 
+/** Quality metrics collected during translation completeness validation */
+export interface TranslationValidationMetrics {
+  /** Ratio of ASCII printable characters to total text (0–1). High values in CJK articles suggest untranslated content. */
+  asciiRatio: number;
+  /** Ratio of CJK characters to total text (0–1). Low values in ja/ko/zh articles suggest untranslated content. */
+  cjkCharRatio: number;
+  /** Whether the `dir="rtl"` attribute is present on the `<html>` element */
+  hasRtlDir: boolean;
+  /** Whether Unicode bidi control characters or `&lrm;`/`&rlm;` markers are present */
+  hasBidiMarkers: boolean;
+  /** English phrases found in non-English articles that likely should have been translated */
+  untranslatedPhrases: readonly string[];
+}
+
+/**
+ * Result returned by {@link validateTranslationCompleteness}.
+ *
+ * Translation validation is non-blocking — it produces warnings only.
+ */
+export interface TranslationValidationResult {
+  /** true when no translation quality issues were detected */
+  valid: boolean;
+  /** Non-fatal translation quality notices */
+  warnings: string[];
+  /** Collected translation quality metrics */
+  metrics: TranslationValidationMetrics;
+}
+
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 /** Minimum word counts (plain text) required per article category */
@@ -117,6 +145,36 @@ const LOCALIZED_KEYWORD_INDICATORS: Readonly<Record<string, ReadonlyArray<string
   ko: ['의회', '입법', '위원회', '투표', '규정', '유럽'],
   zh: ['议会', '立法', '委员会', '投票', '条例', '欧洲'],
 } as const;
+
+/** CJK language codes requiring ideographic character density checks */
+const CJK_LANGUAGES: ReadonlySet<string> = new Set(['ja', 'ko', 'zh']);
+
+/**
+ * ASCII ratio threshold above which CJK articles are considered likely untranslated.
+ * Real CJK content typically has <50 % ASCII (mostly HTML entities and punctuation).
+ */
+const CJK_ASCII_RATIO_THRESHOLD = 0.85;
+
+/**
+ * Minimum CJK character ratio expected in properly translated CJK articles.
+ * Below this value the content is likely still English.
+ */
+const CJK_CHAR_RATIO_THRESHOLD = 0.05;
+
+/**
+ * Common English phrases that should not appear (un-translated) in non-English articles.
+ * These are generic header/label/placeholder phrases that a proper translation would replace.
+ */
+const ENGLISH_PLACEHOLDER_PHRASES: ReadonlyArray<string> = [
+  'European Parliament',
+  'Read more',
+  'Table of Contents',
+  'Key Takeaways',
+  'Executive Summary',
+  'Click here',
+  'Learn more',
+  'Subscribe',
+] as const;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -399,6 +457,167 @@ export function validateArticleContent(
       dirAttributeValid,
       metaTagsSynced,
       keywordsLocalized,
+    },
+  };
+}
+
+// ─── Translation validation helpers ───────────────────────────────────────────
+
+/**
+ * Extract plain body text from `<main>` for character-class analysis.
+ * Strips all HTML tags and normalises whitespace.
+ *
+ * @param html - Raw HTML string
+ * @returns Plain text content from the main element
+ */
+function extractMainPlainText(html: string): string {
+  const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
+  const source = mainMatch?.[1] ?? html;
+  return stripScriptBlocks(source)
+    .replace(/<[^>]+>/gu, ' ')
+    .replace(/&[a-z]+;/giu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim();
+}
+
+/**
+ * Compute the ratio of ASCII printable characters (0x20–0x7E) in a string.
+ *
+ * @param text - Plain text string
+ * @returns Ratio from 0 to 1 (1 = all ASCII)
+ */
+function computeAsciiRatio(text: string): number {
+  if (text.length === 0) return 0;
+  let asciiCount = 0;
+  for (const ch of text) {
+    const code = ch.charCodeAt(0);
+    if (code >= 0x20 && code <= 0x7e) asciiCount++;
+  }
+  return asciiCount / text.length;
+}
+
+/**
+ * Compute the ratio of CJK Unified Ideograph characters in a string.
+ * Covers CJK Unified Ideographs (U+4E00–U+9FFF), Hiragana, Katakana, and Hangul.
+ *
+ * @param text - Plain text string
+ * @returns Ratio from 0 to 1
+ */
+function computeCjkCharRatio(text: string): number {
+  if (text.length === 0) return 0;
+  // CJK Unified Ideographs + Extension A/B, Hiragana, Katakana, Hangul Syllables
+  const cjkPattern = /[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7AF]/gu;
+  const matches = text.match(cjkPattern);
+  return (matches?.length ?? 0) / text.length;
+}
+
+/**
+ * Detect common English phrases that should have been translated in non-English articles.
+ *
+ * @param text - Plain text content
+ * @returns Array of detected untranslated English phrases
+ */
+function findUntranslatedPhrases(text: string): string[] {
+  return ENGLISH_PLACEHOLDER_PHRASES.filter((phrase) =>
+    text.toLowerCase().includes(phrase.toLowerCase())
+  );
+}
+
+/**
+ * Check whether Unicode bidirectional control characters or HTML bidi markers are present.
+ *
+ * @param html - Raw HTML string
+ * @returns true if bidi markers or control characters are found
+ */
+function detectBidiMarkers(html: string): boolean {
+  // Unicode bidi control characters: LRM, RLM, LRE, RLE, PDF, LRO, RLO, LRI, RLI, FSI, PDI
+  const bidiControlPattern = /[\u200E\u200F\u202A-\u202E\u2066-\u2069]/u;
+  // HTML entities: &lrm; &rlm;
+  const bidiEntityPattern = /&[lr]rm;/iu;
+  return bidiControlPattern.test(html) || bidiEntityPattern.test(html);
+}
+
+/**
+ * Validate translation completeness and cultural adaptation for a generated article.
+ *
+ * Checks performed:
+ * - **RTL languages (ar, he)**: Verify `dir="rtl"` on `<html>`, detect bidi control markers
+ * - **CJK languages (ja, ko, zh)**: Check that content has sufficient CJK character density
+ *   (high ASCII ratio suggests the article was not actually translated)
+ * - **All non-English**: Detect common English phrases that should have been translated
+ *
+ * This function is purely analytical — no AI calls. It produces warnings only
+ * and never blocks article generation.
+ *
+ * @param html - Complete HTML string of the generated article
+ * @param lang - Language code of the article (e.g. `"ar"`, `"ja"`, `"en"`)
+ * @returns Structured translation validation result with warnings and metrics
+ */
+export function validateTranslationCompleteness(
+  html: string,
+  lang: string
+): TranslationValidationResult {
+  const warnings: string[] = [];
+
+  // Skip validation for English — it is the source language
+  if (lang === 'en') {
+    return {
+      valid: true,
+      warnings: [],
+      metrics: {
+        asciiRatio: 1,
+        cjkCharRatio: 0,
+        hasRtlDir: false,
+        hasBidiMarkers: false,
+        untranslatedPhrases: [],
+      },
+    };
+  }
+
+  const plainText = extractMainPlainText(html);
+  const asciiRatio = computeAsciiRatio(plainText);
+  const cjkCharRatio = computeCjkCharRatio(plainText);
+  const hasRtlDir = extractDirAttribute(html) === 'rtl';
+  const hasBidiMarkers = detectBidiMarkers(html);
+  const untranslatedPhrases = findUntranslatedPhrases(plainText);
+
+  // ── RTL validation ──────────────────────────────────────────────────────
+  if (RTL_LANGUAGES.has(lang) && !hasRtlDir) {
+    warnings.push(
+      `Translation quality: RTL language "${lang}" missing dir="rtl" on <html> element`
+    );
+  }
+
+  // ── CJK density check ──────────────────────────────────────────────────
+  if (CJK_LANGUAGES.has(lang) && plainText.length > 0) {
+    if (asciiRatio > CJK_ASCII_RATIO_THRESHOLD) {
+      warnings.push(
+        `Translation quality: ${lang.toUpperCase()} article has ${(asciiRatio * 100).toFixed(0)}% ASCII characters — content may be untranslated`
+      );
+    }
+    if (cjkCharRatio < CJK_CHAR_RATIO_THRESHOLD) {
+      warnings.push(
+        `Translation quality: ${lang.toUpperCase()} article has only ${(cjkCharRatio * 100).toFixed(1)}% CJK characters — expected native script content`
+      );
+    }
+  }
+
+  // ── Untranslated English phrase detection ───────────────────────────────
+  if (untranslatedPhrases.length > 0) {
+    warnings.push(
+      `Translation quality: found ${untranslatedPhrases.length} likely untranslated English phrase(s): ${untranslatedPhrases.slice(0, 3).join(', ')}`
+    );
+  }
+
+  return {
+    valid: warnings.length === 0,
+    warnings,
+    metrics: {
+      asciiRatio,
+      cjkCharRatio,
+      hasRtlDir,
+      hasBidiMarkers,
+      untranslatedPhrases,
     },
   };
 }

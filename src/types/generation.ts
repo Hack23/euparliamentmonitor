@@ -81,6 +81,8 @@ export interface GenerationStats {
   errors: number;
   articles: string[];
   timestamp: string;
+  /** Count of translation quality warnings emitted during generation */
+  translationWarnings?: number | undefined;
 }
 
 /** Generation result */
