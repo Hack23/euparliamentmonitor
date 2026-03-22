@@ -22,7 +22,7 @@ import { applyCommitteeInfo, applyDocuments, applyEffectiveness, PLACEHOLDER_CHA
 import { getMotionsFallbackData } from '../motions-content.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 // ─── Circuit Breaker (re-exported from mcp-retry bounded context) ────────────
-export { CircuitBreaker } from '../../mcp/mcp-retry.js';
+export { CircuitBreaker, } from '../../mcp/mcp-retry.js';
 import { CircuitBreaker } from '../../mcp/mcp-retry.js';
 /** Module-level circuit breaker shared across all MCP fetch operations */
 export const mcpCircuitBreaker = new CircuitBreaker();

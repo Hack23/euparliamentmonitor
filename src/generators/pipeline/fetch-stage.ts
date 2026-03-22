@@ -64,7 +64,11 @@ import type { PipelineData } from '../propositions-content.js';
 
 // ─── Circuit Breaker (re-exported from mcp-retry bounded context) ────────────
 
-export { CircuitBreaker, type CircuitState, type CircuitBreakerOptions } from '../../mcp/mcp-retry.js';
+export {
+  CircuitBreaker,
+  type CircuitState,
+  type CircuitBreakerOptions,
+} from '../../mcp/mcp-retry.js';
 import { CircuitBreaker } from '../../mcp/mcp-retry.js';
 
 /** Module-level circuit breaker shared across all MCP fetch operations */

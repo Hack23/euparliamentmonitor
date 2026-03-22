@@ -153,10 +153,7 @@ const DEFAULT_MAX_DELAY_MS = 30_000;
  * @returns Result of `fn` on first success
  * @throws The last error when all retries are exhausted
  */
-export async function withRetry<T>(
-  fn: () => Promise<T>,
-  policy: MCPRetryPolicy = {},
-): Promise<T> {
+export async function withRetry<T>(fn: () => Promise<T>, policy: MCPRetryPolicy = {}): Promise<T> {
   const maxRetries = policy.maxRetries ?? DEFAULT_MAX_RETRIES;
   const baseDelayMs = policy.baseDelayMs ?? DEFAULT_BASE_DELAY_MS;
   const maxDelayMs = policy.maxDelayMs ?? DEFAULT_MAX_DELAY_MS;
