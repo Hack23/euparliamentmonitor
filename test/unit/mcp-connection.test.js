@@ -801,3 +801,249 @@ describe('mcp-connection', () => {
     });
   });
 });
+
+// ─── CircuitBreaker tests (from mcp-retry module) ────────────────────────────
+
+import {
+  CircuitBreaker,
+  withRetry,
+} from '../../scripts/mcp/mcp-retry.js';
+
+import { MCPHealthMonitor } from '../../scripts/mcp/mcp-health.js';
+
+describe('CircuitBreaker (mcp-retry)', () => {
+  it('starts in CLOSED state and allows requests', () => {
+    const cb = new CircuitBreaker();
+    expect(cb.getState()).toBe('CLOSED');
+    expect(cb.canRequest()).toBe(true);
+  });
+
+  it('stays CLOSED when failures are below threshold', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 3 });
+    cb.recordFailure();
+    cb.recordFailure();
+    expect(cb.getState()).toBe('CLOSED');
+    expect(cb.canRequest()).toBe(true);
+  });
+
+  it('opens after reaching failure threshold', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 2, resetTimeoutMs: 60_000 });
+    cb.recordFailure();
+    cb.recordFailure();
+    expect(cb.getState()).toBe('OPEN');
+    expect(cb.canRequest()).toBe(false);
+  });
+
+  it('transitions OPEN → HALF_OPEN after reset timeout', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 1, resetTimeoutMs: 0 });
+    cb.recordFailure();
+    expect(cb.getState()).toBe('OPEN');
+    // resetTimeoutMs=0 means the next canRequest() should transition to HALF_OPEN
+    expect(cb.canRequest()).toBe(true);
+    expect(cb.getState()).toBe('HALF_OPEN');
+  });
+
+  it('closes circuit on success after HALF_OPEN', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 1, resetTimeoutMs: 0 });
+    cb.recordFailure();
+    cb.canRequest(); // transitions to HALF_OPEN
+    cb.recordSuccess();
+    expect(cb.getState()).toBe('CLOSED');
+    expect(cb.canRequest()).toBe(true);
+  });
+
+  it('re-opens on failure in HALF_OPEN', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 1, resetTimeoutMs: 0 });
+    cb.recordFailure();
+    cb.canRequest(); // transitions to HALF_OPEN
+    cb.recordFailure(); // probe failed
+    expect(cb.getState()).toBe('OPEN');
+  });
+
+  it('allows only one probe in HALF_OPEN state', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 1, resetTimeoutMs: 0 });
+    cb.recordFailure();
+    expect(cb.canRequest()).toBe(true); // first probe allowed
+    expect(cb.canRequest()).toBe(false); // second probe blocked
+  });
+
+  it('resets consecutive failures on success', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 3 });
+    cb.recordFailure();
+    cb.recordFailure();
+    cb.recordSuccess();
+    expect(cb.getStats()).toEqual({ state: 'CLOSED', consecutiveFailures: 0 });
+  });
+
+  it('getStats returns current state and failure count', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 5 });
+    cb.recordFailure();
+    cb.recordFailure();
+    const stats = cb.getStats();
+    expect(stats.state).toBe('CLOSED');
+    expect(stats.consecutiveFailures).toBe(2);
+  });
+
+  it('does not transition to HALF_OPEN when timeout has not elapsed', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 1, resetTimeoutMs: 60_000 });
+    cb.recordFailure();
+    expect(cb.getState()).toBe('OPEN');
+    expect(cb.canRequest()).toBe(false); // timeout hasn't elapsed
+    expect(cb.getState()).toBe('OPEN');
+  });
+});
+
+// ─── withRetry tests ─────────────────────────────────────────────────────────
+
+describe('withRetry (mcp-retry)', () => {
+  it('returns result on first success', async () => {
+    const result = await withRetry(() => Promise.resolve(42), { maxRetries: 3 });
+    expect(result).toBe(42);
+  });
+
+  it('retries and succeeds on later attempt', async () => {
+    let callCount = 0;
+    const result = await withRetry(
+      () => {
+        callCount++;
+        if (callCount < 3) throw new Error('transient');
+        return Promise.resolve('ok');
+      },
+      { maxRetries: 3, baseDelayMs: 0 },
+    );
+    expect(result).toBe('ok');
+    expect(callCount).toBe(3);
+  });
+
+  it('throws last error after all retries exhausted', async () => {
+    await expect(
+      withRetry(
+        () => Promise.reject(new Error('permanent')),
+        { maxRetries: 2, baseDelayMs: 0 },
+      ),
+    ).rejects.toThrow('permanent');
+  });
+
+  it('uses exponential backoff between retries', async () => {
+    const delays = [];
+    const origSetTimeout = globalThis.setTimeout;
+    vi.spyOn(globalThis, 'setTimeout').mockImplementation((fn, ms) => {
+      delays.push(ms);
+      return origSetTimeout(fn, 0);
+    });
+    try {
+      await withRetry(
+        () => Promise.reject(new Error('fail')),
+        { maxRetries: 3, baseDelayMs: 100, maxDelayMs: 30_000 },
+      ).catch(() => {});
+      // Delays should be: 100*2^0=100, 100*2^1=200, 100*2^2=400
+      expect(delays).toEqual(expect.arrayContaining([100, 200, 400]));
+    } finally {
+      vi.restoreAllMocks();
+    }
+  });
+
+  it('caps delay at maxDelayMs', async () => {
+    const delays = [];
+    const origSetTimeout = globalThis.setTimeout;
+    vi.spyOn(globalThis, 'setTimeout').mockImplementation((fn, ms) => {
+      delays.push(ms);
+      return origSetTimeout(fn, 0);
+    });
+    try {
+      await withRetry(
+        () => Promise.reject(new Error('fail')),
+        { maxRetries: 2, baseDelayMs: 500, maxDelayMs: 600 },
+      ).catch(() => {});
+      // 500*2^0=500, 500*2^1=1000 capped to 600
+      expect(delays[0]).toBe(500);
+      expect(delays[1]).toBe(600);
+    } finally {
+      vi.restoreAllMocks();
+    }
+  });
+
+  it('defaults to 3 retries when no policy given', async () => {
+    let callCount = 0;
+    const origSetTimeout = globalThis.setTimeout;
+    vi.spyOn(globalThis, 'setTimeout').mockImplementation((fn) => {
+      return origSetTimeout(fn, 0);
+    });
+    try {
+      await withRetry(() => {
+        callCount++;
+        return Promise.reject(new Error('fail'));
+      }).catch(() => {});
+      // 1 initial + 3 retries = 4 total calls
+      expect(callCount).toBe(4);
+    } finally {
+      vi.restoreAllMocks();
+    }
+  });
+});
+
+// ─── MCPHealthMonitor tests ──────────────────────────────────────────────────
+
+describe('MCPHealthMonitor (mcp-health)', () => {
+  it('creates breakers on demand for new tools', () => {
+    const monitor = new MCPHealthMonitor();
+    const breaker = monitor.getBreaker('get_meps');
+    expect(breaker).toBeInstanceOf(CircuitBreaker);
+    expect(breaker.getState()).toBe('CLOSED');
+  });
+
+  it('returns the same breaker for repeated calls with same tool name', () => {
+    const monitor = new MCPHealthMonitor();
+    const b1 = monitor.getBreaker('get_meps');
+    const b2 = monitor.getBreaker('get_meps');
+    expect(b1).toBe(b2);
+  });
+
+  it('applies default options to newly created breakers', () => {
+    const monitor = new MCPHealthMonitor({ failureThreshold: 1, resetTimeoutMs: 0 });
+    const breaker = monitor.getBreaker('voting');
+    breaker.recordFailure();
+    expect(breaker.getState()).toBe('OPEN');
+  });
+
+  it('provides aggregated health snapshot', () => {
+    const monitor = new MCPHealthMonitor({ failureThreshold: 1, resetTimeoutMs: 60_000 });
+    monitor.getBreaker('tool_a').recordSuccess(); // CLOSED
+    monitor.getBreaker('tool_b').recordFailure(); // OPEN (threshold=1)
+    const snap = monitor.getHealthSnapshot();
+    expect(snap.closedCircuits).toBe(1);
+    expect(snap.openCircuits).toBe(1);
+    expect(snap.halfOpenCircuits).toBe(0);
+    expect(snap.tools.get('tool_a')?.state).toBe('CLOSED');
+    expect(snap.tools.get('tool_b')?.state).toBe('OPEN');
+  });
+
+  it('lists registered tools', () => {
+    const monitor = new MCPHealthMonitor();
+    monitor.getBreaker('alpha');
+    monitor.getBreaker('beta');
+    const tools = monitor.getRegisteredTools();
+    expect(tools).toContain('alpha');
+    expect(tools).toContain('beta');
+    expect(tools).toHaveLength(2);
+  });
+
+  it('returns empty snapshot when no tools registered', () => {
+    const monitor = new MCPHealthMonitor();
+    const snap = monitor.getHealthSnapshot();
+    expect(snap.openCircuits).toBe(0);
+    expect(snap.halfOpenCircuits).toBe(0);
+    expect(snap.closedCircuits).toBe(0);
+    expect(snap.tools.size).toBe(0);
+  });
+
+  it('tracks HALF_OPEN state in snapshot', () => {
+    const monitor = new MCPHealthMonitor({ failureThreshold: 1, resetTimeoutMs: 0 });
+    const breaker = monitor.getBreaker('test_tool');
+    breaker.recordFailure(); // OPEN
+    breaker.canRequest(); // transitions to HALF_OPEN
+    const snap = monitor.getHealthSnapshot();
+    expect(snap.halfOpenCircuits).toBe(1);
+    expect(snap.tools.get('test_tool')?.state).toBe('HALF_OPEN');
+  });
+});

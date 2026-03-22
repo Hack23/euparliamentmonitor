@@ -11,9 +11,10 @@
  * helpers introduce filesystem I/O to load pre-fetched feed JSON produced by
  * agentic workflows.
  *
- * The {@link CircuitBreaker} prevents cascading failures when the MCP server
- * is degraded: after {@link CircuitBreakerOptions.failureThreshold} consecutive
- * errors the circuit opens and subsequent calls short-circuit immediately.
+ * The {@link CircuitBreaker} (imported from `mcp/mcp-retry`) prevents cascading
+ * failures when the MCP server is degraded: after
+ * {@link CircuitBreakerOptions.failureThreshold} consecutive errors the circuit
+ * opens and subsequent calls short-circuit immediately.
  */
 
 import fs from 'fs';
@@ -61,6 +62,14 @@ import { getMotionsFallbackData } from '../motions-content.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import type { PipelineData } from '../propositions-content.js';
 
+// ─── Circuit Breaker (re-exported from mcp-retry bounded context) ────────────
+
+export { CircuitBreaker, type CircuitState, type CircuitBreakerOptions } from '../../mcp/mcp-retry.js';
+import { CircuitBreaker } from '../../mcp/mcp-retry.js';
+
+/** Module-level circuit breaker shared across all MCP fetch operations */
+export const mcpCircuitBreaker = new CircuitBreaker();
+
 // ─── Shared string constants ─────────────────────────────────────────────────
 
 /** Log prefix for MCP fetch operations */
@@ -71,118 +80,6 @@ const WARN_PREFIX = '  ⚠️';
 
 /** Info prefix for fallback messages */
 const INFO_PREFIX = '  ℹ️';
-
-// ─── Circuit Breaker ─────────────────────────────────────────────────────────
-
-/** Possible circuit breaker states */
-export type CircuitState = 'CLOSED' | 'OPEN' | 'HALF_OPEN';
-
-/** Constructor options for {@link CircuitBreaker} */
-export interface CircuitBreakerOptions {
-  /** Consecutive failures before opening the circuit (default: 3) */
-  failureThreshold?: number | undefined;
-  /** Milliseconds to wait before probing recovery (default: 60 000) */
-  resetTimeoutMs?: number | undefined;
-}
-
-/**
- * Circuit breaker preventing cascading MCP failures.
- *
- * - **CLOSED** — normal operation; all requests pass through.
- * - **OPEN** — fast-fail; requests are rejected for `resetTimeoutMs` ms.
- * - **HALF_OPEN** — probe state; one request is allowed to test recovery.
- */
-export class CircuitBreaker {
-  private state: CircuitState = 'CLOSED';
-  private consecutiveFailures = 0;
-  private nextAttemptAt = 0;
-  private halfOpenProbeInFlight = false;
-  private readonly failureThreshold: number;
-  private readonly resetTimeoutMs: number;
-
-  constructor(options: CircuitBreakerOptions = {}) {
-    this.failureThreshold = options.failureThreshold ?? 3;
-    this.resetTimeoutMs = options.resetTimeoutMs ?? 60_000;
-  }
-
-  /**
-   * Whether a request may proceed given the current circuit state.
-   *
-   * In HALF_OPEN state only a single probe is allowed at a time; subsequent
-   * calls return `false` until the in-flight probe records success or failure.
-   *
-   * @returns `true` when the circuit is CLOSED, or HALF_OPEN with no probe in flight
-   */
-  canRequest(): boolean {
-    if (this.state === 'CLOSED') return true;
-    if (this.state === 'OPEN') {
-      if (Date.now() >= this.nextAttemptAt) {
-        this.state = 'HALF_OPEN';
-        this.halfOpenProbeInFlight = false;
-        // Fall through to HALF_OPEN probe logic below
-      } else {
-        return false;
-      }
-    }
-    // HALF_OPEN: allow exactly one probe in flight at a time
-    if (this.halfOpenProbeInFlight) return false;
-    this.halfOpenProbeInFlight = true;
-    return true;
-  }
-
-  /** Record a successful request and close the circuit */
-  recordSuccess(): void {
-    this.consecutiveFailures = 0;
-    this.halfOpenProbeInFlight = false;
-    this.state = 'CLOSED';
-  }
-
-  /**
-   * Record a failed request.
-   *
-   * - When in **HALF_OPEN** the circuit re-opens immediately (the probe failed).
-   * - When in **CLOSED** the circuit opens only once the failure threshold is reached.
-   */
-  recordFailure(): void {
-    this.halfOpenProbeInFlight = false;
-    if (this.state === 'HALF_OPEN') {
-      // Probe failed — immediately re-open and back off again
-      this.state = 'OPEN';
-      this.nextAttemptAt = Date.now() + this.resetTimeoutMs;
-      console.warn('⚡ Circuit breaker re-OPEN after HALF_OPEN probe failure');
-      return;
-    }
-    this.consecutiveFailures++;
-    if (this.consecutiveFailures >= this.failureThreshold) {
-      this.state = 'OPEN';
-      this.nextAttemptAt = Date.now() + this.resetTimeoutMs;
-      console.warn(
-        `⚡ Circuit breaker OPEN after ${this.consecutiveFailures} consecutive failures`
-      );
-    }
-  }
-
-  /**
-   * Return the current circuit state.
-   *
-   * @returns Current circuit state
-   */
-  getState(): CircuitState {
-    return this.state;
-  }
-
-  /**
-   * Return current statistics for observability.
-   *
-   * @returns Snapshot of state and consecutive failure count
-   */
-  getStats(): Readonly<{ state: CircuitState; consecutiveFailures: number }> {
-    return { state: this.state, consecutiveFailures: this.consecutiveFailures };
-  }
-}
-
-/** Module-level circuit breaker shared across all MCP fetch operations */
-export const mcpCircuitBreaker = new CircuitBreaker();
 
 /**
  * Execute a single MCP API call through the module-level circuit breaker.
