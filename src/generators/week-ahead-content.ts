@@ -322,8 +322,9 @@ const BAND_CSS_CLASS: Record<PoliticalTemperatureBand, string> = {
  * Derive a language-agnostic temperature band from a 0–100 score.
  *
  * This is the single source of truth for score → band mapping.
- * Both `computeWeekPoliticalTemperature()` and the renderer use this
- * to avoid duplicated threshold logic.
+ * `computeWeekPoliticalTemperature()` uses this to derive the
+ * `temperature.band` value that the renderer later consumes, avoiding
+ * duplicated threshold logic.
  *
  * @param score - Clamped score (0–100)
  * @returns Band key
@@ -406,16 +407,19 @@ function impactFromCount(count: number, highThreshold: number): 'high' | 'medium
  *
  * @param events - Parliament events for the upcoming week
  * @param docs - Legislative documents expected in the period
+ * @param lang - Language code for localized labels (defaults to 'en')
  * @returns Stakeholder impact section with rows
  */
 export function buildStakeholderImpactMatrix(
   events: readonly ParliamentEvent[],
-  docs: readonly LegislativeDocument[]
+  docs: readonly LegislativeDocument[],
+  lang: string = 'en'
 ): StakeholderImpactSection {
   if (events.length === 0 && docs.length === 0) {
     return { rows: [] };
   }
 
+  const strings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, lang);
   const rows: StakeholderImpactRow[] = [];
   const eventCount = events.length;
   const docCount = docs.length;
@@ -423,44 +427,44 @@ export function buildStakeholderImpactMatrix(
 
   if (eventCount > 0) {
     rows.push({
-      stakeholder: 'Political Groups',
+      stakeholder: strings.stakeholderPoliticalGroups,
       impact: impactFromCount(eventCount, 3),
-      reason: `${eventCount} parliamentary event${eventCount !== 1 ? 's' : ''} scheduled`,
+      reason: strings.reasonEventsScheduled.replace('{count}', String(eventCount)),
     });
   }
 
   if (docCount > 0) {
     rows.push({
-      stakeholder: 'Civil Society',
+      stakeholder: strings.stakeholderCivilSociety,
       impact: impactFromCount(docCount, 3),
-      reason: `${docCount} legislative document${docCount !== 1 ? 's' : ''} under review`,
+      reason: strings.reasonDocumentsUnderReview.replace('{count}', String(docCount)),
     });
   }
 
   rows.push({
-    stakeholder: 'Industry',
+    stakeholder: strings.stakeholderIndustry,
     impact: impactFromCount(totalCount, 5),
-    reason: 'Regulatory agenda may affect business environment',
+    reason: strings.reasonIndustryRegulatoryAgenda,
   });
 
   rows.push({
-    stakeholder: 'EU Citizens',
+    stakeholder: strings.stakeholderEuCitizens,
     impact: impactFromCount(eventCount, 3),
-    reason: 'Parliamentary decisions shape EU-wide policy',
+    reason: strings.reasonCitizensDecisionsShapePolicy,
   });
 
   if (docCount > 0) {
     rows.push({
-      stakeholder: 'National Governments',
+      stakeholder: strings.stakeholderNationalGovernments,
       impact: impactFromCount(docCount, 3),
-      reason: `${docCount} document${docCount !== 1 ? 's' : ''} may require national transposition`,
+      reason: strings.reasonDocumentsRequireTransposition.replace('{count}', String(docCount)),
     });
   }
 
   rows.push({
-    stakeholder: 'EU Institutions',
+    stakeholder: strings.stakeholderEuInstitutions,
     impact: impactFromCount(totalCount, 4),
-    reason: 'Cross-institutional coordination required',
+    reason: strings.reasonInstitutionsCoordination,
   });
 
   return { rows };
@@ -602,7 +606,7 @@ export function buildWeekAheadContent(
           </section>`;
 
   // Stakeholder impact analysis
-  const stakeholderData = buildStakeholderImpactMatrix(weekData.events, weekData.documents);
+  const stakeholderData = buildStakeholderImpactMatrix(weekData.events, weekData.documents, lang);
   const temperature = computeWeekPoliticalTemperature(weekData.events, weekData.questions);
   const stakeholderSection = renderStakeholderSection(stakeholderData, temperature, lang);
 

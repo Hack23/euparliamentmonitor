@@ -231,6 +231,30 @@ export interface WeekAheadStakeholderStrings {
   tempHigh: string;
   /** Temperature descriptor: Very High (75–100) */
   tempVeryHigh: string;
+  /** Stakeholder label: Political Groups */
+  stakeholderPoliticalGroups: string;
+  /** Stakeholder label: Civil Society */
+  stakeholderCivilSociety: string;
+  /** Stakeholder label: Industry */
+  stakeholderIndustry: string;
+  /** Stakeholder label: EU Citizens */
+  stakeholderEuCitizens: string;
+  /** Stakeholder label: National Governments */
+  stakeholderNationalGovernments: string;
+  /** Stakeholder label: EU Institutions */
+  stakeholderEuInstitutions: string;
+  /** Reason template: "{count} parliamentary event(s) scheduled" */
+  reasonEventsScheduled: string;
+  /** Reason template: "{count} legislative document(s) under review" */
+  reasonDocumentsUnderReview: string;
+  /** Reason: Regulatory agenda may affect business environment */
+  reasonIndustryRegulatoryAgenda: string;
+  /** Reason: Parliamentary decisions shape EU-wide policy */
+  reasonCitizensDecisionsShapePolicy: string;
+  /** Reason template: "{count} document(s) may require national transposition" */
+  reasonDocumentsRequireTransposition: string;
+  /** Reason: Cross-institutional coordination required */
+  reasonInstitutionsCoordination: string;
 }
 
 /** A single row in the stakeholder impact matrix */

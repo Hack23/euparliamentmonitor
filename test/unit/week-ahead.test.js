@@ -38,6 +38,11 @@ function fulfilled(payload) {
   };
 }
 
+/** Shared helper — minimal week-ahead data with no entries */
+function emptyWeekData() {
+  return { events: [], committees: [], documents: [], pipeline: [], questions: [] };
+}
+
 /** Return a rejected Promise.allSettled result */
 function rejected(reason = 'Network error') {
   return { status: 'rejected', reason };
@@ -274,11 +279,6 @@ describe('week-ahead helpers', () => {
   });
 
   describe('buildWeekAheadContent', () => {
-    /** Create minimal week-ahead data with no entries */
-    function emptyWeekData() {
-      return { events: [], committees: [], documents: [], pipeline: [], questions: [] };
-    }
-
     it('should contain the lede with date range', () => {
       const html = buildWeekAheadContent(emptyWeekData(), DATE_RANGE);
       expect(html).toContain('2026-03-01');
@@ -453,10 +453,6 @@ describe('week-ahead helpers', () => {
 });
 
 describe('week-ahead editorial quality', () => {
-  function emptyWeekData() {
-    return { events: [], committees: [], documents: [], pipeline: [], questions: [] };
-  }
-
   it('should include "Why This Matters" section in every article', () => {
     const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' });
     expect(html).toContain('why-this-matters');
@@ -501,7 +497,8 @@ describe('week-ahead editorial quality', () => {
 });
 
 describe('week-ahead multi-language section headings', () => {
-  function emptyWeekData() {
+  /** Week-ahead data with populated sections for heading tests */
+  function populatedWeekData() {
     return {
       events: [],
       committees: [{ committee: 'ENVI', date: '2026-03-04' }],
@@ -516,7 +513,7 @@ describe('week-ahead multi-language section headings', () => {
     for (const lang of ALL_LANGUAGES) {
       const strings = getLocalizedString(WEEK_AHEAD_STRINGS, lang);
       const html = buildWeekAheadContent(
-        emptyWeekData(),
+        populatedWeekData(),
         { start: '2026-03-01', end: '2026-03-08' },
         lang
       );
@@ -546,7 +543,7 @@ describe('week-ahead multi-language section headings', () => {
 
   it('should use Japanese section headings', () => {
     const html = buildWeekAheadContent(
-      emptyWeekData(),
+      populatedWeekData(),
       { start: '2026-03-01', end: '2026-03-08' },
       'ja'
     );
@@ -559,7 +556,7 @@ describe('week-ahead multi-language section headings', () => {
 
   it('should use Korean section headings', () => {
     const html = buildWeekAheadContent(
-      emptyWeekData(),
+      populatedWeekData(),
       { start: '2026-03-01', end: '2026-03-08' },
       'ko'
     );
@@ -572,7 +569,7 @@ describe('week-ahead multi-language section headings', () => {
 
   it('should use Chinese section headings', () => {
     const html = buildWeekAheadContent(
-      emptyWeekData(),
+      populatedWeekData(),
       { start: '2026-03-01', end: '2026-03-08' },
       'zh'
     );
@@ -599,6 +596,8 @@ describe('week-ahead multi-language section headings', () => {
 });
 
 describe('buildStakeholderImpactMatrix', () => {
+  const enStrings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, 'en');
+
   it('should return empty rows when no events or documents', () => {
     const result = buildStakeholderImpactMatrix([], []);
     expect(result.rows).toHaveLength(0);
@@ -607,13 +606,15 @@ describe('buildStakeholderImpactMatrix', () => {
   it('should include political groups when events are present', () => {
     const events = [{ date: '2026-03-03', title: 'Plenary', type: 'Session', description: '' }];
     const result = buildStakeholderImpactMatrix(events, []);
-    expect(result.rows.some((r) => r.stakeholder === 'Political Groups')).toBe(true);
+    expect(result.rows.some((r) => r.stakeholder === enStrings.stakeholderPoliticalGroups)).toBe(
+      true
+    );
   });
 
   it('should include civil society when documents are present', () => {
     const docs = [{ title: 'Climate Regulation' }];
     const result = buildStakeholderImpactMatrix([], docs);
-    expect(result.rows.some((r) => r.stakeholder === 'Civil Society')).toBe(true);
+    expect(result.rows.some((r) => r.stakeholder === enStrings.stakeholderCivilSociety)).toBe(true);
   });
 
   it('should assign high impact to political groups with 3+ events', () => {
@@ -623,7 +624,7 @@ describe('buildStakeholderImpactMatrix', () => {
       { date: '2026-03-05', title: 'Session 3', type: 'Plenary', description: '' },
     ];
     const result = buildStakeholderImpactMatrix(events, []);
-    const pgRow = result.rows.find((r) => r.stakeholder === 'Political Groups');
+    const pgRow = result.rows.find((r) => r.stakeholder === enStrings.stakeholderPoliticalGroups);
     expect(pgRow).toBeDefined();
     expect(pgRow.impact).toBe('high');
   });
@@ -631,7 +632,7 @@ describe('buildStakeholderImpactMatrix', () => {
   it('should assign medium impact to political groups with fewer than 3 events', () => {
     const events = [{ date: '2026-03-03', title: 'Session 1', type: 'Plenary', description: '' }];
     const result = buildStakeholderImpactMatrix(events, []);
-    const pgRow = result.rows.find((r) => r.stakeholder === 'Political Groups');
+    const pgRow = result.rows.find((r) => r.stakeholder === enStrings.stakeholderPoliticalGroups);
     expect(pgRow).toBeDefined();
     expect(pgRow.impact).toBe('medium');
   });
@@ -640,15 +641,31 @@ describe('buildStakeholderImpactMatrix', () => {
     const events = [{ date: '2026-03-03', title: 'Plenary', type: 'Session', description: '' }];
     const docs = [{ title: 'Test Doc' }];
     const result = buildStakeholderImpactMatrix(events, docs);
-    expect(result.rows.some((r) => r.stakeholder === 'EU Citizens')).toBe(true);
-    expect(result.rows.some((r) => r.stakeholder === 'EU Institutions')).toBe(true);
-    expect(result.rows.some((r) => r.stakeholder === 'National Governments')).toBe(true);
+    expect(result.rows.some((r) => r.stakeholder === enStrings.stakeholderEuCitizens)).toBe(true);
+    expect(result.rows.some((r) => r.stakeholder === enStrings.stakeholderEuInstitutions)).toBe(
+      true
+    );
+    expect(
+      result.rows.some((r) => r.stakeholder === enStrings.stakeholderNationalGovernments)
+    ).toBe(true);
   });
 
   it('should include industry row when events or documents are present', () => {
     const events = [{ date: '2026-03-03', title: 'Session 1', type: 'Plenary', description: '' }];
     const result = buildStakeholderImpactMatrix(events, []);
-    expect(result.rows.some((r) => r.stakeholder === 'Industry')).toBe(true);
+    expect(result.rows.some((r) => r.stakeholder === enStrings.stakeholderIndustry)).toBe(true);
+  });
+
+  it('should use localized stakeholder labels for non-English languages', () => {
+    const events = [{ date: '2026-03-03', title: 'Plenary', type: 'Session', description: '' }];
+    const docs = [{ title: 'Test Doc' }];
+    const frStrings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, 'fr');
+    const result = buildStakeholderImpactMatrix(events, docs, 'fr');
+    expect(result.rows.some((r) => r.stakeholder === frStrings.stakeholderPoliticalGroups)).toBe(
+      true
+    );
+    expect(result.rows.some((r) => r.stakeholder === frStrings.stakeholderCivilSociety)).toBe(true);
+    expect(result.rows.some((r) => r.stakeholder === frStrings.stakeholderIndustry)).toBe(true);
   });
 });
 
@@ -726,10 +743,6 @@ describe('computeWeekPoliticalTemperature', () => {
 });
 
 describe('stakeholder impact HTML integration', () => {
-  function emptyWeekData() {
-    return { events: [], committees: [], documents: [], pipeline: [], questions: [] };
-  }
-
   it('should not include stakeholder section when no events or documents', () => {
     const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' });
     expect(html).not.toContain('stakeholder-impact');
@@ -812,12 +825,13 @@ describe('stakeholder impact HTML integration', () => {
     expect(html).toContain(frStrings.tempLow);
   });
 
-  it('should use "parliamentary event(s)" not "plenary event(s)" in reason string', () => {
+  it('should use localized reason strings with event count', () => {
     const events = [{ date: '2026-03-03', title: 'Session', type: 'Committee', description: '' }];
     const result = buildStakeholderImpactMatrix(events, []);
-    const pgRow = result.rows.find((r) => r.stakeholder === 'Political Groups');
+    const enStrings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, 'en');
+    const pgRow = result.rows.find((r) => r.stakeholder === enStrings.stakeholderPoliticalGroups);
     expect(pgRow).toBeDefined();
-    expect(pgRow.reason).toContain('parliamentary event');
+    expect(pgRow.reason).toContain('1');
     expect(pgRow.reason).not.toContain('plenary event');
   });
 });
