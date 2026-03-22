@@ -201,8 +201,23 @@ export function atomicWrite(filepath: string, content: string): void {
       // On platforms where rename cannot overwrite (Windows), remove then retry
       const code = err instanceof Error ? (err as NodeJS.ErrnoException).code : '';
       if (code === 'EEXIST' || code === 'EPERM') {
-        unlinkIfExists(filepath);
-        fs.renameSync(tempPath, filepath);
+        // Bounded retry: another concurrent writer may recreate the destination
+        // between unlink and rename, so retry a few times before giving up.
+        const maxRetries = 3;
+        for (let attempt = 0; attempt < maxRetries; attempt++) {
+          unlinkIfExists(filepath);
+          try {
+            fs.renameSync(tempPath, filepath);
+            break;
+          } catch (retryErr: unknown) {
+            const retryCode =
+              retryErr instanceof Error ? (retryErr as NodeJS.ErrnoException).code : '';
+            if ((retryCode === 'EEXIST' || retryCode === 'EPERM') && attempt < maxRetries - 1) {
+              continue;
+            }
+            throw retryErr;
+          }
+        }
       } else {
         throw err;
       }

@@ -313,8 +313,9 @@ describe('utils/file-utils', () => {
       const filePath = path.join(tempDir, 'atomic-clean.txt');
       atomicWrite(filePath, 'clean');
       // Unique temp files use pattern: {filepath}.{pid}-{uuid}.tmp
+      const targetBase = path.basename(filePath);
       const siblings = fs.readdirSync(tempDir);
-      const temps = siblings.filter((f) => f.includes('.tmp'));
+      const temps = siblings.filter((f) => f.startsWith(`${targetBase}.`) && f.endsWith('.tmp'));
       expect(temps).toHaveLength(0);
     });
 
@@ -346,10 +347,36 @@ describe('utils/file-utils', () => {
         return originalRenameSync.apply(fs, args);
       });
 
-      atomicWrite(filePath, 'fallback content');
-      expect(fs.readFileSync(filePath, 'utf-8')).toBe('fallback content');
-      expect(callCount).toBe(2); // first call throws, second succeeds
-      renameSpy.mockRestore();
+      try {
+        atomicWrite(filePath, 'fallback content');
+        expect(fs.readFileSync(filePath, 'utf-8')).toBe('fallback content');
+        expect(callCount).toBe(2); // first call throws, second succeeds
+      } finally {
+        renameSpy.mockRestore();
+      }
+    });
+
+    it('should clean up temp file when all rename attempts fail', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic-always-fail.txt');
+
+      // Mock renameSync to always throw so both initial and retry attempts fail
+      const renameSpy = vi.spyOn(fs, 'renameSync').mockImplementation(() => {
+        const err = new Error('EEXIST: file already exists');
+        err.code = 'EEXIST';
+        throw err;
+      });
+
+      try {
+        expect(() => atomicWrite(filePath, 'doomed')).toThrow('EEXIST');
+        // Verify no temp files are left behind
+        const targetBase = path.basename(filePath);
+        const siblings = fs.readdirSync(tempDir);
+        const temps = siblings.filter((f) => f.startsWith(`${targetBase}.`) && f.endsWith('.tmp'));
+        expect(temps).toHaveLength(0);
+      } finally {
+        renameSpy.mockRestore();
+      }
     });
   });
 
