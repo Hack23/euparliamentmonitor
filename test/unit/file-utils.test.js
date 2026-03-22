@@ -382,6 +382,44 @@ describe('utils/file-utils', () => {
         renameSpy.mockRestore();
       }
     });
+
+    it('should log console.warn when temp cleanup fails with non-ENOENT error', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic-warn-cleanup.txt');
+
+      // Make renameSync throw ENODEV so the outer catch re-throws (not EEXIST/EPERM)
+      const renameSpy = vi.spyOn(fs, 'renameSync').mockImplementation(() => {
+        const err = new Error('ENODEV: no such device');
+        err.code = 'ENODEV';
+        throw err;
+      });
+
+      // Make unlinkSync throw EBUSY for temp files (the cleanup call)
+      const originalUnlinkSync = fs.unlinkSync;
+      const unlinkSpy = vi.spyOn(fs, 'unlinkSync').mockImplementation((p) => {
+        if (String(p).endsWith('.tmp')) {
+          const err = new Error('EBUSY: resource busy');
+          err.code = 'EBUSY';
+          throw err;
+        }
+        return originalUnlinkSync.call(fs, p);
+      });
+
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+      try {
+        expect(() => atomicWrite(filePath, 'content')).toThrow('ENODEV');
+        expect(warnSpy).toHaveBeenCalledOnce();
+        expect(warnSpy.mock.calls[0][0]).toContain(
+          'atomicWrite: failed to remove temporary file'
+        );
+        expect(warnSpy.mock.calls[0][0]).toContain('EBUSY');
+      } finally {
+        renameSpy.mockRestore();
+        unlinkSpy.mockRestore();
+        warnSpy.mockRestore();
+      }
+    });
   });
 
   describe('checkArticleExists', () => {
