@@ -1870,6 +1870,126 @@ describe('getMetadata with empty data edge cases', () => {
   });
 });
 
+// ─── Enriched-data getMetadata branch coverage ────────────────────────────────
+// Tests the branches for committees > 0, pipeline > 0, questions > 0 in title
+// suffix and description builders.
+
+describe('getMetadata with enriched data (all suffix branches)', () => {
+  it('WeekAheadStrategy: committees and pipeline in suffix', () => {
+    const strategy = new WeekAheadStrategy();
+    const richData = {
+      ...weekAheadData,
+      weekData: {
+        events: [{ date: '2025-01-16', title: 'Plenary Session', type: 'Plenary', description: '' }],
+        committees: [{ name: 'ENVI', date: '2025-01-17' }],
+        documents: [],
+        pipeline: [{ title: 'New Regulation', stage: 'committee' }],
+        questions: [{ author: 'MEP X', topic: 'Budget', date: '2025-01-16' }],
+      },
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('Committee Meeting');
+    expect(meta.title).toContain('Pipeline Item');
+    // Description includes questions too
+    expect(meta.subtitle).toContain('parliamentary question');
+  });
+
+  it('MonthAheadStrategy: committees and pipeline in suffix', () => {
+    const strategy = new MonthAheadStrategy();
+    const richData = {
+      ...monthAheadData,
+      monthData: {
+        events: [{ date: '2025-01-20', title: 'Plenary Session', type: 'Plenary', description: '' }],
+        committees: [{ name: 'ITRE', date: '2025-01-25' }],
+        documents: [],
+        pipeline: [{ title: 'Digital Act', stage: 'plenary' }],
+        questions: [{ author: 'MEP Y', topic: 'Digital', date: '2025-01-22' }],
+      },
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('Committee Meeting');
+    expect(meta.title).toContain('Pipeline Item');
+    expect(meta.subtitle).toContain('parliamentary question');
+  });
+
+  it('PropositionsStrategy: feedData procedures and adopted texts in suffix', () => {
+    const strategy = new PropositionsStrategy();
+    const richData = {
+      ...propositionsData,
+      feedData: {
+        procedures: [{ id: 'P-1', title: 'Procedure A', date: '2025-01-10' }],
+        adoptedTexts: [{ id: 'AT-1', title: 'Adopted Text A', date: '2025-01-12' }],
+        events: [],
+        mepUpdates: [],
+      },
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('Procedure');
+    expect(meta.title).toContain('Adopted Text');
+    // Keywords should include feed data titles
+    expect(meta.keywords).toContain('Procedure A');
+    expect(meta.keywords).toContain('Adopted Text A');
+  });
+
+  it('PropositionsStrategy: pipelineData-only suffix when no feedData procedures', () => {
+    const strategy = new PropositionsStrategy();
+    const pipelineOnlyData = {
+      ...propositionsData,
+      feedData: undefined,
+    };
+    const meta = strategy.getMetadata(pipelineOnlyData, 'en');
+    // With pipelineData healthScore 0.85 and no feed procs, suffix shows Pipeline %
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('Pipeline');
+    expect(meta.subtitle).toContain('pipeline health');
+  });
+
+  it('WeeklyReviewStrategy: feedData adopted texts contribute to suffix', () => {
+    const strategy = new WeeklyReviewStrategy();
+    const meta = strategy.getMetadata(weeklyReviewData, 'en');
+    // weeklyReviewData has 1 adopted text in feedData, 1 voting record, 1 anomaly
+    expect(meta.title).toContain('—');
+    // Keywords should include adopted text title from feed
+    expect(meta.keywords).toContain('Resolution on climate action');
+  });
+
+  it('MotionsStrategy: multiple records and questions in suffix', () => {
+    const strategy = new MotionsStrategy();
+    const richData = {
+      ...motionsData,
+      votingRecords: [
+        { title: 'Budget 2025', date: '2025-01-15', result: 'Adopted', votes: { for: 400, against: 100, abstain: 50 } },
+        { title: 'Energy Act', date: '2025-01-15', result: 'Adopted', votes: { for: 300, against: 200, abstain: 30 } },
+      ],
+      anomalies: [
+        { type: 'Defection', description: 'EPP defection', severity: 'HIGH' },
+        { type: 'Abstention', description: 'S&D abstention spike', severity: 'MEDIUM' },
+      ],
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('2 Votes');
+    expect(meta.title).toContain('2 Anomalies');
+  });
+
+  it('MonthlyReviewStrategy: multiple records in suffix', () => {
+    const strategy = new MonthlyReviewStrategy();
+    const richData = {
+      ...monthlyReviewData,
+      votingRecords: [
+        { title: 'Green Deal Implementation', date: '2025-01-05', result: 'Adopted', votes: { for: 420, against: 80, abstain: 40 } },
+        { title: 'Budget Act', date: '2025-01-07', result: 'Adopted', votes: { for: 350, against: 150, abstain: 30 } },
+      ],
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('2 Votes');
+  });
+});
+
 // ─── buildContent with feedData absent (false branch) ─────────────────────────
 
 describe('buildContent feedData absent branches', () => {
