@@ -361,7 +361,9 @@ describe('utils/file-utils', () => {
       const filePath = path.join(tempDir, 'atomic-always-fail.txt');
 
       // Mock renameSync to always throw so both initial and retry attempts fail
+      let renameCallCount = 0;
       const renameSpy = vi.spyOn(fs, 'renameSync').mockImplementation(() => {
+        renameCallCount++;
         const err = new Error('EEXIST: file already exists');
         err.code = 'EEXIST';
         throw err;
@@ -369,6 +371,8 @@ describe('utils/file-utils', () => {
 
       try {
         expect(() => atomicWrite(filePath, 'doomed')).toThrow('EEXIST');
+        // 1 initial attempt + 3 bounded retries = 4 total rename calls
+        expect(renameCallCount).toBe(4);
         // Verify no temp files are left behind
         const targetBase = path.basename(filePath);
         const siblings = fs.readdirSync(tempDir);
