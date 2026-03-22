@@ -937,7 +937,7 @@ describe('withRetry (mcp-retry)', () => {
         { maxRetries: 3, baseDelayMs: 100, maxDelayMs: 30_000 },
       ).catch(() => {});
       // Delays should be: 100*2^0=100, 100*2^1=200, 100*2^2=400
-      expect(delays).toEqual(expect.arrayContaining([100, 200, 400]));
+      expect(delays).toEqual([100, 200, 400]);
     } finally {
       vi.restoreAllMocks();
     }
