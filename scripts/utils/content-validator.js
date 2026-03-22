@@ -364,12 +364,7 @@ function extractMainPlainText(html) {
 function computeAsciiRatio(text) {
     if (text.length === 0)
         return 0;
-    let asciiCount = 0;
-    for (const ch of text) {
-        const code = ch.charCodeAt(0);
-        if (code >= 0x20 && code <= 0x7e)
-            asciiCount++;
-    }
+    const asciiCount = (text.match(/[\x20-\x7E]/gu) ?? []).length;
     return asciiCount / text.length;
 }
 /**
@@ -385,7 +380,9 @@ function computeCjkCharRatio(text) {
     // CJK Unified Ideographs + Extension A/B, Hiragana, Katakana, Hangul Syllables
     const cjkPattern = /[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7AF]/gu;
     const matches = text.match(cjkPattern);
-    return (matches?.length ?? 0) / text.length;
+    // Use Array.from to correctly count Unicode characters (handles surrogate pairs)
+    const charCount = Array.from(text).length;
+    return (matches?.length ?? 0) / charCount;
 }
 /**
  * Detect common English phrases that should have been translated in non-English articles.

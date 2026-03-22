@@ -535,8 +535,9 @@ describe('utils/content-validator', () => {
         const html = buildArticleHtml(`<p>${jaText}</p>`, { lang: 'ja' });
         const result = validateTranslationCompleteness(html, 'ja');
 
+        expect(result.valid).toBe(true);
         expect(result.metrics.cjkCharRatio).toBeGreaterThan(0.05);
-        expect(result.warnings.every((w) => !w.includes('ASCII'))).toBe(true);
+        expect(result.warnings).toHaveLength(0);
       });
 
       it('should warn for Japanese article with mostly ASCII (untranslated)', () => {
@@ -554,7 +555,9 @@ describe('utils/content-validator', () => {
         const html = buildArticleHtml(`<p>${koText}</p>`, { lang: 'ko' });
         const result = validateTranslationCompleteness(html, 'ko');
 
+        expect(result.valid).toBe(true);
         expect(result.metrics.cjkCharRatio).toBeGreaterThan(0);
+        expect(result.warnings).toHaveLength(0);
       });
 
       it('should warn for Korean article with only English content', () => {
