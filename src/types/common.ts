@@ -223,6 +223,14 @@ export interface WeekAheadStakeholderStrings {
   stakeholderHeader: string;
   /** "Reason" table column header */
   reasonHeader: string;
+  /** Temperature descriptor: Low (0–24) */
+  tempLow: string;
+  /** Temperature descriptor: Moderate (25–49) */
+  tempModerate: string;
+  /** Temperature descriptor: High (50–74) */
+  tempHigh: string;
+  /** Temperature descriptor: Very High (75–100) */
+  tempVeryHigh: string;
 }
 
 /** A single row in the stakeholder impact matrix */

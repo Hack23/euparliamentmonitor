@@ -296,8 +296,10 @@ function impactFromCount(count, highThreshold) {
  * Build a stakeholder impact matrix from scheduled events and legislative
  * documents, assessing which groups are most affected by the agenda.
  *
- * Uses `escapeHTML()` for all user-facing strings. Returns an empty section
- * when no events or documents are available (graceful fallback).
+ * Returns an empty section when no events or documents are available
+ * (graceful fallback). This function only constructs raw data; HTML
+ * escaping (for example via `escapeHTML()`) must be applied at render
+ * time by the caller (e.g. in `renderStakeholderSection()`).
  *
  * @param events - Parliament events for the upcoming week
  * @param docs - Legislative documents expected in the period
@@ -315,7 +317,7 @@ export function buildStakeholderImpactMatrix(events, docs) {
         rows.push({
             stakeholder: 'Political Groups',
             impact: impactFromCount(eventCount, 3),
-            reason: `${eventCount} plenary event${eventCount !== 1 ? 's' : ''} scheduled`,
+            reason: `${eventCount} parliamentary event${eventCount !== 1 ? 's' : ''} scheduled`,
         });
     }
     if (docCount > 0) {
@@ -350,6 +352,22 @@ export function buildStakeholderImpactMatrix(events, docs) {
     return { rows };
 }
 /**
+ * Resolve the localized temperature descriptor from a score.
+ *
+ * @param score - Temperature score (0–100)
+ * @param strings - Localized stakeholder strings
+ * @returns Localized descriptor (e.g. "Low", "Modéré", "高い")
+ */
+function localizedTempLabel(score, strings) {
+    if (score >= 75)
+        return strings.tempVeryHigh;
+    if (score >= 50)
+        return strings.tempHigh;
+    if (score >= 25)
+        return strings.tempModerate;
+    return strings.tempLow;
+}
+/**
  * Render the stakeholder impact section as HTML.
  *
  * @param section - Stakeholder impact data
@@ -368,6 +386,7 @@ function renderStakeholderSection(section, temperature, lang) {
             : temperature.score >= 25
                 ? 'temp-moderate'
                 : 'temp-low';
+    const tempDescriptor = localizedTempLabel(temperature.score, strings);
     const tableRows = section.rows
         .map((row) => `<tr>` +
         `<td>${escapeHTML(row.stakeholder)}</td>` +
@@ -381,7 +400,7 @@ function renderStakeholderSection(section, temperature, lang) {
             <div class="political-temperature ${tempClass}">
               <span class="temp-label">${escapeHTML(strings.temperatureLabel)}:</span>
               <span class="temp-score">${temperature.score}/100</span>
-              <span class="temp-descriptor">(${escapeHTML(temperature.label)})</span>
+              <span class="temp-descriptor">(${escapeHTML(tempDescriptor)})</span>
             </div>
             <table class="stakeholder-matrix">
               <thead>

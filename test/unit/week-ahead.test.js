@@ -738,6 +738,30 @@ describe('stakeholder impact HTML integration', () => {
       expect(strings.impactHeader).toBeDefined();
       expect(strings.stakeholderHeader).toBeDefined();
       expect(strings.reasonHeader).toBeDefined();
+      expect(strings.tempLow).toBeDefined();
+      expect(strings.tempModerate).toBeDefined();
+      expect(strings.tempHigh).toBeDefined();
+      expect(strings.tempVeryHigh).toBeDefined();
     }
+  });
+
+  it('should use localized temperature descriptors in HTML output', () => {
+    const weekData = {
+      ...emptyWeekData(),
+      events: [{ date: '2026-03-03', title: 'Plenary', type: 'Plenary', description: '' }],
+    };
+    const frStrings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, 'fr');
+    const html = buildWeekAheadContent(weekData, { start: '2026-03-01', end: '2026-03-08' }, 'fr');
+    // With 1 event: score = 10 (event) + 5 (diversity) = 15 → Low / Faible
+    expect(html).toContain(frStrings.tempLow);
+  });
+
+  it('should use "parliamentary event(s)" not "plenary event(s)" in reason string', () => {
+    const events = [{ date: '2026-03-03', title: 'Session', type: 'Committee', description: '' }];
+    const result = buildStakeholderImpactMatrix(events, []);
+    const pgRow = result.rows.find((r) => r.stakeholder === 'Political Groups');
+    expect(pgRow).toBeDefined();
+    expect(pgRow.reason).toContain('parliamentary event');
+    expect(pgRow.reason).not.toContain('plenary event');
   });
 });
