@@ -16,13 +16,13 @@ import { getLocalizedString, EDITORIAL_STRINGS, BREAKING_STRINGS } from '../cons
  * worth rendering. Items below this threshold are filtered out.
  */
 export const SIGNIFICANCE_THRESHOLD = 10;
-/** Maximum weight for adopted texts sub-score */
+/** Weight for adopted texts sub-score — sum of all weights MUST equal 1.0 */
 const ADOPTED_TEXTS_WEIGHT = 0.4;
-/** Maximum weight for affected MEPs sub-score */
+/** Weight for affected MEPs sub-score */
 const AFFECTED_MEPS_WEIGHT = 0.2;
-/** Maximum weight for legislative stage sub-score */
+/** Weight for legislative stage sub-score */
 const LEGISLATIVE_STAGE_WEIGHT = 0.3;
-/** Maximum weight for committee/event involvement sub-score */
+/** Weight for committee/event involvement sub-score (0.4 + 0.2 + 0.3 + 0.1 = 1.0) */
 const COMMITTEE_INVOLVEMENT_WEIGHT = 0.1;
 /** Cap for sub-score normalisation */
 const MAX_SUB_SCORE = 100;
