@@ -4271,3 +4271,130 @@ details[open] > .mindmap-stakeholder-toggle::before {
     max-width: 100%;
   }
 }
+
+/* ─── Stakeholder Impact Analysis ─────────────────────────────────────────── */
+
+.stakeholder-impact {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.stakeholder-impact h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary, #1a1a2e);
+  letter-spacing: 0.02em;
+}
+
+.political-temperature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.political-temperature .temp-label {
+  color: var(--text-primary, #1a1a2e);
+}
+
+.political-temperature .temp-score {
+  font-variant-numeric: tabular-nums;
+}
+
+.political-temperature .temp-descriptor {
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.temp-low {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.temp-moderate {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.temp-high {
+  background: #fbe9e7;
+  color: #bf360c;
+}
+
+.temp-very-high {
+  background: #ffebee;
+  color: #b71c1c;
+}
+
+.stakeholder-matrix {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-light, #dee2e6);
+}
+
+.stakeholder-matrix th,
+.stakeholder-matrix td {
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-light, #dee2e6);
+}
+
+.stakeholder-matrix thead th {
+  background: linear-gradient(135deg, #e8eaf6, #f3e5f5);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.impact-high {
+  color: #b71c1c;
+  font-weight: 700;
+}
+
+.impact-medium {
+  color: #e65100;
+  font-weight: 600;
+}
+
+.impact-low {
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+[dir='rtl'] .stakeholder-impact {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir='rtl'] .stakeholder-matrix th,
+[dir='rtl'] .stakeholder-matrix td {
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .political-temperature {
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+  }
+
+  .stakeholder-matrix {
+    font-size: 0.8rem;
+  }
+
+  .stakeholder-matrix th,
+  .stakeholder-matrix td {
+    padding: 0.4rem 0.5rem;
+  }
+}

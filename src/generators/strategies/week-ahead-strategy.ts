@@ -169,7 +169,13 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     ]);
     const keywords = buildKeywords(weekData);
 
-    return { date, dateRange, weekData, keywords, feedData };
+    return {
+      date,
+      dateRange,
+      weekData,
+      keywords,
+      feedData,
+    };
   }
 
   /**

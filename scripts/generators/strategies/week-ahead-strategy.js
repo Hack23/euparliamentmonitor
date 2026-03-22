@@ -113,7 +113,13 @@ export class WeekAheadStrategy {
             fetchEPFeedData(client, 'one-week', dateRange),
         ]);
         const keywords = buildKeywords(weekData);
-        return { date, dateRange, weekData, keywords, feedData };
+        return {
+            date,
+            dateRange,
+            weekData,
+            keywords,
+            feedData,
+        };
     }
     /**
      * Build the week-ahead HTML body for the specified language.

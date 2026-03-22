@@ -74,6 +74,8 @@ import {
   buildKeywords,
   PLACEHOLDER_EVENTS,
   buildWhatToWatchSection,
+  buildStakeholderImpactMatrix,
+  computeWeekPoliticalTemperature,
 } from './week-ahead-content.js';
 
 import { buildBreakingNewsContent } from './breaking-content.js';
@@ -108,6 +110,8 @@ export {
   buildKeywords,
   PLACEHOLDER_EVENTS,
   buildWhatToWatchSection,
+  buildStakeholderImpactMatrix,
+  computeWeekPoliticalTemperature,
 };
 export { buildBreakingNewsContent };
 export { applyCommitteeInfo, applyDocuments, applyEffectiveness, FEATURED_COMMITTEES };
