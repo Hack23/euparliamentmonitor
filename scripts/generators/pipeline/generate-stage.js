@@ -3,8 +3,7 @@
 import { ArticleCategory } from '../../types/index.js';
 import { generateArticleHTML } from '../../templates/article-template.js';
 import { calculateReadTime, formatDateForSlug, validateArticleHTML, } from '../../utils/file-utils.js';
-import { validateArticleContent } from '../../utils/content-validator.js';
-import { validateTranslationCompleteness } from '../../utils/content-validator.js';
+import { validateArticleContent, validateTranslationCompleteness, } from '../../utils/content-validator.js';
 import { scoreArticleQuality } from '../../utils/article-quality-scorer.js';
 import { enrichMetadataFromContent } from '../../utils/content-metadata.js';
 import { weekAheadStrategy } from '../strategies/week-ahead-strategy.js';
