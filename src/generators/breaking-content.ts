@@ -23,7 +23,78 @@ import type {
   EventFeedItem,
   ProcedureFeedItem,
   MEPFeedItem,
+  PoliticalSignificanceScore,
 } from '../types/index.js';
+
+/**
+ * Minimum significance score for a breaking news item to be considered
+ * worth rendering. Items below this threshold are filtered out.
+ */
+export const SIGNIFICANCE_THRESHOLD = 10;
+
+/** Maximum weight for adopted texts sub-score */
+const ADOPTED_TEXTS_WEIGHT = 0.4;
+/** Maximum weight for affected MEPs sub-score */
+const AFFECTED_MEPS_WEIGHT = 0.2;
+/** Maximum weight for legislative stage sub-score */
+const LEGISLATIVE_STAGE_WEIGHT = 0.3;
+/** Maximum weight for committee/event involvement sub-score */
+const COMMITTEE_INVOLVEMENT_WEIGHT = 0.1;
+/** Cap for sub-score normalisation */
+const MAX_SUB_SCORE = 100;
+
+/** Pattern matching final-reading legislative stages for higher scoring */
+const FINAL_STAGE_PATTERN = /final|third|plenary|adopted|trilogue/i;
+
+/**
+ * Compute a political significance score for a breaking news data payload.
+ *
+ * The score is a weighted composite of four dimensions:
+ * - **Adopted texts** (40 %): more adopted texts → higher legislative impact.
+ * - **Affected MEPs** (20 %): more MEP updates → wider political scope.
+ * - **Legislative stage** (30 %): procedures at final reading score higher.
+ * - **Committee involvement** (10 %): more events → broader institutional engagement.
+ *
+ * All inputs are sanitised: `null`/`undefined` fields default to zero.
+ *
+ * @param item - Aggregated feed data for the breaking news article
+ * @returns Quantified significance score with per-dimension breakdown
+ */
+export function scoreBreakingNewsSignificance(
+  item: BreakingNewsFeedData
+): PoliticalSignificanceScore {
+  // Adopted texts: each text adds 20 pts, capped at 100
+  const adoptedTextsScore = Math.min((item.adoptedTexts?.length ?? 0) * 20, MAX_SUB_SCORE);
+
+  // Affected MEPs: each update adds 10 pts, capped at 100
+  const affectedMEPsScore = Math.min((item.mepUpdates?.length ?? 0) * 10, MAX_SUB_SCORE);
+
+  // Legislative stage: procedures at a "final" stage contribute 25 pts each, others 10 pts
+  const procedures = item.procedures ?? [];
+  const stagePoints = procedures.reduce((sum, proc) => {
+    const stage = proc.stage ?? '';
+    return sum + (FINAL_STAGE_PATTERN.test(stage) ? 25 : 10);
+  }, 0);
+  const legislativeStageScore = Math.min(stagePoints, MAX_SUB_SCORE);
+
+  // Committee / event involvement: each event adds 15 pts, capped at 100
+  const committeeInvolvementScore = Math.min((item.events?.length ?? 0) * 15, MAX_SUB_SCORE);
+
+  const overallScore = Math.round(
+    adoptedTextsScore * ADOPTED_TEXTS_WEIGHT +
+    affectedMEPsScore * AFFECTED_MEPS_WEIGHT +
+    legislativeStageScore * LEGISLATIVE_STAGE_WEIGHT +
+    committeeInvolvementScore * COMMITTEE_INVOLVEMENT_WEIGHT
+  );
+
+  return {
+    adoptedTextsScore,
+    affectedMEPsScore,
+    legislativeStageScore,
+    committeeInvolvementScore,
+    overallScore,
+  };
+}
 
 /** Maximum characters to display from raw MCP intelligence data */
 const MAX_DATA_CHARS = 2000;
