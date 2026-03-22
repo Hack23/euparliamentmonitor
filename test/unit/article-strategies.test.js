@@ -1666,3 +1666,282 @@ describe('SWOT and Dashboard integration across all strategies', () => {
     expect(content).toMatch(/Tableau de bord/);
   });
 });
+
+// ─── Non-English getMetadata branch coverage ─────────────────────────────────
+// Covers the lang !== 'en' paths in every strategy's getMetadata() method:
+// - suffix is empty → title equals baseTitle (no ' — ' separator)
+// - description falls back to baseSubtitle
+
+describe('getMetadata non-English branches', () => {
+  const nonEnLangs = /** @type {const} */ (['sv', 'fr', 'de', 'ja', 'ar']);
+
+  describe('WeekAheadStrategy', () => {
+    const strategy = new WeekAheadStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(weekAheadData, lang);
+        expect(meta.title).toBeTruthy();
+        // Non-English titles should NOT contain the English suffix separator
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('week-ahead');
+      });
+
+      it(`getMetadata(${lang}) subtitle uses localized base (not English description)`, () => {
+        const enMeta = strategy.getMetadata(weekAheadData, 'en');
+        const meta = strategy.getMetadata(weekAheadData, lang);
+        expect(meta.subtitle).toBeTruthy();
+        // Non-English subtitle differs from English enriched subtitle
+        expect(meta.subtitle).not.toBe(enMeta.subtitle);
+      });
+    }
+  });
+
+  describe('BreakingNewsStrategy', () => {
+    const strategy = new BreakingNewsStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns localized title without English suffix`, () => {
+        const enMeta = strategy.getMetadata(breakingNewsData, 'en');
+        const meta = strategy.getMetadata(breakingNewsData, lang);
+        expect(meta.title).toBeTruthy();
+        // Non-English title should differ from English enriched title
+        expect(meta.title).not.toBe(enMeta.title);
+        expect(meta.category).toBe('breaking');
+      });
+    }
+  });
+
+  describe('CommitteeReportsStrategy', () => {
+    const strategy = new CommitteeReportsStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(committeeReportsData, lang);
+        expect(meta.title).toBeTruthy();
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('committee-reports');
+      });
+    }
+  });
+
+  describe('PropositionsStrategy', () => {
+    const strategy = new PropositionsStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(propositionsData, lang);
+        expect(meta.title).toBeTruthy();
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('propositions');
+      });
+    }
+  });
+
+  describe('MotionsStrategy', () => {
+    const strategy = new MotionsStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(motionsData, lang);
+        expect(meta.title).toBeTruthy();
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('motions');
+      });
+    }
+  });
+
+  describe('MonthAheadStrategy', () => {
+    const strategy = new MonthAheadStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(monthAheadData, lang);
+        expect(meta.title).toBeTruthy();
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('month-ahead');
+      });
+    }
+  });
+
+  describe('WeeklyReviewStrategy', () => {
+    const strategy = new WeeklyReviewStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(weeklyReviewData, lang);
+        expect(meta.title).toBeTruthy();
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('week-in-review');
+      });
+    }
+  });
+
+  describe('MonthlyReviewStrategy', () => {
+    const strategy = new MonthlyReviewStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(monthlyReviewData, lang);
+        expect(meta.title).toBeTruthy();
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('month-in-review');
+      });
+    }
+  });
+});
+
+// ─── Empty-data getMetadata edge cases ────────────────────────────────────────
+
+describe('getMetadata with empty data edge cases', () => {
+  it('WeekAheadStrategy: empty weekData yields no suffix', () => {
+    const strategy = new WeekAheadStrategy();
+    const emptyData = {
+      ...weekAheadData,
+      weekData: { events: [], committees: [], documents: [], pipeline: [], questions: [] },
+    };
+    const meta = strategy.getMetadata(emptyData, 'en');
+    expect(meta.title).toBeTruthy();
+    // No suffix when all counts are 0
+    expect(meta.title).not.toContain('—');
+    // Subtitle falls back to generic description
+    expect(meta.subtitle).toBeTruthy();
+  });
+
+  it('MonthAheadStrategy: empty monthData yields no suffix', () => {
+    const strategy = new MonthAheadStrategy();
+    const emptyData = {
+      ...monthAheadData,
+      monthData: { events: [], committees: [], documents: [], pipeline: [], questions: [] },
+    };
+    const meta = strategy.getMetadata(emptyData, 'en');
+    expect(meta.title).toBeTruthy();
+    expect(meta.title).not.toContain('—');
+    expect(meta.subtitle).toBeTruthy();
+  });
+
+  it('MotionsStrategy: empty records yields no suffix', () => {
+    const strategy = new MotionsStrategy();
+    const emptyData = {
+      ...motionsData,
+      votingRecords: [],
+      votingPatterns: [],
+      anomalies: [],
+      questions: [],
+    };
+    const meta = strategy.getMetadata(emptyData, 'en');
+    expect(meta.title).toBeTruthy();
+    expect(meta.title).not.toContain('—');
+  });
+
+  it('WeeklyReviewStrategy: empty records yields no suffix', () => {
+    const strategy = new WeeklyReviewStrategy();
+    const emptyData = {
+      ...weeklyReviewData,
+      votingRecords: [],
+      votingPatterns: [],
+      anomalies: [],
+      questions: [],
+      feedData: undefined,
+    };
+    const meta = strategy.getMetadata(emptyData, 'en');
+    expect(meta.title).toBeTruthy();
+    expect(meta.title).not.toContain('—');
+  });
+
+  it('MonthlyReviewStrategy: empty records yields no suffix', () => {
+    const strategy = new MonthlyReviewStrategy();
+    const emptyData = {
+      ...monthlyReviewData,
+      votingRecords: [],
+      votingPatterns: [],
+      anomalies: [],
+      questions: [],
+    };
+    const meta = strategy.getMetadata(emptyData, 'en');
+    expect(meta.title).toBeTruthy();
+    expect(meta.title).not.toContain('—');
+  });
+
+  it('PropositionsStrategy: empty proposalsHtml yields no suffix', () => {
+    const strategy = new PropositionsStrategy();
+    const emptyData = {
+      ...propositionsData,
+      proposalsHtml: '',
+      adoptedTextsHtml: '',
+      pipelineData: null,
+      procedureHtml: '',
+    };
+    const meta = strategy.getMetadata(emptyData, 'en');
+    expect(meta.title).toBeTruthy();
+    expect(meta.category).toBe('propositions');
+  });
+});
+
+// ─── buildContent with feedData absent (false branch) ─────────────────────────
+
+describe('buildContent feedData absent branches', () => {
+  it('MotionsStrategy: buildContent without feedData omits adopted-texts section', () => {
+    const strategy = new MotionsStrategy();
+    const noFeedData = { ...motionsData, feedData: undefined };
+    const content = strategy.buildContent(noFeedData, 'en');
+    expect(content).toBeTruthy();
+    // Should not have adopted texts section when feedData is undefined
+    expect(content).not.toContain('class="adopted-texts-overview"');
+  });
+
+  it('WeeklyReviewStrategy: buildContent without feedData omits adopted texts section', () => {
+    const strategy = new WeeklyReviewStrategy();
+    const noFeedData = { ...weeklyReviewData, feedData: undefined };
+    const content = strategy.buildContent(noFeedData, 'en');
+    expect(content).toBeTruthy();
+    expect(content).not.toContain('class="adopted-texts-overview"');
+  });
+
+  it('WeeklyReviewStrategy: buildContent with empty adoptedTexts omits section', () => {
+    const strategy = new WeeklyReviewStrategy();
+    const emptyFeedData = {
+      ...weeklyReviewData,
+      feedData: { adoptedTexts: [], events: [], procedures: [], mepUpdates: [] },
+    };
+    const content = strategy.buildContent(emptyFeedData, 'en');
+    expect(content).toBeTruthy();
+    expect(content).not.toContain('class="adopted-texts-overview"');
+  });
+});
+
+// ─── MonthAheadStrategy and WeeklyReviewStrategy fetchData ────────────────────
+
+describe('MonthAheadStrategy.fetchData with null client', () => {
+  it('returns valid payload with dateRange spanning 30 days', async () => {
+    const strategy = new MonthAheadStrategy();
+    const data = await strategy.fetchData(null, '2025-03-01');
+    expect(data.date).toBe('2025-03-01');
+    expect(data.dateRange).toHaveProperty('start');
+    expect(data.dateRange).toHaveProperty('end');
+    const start = new Date(data.dateRange.start);
+    const end = new Date(data.dateRange.end);
+    const diffDays = (end - start) / (1000 * 60 * 60 * 24);
+    expect(diffDays).toBe(30);
+    expect(data.monthLabel).toBeTruthy();
+    expect(data.keywords.length).toBeGreaterThan(0);
+  });
+});
+
+describe('WeeklyReviewStrategy.fetchData with null client', () => {
+  it('returns valid payload with dateRange and placeholder arrays', async () => {
+    const strategy = new WeeklyReviewStrategy();
+    const data = await strategy.fetchData(null, '2025-03-01');
+    expect(data.date).toBe('2025-03-01');
+    expect(data.dateRange).toHaveProperty('start');
+    expect(data.dateRange).toHaveProperty('end');
+    expect(Array.isArray(data.votingRecords)).toBe(true);
+    expect(Array.isArray(data.votingPatterns)).toBe(true);
+    expect(Array.isArray(data.anomalies)).toBe(true);
+  });
+});
+
+describe('MonthlyReviewStrategy.fetchData with null client', () => {
+  it('returns valid payload with dateRange and monthLabel', async () => {
+    const strategy = new MonthlyReviewStrategy();
+    const data = await strategy.fetchData(null, '2025-03-01');
+    expect(data.date).toBe('2025-03-01');
+    expect(data.dateRange).toHaveProperty('start');
+    expect(data.dateRange).toHaveProperty('end');
+    expect(data.monthLabel).toBeTruthy();
+    expect(Array.isArray(data.votingRecords)).toBe(true);
+    expect(Array.isArray(data.anomalies)).toBe(true);
+  });
+});

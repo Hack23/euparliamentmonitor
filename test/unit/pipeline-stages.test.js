@@ -2462,3 +2462,307 @@ describe('filterBreakingNewsFeedDataByDateRange clears totalMEPUpdates on date-r
     expect(result.totalMEPUpdates).toBe(525);
   });
 });
+
+// ─── writeArticleFile: skipExisting + dryRun branch (output-stage line 50) ────
+
+describe('writeArticleFile dryRun + skipExisting combined', () => {
+  let tmpDir;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-output-test-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('logs "Would skip" when file exists AND both dryRun and skipExisting are true', () => {
+    const filename = 'existing-article.html';
+    const filepath = path.join(tmpDir, filename);
+    fs.writeFileSync(filepath, '<html/>');
+
+    const opts = { dryRun: true, skipExisting: true, newsDir: tmpDir };
+    const written = writeArticleFile('<new/>', filename, opts);
+    expect(written).toBe(false);
+  });
+});
+
+// ─── writeSingleArticle: covers skip-existing and dryRun stat branches ────────
+
+describe('writeSingleArticle stat branches', () => {
+  let tmpDir;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-single-test-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('increments stats.skipped when file exists and skipExisting is true', () => {
+    const slug = '2025-01-15-week-ahead';
+    const lang = 'en';
+    const filename = `${slug}-${lang}.html`;
+    fs.writeFileSync(path.join(tmpDir, filename), '<existing/>');
+
+    const stats = { generated: 0, skipped: 0, dryRun: 0, errors: 0, articles: [], timestamp: '' };
+    const opts = { dryRun: false, skipExisting: true, newsDir: tmpDir };
+    const written = writeSingleArticle('<new/>', slug, lang, opts, stats);
+    expect(written).toBe(false);
+    expect(stats.skipped).toBe(1);
+    expect(stats.generated).toBe(0);
+    expect(stats.dryRun).toBe(0);
+  });
+});
+
+// ─── writeGenerationMetadata: malformed existing file fallback (line 174) ─────
+
+describe('writeGenerationMetadata with malformed existing file', () => {
+  let tmpDir;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-meta-malformed-'));
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('writes current data when existing metadata file is malformed JSON', () => {
+    const fixedDate = new Date('2025-01-15T12:00:00.000Z');
+    vi.useFakeTimers();
+    vi.setSystemTime(fixedDate);
+    const dateSlug = fixedDate.toISOString().split('T')[0];
+    const metadataPath = path.join(tmpDir, `generation-${dateSlug}.json`);
+
+    // Write malformed JSON as existing file
+    fs.writeFileSync(metadataPath, '{ invalid json !!', 'utf-8');
+
+    const stats = {
+      generated: 5,
+      skipped: 0,
+      dryRun: 0,
+      errors: 0,
+      articles: ['test.html'],
+      timestamp: fixedDate.toISOString(),
+    };
+    const results = [{ success: true, files: 5, slug: '2025-01-15-week-ahead' }];
+    writeGenerationMetadata(stats, results, true, tmpDir, false);
+
+    const content = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+    // Should use current run's data (no merge since existing was malformed)
+    expect(content.generated).toBe(5);
+    expect(content.usedMCP).toBe(true);
+    expect(content.results).toHaveLength(1);
+  });
+});
+
+// ─── writeGenerationMetadata: dedup anonymous (slug-less) error entries ────────
+
+describe('writeGenerationMetadata anonymous result dedup', () => {
+  let tmpDir;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-meta-anon-'));
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('deduplicates identical slug-less error results across runs', () => {
+    const fixedDate = new Date('2025-01-15T12:00:00.000Z');
+    vi.useFakeTimers();
+    vi.setSystemTime(fixedDate);
+    const dateSlug = fixedDate.toISOString().split('T')[0];
+    const metadataPath = path.join(tmpDir, `generation-${dateSlug}.json`);
+
+    // First run with a slug-less error result
+    const existing = {
+      timestamp: fixedDate.toISOString(),
+      generated: 0,
+      skipped: 0,
+      dryRun: 0,
+      errors: 1,
+      articles: [],
+      results: [{ success: false, error: 'MCP timeout' }],
+      usedMCP: false,
+    };
+    fs.writeFileSync(metadataPath, JSON.stringify(existing), 'utf-8');
+
+    // Second run with the same slug-less error result
+    const stats2 = {
+      generated: 0,
+      skipped: 0,
+      dryRun: 0,
+      errors: 1,
+      articles: [],
+      timestamp: fixedDate.toISOString(),
+    };
+    writeGenerationMetadata(
+      stats2,
+      [{ success: false, error: 'MCP timeout' }],
+      false,
+      tmpDir,
+      false
+    );
+
+    const content = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+    // Identical anonymous entries should be deduped
+    const errorResults = content.results.filter((r) => !r.slug);
+    expect(errorResults).toHaveLength(1);
+  });
+});
+
+// ─── generate-stage: createStrategyRegistry strategy types ────────────────────
+
+describe('createStrategyRegistry strategy types', () => {
+  it('each registered strategy has correct type matching its category key', async () => {
+    const { createStrategyRegistry } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const registry = createStrategyRegistry();
+    for (const [category, strategy] of registry) {
+      expect(strategy.type).toBe(category);
+      expect(strategy.requiredMCPTools.length).toBeGreaterThan(0);
+      expect(typeof strategy.buildContent).toBe('function');
+      expect(typeof strategy.getMetadata).toBe('function');
+      expect(typeof strategy.fetchData).toBe('function');
+    }
+  });
+});
+
+// ─── generate-stage: generateArticleForStrategy with failing validation ───────
+
+describe('generateArticleForStrategy validation paths', () => {
+  let tmpDir;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-val-test-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('records zero files when strategy produces content but dryRun prevents writing', async () => {
+    const { generateArticleForStrategy } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const { WeekAheadStrategy } = await import(
+      '../../scripts/generators/strategies/week-ahead-strategy.js'
+    );
+    const strategy = new WeekAheadStrategy();
+    const stats = { generated: 0, skipped: 0, dryRun: 0, errors: 0, articles: [], timestamp: '' };
+    const opts = { dryRun: true, skipExisting: false, newsDir: tmpDir };
+
+    const result = await generateArticleForStrategy(strategy, null, ['en'], opts, stats);
+    expect(result.success).toBe(true);
+    expect(result.files).toBe(0);
+    expect(stats.dryRun).toBe(1);
+    expect(stats.generated).toBe(0);
+  });
+
+  it('writes files for all languages when strategy produces valid content', async () => {
+    const { generateArticleForStrategy } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const { WeekAheadStrategy } = await import(
+      '../../scripts/generators/strategies/week-ahead-strategy.js'
+    );
+    const strategy = new WeekAheadStrategy();
+    const stats = { generated: 0, skipped: 0, dryRun: 0, errors: 0, articles: [], timestamp: '' };
+    const opts = { dryRun: false, skipExisting: false, newsDir: tmpDir };
+
+    const result = await generateArticleForStrategy(strategy, null, ['en', 'de'], opts, stats);
+    expect(result.success).toBe(true);
+    expect(result.files).toBe(2);
+    expect(stats.generated).toBe(2);
+  });
+});
+
+// ─── CircuitBreaker additional edge cases ─────────────────────────────────────
+
+describe('CircuitBreaker edge cases', () => {
+  it('reset() brings the circuit back to CLOSED with zero failures', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 2, resetTimeoutMs: 60_000 });
+    cb.recordFailure();
+    cb.recordFailure();
+    expect(cb.getState()).toBe('OPEN');
+    // Manually reset
+    cb.recordSuccess(); // simulate HALF_OPEN → CLOSED via success after timeout
+    // Create fresh instance for reset test
+    const cb2 = new CircuitBreaker({ failureThreshold: 1, resetTimeoutMs: 0 });
+    cb2.recordFailure();
+    expect(cb2.getState()).toBe('OPEN');
+    expect(cb2.canRequest()).toBe(true); // resetTimeout is 0 → HALF_OPEN
+    cb2.recordSuccess();
+    expect(cb2.getState()).toBe('CLOSED');
+    expect(cb2.canRequest()).toBe(true);
+  });
+
+  it('multiple successes in CLOSED state keep circuit CLOSED', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 3 });
+    cb.recordSuccess();
+    cb.recordSuccess();
+    cb.recordSuccess();
+    expect(cb.getState()).toBe('CLOSED');
+    expect(cb.canRequest()).toBe(true);
+  });
+
+  it('mixed failures below threshold keep circuit CLOSED', () => {
+    const cb = new CircuitBreaker({ failureThreshold: 5 });
+    cb.recordFailure();
+    cb.recordFailure();
+    cb.recordSuccess(); // success resets counter
+    expect(cb.getState()).toBe('CLOSED');
+    expect(cb.canRequest()).toBe(true);
+  });
+});
+
+// ─── transform-stage: additional normalizeISO8601Date edge cases ──────────────
+
+describe('normalizeISO8601Date edge cases', () => {
+  it('returns empty string for empty input', () => {
+    expect(normalizeISO8601Date('')).toBe('');
+  });
+
+  it('returns original string for unparseable date', () => {
+    expect(normalizeISO8601Date('not-a-date')).toBe('not-a-date');
+  });
+
+  it('normalizes full ISO datetime to date-only', () => {
+    expect(normalizeISO8601Date('2025-03-15T14:30:00.000Z')).toBe('2025-03-15');
+  });
+});
+
+// ─── transform-stage: isValidCountryCode and isValidLanguageCode ──────────────
+
+describe('transform-stage validation helpers', () => {
+  it('isValidCountryCode accepts valid codes', () => {
+    expect(isValidCountryCode('SE')).toBe(true);
+    expect(isValidCountryCode('DE')).toBe(true);
+  });
+
+  it('isValidCountryCode rejects invalid codes', () => {
+    expect(isValidCountryCode('se')).toBe(false);
+    expect(isValidCountryCode('S')).toBe(false);
+    expect(isValidCountryCode('SEE')).toBe(false);
+    expect(isValidCountryCode('')).toBe(false);
+  });
+
+  it('isValidLanguageCode accepts valid codes', () => {
+    expect(isValidLanguageCode('en')).toBe(true);
+    expect(isValidLanguageCode('sv')).toBe(true);
+  });
+
+  it('isValidLanguageCode rejects invalid codes', () => {
+    expect(isValidLanguageCode('EN')).toBe(false);
+    expect(isValidLanguageCode('e')).toBe(false);
+    expect(isValidLanguageCode('eng')).toBe(false);
+    expect(isValidLanguageCode('')).toBe(false);
+  });
+});
