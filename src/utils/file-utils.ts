@@ -188,7 +188,11 @@ export function atomicWrite(filepath: string, content: string): void {
  * @param newsDir - Absolute path to the news output directory (defaults to NEWS_DIR)
  * @returns `true` when the article file exists
  */
-export function checkArticleExists(slug: string, lang: string, newsDir: string = NEWS_DIR): boolean {
+export function checkArticleExists(
+  slug: string,
+  lang: string,
+  newsDir: string = NEWS_DIR
+): boolean {
   const filename = `${slug}-${lang}.html`;
   return fs.existsSync(path.join(newsDir, filename));
 }
