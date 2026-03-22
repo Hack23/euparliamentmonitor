@@ -22,6 +22,10 @@ import type {
   VotingIntensity,
   CoalitionShift,
   PolarizationIndex,
+  VotingTrend,
+  CoalitionStabilityReport,
+  LegislativeVelocityReport,
+  LegislativeDocument,
 } from '../types/index.js';
 import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
 
@@ -610,5 +614,319 @@ export function computePolarizationIndex(
     highCohesionGroups,
     fragmentedGroups,
     assessment: assessPolarization(overallIndex),
+  };
+}
+
+// ─── Cross-session analysis functions ─────────────────────────────────────────
+
+/**
+ * Compute average of a numeric array.
+ *
+ * @param values - Array of numbers
+ * @returns Arithmetic mean, or 0 for empty arrays
+ */
+function avg(values: readonly number[]): number {
+  return values.length > 0 ? values.reduce((s, v) => s + v, 0) / values.length : 0;
+}
+
+/**
+ * Extract valid vote margins and result tallies from voting records.
+ * Skips records with zero total votes.
+ *
+ * @param records - Voting records to process
+ * @returns Object containing margins array, adopted count, and rejected count
+ */
+function extractMarginData(records: readonly VotingRecord[]): {
+  margins: number[];
+  adoptedCount: number;
+  rejectedCount: number;
+} {
+  const margins: number[] = [];
+  let adoptedCount = 0;
+  let rejectedCount = 0;
+
+  for (const r of records) {
+    const total = r.votes.for + r.votes.against + r.votes.abstain;
+    if (total === 0) continue;
+    margins.push(Math.abs(r.votes.for - r.votes.against) / total);
+    const result = r.result.toLowerCase();
+    if (result === 'adopted' || result === 'approved') adoptedCount++;
+    if (result === 'rejected') rejectedCount++;
+  }
+
+  return { margins, adoptedCount, rejectedCount };
+}
+
+/**
+ * Derive adoption-rate direction label from rate.
+ *
+ * @param rate - Adoption rate (0-1)
+ * @returns Direction label
+ */
+function adoptionDirection(rate: number): VotingTrend['direction'] {
+  if (rate > 0.7) return 'increasing';
+  if (rate < 0.4) return 'decreasing';
+  return 'stable';
+}
+
+/**
+ * Build a margin-shift trend if the delta exceeds 5%.
+ *
+ * @param firstHalf - Margins from the first half of records
+ * @param secondHalf - Margins from the second half of records
+ * @param total - Total number of valid records
+ * @returns VotingTrend or null if delta is within threshold
+ */
+function buildMarginTrend(firstHalf: number[], secondHalf: number[], total: number): VotingTrend | null {
+  const marginDelta = avg(secondHalf) - avg(firstHalf);
+  if (Math.abs(marginDelta) <= 0.05) return null;
+  const isIncreasing = marginDelta > 0;
+  return {
+    trendId: isIncreasing ? 'increasing-margins' : 'decreasing-margins',
+    description: isIncreasing
+      ? 'Voting margins are widening — greater decisiveness'
+      : 'Voting margins are narrowing — increasing contention',
+    direction: isIncreasing ? 'increasing' : 'decreasing',
+    confidence: Math.min(1, Math.round(Math.abs(marginDelta) * 5 * 100) / 100),
+    recordCount: total,
+    metricValue: Math.round(marginDelta * 100) / 100,
+  };
+}
+
+/**
+ * Build a polarization trend if the close-vote frequency delta exceeds 10%.
+ *
+ * @param firstHalf - Margins from the first half of records
+ * @param secondHalf - Margins from the second half of records
+ * @param total - Total number of valid records
+ * @returns VotingTrend or null if delta is within threshold
+ */
+function buildPolarizationTrend(firstHalf: number[], secondHalf: number[], total: number): VotingTrend | null {
+  const closeFirst = firstHalf.filter((m) => m < 0.1).length / firstHalf.length;
+  const closeSecond = secondHalf.filter((m) => m < 0.1).length / secondHalf.length;
+  const closeDelta = closeSecond - closeFirst;
+  if (Math.abs(closeDelta) <= 0.1) return null;
+  const isIncreasing = closeDelta > 0;
+  return {
+    trendId: isIncreasing ? 'increasing-polarization' : 'decreasing-polarization',
+    description: isIncreasing
+      ? 'More close votes detected — increasing polarization'
+      : 'Fewer close votes — declining polarization',
+    direction: isIncreasing ? 'increasing' : 'decreasing',
+    confidence: Math.min(1, Math.round(Math.abs(closeDelta) * 3 * 100) / 100),
+    recordCount: total,
+    metricValue: Math.round(closeDelta * 100) / 100,
+  };
+}
+
+/**
+ * Detect voting trends across multiple voting records by analysing
+ * margin distribution, polarization patterns, and result consistency.
+ * Returns an array of detected trends sorted by confidence.
+ *
+ * @param records - Voting records to analyse across sessions
+ * @returns Array of detected VotingTrend objects (empty if fewer than 2 valid records)
+ */
+export function detectVotingTrends(records: readonly VotingRecord[]): VotingTrend[] {
+  if (records.length < 2) return [];
+
+  const { margins, adoptedCount, rejectedCount } = extractMarginData(records);
+  if (margins.length < 2) return [];
+
+  const mid = Math.floor(margins.length / 2);
+  const firstHalf = margins.slice(0, mid);
+  const secondHalf = margins.slice(mid);
+
+  const trends: VotingTrend[] = [];
+
+  const marginTrend = buildMarginTrend(firstHalf, secondHalf, margins.length);
+  if (marginTrend) trends.push(marginTrend);
+
+  const polTrend = buildPolarizationTrend(firstHalf, secondHalf, margins.length);
+  if (polTrend) trends.push(polTrend);
+
+  const totalDecided = adoptedCount + rejectedCount;
+  if (totalDecided > 0) {
+    const adoptionRate = adoptedCount / totalDecided;
+    trends.push({
+      trendId: 'adoption-rate',
+      description: `Adoption rate is ${Math.round(adoptionRate * 100)}% across ${totalDecided} decided votes`,
+      direction: adoptionDirection(adoptionRate),
+      confidence: Math.min(1, Math.round((totalDecided / margins.length) * 100) / 100),
+      recordCount: totalDecided,
+      metricValue: Math.round(adoptionRate * 100) / 100,
+    });
+  }
+
+  return trends.sort((a, b) => b.confidence - a.confidence);
+}
+
+/**
+ * Compute cross-session coalition stability by analysing cohesion variance
+ * across a set of voting patterns. Groups with consistently high cohesion
+ * are reported as stable; those with declining or low cohesion are flagged.
+ *
+ * @param patterns - Voting patterns from multiple sessions
+ * @returns CoalitionStabilityReport (empty report if no patterns)
+ */
+export function computeCrossSessionCoalitionStability(
+  patterns: readonly VotingPattern[]
+): CoalitionStabilityReport {
+  if (patterns.length === 0) {
+    return {
+      overallStability: 0,
+      patternCount: 0,
+      stableGroups: [],
+      decliningGroups: [],
+      forecast: 'volatile',
+    };
+  }
+
+  // Aggregate cohesion per group
+  const groupCohesions = new Map<string, number[]>();
+  for (const p of patterns) {
+    const existing = groupCohesions.get(p.group);
+    if (existing) {
+      existing.push(p.cohesion);
+    } else {
+      groupCohesions.set(p.group, [p.cohesion]);
+    }
+  }
+
+  const stableGroups: string[] = [];
+  const decliningGroups: string[] = [];
+  let totalAvgCohesion = 0;
+  let groupCount = 0;
+
+  for (const [group, cohesions] of groupCohesions) {
+    const avg = cohesions.reduce((s, v) => s + v, 0) / cohesions.length;
+    totalAvgCohesion += avg;
+    groupCount++;
+
+    if (avg >= 0.7) {
+      stableGroups.push(group);
+    } else if (avg < 0.5) {
+      decliningGroups.push(group);
+    }
+  }
+
+  const overallStability =
+    groupCount > 0 ? Math.round((totalAvgCohesion / groupCount) * 100) / 100 : 0;
+
+  let forecast: CoalitionStabilityReport['forecast'];
+  if (overallStability >= 0.7) forecast = 'stable';
+  else if (overallStability >= 0.5) forecast = 'at-risk';
+  else forecast = 'volatile';
+
+  return {
+    overallStability,
+    patternCount: patterns.length,
+    stableGroups,
+    decliningGroups,
+    forecast,
+  };
+}
+
+/**
+ * Rank MEP influence scores filtered by topic relevance.
+ * Matches scores whose mepName or rank contains the topic substring
+ * (case-insensitive). Returns the filtered list sorted by overallScore
+ * descending. If topic is empty or no matches found, returns all scores
+ * sorted by overallScore.
+ *
+ * @param scores - MEP influence scores to rank
+ * @param topic - Topic keyword to filter by
+ * @returns Sorted array of matching MEPInfluenceScore entries
+ */
+export function rankMEPInfluenceByTopic(
+  scores: readonly MEPInfluenceScore[],
+  topic: string
+): MEPInfluenceScore[] {
+  if (scores.length === 0) return [];
+
+  const lowerTopic = topic.toLowerCase().trim();
+
+  // If topic is empty, return all sorted by score
+  if (lowerTopic.length === 0) {
+    return [...scores].sort((a, b) => b.overallScore - a.overallScore);
+  }
+
+  const matched = scores.filter(
+    (s) =>
+      s.mepName.toLowerCase().includes(lowerTopic) ||
+      s.rank.toLowerCase().includes(lowerTopic) ||
+      s.mepId.toLowerCase().includes(lowerTopic)
+  );
+
+  // If no matches, return all sorted
+  const pool = matched.length > 0 ? matched : [...scores];
+  return pool.sort((a, b) => b.overallScore - a.overallScore);
+}
+
+/**
+ * Build a legislative velocity report with stage-by-stage breakdown from
+ * a set of legislative documents. Analyses document status distribution
+ * and identifies potential bottlenecks.
+ *
+ * @param docs - Legislative documents to analyse
+ * @returns LegislativeVelocityReport summary
+ */
+export function buildLegislativeVelocityReport(
+  docs: readonly LegislativeDocument[]
+): LegislativeVelocityReport {
+  if (docs.length === 0) {
+    return {
+      documentCount: 0,
+      stageBreakdown: {},
+      averageDaysPerStage: 0,
+      bottleneckCount: 0,
+      throughputAssessment: 'slow',
+    };
+  }
+
+  const stageBreakdown: Record<string, number> = {};
+  let bottleneckCount = 0;
+
+  for (const doc of docs) {
+    const stage = (doc.status ?? doc.type ?? 'Unknown').trim() || 'Unknown';
+    stageBreakdown[stage] = (stageBreakdown[stage] ?? 0) + 1;
+  }
+
+  // Count bottlenecks: stages with disproportionately many documents
+  const stageValues = Object.values(stageBreakdown);
+  const avgPerStage =
+    stageValues.length > 0 ? stageValues.reduce((s, v) => s + v, 0) / stageValues.length : 0;
+
+  for (const count of stageValues) {
+    if (count > avgPerStage * 1.5 && count > 1) {
+      bottleneckCount++;
+    }
+  }
+
+  // Estimate average days per stage from date spread
+  const dates = docs
+    .map((d) => (d.date ? new Date(d.date).getTime() : NaN))
+    .filter((t) => !isNaN(t));
+
+  let averageDaysPerStage = 0;
+  if (dates.length >= 2) {
+    const minDate = Math.min(...dates);
+    const maxDate = Math.max(...dates);
+    const spanDays = (maxDate - minDate) / (1000 * 60 * 60 * 24);
+    const stageCount = Object.keys(stageBreakdown).length;
+    averageDaysPerStage = stageCount > 0 ? Math.round(spanDays / stageCount) : 0;
+  }
+
+  let throughputAssessment: LegislativeVelocityReport['throughputAssessment'];
+  if (averageDaysPerStage <= 30) throughputAssessment = 'fast';
+  else if (averageDaysPerStage <= 90) throughputAssessment = 'normal';
+  else throughputAssessment = 'slow';
+
+  return {
+    documentCount: docs.length,
+    stageBreakdown,
+    averageDaysPerStage,
+    bottleneckCount,
+    throughputAssessment,
   };
 }

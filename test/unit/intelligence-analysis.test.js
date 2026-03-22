@@ -22,6 +22,10 @@ import {
   computeVotingIntensity,
   detectCoalitionShifts,
   computePolarizationIndex,
+  detectVotingTrends,
+  computeCrossSessionCoalitionStability,
+  rankMEPInfluenceByTopic,
+  buildLegislativeVelocityReport,
 } from '../../scripts/utils/intelligence-analysis.js';
 import { ALL_STAKEHOLDER_TYPES } from '../../scripts/types/index.js';
 import {
@@ -1088,5 +1092,314 @@ describe('computePolarizationIndex', () => {
     expect(result).not.toBeNull();
     expect(result.highCohesionGroups).toContain('Only');
     expect(result.effectiveBlocs).toBe(1);
+  });
+});
+
+// ─── detectVotingTrends ──────────────────────────────────────────────────────
+
+describe('detectVotingTrends', () => {
+  it('should return empty array for empty records', () => {
+    expect(detectVotingTrends([])).toEqual([]);
+  });
+
+  it('should return empty array for a single record', () => {
+    const records = [{ title: 'A', date: '2025-01-10', result: 'Adopted', votes: { for: 400, against: 100, abstain: 10 } }];
+    expect(detectVotingTrends(records)).toEqual([]);
+  });
+
+  it('should detect adoption rate trend from multiple decided records', () => {
+    const records = [
+      { title: 'A', date: '2025-01-10', result: 'Adopted', votes: { for: 400, against: 100, abstain: 10 } },
+      { title: 'B', date: '2025-01-11', result: 'Adopted', votes: { for: 500, against: 50, abstain: 20 } },
+      { title: 'C', date: '2025-01-12', result: 'Adopted', votes: { for: 450, against: 80, abstain: 30 } },
+    ];
+    const trends = detectVotingTrends(records);
+    expect(trends.length).toBeGreaterThan(0);
+    const adoptionTrend = trends.find(t => t.trendId === 'adoption-rate');
+    expect(adoptionTrend).toBeDefined();
+    expect(adoptionTrend.metricValue).toBe(1); // 100% adoption rate
+    expect(adoptionTrend.direction).toBe('increasing');
+  });
+
+  it('should detect increasing margins trend', () => {
+    const records = [
+      { title: 'A', date: '2025-01-10', result: 'Adopted', votes: { for: 310, against: 300, abstain: 10 } },
+      { title: 'B', date: '2025-01-11', result: 'Adopted', votes: { for: 320, against: 290, abstain: 10 } },
+      { title: 'C', date: '2025-01-12', result: 'Adopted', votes: { for: 500, against: 100, abstain: 10 } },
+      { title: 'D', date: '2025-01-13', result: 'Adopted', votes: { for: 550, against: 50, abstain: 10 } },
+    ];
+    const trends = detectVotingTrends(records);
+    const marginTrend = trends.find(t => t.trendId === 'increasing-margins');
+    expect(marginTrend).toBeDefined();
+    expect(marginTrend.direction).toBe('increasing');
+  });
+
+  it('should detect increasing polarization from close votes', () => {
+    const records = [
+      { title: 'A', date: '2025-01-10', result: 'Adopted', votes: { for: 500, against: 100, abstain: 10 } },
+      { title: 'B', date: '2025-01-11', result: 'Adopted', votes: { for: 480, against: 120, abstain: 10 } },
+      { title: 'C', date: '2025-01-12', result: 'Adopted', votes: { for: 310, against: 300, abstain: 10 } },
+      { title: 'D', date: '2025-01-13', result: 'Rejected', votes: { for: 305, against: 310, abstain: 5 } },
+    ];
+    const trends = detectVotingTrends(records);
+    const polTrend = trends.find(t => t.trendId === 'increasing-polarization');
+    expect(polTrend).toBeDefined();
+    expect(polTrend.direction).toBe('increasing');
+  });
+
+  it('should skip records with zero total votes', () => {
+    const records = [
+      { title: 'A', date: '2025-01-10', result: 'Adopted', votes: { for: 400, against: 100, abstain: 10 } },
+      { title: 'Empty', date: '2025-01-11', result: 'N/A', votes: { for: 0, against: 0, abstain: 0 } },
+      { title: 'B', date: '2025-01-12', result: 'Adopted', votes: { for: 450, against: 80, abstain: 30 } },
+    ];
+    const trends = detectVotingTrends(records);
+    const adoptionTrend = trends.find(t => t.trendId === 'adoption-rate');
+    expect(adoptionTrend).toBeDefined();
+    expect(adoptionTrend.recordCount).toBe(2); // only 2 decided votes
+  });
+
+  it('should sort trends by confidence descending', () => {
+    const records = [
+      { title: 'A', date: '2025-01-10', result: 'Adopted', votes: { for: 400, against: 100, abstain: 10 } },
+      { title: 'B', date: '2025-01-11', result: 'Adopted', votes: { for: 450, against: 80, abstain: 30 } },
+      { title: 'C', date: '2025-01-12', result: 'Rejected', votes: { for: 200, against: 400, abstain: 10 } },
+    ];
+    const trends = detectVotingTrends(records);
+    for (let i = 1; i < trends.length; i++) {
+      expect(trends[i].confidence).toBeLessThanOrEqual(trends[i - 1].confidence);
+    }
+  });
+
+  it('should cap confidence at 1', () => {
+    const records = [
+      { title: 'A', date: '2025-01-10', result: 'Adopted', votes: { for: 10, against: 600, abstain: 10 } },
+      { title: 'B', date: '2025-01-11', result: 'Adopted', votes: { for: 600, against: 10, abstain: 10 } },
+    ];
+    const trends = detectVotingTrends(records);
+    for (const t of trends) {
+      expect(t.confidence).toBeLessThanOrEqual(1);
+    }
+  });
+});
+
+// ─── computeCrossSessionCoalitionStability ───────────────────────────────────
+
+describe('computeCrossSessionCoalitionStability', () => {
+  it('should return volatile report for empty patterns', () => {
+    const result = computeCrossSessionCoalitionStability([]);
+    expect(result.overallStability).toBe(0);
+    expect(result.patternCount).toBe(0);
+    expect(result.stableGroups).toEqual([]);
+    expect(result.decliningGroups).toEqual([]);
+    expect(result.forecast).toBe('volatile');
+  });
+
+  it('should detect stable groups (avg cohesion >= 0.7)', () => {
+    const patterns = [
+      { group: 'EPP', cohesion: 0.9, participation: 0.8 },
+      { group: 'EPP', cohesion: 0.85, participation: 0.85 },
+      { group: 'S&D', cohesion: 0.75, participation: 0.7 },
+    ];
+    const result = computeCrossSessionCoalitionStability(patterns);
+    expect(result.stableGroups).toContain('EPP');
+    expect(result.stableGroups).toContain('S&D');
+    expect(result.forecast).toBe('stable');
+  });
+
+  it('should detect declining groups (avg cohesion < 0.5)', () => {
+    const patterns = [
+      { group: 'Greens', cohesion: 0.3, participation: 0.5 },
+      { group: 'Greens', cohesion: 0.4, participation: 0.6 },
+      { group: 'EPP', cohesion: 0.8, participation: 0.9 },
+    ];
+    const result = computeCrossSessionCoalitionStability(patterns);
+    expect(result.decliningGroups).toContain('Greens');
+    expect(result.stableGroups).toContain('EPP');
+  });
+
+  it('should compute overall stability as average of group averages', () => {
+    const patterns = [
+      { group: 'A', cohesion: 0.8, participation: 0.9 },
+      { group: 'B', cohesion: 0.6, participation: 0.7 },
+    ];
+    const result = computeCrossSessionCoalitionStability(patterns);
+    expect(result.overallStability).toBe(0.7); // (0.8+0.6)/2
+  });
+
+  it('should forecast at-risk when overall stability is between 0.5 and 0.7', () => {
+    const patterns = [
+      { group: 'A', cohesion: 0.6, participation: 0.8 },
+      { group: 'B', cohesion: 0.5, participation: 0.7 },
+    ];
+    const result = computeCrossSessionCoalitionStability(patterns);
+    expect(result.forecast).toBe('at-risk');
+  });
+
+  it('should forecast volatile when overall stability < 0.5', () => {
+    const patterns = [
+      { group: 'A', cohesion: 0.3, participation: 0.5 },
+      { group: 'B', cohesion: 0.4, participation: 0.6 },
+    ];
+    const result = computeCrossSessionCoalitionStability(patterns);
+    expect(result.forecast).toBe('volatile');
+  });
+
+  it('should aggregate multiple entries for the same group', () => {
+    const patterns = [
+      { group: 'EPP', cohesion: 0.9, participation: 0.9 },
+      { group: 'EPP', cohesion: 0.7, participation: 0.8 },
+      { group: 'EPP', cohesion: 0.8, participation: 0.85 },
+    ];
+    const result = computeCrossSessionCoalitionStability(patterns);
+    expect(result.patternCount).toBe(3);
+    expect(result.stableGroups).toContain('EPP'); // avg 0.8
+    expect(result.overallStability).toBe(0.8);
+  });
+});
+
+// ─── rankMEPInfluenceByTopic ─────────────────────────────────────────────────
+
+describe('rankMEPInfluenceByTopic', () => {
+  const scores = [
+    { mepId: 'MEP-1', mepName: 'Alice Green', overallScore: 80, votingActivity: 70, legislativeOutput: 85, committeeEngagement: 75, rank: 'environment' },
+    { mepId: 'MEP-2', mepName: 'Bob Fischer', overallScore: 90, votingActivity: 85, legislativeOutput: 90, committeeEngagement: 80, rank: 'trade' },
+    { mepId: 'MEP-3', mepName: 'Eve Trade', overallScore: 60, votingActivity: 55, legislativeOutput: 65, committeeEngagement: 50, rank: 'environment' },
+  ];
+
+  it('should return empty array for empty scores', () => {
+    expect(rankMEPInfluenceByTopic([], 'trade')).toEqual([]);
+  });
+
+  it('should filter by topic matching mepName', () => {
+    const result = rankMEPInfluenceByTopic(scores, 'Green');
+    expect(result).toHaveLength(1);
+    expect(result[0].mepId).toBe('MEP-1');
+  });
+
+  it('should filter by topic matching rank (case-insensitive)', () => {
+    const result = rankMEPInfluenceByTopic(scores, 'environment');
+    expect(result).toHaveLength(2);
+    expect(result[0].overallScore).toBeGreaterThanOrEqual(result[1].overallScore);
+  });
+
+  it('should return all scores sorted when topic is empty', () => {
+    const result = rankMEPInfluenceByTopic(scores, '');
+    expect(result).toHaveLength(3);
+    expect(result[0].overallScore).toBe(90);
+    expect(result[2].overallScore).toBe(60);
+  });
+
+  it('should return all scores sorted when no matches found', () => {
+    const result = rankMEPInfluenceByTopic(scores, 'nonexistent-topic');
+    expect(result).toHaveLength(3);
+    expect(result[0].overallScore).toBe(90);
+  });
+
+  it('should match by mepId', () => {
+    const result = rankMEPInfluenceByTopic(scores, 'mep-2');
+    expect(result).toHaveLength(1);
+    expect(result[0].mepId).toBe('MEP-2');
+  });
+
+  it('should sort matching results by overallScore descending', () => {
+    const result = rankMEPInfluenceByTopic(scores, 'environment');
+    expect(result[0].mepId).toBe('MEP-1');
+    expect(result[1].mepId).toBe('MEP-3');
+  });
+
+  it('should handle whitespace-only topic as empty', () => {
+    const result = rankMEPInfluenceByTopic(scores, '   ');
+    expect(result).toHaveLength(3);
+  });
+});
+
+// ─── buildLegislativeVelocityReport ──────────────────────────────────────────
+
+describe('buildLegislativeVelocityReport', () => {
+  it('should return empty report for empty docs', () => {
+    const result = buildLegislativeVelocityReport([]);
+    expect(result.documentCount).toBe(0);
+    expect(result.stageBreakdown).toEqual({});
+    expect(result.averageDaysPerStage).toBe(0);
+    expect(result.bottleneckCount).toBe(0);
+    expect(result.throughputAssessment).toBe('slow');
+  });
+
+  it('should count documents by stage using status field', () => {
+    const docs = [
+      { title: 'A', status: 'Committee', date: '2025-01-01' },
+      { title: 'B', status: 'Committee', date: '2025-01-05' },
+      { title: 'C', status: 'Plenary', date: '2025-01-10' },
+    ];
+    const result = buildLegislativeVelocityReport(docs);
+    expect(result.documentCount).toBe(3);
+    expect(result.stageBreakdown['Committee']).toBe(2);
+    expect(result.stageBreakdown['Plenary']).toBe(1);
+  });
+
+  it('should use type as fallback when status is missing', () => {
+    const docs = [
+      { title: 'A', type: 'DIRECTIVE', date: '2025-01-01' },
+      { title: 'B', type: 'REGULATION', date: '2025-02-01' },
+    ];
+    const result = buildLegislativeVelocityReport(docs);
+    expect(result.stageBreakdown['DIRECTIVE']).toBe(1);
+    expect(result.stageBreakdown['REGULATION']).toBe(1);
+  });
+
+  it('should label unknown stage when both status and type missing', () => {
+    const docs = [{ title: 'A' }];
+    const result = buildLegislativeVelocityReport(docs);
+    expect(result.stageBreakdown['Unknown']).toBe(1);
+  });
+
+  it('should detect bottleneck stages', () => {
+    const docs = [
+      { title: 'A', status: 'Committee', date: '2025-01-01' },
+      { title: 'B', status: 'Committee', date: '2025-01-02' },
+      { title: 'C', status: 'Committee', date: '2025-01-03' },
+      { title: 'D', status: 'Committee', date: '2025-01-04' },
+      { title: 'E', status: 'Plenary', date: '2025-03-01' },
+    ];
+    const result = buildLegislativeVelocityReport(docs);
+    expect(result.bottleneckCount).toBeGreaterThan(0);
+  });
+
+  it('should compute average days per stage from date spread', () => {
+    const docs = [
+      { title: 'A', status: 'First Reading', date: '2025-01-01' },
+      { title: 'B', status: 'Second Reading', date: '2025-04-01' },
+    ];
+    const result = buildLegislativeVelocityReport(docs);
+    expect(result.averageDaysPerStage).toBeGreaterThan(0);
+  });
+
+  it('should assess fast throughput for short durations', () => {
+    const docs = [
+      { title: 'A', status: 'S1', date: '2025-01-01' },
+      { title: 'B', status: 'S1', date: '2025-01-15' },
+    ];
+    const result = buildLegislativeVelocityReport(docs);
+    expect(result.throughputAssessment).toBe('fast');
+  });
+
+  it('should assess slow throughput for long durations', () => {
+    const docs = [
+      { title: 'A', status: 'S1', date: '2024-01-01' },
+      { title: 'B', status: 'S2', date: '2025-01-01' },
+    ];
+    const result = buildLegislativeVelocityReport(docs);
+    expect(result.throughputAssessment).toBe('slow');
+  });
+
+  it('should handle documents with missing dates', () => {
+    const docs = [
+      { title: 'A', status: 'Draft' },
+      { title: 'B', status: 'Review' },
+    ];
+    const result = buildLegislativeVelocityReport(docs);
+    expect(result.documentCount).toBe(2);
+    expect(result.averageDaysPerStage).toBe(0);
   });
 });

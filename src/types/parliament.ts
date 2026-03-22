@@ -223,6 +223,52 @@ export interface PolarizationIndex {
   assessment: 'consensus' | 'moderate' | 'polarized' | 'highly-polarized';
 }
 
+// ─── Cross-session analysis types ─────────────────────────────────────────────
+
+/** Detected voting trend across multiple sessions */
+export interface VotingTrend {
+  /** Identifier for the trend (e.g. "increasing-polarization") */
+  trendId: string;
+  /** Human-readable description of the trend */
+  description: string;
+  /** Direction of the trend */
+  direction: 'increasing' | 'decreasing' | 'stable';
+  /** Confidence in the detection (0-1) */
+  confidence: number;
+  /** Number of records examined */
+  recordCount: number;
+  /** Representative metric value (e.g. average margin change) */
+  metricValue: number;
+}
+
+/** Coalition stability report from cross-session pattern analysis */
+export interface CoalitionStabilityReport {
+  /** Overall stability score (0-1, higher = more stable) */
+  overallStability: number;
+  /** Number of patterns analysed */
+  patternCount: number;
+  /** Groups with consistently high cohesion */
+  stableGroups: string[];
+  /** Groups showing declining cohesion */
+  decliningGroups: string[];
+  /** Forecast assessment label */
+  forecast: 'stable' | 'at-risk' | 'volatile';
+}
+
+/** Legislative velocity report with stage-by-stage timing analysis */
+export interface LegislativeVelocityReport {
+  /** Total documents analysed */
+  documentCount: number;
+  /** Breakdown of documents by stage */
+  stageBreakdown: Record<string, number>;
+  /** Average days per stage (where data available) */
+  averageDaysPerStage: number;
+  /** Documents identified as bottlenecks */
+  bottleneckCount: number;
+  /** Overall throughput assessment */
+  throughputAssessment: 'fast' | 'normal' | 'slow';
+}
+
 // ─── EP Feed item types ──────────────────────────────────────────────────────
 
 /** A single item from any EP API v2 feed response (`data[]` array) */

@@ -77,6 +77,9 @@ export type {
   CoalitionShift,
   PolarizationIndex,
   PoliticalSignificanceScore,
+  VotingTrend,
+  CoalitionStabilityReport,
+  LegislativeVelocityReport,
 } from './parliament.js';
 
 export type {
