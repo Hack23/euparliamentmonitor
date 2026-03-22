@@ -2091,7 +2091,7 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
     expect(meta.keywords).toContain('Resolution on climate action');
   });
 
-  it('MonthlyReviewStrategy: feedData does not affect keywords (keywords are data-driven)', () => {
+  it('MonthlyReviewStrategy: keywords include voting records but exclude feedData titles', () => {
     const strategy = new MonthlyReviewStrategy();
     const richData = {
       ...monthlyReviewData,

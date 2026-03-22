@@ -2687,7 +2687,7 @@ describe('generateArticleForStrategy validation paths', () => {
 // ─── CircuitBreaker additional edge cases ─────────────────────────────────────
 
 describe('CircuitBreaker edge cases', () => {
-  it('reset() brings the circuit back to CLOSED with zero failures', () => {
+  it('transitions from OPEN through HALF_OPEN to CLOSED via success after timeout', () => {
     const cb = new CircuitBreaker({ failureThreshold: 2, resetTimeoutMs: 60_000 });
     cb.recordFailure();
     cb.recordFailure();
