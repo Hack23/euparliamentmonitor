@@ -159,6 +159,22 @@ export function writeFileContent(filepath: string, content: string): void {
 }
 
 /**
+ * Remove a file, ignoring ENOENT (file already deleted by another writer).
+ *
+ * @param filepath - Path to the file to remove
+ */
+function unlinkIfExists(filepath: string): void {
+  try {
+    fs.unlinkSync(filepath);
+  } catch (err: unknown) {
+    const code = err instanceof Error ? (err as NodeJS.ErrnoException).code : '';
+    if (code !== 'ENOENT') {
+      throw err;
+    }
+  }
+}
+
+/**
  * Write content to a file atomically.
  *
  * Writes to a uniquely-named temporary file in the same directory first, then
@@ -185,19 +201,18 @@ export function atomicWrite(filepath: string, content: string): void {
       // On platforms where rename cannot overwrite (Windows), remove then retry
       const code = err instanceof Error ? (err as NodeJS.ErrnoException).code : '';
       if (code === 'EEXIST' || code === 'EPERM') {
-        fs.unlinkSync(filepath);
+        unlinkIfExists(filepath);
         fs.renameSync(tempPath, filepath);
       } else {
         throw err;
       }
     }
   } finally {
-    if (fs.existsSync(tempPath)) {
-      try {
-        fs.unlinkSync(tempPath);
-      } catch {
-        // Ignore cleanup errors to avoid masking the original failure
-      }
+    // Clean up temp file if rename failed or was never reached
+    try {
+      fs.unlinkSync(tempPath);
+    } catch {
+      // Temp file already renamed or doesn't exist; ignore
     }
   }
 }

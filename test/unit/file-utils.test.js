@@ -326,6 +326,31 @@ describe('utils/file-utils', () => {
       expect(fs.readFileSync(filePath, 'utf-8')).toBe(longContent);
       expect(fs.readFileSync(filePath, 'utf-8')).toHaveLength(10_000);
     });
+
+    it('should handle EEXIST/EPERM fallback when renameSync cannot overwrite', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic-fallback.txt');
+      fs.writeFileSync(filePath, 'original', 'utf-8');
+
+      // Mock renameSync to throw EEXIST on first call (simulating Windows),
+      // then succeed on retry after unlink
+      const originalRenameSync = fs.renameSync;
+      let callCount = 0;
+      const renameSpy = vi.spyOn(fs, 'renameSync').mockImplementation((...args) => {
+        callCount++;
+        if (callCount === 1) {
+          const err = new Error('EEXIST: file already exists');
+          err.code = 'EEXIST';
+          throw err;
+        }
+        return originalRenameSync.apply(fs, args);
+      });
+
+      atomicWrite(filePath, 'fallback content');
+      expect(fs.readFileSync(filePath, 'utf-8')).toBe('fallback content');
+      expect(callCount).toBe(2); // first call throws, second succeeds
+      renameSpy.mockRestore();
+    });
   });
 
   describe('checkArticleExists', () => {
