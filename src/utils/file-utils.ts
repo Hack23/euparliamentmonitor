@@ -175,6 +175,33 @@ function unlinkIfExists(filepath: string): void {
 }
 
 /**
+ * Attempt to rename `src` to `dest` with a bounded retry loop.
+ *
+ * On each attempt the existing destination is removed first, then
+ * `renameSync` is retried.  `EEXIST`/`EPERM` failures from concurrent
+ * writers are tolerated for up to `maxRetries` attempts.
+ *
+ * @param src - Source (temp) file path
+ * @param dest - Final destination path
+ * @param maxRetries - Maximum number of unlink-then-rename attempts
+ */
+function renameWithRetry(src: string, dest: string, maxRetries: number): void {
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    unlinkIfExists(dest);
+    try {
+      fs.renameSync(src, dest);
+      return;
+    } catch (retryErr: unknown) {
+      const retryCode = retryErr instanceof Error ? (retryErr as NodeJS.ErrnoException).code : '';
+      if ((retryCode === 'EEXIST' || retryCode === 'EPERM') && attempt < maxRetries - 1) {
+        continue;
+      }
+      throw retryErr;
+    }
+  }
+}
+
+/**
  * Write content to a file atomically.
  *
  * Writes to a uniquely-named temporary file in the same directory first, then
@@ -198,26 +225,9 @@ export function atomicWrite(filepath: string, content: string): void {
     try {
       fs.renameSync(tempPath, filepath);
     } catch (err: unknown) {
-      // On platforms where rename cannot overwrite (Windows), remove then retry
       const code = err instanceof Error ? (err as NodeJS.ErrnoException).code : '';
       if (code === 'EEXIST' || code === 'EPERM') {
-        // Bounded retry: another concurrent writer may recreate the destination
-        // between unlink and rename, so retry a few times before giving up.
-        const maxRetries = 3;
-        for (let attempt = 0; attempt < maxRetries; attempt++) {
-          unlinkIfExists(filepath);
-          try {
-            fs.renameSync(tempPath, filepath);
-            break;
-          } catch (retryErr: unknown) {
-            const retryCode =
-              retryErr instanceof Error ? (retryErr as NodeJS.ErrnoException).code : '';
-            if ((retryCode === 'EEXIST' || retryCode === 'EPERM') && attempt < maxRetries - 1) {
-              continue;
-            }
-            throw retryErr;
-          }
-        }
+        renameWithRetry(tempPath, filepath, 3);
       } else {
         throw err;
       }
