@@ -21,7 +21,10 @@ import {
   validateArticleHTML,
 } from '../../utils/file-utils.js';
 import type { ArticleStrategyBase, ArticleData } from '../strategies/article-strategy.js';
-import { validateArticleContent } from '../../utils/content-validator.js';
+import {
+  validateArticleContent,
+  validateTranslationCompleteness,
+} from '../../utils/content-validator.js';
 import { scoreArticleQuality } from '../../utils/article-quality-scorer.js';
 import { enrichMetadataFromContent } from '../../utils/content-metadata.js';
 import { weekAheadStrategy } from '../strategies/week-ahead-strategy.js';
@@ -172,6 +175,13 @@ function generateSingleLanguageArticle(
   }
   for (const warning of contentValidation.warnings) {
     console.warn(`  ⚠️  ${lang.toUpperCase()} content warning: ${warning}`);
+  }
+
+  // Translation completeness — informational only, never blocks generation
+  const translationValidation = validateTranslationCompleteness(html, lang);
+  for (const warning of translationValidation.warnings) {
+    console.warn(`  🌐 ${lang.toUpperCase()} ${warning}`);
+    stats.translationWarnings = (stats.translationWarnings ?? 0) + 1;
   }
 
   // Quality scoring — informational only, never blocks generation

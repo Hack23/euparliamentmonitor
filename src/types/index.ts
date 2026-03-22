@@ -259,3 +259,8 @@ export type {
 } from './stakeholder.js';
 
 export { ALL_STAKEHOLDER_TYPES } from './stakeholder.js';
+
+export type {
+  TranslationValidationResult,
+  TranslationValidationMetrics,
+} from '../utils/content-validator.js';
