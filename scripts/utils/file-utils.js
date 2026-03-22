@@ -194,8 +194,8 @@ export function atomicWrite(filepath, content) {
   ensureDirectoryExists(dir);
   const uniqueSuffix = `${process.pid}-${randomUUID()}`;
   const tempPath = `${filepath}.${uniqueSuffix}.tmp`;
-  fs.writeFileSync(tempPath, content, 'utf-8');
   try {
+    fs.writeFileSync(tempPath, content, 'utf-8');
     try {
       fs.renameSync(tempPath, filepath);
     } catch (err) {

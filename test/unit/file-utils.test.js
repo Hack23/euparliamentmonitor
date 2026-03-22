@@ -6,7 +6,7 @@
  * Tests shared file utilities and article parsing
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { createTempDir, cleanupTempDir } from '../helpers/test-utils.js';
