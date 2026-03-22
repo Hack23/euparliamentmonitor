@@ -305,6 +305,15 @@ describe('utils/file-utils', () => {
       atomicWrite(filePath, 'clean');
       expect(fs.existsSync(`${filePath}.tmp`)).toBe(false);
     });
+
+    it('should produce a file with the exact expected content (no partial writes)', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic-integrity.txt');
+      const longContent = 'x'.repeat(10_000);
+      atomicWrite(filePath, longContent);
+      expect(fs.readFileSync(filePath, 'utf-8')).toBe(longContent);
+      expect(fs.readFileSync(filePath, 'utf-8')).toHaveLength(10_000);
+    });
   });
 
   describe('checkArticleExists', () => {
