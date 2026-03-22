@@ -1988,6 +1988,130 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
     expect(meta.title).toContain('—');
     expect(meta.title).toContain('2 Votes');
   });
+
+  it('MotionsStrategy: feedData adoptedTexts in keywords and suffix', () => {
+    const strategy = new MotionsStrategy();
+    const richData = {
+      ...motionsData,
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Resolution on AI', date: '2025-01-10' }],
+        events: [],
+        procedures: [],
+        mepUpdates: [],
+      },
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    // Keywords should include adopted text title from feed
+    expect(meta.keywords).toContain('Resolution on AI');
+    // Suffix should include adopted text count
+    expect(meta.title).toContain('Adopted Text');
+    // Description should mention adopted text
+    expect(meta.subtitle).toContain('adopted text');
+  });
+
+  it('CommitteeReportsStrategy: feedData adoptedTexts in keywords and suffix', () => {
+    const strategy = new CommitteeReportsStrategy();
+    const richData = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Climate Regulation', date: '2025-01-10' }],
+        events: [],
+        procedures: [],
+        mepUpdates: [],
+        plenaryDocuments: [],
+        committeeDocuments: [],
+        parliamentaryQuestions: [],
+      },
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    // Keywords should include categorized theme from adopted text
+    expect(meta.keywords.length).toBeGreaterThan(0);
+    // Suffix should include adopted text count
+    expect(meta.title).toContain('Adopted Text');
+    // Description should include adopted text count
+    expect(meta.subtitle).toContain('adopted text');
+  });
+
+  it('CommitteeReportsStrategy: committee without docs yields Active Committee in suffix', () => {
+    const strategy = new CommitteeReportsStrategy();
+    const noDocs = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Environment Committee',
+          abbreviation: 'ENVI',
+          chair: 'Jane Doe',
+          members: 42,
+          documents: [],
+          effectiveness: '85 / Rank 2',
+        },
+      ],
+    };
+    const meta = strategy.getMetadata(noDocs, 'en');
+    // With 0 docs and 1 active committee, suffix should say "Active Committee"
+    expect(meta.title).toContain('Active Committee');
+  });
+
+  it('BreakingNewsStrategy: empty feedData array still produces base keywords', () => {
+    const strategy = new BreakingNewsStrategy();
+    const emptyFeed = {
+      ...breakingNewsData,
+      feedData: { adoptedTexts: [], events: [], procedures: [], mepUpdates: [] },
+    };
+    const meta = strategy.getMetadata(emptyFeed, 'en');
+    // With all empty arrays in feedData, the English suffix builder returns ''
+    // but the base title already includes ' — date' from the localized title function
+    expect(meta.keywords).toContain('breaking news');
+    // Description should fallback (counts are empty)
+    expect(meta.subtitle).toContain('breaking developments');
+  });
+
+  it('BreakingNewsStrategy: feedData with only mepUpdates in description', () => {
+    const strategy = new BreakingNewsStrategy();
+    const mepOnlyFeed = {
+      ...breakingNewsData,
+      feedData: {
+        adoptedTexts: [],
+        events: [],
+        procedures: [],
+        mepUpdates: [
+          { id: 'MEP-1', name: 'Alice', date: '2025-01-15' },
+          { id: 'MEP-2', name: 'Bob', date: '2025-01-15' },
+        ],
+      },
+    };
+    const meta = strategy.getMetadata(mepOnlyFeed, 'en');
+    expect(meta.subtitle).toContain('MEP update');
+  });
+
+  it('WeeklyReviewStrategy: feedData adopted texts in keywords', () => {
+    const strategy = new WeeklyReviewStrategy();
+    const meta = strategy.getMetadata(weeklyReviewData, 'en');
+    // feedData has 1 adopted text with title "Resolution on climate action"
+    expect(meta.keywords).toContain('Resolution on climate action');
+  });
+
+  it('MonthlyReviewStrategy: feedData does not affect keywords (keywords are data-driven)', () => {
+    const strategy = new MonthlyReviewStrategy();
+    const richData = {
+      ...monthlyReviewData,
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Digital Services Act', date: '2025-01-05' }],
+        events: [],
+        procedures: [],
+        mepUpdates: [],
+        plenaryDocuments: [],
+        committeeDocuments: [],
+        parliamentaryQuestions: [],
+      },
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    // MonthlyReview buildKeywords does not include feedData titles
+    // Keywords should include voting record titles
+    expect(meta.keywords).toContain('Green Deal Implementation');
+    // But should NOT include feedData title since monthly review doesn't use it
+    expect(meta.keywords).not.toContain('Digital Services Act');
+  });
 });
 
 // ─── buildContent with feedData absent (false branch) ─────────────────────────
