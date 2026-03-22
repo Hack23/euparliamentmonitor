@@ -669,6 +669,18 @@ export const LOCALIZED_KEYWORDS: LanguageMap<Record<string, readonly string[]>> 
     [ArticleCategory.MOTIONS]: ['EU议会', '全体投票', '决议', '欧洲议会', '投票记录'],
     [ArticleCategory.WEEK_IN_REVIEW]: ['EU议会', '每周回顾', '欧洲议会', '摘要', '立法'],
     [ArticleCategory.MONTH_IN_REVIEW]: ['EU议会', '每月回顾', '欧洲议会', '摘要', '立法审查'],
+    ],
+  },
+  vi: {
+    [ArticleCategory.WEEK_AHEAD]: ['Nghị viện Châu Âu', 'tuần tới', 'lập pháp'],
+    [ArticleCategory.MONTH_AHEAD]: ['Nghị viện Châu Âu', 'tháng tới', 'chương trình'],
+    [ArticleCategory.BREAKING_NEWS]: ['Nghị viện Châu Âu', 'tin nóng', 'biểu quyết'],
+    [ArticleCategory.COMMITTEE_REPORTS]: ['Nghị viện Châu Âu', 'ủy ban', 'báo cáo'],
+    [ArticleCategory.PROPOSITIONS]: ['Nghị viện Châu Âu', 'quy trình', 'đề xuất'],
+    [ArticleCategory.MOTIONS]: ['Nghị viện Châu Âu', 'nghị quyết', 'bỏ phiếu'],
+    [ArticleCategory.WEEK_IN_REVIEW]: ['Nghị viện Châu Âu', 'tổng kết tuần'],
+    [ArticleCategory.MONTH_IN_REVIEW]: ['Nghị viện Châu Âu', 'tổng kết tháng'],
+  },
   },
 };
 /* eslint-enable sonarjs/no-duplicate-string */
@@ -736,6 +748,11 @@ export const WEEK_AHEAD_TITLES: LanguageMap<(start: string, end: string) => Lang
   zh: (start, end) => ({
     title: `下周预告: ${start} 至 ${end}`,
     subtitle: '欧洲议会日历、委员会会议和全体辩论',
+  }),
+  vi: (start, end) => ({
+    title: `Tuần tới: Từ ${start} đến ${end}`,
+    subtitle: 'Lịch trình Nghị viện Châu Âu, họp ủy ban và thảo luận tuần tới',
+  }),
   }),
 };
 
