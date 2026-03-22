@@ -10,7 +10,6 @@
  * Design follows riksdagsmonitor patterns: compact language switcher, Hack23 AB footer.
  */
 
-import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
 import { PROJECT_ROOT, APP_VERSION, NEWS_DIR } from '../constants/config.js';
@@ -42,6 +41,7 @@ import {
   parseArticleFilename,
   extractArticleMeta,
   escapeHTML,
+  atomicWrite,
 } from '../utils/file-utils.js';
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
 import { detectCategory } from '../utils/article-category.js';
@@ -467,7 +467,7 @@ function main(): void {
     const filename = getIndexFilename(lang);
     const filepath = path.join(PROJECT_ROOT, filename);
 
-    fs.writeFileSync(filepath, html, 'utf-8');
+    atomicWrite(filepath, html);
     console.log(`  ✅ Generated ${filename} (${langArticles.length} articles)`);
     generated++;
   }

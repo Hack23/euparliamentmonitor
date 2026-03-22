@@ -6,7 +6,7 @@
  * Tests shared file utilities and article parsing
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { createTempDir, cleanupTempDir } from '../helpers/test-utils.js';
@@ -192,7 +192,10 @@ describe('utils/file-utils', () => {
     it('should extract title from h1 element', async () => {
       const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
       const filePath = path.join(tempDir, 'article.html');
-      fs.writeFileSync(filePath, '<h1>My Real Title</h1><meta name="description" content="My description">');
+      fs.writeFileSync(
+        filePath,
+        '<h1>My Real Title</h1><meta name="description" content="My description">'
+      );
       const meta = extractArticleMeta(filePath);
       expect(meta.title).toBe('My Real Title');
     });
@@ -200,7 +203,10 @@ describe('utils/file-utils', () => {
     it('should extract description from meta description tag', async () => {
       const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
       const filePath = path.join(tempDir, 'article2.html');
-      fs.writeFileSync(filePath, '<h1>Title</h1><meta name="description" content="The real description here">');
+      fs.writeFileSync(
+        filePath,
+        '<h1>Title</h1><meta name="description" content="The real description here">'
+      );
       const meta = extractArticleMeta(filePath);
       expect(meta.description).toBe('The real description here');
     });
@@ -219,7 +225,7 @@ describe('utils/file-utils', () => {
       const filePath = path.join(tempDir, 'article-entities.html');
       fs.writeFileSync(
         filePath,
-        '<h1>EU &amp; Parliament: Tom&#39;s &quot;Report&quot;</h1><meta name="description" content="Cost &lt;100&gt; &amp; more">',
+        '<h1>EU &amp; Parliament: Tom&#39;s &quot;Report&quot;</h1><meta name="description" content="Cost &lt;100&gt; &amp; more">'
       );
       const meta = extractArticleMeta(filePath);
       expect(meta.title).toBe('EU & Parliament: Tom\'s "Report"');
@@ -231,7 +237,7 @@ describe('utils/file-utils', () => {
       const filePath = path.join(tempDir, 'article-multiple-h1.html');
       fs.writeFileSync(
         filePath,
-        '<h1>First Title</h1><p>Some content</p><h1>Second Title</h1><meta name="description" content="Description">',
+        '<h1>First Title</h1><p>Some content</p><h1>Second Title</h1><meta name="description" content="Description">'
       );
       const meta = extractArticleMeta(filePath);
       expect(meta.title).toBe('First Title');
@@ -242,7 +248,7 @@ describe('utils/file-utils', () => {
       const filePath = path.join(tempDir, 'article-multiple-meta.html');
       fs.writeFileSync(
         filePath,
-        '<h1>Title</h1><meta name="description" content="First description"><meta name="description" content="Second description">',
+        '<h1>Title</h1><meta name="description" content="First description"><meta name="description" content="Second description">'
       );
       const meta = extractArticleMeta(filePath);
       expect(meta.description).toBe('First description');
@@ -253,7 +259,7 @@ describe('utils/file-utils', () => {
       const filePath = path.join(tempDir, 'article-malformed.html');
       fs.writeFileSync(
         filePath,
-        '<html><body><h1>Broken Title<p>Some text<meta name="description" content="Desc"></body></html>',
+        '<html><body><h1>Broken Title<p>Some text<meta name="description" content="Desc"></body></html>'
       );
       const meta = extractArticleMeta(filePath);
       expect(typeof meta.title).toBe('string');
@@ -263,7 +269,10 @@ describe('utils/file-utils', () => {
     it('should extract title when h1 has custom attributes', async () => {
       const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
       const filePath = path.join(tempDir, 'article-h1-attr.html');
-      fs.writeFileSync(filePath, '<h1 class="main-title">Title with attributes</h1><meta name="description" content="Desc">');
+      fs.writeFileSync(
+        filePath,
+        '<h1 class="main-title">Title with attributes</h1><meta name="description" content="Desc">'
+      );
       const meta = extractArticleMeta(filePath);
       expect(meta.title).toBe('Title with attributes');
     });
@@ -273,6 +282,175 @@ describe('utils/file-utils', () => {
       const meta = extractArticleMeta(path.join(tempDir, 'nonexistent.html'));
       expect(meta.title).toBe('');
       expect(meta.description).toBe('');
+    });
+  });
+
+  describe('atomicWrite', () => {
+    it('should write content to a new file atomically', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic.txt');
+      atomicWrite(filePath, 'atomic content');
+      expect(fs.readFileSync(filePath, 'utf-8')).toBe('atomic content');
+    });
+
+    it('should overwrite existing file atomically', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic-overwrite.txt');
+      fs.writeFileSync(filePath, 'old content', 'utf-8');
+      atomicWrite(filePath, 'new content');
+      expect(fs.readFileSync(filePath, 'utf-8')).toBe('new content');
+    });
+
+    it('should create parent directories if they do not exist', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'sub', 'dir', 'atomic-nested.txt');
+      atomicWrite(filePath, 'nested content');
+      expect(fs.readFileSync(filePath, 'utf-8')).toBe('nested content');
+    });
+
+    it('should not leave a temp file after successful write', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic-clean.txt');
+      atomicWrite(filePath, 'clean');
+      // Unique temp files use pattern: {filepath}.{pid}-{uuid}.tmp
+      const targetBase = path.basename(filePath);
+      const siblings = fs.readdirSync(tempDir);
+      const temps = siblings.filter((f) => f.startsWith(`${targetBase}.`) && f.endsWith('.tmp'));
+      expect(temps).toHaveLength(0);
+    });
+
+    it('should produce a file with the exact expected content (no partial writes)', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic-integrity.txt');
+      const longContent = 'x'.repeat(10_000);
+      atomicWrite(filePath, longContent);
+      expect(fs.readFileSync(filePath, 'utf-8')).toBe(longContent);
+      expect(fs.readFileSync(filePath, 'utf-8')).toHaveLength(10_000);
+    });
+
+    it('should handle EEXIST/EPERM fallback when renameSync cannot overwrite', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic-fallback.txt');
+      fs.writeFileSync(filePath, 'original', 'utf-8');
+
+      // Mock renameSync to throw EEXIST on first call (simulating Windows),
+      // then succeed on retry after unlink
+      const originalRenameSync = fs.renameSync;
+      let callCount = 0;
+      const renameSpy = vi.spyOn(fs, 'renameSync').mockImplementation((...args) => {
+        callCount++;
+        if (callCount === 1) {
+          const err = new Error('EEXIST: file already exists');
+          err.code = 'EEXIST';
+          throw err;
+        }
+        return originalRenameSync.apply(fs, args);
+      });
+
+      try {
+        atomicWrite(filePath, 'fallback content');
+        expect(fs.readFileSync(filePath, 'utf-8')).toBe('fallback content');
+        expect(callCount).toBe(2); // first call throws, second succeeds
+      } finally {
+        renameSpy.mockRestore();
+      }
+    });
+
+    it('should clean up temp file when all rename attempts fail', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic-always-fail.txt');
+
+      // Mock renameSync to always throw so both initial and retry attempts fail
+      let renameCallCount = 0;
+      const renameSpy = vi.spyOn(fs, 'renameSync').mockImplementation(() => {
+        renameCallCount++;
+        const err = new Error('EEXIST: file already exists');
+        err.code = 'EEXIST';
+        throw err;
+      });
+
+      try {
+        expect(() => atomicWrite(filePath, 'doomed')).toThrow('EEXIST');
+        // 1 initial attempt + 3 bounded retries = 4 total rename calls
+        expect(renameCallCount).toBe(4);
+        // Verify no temp files are left behind
+        const targetBase = path.basename(filePath);
+        const siblings = fs.readdirSync(tempDir);
+        const temps = siblings.filter((f) => f.startsWith(`${targetBase}.`) && f.endsWith('.tmp'));
+        expect(temps).toHaveLength(0);
+      } finally {
+        renameSpy.mockRestore();
+      }
+    });
+
+    it('should log console.warn when temp cleanup fails with non-ENOENT error', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic-warn-cleanup.txt');
+
+      // Make renameSync throw ENODEV so the outer catch re-throws (not EEXIST/EPERM)
+      const renameSpy = vi.spyOn(fs, 'renameSync').mockImplementation(() => {
+        const err = new Error('ENODEV: no such device');
+        err.code = 'ENODEV';
+        throw err;
+      });
+
+      // Make unlinkSync throw EBUSY for temp files (the cleanup call)
+      const originalUnlinkSync = fs.unlinkSync;
+      const unlinkSpy = vi.spyOn(fs, 'unlinkSync').mockImplementation((p) => {
+        if (String(p).endsWith('.tmp')) {
+          const err = new Error('EBUSY: resource busy');
+          err.code = 'EBUSY';
+          throw err;
+        }
+        return originalUnlinkSync.call(fs, p);
+      });
+
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+      try {
+        expect(() => atomicWrite(filePath, 'content')).toThrow('ENODEV');
+        expect(warnSpy).toHaveBeenCalledOnce();
+        expect(warnSpy.mock.calls[0][0]).toContain(
+          'atomicWrite: failed to remove temporary file'
+        );
+        expect(warnSpy.mock.calls[0][0]).toContain('EBUSY');
+      } finally {
+        renameSpy.mockRestore();
+        unlinkSpy.mockRestore();
+        warnSpy.mockRestore();
+      }
+    });
+  });
+
+  describe('checkArticleExists', () => {
+    it('should return true when article file exists', async () => {
+      const { checkArticleExists } = await import('../../scripts/utils/file-utils.js');
+      const newsDir = path.join(tempDir, 'news');
+      fs.mkdirSync(newsDir, { recursive: true });
+      fs.writeFileSync(path.join(newsDir, '2025-01-15-week-ahead-en.html'), 'content');
+      expect(checkArticleExists('2025-01-15-week-ahead', 'en', newsDir)).toBe(true);
+    });
+
+    it('should return false when article file does not exist', async () => {
+      const { checkArticleExists } = await import('../../scripts/utils/file-utils.js');
+      const newsDir = path.join(tempDir, 'news');
+      fs.mkdirSync(newsDir, { recursive: true });
+      expect(checkArticleExists('2025-01-15-week-ahead', 'en', newsDir)).toBe(false);
+    });
+
+    it('should return false when news directory does not exist', async () => {
+      const { checkArticleExists } = await import('../../scripts/utils/file-utils.js');
+      const newsDir = path.join(tempDir, 'nonexistent-news');
+      expect(checkArticleExists('2025-01-15-week-ahead', 'en', newsDir)).toBe(false);
+    });
+
+    it('should distinguish between different languages', async () => {
+      const { checkArticleExists } = await import('../../scripts/utils/file-utils.js');
+      const newsDir = path.join(tempDir, 'news');
+      fs.mkdirSync(newsDir, { recursive: true });
+      fs.writeFileSync(path.join(newsDir, '2025-01-15-week-ahead-en.html'), 'content');
+      expect(checkArticleExists('2025-01-15-week-ahead', 'en', newsDir)).toBe(true);
+      expect(checkArticleExists('2025-01-15-week-ahead', 'de', newsDir)).toBe(false);
     });
   });
 });
