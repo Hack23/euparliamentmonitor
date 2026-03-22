@@ -46,8 +46,10 @@ const FINAL_STAGE_PATTERN = /final|third|plenary|adopted|trilogue/i;
 export function scoreBreakingNewsSignificance(item) {
     // Adopted texts: each text adds 20 pts, capped at 100
     const adoptedTextsScore = Math.min((item.adoptedTexts?.length ?? 0) * 20, MAX_SUB_SCORE);
-    // Affected MEPs: each update adds 10 pts, capped at 100
-    const affectedMEPsScore = Math.min((item.mepUpdates?.length ?? 0) * 10, MAX_SUB_SCORE);
+    // Affected MEPs: each update adds 10 pts, capped at 100. Prefer API-reported total
+    // (totalMEPUpdates) when available to avoid under-scoring truncated feeds.
+    const totalAffectedMEPs = item.totalMEPUpdates ?? item.mepUpdates?.length ?? 0;
+    const affectedMEPsScore = Math.min(totalAffectedMEPs * 10, MAX_SUB_SCORE);
     // Legislative stage: procedures at a "final" stage contribute 25 pts each,
     // procedures with a known non-final stage contribute 10 pts, missing stage → 0.
     const procedures = item.procedures ?? [];

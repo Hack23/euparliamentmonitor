@@ -967,6 +967,34 @@ describe('scoreBreakingNewsSignificance', () => {
     expect(score.affectedMEPsScore).toBe(20);
   });
 
+  it('should prefer totalMEPUpdates over mepUpdates.length when available', () => {
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [],
+      mepUpdates: [{ id: 'MEP-1', name: 'MEP A', date: '2025-01-15' }],
+      totalMEPUpdates: 8,
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    // 8 * 10 = 80, not 1 * 10 = 10
+    expect(score.affectedMEPsScore).toBe(80);
+  });
+
+  it('should fall back to mepUpdates.length when totalMEPUpdates is undefined', () => {
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [],
+      mepUpdates: [
+        { id: 'MEP-1', name: 'MEP A', date: '2025-01-15' },
+        { id: 'MEP-2', name: 'MEP B', date: '2025-01-15' },
+        { id: 'MEP-3', name: 'MEP C', date: '2025-01-15' },
+      ],
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    expect(score.affectedMEPsScore).toBe(30);
+  });
+
   it('should score procedures with final stage higher than non-final', () => {
     const feedData = {
       adoptedTexts: [],
