@@ -33,6 +33,10 @@ import {
   FOOTER_QUICK_LINKS_LABELS,
   FOOTER_BUILT_BY_LABELS,
   FOOTER_LANGUAGES_LABELS,
+  MONTHLY_REVIEW_TITLES,
+  DEEP_ANALYSIS_STRINGS,
+  MONTH_IN_REVIEW_STRINGS,
+  ANALYSIS_QUALITY_LABELS,
   getLocalizedString,
   isSupportedLanguage,
   getTextDirection,
@@ -394,5 +398,130 @@ describe('Footer and header localization constants', () => {
   it('should return fallback English value for unknown lang in HEADER_SUBTITLE_LABELS', () => {
     const value = getLocalizedString(HEADER_SUBTITLE_LABELS, 'xx');
     expect(value).toBe('European Parliament Intelligence');
+  });
+});
+
+describe('MONTHLY_REVIEW_TITLES', () => {
+  it('should have entries for all 14 languages', () => {
+    expect(Object.keys(MONTHLY_REVIEW_TITLES)).toHaveLength(14);
+  });
+
+  it('should generate title and subtitle for each language', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const generator = MONTHLY_REVIEW_TITLES[lang];
+      expect(generator).toBeDefined();
+      expect(typeof generator).toBe('function');
+      const result = generator('March 2026');
+      expect(result.title).toBeDefined();
+      expect(result.title.length).toBeGreaterThan(0);
+      expect(result.subtitle).toBeDefined();
+      expect(result.subtitle.length).toBeGreaterThan(0);
+    }
+  });
+});
+
+describe('DEEP_ANALYSIS_STRINGS', () => {
+  it('should have entries for all 14 languages', () => {
+    expect(Object.keys(DEEP_ANALYSIS_STRINGS)).toHaveLength(14);
+  });
+
+  it('should have all required fields for each language', () => {
+    const requiredFields = [
+      'sectionHeading', 'whatHeading', 'whoHeading', 'whenHeading', 'whyHeading',
+      'stakeholderHeading', 'winnerLabel', 'loserLabel', 'neutralLabel',
+      'impactHeading', 'politicalLabel', 'economicLabel', 'socialLabel',
+      'legalLabel', 'geopoliticalLabel', 'consequencesHeading', 'actionLabel',
+      'consequenceLabel', 'severityColumnLabel', 'mistakesHeading',
+      'alternativeLabel', 'outlookHeading', 'severityLow', 'severityMedium',
+      'severityHigh', 'severityCritical', 'executiveSummaryHeading',
+      'confidenceHigh', 'confidenceMedium', 'confidenceLow',
+      'evidenceRefsHeading', 'counterArgumentsHeading',
+      'conclusionLabel', 'premiseLabel', 'inferenceLabel',
+      'reasoningChainsHeading', 'scenarioPlanningHeading',
+      'bestCaseLabel', 'worstCaseLabel', 'mostLikelyLabel',
+      'wildcardsLabel', 'probabilityLabel', 'triggersLabel',
+      'impliedImpactsLabel', 'timelineLabel', 'analysisMethodologyHeading',
+      'iterationCountLabel', 'evidenceStrengthLabel',
+      'evidenceStrong', 'evidenceModerate', 'evidenceWeak',
+      'iterationInitial', 'iterationStakeholderChallenge',
+      'iterationEvidenceValidation', 'iterationSynthesis',
+      'overallConfidenceLabel', 'perspectivesHeading', 'outcomeMatrixHeading',
+      'confidenceLabel', 'politicalGroupsLabel', 'civilSocietyLabel',
+      'industryLabel', 'nationalGovtsLabel', 'citizensLabel',
+      'euInstitutionsLabel', 'positiveLabel', 'negativeLabel', 'mixedLabel',
+    ];
+    for (const lang of ALL_LANGUAGES) {
+      const strings = DEEP_ANALYSIS_STRINGS[lang];
+      expect(strings).toBeDefined();
+      for (const field of requiredFields) {
+        expect(strings[field]).toBeDefined();
+        expect(typeof strings[field]).toBe('string');
+        expect(strings[field].length).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it('should not have English fallbacks in non-EN enhanced analysis fields', () => {
+    const enhancedFields = [
+      'executiveSummaryHeading', 'confidenceHigh', 'confidenceMedium', 'confidenceLow',
+      'evidenceRefsHeading', 'counterArgumentsHeading', 'conclusionLabel',
+      'premiseLabel', 'inferenceLabel', 'reasoningChainsHeading',
+      'scenarioPlanningHeading', 'bestCaseLabel', 'worstCaseLabel', 'mostLikelyLabel',
+      'analysisMethodologyHeading', 'evidenceStrengthLabel',
+      'evidenceStrong', 'evidenceModerate', 'evidenceWeak',
+      'overallConfidenceLabel',
+    ];
+    const enStrings = DEEP_ANALYSIS_STRINGS['en'];
+    for (const lang of ALL_LANGUAGES) {
+      if (lang === 'en') continue;
+      const strings = DEEP_ANALYSIS_STRINGS[lang];
+      for (const field of enhancedFields) {
+        expect(strings[field]).not.toBe(enStrings[field]);
+      }
+    }
+  });
+});
+
+describe('MONTH_IN_REVIEW_STRINGS', () => {
+  it('should have entries for all 14 languages', () => {
+    expect(Object.keys(MONTH_IN_REVIEW_STRINGS)).toHaveLength(14);
+  });
+
+  it('should have all required section heading fields for each language', () => {
+    const requiredFields = [
+      'overview', 'keyVotes', 'legislativeProgress',
+      'committeHighlights', 'politicalDynamics', 'outlook',
+    ];
+    for (const lang of ALL_LANGUAGES) {
+      const strings = MONTH_IN_REVIEW_STRINGS[lang];
+      expect(strings).toBeDefined();
+      for (const field of requiredFields) {
+        expect(strings[field]).toBeDefined();
+        expect(typeof strings[field]).toBe('string');
+        expect(strings[field].length).toBeGreaterThan(0);
+      }
+    }
+  });
+});
+
+describe('ANALYSIS_QUALITY_LABELS', () => {
+  it('should have entries for all 14 languages', () => {
+    expect(Object.keys(ANALYSIS_QUALITY_LABELS)).toHaveLength(14);
+  });
+
+  it('should have all required quality indicator fields for each language', () => {
+    const requiredFields = [
+      'dataCompleteness', 'sourceReliability', 'analyticalDepth',
+      'timeliness', 'high', 'medium', 'low',
+    ];
+    for (const lang of ALL_LANGUAGES) {
+      const strings = ANALYSIS_QUALITY_LABELS[lang];
+      expect(strings).toBeDefined();
+      for (const field of requiredFields) {
+        expect(strings[field]).toBeDefined();
+        expect(typeof strings[field]).toBe('string');
+        expect(strings[field].length).toBeGreaterThan(0);
+      }
+    }
   });
 });
