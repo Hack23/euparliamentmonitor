@@ -158,6 +158,25 @@ export interface LegislativeVelocity {
   predictedCompletion: string;
 }
 
+// ─── Political significance scoring ──────────────────────────────────────────
+
+/**
+ * Quantified political significance score for breaking news prioritization.
+ * Each dimension contributes a weighted sub-score to an overall 0–100 composite.
+ */
+export interface PoliticalSignificanceScore {
+  /** Sub-score for adopted texts / legislative activity (0–100) */
+  readonly adoptedTextsScore: number;
+  /** Sub-score for affected MEP updates (0–100) */
+  readonly affectedMEPsScore: number;
+  /** Sub-score for legislative stage proximity to final reading (0–100) */
+  readonly legislativeStageScore: number;
+  /** Sub-score for event / committee involvement breadth (0–100) */
+  readonly committeeInvolvementScore: number;
+  /** Weighted composite score (0–100) */
+  readonly overallScore: number;
+}
+
 // ─── Advanced political intelligence types ────────────────────────────────────
 
 /** Voting intensity metrics for a set of voting records */

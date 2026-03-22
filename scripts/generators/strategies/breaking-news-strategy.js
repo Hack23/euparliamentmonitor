@@ -3,7 +3,7 @@
 import { ArticleCategory } from '../../types/index.js';
 import { BREAKING_NEWS_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchBreakingNewsFeedData, fetchVotingAnomalies, fetchCoalitionDynamics, loadFeedDataFromFile, } from '../pipeline/fetch-stage.js';
-import { buildBreakingNewsContent } from '../breaking-content.js';
+import { buildBreakingNewsContent, scoreBreakingNewsSignificance, SIGNIFICANCE_THRESHOLD, } from '../breaking-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
@@ -222,10 +222,17 @@ export class BreakingNewsStrategy {
         const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
         const description = lang === 'en' ? buildBreakingDescription(data.date, data.feedData) : '';
         const subtitle = description || baseSubtitle;
+        const keywords = buildBreakingKeywords(data.feedData);
+        if (data.feedData) {
+            const score = scoreBreakingNewsSignificance(data.feedData);
+            if (score.overallScore >= SIGNIFICANCE_THRESHOLD) {
+                keywords.push(`significance:${score.overallScore}`);
+            }
+        }
         return {
             title,
             subtitle,
-            keywords: buildBreakingKeywords(data.feedData),
+            keywords,
             category: ArticleCategory.BREAKING_NEWS,
             sources: [],
         };

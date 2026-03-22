@@ -7,7 +7,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { buildBreakingNewsContent } from '../../scripts/generators/news-enhanced.js';
+import { buildBreakingNewsContent, scoreBreakingNewsSignificance, SIGNIFICANCE_THRESHOLD } from '../../scripts/generators/news-enhanced.js';
 import { generateArticleHTML } from '../../scripts/templates/article-template.js';
 import {
   BREAKING_NEWS_TITLES,
@@ -903,5 +903,208 @@ describe('Breaking News feed truncation', () => {
     };
     const html = buildBreakingNewsContent('2025-01-15', '', '', '', '', 'en', [], [], [], feedData);
     expect(html).not.toContain('feed-truncation-note');
+  });
+});
+
+describe('scoreBreakingNewsSignificance', () => {
+  it('should return zero scores for empty feed data', () => {
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    expect(score.adoptedTextsScore).toBe(0);
+    expect(score.affectedMEPsScore).toBe(0);
+    expect(score.legislativeStageScore).toBe(0);
+    expect(score.committeeInvolvementScore).toBe(0);
+    expect(score.overallScore).toBe(0);
+  });
+
+  it('should score adopted texts (20 pts each, capped at 100)', () => {
+    const feedData = {
+      adoptedTexts: [
+        { id: 'AT-001', title: 'Text 1', date: '2025-01-15' },
+        { id: 'AT-002', title: 'Text 2', date: '2025-01-15' },
+        { id: 'AT-003', title: 'Text 3', date: '2025-01-15' },
+      ],
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    expect(score.adoptedTextsScore).toBe(60);
+    expect(score.overallScore).toBeGreaterThan(0);
+  });
+
+  it('should cap adopted texts sub-score at 100', () => {
+    const feedData = {
+      adoptedTexts: Array.from({ length: 10 }, (_, i) => ({
+        id: `AT-${i}`,
+        title: `Text ${i}`,
+        date: '2025-01-15',
+      })),
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    expect(score.adoptedTextsScore).toBe(100);
+  });
+
+  it('should score MEP updates (10 pts each, capped at 100)', () => {
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [],
+      mepUpdates: [
+        { id: 'MEP-1', name: 'MEP A', date: '2025-01-15' },
+        { id: 'MEP-2', name: 'MEP B', date: '2025-01-15' },
+      ],
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    expect(score.affectedMEPsScore).toBe(20);
+  });
+
+  it('should prefer totalMEPUpdates over mepUpdates.length when available', () => {
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [],
+      mepUpdates: [{ id: 'MEP-1', name: 'MEP A', date: '2025-01-15' }],
+      totalMEPUpdates: 8,
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    // 8 * 10 = 80, not 1 * 10 = 10
+    expect(score.affectedMEPsScore).toBe(80);
+  });
+
+  it('should fall back to mepUpdates.length when totalMEPUpdates is undefined', () => {
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [],
+      mepUpdates: [
+        { id: 'MEP-1', name: 'MEP A', date: '2025-01-15' },
+        { id: 'MEP-2', name: 'MEP B', date: '2025-01-15' },
+        { id: 'MEP-3', name: 'MEP C', date: '2025-01-15' },
+      ],
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    expect(score.affectedMEPsScore).toBe(30);
+  });
+
+  it('should score procedures with final stage higher than non-final', () => {
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [
+        { id: 'P-1', title: 'Proc 1', date: '2025-01-15', stage: 'final reading' },
+        { id: 'P-2', title: 'Proc 2', date: '2025-01-15', stage: 'committee' },
+      ],
+      mepUpdates: [],
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    // final: 25 pts, non-final: 10 pts = 35 total
+    expect(score.legislativeStageScore).toBe(35);
+  });
+
+  it('should score events for committee involvement (15 pts each)', () => {
+    const feedData = {
+      adoptedTexts: [],
+      events: [
+        { id: 'E-1', title: 'Event 1', date: '2025-01-15' },
+        { id: 'E-2', title: 'Event 2', date: '2025-01-15' },
+        { id: 'E-3', title: 'Event 3', date: '2025-01-15' },
+      ],
+      procedures: [],
+      mepUpdates: [],
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    expect(score.committeeInvolvementScore).toBe(45);
+  });
+
+  it('should compute correct weighted overall score', () => {
+    const feedData = {
+      adoptedTexts: [{ id: 'AT-001', title: 'Text 1', date: '2025-01-15' }],
+      events: [{ id: 'E-1', title: 'Event 1', date: '2025-01-15' }],
+      procedures: [{ id: 'P-1', title: 'Proc 1', date: '2025-01-15', stage: 'adopted' }],
+      mepUpdates: [{ id: 'MEP-1', name: 'MEP A', date: '2025-01-15' }],
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    // adopted: 20*0.4=8, mep: 10*0.2=2, stage: 25*0.3=7.5, events: 15*0.1=1.5 → round(19) = 19
+    expect(score.overallScore).toBe(19);
+  });
+
+  it('should handle null/undefined fields gracefully', () => {
+    // Simulate a feed with missing optional fields
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [{ id: 'P-1', title: 'Proc', date: '2025-01-15' }],
+      mepUpdates: [],
+    };
+    // procedure with no stage should contribute 0 points (missing stage → 0)
+    const score = scoreBreakingNewsSignificance(feedData);
+    expect(score.legislativeStageScore).toBe(0);
+    expect(score.overallScore).toBe(0);
+  });
+
+  it('should recognise trilogue as a final stage', () => {
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [{ id: 'P-1', title: 'Proc 1', date: '2025-01-15', stage: 'trilogue negotiation' }],
+      mepUpdates: [],
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    expect(score.legislativeStageScore).toBe(25);
+  });
+
+  it('should produce score above SIGNIFICANCE_THRESHOLD for rich feed data', () => {
+    const feedData = {
+      adoptedTexts: Array.from({ length: 5 }, (_, i) => ({
+        id: `AT-${i}`,
+        title: `Text ${i}`,
+        date: '2025-01-15',
+      })),
+      events: Array.from({ length: 3 }, (_, i) => ({
+        id: `E-${i}`,
+        title: `Event ${i}`,
+        date: '2025-01-15',
+      })),
+      procedures: Array.from({ length: 2 }, (_, i) => ({
+        id: `P-${i}`,
+        title: `Proc ${i}`,
+        date: '2025-01-15',
+        stage: 'final reading',
+      })),
+      mepUpdates: Array.from({ length: 4 }, (_, i) => ({
+        id: `MEP-${i}`,
+        name: `MEP ${i}`,
+        date: '2025-01-15',
+      })),
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    expect(score.overallScore).toBeGreaterThan(SIGNIFICANCE_THRESHOLD);
+  });
+
+  it('should produce score below SIGNIFICANCE_THRESHOLD for minimal feed data', () => {
+    const feedData = {
+      adoptedTexts: [],
+      events: [],
+      procedures: [],
+      mepUpdates: [],
+    };
+    const score = scoreBreakingNewsSignificance(feedData);
+    expect(score.overallScore).toBeLessThan(SIGNIFICANCE_THRESHOLD);
+  });
+});
+
+describe('SIGNIFICANCE_THRESHOLD constant', () => {
+  it('should be a positive number', () => {
+    expect(SIGNIFICANCE_THRESHOLD).toBeGreaterThan(0);
+    expect(typeof SIGNIFICANCE_THRESHOLD).toBe('number');
   });
 });

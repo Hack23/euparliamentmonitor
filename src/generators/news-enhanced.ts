@@ -78,7 +78,11 @@ import {
   computeWeekPoliticalTemperature,
 } from './week-ahead-content.js';
 
-import { buildBreakingNewsContent } from './breaking-content.js';
+import {
+  buildBreakingNewsContent,
+  scoreBreakingNewsSignificance,
+  SIGNIFICANCE_THRESHOLD,
+} from './breaking-content.js';
 
 import {
   applyCommitteeInfo,
@@ -113,7 +117,7 @@ export {
   buildStakeholderImpactMatrix,
   computeWeekPoliticalTemperature,
 };
-export { buildBreakingNewsContent };
+export { buildBreakingNewsContent, scoreBreakingNewsSignificance, SIGNIFICANCE_THRESHOLD };
 export { applyCommitteeInfo, applyDocuments, applyEffectiveness, FEATURED_COMMITTEES };
 export {
   PLACEHOLDER_MARKER,
