@@ -202,6 +202,30 @@ function renameWithRetry(src: string, dest: string, maxRetries: number): void {
 }
 
 /**
+ * Best-effort removal of a temporary file.  Ignores ENOENT (the file was
+ * already renamed or never created) but logs a warning for other errors
+ * (e.g. EBUSY, EACCES) so operators can detect leaked temp files.
+ *
+ * @param tempPath - Path to the temp file to remove
+ */
+function cleanupTempFile(tempPath: string): void {
+  try {
+    fs.unlinkSync(tempPath);
+  } catch (unlinkErr: unknown) {
+    const errno =
+      unlinkErr && typeof unlinkErr === 'object' ? (unlinkErr as NodeJS.ErrnoException) : undefined;
+    if (errno?.code !== 'ENOENT') {
+      const message =
+        errno && typeof errno.message === 'string' ? errno.message : String(unlinkErr);
+      const code = errno?.code ?? 'UNKNOWN';
+      console.warn(
+        `atomicWrite: failed to remove temporary file "${tempPath}" (code: ${code}): ${message}`
+      );
+    }
+  }
+}
+
+/**
  * Write content to a file atomically.
  *
  * Writes to a uniquely-named temporary file in the same directory first, then
@@ -233,12 +257,7 @@ export function atomicWrite(filepath: string, content: string): void {
       }
     }
   } finally {
-    // Clean up temp file if rename failed or was never reached
-    try {
-      fs.unlinkSync(tempPath);
-    } catch {
-      // Temp file already renamed or doesn't exist; ignore
-    }
+    cleanupTempFile(tempPath);
   }
 }
 
