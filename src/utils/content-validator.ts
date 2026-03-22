@@ -536,7 +536,7 @@ function detectBidiMarkers(html: string): boolean {
   // Unicode bidi control characters: LRM, RLM, LRE, RLE, PDF, LRO, RLO, LRI, RLI, FSI, PDI
   const bidiControlPattern = /[\u200E\u200F\u202A-\u202E\u2066-\u2069]/u;
   // HTML entities: &lrm; &rlm;
-  const bidiEntityPattern = /&[lr]rm;/iu;
+  const bidiEntityPattern = /&(?:lrm|rlm);/iu;
   return bidiControlPattern.test(html) || bidiEntityPattern.test(html);
 }
 
@@ -580,15 +580,22 @@ export function validateTranslationCompleteness(
   const plainText = extractMainPlainText(html);
   const asciiRatio = computeAsciiRatio(plainText);
   const cjkCharRatio = computeCjkCharRatio(plainText);
-  const hasRtlDir = extractDirAttribute(html) === 'rtl';
+  const htmlDir = extractDirAttribute(html);
+  const hasRtlDir = htmlDir === 'rtl';
   const hasBidiMarkers = detectBidiMarkers(html);
   const untranslatedPhrases = findUntranslatedPhrases(plainText);
 
   // ── RTL validation ──────────────────────────────────────────────────────
   if (RTL_LANGUAGES.has(lang) && !hasRtlDir) {
-    warnings.push(
-      `Translation quality: RTL language "${lang}" missing dir="rtl" on <html> element`
-    );
+    if (!htmlDir) {
+      warnings.push(
+        `Translation quality: RTL language "${lang}" missing dir="rtl" on <html> element`
+      );
+    } else {
+      warnings.push(
+        `Translation quality: RTL language "${lang}" expected dir="rtl" on <html> element but found dir="${htmlDir}"`
+      );
+    }
   }
 
   // ── CJK density check ──────────────────────────────────────────────────

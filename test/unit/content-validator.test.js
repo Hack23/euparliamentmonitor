@@ -6,7 +6,10 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { validateArticleContent, validateTranslationCompleteness } from '../../scripts/utils/content-validator.js';
+import {
+  validateArticleContent,
+  validateTranslationCompleteness,
+} from '../../scripts/utils/content-validator.js';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -485,17 +488,20 @@ describe('utils/content-validator', () => {
 
     describe('RTL validation (ar, he)', () => {
       it('should pass for Arabic article with dir="rtl"', () => {
-        const html = buildArticleHtml('<p>البرلمان الأوروبي يناقش التشريعات الجديدة المتعلقة بالسياسة الأوروبية</p>', {
-          lang: 'ar',
-          dir: 'rtl',
-        });
+        const html = buildArticleHtml(
+          '<p>البرلمان الأوروبي يناقش التشريعات الجديدة المتعلقة بالسياسة الأوروبية</p>',
+          {
+            lang: 'ar',
+            dir: 'rtl',
+          }
+        );
         const result = validateTranslationCompleteness(html, 'ar');
 
         expect(result.metrics.hasRtlDir).toBe(true);
         expect(result.warnings.every((w) => !w.includes('dir="rtl"'))).toBe(true);
       });
 
-      it('should warn for Arabic article without dir="rtl"', () => {
+      it('should warn for Arabic article with dir="ltr" instead of dir="rtl"', () => {
         const html = buildArticleHtml('<p>البرلمان الأوروبي يناقش التشريعات الجديدة</p>', {
           lang: 'ar',
           dir: 'ltr',
@@ -504,7 +510,21 @@ describe('utils/content-validator', () => {
 
         expect(result.valid).toBe(false);
         expect(result.metrics.hasRtlDir).toBe(false);
-        expect(result.warnings.some((w) => w.includes('RTL') && w.includes('dir="rtl"'))).toBe(true);
+        expect(
+          result.warnings.some(
+            (w) => w.includes('expected dir="rtl"') && w.includes('found dir="ltr"')
+          )
+        ).toBe(true);
+      });
+
+      it('should warn for Arabic article with missing dir attribute', () => {
+        const html =
+          '<html lang="ar"><body><p>البرلمان الأوروبي يناقش التشريعات الجديدة</p></body></html>';
+        const result = validateTranslationCompleteness(html, 'ar');
+
+        expect(result.valid).toBe(false);
+        expect(result.metrics.hasRtlDir).toBe(false);
+        expect(result.warnings.some((w) => w.includes('missing dir="rtl"'))).toBe(true);
       });
 
       it('should pass for Hebrew article with dir="rtl"', () => {
@@ -517,7 +537,7 @@ describe('utils/content-validator', () => {
         expect(result.metrics.hasRtlDir).toBe(true);
       });
 
-      it('should warn for Hebrew article without dir="rtl"', () => {
+      it('should warn for Hebrew article with dir="ltr" instead of dir="rtl"', () => {
         const html = buildArticleHtml('<p>הפרלמנט האירופי דן בחקיקה חדשה</p>', {
           lang: 'he',
           dir: 'ltr',
@@ -525,13 +545,18 @@ describe('utils/content-validator', () => {
         const result = validateTranslationCompleteness(html, 'he');
 
         expect(result.valid).toBe(false);
-        expect(result.warnings.some((w) => w.includes('RTL'))).toBe(true);
+        expect(
+          result.warnings.some(
+            (w) => w.includes('expected dir="rtl"') && w.includes('found dir="ltr"')
+          )
+        ).toBe(true);
       });
     });
 
     describe('CJK density detection (ja, ko, zh)', () => {
       it('should pass for Japanese article with actual Japanese content', () => {
-        const jaText = '欧州議会は新しい法案について議論しています。委員会は投票の結果を発表しました。規則の改正案が提出されました。';
+        const jaText =
+          '欧州議会は新しい法案について議論しています。委員会は投票の結果を発表しました。規則の改正案が提出されました。';
         const html = buildArticleHtml(`<p>${jaText}</p>`, { lang: 'ja' });
         const result = validateTranslationCompleteness(html, 'ja');
 
@@ -551,7 +576,8 @@ describe('utils/content-validator', () => {
       });
 
       it('should pass for Korean article with actual Korean content', () => {
-        const koText = '유럽의회는 새로운 법안에 대해 논의하고 있습니다. 위원회는 투표 결과를 발표했습니다.';
+        const koText =
+          '유럽의회는 새로운 법안에 대해 논의하고 있습니다. 위원회는 투표 결과를 발표했습니다.';
         const html = buildArticleHtml(`<p>${koText}</p>`, { lang: 'ko' });
         const result = validateTranslationCompleteness(html, 'ko');
 
@@ -585,7 +611,8 @@ describe('utils/content-validator', () => {
       });
 
       it('should not false-positive on CJK content with numeric HTML entities', () => {
-        const zhWithEntities = '欧洲议会投票结果&#8212;赞成&#43;反对&#8722;弃权&#58;&#160;条例修正案已提交。';
+        const zhWithEntities =
+          '欧洲议会投票结果&#8212;赞成&#43;反对&#8722;弃权&#58;&#160;条例修正案已提交。';
         const html = buildArticleHtml(`<p>${zhWithEntities}</p>`, { lang: 'zh' });
         const result = validateTranslationCompleteness(html, 'zh');
 
@@ -647,7 +674,8 @@ describe('utils/content-validator', () => {
       });
 
       it('should handle mixed-language articles', () => {
-        const mixedText = '議会は新しい regulation について議論した。The committee voted on 条例改正。';
+        const mixedText =
+          '議会は新しい regulation について議論した。The committee voted on 条例改正。';
         const html = buildArticleHtml(`<p>${mixedText}</p>`, { lang: 'ja' });
         const result = validateTranslationCompleteness(html, 'ja');
 
