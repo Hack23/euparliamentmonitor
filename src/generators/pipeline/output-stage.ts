@@ -12,7 +12,7 @@
 import fs from 'fs';
 import path from 'path';
 import type { GenerationStats, GenerationResult } from '../../types/index.js';
-import { formatDateForSlug } from '../../utils/file-utils.js';
+import { formatDateForSlug, atomicWrite } from '../../utils/file-utils.js';
 
 // ─── Output options ───────────────────────────────────────────────────────────
 
@@ -59,7 +59,7 @@ export function writeArticleFile(html: string, filename: string, options: Output
     return false;
   }
 
-  fs.writeFileSync(filepath, html, 'utf-8');
+  atomicWrite(filepath, html);
   console.log(`  ✅ Wrote: ${filename}`);
   return true;
 }
@@ -187,6 +187,6 @@ export function writeGenerationMetadata(
     usedMCP: mergedUsedMCP,
   };
 
-  fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf-8');
+  atomicWrite(metadataPath, JSON.stringify(metadata, null, 2));
   console.log(`📝 Metadata written to: ${metadataPath}`);
 }

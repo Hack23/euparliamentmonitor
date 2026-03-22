@@ -275,4 +275,67 @@ describe('utils/file-utils', () => {
       expect(meta.description).toBe('');
     });
   });
+
+  describe('atomicWrite', () => {
+    it('should write content to a new file atomically', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic.txt');
+      atomicWrite(filePath, 'atomic content');
+      expect(fs.readFileSync(filePath, 'utf-8')).toBe('atomic content');
+    });
+
+    it('should overwrite existing file atomically', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic-overwrite.txt');
+      fs.writeFileSync(filePath, 'old content', 'utf-8');
+      atomicWrite(filePath, 'new content');
+      expect(fs.readFileSync(filePath, 'utf-8')).toBe('new content');
+    });
+
+    it('should create parent directories if they do not exist', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'sub', 'dir', 'atomic-nested.txt');
+      atomicWrite(filePath, 'nested content');
+      expect(fs.readFileSync(filePath, 'utf-8')).toBe('nested content');
+    });
+
+    it('should not leave a temp file after successful write', async () => {
+      const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'atomic-clean.txt');
+      atomicWrite(filePath, 'clean');
+      expect(fs.existsSync(`${filePath}.tmp`)).toBe(false);
+    });
+  });
+
+  describe('checkArticleExists', () => {
+    it('should return true when article file exists', async () => {
+      const { checkArticleExists } = await import('../../scripts/utils/file-utils.js');
+      const newsDir = path.join(tempDir, 'news');
+      fs.mkdirSync(newsDir, { recursive: true });
+      fs.writeFileSync(path.join(newsDir, '2025-01-15-week-ahead-en.html'), 'content');
+      expect(checkArticleExists('2025-01-15-week-ahead', 'en', newsDir)).toBe(true);
+    });
+
+    it('should return false when article file does not exist', async () => {
+      const { checkArticleExists } = await import('../../scripts/utils/file-utils.js');
+      const newsDir = path.join(tempDir, 'news');
+      fs.mkdirSync(newsDir, { recursive: true });
+      expect(checkArticleExists('2025-01-15-week-ahead', 'en', newsDir)).toBe(false);
+    });
+
+    it('should return false when news directory does not exist', async () => {
+      const { checkArticleExists } = await import('../../scripts/utils/file-utils.js');
+      const newsDir = path.join(tempDir, 'nonexistent-news');
+      expect(checkArticleExists('2025-01-15-week-ahead', 'en', newsDir)).toBe(false);
+    });
+
+    it('should distinguish between different languages', async () => {
+      const { checkArticleExists } = await import('../../scripts/utils/file-utils.js');
+      const newsDir = path.join(tempDir, 'news');
+      fs.mkdirSync(newsDir, { recursive: true });
+      fs.writeFileSync(path.join(newsDir, '2025-01-15-week-ahead-en.html'), 'content');
+      expect(checkArticleExists('2025-01-15-week-ahead', 'en', newsDir)).toBe(true);
+      expect(checkArticleExists('2025-01-15-week-ahead', 'de', newsDir)).toBe(false);
+    });
+  });
 });

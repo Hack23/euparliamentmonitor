@@ -134,6 +134,40 @@ export function writeFileContent(filepath, content) {
     fs.writeFileSync(filepath, content, 'utf-8');
 }
 /**
+ * Write content to a file atomically.
+ *
+ * Writes to a temporary file in the same directory first, then renames it to
+ * the final path. This prevents other processes from reading a partially
+ * written file. The rename operation is atomic on POSIX file systems when
+ * source and destination reside on the same volume.
+ *
+ * @param filepath - Final output file path
+ * @param content - File content to write
+ */
+export function atomicWrite(filepath, content) {
+    const dir = path.dirname(filepath);
+    ensureDirectoryExists(dir);
+    const tempPath = `${filepath}.tmp`;
+    fs.writeFileSync(tempPath, content, 'utf-8');
+    fs.renameSync(tempPath, filepath);
+}
+/**
+ * Check whether a news article file already exists on disk.
+ *
+ * This is used by generation pipelines to skip work when a prior workflow run
+ * (or the same run) has already produced the article, avoiding unnecessary
+ * regeneration and potential merge conflicts.
+ *
+ * @param slug - Article slug including date prefix (e.g. `"2025-01-15-week-ahead"`)
+ * @param lang - Language code (e.g. `"en"`)
+ * @param newsDir - Absolute path to the news output directory (defaults to NEWS_DIR)
+ * @returns `true` when the article file exists
+ */
+export function checkArticleExists(slug, lang, newsDir = NEWS_DIR) {
+    const filename = `${slug}-${lang}.html`;
+    return fs.existsSync(path.join(newsDir, filename));
+}
+/**
  * Decode the 5 HTML entities produced by escapeHTML() back to plain text.
  * Used when extracting text from our own generated HTML to obtain unescaped values.
  *
