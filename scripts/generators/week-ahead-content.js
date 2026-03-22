@@ -244,19 +244,48 @@ function clamp0to100(n) {
     return Math.max(0, Math.min(100, n));
 }
 /**
- * Derive a human-readable temperature label from a 0–100 score.
- *
- * @param score - Clamped score
- * @returns Label string
+ * Map from band key to CSS class suffix used in `temp-*` class names.
  */
-function temperatureLabel(score) {
+const BAND_CSS_CLASS = {
+    low: 'temp-low',
+    moderate: 'temp-moderate',
+    high: 'temp-high',
+    veryHigh: 'temp-very-high',
+};
+/**
+ * Derive a language-agnostic temperature band from a 0–100 score.
+ *
+ * This is the single source of truth for score → band mapping.
+ * Both `computeWeekPoliticalTemperature()` and the renderer use this
+ * to avoid duplicated threshold logic.
+ *
+ * @param score - Clamped score (0–100)
+ * @returns Band key
+ */
+function temperatureBand(score) {
     if (score >= 75)
-        return 'Very High';
+        return 'veryHigh';
     if (score >= 50)
-        return 'High';
+        return 'high';
     if (score >= 25)
-        return 'Moderate';
-    return 'Low';
+        return 'moderate';
+    return 'low';
+}
+/**
+ * Resolve the localized temperature descriptor for a given band.
+ *
+ * @param band - Language-agnostic band key
+ * @param strings - Localized stakeholder strings
+ * @returns Localized descriptor (e.g. "Modéré", "高い")
+ */
+function localizedTempLabel(band, strings) {
+    const map = {
+        low: strings.tempLow,
+        moderate: strings.tempModerate,
+        high: strings.tempHigh,
+        veryHigh: strings.tempVeryHigh,
+    };
+    return map[band];
 }
 /**
  * Compute a composite political temperature score (0–100) indicating how
@@ -267,7 +296,7 @@ function temperatureLabel(score) {
  *
  * @param events - Plenary / parliamentary events for the week
  * @param questions - Parliamentary questions tabled for the week
- * @returns Political temperature score and label
+ * @returns Political temperature score and band
  */
 export function computeWeekPoliticalTemperature(events, questions) {
     // Base: volume-driven heuristic — more events & questions ⇒ higher temperature
@@ -278,7 +307,7 @@ export function computeWeekPoliticalTemperature(events, questions) {
     const diversityBonus = Math.min(uniqueTypes.size * 5, 20);
     const raw = eventContribution + questionContribution + diversityBonus;
     const score = clamp0to100(Math.round(raw));
-    return { score, label: temperatureLabel(score) };
+    return { score, band: temperatureBand(score) };
 }
 /**
  * Determine impact level based on a count and a threshold for "high".
@@ -352,22 +381,6 @@ export function buildStakeholderImpactMatrix(events, docs) {
     return { rows };
 }
 /**
- * Resolve the localized temperature descriptor from a score.
- *
- * @param score - Temperature score (0–100)
- * @param strings - Localized stakeholder strings
- * @returns Localized descriptor (e.g. "Low", "Modéré", "高い")
- */
-function localizedTempLabel(score, strings) {
-    if (score >= 75)
-        return strings.tempVeryHigh;
-    if (score >= 50)
-        return strings.tempHigh;
-    if (score >= 25)
-        return strings.tempModerate;
-    return strings.tempLow;
-}
-/**
  * Render the stakeholder impact section as HTML.
  *
  * @param section - Stakeholder impact data
@@ -379,14 +392,8 @@ function renderStakeholderSection(section, temperature, lang) {
     if (section.rows.length === 0)
         return '';
     const strings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, lang);
-    const tempClass = temperature.score >= 75
-        ? 'temp-very-high'
-        : temperature.score >= 50
-            ? 'temp-high'
-            : temperature.score >= 25
-                ? 'temp-moderate'
-                : 'temp-low';
-    const tempDescriptor = localizedTempLabel(temperature.score, strings);
+    const tempClass = BAND_CSS_CLASS[temperature.band];
+    const tempDescriptor = localizedTempLabel(temperature.band, strings);
     const tableRows = section.rows
         .map((row) => `<tr>` +
         `<td>${escapeHTML(row.stakeholder)}</td>` +

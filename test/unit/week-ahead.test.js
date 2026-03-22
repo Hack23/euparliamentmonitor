@@ -19,7 +19,12 @@ import {
   buildStakeholderImpactMatrix,
   computeWeekPoliticalTemperature,
 } from '../../scripts/generators/news-enhanced.js';
-import { ALL_LANGUAGES, getLocalizedString, WEEK_AHEAD_STRINGS, WEEK_AHEAD_STAKEHOLDER_STRINGS } from '../../scripts/constants/languages.js';
+import {
+  ALL_LANGUAGES,
+  getLocalizedString,
+  WEEK_AHEAD_STRINGS,
+  WEEK_AHEAD_STAKEHOLDER_STRINGS,
+} from '../../scripts/constants/languages.js';
 
 /**
  * Build a fulfilled Promise.allSettled result from a plain object
@@ -47,7 +52,12 @@ describe('week-ahead helpers', () => {
       const result = parsePlenarySessions(
         fulfilled({
           sessions: [
-            { date: '2026-03-03', title: 'Plenary Session', type: 'Plenary', description: 'Budget debate' },
+            {
+              date: '2026-03-03',
+              title: 'Plenary Session',
+              type: 'Plenary',
+              description: 'Budget debate',
+            },
           ],
         }),
         DATE_RANGE.start
@@ -92,10 +102,7 @@ describe('week-ahead helpers', () => {
     });
 
     it('should return empty array when no content text', () => {
-      const result = parsePlenarySessions(
-        { status: 'fulfilled', value: {} },
-        DATE_RANGE.start
-      );
+      const result = parsePlenarySessions({ status: 'fulfilled', value: {} }, DATE_RANGE.start);
       expect(result).toEqual([]);
     });
   });
@@ -105,7 +112,12 @@ describe('week-ahead helpers', () => {
       const result = parseEPEvents(
         fulfilled({
           events: [
-            { date: '2026-03-03', title: 'AI Act Hearing', type: 'Hearing', description: 'Public hearing on AI regulation' },
+            {
+              date: '2026-03-03',
+              title: 'AI Act Hearing',
+              type: 'Hearing',
+              description: 'Public hearing on AI regulation',
+            },
           ],
         }),
         DATE_RANGE.start
@@ -151,10 +163,7 @@ describe('week-ahead helpers', () => {
     });
 
     it('should return empty array when no content text', () => {
-      const result = parseEPEvents(
-        { status: 'fulfilled', value: {} },
-        DATE_RANGE.start
-      );
+      const result = parseEPEvents({ status: 'fulfilled', value: {} }, DATE_RANGE.start);
       expect(result).toEqual([]);
     });
   });
@@ -206,7 +215,12 @@ describe('week-ahead helpers', () => {
       const result = parseLegislativeDocuments(
         fulfilled({
           documents: [
-            { id: 'DOC-001', title: 'Climate Regulation', type: 'REGULATION', status: 'In progress' },
+            {
+              id: 'DOC-001',
+              title: 'Climate Regulation',
+              type: 'REGULATION',
+              status: 'In progress',
+            },
           ],
         })
       );
@@ -216,9 +230,7 @@ describe('week-ahead helpers', () => {
     });
 
     it('should use "Untitled Document" when title absent', () => {
-      const result = parseLegislativeDocuments(
-        fulfilled({ documents: [{ id: 'DOC-002' }] })
-      );
+      const result = parseLegislativeDocuments(fulfilled({ documents: [{ id: 'DOC-002' }] }));
       expect(result[0].title).toBe('Untitled Document');
     });
 
@@ -237,9 +249,7 @@ describe('week-ahead helpers', () => {
     it('should return procedures from a fulfilled result', () => {
       const result = parseLegislativePipeline(
         fulfilled({
-          procedures: [
-            { id: 'PROC-001', title: 'AI Act', stage: 'Trilogue', bottleneck: true },
-          ],
+          procedures: [{ id: 'PROC-001', title: 'AI Act', stage: 'Trilogue', bottleneck: true }],
         })
       );
       expect(result).toHaveLength(1);
@@ -248,9 +258,7 @@ describe('week-ahead helpers', () => {
     });
 
     it('should use "Unnamed Procedure" when title absent', () => {
-      const result = parseLegislativePipeline(
-        fulfilled({ procedures: [{ id: 'PROC-002' }] })
-      );
+      const result = parseLegislativePipeline(fulfilled({ procedures: [{ id: 'PROC-002' }] }));
       expect(result[0].title).toBe('Unnamed Procedure');
     });
 
@@ -336,7 +344,12 @@ describe('week-ahead helpers', () => {
       const weekData = {
         ...emptyWeekData(),
         events: [
-          { date: '2026-03-03', title: '<script>alert("xss")</script>', type: 'Plenary', description: '' },
+          {
+            date: '2026-03-03',
+            title: '<script>alert("xss")</script>',
+            type: 'Plenary',
+            description: '',
+          },
         ],
       };
       const html = buildWeekAheadContent(weekData, DATE_RANGE);
@@ -365,7 +378,13 @@ describe('week-ahead helpers', () => {
 
   describe('buildKeywords', () => {
     it('should always include base keywords', () => {
-      const keywords = buildKeywords({ events: [], committees: [], documents: [], pipeline: [], questions: [] });
+      const keywords = buildKeywords({
+        events: [],
+        committees: [],
+        documents: [],
+        pipeline: [],
+        questions: [],
+      });
       expect(keywords).toContain('European Parliament');
       expect(keywords).toContain('week ahead');
       expect(keywords).toContain('plenary');
@@ -420,7 +439,13 @@ describe('week-ahead helpers', () => {
     });
 
     it('should not add "legislative pipeline" or "parliamentary questions" when empty', () => {
-      const keywords = buildKeywords({ events: [], committees: [], documents: [], pipeline: [], questions: [] });
+      const keywords = buildKeywords({
+        events: [],
+        committees: [],
+        documents: [],
+        pipeline: [],
+        questions: [],
+      });
       expect(keywords).not.toContain('legislative pipeline');
       expect(keywords).not.toContain('parliamentary questions');
     });
@@ -466,7 +491,11 @@ describe('week-ahead editorial quality', () => {
   });
 
   it('should use localized editorial strings for Swedish', () => {
-    const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' }, 'sv');
+    const html = buildWeekAheadContent(
+      emptyWeekData(),
+      { start: '2026-03-01', end: '2026-03-08' },
+      'sv'
+    );
     expect(html).toContain('Varför Det Spelar Roll');
   });
 });
@@ -486,7 +515,11 @@ describe('week-ahead multi-language section headings', () => {
   it('should use localized section headings for all 14 languages', () => {
     for (const lang of ALL_LANGUAGES) {
       const strings = getLocalizedString(WEEK_AHEAD_STRINGS, lang);
-      const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' }, lang);
+      const html = buildWeekAheadContent(
+        emptyWeekData(),
+        { start: '2026-03-01', end: '2026-03-08' },
+        lang
+      );
       expect(html).toContain(strings.plenarySessions);
       expect(html).toContain(strings.committeeMeetings);
       expect(html).toContain(strings.legislativeDocuments);
@@ -498,14 +531,25 @@ describe('week-ahead multi-language section headings', () => {
   it('should use localized no-plenary message when events are empty', () => {
     for (const lang of ALL_LANGUAGES) {
       const strings = getLocalizedString(WEEK_AHEAD_STRINGS, lang);
-      const data = { events: [], committees: [], documents: [], pipeline: [], questions: [], velocities: [] };
+      const data = {
+        events: [],
+        committees: [],
+        documents: [],
+        pipeline: [],
+        questions: [],
+        velocities: [],
+      };
       const html = buildWeekAheadContent(data, { start: '2026-03-01', end: '2026-03-08' }, lang);
       expect(html).toContain(strings.noPlenary);
     }
   });
 
   it('should use Japanese section headings', () => {
-    const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' }, 'ja');
+    const html = buildWeekAheadContent(
+      emptyWeekData(),
+      { start: '2026-03-01', end: '2026-03-08' },
+      'ja'
+    );
     expect(html).toContain('本会議');
     expect(html).toContain('委員会会合');
     expect(html).toContain('今後の立法文書');
@@ -514,7 +558,11 @@ describe('week-ahead multi-language section headings', () => {
   });
 
   it('should use Korean section headings', () => {
-    const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' }, 'ko');
+    const html = buildWeekAheadContent(
+      emptyWeekData(),
+      { start: '2026-03-01', end: '2026-03-08' },
+      'ko'
+    );
     expect(html).toContain('본회의');
     expect(html).toContain('위원회 회의');
     expect(html).toContain('예정된 입법 문서');
@@ -523,7 +571,11 @@ describe('week-ahead multi-language section headings', () => {
   });
 
   it('should use Chinese section headings', () => {
-    const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' }, 'zh');
+    const html = buildWeekAheadContent(
+      emptyWeekData(),
+      { start: '2026-03-01', end: '2026-03-08' },
+      'zh'
+    );
     expect(html).toContain('全体会议');
     expect(html).toContain('委员会会议');
     expect(html).toContain('即将发布的立法文件');
@@ -577,9 +629,7 @@ describe('buildStakeholderImpactMatrix', () => {
   });
 
   it('should assign medium impact to political groups with fewer than 3 events', () => {
-    const events = [
-      { date: '2026-03-03', title: 'Session 1', type: 'Plenary', description: '' },
-    ];
+    const events = [{ date: '2026-03-03', title: 'Session 1', type: 'Plenary', description: '' }];
     const result = buildStakeholderImpactMatrix(events, []);
     const pgRow = result.rows.find((r) => r.stakeholder === 'Political Groups');
     expect(pgRow).toBeDefined();
@@ -606,7 +656,7 @@ describe('computeWeekPoliticalTemperature', () => {
   it('should return score 0 when no events or questions', () => {
     const result = computeWeekPoliticalTemperature([], []);
     expect(result.score).toBe(0);
-    expect(result.label).toBe('Low');
+    expect(result.band).toBe('low');
   });
 
   it('should increase score with more events', () => {
@@ -671,7 +721,7 @@ describe('computeWeekPoliticalTemperature', () => {
     }));
     const result = computeWeekPoliticalTemperature(events, questions);
     expect(result.score).toBeGreaterThanOrEqual(75);
-    expect(result.label).toBe('Very High');
+    expect(result.band).toBe('veryHigh');
   });
 });
 
@@ -710,7 +760,9 @@ describe('stakeholder impact HTML integration', () => {
   it('should escape HTML in stakeholder section to prevent XSS', () => {
     const weekData = {
       ...emptyWeekData(),
-      events: [{ date: '2026-03-03', title: '<script>xss</script>', type: 'Plenary', description: '' }],
+      events: [
+        { date: '2026-03-03', title: '<script>xss</script>', type: 'Plenary', description: '' },
+      ],
     };
     const html = buildWeekAheadContent(weekData, { start: '2026-03-01', end: '2026-03-08' });
     expect(html).not.toContain('<script>xss</script>');
@@ -724,7 +776,11 @@ describe('stakeholder impact HTML integration', () => {
     };
     for (const lang of ALL_LANGUAGES) {
       const strings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, lang);
-      const html = buildWeekAheadContent(weekData, { start: '2026-03-01', end: '2026-03-08' }, lang);
+      const html = buildWeekAheadContent(
+        weekData,
+        { start: '2026-03-01', end: '2026-03-08' },
+        lang
+      );
       expect(html).toContain(strings.heading);
     }
   });

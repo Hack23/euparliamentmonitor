@@ -250,14 +250,25 @@ export interface StakeholderImpactSection {
 }
 
 /**
+ * Band key for political temperature, used for localization at render time.
+ *
+ * These values are language-agnostic and must not be localized directly.
+ * UI layers should map this band to appropriate, localized display strings.
+ */
+export type PoliticalTemperatureBand = 'low' | 'moderate' | 'high' | 'veryHigh';
+
+/**
  * Political temperature score for a parliamentary week.
  * A composite urgency/controversy score on a 0–100 scale.
  */
 export interface PoliticalTemperature {
   /** Overall score from 0 (calm) to 100 (highly contentious) */
   readonly score: number;
-  /** Human-readable label (e.g. "Low", "Moderate", "High", "Very High") */
-  readonly label: string;
+  /**
+   * Language-agnostic band key for the political temperature.
+   * Use this band to derive localized labels and visual styling.
+   */
+  readonly band: PoliticalTemperatureBand;
 }
 
 /** Localized section heading strings for breaking news articles */

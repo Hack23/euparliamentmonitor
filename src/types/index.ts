@@ -34,6 +34,7 @@ export {
   type WeekAheadStakeholderStrings,
   type StakeholderImpactRow,
   type StakeholderImpactSection,
+  type PoliticalTemperatureBand,
   type PoliticalTemperature,
   type BreakingStrings,
   type ActionConsequence,
