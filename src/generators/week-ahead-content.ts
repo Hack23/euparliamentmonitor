@@ -12,6 +12,7 @@ import {
   getLocalizedString,
   EDITORIAL_STRINGS,
   WEEK_AHEAD_STRINGS,
+  WEEK_AHEAD_STAKEHOLDER_STRINGS,
 } from '../constants/languages.js';
 import type {
   ParliamentEvent,
@@ -23,6 +24,9 @@ import type {
   DateRange,
   MCPToolResult,
   LegislativeVelocity,
+  StakeholderImpactSection,
+  StakeholderImpactRow,
+  PoliticalTemperature,
 } from '../types/index.js';
 
 /** Keyword constant for article tagging */
@@ -293,6 +297,198 @@ function renderQuestion(q: ParliamentaryQuestion): string {
 // ─── Content builders ────────────────────────────────────────────────────────
 
 /**
+ * Clamp a number to the 0–100 range.
+ *
+ * @param n - Number to clamp
+ * @returns Clamped value between 0 and 100
+ */
+function clamp0to100(n: number): number {
+  return Math.max(0, Math.min(100, n));
+}
+
+/**
+ * Derive a human-readable temperature label from a 0–100 score.
+ *
+ * @param score - Clamped score
+ * @returns Label string
+ */
+function temperatureLabel(score: number): string {
+  if (score >= 75) return 'Very High';
+  if (score >= 50) return 'High';
+  if (score >= 25) return 'Moderate';
+  return 'Low';
+}
+
+/**
+ * Compute a composite political temperature score (0–100) indicating how
+ * contentious or urgent the upcoming parliamentary week is likely to be.
+ *
+ * The score is derived from the volume and diversity of scheduled events
+ * and questions — a pure scoring function with no side effects.
+ *
+ * @param events - Plenary / parliamentary events for the week
+ * @param questions - Parliamentary questions tabled for the week
+ * @returns Political temperature score and label
+ */
+export function computeWeekPoliticalTemperature(
+  events: readonly ParliamentEvent[],
+  questions: readonly ParliamentaryQuestion[]
+): PoliticalTemperature {
+  // Base: volume-driven heuristic — more events & questions ⇒ higher temperature
+  const eventContribution = Math.min(events.length * 10, 50);
+  const questionContribution = Math.min(questions.length * 5, 30);
+
+  // Diversity bonus: distinct event types signal a broader agenda
+  const uniqueTypes = new Set(events.map((e) => e.type));
+  const diversityBonus = Math.min(uniqueTypes.size * 5, 20);
+
+  const raw = eventContribution + questionContribution + diversityBonus;
+  const score = clamp0to100(Math.round(raw));
+  return { score, label: temperatureLabel(score) };
+}
+
+/**
+ * Determine impact level based on a count and a threshold for "high".
+ *
+ * @param count - Item count
+ * @param highThreshold - Minimum count for high impact
+ * @returns Impact level
+ */
+function impactFromCount(count: number, highThreshold: number): 'high' | 'medium' | 'low' {
+  if (count >= highThreshold) return 'high';
+  return count > 0 ? 'medium' : 'low';
+}
+
+/**
+ * Build a stakeholder impact matrix from scheduled events and legislative
+ * documents, assessing which groups are most affected by the agenda.
+ *
+ * Uses `escapeHTML()` for all user-facing strings. Returns an empty section
+ * when no events or documents are available (graceful fallback).
+ *
+ * @param events - Parliament events for the upcoming week
+ * @param docs - Legislative documents expected in the period
+ * @returns Stakeholder impact section with rows
+ */
+export function buildStakeholderImpactMatrix(
+  events: readonly ParliamentEvent[],
+  docs: readonly LegislativeDocument[]
+): StakeholderImpactSection {
+  if (events.length === 0 && docs.length === 0) {
+    return { rows: [] };
+  }
+
+  const rows: StakeholderImpactRow[] = [];
+  const eventCount = events.length;
+  const docCount = docs.length;
+  const totalCount = eventCount + docCount;
+
+  if (eventCount > 0) {
+    rows.push({
+      stakeholder: 'Political Groups',
+      impact: impactFromCount(eventCount, 3),
+      reason: `${eventCount} plenary event${eventCount !== 1 ? 's' : ''} scheduled`,
+    });
+  }
+
+  if (docCount > 0) {
+    rows.push({
+      stakeholder: 'Civil Society',
+      impact: impactFromCount(docCount, 3),
+      reason: `${docCount} legislative document${docCount !== 1 ? 's' : ''} under review`,
+    });
+  }
+
+  rows.push({
+    stakeholder: 'Industry',
+    impact: impactFromCount(totalCount, 5),
+    reason: 'Regulatory agenda may affect business environment',
+  });
+
+  rows.push({
+    stakeholder: 'EU Citizens',
+    impact: impactFromCount(eventCount, 3),
+    reason: 'Parliamentary decisions shape EU-wide policy',
+  });
+
+  if (docCount > 0) {
+    rows.push({
+      stakeholder: 'National Governments',
+      impact: impactFromCount(docCount, 3),
+      reason: `${docCount} document${docCount !== 1 ? 's' : ''} may require national transposition`,
+    });
+  }
+
+  rows.push({
+    stakeholder: 'EU Institutions',
+    impact: impactFromCount(totalCount, 4),
+    reason: 'Cross-institutional coordination required',
+  });
+
+  return { rows };
+}
+
+/**
+ * Render the stakeholder impact section as HTML.
+ *
+ * @param section - Stakeholder impact data
+ * @param temperature - Political temperature score
+ * @param lang - Language code for localized headings
+ * @returns HTML string, or empty string when section is empty
+ */
+function renderStakeholderSection(
+  section: StakeholderImpactSection,
+  temperature: PoliticalTemperature,
+  lang: string
+): string {
+  if (section.rows.length === 0) return '';
+
+  const strings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, lang);
+
+  const tempClass =
+    temperature.score >= 75
+      ? 'temp-very-high'
+      : temperature.score >= 50
+        ? 'temp-high'
+        : temperature.score >= 25
+          ? 'temp-moderate'
+          : 'temp-low';
+
+  const tableRows = section.rows
+    .map(
+      (row) =>
+        `<tr>` +
+        `<td>${escapeHTML(row.stakeholder)}</td>` +
+        `<td class="impact-${escapeHTML(row.impact)}">${escapeHTML(row.impact)}</td>` +
+        `<td>${escapeHTML(row.reason)}</td>` +
+        `</tr>`
+    )
+    .join('');
+
+  return `
+          <section class="stakeholder-impact" lang="${escapeHTML(lang)}">
+            <h2>${escapeHTML(strings.heading)}</h2>
+            <div class="political-temperature ${tempClass}">
+              <span class="temp-label">${escapeHTML(strings.temperatureLabel)}:</span>
+              <span class="temp-score">${temperature.score}/100</span>
+              <span class="temp-descriptor">(${escapeHTML(temperature.label)})</span>
+            </div>
+            <table class="stakeholder-matrix">
+              <thead>
+                <tr>
+                  <th scope="col">${escapeHTML(strings.stakeholderHeader)}</th>
+                  <th scope="col">${escapeHTML(strings.impactHeader)}</th>
+                  <th scope="col">${escapeHTML(strings.reasonHeader)}</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${tableRows}
+              </tbody>
+            </table>
+          </section>`;
+}
+
+/**
  * Build the supplementary lede sentence about committee and pipeline counts.
  *
  * @param committeeCount - Number of committee meetings
@@ -373,6 +569,11 @@ export function buildWeekAheadContent(
             <p>${escapeHTML(editorial.parliamentaryContext)}: ${escapeHTML(editorial.sourceAttribution)} — parliamentary schedules determine the legislative agenda affecting EU citizens directly.</p>
           </section>`;
 
+  // Stakeholder impact analysis
+  const stakeholderData = buildStakeholderImpactMatrix(weekData.events, weekData.documents);
+  const temperature = computeWeekPoliticalTemperature(weekData.events, weekData.questions);
+  const stakeholderSection = renderStakeholderSection(stakeholderData, temperature, lang);
+
   return `
         <div class="article-content">
           <section class="lede">
@@ -387,6 +588,7 @@ export function buildWeekAheadContent(
           ${documentsSection}
           ${pipelineSection}
           ${qaSection}
+          ${stakeholderSection}
           <!-- /article-content -->
         </div>
       `;

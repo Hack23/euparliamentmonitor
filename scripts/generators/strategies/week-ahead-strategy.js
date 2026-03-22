@@ -3,7 +3,7 @@
 import { ArticleCategory } from '../../types/index.js';
 import { WEEK_AHEAD_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
-import { buildWeekAheadContent, buildKeywords, buildWhatToWatchSection, } from '../week-ahead-content.js';
+import { buildWeekAheadContent, buildKeywords, buildWhatToWatchSection, buildStakeholderImpactMatrix, computeWeekPoliticalTemperature, } from '../week-ahead-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
@@ -113,7 +113,10 @@ export class WeekAheadStrategy {
             fetchEPFeedData(client, 'one-week', dateRange),
         ]);
         const keywords = buildKeywords(weekData);
-        return { date, dateRange, weekData, keywords, feedData };
+        // Compute stakeholder analysis from the fetched data
+        const stakeholderImpact = buildStakeholderImpactMatrix(weekData.events, weekData.documents);
+        const politicalTemperature = computeWeekPoliticalTemperature(weekData.events, weekData.questions);
+        return { date, dateRange, weekData, keywords, feedData, stakeholderImpact, politicalTemperature };
     }
     /**
      * Build the week-ahead HTML body for the specified language.

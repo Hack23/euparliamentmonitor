@@ -2801,6 +2801,107 @@ export const WEEK_AHEAD_STRINGS = {
         whatToWatch: '值得关注',
     },
 };
+/** Localized strings for the week-ahead stakeholder impact section */
+export const WEEK_AHEAD_STAKEHOLDER_STRINGS = {
+    en: {
+        heading: 'Stakeholder Impact Analysis',
+        temperatureLabel: 'Political Temperature',
+        impactHeader: 'Impact',
+        stakeholderHeader: 'Stakeholder',
+        reasonHeader: 'Reason',
+    },
+    sv: {
+        heading: 'Intressentanalys',
+        temperatureLabel: 'Politisk Temperatur',
+        impactHeader: 'Påverkan',
+        stakeholderHeader: 'Intressent',
+        reasonHeader: 'Anledning',
+    },
+    da: {
+        heading: 'Interessentanalyse',
+        temperatureLabel: 'Politisk Temperatur',
+        impactHeader: 'Indvirkning',
+        stakeholderHeader: 'Interessent',
+        reasonHeader: 'Begrundelse',
+    },
+    no: {
+        heading: 'Interessentanalyse',
+        temperatureLabel: 'Politisk temperatur',
+        impactHeader: 'Innvirkning',
+        stakeholderHeader: 'Interessent',
+        reasonHeader: 'Begrunnelse',
+    },
+    fi: {
+        heading: 'Sidosryhmäanalyysi',
+        temperatureLabel: 'Poliittinen Lämpötila',
+        impactHeader: 'Vaikutus',
+        stakeholderHeader: 'Sidosryhmä',
+        reasonHeader: 'Perustelu',
+    },
+    de: {
+        heading: 'Stakeholder-Auswirkungsanalyse',
+        temperatureLabel: 'Politische Temperatur',
+        impactHeader: 'Auswirkung',
+        stakeholderHeader: 'Stakeholder',
+        reasonHeader: 'Begründung',
+    },
+    fr: {
+        heading: 'Analyse d\u2019Impact des Parties Prenantes',
+        temperatureLabel: 'Température Politique',
+        impactHeader: 'Impact',
+        stakeholderHeader: 'Partie Prenante',
+        reasonHeader: 'Raison',
+    },
+    es: {
+        heading: 'Análisis de Impacto en Partes Interesadas',
+        temperatureLabel: 'Temperatura Política',
+        impactHeader: 'Impacto',
+        stakeholderHeader: 'Parte Interesada',
+        reasonHeader: 'Razón',
+    },
+    nl: {
+        heading: 'Stakeholder-Impactanalyse',
+        temperatureLabel: 'Politieke Temperatuur',
+        impactHeader: 'Impact',
+        stakeholderHeader: 'Stakeholder',
+        reasonHeader: 'Reden',
+    },
+    ar: {
+        heading: 'تحليل تأثير أصحاب المصلحة',
+        temperatureLabel: 'الحرارة السياسية',
+        impactHeader: 'التأثير',
+        stakeholderHeader: 'صاحب المصلحة',
+        reasonHeader: 'السبب',
+    },
+    he: {
+        heading: 'ניתוח השפעה על בעלי עניין',
+        temperatureLabel: 'טמפרטורה פוליטית',
+        impactHeader: 'השפעה',
+        stakeholderHeader: 'בעל עניין',
+        reasonHeader: 'סיבה',
+    },
+    ja: {
+        heading: 'ステークホルダー影響分析',
+        temperatureLabel: '政治的温度',
+        impactHeader: '影響度',
+        stakeholderHeader: 'ステークホルダー',
+        reasonHeader: '理由',
+    },
+    ko: {
+        heading: '이해관계자 영향 분석',
+        temperatureLabel: '정치적 온도',
+        impactHeader: '영향',
+        stakeholderHeader: '이해관계자',
+        reasonHeader: '사유',
+    },
+    zh: {
+        heading: '利益相关方影响分析',
+        temperatureLabel: '政治温度',
+        impactHeader: '影响',
+        stakeholderHeader: '利益相关方',
+        reasonHeader: '原因',
+    },
+};
 /** Localized section heading strings for breaking news articles */
 export const BREAKING_STRINGS = {
     en: {

@@ -211,6 +211,47 @@ export interface WeekAheadStrings {
   whatToWatch: string;
 }
 
+/** Localized strings for the week-ahead stakeholder impact section */
+export interface WeekAheadStakeholderStrings {
+  /** Section heading */
+  heading: string;
+  /** Political temperature gauge label */
+  temperatureLabel: string;
+  /** "Impact" table column header */
+  impactHeader: string;
+  /** "Stakeholder" table column header */
+  stakeholderHeader: string;
+  /** "Reason" table column header */
+  reasonHeader: string;
+}
+
+/** A single row in the stakeholder impact matrix */
+export interface StakeholderImpactRow {
+  /** Stakeholder label */
+  readonly stakeholder: string;
+  /** Impact level: high, medium, or low */
+  readonly impact: 'high' | 'medium' | 'low';
+  /** Short reason explaining the impact */
+  readonly reason: string;
+}
+
+/** Stakeholder impact section data for week-ahead articles */
+export interface StakeholderImpactSection {
+  /** Rows of stakeholder impact assessments */
+  readonly rows: readonly StakeholderImpactRow[];
+}
+
+/**
+ * Political temperature score for a parliamentary week.
+ * A composite urgency/controversy score on a 0–100 scale.
+ */
+export interface PoliticalTemperature {
+  /** Overall score from 0 (calm) to 100 (highly contentious) */
+  readonly score: number;
+  /** Human-readable label (e.g. "Low", "Moderate", "High", "Very High") */
+  readonly label: string;
+}
+
 /** Localized section heading strings for breaking news articles */
 export interface BreakingStrings {
   breakingBanner: string;

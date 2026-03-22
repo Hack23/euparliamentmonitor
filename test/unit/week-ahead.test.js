@@ -16,8 +16,10 @@ import {
   parseLegislativePipeline,
   buildWeekAheadContent,
   buildKeywords,
+  buildStakeholderImpactMatrix,
+  computeWeekPoliticalTemperature,
 } from '../../scripts/generators/news-enhanced.js';
-import { ALL_LANGUAGES, getLocalizedString, WEEK_AHEAD_STRINGS } from '../../scripts/constants/languages.js';
+import { ALL_LANGUAGES, getLocalizedString, WEEK_AHEAD_STRINGS, WEEK_AHEAD_STAKEHOLDER_STRINGS } from '../../scripts/constants/languages.js';
 
 /**
  * Build a fulfilled Promise.allSettled result from a plain object
@@ -540,6 +542,202 @@ describe('week-ahead multi-language section headings', () => {
       expect(strings.parliamentaryQuestions).toBeDefined();
       expect(strings.noPlenary).toBeDefined();
       expect(strings.lede).toBeDefined();
+    }
+  });
+});
+
+describe('buildStakeholderImpactMatrix', () => {
+  it('should return empty rows when no events or documents', () => {
+    const result = buildStakeholderImpactMatrix([], []);
+    expect(result.rows).toHaveLength(0);
+  });
+
+  it('should include political groups when events are present', () => {
+    const events = [{ date: '2026-03-03', title: 'Plenary', type: 'Session', description: '' }];
+    const result = buildStakeholderImpactMatrix(events, []);
+    expect(result.rows.some((r) => r.stakeholder === 'Political Groups')).toBe(true);
+  });
+
+  it('should include civil society when documents are present', () => {
+    const docs = [{ title: 'Climate Regulation' }];
+    const result = buildStakeholderImpactMatrix([], docs);
+    expect(result.rows.some((r) => r.stakeholder === 'Civil Society')).toBe(true);
+  });
+
+  it('should assign high impact to political groups with 3+ events', () => {
+    const events = [
+      { date: '2026-03-03', title: 'Session 1', type: 'Plenary', description: '' },
+      { date: '2026-03-04', title: 'Session 2', type: 'Plenary', description: '' },
+      { date: '2026-03-05', title: 'Session 3', type: 'Plenary', description: '' },
+    ];
+    const result = buildStakeholderImpactMatrix(events, []);
+    const pgRow = result.rows.find((r) => r.stakeholder === 'Political Groups');
+    expect(pgRow).toBeDefined();
+    expect(pgRow.impact).toBe('high');
+  });
+
+  it('should assign medium impact to political groups with fewer than 3 events', () => {
+    const events = [
+      { date: '2026-03-03', title: 'Session 1', type: 'Plenary', description: '' },
+    ];
+    const result = buildStakeholderImpactMatrix(events, []);
+    const pgRow = result.rows.find((r) => r.stakeholder === 'Political Groups');
+    expect(pgRow).toBeDefined();
+    expect(pgRow.impact).toBe('medium');
+  });
+
+  it('should include EU Citizens, EU Institutions and National Governments rows', () => {
+    const events = [{ date: '2026-03-03', title: 'Plenary', type: 'Session', description: '' }];
+    const docs = [{ title: 'Test Doc' }];
+    const result = buildStakeholderImpactMatrix(events, docs);
+    expect(result.rows.some((r) => r.stakeholder === 'EU Citizens')).toBe(true);
+    expect(result.rows.some((r) => r.stakeholder === 'EU Institutions')).toBe(true);
+    expect(result.rows.some((r) => r.stakeholder === 'National Governments')).toBe(true);
+  });
+
+  it('should include industry row when events or documents are present', () => {
+    const events = [{ date: '2026-03-03', title: 'Session 1', type: 'Plenary', description: '' }];
+    const result = buildStakeholderImpactMatrix(events, []);
+    expect(result.rows.some((r) => r.stakeholder === 'Industry')).toBe(true);
+  });
+});
+
+describe('computeWeekPoliticalTemperature', () => {
+  it('should return score 0 when no events or questions', () => {
+    const result = computeWeekPoliticalTemperature([], []);
+    expect(result.score).toBe(0);
+    expect(result.label).toBe('Low');
+  });
+
+  it('should increase score with more events', () => {
+    const events = [
+      { date: '2026-03-03', title: 'Session 1', type: 'Plenary', description: '' },
+      { date: '2026-03-04', title: 'Session 2', type: 'Plenary', description: '' },
+      { date: '2026-03-05', title: 'Session 3', type: 'Committee', description: '' },
+    ];
+    const result = computeWeekPoliticalTemperature(events, []);
+    expect(result.score).toBeGreaterThan(0);
+  });
+
+  it('should increase score with more questions', () => {
+    const questions = [
+      { subject: 'Climate', type: 'WRITTEN' },
+      { subject: 'AI Policy', type: 'ORAL' },
+    ];
+    const result = computeWeekPoliticalTemperature([], questions);
+    expect(result.score).toBeGreaterThan(0);
+  });
+
+  it('should award diversity bonus for distinct event types', () => {
+    const singleType = [
+      { date: '2026-03-03', title: 'S1', type: 'Plenary', description: '' },
+      { date: '2026-03-04', title: 'S2', type: 'Plenary', description: '' },
+    ];
+    const multiType = [
+      { date: '2026-03-03', title: 'S1', type: 'Plenary', description: '' },
+      { date: '2026-03-04', title: 'S2', type: 'Committee', description: '' },
+    ];
+    const scoreSingle = computeWeekPoliticalTemperature(singleType, []);
+    const scoreMulti = computeWeekPoliticalTemperature(multiType, []);
+    expect(scoreMulti.score).toBeGreaterThan(scoreSingle.score);
+  });
+
+  it('should cap at 100', () => {
+    // 10+ events, 10+ questions, diverse types
+    const events = Array.from({ length: 10 }, (_, i) => ({
+      date: '2026-03-03',
+      title: `Event ${i}`,
+      type: `Type${i}`,
+      description: '',
+    }));
+    const questions = Array.from({ length: 10 }, (_, i) => ({
+      subject: `Q${i}`,
+      type: 'WRITTEN',
+    }));
+    const result = computeWeekPoliticalTemperature(events, questions);
+    expect(result.score).toBeLessThanOrEqual(100);
+  });
+
+  it('should return "Very High" label for high scores', () => {
+    const events = Array.from({ length: 5 }, (_, i) => ({
+      date: '2026-03-03',
+      title: `Event ${i}`,
+      type: `Type${i}`,
+      description: '',
+    }));
+    const questions = Array.from({ length: 6 }, (_, i) => ({
+      subject: `Q${i}`,
+      type: 'WRITTEN',
+    }));
+    const result = computeWeekPoliticalTemperature(events, questions);
+    expect(result.score).toBeGreaterThanOrEqual(75);
+    expect(result.label).toBe('Very High');
+  });
+});
+
+describe('stakeholder impact HTML integration', () => {
+  function emptyWeekData() {
+    return { events: [], committees: [], documents: [], pipeline: [], questions: [] };
+  }
+
+  it('should not include stakeholder section when no events or documents', () => {
+    const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' });
+    expect(html).not.toContain('stakeholder-impact');
+  });
+
+  it('should include stakeholder section when events are present', () => {
+    const weekData = {
+      ...emptyWeekData(),
+      events: [{ date: '2026-03-03', title: 'Plenary Session', type: 'Plenary', description: '' }],
+    };
+    const html = buildWeekAheadContent(weekData, { start: '2026-03-01', end: '2026-03-08' });
+    expect(html).toContain('stakeholder-impact');
+    expect(html).toContain('Stakeholder Impact Analysis');
+    expect(html).toContain('political-temperature');
+    expect(html).toContain('stakeholder-matrix');
+  });
+
+  it('should include stakeholder section when documents are present', () => {
+    const weekData = {
+      ...emptyWeekData(),
+      documents: [{ title: 'Climate Regulation' }],
+    };
+    const html = buildWeekAheadContent(weekData, { start: '2026-03-01', end: '2026-03-08' });
+    expect(html).toContain('stakeholder-impact');
+    expect(html).toContain('stakeholder-matrix');
+  });
+
+  it('should escape HTML in stakeholder section to prevent XSS', () => {
+    const weekData = {
+      ...emptyWeekData(),
+      events: [{ date: '2026-03-03', title: '<script>xss</script>', type: 'Plenary', description: '' }],
+    };
+    const html = buildWeekAheadContent(weekData, { start: '2026-03-01', end: '2026-03-08' });
+    expect(html).not.toContain('<script>xss</script>');
+    expect(html).toContain('stakeholder-impact');
+  });
+
+  it('should use localized stakeholder headings for all 14 languages', () => {
+    const weekData = {
+      ...emptyWeekData(),
+      events: [{ date: '2026-03-03', title: 'Plenary', type: 'Plenary', description: '' }],
+    };
+    for (const lang of ALL_LANGUAGES) {
+      const strings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, lang);
+      const html = buildWeekAheadContent(weekData, { start: '2026-03-01', end: '2026-03-08' }, lang);
+      expect(html).toContain(strings.heading);
+    }
+  });
+
+  it('should have WEEK_AHEAD_STAKEHOLDER_STRINGS for all 14 languages', () => {
+    for (const lang of ALL_LANGUAGES) {
+      const strings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, lang);
+      expect(strings.heading).toBeDefined();
+      expect(strings.heading.length).toBeGreaterThan(0);
+      expect(strings.temperatureLabel).toBeDefined();
+      expect(strings.impactHeader).toBeDefined();
+      expect(strings.stakeholderHeader).toBeDefined();
+      expect(strings.reasonHeader).toBeDefined();
     }
   });
 });

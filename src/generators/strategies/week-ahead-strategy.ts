@@ -10,13 +10,22 @@
 
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
 import { ArticleCategory } from '../../types/index.js';
-import type { LanguageCode, DateRange, WeekAheadData, EPFeedData } from '../../types/index.js';
+import type {
+  LanguageCode,
+  DateRange,
+  WeekAheadData,
+  EPFeedData,
+  StakeholderImpactSection,
+  PoliticalTemperature,
+} from '../../types/index.js';
 import { WEEK_AHEAD_TITLES, getLocalizedString } from '../../constants/languages.js';
 import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import {
   buildWeekAheadContent,
   buildKeywords,
   buildWhatToWatchSection,
+  buildStakeholderImpactMatrix,
+  computeWeekPoliticalTemperature,
 } from '../week-ahead-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import {
@@ -41,6 +50,10 @@ export interface WeekAheadArticleData extends ArticleData {
   readonly keywords: readonly string[];
   /** EP feed data for enrichment (when available) */
   readonly feedData?: EPFeedData | undefined;
+  /** Stakeholder impact analysis for the upcoming week */
+  readonly stakeholderImpact: StakeholderImpactSection;
+  /** Composite political urgency/controversy score */
+  readonly politicalTemperature: PoliticalTemperature;
 }
 
 // ─── Date-range helper ────────────────────────────────────────────────────────
@@ -169,7 +182,14 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     ]);
     const keywords = buildKeywords(weekData);
 
-    return { date, dateRange, weekData, keywords, feedData };
+    // Compute stakeholder analysis from the fetched data
+    const stakeholderImpact = buildStakeholderImpactMatrix(weekData.events, weekData.documents);
+    const politicalTemperature = computeWeekPoliticalTemperature(
+      weekData.events,
+      weekData.questions
+    );
+
+    return { date, dateRange, weekData, keywords, feedData, stakeholderImpact, politicalTemperature };
   }
 
   /**
