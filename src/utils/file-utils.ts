@@ -6,7 +6,7 @@
  * @description Shared file system utilities for news article operations
  */
 
-import crypto from 'crypto';
+import { randomUUID } from 'crypto';
 import fs from 'fs';
 import path from 'path';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
@@ -166,7 +166,8 @@ export function writeFileContent(filepath: string, content: string): void {
  * UUID so that concurrent callers targeting the same destination never collide
  * on the intermediate file. If the rename fails the temp file is cleaned up in
  * a `finally` block. On platforms where `renameSync` does not overwrite an
- * existing destination (e.g. Windows), the target is removed first.
+ * existing destination (e.g. Windows), the error is caught and the target is
+ * removed before retrying the rename.
  *
  * @param filepath - Final output file path
  * @param content - File content to write
@@ -174,14 +175,22 @@ export function writeFileContent(filepath: string, content: string): void {
 export function atomicWrite(filepath: string, content: string): void {
   const dir = path.dirname(filepath);
   ensureDirectoryExists(dir);
-  const uniqueSuffix = `${process.pid}-${crypto.randomUUID()}`;
+  const uniqueSuffix = `${process.pid}-${randomUUID()}`;
   const tempPath = `${filepath}.${uniqueSuffix}.tmp`;
   fs.writeFileSync(tempPath, content, 'utf-8');
   try {
-    if (fs.existsSync(filepath)) {
-      fs.unlinkSync(filepath);
+    try {
+      fs.renameSync(tempPath, filepath);
+    } catch (err: unknown) {
+      // On platforms where rename cannot overwrite (Windows), remove then retry
+      const code = err instanceof Error ? (err as NodeJS.ErrnoException).code : '';
+      if (code === 'EEXIST' || code === 'EPERM') {
+        fs.unlinkSync(filepath);
+        fs.renameSync(tempPath, filepath);
+      } else {
+        throw err;
+      }
     }
-    fs.renameSync(tempPath, filepath);
   } finally {
     if (fs.existsSync(tempPath)) {
       try {

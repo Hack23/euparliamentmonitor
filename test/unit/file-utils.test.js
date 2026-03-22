@@ -192,7 +192,10 @@ describe('utils/file-utils', () => {
     it('should extract title from h1 element', async () => {
       const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
       const filePath = path.join(tempDir, 'article.html');
-      fs.writeFileSync(filePath, '<h1>My Real Title</h1><meta name="description" content="My description">');
+      fs.writeFileSync(
+        filePath,
+        '<h1>My Real Title</h1><meta name="description" content="My description">'
+      );
       const meta = extractArticleMeta(filePath);
       expect(meta.title).toBe('My Real Title');
     });
@@ -200,7 +203,10 @@ describe('utils/file-utils', () => {
     it('should extract description from meta description tag', async () => {
       const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
       const filePath = path.join(tempDir, 'article2.html');
-      fs.writeFileSync(filePath, '<h1>Title</h1><meta name="description" content="The real description here">');
+      fs.writeFileSync(
+        filePath,
+        '<h1>Title</h1><meta name="description" content="The real description here">'
+      );
       const meta = extractArticleMeta(filePath);
       expect(meta.description).toBe('The real description here');
     });
@@ -219,7 +225,7 @@ describe('utils/file-utils', () => {
       const filePath = path.join(tempDir, 'article-entities.html');
       fs.writeFileSync(
         filePath,
-        '<h1>EU &amp; Parliament: Tom&#39;s &quot;Report&quot;</h1><meta name="description" content="Cost &lt;100&gt; &amp; more">',
+        '<h1>EU &amp; Parliament: Tom&#39;s &quot;Report&quot;</h1><meta name="description" content="Cost &lt;100&gt; &amp; more">'
       );
       const meta = extractArticleMeta(filePath);
       expect(meta.title).toBe('EU & Parliament: Tom\'s "Report"');
@@ -231,7 +237,7 @@ describe('utils/file-utils', () => {
       const filePath = path.join(tempDir, 'article-multiple-h1.html');
       fs.writeFileSync(
         filePath,
-        '<h1>First Title</h1><p>Some content</p><h1>Second Title</h1><meta name="description" content="Description">',
+        '<h1>First Title</h1><p>Some content</p><h1>Second Title</h1><meta name="description" content="Description">'
       );
       const meta = extractArticleMeta(filePath);
       expect(meta.title).toBe('First Title');
@@ -242,7 +248,7 @@ describe('utils/file-utils', () => {
       const filePath = path.join(tempDir, 'article-multiple-meta.html');
       fs.writeFileSync(
         filePath,
-        '<h1>Title</h1><meta name="description" content="First description"><meta name="description" content="Second description">',
+        '<h1>Title</h1><meta name="description" content="First description"><meta name="description" content="Second description">'
       );
       const meta = extractArticleMeta(filePath);
       expect(meta.description).toBe('First description');
@@ -253,7 +259,7 @@ describe('utils/file-utils', () => {
       const filePath = path.join(tempDir, 'article-malformed.html');
       fs.writeFileSync(
         filePath,
-        '<html><body><h1>Broken Title<p>Some text<meta name="description" content="Desc"></body></html>',
+        '<html><body><h1>Broken Title<p>Some text<meta name="description" content="Desc"></body></html>'
       );
       const meta = extractArticleMeta(filePath);
       expect(typeof meta.title).toBe('string');
@@ -263,7 +269,10 @@ describe('utils/file-utils', () => {
     it('should extract title when h1 has custom attributes', async () => {
       const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
       const filePath = path.join(tempDir, 'article-h1-attr.html');
-      fs.writeFileSync(filePath, '<h1 class="main-title">Title with attributes</h1><meta name="description" content="Desc">');
+      fs.writeFileSync(
+        filePath,
+        '<h1 class="main-title">Title with attributes</h1><meta name="description" content="Desc">'
+      );
       const meta = extractArticleMeta(filePath);
       expect(meta.title).toBe('Title with attributes');
     });
@@ -305,7 +314,7 @@ describe('utils/file-utils', () => {
       atomicWrite(filePath, 'clean');
       // Unique temp files use pattern: {filepath}.{pid}-{uuid}.tmp
       const siblings = fs.readdirSync(tempDir);
-      const temps = siblings.filter(f => f.includes('.tmp'));
+      const temps = siblings.filter((f) => f.includes('.tmp'));
       expect(temps).toHaveLength(0);
     });
 
