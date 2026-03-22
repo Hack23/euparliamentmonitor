@@ -189,7 +189,15 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
       weekData.questions
     );
 
-    return { date, dateRange, weekData, keywords, feedData, stakeholderImpact, politicalTemperature };
+    return {
+      date,
+      dateRange,
+      weekData,
+      keywords,
+      feedData,
+      stakeholderImpact,
+      politicalTemperature,
+    };
   }
 
   /**

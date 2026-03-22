@@ -116,7 +116,15 @@ export class WeekAheadStrategy {
         // Compute stakeholder analysis from the fetched data
         const stakeholderImpact = buildStakeholderImpactMatrix(weekData.events, weekData.documents);
         const politicalTemperature = computeWeekPoliticalTemperature(weekData.events, weekData.questions);
-        return { date, dateRange, weekData, keywords, feedData, stakeholderImpact, politicalTemperature };
+        return {
+            date,
+            dateRange,
+            weekData,
+            keywords,
+            feedData,
+            stakeholderImpact,
+            politicalTemperature,
+        };
     }
     /**
      * Build the week-ahead HTML body for the specified language.
