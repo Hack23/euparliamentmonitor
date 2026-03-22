@@ -490,7 +490,7 @@ describe('MONTH_IN_REVIEW_STRINGS', () => {
   it('should have all required section heading fields for each language', () => {
     const requiredFields = [
       'overview', 'keyVotes', 'legislativeProgress',
-      'committeHighlights', 'politicalDynamics', 'outlook',
+      'committeeHighlights', 'politicalDynamics', 'outlook',
     ];
     for (const lang of ALL_LANGUAGES) {
       const strings = MONTH_IN_REVIEW_STRINGS[lang];
