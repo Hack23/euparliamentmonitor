@@ -6,6 +6,7 @@
  * @description Shared file system utilities for news article operations
  */
 
+import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
@@ -160,10 +161,12 @@ export function writeFileContent(filepath: string, content: string): void {
 /**
  * Write content to a file atomically.
  *
- * Writes to a temporary file in the same directory first, then renames it to
- * the final path. This prevents other processes from reading a partially
- * written file. The rename operation is atomic on POSIX file systems when
- * source and destination reside on the same volume.
+ * Writes to a uniquely-named temporary file in the same directory first, then
+ * renames it to the final path. The temp filename includes the PID and a random
+ * UUID so that concurrent callers targeting the same destination never collide
+ * on the intermediate file. If the rename fails the temp file is cleaned up in
+ * a `finally` block. On platforms where `renameSync` does not overwrite an
+ * existing destination (e.g. Windows), the target is removed first.
  *
  * @param filepath - Final output file path
  * @param content - File content to write
@@ -171,9 +174,23 @@ export function writeFileContent(filepath: string, content: string): void {
 export function atomicWrite(filepath: string, content: string): void {
   const dir = path.dirname(filepath);
   ensureDirectoryExists(dir);
-  const tempPath = `${filepath}.tmp`;
+  const uniqueSuffix = `${process.pid}-${crypto.randomUUID()}`;
+  const tempPath = `${filepath}.${uniqueSuffix}.tmp`;
   fs.writeFileSync(tempPath, content, 'utf-8');
-  fs.renameSync(tempPath, filepath);
+  try {
+    if (fs.existsSync(filepath)) {
+      fs.unlinkSync(filepath);
+    }
+    fs.renameSync(tempPath, filepath);
+  } finally {
+    if (fs.existsSync(tempPath)) {
+      try {
+        fs.unlinkSync(tempPath);
+      } catch {
+        // Ignore cleanup errors to avoid masking the original failure
+      }
+    }
+  }
 }
 
 /**

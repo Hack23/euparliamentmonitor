@@ -303,7 +303,10 @@ describe('utils/file-utils', () => {
       const { atomicWrite } = await import('../../scripts/utils/file-utils.js');
       const filePath = path.join(tempDir, 'atomic-clean.txt');
       atomicWrite(filePath, 'clean');
-      expect(fs.existsSync(`${filePath}.tmp`)).toBe(false);
+      // Unique temp files use pattern: {filepath}.{pid}-{uuid}.tmp
+      const siblings = fs.readdirSync(tempDir);
+      const temps = siblings.filter(f => f.includes('.tmp'));
+      expect(temps).toHaveLength(0);
     });
 
     it('should produce a file with the exact expected content (no partial writes)', async () => {
