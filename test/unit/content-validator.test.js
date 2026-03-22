@@ -583,6 +583,15 @@ describe('utils/content-validator', () => {
         expect(result.valid).toBe(false);
         expect(result.warnings.some((w) => w.includes('ZH'))).toBe(true);
       });
+
+      it('should not false-positive on CJK content with numeric HTML entities', () => {
+        const zhWithEntities = '欧洲议会投票结果&#8212;赞成&#43;反对&#8722;弃权&#58;&#160;条例修正案已提交。';
+        const html = buildArticleHtml(`<p>${zhWithEntities}</p>`, { lang: 'zh' });
+        const result = validateTranslationCompleteness(html, 'zh');
+
+        expect(result.metrics.cjkCharRatio).toBeGreaterThan(0.05);
+        expect(result.warnings.every((w) => !w.includes('ASCII'))).toBe(true);
+      });
     });
 
     describe('untranslated English phrase detection', () => {

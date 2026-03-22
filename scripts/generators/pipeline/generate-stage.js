@@ -129,7 +129,7 @@ function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outp
     // Translation completeness — informational only, never blocks generation
     const translationValidation = validateTranslationCompleteness(html, lang);
     for (const warning of translationValidation.warnings) {
-        console.warn(`  🌐 ${lang.toUpperCase()} translation warning: ${warning}`);
+        console.warn(`  🌐 ${lang.toUpperCase()} ${warning}`);
         stats.translationWarnings = (stats.translationWarnings ?? 0) + 1;
     }
     // Quality scoring — informational only, never blocks generation

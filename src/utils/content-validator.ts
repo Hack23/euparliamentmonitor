@@ -475,7 +475,7 @@ function extractMainPlainText(html: string): string {
   const source = mainMatch?.[1] ?? html;
   return stripScriptBlocks(source)
     .replace(/<[^>]+>/gu, ' ')
-    .replace(/&[a-z]+;/giu, ' ')
+    .replace(/&(?:[a-z][a-z0-9]+|#\d+|#x[0-9a-f]+);/giu, ' ')
     .replace(/\s+/gu, ' ')
     .trim();
 }
@@ -489,20 +489,26 @@ function extractMainPlainText(html: string): string {
 function computeAsciiRatio(text: string): number {
   if (text.length === 0) return 0;
   const asciiCount = (text.match(/[\x20-\x7E]/gu) ?? []).length;
-  return asciiCount / text.length;
+  // Use Array.from to correctly count Unicode characters (handles surrogate pairs)
+  const charCount = Array.from(text).length;
+  return asciiCount / charCount;
 }
 
 /**
  * Compute the ratio of CJK Unified Ideograph characters in a string.
- * Covers CJK Unified Ideographs (U+4E00–U+9FFF), Hiragana, Katakana, and Hangul.
+ * Covers CJK Unified Ideographs (U+4E00–U+9FFF), Extension A (U+3400–U+4DBF),
+ * Hiragana, Katakana, and Hangul Syllables.
  *
  * @param text - Plain text string
  * @returns Ratio from 0 to 1
  */
 function computeCjkCharRatio(text: string): number {
   if (text.length === 0) return 0;
-  // CJK Unified Ideographs + Extension A/B, Hiragana, Katakana, Hangul Syllables
-  const cjkPattern = /[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7AF]/gu;
+  // CJK Unified Ideographs + Extension A, Hiragana, Katakana, Hangul Syllables
+  // Note: Extension B (U+20000–U+2A6DF) is omitted as it triggers unsafe-regex lint
+  // and is extremely rare in EU Parliament content.
+  const cjkPattern =
+    /[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7AF]/gu;
   const matches = text.match(cjkPattern);
   // Use Array.from to correctly count Unicode characters (handles surrogate pairs)
   const charCount = Array.from(text).length;
