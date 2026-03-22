@@ -2476,7 +2476,7 @@ describe('writeArticleFile dryRun + skipExisting combined', () => {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 
-  it('logs "Would skip" when file exists AND both dryRun and skipExisting are true', () => {
+  it('returns false when file exists and both dryRun and skipExisting are true', () => {
     const filename = 'existing-article.html';
     const filepath = path.join(tmpDir, filename);
     fs.writeFileSync(filepath, '<html/>');
@@ -2635,7 +2635,7 @@ describe('createStrategyRegistry strategy types', () => {
   });
 });
 
-// ─── generate-stage: generateArticleForStrategy with failing validation ───────
+// ─── generate-stage: generateArticleForStrategy validation and dryRun paths ────
 
 describe('generateArticleForStrategy validation paths', () => {
   let tmpDir;
@@ -2688,20 +2688,34 @@ describe('generateArticleForStrategy validation paths', () => {
 
 describe('CircuitBreaker edge cases', () => {
   it('transitions from OPEN through HALF_OPEN to CLOSED via success after timeout', () => {
-    const cb = new CircuitBreaker({ failureThreshold: 2, resetTimeoutMs: 60_000 });
-    cb.recordFailure();
-    cb.recordFailure();
-    expect(cb.getState()).toBe('OPEN');
-    // Manually reset
-    cb.recordSuccess(); // simulate HALF_OPEN → CLOSED via success after timeout
-    // Create fresh instance for reset test
-    const cb2 = new CircuitBreaker({ failureThreshold: 1, resetTimeoutMs: 0 });
-    cb2.recordFailure();
-    expect(cb2.getState()).toBe('OPEN');
-    expect(cb2.canRequest()).toBe(true); // resetTimeout is 0 → HALF_OPEN
-    cb2.recordSuccess();
-    expect(cb2.getState()).toBe('CLOSED');
-    expect(cb2.canRequest()).toBe(true);
+    vi.useFakeTimers();
+    try {
+      const cb = new CircuitBreaker({ failureThreshold: 2, resetTimeoutMs: 60_000 });
+      cb.recordFailure();
+      cb.recordFailure();
+      expect(cb.getState()).toBe('OPEN');
+
+      // Advance time past resetTimeoutMs to allow transition to HALF_OPEN
+      vi.advanceTimersByTime(60_001);
+      expect(cb.canRequest()).toBe(true);
+      expect(cb.getState()).toBe('HALF_OPEN');
+
+      // Successful call in HALF_OPEN should close the circuit
+      cb.recordSuccess();
+      expect(cb.getState()).toBe('CLOSED');
+      expect(cb.canRequest()).toBe(true);
+
+      // Create fresh instance for reset test with immediate HALF_OPEN transition
+      const cb2 = new CircuitBreaker({ failureThreshold: 1, resetTimeoutMs: 0 });
+      cb2.recordFailure();
+      expect(cb2.getState()).toBe('OPEN');
+      expect(cb2.canRequest()).toBe(true); // resetTimeout is 0 → HALF_OPEN
+      cb2.recordSuccess();
+      expect(cb2.getState()).toBe('CLOSED');
+      expect(cb2.canRequest()).toBe(true);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('multiple successes in CLOSED state keep circuit CLOSED', () => {

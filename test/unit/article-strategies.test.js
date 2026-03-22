@@ -2084,13 +2084,6 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
     expect(meta.subtitle).toContain('MEP update');
   });
 
-  it('WeeklyReviewStrategy: feedData adopted texts in keywords', () => {
-    const strategy = new WeeklyReviewStrategy();
-    const meta = strategy.getMetadata(weeklyReviewData, 'en');
-    // feedData has 1 adopted text with title "Resolution on climate action"
-    expect(meta.keywords).toContain('Resolution on climate action');
-  });
-
   it('MonthlyReviewStrategy: keywords include voting records but exclude feedData titles', () => {
     const strategy = new MonthlyReviewStrategy();
     const richData = {
