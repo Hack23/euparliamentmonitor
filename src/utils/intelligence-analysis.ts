@@ -677,7 +677,11 @@ function adoptionDirection(rate: number): VotingTrend['direction'] {
  * @param total - Total number of valid records
  * @returns VotingTrend or null if delta is within threshold
  */
-function buildMarginTrend(firstHalf: number[], secondHalf: number[], total: number): VotingTrend | null {
+function buildMarginTrend(
+  firstHalf: number[],
+  secondHalf: number[],
+  total: number
+): VotingTrend | null {
   const marginDelta = avg(secondHalf) - avg(firstHalf);
   if (Math.abs(marginDelta) <= 0.05) return null;
   const isIncreasing = marginDelta > 0;
@@ -701,7 +705,11 @@ function buildMarginTrend(firstHalf: number[], secondHalf: number[], total: numb
  * @param total - Total number of valid records
  * @returns VotingTrend or null if delta is within threshold
  */
-function buildPolarizationTrend(firstHalf: number[], secondHalf: number[], total: number): VotingTrend | null {
+function buildPolarizationTrend(
+  firstHalf: number[],
+  secondHalf: number[],
+  total: number
+): VotingTrend | null {
   const closeFirst = firstHalf.filter((m) => m < 0.1).length / firstHalf.length;
   const closeSecond = secondHalf.filter((m) => m < 0.1).length / secondHalf.length;
   const closeDelta = closeSecond - closeFirst;
