@@ -396,7 +396,8 @@ function computeCjkCharRatio(text) {
  * @returns Array of detected untranslated English phrases
  */
 function findUntranslatedPhrases(text) {
-    return ENGLISH_PLACEHOLDER_PHRASES.filter((phrase) => text.toLowerCase().includes(phrase.toLowerCase()));
+    const lowerText = text.toLowerCase();
+    return ENGLISH_PLACEHOLDER_PHRASES.filter((phrase) => lowerText.includes(phrase.toLowerCase()));
 }
 /**
  * Check whether Unicode bidirectional control characters or HTML bidi markers are present.
@@ -429,20 +430,6 @@ function detectBidiMarkers(html) {
  */
 export function validateTranslationCompleteness(html, lang) {
     const warnings = [];
-    // Skip validation for English — it is the source language
-    if (lang === 'en') {
-        return {
-            valid: true,
-            warnings: [],
-            metrics: {
-                asciiRatio: 1,
-                cjkCharRatio: 0,
-                hasRtlDir: false,
-                hasBidiMarkers: false,
-                untranslatedPhrases: [],
-            },
-        };
-    }
     const plainText = extractMainPlainText(html);
     const asciiRatio = computeAsciiRatio(plainText);
     const cjkCharRatio = computeCjkCharRatio(plainText);
@@ -450,6 +437,21 @@ export function validateTranslationCompleteness(html, lang) {
     const hasRtlDir = htmlDir === 'rtl';
     const hasBidiMarkers = detectBidiMarkers(html);
     const untranslatedPhrases = findUntranslatedPhrases(plainText);
+    // Skip validation warnings for English — it is the source language,
+    // but still compute and return real metrics for telemetry/reporting.
+    if (lang === 'en') {
+        return {
+            valid: true,
+            warnings: [],
+            metrics: {
+                asciiRatio,
+                cjkCharRatio,
+                hasRtlDir,
+                hasBidiMarkers,
+                untranslatedPhrases,
+            },
+        };
+    }
     // ── RTL validation ──────────────────────────────────────────────────────
     if (RTL_LANGUAGES.has(lang) && !hasRtlDir) {
         if (!htmlDir) {
