@@ -13,7 +13,8 @@ import { escapeHTML } from '../utils/file-utils.js';
 import { getLocalizedString, EDITORIAL_STRINGS, BREAKING_STRINGS } from '../constants/languages.js';
 /**
  * Minimum significance score for a breaking news item to be considered
- * worth rendering. Items below this threshold are filtered out.
+ * noteworthy. Items below this threshold may be suppressed from metadata
+ * keywords by the strategy layer.
  */
 export const SIGNIFICANCE_THRESHOLD = 10;
 /** Weight for adopted texts sub-score — sum of all weights MUST equal 1.0 */
@@ -47,10 +48,13 @@ export function scoreBreakingNewsSignificance(item) {
     const adoptedTextsScore = Math.min((item.adoptedTexts?.length ?? 0) * 20, MAX_SUB_SCORE);
     // Affected MEPs: each update adds 10 pts, capped at 100
     const affectedMEPsScore = Math.min((item.mepUpdates?.length ?? 0) * 10, MAX_SUB_SCORE);
-    // Legislative stage: procedures at a "final" stage contribute 25 pts each, others 10 pts
+    // Legislative stage: procedures at a "final" stage contribute 25 pts each,
+    // procedures with a known non-final stage contribute 10 pts, missing stage → 0.
     const procedures = item.procedures ?? [];
     const stagePoints = procedures.reduce((sum, proc) => {
         const stage = proc.stage ?? '';
+        if (!stage)
+            return sum;
         return sum + (FINAL_STAGE_PATTERN.test(stage) ? 25 : 10);
     }, 0);
     const legislativeStageScore = Math.min(stagePoints, MAX_SUB_SCORE);

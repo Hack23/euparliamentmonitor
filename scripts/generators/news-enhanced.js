@@ -43,7 +43,7 @@ import { createStrategyRegistry, generateArticleForStrategy } from './pipeline/g
 import { writeGenerationMetadata } from './pipeline/output-stage.js';
 // ─── Content-module imports (bounded contexts) ───────────────────────────────
 import { parsePlenarySessions, parseEPEvents, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, parseParliamentaryQuestions, buildWeekAheadContent, buildKeywords, PLACEHOLDER_EVENTS, buildWhatToWatchSection, buildStakeholderImpactMatrix, computeWeekPoliticalTemperature, } from './week-ahead-content.js';
-import { buildBreakingNewsContent, scoreBreakingNewsSignificance, SIGNIFICANCE_THRESHOLD } from './breaking-content.js';
+import { buildBreakingNewsContent, scoreBreakingNewsSignificance, SIGNIFICANCE_THRESHOLD, } from './breaking-content.js';
 import { applyCommitteeInfo, applyDocuments, applyEffectiveness, FEATURED_COMMITTEES, } from './committee-helpers.js';
 import { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent, buildPoliticalAlignmentSection, } from './motions-content.js';
 import { buildPropositionsContent } from './propositions-content.js';

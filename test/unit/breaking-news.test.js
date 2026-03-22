@@ -1017,10 +1017,10 @@ describe('scoreBreakingNewsSignificance', () => {
       procedures: [{ id: 'P-1', title: 'Proc', date: '2025-01-15' }],
       mepUpdates: [],
     };
-    // procedure with no stage should contribute non-final points (10)
+    // procedure with no stage should contribute 0 points (missing stage → 0)
     const score = scoreBreakingNewsSignificance(feedData);
-    expect(score.legislativeStageScore).toBe(10);
-    expect(score.overallScore).toBeGreaterThan(0);
+    expect(score.legislativeStageScore).toBe(0);
+    expect(score.overallScore).toBe(0);
   });
 
   it('should recognise trilogue as a final stage', () => {

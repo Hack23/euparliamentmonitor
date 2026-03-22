@@ -78,7 +78,11 @@ import {
   computeWeekPoliticalTemperature,
 } from './week-ahead-content.js';
 
-import { buildBreakingNewsContent, scoreBreakingNewsSignificance, SIGNIFICANCE_THRESHOLD } from './breaking-content.js';
+import {
+  buildBreakingNewsContent,
+  scoreBreakingNewsSignificance,
+  SIGNIFICANCE_THRESHOLD,
+} from './breaking-content.js';
 
 import {
   applyCommitteeInfo,

@@ -22,7 +22,11 @@ import {
   fetchCoalitionDynamics,
   loadFeedDataFromFile,
 } from '../pipeline/fetch-stage.js';
-import { buildBreakingNewsContent, scoreBreakingNewsSignificance } from '../breaking-content.js';
+import {
+  buildBreakingNewsContent,
+  scoreBreakingNewsSignificance,
+  SIGNIFICANCE_THRESHOLD,
+} from '../breaking-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import {
   buildBreakingAnalysis,
@@ -303,7 +307,9 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
     const keywords = buildBreakingKeywords(data.feedData);
     if (data.feedData) {
       const score = scoreBreakingNewsSignificance(data.feedData);
-      keywords.push(`significance:${score.overallScore}`);
+      if (score.overallScore >= SIGNIFICANCE_THRESHOLD) {
+        keywords.push(`significance:${score.overallScore}`);
+      }
     }
     return {
       title,

@@ -190,6 +190,30 @@ describe('BreakingNewsStrategy', () => {
     const de = strategy.getMetadata(breakingNewsData, 'de');
     expect(en.title).not.toBe(de.title);
   });
+
+  it('getMetadata includes significance keyword when feedData is present and score meets threshold', () => {
+    const meta = strategy.getMetadata(breakingNewsData, 'en');
+    const sigKeyword = meta.keywords.find((k) => k.startsWith('significance:'));
+    expect(sigKeyword).toBeDefined();
+    expect(sigKeyword).toMatch(/^significance:\d+$/);
+  });
+
+  it('getMetadata omits significance keyword when feedData is undefined', () => {
+    const noFeedData = { ...breakingNewsData, feedData: undefined };
+    const meta = strategy.getMetadata(noFeedData, 'en');
+    const sigKeyword = meta.keywords.find((k) => k.startsWith('significance:'));
+    expect(sigKeyword).toBeUndefined();
+  });
+
+  it('getMetadata omits significance keyword when score is below threshold', () => {
+    const emptyFeedData = {
+      ...breakingNewsData,
+      feedData: { adoptedTexts: [], events: [], procedures: [], mepUpdates: [] },
+    };
+    const meta = strategy.getMetadata(emptyFeedData, 'en');
+    const sigKeyword = meta.keywords.find((k) => k.startsWith('significance:'));
+    expect(sigKeyword).toBeUndefined();
+  });
 });
 
 // ─── CommitteeReportsStrategy tests ──────────────────────────────────────────

@@ -28,7 +28,8 @@ import type {
 
 /**
  * Minimum significance score for a breaking news item to be considered
- * worth rendering. Items below this threshold are filtered out.
+ * noteworthy. Items below this threshold may be suppressed from metadata
+ * keywords by the strategy layer.
  */
 export const SIGNIFICANCE_THRESHOLD = 10;
 
@@ -69,10 +70,12 @@ export function scoreBreakingNewsSignificance(
   // Affected MEPs: each update adds 10 pts, capped at 100
   const affectedMEPsScore = Math.min((item.mepUpdates?.length ?? 0) * 10, MAX_SUB_SCORE);
 
-  // Legislative stage: procedures at a "final" stage contribute 25 pts each, others 10 pts
+  // Legislative stage: procedures at a "final" stage contribute 25 pts each,
+  // procedures with a known non-final stage contribute 10 pts, missing stage → 0.
   const procedures = item.procedures ?? [];
   const stagePoints = procedures.reduce((sum, proc) => {
     const stage = proc.stage ?? '';
+    if (!stage) return sum;
     return sum + (FINAL_STAGE_PATTERN.test(stage) ? 25 : 10);
   }, 0);
   const legislativeStageScore = Math.min(stagePoints, MAX_SUB_SCORE);
@@ -82,9 +85,9 @@ export function scoreBreakingNewsSignificance(
 
   const overallScore = Math.round(
     adoptedTextsScore * ADOPTED_TEXTS_WEIGHT +
-    affectedMEPsScore * AFFECTED_MEPS_WEIGHT +
-    legislativeStageScore * LEGISLATIVE_STAGE_WEIGHT +
-    committeeInvolvementScore * COMMITTEE_INVOLVEMENT_WEIGHT
+      affectedMEPsScore * AFFECTED_MEPS_WEIGHT +
+      legislativeStageScore * LEGISLATIVE_STAGE_WEIGHT +
+      committeeInvolvementScore * COMMITTEE_INVOLVEMENT_WEIGHT
   );
 
   return {
