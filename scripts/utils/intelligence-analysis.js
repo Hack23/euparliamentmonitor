@@ -559,10 +559,11 @@ function avg(values) {
 }
 /**
  * Extract valid vote margins and result tallies from voting records.
- * Skips records with missing/malformed vote data, non-finite vote counts,
- * or where for + against is zero (abstain-only votes) to avoid skewing
- * margin and polarization calculations. Uses asNum() for defensive parsing
- * of vote counts to coerce numeric strings and similar API encodings.
+ * Skips records with missing/malformed vote data, non-finite or negative
+ * vote counts, or where for + against is zero (abstain-only votes) to avoid
+ * skewing margin and polarization calculations. Only records where
+ * `votes.for` and `votes.against` are finite, non-negative numbers are used;
+ * numeric-string encodings and other non-numeric values are ignored.
  *
  * @param records - Voting records to process
  * @returns Object containing margins array and per-record result classifications
@@ -921,7 +922,7 @@ export function buildLegislativeVelocityReport(docs) {
     const bottleneckCount = countBottleneckStages(Object.values(stageBreakdown));
     const dates = docs
         .map((d) => (d.date ? new Date(d.date).getTime() : NaN))
-        .filter((t) => !isNaN(t));
+        .filter((t) => !Number.isNaN(t));
     const hasDateData = dates.length >= 2;
     const averageDaysPerStage = computeDaysPerStage(dates, Object.keys(stageBreakdown).length);
     return {
