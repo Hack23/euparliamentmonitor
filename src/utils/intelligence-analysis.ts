@@ -1002,18 +1002,22 @@ export function buildLegislativeVelocityReport(
   if (docs.length === 0) {
     return {
       documentCount: 0,
-      stageBreakdown: {},
+      stageBreakdown: Object.create(null) as Record<string, number>,
       averageDaysPerStage: 0,
       bottleneckCount: 0,
       throughputAssessment: assessThroughput(false, 0),
     };
   }
 
-  const stageBreakdown: Record<string, number> = {};
+  const stageBreakdown: Record<string, number> = Object.create(null) as Record<string, number>;
   for (const doc of docs) {
     const status = typeof doc.status === 'string' ? doc.status.trim() : '';
     const type = typeof doc.type === 'string' ? doc.type.trim() : '';
-    const stage = status || type || 'Unknown';
+    const rawStage = status || type || 'Unknown';
+    const stage =
+      rawStage === '__proto__' || rawStage === 'constructor' || rawStage === 'prototype'
+        ? 'Unknown'
+        : rawStage;
     stageBreakdown[stage] = (stageBreakdown[stage] ?? 0) + 1;
   }
 

@@ -900,17 +900,20 @@ export function buildLegislativeVelocityReport(docs) {
     if (docs.length === 0) {
         return {
             documentCount: 0,
-            stageBreakdown: {},
+            stageBreakdown: Object.create(null),
             averageDaysPerStage: 0,
             bottleneckCount: 0,
             throughputAssessment: assessThroughput(false, 0),
         };
     }
-    const stageBreakdown = {};
+    const stageBreakdown = Object.create(null);
     for (const doc of docs) {
         const status = typeof doc.status === 'string' ? doc.status.trim() : '';
         const type = typeof doc.type === 'string' ? doc.type.trim() : '';
-        const stage = status || type || 'Unknown';
+        const rawStage = status || type || 'Unknown';
+        const stage = rawStage === '__proto__' || rawStage === 'constructor' || rawStage === 'prototype'
+            ? 'Unknown'
+            : rawStage;
         stageBreakdown[stage] = (stageBreakdown[stage] ?? 0) + 1;
     }
     const bottleneckCount = countBottleneckStages(Object.values(stageBreakdown));
