@@ -651,12 +651,15 @@ function extractMarginData(records: readonly VotingRecord[]): {
     const votes = r.votes;
     if (!votes || typeof votes !== 'object') continue;
 
-    const forNum = asNum(votes.for);
-    const againstNum = asNum(votes.against);
-    const forAgainstTotal = forNum + againstNum;
+    const forRaw = votes.for;
+    const againstRaw = votes.against;
+    if (typeof forRaw !== 'number' || !Number.isFinite(forRaw)) continue;
+    if (typeof againstRaw !== 'number' || !Number.isFinite(againstRaw)) continue;
+
+    const forAgainstTotal = forRaw + againstRaw;
     if (forAgainstTotal <= 0) continue;
 
-    margins.push(Math.abs(forNum - againstNum) / forAgainstTotal);
+    margins.push(Math.abs(forRaw - againstRaw) / forAgainstTotal);
     const result = asStr(r.result).toLowerCase();
     if (result === 'adopted' || result === 'approved') adoptedCount++;
     if (result === 'rejected') rejectedCount++;
@@ -777,7 +780,7 @@ export function detectVotingTrends(records: readonly VotingRecord[]): VotingTren
       description: `Adoption rate is ${Math.round(adoptionRate * 100)}% across ${totalDecided} decided votes`,
       direction: adoptionDirection(adoptionRate),
       confidence: Math.min(1, Math.round((totalDecided / margins.length) * 100) / 100),
-      recordCount: margins.length,
+      recordCount: totalDecided,
       metricValue: Math.round(adoptionRate * 100) / 100,
     });
   }
@@ -981,8 +984,9 @@ export function buildLegislativeVelocityReport(
 
   const stageBreakdown: Record<string, number> = {};
   for (const doc of docs) {
-    const rawStage = asStr(doc.status ?? doc.type);
-    const stage = rawStage.trim() || 'Unknown';
+    const status = typeof doc.status === 'string' ? doc.status.trim() : '';
+    const type = typeof doc.type === 'string' ? doc.type.trim() : '';
+    const stage = status || type || 'Unknown';
     stageBreakdown[stage] = (stageBreakdown[stage] ?? 0) + 1;
   }
 
