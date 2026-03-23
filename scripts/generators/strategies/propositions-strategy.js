@@ -6,9 +6,10 @@ import { PROPOSITIONS_TITLES, PROPOSITIONS_STRINGS, getLocalizedString, } from '
 import { computeRollingDateRange, fetchProposalsFromMCP, fetchPipelineFromMCP, fetchProcedureStatusFromMCP, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
 import { buildPropositionsContent } from '../propositions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildPropositionsAnalysis, buildPropositionsSwot, buildPropositionsDashboard, } from '../analysis-builders.js';
+import { buildPropositionsAnalysis, buildPropositionsSwot, buildPropositionsDashboard, buildPropositionsMindmap, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** Base keywords shared by all Propositions articles */
 const PROPOSITIONS_BASE_KEYWORDS = [
@@ -211,11 +212,13 @@ export class PropositionsStrategy {
         const base = buildPropositionsContent(data.proposalsHtml, data.adoptedTextsHtml, data.pipelineData, data.procedureHtml, strings, lang);
         const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date, lang, data.adoptedTextsHtml);
         const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        const mindmapData = buildPropositionsMindmap(data.pipelineData, lang);
+        const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
         const swotData = buildPropositionsSwot(data.pipelineData, lang);
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildPropositionsDashboard(data.pipelineData, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
-        const injection = deepSection + swotSection + dashboardSection;
+        const injection = deepSection + mindmapSection + swotSection + dashboardSection;
         // Inject before the closing </div> of .article-content
         if (injection) {
             const closingTag = '</div>';

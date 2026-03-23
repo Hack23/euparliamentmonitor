@@ -5,9 +5,10 @@ import { BREAKING_NEWS_TITLES, getLocalizedString } from '../../constants/langua
 import { fetchBreakingNewsFeedData, fetchVotingAnomalies, fetchCoalitionDynamics, loadFeedDataFromFile, } from '../pipeline/fetch-stage.js';
 import { buildBreakingNewsContent, scoreBreakingNewsSignificance, SIGNIFICANCE_THRESHOLD, } from '../breaking-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, } from '../analysis-builders.js';
+import { buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, buildBreakingMindmap, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** Base keywords shared by all Breaking News articles */
 const BREAKING_NEWS_BASE_KEYWORDS = [
@@ -193,11 +194,13 @@ export class BreakingNewsStrategy {
         const base = buildBreakingNewsContent(data.date, data.anomalyRaw, data.coalitionRaw, data.reportRaw, '', lang, [], [], [], data.feedData);
         const analysis = buildBreakingAnalysis(data.date, data.feedData, data.anomalyRaw, data.coalitionRaw, lang);
         const deepSection = buildDeepAnalysisSection(analysis, lang);
+        const mindmapData = buildBreakingMindmap(data.feedData, lang);
+        const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
         const swotData = buildBreakingSwot(data.feedData, data.anomalyRaw, data.coalitionRaw, lang);
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildBreakingDashboard(data.feedData, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
-        const injection = deepSection + swotSection + dashboardSection;
+        const injection = deepSection + mindmapSection + swotSection + dashboardSection;
         // Inject before the closing </div> of .article-content
         if (injection) {
             const closingTag = '</div>';

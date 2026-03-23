@@ -32,9 +32,11 @@ import {
   buildBreakingAnalysis,
   buildBreakingSwot,
   buildBreakingDashboard,
+  buildBreakingMindmap,
 } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 
@@ -274,11 +276,13 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       lang
     );
     const deepSection = buildDeepAnalysisSection(analysis, lang);
+    const mindmapData = buildBreakingMindmap(data.feedData, lang);
+    const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
     const swotData = buildBreakingSwot(data.feedData, data.anomalyRaw, data.coalitionRaw, lang);
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildBreakingDashboard(data.feedData, lang);
     const dashboardSection = buildDashboardSection(dashboardData, lang);
-    const injection = deepSection + swotSection + dashboardSection;
+    const injection = deepSection + mindmapSection + swotSection + dashboardSection;
     // Inject before the closing </div> of .article-content
     if (injection) {
       const closingTag = '</div>';

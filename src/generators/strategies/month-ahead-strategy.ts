@@ -20,9 +20,11 @@ import {
   buildProspectiveAnalysis,
   buildProspectiveSwot,
   buildProspectiveDashboard,
+  buildProspectiveMindmap,
 } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 
@@ -190,13 +192,15 @@ export class MonthAheadStrategy implements ArticleStrategy<MonthAheadArticleData
     const base = buildWeekAheadContent(data.monthData, data.dateRange, lang);
     const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month');
     const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
+    const mindmapData = buildProspectiveMindmap(data.monthData, lang);
+    const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
     const swotData = buildProspectiveSwot(data.monthData, 'month', lang);
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildProspectiveDashboard(data.monthData, 'month', lang);
     const dashboardSection = buildDashboardSection(dashboardData, lang);
     return base.replace(
       '<!-- /article-content -->',
-      analysisSection + swotSection + dashboardSection
+      analysisSection + mindmapSection + swotSection + dashboardSection
     );
   }
 

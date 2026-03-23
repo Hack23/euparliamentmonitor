@@ -6,9 +6,10 @@ import { computeRollingDateRange, fetchCommitteeData, fetchEPFeedData, } from '.
 import { FEATURED_COMMITTEES, isPlaceholderCommitteeData, PLACEHOLDER_CHAIR, PLACEHOLDER_MEMBERS, } from '../committee-helpers.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildCommitteeAnalysis, buildCommitteeSwot, buildCommitteeDashboard, } from '../analysis-builders.js';
+import { buildCommitteeAnalysis, buildCommitteeSwot, buildCommitteeDashboard, buildCommitteeMindmap, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** European Parliament home-page URL used as source reference */
 const EP_SOURCE_URL = 'https://www.europarl.europa.eu';
@@ -369,11 +370,13 @@ export class CommitteeReportsStrategy {
         const feedSection = buildAdoptedTextsSection(data.feedData, lang);
         const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date, lang);
         const deepSection = buildDeepAnalysisSection(analysis, lang);
+        const mindmapData = buildCommitteeMindmap(data.committeeDataList, lang);
+        const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
         const swotData = buildCommitteeSwot(data.committeeDataList, lang);
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildCommitteeDashboard(data.committeeDataList, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
-        const injection = feedSection + deepSection + swotSection + dashboardSection;
+        const injection = feedSection + deepSection + mindmapSection + swotSection + dashboardSection;
         // Inject before the closing </div> of .article-content
         if (injection) {
             const closingTag = '</div>';

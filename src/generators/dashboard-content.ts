@@ -39,6 +39,7 @@ import type {
   LegislativePipeline,
   TrendAnalytics,
   StakeholderMetric,
+  EconomicContext,
 } from '../types/index.js';
 
 // ─── Sub-section builders ────────────────────────────────────────────────────
@@ -675,4 +676,64 @@ export function buildDashboardSection(
 export function dashboardHasCharts(config: DashboardConfig | null | undefined): boolean {
   if (!config) return false;
   return config.panels.some((panel) => panel.chart !== undefined);
+}
+
+/**
+ * Build a dashboard panel from World Bank economic context data.
+ *
+ * Generates a bar chart showing key economic indicators for a country
+ * alongside metric cards for each indicator, enriching articles with
+ * macroeconomic context relevant to EU Parliament policy analysis.
+ *
+ * @param context - Economic context data from World Bank MCP
+ * @returns Dashboard panel configuration or null if data is insufficient
+ */
+export function buildEconomicContextPanel(
+  context: EconomicContext | null | undefined
+): DashboardPanel | null {
+  if (!context?.indicators || context.indicators.length === 0) return null;
+
+  const validIndicators = context.indicators.filter(
+    (ind) => ind.value !== null && ind.value !== undefined && Number.isFinite(ind.value)
+  );
+  if (validIndicators.length === 0) return null;
+
+  const metrics: DashboardMetric[] = validIndicators.slice(0, 6).map((ind) => {
+    const labelYearSuffix = ind.year !== undefined && ind.year !== null ? ` (${ind.year})` : '';
+    return {
+      label: `${ind.name}${labelYearSuffix}`,
+      value: ind.formatted,
+      unit: '',
+    };
+  });
+
+  // Only chart indicators with comparable units (percentages) to avoid
+  // mixing incompatible scales (e.g. GDP in $ alongside inflation in %).
+  // Percentage indicators (growth rates, inflation, unemployment) share a
+  // common axis; absolute-value indicators still appear in the metrics cards.
+  const pctIndicators = validIndicators.filter((ind) => ind.formatted.includes('%'));
+  const chartIndicators = pctIndicators.length > 0 ? pctIndicators.slice(0, 6) : [];
+
+  const chart: ChartConfig | undefined =
+    chartIndicators.length > 0
+      ? {
+          type: 'bar',
+          title: `${context.countryName} — Economic Rates (%)`,
+          data: {
+            labels: chartIndicators.map((ind) => ind.name),
+            datasets: [
+              {
+                label: context.countryName,
+                data: chartIndicators.map((ind) => ind.value ?? 0),
+              },
+            ],
+          },
+        }
+      : undefined;
+
+  return {
+    title: `Economic Context: ${context.countryName}`,
+    metrics,
+    ...(chart ? { chart } : {}),
+  };
 }

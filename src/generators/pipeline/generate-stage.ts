@@ -126,8 +126,8 @@ function generateSingleLanguageArticle(
   // Enrich metadata by analysing the actual rendered content.
   // This produces insightful titles, descriptions, and keywords
   // that reflect the article's coverage — not generic template text.
-  // Title/description enrichment is English-only to avoid overriding
-  // the strategies' localised metadata (their `lang === 'en'` gating).
+  // Title/description enrichment is English-only because the heuristics
+  // (statistic extraction, generic-heading filter) use English keywords.
   // Language-agnostic keyword additions (committee abbreviations, etc.)
   // are preserved for all languages.
   const enrichedMetadata = enrichMetadataFromContent(content, baseMetadata);

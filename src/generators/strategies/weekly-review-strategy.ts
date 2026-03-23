@@ -33,9 +33,11 @@ import {
   buildVotingAnalysis,
   buildVotingSwot,
   buildVotingDashboard,
+  buildVotingMindmap,
 } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 
@@ -261,6 +263,13 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
         ? buildAdoptedTextsSection(data.feedData.adoptedTexts, lang)
         : '';
 
+    const mindmapData = buildVotingMindmap(
+      data.votingRecords,
+      data.votingPatterns,
+      data.anomalies,
+      lang
+    );
+    const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
     const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildVotingDashboard(
@@ -272,7 +281,7 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
     const dashboardSection = buildDashboardSection(dashboardData, lang);
     return base.replace(
       '<!-- /article-content -->',
-      adoptedTextsHtml + deepSection + swotSection + dashboardSection
+      adoptedTextsHtml + deepSection + mindmapSection + swotSection + dashboardSection
     );
   }
 
