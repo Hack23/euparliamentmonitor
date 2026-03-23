@@ -5,9 +5,10 @@ import { WEEK_AHEAD_TITLES, getLocalizedString } from '../../constants/languages
 import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { buildWeekAheadContent, buildKeywords, buildWhatToWatchSection, } from '../week-ahead-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, } from '../analysis-builders.js';
+import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, buildProspectiveMindmap, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { pl } from '../../utils/metadata-utils.js';
 // ─── Date-range helper ────────────────────────────────────────────────────────
 /**
@@ -133,6 +134,8 @@ export class WeekAheadStrategy {
         const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
         const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
         const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        const mindmapData = buildProspectiveMindmap(data.weekData, lang);
+        const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
         const swotData = buildProspectiveSwot(data.weekData, 'week', lang);
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildProspectiveDashboard(data.weekData, 'week', lang);
@@ -140,7 +143,7 @@ export class WeekAheadStrategy {
         // Inject at the explicit <!-- /article-content --> marker position so the
         // section stays inside the .article-content styling scope. The marker is
         // removed from the final HTML output to avoid unnecessary bytes.
-        const injection = (watchSection || '') + analysisSection + swotSection + dashboardSection;
+        const injection = (watchSection || '') + analysisSection + mindmapSection + swotSection + dashboardSection;
         if (injection) {
             return base.replace('<!-- /article-content -->', injection);
         }

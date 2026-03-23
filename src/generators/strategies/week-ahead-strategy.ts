@@ -23,9 +23,11 @@ import {
   buildProspectiveAnalysis,
   buildProspectiveSwot,
   buildProspectiveDashboard,
+  buildProspectiveMindmap,
 } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 
@@ -190,6 +192,8 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
     const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
     const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
+    const mindmapData = buildProspectiveMindmap(data.weekData, lang);
+    const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
     const swotData = buildProspectiveSwot(data.weekData, 'week', lang);
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildProspectiveDashboard(data.weekData, 'week', lang);
@@ -197,7 +201,8 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     // Inject at the explicit <!-- /article-content --> marker position so the
     // section stays inside the .article-content styling scope. The marker is
     // removed from the final HTML output to avoid unnecessary bytes.
-    const injection = (watchSection || '') + analysisSection + swotSection + dashboardSection;
+    const injection =
+      (watchSection || '') + analysisSection + mindmapSection + swotSection + dashboardSection;
     if (injection) {
       return base.replace('<!-- /article-content -->', injection);
     }

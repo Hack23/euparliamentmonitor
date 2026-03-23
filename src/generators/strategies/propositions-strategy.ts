@@ -30,9 +30,11 @@ import {
   buildPropositionsAnalysis,
   buildPropositionsSwot,
   buildPropositionsDashboard,
+  buildPropositionsMindmap,
 } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { PipelineData } from '../propositions-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
@@ -294,11 +296,13 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
       data.adoptedTextsHtml
     );
     const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+    const mindmapData = buildPropositionsMindmap(data.pipelineData, lang);
+    const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
     const swotData = buildPropositionsSwot(data.pipelineData, lang);
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildPropositionsDashboard(data.pipelineData, lang);
     const dashboardSection = buildDashboardSection(dashboardData, lang);
-    const injection = deepSection + swotSection + dashboardSection;
+    const injection = deepSection + mindmapSection + swotSection + dashboardSection;
     // Inject before the closing </div> of .article-content
     if (injection) {
       const closingTag = '</div>';

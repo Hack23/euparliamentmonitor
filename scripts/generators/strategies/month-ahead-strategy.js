@@ -5,9 +5,10 @@ import { MONTH_AHEAD_TITLES, getLocalizedString } from '../../constants/language
 import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { buildWeekAheadContent, buildKeywords } from '../week-ahead-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, } from '../analysis-builders.js';
+import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, buildProspectiveMindmap, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** Keywords shared by all Month Ahead articles */
 const MONTH_AHEAD_KEYWORDS = [
@@ -137,11 +138,13 @@ export class MonthAheadStrategy {
         const base = buildWeekAheadContent(data.monthData, data.dateRange, lang);
         const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month');
         const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        const mindmapData = buildProspectiveMindmap(data.monthData, lang);
+        const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
         const swotData = buildProspectiveSwot(data.monthData, 'month', lang);
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildProspectiveDashboard(data.monthData, 'month', lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
-        return base.replace('<!-- /article-content -->', analysisSection + swotSection + dashboardSection);
+        return base.replace('<!-- /article-content -->', analysisSection + mindmapSection + swotSection + dashboardSection);
     }
     /**
      * Return language-specific metadata for the month-ahead article.
