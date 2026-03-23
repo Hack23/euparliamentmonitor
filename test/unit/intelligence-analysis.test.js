@@ -1308,6 +1308,31 @@ describe('computeCrossSessionCoalitionStability', () => {
     expect(result.stableGroups).toContain('EPP'); // avg 0.8
     expect(result.overallStability).toBe(0.8);
   });
+
+  it('should handle non-finite/out-of-range cohesion values via clamping', () => {
+    const patterns = [
+      { group: 'X', cohesion: 5.0, participation: 0.5 },
+      { group: 'Y', cohesion: -2.0, participation: 0.5 },
+      { group: 'Z', cohesion: 'invalid', participation: 0.5 },
+    ];
+    const result = computeCrossSessionCoalitionStability(patterns);
+    // cohesion 5.0 clamped to 1.0 → stable; -2.0 clamped to 0.0 → declining; 'invalid' → asNum → 0 → clamped 0 → declining
+    expect(result.stableGroups).toContain('X');
+    expect(result.decliningGroups).toContain('Y');
+    expect(result.decliningGroups).toContain('Z');
+  });
+
+  it('should skip patterns with empty/missing group key', () => {
+    const patterns = [
+      { group: '', cohesion: 0.9, participation: 0.9 },
+      { group: null, cohesion: 0.8, participation: 0.8 },
+      { group: 'EPP', cohesion: 0.75, participation: 0.7 },
+    ];
+    const result = computeCrossSessionCoalitionStability(patterns);
+    expect(result.stableGroups).toEqual(['EPP']);
+    // Empty/null groups should be excluded
+    expect(result.decliningGroups).toEqual([]);
+  });
 });
 
 // ─── rankMEPInfluenceByTopic ─────────────────────────────────────────────────
@@ -1372,6 +1397,16 @@ describe('rankMEPInfluenceByTopic', () => {
 
     const result2 = rankMEPInfluenceByTopic(scores, undefined);
     expect(result2).toHaveLength(3);
+  });
+
+  it('should handle non-string mepName/rank/mepId without throwing', () => {
+    const malformedScores = [
+      { mepId: 123, mepName: null, overallScore: 80, votingActivity: 70, legislativeOutput: 85, committeeEngagement: 75, rank: undefined },
+      { mepId: 'MEP-2', mepName: 'Bob Fischer', overallScore: 'not-a-number', votingActivity: 85, legislativeOutput: 90, committeeEngagement: 80, rank: 'trade' },
+    ];
+    const result = rankMEPInfluenceByTopic(malformedScores, 'trade');
+    expect(result.length).toBeGreaterThan(0);
+    // Should not throw, even with non-string fields
   });
 });
 
@@ -1464,5 +1499,16 @@ describe('buildLegislativeVelocityReport', () => {
     expect(result.averageDaysPerStage).toBe(0);
     // Insufficient date data: throughput should be 'normal' (unknown), not 'fast'
     expect(result.throughputAssessment).toBe('normal');
+  });
+
+  it('should handle non-string status/type via asStr coercion', () => {
+    const docs = [
+      { title: 'A', status: 123, type: null },
+      { title: 'B', status: undefined, type: 456 },
+    ];
+    const result = buildLegislativeVelocityReport(docs);
+    expect(result.documentCount).toBe(2);
+    // Non-string status/type should be coerced, not throw
+    expect(Object.keys(result.stageBreakdown).length).toBeGreaterThan(0);
   });
 });

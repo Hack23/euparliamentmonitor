@@ -806,14 +806,18 @@ export function computeCrossSessionCoalitionStability(
     };
   }
 
-  // Aggregate cohesion per group
+  // Aggregate cohesion per group, coercing and clamping to [0, 1]
   const groupCohesions = new Map<string, number[]>();
   for (const p of patterns) {
-    const existing = groupCohesions.get(p.group);
+    const groupKey = asStr(p.group).trim();
+    if (groupKey.length === 0) continue;
+    const raw = asNum(p.cohesion);
+    const clamped = Math.max(0, Math.min(1, raw));
+    const existing = groupCohesions.get(groupKey);
     if (existing) {
-      existing.push(p.cohesion);
+      existing.push(clamped);
     } else {
-      groupCohesions.set(p.group, [p.cohesion]);
+      groupCohesions.set(groupKey, [clamped]);
     }
   }
 
@@ -873,21 +877,28 @@ export function rankMEPInfluenceByTopic(
     .toLowerCase()
     .trim();
 
+  const getSafeScore = (entry: MEPInfluenceScore): number => {
+    const raw = asNum(entry.overallScore);
+    return Number.isFinite(raw) ? raw : 0;
+  };
+
   // If topic is empty, return all sorted by score
   if (lowerTopic.length === 0) {
-    return [...scores].sort((a, b) => b.overallScore - a.overallScore);
+    return [...scores].sort((a, b) => getSafeScore(b) - getSafeScore(a));
   }
 
-  const matched = scores.filter(
-    (s) =>
-      s.mepName.toLowerCase().includes(lowerTopic) ||
-      s.rank.toLowerCase().includes(lowerTopic) ||
-      s.mepId.toLowerCase().includes(lowerTopic)
-  );
+  const matched = scores.filter((s) => {
+    const safeName = typeof s.mepName === 'string' ? s.mepName.toLowerCase() : '';
+    const safeRank = typeof s.rank === 'string' ? s.rank.toLowerCase() : '';
+    const safeId = typeof s.mepId === 'string' ? s.mepId.toLowerCase() : '';
+    return (
+      safeName.includes(lowerTopic) || safeRank.includes(lowerTopic) || safeId.includes(lowerTopic)
+    );
+  });
 
   // If no matches, return all sorted
   const pool = matched.length > 0 ? matched : [...scores];
-  return pool.sort((a, b) => b.overallScore - a.overallScore);
+  return pool.sort((a, b) => getSafeScore(b) - getSafeScore(a));
 }
 
 /**
@@ -915,7 +926,8 @@ export function buildLegislativeVelocityReport(
   let bottleneckCount = 0;
 
   for (const doc of docs) {
-    const stage = (doc.status ?? doc.type ?? 'Unknown').trim() || 'Unknown';
+    const rawStage = asStr(doc.status ?? doc.type);
+    const stage = rawStage.trim() || 'Unknown';
     stageBreakdown[stage] = (stageBreakdown[stage] ?? 0) + 1;
   }
 
