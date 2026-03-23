@@ -769,7 +769,7 @@ export function computeCrossSessionCoalitionStability(patterns) {
 }
 /**
  * Rank MEP influence scores filtered by topic relevance.
- * Matches scores whose mepName or rank contains the topic substring
+ * Matches scores whose mepName, mepId, or rank contains the topic substring
  * (case-insensitive). Returns the filtered list sorted by overallScore
  * descending. If topic is empty or no matches found, returns all scores
  * sorted by overallScore.

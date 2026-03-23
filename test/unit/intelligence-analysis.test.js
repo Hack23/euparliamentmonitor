@@ -1502,14 +1502,14 @@ describe('buildLegislativeVelocityReport', () => {
     expect(result.throughputAssessment).toBe('normal');
   });
 
-  it('should handle non-string status/type via asStr coercion', () => {
+  it('should handle non-string status/type by treating them as unknown stages without throwing', () => {
     const docs = [
       { title: 'A', status: 123, type: null },
       { title: 'B', status: undefined, type: 456 },
     ];
     const result = buildLegislativeVelocityReport(docs);
     expect(result.documentCount).toBe(2);
-    // Non-string status/type should be coerced, not throw
+    // Non-string status/type should not throw; they are treated as unknown stages
     expect(Object.keys(result.stageBreakdown).length).toBeGreaterThan(0);
   });
 });
