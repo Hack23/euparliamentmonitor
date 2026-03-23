@@ -664,7 +664,11 @@ function buildPolarizationTrend(firstHalf, secondHalf, total) {
 export function detectVotingTrends(records) {
     if (records.length < 2)
         return [];
-    const sorted = [...records].sort((a, b) => new Date(a.date || '').getTime() - new Date(b.date || '').getTime());
+    const toTimestamp = (d) => {
+        const t = Date.parse(d ?? '');
+        return Number.isFinite(t) ? t : Infinity;
+    };
+    const sorted = [...records].sort((a, b) => toTimestamp(a.date) - toTimestamp(b.date));
     const { margins, adoptedCount, rejectedCount } = extractMarginData(sorted);
     if (margins.length < 2)
         return [];
@@ -693,9 +697,9 @@ export function detectVotingTrends(records) {
     return trends.sort((a, b) => b.confidence - a.confidence);
 }
 /**
- * Compute cross-session coalition stability by analysing cohesion variance
- * across a set of voting patterns. Groups with consistently high cohesion
- * are reported as stable; those with declining or low cohesion are flagged.
+ * Compute cross-session coalition stability by analysing average cohesion
+ * across a set of voting patterns. Groups with high cohesion are reported
+ * as stable; those with low cohesion are flagged.
  *
  * @param patterns - Voting patterns from multiple sessions
  * @returns CoalitionStabilityReport (empty report if no patterns)
