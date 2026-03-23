@@ -1666,3 +1666,519 @@ describe('SWOT and Dashboard integration across all strategies', () => {
     expect(content).toMatch(/Tableau de bord/);
   });
 });
+
+// ─── Non-English getMetadata branch coverage ─────────────────────────────────
+// Covers the lang !== 'en' paths in every strategy's getMetadata() method:
+// - suffix is empty → title equals baseTitle (no ' — ' separator)
+// - description falls back to baseSubtitle
+
+describe('getMetadata non-English branches', () => {
+  const nonEnLangs = /** @type {const} */ (['sv', 'fr', 'de', 'ja', 'ar']);
+
+  describe('WeekAheadStrategy', () => {
+    const strategy = new WeekAheadStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(weekAheadData, lang);
+        expect(meta.title).toBeTruthy();
+        // Non-English titles should NOT contain the English suffix separator
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('week-ahead');
+      });
+
+      it(`getMetadata(${lang}) subtitle uses localized base (not English description)`, () => {
+        const enMeta = strategy.getMetadata(weekAheadData, 'en');
+        const meta = strategy.getMetadata(weekAheadData, lang);
+        expect(meta.subtitle).toBeTruthy();
+        // Non-English subtitle differs from English enriched subtitle
+        expect(meta.subtitle).not.toBe(enMeta.subtitle);
+      });
+    }
+  });
+
+  describe('BreakingNewsStrategy', () => {
+    const strategy = new BreakingNewsStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns localized title without English suffix`, () => {
+        const enMeta = strategy.getMetadata(breakingNewsData, 'en');
+        const meta = strategy.getMetadata(breakingNewsData, lang);
+        expect(meta.title).toBeTruthy();
+        // Non-English title should differ from English enriched title
+        expect(meta.title).not.toBe(enMeta.title);
+        expect(meta.category).toBe('breaking');
+      });
+    }
+  });
+
+  describe('CommitteeReportsStrategy', () => {
+    const strategy = new CommitteeReportsStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(committeeReportsData, lang);
+        expect(meta.title).toBeTruthy();
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('committee-reports');
+      });
+    }
+  });
+
+  describe('PropositionsStrategy', () => {
+    const strategy = new PropositionsStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(propositionsData, lang);
+        expect(meta.title).toBeTruthy();
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('propositions');
+      });
+    }
+  });
+
+  describe('MotionsStrategy', () => {
+    const strategy = new MotionsStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(motionsData, lang);
+        expect(meta.title).toBeTruthy();
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('motions');
+      });
+    }
+  });
+
+  describe('MonthAheadStrategy', () => {
+    const strategy = new MonthAheadStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(monthAheadData, lang);
+        expect(meta.title).toBeTruthy();
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('month-ahead');
+      });
+    }
+  });
+
+  describe('WeeklyReviewStrategy', () => {
+    const strategy = new WeeklyReviewStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(weeklyReviewData, lang);
+        expect(meta.title).toBeTruthy();
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('week-in-review');
+      });
+    }
+  });
+
+  describe('MonthlyReviewStrategy', () => {
+    const strategy = new MonthlyReviewStrategy();
+    for (const lang of nonEnLangs) {
+      it(`getMetadata(${lang}) returns baseTitle without suffix`, () => {
+        const meta = strategy.getMetadata(monthlyReviewData, lang);
+        expect(meta.title).toBeTruthy();
+        expect(meta.title).not.toContain('—');
+        expect(meta.category).toBe('month-in-review');
+      });
+    }
+  });
+});
+
+// ─── Empty-data getMetadata edge cases ────────────────────────────────────────
+
+describe('getMetadata with empty data edge cases', () => {
+  it('WeekAheadStrategy: empty weekData yields no suffix', () => {
+    const strategy = new WeekAheadStrategy();
+    const emptyData = {
+      ...weekAheadData,
+      weekData: { events: [], committees: [], documents: [], pipeline: [], questions: [] },
+    };
+    const meta = strategy.getMetadata(emptyData, 'en');
+    expect(meta.title).toBeTruthy();
+    // No suffix when all counts are 0
+    expect(meta.title).not.toContain('—');
+    // Subtitle falls back to generic description
+    expect(meta.subtitle).toBeTruthy();
+  });
+
+  it('MonthAheadStrategy: empty monthData yields no suffix', () => {
+    const strategy = new MonthAheadStrategy();
+    const emptyData = {
+      ...monthAheadData,
+      monthData: { events: [], committees: [], documents: [], pipeline: [], questions: [] },
+    };
+    const meta = strategy.getMetadata(emptyData, 'en');
+    expect(meta.title).toBeTruthy();
+    expect(meta.title).not.toContain('—');
+    expect(meta.subtitle).toBeTruthy();
+  });
+
+  it('MotionsStrategy: empty records yields no suffix', () => {
+    const strategy = new MotionsStrategy();
+    const emptyData = {
+      ...motionsData,
+      votingRecords: [],
+      votingPatterns: [],
+      anomalies: [],
+      questions: [],
+    };
+    const meta = strategy.getMetadata(emptyData, 'en');
+    expect(meta.title).toBeTruthy();
+    expect(meta.title).not.toContain('—');
+  });
+
+  it('WeeklyReviewStrategy: empty records yields no suffix', () => {
+    const strategy = new WeeklyReviewStrategy();
+    const emptyData = {
+      ...weeklyReviewData,
+      votingRecords: [],
+      votingPatterns: [],
+      anomalies: [],
+      questions: [],
+      feedData: undefined,
+    };
+    const meta = strategy.getMetadata(emptyData, 'en');
+    expect(meta.title).toBeTruthy();
+    expect(meta.title).not.toContain('—');
+  });
+
+  it('MonthlyReviewStrategy: empty records yields no suffix', () => {
+    const strategy = new MonthlyReviewStrategy();
+    const emptyData = {
+      ...monthlyReviewData,
+      votingRecords: [],
+      votingPatterns: [],
+      anomalies: [],
+      questions: [],
+    };
+    const meta = strategy.getMetadata(emptyData, 'en');
+    expect(meta.title).toBeTruthy();
+    expect(meta.title).not.toContain('—');
+  });
+
+  it('PropositionsStrategy: empty proposalsHtml yields no suffix', () => {
+    const strategy = new PropositionsStrategy();
+    const emptyData = {
+      ...propositionsData,
+      proposalsHtml: '',
+      adoptedTextsHtml: '',
+      pipelineData: null,
+      procedureHtml: '',
+    };
+    const meta = strategy.getMetadata(emptyData, 'en');
+    expect(meta.title).toBeTruthy();
+    expect(meta.category).toBe('propositions');
+  });
+});
+
+// ─── Enriched-data getMetadata branch coverage ────────────────────────────────
+// Tests the branches for committees > 0, pipeline > 0, questions > 0 in title
+// suffix and description builders.
+
+describe('getMetadata with enriched data (all suffix branches)', () => {
+  it('WeekAheadStrategy: committees and pipeline in suffix', () => {
+    const strategy = new WeekAheadStrategy();
+    const richData = {
+      ...weekAheadData,
+      weekData: {
+        events: [{ date: '2025-01-16', title: 'Plenary Session', type: 'Plenary', description: '' }],
+        committees: [{ name: 'ENVI', date: '2025-01-17' }],
+        documents: [],
+        pipeline: [{ title: 'New Regulation', stage: 'committee' }],
+        questions: [{ author: 'MEP X', topic: 'Budget', date: '2025-01-16' }],
+      },
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('Committee Meeting');
+    expect(meta.title).toContain('Pipeline Item');
+    // Description includes questions too
+    expect(meta.subtitle).toContain('parliamentary question');
+  });
+
+  it('MonthAheadStrategy: committees and pipeline in suffix', () => {
+    const strategy = new MonthAheadStrategy();
+    const richData = {
+      ...monthAheadData,
+      monthData: {
+        events: [{ date: '2025-01-20', title: 'Plenary Session', type: 'Plenary', description: '' }],
+        committees: [{ name: 'ITRE', date: '2025-01-25' }],
+        documents: [],
+        pipeline: [{ title: 'Digital Act', stage: 'plenary' }],
+        questions: [{ author: 'MEP Y', topic: 'Digital', date: '2025-01-22' }],
+      },
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('Committee Meeting');
+    expect(meta.title).toContain('Pipeline Item');
+    expect(meta.subtitle).toContain('parliamentary question');
+  });
+
+  it('PropositionsStrategy: feedData procedures and adopted texts in suffix', () => {
+    const strategy = new PropositionsStrategy();
+    const richData = {
+      ...propositionsData,
+      feedData: {
+        procedures: [{ id: 'P-1', title: 'Procedure A', date: '2025-01-10' }],
+        adoptedTexts: [{ id: 'AT-1', title: 'Adopted Text A', date: '2025-01-12' }],
+        events: [],
+        mepUpdates: [],
+      },
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('Procedure');
+    expect(meta.title).toContain('Adopted Text');
+    // Keywords should include feed data titles
+    expect(meta.keywords).toContain('Procedure A');
+    expect(meta.keywords).toContain('Adopted Text A');
+  });
+
+  it('PropositionsStrategy: pipelineData-only suffix when no feedData procedures', () => {
+    const strategy = new PropositionsStrategy();
+    const pipelineOnlyData = {
+      ...propositionsData,
+      feedData: undefined,
+    };
+    const meta = strategy.getMetadata(pipelineOnlyData, 'en');
+    // With pipelineData healthScore 0.85 and no feed procs, suffix shows Pipeline %
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('Pipeline');
+    expect(meta.subtitle).toContain('pipeline health');
+  });
+
+  it('WeeklyReviewStrategy: feedData adopted texts contribute to suffix', () => {
+    const strategy = new WeeklyReviewStrategy();
+    const meta = strategy.getMetadata(weeklyReviewData, 'en');
+    // weeklyReviewData has 1 adopted text in feedData, 1 voting record, 1 anomaly
+    expect(meta.title).toContain('—');
+    // Keywords should include adopted text title from feed
+    expect(meta.keywords).toContain('Resolution on climate action');
+  });
+
+  it('MotionsStrategy: multiple records and questions in suffix', () => {
+    const strategy = new MotionsStrategy();
+    const richData = {
+      ...motionsData,
+      votingRecords: [
+        { title: 'Budget 2025', date: '2025-01-15', result: 'Adopted', votes: { for: 400, against: 100, abstain: 50 } },
+        { title: 'Energy Act', date: '2025-01-15', result: 'Adopted', votes: { for: 300, against: 200, abstain: 30 } },
+      ],
+      anomalies: [
+        { type: 'Defection', description: 'EPP defection', severity: 'HIGH' },
+        { type: 'Abstention', description: 'S&D abstention spike', severity: 'MEDIUM' },
+      ],
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('2 Votes');
+    expect(meta.title).toContain('2 Anomalies');
+  });
+
+  it('MonthlyReviewStrategy: multiple records in suffix', () => {
+    const strategy = new MonthlyReviewStrategy();
+    const richData = {
+      ...monthlyReviewData,
+      votingRecords: [
+        { title: 'Green Deal Implementation', date: '2025-01-05', result: 'Adopted', votes: { for: 420, against: 80, abstain: 40 } },
+        { title: 'Budget Act', date: '2025-01-07', result: 'Adopted', votes: { for: 350, against: 150, abstain: 30 } },
+      ],
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    expect(meta.title).toContain('—');
+    expect(meta.title).toContain('2 Votes');
+  });
+
+  it('MotionsStrategy: feedData adoptedTexts in keywords and suffix', () => {
+    const strategy = new MotionsStrategy();
+    const richData = {
+      ...motionsData,
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Resolution on AI', date: '2025-01-10' }],
+        events: [],
+        procedures: [],
+        mepUpdates: [],
+      },
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    // Keywords should include adopted text title from feed
+    expect(meta.keywords).toContain('Resolution on AI');
+    // Suffix should include adopted text count
+    expect(meta.title).toContain('Adopted Text');
+    // Description should mention adopted text
+    expect(meta.subtitle).toContain('adopted text');
+  });
+
+  it('CommitteeReportsStrategy: feedData adoptedTexts in keywords and suffix', () => {
+    const strategy = new CommitteeReportsStrategy();
+    const richData = {
+      ...committeeReportsData,
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Climate Regulation', date: '2025-01-10' }],
+        events: [],
+        procedures: [],
+        mepUpdates: [],
+        plenaryDocuments: [],
+        committeeDocuments: [],
+        parliamentaryQuestions: [],
+      },
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    // Keywords should include categorized theme from adopted text
+    expect(meta.keywords.length).toBeGreaterThan(0);
+    // Suffix should include adopted text count
+    expect(meta.title).toContain('Adopted Text');
+    // Description should include adopted text count
+    expect(meta.subtitle).toContain('adopted text');
+  });
+
+  it('CommitteeReportsStrategy: committee without docs yields Active Committee in suffix', () => {
+    const strategy = new CommitteeReportsStrategy();
+    const noDocs = {
+      ...committeeReportsData,
+      committeeDataList: [
+        {
+          name: 'Environment Committee',
+          abbreviation: 'ENVI',
+          chair: 'Jane Doe',
+          members: 42,
+          documents: [],
+          effectiveness: '85 / Rank 2',
+        },
+      ],
+    };
+    const meta = strategy.getMetadata(noDocs, 'en');
+    // With 0 docs and 1 active committee, suffix should say "Active Committee"
+    expect(meta.title).toContain('Active Committee');
+  });
+
+  it('BreakingNewsStrategy: empty feedData array still produces base keywords', () => {
+    const strategy = new BreakingNewsStrategy();
+    const emptyFeed = {
+      ...breakingNewsData,
+      feedData: { adoptedTexts: [], events: [], procedures: [], mepUpdates: [] },
+    };
+    const meta = strategy.getMetadata(emptyFeed, 'en');
+    // With all empty arrays in feedData, the English suffix builder returns ''
+    // but the base title already includes ' — date' from the localized title function
+    expect(meta.keywords).toContain('breaking news');
+    // Description should fallback (counts are empty)
+    expect(meta.subtitle).toContain('breaking developments');
+  });
+
+  it('BreakingNewsStrategy: feedData with only mepUpdates in description', () => {
+    const strategy = new BreakingNewsStrategy();
+    const mepOnlyFeed = {
+      ...breakingNewsData,
+      feedData: {
+        adoptedTexts: [],
+        events: [],
+        procedures: [],
+        mepUpdates: [
+          { id: 'MEP-1', name: 'Alice', date: '2025-01-15' },
+          { id: 'MEP-2', name: 'Bob', date: '2025-01-15' },
+        ],
+      },
+    };
+    const meta = strategy.getMetadata(mepOnlyFeed, 'en');
+    expect(meta.subtitle).toContain('MEP update');
+  });
+
+  it('MonthlyReviewStrategy: keywords include voting records but exclude feedData titles', () => {
+    const strategy = new MonthlyReviewStrategy();
+    const richData = {
+      ...monthlyReviewData,
+      feedData: {
+        adoptedTexts: [{ id: 'AT-1', title: 'Digital Services Act', date: '2025-01-05' }],
+        events: [],
+        procedures: [],
+        mepUpdates: [],
+        plenaryDocuments: [],
+        committeeDocuments: [],
+        parliamentaryQuestions: [],
+      },
+    };
+    const meta = strategy.getMetadata(richData, 'en');
+    // MonthlyReview buildKeywords does not include feedData titles
+    // Keywords should include voting record titles
+    expect(meta.keywords).toContain('Green Deal Implementation');
+    // But should NOT include feedData title since monthly review doesn't use it
+    expect(meta.keywords).not.toContain('Digital Services Act');
+  });
+});
+
+// ─── buildContent with feedData absent (false branch) ─────────────────────────
+
+describe('buildContent feedData absent branches', () => {
+  it('MotionsStrategy: buildContent without feedData omits adopted-texts section', () => {
+    const strategy = new MotionsStrategy();
+    const noFeedData = { ...motionsData, feedData: undefined };
+    const content = strategy.buildContent(noFeedData, 'en');
+    expect(content).toBeTruthy();
+    // Should not have adopted texts section when feedData is undefined
+    expect(content).not.toContain('class="adopted-texts-overview"');
+  });
+
+  it('WeeklyReviewStrategy: buildContent without feedData omits adopted texts section', () => {
+    const strategy = new WeeklyReviewStrategy();
+    const noFeedData = { ...weeklyReviewData, feedData: undefined };
+    const content = strategy.buildContent(noFeedData, 'en');
+    expect(content).toBeTruthy();
+    expect(content).not.toContain('class="adopted-texts-overview"');
+  });
+
+  it('WeeklyReviewStrategy: buildContent with empty adoptedTexts omits section', () => {
+    const strategy = new WeeklyReviewStrategy();
+    const emptyFeedData = {
+      ...weeklyReviewData,
+      feedData: { adoptedTexts: [], events: [], procedures: [], mepUpdates: [] },
+    };
+    const content = strategy.buildContent(emptyFeedData, 'en');
+    expect(content).toBeTruthy();
+    expect(content).not.toContain('class="adopted-texts-overview"');
+  });
+});
+
+// ─── MonthAheadStrategy and WeeklyReviewStrategy fetchData ────────────────────
+
+describe('MonthAheadStrategy.fetchData with null client', () => {
+  it('returns valid payload with dateRange spanning 30 days', async () => {
+    const strategy = new MonthAheadStrategy();
+    const data = await strategy.fetchData(null, '2025-03-01');
+    expect(data.date).toBe('2025-03-01');
+    expect(data.dateRange).toHaveProperty('start');
+    expect(data.dateRange).toHaveProperty('end');
+    const start = new Date(data.dateRange.start);
+    const end = new Date(data.dateRange.end);
+    const diffDays = (end - start) / (1000 * 60 * 60 * 24);
+    expect(diffDays).toBe(30);
+    expect(data.monthLabel).toBeTruthy();
+    expect(data.keywords.length).toBeGreaterThan(0);
+  });
+});
+
+describe('WeeklyReviewStrategy.fetchData with null client', () => {
+  it('returns valid payload with dateRange and placeholder arrays', async () => {
+    const strategy = new WeeklyReviewStrategy();
+    const data = await strategy.fetchData(null, '2025-03-01');
+    expect(data.date).toBe('2025-03-01');
+    expect(data.dateRange).toHaveProperty('start');
+    expect(data.dateRange).toHaveProperty('end');
+    expect(Array.isArray(data.votingRecords)).toBe(true);
+    expect(Array.isArray(data.votingPatterns)).toBe(true);
+    expect(Array.isArray(data.anomalies)).toBe(true);
+  });
+});
+
+describe('MonthlyReviewStrategy.fetchData with null client', () => {
+  it('returns valid payload with dateRange and monthLabel', async () => {
+    const strategy = new MonthlyReviewStrategy();
+    const data = await strategy.fetchData(null, '2025-03-01');
+    expect(data.date).toBe('2025-03-01');
+    expect(data.dateRange).toHaveProperty('start');
+    expect(data.dateRange).toHaveProperty('end');
+    expect(data.monthLabel).toBeTruthy();
+    expect(Array.isArray(data.votingRecords)).toBe(true);
+    expect(Array.isArray(data.anomalies)).toBe(true);
+  });
+});
