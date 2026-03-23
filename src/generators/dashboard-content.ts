@@ -39,8 +39,8 @@ import type {
   LegislativePipeline,
   TrendAnalytics,
   StakeholderMetric,
+  EconomicContext,
 } from '../types/index.js';
-import type { EconomicContext } from '../types/index.js';
 
 // ─── Sub-section builders ────────────────────────────────────────────────────
 

@@ -84,13 +84,13 @@
   function extractMindmapData(container) {
     var center = container.querySelector('.mindmap-center');
     var topic = textOf(center);
-    var branches = container.querySelectorAll('.mindmap-branches > li');
+    var branches = container.querySelectorAll('.mindmap-branches > .mindmap-branch');
     var children = [];
 
     for (var i = 0; i < branches.length; i++) {
-      var branchNode = branches[i].querySelector('.mindmap-branch');
+      var branchNode = branches[i].querySelector('.mindmap-branch-label');
       var label = textOf(branchNode);
-      var leafList = branches[i].querySelector('.mindmap-leaves');
+      var leafList = branches[i].querySelector('.mindmap-leaf-list');
       var leaves = leafList ? leafList.querySelectorAll('li') : [];
       var branchChildren = [];
 
@@ -204,17 +204,17 @@
     /* Domain nodes (depth-1 branches) */
     var branchItems = container.querySelectorAll('.mindmap-layer-1 > li');
     for (var i = 0; i < branchItems.length; i++) {
-      var nodeEl = branchItems[i].querySelector('.intelligence-node');
-      var label = textOf(nodeEl?.querySelector('.node-label'));
+      var nodeEl = branchItems[i].querySelector('.mindmap-intel-node');
+      var label = textOf(nodeEl?.querySelector('.mindmap-intel-label'));
       var nodeId = 'domain-' + i;
       nodes.push({ id: nodeId, label: label, group: 'domain', radius: 14 });
       nodeMap[nodeId] = true;
       links.push({ source: centralId, target: nodeId, strength: 0.8 });
 
       /* Sub-nodes */
-      var subNodes = branchItems[i].querySelectorAll('.intelligence-children .intelligence-node');
+      var subNodes = branchItems[i].querySelectorAll('.mindmap-subnodes .mindmap-intel-node');
       for (var j = 0; j < subNodes.length; j++) {
-        var subLabel = textOf(subNodes[j].querySelector('.node-label'));
+        var subLabel = textOf(subNodes[j].querySelector('.mindmap-intel-label'));
         var subId = nodeId + '-sub-' + j;
         nodes.push({ id: subId, label: subLabel, group: 'sub', radius: 8 });
         nodeMap[subId] = true;
@@ -223,7 +223,7 @@
     }
 
     /* Actor network nodes */
-    var actors = container.querySelectorAll('.actor-card');
+    var actors = container.querySelectorAll('.mindmap-actor');
     for (var k = 0; k < actors.length; k++) {
       var actorName = textOf(actors[k].querySelector('.actor-name'));
       var actorId = 'actor-' + k;
@@ -343,8 +343,8 @@
     var quadrantKeys = ['strengths', 'weaknesses', 'opportunities', 'threats'];
 
     for (var i = 0; i < quadrants.length; i++) {
-      var items = quadrants[i].querySelectorAll('.swot-list li');
-      var heading = textOf(quadrants[i].querySelector('h3'));
+      var items = quadrants[i].querySelectorAll('.swot-list li:not(.swot-empty)');
+      var heading = textOf(quadrants[i].querySelector('h4'));
       swotData.push({
         label: heading || quadrantKeys[i] || 'Q' + (i + 1),
         count: items.length,
@@ -354,7 +354,7 @@
 
     if (swotData.every(function (d) { return d.count === 0; })) return;
 
-    var section = matrix.closest('.swot-section');
+    var section = matrix.closest('.swot-analysis');
     if (!section) return;
 
     var width = Math.min(section.clientWidth || 500, 600);
