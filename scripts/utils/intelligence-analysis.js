@@ -800,6 +800,63 @@ export function rankMEPInfluenceByTopic(scores, topic) {
     return pool.sort((a, b) => getSafeScore(b) - getSafeScore(a));
 }
 /**
+ * Count stages whose document count exceeds 1.5× the average (bottlenecks).
+ *
+ * @param stageValues - Array of per-stage document counts
+ * @returns Number of bottleneck stages
+ */
+function countBottleneckStages(stageValues) {
+    if (stageValues.length === 0)
+        return 0;
+    const avgPerStage = stageValues.reduce((s, v) => s + v, 0) / stageValues.length;
+    let count = 0;
+    for (const val of stageValues) {
+        if (val > avgPerStage * 1.5 && val > 1)
+            count++;
+    }
+    return count;
+}
+/**
+ * Compute average days per stage from a set of valid timestamps and the
+ * number of stages. Returns 0 when fewer than 2 dates are available.
+ *
+ * @param dates - Array of valid timestamp numbers (ms since epoch)
+ * @param stageCount - Number of distinct stages
+ * @returns Estimated average days per stage (rounded)
+ */
+function computeDaysPerStage(dates, stageCount) {
+    if (dates.length < 2 || stageCount <= 0)
+        return 0;
+    let minDate = dates[0];
+    let maxDate = dates[0];
+    for (let i = 1; i < dates.length; i++) {
+        const current = dates[i];
+        if (current < minDate)
+            minDate = current;
+        if (current > maxDate)
+            maxDate = current;
+    }
+    const spanDays = (maxDate - minDate) / (1000 * 60 * 60 * 24);
+    return Math.round(spanDays / stageCount);
+}
+/**
+ * Determine throughput assessment label based on date availability and
+ * average days per stage.
+ *
+ * @param hasDateData - Whether sufficient date data was available
+ * @param avgDays - Average days per stage
+ * @returns Throughput label: 'fast', 'normal', or 'slow'
+ */
+function assessThroughput(hasDateData, avgDays) {
+    if (!hasDateData)
+        return 'normal';
+    if (avgDays <= 30)
+        return 'fast';
+    if (avgDays <= 90)
+        return 'normal';
+    return 'slow';
+}
+/**
  * Build a legislative velocity report with stage-by-stage breakdown from
  * a set of legislative documents. Analyses document status distribution
  * and identifies potential bottlenecks.
@@ -818,55 +875,23 @@ export function buildLegislativeVelocityReport(docs) {
         };
     }
     const stageBreakdown = {};
-    let bottleneckCount = 0;
     for (const doc of docs) {
         const rawStage = asStr(doc.status ?? doc.type);
         const stage = rawStage.trim() || 'Unknown';
         stageBreakdown[stage] = (stageBreakdown[stage] ?? 0) + 1;
     }
-    // Count bottlenecks: stages with disproportionately many documents
-    const stageValues = Object.values(stageBreakdown);
-    const avgPerStage = stageValues.length > 0 ? stageValues.reduce((s, v) => s + v, 0) / stageValues.length : 0;
-    for (const count of stageValues) {
-        if (count > avgPerStage * 1.5 && count > 1) {
-            bottleneckCount++;
-        }
-    }
-    // Estimate average days per stage from date spread
+    const bottleneckCount = countBottleneckStages(Object.values(stageBreakdown));
     const dates = docs
         .map((d) => (d.date ? new Date(d.date).getTime() : NaN))
         .filter((t) => !isNaN(t));
-    let averageDaysPerStage = 0;
     const hasDateData = dates.length >= 2;
-    if (hasDateData) {
-        let minDate = dates[0];
-        let maxDate = dates[0];
-        for (let i = 1; i < dates.length; i++) {
-            const current = dates[i];
-            if (current < minDate)
-                minDate = current;
-            if (current > maxDate)
-                maxDate = current;
-        }
-        const spanDays = (maxDate - minDate) / (1000 * 60 * 60 * 24);
-        const stageCount = Object.keys(stageBreakdown).length;
-        averageDaysPerStage = stageCount > 0 ? Math.round(spanDays / stageCount) : 0;
-    }
-    let throughputAssessment;
-    if (!hasDateData)
-        throughputAssessment = 'normal';
-    else if (averageDaysPerStage <= 30)
-        throughputAssessment = 'fast';
-    else if (averageDaysPerStage <= 90)
-        throughputAssessment = 'normal';
-    else
-        throughputAssessment = 'slow';
+    const averageDaysPerStage = computeDaysPerStage(dates, Object.keys(stageBreakdown).length);
     return {
         documentCount: docs.length,
         stageBreakdown,
         averageDaysPerStage,
         bottleneckCount,
-        throughputAssessment,
+        throughputAssessment: assessThroughput(hasDateData, averageDaysPerStage),
     };
 }
 //# sourceMappingURL=intelligence-analysis.js.map
