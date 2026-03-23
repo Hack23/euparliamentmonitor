@@ -1420,7 +1420,7 @@ describe('buildLegislativeVelocityReport', () => {
     expect(result.stageBreakdown).toEqual({});
     expect(result.averageDaysPerStage).toBe(0);
     expect(result.bottleneckCount).toBe(0);
-    expect(result.throughputAssessment).toBe('slow');
+    expect(result.throughputAssessment).toBe('normal');
   });
 
   it('should count documents by stage using status field', () => {

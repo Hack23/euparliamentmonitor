@@ -871,7 +871,7 @@ export function buildLegislativeVelocityReport(docs) {
             stageBreakdown: {},
             averageDaysPerStage: 0,
             bottleneckCount: 0,
-            throughputAssessment: 'slow',
+            throughputAssessment: assessThroughput(false, 0),
         };
     }
     const stageBreakdown = {};
