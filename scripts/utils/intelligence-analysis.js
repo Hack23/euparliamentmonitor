@@ -574,12 +574,16 @@ function extractMarginData(records) {
         const votes = r.votes;
         if (!votes || typeof votes !== 'object')
             continue;
-        const forCount = asNum(votes.for);
-        const againstCount = asNum(votes.against);
-        if (!Number.isFinite(forCount) || forCount < 0)
+        // Require actual finite numbers — asNum() would silently map non-numbers to 0,
+        // which would include malformed records and skew margins/polarization metrics.
+        const rawFor = votes.for;
+        const rawAgainst = votes.against;
+        if (typeof rawFor !== 'number' || !Number.isFinite(rawFor) || rawFor < 0)
             continue;
-        if (!Number.isFinite(againstCount) || againstCount < 0)
+        if (typeof rawAgainst !== 'number' || !Number.isFinite(rawAgainst) || rawAgainst < 0)
             continue;
+        const forCount = rawFor;
+        const againstCount = rawAgainst;
         const forAgainstTotal = forCount + againstCount;
         if (forAgainstTotal <= 0)
             continue;
