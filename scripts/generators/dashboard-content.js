@@ -589,7 +589,7 @@ export function dashboardHasCharts(config) {
 export function buildEconomicContextPanel(context) {
     if (!context?.indicators || context.indicators.length === 0)
         return null;
-    const validIndicators = context.indicators.filter((ind) => ind.value !== null && ind.value !== undefined);
+    const validIndicators = context.indicators.filter((ind) => ind.value !== null && ind.value !== undefined && Number.isFinite(ind.value));
     if (validIndicators.length === 0)
         return null;
     const metrics = validIndicators.slice(0, 6).map((ind) => ({

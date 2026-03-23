@@ -694,7 +694,7 @@ export function buildEconomicContextPanel(
   if (!context?.indicators || context.indicators.length === 0) return null;
 
   const validIndicators = context.indicators.filter(
-    (ind) => ind.value !== null && ind.value !== undefined
+    (ind) => ind.value !== null && ind.value !== undefined && Number.isFinite(ind.value)
   );
   if (validIndicators.length === 0) return null;
 

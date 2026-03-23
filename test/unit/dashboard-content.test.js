@@ -854,4 +854,39 @@ describe('buildEconomicContextPanel', () => {
     expect(panel.metrics).toHaveLength(6);
     expect(panel.chart.data.labels).toHaveLength(6);
   });
+
+  it('should filter out NaN and Infinity indicator values', () => {
+    const panel = buildEconomicContextPanel({
+      countryCode: 'DE',
+      countryName: 'Germany',
+      indicators: [
+        { name: 'GDP', indicatorId: 'NY.GDP.MKTP.CD', value: 4.2e12, year: 2024, formatted: '$4.2T' },
+        { name: 'Bad NaN', indicatorId: 'BAD.NAN', value: NaN, year: 2024, formatted: 'N/A' },
+        { name: 'Bad Inf', indicatorId: 'BAD.INF', value: Infinity, year: 2024, formatted: 'N/A' },
+        { name: 'Bad -Inf', indicatorId: 'BAD.NINF', value: -Infinity, year: 2024, formatted: 'N/A' },
+        { name: 'Inflation', indicatorId: 'FP.CPI.TOTL.ZG', value: 5.1, year: 2024, formatted: '5.1%' },
+      ],
+      dataTimestamp: '2026-03-01',
+    });
+
+    expect(panel).not.toBeNull();
+    expect(panel.metrics).toHaveLength(2);
+    expect(panel.metrics[0].label).toBe('GDP');
+    expect(panel.metrics[1].label).toBe('Inflation');
+    expect(panel.chart.data.datasets[0].data).toEqual([4.2e12, 5.1]);
+  });
+
+  it('should return null when all indicator values are non-finite', () => {
+    expect(
+      buildEconomicContextPanel({
+        countryCode: 'DE',
+        countryName: 'Germany',
+        indicators: [
+          { name: 'Bad NaN', indicatorId: 'BAD.NAN', value: NaN, year: 2024, formatted: 'N/A' },
+          { name: 'Bad Inf', indicatorId: 'BAD.INF', value: Infinity, year: 2024, formatted: 'N/A' },
+        ],
+        dataTimestamp: '2026-03-01',
+      })
+    ).toBeNull();
+  });
 });

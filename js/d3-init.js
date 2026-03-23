@@ -120,11 +120,16 @@
     var width = Math.min(container.clientWidth || 600, 800);
     var height = Math.round(width * 0.6);
 
-    var wrapper = document.createElement('div');
-    wrapper.className = 'd3-treemap-wrapper';
+    // Reuse existing container to avoid duplicating content for assistive technologies
+    var wrapper = container;
+    while (wrapper.firstChild) {
+      wrapper.removeChild(wrapper.firstChild);
+    }
+    if (wrapper.className.indexOf('d3-treemap-wrapper') === -1) {
+      wrapper.className += (wrapper.className ? ' ' : '') + 'd3-treemap-wrapper';
+    }
     wrapper.setAttribute('role', 'figure');
     wrapper.setAttribute('aria-label', data.name + ' — Treemap');
-    container.parentNode.insertBefore(wrapper, container.nextSibling);
 
     var svg = createSVGContainer(wrapper, width, height, 'd3-treemap');
 
@@ -249,11 +254,16 @@
     var width = Math.min(container.clientWidth || 600, 800);
     var height = Math.round(width * 0.65);
 
-    var wrapper = document.createElement('div');
-    wrapper.className = 'd3-network-wrapper';
+    // Reuse existing container to avoid duplicating content for assistive technologies
+    var wrapper = container;
+    while (wrapper.firstChild) {
+      wrapper.removeChild(wrapper.firstChild);
+    }
+    if (wrapper.className.indexOf('d3-network-wrapper') === -1) {
+      wrapper.className += (wrapper.className ? ' ' : '') + 'd3-network-wrapper';
+    }
     wrapper.setAttribute('role', 'figure');
     wrapper.setAttribute('aria-label', (data.nodes[0]?.label || 'Network') + ' — Force Network');
-    container.parentNode.insertBefore(wrapper, container.nextSibling);
 
     var svg = createSVGContainer(wrapper, width, height, 'd3-network');
 
@@ -361,11 +371,16 @@
     var innerW = width - margin.left - margin.right;
     var innerH = height - margin.top - margin.bottom;
 
-    var wrapper = document.createElement('div');
-    wrapper.className = 'd3-swot-chart-wrapper';
+    // Reuse existing matrix container to avoid duplicating content for assistive technologies
+    var wrapper = matrix;
+    while (wrapper.firstChild) {
+      wrapper.removeChild(wrapper.firstChild);
+    }
+    if (wrapper.className.indexOf('d3-swot-chart-wrapper') === -1) {
+      wrapper.className += (wrapper.className ? ' ' : '') + 'd3-swot-chart-wrapper';
+    }
     wrapper.setAttribute('role', 'figure');
     wrapper.setAttribute('aria-label', 'SWOT Analysis Distribution');
-    matrix.parentNode.insertBefore(wrapper, matrix.nextSibling);
 
     var svg = createSVGContainer(wrapper, width, height, 'd3-swot-chart');
 
