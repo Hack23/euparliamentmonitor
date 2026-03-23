@@ -120,14 +120,15 @@
     var width = Math.min(container.clientWidth || 600, 800);
     var height = Math.round(width * 0.6);
 
-    // Reuse existing container to avoid duplicating content for assistive technologies
+    // Enhance existing container without removing semantic HTML content
     var wrapper = container;
-    wrapper.replaceChildren();
     wrapper.classList.add('d3-treemap-wrapper');
     wrapper.setAttribute('role', 'figure');
     wrapper.setAttribute('aria-label', data.name + ' — Treemap');
 
     var svg = createSVGContainer(wrapper, width, height, 'd3-treemap');
+    // Make SVG decorative for assistive technologies; keep semantic HTML as the accessible representation
+    svg.attr('aria-hidden', 'true').attr('focusable', 'false');
 
     var root = d3
       .hierarchy(data)
@@ -250,14 +251,15 @@
     var width = Math.min(container.clientWidth || 600, 800);
     var height = Math.round(width * 0.65);
 
-    // Reuse existing container to avoid duplicating content for assistive technologies
-    var wrapper = container;
-    wrapper.replaceChildren();
+    // Append a dedicated enhancement wrapper so original HTML remains for WCAG/CSS-only fallback
+    var wrapper = document.createElement('div');
     wrapper.classList.add('d3-network-wrapper');
     wrapper.setAttribute('role', 'figure');
     wrapper.setAttribute('aria-label', (data.nodes[0]?.label || 'Network') + ' — Force Network');
+    container.appendChild(wrapper);
 
     var svg = createSVGContainer(wrapper, width, height, 'd3-network');
+    svg.attr('aria-hidden', 'true');
 
     var groupColors = {
       center: EU_COLORS.blue,
@@ -363,12 +365,13 @@
     var innerW = width - margin.left - margin.right;
     var innerH = height - margin.top - margin.bottom;
 
-    // Reuse existing matrix container to avoid duplicating content for assistive technologies
-    var wrapper = matrix;
-    wrapper.replaceChildren();
+    // Append dedicated chart wrapper so original SWOT content remains for accessibility
+    var wrapper = document.createElement('div');
     wrapper.classList.add('d3-swot-chart-wrapper');
     wrapper.setAttribute('role', 'figure');
     wrapper.setAttribute('aria-label', 'SWOT Analysis Distribution');
+    wrapper.setAttribute('aria-hidden', 'true');
+    matrix.appendChild(wrapper);
 
     var svg = createSVGContainer(wrapper, width, height, 'd3-swot-chart');
 

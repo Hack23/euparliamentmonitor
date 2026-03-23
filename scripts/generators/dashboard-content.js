@@ -592,11 +592,14 @@ export function buildEconomicContextPanel(context) {
     const validIndicators = context.indicators.filter((ind) => ind.value !== null && ind.value !== undefined && Number.isFinite(ind.value));
     if (validIndicators.length === 0)
         return null;
-    const metrics = validIndicators.slice(0, 6).map((ind) => ({
-        label: ind.name,
-        value: ind.formatted,
-        unit: `(${String(ind.year)})`,
-    }));
+    const metrics = validIndicators.slice(0, 6).map((ind) => {
+        const labelYearSuffix = ind.year !== undefined && ind.year !== null ? ` (${ind.year})` : '';
+        return {
+            label: `${ind.name}${labelYearSuffix}`,
+            value: ind.formatted,
+            unit: '',
+        };
+    });
     const chart = {
         type: 'bar',
         title: `${context.countryName} — Key Economic Indicators`,

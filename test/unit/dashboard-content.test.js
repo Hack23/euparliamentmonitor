@@ -826,7 +826,7 @@ describe('buildEconomicContextPanel', () => {
     expect(panel).not.toBeNull();
     expect(panel.title).toContain('Germany');
     expect(panel.metrics).toHaveLength(3);
-    expect(panel.metrics[0].label).toBe('GDP');
+    expect(panel.metrics[0].label).toBe('GDP (2024)');
     expect(panel.metrics[0].value).toBe('$4.2T');
     expect(panel.chart).toBeDefined();
     expect(panel.chart.type).toBe('bar');
@@ -871,8 +871,8 @@ describe('buildEconomicContextPanel', () => {
 
     expect(panel).not.toBeNull();
     expect(panel.metrics).toHaveLength(2);
-    expect(panel.metrics[0].label).toBe('GDP');
-    expect(panel.metrics[1].label).toBe('Inflation');
+    expect(panel.metrics[0].label).toBe('GDP (2024)');
+    expect(panel.metrics[1].label).toBe('Inflation (2024)');
     expect(panel.chart.data.datasets[0].data).toEqual([4.2e12, 5.1]);
   });
 

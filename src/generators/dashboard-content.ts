@@ -698,11 +698,15 @@ export function buildEconomicContextPanel(
   );
   if (validIndicators.length === 0) return null;
 
-  const metrics: DashboardMetric[] = validIndicators.slice(0, 6).map((ind) => ({
-    label: ind.name,
-    value: ind.formatted,
-    unit: `(${String(ind.year)})`,
-  }));
+  const metrics: DashboardMetric[] = validIndicators.slice(0, 6).map((ind) => {
+    const labelYearSuffix =
+      ind.year !== undefined && ind.year !== null ? ` (${ind.year})` : '';
+    return {
+      label: `${ind.name}${labelYearSuffix}`,
+      value: ind.formatted,
+      unit: '',
+    };
+  });
 
   const chart: ChartConfig = {
     type: 'bar',
