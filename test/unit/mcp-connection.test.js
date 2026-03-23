@@ -812,6 +812,16 @@ import {
 import { MCPHealthMonitor } from '../../scripts/mcp/mcp-health.js';
 
 describe('CircuitBreaker (mcp-retry)', () => {
+  let consoleOutput;
+
+  beforeEach(() => {
+    consoleOutput = mockConsole();
+  });
+
+  afterEach(() => {
+    consoleOutput.restore();
+  });
+
   it('starts in CLOSED state and allows requests', () => {
     const cb = new CircuitBreaker();
     expect(cb.getState()).toBe('CLOSED');
@@ -896,6 +906,16 @@ describe('CircuitBreaker (mcp-retry)', () => {
 // ─── withRetry tests ─────────────────────────────────────────────────────────
 
 describe('withRetry (mcp-retry)', () => {
+  let consoleOutput;
+
+  beforeEach(() => {
+    consoleOutput = mockConsole();
+  });
+
+  afterEach(() => {
+    consoleOutput.restore();
+  });
+
   it('returns result on first success', async () => {
     const result = await withRetry(() => Promise.resolve(42), { maxRetries: 3 });
     expect(result).toBe(42);
@@ -985,6 +1005,16 @@ describe('withRetry (mcp-retry)', () => {
 // ─── MCPHealthMonitor tests ──────────────────────────────────────────────────
 
 describe('MCPHealthMonitor (mcp-health)', () => {
+  let consoleOutput;
+
+  beforeEach(() => {
+    consoleOutput = mockConsole();
+  });
+
+  afterEach(() => {
+    consoleOutput.restore();
+  });
+
   it('creates breakers on demand for new tools', () => {
     const monitor = new MCPHealthMonitor();
     const breaker = monitor.getBreaker('get_meps');
