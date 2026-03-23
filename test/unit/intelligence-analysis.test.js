@@ -1118,6 +1118,21 @@ describe('detectVotingTrends', () => {
     const adoptionTrend = trends.find(t => t.trendId === 'adoption-rate');
     expect(adoptionTrend).toBeDefined();
     expect(adoptionTrend.metricValue).toBe(1); // 100% adoption rate
+    // Both halves have 100% adoption — direction is stable
+    expect(adoptionTrend.direction).toBe('stable');
+  });
+
+  it('should detect increasing adoption-rate via half comparison', () => {
+    const records = [
+      { title: 'A', date: '2025-01-10', result: 'Rejected', votes: { for: 200, against: 400, abstain: 10 } },
+      { title: 'B', date: '2025-01-11', result: 'Rejected', votes: { for: 180, against: 420, abstain: 10 } },
+      { title: 'C', date: '2025-01-12', result: 'Adopted', votes: { for: 450, against: 80, abstain: 30 } },
+      { title: 'D', date: '2025-01-13', result: 'Adopted', votes: { for: 500, against: 50, abstain: 20 } },
+    ];
+    const trends = detectVotingTrends(records);
+    const adoptionTrend = trends.find(t => t.trendId === 'adoption-rate');
+    expect(adoptionTrend).toBeDefined();
+    // First half: 0% adopted, second half: 100% adopted → increasing
     expect(adoptionTrend.direction).toBe('increasing');
   });
 

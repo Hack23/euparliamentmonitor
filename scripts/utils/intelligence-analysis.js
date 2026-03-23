@@ -561,47 +561,65 @@ function avg(values) {
  * Extract valid vote margins and result tallies from voting records.
  * Skips records with missing/malformed vote data, non-finite vote counts,
  * or where for + against is zero (abstain-only votes) to avoid skewing
- * margin and polarization calculations.
+ * margin and polarization calculations. Uses asNum() for defensive parsing
+ * of vote counts to coerce numeric strings and similar API encodings.
  *
  * @param records - Voting records to process
- * @returns Object containing margins array, adopted count, and rejected count
+ * @returns Object containing margins array and per-record result classifications
  */
 function extractMarginData(records) {
     const margins = [];
-    let adoptedCount = 0;
-    let rejectedCount = 0;
+    const results = [];
     for (const r of records) {
         const votes = r.votes;
         if (!votes || typeof votes !== 'object')
             continue;
-        const forRaw = votes.for;
-        const againstRaw = votes.against;
-        if (typeof forRaw !== 'number' || !Number.isFinite(forRaw))
+        const forCount = asNum(votes.for);
+        const againstCount = asNum(votes.against);
+        if (!Number.isFinite(forCount) || forCount < 0)
             continue;
-        if (typeof againstRaw !== 'number' || !Number.isFinite(againstRaw))
+        if (!Number.isFinite(againstCount) || againstCount < 0)
             continue;
-        const forAgainstTotal = forRaw + againstRaw;
+        const forAgainstTotal = forCount + againstCount;
         if (forAgainstTotal <= 0)
             continue;
-        margins.push(Math.abs(forRaw - againstRaw) / forAgainstTotal);
+        margins.push(Math.abs(forCount - againstCount) / forAgainstTotal);
         const result = asStr(r.result).toLowerCase();
-        if (result === 'adopted' || result === 'approved')
-            adoptedCount++;
-        if (result === 'rejected')
-            rejectedCount++;
+        if (result === 'adopted' || result === 'approved') {
+            results.push('adopted');
+        }
+        else if (result === 'rejected') {
+            results.push('rejected');
+        }
+        else {
+            results.push('other');
+        }
     }
-    return { margins, adoptedCount, rejectedCount };
+    return { margins, results };
 }
 /**
- * Derive adoption-rate direction label from rate.
+ * Compute adoption rate from a results slice.
  *
- * @param rate - Adoption rate (0-1)
- * @returns Direction label
+ * @param results - Array of result classifications
+ * @returns Adoption rate (0-1), or 0 if no decided records
  */
-function adoptionDirection(rate) {
-    if (rate > 0.7)
+function computeAdoptionRate(results) {
+    const adopted = results.filter((r) => r === 'adopted').length;
+    const decided = results.filter((r) => r === 'adopted' || r === 'rejected').length;
+    return decided > 0 ? adopted / decided : 0;
+}
+/**
+ * Derive adoption-rate direction by comparing first-half and second-half rates.
+ *
+ * @param firstRate - Adoption rate of the first chronological half
+ * @param secondRate - Adoption rate of the second chronological half
+ * @returns Direction label based on delta between halves
+ */
+function adoptionDirection(firstRate, secondRate) {
+    const delta = secondRate - firstRate;
+    if (delta > 0.05)
         return 'increasing';
-    if (rate < 0.4)
+    if (delta < -0.05)
         return 'decreasing';
     return 'stable';
 }
@@ -672,8 +690,14 @@ export function detectVotingTrends(records) {
         const t = Date.parse(d ?? '');
         return Number.isFinite(t) ? t : Infinity;
     };
-    const sorted = [...records].sort((a, b) => toTimestamp(a.date) - toTimestamp(b.date));
-    const { margins, adoptedCount, rejectedCount } = extractMarginData(sorted);
+    const sorted = [...records].sort((a, b) => {
+        const ta = toTimestamp(a.date);
+        const tb = toTimestamp(b.date);
+        if (ta === tb)
+            return 0;
+        return ta < tb ? -1 : 1;
+    });
+    const { margins, results } = extractMarginData(sorted);
     if (margins.length < 2)
         return [];
     const mid = Math.floor(margins.length / 2);
@@ -686,16 +710,20 @@ export function detectVotingTrends(records) {
     const polTrend = buildPolarizationTrend(firstHalf, secondHalf, margins.length);
     if (polTrend)
         trends.push(polTrend);
-    const totalDecided = adoptedCount + rejectedCount;
+    const firstResults = results.slice(0, mid);
+    const secondResults = results.slice(mid);
+    const totalDecided = results.filter((r) => r === 'adopted' || r === 'rejected').length;
     if (totalDecided > 0) {
-        const adoptionRate = adoptedCount / totalDecided;
+        const overallRate = computeAdoptionRate(results);
+        const firstRate = computeAdoptionRate(firstResults);
+        const secondRate = computeAdoptionRate(secondResults);
         trends.push({
             trendId: 'adoption-rate',
-            description: `Adoption rate is ${Math.round(adoptionRate * 100)}% across ${totalDecided} decided votes`,
-            direction: adoptionDirection(adoptionRate),
+            description: `Adoption rate is ${Math.round(overallRate * 100)}% across ${totalDecided} decided votes`,
+            direction: adoptionDirection(firstRate, secondRate),
             confidence: Math.min(1, Math.round((totalDecided / margins.length) * 100) / 100),
             recordCount: totalDecided,
-            metricValue: Math.round(adoptionRate * 100) / 100,
+            metricValue: Math.round(overallRate * 100) / 100,
         });
     }
     return trends.sort((a, b) => b.confidence - a.confidence);
