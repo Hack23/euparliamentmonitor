@@ -559,8 +559,9 @@ function avg(values) {
 }
 /**
  * Extract valid vote margins and result tallies from voting records.
- * Skips records where for + against equals zero (abstain-only votes)
- * to avoid skewing margin and polarization calculations.
+ * Skips records with missing/malformed vote data, non-finite vote counts,
+ * or where for + against is zero (abstain-only votes) to avoid skewing
+ * margin and polarization calculations.
  *
  * @param records - Voting records to process
  * @returns Object containing margins array, adopted count, and rejected count
@@ -570,11 +571,16 @@ function extractMarginData(records) {
     let adoptedCount = 0;
     let rejectedCount = 0;
     for (const r of records) {
-        const forAgainstTotal = r.votes.for + r.votes.against;
-        if (forAgainstTotal === 0)
+        const votes = r.votes;
+        if (!votes || typeof votes !== 'object')
             continue;
-        margins.push(Math.abs(r.votes.for - r.votes.against) / forAgainstTotal);
-        const result = r.result.toLowerCase();
+        const forNum = asNum(votes.for);
+        const againstNum = asNum(votes.against);
+        const forAgainstTotal = forNum + againstNum;
+        if (forAgainstTotal <= 0)
+            continue;
+        margins.push(Math.abs(forNum - againstNum) / forAgainstTotal);
+        const result = asStr(r.result).toLowerCase();
         if (result === 'adopted' || result === 'approved')
             adoptedCount++;
         if (result === 'rejected')
@@ -720,13 +726,13 @@ export function computeCrossSessionCoalitionStability(patterns) {
     let totalAvgCohesion = 0;
     let groupCount = 0;
     for (const [group, cohesions] of groupCohesions) {
-        const avg = cohesions.reduce((s, v) => s + v, 0) / cohesions.length;
-        totalAvgCohesion += avg;
+        const avgCohesion = cohesions.reduce((s, v) => s + v, 0) / cohesions.length;
+        totalAvgCohesion += avgCohesion;
         groupCount++;
-        if (avg >= 0.7) {
+        if (avgCohesion >= 0.7) {
             stableGroups.push(group);
         }
-        else if (avg < 0.5) {
+        else if (avgCohesion < 0.5) {
             decliningGroups.push(group);
         }
     }
@@ -754,13 +760,16 @@ export function computeCrossSessionCoalitionStability(patterns) {
  * sorted by overallScore.
  *
  * @param scores - MEP influence scores to rank
- * @param topic - Topic keyword to filter by
+ * @param topic - Topic keyword to filter by; if null/undefined/empty, all
+ * scores are returned sorted by overallScore
  * @returns Sorted array of matching MEPInfluenceScore entries
  */
 export function rankMEPInfluenceByTopic(scores, topic) {
     if (scores.length === 0)
         return [];
-    const lowerTopic = topic.toLowerCase().trim();
+    const lowerTopic = String(topic ?? '')
+        .toLowerCase()
+        .trim();
     // If topic is empty, return all sorted by score
     if (lowerTopic.length === 0) {
         return [...scores].sort((a, b) => b.overallScore - a.overallScore);
@@ -809,7 +818,8 @@ export function buildLegislativeVelocityReport(docs) {
         .map((d) => (d.date ? new Date(d.date).getTime() : NaN))
         .filter((t) => !isNaN(t));
     let averageDaysPerStage = 0;
-    if (dates.length >= 2) {
+    const hasDateData = dates.length >= 2;
+    if (hasDateData) {
         const minDate = Math.min(...dates);
         const maxDate = Math.max(...dates);
         const spanDays = (maxDate - minDate) / (1000 * 60 * 60 * 24);
@@ -817,7 +827,9 @@ export function buildLegislativeVelocityReport(docs) {
         averageDaysPerStage = stageCount > 0 ? Math.round(spanDays / stageCount) : 0;
     }
     let throughputAssessment;
-    if (averageDaysPerStage <= 30)
+    if (!hasDateData)
+        throughputAssessment = 'normal';
+    else if (averageDaysPerStage <= 30)
         throughputAssessment = 'fast';
     else if (averageDaysPerStage <= 90)
         throughputAssessment = 'normal';

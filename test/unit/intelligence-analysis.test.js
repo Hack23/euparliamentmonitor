@@ -1209,6 +1209,30 @@ describe('detectVotingTrends', () => {
     // margins.length should be 2 (abstain-only record skipped)
     expect(adoptionTrend.recordCount).toBe(2);
   });
+
+  it('should handle records with missing or invalid dates gracefully', () => {
+    const records = [
+      { title: 'A', result: 'Adopted', votes: { for: 400, against: 100, abstain: 10 } },
+      { title: 'B', date: '', result: 'Adopted', votes: { for: 500, against: 50, abstain: 20 } },
+      { title: 'C', date: 'not-a-date', result: 'Rejected', votes: { for: 200, against: 400, abstain: 10 } },
+    ];
+    const trends = detectVotingTrends(records);
+    // Should still produce results — all records have valid votes
+    expect(trends.length).toBeGreaterThan(0);
+  });
+
+  it('should skip records with missing or malformed vote data', () => {
+    const records = [
+      { title: 'A', date: '2025-01-10', result: 'Adopted', votes: { for: 400, against: 100, abstain: 10 } },
+      { title: 'No votes', date: '2025-01-11', result: 'Adopted' },
+      { title: 'B', date: '2025-01-12', result: 'Adopted', votes: { for: 450, against: 80, abstain: 30 } },
+    ];
+    const trends = detectVotingTrends(records);
+    const adoptionTrend = trends.find(t => t.trendId === 'adoption-rate');
+    expect(adoptionTrend).toBeDefined();
+    // Record without votes should be skipped, so only 2 valid records
+    expect(adoptionTrend.recordCount).toBe(2);
+  });
 });
 
 // ─── computeCrossSessionCoalitionStability ───────────────────────────────────
@@ -1340,6 +1364,15 @@ describe('rankMEPInfluenceByTopic', () => {
     const result = rankMEPInfluenceByTopic(scores, '   ');
     expect(result).toHaveLength(3);
   });
+
+  it('should handle null or undefined topic gracefully', () => {
+    const result1 = rankMEPInfluenceByTopic(scores, null);
+    expect(result1).toHaveLength(3);
+    expect(result1[0].overallScore).toBeGreaterThanOrEqual(result1[1].overallScore);
+
+    const result2 = rankMEPInfluenceByTopic(scores, undefined);
+    expect(result2).toHaveLength(3);
+  });
 });
 
 // ─── buildLegislativeVelocityReport ──────────────────────────────────────────
@@ -1429,5 +1462,7 @@ describe('buildLegislativeVelocityReport', () => {
     const result = buildLegislativeVelocityReport(docs);
     expect(result.documentCount).toBe(2);
     expect(result.averageDaysPerStage).toBe(0);
+    // Insufficient date data: throughput should be 'normal' (unknown), not 'fast'
+    expect(result.throughputAssessment).toBe('normal');
   });
 });
