@@ -1432,7 +1432,8 @@ describe('buildLegislativeVelocityReport', () => {
   it('should return empty report for empty docs', () => {
     const result = buildLegislativeVelocityReport([]);
     expect(result.documentCount).toBe(0);
-    expect(result.stageBreakdown).toEqual({});
+    expect(Object.keys(result.stageBreakdown)).toHaveLength(0);
+    expect(Object.getPrototypeOf(result.stageBreakdown)).toBeNull();
     expect(result.averageDaysPerStage).toBe(0);
     expect(result.bottleneckCount).toBe(0);
     expect(result.throughputAssessment).toBe('normal');

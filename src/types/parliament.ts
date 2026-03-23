@@ -235,7 +235,7 @@ export interface VotingTrend {
   direction: 'increasing' | 'decreasing' | 'stable';
   /** Confidence in the detection (0-1) */
   confidence: number;
-  /** Number of records examined */
+  /** Number of records contributing to this trend */
   recordCount: number;
   /** Representative metric value (e.g. average margin change) */
   metricValue: number;
