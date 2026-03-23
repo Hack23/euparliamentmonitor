@@ -1181,6 +1181,34 @@ describe('detectVotingTrends', () => {
       expect(t.confidence).toBeLessThanOrEqual(1);
     }
   });
+
+  it('should sort records by date before splitting into halves', () => {
+    // Provide records in reverse chronological order — earlier records have wide margins, later have close margins
+    const records = [
+      { title: 'D', date: '2025-01-13', result: 'Adopted', votes: { for: 310, against: 300, abstain: 10 } },
+      { title: 'C', date: '2025-01-12', result: 'Adopted', votes: { for: 305, against: 310, abstain: 5 } },
+      { title: 'B', date: '2025-01-11', result: 'Adopted', votes: { for: 500, against: 100, abstain: 10 } },
+      { title: 'A', date: '2025-01-10', result: 'Adopted', votes: { for: 480, against: 120, abstain: 10 } },
+    ];
+    const trends = detectVotingTrends(records);
+    // After sorting by date (A, B → first half; C, D → second half), margins narrow
+    const marginTrend = trends.find(t => t.trendId === 'decreasing-margins');
+    expect(marginTrend).toBeDefined();
+    expect(marginTrend.direction).toBe('decreasing');
+  });
+
+  it('should skip abstain-only records in margin calculations', () => {
+    const records = [
+      { title: 'A', date: '2025-01-10', result: 'Adopted', votes: { for: 400, against: 100, abstain: 10 } },
+      { title: 'Abstain-only', date: '2025-01-11', result: 'N/A', votes: { for: 0, against: 0, abstain: 100 } },
+      { title: 'B', date: '2025-01-12', result: 'Adopted', votes: { for: 450, against: 80, abstain: 30 } },
+    ];
+    const trends = detectVotingTrends(records);
+    const adoptionTrend = trends.find(t => t.trendId === 'adoption-rate');
+    expect(adoptionTrend).toBeDefined();
+    // margins.length should be 2 (abstain-only record skipped)
+    expect(adoptionTrend.recordCount).toBe(2);
+  });
 });
 
 // ─── computeCrossSessionCoalitionStability ───────────────────────────────────

@@ -263,7 +263,7 @@ export interface LegislativeVelocityReport {
   stageBreakdown: Record<string, number>;
   /** Average days per stage (where data available) */
   averageDaysPerStage: number;
-  /** Documents identified as bottlenecks */
+  /** Number of stages identified as bottlenecks (stage-level count, not document-level) */
   bottleneckCount: number;
   /** Overall throughput assessment */
   throughputAssessment: 'fast' | 'normal' | 'slow';

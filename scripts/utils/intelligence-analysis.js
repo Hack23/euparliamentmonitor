@@ -559,7 +559,8 @@ function avg(values) {
 }
 /**
  * Extract valid vote margins and result tallies from voting records.
- * Skips records with zero total votes.
+ * Skips records where for + against equals zero (abstain-only votes)
+ * to avoid skewing margin and polarization calculations.
  *
  * @param records - Voting records to process
  * @returns Object containing margins array, adopted count, and rejected count
@@ -569,10 +570,10 @@ function extractMarginData(records) {
     let adoptedCount = 0;
     let rejectedCount = 0;
     for (const r of records) {
-        const total = r.votes.for + r.votes.against + r.votes.abstain;
-        if (total === 0)
+        const forAgainstTotal = r.votes.for + r.votes.against;
+        if (forAgainstTotal === 0)
             continue;
-        margins.push(Math.abs(r.votes.for - r.votes.against) / total);
+        margins.push(Math.abs(r.votes.for - r.votes.against) / forAgainstTotal);
         const result = r.result.toLowerCase();
         if (result === 'adopted' || result === 'approved')
             adoptedCount++;
@@ -647,7 +648,9 @@ function buildPolarizationTrend(firstHalf, secondHalf, total) {
 /**
  * Detect voting trends across multiple voting records by analysing
  * margin distribution, polarization patterns, and result consistency.
- * Returns an array of detected trends sorted by confidence.
+ * Records are sorted by date (ascending) before analysis to ensure
+ * chronological trend detection. Returns an array of detected trends
+ * sorted by confidence.
  *
  * @param records - Voting records to analyse across sessions
  * @returns Array of detected VotingTrend objects (empty if fewer than 2 valid records)
@@ -655,7 +658,8 @@ function buildPolarizationTrend(firstHalf, secondHalf, total) {
 export function detectVotingTrends(records) {
     if (records.length < 2)
         return [];
-    const { margins, adoptedCount, rejectedCount } = extractMarginData(records);
+    const sorted = [...records].sort((a, b) => new Date(a.date || '').getTime() - new Date(b.date || '').getTime());
+    const { margins, adoptedCount, rejectedCount } = extractMarginData(sorted);
     if (margins.length < 2)
         return [];
     const mid = Math.floor(margins.length / 2);
@@ -676,7 +680,7 @@ export function detectVotingTrends(records) {
             description: `Adoption rate is ${Math.round(adoptionRate * 100)}% across ${totalDecided} decided votes`,
             direction: adoptionDirection(adoptionRate),
             confidence: Math.min(1, Math.round((totalDecided / margins.length) * 100) / 100),
-            recordCount: totalDecided,
+            recordCount: margins.length,
             metricValue: Math.round(adoptionRate * 100) / 100,
         });
     }
