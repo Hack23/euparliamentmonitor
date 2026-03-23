@@ -602,6 +602,8 @@ export function buildEconomicContextPanel(context) {
     });
     // Only chart indicators with comparable units (percentages) to avoid
     // mixing incompatible scales (e.g. GDP in $ alongside inflation in %).
+    // Percentage indicators (growth rates, inflation, unemployment) share a
+    // common axis; absolute-value indicators still appear in the metrics cards.
     const pctIndicators = validIndicators.filter((ind) => ind.formatted.includes('%'));
     const chartIndicators = pctIndicators.length > 0 ? pctIndicators.slice(0, 6) : [];
     const chart = chartIndicators.length > 0
