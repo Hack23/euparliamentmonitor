@@ -122,12 +122,8 @@
 
     // Reuse existing container to avoid duplicating content for assistive technologies
     var wrapper = container;
-    while (wrapper.firstChild) {
-      wrapper.removeChild(wrapper.firstChild);
-    }
-    if (wrapper.className.indexOf('d3-treemap-wrapper') === -1) {
-      wrapper.className += (wrapper.className ? ' ' : '') + 'd3-treemap-wrapper';
-    }
+    wrapper.replaceChildren();
+    wrapper.classList.add('d3-treemap-wrapper');
     wrapper.setAttribute('role', 'figure');
     wrapper.setAttribute('aria-label', data.name + ' — Treemap');
 
@@ -256,12 +252,8 @@
 
     // Reuse existing container to avoid duplicating content for assistive technologies
     var wrapper = container;
-    while (wrapper.firstChild) {
-      wrapper.removeChild(wrapper.firstChild);
-    }
-    if (wrapper.className.indexOf('d3-network-wrapper') === -1) {
-      wrapper.className += (wrapper.className ? ' ' : '') + 'd3-network-wrapper';
-    }
+    wrapper.replaceChildren();
+    wrapper.classList.add('d3-network-wrapper');
     wrapper.setAttribute('role', 'figure');
     wrapper.setAttribute('aria-label', (data.nodes[0]?.label || 'Network') + ' — Force Network');
 
@@ -373,12 +365,8 @@
 
     // Reuse existing matrix container to avoid duplicating content for assistive technologies
     var wrapper = matrix;
-    while (wrapper.firstChild) {
-      wrapper.removeChild(wrapper.firstChild);
-    }
-    if (wrapper.className.indexOf('d3-swot-chart-wrapper') === -1) {
-      wrapper.className += (wrapper.className ? ' ' : '') + 'd3-swot-chart-wrapper';
-    }
+    wrapper.replaceChildren();
+    wrapper.classList.add('d3-swot-chart-wrapper');
     wrapper.setAttribute('role', 'figure');
     wrapper.setAttribute('aria-label', 'SWOT Analysis Distribution');
 
