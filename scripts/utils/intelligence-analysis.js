@@ -716,10 +716,12 @@ export function computeCrossSessionCoalitionStability(patterns) {
     }
     // Aggregate cohesion per group, coercing and clamping to [0, 1]
     const groupCohesions = new Map();
+    let includedPatterns = 0;
     for (const p of patterns) {
         const groupKey = asStr(p.group).trim();
         if (groupKey.length === 0)
             continue;
+        includedPatterns++;
         const raw = asNum(p.cohesion);
         const clamped = Math.max(0, Math.min(1, raw));
         const existing = groupCohesions.get(groupKey);
@@ -755,7 +757,7 @@ export function computeCrossSessionCoalitionStability(patterns) {
         forecast = 'volatile';
     return {
         overallStability,
-        patternCount: patterns.length,
+        patternCount: includedPatterns,
         stableGroups,
         decliningGroups,
         forecast,
@@ -837,8 +839,15 @@ export function buildLegislativeVelocityReport(docs) {
     let averageDaysPerStage = 0;
     const hasDateData = dates.length >= 2;
     if (hasDateData) {
-        const minDate = Math.min(...dates);
-        const maxDate = Math.max(...dates);
+        let minDate = dates[0];
+        let maxDate = dates[0];
+        for (let i = 1; i < dates.length; i++) {
+            const current = dates[i];
+            if (current < minDate)
+                minDate = current;
+            if (current > maxDate)
+                maxDate = current;
+        }
         const spanDays = (maxDate - minDate) / (1000 * 60 * 60 * 24);
         const stageCount = Object.keys(stageBreakdown).length;
         averageDaysPerStage = stageCount > 0 ? Math.round(spanDays / stageCount) : 0;

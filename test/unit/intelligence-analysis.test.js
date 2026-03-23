@@ -1329,6 +1329,7 @@ describe('computeCrossSessionCoalitionStability', () => {
       { group: 'EPP', cohesion: 0.75, participation: 0.7 },
     ];
     const result = computeCrossSessionCoalitionStability(patterns);
+    expect(result.patternCount).toBe(1);
     expect(result.stableGroups).toEqual(['EPP']);
     // Empty/null groups should be excluded
     expect(result.decliningGroups).toEqual([]);
