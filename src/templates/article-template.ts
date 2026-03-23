@@ -420,6 +420,12 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <script src="../js/vendor/chartjs-plugin-annotation.min.js" defer></script>
   <script src="../js/chart-init.js" defer></script>`
       : ''
+  }${
+    content.includes('mindmap-container') || content.includes('swot-matrix')
+      ? `
+  <script src="../js/vendor/d3.min.js" defer></script>
+  <script src="../js/d3-init.js" defer></script>`
+      : ''
   }
 </body>
 </html>`;

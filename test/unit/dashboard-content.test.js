@@ -9,6 +9,7 @@ import {
   buildPipelinePanel,
   buildTrendPanel,
   buildStakeholderScorecardPanel,
+  buildEconomicContextPanel,
 } from '../../scripts/generators/dashboard-content.js';
 
 // ─── Fixtures ──────────────────────────────────────────────────────────────────
@@ -772,5 +773,85 @@ describe('buildStakeholderScorecardPanel', () => {
     const html = buildStakeholderScorecardPanel(SAMPLE_STAKEHOLDERS, 0);
     expect(html).toContain('stakeholder-grid');
     expect(html).toContain('role="list"');
+  });
+});
+
+// ─── buildEconomicContextPanel ─────────────────────────────────────────────
+
+describe('buildEconomicContextPanel', () => {
+  it('should return null for null context', () => {
+    expect(buildEconomicContextPanel(null)).toBeNull();
+  });
+
+  it('should return null for undefined context', () => {
+    expect(buildEconomicContextPanel(undefined)).toBeNull();
+  });
+
+  it('should return null when indicators array is empty', () => {
+    expect(
+      buildEconomicContextPanel({
+        countryCode: 'DE',
+        countryName: 'Germany',
+        indicators: [],
+        dataTimestamp: '2026-03-01',
+      })
+    ).toBeNull();
+  });
+
+  it('should return null when all indicator values are null', () => {
+    expect(
+      buildEconomicContextPanel({
+        countryCode: 'DE',
+        countryName: 'Germany',
+        indicators: [
+          { name: 'GDP', indicatorId: 'NY.GDP.MKTP.CD', value: null, year: 2024, formatted: 'N/A' },
+        ],
+        dataTimestamp: '2026-03-01',
+      })
+    ).toBeNull();
+  });
+
+  it('should return a panel with metrics and chart for valid data', () => {
+    const panel = buildEconomicContextPanel({
+      countryCode: 'DE',
+      countryName: 'Germany',
+      indicators: [
+        { name: 'GDP', indicatorId: 'NY.GDP.MKTP.CD', value: 4.2e12, year: 2024, formatted: '$4.2T' },
+        { name: 'GDP Growth', indicatorId: 'NY.GDP.MKTP.KD.ZG', value: 1.8, year: 2024, formatted: '1.8%' },
+        { name: 'Inflation', indicatorId: 'FP.CPI.TOTL.ZG', value: 5.1, year: 2024, formatted: '5.1%' },
+      ],
+      dataTimestamp: '2026-03-01',
+    });
+
+    expect(panel).not.toBeNull();
+    expect(panel.title).toContain('Germany');
+    expect(panel.metrics).toHaveLength(3);
+    expect(panel.metrics[0].label).toBe('GDP');
+    expect(panel.metrics[0].value).toBe('$4.2T');
+    expect(panel.chart).toBeDefined();
+    expect(panel.chart.type).toBe('bar');
+    expect(panel.chart.data.labels).toHaveLength(3);
+    expect(panel.chart.data.datasets[0].data).toHaveLength(3);
+  });
+
+  it('should limit metrics to 6 indicators max', () => {
+    const indicators = Array.from({ length: 10 }, (_, i) => ({
+      name: `Indicator ${i}`,
+      indicatorId: `IND.${i}`,
+      value: i * 100,
+      year: 2024,
+      formatted: `${i * 100}`,
+    }));
+
+    const panel = buildEconomicContextPanel({
+      countryCode: 'FR',
+      countryName: 'France',
+      indicators,
+      dataTimestamp: '2026-03-01',
+    });
+
+    expect(panel).not.toBeNull();
+    expect(panel.metrics).toHaveLength(6);
+    expect(panel.chart.data.labels).toHaveLength(6);
   });
 });
