@@ -600,23 +600,29 @@ export function buildEconomicContextPanel(context) {
             unit: '',
         };
     });
-    const chart = {
-        type: 'bar',
-        title: `${context.countryName} — Key Economic Indicators`,
-        data: {
-            labels: validIndicators.slice(0, 6).map((ind) => ind.name),
-            datasets: [
-                {
-                    label: context.countryName,
-                    data: validIndicators.slice(0, 6).map((ind) => ind.value ?? 0),
-                },
-            ],
-        },
-    };
+    // Only chart indicators with comparable units (percentages) to avoid
+    // mixing incompatible scales (e.g. GDP in $ alongside inflation in %).
+    const pctIndicators = validIndicators.filter((ind) => ind.formatted.includes('%'));
+    const chartIndicators = pctIndicators.length > 0 ? pctIndicators.slice(0, 6) : [];
+    const chart = chartIndicators.length > 0
+        ? {
+            type: 'bar',
+            title: `${context.countryName} — Economic Rates (%)`,
+            data: {
+                labels: chartIndicators.map((ind) => ind.name),
+                datasets: [
+                    {
+                        label: context.countryName,
+                        data: chartIndicators.map((ind) => ind.value ?? 0),
+                    },
+                ],
+            },
+        }
+        : undefined;
     return {
         title: `Economic Context: ${context.countryName}`,
         metrics,
-        chart,
+        ...(chart ? { chart } : {}),
     };
 }
 //# sourceMappingURL=dashboard-content.js.map

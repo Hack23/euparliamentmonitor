@@ -828,10 +828,12 @@ describe('buildEconomicContextPanel', () => {
     expect(panel.metrics).toHaveLength(3);
     expect(panel.metrics[0].label).toBe('GDP (2024)');
     expect(panel.metrics[0].value).toBe('$4.2T');
+    // Chart only includes percentage-based indicators to avoid mixing incompatible units
     expect(panel.chart).toBeDefined();
     expect(panel.chart.type).toBe('bar');
-    expect(panel.chart.data.labels).toHaveLength(3);
-    expect(panel.chart.data.datasets[0].data).toHaveLength(3);
+    expect(panel.chart.data.labels).toHaveLength(2);
+    expect(panel.chart.data.labels).toEqual(['GDP Growth', 'Inflation']);
+    expect(panel.chart.data.datasets[0].data).toEqual([1.8, 5.1]);
   });
 
   it('should limit metrics to 6 indicators max', () => {
@@ -852,7 +854,8 @@ describe('buildEconomicContextPanel', () => {
 
     expect(panel).not.toBeNull();
     expect(panel.metrics).toHaveLength(6);
-    expect(panel.chart.data.labels).toHaveLength(6);
+    // No chart because none of the formatted values contain '%'
+    expect(panel.chart).toBeUndefined();
   });
 
   it('should filter out NaN and Infinity indicator values', () => {
@@ -873,7 +876,9 @@ describe('buildEconomicContextPanel', () => {
     expect(panel.metrics).toHaveLength(2);
     expect(panel.metrics[0].label).toBe('GDP (2024)');
     expect(panel.metrics[1].label).toBe('Inflation (2024)');
-    expect(panel.chart.data.datasets[0].data).toEqual([4.2e12, 5.1]);
+    // Chart only includes % indicators (Inflation)
+    expect(panel.chart).toBeDefined();
+    expect(panel.chart.data.datasets[0].data).toEqual([5.1]);
   });
 
   it('should return null when all indicator values are non-finite', () => {

@@ -231,7 +231,7 @@
       if (!nodeMap[actorId]) {
         nodes.push({ id: actorId, label: actorName, group: 'actor', radius: 10 });
         nodeMap[actorId] = true;
-        /* Connect actors to the closest domain */
+        /* Connect actors directly to the central node */
         if (nodes.length > 1) {
           links.push({ source: centralId, target: actorId, strength: 0.3 });
         }
@@ -334,21 +334,35 @@
   /* ── SWOT Matrix → D3 Proportional Quadrant ──────────────────────── */
 
   /**
+   * Derive the logical SWOT key from a quadrant element's class list.
+   * Falls back to null if no recognised SWOT class is present.
+   */
+  function getSwotQuadrantKeyFromClass(quadrant) {
+    if (!quadrant || !quadrant.classList) return null;
+    if (quadrant.classList.contains('swot-strengths')) return 'strengths';
+    if (quadrant.classList.contains('swot-weaknesses')) return 'weaknesses';
+    if (quadrant.classList.contains('swot-opportunities')) return 'opportunities';
+    if (quadrant.classList.contains('swot-threats')) return 'threats';
+    return null;
+  }
+
+  /**
    * Enhance a SWOT matrix with a proportional D3 bar chart showing
    * the relative number of items in each quadrant.
    */
   function renderSwotChart(matrix) {
     var quadrants = matrix.querySelectorAll('.swot-quadrant');
     var swotData = [];
-    var quadrantKeys = ['strengths', 'weaknesses', 'opportunities', 'threats'];
 
     for (var i = 0; i < quadrants.length; i++) {
-      var items = quadrants[i].querySelectorAll('.swot-list li:not(.swot-empty)');
-      var heading = textOf(quadrants[i].querySelector('h4'));
+      var quadrant = quadrants[i];
+      var key = getSwotQuadrantKeyFromClass(quadrant);
+      var items = quadrant.querySelectorAll('.swot-list li:not(.swot-empty)');
+      var heading = textOf(quadrant.querySelector('h4'));
       swotData.push({
-        label: heading || quadrantKeys[i] || 'Q' + (i + 1),
+        label: heading || key || 'Q' + (i + 1),
         count: items.length,
-        key: quadrantKeys[i] || 'unknown',
+        key: key || 'unknown',
       });
     }
 
