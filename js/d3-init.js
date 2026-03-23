@@ -254,12 +254,10 @@
     // Append a dedicated enhancement wrapper so original HTML remains for WCAG/CSS-only fallback
     var wrapper = document.createElement('div');
     wrapper.classList.add('d3-network-wrapper');
-    wrapper.setAttribute('role', 'figure');
-    wrapper.setAttribute('aria-label', (data.nodes[0]?.label || 'Network') + ' — Force Network');
+    wrapper.setAttribute('aria-hidden', 'true');
     container.appendChild(wrapper);
 
     var svg = createSVGContainer(wrapper, width, height, 'd3-network');
-    svg.attr('aria-hidden', 'true');
 
     var groupColors = {
       center: EU_COLORS.blue,
@@ -368,8 +366,6 @@
     // Append dedicated chart wrapper so original SWOT content remains for accessibility
     var wrapper = document.createElement('div');
     wrapper.classList.add('d3-swot-chart-wrapper');
-    wrapper.setAttribute('role', 'figure');
-    wrapper.setAttribute('aria-label', 'SWOT Analysis Distribution');
     wrapper.setAttribute('aria-hidden', 'true');
     matrix.appendChild(wrapper);
 
