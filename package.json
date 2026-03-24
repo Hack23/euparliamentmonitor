@@ -59,7 +59,7 @@
     "docs:index": "node scripts/utils/generate-docs-index.js",
     "docs:generate": "npm run docs:api && npm run docs:copy-reports && npm run docs:index",
     "prepare": "husky",
-    "prepublishOnly": "npm run lint && npm run test && npm run build"
+    "prepublishOnly": "npm run lint && npm run test"
   },
   "repository": {
     "type": "git",
@@ -115,13 +115,15 @@
     "tsx": "^4.21.0",
     "typedoc": "^0.28.18",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18",
-    "worldbank-mcp": "^1.0.1"
+    "vitest": "^4.0.18"
   },
   "engines": {
     "node": ">=25"
   },
   "dependencies": {
     "european-parliament-mcp-server": "^1.1.16"
+  },
+  "optionalDependencies": {
+    "worldbank-mcp": "^1.0.1"
   }
 }

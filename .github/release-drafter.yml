@@ -152,7 +152,7 @@ template: |
   | `euparliamentmonitor-$RESOLVED_VERSION.zip` | Full application package | SHA-256 checksum, SLSA attestation |
   | `euparliamentmonitor-$RESOLVED_VERSION.spdx.json` | SBOM (SPDX format) | SBOM attestation |
   | `*.intoto.jsonl` | SLSA attestations | `gh attestation verify` |
-  | npm package | `euparliamentmonitor@$RESOLVED_VERSION` | `npm audit signatures` |
+  | npm package | `euparliamentmonitor` | `npm audit signatures` |
 
   All artifacts are signed and attested using GitHub's SLSA Level 3 build provenance.
 
