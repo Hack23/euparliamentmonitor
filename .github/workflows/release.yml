@@ -414,7 +414,13 @@ jobs:
           npm pack --dry-run
           echo ""
           echo "📋 Package entry point:"
-          node -e "const pkg = require('./package.json'); console.log('main:', pkg.main); console.log('types:', pkg.types); console.log('exports:', JSON.stringify(pkg.exports, null, 2));"
+          node --input-type=module -e "
+            import { readFileSync } from 'fs';
+            const pkg = JSON.parse(readFileSync('./package.json', 'utf8'));
+            console.log('main:', pkg.main);
+            console.log('types:', pkg.types);
+            console.log('exports:', JSON.stringify(pkg.exports, null, 2));
+          "
 
       - name: Publish to npm with provenance
         run: npm publish --provenance --access public

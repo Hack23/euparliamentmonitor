@@ -15,8 +15,7 @@
     "scripts/",
     "README.md",
     "LICENSE",
-    "SECURITY.md",
-    "CHANGELOG.md"
+    "SECURITY.md"
   ],
   "publishConfig": {
     "access": "public",

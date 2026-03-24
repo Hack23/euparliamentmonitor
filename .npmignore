@@ -31,6 +31,8 @@ test-results/
 .gitignore
 
 # ─── Static site (not part of npm package) ────────────────────────────────────
+# HTML files are all generated static-site artifacts (index pages, news articles).
+# The npm library generates HTML as strings via generateArticleHTML(), not from files.
 news/
 docs/
 images/
