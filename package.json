@@ -3,7 +3,25 @@
   "version": "0.8.2",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
-  "main": "index.html",
+  "main": "scripts/index.js",
+  "types": "scripts/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./scripts/index.js",
+      "types": "./scripts/index.d.ts"
+    }
+  },
+  "files": [
+    "scripts/",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "prebuild": "node scripts/generators/news-indexes.js && node scripts/generators/sitemap.js",
     "build": "tsc",
@@ -37,11 +55,11 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.ts\"",
     "docs:api": "typedoc",
-    "docs:api:jsdoc": "jsdoc -c jsdoc.json",
     "docs:copy-reports": "node scripts/utils/copy-test-reports.js",
     "docs:index": "node scripts/utils/generate-docs-index.js",
     "docs:generate": "npm run docs:api && npm run docs:copy-reports && npm run docs:index",
-    "prepare": "husky"
+    "prepare": "husky",
+    "prepublishOnly": "npm run lint && npm run test"
   },
   "repository": {
     "type": "git",
@@ -54,7 +72,11 @@
     "politics",
     "osint",
     "transparency",
-    "intelligence"
+    "intelligence",
+    "mcp",
+    "model-context-protocol",
+    "open-data",
+    "typescript"
   ],
   "author": "Hack23 AB",
   "license": "Apache-2.0",
@@ -76,7 +98,6 @@
     "chart.js": "^4.5.1",
     "chartjs-plugin-annotation": "^3.1.0",
     "d3": "^7.9.0",
-    "docdash": "^2.0.2",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
@@ -87,8 +108,6 @@
     "htmlhint": "^1.9.2",
     "husky": "^9.1.7",
     "jscpd": "^4.0.8",
-    "jsdoc": "^4.0.5",
-    "jsdoc-to-markdown": "^9.1.3",
     "lint-staged": "^16.4.0",
     "papaparse": "^5.5.3",
     "prettier": "^3.8.1",
@@ -96,13 +115,15 @@
     "tsx": "^4.21.0",
     "typedoc": "^0.28.18",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18",
-    "worldbank-mcp": "^1.0.1"
+    "vitest": "^4.0.18"
   },
   "engines": {
     "node": ">=25"
   },
   "dependencies": {
     "european-parliament-mcp-server": "^1.1.16"
+  },
+  "optionalDependencies": {
+    "worldbank-mcp": "^1.0.1"
   }
 }
