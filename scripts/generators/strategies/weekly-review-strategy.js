@@ -5,9 +5,10 @@ import { WEEKLY_REVIEW_TITLES, getLocalizedString } from '../../constants/langua
 import { fetchVotingRecords, fetchVotingPatterns, fetchMotionsAnomalies, fetchParliamentaryQuestionsForMotions, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent, buildAdoptedTextsSection } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, } from '../analysis-builders.js';
+import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, buildVotingMindmap, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** Base keywords shared by all Weekly Review articles */
 const WEEKLY_REVIEW_BASE_KEYWORDS = [
@@ -174,11 +175,13 @@ export class WeeklyReviewStrategy {
         const adoptedTextsHtml = data.feedData && data.feedData.adoptedTexts.length > 0
             ? buildAdoptedTextsSection(data.feedData.adoptedTexts, lang)
             : '';
+        const mindmapData = buildVotingMindmap(data.votingRecords, data.votingPatterns, data.anomalies, lang);
+        const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
         const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
-        return base.replace('<!-- /article-content -->', adoptedTextsHtml + deepSection + swotSection + dashboardSection);
+        return base.replace('<!-- /article-content -->', adoptedTextsHtml + deepSection + mindmapSection + swotSection + dashboardSection);
     }
     /**
      * Return language-specific metadata for the weekly review article.

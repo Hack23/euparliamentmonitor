@@ -12,6 +12,7 @@ import {
   getLocalizedString,
   EDITORIAL_STRINGS,
   WEEK_AHEAD_STRINGS,
+  WEEK_AHEAD_STAKEHOLDER_STRINGS,
 } from '../constants/languages.js';
 import type {
   ParliamentEvent,
@@ -23,6 +24,11 @@ import type {
   DateRange,
   MCPToolResult,
   LegislativeVelocity,
+  StakeholderImpactSection,
+  StakeholderImpactRow,
+  PoliticalTemperature,
+  PoliticalTemperatureBand,
+  WeekAheadStakeholderStrings,
 } from '../types/index.js';
 
 /** Keyword constant for article tagging */
@@ -293,6 +299,232 @@ function renderQuestion(q: ParliamentaryQuestion): string {
 // ─── Content builders ────────────────────────────────────────────────────────
 
 /**
+ * Clamp a number to the 0–100 range.
+ *
+ * @param n - Number to clamp
+ * @returns Clamped value between 0 and 100
+ */
+function clamp0to100(n: number): number {
+  return Math.max(0, Math.min(100, n));
+}
+
+/**
+ * Map from band key to CSS class suffix used in `temp-*` class names.
+ */
+const BAND_CSS_CLASS: Record<PoliticalTemperatureBand, string> = {
+  low: 'temp-low',
+  moderate: 'temp-moderate',
+  high: 'temp-high',
+  veryHigh: 'temp-very-high',
+};
+
+/**
+ * Derive a language-agnostic temperature band from a 0–100 score.
+ *
+ * This is the single source of truth for score → band mapping.
+ * `computeWeekPoliticalTemperature()` uses this to derive the
+ * `temperature.band` value that the renderer later consumes, avoiding
+ * duplicated threshold logic.
+ *
+ * @param score - Clamped score (0–100)
+ * @returns Band key
+ */
+function temperatureBand(score: number): PoliticalTemperatureBand {
+  if (score >= 75) return 'veryHigh';
+  if (score >= 50) return 'high';
+  if (score >= 25) return 'moderate';
+  return 'low';
+}
+
+/**
+ * Resolve the localized temperature descriptor for a given band.
+ *
+ * @param band - Language-agnostic band key
+ * @param strings - Localized stakeholder strings
+ * @returns Localized descriptor (e.g. "Modéré", "高い")
+ */
+function localizedTempLabel(
+  band: PoliticalTemperatureBand,
+  strings: WeekAheadStakeholderStrings
+): string {
+  const map: Record<PoliticalTemperatureBand, string> = {
+    low: strings.tempLow,
+    moderate: strings.tempModerate,
+    high: strings.tempHigh,
+    veryHigh: strings.tempVeryHigh,
+  };
+  return map[band];
+}
+
+/**
+ * Compute a composite political temperature score (0–100) indicating how
+ * contentious or urgent the upcoming parliamentary week is likely to be.
+ *
+ * The score is derived from the volume and diversity of scheduled events
+ * and questions — a pure scoring function with no side effects.
+ *
+ * @param events - Plenary / parliamentary events for the week
+ * @param questions - Parliamentary questions tabled for the week
+ * @returns Political temperature score and band
+ */
+export function computeWeekPoliticalTemperature(
+  events: readonly ParliamentEvent[],
+  questions: readonly ParliamentaryQuestion[]
+): PoliticalTemperature {
+  // Base: volume-driven heuristic — more events & questions ⇒ higher temperature
+  const eventContribution = Math.min(events.length * 10, 50);
+  const questionContribution = Math.min(questions.length * 5, 30);
+
+  // Diversity bonus: distinct event types signal a broader agenda
+  const uniqueTypes = new Set(events.map((e) => e.type));
+  const diversityBonus = Math.min(uniqueTypes.size * 5, 20);
+
+  const raw = eventContribution + questionContribution + diversityBonus;
+  const score = clamp0to100(Math.round(raw));
+  return { score, band: temperatureBand(score) };
+}
+
+/**
+ * Determine impact level based on a count and a threshold for "high".
+ *
+ * @param count - Item count
+ * @param highThreshold - Minimum count for high impact
+ * @returns Impact level
+ */
+function impactFromCount(count: number, highThreshold: number): 'high' | 'medium' | 'low' {
+  if (count >= highThreshold) return 'high';
+  return count > 0 ? 'medium' : 'low';
+}
+
+/**
+ * Build a stakeholder impact matrix from scheduled events and legislative
+ * documents, assessing which groups are most affected by the agenda.
+ *
+ * Returns an empty section when no events or documents are available
+ * (graceful fallback). This function only constructs raw data; HTML
+ * escaping (for example via `escapeHTML()`) must be applied at render
+ * time by the caller (e.g. in `renderStakeholderSection()`).
+ *
+ * @param events - Parliament events for the upcoming week
+ * @param docs - Legislative documents expected in the period
+ * @param lang - Language code for localized labels (defaults to 'en')
+ * @returns Stakeholder impact section with rows
+ */
+export function buildStakeholderImpactMatrix(
+  events: readonly ParliamentEvent[],
+  docs: readonly LegislativeDocument[],
+  lang: string = 'en'
+): StakeholderImpactSection {
+  if (events.length === 0 && docs.length === 0) {
+    return { rows: [] };
+  }
+
+  const strings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, lang);
+  const rows: StakeholderImpactRow[] = [];
+  const eventCount = events.length;
+  const docCount = docs.length;
+  const totalCount = eventCount + docCount;
+
+  if (eventCount > 0) {
+    rows.push({
+      stakeholder: strings.stakeholderPoliticalGroups,
+      impact: impactFromCount(eventCount, 3),
+      reason: strings.reasonEventsScheduled.replace('{count}', String(eventCount)),
+    });
+  }
+
+  if (docCount > 0) {
+    rows.push({
+      stakeholder: strings.stakeholderCivilSociety,
+      impact: impactFromCount(docCount, 3),
+      reason: strings.reasonDocumentsUnderReview.replace('{count}', String(docCount)),
+    });
+  }
+
+  rows.push({
+    stakeholder: strings.stakeholderIndustry,
+    impact: impactFromCount(totalCount, 5),
+    reason: strings.reasonIndustryRegulatoryAgenda,
+  });
+
+  rows.push({
+    stakeholder: strings.stakeholderEuCitizens,
+    impact: impactFromCount(eventCount, 3),
+    reason: strings.reasonCitizensDecisionsShapePolicy,
+  });
+
+  if (docCount > 0) {
+    rows.push({
+      stakeholder: strings.stakeholderNationalGovernments,
+      impact: impactFromCount(docCount, 3),
+      reason: strings.reasonDocumentsRequireTransposition.replace('{count}', String(docCount)),
+    });
+  }
+
+  rows.push({
+    stakeholder: strings.stakeholderEuInstitutions,
+    impact: impactFromCount(totalCount, 4),
+    reason: strings.reasonInstitutionsCoordination,
+  });
+
+  return { rows };
+}
+
+/**
+ * Render the stakeholder impact section as HTML.
+ *
+ * @param section - Stakeholder impact data
+ * @param temperature - Political temperature score
+ * @param lang - Language code for localized headings
+ * @returns HTML string, or empty string when section is empty
+ */
+function renderStakeholderSection(
+  section: StakeholderImpactSection,
+  temperature: PoliticalTemperature,
+  lang: string
+): string {
+  if (section.rows.length === 0) return '';
+
+  const strings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, lang);
+
+  const tempClass = BAND_CSS_CLASS[temperature.band];
+  const tempDescriptor = localizedTempLabel(temperature.band, strings);
+
+  const tableRows = section.rows
+    .map(
+      (row) =>
+        `<tr>` +
+        `<td>${escapeHTML(row.stakeholder)}</td>` +
+        `<td class="impact-${escapeHTML(row.impact)}">${escapeHTML(row.impact)}</td>` +
+        `<td>${escapeHTML(row.reason)}</td>` +
+        `</tr>`
+    )
+    .join('');
+
+  return `
+          <section class="stakeholder-impact" lang="${escapeHTML(lang)}">
+            <h2>${escapeHTML(strings.heading)}</h2>
+            <div class="political-temperature ${tempClass}">
+              <span class="temp-label">${escapeHTML(strings.temperatureLabel)}:</span>
+              <span class="temp-score">${temperature.score}/100</span>
+              <span class="temp-descriptor">(${escapeHTML(tempDescriptor)})</span>
+            </div>
+            <table class="stakeholder-matrix">
+              <thead>
+                <tr>
+                  <th scope="col">${escapeHTML(strings.stakeholderHeader)}</th>
+                  <th scope="col">${escapeHTML(strings.impactHeader)}</th>
+                  <th scope="col">${escapeHTML(strings.reasonHeader)}</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${tableRows}
+              </tbody>
+            </table>
+          </section>`;
+}
+
+/**
  * Build the supplementary lede sentence about committee and pipeline counts.
  *
  * @param committeeCount - Number of committee meetings
@@ -373,6 +605,11 @@ export function buildWeekAheadContent(
             <p>${escapeHTML(editorial.parliamentaryContext)}: ${escapeHTML(editorial.sourceAttribution)} — parliamentary schedules determine the legislative agenda affecting EU citizens directly.</p>
           </section>`;
 
+  // Stakeholder impact analysis
+  const stakeholderData = buildStakeholderImpactMatrix(weekData.events, weekData.documents, lang);
+  const temperature = computeWeekPoliticalTemperature(weekData.events, weekData.questions);
+  const stakeholderSection = renderStakeholderSection(stakeholderData, temperature, lang);
+
   return `
         <div class="article-content">
           <section class="lede">
@@ -387,6 +624,7 @@ export function buildWeekAheadContent(
           ${documentsSection}
           ${pipelineSection}
           ${qaSection}
+          ${stakeholderSection}
           <!-- /article-content -->
         </div>
       `;

@@ -4,6 +4,7 @@
  * @module Utils/FileUtils
  * @description Shared file system utilities for news article operations
  */
+import { randomUUID } from 'crypto';
 import fs from 'fs';
 import path from 'path';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
@@ -132,6 +133,123 @@ export function writeFileContent(filepath, content) {
     const dir = path.dirname(filepath);
     ensureDirectoryExists(dir);
     fs.writeFileSync(filepath, content, 'utf-8');
+}
+/**
+ * Remove a file, ignoring ENOENT (file already deleted by another writer).
+ *
+ * @param filepath - Path to the file to remove
+ */
+function unlinkIfExists(filepath) {
+    try {
+        fs.unlinkSync(filepath);
+    }
+    catch (err) {
+        const code = err instanceof Error ? err.code : '';
+        if (code !== 'ENOENT') {
+            throw err;
+        }
+    }
+}
+/**
+ * Attempt to rename `src` to `dest` with a bounded retry loop.
+ *
+ * On each attempt the existing destination is removed first, then
+ * `renameSync` is retried.  `EEXIST`/`EPERM` failures from concurrent
+ * writers are tolerated for up to `maxRetries` attempts.
+ *
+ * @param src - Source (temp) file path
+ * @param dest - Final destination path
+ * @param maxRetries - Maximum number of unlink-then-rename attempts
+ */
+function renameWithRetry(src, dest, maxRetries) {
+    for (let attempt = 0; attempt < maxRetries; attempt++) {
+        unlinkIfExists(dest);
+        try {
+            fs.renameSync(src, dest);
+            return;
+        }
+        catch (retryErr) {
+            const retryCode = retryErr instanceof Error ? retryErr.code : '';
+            if ((retryCode === 'EEXIST' || retryCode === 'EPERM') && attempt < maxRetries - 1) {
+                continue;
+            }
+            throw retryErr;
+        }
+    }
+}
+/**
+ * Best-effort removal of a temporary file.  Ignores ENOENT (the file was
+ * already renamed or never created) but logs a warning for other errors
+ * (e.g. EBUSY, EACCES) so operators can detect leaked temp files.
+ *
+ * @param tempPath - Path to the temp file to remove
+ */
+function cleanupTempFile(tempPath) {
+    try {
+        fs.unlinkSync(tempPath);
+    }
+    catch (unlinkErr) {
+        const errno = unlinkErr && typeof unlinkErr === 'object' ? unlinkErr : undefined;
+        if (errno?.code !== 'ENOENT') {
+            const message = errno && typeof errno.message === 'string' ? errno.message : String(unlinkErr);
+            const code = errno?.code ?? 'UNKNOWN';
+            console.warn(`atomicWrite: failed to remove temporary file "${tempPath}" (code: ${code}): ${message}`);
+        }
+    }
+}
+/**
+ * Write content to a file atomically.
+ *
+ * Writes to a uniquely-named temporary file in the same directory first, then
+ * renames it to the final path. The temp filename includes the PID and a random
+ * UUID so that concurrent callers targeting the same destination never collide
+ * on the intermediate file. If the rename fails the temp file is cleaned up in
+ * a `finally` block. On platforms where `renameSync` does not overwrite an
+ * existing destination (e.g. Windows), the error is caught and the target is
+ * removed before retrying the rename.
+ *
+ * @param filepath - Final output file path
+ * @param content - File content to write
+ */
+export function atomicWrite(filepath, content) {
+    const dir = path.dirname(filepath);
+    ensureDirectoryExists(dir);
+    const uniqueSuffix = `${process.pid}-${randomUUID()}`;
+    const tempPath = `${filepath}.${uniqueSuffix}.tmp`;
+    try {
+        fs.writeFileSync(tempPath, content, 'utf-8');
+        try {
+            fs.renameSync(tempPath, filepath);
+        }
+        catch (err) {
+            const code = err instanceof Error ? err.code : '';
+            if (code === 'EEXIST' || code === 'EPERM') {
+                renameWithRetry(tempPath, filepath, 3);
+            }
+            else {
+                throw err;
+            }
+        }
+    }
+    finally {
+        cleanupTempFile(tempPath);
+    }
+}
+/**
+ * Check whether a news article file already exists on disk.
+ *
+ * This is used by generation pipelines to skip work when a prior workflow run
+ * (or the same run) has already produced the article, avoiding unnecessary
+ * regeneration and potential merge conflicts.
+ *
+ * @param slug - Article slug including date prefix (e.g. `"2025-01-15-week-ahead"`)
+ * @param lang - Language code (e.g. `"en"`)
+ * @param newsDir - Absolute path to the news output directory (defaults to NEWS_DIR)
+ * @returns `true` when the article file exists
+ */
+export function checkArticleExists(slug, lang, newsDir = NEWS_DIR) {
+    const filename = `${slug}-${lang}.html`;
+    return fs.existsSync(path.join(newsDir, filename));
 }
 /**
  * Decode the 5 HTML entities produced by escapeHTML() back to plain text.

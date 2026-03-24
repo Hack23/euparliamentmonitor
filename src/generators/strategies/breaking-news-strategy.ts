@@ -22,15 +22,21 @@ import {
   fetchCoalitionDynamics,
   loadFeedDataFromFile,
 } from '../pipeline/fetch-stage.js';
-import { buildBreakingNewsContent } from '../breaking-content.js';
+import {
+  buildBreakingNewsContent,
+  scoreBreakingNewsSignificance,
+  SIGNIFICANCE_THRESHOLD,
+} from '../breaking-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
 import {
   buildBreakingAnalysis,
   buildBreakingSwot,
   buildBreakingDashboard,
+  buildBreakingMindmap,
 } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 
@@ -270,11 +276,13 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       lang
     );
     const deepSection = buildDeepAnalysisSection(analysis, lang);
+    const mindmapData = buildBreakingMindmap(data.feedData, lang);
+    const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
     const swotData = buildBreakingSwot(data.feedData, data.anomalyRaw, data.coalitionRaw, lang);
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildBreakingDashboard(data.feedData, lang);
     const dashboardSection = buildDashboardSection(dashboardData, lang);
-    const injection = deepSection + swotSection + dashboardSection;
+    const injection = deepSection + mindmapSection + swotSection + dashboardSection;
     // Inject before the closing </div> of .article-content
     if (injection) {
       const closingTag = '</div>';
@@ -300,10 +308,17 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
     const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
     const description = lang === 'en' ? buildBreakingDescription(data.date, data.feedData) : '';
     const subtitle = description || baseSubtitle;
+    const keywords = buildBreakingKeywords(data.feedData);
+    if (data.feedData) {
+      const score = scoreBreakingNewsSignificance(data.feedData);
+      if (score.overallScore >= SIGNIFICANCE_THRESHOLD) {
+        keywords.push(`significance:${score.overallScore}`);
+      }
+    }
     return {
       title,
       subtitle,
-      keywords: buildBreakingKeywords(data.feedData),
+      keywords,
       category: ArticleCategory.BREAKING_NEWS,
       sources: [],
     };

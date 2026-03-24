@@ -9,7 +9,7 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { formatDateForSlug } from '../../utils/file-utils.js';
+import { formatDateForSlug, atomicWrite } from '../../utils/file-utils.js';
 // ─── File-write helpers ───────────────────────────────────────────────────────
 /** Log prefix for write operations */
 const DRY_RUN_PREFIX = '  [DRY RUN]';
@@ -39,7 +39,7 @@ export function writeArticleFile(html, filename, options) {
         console.log(`${DRY_RUN_PREFIX} Would write: ${filename}`);
         return false;
     }
-    fs.writeFileSync(filepath, html, 'utf-8');
+    atomicWrite(filepath, html);
     console.log(`  ✅ Wrote: ${filename}`);
     return true;
 }
@@ -139,7 +139,7 @@ export function writeGenerationMetadata(stats, results, usedMCP, metadataDir, dr
         results: mergedResults,
         usedMCP: mergedUsedMCP,
     };
-    fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf-8');
+    atomicWrite(metadataPath, JSON.stringify(metadata, null, 2));
     console.log(`📝 Metadata written to: ${metadataPath}`);
 }
 //# sourceMappingURL=output-stage.js.map

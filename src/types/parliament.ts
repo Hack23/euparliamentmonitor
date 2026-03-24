@@ -158,6 +158,25 @@ export interface LegislativeVelocity {
   predictedCompletion: string;
 }
 
+// ─── Political significance scoring ──────────────────────────────────────────
+
+/**
+ * Quantified political significance score for breaking news prioritization.
+ * Each dimension contributes a weighted sub-score to an overall 0–100 composite.
+ */
+export interface PoliticalSignificanceScore {
+  /** Sub-score for adopted texts / legislative activity (0–100) */
+  readonly adoptedTextsScore: number;
+  /** Sub-score for affected MEP updates (0–100) */
+  readonly affectedMEPsScore: number;
+  /** Sub-score for legislative stage proximity to final reading (0–100) */
+  readonly legislativeStageScore: number;
+  /** Sub-score for event / committee involvement breadth (0–100) */
+  readonly committeeInvolvementScore: number;
+  /** Weighted composite score (0–100) */
+  readonly overallScore: number;
+}
+
 // ─── Advanced political intelligence types ────────────────────────────────────
 
 /** Voting intensity metrics for a set of voting records */
@@ -202,6 +221,52 @@ export interface PolarizationIndex {
   fragmentedGroups: string[];
   /** Assessment label */
   assessment: 'consensus' | 'moderate' | 'polarized' | 'highly-polarized';
+}
+
+// ─── Cross-session analysis types ─────────────────────────────────────────────
+
+/** Detected voting trend across multiple sessions */
+export interface VotingTrend {
+  /** Identifier for the trend (e.g. "increasing-polarization") */
+  trendId: string;
+  /** Human-readable description of the trend */
+  description: string;
+  /** Direction of the trend */
+  direction: 'increasing' | 'decreasing' | 'stable';
+  /** Confidence in the detection (0-1) */
+  confidence: number;
+  /** Number of records contributing to this trend */
+  recordCount: number;
+  /** Representative metric value (e.g. average margin change) */
+  metricValue: number;
+}
+
+/** Coalition stability report from cross-session pattern analysis */
+export interface CoalitionStabilityReport {
+  /** Overall stability score (0-1, higher = more stable) */
+  overallStability: number;
+  /** Number of patterns analysed */
+  patternCount: number;
+  /** Groups with consistently high cohesion */
+  stableGroups: string[];
+  /** Groups showing declining cohesion */
+  decliningGroups: string[];
+  /** Forecast assessment label */
+  forecast: 'stable' | 'at-risk' | 'volatile';
+}
+
+/** Legislative velocity report with stage-by-stage timing analysis */
+export interface LegislativeVelocityReport {
+  /** Total documents analysed */
+  documentCount: number;
+  /** Breakdown of documents by stage */
+  stageBreakdown: Record<string, number>;
+  /** Average days per stage (where data available) */
+  averageDaysPerStage: number;
+  /** Number of stages identified as bottlenecks (stage-level count, not document-level) */
+  bottleneckCount: number;
+  /** Overall throughput assessment */
+  throughputAssessment: 'fast' | 'normal' | 'slow';
 }
 
 // ─── EP Feed item types ──────────────────────────────────────────────────────

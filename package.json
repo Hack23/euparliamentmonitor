@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "index.html",
@@ -9,7 +9,7 @@
     "build": "tsc",
     "build:check": "tsc --noEmit",
     "build:check-tests": "tsc --project tsconfig.test.json --noEmit",
-    "copy-vendor": "mkdir -p js/vendor && cp node_modules/chart.js/dist/chart.umd.min.js js/vendor/ && cp node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js js/vendor/",
+    "copy-vendor": "mkdir -p js/vendor && cp node_modules/chart.js/dist/chart.umd.min.js js/vendor/ && cp node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js js/vendor/ && cp node_modules/d3/dist/d3.min.js js/vendor/",
     "generate-news": "node scripts/generators/news-enhanced.js",
     "generate-news-indexes": "node scripts/generators/news-indexes.js",
     "generate-sitemap": "node scripts/generators/sitemap.js",
@@ -69,9 +69,9 @@
     "@types/d3": "^7.4.3",
     "@types/node": "^25.5.0",
     "@types/papaparse": "^5.5.2",
-    "@typescript-eslint/eslint-plugin": "^8.57.1",
+    "@typescript-eslint/eslint-plugin": "^8.57.2",
     "@typescript-eslint/parser": "^8.56.0",
-    "@vitest/coverage-v8": "^4.1.0",
+    "@vitest/coverage-v8": "^4.1.1",
     "@vitest/ui": "^4.0.18",
     "chart.js": "^4.5.1",
     "chartjs-plugin-annotation": "^3.1.0",
@@ -83,7 +83,7 @@
     "eslint-plugin-jsdoc": "^62.8.0",
     "eslint-plugin-security": "^4.0.0",
     "eslint-plugin-sonarjs": "^4.0.2",
-    "happy-dom": "^20.8.4",
+    "happy-dom": "^20.8.7",
     "htmlhint": "^1.9.2",
     "husky": "^9.1.7",
     "jscpd": "^4.0.8",
@@ -94,7 +94,7 @@
     "prettier": "^3.8.1",
     "ts-api-utils": "^2.5.0",
     "tsx": "^4.21.0",
-    "typedoc": "^0.28.17",
+    "typedoc": "^0.28.18",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18",
     "worldbank-mcp": "^1.0.1"
@@ -103,6 +103,6 @@
     "node": ">=25"
   },
   "dependencies": {
-    "european-parliament-mcp-server": "^1.1.14"
+    "european-parliament-mcp-server": "^1.1.16"
   }
 }

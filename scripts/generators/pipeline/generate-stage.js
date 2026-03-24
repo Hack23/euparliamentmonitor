@@ -3,7 +3,7 @@
 import { ArticleCategory } from '../../types/index.js';
 import { generateArticleHTML } from '../../templates/article-template.js';
 import { calculateReadTime, formatDateForSlug, validateArticleHTML, } from '../../utils/file-utils.js';
-import { validateArticleContent } from '../../utils/content-validator.js';
+import { validateArticleContent, validateTranslationCompleteness, } from '../../utils/content-validator.js';
 import { scoreArticleQuality } from '../../utils/article-quality-scorer.js';
 import { enrichMetadataFromContent } from '../../utils/content-metadata.js';
 import { weekAheadStrategy } from '../strategies/week-ahead-strategy.js';
@@ -83,8 +83,8 @@ function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outp
     // Enrich metadata by analysing the actual rendered content.
     // This produces insightful titles, descriptions, and keywords
     // that reflect the article's coverage — not generic template text.
-    // Title/description enrichment is English-only to avoid overriding
-    // the strategies' localised metadata (their `lang === 'en'` gating).
+    // Title/description enrichment is English-only because the heuristics
+    // (statistic extraction, generic-heading filter) use English keywords.
     // Language-agnostic keyword additions (committee abbreviations, etc.)
     // are preserved for all languages.
     const enrichedMetadata = enrichMetadataFromContent(content, baseMetadata);
@@ -124,6 +124,12 @@ function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outp
     }
     for (const warning of contentValidation.warnings) {
         console.warn(`  ⚠️  ${lang.toUpperCase()} content warning: ${warning}`);
+    }
+    // Translation completeness — informational only, never blocks generation
+    const translationValidation = validateTranslationCompleteness(html, lang);
+    for (const warning of translationValidation.warnings) {
+        console.warn(`  🌐 ${lang.toUpperCase()} ${warning}`);
+        stats.translationWarnings = (stats.translationWarnings ?? 0) + 1;
     }
     // Quality scoring — informational only, never blocks generation
     const qualityReport = scoreArticleQuality(html, slug, lang, strategy.type);

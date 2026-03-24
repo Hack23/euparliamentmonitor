@@ -740,5 +740,43 @@ describe('article-template', () => {
         expect(html).toContain('defer></script>');
       });
     });
+
+    describe('D3.js conditional inclusion', () => {
+      it('should NOT include D3.js scripts when content has no mindmaps or SWOT', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).not.toContain('d3.min.js');
+        expect(html).not.toContain('d3-init.js');
+      });
+
+      it('should include D3.js scripts when content has mindmap-container', () => {
+        const mindmapContent = `<div class="mindmap-container"><div class="mindmap-center">Topic</div></div>`;
+        const html = generateArticleHTML({ ...defaultOptions, content: mindmapContent });
+        expect(html).toContain('js/vendor/d3.min.js');
+        expect(html).toContain('js/d3-init.js');
+      });
+
+      it('should include D3.js scripts when content has swot-matrix', () => {
+        const swotContent = `<div class="swot-matrix"><div class="swot-quadrant strengths"></div></div>`;
+        const html = generateArticleHTML({ ...defaultOptions, content: swotContent });
+        expect(html).toContain('js/vendor/d3.min.js');
+        expect(html).toContain('js/d3-init.js');
+      });
+
+      it('should include both Chart.js and D3.js when content has both', () => {
+        const mixedContent = `<canvas data-chart-config='{"type":"bar"}'></canvas><div class="mindmap-container"></div>`;
+        const html = generateArticleHTML({ ...defaultOptions, content: mixedContent });
+        expect(html).toContain('js/vendor/chart.umd.min.js');
+        expect(html).toContain('js/chart-init.js');
+        expect(html).toContain('js/vendor/d3.min.js');
+        expect(html).toContain('js/d3-init.js');
+      });
+
+      it('should use defer attribute on D3.js scripts', () => {
+        const mindmapContent = `<div class="mindmap-container"></div>`;
+        const html = generateArticleHTML({ ...defaultOptions, content: mindmapContent });
+        const d3ScriptMatch = html.match(/d3\.min\.js[^>]*defer/);
+        expect(d3ScriptMatch).not.toBeNull();
+      });
+    });
   });
 });

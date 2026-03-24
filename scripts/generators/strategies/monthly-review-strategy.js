@@ -5,9 +5,10 @@ import { MONTHLY_REVIEW_TITLES, getLocalizedString } from '../../constants/langu
 import { fetchVotingRecords, fetchVotingPatterns, fetchMotionsAnomalies, fetchParliamentaryQuestionsForMotions, fetchEPFeedData, } from '../pipeline/fetch-stage.js';
 import { generateMotionsContent } from '../motions-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, } from '../analysis-builders.js';
+import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, buildVotingMindmap, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
+import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** Base keywords shared by all Monthly Review articles */
 const MONTHLY_REVIEW_BASE_KEYWORDS = [
@@ -167,11 +168,13 @@ export class MonthlyReviewStrategy {
         const base = generateMotionsContent(data.dateRange.start, data.dateRange.end, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
         const analysis = buildVotingAnalysis(data.dateRange.start, data.dateRange.end, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
         const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        const mindmapData = buildVotingMindmap(data.votingRecords, data.votingPatterns, data.anomalies, lang);
+        const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
         const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
-        return base.replace('<!-- /article-content -->', deepSection + swotSection + dashboardSection);
+        return base.replace('<!-- /article-content -->', deepSection + mindmapSection + swotSection + dashboardSection);
     }
     /**
      * Return language-specific metadata for the monthly review article.

@@ -31,6 +31,11 @@ export {
   type EditorialStrings,
   type MotionsStrings,
   type WeekAheadStrings,
+  type WeekAheadStakeholderStrings,
+  type StakeholderImpactRow,
+  type StakeholderImpactSection,
+  type PoliticalTemperatureBand,
+  type PoliticalTemperature,
   type BreakingStrings,
   type ActionConsequence,
   type StakeholderOutcome,
@@ -71,6 +76,10 @@ export type {
   VotingIntensity,
   CoalitionShift,
   PolarizationIndex,
+  PoliticalSignificanceScore,
+  VotingTrend,
+  CoalitionStabilityReport,
+  LegislativeVelocityReport,
 } from './parliament.js';
 
 export type {
@@ -253,3 +262,8 @@ export type {
 } from './stakeholder.js';
 
 export { ALL_STAKEHOLDER_TYPES } from './stakeholder.js';
+
+export type {
+  TranslationValidationResult,
+  TranslationValidationMetrics,
+} from '../utils/content-validator.js';
