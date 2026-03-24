@@ -1,0 +1,1839 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="../"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>CRA-ASSESSMENT | EU Parliament Monitor — API Documentation - v0.8.3</title><link rel="icon" href="../assets/favicon.ico"/><meta name="description" content="Documentation for EU Parliament Monitor — API Documentation"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/icons.js" id="tsd-icons-script"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script><script async src="../assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="../index.html" class="title">EU Parliament Monitor — API Documentation - v0.8.3</a><div id="tsd-toolbar-links"><a href="https://euparliamentmonitor.com">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server">🇪🇺 EP MCP Server</a></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><ul class="tsd-breadcrumb" aria-label="Breadcrumb"><li><a href="" aria-current="page">CRA-ASSESSMENT</a></li></ul></div><div class="tsd-panel tsd-typography"><p align="center">
+  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
+</p>
+<h1 align="center">🛡️ EU Parliament Monitor — CRA Conformity Assessment</h1>
+<p align="center">
+  <strong>Evidence-Driven Conformity Through Systematic Assessment</strong><br>
+  <em>Demonstrating CRA Compliance for European Parliament Intelligence Platform</em>
+</p>
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
+</p>
+<p><strong>📋 Document Owner:</strong> CEO | <strong>📄 Version:</strong> 2.0 | <strong>📅 Last Updated:</strong> 2026-03-19 (UTC)<br>
+<strong>🔄 Review Cycle:</strong> Quarterly | <strong>⏰ Next Review:</strong> 2026-06-19<br>
+<strong>🏛️ Process Reference:</strong> <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md" target="_blank" class="external">CRA Conformity Assessment Process</a></p>
+<hr>
+<h2 id="📚-architecture-documentation-map" class="tsd-anchor-link">📚 Architecture Documentation Map<a href="#📚-architecture-documentation-map" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<div class="documentation-map">
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Focus</th>
+<th>Description</th>
+<th>Documentation Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="ARCHITECTURE.html">Architecture</a></strong></td>
+<td>🏛️ Architecture</td>
+<td>C4 model showing current system structure</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_ARCHITECTURE.md">Future Architecture</a></strong></td>
+<td>🏛️ Architecture</td>
+<td>C4 model showing future system structure</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="MINDMAP.html">Mindmaps</a></strong></td>
+<td>🧠 Concept</td>
+<td>Current system component relationships</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_MINDMAP.md">Future Mindmaps</a></strong></td>
+<td>🧠 Concept</td>
+<td>Future capability evolution</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_MINDMAP.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="SWOT.html">SWOT Analysis</a></strong></td>
+<td>💼 Business</td>
+<td>Current strategic assessment</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_SWOT.md">Future SWOT Analysis</a></strong></td>
+<td>💼 Business</td>
+<td>Future strategic opportunities</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SWOT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="DATA_MODEL.html">Data Model</a></strong></td>
+<td>📊 Data</td>
+<td>Current data structures and relationships</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_DATA_MODEL.md">Future Data Model</a></strong></td>
+<td>📊 Data</td>
+<td>Enhanced European Parliament data architecture</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_DATA_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="FLOWCHART.html">Flowcharts</a></strong></td>
+<td>🔄 Process</td>
+<td>Current data processing workflows</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FLOWCHART.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_FLOWCHART.md">Future Flowcharts</a></strong></td>
+<td>🔄 Process</td>
+<td>Enhanced AI-driven workflows</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_FLOWCHART.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="STATEDIAGRAM.html">State Diagrams</a></strong></td>
+<td>🔄 Behavior</td>
+<td>Current system state transitions</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/STATEDIAGRAM.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_STATEDIAGRAM.md">Future State Diagrams</a></strong></td>
+<td>🔄 Behavior</td>
+<td>Enhanced adaptive state transitions</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_STATEDIAGRAM.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="SECURITY_ARCHITECTURE.html">Security Architecture</a></strong></td>
+<td>🛡️ Security</td>
+<td>Current security implementation</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_SECURITY_ARCHITECTURE.md">Future Security Architecture</a></strong></td>
+<td>🛡️ Security</td>
+<td>Security enhancement roadmap</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="THREAT_MODEL.html">Threat Model</a></strong></td>
+<td>🎯 Security</td>
+<td>STRIDE threat analysis</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/CLASSIFICATION.md">Classification</a></strong></td>
+<td>🏷️ Governance</td>
+<td>CIA classification &amp; BCP</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CLASSIFICATION.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="">CRA Assessment</a></strong></td>
+<td>🛡️ Compliance</td>
+<td>Cyber Resilience Act</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/WORKFLOWS.md">Workflows</a></strong></td>
+<td>⚙️ DevOps</td>
+<td>CI/CD documentation</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_WORKFLOWS.md">Future Workflows</a></strong></td>
+<td>🚀 DevOps</td>
+<td>Planned CI/CD enhancements</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_WORKFLOWS.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/BCPPlan.md">Business Continuity Plan</a></strong></td>
+<td>🔄 Resilience</td>
+<td>Recovery planning</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/BCPPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FinancialSecurityPlan.md">Financial Security Plan</a></strong></td>
+<td>💰 Financial</td>
+<td>Cost &amp; security analysis</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FinancialSecurityPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/End-of-Life-Strategy.md">End-of-Life Strategy</a></strong></td>
+<td>📦 Lifecycle</td>
+<td>Technology EOL planning</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/End-of-Life-Strategy.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/UnitTestPlan.md">Unit Test Plan</a></strong></td>
+<td>🧪 Testing</td>
+<td>Unit testing strategy</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/UnitTestPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/E2ETestPlan.md">E2E Test Plan</a></strong></td>
+<td>🔍 Testing</td>
+<td>End-to-end testing</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/E2ETestPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/performance-testing.md">Performance Testing</a></strong></td>
+<td>⚡ Performance</td>
+<td>Performance benchmarks</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/performance-testing.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/SECURITY.md">Security Policy</a></strong></td>
+<td>🔒 Security</td>
+<td>Vulnerability reporting &amp; security policy</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md" target="_blank" class="external">View Source</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="🎯-purpose-statement" class="tsd-anchor-link">🎯 Purpose Statement<a href="#🎯-purpose-statement" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><strong>Hack23 AB's</strong> CRA conformity assessment process demonstrates how <strong>systematic regulatory compliance directly enables transparency and trust</strong> in open-source European Parliament monitoring. This assessment covers the EU Parliament Monitor's compliance with the EU Cyber Resilience Act (CRA) requirements.</p>
+<p>As a static site generating multi-language news articles from European Parliament open data, EU Parliament Monitor has a minimal attack surface while maintaining comprehensive security practices aligned with the CRA framework. This assessment follows the <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md" target="_blank" class="external">Hack23 AB CRA Conformity Assessment Process</a> and the <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md" target="_blank" class="external">Open Source Policy</a> requirements.</p>
+<p><em>— James Pether Sörling, CEO/Founder</em></p>
+<hr>
+<h2 id="1️⃣-project-identification" class="tsd-anchor-link">1️⃣ Project Identification<a href="#1️⃣-project-identification" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>📋 <strong>Attribute</strong></th>
+<th>📊 <strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Product Name</strong></td>
+<td>EU Parliament Monitor</td>
+</tr>
+<tr>
+<td><strong>Version</strong></td>
+<td>0.5.1</td>
+</tr>
+<tr>
+<td><strong>Repository</strong></td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor" target="_blank" class="external">github.com/Hack23/euparliamentmonitor</a></td>
+</tr>
+<tr>
+<td><strong>Homepage</strong></td>
+<td><a href="https://euparliamentmonitor.com" target="_blank" class="external">euparliamentmonitor.com</a></td>
+</tr>
+<tr>
+<td><strong>Security Contact</strong></td>
+<td><a href="mailto:security@hack23.com">security@hack23.com</a></td>
+</tr>
+<tr>
+<td><strong>License</strong></td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Multi-language European Parliament transparency platform — automated static site generating news articles in 14 languages from EU Parliament open data</td>
+</tr>
+<tr>
+<td><strong>Technology Stack</strong></td>
+<td>Node.js 25, TypeScript, HTML5/CSS3, GitHub Actions, GitHub Pages</td>
+</tr>
+<tr>
+<td><strong>Deployment Model</strong></td>
+<td>Static site served via GitHub Pages CDN</td>
+</tr>
+<tr>
+<td><strong>Data Sources</strong></td>
+<td>European Parliament MCP Server (public open data)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="📎-evidence-links" class="tsd-anchor-link">📎 Evidence Links<a href="#📎-evidence-links" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>📂 <strong>Evidence Area</strong></th>
+<th>📄 <strong>Document</strong></th>
+<th>🔗 <strong>Link</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System Architecture</td>
+<td><a href="http://ARCHITECTURE.md" target="_blank" class="external">ARCHITECTURE.md</a></td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Security Architecture</td>
+<td>SECURITY_ARCHITECTURE.md</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Future Security Architecture</td>
+<td>FUTURE_SECURITY_ARCHITECTURE.md</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Threat Model (STRIDE)</td>
+<td>THREAT_MODEL.md</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Security Policy</td>
+<td><a href="http://SECURITY.md" target="_blank" class="external">SECURITY.md</a></td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Classification &amp; BCP</td>
+<td><a href="http://CLASSIFICATION.md" target="_blank" class="external">CLASSIFICATION.md</a></td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CLASSIFICATION.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Data Model</td>
+<td>DATA_MODEL.md</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>System Mindmap</td>
+<td><a href="http://MINDMAP.md" target="_blank" class="external">MINDMAP.md</a></td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Workflow Documentation</td>
+<td><a href="http://WORKFLOWS.md" target="_blank" class="external">WORKFLOWS.md</a></td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Business Continuity</td>
+<td><a href="http://BCPPlan.md" target="_blank" class="external">BCPPlan.md</a></td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/BCPPlan.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Financial Security Plan</td>
+<td><a href="http://FinancialSecurityPlan.md" target="_blank" class="external">FinancialSecurityPlan.md</a></td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FinancialSecurityPlan.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>End-of-Life Strategy</td>
+<td><a href="http://End-of-Life-Strategy.md" target="_blank" class="external">End-of-Life-Strategy.md</a></td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/End-of-Life-Strategy.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Unit Test Plan</td>
+<td><a href="http://UnitTestPlan.md" target="_blank" class="external">UnitTestPlan.md</a></td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/UnitTestPlan.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>E2E Test Plan</td>
+<td><a href="http://E2ETestPlan.md" target="_blank" class="external">E2ETestPlan.md</a></td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/E2ETestPlan.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Performance Testing</td>
+<td><a href="http://performance-testing.md" target="_blank" class="external">performance-testing.md</a></td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/performance-testing.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>SBOM &amp; Provenance</td>
+<td>GitHub Release Artifacts</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/releases" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>OpenSSF Scorecard</td>
+<td>Scorecard Results</td>
+<td><a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>CodeQL Results</td>
+<td>GitHub Code Scanning</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/security/code-scanning" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Dependency Alerts</td>
+<td>Dependabot Alerts</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/security/dependabot" target="_blank" class="external">View</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="2️⃣-cra-scope-classification" class="tsd-anchor-link">2️⃣ CRA Scope &amp; Classification<a href="#2️⃣-cra-scope-classification" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p align="center">
+  <img src="https://img.shields.io/badge/CRA_Applicability-Non--commercial_OSS-blue?style=for-the-badge" alt="CRA Applicability"/>
+  <img src="https://img.shields.io/badge/Distribution-Community-green?style=for-the-badge" alt="Distribution"/>
+  <img src="https://img.shields.io/badge/Classification-Standard_(Default)-yellow?style=for-the-badge" alt="Classification"/>
+</p>
+<h3 id="cra-product-category" class="tsd-anchor-link">CRA Product Category<a href="#cra-product-category" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>📋 <strong>Attribute</strong></th>
+<th>📊 <strong>Assessment</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Product Name</strong></td>
+<td>EU Parliament Monitor</td>
+</tr>
+<tr>
+<td><strong>Product Type</strong></td>
+<td>Open-source static website generator</td>
+</tr>
+<tr>
+<td><strong>CRA Category</strong></td>
+<td>Standard — Default (non-critical digital product)</td>
+</tr>
+<tr>
+<td><strong>Digital Elements</strong></td>
+<td>HTML5, CSS3 (static generation via Node.js/TypeScript)</td>
+</tr>
+<tr>
+<td><strong>Network Connectivity</strong></td>
+<td>Build-time only: read-only access to European Parliament open data APIs</td>
+</tr>
+<tr>
+<td><strong>Runtime Network</strong></td>
+<td>None — output is pre-rendered static HTML served via CDN</td>
+</tr>
+<tr>
+<td><strong>Data Processing</strong></td>
+<td>Public EU Parliament data only (no PII, no user data)</td>
+</tr>
+<tr>
+<td><strong>User Interaction</strong></td>
+<td>Read-only static pages — no forms, no authentication, no cookies</td>
+</tr>
+<tr>
+<td><strong>Commercial Status</strong></td>
+<td>Non-commercial open-source (Apache-2.0 license)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scope-justification" class="tsd-anchor-link">Scope Justification<a href="#scope-justification" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>EU Parliament Monitor falls under <strong>CRA Article 6 — Standard (Default) category</strong> as a non-critical digital product. The product is an open-source static site generator that produces pre-rendered HTML pages from publicly available European Parliament data. It has no runtime network connectivity, processes no personal data, requires no user authentication, and poses minimal cybersecurity risk.</p>
+<h3 id="🏛️-open-source-software-cra-exemption" class="tsd-anchor-link">🏛️ Open Source Software CRA Exemption<a href="#🏛️-open-source-software-cra-exemption" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<blockquote>
+<p><strong>Important CRA Note for Open Source Software</strong>: Under CRA <strong>Recital 18</strong> and <strong>Article 3</strong>, open-source software developed and distributed non-commercially (subject to the &quot;in-the-course-of-a-commercial-activity&quot; test) may qualify for full or partial CRA exemption. EU Parliament Monitor is:</p>
+<ul>
+<li>✅ Free and open-source (Apache-2.0 license)</li>
+<li>✅ Non-commercial civic technology — zero revenue generated</li>
+<li>✅ No monetary consideration for distribution</li>
+<li>✅ No commercial exploitation by manufacturer (Hack23 AB)</li>
+</ul>
+</blockquote>
+<p><strong>Assessment</strong>: EU Parliament Monitor <strong>likely qualifies as non-commercial OSS</strong> under CRA Article 3, meaning most manufacturer obligations do <strong>NOT</strong> apply. However, the platform <strong>voluntarily implements CRA best practices</strong> as part of Hack23 AB's security commitment and ISMS framework — demonstrating proactive security transparency to citizens, regulators, and the open-source community.</p>
+<p>As a non-commercial open-source project (CRA Recital 18), it benefits from reduced obligations while voluntarily maintaining comprehensive security practices aligned with CRA Annex I essential requirements.</p>
+<hr>
+<h2 id="2️⃣ᵃ-eu-cra-enforcement-timeline" class="tsd-anchor-link">2️⃣ᵃ EU CRA Enforcement Timeline<a href="#2️⃣ᵃ-eu-cra-enforcement-timeline" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Understanding CRA's phased enforcement timeline is essential for compliance planning. EU Parliament Monitor monitors these milestones to ensure timely readiness.</p>
+<table>
+<thead>
+<tr>
+<th>🗓️ Milestone</th>
+<th>📅 Date</th>
+<th>📋 Requirements</th>
+<th>🚦 Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CRA Published in Official Journal</strong></td>
+<td>2024-11-20</td>
+<td>Regulation (EU) 2024/2847 published</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td><strong>CRA Entry into Force</strong></td>
+<td>2024-12-11</td>
+<td>20 days after publication in Official Journal</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td><strong>Market Surveillance Provisions</strong></td>
+<td><strong>2026-06-11</strong></td>
+<td>Chapter VI market surveillance rules applicable (18 months)</td>
+<td>🔄 Upcoming</td>
+</tr>
+<tr>
+<td><strong>Vulnerability &amp; Incident Reporting Obligations</strong></td>
+<td><strong>2026-09-11</strong></td>
+<td>Articles 14 &amp; 15 — Vulnerability and incident reporting to ENISA/national CSIRTs</td>
+<td>🔄 Upcoming</td>
+</tr>
+<tr>
+<td><strong>Full CRA Compliance Required</strong></td>
+<td><strong>2027-12-11</strong></td>
+<td>All CRA requirements for manufacturers, importers, and distributors</td>
+<td>🔄 Upcoming</td>
+</tr>
+<tr>
+<td><strong>CE Marking Mandatory</strong></td>
+<td><strong>2027-12-11</strong></td>
+<td>Products covered by CRA must bear CE marking</td>
+<td>N/A (non-commercial OSS)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📍 Current Position (Feb 2026):</strong> CRA is in force. Vulnerability reporting requirements under Articles 14 &amp; 15 apply from <strong>September 2026 — approximately 7 months away</strong>. EU Parliament Monitor's existing <a href="../media/SECURITY.md"><code>SECURITY.md</code></a> coordinated disclosure process and GitHub Security Advisories integration <strong>already satisfies these upcoming requirements</strong>. No additional action required before the September 2026 deadline.</p>
+</blockquote>
+<pre><code class="mermaid"><span class="hl-1">gantt</span><br/><span class="hl-1">    title EU CRA Enforcement Timeline</span><br/><span class="hl-1">    dateFormat  YYYY-MM-DD</span><br/><span class="hl-1">    axisFormat  %b %Y</span><br/><br/><span class="hl-1">    section Completed</span><br/><span class="hl-1">    CRA Published (2024-11-20)          :done, pub,  2024-11-20, 1d</span><br/><span class="hl-1">    CRA Entry into Force (2024-12-11)   :done, eif,  2024-12-11, 1d</span><br/><br/><span class="hl-1">    section Upcoming</span><br/><span class="hl-1">    Market Surveillance (2026-06-11)    :active, ms,  2026-06-11, 30d</span><br/><span class="hl-1">    Vulnerability Reporting (2026-09-11):active, vr,  2026-09-11, 30d</span><br/><span class="hl-1">    Full CRA Compliance (2027-12-11)    :crit, fc,  2027-12-11, 30d</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="3️⃣-technical-documentation-cra-annex-v" class="tsd-anchor-link">3️⃣ Technical Documentation (CRA Annex V)<a href="#3️⃣-technical-documentation-cra-annex-v" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>📋 <strong>CRA Technical Area</strong></th>
+<th>📊 <strong>Implementation</strong></th>
+<th>🔗 <strong>Evidence</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Product Architecture</strong></td>
+<td>C4 architecture model (Context, Container, Component levels); static site generator with GitHub Pages deployment; Node.js 25/TypeScript build pipeline</td>
+<td><a href="ARCHITECTURE.html">ARCHITECTURE.md</a>, <a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a>, <a href="MINDMAP.html">MINDMAP.md</a></td>
+</tr>
+<tr>
+<td><strong>SBOM &amp; Components</strong></td>
+<td>CycloneDX SBOM generated per release; npm <code>package-lock.json</code> provides full dependency tree; single runtime dependency (<code>european-parliament-mcp-server</code>)</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/releases" target="_blank" class="external">GitHub Release Attestations</a>, <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/package.json" target="_blank" class="external">package.json</a></td>
+</tr>
+<tr>
+<td><strong>Cybersecurity Controls</strong></td>
+<td>Static site security model (no server-side code execution); CSP headers via GitHub Pages; Content Security Policy; HTTPS-only delivery; no cookies or tracking</td>
+<td><a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a>, <a href="THREAT_MODEL.html">THREAT_MODEL.md</a></td>
+</tr>
+<tr>
+<td><strong>Supply Chain Security</strong></td>
+<td>SLSA Level 3 provenance via <code>release.yml</code>; Dependabot daily dependency scanning; OpenSSF Scorecard weekly assessment; dependency-review on PRs; npm audit in CI</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml" target="_blank" class="external">release.yml</a>, <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/scorecards.yml" target="_blank" class="external">scorecards.yml</a>, <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" target="_blank" class="external">OpenSSF Scorecard</a></td>
+</tr>
+<tr>
+<td><strong>Update Mechanism</strong></td>
+<td>Automated CI/CD via GitHub Actions; daily news generation workflows; automated dependency updates via Dependabot PRs; release workflow with SBOM and provenance attestation</td>
+<td><a href="../media/WORKFLOWS.md">WORKFLOWS.md</a>, <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml" target="_blank" class="external">release.yml</a></td>
+</tr>
+<tr>
+<td><strong>Security Monitoring</strong></td>
+<td>CodeQL SAST on every push/PR; Dependabot alerts with severity-based SLAs; SonarCloud code quality analysis; ESLint with security plugin; HTMLHint for output validation</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/codeql.yml" target="_blank" class="external">codeql.yml</a>, <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/dependency-review.yml" target="_blank" class="external">dependency-review.yml</a></td>
+</tr>
+<tr>
+<td><strong>Data Protection</strong></td>
+<td>Public data only — all source data from official European Parliament open data portal; no PII collected, processed, or stored; no user tracking or analytics; GDPR compliant by design</td>
+<td><a href="../media/CLASSIFICATION.md">CLASSIFICATION.md</a>, <a href="../media/SECURITY.md">SECURITY.md</a></td>
+</tr>
+<tr>
+<td><strong>User Guidance</strong></td>
+<td><a href="http://README.md" target="_blank" class="external">README.md</a> with quick-start instructions; comprehensive architecture documentation suite (20+ documents); Security Policy with vulnerability reporting process; API documentation</td>
+<td><a href="../">README.md</a>, <a href="../media/SECURITY.md">SECURITY.md</a>, <a href="ARCHITECTURE.html">ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td><strong>Vulnerability Disclosure</strong></td>
+<td>GitHub Security Advisories enabled; coordinated disclosure process in <a href="http://SECURITY.md" target="_blank" class="external">SECURITY.md</a>; severity-based SLAs (Critical: 7 days, High: 30 days, Medium: 90 days); <a href="mailto:security@hack23.com">security@hack23.com</a> contact</td>
+<td><a href="../media/SECURITY.md">SECURITY.md</a>, <a href="https://github.com/Hack23/euparliamentmonitor/security/advisories" target="_blank" class="external">GitHub Security Advisories</a></td>
+</tr>
+<tr>
+<td><strong>Technology Lifecycle</strong></td>
+<td>End-of-Life Strategy documenting Node.js 25 Current support timeline (upgrading to Node.js 26 LTS); dependency lifecycle tracking; proactive technology migration planning</td>
+<td><a href="../media/End-of-Life-Strategy.md">End-of-Life-Strategy.md</a></td>
+</tr>
+<tr>
+<td><strong>Testing &amp; Validation</strong></td>
+<td>Vitest unit tests (82%+ coverage); Playwright E2E tests across 14 languages; axe-core accessibility testing (WCAG 2.1 AA); Lighthouse performance benchmarking; ESLint + HTMLHint linting</td>
+<td><a href="../media/UnitTestPlan.md">UnitTestPlan.md</a>, <a href="../media/E2ETestPlan.md">E2ETestPlan.md</a>, <a href="../media/performance-testing.md">performance-testing.md</a></td>
+</tr>
+<tr>
+<td><strong>Business Continuity</strong></td>
+<td>GitHub Pages CDN with global distribution; git-based disaster recovery; repository mirroring capability; classification-driven recovery priorities</td>
+<td><a href="../media/BCPPlan.md">BCPPlan.md</a>, <a href="../media/FinancialSecurityPlan.md">FinancialSecurityPlan.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="📦-sbom-implementation-details" class="tsd-anchor-link">📦 SBOM Implementation Details<a href="#📦-sbom-implementation-details" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>EU Parliament Monitor generates a comprehensive Software Bill of Materials (SBOM) for every release per <strong>CRA Annex I, Part I, §2(3)</strong> requirements — ensuring complete software supply chain transparency.</p>
+<table>
+<thead>
+<tr>
+<th>📋 SBOM Attribute</th>
+<th>🔧 Implementation</th>
+<th>📜 CRA Requirement</th>
+<th>✅ Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SBOM Format</strong></td>
+<td>SPDX JSON (via <code>npm list --json</code>)</td>
+<td>Machine-readable format</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Component Inventory</strong></td>
+<td>All npm dependencies — direct and transitive</td>
+<td>Complete software component listing</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Version Information</strong></td>
+<td>Exact semantic versions from <code>package-lock.json</code></td>
+<td>Precise version identification</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>License Information</strong></td>
+<td><code>REUSE.toml</code> + SPDX headers per file</td>
+<td>License compliance metadata</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Vulnerability Status</strong></td>
+<td><code>npm audit</code> + Dependabot alerts</td>
+<td>Known vulnerability tracking</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Generation Frequency</strong></td>
+<td>On every release via GitHub Actions release workflow</td>
+<td>Current at time of distribution</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Public Availability</strong></td>
+<td>Released as GitHub Release artifact</td>
+<td>Freely accessible to downstream users</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> The <code>package-lock.json</code> provides a machine-readable, version-pinned dependency graph that serves as a complementary SBOM artifact for all build-time consumers. Both the CycloneDX SBOM (generated per release) and <code>package-lock.json</code> are publicly accessible, fulfilling CRA Annex I Part II §7.</p>
+</blockquote>
+<hr>
+<h2 id="4️⃣-risk-assessment" class="tsd-anchor-link">4️⃣ Risk Assessment<a href="#4️⃣-risk-assessment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>🎯 <strong>CRA Risk Category</strong></th>
+<th>💎 <strong>Asset</strong></th>
+<th>📊 <strong>Likelihood</strong></th>
+<th>💥 <strong>Impact</strong></th>
+<th>🛡️ <strong>CRA Control Implementation</strong></th>
+<th>📉 <strong>Residual</strong></th>
+<th>🔗 <strong>Evidence</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Supply Chain Compromise</strong></td>
+<td>Build pipeline, npm dependencies</td>
+<td>🟡 Medium</td>
+<td>🟡 Medium</td>
+<td>SLSA Level 3 provenance; Dependabot daily scanning; dependency-review workflow; npm audit in CI; lock file integrity verification</td>
+<td>🟢 Low</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml" target="_blank" class="external">release.yml</a>, <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/dependency-review.yml" target="_blank" class="external">dependency-review.yml</a></td>
+</tr>
+<tr>
+<td><strong>Known Vulnerability Exploitation</strong></td>
+<td>Node.js runtime, npm packages</td>
+<td>🟡 Medium</td>
+<td>🟡 Medium</td>
+<td>CodeQL SAST on every push; Dependabot with severity-based SLAs; OpenSSF Scorecard assessment; npm audit enforcement; ESLint security plugin</td>
+<td>🟢 Low</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/codeql.yml" target="_blank" class="external">codeql.yml</a>, <a href="../media/SECURITY.md">SECURITY.md</a></td>
+</tr>
+<tr>
+<td><strong>Content Integrity Compromise</strong></td>
+<td>Generated HTML/CSS news articles</td>
+<td>🟢 Low</td>
+<td>🟡 Medium</td>
+<td>Git-based version control with signed commits; HTMLHint output validation; Playwright E2E verification; immutable deployment artifacts</td>
+<td>🟢 Low</td>
+<td><a href="ARCHITECTURE.html">ARCHITECTURE.md</a>, <a href="../media/E2ETestPlan.md">E2ETestPlan.md</a></td>
+</tr>
+<tr>
+<td><strong>CI/CD Pipeline Tampering</strong></td>
+<td>GitHub Actions workflows</td>
+<td>🟢 Low</td>
+<td>🟡 Medium</td>
+<td>Branch protection rules; required PR reviews; pinned action versions; workflow permissions with least privilege; CODEOWNERS enforcement</td>
+<td>🟢 Low</td>
+<td><a href="../media/WORKFLOWS.md">WORKFLOWS.md</a>, <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/scorecards.yml" target="_blank" class="external">scorecards.yml</a></td>
+</tr>
+<tr>
+<td><strong>Data Source Manipulation</strong></td>
+<td>European Parliament MCP Server data</td>
+<td>🟢 Low</td>
+<td>🟢 Low</td>
+<td>Read-only access to official EU Parliament open data; data consumed at build-time only; output reviewed before deployment; public data with inherent transparency</td>
+<td>🟢 Low</td>
+<td><a href="DATA_MODEL.html">DATA_MODEL.md</a>, <a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td><strong>Availability Disruption</strong></td>
+<td>Static site hosted on GitHub Pages</td>
+<td>🟢 Low</td>
+<td>🟢 Low</td>
+<td>GitHub Pages CDN with 99.9%+ uptime SLA; static files require no server-side processing; git-based disaster recovery; no database dependencies</td>
+<td>🟢 Low</td>
+<td><a href="../media/BCPPlan.md">BCPPlan.md</a>, <a href="../media/CLASSIFICATION.md">CLASSIFICATION.md</a></td>
+</tr>
+<tr>
+<td><strong>Cross-Site Scripting (XSS)</strong></td>
+<td>Generated HTML pages in 14 languages</td>
+<td>🟢 Low</td>
+<td>🟡 Medium</td>
+<td>No user input accepted at runtime; content generated from sanitized templates; HTMLHint validation; CSP headers; static pre-rendered output only</td>
+<td>🟢 Low</td>
+<td><a href="THREAT_MODEL.html">THREAT_MODEL.md</a>, <a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td><strong>License &amp; IP Compliance</strong></td>
+<td>Open-source dependencies, Apache-2.0 license</td>
+<td>🟢 Low</td>
+<td>🟢 Low</td>
+<td>REUSE compliance checking via <code>reuse.yml</code> workflow; SBOM generation with license metadata; Apache-2.0 compatible dependency selection</td>
+<td>🟢 Low</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/reuse.yml" target="_blank" class="external">reuse.yml</a>, <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/REUSE.toml" target="_blank" class="external">REUSE.toml</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="5️⃣-essential-requirements-assessment-cra-annex-i" class="tsd-anchor-link">5️⃣ Essential Requirements Assessment (CRA Annex I)<a href="#5️⃣-essential-requirements-assessment-cra-annex-i" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="part-i-security-properties-of-products-with-digital-elements" class="tsd-anchor-link">Part I: Security Properties of Products with Digital Elements<a href="#part-i-security-properties-of-products-with-digital-elements" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>📋 <strong>CRA Requirement</strong></th>
+<th>✅ <strong>Status</strong></th>
+<th>🔧 <strong>Implementation</strong></th>
+<th>🔗 <strong>Evidence</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Delivered without known exploitable vulnerabilities</strong></td>
+<td>✅ Met</td>
+<td>Automated dependency scanning via Dependabot (daily); CodeQL SAST on every push/PR; npm audit enforcement in CI pipeline; zero known critical/high vulnerabilities maintained</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/codeql.yml" target="_blank" class="external">codeql.yml</a>, <a href="../media/SECURITY.md">SECURITY.md</a>, <a href="https://github.com/Hack23/euparliamentmonitor/security/code-scanning" target="_blank" class="external">GitHub Code Scanning</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Secure by default configuration</strong></td>
+<td>✅ Met</td>
+<td>Static site requires zero configuration; no server processes, no databases, no authentication configuration needed; CSP headers enforced via GitHub Pages; HTTPS-only delivery; no optional insecure modes</td>
+<td><a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a>, <a href="ARCHITECTURE.html">ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Protection against unauthorized access</strong></td>
+<td>✅ N/A</td>
+<td>No authentication or authorization needed — platform serves public information only; no admin interface; no writable API endpoints; GitHub repository access controlled via branch protection and CODEOWNERS</td>
+<td><a href="../media/SECURITY.md">SECURITY.md</a>, <a href="THREAT_MODEL.html">THREAT_MODEL.md</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Protect confidentiality of stored/transmitted/processed data</strong></td>
+<td>✅ Met</td>
+<td>No personal or confidential data processed; all European Parliament data is public and freely available; HTTPS-only delivery ensures transport confidentiality; no cookies, local storage, or session data</td>
+<td><a href="../media/CLASSIFICATION.md">CLASSIFICATION.md</a>, <a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Protect integrity of stored/transmitted/processed data</strong></td>
+<td>✅ Met</td>
+<td>Git-based version control with immutable commit history; SLSA Level 3 provenance for release artifacts; HTMLHint validation on all generated content; Playwright E2E tests verify output integrity across 14 languages</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml" target="_blank" class="external">release.yml</a>, <a href="../media/E2ETestPlan.md">E2ETestPlan.md</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Process only data adequate, relevant, and necessary</strong></td>
+<td>✅ Met</td>
+<td>Data minimization by design — only public European Parliament data processed; no telemetry, analytics, or user tracking; no personal data collection; build-time data processing with no runtime data flows</td>
+<td><a href="DATA_MODEL.html">DATA_MODEL.md</a>, <a href="../media/CLASSIFICATION.md">CLASSIFICATION.md</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Protect availability of essential functions</strong></td>
+<td>✅ Met</td>
+<td>GitHub Pages CDN provides global distribution with 99.9%+ uptime; static HTML files require no server-side compute; no single points of failure in serving; BCP plan covers disaster recovery</td>
+<td><a href="../media/BCPPlan.md">BCPPlan.md</a>, <a href="ARCHITECTURE.html">ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Minimize negative impact on availability of services provided by other devices/networks</strong></td>
+<td>✅ Met</td>
+<td>Static site generates zero outbound network traffic at runtime; no WebSockets, no API calls, no tracking pixels; no JavaScript required for content rendering; minimal bandwidth consumption</td>
+<td><a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a>, <a href="../media/performance-testing.md">performance-testing.md</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Designed and produced to limit attack surfaces</strong></td>
+<td>✅ Met</td>
+<td>Minimal attack surface: pre-rendered static HTML/CSS with no JavaScript execution required; no server-side code; no user input processing at runtime; no database connections; CDN-delivered immutable files</td>
+<td><a href="THREAT_MODEL.html">THREAT_MODEL.md</a>, <a href="ARCHITECTURE.html">ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Designed to reduce impact of security incidents</strong></td>
+<td>✅ Met</td>
+<td>Static site architecture inherently limits blast radius; no persistent server state to compromise; no user data at risk; content easily regenerated from git; rollback via git revert</td>
+<td><a href="../media/BCPPlan.md">BCPPlan.md</a>, <a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Provide security-relevant information through recording/monitoring</strong></td>
+<td>✅ Met</td>
+<td>GitHub Actions provides complete CI/CD audit trail; GitHub Pages access logs available; CodeQL findings tracked via GitHub Code Scanning; Dependabot alerts with historical records</td>
+<td><a href="../media/WORKFLOWS.md">WORKFLOWS.md</a>, <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/codeql.yml" target="_blank" class="external">codeql.yml</a></td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Provide ability to remove data by users</strong></td>
+<td>✅ N/A</td>
+<td>No user data collected, stored, or processed; no user accounts; no forms; no cookies; no local storage usage; GDPR data subject rights not applicable</td>
+<td><a href="../media/CLASSIFICATION.md">CLASSIFICATION.md</a></td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>Security updates shall be made available</strong></td>
+<td>✅ Met</td>
+<td>Automated CI/CD pipeline for rapid deployment; Dependabot auto-generates PRs for vulnerable dependencies; release workflow generates SBOM and provenance attestation; severity-based remediation SLAs documented</td>
+<td><a href="../media/SECURITY.md">SECURITY.md</a>, <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml" target="_blank" class="external">release.yml</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="part-ii-vulnerability-handling-requirements" class="tsd-anchor-link">Part II: Vulnerability Handling Requirements<a href="#part-ii-vulnerability-handling-requirements" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>📋 <strong>CRA Requirement</strong></th>
+<th>✅ <strong>Status</strong></th>
+<th>🔧 <strong>Implementation</strong></th>
+<th>🔗 <strong>Evidence</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Identify and document vulnerabilities and components</strong></td>
+<td>✅ Met</td>
+<td><a href="http://SECURITY.md" target="_blank" class="external">SECURITY.md</a> documents vulnerability reporting process; THREAT_MODEL.md provides STRIDE analysis; CycloneDX SBOM generated per release cataloging all components; <code>package-lock.json</code> provides complete dependency tree</td>
+<td><a href="../media/SECURITY.md">SECURITY.md</a>, <a href="THREAT_MODEL.html">THREAT_MODEL.md</a>, <a href="https://github.com/Hack23/euparliamentmonitor/releases" target="_blank" class="external">GitHub Releases</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Address and remediate vulnerabilities without delay</strong></td>
+<td>✅ Met</td>
+<td>Severity-based SLAs: Critical (7 days), High (30 days), Medium (90 days); Dependabot auto-generates update PRs; CodeQL runs on every commit; automated npm audit in CI pipeline</td>
+<td><a href="../media/SECURITY.md">SECURITY.md</a>, <a href="https://github.com/Hack23/euparliamentmonitor/security/dependabot" target="_blank" class="external">Dependabot Alerts</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Apply effective and regular testing and review</strong></td>
+<td>✅ Met</td>
+<td>Vitest unit tests (82%+ coverage); Playwright E2E tests across all 14 language pages; axe-core accessibility testing (WCAG 2.1 AA); Lighthouse performance benchmarks; ESLint + HTMLHint linting; CodeQL SAST; jscpd code duplication detection</td>
+<td><a href="../media/UnitTestPlan.md">UnitTestPlan.md</a>, <a href="../media/E2ETestPlan.md">E2ETestPlan.md</a>, <a href="../media/performance-testing.md">performance-testing.md</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Publicly disclose information about fixed vulnerabilities</strong></td>
+<td>✅ Met</td>
+<td>GitHub Security Advisories enabled for coordinated disclosure; fixed vulnerabilities published via GitHub releases; <a href="mailto:security@hack23.com">security@hack23.com</a> for private reporting; public <a href="http://SECURITY.md" target="_blank" class="external">SECURITY.md</a> documents full process</td>
+<td><a href="../media/SECURITY.md">SECURITY.md</a>, <a href="https://github.com/Hack23/euparliamentmonitor/security/advisories" target="_blank" class="external">GitHub Security Advisories</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Provide mechanism for security updates</strong></td>
+<td>✅ Met</td>
+<td>Automated CI/CD pipeline via GitHub Actions; Dependabot generates PRs for dependency updates; SLSA Level 3 provenance ensures update integrity; static site redeploys automatically on merge to main branch</td>
+<td><a href="../media/WORKFLOWS.md">WORKFLOWS.md</a>, <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml" target="_blank" class="external">release.yml</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Share vulnerability information in a timely manner</strong></td>
+<td>✅ Met</td>
+<td>Public <a href="http://SECURITY.md" target="_blank" class="external">SECURITY.md</a> with clear reporting instructions; GitHub Security Advisories with CVE assignment capability; coordinated disclosure timeline (acknowledge 48h, validate 7d, remediate per SLA); public security metrics</td>
+<td><a href="../media/SECURITY.md">SECURITY.md</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Provide a machine-readable SBOM</strong></td>
+<td>✅ Met</td>
+<td>CycloneDX SBOM generated in release workflow; npm <code>package-lock.json</code> provides exact dependency versions; SLSA provenance attestation links SBOM to build; REUSE compliance for license metadata</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml" target="_blank" class="external">release.yml</a>, <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/REUSE.toml" target="_blank" class="external">REUSE.toml</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Define security support period</strong></td>
+<td>✅ Met</td>
+<td>End-of-Life Strategy documents technology lifecycle and support timeline; Node.js 25 Current tracked (Node.js 26 LTS upgrade planned Apr 2026); dependency EOL monitoring; proactive migration planning documented</td>
+<td><a href="../media/End-of-Life-Strategy.md">End-of-Life-Strategy.md</a>, <a href="../media/SECURITY.md">SECURITY.md</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="6️⃣-conformity-assessment-procedure" class="tsd-anchor-link">6️⃣ Conformity Assessment Procedure<a href="#6️⃣-conformity-assessment-procedure" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="assessment-methodology" class="tsd-anchor-link">Assessment Methodology<a href="#assessment-methodology" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>EU Parliament Monitor follows <strong>CRA Module A — Internal Production Control</strong> (self-assessment), which is the appropriate conformity assessment procedure for <strong>Standard (Default) category</strong> digital products. This assessment is conducted by Hack23 AB as the manufacturer/maintainer.</p>
+<h3 id="self-assessment-process" class="tsd-anchor-link">Self-Assessment Process<a href="#self-assessment-process" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="mermaid"><span class="hl-1">flowchart TD</span><br/><span class="hl-1">    A([Start Assessment]) --&gt; B[Review CRA Annex I Requirements]</span><br/><span class="hl-1">    B --&gt; C[Map Technical Documentation]</span><br/><span class="hl-1">    C --&gt; D[Evaluate Security Controls]</span><br/><span class="hl-1">    D --&gt; E[Verify Testing Evidence]</span><br/><span class="hl-1">    E --&gt; F[Assess Supply Chain Security]</span><br/><span class="hl-1">    F --&gt; G{All Requirements Met?}</span><br/><span class="hl-1">    G --&gt;|Yes| H[Document Conformity]</span><br/><span class="hl-1">    G --&gt;|No| I[Implement Remediation]</span><br/><span class="hl-1">    I --&gt; D</span><br/><span class="hl-1">    H --&gt; J[CEO Review &amp; Approval]</span><br/><span class="hl-1">    J --&gt; K[Publish Assessment]</span><br/><span class="hl-1">    K --&gt; L([Quarterly Review Cycle])</span><br/><span class="hl-1">    L --&gt; B</span><br/><br/><span class="hl-1">    style A fill:#003399,stroke:#FFCC00,color:#FFFFFF</span><br/><span class="hl-1">    style H fill:#009933,stroke:#FFCC00,color:#FFFFFF</span><br/><span class="hl-1">    style L fill:#003399,stroke:#FFCC00,color:#FFFFFF</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="self-assessment-checklist" class="tsd-anchor-link">Self-Assessment Checklist<a href="#self-assessment-checklist" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>✅</th>
+<th>📋 <strong>Conformity Checkpoint</strong></th>
+<th>📊 <strong>Status</strong></th>
+<th>📅 <strong>Verified</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>CRA Annex I Part I — All security property requirements assessed</td>
+<td>Complete</td>
+<td>2026-02-25</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>CRA Annex I Part II — All vulnerability handling requirements assessed</td>
+<td>Complete</td>
+<td>2026-02-25</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>CRA Annex V — Technical documentation complete and current</td>
+<td>Complete</td>
+<td>2026-02-25</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>SBOM — Machine-readable CycloneDX SBOM generated per release</td>
+<td>Complete</td>
+<td>2026-02-25</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>SLSA — Level 3 provenance attestation for release artifacts</td>
+<td>Complete</td>
+<td>2026-02-25</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Vulnerability Disclosure — <a href="http://SECURITY.md" target="_blank" class="external">SECURITY.md</a> with coordinated disclosure process</td>
+<td>Complete</td>
+<td>2026-02-25</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Security Testing — SAST (CodeQL), SCA (Dependabot), unit, E2E, accessibility</td>
+<td>Complete</td>
+<td>2026-02-25</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Lifecycle Management — End-of-Life Strategy documenting support period</td>
+<td>Complete</td>
+<td>2026-02-25</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Risk Assessment — STRIDE threat model with residual risk evaluation</td>
+<td>Complete</td>
+<td>2026-02-25</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>ISMS Alignment — Mapped to Hack23 ISMS public policy framework</td>
+<td>Complete</td>
+<td>2026-02-25</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cra-article-cross-references" class="tsd-anchor-link">CRA Article Cross-References<a href="#cra-article-cross-references" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>Article 6:</strong> Scope determination → Section 2 (CRA Scope &amp; Classification)</li>
+<li><strong>Article 11:</strong> Essential cybersecurity requirements → Section 5 (Essential Requirements Assessment)</li>
+<li><strong>Article 19:</strong> Conformity assessment → Section 6 (Conformity Assessment Procedure)</li>
+<li><strong>Article 23:</strong> Post-market obligations → Section 7 (ISMS Policy Alignment for ongoing monitoring)</li>
+<li><strong>Annex I:</strong> Technical requirements → Section 5 (Essential Requirements self-assessment)</li>
+<li><strong>Annex V:</strong> Technical documentation → Section 3 (Technical Documentation)</li>
+</ul>
+<hr>
+<h2 id="6️⃣ᵃ-conformity-assessment-evidence" class="tsd-anchor-link">6️⃣ᵃ Conformity Assessment Evidence<a href="#6️⃣ᵃ-conformity-assessment-evidence" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><em>Supports CRA Article 19 — Conformity Assessment Documentation</em></p>
+<h3 id="📊-quality-security-automation-status" class="tsd-anchor-link">📊 Quality &amp; Security Automation Status<a href="#📊-quality-security-automation-status" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Reference: <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" class="external">Secure Development Policy</a></p>
+<table>
+<thead>
+<tr>
+<th>🧪 Control</th>
+<th>🎯 Requirement</th>
+<th>✅ Implementation</th>
+<th>📋 Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🧪 Unit Testing</td>
+<td>≥80% line coverage, ≥70% branch</td>
+<td>✅ 82%+ coverage</td>
+<td><a href="../media/UnitTestPlan.md">UnitTestPlan.md</a> + Vitest reports</td>
+</tr>
+<tr>
+<td>🌐 E2E Testing</td>
+<td>Critical user journeys validated</td>
+<td>✅ 14 language pages</td>
+<td><a href="../media/E2ETestPlan.md">E2ETestPlan.md</a> + Playwright reports</td>
+</tr>
+<tr>
+<td>🔍 SAST Scanning</td>
+<td>Zero critical/high vulnerabilities</td>
+<td>✅ CodeQL clean</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml" target="_blank" class="external"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg" alt="CodeQL"></a></td>
+</tr>
+<tr>
+<td>📦 SCA Scanning</td>
+<td>Zero critical unresolved dependencies</td>
+<td>✅ Dependabot active</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/security" target="_blank" class="external">Security Overview</a></td>
+</tr>
+<tr>
+<td>🔒 Secret Scanning</td>
+<td>Zero exposed secrets/credentials</td>
+<td>✅ GitHub Secret Scanning</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/security" target="_blank" class="external">Security Overview</a></td>
+</tr>
+<tr>
+<td>📦 SBOM Generation</td>
+<td>CycloneDX per release</td>
+<td>✅ Automated</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/releases" target="_blank" class="external">Release Artifacts</a></td>
+</tr>
+<tr>
+<td>🛡️ Provenance</td>
+<td>SLSA Level 3 attestation</td>
+<td>✅ Active</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/attestations" target="_blank" class="external">Attestations</a></td>
+</tr>
+<tr>
+<td>📊 Quality Gates</td>
+<td>ESLint + HTMLHint + Prettier</td>
+<td>✅ Enforced in CI</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/main.yml" target="_blank" class="external">Validate Workflow</a></td>
+</tr>
+<tr>
+<td>📜 License Compliance</td>
+<td>REUSE specification</td>
+<td>✅ FSFE REUSE compliant</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml" target="_blank" class="external"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml/badge.svg" alt="REUSE"></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="🎖️-security-compliance-badges" class="tsd-anchor-link">🎖️ Security &amp; Compliance Badges<a href="#🎖️-security-compliance-badges" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" target="_blank" class="external"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
+<a href="https://www.bestpractices.dev/projects/12068" target="_blank" class="external"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/attestations" target="_blank" class="external"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA 3"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml" target="_blank" class="external"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg" alt="CodeQL"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml" target="_blank" class="external"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml/badge.svg" alt="REUSE Compliance"></a>
+<a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE" target="_blank" class="external"><img src="https://img.shields.io/github/license/Hack23/euparliamentmonitor.svg" alt="License"></a></p>
+<h3 id="📦-release-evidence-pattern" class="tsd-anchor-link">📦 Release Evidence Pattern<a href="#📦-release-evidence-pattern" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Each release includes CRA-aligned evidence:</p>
+<pre><code><span class="hl-5">release</span><span class="hl-1">/</span><span class="hl-5">v0</span><span class="hl-1">.7.</span><span class="hl-5">x</span><span class="hl-1">/</span><br/><span class="hl-1">├── </span><span class="hl-5">euparliamentmonitor</span><span class="hl-1">-</span><span class="hl-5">v0</span><span class="hl-1">.7.</span><span class="hl-5">x</span><span class="hl-1">-</span><span class="hl-5">sbom</span><span class="hl-1">.</span><span class="hl-5">json</span><span class="hl-1">    # </span><span class="hl-5">CycloneDX</span><span class="hl-1"> </span><span class="hl-0">SBOM</span><span class="hl-1"> (</span><span class="hl-5">Annex</span><span class="hl-1"> </span><span class="hl-6">V</span><span class="hl-1">)</span><br/><span class="hl-1">├── </span><span class="hl-5">euparliamentmonitor</span><span class="hl-1">-</span><span class="hl-5">v0</span><span class="hl-1">.7.</span><span class="hl-5">x</span><span class="hl-1">.</span><span class="hl-5">tar</span><span class="hl-1">.</span><span class="hl-5">gz</span><span class="hl-1">       # </span><span class="hl-5">Source</span><span class="hl-1"> </span><span class="hl-5">archive</span><br/><span class="hl-1">├── </span><span class="hl-6">SLSA</span><span class="hl-1"> </span><span class="hl-0">attestation</span><span class="hl-1"> (</span><span class="hl-5">GitHub</span><span class="hl-1">)                # </span><span class="hl-5">Level</span><span class="hl-1"> </span><span class="hl-9">3</span><span class="hl-1"> </span><span class="hl-5">provenance</span><br/><span class="hl-1">├── </span><span class="hl-5">OpenSSF</span><span class="hl-1"> </span><span class="hl-0">Scorecard</span><span class="hl-1"> (</span><span class="hl-5">weekly</span><span class="hl-1">)               # </span><span class="hl-5">Supply</span><span class="hl-1"> </span><span class="hl-5">chain</span><span class="hl-1"> </span><span class="hl-5">security</span><br/><span class="hl-1">└── </span><span class="hl-5">CodeQL</span><span class="hl-1"> </span><span class="hl-0">results</span><span class="hl-1"> (</span><span class="hl-5">per</span><span class="hl-1">-</span><span class="hl-5">commit</span><span class="hl-1">)              # </span><span class="hl-6">SAST</span><span class="hl-1"> </span><span class="hl-5">findings</span>
+</code><button>Copy</button></pre>
+
+<hr>
+<h2 id="7️⃣-security-testing-evidence" class="tsd-anchor-link">7️⃣ Security Testing Evidence<a href="#7️⃣-security-testing-evidence" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="automated-security-controls" class="tsd-anchor-link">Automated Security Controls<a href="#automated-security-controls" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>🛡️ <strong>Control</strong></th>
+<th>🔧 <strong>Tool</strong></th>
+<th>📊 <strong>Frequency</strong></th>
+<th>✅ <strong>Status</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SAST</strong></td>
+<td>CodeQL</td>
+<td>Every push/PR</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml" target="_blank" class="external"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg" alt="CodeQL"></a></td>
+</tr>
+<tr>
+<td><strong>SCA</strong></td>
+<td>Dependabot</td>
+<td>Daily</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td><strong>Dependency Review</strong></td>
+<td>GitHub dependency-review-action</td>
+<td>Every PR</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td><strong>Linting</strong></td>
+<td>ESLint (security plugin) + HTMLHint</td>
+<td>Every push/PR</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td><strong>SBOM</strong></td>
+<td>CycloneDX</td>
+<td>Every release</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td><strong>Scorecard</strong></td>
+<td>OpenSSF Scorecard</td>
+<td>Weekly</td>
+<td><a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" target="_blank" class="external"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="Scorecard"></a></td>
+</tr>
+<tr>
+<td><strong>SLSA Provenance</strong></td>
+<td>SLSA Level 3</td>
+<td>Every release</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td><strong>License Compliance</strong></td>
+<td>REUSE</td>
+<td>Every push/PR</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml" target="_blank" class="external"><img src="https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml/badge.svg" alt="REUSE"></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="testing-coverage" class="tsd-anchor-link">Testing Coverage<a href="#testing-coverage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>🧪 <strong>Test Type</strong></th>
+<th>🔧 <strong>Framework</strong></th>
+<th>📊 <strong>Coverage</strong></th>
+<th>📋 <strong>Reference</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Unit Tests</strong></td>
+<td>Vitest + v8 coverage</td>
+<td>82%+ code coverage</td>
+<td><a href="../media/UnitTestPlan.md">UnitTestPlan.md</a></td>
+</tr>
+<tr>
+<td><strong>E2E Tests</strong></td>
+<td>Playwright</td>
+<td>14 language pages verified</td>
+<td><a href="../media/E2ETestPlan.md">E2ETestPlan.md</a></td>
+</tr>
+<tr>
+<td><strong>Accessibility</strong></td>
+<td>Playwright + axe-core</td>
+<td>WCAG 2.1 AA compliance</td>
+<td><a href="../media/E2ETestPlan.md">E2ETestPlan.md</a></td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Lighthouse</td>
+<td>Core Web Vitals benchmarks</td>
+<td><a href="../media/performance-testing.md">performance-testing.md</a></td>
+</tr>
+<tr>
+<td><strong>HTML Validation</strong></td>
+<td>HTMLHint</td>
+<td>All output HTML files</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/package.json" target="_blank" class="external">package.json scripts</a></td>
+</tr>
+<tr>
+<td><strong>Code Quality</strong></td>
+<td>ESLint + SonarCloud + jscpd</td>
+<td>TypeScript source analysis</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/eslint.config.js" target="_blank" class="external">eslint.config.js</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="8️⃣-comprehensive-isms-policy-alignment" class="tsd-anchor-link">8️⃣ Comprehensive ISMS Policy Alignment<a href="#8️⃣-comprehensive-isms-policy-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>🏷️ <strong>ISMS Policy</strong></th>
+<th>📋 <strong>CRA Mapping</strong></th>
+<th>🔧 <strong>EU Parliament Monitor Implementation</strong></th>
+<th>✅ <strong>Status</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md" target="_blank" class="external">🔐 Information Security Policy</a></td>
+<td>Overall CRA governance</td>
+<td>Security-by-design static site architecture; public data classification; comprehensive security documentation</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" class="external">🛠️ Secure Development Policy</a></td>
+<td>Annex I Part I (1–13)</td>
+<td>CodeQL SAST; ESLint security plugin; Vitest/Playwright testing; branch protection; PR reviews; automated CI/CD gates</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md" target="_blank" class="external">🔍 Vulnerability Management</a></td>
+<td>Annex I Part II (1–8)</td>
+<td>Dependabot daily scanning; severity-based SLAs (Critical 7d, High 30d); GitHub Security Advisories; coordinated disclosure via <a href="http://SECURITY.md" target="_blank" class="external">SECURITY.md</a></td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Change_Management.md" target="_blank" class="external">📝 Change Management</a></td>
+<td>Security updates (Annex I Part II §5)</td>
+<td>Git-based change tracking; required PR reviews; automated testing gates; deployment via CI/CD; release workflow with SBOM</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md" target="_blank" class="external">🏷️ Classification Framework</a></td>
+<td>Risk assessment</td>
+<td>CIA classification (Public/Moderate/Standard); impact analysis; classification-driven security controls</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md" target="_blank" class="external">🔒 Cryptography Policy</a></td>
+<td>Data confidentiality (Annex I Part I §4)</td>
+<td>HTTPS-only delivery via GitHub Pages; TLS 1.2+ for all transport; no cryptographic key management needed (static site)</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md" target="_blank" class="external">🔑 Access Control Policy</a></td>
+<td>Unauthorized access (Annex I Part I §3)</td>
+<td>GitHub repository access controls; branch protection; CODEOWNERS enforcement; no end-user authentication (public site)</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md" target="_blank" class="external">🤝 Third Party Management</a></td>
+<td>Supply chain security</td>
+<td>Dependabot for dependency monitoring; SLSA Level 3 provenance; dependency-review on PRs; npm audit enforcement; pinned action versions</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md" target="_blank" class="external">🔓 Open Source Policy</a></td>
+<td>OSS governance</td>
+<td>Apache-2.0 license; REUSE compliance; SBOM generation; public security policy; coordinated disclosure process</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md" target="_blank" class="external">🚨 Incident Response Plan</a></td>
+<td>Post-market surveillance</td>
+<td>Security incident handling procedures; communication protocols; forensics capability; GitHub Security Advisories integration</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Business_Continuity_Plan.md" target="_blank" class="external">🔄 Business Continuity Plan</a></td>
+<td>Availability (Annex I Part I §7)</td>
+<td>GitHub Pages CDN resilience; git-based disaster recovery; static site regeneration capability; documented BCP</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md" target="_blank" class="external">💾 Backup Recovery Policy</a></td>
+<td>Data integrity (Annex I Part I §5)</td>
+<td>Git repository as immutable backup; GitHub Pages deployment history; full site regeneration from source</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Security_Metrics.md" target="_blank" class="external">📊 Security Metrics</a></td>
+<td>Monitoring &amp; recording (Annex I Part I §11)</td>
+<td>CodeQL scan results tracking; Dependabot alert metrics; test coverage reporting; OpenSSF Scorecard trending</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md" target="_blank" class="external">📊 Risk Assessment Methodology</a></td>
+<td>CRA risk evaluation</td>
+<td>STRIDE threat model; risk categorization with likelihood/impact assessment; residual risk evaluation; evidence-linked controls</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Data_Classification_Policy.md" target="_blank" class="external">🏷️ Data Classification Policy</a></td>
+<td>Data handling (Annex I Part I §6)</td>
+<td>Public data only classification; no PII handling; data minimization by design; EU Parliament open data sourcing</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/ISMS_Transparency_Plan.md" target="_blank" class="external">🌐 ISMS Transparency Plan</a></td>
+<td>Disclosure &amp; transparency</td>
+<td>Public security documentation; open-source CRA assessment; transparent vulnerability reporting; community engagement</td>
+<td>✅ Aligned</td>
+</tr>
+</tbody>
+</table>
+<h3 id="isms-integration-benefits" class="tsd-anchor-link">ISMS Integration Benefits<a href="#isms-integration-benefits" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>🔄 Operational Continuity:</strong> CRA self-assessment integrated with existing ISMS security operations and review cycles</li>
+<li><strong>📊 Evidence Reuse:</strong> Security metrics, test results, and monitoring data serve dual ISMS/CRA documentation purposes</li>
+<li><strong>🎯 Minimal Overhead:</strong> Static site architecture naturally satisfies many CRA requirements through design simplicity</li>
+<li><strong>🤝 Stakeholder Confidence:</strong> Transparent assessment demonstrates professional security practices for open-source civic technology</li>
+</ul>
+<h3 id="🔀-iso-270012022-↔-eu-cra-cross-reference" class="tsd-anchor-link">🔀 ISO 27001:2022 ↔ EU CRA Cross-Reference<a href="#🔀-iso-270012022-↔-eu-cra-cross-reference" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>The table below maps ISO 27001:2022 controls directly to CRA Annex I references, demonstrating how Hack23 AB's existing ISMS controls satisfy CRA essential requirements — minimising compliance overhead through integrated governance.</p>
+<table>
+<thead>
+<tr>
+<th>🏛️ ISO 27001:2022 Control</th>
+<th>📜 CRA Annex I Reference</th>
+<th>📋 Description</th>
+<th>✅ Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A.5.1</strong> Information security policies</td>
+<td>Part I §1 (Security by default)</td>
+<td>Security governance framework establishing security-by-design principles</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><strong>A.8.8</strong> Technical vulnerability management</td>
+<td>Part I §2(2) (Vulnerability handling)</td>
+<td>CVE tracking, Dependabot scanning, and severity-based remediation SLAs</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><strong>A.8.25</strong> Secure development lifecycle</td>
+<td>Part II §1 (Secure development)</td>
+<td>SDLC security integration via CodeQL SAST, PR reviews, and CI/CD gates</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><strong>A.5.24</strong> Information security incident management</td>
+<td>Part I §2(5) (Incident reporting)</td>
+<td>Security incident procedures via <a href="http://SECURITY.md" target="_blank" class="external">SECURITY.md</a> and GitHub Security Advisories</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><strong>A.8.13</strong> Information backup</td>
+<td>Part I §5 (Data integrity)</td>
+<td>Git-based immutable backup strategy with full site regeneration capability</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><strong>A.5.36</strong> Compliance with policies and standards</td>
+<td>Module A self-assessment</td>
+<td>Ongoing conformity verification through quarterly CRA assessment review cycle</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><strong>A.8.20</strong> Network security</td>
+<td>Part I §8 (Availability of other services)</td>
+<td>Static site generates zero runtime outbound traffic; no network attack surface at runtime</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><strong>A.8.29</strong> Security testing in development</td>
+<td>Part II §3 (Regular testing)</td>
+<td>Vitest unit tests, Playwright E2E, axe-core accessibility, and Lighthouse performance</td>
+<td>✅ Aligned</td>
+</tr>
+<tr>
+<td><strong>A.5.20</strong> Addressing security in supplier agreements</td>
+<td>Part I supply chain (§9)</td>
+<td>SLSA Level 3 provenance, dependency-review workflow, pinned action versions</td>
+<td>✅ Aligned</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="9️⃣-post-market-surveillance" class="tsd-anchor-link">9️⃣ Post-Market Surveillance<a href="#9️⃣-post-market-surveillance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><em>Supports CRA Article 23 — Obligations of Economic Operators</em></p>
+<table>
+<thead>
+<tr>
+<th>📡 <strong>CRA Monitoring Obligation</strong></th>
+<th>🔧 Implementation</th>
+<th>⏱️ Frequency</th>
+<th>🎯 Action Trigger</th>
+<th>📋 Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🔍 Vulnerability Monitoring</strong> <em>(Art. 23.1)</em></td>
+<td>CVE feeds via Dependabot + GitHub Advisory Database</td>
+<td>Continuous</td>
+<td>Auto-create Dependabot PRs</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/security" target="_blank" class="external">Security Overview</a></td>
+</tr>
+<tr>
+<td><strong>🚨 Incident Reporting</strong> <em>(Art. 23.2)</em></td>
+<td><a href="http://SECURITY.md" target="_blank" class="external">SECURITY.md</a> coordinated disclosure process</td>
+<td>Real-time</td>
+<td>ENISA 24h notification readiness</td>
+<td><a href="../media/SECURITY.md">SECURITY.md</a></td>
+</tr>
+<tr>
+<td><strong>📊 Security Posture Tracking</strong> <em>(Art. 23.3)</em></td>
+<td>OpenSSF Scorecard + CodeQL monitoring</td>
+<td>Weekly</td>
+<td>Score decline triggers investigation</td>
+<td><a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" target="_blank" class="external"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="Scorecard"></a></td>
+</tr>
+<tr>
+<td><strong>🔄 Update Distribution</strong> <em>(Art. 23.4)</em></td>
+<td>GitHub Releases with SLSA attestation</td>
+<td>As needed</td>
+<td>Critical vulnerability patches</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/releases" target="_blank" class="external">Releases</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>📋 CRA Reporting Readiness:</strong> Documentation and procedures prepared for ENISA incident reporting per <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md" target="_blank" class="external">Incident Response Plan</a></p>
+<p><strong>🔗 ISMS Monitoring Integration:</strong></p>
+<ul>
+<li><strong>📊 Continuous Monitoring:</strong> Security posture tracking per <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Security_Metrics.md" target="_blank" class="external">Security Metrics</a></li>
+<li><strong>🌐 Transparency Framework:</strong> Public disclosure strategy via <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/ISMS_Transparency_Plan.md" target="_blank" class="external">ISMS Transparency Plan</a></li>
+<li><strong>🤝 Third-Party Monitoring:</strong> Supplier surveillance per <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md" target="_blank" class="external">Third Party Management</a></li>
+<li><strong>✅ Compliance Tracking:</strong> Regulatory adherence via <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Compliance_Checklist.md" target="_blank" class="external">Compliance Checklist</a></li>
+</ul>
+<hr>
+<h2 id="🤖-ai-agent-driven-cra-compliance" class="tsd-anchor-link">🤖 AI Agent-Driven CRA Compliance<a href="#🤖-ai-agent-driven-cra-compliance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><em>Supports CRA Article 16 — Quality Management System through Automated Evidence Generation</em></p>
+<h3 id="📋-automated-compliance-workflow" class="tsd-anchor-link">📋 Automated Compliance Workflow<a href="#📋-automated-compliance-workflow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Hack23 AB's curated agent ecosystem monitors and validates CRA evidence generated by automated workflows:</p>
+<pre><code class="mermaid"><span class="hl-1">flowchart TD</span><br/><span class="hl-1">    BUILD[🔨 Build Process&lt;br/&gt;GitHub Actions Workflow] --&gt; SBOM_GEN[📦 SBOM Generation&lt;br/&gt;CycloneDX + Dependency Graph]</span><br/><span class="hl-1">    SBOM_GEN --&gt; AGENT_REVIEW[🤖 Task Agent&lt;br/&gt;SBOM Validation &amp; Gap Detection]</span><br/><br/><span class="hl-1">    AGENT_REVIEW --&gt; VULN_SCAN[🔍 Vulnerability Scanning&lt;br/&gt;Dependabot + CodeQL]</span><br/><span class="hl-1">    VULN_SCAN --&gt; AGENT_TRIAGE[🤖 Agent Triage&lt;br/&gt;CRA Disclosure Requirements]</span><br/><br/><span class="hl-1">    AGENT_TRIAGE --&gt; SLSA[🎖️ SLSA Attestation&lt;br/&gt;Level 3 Provenance]</span><br/><span class="hl-1">    SLSA --&gt; EVIDENCE[📊 GitHub Actions&lt;br/&gt;Evidence Package]</span><br/><br/><span class="hl-1">    EVIDENCE --&gt; CE{✅ CRA Conformity&lt;br/&gt;Ready?}</span><br/><span class="hl-1">    CE --&gt;|Yes| APPROVAL[👨‍💼 CEO Final Approval]</span><br/><span class="hl-1">    CE --&gt;|No| GAP[📋 Compliance Gap&lt;br/&gt;Issue Creation]</span><br/><br/><span class="hl-1">    GAP --&gt; REMEDIATE[👷 Specialist Agent&lt;br/&gt;Gap Remediation]</span><br/><span class="hl-1">    REMEDIATE --&gt; SBOM_GEN</span><br/><span class="hl-1">    APPROVAL --&gt; PUBLISH[🌐 Assessment Published]</span><br/><br/><span class="hl-1">    style BUILD fill:#1565C0,color:#fff</span><br/><span class="hl-1">    style SBOM_GEN fill:#4CAF50,color:#fff</span><br/><span class="hl-1">    style AGENT_REVIEW fill:#FF9800,color:#fff</span><br/><span class="hl-1">    style VULN_SCAN fill:#4CAF50,color:#fff</span><br/><span class="hl-1">    style AGENT_TRIAGE fill:#FF9800,color:#fff</span><br/><span class="hl-1">    style SLSA fill:#1565C0,color:#fff</span><br/><span class="hl-1">    style EVIDENCE fill:#4CAF50,color:#fff</span><br/><span class="hl-1">    style CE fill:#FFD600,color:#000</span><br/><span class="hl-1">    style APPROVAL fill:#4CAF50,color:#fff</span><br/><span class="hl-1">    style GAP fill:#D32F2F,color:#fff</span><br/><span class="hl-1">    style REMEDIATE fill:#FF9800,color:#fff</span><br/><span class="hl-1">    style PUBLISH fill:#4CAF50,color:#fff</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="🎯-agent-responsibilities-matrix" class="tsd-anchor-link">🎯 Agent Responsibilities Matrix<a href="#🎯-agent-responsibilities-matrix" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>🤖 <strong>Agent</strong></th>
+<th>📋 <strong>CRA Responsibility</strong></th>
+<th>⏱️ <strong>Frequency</strong></th>
+<th>📊 <strong>Output</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Security Architect</strong></td>
+<td>Vulnerability scanning, SAST/SCA oversight</td>
+<td>Per-commit</td>
+<td>CodeQL results, dependency audit</td>
+</tr>
+<tr>
+<td><strong>DevOps Engineer</strong></td>
+<td>SBOM generation, SLSA attestation, CI/CD gates</td>
+<td>Per-release</td>
+<td>Release artifacts, provenance</td>
+</tr>
+<tr>
+<td><strong>Quality Engineer</strong></td>
+<td>Test coverage, E2E validation, accessibility</td>
+<td>Per-PR</td>
+<td>Test reports, coverage metrics</td>
+</tr>
+<tr>
+<td><strong>Product Task Agent</strong></td>
+<td>CRA gap detection, issue creation, tracking</td>
+<td>Weekly</td>
+<td>Compliance issues, gap reports</td>
+</tr>
+<tr>
+<td><strong>Documentation Architect</strong></td>
+<td>CRA assessment updates, evidence documentation</td>
+<td>Quarterly</td>
+<td>Updated <a href="http://CRA-ASSESSMENT.md" target="_blank" class="external">CRA-ASSESSMENT.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="📊-automated-compliance-evidence-generation" class="tsd-anchor-link">📊 Automated Compliance Evidence Generation<a href="#📊-automated-compliance-evidence-generation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>📋 <strong>CRA Section</strong></th>
+<th>🤖 <strong>Automated By</strong></th>
+<th>📊 <strong>Evidence Type</strong></th>
+<th>✅ <strong>Status</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§1 Project Identification</td>
+<td>Release workflow</td>
+<td>Version, SBOM, attestation</td>
+<td>✅ Automated</td>
+</tr>
+<tr>
+<td>§3 Technical Documentation</td>
+<td>TypeDoc + JSDoc</td>
+<td>API documentation generation</td>
+<td>✅ Automated</td>
+</tr>
+<tr>
+<td>§5 Essential Requirements</td>
+<td>CodeQL + Dependabot</td>
+<td>SAST/SCA scan results</td>
+<td>✅ Automated</td>
+</tr>
+<tr>
+<td>§6 Conformity Evidence</td>
+<td>CI/CD pipeline</td>
+<td>Badges, test results, attestations</td>
+<td>✅ Automated</td>
+</tr>
+<tr>
+<td>§7 Security Testing</td>
+<td>Vitest + Playwright</td>
+<td>Coverage reports, E2E results</td>
+<td>✅ Automated</td>
+</tr>
+<tr>
+<td>§9 Post-Market Surveillance</td>
+<td>Dependabot + Scorecard</td>
+<td>Vulnerability monitoring</td>
+<td>✅ Automated</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🔟-eu-declaration-of-conformity" class="tsd-anchor-link">🔟 EU Declaration of Conformity<a href="#🔟-eu-declaration-of-conformity" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><em>Supports CRA Article 28 — EU Declaration of Conformity</em></p>
+<p><strong>🏢 Manufacturer:</strong> Hack23 AB, Stockholm, Sweden<br>
+<strong>📦 Product:</strong> EU Parliament Monitor v0.7.23<br>
+<strong>📋 CRA Compliance:</strong> Self-assessment documentation supporting CRA essential cybersecurity requirements evaluation<br>
+<strong>🔍 Assessment:</strong> Self-assessment documentation per CRA Article 24 (Module A — Internal Production Control)<br>
+<strong>📊 Standards:</strong> ISO/IEC 27001:2022 • NIST CSF 2.0 • CIS Controls v8.1 • OWASP ASVS</p>
+<blockquote>
+<p><strong>📝 Note:</strong> As an open-source project distributed under Apache-2.0 license with no commercial monetization, EU Parliament Monitor falls under the CRA open-source software exemption (Article 18). This declaration is maintained voluntarily to demonstrate security excellence and support downstream users' compliance needs.</p>
+</blockquote>
+<p><strong>📅 Date &amp; Signature:</strong> 2026-03-19 — James Pether Sörling, CEO/Founder<br>
+<strong>📂 Technical Documentation:</strong> This assessment + evidence bundle supports CRA Annex V technical documentation requirements</p>
+<hr>
+<h2 id="1️⃣1️⃣-assessment-completion-approval" class="tsd-anchor-link">1️⃣1️⃣ Assessment Completion &amp; Approval<a href="#1️⃣1️⃣-assessment-completion-approval" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><em>Supports CRA Article 16 — Quality Management System Documentation</em></p>
+<h3 id="📊-cra-self-assessment-summary" class="tsd-anchor-link">📊 CRA Self-Assessment Summary<a href="#📊-cra-self-assessment-summary" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Overall CRA Documentation Status:</strong> ✅ Self-Assessment Documented</p>
+<p><strong>Key CRA Documentation Areas:</strong></p>
+<ul>
+<li>✅ Annex I essential requirements documented and assessed (Section 5)</li>
+<li>✅ Annex V technical documentation structured (Section 3)</li>
+<li>✅ Article 11 security measures documented (Section 7–8)</li>
+<li>✅ Article 23 post-market surveillance procedures documented (Section 9)</li>
+<li>✅ Article 28 declaration of conformity prepared (Section 10)</li>
+</ul>
+<p><strong>Outstanding Documentation:</strong> None — all CRA sections assessed and documented</p>
+<h3 id="✅-formal-approval" class="tsd-anchor-link">✅ Formal Approval<a href="#✅-formal-approval" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>👤 <strong>Role</strong></th>
+<th>📝 <strong>Name</strong></th>
+<th>📅 <strong>Date</strong></th>
+<th>✍️ <strong>Assessment Attestation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔒 <strong>CRA Security Assessment</strong></td>
+<td>James Pether Sörling</td>
+<td>2026-03-19</td>
+<td>Essential requirements documented and assessed</td>
+</tr>
+<tr>
+<td>🎯 <strong>Product Responsibility</strong></td>
+<td>James Pether Sörling</td>
+<td>2026-03-19</td>
+<td>Technical documentation complete and structured</td>
+</tr>
+<tr>
+<td>⚖️ <strong>Legal Compliance Review</strong></td>
+<td>James Pether Sörling</td>
+<td>2026-03-19</td>
+<td>EU regulatory documentation requirements addressed</td>
+</tr>
+</tbody>
+</table>
+<p><strong>📊 CRA Assessment Status:</strong> Self-Assessment Documented</p>
+<hr>
+<h2 id="🎨-cra-assessment-maintenance" class="tsd-anchor-link">🎨 CRA Assessment Maintenance<a href="#🎨-cra-assessment-maintenance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="📋-update-triggers" class="tsd-anchor-link">📋 Update Triggers<a href="#📋-update-triggers" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><em>Per CRA Article 15 — Substantial Modification</em></p>
+<p>CRA assessment updated when changes constitute &quot;substantial modification&quot; under CRA:</p>
+<ol>
+<li><strong>🏗️ Security Architecture Changes:</strong> New authentication methods, trust boundaries, or encryption</li>
+<li><strong>🛡️ Essential Requirement Impact:</strong> Changes affecting Annex I compliance</li>
+<li><strong>📦 Critical Dependencies:</strong> New supply chain components with security implications</li>
+<li><strong>🔍 Risk Profile Changes:</strong> New threats or vulnerability classes</li>
+<li><strong>⚖️ Regulatory Updates:</strong> CRA implementing acts or guidance changes</li>
+</ol>
+<p><strong>🎯 Maintenance Principle:</strong> Assessment stability preferred — avoid routine updates that don't impact CRA compliance</p>
+<h3 id="🔗-cra-evidence-integration" class="tsd-anchor-link">🔗 CRA Evidence Integration<a href="#🔗-cra-evidence-integration" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>🏷️ Product Version:</strong> v0.7.23<br>
+<strong>📊 Assessment Status:</strong> ✅ Self-Assessment Complete<br>
+<strong>🔍 OpenSSF Scorecard:</strong> <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" target="_blank" class="external"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="Scorecard"></a><br>
+<strong>🎖️ SLSA Level:</strong> 3 (Build provenance attestation)<br>
+<strong>📦 SBOM:</strong> CycloneDX generated per release<br>
+<strong>🔒 Vulnerability Status:</strong> Zero known critical/high vulnerabilities<br>
+<strong>📅 Last Full Assessment:</strong> 2026-03-19<br>
+<strong>⏰ Next Scheduled Review:</strong> 2026-06-19</p>
+<hr>
+<h2 id="📚-cra-regulatory-alignment" class="tsd-anchor-link">📚 CRA Regulatory Alignment<a href="#📚-cra-regulatory-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="🔐-cra-article-cross-references" class="tsd-anchor-link">🔐 CRA Article Cross-References<a href="#🔐-cra-article-cross-references" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>📜 <strong>CRA Article</strong></th>
+<th>📋 <strong>Requirement</strong></th>
+<th>📊 <strong>Assessment Section</strong></th>
+<th>✅ <strong>Status</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Article 6</strong></td>
+<td>Scope determination</td>
+<td>Section 2 (CRA Scope &amp; Classification)</td>
+<td>✅ Assessed</td>
+</tr>
+<tr>
+<td><strong>Article 11</strong></td>
+<td>Essential cybersecurity requirements</td>
+<td>Section 5 (Essential Requirements)</td>
+<td>✅ Assessed</td>
+</tr>
+<tr>
+<td><strong>Article 15</strong></td>
+<td>Substantial modification</td>
+<td>CRA Assessment Maintenance</td>
+<td>✅ Documented</td>
+</tr>
+<tr>
+<td><strong>Article 16</strong></td>
+<td>Quality management system</td>
+<td>Section 11 (Assessment Completion)</td>
+<td>✅ Documented</td>
+</tr>
+<tr>
+<td><strong>Article 19</strong></td>
+<td>Conformity assessment</td>
+<td>Section 6 (Conformity Assessment)</td>
+<td>✅ Assessed</td>
+</tr>
+<tr>
+<td><strong>Article 23</strong></td>
+<td>Post-market obligations</td>
+<td>Section 9 (Post-Market Surveillance)</td>
+<td>✅ Documented</td>
+</tr>
+<tr>
+<td><strong>Article 24</strong></td>
+<td>Module A self-assessment</td>
+<td>Section 6 (Self-Assessment Process)</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><strong>Article 28</strong></td>
+<td>EU Declaration of Conformity</td>
+<td>Section 10 (Declaration)</td>
+<td>✅ Prepared</td>
+</tr>
+<tr>
+<td><strong>Annex I</strong></td>
+<td>Essential requirements</td>
+<td>Section 5 (Annex I Assessment)</td>
+<td>✅ Assessed</td>
+</tr>
+<tr>
+<td><strong>Annex V</strong></td>
+<td>Technical documentation</td>
+<td>Section 3 (Technical Documentation)</td>
+<td>✅ Complete</td>
+</tr>
+</tbody>
+</table>
+<h3 id="🌐-isms-integration-benefits" class="tsd-anchor-link">🌐 ISMS Integration Benefits<a href="#🌐-isms-integration-benefits" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>🔄 Operational Continuity:</strong> CRA self-assessment integrated with existing ISMS security operations and review cycles</li>
+<li><strong>📊 Evidence Reuse:</strong> Security metrics, test results, and monitoring data serve dual ISMS/CRA documentation purposes</li>
+<li><strong>🎯 Minimal Overhead:</strong> Static site architecture naturally satisfies many CRA requirements through design simplicity</li>
+<li><strong>🤝 Stakeholder Confidence:</strong> Transparent assessment demonstrates professional security practices for open-source civic technology</li>
+</ul>
+<h3 id="📋-complete-isms-policy-framework" class="tsd-anchor-link">📋 Complete ISMS Policy Framework<a href="#📋-complete-isms-policy-framework" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<h4 id="🔐-core-security-governance" class="tsd-anchor-link">🔐 Core Security Governance<a href="#🔐-core-security-governance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Policy</strong></th>
+<th><strong>CRA Relevance</strong></th>
+<th><strong>Link</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Information Security Policy</td>
+<td>Overall CRA governance</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Secure Development Policy</td>
+<td>Annex I Part I (secure development)</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Open Source Policy</td>
+<td>OSS governance &amp; CRA exemption</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Access Control Policy</td>
+<td>Annex I Part I §3 (unauthorized access)</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md" target="_blank" class="external">View</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="🛡️-security-control-implementation" class="tsd-anchor-link">🛡️ Security Control Implementation<a href="#🛡️-security-control-implementation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Policy</strong></th>
+<th><strong>CRA Relevance</strong></th>
+<th><strong>Link</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cryptography Policy</td>
+<td>Annex I Part I §4 (data confidentiality)</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Network Security Policy</td>
+<td>Annex I Part I §8 (availability)</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Network_Security_Policy.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Vulnerability Management</td>
+<td>Annex I Part II (vulnerability handling)</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Third Party Management</td>
+<td>Supply chain security</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md" target="_blank" class="external">View</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="⚙️-operational-excellence-framework" class="tsd-anchor-link">⚙️ Operational Excellence Framework<a href="#⚙️-operational-excellence-framework" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Policy</strong></th>
+<th><strong>CRA Relevance</strong></th>
+<th><strong>Link</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Change Management</td>
+<td>Security updates (Annex I Part II §5)</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Change_Management.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Incident Response Plan</td>
+<td>Post-market surveillance (Art. 23)</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Business Continuity Plan</td>
+<td>Availability (Annex I Part I §7)</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Business_Continuity_Plan.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Backup Recovery Policy</td>
+<td>Data integrity (Annex I Part I §5)</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md" target="_blank" class="external">View</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="📊-performance-management-compliance" class="tsd-anchor-link">📊 Performance Management &amp; Compliance<a href="#📊-performance-management-compliance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Policy</strong></th>
+<th><strong>CRA Relevance</strong></th>
+<th><strong>Link</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Security Metrics</td>
+<td>Monitoring (Annex I Part I §11)</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Security_Metrics.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Compliance Checklist</td>
+<td>CRA conformity tracking</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Compliance_Checklist.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Classification Framework</td>
+<td>Risk assessment (Annex I Part I §6)</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>Risk Assessment Methodology</td>
+<td>CRA risk evaluation</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md" target="_blank" class="external">View</a></td>
+</tr>
+<tr>
+<td>CRA Conformity Assessment Process</td>
+<td>Process framework</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md" target="_blank" class="external">View</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🔗-related-documentation" class="tsd-anchor-link">🔗 Related Documentation<a href="#🔗-related-documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="🏛️-project-documentation" class="tsd-anchor-link">🏛️ Project Documentation<a href="#🏛️-project-documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><a href="ARCHITECTURE.html">🏛️ Architecture</a> — C4 system architecture</li>
+<li><a href="SECURITY_ARCHITECTURE.html">🛡️ Security Architecture</a> — Security controls and threat mitigations</li>
+<li><a href="THREAT_MODEL.html">🎯 Threat Model</a> — STRIDE threat analysis</li>
+<li><a href="../media/CLASSIFICATION.md">🏷️ Classification</a> — CIA classification &amp; business impact</li>
+<li><a href="../media/SECURITY.md">🔒 Security Policy</a> — Vulnerability reporting process</li>
+<li><a href="../media/End-of-Life-Strategy.md">📦 End-of-Life Strategy</a> — Technology lifecycle management</li>
+<li><a href="../media/BCPPlan.md">🔄 Business Continuity Plan</a> — Disaster recovery planning</li>
+<li><a href="../media/FinancialSecurityPlan.md">💰 Financial Security Plan</a> — Cost &amp; security analysis</li>
+<li><a href="../media/WORKFLOWS.md">⚙️ Workflows</a> — CI/CD security controls</li>
+<li><a href="DATA_MODEL.html">📊 Data Model</a> — Data structures and relationships</li>
+<li><a href="../media/UnitTestPlan.md">🧪 Unit Test Plan</a> — Unit testing strategy</li>
+<li><a href="../media/E2ETestPlan.md">🔍 E2E Test Plan</a> — End-to-end testing</li>
+<li><a href="../media/performance-testing.md">⚡ Performance Testing</a> — Performance validation</li>
+</ul>
+<h3 id="🔗-hack23-cra-reference-implementations" class="tsd-anchor-link">🔗 Hack23 CRA Reference Implementations<a href="#🔗-hack23-cra-reference-implementations" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><a href="https://github.com/Hack23/cia/blob/master/CRA-ASSESSMENT.md" target="_blank" class="external">🕵️ CIA — CRA Assessment</a> — Political transparency platform (reference template)</li>
+<li><a href="https://github.com/Hack23/blacktrigram/blob/main/CRA-ASSESSMENT.md" target="_blank" class="external">⚫ Black Trigram — CRA Assessment</a> — Game product assessment</li>
+<li><a href="https://github.com/Hack23/cia-compliance-manager/blob/main/CRA-ASSESSMENT.md" target="_blank" class="external">🛡️ CIA Compliance Manager — CRA Assessment</a> — Compliance automation tool</li>
+</ul>
+<h3 id="📋-isms-process-references" class="tsd-anchor-link">📋 ISMS Process References<a href="#📋-isms-process-references" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md" target="_blank" class="external">🛡️ CRA Conformity Assessment Process</a> — CRA assessment process template</li>
+<li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md" target="_blank" class="external">🔓 Open Source Policy</a> — Open source governance requirements</li>
+<li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" class="external">🛠️ Secure Development Policy</a> — Secure SDLC requirements</li>
+<li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md" target="_blank" class="external">🔍 Vulnerability Management</a> — Vulnerability handling SLAs</li>
+<li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md" target="_blank" class="external">🏷️ Classification Framework</a> — CIA classification</li>
+</ul>
+<hr>
+<p><strong>📋 Document Control:</strong><br>
+<strong>✅ Approved by:</strong> James Pether Sörling, CEO<br>
+<strong>📤 Distribution:</strong> Public<br>
+<strong>🏷️ Classification:</strong> <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#confidentiality-levels" target="_blank" class="external"><img src="https://img.shields.io/badge/C-Public-lightgrey?style=flat-square&amp;logo=shield&amp;logoColor=black" alt="Confidentiality: Public"></a> <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#integrity-levels" target="_blank" class="external"><img src="https://img.shields.io/badge/I-Moderate-yellow?style=flat-square&amp;logo=check-circle&amp;logoColor=black" alt="Integrity: Moderate"></a> <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#availability-levels" target="_blank" class="external"><img src="https://img.shields.io/badge/A-Standard-lightgreen?style=flat-square&amp;logo=server&amp;logoColor=white" alt="Availability: Standard"></a><br>
+<strong>📅 Effective Date:</strong> 2026-03-19<br>
+<strong>🔄 CRA Alignment:</strong> Self-assessment per CRA Module A — supports CRA Annex V technical documentation and Annex I essential requirements<br>
+<strong>🏛️ ISMS Integration:</strong> Comprehensive alignment with <a href="https://github.com/Hack23/ISMS-PUBLIC" target="_blank" class="external">Hack23 ISMS Public Framework</a><br>
+<strong>🏛️ Process Reference:</strong> <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md" target="_blank" class="external">CRA Conformity Assessment Process</a><br>
+<strong>🔓 Open Source Policy:</strong> <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md" target="_blank" class="external">Open Source Policy</a><br>
+<strong>🎯 Framework Compliance:</strong> <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md" target="_blank" class="external"><img src="https://img.shields.io/badge/ISO_27001-2022_Aligned-blue?style=flat-square&amp;logo=iso&amp;logoColor=white" alt="ISO 27001"></a> <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md" target="_blank" class="external"><img src="https://img.shields.io/badge/NIST_CSF-2.0_Aligned-green?style=flat-square&amp;logo=nist&amp;logoColor=white" alt="NIST CSF 2.0"></a> <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md" target="_blank" class="external"><img src="https://img.shields.io/badge/CIS_Controls-v8.1_Aligned-orange?style=flat-square&amp;logo=cisecurity&amp;logoColor=white" alt="CIS Controls"></a></p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-alpha" name="alpha"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Alpha</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-beta" name="beta"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Beta</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#📚-architecture-documentation-map"><span>📚 <wbr/>Architecture <wbr/>Documentation <wbr/>Map</span></a><a href="#🎯-purpose-statement"><span>🎯 <wbr/>Purpose <wbr/>Statement</span></a><a href="#1️⃣-project-identification"><span>1️⃣ <wbr/>Project <wbr/>Identification</span></a><ul><li><a href="#📎-evidence-links"><span>📎 <wbr/>Evidence <wbr/>Links</span></a></li></ul><a href="#2️⃣-cra-scope-classification"><span>2️⃣ <wbr/>CRA <wbr/>Scope &amp; <wbr/>Classification</span></a><ul><li><a href="#cra-product-category"><span>CRA <wbr/>Product <wbr/>Category</span></a></li><li><a href="#scope-justification"><span>Scope <wbr/>Justification</span></a></li><li><a href="#🏛️-open-source-software-cra-exemption"><span>🏛️ <wbr/>Open <wbr/>Source <wbr/>Software <wbr/>CRA <wbr/>Exemption</span></a></li></ul><a href="#2️⃣ᵃ-eu-cra-enforcement-timeline"><span>2️⃣ᵃ <wbr/>EU <wbr/>CRA <wbr/>Enforcement <wbr/>Timeline</span></a><a href="#3️⃣-technical-documentation-cra-annex-v"><span>3️⃣ <wbr/>Technical <wbr/>Documentation (<wbr/>CRA <wbr/>Annex <wbr/>V)</span></a><ul><li><a href="#📦-sbom-implementation-details"><span>📦 <wbr/>SBOM <wbr/>Implementation <wbr/>Details</span></a></li></ul><a href="#4️⃣-risk-assessment"><span>4️⃣ <wbr/>Risk <wbr/>Assessment</span></a><a href="#5️⃣-essential-requirements-assessment-cra-annex-i"><span>5️⃣ <wbr/>Essential <wbr/>Requirements <wbr/>Assessment (<wbr/>CRA <wbr/>Annex <wbr/>I)</span></a><ul><li><a href="#part-i-security-properties-of-products-with-digital-elements"><span>Part <wbr/>I: <wbr/>Security <wbr/>Properties of <wbr/>Products with <wbr/>Digital <wbr/>Elements</span></a></li><li><a href="#part-ii-vulnerability-handling-requirements"><span>Part <wbr/>II: <wbr/>Vulnerability <wbr/>Handling <wbr/>Requirements</span></a></li></ul><a href="#6️⃣-conformity-assessment-procedure"><span>6️⃣ <wbr/>Conformity <wbr/>Assessment <wbr/>Procedure</span></a><ul><li><a href="#assessment-methodology"><span>Assessment <wbr/>Methodology</span></a></li><li><a href="#self-assessment-process"><span>Self-<wbr/>Assessment <wbr/>Process</span></a></li><li><a href="#self-assessment-checklist"><span>Self-<wbr/>Assessment <wbr/>Checklist</span></a></li><li><a href="#cra-article-cross-references"><span>CRA <wbr/>Article <wbr/>Cross-<wbr/>References</span></a></li></ul><a href="#6️⃣ᵃ-conformity-assessment-evidence"><span>6️⃣ᵃ <wbr/>Conformity <wbr/>Assessment <wbr/>Evidence</span></a><ul><li><a href="#📊-quality-security-automation-status"><span>📊 <wbr/>Quality &amp; <wbr/>Security <wbr/>Automation <wbr/>Status</span></a></li><li><a href="#🎖️-security-compliance-badges"><span>🎖️ <wbr/>Security &amp; <wbr/>Compliance <wbr/>Badges</span></a></li><li><a href="#📦-release-evidence-pattern"><span>📦 <wbr/>Release <wbr/>Evidence <wbr/>Pattern</span></a></li></ul><a href="#7️⃣-security-testing-evidence"><span>7️⃣ <wbr/>Security <wbr/>Testing <wbr/>Evidence</span></a><ul><li><a href="#automated-security-controls"><span>Automated <wbr/>Security <wbr/>Controls</span></a></li><li><a href="#testing-coverage"><span>Testing <wbr/>Coverage</span></a></li></ul><a href="#8️⃣-comprehensive-isms-policy-alignment"><span>8️⃣ <wbr/>Comprehensive <wbr/>ISMS <wbr/>Policy <wbr/>Alignment</span></a><ul><li><a href="#isms-integration-benefits"><span>ISMS <wbr/>Integration <wbr/>Benefits</span></a></li><li><a href="#🔀-iso-270012022-↔-eu-cra-cross-reference"><span>🔀 <wbr/>ISO 27001:2022 ↔ <wbr/>EU <wbr/>CRA <wbr/>Cross-<wbr/>Reference</span></a></li></ul><a href="#9️⃣-post-market-surveillance"><span>9️⃣ <wbr/>Post-<wbr/>Market <wbr/>Surveillance</span></a><a href="#🤖-ai-agent-driven-cra-compliance"><span>🤖 <wbr/>AI <wbr/>Agent-<wbr/>Driven <wbr/>CRA <wbr/>Compliance</span></a><ul><li><a href="#📋-automated-compliance-workflow"><span>📋 <wbr/>Automated <wbr/>Compliance <wbr/>Workflow</span></a></li><li><a href="#🎯-agent-responsibilities-matrix"><span>🎯 <wbr/>Agent <wbr/>Responsibilities <wbr/>Matrix</span></a></li><li><a href="#📊-automated-compliance-evidence-generation"><span>📊 <wbr/>Automated <wbr/>Compliance <wbr/>Evidence <wbr/>Generation</span></a></li></ul><a href="#🔟-eu-declaration-of-conformity"><span>🔟 <wbr/>EU <wbr/>Declaration of <wbr/>Conformity</span></a><a href="#1️⃣1️⃣-assessment-completion-approval"><span>1️⃣1️⃣ <wbr/>Assessment <wbr/>Completion &amp; <wbr/>Approval</span></a><ul><li><a href="#📊-cra-self-assessment-summary"><span>📊 <wbr/>CRA <wbr/>Self-<wbr/>Assessment <wbr/>Summary</span></a></li><li><a href="#✅-formal-approval"><span>✅ <wbr/>Formal <wbr/>Approval</span></a></li></ul><a href="#🎨-cra-assessment-maintenance"><span>🎨 <wbr/>CRA <wbr/>Assessment <wbr/>Maintenance</span></a><ul><li><a href="#📋-update-triggers"><span>📋 <wbr/>Update <wbr/>Triggers</span></a></li><li><a href="#🔗-cra-evidence-integration"><span>🔗 <wbr/>CRA <wbr/>Evidence <wbr/>Integration</span></a></li></ul><a href="#📚-cra-regulatory-alignment"><span>📚 <wbr/>CRA <wbr/>Regulatory <wbr/>Alignment</span></a><ul><li><a href="#🔐-cra-article-cross-references"><span>🔐 <wbr/>CRA <wbr/>Article <wbr/>Cross-<wbr/>References</span></a></li><li><a href="#🌐-isms-integration-benefits"><span>🌐 <wbr/>ISMS <wbr/>Integration <wbr/>Benefits</span></a></li><li><a href="#📋-complete-isms-policy-framework"><span>📋 <wbr/>Complete <wbr/>ISMS <wbr/>Policy <wbr/>Framework</span></a></li><li><ul><li><a href="#🔐-core-security-governance"><span>🔐 <wbr/>Core <wbr/>Security <wbr/>Governance</span></a></li><li><a href="#🛡️-security-control-implementation"><span>🛡️ <wbr/>Security <wbr/>Control <wbr/>Implementation</span></a></li><li><a href="#⚙️-operational-excellence-framework"><span>⚙️ <wbr/>Operational <wbr/>Excellence <wbr/>Framework</span></a></li><li><a href="#📊-performance-management-compliance"><span>📊 <wbr/>Performance <wbr/>Management &amp; <wbr/>Compliance</span></a></li></ul></li></ul><a href="#🔗-related-documentation"><span>🔗 <wbr/>Related <wbr/>Documentation</span></a><ul><li><a href="#🏛️-project-documentation"><span>🏛️ <wbr/>Project <wbr/>Documentation</span></a></li><li><a href="#🔗-hack23-cra-reference-implementations"><span>🔗 <wbr/>Hack23 <wbr/>CRA <wbr/>Reference <wbr/>Implementations</span></a></li><li><a href="#📋-isms-process-references"><span>📋 <wbr/>ISMS <wbr/>Process <wbr/>References</span></a></li></ul></div></details></div><div class="site-menu"><nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md">🏛️ Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md">🔒 Security Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md">🛡️ Threat Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md">📊 Data Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FLOWCHART.md">🔄 Flowchart</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/STATEDIAGRAM.md">📈 State Diagram</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md">🧠 Mindmap</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md">💼 SWOT Analysis</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md">📜 CRA Assessment</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md">🚀 Future Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md">🔮 Future Security</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md">📋 Secure Dev Policy</a><a href="https://euparliamentmonitor.com" class="tsd-nav-link">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor" class="tsd-nav-link">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC" class="tsd-nav-link">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server" class="tsd-nav-link">🇪🇺 EP MCP Server</a></nav><nav class="tsd-navigation"><a href="../modules.html">EU Parliament Monitor — API Documentation - v0.8.3</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>

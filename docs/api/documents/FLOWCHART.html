@@ -1,0 +1,798 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="../"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>FLOWCHART | EU Parliament Monitor — API Documentation - v0.8.3</title><link rel="icon" href="../assets/favicon.ico"/><meta name="description" content="Documentation for EU Parliament Monitor — API Documentation"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/icons.js" id="tsd-icons-script"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script><script async src="../assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="../index.html" class="title">EU Parliament Monitor — API Documentation - v0.8.3</a><div id="tsd-toolbar-links"><a href="https://euparliamentmonitor.com">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server">🇪🇺 EP MCP Server</a></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><ul class="tsd-breadcrumb" aria-label="Breadcrumb"><li><a href="" aria-current="page">FLOWCHART</a></li></ul></div><div class="tsd-panel tsd-typography"><p align="center">
+  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
+</p>
+<h1 align="center">🔄 EU Parliament Monitor — Flowcharts</h1>
+<p align="center">
+  <strong>Process & Data Flow Documentation for European Parliament Intelligence</strong><br>
+  <em>📈 Security Flows • 🔄 CI/CD Pipeline • 📊 Data Processing</em>
+</p>
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
+</p>
+<p><strong>📋 Document Owner:</strong> CEO | <strong>📄 Version:</strong> 1.1 | <strong>📅 Last Updated:</strong>
+2026-03-19 (UTC)<br>
+<strong>🔄 Review Cycle:</strong> Quarterly | <strong>⏰ Next Review:</strong> 2026-06-19</p>
+<hr>
+<h2 id="📚-architecture-documentation-map" class="tsd-anchor-link">📚 Architecture Documentation Map<a href="#📚-architecture-documentation-map" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<div class="documentation-map">
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Focus</th>
+<th>Description</th>
+<th>Documentation Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="ARCHITECTURE.html">Architecture</a></strong></td>
+<td>🏛️ Architecture</td>
+<td>C4 model showing current system structure</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_ARCHITECTURE.md">Future Architecture</a></strong></td>
+<td>🏛️ Architecture</td>
+<td>C4 model showing future system structure</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="MINDMAP.html">Mindmaps</a></strong></td>
+<td>🧠 Concept</td>
+<td>Current system component relationships</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_MINDMAP.md">Future Mindmaps</a></strong></td>
+<td>🧠 Concept</td>
+<td>Future capability evolution</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_MINDMAP.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="SWOT.html">SWOT Analysis</a></strong></td>
+<td>💼 Business</td>
+<td>Current strategic assessment</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_SWOT.md">Future SWOT Analysis</a></strong></td>
+<td>💼 Business</td>
+<td>Future strategic opportunities</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SWOT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="DATA_MODEL.html">Data Model</a></strong></td>
+<td>📊 Data</td>
+<td>Current data structures and relationships</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_DATA_MODEL.md">Future Data Model</a></strong></td>
+<td>📊 Data</td>
+<td>Enhanced European Parliament data architecture</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_DATA_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="">Flowcharts</a></strong></td>
+<td>🔄 Process</td>
+<td>Current data processing workflows</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FLOWCHART.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_FLOWCHART.md">Future Flowcharts</a></strong></td>
+<td>🔄 Process</td>
+<td>Enhanced AI-driven workflows</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_FLOWCHART.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="STATEDIAGRAM.html">State Diagrams</a></strong></td>
+<td>🔄 Behavior</td>
+<td>Current system state transitions</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/STATEDIAGRAM.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_STATEDIAGRAM.md">Future State Diagrams</a></strong></td>
+<td>🔄 Behavior</td>
+<td>Enhanced adaptive state transitions</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_STATEDIAGRAM.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="SECURITY_ARCHITECTURE.html">Security Architecture</a></strong></td>
+<td>🛡️ Security</td>
+<td>Current security implementation</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_SECURITY_ARCHITECTURE.md">Future Security Architecture</a></strong></td>
+<td>🛡️ Security</td>
+<td>Security enhancement roadmap</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="THREAT_MODEL.html">Threat Model</a></strong></td>
+<td>🎯 Security</td>
+<td>STRIDE threat analysis</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/CLASSIFICATION.md">Classification</a></strong></td>
+<td>🏷️ Governance</td>
+<td>CIA classification &amp; BCP</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CLASSIFICATION.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="CRA-ASSESSMENT.html">CRA Assessment</a></strong></td>
+<td>🛡️ Compliance</td>
+<td>Cyber Resilience Act</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/WORKFLOWS.md">Workflows</a></strong></td>
+<td>⚙️ DevOps</td>
+<td>CI/CD documentation</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_WORKFLOWS.md">Future Workflows</a></strong></td>
+<td>🚀 DevOps</td>
+<td>Planned CI/CD enhancements</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_WORKFLOWS.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/BCPPlan.md">Business Continuity Plan</a></strong></td>
+<td>🔄 Resilience</td>
+<td>Recovery planning</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/BCPPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FinancialSecurityPlan.md">Financial Security Plan</a></strong></td>
+<td>💰 Financial</td>
+<td>Cost &amp; security analysis</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FinancialSecurityPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/End-of-Life-Strategy.md">End-of-Life Strategy</a></strong></td>
+<td>📦 Lifecycle</td>
+<td>Technology EOL planning</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/End-of-Life-Strategy.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/UnitTestPlan.md">Unit Test Plan</a></strong></td>
+<td>🧪 Testing</td>
+<td>Unit testing strategy</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/UnitTestPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/E2ETestPlan.md">E2E Test Plan</a></strong></td>
+<td>🔍 Testing</td>
+<td>End-to-end testing</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/E2ETestPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/performance-testing.md">Performance Testing</a></strong></td>
+<td>⚡ Performance</td>
+<td>Performance benchmarks</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/performance-testing.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/SECURITY.md">Security Policy</a></strong></td>
+<td>🔒 Security</td>
+<td>Vulnerability reporting &amp; security policy</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md" target="_blank" class="external">View Source</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="📋-overview" class="tsd-anchor-link">📋 Overview<a href="#📋-overview" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This document provides detailed process flow diagrams showing security controls,
+data flows, and decision points in the EU Parliament Monitor platform.</p>
+<hr>
+<h2 id="🛡️-isms-policy-alignment" class="tsd-anchor-link">🛡️ ISMS Policy Alignment<a href="#🛡️-isms-policy-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This document aligns with Hack23's Information Security Management System (ISMS) policies and ISO 27001:2022 controls. All flowcharts demonstrate implementation of security controls required by these policies.</p>
+<h3 id="policy-mapping" class="tsd-anchor-link">Policy Mapping<a href="#policy-mapping" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>ISMS Policy</th>
+<th>ISO 27001 Control</th>
+<th>Document Section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md" target="_blank" class="external">Information Security Policy</a></td>
+<td>A.5.1</td>
+<td>All sections</td>
+<td>Overarching security governance framework</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" class="external">Secure Development Policy</a></td>
+<td>A.8.25, A.8.28</td>
+<td>News Generation Security Flow, CI/CD Security Pipeline</td>
+<td>Secure coding practices, input validation, code review</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md" target="_blank" class="external">Access Control Policy</a></td>
+<td>A.5.15, A.5.18</td>
+<td>MCP Client Connection Security Flow</td>
+<td>Authentication, authorization, least privilege</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management_Policy.md" target="_blank" class="external">Vulnerability Management Policy</a></td>
+<td>A.8.8</td>
+<td>Vulnerability Management Workflow</td>
+<td>Vulnerability scanning, remediation, patch management</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Policy.md" target="_blank" class="external">Incident Response Policy</a></td>
+<td>A.5.24, A.5.25, A.5.26</td>
+<td>Incident Response Flow</td>
+<td>Detection, response, recovery, post-incident review</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Change_Management_Policy.md" target="_blank" class="external">Change Management Policy</a></td>
+<td>A.8.32</td>
+<td>CI/CD Security Pipeline, Release Workflow</td>
+<td>Controlled deployments, testing, approval gates</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md" target="_blank" class="external">Cryptography Policy</a></td>
+<td>A.8.24</td>
+<td>Content Delivery Security Flow, Deployment Security Flow</td>
+<td>TLS 1.3, HTTPS-only, cryptographic signatures</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-security-principles-demonstrated" class="tsd-anchor-link">Key Security Principles Demonstrated<a href="#key-security-principles-demonstrated" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ol>
+<li><strong>Defense in Depth</strong>: Multiple security layers (validation, sanitization, encoding, CSP)</li>
+<li><strong>Least Privilege</strong>: Minimal permissions for GitHub Actions, MCP connections</li>
+<li><strong>Secure by Default</strong>: HTTPS-only, CSP enforcement, input validation at every stage</li>
+<li><strong>Fail Secure</strong>: Fallback content on validation failures, graceful degradation</li>
+<li><strong>Separation of Duties</strong>: Automated checks, required approvals, independent verification</li>
+<li><strong>Continuous Monitoring</strong>: Dependabot, CodeQL, npm audit, health checks</li>
+<li><strong>Incident Response</strong>: Defined severity levels, escalation paths, post-mortem reviews</li>
+<li><strong>Supply Chain Security</strong>: SBOM generation, SLSA attestations, dependency scanning</li>
+</ol>
+<h3 id="compliance-framework-coverage" class="tsd-anchor-link">Compliance Framework Coverage<a href="#compliance-framework-coverage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>ISO 27001:2022</strong>: Controls A.5.1, A.5.15, A.5.18, A.5.24, A.5.25, A.5.26, A.8.8, A.8.24, A.8.25, A.8.28, A.8.32</li>
+<li><strong>NIST CSF 2.0</strong>: Identify (ID.RA, <a href="http://ID.SC" target="_blank" class="external">ID.SC</a>), Protect (<a href="http://PR.AC" target="_blank" class="external">PR.AC</a>, PR.DS, PR.IP), Detect (<a href="http://DE.CM" target="_blank" class="external">DE.CM</a>), Respond (<a href="http://RS.AN" target="_blank" class="external">RS.AN</a>, RS.MI), Recover (RC.RP)</li>
+<li><strong>CIS Controls v8.1</strong>: Controls 1, 4, 6, 8, 10, 16, 18</li>
+<li><strong>GDPR</strong>: Article 25 (Data protection by design), Article 32 (Security of processing)</li>
+<li><strong>NIS2 Directive</strong>: Risk management, incident handling, supply chain security</li>
+<li><strong>EU Cyber Resilience Act</strong>: Secure by default, vulnerability disclosure, security updates</li>
+</ul>
+<hr>
+<h2 id="🔐-news-generation-security-flow" class="tsd-anchor-link">🔐 News Generation Security Flow<a href="#🔐-news-generation-security-flow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="mermaid"><span class="hl-1">flowchart TD</span><br/><span class="hl-1">    Start[🚀 GitHub Actions Trigger&lt;br/&gt;Schedule: 06:00 UTC&lt;br/&gt;Manual: workflow_dispatch] --&gt; CheckMCP{🔌 MCP Server&lt;br/&gt;Available?}</span><br/><br/><span class="hl-1">    CheckMCP --&gt;|✅ Yes| ConnectMCP[🔗 Connect to EP MCP Server&lt;br/&gt;stdio/localhost]</span><br/><span class="hl-1">    CheckMCP --&gt;|❌ No| Fallback[⚠️ Use Placeholder Content&lt;br/&gt;Log Error]</span><br/><br/><span class="hl-1">    ConnectMCP --&gt; RetryCheck{🔄 Connection&lt;br/&gt;Successful?}</span><br/><span class="hl-1">    RetryCheck --&gt;|❌ No| RetryCount{Retry &lt; 3?}</span><br/><span class="hl-1">    RetryCount --&gt;|✅ Yes| BackoffWait[⏳ Wait 30s&lt;br/&gt;Between Retries]</span><br/><span class="hl-1">    BackoffWait --&gt; ConnectMCP</span><br/><span class="hl-1">    RetryCount --&gt;|❌ No| Fallback</span><br/><br/><span class="hl-1">    RetryCheck --&gt;|✅ Yes| FetchData[📥 Fetch Parliamentary Data&lt;br/&gt;Plenary Sessions&lt;br/&gt;Committee Meetings&lt;br/&gt;Documents, Voting Records]</span><br/><br/><span class="hl-1">    FetchData --&gt; ValidateSchema{✅ Validate&lt;br/&gt;JSON Schema?}</span><br/><span class="hl-1">    ValidateSchema --&gt;|❌ Invalid| LogError1[📝 Log Validation Error&lt;br/&gt;Error Type&lt;br/&gt;Field Name] --&gt; Fallback</span><br/><span class="hl-1">    ValidateSchema --&gt;|✅ Valid| ValidateType{✅ Type Check&lt;br/&gt;Data Types?}</span><br/><br/><span class="hl-1">    ValidateType --&gt;|❌ Invalid| LogError2[📝 Log Type Error&lt;br/&gt;Expected vs Actual] --&gt; Fallback</span><br/><span class="hl-1">    ValidateType --&gt;|✅ Valid| ValidateRange{✅ Range Check&lt;br/&gt;Dates, Lengths?}</span><br/><br/><span class="hl-1">    ValidateRange --&gt;|❌ Invalid| LogError3[📝 Log Range Error&lt;br/&gt;Out of Bounds] --&gt; Fallback</span><br/><span class="hl-1">    ValidateRange --&gt;|✅ Valid| SanitizeHTML[🧹 Sanitize HTML&lt;br/&gt;Strip Script Tags&lt;br/&gt;Remove Event Handlers]</span><br/><br/><span class="hl-1">    Fallback --&gt; AgentContext</span><br/><span class="hl-1">    SanitizeHTML --&gt; EncodeHTML[🔒 HTML Entity Encoding&lt;br/&gt;Convert: &amp;lt; &amp;gt; &amp;amp; &amp;quot; &amp;#39;]</span><br/><br/><span class="hl-1">    EncodeHTML --&gt; AgentContext[🤖 Copilot/LLM Agent&lt;br/&gt;Receives Article Type Context&lt;br/&gt;5 Types: week-ahead, motions,&lt;br/&gt;propositions, committee-reports,&lt;br/&gt;breaking-news]</span><br/><br/><span class="hl-1">    AgentContext --&gt; GenerateEN[📝 Generate English Content&lt;br/&gt;Agent Calls MCP Tools&lt;br/&gt;Plenary, Committees,&lt;br/&gt;Documents, Voting Records]</span><br/><br/><span class="hl-1">    GenerateEN --&gt; Translate[🌍 Translate Content&lt;br/&gt;English → 13 Languages&lt;br/&gt;14 Total Languages]</span><br/><br/><span class="hl-1">    Translate --&gt; GenHTML[📄 generateArticleHTML()&lt;br/&gt;Per Language&lt;br/&gt;SEO, JSON-LD, Open Graph]</span><br/><br/><span class="hl-1">    GenHTML --&gt; HTMLValidate[✅ Validate HTML&lt;br/&gt;htmlhint Rules&lt;br/&gt;Standards Compliance]</span><br/><br/><span class="hl-1">    HTMLValidate --&gt;|❌ Fail| FixHTML[🔧 Fix HTML Issues&lt;br/&gt;Auto-correct&lt;br/&gt;Report Issues]</span><br/><span class="hl-1">    FixHTML --&gt; HTMLValidate</span><br/><br/><span class="hl-1">    HTMLValidate --&gt;|✅ Pass| GenerateIndex[📋 Generate Language Indexes&lt;br/&gt;index-{lang}.html&lt;br/&gt;Sort by Date]</span><br/><br/><span class="hl-1">    GenerateIndex --&gt; GenerateSitemap[🗺️ Generate Sitemap&lt;br/&gt;sitemap.xml&lt;br/&gt;SEO Optimization]</span><br/><br/><span class="hl-1">    GenerateSitemap --&gt; CreateBranch[🌿 Create Branch&lt;br/&gt;news/{type}-{date}]</span><br/><br/><span class="hl-1">    CreateBranch --&gt; CommitPR[📦 Commit &amp; Create PR&lt;br/&gt;Article HTML Files&lt;br/&gt;Updated Indexes &amp; Sitemap]</span><br/><br/><span class="hl-1">    CommitPR --&gt; MergePR[🔀 Merge PR to Main]</span><br/><br/><span class="hl-1">    MergePR --&gt; DeployPages[🚀 Deploy to GitHub Pages&lt;br/&gt;Updated Static Site]</span><br/><br/><span class="hl-1">    DeployPages --&gt; Complete[✅ Generation Complete&lt;br/&gt;Articles Published&lt;br/&gt;Site Updated]</span><br/><span class="hl-1">    Complete --&gt; End[🎉 Workflow Success]</span><br/><br/><span class="hl-1">    style Start fill:#e8f5e9</span><br/><span class="hl-1">    style CheckMCP fill:#fff4e1</span><br/><span class="hl-1">    style ConnectMCP fill:#e1f5ff</span><br/><span class="hl-1">    style Fallback fill:#ffe1e1</span><br/><span class="hl-1">    style ValidateSchema fill:#e1f5ff</span><br/><span class="hl-1">    style ValidateType fill:#e1f5ff</span><br/><span class="hl-1">    style ValidateRange fill:#e1f5ff</span><br/><span class="hl-1">    style SanitizeHTML fill:#e8f5e9</span><br/><span class="hl-1">    style EncodeHTML fill:#e8f5e9</span><br/><span class="hl-1">    style AgentContext fill:#e1f5ff</span><br/><span class="hl-1">    style GenerateEN fill:#e8f5e9</span><br/><span class="hl-1">    style Translate fill:#e8f5e9</span><br/><span class="hl-1">    style GenHTML fill:#e8f5e9</span><br/><span class="hl-1">    style HTMLValidate fill:#e1f5ff</span><br/><span class="hl-1">    style CreateBranch fill:#e1f5ff</span><br/><span class="hl-1">    style CommitPR fill:#e8f5e9</span><br/><span class="hl-1">    style MergePR fill:#e8f5e9</span><br/><span class="hl-1">    style DeployPages fill:#d4edda</span><br/><span class="hl-1">    style Complete fill:#d4edda</span><br/><span class="hl-1">    style End fill:#d4edda</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="🔍-input-validation-security-flow" class="tsd-anchor-link">🔍 Input Validation Security Flow<a href="#🔍-input-validation-security-flow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="mermaid"><span class="hl-1">flowchart TD</span><br/><span class="hl-1">    Input[📥 External Input&lt;br/&gt;European Parliament API&lt;br/&gt;Untrusted Data] --&gt; Layer1{🛡️ Layer 1&lt;br/&gt;Schema Validation}</span><br/><br/><span class="hl-1">    Layer1 --&gt;|❌ Invalid Structure| Reject1[❌ Reject Input&lt;br/&gt;Log: Invalid JSON&lt;br/&gt;Use Fallback]</span><br/><span class="hl-1">    Layer1 --&gt;|✅ Valid Structure| Layer2{🛡️ Layer 2&lt;br/&gt;Type Validation}</span><br/><br/><span class="hl-1">    Layer2 --&gt;|❌ Wrong Types| Reject2[❌ Reject Input&lt;br/&gt;Log: Type Mismatch&lt;br/&gt;Use Fallback]</span><br/><span class="hl-1">    Layer2 --&gt;|✅ Correct Types| Layer3{🛡️ Layer 3&lt;br/&gt;Range Validation}</span><br/><br/><span class="hl-1">    Layer3 --&gt;|❌ Out of Bounds| Reject3[❌ Reject Input&lt;br/&gt;Log: Range Error&lt;br/&gt;Use Fallback]</span><br/><span class="hl-1">    Layer3 --&gt;|✅ Within Bounds| Layer4{🛡️ Layer 4&lt;br/&gt;Content Sanitization}</span><br/><br/><span class="hl-1">    Layer4 --&gt; StripScript[🧹 Strip Script Tags&lt;br/&gt;Remove: &amp;lt;script&amp;gt;&lt;br/&gt;Remove: &amp;lt;iframe&amp;gt;&lt;br/&gt;Remove: &amp;lt;object&amp;gt;]</span><br/><span class="hl-1">    StripScript --&gt; RemoveEvents[🧹 Remove Event Handlers&lt;br/&gt;Remove: onclick&lt;br/&gt;Remove: onerror&lt;br/&gt;Remove: onload]</span><br/><span class="hl-1">    RemoveEvents --&gt; ValidateURLs[🔍 Validate URLs&lt;br/&gt;Check Protocol&lt;br/&gt;Sanitize Path]</span><br/><br/><span class="hl-1">    ValidateURLs --&gt; Layer5{🛡️ Layer 5&lt;br/&gt;HTML Encoding}</span><br/><br/><span class="hl-1">    Layer5 --&gt; EncodeSpecial[🔒 Encode Special Chars&lt;br/&gt;&amp;lt; → &amp;amp;lt;&lt;br/&gt;&amp;gt; → &amp;amp;gt;&lt;br/&gt;&amp;amp; → &amp;amp;amp;&lt;br/&gt;&amp;quot; → &amp;amp;quot;&lt;br/&gt;&amp;#39; → &amp;amp;#39;]</span><br/><br/><span class="hl-1">    EncodeSpecial --&gt; Layer6{🛡️ Layer 6&lt;br/&gt;CSP Compliance}</span><br/><br/><span class="hl-1">    Layer6 --&gt; CheckCSP[✅ Check CSP Headers&lt;br/&gt;No Inline Scripts&lt;br/&gt;No Eval()&lt;br/&gt;No External Scripts]</span><br/><br/><span class="hl-1">    CheckCSP --&gt;|❌ Violation| Reject4[❌ Block Content&lt;br/&gt;Log: CSP Violation&lt;br/&gt;Return Error]</span><br/><span class="hl-1">    CheckCSP --&gt;|✅ Compliant| SafeOutput[✅ Safe Output&lt;br/&gt;Validated&lt;br/&gt;Sanitized&lt;br/&gt;Encoded]</span><br/><br/><span class="hl-1">    Reject1 --&gt; FallbackContent[⚠️ Fallback Content&lt;br/&gt;Placeholder Articles&lt;br/&gt;Safe Default]</span><br/><span class="hl-1">    Reject2 --&gt; FallbackContent</span><br/><span class="hl-1">    Reject3 --&gt; FallbackContent</span><br/><span class="hl-1">    Reject4 --&gt; FallbackContent</span><br/><br/><span class="hl-1">    SafeOutput --&gt; DeliverContent[📤 Deliver to Template&lt;br/&gt;Generate HTML&lt;br/&gt;Serve to Users]</span><br/><span class="hl-1">    FallbackContent --&gt; DeliverContent</span><br/><br/><span class="hl-1">    style Input fill:#fff4e1</span><br/><span class="hl-1">    style Layer1 fill:#e1f5ff</span><br/><span class="hl-1">    style Layer2 fill:#e1f5ff</span><br/><span class="hl-1">    style Layer3 fill:#e1f5ff</span><br/><span class="hl-1">    style Layer4 fill:#e8f5e9</span><br/><span class="hl-1">    style Layer5 fill:#e8f5e9</span><br/><span class="hl-1">    style Layer6 fill:#e8f5e9</span><br/><span class="hl-1">    style Reject1 fill:#ffe1e1</span><br/><span class="hl-1">    style Reject2 fill:#ffe1e1</span><br/><span class="hl-1">    style Reject3 fill:#ffe1e1</span><br/><span class="hl-1">    style Reject4 fill:#ffe1e1</span><br/><span class="hl-1">    style SafeOutput fill:#d4edda</span><br/><span class="hl-1">    style FallbackContent fill:#fff3cd</span><br/><span class="hl-1">    style DeliverContent fill:#d4edda</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="🤖-cicd-security-pipeline" class="tsd-anchor-link">🤖 CI/CD Security Pipeline<a href="#🤖-cicd-security-pipeline" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="mermaid"><span class="hl-1">flowchart TD</span><br/><span class="hl-1">    Trigger[🔔 Git Event&lt;br/&gt;Push to PR&lt;br/&gt;Merge to Main] --&gt; Checkout[📥 Checkout Code&lt;br/&gt;SHA-Pinned Action&lt;br/&gt;actions/checkout@v4]</span><br/><br/><span class="hl-1">    Checkout --&gt; SetupNode[⚙️ Setup Node.js 25&lt;br/&gt;SHA-Pinned Action&lt;br/&gt;actions/setup-node@v6]</span><br/><br/><span class="hl-1">    SetupNode --&gt; InstallDeps[📦 Install Dependencies&lt;br/&gt;npm ci&lt;br/&gt;Reproducible Build&lt;br/&gt;package-lock.json]</span><br/><br/><span class="hl-1">    InstallDeps --&gt; SecurityAudit{🔍 npm audit&lt;br/&gt;Vulnerabilities?}</span><br/><br/><span class="hl-1">    SecurityAudit --&gt;|❌ Moderate+| AuditFail[❌ Security Audit Failed&lt;br/&gt;Block PR Merge&lt;br/&gt;Create Issue]</span><br/><span class="hl-1">    SecurityAudit --&gt;|✅ None/Low| Lint[🔍 ESLint&lt;br/&gt;Security Rules&lt;br/&gt;Code Quality&lt;br/&gt;Complexity Check]</span><br/><br/><span class="hl-1">    Lint --&gt;|❌ Errors| LintFail[❌ Lint Failed&lt;br/&gt;Block PR Merge&lt;br/&gt;Show Errors]</span><br/><span class="hl-1">    Lint --&gt;|✅ Pass| Format[✨ Prettier Check&lt;br/&gt;Code Formatting&lt;br/&gt;Consistency]</span><br/><br/><span class="hl-1">    Format --&gt;|❌ Not Formatted| FormatFail[❌ Format Failed&lt;br/&gt;Run: npm run format&lt;br/&gt;Commit Changes]</span><br/><span class="hl-1">    Format --&gt;|✅ Formatted| HTMLHint[📄 HTMLHint&lt;br/&gt;HTML Validation&lt;br/&gt;Standards Compliance]</span><br/><br/><span class="hl-1">    HTMLHint --&gt;|❌ Errors| HTMLFail[❌ HTML Failed&lt;br/&gt;Fix Issues&lt;br/&gt;Re-validate]</span><br/><span class="hl-1">    HTMLHint --&gt;|✅ Pass| UnitTests[🧪 Unit Tests&lt;br/&gt;87 Tests&lt;br/&gt;Vitest]</span><br/><br/><span class="hl-1">    UnitTests --&gt;|❌ Fail| TestFail[❌ Tests Failed&lt;br/&gt;Block PR Merge&lt;br/&gt;Debug Failures]</span><br/><span class="hl-1">    UnitTests --&gt;|✅ Pass| IntegrationTests[🔗 Integration Tests&lt;br/&gt;82 Tests&lt;br/&gt;MCP Client Tests]</span><br/><br/><span class="hl-1">    IntegrationTests --&gt;|❌ Fail| TestFail</span><br/><span class="hl-1">    IntegrationTests --&gt;|✅ Pass| Coverage{📊 Code Coverage&lt;br/&gt;&amp;gt; 80% Lines?&lt;br/&gt;&amp;gt; 75% Branches?}</span><br/><br/><span class="hl-1">    Coverage --&gt;|❌ Below Threshold| CoverageFail[❌ Coverage Failed&lt;br/&gt;Add Tests&lt;br/&gt;Meet Threshold]</span><br/><span class="hl-1">    Coverage --&gt;|✅ Above Threshold| CodeQL[🔒 CodeQL SAST&lt;br/&gt;Security Analysis&lt;br/&gt;Vulnerability Detection]</span><br/><br/><span class="hl-1">    CodeQL --&gt;|❌ Findings| CodeQLFail[❌ CodeQL Failed&lt;br/&gt;Critical/High Issues&lt;br/&gt;Fix Vulnerabilities]</span><br/><span class="hl-1">    CodeQL --&gt;|✅ Clean| BuildCheck[🏗️ Build Check&lt;br/&gt;News Generation&lt;br/&gt;Index Generation&lt;br/&gt;Sitemap Generation]</span><br/><br/><span class="hl-1">    BuildCheck --&gt;|❌ Fail| BuildFail[❌ Build Failed&lt;br/&gt;Check Logs&lt;br/&gt;Fix Errors]</span><br/><span class="hl-1">    BuildCheck --&gt;|✅ Pass| Approve[✅ All Checks Passed&lt;br/&gt;Ready to Merge&lt;br/&gt;Deploy on Merge]</span><br/><br/><span class="hl-1">    AuditFail --&gt; End[❌ Pipeline Failed]</span><br/><span class="hl-1">    LintFail --&gt; End</span><br/><span class="hl-1">    FormatFail --&gt; End</span><br/><span class="hl-1">    HTMLFail --&gt; End</span><br/><span class="hl-1">    TestFail --&gt; End</span><br/><span class="hl-1">    CoverageFail --&gt; End</span><br/><span class="hl-1">    CodeQLFail --&gt; End</span><br/><span class="hl-1">    BuildFail --&gt; End</span><br/><span class="hl-1">    Approve --&gt; End[✅ Pipeline Success]</span><br/><br/><span class="hl-1">    style Trigger fill:#e8f5e9</span><br/><span class="hl-1">    style SecurityAudit fill:#ffe1e1</span><br/><span class="hl-1">    style Lint fill:#e1f5ff</span><br/><span class="hl-1">    style Format fill:#e1f5ff</span><br/><span class="hl-1">    style HTMLHint fill:#e1f5ff</span><br/><span class="hl-1">    style UnitTests fill:#e8f5e9</span><br/><span class="hl-1">    style IntegrationTests fill:#e8f5e9</span><br/><span class="hl-1">    style Coverage fill:#e1f5ff</span><br/><span class="hl-1">    style CodeQL fill:#ffe1e1</span><br/><span class="hl-1">    style BuildCheck fill:#e8f5e9</span><br/><span class="hl-1">    style Approve fill:#d4edda</span><br/><span class="hl-1">    style End fill:#d4edda</span><br/><span class="hl-1">    style AuditFail fill:#ffe1e1</span><br/><span class="hl-1">    style LintFail fill:#ffe1e1</span><br/><span class="hl-1">    style TestFail fill:#ffe1e1</span><br/><span class="hl-1">    style CodeQLFail fill:#ffe1e1</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="🔐-mcp-client-connection-security-flow" class="tsd-anchor-link">🔐 MCP Client Connection Security Flow<a href="#🔐-mcp-client-connection-security-flow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="mermaid"><span class="hl-1">flowchart TD</span><br/><span class="hl-1">    Start[🚀 Initialize MCP Client&lt;br/&gt;Connection Parameters&lt;br/&gt;Retry Config] --&gt; CheckEnv{🔍 Check Environment&lt;br/&gt;USE_EP_MCP?}</span><br/><br/><span class="hl-1">    CheckEnv --&gt;|❌ Disabled| DisabledMode[⚠️ MCP Disabled&lt;br/&gt;Skip Connection&lt;br/&gt;Use Fallback]</span><br/><span class="hl-1">    CheckEnv --&gt;|✅ Enabled| AttemptCount{🔄 Attempt Count&lt;br/&gt;&lt; Max Attempts?}</span><br/><br/><span class="hl-1">    AttemptCount --&gt;|❌ Exceeded| MaxRetries[❌ Max Retries Reached&lt;br/&gt;Log Error&lt;br/&gt;Use Fallback]</span><br/><span class="hl-1">    AttemptCount --&gt;|✅ Within Limit| SpawnProcess[⚙️ Spawn MCP Process&lt;br/&gt;npx european-parliament-mcp-server&lt;br/&gt;stdio: pipe]</span><br/><br/><span class="hl-1">    SpawnProcess --&gt; WaitConnection[⏳ Wait for Ready&lt;br/&gt;Startup Delay: 500ms&lt;br/&gt;Monitor stderr]</span><br/><br/><span class="hl-1">    WaitConnection --&gt; ConnectionCheck{✅ Connection&lt;br/&gt;Established?}</span><br/><br/><span class="hl-1">    ConnectionCheck --&gt;|❌ Timeout| IncrementRetry[🔄 Increment Counter&lt;br/&gt;Calculate Backoff&lt;br/&gt;2^n seconds]</span><br/><span class="hl-1">    IncrementRetry --&gt; BackoffWait[⏳ Exponential Backoff&lt;br/&gt;1s → 2s → 4s]</span><br/><span class="hl-1">    BackoffWait --&gt; AttemptCount</span><br/><br/><span class="hl-1">    ConnectionCheck --&gt;|❌ Process Error| ProcessError[❌ Process Failed&lt;br/&gt;Log stderr&lt;br/&gt;Kill Process]</span><br/><span class="hl-1">    ProcessError --&gt; IncrementRetry</span><br/><br/><span class="hl-1">    ConnectionCheck --&gt;|✅ Connected| SendHandshake[🤝 Send Initialize Request&lt;br/&gt;JSON-RPC 2.0&lt;br/&gt;List Available Tools]</span><br/><br/><span class="hl-1">    SendHandshake --&gt; HandshakeCheck{✅ Initialize&lt;br/&gt;Valid?}</span><br/><br/><span class="hl-1">    HandshakeCheck --&gt;|❌ Invalid| HandshakeFail[❌ Initialize Failed&lt;br/&gt;Protocol Mismatch&lt;br/&gt;Close Connection]</span><br/><span class="hl-1">    HandshakeFail --&gt; IncrementRetry</span><br/><br/><span class="hl-1">    HandshakeCheck --&gt;|✅ Valid| Authenticated[✅ Connection Ready&lt;br/&gt;Reset Retry Counter&lt;br/&gt;Log Success]</span><br/><br/><span class="hl-1">    Authenticated --&gt; RequestLoop[🔁 Request Loop&lt;br/&gt;Send Requests&lt;br/&gt;60s Timeout Per Request]</span><br/><br/><span class="hl-1">    RequestLoop --&gt; ValidateResponse{✅ Validate&lt;br/&gt;Response?}</span><br/><br/><span class="hl-1">    ValidateResponse --&gt;|❌ Invalid| ResponseError[❌ Invalid Response&lt;br/&gt;Log Error&lt;br/&gt;Retry Request]</span><br/><span class="hl-1">    ResponseError --&gt; RetryRequest{Retry &lt; 3?}</span><br/><span class="hl-1">    RetryRequest --&gt;|✅ Yes| RequestLoop</span><br/><span class="hl-1">    RetryRequest --&gt;|❌ No| UseCached[⚠️ Use Cached Data&lt;br/&gt;Or Fallback]</span><br/><br/><span class="hl-1">    ValidateResponse --&gt;|✅ Valid| ProcessData[✅ Process Data&lt;br/&gt;Parse Response&lt;br/&gt;Extract Fields]</span><br/><br/><span class="hl-1">    DisabledMode --&gt; End[🎯 Complete]</span><br/><span class="hl-1">    MaxRetries --&gt; End</span><br/><span class="hl-1">    UseCached --&gt; End</span><br/><span class="hl-1">    ProcessData --&gt; End</span><br/><br/><span class="hl-1">    style Start fill:#e8f5e9</span><br/><span class="hl-1">    style CheckEnv fill:#fff4e1</span><br/><span class="hl-1">    style AttemptCount fill:#e1f5ff</span><br/><span class="hl-1">    style SpawnProcess fill:#e8f5e9</span><br/><span class="hl-1">    style ConnectionCheck fill:#e1f5ff</span><br/><span class="hl-1">    style HandshakeCheck fill:#e1f5ff</span><br/><span class="hl-1">    style ValidateResponse fill:#e1f5ff</span><br/><span class="hl-1">    style Authenticated fill:#d4edda</span><br/><span class="hl-1">    style ProcessData fill:#d4edda</span><br/><span class="hl-1">    style DisabledMode fill:#fff3cd</span><br/><span class="hl-1">    style MaxRetries fill:#ffe1e1</span><br/><span class="hl-1">    style ProcessError fill:#ffe1e1</span><br/><span class="hl-1">    style HandshakeFail fill:#ffe1e1</span><br/><span class="hl-1">    style ResponseError fill:#ffe1e1</span><br/><span class="hl-1">    style End fill:#d4edda</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="📊-content-delivery-security-flow" class="tsd-anchor-link">📊 Content Delivery Security Flow<a href="#📊-content-delivery-security-flow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="mermaid"><span class="hl-1">flowchart LR</span><br/><span class="hl-1">    subgraph &quot;User Browser&quot;</span><br/><span class="hl-1">        User[👤 User&lt;br/&gt;Browser Request]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;GitHub Pages&quot;</span><br/><span class="hl-1">        CDN[🌐 GitHub CDN&lt;br/&gt;TLS 1.3&lt;br/&gt;HTTPS Only]</span><br/><span class="hl-1">        CACHE[💾 Edge Cache&lt;br/&gt;Static Content&lt;br/&gt;Immutable]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Security Headers&quot;</span><br/><span class="hl-1">        HSTS[🔒 HSTS&lt;br/&gt;max-age=31536000&lt;br/&gt;Force HTTPS]</span><br/><span class="hl-1">        CSP[🛡️ CSP&lt;br/&gt;default-src &#39;self&#39;&lt;br/&gt;No Inline Scripts]</span><br/><span class="hl-1">        XCTO[🔐 X-Content-Type-Options&lt;br/&gt;nosniff]</span><br/><span class="hl-1">        XFO[🚫 X-Frame-Options&lt;br/&gt;DENY]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Static Content&quot;</span><br/><span class="hl-1">        HTML[📄 HTML&lt;br/&gt;Validated&lt;br/&gt;Sanitized]</span><br/><span class="hl-1">        CSS[🎨 CSS&lt;br/&gt;Inline Styles&lt;br/&gt;No External]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Monitoring&quot;</span><br/><span class="hl-1">        LOGS[📝 Access Logs&lt;br/&gt;GitHub Analytics]</span><br/><span class="hl-1">        METRICS[📊 Metrics&lt;br/&gt;Requests&lt;br/&gt;Response Time]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    User --&gt;|HTTPS Request| CDN</span><br/><span class="hl-1">    CDN --&gt;|Check Cache| CACHE</span><br/><span class="hl-1">    CACHE --&gt;|Hit| Return</span><br/><span class="hl-1">    CACHE --&gt;|Miss| Fetch</span><br/><span class="hl-1">    Fetch[Fetch from Origin] --&gt; HTML</span><br/><span class="hl-1">    HTML --&gt; CSS</span><br/><span class="hl-1">    CSS --&gt; Apply_Headers</span><br/><br/><span class="hl-1">    Apply_Headers[Apply Security Headers] --&gt; HSTS</span><br/><span class="hl-1">    Apply_Headers --&gt; CSP</span><br/><span class="hl-1">    Apply_Headers --&gt; XCTO</span><br/><span class="hl-1">    Apply_Headers --&gt; XFO</span><br/><br/><span class="hl-1">    HSTS --&gt; Return[Return to User]</span><br/><span class="hl-1">    CSP --&gt; Return</span><br/><span class="hl-1">    XCTO --&gt; Return</span><br/><span class="hl-1">    XFO --&gt; Return</span><br/><br/><span class="hl-1">    CDN --&gt; LOGS</span><br/><span class="hl-1">    Return --&gt; METRICS</span><br/><span class="hl-1">    Return --&gt; User</span><br/><br/><span class="hl-1">    style User fill:#e1f5ff</span><br/><span class="hl-1">    style CDN fill:#f0f0f0</span><br/><span class="hl-1">    style CACHE fill:#e8f5e9</span><br/><span class="hl-1">    style HSTS fill:#ffe1e1</span><br/><span class="hl-1">    style CSP fill:#ffe1e1</span><br/><span class="hl-1">    style XCTO fill:#ffe1e1</span><br/><span class="hl-1">    style XFO fill:#ffe1e1</span><br/><span class="hl-1">    style HTML fill:#e8f5e9</span><br/><span class="hl-1">    style CSS fill:#e8f5e9</span><br/><span class="hl-1">    style Return fill:#d4edda</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="🚨-incident-response-flow" class="tsd-anchor-link">🚨 Incident Response Flow<a href="#🚨-incident-response-flow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="mermaid"><span class="hl-1">flowchart TD</span><br/><span class="hl-1">    Detection[🔔 Incident Detection&lt;br/&gt;Security Alert&lt;br/&gt;Dependabot&lt;br/&gt;CodeQL&lt;br/&gt;User Report] --&gt; Classify{📊 Classify Severity&lt;br/&gt;CVSS Score&lt;br/&gt;Impact Assessment}</span><br/><br/><span class="hl-1">    Classify --&gt;|P0 Critical| Critical[🚨 P0: Critical&lt;br/&gt;Repository Compromise&lt;br/&gt;Malicious Content]</span><br/><span class="hl-1">    Classify --&gt;|P1 High| High[⚠️ P1: High&lt;br/&gt;XSS Vulnerability&lt;br/&gt;Dependency Issue]</span><br/><span class="hl-1">    Classify --&gt;|P2 Medium| Medium[ℹ️ P2: Medium&lt;br/&gt;Data Integrity&lt;br/&gt;Workflow Failure]</span><br/><span class="hl-1">    Classify --&gt;|P3 Low| Low[📝 P3: Low&lt;br/&gt;Documentation&lt;br/&gt;Non-Critical Bug]</span><br/><br/><span class="hl-1">    Critical --&gt; ImmediateResponse[⚡ Immediate Response&lt;br/&gt;Disable Workflows&lt;br/&gt;Revert Commits&lt;br/&gt;Notify Team]</span><br/><span class="hl-1">    High --&gt; UrgentResponse[🔥 Urgent Response&lt;br/&gt;Create Security Advisory&lt;br/&gt;Block PR Merges]</span><br/><span class="hl-1">    Medium --&gt; StandardResponse[📋 Standard Response&lt;br/&gt;Create Issue&lt;br/&gt;Schedule Fix]</span><br/><span class="hl-1">    Low --&gt; RoutineResponse[📌 Routine Response&lt;br/&gt;Add to Backlog&lt;br/&gt;Next Sprint]</span><br/><br/><span class="hl-1">    ImmediateResponse --&gt; Contain[🔒 Containment&lt;br/&gt;Remove Malicious Content&lt;br/&gt;Isolate Compromised Code&lt;br/&gt;Revoke Tokens]</span><br/><span class="hl-1">    UrgentResponse --&gt; Contain</span><br/><span class="hl-1">    StandardResponse --&gt; Contain</span><br/><span class="hl-1">    RoutineResponse --&gt; Contain</span><br/><br/><span class="hl-1">    Contain --&gt; Investigate[🔍 Investigation&lt;br/&gt;Review Git Logs&lt;br/&gt;Check Actions Logs&lt;br/&gt;Analyze CodeQL Findings]</span><br/><br/><span class="hl-1">    Investigate --&gt; RootCause{🎯 Root Cause&lt;br/&gt;Identified?}</span><br/><br/><span class="hl-1">    RootCause --&gt;|❌ No| DeepDive[🔬 Deep Analysis&lt;br/&gt;Forensics&lt;br/&gt;External Review]</span><br/><span class="hl-1">    DeepDive --&gt; RootCause</span><br/><br/><span class="hl-1">    RootCause --&gt;|✅ Yes| Remediate[🔧 Remediation&lt;br/&gt;Apply Patches&lt;br/&gt;Update Dependencies&lt;br/&gt;Fix Vulnerabilities]</span><br/><br/><span class="hl-1">    Remediate --&gt; Test[🧪 Testing&lt;br/&gt;Unit Tests&lt;br/&gt;Integration Tests&lt;br/&gt;Security Scans]</span><br/><br/><span class="hl-1">    Test --&gt;|❌ Fail| FixIssues[🛠️ Fix Issues&lt;br/&gt;Debug&lt;br/&gt;Re-apply Fixes]</span><br/><span class="hl-1">    FixIssues --&gt; Remediate</span><br/><br/><span class="hl-1">    Test --&gt;|✅ Pass| Deploy[🚀 Deploy Fix&lt;br/&gt;Merge PR&lt;br/&gt;GitHub Actions&lt;br/&gt;Update Documentation]</span><br/><br/><span class="hl-1">    Deploy --&gt; Verify[✅ Verification&lt;br/&gt;Monitor Metrics&lt;br/&gt;Check Logs&lt;br/&gt;Confirm Resolution]</span><br/><br/><span class="hl-1">    Verify --&gt;|❌ Not Resolved| Escalate[⬆️ Escalate&lt;br/&gt;Senior Review&lt;br/&gt;External Help]</span><br/><span class="hl-1">    Escalate --&gt; Investigate</span><br/><br/><span class="hl-1">    Verify --&gt;|✅ Resolved| Document[📝 Documentation&lt;br/&gt;Incident Report&lt;br/&gt;Lessons Learned&lt;br/&gt;Update Threat Model]</span><br/><br/><span class="hl-1">    Document --&gt; Communicate[📢 Communication&lt;br/&gt;Security Advisory&lt;br/&gt;CHANGELOG.md&lt;br/&gt;Close Issue]</span><br/><br/><span class="hl-1">    Communicate --&gt; PostMortem[🔄 Post-Mortem&lt;br/&gt;Team Review&lt;br/&gt;Process Improvements&lt;br/&gt;Update Procedures]</span><br/><br/><span class="hl-1">    PostMortem --&gt; Complete[✅ Incident Closed&lt;br/&gt;Controls Updated&lt;br/&gt;Metrics Recorded]</span><br/><br/><span class="hl-1">    style Detection fill:#fff4e1</span><br/><span class="hl-1">    style Critical fill:#ffe1e1</span><br/><span class="hl-1">    style High fill:#fff3cd</span><br/><span class="hl-1">    style Medium fill:#e1f5ff</span><br/><span class="hl-1">    style Low fill:#f0f0f0</span><br/><span class="hl-1">    style Contain fill:#e8f5e9</span><br/><span class="hl-1">    style Remediate fill:#e8f5e9</span><br/><span class="hl-1">    style Deploy fill:#e8f5e9</span><br/><span class="hl-1">    style Complete fill:#d4edda</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="🛡️-vulnerability-management-workflow" class="tsd-anchor-link">🛡️ Vulnerability Management Workflow<a href="#🛡️-vulnerability-management-workflow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This workflow implements ISO 27001:2022 Control A.8.8 (Management of Technical Vulnerabilities) with defined severity levels and SLA-based remediation timelines.</p>
+<pre><code class="mermaid"><span class="hl-1">flowchart TD</span><br/><span class="hl-1">    Discovery[🔍 Vulnerability Discovery] --&gt; Source{Discovery&lt;br/&gt;Source}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Source --&gt;|Dependabot| DepAlert[🤖 Dependabot Alert&lt;br/&gt;Dependencies&lt;br/&gt;GitHub Security]</span><br/><span class="hl-1">    Source --&gt;|CodeQL| CodeQLAlert[🔒 CodeQL Finding&lt;br/&gt;SAST Scanning&lt;br/&gt;Security Issue]</span><br/><span class="hl-1">    Source --&gt;|npm audit| AuditAlert[📦 npm audit&lt;br/&gt;Package Vulnerabilities&lt;br/&gt;CVE Database]</span><br/><span class="hl-1">    Source --&gt;|Manual| ManualReport[👤 Manual Report&lt;br/&gt;Security Researcher&lt;br/&gt;User Report]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    DepAlert --&gt; Assess</span><br/><span class="hl-1">    CodeQLAlert --&gt; Assess</span><br/><span class="hl-1">    AuditAlert --&gt; Assess</span><br/><span class="hl-1">    ManualReport --&gt; Assess</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Assess[📊 Assessment Phase] --&gt; CVSSScore{🎯 CVSS Score&lt;br/&gt;Calculation}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    CVSSScore --&gt; Exploit{🔬 Exploitability&lt;br/&gt;Analysis}</span><br/><span class="hl-1">    Exploit --&gt; Impact{💥 Impact&lt;br/&gt;Assessment}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Impact --&gt; Prioritize{⚡ Prioritization}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Prioritize --&gt;|Critical 9.0-10.0| Critical[🚨 P0: Critical&lt;br/&gt;SLA: 24 hours&lt;br/&gt;Remote Code Execution&lt;br/&gt;Data Breach Risk]</span><br/><span class="hl-1">    Prioritize --&gt;|High 7.0-8.9| High[⚠️ P1: High&lt;br/&gt;SLA: 7 days&lt;br/&gt;Privilege Escalation&lt;br/&gt;XSS/CSRF]</span><br/><span class="hl-1">    Prioritize --&gt;|Medium 4.0-6.9| Medium[ℹ️ P2: Medium&lt;br/&gt;SLA: 30 days&lt;br/&gt;Information Disclosure&lt;br/&gt;DoS]</span><br/><span class="hl-1">    Prioritize --&gt;|Low 0.1-3.9| Low[📝 P3: Low&lt;br/&gt;SLA: 90 days&lt;br/&gt;Minor Issues&lt;br/&gt;Low Impact]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Critical --&gt; EmergencyTeam[🚨 Emergency Response&lt;br/&gt;Notify Security Team&lt;br/&gt;Disable Affected Feature]</span><br/><span class="hl-1">    High --&gt; UrgentAction[🔥 Urgent Action&lt;br/&gt;Create Security Advisory&lt;br/&gt;Block Deployments]</span><br/><span class="hl-1">    Medium --&gt; StandardTrack[📋 Standard Track&lt;br/&gt;Create Issue&lt;br/&gt;Schedule Sprint]</span><br/><span class="hl-1">    Low --&gt; BacklogAdd[📌 Backlog&lt;br/&gt;Log for Future&lt;br/&gt;Next Release]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    EmergencyTeam --&gt; Remediation</span><br/><span class="hl-1">    UrgentAction --&gt; Remediation</span><br/><span class="hl-1">    StandardTrack --&gt; Remediation</span><br/><span class="hl-1">    BacklogAdd --&gt; Remediation</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Remediation[🔧 Remediation Strategy] --&gt; Strategy{Strategy&lt;br/&gt;Selection}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Strategy --&gt;|Available| Patch[🩹 Apply Patch&lt;br/&gt;Update Dependency&lt;br/&gt;Upgrade Version]</span><br/><span class="hl-1">    Strategy --&gt;|Not Available| Workaround[🔀 Implement Workaround&lt;br/&gt;Code Changes&lt;br/&gt;Configuration Update]</span><br/><span class="hl-1">    Strategy --&gt;|Not Feasible| Mitigate[🛡️ Mitigate Risk&lt;br/&gt;Additional Controls&lt;br/&gt;Monitoring]</span><br/><span class="hl-1">    Strategy --&gt;|False Positive| Accept[✅ Accept Risk&lt;br/&gt;Document Rationale&lt;br/&gt;Security Exception]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Patch --&gt; Testing</span><br/><span class="hl-1">    Workaround --&gt; Testing</span><br/><span class="hl-1">    Mitigate --&gt; Testing</span><br/><span class="hl-1">    Accept --&gt; Document</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Testing[🧪 Verification Testing] --&gt; UnitTest[✅ Unit Tests&lt;br/&gt;169 Tests Pass]</span><br/><span class="hl-1">    UnitTest --&gt; IntegTest[🔗 Integration Tests&lt;br/&gt;82 Tests Pass]</span><br/><span class="hl-1">    IntegTest --&gt; SecScan[🔒 Security Scan&lt;br/&gt;CodeQL Clean&lt;br/&gt;npm audit Clean]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    SecScan --&gt; TestResult{Tests&lt;br/&gt;Pass?}</span><br/><span class="hl-1">    TestResult --&gt;|❌ Fail| FixFailed[🛠️ Fix Failed Tests&lt;br/&gt;Debug Issues&lt;br/&gt;Adjust Fix]</span><br/><span class="hl-1">    FixFailed --&gt; Remediation</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    TestResult --&gt;|✅ Pass| Deploy[🚀 Deploy Fix&lt;br/&gt;Merge PR&lt;br/&gt;Production Release]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Deploy --&gt; Verify[✅ Post-Deploy Verification] --&gt; Rescan{Vulnerability&lt;br/&gt;Resolved?}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Rescan --&gt;|❌ Not Fixed| Escalate[⬆️ Escalate&lt;br/&gt;Senior Security Review&lt;br/&gt;External Consultation]</span><br/><span class="hl-1">    Escalate --&gt; Remediation</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Rescan --&gt;|✅ Fixed| Document[📝 Documentation]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Document --&gt; UpdateAdvisory[📄 Update Security Advisory&lt;br/&gt;CVE Details&lt;br/&gt;Remediation Steps]</span><br/><span class="hl-1">    UpdateAdvisory --&gt; UpdateCHANGELOG[📋 Update CHANGELOG.md&lt;br/&gt;Security Fix Entry&lt;br/&gt;Version Bump]</span><br/><span class="hl-1">    UpdateCHANGELOG --&gt; CloseIssue[🔒 Close Issue&lt;br/&gt;Link to Commit&lt;br/&gt;Verification Evidence]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    CloseIssue --&gt; Metrics[📊 Update Metrics&lt;br/&gt;MTTR Calculation&lt;br/&gt;Vulnerability Stats]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Metrics --&gt; Review[🔄 Post-Fix Review&lt;br/&gt;Lessons Learned&lt;br/&gt;Process Improvement]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Review --&gt; Complete[✅ Vulnerability Closed&lt;br/&gt;Evidence Recorded&lt;br/&gt;Controls Updated]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    style Discovery fill:#fff4e1</span><br/><span class="hl-1">    style Critical fill:#ffe1e1</span><br/><span class="hl-1">    style High fill:#fff3cd</span><br/><span class="hl-1">    style Medium fill:#e1f5ff</span><br/><span class="hl-1">    style Low fill:#f0f0f0</span><br/><span class="hl-1">    style Patch fill:#e8f5e9</span><br/><span class="hl-1">    style Testing fill:#e1f5ff</span><br/><span class="hl-1">    style Deploy fill:#e8f5e9</span><br/><span class="hl-1">    style Complete fill:#d4edda</span><br/><span class="hl-1">    style Accept fill:#fff3cd</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="vulnerability-management-security-controls" class="tsd-anchor-link">Vulnerability Management Security Controls<a href="#vulnerability-management-security-controls" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Control</th>
+<th>SLA</th>
+<th>ISMS Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Discovery</strong></td>
+<td>Automated scanning (Dependabot, CodeQL, npm audit)</td>
+<td>Continuous</td>
+<td>ISO 27001 A.8.8</td>
+</tr>
+<tr>
+<td><strong>Assessment</strong></td>
+<td>CVSS scoring, exploitability analysis</td>
+<td>24 hours</td>
+<td>NIST SP 800-30</td>
+</tr>
+<tr>
+<td><strong>Prioritization</strong></td>
+<td>Risk-based tiers with SLAs</td>
+<td>By severity</td>
+<td>ISO 27001 A.5.9</td>
+</tr>
+<tr>
+<td><strong>Remediation</strong></td>
+<td>Patch/workaround/mitigate/accept</td>
+<td>24h-90d</td>
+<td>ISO 27001 A.8.8</td>
+</tr>
+<tr>
+<td><strong>Verification</strong></td>
+<td>Testing, scanning, deployment validation</td>
+<td>Before close</td>
+<td>ISO/IEC 27001:2013 A.14.2.8</td>
+</tr>
+<tr>
+<td><strong>Documentation</strong></td>
+<td>Advisories, CHANGELOG, evidence</td>
+<td>Required</td>
+<td>ISO/IEC 27001:2013 A.12.1.1</td>
+</tr>
+<tr>
+<td><strong>Metrics</strong></td>
+<td>MTTR, vulnerability stats tracking</td>
+<td>Monthly</td>
+<td>ISO/IEC 27001:2013 A.18.2.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mean Time to Remediate (MTTR) Targets:</strong></p>
+<ul>
+<li>Critical (P0): 24 hours</li>
+<li>High (P1): 7 days</li>
+<li>Medium (P2): 30 days</li>
+<li>Low (P3): 90 days</li>
+</ul>
+<hr>
+<h2 id="🔗-mcp-data-integration-security-flow" class="tsd-anchor-link">🔗 MCP Data Integration Security Flow<a href="#🔗-mcp-data-integration-security-flow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This flow shows the end-to-end secure data pipeline from European Parliament APIs through the MCP server to static site generation, with comprehensive security controls at each stage.</p>
+<pre><code class="mermaid"><span class="hl-1">flowchart TD</span><br/><span class="hl-1">    subgraph &quot;European Parliament APIs&quot;</span><br/><span class="hl-1">        EPAPI[🏛️ EP Official APIs&lt;br/&gt;MEPs, Sessions&lt;br/&gt;Documents, Votes]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    subgraph &quot;MCP Server Layer&quot;</span><br/><span class="hl-1">        MCPServer[⚙️ EP MCP Server&lt;br/&gt;TypeScript 5.7&lt;br/&gt;Node.js 25]</span><br/><span class="hl-1">        MCPTransport[📡 JSON-RPC 2.0&lt;br/&gt;stdio Transport&lt;br/&gt;Protocol v1.0]</span><br/><span class="hl-1">        MCPCache[💾 LRU Cache&lt;br/&gt;TTL: 5 min&lt;br/&gt;Max: 500 entries]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    subgraph &quot;Client Layer&quot;</span><br/><span class="hl-1">        MCPClient[🔌 MCP Client&lt;br/&gt;Custom JSON-RPC over stdio&lt;br/&gt;src/mcp/ep-mcp-client.ts&lt;br/&gt;Planned: @modelcontextprotocol/sdk]</span><br/><span class="hl-1">        SchemaVal[🧪 Planned: Schema Validation&lt;br/&gt;JSON Schema&lt;br/&gt;Type Checking]</span><br/><span class="hl-1">        TypeCheck[🔍 Planned: Type Validation&lt;br/&gt;TypeScript Interfaces&lt;br/&gt;Runtime Checks]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    subgraph &quot;Sanitization Pipeline&quot;</span><br/><span class="hl-1">        HTMLSan[🧹 Planned: HTML Sanitizer&lt;br/&gt;DOMPurify&lt;br/&gt;Strip Scripts]</span><br/><span class="hl-1">        XSSEncode[🔒 Planned: XSS Encoding&lt;br/&gt;HTML Entities&lt;br/&gt;&amp;lt; &amp;gt; &amp;amp; &amp;quot; &amp;#39;]</span><br/><span class="hl-1">        URLVal[🔗 Planned: URL Validation&lt;br/&gt;HTTPS Only&lt;br/&gt;Domain Whitelist]</span><br/><span class="hl-1">        LengthCheck[📏 Planned: Length Validation&lt;br/&gt;Max Lengths&lt;br/&gt;Truncation]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    subgraph &quot;Content Generation&quot;</span><br/><span class="hl-1">        Template[📄 Template Engine&lt;br/&gt;14 Languages&lt;br/&gt;HTML5]</span><br/><span class="hl-1">        CSPCheck[🛡️ CSP Compliance&lt;br/&gt;JSON-LD Allowed&lt;br/&gt;No eval()]</span><br/><span class="hl-1">        HTMLVal[✅ HTML Validation&lt;br/&gt;htmlhint&lt;br/&gt;Standards Check]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    subgraph &quot;Output Layer&quot;</span><br/><span class="hl-1">        StaticFiles[📦 Static HTML&lt;br/&gt;index-{lang}.html&lt;br/&gt;CSS Inline]</span><br/><span class="hl-1">        Sitemap[🗺️ Sitemap.xml&lt;br/&gt;SEO Optimized&lt;br/&gt;14 Languages]</span><br/><span class="hl-1">        Deploy[🚀 GitHub Pages&lt;br/&gt;Static Site Hosting&lt;br/&gt;GitHub Actions Deploy]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    subgraph &quot;Error Handling&quot;</span><br/><span class="hl-1">        FallbackData[⚠️ Fallback Content&lt;br/&gt;Placeholder Articles&lt;br/&gt;Safe Defaults]</span><br/><span class="hl-1">        ErrorLog[📝 Error Logging&lt;br/&gt;Structured Logs&lt;br/&gt;GitHub Actions]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    EPAPI --&gt;|HTTPS Request| MCPServer</span><br/><span class="hl-1">    MCPServer --&gt; MCPTransport</span><br/><span class="hl-1">    MCPTransport --&gt; MCPCache</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    MCPCache --&gt;|Cache Hit| ReturnCached[✅ Return Cached&lt;br/&gt;Skip API Call]</span><br/><span class="hl-1">    MCPCache --&gt;|Cache Miss| FetchFresh[📥 Fetch Fresh&lt;br/&gt;Call EP API]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    ReturnCached --&gt; MCPClient</span><br/><span class="hl-1">    FetchFresh --&gt; MCPClient</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    MCPClient --&gt; SchemaVal</span><br/><span class="hl-1">    SchemaVal --&gt;|❌ Invalid| ErrorLog</span><br/><span class="hl-1">    SchemaVal --&gt;|✅ Valid| TypeCheck</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    TypeCheck --&gt;|❌ Invalid| ErrorLog</span><br/><span class="hl-1">    TypeCheck --&gt;|✅ Valid| HTMLSan</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    ErrorLog --&gt; FallbackData</span><br/><span class="hl-1">    FallbackData --&gt; Template</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    HTMLSan --&gt; XSSEncode</span><br/><span class="hl-1">    XSSEncode --&gt; URLVal</span><br/><span class="hl-1">    URLVal --&gt; LengthCheck</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    LengthCheck --&gt; Template</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Template --&gt; CSPCheck</span><br/><span class="hl-1">    CSPCheck --&gt;|❌ Violation| ErrorLog</span><br/><span class="hl-1">    CSPCheck --&gt;|✅ Compliant| HTMLVal</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    HTMLVal --&gt;|❌ Invalid| FixHTML[🔧 Auto-Fix HTML&lt;br/&gt;Correct Issues]</span><br/><span class="hl-1">    FixHTML --&gt; HTMLVal</span><br/><span class="hl-1">    HTMLVal --&gt;|✅ Valid| StaticFiles</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    StaticFiles --&gt; Sitemap</span><br/><span class="hl-1">    Sitemap --&gt; Deploy</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Deploy --&gt; CDN[🌐 GitHub CDN&lt;br/&gt;Edge Caching&lt;br/&gt;Global Distribution]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    style EPAPI fill:#e3f2fd</span><br/><span class="hl-1">    style MCPServer fill:#f0f4c3</span><br/><span class="hl-1">    style MCPClient fill:#c8e6c9</span><br/><span class="hl-1">    style HTMLSan fill:#fff9c4</span><br/><span class="hl-1">    style XSSEncode fill:#ffe1e1</span><br/><span class="hl-1">    style Template fill:#e1f5ff</span><br/><span class="hl-1">    style StaticFiles fill:#e8f5e9</span><br/><span class="hl-1">    style Deploy fill:#c8e6c9</span><br/><span class="hl-1">    style FallbackData fill:#fff3cd</span><br/><span class="hl-1">    style ErrorLog fill:#ffcdd2</span><br/><span class="hl-1">    style CDN fill:#d4edda</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="data-integration-security-controls" class="tsd-anchor-link">Data Integration Security Controls<a href="#data-integration-security-controls" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Control</th>
+<th>Purpose</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>API Layer</strong></td>
+<td>HTTPS-only communication</td>
+<td>Encryption in transit</td>
+<td>TLS 1.3, HTTPS-only, HSTS via CDN/hosting config</td>
+</tr>
+<tr>
+<td><strong>MCP Server</strong></td>
+<td>JSON-RPC 2.0 protocol</td>
+<td>Structured communication</td>
+<td>Standard protocol implementation</td>
+</tr>
+<tr>
+<td><strong>Caching</strong></td>
+<td>LRU cache with TTL</td>
+<td>Performance + resilience</td>
+<td>5 min TTL, 500 entry max</td>
+</tr>
+<tr>
+<td><strong>Schema Validation</strong></td>
+<td>JSON Schema enforcement (future control)</td>
+<td>Data structure integrity</td>
+<td>Planned: Ajv validator (strict mode), not yet implemented in codebase</td>
+</tr>
+<tr>
+<td><strong>Type Checking</strong></td>
+<td>Runtime type validation (future control)</td>
+<td>Type safety beyond TypeScript</td>
+<td>Planned: io-ts runtime checks, not yet implemented in codebase</td>
+</tr>
+<tr>
+<td><strong>HTML Sanitization</strong></td>
+<td>Planned: DOMPurify scrubbing (future control)</td>
+<td>XSS prevention</td>
+<td>Not yet in codebase; current: HTML entity encoding via template</td>
+</tr>
+<tr>
+<td><strong>XSS Encoding</strong></td>
+<td>HTML entity encoding (future control)</td>
+<td>Output encoding</td>
+<td>Planned: template-level encoding for all user-controlled data, not yet implemented in codebase</td>
+</tr>
+<tr>
+<td><strong>URL Validation</strong></td>
+<td>HTTPS + whitelist (future control)</td>
+<td>Prevent malicious redirects</td>
+<td>Planned: HTTPS-only + <a href="http://europarl.europa.eu" target="_blank" class="external">europarl.europa.eu</a> allowlist for article/source URLs, not yet implemented in codebase</td>
+</tr>
+<tr>
+<td><strong>CSP Enforcement</strong></td>
+<td>JSON-LD inline scripts allowed; no eval()</td>
+<td>XSS mitigation</td>
+<td>default-src 'self'; script-src allows type=application/ld+json</td>
+</tr>
+<tr>
+<td><strong>HTML Validation</strong></td>
+<td>Standards compliance</td>
+<td>Cross-browser compatibility</td>
+<td>htmlhint, W3C validation</td>
+</tr>
+<tr>
+<td><strong>Fallback Content</strong></td>
+<td>Graceful degradation</td>
+<td>Availability</td>
+<td>Placeholder articles</td>
+</tr>
+<tr>
+<td><strong>Error Logging</strong></td>
+<td>Structured logging</td>
+<td>Debugging + monitoring</td>
+<td>GitHub Actions logs</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🌍-multi-language-content-generation-workflow" class="tsd-anchor-link">🌍 Multi-Language Content Generation Workflow<a href="#🌍-multi-language-content-generation-workflow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This workflow illustrates the full CI/CD content generation and validation pipeline for European Parliament news in 14 languages (PR/test-and-report.yml and release.yml). The scheduled daily <code>.github/workflows/news-generation.yml</code> job only runs the generate-and-commit subset (no HTML/SEO/a11y validation loop).</p>
+<pre><code class="mermaid"><span class="hl-1">flowchart TD</span><br/><span class="hl-1">    Start[🚀 Content Generation&lt;br/&gt;CI/CD: PRs / Releases&lt;br/&gt;Daily 06:00 UTC (subset)] --&gt; FetchData[📥 Fetch Source Data&lt;br/&gt;EP MCP Server&lt;br/&gt;Validated JSON]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    FetchData --&gt; LangDetect{⚙️ Language Args &amp;&lt;br/&gt;Preset Expansion}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    LangDetect --&gt; EN[🇬🇧 English&lt;br/&gt;index.html]</span><br/><span class="hl-1">    LangDetect --&gt; SV[🇸🇪 Swedish&lt;br/&gt;index-sv.html]</span><br/><span class="hl-1">    LangDetect --&gt; DA[🇩🇰 Danish&lt;br/&gt;index-da.html]</span><br/><span class="hl-1">    LangDetect --&gt; NO[🇳🇴 Norwegian&lt;br/&gt;index-no.html]</span><br/><span class="hl-1">    LangDetect --&gt; FI[🇫🇮 Finnish&lt;br/&gt;index-fi.html]</span><br/><span class="hl-1">    LangDetect --&gt; DE[🇩🇪 German&lt;br/&gt;index-de.html]</span><br/><span class="hl-1">    LangDetect --&gt; FR[🇫🇷 French&lt;br/&gt;index-fr.html]</span><br/><span class="hl-1">    LangDetect --&gt; ES[🇪🇸 Spanish&lt;br/&gt;index-es.html]</span><br/><span class="hl-1">    LangDetect --&gt; NL[🇳🇱 Dutch&lt;br/&gt;index-nl.html]</span><br/><span class="hl-1">    LangDetect --&gt; AR[🇸🇦 Arabic&lt;br/&gt;index-ar.html]</span><br/><span class="hl-1">    LangDetect --&gt; HE[🇮🇱 Hebrew&lt;br/&gt;index-he.html]</span><br/><span class="hl-1">    LangDetect --&gt; JA[🇯🇵 Japanese&lt;br/&gt;index-ja.html]</span><br/><span class="hl-1">    LangDetect --&gt; KO[🇰🇷 Korean&lt;br/&gt;index-ko.html]</span><br/><span class="hl-1">    LangDetect --&gt; ZH[🇨🇳 Chinese&lt;br/&gt;index-zh.html]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    EN --&gt; ENTemplate[📄 EN Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;Semantic Tags]</span><br/><span class="hl-1">    SV --&gt; SVTemplate[📄 SV Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;Semantic Tags]</span><br/><span class="hl-1">    DA --&gt; DATemplate[📄 DA Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;Semantic Tags]</span><br/><span class="hl-1">    NO --&gt; NOTemplate[📄 NO Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;Semantic Tags]</span><br/><span class="hl-1">    FI --&gt; FITemplate[📄 FI Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;Semantic Tags]</span><br/><span class="hl-1">    DE --&gt; DETemplate[📄 DE Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;Semantic Tags]</span><br/><span class="hl-1">    FR --&gt; FRTemplate[📄 FR Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;Semantic Tags]</span><br/><span class="hl-1">    ES --&gt; ESTemplate[📄 ES Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;Semantic Tags]</span><br/><span class="hl-1">    NL --&gt; NLTemplate[📄 NL Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;Semantic Tags]</span><br/><span class="hl-1">    AR --&gt; ARTemplate[📄 AR Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;RTL Support]</span><br/><span class="hl-1">    HE --&gt; HETemplate[📄 HE Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;RTL Support]</span><br/><span class="hl-1">    JA --&gt; JATemplate[📄 JA Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;Semantic Tags]</span><br/><span class="hl-1">    KO --&gt; KOTemplate[📄 KO Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;Semantic Tags]</span><br/><span class="hl-1">    ZH --&gt; ZHTemplate[📄 ZH Template&lt;br/&gt;HTML5 Structure&lt;br/&gt;Semantic Tags]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    ENTemplate --&gt; ENSecCheck[🔒 EN Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    SVTemplate --&gt; SVSecCheck[🔒 SV Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    DATemplate --&gt; DASecCheck[🔒 DA Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    NOTemplate --&gt; NOSecCheck[🔒 NO Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    FITemplate --&gt; FISecCheck[🔒 FI Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    DETemplate --&gt; DESecCheck[🔒 DE Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    FRTemplate --&gt; FRSecCheck[🔒 FR Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    ESTemplate --&gt; ESSecCheck[🔒 ES Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    NLTemplate --&gt; NLSecCheck[🔒 NL Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    ARTemplate --&gt; ARSecCheck[🔒 AR Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    HETemplate --&gt; HESecCheck[🔒 HE Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    JATemplate --&gt; JASecCheck[🔒 JA Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    KOTemplate --&gt; KOSecCheck[🔒 KO Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    ZHTemplate --&gt; ZHSecCheck[🔒 ZH Security&lt;br/&gt;Sanitize + Validate]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    ENSecCheck --&gt; Aggregate</span><br/><span class="hl-1">    SVSecCheck --&gt; Aggregate</span><br/><span class="hl-1">    DASecCheck --&gt; Aggregate</span><br/><span class="hl-1">    NOSecCheck --&gt; Aggregate</span><br/><span class="hl-1">    FISecCheck --&gt; Aggregate</span><br/><span class="hl-1">    DESecCheck --&gt; Aggregate</span><br/><span class="hl-1">    FRSecCheck --&gt; Aggregate</span><br/><span class="hl-1">    ESSecCheck --&gt; Aggregate</span><br/><span class="hl-1">    NLSecCheck --&gt; Aggregate</span><br/><span class="hl-1">    ARSecCheck --&gt; Aggregate</span><br/><span class="hl-1">    HESecCheck --&gt; Aggregate</span><br/><span class="hl-1">    JASecCheck --&gt; Aggregate</span><br/><span class="hl-1">    KOSecCheck --&gt; Aggregate</span><br/><span class="hl-1">    ZHSecCheck --&gt; Aggregate</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Aggregate[📋 Aggregate Results&lt;br/&gt;14 Language Indexes&lt;br/&gt;Collect Metadata] --&gt; MainIndex[🏠 Generate Main Index&lt;br/&gt;index.html&lt;br/&gt;Language Selector]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    MainIndex --&gt; Sitemap[🗺️ Generate Sitemap&lt;br/&gt;sitemap.xml&lt;br/&gt;All 14 Languages]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Sitemap --&gt; ValidateAll{✅ Validate&lt;br/&gt;All Files?}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    ValidateAll --&gt;|❌ Validation Errors| ShowErrors[❌ Show Errors&lt;br/&gt;htmlhint Output&lt;br/&gt;Line Numbers]</span><br/><span class="hl-1">    ShowErrors --&gt; FixErrors[🔧 Auto-Fix&lt;br/&gt;Common Issues&lt;br/&gt;Re-validate]</span><br/><span class="hl-1">    FixErrors --&gt; ValidateAll</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    ValidateAll --&gt;|✅ All Valid| A11yCheck[♿ Accessibility Check&lt;br/&gt;WCAG 2.1 AA&lt;br/&gt;E2E Workflow Only]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    A11yCheck --&gt;|❌ A11y Issues| FixA11y[🔧 Fix A11y&lt;br/&gt;Add lang Attributes&lt;br/&gt;Alt Text]</span><br/><span class="hl-1">    FixA11y --&gt; A11yCheck</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    A11yCheck --&gt;|✅ Compliant| SEOCheck[📊 SEO Validation&lt;br/&gt;Meta Tags&lt;br/&gt;hreflang Links&lt;br/&gt;Release Workflow Only]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    SEOCheck --&gt; Complete[✅ Generation Complete&lt;br/&gt;14 Languages&lt;br/&gt;Ready to Deploy]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    style Start fill:#e3f2fd</span><br/><span class="hl-1">    style LangDetect fill:#fff4e1</span><br/><span class="hl-1">    style EN fill:#e8f5e9</span><br/><span class="hl-1">    style FR fill:#e8f5e9</span><br/><span class="hl-1">    style DE fill:#e8f5e9</span><br/><span class="hl-1">    style ES fill:#e8f5e9</span><br/><span class="hl-1">    style IT fill:#e8f5e9</span><br/><span class="hl-1">    style PT fill:#e8f5e9</span><br/><span class="hl-1">    style ENSecCheck fill:#ffe1e1</span><br/><span class="hl-1">    style FRSecCheck fill:#ffe1e1</span><br/><span class="hl-1">    style DESecCheck fill:#ffe1e1</span><br/><span class="hl-1">    style ESSecCheck fill:#ffe1e1</span><br/><span class="hl-1">    style ITSecCheck fill:#ffe1e1</span><br/><span class="hl-1">    style PTSecCheck fill:#ffe1e1</span><br/><span class="hl-1">    style Aggregate fill:#e1f5ff</span><br/><span class="hl-1">    style MainIndex fill:#c8e6c9</span><br/><span class="hl-1">    style Sitemap fill:#c8e6c9</span><br/><span class="hl-1">    style Complete fill:#d4edda</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="multi-language-security-controls" class="tsd-anchor-link">Multi-Language Security Controls<a href="#multi-language-security-controls" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Applied to</th>
+<th>Purpose</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HTML Sanitization</strong></td>
+<td>All 14 languages</td>
+<td>XSS prevention</td>
+<td>OWASP ASVS 5.3</td>
+</tr>
+<tr>
+<td><strong>HTML Entity Encoding</strong></td>
+<td>All 14 languages</td>
+<td>Output encoding</td>
+<td>OWASP ASVS 5.2</td>
+</tr>
+<tr>
+<td><strong>HTML Validation</strong></td>
+<td>All 14 languages</td>
+<td>Standards compliance</td>
+<td>W3C HTML5</td>
+</tr>
+<tr>
+<td><strong>Language Attributes</strong></td>
+<td>All 14 languages</td>
+<td>Accessibility</td>
+<td>WCAG 2.1 AA 3.1.1</td>
+</tr>
+<tr>
+<td><strong>hreflang Links</strong></td>
+<td>All 14 languages</td>
+<td>SEO, crawling</td>
+<td>Google Guidelines</td>
+</tr>
+<tr>
+<td><strong>CSP Headers</strong></td>
+<td>All 14 languages</td>
+<td>Script execution control</td>
+<td>OWASP CSP</td>
+</tr>
+<tr>
+<td><strong>Character Encoding</strong></td>
+<td>All 14 languages</td>
+<td>UTF-8 declaration</td>
+<td>HTML5 Standard</td>
+</tr>
+<tr>
+<td><strong>Text Direction Handling</strong></td>
+<td>All 14 languages (LTR/RTL)</td>
+<td>Ensure correct text direction rendering</td>
+<td>HTML <code>dir</code> attribute / W3C HTML5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Supported Languages:</strong></p>
+<ol>
+<li>🇬🇧 English (en) - Primary</li>
+<li>🇸🇪 Swedish (sv) - Nordic</li>
+<li>🇩🇰 Danish (da) - Nordic</li>
+<li>🇳🇴 Norwegian (no) - Nordic</li>
+<li>🇫🇮 Finnish (fi) - Nordic</li>
+<li>🇩🇪 German (de) - European</li>
+<li>🇫🇷 French (fr) - European</li>
+<li>🇪🇸 Spanish (es) - European</li>
+<li>🇳🇱 Dutch (nl) - European</li>
+<li>🇸🇦 Arabic (ar) - RTL</li>
+<li>🇮🇱 Hebrew (he) - RTL</li>
+<li>🇯🇵 Japanese (ja) - East Asian</li>
+<li>🇰🇷 Korean (ko) - East Asian</li>
+<li>🇨🇳 Chinese (zh) - East Asian</li>
+</ol>
+<hr>
+<h2 id="🚀-deployment-security-flow" class="tsd-anchor-link">🚀 Deployment Security Flow<a href="#🚀-deployment-security-flow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This flow shows the secure deployment pipeline from Git commit to GitHub Pages with comprehensive security gates, SBOM generation, and SLSA attestations. Note: linting, testing, and coverage gates apply to PR merges and release workflows; the daily news-generation workflow triggers GitHub Pages deployment directly after build.</p>
+<pre><code class="mermaid"><span class="hl-1">flowchart TD</span><br/><span class="hl-1">    Commit[💾 Git Commit&lt;br/&gt;Developer Push&lt;br/&gt;Feature Branch] --&gt; SHAVerify[🔐 SHA Verification&lt;br/&gt;Git Integrity Check&lt;br/&gt;GPG Signature]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    SHAVerify --&gt; GHActions[🤖 GitHub Actions&lt;br/&gt;Workflow Trigger&lt;br/&gt;ubuntu-latest]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    GHActions --&gt; SecGates[🛡️ Security Gates&lt;br/&gt;PR &amp; Release Workflows] --&gt; Gate1{Gate 1:&lt;br/&gt;Linting}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Gate1 --&gt;|❌ Fail| BlockDeploy1[🚫 Block PR / Release&lt;br/&gt;ESLint Errors&lt;br/&gt;Fix Required]</span><br/><span class="hl-1">    Gate1 --&gt;|✅ Pass| Gate2{Gate 2:&lt;br/&gt;Unit Tests}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Gate2 --&gt;|❌ Fail| BlockDeploy2[🚫 Block PR / Release&lt;br/&gt;169 Tests Failed&lt;br/&gt;Debug Required]</span><br/><span class="hl-1">    Gate2 --&gt;|✅ Pass| Gate3{Gate 3:&lt;br/&gt;Integration Tests}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Gate3 --&gt;|❌ Fail| BlockDeploy3[🚫 Block PR / Release&lt;br/&gt;82 Tests Failed&lt;br/&gt;Fix Required]</span><br/><span class="hl-1">    Gate3 --&gt;|✅ Pass| Gate4{Gate 4:&lt;br/&gt;Security Scan}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Gate4 --&gt;|❌ Critical/High| BlockDeploy4[🚫 Block PR / Release&lt;br/&gt;CodeQL Issues&lt;br/&gt;Vulnerability Fix]</span><br/><span class="hl-1">    Gate4 --&gt;|✅ Pass| Gate5{Gate 5:&lt;br/&gt;Coverage}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Gate5 --&gt;|❌ Below 80%| BlockDeploy5[🚫 Block PR / Release&lt;br/&gt;Coverage Too Low&lt;br/&gt;Add Tests]</span><br/><span class="hl-1">    Gate5 --&gt;|✅ Pass| Build[🏗️ Build Phase]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Build --&gt; GenNews[📰 Generate News&lt;br/&gt;14 Languages&lt;br/&gt;All Article Types]</span><br/><span class="hl-1">    GenNews --&gt; GenIndex[📋 Generate Indexes&lt;br/&gt;Language Indexes&lt;br/&gt;Main Index]</span><br/><span class="hl-1">    GenIndex --&gt; GenSitemap[🗺️ Generate Sitemap&lt;br/&gt;sitemap.xml&lt;br/&gt;SEO Optimization]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    GenSitemap --&gt; SBOM[📦 SBOM Generation&lt;br/&gt;SPDX Format&lt;br/&gt;All Dependencies]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    SBOM --&gt; Attest1[🔏 Build Provenance&lt;br/&gt;SLSA Level 3&lt;br/&gt;GitHub Attestations]</span><br/><span class="hl-1">    Attest1 --&gt; Attest2[🔐 SBOM Attestation&lt;br/&gt;Cryptographic Sign&lt;br/&gt;Sigstore]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Attest2 --&gt; Artifacts[📦 Collect Artifacts&lt;br/&gt;HTML Files&lt;br/&gt;CSS Files&lt;br/&gt;Sitemap&lt;br/&gt;SBOM]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    Artifacts --&gt; DeployPrep[🚀 Deployment Prep&lt;br/&gt;Organize Files&lt;br/&gt;Check Integrity]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    DeployPrep --&gt; DeployGHP[📤 Deploy to GitHub Pages&lt;br/&gt;Static Files&lt;br/&gt;actions/deploy-pages]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    DeployGHP --&gt; GHPages[🌐 GitHub Pages Live&lt;br/&gt;GitHub CDN&lt;br/&gt;Global Distribution]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    GHPages --&gt; HealthCheck{🏥 Health Check&lt;br/&gt;Site Accessible?}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    HealthCheck --&gt;|❌ Failed| Rollback[🔙 Rollback&lt;br/&gt;Revert to Previous&lt;br/&gt;Restore Last Good]</span><br/><span class="hl-1">    Rollback --&gt; NotifyFailure[📧 Notify Team&lt;br/&gt;Deployment Failed&lt;br/&gt;Incident Created]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    HealthCheck --&gt;|✅ Success| Verify[✅ Verification Phase] --&gt; CheckHTTPS{HTTPS&lt;br/&gt;Working?}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    CheckHTTPS --&gt;|❌ No| Rollback</span><br/><span class="hl-1">    CheckHTTPS --&gt;|✅ Yes| CheckContent{Content&lt;br/&gt;Loads?}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    CheckContent --&gt;|❌ No| Rollback</span><br/><span class="hl-1">    CheckContent --&gt;|✅ Yes| CheckLangs{All 14&lt;br/&gt;Languages?}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    CheckLangs --&gt;|❌ Missing| Rollback</span><br/><span class="hl-1">    CheckLangs --&gt;|✅ Present| CheckSitemap{Sitemap&lt;br/&gt;Valid?}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    CheckSitemap --&gt;|❌ Invalid| Rollback</span><br/><span class="hl-1">    CheckSitemap --&gt;|✅ Valid| UpdateMetrics[📊 Update Metrics&lt;br/&gt;Deployment Time&lt;br/&gt;Build Duration&lt;br/&gt;Success Rate]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    UpdateMetrics --&gt; TagRelease[🏷️ Tag Release&lt;br/&gt;Git Tag&lt;br/&gt;Version Bump&lt;br/&gt;Create GitHub Release]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    TagRelease --&gt; NotifySuccess[📧 Notify Team&lt;br/&gt;Deployment Successful&lt;br/&gt;Version + URL]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    NotifySuccess --&gt; Complete[✅ Deployment Complete&lt;br/&gt;Live on GitHub Pages&lt;br/&gt;Attested + Verified]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    style Commit fill:#e3f2fd</span><br/><span class="hl-1">    style SHAVerify fill:#ffe1e1</span><br/><span class="hl-1">    style Gate1 fill:#e1f5ff</span><br/><span class="hl-1">    style Gate2 fill:#e1f5ff</span><br/><span class="hl-1">    style Gate3 fill:#e1f5ff</span><br/><span class="hl-1">    style Gate4 fill:#ffe1e1</span><br/><span class="hl-1">    style Gate5 fill:#e1f5ff</span><br/><span class="hl-1">    style BlockDeploy1 fill:#ffcdd2</span><br/><span class="hl-1">    style BlockDeploy2 fill:#ffcdd2</span><br/><span class="hl-1">    style BlockDeploy3 fill:#ffcdd2</span><br/><span class="hl-1">    style BlockDeploy4 fill:#ffcdd2</span><br/><span class="hl-1">    style BlockDeploy5 fill:#ffcdd2</span><br/><span class="hl-1">    style SBOM fill:#fff9c4</span><br/><span class="hl-1">    style Attest1 fill:#ffe1e1</span><br/><span class="hl-1">    style Attest2 fill:#ffe1e1</span><br/><span class="hl-1">    style DeployGHP fill:#c8e6c9</span><br/><span class="hl-1">    style GHPages fill:#e8f5e9</span><br/><span class="hl-1">    style Rollback fill:#ffcdd2</span><br/><span class="hl-1">    style Complete fill:#d4edda</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="deployment-security-controls" class="tsd-anchor-link">Deployment Security Controls<a href="#deployment-security-controls" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Control</th>
+<th>Purpose</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Commit</strong></td>
+<td>SHA verification, GPG signatures</td>
+<td>Code integrity</td>
+<td>Git built-in</td>
+</tr>
+<tr>
+<td><strong>Linting</strong></td>
+<td>ESLint security rules</td>
+<td>Code quality, vulnerabilities</td>
+<td>eslint-plugin-security</td>
+</tr>
+<tr>
+<td><strong>Unit Tests</strong></td>
+<td>169 tests, 82%+ coverage</td>
+<td>Functional correctness</td>
+<td>Vitest</td>
+</tr>
+<tr>
+<td><strong>Integration Tests</strong></td>
+<td>82 MCP client tests</td>
+<td>API contract validation</td>
+<td>Vitest + custom JSON-RPC MCP client</td>
+</tr>
+<tr>
+<td><strong>Security Scan</strong></td>
+<td>CodeQL SAST</td>
+<td>Vulnerability detection</td>
+<td>GitHub CodeQL</td>
+</tr>
+<tr>
+<td><strong>Coverage Gate</strong></td>
+<td>80% lines, 75% branches</td>
+<td>Test thoroughness</td>
+<td>Vitest v8 provider (@vitest/coverage-v8)</td>
+</tr>
+<tr>
+<td><strong>SBOM</strong></td>
+<td>SPDX JSON format</td>
+<td>Supply chain transparency</td>
+<td>Anchore SBOM Action</td>
+</tr>
+<tr>
+<td><strong>Provenance</strong></td>
+<td>SLSA Level 3</td>
+<td>Build integrity</td>
+<td>GitHub Attestations</td>
+</tr>
+<tr>
+<td><strong>Attestation</strong></td>
+<td>Cryptographic signing</td>
+<td>Artifact authenticity</td>
+<td>Sigstore</td>
+</tr>
+<tr>
+<td><strong>Health Check</strong></td>
+<td>Multi-point verification</td>
+<td>Deployment validation</td>
+<td>Custom checks</td>
+</tr>
+<tr>
+<td><strong>Rollback</strong></td>
+<td>Automated revert</td>
+<td>Failure recovery</td>
+<td>Git + GitHub Pages re-deploy</td>
+</tr>
+<tr>
+<td><strong>Metrics</strong></td>
+<td>Deployment tracking</td>
+<td>Performance monitoring</td>
+<td>GitHub Actions logs</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Deployment Security Requirements:</strong></p>
+<ol>
+<li>✅ All security gates must pass (no critical/high vulnerabilities)</li>
+<li>✅ SBOM generated and attested for every deployment</li>
+<li>✅ SLSA Level 3 provenance attestation required</li>
+<li>✅ Health checks must pass before declaring success</li>
+<li>✅ Automatic rollback on any verification failure</li>
+<li>✅ Team notification on success/failure</li>
+<li>✅ Deployment metrics recorded for audit trail</li>
+</ol>
+<hr>
+<h2 id="🚀-release-workflow-with-documentation-automation" class="tsd-anchor-link">🚀 Release Workflow with Documentation Automation<a href="#🚀-release-workflow-with-documentation-automation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This comprehensive flow shows the automated release process with SLSA Level 3
+attestations and documentation-as-code implementation.</p>
+<pre><code class="mermaid"><span class="hl-1">flowchart TD</span><br/><span class="hl-1">    Start[🚀 Release Trigger&lt;br/&gt;Manual or Tag Push] --&gt; Prepare[📋 Prepare Job]</span><br/><br/><span class="hl-1">    Prepare --&gt; Lint[🔍 Run Linter&lt;br/&gt;ESLint Validation]</span><br/><span class="hl-1">    Lint --&gt; HTMLVal[✅ Validate HTML&lt;br/&gt;htmlhint]</span><br/><span class="hl-1">    HTMLVal --&gt; Coverage[📊 Run Tests with Coverage&lt;br/&gt;169 Unit Tests&lt;br/&gt;82%+ Coverage]</span><br/><br/><span class="hl-1">    Coverage --&gt; CoverageCheck{Coverage&lt;br/&gt;Thresholds?}</span><br/><span class="hl-1">    CoverageCheck --&gt;|❌ Fail| Fail1[❌ Build Failed]</span><br/><span class="hl-1">    CoverageCheck --&gt;|✅ Pass| E2E[🎭 Run E2E Tests&lt;br/&gt;Playwright Chromium]</span><br/><br/><span class="hl-1">    E2E --&gt; E2ECheck{E2E Tests&lt;br/&gt;Pass?}</span><br/><span class="hl-1">    E2ECheck --&gt;|❌ Fail| Fail2[❌ Build Failed]</span><br/><span class="hl-1">    E2ECheck --&gt;|✅ Pass| CleanDocs[🧹 Clean Old Documentation&lt;br/&gt;Remove docs/api, coverage, test-results]</span><br/><br/><span class="hl-1">    CleanDocs --&gt; GenAPI[📖 Generate API Documentation&lt;br/&gt;JSDoc → docs/api/&lt;br/&gt;52 files]</span><br/><span class="hl-1">    GenAPI --&gt; CopyReports[📋 Copy Test Reports&lt;br/&gt;Coverage → docs/coverage/&lt;br/&gt;Test Results → docs/test-results/]</span><br/><br/><span class="hl-1">    CopyReports --&gt; GenIndex[🎨 Generate Documentation Index&lt;br/&gt;Beautiful Hub Page&lt;br/&gt;docs/index.html]</span><br/><br/><span class="hl-1">    GenIndex --&gt; VerifyDocs{Verify&lt;br/&gt;Documentation&lt;br/&gt;Structure?}</span><br/><span class="hl-1">    VerifyDocs --&gt;|❌ Missing Files| Fail3[❌ Build Failed]</span><br/><span class="hl-1">    VerifyDocs --&gt;|✅ Complete| CommitDocs[💾 Commit Documentation&lt;br/&gt;Git Auto-Commit&lt;br/&gt;To Main Branch]</span><br/><br/><span class="hl-1">    CommitDocs --&gt; TagVersion{Workflow&lt;br/&gt;Dispatch?}</span><br/><span class="hl-1">    TagVersion --&gt;|✅ Yes| CreateTag[🏷️ Create Version Tag&lt;br/&gt;npm version + git tag]</span><br/><span class="hl-1">    TagVersion --&gt;|❌ No| Build[🔨 Build Job]</span><br/><span class="hl-1">    CreateTag --&gt; Build</span><br/><br/><span class="hl-1">    Build --&gt; Checkout2[📥 Checkout at Tag]</span><br/><span class="hl-1">    Checkout2 --&gt; GenNews{News&lt;br/&gt;Directory&lt;br/&gt;Empty?}</span><br/><span class="hl-1">    GenNews --&gt;|✅ Yes| SampleNews[📰 Generate Sample News&lt;br/&gt;Week Ahead Articles]</span><br/><span class="hl-1">    GenNews --&gt;|❌ No| CreateArtifact</span><br/><span class="hl-1">    SampleNews --&gt; CreateArtifact[📦 Create Release Artifacts&lt;br/&gt;Include docs/, playwright-report/&lt;br/&gt;ZIP Archive]</span><br/><br/><span class="hl-1">    CreateArtifact --&gt; GenSBOM[🔐 Generate SBOM&lt;br/&gt;SPDX JSON Format&lt;br/&gt;Anchore SBOM Action]</span><br/><span class="hl-1">    GenSBOM --&gt; BuildProv[📜 Build Provenance Attestation&lt;br/&gt;SLSA Level 3&lt;br/&gt;GitHub Attestations API]</span><br/><span class="hl-1">    BuildProv --&gt; SBOMAttest[🔏 SBOM Attestation&lt;br/&gt;Cryptographic Signing]</span><br/><br/><span class="hl-1">    SBOMAttest --&gt; UploadArtifacts[📤 Upload All Artifacts&lt;br/&gt;Build + Security Artifacts]</span><br/><br/><span class="hl-1">    UploadArtifacts --&gt; Release[🚀 Release Job]</span><br/><span class="hl-1">    Release --&gt; DraftNotes[📝 Draft Release Notes&lt;br/&gt;Release Drafter]</span><br/><span class="hl-1">    DraftNotes --&gt; CreateRelease[🎉 Create GitHub Release&lt;br/&gt;Attach All Artifacts]</span><br/><br/><span class="hl-1">    CreateRelease --&gt; Verify{Verification&lt;br/&gt;Required?}</span><br/><span class="hl-1">    Verify --&gt;|✅ Yes| VerifyCmd[🔍 Verify Attestations&lt;br/&gt;gh attestation verify]</span><br/><span class="hl-1">    Verify --&gt;|❌ No| Complete[✅ Release Complete&lt;br/&gt;Documentation Published&lt;br/&gt;Artifacts Attested]</span><br/><span class="hl-1">    VerifyCmd --&gt; Complete</span><br/><br/><span class="hl-1">    style Start fill:#e3f2fd</span><br/><span class="hl-1">    style Prepare fill:#f0f4c3</span><br/><span class="hl-1">    style Lint fill:#e1f5ff</span><br/><span class="hl-1">    style Coverage fill:#e1f5ff</span><br/><span class="hl-1">    style E2E fill:#e1f5ff</span><br/><span class="hl-1">    style CleanDocs fill:#fff9c4</span><br/><span class="hl-1">    style GenAPI fill:#c8e6c9</span><br/><span class="hl-1">    style CopyReports fill:#c8e6c9</span><br/><span class="hl-1">    style GenIndex fill:#c8e6c9</span><br/><span class="hl-1">    style CommitDocs fill:#a5d6a7</span><br/><span class="hl-1">    style Build fill:#f0f4c3</span><br/><span class="hl-1">    style GenSBOM fill:#ffe1e1</span><br/><span class="hl-1">    style BuildProv fill:#ffe1e1</span><br/><span class="hl-1">    style SBOMAttest fill:#ffe1e1</span><br/><span class="hl-1">    style Release fill:#f0f4c3</span><br/><span class="hl-1">    style CreateRelease fill:#c5cae9</span><br/><span class="hl-1">    style Complete fill:#c8e6c9</span><br/><span class="hl-1">    style Fail1 fill:#ffcdd2</span><br/><span class="hl-1">    style Fail2 fill:#ffcdd2</span><br/><span class="hl-1">    style Fail3 fill:#ffcdd2</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="release-workflow-security-controls" class="tsd-anchor-link">Release Workflow Security Controls<a href="#release-workflow-security-controls" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Control</th>
+<th>Purpose</th>
+<th>ISMS Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Validation</strong></td>
+<td>Linter + HTML validation</td>
+<td>Code quality, syntax errors</td>
+<td>Quality standards</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>169 unit tests, 82%+ coverage</td>
+<td>Functional correctness</td>
+<td>§3.3 Testing Requirements</td>
+</tr>
+<tr>
+<td><strong>E2E Testing</strong></td>
+<td>Playwright across browsers</td>
+<td>User workflow validation</td>
+<td>Quality assurance</td>
+</tr>
+<tr>
+<td><strong>Documentation</strong></td>
+<td>JSDoc, coverage, E2E reports</td>
+<td>Evidence generation</td>
+<td>§3.2 Architecture Documentation</td>
+</tr>
+<tr>
+<td><strong>Version Control</strong></td>
+<td>Git commit + tag</td>
+<td>Audit trail, traceability</td>
+<td>ISO 27001 A.12.1.1</td>
+</tr>
+<tr>
+<td><strong>SBOM Generation</strong></td>
+<td>SPDX format, all dependencies</td>
+<td>Supply chain transparency</td>
+<td>§4.4 Supply Chain Security</td>
+</tr>
+<tr>
+<td><strong>Build Provenance</strong></td>
+<td>SLSA Level 3 attestation</td>
+<td>Build integrity</td>
+<td>SLSA Framework</td>
+</tr>
+<tr>
+<td><strong>SBOM Attestation</strong></td>
+<td>Cryptographic signing</td>
+<td>Artifact authenticity</td>
+<td>Non-repudiation</td>
+</tr>
+<tr>
+<td><strong>Verification</strong></td>
+<td>gh attestation verify</td>
+<td>Release validation</td>
+<td>Trust establishment</td>
+</tr>
+</tbody>
+</table>
+<h3 id="documentation-as-code-benefits" class="tsd-anchor-link">Documentation-as-Code Benefits<a href="#documentation-as-code-benefits" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Integrity:</strong></p>
+<ul>
+<li>✅ Generated automatically from code and tests</li>
+<li>✅ Version controlled with full git history</li>
+<li>✅ Reproducible from any release tag</li>
+<li>✅ Part of attested release artifacts</li>
+</ul>
+<p><strong>Transparency:</strong></p>
+<ul>
+<li>✅ Public access via GitHub Pages</li>
+<li>✅ Real-time updates with every release</li>
+<li>✅ Complete test coverage visibility</li>
+<li>✅ API documentation always current</li>
+</ul>
+<p><strong>Compliance:</strong></p>
+<ul>
+<li>✅ ISMS §3.2 architecture documentation requirement</li>
+<li>✅ ISO 27001 A.12.1.1 documented procedures</li>
+<li>✅ Audit trail for all documentation changes</li>
+<li>✅ Eliminates documentation drift</li>
+</ul>
+<h3 id="isms-evidence" class="tsd-anchor-link">ISMS Evidence<a href="#isms-evidence" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>Workflow</strong>: <a href="../media/release.yml">release.yml</a></li>
+<li><strong>Documentation</strong>:
+<a href="https://hack23.github.io/euparliamentmonitor/docs/" target="_blank" class="external">docs/index.html</a></li>
+<li><strong>Process Guide</strong>: <a href="../media/RELEASE_PROCESS.md">docs/RELEASE_PROCESS.md</a></li>
+<li><strong>Workflow Documentation</strong>: <a href="../media/WORKFLOWS.md#5-release-workflow">WORKFLOWS.md</a></li>
+<li><strong>Attestations</strong>:
+<a href="https://github.com/Hack23/euparliamentmonitor/attestations" target="_blank" class="external">GitHub Attestations</a></li>
+<li><strong>Policy</strong>:
+<a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md#32-architecture-documentation" target="_blank" class="external">ISMS Secure Development §3.2</a></li>
+</ul>
+<hr>
+<h2 id="📚-references" class="tsd-anchor-link">📚 References<a href="#📚-references" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="internal-documentation" class="tsd-anchor-link">Internal Documentation<a href="#internal-documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a> - Security architecture and threat model</li>
+<li><a href="../media/WORKFLOWS.md">WORKFLOWS.md</a> - Current CI/CD workflows</li>
+<li><a href="../media/FUTURE_WORKFLOWS.md">FUTURE_WORKFLOWS.md</a> - Planned enhancements</li>
+<li><a href="DATA_MODEL.html">DATA_MODEL.md</a> - Data structures and schemas</li>
+<li><a href="ARCHITECTURE.html">ARCHITECTURE.md</a> - System architecture and C4 models</li>
+</ul>
+<h3 id="isms-policies-hack23" class="tsd-anchor-link">ISMS Policies (Hack23)<a href="#isms-policies-hack23" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md" target="_blank" class="external">Information Security Policy</a> - Overarching security governance</li>
+<li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" class="external">Secure Development Policy</a> - Secure coding practices</li>
+<li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md" target="_blank" class="external">Access Control Policy</a> - Authentication and authorization</li>
+<li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management_Policy.md" target="_blank" class="external">Vulnerability Management Policy</a> - Vulnerability handling</li>
+<li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Policy.md" target="_blank" class="external">Incident Response Policy</a> - Incident management</li>
+</ul>
+<h3 id="standards-and-frameworks" class="tsd-anchor-link">Standards and Frameworks<a href="#standards-and-frameworks" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><a href="https://www.iso.org/standard/27001" target="_blank" class="external">ISO 27001:2022</a> - Information security management</li>
+<li><a href="https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final" target="_blank" class="external">NIST Incident Response (SP 800-61)</a> - Incident handling</li>
+<li><a href="https://www.nist.gov/cyberframework" target="_blank" class="external">NIST CSF 2.0</a> - Cybersecurity Framework</li>
+<li><a href="https://www.cisecurity.org/controls" target="_blank" class="external">CIS Controls v8.1</a> - Security best practices</li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/" target="_blank" class="external">OWASP Testing Guide</a> - Security testing</li>
+<li><a href="https://owasp.org/www-project-application-security-verification-standard/" target="_blank" class="external">OWASP ASVS</a> - Application security verification</li>
+<li><a href="https://slsa.dev/" target="_blank" class="external">SLSA Framework</a> - Supply chain security</li>
+<li><a href="https://gdpr.eu/" target="_blank" class="external">GDPR</a> - Data protection regulation</li>
+<li><a href="https://digital-strategy.ec.europa.eu/en/policies/nis2-directive" target="_blank" class="external">NIS2 Directive</a> - Network and information security</li>
+</ul>
+<h3 id="tools-and-technologies" class="tsd-anchor-link">Tools and Technologies<a href="#tools-and-technologies" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><a href="https://docs.github.com/en/actions/security-guides" target="_blank" class="external">GitHub Actions Security</a> - CI/CD security</li>
+<li><a href="https://codeql.github.com/" target="_blank" class="external">CodeQL</a> - Semantic code analysis</li>
+<li><a href="https://github.com/dependabot" target="_blank" class="external">Dependabot</a> - Dependency management</li>
+<li><a href="https://www.sigstore.dev/" target="_blank" class="external">Sigstore</a> - Artifact signing</li>
+<li><a href="https://spdx.dev/" target="_blank" class="external">SPDX</a> - Software bill of materials</li>
+</ul>
+<hr>
+<p><strong>Document Status</strong>: Active<br>
+<strong>Next Review</strong>: 2026-05-24<br>
+<strong>Owner</strong>: Development Team, Hack23 AB<br>
+<strong>Classification</strong>: Public<br>
+<strong>Version</strong>: 1.1</p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-alpha" name="alpha"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Alpha</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-beta" name="beta"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Beta</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#📚-architecture-documentation-map"><span>📚 <wbr/>Architecture <wbr/>Documentation <wbr/>Map</span></a><a href="#📋-overview"><span>📋 <wbr/>Overview</span></a><a href="#🛡️-isms-policy-alignment"><span>🛡️ <wbr/>ISMS <wbr/>Policy <wbr/>Alignment</span></a><ul><li><a href="#policy-mapping"><span>Policy <wbr/>Mapping</span></a></li><li><a href="#key-security-principles-demonstrated"><span>Key <wbr/>Security <wbr/>Principles <wbr/>Demonstrated</span></a></li><li><a href="#compliance-framework-coverage"><span>Compliance <wbr/>Framework <wbr/>Coverage</span></a></li></ul><a href="#🔐-news-generation-security-flow"><span>🔐 <wbr/>News <wbr/>Generation <wbr/>Security <wbr/>Flow</span></a><a href="#🔍-input-validation-security-flow"><span>🔍 <wbr/>Input <wbr/>Validation <wbr/>Security <wbr/>Flow</span></a><a href="#🤖-cicd-security-pipeline"><span>🤖 <wbr/>CI/<wbr/>CD <wbr/>Security <wbr/>Pipeline</span></a><a href="#🔐-mcp-client-connection-security-flow"><span>🔐 <wbr/>MCP <wbr/>Client <wbr/>Connection <wbr/>Security <wbr/>Flow</span></a><a href="#📊-content-delivery-security-flow"><span>📊 <wbr/>Content <wbr/>Delivery <wbr/>Security <wbr/>Flow</span></a><a href="#🚨-incident-response-flow"><span>🚨 <wbr/>Incident <wbr/>Response <wbr/>Flow</span></a><a href="#🛡️-vulnerability-management-workflow"><span>🛡️ <wbr/>Vulnerability <wbr/>Management <wbr/>Workflow</span></a><ul><li><a href="#vulnerability-management-security-controls"><span>Vulnerability <wbr/>Management <wbr/>Security <wbr/>Controls</span></a></li></ul><a href="#🔗-mcp-data-integration-security-flow"><span>🔗 <wbr/>MCP <wbr/>Data <wbr/>Integration <wbr/>Security <wbr/>Flow</span></a><ul><li><a href="#data-integration-security-controls"><span>Data <wbr/>Integration <wbr/>Security <wbr/>Controls</span></a></li></ul><a href="#🌍-multi-language-content-generation-workflow"><span>🌍 <wbr/>Multi-<wbr/>Language <wbr/>Content <wbr/>Generation <wbr/>Workflow</span></a><ul><li><a href="#multi-language-security-controls"><span>Multi-<wbr/>Language <wbr/>Security <wbr/>Controls</span></a></li></ul><a href="#🚀-deployment-security-flow"><span>🚀 <wbr/>Deployment <wbr/>Security <wbr/>Flow</span></a><ul><li><a href="#deployment-security-controls"><span>Deployment <wbr/>Security <wbr/>Controls</span></a></li></ul><a href="#🚀-release-workflow-with-documentation-automation"><span>🚀 <wbr/>Release <wbr/>Workflow with <wbr/>Documentation <wbr/>Automation</span></a><ul><li><a href="#release-workflow-security-controls"><span>Release <wbr/>Workflow <wbr/>Security <wbr/>Controls</span></a></li><li><a href="#documentation-as-code-benefits"><span>Documentation-<wbr/>as-<wbr/>Code <wbr/>Benefits</span></a></li><li><a href="#isms-evidence"><span>ISMS <wbr/>Evidence</span></a></li></ul><a href="#📚-references"><span>📚 <wbr/>References</span></a><ul><li><a href="#internal-documentation"><span>Internal <wbr/>Documentation</span></a></li><li><a href="#isms-policies-hack23"><span>ISMS <wbr/>Policies (<wbr/>Hack23)</span></a></li><li><a href="#standards-and-frameworks"><span>Standards and <wbr/>Frameworks</span></a></li><li><a href="#tools-and-technologies"><span>Tools and <wbr/>Technologies</span></a></li></ul></div></details></div><div class="site-menu"><nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md">🏛️ Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md">🔒 Security Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md">🛡️ Threat Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md">📊 Data Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FLOWCHART.md">🔄 Flowchart</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/STATEDIAGRAM.md">📈 State Diagram</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md">🧠 Mindmap</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md">💼 SWOT Analysis</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md">📜 CRA Assessment</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md">🚀 Future Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md">🔮 Future Security</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md">📋 Secure Dev Policy</a><a href="https://euparliamentmonitor.com" class="tsd-nav-link">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor" class="tsd-nav-link">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC" class="tsd-nav-link">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server" class="tsd-nav-link">🇪🇺 EP MCP Server</a></nav><nav class="tsd-navigation"><a href="../modules.html">EU Parliament Monitor — API Documentation - v0.8.3</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>

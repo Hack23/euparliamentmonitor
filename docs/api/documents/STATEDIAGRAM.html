@@ -1,0 +1,1155 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="../"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>STATEDIAGRAM | EU Parliament Monitor — API Documentation - v0.8.3</title><link rel="icon" href="../assets/favicon.ico"/><meta name="description" content="Documentation for EU Parliament Monitor — API Documentation"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/icons.js" id="tsd-icons-script"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script><script async src="../assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="../index.html" class="title">EU Parliament Monitor — API Documentation - v0.8.3</a><div id="tsd-toolbar-links"><a href="https://euparliamentmonitor.com">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server">🇪🇺 EP MCP Server</a></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><ul class="tsd-breadcrumb" aria-label="Breadcrumb"><li><a href="" aria-current="page">STATEDIAGRAM</a></li></ul></div><div class="tsd-panel tsd-typography"><p align="center">
+  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
+</p>
+<h1 align="center">🔄 EU Parliament Monitor — State Diagrams</h1>
+<p align="center">
+  <strong>📊 System State Transitions and Lifecycle Management</strong><br>
+  <em>🎯 Behavioral Model for Static News Generation Platform</em>
+</p>
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
+</p>
+<p><strong>📋 Document Owner:</strong> CEO | <strong>📄 Version:</strong> 1.0 | <strong>📅 Last Updated:</strong>
+2026-03-19 (UTC)<br>
+<strong>🔄 Review Cycle:</strong> Quarterly | <strong>⏰ Next Review:</strong> 2026-06-19<br>
+<strong>🏷️ Classification:</strong> Public (Open Source European Parliament Monitoring
+Platform)</p>
+<hr>
+<h2 id="📚-architecture-documentation-map" class="tsd-anchor-link">📚 Architecture Documentation Map<a href="#📚-architecture-documentation-map" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<div class="documentation-map">
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Focus</th>
+<th>Description</th>
+<th>Documentation Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="ARCHITECTURE.html">Architecture</a></strong></td>
+<td>🏛️ Architecture</td>
+<td>C4 model showing current system structure</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_ARCHITECTURE.md">Future Architecture</a></strong></td>
+<td>🏛️ Architecture</td>
+<td>C4 model showing future system structure</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="MINDMAP.html">Mindmaps</a></strong></td>
+<td>🧠 Concept</td>
+<td>Current system component relationships</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_MINDMAP.md">Future Mindmaps</a></strong></td>
+<td>🧠 Concept</td>
+<td>Future capability evolution</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_MINDMAP.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="SWOT.html">SWOT Analysis</a></strong></td>
+<td>💼 Business</td>
+<td>Current strategic assessment</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_SWOT.md">Future SWOT Analysis</a></strong></td>
+<td>💼 Business</td>
+<td>Future strategic opportunities</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SWOT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="DATA_MODEL.html">Data Model</a></strong></td>
+<td>📊 Data</td>
+<td>Current data structures and relationships</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_DATA_MODEL.md">Future Data Model</a></strong></td>
+<td>📊 Data</td>
+<td>Enhanced European Parliament data architecture</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_DATA_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="FLOWCHART.html">Flowcharts</a></strong></td>
+<td>🔄 Process</td>
+<td>Current data processing workflows</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FLOWCHART.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_FLOWCHART.md">Future Flowcharts</a></strong></td>
+<td>🔄 Process</td>
+<td>Enhanced AI-driven workflows</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_FLOWCHART.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="">State Diagrams</a></strong></td>
+<td>🔄 Behavior</td>
+<td>Current system state transitions</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/STATEDIAGRAM.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_STATEDIAGRAM.md">Future State Diagrams</a></strong></td>
+<td>🔄 Behavior</td>
+<td>Enhanced adaptive state transitions</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_STATEDIAGRAM.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="SECURITY_ARCHITECTURE.html">Security Architecture</a></strong></td>
+<td>🛡️ Security</td>
+<td>Current security implementation</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_SECURITY_ARCHITECTURE.md">Future Security Architecture</a></strong></td>
+<td>🛡️ Security</td>
+<td>Security enhancement roadmap</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="THREAT_MODEL.html">Threat Model</a></strong></td>
+<td>🎯 Security</td>
+<td>STRIDE threat analysis</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/CLASSIFICATION.md">Classification</a></strong></td>
+<td>🏷️ Governance</td>
+<td>CIA classification &amp; BCP</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CLASSIFICATION.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="CRA-ASSESSMENT.html">CRA Assessment</a></strong></td>
+<td>🛡️ Compliance</td>
+<td>Cyber Resilience Act</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/WORKFLOWS.md">Workflows</a></strong></td>
+<td>⚙️ DevOps</td>
+<td>CI/CD documentation</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FUTURE_WORKFLOWS.md">Future Workflows</a></strong></td>
+<td>🚀 DevOps</td>
+<td>Planned CI/CD enhancements</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_WORKFLOWS.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/BCPPlan.md">Business Continuity Plan</a></strong></td>
+<td>🔄 Resilience</td>
+<td>Recovery planning</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/BCPPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FinancialSecurityPlan.md">Financial Security Plan</a></strong></td>
+<td>💰 Financial</td>
+<td>Cost &amp; security analysis</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FinancialSecurityPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/End-of-Life-Strategy.md">End-of-Life Strategy</a></strong></td>
+<td>📦 Lifecycle</td>
+<td>Technology EOL planning</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/End-of-Life-Strategy.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/UnitTestPlan.md">Unit Test Plan</a></strong></td>
+<td>🧪 Testing</td>
+<td>Unit testing strategy</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/UnitTestPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/E2ETestPlan.md">E2E Test Plan</a></strong></td>
+<td>🔍 Testing</td>
+<td>End-to-end testing</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/E2ETestPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/performance-testing.md">Performance Testing</a></strong></td>
+<td>⚡ Performance</td>
+<td>Performance benchmarks</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/performance-testing.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/SECURITY.md">Security Policy</a></strong></td>
+<td>🔒 Security</td>
+<td>Vulnerability reporting &amp; security policy</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md" target="_blank" class="external">View Source</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="🛡️-isms-policy-alignment" class="tsd-anchor-link">🛡️ ISMS Policy Alignment<a href="#🛡️-isms-policy-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This state diagram documentation implements controls aligned with Hack23 AB's publicly available ISMS framework.</p>
+<h3 id="applicable-isms-policies" class="tsd-anchor-link">Applicable ISMS Policies<a href="#applicable-isms-policies" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Policy</strong></th>
+<th><strong>Relevance</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" class="external">Secure Development Policy</a></td>
+<td>State management follows secure SDLC lifecycle</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md" target="_blank" class="external">Information Security Policy</a></td>
+<td>System state transitions comply with security governance</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md" target="_blank" class="external">Incident Response Plan</a></td>
+<td>Error and failure states trigger incident response procedures</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Change_Management_Policy.md" target="_blank" class="external">Change Management Policy</a></td>
+<td>Deployment state transitions follow change management process</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="📋-overview" class="tsd-anchor-link">📋 Overview<a href="#📋-overview" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This document defines all state transitions and lifecycles in the EU Parliament
+Monitor system. State diagrams capture behavioral aspects that complement the
+structural views (C4 model), data views (ERD), and process flows (flowcharts).</p>
+<h3 id="purpose" class="tsd-anchor-link">Purpose<a href="#purpose" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>State diagrams serve to:</p>
+<ol>
+<li><strong>Define Valid State Transitions</strong>: Document legal state changes and their
+triggers</li>
+<li><strong>Lifecycle Management</strong>: Show complete entity lifecycles from creation to
+archival</li>
+<li><strong>Error Handling</strong>: Illustrate error states and recovery paths</li>
+<li><strong>Concurrency Control</strong>: Define states that prevent race conditions</li>
+<li><strong>Audit Trail</strong>: Enable state-based audit logging and compliance</li>
+</ol>
+<h3 id="system-context" class="tsd-anchor-link">System Context<a href="#system-context" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>EU Parliament Monitor is a <strong>static site generator</strong> with:</p>
+<ul>
+<li><strong>Zero Runtime State</strong>: No databases, no sessions, no server-side state</li>
+<li><strong>Build-Time State Machine</strong>: All state transitions during GitHub Actions
+execution</li>
+<li><strong>Immutable Outputs</strong>: Generated artifacts never modified post-creation</li>
+<li><strong>Idempotent Operations</strong>: Repeated executions produce consistent results</li>
+<li><strong>Graceful Degradation</strong>: Fallback states when external dependencies
+unavailable</li>
+</ul>
+<hr>
+<h2 id="🎯-system-lifecycle-state" class="tsd-anchor-link">🎯 System Lifecycle State<a href="#🎯-system-lifecycle-state" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>The overall system operates in phases from initialization through publication
+and monitoring.</p>
+<pre><code class="mermaid"><span class="hl-1">stateDiagram-v2</span><br/><span class="hl-1">    [*] --&gt; Idle: System Ready</span><br/><br/><span class="hl-1">    Idle --&gt; Initializing: Workflow Triggered&lt;br/&gt;(Schedule/Manual)</span><br/><br/><span class="hl-1">    Initializing --&gt; ConfigurationLoading: Load Configuration</span><br/><span class="hl-1">    ConfigurationLoading --&gt; EnvironmentValidation: Validate Environment</span><br/><span class="hl-1">    EnvironmentValidation --&gt; DependencyCheck: Check Dependencies</span><br/><br/><span class="hl-1">    DependencyCheck --&gt; DependencyInstall: Missing Dependencies</span><br/><span class="hl-1">    DependencyInstall --&gt; DependencyCheck: Retry</span><br/><span class="hl-1">    DependencyCheck --&gt; InitializationFailed: Max Retries Exceeded</span><br/><br/><span class="hl-1">    DependencyCheck --&gt; Ready: All Dependencies OK</span><br/><br/><span class="hl-1">    Ready --&gt; MCPConnection: Connect to Data Sources</span><br/><br/><span class="hl-1">    state MCPConnection {</span><br/><span class="hl-1">        [*] --&gt; ConnectingMCP</span><br/><span class="hl-1">        ConnectingMCP --&gt; MCPConnected: Connection Successful</span><br/><span class="hl-1">        ConnectingMCP --&gt; MCPRetrying: Connection Failed</span><br/><span class="hl-1">        MCPRetrying --&gt; ConnectingMCP: Backoff Wait</span><br/><span class="hl-1">        MCPRetrying --&gt; MCPFallback: Max Retries</span><br/><span class="hl-1">        MCPConnected --&gt; [*]</span><br/><span class="hl-1">        MCPFallback --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    MCPConnection --&gt; DataFetching: Data Source Ready</span><br/><br/><span class="hl-1">    DataFetching --&gt; Generating: Data Retrieved</span><br/><span class="hl-1">    DataFetching --&gt; GeneratingFallback: MCP Unavailable</span><br/><br/><span class="hl-1">    Generating --&gt; Validating: Articles Generated</span><br/><span class="hl-1">    GeneratingFallback --&gt; Validating: Placeholder Content</span><br/><br/><span class="hl-1">    Validating --&gt; Testing: Validation Passed</span><br/><span class="hl-1">    Validating --&gt; ValidationFailed: Validation Failed</span><br/><br/><span class="hl-1">    ValidationFailed --&gt; Generating: Fix &amp; Retry</span><br/><br/><span class="hl-1">    Testing --&gt; TestFailed: Tests Failed</span><br/><span class="hl-1">    Testing --&gt; Publishing: Tests Passed</span><br/><br/><span class="hl-1">    TestFailed --&gt; [*]: Abort Workflow</span><br/><br/><span class="hl-1">    Publishing --&gt; Deployed: Git Push Success</span><br/><span class="hl-1">    Publishing --&gt; PublishFailed: Git Push Failed</span><br/><br/><span class="hl-1">    PublishFailed --&gt; Publishing: Retry</span><br/><span class="hl-1">    PublishFailed --&gt; [*]: Max Retries</span><br/><br/><span class="hl-1">    Deployed --&gt; Monitoring: GitHub Pages Deploy</span><br/><br/><span class="hl-1">    Monitoring --&gt; Idle: Complete</span><br/><br/><span class="hl-1">    InitializationFailed --&gt; [*]: Fatal Error</span><br/><br/><span class="hl-1">    note right of Idle</span><br/><span class="hl-1">        Waiting for next scheduled</span><br/><span class="hl-1">        execution (06:00 UTC) or</span><br/><span class="hl-1">        manual workflow_dispatch</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of MCPConnection</span><br/><span class="hl-1">        European Parliament MCP Server</span><br/><span class="hl-1">        connection with retry logic</span><br/><span class="hl-1">        and graceful fallback</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of Deployed</span><br/><span class="hl-1">        Static files committed to</span><br/><span class="hl-1">        main branch, GitHub Pages</span><br/><span class="hl-1">        automatically deploys</span><br/><span class="hl-1">    end note</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="system-state-definitions" class="tsd-anchor-link">System State Definitions<a href="#system-state-definitions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Description</th>
+<th>Entry Conditions</th>
+<th>Exit Conditions</th>
+<th>Timeout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Idle</strong></td>
+<td>System waiting for trigger</td>
+<td>Previous workflow complete OR system startup</td>
+<td>Schedule reached OR manual dispatch</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Initializing</strong></td>
+<td>Loading configuration and environment</td>
+<td>Workflow triggered</td>
+<td>Config loaded successfully</td>
+<td>30s</td>
+</tr>
+<tr>
+<td><strong>ConfigurationLoading</strong></td>
+<td>Reading package.json, .env files</td>
+<td>Initialization started</td>
+<td>Config parsed and validated</td>
+<td>10s</td>
+</tr>
+<tr>
+<td><strong>EnvironmentValidation</strong></td>
+<td>Checking environment variables, Node version</td>
+<td>Config loaded</td>
+<td>Environment meets requirements</td>
+<td>10s</td>
+</tr>
+<tr>
+<td><strong>DependencyCheck</strong></td>
+<td>Verifying npm packages installed</td>
+<td>Environment validated</td>
+<td>All deps available OR missing deps identified</td>
+<td>15s</td>
+</tr>
+<tr>
+<td><strong>DependencyInstall</strong></td>
+<td>Running <code>npm ci</code> to install packages</td>
+<td>Missing dependencies detected</td>
+<td>Installation complete</td>
+<td>180s</td>
+</tr>
+<tr>
+<td><strong>InitializationFailed</strong></td>
+<td>Fatal error during startup</td>
+<td>Repeated failures, missing critical config</td>
+<td>Workflow terminates</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Ready</strong></td>
+<td>System prepared to execute generation</td>
+<td>All checks passed</td>
+<td>Data source connection initiated</td>
+<td>5s</td>
+</tr>
+<tr>
+<td><strong>MCPConnection</strong></td>
+<td>Connecting to European Parliament MCP Server</td>
+<td>Ready state achieved</td>
+<td>Connected OR fallback mode</td>
+<td>30s</td>
+</tr>
+<tr>
+<td><strong>DataFetching</strong></td>
+<td>Retrieving parliamentary data via MCP</td>
+<td>MCP connected</td>
+<td>Data retrieved OR fallback</td>
+<td>60s</td>
+</tr>
+<tr>
+<td><strong>Generating</strong></td>
+<td>Creating multi-language articles</td>
+<td>Data available</td>
+<td>All articles generated</td>
+<td>300s</td>
+</tr>
+<tr>
+<td><strong>GeneratingFallback</strong></td>
+<td>Creating placeholder articles</td>
+<td>MCP unavailable</td>
+<td>Placeholder articles generated</td>
+<td>60s</td>
+</tr>
+<tr>
+<td><strong>Validating</strong></td>
+<td>Running HTML validation, schema checks</td>
+<td>Generation complete</td>
+<td>Validation passed OR failed</td>
+<td>45s</td>
+</tr>
+<tr>
+<td><strong>ValidationFailed</strong></td>
+<td>Detected invalid output</td>
+<td>Validation checks failed</td>
+<td>Retry generation OR abort</td>
+<td>10s</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>Executing ESLint, tests, security scans</td>
+<td>Validation passed</td>
+<td>Tests passed OR failed</td>
+<td>120s</td>
+</tr>
+<tr>
+<td><strong>TestFailed</strong></td>
+<td>Test suite failures detected</td>
+<td>Test execution failed</td>
+<td>Workflow aborted</td>
+<td>10s</td>
+</tr>
+<tr>
+<td><strong>Publishing</strong></td>
+<td>Committing and pushing to Git</td>
+<td>Tests passed</td>
+<td>Git push successful OR failed</td>
+<td>30s</td>
+</tr>
+<tr>
+<td><strong>PublishFailed</strong></td>
+<td>Git push failed</td>
+<td>Git operation failed</td>
+<td>Retry OR abort</td>
+<td>10s</td>
+</tr>
+<tr>
+<td><strong>Deployed</strong></td>
+<td>Changes pushed to GitHub</td>
+<td>Git push successful</td>
+<td>GitHub Pages deployment initiated</td>
+<td>5s</td>
+</tr>
+<tr>
+<td><strong>Monitoring</strong></td>
+<td>Awaiting GitHub Pages deployment</td>
+<td>Deployed</td>
+<td>Deployment complete</td>
+<td>180s</td>
+</tr>
+</tbody>
+</table>
+<h3 id="state-transition-rules" class="tsd-anchor-link">State Transition Rules<a href="#state-transition-rules" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Legal Transitions</strong>:</p>
+<ul>
+<li>Forward progression through pipeline stages</li>
+<li>Retry loops for transient failures (MCP connection, Git push)</li>
+<li>Fallback paths for graceful degradation (MCP → Fallback content)</li>
+<li>Error exits to Idle state with notification</li>
+</ul>
+<p><strong>Illegal Transitions</strong> (prevented by workflow):</p>
+<ul>
+<li>Cannot skip validation after generation</li>
+<li>Cannot publish without passing tests</li>
+<li>Cannot retry indefinitely (max 3 retries for connections)</li>
+<li>Cannot modify deployed content (immutable artifacts)</li>
+</ul>
+<hr>
+<h2 id="📰-article-lifecycle-state" class="tsd-anchor-link">📰 Article Lifecycle State<a href="#📰-article-lifecycle-state" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Individual news articles progress through generation, validation, publication,
+and archival states.</p>
+<pre><code class="mermaid"><span class="hl-1">stateDiagram-v2</span><br/><span class="hl-1">    [*] --&gt; ArticlePending: Article Scheduled</span><br/><br/><span class="hl-1">    ArticlePending --&gt; DataCollecting: Fetch Source Data</span><br/><br/><span class="hl-1">    state DataCollecting {</span><br/><span class="hl-1">        [*] --&gt; FetchingPlenary</span><br/><span class="hl-1">        FetchingPlenary --&gt; FetchingCommittee: Plenary Data OK</span><br/><span class="hl-1">        FetchingCommittee --&gt; FetchingDocuments: Committee Data OK</span><br/><span class="hl-1">        FetchingDocuments --&gt; FetchingQuestions: Document Data OK</span><br/><span class="hl-1">        FetchingQuestions --&gt; DataComplete: Question Data OK</span><br/><br/><span class="hl-1">        FetchingPlenary --&gt; DataFetchError: API Error</span><br/><span class="hl-1">        FetchingCommittee --&gt; DataFetchError: API Error</span><br/><span class="hl-1">        FetchingDocuments --&gt; DataFetchError: API Error</span><br/><span class="hl-1">        FetchingQuestions --&gt; DataFetchError: API Error</span><br/><br/><span class="hl-1">        DataFetchError --&gt; FetchingPlenary: Retry</span><br/><span class="hl-1">        DataFetchError --&gt; DataFallback: Max Retries</span><br/><br/><span class="hl-1">        DataComplete --&gt; [*]</span><br/><span class="hl-1">        DataFallback --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    DataCollecting --&gt; ContentGeneration: Data Available</span><br/><br/><span class="hl-1">    state ContentGeneration {</span><br/><span class="hl-1">        [*] --&gt; TemplateLoading</span><br/><span class="hl-1">        TemplateLoading --&gt; LLMPrompting: Template Ready</span><br/><span class="hl-1">        LLMPrompting --&gt; ContentReceived: LLM Response OK</span><br/><span class="hl-1">        LLMPrompting --&gt; LLMRetry: LLM Error</span><br/><span class="hl-1">        LLMRetry --&gt; LLMPrompting: Backoff</span><br/><span class="hl-1">        LLMRetry --&gt; PlaceholderContent: Max Retries</span><br/><span class="hl-1">        ContentReceived --&gt; [*]</span><br/><span class="hl-1">        PlaceholderContent --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    ContentGeneration --&gt; ArticleDraft: Content Generated</span><br/><br/><span class="hl-1">    ArticleDraft --&gt; LanguageProcessing: Process All Languages</span><br/><br/><span class="hl-1">    state LanguageProcessing {</span><br/><span class="hl-1">        [*] --&gt; ProcessingEN</span><br/><span class="hl-1">        ProcessingEN --&gt; ProcessingSV: English OK</span><br/><span class="hl-1">        ProcessingSV --&gt; ProcessingDA: Swedish OK</span><br/><span class="hl-1">        ProcessingDA --&gt; ProcessingNO: Danish OK</span><br/><span class="hl-1">        ProcessingNO --&gt; ProcessingFI: Norwegian OK</span><br/><span class="hl-1">        ProcessingFI --&gt; ProcessingDE: Finnish OK</span><br/><span class="hl-1">        ProcessingDE --&gt; ProcessingFR: German OK</span><br/><span class="hl-1">        ProcessingFR --&gt; ProcessingES: French OK</span><br/><span class="hl-1">        ProcessingES --&gt; ProcessingNL: Spanish OK</span><br/><span class="hl-1">        ProcessingNL --&gt; ProcessingAR: Dutch OK</span><br/><span class="hl-1">        ProcessingAR --&gt; ProcessingHE: Arabic OK</span><br/><span class="hl-1">        ProcessingHE --&gt; ProcessingJA: Hebrew OK</span><br/><span class="hl-1">        ProcessingJA --&gt; ProcessingKO: Japanese OK</span><br/><span class="hl-1">        ProcessingKO --&gt; ProcessingZH: Korean OK</span><br/><span class="hl-1">        ProcessingZH --&gt; AllLanguagesComplete: Chinese OK</span><br/><br/><span class="hl-1">        ProcessingEN --&gt; LanguageError: Translation Failed</span><br/><span class="hl-1">        ProcessingDE --&gt; LanguageError: Translation Failed</span><br/><span class="hl-1">        ProcessingFR --&gt; LanguageError: Translation Failed</span><br/><br/><span class="hl-1">        LanguageError --&gt; ProcessingEN: Retry Language</span><br/><span class="hl-1">        LanguageError --&gt; PartialLanguageSet: Skip Language</span><br/><br/><span class="hl-1">        AllLanguagesComplete --&gt; [*]</span><br/><span class="hl-1">        PartialLanguageSet --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    LanguageProcessing --&gt; ArticleValidation: All Languages Processed</span><br/><br/><span class="hl-1">    state ArticleValidation {</span><br/><span class="hl-1">        [*] --&gt; HTMLValidation</span><br/><span class="hl-1">        HTMLValidation --&gt; SchemaValidation: HTML Valid</span><br/><span class="hl-1">        SchemaValidation --&gt; ContentValidation: Schema Valid</span><br/><span class="hl-1">        ContentValidation --&gt; SecurityValidation: Content Valid</span><br/><span class="hl-1">        SecurityValidation --&gt; ValidationComplete: Security OK</span><br/><br/><span class="hl-1">        HTMLValidation --&gt; ValidationFailed: Invalid HTML</span><br/><span class="hl-1">        SchemaValidation --&gt; ValidationFailed: Invalid Schema</span><br/><span class="hl-1">        ContentValidation --&gt; ValidationFailed: Invalid Content</span><br/><span class="hl-1">        SecurityValidation --&gt; ValidationFailed: Security Issue</span><br/><br/><span class="hl-1">        ValidationComplete --&gt; [*]</span><br/><span class="hl-1">        ValidationFailed --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    ArticleValidation --&gt; ArticleValidated: Validation Passed</span><br/><span class="hl-1">    ArticleValidation --&gt; ArticleRejected: Validation Failed</span><br/><br/><span class="hl-1">    ArticleRejected --&gt; ArticleDraft: Fix Issues</span><br/><span class="hl-1">    ArticleRejected --&gt; ArticleAbandoned: Unfixable</span><br/><br/><span class="hl-1">    ArticleValidated --&gt; ArticleStaging: Ready for Publish</span><br/><br/><span class="hl-1">    ArticleStaging --&gt; ArticlePublished: Git Commit Success</span><br/><br/><span class="hl-1">    ArticlePublished --&gt; ArticleIndexed: Add to Index</span><br/><br/><span class="hl-1">    ArticleIndexed --&gt; ArticleLive: GitHub Pages Deploy</span><br/><br/><span class="hl-1">    ArticleLive --&gt; ArticleMonitored: Active Monitoring</span><br/><br/><span class="hl-1">    ArticleMonitored --&gt; ArticleArchived: 90 Days Old</span><br/><br/><span class="hl-1">    ArticleArchived --&gt; [*]: Lifecycle Complete</span><br/><br/><span class="hl-1">    ArticleAbandoned --&gt; [*]: Generation Failed</span><br/><br/><span class="hl-1">    note right of ArticlePending</span><br/><span class="hl-1">        Article types:</span><br/><span class="hl-1">        - Week Ahead</span><br/><span class="hl-1">        - Committee Report</span><br/><span class="hl-1">        - Proposition Analysis</span><br/><span class="hl-1">        - Motion Analysis</span><br/><span class="hl-1">        - Breaking News</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of ContentGeneration</span><br/><span class="hl-1">        LLM generates article with:</span><br/><span class="hl-1">        - Title &amp; subtitle</span><br/><span class="hl-1">        - Summary paragraph</span><br/><span class="hl-1">        - Detailed analysis</span><br/><span class="hl-1">        - Key points</span><br/><span class="hl-1">        - Citations</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of LanguageProcessing</span><br/><span class="hl-1">        14 languages:</span><br/><span class="hl-1">        EN, SV, DA, NO, FI, DE,</span><br/><span class="hl-1">        FR, ES, NL, AR, HE, JA,</span><br/><span class="hl-1">        KO, ZH</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of ArticleLive</span><br/><span class="hl-1">        Immutable content:</span><br/><span class="hl-1">        Never modified after</span><br/><span class="hl-1">        publication</span><br/><span class="hl-1">    end note</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="article-state-definitions" class="tsd-anchor-link">Article State Definitions<a href="#article-state-definitions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Description</th>
+<th>Duration</th>
+<th>Rollback Possible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ArticlePending</strong></td>
+<td>Article scheduled for generation</td>
+<td>0-60s</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>DataCollecting</strong></td>
+<td>Fetching source data from EP APIs</td>
+<td>10-60s</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ContentGeneration</strong></td>
+<td>LLM creating article content</td>
+<td>15-120s</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ArticleDraft</strong></td>
+<td>Initial content created</td>
+<td>0-5s</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>LanguageProcessing</strong></td>
+<td>Translating to all languages</td>
+<td>30-300s</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ArticleValidation</strong></td>
+<td>Running validation checks</td>
+<td>10-30s</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ArticleRejected</strong></td>
+<td>Failed validation</td>
+<td>Until fixed</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ArticleAbandoned</strong></td>
+<td>Permanently failed</td>
+<td>Permanent</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>ArticleValidated</strong></td>
+<td>Passed all checks</td>
+<td>0-5s</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ArticleStaging</strong></td>
+<td>Ready for commit</td>
+<td>0-10s</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ArticlePublished</strong></td>
+<td>Committed to Git</td>
+<td>Permanent</td>
+<td>No*</td>
+</tr>
+<tr>
+<td><strong>ArticleIndexed</strong></td>
+<td>Added to language indexes</td>
+<td>Permanent</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>ArticleLive</strong></td>
+<td>Deployed on GitHub Pages</td>
+<td>Until archived</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>ArticleMonitored</strong></td>
+<td>Active monitoring</td>
+<td>90 days</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>ArticleArchived</strong></td>
+<td>Moved to archive</td>
+<td>Permanent</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>*Git history allows reverting, but articles are conceptually immutable.</p>
+<hr>
+<h2 id="🔌-mcp-connection-state-machine" class="tsd-anchor-link">🔌 MCP Connection State Machine<a href="#🔌-mcp-connection-state-machine" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>The Model Context Protocol (MCP) connection manages connectivity to the European
+Parliament data server.</p>
+<pre><code class="mermaid"><span class="hl-1">stateDiagram-v2</span><br/><span class="hl-1">    [*] --&gt; Disconnected: System Start</span><br/><br/><span class="hl-1">    Disconnected --&gt; Connecting: Initialize Connection</span><br/><br/><span class="hl-1">    Connecting --&gt; Authenticating: TCP/Stdio Connected</span><br/><span class="hl-1">    Connecting --&gt; ConnectionTimeout: Timeout (10s)</span><br/><br/><span class="hl-1">    Authenticating --&gt; Connected: Auth Success</span><br/><span class="hl-1">    Authenticating --&gt; AuthFailed: Auth Failed</span><br/><br/><span class="hl-1">    ConnectionTimeout --&gt; RetryWait: Transient Error</span><br/><span class="hl-1">    AuthFailed --&gt; RetryWait: Retry Auth</span><br/><br/><span class="hl-1">    RetryWait --&gt; RetryCount: Backoff Complete</span><br/><br/><span class="hl-1">    state RetryCount &lt;&lt;choice&gt;&gt;</span><br/><span class="hl-1">    RetryCount --&gt; Connecting: Retry &lt; 3</span><br/><span class="hl-1">    RetryCount --&gt; FallbackMode: Retry &gt;= 3</span><br/><br/><span class="hl-1">    Connected --&gt; Healthy: Health Check OK</span><br/><br/><span class="hl-1">    Healthy --&gt; Active: Ready for Requests</span><br/><br/><span class="hl-1">    Active --&gt; RequestSending: Tool Call</span><br/><br/><span class="hl-1">    state RequestSending {</span><br/><span class="hl-1">        [*] --&gt; SerializingRequest</span><br/><span class="hl-1">        SerializingRequest --&gt; SendingData: JSON Ready</span><br/><span class="hl-1">        SendingData --&gt; AwaitingResponse: Data Sent</span><br/><span class="hl-1">        AwaitingResponse --&gt; ReceivingData: Response Started</span><br/><span class="hl-1">        ReceivingData --&gt; DeserializingResponse: Data Complete</span><br/><span class="hl-1">        DeserializingResponse --&gt; RequestComplete: Parse OK</span><br/><br/><span class="hl-1">        AwaitingResponse --&gt; RequestTimeout: Timeout (30s)</span><br/><span class="hl-1">        DeserializingResponse --&gt; RequestError: Parse Error</span><br/><br/><span class="hl-1">        RequestComplete --&gt; [*]</span><br/><span class="hl-1">        RequestTimeout --&gt; [*]</span><br/><span class="hl-1">        RequestError --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    RequestSending --&gt; Active: Request Success</span><br/><span class="hl-1">    RequestSending --&gt; RequestFailed: Request Failed</span><br/><br/><span class="hl-1">    RequestFailed --&gt; RetryRequest: Transient Error</span><br/><span class="hl-1">    RetryRequest --&gt; RequestSending: Retry</span><br/><br/><span class="hl-1">    RequestFailed --&gt; Degraded: Persistent Errors</span><br/><br/><span class="hl-1">    Active --&gt; Degraded: Health Check Failed</span><br/><br/><span class="hl-1">    Degraded --&gt; Reconnecting: Attempt Recovery</span><br/><br/><span class="hl-1">    Reconnecting --&gt; Connected: Reconnect Success</span><br/><span class="hl-1">    Reconnecting --&gt; Disconnected: Reconnect Failed</span><br/><br/><span class="hl-1">    Connected --&gt; Disconnected: Connection Lost</span><br/><br/><span class="hl-1">    Disconnected --&gt; FallbackMode: Max Failures</span><br/><br/><span class="hl-1">    FallbackMode --&gt; [*]: Use Placeholder Content</span><br/><br/><span class="hl-1">    note right of Disconnected</span><br/><span class="hl-1">        MCP server not available:</span><br/><span class="hl-1">        - Server not running</span><br/><span class="hl-1">        - Network unreachable</span><br/><span class="hl-1">        - Configuration error</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of Connected</span><br/><span class="hl-1">        MCP protocol handshake</span><br/><span class="hl-1">        complete, server ready</span><br/><span class="hl-1">        for tool requests</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of Active</span><br/><span class="hl-1">        Connection pooling:</span><br/><span class="hl-1">        - Reuse connection</span><br/><span class="hl-1">        - Keep-alive pings</span><br/><span class="hl-1">        - Request queueing</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of FallbackMode</span><br/><span class="hl-1">        Graceful degradation:</span><br/><span class="hl-1">        Generate articles with</span><br/><span class="hl-1">        placeholder content</span><br/><span class="hl-1">    end note</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="mcp-connection-states" class="tsd-anchor-link">MCP Connection States<a href="#mcp-connection-states" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Description</th>
+<th>Timeout</th>
+<th>Recovery Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Disconnected</strong></td>
+<td>No active connection</td>
+<td>N/A</td>
+<td>Initialize connection</td>
+</tr>
+<tr>
+<td><strong>Connecting</strong></td>
+<td>TCP/stdio connection in progress</td>
+<td>10s</td>
+<td>Retry with backoff</td>
+</tr>
+<tr>
+<td><strong>Authenticating</strong></td>
+<td>MCP handshake and auth</td>
+<td>5s</td>
+<td>Retry auth</td>
+</tr>
+<tr>
+<td><strong>ConnectionTimeout</strong></td>
+<td>Connection attempt exceeded timeout</td>
+<td>N/A</td>
+<td>Enter retry wait</td>
+</tr>
+<tr>
+<td><strong>AuthFailed</strong></td>
+<td>Authentication rejected</td>
+<td>N/A</td>
+<td>Check credentials, retry</td>
+</tr>
+<tr>
+<td><strong>RetryWait</strong></td>
+<td>Exponential backoff delay</td>
+<td>1s, 2s, 4s</td>
+<td>Retry connecting</td>
+</tr>
+<tr>
+<td><strong>Connected</strong></td>
+<td>MCP handshake complete</td>
+<td>N/A</td>
+<td>Proceed to health check</td>
+</tr>
+<tr>
+<td><strong>Healthy</strong></td>
+<td>Server health verified</td>
+<td>N/A</td>
+<td>Transition to active</td>
+</tr>
+<tr>
+<td><strong>Active</strong></td>
+<td>Ready for tool requests</td>
+<td>N/A</td>
+<td>Process requests</td>
+</tr>
+<tr>
+<td><strong>RequestSending</strong></td>
+<td>Tool call in progress</td>
+<td>30s</td>
+<td>Retry on timeout</td>
+</tr>
+<tr>
+<td><strong>RequestFailed</strong></td>
+<td>Request failed</td>
+<td>N/A</td>
+<td>Retry or degrade</td>
+</tr>
+<tr>
+<td><strong>Degraded</strong></td>
+<td>Persistent errors detected</td>
+<td>N/A</td>
+<td>Attempt reconnection</td>
+</tr>
+<tr>
+<td><strong>Reconnecting</strong></td>
+<td>Attempting to restore connection</td>
+<td>10s</td>
+<td>Reconnect or disconnect</td>
+</tr>
+<tr>
+<td><strong>FallbackMode</strong></td>
+<td>Using placeholder content</td>
+<td>N/A</td>
+<td>Continue with fallback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="connection-state-rules" class="tsd-anchor-link">Connection State Rules<a href="#connection-state-rules" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Retry Policy</strong>:</p>
+<ul>
+<li>Max 3 connection attempts with exponential backoff (1s, 2s, 4s)</li>
+<li>Request retries: 2 attempts for transient errors</li>
+<li>Health checks every 60s when active</li>
+<li>Automatic reconnection on connection loss</li>
+</ul>
+<p><strong>Fallback Triggers</strong>:</p>
+<ul>
+<li>Max connection retries exhausted</li>
+<li>Persistent authentication failures</li>
+<li>Server consistently unhealthy</li>
+<li>Critical tool call failures</li>
+</ul>
+<hr>
+<h2 id="✅-validation-state-flow" class="tsd-anchor-link">✅ Validation State Flow<a href="#✅-validation-state-flow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Data and content validation occurs at multiple stages with different validation
+rules.</p>
+<pre><code class="mermaid"><span class="hl-1">stateDiagram-v2</span><br/><span class="hl-1">    [*] --&gt; ValidationQueued: Data/Content Ready</span><br/><br/><span class="hl-1">    ValidationQueued --&gt; SchemaValidation: Start Validation</span><br/><br/><span class="hl-1">    state SchemaValidation {</span><br/><span class="hl-1">        [*] --&gt; CheckStructure</span><br/><span class="hl-1">        CheckStructure --&gt; CheckTypes: Structure OK</span><br/><span class="hl-1">        CheckTypes --&gt; CheckRequired: Types OK</span><br/><span class="hl-1">        CheckRequired --&gt; CheckConstraints: Required OK</span><br/><span class="hl-1">        CheckConstraints --&gt; SchemaValid: Constraints OK</span><br/><br/><span class="hl-1">        CheckStructure --&gt; SchemaInvalid: Missing Fields</span><br/><span class="hl-1">        CheckTypes --&gt; SchemaInvalid: Type Mismatch</span><br/><span class="hl-1">        CheckRequired --&gt; SchemaInvalid: Required Missing</span><br/><span class="hl-1">        CheckConstraints --&gt; SchemaInvalid: Constraint Violation</span><br/><br/><span class="hl-1">        SchemaValid --&gt; [*]</span><br/><span class="hl-1">        SchemaInvalid --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    SchemaValidation --&gt; ContentValidation: Schema Valid</span><br/><span class="hl-1">    SchemaValidation --&gt; ValidationFailed: Schema Invalid</span><br/><br/><span class="hl-1">    state ContentValidation {</span><br/><span class="hl-1">        [*] --&gt; SanitizeHTML</span><br/><span class="hl-1">        SanitizeHTML --&gt; RemoveScripts: Strip Dangerous Tags</span><br/><span class="hl-1">        RemoveScripts --&gt; RemoveEvents: Remove &lt;script&gt; tags</span><br/><span class="hl-1">        RemoveEvents --&gt; EncodeEntities: Remove onX handlers</span><br/><span class="hl-1">        EncodeEntities --&gt; ValidateLinks: Encode &lt; &gt; &amp; &quot; &#39;</span><br/><span class="hl-1">        ValidateLinks --&gt; CheckLength: Verify URLs</span><br/><span class="hl-1">        CheckLength --&gt; ContentValid: Length OK</span><br/><br/><span class="hl-1">        CheckLength --&gt; ContentInvalid: Too Long/Short</span><br/><span class="hl-1">        ValidateLinks --&gt; ContentInvalid: Broken Links</span><br/><br/><span class="hl-1">        ContentValid --&gt; [*]</span><br/><span class="hl-1">        ContentInvalid --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    ContentValidation --&gt; SecurityValidation: Content Valid</span><br/><span class="hl-1">    ContentValidation --&gt; ValidationFailed: Content Invalid</span><br/><br/><span class="hl-1">    state SecurityValidation {</span><br/><span class="hl-1">        [*] --&gt; XSSCheck</span><br/><span class="hl-1">        XSSCheck --&gt; SQLInjectionCheck: No XSS</span><br/><span class="hl-1">        SQLInjectionCheck --&gt; CSRFCheck: No SQLi</span><br/><span class="hl-1">        CSRFCheck --&gt; ClickjackCheck: No CSRF</span><br/><span class="hl-1">        ClickjackCheck --&gt; SecurityValid: No Clickjack</span><br/><br/><span class="hl-1">        XSSCheck --&gt; SecurityInvalid: XSS Detected</span><br/><span class="hl-1">        SQLInjectionCheck --&gt; SecurityInvalid: SQLi Detected</span><br/><span class="hl-1">        CSRFCheck --&gt; SecurityInvalid: CSRF Risk</span><br/><span class="hl-1">        ClickjackCheck --&gt; SecurityInvalid: Clickjack Risk</span><br/><br/><span class="hl-1">        SecurityValid --&gt; [*]</span><br/><span class="hl-1">        SecurityInvalid --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    SecurityValidation --&gt; HTMLValidation: Security Valid</span><br/><span class="hl-1">    SecurityValidation --&gt; ValidationFailed: Security Invalid</span><br/><br/><span class="hl-1">    state HTMLValidation {</span><br/><span class="hl-1">        [*] --&gt; ParseHTML</span><br/><span class="hl-1">        ParseHTML --&gt; CheckDoctype: Parse OK</span><br/><span class="hl-1">        CheckDoctype --&gt; CheckMeta: Doctype OK</span><br/><span class="hl-1">        CheckMeta --&gt; CheckSemantic: Meta OK</span><br/><span class="hl-1">        CheckSemantic --&gt; CheckAccessibility: Semantic OK</span><br/><span class="hl-1">        CheckAccessibility --&gt; HTMLValid: Accessibility OK</span><br/><br/><span class="hl-1">        ParseHTML --&gt; HTMLInvalid: Parse Error</span><br/><span class="hl-1">        CheckDoctype --&gt; HTMLInvalid: Missing/Wrong</span><br/><span class="hl-1">        CheckMeta --&gt; HTMLInvalid: Meta Issues</span><br/><span class="hl-1">        CheckSemantic --&gt; HTMLInvalid: Semantic Issues</span><br/><span class="hl-1">        CheckAccessibility --&gt; HTMLInvalid: A11y Issues</span><br/><br/><span class="hl-1">        HTMLValid --&gt; [*]</span><br/><span class="hl-1">        HTMLInvalid --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    HTMLValidation --&gt; ValidationComplete: HTML Valid</span><br/><span class="hl-1">    HTMLValidation --&gt; ValidationFailed: HTML Invalid</span><br/><br/><span class="hl-1">    ValidationComplete --&gt; [*]: All Checks Passed</span><br/><br/><span class="hl-1">    ValidationFailed --&gt; ErrorLogging: Log Failure Details</span><br/><br/><span class="hl-1">    ErrorLogging --&gt; RetryDecision: Assess Error</span><br/><br/><span class="hl-1">    state RetryDecision &lt;&lt;choice&gt;&gt;</span><br/><span class="hl-1">    RetryDecision --&gt; RetryGeneration: Fixable Error</span><br/><span class="hl-1">    RetryDecision --&gt; RejectContent: Unfixable Error</span><br/><br/><span class="hl-1">    RetryGeneration --&gt; ValidationQueued: Retry</span><br/><br/><span class="hl-1">    RejectContent --&gt; [*]: Validation Failed</span><br/><br/><span class="hl-1">    note right of SchemaValidation</span><br/><span class="hl-1">        JSON Schema validation:</span><br/><span class="hl-1">        - Structure conformance</span><br/><span class="hl-1">        - Type checking</span><br/><span class="hl-1">        - Required fields</span><br/><span class="hl-1">        - Value constraints</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of ContentValidation</span><br/><span class="hl-1">        Content sanitization:</span><br/><span class="hl-1">        - XSS prevention</span><br/><span class="hl-1">        - HTML injection</span><br/><span class="hl-1">        - Link validation</span><br/><span class="hl-1">        - Length limits</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of SecurityValidation</span><br/><span class="hl-1">        Security scanning:</span><br/><span class="hl-1">        - OWASP Top 10</span><br/><span class="hl-1">        - Input validation</span><br/><span class="hl-1">        - Output encoding</span><br/><span class="hl-1">        - CSP compliance</span><br/><span class="hl-1">    end note</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="validation-stage-details" class="tsd-anchor-link">Validation Stage Details<a href="#validation-stage-details" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Validation Type</th>
+<th>Checks Performed</th>
+<th>Failure Action</th>
+<th>Retry Allowed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Schema Validation</strong></td>
+<td>JSON structure, types, required fields, constraints</td>
+<td>Log error, reject data</td>
+<td>Yes (1 retry)</td>
+</tr>
+<tr>
+<td><strong>Content Validation</strong></td>
+<td>HTML sanitization, link validation, length checks</td>
+<td>Log error, sanitize or reject</td>
+<td>Yes (auto-fix)</td>
+</tr>
+<tr>
+<td><strong>Security Validation</strong></td>
+<td>XSS, SQLi, CSRF, clickjacking, CSP violations</td>
+<td>Log error, reject content</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>HTML Validation</strong></td>
+<td>Parse errors, doctype, meta tags, semantics, accessibility</td>
+<td>Log error, auto-fix or reject</td>
+<td>Yes (auto-fix)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🚨-error-state-handling" class="tsd-anchor-link">🚨 Error State Handling<a href="#🚨-error-state-handling" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>The system handles errors through structured error states with recovery paths.</p>
+<pre><code class="mermaid"><span class="hl-1">stateDiagram-v2</span><br/><span class="hl-1">    [*] --&gt; OperationNormal: Normal Operation</span><br/><br/><span class="hl-1">    OperationNormal --&gt; ErrorDetected: Exception/Failure</span><br/><br/><span class="hl-1">    ErrorDetected --&gt; ErrorClassification: Classify Error</span><br/><br/><span class="hl-1">    state ErrorClassification &lt;&lt;choice&gt;&gt;</span><br/><span class="hl-1">    ErrorClassification --&gt; TransientError: Retryable</span><br/><span class="hl-1">    ErrorClassification --&gt; PersistentError: Non-Retryable</span><br/><span class="hl-1">    ErrorClassification --&gt; FatalError: Critical</span><br/><br/><span class="hl-1">    state TransientError {</span><br/><span class="hl-1">        [*] --&gt; NetworkError</span><br/><span class="hl-1">        [*] --&gt; TimeoutError</span><br/><span class="hl-1">        [*] --&gt; RateLimitError</span><br/><span class="hl-1">        [*] --&gt; ServiceUnavailable</span><br/><br/><span class="hl-1">        NetworkError --&gt; RetryQueue: Log &amp; Queue</span><br/><span class="hl-1">        TimeoutError --&gt; RetryQueue: Log &amp; Queue</span><br/><span class="hl-1">        RateLimitError --&gt; BackoffQueue: Log &amp; Wait</span><br/><span class="hl-1">        ServiceUnavailable --&gt; RetryQueue: Log &amp; Queue</span><br/><br/><span class="hl-1">        RetryQueue --&gt; [*]</span><br/><span class="hl-1">        BackoffQueue --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    TransientError --&gt; RetryAttempt: Enter Retry</span><br/><br/><span class="hl-1">    state RetryAttempt {</span><br/><span class="hl-1">        [*] --&gt; WaitBackoff</span><br/><span class="hl-1">        WaitBackoff --&gt; IncrementCounter: Backoff Complete</span><br/><span class="hl-1">        IncrementCounter --&gt; CheckRetryLimit: Counter++</span><br/><br/><span class="hl-1">        state CheckRetryLimit &lt;&lt;choice&gt;&gt;</span><br/><span class="hl-1">        CheckRetryLimit --&gt; RetryOperation: Retry &lt; Max</span><br/><span class="hl-1">        CheckRetryLimit --&gt; ExhaustedRetries: Retry &gt;= Max</span><br/><br/><span class="hl-1">        RetryOperation --&gt; [*]: Retry</span><br/><span class="hl-1">        ExhaustedRetries --&gt; [*]: Give Up</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    RetryAttempt --&gt; OperationNormal: Retry Success</span><br/><span class="hl-1">    RetryAttempt --&gt; PersistentError: Max Retries</span><br/><br/><span class="hl-1">    state PersistentError {</span><br/><span class="hl-1">        [*] --&gt; ValidationError</span><br/><span class="hl-1">        [*] --&gt; ConfigurationError</span><br/><span class="hl-1">        [*] --&gt; DataQualityError</span><br/><span class="hl-1">        [*] --&gt; AuthenticationError</span><br/><br/><span class="hl-1">        ValidationError --&gt; ErrorLogged: Log Details</span><br/><span class="hl-1">        ConfigurationError --&gt; ErrorLogged: Log Details</span><br/><span class="hl-1">        DataQualityError --&gt; ErrorLogged: Log Details</span><br/><span class="hl-1">        AuthenticationError --&gt; ErrorLogged: Log Details</span><br/><br/><span class="hl-1">        ErrorLogged --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    PersistentError --&gt; FallbackMode: Use Fallback</span><br/><br/><span class="hl-1">    state FallbackMode {</span><br/><span class="hl-1">        [*] --&gt; UsePlaceholder</span><br/><span class="hl-1">        UsePlaceholder --&gt; ContinueWorkflow: Placeholder Active</span><br/><span class="hl-1">        ContinueWorkflow --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    FallbackMode --&gt; OperationDegraded: Continue with Limitations</span><br/><br/><span class="hl-1">    state FatalError {</span><br/><span class="hl-1">        [*] --&gt; SystemError</span><br/><span class="hl-1">        [*] --&gt; SecurityViolation</span><br/><span class="hl-1">        [*] --&gt; DataCorruption</span><br/><span class="hl-1">        [*] --&gt; ResourceExhaustion</span><br/><br/><span class="hl-1">        SystemError --&gt; CriticalAlert: Alert Team</span><br/><span class="hl-1">        SecurityViolation --&gt; CriticalAlert: Alert Team</span><br/><span class="hl-1">        DataCorruption --&gt; CriticalAlert: Alert Team</span><br/><span class="hl-1">        ResourceExhaustion --&gt; CriticalAlert: Alert Team</span><br/><br/><span class="hl-1">        CriticalAlert --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    FatalError --&gt; WorkflowAborted: Terminate</span><br/><br/><span class="hl-1">    WorkflowAborted --&gt; NotificationSent: Send Alerts</span><br/><br/><span class="hl-1">    NotificationSent --&gt; [*]: End Workflow</span><br/><br/><span class="hl-1">    OperationDegraded --&gt; OperationNormal: Recovery</span><br/><br/><span class="hl-1">    note right of TransientError</span><br/><span class="hl-1">        Retry with exponential backoff:</span><br/><span class="hl-1">        - 1st retry: 1s delay</span><br/><span class="hl-1">        - 2nd retry: 2s delay</span><br/><span class="hl-1">        - 3rd retry: 4s delay</span><br/><span class="hl-1">        Max 3 retries</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of PersistentError</span><br/><span class="hl-1">        Errors requiring intervention:</span><br/><span class="hl-1">        - Invalid configuration</span><br/><span class="hl-1">        - Bad input data</span><br/><span class="hl-1">        - Authentication issues</span><br/><span class="hl-1">        - Resource not found</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of FatalError</span><br/><span class="hl-1">        Critical failures:</span><br/><span class="hl-1">        - Security violations</span><br/><span class="hl-1">        - Data corruption</span><br/><span class="hl-1">        - Out of memory</span><br/><span class="hl-1">        - Infinite loops</span><br/><span class="hl-1">    end note</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="error-classification-matrix" class="tsd-anchor-link">Error Classification Matrix<a href="#error-classification-matrix" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Error Type</th>
+<th>Severity</th>
+<th>Retry Strategy</th>
+<th>Fallback</th>
+<th>Alert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Network Error</strong></td>
+<td>Transient</td>
+<td>3 retries, exponential backoff</td>
+<td>Continue with cache</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Timeout Error</strong></td>
+<td>Transient</td>
+<td>3 retries, extended timeout</td>
+<td>Skip operation</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Rate Limit Error</strong></td>
+<td>Transient</td>
+<td>Wait + retry (per X-RateLimit headers)</td>
+<td>Queue for later</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Service Unavailable</strong></td>
+<td>Transient</td>
+<td>3 retries, exponential backoff</td>
+<td>Use fallback service</td>
+<td>Warning</td>
+</tr>
+<tr>
+<td><strong>Validation Error</strong></td>
+<td>Persistent</td>
+<td>1 retry with fix</td>
+<td>Use last valid data</td>
+<td>Warning</td>
+</tr>
+<tr>
+<td><strong>Configuration Error</strong></td>
+<td>Persistent</td>
+<td>No retry</td>
+<td>Use defaults</td>
+<td>Error</td>
+</tr>
+<tr>
+<td><strong>Data Quality Error</strong></td>
+<td>Persistent</td>
+<td>No retry</td>
+<td>Skip corrupt data</td>
+<td>Warning</td>
+</tr>
+<tr>
+<td><strong>Authentication Error</strong></td>
+<td>Persistent</td>
+<td>1 retry</td>
+<td>Abort workflow</td>
+<td>Error</td>
+</tr>
+<tr>
+<td><strong>System Error</strong></td>
+<td>Fatal</td>
+<td>No retry</td>
+<td>Abort</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td><strong>Security Violation</strong></td>
+<td>Fatal</td>
+<td>No retry</td>
+<td>Abort</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td><strong>Data Corruption</strong></td>
+<td>Fatal</td>
+<td>No retry</td>
+<td>Abort</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td><strong>Resource Exhaustion</strong></td>
+<td>Fatal</td>
+<td>No retry</td>
+<td>Abort</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="📦-deployment-state-lifecycle" class="tsd-anchor-link">📦 Deployment State Lifecycle<a href="#📦-deployment-state-lifecycle" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>After content generation, the deployment process manages Git operations and
+GitHub Pages deployment.</p>
+<pre><code class="mermaid"><span class="hl-1">stateDiagram-v2</span><br/><span class="hl-1">    [*] --&gt; PreDeployment: Content Validated</span><br/><br/><span class="hl-1">    PreDeployment --&gt; GitStaging: Stage Changes</span><br/><br/><span class="hl-1">    state GitStaging {</span><br/><span class="hl-1">        [*] --&gt; GitAdd</span><br/><span class="hl-1">        GitAdd --&gt; GitStatus: Add Files</span><br/><span class="hl-1">        GitStatus --&gt; ChangesStaged: Verify</span><br/><span class="hl-1">        ChangesStaged --&gt; [*]</span><br/><br/><span class="hl-1">        GitAdd --&gt; GitError: Add Failed</span><br/><span class="hl-1">        GitStatus --&gt; GitError: Status Check Failed</span><br/><span class="hl-1">        GitError --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    GitStaging --&gt; GitCommit: Files Staged</span><br/><span class="hl-1">    GitStaging --&gt; DeploymentFailed: Staging Failed</span><br/><br/><span class="hl-1">    state GitCommit {</span><br/><span class="hl-1">        [*] --&gt; CreateCommit</span><br/><span class="hl-1">        CreateCommit --&gt; SignCommit: Commit Created</span><br/><span class="hl-1">        SignCommit --&gt; VerifyCommit: Signature Added</span><br/><span class="hl-1">        VerifyCommit --&gt; CommitComplete: Verify OK</span><br/><br/><span class="hl-1">        CreateCommit --&gt; CommitError: Commit Failed</span><br/><span class="hl-1">        SignCommit --&gt; CommitError: Sign Failed</span><br/><span class="hl-1">        VerifyCommit --&gt; CommitError: Verify Failed</span><br/><br/><span class="hl-1">        CommitComplete --&gt; [*]</span><br/><span class="hl-1">        CommitError --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    GitCommit --&gt; GitPush: Commit Success</span><br/><span class="hl-1">    GitCommit --&gt; DeploymentFailed: Commit Failed</span><br/><br/><span class="hl-1">    state GitPush {</span><br/><span class="hl-1">        [*] --&gt; PushToRemote</span><br/><span class="hl-1">        PushToRemote --&gt; VerifyPush: Push Initiated</span><br/><span class="hl-1">        VerifyPush --&gt; PushSuccess: Remote Updated</span><br/><br/><span class="hl-1">        PushToRemote --&gt; PushConflict: Conflict Detected</span><br/><span class="hl-1">        PushConflict --&gt; PullRebase: Pull Changes</span><br/><span class="hl-1">        PullRebase --&gt; PushToRemote: Retry Push</span><br/><br/><span class="hl-1">        PushToRemote --&gt; PushError: Network Error</span><br/><span class="hl-1">        PushError --&gt; RetryPush: Retry</span><br/><span class="hl-1">        RetryPush --&gt; PushToRemote: Wait &amp; Retry</span><br/><br/><span class="hl-1">        PushSuccess --&gt; [*]</span><br/><span class="hl-1">        PushError --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    GitPush --&gt; GitHubPagesQueue: Push Success</span><br/><span class="hl-1">    GitPush --&gt; DeploymentFailed: Push Failed</span><br/><br/><span class="hl-1">    state GitHubPagesQueue {</span><br/><span class="hl-1">        [*] --&gt; Queued</span><br/><span class="hl-1">        Queued --&gt; Building: Build Started</span><br/><span class="hl-1">        Building --&gt; Deploying: Build Success</span><br/><span class="hl-1">        Deploying --&gt; DeploySuccess: Deploy Complete</span><br/><br/><span class="hl-1">        Building --&gt; BuildError: Build Failed</span><br/><span class="hl-1">        Deploying --&gt; DeployError: Deploy Failed</span><br/><br/><span class="hl-1">        BuildError --&gt; [*]</span><br/><span class="hl-1">        DeployError --&gt; [*]</span><br/><span class="hl-1">        DeploySuccess --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    GitHubPagesQueue --&gt; DeploymentComplete: Pages Live</span><br/><span class="hl-1">    GitHubPagesQueue --&gt; DeploymentFailed: Pages Failed</span><br/><br/><span class="hl-1">    DeploymentComplete --&gt; VerifyDeployment: Verify</span><br/><br/><span class="hl-1">    state VerifyDeployment {</span><br/><span class="hl-1">        [*] --&gt; HealthCheck</span><br/><span class="hl-1">        HealthCheck --&gt; ValidateContent: HTTP 200</span><br/><span class="hl-1">        ValidateContent --&gt; CheckIndexes: Content OK</span><br/><span class="hl-1">        CheckIndexes --&gt; VerifySuccess: Indexes OK</span><br/><br/><span class="hl-1">        HealthCheck --&gt; VerifyFailed: HTTP Error</span><br/><span class="hl-1">        ValidateContent --&gt; VerifyFailed: Content Mismatch</span><br/><span class="hl-1">        CheckIndexes --&gt; VerifyFailed: Missing Indexes</span><br/><br/><span class="hl-1">        VerifySuccess --&gt; [*]</span><br/><span class="hl-1">        VerifyFailed --&gt; [*]</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    VerifyDeployment --&gt; DeploymentMonitored: Verify Success</span><br/><span class="hl-1">    VerifyDeployment --&gt; DeploymentDegraded: Verify Failed</span><br/><br/><span class="hl-1">    DeploymentMonitored --&gt; [*]: Deployment Complete</span><br/><br/><span class="hl-1">    DeploymentFailed --&gt; ErrorNotification: Alert Team</span><br/><span class="hl-1">    DeploymentDegraded --&gt; WarningNotification: Alert Team</span><br/><br/><span class="hl-1">    ErrorNotification --&gt; [*]: Workflow Failed</span><br/><span class="hl-1">    WarningNotification --&gt; DeploymentMonitored: Continue Monitoring</span><br/><br/><span class="hl-1">    note right of GitCommit</span><br/><span class="hl-1">        Commit includes:</span><br/><span class="hl-1">        - Generated articles</span><br/><span class="hl-1">        - Updated indexes</span><br/><span class="hl-1">        - Sitemap.xml</span><br/><span class="hl-1">        Co-authored-by trailer</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of GitHubPagesQueue</span><br/><span class="hl-1">        GitHub Pages automatically:</span><br/><span class="hl-1">        - Builds Jekyll site</span><br/><span class="hl-1">        - Deploys to CDN</span><br/><span class="hl-1">        - Updates DNS</span><br/><span class="hl-1">        ~90-180 seconds</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of VerifyDeployment</span><br/><span class="hl-1">        Post-deployment checks:</span><br/><span class="hl-1">        - HTTP status codes</span><br/><span class="hl-1">        - Content integrity</span><br/><span class="hl-1">        - Index availability</span><br/><span class="hl-1">        - Sitemap accessibility</span><br/><span class="hl-1">    end note</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="deployment-state-details" class="tsd-anchor-link">Deployment State Details<a href="#deployment-state-details" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Description</th>
+<th>Duration</th>
+<th>Rollback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PreDeployment</strong></td>
+<td>Final checks before commit</td>
+<td>5s</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>GitStaging</strong></td>
+<td>Adding files to Git index</td>
+<td>10s</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>GitCommit</strong></td>
+<td>Creating signed commit</td>
+<td>5s</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>GitPush</strong></td>
+<td>Pushing to GitHub remote</td>
+<td>10-30s</td>
+<td>No*</td>
+</tr>
+<tr>
+<td><strong>GitHubPagesQueue</strong></td>
+<td>GitHub Pages build queue</td>
+<td>30-90s</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Building</strong></td>
+<td>Jekyll build process</td>
+<td>30-60s</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Deploying</strong></td>
+<td>CDN deployment</td>
+<td>30-60s</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>DeploymentComplete</strong></td>
+<td>Live on GitHub Pages</td>
+<td>Permanent</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>VerifyDeployment</strong></td>
+<td>Post-deploy validation</td>
+<td>30s</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>DeploymentMonitored</strong></td>
+<td>Monitoring active</td>
+<td>Ongoing</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>DeploymentFailed</strong></td>
+<td>Critical failure</td>
+<td>N/A</td>
+<td>Rollback</td>
+</tr>
+<tr>
+<td><strong>DeploymentDegraded</strong></td>
+<td>Partial failure</td>
+<td>Until fixed</td>
+<td>Manual</td>
+</tr>
+</tbody>
+</table>
+<p>*Git push can be reverted with <code>git revert</code>, but GitHub Pages redeploys.</p>
+<hr>
+<h2 id="🎨-color-legend-styling" class="tsd-anchor-link">🎨 Color Legend &amp; Styling<a href="#🎨-color-legend-styling" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>State diagrams use consistent colors to indicate state categories:</p>
+<pre><code class="mermaid"><span class="hl-1">stateDiagram-v2</span><br/><span class="hl-1">    [*] --&gt; Normal: Normal States</span><br/><span class="hl-1">    [*] --&gt; Transient: Transient States</span><br/><span class="hl-1">    [*] --&gt; Error: Error States</span><br/><span class="hl-1">    [*] --&gt; Success: Success States</span><br/><span class="hl-1">    [*] --&gt; Critical: Critical States</span><br/><br/><span class="hl-1">    state Normal {</span><br/><span class="hl-1">        [*] --&gt; Processing</span><br/><span class="hl-1">        [*] --&gt; Waiting</span><br/><span class="hl-1">        [*] --&gt; Active</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    state Transient {</span><br/><span class="hl-1">        [*] --&gt; Connecting</span><br/><span class="hl-1">        [*] --&gt; Retrying</span><br/><span class="hl-1">        [*] --&gt; Loading</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    state Error {</span><br/><span class="hl-1">        [*] --&gt; Failed</span><br/><span class="hl-1">        [*] --&gt; Rejected</span><br/><span class="hl-1">        [*] --&gt; Invalid</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    state Success {</span><br/><span class="hl-1">        [*] --&gt; Complete</span><br/><span class="hl-1">        [*] --&gt; Validated</span><br/><span class="hl-1">        [*] --&gt; Published</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    state Critical {</span><br/><span class="hl-1">        [*] --&gt; Fatal</span><br/><span class="hl-1">        [*] --&gt; Aborted</span><br/><span class="hl-1">        [*] --&gt; SecurityViolation</span><br/><span class="hl-1">    }</span><br/><br/><span class="hl-1">    note right of Normal</span><br/><span class="hl-1">        Light blue/gray:</span><br/><span class="hl-1">        Regular processing states</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of Transient</span><br/><span class="hl-1">        Yellow/amber:</span><br/><span class="hl-1">        Temporary states during</span><br/><span class="hl-1">        transitions</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of Error</span><br/><span class="hl-1">        Red/pink:</span><br/><span class="hl-1">        Error states requiring</span><br/><span class="hl-1">        attention</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of Success</span><br/><span class="hl-1">        Green:</span><br/><span class="hl-1">        Successfully completed</span><br/><span class="hl-1">        states</span><br/><span class="hl-1">    end note</span><br/><br/><span class="hl-1">    note right of Critical</span><br/><span class="hl-1">        Dark red:</span><br/><span class="hl-1">        Critical failures requiring</span><br/><span class="hl-1">        immediate intervention</span><br/><span class="hl-1">    end note</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>State Type</th>
+<th>Example States</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔵 <strong>Light Blue</strong></td>
+<td>Normal Processing</td>
+<td>Active, Generating, Processing</td>
+</tr>
+<tr>
+<td>🟡 <strong>Yellow</strong></td>
+<td>Transient</td>
+<td>Connecting, Retrying, Loading</td>
+</tr>
+<tr>
+<td>🟢 <strong>Green</strong></td>
+<td>Success</td>
+<td>Complete, Validated, Published, Deployed</td>
+</tr>
+<tr>
+<td>🔴 <strong>Red</strong></td>
+<td>Error</td>
+<td>Failed, Rejected, Invalid</td>
+</tr>
+<tr>
+<td>⚫ <strong>Dark Red</strong></td>
+<td>Critical</td>
+<td>Fatal, Aborted, SecurityViolation</td>
+</tr>
+<tr>
+<td>⚪ <strong>White</strong></td>
+<td>Initial/Final</td>
+<td>[*] start and end states</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="📊-state-metrics-monitoring" class="tsd-anchor-link">📊 State Metrics &amp; Monitoring<a href="#📊-state-metrics-monitoring" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="key-performance-indicators" class="tsd-anchor-link">Key Performance Indicators<a href="#key-performance-indicators" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Measurement</th>
+<th>Alert Threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Time in Idle</strong></td>
+<td>&gt;95%</td>
+<td>Percentage of time waiting</td>
+<td>&lt;90% (overloaded)</td>
+</tr>
+<tr>
+<td><strong>Initialization Success Rate</strong></td>
+<td>&gt;99%</td>
+<td>Successful init / total attempts</td>
+<td>&lt;95%</td>
+</tr>
+<tr>
+<td><strong>MCP Connection Success Rate</strong></td>
+<td>&gt;95%</td>
+<td>Connected / connection attempts</td>
+<td>&lt;90%</td>
+</tr>
+<tr>
+<td><strong>Article Generation Success Rate</strong></td>
+<td>&gt;98%</td>
+<td>Published / attempted</td>
+<td>&lt;95%</td>
+</tr>
+<tr>
+<td><strong>Validation Pass Rate</strong></td>
+<td>&gt;99%</td>
+<td>Passed / total validations</td>
+<td>&lt;98%</td>
+</tr>
+<tr>
+<td><strong>Deployment Success Rate</strong></td>
+<td>&gt;99%</td>
+<td>Successful deploys / attempts</td>
+<td>&lt;98%</td>
+</tr>
+<tr>
+<td><strong>Error Recovery Rate</strong></td>
+<td>&gt;90%</td>
+<td>Recovered / total errors</td>
+<td>&lt;80%</td>
+</tr>
+<tr>
+<td><strong>Fallback Activation Rate</strong></td>
+<td>&lt;5%</td>
+<td>Fallback / total attempts</td>
+<td>&gt;10%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="state-duration-targets" class="tsd-anchor-link">State Duration Targets<a href="#state-duration-targets" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Target Duration</th>
+<th>Warning Threshold</th>
+<th>Error Threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Initialization</strong></td>
+<td>&lt;30s</td>
+<td>&gt;45s</td>
+<td>&gt;60s</td>
+</tr>
+<tr>
+<td><strong>MCP Connection</strong></td>
+<td>&lt;10s</td>
+<td>&gt;20s</td>
+<td>&gt;30s</td>
+</tr>
+<tr>
+<td><strong>Data Fetching</strong></td>
+<td>&lt;30s</td>
+<td>&gt;60s</td>
+<td>&gt;90s</td>
+</tr>
+<tr>
+<td><strong>Article Generation</strong></td>
+<td>&lt;120s</td>
+<td>&gt;180s</td>
+<td>&gt;300s</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>&lt;30s</td>
+<td>&gt;45s</td>
+<td>&gt;60s</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>&lt;60s</td>
+<td>&gt;90s</td>
+<td>&gt;120s</td>
+</tr>
+<tr>
+<td><strong>Git Operations</strong></td>
+<td>&lt;30s</td>
+<td>&gt;45s</td>
+<td>&gt;60s</td>
+</tr>
+<tr>
+<td><strong>GitHub Pages Deploy</strong></td>
+<td>&lt;90s</td>
+<td>&gt;150s</td>
+<td>&gt;300s</td>
+</tr>
+</tbody>
+</table>
+<h3 id="monitoring-commands" class="tsd-anchor-link">Monitoring Commands<a href="#monitoring-commands" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="bash"><span class="hl-4"># Check current workflow state</span><br/><span class="hl-0">gh</span><span class="hl-1"> </span><span class="hl-2">workflow</span><span class="hl-1"> </span><span class="hl-2">view</span><span class="hl-1"> </span><span class="hl-2">news-generation</span><span class="hl-1"> </span><span class="hl-3">--repo</span><span class="hl-1"> </span><span class="hl-2">Hack23/euparliamentmonitor</span><br/><br/><span class="hl-4"># View recent workflow runs</span><br/><span class="hl-0">gh</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">list</span><span class="hl-1"> </span><span class="hl-3">--workflow=news-generation.yml</span><span class="hl-1"> </span><span class="hl-3">--limit</span><span class="hl-1"> </span><span class="hl-9">20</span><br/><br/><span class="hl-4"># Monitor specific run state</span><br/><span class="hl-0">gh</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">watch</span><span class="hl-1"> &lt;</span><span class="hl-2">run-i</span><span class="hl-1">d&gt;</span><br/><br/><span class="hl-4"># Check GitHub Pages deployment status</span><br/><span class="hl-0">gh</span><span class="hl-1"> </span><span class="hl-2">api</span><span class="hl-1"> </span><span class="hl-2">repos/Hack23/euparliamentmonitor/pages/builds/latest</span><br/><br/><span class="hl-4"># View state transition logs</span><br/><span class="hl-0">gh</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">view</span><span class="hl-1"> &lt;</span><span class="hl-2">run-i</span><span class="hl-1">d&gt; </span><span class="hl-3">--log</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="🔐-security-state-considerations" class="tsd-anchor-link">🔐 Security State Considerations<a href="#🔐-security-state-considerations" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="state-based-security-controls" class="tsd-anchor-link">State-Based Security Controls<a href="#state-based-security-controls" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ol>
+<li><strong>Immutable States</strong>: Once <code>ArticlePublished</code>, content cannot be modified
+(only reverted)</li>
+<li><strong>Validation Gates</strong>: Cannot transition to <code>Publishing</code> without passing
+<code>Validating</code></li>
+<li><strong>Authentication States</strong>: MCP connection requires successful authentication</li>
+<li><strong>Rate Limiting</strong>: Retry states implement exponential backoff to prevent DoS</li>
+<li><strong>Error Isolation</strong>: Error states log details but don't expose sensitive
+information</li>
+<li><strong>Audit Trail</strong>: All state transitions logged with timestamps and context</li>
+</ol>
+<h3 id="compliance-requirements" class="tsd-anchor-link">Compliance Requirements<a href="#compliance-requirements" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Per
+<a href="https://github.com/Hack23/ISMS-PUBLIC" target="_blank" class="external">Hack23 ISMS State Management Policy</a>:</p>
+<ul>
+<li><strong>ISO 27001 A.8.2</strong>: All state transitions must be logged and auditable</li>
+<li><strong>ISO 27001 A.12.4</strong>: States must prevent unauthorized data modification</li>
+<li><strong>ISO 27001 A.14.2</strong>: State validation ensures data integrity</li>
+<li><strong>NIS2 Article 21</strong>: Error states must trigger incident response procedures</li>
+</ul>
+<hr>
+<h2 id="🔄-related-documentation" class="tsd-anchor-link">🔄 Related Documentation<a href="#🔄-related-documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="process-documents" class="tsd-anchor-link">Process Documents<a href="#process-documents" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong><a href="FLOWCHART.html">FLOWCHART.md</a></strong>: Detailed process flows for news generation</li>
+<li><strong><a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a></strong>: Security controls
+and threat model</li>
+</ul>
+<h3 id="data-documents" class="tsd-anchor-link">Data Documents<a href="#data-documents" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong><a href="DATA_MODEL.html">DATA_MODEL.md</a></strong>: Entity relationships and data structures</li>
+<li><strong><a href="ARCHITECTURE.html">ARCHITECTURE.md</a></strong>: C4 model system architecture</li>
+</ul>
+<h3 id="strategic-documents" class="tsd-anchor-link">Strategic Documents<a href="#strategic-documents" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong><a href="MINDMAP.html">MINDMAP.md</a></strong>: Conceptual system relationships</li>
+<li><strong><a href="SWOT.html">SWOT.md</a></strong>: Strategic analysis and opportunities</li>
+</ul>
+<hr>
+<h2 id="📅-document-revision-history" class="tsd-anchor-link">📅 Document Revision History<a href="#📅-document-revision-history" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.1</td>
+<td>2026-02-24</td>
+<td>CEO</td>
+<td>Updated review date and verified current state accuracy</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>2025-02-17</td>
+<td>CEO</td>
+<td>Initial state diagram documentation with comprehensive state machines</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="📝-footer" class="tsd-anchor-link">📝 Footer<a href="#📝-footer" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><strong>Document Classification</strong>: Public<br>
+<strong>ISMS Compliance</strong>: ISO 27001:2022 compliant, GDPR compliant, NIS2 aligned<br>
+<strong>Technology Stack</strong>: Node.js 25, GitHub Actions, GitHub Pages, European
+Parliament MCP Server<br>
+<strong>Architecture Pattern</strong>: Static Site Generator with Zero Runtime Dependencies<br>
+<strong>Review Status</strong>: Active, next review 2026-05-24</p>
+<hr>
+<p align="center">
+  <em>🔄 State Diagrams — Behavioral Model for EU Parliament Monitor</em><br>
+  <strong>Part of ISMS-compliant Architecture Documentation Suite</strong>
+</p>
+<p align="center">
+  <a href="https://github.com/Hack23/euparliamentmonitor">🏛️ GitHub Repository</a> •
+  <a href="https://github.com/Hack23/ISMS-PUBLIC">🛡️ ISMS Framework</a> •
+  <a href="https://hack23.com">🌐 Hack23</a>
+</p></div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-alpha" name="alpha"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Alpha</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-beta" name="beta"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Beta</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#📚-architecture-documentation-map"><span>📚 <wbr/>Architecture <wbr/>Documentation <wbr/>Map</span></a><a href="#🛡️-isms-policy-alignment"><span>🛡️ <wbr/>ISMS <wbr/>Policy <wbr/>Alignment</span></a><ul><li><a href="#applicable-isms-policies"><span>Applicable <wbr/>ISMS <wbr/>Policies</span></a></li></ul><a href="#📋-overview"><span>📋 <wbr/>Overview</span></a><ul><li><a href="#purpose"><span>Purpose</span></a></li><li><a href="#system-context"><span>System <wbr/>Context</span></a></li></ul><a href="#🎯-system-lifecycle-state"><span>🎯 <wbr/>System <wbr/>Lifecycle <wbr/>State</span></a><ul><li><a href="#system-state-definitions"><span>System <wbr/>State <wbr/>Definitions</span></a></li><li><a href="#state-transition-rules"><span>State <wbr/>Transition <wbr/>Rules</span></a></li></ul><a href="#📰-article-lifecycle-state"><span>📰 <wbr/>Article <wbr/>Lifecycle <wbr/>State</span></a><ul><li><a href="#article-state-definitions"><span>Article <wbr/>State <wbr/>Definitions</span></a></li></ul><a href="#🔌-mcp-connection-state-machine"><span>🔌 <wbr/>MCP <wbr/>Connection <wbr/>State <wbr/>Machine</span></a><ul><li><a href="#mcp-connection-states"><span>MCP <wbr/>Connection <wbr/>States</span></a></li><li><a href="#connection-state-rules"><span>Connection <wbr/>State <wbr/>Rules</span></a></li></ul><a href="#✅-validation-state-flow"><span>✅ <wbr/>Validation <wbr/>State <wbr/>Flow</span></a><ul><li><a href="#validation-stage-details"><span>Validation <wbr/>Stage <wbr/>Details</span></a></li></ul><a href="#🚨-error-state-handling"><span>🚨 <wbr/>Error <wbr/>State <wbr/>Handling</span></a><ul><li><a href="#error-classification-matrix"><span>Error <wbr/>Classification <wbr/>Matrix</span></a></li></ul><a href="#📦-deployment-state-lifecycle"><span>📦 <wbr/>Deployment <wbr/>State <wbr/>Lifecycle</span></a><ul><li><a href="#deployment-state-details"><span>Deployment <wbr/>State <wbr/>Details</span></a></li></ul><a href="#🎨-color-legend-styling"><span>🎨 <wbr/>Color <wbr/>Legend &amp; <wbr/>Styling</span></a><a href="#📊-state-metrics-monitoring"><span>📊 <wbr/>State <wbr/>Metrics &amp; <wbr/>Monitoring</span></a><ul><li><a href="#key-performance-indicators"><span>Key <wbr/>Performance <wbr/>Indicators</span></a></li><li><a href="#state-duration-targets"><span>State <wbr/>Duration <wbr/>Targets</span></a></li><li><a href="#monitoring-commands"><span>Monitoring <wbr/>Commands</span></a></li></ul><a href="#🔐-security-state-considerations"><span>🔐 <wbr/>Security <wbr/>State <wbr/>Considerations</span></a><ul><li><a href="#state-based-security-controls"><span>State-<wbr/>Based <wbr/>Security <wbr/>Controls</span></a></li><li><a href="#compliance-requirements"><span>Compliance <wbr/>Requirements</span></a></li></ul><a href="#🔄-related-documentation"><span>🔄 <wbr/>Related <wbr/>Documentation</span></a><ul><li><a href="#process-documents"><span>Process <wbr/>Documents</span></a></li><li><a href="#data-documents"><span>Data <wbr/>Documents</span></a></li><li><a href="#strategic-documents"><span>Strategic <wbr/>Documents</span></a></li></ul><a href="#📅-document-revision-history"><span>📅 <wbr/>Document <wbr/>Revision <wbr/>History</span></a><a href="#📝-footer"><span>📝 <wbr/>Footer</span></a></div></details></div><div class="site-menu"><nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md">🏛️ Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md">🔒 Security Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md">🛡️ Threat Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md">📊 Data Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FLOWCHART.md">🔄 Flowchart</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/STATEDIAGRAM.md">📈 State Diagram</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md">🧠 Mindmap</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md">💼 SWOT Analysis</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md">📜 CRA Assessment</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md">🚀 Future Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md">🔮 Future Security</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md">📋 Secure Dev Policy</a><a href="https://euparliamentmonitor.com" class="tsd-nav-link">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor" class="tsd-nav-link">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC" class="tsd-nav-link">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server" class="tsd-nav-link">🇪🇺 EP MCP Server</a></nav><nav class="tsd-navigation"><a href="../modules.html">EU Parliament Monitor — API Documentation - v0.8.3</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>
