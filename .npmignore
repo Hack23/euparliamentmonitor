@@ -1,0 +1,71 @@
+# ─── Source & Config ──────────────────────────────────────────────────────────
+src/
+tsconfig.json
+tsconfig.test.json
+eslint.config.js
+.eslintrc*
+.prettierrc*
+.prettierignore
+.htmlhintignore
+.lintstagedrc.json
+.jscpd.json
+.lighthouserc.json
+typedoc.json
+jsdoc.json
+vitest.config.js
+playwright.config.js
+
+# ─── Tests ────────────────────────────────────────────────────────────────────
+test/
+e2e/
+coverage/
+builds/
+playwright-report/
+test-results/
+
+# ─── Dev & CI ─────────────────────────────────────────────────────────────────
+.github/
+.devcontainer/
+.husky/
+.gitattributes
+.gitignore
+
+# ─── Static site (not part of npm package) ────────────────────────────────────
+news/
+docs/
+images/
+js/
+*.html
+styles.css
+site.webmanifest
+sitemap.xml
+rss.xml
+
+# ─── Documentation (README.md and LICENSE included via files field) ───────────
+ARCHITECTURE.md
+AUTHORS.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+CRA-ASSESSMENT.md
+DATA_MODEL.md
+FLOWCHART.md
+FUTURE_*.md
+MINDMAP.md
+STATEDIAGRAM.md
+SWOT.md
+SECURITY_ARCHITECTURE.md
+THREAT_MODEL.md
+
+# ─── OS & Editor ──────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ─── Logs & temp ──────────────────────────────────────────────────────────────
+*.log
+*.tgz
+mcp-debug.log
+mcp-*.tmp

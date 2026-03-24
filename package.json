@@ -3,7 +3,26 @@
   "version": "0.8.2",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
-  "main": "index.html",
+  "main": "scripts/index.js",
+  "types": "scripts/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./scripts/index.js",
+      "types": "./scripts/index.d.ts"
+    }
+  },
+  "files": [
+    "scripts/",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "prebuild": "node scripts/generators/news-indexes.js && node scripts/generators/sitemap.js",
     "build": "tsc",
@@ -41,7 +60,8 @@
     "docs:copy-reports": "node scripts/utils/copy-test-reports.js",
     "docs:index": "node scripts/utils/generate-docs-index.js",
     "docs:generate": "npm run docs:api && npm run docs:copy-reports && npm run docs:index",
-    "prepare": "husky"
+    "prepare": "husky",
+    "prepublishOnly": "npm run lint && npm run test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -54,7 +74,11 @@
     "politics",
     "osint",
     "transparency",
-    "intelligence"
+    "intelligence",
+    "mcp",
+    "model-context-protocol",
+    "open-data",
+    "typescript"
   ],
   "author": "Hack23 AB",
   "license": "Apache-2.0",
