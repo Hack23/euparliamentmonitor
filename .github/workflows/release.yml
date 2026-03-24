@@ -30,6 +30,7 @@ jobs:
       contents: write # Required for git auto-commit
     outputs:
       version: ${{ steps.get-version.outputs.version }}
+      npm_version: ${{ steps.get-version.outputs.npm_version }}
       is_prerelease: ${{ github.event.inputs.prerelease || 'false' }}
     steps:
       - name: Harden Runner
@@ -51,7 +52,11 @@ jobs:
             VERSION=${{ github.event.inputs.version }}
           fi
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          # npm version without 'v' prefix
+          NPM_VERSION="${VERSION#v}"
+          echo "npm_version=${NPM_VERSION}" >> $GITHUB_OUTPUT
           echo "Version: ${VERSION}"
+          echo "npm version: ${NPM_VERSION}"
 
       - name: Setup Node.js
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
@@ -352,6 +357,14 @@ jobs:
             - `euparliamentmonitor-${{ needs.prepare.outputs.version }}.spdx.json` - SBOM (Software Bill of Materials)
             - `*.intoto.jsonl` - SLSA Build Provenance Attestations
 
+            ## 📦 npm Package
+
+            ```bash
+            npm install euparliamentmonitor@${{ needs.prepare.outputs.npm_version }}
+            ```
+
+            Published with [npm provenance](https://docs.npmjs.com/generating-provenance-statements) for supply chain security.
+
             ## 📚 Documentation
 
             - [API Documentation](https://hack23.github.io/euparliamentmonitor/docs/api/)
@@ -377,3 +390,62 @@ jobs:
             artifacts/security/euparliamentmonitor-${{ needs.prepare.outputs.version }}.zip.intoto.jsonl
             artifacts/security/euparliamentmonitor-${{ needs.prepare.outputs.version }}.spdx.json.intoto.jsonl
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ─── npm Publish ────────────────────────────────────────────────────
+      - name: Checkout release tag for npm publish
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v4.3.1
+        with:
+          ref: ${{ needs.prepare.outputs.version }}
+
+      - name: Setup Node.js for npm publish
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: "25"
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Cache dependencies
+        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build package
+        run: npm run build
+
+      - name: Verify package contents
+        run: |
+          echo "📦 Package contents preview:"
+          npm pack --dry-run
+          echo ""
+          echo "📋 Package entry point:"
+          node --input-type=module -e "
+            import { readFileSync } from 'fs';
+            const pkg = JSON.parse(readFileSync('./package.json', 'utf8'));
+            console.log('main:', pkg.main);
+            console.log('types:', pkg.types);
+            console.log('exports:', JSON.stringify(pkg.exports, null, 2));
+          "
+
+      - name: Publish to npm with provenance
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
+
+      - name: Verify npm package
+        run: |
+          echo "✅ Package published successfully!"
+          echo "📦 Package: euparliamentmonitor@${{ needs.prepare.outputs.npm_version }}"
+          echo "🔗 npm URL: https://www.npmjs.com/package/euparliamentmonitor"
+          echo ""
+          echo "To install:"
+          echo "  npm install euparliamentmonitor@${{ needs.prepare.outputs.npm_version }}"
+          echo ""
+          echo "To verify provenance:"
+          echo "  npm audit signatures"
