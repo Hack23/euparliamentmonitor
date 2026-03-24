@@ -30,6 +30,7 @@ jobs:
       contents: write # Required for git auto-commit
     outputs:
       version: ${{ steps.get-version.outputs.version }}
+      npm_version: ${{ steps.get-version.outputs.npm_version }}
       is_prerelease: ${{ github.event.inputs.prerelease || 'false' }}
     steps:
       - name: Harden Runner
@@ -51,7 +52,11 @@ jobs:
             VERSION=${{ github.event.inputs.version }}
           fi
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          # npm version without 'v' prefix
+          NPM_VERSION="${VERSION#v}"
+          echo "npm_version=${NPM_VERSION}" >> $GITHUB_OUTPUT
           echo "Version: ${VERSION}"
+          echo "npm version: ${NPM_VERSION}"
 
       - name: Setup Node.js
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
@@ -355,7 +360,7 @@ jobs:
             ## 📦 npm Package
 
             ```bash
-            npm install euparliamentmonitor@${{ needs.prepare.outputs.version }}
+            npm install euparliamentmonitor@${{ needs.prepare.outputs.npm_version }}
             ```
 
             Published with [npm provenance](https://docs.npmjs.com/generating-provenance-statements) for supply chain security.
@@ -387,6 +392,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # ─── npm Publish ────────────────────────────────────────────────────
+      - name: Checkout release tag for npm publish
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v4.3.1
+        with:
+          ref: ${{ needs.prepare.outputs.version }}
+
       - name: Setup Node.js for npm publish
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
@@ -431,11 +441,11 @@ jobs:
       - name: Verify npm package
         run: |
           echo "✅ Package published successfully!"
-          echo "📦 Package: euparliamentmonitor@${{ needs.prepare.outputs.version }}"
+          echo "📦 Package: euparliamentmonitor@${{ needs.prepare.outputs.npm_version }}"
           echo "🔗 npm URL: https://www.npmjs.com/package/euparliamentmonitor"
           echo ""
           echo "To install:"
-          echo "  npm install euparliamentmonitor@${{ needs.prepare.outputs.version }}"
+          echo "  npm install euparliamentmonitor@${{ needs.prepare.outputs.npm_version }}"
           echo ""
           echo "To verify provenance:"
           echo "  npm audit signatures"

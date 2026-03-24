@@ -86,14 +86,6 @@ template: |
 
   $CHANGES
 
-  ## 📦 Install
-
-  ```bash
-  npm install euparliamentmonitor@$RESOLVED_VERSION
-  ```
-
-  Published with [npm provenance](https://docs.npmjs.com/generating-provenance-statements) for supply chain security.
-
   ## 📊 Release Metrics & Evidence
 
   [![Test Coverage](https://img.shields.io/badge/Coverage-Reports-green?logo=vitest&style=for-the-badge)](https://euparliamentmonitor.com/docs/coverage/)

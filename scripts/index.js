@@ -27,9 +27,9 @@ export * from './types/index.js';
 // ─── MCP Clients ─────────────────────────────────────────────────────────────
 export { MCPConnection, MCPSessionExpiredError, MCPRateLimitError, isRetriableError, formatRetryAfter, parseSSEResponse, } from './mcp/mcp-connection.js';
 export { EuropeanParliamentMCPClient, getEPMCPClient, closeEPMCPClient, } from './mcp/ep-mcp-client.js';
-export { WorldBankMCPClient, getWBMCPClient, closeWBMCPClient, } from './mcp/wb-mcp-client.js';
+export { WorldBankMCPClient, getWBMCPClient, closeWBMCPClient } from './mcp/wb-mcp-client.js';
 export { CircuitBreaker, withRetry, } from './mcp/mcp-retry.js';
-export { MCPHealthMonitor, } from './mcp/mcp-health.js';
+export { MCPHealthMonitor } from './mcp/mcp-health.js';
 // ─── Intelligence Analysis ───────────────────────────────────────────────────
 export { scoreVotingAnomaly, analyzeCoalitionCohesion, scoreMEPInfluence, calculateLegislativeVelocity, rankBySignificance, buildIntelligenceSection, buildDefaultStakeholderPerspectives, scoreStakeholderInfluence, buildStakeholderOutcomeMatrix, rankStakeholdersByInfluence, computeVotingIntensity, detectCoalitionShifts, computePolarizationIndex, detectVotingTrends, computeCrossSessionCoalitionStability, rankMEPInfluenceByTopic, buildLegislativeVelocityReport, } from './utils/intelligence-analysis.js';
 // ─── Intelligence Index ──────────────────────────────────────────────────────

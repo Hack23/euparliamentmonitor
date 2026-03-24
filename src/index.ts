@@ -43,11 +43,7 @@ export {
   closeEPMCPClient,
 } from './mcp/ep-mcp-client.js';
 
-export {
-  WorldBankMCPClient,
-  getWBMCPClient,
-  closeWBMCPClient,
-} from './mcp/wb-mcp-client.js';
+export { WorldBankMCPClient, getWBMCPClient, closeWBMCPClient } from './mcp/wb-mcp-client.js';
 
 export {
   type CircuitState,
@@ -57,11 +53,7 @@ export {
   withRetry,
 } from './mcp/mcp-retry.js';
 
-export {
-  type ToolHealthEntry,
-  type HealthSnapshot,
-  MCPHealthMonitor,
-} from './mcp/mcp-health.js';
+export { type ToolHealthEntry, type HealthSnapshot, MCPHealthMonitor } from './mcp/mcp-health.js';
 
 // ─── Intelligence Analysis ───────────────────────────────────────────────────
 export {
