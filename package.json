@@ -103,5 +103,8 @@
   },
   "dependencies": {
     "european-parliament-mcp-server": "^1.1.16"
+  },
+  "overrides": {
+    "flatted": ">=3.4.2"
   }
 }
