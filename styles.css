@@ -47,6 +47,11 @@
 
   --max-width: 1440px;
   --transition: 0.25s ease;
+
+  /* Chart/Dashboard tokens */
+  --metric-gradient-start: #003399;
+  --metric-gradient-end: #1565c0;
+  --chart-row-hover: rgba(0, 51, 153, 0.03);
 }
 
 /* ─── Skip Navigation ────────────────────────────────────────────── */
@@ -1640,6 +1645,11 @@ button:focus-visible {
     --hero-surface-soft: rgba(255, 255, 255, 0.04);
     --hero-surface-border: rgba(255, 255, 255, 0.1);
 
+    /* Chart/Dashboard dark tokens */
+    --metric-gradient-start: #4da3ff;
+    --metric-gradient-end: #80bfff;
+    --chart-row-hover: rgba(77, 163, 255, 0.06);
+
     /* Dark mode political group colors — lighter for visibility on dark cards.
      * All colors achieve ≥4.5:1 contrast against dark text (var(--bg) = #0f1219)
      * as required by WCAG 2.1 AA for small text.
@@ -1688,6 +1698,10 @@ html[data-theme="dark"] {
   --hero-surface-strong: rgba(255, 255, 255, 0.1);
   --hero-surface-soft: rgba(255, 255, 255, 0.04);
   --hero-surface-border: rgba(255, 255, 255, 0.1);
+  /* Chart/Dashboard dark tokens */
+  --metric-gradient-start: #4da3ff;
+  --metric-gradient-end: #80bfff;
+  --chart-row-hover: rgba(77, 163, 255, 0.06);
   --group-epp: #4a9fe6;
   --group-sd: #ff6b6b;
   --group-re: #ffd93d;
@@ -2362,7 +2376,7 @@ html[data-theme="dark"] .site-header {
   }
 
   html:not([data-theme="light"]) .metric-value {
-    background: linear-gradient(135deg, #4da3ff, #80bfff);
+    background: linear-gradient(135deg, var(--metric-gradient-start), var(--metric-gradient-end));
     -webkit-background-clip: text;
     background-clip: text;
   }
@@ -2386,7 +2400,7 @@ html[data-theme="dark"] .site-header {
   }
 
   html:not([data-theme="light"]) .chart-fallback-table tbody tr:hover {
-    background: rgba(77, 163, 255, 0.06);
+    background: var(--chart-row-hover);
   }
 
   /* Sankey system dark */
@@ -2830,7 +2844,7 @@ html[data-theme="dark"] .metric-card {
 }
 
 html[data-theme="dark"] .metric-value {
-  background: linear-gradient(135deg, #4da3ff, #80bfff);
+  background: linear-gradient(135deg, var(--metric-gradient-start), var(--metric-gradient-end));
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -2849,7 +2863,7 @@ html[data-theme="dark"] .chart-fallback-table thead th {
 }
 
 html[data-theme="dark"] .chart-fallback-table tbody tr:hover {
-  background: rgba(77, 163, 255, 0.06);
+  background: var(--chart-row-hover);
 }
 
 /* Sankey dark mode */
@@ -4263,7 +4277,7 @@ html[data-theme="dark"] [dir='rtl'] .news-card { border-left-color: var(--border
 .metric-value {
   font-size: 1.6rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #003399, #1565c0);
+  background: linear-gradient(135deg, var(--metric-gradient-start), var(--metric-gradient-end));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -4358,7 +4372,7 @@ html[data-theme="dark"] [dir='rtl'] .news-card { border-left-color: var(--border
 }
 
 .chart-fallback-table tbody tr:hover {
-  background: rgba(0, 51, 153, 0.03);
+  background: var(--chart-row-hover);
 }
 
 .chart-no-data {
