@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>68/68</span>
+                <span class='fraction'>70/70</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>67/67</span>
+                <span class='fraction'>69/69</span>
             </div>
         
             
@@ -526,7 +526,26 @@
 <a name='L461'></a><a href='#L461'>461</a>
 <a name='L462'></a><a href='#L462'>462</a>
 <a name='L463'></a><a href='#L463'>463</a>
-<a name='L464'></a><a href='#L464'>464</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L464'></a><a href='#L464'>464</a>
+<a name='L465'></a><a href='#L465'>465</a>
+<a name='L466'></a><a href='#L466'>466</a>
+<a name='L467'></a><a href='#L467'>467</a>
+<a name='L468'></a><a href='#L468'>468</a>
+<a name='L469'></a><a href='#L469'>469</a>
+<a name='L470'></a><a href='#L470'>470</a>
+<a name='L471'></a><a href='#L471'>471</a>
+<a name='L472'></a><a href='#L472'>472</a>
+<a name='L473'></a><a href='#L473'>473</a>
+<a name='L474'></a><a href='#L474'>474</a>
+<a name='L475'></a><a href='#L475'>475</a>
+<a name='L476'></a><a href='#L476'>476</a>
+<a name='L477'></a><a href='#L477'>477</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -778,6 +797,12 @@
 <span class="cline-any cline-yes">418x</span>
 <span class="cline-any cline-yes">418x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">418x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">418x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">418x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -799,6 +824,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">762x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1015,6 +1041,7 @@ import {
   SKIP_LINK_TEXTS,
   SOURCES_HEADING_LABELS,
   HEADER_SUBTITLE_LABELS,
+  THEME_TOGGLE_LABELS,
   FOOTER_ABOUT_HEADING_LABELS,
   FOOTER_ABOUT_TEXT_LABELS,
   FOOTER_QUICK_LINKS_LABELS,
@@ -1024,7 +1051,12 @@ import {
   getTextDirection,
 } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
-import { APP_VERSION } from '../constants/config.js';
+import {
+  APP_VERSION,
+  createThemeToggleButton,
+  THEME_TOGGLE_SCRIPT,
+  THEME_TOGGLE_SCRIPT_CONTENT,
+} from '../constants/config.js';
 &nbsp;
 /** Pattern for valid article dates (YYYY-MM-DD) */
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
@@ -1241,6 +1273,12 @@ export function generateArticleHTML(options: ArticleOptions): string {
   const readingProgressScript = `\n  (function(){\n    var bar=document.querySelector('.reading-progress');\n    if(!bar)return;\n    bar.style.display='block';\n    var ticking=false;\n    window.addEventListener('scroll',function(){\n      if(!ticking){\n        window.requestAnimationFrame(function(){\n          var h=document.documentElement;\n          var scrollTop=h.scrollTop||document.body.scrollTop;\n          var scrollHeight=h.scrollHeight-h.clientHeight;\n          bar.style.width=scrollHeight&gt;0?((scrollTop/scrollHeight)*100)+'%':'0%';\n          ticking=false;\n        });\n        ticking=true;\n      }\n    },{passive:true});\n  })();\n  `;
   const readingProgressHash = `sha256-${createHash('sha256').update(readingProgressScript).digest('base64')}`;
 &nbsp;
+  // Theme toggle CSP hash — derived from the shared THEME_TOGGLE_SCRIPT_CONTENT constant
+  const themeToggleHash = `sha256-${createHash('sha256').update(THEME_TOGGLE_SCRIPT_CONTENT).digest('base64')}`;
+&nbsp;
+  // Localized theme toggle button
+  const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
+&nbsp;
   return `&lt;!DOCTYPE html&gt;
 &lt;html lang="${lang}" dir="${dir}"&gt;
 &lt;head&gt;
@@ -1248,7 +1286,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
   &lt;meta http-equiv="X-Content-Type-Options" content="nosniff"&gt;
   &lt;meta name="referrer" content="no-referrer"&gt;
-  &lt;meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${jsonLdHash}' '${readingProgressHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'"&gt;
+  &lt;meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${jsonLdHash}' '${readingProgressHash}' '${themeToggleHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'"&gt;
   &lt;title&gt;${safeTitle} | EU Parliament Monitor&lt;/title&gt;
   &lt;meta name="description" content="${safeSubtitle}"&gt;
   &lt;meta name="keywords" content="${safeKeywords}"&gt;
@@ -1309,13 +1347,14 @@ export function generateArticleHTML(options: ArticleOptions): string {
       &lt;a href="${indexHref}" class="site-header__brand" aria-label="EU Parliament Monitor"&gt;
         &lt;picture class="site-header__logo-picture"&gt;
           &lt;source srcset="../images/favicon-96x96.webp" type="image/webp"&gt;
-          &lt;img class="site-header__logo" src="../images/favicon-96x96.png" alt="" width="96" height="96" aria-hidden="true"&gt;
+          &lt;img class="site-header__logo" src="../images/favicon-96x96.png" alt="" width="36" height="36" aria-hidden="true"&gt;
         &lt;/picture&gt;
         &lt;span&gt;
           &lt;span class="site-header__title"&gt;EU Parliament Monitor&lt;/span&gt;
           &lt;span class="site-header__subtitle"&gt;${headerSubtitle}&lt;/span&gt;
         &lt;/span&gt;
       &lt;/a&gt;
+      ${createThemeToggleButton(themeToggleLabel)}
       &lt;nav class="site-header__langs" role="navigation" aria-label="Language selection"&gt;
         ${buildArticleLangSwitcher(date, slug, lang, availableLanguages)}
       &lt;/nav&gt;
@@ -1417,7 +1456,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   &lt;script src="../js/vendor/d3.min.js" defer&gt;&lt;/script&gt;
   &lt;script src="../js/d3-init.js" defer&gt;&lt;/script&gt;`
       : ''
-  }
+  }${THEME_TOGGLE_SCRIPT}
 &lt;/body&gt;
 &lt;/html&gt;`;
 }
@@ -1459,7 +1498,7 @@ function renderSourcesSection(sources: ArticleSource[], lang: LanguageCode): str
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-24T13:59:11.379Z
+                at 2026-03-25T13:43:58.104Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
