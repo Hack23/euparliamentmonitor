@@ -5,9 +5,9 @@
  * @description Generates HTML templates for news articles with proper structure and metadata
  */
 import { createHash } from 'crypto';
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, SOURCES_HEADING_LABELS, HEADER_SUBTITLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, SOURCES_HEADING_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
-import { APP_VERSION, THEME_TOGGLE_BUTTON, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
+import { APP_VERSION, createThemeToggleButton, THEME_TOGGLE_SCRIPT, THEME_TOGGLE_SCRIPT_CONTENT } from '../constants/config.js';
 /** Pattern for valid article dates (YYYY-MM-DD) */
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
 /** Pattern for valid article slugs (lowercase letters, digits, hyphens) */
@@ -179,9 +179,10 @@ export function generateArticleHTML(options) {
     // Reading-progress script hash — content must exactly match the <script> block.
     const readingProgressScript = `\n  (function(){\n    var bar=document.querySelector('.reading-progress');\n    if(!bar)return;\n    bar.style.display='block';\n    var ticking=false;\n    window.addEventListener('scroll',function(){\n      if(!ticking){\n        window.requestAnimationFrame(function(){\n          var h=document.documentElement;\n          var scrollTop=h.scrollTop||document.body.scrollTop;\n          var scrollHeight=h.scrollHeight-h.clientHeight;\n          bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';\n          ticking=false;\n        });\n        ticking=true;\n      }\n    },{passive:true});\n  })();\n  `;
     const readingProgressHash = `sha256-${createHash('sha256').update(readingProgressScript).digest('base64')}`;
-    // Theme toggle script — reads/writes localStorage, sets data-theme on <html>
-    const themeToggleScript = `\n  (function(){\n    var t=localStorage.getItem('ep-theme');\n    if(t)document.documentElement.setAttribute('data-theme',t);\n    var btn=document.querySelector('.theme-toggle');\n    if(!btn)return;\n    btn.addEventListener('click',function(){\n      var cur=document.documentElement.getAttribute('data-theme');\n      var next=cur==='dark'?'light':'dark';\n      document.documentElement.setAttribute('data-theme',next);\n      localStorage.setItem('ep-theme',next);\n    });\n  })();\n  `;
-    const themeToggleHash = `sha256-${createHash('sha256').update(themeToggleScript).digest('base64')}`;
+    // Theme toggle CSP hash — derived from the shared THEME_TOGGLE_SCRIPT_CONTENT constant
+    const themeToggleHash = `sha256-${createHash('sha256').update(THEME_TOGGLE_SCRIPT_CONTENT).digest('base64')}`;
+    // Localized theme toggle button
+    const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
     return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -257,7 +258,7 @@ export function generateArticleHTML(options) {
           <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
-      ${THEME_TOGGLE_BUTTON}
+      ${createThemeToggleButton(themeToggleLabel)}
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
         ${buildArticleLangSwitcher(date, slug, lang, availableLanguages)}
       </nav>

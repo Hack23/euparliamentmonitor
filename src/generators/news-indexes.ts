@@ -12,7 +12,7 @@
 
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { PROJECT_ROOT, APP_VERSION, NEWS_DIR, THEME_TOGGLE_BUTTON, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
+import { PROJECT_ROOT, APP_VERSION, NEWS_DIR, createThemeToggleButton, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
@@ -26,6 +26,7 @@ import {
   FILTER_LABELS,
   ARTICLE_TYPE_LABELS,
   HEADER_SUBTITLE_LABELS,
+  THEME_TOGGLE_LABELS,
   FOOTER_ABOUT_HEADING_LABELS,
   FOOTER_ABOUT_TEXT_LABELS,
   FOOTER_QUICK_LINKS_LABELS,
@@ -238,6 +239,7 @@ export function generateIndexHTML(
   const footerQuickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
   const footerBuiltByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
   const footerLanguagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
+  const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
   const canonicalUrl = `https://hack23.github.io/euparliamentmonitor/${selfHref}`;
 
   return `<!DOCTYPE html>
@@ -291,7 +293,7 @@ export function generateIndexHTML(
           <span class="site-header__title">${heroTitle}</span>
         </span>
       </a>
-      ${THEME_TOGGLE_BUTTON}
+      ${createThemeToggleButton(themeToggleLabel)}
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
         ${buildLangSwitcher(lang)}
       </nav>

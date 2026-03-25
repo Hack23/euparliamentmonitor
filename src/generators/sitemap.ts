@@ -12,7 +12,7 @@
 import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { NEWS_DIR, BASE_URL, PROJECT_ROOT, THEME_TOGGLE_BUTTON, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
+import { NEWS_DIR, BASE_URL, PROJECT_ROOT, createThemeToggleButton, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
@@ -21,6 +21,7 @@ import {
   PAGE_DESCRIPTIONS,
   SKIP_LINK_TEXTS,
   HEADER_SUBTITLE_LABELS,
+  THEME_TOGGLE_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -362,6 +363,7 @@ export function generateSitemapHTML(
   const docsLabels = DOCS_LABELS[lang] ?? DOCS_LABELS['en']!;
   const heroTitle = getLocalizedString(PAGE_TITLES, lang).split(' - ')[0] ?? '';
   const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
+  const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
 
   // Pages section
   const pagesSection = ALL_LANGUAGES.map((code) => {
@@ -440,7 +442,7 @@ export function generateSitemapHTML(
           <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
-      ${THEME_TOGGLE_BUTTON}
+      ${createThemeToggleButton(themeToggleLabel)}
     </div>
   </header>
 
