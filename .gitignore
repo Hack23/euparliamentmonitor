@@ -10,6 +10,9 @@ builds/
 /playwright-report/
 /test-results/
 
+# Analysis pipeline — ephemeral pre-analysis output (generated at build time)
+analysis-output/
+
 # Logs
 logs/
 *.log

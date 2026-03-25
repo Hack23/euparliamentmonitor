@@ -45,6 +45,8 @@ export { parseArticleFilename, formatSlug, calculateReadTime, escapeHTML, isSafe
 export { detectCategory } from './utils/article-category.js';
 // ─── World Bank Data Utilities ───────────────────────────────────────────────
 export { EU_COUNTRY_CODES, EU_AGGREGATE_CODE, POLICY_INDICATORS, parseWorldBankCSV, formatIndicatorValue, getMostRecentValue, buildEconomicContext, getWorldBankCountryCode, isEUMemberState, buildEconomicContextHTML, } from './utils/world-bank-data.js';
+// ─── Analysis Pipeline ───────────────────────────────────────────────────────
+export { runAnalysisStage, buildAnalysisManifest, buildAnalysisMarkdown, countDataItems, deriveConfidence, generateFrontmatter, ensureDir, writeAnalysisFile, } from './generators/pipeline/analysis-stage.js';
 // ─── Templates ───────────────────────────────────────────────────────────────
 export { generateArticleHTML } from './templates/article-template.js';
 // ─── Constants & Languages ───────────────────────────────────────────────────

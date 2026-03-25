@@ -134,6 +134,23 @@ export {
   buildEconomicContextHTML,
 } from './utils/world-bank-data.js';
 
+// ─── Analysis Pipeline ───────────────────────────────────────────────────────
+export {
+  type AnalysisMethod,
+  type AnalysisStageOptions,
+  type AnalysisOutput,
+  type AnalysisCrossReference,
+  type AnalysisManifest,
+  runAnalysisStage,
+  buildAnalysisManifest,
+  buildAnalysisMarkdown,
+  countDataItems,
+  deriveConfidence,
+  generateFrontmatter,
+  ensureDir,
+  writeAnalysisFile,
+} from './generators/pipeline/analysis-stage.js';
+
 // ─── Templates ───────────────────────────────────────────────────────────────
 export { generateArticleHTML } from './templates/article-template.js';
 
