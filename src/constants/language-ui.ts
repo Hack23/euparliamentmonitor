@@ -636,6 +636,26 @@ export const FILTER_LABELS: LanguageMap<{ all: string; search: string }> = {
   zh: { all: '\u5168\u90e8', search: '\u641c\u7d22\u6587\u7ae0\u2026' },
 };
 
+/* ─── Theme toggle ───────────────────────────────────────────────── */
+
+/** Accessible label for the dark/light theme toggle button per language */
+export const THEME_TOGGLE_LABELS: LanguageMap = {
+  en: 'Toggle dark/light theme',
+  sv: 'Växla mörkt/ljust tema',
+  da: 'Skift mørkt/lyst tema',
+  no: 'Bytt mørkt/lyst tema',
+  fi: 'Vaihda tumma/vaalea teema',
+  de: 'Dunkles/helles Design umschalten',
+  fr: 'Basculer le thème sombre/clair',
+  es: 'Cambiar tema oscuro/claro',
+  nl: 'Wissel donker/licht thema',
+  ar: 'تبديل الوضع الداكن/الفاتح',
+  he: 'החלף ערכת נושא כהה/בהירה',
+  ja: 'ダーク/ライトテーマ切替',
+  ko: '다크/라이트 테마 전환',
+  zh: '切换深色/浅色主题',
+};
+
 /* ─── Site header subtitle ───────────────────────────────────────── */
 
 /** Site header subtitle per language (displayed under "EU Parliament Monitor") */

@@ -9,8 +9,8 @@
 import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { NEWS_DIR, BASE_URL, PROJECT_ROOT } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { NEWS_DIR, BASE_URL, PROJECT_ROOT, createThemeToggleButton, THEME_TOGGLE_SCRIPT, } from '../constants/config.js';
+import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { getNewsArticles, getModifiedDate, parseArticleFilename, formatSlug, extractArticleMeta, escapeHTML, } from '../utils/file-utils.js';
 /** Absolute docs directory under project root */
 const DOCS_DIR = path.join(PROJECT_ROOT, 'docs');
@@ -305,6 +305,7 @@ export function generateSitemapHTML(lang, articleInfos, hasDocsDir = false) {
     const docsLabels = DOCS_LABELS[lang] ?? DOCS_LABELS['en'];
     const heroTitle = getLocalizedString(PAGE_TITLES, lang).split(' - ')[0] ?? '';
     const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
+    const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
     // Pages section
     const pagesSection = ALL_LANGUAGES.map((code) => {
         const name = getLocalizedString(LANGUAGE_NAMES, code);
@@ -368,13 +369,14 @@ export function generateSitemapHTML(lang, articleInfos, hasDocsDir = false) {
       <a href="${getIndexFilename(lang)}" class="site-header__brand" aria-label="${escapeHTML(heroTitle)}">
         <picture class="site-header__logo-picture">
           <source srcset="images/favicon-96x96.webp" type="image/webp">
-          <img class="site-header__logo" src="images/favicon-96x96.png" alt="" width="96" height="96" aria-hidden="true">
+          <img class="site-header__logo" src="images/favicon-96x96.png" alt="" width="36" height="36" aria-hidden="true">
         </picture>
         <span>
           <span class="site-header__title">${escapeHTML(heroTitle)}</span>
           <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
+      ${createThemeToggleButton(themeToggleLabel)}
     </div>
   </header>
 
@@ -435,7 +437,7 @@ ${articlesSection}
     <div class="footer-bottom">
       <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden</p>
     </div>
-  </footer>
+  </footer>${THEME_TOGGLE_SCRIPT}
 </body>
 </html>`;
 }

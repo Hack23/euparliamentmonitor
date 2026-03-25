@@ -87,3 +87,57 @@ export const APP_VERSION: string = (() => {
     return '0.0.0';
   }
 })();
+
+/**
+ * Generate theme toggle HTML button markup with a localized aria-label.
+ * Renders a moon (light→dark) and sun (dark→light) icon; CSS controls visibility.
+ *
+ * @param ariaLabel - Localized accessible label for the theme toggle button
+ * @returns HTML string for the theme toggle button
+ */
+export function createThemeToggleButton(ariaLabel: string): string {
+  return `<button type="button" class="theme-toggle" aria-label="${ariaLabel}"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>`;
+}
+
+/**
+ * Theme toggle HTML button markup for site headers (English default).
+ * @deprecated Use {@link createThemeToggleButton} with a localized aria-label instead.
+ */
+export const THEME_TOGGLE_BUTTON: string = createThemeToggleButton('Toggle dark/light theme');
+
+/**
+ * Raw theme toggle script content (without wrapping `<script>` tags).
+ * Used as single source of truth for both the injected `<script>` block
+ * and the CSP hash computation in article-template.ts.
+ */
+export const THEME_TOGGLE_SCRIPT_CONTENT = `
+  (function(){
+    var docEl=document.documentElement;
+    var t=localStorage.getItem('ep-theme');
+    var storedTheme=t==='light'?'light':t==='dark'?'dark':null;
+    if(storedTheme){
+      docEl.setAttribute('data-theme',storedTheme);
+    }else if(t){
+      localStorage.removeItem('ep-theme');
+    }
+    var btn=document.querySelector('.theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var cur=docEl.getAttribute('data-theme');
+      if(!cur){
+        cur=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
+      }
+      var next=cur==='dark'?'light':'dark';
+      docEl.setAttribute('data-theme',next);
+      localStorage.setItem('ep-theme',next);
+    });
+  })();
+  `;
+
+/**
+ * Theme toggle inline script block (complete `<script>…</script>` markup).
+ * Reads/writes localStorage key "ep-theme" and sets `data-theme` on `<html>`.
+ * Detects system theme on first click when no explicit preference is saved.
+ */
+export const THEME_TOGGLE_SCRIPT = `
+  <script>${THEME_TOGGLE_SCRIPT_CONTENT}</script>`;

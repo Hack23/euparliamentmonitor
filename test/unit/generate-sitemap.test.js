@@ -495,8 +495,11 @@ describe('generate-sitemap', () => {
       ];
       const html = generateSitemapHTML('en', articles);
 
-      expect(html).not.toContain('<script>');
+      // Malicious title must be escaped in the sitemap article list
       expect(html).toContain('&lt;script&gt;');
+      // The only <script> tag should be the theme toggle, not the article title
+      const scriptTags = (html.match(/<script[^>]*>/gi) || []);
+      expect(scriptTags.length).toBe(1); // theme toggle only
     });
 
     it('should link news articles correctly', () => {

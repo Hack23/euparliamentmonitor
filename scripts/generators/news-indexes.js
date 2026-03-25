@@ -9,8 +9,8 @@
  */
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { PROJECT_ROOT, APP_VERSION, NEWS_DIR } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, AI_SECTION_CONTENT, FILTER_LABELS, ARTICLE_TYPE_LABELS, HEADER_SUBTITLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { PROJECT_ROOT, APP_VERSION, NEWS_DIR, createThemeToggleButton, THEME_TOGGLE_SCRIPT, } from '../constants/config.js';
+import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, AI_SECTION_CONTENT, FILTER_LABELS, ARTICLE_TYPE_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { getNewsArticles, groupArticlesByLanguage, formatSlug, parseArticleFilename, extractArticleMeta, escapeHTML, atomicWrite, } from '../utils/file-utils.js';
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
 import { detectCategory } from '../utils/article-category.js';
@@ -177,6 +177,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
     const footerQuickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
     const footerBuiltByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
     const footerLanguagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
+    const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
     const canonicalUrl = `https://hack23.github.io/euparliamentmonitor/${selfHref}`;
     return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
@@ -223,12 +224,13 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
       <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
         <picture class="site-header__logo-picture">
           <source srcset="images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="images/header-logo.png" alt="" width="72" height="48" aria-hidden="true">
+          <img class="site-header__logo site-header__logo--header" src="images/header-logo.png" alt="" width="48" height="32" aria-hidden="true">
         </picture>
         <span>
           <span class="site-header__title">${heroTitle}</span>
         </span>
       </a>
+      ${createThemeToggleButton(themeToggleLabel)}
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
         ${buildLangSwitcher(lang)}
       </nav>
@@ -349,7 +351,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
     });
     if(search){search.addEventListener('input',filterCards);}
   })();
-  </script>
+  </script>${THEME_TOGGLE_SCRIPT}
 </body>
 </html>`;
 }

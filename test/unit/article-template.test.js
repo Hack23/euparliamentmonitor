@@ -464,8 +464,8 @@ describe('article-template', () => {
         
         // Template should only have JSON-LD script tags
         expect(jsonLdScripts.length).toBeGreaterThan(0);
-        // Executable scripts: 1 from the malicious content + 1 reading-progress bar script
-        expect(executableScripts.length).toBe(2);
+        // Executable scripts: 1 from the malicious content + 1 reading-progress bar script + 1 theme toggle script
+        expect(executableScripts.length).toBe(3);
       });
 
       it('should properly escape special characters in title', () => {
