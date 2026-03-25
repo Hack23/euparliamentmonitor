@@ -285,12 +285,13 @@ export function generateIndexHTML(
       <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
         <picture class="site-header__logo-picture">
           <source srcset="images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="images/header-logo.png" alt="" width="72" height="48" aria-hidden="true">
+          <img class="site-header__logo site-header__logo--header" src="images/header-logo.png" alt="" width="48" height="32" aria-hidden="true">
         </picture>
         <span>
           <span class="site-header__title">${heroTitle}</span>
         </span>
       </a>
+      <button type="button" class="theme-toggle" aria-label="Toggle dark/light theme"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
         ${buildLangSwitcher(lang)}
       </nav>
@@ -412,6 +413,20 @@ export function generateIndexHTML(
       });
     });
     if(search){search.addEventListener('input',filterCards);}
+  })();
+  </script>
+  <script>
+  (function(){
+    var t=localStorage.getItem('ep-theme');
+    if(t)document.documentElement.setAttribute('data-theme',t);
+    var btn=document.querySelector('.theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var cur=document.documentElement.getAttribute('data-theme');
+      var next=cur==='dark'?'light':'dark';
+      document.documentElement.setAttribute('data-theme',next);
+      localStorage.setItem('ep-theme',next);
+    });
   })();
   </script>
 </body>

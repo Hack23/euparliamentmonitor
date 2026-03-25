@@ -433,13 +433,14 @@ export function generateSitemapHTML(
       <a href="${getIndexFilename(lang)}" class="site-header__brand" aria-label="${escapeHTML(heroTitle)}">
         <picture class="site-header__logo-picture">
           <source srcset="images/favicon-96x96.webp" type="image/webp">
-          <img class="site-header__logo" src="images/favicon-96x96.png" alt="" width="96" height="96" aria-hidden="true">
+          <img class="site-header__logo" src="images/favicon-96x96.png" alt="" width="36" height="36" aria-hidden="true">
         </picture>
         <span>
           <span class="site-header__title">${escapeHTML(heroTitle)}</span>
           <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
+      <button type="button" class="theme-toggle" aria-label="Toggle dark/light theme"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>
     </div>
   </header>
 
@@ -501,6 +502,20 @@ ${articlesSection}
       <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden</p>
     </div>
   </footer>
+  <script>
+  (function(){
+    var t=localStorage.getItem('ep-theme');
+    if(t)document.documentElement.setAttribute('data-theme',t);
+    var btn=document.querySelector('.theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var cur=document.documentElement.getAttribute('data-theme');
+      var next=cur==='dark'?'light':'dark';
+      document.documentElement.setAttribute('data-theme',next);
+      localStorage.setItem('ep-theme',next);
+    });
+  })();
+  </script>
 </body>
 </html>`;
 }

@@ -250,6 +250,10 @@ export function generateArticleHTML(options: ArticleOptions): string {
   const readingProgressScript = `\n  (function(){\n    var bar=document.querySelector('.reading-progress');\n    if(!bar)return;\n    bar.style.display='block';\n    var ticking=false;\n    window.addEventListener('scroll',function(){\n      if(!ticking){\n        window.requestAnimationFrame(function(){\n          var h=document.documentElement;\n          var scrollTop=h.scrollTop||document.body.scrollTop;\n          var scrollHeight=h.scrollHeight-h.clientHeight;\n          bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';\n          ticking=false;\n        });\n        ticking=true;\n      }\n    },{passive:true});\n  })();\n  `;
   const readingProgressHash = `sha256-${createHash('sha256').update(readingProgressScript).digest('base64')}`;
 
+  // Theme toggle script — reads/writes localStorage, sets data-theme on <html>
+  const themeToggleScript = `\n  (function(){\n    var t=localStorage.getItem('ep-theme');\n    if(t)document.documentElement.setAttribute('data-theme',t);\n    var btn=document.querySelector('.theme-toggle');\n    if(!btn)return;\n    btn.addEventListener('click',function(){\n      var cur=document.documentElement.getAttribute('data-theme');\n      var next=cur==='dark'?'light':'dark';\n      document.documentElement.setAttribute('data-theme',next);\n      localStorage.setItem('ep-theme',next);\n    });\n  })();\n  `;
+  const themeToggleHash = `sha256-${createHash('sha256').update(themeToggleScript).digest('base64')}`;
+
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -257,7 +261,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${jsonLdHash}' '${readingProgressHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${jsonLdHash}' '${readingProgressHash}' '${themeToggleHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
   <title>${safeTitle} | EU Parliament Monitor</title>
   <meta name="description" content="${safeSubtitle}">
   <meta name="keywords" content="${safeKeywords}">
@@ -318,13 +322,14 @@ export function generateArticleHTML(options: ArticleOptions): string {
       <a href="${indexHref}" class="site-header__brand" aria-label="EU Parliament Monitor">
         <picture class="site-header__logo-picture">
           <source srcset="../images/favicon-96x96.webp" type="image/webp">
-          <img class="site-header__logo" src="../images/favicon-96x96.png" alt="" width="96" height="96" aria-hidden="true">
+          <img class="site-header__logo" src="../images/favicon-96x96.png" alt="" width="36" height="36" aria-hidden="true">
         </picture>
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
           <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
+      <button type="button" class="theme-toggle" aria-label="Toggle dark/light theme"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
         ${buildArticleLangSwitcher(date, slug, lang, availableLanguages)}
       </nav>
@@ -427,6 +432,20 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <script src="../js/d3-init.js" defer></script>`
       : ''
   }
+  <script>
+  (function(){
+    var t=localStorage.getItem('ep-theme');
+    if(t)document.documentElement.setAttribute('data-theme',t);
+    var btn=document.querySelector('.theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var cur=document.documentElement.getAttribute('data-theme');
+      var next=cur==='dark'?'light':'dark';
+      document.documentElement.setAttribute('data-theme',next);
+      localStorage.setItem('ep-theme',next);
+    });
+  })();
+  </script>
 </body>
 </html>`;
 }
