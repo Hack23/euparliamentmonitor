@@ -86,6 +86,14 @@ html {
   color-scheme: light dark;
 }
 
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
 body {
   font-family: var(--font-sans);
   line-height: 1.65;
@@ -110,6 +118,53 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* ─── Theme Toggle ───────────────────────────────────────────────── */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    transform var(--transition);
+  flex-shrink: 0;
+  line-height: 1;
+  font-family: var(--font-sans);
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: scale(1.08);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--bg);
+  outline-offset: 2px;
+}
+
+.theme-toggle__icon--light,
+.theme-toggle__icon--dark {
+  display: none;
+}
+
+/* Show moon (switch-to-dark) when in light mode */
+html:not([data-theme="dark"]) .theme-toggle__icon--light { display: inline; }
+html[data-theme="dark"] .theme-toggle__icon--dark { display: inline; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .theme-toggle__icon--light { display: none; }
+  html:not([data-theme="light"]) .theme-toggle__icon--dark { display: inline; }
+}
+html[data-theme="light"] .theme-toggle__icon--light { display: inline; }
+html[data-theme="light"] .theme-toggle__icon--dark { display: none; }
 
 /* ─── Site Header ────────────────────────────────────────────────── */
 .site-header {
@@ -172,9 +227,9 @@ img {
 }
 
 .site-header__logo {
-  width: 52px;
-  height: 52px;
-  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
   object-fit: contain;
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.15);
@@ -184,8 +239,8 @@ img {
 }
 
 .site-header__logo--header {
-  width: 72px;
-  height: 48px;
+  width: 48px;
+  height: 32px;
   border-radius: 0;
   object-fit: contain;
   background: transparent;
@@ -924,7 +979,7 @@ img {
 
 /* ─── Article Page ───────────────────────────────────────────────── */
 .news-article {
-  max-width: var(--article-max-width, 780px);
+  max-width: var(--article-max-width, 100%);
   margin: 0 auto;
   background: var(--bg-card);
   padding: 40px 44px;
@@ -1526,7 +1581,7 @@ button:focus-visible {
   --font-size-4xl: 2.25rem;
 
   /* Article Reading Tokens */
-  --article-max-width: 72ch;
+  --article-max-width: 100%;
   --article-line-height: 1.7;
   --article-paragraph-spacing: 1.5em;
 
@@ -1541,8 +1596,9 @@ button:focus-visible {
 }
 
 /* ─── Dark Mode ──────────────────────────────────────────────── */
+/* System-preference dark mode: applies when no explicit data-theme is set */
 @media (prefers-color-scheme: dark) {
-  :root {
+  html:not([data-theme="light"]) {
     --bg: #0f1219;
     --bg-card: #1a1f2e;
     --text: #e8eaf0;
@@ -1591,10 +1647,52 @@ button:focus-visible {
   }
 
   /* Smoother header-to-body gradient in dark mode */
-  .site-header {
+  html:not([data-theme="light"]) .site-header {
     background: linear-gradient(135deg, #0d2a5c 0%, #0a1a38 100%);
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5), 0 0 1px rgba(77, 163, 255, 0.15);
   }
+}
+
+/* Explicit dark mode toggle: applies when user manually selects dark theme */
+html[data-theme="dark"] {
+  --bg: #0f1219;
+  --bg-card: #1a1f2e;
+  --text: #e8eaf0;
+  --text-secondary: #b4b8c8;
+  --text-muted: #8a8fa0;
+  --border: #2d3348;
+  --border-light: #252a3a;
+  --primary: #4da3ff;
+  --primary-dark: #1a4a80;
+  --primary-light: #1a2540;
+  --focus-ring: #cce5ff;
+  --accent: #5cb8ff;
+  --accent-light: #1a2d4a;
+  --secondary: #ffd633;
+  --secondary-dark: #e6b800;
+  --on-secondary: #0f1219;
+  --success: #34d058;
+  --warning: #f0b429;
+  --danger: #f85149;
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 1px rgba(77, 163, 255, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 2px rgba(77, 163, 255, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 4px rgba(77, 163, 255, 0.1);
+  --shadow-hover-glow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 0 8px rgba(77, 163, 255, 0.12);
+  --hero-surface-strong: rgba(255, 255, 255, 0.1);
+  --hero-surface-soft: rgba(255, 255, 255, 0.04);
+  --hero-surface-border: rgba(255, 255, 255, 0.1);
+  --group-epp: #4a9fe6;
+  --group-sd: #ff6b6b;
+  --group-re: #ffd93d;
+  --group-greens: #3dc464;
+  --group-ecr: #33bbee;
+  --group-id: #7088d8;
+  --group-left: #d46060;
+}
+
+html[data-theme="dark"] .site-header {
+  background: linear-gradient(135deg, #0d2a5c 0%, #0a1a38 100%);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5), 0 0 1px rgba(77, 163, 255, 0.15);
 }
 
 /* ─── Article Typography Enhancement ────────────────────────── */
@@ -1854,105 +1952,102 @@ button:focus-visible {
 }
 
 /* ─── Dark Mode Component Overrides ─────────────────────────── */
+/* System-preference dark mode component overrides */
 @media (prefers-color-scheme: dark) {
-  .key-findings {
+  html:not([data-theme="light"]) .key-findings {
     background: #1c1a08;
     border-color: #4a4400;
     border-left-color: var(--secondary);
   }
 
-  .key-findings__title {
+  html:not([data-theme="light"]) .key-findings__title {
     color: #ccaa00;
   }
 
-  .key-findings__list li {
+  html:not([data-theme="light"]) .key-findings__list li {
     border-bottom-color: rgba(255, 255, 255, 0.06);
   }
 
-  .pull-quote {
+  html:not([data-theme="light"]) .pull-quote {
     background: #131d35;
   }
 
-  .data-card {
+  html:not([data-theme="light"]) .data-card {
     border-color: var(--border);
     border-left-color: var(--accent);
   }
 
-  .status-badge--passed {
+  html:not([data-theme="light"]) .status-badge--passed {
     background: #0d2818;
     color: #6ee7a0;
   }
 
-  .status-badge--pending {
+  html:not([data-theme="light"]) .status-badge--pending {
     background: #2a2000;
     color: #ffd860;
   }
 
-  .status-badge--failed {
+  html:not([data-theme="light"]) .status-badge--failed {
     background: #2a0808;
     color: #ff9090;
   }
 
-  /* Group badges use dark text on lighter dark-mode backgrounds
-   * (--bg = #0f1219, same as --on-secondary in dark mode) */
-  .group-badge {
+  html:not([data-theme="light"]) .group-badge {
     color: var(--bg);
   }
 
-  /* Brand hover — use white (#fff) for maximum contrast against
-   * the dark header gradient (#0d2a5c → #0a1a38). */
-  .site-header__brand:hover {
+  html:not([data-theme="light"]) .site-header__brand:hover {
     color: #fff;
   }
 
-  .ai-intelligence {
+  html:not([data-theme="light"]) .ai-intelligence {
     background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 60%, #142850 100%);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   }
 
-  .ai-intelligence__quote {
+  html:not([data-theme="light"]) .ai-intelligence__quote {
     background: rgba(255, 255, 255, 0.06);
     border-left-color: var(--secondary);
   }
 
-  .ai-intelligence__features li {
+  html:not([data-theme="light"]) .ai-intelligence__features li {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.1);
   }
 
-  .filter-toolbar {
+  html:not([data-theme="light"]) .filter-toolbar {
     background: var(--bg-card);
     border-color: var(--border);
   }
 
-  .filter-btn {
+  html:not([data-theme="light"]) .filter-btn {
     background: var(--bg);
     border-color: var(--border);
     color: var(--text-secondary);
   }
 
-  .filter-btn:hover {
+  html:not([data-theme="light"]) .filter-btn:hover {
     background: var(--primary-light);
     color: var(--primary);
   }
 
-  .filter-btn.active {
+  html:not([data-theme="light"]) .filter-btn.active {
     background: var(--primary);
     color: #fff;
     box-shadow: 0 2px 12px rgba(77, 163, 255, 0.3);
   }
 
-  .filter-search__input {
+  html:not([data-theme="light"]) .filter-search__input {
     background: var(--bg);
     border-color: var(--border);
     color: var(--text);
   }
 
-  .filter-search__input::placeholder {
+  html:not([data-theme="light"]) .filter-search__input::placeholder {
     color: var(--text-muted);
   }
 
-  .news-card {
+  html:not([data-theme="light"]) .news-card {
     border-top-color: var(--border);
     border-right-color: var(--border);
     border-bottom-color: var(--border);
@@ -1960,257 +2055,309 @@ button:focus-visible {
     box-shadow: var(--shadow-sm);
   }
 
-  .news-card:hover {
+  html:not([data-theme="light"]) .news-card:hover {
     box-shadow: var(--shadow-hover-glow);
     border-color: var(--accent);
   }
 
-  .news-article {
+  html:not([data-theme="light"]) .news-article {
     border-top-color: var(--primary);
     box-shadow: var(--shadow-md);
   }
 
-  /* Dark mode badge backgrounds — use darker, theme-appropriate tints */
-  .news-card__badge--week-ahead {
+  html:not([data-theme="light"]) .news-card__badge--week-ahead {
     background: var(--accent-light);
     color: var(--accent);
   }
 
-  .news-card__badge--committee-reports {
+  html:not([data-theme="light"]) .news-card__badge--committee-reports {
     background: #0d2818;
     color: #5ed08a;
   }
 
-  .news-card__badge--motions {
+  html:not([data-theme="light"]) .news-card__badge--motions {
     background: #2a2000;
     color: #f0c040;
   }
 
-  .news-card__badge--propositions {
+  html:not([data-theme="light"]) .news-card__badge--propositions {
     background: #1e1040;
     color: #b07aff;
   }
 
-  .news-card__badge--breaking {
+  html:not([data-theme="light"]) .news-card__badge--breaking {
     background: #2a0808;
     color: #ff7070;
   }
 
-  .news-card__badge--month-ahead {
+  html:not([data-theme="light"]) .news-card__badge--month-ahead {
     background: #0a1e30;
     color: #4db8e8;
   }
 
-  .news-card__badge--week-in-review {
+  html:not([data-theme="light"]) .news-card__badge--week-in-review {
     background: #2a1a08;
     color: #f0a050;
   }
 
-  .news-card__badge--month-in-review {
+  html:not([data-theme="light"]) .news-card__badge--month-in-review {
     background: #0d2818;
     color: #5ed08a;
   }
 
-  /* Dark mode context section and event items */
-  .context {
+  html:not([data-theme="light"]) .context {
     background: var(--primary-light);
     border-left-color: var(--primary);
   }
 
-  .event-item {
+  html:not([data-theme="light"]) .event-item {
     background: var(--primary-light);
     border-left-color: var(--primary);
   }
 
-  .event-item:hover {
+  html:not([data-theme="light"]) .event-item:hover {
     background: var(--accent-light);
   }
 
-  /* Dark mode deep-analysis */
-  .deep-analysis {
+  html:not([data-theme="light"]) .deep-analysis {
     background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-card) 100%);
   }
 
-  .deep-analysis h2 {
+  html:not([data-theme="light"]) .deep-analysis h2 {
     color: var(--primary);
   }
 
-  /* Dark mode stakeholders */
-  .stakeholder-winner {
+  html:not([data-theme="light"]) .stakeholder-winner {
     background: #0d2818;
     border-color: var(--success);
   }
 
-  .stakeholder-loser {
+  html:not([data-theme="light"]) .stakeholder-loser {
     background: #2a0808;
     border-color: var(--danger);
   }
 
-  .stakeholder-neutral {
+  html:not([data-theme="light"]) .stakeholder-neutral {
     background: #2a2000;
     border-color: var(--warning);
   }
 
-  /* Dark mode severity badges */
-  .severity-low {
+  html:not([data-theme="light"]) .severity-low {
     background: #0d2818;
     color: #5ed08a;
   }
 
-  .severity-medium {
+  html:not([data-theme="light"]) .severity-medium {
     background: #2a1a08;
     color: #f0a050;
   }
 
-  .severity-high {
+  html:not([data-theme="light"]) .severity-high {
     background: #2a0808;
     color: #ff7070;
   }
 
-  .severity-critical {
+  html:not([data-theme="light"]) .severity-critical {
     background: #5a0a2a;
     color: #ff90b0;
   }
 
-  /* Dark mode analysis blocks */
-  .evidence-refs-block,
-  .counter-args-block {
+  html:not([data-theme="light"]) .evidence-refs-block,
+  html:not([data-theme="light"]) .counter-args-block {
     background: rgba(255, 255, 255, 0.04);
   }
 
-  .analysis-executive-summary {
+  html:not([data-theme="light"]) .analysis-executive-summary {
     background: linear-gradient(135deg, var(--primary-light), var(--bg-card));
   }
 
-  /* Dark mode mistake cards */
-  .mistake-card {
+  html:not([data-theme="light"]) .mistake-card {
     background: #1a0a0a;
     border-left-color: var(--danger);
   }
 
-  .mistake-actor {
+  html:not([data-theme="light"]) .mistake-actor {
     color: #ff7070;
   }
 
-  /* Dark mode confidence badges */
-  .confidence-high {
+  html:not([data-theme="light"]) .confidence-high {
     background: #0d2818;
     color: #5ed08a;
     border-color: var(--success);
   }
 
-  .confidence-medium {
+  html:not([data-theme="light"]) .confidence-medium {
     background: #2a2000;
     color: #f0c040;
     border-color: #f0c040;
   }
 
-  .confidence-low {
+  html:not([data-theme="light"]) .confidence-low {
     background: #2a0808;
     color: #ff7070;
     border-color: var(--danger);
   }
 
-  /* Dark mode empty state */
-  .empty-state {
+  html:not([data-theme="light"]) .empty-state {
     border-color: var(--border);
   }
 
-  /* Dark mode section heading */
-  .section-heading {
+  html:not([data-theme="light"]) .section-heading {
     border-bottom-color: var(--border);
   }
 
-  /* Dark mode footer — deeper background for separation */
-  .site-footer {
+  html:not([data-theme="light"]) .site-footer {
     background: #070a10;
     border-top: 1px solid var(--border);
   }
 
-  .footer-bottom {
+  html:not([data-theme="light"]) .footer-bottom {
     border-top-color: rgba(255, 255, 255, 0.08);
   }
 
-  /* Dark mode tables */
-  .consequences-table th {
+  html:not([data-theme="light"]) .consequences-table th {
     background: var(--primary-light);
     color: var(--text);
   }
 
-  .consequences-table td {
+  html:not([data-theme="light"]) .consequences-table td {
     border-bottom-color: var(--border);
   }
 
-  .consequences-table tr:nth-child(even) {
+  html:not([data-theme="light"]) .consequences-table tr:nth-child(even) {
     background: rgba(255, 255, 255, 0.03);
   }
 
-  /* Dark mode impact cards */
-  .impact-card {
+  html:not([data-theme="light"]) .impact-card {
     background: var(--bg-card);
     border-color: var(--border);
   }
 
-  /* Dark mode analysis sub-sections */
-  .analysis-what,
-  .analysis-who,
-  .analysis-when,
-  .analysis-why,
-  .analysis-outlook {
+  html:not([data-theme="light"]) .analysis-what,
+  html:not([data-theme="light"]) .analysis-who,
+  html:not([data-theme="light"]) .analysis-when,
+  html:not([data-theme="light"]) .analysis-why,
+  html:not([data-theme="light"]) .analysis-outlook {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--border-light);
   }
 
-  /* Dark mode hero section border */
-  .hero {
+  html:not([data-theme="light"]) .hero {
     border-bottom-color: var(--secondary-dark);
   }
 
-  /* Dark mode lede paragraph */
-  .lede {
+  html:not([data-theme="light"]) .lede {
     border-left-color: var(--secondary);
   }
 
-  /* Dark mode article header border */
-  .article-header {
+  html:not([data-theme="light"]) .article-header {
     border-bottom-color: var(--border);
   }
 
-  /* Dark mode article footer border */
-  .article-footer {
+  html:not([data-theme="light"]) .article-footer {
     border-top-color: var(--border);
   }
 
-  /* Dark mode links — ensure visibility */
-  a {
+  html:not([data-theme="light"]) a {
     color: var(--accent);
   }
 
-  a:hover {
+  html:not([data-theme="light"]) a:hover {
     color: var(--primary);
   }
 }
 
+/* ─── Explicit Dark Mode Component Overrides (toggle) ────────── */
+html[data-theme="dark"] .key-findings { background: #1c1a08; border-color: #4a4400; border-left-color: var(--secondary); }
+html[data-theme="dark"] .key-findings__title { color: #ccaa00; }
+html[data-theme="dark"] .key-findings__list li { border-bottom-color: rgba(255, 255, 255, 0.06); }
+html[data-theme="dark"] .pull-quote { background: #131d35; }
+html[data-theme="dark"] .data-card { border-color: var(--border); border-left-color: var(--accent); }
+html[data-theme="dark"] .status-badge--passed { background: #0d2818; color: #6ee7a0; }
+html[data-theme="dark"] .status-badge--pending { background: #2a2000; color: #ffd860; }
+html[data-theme="dark"] .status-badge--failed { background: #2a0808; color: #ff9090; }
+html[data-theme="dark"] .group-badge { color: var(--bg); }
+html[data-theme="dark"] .site-header__brand:hover { color: #fff; }
+html[data-theme="dark"] .ai-intelligence { background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 60%, #142850 100%); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
+html[data-theme="dark"] .ai-intelligence__quote { background: rgba(255, 255, 255, 0.06); border-left-color: var(--secondary); }
+html[data-theme="dark"] .ai-intelligence__features li { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.1); }
+html[data-theme="dark"] .filter-toolbar { background: var(--bg-card); border-color: var(--border); }
+html[data-theme="dark"] .filter-btn { background: var(--bg); border-color: var(--border); color: var(--text-secondary); }
+html[data-theme="dark"] .filter-btn:hover { background: var(--primary-light); color: var(--primary); }
+html[data-theme="dark"] .filter-btn.active { background: var(--primary); color: #fff; box-shadow: 0 2px 12px rgba(77, 163, 255, 0.3); }
+html[data-theme="dark"] .filter-search__input { background: var(--bg); border-color: var(--border); color: var(--text); }
+html[data-theme="dark"] .filter-search__input::placeholder { color: var(--text-muted); }
+html[data-theme="dark"] .news-card { border-top-color: var(--border); border-right-color: var(--border); border-bottom-color: var(--border); background: var(--bg-card); box-shadow: var(--shadow-sm); }
+html[data-theme="dark"] .news-card:hover { box-shadow: var(--shadow-hover-glow); border-color: var(--accent); }
+html[data-theme="dark"] .news-article { border-top-color: var(--primary); box-shadow: var(--shadow-md); }
+html[data-theme="dark"] .news-card__badge--committee-reports { background: #0d2818; color: #5ed08a; }
+html[data-theme="dark"] .news-card__badge--motions { background: #2a2000; color: #f0c040; }
+html[data-theme="dark"] .news-card__badge--propositions { background: #1e1040; color: #b07aff; }
+html[data-theme="dark"] .news-card__badge--breaking { background: #2a0808; color: #ff7070; }
+html[data-theme="dark"] .news-card__badge--month-ahead { background: #0a1e30; color: #4db8e8; }
+html[data-theme="dark"] .news-card__badge--week-in-review { background: #2a1a08; color: #f0a050; }
+html[data-theme="dark"] .news-card__badge--month-in-review { background: #0d2818; color: #5ed08a; }
+html[data-theme="dark"] .context { background: var(--primary-light); border-left-color: var(--primary); }
+html[data-theme="dark"] .event-item { background: var(--primary-light); border-left-color: var(--primary); }
+html[data-theme="dark"] .event-item:hover { background: var(--accent-light); }
+html[data-theme="dark"] .deep-analysis { background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-card) 100%); }
+html[data-theme="dark"] .deep-analysis h2 { color: var(--primary); }
+html[data-theme="dark"] .stakeholder-winner { background: #0d2818; border-color: var(--success); }
+html[data-theme="dark"] .stakeholder-loser { background: #2a0808; border-color: var(--danger); }
+html[data-theme="dark"] .stakeholder-neutral { background: #2a2000; border-color: var(--warning); }
+html[data-theme="dark"] .severity-low { background: #0d2818; color: #5ed08a; }
+html[data-theme="dark"] .severity-medium { background: #2a1a08; color: #f0a050; }
+html[data-theme="dark"] .severity-high { background: #2a0808; color: #ff7070; }
+html[data-theme="dark"] .severity-critical { background: #5a0a2a; color: #ff90b0; }
+html[data-theme="dark"] .evidence-refs-block,
+html[data-theme="dark"] .counter-args-block { background: rgba(255, 255, 255, 0.04); }
+html[data-theme="dark"] .analysis-executive-summary { background: linear-gradient(135deg, var(--primary-light), var(--bg-card)); }
+html[data-theme="dark"] .mistake-card { background: #1a0a0a; border-left-color: var(--danger); }
+html[data-theme="dark"] .mistake-actor { color: #ff7070; }
+html[data-theme="dark"] .confidence-high { background: #0d2818; color: #5ed08a; border-color: var(--success); }
+html[data-theme="dark"] .confidence-medium { background: #2a2000; color: #f0c040; border-color: #f0c040; }
+html[data-theme="dark"] .confidence-low { background: #2a0808; color: #ff7070; border-color: var(--danger); }
+html[data-theme="dark"] .empty-state { border-color: var(--border); }
+html[data-theme="dark"] .section-heading { border-bottom-color: var(--border); }
+html[data-theme="dark"] .site-footer { background: #070a10; border-top: 1px solid var(--border); }
+html[data-theme="dark"] .footer-bottom { border-top-color: rgba(255, 255, 255, 0.08); }
+html[data-theme="dark"] .consequences-table th { background: var(--primary-light); color: var(--text); }
+html[data-theme="dark"] .consequences-table td { border-bottom-color: var(--border); }
+html[data-theme="dark"] .consequences-table tr:nth-child(even) { background: rgba(255, 255, 255, 0.03); }
+html[data-theme="dark"] .impact-card { background: var(--bg-card); border-color: var(--border); }
+html[data-theme="dark"] .analysis-what,
+html[data-theme="dark"] .analysis-who,
+html[data-theme="dark"] .analysis-when,
+html[data-theme="dark"] .analysis-why,
+html[data-theme="dark"] .analysis-outlook { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-light); }
+html[data-theme="dark"] .hero { border-bottom-color: var(--secondary-dark); }
+html[data-theme="dark"] .lede { border-left-color: var(--secondary); }
+html[data-theme="dark"] .article-header { border-bottom-color: var(--border); }
+html[data-theme="dark"] .article-footer { border-top-color: var(--border); }
+html[data-theme="dark"] a { color: var(--accent); }
+html[data-theme="dark"] a:hover { color: var(--primary); }
+
 /* ─── Dark Mode + RTL Combined Overrides ────────────────────── */
-/* Ensures border directions are correct when both dark mode and RTL
- * apply simultaneously (e.g. Arabic or Hebrew with dark system theme).
- */
 @media (prefers-color-scheme: dark) {
-  [dir='rtl'] .key-findings {
+  html:not([data-theme="light"]) [dir='rtl'] .key-findings {
     border-left-color: #4a4400;
     border-right-color: var(--secondary);
   }
 
-  [dir='rtl'] .data-card {
+  html:not([data-theme="light"]) [dir='rtl'] .data-card {
     border-left-color: var(--border);
     border-right-color: var(--accent);
   }
 
-  [dir='rtl'] .news-card {
+  html:not([data-theme="light"]) [dir='rtl'] .news-card {
     border-left-color: var(--border);
     border-right-color: var(--primary);
   }
 }
+
+html[data-theme="dark"] [dir='rtl'] .key-findings { border-left-color: #4a4400; border-right-color: var(--secondary); }
+html[data-theme="dark"] [dir='rtl'] .data-card { border-left-color: var(--border); border-right-color: var(--accent); }
+html[data-theme="dark"] [dir='rtl'] .news-card { border-left-color: var(--border); border-right-color: var(--primary); }
 
 /* ─── Tablet Breakpoint (769px – 1024px) ────────────────────────── */
 @media (min-width: 769px) and (max-width: 1024px) {
