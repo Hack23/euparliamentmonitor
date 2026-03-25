@@ -12,7 +12,13 @@
 import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { NEWS_DIR, BASE_URL, PROJECT_ROOT, createThemeToggleButton, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
+import {
+  NEWS_DIR,
+  BASE_URL,
+  PROJECT_ROOT,
+  createThemeToggleButton,
+  THEME_TOGGLE_SCRIPT,
+} from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_NAMES,

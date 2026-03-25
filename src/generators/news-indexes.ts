@@ -12,7 +12,13 @@
 
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { PROJECT_ROOT, APP_VERSION, NEWS_DIR, createThemeToggleButton, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
+import {
+  PROJECT_ROOT,
+  APP_VERSION,
+  NEWS_DIR,
+  createThemeToggleButton,
+  THEME_TOGGLE_SCRIPT,
+} from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
