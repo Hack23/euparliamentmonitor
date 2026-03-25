@@ -72,12 +72,13 @@
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a href="../index-ja.html" class="site-header__brand" aria-label="EU Parliament Monitor">
-        <picture class="site-header__logo-picture"><source srcset="../images/favicon-96x96.webp" type="image/webp"><img class="site-header__logo" src="../images/favicon-96x96.png" alt="" width="96" height="96" aria-hidden="true"></picture>
+        <picture class="site-header__logo-picture"><source srcset="../images/favicon-96x96.webp" type="image/webp"><img class="site-header__logo" src="../images/favicon-96x96.png" alt="" width="36" height="36" aria-hidden="true"></picture>
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
           <span class="site-header__subtitle">欧州議会インテリジェンス</span>
         </span>
       </a>
+      <button type="button" class="theme-toggle" aria-label="ダーク/ライトテーマ切替"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>
     </div>
   </header>
 
@@ -268,6 +269,29 @@
       var scrollHeight=h.scrollHeight-h.clientHeight;
       bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';
     },{passive:true});
+  })();
+  </script>
+<script>
+  (function(){
+    var docEl=document.documentElement;
+    var t=localStorage.getItem('ep-theme');
+    var storedTheme=t==='light'?'light':t==='dark'?'dark':null;
+    if(storedTheme){
+      docEl.setAttribute('data-theme',storedTheme);
+    }else if(t){
+      localStorage.removeItem('ep-theme');
+    }
+    var btn=document.querySelector('.theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var cur=docEl.getAttribute('data-theme');
+      if(!cur){
+        cur=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
+      }
+      var next=cur==='dark'?'light':'dark';
+      docEl.setAttribute('data-theme',next);
+      localStorage.setItem('ep-theme',next);
+    });
   })();
   </script>
 </body>
