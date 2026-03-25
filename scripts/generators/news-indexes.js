@@ -9,7 +9,7 @@
  */
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { PROJECT_ROOT, APP_VERSION, NEWS_DIR } from '../constants/config.js';
+import { PROJECT_ROOT, APP_VERSION, NEWS_DIR, THEME_TOGGLE_BUTTON, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, AI_SECTION_CONTENT, FILTER_LABELS, ARTICLE_TYPE_LABELS, HEADER_SUBTITLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { getNewsArticles, groupArticlesByLanguage, formatSlug, parseArticleFilename, extractArticleMeta, escapeHTML, atomicWrite, } from '../utils/file-utils.js';
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
@@ -229,7 +229,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
           <span class="site-header__title">${heroTitle}</span>
         </span>
       </a>
-      <button type="button" class="theme-toggle" aria-label="Toggle dark/light theme"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>
+      ${THEME_TOGGLE_BUTTON}
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
         ${buildLangSwitcher(lang)}
       </nav>
@@ -350,21 +350,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
     });
     if(search){search.addEventListener('input',filterCards);}
   })();
-  </script>
-  <script>
-  (function(){
-    var t=localStorage.getItem('ep-theme');
-    if(t)document.documentElement.setAttribute('data-theme',t);
-    var btn=document.querySelector('.theme-toggle');
-    if(!btn)return;
-    btn.addEventListener('click',function(){
-      var cur=document.documentElement.getAttribute('data-theme');
-      var next=cur==='dark'?'light':'dark';
-      document.documentElement.setAttribute('data-theme',next);
-      localStorage.setItem('ep-theme',next);
-    });
-  })();
-  </script>
+  </script>${THEME_TOGGLE_SCRIPT}
 </body>
 </html>`;
 }

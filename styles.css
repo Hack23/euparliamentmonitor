@@ -1072,7 +1072,7 @@ html[data-theme="light"] .theme-toggle__icon--dark { display: none; }
 
 .article-content p {
   margin: 16px 0;
-  line-height: 1.75;
+  line-height: var(--article-line-height);
 }
 
 .article-content ul,
@@ -1589,7 +1589,7 @@ button:focus-visible {
 
   /* Article Reading Tokens */
   --article-max-width: 100%;
-  --article-line-height: 1.7;
+  --article-line-height: 1.75;
   --article-paragraph-spacing: 1.5em;
 
   /* Political Group Colors */

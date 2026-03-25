@@ -12,7 +12,7 @@
 import fs from 'fs';
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { NEWS_DIR, BASE_URL, PROJECT_ROOT } from '../constants/config.js';
+import { NEWS_DIR, BASE_URL, PROJECT_ROOT, THEME_TOGGLE_BUTTON, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
@@ -440,7 +440,7 @@ export function generateSitemapHTML(
           <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
-      <button type="button" class="theme-toggle" aria-label="Toggle dark/light theme"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>
+      ${THEME_TOGGLE_BUTTON}
     </div>
   </header>
 
@@ -501,21 +501,7 @@ ${articlesSection}
     <div class="footer-bottom">
       <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden</p>
     </div>
-  </footer>
-  <script>
-  (function(){
-    var t=localStorage.getItem('ep-theme');
-    if(t)document.documentElement.setAttribute('data-theme',t);
-    var btn=document.querySelector('.theme-toggle');
-    if(!btn)return;
-    btn.addEventListener('click',function(){
-      var cur=document.documentElement.getAttribute('data-theme');
-      var next=cur==='dark'?'light':'dark';
-      document.documentElement.setAttribute('data-theme',next);
-      localStorage.setItem('ep-theme',next);
-    });
-  })();
-  </script>
+  </footer>${THEME_TOGGLE_SCRIPT}
 </body>
 </html>`;
 }

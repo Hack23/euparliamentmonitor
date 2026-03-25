@@ -33,7 +33,7 @@ import {
   getTextDirection,
 } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
-import { APP_VERSION } from '../constants/config.js';
+import { APP_VERSION, THEME_TOGGLE_BUTTON, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
 
 /** Pattern for valid article dates (YYYY-MM-DD) */
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
@@ -329,7 +329,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
           <span class="site-header__subtitle">${headerSubtitle}</span>
         </span>
       </a>
-      <button type="button" class="theme-toggle" aria-label="Toggle dark/light theme"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>
+      ${THEME_TOGGLE_BUTTON}
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
         ${buildArticleLangSwitcher(date, slug, lang, availableLanguages)}
       </nav>
@@ -431,21 +431,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <script src="../js/vendor/d3.min.js" defer></script>
   <script src="../js/d3-init.js" defer></script>`
       : ''
-  }
-  <script>
-  (function(){
-    var t=localStorage.getItem('ep-theme');
-    if(t)document.documentElement.setAttribute('data-theme',t);
-    var btn=document.querySelector('.theme-toggle');
-    if(!btn)return;
-    btn.addEventListener('click',function(){
-      var cur=document.documentElement.getAttribute('data-theme');
-      var next=cur==='dark'?'light':'dark';
-      document.documentElement.setAttribute('data-theme',next);
-      localStorage.setItem('ep-theme',next);
-    });
-  })();
-  </script>
+  }${THEME_TOGGLE_SCRIPT}
 </body>
 </html>`;
 }

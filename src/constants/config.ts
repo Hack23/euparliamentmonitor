@@ -87,3 +87,32 @@ export const APP_VERSION: string = (() => {
     return '0.0.0';
   }
 })();
+
+/**
+ * Theme toggle HTML button markup for site headers.
+ * Renders a moon (light→dark) and sun (dark→light) icon; CSS controls visibility.
+ */
+export const THEME_TOGGLE_BUTTON =
+  '<button type="button" class="theme-toggle" aria-label="Toggle dark/light theme"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>';
+
+/**
+ * Theme toggle inline script block.
+ * Reads/writes localStorage key "ep-theme" and sets `data-theme` on `<html>`.
+ * Must be inserted as a `<script>…</script>` block; the exact whitespace
+ * matches the CSP hash computed in article-template.ts.
+ */
+export const THEME_TOGGLE_SCRIPT = `
+  <script>
+  (function(){
+    var t=localStorage.getItem('ep-theme');
+    if(t)document.documentElement.setAttribute('data-theme',t);
+    var btn=document.querySelector('.theme-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var cur=document.documentElement.getAttribute('data-theme');
+      var next=cur==='dark'?'light':'dark';
+      document.documentElement.setAttribute('data-theme',next);
+      localStorage.setItem('ep-theme',next);
+    });
+  })();
+  </script>`;
