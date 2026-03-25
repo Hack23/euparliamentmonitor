@@ -459,7 +459,8 @@ describe('runAnalysisStage', () => {
       enabledMethods: ['legislative-pipeline'],
     });
 
-    const ts = new Date(result[0].generatedAt);
-    expect(isNaN(ts.getTime())).toBe(false);
+    const ts = result[0].generatedAt;
+    expect(ts).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/);
+    expect(isNaN(new Date(ts).getTime())).toBe(false);
   });
 });
