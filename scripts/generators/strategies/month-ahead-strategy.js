@@ -5,22 +5,17 @@ import { MONTH_AHEAD_TITLES, getLocalizedString } from '../../constants/language
 import { fetchWeekAheadData, fetchEPFeedData } from '../pipeline/fetch-stage.js';
 import { buildWeekAheadContent, buildKeywords } from '../week-ahead-content.js';
 import { buildDeepAnalysisSection } from '../deep-analysis-content.js';
-import {
-  buildProspectiveAnalysis,
-  buildProspectiveSwot,
-  buildProspectiveDashboard,
-  buildProspectiveMindmap,
-} from '../analysis-builders.js';
+import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, buildProspectiveMindmap, } from '../analysis-builders.js';
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** Keywords shared by all Month Ahead articles */
 const MONTH_AHEAD_KEYWORDS = [
-  'European Parliament',
-  'month ahead',
-  'strategic outlook',
-  'legislative calendar',
+    'European Parliament',
+    'month ahead',
+    'strategic outlook',
+    'legislative calendar',
 ];
 /**
  * Build a content-aware title suffix from month-ahead data counts.
@@ -29,13 +24,14 @@ const MONTH_AHEAD_KEYWORDS = [
  * @returns Short suffix for the title, or empty string
  */
 function buildMonthAheadTitleSuffix(monthData) {
-  const parts = [];
-  if (monthData.events.length > 0) parts.push(pl(monthData.events.length, 'Event', 'Events'));
-  if (monthData.committees.length > 0)
-    parts.push(pl(monthData.committees.length, 'Committee Meeting', 'Committee Meetings'));
-  if (monthData.pipeline.length > 0)
-    parts.push(pl(monthData.pipeline.length, 'Pipeline Item', 'Pipeline Items'));
-  return parts.join(', ');
+    const parts = [];
+    if (monthData.events.length > 0)
+        parts.push(pl(monthData.events.length, 'Event', 'Events'));
+    if (monthData.committees.length > 0)
+        parts.push(pl(monthData.committees.length, 'Committee Meeting', 'Committee Meetings'));
+    if (monthData.pipeline.length > 0)
+        parts.push(pl(monthData.pipeline.length, 'Pipeline Item', 'Pipeline Items'));
+    return parts.join(', ');
 }
 /**
  * Build a content-aware description from month-ahead data.
@@ -45,20 +41,20 @@ function buildMonthAheadTitleSuffix(monthData) {
  * @returns SEO-friendly description (≤ 200 chars)
  */
 function buildMonthAheadDescription(monthData, monthLabel) {
-  const parts = [];
-  if (monthData.events.length > 0)
-    parts.push(pl(monthData.events.length, 'scheduled event', 'scheduled events'));
-  if (monthData.committees.length > 0)
-    parts.push(pl(monthData.committees.length, 'committee meeting', 'committee meetings'));
-  if (monthData.pipeline.length > 0)
-    parts.push(pl(monthData.pipeline.length, 'pipeline procedure', 'pipeline procedures'));
-  if (monthData.questions.length > 0)
-    parts.push(pl(monthData.questions.length, 'parliamentary question', 'parliamentary questions'));
-  if (parts.length === 0) {
-    return `European Parliament strategic outlook for ${monthLabel} — legislative milestones and policy agenda.`;
-  }
-  const desc = `EP month ahead (${monthLabel}): ${parts.join(', ')}.`;
-  return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
+    const parts = [];
+    if (monthData.events.length > 0)
+        parts.push(pl(monthData.events.length, 'scheduled event', 'scheduled events'));
+    if (monthData.committees.length > 0)
+        parts.push(pl(monthData.committees.length, 'committee meeting', 'committee meetings'));
+    if (monthData.pipeline.length > 0)
+        parts.push(pl(monthData.pipeline.length, 'pipeline procedure', 'pipeline procedures'));
+    if (monthData.questions.length > 0)
+        parts.push(pl(monthData.questions.length, 'parliamentary question', 'parliamentary questions'));
+    if (parts.length === 0) {
+        return `European Parliament strategic outlook for ${monthLabel} — legislative milestones and policy agenda.`;
+    }
+    const desc = `EP month ahead (${monthLabel}): ${parts.join(', ')}.`;
+    return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
 }
 // ─── Date-range helper ────────────────────────────────────────────────────────
 /**
@@ -68,20 +64,20 @@ function buildMonthAheadDescription(monthData, monthLabel) {
  * @returns Date range spanning the next 30 days
  */
 function computeMonthAheadDateRange(baseDate) {
-  const base = new Date(`${baseDate}T00:00:00Z`);
-  const startDate = new Date(base);
-  startDate.setUTCDate(base.getUTCDate() + 1);
-  const endDate = new Date(startDate);
-  endDate.setUTCDate(startDate.getUTCDate() + 30);
-  const startParts = startDate.toISOString().split('T');
-  const endParts = endDate.toISOString().split('T');
-  if (!startParts[0] || !endParts[0]) {
-    throw new Error('Invalid date format generated in computeMonthAheadDateRange');
-  }
-  return {
-    start: startParts[0],
-    end: endParts[0],
-  };
+    const base = new Date(`${baseDate}T00:00:00Z`);
+    const startDate = new Date(base);
+    startDate.setUTCDate(base.getUTCDate() + 1);
+    const endDate = new Date(startDate);
+    endDate.setUTCDate(startDate.getUTCDate() + 30);
+    const startParts = startDate.toISOString().split('T');
+    const endParts = endDate.toISOString().split('T');
+    if (!startParts[0] || !endParts[0]) {
+        throw new Error('Invalid date format generated in computeMonthAheadDateRange');
+    }
+    return {
+        start: startParts[0],
+        end: endParts[0],
+    };
 }
 /**
  * Format a month label from a date string (e.g. "February 2026").
@@ -90,8 +86,8 @@ function computeMonthAheadDateRange(baseDate) {
  * @returns Human-readable month label, using the runtime's default locale
  */
 function formatMonthLabel(dateStr) {
-  const date = new Date(`${dateStr}T00:00:00Z`);
-  return date.toLocaleDateString(undefined, { month: 'long', year: 'numeric', timeZone: 'UTC' });
+    const date = new Date(`${dateStr}T00:00:00Z`);
+    return date.toLocaleDateString(undefined, { month: 'long', year: 'numeric', timeZone: 'UTC' });
 }
 // ─── Strategy implementation ──────────────────────────────────────────────────
 /**
@@ -100,83 +96,79 @@ function formatMonthLabel(dateStr) {
  * a forward-looking 30-day strategic outlook of parliamentary activity.
  */
 export class MonthAheadStrategy {
-  type = ArticleCategory.MONTH_AHEAD;
-  requiredMCPTools = [
-    'get_plenary_sessions',
-    'get_committee_info',
-    'search_documents',
-    'monitor_legislative_pipeline',
-    'get_parliamentary_questions',
-    'get_events',
-    'get_events_feed',
-    'get_adopted_texts_feed',
-    'get_procedures_feed',
-  ];
-  /**
-   * Fetch month-ahead data from MCP.
-   *
-   * @param client - MCP client or null
-   * @param date - ISO 8601 publication date
-   * @returns Populated month-ahead data payload
-   */
-  async fetchData(client, date) {
-    const dateRange = computeMonthAheadDateRange(date);
-    console.log(`  📆 Month-ahead range: ${dateRange.start} to ${dateRange.end}`);
-    // Fetch traditional MCP data and EP feeds in parallel
-    const [monthData, feedData] = await Promise.all([
-      fetchWeekAheadData(client, dateRange),
-      fetchEPFeedData(client, 'one-month', dateRange),
-    ]);
-    const keywords = [...MONTH_AHEAD_KEYWORDS, ...buildKeywords(monthData)];
-    const monthLabel = formatMonthLabel(dateRange.start);
-    return { date, dateRange, monthData, keywords, monthLabel, feedData };
-  }
-  /**
-   * Build the month-ahead HTML body for the specified language.
-   *
-   * @param data - Month-ahead data payload
-   * @param lang - Target language code used for editorial strings
-   * @returns Article HTML body
-   */
-  buildContent(data, lang) {
-    const base = buildWeekAheadContent(data.monthData, data.dateRange, lang);
-    const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month');
-    const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
-    const mindmapData = buildProspectiveMindmap(data.monthData, lang);
-    const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
-    const swotData = buildProspectiveSwot(data.monthData, 'month', lang);
-    const swotSection = buildSwotSection(swotData, lang);
-    const dashboardData = buildProspectiveDashboard(data.monthData, 'month', lang);
-    const dashboardSection = buildDashboardSection(dashboardData, lang);
-    return base.replace(
-      '<!-- /article-content -->',
-      analysisSection + mindmapSection + swotSection + dashboardSection
-    );
-  }
-  /**
-   * Return language-specific metadata for the month-ahead article.
-   *
-   * @param data - Month-ahead data payload
-   * @param lang - Target language code
-   * @returns Localised metadata
-   */
-  getMetadata(data, lang) {
-    const titleFn = getLocalizedString(MONTH_AHEAD_TITLES, lang);
-    const { title: baseTitle, subtitle: baseSubtitle } = titleFn(data.monthLabel);
-    const suffix = lang === 'en' ? buildMonthAheadTitleSuffix(data.monthData) : '';
-    const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
-    const subtitle =
-      lang === 'en'
-        ? buildMonthAheadDescription(data.monthData, data.monthLabel) || baseSubtitle
-        : baseSubtitle;
-    return {
-      title,
-      subtitle,
-      keywords: data.keywords,
-      category: ArticleCategory.MONTH_AHEAD,
-      sources: [],
-    };
-  }
+    type = ArticleCategory.MONTH_AHEAD;
+    requiredMCPTools = [
+        'get_plenary_sessions',
+        'get_committee_info',
+        'search_documents',
+        'monitor_legislative_pipeline',
+        'get_parliamentary_questions',
+        'get_events',
+        'get_events_feed',
+        'get_adopted_texts_feed',
+        'get_procedures_feed',
+    ];
+    /**
+     * Fetch month-ahead data from MCP.
+     *
+     * @param client - MCP client or null
+     * @param date - ISO 8601 publication date
+     * @returns Populated month-ahead data payload
+     */
+    async fetchData(client, date) {
+        const dateRange = computeMonthAheadDateRange(date);
+        console.log(`  📆 Month-ahead range: ${dateRange.start} to ${dateRange.end}`);
+        // Fetch traditional MCP data and EP feeds in parallel
+        const [monthData, feedData] = await Promise.all([
+            fetchWeekAheadData(client, dateRange),
+            fetchEPFeedData(client, 'one-month', dateRange),
+        ]);
+        const keywords = [...MONTH_AHEAD_KEYWORDS, ...buildKeywords(monthData)];
+        const monthLabel = formatMonthLabel(dateRange.start);
+        return { date, dateRange, monthData, keywords, monthLabel, feedData };
+    }
+    /**
+     * Build the month-ahead HTML body for the specified language.
+     *
+     * @param data - Month-ahead data payload
+     * @param lang - Target language code used for editorial strings
+     * @returns Article HTML body
+     */
+    buildContent(data, lang) {
+        const base = buildWeekAheadContent(data.monthData, data.dateRange, lang);
+        const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month');
+        const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        const mindmapData = buildProspectiveMindmap(data.monthData, lang);
+        const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
+        const swotData = buildProspectiveSwot(data.monthData, 'month', lang);
+        const swotSection = buildSwotSection(swotData, lang);
+        const dashboardData = buildProspectiveDashboard(data.monthData, 'month', lang);
+        const dashboardSection = buildDashboardSection(dashboardData, lang);
+        return base.replace('<!-- /article-content -->', analysisSection + mindmapSection + swotSection + dashboardSection);
+    }
+    /**
+     * Return language-specific metadata for the month-ahead article.
+     *
+     * @param data - Month-ahead data payload
+     * @param lang - Target language code
+     * @returns Localised metadata
+     */
+    getMetadata(data, lang) {
+        const titleFn = getLocalizedString(MONTH_AHEAD_TITLES, lang);
+        const { title: baseTitle, subtitle: baseSubtitle } = titleFn(data.monthLabel);
+        const suffix = lang === 'en' ? buildMonthAheadTitleSuffix(data.monthData) : '';
+        const title = suffix ? `${baseTitle} — ${suffix}` : baseTitle;
+        const subtitle = lang === 'en'
+            ? buildMonthAheadDescription(data.monthData, data.monthLabel) || baseSubtitle
+            : baseSubtitle;
+        return {
+            title,
+            subtitle,
+            keywords: data.keywords,
+            category: ArticleCategory.MONTH_AHEAD,
+            sources: [],
+        };
+    }
 }
 /** Singleton instance for use by the strategy registry */
 export const monthAheadStrategy = new MonthAheadStrategy();

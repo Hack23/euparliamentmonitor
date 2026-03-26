@@ -22,10 +22,7 @@ const WB_BINARY_NAME = 'worldbank-mcp';
 /** Platform-specific binary filename (Windows uses .cmd shim) */
 const WB_BINARY_FILE = process.platform === 'win32' ? `${WB_BINARY_NAME}.cmd` : WB_BINARY_NAME;
 /** Default binary resolved from node_modules/.bin relative to this file's compiled location */
-const WB_DEFAULT_SERVER = resolve(
-  dirname(fileURLToPath(import.meta.url)),
-  `../../node_modules/.bin/${WB_BINARY_FILE}`
-);
+const WB_DEFAULT_SERVER = resolve(dirname(fileURLToPath(import.meta.url)), `../../node_modules/.bin/${WB_BINARY_FILE}`);
 /** Fallback payload when indicator data is unavailable (empty CSV) */
 const INDICATOR_FALLBACK = '';
 /**
@@ -36,40 +33,41 @@ const INDICATOR_FALLBACK = '';
  * falls back to the European Parliament MCP server defaults.
  */
 export class WorldBankMCPClient extends MCPConnection {
-  constructor(options = {}) {
-    super({
-      ...options,
-      serverPath: options.serverPath ?? process.env['WB_MCP_SERVER_PATH'] ?? WB_DEFAULT_SERVER,
-      gatewayUrl: options.gatewayUrl ?? process.env['WB_MCP_GATEWAY_URL'] ?? '',
-      gatewayApiKey: options.gatewayApiKey ?? process.env['WB_MCP_GATEWAY_API_KEY'] ?? '',
-      serverLabel: options.serverLabel ?? 'World Bank MCP Server',
-    });
-  }
-  /**
-   * Get economic indicator data for a specific country.
-   *
-   * Calls the `get_indicator_for_country` tool on the World Bank MCP server.
-   *
-   * @param countryId - World Bank country code (e.g., 'DEU' for Germany, 'FRA' for France)
-   * @param indicatorId - World Bank indicator ID (e.g., 'NY.GDP.MKTP.CD' for GDP)
-   * @returns MCP tool result with CSV-formatted indicator data, or empty text on error
-   */
-  async getIndicatorForCountry(countryId, indicatorId) {
-    if (!countryId || !indicatorId) {
-      console.warn('get_indicator_for_country called without required countryId or indicatorId');
-      return { content: [{ type: 'text', text: INDICATOR_FALLBACK }] };
+    constructor(options = {}) {
+        super({
+            ...options,
+            serverPath: options.serverPath ?? process.env['WB_MCP_SERVER_PATH'] ?? WB_DEFAULT_SERVER,
+            gatewayUrl: options.gatewayUrl ?? process.env['WB_MCP_GATEWAY_URL'] ?? '',
+            gatewayApiKey: options.gatewayApiKey ?? process.env['WB_MCP_GATEWAY_API_KEY'] ?? '',
+            serverLabel: options.serverLabel ?? 'World Bank MCP Server',
+        });
     }
-    try {
-      return await this.callTool('get_indicator_for_country', {
-        country_id: countryId,
-        indicator_id: indicatorId,
-      });
-    } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
-      console.warn('get_indicator_for_country not available:', message);
-      return { content: [{ type: 'text', text: INDICATOR_FALLBACK }] };
+    /**
+     * Get economic indicator data for a specific country.
+     *
+     * Calls the `get_indicator_for_country` tool on the World Bank MCP server.
+     *
+     * @param countryId - World Bank country code (e.g., 'DEU' for Germany, 'FRA' for France)
+     * @param indicatorId - World Bank indicator ID (e.g., 'NY.GDP.MKTP.CD' for GDP)
+     * @returns MCP tool result with CSV-formatted indicator data, or empty text on error
+     */
+    async getIndicatorForCountry(countryId, indicatorId) {
+        if (!countryId || !indicatorId) {
+            console.warn('get_indicator_for_country called without required countryId or indicatorId');
+            return { content: [{ type: 'text', text: INDICATOR_FALLBACK }] };
+        }
+        try {
+            return await this.callTool('get_indicator_for_country', {
+                country_id: countryId,
+                indicator_id: indicatorId,
+            });
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn('get_indicator_for_country not available:', message);
+            return { content: [{ type: 'text', text: INDICATOR_FALLBACK }] };
+        }
     }
-  }
 }
 /** Singleton World Bank MCP client instance */
 let wbClientInstance = null;
@@ -84,30 +82,31 @@ let wbClientInstance = null;
  * @returns Connected World Bank MCP client
  */
 export async function getWBMCPClient(options = {}) {
-  if (!wbClientInstance) {
-    const mergedOptions = {
-      ...options,
-      maxConnectionAttempts: options.maxConnectionAttempts ?? 2,
-      connectionRetryDelay: options.connectionRetryDelay ?? 1000,
-    };
-    const client = new WorldBankMCPClient(mergedOptions);
-    try {
-      await client.connect();
-      wbClientInstance = client;
-    } catch (error) {
-      wbClientInstance = null;
-      throw error;
+    if (!wbClientInstance) {
+        const mergedOptions = {
+            ...options,
+            maxConnectionAttempts: options.maxConnectionAttempts ?? 2,
+            connectionRetryDelay: options.connectionRetryDelay ?? 1000,
+        };
+        const client = new WorldBankMCPClient(mergedOptions);
+        try {
+            await client.connect();
+            wbClientInstance = client;
+        }
+        catch (error) {
+            wbClientInstance = null;
+            throw error;
+        }
     }
-  }
-  return wbClientInstance;
+    return wbClientInstance;
 }
 /**
  * Close and cleanup singleton World Bank MCP client
  */
 export async function closeWBMCPClient() {
-  if (wbClientInstance) {
-    wbClientInstance.disconnect();
-    wbClientInstance = null;
-  }
+    if (wbClientInstance) {
+        wbClientInstance.disconnect();
+        wbClientInstance = null;
+    }
 }
 //# sourceMappingURL=wb-mcp-client.js.map
