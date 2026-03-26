@@ -68,6 +68,22 @@ function escapeYamlString(s) {
     return s.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
 }
 /**
+ * Merge `votingAnomalies` and `anomalies` fields from a ClassificationInput.
+ *
+ * Existing article payloads (Motions/WeeklyReview) use `anomalies` while the
+ * classification framework originally used `votingAnomalies`. This helper
+ * concatenates both to ensure callers don't need to remap field names.
+ */
+function mergeAnomalies(data) {
+    const a = data.votingAnomalies ?? [];
+    const b = data.anomalies ?? [];
+    if (b.length === 0)
+        return a;
+    if (a.length === 0)
+        return b;
+    return [...a, ...b];
+}
+/**
  * Resolve an ImpactLevel from a 0-1 intensity score
  *
  * @param score - Normalised intensity score in [0, 1]
@@ -141,7 +157,7 @@ function totalVotes(votes) {
 export function assessPoliticalSignificance(data) {
     const votes = data.votingRecords ?? [];
     const procedures = data.procedures ?? [];
-    const anomalies = data.votingAnomalies ?? [];
+    const anomalies = mergeAnomalies(data);
     const coalitions = data.coalitions ?? [];
     // Signal 1: Volume and controversy of votes (0–1)
     const voteScore = clamp01(votes.length / 10);
@@ -486,7 +502,7 @@ function makeForceAssessment(description, strength, trend, keyActors, confidence
  */
 export function analyzePoliticalForces(data) {
     const coalitions = data.coalitions ?? [];
-    const anomalies = data.votingAnomalies ?? [];
+    const anomalies = mergeAnomalies(data);
     const procedures = data.procedures ?? [];
     const questions = data.questions ?? [];
     const votes = data.votingRecords ?? [];
@@ -693,7 +709,7 @@ export function writeAnalysisManifest(runDir, articleTypes, methodsUsed) {
         completedAt: now,
     };
     fs.mkdirSync(runDir, { recursive: true });
-    fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(manifest, null, 2), 'utf-8');
+    atomicWrite(path.join(runDir, 'manifest.json'), JSON.stringify(manifest, null, 2));
     return manifest;
 }
 // ─── Significance rank helpers ────────────────────────────────────────────────

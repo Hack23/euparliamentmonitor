@@ -39,91 +39,16 @@ import {
   IMPACT_ORDER,
 } from '../../scripts/types/political-classification.js';
 
-// ─── Fixture helpers ─────────────────────────────────────────────────────────
-
-function makeVoteRecord(overrides = {}) {
-  return {
-    title: 'EU Budget Vote 2026',
-    date: '2026-03-26',
-    result: 'Adopted',
-    votes: { for: 450, against: 150, abstain: 30 },
-    ...overrides,
-  };
-}
-
-function makeControversialVote() {
-  // Against > 35% of total
-  return {
-    title: 'Controversial Regulation',
-    date: '2026-03-26',
-    result: 'Adopted',
-    votes: { for: 300, against: 250, abstain: 50 }, // 41.7% against
-  };
-}
-
-function makeCoalition(overrides = {}) {
-  return {
-    groups: ['EPP', 'Renew'],
-    cohesionScore: 0.82,
-    alignmentTrend: 'strengthening',
-    riskLevel: 'low',
-    ...overrides,
-  };
-}
-
-function makeVotingPattern(overrides = {}) {
-  return {
-    group: 'EPP',
-    cohesion: 0.85,
-    participation: 0.92,
-    ...overrides,
-  };
-}
-
-function makeProcedure(overrides = {}) {
-  return {
-    id: 'PROC-2024-001',
-    title: 'Green Deal Amendment',
-    stage: 'Committee',
-    committee: 'ENVI',
-    status: 'In progress',
-    bottleneck: false,
-    ...overrides,
-  };
-}
-
-function makeAnomaly(overrides = {}) {
-  return {
-    type: 'party-defection',
-    description: 'EPP members voted against group line',
-    severity: 'high',
-    ...overrides,
-  };
-}
-
-function makeQuestion(overrides = {}) {
-  return {
-    author: 'MEP-12345',
-    subject: 'Climate Policy',
-    topic: 'Environment',
-    date: '2026-03-26',
-    status: 'Pending',
-    type: 'oral',
-    ...overrides,
-  };
-}
-
-function makeDocument(overrides = {}) {
-  return {
-    title: 'ENVI Committee Report on Climate',
-    type: 'REPORT',
-    date: '2026-03-26',
-    status: 'Draft',
-    committee: 'ENVI',
-    rapporteur: 'Jane Smith',
-    ...overrides,
-  };
-}
+import {
+  makeVoteRecord,
+  makeControversialVote,
+  makeCoalition,
+  makeVotingPattern,
+  makeProcedure,
+  makeAnomaly,
+  makeQuestion,
+  makeDocument,
+} from '../fixtures/ep-data.js';
 
 // ─── SIGNIFICANCE_ORDER & IMPACT_ORDER ───────────────────────────────────────
 
@@ -210,6 +135,29 @@ describe('assessPoliticalSignificance', () => {
       coalitions: [makeCoalition()],
     });
     expect(SIGNIFICANCE_ORDER).toContain(result);
+  });
+
+  it('accepts anomalies via the `anomalies` alias field', () => {
+    // Pass anomalies using the alias field name used by existing article payloads
+    const withAlias = assessPoliticalSignificance({
+      anomalies: [makeAnomaly({ severity: 'critical' }), makeAnomaly({ severity: 'high' })],
+    });
+    // Same data via the canonical field should produce an identical result
+    const withCanonical = assessPoliticalSignificance({
+      votingAnomalies: [makeAnomaly({ severity: 'critical' }), makeAnomaly({ severity: 'high' })],
+    });
+    expect(withAlias).toBe(withCanonical);
+  });
+
+  it('merges both anomalies and votingAnomalies when both are present', () => {
+    const merged = assessPoliticalSignificance({
+      votingAnomalies: [makeAnomaly({ severity: 'high' })],
+      anomalies: [makeAnomaly({ severity: 'critical' })],
+    });
+    const canonical = assessPoliticalSignificance({
+      votingAnomalies: [makeAnomaly({ severity: 'high' }), makeAnomaly({ severity: 'critical' })],
+    });
+    expect(merged).toBe(canonical);
   });
 });
 

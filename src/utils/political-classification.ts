@@ -82,6 +82,16 @@ export interface ClassificationInput {
     readonly description?: string | undefined;
     readonly severity?: string | undefined;
   }[];
+  /**
+   * Alias for votingAnomalies — matches existing article payloads
+   * (e.g. Motions/WeeklyReview strategies) that expose anomalies as `anomalies`.
+   * When both fields are present they are merged internally.
+   */
+  readonly anomalies?: readonly {
+    readonly type?: string | undefined;
+    readonly description?: string | undefined;
+    readonly severity?: string | undefined;
+  }[];
   /** Legislative documents from MCP */
   readonly documents?: readonly {
     readonly title?: string | undefined;
@@ -186,6 +196,26 @@ function escapeYamlString(s: string): string {
   return s.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
 }
 
+/** Anomaly shape used by both `votingAnomalies` and `anomalies` fields */
+type AnomalyEntry = ClassificationInput['votingAnomalies'] extends readonly (infer T)[] | undefined
+  ? T
+  : never;
+
+/**
+ * Merge `votingAnomalies` and `anomalies` fields from a ClassificationInput.
+ *
+ * Existing article payloads (Motions/WeeklyReview) use `anomalies` while the
+ * classification framework originally used `votingAnomalies`. This helper
+ * concatenates both to ensure callers don't need to remap field names.
+ */
+function mergeAnomalies(data: ClassificationInput): readonly AnomalyEntry[] {
+  const a = data.votingAnomalies ?? [];
+  const b = data.anomalies ?? [];
+  if (b.length === 0) return a;
+  if (a.length === 0) return b;
+  return [...a, ...b];
+}
+
 /**
  * Resolve an ImpactLevel from a 0-1 intensity score
  *
@@ -264,7 +294,7 @@ function totalVotes(
 export function assessPoliticalSignificance(data: ClassificationInput): PoliticalSignificance {
   const votes = data.votingRecords ?? [];
   const procedures = data.procedures ?? [];
-  const anomalies = data.votingAnomalies ?? [];
+  const anomalies = mergeAnomalies(data);
   const coalitions = data.coalitions ?? [];
 
   // Signal 1: Volume and controversy of votes (0–1)
@@ -693,7 +723,7 @@ function makeForceAssessment(
  */
 export function analyzePoliticalForces(data: ClassificationInput): PoliticalForcesAnalysis {
   const coalitions = data.coalitions ?? [];
-  const anomalies = data.votingAnomalies ?? [];
+  const anomalies = mergeAnomalies(data);
   const procedures = data.procedures ?? [];
   const questions = data.questions ?? [];
   const votes = data.votingRecords ?? [];
@@ -961,7 +991,7 @@ export function writeAnalysisManifest(
     completedAt: now,
   };
   fs.mkdirSync(runDir, { recursive: true });
-  fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(manifest, null, 2), 'utf-8');
+  atomicWrite(path.join(runDir, 'manifest.json'), JSON.stringify(manifest, null, 2));
   return manifest;
 }
 
