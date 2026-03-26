@@ -493,6 +493,12 @@ describe('assessLegislativeVelocityRisk', () => {
     expect(result.daysInCurrentStage).toBe(0);
   });
 
+  it('should parse numeric string daysInCurrentStage', () => {
+    const proc = makeProcedure({ daysInCurrentStage: '90' });
+    const [result] = assessLegislativeVelocityRisk([proc]);
+    expect(result.daysInCurrentStage).toBe(90);
+  });
+
   it('should handle valid legislative stages', () => {
     const stages = [
       'proposal',

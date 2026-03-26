@@ -110,7 +110,16 @@ function asStr(val) {
  * @returns Finite number or fallback
  */
 function asNum(val, fallback = 0) {
-  return typeof val === 'number' && Number.isFinite(val) ? val : fallback;
+  if (typeof val === 'number' && Number.isFinite(val)) {
+    return val;
+  }
+  if (typeof val === 'string') {
+    const parsed = Number(val.trim());
+    if (Number.isFinite(parsed)) {
+      return parsed;
+    }
+  }
+  return fallback;
 }
 /**
  * Coerce an unknown value to a Record or null.
@@ -183,8 +192,8 @@ export function calculatePoliticalRiskScore(
     riskScore,
     riskLevel,
     confidence,
-    evidence,
-    mitigatingFactors,
+    evidence: [...evidence],
+    mitigatingFactors: [...mitigatingFactors],
   };
 }
 /**
@@ -683,9 +692,16 @@ function buildRisksMarkdown(risks) {
       .filter(Boolean);
     const mitigations =
       safeMitigations.length > 0 ? `\n- **Mitigating Factors**: ${safeMitigations.join('; ')}` : '';
+    const safeLikelihood = sanitizeMarkdownContent(String(r.likelihood));
+    const safeLikelihoodValue = sanitizeMarkdownContent(String(r.likelihoodValue));
+    const safeImpact = sanitizeMarkdownContent(String(r.impact));
+    const safeImpactValue = sanitizeMarkdownContent(String(r.impactValue));
+    const safeRiskScore = sanitizeMarkdownContent(String(r.riskScore));
+    const safeRiskLevel = sanitizeMarkdownContent(String(r.riskLevel)).toUpperCase();
+    const safeConfidence = sanitizeMarkdownContent(String(r.confidence));
     return [
       `### ${headingId}: ${headingDescription}`,
-      `- **Likelihood**: ${r.likelihood} (${r.likelihoodValue}) | **Impact**: ${r.impact} (${r.impactValue}) | **Score**: ${r.riskScore} (${r.riskLevel.toUpperCase()}) | **Confidence**: ${r.confidence}${evidence}${mitigations}`,
+      `- **Likelihood**: ${safeLikelihood} (${safeLikelihoodValue}) | **Impact**: ${safeImpact} (${safeImpactValue}) | **Score**: ${safeRiskScore} (${safeRiskLevel}) | **Confidence**: ${safeConfidence}${evidence}${mitigations}`,
     ].join('\n');
   });
   return `\n## Identified Risks\n\n${lines.join('\n\n')}\n`;
