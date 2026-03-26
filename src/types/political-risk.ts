@@ -52,12 +52,12 @@ export type PoliticalRiskImpact = 'negligible' | 'minor' | 'moderate' | 'major' 
 /**
  * Overall risk level derived from the risk score (likelihood × impact).
  *
- * | Level    | Score Range | Description                                 |
- * |----------|-------------|---------------------------------------------|
- * | low      | 0–1.0       | Acceptable; monitor periodically            |
- * | medium   | 1.0–2.0     | Elevated; review and consider mitigation    |
- * | high     | 2.0–3.5     | Significant; mitigate and track closely     |
- * | critical | 3.5–4.5     | Immediate attention required                |
+ * | Level    | Score Range    | Description                                 |
+ * |----------|----------------|---------------------------------------------|
+ * | low      | 0–1.0          | Acceptable; monitor periodically            |
+ * | medium   | >1.0–2.0       | Elevated; review and consider mitigation    |
+ * | high     | >2.0–3.5       | Significant; mitigate and track closely     |
+ * | critical | >3.5–4.5       | Immediate attention required                |
  */
 export type PoliticalRiskLevel = 'low' | 'medium' | 'high' | 'critical';
 
@@ -206,14 +206,15 @@ export type SwotItemTrend = 'improving' | 'stable' | 'deteriorating';
 
 /**
  * A SWOT item with a quantitative score and supporting evidence.
- * - Strengths/Weaknesses: scored 1–5 (internal factor magnitude)
+ * - Strengths/Weaknesses: scored 0–5 (internal factor magnitude),
+ *   where 0 represents a neutral or not-currently-relevant factor
  * - Opportunities/Threats: scored as probability × impact
  */
 export interface ScoredSWOTItem {
   /** Description of the SWOT factor */
   readonly description: string;
   /** Quantitative score:
-   *  - Strengths/Weaknesses: 1 (minor) to 5 (critical)
+   *  - Strengths/Weaknesses: 0 (neutral / not present) to 5 (critical)
    *  - Opportunities/Threats: likelihood × impact (0–4.5)
    */
   readonly score: number;

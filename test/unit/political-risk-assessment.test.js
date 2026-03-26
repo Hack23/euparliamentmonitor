@@ -573,6 +573,11 @@ describe('runAgentRiskAssessment', () => {
     expect(result.overallRiskProfile).toBeDefined();
     expect(result.overallRiskProfile.riskId).toContain('OVERALL-A');
     expect(result.overallRiskProfile.riskScore).toBeGreaterThan(0);
+    // Invariant: riskScore must equal likelihoodValue × impactValue
+    expect(result.overallRiskProfile.riskScore).toBeCloseTo(
+      result.overallRiskProfile.likelihoodValue * result.overallRiskProfile.impactValue,
+      2,
+    );
   });
 
   it('should handle an empty risks list', () => {

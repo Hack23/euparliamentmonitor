@@ -130,7 +130,7 @@ const HEAT_MAP_CELLS = {
  * European Parliament political intelligence.
  *
  * Risk Score = likelihoodValue × impactValue
- * - low: 0–1.0 | medium: 1.0–2.0 | high: 2.0–3.5 | critical: 3.5–4.5
+ * - low: 0–≤1.0 | medium: >1.0–≤2.0 | high: >2.0–≤3.5 | critical: >3.5
  *
  * @param likelihood - Likelihood level of the political risk
  * @param impact - Impact level if the risk occurs
@@ -484,14 +484,11 @@ function synthesiseOverallRisk(risks, assessmentId, date) {
     if (risks.length === 0) {
         return calculatePoliticalRiskScore('rare', 'negligible', `OVERALL-${assessmentId}`, `Overall risk profile for assessment ${assessmentId} on ${date}`, [], [], 'low');
     }
-    // Use weighted average for overall score
-    const avgScore = round2(risks.reduce((s, r) => s + r.riskScore, 0) / risks.length);
     const firstRisk = risks[0];
     if (!firstRisk) {
         return calculatePoliticalRiskScore('rare', 'negligible', `OVERALL-${assessmentId}`, `Overall risk profile for assessment ${assessmentId} on ${date}`, [], [], 'low');
     }
     const maxRisk = risks.reduce((max, r) => (r.riskScore > max.riskScore ? r : max), firstRisk);
-    const overallLevel = deriveRiskLevel(avgScore);
     // Count confidence levels to pick the dominant one
     const confidenceCounts = { high: 0, medium: 0, low: 0 };
     for (const r of risks) {
@@ -503,6 +500,7 @@ function synthesiseOverallRisk(risks, assessmentId, date) {
         : confidenceCounts.medium >= confidenceCounts.low
             ? 'medium'
             : 'low';
+    // Use maxRisk fields to maintain the invariant: riskScore = likelihoodValue × impactValue
     return {
         riskId: `OVERALL-${assessmentId}`,
         description: `Overall risk profile: ${risks.length} risks identified; highest: ${maxRisk.description}`,
@@ -510,8 +508,8 @@ function synthesiseOverallRisk(risks, assessmentId, date) {
         likelihoodValue: maxRisk.likelihoodValue,
         impact: maxRisk.impact,
         impactValue: maxRisk.impactValue,
-        riskScore: avgScore,
-        riskLevel: overallLevel,
+        riskScore: maxRisk.riskScore,
+        riskLevel: maxRisk.riskLevel,
         confidence: dominantConfidence,
         evidence: risks.flatMap((r) => r.evidence).slice(0, 5),
         mitigatingFactors: risks.flatMap((r) => r.mitigatingFactors).slice(0, 5),
@@ -622,14 +620,15 @@ function buildRiskHeatMapMarkdown() {
 function buildRisksMarkdown(risks) {
     if (risks.length === 0)
         return '';
-    const lines = risks.map((r, i) => {
-        const idx = String(i + 1).padStart(3, '0');
+    const lines = risks.map((r) => {
+        const headingId = r.riskId?.trim().length > 0 ? r.riskId : 'RISK-UNKNOWN';
+        const headingDescription = r.description?.trim().length > 0 ? r.description : headingId;
         const evidence = r.evidence.length > 0 ? `\n- **Evidence**: ${r.evidence.join('; ')}` : '';
         const mitigations = r.mitigatingFactors.length > 0
             ? `\n- **Mitigating Factors**: ${r.mitigatingFactors.join('; ')}`
             : '';
         return [
-            `### RISK-${idx}: ${r.description || r.riskId}`,
+            `### ${headingId}: ${headingDescription}`,
             `- **Likelihood**: ${r.likelihood} (${r.likelihoodValue}) | **Impact**: ${r.impact} (${r.impactValue}) | **Score**: ${r.riskScore} (${r.riskLevel.toUpperCase()}) | **Confidence**: ${r.confidence}${evidence}${mitigations}`,
         ].join('\n');
     });
