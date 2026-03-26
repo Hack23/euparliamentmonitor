@@ -536,6 +536,331 @@ describe('runAnalysisStage', () => {
     });
   });
 
+  // ─── Builder functions with populated data ───────────────────────────────────
+
+  describe('builder output with populated data', () => {
+    /** Minimal vote record that lets classification functions score > 0 */
+    const sampleVotingRecords = [
+      { title: 'Resolution on AI Act', date: '2026-03-20', result: 'adopted', votes: { for: 350, against: 200, abstain: 30 } },
+      { title: 'Directive on Green Deal', date: '2026-03-21', result: 'adopted', votes: { for: 400, against: 100, abstain: 20 } },
+    ];
+    const sampleProcedures = [
+      { procedureId: 'PROC-001', title: 'Digital Markets Act', stage: 'committee', daysInCurrentStage: 90 },
+      { procedureId: 'PROC-002', title: 'Climate Law', stage: 'plenary', daysInCurrentStage: 30 },
+    ];
+    const sampleCoalitions = [
+      { groups: ['EPP', 'S&D'], cohesionScore: 0.55, riskLevel: 'high' },
+    ];
+    const sampleAnomalies = [
+      { severity: 'high', description: 'Unexpected voting pattern shift' },
+    ];
+    const sampleEvents = [
+      { title: 'Plenary session', date: '2026-03-26' },
+      { title: 'Committee hearing', date: '2026-03-27' },
+    ];
+    const sampleDocuments = [
+      { title: 'Legislative report', type: 'report' },
+    ];
+    const samplePatterns = [
+      { group: 'EPP', cohesion: 0.85, participation: 0.92 },
+    ];
+
+    function buildPopulatedFetchedData() {
+      return {
+        events: sampleEvents,
+        sessions: [],
+        documents: sampleDocuments,
+        patterns: samplePatterns,
+        votingRecords: sampleVotingRecords,
+        procedures: sampleProcedures,
+        coalitions: sampleCoalitions,
+        anomalies: sampleAnomalies,
+        mepUpdates: [],
+        questions: [],
+      };
+    }
+
+    it('significance-classification reflects data volume in markdown', async () => {
+      await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['significance-classification'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'classification', 'significance-assessment.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Political Significance Classification');
+      expect(content).toContain('Overall Significance');
+      // With populated data, should report non-zero data points
+      expect(content).toContain(`${sampleEvents.length} events`);
+      expect(content).toContain(`${sampleDocuments.length} documents`);
+    });
+
+    it('impact-matrix shows dimension levels from real analysis', async () => {
+      await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['impact-matrix'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'classification', 'impact-matrix.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Political Impact Matrix');
+      expect(content).toContain('Overall Significance');
+      // Should contain the impact dimension table
+      expect(content).toContain('Legislative');
+      expect(content).toContain('Coalition');
+    });
+
+    it('actor-mapping identifies actors from populated data', async () => {
+      const data = buildPopulatedFetchedData();
+      data.coalitions = [{ groups: ['EPP', 'S&D', 'Renew'], cohesionScore: 0.7, riskLevel: 'low' }];
+      await runAnalysisStage(data, {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['actor-mapping'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'classification', 'actor-mapping.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Political Actor Mapping');
+      expect(content).toContain('Actor Classification');
+    });
+
+    it('forces-analysis shows force assessment from real data', async () => {
+      await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['forces-analysis'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'classification', 'forces-analysis.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Political Forces Analysis');
+      expect(content).toContain('Coalition Power');
+      expect(content).toContain('Opposition Power');
+    });
+
+    it('political-stride uses real threat assessment for markdown', async () => {
+      await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['political-stride'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'threat-assessment', 'political-stride-assessment.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Political Threat Assessment');
+      expect(content).toContain('Overall Threat Level');
+      // STRIDE categories should appear
+      expect(content).toContain('STRIDE');
+    });
+
+    it('actor-threat-profiling generates profiles from data', async () => {
+      await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['actor-threat-profiling'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'threat-assessment', 'actor-threat-profiles.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Actor Threat Profiles');
+      expect(content).toContain('Actor Threat Matrix');
+    });
+
+    it('consequence-trees generates tree analysis from procedures', async () => {
+      await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['consequence-trees'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'threat-assessment', 'consequence-trees.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Consequence Tree Analysis');
+    });
+
+    it('legislative-disruption analyses procedures for disruption signals', async () => {
+      await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['legislative-disruption'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'threat-assessment', 'legislative-disruption.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Legislative Disruption Analysis');
+      expect(content).toContain('Disruption Assessment');
+    });
+
+    it('risk-matrix computes risk scores from populated data', async () => {
+      await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['risk-matrix'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'risk-scoring', 'risk-matrix.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Political Risk Scoring Matrix');
+      // With procedures, coalitions, and anomalies, should have RISK entries
+      expect(content).toContain('RISK-001');
+      expect(content).toContain('RISK-002');
+      expect(content).toContain('RISK-003');
+    });
+
+    it('risk-matrix shows no risk entries with empty data', async () => {
+      await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['risk-matrix'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'risk-scoring', 'risk-matrix.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Political Risk Scoring Matrix');
+      // Empty data -> empty table row
+      expect(content).not.toContain('RISK-001');
+    });
+
+    it('political-capital-risk generates group assessments', async () => {
+      await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['political-capital-risk'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'risk-scoring', 'political-capital-risk.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Political Capital at Risk');
+      // Should contain major political groups
+      expect(content).toContain('EPP');
+      expect(content).toContain('S&D');
+    });
+
+    it('quantitative-swot generates scored SWOT from data', async () => {
+      await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['quantitative-swot'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'risk-scoring', 'quantitative-swot.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Quantitative SWOT Analysis');
+      expect(content).toContain('Strategic Position Score');
+      expect(content).toContain('SWOT Matrix');
+    });
+
+    it('legislative-velocity-risk analyses procedure delays', async () => {
+      await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['legislative-velocity-risk'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'risk-scoring', 'legislative-velocity-risk.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Legislative Velocity Risk');
+      // With procedures, should show velocity analysis
+      expect(content).toContain(`${sampleProcedures.length} procedures`);
+    });
+
+    it('agent-risk-workflow produces full assessment workflow', async () => {
+      await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['agent-risk-workflow'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'risk-scoring', 'agent-risk-workflow.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Political Risk Assessment');
+      expect(content).toContain('Assessment ID');
+    });
+
+    it('deep-analysis works with populated event data', async () => {
+      await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['deep-analysis'],
+      });
+      const content = fs.readFileSync(
+        path.join(tmpDir, testDate, 'existing', 'deep-analysis.md'),
+        'utf-8'
+      );
+      expect(content).toContain('Deep Multi-Perspective Analysis');
+      expect(content).toContain(`${sampleEvents.length}`);
+    });
+
+    it('runs all 18 methods with populated data without errors', async () => {
+      const ctx = await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+      });
+      expect(ctx.completedMethods).toHaveLength(ALL_ANALYSIS_METHODS.length);
+      expect(ctx.manifest.methods).toHaveLength(ALL_ANALYSIS_METHODS.length);
+      // All methods should have completed status
+      for (const m of ctx.manifest.methods) {
+        expect(m.status).toBe('completed');
+      }
+    });
+
+    it('all 18 methods produce valid markdown with frontmatter when data is populated', async () => {
+      const ctx = await runAnalysisStage(buildPopulatedFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+      });
+      for (const [, result] of ctx.results) {
+        expect(result.status).toBe('completed');
+        // Every completed method should have written a file
+        const filePath = path.join(ctx.outputDir, result.outputFile);
+        expect(fs.existsSync(filePath)).toBe(true);
+        const md = fs.readFileSync(filePath, 'utf-8');
+        // Every file should have YAML frontmatter
+        expect(md).toMatch(/^---\n/);
+        // Some builders use 'method:' (analysis-stage header), others use 'title:' (module-native)
+        const hasMethod = md.includes('method:');
+        const hasTitle = md.includes('title:');
+        expect(hasMethod || hasTitle).toBe(true);
+        expect(md).toContain('date:');
+        expect(md).toContain('confidence:');
+      }
+    });
+  });
+
   // ─── AnalysisContext shape tests ──────────────────────────────────────────────
 
   describe('AnalysisContext return value', () => {
