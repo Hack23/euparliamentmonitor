@@ -157,3 +157,8 @@ homepage-desktop.png
 # Preview screenshots
 index-page-redesign.png
 final-index-redesign.png
+
+# Political Intelligence Classification Framework — analysis output
+# Generated per-run by the Analysis-First Pipeline Stage (Issue 4).
+# Not committed; each run generates fresh analysis under analysis-output/{date}/
+analysis-output/

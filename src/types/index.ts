@@ -288,3 +288,18 @@ export type {
   RiskLevelCounts,
   PoliticalRiskSummary,
 } from './political-risk.js';
+  PoliticalSignificance,
+  ImpactLevel,
+  PoliticalImpactAssessment,
+  ClassificationConfidence,
+  PoliticalActorType,
+  PoliticalActorClassification,
+  ForceAssessment,
+  PoliticalForcesAnalysis,
+  ClassificationMethod,
+  AnalysisRunManifest,
+  AnalysisFrontmatter,
+  ClassificationInput,
+} from './political-classification.js';
+
+export { SIGNIFICANCE_ORDER, IMPACT_ORDER } from './political-classification.js';
