@@ -269,6 +269,17 @@ export type {
 } from '../utils/content-validator.js';
 
 export type {
+  PoliticalActorThreatProfile,
+  ConsequenceNode,
+  PoliticalConsequenceTree,
+  DisruptionPoint,
+  LegislativeDisruptionAnalysis,
+  PoliticalStrideCategory,
+  PoliticalThreatAssessment,
+  ThreatAssessmentInput,
+} from './political-threats.js';
+
+export type {
   PoliticalRiskLikelihood,
   PoliticalRiskImpact,
   PoliticalRiskLevel,

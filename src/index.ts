@@ -104,6 +104,16 @@ export {
   validateTranslationCompleteness,
 } from './utils/content-validator.js';
 
+// ─── Political Threat Assessment ─────────────────────────────────────────────
+export {
+  assessPoliticalThreats,
+  buildActorThreatProfiles,
+  buildConsequenceTree,
+  analyzeLegislativeDisruption,
+  generateThreatAssessmentMarkdown,
+  ALL_POLITICAL_STRIDE_CATEGORIES,
+} from './utils/political-threat-assessment.js';
+
 // ─── HTML Utilities ──────────────────────────────────────────────────────────
 export { stripScriptBlocks } from './utils/html-sanitize.js';
 
