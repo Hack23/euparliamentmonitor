@@ -656,7 +656,7 @@ describe('generateRiskAssessmentMarkdown', () => {
     expect(hasEmoji).toBe(true);
   });
 
-  it('should handle zero-risk scenario', () => {
+  it('should handle empty risks / baseline scenario', () => {
     const emptyAssessment = runAgentRiskAssessment(
       'EMPTY-001',
       '2026-01-01',

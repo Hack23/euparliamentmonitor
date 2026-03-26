@@ -201,9 +201,15 @@ export function calculatePoliticalRiskScore(
   mitigatingFactors: readonly string[] = [],
   confidence: ConfidenceLevel = 'medium'
 ): PoliticalRiskScore {
-  // eslint-disable-next-line security/detect-object-injection -- key is a typed PoliticalRiskLikelihood from const record
+  if (!Object.hasOwn(LIKELIHOOD_VALUES, likelihood)) {
+    throw new Error(`Invalid likelihood: "${String(likelihood)}". Expected one of: ${Object.keys(LIKELIHOOD_VALUES).join(', ')}`);
+  }
+  if (!Object.hasOwn(IMPACT_VALUES, impact)) {
+    throw new Error(`Invalid impact: "${String(impact)}". Expected one of: ${Object.keys(IMPACT_VALUES).join(', ')}`);
+  }
+  // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn above
   const likelihoodValue = LIKELIHOOD_VALUES[likelihood];
-  // eslint-disable-next-line security/detect-object-injection -- key is a typed PoliticalRiskImpact from const record
+  // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn above
   const impactValue = IMPACT_VALUES[impact];
   const riskScore = round2(likelihoodValue * impactValue);
   const riskLevel = deriveRiskLevel(riskScore);
@@ -436,18 +442,18 @@ export function runAgentRiskAssessment(
   riskDrivers: readonly PoliticalRiskDriver[],
   mitigations: readonly string[]
 ): AgentRiskAssessmentWorkflow {
-  // Step 1: Identify
-  const identifyStep: RiskAssessmentStep = { type: 'identify', risks: identifiedRisks };
+  // Step 1: Identify — clone to prevent external mutation of the audit trace
+  const identifyStep: RiskAssessmentStep = { type: 'identify', risks: [...identifiedRisks] };
 
-  // Step 2: Analyze
-  const analyzeStep: RiskAssessmentStep = { type: 'analyze', drivers: riskDrivers };
+  // Step 2: Analyze — clone to prevent external mutation
+  const analyzeStep: RiskAssessmentStep = { type: 'analyze', drivers: [...riskDrivers] };
 
   // Step 3: Evaluate — sort risks by score to build evaluation matrix
   const evaluateMatrix = [...identifiedRisks].sort((a, b) => b.riskScore - a.riskScore);
   const evaluateStep: RiskAssessmentStep = { type: 'evaluate', matrix: evaluateMatrix };
 
-  // Step 4: Treat
-  const treatStep: RiskAssessmentStep = { type: 'treat', mitigations };
+  // Step 4: Treat — clone to prevent external mutation
+  const treatStep: RiskAssessmentStep = { type: 'treat', mitigations: [...mitigations] };
 
   const steps: RiskAssessmentStep[] = [identifyStep, analyzeStep, evaluateStep, treatStep];
 
@@ -460,7 +466,7 @@ export function runAgentRiskAssessment(
     articleType,
     steps,
     overallRiskProfile,
-    recommendations: mitigations,
+    recommendations: [...mitigations],
   };
 }
 
