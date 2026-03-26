@@ -280,7 +280,16 @@ export function assessPoliticalCapitalAtRisk(
   confidenceInterval = 95
 ): PoliticalCapitalAtRisk {
   const cappedCapital = clamp(currentCapital, 0, 100);
-  const totalContribution = riskDrivers.reduce((sum, d) => sum + d.contribution, 0);
+  const totalContribution = riskDrivers.reduce((sum, d) => {
+    const numericContribution = Number(d.contribution);
+
+    if (!Number.isFinite(numericContribution)) {
+      return sum;
+    }
+
+    const safeContribution = clamp(numericContribution, -100, 100);
+    return sum + safeContribution;
+  }, 0);
   const capitalAtRisk = round2(clamp((totalContribution / 100) * cappedCapital, 0, cappedCapital));
 
   return {
@@ -530,7 +539,9 @@ export function generateRiskAssessmentMarkdown(assessment: AgentRiskAssessmentWo
   const safeOverallRiskLevel = sanitizeMarkdownContent(overallRiskProfile.riskLevel).toUpperCase();
   const safeConfidence = sanitizeMarkdownContent(overallRiskProfile.confidence);
 
-  const header = `\n# Political Risk Assessment\n\n**Assessment ID**: ${safeAssessmentId}  \n**Date**: ${safeDate}  \n**Article Type**: ${safeArticleType}  \n**Overall Risk Level**: ${safeOverallRiskLevel} (score: ${overallRiskProfile.riskScore})  \n**Confidence**: ${safeConfidence}\n`;
+  const safeOverallRiskScore = sanitizeMarkdownContent(String(overallRiskProfile.riskScore));
+
+  const header = `\n# Political Risk Assessment\n\n**Assessment ID**: ${safeAssessmentId}  \n**Date**: ${safeDate}  \n**Article Type**: ${safeArticleType}  \n**Overall Risk Level**: ${safeOverallRiskLevel} (score: ${safeOverallRiskScore})  \n**Confidence**: ${safeConfidence}\n`;
 
   const heatMap = buildRiskHeatMapMarkdown();
 
