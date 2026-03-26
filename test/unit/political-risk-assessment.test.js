@@ -23,13 +23,15 @@ import {
   createRiskDriver,
 } from '../../scripts/utils/political-risk-assessment.js';
 import { ArticleCategory } from '../../scripts/types/index.js';
+import { makeProcedure as makeFixtureProcedure } from '../fixtures/ep-data.js';
 
 // ─── Fixture helpers ─────────────────────────────────────────────────────────
 
 function makeProcedure(overrides = {}) {
+  const fixture = makeFixtureProcedure();
   return {
     procedureId: 'PROC-001',
-    title: 'Test Legislative Procedure',
+    title: fixture.title,
     stage: 'committee',
     daysInCurrentStage: 90,
     predictedCompletion: '2026-06-01',
@@ -451,7 +453,7 @@ describe('assessLegislativeVelocityRisk', () => {
     expect(result).toHaveLength(1);
     const [risk] = result;
     expect(risk.procedureId).toBe('PROC-001');
-    expect(risk.title).toBe('Test Legislative Procedure');
+    expect(risk.title).toBe('Green Deal Amendment');
     expect(risk.currentStage).toBe('committee');
     expect(risk.daysInCurrentStage).toBe(90);
   });

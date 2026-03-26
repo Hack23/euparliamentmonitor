@@ -273,7 +273,6 @@ export type {
   PoliticalRiskImpact,
   PoliticalRiskLevel,
   PoliticalRiskScore,
-  PoliticalActorType,
   PoliticalThreatCategory,
   PoliticalRiskDriver,
   PoliticalCapitalAtRisk,
@@ -288,6 +287,8 @@ export type {
   RiskLevelCounts,
   PoliticalRiskSummary,
 } from './political-risk.js';
+
+export type {
   PoliticalSignificance,
   ImpactLevel,
   PoliticalImpactAssessment,

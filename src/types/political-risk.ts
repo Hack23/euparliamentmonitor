@@ -13,6 +13,7 @@
 
 import type { ConfidenceLevel } from './analysis.js';
 import type { ArticleCategory } from './common.js';
+import type { PoliticalActorType } from './political-classification.js';
 
 // ─── Likelihood & Impact (adapted from ISMS Likelihood × Impact framework) ──
 
@@ -61,20 +62,7 @@ export type PoliticalRiskImpact = 'negligible' | 'minor' | 'moderate' | 'major' 
  */
 export type PoliticalRiskLevel = 'low' | 'medium' | 'high' | 'critical';
 
-// ─── Political Actor & Threat Categories ─────────────────────────────────────
-
-/**
- * Type of political actor in the European Parliament ecosystem.
- * Minimal local definition; compatible with the full PoliticalActorType
- * from the political-classification module (Issue #804) if available.
- */
-export type PoliticalActorType =
-  | 'political_group'
-  | 'mep'
-  | 'committee'
-  | 'member_state'
-  | 'institution'
-  | 'civil_society';
+// ─── Threat Categories ────────────────────────────────────────────────────────
 
 /**
  * Category of political threat for risk driver classification.

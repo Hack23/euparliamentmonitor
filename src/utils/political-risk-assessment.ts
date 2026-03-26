@@ -15,6 +15,7 @@
 
 import type { ConfidenceLevel } from '../types/analysis.js';
 import type { ArticleCategory } from '../types/common.js';
+import type { PoliticalActorType } from '../types/political-classification.js';
 import type {
   PoliticalRiskLikelihood,
   PoliticalRiskImpact,
@@ -22,7 +23,6 @@ import type {
   PoliticalRiskScore,
   PoliticalCapitalAtRisk,
   PoliticalRiskDriver,
-  PoliticalActorType,
   PoliticalThreatCategory,
   LegislativeVelocityRisk,
   LegislativeStage,
