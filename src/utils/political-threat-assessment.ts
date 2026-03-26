@@ -123,13 +123,13 @@ function toRecord(input: unknown): Record<string, unknown> | null {
 }
 
 /**
- * Compute the numeric composite of CMO (capability × motivation × opportunity).
- * Each dimension is scored: high=3, medium=2, low=1. Max composite = 9.
+ * Compute the summed composite of CMO (capability + motivation + opportunity).
+ * Each dimension is scored: high=3, medium=2, low=1. Max composite = 9, min = 3.
  *
  * @param capability - Capability level
  * @param motivation - Motivation level
  * @param opportunity - Opportunity level
- * @returns Composite score (1–9)
+ * @returns Composite score (3–9)
  */
 function cmoScore(
   capability: 'high' | 'medium' | 'low',
@@ -652,10 +652,14 @@ function assessErosionThreats(data: ArticleData): PoliticalStrideCategory {
  * threat assessment with STRIDE analysis, actor profiles, consequence trees,
  * and legislative disruption analysis.
  *
- * @param data - Article data from MCP pipeline
+ * The function is null-safe and tolerates missing or malformed input data.
+ *
+ * @param data - Article data from MCP pipeline, or null/undefined for missing data
  * @returns Complete political threat assessment
  */
-export function assessPoliticalThreats(data: ArticleData): PoliticalThreatAssessment {
+export function assessPoliticalThreats(
+  data: ArticleData | null | undefined
+): PoliticalThreatAssessment {
   const safeData: ArticleData = data ?? {};
   const date = new Date().toISOString().slice(0, 10);
 
@@ -694,9 +698,14 @@ export function assessPoliticalThreats(data: ArticleData): PoliticalThreatAssess
     recommendations.push('Continue routine monitoring of parliamentary activity');
   }
 
-  const hasHighEvidence =
-    actorProfiles.length > 0 || strideCategories.some((c) => c.evidence.length > 1);
-  const confidence: 'high' | 'medium' | 'low' = hasHighEvidence ? 'medium' : 'low';
+  const hasStrongActorSignals = actorProfiles.length > 0;
+  const hasRichStrideEvidence = strideCategories.some((c) => c.evidence.length > 1);
+  let confidence: 'high' | 'medium' | 'low' = 'low';
+  if (hasStrongActorSignals && hasRichStrideEvidence) {
+    confidence = 'high';
+  } else if (hasStrongActorSignals || hasRichStrideEvidence) {
+    confidence = 'medium';
+  }
 
   return {
     date,
@@ -711,16 +720,6 @@ export function assessPoliticalThreats(data: ArticleData): PoliticalThreatAssess
   };
 }
 
-/**
- * Build political actor threat profiles from article data.
- *
- * Extracts actors from voting, coalition, and MEP influence data and applies
- * CMO (capability × motivation × opportunity) threat scoring, adapted from
- * ISMS threat agent classification methodology.
- *
- * @param data - Article data from MCP pipeline
- * @returns Array of actor threat profiles, sorted by overall threat level
- */
 /**
  * Derive CMO levels for a coalition actor.
  *
@@ -826,6 +825,16 @@ function buildMEPProfile(rec: Record<string, unknown>): PoliticalActorThreatProf
   };
 }
 
+/**
+ * Build political actor threat profiles from article data.
+ *
+ * Extracts actors from voting, coalition, and MEP influence data and applies
+ * CMO (capability + motivation + opportunity) threat scoring, adapted from
+ * ISMS threat agent classification methodology.
+ *
+ * @param data - Article data from MCP pipeline
+ * @returns Array of actor threat profiles, sorted by overall threat level
+ */
 export function buildActorThreatProfiles(data: ArticleData): PoliticalActorThreatProfile[] {
   const profiles: PoliticalActorThreatProfile[] = [];
   const coalitions = data.coalitionData ?? [];
@@ -856,11 +865,14 @@ export function buildActorThreatProfiles(data: ArticleData): PoliticalActorThrea
  * Models how a political action cascades through institutions, adapted from
  * attack tree methodology in ISMS threat modeling.
  *
- * @param action - The initiating political action to analyse
+ * @param action - The initiating political action to analyse, or null/undefined
  * @param data - Article data providing context for consequence assessment
  * @returns Political consequence tree with immediate, secondary, and long-term effects
  */
-export function buildConsequenceTree(action: string, data: ArticleData): PoliticalConsequenceTree {
+export function buildConsequenceTree(
+  action: string | null | undefined,
+  data: ArticleData
+): PoliticalConsequenceTree {
   const safeAction =
     typeof action === 'string' && action.trim().length > 0
       ? action.trim()
@@ -1074,11 +1086,19 @@ function buildDisruptionPoint(
  * @returns Current legislative stage or 'proposal' as default
  */
 function findCurrentStage(safeProcedure: string, procedures: readonly unknown[]): LegislativeStage {
+  const normalizedSafeProcedure = safeProcedure.trim();
+  if (normalizedSafeProcedure.length === 0) {
+    return 'proposal';
+  }
   for (const proc of procedures) {
     const rec = toRecord(proc);
     if (!rec) continue;
-    const id = asStr(rec['procedureId'] ?? rec['id']);
-    if (id === safeProcedure || safeProcedure.includes(id)) {
+    const rawId = asStr(rec['procedureId'] ?? rec['id']);
+    const id = rawId.trim();
+    if (id.length === 0) {
+      continue;
+    }
+    if (id === normalizedSafeProcedure || normalizedSafeProcedure.includes(id)) {
       const stage = asStr(rec['currentStage'] ?? rec['stage']);
       if ((ALL_LEGISLATIVE_STAGES as string[]).includes(stage)) {
         return stage as LegislativeStage;
@@ -1102,8 +1122,18 @@ function calcCoalitionRisk(coalitions: readonly unknown[]): number {
   return hasWeakCoalition ? 0.15 : 0;
 }
 
+/**
+ * Analyse legislative process disruption risk for a specific procedure.
+ *
+ * Maps the complete legislative kill chain to identify vulnerability points,
+ * adapted from ISMS kill chain analysis applied to parliamentary procedures.
+ *
+ * @param procedure - Name or ID of the legislative procedure, or null/undefined
+ * @param data - Article data providing context for disruption assessment
+ * @returns Legislative disruption analysis for all stages of the procedure
+ */
 export function analyzeLegislativeDisruption(
-  procedure: string,
+  procedure: string | null | undefined,
   data: ArticleData
 ): LegislativeDisruptionAnalysis {
   const safeProcedure =
@@ -1177,6 +1207,26 @@ function buildLegislativeDisruptions(data: ArticleData): LegislativeDisruptionAn
 // ─── Markdown generation ───────────────────────────────────────────────────────
 
 /**
+ * Sanitize untrusted text for safe use as a Mermaid diagram node label.
+ *
+ * Removes control characters/newlines and escapes Mermaid-reserved characters
+ * that can break label syntax or allow diagram injection.
+ *
+ * @param input - Untrusted label text
+ * @returns Sanitized label safe for Mermaid node definitions
+ */
+function sanitizeMermaidLabel(input: string): string {
+  // eslint-disable-next-line no-control-regex
+  const withoutControlChars = input.replace(/[\r\n\t\f\v\u0000-\u001F\u007F]/g, ' ');
+  const escaped = withoutControlChars
+    .replace(/"/g, "'")
+    .replace(/\[/g, '\\[')
+    .replace(/\]/g, '\\]')
+    .replace(/\|/g, '\\|');
+  return escaped.trim();
+}
+
+/**
  * Generate a risk heat map row for an actor profile.
  *
  * @param profile - Actor threat profile
@@ -1194,26 +1244,33 @@ function buildActorTableRow(profile: PoliticalActorThreatProfile): string {
  * @returns Markdown string with Mermaid diagram
  */
 function buildConsequenceTreeMarkdown(tree: PoliticalConsequenceTree): string {
+  const rootLabel = sanitizeMermaidLabel(tree.rootAction);
   const lines: string[] = [
-    `### Consequence Tree: ${tree.rootAction}`,
+    `### Consequence Tree: ${rootLabel}`,
     '',
     '```mermaid',
     'graph TD',
-    `    A["${tree.rootAction.replace(/"/g, "'")}"]`,
+    `    A["${rootLabel}"]`,
   ];
 
   tree.immediateConsequences.forEach((c, i) => {
     const nodeId = `B${i}`;
-    const label = c.description.length > 40 ? c.description.slice(0, 40) + '...' : c.description;
-    lines.push(`    ${nodeId}["${label.replace(/"/g, "'")}"]`);
+    const rawDescription = c.description;
+    const truncated =
+      rawDescription.length > 40 ? rawDescription.slice(0, 40) + '...' : rawDescription;
+    const label = sanitizeMermaidLabel(truncated);
+    lines.push(`    ${nodeId}["${label}"]`);
     lines.push(`    A --> ${nodeId}`);
   });
 
   tree.secondaryEffects.forEach((c, i) => {
     const nodeId = `C${i}`;
     const parentId = `B${i % Math.max(tree.immediateConsequences.length, 1)}`;
-    const label = c.description.length > 40 ? c.description.slice(0, 40) + '...' : c.description;
-    lines.push(`    ${nodeId}["${label.replace(/"/g, "'")}"]`);
+    const rawDescription = c.description;
+    const truncated =
+      rawDescription.length > 40 ? rawDescription.slice(0, 40) + '...' : rawDescription;
+    const label = sanitizeMermaidLabel(truncated);
+    lines.push(`    ${nodeId}["${label}"]`);
     lines.push(`    ${parentId} --> ${nodeId}`);
   });
 
