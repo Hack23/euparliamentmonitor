@@ -572,6 +572,63 @@ describe('serializeFrontmatter', () => {
     expect(yaml).toContain('  - "committee-reports"');
     expect(yaml).toContain('  - "propositions"');
   });
+
+  it('emits methods: [] and articleTypes: [] when arrays are empty', () => {
+    const yaml = serializeFrontmatter({
+      title: 'T',
+      date: '2026-03-26',
+      analysisType: 'impact-matrix',
+      significance: 'routine',
+      confidence: 'low',
+      methods: [],
+      articleTypes: [],
+    });
+    expect(yaml).toContain('methods: []');
+    expect(yaml).toContain('articleTypes: []');
+    expect(yaml).not.toContain('methods:\n');
+    expect(yaml).not.toContain('articleTypes:\n');
+  });
+
+  it('escapes double quotes in title to prevent YAML injection', () => {
+    const yaml = serializeFrontmatter({
+      title: 'A "quoted" title',
+      date: '2026-03-26',
+      analysisType: 'impact-matrix',
+      significance: 'routine',
+      confidence: 'low',
+      methods: [],
+      articleTypes: [],
+    });
+    expect(yaml).toContain('title: "A \\"quoted\\" title"');
+  });
+
+  it('escapes backslashes in values', () => {
+    const yaml = serializeFrontmatter({
+      title: 'Path\\to\\file',
+      date: '2026-03-26',
+      analysisType: 'impact-matrix',
+      significance: 'routine',
+      confidence: 'low',
+      methods: [],
+      articleTypes: [],
+    });
+    expect(yaml).toContain('title: "Path\\\\to\\\\file"');
+  });
+
+  it('escapes newlines in values', () => {
+    const yaml = serializeFrontmatter({
+      title: 'Line1\nLine2',
+      date: '2026-03-26',
+      analysisType: 'impact-matrix',
+      significance: 'routine',
+      confidence: 'low',
+      methods: [],
+      articleTypes: [],
+    });
+    expect(yaml).toContain('title: "Line1\\nLine2"');
+    // Should not contain a raw newline inside the value
+    expect(yaml).not.toMatch(/title: "Line1\nLine2"/);
+  });
 });
 
 // ─── writeAnalysisFile ────────────────────────────────────────────────────────

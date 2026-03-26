@@ -6,8 +6,9 @@
  * @description Pure political intelligence classification utility functions for
  * structured assessment of European Parliament data.
  *
- * All functions are stateless, side-effect-free, and safely handle malformed
- * or missing MCP data (null-safe, empty-array-safe).
+ * All classification functions are stateless, side-effect-free, and safely
+ * handle malformed or missing MCP data (null-safe, empty-array-safe). Dedicated
+ * filesystem helpers in this module perform explicit analysis output I/O.
  *
  * The analytical framework is inspired by ISMS classification methodologies
  * (Hack23 ISMS-PUBLIC/CLASSIFICATION.md) adapted for political intelligence:
@@ -22,6 +23,8 @@
 
 import fs from 'fs';
 import path from 'path';
+
+import { atomicWrite } from './file-utils.js';
 
 import type {
   PoliticalSignificance,
@@ -171,6 +174,19 @@ function clamp01(n: number): number {
 }
 
 /**
+ * Escape a string for safe embedding in a double-quoted YAML scalar.
+ *
+ * Escapes backslashes, double quotes, and newlines to prevent YAML injection
+ * or parse errors when interpolating untrusted values into frontmatter.
+ *
+ * @param s - Raw string value
+ * @returns Escaped string safe for YAML double-quoted context
+ */
+function escapeYamlString(s: string): string {
+  return s.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
+}
+
+/**
  * Resolve an ImpactLevel from a 0-1 intensity score
  *
  * @param score - Normalised intensity score in [0, 1]
@@ -279,7 +295,7 @@ export function assessPoliticalSignificance(data: ClassificationInput): Politica
   ).length;
   const coalitionScore = clamp01(lowCohesionCoalitions * 0.25 + highRiskCoalitions * 0.4);
 
-  // Aggregate with equal weights across four signals
+  // Aggregate with equal weights across five signals
   const aggregate =
     (voteScore + controversyScore + pipelineScore + anomalyScore + coalitionScore) / 5;
 
@@ -823,7 +839,7 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
  *
  * @param baseDir - Base directory for analysis output (typically `analysis-output/`)
  * @param date - ISO date string used as the run folder name (YYYY-MM-DD)
- * @returns Absolute path to the date-stamped run directory
+ * @returns Path to the date-stamped run directory (relative or absolute depending on baseDir)
  *
  * @example
  * ```ts
@@ -860,18 +876,26 @@ export function initializeAnalysisDirectory(baseDir: string, date: string): stri
  */
 export function serializeFrontmatter(fm: AnalysisFrontmatter): string {
   const lines: string[] = ['---'];
-  lines.push(`title: "${fm.title}"`);
-  lines.push(`date: "${fm.date}"`);
-  lines.push(`analysisType: "${fm.analysisType}"`);
-  lines.push(`significance: "${fm.significance}"`);
-  lines.push(`confidence: "${fm.confidence}"`);
-  lines.push(`methods:`);
-  for (const m of fm.methods) {
-    lines.push(`  - "${m}"`);
+  lines.push(`title: "${escapeYamlString(fm.title)}"`);
+  lines.push(`date: "${escapeYamlString(fm.date)}"`);
+  lines.push(`analysisType: "${escapeYamlString(fm.analysisType)}"`);
+  lines.push(`significance: "${escapeYamlString(fm.significance)}"`);
+  lines.push(`confidence: "${escapeYamlString(fm.confidence)}"`);
+  if (fm.methods.length > 0) {
+    lines.push('methods:');
+    for (const m of fm.methods) {
+      lines.push(`  - "${escapeYamlString(m)}"`);
+    }
+  } else {
+    lines.push('methods: []');
   }
-  lines.push(`articleTypes:`);
-  for (const t of fm.articleTypes) {
-    lines.push(`  - "${t}"`);
+  if (fm.articleTypes.length > 0) {
+    lines.push('articleTypes:');
+    for (const t of fm.articleTypes) {
+      lines.push(`  - "${escapeYamlString(t)}"`);
+    }
+  } else {
+    lines.push('articleTypes: []');
   }
   lines.push('---');
   return lines.join('\n');
@@ -882,9 +906,9 @@ export function serializeFrontmatter(fm: AnalysisFrontmatter): string {
 /**
  * Write an analysis markdown file with YAML frontmatter.
  *
- * Creates parent directories as needed. The file is written atomically using
- * `fs.writeFileSync` with UTF-8 encoding. Any existing file at the path will
- * be overwritten.
+ * Creates parent directories as needed. The file is written atomically via
+ * temp-file-then-rename (see {@link atomicWrite}) to avoid partial writes on
+ * crash or interruption. Any existing file at the path will be overwritten.
  *
  * @param filePath - Absolute or relative path of the markdown file to write
  * @param frontmatter - Structured frontmatter metadata
@@ -900,9 +924,8 @@ export function writeAnalysisFile(
   frontmatter: AnalysisFrontmatter,
   content: string
 ): void {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
   const yaml = serializeFrontmatter(frontmatter);
-  fs.writeFileSync(filePath, `${yaml}\n\n${content}`, 'utf-8');
+  atomicWrite(filePath, `${yaml}\n\n${content}`);
 }
 
 // ─── Manifest writer ──────────────────────────────────────────────────────────
