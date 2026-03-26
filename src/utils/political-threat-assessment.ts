@@ -736,7 +736,11 @@ export function assessPoliticalThreats(
   const consequenceTrees = buildConsequenceTrees(safeData);
   const legislativeDisruptions = buildLegislativeDisruptions(safeData);
 
-  const overallThreatLevel = aggregateImpactLevels(strideCategories.map((c) => c.threatLevel));
+  const allThreatSignals: ImpactLevel[] = [
+    ...strideCategories.map((c) => c.threatLevel),
+    ...actorProfiles.map((p) => p.overallThreatLevel),
+  ];
+  const overallThreatLevel = aggregateImpactLevels(allThreatSignals);
 
   const keyFindings: string[] = strideCategories
     .filter((c) => c.threatLevel === 'high' || c.threatLevel === 'critical')
