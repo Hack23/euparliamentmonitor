@@ -98,8 +98,12 @@ function clamp01(n: number): number {
  * @param val - Value expected to be an array
  * @returns The value itself when it is an array, otherwise `[]`
  */
-function safeArray<T>(val: readonly T[] | undefined | null): readonly T[] {
-  return Array.isArray(val) ? val : [];
+function safeArray<T>(val: readonly T[] | null | undefined): readonly T[];
+// eslint-disable-next-line no-redeclare -- TypeScript function overload
+function safeArray<T>(val: unknown): readonly T[];
+// eslint-disable-next-line no-redeclare -- TypeScript function overload
+function safeArray<T>(val: unknown): readonly T[] {
+  return Array.isArray(val) ? (val as readonly T[]) : [];
 }
 
 /**

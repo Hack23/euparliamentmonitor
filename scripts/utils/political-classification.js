@@ -56,16 +56,7 @@ function asNum(val, fallback = 0) {
 function clamp01(n) {
   return Math.min(1, Math.max(0, n));
 }
-/**
- * Safely coerce an unknown value to a readonly array.
- *
- * If `val` is already an array it is returned as-is; otherwise an empty array
- * is returned.  This guards against malformed MCP payloads where a field that
- * should be an array is instead a string, number, or object.
- *
- * @param val - Value expected to be an array
- * @returns The value itself when it is an array, otherwise `[]`
- */
+// eslint-disable-next-line no-redeclare -- TypeScript function overload
 function safeArray(val) {
   return Array.isArray(val) ? val : [];
 }
