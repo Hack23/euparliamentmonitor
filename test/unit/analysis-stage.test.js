@@ -767,4 +767,23 @@ describe('runAnalysisStage', () => {
       expect(ctx.date).toBe('2026-12-31');
     });
   });
+
+  describe('enabledMethods deduplication', () => {
+    it('deduplicates enabledMethods so each method runs only once', async () => {
+      const ctx = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: '2026-03-26',
+        outputDir: tmpDir,
+        enabledMethods: ['deep-analysis', 'deep-analysis', 'stakeholder-analysis', 'deep-analysis'],
+      });
+      // Only 2 unique methods should appear in the manifest
+      expect(ctx.manifest.methods).toHaveLength(2);
+      const methodNames = ctx.manifest.methods.map((m) => m.method);
+      expect(methodNames).toContain('deep-analysis');
+      expect(methodNames).toContain('stakeholder-analysis');
+      // Results map should also have exactly 2 entries
+      expect(ctx.results.size).toBe(2);
+      expect(ctx.completedMethods).toHaveLength(2);
+    });
+  });
 });

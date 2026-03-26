@@ -854,19 +854,22 @@ export async function runAnalysisStage(fetchedData, options) {
     if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
         throw new Error(`Invalid analysis date "${date}": must match YYYY-MM-DD format`);
     }
+    // Deduplicate enabledMethods (preserving order) so programmatic callers
+    // that accidentally pass duplicates don't run the same method twice.
+    const deduplicatedMethods = [...new Set(enabledMethods)];
     const startTime = new Date().toISOString();
     const runId = randomUUID();
     const dateOutputDir = path.resolve(outputDir, date);
     if (verbose) {
         console.log(`🔬 [analysis] Starting analysis stage (runId: ${runId})`);
         console.log(`   Date: ${date}`);
-        console.log(`   Methods: ${enabledMethods.length}`);
+        console.log(`   Methods: ${deduplicatedMethods.length}`);
         console.log(`   Output: ${dateOutputDir}`);
     }
     ensureDirectoryExists(dateOutputDir);
     // Run all enabled methods sequentially; isolate failures
     const methodResults = [];
-    for (const method of enabledMethods) {
+    for (const method of deduplicatedMethods) {
         const result = runSingleMethod(method, fetchedData, date, dateOutputDir, skipCompleted, verbose);
         methodResults.push(result);
     }

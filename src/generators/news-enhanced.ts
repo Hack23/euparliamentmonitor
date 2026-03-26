@@ -143,6 +143,7 @@ const dryRunArg = args.includes('--dry-run');
 const skipExistingArg = args.includes('--skip-existing');
 const runAnalysisArg = args.includes('--analysis');
 const analysisOnlyArg = args.includes('--analysis-only');
+const analysisVerboseArg = args.includes('--analysis-verbose');
 const analysisDirArg = args.find((arg) => arg.startsWith('--analysis-dir='));
 const analysisMethodsArg = args.find((arg) => arg.startsWith('--analysis-methods='));
 
@@ -263,9 +264,14 @@ function parseAnalysisMethods(): readonly AnalysisMethod[] {
  * {@link AnalysisContext} is informational; strategies read analysis output
  * from disk rather than consuming the context object in-memory.
  *
- * When an MCP client is available, comprehensive EP feed data is fetched and
- * passed to the analysis stage.  When no client is available, the stage runs
- * over an empty data set (analysis output reflects this).
+ * The feed timeframe is derived from the requested article types: if any
+ * month-level types (month-ahead, month-in-review, committee-reports, motions)
+ * are present, the stage fetches 'one-month' of data; otherwise 'one-week'.
+ *
+ * **Note:** The analysis stage fetches EP feed data independently of the
+ * generation stage.  Strategies also call `fetchEPFeedData()` during their own
+ * `fetchData()`.  Sharing a single fetch result between analysis and generation
+ * is a planned optimisation (tracked separately) to reduce MCP traffic.
  *
  * @param date - ISO date string (YYYY-MM-DD)
  * @param client - Connected MCP client or null
@@ -291,11 +297,18 @@ async function maybeRunAnalysis(
   console.log(`   Methods: ${enabledMethods.length} enabled`);
   console.log('');
 
+  // Derive the feed timeframe from the requested article types so the analysis
+  // window matches the generation window.  Month-level types need 'one-month'.
+  const MONTH_LEVEL_TYPES = ['month-ahead', 'month-in-review', 'committee-reports', 'motions'];
+  const normalizedArticleTypes = articleTypes.map((t) => t.trim());
+  const needsMonthData = normalizedArticleTypes.some((t) => MONTH_LEVEL_TYPES.includes(t));
+  const feedTimeframe = needsMonthData ? 'one-month' : 'one-week';
+
   // Fetch comprehensive EP feed data.  fetchEPFeedData handles a null client
   // gracefully (returns undefined) and also loads from EP_FEED_DATA_FILE when
   // set, so we call it unconditionally.
   const fetchedData: Record<string, unknown> = { date };
-  const feedData = await fetchEPFeedData(client, 'one-week');
+  const feedData = await fetchEPFeedData(client, feedTimeframe);
   if (feedData) {
     fetchedData['events'] = feedData.events ?? [];
     fetchedData['documents'] = feedData.documents ?? [];
@@ -320,7 +333,6 @@ async function maybeRunAnalysis(
   }
 
   try {
-    const normalizedArticleTypes = articleTypes.map((t) => t.trim());
     const validArticleTypes = normalizedArticleTypes.filter((t): t is ArticleCategory =>
       VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory)
     ) as readonly ArticleCategory[];
@@ -331,7 +343,7 @@ async function maybeRunAnalysis(
       outputDir: analysisDirBase,
       enabledMethods,
       skipCompleted: true,
-      verbose: true,
+      verbose: analysisVerboseArg,
     });
     const totalMethods = ctx.manifest.methods.length;
     const completedCount = ctx.manifest.methods.filter(
