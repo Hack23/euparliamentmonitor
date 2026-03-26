@@ -237,14 +237,18 @@ function clampProbability(p: number): number {
 // ─── STRIDE helper extractors ──────────────────────────────────────────────
 
 /**
- * Convert a raw numeric threat score (1–4) to an ImpactLevel.
+ * Convert a raw numeric threat score (1–3) to an ImpactLevel.
  *
- * @param threatScore - Numeric score: 1=low, 2=medium, 3=high, ≥4=critical
+ * STRIDE scanner helpers operate on a 1–3 scale where 1=low, 2=medium,
+ * 3=high. Any value ≥3 is treated as `high` in this layer; the `critical`
+ * impact level is reserved for higher-level analyses (e.g., actor profiles
+ * or aggregated assessments) that assign `critical` directly.
+ *
+ * @param threatScore - Numeric score: 1=low, 2=medium, ≥3=high
  * @returns Corresponding impact level
  */
 function scoreToImpact(threatScore: number): ImpactLevel {
-  if (threatScore >= 4) return 'critical';
-  if (threatScore === 3) return 'high';
+  if (threatScore >= 3) return 'high';
   if (threatScore === 2) return 'medium';
   return 'low';
 }
@@ -266,7 +270,7 @@ function buildStrideResult(
   evidence: string[],
   defaultEvidence: string,
   lowAnalysis: string,
-  elevatedAnalysis: (level: string) => string
+  elevatedAnalysis: (level: ImpactLevel) => string
 ): PoliticalStrideCategory {
   const threatLevel = scoreToImpact(threatScore);
   return {
@@ -1269,6 +1273,7 @@ function sanitizeMermaidLabel(input: string): string {
   // eslint-disable-next-line no-control-regex
   const withoutControlChars = input.replace(/[\r\n\t\f\v\u0000-\u001F\u007F]/g, ' ');
   const escaped = withoutControlChars
+    .replace(/\\/g, '\\\\')
     .replace(/"/g, "'")
     .replace(/\[/g, '\\[')
     .replace(/\]/g, '\\]')
