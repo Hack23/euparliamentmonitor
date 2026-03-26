@@ -38,6 +38,8 @@ export { createEmptyIndex, addArticleToIndex, buildIndexFromEntries, findRelated
 export { assessAnalysisDepth, assessStakeholderCoverage, assessVisualizationQuality, calculateOverallScore, generateRecommendations, scoreArticleQuality, } from './utils/article-quality-scorer.js';
 // ─── Content Validation ──────────────────────────────────────────────────────
 export { validateArticleContent, validateTranslationCompleteness, } from './utils/content-validator.js';
+// ─── Political Threat Assessment ─────────────────────────────────────────────
+export { assessPoliticalThreats, buildActorThreatProfiles, buildConsequenceTree, analyzeLegislativeDisruption, generateThreatAssessmentMarkdown, ALL_POLITICAL_STRIDE_CATEGORIES, } from './utils/political-threat-assessment.js';
 // ─── HTML Utilities ──────────────────────────────────────────────────────────
 export { stripScriptBlocks } from './utils/html-sanitize.js';
 export { parseArticleFilename, formatSlug, calculateReadTime, escapeHTML, isSafeURL, validateArticleHTML, } from './utils/file-utils.js';

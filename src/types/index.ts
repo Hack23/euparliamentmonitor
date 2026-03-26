@@ -267,3 +267,18 @@ export type {
   TranslationValidationResult,
   TranslationValidationMetrics,
 } from '../utils/content-validator.js';
+
+export type {
+  PoliticalActorType,
+  ImpactLevel,
+  PoliticalThreatCategory,
+  PoliticalActorThreatProfile,
+  ConsequenceNode,
+  PoliticalConsequenceTree,
+  LegislativeStage,
+  DisruptionPoint,
+  LegislativeDisruptionAnalysis,
+  PoliticalStrideCategory,
+  PoliticalThreatAssessment,
+  ArticleData,
+} from './political-threats.js';
