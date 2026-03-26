@@ -261,15 +261,15 @@ function buildPoliticalStrideMarkdown(_fetchedData, date) {
 ## Overview
 STRIDE-adapted threat assessment for the political intelligence context.
 
-## STRIDE Categories (Political Adaptation)
-| Category | Political Equivalent | Threats Identified |
-|----------|---------------------|-------------------|
-| **S**poofing | Identity manipulation, misinformation | — |
-| **T**ampering | Legislative text modification | — |
-| **R**epudiation | Vote disowning, position denial | — |
-| **I**nformation Disclosure | Premature leak of positions | — |
-| **D**enial of Service | Procedural obstruction | — |
-| **E**levation of Privilege | Coalition leverage abuse | — |
+## Political STRIDE Categories
+| Category | Description | Threats Identified |
+|----------|-------------|-------------------|
+| **S**hift | Sudden policy or alliance shifts | — |
+| **T**ransparency | Opaque decision-making, hidden agendas | — |
+| **R**eversal | Reversal of previous positions or commitments | — |
+| **I**nstitutional | Institutional norm erosion or procedural abuse | — |
+| **D**elay | Deliberate legislative delay or obstruction | — |
+| **E**rosion | Gradual erosion of democratic safeguards | — |
 
 ## Assessment Date: ${date}
 `);
@@ -778,7 +778,7 @@ function runSingleMethod(method, fetchedData, date, dateOutputDir, skipCompleted
     const absolutePath = path.join(dateOutputDir, subdir, filename);
     // Store a portable relative path (relative to the date-scoped output dir)
     // in the manifest to avoid exposing runner/local filesystem layout.
-    const relativeOutputFile = path.join(subdir, filename);
+    const relativeOutputFile = path.posix.join(subdir, filename);
     const confidence = METHOD_DEFAULT_CONFIDENCE[method];
     if (skipCompleted && methodOutputExists(absolutePath)) {
         if (verbose)

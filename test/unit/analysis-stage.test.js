@@ -686,7 +686,7 @@ describe('runAnalysisStage', () => {
   // ─── Confidence aggregation tests ─────────────────────────────────────────────
 
   describe('confidence aggregation', () => {
-    it('returns low confidence when all methods are skipped', async () => {
+    it('returns high confidence when all skipped methods have high default confidence', async () => {
       // Pre-create the output file so the method will be skipped
       const outputPath = path.join(tmpDir, testDate, 'existing', 'deep-analysis.md');
       fs.mkdirSync(path.dirname(outputPath), { recursive: true });

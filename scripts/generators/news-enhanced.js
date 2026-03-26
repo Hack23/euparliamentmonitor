@@ -210,8 +210,10 @@ async function maybeRunAnalysis(date, client) {
         fetchedData['votingRecords'] = [];
     }
     try {
+        const normalizedArticleTypes = articleTypes.map((t) => t.trim());
+        const validArticleTypes = normalizedArticleTypes.filter((t) => VALID_ARTICLE_CATEGORIES.includes(t));
         const ctx = await runAnalysisStage(fetchedData, {
-            articleTypes: articleTypes.filter((t) => VALID_ARTICLE_CATEGORIES.includes(t)),
+            articleTypes: validArticleTypes,
             date,
             outputDir: analysisDirBase,
             enabledMethods,

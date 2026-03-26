@@ -317,10 +317,13 @@ async function maybeRunAnalysis(
   }
 
   try {
+    const normalizedArticleTypes = articleTypes.map((t) => t.trim());
+    const validArticleTypes = normalizedArticleTypes.filter((t): t is ArticleCategory =>
+      VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory)
+    ) as readonly ArticleCategory[];
+
     const ctx = await runAnalysisStage(fetchedData, {
-      articleTypes: articleTypes.filter((t): t is ArticleCategory =>
-        VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory)
-      ) as readonly ArticleCategory[],
+      articleTypes: validArticleTypes,
       date,
       outputDir: analysisDirBase,
       enabledMethods,
