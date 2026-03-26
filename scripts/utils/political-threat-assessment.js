@@ -656,12 +656,12 @@ function buildMEPProfile(rec) {
  * CMO (capability + motivation + opportunity) threat scoring, adapted from
  * ISMS threat agent classification methodology.
  *
- * @param data - Article data from MCP pipeline
+ * @param data - Article data from MCP pipeline, or null/undefined for missing data
  * @returns Array of actor threat profiles, sorted by overall threat level
  */
 export function buildActorThreatProfiles(data) {
     const profiles = [];
-    const coalitions = data.coalitionData ?? [];
+    const coalitions = data?.coalitionData ?? [];
     for (const coalition of coalitions) {
         const rec = toRecord(coalition);
         if (!rec)
@@ -670,7 +670,7 @@ export function buildActorThreatProfiles(data) {
         if (profile)
             profiles.push(profile);
     }
-    const mepInfluence = data.mepInfluence ?? [];
+    const mepInfluence = data?.mepInfluence ?? [];
     for (const mep of mepInfluence) {
         const rec = toRecord(mep);
         if (!rec)
@@ -688,15 +688,15 @@ export function buildActorThreatProfiles(data) {
  * attack tree methodology in ISMS threat modeling.
  *
  * @param action - The initiating political action to analyse, or null/undefined
- * @param data - Article data providing context for consequence assessment
+ * @param data - Article data providing context for consequence assessment, or null/undefined
  * @returns Political consequence tree with immediate, secondary, and long-term effects
  */
 export function buildConsequenceTree(action, data) {
     const safeAction = typeof action === 'string' && action.trim().length > 0
         ? action.trim()
         : 'Unknown political action';
-    const coalitions = data.coalitionData ?? [];
-    const anomalies = data.votingAnomalies ?? [];
+    const coalitions = data?.coalitionData ?? [];
+    const anomalies = data?.votingAnomalies ?? [];
     const mitigatingFactors = [
         'Institutional resilience mechanisms',
         'Cross-party dialogue channels',
@@ -816,16 +816,6 @@ function buildConsequenceTrees(data) {
     }
     return trees;
 }
-/**
- * Analyse legislative process disruption risk for a specific procedure.
- *
- * Maps the complete legislative kill chain to identify vulnerability points,
- * adapted from ISMS kill chain analysis applied to parliamentary procedures.
- *
- * @param procedure - Name or ID of the legislative procedure
- * @param data - Article data providing context for disruption assessment
- * @returns Legislative disruption analysis for all stages of the procedure
- */
 /** Stage-level risk multipliers for the legislative kill chain */
 const STAGE_RISK_MULTIPLIERS = {
     proposal: 0.5,
@@ -899,7 +889,7 @@ function findCurrentStage(safeProcedure, procedures) {
         if (id.length === 0) {
             continue;
         }
-        if (id === normalizedSafeProcedure || normalizedSafeProcedure.includes(id)) {
+        if (id === normalizedSafeProcedure) {
             const stage = asStr(rec['currentStage'] ?? rec['stage']);
             if (ALL_LEGISLATIVE_STAGES.includes(stage)) {
                 return stage;
@@ -928,16 +918,16 @@ function calcCoalitionRisk(coalitions) {
  * adapted from ISMS kill chain analysis applied to parliamentary procedures.
  *
  * @param procedure - Name or ID of the legislative procedure, or null/undefined
- * @param data - Article data providing context for disruption assessment
+ * @param data - Article data providing context for disruption assessment, or null/undefined
  * @returns Legislative disruption analysis for all stages of the procedure
  */
 export function analyzeLegislativeDisruption(procedure, data) {
     const safeProcedure = typeof procedure === 'string' && procedure.trim().length > 0
         ? procedure.trim()
         : 'Unknown procedure';
-    const procedures = data.procedures ?? [];
-    const coalitions = data.coalitionData ?? [];
-    const anomalies = data.votingAnomalies ?? [];
+    const procedures = data?.procedures ?? [];
+    const coalitions = data?.coalitionData ?? [];
+    const anomalies = data?.votingAnomalies ?? [];
     const currentStage = findCurrentStage(safeProcedure, procedures);
     const baseRisk = anomalies.length > 0 ? 0.2 + Math.min(anomalies.length * 0.05, 0.3) : 0.15;
     const coalitionRisk = calcCoalitionRisk(coalitions);
@@ -1007,6 +997,21 @@ function sanitizeMermaidLabel(input) {
     return escaped.trim();
 }
 /**
+ * Sanitize untrusted text for safe use in a Markdown table cell.
+ *
+ * Escapes pipe characters and normalizes whitespace to prevent
+ * table layout corruption from external data.
+ *
+ * @param input - Untrusted cell text
+ * @returns Sanitized text safe for Markdown table cells
+ */
+function sanitizeTableCell(input) {
+    return input
+        .replace(/\|/g, '\\|')
+        .replace(/[\r\n]+/g, ' ')
+        .trim();
+}
+/**
  * Generate a risk heat map row for an actor profile.
  *
  * @param profile - Actor threat profile
@@ -1014,7 +1019,8 @@ function sanitizeMermaidLabel(input) {
  */
 function buildActorTableRow(profile) {
     const emoji = THREAT_EMOJIS[profile.overallThreatLevel];
-    return `| ${profile.actor} | ${profile.capability} | ${profile.motivation} | ${profile.opportunity} | ${emoji} ${profile.overallThreatLevel} |`;
+    const actor = sanitizeTableCell(profile.actor);
+    return `| ${actor} | ${profile.capability} | ${profile.motivation} | ${profile.opportunity} | ${emoji} ${profile.overallThreatLevel} |`;
 }
 /**
  * Generate a consequence tree section in Mermaid diagram format.
@@ -1041,7 +1047,8 @@ function buildConsequenceTreeMarkdown(tree) {
     });
     tree.secondaryEffects.forEach((c, i) => {
         const nodeId = `C${i}`;
-        const parentId = `B${i % Math.max(tree.immediateConsequences.length, 1)}`;
+        const hasImmediateNodes = tree.immediateConsequences.length > 0;
+        const parentId = hasImmediateNodes ? `B${i % tree.immediateConsequences.length}` : 'A';
         const rawDescription = c.description;
         const truncated = rawDescription.length > 40 ? rawDescription.slice(0, 40) + '...' : rawDescription;
         const label = sanitizeMermaidLabel(truncated);

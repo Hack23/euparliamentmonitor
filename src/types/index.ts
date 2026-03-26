@@ -280,5 +280,5 @@ export type {
   LegislativeDisruptionAnalysis,
   PoliticalStrideCategory,
   PoliticalThreatAssessment,
-  ArticleData,
+  ThreatAssessmentInput,
 } from './political-threats.js';

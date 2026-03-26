@@ -13,7 +13,7 @@
  */
 
 import type {
-  ArticleData,
+  ThreatAssessmentInput,
   ConsequenceNode,
   DisruptionPoint,
   ImpactLevel,
@@ -485,7 +485,7 @@ function scanCriticalAnomaliesForErosion(
  * @param data - Article data containing voting records and coalition data
  * @returns Political STRIDE category assessment for coalition shifts
  */
-function assessShiftThreats(data: ArticleData): PoliticalStrideCategory {
+function assessShiftThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
   const records = data.votingRecords ?? [];
   const coalitions = data.coalitionData ?? [];
   const anomalies = data.votingAnomalies ?? [];
@@ -515,7 +515,7 @@ function assessShiftThreats(data: ArticleData): PoliticalStrideCategory {
  * @param data - Article data containing committee and procedural data
  * @returns Political STRIDE category assessment for transparency concerns
  */
-function assessTransparencyThreats(data: ArticleData): PoliticalStrideCategory {
+function assessTransparencyThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
   const committees = data.committees ?? [];
   const questions = data.questions ?? [];
   const evidence: string[] = [];
@@ -545,7 +545,7 @@ function assessTransparencyThreats(data: ArticleData): PoliticalStrideCategory {
  * @param data - Article data containing procedure and feed data
  * @returns Political STRIDE category assessment for policy reversals
  */
-function assessReversalThreats(data: ArticleData): PoliticalStrideCategory {
+function assessReversalThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
   const procedures = data.procedures ?? [];
   const evidence: string[] = [];
 
@@ -571,7 +571,7 @@ function assessReversalThreats(data: ArticleData): PoliticalStrideCategory {
  * @param data - Article data containing MEP influence and committee data
  * @returns Political STRIDE category assessment for institutional threats
  */
-function assessInstitutionalThreats(data: ArticleData): PoliticalStrideCategory {
+function assessInstitutionalThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
   const mepInfluence = data.mepInfluence ?? [];
   const evidence: string[] = [];
 
@@ -597,7 +597,7 @@ function assessInstitutionalThreats(data: ArticleData): PoliticalStrideCategory 
  * @param data - Article data containing procedures and timeline data
  * @returns Political STRIDE category assessment for legislative delays
  */
-function assessDelayThreats(data: ArticleData): PoliticalStrideCategory {
+function assessDelayThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
   const procedures = data.procedures ?? [];
   const anomalies = data.votingAnomalies ?? [];
   const evidence: string[] = [];
@@ -623,7 +623,7 @@ function assessDelayThreats(data: ArticleData): PoliticalStrideCategory {
  * @param data - Article data containing coalition and voting data
  * @returns Political STRIDE category assessment for democratic erosion
  */
-function assessErosionThreats(data: ArticleData): PoliticalStrideCategory {
+function assessErosionThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
   const coalitions = data.coalitionData ?? [];
   const anomalies = data.votingAnomalies ?? [];
   const evidence: string[] = [];
@@ -658,9 +658,9 @@ function assessErosionThreats(data: ArticleData): PoliticalStrideCategory {
  * @returns Complete political threat assessment
  */
 export function assessPoliticalThreats(
-  data: ArticleData | null | undefined
+  data: ThreatAssessmentInput | null | undefined
 ): PoliticalThreatAssessment {
-  const safeData: ArticleData = data ?? {};
+  const safeData: ThreatAssessmentInput = data ?? {};
   const date = new Date().toISOString().slice(0, 10);
 
   const strideCategories: PoliticalStrideCategory[] = [
@@ -832,12 +832,14 @@ function buildMEPProfile(rec: Record<string, unknown>): PoliticalActorThreatProf
  * CMO (capability + motivation + opportunity) threat scoring, adapted from
  * ISMS threat agent classification methodology.
  *
- * @param data - Article data from MCP pipeline
+ * @param data - Article data from MCP pipeline, or null/undefined for missing data
  * @returns Array of actor threat profiles, sorted by overall threat level
  */
-export function buildActorThreatProfiles(data: ArticleData): PoliticalActorThreatProfile[] {
+export function buildActorThreatProfiles(
+  data: ThreatAssessmentInput | null | undefined
+): PoliticalActorThreatProfile[] {
   const profiles: PoliticalActorThreatProfile[] = [];
-  const coalitions = data.coalitionData ?? [];
+  const coalitions = data?.coalitionData ?? [];
 
   for (const coalition of coalitions) {
     const rec = toRecord(coalition);
@@ -846,7 +848,7 @@ export function buildActorThreatProfiles(data: ArticleData): PoliticalActorThrea
     if (profile) profiles.push(profile);
   }
 
-  const mepInfluence = data.mepInfluence ?? [];
+  const mepInfluence = data?.mepInfluence ?? [];
   for (const mep of mepInfluence) {
     const rec = toRecord(mep);
     if (!rec) continue;
@@ -866,19 +868,19 @@ export function buildActorThreatProfiles(data: ArticleData): PoliticalActorThrea
  * attack tree methodology in ISMS threat modeling.
  *
  * @param action - The initiating political action to analyse, or null/undefined
- * @param data - Article data providing context for consequence assessment
+ * @param data - Article data providing context for consequence assessment, or null/undefined
  * @returns Political consequence tree with immediate, secondary, and long-term effects
  */
 export function buildConsequenceTree(
   action: string | null | undefined,
-  data: ArticleData
+  data: ThreatAssessmentInput | null | undefined
 ): PoliticalConsequenceTree {
   const safeAction =
     typeof action === 'string' && action.trim().length > 0
       ? action.trim()
       : 'Unknown political action';
-  const coalitions = data.coalitionData ?? [];
-  const anomalies = data.votingAnomalies ?? [];
+  const coalitions = data?.coalitionData ?? [];
+  const anomalies = data?.votingAnomalies ?? [];
 
   const mitigatingFactors: string[] = [
     'Institutional resilience mechanisms',
@@ -976,7 +978,7 @@ export function buildConsequenceTree(
  * @param data - Article data from MCP pipeline
  * @returns Array of consequence trees for significant political actions
  */
-function buildConsequenceTrees(data: ArticleData): PoliticalConsequenceTree[] {
+function buildConsequenceTrees(data: ThreatAssessmentInput): PoliticalConsequenceTree[] {
   const trees: PoliticalConsequenceTree[] = [];
   const procedures = data.procedures ?? [];
 
@@ -1012,16 +1014,6 @@ function buildConsequenceTrees(data: ArticleData): PoliticalConsequenceTree[] {
   return trees;
 }
 
-/**
- * Analyse legislative process disruption risk for a specific procedure.
- *
- * Maps the complete legislative kill chain to identify vulnerability points,
- * adapted from ISMS kill chain analysis applied to parliamentary procedures.
- *
- * @param procedure - Name or ID of the legislative procedure
- * @param data - Article data providing context for disruption assessment
- * @returns Legislative disruption analysis for all stages of the procedure
- */
 /** Stage-level risk multipliers for the legislative kill chain */
 const STAGE_RISK_MULTIPLIERS: Readonly<Record<LegislativeStage, number>> = {
   proposal: 0.5,
@@ -1098,7 +1090,7 @@ function findCurrentStage(safeProcedure: string, procedures: readonly unknown[])
     if (id.length === 0) {
       continue;
     }
-    if (id === normalizedSafeProcedure || normalizedSafeProcedure.includes(id)) {
+    if (id === normalizedSafeProcedure) {
       const stage = asStr(rec['currentStage'] ?? rec['stage']);
       if ((ALL_LEGISLATIVE_STAGES as string[]).includes(stage)) {
         return stage as LegislativeStage;
@@ -1129,21 +1121,21 @@ function calcCoalitionRisk(coalitions: readonly unknown[]): number {
  * adapted from ISMS kill chain analysis applied to parliamentary procedures.
  *
  * @param procedure - Name or ID of the legislative procedure, or null/undefined
- * @param data - Article data providing context for disruption assessment
+ * @param data - Article data providing context for disruption assessment, or null/undefined
  * @returns Legislative disruption analysis for all stages of the procedure
  */
 export function analyzeLegislativeDisruption(
   procedure: string | null | undefined,
-  data: ArticleData
+  data: ThreatAssessmentInput | null | undefined
 ): LegislativeDisruptionAnalysis {
   const safeProcedure =
     typeof procedure === 'string' && procedure.trim().length > 0
       ? procedure.trim()
       : 'Unknown procedure';
 
-  const procedures = data.procedures ?? [];
-  const coalitions = data.coalitionData ?? [];
-  const anomalies = data.votingAnomalies ?? [];
+  const procedures = data?.procedures ?? [];
+  const coalitions = data?.coalitionData ?? [];
+  const anomalies = data?.votingAnomalies ?? [];
 
   const currentStage = findCurrentStage(safeProcedure, procedures);
   const baseRisk = anomalies.length > 0 ? 0.2 + Math.min(anomalies.length * 0.05, 0.3) : 0.15;
@@ -1183,7 +1175,7 @@ export function analyzeLegislativeDisruption(
  * @param data - Article data from MCP pipeline
  * @returns Array of legislative disruption analyses
  */
-function buildLegislativeDisruptions(data: ArticleData): LegislativeDisruptionAnalysis[] {
+function buildLegislativeDisruptions(data: ThreatAssessmentInput): LegislativeDisruptionAnalysis[] {
   const procedures = data.procedures ?? [];
   const analyses: LegislativeDisruptionAnalysis[] = [];
 
@@ -1227,6 +1219,22 @@ function sanitizeMermaidLabel(input: string): string {
 }
 
 /**
+ * Sanitize untrusted text for safe use in a Markdown table cell.
+ *
+ * Escapes pipe characters and normalizes whitespace to prevent
+ * table layout corruption from external data.
+ *
+ * @param input - Untrusted cell text
+ * @returns Sanitized text safe for Markdown table cells
+ */
+function sanitizeTableCell(input: string): string {
+  return input
+    .replace(/\|/g, '\\|')
+    .replace(/[\r\n]+/g, ' ')
+    .trim();
+}
+
+/**
  * Generate a risk heat map row for an actor profile.
  *
  * @param profile - Actor threat profile
@@ -1234,7 +1242,8 @@ function sanitizeMermaidLabel(input: string): string {
  */
 function buildActorTableRow(profile: PoliticalActorThreatProfile): string {
   const emoji = THREAT_EMOJIS[profile.overallThreatLevel];
-  return `| ${profile.actor} | ${profile.capability} | ${profile.motivation} | ${profile.opportunity} | ${emoji} ${profile.overallThreatLevel} |`;
+  const actor = sanitizeTableCell(profile.actor);
+  return `| ${actor} | ${profile.capability} | ${profile.motivation} | ${profile.opportunity} | ${emoji} ${profile.overallThreatLevel} |`;
 }
 
 /**
@@ -1265,7 +1274,8 @@ function buildConsequenceTreeMarkdown(tree: PoliticalConsequenceTree): string {
 
   tree.secondaryEffects.forEach((c, i) => {
     const nodeId = `C${i}`;
-    const parentId = `B${i % Math.max(tree.immediateConsequences.length, 1)}`;
+    const hasImmediateNodes = tree.immediateConsequences.length > 0;
+    const parentId = hasImmediateNodes ? `B${i % tree.immediateConsequences.length}` : 'A';
     const rawDescription = c.description;
     const truncated =
       rawDescription.length > 40 ? rawDescription.slice(0, 40) + '...' : rawDescription;

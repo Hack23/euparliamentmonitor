@@ -225,10 +225,13 @@ export interface PoliticalThreatAssessment {
 // ─── Input data type ──────────────────────────────────────────────────────────
 
 /**
- * Article data input for political threat assessment functions.
+ * Input data for political threat assessment functions.
+ *
+ * Named `ThreatAssessmentInput` to avoid collision with the separate
+ * `ArticleData` interface in article strategy modules.
  * Mirrors the structure of MCP-fetched data used throughout the pipeline.
  */
-export interface ArticleData {
+export interface ThreatAssessmentInput {
   /** Voting records from plenary sessions */
   readonly votingRecords?: readonly unknown[];
   /** Coalition dynamics data */
