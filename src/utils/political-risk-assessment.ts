@@ -202,10 +202,14 @@ export function calculatePoliticalRiskScore(
   confidence: ConfidenceLevel = 'medium'
 ): PoliticalRiskScore {
   if (!Object.hasOwn(LIKELIHOOD_VALUES, likelihood)) {
-    throw new Error(`Invalid likelihood: "${String(likelihood)}". Expected one of: ${Object.keys(LIKELIHOOD_VALUES).join(', ')}`);
+    throw new Error(
+      `Invalid likelihood: "${String(likelihood)}". Expected one of: ${Object.keys(LIKELIHOOD_VALUES).join(', ')}`
+    );
   }
   if (!Object.hasOwn(IMPACT_VALUES, impact)) {
-    throw new Error(`Invalid impact: "${String(impact)}". Expected one of: ${Object.keys(IMPACT_VALUES).join(', ')}`);
+    throw new Error(
+      `Invalid impact: "${String(impact)}". Expected one of: ${Object.keys(IMPACT_VALUES).join(', ')}`
+    );
   }
   // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn above
   const likelihoodValue = LIKELIHOOD_VALUES[likelihood];
@@ -487,18 +491,22 @@ export function generateRiskAssessmentMarkdown(assessment: AgentRiskAssessmentWo
   const frontmatter = [
     '---',
     `title: "Political Risk Assessment"`,
-    `date: "${date}"`,
-    `assessmentId: "${assessmentId}"`,
-    `articleType: "${articleType}"`,
+    `date: "${sanitizeYamlValue(date)}"`,
+    `assessmentId: "${sanitizeYamlValue(assessmentId)}"`,
+    `articleType: "${sanitizeYamlValue(articleType)}"`,
     `analysisType: "risk-scoring"`,
-    `overallRiskLevel: "${overallRiskProfile.riskLevel}"`,
-    `confidence: "${overallRiskProfile.confidence}"`,
+    `overallRiskLevel: "${sanitizeYamlValue(overallRiskProfile.riskLevel)}"`,
+    `confidence: "${sanitizeYamlValue(overallRiskProfile.confidence)}"`,
     `methods: ["risk-matrix"]`,
     `riskCount: { low: ${riskCounts.low}, medium: ${riskCounts.medium}, high: ${riskCounts.high}, critical: ${riskCounts.critical} }`,
     '---',
   ].join('\n');
 
-  const header = `\n# Political Risk Assessment\n\n**Assessment ID**: ${assessmentId}  \n**Date**: ${date}  \n**Article Type**: ${articleType}  \n**Overall Risk Level**: ${overallRiskProfile.riskLevel.toUpperCase()} (score: ${overallRiskProfile.riskScore})  \n**Confidence**: ${overallRiskProfile.confidence}\n`;
+  const safeAssessmentId = sanitizeMarkdownContent(assessmentId);
+  const safeDate = sanitizeMarkdownContent(date);
+  const safeArticleType = sanitizeMarkdownContent(articleType);
+
+  const header = `\n# Political Risk Assessment\n\n**Assessment ID**: ${safeAssessmentId}  \n**Date**: ${safeDate}  \n**Article Type**: ${safeArticleType}  \n**Overall Risk Level**: ${overallRiskProfile.riskLevel.toUpperCase()} (score: ${overallRiskProfile.riskScore})  \n**Confidence**: ${overallRiskProfile.confidence}\n`;
 
   const heatMap = buildRiskHeatMapMarkdown();
 
@@ -515,7 +523,7 @@ export function generateRiskAssessmentMarkdown(assessment: AgentRiskAssessmentWo
 
   const recommendationsSection =
     recommendations.length > 0
-      ? `\n## Recommendations\n\n${recommendations.map((r) => `- ${r}`).join('\n')}\n`
+      ? `\n## Recommendations\n\n${recommendations.map((r) => `- ${sanitizeMarkdownContent(r)}`).join('\n')}\n`
       : '';
 
   return [
@@ -795,13 +803,17 @@ function buildRiskHeatMapMarkdown(): string {
 function buildRisksMarkdown(risks: readonly PoliticalRiskScore[]): string {
   if (risks.length === 0) return '';
   const lines = risks.map((r) => {
-    const headingId = r.riskId?.trim().length > 0 ? r.riskId : 'RISK-UNKNOWN';
-    const headingDescription = r.description?.trim().length > 0 ? r.description : headingId;
-    const evidence = r.evidence.length > 0 ? `\n- **Evidence**: ${r.evidence.join('; ')}` : '';
+    const safeRiskId = sanitizeMarkdownContent(r.riskId);
+    const headingId = safeRiskId.length > 0 ? safeRiskId : 'RISK-UNKNOWN';
+    const safeDescription = sanitizeMarkdownContent(r.description);
+    const headingDescription = safeDescription.length > 0 ? safeDescription : headingId;
+    const safeEvidence = r.evidence.map((e) => sanitizeMarkdownContent(e)).filter(Boolean);
+    const evidence = safeEvidence.length > 0 ? `\n- **Evidence**: ${safeEvidence.join('; ')}` : '';
+    const safeMitigations = r.mitigatingFactors
+      .map((m) => sanitizeMarkdownContent(m))
+      .filter(Boolean);
     const mitigations =
-      r.mitigatingFactors.length > 0
-        ? `\n- **Mitigating Factors**: ${r.mitigatingFactors.join('; ')}`
-        : '';
+      safeMitigations.length > 0 ? `\n- **Mitigating Factors**: ${safeMitigations.join('; ')}` : '';
     return [
       `### ${headingId}: ${headingDescription}`,
       `- **Likelihood**: ${r.likelihood} (${r.likelihoodValue}) | **Impact**: ${r.impact} (${r.impactValue}) | **Score**: ${r.riskScore} (${r.riskLevel.toUpperCase()}) | **Confidence**: ${r.confidence}${evidence}${mitigations}`,
@@ -826,6 +838,36 @@ function sanitizeMarkdownTableCell(value: string | undefined | null): string {
   const withoutNewlines = normalized.replace(/[\r\n]+/g, ' ');
   const escapedBackslashes = withoutNewlines.replace(/\\/g, '\\\\');
   return escapedBackslashes.replace(/\|/g, '\\|');
+}
+
+/**
+ * Sanitize a value for safe inclusion in Markdown headings and bullet content.
+ * Strips newlines and other markdown control characters to prevent injection.
+ *
+ * @param value - Raw value
+ * @returns Sanitized string safe for Markdown headings/bullets
+ */
+function sanitizeMarkdownContent(value: string | undefined | null): string {
+  const normalized = (value ?? '').trim();
+  if (normalized === '') {
+    return '';
+  }
+  return normalized.replace(/[\r\n]+/g, ' ');
+}
+
+/**
+ * Sanitize a YAML scalar value for safe inclusion in YAML frontmatter.
+ * Escapes double quotes and strips newlines to prevent YAML injection.
+ *
+ * @param value - Raw value
+ * @returns Sanitized string safe for YAML double-quoted scalars
+ */
+function sanitizeYamlValue(value: string | undefined | null): string {
+  const normalized = (value ?? '').trim();
+  if (normalized === '') {
+    return '';
+  }
+  return normalized.replace(/[\r\n]+/g, ' ').replace(/"/g, '\\"');
 }
 
 /**
@@ -907,7 +949,17 @@ export function createScoredOpportunityOrThreat(
   confidence: ConfidenceLevel = 'medium',
   trend: SwotItemTrend = 'stable'
 ): ScoredSWOTItem {
-  // eslint-disable-next-line security/detect-object-injection -- keys are typed PoliticalRiskLikelihood/Impact from const records
+  if (!Object.hasOwn(LIKELIHOOD_VALUES, likelihood)) {
+    throw new Error(
+      `Invalid likelihood: "${String(likelihood)}". Expected one of: ${Object.keys(LIKELIHOOD_VALUES).join(', ')}`
+    );
+  }
+  if (!Object.hasOwn(IMPACT_VALUES, impact)) {
+    throw new Error(
+      `Invalid impact: "${String(impact)}". Expected one of: ${Object.keys(IMPACT_VALUES).join(', ')}`
+    );
+  }
+  // eslint-disable-next-line security/detect-object-injection -- keys validated via Object.hasOwn above
   const score = round2(LIKELIHOOD_VALUES[likelihood] * IMPACT_VALUES[impact]);
   return {
     description,

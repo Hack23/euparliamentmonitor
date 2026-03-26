@@ -9,7 +9,7 @@
  * and Agent Risk Assessment Workflow generation.
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import {
   calculatePoliticalRiskScore,
   assessPoliticalCapitalAtRisk,
@@ -124,7 +124,7 @@ describe('calculatePoliticalRiskScore', () => {
       'likely',
       'major',
       'RISK-042',
-      'AI Act Implementation Delay',
+      'AI Act Implementation Delay'
     );
     expect(result.riskId).toBe('RISK-042');
     expect(result.description).toBe('AI Act Implementation Delay');
@@ -137,7 +137,7 @@ describe('calculatePoliticalRiskScore', () => {
       'RISK-001',
       'Test',
       ['Evidence 1', 'Evidence 2'],
-      ['Mitigation A'],
+      ['Mitigation A']
     );
     expect(result.evidence).toEqual(['Evidence 1', 'Evidence 2']);
     expect(result.mitigatingFactors).toEqual(['Mitigation A']);
@@ -161,7 +161,7 @@ describe('calculatePoliticalRiskScore', () => {
       '',
       [],
       [],
-      'high',
+      'high'
     );
     expect(result.confidence).toBe('high');
   });
@@ -174,7 +174,7 @@ describe('calculatePoliticalRiskScore', () => {
       '',
       [],
       [],
-      'low',
+      'low'
     );
     expect(result.confidence).toBe('low');
   });
@@ -186,7 +186,43 @@ describe('calculatePoliticalRiskScore', () => {
   });
 });
 
-// ─── Risk level boundary tests ────────────────────────────────────────────────
+// ─── Input validation tests ──────────────────────────────────────────────────
+
+describe('calculatePoliticalRiskScore - input validation', () => {
+  it('should throw for invalid likelihood', () => {
+    expect(() => calculatePoliticalRiskScore('invalid', 'moderate')).toThrow(
+      /Invalid likelihood.*invalid/
+    );
+  });
+
+  it('should throw for invalid impact', () => {
+    expect(() => calculatePoliticalRiskScore('possible', 'invalid')).toThrow(
+      /Invalid impact.*invalid/
+    );
+  });
+
+  it('should throw for empty string likelihood', () => {
+    expect(() => calculatePoliticalRiskScore('', 'moderate')).toThrow(/Invalid likelihood/);
+  });
+
+  it('should throw for empty string impact', () => {
+    expect(() => calculatePoliticalRiskScore('possible', '')).toThrow(/Invalid impact/);
+  });
+});
+
+describe('createScoredOpportunityOrThreat - input validation', () => {
+  it('should throw for invalid likelihood', () => {
+    expect(() => createScoredOpportunityOrThreat('test', 'bogus', 'moderate')).toThrow(
+      /Invalid likelihood.*bogus/
+    );
+  });
+
+  it('should throw for invalid impact', () => {
+    expect(() => createScoredOpportunityOrThreat('test', 'possible', 'bogus')).toThrow(
+      /Invalid impact.*bogus/
+    );
+  });
+});
 
 describe('calculatePoliticalRiskScore - risk level boundaries', () => {
   it('should classify score of exactly 1.0 as low', () => {
@@ -262,9 +298,7 @@ describe('assessPoliticalCapitalAtRisk', () => {
   });
 
   it('should cap capitalAtRisk at currentCapital', () => {
-    const drivers = [
-      createRiskDriver('Massive risk', 'coalition_fracture', 200),
-    ];
+    const drivers = [createRiskDriver('Massive risk', 'coalition_fracture', 200)];
     const result = assessPoliticalCapitalAtRisk('Actor', 'political_group', 80, drivers);
     expect(result.capitalAtRisk).toBeLessThanOrEqual(result.currentCapital);
   });
@@ -304,10 +338,18 @@ describe('buildQuantitativeSWOT', () => {
   it('should return a valid QuantitativeSWOT with all fields', () => {
     const strengths = [createScoredSWOTItem('Strong coalition support', 4)];
     const weaknesses = [createScoredSWOTItem('Committee backlog', 2)];
-    const opportunities = [createScoredOpportunityOrThreat('Green Deal alignment', 'likely', 'major')];
+    const opportunities = [
+      createScoredOpportunityOrThreat('Green Deal alignment', 'likely', 'major'),
+    ];
     const threats = [createScoredOpportunityOrThreat('Lobbying pressure', 'possible', 'moderate')];
 
-    const result = buildQuantitativeSWOT('Test SWOT', strengths, weaknesses, opportunities, threats);
+    const result = buildQuantitativeSWOT(
+      'Test SWOT',
+      strengths,
+      weaknesses,
+      opportunities,
+      threats
+    );
 
     expect(result.title).toBe('Test SWOT');
     expect(result.strengths).toHaveLength(1);
@@ -372,10 +414,7 @@ describe('buildQuantitativeSWOT', () => {
   });
 
   it('should return high strategic position score when strengths dominate', () => {
-    const strengths = [
-      createScoredSWOTItem('S1', 5),
-      createScoredSWOTItem('S2', 4),
-    ];
+    const strengths = [createScoredSWOTItem('S1', 5), createScoredSWOTItem('S2', 4)];
     const weaknesses = [createScoredSWOTItem('W1', 1)];
     const opportunities = [createScoredOpportunityOrThreat('O1', 'likely', 'major')];
     const threats = [createScoredOpportunityOrThreat('T1', 'rare', 'minor')];
@@ -425,7 +464,9 @@ describe('assessLegislativeVelocityRisk', () => {
     // Stalled procedure should have higher risk score
     const stalledRisk = results.find((r) => r.procedureId === 'PROC-002');
     const fastRisk = results.find((r) => r.procedureId === 'PROC-001');
-    expect(stalledRisk?.velocityRisk.riskScore).toBeGreaterThanOrEqual(fastRisk?.velocityRisk.riskScore);
+    expect(stalledRisk?.velocityRisk.riskScore).toBeGreaterThanOrEqual(
+      fastRisk?.velocityRisk.riskScore
+    );
   });
 
   it('should sort results by risk score descending', () => {
@@ -435,7 +476,7 @@ describe('assessLegislativeVelocityRisk', () => {
     const results = assessLegislativeVelocityRisk([fast, medium, stalled]);
     for (let i = 0; i < results.length - 1; i++) {
       expect(results[i].velocityRisk.riskScore).toBeGreaterThanOrEqual(
-        results[i + 1].velocityRisk.riskScore,
+        results[i + 1].velocityRisk.riskScore
       );
     }
   });
@@ -453,7 +494,15 @@ describe('assessLegislativeVelocityRisk', () => {
   });
 
   it('should handle valid legislative stages', () => {
-    const stages = ['proposal', 'committee', 'plenary_first', 'trilogue', 'plenary_second', 'adopted', 'stalled'];
+    const stages = [
+      'proposal',
+      'committee',
+      'plenary_first',
+      'trilogue',
+      'plenary_second',
+      'adopted',
+      'stalled',
+    ];
     for (const stage of stages) {
       const proc = makeProcedure({ stage });
       const [result] = assessLegislativeVelocityRisk([proc]);
@@ -478,8 +527,24 @@ describe('assessLegislativeVelocityRisk', () => {
 describe('runAgentRiskAssessment', () => {
   function makeRisks() {
     return [
-      calculatePoliticalRiskScore('likely', 'major', 'RISK-001', 'Risk A', ['Evidence A'], [], 'high'),
-      calculatePoliticalRiskScore('possible', 'moderate', 'RISK-002', 'Risk B', [], ['Mitigation'], 'medium'),
+      calculatePoliticalRiskScore(
+        'likely',
+        'major',
+        'RISK-001',
+        'Risk A',
+        ['Evidence A'],
+        [],
+        'high'
+      ),
+      calculatePoliticalRiskScore(
+        'possible',
+        'moderate',
+        'RISK-002',
+        'Risk B',
+        [],
+        ['Mitigation'],
+        'medium'
+      ),
     ];
   }
 
@@ -497,7 +562,7 @@ describe('runAgentRiskAssessment', () => {
       ArticleCategory.WEEK_AHEAD,
       makeRisks(),
       makeDrivers(),
-      ['Monitor coalition', 'Engage rapporteur'],
+      ['Monitor coalition', 'Engage rapporteur']
     );
     const stepTypes = result.steps.map((s) => s.type);
     expect(stepTypes).toContain('identify');
@@ -514,7 +579,7 @@ describe('runAgentRiskAssessment', () => {
       ArticleCategory.BREAKING_NEWS,
       makeRisks(),
       makeDrivers(),
-      [],
+      []
     );
     expect(result.assessmentId).toBe('ASSESS-002');
     expect(result.date).toBe('2026-03-26');
@@ -523,7 +588,14 @@ describe('runAgentRiskAssessment', () => {
 
   it('should include identified risks in the identify step', () => {
     const risks = makeRisks();
-    const result = runAgentRiskAssessment('A', '2026-01-01', ArticleCategory.MOTIONS, risks, [], []);
+    const result = runAgentRiskAssessment(
+      'A',
+      '2026-01-01',
+      ArticleCategory.MOTIONS,
+      risks,
+      [],
+      []
+    );
     const identifyStep = result.steps.find((s) => s.type === 'identify');
     expect(identifyStep).toBeDefined();
     expect(identifyStep.type).toBe('identify');
@@ -534,7 +606,14 @@ describe('runAgentRiskAssessment', () => {
 
   it('should include risk drivers in the analyze step', () => {
     const drivers = makeDrivers();
-    const result = runAgentRiskAssessment('A', '2026-01-01', ArticleCategory.PROPOSITIONS, [], drivers, []);
+    const result = runAgentRiskAssessment(
+      'A',
+      '2026-01-01',
+      ArticleCategory.PROPOSITIONS,
+      [],
+      drivers,
+      []
+    );
     const analyzeStep = result.steps.find((s) => s.type === 'analyze');
     expect(analyzeStep).toBeDefined();
     if (analyzeStep?.type === 'analyze') {
@@ -548,7 +627,14 @@ describe('runAgentRiskAssessment', () => {
       calculatePoliticalRiskScore('almost_certain', 'severe', 'HIGH'),
       calculatePoliticalRiskScore('possible', 'moderate', 'MED'),
     ];
-    const result = runAgentRiskAssessment('A', '2026-01-01', ArticleCategory.DEEP_ANALYSIS, risks, [], []);
+    const result = runAgentRiskAssessment(
+      'A',
+      '2026-01-01',
+      ArticleCategory.DEEP_ANALYSIS,
+      risks,
+      [],
+      []
+    );
     const evaluateStep = result.steps.find((s) => s.type === 'evaluate');
     if (evaluateStep?.type === 'evaluate') {
       const scores = evaluateStep.matrix.map((r) => r.riskScore);
@@ -560,7 +646,14 @@ describe('runAgentRiskAssessment', () => {
 
   it('should include mitigations in the treat step', () => {
     const mitigations = ['Action 1', 'Action 2', 'Action 3'];
-    const result = runAgentRiskAssessment('A', '2026-01-01', ArticleCategory.COMMITTEE_REPORTS, [], [], mitigations);
+    const result = runAgentRiskAssessment(
+      'A',
+      '2026-01-01',
+      ArticleCategory.COMMITTEE_REPORTS,
+      [],
+      [],
+      mitigations
+    );
     const treatStep = result.steps.find((s) => s.type === 'treat');
     if (treatStep?.type === 'treat') {
       expect(treatStep.mitigations).toEqual(mitigations);
@@ -569,19 +662,33 @@ describe('runAgentRiskAssessment', () => {
 
   it('should synthesise an overallRiskProfile from identified risks', () => {
     const risks = makeRisks();
-    const result = runAgentRiskAssessment('A', '2026-01-01', ArticleCategory.WEEK_IN_REVIEW, risks, [], []);
+    const result = runAgentRiskAssessment(
+      'A',
+      '2026-01-01',
+      ArticleCategory.WEEK_IN_REVIEW,
+      risks,
+      [],
+      []
+    );
     expect(result.overallRiskProfile).toBeDefined();
     expect(result.overallRiskProfile.riskId).toContain('OVERALL-A');
     expect(result.overallRiskProfile.riskScore).toBeGreaterThan(0);
     // Invariant: riskScore must equal likelihoodValue × impactValue
     expect(result.overallRiskProfile.riskScore).toBeCloseTo(
       result.overallRiskProfile.likelihoodValue * result.overallRiskProfile.impactValue,
-      2,
+      2
     );
   });
 
   it('should handle an empty risks list', () => {
-    const result = runAgentRiskAssessment('A', '2026-01-01', ArticleCategory.WEEK_AHEAD, [], [], []);
+    const result = runAgentRiskAssessment(
+      'A',
+      '2026-01-01',
+      ArticleCategory.WEEK_AHEAD,
+      [],
+      [],
+      []
+    );
     expect(result.overallRiskProfile.riskLevel).toBe('low');
     expect(result.overallRiskProfile.riskScore).toBe(0.1);
   });
@@ -592,7 +699,15 @@ describe('runAgentRiskAssessment', () => {
 describe('generateRiskAssessmentMarkdown', () => {
   function makeAssessment() {
     const risks = [
-      calculatePoliticalRiskScore('likely', 'major', 'RISK-001', 'AI Act delay', ['Committee amendments > 3000'], ['Rapporteur leadership'], 'high'),
+      calculatePoliticalRiskScore(
+        'likely',
+        'major',
+        'RISK-001',
+        'AI Act delay',
+        ['Committee amendments > 3000'],
+        ['Rapporteur leadership'],
+        'high'
+      ),
     ];
     return runAgentRiskAssessment(
       'ASSESS-MD-001',
@@ -600,7 +715,7 @@ describe('generateRiskAssessmentMarkdown', () => {
       ArticleCategory.WEEK_AHEAD,
       risks,
       [createRiskDriver('Legislative congestion', 'legislative_delay', 40)],
-      ['Expedite committee vote', 'Engage Council presidency'],
+      ['Expedite committee vote', 'Engage Council presidency']
     );
   }
 
@@ -652,7 +767,8 @@ describe('generateRiskAssessmentMarkdown', () => {
   it('should include heat map emoji cells', () => {
     const md = generateRiskAssessmentMarkdown(makeAssessment());
     // Should contain at least one of the heat map emojis
-    const hasEmoji = md.includes('🟢') || md.includes('🟡') || md.includes('🟠') || md.includes('🔴');
+    const hasEmoji =
+      md.includes('🟢') || md.includes('🟡') || md.includes('🟠') || md.includes('🔴');
     expect(hasEmoji).toBe(true);
   });
 
@@ -663,7 +779,7 @@ describe('generateRiskAssessmentMarkdown', () => {
       ArticleCategory.PROPOSITIONS,
       [],
       [],
-      [],
+      []
     );
     const md = generateRiskAssessmentMarkdown(emptyAssessment);
     expect(md).toContain('---');
@@ -764,12 +880,9 @@ describe('createScoredOpportunityOrThreat', () => {
   });
 
   it('should include description and evidence', () => {
-    const item = createScoredOpportunityOrThreat(
-      'Policy window',
-      'possible',
-      'moderate',
-      ['Indicator A'],
-    );
+    const item = createScoredOpportunityOrThreat('Policy window', 'possible', 'moderate', [
+      'Indicator A',
+    ]);
     expect(item.description).toBe('Policy window');
     expect(item.evidence).toEqual(['Indicator A']);
   });
@@ -779,7 +892,12 @@ describe('createScoredOpportunityOrThreat', () => {
 
 describe('createRiskDriver', () => {
   it('should create a valid risk driver', () => {
-    const driver = createRiskDriver('Coalition fracture risk', 'coalition_fracture', 30, 'increasing');
+    const driver = createRiskDriver(
+      'Coalition fracture risk',
+      'coalition_fracture',
+      30,
+      'increasing'
+    );
     expect(driver.description).toBe('Coalition fracture risk');
     expect(driver.category).toBe('coalition_fracture');
     expect(driver.contribution).toBe(30);
