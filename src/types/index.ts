@@ -269,8 +269,6 @@ export type {
 } from '../utils/content-validator.js';
 
 export type {
-  PoliticalActorType,
-  ImpactLevel,
   PoliticalThreatCategory,
   PoliticalActorThreatProfile,
   ConsequenceNode,
