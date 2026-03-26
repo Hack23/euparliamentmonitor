@@ -97,7 +97,9 @@ describe('ALL_POLITICAL_STRIDE_CATEGORIES', () => {
 
   it('is an array of strings', () => {
     expect(Array.isArray(ALL_POLITICAL_STRIDE_CATEGORIES)).toBe(true);
-    expect(ALL_POLITICAL_STRIDE_CATEGORIES.every((category) => typeof category === 'string')).toBe(true);
+    expect(ALL_POLITICAL_STRIDE_CATEGORIES.every((category) => typeof category === 'string')).toBe(
+      true
+    );
   });
 });
 
@@ -154,7 +156,9 @@ describe('assessPoliticalThreats', () => {
   describe('with coalition data', () => {
     it('detects weak coalition cohesion as shift threat', () => {
       const data = makeArticleData({
-        coalitionData: [makeCoalition({ cohesionScore: 0.55, riskLevel: 'high', alignmentTrend: 'weakening' })],
+        coalitionData: [
+          makeCoalition({ cohesionScore: 0.55, riskLevel: 'high', alignmentTrend: 'weakening' }),
+        ],
       });
       const assessment = assessPoliticalThreats(data);
       const shiftCat = assessment.strideCategories.find((c) => c.category === 'shift');
@@ -216,7 +220,7 @@ describe('assessPoliticalThreats', () => {
       });
       const assessment = assessPoliticalThreats(data);
       const stalledTree = assessment.consequenceTrees.find((t) =>
-        t.rootAction.includes('PROC-TEST-001'),
+        t.rootAction.includes('PROC-TEST-001')
       );
       expect(stalledTree).toBeDefined();
     });
@@ -256,6 +260,31 @@ describe('assessPoliticalThreats', () => {
       expect(() => assessPoliticalThreats(data)).not.toThrow();
     });
 
+    it('handles non-array field values without throwing', () => {
+      const data = {
+        coalitionData: 'not-an-array',
+        anomalies: { notAnArray: true },
+        procedures: 42,
+        mepInfluence: 'string-value',
+        votingRecords: null,
+        committees: false,
+        questions: {},
+      };
+      expect(() => assessPoliticalThreats(data)).not.toThrow();
+      const assessment = assessPoliticalThreats(data);
+      expect(assessment.strideCategories).toHaveLength(6);
+    });
+
+    it('handles non-array anomalies with non-array votingAnomalies fallback', () => {
+      const data = {
+        anomalies: 'string-not-array',
+        votingAnomalies: 42,
+      };
+      expect(() => assessPoliticalThreats(data)).not.toThrow();
+      const assessment = assessPoliticalThreats(data);
+      expect(assessment.overallThreatLevel).toBe('low');
+    });
+
     it('supports legacy votingAnomalies field name', () => {
       const data = {
         votingAnomalies: [
@@ -291,7 +320,9 @@ describe('buildActorThreatProfiles', () => {
 
   it('builds profile for weak coalition', () => {
     const data = makeArticleData({
-      coalitionData: [makeCoalition({ cohesionScore: 0.5, riskLevel: 'high', alignmentTrend: 'weakening' })],
+      coalitionData: [
+        makeCoalition({ cohesionScore: 0.5, riskLevel: 'high', alignmentTrend: 'weakening' }),
+      ],
     });
     const profiles = buildActorThreatProfiles(data);
     expect(profiles.length).toBeGreaterThan(0);
@@ -318,8 +349,19 @@ describe('buildActorThreatProfiles', () => {
   it('sorts profiles by threat level descending', () => {
     const data = makeArticleData({
       coalitionData: [
-        makeCoalition({ groups: ['EPP', 'Renew', 'S&D'], riskLevel: 'high', cohesionScore: 0.4, alignmentTrend: 'weakening' }),
-        makeCoalition({ groups: ['ID'], riskLevel: 'low', cohesionScore: 0.95, alignmentTrend: 'stable', coalitionId: 'COAL-002' }),
+        makeCoalition({
+          groups: ['EPP', 'Renew', 'S&D'],
+          riskLevel: 'high',
+          cohesionScore: 0.4,
+          alignmentTrend: 'weakening',
+        }),
+        makeCoalition({
+          groups: ['ID'],
+          riskLevel: 'low',
+          cohesionScore: 0.95,
+          alignmentTrend: 'stable',
+          coalitionId: 'COAL-002',
+        }),
       ],
     });
     const profiles = buildActorThreatProfiles(data);
@@ -377,11 +419,22 @@ describe('buildConsequenceTree', () => {
   });
 
   it('validates consequence probabilities are in [0, 1]', () => {
-    const tree = buildConsequenceTree('Test action', makeArticleData({
-      anomalies: [makeAnomaly(), makeAnomaly({ anomalyId: 'A2' }), makeAnomaly({ anomalyId: 'A3' })],
-      coalitionData: [makeCoalition({ cohesionScore: 0.4 })],
-    }));
-    for (const c of [...tree.immediateConsequences, ...tree.secondaryEffects, ...tree.longTermImplications]) {
+    const tree = buildConsequenceTree(
+      'Test action',
+      makeArticleData({
+        anomalies: [
+          makeAnomaly(),
+          makeAnomaly({ anomalyId: 'A2' }),
+          makeAnomaly({ anomalyId: 'A3' }),
+        ],
+        coalitionData: [makeCoalition({ cohesionScore: 0.4 })],
+      })
+    );
+    for (const c of [
+      ...tree.immediateConsequences,
+      ...tree.secondaryEffects,
+      ...tree.longTermImplications,
+    ]) {
       expect(c.probability).toBeGreaterThanOrEqual(0);
       expect(c.probability).toBeLessThanOrEqual(1);
     }
@@ -452,7 +505,14 @@ describe('analyzeLegislativeDisruption', () => {
 
   it('all disruption points have valid threat categories', () => {
     const analysis = analyzeLegislativeDisruption('Test', makeArticleData());
-    const validCategories = ['shift', 'transparency', 'reversal', 'institutional', 'delay', 'erosion'];
+    const validCategories = [
+      'shift',
+      'transparency',
+      'reversal',
+      'institutional',
+      'delay',
+      'erosion',
+    ];
     for (const point of analysis.disruptionPoints) {
       expect(validCategories).toContain(point.threatCategory);
     }
@@ -478,7 +538,9 @@ describe('analyzeLegislativeDisruption', () => {
 
   it('detects current stage from procedure data', () => {
     const data = makeArticleData({
-      procedures: [makeProcedure({ procedureId: 'PROC-2024-001', currentStage: 'plenary_first_reading' })],
+      procedures: [
+        makeProcedure({ procedureId: 'PROC-2024-001', currentStage: 'plenary_first_reading' }),
+      ],
     });
     const analysis = analyzeLegislativeDisruption('PROC-2024-001', data);
     expect(analysis.currentStage).toBe('plenary_first_reading');
@@ -491,13 +553,21 @@ describe('analyzeLegislativeDisruption', () => {
 
   it('has higher likelihood at plenary stages with anomalies', () => {
     const dataWithAnomalies = makeArticleData({
-      anomalies: [makeAnomaly(), makeAnomaly({ anomalyId: 'A2' }), makeAnomaly({ anomalyId: 'A3' })],
+      anomalies: [
+        makeAnomaly(),
+        makeAnomaly({ anomalyId: 'A2' }),
+        makeAnomaly({ anomalyId: 'A3' }),
+      ],
     });
     const analysis = analyzeLegislativeDisruption('Test', dataWithAnomalies);
     const baseAnalysis = analyzeLegislativeDisruption('Test', makeArticleData());
 
-    const plenaryAnomaly = analysis.disruptionPoints.find((p) => p.stage === 'plenary_first_reading');
-    const plenaryBase = baseAnalysis.disruptionPoints.find((p) => p.stage === 'plenary_first_reading');
+    const plenaryAnomaly = analysis.disruptionPoints.find(
+      (p) => p.stage === 'plenary_first_reading'
+    );
+    const plenaryBase = baseAnalysis.disruptionPoints.find(
+      (p) => p.stage === 'plenary_first_reading'
+    );
     expect(plenaryAnomaly.likelihood).toBeGreaterThanOrEqual(plenaryBase.likelihood);
   });
 
@@ -531,7 +601,7 @@ describe('analyzeLegislativeDisruption', () => {
     });
     const analysis = analyzeLegislativeDisruption('Test', data);
     const hasRapporteurPath = analysis.alternativePathways.some((p) =>
-      p.toLowerCase().includes('rapporteur'),
+      p.toLowerCase().includes('rapporteur')
     );
     expect(hasRapporteurPath).toBe(true);
   });
@@ -541,10 +611,12 @@ describe('analyzeLegislativeDisruption', () => {
 
 describe('generateThreatAssessmentMarkdown', () => {
   function getBaseAssessment() {
-    return assessPoliticalThreats(makeArticleData({
-      coalitionData: [makeCoalition({ cohesionScore: 0.55, riskLevel: 'high' })],
-      anomalies: [makeAnomaly()],
-    }));
+    return assessPoliticalThreats(
+      makeArticleData({
+        coalitionData: [makeCoalition({ cohesionScore: 0.55, riskLevel: 'high' })],
+        anomalies: [makeAnomaly()],
+      })
+    );
   }
 
   it('generates a non-empty markdown string', () => {
@@ -625,9 +697,13 @@ describe('generateThreatAssessmentMarkdown', () => {
   });
 
   it('generates actor table when profiles exist', () => {
-    const assessment = assessPoliticalThreats(makeArticleData({
-      coalitionData: [makeCoalition({ groups: ['EPP', 'Renew'], riskLevel: 'high', cohesionScore: 0.45 })],
-    }));
+    const assessment = assessPoliticalThreats(
+      makeArticleData({
+        coalitionData: [
+          makeCoalition({ groups: ['EPP', 'Renew'], riskLevel: 'high', cohesionScore: 0.45 }),
+        ],
+      })
+    );
     const md = generateThreatAssessmentMarkdown(assessment);
     if (assessment.actorProfiles.length > 0) {
       expect(md).toContain('| Actor |');
@@ -636,18 +712,20 @@ describe('generateThreatAssessmentMarkdown', () => {
   });
 
   it('includes threat emojis for elevated threats', () => {
-    const assessment = assessPoliticalThreats(makeArticleData({
-      anomalies: [
-        makeAnomaly({ significance: 'critical' }),
-        makeAnomaly({ significance: 'critical', anomalyId: 'A2' }),
-        makeAnomaly({ significance: 'high', anomalyId: 'A3' }),
-      ],
-      coalitionData: [
-        makeCoalition({ cohesionScore: 0.3, riskLevel: 'high', alignmentTrend: 'weakening' }),
-        makeCoalition({ cohesionScore: 0.35, riskLevel: 'high', coalitionId: 'C2' }),
-        makeCoalition({ cohesionScore: 0.4, riskLevel: 'high', coalitionId: 'C3' }),
-      ],
-    }));
+    const assessment = assessPoliticalThreats(
+      makeArticleData({
+        anomalies: [
+          makeAnomaly({ significance: 'critical' }),
+          makeAnomaly({ significance: 'critical', anomalyId: 'A2' }),
+          makeAnomaly({ significance: 'high', anomalyId: 'A3' }),
+        ],
+        coalitionData: [
+          makeCoalition({ cohesionScore: 0.3, riskLevel: 'high', alignmentTrend: 'weakening' }),
+          makeCoalition({ cohesionScore: 0.35, riskLevel: 'high', coalitionId: 'C2' }),
+          makeCoalition({ cohesionScore: 0.4, riskLevel: 'high', coalitionId: 'C3' }),
+        ],
+      })
+    );
     const md = generateThreatAssessmentMarkdown(assessment);
     const hasEmojiThreat = md.includes('🔴') || md.includes('🟠') || md.includes('⚠️');
     expect(hasEmojiThreat).toBe(true);

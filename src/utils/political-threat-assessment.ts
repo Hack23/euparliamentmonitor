@@ -123,17 +123,42 @@ function toRecord(input: unknown): Record<string, unknown> | null {
 }
 
 /**
+ * Coerce a value to an array, returning `[]` if it is not an actual array.
+ *
+ * Guards against malformed input where a field expected to be an array is
+ * instead a string, object, number, or other non-array type.
+ *
+ * @param val - Value that should be an array
+ * @returns The value itself if it is an array, otherwise `[]`
+ */
+function safeArray(val: unknown): readonly unknown[] {
+  return Array.isArray(val) ? val : [];
+}
+
+/**
  * Resolve the voting anomaly array from a `ThreatAssessmentInput`.
  *
  * The real MCP pipeline exposes voting anomalies under the field `anomalies`,
  * while the original type used `votingAnomalies`. This helper reads from
  * `anomalies` first, falling back to `votingAnomalies` for backward compat.
+ * Both fields are validated as arrays; non-array values are treated as empty.
  *
  * @param data - Article / threat-assessment data (may be null)
  * @returns Readonly array of anomaly items, never null
  */
 function resolveAnomalies(data: ThreatAssessmentInput | null | undefined): readonly unknown[] {
-  return data?.anomalies ?? data?.votingAnomalies ?? [];
+  const anomalies = data?.anomalies as unknown;
+  const votingAnomalies = data?.votingAnomalies as unknown;
+
+  if (Array.isArray(anomalies)) {
+    return anomalies;
+  }
+
+  if (Array.isArray(votingAnomalies)) {
+    return votingAnomalies;
+  }
+
+  return [];
 }
 
 /**
@@ -145,9 +170,7 @@ function resolveAnomalies(data: ThreatAssessmentInput | null | undefined): reado
  * @param actors - One or more actor type literals
  * @returns Readonly array of validated PoliticalActorType values
  */
-function stakeholders(
-  ...actors: readonly PoliticalActorType[]
-): readonly PoliticalActorType[] {
+function stakeholders(...actors: readonly PoliticalActorType[]): readonly PoliticalActorType[] {
   return actors;
 }
 
@@ -519,8 +542,8 @@ function scanCriticalAnomaliesForErosion(
  * @returns Political STRIDE category assessment for coalition shifts
  */
 function assessShiftThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
-  const records = data.votingRecords ?? [];
-  const coalitions = data.coalitionData ?? [];
+  const records = safeArray(data.votingRecords);
+  const coalitions = safeArray(data.coalitionData);
   const anomalies = resolveAnomalies(data);
   const evidence: string[] = [];
 
@@ -549,8 +572,8 @@ function assessShiftThreats(data: ThreatAssessmentInput): PoliticalStrideCategor
  * @returns Political STRIDE category assessment for transparency concerns
  */
 function assessTransparencyThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
-  const committees = data.committees ?? [];
-  const questions = data.questions ?? [];
+  const committees = safeArray(data.committees);
+  const questions = safeArray(data.questions);
   const evidence: string[] = [];
 
   const threatScore = scanCommitteesForTransparency(committees, evidence);
@@ -579,7 +602,7 @@ function assessTransparencyThreats(data: ThreatAssessmentInput): PoliticalStride
  * @returns Political STRIDE category assessment for policy reversals
  */
 function assessReversalThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
-  const procedures = data.procedures ?? [];
+  const procedures = safeArray(data.procedures);
   const evidence: string[] = [];
 
   const procScore = scanProceduresForReversal(procedures, evidence);
@@ -605,7 +628,7 @@ function assessReversalThreats(data: ThreatAssessmentInput): PoliticalStrideCate
  * @returns Political STRIDE category assessment for institutional threats
  */
 function assessInstitutionalThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
-  const mepInfluence = data.mepInfluence ?? [];
+  const mepInfluence = safeArray(data.mepInfluence);
   const evidence: string[] = [];
 
   const concentrationScore = checkMEPInfluenceConcentration(mepInfluence, evidence);
@@ -631,7 +654,7 @@ function assessInstitutionalThreats(data: ThreatAssessmentInput): PoliticalStrid
  * @returns Political STRIDE category assessment for legislative delays
  */
 function assessDelayThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
-  const procedures = data.procedures ?? [];
+  const procedures = safeArray(data.procedures);
   const anomalies = resolveAnomalies(data);
   const evidence: string[] = [];
 
@@ -657,7 +680,7 @@ function assessDelayThreats(data: ThreatAssessmentInput): PoliticalStrideCategor
  * @returns Political STRIDE category assessment for democratic erosion
  */
 function assessErosionThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
-  const coalitions = data.coalitionData ?? [];
+  const coalitions = safeArray(data.coalitionData);
   const anomalies = resolveAnomalies(data);
   const evidence: string[] = [];
 
@@ -872,7 +895,7 @@ export function buildActorThreatProfiles(
   data: ThreatAssessmentInput | null | undefined
 ): PoliticalActorThreatProfile[] {
   const profiles: PoliticalActorThreatProfile[] = [];
-  const coalitions = data?.coalitionData ?? [];
+  const coalitions = safeArray(data?.coalitionData);
 
   for (const coalition of coalitions) {
     const rec = toRecord(coalition);
@@ -881,7 +904,7 @@ export function buildActorThreatProfiles(
     if (profile) profiles.push(profile);
   }
 
-  const mepInfluence = data?.mepInfluence ?? [];
+  const mepInfluence = safeArray(data?.mepInfluence);
   for (const mep of mepInfluence) {
     const rec = toRecord(mep);
     if (!rec) continue;
@@ -912,7 +935,7 @@ export function buildConsequenceTree(
     typeof action === 'string' && action.trim().length > 0
       ? action.trim()
       : 'Unknown political action';
-  const coalitions = data?.coalitionData ?? [];
+  const coalitions = safeArray(data?.coalitionData);
   const anomalies = resolveAnomalies(data);
 
   const mitigatingFactors: string[] = [
@@ -1014,7 +1037,7 @@ export function buildConsequenceTree(
 function buildConsequenceTrees(data: ThreatAssessmentInput): PoliticalConsequenceTree[] {
   const MAX_TREES = 3;
   const trees: PoliticalConsequenceTree[] = [];
-  const procedures = data.procedures ?? [];
+  const procedures = safeArray(data.procedures);
 
   // Build trees for stalled procedures
   for (const proc of procedures) {
@@ -1168,8 +1191,8 @@ export function analyzeLegislativeDisruption(
       ? procedure.trim()
       : 'Unknown procedure';
 
-  const procedures = data?.procedures ?? [];
-  const coalitions = data?.coalitionData ?? [];
+  const procedures = safeArray(data?.procedures);
+  const coalitions = safeArray(data?.coalitionData);
   const anomalies = resolveAnomalies(data);
 
   const currentStage = findCurrentStage(safeProcedure, procedures);
@@ -1211,7 +1234,7 @@ export function analyzeLegislativeDisruption(
  * @returns Array of legislative disruption analyses
  */
 function buildLegislativeDisruptions(data: ThreatAssessmentInput): LegislativeDisruptionAnalysis[] {
-  const procedures = data.procedures ?? [];
+  const procedures = safeArray(data.procedures);
   const analyses: LegislativeDisruptionAnalysis[] = [];
 
   for (const proc of procedures) {
@@ -1355,17 +1378,13 @@ function buildConsequenceTreeMarkdown(tree: PoliticalConsequenceTree): string {
 
   if (tree.mitigatingFactors.length > 0) {
     lines.push('**Mitigating Factors:**');
-    tree.mitigatingFactors.forEach((f) =>
-      lines.push(`- ${sanitizeMarkdownText(f)}`)
-    );
+    tree.mitigatingFactors.forEach((f) => lines.push(`- ${sanitizeMarkdownText(f)}`));
     lines.push('');
   }
 
   if (tree.amplifyingFactors.length > 0) {
     lines.push('**Amplifying Factors:**');
-    tree.amplifyingFactors.forEach((f) =>
-      lines.push(`- ${sanitizeMarkdownText(f)}`)
-    );
+    tree.amplifyingFactors.forEach((f) => lines.push(`- ${sanitizeMarkdownText(f)}`));
     lines.push('');
   }
 
@@ -1424,8 +1443,7 @@ function buildDisruptionTableMarkdown(analysis: LegislativeDisruptionAnalysis): 
 export function generateThreatAssessmentMarkdown(
   assessment: PoliticalThreatAssessment | null | undefined
 ): string {
-  const safeAssessment: PoliticalThreatAssessment =
-    assessment ?? assessPoliticalThreats(null);
+  const safeAssessment: PoliticalThreatAssessment = assessment ?? assessPoliticalThreats(null);
 
   const lines: string[] = [
     '---',
