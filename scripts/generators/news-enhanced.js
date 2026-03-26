@@ -173,7 +173,11 @@ function parseAnalysisMethods() {
 async function maybeRunAnalysis(date, client) {
     if (!runAnalysisArg && !analysisOnlyArg)
         return null;
-    const analysisDirBase = analysisDirArg?.split(ARG_SEPARATOR)[1]?.trim() ?? 'analysis-output';
+    const rawAnalysisDirBase = analysisDirArg?.split(ARG_SEPARATOR)[1];
+    const trimmedAnalysisDirBase = rawAnalysisDirBase?.trim();
+    const analysisDirBase = trimmedAnalysisDirBase && trimmedAnalysisDirBase.length > 0
+        ? trimmedAnalysisDirBase
+        : 'analysis-output';
     const enabledMethods = parseAnalysisMethods();
     console.log('');
     console.log('🔬 Running analysis stage...');
@@ -218,8 +222,11 @@ async function maybeRunAnalysis(date, client) {
             skipCompleted: true,
             verbose: true,
         });
+        const totalMethods = ctx.manifest.methods.length;
+        const completedCount = ctx.manifest.methods.filter((method) => method.status === 'completed').length;
+        const skippedCount = ctx.manifest.methods.filter((method) => method.status === 'skipped').length;
         console.log('');
-        console.log(`🔬 Analysis complete: ${ctx.completedMethods.length} methods run`);
+        console.log(`🔬 Analysis complete: ${completedCount} methods completed, ${skippedCount} skipped (of ${totalMethods})`);
         console.log(`   Confidence: ${ctx.manifest.overallConfidence}`);
         console.log(`   Manifest: ${ctx.outputDir}/manifest.json`);
         console.log('');

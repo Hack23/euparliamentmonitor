@@ -107,12 +107,14 @@ generated: ${new Date().toISOString()}
 `;
 }
 /**
- * Write a markdown analysis file to disk.
+ * Write a text file to disk.
+ *
+ * Used for both analysis markdown files and the analysis `manifest.json`.
  *
  * @param filePath - Absolute file path
- * @param content - Markdown content (including frontmatter)
+ * @param content - File content as a UTF-8 string
  */
-function writeMarkdownFile(filePath, content) {
+function writeTextFile(filePath, content) {
     const dir = path.dirname(filePath);
     ensureDirectoryExists(dir);
     atomicWrite(filePath, content);
@@ -796,7 +798,7 @@ function runSingleMethod(method, fetchedData, date, dateOutputDir, skipCompleted
     try {
         const builder = METHOD_BUILDERS[method];
         const markdown = builder(fetchedData, date);
-        writeMarkdownFile(absolutePath, markdown);
+        writeTextFile(absolutePath, markdown);
         const duration = Date.now() - start;
         if (verbose)
             console.log(`  ✅ [analysis] ${method} completed in ${duration}ms → ${relativeOutputFile}`);
@@ -883,7 +885,7 @@ export async function runAnalysisStage(fetchedData, options) {
     };
     // Write manifest.json
     const manifestPath = path.join(dateOutputDir, 'manifest.json');
-    writeMarkdownFile(manifestPath, JSON.stringify(manifest, null, 2));
+    writeTextFile(manifestPath, JSON.stringify(manifest, null, 2));
     if (verbose) {
         const completed = methodResults.filter((r) => r.status === 'completed').length;
         const skipped = methodResults.filter((r) => r.status === 'skipped').length;
