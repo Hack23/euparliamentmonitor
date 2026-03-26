@@ -282,6 +282,27 @@ export type {
 } from './political-threats.js';
 
 export {  PoliticalSignificance,
+  PoliticalRiskLikelihood,
+  PoliticalRiskImpact,
+  PoliticalRiskLevel,
+  PoliticalRiskScore,
+  PoliticalThreatCategory,
+  PoliticalRiskDriver,
+  PoliticalCapitalAtRisk,
+  LegislativeStage,
+  LegislativeVelocityRisk,
+  SwotItemTrend,
+  ScoredSWOTItem,
+  CrossImpactEntry,
+  QuantitativeSWOT,
+  RiskAssessmentStep,
+  AgentRiskAssessmentWorkflow,
+  RiskLevelCounts,
+  PoliticalRiskSummary,
+} from './political-risk.js';
+
+export type {
+  PoliticalSignificance,
   ImpactLevel,
   PoliticalImpactAssessment,
   ClassificationConfidence,
