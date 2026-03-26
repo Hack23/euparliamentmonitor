@@ -163,6 +163,19 @@ export {
   getAllCategoryIndicatorIds,
 } from './constants/committee-indicator-map.js';
 
+// ─── Political Risk Assessment ───────────────────────────────────────────────
+export {
+  calculatePoliticalRiskScore,
+  assessPoliticalCapitalAtRisk,
+  buildQuantitativeSWOT,
+  assessLegislativeVelocityRisk,
+  runAgentRiskAssessment,
+  generateRiskAssessmentMarkdown,
+  generatePoliticalRiskSummary,
+  createScoredSWOTItem,
+  createScoredOpportunityOrThreat,
+  createRiskDriver,
+} from './utils/political-risk-assessment.js';
 // ─── Analysis Pipeline Stage ──────────────────────────────────────────────────
 export { ALL_ANALYSIS_METHODS, runAnalysisStage } from './generators/pipeline/analysis-stage.js';
 

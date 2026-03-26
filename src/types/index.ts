@@ -269,6 +269,26 @@ export type {
 } from '../utils/content-validator.js';
 
 export type {
+  PoliticalRiskLikelihood,
+  PoliticalRiskImpact,
+  PoliticalRiskLevel,
+  PoliticalRiskScore,
+  PoliticalThreatCategory,
+  PoliticalRiskDriver,
+  PoliticalCapitalAtRisk,
+  LegislativeStage,
+  LegislativeVelocityRisk,
+  SwotItemTrend,
+  ScoredSWOTItem,
+  CrossImpactEntry,
+  QuantitativeSWOT,
+  RiskAssessmentStep,
+  AgentRiskAssessmentWorkflow,
+  RiskLevelCounts,
+  PoliticalRiskSummary,
+} from './political-risk.js';
+
+export type {
   PoliticalSignificance,
   ImpactLevel,
   PoliticalImpactAssessment,
