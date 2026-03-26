@@ -41,6 +41,7 @@ import { ensureDirectoryExists } from '../utils/file-utils.js';
 import { initializeMCPClient } from './pipeline/fetch-stage.js';
 import { createStrategyRegistry, generateArticleForStrategy } from './pipeline/generate-stage.js';
 import { writeGenerationMetadata } from './pipeline/output-stage.js';
+import { runAnalysisStage, ALL_ANALYSIS_METHODS } from './pipeline/analysis-stage.js';
 // ─── Content-module imports (bounded contexts) ───────────────────────────────
 import { parsePlenarySessions, parseEPEvents, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, parseParliamentaryQuestions, buildWeekAheadContent, buildKeywords, PLACEHOLDER_EVENTS, buildWhatToWatchSection, buildStakeholderImpactMatrix, computeWeekPoliticalTemperature, } from './week-ahead-content.js';
 import { buildBreakingNewsContent, scoreBreakingNewsSignificance, SIGNIFICANCE_THRESHOLD, } from './breaking-content.js';
@@ -61,6 +62,10 @@ const languagesArg = args.find((arg) => arg.startsWith('--languages='));
 const feedDataArg = args.find((arg) => arg.startsWith('--feed-data='));
 const dryRunArg = args.includes('--dry-run');
 const skipExistingArg = args.includes('--skip-existing');
+const runAnalysisArg = args.includes('--analysis');
+const analysisOnlyArg = args.includes('--analysis-only');
+const analysisDirArg = args.find((arg) => arg.startsWith('--analysis-dir='));
+const analysisMethodsArg = args.find((arg) => arg.startsWith('--analysis-methods='));
 /** Path to a JSON file containing pre-fetched EP feed data (optional). */
 const feedDataPath = feedDataArg?.startsWith('--feed-data=')
     ? feedDataArg.slice('--feed-data='.length).trim()
@@ -93,6 +98,9 @@ console.log('Article types:', articleTypes.join(', '));
 console.log('Languages:', languages.join(', '));
 console.log('Dry run:', dryRunArg ? 'Yes (no files written)' : 'No');
 console.log('Skip existing:', skipExistingArg ? 'Yes' : 'No');
+if (runAnalysisArg || analysisOnlyArg) {
+    console.log('Analysis stage:', analysisOnlyArg ? 'Analysis only (no article generation)' : 'Enabled');
+}
 if (feedDataPath) {
     console.log('Feed data file:', feedDataPath);
 }
@@ -110,8 +118,66 @@ const stats = {
 };
 // ─── Main orchestration ───────────────────────────────────────────────────────
 /**
- * Main execution: initialise the MCP client, iterate over requested article
- * types, delegate to the appropriate strategy, then persist metadata.
+ * Run the optional analysis stage (Fetch → Analysis) before article generation.
+ * Returns an AnalysisContext when analysis is enabled, null otherwise.
+ *
+ * @param date - ISO date string (YYYY-MM-DD)
+ * @returns Analysis context or null
+ */
+async function maybeRunAnalysis(date) {
+    if (!runAnalysisArg && !analysisOnlyArg)
+        return null;
+    const analysisDirBase = analysisDirArg?.split(ARG_SEPARATOR)[1]?.trim() ?? 'analysis-output';
+    // Parse --analysis-methods= flag; default to all methods
+    const enabledMethods = (() => {
+        const raw = analysisMethodsArg?.split(ARG_SEPARATOR)[1]?.trim();
+        if (!raw)
+            return ALL_ANALYSIS_METHODS;
+        const requested = raw.split(',').map((m) => m.trim());
+        return requested.filter((m) => ALL_ANALYSIS_METHODS.includes(m));
+    })();
+    console.log('');
+    console.log('🔬 Running analysis stage...');
+    console.log(`   Output dir: ${analysisDirBase}/${date}`);
+    console.log(`   Methods: ${enabledMethods.length} enabled`);
+    console.log('');
+    // Build a minimal fetchedData object for the analysis stage
+    // (real enrichment happens inside strategy.fetchData; here we pass EP data keys)
+    const fetchedData = {
+        date,
+        events: [],
+        sessions: [],
+        documents: [],
+        patterns: [],
+        votingRecords: [],
+    };
+    try {
+        const ctx = await runAnalysisStage(fetchedData, {
+            articleTypes: articleTypes.filter((t) => VALID_ARTICLE_CATEGORIES.includes(t)),
+            date,
+            outputDir: analysisDirBase,
+            enabledMethods,
+            skipCompleted: true,
+            verbose: true,
+        });
+        console.log('');
+        console.log(`🔬 Analysis complete: ${ctx.completedMethods.length} methods run`);
+        console.log(`   Confidence: ${ctx.manifest.overallConfidence}`);
+        console.log(`   Manifest: ${ctx.outputDir}/manifest.json`);
+        console.log('');
+        return ctx;
+    }
+    catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        console.error(`❌ Analysis stage failed: ${message}`);
+        // Analysis failure does not block article generation
+        return null;
+    }
+}
+/**
+ * Main execution: initialise the MCP client, optionally run analysis stage,
+ * iterate over requested article types, delegate to the appropriate strategy,
+ * then persist metadata.
  */
 async function main() {
     console.log('');
@@ -124,6 +190,19 @@ async function main() {
         console.log(`📂 Pre-fetched feed data will be loaded from: ${feedDataPath}`);
     }
     const client = await initializeMCPClient(useMCP);
+    // Determine today's date for the analysis stage
+    // split('T')[0] on a valid ISO string always returns the date portion
+    const isoToday = new Date().toISOString();
+    const todayDate = isoToday.slice(0, 10);
+    // Run optional analysis stage (Fetch → Analysis)
+    await maybeRunAnalysis(todayDate);
+    // If --analysis-only, skip article generation
+    if (analysisOnlyArg) {
+        console.log('ℹ️  --analysis-only specified. Skipping article generation.');
+        if (client)
+            await closeEPMCPClient();
+        process.exit(0);
+    }
     const outputOptions = {
         dryRun: dryRunArg,
         skipExisting: skipExistingArg,

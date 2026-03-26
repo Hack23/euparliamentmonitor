@@ -157,3 +157,6 @@ homepage-desktop.png
 # Preview screenshots
 index-page-redesign.png
 final-index-redesign.png
+
+# Analysis pipeline output — ephemeral, generated per run, GDPR-compliant public data only
+analysis-output/
