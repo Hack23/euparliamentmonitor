@@ -120,10 +120,17 @@ graph TD
     D --> F[📥 Checkout Repository]
     F --> G[⚙️ Setup Node.js 25]
     G --> H[📦 Install Dependencies]
-    H --> I[🔗 Install EP MCP Server v1.1.9]
-    I --> J[📰 Generate News Articles<br/>npx tsx src/generators/news-enhanced.ts]
+    H --> I[🔗 Install EP MCP Server v1.1.15]
+    I --> J1[🔬 Analysis Stage<br/>Political Intelligence Pipeline<br/>--analysis flag]
+    J1 --> J1a[📊 Classification: significance, impact-matrix, actors, forces]
+    J1 --> J1b[🛡️ Threat Assessment: STRIDE, actor-threats, disruption]
+    J1 --> J1c[📈 Risk Scoring: risk-matrix, SWOT, velocity, capital-at-risk]
+    J1a --> J1d[📁 analysis-output/date/]
+    J1b --> J1d
+    J1c --> J1d
+    J1d --> J[📰 Generate News Articles<br/>npx tsx src/generators/news-enhanced.ts --analysis]
     J --> K[🌐 14-Language HTML Output]
-    K --> L[📝 Create Pull Request]
+    K --> L[📝 Create Pull Request<br/>Includes analysis-output/ artifacts]
     L --> M[✅ PR Ready for Review]
 ```
 
@@ -141,6 +148,8 @@ graph TD
 | **Node.js version** | 25 |
 | **EP MCP Server** | `european-parliament-mcp-server` (globally installed) |
 | **Data sources** | European Parliament MCP Server (primary), World Bank MCP (optional) |
+| **Analysis stage** | `--analysis` flag enables 18-method political intelligence pipeline before article generation |
+| **Analysis output** | `analysis-output/{date}/` — classification, threat-assessment, risk-scoring artifacts committed to PR |
 
 #### Compilation Process
 

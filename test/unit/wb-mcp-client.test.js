@@ -92,5 +92,109 @@ describe('wb-mcp-client', () => {
     it('closeWBMCPClient should be safe to call when no instance exists', async () => {
       await closeWBMCPClient(); // Should not throw
     });
+
+    it('closeWBMCPClient should be safe to call multiple times', async () => {
+      await closeWBMCPClient();
+      await closeWBMCPClient();
+      await closeWBMCPClient();
+      // Should not throw
+    });
+  });
+
+  describe('getIndicatorForCountry edge cases', () => {
+    let client;
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+      client = new WorldBankMCPClient();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+    });
+
+    it('should handle non-Error exceptions in callTool', async () => {
+      vi.spyOn(client, 'callTool').mockRejectedValue('string error');
+      const result = await client.getIndicatorForCountry('DEU', 'NY.GDP.MKTP.CD');
+      expect(result.content[0].text).toBe('');
+    });
+
+    it('should warn when countryId is empty', async () => {
+      await client.getIndicatorForCountry('', 'NY.GDP.MKTP.CD');
+      expect(consoleOutput.warnings.some((w) => w.includes('countryId'))).toBe(true);
+    });
+
+    it('should warn when indicatorId is empty', async () => {
+      await client.getIndicatorForCountry('DEU', '');
+      expect(consoleOutput.warnings.some((w) => w.includes('indicatorId'))).toBe(true);
+    });
+
+    it('should return fallback content with correct structure', async () => {
+      const result = await client.getIndicatorForCountry('', '');
+      expect(result).toHaveProperty('content');
+      expect(Array.isArray(result.content)).toBe(true);
+      expect(result.content).toHaveLength(1);
+      expect(result.content[0]).toHaveProperty('type', 'text');
+      expect(result.content[0]).toHaveProperty('text', '');
+    });
+  });
+
+  describe('WorldBankMCPClient env var configuration', () => {
+    let consoleOutput;
+    const originalEnv = { ...process.env };
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+      // Restore process.env by mutating the existing object instead of reassigning it
+      for (const key of Object.keys(process.env)) {
+        if (!(key in originalEnv)) {
+          delete process.env[key];
+        }
+      }
+      for (const [key, value] of Object.entries(originalEnv)) {
+        process.env[key] = value;
+      }
+    });
+
+    it('should use WB_MCP_GATEWAY_URL env var when set', () => {
+      process.env['WB_MCP_GATEWAY_URL'] = 'https://gateway.example.com';
+      const client = new WorldBankMCPClient();
+      expect(client.isGatewayMode()).toBe(true);
+      expect(client.getGatewayUrl()).toBe('https://gateway.example.com');
+    });
+
+    it('should use WB_MCP_GATEWAY_API_KEY env var when set', () => {
+      process.env['WB_MCP_GATEWAY_URL'] = 'https://gateway.example.com';
+      process.env['WB_MCP_GATEWAY_API_KEY'] = 'test-api-key';
+      const client = new WorldBankMCPClient();
+      expect(client.getGatewayApiKey()).toBe('test-api-key');
+    });
+
+    it('should not enable gateway mode without gateway URL', () => {
+      process.env['WB_MCP_SERVER_PATH'] = '/custom/server/path';
+      const client = new WorldBankMCPClient();
+      expect(client.isGatewayMode()).toBe(false);
+      expect(client.getGatewayUrl()).toBeNull();
+    });
+
+    it('should prefer explicit options over env vars', () => {
+      process.env['WB_MCP_GATEWAY_URL'] = 'https://env-gateway.example.com';
+      const client = new WorldBankMCPClient({
+        gatewayUrl: 'https://explicit-gateway.example.com',
+      });
+      expect(client.getGatewayUrl()).toBe('https://explicit-gateway.example.com');
+    });
+
+    it('should pass custom serverLabel', () => {
+      const client = new WorldBankMCPClient({
+        serverLabel: 'Custom WB Server',
+      });
+      expect(client.serverLabel).toBe('Custom WB Server');
+    });
   });
 });

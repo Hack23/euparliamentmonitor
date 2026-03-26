@@ -7,12 +7,18 @@
  * @module Generators/NewsEnhanced
  * @description CLI orchestrator for European Parliament news generation.
  *
- * Coordinates the three-stage pipeline (fetch → generate → output)
+ * Coordinates the four-stage pipeline (fetch → analysis → generate → output)
  * via dedicated pipeline-stage modules and a strategy registry.  Each article
  * type is handled by its own {@link ArticleStrategy} implementation.
  *
+ * When the `--analysis` flag is supplied (all 9 agentic workflows do this),
+ * the analysis stage runs **before** article generation, producing structured
+ * political intelligence artifacts under `analysis-output/{date}/`.  These
+ * artifacts are committed to the repository for review and improvement.
+ *
  * Pipeline stages:
  * - {@link module:Generators/Pipeline/FetchStage}
+ * - {@link module:Generators/Pipeline/AnalysisStage}  (political intelligence: classification, threat assessment, risk scoring)
  * - {@link module:Generators/Pipeline/GenerateStage}
  * - {@link module:Generators/Pipeline/OutputStage}
  *
@@ -262,7 +268,9 @@ function parseAnalysisMethods(): readonly AnalysisMethod[] {
  * This function is **side-effect-only**: it writes analysis markdown and a
  * `manifest.json` to disk under `analysis-output/{date}/`.  The returned
  * {@link AnalysisContext} is informational; strategies read analysis output
- * from disk rather than consuming the context object in-memory.
+ * from disk rather than consuming the context object in-memory.  Analysis
+ * artifacts are committed to the repository for review and political
+ * intelligence improvement.
  *
  * The feed timeframe is derived from the requested article types: if any
  * month-level types (month-ahead, month-in-review, committee-reports, motions)
@@ -401,7 +409,7 @@ async function main(): Promise<void> {
   const todayDate = isoToday.slice(0, 10);
 
   // Run optional analysis stage (Fetch → Analysis)
-  // Side-effect-only: writes markdown + manifest to disk under analysis-output/{date}/
+  // Writes markdown + manifest to analysis-output/{date}/ — committed for review
   await maybeRunAnalysis(todayDate, client);
 
   // If --analysis-only, skip article generation

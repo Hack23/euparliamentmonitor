@@ -178,14 +178,31 @@ Synthesize the week's significance:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (up to 3 attempts)
-- **Minutes 3–15**: Query voting records, documents, and questions from past 7 days
-- **Minutes 15–45**: Generate English article with deep political intelligence analysis
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis-output/{date}/`)
+- **Minutes 8–18**: Query voting records, documents, and questions from past 7 days
+- **Minutes 18–45**: Generate English article with deep political intelligence analysis
 - **Minutes 45–52**: Validate generated HTML
 - **Minutes 52–60**: Create PR with `safeoutputs___create_pull_request`
 
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
 
 **If you reach minute 45 without having prepared the PR**: Stop generating. Finish your current file edits and immediately create the PR using `safeoutputs___create_pull_request` (do not run any git commands; the framework will capture your working-directory changes).
+
+
+## 🔬 Political Intelligence Analysis Stage
+
+The `--analysis` flag activates the political intelligence analysis pipeline **before** article generation. This stage:
+
+1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
+2. **Runs 18 analysis methods** across 4 categories:
+   - **Classification**: significance scoring, impact matrix, actor mapping, political forces analysis
+   - **Threat Assessment**: STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
+   - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
+   - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
+3. **Writes and commits analysis artifacts** to `analysis-output/{date}/` (markdown files + `manifest.json`) — these are included in the PR for review and political intelligence improvement
+4. **Does not block article generation** — if the analysis stage fails, article generation continues normally
+
+The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
 
 ## Required Skills
 
@@ -462,6 +479,7 @@ fi
 npx tsx src/generators/news-enhanced.ts \
   --types=week-in-review \
   --languages="$LANG_ARG" \
+  --analysis \
   $FEED_DATA_FLAG \
   $SKIP_FLAG
 ```
@@ -581,7 +599,7 @@ BRANCH_NAME="news/week-in-review-$TODAY"
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament week-in-review articles ${TODAY}`,
-  body: `## EU Parliament Weekly Review Articles\n\nGenerated week-in-review retrospective articles.\n\n- Languages: ${LANG_ARG}\n- Review period: past 7 days\n- Data source: European Parliament MCP Server`,
+  body: `## EU Parliament Weekly Review Articles\n\nGenerated week-in-review retrospective articles.\n\n- Languages: ${LANG_ARG}\n- Review period: past 7 days\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis-output/${TODAY}/\``,
   base: "main",
   head: BRANCH_NAME
 })
