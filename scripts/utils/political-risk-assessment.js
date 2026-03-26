@@ -705,7 +705,7 @@ function sanitizeMarkdownTableCell(value) {
 }
 /**
  * Sanitize a value for safe inclusion in Markdown headings and bullet content.
- * Strips newlines and other markdown control characters to prevent injection.
+ * Strips newlines to prevent document structure injection.
  *
  * @param value - Raw value
  * @returns Sanitized string safe for Markdown headings/bullets
@@ -744,9 +744,10 @@ function buildEvaluateMarkdown(matrix) {
   const header = `\n## Risk Evaluation Matrix\n\n| Rank | Risk ID | Description | Score | Level | Confidence |\n|------|---------|-------------|-------|-------|------------|`;
   const rows = matrix.map((r, i) => {
     const riskId = sanitizeMarkdownTableCell(r.riskId);
-    const desc = sanitizeMarkdownTableCell(r.description);
-    const descTruncated = desc.length > 60 ? `${desc.substring(0, 60)}…` : desc;
-    return `| ${i + 1} | ${riskId} | ${descTruncated} | ${r.riskScore} | ${r.riskLevel.toUpperCase()} | ${r.confidence} |`;
+    const rawDesc = r.description ?? '';
+    const truncatedDesc = rawDesc.length > 60 ? `${rawDesc.substring(0, 60)}…` : rawDesc;
+    const descCell = sanitizeMarkdownTableCell(truncatedDesc);
+    return `| ${i + 1} | ${riskId} | ${descCell} | ${r.riskScore} | ${r.riskLevel.toUpperCase()} | ${r.confidence} |`;
   });
   return `${header}\n${rows.join('\n')}\n`;
 }
@@ -757,8 +758,12 @@ function buildEvaluateMarkdown(matrix) {
  * @returns Markdown string
  */
 function buildTreatMarkdown(mitigations) {
-  if (mitigations.length === 0) return '';
-  const items = mitigations.map((m) => `- ${m}`).join('\n');
+  if (!Array.isArray(mitigations) || mitigations.length === 0) return '';
+  const sanitizedItems = mitigations
+    .map((m) => sanitizeMarkdownContent(String(m ?? '')))
+    .filter((m) => m.length > 0);
+  if (sanitizedItems.length === 0) return '';
+  const items = sanitizedItems.map((m) => `- ${m}`).join('\n');
   return `\n## Risk Treatment Plan\n\n${items}\n`;
 }
 // ─── Factory helpers for creating scored SWOT items ──────────────────────────
