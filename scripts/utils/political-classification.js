@@ -708,7 +708,11 @@ export function writeAnalysisFile(filePath, frontmatter, content) {
  *
  * @example
  * ```ts
- * const manifest = writeAnalysisManifest(runDir, ['committee-reports'], ['impact-matrix']);
+ * const manifest = writeAnalysisManifest(
+ *   runDir,
+ *   [ArticleCategory.COMMITTEE_REPORTS],
+ *   ['impact-matrix']
+ * );
  * ```
  */
 export function writeAnalysisManifest(runDir, articleTypes, methodsUsed, startDate) {
@@ -716,8 +720,8 @@ export function writeAnalysisManifest(runDir, articleTypes, methodsUsed, startDa
     const manifest = {
         runDate: startDate ?? now,
         frameworkVersion: FRAMEWORK_VERSION,
-        articleTypes,
-        methodsUsed,
+        articleTypes: [...articleTypes],
+        methodsUsed: [...methodsUsed],
         completedAt: now,
     };
     fs.mkdirSync(runDir, { recursive: true });

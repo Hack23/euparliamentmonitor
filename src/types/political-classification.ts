@@ -18,6 +18,8 @@
  * beyond publicly available MEP records is processed or stored.
  */
 
+import type { ArticleCategory } from './common.js';
+
 // ─── Significance ─────────────────────────────────────────────────────────────
 
 /**
@@ -184,7 +186,7 @@ export interface AnalysisRunManifest {
   /** Semantic version of the classification framework used */
   readonly frameworkVersion: string;
   /** Article types included in this run */
-  readonly articleTypes: readonly string[];
+  readonly articleTypes: readonly ArticleCategory[];
   /** Analytical methods applied during this run */
   readonly methodsUsed: readonly ClassificationMethod[];
   /** ISO 8601 timestamp of when this analysis run completed */
@@ -211,7 +213,7 @@ export interface AnalysisFrontmatter {
   /** Methods applied to produce this document */
   readonly methods: readonly ClassificationMethod[];
   /** Article types covered by this assessment */
-  readonly articleTypes: readonly string[];
+  readonly articleTypes: readonly ArticleCategory[];
 }
 
 // ─── Convenience re-exports ───────────────────────────────────────────────────

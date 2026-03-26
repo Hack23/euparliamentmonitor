@@ -42,6 +42,7 @@ import type {
   AnalysisFrontmatter,
 } from '../types/political-classification.js';
 import { SIGNIFICANCE_ORDER, IMPACT_ORDER } from '../types/political-classification.js';
+import type { ArticleCategory } from '../types/common.js';
 
 // ─── Framework version ────────────────────────────────────────────────────────
 
@@ -891,12 +892,16 @@ export function writeAnalysisFile(
  *
  * @example
  * ```ts
- * const manifest = writeAnalysisManifest(runDir, ['committee-reports'], ['impact-matrix']);
+ * const manifest = writeAnalysisManifest(
+ *   runDir,
+ *   [ArticleCategory.COMMITTEE_REPORTS],
+ *   ['impact-matrix']
+ * );
  * ```
  */
 export function writeAnalysisManifest(
   runDir: string,
-  articleTypes: readonly string[],
+  articleTypes: readonly ArticleCategory[],
   methodsUsed: readonly ClassificationMethod[],
   startDate?: string
 ): AnalysisRunManifest {
@@ -904,8 +909,8 @@ export function writeAnalysisManifest(
   const manifest: AnalysisRunManifest = {
     runDate: startDate ?? now,
     frameworkVersion: FRAMEWORK_VERSION,
-    articleTypes,
-    methodsUsed,
+    articleTypes: [...articleTypes],
+    methodsUsed: [...methodsUsed],
     completedAt: now,
   };
   fs.mkdirSync(runDir, { recursive: true });
