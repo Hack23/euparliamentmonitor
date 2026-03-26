@@ -773,3 +773,59 @@ describe('maxSignificance', () => {
     expect(maxSignificance(['routine', 'notable', 'historic', 'critical'])).toBe('historic');
   });
 });
+
+// ─── Malformed input safety ─────────────────────────────────────────────────
+
+describe('safeArray guards (malformed non-array fields)', () => {
+  it('assessPoliticalSignificance does not throw when fields are non-arrays', () => {
+    const malformed = {
+      votingRecords: 'not-an-array',
+      procedures: 42,
+      coalitions: { bad: true },
+      anomalies: null,
+    };
+    expect(() => assessPoliticalSignificance(malformed)).not.toThrow();
+    expect(assessPoliticalSignificance(malformed)).toBe('routine');
+  });
+
+  it('buildImpactMatrix does not throw when fields are non-arrays', () => {
+    const malformed = {
+      votingRecords: 'oops',
+      procedures: true,
+      coalitions: 123,
+      questions: null,
+      documents: {},
+    };
+    expect(() => buildImpactMatrix(malformed)).not.toThrow();
+    const result = buildImpactMatrix(malformed);
+    expect(result.overallSignificance).toBeDefined();
+  });
+
+  it('classifyPoliticalActors does not throw when fields are non-arrays', () => {
+    const malformed = {
+      documents: 'string',
+      votingPatterns: 0,
+      coalitions: false,
+      mepScores: null,
+      committees: undefined,
+      questions: {},
+    };
+    expect(() => classifyPoliticalActors(malformed)).not.toThrow();
+    expect(classifyPoliticalActors(malformed)).toEqual([]);
+  });
+
+  it('analyzePoliticalForces does not throw when fields are non-arrays', () => {
+    const malformed = {
+      coalitions: 'bad',
+      votingRecords: true,
+      procedures: null,
+      questions: 99,
+      votingPatterns: {},
+      events: 'not-array',
+    };
+    expect(() => analyzePoliticalForces(malformed)).not.toThrow();
+    const forces = analyzePoliticalForces(malformed);
+    expect(forces.coalitionPower).toBeDefined();
+    expect(forces.externalInfluences).toBeDefined();
+  });
+});

@@ -89,6 +89,20 @@ function clamp01(n: number): number {
 }
 
 /**
+ * Safely coerce an unknown value to a readonly array.
+ *
+ * If `val` is already an array it is returned as-is; otherwise an empty array
+ * is returned.  This guards against malformed MCP payloads where a field that
+ * should be an array is instead a string, number, or object.
+ *
+ * @param val - Value expected to be an array
+ * @returns The value itself when it is an array, otherwise `[]`
+ */
+function safeArray<T>(val: readonly T[] | undefined | null): readonly T[] {
+  return Array.isArray(val) ? val : [];
+}
+
+/**
  * Escape a string for safe embedding in a double-quoted YAML scalar.
  *
  * Escapes backslashes, double quotes, and newlines to prevent YAML injection
@@ -117,8 +131,8 @@ type AnomalyEntry = ClassificationInput['votingAnomalies'] extends readonly (inf
  * @returns Merged array of anomaly entries from both fields
  */
 function mergeAnomalies(data: ClassificationInput): readonly AnomalyEntry[] {
-  const a = data.votingAnomalies ?? [];
-  const b = data.anomalies ?? [];
+  const a = safeArray(data.votingAnomalies);
+  const b = safeArray(data.anomalies);
   if (b.length === 0) return a;
   if (a.length === 0) return b;
   return [...a, ...b];
@@ -200,13 +214,15 @@ function totalVotes(
  * ```
  */
 export function assessPoliticalSignificance(data: ClassificationInput): PoliticalSignificance {
-  const votes = data.votingRecords ?? [];
-  const procedures = data.procedures ?? [];
+  const votes = safeArray(data.votingRecords);
+  const procedures = safeArray(data.procedures);
   const anomalies = mergeAnomalies(data);
-  const coalitions = data.coalitions ?? [];
+  const coalitions = safeArray(data.coalitions);
 
-  // Signal 1: Volume and controversy of votes (0–1)
+  // Signal 1: Volume of votes (0–1)
   const voteScore = clamp01(votes.length / 10);
+
+  // Signal 2: Controversy of votes (0–1)
   const controversialVotes = votes.filter((v) => {
     const t = totalVotes(v.votes);
     if (t === 0) return false;
@@ -215,18 +231,18 @@ export function assessPoliticalSignificance(data: ClassificationInput): Politica
   });
   const controversyScore = clamp01(controversialVotes.length / Math.max(votes.length, 1));
 
-  // Signal 2: Legislative pipeline complexity (0–1)
+  // Signal 3: Legislative pipeline complexity (0–1)
   const bottlenecks = procedures.filter((p) => p.bottleneck === true).length;
   const pipelineScore = clamp01(procedures.length / 15 + bottlenecks * 0.2);
 
-  // Signal 3: Severity of voting anomalies (0–1)
+  // Signal 4: Severity of voting anomalies (0–1)
   const highSeverityAnomalies = anomalies.filter(
     (a) =>
       asStr(a.severity).toLowerCase() === 'critical' || asStr(a.severity).toLowerCase() === 'high'
   ).length;
   const anomalyScore = clamp01(highSeverityAnomalies / 3 + anomalies.length / 10);
 
-  // Signal 4: Coalition instability (0–1)
+  // Signal 5: Coalition instability (0–1)
   const lowCohesionCoalitions = coalitions.filter((c) => asNum(c.cohesionScore, 1) < 0.6).length;
   const highRiskCoalitions = coalitions.filter(
     (c) => asStr(c.riskLevel).toLowerCase() === 'high'
@@ -259,11 +275,11 @@ export function assessPoliticalSignificance(data: ClassificationInput): Politica
  * ```
  */
 export function buildImpactMatrix(data: ClassificationInput): PoliticalImpactAssessment {
-  const votes = data.votingRecords ?? [];
-  const procedures = data.procedures ?? [];
-  const coalitions = data.coalitions ?? [];
-  const questions = data.questions ?? [];
-  const documents = data.documents ?? [];
+  const votes = safeArray(data.votingRecords);
+  const procedures = safeArray(data.procedures);
+  const coalitions = safeArray(data.coalitions);
+  const questions = safeArray(data.questions);
+  const documents = safeArray(data.documents);
 
   // Legislative Impact — votes scheduled + procedure complexity
   const legislativeScore = clamp01(
@@ -476,7 +492,7 @@ function addDocumentActors(
   registry: ActorRegistry,
   documents: ClassificationInput['documents']
 ): void {
-  for (const doc of documents ?? []) {
+  for (const doc of safeArray(documents)) {
     const rapporteur = asStr(doc.rapporteur);
     if (rapporteur) {
       addActor(
@@ -504,7 +520,7 @@ function addVotingPatternActors(
   registry: ActorRegistry,
   patterns: ClassificationInput['votingPatterns']
 ): void {
-  for (const pattern of patterns ?? []) {
+  for (const pattern of safeArray(patterns)) {
     const group = asStr(pattern.group);
     if (!group) continue;
     const cohesion = asNum(pattern.cohesion, 0.5);
@@ -523,7 +539,7 @@ function addCoalitionActors(
   registry: ActorRegistry,
   coalitions: ClassificationInput['coalitions']
 ): void {
-  for (const coalition of coalitions ?? []) {
+  for (const coalition of safeArray(coalitions)) {
     for (const group of coalition.groups ?? []) {
       const g = asStr(group);
       if (g) addActor(registry, g, 'Coalition member', 'political_group', 'high');
@@ -538,7 +554,7 @@ function addCoalitionActors(
  * @param mepScores - MEP influence scores from MCP
  */
 function addMEPActors(registry: ActorRegistry, mepScores: ClassificationInput['mepScores']): void {
-  for (const mep of mepScores ?? []) {
+  for (const mep of safeArray(mepScores)) {
     const name = asStr(mep.mepName);
     if (!name) continue;
     const score = asNum(mep.overallScore, 0);
@@ -557,7 +573,7 @@ function addCommitteeActors(
   registry: ActorRegistry,
   committees: ClassificationInput['committees']
 ): void {
-  for (const meeting of committees ?? []) {
+  for (const meeting of safeArray(committees)) {
     const name = asStr(meeting.committeeName) || asStr(meeting.committee);
     if (name) {
       addActor(registry, name, 'Parliamentary committee', 'eu_institution', 'moderate');
@@ -575,7 +591,7 @@ function addQuestionActors(
   registry: ActorRegistry,
   questions: ClassificationInput['questions']
 ): void {
-  for (const q of questions ?? []) {
+  for (const q of safeArray(questions)) {
     const author = asStr(q.author);
     if (!author) continue;
     const actorType = inferActorType(author);
@@ -650,12 +666,12 @@ function makeForceAssessment(
  * ```
  */
 export function analyzePoliticalForces(data: ClassificationInput): PoliticalForcesAnalysis {
-  const coalitions = data.coalitions ?? [];
+  const coalitions = safeArray(data.coalitions);
   const anomalies = mergeAnomalies(data);
-  const procedures = data.procedures ?? [];
-  const questions = data.questions ?? [];
-  const votes = data.votingRecords ?? [];
-  const patterns = data.votingPatterns ?? [];
+  const procedures = safeArray(data.procedures);
+  const questions = safeArray(data.questions);
+  const votes = safeArray(data.votingRecords);
+  const patterns = safeArray(data.votingPatterns);
 
   // ── Coalition Power ──────────────────────────────────────────────────────────
   const avgCohesion =
@@ -747,7 +763,7 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
   const externalProcedures = procedures.filter((p) =>
     EXTERNAL_KEYWORDS.some((kw) => asStr(p.title).toLowerCase().includes(kw))
   ).length;
-  const externalEvents = (data.events ?? []).filter((e) =>
+  const externalEvents = safeArray(data.events).filter((e) =>
     EXTERNAL_KEYWORDS.some(
       (kw) =>
         asStr(e.title).toLowerCase().includes(kw) || asStr(e.description).toLowerCase().includes(kw)
@@ -914,7 +930,6 @@ export function writeAnalysisManifest(
     methodsUsed: [...methodsUsed],
     completedAt: now,
   };
-  fs.mkdirSync(runDir, { recursive: true });
   atomicWrite(path.join(runDir, 'manifest.json'), JSON.stringify(manifest, null, 2));
   return manifest;
 }
