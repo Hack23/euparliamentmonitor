@@ -333,6 +333,38 @@ describe('classifyPoliticalActors', () => {
       expect(['supportive', 'opposed', 'neutral', 'ambiguous']).toContain(actor.position);
     }
   });
+
+  it('classifies civil society actors via keyword heuristics', () => {
+    const actors = classifyPoliticalActors({
+      questions: [makeQuestion({ author: 'Transparency International', subject: 'EU lobbying' })],
+    });
+    const ti = actors.find((a) => a.name === 'Transparency International');
+    expect(ti?.actorType).toBe('civil_society');
+  });
+
+  it('classifies media actors via keyword heuristics', () => {
+    const actors = classifyPoliticalActors({
+      questions: [makeQuestion({ author: 'Euractiv News', subject: 'EP coverage' })],
+    });
+    const media = actors.find((a) => a.name === 'Euractiv News');
+    expect(media?.actorType).toBe('media');
+  });
+
+  it('classifies industry actors via keyword heuristics', () => {
+    const actors = classifyPoliticalActors({
+      questions: [makeQuestion({ author: 'Business Europe', subject: 'Digital regulation' })],
+    });
+    const biz = actors.find((a) => a.name === 'Business Europe');
+    expect(biz?.actorType).toBe('industry');
+  });
+
+  it('classifies member state delegation actors via keyword heuristics', () => {
+    const actors = classifyPoliticalActors({
+      questions: [makeQuestion({ author: 'DE delegation', subject: 'Council position' })],
+    });
+    const de = actors.find((a) => a.name === 'DE delegation');
+    expect(de?.actorType).toBe('member_state');
+  });
 });
 
 // ─── analyzePoliticalForces ───────────────────────────────────────────────────
@@ -662,6 +694,16 @@ describe('initializeAnalysisDirectory', () => {
   it('creates data/ subdirectory', () => {
     const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
     expect(fs.existsSync(path.join(runDir, 'data'))).toBe(true);
+  });
+
+  it('creates threat-assessment/ subdirectory', () => {
+    const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    expect(fs.existsSync(path.join(runDir, 'threat-assessment'))).toBe(true);
+  });
+
+  it('creates risk-scoring/ subdirectory', () => {
+    const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    expect(fs.existsSync(path.join(runDir, 'risk-scoring'))).toBe(true);
   });
 
   it('is idempotent — does not throw if directory already exists', () => {

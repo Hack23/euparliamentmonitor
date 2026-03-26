@@ -437,8 +437,63 @@ const EXTERNAL_KEYWORDS = [
   'world bank',
 ];
 
+/** Civil society / NGO keyword list used by actor type inference */
+const CIVIL_SOCIETY_KEYWORDS = [
+  'ngo',
+  'civil society',
+  'amnesty',
+  'transparency international',
+  'greenpeace',
+  'human rights watch',
+  'oxfam',
+  'wwf',
+  'trade union',
+  'workers',
+  'association',
+  'federation of',
+  'citizens',
+];
+
+/** Media / press keyword list used by actor type inference */
+const MEDIA_KEYWORDS = [
+  'reuters',
+  'associated press',
+  'bbc',
+  'euractiv',
+  'politico',
+  'le monde',
+  'der spiegel',
+  'press',
+  'media',
+  'journalist',
+  'broadcaster',
+  'newspaper',
+  'news agency',
+];
+
+/** Industry / corporate keyword list used by actor type inference */
+const INDUSTRY_KEYWORDS = [
+  'industry',
+  'corporation',
+  'corporate',
+  'business europe',
+  'lobbyist',
+  'lobby',
+  'pharma',
+  'tech sector',
+  'digital europe',
+  'copa-cogeca',
+  'automakers',
+  'energy sector',
+  'financial sector',
+];
+
 /**
  * Infer the PoliticalActorType from a name string using keyword heuristics.
+ *
+ * Covers all 8 taxonomy categories: EU institutions, political groups,
+ * national delegations, individual MEPs, civil society, media, industry,
+ * and member states.
  *
  * @param name - Actor name or identifier to classify
  * @returns Inferred actor type
@@ -458,6 +513,15 @@ function inferActorType(name: string): PoliticalActorType {
   if (EU_MEMBER_STATE_CODES.has(lower.slice(0, 2)) && lower.length === 2) {
     return 'national_delegation';
   }
+
+  // Full member state names → member_state
+  if (EU_MEMBER_STATE_CODES.has(lower.slice(0, 2)) && lower.includes('delegation')) {
+    return 'member_state';
+  }
+
+  if (CIVIL_SOCIETY_KEYWORDS.some((kw) => lower.includes(kw))) return 'civil_society';
+  if (MEDIA_KEYWORDS.some((kw) => lower.includes(kw))) return 'media';
+  if (INDUSTRY_KEYWORDS.some((kw) => lower.includes(kw))) return 'industry';
 
   return 'eu_institution'; // Safe default for unknown actors
 }
@@ -797,8 +861,10 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
  * Initialize the `analysis-output/{date}/` directory structure.
  *
  * Creates the following sub-directories if they do not already exist:
- * - `classification/`  — Political classification results
- * - `data/`            — Raw downloaded data cache
+ * - `classification/`      — Political classification results
+ * - `data/`                — Raw downloaded data cache
+ * - `threat-assessment/`   — Political threat analysis (Issue 2)
+ * - `risk-scoring/`        — Quantitative risk assessment (Issue 3)
  *
  * @param baseDir - Base directory for analysis output (typically `analysis-output/`)
  * @param date - ISO date string used as the run folder name (YYYY-MM-DD).
@@ -811,6 +877,8 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
  * const runDir = initializeAnalysisDirectory('./analysis-output', '2026-03-26');
  * // Creates: ./analysis-output/2026-03-26/classification/
  * //          ./analysis-output/2026-03-26/data/
+ * //          ./analysis-output/2026-03-26/threat-assessment/
+ * //          ./analysis-output/2026-03-26/risk-scoring/
  * ```
  */
 export function initializeAnalysisDirectory(baseDir: string, date: string): string {
@@ -818,7 +886,7 @@ export function initializeAnalysisDirectory(baseDir: string, date: string): stri
     throw new Error(`Invalid date format: "${date}" — expected YYYY-MM-DD`);
   }
   const runDir = path.join(baseDir, date);
-  const subdirs = ['classification', 'data'];
+  const subdirs = ['classification', 'data', 'threat-assessment', 'risk-scoring'];
   for (const sub of subdirs) {
     fs.mkdirSync(path.join(runDir, sub), { recursive: true });
   }
