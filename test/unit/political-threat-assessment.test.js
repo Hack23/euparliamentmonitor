@@ -659,4 +659,17 @@ describe('generateThreatAssessmentMarkdown', () => {
     expect(md).toContain('# Political Threat Assessment');
     expect(md).toContain('## Political STRIDE Analysis');
   });
+
+  it('handles null input by generating default assessment', () => {
+    const md = generateThreatAssessmentMarkdown(null);
+    expect(md).toContain('# Political Threat Assessment');
+    expect(md).toContain('threatLevel:');
+    expect(md).toContain('confidence:');
+  });
+
+  it('handles undefined input by generating default assessment', () => {
+    const md = generateThreatAssessmentMarkdown(undefined);
+    expect(md).toContain('# Political Threat Assessment');
+    expect(md).toContain('## Political STRIDE Analysis');
+  });
 });

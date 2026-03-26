@@ -137,6 +137,21 @@ function resolveAnomalies(data: ThreatAssessmentInput | null | undefined): reado
 }
 
 /**
+ * Create a type-safe readonly array of {@link PoliticalActorType} values.
+ *
+ * Replaces `[...] as PoliticalActorType[]` casts with compile-time validation
+ * so that invalid stakeholder strings are caught during development.
+ *
+ * @param actors - One or more actor type literals
+ * @returns Readonly array of validated PoliticalActorType values
+ */
+function stakeholders(
+  ...actors: readonly PoliticalActorType[]
+): readonly PoliticalActorType[] {
+  return actors;
+}
+
+/**
  * Compute the summed composite of CMO (capability + motivation + opportunity).
  * Each dimension is scored: high=3, medium=2, low=1. Max composite = 9, min = 3.
  *
@@ -928,14 +943,14 @@ export function buildConsequenceTree(
       description: 'Legislative process disruption requiring procedural recalibration',
       probability: clampProbability(0.4 + anomalies.length * 0.05),
       impact: anomalies.length > 2 ? 'high' : 'medium',
-      affectedStakeholders: ['political_group', 'eu_institution'] as PoliticalActorType[],
+      affectedStakeholders: stakeholders('political_group', 'eu_institution'),
       timeframe: 'immediate',
     },
     {
       description: 'Coalition communication and coordination burden increases',
       probability: clampProbability(0.3 + weakCoalitions.length * 0.1),
       impact: weakCoalitions.length > 1 ? 'high' : 'medium',
-      affectedStakeholders: ['political_group'] as PoliticalActorType[],
+      affectedStakeholders: stakeholders('political_group'),
       timeframe: 'immediate',
     },
   ];
@@ -946,14 +961,14 @@ export function buildConsequenceTree(
       description: 'Stakeholder confidence shifts in legislative outcome predictability',
       probability: 0.5,
       impact: 'medium',
-      affectedStakeholders: ['civil_society', 'industry', 'member_state'] as PoliticalActorType[],
+      affectedStakeholders: stakeholders('civil_society', 'industry', 'member_state'),
       timeframe: 'short-term',
     },
     {
       description: 'Political group internal pressure and positioning adjustments',
       probability: clampProbability(0.35 + weakCoalitions.length * 0.08),
       impact: weakCoalitions.length > 0 ? 'high' : 'medium',
-      affectedStakeholders: ['political_group', 'mep'] as PoliticalActorType[],
+      affectedStakeholders: stakeholders('political_group', 'mep'),
       timeframe: 'short-term',
     },
   ];
@@ -964,14 +979,14 @@ export function buildConsequenceTree(
       description: 'Precedent set for similar procedural challenges in future legislative cycles',
       probability: 0.4,
       impact: 'medium',
-      affectedStakeholders: ['eu_institution', 'political_group'] as PoliticalActorType[],
+      affectedStakeholders: stakeholders('eu_institution', 'political_group'),
       timeframe: 'long-term',
     },
     {
       description: 'Structural adjustment of coalition formation strategies',
       probability: weakCoalitions.length > 1 ? 0.6 : 0.3,
       impact: weakCoalitions.length > 1 ? 'high' : 'low',
-      affectedStakeholders: ['political_group'] as PoliticalActorType[],
+      affectedStakeholders: stakeholders('political_group'),
       timeframe: 'long-term',
     },
   ];
@@ -1340,13 +1355,17 @@ function buildConsequenceTreeMarkdown(tree: PoliticalConsequenceTree): string {
 
   if (tree.mitigatingFactors.length > 0) {
     lines.push('**Mitigating Factors:**');
-    tree.mitigatingFactors.forEach((f) => lines.push(`- ${f}`));
+    tree.mitigatingFactors.forEach((f) =>
+      lines.push(`- ${sanitizeMarkdownText(f)}`)
+    );
     lines.push('');
   }
 
   if (tree.amplifyingFactors.length > 0) {
     lines.push('**Amplifying Factors:**');
-    tree.amplifyingFactors.forEach((f) => lines.push(`- ${f}`));
+    tree.amplifyingFactors.forEach((f) =>
+      lines.push(`- ${sanitizeMarkdownText(f)}`)
+    );
     lines.push('');
   }
 
@@ -1379,7 +1398,10 @@ function buildDisruptionTableMarkdown(analysis: LegislativeDisruptionAnalysis): 
   }
 
   lines.push('', '**Alternative Pathways:**');
-  analysis.alternativePathways.forEach((p) => lines.push(`- ${p}`));
+  analysis.alternativePathways.forEach((p) => {
+    const safePathway = sanitizeMarkdownText(p);
+    lines.push(`- ${safePathway}`);
+  });
   lines.push('');
 
   return lines.join('\n');
@@ -1392,31 +1414,40 @@ function buildDisruptionTableMarkdown(analysis: LegislativeDisruptionAnalysis): 
  * analysis, actor threat profiles table, consequence trees with Mermaid diagrams,
  * and legislative disruption analysis.
  *
- * @param assessment - Complete political threat assessment to render
+ * If {@link assessment} is `null` or `undefined`, a default low-threat,
+ * low-confidence assessment is generated using {@link assessPoliticalThreats}
+ * to preserve the module's null-safe contract.
+ *
+ * @param assessment - Complete political threat assessment to render, or null/undefined to use defaults
  * @returns Markdown string suitable for writing to analysis-output directory
  */
-export function generateThreatAssessmentMarkdown(assessment: PoliticalThreatAssessment): string {
+export function generateThreatAssessmentMarkdown(
+  assessment: PoliticalThreatAssessment | null | undefined
+): string {
+  const safeAssessment: PoliticalThreatAssessment =
+    assessment ?? assessPoliticalThreats(null);
+
   const lines: string[] = [
     '---',
     'title: "Political Threat Assessment"',
-    `date: "${assessment.date}"`,
+    `date: "${safeAssessment.date}"`,
     'analysisType: "threat-assessment"',
-    `threatLevel: "${assessment.overallThreatLevel}"`,
-    `confidence: "${assessment.confidence}"`,
+    `threatLevel: "${safeAssessment.overallThreatLevel}"`,
+    `confidence: "${safeAssessment.confidence}"`,
     'methods: ["political-stride", "actor-profiling", "consequence-trees", "disruption-analysis"]',
     '---',
     '',
     '# Political Threat Assessment',
     '',
-    `**Overall Threat Level**: ${THREAT_EMOJIS[assessment.overallThreatLevel]} ${assessment.overallThreatLevel.toUpperCase()}  `,
-    `**Confidence**: ${assessment.confidence}  `,
-    `**Date**: ${assessment.date}`,
+    `**Overall Threat Level**: ${THREAT_EMOJIS[safeAssessment.overallThreatLevel]} ${safeAssessment.overallThreatLevel.toUpperCase()}  `,
+    `**Confidence**: ${safeAssessment.confidence}  `,
+    `**Date**: ${safeAssessment.date}`,
     '',
     '## Political STRIDE Analysis',
     '',
   ];
 
-  for (const cat of assessment.strideCategories) {
+  for (const cat of safeAssessment.strideCategories) {
     const emoji = THREAT_EMOJIS[cat.threatLevel];
     lines.push(
       `### ${STRIDE_LABELS[cat.category]}`,
@@ -1434,31 +1465,31 @@ export function generateThreatAssessmentMarkdown(assessment: PoliticalThreatAsse
 
   lines.push('## Actor Threat Profiles', '');
 
-  if (assessment.actorProfiles.length > 0) {
+  if (safeAssessment.actorProfiles.length > 0) {
     lines.push(
       '| Actor | Capability | Motivation | Opportunity | Overall |',
       '|-------|-----------|------------|-------------|---------|'
     );
-    assessment.actorProfiles.forEach((p) => lines.push(buildActorTableRow(p)));
+    safeAssessment.actorProfiles.forEach((p) => lines.push(buildActorTableRow(p)));
     lines.push('');
   } else {
     lines.push('*No actor threat profiles generated from available data.*', '');
   }
 
   lines.push('## Consequence Trees', '');
-  assessment.consequenceTrees.forEach((tree) => lines.push(buildConsequenceTreeMarkdown(tree)));
+  safeAssessment.consequenceTrees.forEach((tree) => lines.push(buildConsequenceTreeMarkdown(tree)));
 
   lines.push('## Legislative Disruption Analysis', '');
-  assessment.legislativeDisruptions.forEach((analysis) =>
+  safeAssessment.legislativeDisruptions.forEach((analysis) =>
     lines.push(buildDisruptionTableMarkdown(analysis))
   );
 
   lines.push('## Key Findings', '');
-  assessment.keyFindings.forEach((f) => lines.push(`- ${sanitizeMarkdownText(f)}`));
+  safeAssessment.keyFindings.forEach((f) => lines.push(`- ${sanitizeMarkdownText(f)}`));
   lines.push('');
 
   lines.push('## Recommendations', '');
-  assessment.recommendations.forEach((r) => lines.push(`- ${sanitizeMarkdownText(r)}`));
+  safeAssessment.recommendations.forEach((r) => lines.push(`- ${sanitizeMarkdownText(r)}`));
   lines.push('');
 
   lines.push(
