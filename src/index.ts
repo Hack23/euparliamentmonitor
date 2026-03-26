@@ -172,3 +172,29 @@ export {
   getIndicatorIdsForCommittees,
   getAllCategoryIndicatorIds,
 } from './constants/committee-indicator-map.js';
+
+// ─── Analysis Pipeline Stage ──────────────────────────────────────────────────
+export { ALL_ANALYSIS_METHODS, runAnalysisStage } from './generators/pipeline/analysis-stage.js';
+
+export type {
+  AnalysisMethod,
+  AnalysisStageOptions,
+  AnalysisMethodStatus,
+  AnalysisManifest,
+  AnalysisContext,
+} from './generators/pipeline/analysis-stage.js';
+// ─── Political Intelligence Classification ────────────────────────────────────
+export {
+  FRAMEWORK_VERSION,
+  type ClassificationInput,
+  assessPoliticalSignificance,
+  buildImpactMatrix,
+  classifyPoliticalActors,
+  analyzePoliticalForces,
+  initializeAnalysisDirectory,
+  serializeFrontmatter,
+  writeAnalysisFile,
+  writeAnalysisManifest,
+  compareSignificance,
+  maxSignificance,
+} from './utils/political-classification.js';

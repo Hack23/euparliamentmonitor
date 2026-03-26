@@ -356,3 +356,127 @@ export const monthlyReviewData = {
   ],
   monthLabel: 'December 2024',
 };
+
+// ─── Political classification fixture builders ───────────────────────────────
+
+/**
+ * Create a vote record fixture for political classification tests.
+ * @param {Record<string, unknown>} [overrides]
+ * @returns {{ title: string, date: string, result: string, votes: { for: number, against: number, abstain: number } }}
+ */
+export function makeVoteRecord(overrides = {}) {
+  return {
+    title: 'EU Budget Vote 2026',
+    date: '2026-03-26',
+    result: 'Adopted',
+    votes: { for: 450, against: 150, abstain: 30 },
+    ...overrides,
+  };
+}
+
+/**
+ * Create a controversial vote fixture (>35% opposition).
+ * @returns {{ title: string, date: string, result: string, votes: { for: number, against: number, abstain: number } }}
+ */
+export function makeControversialVote() {
+  return {
+    title: 'Controversial Regulation',
+    date: '2026-03-26',
+    result: 'Adopted',
+    votes: { for: 300, against: 250, abstain: 50 },
+  };
+}
+
+/**
+ * Create a coalition fixture for political classification tests.
+ * @param {Record<string, unknown>} [overrides]
+ * @returns {{ groups: string[], cohesionScore: number, alignmentTrend: string, riskLevel: string }}
+ */
+export function makeCoalition(overrides = {}) {
+  return {
+    groups: ['EPP', 'Renew'],
+    cohesionScore: 0.82,
+    alignmentTrend: 'strengthening',
+    riskLevel: 'low',
+    ...overrides,
+  };
+}
+
+/**
+ * Create a voting pattern fixture for political classification tests.
+ * @param {Record<string, unknown>} [overrides]
+ * @returns {{ group: string, cohesion: number, participation: number }}
+ */
+export function makeVotingPattern(overrides = {}) {
+  return {
+    group: 'EPP',
+    cohesion: 0.85,
+    participation: 0.92,
+    ...overrides,
+  };
+}
+
+/**
+ * Create a legislative procedure fixture for political classification tests.
+ * @param {Record<string, unknown>} [overrides]
+ * @returns {{ id: string, title: string, stage: string, committee: string, status: string, bottleneck: boolean }}
+ */
+export function makeProcedure(overrides = {}) {
+  return {
+    id: 'PROC-2024-001',
+    title: 'Green Deal Amendment',
+    stage: 'Committee',
+    committee: 'ENVI',
+    status: 'In progress',
+    bottleneck: false,
+    ...overrides,
+  };
+}
+
+/**
+ * Create a voting anomaly fixture for political classification tests.
+ * @param {Record<string, unknown>} [overrides]
+ * @returns {{ type: string, description: string, severity: string }}
+ */
+export function makeAnomaly(overrides = {}) {
+  return {
+    type: 'party-defection',
+    description: 'EPP members voted against group line',
+    severity: 'high',
+    ...overrides,
+  };
+}
+
+/**
+ * Create a parliamentary question fixture for political classification tests.
+ * @param {Record<string, unknown>} [overrides]
+ * @returns {{ author: string, subject: string, topic: string, date: string, status: string, type: string }}
+ */
+export function makeQuestion(overrides = {}) {
+  return {
+    author: 'MEP-12345',
+    subject: 'Climate Policy',
+    topic: 'Environment',
+    date: '2026-03-26',
+    status: 'Pending',
+    type: 'oral',
+    ...overrides,
+  };
+}
+
+/**
+ * Create a legislative document fixture for political classification tests.
+ * @param {Record<string, unknown>} [overrides]
+ * @returns {{ title: string, type: string, date: string, status: string, committee: string, rapporteur: string | undefined }}
+ */
+export function makeDocument(overrides = {}) {
+  return {
+    title: 'ENVI Committee Report on Climate',
+    type: 'REPORT',
+    date: '2026-03-26',
+    status: 'Draft',
+    committee: 'ENVI',
+    rapporteur: 'Jane Smith',
+    ...overrides,
+  };
+}

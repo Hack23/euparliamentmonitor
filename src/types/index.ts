@@ -282,3 +282,16 @@ export type {
   PoliticalThreatAssessment,
   ThreatAssessmentInput,
 } from './political-threats.js';
+
+export {  PoliticalSignificance,
+  ImpactLevel,
+  PoliticalImpactAssessment,
+  ClassificationConfidence,
+  PoliticalActorType,
+  PoliticalActorClassification,
+  ForceAssessment,
+  PoliticalForcesAnalysis,
+  ClassificationMethod,
+  AnalysisRunManifest,
+  AnalysisFrontmatter,
+  ClassificationInput,SIGNIFICANCE_ORDER, IMPACT_ORDER } from './political-classification.js';
