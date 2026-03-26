@@ -74,7 +74,7 @@ function makeArticleData(overrides = {}) {
     coalitionData: [],
     mepInfluence: [],
     procedures: [],
-    votingAnomalies: [],
+    anomalies: [],
     questions: [],
     committees: [],
     feedData: {},
@@ -175,7 +175,7 @@ describe('assessPoliticalThreats', () => {
   describe('with voting anomalies', () => {
     it('elevates shift threat level with anomalies', () => {
       const data = makeArticleData({
-        votingAnomalies: [
+        anomalies: [
           makeAnomaly({ significance: 'critical' }),
           makeAnomaly({ significance: 'high' }),
           makeAnomaly({ significance: 'high' }),
@@ -188,7 +188,7 @@ describe('assessPoliticalThreats', () => {
 
     it('includes anomaly count in evidence', () => {
       const data = makeArticleData({
-        votingAnomalies: [makeAnomaly(), makeAnomaly({ anomalyId: 'ANOMALY-002' })],
+        anomalies: [makeAnomaly(), makeAnomaly({ anomalyId: 'ANOMALY-002' })],
       });
       const assessment = assessPoliticalThreats(data);
       const shiftCat = assessment.strideCategories.find((c) => c.category === 'shift');
@@ -249,10 +249,33 @@ describe('assessPoliticalThreats', () => {
     it('handles malformed data without throwing', () => {
       const data = makeArticleData({
         coalitionData: [null, undefined, 'string', 42, { notACoalition: true }],
-        votingAnomalies: [null, { significance: null }, {}],
+        anomalies: [null, { significance: null }, {}],
         procedures: [null, { noId: true }],
       });
       expect(() => assessPoliticalThreats(data)).not.toThrow();
+    });
+
+    it('supports legacy votingAnomalies field name', () => {
+      const data = {
+        votingAnomalies: [
+          makeAnomaly({ significance: 'critical' }),
+          makeAnomaly({ significance: 'high' }),
+        ],
+      };
+      const assessment = assessPoliticalThreats(data);
+      const shiftCat = assessment.strideCategories.find((c) => c.category === 'shift');
+      expect(['medium', 'high', 'critical']).toContain(shiftCat.threatLevel);
+    });
+
+    it('prefers anomalies over votingAnomalies when both present', () => {
+      const data = {
+        anomalies: [makeAnomaly({ significance: 'critical' })],
+        votingAnomalies: [],
+      };
+      const assessment = assessPoliticalThreats(data);
+      const shiftCat = assessment.strideCategories.find((c) => c.category === 'shift');
+      const hasEvidence = shiftCat.evidence.some((e) => e.includes('anomal'));
+      expect(hasEvidence).toBe(true);
     });
   });
 });
@@ -354,7 +377,7 @@ describe('buildConsequenceTree', () => {
 
   it('validates consequence probabilities are in [0, 1]', () => {
     const tree = buildConsequenceTree('Test action', makeArticleData({
-      votingAnomalies: [makeAnomaly(), makeAnomaly({ anomalyId: 'A2' }), makeAnomaly({ anomalyId: 'A3' })],
+      anomalies: [makeAnomaly(), makeAnomaly({ anomalyId: 'A2' }), makeAnomaly({ anomalyId: 'A3' })],
       coalitionData: [makeCoalition({ cohesionScore: 0.4 })],
     }));
     for (const c of [...tree.immediateConsequences, ...tree.secondaryEffects, ...tree.longTermImplications]) {
@@ -467,7 +490,7 @@ describe('analyzeLegislativeDisruption', () => {
 
   it('has higher likelihood at plenary stages with anomalies', () => {
     const dataWithAnomalies = makeArticleData({
-      votingAnomalies: [makeAnomaly(), makeAnomaly({ anomalyId: 'A2' }), makeAnomaly({ anomalyId: 'A3' })],
+      anomalies: [makeAnomaly(), makeAnomaly({ anomalyId: 'A2' }), makeAnomaly({ anomalyId: 'A3' })],
     });
     const analysis = analyzeLegislativeDisruption('Test', dataWithAnomalies);
     const baseAnalysis = analyzeLegislativeDisruption('Test', makeArticleData());
@@ -519,7 +542,7 @@ describe('generateThreatAssessmentMarkdown', () => {
   function getBaseAssessment() {
     return assessPoliticalThreats(makeArticleData({
       coalitionData: [makeCoalition({ cohesionScore: 0.55, riskLevel: 'high' })],
-      votingAnomalies: [makeAnomaly()],
+      anomalies: [makeAnomaly()],
     }));
   }
 
@@ -613,7 +636,7 @@ describe('generateThreatAssessmentMarkdown', () => {
 
   it('includes threat emojis for elevated threats', () => {
     const assessment = assessPoliticalThreats(makeArticleData({
-      votingAnomalies: [
+      anomalies: [
         makeAnomaly({ significance: 'critical' }),
         makeAnomaly({ significance: 'critical', anomalyId: 'A2' }),
         makeAnomaly({ significance: 'high', anomalyId: 'A3' }),

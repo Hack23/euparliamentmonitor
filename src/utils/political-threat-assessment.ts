@@ -123,6 +123,20 @@ function toRecord(input: unknown): Record<string, unknown> | null {
 }
 
 /**
+ * Resolve the voting anomaly array from a `ThreatAssessmentInput`.
+ *
+ * The real MCP pipeline exposes voting anomalies under the field `anomalies`,
+ * while the original type used `votingAnomalies`. This helper reads from
+ * `anomalies` first, falling back to `votingAnomalies` for backward compat.
+ *
+ * @param data - Article / threat-assessment data (may be null)
+ * @returns Readonly array of anomaly items, never null
+ */
+function resolveAnomalies(data: ThreatAssessmentInput | null | undefined): readonly unknown[] {
+  return data?.anomalies ?? data?.votingAnomalies ?? [];
+}
+
+/**
  * Compute the summed composite of CMO (capability + motivation + opportunity).
  * Each dimension is scored: high=3, medium=2, low=1. Max composite = 9, min = 3.
  *
@@ -488,7 +502,7 @@ function scanCriticalAnomaliesForErosion(
 function assessShiftThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
   const records = data.votingRecords ?? [];
   const coalitions = data.coalitionData ?? [];
-  const anomalies = data.votingAnomalies ?? [];
+  const anomalies = resolveAnomalies(data);
   const evidence: string[] = [];
 
   const anomalyScore = scanAnomaliesForShift(anomalies, evidence);
@@ -599,7 +613,7 @@ function assessInstitutionalThreats(data: ThreatAssessmentInput): PoliticalStrid
  */
 function assessDelayThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
   const procedures = data.procedures ?? [];
-  const anomalies = data.votingAnomalies ?? [];
+  const anomalies = resolveAnomalies(data);
   const evidence: string[] = [];
 
   const procScore = scanProceduresForDelay(procedures, evidence);
@@ -625,7 +639,7 @@ function assessDelayThreats(data: ThreatAssessmentInput): PoliticalStrideCategor
  */
 function assessErosionThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
   const coalitions = data.coalitionData ?? [];
-  const anomalies = data.votingAnomalies ?? [];
+  const anomalies = resolveAnomalies(data);
   const evidence: string[] = [];
 
   const cohesionScore = countWeakCohesionCoalitions(coalitions, evidence);
@@ -880,7 +894,7 @@ export function buildConsequenceTree(
       ? action.trim()
       : 'Unknown political action';
   const coalitions = data?.coalitionData ?? [];
-  const anomalies = data?.votingAnomalies ?? [];
+  const anomalies = resolveAnomalies(data);
 
   const mitigatingFactors: string[] = [
     'Institutional resilience mechanisms',
@@ -979,11 +993,13 @@ export function buildConsequenceTree(
  * @returns Array of consequence trees for significant political actions
  */
 function buildConsequenceTrees(data: ThreatAssessmentInput): PoliticalConsequenceTree[] {
+  const MAX_TREES = 3;
   const trees: PoliticalConsequenceTree[] = [];
   const procedures = data.procedures ?? [];
 
   // Build trees for stalled procedures
   for (const proc of procedures) {
+    if (trees.length >= MAX_TREES) break;
     const rec = toRecord(proc);
     if (!rec) continue;
     const status = asStr(rec['status']);
@@ -994,8 +1010,9 @@ function buildConsequenceTrees(data: ThreatAssessmentInput): PoliticalConsequenc
   }
 
   // Build trees for high-significance anomalies
-  const anomalies = data.votingAnomalies ?? [];
+  const anomalies = resolveAnomalies(data);
   for (const anomaly of anomalies) {
+    if (trees.length >= MAX_TREES) break;
     const rec = toRecord(anomaly);
     if (!rec) continue;
     const significance = asStr(rec['significance']);
@@ -1003,7 +1020,6 @@ function buildConsequenceTrees(data: ThreatAssessmentInput): PoliticalConsequenc
       const desc = asStr(rec['description'] ?? 'Significant voting anomaly');
       trees.push(buildConsequenceTree(desc, data));
     }
-    if (trees.length >= 3) break; // Limit to top 3 trees for output manageability
   }
 
   // Always include at least one default tree
@@ -1135,7 +1151,7 @@ export function analyzeLegislativeDisruption(
 
   const procedures = data?.procedures ?? [];
   const coalitions = data?.coalitionData ?? [];
-  const anomalies = data?.votingAnomalies ?? [];
+  const anomalies = resolveAnomalies(data);
 
   const currentStage = findCurrentStage(safeProcedure, procedures);
   const baseRisk = anomalies.length > 0 ? 0.2 + Math.min(anomalies.length * 0.05, 0.3) : 0.15;
@@ -1236,6 +1252,20 @@ function sanitizeTableCell(input: string): string {
 }
 
 /**
+ * Sanitize untrusted text for safe embedding in Markdown prose or headings.
+ *
+ * Strips control characters and normalizes whitespace to prevent Markdown
+ * structure corruption from external MCP data.
+ *
+ * @param input - Untrusted text to sanitize
+ * @returns Sanitized text safe for Markdown prose
+ */
+function sanitizeMarkdownText(input: string): string {
+  // eslint-disable-next-line no-control-regex
+  return input.replace(/[\u0000-\u001F\u007F]/g, ' ').trim();
+}
+
+/**
  * Generate a risk heat map row for an actor profile.
  *
  * @param profile - Actor threat profile
@@ -1285,6 +1315,23 @@ function buildConsequenceTreeMarkdown(tree: PoliticalConsequenceTree): string {
     lines.push(`    ${parentId} --> ${nodeId}`);
   });
 
+  tree.longTermImplications.forEach((c, i) => {
+    const nodeId = `D${i}`;
+    const hasSecondaryNodes = tree.secondaryEffects.length > 0;
+    const hasImmediateNodes = tree.immediateConsequences.length > 0;
+    const parentId = hasSecondaryNodes
+      ? `C${i % tree.secondaryEffects.length}`
+      : hasImmediateNodes
+        ? `B${i % tree.immediateConsequences.length}`
+        : 'A';
+    const rawDescription = c.description;
+    const truncated =
+      rawDescription.length > 40 ? rawDescription.slice(0, 40) + '...' : rawDescription;
+    const label = sanitizeMermaidLabel(truncated);
+    lines.push(`    ${nodeId}["${label}"]`);
+    lines.push(`    ${parentId} --> ${nodeId}`);
+  });
+
   lines.push('```', '');
 
   if (tree.mitigatingFactors.length > 0) {
@@ -1309,8 +1356,9 @@ function buildConsequenceTreeMarkdown(tree: PoliticalConsequenceTree): string {
  * @returns Markdown string with disruption table
  */
 function buildDisruptionTableMarkdown(analysis: LegislativeDisruptionAnalysis): string {
+  const safeProcedure = sanitizeMarkdownText(analysis.procedure);
   const lines: string[] = [
-    `### Procedure: ${analysis.procedure}`,
+    `### Procedure: ${safeProcedure}`,
     '',
     `**Current Stage**: ${analysis.currentStage} | **Resilience**: ${analysis.resilience}`,
     '',
