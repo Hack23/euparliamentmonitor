@@ -173,3 +173,18 @@ export type {
   AnalysisManifest,
   AnalysisContext,
 } from './generators/pipeline/analysis-stage.js';
+// ─── Political Intelligence Classification ────────────────────────────────────
+export {
+  FRAMEWORK_VERSION,
+  type ClassificationInput,
+  assessPoliticalSignificance,
+  buildImpactMatrix,
+  classifyPoliticalActors,
+  analyzePoliticalForces,
+  initializeAnalysisDirectory,
+  serializeFrontmatter,
+  writeAnalysisFile,
+  writeAnalysisManifest,
+  compareSignificance,
+  maxSignificance,
+} from './utils/political-classification.js';

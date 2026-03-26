@@ -267,3 +267,20 @@ export type {
   TranslationValidationResult,
   TranslationValidationMetrics,
 } from '../utils/content-validator.js';
+
+export type {
+  PoliticalSignificance,
+  ImpactLevel,
+  PoliticalImpactAssessment,
+  ClassificationConfidence,
+  PoliticalActorType,
+  PoliticalActorClassification,
+  ForceAssessment,
+  PoliticalForcesAnalysis,
+  ClassificationMethod,
+  AnalysisRunManifest,
+  AnalysisFrontmatter,
+  ClassificationInput,
+} from './political-classification.js';
+
+export { SIGNIFICANCE_ORDER, IMPACT_ORDER } from './political-classification.js';
