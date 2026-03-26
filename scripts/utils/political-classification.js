@@ -540,8 +540,9 @@ export function analyzePoliticalForces(data) {
             : 'stable';
     const coalitionActors = coalitions
         .flatMap((c) => c.groups ?? [])
-        .slice(0, 5)
-        .map(String);
+        .map((group) => asStr(group))
+        .filter((name) => name)
+        .slice(0, 5);
     const coalitionPower = makeForceAssessment('Governing coalition strength — ability to pass or block legislation', avgCohesion, coalitionTrend, coalitionActors, coalitions.length > 0 ? 'high' : 'low');
     // ── Opposition Power ─────────────────────────────────────────────────────────
     const oppositionVotes = votes.filter((v) => {
@@ -586,7 +587,7 @@ export function analyzePoliticalForces(data) {
     const externalProcedures = procedures.filter((p) => EXTERNAL_KEYWORDS.some((kw) => asStr(p.title).toLowerCase().includes(kw))).length;
     const externalEvents = (data.events ?? []).filter((e) => EXTERNAL_KEYWORDS.some((kw) => asStr(e.title).toLowerCase().includes(kw) || asStr(e.description).toLowerCase().includes(kw))).length;
     const externalScore = clamp01(externalProcedures * 0.3 + externalEvents * 0.2);
-    const externalInfluences = makeForceAssessment('External geopolitical factors influencing internal EU dynamics', externalScore, externalProcedures > 0 ? 'increasing' : 'stable', [], externalProcedures + externalEvents > 0 ? 'medium' : 'low');
+    const externalInfluences = makeForceAssessment('External geopolitical factors influencing internal EU dynamics', externalScore, externalProcedures + externalEvents > 0 ? 'increasing' : 'stable', [], externalProcedures + externalEvents > 0 ? 'medium' : 'low');
     return {
         coalitionPower,
         oppositionPower,

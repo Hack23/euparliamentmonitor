@@ -673,8 +673,9 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
       : 'stable';
   const coalitionActors = coalitions
     .flatMap((c) => c.groups ?? [])
-    .slice(0, 5)
-    .map(String);
+    .map((group) => asStr(group))
+    .filter((name) => name)
+    .slice(0, 5);
   const coalitionPower = makeForceAssessment(
     'Governing coalition strength — ability to pass or block legislation',
     avgCohesion,
@@ -756,7 +757,7 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
   const externalInfluences = makeForceAssessment(
     'External geopolitical factors influencing internal EU dynamics',
     externalScore,
-    externalProcedures > 0 ? 'increasing' : 'stable',
+    externalProcedures + externalEvents > 0 ? 'increasing' : 'stable',
     [],
     externalProcedures + externalEvents > 0 ? 'medium' : 'low'
   );

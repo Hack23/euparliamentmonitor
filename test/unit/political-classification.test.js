@@ -436,6 +436,14 @@ describe('analyzePoliticalForces', () => {
     );
   });
 
+  it('externalInfluences trend reflects event-only external data', () => {
+    const eventsOnly = analyzePoliticalForces({
+      events: [{ title: 'NATO Summit Implications', type: 'conference', date: '2026-03-26', description: 'Impact on EU foreign policy' }],
+    });
+    expect(eventsOnly.externalInfluences.trend).toBe('increasing');
+    expect(eventsOnly.externalInfluences.strength).toBeGreaterThan(0);
+  });
+
   it('all trends are valid values', () => {
     const forces = analyzePoliticalForces({
       coalitions: [makeCoalition()],
