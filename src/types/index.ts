@@ -267,3 +267,24 @@ export type {
   TranslationValidationResult,
   TranslationValidationMetrics,
 } from '../utils/content-validator.js';
+
+export type {
+  PoliticalRiskLikelihood,
+  PoliticalRiskImpact,
+  PoliticalRiskLevel,
+  PoliticalRiskScore,
+  PoliticalActorType,
+  PoliticalThreatCategory,
+  PoliticalRiskDriver,
+  PoliticalCapitalAtRisk,
+  LegislativeStage,
+  LegislativeVelocityRisk,
+  SwotItemTrend,
+  ScoredSWOTItem,
+  CrossImpactEntry,
+  QuantitativeSWOT,
+  RiskAssessmentStep,
+  AgentRiskAssessmentWorkflow,
+  RiskLevelCounts,
+  PoliticalRiskSummary,
+} from './political-risk.js';
