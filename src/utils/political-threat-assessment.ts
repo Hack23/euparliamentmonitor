@@ -195,7 +195,7 @@ function cmoScore(
 /**
  * Derive overall threat level from a CMO composite score.
  *
- * @param score - CMO composite score (1–9)
+ * @param score - CMO composite score (3–9)
  * @returns Impact level classification
  */
 function cmoToThreatLevel(score: number): ImpactLevel {
@@ -746,6 +746,14 @@ export function assessPoliticalThreats(
     .filter((c) => c.threatLevel === 'high' || c.threatLevel === 'critical')
     .map((c) => `${STRIDE_LABELS[c.category]}: ${c.analysis}`);
 
+  for (const profile of actorProfiles) {
+    if (profile.overallThreatLevel === 'high' || profile.overallThreatLevel === 'critical') {
+      keyFindings.push(
+        `High-threat actor: ${profile.actor} (${profile.actorType}) — CMO: ${profile.capability}/${profile.motivation}/${profile.opportunity}`
+      );
+    }
+  }
+
   if (keyFindings.length === 0) {
     keyFindings.push('No high-priority threats detected across Political STRIDE categories');
   }
@@ -755,6 +763,13 @@ export function assessPoliticalThreats(
     if (cat.threatLevel === 'critical' || cat.threatLevel === 'high') {
       recommendations.push(
         `Monitor ${STRIDE_LABELS[cat.category].toLowerCase()} — ${cat.evidence[0] ?? 'elevated threat level'}`
+      );
+    }
+  }
+  for (const profile of actorProfiles) {
+    if (profile.overallThreatLevel === 'critical' || profile.overallThreatLevel === 'high') {
+      recommendations.push(
+        `Track ${profile.actor} (${profile.actorType}) — ${profile.threatCategories.join(', ')} threat categories`
       );
     }
   }
@@ -878,7 +893,7 @@ function buildMEPProfile(rec: Record<string, unknown>): PoliticalActorThreatProf
   const overallThreatLevel = cmoToThreatLevel(score);
 
   return {
-    actor: asStr(rec['mepName'] ?? rec['name'] ?? 'Unknown MEP'),
+    actor: asStr(rec['mepName']) || asStr(rec['name']) || 'Unknown MEP',
     actorType: 'mep',
     capability,
     motivation,
@@ -1298,6 +1313,9 @@ function sanitizeTableCell(input: string): string {
   return input
     .replace(/\\/g, '\\\\')
     .replace(/\|/g, '\\|')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
     .replace(/[\r\n]+/g, ' ')
     .trim();
 }
@@ -1313,7 +1331,12 @@ function sanitizeTableCell(input: string): string {
  */
 function sanitizeMarkdownText(input: string): string {
   // eslint-disable-next-line no-control-regex
-  return input.replace(/[\u0000-\u001F\u007F]/g, ' ').trim();
+  return input
+    .replace(/[\u0000-\u001F\u007F]/g, ' ')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .trim();
 }
 
 /**
