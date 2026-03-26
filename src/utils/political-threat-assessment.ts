@@ -168,10 +168,14 @@ function cmoToThreatLevel(score: number): ImpactLevel {
 }
 
 /**
- * Derive overall threat level from weighted array of impact levels.
+ * Derive overall threat level from weighted average of impact levels.
+ *
+ * Computes the arithmetic mean of numeric impact weights and maps the result
+ * back to an ImpactLevel using threshold bands: ≥3.5→critical, ≥2.5→high,
+ * ≥1.5→medium, else→low.
  *
  * @param levels - Array of impact levels to aggregate
- * @returns Dominant impact level
+ * @returns Weighted-average impact level
  */
 function aggregateImpactLevels(levels: readonly ImpactLevel[]): ImpactLevel {
   if (levels.length === 0) return 'low';
@@ -1418,12 +1422,12 @@ export function generateThreatAssessmentMarkdown(assessment: PoliticalThreatAsse
       `### ${STRIDE_LABELS[cat.category]}`,
       `**Threat Level**: ${emoji} ${cat.threatLevel.charAt(0).toUpperCase() + cat.threatLevel.slice(1)}`,
       '',
-      cat.analysis,
+      sanitizeMarkdownText(cat.analysis),
       ''
     );
     if (cat.evidence.length > 0) {
       lines.push('**Evidence:**');
-      cat.evidence.forEach((e) => lines.push(`- ${e}`));
+      cat.evidence.forEach((e) => lines.push(`- ${sanitizeMarkdownText(e)}`));
       lines.push('');
     }
   }
@@ -1450,11 +1454,11 @@ export function generateThreatAssessmentMarkdown(assessment: PoliticalThreatAsse
   );
 
   lines.push('## Key Findings', '');
-  assessment.keyFindings.forEach((f) => lines.push(`- ${f}`));
+  assessment.keyFindings.forEach((f) => lines.push(`- ${sanitizeMarkdownText(f)}`));
   lines.push('');
 
   lines.push('## Recommendations', '');
-  assessment.recommendations.forEach((r) => lines.push(`- ${r}`));
+  assessment.recommendations.forEach((r) => lines.push(`- ${sanitizeMarkdownText(r)}`));
   lines.push('');
 
   lines.push(

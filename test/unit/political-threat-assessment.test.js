@@ -95,8 +95,9 @@ describe('ALL_POLITICAL_STRIDE_CATEGORIES', () => {
     expect(ALL_POLITICAL_STRIDE_CATEGORIES).toContain('erosion');
   });
 
-  it('is a readonly array', () => {
+  it('is an array of strings', () => {
     expect(Array.isArray(ALL_POLITICAL_STRIDE_CATEGORIES)).toBe(true);
+    expect(ALL_POLITICAL_STRIDE_CATEGORIES.every((category) => typeof category === 'string')).toBe(true);
   });
 });
 
