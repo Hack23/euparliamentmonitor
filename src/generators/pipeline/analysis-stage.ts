@@ -5,11 +5,16 @@
  * @module Generators/Pipeline/AnalysisStage
  * @description Analysis-first pre-generation pipeline stage.
  *
- * Executes between the Fetch and Generate stages, downloading all relevant
+ * Executes between the Fetch and Generate stages, consuming already-fetched
  * European Parliament data and running the full suite of political intelligence
  * analysis methods.  Produces structured markdown analysis files that article
  * generation strategies then consume to produce higher-quality, deeply-analysed
  * news articles in all 14 languages.
+ *
+ * This stage is **side-effect-only**: it writes analysis markdown and a
+ * `manifest.json` to disk.  The returned {@link AnalysisContext} is
+ * informational and currently not consumed by the generate stage; strategies
+ * read the analysis output from disk instead.
  *
  * Analysis methods are grouped into four categories:
  * - **Classification** (Issues #804): significance, impact-matrix, actor-mapping, forces
@@ -178,13 +183,19 @@ export interface AnalysisContext {
 /**
  * Determine the aggregated confidence level from a set of individual results.
  *
- * @param results - Completed method results
+ * @param results - Method results to aggregate
  * @returns Aggregated confidence level
  */
 function aggregateConfidence(results: AnalysisMethodStatus[]): ConfidenceLevel {
   const counts = { high: 0, medium: 0, low: 0 };
   for (const r of results) {
-    if (r.status === 'completed') counts[r.confidence]++;
+    if (r.status === 'completed' || r.status === 'skipped') {
+      counts[r.confidence]++;
+    }
+  }
+  const total = counts.high + counts.medium + counts.low;
+  if (total === 0) {
+    return 'low';
   }
   if (counts.high >= counts.medium && counts.high >= counts.low) return 'high';
   if (counts.medium >= counts.low) return 'medium';
@@ -1003,18 +1014,21 @@ function runSingleMethod(
 ): AnalysisMethodStatus {
   const subdir = METHOD_SUBDIRS[method];
   const filename = METHOD_FILENAMES[method];
-  const outputFile = path.join(dateOutputDir, subdir, filename);
+  const absolutePath = path.join(dateOutputDir, subdir, filename);
+  // Store a portable relative path (relative to the date-scoped output dir)
+  // in the manifest to avoid exposing runner/local filesystem layout.
+  const relativeOutputFile = path.join(subdir, filename);
   const confidence = METHOD_DEFAULT_CONFIDENCE[method];
 
-  if (skipCompleted && methodOutputExists(outputFile)) {
+  if (skipCompleted && methodOutputExists(absolutePath)) {
     if (verbose) console.log(`  ⏭️  [analysis] Skipping already-completed method: ${method}`);
     return {
       method,
       status: 'skipped',
-      outputFile,
+      outputFile: relativeOutputFile,
       confidence,
       duration: 0,
-      summary: `Skipped — output already exists at ${path.relative(process.cwd(), outputFile)}`,
+      summary: `Skipped — output already exists at ${relativeOutputFile}`,
     };
   }
 
@@ -1022,16 +1036,14 @@ function runSingleMethod(
   try {
     const builder = METHOD_BUILDERS[method];
     const markdown = builder(fetchedData, date);
-    writeMarkdownFile(outputFile, markdown);
+    writeMarkdownFile(absolutePath, markdown);
     const duration = Date.now() - start;
     if (verbose)
-      console.log(
-        `  ✅ [analysis] ${method} completed in ${duration}ms → ${path.relative(process.cwd(), outputFile)}`
-      );
+      console.log(`  ✅ [analysis] ${method} completed in ${duration}ms → ${relativeOutputFile}`);
     return {
       method,
       status: 'completed',
-      outputFile,
+      outputFile: relativeOutputFile,
       confidence,
       duration,
       summary: `${method} analysis completed successfully`,
@@ -1043,7 +1055,7 @@ function runSingleMethod(
     return {
       method,
       status: 'failed',
-      outputFile,
+      outputFile: relativeOutputFile,
       confidence: 'low',
       duration,
       summary: `${method} failed: ${message}`,

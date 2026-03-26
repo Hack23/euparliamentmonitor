@@ -645,4 +645,91 @@ describe('runAnalysisStage', () => {
       expect(fs.existsSync(path.join(tmpDir, customDate))).toBe(true);
     });
   });
+
+  // ─── Manifest portability tests ─────────────────────────────────────────────
+
+  describe('manifest portability', () => {
+    it('stores relative outputFile paths in the manifest (not absolute)', async () => {
+      await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['deep-analysis'],
+      });
+
+      const manifest = readManifest(tmpDir, testDate);
+      const deepAnalysis = manifest.methods.find((m) => m.method === 'deep-analysis');
+      expect(deepAnalysis).toBeDefined();
+      // outputFile should be relative to the date-scoped dir (e.g. "existing/deep-analysis.md")
+      expect(deepAnalysis.outputFile).toBe(path.join('existing', 'deep-analysis.md'));
+      // It should NOT start with / or contain the tmpDir
+      expect(deepAnalysis.outputFile).not.toMatch(/^\//);
+      expect(deepAnalysis.outputFile).not.toContain(tmpDir);
+    });
+
+    it('stores relative paths for all method groups', async () => {
+      await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['significance-classification', 'political-stride', 'risk-matrix', 'deep-analysis'],
+      });
+
+      const manifest = readManifest(tmpDir, testDate);
+      for (const m of manifest.methods) {
+        expect(m.outputFile).not.toMatch(/^\//);
+        expect(m.outputFile).not.toContain(tmpDir);
+      }
+    });
+  });
+
+  // ─── Confidence aggregation tests ─────────────────────────────────────────────
+
+  describe('confidence aggregation', () => {
+    it('returns low confidence when all methods are skipped', async () => {
+      // Pre-create the output file so the method will be skipped
+      const outputPath = path.join(tmpDir, testDate, 'existing', 'deep-analysis.md');
+      fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+      fs.writeFileSync(outputPath, '# existing output', 'utf-8');
+
+      const ctx = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['deep-analysis'],
+        skipCompleted: true,
+      });
+
+      // With only 'skipped' methods (high confidence by default), aggregation
+      // should now include them rather than returning a misleading 'high' default.
+      const manifest = readManifest(tmpDir, testDate);
+      expect(['high', 'medium', 'low']).toContain(manifest.overallConfidence);
+      // The skipped method has 'high' confidence, so aggregation should reflect that
+      expect(manifest.overallConfidence).toBe('high');
+    });
+
+    it('includes skipped method confidence in aggregation', async () => {
+      // Pre-create output files for all methods
+      const methods = ['deep-analysis', 'stakeholder-analysis'];
+      for (const m of methods) {
+        const outputPath = path.join(tmpDir, testDate, 'existing', `${m}.md`);
+        fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+        fs.writeFileSync(outputPath, '# existing', 'utf-8');
+      }
+
+      const ctx = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: methods,
+        skipCompleted: true,
+      });
+
+      // Both methods are skipped — their confidence should be counted
+      expect(ctx.results.get('deep-analysis')?.status).toBe('skipped');
+      expect(ctx.results.get('stakeholder-analysis')?.status).toBe('skipped');
+      // Both have 'high' default confidence, so overall should be 'high'
+      expect(ctx.manifest.overallConfidence).toBe('high');
+    });
+  });
 });

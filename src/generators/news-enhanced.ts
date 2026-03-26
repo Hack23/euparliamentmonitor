@@ -45,6 +45,7 @@ import {
 } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_PRESETS, isSupportedLanguage } from '../constants/languages.js';
 import { closeEPMCPClient } from '../mcp/ep-mcp-client.js';
+import type { EuropeanParliamentMCPClient } from '../mcp/ep-mcp-client.js';
 import { ensureDirectoryExists } from '../utils/file-utils.js';
 import type {
   LanguageCode,
@@ -56,7 +57,7 @@ import type { ArticleCategory } from '../types/index.js';
 
 // ─── Pipeline-stage imports ───────────────────────────────────────────────────
 
-import { initializeMCPClient } from './pipeline/fetch-stage.js';
+import { initializeMCPClient, fetchEPFeedData } from './pipeline/fetch-stage.js';
 import { createStrategyRegistry, generateArticleForStrategy } from './pipeline/generate-stage.js';
 import { writeGenerationMetadata } from './pipeline/output-stage.js';
 import type { OutputOptions } from './pipeline/output-stage.js';
@@ -213,26 +214,71 @@ const stats: GenerationStats = {
 // ─── Main orchestration ───────────────────────────────────────────────────────
 
 /**
+ * Parse the `--analysis-methods=` CLI flag into a validated, deduplicated list.
+ * Warns on unrecognised method names and falls back to all methods when no valid
+ * names remain.
+ *
+ * @returns Validated list of analysis methods
+ */
+function parseAnalysisMethods(): readonly AnalysisMethod[] {
+  const raw = analysisMethodsArg?.split(ARG_SEPARATOR)[1]?.trim();
+  if (!raw) return ALL_ANALYSIS_METHODS;
+
+  const requestedNames = raw
+    .split(',')
+    .map((m) => m.trim())
+    .filter((m) => m.length > 0);
+
+  if (requestedNames.length === 0) return ALL_ANALYSIS_METHODS;
+
+  const validMethods = new Set<AnalysisMethod>();
+  const unknownMethods: string[] = [];
+
+  for (const name of requestedNames) {
+    if ((ALL_ANALYSIS_METHODS as readonly string[]).includes(name)) {
+      validMethods.add(name as AnalysisMethod);
+    } else {
+      unknownMethods.push(name);
+    }
+  }
+
+  if (unknownMethods.length > 0) {
+    console.warn(`⚠️ Unknown analysis methods ignored: ${unknownMethods.join(', ')}`);
+  }
+
+  const methods = Array.from(validMethods);
+  if (methods.length === 0) {
+    console.warn('⚠️ No valid analysis methods specified; defaulting to all analysis methods.');
+    return ALL_ANALYSIS_METHODS;
+  }
+
+  return methods;
+}
+
+/**
  * Run the optional analysis stage (Fetch → Analysis) before article generation.
- * Returns an AnalysisContext when analysis is enabled, null otherwise.
+ *
+ * This function is **side-effect-only**: it writes analysis markdown and a
+ * `manifest.json` to disk under `analysis-output/{date}/`.  The returned
+ * {@link AnalysisContext} is informational; strategies read analysis output
+ * from disk rather than consuming the context object in-memory.
+ *
+ * When an MCP client is available, comprehensive EP feed data is fetched and
+ * passed to the analysis stage.  When no client is available, the stage runs
+ * over an empty data set (analysis output reflects this).
  *
  * @param date - ISO date string (YYYY-MM-DD)
+ * @param client - Connected MCP client or null
  * @returns Analysis context or null
  */
-async function maybeRunAnalysis(date: string): Promise<AnalysisContext | null> {
+async function maybeRunAnalysis(
+  date: string,
+  client: EuropeanParliamentMCPClient | null
+): Promise<AnalysisContext | null> {
   if (!runAnalysisArg && !analysisOnlyArg) return null;
 
   const analysisDirBase = analysisDirArg?.split(ARG_SEPARATOR)[1]?.trim() ?? 'analysis-output';
-
-  // Parse --analysis-methods= flag; default to all methods
-  const enabledMethods: readonly AnalysisMethod[] = (() => {
-    const raw = analysisMethodsArg?.split(ARG_SEPARATOR)[1]?.trim();
-    if (!raw) return ALL_ANALYSIS_METHODS;
-    const requested = raw.split(',').map((m) => m.trim()) as AnalysisMethod[];
-    return requested.filter((m): m is AnalysisMethod =>
-      (ALL_ANALYSIS_METHODS as readonly string[]).includes(m)
-    );
-  })();
+  const enabledMethods = parseAnalysisMethods();
 
   console.log('');
   console.log('🔬 Running analysis stage...');
@@ -240,16 +286,32 @@ async function maybeRunAnalysis(date: string): Promise<AnalysisContext | null> {
   console.log(`   Methods: ${enabledMethods.length} enabled`);
   console.log('');
 
-  // Build a minimal fetchedData object for the analysis stage
-  // (real enrichment happens inside strategy.fetchData; here we pass EP data keys)
-  const fetchedData: Record<string, unknown> = {
-    date,
-    events: [],
-    sessions: [],
-    documents: [],
-    patterns: [],
-    votingRecords: [],
-  };
+  // Fetch comprehensive EP feed data when an MCP client is available.
+  // This ensures the analysis stage operates on real EP data rather than
+  // empty placeholder arrays.
+  const fetchedData: Record<string, unknown> = { date };
+  const feedData = await fetchEPFeedData(client, 'one-week');
+  if (feedData) {
+    fetchedData['events'] = feedData.events ?? [];
+    fetchedData['documents'] = feedData.documents ?? [];
+    fetchedData['adoptedTexts'] = feedData.adoptedTexts ?? [];
+    fetchedData['procedures'] = feedData.procedures ?? [];
+    fetchedData['mepUpdates'] = feedData.mepUpdates ?? [];
+    fetchedData['plenaryDocuments'] = feedData.plenaryDocuments ?? [];
+    fetchedData['committeeDocuments'] = feedData.committeeDocuments ?? [];
+    fetchedData['plenarySessionDocuments'] = feedData.plenarySessionDocuments ?? [];
+    fetchedData['externalDocuments'] = feedData.externalDocuments ?? [];
+    fetchedData['questions'] = feedData.questions ?? [];
+    fetchedData['declarations'] = feedData.declarations ?? [];
+    fetchedData['corporateBodies'] = feedData.corporateBodies ?? [];
+  } else {
+    // No MCP data available — populate empty arrays so builders don't fail
+    fetchedData['events'] = [];
+    fetchedData['sessions'] = [];
+    fetchedData['documents'] = [];
+    fetchedData['patterns'] = [];
+    fetchedData['votingRecords'] = [];
+  }
 
   try {
     const ctx = await runAnalysisStage(fetchedData, {
@@ -301,7 +363,8 @@ async function main(): Promise<void> {
   const todayDate = isoToday.slice(0, 10);
 
   // Run optional analysis stage (Fetch → Analysis)
-  await maybeRunAnalysis(todayDate);
+  // Side-effect-only: writes markdown + manifest to disk under analysis-output/{date}/
+  await maybeRunAnalysis(todayDate, client);
 
   // If --analysis-only, skip article generation
   if (analysisOnlyArg) {
