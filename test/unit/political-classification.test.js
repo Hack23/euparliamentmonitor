@@ -660,6 +660,17 @@ describe('initializeAnalysisDirectory', () => {
     initializeAnalysisDirectory(tmpDir, '2026-03-26');
     expect(() => initializeAnalysisDirectory(tmpDir, '2026-03-26')).not.toThrow();
   });
+
+  it('rejects date values containing path separators (path traversal)', () => {
+    expect(() => initializeAnalysisDirectory(tmpDir, '../etc')).toThrow(/Invalid date format/u);
+    expect(() => initializeAnalysisDirectory(tmpDir, '2026/03/26')).toThrow(/Invalid date format/u);
+  });
+
+  it('rejects non-YYYY-MM-DD strings', () => {
+    expect(() => initializeAnalysisDirectory(tmpDir, 'not-a-date')).toThrow(/Invalid date format/u);
+    expect(() => initializeAnalysisDirectory(tmpDir, '26-03-2026')).toThrow(/Invalid date format/u);
+    expect(() => initializeAnalysisDirectory(tmpDir, '')).toThrow(/Invalid date format/u);
+  });
 });
 
 // ─── writeAnalysisManifest ────────────────────────────────────────────────────

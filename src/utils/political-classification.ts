@@ -7,8 +7,9 @@
  * structured assessment of European Parliament data.
  *
  * All classification functions are stateless, side-effect-free, and safely
- * handle malformed or missing MCP data (null-safe, empty-array-safe). Dedicated
- * filesystem helpers in this module perform explicit analysis output I/O.
+ * handle malformed or missing MCP sub-fields and empty arrays within a provided
+ * {@link ClassificationInput} object. Dedicated filesystem helpers in this module
+ * perform explicit analysis output I/O.
  *
  * The analytical framework is inspired by ISMS classification methodologies
  * (Hack23 ISMS-PUBLIC/CLASSIFICATION.md) adapted for political intelligence:
@@ -298,7 +299,6 @@ export function buildImpactMatrix(data: ClassificationInput): PoliticalImpactAss
   const institutionalImpact = scoreToImpact(institutionalScore);
 
   // Economic Impact — economic/fiscal committee documents or procedures
-  const ECONOMIC_KEYWORDS = ['economic', 'fiscal', 'budget', 'finance', 'trade', 'market'];
   const economicProcedures = procedures.filter((p) =>
     ECONOMIC_KEYWORDS.some((kw) => asStr(p.title).toLowerCase().includes(kw))
   ).length;
@@ -394,6 +394,27 @@ const EU_MEMBER_STATE_CODES = new Set([
   'si',
   'sk',
 ]);
+
+/** Economic/fiscal keyword list used by impact and forces analysis */
+const ECONOMIC_KEYWORDS = ['economic', 'fiscal', 'budget', 'finance', 'trade', 'market'];
+
+/** External/geopolitical keyword list used by forces analysis */
+const EXTERNAL_KEYWORDS = [
+  'international',
+  'global',
+  'foreign',
+  'geopolit',
+  'nato',
+  'us ',
+  'china',
+  'russia',
+  'ukraine',
+  'g7',
+  'g20',
+  'wto',
+  'imf',
+  'world bank',
+];
 
 /**
  * Infer the PoliticalActorType from a name string using keyword heuristics.
@@ -721,22 +742,6 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
   );
 
   // ── External Influences ──────────────────────────────────────────────────────
-  const EXTERNAL_KEYWORDS = [
-    'international',
-    'global',
-    'foreign',
-    'geopolit',
-    'nato',
-    'us ',
-    'china',
-    'russia',
-    'ukraine',
-    'g7',
-    'g20',
-    'wto',
-    'imf',
-    'world bank',
-  ];
   const externalProcedures = procedures.filter((p) =>
     EXTERNAL_KEYWORDS.some((kw) => asStr(p.title).toLowerCase().includes(kw))
   ).length;
@@ -774,8 +779,10 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
  * - `data/`            — Raw downloaded data cache
  *
  * @param baseDir - Base directory for analysis output (typically `analysis-output/`)
- * @param date - ISO date string used as the run folder name (YYYY-MM-DD)
+ * @param date - ISO date string used as the run folder name (YYYY-MM-DD).
+ *   Must match `^\d{4}-\d{2}-\d{2}$`; rejects path-separator or traversal values.
  * @returns Path to the date-stamped run directory (relative or absolute depending on baseDir)
+ * @throws {Error} If `date` does not match `YYYY-MM-DD` format
  *
  * @example
  * ```ts
@@ -785,6 +792,9 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
  * ```
  */
 export function initializeAnalysisDirectory(baseDir: string, date: string): string {
+  if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
+    throw new Error(`Invalid date format: "${date}" — expected YYYY-MM-DD`);
+  }
   const runDir = path.join(baseDir, date);
   const subdirs = ['classification', 'data'];
   for (const sub of subdirs) {
