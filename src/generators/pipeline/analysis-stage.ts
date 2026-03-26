@@ -41,7 +41,6 @@ import path from 'path';
 import { randomUUID } from 'crypto';
 import type { ArticleCategory, ConfidenceLevel } from '../../types/index.js';
 import {
-  analyzeCoalitionCohesion,
   detectVotingTrends,
   computeCrossSessionCoalitionStability,
   buildDefaultStakeholderPerspectives,
@@ -234,8 +233,6 @@ generated: ${new Date().toISOString()}
  * @param content - File content as a UTF-8 string
  */
 function writeTextFile(filePath: string, content: string): void {
-  const dir = path.dirname(filePath);
-  ensureDirectoryExists(dir);
   atomicWrite(filePath, content);
 }
 
@@ -766,7 +763,7 @@ ${tableRows}
 
 /**
  * Build markdown for coalition cohesion analysis.
- * Uses `analyzeCoalitionCohesion`.
+ * Uses `computeCrossSessionCoalitionStability` to aggregate VotingPattern cohesion.
  *
  * @param fetchedData - Raw fetched EP data
  * @param date - Analysis date
@@ -778,14 +775,12 @@ function buildCoalitionAnalysisMarkdown(
 ): string {
   const header = buildMarkdownHeader('coalition-analysis', date, 'high');
   const rawPatterns = Array.isArray(fetchedData['patterns']) ? fetchedData['patterns'] : [];
-  // analyzeCoalitionCohesion takes a single raw coalition object (unknown)
-  // use the first pattern element if available, otherwise pass empty object
-  const rawCoalition = rawPatterns.length > 0 ? rawPatterns[0] : {};
-  const cohesion = analyzeCoalitionCohesion(rawCoalition);
-  const riskLevel = cohesion?.riskLevel ?? 'low';
-  const alignmentTrend = cohesion?.alignmentTrend ?? 'stable';
-  const cohesionScore = cohesion?.cohesionScore ?? 0;
-  const groups = cohesion?.groups ?? [];
+  // VotingPattern[] data doesn't contain the `coalitionId`/`id` fields required
+  // by analyzeCoalitionCohesion().  Use computeCrossSessionCoalitionStability()
+  // instead — it is designed to aggregate cohesion across VotingPattern arrays.
+  const stabilityReport = computeCrossSessionCoalitionStability(
+    rawPatterns as Parameters<typeof computeCrossSessionCoalitionStability>[0]
+  );
   return (
     header +
     `# Coalition Cohesion Analysis
@@ -794,13 +789,15 @@ function buildCoalitionAnalysisMarkdown(
 Analysis of political group cohesion and coalition dynamics.
 
 ## Coalition Metrics
-- **Overall Risk Level**: ${riskLevel}
-- **Alignment Trend**: ${alignmentTrend}
-- **Cohesion Score**: ${(cohesionScore * 100).toFixed(1)}%
-- **Key Votes**: ${cohesion?.keyVotes ?? 0}
+- **Overall Stability**: ${(stabilityReport.overallStability * 100).toFixed(1)}%
+- **Forecast**: ${stabilityReport.forecast}
+- **Patterns Analysed**: ${stabilityReport.patternCount}
+
+## Group Analysis
+- **Stable Groups**: ${stabilityReport.stableGroups.length > 0 ? stabilityReport.stableGroups.join(', ') : 'No stable groups identified'}
+- **Declining Groups**: ${stabilityReport.decliningGroups.length > 0 ? stabilityReport.decliningGroups.join(', ') : 'No declining groups identified'}
 
 ## Coalition Intelligence
-- **Groups Analysed**: ${groups.length > 0 ? groups.join(', ') : 'No coalition data available'}
 - **Patterns Evaluated**: ${rawPatterns.length}
 
 ## Date: ${date}

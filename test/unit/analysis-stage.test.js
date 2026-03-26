@@ -500,7 +500,7 @@ describe('runAnalysisStage', () => {
         'utf-8'
       );
       expect(content).toContain('# Coalition Cohesion Analysis');
-      expect(content).toContain('Cohesion Score');
+      expect(content).toContain('Overall Stability');
     });
 
     it('voting-patterns includes trend table', async () => {

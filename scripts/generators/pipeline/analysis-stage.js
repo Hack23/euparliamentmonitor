@@ -37,7 +37,7 @@
 import fs from 'fs';
 import path from 'path';
 import { randomUUID } from 'crypto';
-import { analyzeCoalitionCohesion, detectVotingTrends, computeCrossSessionCoalitionStability, buildDefaultStakeholderPerspectives, buildStakeholderOutcomeMatrix, } from '../../utils/intelligence-analysis.js';
+import { detectVotingTrends, computeCrossSessionCoalitionStability, buildDefaultStakeholderPerspectives, buildStakeholderOutcomeMatrix, } from '../../utils/intelligence-analysis.js';
 import { ensureDirectoryExists, atomicWrite } from '../../utils/file-utils.js';
 /** All analysis methods in default execution order */
 export const ALL_ANALYSIS_METHODS = [
@@ -115,8 +115,6 @@ generated: ${new Date().toISOString()}
  * @param content - File content as a UTF-8 string
  */
 function writeTextFile(filePath, content) {
-    const dir = path.dirname(filePath);
-    ensureDirectoryExists(dir);
     atomicWrite(filePath, content);
 }
 /**
@@ -565,7 +563,7 @@ ${tableRows}
 }
 /**
  * Build markdown for coalition cohesion analysis.
- * Uses `analyzeCoalitionCohesion`.
+ * Uses `computeCrossSessionCoalitionStability` to aggregate VotingPattern cohesion.
  *
  * @param fetchedData - Raw fetched EP data
  * @param date - Analysis date
@@ -574,14 +572,10 @@ ${tableRows}
 function buildCoalitionAnalysisMarkdown(fetchedData, date) {
     const header = buildMarkdownHeader('coalition-analysis', date, 'high');
     const rawPatterns = Array.isArray(fetchedData['patterns']) ? fetchedData['patterns'] : [];
-    // analyzeCoalitionCohesion takes a single raw coalition object (unknown)
-    // use the first pattern element if available, otherwise pass empty object
-    const rawCoalition = rawPatterns.length > 0 ? rawPatterns[0] : {};
-    const cohesion = analyzeCoalitionCohesion(rawCoalition);
-    const riskLevel = cohesion?.riskLevel ?? 'low';
-    const alignmentTrend = cohesion?.alignmentTrend ?? 'stable';
-    const cohesionScore = cohesion?.cohesionScore ?? 0;
-    const groups = cohesion?.groups ?? [];
+    // VotingPattern[] data doesn't contain the `coalitionId`/`id` fields required
+    // by analyzeCoalitionCohesion().  Use computeCrossSessionCoalitionStability()
+    // instead — it is designed to aggregate cohesion across VotingPattern arrays.
+    const stabilityReport = computeCrossSessionCoalitionStability(rawPatterns);
     return (header +
         `# Coalition Cohesion Analysis
 
@@ -589,13 +583,15 @@ function buildCoalitionAnalysisMarkdown(fetchedData, date) {
 Analysis of political group cohesion and coalition dynamics.
 
 ## Coalition Metrics
-- **Overall Risk Level**: ${riskLevel}
-- **Alignment Trend**: ${alignmentTrend}
-- **Cohesion Score**: ${(cohesionScore * 100).toFixed(1)}%
-- **Key Votes**: ${cohesion?.keyVotes ?? 0}
+- **Overall Stability**: ${(stabilityReport.overallStability * 100).toFixed(1)}%
+- **Forecast**: ${stabilityReport.forecast}
+- **Patterns Analysed**: ${stabilityReport.patternCount}
+
+## Group Analysis
+- **Stable Groups**: ${stabilityReport.stableGroups.length > 0 ? stabilityReport.stableGroups.join(', ') : 'No stable groups identified'}
+- **Declining Groups**: ${stabilityReport.decliningGroups.length > 0 ? stabilityReport.decliningGroups.join(', ') : 'No declining groups identified'}
 
 ## Coalition Intelligence
-- **Groups Analysed**: ${groups.length > 0 ? groups.join(', ') : 'No coalition data available'}
 - **Patterns Evaluated**: ${rawPatterns.length}
 
 ## Date: ${date}

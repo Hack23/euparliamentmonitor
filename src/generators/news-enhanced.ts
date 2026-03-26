@@ -307,7 +307,16 @@ async function maybeRunAnalysis(
   // Fetch comprehensive EP feed data.  fetchEPFeedData handles a null client
   // gracefully (returns undefined) and also loads from EP_FEED_DATA_FILE when
   // set, so we call it unconditionally.
-  const fetchedData: Record<string, unknown> = { date };
+  //
+  // Always initialise voting-derived keys (`patterns`, `votingRecords`) to
+  // empty arrays so coalition/voting/cross-session analyses never receive
+  // undefined.  These feeds are not yet exposed by fetchEPFeedData, so they
+  // stay empty until a future MCP voting-records endpoint is available.
+  const fetchedData: Record<string, unknown> = {
+    date,
+    patterns: [],
+    votingRecords: [],
+  };
   const feedData = await fetchEPFeedData(client, feedTimeframe);
   if (feedData) {
     fetchedData['events'] = feedData.events ?? [];
@@ -328,8 +337,6 @@ async function maybeRunAnalysis(
     fetchedData['events'] = [];
     fetchedData['sessions'] = [];
     fetchedData['documents'] = [];
-    fetchedData['patterns'] = [];
-    fetchedData['votingRecords'] = [];
   }
 
   try {
