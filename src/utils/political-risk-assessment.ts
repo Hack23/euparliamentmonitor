@@ -288,7 +288,7 @@ export function assessPoliticalCapitalAtRisk(
     actorType,
     currentCapital: round2(cappedCapital),
     capitalAtRisk,
-    riskDrivers,
+    riskDrivers: [...riskDrivers],
     timeHorizon,
     confidenceInterval: clamp(confidenceInterval, 0, 100),
   };
@@ -910,7 +910,8 @@ function buildEvaluateMarkdown(matrix: readonly PoliticalRiskScore[]): string {
     const descCell = sanitizeMarkdownTableCell(truncatedDesc);
     const levelCell = sanitizeMarkdownTableCell(String(r.riskLevel).toUpperCase());
     const confidenceCell = sanitizeMarkdownTableCell(String(r.confidence));
-    return `| ${i + 1} | ${riskId} | ${descCell} | ${r.riskScore} | ${levelCell} | ${confidenceCell} |`;
+    const riskScoreCell = sanitizeMarkdownTableCell(String(r.riskScore));
+    return `| ${i + 1} | ${riskId} | ${descCell} | ${riskScoreCell} | ${levelCell} | ${confidenceCell} |`;
   });
   return `${header}\n${rows.join('\n')}\n`;
 }
@@ -954,7 +955,7 @@ export function createScoredSWOTItem(
   return {
     description,
     score: round2(clamp(score, 0, 5)),
-    evidence,
+    evidence: [...evidence],
     confidence,
     trend,
   };
@@ -995,7 +996,7 @@ export function createScoredOpportunityOrThreat(
   return {
     description,
     score,
-    evidence,
+    evidence: [...evidence],
     confidence,
     trend,
   };
