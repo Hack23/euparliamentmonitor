@@ -488,6 +488,20 @@ const INDUSTRY_KEYWORDS = [
   'financial sector',
 ];
 
+/** Member state governmental/diplomatic keyword list used by actor type inference */
+const MEMBER_STATE_KEYWORDS = [
+  'government',
+  'ministry',
+  'minister',
+  'presidency of the council',
+  'council presidency',
+  'permanent represent',
+  'foreign affairs',
+  'prime minister',
+  'head of state',
+  'chancellor',
+];
+
 /**
  * Infer the PoliticalActorType from a name string using keyword heuristics.
  *
@@ -509,15 +523,18 @@ function inferActorType(name: string): PoliticalActorType {
 
   if (lower.startsWith('mep-') || lower.includes('mep')) return 'individual_mep';
 
-  // Two-letter country code → national_delegation
+  // Two-letter country code (exact) → national_delegation
   if (EU_MEMBER_STATE_CODES.has(lower.slice(0, 2)) && lower.length === 2) {
     return 'national_delegation';
   }
 
-  // Full member state names → member_state
+  // Country-code prefix + "delegation" → national_delegation (EP delegation group)
   if (EU_MEMBER_STATE_CODES.has(lower.slice(0, 2)) && lower.includes('delegation')) {
-    return 'member_state';
+    return 'national_delegation';
   }
+
+  // Member state in a governmental/diplomatic capacity
+  if (MEMBER_STATE_KEYWORDS.some((kw) => lower.includes(kw))) return 'member_state';
 
   if (CIVIL_SOCIETY_KEYWORDS.some((kw) => lower.includes(kw))) return 'civil_society';
   if (MEDIA_KEYWORDS.some((kw) => lower.includes(kw))) return 'media';

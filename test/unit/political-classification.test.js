@@ -358,12 +358,20 @@ describe('classifyPoliticalActors', () => {
     expect(biz?.actorType).toBe('industry');
   });
 
-  it('classifies member state delegation actors via keyword heuristics', () => {
+  it('classifies national delegation actors via country code + delegation keyword', () => {
     const actors = classifyPoliticalActors({
       questions: [makeQuestion({ author: 'DE delegation', subject: 'Council position' })],
     });
     const de = actors.find((a) => a.name === 'DE delegation');
-    expect(de?.actorType).toBe('member_state');
+    expect(de?.actorType).toBe('national_delegation');
+  });
+
+  it('classifies member state actors via governmental keywords', () => {
+    const actors = classifyPoliticalActors({
+      questions: [makeQuestion({ author: 'German Government', subject: 'Council presidency' })],
+    });
+    const gov = actors.find((a) => a.name === 'German Government');
+    expect(gov?.actorType).toBe('member_state');
   });
 });
 
