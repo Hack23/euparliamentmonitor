@@ -158,6 +158,7 @@ homepage-desktop.png
 index-page-redesign.png
 final-index-redesign.png
 
+# Analysis pipeline output — ephemeral, generated per run, GDPR-compliant public data only
 # Political Intelligence Classification Framework — analysis output
 # Generated per-run by the Analysis-First Pipeline Stage (Issue 4).
 # Not committed; each run generates fresh analysis under analysis-output/{date}/

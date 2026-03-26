@@ -163,6 +163,16 @@ export {
   getAllCategoryIndicatorIds,
 } from './constants/committee-indicator-map.js';
 
+// ─── Analysis Pipeline Stage ──────────────────────────────────────────────────
+export { ALL_ANALYSIS_METHODS, runAnalysisStage } from './generators/pipeline/analysis-stage.js';
+
+export type {
+  AnalysisMethod,
+  AnalysisStageOptions,
+  AnalysisMethodStatus,
+  AnalysisManifest,
+  AnalysisContext,
+} from './generators/pipeline/analysis-stage.js';
 // ─── Political Intelligence Classification ────────────────────────────────────
 export {
   FRAMEWORK_VERSION,
