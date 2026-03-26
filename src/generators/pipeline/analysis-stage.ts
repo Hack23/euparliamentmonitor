@@ -155,7 +155,7 @@ export interface AnalysisManifest {
   /** ISO 8601 end timestamp */
   readonly endTime: string;
   /** Article types included in this run */
-  readonly articleTypes: readonly string[];
+  readonly articleTypes: readonly ArticleCategory[];
   /** Per-method status entries */
   readonly methods: readonly AnalysisMethodStatus[];
   /** Aggregated confidence across all completed methods */
@@ -1100,6 +1100,11 @@ export async function runAnalysisStage(
     verbose = false,
   } = options;
 
+  // Validate date to prevent path traversal (e.g. "../../.." escaping outputDir)
+  if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
+    throw new Error(`Invalid analysis date "${date}": must match YYYY-MM-DD format`);
+  }
+
   const startTime = new Date().toISOString();
   const runId = randomUUID();
   const dateOutputDir = path.resolve(outputDir, date);
@@ -1138,7 +1143,7 @@ export async function runAnalysisStage(
     date,
     startTime,
     endTime,
-    articleTypes: articleTypes.map(String),
+    articleTypes: [...articleTypes],
     methods: methodResults,
     overallConfidence,
     dataSourcesUsed,

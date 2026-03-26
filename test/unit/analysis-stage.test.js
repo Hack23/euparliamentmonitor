@@ -661,7 +661,7 @@ describe('runAnalysisStage', () => {
       const deepAnalysis = manifest.methods.find((m) => m.method === 'deep-analysis');
       expect(deepAnalysis).toBeDefined();
       // outputFile should be relative to the date-scoped dir (e.g. "existing/deep-analysis.md")
-      expect(deepAnalysis.outputFile).toBe(path.join('existing', 'deep-analysis.md'));
+      expect(deepAnalysis.outputFile).toBe('existing/deep-analysis.md');
       // It should NOT start with / or contain the tmpDir
       expect(deepAnalysis.outputFile).not.toMatch(/^\//);
       expect(deepAnalysis.outputFile).not.toContain(tmpDir);
@@ -729,6 +729,42 @@ describe('runAnalysisStage', () => {
       expect(ctx.results.get('stakeholder-analysis')?.status).toBe('skipped');
       // Both have 'high' default confidence, so overall should be 'high'
       expect(ctx.manifest.overallConfidence).toBe('high');
+    });
+  });
+
+  // ─── Date validation tests ──────────────────────────────────────────────────
+
+  describe('date validation', () => {
+    it('rejects a path-traversal date string', async () => {
+      await expect(
+        runAnalysisStage(buildTestFetchedData(), {
+          articleTypes: ['week-ahead'],
+          date: '../../etc',
+          outputDir: tmpDir,
+          enabledMethods: ['deep-analysis'],
+        })
+      ).rejects.toThrow('Invalid analysis date');
+    });
+
+    it('rejects a date with extra characters', async () => {
+      await expect(
+        runAnalysisStage(buildTestFetchedData(), {
+          articleTypes: ['week-ahead'],
+          date: '2026-03-26T00:00',
+          outputDir: tmpDir,
+          enabledMethods: ['deep-analysis'],
+        })
+      ).rejects.toThrow('must match YYYY-MM-DD format');
+    });
+
+    it('accepts a valid YYYY-MM-DD date', async () => {
+      const ctx = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: '2026-12-31',
+        outputDir: tmpDir,
+        enabledMethods: ['deep-analysis'],
+      });
+      expect(ctx.date).toBe('2026-12-31');
     });
   });
 });

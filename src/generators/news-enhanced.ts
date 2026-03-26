@@ -286,29 +286,27 @@ async function maybeRunAnalysis(
   console.log(`   Methods: ${enabledMethods.length} enabled`);
   console.log('');
 
-  // Fetch comprehensive EP feed data when an MCP client is available.
-  // fetchEPFeedData handles null client gracefully (returns undefined),
-  // so we populate empty arrays as a fallback.
+  // Fetch comprehensive EP feed data.  fetchEPFeedData handles a null client
+  // gracefully (returns undefined) and also loads from EP_FEED_DATA_FILE when
+  // set, so we call it unconditionally.
   const fetchedData: Record<string, unknown> = { date };
-  if (client) {
-    const feedData = await fetchEPFeedData(client, 'one-week');
-    if (feedData) {
-      fetchedData['events'] = feedData.events ?? [];
-      fetchedData['documents'] = feedData.documents ?? [];
-      fetchedData['adoptedTexts'] = feedData.adoptedTexts ?? [];
-      fetchedData['procedures'] = feedData.procedures ?? [];
-      fetchedData['mepUpdates'] = feedData.mepUpdates ?? [];
-      fetchedData['plenaryDocuments'] = feedData.plenaryDocuments ?? [];
-      fetchedData['committeeDocuments'] = feedData.committeeDocuments ?? [];
-      fetchedData['plenarySessionDocuments'] = feedData.plenarySessionDocuments ?? [];
-      fetchedData['externalDocuments'] = feedData.externalDocuments ?? [];
-      fetchedData['questions'] = feedData.questions ?? [];
-      fetchedData['declarations'] = feedData.declarations ?? [];
-      fetchedData['corporateBodies'] = feedData.corporateBodies ?? [];
-    }
+  const feedData = await fetchEPFeedData(client, 'one-week');
+  if (feedData) {
+    fetchedData['events'] = feedData.events ?? [];
+    fetchedData['documents'] = feedData.documents ?? [];
+    fetchedData['adoptedTexts'] = feedData.adoptedTexts ?? [];
+    fetchedData['procedures'] = feedData.procedures ?? [];
+    fetchedData['mepUpdates'] = feedData.mepUpdates ?? [];
+    fetchedData['plenaryDocuments'] = feedData.plenaryDocuments ?? [];
+    fetchedData['committeeDocuments'] = feedData.committeeDocuments ?? [];
+    fetchedData['plenarySessionDocuments'] = feedData.plenarySessionDocuments ?? [];
+    fetchedData['externalDocuments'] = feedData.externalDocuments ?? [];
+    fetchedData['questions'] = feedData.questions ?? [];
+    fetchedData['declarations'] = feedData.declarations ?? [];
+    fetchedData['corporateBodies'] = feedData.corporateBodies ?? [];
   }
   if (!fetchedData['events']) {
-    // No MCP data available — populate empty arrays so builders don't fail
+    // No MCP or feed-data file available — populate empty arrays so builders don't fail
     fetchedData['events'] = [];
     fetchedData['sessions'] = [];
     fetchedData['documents'] = [];

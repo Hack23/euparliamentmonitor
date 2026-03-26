@@ -848,6 +848,10 @@ function runSingleMethod(method, fetchedData, date, dateOutputDir, skipCompleted
  */
 export async function runAnalysisStage(fetchedData, options) {
     const { articleTypes, date, outputDir, enabledMethods = ALL_ANALYSIS_METHODS, skipCompleted = true, verbose = false, } = options;
+    // Validate date to prevent path traversal (e.g. "../../.." escaping outputDir)
+    if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
+        throw new Error(`Invalid analysis date "${date}": must match YYYY-MM-DD format`);
+    }
     const startTime = new Date().toISOString();
     const runId = randomUUID();
     const dateOutputDir = path.resolve(outputDir, date);
@@ -872,7 +876,7 @@ export async function runAnalysisStage(fetchedData, options) {
         date,
         startTime,
         endTime,
-        articleTypes: articleTypes.map(String),
+        articleTypes: [...articleTypes],
         methods: methodResults,
         overallConfidence,
         dataSourcesUsed,
