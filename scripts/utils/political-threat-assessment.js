@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
+// @generated This file is compiled to scripts/utils/political-threat-assessment.js. DO NOT EDIT generated output directly.
 // ─── Constants ─────────────────────────────────────────────────────────────────
 /** All Political STRIDE categories in canonical order */
 const ALL_STRIDE_CATEGORIES = [
@@ -346,7 +347,10 @@ function checkMEPInfluenceConcentration(mepInfluence, evidence) {
     if (rec) scores.push(asNum(rec['overallScore'], 0));
   }
   if (scores.length === 0) return 1;
-  const max = Math.max(...scores);
+  const max = scores.reduce(
+    (currentMax, value) => (value > currentMax ? value : currentMax),
+    scores[0] ?? 0
+  );
   const avg = scores.reduce((s, v) => s + v, 0) / scores.length;
   if (max > avg * 2.5) {
     evidence.push(
@@ -1142,9 +1146,28 @@ function sanitizeTableCell(input) {
  * @returns Sanitized text safe for Markdown prose
  */
 function sanitizeMarkdownText(input) {
-  // eslint-disable-next-line no-control-regex
-  return input
-    .replace(/[\u0000-\u001F\u007F]/g, ' ')
+  const normalizedChars = [];
+  for (const char of input) {
+    const code = char.charCodeAt(0);
+    if (code <= 31 || code === 127) {
+      normalizedChars.push(' ');
+      continue;
+    }
+    switch (char) {
+      case '\\':
+      case '!':
+      case '[':
+      case ']':
+      case '(':
+      case ')':
+        normalizedChars.push(`\\${char}`);
+        break;
+      default:
+        normalizedChars.push(char);
+    }
+  }
+  return normalizedChars
+    .join('')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
