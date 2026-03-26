@@ -540,7 +540,7 @@ function addCoalitionActors(
   coalitions: ClassificationInput['coalitions']
 ): void {
   for (const coalition of safeArray(coalitions)) {
-    for (const group of coalition.groups ?? []) {
+    for (const group of safeArray(coalition.groups)) {
       const g = asStr(group);
       if (g) addActor(registry, g, 'Coalition member', 'political_group', 'high');
     }
@@ -688,7 +688,7 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
       ? 'decreasing'
       : 'stable';
   const coalitionActors = coalitions
-    .flatMap((c) => c.groups ?? [])
+    .flatMap((c) => safeArray(c.groups))
     .map((group) => asStr(group))
     .filter((name) => name)
     .slice(0, 5);
