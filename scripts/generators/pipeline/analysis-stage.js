@@ -43,7 +43,68 @@ import {
   buildDefaultStakeholderPerspectives,
   buildStakeholderOutcomeMatrix,
 } from '../../utils/intelligence-analysis.js';
+import {
+  assessPoliticalSignificance,
+  buildImpactMatrix,
+  classifyPoliticalActors,
+  analyzePoliticalForces,
+} from '../../utils/political-classification.js';
+import {
+  assessPoliticalThreats,
+  buildActorThreatProfiles,
+  buildConsequenceTree,
+  analyzeLegislativeDisruption,
+  generateThreatAssessmentMarkdown,
+} from '../../utils/political-threat-assessment.js';
+import {
+  assessLegislativeVelocityRisk,
+  runAgentRiskAssessment,
+  generateRiskAssessmentMarkdown,
+  calculatePoliticalRiskScore,
+  assessPoliticalCapitalAtRisk,
+  buildQuantitativeSWOT,
+  createScoredSWOTItem,
+  createScoredOpportunityOrThreat,
+  createRiskDriver,
+} from '../../utils/political-risk-assessment.js';
 import { ensureDirectoryExists, atomicWrite } from '../../utils/file-utils.js';
+// ─── Markdown constants ───────────────────────────────────────────────────────
+/** Empty table row placeholder for 6-column tables */
+const EMPTY_TABLE_ROW_6 = '| — | — | — | — | — | — |';
+// ─── Data coercion helpers ────────────────────────────────────────────────────
+/**
+ * Safely extract an array from fetchedData by key.
+ * @param data - Raw fetched data record
+ * @param key - Key to extract
+ * @returns Array or empty array if missing/invalid
+ */
+function safeArr(data, key) {
+  const val = data[key]; // eslint-disable-line security/detect-object-injection -- key is a literal string from caller
+  return Array.isArray(val) ? val : [];
+}
+/**
+ * Cast fetchedData to ClassificationInput for the classification functions.
+ * @param data - Raw fetched data record
+ * @returns ClassificationInput-compatible object
+ */
+function toClassificationInput(data) {
+  return data;
+}
+/**
+ * Cast fetchedData to ThreatAssessmentInput for the threat assessment functions.
+ * @param data - Raw fetched data record
+ * @returns ThreatAssessmentInput-compatible object
+ */
+function toThreatInput(data) {
+  return {
+    votingRecords: safeArr(data, 'votingRecords'),
+    coalitionData: safeArr(data, 'coalitions'),
+    mepInfluence: safeArr(data, 'mepUpdates'),
+    procedures: safeArr(data, 'procedures'),
+    anomalies: safeArr(data, 'anomalies'),
+    questions: safeArr(data, 'questions'),
+  };
+}
 /** All analysis methods in default execution order */
 export const ALL_ANALYSIS_METHODS = [
   // Classification
@@ -143,12 +204,20 @@ function methodOutputExists(filePath) {
  * @returns Markdown content string
  */
 function buildSignificanceClassificationMarkdown(fetchedData, date) {
-  const header = buildMarkdownHeader('significance-classification', date, 'medium');
-  const events = Array.isArray(fetchedData['events']) ? fetchedData['events'] : [];
-  const docs = Array.isArray(fetchedData['documents']) ? fetchedData['documents'] : [];
+  const input = toClassificationInput(fetchedData);
+  const significance = assessPoliticalSignificance(input);
+  const events = safeArr(fetchedData, 'events');
+  const docs = safeArr(fetchedData, 'documents');
+  const header = buildMarkdownHeader(
+    'significance-classification',
+    date,
+    significance === 'routine' ? 'medium' : 'high'
+  );
   return (
     header +
     `# Political Significance Classification
+
+## Overall Significance: **${significance.toUpperCase()}**
 
 ## Overview
 Analysis of political significance across ${events.length} events and ${docs.length} documents.
@@ -156,46 +225,53 @@ Analysis of political significance across ${events.length} events and ${docs.len
 ## Classification Framework
 | Level | Criteria | Items |
 |-------|----------|-------|
+| Historic | Constitutional changes, treaty amendments | — |
 | Critical | Major legislative votes, treaty changes | — |
-| High | Committee decisions, key resolutions | — |
-| Medium | Procedural votes, routine documents | — |
-| Low | Administrative matters | — |
+| Significant | Key committee decisions, important resolutions | — |
+| Notable | Procedural votes, routine legislation | — |
+| Routine | Administrative matters | — |
 
 ## Significance Assessment
+- **Computed significance**: ${significance}
 - **Data points analysed**: ${events.length + docs.length}
 - **Date**: ${date}
-- **Method**: Political significance scoring via legislative impact indicators
+- **Method**: Political significance scoring via 5-signal model (volume, controversy, pipeline, anomalies, coalition)
 
 ## Key Findings
-${events.length === 0 && docs.length === 0 ? '- No data available for significance assessment' : `- ${events.length} events and ${docs.length} documents assessed for political significance`}
+${events.length === 0 && docs.length === 0 ? '- No data available for significance assessment' : `- ${events.length} events and ${docs.length} documents assessed\n- Overall political significance: **${significance}**`}
 `
   );
 }
 /**
  * Build markdown for the impact matrix method.
  *
- * @param _fetchedData - Raw fetched EP data (unused; reserved for future enrichment)
+ * @param fetchedData - Raw fetched EP data
  * @param date - Analysis date
  * @returns Markdown content string
  */
-function buildImpactMatrixMarkdown(_fetchedData, date) {
+function buildImpactMatrixMarkdown(fetchedData, date) {
+  const input = toClassificationInput(fetchedData);
+  const matrix = buildImpactMatrix(input);
   const header = buildMarkdownHeader('impact-matrix', date, 'medium');
   return (
     header +
     `# Political Impact Matrix
 
-## Overview
-Cross-dimensional impact analysis across political, economic, social, and legal axes.
+## Overall Significance: **${matrix.overallSignificance.toUpperCase()}**
 
 ## Impact Dimensions
-| Dimension | Short-term | Medium-term | Long-term |
-|-----------|------------|-------------|-----------|
-| Political | — | — | — |
-| Economic  | — | — | — |
-| Social    | — | — | — |
-| Legal     | — | — | — |
+| Dimension | Level | Description |
+|-----------|-------|-------------|
+| Legislative | ${matrix.legislativeImpact} | Effect on legislation and regulatory framework |
+| Coalition | ${matrix.coalitionImpact} | Effect on political alliances and group dynamics |
+| Public Opinion | ${matrix.publicOpinionImpact} | Effect on citizen perception and media coverage |
+| Institutional | ${matrix.institutionalImpact} | Effect on EU institutional balance |
+| Economic | ${matrix.economicImpact} | Economic policy implications |
 
-## Date: ${date}
+## Assessment Summary
+- **Overall significance**: ${matrix.overallSignificance}
+- **Date**: ${date}
+- **Method**: Multi-dimensional impact assessment (5 axes)
 `
   );
 }
@@ -207,34 +283,53 @@ Cross-dimensional impact analysis across political, economic, social, and legal 
  * @returns Markdown content string
  */
 function buildActorMappingMarkdown(fetchedData, date) {
-  const header = buildMarkdownHeader('actor-mapping', date, 'medium');
+  const input = toClassificationInput(fetchedData);
+  const actors = classifyPoliticalActors(input);
+  const header = buildMarkdownHeader('actor-mapping', date, actors.length > 0 ? 'medium' : 'low');
+  const actorRows =
+    actors.length > 0
+      ? actors
+          .map((a) => `| ${a.name} | ${a.actorType} | ${a.influence} | ${a.position} | ${a.role} |`)
+          .join('\n')
+      : '| — | — | — | — | — |';
   return (
     header +
     `# Political Actor Mapping
 
 ## Overview
-Identification and mapping of key political actors and their influence networks.
+Identified ${actors.length} political actors from parliamentary data.
 
-## Actor Categories
-- **Political Groups**: EPP, S&D, Renew, Greens/EFA, ECR, ID, The Left, NI
-- **Key MEPs**: Rapporteurs, Committee Chairs, Political Group Leaders
-- **External Actors**: European Commission, Council Presidency, NGOs
+## Actor Classification
+| Actor | Type | Influence | Position | Role |
+|-------|------|-----------|----------|------|
+${actorRows}
 
-## Network Analysis
-- **Date**: ${date}
-- **Data sources**: ${Object.keys(fetchedData).join(', ')}
+## Actor Type Distribution
+${
+  actors.length > 0
+    ? [...new Set(actors.map((a) => a.actorType))]
+        .map((t) => `- **${t}**: ${actors.filter((a) => a.actorType === t).length} actors`)
+        .join('\n')
+    : '- No actors classified'
+}
+
+## Date: ${date}
 `
   );
 }
 /**
  * Build markdown for the political forces analysis method.
  *
- * @param _fetchedData - Raw fetched EP data (unused; reserved for future enrichment)
+ * @param fetchedData - Raw fetched EP data
  * @param date - Analysis date
  * @returns Markdown content string
  */
-function buildForcesAnalysisMarkdown(_fetchedData, date) {
+function buildForcesAnalysisMarkdown(fetchedData, date) {
+  const input = toClassificationInput(fetchedData);
+  const forces = analyzePoliticalForces(input);
   const header = buildMarkdownHeader('forces-analysis', date, 'medium');
+  const forceRow = (name, f) =>
+    `| ${name} | ${f.trend} | ${(f.strength * 100).toFixed(0)}% | ${f.keyActors.length > 0 ? f.keyActors.join(', ') : '—'} | ${f.confidence} |`;
   return (
     header +
     `# Political Forces Analysis
@@ -242,49 +337,30 @@ function buildForcesAnalysisMarkdown(_fetchedData, date) {
 ## Overview
 Analysis of competing political forces shaping the current legislative agenda.
 
-## Force Categories
-| Force | Direction | Strength | Key Actors |
-|-------|-----------|----------|------------|
-| Pro-integration | — | — | — |
-| Eurosceptic | — | — | — |
-| Green/Progressive | — | — | — |
-| Conservative | — | — | — |
+## Political Forces Assessment
+| Force | Trend | Strength | Key Actors | Confidence |
+|-------|-------|----------|------------|------------|
+${forceRow('Coalition Power', forces.coalitionPower)}
+${forceRow('Opposition Power', forces.oppositionPower)}
+${forceRow('Institutional Barriers', forces.institutionalBarriers)}
+${forceRow('Public Pressure', forces.publicPressure)}
+${forceRow('External Influences', forces.externalInfluences)}
 
-## Current Balance of Forces
-- **Date**: ${date}
-- **Assessment**: Moderate balance with shifting coalitions
+## Date: ${date}
 `
   );
 }
 /**
  * Build markdown for the political STRIDE threat assessment.
  *
- * @param _fetchedData - Raw fetched EP data (unused; reserved for future enrichment)
- * @param date - Analysis date
+ * @param fetchedData - Raw fetched EP data
+ * @param _date - Analysis date (unused; date is derived from assessment)
  * @returns Markdown content string
  */
-function buildPoliticalStrideMarkdown(_fetchedData, date) {
-  const header = buildMarkdownHeader('political-stride', date, 'medium');
-  return (
-    header +
-    `# Political STRIDE Threat Assessment
-
-## Overview
-STRIDE-adapted threat assessment for the political intelligence context.
-
-## Political STRIDE Categories
-| Category | Description | Threats Identified |
-|----------|-------------|-------------------|
-| **S**hift | Sudden policy or alliance shifts | — |
-| **T**ransparency | Opaque decision-making, hidden agendas | — |
-| **R**eversal | Reversal of previous positions or commitments | — |
-| **I**nstitutional | Institutional norm erosion or procedural abuse | — |
-| **D**elay | Deliberate legislative delay or obstruction | — |
-| **E**rosion | Gradual erosion of democratic safeguards | — |
-
-## Assessment Date: ${date}
-`
-  );
+function buildPoliticalStrideMarkdown(fetchedData, _date) {
+  const input = toThreatInput(fetchedData);
+  const assessment = assessPoliticalThreats(input);
+  return generateThreatAssessmentMarkdown(assessment);
 }
 /**
  * Build markdown for actor threat profiling.
@@ -294,54 +370,72 @@ STRIDE-adapted threat assessment for the political intelligence context.
  * @returns Markdown content string
  */
 function buildActorThreatProfilingMarkdown(fetchedData, date) {
-  const header = buildMarkdownHeader('actor-threat-profiling', date, 'low');
+  const input = toThreatInput(fetchedData);
+  const profiles = buildActorThreatProfiles(input);
+  const header = buildMarkdownHeader(
+    'actor-threat-profiling',
+    date,
+    profiles.length > 0 ? 'medium' : 'low'
+  );
+  const profileRows =
+    profiles.length > 0
+      ? profiles
+          .map(
+            (p) =>
+              `| ${p.actor} | ${p.actorType} | ${p.capability} | ${p.motivation} | ${p.opportunity} | ${p.overallThreatLevel} |`
+          )
+          .join('\n')
+      : EMPTY_TABLE_ROW_6;
   return (
     header +
     `# Actor Threat Profiles
 
 ## Overview
-Individual threat profiles for key political actors in the European Parliament.
+Individual threat profiles for ${profiles.length} political actors.
 
-## Profile Framework
-Each actor profile includes:
-- **Intent**: Policy objectives and political agenda
-- **Capability**: Resources, positions, coalition strength
-- **Activity**: Recent actions and legislative participation
-- **Threat Level**: LOW / MEDIUM / HIGH / CRITICAL
+## Actor Threat Matrix
+| Actor | Type | Capability | Motivation | Opportunity | Threat Level |
+|-------|------|------------|------------|-------------|--------------|
+${profileRows}
 
 ## Date: ${date}
-- **Data sources**: ${Object.keys(fetchedData).join(', ')}
 `
   );
 }
 /**
  * Build markdown for consequence tree analysis.
  *
- * @param _fetchedData - Raw fetched EP data (unused; reserved for future enrichment)
+ * @param fetchedData - Raw fetched EP data
  * @param date - Analysis date
  * @returns Markdown content string
  */
-function buildConsequenceTreesMarkdown(_fetchedData, date) {
+function buildConsequenceTreesMarkdown(fetchedData, date) {
+  const input = toThreatInput(fetchedData);
+  const procedures = safeArr(fetchedData, 'procedures');
   const header = buildMarkdownHeader('consequence-trees', date, 'medium');
+  const trees = [];
+  for (const raw of procedures.slice(0, 5)) {
+    const proc = raw && typeof raw === 'object' ? raw : null;
+    const title = proc ? String(proc['title'] ?? '') : '';
+    if (!title) continue;
+    const tree = buildConsequenceTree(title, input);
+    trees.push(
+      `### ${title}\n` +
+        `- **Immediate**: ${tree.immediateConsequences.map((c) => c.description).join('; ') || 'No immediate consequences identified'}\n` +
+        `- **Secondary**: ${tree.secondaryEffects.map((c) => c.description).join('; ') || 'No secondary effects identified'}\n` +
+        `- **Long-term**: ${tree.longTermImplications.map((c) => c.description).join('; ') || 'No long-term implications identified'}\n` +
+        `- **Mitigating factors**: ${tree.mitigatingFactors.join(', ') || '—'}\n` +
+        `- **Amplifying factors**: ${tree.amplifyingFactors.join(', ') || '—'}`
+    );
+  }
   return (
     header +
     `# Consequence Tree Analysis
 
 ## Overview
-Structured analysis of action-consequence chains for key legislative decisions.
+Structured analysis of action-consequence chains for ${Math.min(procedures.length, 5)} legislative procedures.
 
-## Tree Structure
-\`\`\`
-Legislative Decision
-├── If Adopted
-│   ├── Immediate: Implementation begins
-│   ├── Short-term: Policy changes take effect
-│   └── Long-term: Structural impacts materialise
-└── If Rejected
-    ├── Immediate: Status quo maintained
-    ├── Short-term: Policy gap continues
-    └── Long-term: Alternative solutions needed
-\`\`\`
+${trees.length > 0 ? trees.join('\n\n') : '## No procedures available for consequence analysis'}
 
 ## Date: ${date}
 `
@@ -350,12 +444,26 @@ Legislative Decision
 /**
  * Build markdown for legislative disruption analysis.
  *
- * @param _fetchedData - Raw fetched EP data (unused; reserved for future enrichment)
+ * @param fetchedData - Raw fetched EP data
  * @param date - Analysis date
  * @returns Markdown content string
  */
-function buildLegislativeDisruptionMarkdown(_fetchedData, date) {
+function buildLegislativeDisruptionMarkdown(fetchedData, date) {
+  const input = toThreatInput(fetchedData);
+  const procedures = safeArr(fetchedData, 'procedures');
   const header = buildMarkdownHeader('legislative-disruption', date, 'medium');
+  const disruptions = [];
+  for (const raw of procedures.slice(0, 5)) {
+    const proc = raw && typeof raw === 'object' ? raw : null;
+    const id = proc ? String(proc['procedureId'] ?? proc['id'] ?? '') : '';
+    const title = proc ? String(proc['title'] ?? '') : '';
+    if (!id || !title) continue;
+    const analysis = analyzeLegislativeDisruption(title, input);
+    const disruptionCount = analysis.disruptionPoints.length;
+    disruptions.push(
+      `| ${id} | ${title.slice(0, 50)} | ${analysis.currentStage} | ${analysis.resilience} | ${disruptionCount} |`
+    );
+  }
   return (
     header +
     `# Legislative Disruption Analysis
@@ -363,13 +471,10 @@ function buildLegislativeDisruptionMarkdown(_fetchedData, date) {
 ## Overview
 Identification of factors disrupting the normal legislative process.
 
-## Disruption Indicators
-| Indicator | Level | Impact |
-|-----------|-------|--------|
-| Coalition fragmentation | — | — |
-| Procedural delays | — | — |
-| External pressures | — | — |
-| Institutional conflicts | — | — |
+## Disruption Assessment
+| Procedure ID | Title | Stage | Resilience | Disruption Points |
+|-------------|-------|-------|-----------|-------------------|
+${disruptions.length > 0 ? disruptions.join('\n') : '| — | — | — | — | — |'}
 
 ## Date: ${date}
 `
@@ -378,26 +483,76 @@ Identification of factors disrupting the normal legislative process.
 /**
  * Build markdown for the risk scoring matrix.
  *
- * @param _fetchedData - Raw fetched EP data (unused; reserved for future enrichment)
+ * @param fetchedData - Raw fetched EP data
  * @param date - Analysis date
  * @returns Markdown content string
  */
-function buildRiskMatrixMarkdown(_fetchedData, date) {
-  const header = buildMarkdownHeader('risk-matrix', date, 'medium');
+function buildRiskMatrixMarkdown(fetchedData, date) {
+  const procedures = safeArr(fetchedData, 'procedures');
+  const risks = [];
+  // Generate risk scores for identifiable political risks from data
+  if (procedures.length > 0) {
+    risks.push(
+      calculatePoliticalRiskScore(
+        'possible',
+        'moderate',
+        'RISK-001',
+        'Legislative blockage risk from procedure backlog',
+        [`${procedures.length} procedures in pipeline`],
+        ['Established committee procedures'],
+        'medium'
+      )
+    );
+  }
+  const coalitions = safeArr(fetchedData, 'coalitions');
+  if (coalitions.length > 0) {
+    risks.push(
+      calculatePoliticalRiskScore(
+        'unlikely',
+        'major',
+        'RISK-002',
+        'Coalition instability risk',
+        [`${coalitions.length} coalition data points`],
+        ['Established political group structures'],
+        'medium'
+      )
+    );
+  }
+  const anomalies = safeArr(fetchedData, 'anomalies');
+  if (anomalies.length > 0) {
+    risks.push(
+      calculatePoliticalRiskScore(
+        'possible',
+        'moderate',
+        'RISK-003',
+        'Voting pattern anomaly risk',
+        [`${anomalies.length} anomalies detected`],
+        [],
+        'medium'
+      )
+    );
+  }
+  const header = buildMarkdownHeader('risk-matrix', date, risks.length > 0 ? 'medium' : 'low');
+  const riskRows =
+    risks.length > 0
+      ? risks
+          .map(
+            (r) =>
+              `| ${r.riskId} | ${r.description} | ${r.likelihood} | ${r.impact} | ${r.riskScore} | ${r.riskLevel} |`
+          )
+          .join('\n')
+      : EMPTY_TABLE_ROW_6;
   return (
     header +
     `# Political Risk Scoring Matrix
 
 ## Overview
-Quantitative risk scoring across political dimensions.
+Quantitative risk scoring across ${risks.length} identified political dimensions.
 
 ## Risk Matrix
-| Risk Category | Likelihood (1-5) | Impact (1-5) | Risk Score | Level |
-|---------------|-----------------|--------------|------------|-------|
-| Coalition collapse | — | — | — | — |
-| Legislative blockage | — | — | — | — |
-| External shock | — | — | — | — |
-| Reputational risk | — | — | — | — |
+| Risk ID | Description | Likelihood | Impact | Score | Level |
+|---------|-------------|------------|--------|-------|-------|
+${riskRows}
 
 > Risk Score = Likelihood × Impact. Levels: LOW (≤1.0), MEDIUM (≤2.0), HIGH (≤3.5), CRITICAL (>3.5)
 
@@ -408,25 +563,36 @@ Quantitative risk scoring across political dimensions.
 /**
  * Build markdown for political capital at risk analysis.
  *
- * @param _fetchedData - Raw fetched EP data (unused; reserved for future enrichment)
+ * @param _fetchedData - Raw fetched EP data
  * @param date - Analysis date
  * @returns Markdown content string
  */
 function buildPoliticalCapitalRiskMarkdown(_fetchedData, date) {
   const header = buildMarkdownHeader('political-capital-risk', date, 'medium');
+  const groups = ['EPP', 'S&D', 'Renew', 'Greens/EFA', 'ECR', 'ID', 'The Left'];
+  const capitalAssessments = groups.map((g) => {
+    const drivers = [
+      createRiskDriver(`Legislative activity for ${g}`, 'internal_dissent', 10, 'stable'),
+    ];
+    return assessPoliticalCapitalAtRisk(g, 'political_group', 70, drivers, 'quarter', 95);
+  });
+  const rows = capitalAssessments
+    .map(
+      (a) =>
+        `| ${a.actor} | ${a.currentCapital} | ${a.capitalAtRisk.toFixed(1)} | ${a.timeHorizon} | ${a.riskDrivers.length} drivers |`
+    )
+    .join('\n');
   return (
     header +
     `# Political Capital at Risk
 
 ## Overview
-Assessment of political capital at stake in current legislative proceedings.
+Assessment of political capital at stake for major political groups (${date}).
 
-## Capital at Risk by Actor
-| Actor/Group | Capital at Stake | Risk Level | Key Issues |
-|-------------|-----------------|------------|------------|
-| EPP | — | — | — |
-| S&D | — | — | — |
-| Renew | — | — | — |
+## Capital at Risk by Political Group
+| Actor/Group | Capital (0-100) | At Risk | Time Horizon | Risk Drivers |
+|-------------|----------------|---------|--------------|--------------|
+${rows}
 
 ## Date: ${date}
 `
@@ -435,26 +601,91 @@ Assessment of political capital at stake in current legislative proceedings.
 /**
  * Build markdown for the quantitative SWOT analysis.
  *
- * @param _fetchedData - Raw fetched EP data (unused; reserved for future enrichment)
+ * @param fetchedData - Raw fetched EP data
  * @param date - Analysis date
  * @returns Markdown content string
  */
-function buildQuantitativeSwotMarkdown(_fetchedData, date) {
+function buildQuantitativeSwotMarkdown(fetchedData, date) {
   const header = buildMarkdownHeader('quantitative-swot', date, 'medium');
+  const events = safeArr(fetchedData, 'events');
+  const procedures = safeArr(fetchedData, 'procedures');
+  const strengths = [
+    createScoredSWOTItem(
+      'Established democratic institutions and procedures',
+      4,
+      ['Treaty-based institutional framework'],
+      'high',
+      'stable'
+    ),
+    createScoredSWOTItem(
+      `Active legislative pipeline with ${procedures.length} procedures`,
+      Math.min(procedures.length / 5, 5),
+      [`${procedures.length} procedures tracked`],
+      'medium',
+      'stable'
+    ),
+  ];
+  const weaknesses = [
+    createScoredSWOTItem(
+      'Complex multi-stakeholder decision-making',
+      3,
+      ['27 member states, 7 political groups'],
+      'high',
+      'stable'
+    ),
+  ];
+  const opportunities = [
+    createScoredOpportunityOrThreat(
+      `${events.length} upcoming parliamentary events`,
+      'likely',
+      'moderate',
+      [`${events.length} events scheduled`],
+      'medium',
+      'stable'
+    ),
+  ];
+  const threats = [
+    createScoredOpportunityOrThreat(
+      'External geopolitical pressures',
+      'possible',
+      'major',
+      ['Global political dynamics'],
+      'medium',
+      'stable'
+    ),
+  ];
+  const swot = buildQuantitativeSWOT(
+    `Political SWOT Assessment ${date}`,
+    strengths,
+    weaknesses,
+    opportunities,
+    threats
+  );
   return (
     header +
     `# Quantitative SWOT Analysis
 
-## Overview
-Scored SWOT analysis with quantitative confidence indicators.
+## Strategic Position Score: ${swot.strategicPositionScore.toFixed(1)}/10
 
-## SWOT Matrix (Scores: 0-1)
-| Category | Items | Avg Score | Confidence |
-|----------|-------|-----------|------------|
-| Strengths | — | — | — |
-| Weaknesses | — | — | — |
-| Opportunities | — | — | — |
-| Threats | — | — | — |
+## Assessment: ${swot.overallAssessment}
+
+## SWOT Matrix
+| Category | Items | Avg Score | Trend |
+|----------|-------|-----------|-------|
+| Strengths | ${swot.strengths.length} | ${swot.strengths.length > 0 ? (swot.strengths.reduce((s, i) => s + i.score, 0) / swot.strengths.length).toFixed(1) : '—'} | ${swot.strengths[0]?.trend ?? '—'} |
+| Weaknesses | ${swot.weaknesses.length} | ${swot.weaknesses.length > 0 ? (swot.weaknesses.reduce((s, i) => s + i.score, 0) / swot.weaknesses.length).toFixed(1) : '—'} | ${swot.weaknesses[0]?.trend ?? '—'} |
+| Opportunities | ${swot.opportunities.length} | ${swot.opportunities.length > 0 ? (swot.opportunities.reduce((s, i) => s + i.score, 0) / swot.opportunities.length).toFixed(1) : '—'} | ${swot.opportunities[0]?.trend ?? '—'} |
+| Threats | ${swot.threats.length} | ${swot.threats.length > 0 ? (swot.threats.reduce((s, i) => s + i.score, 0) / swot.threats.length).toFixed(1) : '—'} | ${swot.threats[0]?.trend ?? '—'} |
+
+## Cross-Impact Matrix
+${
+  swot.crossImpactMatrix.length > 0
+    ? swot.crossImpactMatrix
+        .slice(0, 5)
+        .map((e) => `- ${e.rationale} (net effect: ${e.netEffect.toFixed(2)})`)
+        .join('\n')
+    : '- No cross-impacts identified'
+}
 
 ## Date: ${date}
 `
@@ -463,59 +694,116 @@ Scored SWOT analysis with quantitative confidence indicators.
 /**
  * Build markdown for legislative velocity risk analysis.
  *
- * @param _fetchedData - Raw fetched EP data (unused; reserved for future enrichment)
+ * @param fetchedData - Raw fetched EP data
  * @param date - Analysis date
  * @returns Markdown content string
  */
-function buildLegislativeVelocityRiskMarkdown(_fetchedData, date) {
-  const header = buildMarkdownHeader('legislative-velocity-risk', date, 'medium');
+function buildLegislativeVelocityRiskMarkdown(fetchedData, date) {
+  const procedures = safeArr(fetchedData, 'procedures');
+  const velocityRisks = assessLegislativeVelocityRisk(procedures);
+  const header = buildMarkdownHeader(
+    'legislative-velocity-risk',
+    date,
+    velocityRisks.length > 0 ? 'medium' : 'low'
+  );
+  const riskRows =
+    velocityRisks.length > 0
+      ? velocityRisks
+          .slice(0, 10)
+          .map(
+            (r) =>
+              `| ${r.procedureId} | ${r.title.slice(0, 40)} | ${r.currentStage} | ${r.daysInCurrentStage}d / ${r.expectedDaysForStage}d | ${r.velocityRisk.riskScore.toFixed(2)} | ${r.velocityRisk.riskLevel} |`
+          )
+          .join('\n')
+      : EMPTY_TABLE_ROW_6;
   return (
     header +
     `# Legislative Velocity Risk
 
 ## Overview
-Risk assessment based on the speed of legislative processing.
+Risk assessment based on legislative processing speed for ${procedures.length} procedures.
 
-## Velocity Metrics
-| Metric | Value | Risk Level |
-|--------|-------|------------|
-| Average procedure duration | — | — |
-| Queue depth | — | — |
-| Throughput rate | — | — |
-| Stalled procedure rate | — | — |
+## Top Velocity Risks
+| Procedure | Title | Stage | Days (actual/expected) | Risk Score | Level |
+|-----------|-------|-------|----------------------|------------|-------|
+${riskRows}
 
-## Date: ${date}
+## Summary
+- **Procedures analysed**: ${procedures.length}
+- **High/Critical risks**: ${velocityRisks.filter((r) => r.velocityRisk.riskLevel === 'high' || r.velocityRisk.riskLevel === 'critical').length}
+- **Date**: ${date}
 `
   );
 }
 /**
  * Build markdown for the agent risk assessment workflow.
  *
- * @param _fetchedData - Raw fetched EP data (unused; reserved for future enrichment)
+ * @param fetchedData - Raw fetched EP data
  * @param date - Analysis date
  * @returns Markdown content string
  */
-function buildAgentRiskWorkflowMarkdown(_fetchedData, date) {
-  const header = buildMarkdownHeader('agent-risk-workflow', date, 'medium');
-  return (
-    header +
-    `# Agent Risk Assessment Workflow
-
-## Overview
-AI agent-driven risk assessment workflow following ISMS methodology.
-
-## Workflow Stages
-1. **Data Collection**: Fetch all available EP data via MCP
-2. **Threat Identification**: Apply STRIDE to political context
-3. **Vulnerability Assessment**: Map legislative weaknesses
-4. **Risk Calculation**: Score = Likelihood × Impact
-5. **Mitigation Planning**: Identify risk reduction measures
-6. **Monitoring**: Track key risk indicators
-
-## Date: ${date}
-- **Inspired by**: [ISMS AI Agent-Driven Risk Assessment](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md)
-`
+function buildAgentRiskWorkflowMarkdown(fetchedData, date) {
+  const procedures = safeArr(fetchedData, 'procedures');
+  const coalitions = safeArr(fetchedData, 'coalitions');
+  // Build identified risks
+  const identifiedRisks = [];
+  if (procedures.length > 0) {
+    identifiedRisks.push(
+      calculatePoliticalRiskScore(
+        'possible',
+        'moderate',
+        'RISK-W01',
+        'Legislative backlog risk',
+        [`${procedures.length} active procedures`],
+        ['Committee oversight'],
+        'medium'
+      )
+    );
+  }
+  if (coalitions.length > 0) {
+    identifiedRisks.push(
+      calculatePoliticalRiskScore(
+        'unlikely',
+        'moderate',
+        'RISK-W02',
+        'Coalition cohesion risk',
+        [`${coalitions.length} coalitions monitored`],
+        ['Group discipline mechanisms'],
+        'medium'
+      )
+    );
+  }
+  if (identifiedRisks.length === 0) {
+    identifiedRisks.push(
+      calculatePoliticalRiskScore(
+        'rare',
+        'minor',
+        'RISK-W00',
+        'Baseline political risk',
+        ['Routine parliamentary activity'],
+        ['Stable institutional framework'],
+        'low'
+      )
+    );
+  }
+  const riskDrivers = [
+    createRiskDriver(
+      'Legislative pipeline complexity',
+      'legislative_delay',
+      Math.min(procedures.length * 2, 30),
+      'stable'
+    ),
+    createRiskDriver('Coalition dynamics', 'coalition_fracture', 15, 'stable'),
+  ];
+  const workflow = runAgentRiskAssessment(
+    `ASSESS-${date}`,
+    date,
+    'week-ahead',
+    identifiedRisks,
+    riskDrivers,
+    ['Monitor legislative velocity indicators', 'Track coalition voting patterns']
   );
+  return generateRiskAssessmentMarkdown(workflow);
 }
 /**
  * Build markdown for the deep multi-perspective analysis.
