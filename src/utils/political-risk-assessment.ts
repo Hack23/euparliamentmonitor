@@ -867,7 +867,9 @@ function sanitizeYamlValue(value: string | undefined | null): string {
   if (normalized === '') {
     return '';
   }
-  return normalized.replace(/[\r\n]+/g, ' ').replace(/"/g, '\\"');
+  const withoutNewlines = normalized.replace(/[\r\n]+/g, ' ');
+  const escapedBackslashes = withoutNewlines.replace(/\\/g, '\\\\');
+  return escapedBackslashes.replace(/"/g, '\\"');
 }
 
 /**

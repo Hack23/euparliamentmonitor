@@ -729,7 +729,9 @@ function sanitizeYamlValue(value) {
   if (normalized === '') {
     return '';
   }
-  return normalized.replace(/[\r\n]+/g, ' ').replace(/"/g, '\\"');
+  const withoutNewlines = normalized.replace(/[\r\n]+/g, ' ');
+  const escapedBackslashes = withoutNewlines.replace(/\\/g, '\\\\');
+  return escapedBackslashes.replace(/"/g, '\\"');
 }
 /**
  * Build markdown for the evaluation matrix (risks ranked by score).
