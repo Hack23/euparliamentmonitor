@@ -428,7 +428,10 @@ export function generatePoliticalRiskSummary(date, topRisks, capitalAtRisk, quan
  * @returns True if valid stage
  */
 function isLegislativeStage(s) {
-    return s in EXPECTED_STAGE_DAYS;
+    if (s === '__proto__' || s === 'constructor' || s === 'prototype') {
+        return false;
+    }
+    return Object.hasOwn(EXPECTED_STAGE_DAYS, s);
 }
 /**
  * Map a velocity ratio to a risk likelihood level.
@@ -602,7 +605,7 @@ function buildRiskHeatMapMarkdown() {
         const cells = likelihoods.map((likelihood) => {
             // eslint-disable-next-line security/detect-object-injection -- keys are typed PoliticalRiskLikelihood/Impact from const arrays
             const score = LIKELIHOOD_VALUES[likelihood] * IMPACT_VALUES[impact];
-            const level = deriveRiskLevel(score);
+            const level = deriveRiskLevel(round2(score));
             // eslint-disable-next-line security/detect-object-injection -- key is a typed PoliticalRiskLevel
             return HEAT_MAP_CELLS[level];
         });
@@ -635,6 +638,21 @@ function buildRisksMarkdown(risks) {
     return `\n## Identified Risks\n\n${lines.join('\n\n')}\n`;
 }
 /**
+ * Sanitize a value for safe inclusion in a Markdown table cell.
+ * Escapes pipe characters and replaces newlines with spaces.
+ *
+ * @param value - Raw cell value
+ * @returns Sanitized string safe for Markdown tables
+ */
+function sanitizeMarkdownTableCell(value) {
+    const normalized = (value ?? '').trim();
+    if (normalized === '') {
+        return 'N/A';
+    }
+    const withoutNewlines = normalized.replace(/[\r\n]+/g, ' ');
+    return withoutNewlines.replace(/\|/g, '\\|');
+}
+/**
  * Build markdown for the evaluation matrix (risks ranked by score).
  *
  * @param matrix - Risks sorted by score
@@ -644,7 +662,12 @@ function buildEvaluateMarkdown(matrix) {
     if (matrix.length === 0)
         return '';
     const header = `\n## Risk Evaluation Matrix\n\n| Rank | Risk ID | Description | Score | Level | Confidence |\n|------|---------|-------------|-------|-------|------------|`;
-    const rows = matrix.map((r, i) => `| ${i + 1} | ${r.riskId} | ${r.description.substring(0, 60)}${r.description.length > 60 ? '…' : ''} | ${r.riskScore} | ${r.riskLevel.toUpperCase()} | ${r.confidence} |`);
+    const rows = matrix.map((r, i) => {
+        const riskId = sanitizeMarkdownTableCell(r.riskId);
+        const desc = sanitizeMarkdownTableCell(r.description);
+        const descTruncated = desc.length > 60 ? `${desc.substring(0, 60)}…` : desc;
+        return `| ${i + 1} | ${riskId} | ${descTruncated} | ${r.riskScore} | ${r.riskLevel.toUpperCase()} | ${r.confidence} |`;
+    });
     return `${header}\n${rows.join('\n')}\n`;
 }
 /**
@@ -661,10 +684,11 @@ function buildTreatMarkdown(mitigations) {
 }
 // ─── Factory helpers for creating scored SWOT items ──────────────────────────
 /**
- * Create a scored SWOT item for a strength or weakness (score 1–5).
+ * Create a scored SWOT item for a strength or weakness (score 0–5).
+ * A score of 0 represents a neutral or not-currently-relevant factor.
  *
  * @param description - Description of the factor
- * @param score - Magnitude score (1–5)
+ * @param score - Magnitude score (0–5; clamped)
  * @param evidence - Supporting evidence
  * @param confidence - Confidence level
  * @param trend - Trend direction
