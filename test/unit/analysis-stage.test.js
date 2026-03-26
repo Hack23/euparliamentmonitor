@@ -1211,7 +1211,9 @@ describe('runAnalysisStage', () => {
     });
 
     it('handles non-Error exceptions in builder catch block', async () => {
-      // Spy on fs.writeFileSync to throw a non-Error value (string)
+      // Intentionally throw a string (not an Error) to verify the catch branch
+      // at line 1377 of analysis-stage.ts handles non-Error exceptions via
+      // String(err) rather than err.message. This is a deliberate test pattern.
       const spy = vi.spyOn(fs, 'writeFileSync').mockImplementationOnce(() => {
         throw 'string error'; // eslint-disable-line no-throw-literal
       });
