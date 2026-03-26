@@ -65,12 +65,23 @@ function deriveRiskLevel(score) {
 /**
  * Clamp a number to [min, max].
  *
+ * Non-finite values are normalised deterministically to avoid leaking
+ * NaN/Infinity into downstream calculations:
+ * - NaN → min
+ * - +Infinity → max
+ * - -Infinity → min
+ *
  * @param value - Number to clamp
  * @param min - Lower bound
  * @param max - Upper bound
  * @returns Clamped value
  */
 function clamp(value, min, max) {
+  if (!Number.isFinite(value)) {
+    if (value === Infinity) return max;
+    // NaN or -Infinity
+    return min;
+  }
   return Math.min(max, Math.max(min, value));
 }
 /**
@@ -410,7 +421,9 @@ export function generateRiskAssessmentMarkdown(assessment) {
   const safeAssessmentId = sanitizeMarkdownContent(assessmentId);
   const safeDate = sanitizeMarkdownContent(date);
   const safeArticleType = sanitizeMarkdownContent(articleType);
-  const header = `\n# Political Risk Assessment\n\n**Assessment ID**: ${safeAssessmentId}  \n**Date**: ${safeDate}  \n**Article Type**: ${safeArticleType}  \n**Overall Risk Level**: ${overallRiskProfile.riskLevel.toUpperCase()} (score: ${overallRiskProfile.riskScore})  \n**Confidence**: ${overallRiskProfile.confidence}\n`;
+  const safeOverallRiskLevel = sanitizeMarkdownContent(overallRiskProfile.riskLevel).toUpperCase();
+  const safeConfidence = sanitizeMarkdownContent(overallRiskProfile.confidence);
+  const header = `\n# Political Risk Assessment\n\n**Assessment ID**: ${safeAssessmentId}  \n**Date**: ${safeDate}  \n**Article Type**: ${safeArticleType}  \n**Overall Risk Level**: ${safeOverallRiskLevel} (score: ${overallRiskProfile.riskScore})  \n**Confidence**: ${safeConfidence}\n`;
   const heatMap = buildRiskHeatMapMarkdown();
   const identifyStep = steps.find((s) => s.type === 'identify');
   const risksSection =
@@ -538,18 +551,8 @@ function synthesiseOverallRisk(risks, assessmentId, date) {
       'low'
     );
   }
+  // Safe: risks.length > 0 is guaranteed by the guard above
   const firstRisk = risks[0];
-  if (!firstRisk) {
-    return calculatePoliticalRiskScore(
-      'rare',
-      'negligible',
-      `OVERALL-${assessmentId}`,
-      `Overall risk profile for assessment ${assessmentId} on ${date}`,
-      [],
-      [],
-      'low'
-    );
-  }
   const maxRisk = risks.reduce((max, r) => (r.riskScore > max.riskScore ? r : max), firstRisk);
   // Count confidence levels to pick the dominant one
   const confidenceCounts = { high: 0, medium: 0, low: 0 };
@@ -711,7 +714,7 @@ function sanitizeMarkdownTableCell(value) {
  * @returns Sanitized string safe for Markdown headings/bullets
  */
 function sanitizeMarkdownContent(value) {
-  const normalized = (value ?? '').trim();
+  const normalized = String(value ?? '').trim();
   if (normalized === '') {
     return '';
   }
@@ -725,7 +728,7 @@ function sanitizeMarkdownContent(value) {
  * @returns Sanitized string safe for YAML double-quoted scalars
  */
 function sanitizeYamlValue(value) {
-  const normalized = (value ?? '').trim();
+  const normalized = String(value ?? '').trim();
   if (normalized === '') {
     return '';
   }
@@ -747,7 +750,9 @@ function buildEvaluateMarkdown(matrix) {
     const rawDesc = r.description ?? '';
     const truncatedDesc = rawDesc.length > 60 ? `${rawDesc.substring(0, 60)}…` : rawDesc;
     const descCell = sanitizeMarkdownTableCell(truncatedDesc);
-    return `| ${i + 1} | ${riskId} | ${descCell} | ${r.riskScore} | ${r.riskLevel.toUpperCase()} | ${r.confidence} |`;
+    const levelCell = sanitizeMarkdownTableCell(String(r.riskLevel).toUpperCase());
+    const confidenceCell = sanitizeMarkdownTableCell(String(r.confidence));
+    return `| ${i + 1} | ${riskId} | ${descCell} | ${r.riskScore} | ${levelCell} | ${confidenceCell} |`;
   });
   return `${header}\n${rows.join('\n')}\n`;
 }

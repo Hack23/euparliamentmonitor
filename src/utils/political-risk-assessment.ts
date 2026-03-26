@@ -112,12 +112,23 @@ function deriveRiskLevel(score: number): PoliticalRiskLevel {
 /**
  * Clamp a number to [min, max].
  *
+ * Non-finite values are normalised deterministically to avoid leaking
+ * NaN/Infinity into downstream calculations:
+ * - NaN → min
+ * - +Infinity → max
+ * - -Infinity → min
+ *
  * @param value - Number to clamp
  * @param min - Lower bound
  * @param max - Upper bound
  * @returns Clamped value
  */
 function clamp(value: number, min: number, max: number): number {
+  if (!Number.isFinite(value)) {
+    if (value === Infinity) return max;
+    // NaN or -Infinity
+    return min;
+  }
   return Math.min(max, Math.max(min, value));
 }
 
@@ -505,8 +516,10 @@ export function generateRiskAssessmentMarkdown(assessment: AgentRiskAssessmentWo
   const safeAssessmentId = sanitizeMarkdownContent(assessmentId);
   const safeDate = sanitizeMarkdownContent(date);
   const safeArticleType = sanitizeMarkdownContent(articleType);
+  const safeOverallRiskLevel = sanitizeMarkdownContent(overallRiskProfile.riskLevel).toUpperCase();
+  const safeConfidence = sanitizeMarkdownContent(overallRiskProfile.confidence);
 
-  const header = `\n# Political Risk Assessment\n\n**Assessment ID**: ${safeAssessmentId}  \n**Date**: ${safeDate}  \n**Article Type**: ${safeArticleType}  \n**Overall Risk Level**: ${overallRiskProfile.riskLevel.toUpperCase()} (score: ${overallRiskProfile.riskScore})  \n**Confidence**: ${overallRiskProfile.confidence}\n`;
+  const header = `\n# Political Risk Assessment\n\n**Assessment ID**: ${safeAssessmentId}  \n**Date**: ${safeDate}  \n**Article Type**: ${safeArticleType}  \n**Overall Risk Level**: ${safeOverallRiskLevel} (score: ${overallRiskProfile.riskScore})  \n**Confidence**: ${safeConfidence}\n`;
 
   const heatMap = buildRiskHeatMapMarkdown();
 
@@ -652,18 +665,8 @@ function synthesiseOverallRisk(
     );
   }
 
-  const firstRisk = risks[0];
-  if (!firstRisk) {
-    return calculatePoliticalRiskScore(
-      'rare',
-      'negligible',
-      `OVERALL-${assessmentId}`,
-      `Overall risk profile for assessment ${assessmentId} on ${date}`,
-      [],
-      [],
-      'low'
-    );
-  }
+  // Safe: risks.length > 0 is guaranteed by the guard above
+  const firstRisk = risks[0]!;
   const maxRisk = risks.reduce((max, r) => (r.riskScore > max.riskScore ? r : max), firstRisk);
 
   // Count confidence levels to pick the dominant one
@@ -847,8 +850,8 @@ function sanitizeMarkdownTableCell(value: string | undefined | null): string {
  * @param value - Raw value
  * @returns Sanitized string safe for Markdown headings/bullets
  */
-function sanitizeMarkdownContent(value: string | undefined | null): string {
-  const normalized = (value ?? '').trim();
+function sanitizeMarkdownContent(value: unknown): string {
+  const normalized = String(value ?? '').trim();
   if (normalized === '') {
     return '';
   }
@@ -862,8 +865,8 @@ function sanitizeMarkdownContent(value: string | undefined | null): string {
  * @param value - Raw value
  * @returns Sanitized string safe for YAML double-quoted scalars
  */
-function sanitizeYamlValue(value: string | undefined | null): string {
-  const normalized = (value ?? '').trim();
+function sanitizeYamlValue(value: unknown): string {
+  const normalized = String(value ?? '').trim();
   if (normalized === '') {
     return '';
   }
@@ -886,7 +889,9 @@ function buildEvaluateMarkdown(matrix: readonly PoliticalRiskScore[]): string {
     const rawDesc = r.description ?? '';
     const truncatedDesc = rawDesc.length > 60 ? `${rawDesc.substring(0, 60)}…` : rawDesc;
     const descCell = sanitizeMarkdownTableCell(truncatedDesc);
-    return `| ${i + 1} | ${riskId} | ${descCell} | ${r.riskScore} | ${r.riskLevel.toUpperCase()} | ${r.confidence} |`;
+    const levelCell = sanitizeMarkdownTableCell(String(r.riskLevel).toUpperCase());
+    const confidenceCell = sanitizeMarkdownTableCell(String(r.confidence));
+    return `| ${i + 1} | ${riskId} | ${descCell} | ${r.riskScore} | ${levelCell} | ${confidenceCell} |`;
   });
   return `${header}\n${rows.join('\n')}\n`;
 }
