@@ -27,6 +27,7 @@ import path from 'path';
 import { atomicWrite } from './file-utils.js';
 
 import type {
+  ClassificationInput,
   PoliticalSignificance,
   ImpactLevel,
   PoliticalImpactAssessment,
@@ -48,107 +49,9 @@ export const FRAMEWORK_VERSION = '1.0.0';
 
 // ─── Classification input type ────────────────────────────────────────────────
 
-/**
- * Generic input data structure for classification functions.
- *
- * Accepts data from any article type. All fields are optional so that
- * partial or missing MCP data is safely handled by every classifier.
- *
- * This type will be consumed by the Analysis-First Pipeline Stage (Issue 4).
- */
-export interface ClassificationInput {
-  /** Voting records from MCP or fallback */
-  readonly votingRecords?: readonly {
-    readonly title?: string | undefined;
-    readonly date?: string | undefined;
-    readonly result?: string | undefined;
-    readonly votes?:
-      | {
-          readonly for?: number | undefined;
-          readonly against?: number | undefined;
-          readonly abstain?: number | undefined;
-        }
-      | undefined;
-  }[];
-  /** Voting patterns (group cohesion) from MCP or fallback */
-  readonly votingPatterns?: readonly {
-    readonly group?: string | undefined;
-    readonly cohesion?: number | undefined;
-    readonly participation?: number | undefined;
-  }[];
-  /** Voting anomalies detected in the period */
-  readonly votingAnomalies?: readonly {
-    readonly type?: string | undefined;
-    readonly description?: string | undefined;
-    readonly severity?: string | undefined;
-  }[];
-  /**
-   * Alias for votingAnomalies — matches existing article payloads
-   * (e.g. Motions/WeeklyReview strategies) that expose anomalies as `anomalies`.
-   * When both fields are present they are merged internally.
-   */
-  readonly anomalies?: readonly {
-    readonly type?: string | undefined;
-    readonly description?: string | undefined;
-    readonly severity?: string | undefined;
-  }[];
-  /** Legislative documents from MCP */
-  readonly documents?: readonly {
-    readonly title?: string | undefined;
-    readonly type?: string | undefined;
-    readonly date?: string | undefined;
-    readonly status?: string | undefined;
-    readonly committee?: string | undefined;
-    readonly rapporteur?: string | undefined;
-  }[];
-  /** Active legislative procedures from pipeline */
-  readonly procedures?: readonly {
-    readonly id?: string | undefined;
-    readonly title?: string | undefined;
-    readonly stage?: string | undefined;
-    readonly committee?: string | undefined;
-    readonly status?: string | undefined;
-    readonly bottleneck?: boolean | undefined;
-  }[];
-  /** Parliamentary questions from MCP */
-  readonly questions?: readonly {
-    readonly author?: string | undefined;
-    readonly subject?: string | undefined;
-    readonly topic?: string | undefined;
-    readonly date?: string | undefined;
-    readonly status?: string | undefined;
-    readonly type?: string | undefined;
-  }[];
-  /** Committee meetings from MCP */
-  readonly committees?: readonly {
-    readonly committee?: string | undefined;
-    readonly committeeName?: string | undefined;
-    readonly date?: string | undefined;
-    readonly agenda?: readonly { readonly title?: string | undefined }[] | undefined;
-  }[];
-  /** Upcoming or ongoing plenary events */
-  readonly events?: readonly {
-    readonly title?: string | undefined;
-    readonly type?: string | undefined;
-    readonly date?: string | undefined;
-    readonly description?: string | undefined;
-  }[];
-  /** Coalition intelligence data */
-  readonly coalitions?: readonly {
-    readonly groups?: readonly string[] | undefined;
-    readonly cohesionScore?: number | undefined;
-    readonly alignmentTrend?: string | undefined;
-    readonly riskLevel?: string | undefined;
-  }[];
-  /** MEP influence scores from MCP */
-  readonly mepScores?: readonly {
-    readonly mepName?: string | undefined;
-    readonly overallScore?: number | undefined;
-    readonly rank?: string | undefined;
-  }[];
-  /** Free-form article type label for context */
-  readonly articleType?: string | undefined;
-}
+// Re-export ClassificationInput from the types module to maintain the public
+// API surface for consumers that import from this module.
+export type { ClassificationInput } from '../types/political-classification.js';
 
 // ─── Private helpers ──────────────────────────────────────────────────────────
 
@@ -193,7 +96,7 @@ function clamp01(n: number): number {
  * @returns Escaped string safe for YAML double-quoted context
  */
 function escapeYamlString(s: string): string {
-  return s.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
+  return s.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\r/g, '\\r').replace(/\n/g, '\\n');
 }
 
 /** Anomaly shape used by both `votingAnomalies` and `anomalies` fields */
@@ -207,6 +110,9 @@ type AnomalyEntry = ClassificationInput['votingAnomalies'] extends readonly (inf
  * Existing article payloads (Motions/WeeklyReview) use `anomalies` while the
  * classification framework originally used `votingAnomalies`. This helper
  * concatenates both to ensure callers don't need to remap field names.
+ *
+ * @param data - Classification input potentially containing both field names
+ * @returns Merged array of anomaly entries from both fields
  */
 function mergeAnomalies(data: ClassificationInput): readonly AnomalyEntry[] {
   const a = data.votingAnomalies ?? [];
@@ -312,11 +218,11 @@ export function assessPoliticalSignificance(data: ClassificationInput): Politica
   const pipelineScore = clamp01(procedures.length / 15 + bottlenecks * 0.2);
 
   // Signal 3: Severity of voting anomalies (0–1)
-  const criticalAnomalies = anomalies.filter(
+  const highSeverityAnomalies = anomalies.filter(
     (a) =>
       asStr(a.severity).toLowerCase() === 'critical' || asStr(a.severity).toLowerCase() === 'high'
   ).length;
-  const anomalyScore = clamp01(criticalAnomalies / 3 + anomalies.length / 10);
+  const anomalyScore = clamp01(highSeverityAnomalies / 3 + anomalies.length / 10);
 
   // Signal 4: Coalition instability (0–1)
   const lowCohesionCoalitions = coalitions.filter((c) => asNum(c.cohesionScore, 1) < 0.6).length;
@@ -970,6 +876,7 @@ export function writeAnalysisFile(
  * @param runDir - Date-stamped run directory (from {@link initializeAnalysisDirectory})
  * @param articleTypes - Article types included in this run
  * @param methodsUsed - Classification methods applied
+ * @param startDate - Optional ISO timestamp for when the run started; defaults to now
  * @returns The completed manifest object
  *
  * @example
@@ -980,11 +887,12 @@ export function writeAnalysisFile(
 export function writeAnalysisManifest(
   runDir: string,
   articleTypes: readonly string[],
-  methodsUsed: readonly ClassificationMethod[]
+  methodsUsed: readonly ClassificationMethod[],
+  startDate?: string
 ): AnalysisRunManifest {
   const now = new Date().toISOString();
   const manifest: AnalysisRunManifest = {
-    runDate: now,
+    runDate: startDate ?? now,
     frameworkVersion: FRAMEWORK_VERSION,
     articleTypes,
     methodsUsed,

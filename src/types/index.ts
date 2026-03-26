@@ -280,6 +280,7 @@ export type {
   ClassificationMethod,
   AnalysisRunManifest,
   AnalysisFrontmatter,
+  ClassificationInput,
 } from './political-classification.js';
 
 export { SIGNIFICANCE_ORDER, IMPACT_ORDER } from './political-classification.js';

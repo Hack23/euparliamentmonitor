@@ -65,7 +65,7 @@ function clamp01(n) {
  * @returns Escaped string safe for YAML double-quoted context
  */
 function escapeYamlString(s) {
-    return s.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
+    return s.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\r/g, '\\r').replace(/\n/g, '\\n');
 }
 /**
  * Merge `votingAnomalies` and `anomalies` fields from a ClassificationInput.
@@ -73,6 +73,9 @@ function escapeYamlString(s) {
  * Existing article payloads (Motions/WeeklyReview) use `anomalies` while the
  * classification framework originally used `votingAnomalies`. This helper
  * concatenates both to ensure callers don't need to remap field names.
+ *
+ * @param data - Classification input potentially containing both field names
+ * @returns Merged array of anomaly entries from both fields
  */
 function mergeAnomalies(data) {
     const a = data.votingAnomalies ?? [];
@@ -173,8 +176,8 @@ export function assessPoliticalSignificance(data) {
     const bottlenecks = procedures.filter((p) => p.bottleneck === true).length;
     const pipelineScore = clamp01(procedures.length / 15 + bottlenecks * 0.2);
     // Signal 3: Severity of voting anomalies (0–1)
-    const criticalAnomalies = anomalies.filter((a) => asStr(a.severity).toLowerCase() === 'critical' || asStr(a.severity).toLowerCase() === 'high').length;
-    const anomalyScore = clamp01(criticalAnomalies / 3 + anomalies.length / 10);
+    const highSeverityAnomalies = anomalies.filter((a) => asStr(a.severity).toLowerCase() === 'critical' || asStr(a.severity).toLowerCase() === 'high').length;
+    const anomalyScore = clamp01(highSeverityAnomalies / 3 + anomalies.length / 10);
     // Signal 4: Coalition instability (0–1)
     const lowCohesionCoalitions = coalitions.filter((c) => asNum(c.cohesionScore, 1) < 0.6).length;
     const highRiskCoalitions = coalitions.filter((c) => asStr(c.riskLevel).toLowerCase() === 'high').length;
@@ -692,6 +695,7 @@ export function writeAnalysisFile(filePath, frontmatter, content) {
  * @param runDir - Date-stamped run directory (from {@link initializeAnalysisDirectory})
  * @param articleTypes - Article types included in this run
  * @param methodsUsed - Classification methods applied
+ * @param startDate - Optional ISO timestamp for when the run started; defaults to now
  * @returns The completed manifest object
  *
  * @example
@@ -699,10 +703,10 @@ export function writeAnalysisFile(filePath, frontmatter, content) {
  * const manifest = writeAnalysisManifest(runDir, ['committee-reports'], ['impact-matrix']);
  * ```
  */
-export function writeAnalysisManifest(runDir, articleTypes, methodsUsed) {
+export function writeAnalysisManifest(runDir, articleTypes, methodsUsed, startDate) {
     const now = new Date().toISOString();
     const manifest = {
-        runDate: now,
+        runDate: startDate ?? now,
         frameworkVersion: FRAMEWORK_VERSION,
         articleTypes,
         methodsUsed,

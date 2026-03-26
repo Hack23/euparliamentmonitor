@@ -239,3 +239,107 @@ export const IMPACT_ORDER: readonly ImpactLevel[] = [
   'high',
   'critical',
 ] as const;
+
+// ─── Classification input ─────────────────────────────────────────────────────
+
+/**
+ * Generic input data structure for classification functions.
+ *
+ * Accepts data from any article type. All fields are optional so that
+ * partial or missing MCP data is safely handled by every classifier.
+ *
+ * This type will be consumed by the Analysis-First Pipeline Stage (Issue 4).
+ */
+export interface ClassificationInput {
+  /** Voting records from MCP or fallback */
+  readonly votingRecords?: readonly {
+    readonly title?: string | undefined;
+    readonly date?: string | undefined;
+    readonly result?: string | undefined;
+    readonly votes?:
+      | {
+          readonly for?: number | undefined;
+          readonly against?: number | undefined;
+          readonly abstain?: number | undefined;
+        }
+      | undefined;
+  }[];
+  /** Voting patterns (group cohesion) from MCP or fallback */
+  readonly votingPatterns?: readonly {
+    readonly group?: string | undefined;
+    readonly cohesion?: number | undefined;
+    readonly participation?: number | undefined;
+  }[];
+  /** Voting anomalies detected in the period */
+  readonly votingAnomalies?: readonly {
+    readonly type?: string | undefined;
+    readonly description?: string | undefined;
+    readonly severity?: string | undefined;
+  }[];
+  /**
+   * Alias for votingAnomalies — matches existing article payloads
+   * (e.g. Motions/WeeklyReview strategies) that expose anomalies as `anomalies`.
+   * When both fields are present they are merged internally.
+   */
+  readonly anomalies?: readonly {
+    readonly type?: string | undefined;
+    readonly description?: string | undefined;
+    readonly severity?: string | undefined;
+  }[];
+  /** Legislative documents from MCP */
+  readonly documents?: readonly {
+    readonly title?: string | undefined;
+    readonly type?: string | undefined;
+    readonly date?: string | undefined;
+    readonly status?: string | undefined;
+    readonly committee?: string | undefined;
+    readonly rapporteur?: string | undefined;
+  }[];
+  /** Active legislative procedures from pipeline */
+  readonly procedures?: readonly {
+    readonly id?: string | undefined;
+    readonly title?: string | undefined;
+    readonly stage?: string | undefined;
+    readonly committee?: string | undefined;
+    readonly status?: string | undefined;
+    readonly bottleneck?: boolean | undefined;
+  }[];
+  /** Parliamentary questions from MCP */
+  readonly questions?: readonly {
+    readonly author?: string | undefined;
+    readonly subject?: string | undefined;
+    readonly topic?: string | undefined;
+    readonly date?: string | undefined;
+    readonly status?: string | undefined;
+    readonly type?: string | undefined;
+  }[];
+  /** Committee meetings from MCP */
+  readonly committees?: readonly {
+    readonly committee?: string | undefined;
+    readonly committeeName?: string | undefined;
+    readonly date?: string | undefined;
+    readonly agenda?: readonly { readonly title?: string | undefined }[] | undefined;
+  }[];
+  /** Upcoming or ongoing plenary events */
+  readonly events?: readonly {
+    readonly title?: string | undefined;
+    readonly type?: string | undefined;
+    readonly date?: string | undefined;
+    readonly description?: string | undefined;
+  }[];
+  /** Coalition intelligence data */
+  readonly coalitions?: readonly {
+    readonly groups?: readonly string[] | undefined;
+    readonly cohesionScore?: number | undefined;
+    readonly alignmentTrend?: string | undefined;
+    readonly riskLevel?: string | undefined;
+  }[];
+  /** MEP influence scores from MCP */
+  readonly mepScores?: readonly {
+    readonly mepName?: string | undefined;
+    readonly overallScore?: number | undefined;
+    readonly rank?: string | undefined;
+  }[];
+  /** Free-form article type label for context */
+  readonly articleType?: string | undefined;
+}

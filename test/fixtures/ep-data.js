@@ -467,7 +467,7 @@ export function makeQuestion(overrides = {}) {
 /**
  * Create a legislative document fixture for political classification tests.
  * @param {Record<string, unknown>} [overrides]
- * @returns {{ title: string, type: string, date: string, status: string, committee: string, rapporteur: string }}
+ * @returns {{ title: string, type: string, date: string, status: string, committee: string, rapporteur: string | undefined }}
  */
 export function makeDocument(overrides = {}) {
   return {
