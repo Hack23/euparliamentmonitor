@@ -703,7 +703,6 @@ describe('runAnalysisStage', () => {
       // With only 'skipped' methods (high confidence by default), aggregation
       // should now include them rather than returning a misleading 'high' default.
       const manifest = readManifest(tmpDir, testDate);
-      expect(['high', 'medium', 'low']).toContain(manifest.overallConfidence);
       // The skipped method has 'high' confidence, so aggregation should reflect that
       expect(manifest.overallConfidence).toBe('high');
     });
