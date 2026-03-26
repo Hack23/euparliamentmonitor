@@ -1,0 +1,881 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+
+/**
+ * @module Test/PoliticalClassification
+ * @description Unit tests for the Political Intelligence Classification Framework.
+ *
+ * Covers:
+ * - assessPoliticalSignificance (5-level significance from parliamentary data)
+ * - buildImpactMatrix (multi-dimensional impact assessment)
+ * - classifyPoliticalActors (actor taxonomy classification)
+ * - analyzePoliticalForces (Porter-adapted political forces)
+ * - serializeFrontmatter / writeAnalysisFile / writeAnalysisManifest (file I/O)
+ * - compareSignificance / maxSignificance (significance utilities)
+ * - SIGNIFICANCE_ORDER / IMPACT_ORDER (ordered constant arrays)
+ */
+
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import fs from 'fs';
+import path from 'path';
+import os from 'os';
+
+import {
+  assessPoliticalSignificance,
+  buildImpactMatrix,
+  classifyPoliticalActors,
+  analyzePoliticalForces,
+  serializeFrontmatter,
+  writeAnalysisFile,
+  writeAnalysisManifest,
+  initializeAnalysisDirectory,
+  compareSignificance,
+  maxSignificance,
+  FRAMEWORK_VERSION,
+} from '../../scripts/utils/political-classification.js';
+
+import {
+  SIGNIFICANCE_ORDER,
+  IMPACT_ORDER,
+} from '../../scripts/types/political-classification.js';
+
+import {
+  makeVoteRecord,
+  makeControversialVote,
+  makeCoalition,
+  makeVotingPattern,
+  makeProcedure,
+  makeAnomaly,
+  makeQuestion,
+  makeDocument,
+} from '../fixtures/ep-data.js';
+
+// ─── SIGNIFICANCE_ORDER & IMPACT_ORDER ───────────────────────────────────────
+
+describe('SIGNIFICANCE_ORDER', () => {
+  it('contains all 5 significance levels in ascending order', () => {
+    expect(SIGNIFICANCE_ORDER).toEqual(['routine', 'notable', 'significant', 'critical', 'historic']);
+  });
+
+  it('has routine as the lowest level', () => {
+    expect(SIGNIFICANCE_ORDER[0]).toBe('routine');
+  });
+
+  it('has historic as the highest level', () => {
+    expect(SIGNIFICANCE_ORDER[SIGNIFICANCE_ORDER.length - 1]).toBe('historic');
+  });
+});
+
+describe('IMPACT_ORDER', () => {
+  it('contains all 5 impact levels in ascending order', () => {
+    expect(IMPACT_ORDER).toEqual(['none', 'low', 'moderate', 'high', 'critical']);
+  });
+
+  it('has none as the lowest level', () => {
+    expect(IMPACT_ORDER[0]).toBe('none');
+  });
+});
+
+// ─── assessPoliticalSignificance ─────────────────────────────────────────────
+
+describe('assessPoliticalSignificance', () => {
+  it('returns routine for empty data', () => {
+    expect(assessPoliticalSignificance({})).toBe('routine');
+  });
+
+  it('returns routine for minimal, non-controversial data', () => {
+    const data = {
+      votingRecords: [makeVoteRecord()],
+      procedures: [makeProcedure()],
+    };
+    expect(assessPoliticalSignificance(data)).toBe('routine');
+  });
+
+  it('returns a higher level when many controversial votes are present', () => {
+    const data = {
+      votingRecords: Array.from({ length: 8 }, () => makeControversialVote()),
+      votingAnomalies: [makeAnomaly({ severity: 'critical' }), makeAnomaly({ severity: 'high' })],
+      procedures: Array.from({ length: 10 }, (_, i) =>
+        makeProcedure({ id: `P${i}`, bottleneck: i < 5 }),
+      ),
+    };
+    const level = assessPoliticalSignificance(data);
+    expect(SIGNIFICANCE_ORDER.indexOf(level)).toBeGreaterThanOrEqual(
+      SIGNIFICANCE_ORDER.indexOf('notable'),
+    );
+  });
+
+  it('considers coalition instability as a signal', () => {
+    const data = {
+      coalitions: [
+        makeCoalition({ cohesionScore: 0.4, alignmentTrend: 'weakening', riskLevel: 'high' }),
+        makeCoalition({ cohesionScore: 0.35, alignmentTrend: 'weakening', riskLevel: 'high' }),
+      ],
+      votingAnomalies: [makeAnomaly({ severity: 'high' })],
+      votingRecords: [makeControversialVote(), makeControversialVote()],
+    };
+    const level = assessPoliticalSignificance(data);
+    // With high-risk coalitions, anomalies, and controversial votes, expect at least notable
+    expect(SIGNIFICANCE_ORDER.indexOf(level)).toBeGreaterThanOrEqual(
+      SIGNIFICANCE_ORDER.indexOf('notable'),
+    );
+  });
+
+  it('handles undefined sub-fields gracefully', () => {
+    const data = {
+      votingRecords: [{ title: 'Test', date: '2026-03-26', result: 'Adopted', votes: undefined }],
+      procedures: [{ title: 'Test' }],
+    };
+    expect(() => assessPoliticalSignificance(data)).not.toThrow();
+  });
+
+  it('returns one of the valid 5 significance levels', () => {
+    const result = assessPoliticalSignificance({
+      votingRecords: [makeControversialVote()],
+      coalitions: [makeCoalition()],
+    });
+    expect(SIGNIFICANCE_ORDER).toContain(result);
+  });
+
+  it('accepts anomalies via the `anomalies` alias field', () => {
+    // Pass anomalies using the alias field name used by existing article payloads
+    const withAlias = assessPoliticalSignificance({
+      anomalies: [makeAnomaly({ severity: 'critical' }), makeAnomaly({ severity: 'high' })],
+    });
+    // Same data via the canonical field should produce an identical result
+    const withCanonical = assessPoliticalSignificance({
+      votingAnomalies: [makeAnomaly({ severity: 'critical' }), makeAnomaly({ severity: 'high' })],
+    });
+    expect(withAlias).toBe(withCanonical);
+  });
+
+  it('merges both anomalies and votingAnomalies when both are present', () => {
+    const merged = assessPoliticalSignificance({
+      votingAnomalies: [makeAnomaly({ severity: 'high' })],
+      anomalies: [makeAnomaly({ severity: 'critical' })],
+    });
+    const canonical = assessPoliticalSignificance({
+      votingAnomalies: [makeAnomaly({ severity: 'high' }), makeAnomaly({ severity: 'critical' })],
+    });
+    expect(merged).toBe(canonical);
+  });
+});
+
+// ─── buildImpactMatrix ────────────────────────────────────────────────────────
+
+describe('buildImpactMatrix', () => {
+  it('returns none impact for all dimensions on empty data', () => {
+    const matrix = buildImpactMatrix({});
+    expect(matrix.legislativeImpact).toBe('none');
+    expect(matrix.coalitionImpact).toBe('none');
+    expect(matrix.publicOpinionImpact).toBe('none');
+    expect(matrix.institutionalImpact).toBe('none');
+    expect(matrix.economicImpact).toBe('none');
+    expect(matrix.overallSignificance).toBe('routine');
+  });
+
+  it('returns a valid ImpactLevel for each dimension', () => {
+    const matrix = buildImpactMatrix({
+      votingRecords: Array.from({ length: 8 }, () => makeVoteRecord()),
+      coalitions: [makeCoalition({ cohesionScore: 0.5 })],
+      questions: [makeQuestion(), makeQuestion({ type: 'oral' })],
+      documents: [makeDocument()],
+      procedures: [makeProcedure({ stage: 'plenary' }), makeProcedure({ title: 'EU Trade Agreement' })],
+    });
+
+    for (const dim of [
+      matrix.legislativeImpact,
+      matrix.coalitionImpact,
+      matrix.publicOpinionImpact,
+      matrix.institutionalImpact,
+      matrix.economicImpact,
+    ]) {
+      expect(IMPACT_ORDER).toContain(dim);
+    }
+    expect(SIGNIFICANCE_ORDER).toContain(matrix.overallSignificance);
+  });
+
+  it('raises legislativeImpact for bottlenecked procedures', () => {
+    const withBottleneck = buildImpactMatrix({
+      procedures: Array.from({ length: 5 }, (_, i) =>
+        makeProcedure({ id: `P${i}`, bottleneck: true }),
+      ),
+    });
+    const withNone = buildImpactMatrix({});
+    expect(IMPACT_ORDER.indexOf(withBottleneck.legislativeImpact)).toBeGreaterThan(
+      IMPACT_ORDER.indexOf(withNone.legislativeImpact),
+    );
+  });
+
+  it('raises coalitionImpact for low-cohesion weakening coalitions', () => {
+    const matrix = buildImpactMatrix({
+      coalitions: [
+        makeCoalition({ cohesionScore: 0.2, alignmentTrend: 'weakening' }),
+        makeCoalition({ cohesionScore: 0.3, alignmentTrend: 'weakening' }),
+      ],
+    });
+    expect(IMPACT_ORDER.indexOf(matrix.coalitionImpact)).toBeGreaterThan(
+      IMPACT_ORDER.indexOf('none'),
+    );
+  });
+
+  it('raises economicImpact for economic-keyword documents and procedures', () => {
+    const matrix = buildImpactMatrix({
+      documents: [
+        makeDocument({ title: 'Economic Policy Review', committee: 'ECON' }),
+        makeDocument({ title: 'Budget Amendments 2026', committee: 'BUDG' }),
+      ],
+      procedures: [makeProcedure({ title: 'EU-US Trade Agreement Ratification' })],
+    });
+    expect(IMPACT_ORDER.indexOf(matrix.economicImpact)).toBeGreaterThan(
+      IMPACT_ORDER.indexOf('none'),
+    );
+  });
+
+  it('raises publicOpinionImpact for oral questions', () => {
+    const matrix = buildImpactMatrix({
+      questions: Array.from({ length: 6 }, () => makeQuestion({ type: 'oral' })),
+    });
+    expect(IMPACT_ORDER.indexOf(matrix.publicOpinionImpact)).toBeGreaterThan(
+      IMPACT_ORDER.indexOf('none'),
+    );
+  });
+});
+
+// ─── classifyPoliticalActors ──────────────────────────────────────────────────
+
+describe('classifyPoliticalActors', () => {
+  it('returns empty array for empty data', () => {
+    expect(classifyPoliticalActors({})).toHaveLength(0);
+  });
+
+  it('classifies rapporteurs as individual_mep', () => {
+    const actors = classifyPoliticalActors({
+      documents: [makeDocument({ rapporteur: 'Jane Smith' })],
+    });
+    const rapporteur = actors.find((a) => a.name === 'Jane Smith');
+    expect(rapporteur).toBeDefined();
+    expect(rapporteur?.actorType).toBe('individual_mep');
+    expect(rapporteur?.influence).toBe('high');
+  });
+
+  it('classifies committee names as eu_institution', () => {
+    const actors = classifyPoliticalActors({
+      documents: [makeDocument({ committee: 'ENVI', rapporteur: undefined })],
+    });
+    const committee = actors.find((a) => a.name === 'ENVI');
+    expect(committee).toBeDefined();
+    expect(committee?.actorType).toBe('eu_institution');
+  });
+
+  it('classifies voting pattern groups as political_group', () => {
+    const actors = classifyPoliticalActors({
+      votingPatterns: [makeVotingPattern({ group: 'EPP', cohesion: 0.9 })],
+    });
+    const epp = actors.find((a) => a.name === 'EPP');
+    expect(epp).toBeDefined();
+    expect(epp?.actorType).toBe('political_group');
+    expect(epp?.influence).toBe('high');
+  });
+
+  it('classifies low-cohesion groups with low influence', () => {
+    const actors = classifyPoliticalActors({
+      votingPatterns: [makeVotingPattern({ group: 'SmallGroup', cohesion: 0.4 })],
+    });
+    const group = actors.find((a) => a.name === 'SmallGroup');
+    expect(group?.influence).toBe('low');
+  });
+
+  it('classifies coalition members as political_group', () => {
+    const actors = classifyPoliticalActors({
+      coalitions: [makeCoalition({ groups: ['EPP', 'Renew'] })],
+    });
+    const names = actors.map((a) => a.name);
+    expect(names).toContain('EPP');
+    expect(names).toContain('Renew');
+    for (const name of ['EPP', 'Renew']) {
+      expect(actors.find((a) => a.name === name)?.actorType).toBe('political_group');
+    }
+  });
+
+  it('classifies MEP influence scores as individual_mep', () => {
+    const actors = classifyPoliticalActors({
+      mepScores: [{ mepName: 'Alice Müller', overallScore: 80 }],
+    });
+    const alice = actors.find((a) => a.name === 'Alice Müller');
+    expect(alice?.actorType).toBe('individual_mep');
+    expect(alice?.influence).toBe('high');
+  });
+
+  it('deduplicates actors by name (case-insensitive)', () => {
+    const actors = classifyPoliticalActors({
+      votingPatterns: [makeVotingPattern({ group: 'EPP' })],
+      coalitions: [makeCoalition({ groups: ['EPP', 'Renew'] })],
+    });
+    const eppActors = actors.filter((a) => a.name.toUpperCase() === 'EPP');
+    expect(eppActors).toHaveLength(1);
+  });
+
+  it('classifies committee meetings as eu_institution', () => {
+    const actors = classifyPoliticalActors({
+      committees: [{ committee: 'ENVI', committeeName: 'Environment Committee', date: '2026-03-26' }],
+    });
+    const envi = actors.find((a) => a.name === 'Environment Committee');
+    expect(envi?.actorType).toBe('eu_institution');
+  });
+
+  it('all actors have a valid position', () => {
+    const actors = classifyPoliticalActors({
+      votingPatterns: [makeVotingPattern()],
+      documents: [makeDocument()],
+    });
+    for (const actor of actors) {
+      expect(['supportive', 'opposed', 'neutral', 'ambiguous']).toContain(actor.position);
+    }
+  });
+
+  it('classifies civil society actors via keyword heuristics', () => {
+    const actors = classifyPoliticalActors({
+      questions: [makeQuestion({ author: 'Transparency International', subject: 'EU lobbying' })],
+    });
+    const ti = actors.find((a) => a.name === 'Transparency International');
+    expect(ti?.actorType).toBe('civil_society');
+  });
+
+  it('classifies media actors via keyword heuristics', () => {
+    const actors = classifyPoliticalActors({
+      questions: [makeQuestion({ author: 'Euractiv News', subject: 'EP coverage' })],
+    });
+    const media = actors.find((a) => a.name === 'Euractiv News');
+    expect(media?.actorType).toBe('media');
+  });
+
+  it('classifies industry actors via keyword heuristics', () => {
+    const actors = classifyPoliticalActors({
+      questions: [makeQuestion({ author: 'Business Europe', subject: 'Digital regulation' })],
+    });
+    const biz = actors.find((a) => a.name === 'Business Europe');
+    expect(biz?.actorType).toBe('industry');
+  });
+
+  it('classifies national delegation actors via country code + delegation keyword', () => {
+    const actors = classifyPoliticalActors({
+      questions: [makeQuestion({ author: 'DE delegation', subject: 'Council position' })],
+    });
+    const de = actors.find((a) => a.name === 'DE delegation');
+    expect(de?.actorType).toBe('national_delegation');
+  });
+
+  it('classifies member state actors via governmental keywords', () => {
+    const actors = classifyPoliticalActors({
+      questions: [makeQuestion({ author: 'German Government', subject: 'Council presidency' })],
+    });
+    const gov = actors.find((a) => a.name === 'German Government');
+    expect(gov?.actorType).toBe('member_state');
+  });
+});
+
+// ─── analyzePoliticalForces ───────────────────────────────────────────────────
+
+describe('analyzePoliticalForces', () => {
+  it('returns a complete forces analysis for empty data', () => {
+    const forces = analyzePoliticalForces({});
+    expect(forces).toHaveProperty('coalitionPower');
+    expect(forces).toHaveProperty('oppositionPower');
+    expect(forces).toHaveProperty('institutionalBarriers');
+    expect(forces).toHaveProperty('publicPressure');
+    expect(forces).toHaveProperty('externalInfluences');
+  });
+
+  it('all force strengths are in [0, 1]', () => {
+    const forces = analyzePoliticalForces({
+      votingRecords: [makeVoteRecord(), makeControversialVote()],
+      coalitions: [makeCoalition()],
+      procedures: [makeProcedure({ bottleneck: true })],
+      questions: [makeQuestion(), makeQuestion({ type: 'oral' })],
+    });
+    for (const force of Object.values(forces)) {
+      expect(force.strength).toBeGreaterThanOrEqual(0);
+      expect(force.strength).toBeLessThanOrEqual(1);
+    }
+  });
+
+  it('coalitionPower reflects average cohesion', () => {
+    const highCohesion = analyzePoliticalForces({
+      coalitions: [makeCoalition({ cohesionScore: 0.95 })],
+    });
+    const lowCohesion = analyzePoliticalForces({
+      coalitions: [makeCoalition({ cohesionScore: 0.3 })],
+    });
+    expect(highCohesion.coalitionPower.strength).toBeGreaterThan(
+      lowCohesion.coalitionPower.strength,
+    );
+  });
+
+  it('coalitionPower trend is increasing when coalitions are strengthening', () => {
+    const forces = analyzePoliticalForces({
+      coalitions: [makeCoalition({ alignmentTrend: 'strengthening' })],
+    });
+    expect(forces.coalitionPower.trend).toBe('increasing');
+  });
+
+  it('coalitionPower trend is decreasing when coalitions are weakening', () => {
+    const forces = analyzePoliticalForces({
+      coalitions: [makeCoalition({ alignmentTrend: 'weakening' })],
+    });
+    expect(forces.coalitionPower.trend).toBe('decreasing');
+  });
+
+  it('oppositionPower increases with more controversial votes', () => {
+    const withControversy = analyzePoliticalForces({
+      votingRecords: Array.from({ length: 5 }, () => makeControversialVote()),
+    });
+    const withoutControversy = analyzePoliticalForces({
+      votingRecords: Array.from({ length: 5 }, () => makeVoteRecord()),
+    });
+    expect(withControversy.oppositionPower.strength).toBeGreaterThan(
+      withoutControversy.oppositionPower.strength,
+    );
+  });
+
+  it('institutionalBarriers increase with bottlenecked procedures', () => {
+    const withBottleneck = analyzePoliticalForces({
+      procedures: Array.from({ length: 4 }, () => makeProcedure({ bottleneck: true })),
+    });
+    const withoutBottleneck = analyzePoliticalForces({});
+    expect(withBottleneck.institutionalBarriers.strength).toBeGreaterThan(
+      withoutBottleneck.institutionalBarriers.strength,
+    );
+  });
+
+  it('institutionalBarriers trend is increasing for >2 bottlenecks', () => {
+    const forces = analyzePoliticalForces({
+      procedures: Array.from({ length: 3 }, () => makeProcedure({ bottleneck: true })),
+    });
+    expect(forces.institutionalBarriers.trend).toBe('increasing');
+  });
+
+  it('publicPressure increases with oral questions', () => {
+    const withOral = analyzePoliticalForces({
+      questions: Array.from({ length: 5 }, () => makeQuestion({ type: 'oral' })),
+    });
+    const withWritten = analyzePoliticalForces({
+      questions: Array.from({ length: 5 }, () => makeQuestion({ type: 'written' })),
+    });
+    expect(withOral.publicPressure.strength).toBeGreaterThan(withWritten.publicPressure.strength);
+  });
+
+  it('externalInfluences increases with geopolitical procedures', () => {
+    const withExternal = analyzePoliticalForces({
+      procedures: [makeProcedure({ title: 'EU-Ukraine Trade Agreement' })],
+      events: [{ title: 'NATO Summit Implications', type: 'conference', date: '2026-03-26', description: 'Impact on EU foreign policy' }],
+    });
+    const withoutExternal = analyzePoliticalForces({});
+    expect(withExternal.externalInfluences.strength).toBeGreaterThan(
+      withoutExternal.externalInfluences.strength,
+    );
+  });
+
+  it('externalInfluences trend reflects event-only external data', () => {
+    const eventsOnly = analyzePoliticalForces({
+      events: [{ title: 'NATO Summit Implications', type: 'conference', date: '2026-03-26', description: 'Impact on EU foreign policy' }],
+    });
+    expect(eventsOnly.externalInfluences.trend).toBe('increasing');
+    expect(eventsOnly.externalInfluences.strength).toBeGreaterThan(0);
+  });
+
+  it('all trends are valid values', () => {
+    const forces = analyzePoliticalForces({
+      coalitions: [makeCoalition()],
+      votingRecords: [makeControversialVote()],
+    });
+    for (const force of Object.values(forces)) {
+      expect(['increasing', 'decreasing', 'stable']).toContain(force.trend);
+    }
+  });
+
+  it('all confidence levels are valid', () => {
+    const forces = analyzePoliticalForces({
+      coalitions: [makeCoalition()],
+      votingRecords: [makeVoteRecord()],
+      questions: [makeQuestion()],
+      procedures: [makeProcedure()],
+    });
+    for (const force of Object.values(forces)) {
+      expect(['high', 'medium', 'low']).toContain(force.confidence);
+    }
+  });
+});
+
+// ─── serializeFrontmatter ─────────────────────────────────────────────────────
+
+describe('serializeFrontmatter', () => {
+  it('produces a string starting and ending with ---', () => {
+    const yaml = serializeFrontmatter({
+      title: 'Test Assessment',
+      date: '2026-03-26',
+      analysisType: 'impact-matrix',
+      significance: 'significant',
+      confidence: 'high',
+      methods: ['impact-matrix', 'actor-mapping'],
+      articleTypes: ['committee-reports'],
+    });
+    expect(yaml.startsWith('---')).toBe(true);
+    expect(yaml.endsWith('---')).toBe(true);
+  });
+
+  it('includes title, date, analysisType, significance, confidence', () => {
+    const yaml = serializeFrontmatter({
+      title: 'Test Assessment',
+      date: '2026-03-26',
+      analysisType: 'significance-assessment',
+      significance: 'critical',
+      confidence: 'medium',
+      methods: ['significance-assessment'],
+      articleTypes: ['week-ahead'],
+    });
+    expect(yaml).toContain('title: "Test Assessment"');
+    expect(yaml).toContain('date: "2026-03-26"');
+    expect(yaml).toContain('analysisType: "significance-assessment"');
+    expect(yaml).toContain('significance: "critical"');
+    expect(yaml).toContain('confidence: "medium"');
+  });
+
+  it('renders methods as YAML sequences', () => {
+    const yaml = serializeFrontmatter({
+      title: 'T',
+      date: '2026-03-26',
+      analysisType: 'actor-mapping',
+      significance: 'notable',
+      confidence: 'low',
+      methods: ['actor-mapping', 'forces-analysis'],
+      articleTypes: ['propositions'],
+    });
+    expect(yaml).toContain('  - "actor-mapping"');
+    expect(yaml).toContain('  - "forces-analysis"');
+  });
+
+  it('renders articleTypes as YAML sequences', () => {
+    const yaml = serializeFrontmatter({
+      title: 'T',
+      date: '2026-03-26',
+      analysisType: 'forces-analysis',
+      significance: 'routine',
+      confidence: 'low',
+      methods: ['forces-analysis'],
+      articleTypes: ['committee-reports', 'propositions'],
+    });
+    expect(yaml).toContain('  - "committee-reports"');
+    expect(yaml).toContain('  - "propositions"');
+  });
+
+  it('emits methods: [] and articleTypes: [] when arrays are empty', () => {
+    const yaml = serializeFrontmatter({
+      title: 'T',
+      date: '2026-03-26',
+      analysisType: 'impact-matrix',
+      significance: 'routine',
+      confidence: 'low',
+      methods: [],
+      articleTypes: [],
+    });
+    expect(yaml).toContain('methods: []');
+    expect(yaml).toContain('articleTypes: []');
+    expect(yaml).not.toContain('methods:\n');
+    expect(yaml).not.toContain('articleTypes:\n');
+  });
+
+  it('escapes double quotes in title to prevent YAML injection', () => {
+    const yaml = serializeFrontmatter({
+      title: 'A "quoted" title',
+      date: '2026-03-26',
+      analysisType: 'impact-matrix',
+      significance: 'routine',
+      confidence: 'low',
+      methods: [],
+      articleTypes: [],
+    });
+    expect(yaml).toContain('title: "A \\"quoted\\" title"');
+  });
+
+  it('escapes backslashes in values', () => {
+    const yaml = serializeFrontmatter({
+      title: 'Path\\to\\file',
+      date: '2026-03-26',
+      analysisType: 'impact-matrix',
+      significance: 'routine',
+      confidence: 'low',
+      methods: [],
+      articleTypes: [],
+    });
+    expect(yaml).toContain('title: "Path\\\\to\\\\file"');
+  });
+
+  it('escapes newlines in values', () => {
+    const yaml = serializeFrontmatter({
+      title: 'Line1\nLine2',
+      date: '2026-03-26',
+      analysisType: 'impact-matrix',
+      significance: 'routine',
+      confidence: 'low',
+      methods: [],
+      articleTypes: [],
+    });
+    expect(yaml).toContain('title: "Line1\\nLine2"');
+    // Should not contain a raw newline inside the value
+    expect(yaml).not.toMatch(/title: "Line1\nLine2"/);
+  });
+});
+
+// ─── writeAnalysisFile ────────────────────────────────────────────────────────
+
+describe('writeAnalysisFile', () => {
+  let tmpDir;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-pol-class-test-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+    vi.restoreAllMocks();
+  });
+
+  it('writes a file with YAML frontmatter and body', () => {
+    const filePath = path.join(tmpDir, 'test.md');
+    const frontmatter = {
+      title: 'Test',
+      date: '2026-03-26',
+      analysisType: /** @type {const} */ ('impact-matrix'),
+      significance: /** @type {const} */ ('notable'),
+      confidence: /** @type {const} */ ('high'),
+      methods: /** @type {const} */ (['impact-matrix']),
+      articleTypes: /** @type {const} */ (['committee-reports']),
+    };
+    writeAnalysisFile(filePath, frontmatter, '# Body content\n\nSome analysis.');
+    const content = fs.readFileSync(filePath, 'utf-8');
+    expect(content).toContain('---');
+    expect(content).toContain('title: "Test"');
+    expect(content).toContain('# Body content');
+  });
+
+  it('creates parent directories if they do not exist', () => {
+    const filePath = path.join(tmpDir, 'sub', 'deep', 'analysis.md');
+    const frontmatter = {
+      title: 'Deep',
+      date: '2026-03-26',
+      analysisType: /** @type {const} */ ('actor-mapping'),
+      significance: /** @type {const} */ ('routine'),
+      confidence: /** @type {const} */ ('low'),
+      methods: /** @type {const} */ (['actor-mapping']),
+      articleTypes: /** @type {const} */ (['propositions']),
+    };
+    writeAnalysisFile(filePath, frontmatter, '# Analysis');
+    expect(fs.existsSync(filePath)).toBe(true);
+  });
+});
+
+// ─── initializeAnalysisDirectory ─────────────────────────────────────────────
+
+describe('initializeAnalysisDirectory', () => {
+  let tmpDir;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-pol-init-test-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('creates the date-stamped run directory', () => {
+    const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    expect(fs.existsSync(runDir)).toBe(true);
+    expect(runDir).toContain('2026-03-26');
+  });
+
+  it('creates classification/ subdirectory', () => {
+    const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    expect(fs.existsSync(path.join(runDir, 'classification'))).toBe(true);
+  });
+
+  it('creates data/ subdirectory', () => {
+    const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    expect(fs.existsSync(path.join(runDir, 'data'))).toBe(true);
+  });
+
+  it('creates threat-assessment/ subdirectory', () => {
+    const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    expect(fs.existsSync(path.join(runDir, 'threat-assessment'))).toBe(true);
+  });
+
+  it('creates risk-scoring/ subdirectory', () => {
+    const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    expect(fs.existsSync(path.join(runDir, 'risk-scoring'))).toBe(true);
+  });
+
+  it('is idempotent — does not throw if directory already exists', () => {
+    initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    expect(() => initializeAnalysisDirectory(tmpDir, '2026-03-26')).not.toThrow();
+  });
+
+  it('rejects date values containing path separators (path traversal)', () => {
+    expect(() => initializeAnalysisDirectory(tmpDir, '../etc')).toThrow(/Invalid date format/u);
+    expect(() => initializeAnalysisDirectory(tmpDir, '2026/03/26')).toThrow(/Invalid date format/u);
+  });
+
+  it('rejects non-YYYY-MM-DD strings', () => {
+    expect(() => initializeAnalysisDirectory(tmpDir, 'not-a-date')).toThrow(/Invalid date format/u);
+    expect(() => initializeAnalysisDirectory(tmpDir, '26-03-2026')).toThrow(/Invalid date format/u);
+    expect(() => initializeAnalysisDirectory(tmpDir, '')).toThrow(/Invalid date format/u);
+  });
+});
+
+// ─── writeAnalysisManifest ────────────────────────────────────────────────────
+
+describe('writeAnalysisManifest', () => {
+  let tmpDir;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-pol-manifest-test-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('writes manifest.json to the run directory', () => {
+    writeAnalysisManifest(tmpDir, ['committee-reports'], ['impact-matrix']);
+    expect(fs.existsSync(path.join(tmpDir, 'manifest.json'))).toBe(true);
+  });
+
+  it('manifest contains correct frameworkVersion', () => {
+    const manifest = writeAnalysisManifest(tmpDir, ['propositions'], ['actor-mapping']);
+    expect(manifest.frameworkVersion).toBe(FRAMEWORK_VERSION);
+  });
+
+  it('manifest contains the provided article types', () => {
+    const manifest = writeAnalysisManifest(
+      tmpDir,
+      ['committee-reports', 'propositions'],
+      ['impact-matrix', 'forces-analysis'],
+    );
+    expect(manifest.articleTypes).toContain('committee-reports');
+    expect(manifest.articleTypes).toContain('propositions');
+  });
+
+  it('manifest contains the provided methods', () => {
+    const manifest = writeAnalysisManifest(tmpDir, ['week-ahead'], ['forces-analysis']);
+    expect(manifest.methodsUsed).toContain('forces-analysis');
+  });
+
+  it('written JSON is parseable and matches the returned manifest', () => {
+    const returned = writeAnalysisManifest(tmpDir, ['week-ahead'], ['significance-assessment']);
+    const written = JSON.parse(fs.readFileSync(path.join(tmpDir, 'manifest.json'), 'utf-8'));
+    expect(written.frameworkVersion).toBe(returned.frameworkVersion);
+    expect(written.articleTypes).toEqual(Array.from(returned.articleTypes));
+  });
+});
+
+// ─── compareSignificance ──────────────────────────────────────────────────────
+
+describe('compareSignificance', () => {
+  it('returns 0 for equal levels', () => {
+    expect(compareSignificance('notable', 'notable')).toBe(0);
+  });
+
+  it('returns positive when first is greater', () => {
+    expect(compareSignificance('critical', 'notable')).toBeGreaterThan(0);
+  });
+
+  it('returns negative when first is lower', () => {
+    expect(compareSignificance('routine', 'significant')).toBeLessThan(0);
+  });
+
+  it('historic > critical > significant > notable > routine', () => {
+    expect(compareSignificance('historic', 'critical')).toBeGreaterThan(0);
+    expect(compareSignificance('critical', 'significant')).toBeGreaterThan(0);
+    expect(compareSignificance('significant', 'notable')).toBeGreaterThan(0);
+    expect(compareSignificance('notable', 'routine')).toBeGreaterThan(0);
+  });
+});
+
+// ─── maxSignificance ──────────────────────────────────────────────────────────
+
+describe('maxSignificance', () => {
+  it('returns routine for empty array', () => {
+    expect(maxSignificance([])).toBe('routine');
+  });
+
+  it('returns the single element for a one-element array', () => {
+    expect(maxSignificance(['significant'])).toBe('significant');
+  });
+
+  it('returns the highest level', () => {
+    expect(maxSignificance(['notable', 'critical', 'significant'])).toBe('critical');
+  });
+
+  it('handles all identical values', () => {
+    expect(maxSignificance(['notable', 'notable', 'notable'])).toBe('notable');
+  });
+
+  it('identifies historic as the maximum', () => {
+    expect(maxSignificance(['routine', 'notable', 'historic', 'critical'])).toBe('historic');
+  });
+});
+
+// ─── Malformed input safety ─────────────────────────────────────────────────
+
+describe('safeArray guards (malformed non-array fields)', () => {
+  it('assessPoliticalSignificance does not throw when fields are non-arrays', () => {
+    const malformed = {
+      votingRecords: 'not-an-array',
+      procedures: 42,
+      coalitions: { bad: true },
+      anomalies: null,
+    };
+    expect(() => assessPoliticalSignificance(malformed)).not.toThrow();
+    expect(assessPoliticalSignificance(malformed)).toBe('routine');
+  });
+
+  it('buildImpactMatrix does not throw when fields are non-arrays', () => {
+    const malformed = {
+      votingRecords: 'oops',
+      procedures: true,
+      coalitions: 123,
+      questions: null,
+      documents: {},
+    };
+    expect(() => buildImpactMatrix(malformed)).not.toThrow();
+    const result = buildImpactMatrix(malformed);
+    expect(result.overallSignificance).toBeDefined();
+  });
+
+  it('classifyPoliticalActors does not throw when fields are non-arrays', () => {
+    const malformed = {
+      documents: 'string',
+      votingPatterns: 0,
+      coalitions: false,
+      mepScores: null,
+      committees: undefined,
+      questions: {},
+    };
+    expect(() => classifyPoliticalActors(malformed)).not.toThrow();
+    expect(classifyPoliticalActors(malformed)).toEqual([]);
+  });
+
+  it('analyzePoliticalForces does not throw when fields are non-arrays', () => {
+    const malformed = {
+      coalitions: 'bad',
+      votingRecords: true,
+      procedures: null,
+      questions: 99,
+      votingPatterns: {},
+      events: 'not-array',
+    };
+    expect(() => analyzePoliticalForces(malformed)).not.toThrow();
+    const forces = analyzePoliticalForces(malformed);
+    expect(forces.coalitionPower).toBeDefined();
+    expect(forces.externalInfluences).toBeDefined();
+  });
+});
