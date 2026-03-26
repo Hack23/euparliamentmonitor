@@ -37,32 +37,37 @@
 import fs from 'fs';
 import path from 'path';
 import { randomUUID } from 'crypto';
-import { detectVotingTrends, computeCrossSessionCoalitionStability, buildDefaultStakeholderPerspectives, buildStakeholderOutcomeMatrix, } from '../../utils/intelligence-analysis.js';
+import {
+  detectVotingTrends,
+  computeCrossSessionCoalitionStability,
+  buildDefaultStakeholderPerspectives,
+  buildStakeholderOutcomeMatrix,
+} from '../../utils/intelligence-analysis.js';
 import { ensureDirectoryExists, atomicWrite } from '../../utils/file-utils.js';
 /** All analysis methods in default execution order */
 export const ALL_ANALYSIS_METHODS = [
-    // Classification
-    'significance-classification',
-    'impact-matrix',
-    'actor-mapping',
-    'forces-analysis',
-    // Threat Assessment
-    'political-stride',
-    'actor-threat-profiling',
-    'consequence-trees',
-    'legislative-disruption',
-    // Risk Scoring
-    'risk-matrix',
-    'political-capital-risk',
-    'quantitative-swot',
-    'legislative-velocity-risk',
-    'agent-risk-workflow',
-    // Existing
-    'deep-analysis',
-    'stakeholder-analysis',
-    'coalition-analysis',
-    'voting-patterns',
-    'cross-session-intelligence',
+  // Classification
+  'significance-classification',
+  'impact-matrix',
+  'actor-mapping',
+  'forces-analysis',
+  // Threat Assessment
+  'political-stride',
+  'actor-threat-profiling',
+  'consequence-trees',
+  'legislative-disruption',
+  // Risk Scoring
+  'risk-matrix',
+  'political-capital-risk',
+  'quantitative-swot',
+  'legislative-velocity-risk',
+  'agent-risk-workflow',
+  // Existing
+  'deep-analysis',
+  'stakeholder-analysis',
+  'coalition-analysis',
+  'voting-patterns',
+  'cross-session-intelligence',
 ];
 // ─── Internal helpers ─────────────────────────────────────────────────────────
 /**
@@ -72,21 +77,19 @@ export const ALL_ANALYSIS_METHODS = [
  * @returns Aggregated confidence level
  */
 function aggregateConfidence(results) {
-    const counts = { high: 0, medium: 0, low: 0 };
-    for (const r of results) {
-        if (r.status === 'completed' || r.status === 'skipped') {
-            counts[r.confidence]++;
-        }
+  const counts = { high: 0, medium: 0, low: 0 };
+  for (const r of results) {
+    if (r.status === 'completed' || r.status === 'skipped') {
+      counts[r.confidence]++;
     }
-    const total = counts.high + counts.medium + counts.low;
-    if (total === 0) {
-        return 'low';
-    }
-    if (counts.high >= counts.medium && counts.high >= counts.low)
-        return 'high';
-    if (counts.medium >= counts.low)
-        return 'medium';
+  }
+  const total = counts.high + counts.medium + counts.low;
+  if (total === 0) {
     return 'low';
+  }
+  if (counts.high >= counts.medium && counts.high >= counts.low) return 'high';
+  if (counts.medium >= counts.low) return 'medium';
+  return 'low';
 }
 /**
  * Build a YAML-frontmatter header block for analysis markdown files.
@@ -97,7 +100,7 @@ function aggregateConfidence(results) {
  * @returns Markdown frontmatter string
  */
 function buildMarkdownHeader(method, date, confidence) {
-    return `---
+  return `---
 method: ${method}
 date: ${date}
 confidence: ${confidence}
@@ -115,7 +118,7 @@ generated: ${new Date().toISOString()}
  * @param content - File content as a UTF-8 string
  */
 function writeTextFile(filePath, content) {
-    atomicWrite(filePath, content);
+  atomicWrite(filePath, content);
 }
 /**
  * Check whether a method's output file already exists (for incremental runs).
@@ -124,12 +127,11 @@ function writeTextFile(filePath, content) {
  * @returns true when the file exists and is non-empty
  */
 function methodOutputExists(filePath) {
-    try {
-        return fs.existsSync(filePath) && fs.statSync(filePath).size > 0;
-    }
-    catch {
-        return false;
-    }
+  try {
+    return fs.existsSync(filePath) && fs.statSync(filePath).size > 0;
+  } catch {
+    return false;
+  }
 }
 // ─── Per-method markdown builders ────────────────────────────────────────────
 /**
@@ -141,11 +143,12 @@ function methodOutputExists(filePath) {
  * @returns Markdown content string
  */
 function buildSignificanceClassificationMarkdown(fetchedData, date) {
-    const header = buildMarkdownHeader('significance-classification', date, 'medium');
-    const events = Array.isArray(fetchedData['events']) ? fetchedData['events'] : [];
-    const docs = Array.isArray(fetchedData['documents']) ? fetchedData['documents'] : [];
-    return (header +
-        `# Political Significance Classification
+  const header = buildMarkdownHeader('significance-classification', date, 'medium');
+  const events = Array.isArray(fetchedData['events']) ? fetchedData['events'] : [];
+  const docs = Array.isArray(fetchedData['documents']) ? fetchedData['documents'] : [];
+  return (
+    header +
+    `# Political Significance Classification
 
 ## Overview
 Analysis of political significance across ${events.length} events and ${docs.length} documents.
@@ -165,7 +168,8 @@ Analysis of political significance across ${events.length} events and ${docs.len
 
 ## Key Findings
 ${events.length === 0 && docs.length === 0 ? '- No data available for significance assessment' : `- ${events.length} events and ${docs.length} documents assessed for political significance`}
-`);
+`
+  );
 }
 /**
  * Build markdown for the impact matrix method.
@@ -175,9 +179,10 @@ ${events.length === 0 && docs.length === 0 ? '- No data available for significan
  * @returns Markdown content string
  */
 function buildImpactMatrixMarkdown(_fetchedData, date) {
-    const header = buildMarkdownHeader('impact-matrix', date, 'medium');
-    return (header +
-        `# Political Impact Matrix
+  const header = buildMarkdownHeader('impact-matrix', date, 'medium');
+  return (
+    header +
+    `# Political Impact Matrix
 
 ## Overview
 Cross-dimensional impact analysis across political, economic, social, and legal axes.
@@ -191,7 +196,8 @@ Cross-dimensional impact analysis across political, economic, social, and legal 
 | Legal     | — | — | — |
 
 ## Date: ${date}
-`);
+`
+  );
 }
 /**
  * Build markdown for the actor mapping method.
@@ -201,9 +207,10 @@ Cross-dimensional impact analysis across political, economic, social, and legal 
  * @returns Markdown content string
  */
 function buildActorMappingMarkdown(fetchedData, date) {
-    const header = buildMarkdownHeader('actor-mapping', date, 'medium');
-    return (header +
-        `# Political Actor Mapping
+  const header = buildMarkdownHeader('actor-mapping', date, 'medium');
+  return (
+    header +
+    `# Political Actor Mapping
 
 ## Overview
 Identification and mapping of key political actors and their influence networks.
@@ -216,7 +223,8 @@ Identification and mapping of key political actors and their influence networks.
 ## Network Analysis
 - **Date**: ${date}
 - **Data sources**: ${Object.keys(fetchedData).join(', ')}
-`);
+`
+  );
 }
 /**
  * Build markdown for the political forces analysis method.
@@ -226,9 +234,10 @@ Identification and mapping of key political actors and their influence networks.
  * @returns Markdown content string
  */
 function buildForcesAnalysisMarkdown(_fetchedData, date) {
-    const header = buildMarkdownHeader('forces-analysis', date, 'medium');
-    return (header +
-        `# Political Forces Analysis
+  const header = buildMarkdownHeader('forces-analysis', date, 'medium');
+  return (
+    header +
+    `# Political Forces Analysis
 
 ## Overview
 Analysis of competing political forces shaping the current legislative agenda.
@@ -244,7 +253,8 @@ Analysis of competing political forces shaping the current legislative agenda.
 ## Current Balance of Forces
 - **Date**: ${date}
 - **Assessment**: Moderate balance with shifting coalitions
-`);
+`
+  );
 }
 /**
  * Build markdown for the political STRIDE threat assessment.
@@ -254,9 +264,10 @@ Analysis of competing political forces shaping the current legislative agenda.
  * @returns Markdown content string
  */
 function buildPoliticalStrideMarkdown(_fetchedData, date) {
-    const header = buildMarkdownHeader('political-stride', date, 'medium');
-    return (header +
-        `# Political STRIDE Threat Assessment
+  const header = buildMarkdownHeader('political-stride', date, 'medium');
+  return (
+    header +
+    `# Political STRIDE Threat Assessment
 
 ## Overview
 STRIDE-adapted threat assessment for the political intelligence context.
@@ -272,7 +283,8 @@ STRIDE-adapted threat assessment for the political intelligence context.
 | **E**rosion | Gradual erosion of democratic safeguards | — |
 
 ## Assessment Date: ${date}
-`);
+`
+  );
 }
 /**
  * Build markdown for actor threat profiling.
@@ -282,9 +294,10 @@ STRIDE-adapted threat assessment for the political intelligence context.
  * @returns Markdown content string
  */
 function buildActorThreatProfilingMarkdown(fetchedData, date) {
-    const header = buildMarkdownHeader('actor-threat-profiling', date, 'low');
-    return (header +
-        `# Actor Threat Profiles
+  const header = buildMarkdownHeader('actor-threat-profiling', date, 'low');
+  return (
+    header +
+    `# Actor Threat Profiles
 
 ## Overview
 Individual threat profiles for key political actors in the European Parliament.
@@ -298,7 +311,8 @@ Each actor profile includes:
 
 ## Date: ${date}
 - **Data sources**: ${Object.keys(fetchedData).join(', ')}
-`);
+`
+  );
 }
 /**
  * Build markdown for consequence tree analysis.
@@ -308,9 +322,10 @@ Each actor profile includes:
  * @returns Markdown content string
  */
 function buildConsequenceTreesMarkdown(_fetchedData, date) {
-    const header = buildMarkdownHeader('consequence-trees', date, 'medium');
-    return (header +
-        `# Consequence Tree Analysis
+  const header = buildMarkdownHeader('consequence-trees', date, 'medium');
+  return (
+    header +
+    `# Consequence Tree Analysis
 
 ## Overview
 Structured analysis of action-consequence chains for key legislative decisions.
@@ -329,7 +344,8 @@ Legislative Decision
 \`\`\`
 
 ## Date: ${date}
-`);
+`
+  );
 }
 /**
  * Build markdown for legislative disruption analysis.
@@ -339,9 +355,10 @@ Legislative Decision
  * @returns Markdown content string
  */
 function buildLegislativeDisruptionMarkdown(_fetchedData, date) {
-    const header = buildMarkdownHeader('legislative-disruption', date, 'medium');
-    return (header +
-        `# Legislative Disruption Analysis
+  const header = buildMarkdownHeader('legislative-disruption', date, 'medium');
+  return (
+    header +
+    `# Legislative Disruption Analysis
 
 ## Overview
 Identification of factors disrupting the normal legislative process.
@@ -355,7 +372,8 @@ Identification of factors disrupting the normal legislative process.
 | Institutional conflicts | — | — |
 
 ## Date: ${date}
-`);
+`
+  );
 }
 /**
  * Build markdown for the risk scoring matrix.
@@ -365,9 +383,10 @@ Identification of factors disrupting the normal legislative process.
  * @returns Markdown content string
  */
 function buildRiskMatrixMarkdown(_fetchedData, date) {
-    const header = buildMarkdownHeader('risk-matrix', date, 'medium');
-    return (header +
-        `# Political Risk Scoring Matrix
+  const header = buildMarkdownHeader('risk-matrix', date, 'medium');
+  return (
+    header +
+    `# Political Risk Scoring Matrix
 
 ## Overview
 Quantitative risk scoring across political dimensions.
@@ -383,7 +402,8 @@ Quantitative risk scoring across political dimensions.
 > Risk Score = Likelihood × Impact. Levels: LOW (≤1.0), MEDIUM (≤2.0), HIGH (≤3.5), CRITICAL (>3.5)
 
 ## Date: ${date}
-`);
+`
+  );
 }
 /**
  * Build markdown for political capital at risk analysis.
@@ -393,9 +413,10 @@ Quantitative risk scoring across political dimensions.
  * @returns Markdown content string
  */
 function buildPoliticalCapitalRiskMarkdown(_fetchedData, date) {
-    const header = buildMarkdownHeader('political-capital-risk', date, 'medium');
-    return (header +
-        `# Political Capital at Risk
+  const header = buildMarkdownHeader('political-capital-risk', date, 'medium');
+  return (
+    header +
+    `# Political Capital at Risk
 
 ## Overview
 Assessment of political capital at stake in current legislative proceedings.
@@ -408,7 +429,8 @@ Assessment of political capital at stake in current legislative proceedings.
 | Renew | — | — | — |
 
 ## Date: ${date}
-`);
+`
+  );
 }
 /**
  * Build markdown for the quantitative SWOT analysis.
@@ -418,9 +440,10 @@ Assessment of political capital at stake in current legislative proceedings.
  * @returns Markdown content string
  */
 function buildQuantitativeSwotMarkdown(_fetchedData, date) {
-    const header = buildMarkdownHeader('quantitative-swot', date, 'medium');
-    return (header +
-        `# Quantitative SWOT Analysis
+  const header = buildMarkdownHeader('quantitative-swot', date, 'medium');
+  return (
+    header +
+    `# Quantitative SWOT Analysis
 
 ## Overview
 Scored SWOT analysis with quantitative confidence indicators.
@@ -434,7 +457,8 @@ Scored SWOT analysis with quantitative confidence indicators.
 | Threats | — | — | — |
 
 ## Date: ${date}
-`);
+`
+  );
 }
 /**
  * Build markdown for legislative velocity risk analysis.
@@ -444,9 +468,10 @@ Scored SWOT analysis with quantitative confidence indicators.
  * @returns Markdown content string
  */
 function buildLegislativeVelocityRiskMarkdown(_fetchedData, date) {
-    const header = buildMarkdownHeader('legislative-velocity-risk', date, 'medium');
-    return (header +
-        `# Legislative Velocity Risk
+  const header = buildMarkdownHeader('legislative-velocity-risk', date, 'medium');
+  return (
+    header +
+    `# Legislative Velocity Risk
 
 ## Overview
 Risk assessment based on the speed of legislative processing.
@@ -460,7 +485,8 @@ Risk assessment based on the speed of legislative processing.
 | Stalled procedure rate | — | — |
 
 ## Date: ${date}
-`);
+`
+  );
 }
 /**
  * Build markdown for the agent risk assessment workflow.
@@ -470,9 +496,10 @@ Risk assessment based on the speed of legislative processing.
  * @returns Markdown content string
  */
 function buildAgentRiskWorkflowMarkdown(_fetchedData, date) {
-    const header = buildMarkdownHeader('agent-risk-workflow', date, 'medium');
-    return (header +
-        `# Agent Risk Assessment Workflow
+  const header = buildMarkdownHeader('agent-risk-workflow', date, 'medium');
+  return (
+    header +
+    `# Agent Risk Assessment Workflow
 
 ## Overview
 AI agent-driven risk assessment workflow following ISMS methodology.
@@ -487,7 +514,8 @@ AI agent-driven risk assessment workflow following ISMS methodology.
 
 ## Date: ${date}
 - **Inspired by**: [ISMS AI Agent-Driven Risk Assessment](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md)
-`);
+`
+  );
 }
 /**
  * Build markdown for the deep multi-perspective analysis.
@@ -498,15 +526,19 @@ AI agent-driven risk assessment workflow following ISMS methodology.
  * @returns Markdown content string
  */
 function buildDeepAnalysisMarkdown(fetchedData, date) {
-    const header = buildMarkdownHeader('deep-analysis', date, 'high');
-    const events = Array.isArray(fetchedData['events']) ? fetchedData['events'] : [];
-    const topic = `European Parliament activity for ${date}`;
-    const perspectives = buildDefaultStakeholderPerspectives(topic);
-    const perspectivesText = perspectives
-        .map((p) => `### ${p.stakeholder.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}\n- **Impact**: ${p.impact}\n- **Severity**: ${p.severity}\n- **Reasoning**: ${p.reasoning}`)
-        .join('\n\n');
-    return (header +
-        `# Deep Multi-Perspective Analysis
+  const header = buildMarkdownHeader('deep-analysis', date, 'high');
+  const events = Array.isArray(fetchedData['events']) ? fetchedData['events'] : [];
+  const topic = `European Parliament activity for ${date}`;
+  const perspectives = buildDefaultStakeholderPerspectives(topic);
+  const perspectivesText = perspectives
+    .map(
+      (p) =>
+        `### ${p.stakeholder.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}\n- **Impact**: ${p.impact}\n- **Severity**: ${p.severity}\n- **Reasoning**: ${p.reasoning}`
+    )
+    .join('\n\n');
+  return (
+    header +
+    `# Deep Multi-Perspective Analysis
 
 ## Overview
 Comprehensive multi-stakeholder analysis of European Parliament activities.
@@ -522,7 +554,8 @@ ${perspectivesText}
 ## Key Findings
 - Cross-cutting analysis across all major stakeholder groups completed
 - Impact assessments derived from available parliamentary data
-`);
+`
+  );
 }
 /**
  * Build markdown for the stakeholder impact analysis.
@@ -533,21 +566,27 @@ ${perspectivesText}
  * @returns Markdown content string
  */
 function buildStakeholderAnalysisMarkdown(fetchedData, date) {
-    const header = buildMarkdownHeader('stakeholder-analysis', date, 'high');
-    const actions = ['Legislative proceedings', 'Committee activity', 'Plenary decisions'];
-    const matrices = actions.map((action) => buildStakeholderOutcomeMatrix(action, {
-        political_groups: 0.7,
-        civil_society: 0.6,
-        industry: 0.5,
-        national_govts: 0.6,
-        citizens: 0.5,
-        eu_institutions: 0.8,
-    }));
-    const tableRows = matrices
-        .map((m) => `| ${m.action} | ${m.outcomes['political_groups']} | ${m.outcomes['civil_society']} | ${m.outcomes['industry']} | ${m.outcomes['national_govts']} | ${m.outcomes['citizens']} | ${m.outcomes['eu_institutions']} | ${m.confidence} |`)
-        .join('\n');
-    return (header +
-        `# Stakeholder Impact Analysis
+  const header = buildMarkdownHeader('stakeholder-analysis', date, 'high');
+  const actions = ['Legislative proceedings', 'Committee activity', 'Plenary decisions'];
+  const matrices = actions.map((action) =>
+    buildStakeholderOutcomeMatrix(action, {
+      political_groups: 0.7,
+      civil_society: 0.6,
+      industry: 0.5,
+      national_govts: 0.6,
+      citizens: 0.5,
+      eu_institutions: 0.8,
+    })
+  );
+  const tableRows = matrices
+    .map(
+      (m) =>
+        `| ${m.action} | ${m.outcomes['political_groups']} | ${m.outcomes['civil_society']} | ${m.outcomes['industry']} | ${m.outcomes['national_govts']} | ${m.outcomes['citizens']} | ${m.outcomes['eu_institutions']} | ${m.confidence} |`
+    )
+    .join('\n');
+  return (
+    header +
+    `# Stakeholder Impact Analysis
 
 ## Overview
 Outcome matrix analysis for key parliamentary actions.
@@ -559,7 +598,8 @@ ${tableRows}
 
 ## Date: ${date}
 - **Data sources used**: ${Object.keys(fetchedData).join(', ')}
-`);
+`
+  );
 }
 /**
  * Build markdown for coalition cohesion analysis.
@@ -570,14 +610,15 @@ ${tableRows}
  * @returns Markdown content string
  */
 function buildCoalitionAnalysisMarkdown(fetchedData, date) {
-    const header = buildMarkdownHeader('coalition-analysis', date, 'high');
-    const rawPatterns = Array.isArray(fetchedData['patterns']) ? fetchedData['patterns'] : [];
-    // VotingPattern[] data doesn't contain the `coalitionId`/`id` fields required
-    // by analyzeCoalitionCohesion().  Use computeCrossSessionCoalitionStability()
-    // instead — it is designed to aggregate cohesion across VotingPattern arrays.
-    const stabilityReport = computeCrossSessionCoalitionStability(rawPatterns);
-    return (header +
-        `# Coalition Cohesion Analysis
+  const header = buildMarkdownHeader('coalition-analysis', date, 'high');
+  const rawPatterns = Array.isArray(fetchedData['patterns']) ? fetchedData['patterns'] : [];
+  // VotingPattern[] data doesn't contain the `coalitionId`/`id` fields required
+  // by analyzeCoalitionCohesion().  Use computeCrossSessionCoalitionStability()
+  // instead — it is designed to aggregate cohesion across VotingPattern arrays.
+  const stabilityReport = computeCrossSessionCoalitionStability(rawPatterns);
+  return (
+    header +
+    `# Coalition Cohesion Analysis
 
 ## Overview
 Analysis of political group cohesion and coalition dynamics.
@@ -595,7 +636,8 @@ Analysis of political group cohesion and coalition dynamics.
 - **Patterns Evaluated**: ${rawPatterns.length}
 
 ## Date: ${date}
-`);
+`
+  );
 }
 /**
  * Build markdown for voting pattern analysis.
@@ -606,17 +648,21 @@ Analysis of political group cohesion and coalition dynamics.
  * @returns Markdown content string
  */
 function buildVotingPatternsMarkdown(fetchedData, date) {
-    const header = buildMarkdownHeader('voting-patterns', date, 'high');
-    // detectVotingTrends accepts readonly VotingRecord[] — pass raw records directly
-    const rawRecords = Array.isArray(fetchedData['votingRecords'])
-        ? fetchedData['votingRecords']
-        : [];
-    const trends = detectVotingTrends(rawRecords);
-    const trendsText = trends
-        .map((t) => `| ${t.trendId} | ${t.direction} | ${(t.confidence * 100).toFixed(0)}% | ${t.recordCount} records |`)
-        .join('\n');
-    return (header +
-        `# Voting Pattern Analysis
+  const header = buildMarkdownHeader('voting-patterns', date, 'high');
+  // detectVotingTrends accepts readonly VotingRecord[] — pass raw records directly
+  const rawRecords = Array.isArray(fetchedData['votingRecords'])
+    ? fetchedData['votingRecords']
+    : [];
+  const trends = detectVotingTrends(rawRecords);
+  const trendsText = trends
+    .map(
+      (t) =>
+        `| ${t.trendId} | ${t.direction} | ${(t.confidence * 100).toFixed(0)}% | ${t.recordCount} records |`
+    )
+    .join('\n');
+  return (
+    header +
+    `# Voting Pattern Analysis
 
 ## Overview
 Detection and analysis of voting trends across European Parliament proceedings.
@@ -630,7 +676,8 @@ ${trendsText || '| No trend data available | — | — | — |'}
 - **Trends identified**: ${trends.length}
 - **Records analysed**: ${rawRecords.length}
 - **Date**: ${date}
-`);
+`
+  );
 }
 /**
  * Build markdown for cross-session intelligence analysis.
@@ -641,12 +688,13 @@ ${trendsText || '| No trend data available | — | — | — |'}
  * @returns Markdown content string
  */
 function buildCrossSessionIntelligenceMarkdown(fetchedData, date) {
-    const header = buildMarkdownHeader('cross-session-intelligence', date, 'high');
-    const rawPatterns = Array.isArray(fetchedData['patterns']) ? fetchedData['patterns'] : [];
-    // computeCrossSessionCoalitionStability accepts readonly VotingPattern[]
-    const stabilityReport = computeCrossSessionCoalitionStability(rawPatterns);
-    return (header +
-        `# Cross-Session Coalition Intelligence
+  const header = buildMarkdownHeader('cross-session-intelligence', date, 'high');
+  const rawPatterns = Array.isArray(fetchedData['patterns']) ? fetchedData['patterns'] : [];
+  // computeCrossSessionCoalitionStability accepts readonly VotingPattern[]
+  const stabilityReport = computeCrossSessionCoalitionStability(rawPatterns);
+  return (
+    header +
+    `# Cross-Session Coalition Intelligence
 
 ## Overview
 Analysis of coalition stability patterns across multiple plenary sessions.
@@ -661,28 +709,29 @@ Analysis of coalition stability patterns across multiple plenary sessions.
 - **Declining Groups**: ${stabilityReport.decliningGroups.length > 0 ? stabilityReport.decliningGroups.join(', ') : 'None identified'}
 
 ## Date: ${date}
-`);
+`
+  );
 }
 /** Map from AnalysisMethod to its markdown builder function */
 const METHOD_BUILDERS = {
-    'significance-classification': buildSignificanceClassificationMarkdown,
-    'impact-matrix': buildImpactMatrixMarkdown,
-    'actor-mapping': buildActorMappingMarkdown,
-    'forces-analysis': buildForcesAnalysisMarkdown,
-    'political-stride': buildPoliticalStrideMarkdown,
-    'actor-threat-profiling': buildActorThreatProfilingMarkdown,
-    'consequence-trees': buildConsequenceTreesMarkdown,
-    'legislative-disruption': buildLegislativeDisruptionMarkdown,
-    'risk-matrix': buildRiskMatrixMarkdown,
-    'political-capital-risk': buildPoliticalCapitalRiskMarkdown,
-    'quantitative-swot': buildQuantitativeSwotMarkdown,
-    'legislative-velocity-risk': buildLegislativeVelocityRiskMarkdown,
-    'agent-risk-workflow': buildAgentRiskWorkflowMarkdown,
-    'deep-analysis': buildDeepAnalysisMarkdown,
-    'stakeholder-analysis': buildStakeholderAnalysisMarkdown,
-    'coalition-analysis': buildCoalitionAnalysisMarkdown,
-    'voting-patterns': buildVotingPatternsMarkdown,
-    'cross-session-intelligence': buildCrossSessionIntelligenceMarkdown,
+  'significance-classification': buildSignificanceClassificationMarkdown,
+  'impact-matrix': buildImpactMatrixMarkdown,
+  'actor-mapping': buildActorMappingMarkdown,
+  'forces-analysis': buildForcesAnalysisMarkdown,
+  'political-stride': buildPoliticalStrideMarkdown,
+  'actor-threat-profiling': buildActorThreatProfilingMarkdown,
+  'consequence-trees': buildConsequenceTreesMarkdown,
+  'legislative-disruption': buildLegislativeDisruptionMarkdown,
+  'risk-matrix': buildRiskMatrixMarkdown,
+  'political-capital-risk': buildPoliticalCapitalRiskMarkdown,
+  'quantitative-swot': buildQuantitativeSwotMarkdown,
+  'legislative-velocity-risk': buildLegislativeVelocityRiskMarkdown,
+  'agent-risk-workflow': buildAgentRiskWorkflowMarkdown,
+  'deep-analysis': buildDeepAnalysisMarkdown,
+  'stakeholder-analysis': buildStakeholderAnalysisMarkdown,
+  'coalition-analysis': buildCoalitionAnalysisMarkdown,
+  'voting-patterns': buildVotingPatternsMarkdown,
+  'cross-session-intelligence': buildCrossSessionIntelligenceMarkdown,
 };
 // ─── Method subdir constants ──────────────────────────────────────────────────
 /** Subdirectory name for classification analysis methods */
@@ -695,66 +744,66 @@ const SUBDIR_RISK_SCORING = 'risk-scoring';
 const SUBDIR_EXISTING = 'existing';
 /** Subdirectory for each analysis method group */
 const METHOD_SUBDIRS = {
-    'significance-classification': SUBDIR_CLASSIFICATION,
-    'impact-matrix': SUBDIR_CLASSIFICATION,
-    'actor-mapping': SUBDIR_CLASSIFICATION,
-    'forces-analysis': SUBDIR_CLASSIFICATION,
-    'political-stride': SUBDIR_THREAT_ASSESSMENT,
-    'actor-threat-profiling': SUBDIR_THREAT_ASSESSMENT,
-    'consequence-trees': SUBDIR_THREAT_ASSESSMENT,
-    'legislative-disruption': SUBDIR_THREAT_ASSESSMENT,
-    'risk-matrix': SUBDIR_RISK_SCORING,
-    'political-capital-risk': SUBDIR_RISK_SCORING,
-    'quantitative-swot': SUBDIR_RISK_SCORING,
-    'legislative-velocity-risk': SUBDIR_RISK_SCORING,
-    'agent-risk-workflow': SUBDIR_RISK_SCORING,
-    'deep-analysis': SUBDIR_EXISTING,
-    'stakeholder-analysis': SUBDIR_EXISTING,
-    'coalition-analysis': SUBDIR_EXISTING,
-    'voting-patterns': SUBDIR_EXISTING,
-    'cross-session-intelligence': SUBDIR_EXISTING,
+  'significance-classification': SUBDIR_CLASSIFICATION,
+  'impact-matrix': SUBDIR_CLASSIFICATION,
+  'actor-mapping': SUBDIR_CLASSIFICATION,
+  'forces-analysis': SUBDIR_CLASSIFICATION,
+  'political-stride': SUBDIR_THREAT_ASSESSMENT,
+  'actor-threat-profiling': SUBDIR_THREAT_ASSESSMENT,
+  'consequence-trees': SUBDIR_THREAT_ASSESSMENT,
+  'legislative-disruption': SUBDIR_THREAT_ASSESSMENT,
+  'risk-matrix': SUBDIR_RISK_SCORING,
+  'political-capital-risk': SUBDIR_RISK_SCORING,
+  'quantitative-swot': SUBDIR_RISK_SCORING,
+  'legislative-velocity-risk': SUBDIR_RISK_SCORING,
+  'agent-risk-workflow': SUBDIR_RISK_SCORING,
+  'deep-analysis': SUBDIR_EXISTING,
+  'stakeholder-analysis': SUBDIR_EXISTING,
+  'coalition-analysis': SUBDIR_EXISTING,
+  'voting-patterns': SUBDIR_EXISTING,
+  'cross-session-intelligence': SUBDIR_EXISTING,
 };
 /** Default confidence level for each analysis method group */
 const METHOD_DEFAULT_CONFIDENCE = {
-    'significance-classification': 'medium',
-    'impact-matrix': 'medium',
-    'actor-mapping': 'medium',
-    'forces-analysis': 'medium',
-    'political-stride': 'medium',
-    'actor-threat-profiling': 'low',
-    'consequence-trees': 'medium',
-    'legislative-disruption': 'medium',
-    'risk-matrix': 'medium',
-    'political-capital-risk': 'medium',
-    'quantitative-swot': 'medium',
-    'legislative-velocity-risk': 'medium',
-    'agent-risk-workflow': 'medium',
-    'deep-analysis': 'high',
-    'stakeholder-analysis': 'high',
-    'coalition-analysis': 'high',
-    'voting-patterns': 'high',
-    'cross-session-intelligence': 'high',
+  'significance-classification': 'medium',
+  'impact-matrix': 'medium',
+  'actor-mapping': 'medium',
+  'forces-analysis': 'medium',
+  'political-stride': 'medium',
+  'actor-threat-profiling': 'low',
+  'consequence-trees': 'medium',
+  'legislative-disruption': 'medium',
+  'risk-matrix': 'medium',
+  'political-capital-risk': 'medium',
+  'quantitative-swot': 'medium',
+  'legislative-velocity-risk': 'medium',
+  'agent-risk-workflow': 'medium',
+  'deep-analysis': 'high',
+  'stakeholder-analysis': 'high',
+  'coalition-analysis': 'high',
+  'voting-patterns': 'high',
+  'cross-session-intelligence': 'high',
 };
 /** Filename for each analysis method */
 const METHOD_FILENAMES = {
-    'significance-classification': 'significance-assessment.md',
-    'impact-matrix': 'impact-matrix.md',
-    'actor-mapping': 'actor-mapping.md',
-    'forces-analysis': 'forces-analysis.md',
-    'political-stride': 'political-stride-assessment.md',
-    'actor-threat-profiling': 'actor-threat-profiles.md',
-    'consequence-trees': 'consequence-trees.md',
-    'legislative-disruption': 'legislative-disruption.md',
-    'risk-matrix': 'risk-matrix.md',
-    'political-capital-risk': 'political-capital-risk.md',
-    'quantitative-swot': 'quantitative-swot.md',
-    'legislative-velocity-risk': 'legislative-velocity-risk.md',
-    'agent-risk-workflow': 'agent-risk-workflow.md',
-    'deep-analysis': 'deep-analysis.md',
-    'stakeholder-analysis': 'stakeholder-analysis.md',
-    'coalition-analysis': 'coalition-analysis.md',
-    'voting-patterns': 'voting-patterns.md',
-    'cross-session-intelligence': 'cross-session-intelligence.md',
+  'significance-classification': 'significance-assessment.md',
+  'impact-matrix': 'impact-matrix.md',
+  'actor-mapping': 'actor-mapping.md',
+  'forces-analysis': 'forces-analysis.md',
+  'political-stride': 'political-stride-assessment.md',
+  'actor-threat-profiling': 'actor-threat-profiles.md',
+  'consequence-trees': 'consequence-trees.md',
+  'legislative-disruption': 'legislative-disruption.md',
+  'risk-matrix': 'risk-matrix.md',
+  'political-capital-risk': 'political-capital-risk.md',
+  'quantitative-swot': 'quantitative-swot.md',
+  'legislative-velocity-risk': 'legislative-velocity-risk.md',
+  'agent-risk-workflow': 'agent-risk-workflow.md',
+  'deep-analysis': 'deep-analysis.md',
+  'stakeholder-analysis': 'stakeholder-analysis.md',
+  'coalition-analysis': 'coalition-analysis.md',
+  'voting-patterns': 'voting-patterns.md',
+  'cross-session-intelligence': 'cross-session-intelligence.md',
 };
 // ─── Core runner ──────────────────────────────────────────────────────────────
 /**
@@ -771,55 +820,53 @@ const METHOD_FILENAMES = {
  * @returns Status record for the method
  */
 function runSingleMethod(method, fetchedData, date, dateOutputDir, skipCompleted, verbose) {
-    const subdir = METHOD_SUBDIRS[method];
-    const filename = METHOD_FILENAMES[method];
-    const absolutePath = path.join(dateOutputDir, subdir, filename);
-    // Store a portable relative path (relative to the date-scoped output dir)
-    // in the manifest to avoid exposing runner/local filesystem layout.
-    const relativeOutputFile = path.posix.join(subdir, filename);
-    const confidence = METHOD_DEFAULT_CONFIDENCE[method];
-    if (skipCompleted && methodOutputExists(absolutePath)) {
-        if (verbose)
-            console.log(`  ⏭️  [analysis] Skipping already-completed method: ${method}`);
-        return {
-            method,
-            status: 'skipped',
-            outputFile: relativeOutputFile,
-            confidence,
-            duration: 0,
-            summary: `Skipped — output already exists at ${relativeOutputFile}`,
-        };
-    }
-    const start = Date.now();
-    try {
-        const builder = METHOD_BUILDERS[method];
-        const markdown = builder(fetchedData, date);
-        writeTextFile(absolutePath, markdown);
-        const duration = Date.now() - start;
-        if (verbose)
-            console.log(`  ✅ [analysis] ${method} completed in ${duration}ms → ${relativeOutputFile}`);
-        return {
-            method,
-            status: 'completed',
-            outputFile: relativeOutputFile,
-            confidence,
-            duration,
-            summary: `${method} analysis completed successfully`,
-        };
-    }
-    catch (err) {
-        const duration = Date.now() - start;
-        const message = err instanceof Error ? err.message : String(err);
-        console.error(`  ❌ [analysis] ${method} failed: ${message}`);
-        return {
-            method,
-            status: 'failed',
-            outputFile: relativeOutputFile,
-            confidence: 'low',
-            duration,
-            summary: `${method} failed: ${message}`,
-        };
-    }
+  const subdir = METHOD_SUBDIRS[method];
+  const filename = METHOD_FILENAMES[method];
+  const absolutePath = path.join(dateOutputDir, subdir, filename);
+  // Store a portable relative path (relative to the date-scoped output dir)
+  // in the manifest to avoid exposing runner/local filesystem layout.
+  const relativeOutputFile = path.posix.join(subdir, filename);
+  const confidence = METHOD_DEFAULT_CONFIDENCE[method];
+  if (skipCompleted && methodOutputExists(absolutePath)) {
+    if (verbose) console.log(`  ⏭️  [analysis] Skipping already-completed method: ${method}`);
+    return {
+      method,
+      status: 'skipped',
+      outputFile: relativeOutputFile,
+      confidence,
+      duration: 0,
+      summary: `Skipped — output already exists at ${relativeOutputFile}`,
+    };
+  }
+  const start = Date.now();
+  try {
+    const builder = METHOD_BUILDERS[method];
+    const markdown = builder(fetchedData, date);
+    writeTextFile(absolutePath, markdown);
+    const duration = Date.now() - start;
+    if (verbose)
+      console.log(`  ✅ [analysis] ${method} completed in ${duration}ms → ${relativeOutputFile}`);
+    return {
+      method,
+      status: 'completed',
+      outputFile: relativeOutputFile,
+      confidence,
+      duration,
+      summary: `${method} analysis completed successfully`,
+    };
+  } catch (err) {
+    const duration = Date.now() - start;
+    const message = err instanceof Error ? err.message : String(err);
+    console.error(`  ❌ [analysis] ${method} failed: ${message}`);
+    return {
+      method,
+      status: 'failed',
+      outputFile: relativeOutputFile,
+      confidence: 'low',
+      duration,
+      summary: `${method} failed: ${message}`,
+    };
+  }
 }
 // ─── Public API ───────────────────────────────────────────────────────────────
 /**
@@ -845,63 +892,81 @@ function runSingleMethod(method, fetchedData, date, dateOutputDir, skipCompleted
  * ```
  */
 export async function runAnalysisStage(fetchedData, options) {
-    const { articleTypes, date, outputDir, enabledMethods = ALL_ANALYSIS_METHODS, skipCompleted = true, verbose = false, } = options;
-    // Validate date to prevent path traversal (e.g. "../../.." escaping outputDir)
-    if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
-        throw new Error(`Invalid analysis date "${date}": must match YYYY-MM-DD format`);
-    }
-    // Deduplicate enabledMethods (preserving order) so programmatic callers
-    // that accidentally pass duplicates don't run the same method twice.
-    const deduplicatedMethods = [...new Set(enabledMethods)];
-    const startTime = new Date().toISOString();
-    const runId = randomUUID();
-    const dateOutputDir = path.resolve(outputDir, date);
-    if (verbose) {
-        console.log(`🔬 [analysis] Starting analysis stage (runId: ${runId})`);
-        console.log(`   Date: ${date}`);
-        console.log(`   Methods: ${deduplicatedMethods.length}`);
-        console.log(`   Output: ${dateOutputDir}`);
-    }
-    ensureDirectoryExists(dateOutputDir);
-    // Run all enabled methods sequentially; isolate failures
-    const methodResults = [];
-    for (const method of deduplicatedMethods) {
-        const result = runSingleMethod(method, fetchedData, date, dateOutputDir, skipCompleted, verbose);
-        methodResults.push(result);
-    }
-    const endTime = new Date().toISOString();
-    const overallConfidence = aggregateConfidence(methodResults);
-    const dataSourcesUsed = Object.keys(fetchedData).filter((k) => Array.isArray(fetchedData[k]) && fetchedData[k].length > 0);
-    const manifest = {
-        runId,
-        date,
-        startTime,
-        endTime,
-        articleTypes: [...articleTypes],
-        methods: methodResults,
-        overallConfidence,
-        dataSourcesUsed,
-    };
-    // Write manifest.json
-    const manifestPath = path.join(dateOutputDir, 'manifest.json');
-    writeTextFile(manifestPath, JSON.stringify(manifest, null, 2));
-    if (verbose) {
-        const completed = methodResults.filter((r) => r.status === 'completed').length;
-        const skipped = methodResults.filter((r) => r.status === 'skipped').length;
-        const failed = methodResults.filter((r) => r.status === 'failed').length;
-        console.log(`🔬 [analysis] Stage complete: ${completed} completed, ${skipped} skipped, ${failed} failed`);
-        console.log(`   Overall confidence: ${overallConfidence}`);
-    }
-    const completedMethods = methodResults
-        .filter((r) => r.status === 'completed' || r.status === 'skipped')
-        .map((r) => r.method);
-    const resultsMap = new Map(methodResults.map((r) => [r.method, r]));
-    return {
-        date,
-        outputDir: dateOutputDir,
-        completedMethods,
-        results: resultsMap,
-        manifest,
-    };
+  const {
+    articleTypes,
+    date,
+    outputDir,
+    enabledMethods = ALL_ANALYSIS_METHODS,
+    skipCompleted = true,
+    verbose = false,
+  } = options;
+  // Validate date to prevent path traversal (e.g. "../../.." escaping outputDir)
+  if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
+    throw new Error(`Invalid analysis date "${date}": must match YYYY-MM-DD format`);
+  }
+  // Deduplicate enabledMethods (preserving order) so programmatic callers
+  // that accidentally pass duplicates don't run the same method twice.
+  const deduplicatedMethods = [...new Set(enabledMethods)];
+  const startTime = new Date().toISOString();
+  const runId = randomUUID();
+  const dateOutputDir = path.resolve(outputDir, date);
+  if (verbose) {
+    console.log(`🔬 [analysis] Starting analysis stage (runId: ${runId})`);
+    console.log(`   Date: ${date}`);
+    console.log(`   Methods: ${deduplicatedMethods.length}`);
+    console.log(`   Output: ${dateOutputDir}`);
+  }
+  ensureDirectoryExists(dateOutputDir);
+  // Run all enabled methods sequentially; isolate failures
+  const methodResults = [];
+  for (const method of deduplicatedMethods) {
+    const result = runSingleMethod(
+      method,
+      fetchedData,
+      date,
+      dateOutputDir,
+      skipCompleted,
+      verbose
+    );
+    methodResults.push(result);
+  }
+  const endTime = new Date().toISOString();
+  const overallConfidence = aggregateConfidence(methodResults);
+  const dataSourcesUsed = Object.keys(fetchedData).filter(
+    (k) => Array.isArray(fetchedData[k]) && fetchedData[k].length > 0
+  );
+  const manifest = {
+    runId,
+    date,
+    startTime,
+    endTime,
+    articleTypes: [...articleTypes],
+    methods: methodResults,
+    overallConfidence,
+    dataSourcesUsed,
+  };
+  // Write manifest.json
+  const manifestPath = path.join(dateOutputDir, 'manifest.json');
+  writeTextFile(manifestPath, JSON.stringify(manifest, null, 2));
+  if (verbose) {
+    const completed = methodResults.filter((r) => r.status === 'completed').length;
+    const skipped = methodResults.filter((r) => r.status === 'skipped').length;
+    const failed = methodResults.filter((r) => r.status === 'failed').length;
+    console.log(
+      `🔬 [analysis] Stage complete: ${completed} completed, ${skipped} skipped, ${failed} failed`
+    );
+    console.log(`   Overall confidence: ${overallConfidence}`);
+  }
+  const completedMethods = methodResults
+    .filter((r) => r.status === 'completed' || r.status === 'skipped')
+    .map((r) => r.method);
+  const resultsMap = new Map(methodResults.map((r) => [r.method, r]));
+  return {
+    date,
+    outputDir: dateOutputDir,
+    completedMethods,
+    results: resultsMap,
+    manifest,
+  };
 }
 //# sourceMappingURL=analysis-stage.js.map

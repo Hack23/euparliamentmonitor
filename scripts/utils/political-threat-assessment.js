@@ -1,7 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-// @generated This file is generated from src/utils/political-threat-assessment.ts. DO NOT EDIT.
-// To modify behavior, update the TypeScript source and regenerate this file via the build/CI pipeline.
+// NOTE: This file is compiled to scripts/utils/political-threat-assessment.js. DO NOT EDIT the compiled output directly.
 // ─── Constants ─────────────────────────────────────────────────────────────────
 /** All Political STRIDE categories in canonical order */
 const ALL_STRIDE_CATEGORIES = [
