@@ -31,81 +31,53 @@ const GRADE_D_MIN = 25;
 // ─── Analysis-depth keyword sets ─────────────────────────────────────────────
 /** Keywords indicating political context discussion */
 const POLITICAL_CONTEXT_KEYWORDS = [
-    'political',
-    'coalition',
-    'majority',
-    'opposition',
-    'parliament',
+  'political',
+  'coalition',
+  'majority',
+  'opposition',
+  'parliament',
 ];
 /** Keywords indicating coalition-dynamics analysis */
-const COALITION_DYNAMICS_KEYWORDS = [
-    'coalition',
-    'alliance',
-    'EPP',
-    'S&D',
-    'Renew',
-    'Greens',
-];
+const COALITION_DYNAMICS_KEYWORDS = ['coalition', 'alliance', 'EPP', 'S&D', 'Renew', 'Greens'];
 /** Keywords indicating historical context */
-const HISTORICAL_CONTEXT_KEYWORDS = [
-    'historically',
-    'since 2019',
-    'previous term',
-    'compared to',
-];
+const HISTORICAL_CONTEXT_KEYWORDS = ['historically', 'since 2019', 'previous term', 'compared to'];
 /** Keywords indicating evidence-based reasoning */
-const EVIDENCE_BASED_KEYWORDS = [
-    'according to',
-    'data shows',
-    'evidence suggests',
-    'figures',
-];
+const EVIDENCE_BASED_KEYWORDS = ['according to', 'data shows', 'evidence suggests', 'figures'];
 /** Keywords indicating scenario planning or projections */
-const SCENARIO_PLANNING_KEYWORDS = [
-    'if ',
-    'could',
-    'scenario',
-    'projection',
-    'forecast',
-];
+const SCENARIO_PLANNING_KEYWORDS = ['if ', 'could', 'scenario', 'projection', 'forecast'];
 /** Keywords indicating stated confidence levels */
-const CONFIDENCE_LEVEL_KEYWORDS = [
-    'likely',
-    'probably',
-    'uncertain',
-    'confidence',
-];
+const CONFIDENCE_LEVEL_KEYWORDS = ['likely', 'probably', 'uncertain', 'confidence'];
 // ─── Stakeholder detection sets ───────────────────────────────────────────────
 /** All known stakeholder categories and their keyword signals */
 const STAKEHOLDER_KEYWORDS = [
-    { name: 'MEPs/Parliament', keywords: ['MEP', 'parliament', 'parliamentarian', 'deputy'] },
-    {
-        name: 'Commission',
-        keywords: ['Commission', 'commissioner', 'European Commission'],
-    },
-    { name: 'Council', keywords: ['Council', 'presidency', 'member states'] },
-    {
-        name: 'member states/governments',
-        keywords: ['government', 'national', 'member state', 'minister'],
-    },
-    {
-        name: 'civil society/NGOs',
-        keywords: ['civil society', 'NGO', 'non-governmental', 'advocacy'],
-    },
-    {
-        name: 'industry/business',
-        keywords: ['industry', 'business', 'corporate', 'sector', 'company'],
-    },
-    { name: 'citizens', keywords: ['citizen', 'public', 'voter', 'constituent'] },
-    { name: 'media', keywords: ['media', 'press', 'journalist', 'outlet'] },
+  { name: 'MEPs/Parliament', keywords: ['MEP', 'parliament', 'parliamentarian', 'deputy'] },
+  {
+    name: 'Commission',
+    keywords: ['Commission', 'commissioner', 'European Commission'],
+  },
+  { name: 'Council', keywords: ['Council', 'presidency', 'member states'] },
+  {
+    name: 'member states/governments',
+    keywords: ['government', 'national', 'member state', 'minister'],
+  },
+  {
+    name: 'civil society/NGOs',
+    keywords: ['civil society', 'NGO', 'non-governmental', 'advocacy'],
+  },
+  {
+    name: 'industry/business',
+    keywords: ['industry', 'business', 'corporate', 'sector', 'company'],
+  },
+  { name: 'citizens', keywords: ['citizen', 'public', 'voter', 'constituent'] },
+  { name: 'media', keywords: ['media', 'press', 'journalist', 'outlet'] },
 ];
 // ─── Placeholder / generic-phrase patterns ────────────────────────────────────
 /** Patterns indicating vague or un-replaced generic phrases */
 const GENERIC_PHRASE_PATTERNS = [
-    /various committees/iu,
-    /several MEPs/iu,
-    /multiple documents/iu,
-    /some countries/iu,
+  /various committees/iu,
+  /several MEPs/iu,
+  /multiple documents/iu,
+  /some countries/iu,
 ];
 // ─── EP document-reference pattern ───────────────────────────────────────────
 /**
@@ -115,11 +87,11 @@ const GENERIC_PHRASE_PATTERNS = [
  * Excludes broad matches like EU-27 or EEA-32.
  */
 const EP_DOC_PATTERNS = [
-    /\bTA-\d+-\d+-\d+\b/gu, // TA-10-2026-0001 (TA prefix + three numeric segments)
-    /\bPE-\d+\.\d+\b/gu, // PE-123.456 (dotted PE reference)
-    /\bPE-\d+(?!\.\d)\b/gu, // PE-123 (simple PE reference, excludes dotted)
-    /\b[A-C]\d-\d+\b/gu, // A9-0123, B9-0002, C9-0003 (variable-length digits)
-    /\bP\d_TA\(\d{4}\)\d+\b/gu, // P9_TA(2024)0001
+  /\bTA-\d+-\d+-\d+\b/gu, // TA-10-2026-0001 (TA prefix + three numeric segments)
+  /\bPE-\d+\.\d+\b/gu, // PE-123.456 (dotted PE reference)
+  /\bPE-\d+(?!\.\d)\b/gu, // PE-123 (simple PE reference, excludes dotted)
+  /\b[A-C]\d-\d+\b/gu, // A9-0123, B9-0002, C9-0003 (variable-length digits)
+  /\bP\d_TA\(\d{4}\)\d+\b/gu, // P9_TA(2024)0001
 ];
 /** CSS class selector for deep-analysis sections (extracted to avoid duplication) */
 const CLASS_DEEP_ANALYSIS = 'class="deep-analysis"';
@@ -128,13 +100,13 @@ const ARTICLE_DATE_PATTERN = /^(\d{4}-\d{2}-\d{2})/u;
 // ─── HTML entity map ──────────────────────────────────────────────────────────
 /** Common HTML entities to decode when extracting plain text */
 const HTML_ENTITY_MAP = {
-    '&amp;': '&',
-    '&lt;': '<',
-    '&gt;': '>',
-    '&quot;': '"',
-    '&#39;': "'",
-    '&apos;': "'",
-    '&nbsp;': ' ',
+  '&amp;': '&',
+  '&lt;': '<',
+  '&gt;': '>',
+  '&quot;': '"',
+  '&#39;': "'",
+  '&apos;': "'",
+  '&nbsp;': ' ',
 };
 /** Pattern matching named and numeric HTML entities */
 const HTML_ENTITY_PATTERN = /&(?:#(\d+)|#x([0-9a-fA-F]+)|([a-zA-Z]+));/gu;
@@ -148,31 +120,29 @@ const HTML_ENTITY_PATTERN = /&(?:#(\d+)|#x([0-9a-fA-F]+)|([a-zA-Z]+));/gu;
  * @returns Text with entities replaced by their character equivalents
  */
 function decodeHtmlEntities(text) {
-    return text.replace(HTML_ENTITY_PATTERN, (match, decimal, hex, named) => {
-        if (decimal !== undefined) {
-            const cp = parseInt(decimal, 10);
-            try {
-                return String.fromCodePoint(cp);
-            }
-            catch {
-                return match;
-            }
-        }
-        if (hex !== undefined) {
-            const cp = parseInt(hex, 16);
-            try {
-                return String.fromCodePoint(cp);
-            }
-            catch {
-                return match;
-            }
-        }
-        if (named !== undefined) {
-            const key = `&${named};`;
-            return HTML_ENTITY_MAP[key] ?? match;
-        }
+  return text.replace(HTML_ENTITY_PATTERN, (match, decimal, hex, named) => {
+    if (decimal !== undefined) {
+      const cp = parseInt(decimal, 10);
+      try {
+        return String.fromCodePoint(cp);
+      } catch {
         return match;
-    });
+      }
+    }
+    if (hex !== undefined) {
+      const cp = parseInt(hex, 16);
+      try {
+        return String.fromCodePoint(cp);
+      } catch {
+        return match;
+      }
+    }
+    if (named !== undefined) {
+      const key = `&${named};`;
+      return HTML_ENTITY_MAP[key] ?? match;
+    }
+    return match;
+  });
 }
 /**
  * Count non-overlapping occurrences of a CSS class or id string in HTML.
@@ -182,13 +152,13 @@ function decodeHtmlEntities(text) {
  * @returns Number of occurrences found
  */
 function countOccurrences(html, selector) {
-    let count = 0;
-    let index = html.indexOf(selector);
-    while (index !== -1) {
-        count++;
-        index = html.indexOf(selector, index + selector.length);
-    }
-    return count;
+  let count = 0;
+  let index = html.indexOf(selector);
+  while (index !== -1) {
+    count++;
+    index = html.indexOf(selector, index + selector.length);
+  }
+  return count;
 }
 /** Pattern matching all class attribute values in HTML */
 const CLASS_ATTR_PATTERN = /class="([^"]*)"/gu;
@@ -203,15 +173,14 @@ const CLASS_ATTR_PATTERN = /class="([^"]*)"/gu;
  * @returns true if an exact class token match is found
  */
 function hasExactClassToken(html, token) {
-    CLASS_ATTR_PATTERN.lastIndex = 0;
-    let match;
-    while ((match = CLASS_ATTR_PATTERN.exec(html)) !== null) {
-        const value = match[1] ?? '';
-        const classes = value.split(/\s+/);
-        if (classes.includes(token))
-            return true;
-    }
-    return false;
+  CLASS_ATTR_PATTERN.lastIndex = 0;
+  let match;
+  while ((match = CLASS_ATTR_PATTERN.exec(html)) !== null) {
+    const value = match[1] ?? '';
+    const classes = value.split(/\s+/);
+    if (classes.includes(token)) return true;
+  }
+  return false;
 }
 /**
  * Count the number of elements whose `class` attribute contains the given token
@@ -223,16 +192,15 @@ function hasExactClassToken(html, token) {
  * @returns Number of elements with the given class token
  */
 function countExactClassToken(html, token) {
-    CLASS_ATTR_PATTERN.lastIndex = 0;
-    let count = 0;
-    let match;
-    while ((match = CLASS_ATTR_PATTERN.exec(html)) !== null) {
-        const value = match[1] ?? '';
-        const classes = value.split(/\s+/);
-        if (classes.includes(token))
-            count++;
-    }
-    return count;
+  CLASS_ATTR_PATTERN.lastIndex = 0;
+  let count = 0;
+  let match;
+  while ((match = CLASS_ATTR_PATTERN.exec(html)) !== null) {
+    const value = match[1] ?? '';
+    const classes = value.split(/\s+/);
+    if (classes.includes(token)) count++;
+  }
+  return count;
 }
 /**
  * Check whether at least one keyword from a list is present in a text string.
@@ -246,11 +214,11 @@ function countExactClassToken(html, token) {
  * @returns true if any keyword is found
  */
 function containsAnyKeyword(text, keywords) {
-    return keywords.some((kw) => {
-        const escaped = kw.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
-        const pattern = new RegExp(`\\b${escaped}`, 'iu');
-        return pattern.test(text);
-    });
+  return keywords.some((kw) => {
+    const escaped = kw.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+    const pattern = new RegExp(`\\b${escaped}`, 'iu');
+    return pattern.test(text);
+  });
 }
 // stripScriptBlocks is imported from html-sanitize.ts
 /**
@@ -262,26 +230,26 @@ function containsAnyKeyword(text, keywords) {
  * @returns Plain text stripped of tags, scripts, and HTML entities
  */
 function extractPlainText(html) {
-    const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
-    const source = mainMatch?.[1] ?? html;
-    const stripped = stripScriptBlocks(source)
-        .replace(/<[^>]+>/gu, ' ')
-        .replace(/\s+/gu, ' ')
-        .trim();
-    return decodeHtmlEntities(stripped);
+  const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
+  const source = mainMatch?.[1] ?? html;
+  const stripped = stripScriptBlocks(source)
+    .replace(/<[^>]+>/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim();
+  return decodeHtmlEntities(stripped);
 }
 /**
  * Tokens that identify a `<section>` element as analysis content.
  * Non-analysis sections (e.g. `article-sources`, `sitemap-section`) are excluded.
  */
 const ANALYSIS_SECTION_TOKENS = [
-    'analysis',
-    'analysis-section',
-    'deep-analysis',
-    'swot-analysis',
-    'dashboard',
-    'mindmap-section',
-    'sankey-section',
+  'analysis',
+  'analysis-section',
+  'deep-analysis',
+  'swot-analysis',
+  'dashboard',
+  'mindmap-section',
+  'sankey-section',
 ];
 /** Pattern to extract the class attribute value from a single HTML tag */
 const CLASS_VALUE_PATTERN = /class="([^"]*)"/iu;
@@ -295,20 +263,20 @@ const CLASS_VALUE_PATTERN = /class="([^"]*)"/iu;
  * @returns Number of analysis-content sections found
  */
 function countAnalysisSections(html) {
-    const SECTION_TAG = /<section\b[^>]*>/giu;
-    let count = 0;
-    let m;
-    while ((m = SECTION_TAG.exec(html)) !== null) {
-        const tag = m[0];
-        const cv = CLASS_VALUE_PATTERN.exec(tag);
-        if (cv?.[1]) {
-            const tokens = cv[1].split(/\s+/).filter(Boolean);
-            if (tokens.some((t) => ANALYSIS_SECTION_TOKENS.includes(t))) {
-                count++;
-            }
-        }
+  const SECTION_TAG = /<section\b[^>]*>/giu;
+  let count = 0;
+  let m;
+  while ((m = SECTION_TAG.exec(html)) !== null) {
+    const tag = m[0];
+    const cv = CLASS_VALUE_PATTERN.exec(tag);
+    if (cv?.[1]) {
+      const tokens = cv[1].split(/\s+/).filter(Boolean);
+      if (tokens.some((t) => ANALYSIS_SECTION_TOKENS.includes(t))) {
+        count++;
+      }
     }
-    return count;
+  }
+  return count;
 }
 /**
  * Count `<li>` elements inside containers matching the given class attribute.
@@ -329,18 +297,18 @@ function countAnalysisSections(html) {
  * @returns Number of `<li>` children found across all matching containers
  */
 function countListItemsInClass(html, containerClass) {
-    let total = 0;
-    let idx = html.indexOf(containerClass);
-    while (idx !== -1) {
-        const content = extractContainerContent(html, idx, containerClass);
-        if (content) {
-            // Count both bare <li> and attributed <li ...> (e.g. <li lang="en">)
-            // Using '<li>' and '<li ' avoids false matches on <link> or <listing>
-            total += countOccurrences(content, '<li>') + countOccurrences(content, '<li ');
-        }
-        idx = html.indexOf(containerClass, idx + 1);
+  let total = 0;
+  let idx = html.indexOf(containerClass);
+  while (idx !== -1) {
+    const content = extractContainerContent(html, idx, containerClass);
+    if (content) {
+      // Count both bare <li> and attributed <li ...> (e.g. <li lang="en">)
+      // Using '<li>' and '<li ' avoids false matches on <link> or <listing>
+      total += countOccurrences(content, '<li>') + countOccurrences(content, '<li ');
     }
-    return total;
+    idx = html.indexOf(containerClass, idx + 1);
+  }
+  return total;
 }
 /**
  * Count only direct (top-level) `<li>` children of the first container matching
@@ -355,40 +323,35 @@ function countListItemsInClass(html, containerClass) {
  * @returns Number of direct `<li>` children in the first matching container
  */
 function countDirectListChildren(html, containerClassPrefix) {
-    const idx = html.indexOf(containerClassPrefix);
-    if (idx < 0)
-        return 0;
-    // Complete the attribute value to find the closing quote
-    const quoteEnd = html.indexOf('"', idx + containerClassPrefix.length);
-    if (quoteEnd < 0)
-        return 0;
-    const fullAttr = html.slice(idx, quoteEnd + 1);
-    const content = extractContainerContent(html, idx, fullAttr);
-    if (!content)
-        return 0;
-    // Scan through the container content tracking list nesting depth.
-    // Only count <li> tags at depth 0 (direct children of the container).
-    let count = 0;
-    let listDepth = 0;
-    const tagPattern = /<(\/?)(?:ul|ol|li)(?=[\s>/])/giu;
-    let m = tagPattern.exec(content);
-    while (m) {
-        const isClosing = m[1] === '/';
-        const tagLower = m[0].replace(/^<\/?/u, '').toLowerCase();
-        if (tagLower === 'ul' || tagLower === 'ol') {
-            if (isClosing) {
-                listDepth = Math.max(0, listDepth - 1);
-            }
-            else {
-                listDepth++;
-            }
-        }
-        else if (tagLower === 'li' && !isClosing && listDepth === 0) {
-            count++;
-        }
-        m = tagPattern.exec(content);
+  const idx = html.indexOf(containerClassPrefix);
+  if (idx < 0) return 0;
+  // Complete the attribute value to find the closing quote
+  const quoteEnd = html.indexOf('"', idx + containerClassPrefix.length);
+  if (quoteEnd < 0) return 0;
+  const fullAttr = html.slice(idx, quoteEnd + 1);
+  const content = extractContainerContent(html, idx, fullAttr);
+  if (!content) return 0;
+  // Scan through the container content tracking list nesting depth.
+  // Only count <li> tags at depth 0 (direct children of the container).
+  let count = 0;
+  let listDepth = 0;
+  const tagPattern = /<(\/?)(?:ul|ol|li)(?=[\s>/])/giu;
+  let m = tagPattern.exec(content);
+  while (m) {
+    const isClosing = m[1] === '/';
+    const tagLower = m[0].replace(/^<\/?/u, '').toLowerCase();
+    if (tagLower === 'ul' || tagLower === 'ol') {
+      if (isClosing) {
+        listDepth = Math.max(0, listDepth - 1);
+      } else {
+        listDepth++;
+      }
+    } else if (tagLower === 'li' && !isClosing && listDepth === 0) {
+      count++;
     }
-    return count;
+    m = tagPattern.exec(content);
+  }
+  return count;
 }
 /**
  * attribute match at the given position. Identifies the tag name by searching
@@ -402,42 +365,36 @@ function countDirectListChildren(html, containerClassPrefix) {
  * @returns Inner HTML of the container, or empty string if extraction fails
  */
 function extractContainerContent(html, attrIdx, attr) {
-    // Search backwards from the attribute to find the opening `<`
-    let openBracket = attrIdx - 1;
-    while (openBracket >= 0 && html[openBracket] !== '<')
-        openBracket--;
-    if (openBracket < 0)
-        return '';
-    // Extract the tag name (e.g. "ul", "div", "section")
-    const tagSlice = html.slice(openBracket + 1, attrIdx).trim();
-    const tagNameMatch = /^([a-z][a-z0-9]*)/iu.exec(tagSlice);
-    if (!tagNameMatch)
-        return '';
-    const tagName = tagNameMatch[1];
-    // Find the end of the opening tag
-    const closeAngle = html.indexOf('>', attrIdx + attr.length);
-    if (closeAngle < 0)
-        return '';
-    const contentStart = closeAngle + 1;
-    // Balanced matching for this specific tag name
-    // tagName is validated by /^([a-z][a-z0-9]*)/ — alphanumeric only, safe for RegExp
-    // eslint-disable-next-line security/detect-non-literal-regexp
-    const balancePattern = new RegExp(`</?${tagName}[\\s>/]`, 'giu');
-    balancePattern.lastIndex = contentStart;
-    let depth = 1;
-    let m = balancePattern.exec(html);
-    while (m) {
-        if (m[0].startsWith('</')) {
-            depth--;
-            if (depth === 0)
-                return html.slice(contentStart, m.index);
-        }
-        else {
-            depth++;
-        }
-        m = balancePattern.exec(html);
+  // Search backwards from the attribute to find the opening `<`
+  let openBracket = attrIdx - 1;
+  while (openBracket >= 0 && html[openBracket] !== '<') openBracket--;
+  if (openBracket < 0) return '';
+  // Extract the tag name (e.g. "ul", "div", "section")
+  const tagSlice = html.slice(openBracket + 1, attrIdx).trim();
+  const tagNameMatch = /^([a-z][a-z0-9]*)/iu.exec(tagSlice);
+  if (!tagNameMatch) return '';
+  const tagName = tagNameMatch[1];
+  // Find the end of the opening tag
+  const closeAngle = html.indexOf('>', attrIdx + attr.length);
+  if (closeAngle < 0) return '';
+  const contentStart = closeAngle + 1;
+  // Balanced matching for this specific tag name
+  // tagName is validated by /^([a-z][a-z0-9]*)/ — alphanumeric only, safe for RegExp
+  // eslint-disable-next-line security/detect-non-literal-regexp
+  const balancePattern = new RegExp(`</?${tagName}[\\s>/]`, 'giu');
+  balancePattern.lastIndex = contentStart;
+  let depth = 1;
+  let m = balancePattern.exec(html);
+  while (m) {
+    if (m[0].startsWith('</')) {
+      depth--;
+      if (depth === 0) return html.slice(contentStart, m.index);
+    } else {
+      depth++;
     }
-    return '';
+    m = balancePattern.exec(html);
+  }
+  return '';
 }
 /**
  * Count evidence and document references in HTML.
@@ -456,36 +413,41 @@ function extractContainerContent(html, attrIdx, attr) {
  * @returns Number of evidence references found
  */
 function countEvidenceRefs(html) {
-    // Strip script blocks (e.g. JSON-LD) once for all evidence counting
-    // to avoid inflated counts from matching substrings inside scripts.
-    const htmlNoScripts = stripScriptBlocks(html);
-    // Count <li> items inside perspective-evidence containers (deep-analysis generator)
-    const perspectiveEvidenceItems = countListItemsInClass(htmlNoScripts, 'class="perspective-evidence"');
-    // Count <li> items inside evidence-refs containers (reasoning-chain generator)
-    const evidenceRefsItems = countListItemsInClass(htmlNoScripts, 'class="evidence-refs"');
-    // Count SWOT cross-reference evidence markers (swot-content generator)
-    const swotRefEvidence = countOccurrences(htmlNoScripts, 'class="swot-ref-evidence"');
-    // Legacy / generic evidence markers
-    const evidenceClasses = countOccurrences(htmlNoScripts, 'class="evidence"');
-    const dataRefs = countOccurrences(htmlNoScripts, 'data-reference');
-    // EP document reference codes
-    const matched = new Set();
-    for (const pattern of EP_DOC_PATTERNS) {
-        pattern.lastIndex = 0;
-        const hits = htmlNoScripts.match(pattern);
-        if (hits) {
-            for (const hit of hits) {
-                matched.add(hit);
-            }
-        }
+  // Strip script blocks (e.g. JSON-LD) once for all evidence counting
+  // to avoid inflated counts from matching substrings inside scripts.
+  const htmlNoScripts = stripScriptBlocks(html);
+  // Count <li> items inside perspective-evidence containers (deep-analysis generator)
+  const perspectiveEvidenceItems = countListItemsInClass(
+    htmlNoScripts,
+    'class="perspective-evidence"'
+  );
+  // Count <li> items inside evidence-refs containers (reasoning-chain generator)
+  const evidenceRefsItems = countListItemsInClass(htmlNoScripts, 'class="evidence-refs"');
+  // Count SWOT cross-reference evidence markers (swot-content generator)
+  const swotRefEvidence = countOccurrences(htmlNoScripts, 'class="swot-ref-evidence"');
+  // Legacy / generic evidence markers
+  const evidenceClasses = countOccurrences(htmlNoScripts, 'class="evidence"');
+  const dataRefs = countOccurrences(htmlNoScripts, 'data-reference');
+  // EP document reference codes
+  const matched = new Set();
+  for (const pattern of EP_DOC_PATTERNS) {
+    pattern.lastIndex = 0;
+    const hits = htmlNoScripts.match(pattern);
+    if (hits) {
+      for (const hit of hits) {
+        matched.add(hit);
+      }
     }
-    const epRefs = matched.size;
-    return (perspectiveEvidenceItems +
-        evidenceRefsItems +
-        swotRefEvidence +
-        evidenceClasses +
-        dataRefs +
-        epRefs);
+  }
+  const epRefs = matched.size;
+  return (
+    perspectiveEvidenceItems +
+    evidenceRefsItems +
+    swotRefEvidence +
+    evidenceClasses +
+    dataRefs +
+    epRefs
+  );
 }
 /**
  * Search backwards from a given index to find the opening `<` of the
@@ -497,10 +459,9 @@ function countEvidenceRefs(html) {
  * @returns Index of the opening `<`, or `fallback` if none is found
  */
 function findTagStartBefore(html, fromIdx, fallback) {
-    let pos = fromIdx - 1;
-    while (pos >= 0 && html[pos] !== '<')
-        pos--;
-    return pos >= 0 ? pos : fallback;
+  let pos = fromIdx - 1;
+  while (pos >= 0 && html[pos] !== '<') pos--;
+  return pos >= 0 ? pos : fallback;
 }
 /**
  * Count evidence markers inside deep-analysis sections only, preventing
@@ -522,30 +483,30 @@ function findTagStartBefore(html, fromIdx, fallback) {
  * @returns Evidence count restricted to deep-analysis section(s)
  */
 function countDeepAnalysisSectionEvidence(html) {
-    const openPatterns = [/class="deep-analysis"[^>]*>/giu, /id="[^"]*deep[^"]*"[^>]*>/giu];
-    let total = 0;
-    const countedTagStarts = new Set();
-    for (const pattern of openPatterns) {
-        pattern.lastIndex = 0;
-        let openMatch = pattern.exec(html);
-        while (openMatch) {
-            const tagStart = findTagStartBefore(html, openMatch.index, openMatch.index);
-            if (!countedTagStarts.has(tagStart)) {
-                countedTagStarts.add(tagStart);
-                const startIdx = openMatch.index + openMatch[0].length;
-                const sectionContent = findBalancedContent(html, startIdx);
-                if (sectionContent) {
-                    total +=
-                        countListItemsInClass(sectionContent, 'class="perspective-evidence"') +
-                            countOccurrences(sectionContent, 'class="swot-ref-evidence"') +
-                            countOccurrences(sectionContent, 'class="evidence"') +
-                            countOccurrences(sectionContent, 'data-reference');
-                }
-            }
-            openMatch = pattern.exec(html);
+  const openPatterns = [/class="deep-analysis"[^>]*>/giu, /id="[^"]*deep[^"]*"[^>]*>/giu];
+  let total = 0;
+  const countedTagStarts = new Set();
+  for (const pattern of openPatterns) {
+    pattern.lastIndex = 0;
+    let openMatch = pattern.exec(html);
+    while (openMatch) {
+      const tagStart = findTagStartBefore(html, openMatch.index, openMatch.index);
+      if (!countedTagStarts.has(tagStart)) {
+        countedTagStarts.add(tagStart);
+        const startIdx = openMatch.index + openMatch[0].length;
+        const sectionContent = findBalancedContent(html, startIdx);
+        if (sectionContent) {
+          total +=
+            countListItemsInClass(sectionContent, 'class="perspective-evidence"') +
+            countOccurrences(sectionContent, 'class="swot-ref-evidence"') +
+            countOccurrences(sectionContent, 'class="evidence"') +
+            countOccurrences(sectionContent, 'data-reference');
         }
+      }
+      openMatch = pattern.exec(html);
     }
-    return total;
+  }
+  return total;
 }
 /**
  * Compute the mindmap branch count.
@@ -562,19 +523,17 @@ function countDeepAnalysisSectionEvidence(html) {
  * @returns Number of mindmap branches detected
  */
 function computeMindmapBranches(html) {
-    // 1. Prefer the explicit data-branch-count attribute set by the generators
-    const attrMatch = /data-branch-count="(\d+)"/u.exec(html);
-    if (attrMatch?.[1]) {
-        const parsed = parseInt(attrMatch[1], 10);
-        if (parsed > 0)
-            return parsed;
-    }
-    // 2. Count class="mindmap-branch" elements
-    const branchCount = countOccurrences(html, 'class="mindmap-branch"');
-    if (branchCount > 0)
-        return branchCount;
-    // 3. Count only direct <li> children of the mindmap-branches container
-    return countDirectListChildren(html, 'class="mindmap-branches');
+  // 1. Prefer the explicit data-branch-count attribute set by the generators
+  const attrMatch = /data-branch-count="(\d+)"/u.exec(html);
+  if (attrMatch?.[1]) {
+    const parsed = parseInt(attrMatch[1], 10);
+    if (parsed > 0) return parsed;
+  }
+  // 2. Count class="mindmap-branch" elements
+  const branchCount = countOccurrences(html, 'class="mindmap-branch"');
+  if (branchCount > 0) return branchCount;
+  // 3. Count only direct <li> children of the mindmap-branches container
+  return countDirectListChildren(html, 'class="mindmap-branches');
 }
 /**
  * Walk forward from a starting position to find balanced closing tag content.
@@ -584,22 +543,20 @@ function computeMindmapBranches(html) {
  * @returns Content between the opening and its balanced closing tag, or empty string
  */
 function findBalancedContent(html, startIdx) {
-    let depth = 1;
-    const closeTagPattern = /<\/?(?:div|section|article)[\s>/]/giu;
-    closeTagPattern.lastIndex = startIdx;
-    let tagMatch = closeTagPattern.exec(html);
-    while (tagMatch) {
-        if (tagMatch[0].startsWith('</')) {
-            depth--;
-            if (depth === 0)
-                return html.slice(startIdx, tagMatch.index);
-        }
-        else {
-            depth++;
-        }
-        tagMatch = closeTagPattern.exec(html);
+  let depth = 1;
+  const closeTagPattern = /<\/?(?:div|section|article)[\s>/]/giu;
+  closeTagPattern.lastIndex = startIdx;
+  let tagMatch = closeTagPattern.exec(html);
+  while (tagMatch) {
+    if (tagMatch[0].startsWith('</')) {
+      depth--;
+      if (depth === 0) return html.slice(startIdx, tagMatch.index);
+    } else {
+      depth++;
     }
-    return '';
+    tagMatch = closeTagPattern.exec(html);
+  }
+  return '';
 }
 /**
  * Check whether generic/placeholder phrases appear in the article text.
@@ -608,7 +565,7 @@ function findBalancedContent(html, startIdx) {
  * @returns true if any generic phrase pattern is detected
  */
 function hasGenericPhrases(html) {
-    return GENERIC_PHRASE_PATTERNS.some((pattern) => pattern.test(html));
+  return GENERIC_PHRASE_PATTERNS.some((pattern) => pattern.test(html));
 }
 /**
  * Clamp a numeric value between 0 and 100.
@@ -617,7 +574,7 @@ function hasGenericPhrases(html) {
  * @returns Value clamped to [0, 100]
  */
 function clamp100(value) {
-    return Math.max(0, Math.min(100, value));
+  return Math.max(0, Math.min(100, value));
 }
 // ─── Analysis depth assessment ────────────────────────────────────────────────
 /**
@@ -632,32 +589,32 @@ function clamp100(value) {
  * @returns Analysis depth score with per-dimension flags and composite score
  */
 export function assessAnalysisDepth(htmlOrText, preExtracted = false) {
-    const text = preExtracted ? htmlOrText : extractPlainText(htmlOrText);
-    const politicalContextPresent = containsAnyKeyword(text, POLITICAL_CONTEXT_KEYWORDS);
-    const coalitionDynamicsAnalyzed = containsAnyKeyword(text, COALITION_DYNAMICS_KEYWORDS);
-    const historicalContextProvided = containsAnyKeyword(text, HISTORICAL_CONTEXT_KEYWORDS);
-    const evidenceBasedConclusions = containsAnyKeyword(text, EVIDENCE_BASED_KEYWORDS);
-    const scenarioPlanning = containsAnyKeyword(text, SCENARIO_PLANNING_KEYWORDS);
-    const confidenceLevelsIndicated = containsAnyKeyword(text, CONFIDENCE_LEVEL_KEYWORDS);
-    const dimensions = [
-        politicalContextPresent,
-        coalitionDynamicsAnalyzed,
-        historicalContextProvided,
-        evidenceBasedConclusions,
-        scenarioPlanning,
-        confidenceLevelsIndicated,
-    ];
-    const presentCount = dimensions.filter(Boolean).length;
-    const score = clamp100(Math.round((presentCount / dimensions.length) * 100));
-    return {
-        politicalContextPresent,
-        coalitionDynamicsAnalyzed,
-        historicalContextProvided,
-        evidenceBasedConclusions,
-        scenarioPlanning,
-        confidenceLevelsIndicated,
-        score,
-    };
+  const text = preExtracted ? htmlOrText : extractPlainText(htmlOrText);
+  const politicalContextPresent = containsAnyKeyword(text, POLITICAL_CONTEXT_KEYWORDS);
+  const coalitionDynamicsAnalyzed = containsAnyKeyword(text, COALITION_DYNAMICS_KEYWORDS);
+  const historicalContextProvided = containsAnyKeyword(text, HISTORICAL_CONTEXT_KEYWORDS);
+  const evidenceBasedConclusions = containsAnyKeyword(text, EVIDENCE_BASED_KEYWORDS);
+  const scenarioPlanning = containsAnyKeyword(text, SCENARIO_PLANNING_KEYWORDS);
+  const confidenceLevelsIndicated = containsAnyKeyword(text, CONFIDENCE_LEVEL_KEYWORDS);
+  const dimensions = [
+    politicalContextPresent,
+    coalitionDynamicsAnalyzed,
+    historicalContextProvided,
+    evidenceBasedConclusions,
+    scenarioPlanning,
+    confidenceLevelsIndicated,
+  ];
+  const presentCount = dimensions.filter(Boolean).length;
+  const score = clamp100(Math.round((presentCount / dimensions.length) * 100));
+  return {
+    politicalContextPresent,
+    coalitionDynamicsAnalyzed,
+    historicalContextProvided,
+    evidenceBasedConclusions,
+    scenarioPlanning,
+    confidenceLevelsIndicated,
+    score,
+  };
 }
 // ─── Stakeholder coverage assessment ─────────────────────────────────────────
 /**
@@ -672,29 +629,28 @@ export function assessAnalysisDepth(htmlOrText, preExtracted = false) {
  * @returns Stakeholder coverage assessment with present/missing lists and scores
  */
 export function assessStakeholderCoverage(htmlOrText, preExtracted = false) {
-    const text = preExtracted ? htmlOrText : extractPlainText(htmlOrText);
-    const perspectivesPresent = [];
-    const perspectivesMissing = [];
-    for (const stakeholder of STAKEHOLDER_KEYWORDS) {
-        if (containsAnyKeyword(text, stakeholder.keywords)) {
-            perspectivesPresent.push(stakeholder.name);
-        }
-        else {
-            perspectivesMissing.push(stakeholder.name);
-        }
+  const text = preExtracted ? htmlOrText : extractPlainText(htmlOrText);
+  const perspectivesPresent = [];
+  const perspectivesMissing = [];
+  for (const stakeholder of STAKEHOLDER_KEYWORDS) {
+    if (containsAnyKeyword(text, stakeholder.keywords)) {
+      perspectivesPresent.push(stakeholder.name);
+    } else {
+      perspectivesMissing.push(stakeholder.name);
     }
-    const total = STAKEHOLDER_KEYWORDS.length;
-    const balanceScore = clamp100(Math.round((perspectivesPresent.length / total) * 100));
-    // Reasoning quality: bonus for not using generic phrases, penalty if they are present
-    const genericPenalty = hasGenericPhrases(text) ? 20 : 0;
-    const baseReasoningScore = balanceScore;
-    const reasoningQuality = clamp100(baseReasoningScore - genericPenalty);
-    return {
-        perspectivesPresent,
-        perspectivesMissing,
-        balanceScore,
-        reasoningQuality,
-    };
+  }
+  const total = STAKEHOLDER_KEYWORDS.length;
+  const balanceScore = clamp100(Math.round((perspectivesPresent.length / total) * 100));
+  // Reasoning quality: bonus for not using generic phrases, penalty if they are present
+  const genericPenalty = hasGenericPhrases(text) ? 20 : 0;
+  const baseReasoningScore = balanceScore;
+  const reasoningQuality = clamp100(baseReasoningScore - genericPenalty);
+  return {
+    perspectivesPresent,
+    perspectivesMissing,
+    balanceScore,
+    reasoningQuality,
+  };
 }
 // ─── Visualization quality assessment ────────────────────────────────────────
 /**
@@ -704,49 +660,55 @@ export function assessStakeholderCoverage(htmlOrText, preExtracted = false) {
  * @returns Visualization quality assessment with per-element flags and composite score
  */
 export function assessVisualizationQuality(html) {
-    // SWOT: exact class-token match supports multi-class attributes
-    // (e.g. class="swot-analysis swot-multidimensional")
-    const swotPresent = hasExactClassToken(html, 'swot-analysis') || html.includes('id="swot-analysis"');
-    // Partial match: quadrant classes include a variant suffix (e.g. "swot-quadrant swot-strengths")
-    const swotDimensions = countOccurrences(html, 'swot-quadrant') + countOccurrences(html, 'data-dimension');
-    // Dashboard: exact class-token match prevents false positives from hyphenated
-    // classes like "dashboard-grid", "dashboard-panel", "dashboard-chart"
-    const dashboardPresent = hasExactClassToken(html, 'dashboard') || html.includes('id="dashboard"');
-    const dashboardMetrics = countExactClassToken(html, 'metric-card') + countExactClassToken(html, 'dashboard-metric');
-    // Trend indicators: metric-trend-up/-down/-stable classes, or arrow symbols
-    const dashboardTrends = html.includes('class="metric-trend-') || html.includes('↑') || html.includes('↓');
-    // Mindmap: exact class-token match supports multi-class attributes
-    const mindmapPresent = hasExactClassToken(html, 'mindmap-section') ||
-        hasExactClassToken(html, 'mindmap-container') ||
-        html.includes('id="mindmap"');
-    const mindmapBranches = mindmapPresent ? computeMindmapBranches(html) : 0;
-    const deepAnalysisPresent = html.includes(CLASS_DEEP_ANALYSIS) || /id="[^"]*deep[^"]*"/iu.test(html);
-    // Restrict evidence counting to deep-analysis section(s) only to avoid
-    // inflating the metric with evidence markers elsewhere in the article.
-    const deepAnalysisEvidence = deepAnalysisPresent ? countDeepAnalysisSectionEvidence(html) : 0;
-    const score = computeVisualizationScore({
-        swotPresent,
-        swotDimensions,
-        dashboardPresent,
-        dashboardMetrics,
-        dashboardTrends,
-        mindmapPresent,
-        mindmapBranches,
-        deepAnalysisPresent,
-        deepAnalysisEvidence,
-    });
-    return {
-        swotPresent,
-        swotDimensions,
-        dashboardPresent,
-        dashboardMetrics,
-        dashboardTrends,
-        mindmapPresent,
-        mindmapBranches,
-        deepAnalysisPresent,
-        deepAnalysisEvidence,
-        score,
-    };
+  // SWOT: exact class-token match supports multi-class attributes
+  // (e.g. class="swot-analysis swot-multidimensional")
+  const swotPresent =
+    hasExactClassToken(html, 'swot-analysis') || html.includes('id="swot-analysis"');
+  // Partial match: quadrant classes include a variant suffix (e.g. "swot-quadrant swot-strengths")
+  const swotDimensions =
+    countOccurrences(html, 'swot-quadrant') + countOccurrences(html, 'data-dimension');
+  // Dashboard: exact class-token match prevents false positives from hyphenated
+  // classes like "dashboard-grid", "dashboard-panel", "dashboard-chart"
+  const dashboardPresent = hasExactClassToken(html, 'dashboard') || html.includes('id="dashboard"');
+  const dashboardMetrics =
+    countExactClassToken(html, 'metric-card') + countExactClassToken(html, 'dashboard-metric');
+  // Trend indicators: metric-trend-up/-down/-stable classes, or arrow symbols
+  const dashboardTrends =
+    html.includes('class="metric-trend-') || html.includes('↑') || html.includes('↓');
+  // Mindmap: exact class-token match supports multi-class attributes
+  const mindmapPresent =
+    hasExactClassToken(html, 'mindmap-section') ||
+    hasExactClassToken(html, 'mindmap-container') ||
+    html.includes('id="mindmap"');
+  const mindmapBranches = mindmapPresent ? computeMindmapBranches(html) : 0;
+  const deepAnalysisPresent =
+    html.includes(CLASS_DEEP_ANALYSIS) || /id="[^"]*deep[^"]*"/iu.test(html);
+  // Restrict evidence counting to deep-analysis section(s) only to avoid
+  // inflating the metric with evidence markers elsewhere in the article.
+  const deepAnalysisEvidence = deepAnalysisPresent ? countDeepAnalysisSectionEvidence(html) : 0;
+  const score = computeVisualizationScore({
+    swotPresent,
+    swotDimensions,
+    dashboardPresent,
+    dashboardMetrics,
+    dashboardTrends,
+    mindmapPresent,
+    mindmapBranches,
+    deepAnalysisPresent,
+    deepAnalysisEvidence,
+  });
+  return {
+    swotPresent,
+    swotDimensions,
+    dashboardPresent,
+    dashboardMetrics,
+    dashboardTrends,
+    mindmapPresent,
+    mindmapBranches,
+    deepAnalysisPresent,
+    deepAnalysisEvidence,
+    score,
+  };
 }
 /**
  * Compute a 0–100 composite visualization score from individual element assessments.
@@ -755,30 +717,29 @@ export function assessVisualizationQuality(html) {
  * @returns Composite visualization score clamped to [0, 100]
  */
 function computeVisualizationScore(v) {
-    let score = 0;
-    // SWOT contribution (max 25 points)
-    if (v.swotPresent) {
-        score += 10;
-        score += Math.min(15, v.swotDimensions * 5);
-    }
-    // Dashboard contribution (max 25 points)
-    if (v.dashboardPresent) {
-        score += 10;
-        score += Math.min(10, v.dashboardMetrics * 2);
-        if (v.dashboardTrends)
-            score += 5;
-    }
-    // Mindmap contribution (max 25 points)
-    if (v.mindmapPresent) {
-        score += 10;
-        score += Math.min(15, v.mindmapBranches * 5);
-    }
-    // Deep analysis contribution (max 25 points)
-    if (v.deepAnalysisPresent) {
-        score += 10;
-        score += Math.min(15, v.deepAnalysisEvidence * 3);
-    }
-    return clamp100(score);
+  let score = 0;
+  // SWOT contribution (max 25 points)
+  if (v.swotPresent) {
+    score += 10;
+    score += Math.min(15, v.swotDimensions * 5);
+  }
+  // Dashboard contribution (max 25 points)
+  if (v.dashboardPresent) {
+    score += 10;
+    score += Math.min(10, v.dashboardMetrics * 2);
+    if (v.dashboardTrends) score += 5;
+  }
+  // Mindmap contribution (max 25 points)
+  if (v.mindmapPresent) {
+    score += 10;
+    score += Math.min(15, v.mindmapBranches * 5);
+  }
+  // Deep analysis contribution (max 25 points)
+  if (v.deepAnalysisPresent) {
+    score += 10;
+    score += Math.min(15, v.deepAnalysisEvidence * 3);
+  }
+  return clamp100(score);
 }
 // ─── Overall score calculation ────────────────────────────────────────────────
 /**
@@ -799,14 +760,17 @@ function computeVisualizationScore(v) {
  * @returns Overall quality score clamped to [0, 100]
  */
 export function calculateOverallScore(depth, coverage, viz, wordCount, evidenceRefs) {
-    const wordCountScore = clamp100(Math.round(((wordCount - WORD_COUNT_MIN) / (WORD_COUNT_MAX - WORD_COUNT_MIN)) * 100));
-    const evidenceScore = clamp100(Math.round((evidenceRefs / EVIDENCE_MAX) * 100));
-    const overall = depth.score * WEIGHT_ANALYSIS_DEPTH +
-        coverage.balanceScore * WEIGHT_STAKEHOLDER +
-        viz.score * WEIGHT_VISUALIZATION +
-        wordCountScore * WEIGHT_WORD_COUNT +
-        evidenceScore * WEIGHT_EVIDENCE;
-    return clamp100(Math.round(overall));
+  const wordCountScore = clamp100(
+    Math.round(((wordCount - WORD_COUNT_MIN) / (WORD_COUNT_MAX - WORD_COUNT_MIN)) * 100)
+  );
+  const evidenceScore = clamp100(Math.round((evidenceRefs / EVIDENCE_MAX) * 100));
+  const overall =
+    depth.score * WEIGHT_ANALYSIS_DEPTH +
+    coverage.balanceScore * WEIGHT_STAKEHOLDER +
+    viz.score * WEIGHT_VISUALIZATION +
+    wordCountScore * WEIGHT_WORD_COUNT +
+    evidenceScore * WEIGHT_EVIDENCE;
+  return clamp100(Math.round(overall));
 }
 // ─── Grade assignment ─────────────────────────────────────────────────────────
 /**
@@ -816,15 +780,11 @@ export function calculateOverallScore(depth, coverage, viz, wordCount, evidenceR
  * @returns Letter grade A–F
  */
 function scoreToGrade(score) {
-    if (score >= GRADE_A_MIN)
-        return 'A';
-    if (score >= GRADE_B_MIN)
-        return 'B';
-    if (score >= GRADE_C_MIN)
-        return 'C';
-    if (score >= GRADE_D_MIN)
-        return 'D';
-    return 'F';
+  if (score >= GRADE_A_MIN) return 'A';
+  if (score >= GRADE_B_MIN) return 'B';
+  if (score >= GRADE_C_MIN) return 'C';
+  if (score >= GRADE_D_MIN) return 'D';
+  return 'F';
 }
 // ─── Non-English language adjustments ─────────────────────────────────────────
 /**
@@ -844,10 +804,10 @@ const NON_ENGLISH_BASELINE = 50;
  * @returns Adjusted analysis depth with a baseline floor
  */
 function adjustNonEnglishAnalysisDepth(depth) {
-    return {
-        ...depth,
-        score: Math.max(depth.score, NON_ENGLISH_BASELINE),
-    };
+  return {
+    ...depth,
+    score: Math.max(depth.score, NON_ENGLISH_BASELINE),
+  };
 }
 /**
  * Adjust stakeholder coverage for non-English articles.
@@ -859,11 +819,11 @@ function adjustNonEnglishAnalysisDepth(depth) {
  * @returns Adjusted coverage with baseline floors on balance and reasoning scores
  */
 function adjustNonEnglishStakeholderCoverage(coverage) {
-    return {
-        ...coverage,
-        balanceScore: Math.max(coverage.balanceScore, NON_ENGLISH_BASELINE),
-        reasoningQuality: Math.max(coverage.reasoningQuality, NON_ENGLISH_BASELINE),
-    };
+  return {
+    ...coverage,
+    balanceScore: Math.max(coverage.balanceScore, NON_ENGLISH_BASELINE),
+    reasoningQuality: Math.max(coverage.reasoningQuality, NON_ENGLISH_BASELINE),
+  };
 }
 // ─── Recommendation generation ────────────────────────────────────────────────
 /**
@@ -877,18 +837,18 @@ function adjustNonEnglishStakeholderCoverage(coverage) {
  * @returns Array of recommendation strings (may be empty for high-quality articles)
  */
 export function generateRecommendations(report) {
-    const recs = [];
-    const isEnglish = report.lang === 'en';
-    addWordCountRecommendations(report, recs);
-    // Only emit keyword-dependent recommendations for English articles; non-English
-    // articles have baseline-adjusted scores and keyword detection is not reliable.
-    if (isEnglish) {
-        addAnalysisDepthRecommendations(report.analysisDepth, recs);
-        addStakeholderRecommendations(report.stakeholderCoverage, recs);
-    }
-    addVisualizationRecommendations(report.visualizationQuality, recs);
-    addEvidenceRecommendations(report, recs);
-    return recs;
+  const recs = [];
+  const isEnglish = report.lang === 'en';
+  addWordCountRecommendations(report, recs);
+  // Only emit keyword-dependent recommendations for English articles; non-English
+  // articles have baseline-adjusted scores and keyword detection is not reliable.
+  if (isEnglish) {
+    addAnalysisDepthRecommendations(report.analysisDepth, recs);
+    addStakeholderRecommendations(report.stakeholderCoverage, recs);
+  }
+  addVisualizationRecommendations(report.visualizationQuality, recs);
+  addEvidenceRecommendations(report, recs);
+  return recs;
 }
 /**
  * Add word-count related recommendations.
@@ -897,12 +857,13 @@ export function generateRecommendations(report) {
  * @param recs - Mutable array to push recommendations into
  */
 function addWordCountRecommendations(report, recs) {
-    if (report.wordCount < 500) {
-        recs.push('Expand article length to at least 500 words for Grade C quality');
-    }
-    else if (report.wordCount < WORD_COUNT_MAX) {
-        recs.push(`Increase article depth to ${WORD_COUNT_MAX} words for Grade A quality (currently ${report.wordCount})`);
-    }
+  if (report.wordCount < 500) {
+    recs.push('Expand article length to at least 500 words for Grade C quality');
+  } else if (report.wordCount < WORD_COUNT_MAX) {
+    recs.push(
+      `Increase article depth to ${WORD_COUNT_MAX} words for Grade A quality (currently ${report.wordCount})`
+    );
+  }
 }
 /**
  * Add analysis-depth recommendations.
@@ -911,24 +872,24 @@ function addWordCountRecommendations(report, recs) {
  * @param recs - Mutable array to push recommendations into
  */
 function addAnalysisDepthRecommendations(depth, recs) {
-    if (!depth.politicalContextPresent) {
-        recs.push('Add political context: discuss coalitions, majorities, and opposition dynamics');
-    }
-    if (!depth.coalitionDynamicsAnalyzed) {
-        recs.push('Analyse coalition dynamics between EPP, S&D, Renew, and other groups');
-    }
-    if (!depth.historicalContextProvided) {
-        recs.push('Provide historical context by comparing to previous terms or key milestones');
-    }
-    if (!depth.evidenceBasedConclusions) {
-        recs.push('Support conclusions with data, figures, or cited evidence');
-    }
-    if (!depth.scenarioPlanning) {
-        recs.push('Include forward-looking scenarios or projections');
-    }
-    if (!depth.confidenceLevelsIndicated) {
-        recs.push('State confidence levels or acknowledge uncertainty in assessments');
-    }
+  if (!depth.politicalContextPresent) {
+    recs.push('Add political context: discuss coalitions, majorities, and opposition dynamics');
+  }
+  if (!depth.coalitionDynamicsAnalyzed) {
+    recs.push('Analyse coalition dynamics between EPP, S&D, Renew, and other groups');
+  }
+  if (!depth.historicalContextProvided) {
+    recs.push('Provide historical context by comparing to previous terms or key milestones');
+  }
+  if (!depth.evidenceBasedConclusions) {
+    recs.push('Support conclusions with data, figures, or cited evidence');
+  }
+  if (!depth.scenarioPlanning) {
+    recs.push('Include forward-looking scenarios or projections');
+  }
+  if (!depth.confidenceLevelsIndicated) {
+    recs.push('State confidence levels or acknowledge uncertainty in assessments');
+  }
 }
 /**
  * Add stakeholder coverage recommendations.
@@ -937,12 +898,16 @@ function addAnalysisDepthRecommendations(depth, recs) {
  * @param recs - Mutable array to push recommendations into
  */
 function addStakeholderRecommendations(coverage, recs) {
-    if (coverage.perspectivesMissing.length > 0) {
-        recs.push(`Add perspectives from missing stakeholders: ${coverage.perspectivesMissing.join(', ')}`);
-    }
-    if (coverage.reasoningQuality < 60) {
-        recs.push('Replace generic phrases (e.g. "several MEPs", "some countries") with specific named entities');
-    }
+  if (coverage.perspectivesMissing.length > 0) {
+    recs.push(
+      `Add perspectives from missing stakeholders: ${coverage.perspectivesMissing.join(', ')}`
+    );
+  }
+  if (coverage.reasoningQuality < 60) {
+    recs.push(
+      'Replace generic phrases (e.g. "several MEPs", "some countries") with specific named entities'
+    );
+  }
 }
 /**
  * Add visualization quality recommendations.
@@ -951,30 +916,28 @@ function addStakeholderRecommendations(coverage, recs) {
  * @param recs - Mutable array to push recommendations into
  */
 function addVisualizationRecommendations(viz, recs) {
-    if (!viz.swotPresent) {
-        recs.push('Add a SWOT analysis section to strengthen political assessment');
-    }
-    else if (viz.swotDimensions < 3) {
-        recs.push(`Expand SWOT dimensions to at least 3 (currently ${viz.swotDimensions})`);
-    }
-    if (!viz.dashboardPresent) {
-        recs.push('Add a data dashboard with key metrics for quantitative support');
-    }
-    else if (viz.dashboardMetrics < 5) {
-        recs.push(`Add more dashboard metrics to reach 5 (currently ${viz.dashboardMetrics})`);
-    }
-    if (!viz.mindmapPresent) {
-        recs.push('Add a mindmap to illustrate relationships and conceptual structure');
-    }
-    else if (viz.mindmapBranches < 3) {
-        recs.push(`Add more mindmap branches to reach 3 (currently ${viz.mindmapBranches})`);
-    }
-    if (!viz.deepAnalysisPresent) {
-        recs.push('Add deep-analysis sections to provide substantive investigative content');
-    }
-    else if (viz.deepAnalysisEvidence < 3) {
-        recs.push(`Include more evidence items in deep-analysis sections (currently ${viz.deepAnalysisEvidence})`);
-    }
+  if (!viz.swotPresent) {
+    recs.push('Add a SWOT analysis section to strengthen political assessment');
+  } else if (viz.swotDimensions < 3) {
+    recs.push(`Expand SWOT dimensions to at least 3 (currently ${viz.swotDimensions})`);
+  }
+  if (!viz.dashboardPresent) {
+    recs.push('Add a data dashboard with key metrics for quantitative support');
+  } else if (viz.dashboardMetrics < 5) {
+    recs.push(`Add more dashboard metrics to reach 5 (currently ${viz.dashboardMetrics})`);
+  }
+  if (!viz.mindmapPresent) {
+    recs.push('Add a mindmap to illustrate relationships and conceptual structure');
+  } else if (viz.mindmapBranches < 3) {
+    recs.push(`Add more mindmap branches to reach 3 (currently ${viz.mindmapBranches})`);
+  }
+  if (!viz.deepAnalysisPresent) {
+    recs.push('Add deep-analysis sections to provide substantive investigative content');
+  } else if (viz.deepAnalysisEvidence < 3) {
+    recs.push(
+      `Include more evidence items in deep-analysis sections (currently ${viz.deepAnalysisEvidence})`
+    );
+  }
 }
 /**
  * Add evidence-reference recommendations.
@@ -983,12 +946,13 @@ function addVisualizationRecommendations(viz, recs) {
  * @param recs - Mutable array to push recommendations into
  */
 function addEvidenceRecommendations(report, recs) {
-    if (report.evidenceReferences < 3) {
-        recs.push('Add at least 3 evidence references or EP document citations');
-    }
-    else if (report.evidenceReferences < 10) {
-        recs.push(`Increase evidence references to 10 for Grade A quality (currently ${report.evidenceReferences})`);
-    }
+  if (report.evidenceReferences < 3) {
+    recs.push('Add at least 3 evidence references or EP document citations');
+  } else if (report.evidenceReferences < 10) {
+    recs.push(
+      `Increase evidence references to 10 for Grade A quality (currently ${report.evidenceReferences})`
+    );
+  }
 }
 // ─── Public API ───────────────────────────────────────────────────────────────
 /**
@@ -1003,46 +967,52 @@ function addEvidenceRecommendations(report, recs) {
  * @returns Comprehensive quality report including grade, score and recommendations
  */
 export function scoreArticleQuality(html, articleId, lang, articleType) {
-    // Extract plain text once to avoid redundant HTML stripping in sub-assessors
-    const plainText = extractPlainText(html);
-    const wordCount = plainText ? plainText.split(' ').length : 0;
-    const analysisSections = countAnalysisSections(html);
-    const evidenceReferences = countEvidenceRefs(html);
-    // For non-English articles, keyword-based analysis-depth and stakeholder scoring
-    // uses English keywords which may not appear in translated text. Weight structural
-    // signals (visualization, word count, evidence) more heavily by treating keyword
-    // dimensions as partially present when the language is not English.
-    const isEnglish = lang === 'en';
-    const analysisDepth = isEnglish
-        ? assessAnalysisDepth(plainText, true)
-        : adjustNonEnglishAnalysisDepth(assessAnalysisDepth(plainText, true));
-    const stakeholderCoverage = isEnglish
-        ? assessStakeholderCoverage(plainText, true)
-        : adjustNonEnglishStakeholderCoverage(assessStakeholderCoverage(plainText, true));
-    const visualizationQuality = assessVisualizationQuality(html);
-    const overallScore = calculateOverallScore(analysisDepth, stakeholderCoverage, visualizationQuality, wordCount, evidenceReferences);
-    const grade = scoreToGrade(overallScore);
-    const passesQualityGate = overallScore >= QUALITY_GATE_THRESHOLD;
-    // Derive the article's date from its ID when possible (slug format: YYYY-MM-DD-…),
-    // falling back to the current execution date only if the ID does not contain a date prefix.
-    const dateMatch = ARTICLE_DATE_PATTERN.exec(articleId);
-    const date = dateMatch?.[1] ?? new Date().toISOString().split('T')[0] ?? '';
-    const partial = {
-        articleId,
-        date,
-        type: articleType,
-        lang,
-        wordCount,
-        analysisSections,
-        evidenceReferences,
-        analysisDepth,
-        stakeholderCoverage,
-        visualizationQuality,
-        overallScore,
-        grade,
-        passesQualityGate,
-    };
-    const recommendations = generateRecommendations(partial);
-    return { ...partial, recommendations };
+  // Extract plain text once to avoid redundant HTML stripping in sub-assessors
+  const plainText = extractPlainText(html);
+  const wordCount = plainText ? plainText.split(' ').length : 0;
+  const analysisSections = countAnalysisSections(html);
+  const evidenceReferences = countEvidenceRefs(html);
+  // For non-English articles, keyword-based analysis-depth and stakeholder scoring
+  // uses English keywords which may not appear in translated text. Weight structural
+  // signals (visualization, word count, evidence) more heavily by treating keyword
+  // dimensions as partially present when the language is not English.
+  const isEnglish = lang === 'en';
+  const analysisDepth = isEnglish
+    ? assessAnalysisDepth(plainText, true)
+    : adjustNonEnglishAnalysisDepth(assessAnalysisDepth(plainText, true));
+  const stakeholderCoverage = isEnglish
+    ? assessStakeholderCoverage(plainText, true)
+    : adjustNonEnglishStakeholderCoverage(assessStakeholderCoverage(plainText, true));
+  const visualizationQuality = assessVisualizationQuality(html);
+  const overallScore = calculateOverallScore(
+    analysisDepth,
+    stakeholderCoverage,
+    visualizationQuality,
+    wordCount,
+    evidenceReferences
+  );
+  const grade = scoreToGrade(overallScore);
+  const passesQualityGate = overallScore >= QUALITY_GATE_THRESHOLD;
+  // Derive the article's date from its ID when possible (slug format: YYYY-MM-DD-…),
+  // falling back to the current execution date only if the ID does not contain a date prefix.
+  const dateMatch = ARTICLE_DATE_PATTERN.exec(articleId);
+  const date = dateMatch?.[1] ?? new Date().toISOString().split('T')[0] ?? '';
+  const partial = {
+    articleId,
+    date,
+    type: articleType,
+    lang,
+    wordCount,
+    analysisSections,
+    evidenceReferences,
+    analysisDepth,
+    stakeholderCoverage,
+    visualizationQuality,
+    overallScore,
+    grade,
+    passesQualityGate,
+  };
+  const recommendations = generateRecommendations(partial);
+  return { ...partial, recommendations };
 }
 //# sourceMappingURL=article-quality-scorer.js.map

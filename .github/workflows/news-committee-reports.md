@@ -176,14 +176,31 @@ For each committee report, analyze:
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
-- **Minutes 3–15**: Query EP MCP tools for committee reports data
-- **Minutes 15–45**: Generate English article with deep political intelligence analysis
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis-output/{date}/`)
+- **Minutes 8–18**: Query EP MCP tools for committee reports data
+- **Minutes 18–45**: Generate English article with deep political intelligence analysis
 - **Minutes 45–52**: Validate and finalize changes
 - **Minutes 52–60**: Create PR with `safeoutputs___create_pull_request`
 
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
 
 **If you reach minute 52 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
+
+
+## 🔬 Political Intelligence Analysis Stage
+
+The `--analysis` flag activates the political intelligence analysis pipeline **before** article generation. This stage:
+
+1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
+2. **Runs 18 analysis methods** across 4 categories:
+   - **Classification**: significance scoring, impact matrix, actor mapping, political forces analysis
+   - **Threat Assessment**: STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
+   - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
+   - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
+3. **Writes and commits analysis artifacts** to `analysis-output/{date}/` (markdown files + `manifest.json`) — these are included in the PR for review and political intelligence improvement
+4. **Does not block article generation** — if the analysis stage fails, article generation continues normally
+
+The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
 
 ## Required Skills
 
@@ -556,6 +573,7 @@ fi
 npx tsx src/generators/news-enhanced.ts \
   --types=committee-reports \
   --languages="$LANG_ARG" \
+  --analysis \
   $FEED_DATA_FLAG \
   $SKIP_FLAG
 ```

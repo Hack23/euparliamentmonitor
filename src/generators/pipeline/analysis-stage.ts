@@ -12,9 +12,11 @@
  * news articles in all 14 languages.
  *
  * This stage is **side-effect-only**: it writes analysis markdown and a
- * `manifest.json` to disk.  The returned {@link AnalysisContext} is
- * informational and currently not consumed by the generate stage; strategies
- * read the analysis output from disk instead.
+ * `manifest.json` to disk under `analysis-output/{date}/`.  The returned
+ * {@link AnalysisContext} is informational and currently not consumed by the
+ * generate stage; strategies read the analysis output from disk instead.
+ * Analysis artifacts are committed to the repository for review and
+ * political intelligence improvement.
  *
  * Analysis methods are grouped into four categories:
  * - **Classification** (Issues #804): significance, impact-matrix, actor-mapping, forces
