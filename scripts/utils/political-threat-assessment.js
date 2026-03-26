@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-// @generated This file is compiled to scripts/utils/political-threat-assessment.js. DO NOT EDIT generated output directly.
+// @generated This file is generated from src/utils/political-threat-assessment.ts. DO NOT EDIT.
+// To modify behavior, update the TypeScript source and regenerate this file via the build/CI pipeline.
 // ─── Constants ─────────────────────────────────────────────────────────────────
 /** All Political STRIDE categories in canonical order */
 const ALL_STRIDE_CATEGORIES = [
@@ -25,8 +26,9 @@ const ALL_LEGISLATIVE_STAGES = [
 const IMPACT_WEIGHTS = {
   critical: 4,
   high: 3,
-  medium: 2,
+  moderate: 2,
   low: 1,
+  none: 0,
 };
 /** Display labels for Political STRIDE categories */
 const STRIDE_LABELS = {
@@ -41,8 +43,9 @@ const STRIDE_LABELS = {
 const THREAT_EMOJIS = {
   critical: '🔴',
   high: '🟠',
-  medium: '⚠️',
+  moderate: '⚠️',
   low: '🟢',
+  none: '⚪',
 };
 // ─── Private helpers ───────────────────────────────────────────────────────────
 /**
@@ -153,7 +156,7 @@ function cmoScore(capability, motivation, opportunity) {
 function cmoToThreatLevel(score) {
   if (score >= 8) return 'critical';
   if (score >= 6) return 'high';
-  if (score >= 4) return 'medium';
+  if (score >= 4) return 'moderate';
   return 'low';
 }
 /**
@@ -171,7 +174,7 @@ function aggregateImpactLevels(levels) {
   const avg = levels.reduce((sum, l) => sum + IMPACT_WEIGHTS[l], 0) / levels.length;
   if (avg >= 3.5) return 'critical';
   if (avg >= 2.5) return 'high';
-  if (avg >= 1.5) return 'medium';
+  if (avg >= 1.5) return 'moderate';
   return 'low';
 }
 /**
@@ -192,12 +195,12 @@ function clampProbability(p) {
  * impact level is reserved for higher-level analyses (e.g., actor profiles
  * or aggregated assessments) that assign `critical` directly.
  *
- * @param threatScore - Numeric score: 1=low, 2=medium, ≥3=high
+ * @param threatScore - Numeric score: 1=low, 2=moderate, ≥3=high
  * @returns Corresponding impact level
  */
 function scoreToImpact(threatScore) {
   if (threatScore >= 3) return 'high';
-  if (threatScore === 2) return 'medium';
+  if (threatScore === 2) return 'moderate';
   return 'low';
 }
 /**
@@ -841,14 +844,14 @@ export function buildConsequenceTree(action, data) {
     {
       description: 'Legislative process disruption requiring procedural recalibration',
       probability: clampProbability(0.4 + anomalies.length * 0.05),
-      impact: anomalies.length > 2 ? 'high' : 'medium',
+      impact: anomalies.length > 2 ? 'high' : 'moderate',
       affectedStakeholders: stakeholders('political_group', 'eu_institution'),
       timeframe: 'immediate',
     },
     {
       description: 'Coalition communication and coordination burden increases',
       probability: clampProbability(0.3 + weakCoalitions.length * 0.1),
-      impact: weakCoalitions.length > 1 ? 'high' : 'medium',
+      impact: weakCoalitions.length > 1 ? 'high' : 'moderate',
       affectedStakeholders: stakeholders('political_group'),
       timeframe: 'immediate',
     },
@@ -858,14 +861,14 @@ export function buildConsequenceTree(action, data) {
     {
       description: 'Stakeholder confidence shifts in legislative outcome predictability',
       probability: 0.5,
-      impact: 'medium',
+      impact: 'moderate',
       affectedStakeholders: stakeholders('civil_society', 'industry', 'member_state'),
       timeframe: 'short-term',
     },
     {
       description: 'Political group internal pressure and positioning adjustments',
       probability: clampProbability(0.35 + weakCoalitions.length * 0.08),
-      impact: weakCoalitions.length > 0 ? 'high' : 'medium',
+      impact: weakCoalitions.length > 0 ? 'high' : 'moderate',
       affectedStakeholders: stakeholders('political_group', 'mep'),
       timeframe: 'short-term',
     },
@@ -875,7 +878,7 @@ export function buildConsequenceTree(action, data) {
     {
       description: 'Precedent set for similar procedural challenges in future legislative cycles',
       probability: 0.4,
-      impact: 'medium',
+      impact: 'moderate',
       affectedStakeholders: stakeholders('eu_institution', 'political_group'),
       timeframe: 'long-term',
     },
@@ -1107,8 +1110,12 @@ function buildLegislativeDisruptions(data) {
  * @returns Sanitized label safe for Mermaid node definitions
  */
 function sanitizeMermaidLabel(input) {
-  // eslint-disable-next-line no-control-regex
-  const withoutControlChars = input.replace(/[\r\n\t\f\v\u0000-\u001F\u007F]/g, ' ');
+  const withoutControlChars = Array.from(input)
+    .map((ch) => {
+      const code = ch.charCodeAt(0);
+      return code <= 0x1f || code === 0x7f ? ' ' : ch;
+    })
+    .join('');
   const escaped = withoutControlChars
     .replace(/\\/g, '\\\\')
     .replace(/"/g, "'")

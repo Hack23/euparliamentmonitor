@@ -269,11 +269,9 @@ export type {
 } from '../utils/content-validator.js';
 
 export type {
-  PoliticalThreatCategory,
   PoliticalActorThreatProfile,
   ConsequenceNode,
   PoliticalConsequenceTree,
-  LegislativeStage,
   DisruptionPoint,
   LegislativeDisruptionAnalysis,
   PoliticalStrideCategory,
@@ -281,7 +279,7 @@ export type {
   ThreatAssessmentInput,
 } from './political-threats.js';
 
-export {  PoliticalSignificance,
+export type {
   PoliticalRiskLikelihood,
   PoliticalRiskImpact,
   PoliticalRiskLevel,
@@ -313,4 +311,7 @@ export type {
   ClassificationMethod,
   AnalysisRunManifest,
   AnalysisFrontmatter,
-  ClassificationInput,SIGNIFICANCE_ORDER, IMPACT_ORDER } from './political-classification.js';
+  ClassificationInput,
+} from './political-classification.js';
+
+export { SIGNIFICANCE_ORDER, IMPACT_ORDER } from './political-classification.js';

@@ -111,7 +111,7 @@ describe('assessPoliticalThreats', () => {
       const assessment = assessPoliticalThreats(makeArticleData());
       expect(assessment).toBeDefined();
       expect(assessment.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-      expect(assessment.overallThreatLevel).toMatch(/^(critical|high|medium|low)$/);
+      expect(assessment.overallThreatLevel).toMatch(/^(critical|high|moderate|low|none)$/);
       expect(assessment.confidence).toMatch(/^(high|medium|low)$/);
     });
 
@@ -163,7 +163,7 @@ describe('assessPoliticalThreats', () => {
       const assessment = assessPoliticalThreats(data);
       const shiftCat = assessment.strideCategories.find((c) => c.category === 'shift');
       expect(shiftCat).toBeDefined();
-      expect(['medium', 'high', 'critical']).toContain(shiftCat.threatLevel);
+      expect(['moderate', 'high', 'critical']).toContain(shiftCat.threatLevel);
     });
 
     it('generates actor profiles for coalitions', () => {
@@ -188,7 +188,7 @@ describe('assessPoliticalThreats', () => {
       });
       const assessment = assessPoliticalThreats(data);
       const shiftCat = assessment.strideCategories.find((c) => c.category === 'shift');
-      expect(['medium', 'high', 'critical']).toContain(shiftCat.threatLevel);
+      expect(['moderate', 'high', 'critical']).toContain(shiftCat.threatLevel);
     });
 
     it('includes anomaly count in evidence', () => {
@@ -210,8 +210,8 @@ describe('assessPoliticalThreats', () => {
       const assessment = assessPoliticalThreats(data);
       const reversalCat = assessment.strideCategories.find((c) => c.category === 'reversal');
       const delayCat = assessment.strideCategories.find((c) => c.category === 'delay');
-      expect(['medium', 'high', 'critical']).toContain(reversalCat.threatLevel);
-      expect(['medium', 'high', 'critical']).toContain(delayCat.threatLevel);
+      expect(['moderate', 'high', 'critical']).toContain(reversalCat.threatLevel);
+      expect(['moderate', 'high', 'critical']).toContain(delayCat.threatLevel);
     });
 
     it('builds a consequence tree for stalled procedure', () => {
@@ -294,7 +294,7 @@ describe('assessPoliticalThreats', () => {
       };
       const assessment = assessPoliticalThreats(data);
       const shiftCat = assessment.strideCategories.find((c) => c.category === 'shift');
-      expect(['medium', 'high', 'critical']).toContain(shiftCat.threatLevel);
+      expect(['moderate', 'high', 'critical']).toContain(shiftCat.threatLevel);
     });
 
     it('prefers anomalies over votingAnomalies when both present', () => {
@@ -366,7 +366,7 @@ describe('buildActorThreatProfiles', () => {
     });
     const profiles = buildActorThreatProfiles(data);
     if (profiles.length >= 2) {
-      const threatOrder = { critical: 4, high: 3, medium: 2, low: 1 };
+      const threatOrder = { critical: 4, high: 3, moderate: 2, low: 1, none: 0 };
       const firstScore = threatOrder[profiles[0].overallThreatLevel];
       const lastScore = threatOrder[profiles[profiles.length - 1].overallThreatLevel];
       expect(firstScore).toBeGreaterThanOrEqual(lastScore);
@@ -470,7 +470,7 @@ describe('buildConsequenceTree', () => {
       ...tree.secondaryEffects,
       ...tree.longTermImplications,
     ];
-    const validLevels = ['critical', 'high', 'medium', 'low'];
+    const validLevels = ['critical', 'high', 'moderate', 'low', 'none'];
     for (const node of allNodes) {
       expect(validLevels).toContain(node.impact);
     }

@@ -13,30 +13,36 @@
  * @see {@link https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md} ISMS Threat Modeling Policy
  */
 
-// ─── Local type aliases for standalone use ────────────────────────────────────
-// These mirror the types expected from the political-classification module (#804).
-// When that module is available, replace these with direct imports.
+import type {
+  PoliticalActorType as ClassificationPoliticalActorType,
+  ImpactLevel as ClassificationImpactLevel,
+} from './political-classification.js';
+
+// ─── Type aliases to canonical classification types ───────────────────────────
+// These align Political Threats with the political-classification module (#804)
+// to avoid divergent type definitions and name collisions.
 
 /**
  * Political actor types in the European Parliament context.
  * Adapted from ISMS threat agent classification for political intelligence.
+ *
+ * Extends the canonical classification module with threat-specific roles
+ * (rapporteur / shadow_rapporteur) used only in threat consequence trees.
  */
 export type PoliticalActorType =
-  | 'political_group' // EP political groups (EPP, S&D, Renew, etc.)
-  | 'member_state' // EU member state governments
-  | 'eu_institution' // Commission, Council, Court of Justice, ECB
-  | 'committee' // EP committees (ECON, ENVI, LIBE, etc.)
-  | 'mep' // Individual Members of European Parliament
-  | 'civil_society' // NGOs, advocacy organisations, think-tanks
-  | 'industry' // Business associations, trade bodies
+  | ClassificationPoliticalActorType
+  | 'mep' // Alias for individual_mep in threat-assessment context
   | 'rapporteur' // Legislative rapporteur for a specific procedure
   | 'shadow_rapporteur'; // Shadow rapporteur from opposing group
 
 /**
  * Impact severity levels for political consequences.
- * Aligned with ISMS risk impact classification.
+ * Alias for the canonical classification module ImpactLevel.
+ *
+ * Note: The threat assessment module uses this directly. Downstream code
+ * should prefer importing ImpactLevel from political-classification.
  */
-export type ImpactLevel = 'critical' | 'high' | 'medium' | 'low';
+export type ImpactLevel = ClassificationImpactLevel;
 
 // ─── Political STRIDE Categories ──────────────────────────────────────────────
 
