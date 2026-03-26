@@ -1327,8 +1327,9 @@ function sanitizeTableCell(input: string): string {
 /**
  * Sanitize untrusted text for safe embedding in Markdown prose or headings.
  *
- * Strips control characters and normalizes whitespace to prevent Markdown
- * structure corruption from external MCP data.
+ * Strips control characters, escapes Markdown link/image metacharacters, and
+ * escapes HTML entities to prevent Markdown structure corruption and HTML/script
+ * injection from external MCP data.
  *
  * @param input - Untrusted text to sanitize
  * @returns Sanitized text safe for Markdown prose
