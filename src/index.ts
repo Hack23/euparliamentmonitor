@@ -162,3 +162,17 @@ export {
   getIndicatorIdsForCommittees,
   getAllCategoryIndicatorIds,
 } from './constants/committee-indicator-map.js';
+
+// ─── Political Risk Assessment ───────────────────────────────────────────────
+export {
+  calculatePoliticalRiskScore,
+  assessPoliticalCapitalAtRisk,
+  buildQuantitativeSWOT,
+  assessLegislativeVelocityRisk,
+  runAgentRiskAssessment,
+  generateRiskAssessmentMarkdown,
+  generatePoliticalRiskSummary,
+  createScoredSWOTItem,
+  createScoredOpportunityOrThreat,
+  createRiskDriver,
+} from './utils/political-risk-assessment.js';

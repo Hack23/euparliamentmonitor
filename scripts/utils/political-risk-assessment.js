@@ -368,7 +368,7 @@ export function generateRiskAssessmentMarkdown(assessment) {
         `analysisType: "risk-scoring"`,
         `overallRiskLevel: "${overallRiskProfile.riskLevel}"`,
         `confidence: "${overallRiskProfile.confidence}"`,
-        `methods: ["risk-matrix", "political-capital-risk", "quantitative-swot", "legislative-velocity"]`,
+        `methods: ["risk-matrix"]`,
         `riskCount: { low: ${riskCounts.low}, medium: ${riskCounts.medium}, high: ${riskCounts.high}, critical: ${riskCounts.critical} }`,
         '---',
     ].join('\n');
@@ -639,7 +639,7 @@ function buildRisksMarkdown(risks) {
 }
 /**
  * Sanitize a value for safe inclusion in a Markdown table cell.
- * Escapes pipe characters and replaces newlines with spaces.
+ * Escapes backslash and pipe characters and replaces newlines with spaces.
  *
  * @param value - Raw cell value
  * @returns Sanitized string safe for Markdown tables
@@ -650,7 +650,8 @@ function sanitizeMarkdownTableCell(value) {
         return 'N/A';
     }
     const withoutNewlines = normalized.replace(/[\r\n]+/g, ' ');
-    return withoutNewlines.replace(/\|/g, '\\|');
+    const escapedBackslashes = withoutNewlines.replace(/\\/g, '\\\\');
+    return escapedBackslashes.replace(/\|/g, '\\|');
 }
 /**
  * Build markdown for the evaluation matrix (risks ranked by score).

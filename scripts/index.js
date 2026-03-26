@@ -50,4 +50,6 @@ export { generateArticleHTML } from './templates/article-template.js';
 // ─── Constants & Languages ───────────────────────────────────────────────────
 export { ALL_LANGUAGES, LANGUAGE_PRESETS, LANGUAGE_FLAGS, LANGUAGE_NAMES, getLocalizedString, isSupportedLanguage, getTextDirection, } from './constants/language-core.js';
 export { WB_INDICATORS, COMMITTEE_INDICATOR_MAP, CATEGORY_INDICATOR_MAP, getCommitteeIndicators, getCommitteePrimaryIndicators, getCategoryIndicators, getIndicatorIdsForCommittees, getAllCategoryIndicatorIds, } from './constants/committee-indicator-map.js';
+// ─── Political Risk Assessment ───────────────────────────────────────────────
+export { calculatePoliticalRiskScore, assessPoliticalCapitalAtRisk, buildQuantitativeSWOT, assessLegislativeVelocityRisk, runAgentRiskAssessment, generateRiskAssessmentMarkdown, generatePoliticalRiskSummary, createScoredSWOTItem, createScoredOpportunityOrThreat, createRiskDriver, } from './utils/political-risk-assessment.js';
 //# sourceMappingURL=index.js.map
