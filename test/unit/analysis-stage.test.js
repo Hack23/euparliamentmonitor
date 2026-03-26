@@ -13,7 +13,7 @@
  *   - Backward compatibility (works without analysis stage)
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
@@ -1109,6 +1109,127 @@ describe('runAnalysisStage', () => {
       // Results map should also have exactly 2 entries
       expect(ctx.results.size).toBe(2);
       expect(ctx.completedMethods).toHaveLength(2);
+    });
+  });
+
+  // ─── Error branch coverage tests ────────────────────────────────────────────
+
+  describe('error handling edge cases', () => {
+    it('records failed status when a builder write throws', async () => {
+      // First run succeeds (creates the file)
+      const ctx1 = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        skipCompleted: false,
+        enabledMethods: ['deep-analysis'],
+      });
+      expect(ctx1.results.get('deep-analysis').status).toBe('completed');
+
+      // Make the existing/ subdirectory read-only so the next write fails
+      const existingDir = path.join(tmpDir, testDate, 'existing');
+      fs.chmodSync(existingDir, 0o444);
+
+      const ctx2 = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        skipCompleted: false,
+        enabledMethods: ['deep-analysis'],
+      });
+
+      // Restore permissions for cleanup
+      fs.chmodSync(existingDir, 0o755);
+
+      // The method should have failed because atomicWrite cannot write to read-only dir
+      const result = ctx2.results.get('deep-analysis');
+      expect(result.status).toBe('failed');
+      expect(result.confidence).toBe('low');
+      expect(result.summary).toMatch(/failed/i);
+    });
+
+    it('returns low confidence when all methods fail', async () => {
+      // Make the output directory read-only so all writes fail
+      // First create the date dir
+      const dateDir = path.join(tmpDir, testDate);
+      fs.mkdirSync(dateDir, { recursive: true });
+
+      // Create subdirectories then make them read-only
+      for (const subdir of ['classification', 'threat-assessment', 'risk-scoring', 'existing']) {
+        const dir = path.join(dateDir, subdir);
+        fs.mkdirSync(dir, { recursive: true });
+        fs.chmodSync(dir, 0o444);
+      }
+
+      const ctx = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        skipCompleted: false,
+        enabledMethods: ['deep-analysis', 'stakeholder-analysis'],
+      });
+
+      // Restore permissions for cleanup
+      for (const subdir of ['classification', 'threat-assessment', 'risk-scoring', 'existing']) {
+        const dir = path.join(dateDir, subdir);
+        if (fs.existsSync(dir)) fs.chmodSync(dir, 0o755);
+      }
+
+      // All methods should have failed
+      for (const [, result] of ctx.results) {
+        expect(result.status).toBe('failed');
+      }
+
+      // aggregateConfidence should return 'low' when all results are failed
+      expect(ctx.manifest.overallConfidence).toBe('low');
+    });
+
+    it('failed method summary includes error message', async () => {
+      // Make the output dir read-only to trigger write failure
+      const dateDir = path.join(tmpDir, testDate);
+      fs.mkdirSync(dateDir, { recursive: true });
+      const existingDir = path.join(dateDir, 'existing');
+      fs.mkdirSync(existingDir, { recursive: true });
+      fs.chmodSync(existingDir, 0o444);
+
+      const ctx = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        skipCompleted: false,
+        enabledMethods: ['deep-analysis'],
+      });
+
+      // Restore permissions for cleanup
+      fs.chmodSync(existingDir, 0o755);
+
+      const result = ctx.results.get('deep-analysis');
+      expect(result.status).toBe('failed');
+      // The summary should include the error message from the exception
+      expect(result.summary).toContain('deep-analysis failed:');
+      expect(typeof result.duration).toBe('number');
+    });
+
+    it('handles non-Error exceptions in builder catch block', async () => {
+      // Spy on fs.writeFileSync to throw a non-Error value (string)
+      const spy = vi.spyOn(fs, 'writeFileSync').mockImplementationOnce(() => {
+        throw 'string error'; // eslint-disable-line no-throw-literal
+      });
+
+      const ctx = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        skipCompleted: false,
+        enabledMethods: ['deep-analysis'],
+      });
+
+      spy.mockRestore();
+
+      const result = ctx.results.get('deep-analysis');
+      expect(result.status).toBe('failed');
+      // Non-Error should be converted to string via String(err)
+      expect(result.summary).toContain('string error');
     });
   });
 });
