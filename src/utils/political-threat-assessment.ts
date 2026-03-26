@@ -1229,6 +1229,7 @@ function sanitizeMermaidLabel(input: string): string {
  */
 function sanitizeTableCell(input: string): string {
   return input
+    .replace(/\\/g, '\\\\')
     .replace(/\|/g, '\\|')
     .replace(/[\r\n]+/g, ' ')
     .trim();

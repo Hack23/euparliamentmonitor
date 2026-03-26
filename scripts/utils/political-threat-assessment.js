@@ -1007,6 +1007,7 @@ function sanitizeMermaidLabel(input) {
  */
 function sanitizeTableCell(input) {
     return input
+        .replace(/\\/g, '\\\\')
         .replace(/\|/g, '\\|')
         .replace(/[\r\n]+/g, ' ')
         .trim();
