@@ -7,12 +7,18 @@
  * @module Generators/NewsEnhanced
  * @description CLI orchestrator for European Parliament news generation.
  *
- * Coordinates the three-stage pipeline (fetch → generate → output)
+ * Coordinates the four-stage pipeline (fetch → analysis → generate → output)
  * via dedicated pipeline-stage modules and a strategy registry.  Each article
  * type is handled by its own {@link ArticleStrategy} implementation.
  *
+ * When the `--analysis` flag is supplied (all 9 agentic workflows do this),
+ * the analysis stage runs **before** article generation, producing structured
+ * political intelligence artifacts under `analysis-output/{date}/`.  These
+ * artifacts are committed to the repository for review and improvement.
+ *
  * Pipeline stages:
  * - {@link module:Generators/Pipeline/FetchStage}
+ * - {@link module:Generators/Pipeline/AnalysisStage}  (political intelligence: classification, threat assessment, risk scoring)
  * - {@link module:Generators/Pipeline/GenerateStage}
  * - {@link module:Generators/Pipeline/OutputStage}
  *

@@ -562,7 +562,7 @@ echo "Branch: $BRANCH_NAME"
 ```javascript
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament breaking news ${TODAY}`,
-  body: `## EU Parliament Breaking News\n\nGenerated breaking news articles from EP feed endpoints.\n\n- Type: breaking\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament feed endpoints (adopted texts, events, procedures, MEP updates)\n- Analytics: Voting anomalies and coalition dynamics (context only)`,
+  body: `## EU Parliament Breaking News\n\nGenerated breaking news articles from EP feed endpoints.\n\n- Type: breaking\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament feed endpoints (adopted texts, events, procedures, MEP updates)\n- Analytics: Voting anomalies and coalition dynamics (context only)\n- 🔬 Political intelligence analysis artifacts in \`analysis-output/${TODAY}/\``,
   base: "main",
   head: BRANCH_NAME
 })

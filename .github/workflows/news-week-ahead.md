@@ -807,7 +807,7 @@ Then create a PR using safe outputs. The framework automatically captures all fi
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament week-ahead articles ${TODAY}`,
-  body: `## EU Parliament Week Ahead Articles\n\nGenerated week-ahead prospective articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date range: ${TODAY} → ${nextWeek}\n- Data source: European Parliament MCP Server`,
+  body: `## EU Parliament Week Ahead Articles\n\nGenerated week-ahead prospective articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date range: ${TODAY} → ${nextWeek}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis-output/${TODAY}/\``,
   base: "main",
   head: BRANCH_NAME
 })

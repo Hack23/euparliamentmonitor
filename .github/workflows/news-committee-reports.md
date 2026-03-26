@@ -794,7 +794,7 @@ Pass `$BRANCH_NAME` (e.g., `news/committee-reports-2026-02-24`) as the `head` pa
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament committee-reports articles ${TODAY}`,
-  body: `## EU Parliament Committee Reports Articles\n\nGenerated committee-reports articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server`,
+  body: `## EU Parliament Committee Reports Articles\n\nGenerated committee-reports articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis-output/${TODAY}/\``,
   base: "main",
   head: BRANCH_NAME
 })

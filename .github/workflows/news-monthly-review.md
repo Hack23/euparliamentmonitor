@@ -627,7 +627,7 @@ BRANCH_NAME="news/month-in-review-$TODAY"
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament month-in-review articles ${TODAY}`,
-  body: `## EU Parliament Monthly Review Articles\n\nGenerated month-in-review comprehensive analysis articles.\n\n- Languages: ${LANG_ARG}\n- Review period: past 30 days\n- Data source: European Parliament MCP Server`,
+  body: `## EU Parliament Monthly Review Articles\n\nGenerated month-in-review comprehensive analysis articles.\n\n- Languages: ${LANG_ARG}\n- Review period: past 30 days\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis-output/${TODAY}/\``,
   base: "main",
   head: BRANCH_NAME
 })

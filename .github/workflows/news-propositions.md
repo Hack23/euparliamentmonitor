@@ -808,7 +808,7 @@ Pass `$BRANCH_NAME` (e.g., `news/propositions-2026-02-24`) as the `head` paramet
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament propositions articles ${TODAY}`,
-  body: `## EU Parliament Propositions Articles\n\nGenerated propositions articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server`,
+  body: `## EU Parliament Propositions Articles\n\nGenerated propositions articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis-output/${TODAY}/\``,
   base: "main",
   head: BRANCH_NAME
 })
