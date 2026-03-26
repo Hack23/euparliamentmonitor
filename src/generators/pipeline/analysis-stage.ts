@@ -41,7 +41,8 @@
 import fs from 'fs';
 import path from 'path';
 import { randomUUID } from 'crypto';
-import type { ArticleCategory, ConfidenceLevel } from '../../types/index.js';
+import { ArticleCategory } from '../../types/index.js';
+import type { ConfidenceLevel } from '../../types/index.js';
 import type { ClassificationInput } from '../../types/political-classification.js';
 import type { ThreatAssessmentInput } from '../../types/political-threats.js';
 import {
@@ -80,6 +81,28 @@ import { ensureDirectoryExists, atomicWrite } from '../../utils/file-utils.js';
 
 /** Empty table row placeholder for 6-column tables */
 const EMPTY_TABLE_ROW_6 = '| — | — | — | — | — | — |';
+
+// ─── Sanitization helpers ─────────────────────────────────────────────────────
+
+/**
+ * Sanitize untrusted text for safe use in a Markdown table cell.
+ *
+ * Escapes pipe characters, backslashes, and HTML entities, then normalizes
+ * whitespace to prevent table layout corruption from external MCP data.
+ *
+ * @param input - Untrusted cell text
+ * @returns Sanitized text safe for Markdown table cells
+ */
+function sanitizeCell(input: string): string {
+  return input
+    .replace(/\\/g, '\\\\')
+    .replace(/\|/g, '\\|')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/[\r\n]+/g, ' ')
+    .trim();
+}
 
 // ─── Data coercion helpers ────────────────────────────────────────────────────
 
@@ -423,7 +446,10 @@ function buildActorMappingMarkdown(fetchedData: Record<string, unknown>, date: s
   const actorRows =
     actors.length > 0
       ? actors
-          .map((a) => `| ${a.name} | ${a.actorType} | ${a.influence} | ${a.position} | ${a.role} |`)
+          .map(
+            (a) =>
+              `| ${sanitizeCell(a.name)} | ${sanitizeCell(a.actorType)} | ${sanitizeCell(String(a.influence))} | ${sanitizeCell(a.position)} | ${sanitizeCell(a.role)} |`
+          )
           .join('\n')
       : '| — | — | — | — | — |';
 
@@ -495,14 +521,18 @@ ${forceRow('External Influences', forces.externalInfluences)}
 /**
  * Build markdown for the political STRIDE threat assessment.
  *
+ * Uses the pipeline `date` parameter to ensure the assessment date in the
+ * generated markdown matches the `analysis-output/{date}/` folder, overriding
+ * the `new Date()` timestamp that `assessPoliticalThreats()` stamps internally.
+ *
  * @param fetchedData - Raw fetched EP data
- * @param _date - Analysis date (unused; date is derived from assessment)
+ * @param date - Analysis date (used to override assessment date for consistency)
  * @returns Markdown content string
  */
-function buildPoliticalStrideMarkdown(fetchedData: Record<string, unknown>, _date: string): string {
+function buildPoliticalStrideMarkdown(fetchedData: Record<string, unknown>, date: string): string {
   const input = toThreatInput(fetchedData);
   const assessment = assessPoliticalThreats(input);
-  return generateThreatAssessmentMarkdown(assessment);
+  return generateThreatAssessmentMarkdown({ ...assessment, date });
 }
 
 /**
@@ -614,10 +644,10 @@ function buildLegislativeDisruptionMarkdown(
     const id = proc ? String(proc['procedureId'] ?? proc['id'] ?? '') : '';
     const title = proc ? String(proc['title'] ?? '') : '';
     if (!id || !title) continue;
-    const analysis = analyzeLegislativeDisruption(title, input);
+    const analysis = analyzeLegislativeDisruption(id, input);
     const disruptionCount = analysis.disruptionPoints.length;
     disruptions.push(
-      `| ${id} | ${title.slice(0, 50)} | ${analysis.currentStage} | ${analysis.resilience} | ${disruptionCount} |`
+      `| ${sanitizeCell(id)} | ${sanitizeCell(title.slice(0, 50))} | ${sanitizeCell(analysis.currentStage)} | ${sanitizeCell(analysis.resilience)} | ${disruptionCount} |`
     );
   }
 
@@ -896,7 +926,7 @@ function buildLegislativeVelocityRiskMarkdown(
           .slice(0, 10)
           .map(
             (r) =>
-              `| ${r.procedureId} | ${r.title.slice(0, 40)} | ${r.currentStage} | ${r.daysInCurrentStage}d / ${r.expectedDaysForStage}d | ${r.velocityRisk.riskScore.toFixed(2)} | ${r.velocityRisk.riskLevel} |`
+              `| ${sanitizeCell(r.procedureId)} | ${sanitizeCell(r.title.slice(0, 40))} | ${sanitizeCell(r.currentStage)} | ${r.daysInCurrentStage}d / ${r.expectedDaysForStage}d | ${r.velocityRisk.riskScore.toFixed(2)} | ${sanitizeCell(r.velocityRisk.riskLevel)} |`
           )
           .join('\n')
       : EMPTY_TABLE_ROW_6;
@@ -990,7 +1020,7 @@ function buildAgentRiskWorkflowMarkdown(
   const workflow = runAgentRiskAssessment(
     `ASSESS-${date}`,
     date,
-    'week-ahead' as ArticleCategory,
+    ArticleCategory.WEEK_AHEAD,
     identifiedRisks,
     riskDrivers,
     ['Monitor legislative velocity indicators', 'Track coalition voting patterns']

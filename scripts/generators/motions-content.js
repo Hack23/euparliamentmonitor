@@ -17,55 +17,56 @@ export const PLACEHOLDER_MARKER = 'DATA_UNAVAILABLE (placeholder)';
  * @returns Object with all fallback data arrays
  */
 export function getMotionsFallbackData(dateStr, dateFromStr) {
-    return {
-        votingRecords: [
-            {
-                title: 'Example motion (placeholder – data unavailable)',
-                date: dateStr,
-                result: PLACEHOLDER_MARKER,
-                votes: { for: 0, against: 0, abstain: 0 },
-            },
-            {
-                title: 'Example amendment (placeholder – data unavailable)',
-                date: dateFromStr,
-                result: PLACEHOLDER_MARKER,
-                votes: { for: 0, against: 0, abstain: 0 },
-            },
-        ],
-        votingPatterns: [
-            {
-                group: 'Example group A (placeholder)',
-                cohesion: 0.0,
-                participation: 0.0,
-            },
-            {
-                group: 'Example group B (placeholder)',
-                cohesion: 0.0,
-                participation: 0.0,
-            },
-        ],
-        anomalies: [
-            {
-                type: 'Placeholder example',
-                description: 'No real anomaly data available from MCP – this is illustrative placeholder content only.',
-                severity: 'LOW',
-            },
-        ],
-        questions: [
-            {
-                author: 'Placeholder MEP 1',
-                topic: 'Placeholder parliamentary question on energy security (MCP data unavailable)',
-                date: dateStr,
-                status: PLACEHOLDER_MARKER,
-            },
-            {
-                author: 'Placeholder MEP 2',
-                topic: 'Placeholder parliamentary question on migration policy (MCP data unavailable)',
-                date: dateFromStr,
-                status: PLACEHOLDER_MARKER,
-            },
-        ],
-    };
+  return {
+    votingRecords: [
+      {
+        title: 'Example motion (placeholder – data unavailable)',
+        date: dateStr,
+        result: PLACEHOLDER_MARKER,
+        votes: { for: 0, against: 0, abstain: 0 },
+      },
+      {
+        title: 'Example amendment (placeholder – data unavailable)',
+        date: dateFromStr,
+        result: PLACEHOLDER_MARKER,
+        votes: { for: 0, against: 0, abstain: 0 },
+      },
+    ],
+    votingPatterns: [
+      {
+        group: 'Example group A (placeholder)',
+        cohesion: 0.0,
+        participation: 0.0,
+      },
+      {
+        group: 'Example group B (placeholder)',
+        cohesion: 0.0,
+        participation: 0.0,
+      },
+    ],
+    anomalies: [
+      {
+        type: 'Placeholder example',
+        description:
+          'No real anomaly data available from MCP – this is illustrative placeholder content only.',
+        severity: 'LOW',
+      },
+    ],
+    questions: [
+      {
+        author: 'Placeholder MEP 1',
+        topic: 'Placeholder parliamentary question on energy security (MCP data unavailable)',
+        date: dateStr,
+        status: PLACEHOLDER_MARKER,
+      },
+      {
+        author: 'Placeholder MEP 2',
+        topic: 'Placeholder parliamentary question on migration policy (MCP data unavailable)',
+        date: dateFromStr,
+        status: PLACEHOLDER_MARKER,
+      },
+    ],
+  };
 }
 /**
  * Returns true when there is no real roll-call data: either the records
@@ -76,7 +77,7 @@ export function getMotionsFallbackData(dateStr, dateFromStr) {
  * @returns `true` if the array is empty or all records are placeholder-only data
  */
 function isPlaceholderVotingRecords(records) {
-    return records.length === 0 || records.every((r) => r.result === PLACEHOLDER_MARKER);
+  return records.length === 0 || records.every((r) => r.result === PLACEHOLDER_MARKER);
 }
 /**
  * Returns true when there is no real voting pattern data: either the patterns
@@ -87,7 +88,7 @@ function isPlaceholderVotingRecords(records) {
  * @returns `true` if the array is empty or all patterns are placeholder-only data
  */
 function isPlaceholderVotingPatterns(patterns) {
-    return patterns.length === 0 || patterns.every((p) => /placeholder/i.test(p.group));
+  return patterns.length === 0 || patterns.every((p) => /placeholder/i.test(p.group));
 }
 /**
  * Returns true when there is no real anomaly data: either the array is empty
@@ -97,7 +98,7 @@ function isPlaceholderVotingPatterns(patterns) {
  * @returns `true` if the array is empty or all anomalies are placeholder-only data
  */
 function isPlaceholderAnomalies(anomalies) {
-    return anomalies.length === 0 || anomalies.every((a) => /placeholder/i.test(a.type));
+  return anomalies.length === 0 || anomalies.every((a) => /placeholder/i.test(a.type));
 }
 /**
  * Returns true when there is no real questions data: either the array is empty
@@ -107,7 +108,7 @@ function isPlaceholderAnomalies(anomalies) {
  * @returns `true` if the array is empty or all questions are placeholder-only data
  */
 function isPlaceholderQuestions(questions) {
-    return questions.length === 0 || questions.every((q) => q.status === PLACEHOLDER_MARKER);
+  return questions.length === 0 || questions.every((q) => q.status === PLACEHOLDER_MARKER);
 }
 /**
  * Generate HTML content for motions article
@@ -121,28 +122,38 @@ function isPlaceholderQuestions(questions) {
  * @param lang - Language code for editorial strings (default: 'en')
  * @returns HTML content string
  */
-export function generateMotionsContent(dateFromStr, dateStr, votingRecords, votingPatterns, anomalies, questions, lang = 'en') {
-    const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
-    const strings = getLocalizedString(MOTIONS_STRINGS, lang);
-    const ledeAnalysisRaw = strings.ledeAnalysis
-        .replace('{DATE_FROM}', dateFromStr)
-        .replace('{DATE_TO}', dateStr);
-    const showVotingResults = !isPlaceholderVotingRecords(votingRecords);
-    const showVotingPatterns = !isPlaceholderVotingPatterns(votingPatterns);
-    const showAnomalies = !isPlaceholderAnomalies(anomalies);
-    const showQuestions = !isPlaceholderQuestions(questions);
-    return `
+export function generateMotionsContent(
+  dateFromStr,
+  dateStr,
+  votingRecords,
+  votingPatterns,
+  anomalies,
+  questions,
+  lang = 'en'
+) {
+  const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
+  const strings = getLocalizedString(MOTIONS_STRINGS, lang);
+  const ledeAnalysisRaw = strings.ledeAnalysis
+    .replace('{DATE_FROM}', dateFromStr)
+    .replace('{DATE_TO}', dateStr);
+  const showVotingResults = !isPlaceholderVotingRecords(votingRecords);
+  const showVotingPatterns = !isPlaceholderVotingPatterns(votingPatterns);
+  const showAnomalies = !isPlaceholderAnomalies(anomalies);
+  const showQuestions = !isPlaceholderQuestions(questions);
+  return `
     <div class="article-content">
       <section class="lede">
         <p>${escapeHTML(strings.lede)} ${escapeHTML(editorial.sourceAttribution)}, ${escapeHTML(ledeAnalysisRaw)}</p>
       </section>
-      ${showVotingResults
-        ? `
+      ${
+        showVotingResults
+          ? `
       <section class="voting-results">
         <h2>${escapeHTML(strings.votingRecordsHeading)}</h2>
         ${votingRecords
-            .filter((r) => r.result !== PLACEHOLDER_MARKER)
-            .map((record) => `
+          .filter((r) => r.result !== PLACEHOLDER_MARKER)
+          .map(
+            (record) => `
           <div class="vote-item">
             <h3>${escapeHTML(record.title)}</h3>
             <p class="vote-date">${escapeHTML(strings.dateLabel)}: ${escapeHTML(record.date)}</p>
@@ -153,37 +164,45 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
               <span class="vote-abstain">${escapeHTML(strings.abstainLabel)}: ${escapeHTML(String(record.votes.abstain))}</span>
             </div>
           </div>
-        `)
-            .join('')}
+        `
+          )
+          .join('')}
       </section>`
-        : ''}
-      ${showVotingPatterns
-        ? `
+          : ''
+      }
+      ${
+        showVotingPatterns
+          ? `
       <section class="voting-patterns">
         <h2>${escapeHTML(strings.partyCohesionHeading)}</h2>
         <p>${escapeHTML(editorial.parliamentaryContext)}: Analysis of voting behavior reveals varying levels of party discipline across political groups:</p>
         ${votingPatterns
-            .filter((p) => !/placeholder/i.test(p.group))
-            .map((pattern) => `
+          .filter((p) => !/placeholder/i.test(p.group))
+          .map(
+            (pattern) => `
           <div class="pattern-item">
             <h3>${escapeHTML(pattern.group)}</h3>
             <p><strong>${escapeHTML(strings.cohesionLabel)}:</strong> ${escapeHTML(String((pattern.cohesion * 100).toFixed(1)))}%</p>
             <p><strong>${escapeHTML(strings.participationLabel)}:</strong> ${escapeHTML(String((pattern.participation * 100).toFixed(1)))}%</p>
           </div>
-        `)
-            .join('')}
+        `
+          )
+          .join('')}
       </section>`
-        : ''}
-      ${showAnomalies
-        ? `
+          : ''
+      }
+      ${
+        showAnomalies
+          ? `
       <section class="anomalies">
         <h2>${escapeHTML(strings.anomaliesHeading)}</h2>
         <p>${escapeHTML(editorial.analysisNote)}: Unusual voting patterns that deviate from typical party lines:</p>
         ${anomalies
-            .filter((a) => !/placeholder/i.test(a.type))
-            .map((anomaly) => {
+          .filter((a) => !/placeholder/i.test(a.type))
+          .map((anomaly) => {
             const rawSeverity = anomaly.severity ?? 'unknown';
-            const severityDisplay = typeof rawSeverity === 'string' ? rawSeverity : String(rawSeverity);
+            const severityDisplay =
+              typeof rawSeverity === 'string' ? rawSeverity : String(rawSeverity);
             const severityClass = severityDisplay.toLowerCase();
             return `
           <div class="anomaly-item severity-${escapeHTML(severityClass)}">
@@ -192,26 +211,31 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
             <p class="severity">${escapeHTML(strings.severityLabel)}: ${escapeHTML(severityDisplay)}</p>
           </div>
         `;
-        })
-            .join('')}
+          })
+          .join('')}
       </section>`
-        : ''}
-      ${showQuestions
-        ? `
+          : ''
+      }
+      ${
+        showQuestions
+          ? `
       <section class="questions">
         <h2>${escapeHTML(strings.questionsHeading)}</h2>
         ${questions
-            .filter((q) => q.status !== PLACEHOLDER_MARKER)
-            .map((question) => `
+          .filter((q) => q.status !== PLACEHOLDER_MARKER)
+          .map(
+            (question) => `
           <div class="question-item">
             <p class="question-author">${escapeHTML(question.author)}</p>
             <p class="question-topic"><strong>${escapeHTML(question.topic)}</strong></p>
             <p class="question-meta">${escapeHTML(strings.dateLabel)}: ${escapeHTML(question.date)} | ${escapeHTML(strings.statusLabel)}: ${escapeHTML(question.status)}</p>
           </div>
-        `)
-            .join('')}
+        `
+          )
+          .join('')}
       </section>`
-        : ''}
+          : ''
+      }
 
       <section class="why-this-matters">
         <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
@@ -229,24 +253,24 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
  * @returns HTML list items string
  */
 function buildVoteAlignmentHtml(records) {
-    if (records.length === 0)
-        return '';
-    const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
-    if (realRecords.length === 0)
-        return '';
-    const items = realRecords
-        .map((r) => {
-        const forVotes = escapeHTML(String(r.votes.for));
-        const againstVotes = escapeHTML(String(r.votes.against));
-        const abstainVotes = escapeHTML(String(r.votes.abstain));
-        return (`<li class="alignment-vote">` +
-            `<strong>${escapeHTML(r.title)}</strong> — ` +
-            `${escapeHTML(r.result)} ` +
-            `(${forVotes}&#43; / ${againstVotes}&#8722; / ${abstainVotes} abstain)` +
-            `</li>`);
+  if (records.length === 0) return '';
+  const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
+  if (realRecords.length === 0) return '';
+  const items = realRecords
+    .map((r) => {
+      const forVotes = escapeHTML(String(r.votes.for));
+      const againstVotes = escapeHTML(String(r.votes.against));
+      const abstainVotes = escapeHTML(String(r.votes.abstain));
+      return (
+        `<li class="alignment-vote">` +
+        `<strong>${escapeHTML(r.title)}</strong> — ` +
+        `${escapeHTML(r.result)} ` +
+        `(${forVotes}&#43; / ${againstVotes}&#8722; / ${abstainVotes} abstain)` +
+        `</li>`
+      );
     })
-        .join('\n          ');
-    return `<ul class="alignment-votes">\n          ${items}\n        </ul>`;
+    .join('\n          ');
+  return `<ul class="alignment-votes">\n          ${items}\n        </ul>`;
 }
 /**
  * Build HTML list items for coalition alignment rows
@@ -255,15 +279,17 @@ function buildVoteAlignmentHtml(records) {
  * @returns HTML list items string
  */
 function buildCoalitionAlignmentHtml(coalitions) {
-    if (coalitions.length === 0)
-        return '';
-    const items = coalitions
-        .map((c) => `<li class="alignment-coalition alignment-${escapeHTML(c.riskLevel)}">` +
+  if (coalitions.length === 0) return '';
+  const items = coalitions
+    .map(
+      (c) =>
+        `<li class="alignment-coalition alignment-${escapeHTML(c.riskLevel)}">` +
         `${escapeHTML(c.groups.join(', '))} — ` +
         `cohesion: ${escapeHTML(String(Math.round(c.cohesionScore * 100)))}% ` +
-        `(${escapeHTML(c.alignmentTrend)})</li>`)
-        .join('\n          ');
-    return `<ul class="alignment-coalitions">\n          ${items}\n        </ul>`;
+        `(${escapeHTML(c.alignmentTrend)})</li>`
+    )
+    .join('\n          ');
+  return `<ul class="alignment-coalitions">\n          ${items}\n        </ul>`;
 }
 /**
  * Build political alignment analysis section for motions, showing how
@@ -276,14 +302,12 @@ function buildCoalitionAlignmentHtml(coalitions) {
  * @returns HTML string for the political alignment section
  */
 export function buildPoliticalAlignmentSection(votingRecords, coalitions, language) {
-    if (votingRecords.length === 0 && coalitions.length === 0)
-        return '';
-    const recordsHtml = buildVoteAlignmentHtml(votingRecords);
-    const coalitionsHtml = buildCoalitionAlignmentHtml(coalitions);
-    if (!recordsHtml && !coalitionsHtml)
-        return '';
-    const strings = getLocalizedString(MOTIONS_STRINGS, language);
-    return `
+  if (votingRecords.length === 0 && coalitions.length === 0) return '';
+  const recordsHtml = buildVoteAlignmentHtml(votingRecords);
+  const coalitionsHtml = buildCoalitionAlignmentHtml(coalitions);
+  if (!recordsHtml && !coalitionsHtml) return '';
+  const strings = getLocalizedString(MOTIONS_STRINGS, language);
+  return `
         <section class="political-alignment" lang="${escapeHTML(language)}">
           <h2>${escapeHTML(strings.politicalAlignmentHeading)}</h2>
           ${recordsHtml}
@@ -292,54 +316,54 @@ export function buildPoliticalAlignmentSection(votingRecords, coalitions, langua
 }
 /** Localized headings for the adopted texts feed section */
 const ADOPTED_TEXTS_HEADINGS = {
-    en: 'Recently Adopted Texts',
-    sv: 'Nyligen Antagna Texter',
-    da: 'Nyligt Vedtagne Tekster',
-    no: 'Nylig Vedtatte Tekster',
-    fi: 'Äskettäin Hyväksytyt Tekstit',
-    de: 'Kürzlich Angenommene Texte',
-    fr: 'Textes Récemment Adoptés',
-    es: 'Textos Recientemente Adoptados',
-    nl: 'Recent Aangenomen Teksten',
-    ar: 'النصوص المعتمدة مؤخراً',
-    he: 'טקסטים שאומצו לאחרונה',
-    ja: '最近採択されたテキスト',
-    ko: '최근 채택된 텍스트',
-    zh: '最近通过的文本',
+  en: 'Recently Adopted Texts',
+  sv: 'Nyligen Antagna Texter',
+  da: 'Nyligt Vedtagne Tekster',
+  no: 'Nylig Vedtatte Tekster',
+  fi: 'Äskettäin Hyväksytyt Tekstit',
+  de: 'Kürzlich Angenommene Texte',
+  fr: 'Textes Récemment Adoptés',
+  es: 'Textos Recientemente Adoptados',
+  nl: 'Recent Aangenomen Teksten',
+  ar: 'النصوص المعتمدة مؤخراً',
+  he: 'טקסטים שאומצו לאחרונה',
+  ja: '最近採択されたテキスト',
+  ko: '최근 채택된 텍스트',
+  zh: '最近通过的文本',
 };
 /** Localized fallback label for items with no adoption date */
 const ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS = {
-    en: 'Unknown',
-    sv: 'Okänt',
-    da: 'Ukendt',
-    no: 'Ukjent',
-    fi: 'Tuntematon',
-    de: 'Unbekannt',
-    fr: 'Inconnu',
-    es: 'Desconocido',
-    nl: 'Onbekend',
-    ar: 'غير معروف',
-    he: 'לא ידוע',
-    ja: '不明',
-    ko: '알 수 없음',
-    zh: '未知',
+  en: 'Unknown',
+  sv: 'Okänt',
+  da: 'Ukendt',
+  no: 'Ukjent',
+  fi: 'Tuntematon',
+  de: 'Unbekannt',
+  fr: 'Inconnu',
+  es: 'Desconocido',
+  nl: 'Onbekend',
+  ar: 'غير معروف',
+  he: 'לא ידוע',
+  ja: '不明',
+  ko: '알 수 없음',
+  zh: '未知',
 };
 /** Localized count descriptions for the adopted texts feed section */
 const ADOPTED_TEXTS_COUNT_STRINGS = {
-    en: (n) => `${n} texts adopted in recent plenary sessions:`,
-    sv: (n) => `${n} texter antagna i nyliga plenarsammanträden:`,
-    da: (n) => `${n} tekster vedtaget i seneste plenarmøder:`,
-    no: (n) => `${n} tekster vedtatt i nylige plenumsmøter:`,
-    fi: (n) => `${n} tekstiä hyväksytty viimeisimmissä täysistunnoissa:`,
-    de: (n) => `${n} Texte in jüngsten Plenarsitzungen angenommen:`,
-    fr: (n) => `${n}\u00a0textes adoptés lors des récentes sessions plénières\u00a0:`,
-    es: (n) => `${n} textos adoptados en recientes sesiones plenarias:`,
-    nl: (n) => `${n} teksten aangenomen in recente plenaire vergaderingen:`,
-    ar: (n) => `تم اعتماد ${n} نصاً في جلسات البرلمان الأخيرة:`,
-    he: (n) => `${n} טקסטים אומצו בישיבות המליאה האחרונות:`,
-    ja: (n) => `最近の本会議セッションで ${n} 件のテキストが採択されました：`,
-    ko: (n) => `최근 전체 회의에서 ${n}개의 텍스트가 채택되었습니다:`,
-    zh: (n) => `最近全体会议共通过了 ${n} 份文本：`,
+  en: (n) => `${n} texts adopted in recent plenary sessions:`,
+  sv: (n) => `${n} texter antagna i nyliga plenarsammanträden:`,
+  da: (n) => `${n} tekster vedtaget i seneste plenarmøder:`,
+  no: (n) => `${n} tekster vedtatt i nylige plenumsmøter:`,
+  fi: (n) => `${n} tekstiä hyväksytty viimeisimmissä täysistunnoissa:`,
+  de: (n) => `${n} Texte in jüngsten Plenarsitzungen angenommen:`,
+  fr: (n) => `${n}\u00a0textes adoptés lors des récentes sessions plénières\u00a0:`,
+  es: (n) => `${n} textos adoptados en recientes sesiones plenarias:`,
+  nl: (n) => `${n} teksten aangenomen in recente plenaire vergaderingen:`,
+  ar: (n) => `تم اعتماد ${n} نصاً في جلسات البرلمان الأخيرة:`,
+  he: (n) => `${n} טקסטים אומצו בישיבות המליאה האחרונות:`,
+  ja: (n) => `最近の本会議セッションで ${n} 件のテキストが採択されました：`,
+  ko: (n) => `최근 전체 회의에서 ${n}개의 텍스트가 채택되었습니다:`,
+  zh: (n) => `最近全体会议共通过了 ${n} 份文本：`,
 };
 /**
  * Build an HTML section listing recently adopted texts from EP feed data.
@@ -350,36 +374,37 @@ const ADOPTED_TEXTS_COUNT_STRINGS = {
  * @returns HTML section string, or empty string if no texts
  */
 export function buildAdoptedTextsSection(adoptedTexts, language) {
-    if (adoptedTexts.length === 0)
-        return '';
-    const heading = ADOPTED_TEXTS_HEADINGS[language] ?? ADOPTED_TEXTS_HEADINGS['en'] ?? 'Recently Adopted Texts';
-    const countFn = ADOPTED_TEXTS_COUNT_STRINGS[language] ?? ADOPTED_TEXTS_COUNT_STRINGS['en'];
-    const countText = countFn(adoptedTexts.length);
-    const unknownDate = ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS[language] ?? ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS['en'];
-    // Group by date, sort most recent first
-    const byDate = new Map();
-    for (const item of adoptedTexts) {
-        const date = item.date || unknownDate;
-        const group = byDate.get(date) ?? [];
-        group.push(item);
-        byDate.set(date, group);
-    }
-    const sortedDates = [...byDate.keys()].sort().reverse();
-    let itemsHtml = '';
-    for (const date of sortedDates) {
-        const items = byDate.get(date) ?? [];
-        for (const item of items) {
-            const ref = item.identifier ?? item.id;
-            const title = item.title || ref;
-            itemsHtml += `
+  if (adoptedTexts.length === 0) return '';
+  const heading =
+    ADOPTED_TEXTS_HEADINGS[language] ?? ADOPTED_TEXTS_HEADINGS['en'] ?? 'Recently Adopted Texts';
+  const countFn = ADOPTED_TEXTS_COUNT_STRINGS[language] ?? ADOPTED_TEXTS_COUNT_STRINGS['en'];
+  const countText = countFn(adoptedTexts.length);
+  const unknownDate =
+    ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS[language] ?? ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS['en'];
+  // Group by date, sort most recent first
+  const byDate = new Map();
+  for (const item of adoptedTexts) {
+    const date = item.date || unknownDate;
+    const group = byDate.get(date) ?? [];
+    group.push(item);
+    byDate.set(date, group);
+  }
+  const sortedDates = [...byDate.keys()].sort().reverse();
+  let itemsHtml = '';
+  for (const date of sortedDates) {
+    const items = byDate.get(date) ?? [];
+    for (const item of items) {
+      const ref = item.identifier ?? item.id;
+      const title = item.title || ref;
+      itemsHtml += `
             <li class="adopted-text-item">
               <strong>${escapeHTML(title)}</strong>
               <span class="feed-label">${escapeHTML(ref)}</span>
               <span class="feed-date">${escapeHTML(date)}</span>
             </li>`;
-        }
     }
-    return `
+  }
+  return `
         <section class="adopted-texts-feed" lang="${escapeHTML(language)}">
           <h2>${escapeHTML(heading)}</h2>
           <p>${escapeHTML(countText)}</p>
