@@ -633,11 +633,11 @@ export function assessPoliticalThreats(data) {
   const actorProfiles = buildActorThreatProfiles(safeData);
   const consequenceTrees = buildConsequenceTrees(safeData);
   const legislativeDisruptions = buildLegislativeDisruptions(safeData);
-  const allThreatSignals = [
+  const aggregatedThreatLevels = [
     ...strideCategories.map((c) => c.threatLevel),
     ...actorProfiles.map((p) => p.overallThreatLevel),
   ];
-  const overallThreatLevel = aggregateImpactLevels(allThreatSignals);
+  const overallThreatLevel = aggregateImpactLevels(aggregatedThreatLevels);
   const keyFindings = strideCategories
     .filter((c) => c.threatLevel === 'high' || c.threatLevel === 'critical')
     .map((c) => `${STRIDE_LABELS[c.category]}: ${c.analysis}`);
