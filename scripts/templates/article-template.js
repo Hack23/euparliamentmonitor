@@ -5,9 +5,33 @@
  * @description Generates HTML templates for news articles with proper structure and metadata
  */
 import { createHash } from 'crypto';
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, SOURCES_HEADING_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import {
+  ALL_LANGUAGES,
+  LANGUAGE_FLAGS,
+  LANGUAGE_NAMES,
+  ARTICLE_TYPE_LABELS,
+  READ_TIME_LABELS,
+  BACK_TO_NEWS_LABELS,
+  ARTICLE_NAV_LABELS,
+  SKIP_LINK_TEXTS,
+  SOURCES_HEADING_LABELS,
+  HEADER_SUBTITLE_LABELS,
+  THEME_TOGGLE_LABELS,
+  FOOTER_ABOUT_HEADING_LABELS,
+  FOOTER_ABOUT_TEXT_LABELS,
+  FOOTER_QUICK_LINKS_LABELS,
+  FOOTER_BUILT_BY_LABELS,
+  FOOTER_LANGUAGES_LABELS,
+  getLocalizedString,
+  getTextDirection,
+} from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
-import { APP_VERSION, createThemeToggleButton, THEME_TOGGLE_SCRIPT, THEME_TOGGLE_SCRIPT_CONTENT, } from '../constants/config.js';
+import {
+  APP_VERSION,
+  createThemeToggleButton,
+  THEME_TOGGLE_SCRIPT,
+  THEME_TOGGLE_SCRIPT_CONTENT,
+} from '../constants/config.js';
 /** Pattern for valid article dates (YYYY-MM-DD) */
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
 /** Pattern for valid article slugs (lowercase letters, digits, hyphens) */
@@ -21,20 +45,20 @@ const TEMPLATE_WORDS_PER_MINUTE = 250;
  * Maps our 2-letter language codes to proper BCP47 locale strings.
  */
 const OG_LOCALE_MAP = {
-    en: 'en_GB',
-    sv: 'sv_SE',
-    da: 'da_DK',
-    no: 'nb_NO',
-    fi: 'fi_FI',
-    de: 'de_DE',
-    fr: 'fr_FR',
-    es: 'es_ES',
-    nl: 'nl_NL',
-    ar: 'ar_SA',
-    he: 'he_IL',
-    ja: 'ja_JP',
-    ko: 'ko_KR',
-    zh: 'zh_CN',
+  en: 'en_GB',
+  sv: 'sv_SE',
+  da: 'da_DK',
+  no: 'nb_NO',
+  fi: 'fi_FI',
+  de: 'de_DE',
+  fr: 'fr_FR',
+  es: 'es_ES',
+  nl: 'nl_NL',
+  ar: 'ar_SA',
+  he: 'he_IL',
+  ja: 'ja_JP',
+  ko: 'ko_KR',
+  zh: 'zh_CN',
 };
 /**
  * Build the article language switcher nav HTML.
@@ -47,25 +71,25 @@ const OG_LOCALE_MAP = {
  * @returns HTML string
  */
 function buildArticleLangSwitcher(date, slug, currentLang, availableLanguages) {
-    if (!DATE_PATTERN.test(date)) {
-        throw new Error(`Invalid article date format: "${date}"`);
-    }
-    if (!SLUG_PATTERN.test(slug)) {
-        throw new Error(`Invalid article slug format: "${slug}"`);
-    }
-    const safeDate = escapeHTML(date);
-    const safeSlug = escapeHTML(slug);
-    const langs = availableLanguages ?? ALL_LANGUAGES;
-    return langs
-        .map((code) => {
-        const flag = getLocalizedString(LANGUAGE_FLAGS, code);
-        const name = getLocalizedString(LANGUAGE_NAMES, code);
-        const active = code === currentLang ? ' active' : '';
-        const href = `${safeDate}-${safeSlug}-${code}.html`;
-        const safeTitle = escapeHTML(name);
-        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeTitle}">${flag} ${code.toUpperCase()}</a>`;
+  if (!DATE_PATTERN.test(date)) {
+    throw new Error(`Invalid article date format: "${date}"`);
+  }
+  if (!SLUG_PATTERN.test(slug)) {
+    throw new Error(`Invalid article slug format: "${slug}"`);
+  }
+  const safeDate = escapeHTML(date);
+  const safeSlug = escapeHTML(slug);
+  const langs = availableLanguages ?? ALL_LANGUAGES;
+  return langs
+    .map((code) => {
+      const flag = getLocalizedString(LANGUAGE_FLAGS, code);
+      const name = getLocalizedString(LANGUAGE_NAMES, code);
+      const active = code === currentLang ? ' active' : '';
+      const href = `${safeDate}-${safeSlug}-${code}.html`;
+      const safeTitle = escapeHTML(name);
+      return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeTitle}">${flag} ${code.toUpperCase()}</a>`;
     })
-        .join('\n        ');
+    .join('\n        ');
 }
 /**
  * Build a single footer section with title and content.
@@ -75,7 +99,7 @@ function buildArticleLangSwitcher(date, slug, currentLang, availableLanguages) {
  * @returns HTML string for one footer section
  */
 function buildFooterSection(title, content) {
-    return `<div class="footer-section">
+  return `<div class="footer-section">
         <h3>${title}</h3>
         ${content}
       </div>`;
@@ -87,13 +111,13 @@ function buildFooterSection(title, content) {
  * @returns HTML string for the language grid
  */
 function buildArticleFooterLanguageGrid(currentLang) {
-    return ALL_LANGUAGES.map((code) => {
-        const flag = getLocalizedString(LANGUAGE_FLAGS, code);
-        const safeName = escapeHTML(getLocalizedString(LANGUAGE_NAMES, code));
-        const href = code === 'en' ? '../index.html' : `../index-${code}.html`;
-        const active = code === currentLang ? ' class="active"' : '';
-        return `<a href="${href}"${active} hreflang="${code}">${flag} ${safeName}</a>`;
-    }).join('\n            ');
+  return ALL_LANGUAGES.map((code) => {
+    const flag = getLocalizedString(LANGUAGE_FLAGS, code);
+    const safeName = escapeHTML(getLocalizedString(LANGUAGE_NAMES, code));
+    const href = code === 'en' ? '../index.html' : `../index-${code}.html`;
+    const active = code === currentLang ? ' class="active"' : '';
+    return `<a href="${href}"${active} hreflang="${code}">${flag} ${safeName}</a>`;
+  }).join('\n            ');
 }
 /**
  * Generate complete HTML for a news article
@@ -102,88 +126,106 @@ function buildArticleFooterLanguageGrid(currentLang) {
  * @returns Complete HTML document string
  */
 export function generateArticleHTML(options) {
-    const { slug, title, subtitle, date, category, readTime, lang, content, keywords = [], sources = [], stylesHash, availableLanguages, } = options;
-    const dir = getTextDirection(lang);
-    const year = new Date().getFullYear();
-    // Format date for display
-    const displayDate = new Date(date).toLocaleDateString(lang, {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-    });
-    const languageName = getLocalizedString(LANGUAGE_NAMES, lang);
-    const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang);
-    const categoryLabel = categoryLabels[category] ?? category;
-    const readTimeFormatter = getLocalizedString(READ_TIME_LABELS, lang);
-    // Auto-compute read-time from content word count if not explicitly set
-    const contentWordCount = content
-        .replace(/<[^>]+>/gu, ' ')
-        .replace(/\s+/gu, ' ')
-        .trim()
-        .split(' ').length;
-    const computedReadTime = Math.max(1, Math.ceil(contentWordCount / TEMPLATE_WORDS_PER_MINUTE));
-    const effectiveReadTime = readTime > 0 ? readTime : computedReadTime;
-    const readTimeLabel = readTimeFormatter(effectiveReadTime);
-    const backLabel = getLocalizedString(BACK_TO_NEWS_LABELS, lang);
-    const articleNavLabel = getLocalizedString(ARTICLE_NAV_LABELS, lang);
-    const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
-    const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
-    const footerAboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
-    const footerAboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
-    const footerQuickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
-    const footerBuiltByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
-    const footerLanguagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
-    const indexHref = lang === 'en' ? '../index.html' : `../index-${lang}.html`;
-    // Escape values for safe HTML embedding
-    const safeTitle = escapeHTML(title);
-    const safeSubtitle = escapeHTML(subtitle);
-    const safeKeywords = keywords.map((k) => escapeHTML(k)).join(', ');
-    const safeCategoryLabel = escapeHTML(categoryLabel);
-    // Build JSON-LD as object for safe serialization
-    const jsonLd = JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'NewsArticle',
-        headline: title,
-        description: subtitle,
-        datePublished: date,
-        dateModified: date,
-        inLanguage: lang,
-        articleSection: categoryLabel,
-        author: {
-            '@type': 'Organization',
-            name: 'EU Parliament Monitor',
-        },
-        publisher: {
-            '@type': 'Organization',
-            name: 'EU Parliament Monitor',
-            url: 'https://hack23.github.io/euparliamentmonitor',
-        },
-        keywords: keywords.join(', '),
-        mainEntityOfPage: {
-            '@type': 'WebPage',
-            '@id': `https://hack23.github.io/euparliamentmonitor/news/${date}-${slug}-${lang}.html`,
-        },
-    }, null, 4);
-    // Validate and escape stylesHash — only allow valid SRI hash format
-    const safeSriAttrs = stylesHash && SRI_HASH_PATTERN.test(stylesHash)
-        ? ` integrity="${escapeHTML(stylesHash)}" crossorigin="anonymous"`
-        : '';
-    // Compute SHA-256 hash of the inline JSON-LD script content for CSP.
-    // IMPORTANT: The whitespace here ("\n  " prefix and "\n  " suffix) must exactly
-    // match the script tag content in the HTML template below:
-    //   <script type="application/ld+json">
-    //   ${jsonLd}
-    //   </script>
-    const jsonLdScriptContent = `\n  ${jsonLd}\n  `;
-    const jsonLdHash = `sha256-${createHash('sha256').update(jsonLdScriptContent).digest('base64')}`;
-    // Reading-progress script hash — content must exactly match the <script> block.
-    const readingProgressScript = `\n  (function(){\n    var bar=document.querySelector('.reading-progress');\n    if(!bar)return;\n    bar.style.display='block';\n    var ticking=false;\n    window.addEventListener('scroll',function(){\n      if(!ticking){\n        window.requestAnimationFrame(function(){\n          var h=document.documentElement;\n          var scrollTop=h.scrollTop||document.body.scrollTop;\n          var scrollHeight=h.scrollHeight-h.clientHeight;\n          bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';\n          ticking=false;\n        });\n        ticking=true;\n      }\n    },{passive:true});\n  })();\n  `;
-    const readingProgressHash = `sha256-${createHash('sha256').update(readingProgressScript).digest('base64')}`;
-    // Theme toggle CSP hash — derived from the shared THEME_TOGGLE_SCRIPT_CONTENT constant
-    const themeToggleHash = `sha256-${createHash('sha256').update(THEME_TOGGLE_SCRIPT_CONTENT).digest('base64')}`;
-    // Localized theme toggle button
-    const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
-    return `<!DOCTYPE html>
+  const {
+    slug,
+    title,
+    subtitle,
+    date,
+    category,
+    readTime,
+    lang,
+    content,
+    keywords = [],
+    sources = [],
+    stylesHash,
+    availableLanguages,
+  } = options;
+  const dir = getTextDirection(lang);
+  const year = new Date().getFullYear();
+  // Format date for display
+  const displayDate = new Date(date).toLocaleDateString(lang, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+  const languageName = getLocalizedString(LANGUAGE_NAMES, lang);
+  const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang);
+  const categoryLabel = categoryLabels[category] ?? category;
+  const readTimeFormatter = getLocalizedString(READ_TIME_LABELS, lang);
+  // Auto-compute read-time from content word count if not explicitly set
+  const contentWordCount = content
+    .replace(/<[^>]+>/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim()
+    .split(' ').length;
+  const computedReadTime = Math.max(1, Math.ceil(contentWordCount / TEMPLATE_WORDS_PER_MINUTE));
+  const effectiveReadTime = readTime > 0 ? readTime : computedReadTime;
+  const readTimeLabel = readTimeFormatter(effectiveReadTime);
+  const backLabel = getLocalizedString(BACK_TO_NEWS_LABELS, lang);
+  const articleNavLabel = getLocalizedString(ARTICLE_NAV_LABELS, lang);
+  const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
+  const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
+  const footerAboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
+  const footerAboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
+  const footerQuickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
+  const footerBuiltByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
+  const footerLanguagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
+  const indexHref = lang === 'en' ? '../index.html' : `../index-${lang}.html`;
+  // Escape values for safe HTML embedding
+  const safeTitle = escapeHTML(title);
+  const safeSubtitle = escapeHTML(subtitle);
+  const safeKeywords = keywords.map((k) => escapeHTML(k)).join(', ');
+  const safeCategoryLabel = escapeHTML(categoryLabel);
+  // Build JSON-LD as object for safe serialization
+  const jsonLd = JSON.stringify(
+    {
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      headline: title,
+      description: subtitle,
+      datePublished: date,
+      dateModified: date,
+      inLanguage: lang,
+      articleSection: categoryLabel,
+      author: {
+        '@type': 'Organization',
+        name: 'EU Parliament Monitor',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'EU Parliament Monitor',
+        url: 'https://hack23.github.io/euparliamentmonitor',
+      },
+      keywords: keywords.join(', '),
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `https://hack23.github.io/euparliamentmonitor/news/${date}-${slug}-${lang}.html`,
+      },
+    },
+    null,
+    4
+  );
+  // Validate and escape stylesHash — only allow valid SRI hash format
+  const safeSriAttrs =
+    stylesHash && SRI_HASH_PATTERN.test(stylesHash)
+      ? ` integrity="${escapeHTML(stylesHash)}" crossorigin="anonymous"`
+      : '';
+  // Compute SHA-256 hash of the inline JSON-LD script content for CSP.
+  // IMPORTANT: The whitespace here ("\n  " prefix and "\n  " suffix) must exactly
+  // match the script tag content in the HTML template below:
+  //   <script type="application/ld+json">
+  //   ${jsonLd}
+  //   </script>
+  const jsonLdScriptContent = `\n  ${jsonLd}\n  `;
+  const jsonLdHash = `sha256-${createHash('sha256').update(jsonLdScriptContent).digest('base64')}`;
+  // Reading-progress script hash — content must exactly match the <script> block.
+  const readingProgressScript = `\n  (function(){\n    var bar=document.querySelector('.reading-progress');\n    if(!bar)return;\n    bar.style.display='block';\n    var ticking=false;\n    window.addEventListener('scroll',function(){\n      if(!ticking){\n        window.requestAnimationFrame(function(){\n          var h=document.documentElement;\n          var scrollTop=h.scrollTop||document.body.scrollTop;\n          var scrollHeight=h.scrollHeight-h.clientHeight;\n          bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';\n          ticking=false;\n        });\n        ticking=true;\n      }\n    },{passive:true});\n  })();\n  `;
+  const readingProgressHash = `sha256-${createHash('sha256').update(readingProgressScript).digest('base64')}`;
+  // Theme toggle CSP hash — derived from the shared THEME_TOGGLE_SCRIPT_CONTENT constant
+  const themeToggleHash = `sha256-${createHash('sha256').update(THEME_TOGGLE_SCRIPT_CONTENT).digest('base64')}`;
+  // Localized theme toggle button
+  const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
+  return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
   <meta charset="UTF-8">
@@ -202,9 +244,9 @@ export function generateArticleHTML(options) {
   <meta property="article:author" content="EU Parliament Monitor">
   <meta property="article:section" content="${safeCategoryLabel}">
   ${keywords
-        .slice(0, 10)
-        .map((k) => `<meta property="article:tag" content="${escapeHTML(k)}">`)
-        .join('\n  ')}
+    .slice(0, 10)
+    .map((k) => `<meta property="article:tag" content="${escapeHTML(k)}">`)
+    .join('\n  ')}
   
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
@@ -295,23 +337,32 @@ export function generateArticleHTML(options) {
   <footer class="site-footer" role="contentinfo">
     <div class="footer-content">
       ${buildFooterSection(footerAboutHeading, `<p>${footerAboutText}</p>`)}
-      ${buildFooterSection(footerQuickLinksHeading, `<ul>
+      ${buildFooterSection(
+        footerQuickLinksHeading,
+        `<ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="../sitemap.html">Sitemap</a></li>
           <li><a href="../rss.xml">RSS Feed</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
           <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
-        </ul>`)}
-      ${buildFooterSection(footerBuiltByHeading, `<ul>
+        </ul>`
+      )}
+      ${buildFooterSection(
+        footerBuiltByHeading,
+        `<ul>
           <li><a href="https://hack23.com">hack23.com</a></li>
           <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
           <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Security &amp; Privacy Policy</a></li>
           <li><a href="mailto:james@hack23.com">Contact</a></li>
-        </ul>`)}
-      ${buildFooterSection(footerLanguagesHeading, `<div class="language-grid">
+        </ul>`
+      )}
+      ${buildFooterSection(
+        footerLanguagesHeading,
+        `<div class="language-grid">
           ${buildArticleFooterLanguageGrid(lang)}
-        </div>`)}
+        </div>`
+      )}
     </div>
     <div class="footer-bottom">
       <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v${escapeHTML(APP_VERSION)}</p>
@@ -338,16 +389,20 @@ export function generateArticleHTML(options) {
       }
     },{passive:true});
   })();
-  </script>${content.includes('data-chart-config')
-        ? `
+  </script>${
+    content.includes('data-chart-config')
+      ? `
   <script src="../js/vendor/chart.umd.min.js" defer></script>
   <script src="../js/vendor/chartjs-plugin-annotation.min.js" defer></script>
   <script src="../js/chart-init.js" defer></script>`
-        : ''}${content.includes('mindmap-container') || content.includes('swot-matrix')
-        ? `
+      : ''
+  }${
+    content.includes('mindmap-container') || content.includes('swot-matrix')
+      ? `
   <script src="../js/vendor/d3.min.js" defer></script>
   <script src="../js/d3-init.js" defer></script>`
-        : ''}${THEME_TOGGLE_SCRIPT}
+      : ''
+  }${THEME_TOGGLE_SCRIPT}
 </body>
 </html>`;
 }
@@ -359,22 +414,22 @@ export function generateArticleHTML(options) {
  * @returns HTML string for sources section or empty string
  */
 function renderSourcesSection(sources, lang) {
-    if (sources.length === 0) {
-        return '';
-    }
-    const sourcesHeading = escapeHTML(getLocalizedString(SOURCES_HEADING_LABELS, lang));
-    return `
+  if (sources.length === 0) {
+    return '';
+  }
+  const sourcesHeading = escapeHTML(getLocalizedString(SOURCES_HEADING_LABELS, lang));
+  return `
     <footer class="article-footer">
       <section class="article-sources">
         <h2>${sourcesHeading}</h2>
         <ul>
           ${sources
-        .map((source) => {
-        const safeSourceTitle = escapeHTML(source.title);
-        const href = isSafeURL(source.url) ? escapeHTML(source.url) : '#';
-        return `<li><a href="${href}" target="_blank" rel="noopener noreferrer">${safeSourceTitle}</a></li>`;
-    })
-        .join('\n          ')}
+            .map((source) => {
+              const safeSourceTitle = escapeHTML(source.title);
+              const href = isSafeURL(source.url) ? escapeHTML(source.url) : '#';
+              return `<li><a href="${href}" target="_blank" rel="noopener noreferrer">${safeSourceTitle}</a></li>`;
+            })
+            .join('\n          ')}
         </ul>
       </section>
     </footer>

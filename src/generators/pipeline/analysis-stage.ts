@@ -62,6 +62,7 @@ import {
   analyzeLegislativeDisruption,
   generateThreatAssessmentMarkdown,
 } from '../../utils/political-threat-assessment.js';
+import type { ScoredSWOTItem } from '../../types/political-risk.js';
 import {
   assessLegislativeVelocityRisk,
   runAgentRiskAssessment,
@@ -107,26 +108,37 @@ function sanitizeCell(input: string): string {
  * Sanitize a document identifier for safe use as a filesystem filename.
  *
  * Replaces characters unsafe for filenames with hyphens, collapses runs of
- * hyphens, trims, lowercases, and caps length at 80 characters.  Falls back
- * to a deterministic hash of the input when the sanitized result is empty.
+ * hyphens, trims, and lowercases.  When the result exceeds 80 characters,
+ * a deterministic hash suffix is appended to avoid collisions between IDs
+ * that share the same first 80 characters.  Falls back to a deterministic
+ * hash of the input when the sanitized result is empty.
  *
  * @param id - Raw document identifier (e.g. "TA-10-2026-0094", procedure reference)
- * @returns Filesystem-safe identifier string
+ * @returns Filesystem-safe identifier string (max 80 chars)
  */
 function sanitizeDocumentId(id: string): string {
-  const sanitized = id
+  const full = id
     .toLowerCase()
     .replace(/[^a-z0-9-]/g, '-')
     .replace(/-{2,}/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 80);
-  if (sanitized) return sanitized;
-  // Deterministic fallback: simple hash from input string for reproducibility
-  let hash = 0;
-  for (let i = 0; i < id.length; i++) {
-    hash = ((hash << 5) - hash + id.charCodeAt(i)) | 0;
+    .replace(/^-+|-+$/g, '');
+  if (!full) {
+    // Deterministic fallback: simple hash from input string for reproducibility
+    let hash = 0;
+    for (let i = 0; i < id.length; i++) {
+      hash = ((hash << 5) - hash + id.charCodeAt(i)) | 0;
+    }
+    return `anon-${Math.abs(hash).toString(36).slice(0, 12)}`;
   }
-  return `anon-${Math.abs(hash).toString(36).slice(0, 12)}`;
+  // When truncation occurs, append a short hash to avoid collisions
+  if (full.length > 80) {
+    let hash = 0;
+    for (let i = 0; i < id.length; i++) {
+      hash = ((hash << 5) - hash + id.charCodeAt(i)) | 0;
+    }
+    return `${full.slice(0, 72)}-${Math.abs(hash).toString(36).slice(0, 7)}`;
+  }
+  return full;
 }
 
 /** All feed array keys that contain individually-analysable documents */
@@ -157,7 +169,16 @@ function extractDocumentId(item: Record<string, unknown>): string {
     if (typeof val === 'string' && val.length > 0) return val;
   }
   const title = item['title'];
-  if (typeof title === 'string' && title.length > 0) return title.slice(0, 60);
+  if (typeof title === 'string' && title.length > 0) {
+    // Append a short hash to title-based IDs to avoid collisions when
+    // multiple items share identical title prefixes
+    const repr = JSON.stringify(item);
+    let hash = 0;
+    for (let i = 0; i < repr.length; i++) {
+      hash = ((hash << 5) - hash + repr.charCodeAt(i)) | 0;
+    }
+    return `${title.slice(0, 50)}-${Math.abs(hash).toString(36).slice(0, 8)}`;
+  }
   // Deterministic fallback: hash of stringified item for reproducible dedup
   const repr = JSON.stringify(item);
   let hash = 0;
@@ -1153,7 +1174,12 @@ function buildPoliticalSwotItems(counts: {
   mepUpdates: number;
   events: number;
   coalitions: number;
-}) {
+}): {
+  strengths: ScoredSWOTItem[];
+  weaknesses: ScoredSWOTItem[];
+  opportunities: ScoredSWOTItem[];
+  threats: ScoredSWOTItem[];
+} {
   const strengths = [
     createScoredSWOTItem(
       `${counts.procedures} procedures in active legislative pipeline`,
@@ -1826,8 +1852,14 @@ function buildDocumentAnalysisMarkdown(fetchedData: Record<string, unknown>, dat
     }
   }
 
-  // Store analyzed IDs for manifest consumption
-  (fetchedData as Record<string, unknown>)['_analyzedDocumentIds'] = [...analyzedIds];
+  // Store analyzed IDs for manifest consumption as a non-enumerable property
+  // to prevent leaking into dataSourcesUsed which iterates enumerable keys
+  Object.defineProperty(fetchedData, '_analyzedDocumentIds', {
+    value: [...analyzedIds],
+    writable: false,
+    configurable: true,
+    enumerable: false,
+  });
 
   // Build index table
   const tableRows =
@@ -1835,7 +1867,7 @@ function buildDocumentAnalysisMarkdown(fetchedData: Record<string, unknown>, dat
       ? documentEntries
           .map(
             (d) =>
-              `| ${sanitizeCell(d.id)} | ${sanitizeCell(d.title.slice(0, 60))} | ${sanitizeCell(d.category)} | [${d.filename}](documents/${d.filename}) |`
+              `| ${sanitizeCell(d.id)} | ${sanitizeCell(d.title.slice(0, 60))} | ${sanitizeCell(d.category)} | [${d.filename}](${d.filename}) |`
           )
           .join('\n')
       : '| — | No documents available | — | — |';
@@ -2034,8 +2066,8 @@ ${sanitizeCell(docDescription)}
 |-------------------|-------------|
 | Political Groups | ${significance === 'routine' ? 'Low' : 'Medium'} |
 | Civil Society | ${significance === 'routine' ? 'Low' : 'Medium'} |
-| Industry | ${sanitizeCell(docType) === 'resolution' || sanitizeCell(docType) === 'directive' ? 'Medium' : 'Low'} |
-| National Governments | ${sanitizeCell(docStage) === 'trilogue' ? 'High' : 'Low'} |
+| Industry | ${String(docType).toLowerCase() === 'resolution' || String(docType).toLowerCase() === 'directive' ? 'Medium' : 'Low'} |
+| National Governments | ${String(docStage).toLowerCase() === 'trilogue' ? 'High' : 'Low'} |
 | Citizens | Low |
 | EU Institutions | ${significance === 'critical' || significance === 'historic' ? 'High' : 'Low'} |
 
