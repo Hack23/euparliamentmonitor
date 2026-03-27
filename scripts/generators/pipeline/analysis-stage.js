@@ -287,7 +287,9 @@ export const ALL_ANALYSIS_METHODS = [
  * names (e.g. the `--analysis-methods` CLI flag).  For the default execution
  * set, use {@link ALL_ANALYSIS_METHODS} instead.
  */
-export const VALID_ANALYSIS_METHODS = [...ALL_ANALYSIS_METHODS, 'document-analysis'];
+export const VALID_ANALYSIS_METHODS = Array.from(
+  new Set([...ALL_ANALYSIS_METHODS, 'document-analysis'])
+);
 // ─── Internal helpers ─────────────────────────────────────────────────────────
 /**
  * Determine the aggregated confidence level from a set of individual results.

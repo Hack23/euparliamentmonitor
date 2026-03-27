@@ -348,10 +348,9 @@ export const ALL_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
  * names (e.g. the `--analysis-methods` CLI flag).  For the default execution
  * set, use {@link ALL_ANALYSIS_METHODS} instead.
  */
-export const VALID_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
-  ...ALL_ANALYSIS_METHODS,
-  'document-analysis',
-] as const;
+export const VALID_ANALYSIS_METHODS: readonly AnalysisMethod[] = Array.from(
+  new Set<AnalysisMethod>([...ALL_ANALYSIS_METHODS, 'document-analysis']),
+);
 
 // ─── Interfaces ───────────────────────────────────────────────────────────────
 
