@@ -226,13 +226,16 @@ const stats: GenerationStats = {
 // ─── Main orchestration ───────────────────────────────────────────────────────
 
 /**
- * Type guard that narrows a string to {@link AnalysisMethod} without casts.
+ * Type guard that narrows a string to {@link AnalysisMethod}.
+ *
+ * Uses {@link Array.some} so no type assertion is needed — the predicate
+ * compares each element directly to the candidate string.
  *
  * @param name - The string to validate
  * @returns `true` when `name` is a recognised analysis method
  */
 function isValidAnalysisMethod(name: string): name is AnalysisMethod {
-  return (VALID_ANALYSIS_METHODS as readonly string[]).includes(name);
+  return VALID_ANALYSIS_METHODS.some((m) => m === name);
 }
 
 /**

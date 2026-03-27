@@ -107,10 +107,9 @@ function sanitizeCell(input) {
 function sanitizeDocumentId(id) {
   const full = id
     .toLowerCase()
-    .replace(/[^a-z0-9-]/g, '-')
-    .replace(/-{2,}/g, '-')
-    .replace(/^-+/, '')
-    .replace(/-+$/, '');
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-/, '')
+    .replace(/-$/, '');
   if (!full) {
     // Deterministic fallback: simple hash from input string for reproducibility
     let hash = 0;
