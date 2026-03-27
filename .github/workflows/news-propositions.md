@@ -206,11 +206,12 @@ For each new legislative proposition, assess:
 The `--analysis` flag activates the political intelligence analysis pipeline **before** article generation. This stage:
 
 1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
-2. **Runs 18 analysis methods** across 4 categories:
+2. **Runs 18 default analysis methods** across 4 categories (plus `document-analysis` as opt-in, totalling 19 valid methods):
    - **Classification**: significance scoring, impact matrix, actor mapping, political forces analysis
    - **Threat Assessment**: STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
    - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
+   - **Per-Document Analysis** *(opt-in via `--analysis-methods`)*: per-document markdown + JSON intelligence files
 3. **Writes and commits analysis artifacts** to `analysis-output/{date}/` (markdown files + `manifest.json`) — these are included in the PR for review and political intelligence improvement
 4. **Does not block article generation** — if the analysis stage fails, article generation continues normally
 
