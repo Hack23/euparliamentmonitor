@@ -3305,6 +3305,29 @@ export const WEEK_AHEAD_STAKEHOLDER_STRINGS: LanguageMap<WeekAheadStakeholderStr
   },
 };
 
+// ─── Raw-data-only constants for analysis fields (no narrative — AI produces all analysis) ───
+const BRK_WHY_ANOMALIES = 'voting anomalies detected';
+const BRK_WHY_NORMAL = 'standard parliamentary activity';
+const BRK_NEUTRAL_REASON = 'opposition monitoring';
+const BRK_LEGAL_CONSEQUENCE = 'new legal obligations';
+const BRK_PROC_CONSEQUENCE = 'procedure trajectory altered';
+const BRK_IMPACT_ECONOMIC = 'economic impact pending';
+const BRK_IMPACT_SOCIAL = 'social impact pending';
+const BRK_IMPACT_GEO_COALITION = 'coalition dynamics shift';
+const BRK_IMPACT_GEO_NORMAL = 'geopolitical impact pending';
+const BRK_MISTAKE_DESC = 'procedural risk detected';
+const BRK_MISTAKE_ALT = 'alternative procedure available';
+
+const CMT_WHY = '{pct}% active, {descriptor} productivity';
+const CMT_NO_DOCS = 'no recent documents';
+const CMT_IMPACT_POLITICAL = 'active={active} total={total}';
+const CMT_IMPACT_LEGAL = '{docs} documents in consideration';
+const CMT_ACTION_CONSEQUENCE = 'documents advancing to next stage';
+const CMT_MISTAKE_DESC = 'no recent documents produced';
+const CMT_MISTAKE_ALT = 'additional sessions needed';
+const CMT_OUTLOOK_GOOD = '{n}/{total} committees active';
+const CMT_OUTLOOK_CONCERN = 'low committee output';
+
 /** Localized section heading strings for breaking news articles */
 export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
   en: {
@@ -3332,42 +3355,42 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Breaking developments on ${date}: ${adopted} newly adopted texts, ${events} events, ${procedures} procedure updates, ${meps} MEP changes.`,
     breakingWhyAnomalies:
-      'Voting anomalies and coalition shifts signal realignment of political forces within Parliament. These developments may alter the legislative calculus for pending files.',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      'Parliamentary activity reflects the ongoing legislative cycle. Adopted texts create binding EU law, while procedure updates indicate the trajectory of upcoming legislation.',
+      BRK_WHY_NORMAL,
     breakingWinnerActor: 'Legislative Majority',
     breakingWinnerReasonFn: (count) =>
       `${count} legislative texts have been advanced through the parliamentary process.`,
     breakingNeutralActor: 'Opposition Groups',
     breakingNeutralReason:
-      'Opposition groups are monitoring developments and may propose amendments in subsequent readings.',
+      BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `Following the parliamentary session of ${date}, expect continued legislative momentum across key committees.`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `The parliamentary calendar following ${date} suggests a transitional period as committees rebalance legislative priorities.`,
+      `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence:
-      'New legal obligations enter into force for EU member states and regulated entities.',
+      BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence:
-      'Legislative trajectory altered; upcoming committee votes and plenary sessions will be pivotal.',
+      BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      'Unusual voting patterns suggest internal party tensions or cross-group negotiations on key dossiers.',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `${count} legislative texts reflect the current parliamentary majority's legislative priorities.`,
+      `legislative_texts=${count}`,
     breakingImpactEconomic:
-      'New regulations may affect business operations, market access, and compliance costs across the EU.',
+      BRK_IMPACT_ECONOMIC,
     breakingImpactSocial:
-      "Legislative changes could affect citizens' rights, public services, and social standards across member states.",
+      BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `${count} new legal instruments create binding obligations for EU member states and stakeholders.`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      'Coalition dynamics within the Parliament signal shifts in EU external policy positions and priorities.',
+      BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal:
-      "Parliamentary decisions shape the EU's international standing and its relationships with third countries.",
+      BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Political Group Whips',
     breakingMistakeDescription:
-      'Risk of insufficient scrutiny of complex legislative texts in accelerated procedures.',
+      BRK_MISTAKE_DESC,
     breakingMistakeAlternative:
-      'Extend committee deliberation periods and commission independent legal analysis for contentious provisions.',
+      BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Adopted:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -3403,42 +3426,42 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Senaste händelserna ${date}: ${adopted} nyligen antagna texter, ${events} händelser, ${procedures} proceduruppdateringar, ${meps} MEP-ändringar.`,
     breakingWhyAnomalies:
-      'Röstningsanomalier och koalitionsförändringar signalerar en omgruppering av politiska krafter inom parlamentet. Dessa händelser kan förändra den lagstiftande kalkylen för pågående ärenden.',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      'Parlamentarisk aktivitet återspeglar den pågående lagstiftningscykeln. Antagna texter skapar bindande EU-rätt, medan procedureruppdateringar indikerar riktningen för kommande lagstiftning.',
+      BRK_WHY_NORMAL,
     breakingWinnerActor: 'Lagstiftande majoritet',
     breakingWinnerReasonFn: (count) =>
       `${count} lagstiftningstexter har drivits fram i den parlamentariska processen.`,
     breakingNeutralActor: 'Oppositionsgrupper',
     breakingNeutralReason:
-      'Oppositionsgrupperna övervakar händelseutvecklingen och kan föreslå ändringar i efterföljande behandlingar.',
+      BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `Efter den parlamentariska sessionen ${date} väntas fortsatt lagstiftningsdynamik i centrala utskott.`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `Den parlamentariska kalendern efter ${date} tyder på en övergångsperiod när utskotten ombalanserar lagstiftningsprioriteringarna.`,
+      `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence:
-      'Nya rättsliga skyldigheter träder i kraft för EU:s medlemsstater och berörda aktörer.',
+      BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence:
-      'Lagstiftningsinriktningen förändras; kommande utskottsomröstningar och plenarsammanträden blir avgörande.',
+      BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      'Ovanliga röstningsönster tyder på interna partispänningar eller förhandlingar mellan grupper om centrala ärenden.',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `${count} lagstiftningstexter återspeglar den nuvarande parlamentsmajoritetens lagstiftningsprioriteringar.`,
+      `legislative_texts=${count}`,
     breakingImpactEconomic:
-      'Nya förordningar kan påverka företagsverksamhet, marknadstillträde och regelefterlevnadskostnader i EU.',
+      BRK_IMPACT_ECONOMIC,
     breakingImpactSocial:
-      'Lagändringar kan påverka medborgarnas rättigheter, offentliga tjänster och sociala standarder i medlemsstaterna.',
+      BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `${count} nya rättsliga instrument skapar bindande skyldigheter för EU:s medlemsstater och intressenter.`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      'Koalitionsdynamiken inom parlamentet signalerar förändringar i EU:s utrikespolitiska ståndpunkter och prioriteringar.',
+      BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal:
-      'Parlamentariska beslut formar EU:s internationella ställning och relationerna med tredjeländer.',
+      BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Partigruppernas piskare',
     breakingMistakeDescription:
-      'Risk för otillräcklig granskning av komplexa lagstiftningstexter i accelererade förfaranden.',
+      BRK_MISTAKE_DESC,
     breakingMistakeAlternative:
-      'Förläng utskottens överläggningsperioder och beställ oberoende juridisk analys för kontroversiella bestämmelser.',
+      BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Antagen:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -3474,42 +3497,42 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Seneste begivenheder den ${date}: ${adopted} nyvedtagne tekster, ${events} begivenheder, ${procedures} procedureopdateringer, ${meps} MEP-ændringer.`,
     breakingWhyAnomalies:
-      'Afstemningsanomalier og koalitionsforskydninger signalerer en omgruppering af politiske kræfter i parlamentet. Disse begivenheder kan ændre den lovgivningsmæssige kalkule for verserende sager.',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      'Parlamentarisk aktivitet afspejler den igangværende lovgivningscyklus. Vedtagne tekster skaber bindende EU-ret, mens procedureopdateringer angiver retningen for kommende lovgivning.',
+      BRK_WHY_NORMAL,
     breakingWinnerActor: 'Lovgivningsmæssigt flertal',
     breakingWinnerReasonFn: (count) =>
       `${count} lovgivningstekster er ført frem i den parlamentariske proces.`,
     breakingNeutralActor: 'Oppositionsgrupper',
     breakingNeutralReason:
-      'Oppositionsgrupper følger udviklingen og kan foreslå ændringsforslag ved efterfølgende behandlinger.',
+      BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `Efter den parlamentariske session den ${date} forventes fortsat lovgivningsdynamik i centrale udvalg.`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `Den parlamentariske kalender efter ${date} tyder på en overgangsperiode, mens udvalgene ombalancerer lovgivningsprioriteterne.`,
+      `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence:
-      "Nye retlige forpligtelser træder i kraft for EU's medlemsstater og berørte aktører.",
+      BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence:
-      'Lovgivningsindsatsen ændres; kommende udvalgsafstemninger og plenarmøder bliver afgørende.',
+      BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      'Usædvanlige afstemningsm\u00f8nstre tyder på interne partispændinger eller forhandlinger på tværs af grupper om centrale sager.',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `${count} lovgivningstekster afspejler det nuværende parlamentariske flertals lovgivningsprioriteter.`,
+      `legislative_texts=${count}`,
     breakingImpactEconomic:
-      'Nye regler kan påvirke erhvervslivet, markedsadgang og efterlevelsesomkostninger i EU.',
+      BRK_IMPACT_ECONOMIC,
     breakingImpactSocial:
-      'Lovændringer kan påvirke borgernes rettigheder, offentlige tjenester og sociale standarder i medlemsstaterne.',
+      BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `${count} nye retlige instrumenter skaber bindende forpligtelser for EU's medlemsstater og interessenter.`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      "Koalitionsdynamikken i parlamentet signalerer forskydninger i EU's udenrigspolitiske positioner og prioriteter.",
+      BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal:
-      "Parlamentariske beslutninger former EU's internationale position og forholdet til tredjelande.",
+      BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Partigruppernes piskere',
     breakingMistakeDescription:
-      'Risiko for utilstrækkelig granskning af komplekse lovgivningstekster i accelererede procedurer.',
+      BRK_MISTAKE_DESC,
     breakingMistakeAlternative:
-      'Forlæng udvalgenes drøftelsesperioder og bestil uafhængig juridisk analyse for kontroversielle bestemmelser.',
+      BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Vedtaget:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -3545,42 +3568,42 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Siste hendelser ${date}: ${adopted} nylig vedtatte tekster, ${events} hendelser, ${procedures} prosedyreoppdateringer, ${meps} MEP-endringer.`,
     breakingWhyAnomalies:
-      'Avstemningsavvik og koalisjonsforskyvninger signaliserer en omgruppering av politiske krefter i parlamentet. Disse hendelsene kan endre den lovgivningsmessige kalkylen for pågående saker.',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      'Parlamentarisk aktivitet gjenspeiler den pågående lovgivningssyklusen. Vedtatte tekster skaper bindende EU-rett, mens prosedyreoppdateringer indikerer retningen for kommende lovgivning.',
+      BRK_WHY_NORMAL,
     breakingWinnerActor: 'Lovgivningsmessig flertall',
     breakingWinnerReasonFn: (count) =>
       `${count} lovgivningstekster er fremmet i den parlamentariske prosessen.`,
     breakingNeutralActor: 'Opposisjonsgrupper',
     breakingNeutralReason:
-      'Opposisjonsgrupper overvåker utviklingen og kan foreslå endringer i etterfølgende behandlinger.',
+      BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `Etter den parlamentariske sesjonen ${date} forventes fortsatt lovgivningsdynamikk i sentrale komiteer.`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `Den parlamentariske kalenderen etter ${date} tyder på en overgangsperiode når komiteene ombalanserer lovgivningsprioriteringene.`,
+      `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence:
-      'Nye rettslige forpliktelser trer i kraft for EUs medlemsstater og berørte aktører.',
+      BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence:
-      'Lovgivningsforløpet endres; kommende komitéavstemninger og plenarmøter vil være avgjørende.',
+      BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      'Uvanlige avstemningsmønstre tyder på interne partispenninger eller forhandlinger på tvers av grupper om sentrale saker.',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `${count} lovgivningstekster gjenspeiler det nåværende parlamentariske flertalls lovgivingsprioriteter.`,
+      `legislative_texts=${count}`,
     breakingImpactEconomic:
-      'Nye forskrifter kan påvirke næringsvirksomhet, markedsadgang og etterlevelseskostnader i EU.',
+      BRK_IMPACT_ECONOMIC,
     breakingImpactSocial:
-      'Lovendringer kan påvirke borgernes rettigheter, offentlige tjenester og sosiale standarder i medlemsstatene.',
+      BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `${count} nye rettslige instrumenter skaper bindende forpliktelser for EUs medlemsstater og interessenter.`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      'Koalisjonsdynamikken i parlamentet signaliserer skifter i EUs utenrikspolitiske posisjoner og prioriteringer.',
+      BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal:
-      'Parlamentariske beslutninger former EUs internasjonale posisjon og forholdet til tredjeland.',
+      BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Partigruppers innpisker',
     breakingMistakeDescription:
-      'Risiko for utilstrekkelig granskning av komplekse lovgivningstekster i akselererte prosedyrer.',
+      BRK_MISTAKE_DESC,
     breakingMistakeAlternative:
-      'Forleng komiteens drøftingsperioder og bestill uavhengig juridisk analyse for kontroversielle bestemmelser.',
+      BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Vedtatt:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -3617,42 +3640,42 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Uusimmat tapahtumat ${date}: ${adopted} äskettäin hyväksyttyä tekstiä, ${events} tapahtumaa, ${procedures} menettelypäivitystä, ${meps} MEP-muutosta.`,
     breakingWhyAnomalies:
-      'Äänestyspoikkeamat ja koalitiomuutokset viittaavat poliittisten voimien uudelleenryhmittymiseen parlamentissa. Nämä tapahtumat saattavat muuttaa vireillä olevien asioiden lainsäädännöllistä laskentaa.',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      'Parlamentaarinen toiminta heijastaa käynnissä olevaa lainsäädäntösykliä. Hyväksytyt tekstit luovat sitovaa EU-oikeutta, kun taas menettelypäivitykset osoittavat tulevan lainsäädännön suunnan.',
+      BRK_WHY_NORMAL,
     breakingWinnerActor: 'Lainsäädännöllinen enemmistö',
     breakingWinnerReasonFn: (count) =>
       `${count} lainsäädäntötekstiä on edistetty parlamentaarisessa prosessissa.`,
     breakingNeutralActor: 'Oppositioryhmät',
     breakingNeutralReason:
-      'Oppositioryhmät seuraavat kehitystä ja voivat ehdottaa muutoksia myöhemmissä käsittelyissä.',
+      BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `Parlamentaarisen istunnon ${date} jälkeen odotetaan jatkuvaa lainsäädäntövauhtia keskeisillä valiokunnilla.`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `Parlamentaarinen kalenteri ${date} jälkeen viittaa siirtymäkauteen, kun valiokunnat tasapainottavat lainsäädäntöprioriteetit uudelleen.`,
+      `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence:
-      'Uudet oikeudelliset velvoitteet tulevat voimaan EU:n jäsenvaltioille ja säännellyille toimijoille.',
+      BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence:
-      'Lainsäädäntöpolku muuttuu; tulevat valiokuntaäänestykset ja täysistunnot ovat ratkaisevia.',
+      BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      'Epätavalliset äänestysmallit viittaavat sisäisiin puoluejännitteisiin tai ryhmien välisiin neuvotteluihin keskeisistä asiakirjoista.',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `${count} lainsäädäntötekstiä heijastaa nykyisen parlamentaarisen enemmistön lainsäädäntöprioriteetit.`,
+      `legislative_texts=${count}`,
     breakingImpactEconomic:
-      'Uudet asetukset voivat vaikuttaa yritysten toimintaan, markkinapääsyyn ja vaatimustenmukaisuuskustannuksiin EU:ssa.',
+      BRK_IMPACT_ECONOMIC,
     breakingImpactSocial:
-      'Lakimuutokset voivat vaikuttaa kansalaisten oikeuksiin, julkisiin palveluihin ja sosiaalisiin standardeihin jäsenvaltioissa.',
+      BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `${count} uutta oikeudellista välinettä luo sitovia velvoitteita EU:n jäsenvaltioille ja sidosryhmille.`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      'Koalitiodynamiikka parlamentissa viestii muutoksista EU:n ulkopoliittisissa kannoissa ja prioriteeteissa.',
+      BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal:
-      'Parlamentaariset päätökset muovaavat EU:n kansainvälistä asemaa ja sen suhteita kolmansiin maihin.',
+      BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Ryhmien parlamenttipiiskurit',
     breakingMistakeDescription:
-      'Riski monimutkaisten lainsäädäntötekstien riittämättömälle tarkastukselle nopeutetuissa menettelyissä.',
+      BRK_MISTAKE_DESC,
     breakingMistakeAlternative:
-      'Pidennä valiokuntien harkinta-aikoja ja tilaa riippumaton oikeudellinen analyysi kiistanalaisia säännöksiä varten.',
+      BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Hyväksytty:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -3689,42 +3712,42 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Neueste Entwicklungen am ${date}: ${adopted} neu angenommene Texte, ${events} Ereignisse, ${procedures} Verfahrensupdates, ${meps} MdEP-Änderungen.`,
     breakingWhyAnomalies:
-      'Abstimmungsanomalien und Koalitionsverschiebungen signalisieren eine Neuausrichtung politischer Kräfte im Parlament. Diese Entwicklungen könnten die gesetzgeberische Kalkulation für laufende Akten verändern.',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      'Parlamentarische Aktivitäten spiegeln den laufenden Gesetzgebungszyklus wider. Angenommene Texte schaffen bindendes EU-Recht, während Verfahrensupdates die Richtung der kommenden Gesetzgebung anzeigen.',
+      BRK_WHY_NORMAL,
     breakingWinnerActor: 'Gesetzgebende Mehrheit',
     breakingWinnerReasonFn: (count) =>
       `${count} Gesetzestexte wurden im parlamentarischen Verfahren vorangebracht.`,
     breakingNeutralActor: 'Oppositionsgruppen',
     breakingNeutralReason:
-      'Oppositionsgruppen beobachten die Entwicklungen und können in nachfolgenden Lesungen Änderungsanträge einbringen.',
+      BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `Im Anschluss an die parlamentarische Sitzung vom ${date} ist in den zentralen Ausschüssen weiterer Gesetzgebungsschwung zu erwarten.`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `Der parlamentarische Kalender nach dem ${date} deutet auf eine Übergangsphase hin, in der Ausschüsse ihre Gesetzgebungsprioritäten neu ausbalancieren.`,
+      `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence:
-      'Neue rechtliche Verpflichtungen treten für EU-Mitgliedstaaten und regulierte Akteure in Kraft.',
+      BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence:
-      'Der Gesetzgebungsweg ändert sich; bevorstehende Ausschussabstimmungen und Plenartagungen werden entscheidend sein.',
+      BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      'Ungewöhnliche Abstimmungsmuster deuten auf interne Parteispannungen oder fraktionsübergreifende Verhandlungen zu Schlüsseldossiers hin.',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `${count} Gesetzestexte spiegeln die Gesetzgebungsprioritäten der aktuellen parlamentarischen Mehrheit wider.`,
+      `legislative_texts=${count}`,
     breakingImpactEconomic:
-      'Neue Vorschriften können Geschäftsbetrieb, Marktzugang und Compliance-Kosten in der EU beeinflussen.',
+      BRK_IMPACT_ECONOMIC,
     breakingImpactSocial:
-      'Gesetzesänderungen könnten Bürgerrechte, öffentliche Dienste und Sozialstandards in den Mitgliedstaaten beeinflussen.',
+      BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `${count} neue Rechtsinstrumente schaffen verbindliche Verpflichtungen für EU-Mitgliedstaaten und Interessenträger.`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      'Die Koalitionsdynamik im Parlament signalisiert Verschiebungen in den außenpolitischen Positionen und Prioritäten der EU.',
+      BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal:
-      'Parlamentarische Entscheidungen prägen die internationale Stellung der EU und ihre Beziehungen zu Drittländern.',
+      BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Fraktionsgeschäftsführer',
     breakingMistakeDescription:
-      'Risiko einer unzureichenden Prüfung komplexer Gesetzestexte in beschleunigten Verfahren.',
+      BRK_MISTAKE_DESC,
     breakingMistakeAlternative:
-      'Ausschussberatungszeiten verlängern und unabhängige Rechtsanalysen für streitige Bestimmungen in Auftrag geben.',
+      BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Angenommen:',
     breakingMEPPrefix: 'MdEP:',
     anomalyUnavailable:
@@ -3761,42 +3784,42 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Dernières évolutions au ${date}\u00a0: ${adopted} textes nouvellement adoptés, ${events} événements, ${procedures} mises à jour procédurales, ${meps} changements de députés.`,
     breakingWhyAnomalies:
-      'Les anomalies de vote et les changements de coalition signalent une recomposition des forces politiques au sein du Parlement. Ces développements pourraient modifier les calculs législatifs des dossiers en cours.',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      "L'activité parlementaire reflète le cycle législatif en cours. Les textes adoptés créent du droit européen contraignant, tandis que les mises à jour procédurales indiquent la trajectoire de la législation à venir.",
+      BRK_WHY_NORMAL,
     breakingWinnerActor: 'Majorité législative',
     breakingWinnerReasonFn: (count) =>
       `${count} textes législatifs ont été avancés dans le cadre du processus parlementaire.`,
     breakingNeutralActor: "Groupes d'opposition",
     breakingNeutralReason:
-      "Les groupes d'opposition suivent les développements et peuvent proposer des amendements lors des lectures suivantes.",
+      BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `À la suite de la session parlementaire du ${date}, un élan législatif continu est attendu dans les commissions clés.`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `Le calendrier parlementaire après le ${date} suggère une période de transition tandis que les commissions rééquilibrent leurs priorités législatives.`,
+      `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence:
-      "De nouvelles obligations juridiques entrent en vigueur pour les États membres de l'UE et les entités réglementées.",
+      BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence:
-      'La trajectoire législative est modifiée\u00a0; les prochains votes en commission et les sessions plénières seront décisifs.',
+      BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      'Des schémas de vote inhabituels suggèrent des tensions internes aux partis ou des négociations inter-groupes sur des dossiers clés.',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `${count} textes législatifs reflètent les priorités législatives de la majorité parlementaire actuelle.`,
+      `legislative_texts=${count}`,
     breakingImpactEconomic:
-      "De nouvelles réglementations peuvent affecter les opérations commerciales, l'accès aux marchés et les coûts de conformité dans l'UE.",
+      BRK_IMPACT_ECONOMIC,
     breakingImpactSocial:
-      'Les changements législatifs pourraient affecter les droits des citoyens, les services publics et les normes sociales dans les États membres.',
+      BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `${count} nouveaux instruments juridiques créent des obligations contraignantes pour les États membres de l'UE et les parties prenantes.`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      "La dynamique de coalition au sein du Parlement signale des changements dans les positions et priorités de politique étrangère de l'UE.",
+      BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal:
-      "Les décisions parlementaires façonnent la position internationale de l'UE et ses relations avec les pays tiers.",
+      BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Chefs de file des groupes politiques',
     breakingMistakeDescription:
-      "Risque d'examen insuffisant des textes législatifs complexes dans les procédures accélérées.",
+      BRK_MISTAKE_DESC,
     breakingMistakeAlternative:
-      'Prolonger les périodes de délibération en commission et commander des analyses juridiques indépendantes pour les dispositions controversées.',
+      BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Adopté\u00a0:',
     breakingMEPPrefix: 'Député\u00a0:',
     anomalyUnavailable:
@@ -3833,42 +3856,42 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Últimas novedades el ${date}: ${adopted} textos recién adoptados, ${events} eventos, ${procedures} actualizaciones de procedimientos, ${meps} cambios de eurodiputados.`,
     breakingWhyAnomalies:
-      'Las anomalías de votación y los cambios en la coalición señalan una recomposición de fuerzas políticas dentro del Parlamento. Estos desarrollos pueden alterar el cálculo legislativo de los expedientes pendientes.',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      'La actividad parlamentaria refleja el ciclo legislativo en curso. Los textos adoptados crean derecho vinculante de la UE, mientras que las actualizaciones de procedimientos indican la trayectoria de la legislación venidera.',
+      BRK_WHY_NORMAL,
     breakingWinnerActor: 'Mayoría legislativa',
     breakingWinnerReasonFn: (count) =>
       `${count} textos legislativos han sido avanzados en el proceso parlamentario.`,
     breakingNeutralActor: 'Grupos de oposición',
     breakingNeutralReason:
-      'Los grupos de oposición están monitoreando los desarrollos y pueden proponer enmiendas en lecturas posteriores.',
+      BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `Tras la sesión parlamentaria del ${date}, se espera un impulso legislativo continuo en las comisiones clave.`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `El calendario parlamentario posterior al ${date} sugiere un período de transición a medida que las comisiones reequilibran las prioridades legislativas.`,
+      `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence:
-      'Nuevas obligaciones jurídicas entran en vigor para los Estados miembros de la UE y las entidades reguladas.',
+      BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence:
-      'La trayectoria legislativa se altera; los próximos votos en comisión y las sesiones plenarias serán fundamentales.',
+      BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      'Patrones de votación inusuales sugieren tensiones internas en los partidos o negociaciones entre grupos sobre expedientes clave.',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `${count} textos legislativos reflejan las prioridades legislativas de la mayoría parlamentaria actual.`,
+      `legislative_texts=${count}`,
     breakingImpactEconomic:
-      'Los nuevos reglamentos pueden afectar las operaciones empresariales, el acceso al mercado y los costos de cumplimiento en la UE.',
+      BRK_IMPACT_ECONOMIC,
     breakingImpactSocial:
-      'Los cambios legislativos podrían afectar los derechos de los ciudadanos, los servicios públicos y los estándares sociales en los Estados miembros.',
+      BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `${count} nuevos instrumentos jurídicos crean obligaciones vinculantes para los Estados miembros de la UE y las partes interesadas.`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      'La dinámica de coalición dentro del Parlamento señala cambios en las posiciones y prioridades de política exterior de la UE.',
+      BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal:
-      'Las decisiones parlamentarias configuran la posición internacional de la UE y sus relaciones con terceros países.',
+      BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Jefes de delegación de grupos políticos',
     breakingMistakeDescription:
-      'Riesgo de escrutinio insuficiente de textos legislativos complejos en procedimientos acelerados.',
+      BRK_MISTAKE_DESC,
     breakingMistakeAlternative:
-      'Ampliar los períodos de deliberación en comisión y encargar análisis jurídicos independientes para las disposiciones controvertidas.',
+      BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Adoptado:',
     breakingMEPPrefix: 'Eurodiputado:',
     anomalyUnavailable:
@@ -3905,42 +3928,42 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Laatste ontwikkelingen op ${date}: ${adopted} nieuw aangenomen teksten, ${events} evenementen, ${procedures} procedurebijwerkingen, ${meps} MEP-wijzigingen.`,
     breakingWhyAnomalies:
-      'Stemanomalieën en coalitieverschuivingen signaleren een hergroepering van politieke krachten binnen het Parlement. Deze ontwikkelingen kunnen de wetgevende berekening voor lopende dossiers wijzigen.',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      'Parlementaire activiteit weerspiegelt de lopende wetgevingscyclus. Aangenomen teksten creëren bindend EU-recht, terwijl procedurebijwerkingen de richting van komende wetgeving aangeven.',
+      BRK_WHY_NORMAL,
     breakingWinnerActor: 'Wetgevende meerderheid',
     breakingWinnerReasonFn: (count) =>
       `${count} wetgevingsteksten zijn gevorderd in het parlementaire proces.`,
     breakingNeutralActor: 'Oppositiegroepen',
     breakingNeutralReason:
-      'Oppositiegroepen volgen de ontwikkelingen en kunnen bij volgende lezingen amendementen voorstellen.',
+      BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `Na de parlementaire zitting van ${date} wordt verdere wetgevingsdynamiek in kerncommissies verwacht.`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `De parlementaire kalender na ${date} suggereert een transitieperiode terwijl commissies wetgevingsprioriteiten opnieuw in evenwicht brengen.`,
+      `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence:
-      'Nieuwe wettelijke verplichtingen treden in werking voor EU-lidstaten en gereguleerde entiteiten.',
+      BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence:
-      'De wetgevingsweg verandert; komende commissiestemmingen en plenaire vergaderingen zullen cruciaal zijn.',
+      BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      'Ongewone stempatronen wijzen op interne partijspanningen of onderhandelingen tussen groepen over sleuteldossiers.',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `${count} wetgevingsteksten weerspiegelen de wetgevingsprioriteiten van de huidige parlementaire meerderheid.`,
+      `legislative_texts=${count}`,
     breakingImpactEconomic:
-      'Nieuwe regelgeving kan zakelijke activiteiten, markttoegang en nalevingskosten in de EU beïnvloeden.',
+      BRK_IMPACT_ECONOMIC,
     breakingImpactSocial:
-      'Wetswijzigingen kunnen de rechten van burgers, openbare diensten en sociale normen in de lidstaten beïnvloeden.',
+      BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `${count} nieuwe juridische instrumenten scheppen bindende verplichtingen voor EU-lidstaten en belanghebbenden.`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      'Coalitiedynamiek in het Parlement signaleert verschuivingen in de buitenlandse beleidsposities en prioriteiten van de EU.',
+      BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal:
-      'Parlementaire beslissingen bepalen de internationale positie van de EU en haar relaties met derde landen.',
+      BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Fractiedisciplineurs',
     breakingMistakeDescription:
-      'Risico op onvoldoende controle van complexe wetgevingsteksten in versnelde procedures.',
+      BRK_MISTAKE_DESC,
     breakingMistakeAlternative:
-      'Verleng commissieberaadslagingsperioden en bestel onafhankelijke juridische analyses voor omstreden bepalingen.',
+      BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Aangenomen:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -3975,41 +3998,41 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `آخر التطورات في ${date}: ${adopted} نصًا معتمدًا حديثًا، ${events} أحداث، ${procedures} تحديثات إجراءات، ${meps} تغييرات في أعضاء البرلمان.`,
     breakingWhyAnomalies:
-      'تشير شذوذات التصويت وتحولات الائتلاف إلى إعادة توازن القوى السياسية داخل البرلمان. قد تؤثر هذه التطورات على الحسابات التشريعية للملفات المعلقة.',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      'يعكس النشاط البرلماني الدورة التشريعية الجارية. تنشئ النصوص المعتمدة قانونًا أوروبيًا ملزمًا، فيما تشير تحديثات الإجراءات إلى مسار التشريعات القادمة.',
+      BRK_WHY_NORMAL,
     breakingWinnerActor: 'الأغلبية التشريعية',
     breakingWinnerReasonFn: (count) => `تم تقديم ${count} نصًا تشريعيًا في العملية البرلمانية.`,
     breakingNeutralActor: 'مجموعات المعارضة',
     breakingNeutralReason:
-      'تراقب مجموعات المعارضة التطورات ويمكنها اقتراح تعديلات في القراءات اللاحقة.',
+      BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `في أعقاب الجلسة البرلمانية في ${date}، يُتوقع استمرار الزخم التشريعي في اللجان الرئيسية.`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `يشير التقويم البرلماني بعد ${date} إلى مرحلة انتقالية مع إعادة اللجان لتوازن أولوياتها التشريعية.`,
+      `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence:
-      'تدخل التزامات قانونية جديدة حيز التنفيذ للدول الأعضاء في الاتحاد الأوروبي والكيانات الخاضعة للتنظيم.',
+      BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence:
-      'يتغير المسار التشريعي؛ ستكون تصويتات اللجان وجلسات الاجتماعات العامة القادمة محورية.',
+      BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      'تشير أنماط التصويت غير المعتادة إلى توترات داخل الأحزاب أو مفاوضات بين المجموعات حول الملفات الرئيسية.',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `تعكس ${count} نصًا تشريعيًا الأولويات التشريعية للأغلبية البرلمانية الحالية.`,
+      `legislative_texts=${count}`,
     breakingImpactEconomic:
-      'قد تؤثر اللوائح الجديدة على العمليات التجارية والوصول إلى الأسواق وتكاليف الامتثال في الاتحاد الأوروبي.',
+      BRK_IMPACT_ECONOMIC,
     breakingImpactSocial:
-      'قد تؤثر التغييرات التشريعية على حقوق المواطنين والخدمات العامة والمعايير الاجتماعية في الدول الأعضاء.',
+      BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `تنشئ ${count} صكًا قانونيًا جديدًا التزامات ملزمة للدول الأعضاء في الاتحاد الأوروبي وأصحاب المصلحة.`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      'تشير ديناميات الائتلاف داخل البرلمان إلى تحولات في مواقف وأولويات السياسة الخارجية للاتحاد الأوروبي.',
+      BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal:
-      'تشكّل القرارات البرلمانية المكانة الدولية للاتحاد الأوروبي وعلاقاته مع الدول الثالثة.',
+      BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'مسؤولو الانضباط الحزبي',
     breakingMistakeDescription:
-      'خطر عدم كفاية التدقيق في النصوص التشريعية المعقدة في الإجراءات المعجّلة.',
+      BRK_MISTAKE_DESC,
     breakingMistakeAlternative:
-      'تمديد فترات مداولات اللجان وطلب تحليل قانوني مستقل للأحكام الخلافية.',
+      BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'معتمد:',
     breakingMEPPrefix: 'عضو البرلمان:',
     anomalyUnavailable:
@@ -4044,41 +4067,41 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `ההתפתחויות האחרונות ב-${date}: ${adopted} טקסטים שאומצו לאחרונה, ${events} אירועים, ${procedures} עדכוני הליכים, ${meps} שינויים בחברי פרלמנט.`,
     breakingWhyAnomalies:
-      'חריגות הצבעה ושינויים בקואליציה מסמנים ארגון מחדש של הכוחות הפוליטיים בפרלמנט. התפתחויות אלו עשויות לשנות את התחשיב החקיקתי לתיקים הממתינים.',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      'הפעילות הפרלמנטרית משקפת את מחזור החקיקה השוטף. טקסטים שאומצו יוצרים חוק אירופי מחייב, בעוד שעדכוני הליכים מצביעים על מסלול החקיקה הקרובה.',
+      BRK_WHY_NORMAL,
     breakingWinnerActor: 'הרוב החקיקתי',
     breakingWinnerReasonFn: (count) => `${count} טקסטים חקיקתיים קודמו בתהליך הפרלמנטרי.`,
     breakingNeutralActor: 'קבוצות האופוזיציה',
     breakingNeutralReason:
-      'קבוצות האופוזיציה עוקבות אחר ההתפתחויות ועשויות להציע תיקונים בקריאות הבאות.',
+      BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `בעקבות הישיבה הפרלמנטרית של ${date}, צפוי מומנטום חקיקתי מתמשך בוועדות המרכזיות.`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `לוח הזמנים הפרלמנטרי לאחר ${date} מרמז על תקופת מעבר בה הוועדות מאזנות מחדש את סדרי העדיפויות החקיקתיים.`,
+      `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence:
-      'חובות משפטיות חדשות נכנסות לתוקף עבור מדינות החברות באיחוד האירופי וגורמים מוסדרים.',
+      BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence:
-      'מסלול החקיקה משתנה; הצבעות ועדה ומושבי מליאה קרובים יהיו מכריעים.',
+      BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      'דפוסי הצבעה חריגים מרמזים על מתחים פנים-מפלגתיים או משא ומתן בין-קבוצתי על תיקים מרכזיים.',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `${count} טקסטים חקיקתיים משקפים את סדרי העדיפויות החקיקתיים של הרוב הפרלמנטרי הנוכחי.`,
+      `legislative_texts=${count}`,
     breakingImpactEconomic:
-      'תקנות חדשות עשויות להשפיע על פעילות עסקית, גישה לשוק ועלויות ציות ברחבי האיחוד האירופי.',
+      BRK_IMPACT_ECONOMIC,
     breakingImpactSocial:
-      'שינויים חקיקתיים עשויים להשפיע על זכויות אזרחים, שירותים ציבוריים ותקנים חברתיים במדינות החברות.',
+      BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `${count} מכשירים משפטיים חדשים יוצרים חובות מחייבות למדינות החברות באיחוד האירופי ולבעלי עניין.`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      'דינמיקת הקואליציה בפרלמנט מסמנת שינויים בעמדות ובסדרי העדיפויות של המדיניות החוץ-אירופית.',
+      BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal:
-      'החלטות פרלמנטריות מעצבות את מעמדה הבינלאומי של האיחוד האירופי ואת יחסיו עם מדינות שלישיות.',
+      BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'מנהיגי הסיעות',
     breakingMistakeDescription:
-      'סיכון לבחינה בלתי מספקת של טקסטים חקיקתיים מורכבים בהליכים מואצים.',
+      BRK_MISTAKE_DESC,
     breakingMistakeAlternative:
-      'הארכת תקופות הדיון בוועדות והזמנת ניתוח משפטי עצמאי עבור הוראות שנויות במחלוקת.',
+      BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'אומץ:',
     breakingMEPPrefix: 'חבר פרלמנט:',
     anomalyUnavailable: 'ניתוח מפורט של חריגות הצבעה אינו זמין כעת עקב מגבלות טכניות בנתוני המקור.',
@@ -4113,40 +4136,40 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `${date}の最新動向：新たに採択されたテキスト${adopted}件、イベント${events}件、手続き更新${procedures}件、MEP変更${meps}件。`,
     breakingWhyAnomalies:
-      '投票の異常と連立の変動が、議会内の政治的勢力の再編を示しています。これらの動向は、係属中の案件の立法的計算を変える可能性があります。',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      '議会活動は進行中の立法サイクルを反映しています。採択されたテキストは拘束力のあるEU法を生み出し、手続き更新は今後の法律の方向性を示します。',
+      BRK_WHY_NORMAL,
     breakingWinnerActor: '立法多数派',
     breakingWinnerReasonFn: (count) => `${count}件の立法テキストが議会プロセスで進められました。`,
     breakingNeutralActor: '野党グループ',
     breakingNeutralReason:
-      '野党グループは動向を監視しており、後続の審議で修正案を提案する可能性があります。',
+      BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `${date}の議会会期後、主要な委員会で立法の勢いが続くことが期待されます。`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `${date}以降の議会日程は、委員会が立法上の優先事項を再調整する移行期間を示唆しています。`,
+      `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence:
-      'EU加盟国および規制対象事業体に対し、新たな法的義務が発効します。',
+      BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence:
-      '立法の経路が変わります；今後の委員会投票と本会議が鍵となります。',
+      BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      '異例の投票パターンは、党内の緊張または主要案件に関するグループ間の交渉を示唆しています。',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `${count}件の立法テキストは、現在の議会多数派の立法優先事項を反映しています。`,
+      `legislative_texts=${count}`,
     breakingImpactEconomic:
-      '新規制は、EU全体のビジネス運営、市場アクセス、コンプライアンスコストに影響を与える可能性があります。',
+      BRK_IMPACT_ECONOMIC,
     breakingImpactSocial:
-      '法制上の変更は、加盟国における市民の権利、公共サービス、社会基準に影響を与える可能性があります。',
+      BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `${count}件の新たな法的手段が、EU加盟国および利害関係者に対して拘束力のある義務を生み出します。`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      '議会内の連立力学は、EUの対外政策の立場と優先事項の変化を示しています。',
-    breakingImpactGeopoliticalNormal: '議会の決定は、EUの国際的地位と第三国との関係を形成します。',
+      BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: '会派院内幹事',
     breakingMistakeDescription:
-      '迅速化された手続きにおける複雑な立法テキストの精査が不十分になるリスク。',
+      BRK_MISTAKE_DESC,
     breakingMistakeAlternative:
-      '委員会の審議期間を延長し、論争的な条項については独立した法的分析を委託してください。',
+      BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: '採択：',
     breakingMEPPrefix: 'MEP：',
     anomalyUnavailable:
@@ -4181,40 +4204,40 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `${date} 최신 동향: 새로 채택된 텍스트 ${adopted}건, 이벤트 ${events}건, 절차 업데이트 ${procedures}건, MEP 변경 ${meps}건.`,
     breakingWhyAnomalies:
-      '투표 이상과 연합 변동은 의회 내 정치적 세력의 재편을 나타냅니다. 이러한 발전은 계류 중인 안건에 대한 입법적 계산을 변경할 수 있습니다.',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      '의회 활동은 진행 중인 입법 주기를 반영합니다. 채택된 텍스트는 구속력 있는 EU 법을 생성하고, 절차 업데이트는 다가올 입법의 방향을 나타냅니다.',
+      BRK_WHY_NORMAL,
     breakingWinnerActor: '입법 다수파',
     breakingWinnerReasonFn: (count) =>
       `${count}건의 입법 텍스트가 의회 절차를 통해 진행되었습니다.`,
     breakingNeutralActor: '야당 그룹',
     breakingNeutralReason:
-      '야당 그룹은 동향을 모니터링하고 있으며 후속 심의에서 수정안을 제안할 수 있습니다.',
+      BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `${date} 의회 회기 이후 주요 위원회에서 지속적인 입법 모멘텀이 예상됩니다.`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `${date} 이후의 의회 일정은 위원회가 입법 우선순위를 재조정하는 전환 기간을 시사합니다.`,
+      `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence:
-      'EU 회원국 및 규제 대상 기업에 새로운 법적 의무가 발효됩니다.',
+      BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence:
-      '입법 경로가 변경됩니다; 앞으로 있을 위원회 투표와 본회의 회기가 중요합니다.',
+      BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      '비정상적인 투표 패턴은 주요 안건에 대한 당내 긴장 또는 그룹 간 협상을 시사합니다.',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `${count}건의 입법 텍스트는 현재 의회 다수파의 입법 우선순위를 반영합니다.`,
+      `legislative_texts=${count}`,
     breakingImpactEconomic:
-      '새로운 규정은 EU 전반에서 기업 운영, 시장 접근 및 규정 준수 비용에 영향을 미칠 수 있습니다.',
+      BRK_IMPACT_ECONOMIC,
     breakingImpactSocial:
-      '입법 변경은 회원국의 시민 권리, 공공 서비스 및 사회적 기준에 영향을 미칠 수 있습니다.',
+      BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `${count}건의 새로운 법적 수단이 EU 회원국과 이해 관계자에게 구속력 있는 의무를 부여합니다.`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      '의회 내 연합 역학은 EU 외교 정책 입장과 우선순위의 변화를 나타냅니다.',
-    breakingImpactGeopoliticalNormal: '의회 결정은 EU의 국제적 위상과 제3국과의 관계를 형성합니다.',
+      BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: '정치 그룹 원내총무',
-    breakingMistakeDescription: '가속화된 절차에서 복잡한 입법 텍스트를 충분히 검토하지 않을 위험.',
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
     breakingMistakeAlternative:
-      '위원회 심의 기간을 연장하고 논쟁적인 조항에 대해 독립적인 법적 분석을 의뢰하십시오.',
+      BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: '채택:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -4248,33 +4271,33 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `${date}最新动态：${adopted}项新通过文本，${events}项活动，${procedures}项程序更新，${meps}项议员变更。`,
     breakingWhyAnomalies:
-      '投票异常和联盟变动表明议会内部政治力量正在重新排列。这些动态可能改变待处理议案的立法计算。',
+      BRK_WHY_ANOMALIES,
     breakingWhyNormal:
-      '议会活动反映了正在进行的立法周期。通过的文本创造了具有约束力的欧盟法律，而程序更新则表明了即将出台的立法方向。',
+      BRK_WHY_NORMAL,
     breakingWinnerActor: '立法多数派',
     breakingWinnerReasonFn: (count) => `${count}项立法文本已通过议会程序推进。`,
     breakingNeutralActor: '反对派团体',
-    breakingNeutralReason: '反对派团体正在监测动态，可能在后续读会中提出修订意见。',
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
     breakingOutlookActiveFn: (date) =>
-      `在${date}议会会议之后，预计主要委员会的立法势头将持续推进。`,
+      `session_date=${date}`,
     breakingOutlookTransitionalFn: (date) =>
-      `${date}之后的议会日程表明，随着各委员会重新平衡立法优先事项，将进入过渡期。`,
-    breakingLegalObligationsConsequence: '欧盟成员国和受监管实体将面临新的法律义务。',
-    breakingProcedureConsequence: '立法路径已发生变化；即将举行的委员会投票和全体会议至关重要。',
+      `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
     breakingImpactPoliticalAnomalies:
-      '不寻常的投票模式表明党内存在紧张局势，或各团体就关键议案进行跨党派谈判。',
+      BRK_WHY_ANOMALIES,
     breakingImpactPoliticalNormalFn: (count) =>
-      `${count}项立法文本反映了当前议会多数派的立法优先事项。`,
-    breakingImpactEconomic: '新法规可能影响欧盟各地的商业运营、市场准入和合规成本。',
-    breakingImpactSocial: '立法变化可能影响成员国公民的权利、公共服务和社会标准。',
+      `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
     breakingImpactLegalFn: (count) =>
-      `${count}项新法律文书为欧盟成员国和利益相关者创造了具有约束力的义务。`,
+      `legal_instruments=${count}`,
     breakingImpactGeopoliticalCoalition:
-      '议会内部的联盟动态表明欧盟对外政策立场和优先事项正在发生转变。',
-    breakingImpactGeopoliticalNormal: '议会决定塑造了欧盟的国际地位及其与第三国的关系。',
+      BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: '政治团体党鞭',
-    breakingMistakeDescription: '在加快程序中对复杂立法文本审查不足的风险。',
-    breakingMistakeAlternative: '延长委员会审议期，并针对争议性条款委托独立法律分析。',
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: '通过：',
     breakingMEPPrefix: '议员：',
     anomalyUnavailable: '由于源数据存在技术限制，投票异常的详细分析目前不可用。',
@@ -4297,31 +4320,31 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: 'robust',
     productivityModerate: 'moderate',
     productivityLow: 'low',
-    why: 'Committees are the legislative engine of the European Parliament — {pct}% active rate signals {descriptor} legislative productivity. Committee outputs directly shape the texts that reach plenary votes.',
+    why: CMT_WHY,
     stakeholderHighlyProductive: '{n} documents — highly productive period',
     stakeholderModerateActivity: '{n} document(s) — moderate activity',
-    stakeholderNoDocs: 'No recent documents — potential productivity concern',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      'Committee chairs wield significant agenda-setting power. Active committees ({active}/{total}) are shaping the legislative pipeline for the current session.',
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      'Committee chairs wield significant agenda-setting power. No committees have published recent documents in this reporting window; the legislative pipeline is under development.',
+      'active=0',
     impactEconomic:
-      'Committee outputs on economic affairs, industry, and trade directly affect EU regulatory environments and business competitiveness.',
+      BRK_IMPACT_ECONOMIC,
     impactSocial:
-      "Social affairs, employment, and civil liberties committees produce legislation that directly impacts citizens' daily lives.",
+      BRK_IMPACT_SOCIAL,
     impactLegal:
-      '{docs} documents in various stages of committee consideration will eventually create or modify EU law.',
+      CMT_IMPACT_LEGAL,
     impactGeopolitical:
-      'Foreign affairs and international trade committee activities signal evolving EU diplomatic and trade priorities.',
+      BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} processed {n} document(s)',
     actionConsequence:
-      'Legislative proposals advance to next stage; affected stakeholders should prepare for implementation',
-    mistakeDescription: 'No recent documents produced — legislative backlog may be developing',
-    mistakeAlternative: 'Convene additional sessions or reassign resources to clear pending files',
+      CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
+    mistakeAlternative: CMT_MISTAKE_ALT,
     outlookGood:
-      'With {n} of {total} committees actively producing documents, the current pace supports a productive plenary calendar.',
+      CMT_OUTLOOK_GOOD,
     outlookConcern:
-      'The legislative pipeline may face bottlenecks if committee output does not increase.',
+      CMT_OUTLOOK_CONCERN,
     lede: 'European Parliament committee activity and legislative effectiveness analysis.',
     noRecentDocs: 'No recent documents available',
     committeeMetadataUnavailable:
@@ -4347,33 +4370,33 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: 'robust',
     productivityModerate: 'måttlig',
     productivityLow: 'låg',
-    why: 'Utskotten är Europaparlamentets lagstiftningsmotor — {pct}% aktiv andel signalerar {descriptor} lagstiftningsproduktivitet. Utskottens arbete formar direkt de texter som når plenarvoteringar.',
+    why: CMT_WHY,
     stakeholderHighlyProductive: '{n} dokument — mycket produktiv period',
     stakeholderModerateActivity: '{n} dokument — måttlig aktivitet',
-    stakeholderNoDocs: 'Inga aktuella dokument — potentiellt produktivitetsproblem',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      'Utskottsordföranden har betydande dagordningsmakt. Aktiva utskott ({active}/{total}) formar den lagstiftande pipeline för innevarande session.',
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      'Utskottsordföranden har betydande dagordningsmakt. Inga utskott har publicerat aktuella dokument under detta rapportfönster; den lagstiftande pipeline är under uppbyggnad.',
+      'active=0',
     impactEconomic:
-      'Utskottens arbete inom ekonomi, industri och handel påverkar direkt EU:s regleringsmiljöer och affärskonkurrenskraft.',
+      BRK_IMPACT_ECONOMIC,
     impactSocial:
-      'Utskott för sociala frågor, sysselsättning och medborgerliga friheter producerar lagstiftning som direkt påverkar medborgarnas dagliga liv.',
+      BRK_IMPACT_SOCIAL,
     impactLegal:
-      '{docs} dokument i olika stadier av utskottsprövning kommer slutligen att skapa eller ändra EU-lagstiftning.',
+      CMT_IMPACT_LEGAL,
     impactGeopolitical:
-      'Utskottsaktiviteter för utrikesfrågor och internationell handel signalerar föränderliga diplomatiska och handelsmässiga EU-prioriteringar.',
+      BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} behandlade {n} dokument',
     actionConsequence:
-      'Lagstiftningsförslag går vidare till nästa steg; berörda intressenter bör förbereda sig för genomförande',
+      CMT_ACTION_CONSEQUENCE,
     mistakeDescription:
-      'Inga aktuella dokument producerade — lagstiftningsefterskott kan hålla på att utvecklas',
+      CMT_MISTAKE_DESC,
     mistakeAlternative:
-      'Sammankalla ytterligare sessioner eller omfördela resurser för att rensa väntande ärenden',
+      CMT_MISTAKE_ALT,
     outlookGood:
-      'Med {n} av {total} utskott som aktivt producerar dokument stöder det nuvarande tempot en produktiv plenarkalender.',
+      CMT_OUTLOOK_GOOD,
     outlookConcern:
-      'Den lagstiftande pipeline kan möta flaskhalsar om utskottens produktion inte ökar.',
+      CMT_OUTLOOK_CONCERN,
     lede: 'Analys av Europaparlamentets utskottsaktivitet och lagstiftningseffektivitet.',
     noRecentDocs: 'Inga aktuella dokument tillgängliga',
     committeeMetadataUnavailable:
@@ -4399,33 +4422,33 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: 'robust',
     productivityModerate: 'moderat',
     productivityLow: 'lav',
-    why: 'Udvalgene er Europa-Parlamentets lovgivningsmæssige motor — {pct}% aktiv rate signalerer {descriptor} lovgivningsmæssig produktivitet. Udvalgsresultater former direkte de tekster, der når plenarvoteringer.',
+    why: CMT_WHY,
     stakeholderHighlyProductive: '{n} dokumenter — meget produktiv periode',
     stakeholderModerateActivity: '{n} dokument(er) — moderat aktivitet',
-    stakeholderNoDocs: 'Ingen nylige dokumenter — potentielt produktivitetsproblem',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      'Udvalgsformænd har betydelig dagsordensættende magt. Aktive udvalg ({active}/{total}) former den lovgivningsmæssige pipeline for den aktuelle session.',
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      'Udvalgsformænd har betydelig dagsordensættende magt. Ingen udvalg har offentliggjort nylige dokumenter i dette rapportvindue; den lovgivningsmæssige pipeline er under opbygning.',
+      'active=0',
     impactEconomic:
-      "Udvalgsresultater inden for økonomi, industri og handel påvirker direkte EU's reguleringsmiljøer og erhvervskonkurrenceevne.",
+      BRK_IMPACT_ECONOMIC,
     impactSocial:
-      'Udvalg for sociale anliggender, beskæftigelse og borgerlige friheder producerer lovgivning, der direkte påvirker borgernes daglige liv.',
+      BRK_IMPACT_SOCIAL,
     impactLegal:
-      '{docs} dokumenter i forskellige stadier af udvalgsbehandling vil i sidste ende skabe eller ændre EU-lovgivning.',
+      CMT_IMPACT_LEGAL,
     impactGeopolitical:
-      'Udvalgsaktiviteter for udenrigsanliggender og international handel signalerer udviklende EU-diplomatiske og handelsmæssige prioriteter.',
+      BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} behandlede {n} dokument(er)',
     actionConsequence:
-      'Lovgivningsforslag skrider frem til næste trin; berørte interessenter bør forberede sig på gennemførelse',
+      CMT_ACTION_CONSEQUENCE,
     mistakeDescription:
-      'Ingen nylige dokumenter produceret — lovgivningsmæssig efterslæb kan være under udvikling',
+      CMT_MISTAKE_DESC,
     mistakeAlternative:
-      'Indkald yderligere møder eller omfordel ressourcer for at fjerne ventende sager',
+      CMT_MISTAKE_ALT,
     outlookGood:
-      'Med {n} af {total} udvalg, der aktivt producerer dokumenter, understøtter det nuværende tempo en produktiv plenarkalender.',
+      CMT_OUTLOOK_GOOD,
     outlookConcern:
-      'Den lovgivningsmæssige pipeline kan møde flaskehalse, hvis udvalgets produktion ikke øges.',
+      CMT_OUTLOOK_CONCERN,
     lede: 'Analyse af Europa-Parlamentets udvalgsaktivitet og lovgivningsmæssig effektivitet.',
     noRecentDocs: 'Ingen nylige dokumenter tilgængelige',
     committeeMetadataUnavailable:
@@ -4451,33 +4474,33 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: 'robust',
     productivityModerate: 'moderat',
     productivityLow: 'lav',
-    why: 'Komiteene er Europaparlamentets lovgivende motor — {pct}% aktiv rate signaliserer {descriptor} lovgivende produktivitet. Komitéresultater former direkte tekstene som når plenumstemmer.',
+    why: CMT_WHY,
     stakeholderHighlyProductive: '{n} dokumenter — svært produktiv periode',
     stakeholderModerateActivity: '{n} dokument(er) — moderat aktivitet',
-    stakeholderNoDocs: 'Ingen nylige dokumenter — potensielt produktivitetsproblem',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      'Komitéledere har betydelig dagsordensmakt. Aktive komiteer ({active}/{total}) former den lovgivende pipeline for den nåværende sesjonen.',
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      'Komitéledere har betydelig dagsordensmakt. Ingen komiteer har publisert nylige dokumenter i dette rapportvinduet; den lovgivende pipeline er under utvikling.',
+      'active=0',
     impactEconomic:
-      'Komitéresultater innen økonomi, industri og handel påvirker direkte EUs reguleringsmiljøer og næringskonkurranse.',
+      BRK_IMPACT_ECONOMIC,
     impactSocial:
-      'Komiteer for sosiale anliggender, sysselsetting og sivile friheter produserer lovgivning som direkte påvirker borgernes daglige liv.',
+      BRK_IMPACT_SOCIAL,
     impactLegal:
-      '{docs} dokumenter i ulike stadier av komitébehandling vil til slutt skape eller endre EU-lovgivning.',
+      CMT_IMPACT_LEGAL,
     impactGeopolitical:
-      'Komitéaktiviteter for utenriksanliggender og internasjonal handel signaliserer utviklende EU-diplomatiske og handelsmessige prioriteringer.',
+      BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} behandlet {n} dokument(er)',
     actionConsequence:
-      'Lovgivningsforslag går videre til neste trinn; berørte interessenter bør forberede seg på implementering',
+      CMT_ACTION_CONSEQUENCE,
     mistakeDescription:
-      'Ingen nylige dokumenter produsert — lovgivende etterslep kan være under utvikling',
+      CMT_MISTAKE_DESC,
     mistakeAlternative:
-      'Innkall ytterligere sesjoner eller omfordel ressurser for å rydde ventende saker',
+      CMT_MISTAKE_ALT,
     outlookGood:
-      'Med {n} av {total} komiteer som aktivt produserer dokumenter, støtter det nåværende tempoet en produktiv plenarkalender.',
+      CMT_OUTLOOK_GOOD,
     outlookConcern:
-      'Den lovgivende pipeline kan møte flaskehalser hvis komitéens produksjon ikke øker.',
+      CMT_OUTLOOK_CONCERN,
     lede: 'Analyse av Europaparlamentets komitéaktivitet og lovgivningseffektivitet.',
     noRecentDocs: 'Ingen nylige dokumenter tilgjengelig',
     committeeMetadataUnavailable:
@@ -4503,33 +4526,33 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: 'vankka',
     productivityModerate: 'kohtalainen',
     productivityLow: 'alhainen',
-    why: 'Valiokunnat ovat Euroopan parlamentin lainsäädäntömoottori — {pct}%:n aktiivisuusaste merkitsee {descriptor} lainsäädäntötuottavuutta. Valiokuntien tuotokset muovaavat suoraan täysistuntoäänestyksiin päätyviä tekstejä.',
+    why: CMT_WHY,
     stakeholderHighlyProductive: '{n} asiakirjaa — erittäin tuottoisa kausi',
     stakeholderModerateActivity: '{n} asiakirja(a) — kohtalainen aktiivisuus',
-    stakeholderNoDocs: 'Ei viimeaikaisia asiakirjoja — mahdollinen tuottavuusongelma',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      'Valiokuntien puheenjohtajilla on merkittävä esityslistalle asettamisen valta. Aktiiviset valiokunnat ({active}/{total}) muovaavat nykyisen istuntokauden lainsäädäntöprosessia.',
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      'Valiokuntien puheenjohtajilla on merkittävä esityslistalle asettamisen valta. Yksikään valiokunta ei ole julkaissut viimeaikaisia asiakirjoja tänä raportointijaksona; lainsäädäntöprosessi on kehitysvaiheessa.',
+      'active=0',
     impactEconomic:
-      'Valiokuntien tuotokset talous-, teollisuus- ja kauppa-asioissa vaikuttavat suoraan EU:n sääntelymiljöihin ja liiketoiminnan kilpailukykyyn.',
+      BRK_IMPACT_ECONOMIC,
     impactSocial:
-      'Sosiaali-, työllisyys- ja kansalaisvapauksien valiokunnat tuottavat lainsäädäntöä, joka vaikuttaa suoraan kansalaisten jokapäiväiseen elämään.',
+      BRK_IMPACT_SOCIAL,
     impactLegal:
-      '{docs} asiakirjaa eri vaiheissa valiokuntakäsittelyä tulee lopulta luomaan tai muuttamaan EU:n lainsäädäntöä.',
+      CMT_IMPACT_LEGAL,
     impactGeopolitical:
-      'Ulkoasioiden ja kansainvälisen kaupan valiokuntien toiminta merkitsee EU:n kehittyvien diplomatia- ja kauppaprioriteetien muutoksia.',
+      BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} käsitteli {n} asiakirja(a)',
     actionConsequence:
-      'Lainsäädäntöehdotukset etenevät seuraavaan vaiheeseen; asianomaisten sidosryhmien tulisi valmistautua täytäntöönpanoon',
+      CMT_ACTION_CONSEQUENCE,
     mistakeDescription:
-      'Ei viimeaikaisia asiakirjoja tuotettu — lainsäädäntörästejä saattaa olla kehittymässä',
+      CMT_MISTAKE_DESC,
     mistakeAlternative:
-      'Kokoontukaa lisäistunnoille tai kohdentakaa resursseja uudelleen odottavien asioiden selvittämiseksi',
+      CMT_MISTAKE_ALT,
     outlookGood:
-      'Kun {n}/{total} valiokuntaa tuottaa aktiivisesti asiakirjoja, nykyinen tahti tukee tuottoisaa täysistuntokalenteria.',
+      CMT_OUTLOOK_GOOD,
     outlookConcern:
-      'Lainsäädäntöprosessi saattaa kohdata pullonkauloja, jos valiokuntien tuotanto ei kasva.',
+      CMT_OUTLOOK_CONCERN,
     lede: 'Analyysi Euroopan parlamentin valiokuntien toiminnasta ja lainsäädäntötehokkuudesta.',
     noRecentDocs: 'Ei viimeaikaisia asiakirjoja saatavilla',
     committeeMetadataUnavailable:
@@ -4556,33 +4579,33 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: 'robuste',
     productivityModerate: 'moderate',
     productivityLow: 'geringe',
-    why: 'Ausschüsse sind die Gesetzgebungsmaschine des Europäischen Parlaments — {pct}% Aktivitätsrate signalisiert {descriptor} Gesetzgebungsproduktivität. Ausschussergebnisse gestalten direkt die Texte, die zur Plenarvorabstimmung gelangen.',
+    why: CMT_WHY,
     stakeholderHighlyProductive: '{n} Dokumente — sehr produktiver Zeitraum',
     stakeholderModerateActivity: '{n} Dokument(e) — moderate Aktivität',
-    stakeholderNoDocs: 'Keine aktuellen Dokumente — mögliches Produktivitätsproblem',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      'Ausschussvorsitzende haben erhebliche Tagesordnungsmacht. Aktive Ausschüsse ({active}/{total}) gestalten den Gesetzgebungsprozess der laufenden Session.',
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      'Ausschussvorsitzende haben erhebliche Tagesordnungsmacht. Kein Ausschuss hat in diesem Berichtszeitraum aktuelle Dokumente veröffentlicht; der Gesetzgebungsprozess ist im Aufbau.',
+      'active=0',
     impactEconomic:
-      'Ausschussergebnisse in Wirtschafts-, Industrie- und Handelsfragen beeinflussen direkt das EU-Regulierungsumfeld und die Wettbewerbsfähigkeit.',
+      BRK_IMPACT_ECONOMIC,
     impactSocial:
-      'Ausschüsse für Soziales, Beschäftigung und bürgerliche Freiheiten erarbeiten Gesetze, die das tägliche Leben der Bürger direkt betreffen.',
+      BRK_IMPACT_SOCIAL,
     impactLegal:
-      '{docs} Dokumente in verschiedenen Stadien der Ausschussbehandlung werden schließlich EU-Recht schaffen oder ändern.',
+      CMT_IMPACT_LEGAL,
     impactGeopolitical:
-      'Ausschussaktivitäten in Außen- und Handelsfragen signalisieren die Entwicklung diplomatischer und handelspolitischer Prioritäten der EU.',
+      BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} hat {n} Dokument(e) bearbeitet',
     actionConsequence:
-      'Gesetzgebungsvorschläge schreiten zur nächsten Stufe voran; betroffene Interessenträger sollten sich auf die Umsetzung vorbereiten',
+      CMT_ACTION_CONSEQUENCE,
     mistakeDescription:
-      'Keine aktuellen Dokumente erstellt — Gesetzgebungsrückstand könnte sich entwickeln',
+      CMT_MISTAKE_DESC,
     mistakeAlternative:
-      'Zusätzliche Sitzungen einberufen oder Ressourcen umverteilen, um ausstehende Akten zu klären',
+      CMT_MISTAKE_ALT,
     outlookGood:
-      'Mit {n} von {total} Ausschüssen, die aktiv Dokumente erstellen, unterstützt das aktuelle Tempo einen produktiven Plenarkalender.',
+      CMT_OUTLOOK_GOOD,
     outlookConcern:
-      'Die Gesetzgebungspipeline könnte auf Engpässe stoßen, wenn die Ausschussproduktion nicht zunimmt.',
+      CMT_OUTLOOK_CONCERN,
     lede: 'Analyse der Ausschusstätigkeit des Europäischen Parlaments und seiner Gesetzgebungswirksamkeit.',
     noRecentDocs: 'Keine aktuellen Dokumente verfügbar',
     committeeMetadataUnavailable:
@@ -4612,30 +4635,30 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     why: "Les commissions sont le moteur législatif du Parlement européen — un taux d'activité de {pct}% signale une productivité législative {descriptor}. Les résultats des commissions façonnent directement les textes soumis aux votes en séance plénière.",
     stakeholderHighlyProductive: '{n} documents — période très productive',
     stakeholderModerateActivity: '{n} document(s) — activité modérée',
-    stakeholderNoDocs: 'Aucun document récent — préoccupation potentielle de productivité',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      "Les présidents de commission exercent un pouvoir considérable sur la définition de l'ordre du jour. Les commissions actives ({active}/{total}) façonnent le pipeline législatif de la session en cours.",
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      "Les présidents de commission exercent un pouvoir considérable sur la définition de l'ordre du jour. Aucune commission n'a publié de documents récents au cours de cette période ; le pipeline législatif est en cours de développement.",
+      'active=0',
     impactEconomic:
-      "Les résultats des commissions sur les affaires économiques, industrielles et commerciales affectent directement les environnements réglementaires de l'UE et la compétitivité des entreprises.",
+      BRK_IMPACT_ECONOMIC,
     impactSocial:
-      "Les commissions chargées des affaires sociales, de l'emploi et des libertés civiles produisent des lois qui ont un impact direct sur la vie quotidienne des citoyens.",
+      BRK_IMPACT_SOCIAL,
     impactLegal:
-      "{docs} documents à différents stades d'examen en commission créeront ou modifieront à terme le droit de l'UE.",
+      CMT_IMPACT_LEGAL,
     impactGeopolitical:
-      "Les activités des commissions chargées des affaires étrangères et du commerce international signalent l'évolution des priorités diplomatiques et commerciales de l'UE.",
+      BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} a traité {n} document(s)',
     actionConsequence:
-      "Les propositions législatives progressent vers l'étape suivante ; les parties prenantes concernées doivent se préparer à la mise en œuvre",
+      CMT_ACTION_CONSEQUENCE,
     mistakeDescription:
-      'Aucun document récent produit — un arriéré législatif pourrait se développer',
+      CMT_MISTAKE_DESC,
     mistakeAlternative:
-      'Convoquer des séances supplémentaires ou réaffecter des ressources pour traiter les dossiers en attente',
+      CMT_MISTAKE_ALT,
     outlookGood:
-      'Avec {n} commissions sur {total} produisant activement des documents, le rythme actuel soutient un calendrier plénaire productif.',
+      CMT_OUTLOOK_GOOD,
     outlookConcern:
-      "Le pipeline législatif pourrait rencontrer des goulots d'étranglement si la production des commissions n'augmente pas.",
+      CMT_OUTLOOK_CONCERN,
     lede: "Analyse de l'activité des commissions du Parlement européen et de l'efficacité législative.",
     noRecentDocs: 'Aucun document récent disponible',
     committeeMetadataUnavailable:
@@ -4662,33 +4685,33 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: 'sólida',
     productivityModerate: 'moderada',
     productivityLow: 'baja',
-    why: 'Las comisiones son el motor legislativo del Parlamento Europeo — una tasa de actividad del {pct}% indica una productividad legislativa {descriptor}. Los resultados de las comisiones moldean directamente los textos que llegan a las votaciones plenarias.',
+    why: CMT_WHY,
     stakeholderHighlyProductive: '{n} documentos — período muy productivo',
     stakeholderModerateActivity: '{n} documento(s) — actividad moderada',
-    stakeholderNoDocs: 'No hay documentos recientes — posible preocupación de productividad',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      'Los presidentes de comisión ejercen un poder considerable en la fijación del orden del día. Las comisiones activas ({active}/{total}) están configurando el proceso legislativo para la sesión actual.',
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      'Los presidentes de comisión ejercen un poder considerable en la fijación del orden del día. Ninguna comisión ha publicado documentos recientes en este período de informe; el proceso legislativo está en desarrollo.',
+      'active=0',
     impactEconomic:
-      'Los resultados de las comisiones en materia económica, industrial y comercial afectan directamente a los entornos regulatorios de la UE y la competitividad empresarial.',
+      BRK_IMPACT_ECONOMIC,
     impactSocial:
-      'Las comisiones de asuntos sociales, empleo y libertades civiles producen legislación que afecta directamente a la vida cotidiana de los ciudadanos.',
+      BRK_IMPACT_SOCIAL,
     impactLegal:
-      '{docs} documentos en diversas etapas de consideración en comisión crearán o modificarán eventualmente el derecho de la UE.',
+      CMT_IMPACT_LEGAL,
     impactGeopolitical:
-      'Las actividades de las comisiones de asuntos exteriores y comercio internacional señalan la evolución de las prioridades diplomáticas y comerciales de la UE.',
+      BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} procesó {n} documento(s)',
     actionConsequence:
-      'Las propuestas legislativas avanzan a la siguiente etapa; las partes interesadas afectadas deben prepararse para la implementación',
+      CMT_ACTION_CONSEQUENCE,
     mistakeDescription:
-      'No se han producido documentos recientes — puede estar desarrollándose un retraso legislativo',
+      CMT_MISTAKE_DESC,
     mistakeAlternative:
-      'Convocar sesiones adicionales o reasignar recursos para resolver los expedientes pendientes',
+      CMT_MISTAKE_ALT,
     outlookGood:
-      'Con {n} de {total} comisiones produciendo documentos activamente, el ritmo actual sostiene un calendario plenario productivo.',
+      CMT_OUTLOOK_GOOD,
     outlookConcern:
-      'El proceso legislativo puede enfrentarse a cuellos de botella si la producción de las comisiones no aumenta.',
+      CMT_OUTLOOK_CONCERN,
     lede: 'Análisis de la actividad de las comisiones del Parlamento Europeo y de su efectividad legislativa.',
     noRecentDocs: 'No hay documentos recientes disponibles',
     committeeMetadataUnavailable:
@@ -4714,33 +4737,33 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: 'robuuste',
     productivityModerate: 'matige',
     productivityLow: 'lage',
-    why: 'Commissies zijn de wetgevende motor van het Europees Parlement — {pct}% activiteitsgraad duidt op {descriptor} wetgevende productiviteit. Commissieresultaten bepalen direct de teksten die ter stemming in de plenaire vergadering komen.',
+    why: CMT_WHY,
     stakeholderHighlyProductive: '{n} documenten — zeer productieve periode',
     stakeholderModerateActivity: '{n} document(en) — matige activiteit',
-    stakeholderNoDocs: 'Geen recente documenten — mogelijke productiviteitszorg',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      'Commissievoorzitters hebben aanzienlijke agendavormende macht. Actieve commissies ({active}/{total}) bepalen de wetgevende pipeline voor de huidige zitting.',
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      'Commissievoorzitters hebben aanzienlijke agendavormende macht. Geen enkele commissie heeft in dit rapportagevenster recente documenten gepubliceerd; de wetgevende pipeline is in ontwikkeling.',
+      'active=0',
     impactEconomic:
-      'Commissieresultaten op het gebied van economische zaken, industrie en handel beïnvloeden direct de EU-regelgevingsomgevingen en het bedrijfsconcurrentievermogen.',
+      BRK_IMPACT_ECONOMIC,
     impactSocial:
-      'Commissies voor sociale zaken, werkgelegenheid en burgerlijke vrijheden produceren wetgeving die direct invloed heeft op het dagelijks leven van burgers.',
+      BRK_IMPACT_SOCIAL,
     impactLegal:
-      '{docs} documenten in verschillende stadia van commissiebehandeling zullen uiteindelijk EU-recht creëren of wijzigen.',
+      CMT_IMPACT_LEGAL,
     impactGeopolitical:
-      'Commissieactiviteiten inzake buitenlandse zaken en internationale handel duiden op de ontwikkeling van diplomatieke en handelsmatige EU-prioriteiten.',
+      BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} verwerkte {n} document(en)',
     actionConsequence:
-      'Wetgevingsvoorstellen ronden de volgende stap af; betrokken belanghebbenden dienen zich voor te bereiden op implementatie',
+      CMT_ACTION_CONSEQUENCE,
     mistakeDescription:
-      'Geen recente documenten geproduceerd — wetgevingsachterstand kan zich ontwikkelen',
+      CMT_MISTAKE_DESC,
     mistakeAlternative:
-      'Extra zittingen bijeenroepen of middelen herindelen om lopende dossiers af te handelen',
+      CMT_MISTAKE_ALT,
     outlookGood:
-      'Met {n} van {total} commissies die actief documenten produceren, ondersteunt het huidige tempo een productieve plenaire agenda.',
+      CMT_OUTLOOK_GOOD,
     outlookConcern:
-      'De wetgevende pipeline kan knelpunten ondervinden als de commissieproductie niet toeneemt.',
+      CMT_OUTLOOK_CONCERN,
     lede: 'Analyse van commissieactiviteiten en wetgevende effectiviteit van het Europees Parlement.',
     noRecentDocs: 'Geen recente documenten beschikbaar',
     committeeMetadataUnavailable:
@@ -4767,30 +4790,30 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: 'قوية',
     productivityModerate: 'معتدلة',
     productivityLow: 'ضعيفة',
-    why: 'تُعدّ اللجان المحرك التشريعي للبرلمان الأوروبي — تُشير نسبة النشاط {pct}٪ إلى إنتاجية تشريعية {descriptor}. تُشكّل مخرجات اللجان مباشرةً النصوص التي تصل إلى تصويتات الجلسة العامة.',
+    why: CMT_WHY,
     stakeholderHighlyProductive: '{n} وثيقة — فترة منتجة جداً',
     stakeholderModerateActivity: '{n} وثيقة/وثائق — نشاط معتدل',
-    stakeholderNoDocs: 'لا وثائق حديثة — مخاوف إنتاجية محتملة',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      'يتمتع رؤساء اللجان بسلطة تحديد جدول الأعمال. تُشكّل اللجان النشطة ({active}/{total}) مسار التشريع للدورة الحالية.',
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      'يتمتع رؤساء اللجان بسلطة تحديد جدول الأعمال. لم تنشر أيٌّ من اللجان وثائق حديثة خلال هذه الفترة؛ مسار التشريع قيد التطوير.',
+      'active=0',
     impactEconomic:
-      'تؤثر مخرجات اللجان في الشؤون الاقتصادية والصناعية والتجارية مباشرةً على بيئات اللوائح التنظيمية الأوروبية وتنافسية الأعمال.',
+      BRK_IMPACT_ECONOMIC,
     impactSocial:
-      'تُنتج لجان الشؤون الاجتماعية والتوظيف والحريات المدنية تشريعات تؤثر مباشرةً على الحياة اليومية للمواطنين.',
+      BRK_IMPACT_SOCIAL,
     impactLegal:
-      'ستُنشئ {docs} وثيقة في مراحل مختلفة من الدراسة باللجان أو تُعدّل القانون الأوروبي في نهاية المطاف.',
+      CMT_IMPACT_LEGAL,
     impactGeopolitical:
-      'تُشير أنشطة لجان الشؤون الخارجية والتجارة الدولية إلى تطور الأولويات الدبلوماسية والتجارية للاتحاد الأوروبي.',
+      BRK_IMPACT_GEO_NORMAL,
     actionProcessed: 'عالجت لجنة {abbr} {n} وثيقة/وثائق',
     actionConsequence:
-      'تتقدم المقترحات التشريعية إلى المرحلة التالية؛ ينبغي على أصحاب المصلحة المعنيين الاستعداد للتنفيذ',
-    mistakeDescription: 'لم تُنتج وثائق حديثة — قد تتشكّل متأخرات تشريعية',
-    mistakeAlternative: 'عقد جلسات إضافية أو إعادة تخصيص الموارد لمعالجة الملفات المعلقة',
+      CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
+    mistakeAlternative: CMT_MISTAKE_ALT,
     outlookGood:
-      'مع إنتاج {n} من {total} لجنة للوثائق بصورة نشطة، يدعم الوتيرة الحالية جدولاً جلسةً عامة منتجاً.',
-    outlookConcern: 'قد يواجه المسار التشريعي اختناقات إذا لم يزداد إنتاج اللجان.',
+      CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: 'تحليل نشاط لجان البرلمان الأوروبي وفعالية عملها التشريعية.',
     noRecentDocs: 'لا توجد وثائق حديثة متاحة',
     committeeMetadataUnavailable:
@@ -4816,29 +4839,29 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: 'חזקה',
     productivityModerate: 'מתונה',
     productivityLow: 'נמוכה',
-    why: 'הוועדות הן המנוע החקיקתי של הפרלמנט האירופי — שיעור פעילות של {pct}% מצביע על פריון חקיקתי {descriptor}. תפוקות הוועדות מעצבות ישירות את הטקסטים המגיעים להצבעות מליאה.',
+    why: CMT_WHY,
     stakeholderHighlyProductive: '{n} מסמכים — תקופה פרודוקטיבית מאוד',
     stakeholderModerateActivity: '{n} מסמך/ים — פעילות מתונה',
-    stakeholderNoDocs: 'אין מסמכים אחרונים — חשש פוטנציאלי לפריון',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      'לראשי ועדות יש כוח קביעת סדר יום משמעותי. ועדות פעילות ({active}/{total}) מעצבות את צינור החקיקה לפגישה הנוכחית.',
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      'לראשי ועדות יש כוח קביעת סדר יום משמעותי. אף ועדה לא פרסמה מסמכים אחרונים בחלון דיווח זה; צינור החקיקה נמצא בשלב פיתוח.',
+      'active=0',
     impactEconomic:
-      'תפוקות הוועדות בענייני כלכלה, תעשייה ומסחר משפיעות ישירות על סביבות הרגולציה של האיחוד האירופי ועל תחרותיות העסקים.',
+      BRK_IMPACT_ECONOMIC,
     impactSocial:
-      'ועדות ענייני חברה, תעסוקה וחירויות אזרחיות מייצרות חקיקה המשפיעה ישירות על חייהם היומיומיים של האזרחים.',
+      BRK_IMPACT_SOCIAL,
     impactLegal:
-      '{docs} מסמכים בשלבים שונים של דיון ועדה יצרו או ישנו בסופו של דבר את חוק האיחוד האירופי.',
+      CMT_IMPACT_LEGAL,
     impactGeopolitical:
-      'פעילויות ועדות ענייני החוץ והסחר הבינלאומי מצביעות על התפתחות עדיפויות דיפלומטיות ומסחריות של האיחוד האירופי.',
+      BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} עיבד {n} מסמך/ים',
-    actionConsequence: 'הצעות חוק מתקדמות לשלב הבא; בעלי עניין מושפעים צריכים להתכונן ליישום',
-    mistakeDescription: 'לא הופקו מסמכים אחרונים — עיכוב חקיקתי עלול להתפתח',
-    mistakeAlternative: 'לכנס ישיבות נוספות או להקצות מחדש משאבים לטיפול בתיקים ממתינים',
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
+    mistakeAlternative: CMT_MISTAKE_ALT,
     outlookGood:
-      'עם {n} מתוך {total} ועדות המייצרות מסמכים באופן פעיל, הקצב הנוכחי תומך בלוח שנה פרודוקטיבי של מליאה.',
-    outlookConcern: 'צינור החקיקה עלול להיתקל בצווארי בקבוק אם תפוקת הוועדה לא תגדל.',
+      CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: 'ניתוח פעילות ועדות הפרלמנט האירופי ויעילותו החקיקתית.',
     noRecentDocs: 'אין מסמכים אחרונים זמינים',
     committeeMetadataUnavailable:
@@ -4864,32 +4887,32 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: '堅調な',
     productivityModerate: '中程度の',
     productivityLow: '低い',
-    why: '委員会は欧州議会の立法エンジンです — 活動率{pct}%は{descriptor}立法生産性を示しています。委員会の成果物は、本会議投票に提出されるテキストを直接形成します。',
+    why: CMT_WHY,
     stakeholderHighlyProductive: '{n}文書 — 非常に生産的な期間',
     stakeholderModerateActivity: '{n}文書 — 中程度の活動',
-    stakeholderNoDocs: '最近の文書なし — 生産性に関する懸念の可能性',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      '委員会委員長は重要な議題設定権を持っています。活発な委員会({active}/{total})が現会期の立法パイプラインを形成しています。',
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      '委員会委員長は重要な議題設定権を持っています。この報告期間中に最近の文書を公開した委員会はありません。立法パイプラインは開発中です。',
+      'active=0',
     impactEconomic:
-      '経済、産業、貿易問題に関する委員会の成果物はEU規制環境とビジネス競争力に直接影響します。',
+      BRK_IMPACT_ECONOMIC,
     impactSocial:
-      '社会問題、雇用、市民の自由を担当する委員会は、市民の日常生活に直接影響する法律を制定しています。',
+      BRK_IMPACT_SOCIAL,
     impactLegal:
-      '委員会審議のさまざまな段階にある{docs}文書は、最終的にEU法を創設または改正することになります。',
+      CMT_IMPACT_LEGAL,
     impactGeopolitical:
-      '外交問題と国際貿易の委員会活動は、EUの外交・貿易優先事項の変化を示しています。',
+      BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr}が{n}文書を処理しました',
     actionConsequence:
-      '立法提案が次の段階に進みます。関係するステークホルダーは実施に向けて準備が必要です',
-    mistakeDescription: '最近の文書が作成されていません — 立法の遅延が発生する可能性があります',
+      CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
     mistakeAlternative:
-      '追加会議を招集するか、係属中のファイルを処理するためにリソースを再配分してください',
+      CMT_MISTAKE_ALT,
     outlookGood:
-      '{total}委員会中{n}委員会が積極的に文書を作成しており、現在のペースは生産的な本会議カレンダーを支えています。',
+      CMT_OUTLOOK_GOOD,
     outlookConcern:
-      '委員会の文書作成が増加しない場合、立法パイプラインにボトルネックが生じる可能性があります。',
+      CMT_OUTLOOK_CONCERN,
     lede: '欧州議会委員会の最近の立法成果と活動の有効性を分析します。',
     noRecentDocs: '最近の文書はありません',
     committeeMetadataUnavailable:
@@ -4915,32 +4938,32 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: '강력한',
     productivityModerate: '보통의',
     productivityLow: '낮은',
-    why: '위원회는 유럽 의회의 입법 엔진입니다 — 활동률 {pct}%는 {descriptor} 입법 생산성을 나타냅니다. 위원회 결과물은 본회의 투표에 상정되는 텍스트를 직접 형성합니다.',
+    why: CMT_WHY,
     stakeholderHighlyProductive: '{n}개 문서 — 매우 생산적인 기간',
     stakeholderModerateActivity: '{n}개 문서 — 보통 활동',
-    stakeholderNoDocs: '최근 문서 없음 — 잠재적 생산성 우려',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      '위원회 의장들은 의사일정 설정에 상당한 권한을 가집니다. 활동적인 위원회({active}/{total})가 현 회기의 입법 파이프라인을 형성하고 있습니다.',
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      '위원회 의장들은 의사일정 설정에 상당한 권한을 가집니다. 이 보고 기간에 최근 문서를 발행한 위원회가 없습니다. 입법 파이프라인은 개발 중입니다.',
+      'active=0',
     impactEconomic:
-      '경제, 산업, 무역 문제에 관한 위원회 결과물은 EU 규제 환경과 기업 경쟁력에 직접적인 영향을 미칩니다.',
+      BRK_IMPACT_ECONOMIC,
     impactSocial:
-      '사회 문제, 고용, 시민 자유 위원회는 시민들의 일상생활에 직접적인 영향을 미치는 법률을 제정합니다.',
+      BRK_IMPACT_SOCIAL,
     impactLegal:
-      '위원회 심의의 다양한 단계에 있는 {docs}개 문서는 궁극적으로 EU 법률을 만들거나 수정할 것입니다.',
+      CMT_IMPACT_LEGAL,
     impactGeopolitical:
-      '외교 문제 및 국제 무역 위원회 활동은 EU의 외교 및 무역 우선순위의 변화를 나타냅니다.',
+      BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr}에서 {n}개 문서 처리',
     actionConsequence:
-      '입법 제안이 다음 단계로 진행됩니다. 영향을 받는 이해관계자들은 이행을 준비해야 합니다',
-    mistakeDescription: '최근 문서가 작성되지 않음 — 입법 지연이 발생할 수 있습니다',
+      CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
     mistakeAlternative:
-      '추가 회의를 소집하거나 계류 중인 파일을 처리하기 위해 리소스를 재배치하십시오',
+      CMT_MISTAKE_ALT,
     outlookGood:
-      '{total}개 위원회 중 {n}개가 적극적으로 문서를 생산하고 있어, 현재 속도는 생산적인 본회의 일정을 지원합니다.',
+      CMT_OUTLOOK_GOOD,
     outlookConcern:
-      '위원회 문서 생산이 증가하지 않으면 입법 파이프라인에 병목 현상이 발생할 수 있습니다.',
+      CMT_OUTLOOK_CONCERN,
     lede: '유럽 의회의 주요 위원회 활동과 입법 효율성을 종합적으로 분석합니다.',
     noRecentDocs: '최근 문서가 없습니다',
     committeeMetadataUnavailable:
@@ -4966,24 +4989,24 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     productivityRobust: '强劲的',
     productivityModerate: '温和的',
     productivityLow: '低',
-    why: '委员会是欧洲议会的立法引擎——{pct}%的活跃率表明{descriptor}立法生产力。委员会的成果直接塑造提交全体会议投票的文本。',
+    why: CMT_WHY,
     stakeholderHighlyProductive: '{n}份文件——非常高产的时期',
     stakeholderModerateActivity: '{n}份文件——中等活跃度',
-    stakeholderNoDocs: '近期无文件——潜在的生产力问题',
+    stakeholderNoDocs: CMT_NO_DOCS,
     impactPolitical:
-      '委员会主席在制定议程方面拥有重要权力。活跃委员会({active}/{total})正在为当前会期塑造立法管道。',
+      CMT_IMPACT_POLITICAL,
     impactPoliticalNone:
-      '委员会主席在制定议程方面拥有重要权力。在此报告期间没有委员会发布近期文件；立法管道处于开发阶段。',
-    impactEconomic: '委员会在经济、工业和贸易事务方面的成果直接影响欧盟监管环境和商业竞争力。',
-    impactSocial: '社会事务、就业及公民自由委员会制定的立法直接影响公民的日常生活。',
-    impactLegal: '{docs}份文件处于委员会审议的不同阶段，最终将创建或修改欧盟法律。',
-    impactGeopolitical: '外交事务和国际贸易委员会活动反映了欧盟外交和贸易优先事项的演变。',
+      'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr}处理了{n}份文件',
-    actionConsequence: '立法提案进入下一阶段；受影响的利益相关方应为实施做好准备',
-    mistakeDescription: '近期未产出文件——立法积压可能正在形成',
-    mistakeAlternative: '召开额外会议或重新分配资源以处理待审文件',
-    outlookGood: '{total}个委员会中有{n}个正在积极产出文件，当前速度支持富有成效的全体会议日历。',
-    outlookConcern: '如果委员会产出不增加，立法管道可能面临瓶颈。',
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
+    mistakeAlternative: CMT_MISTAKE_ALT,
+    outlookGood: CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: '对欧洲议会各专门委员会近期活动和立法效率的系统分析。',
     noRecentDocs: '近期无可用文件',
     committeeMetadataUnavailable:
