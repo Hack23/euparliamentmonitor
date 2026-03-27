@@ -13,6 +13,6 @@
  * @returns `"N singular"` or `"N plural"`
  */
 export function pl(n, singular, plural) {
-    return `${n} ${n === 1 ? singular : plural}`;
+  return `${n} ${n === 1 ? singular : plural}`;
 }
 //# sourceMappingURL=metadata-utils.js.map

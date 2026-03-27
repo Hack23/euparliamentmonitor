@@ -49,8 +49,8 @@ function readManifest(outputDir, date) {
 // ─── ALL_ANALYSIS_METHODS tests ───────────────────────────────────────────────
 
 describe('ALL_ANALYSIS_METHODS', () => {
-  it('contains exactly 19 analysis methods', () => {
-    expect(ALL_ANALYSIS_METHODS).toHaveLength(19);
+  it('contains exactly 18 default analysis methods', () => {
+    expect(ALL_ANALYSIS_METHODS).toHaveLength(18);
   });
 
   it('includes all classification methods', () => {
@@ -83,8 +83,8 @@ describe('ALL_ANALYSIS_METHODS', () => {
     expect(ALL_ANALYSIS_METHODS).toContain('cross-session-intelligence');
   });
 
-  it('includes per-document intelligence analysis method', () => {
-    expect(ALL_ANALYSIS_METHODS).toContain('document-analysis');
+  it('excludes document-analysis from defaults (opt-in only)', () => {
+    expect(ALL_ANALYSIS_METHODS).not.toContain('document-analysis');
   });
 
   it('has no duplicate entries', () => {
@@ -279,15 +279,15 @@ describe('runAnalysisStage', () => {
     expect(ctx.completedMethods).toContain('coalition-analysis');
   });
 
-  it('runs all 19 methods when no enabledMethods is specified', async () => {
+  it('runs all 18 default methods when no enabledMethods is specified', async () => {
     const ctx = await runAnalysisStage(buildTestFetchedData(), {
       articleTypes: ['week-ahead'],
       date: testDate,
       outputDir: tmpDir,
     });
 
-    expect(ctx.results.size).toBe(19);
-    expect(ctx.manifest.methods).toHaveLength(19);
+    expect(ctx.results.size).toBe(18);
+    expect(ctx.manifest.methods).toHaveLength(18);
   });
 
   it('stores results in the AnalysisContext results map', async () => {

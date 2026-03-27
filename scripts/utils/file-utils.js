@@ -16,12 +16,12 @@ import { ALL_LANGUAGES } from '../constants/language-core.js';
  * @returns List of article filenames
  */
 export function getNewsArticles(newsDir = NEWS_DIR) {
-    if (!fs.existsSync(newsDir)) {
-        console.log('📁 News directory does not exist yet');
-        return [];
-    }
-    const files = fs.readdirSync(newsDir);
-    return files.filter((f) => f.endsWith('.html') && !f.startsWith('index-'));
+  if (!fs.existsSync(newsDir)) {
+    console.log('📁 News directory does not exist yet');
+    return [];
+  }
+  const files = fs.readdirSync(newsDir);
+  return files.filter((f) => f.endsWith('.html') && !f.startsWith('index-'));
 }
 /**
  * Parse article filename to extract metadata
@@ -30,20 +30,20 @@ export function getNewsArticles(newsDir = NEWS_DIR) {
  * @returns Parsed metadata or null if filename doesn't match pattern
  */
 export function parseArticleFilename(filename) {
-    const match = filename.match(ARTICLE_FILENAME_PATTERN);
-    if (!match) {
-        return null;
-    }
-    const langCandidate = match[3];
-    if (!ALL_LANGUAGES.includes(langCandidate)) {
-        return null;
-    }
-    return {
-        date: match[1],
-        slug: match[2],
-        lang: langCandidate,
-        filename,
-    };
+  const match = filename.match(ARTICLE_FILENAME_PATTERN);
+  if (!match) {
+    return null;
+  }
+  const langCandidate = match[3];
+  if (!ALL_LANGUAGES.includes(langCandidate)) {
+    return null;
+  }
+  return {
+    date: match[1],
+    slug: match[2],
+    lang: langCandidate,
+    filename,
+  };
 }
 /**
  * Group articles by language code
@@ -53,21 +53,21 @@ export function parseArticleFilename(filename) {
  * @returns Articles grouped by language, sorted newest first
  */
 export function groupArticlesByLanguage(articles, languages) {
-    const grouped = {};
-    for (const lang of languages) {
-        grouped[lang] = [];
+  const grouped = {};
+  for (const lang of languages) {
+    grouped[lang] = [];
+  }
+  for (const article of articles) {
+    const parsed = parseArticleFilename(article);
+    if (parsed && grouped[parsed.lang] !== undefined) {
+      grouped[parsed.lang].push(parsed);
     }
-    for (const article of articles) {
-        const parsed = parseArticleFilename(article);
-        if (parsed && grouped[parsed.lang] !== undefined) {
-            grouped[parsed.lang].push(parsed);
-        }
-    }
-    // Sort by date (newest first)
-    for (const lang in grouped) {
-        grouped[lang].sort((a, b) => b.date.localeCompare(a.date));
-    }
-    return grouped;
+  }
+  // Sort by date (newest first)
+  for (const lang in grouped) {
+    grouped[lang].sort((a, b) => b.date.localeCompare(a.date));
+  }
+  return grouped;
 }
 /**
  * Format slug for display (hyphen-separated to Title Case)
@@ -76,10 +76,10 @@ export function groupArticlesByLanguage(articles, languages) {
  * @returns Formatted title string
  */
 export function formatSlug(slug) {
-    return slug
-        .split('-')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
+  return slug
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 }
 /**
  * Get file modification time as YYYY-MM-DD string
@@ -88,9 +88,9 @@ export function formatSlug(slug) {
  * @returns Last modified date in YYYY-MM-DD format
  */
 export function getModifiedDate(filepath) {
-    const stats = fs.statSync(filepath);
-    // split('T') on an ISO string always produces at least one element
-    return stats.mtime.toISOString().split('T')[0];
+  const stats = fs.statSync(filepath);
+  // split('T') on an ISO string always produces at least one element
+  return stats.mtime.toISOString().split('T')[0];
 }
 /**
  * Format date for article slug
@@ -99,8 +99,8 @@ export function getModifiedDate(filepath) {
  * @returns Formatted date string (YYYY-MM-DD)
  */
 export function formatDateForSlug(date = new Date()) {
-    // split('T') on an ISO string always produces at least one element
-    return date.toISOString().split('T')[0];
+  // split('T') on an ISO string always produces at least one element
+  return date.toISOString().split('T')[0];
 }
 /**
  * Calculate read time estimate from content
@@ -110,8 +110,8 @@ export function formatDateForSlug(date = new Date()) {
  * @returns Estimated read time in minutes
  */
 export function calculateReadTime(content, wordsPerMinute = 250) {
-    const words = content.split(/\s+/).length;
-    return Math.ceil(words / wordsPerMinute);
+  const words = content.split(/\s+/).length;
+  return Math.ceil(words / wordsPerMinute);
 }
 /**
  * Ensure a directory exists, creating it recursively if needed
@@ -119,9 +119,9 @@ export function calculateReadTime(content, wordsPerMinute = 250) {
  * @param dirPath - Directory path to ensure
  */
 export function ensureDirectoryExists(dirPath) {
-    if (!fs.existsSync(dirPath)) {
-        fs.mkdirSync(dirPath, { recursive: true });
-    }
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+  }
 }
 /**
  * Write content to a file with UTF-8 encoding
@@ -130,9 +130,9 @@ export function ensureDirectoryExists(dirPath) {
  * @param content - File content
  */
 export function writeFileContent(filepath, content) {
-    const dir = path.dirname(filepath);
-    ensureDirectoryExists(dir);
-    fs.writeFileSync(filepath, content, 'utf-8');
+  const dir = path.dirname(filepath);
+  ensureDirectoryExists(dir);
+  fs.writeFileSync(filepath, content, 'utf-8');
 }
 /**
  * Remove a file, ignoring ENOENT (file already deleted by another writer).
@@ -140,15 +140,14 @@ export function writeFileContent(filepath, content) {
  * @param filepath - Path to the file to remove
  */
 function unlinkIfExists(filepath) {
-    try {
-        fs.unlinkSync(filepath);
+  try {
+    fs.unlinkSync(filepath);
+  } catch (err) {
+    const code = err instanceof Error ? err.code : '';
+    if (code !== 'ENOENT') {
+      throw err;
     }
-    catch (err) {
-        const code = err instanceof Error ? err.code : '';
-        if (code !== 'ENOENT') {
-            throw err;
-        }
-    }
+  }
 }
 /**
  * Attempt to rename `src` to `dest` with a bounded retry loop.
@@ -162,20 +161,19 @@ function unlinkIfExists(filepath) {
  * @param maxRetries - Maximum number of unlink-then-rename attempts
  */
 function renameWithRetry(src, dest, maxRetries) {
-    for (let attempt = 0; attempt < maxRetries; attempt++) {
-        unlinkIfExists(dest);
-        try {
-            fs.renameSync(src, dest);
-            return;
-        }
-        catch (retryErr) {
-            const retryCode = retryErr instanceof Error ? retryErr.code : '';
-            if ((retryCode === 'EEXIST' || retryCode === 'EPERM') && attempt < maxRetries - 1) {
-                continue;
-            }
-            throw retryErr;
-        }
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    unlinkIfExists(dest);
+    try {
+      fs.renameSync(src, dest);
+      return;
+    } catch (retryErr) {
+      const retryCode = retryErr instanceof Error ? retryErr.code : '';
+      if ((retryCode === 'EEXIST' || retryCode === 'EPERM') && attempt < maxRetries - 1) {
+        continue;
+      }
+      throw retryErr;
     }
+  }
 }
 /**
  * Best-effort removal of a temporary file.  Ignores ENOENT (the file was
@@ -185,17 +183,19 @@ function renameWithRetry(src, dest, maxRetries) {
  * @param tempPath - Path to the temp file to remove
  */
 function cleanupTempFile(tempPath) {
-    try {
-        fs.unlinkSync(tempPath);
+  try {
+    fs.unlinkSync(tempPath);
+  } catch (unlinkErr) {
+    const errno = unlinkErr && typeof unlinkErr === 'object' ? unlinkErr : undefined;
+    if (errno?.code !== 'ENOENT') {
+      const message =
+        errno && typeof errno.message === 'string' ? errno.message : String(unlinkErr);
+      const code = errno?.code ?? 'UNKNOWN';
+      console.warn(
+        `atomicWrite: failed to remove temporary file "${tempPath}" (code: ${code}): ${message}`
+      );
     }
-    catch (unlinkErr) {
-        const errno = unlinkErr && typeof unlinkErr === 'object' ? unlinkErr : undefined;
-        if (errno?.code !== 'ENOENT') {
-            const message = errno && typeof errno.message === 'string' ? errno.message : String(unlinkErr);
-            const code = errno?.code ?? 'UNKNOWN';
-            console.warn(`atomicWrite: failed to remove temporary file "${tempPath}" (code: ${code}): ${message}`);
-        }
-    }
+  }
 }
 /**
  * Write content to a file atomically.
@@ -212,28 +212,25 @@ function cleanupTempFile(tempPath) {
  * @param content - File content to write
  */
 export function atomicWrite(filepath, content) {
-    const dir = path.dirname(filepath);
-    ensureDirectoryExists(dir);
-    const uniqueSuffix = `${process.pid}-${randomUUID()}`;
-    const tempPath = `${filepath}.${uniqueSuffix}.tmp`;
+  const dir = path.dirname(filepath);
+  ensureDirectoryExists(dir);
+  const uniqueSuffix = `${process.pid}-${randomUUID()}`;
+  const tempPath = `${filepath}.${uniqueSuffix}.tmp`;
+  try {
+    fs.writeFileSync(tempPath, content, 'utf-8');
     try {
-        fs.writeFileSync(tempPath, content, 'utf-8');
-        try {
-            fs.renameSync(tempPath, filepath);
-        }
-        catch (err) {
-            const code = err instanceof Error ? err.code : '';
-            if (code === 'EEXIST' || code === 'EPERM') {
-                renameWithRetry(tempPath, filepath, 3);
-            }
-            else {
-                throw err;
-            }
-        }
+      fs.renameSync(tempPath, filepath);
+    } catch (err) {
+      const code = err instanceof Error ? err.code : '';
+      if (code === 'EEXIST' || code === 'EPERM') {
+        renameWithRetry(tempPath, filepath, 3);
+      } else {
+        throw err;
+      }
     }
-    finally {
-        cleanupTempFile(tempPath);
-    }
+  } finally {
+    cleanupTempFile(tempPath);
+  }
 }
 /**
  * Check whether a news article file already exists on disk.
@@ -248,8 +245,8 @@ export function atomicWrite(filepath, content) {
  * @returns `true` when the article file exists
  */
 export function checkArticleExists(slug, lang, newsDir = NEWS_DIR) {
-    const filename = `${slug}-${lang}.html`;
-    return fs.existsSync(path.join(newsDir, filename));
+  const filename = `${slug}-${lang}.html`;
+  return fs.existsSync(path.join(newsDir, filename));
 }
 /**
  * Decode the 5 HTML entities produced by escapeHTML() back to plain text.
@@ -264,12 +261,12 @@ export function checkArticleExists(slug, lang, newsDir = NEWS_DIR) {
  * @returns Plain text with entities decoded
  */
 function decodeHtmlEntities(str) {
-    return str
-        .replace(/&quot;/g, '"')
-        .replace(/&#39;/g, "'")
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-        .replace(/&amp;/g, '&');
+  return str
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
 }
 /**
  * Extract title and description from a generated article HTML file.
@@ -287,25 +284,24 @@ function decodeHtmlEntities(str) {
  * @returns Object with title (from first h1) and description (from meta description)
  */
 export function extractArticleMeta(filepath) {
-    let title = '';
-    let description = '';
-    try {
-        const content = fs.readFileSync(filepath, 'utf-8');
-        // Matches h1 with any attributes but only plain-text content (no nested tags).
-        // The template always writes plain escaped text in h1, so this is correct.
-        const titleMatch = content.match(/<h1[^>]*>([^<]+)<\/h1>/u);
-        if (titleMatch?.[1]) {
-            title = decodeHtmlEntities(titleMatch[1].trim());
-        }
-        const descMatch = content.match(/<meta name="description" content="([^"]+)"/u);
-        if (descMatch?.[1]) {
-            description = decodeHtmlEntities(descMatch[1]);
-        }
+  let title = '';
+  let description = '';
+  try {
+    const content = fs.readFileSync(filepath, 'utf-8');
+    // Matches h1 with any attributes but only plain-text content (no nested tags).
+    // The template always writes plain escaped text in h1, so this is correct.
+    const titleMatch = content.match(/<h1[^>]*>([^<]+)<\/h1>/u);
+    if (titleMatch?.[1]) {
+      title = decodeHtmlEntities(titleMatch[1].trim());
     }
-    catch {
-        // File not readable – return empty strings
+    const descMatch = content.match(/<meta name="description" content="([^"]+)"/u);
+    if (descMatch?.[1]) {
+      description = decodeHtmlEntities(descMatch[1]);
     }
-    return { title, description };
+  } catch {
+    // File not readable – return empty strings
+  }
+  return { title, description };
 }
 /**
  * Escape special HTML characters to prevent XSS
@@ -314,12 +310,12 @@ export function extractArticleMeta(filepath) {
  * @returns HTML-safe string
  */
 export function escapeHTML(str) {
-    return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 /**
  * Validate that a URL uses a safe scheme (http or https)
@@ -328,26 +324,25 @@ export function escapeHTML(str) {
  * @returns true if URL has a safe scheme
  */
 export function isSafeURL(url) {
-    try {
-        const parsed = new URL(url);
-        return parsed.protocol === 'http:' || parsed.protocol === 'https:';
-    }
-    catch {
-        return false;
-    }
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
 }
 /** Required structural elements that every article must contain */
 const REQUIRED_ARTICLE_ELEMENTS = [
-    {
-        selector: ['class="site-header__langs"', 'class="language-switcher"'],
-        label: 'language switcher nav',
-    },
-    { selector: 'class="article-top-nav"', label: 'article-top-nav (back button)' },
-    { selector: 'class="site-header"', label: 'site-header' },
-    { selector: 'class="skip-link"', label: 'skip-link' },
-    { selector: 'class="reading-progress"', label: 'reading-progress bar' },
-    { selector: '<main id="main"', label: 'main content wrapper' },
-    { selector: 'class="site-footer"', label: 'site-footer' },
+  {
+    selector: ['class="site-header__langs"', 'class="language-switcher"'],
+    label: 'language switcher nav',
+  },
+  { selector: 'class="article-top-nav"', label: 'article-top-nav (back button)' },
+  { selector: 'class="site-header"', label: 'site-header' },
+  { selector: 'class="skip-link"', label: 'skip-link' },
+  { selector: 'class="reading-progress"', label: 'reading-progress bar' },
+  { selector: '<main id="main"', label: 'main content wrapper' },
+  { selector: 'class="site-footer"', label: 'site-footer' },
 ];
 /**
  * Validate that generated article HTML includes all required structural elements.
@@ -359,16 +354,14 @@ const REQUIRED_ARTICLE_ELEMENTS = [
  * @returns Validation result with errors list (empty if valid)
  */
 export function validateArticleHTML(html) {
-    const errors = [];
-    for (const element of REQUIRED_ARTICLE_ELEMENTS) {
-        const sel = element.selector;
-        const found = Array.isArray(sel)
-            ? sel.some((s) => html.includes(s))
-            : html.includes(sel);
-        if (!found) {
-            errors.push(`Missing required element: ${element.label}`);
-        }
+  const errors = [];
+  for (const element of REQUIRED_ARTICLE_ELEMENTS) {
+    const sel = element.selector;
+    const found = Array.isArray(sel) ? sel.some((s) => html.includes(s)) : html.includes(sel);
+    if (!found) {
+      errors.push(`Missing required element: ${element.label}`);
     }
-    return { valid: errors.length === 0, errors };
+  }
+  return { valid: errors.length === 0, errors };
 }
 //# sourceMappingURL=file-utils.js.map

@@ -367,7 +367,7 @@ async function maybeRunAnalysis(
   ) as readonly ArticleCategory[];
 
   // Pass requireData=true so runAnalysisStage enforces data availability
-  // and aborts if all methods fail — no hollow analysis should exist.
+  // and aborts on any failed method — no hollow or partially failed analysis should exist.
   const ctx = await runAnalysisStage(fetchedData, {
     articleTypes: validArticleTypes,
     date,

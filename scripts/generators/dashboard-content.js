@@ -22,7 +22,11 @@
  * at runtime by reading the `data-chart-config` attributes.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-import { getLocalizedString, DASHBOARD_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../constants/languages.js';
+import {
+  getLocalizedString,
+  DASHBOARD_STRINGS,
+  DASHBOARD_BUILDER_STRINGS,
+} from '../constants/languages.js';
 // ─── Sub-section builders ────────────────────────────────────────────────────
 /**
  * Build a single metric card HTML.
@@ -32,11 +36,11 @@ import { getLocalizedString, DASHBOARD_STRINGS, DASHBOARD_BUILDER_STRINGS, } fro
  * @returns HTML string for one metric card
  */
 function buildMetricCard(metric, strings) {
-    const trendHtml = buildTrendIndicator(metric, strings);
-    const unitHtml = metric.unit
-        ? ` <span class="metric-unit">${escapeHTML(metric.unit)}</span>`
-        : '';
-    return `<div class="metric-card">
+  const trendHtml = buildTrendIndicator(metric, strings);
+  const unitHtml = metric.unit
+    ? ` <span class="metric-unit">${escapeHTML(metric.unit)}</span>`
+    : '';
+  return `<div class="metric-card">
                 <span class="metric-label">${escapeHTML(metric.label)}</span>
                 <span class="metric-value">${escapeHTML(metric.value)}${unitHtml}</span>
                 ${trendHtml}
@@ -50,13 +54,10 @@ function buildMetricCard(metric, strings) {
  * @returns Resolved trend direction
  */
 function resolveTrend(trend, change) {
-    if (trend)
-        return trend;
-    if (change !== undefined && change > 0)
-        return 'up';
-    if (change !== undefined && change < 0)
-        return 'down';
-    return 'stable';
+  if (trend) return trend;
+  if (change !== undefined && change > 0) return 'up';
+  if (change !== undefined && change < 0) return 'down';
+  return 'stable';
 }
 /**
  * Resolve the CSS class and symbol for a trend direction.
@@ -65,14 +66,14 @@ function resolveTrend(trend, change) {
  * @returns Tuple of CSS class and display symbol
  */
 function trendPresentation(trend) {
-    switch (trend) {
-        case 'up':
-            return ['metric-trend-up', '↑'];
-        case 'down':
-            return ['metric-trend-down', '↓'];
-        case 'stable':
-            return ['metric-trend-stable', '→'];
-    }
+  switch (trend) {
+    case 'up':
+      return ['metric-trend-up', '↑'];
+    case 'down':
+      return ['metric-trend-down', '↓'];
+    case 'stable':
+      return ['metric-trend-stable', '→'];
+  }
 }
 /**
  * Build trend indicator HTML for a metric.
@@ -82,16 +83,17 @@ function trendPresentation(trend) {
  * @returns HTML string for trend indicator or empty string
  */
 function buildTrendIndicator(metric, strings) {
-    if (!metric.trend && metric.change === undefined)
-        return '';
-    const trend = resolveTrend(metric.trend, metric.change);
-    const [trendClass, trendSymbol] = trendPresentation(trend);
-    const changeText = metric.change !== undefined
-        ? ` ${metric.change > 0 ? '+' : ''}${metric.change.toFixed(1)}%`
-        : '';
-    const directionLabel = trend === 'up' ? strings.trendUp : trend === 'down' ? strings.trendDown : strings.trendStable;
-    const ariaLabel = `${strings.trendPrefix} ${directionLabel}${changeText}`;
-    return `<span class="${escapeHTML(trendClass)}" aria-label="${escapeHTML(ariaLabel)}">${trendSymbol}${escapeHTML(changeText)}</span>`;
+  if (!metric.trend && metric.change === undefined) return '';
+  const trend = resolveTrend(metric.trend, metric.change);
+  const [trendClass, trendSymbol] = trendPresentation(trend);
+  const changeText =
+    metric.change !== undefined
+      ? ` ${metric.change > 0 ? '+' : ''}${metric.change.toFixed(1)}%`
+      : '';
+  const directionLabel =
+    trend === 'up' ? strings.trendUp : trend === 'down' ? strings.trendDown : strings.trendStable;
+  const ariaLabel = `${strings.trendPrefix} ${directionLabel}${changeText}`;
+  return `<span class="${escapeHTML(trendClass)}" aria-label="${escapeHTML(ariaLabel)}">${trendSymbol}${escapeHTML(changeText)}</span>`;
 }
 /**
  * Build a metrics grid from an array of metrics.
@@ -101,10 +103,9 @@ function buildTrendIndicator(metric, strings) {
  * @returns HTML string for the metrics grid
  */
 function buildMetricsGrid(metrics, strings) {
-    if (metrics.length === 0)
-        return '';
-    const cards = metrics.map((m) => buildMetricCard(m, strings)).join('\n              ');
-    return `<div class="metrics-grid">
+  if (metrics.length === 0) return '';
+  const cards = metrics.map((m) => buildMetricCard(m, strings)).join('\n              ');
+  return `<div class="metrics-grid">
               ${cards}
             </div>`;
 }
@@ -121,11 +122,11 @@ function buildMetricsGrid(metrics, strings) {
  * @returns HTML string for chart container
  */
 function buildChartContainer(chart, panelIndex, strings) {
-    const canvasId = `dashboard-chart-${panelIndex}`;
-    const safeConfig = escapeHTML(JSON.stringify(chart));
-    const titleHtml = chart.title ? `<h4 class="chart-title">${escapeHTML(chart.title)}</h4>` : '';
-    const fallbackTable = buildChartFallbackTable(chart, strings);
-    return `<div class="chart-container">
+  const canvasId = `dashboard-chart-${panelIndex}`;
+  const safeConfig = escapeHTML(JSON.stringify(chart));
+  const titleHtml = chart.title ? `<h4 class="chart-title">${escapeHTML(chart.title)}</h4>` : '';
+  const fallbackTable = buildChartFallbackTable(chart, strings);
+  return `<div class="chart-container">
               ${titleHtml}
               <canvas id="${canvasId}" class="dashboard-chart" data-chart-config="${safeConfig}" role="img" aria-label="${escapeHTML(chart.title ?? strings.chartLabel)}"></canvas>
               <noscript>
@@ -142,25 +143,25 @@ function buildChartContainer(chart, panelIndex, strings) {
  * @returns HTML table string
  */
 function buildChartFallbackTable(chart, strings) {
-    const labels = chart.data.labels;
-    const datasets = chart.data.datasets;
-    if (labels.length === 0 || datasets.length === 0) {
-        return `<p class="chart-no-data">${escapeHTML(strings.noChartData)}</p>`;
-    }
-    const headerCells = datasets.map((ds) => `<th scope="col">${escapeHTML(ds.label)}</th>`).join('');
-    const header = `<tr><th scope="col">${escapeHTML(strings.categoryLabel)}</th>${headerCells}</tr>`;
-    const rows = labels
-        .map((label, i) => {
-        const cells = datasets
-            .map((ds) => {
-            const val = ds.data.at(i);
-            return `<td>${val !== undefined ? escapeHTML(String(val)) : '—'}</td>`;
+  const labels = chart.data.labels;
+  const datasets = chart.data.datasets;
+  if (labels.length === 0 || datasets.length === 0) {
+    return `<p class="chart-no-data">${escapeHTML(strings.noChartData)}</p>`;
+  }
+  const headerCells = datasets.map((ds) => `<th scope="col">${escapeHTML(ds.label)}</th>`).join('');
+  const header = `<tr><th scope="col">${escapeHTML(strings.categoryLabel)}</th>${headerCells}</tr>`;
+  const rows = labels
+    .map((label, i) => {
+      const cells = datasets
+        .map((ds) => {
+          const val = ds.data.at(i);
+          return `<td>${val !== undefined ? escapeHTML(String(val)) : '—'}</td>`;
         })
-            .join('');
-        return `<tr><th scope="row">${escapeHTML(label)}</th>${cells}</tr>`;
+        .join('');
+      return `<tr><th scope="row">${escapeHTML(label)}</th>${cells}</tr>`;
     })
-        .join('\n                  ');
-    return `<table class="chart-fallback-table" role="table">
+    .join('\n                  ');
+  return `<table class="chart-fallback-table" role="table">
                 <thead>${header}</thead>
                 <tbody>
                   ${rows}
@@ -176,11 +177,10 @@ function buildChartFallbackTable(chart, strings) {
  * @returns HTML string for one panel
  */
 function buildDashboardPanel(panel, index, strings) {
-    const metricsHtml = panel.metrics ? buildMetricsGrid(panel.metrics, strings) : '';
-    const chartHtml = panel.chart ? buildChartContainer(panel.chart, index, strings) : '';
-    if (!metricsHtml && !chartHtml)
-        return '';
-    return `<div class="dashboard-panel" role="region" aria-label="${escapeHTML(panel.title)}">
+  const metricsHtml = panel.metrics ? buildMetricsGrid(panel.metrics, strings) : '';
+  const chartHtml = panel.chart ? buildChartContainer(panel.chart, index, strings) : '';
+  if (!metricsHtml && !chartHtml) return '';
+  return `<div class="dashboard-panel" role="region" aria-label="${escapeHTML(panel.title)}">
             <h3 class="panel-title">${escapeHTML(panel.title)}</h3>
             ${metricsHtml}
             ${chartHtml}
@@ -194,14 +194,14 @@ function buildDashboardPanel(panel, index, strings) {
  * @returns CSS class string
  */
 function coalitionShiftClass(shift) {
-    switch (shift) {
-        case 'strengthening':
-            return 'coalition-strengthening';
-        case 'weakening':
-            return 'coalition-weakening';
-        case 'stable':
-            return 'coalition-stable';
-    }
+  switch (shift) {
+    case 'strengthening':
+      return 'coalition-strengthening';
+    case 'weakening':
+      return 'coalition-weakening';
+    case 'stable':
+      return 'coalition-stable';
+  }
 }
 /**
  * Build a coalition dynamics panel as a self-contained HTML section.
@@ -217,37 +217,40 @@ function coalitionShiftClass(shift) {
  * @returns HTML string for the coalition panel or empty string
  */
 export function buildCoalitionPanel(coalition, panelIndex, lang = 'en') {
-    if (!coalition || coalition.votingBlocs.length === 0)
-        return '';
-    const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
-    const shiftLabel = coalition.shiftIndicator === 'strengthening'
-        ? d.coalitionStrengthening
-        : coalition.shiftIndicator === 'weakening'
-            ? d.coalitionWeakening
-            : d.coalitionStable;
-    const alignmentPct = `${coalition.alignmentScore}%`;
-    const shiftClass = coalitionShiftClass(coalition.shiftIndicator);
-    const radarChart = {
-        type: 'radar',
-        title: d.coalitionRadarChart,
-        data: {
-            labels: coalition.votingBlocs.map((b) => b.group),
-            datasets: [
-                {
-                    label: d.alignmentScore,
-                    data: coalition.votingBlocs.map((b) => b.alignmentScore),
-                    backgroundColor: 'rgba(0,51,153,0.2)',
-                    borderColor: '#003399',
-                },
-            ],
+  if (!coalition || coalition.votingBlocs.length === 0) return '';
+  const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
+  const shiftLabel =
+    coalition.shiftIndicator === 'strengthening'
+      ? d.coalitionStrengthening
+      : coalition.shiftIndicator === 'weakening'
+        ? d.coalitionWeakening
+        : d.coalitionStable;
+  const alignmentPct = `${coalition.alignmentScore}%`;
+  const shiftClass = coalitionShiftClass(coalition.shiftIndicator);
+  const radarChart = {
+    type: 'radar',
+    title: d.coalitionRadarChart,
+    data: {
+      labels: coalition.votingBlocs.map((b) => b.group),
+      datasets: [
+        {
+          label: d.alignmentScore,
+          data: coalition.votingBlocs.map((b) => b.alignmentScore),
+          backgroundColor: 'rgba(0,51,153,0.2)',
+          borderColor: '#003399',
         },
-    };
-    const canvasId = `coalition-chart-${panelIndex}`;
-    const safeConfig = escapeHTML(JSON.stringify(radarChart));
-    const noscriptRows = coalition.votingBlocs
-        .map((b) => `<tr><th scope="row">${escapeHTML(b.group)}</th><td>${escapeHTML(String(b.alignmentScore))}%</td></tr>`)
-        .join('\n              ');
-    return `<div class="dashboard-panel coalition-panel" role="region" aria-label="${escapeHTML(d.coalitionAlignment)}">
+      ],
+    },
+  };
+  const canvasId = `coalition-chart-${panelIndex}`;
+  const safeConfig = escapeHTML(JSON.stringify(radarChart));
+  const noscriptRows = coalition.votingBlocs
+    .map(
+      (b) =>
+        `<tr><th scope="row">${escapeHTML(b.group)}</th><td>${escapeHTML(String(b.alignmentScore))}%</td></tr>`
+    )
+    .join('\n              ');
+  return `<div class="dashboard-panel coalition-panel" role="region" aria-label="${escapeHTML(d.coalitionAlignment)}">
             <h3 class="panel-title">${escapeHTML(d.coalitionAlignment)}</h3>
             <div class="metrics-grid">
               <div class="metric-card">
@@ -284,11 +287,9 @@ export function buildCoalitionPanel(coalition, panelIndex, lang = 'en') {
  * @returns CSS class string
  */
 function pipelineStatusClass(healthScore) {
-    if (healthScore >= 70)
-        return 'pipeline-healthy';
-    if (healthScore >= 40)
-        return 'pipeline-moderate';
-    return 'pipeline-critical';
+  if (healthScore >= 70) return 'pipeline-healthy';
+  if (healthScore >= 40) return 'pipeline-moderate';
+  return 'pipeline-critical';
 }
 /**
  * Build a legislative pipeline status panel as a self-contained HTML section.
@@ -305,31 +306,30 @@ function pipelineStatusClass(healthScore) {
  * @returns HTML string for the pipeline panel or empty string
  */
 export function buildPipelinePanel(pipeline, panelIndex, lang = 'en') {
-    if (!pipeline || pipeline.total === 0)
-        return '';
-    const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
-    const healthPct = `${pipeline.healthScore}%`;
-    const statusClass = pipelineStatusClass(pipeline.healthScore);
-    const barChart = {
-        type: 'bar',
-        title: d.pipelineStatusChart,
-        data: {
-            labels: [d.onTrack, d.delayed, d.blocked, d.fastTracked],
-            datasets: [
-                {
-                    label: d.procedures,
-                    data: [pipeline.onTrack, pipeline.delayed, pipeline.blocked, pipeline.fastTracked],
-                    backgroundColor: ['#28a745', '#ffc107', '#dc3545', '#007bff'],
-                },
-            ],
+  if (!pipeline || pipeline.total === 0) return '';
+  const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
+  const healthPct = `${pipeline.healthScore}%`;
+  const statusClass = pipelineStatusClass(pipeline.healthScore);
+  const barChart = {
+    type: 'bar',
+    title: d.pipelineStatusChart,
+    data: {
+      labels: [d.onTrack, d.delayed, d.blocked, d.fastTracked],
+      datasets: [
+        {
+          label: d.procedures,
+          data: [pipeline.onTrack, pipeline.delayed, pipeline.blocked, pipeline.fastTracked],
+          backgroundColor: ['#28a745', '#ffc107', '#dc3545', '#007bff'],
         },
-        options: {
-            indexAxis: 'y',
-        },
-    };
-    const canvasId = `pipeline-chart-${panelIndex}`;
-    const safeConfig = escapeHTML(JSON.stringify(barChart));
-    return `<div class="dashboard-panel pipeline-panel ${escapeHTML(statusClass)}" role="region" aria-label="${escapeHTML(d.pipelineStatus)}">
+      ],
+    },
+    options: {
+      indexAxis: 'y',
+    },
+  };
+  const canvasId = `pipeline-chart-${panelIndex}`;
+  const safeConfig = escapeHTML(JSON.stringify(barChart));
+  return `<div class="dashboard-panel pipeline-panel ${escapeHTML(statusClass)}" role="region" aria-label="${escapeHTML(d.pipelineStatus)}">
             <h3 class="panel-title">${escapeHTML(d.pipelineStatus)}</h3>
             <div class="metrics-grid">
               <div class="metric-card pipeline-on-track">
@@ -382,51 +382,56 @@ export function buildPipelinePanel(pipeline, panelIndex, lang = 'en') {
  * @returns HTML string for the trend panel or empty string
  */
 export function buildTrendPanel(trend, panelIndex, lang = 'en') {
-    if (!trend || trend.metrics.length === 0)
-        return '';
-    const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
-    const directionLabel = trend.direction === 'improving'
-        ? d.trendImproving
-        : trend.direction === 'declining'
-            ? d.trendDeclining
-            : d.trendStableLabel;
-    const sparklineChart = {
-        type: 'line',
-        title: d.activityTrendChart,
-        data: {
-            labels: trend.metrics.map((m) => m.period),
-            datasets: [
-                {
-                    label: d.trendAnalysis,
-                    data: trend.metrics.map((m) => m.value),
-                    borderColor: '#003399',
-                    backgroundColor: 'rgba(0,51,153,0.1)',
-                },
-            ],
+  if (!trend || trend.metrics.length === 0) return '';
+  const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
+  const directionLabel =
+    trend.direction === 'improving'
+      ? d.trendImproving
+      : trend.direction === 'declining'
+        ? d.trendDeclining
+        : d.trendStableLabel;
+  const sparklineChart = {
+    type: 'line',
+    title: d.activityTrendChart,
+    data: {
+      labels: trend.metrics.map((m) => m.period),
+      datasets: [
+        {
+          label: d.trendAnalysis,
+          data: trend.metrics.map((m) => m.value),
+          borderColor: '#003399',
+          backgroundColor: 'rgba(0,51,153,0.1)',
         },
-        options: {
-            plugins: { legend: { display: false } },
-            scales: { y: { beginAtZero: true } },
-        },
-    };
-    const canvasId = `trend-chart-${panelIndex}`;
-    const safeConfig = escapeHTML(JSON.stringify(sparklineChart));
-    const wowHtml = trend.weekOverWeekChange !== undefined
-        ? `<div class="metric-card">
+      ],
+    },
+    options: {
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true } },
+    },
+  };
+  const canvasId = `trend-chart-${panelIndex}`;
+  const safeConfig = escapeHTML(JSON.stringify(sparklineChart));
+  const wowHtml =
+    trend.weekOverWeekChange !== undefined
+      ? `<div class="metric-card">
                 <span class="metric-label">${escapeHTML(d.weekOverWeek)}</span>
                 <span class="metric-value">${escapeHTML(trend.weekOverWeekChange > 0 ? '+' : '')}${escapeHTML(String(trend.weekOverWeekChange))}%</span>
               </div>`
-        : '';
-    const momHtml = trend.monthOverMonthChange !== undefined
-        ? `<div class="metric-card">
+      : '';
+  const momHtml =
+    trend.monthOverMonthChange !== undefined
+      ? `<div class="metric-card">
                 <span class="metric-label">${escapeHTML(d.monthOverMonth)}</span>
                 <span class="metric-value">${escapeHTML(trend.monthOverMonthChange > 0 ? '+' : '')}${escapeHTML(String(trend.monthOverMonthChange))}%</span>
               </div>`
-        : '';
-    const noscriptRows = trend.metrics
-        .map((m) => `<tr><th scope="row">${escapeHTML(m.period)}</th><td>${escapeHTML(String(m.value))}</td></tr>`)
-        .join('\n              ');
-    return `<div class="dashboard-panel trend-panel" role="region" aria-label="${escapeHTML(d.trendAnalysis)}">
+      : '';
+  const noscriptRows = trend.metrics
+    .map(
+      (m) =>
+        `<tr><th scope="row">${escapeHTML(m.period)}</th><td>${escapeHTML(String(m.value))}</td></tr>`
+    )
+    .join('\n              ');
+  return `<div class="dashboard-panel trend-panel" role="region" aria-label="${escapeHTML(d.trendAnalysis)}">
             <h3 class="panel-title">${escapeHTML(d.trendAnalysis)}</h3>
             <div class="metrics-grid">
               <div class="metric-card trend-direction">
@@ -457,14 +462,14 @@ export function buildTrendPanel(trend, panelIndex, lang = 'en') {
  * @returns CSS class string
  */
 function impactDirectionClass(direction) {
-    switch (direction) {
-        case 'positive':
-            return 'impact-positive';
-        case 'negative':
-            return 'impact-negative';
-        case 'neutral':
-            return 'impact-neutral';
-    }
+  switch (direction) {
+    case 'positive':
+      return 'impact-positive';
+    case 'negative':
+      return 'impact-negative';
+    case 'neutral':
+      return 'impact-neutral';
+  }
 }
 /**
  * Build a stakeholder impact scorecard panel as a self-contained HTML section.
@@ -479,39 +484,40 @@ function impactDirectionClass(direction) {
  * @returns HTML string for the scorecard panel or empty string
  */
 export function buildStakeholderScorecardPanel(stakeholders, panelIndex, lang = 'en') {
-    if (!stakeholders || stakeholders.length === 0)
-        return '';
-    const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
-    const cards = stakeholders
-        .map((s) => {
-        const dirClass = impactDirectionClass(s.impactDirection);
-        const dirLabel = s.impactDirection === 'positive'
-            ? d.impactPositive
-            : s.impactDirection === 'negative'
-                ? d.impactNegative
-                : d.impactNeutral;
-        const descHtml = s.description
-            ? `<span class="stakeholder-description">${escapeHTML(s.description)}</span>`
-            : '';
-        return `<div class="stakeholder-card ${escapeHTML(dirClass)}" role="listitem">
+  if (!stakeholders || stakeholders.length === 0) return '';
+  const d = getLocalizedString(DASHBOARD_BUILDER_STRINGS, lang);
+  const cards = stakeholders
+    .map((s) => {
+      const dirClass = impactDirectionClass(s.impactDirection);
+      const dirLabel =
+        s.impactDirection === 'positive'
+          ? d.impactPositive
+          : s.impactDirection === 'negative'
+            ? d.impactNegative
+            : d.impactNeutral;
+      const descHtml = s.description
+        ? `<span class="stakeholder-description">${escapeHTML(s.description)}</span>`
+        : '';
+      return `<div class="stakeholder-card ${escapeHTML(dirClass)}" role="listitem">
                 <span class="stakeholder-name">${escapeHTML(s.stakeholder)}</span>
                 <span class="stakeholder-score">${escapeHTML(String(s.impactScore))}/100</span>
                 <span class="stakeholder-direction">${escapeHTML(dirLabel)}</span>
                 ${descHtml}
               </div>`;
     })
-        .join('\n              ');
-    const noscriptRows = stakeholders
-        .map((s) => {
-        const dirLabel = s.impactDirection === 'positive'
-            ? d.impactPositive
-            : s.impactDirection === 'negative'
-                ? d.impactNegative
-                : d.impactNeutral;
-        return `<tr><th scope="row">${escapeHTML(s.stakeholder)}</th><td>${escapeHTML(String(s.impactScore))}</td><td>${escapeHTML(dirLabel)}</td></tr>`;
+    .join('\n              ');
+  const noscriptRows = stakeholders
+    .map((s) => {
+      const dirLabel =
+        s.impactDirection === 'positive'
+          ? d.impactPositive
+          : s.impactDirection === 'negative'
+            ? d.impactNegative
+            : d.impactNeutral;
+      return `<tr><th scope="row">${escapeHTML(s.stakeholder)}</th><td>${escapeHTML(String(s.impactScore))}</td><td>${escapeHTML(dirLabel)}</td></tr>`;
     })
-        .join('\n              ');
-    return `<div class="dashboard-panel stakeholder-scorecard" role="region" aria-label="${escapeHTML(d.stakeholderImpact)}" id="stakeholder-scorecard-${panelIndex}">
+    .join('\n              ');
+  return `<div class="dashboard-panel stakeholder-scorecard" role="region" aria-label="${escapeHTML(d.stakeholderImpact)}" id="stakeholder-scorecard-${panelIndex}">
             <h3 class="panel-title">${escapeHTML(d.stakeholderImpact)}</h3>
             <div class="stakeholder-grid" role="list">
               ${cards}
@@ -544,19 +550,16 @@ export function buildStakeholderScorecardPanel(stakeholders, panelIndex, lang = 
  * @returns HTML section string or empty string
  */
 export function buildDashboardSection(config, lang = 'en', heading) {
-    if (!config)
-        return '';
-    if (config.panels.length === 0)
-        return '';
-    const strings = getLocalizedString(DASHBOARD_STRINGS, lang);
-    const sectionHeading = heading ?? config.title ?? strings.sectionHeading;
-    const panelsHtml = config.panels
-        .map((panel, index) => buildDashboardPanel(panel, index, strings))
-        .filter((html) => html.length > 0)
-        .join('\n            ');
-    if (!panelsHtml)
-        return '';
-    return `
+  if (!config) return '';
+  if (config.panels.length === 0) return '';
+  const strings = getLocalizedString(DASHBOARD_STRINGS, lang);
+  const sectionHeading = heading ?? config.title ?? strings.sectionHeading;
+  const panelsHtml = config.panels
+    .map((panel, index) => buildDashboardPanel(panel, index, strings))
+    .filter((html) => html.length > 0)
+    .join('\n            ');
+  if (!panelsHtml) return '';
+  return `
           <section class="dashboard" role="region" aria-label="${escapeHTML(sectionHeading)}">
             <h2>${escapeHTML(sectionHeading)}</h2>
             <div class="dashboard-grid">
@@ -572,9 +575,8 @@ export function buildDashboardSection(config, lang = 'en', heading) {
  * @returns True if at least one panel has a chart
  */
 export function dashboardHasCharts(config) {
-    if (!config)
-        return false;
-    return config.panels.some((panel) => panel.chart !== undefined);
+  if (!config) return false;
+  return config.panels.some((panel) => panel.chart !== undefined);
 }
 /**
  * Build a dashboard panel from World Bank economic context data.
@@ -587,44 +589,45 @@ export function dashboardHasCharts(config) {
  * @returns Dashboard panel configuration or null if data is insufficient
  */
 export function buildEconomicContextPanel(context) {
-    if (!context?.indicators || context.indicators.length === 0)
-        return null;
-    const validIndicators = context.indicators.filter((ind) => ind.value !== null && ind.value !== undefined && Number.isFinite(ind.value));
-    if (validIndicators.length === 0)
-        return null;
-    const metrics = validIndicators.slice(0, 6).map((ind) => {
-        const labelYearSuffix = ind.year !== undefined && ind.year !== null ? ` (${ind.year})` : '';
-        return {
-            label: `${ind.name}${labelYearSuffix}`,
-            value: ind.formatted,
-            unit: '',
-        };
-    });
-    // Only chart indicators with comparable units (percentages) to avoid
-    // mixing incompatible scales (e.g. GDP in $ alongside inflation in %).
-    // Percentage indicators (growth rates, inflation, unemployment) share a
-    // common axis; absolute-value indicators still appear in the metrics cards.
-    const pctIndicators = validIndicators.filter((ind) => ind.formatted.includes('%'));
-    const chartIndicators = pctIndicators.length > 0 ? pctIndicators.slice(0, 6) : [];
-    const chart = chartIndicators.length > 0
-        ? {
-            type: 'bar',
-            title: `${context.countryName} — Economic Rates (%)`,
-            data: {
-                labels: chartIndicators.map((ind) => ind.name),
-                datasets: [
-                    {
-                        label: context.countryName,
-                        data: chartIndicators.map((ind) => ind.value ?? 0),
-                    },
-                ],
-            },
-        }
-        : undefined;
+  if (!context?.indicators || context.indicators.length === 0) return null;
+  const validIndicators = context.indicators.filter(
+    (ind) => ind.value !== null && ind.value !== undefined && Number.isFinite(ind.value)
+  );
+  if (validIndicators.length === 0) return null;
+  const metrics = validIndicators.slice(0, 6).map((ind) => {
+    const labelYearSuffix = ind.year !== undefined && ind.year !== null ? ` (${ind.year})` : '';
     return {
-        title: `Economic Context: ${context.countryName}`,
-        metrics,
-        ...(chart ? { chart } : {}),
+      label: `${ind.name}${labelYearSuffix}`,
+      value: ind.formatted,
+      unit: '',
     };
+  });
+  // Only chart indicators with comparable units (percentages) to avoid
+  // mixing incompatible scales (e.g. GDP in $ alongside inflation in %).
+  // Percentage indicators (growth rates, inflation, unemployment) share a
+  // common axis; absolute-value indicators still appear in the metrics cards.
+  const pctIndicators = validIndicators.filter((ind) => ind.formatted.includes('%'));
+  const chartIndicators = pctIndicators.length > 0 ? pctIndicators.slice(0, 6) : [];
+  const chart =
+    chartIndicators.length > 0
+      ? {
+          type: 'bar',
+          title: `${context.countryName} — Economic Rates (%)`,
+          data: {
+            labels: chartIndicators.map((ind) => ind.name),
+            datasets: [
+              {
+                label: context.countryName,
+                data: chartIndicators.map((ind) => ind.value ?? 0),
+              },
+            ],
+          },
+        }
+      : undefined;
+  return {
+    title: `Economic Context: ${context.countryName}`,
+    metrics,
+    ...(chart ? { chart } : {}),
+  };
 }
 //# sourceMappingURL=dashboard-content.js.map

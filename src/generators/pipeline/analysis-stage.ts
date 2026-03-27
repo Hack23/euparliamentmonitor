@@ -44,7 +44,9 @@ import { randomUUID } from 'crypto';
 import { ArticleCategory } from '../../types/index.js';
 import type { ConfidenceLevel } from '../../types/index.js';
 import type { ClassificationInput } from '../../types/political-classification.js';
+import type { PoliticalSignificance } from '../../types/political-classification.js';
 import type { ThreatAssessmentInput } from '../../types/political-threats.js';
+import type { PoliticalThreatAssessment } from '../../types/political-threats.js';
 import {
   detectVotingTrends,
   computeCrossSessionCoalitionStability,
@@ -252,6 +254,8 @@ const SUBSTANTIVE_DATA_KEYS = [
   'committeeDocuments',
   'plenarySessionDocuments',
   'externalDocuments',
+  'declarations',
+  'corporateBodies',
 ] as const;
 
 /**
@@ -332,8 +336,10 @@ export const ALL_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
   'coalition-analysis',
   'voting-patterns',
   'cross-session-intelligence',
-  // Per-document intelligence
-  'document-analysis',
+  // NOTE: 'document-analysis' is intentionally excluded from the default set.
+  // It writes one markdown + one JSON file per feed item and can significantly
+  // increase runtime and repository output size.  Callers must opt-in by
+  // explicitly listing it in `enabledMethods`.
 ] as const;
 
 // ─── Interfaces ───────────────────────────────────────────────────────────────
@@ -1796,59 +1802,106 @@ Analysis of coalition stability patterns across multiple plenary sessions.
  * @param date - Analysis date
  * @returns Markdown index content string (per-document files are written as side effects)
  */
+/** Entry for a single analyzed document within the document-analysis index */
+interface DocumentEntry {
+  readonly category: string;
+  readonly id: string;
+  readonly title: string;
+  readonly filename: string;
+}
+
+/**
+ * Process a single feed item: deduplicate, write per-document files, and
+ * collect the index entry.  Returns `undefined` if the item is invalid or
+ * already analyzed.
+ *
+ * @param raw - Raw feed item (may be null, non-object, or a valid record)
+ * @param feedKey - Feed category key (e.g. 'adoptedTexts', 'procedures')
+ * @param date - Analysis date string
+ * @param analyzedIds - Set of already-processed document IDs for deduplication
+ * @param docDir - Output directory for per-document markdown (empty string to skip writing)
+ * @param rawDataDir - Output directory for raw JSON data
+ * @param significance - Precomputed global political significance
+ * @param threats - Precomputed global threat assessment
+ * @returns Document entry for the index, or undefined if skipped
+ */
+function processDocumentItem(
+  raw: unknown,
+  feedKey: string,
+  date: string,
+  analyzedIds: Set<string>,
+  docDir: string,
+  rawDataDir: string,
+  significance: PoliticalSignificance,
+  threats: PoliticalThreatAssessment
+): DocumentEntry | undefined {
+  if (!raw || typeof raw !== 'object') return undefined;
+  const item = raw as Record<string, unknown>;
+  const docId = extractDocumentId(item);
+  const dedupeKey = docId.toLowerCase().trim();
+
+  if (analyzedIds.has(dedupeKey)) return undefined;
+  analyzedIds.add(dedupeKey);
+
+  const title = extractDocumentTitle(item);
+  const safeId = sanitizeDocumentId(docId);
+  const filename = `${sanitizeDocumentId(feedKey)}-${safeId}-analysis.md`;
+
+  if (docDir) {
+    const docContent = buildSingleDocumentAnalysis(
+      item,
+      docId,
+      title,
+      feedKey,
+      date,
+      significance,
+      threats
+    );
+    writeTextFile(path.join(docDir, filename), docContent);
+
+    const rawJsonFilename = `${sanitizeDocumentId(feedKey)}-${safeId}-raw.json`;
+    writeTextFile(path.join(rawDataDir, rawJsonFilename), JSON.stringify(item, null, 2));
+  }
+
+  return { category: feedKey, id: docId, title, filename };
+}
+
 function buildDocumentAnalysisMarkdown(fetchedData: Record<string, unknown>, date: string): string {
   const header = buildMarkdownHeader(METHOD_DOCUMENT_ANALYSIS, date, 'high');
   const dateOutputDir = (fetchedData as Record<string, unknown>)['_dateOutputDir'];
   const outputBase = typeof dateOutputDir === 'string' ? dateOutputDir : '';
 
+  // Create output directories once, before iterating over items
+  const docDir = outputBase ? path.join(outputBase, 'documents') : '';
+  const rawDataDir = outputBase ? path.join(outputBase, 'documents', 'raw-data') : '';
+  if (docDir) ensureDirectoryExists(docDir);
+  if (rawDataDir) ensureDirectoryExists(rawDataDir);
+
+  // Pre-compute global significance and threat assessments once per run
+  // (both are based on the entire fetchedData, not individual documents)
+  const globalInput = toClassificationInput(fetchedData);
+  const globalSignificance = assessPoliticalSignificance(globalInput);
+  const globalThreatInput = toThreatInput(fetchedData);
+  const globalThreats = assessPoliticalThreats(globalThreatInput);
+
   // Collect all documents across feed categories with deduplication
   const analyzedIds = new Set<string>();
-  const documentEntries: Array<{
-    category: string;
-    id: string;
-    title: string;
-    filename: string;
-  }> = [];
+  const documentEntries: DocumentEntry[] = [];
 
   for (const feedKey of DOCUMENT_FEED_KEYS) {
     const items = safeArr(fetchedData, feedKey);
     for (const raw of items) {
-      if (!raw || typeof raw !== 'object') continue;
-      const item = raw as Record<string, unknown>;
-      const docId = extractDocumentId(item);
-      const dedupeKey = docId.toLowerCase().trim();
-
-      // Skip if already analyzed (deduplication across feed categories)
-      if (analyzedIds.has(dedupeKey)) continue;
-      analyzedIds.add(dedupeKey);
-
-      const title = extractDocumentTitle(item);
-      const safeId = sanitizeDocumentId(docId);
-      const filename = `${sanitizeDocumentId(feedKey)}-${safeId}-analysis.md`;
-
-      documentEntries.push({ category: feedKey, id: docId, title, filename });
-
-      // Write per-document analysis file if outputBase is available
-      if (outputBase) {
-        const docDir = path.join(outputBase, 'documents');
-        ensureDirectoryExists(docDir);
-
-        const docContent = buildSingleDocumentAnalysis(
-          item,
-          docId,
-          title,
-          feedKey,
-          date,
-          fetchedData
-        );
-        writeTextFile(path.join(docDir, filename), docContent);
-
-        // Store raw document data as JSON for full data preservation
-        const rawJsonFilename = `${sanitizeDocumentId(feedKey)}-${safeId}-raw.json`;
-        const rawDataDir = path.join(outputBase, 'documents', 'raw-data');
-        ensureDirectoryExists(rawDataDir);
-        writeTextFile(path.join(rawDataDir, rawJsonFilename), JSON.stringify(item, null, 2));
-      }
+      const entry = processDocumentItem(
+        raw,
+        feedKey,
+        date,
+        analyzedIds,
+        docDir,
+        rawDataDir,
+        globalSignificance,
+        globalThreats
+      );
+      if (entry) documentEntries.push(entry);
     }
   }
 
@@ -1935,7 +1988,8 @@ All ${documentEntries.length} documents have been stored in their entirety:
  * @param title - Document title
  * @param category - Feed category the document came from
  * @param date - Analysis date
- * @param fetchedData - Full fetched data for context
+ * @param significance - Precomputed global political significance
+ * @param threats - Precomputed global threat assessment
  * @returns Markdown content for single document analysis
  */
 function buildSingleDocumentAnalysis(
@@ -1944,12 +1998,9 @@ function buildSingleDocumentAnalysis(
   title: string,
   category: string,
   date: string,
-  fetchedData: Record<string, unknown>
+  significance: PoliticalSignificance,
+  threats: PoliticalThreatAssessment
 ): string {
-  const input = toClassificationInput(fetchedData);
-  const significance = assessPoliticalSignificance(input);
-  const threatInput = toThreatInput(fetchedData);
-  const threats = assessPoliticalThreats(threatInput);
 
   // Extract available metadata from the document
   const docType = typeof item['type'] === 'string' ? item['type'] : category;
