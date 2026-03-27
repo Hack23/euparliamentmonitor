@@ -66,16 +66,17 @@ import {
   computeVotingIntensity,
   computePolarizationIndex,
 } from '../utils/intelligence-analysis.js';
+import { AI_MARKER } from '../constants/analysis-constants.js';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 /**
  * Re-export AI_MARKER from the shared constants module so existing consumers
  * (tests, other generators) can continue importing from this file without
- * breaking changes.  The canonical definition lives in
+ * breaking changes. The canonical definition lives in
  * `src/constants/analysis-constants.ts` to avoid circular ESM dependencies.
  */
-export { AI_MARKER } from '../constants/analysis-constants.js';
+export { AI_MARKER };
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
