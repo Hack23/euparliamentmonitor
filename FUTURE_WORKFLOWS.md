@@ -115,7 +115,7 @@ This document outlines planned enhancements to the EU Parliament Monitor CI/CD w
 ```mermaid
 flowchart TD
     subgraph Phase0["✅ Phase 0: Current State (Completed)"]
-        P0A[🤖 9 Agentic Workflows] --> P0B[🔐 100% SHA Pinning]
+        P0A[🤖 10 Agentic Workflows] --> P0B[🔐 100% SHA Pinning]
         P0B --> P0C[🛡️ Harden Runner]
         P0C --> P0D[📜 SLSA L3 Provenance]
     end

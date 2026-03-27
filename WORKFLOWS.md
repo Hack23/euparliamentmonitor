@@ -114,7 +114,7 @@ EU Parliament Monitor employs a comprehensive suite of **22 GitHub Actions workf
 
 | # | Workflow | Purpose | Schedule / Trigger | ISMS Alignment |
 |---|---------|---------|-------------------|----------------|
-| 1 | **Agentic News Workflows** (×9) | AI-generated multi-language news articles | Varied schedules (see §1) | Integrity controls (Medium) |
+| 1 | **Agentic News Workflows** (×10) | AI-generated multi-language news articles | Varied schedules (see §1) | Integrity controls (Medium) |
 | 2 | **Test & Report** | Unit tests, integration tests, coverage, performance | On PR/push to main | Quality assurance (ISO 27001 A.12.1.4) |
 | 3 | **CodeQL** | SAST security scanning (JS/TS + GitHub Actions) | On PR/push + weekly Saturday | Vulnerability management (ISO 27001 A.12.6) |
 | 4 | **E2E Tests** | End-to-end Playwright tests | On PR/push + daily midnight UTC | Functional validation |
@@ -129,7 +129,7 @@ EU Parliament Monitor employs a comprehensive suite of **22 GitHub Actions workf
 | 13 | **Setup Labels** | Repository label management | Manual dispatch | Repository governance |
 | 14 | **Copilot Setup Steps** | GitHub Copilot agent environment setup | Push/PR to itself + manual | Agent infrastructure |
 
-**🔒 Security Posture:** All 13 standard workflows use SHA-pinned actions (100%), Harden Runner (`step-security/harden-runner@58077d3c7e43986b6b15fba718e8ea69e387dfcc # v2.15.1`), and minimal permissions following least privilege principle.
+**🔒 Security Posture:** All 12 standard workflows use SHA-pinned actions (100%), Harden Runner (`step-security/harden-runner@58077d3c7e43986b6b15fba718e8ea69e387dfcc # v2.15.1`), and minimal permissions following least privilege principle.
 
 ### 🏗️ Pipeline Architecture
 
@@ -174,7 +174,7 @@ flowchart TB
 
     subgraph "Agentic Content Pipeline"
         direction TB
-        Schedule1[Scheduled Triggers] --> AgenticNews[9 Agentic News Workflows]
+        Schedule1[Scheduled Triggers] --> AgenticNews[10 Agentic News Workflows]
         AgenticNews --> Analysis[Political Intelligence Analysis]
         Analysis --> Articles[14-Language Article Generation]
         Articles --> ContentPR[Content Pull Request]
@@ -240,7 +240,7 @@ flowchart TB
 
 #### Agentic Workflow Architecture
 
-All 9 agentic workflows share a common architecture:
+All 10 agentic workflows share a common architecture (9 content-generation workflows produce English articles; the `news-translate` workflow then generates the remaining 13 languages):
 
 ```mermaid
 graph TD
@@ -260,9 +260,10 @@ graph TD
     J1b --> J1d
     J1c --> J1d
     J1d --> J[📰 Generate News Articles<br/>npx tsx src/generators/news-enhanced.ts --analysis]
-    J --> K[🌐 14-Language HTML Output]
+    J --> K[🇬🇧 English HTML Output]
     K --> L[📝 Create Pull Request<br/>Includes analysis-output/ artifacts]
     L --> M[✅ PR Ready for Review]
+    L -.-> N[🌐 news-translate Workflow<br/>Generates 13 Additional Languages]
 
     classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
     classDef process fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
@@ -276,7 +277,7 @@ graph TD
     class C decision
     class E skip
     class J1,J1a,J1b,J1c,J1d analysis
-    class J,K,L,M output
+    class J,K,L,M,N output
 ```
 
 #### Common Agentic Workflow Properties
