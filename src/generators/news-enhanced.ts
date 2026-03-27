@@ -430,7 +430,7 @@ async function runAnalysisWithGuard(
   date: string,
   client: EuropeanParliamentMCPClient | null
 ): Promise<AnalysisContext | null> {
-  let analysisCtx: AnalysisContext | null = null;
+  let analysisCtx: AnalysisContext | null;
   try {
     analysisCtx = await maybeRunAnalysis(date, client);
   } catch (err: unknown) {
@@ -439,20 +439,18 @@ async function runAnalysisWithGuard(
     console.error(
       '🛑 Aborting: agentic workflow requires successful data fetch and analysis before article generation.'
     );
-    if (client) await closeEPMCPClient();
-    process.exit(1);
+    throw err instanceof Error ? err : new Error(message);
   }
 
   // Gate: when analysis was requested, verify it produced output before
   // proceeding to article generation.  Never produce articles without
   // completed analysis — this enforces the agentic workflow principle.
   if ((runAnalysisArg || analysisOnlyArg) && !analysisCtx) {
-    console.error(
-      '🛑 Aborting: --analysis was requested but no analysis context was produced. ' +
-        'Article generation requires completed analysis.'
-    );
-    if (client) await closeEPMCPClient();
-    process.exit(1);
+    const msg =
+      '--analysis was requested but no analysis context was produced. ' +
+      'Article generation requires completed analysis.';
+    console.error(`🛑 Aborting: ${msg}`);
+    throw new Error(msg);
   }
 
   return analysisCtx;
@@ -482,25 +480,24 @@ async function main(): Promise<void> {
   const isoToday = new Date().toISOString();
   const todayDate = isoToday.slice(0, 10);
 
-  // Run analysis stage with pipeline enforcement guards
-  await runAnalysisWithGuard(todayDate, client);
-
-  // If --analysis-only, skip article generation
-  if (analysisOnlyArg) {
-    console.log('ℹ️  --analysis-only specified. Skipping article generation.');
-    if (client) await closeEPMCPClient();
-    process.exit(0);
-  }
-
-  const outputOptions: OutputOptions = {
-    dryRun: dryRunArg,
-    skipExisting: skipExistingArg,
-    newsDir: path.resolve(NEWS_DIR),
-  };
-
-  const registry = createStrategyRegistry();
-
   try {
+    // Run analysis stage with pipeline enforcement guards
+    await runAnalysisWithGuard(todayDate, client);
+
+    // If --analysis-only, skip article generation
+    if (analysisOnlyArg) {
+      console.log('ℹ️  --analysis-only specified. Skipping article generation.');
+      return;
+    }
+
+    const outputOptions: OutputOptions = {
+      dryRun: dryRunArg,
+      skipExisting: skipExistingArg,
+      newsDir: path.resolve(NEWS_DIR),
+    };
+
+    const registry = createStrategyRegistry();
+
     const results: GenerationResult[] = [];
 
     for (const articleType of articleTypes) {
@@ -529,17 +526,21 @@ async function main(): Promise<void> {
     console.log('');
 
     writeGenerationMetadata(stats, results, client !== null, METADATA_DIR, dryRunArg);
+
+    process.exitCode = stats.errors > 0 ? 1 : 0;
   } finally {
     if (client) {
       console.log('🔌 Closing MCP client connection...');
       await closeEPMCPClient();
     }
   }
-
-  process.exit(stats.errors > 0 ? 1 : 0);
 }
 
 // Only run main when executed directly (not when imported)
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  main();
+  main().catch((err: unknown) => {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error(`💥 Fatal: ${message}`);
+    process.exitCode = 1;
+  });
 }

@@ -24,6 +24,7 @@ import {
   buildBreakingMultiDimensionalSwot,
   buildPropositionsMultiDimensionalSwot,
   buildCommitteeMultiDimensionalSwot,
+  AI_MARKER,
 } from '../../scripts/generators/analysis-builders.js';
 import {
   PLACEHOLDER_CHAIR,
@@ -817,7 +818,7 @@ describe('analysis-builders', () => {
         '2026-02-01', '2026-02-28',
         VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
       );
-      expect(result.why).toBe('[AI_ANALYSIS_REQUIRED]');
+      expect(result.why).toBe(AI_MARKER);
     });
 
     it('should use AI marker for political impact — analysis produced by AI agent', () => {
@@ -825,7 +826,7 @@ describe('analysis-builders', () => {
         '2026-02-01', '2026-02-28',
         VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
       );
-      expect(result.impactAssessment.political).toBe('[AI_ANALYSIS_REQUIRED]');
+      expect(result.impactAssessment.political).toBe(AI_MARKER);
     });
 
     it('should use AI marker for outlook — analysis produced by AI agent', () => {
@@ -840,7 +841,7 @@ describe('analysis-builders', () => {
         '2026-02-01', '2026-02-28',
         VOTING_RECORDS, fragmentedPatterns, highAnomalies, MOTIONS_QUESTIONS
       );
-      expect(result.outlook).toBe('[AI_ANALYSIS_REQUIRED]');
+      expect(result.outlook).toBe(AI_MARKER);
     });
   });
 
@@ -863,7 +864,7 @@ describe('analysis-builders', () => {
         { start: '2026-03-01', end: '2026-03-07' },
         'week'
       );
-      expect(result.why).toBe('[AI_ANALYSIS_REQUIRED]');
+      expect(result.why).toBe(AI_MARKER);
       expect(result.mistakes.length).toBeGreaterThan(0);
       expect(result.mistakes[0].description).toContain('Migration Pact');
     });
@@ -909,7 +910,7 @@ describe('analysis-builders', () => {
 
     it('should use AI marker for why — analysis produced by AI agent', () => {
       const result = buildBreakingAnalysis('2026-02-24', undefined, 'anomaly detected', '');
-      expect(result.why).toBe('[AI_ANALYSIS_REQUIRED]');
+      expect(result.why).toBe(AI_MARKER);
     });
 
     it('should handle undefined feedData', () => {
@@ -961,7 +962,7 @@ describe('analysis-builders', () => {
     it('should use AI marker for why — analysis produced by AI agent', () => {
       const pipeline = { healthScore: 0.3, throughput: 2, procRowsHtml: '' };
       const result = buildPropositionsAnalysis('', pipeline, '2026-02-24');
-      expect(result.why).toBe('[AI_ANALYSIS_REQUIRED]');
+      expect(result.why).toBe(AI_MARKER);
       expect(result.mistakes.length).toBeGreaterThan(0);
     });
 
@@ -974,7 +975,7 @@ describe('analysis-builders', () => {
     it('should use AI marker for outlook — analysis produced by AI agent', () => {
       const result = buildPropositionsAnalysis('', null, '2026-02-24');
       expect(result.what).toContain('0%');
-      expect(result.outlook).toBe('[AI_ANALYSIS_REQUIRED]');
+      expect(result.outlook).toBe(AI_MARKER);
     });
 
     it('should detect proposals from adoptedTextsHtml when proposalsHtml is empty', () => {
@@ -1006,19 +1007,19 @@ describe('analysis-builders', () => {
     it('should flag inactive committees in mistakes', () => {
       const result = buildCommitteeAnalysis(COMMITTEE_DATA, '2026-02-24');
       expect(result.mistakes.length).toBeGreaterThan(0);
-      expect(result.mistakes[0].description).toBe('[AI_ANALYSIS_REQUIRED]');
+      expect(result.mistakes[0].description).toBe(AI_MARKER);
     });
 
     it('should use AI marker for why — analysis produced by AI agent', () => {
       const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
       const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
-      expect(result.why).toBe('[AI_ANALYSIS_REQUIRED]');
+      expect(result.why).toBe(AI_MARKER);
     });
 
     it('should use AI marker for impact assessment — analysis produced by AI agent', () => {
       const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
       const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
-      expect(result.impactAssessment.political).toBe('[AI_ANALYSIS_REQUIRED]');
+      expect(result.impactAssessment.political).toBe(AI_MARKER);
     });
 
     it('should handle empty committee list', () => {

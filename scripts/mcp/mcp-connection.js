@@ -689,7 +689,7 @@ export class MCPConnection {
         'MCP tool arguments must be a plain object (non-null object, not an array or function)'
       );
     }
-    return await this.sendRequest('tools/call', { name, arguments: args });
+    return this.sendRequest('tools/call', { name, arguments: args });
   }
   /**
    * Attempt to reconnect to the MCP server with exponential back-off.

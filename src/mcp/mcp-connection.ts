@@ -783,7 +783,7 @@ export class MCPConnection {
         'MCP tool arguments must be a plain object (non-null object, not an array or function)'
       );
     }
-    return (await this.sendRequest('tools/call', { name, arguments: args })) as MCPToolResult;
+    return this.sendRequest('tools/call', { name, arguments: args }) as Promise<MCPToolResult>;
   }
 
   /**
