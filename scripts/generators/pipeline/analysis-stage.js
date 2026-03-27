@@ -1703,7 +1703,7 @@ function runSingleMethod(method, fetchedData, date, dateOutputDir, skipCompleted
  * ```
  */
 export async function runAnalysisStage(fetchedData, options) {
-    const { articleTypes, date, outputDir, enabledMethods = ALL_ANALYSIS_METHODS, skipCompleted = true, verbose = false, } = options;
+    const { articleTypes, date, outputDir, enabledMethods = ALL_ANALYSIS_METHODS, skipCompleted = true, verbose = false, requireData = false, } = options;
     // Validate date to prevent path traversal (e.g. "../../.." escaping outputDir)
     if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
         throw new Error(`Invalid analysis date "${date}": must match YYYY-MM-DD format`);
@@ -1720,10 +1720,15 @@ export async function runAnalysisStage(fetchedData, options) {
         console.log(`   Methods: ${deduplicatedMethods.length}`);
         console.log(`   Output: ${dateOutputDir}`);
     }
-    // Warn when no substantive EP data is available — analysis will still run
-    // but output will be data-sparse.  Agentic workflows should check this
-    // and avoid committing empty analysis artifacts.
+    // When requireData is set (agentic workflows), abort immediately when no
+    // substantive EP data was fetched — running analysis on empty data produces
+    // hollow output that should never feed into article generation.
     if (!hasSubstantiveData(fetchedData)) {
+        if (requireData) {
+            throw new Error('Analysis aborted: no substantive EP data available. ' +
+                'MCP data fetch must succeed before analysis can run. ' +
+                'Check MCP connection and feed data source.');
+        }
         console.warn('⚠️  [analysis] No substantive EP data in fetchedData — analysis output will be data-sparse. ' +
             'Ensure MCP connection succeeded and feed data was fetched before running analysis.');
     }
@@ -1733,6 +1738,14 @@ export async function runAnalysisStage(fetchedData, options) {
     for (const method of deduplicatedMethods) {
         const result = runSingleMethod(method, fetchedData, date, dateOutputDir, skipCompleted, verbose);
         methodResults.push(result);
+    }
+    // When requireData is set and every single method failed, the analysis is
+    // worthless — abort before writing the manifest so the caller knows analysis
+    // did not succeed.  Article generation should never proceed in this state.
+    const successfulCount = methodResults.filter((r) => r.status === 'completed' || r.status === 'skipped').length;
+    if (requireData && successfulCount === 0 && methodResults.length > 0) {
+        throw new Error(`Analysis aborted: all ${methodResults.length} methods failed. ` +
+            'No analysis output was produced. Fix data fetch or method errors before retrying.');
     }
     const endTime = new Date().toISOString();
     const overallConfidence = aggregateConfidence(methodResults);

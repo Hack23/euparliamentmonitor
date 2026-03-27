@@ -47,7 +47,7 @@ import { ensureDirectoryExists } from '../utils/file-utils.js';
 import { initializeMCPClient, fetchEPFeedData } from './pipeline/fetch-stage.js';
 import { createStrategyRegistry, generateArticleForStrategy } from './pipeline/generate-stage.js';
 import { writeGenerationMetadata } from './pipeline/output-stage.js';
-import { runAnalysisStage, ALL_ANALYSIS_METHODS } from './pipeline/analysis-stage.js';
+import { runAnalysisStage, ALL_ANALYSIS_METHODS, hasSubstantiveData } from './pipeline/analysis-stage.js';
 // ─── Content-module imports (bounded contexts) ───────────────────────────────
 import { parsePlenarySessions, parseEPEvents, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, parseParliamentaryQuestions, buildWeekAheadContent, buildKeywords, PLACEHOLDER_EVENTS, buildWhatToWatchSection, buildStakeholderImpactMatrix, computeWeekPoliticalTemperature, } from './week-ahead-content.js';
 import { buildBreakingNewsContent, scoreBreakingNewsSignificance, SIGNIFICANCE_THRESHOLD, } from './breaking-content.js';
@@ -238,32 +238,79 @@ async function maybeRunAnalysis(date, client) {
         fetchedData['sessions'] = [];
         fetchedData['documents'] = [];
     }
+    // Validate that substantive EP data was actually fetched.
+    // Agentic workflows must not proceed with empty data — analysis on empty
+    // data produces hollow output that should never feed article generation.
+    if (!hasSubstantiveData(fetchedData)) {
+        const msg = '❌ Analysis aborted: no substantive EP data was fetched. ' +
+            'MCP data fetch must succeed before analysis can run. ' +
+            'Check MCP connection, feed data file, or EP API availability.';
+        console.error(msg);
+        throw new Error(msg);
+    }
+    const validArticleTypes = normalizedArticleTypes.filter((t) => VALID_ARTICLE_CATEGORIES.includes(t));
+    // Pass requireData=true so runAnalysisStage enforces data availability
+    // and aborts if all methods fail — no hollow analysis should exist.
+    const ctx = await runAnalysisStage(fetchedData, {
+        articleTypes: validArticleTypes,
+        date,
+        outputDir: analysisDirBase,
+        enabledMethods,
+        skipCompleted: true,
+        verbose: analysisVerboseArg,
+        requireData: true,
+    });
+    const totalMethods = ctx.manifest.methods.length;
+    const completedCount = ctx.manifest.methods.filter((method) => method.status === 'completed').length;
+    const skippedCount = ctx.manifest.methods.filter((method) => method.status === 'skipped').length;
+    const failedCount = ctx.manifest.methods.filter((method) => method.status === 'failed').length;
+    console.log('');
+    console.log(`🔬 Analysis complete: ${completedCount} completed, ${skippedCount} skipped, ${failedCount} failed (of ${totalMethods})`);
+    console.log(`   Confidence: ${ctx.manifest.overallConfidence}`);
+    console.log(`   Manifest: ${ctx.outputDir}/manifest.json`);
+    console.log('');
+    // Verify that at least some analysis methods succeeded — article generation
+    // must never proceed without substantive analysis output.
+    if (ctx.completedMethods.length === 0) {
+        throw new Error(`Analysis produced no completed methods (${failedCount} failed). ` +
+            'Article generation requires successful analysis output.');
+    }
+    return ctx;
+}
+/**
+ * Run the analysis stage and enforce agentic workflow pipeline guards.
+ *
+ * Wraps `maybeRunAnalysis()` with error handling that aborts the process
+ * when analysis was requested but fails (data fetch or method execution).
+ *
+ * @param date - ISO date string
+ * @param client - MCP client or null
+ * @returns Analysis context or null (when analysis not requested)
+ */
+async function runAnalysisWithGuard(date, client) {
+    let analysisCtx = null;
     try {
-        const validArticleTypes = normalizedArticleTypes.filter((t) => VALID_ARTICLE_CATEGORIES.includes(t));
-        const ctx = await runAnalysisStage(fetchedData, {
-            articleTypes: validArticleTypes,
-            date,
-            outputDir: analysisDirBase,
-            enabledMethods,
-            skipCompleted: true,
-            verbose: analysisVerboseArg,
-        });
-        const totalMethods = ctx.manifest.methods.length;
-        const completedCount = ctx.manifest.methods.filter((method) => method.status === 'completed').length;
-        const skippedCount = ctx.manifest.methods.filter((method) => method.status === 'skipped').length;
-        console.log('');
-        console.log(`🔬 Analysis complete: ${completedCount} methods completed, ${skippedCount} skipped (of ${totalMethods})`);
-        console.log(`   Confidence: ${ctx.manifest.overallConfidence}`);
-        console.log(`   Manifest: ${ctx.outputDir}/manifest.json`);
-        console.log('');
-        return ctx;
+        analysisCtx = await maybeRunAnalysis(date, client);
     }
     catch (err) {
         const message = err instanceof Error ? err.message : String(err);
         console.error(`❌ Analysis stage failed: ${message}`);
-        // Analysis failure does not block article generation
-        return null;
+        console.error('🛑 Aborting: agentic workflow requires successful data fetch and analysis before article generation.');
+        if (client)
+            await closeEPMCPClient();
+        process.exit(1);
     }
+    // Gate: when analysis was requested, verify it produced output before
+    // proceeding to article generation.  Never produce articles without
+    // completed analysis — this enforces the agentic workflow principle.
+    if ((runAnalysisArg || analysisOnlyArg) && !analysisCtx) {
+        console.error('🛑 Aborting: --analysis was requested but no analysis context was produced. ' +
+            'Article generation requires completed analysis.');
+        if (client)
+            await closeEPMCPClient();
+        process.exit(1);
+    }
+    return analysisCtx;
 }
 /**
  * Main execution: initialise the MCP client, optionally run analysis stage,
@@ -285,9 +332,8 @@ async function main() {
     // split('T')[0] on a valid ISO string always returns the date portion
     const isoToday = new Date().toISOString();
     const todayDate = isoToday.slice(0, 10);
-    // Run optional analysis stage (Fetch → Analysis)
-    // Writes markdown + manifest to analysis-output/{date}/ — committed for review
-    await maybeRunAnalysis(todayDate, client);
+    // Run analysis stage with pipeline enforcement guards
+    await runAnalysisWithGuard(todayDate, client);
     // If --analysis-only, skip article generation
     if (analysisOnlyArg) {
         console.log('ℹ️  --analysis-only specified. Skipping article generation.');

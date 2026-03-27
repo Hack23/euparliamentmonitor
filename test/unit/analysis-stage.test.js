@@ -1453,4 +1453,83 @@ describe('runAnalysisStage', () => {
       expect(result.summary).toContain('string error');
     });
   });
+
+  // ─── requireData option tests (agentic workflow pipeline enforcement) ────────
+
+  describe('requireData option', () => {
+    it('throws when requireData=true and no substantive data available', async () => {
+      await expect(
+        runAnalysisStage(buildTestFetchedData(), {
+          articleTypes: ['week-ahead'],
+          date: testDate,
+          outputDir: tmpDir,
+          enabledMethods: ['deep-analysis'],
+          requireData: true,
+        })
+      ).rejects.toThrow('Analysis aborted: no substantive EP data available');
+    });
+
+    it('does not throw when requireData=true and substantive data is present', async () => {
+      const dataWithEvents = buildTestFetchedData({ events: [{ id: 'ev-1', title: 'Test event' }] });
+      const ctx = await runAnalysisStage(dataWithEvents, {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['deep-analysis'],
+        requireData: true,
+      });
+      expect(ctx.completedMethods.length).toBeGreaterThan(0);
+    });
+
+    it('throws when requireData=true and all methods fail', async () => {
+      const dataWithEvents = buildTestFetchedData({ events: [{ id: 'ev-1' }] });
+      const dateDir = path.join(tmpDir, testDate);
+      fs.mkdirSync(dateDir, { recursive: true });
+      for (const subdir of ['classification', 'threat-assessment', 'risk-scoring', 'existing']) {
+        const dir = path.join(dateDir, subdir);
+        fs.mkdirSync(dir, { recursive: true });
+        fs.chmodSync(dir, 0o444);
+      }
+
+      await expect(
+        runAnalysisStage(dataWithEvents, {
+          articleTypes: ['week-ahead'],
+          date: testDate,
+          outputDir: tmpDir,
+          skipCompleted: false,
+          enabledMethods: ['deep-analysis', 'stakeholder-analysis'],
+          requireData: true,
+        })
+      ).rejects.toThrow('all 2 methods failed');
+
+      // Restore permissions for cleanup
+      for (const subdir of ['classification', 'threat-assessment', 'risk-scoring', 'existing']) {
+        const dir = path.join(dateDir, subdir);
+        if (fs.existsSync(dir)) fs.chmodSync(dir, 0o755);
+      }
+    });
+
+    it('does NOT throw when requireData=false and no data (backward compat)', async () => {
+      const ctx = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['deep-analysis'],
+        requireData: false,
+      });
+      expect(ctx).toBeDefined();
+      expect(ctx.manifest).toBeDefined();
+    });
+
+    it('defaults requireData to false (backward compat)', async () => {
+      // No requireData option — should not throw even with empty data
+      const ctx = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['deep-analysis'],
+      });
+      expect(ctx).toBeDefined();
+    });
+  });
 });
