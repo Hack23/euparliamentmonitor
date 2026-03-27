@@ -208,7 +208,7 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
    - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - **Per-Document Analysis** *(opt-in via `--analysis-methods`)*: per-document markdown + JSON intelligence files
 3. **Writes and commits analysis artifacts** to `analysis-output/{date}/` (markdown files + `manifest.json`) — these are included in the PR for review and political intelligence improvement
-4. **Does not block article generation** — if the analysis stage fails, article generation continues normally
+4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
 

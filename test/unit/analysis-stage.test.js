@@ -97,8 +97,8 @@ describe('ALL_ANALYSIS_METHODS', () => {
 // ─── VALID_ANALYSIS_METHODS tests ─────────────────────────────────────────────
 
 describe('VALID_ANALYSIS_METHODS', () => {
-  it('contains exactly 19 valid analysis methods (18 defaults + document-analysis)', () => {
-    expect(VALID_ANALYSIS_METHODS).toHaveLength(19);
+  it('contains all default methods plus document-analysis as a valid method', () => {
+    expect(VALID_ANALYSIS_METHODS).toHaveLength(ALL_ANALYSIS_METHODS.length + 1);
   });
 
   it('includes all default analysis methods', () => {

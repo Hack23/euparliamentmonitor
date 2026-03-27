@@ -184,6 +184,15 @@ const stats = {
 };
 // ─── Main orchestration ───────────────────────────────────────────────────────
 /**
+ * Type guard that narrows a string to {@link AnalysisMethod} without casts.
+ *
+ * @param name - The string to validate
+ * @returns `true` when `name` is a recognised analysis method
+ */
+function isValidAnalysisMethod(name) {
+  return VALID_ANALYSIS_METHODS.includes(name);
+}
+/**
  * Parse the `--analysis-methods=` CLI flag into a validated, deduplicated list.
  * Warns on unrecognised method names and falls back to all methods when no valid
  * names remain.
@@ -201,7 +210,7 @@ function parseAnalysisMethods() {
   const validMethods = new Set();
   const unknownMethods = [];
   for (const name of requestedNames) {
-    if (VALID_ANALYSIS_METHODS.includes(name)) {
+    if (isValidAnalysisMethod(name)) {
       validMethods.add(name);
     } else {
       unknownMethods.push(name);

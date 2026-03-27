@@ -226,6 +226,16 @@ const stats: GenerationStats = {
 // ─── Main orchestration ───────────────────────────────────────────────────────
 
 /**
+ * Type guard that narrows a string to {@link AnalysisMethod} without casts.
+ *
+ * @param name - The string to validate
+ * @returns `true` when `name` is a recognised analysis method
+ */
+function isValidAnalysisMethod(name: string): name is AnalysisMethod {
+  return (VALID_ANALYSIS_METHODS as readonly string[]).includes(name);
+}
+
+/**
  * Parse the `--analysis-methods=` CLI flag into a validated, deduplicated list.
  * Warns on unrecognised method names and falls back to all methods when no valid
  * names remain.
@@ -247,8 +257,8 @@ function parseAnalysisMethods(): readonly AnalysisMethod[] {
   const unknownMethods: string[] = [];
 
   for (const name of requestedNames) {
-    if ((VALID_ANALYSIS_METHODS as readonly string[]).includes(name)) {
-      validMethods.add(name as AnalysisMethod);
+    if (isValidAnalysisMethod(name)) {
+      validMethods.add(name);
     } else {
       unknownMethods.push(name);
     }
