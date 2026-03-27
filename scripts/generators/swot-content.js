@@ -20,11 +20,7 @@
  * - **Cross-references** linking items to EP documents/votes
  */
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
-import {
-  getLocalizedString,
-  SWOT_STRINGS,
-  MULTI_DIMENSIONAL_SWOT_STRINGS,
-} from '../constants/languages.js';
+import { getLocalizedString, SWOT_STRINGS, MULTI_DIMENSIONAL_SWOT_STRINGS, } from '../constants/languages.js';
 // ─── Sub-section builders ────────────────────────────────────────────────────
 /**
  * Build a single SWOT item HTML.
@@ -33,11 +29,11 @@ import {
  * @returns HTML list item string
  */
 function buildSwotItem(item) {
-  const severityClass = item.severity ? ` swot-severity-${escapeHTML(item.severity)}` : '';
-  const severityBadge = item.severity
-    ? ` <span class="swot-severity-badge" role="img" aria-label="${escapeHTML(item.severity)}"></span>`
-    : '';
-  return `<li class="swot-item${severityClass}">${escapeHTML(item.text)}${severityBadge}</li>`;
+    const severityClass = item.severity ? ` swot-severity-${escapeHTML(item.severity)}` : '';
+    const severityBadge = item.severity
+        ? ` <span class="swot-severity-badge" role="img" aria-label="${escapeHTML(item.severity)}"></span>`
+        : '';
+    return `<li class="swot-item${severityClass}">${escapeHTML(item.text)}${severityBadge}</li>`;
 }
 /**
  * Build a single SWOT quadrant HTML.
@@ -49,11 +45,10 @@ function buildSwotItem(item) {
  * @returns HTML string for one quadrant
  */
 function buildSwotQuadrant(quadrantKey, items, label, description) {
-  const itemsHtml =
-    items.length > 0
-      ? items.map((item) => buildSwotItem(item)).join('\n                ')
-      : '<li class="swot-item swot-empty">—</li>';
-  return `<div class="swot-quadrant swot-${escapeHTML(quadrantKey)}" role="region" aria-label="${escapeHTML(label)}">
+    const itemsHtml = items.length > 0
+        ? items.map((item) => buildSwotItem(item)).join('\n                ')
+        : '<li class="swot-item swot-empty">—</li>';
+    return `<div class="swot-quadrant swot-${escapeHTML(quadrantKey)}" role="region" aria-label="${escapeHTML(label)}">
               <h4 class="swot-quadrant-heading">${escapeHTML(label)}</h4>
               <p class="swot-quadrant-desc">${escapeHTML(description)}</p>
               <ul class="swot-list">
@@ -78,40 +73,21 @@ function buildSwotQuadrant(quadrantKey, items, label, description) {
  * @returns HTML section string or empty string
  */
 export function buildSwotSection(analysis, lang = 'en', heading) {
-  if (!analysis) return '';
-  const totalItems =
-    analysis.strengths.length +
-    analysis.weaknesses.length +
-    analysis.opportunities.length +
-    analysis.threats.length;
-  if (totalItems === 0) return '';
-  const strings = getLocalizedString(SWOT_STRINGS, lang);
-  const sectionHeading = heading ?? analysis.title ?? strings.sectionHeading;
-  const strengthsHtml = buildSwotQuadrant(
-    'strengths',
-    analysis.strengths,
-    strings.strengthsLabel,
-    strings.strengthsDesc
-  );
-  const weaknessesHtml = buildSwotQuadrant(
-    'weaknesses',
-    analysis.weaknesses,
-    strings.weaknessesLabel,
-    strings.weaknessesDesc
-  );
-  const opportunitiesHtml = buildSwotQuadrant(
-    'opportunities',
-    analysis.opportunities,
-    strings.opportunitiesLabel,
-    strings.opportunitiesDesc
-  );
-  const threatsHtml = buildSwotQuadrant(
-    'threats',
-    analysis.threats,
-    strings.threatsLabel,
-    strings.threatsDesc
-  );
-  return `
+    if (!analysis)
+        return '';
+    const totalItems = analysis.strengths.length +
+        analysis.weaknesses.length +
+        analysis.opportunities.length +
+        analysis.threats.length;
+    if (totalItems === 0)
+        return '';
+    const strings = getLocalizedString(SWOT_STRINGS, lang);
+    const sectionHeading = heading ?? analysis.title ?? strings.sectionHeading;
+    const strengthsHtml = buildSwotQuadrant('strengths', analysis.strengths, strings.strengthsLabel, strings.strengthsDesc);
+    const weaknessesHtml = buildSwotQuadrant('weaknesses', analysis.weaknesses, strings.weaknessesLabel, strings.weaknessesDesc);
+    const opportunitiesHtml = buildSwotQuadrant('opportunities', analysis.opportunities, strings.opportunitiesLabel, strings.opportunitiesDesc);
+    const threatsHtml = buildSwotQuadrant('threats', analysis.threats, strings.threatsLabel, strings.threatsDesc);
+    return `
           <section class="swot-analysis" role="region" aria-label="${escapeHTML(sectionHeading)}">
             <h2>${escapeHTML(sectionHeading)}</h2>
             <div class="swot-matrix">
@@ -142,31 +118,11 @@ export function buildSwotSection(analysis, lang = 'en', heading) {
  * @returns HTML string for a compact quadrant grid
  */
 function buildSwotMiniGrid(analysis, strings) {
-  const sHtml = buildSwotQuadrant(
-    'strengths',
-    analysis.strengths,
-    strings.strengthsLabel,
-    strings.strengthsDesc
-  );
-  const wHtml = buildSwotQuadrant(
-    'weaknesses',
-    analysis.weaknesses,
-    strings.weaknessesLabel,
-    strings.weaknessesDesc
-  );
-  const oHtml = buildSwotQuadrant(
-    'opportunities',
-    analysis.opportunities,
-    strings.opportunitiesLabel,
-    strings.opportunitiesDesc
-  );
-  const tHtml = buildSwotQuadrant(
-    'threats',
-    analysis.threats,
-    strings.threatsLabel,
-    strings.threatsDesc
-  );
-  return `<div class="swot-grid swot-mini-grid">
+    const sHtml = buildSwotQuadrant('strengths', analysis.strengths, strings.strengthsLabel, strings.strengthsDesc);
+    const wHtml = buildSwotQuadrant('weaknesses', analysis.weaknesses, strings.weaknessesLabel, strings.weaknessesDesc);
+    const oHtml = buildSwotQuadrant('opportunities', analysis.opportunities, strings.opportunitiesLabel, strings.opportunitiesDesc);
+    const tHtml = buildSwotQuadrant('threats', analysis.threats, strings.threatsLabel, strings.threatsDesc);
+    return `<div class="swot-grid swot-mini-grid">
               <div class="swot-row swot-row-positive">${sHtml}${oHtml}</div>
               <div class="swot-row swot-row-negative">${wHtml}${tHtml}</div>
             </div>`;
@@ -179,14 +135,14 @@ function buildSwotMiniGrid(analysis, strings) {
  * @returns Localized dimension label
  */
 function getDimensionLabel(name, mdStrings) {
-  const map = {
-    political: mdStrings.dimensionPolitical,
-    economic: mdStrings.dimensionEconomic,
-    social: mdStrings.dimensionSocial,
-    legal: mdStrings.dimensionLegal,
-    geopolitical: mdStrings.dimensionGeopolitical,
-  };
-  return map[name];
+    const map = {
+        political: mdStrings.dimensionPolitical,
+        economic: mdStrings.dimensionEconomic,
+        social: mdStrings.dimensionSocial,
+        legal: mdStrings.dimensionLegal,
+        geopolitical: mdStrings.dimensionGeopolitical,
+    };
+    return map[name];
 }
 /**
  * Build the expandable dimension drill-down sections.
@@ -198,18 +154,19 @@ function getDimensionLabel(name, mdStrings) {
  * @returns HTML string for all dimension sections
  */
 function buildDimensionsDrillDown(dimensions, swotStrings, mdStrings) {
-  if (dimensions.length === 0) return '';
-  const sectionsHtml = dimensions
-    .map((dim) => {
-      const label = getDimensionLabel(dim.name, mdStrings);
-      const miniGrid = buildSwotMiniGrid(dim, swotStrings);
-      return `<details class="swot-dimension swot-dimension-${escapeHTML(dim.name)}">
+    if (dimensions.length === 0)
+        return '';
+    const sectionsHtml = dimensions
+        .map((dim) => {
+        const label = getDimensionLabel(dim.name, mdStrings);
+        const miniGrid = buildSwotMiniGrid(dim, swotStrings);
+        return `<details class="swot-dimension swot-dimension-${escapeHTML(dim.name)}">
                 <summary class="swot-dimension-summary">${escapeHTML(label)}</summary>
                 <div class="swot-dimension-content">${miniGrid}</div>
               </details>`;
     })
-    .join('\n              ');
-  return `<div class="swot-dimensions" role="region" aria-label="${escapeHTML(mdStrings.dimensionsLabel)}">
+        .join('\n              ');
+    return `<div class="swot-dimensions" role="region" aria-label="${escapeHTML(mdStrings.dimensionsLabel)}">
             <h3 class="swot-section-subheading">${escapeHTML(mdStrings.dimensionsLabel)}</h3>
             ${sectionsHtml}
           </div>`;
@@ -222,15 +179,15 @@ function buildDimensionsDrillDown(dimensions, swotStrings, mdStrings) {
  * @returns Localized stakeholder label
  */
 function getStakeholderLabel(type, mdStrings) {
-  const map = {
-    citizen: mdStrings.stakeholderCitizen,
-    industry: mdStrings.stakeholderIndustry,
-    ngo: mdStrings.stakeholderNgo,
-    mep: mdStrings.stakeholderMep,
-    government: mdStrings.stakeholderGovernment,
-    media: mdStrings.stakeholderMedia,
-  };
-  return map[type];
+    const map = {
+        citizen: mdStrings.stakeholderCitizen,
+        industry: mdStrings.stakeholderIndustry,
+        ngo: mdStrings.stakeholderNgo,
+        mep: mdStrings.stakeholderMep,
+        government: mdStrings.stakeholderGovernment,
+        media: mdStrings.stakeholderMedia,
+    };
+    return map[type];
 }
 /**
  * Build the stakeholder perspectives section.
@@ -242,28 +199,29 @@ function getStakeholderLabel(type, mdStrings) {
  * @returns HTML string for the stakeholder section, or empty string if none
  */
 function buildStakeholderSection(stakeholderViews, swotStrings, mdStrings) {
-  if (!stakeholderViews) return '';
-  const entries = Object.entries(stakeholderViews);
-  const validEntries = entries.filter(([, view]) => {
-    const total =
-      view.strengths.length +
-      view.weaknesses.length +
-      view.opportunities.length +
-      view.threats.length;
-    return total > 0;
-  });
-  if (validEntries.length === 0) return '';
-  const viewsHtml = validEntries
-    .map(([type, view]) => {
-      const label = getStakeholderLabel(type, mdStrings);
-      const miniGrid = buildSwotMiniGrid(view, swotStrings);
-      return `<details class="swot-stakeholder swot-stakeholder-${escapeHTML(type)}">
+    if (!stakeholderViews)
+        return '';
+    const entries = Object.entries(stakeholderViews);
+    const validEntries = entries.filter(([, view]) => {
+        const total = view.strengths.length +
+            view.weaknesses.length +
+            view.opportunities.length +
+            view.threats.length;
+        return total > 0;
+    });
+    if (validEntries.length === 0)
+        return '';
+    const viewsHtml = validEntries
+        .map(([type, view]) => {
+        const label = getStakeholderLabel(type, mdStrings);
+        const miniGrid = buildSwotMiniGrid(view, swotStrings);
+        return `<details class="swot-stakeholder swot-stakeholder-${escapeHTML(type)}">
                 <summary class="swot-stakeholder-summary">${escapeHTML(label)}</summary>
                 <div class="swot-stakeholder-content">${miniGrid}</div>
               </details>`;
     })
-    .join('\n              ');
-  return `<div class="swot-stakeholders" role="region" aria-label="${escapeHTML(mdStrings.stakeholderPerspectivesLabel)}">
+        .join('\n              ');
+    return `<div class="swot-stakeholders" role="region" aria-label="${escapeHTML(mdStrings.stakeholderPerspectivesLabel)}">
             <h3 class="swot-section-subheading">${escapeHTML(mdStrings.stakeholderPerspectivesLabel)}</h3>
             ${viewsHtml}
           </div>`;
@@ -279,27 +237,30 @@ function buildStakeholderSection(stakeholderViews, swotStrings, mdStrings) {
  * @returns HTML string for the temporal section, or empty string if not provided
  */
 function buildTemporalSection(temporal, swotStrings, mdStrings) {
-  if (!temporal) return '';
-  const renderPeriod = (analysis, label) => {
-    if (!analysis) return '';
-    const total =
-      analysis.strengths.length +
-      analysis.weaknesses.length +
-      analysis.opportunities.length +
-      analysis.threats.length;
-    if (total === 0) return '';
-    const miniGrid = buildSwotMiniGrid(analysis, swotStrings);
-    return `<details class="swot-temporal-period">
+    if (!temporal)
+        return '';
+    const renderPeriod = (analysis, label) => {
+        if (!analysis)
+            return '';
+        const total = analysis.strengths.length +
+            analysis.weaknesses.length +
+            analysis.opportunities.length +
+            analysis.threats.length;
+        if (total === 0)
+            return '';
+        const miniGrid = buildSwotMiniGrid(analysis, swotStrings);
+        return `<details class="swot-temporal-period">
               <summary class="swot-temporal-summary">${escapeHTML(label)}</summary>
               <div class="swot-temporal-content">${miniGrid}</div>
             </details>`;
-  };
-  const shortHtml = renderPeriod(temporal.shortTerm, mdStrings.shortTermLabel);
-  const mediumHtml = renderPeriod(temporal.mediumTerm, mdStrings.mediumTermLabel);
-  const longHtml = renderPeriod(temporal.longTerm, mdStrings.longTermLabel);
-  const combinedHtml = shortHtml + mediumHtml + longHtml;
-  if (!combinedHtml) return '';
-  return `<div class="swot-temporal" role="region" aria-label="${escapeHTML(mdStrings.temporalAnalysisLabel)}">
+    };
+    const shortHtml = renderPeriod(temporal.shortTerm, mdStrings.shortTermLabel);
+    const mediumHtml = renderPeriod(temporal.mediumTerm, mdStrings.mediumTermLabel);
+    const longHtml = renderPeriod(temporal.longTerm, mdStrings.longTermLabel);
+    const combinedHtml = shortHtml + mediumHtml + longHtml;
+    if (!combinedHtml)
+        return '';
+    return `<div class="swot-temporal" role="region" aria-label="${escapeHTML(mdStrings.temporalAnalysisLabel)}">
             <h3 class="swot-section-subheading">${escapeHTML(mdStrings.temporalAnalysisLabel)}</h3>
             ${combinedHtml}
           </div>`;
@@ -312,20 +273,20 @@ function buildTemporalSection(temporal, swotStrings, mdStrings) {
  * @returns HTML string for the cross-references section, or empty string if empty
  */
 function buildCrossReferencesSection(crossReferences, mdStrings) {
-  if (!crossReferences || crossReferences.length === 0) return '';
-  const refsHtml = crossReferences
-    .map((ref) => {
-      const urlPart =
-        ref.url && isSafeURL(ref.url)
-          ? `<a href="${escapeHTML(ref.url)}" class="swot-ref-link" rel="noopener noreferrer">${escapeHTML(ref.documentId)}</a>`
-          : `<span class="swot-ref-id">${escapeHTML(ref.documentId)}</span>`;
-      return `<li class="swot-ref-item">
+    if (!crossReferences || crossReferences.length === 0)
+        return '';
+    const refsHtml = crossReferences
+        .map((ref) => {
+        const urlPart = ref.url && isSafeURL(ref.url)
+            ? `<a href="${escapeHTML(ref.url)}" class="swot-ref-link" rel="noopener noreferrer">${escapeHTML(ref.documentId)}</a>`
+            : `<span class="swot-ref-id">${escapeHTML(ref.documentId)}</span>`;
+        return `<li class="swot-ref-item">
                 <span class="swot-ref-evidence">${escapeHTML(mdStrings.evidenceLabel)}: ${escapeHTML(ref.itemText)}</span>
                 — ${urlPart}: <cite class="swot-ref-title">${escapeHTML(ref.documentTitle)}</cite>
               </li>`;
     })
-    .join('\n              ');
-  return `<div class="swot-cross-references" role="region" aria-label="${escapeHTML(mdStrings.crossReferencesLabel)}">
+        .join('\n              ');
+    return `<div class="swot-cross-references" role="region" aria-label="${escapeHTML(mdStrings.crossReferencesLabel)}">
             <h3 class="swot-section-subheading">${escapeHTML(mdStrings.crossReferencesLabel)}</h3>
             <ul class="swot-ref-list">${refsHtml}</ul>
           </div>`;
@@ -337,13 +298,14 @@ function buildCrossReferencesSection(crossReferences, mdStrings) {
  * @returns Aggregated SwotAnalysis or null if all dimensions are empty
  */
 function aggregateDimensions(dimensions) {
-  const strengths = dimensions.flatMap((d) => d.strengths);
-  const weaknesses = dimensions.flatMap((d) => d.weaknesses);
-  const opportunities = dimensions.flatMap((d) => d.opportunities);
-  const threats = dimensions.flatMap((d) => d.threats);
-  const total = strengths.length + weaknesses.length + opportunities.length + threats.length;
-  if (total === 0) return null;
-  return { strengths, weaknesses, opportunities, threats };
+    const strengths = dimensions.flatMap((d) => d.strengths);
+    const weaknesses = dimensions.flatMap((d) => d.weaknesses);
+    const opportunities = dimensions.flatMap((d) => d.opportunities);
+    const threats = dimensions.flatMap((d) => d.threats);
+    const total = strengths.length + weaknesses.length + opportunities.length + threats.length;
+    if (total === 0)
+        return null;
+    return { strengths, weaknesses, opportunities, threats };
 }
 // ─── Multi-dimensional SWOT main builder ─────────────────────────────────────
 /**
@@ -370,23 +332,22 @@ function aggregateDimensions(dimensions) {
  * @returns HTML section string or empty string
  */
 export function buildMultiDimensionalSwotSection(analysis, lang = 'en', heading) {
-  if (!analysis) return '';
-  if (analysis.dimensions.length === 0) return '';
-  const swotStrings = getLocalizedString(SWOT_STRINGS, lang);
-  const mdStrings = getLocalizedString(MULTI_DIMENSIONAL_SWOT_STRINGS, lang);
-  const sectionHeading = heading ?? analysis.title ?? swotStrings.sectionHeading;
-  const aggregated = aggregateDimensions(analysis.dimensions);
-  if (!aggregated) return '';
-  const primaryMatrix = buildSwotMiniGrid(aggregated, swotStrings);
-  const dimensionsHtml = buildDimensionsDrillDown(analysis.dimensions, swotStrings, mdStrings);
-  const stakeholderHtml = buildStakeholderSection(
-    analysis.stakeholderViews,
-    swotStrings,
-    mdStrings
-  );
-  const temporalHtml = buildTemporalSection(analysis.temporal, swotStrings, mdStrings);
-  const refsHtml = buildCrossReferencesSection(analysis.crossReferences, mdStrings);
-  return `
+    if (!analysis)
+        return '';
+    if (analysis.dimensions.length === 0)
+        return '';
+    const swotStrings = getLocalizedString(SWOT_STRINGS, lang);
+    const mdStrings = getLocalizedString(MULTI_DIMENSIONAL_SWOT_STRINGS, lang);
+    const sectionHeading = heading ?? analysis.title ?? swotStrings.sectionHeading;
+    const aggregated = aggregateDimensions(analysis.dimensions);
+    if (!aggregated)
+        return '';
+    const primaryMatrix = buildSwotMiniGrid(aggregated, swotStrings);
+    const dimensionsHtml = buildDimensionsDrillDown(analysis.dimensions, swotStrings, mdStrings);
+    const stakeholderHtml = buildStakeholderSection(analysis.stakeholderViews, swotStrings, mdStrings);
+    const temporalHtml = buildTemporalSection(analysis.temporal, swotStrings, mdStrings);
+    const refsHtml = buildCrossReferencesSection(analysis.crossReferences, mdStrings);
+    return `
           <section class="swot-analysis swot-multidimensional" role="region" aria-label="${escapeHTML(sectionHeading)}">
             <h2>${escapeHTML(sectionHeading)}</h2>
             <div class="swot-matrix">
