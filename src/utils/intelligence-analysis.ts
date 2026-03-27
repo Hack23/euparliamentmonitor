@@ -9,6 +9,7 @@
  */
 
 import { escapeHTML } from './file-utils.js';
+import { AI_MARKER } from '../constants/analysis-constants.js';
 import type {
   VotingAnomalyIntelligence,
   CoalitionIntelligence,
@@ -325,7 +326,7 @@ export function buildDefaultStakeholderPerspectives(
             ? ('negative' as const)
             : ('neutral' as const),
       severity,
-      reasoning: `Impact on this stakeholder group: ${severity} significance based on "${topic}".`,
+      reasoning: AI_MARKER,
       evidence: [topic],
     };
   });

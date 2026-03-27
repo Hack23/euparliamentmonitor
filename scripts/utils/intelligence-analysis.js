@@ -7,6 +7,7 @@
  * safely handle malformed or missing MCP data. No side effects.
  */
 import { escapeHTML } from './file-utils.js';
+import { AI_MARKER } from '../constants/analysis-constants.js';
 import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
 // ─── Validation constants ─────────────────────────────────────────────────────
 /** Valid significance levels in descending priority order */
@@ -275,7 +276,7 @@ export function buildDefaultStakeholderPerspectives(topic, scores) {
                     ? 'negative'
                     : 'neutral',
             severity,
-            reasoning: `Impact on this stakeholder group: ${severity} significance based on "${topic}".`,
+            reasoning: AI_MARKER,
             evidence: [topic],
         };
     });

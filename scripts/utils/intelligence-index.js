@@ -663,7 +663,8 @@ function slugify(text) {
     const slug = text
         .toLowerCase()
         .replace(/[^\p{L}\p{N}]+/gu, '-')
-        .replace(/^-+|-+$/g, '');
+        .replace(/^-+/u, '')
+        .replace(/-+$/u, '');
     if (slug.length > 0)
         return slug;
     // Deterministic fallback: simple DJB2-style hash of the original text

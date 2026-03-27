@@ -641,7 +641,7 @@ export class MCPConnection {
             throw new Error('Not connected to MCP server');
         }
         if (this.gatewayUrl) {
-            return await this._sendGatewayRequest(method, params);
+            return (await this._sendGatewayRequest(method, params));
         }
         const id = ++this.requestId;
         const request = {
@@ -651,7 +651,10 @@ export class MCPConnection {
             params,
         };
         return await new Promise((resolve, reject) => {
-            this.pendingRequests.set(id, { resolve, reject });
+            this.pendingRequests.set(id, {
+                resolve: resolve,
+                reject,
+            });
             const message = JSON.stringify(request) + '\n';
             this.process?.stdin?.write(message);
             setTimeout(() => {
@@ -681,7 +684,7 @@ export class MCPConnection {
         if (args === null || Array.isArray(args) || typeof args !== 'object') {
             throw new TypeError('MCP tool arguments must be a plain object (non-null object, not an array or function)');
         }
-        return (await this.sendRequest('tools/call', { name, arguments: args }));
+        return this.sendRequest('tools/call', { name, arguments: args });
     }
     /**
      * Attempt to reconnect to the MCP server with exponential back-off.

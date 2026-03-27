@@ -729,13 +729,13 @@ export class MCPConnection {
    * @param params - Method parameters
    * @returns Server response
    */
-  async sendRequest(method: string, params: Record<string, unknown> = {}): Promise<unknown> {
+  async sendRequest<T = unknown>(method: string, params: Record<string, unknown> = {}): Promise<T> {
     if (!this.connected) {
       throw new Error('Not connected to MCP server');
     }
 
     if (this.gatewayUrl) {
-      return await this._sendGatewayRequest(method, params);
+      return (await this._sendGatewayRequest(method, params)) as T;
     }
 
     const id = ++this.requestId;
@@ -746,8 +746,11 @@ export class MCPConnection {
       params,
     };
 
-    return await new Promise((resolve, reject) => {
-      this.pendingRequests.set(id, { resolve, reject });
+    return await new Promise<T>((resolve, reject) => {
+      this.pendingRequests.set(id, {
+        resolve: resolve as (value: unknown) => void,
+        reject,
+      });
 
       const message = JSON.stringify(request) + '\n';
       this.process?.stdin?.write(message);
@@ -783,7 +786,7 @@ export class MCPConnection {
         'MCP tool arguments must be a plain object (non-null object, not an array or function)'
       );
     }
-    return (await this.sendRequest('tools/call', { name, arguments: args })) as MCPToolResult;
+    return this.sendRequest<MCPToolResult>('tools/call', { name, arguments: args });
   }
 
   /**

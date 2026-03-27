@@ -67,7 +67,11 @@ import { initializeMCPClient, fetchEPFeedData } from './pipeline/fetch-stage.js'
 import { createStrategyRegistry, generateArticleForStrategy } from './pipeline/generate-stage.js';
 import { writeGenerationMetadata } from './pipeline/output-stage.js';
 import type { OutputOptions } from './pipeline/output-stage.js';
-import { runAnalysisStage, ALL_ANALYSIS_METHODS } from './pipeline/analysis-stage.js';
+import {
+  runAnalysisStage,
+  ALL_ANALYSIS_METHODS,
+  hasSubstantiveData,
+} from './pipeline/analysis-stage.js';
 import type { AnalysisMethod, AnalysisContext } from './pipeline/analysis-stage.js';
 
 // ─── Content-module imports (bounded contexts) ───────────────────────────────
@@ -347,41 +351,108 @@ async function maybeRunAnalysis(
     fetchedData['documents'] = [];
   }
 
-  try {
-    const validArticleTypes = normalizedArticleTypes.filter((t): t is ArticleCategory =>
-      VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory)
-    ) as readonly ArticleCategory[];
+  // Validate that substantive EP data was actually fetched.
+  // Agentic workflows must not proceed with empty data — analysis on empty
+  // data produces hollow output that should never feed article generation.
+  if (!hasSubstantiveData(fetchedData)) {
+    const msg =
+      '❌ Analysis aborted: no substantive EP data was fetched. ' +
+      'MCP data fetch must succeed before analysis can run. ' +
+      'Check MCP connection, feed data file, or EP API availability.';
+    throw new Error(msg);
+  }
 
-    const ctx = await runAnalysisStage(fetchedData, {
-      articleTypes: validArticleTypes,
-      date,
-      outputDir: analysisDirBase,
-      enabledMethods,
-      skipCompleted: true,
-      verbose: analysisVerboseArg,
-    });
-    const totalMethods = ctx.manifest.methods.length;
-    const completedCount = ctx.manifest.methods.filter(
-      (method) => method.status === 'completed'
-    ).length;
-    const skippedCount = ctx.manifest.methods.filter(
-      (method) => method.status === 'skipped'
-    ).length;
+  const validArticleTypes = normalizedArticleTypes.filter((t): t is ArticleCategory =>
+    VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory)
+  ) as readonly ArticleCategory[];
 
-    console.log('');
-    console.log(
-      `🔬 Analysis complete: ${completedCount} methods completed, ${skippedCount} skipped (of ${totalMethods})`
+  // Pass requireData=true so runAnalysisStage enforces data availability
+  // and aborts on any failed method — no hollow or partially failed analysis should exist.
+  const ctx = await runAnalysisStage(fetchedData, {
+    articleTypes: validArticleTypes,
+    date,
+    outputDir: analysisDirBase,
+    enabledMethods,
+    skipCompleted: true,
+    verbose: analysisVerboseArg,
+    requireData: true,
+  });
+
+  const totalMethods = ctx.manifest.methods.length;
+  const completedCount = ctx.manifest.methods.filter(
+    (method) => method.status === 'completed'
+  ).length;
+  const skippedCount = ctx.manifest.methods.filter((method) => method.status === 'skipped').length;
+  const failedMethods = ctx.manifest.methods.filter((method) => method.status === 'failed');
+  const failedCount = failedMethods.length;
+
+  console.log('');
+  console.log(
+    `🔬 Analysis complete: ${completedCount} completed, ${skippedCount} skipped, ${failedCount} failed (of ${totalMethods})`
+  );
+  console.log(`   Confidence: ${ctx.manifest.overallConfidence}`);
+  console.log(`   Manifest: ${ctx.outputDir}/manifest.json`);
+  console.log('');
+
+  // Verify ALL analysis methods succeeded — article generation must never
+  // proceed with incomplete analysis.  Any failures mean the agentic workflow
+  // should fix issues rather than produce articles from partial analysis.
+  if (failedCount > 0) {
+    const failedNames = failedMethods.map((m) => m.method).join(', ');
+    throw new Error(
+      `Analysis incomplete: ${failedCount} of ${totalMethods} methods failed (${failedNames}). ` +
+        'Article generation requires ALL analysis methods to succeed.'
     );
-    console.log(`   Confidence: ${ctx.manifest.overallConfidence}`);
-    console.log(`   Manifest: ${ctx.outputDir}/manifest.json`);
-    console.log('');
-    return ctx;
+  }
+
+  if (ctx.completedMethods.length === 0) {
+    throw new Error(
+      `Analysis produced no completed methods (${failedCount} failed). ` +
+        'Article generation requires successful analysis output.'
+    );
+  }
+
+  return ctx;
+}
+
+/**
+ * Run the analysis stage and enforce agentic workflow pipeline guards.
+ *
+ * Wraps `maybeRunAnalysis()` with error handling that aborts the process
+ * when analysis was requested but fails (data fetch or method execution).
+ *
+ * @param date - ISO date string
+ * @param client - MCP client or null
+ * @returns Analysis context or null (when analysis not requested)
+ */
+async function runAnalysisWithGuard(
+  date: string,
+  client: EuropeanParliamentMCPClient | null
+): Promise<AnalysisContext | null> {
+  let analysisCtx: AnalysisContext | null;
+  try {
+    analysisCtx = await maybeRunAnalysis(date, client);
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err);
     console.error(`❌ Analysis stage failed: ${message}`);
-    // Analysis failure does not block article generation
-    return null;
+    console.error(
+      '🛑 Aborting: agentic workflow requires successful data fetch and analysis before article generation.'
+    );
+    throw err instanceof Error ? err : new Error(message);
   }
+
+  // Gate: when analysis was requested, verify it produced output before
+  // proceeding to article generation.  Never produce articles without
+  // completed analysis — this enforces the agentic workflow principle.
+  if ((runAnalysisArg || analysisOnlyArg) && !analysisCtx) {
+    const msg =
+      '--analysis was requested but no analysis context was produced. ' +
+      'Article generation requires completed analysis.';
+    console.error(`🛑 Aborting: ${msg}`);
+    throw new Error(msg);
+  }
+
+  return analysisCtx;
 }
 
 /**
@@ -408,26 +479,24 @@ async function main(): Promise<void> {
   const isoToday = new Date().toISOString();
   const todayDate = isoToday.slice(0, 10);
 
-  // Run optional analysis stage (Fetch → Analysis)
-  // Writes markdown + manifest to analysis-output/{date}/ — committed for review
-  await maybeRunAnalysis(todayDate, client);
-
-  // If --analysis-only, skip article generation
-  if (analysisOnlyArg) {
-    console.log('ℹ️  --analysis-only specified. Skipping article generation.');
-    if (client) await closeEPMCPClient();
-    process.exit(0);
-  }
-
-  const outputOptions: OutputOptions = {
-    dryRun: dryRunArg,
-    skipExisting: skipExistingArg,
-    newsDir: path.resolve(NEWS_DIR),
-  };
-
-  const registry = createStrategyRegistry();
-
   try {
+    // Run analysis stage with pipeline enforcement guards
+    await runAnalysisWithGuard(todayDate, client);
+
+    // If --analysis-only, skip article generation
+    if (analysisOnlyArg) {
+      console.log('ℹ️  --analysis-only specified. Skipping article generation.');
+      return;
+    }
+
+    const outputOptions: OutputOptions = {
+      dryRun: dryRunArg,
+      skipExisting: skipExistingArg,
+      newsDir: path.resolve(NEWS_DIR),
+    };
+
+    const registry = createStrategyRegistry();
+
     const results: GenerationResult[] = [];
 
     for (const articleType of articleTypes) {
@@ -456,17 +525,21 @@ async function main(): Promise<void> {
     console.log('');
 
     writeGenerationMetadata(stats, results, client !== null, METADATA_DIR, dryRunArg);
+
+    process.exitCode = stats.errors > 0 ? 1 : 0;
   } finally {
     if (client) {
       console.log('🔌 Closing MCP client connection...');
       await closeEPMCPClient();
     }
   }
-
-  process.exit(stats.errors > 0 ? 1 : 0);
 }
 
 // Only run main when executed directly (not when imported)
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  main();
+  main().catch((err: unknown) => {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error(`💥 Fatal: ${message}`);
+    process.exitCode = 1;
+  });
 }
