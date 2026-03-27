@@ -111,7 +111,7 @@ function sanitizeCell(input: string): string {
  *
  * Replaces characters unsafe for filenames with hyphens, collapses runs of
  * hyphens, trims, lowercases, and caps length at 80 characters.  Falls back
- * to a truncated random UUID when the input is empty after sanitization.
+ * to a deterministic hash of the input when the sanitized result is empty.
  *
  * @param id - Raw document identifier (e.g. "TA-10-2026-0094", procedure reference)
  * @returns Filesystem-safe identifier string
@@ -123,7 +123,13 @@ function sanitizeDocumentId(id: string): string {
     .replace(/-{2,}/g, '-')
     .replace(/^-+|-+$/g, '')
     .slice(0, 80);
-  return sanitized || randomUUID().slice(0, 12);
+  if (sanitized) return sanitized;
+  // Deterministic fallback: simple hash from input string for reproducibility
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) {
+    hash = ((hash << 5) - hash + id.charCodeAt(i)) | 0;
+  }
+  return `anon-${Math.abs(hash).toString(36).slice(0, 12)}`;
 }
 
 /** All feed array keys that contain individually-analysable documents */
@@ -142,7 +148,8 @@ const DOCUMENT_FEED_KEYS = [
  * Extract a human-readable identifier from a raw feed item.
  *
  * Tries common EP data shapes (`docId`, `procedureId`, `id`, `eventId`,
- * `title`) and falls back to a truncated UUID for truly anonymous items.
+ * `title`) and falls back to a deterministic hash of the item's JSON
+ * representation for truly anonymous items, ensuring reproducibility.
  *
  * @param item - Raw feed item object
  * @returns Best-effort identifier string
@@ -154,7 +161,13 @@ function extractDocumentId(item: Record<string, unknown>): string {
   }
   const title = item['title'];
   if (typeof title === 'string' && title.length > 0) return title.slice(0, 60);
-  return randomUUID().slice(0, 12);
+  // Deterministic fallback: hash of stringified item for reproducible dedup
+  const repr = JSON.stringify(item);
+  let hash = 0;
+  for (let i = 0; i < repr.length; i++) {
+    hash = ((hash << 5) - hash + repr.charCodeAt(i)) | 0;
+  }
+  return `anonymous-${Math.abs(hash).toString(36)}`;
 }
 
 /**
@@ -1564,8 +1577,8 @@ function buildDocumentAnalysisMarkdown(
 
 Full per-document political intelligence analysis for ${documentEntries.length} unique documents
 across ${DOCUMENT_FEED_KEYS.length} feed categories.  Each document has been individually
-downloaded, stored, and analyzed with comprehensive significance assessment, SWOT analysis,
-and threat profiling.
+analyzed from fetched European Parliament data with comprehensive significance assessment,
+SWOT analysis, and threat profiling.
 
 - **Total Documents Analyzed**: ${documentEntries.length}
 - **Feed Categories Scanned**: ${DOCUMENT_FEED_KEYS.length}
