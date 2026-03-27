@@ -812,24 +812,25 @@ describe('analysis-builders', () => {
       expect(result.what).toContain('Polarization index:');
     });
 
-    it('should include polarization assessment in "why" when patterns exist', () => {
+    it('should include polarization data in "why" when patterns exist', () => {
       const result = buildVotingAnalysis(
         '2026-02-01', '2026-02-28',
         VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
       );
-      expect(result.why).toContain('Polarization assessment:');
-      expect(result.why).toContain('Effective number of voting blocs:');
+      expect(result.why).toContain('AI_ANALYSIS_REQUIRED');
+      expect(result.why).toContain('polarization');
     });
 
-    it('should include average margin insight in political impact', () => {
+    it('should include data context in political impact', () => {
       const result = buildVotingAnalysis(
         '2026-02-01', '2026-02-28',
         VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
       );
-      expect(result.impactAssessment.political).toContain('Average margin:');
+      expect(result.impactAssessment.political).toContain('AI_ANALYSIS_REQUIRED');
+      expect(result.impactAssessment.political).toContain('adopted');
     });
 
-    it('should include fragmented groups in outlook when anomalies exist', () => {
+    it('should include anomaly data in outlook when anomalies exist', () => {
       const fragmentedPatterns = [
         { group: 'Weak Party', cohesion: 0.3, participation: 0.5 },
         { group: 'Strong Party', cohesion: 0.95, participation: 0.9 },
@@ -841,8 +842,8 @@ describe('analysis-builders', () => {
         '2026-02-01', '2026-02-28',
         VOTING_RECORDS, fragmentedPatterns, highAnomalies, MOTIONS_QUESTIONS
       );
-      expect(result.outlook).toContain('Fragmented groups');
-      expect(result.outlook).toContain('Weak Party');
+      expect(result.outlook).toContain('AI_ANALYSIS_REQUIRED');
+      expect(result.outlook).toContain('anomalies');
     });
   });
 
@@ -960,10 +961,11 @@ describe('analysis-builders', () => {
       expect(result.what).toContain('Active proposals');
     });
 
-    it('should flag low health as concerning', () => {
+    it('should flag low health with AI marker', () => {
       const pipeline = { healthScore: 0.3, throughput: 2, procRowsHtml: '' };
       const result = buildPropositionsAnalysis('', pipeline, '2026-02-24');
-      expect(result.why).toContain('congestion');
+      expect(result.why).toContain('AI_ANALYSIS_REQUIRED');
+      expect(result.why).toContain('30%');
       expect(result.mistakes.length).toBeGreaterThan(0);
     });
 
@@ -976,6 +978,7 @@ describe('analysis-builders', () => {
     it('should handle null pipeline data', () => {
       const result = buildPropositionsAnalysis('', null, '2026-02-24');
       expect(result.what).toContain('0%');
+      expect(result.outlook).toContain('AI_ANALYSIS_REQUIRED');
       expect(result.outlook).toContain('weak');
     });
 
@@ -1005,25 +1008,25 @@ describe('analysis-builders', () => {
       expect(econOutcome?.outcome).toBe('winner');
     });
 
-    it('should flag inactive committees in mistakes', () => {
+    it('should flag inactive committees in mistakes with AI markers', () => {
       const result = buildCommitteeAnalysis(COMMITTEE_DATA, '2026-02-24');
       expect(result.mistakes.length).toBeGreaterThan(0);
-      expect(result.mistakes[0].description).toContain('No recent documents');
+      expect(result.mistakes[0].description).toContain('AI_ANALYSIS_REQUIRED');
     });
 
     it('should use low productivity descriptor when no committees are active', () => {
       const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
       const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
       expect(result.why).toContain('0% active rate');
-      expect(result.why).toContain('low legislative productivity');
-      expect(result.why).not.toContain('moderate');
+      expect(result.why).toContain('AI_ANALYSIS_REQUIRED');
     });
 
     it('should use impactPoliticalNone when no committees are active', () => {
       const baseline = buildCommitteeAnalysis(COMMITTEE_DATA, '2026-02-24');
       const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
       const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
-      expect(result.impactAssessment.political).toContain('No committees');
+      expect(result.impactAssessment.political).toContain('AI_ANALYSIS_REQUIRED');
+      expect(result.impactAssessment.political).toContain('no active committees');
       expect(result.impactAssessment.political).not.toBe(
         baseline.impactAssessment.political
       );
