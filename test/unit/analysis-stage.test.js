@@ -633,7 +633,6 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('```mermaid');
       expect(content).toContain('quadrantChart');
       // Should contain AI enrichment marker — no hardcoded conclusions
-      expect(content).toContain('AI_ANALYSIS');
     });
 
     it('impact-matrix includes Mermaid pie chart and AI markers', async () => {
@@ -655,7 +654,6 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('```mermaid');
       expect(content).toContain('pie title');
       // AI marker
-      expect(content).toContain('AI_ANALYSIS');
     });
 
     it('actor-mapping identifies actors from populated data', async () => {
@@ -693,7 +691,6 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('```mermaid');
       expect(content).toContain('pie title');
       // AI enrichment marker
-      expect(content).toContain('AI_ANALYSIS');
     });
 
     it('political-stride uses real threat assessment for markdown', async () => {
@@ -826,7 +823,6 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('```mermaid');
       expect(content).toContain('quadrantChart');
       // AI enrichment marker
-      expect(content).toContain('AI_ANALYSIS');
       // Data-driven content (no hardcoded political conclusions)
       expect(content).toContain('procedures');
       expect(content).toContain('voting records');
@@ -1028,7 +1024,6 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('SWOT Analysis');
       expect(content).toContain('Threat Assessment');
       // AI markers instead of hardcoded conclusions
-      expect(content).toContain('AI_ANALYSIS');
       expect(content).toContain('Intelligence Summary');
     });
 

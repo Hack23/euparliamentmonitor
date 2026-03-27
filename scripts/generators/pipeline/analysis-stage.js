@@ -373,7 +373,6 @@ function buildSignificanceClassificationMarkdown(fetchedData, date) {
     const procedures = safeArr(fetchedData, 'procedures');
     const adoptedTexts = safeArr(fetchedData, 'adoptedTexts');
     const header = buildMarkdownHeader('significance-classification', date, significance === 'routine' ? 'medium' : 'high');
-    // Map significance to numeric value for Mermaid chart positioning
     const sigMap = {
         historic: 0.95,
         critical: 0.80,
@@ -386,8 +385,6 @@ function buildSignificanceClassificationMarkdown(fetchedData, date) {
         `# Political Significance Classification
 
 ## Overall Significance: **${significance.toUpperCase()}**
-
-## Significance Priority Matrix
 
 \`\`\`mermaid
 quadrantChart
@@ -405,54 +402,27 @@ quadrantChart
     Adopted Texts: [${Math.min(adoptedTexts.length / 10, 0.95).toFixed(2)}, 0.85]
 \`\`\`
 
-## Overview
+## 5-Signal Model Scores
 
-Analysis of political significance across ${events.length} events, ${docs.length} documents,
-${procedures.length} procedures, and ${adoptedTexts.length} adopted texts.
+| Signal | Raw Data | Score |
+|--------|----------|-------|
+| Volume | ${events.length} events, ${docs.length} documents | ${Math.min((events.length + docs.length) / 10, 5).toFixed(1)}/5 |
+| Pipeline | ${procedures.length} procedures | ${Math.min(procedures.length / 5, 5).toFixed(1)}/5 |
+| Output | ${adoptedTexts.length} adopted texts | ${Math.min(adoptedTexts.length / 5, 5).toFixed(1)}/5 |
+| Anomalies | Pattern deviation detection | — |
+| Coalition | Group alignment analysis | — |
 
-## Classification Framework
+## Data Summary
 
-| Level | Criteria | Signal Weight | Threshold |
-|-------|----------|--------------|-----------|
-| 🔴 Historic | Constitutional changes, treaty amendments | 5/5 | Exceptional multi-signal convergence |
-| 🟠 Critical | Major legislative votes, high-controversy items | 4/5 | Strong signals across ≥3 dimensions |
-| 🟡 Significant | Key committee decisions, important resolutions | 3/5 | Moderate signals across ≥2 dimensions |
-| 🔵 Notable | Procedural votes, standard legislation | 2/5 | Single notable signal detected |
-| ⚪ Routine | Administrative matters, routine proceedings | 1/5 | Baseline parliamentary activity |
-
-## 5-Signal Model Assessment
-
-| Signal Dimension | Input Data | Score | Interpretation |
-|-----------------|-----------|-------|----------------|
-| **Volume** | ${events.length} events + ${docs.length} documents | ${Math.min((events.length + docs.length) / 10, 5).toFixed(1)}/5 | ${events.length + docs.length > 10 ? 'High activity period' : 'Normal activity levels'} |
-| **Controversy** | Voting record divergence analysis | Medium | Cross-party dynamics under observation |
-| **Pipeline** | ${procedures.length} active procedures | ${Math.min(procedures.length / 5, 5).toFixed(1)}/5 | ${procedures.length > 5 ? 'Active legislative pipeline' : 'Moderate pipeline activity'} |
-| **Anomalies** | Pattern deviation detection | Low | No major anomalies detected in current period |
-| **Coalition** | Political group alignment patterns | Medium | Standard coalition dynamics observed |
-
-## Significance Assessment
-
-- **Computed significance**: **${significance.toUpperCase()}**
-- **Data points analysed**: ${events.length + docs.length + procedures.length + adoptedTexts.length}
-- **Date**: ${date}
-- **Method**: Political significance scoring via 5-signal model (volume, controversy, pipeline, anomalies, coalition)
-- **Confidence**: ${significance === 'routine' ? 'Medium' : 'High'} — ${events.length + docs.length > 0 ? 'data-driven assessment' : 'limited data available'}
-
-## Key Findings
-
-${events.length === 0 && docs.length === 0 ? '- No EP data available for significance assessment\n- MCP connection may have failed — verify data pipeline' : `- ${events.length} events and ${docs.length} documents assessed
-- ${procedures.length} legislative procedures in pipeline
-- ${adoptedTexts.length} texts adopted in current period
-- Overall political significance: **${significance.toUpperCase()}**`}
-
-<!-- AI_ANALYSIS: Significance interpretation required.
-     Computed significance level: ${significance}
-     Data: ${events.length} events, ${docs.length} documents, ${procedures.length} procedures, ${adoptedTexts.length} adopted texts.
-     Agentic workflow should provide:
-     1. What specific events/procedures are driving the significance level?
-     2. Are there unusual patterns in the data that warrant attention?
-     3. What are the implications for each political group?
--->
+| Metric | Value |
+|--------|-------|
+| Computed significance | ${significance.toUpperCase()} |
+| Total data points | ${events.length + docs.length + procedures.length + adoptedTexts.length} |
+| Events | ${events.length} |
+| Documents | ${docs.length} |
+| Procedures | ${procedures.length} |
+| Adopted texts | ${adoptedTexts.length} |
+| Date | ${date} |
 
 ## Date: ${date}
 `);
@@ -473,8 +443,6 @@ function buildImpactMatrixMarkdown(fetchedData, date) {
 
 ## Overall Significance: **${matrix.overallSignificance.toUpperCase()}**
 
-## Impact Dimension Analysis
-
 \`\`\`mermaid
 pie title Impact Distribution by Dimension — ${date}
     "Legislative" : ${impactToNum(matrix.legislativeImpact)}
@@ -486,31 +454,21 @@ pie title Impact Distribution by Dimension — ${date}
 
 ## Impact Dimensions
 
-| Dimension | Level | Impact Indicator | Description |
-|-----------|-------|-----------------|-------------|
-| 🏛️ Legislative | ${matrix.legislativeImpact} | ${impactIndicator(matrix.legislativeImpact)} | Effect on legislation and regulatory framework |
-| 🤝 Coalition | ${matrix.coalitionImpact} | ${impactIndicator(matrix.coalitionImpact)} | Effect on political alliances and group dynamics |
-| 📢 Public Opinion | ${matrix.publicOpinionImpact} | ${impactIndicator(matrix.publicOpinionImpact)} | Effect on citizen perception and media coverage |
-| ⚖️ Institutional | ${matrix.institutionalImpact} | ${impactIndicator(matrix.institutionalImpact)} | Effect on EU institutional balance |
-| 💶 Economic | ${matrix.economicImpact} | ${impactIndicator(matrix.economicImpact)} | Economic policy implications |
+| Dimension | Level | Indicator | Numeric |
+|-----------|-------|-----------|---------|
+| Legislative | ${matrix.legislativeImpact} | ${impactIndicator(matrix.legislativeImpact)} | ${impactToNum(matrix.legislativeImpact)} |
+| Coalition | ${matrix.coalitionImpact} | ${impactIndicator(matrix.coalitionImpact)} | ${impactToNum(matrix.coalitionImpact)} |
+| Public Opinion | ${matrix.publicOpinionImpact} | ${impactIndicator(matrix.publicOpinionImpact)} | ${impactToNum(matrix.publicOpinionImpact)} |
+| Institutional | ${matrix.institutionalImpact} | ${impactIndicator(matrix.institutionalImpact)} | ${impactToNum(matrix.institutionalImpact)} |
+| Economic | ${matrix.economicImpact} | ${impactIndicator(matrix.economicImpact)} | ${impactToNum(matrix.economicImpact)} |
 
-## Assessment Summary
+## Summary
 
-- **Overall significance**: **${matrix.overallSignificance.toUpperCase()}**
-- **Highest impact dimension**: ${highestImpactDimension(matrix)}
-- **Date**: ${date}
-- **Method**: Multi-dimensional impact assessment (5 axes)
-- **Confidence**: Medium — model-based assessment calibrated to current EP data
-
-## Dimensional Analysis
-
-<!-- AI_ANALYSIS: Political impact interpretation required.
-     Impact levels: Legislative=${matrix.legislativeImpact}, Coalition=${matrix.coalitionImpact},
-     Public Opinion=${matrix.publicOpinionImpact}, Institutional=${matrix.institutionalImpact},
-     Economic=${matrix.economicImpact}.
-     Agentic workflow should analyse what specific legislative/political developments
-     are driving each impact dimension and their cross-dimensional interactions.
--->
+| Metric | Value |
+|--------|-------|
+| Overall significance | ${matrix.overallSignificance.toUpperCase()} |
+| Highest impact | ${highestImpactDimension(matrix)} |
+| Date | ${date} |
 
 ## Date: ${date}
 `);
@@ -543,15 +501,10 @@ function buildActorMappingMarkdown(fetchedData, date) {
     return (header +
         `# Political Actor Mapping
 
-## Overview
-
-Identified ${actors.length} political actors from parliamentary data.  This analysis classifies
-actors by type, influence level, political position, and role in the legislative process.
-
-## Actor Type Distribution
+## Actors Identified: ${actors.length}
 
 \`\`\`mermaid
-pie title Political Actor Distribution — ${date}
+pie title Actor Type Distribution — ${date}
 ${mermaidPie}
 \`\`\`
 
@@ -561,25 +514,11 @@ ${mermaidPie}
 |-------|------|-----------|----------|------|
 ${actorRows}
 
-## Actor Type Breakdown
-${actors.length > 0
-            ? typeCounts
-                .map((tc) => `### ${tc.type} (${tc.count} actor${tc.count !== 1 ? 's' : ''})\n` +
-                actors
-                    .filter((a) => a.actorType === tc.type)
-                    .map((a) => `- **${sanitizeCell(a.name)}** — Influence: ${a.influence}, Position: ${a.position}, Role: ${a.role}`)
-                    .join('\n'))
-                .join('\n\n')
-            : '- No actors classified from available data'}
+## Type Counts
 
-## Influence Analysis
-
-${actors.length > 0
-            ? `- **High influence actors**: ${actors.filter((a) => typeof a.influence === 'number' && a.influence >= 7).length}
-- **Medium influence actors**: ${actors.filter((a) => typeof a.influence === 'number' && a.influence >= 4 && a.influence < 7).length}
-- **Lower influence actors**: ${actors.filter((a) => typeof a.influence === 'number' && a.influence < 4).length}
-- **Total actors mapped**: ${actors.length}`
-            : '- Insufficient data for influence analysis'}
+| Type | Count |
+|------|-------|
+${typeCounts.length > 0 ? typeCounts.map((tc) => `| ${tc.type} | ${tc.count} |`).join('\n') : '| — | 0 |'}
 
 ## Date: ${date}
 `);
@@ -596,7 +535,6 @@ function buildForcesAnalysisMarkdown(fetchedData, date) {
     const forces = analyzePoliticalForces(input);
     const header = buildMarkdownHeader('forces-analysis', date, 'medium');
     const forceRow = (name, f) => `| ${name} | ${f.trend} | ${(f.strength * 100).toFixed(0)}% | ${f.keyActors.length > 0 ? f.keyActors.join(', ') : '—'} | ${f.confidence} |`;
-    // Mermaid-safe percentage values (0-100 scale, clamped)
     const cp = Math.max(1, Math.min(99, Math.round(forces.coalitionPower.strength * 100)));
     const op = Math.max(1, Math.min(99, Math.round(forces.oppositionPower.strength * 100)));
     const ib = Math.max(1, Math.min(99, Math.round(forces.institutionalBarriers.strength * 100)));
@@ -604,14 +542,6 @@ function buildForcesAnalysisMarkdown(fetchedData, date) {
     const ei = Math.max(1, Math.min(99, Math.round(forces.externalInfluences.strength * 100)));
     return (header +
         `# Political Forces Analysis
-
-## Overview
-
-Analysis of competing political forces shaping the current legislative agenda.
-This assessment evaluates five key force dimensions that determine legislative
-outcomes in the European Parliament.
-
-## Force Field Diagram
 
 \`\`\`mermaid
 pie title Political Force Distribution — ${date}
@@ -622,44 +552,23 @@ pie title Political Force Distribution — ${date}
     "External Influences" : ${ei}
 \`\`\`
 
-## Political Forces Assessment
+## Forces Data
 
 | Force | Trend | Strength | Key Actors | Confidence |
 |-------|-------|----------|------------|------------|
-${forceRow('🤝 Coalition Power', forces.coalitionPower)}
-${forceRow('⚔️ Opposition Power', forces.oppositionPower)}
-${forceRow('🏛️ Institutional Barriers', forces.institutionalBarriers)}
-${forceRow('📢 Public Pressure', forces.publicPressure)}
-${forceRow('🌍 External Influences', forces.externalInfluences)}
+${forceRow('Coalition Power', forces.coalitionPower)}
+${forceRow('Opposition Power', forces.oppositionPower)}
+${forceRow('Institutional Barriers', forces.institutionalBarriers)}
+${forceRow('Public Pressure', forces.publicPressure)}
+${forceRow('External Influences', forces.externalInfluences)}
 
-## Force Dynamics Assessment
+## Balance
 
-### Coalition Power (${(forces.coalitionPower.strength * 100).toFixed(0)}%)
-- **Trend**: ${forces.coalitionPower.trend}
-- **Key Actors**: ${forces.coalitionPower.keyActors.length > 0 ? forces.coalitionPower.keyActors.join(', ') : 'N/A — requires AI analysis of current coalition composition'}
-- **Confidence**: ${forces.coalitionPower.confidence}
-
-### Opposition Power (${(forces.oppositionPower.strength * 100).toFixed(0)}%)
-- **Trend**: ${forces.oppositionPower.trend}
-- **Key Actors**: ${forces.oppositionPower.keyActors.length > 0 ? forces.oppositionPower.keyActors.join(', ') : 'N/A — requires AI analysis of opposition dynamics'}
-- **Confidence**: ${forces.oppositionPower.confidence}
-
-### External Influences (${(forces.externalInfluences.strength * 100).toFixed(0)}%)
-- **Trend**: ${forces.externalInfluences.trend}
-- **Key Actors**: ${forces.externalInfluences.keyActors.length > 0 ? forces.externalInfluences.keyActors.join(', ') : 'N/A — requires AI analysis of external factors'}
-- **Confidence**: ${forces.externalInfluences.confidence}
-
-<!-- AI_ANALYSIS: Political force dynamics interpretation required.
-     Coalition Power: ${(forces.coalitionPower.strength * 100).toFixed(0)}% (${forces.coalitionPower.trend})
-     Opposition Power: ${(forces.oppositionPower.strength * 100).toFixed(0)}% (${forces.oppositionPower.trend})
-     Institutional Barriers: ${(forces.institutionalBarriers.strength * 100).toFixed(0)}% (${forces.institutionalBarriers.trend})
-     Public Pressure: ${(forces.publicPressure.strength * 100).toFixed(0)}% (${forces.publicPressure.trend})
-     External Influences: ${(forces.externalInfluences.strength * 100).toFixed(0)}% (${forces.externalInfluences.trend})
-     Agentic workflow should provide:
-     1. What specific political developments are driving each force?
-     2. How do force interactions affect legislative outcomes?
-     3. Which political groups benefit or suffer from current force balance?
--->
+| Metric | Value |
+|--------|-------|
+| Coalition vs Opposition | ${cp}% vs ${op}% |
+| Dominant force | ${cp > op ? 'Coalition' : op > cp ? 'Opposition' : 'Balanced'} |
+| Date | ${date} |
 
 ## Date: ${date}
 `);
@@ -863,18 +772,16 @@ ${riskRows}
 ## Risk Assessment Details
 
 ${risks.length > 0 ? risks.map((r) => `### ${r.riskId}: ${r.description}
-- **Risk Score**: ${r.riskScore.toFixed(2)} (${r.riskLevel.toUpperCase()})
-- **Likelihood**: ${r.likelihood}
-- **Impact**: ${r.impact}
-`).join('\n') : '- No risks identified — insufficient data for risk scoring'}
 
-<!-- AI_ANALYSIS: Risk interpretation and mitigation strategies required.
-     ${risks.length} risks identified from EP data.
-     Agentic workflow should provide specific political context for each risk,
-     identify which procedures/votes are affected, and suggest monitoring priorities.
--->
+| Metric | Value |
+|--------|-------|
+| Risk Score | ${r.riskScore.toFixed(2)} |
+| Risk Level | ${r.riskLevel.toUpperCase()} |
+| Likelihood | ${r.likelihood} |
+| Impact | ${r.impact} |
+`).join('\n') : '| — | — | — | — | — | — |'}
 
-## Risk Appetite & Tolerance
+## Risk Mitigation Framework
 
 | Risk Level | Count | Tolerance | Action Required |
 |------------|-------|-----------|-----------------|
@@ -1119,21 +1026,19 @@ quadrantChart
     Data collection expansion: [0.80, 0.65]
 \`\`\`
 
-## Strategic Implications
+## Data Summary
 
-- **Data Points Analysed**: ${procedures.length + events.length + documents.length + votingRecords.length + adoptedTexts.length}
-- **Political Groups Monitored**: 7 (EPP, S&D, Renew, Greens/EFA, ECR, ID, The Left)
-- **Assessment Confidence**: ${procedures.length + events.length > 10 ? 'High — substantial data volume' : procedures.length + events.length > 0 ? 'Medium — limited data volume' : 'Low — insufficient data for reliable assessment'}
-
-<!-- AI_ANALYSIS: Political intelligence assessment required.
-     The data above provides quantitative metrics only.
-     Agentic workflow (Copilot) should analyse the following:
-     1. What do the ${procedures.length} procedures reveal about current EU legislative priorities?
-     2. How do the ${votingRecords.length} voting records indicate coalition stability or fragmentation?
-     3. What strategic position does the current data suggest for each political group?
-     4. What are the key risks and opportunities from ${events.length} upcoming events?
-     5. Cross-reference adopted texts with procedure pipeline for legislative momentum assessment.
--->
+| Data Source | Count |
+|-------------|-------|
+| Procedures | ${procedures.length} |
+| Events | ${events.length} |
+| Documents | ${documents.length} |
+| Voting Records | ${votingRecords.length} |
+| Adopted Texts | ${adoptedTexts.length} |
+| Coalitions | ${coalitions.length} |
+| Questions | ${questions.length} |
+| MEP Updates | ${mepUpdates.length} |
+| **Total Data Points** | **${procedures.length + events.length + documents.length + votingRecords.length + adoptedTexts.length}** |
 
 ## Date: ${date}
 `);
@@ -1577,26 +1482,29 @@ ${sanitizeCell(docDescription)}
 
 ## Stakeholder Impact
 
-<!-- AI_ANALYSIS: Document-specific stakeholder impact required.
-     Document ID: ${sanitizeCell(docId)}, Category: ${sanitizeCell(category)},
-     Type: ${sanitizeCell(docType)}, Stage: ${sanitizeCell(docStage)}.
-     Agentic workflow should analyse how this specific document affects
-     political groups, civil society, industry, national governments,
-     citizens, and EU institutions based on its actual content and context.
--->
+| Stakeholder Group | Impact Level |
+|-------------------|-------------|
+| Political Groups | ${significance === 'routine' ? 'Low' : 'Medium'} |
+| Civil Society | ${significance === 'routine' ? 'Low' : 'Medium'} |
+| Industry | ${sanitizeCell(docType) === 'resolution' || sanitizeCell(docType) === 'directive' ? 'Medium' : 'Low'} |
+| National Governments | ${sanitizeCell(docStage) === 'trilogue' ? 'High' : 'Low'} |
+| Citizens | Low |
+| EU Institutions | ${significance === 'critical' || significance === 'historic' ? 'High' : 'Low'} |
 
 ## Intelligence Summary
 
-- **Document**: ${sanitizeCell(docId)} (${sanitizeCell(category)})
-- **Significance**: ${significance}
-- **Strategic Position Score**: ${docSwot.strategicPositionScore.toFixed(1)}/10
-- **Overall Assessment**: ${docSwot.overallAssessment}
-
-<!-- AI_ANALYSIS: Document intelligence assessment required.
-     Provide specific political intelligence analysis of document ${sanitizeCell(docId)}.
-     What are the key political implications? Which political groups are affected?
-     What legislative outcomes does this document signal?
--->
+| Metric | Value |
+|--------|-------|
+| Document | ${sanitizeCell(docId)} |
+| Category | ${sanitizeCell(category)} |
+| Type | ${sanitizeCell(docType)} |
+| Stage | ${sanitizeCell(docStage)} |
+| Status | ${sanitizeCell(docStatus)} |
+| Significance | ${significance} |
+| SWOT Score | ${docSwot.strategicPositionScore.toFixed(1)}/10 |
+| Overall Assessment | ${docSwot.overallAssessment} |
+| STRIDE Categories | ${threats.strideCategories.length} |
+| Overall Threat Level | ${threats.overallThreatLevel} |
 
 ## Analysis Date: ${date}
 `;
