@@ -2,30 +2,49 @@
 method: significance-classification
 date: 2026-03-27
 confidence: medium
-generated: 2026-03-27T05:39:56.583Z
+generated: 2026-03-27T18:22:11.046Z
 ---
 
 # Political Significance Classification
 
 ## Overall Significance: **ROUTINE**
 
-## Overview
-Analysis of political significance across 0 events and 0 documents.
+```mermaid
+quadrantChart
+    title Political Significance Assessment — 2026-03-27
+    x-axis Low Volume --> High Volume
+    y-axis Low Impact --> High Impact
+    quadrant-1 Critical Watch
+    quadrant-2 Strategic Priority
+    quadrant-3 Monitor
+    quadrant-4 Routine Track
+    Current Assessment: [0.25, 0.25]
+    Events Signal: [0.00, 0.60]
+    Documents Signal: [0.00, 0.55]
+    Procedures Signal: [0.00, 0.75]
+    Adopted Texts: [0.95, 0.85]
+```
 
-## Classification Framework
-| Level | Criteria | Items |
-|-------|----------|-------|
-| Historic | Constitutional changes, treaty amendments | — |
-| Critical | Major legislative votes, treaty changes | — |
-| Significant | Key committee decisions, important resolutions | — |
-| Notable | Procedural votes, routine legislation | — |
-| Routine | Administrative matters | — |
+## 5-Signal Model Scores
 
-## Significance Assessment
-- **Computed significance**: routine
-- **Data points analysed**: 0
-- **Date**: 2026-03-27
-- **Method**: Political significance scoring via 5-signal model (volume, controversy, pipeline, anomalies, coalition)
+| Signal | Raw Data | Score |
+|--------|----------|-------|
+| Volume | 0 events, 0 documents | 0.0/5 |
+| Pipeline | 0 procedures | 0.0/5 |
+| Output | 17 adopted texts | 3.4/5 |
+| Anomalies | Pattern deviation detection | — |
+| Coalition | Group alignment analysis | — |
 
-## Key Findings
-- No data available for significance assessment
+## Data Summary
+
+| Metric | Value |
+|--------|-------|
+| Computed significance | ROUTINE |
+| Total data points | 17 |
+| Events | 0 |
+| Documents | 0 |
+| Procedures | 0 |
+| Adopted texts | 17 |
+| Date | 2026-03-27 |
+
+## Date: 2026-03-27

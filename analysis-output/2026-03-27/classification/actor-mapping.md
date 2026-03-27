@@ -2,20 +2,28 @@
 method: actor-mapping
 date: 2026-03-27
 confidence: low
-generated: 2026-03-27T05:39:56.584Z
+generated: 2026-03-27T18:22:11.047Z
 ---
 
 # Political Actor Mapping
 
-## Overview
-Identified 0 political actors from parliamentary data.
+## Actors Identified: 0
+
+```mermaid
+pie title Actor Type Distribution — 2026-03-27
+    "No actors classified" : 1
+```
 
 ## Actor Classification
+
 | Actor | Type | Influence | Position | Role |
 |-------|------|-----------|----------|------|
 | — | — | — | — | — |
 
-## Actor Type Distribution
-- No actors classified
+## Type Counts
+
+| Type | Count |
+|------|-------|
+| — | 0 |
 
 ## Date: 2026-03-27

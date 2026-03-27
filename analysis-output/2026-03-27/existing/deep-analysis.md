@@ -2,50 +2,30 @@
 method: deep-analysis
 date: 2026-03-27
 confidence: high
-generated: 2026-03-27T05:39:56.593Z
+generated: 2026-03-27T18:22:11.055Z
 ---
 
 # Deep Multi-Perspective Analysis
 
-## Overview
-Comprehensive multi-stakeholder analysis of European Parliament activities.
+## Raw Data Inventory
+| Data Source | Count |
+|-------------|-------|
+| Events | 0 |
+| Procedures | 0 |
+| Documents | 0 |
+| Adopted Texts | 17 |
+| Questions | 0 |
+| MEP Updates | 10 |
+| **Total** | **27** |
 
-## Scope
-- **Events analysed**: 0
-- **Stakeholders covered**: 6 groups
-- **Date**: 2026-03-27
+## Stakeholder Groups for AI Analysis
+| Stakeholder Group | Data Points Available |
+|-------------------|---------------------|
+| Political Groups | 17 (procedures + adopted texts) |
+| Civil Society | 0 (documents + questions) |
+| Industry | 0 (procedures) |
+| National Governments | 17 (adopted texts) |
+| Citizens | 10 (questions + MEP updates) |
+| EU Institutions | 0 (events + procedures) |
 
-## Stakeholder Perspectives
-### Political Groups
-- **Impact**: neutral
-- **Severity**: medium
-- **Reasoning**: Impact on this stakeholder group: medium significance based on "European Parliament activity for 2026-03-27".
-
-### Civil Society
-- **Impact**: neutral
-- **Severity**: medium
-- **Reasoning**: Impact on this stakeholder group: medium significance based on "European Parliament activity for 2026-03-27".
-
-### Industry
-- **Impact**: neutral
-- **Severity**: medium
-- **Reasoning**: Impact on this stakeholder group: medium significance based on "European Parliament activity for 2026-03-27".
-
-### National Govts
-- **Impact**: neutral
-- **Severity**: medium
-- **Reasoning**: Impact on this stakeholder group: medium significance based on "European Parliament activity for 2026-03-27".
-
-### Citizens
-- **Impact**: neutral
-- **Severity**: medium
-- **Reasoning**: Impact on this stakeholder group: medium significance based on "European Parliament activity for 2026-03-27".
-
-### Eu Institutions
-- **Impact**: neutral
-- **Severity**: medium
-- **Reasoning**: Impact on this stakeholder group: medium significance based on "European Parliament activity for 2026-03-27".
-
-## Key Findings
-- Cross-cutting analysis across all major stakeholder groups completed
-- Impact assessments derived from available parliamentary data
+## Date: 2026-03-27
