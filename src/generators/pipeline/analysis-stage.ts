@@ -2013,11 +2013,11 @@ function buildSingleDocumentAnalysis(
 
   return `---
 method: ${METHOD_DOCUMENT_ANALYSIS}
-documentId: ${docId}
-category: ${category}
-date: ${date}
+documentId: ${JSON.stringify(docId)}
+category: ${JSON.stringify(category)}
+date: ${JSON.stringify(date)}
 confidence: medium
-generated: ${new Date().toISOString()}
+generated: ${JSON.stringify(new Date().toISOString())}
 ---
 
 # Document Analysis: ${sanitizeCell(title)}

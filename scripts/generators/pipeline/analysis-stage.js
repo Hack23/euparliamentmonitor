@@ -1451,11 +1451,11 @@ function buildSingleDocumentAnalysis(item, docId, title, category, date, fetched
     const docSwot = buildQuantitativeSWOT(`SWOT: ${title}`, docStrengths, docWeaknesses, docOpportunities, docThreats);
     return `---
 method: ${METHOD_DOCUMENT_ANALYSIS}
-documentId: ${docId}
-category: ${category}
-date: ${date}
+documentId: ${JSON.stringify(docId)}
+category: ${JSON.stringify(category)}
+date: ${JSON.stringify(date)}
 confidence: medium
-generated: ${new Date().toISOString()}
+generated: ${JSON.stringify(new Date().toISOString())}
 ---
 
 # Document Analysis: ${sanitizeCell(title)}

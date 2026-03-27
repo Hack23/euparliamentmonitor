@@ -9,7 +9,7 @@
  */
 
 import { escapeHTML } from './file-utils.js';
-import { AI_MARKER } from '../generators/analysis-builders.js';
+import { AI_MARKER } from '../constants/analysis-constants.js';
 import type {
   VotingAnomalyIntelligence,
   CoalitionIntelligence,
