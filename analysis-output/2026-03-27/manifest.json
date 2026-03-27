@@ -1,162 +1,161 @@
 {
-  "runId": "bc2ed2a2-4a40-4d8f-9c64-fa483d9b3282",
+  "runId": "9b036b98-31af-4b52-bc22-4c9269d0a238",
   "date": "2026-03-27",
-  "startTime": "2026-03-27T05:39:56.582Z",
-  "endTime": "2026-03-27T05:39:56.596Z",
+  "startTime": "2026-03-27T06:31:30.101Z",
+  "endTime": "2026-03-27T06:31:30.102Z",
   "articleTypes": [
-    "propositions"
+    "breaking"
   ],
   "methods": [
     {
       "method": "significance-classification",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "classification/significance-assessment.md",
       "confidence": "medium",
-      "duration": 1,
-      "summary": "significance-classification analysis completed successfully"
+      "duration": 0,
+      "summary": "Skipped — output already exists at classification/significance-assessment.md"
     },
     {
       "method": "impact-matrix",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "classification/impact-matrix.md",
       "confidence": "medium",
-      "duration": 1,
-      "summary": "impact-matrix analysis completed successfully"
+      "duration": 0,
+      "summary": "Skipped — output already exists at classification/impact-matrix.md"
     },
     {
       "method": "actor-mapping",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "classification/actor-mapping.md",
       "confidence": "medium",
       "duration": 0,
-      "summary": "actor-mapping analysis completed successfully"
+      "summary": "Skipped — output already exists at classification/actor-mapping.md"
     },
     {
       "method": "forces-analysis",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "classification/forces-analysis.md",
       "confidence": "medium",
-      "duration": 1,
-      "summary": "forces-analysis analysis completed successfully"
+      "duration": 0,
+      "summary": "Skipped — output already exists at classification/forces-analysis.md"
     },
     {
       "method": "political-stride",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "threat-assessment/political-stride-assessment.md",
       "confidence": "medium",
-      "duration": 3,
-      "summary": "political-stride analysis completed successfully"
+      "duration": 0,
+      "summary": "Skipped — output already exists at threat-assessment/political-stride-assessment.md"
     },
     {
       "method": "actor-threat-profiling",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "threat-assessment/actor-threat-profiles.md",
       "confidence": "low",
       "duration": 0,
-      "summary": "actor-threat-profiling analysis completed successfully"
+      "summary": "Skipped — output already exists at threat-assessment/actor-threat-profiles.md"
     },
     {
       "method": "consequence-trees",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "threat-assessment/consequence-trees.md",
       "confidence": "medium",
-      "duration": 1,
-      "summary": "consequence-trees analysis completed successfully"
+      "duration": 0,
+      "summary": "Skipped — output already exists at threat-assessment/consequence-trees.md"
     },
     {
       "method": "legislative-disruption",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "threat-assessment/legislative-disruption.md",
       "confidence": "medium",
       "duration": 0,
-      "summary": "legislative-disruption analysis completed successfully"
+      "summary": "Skipped — output already exists at threat-assessment/legislative-disruption.md"
     },
     {
       "method": "risk-matrix",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "risk-scoring/risk-matrix.md",
       "confidence": "medium",
       "duration": 0,
-      "summary": "risk-matrix analysis completed successfully"
+      "summary": "Skipped — output already exists at risk-scoring/risk-matrix.md"
     },
     {
       "method": "political-capital-risk",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "risk-scoring/political-capital-risk.md",
       "confidence": "medium",
-      "duration": 1,
-      "summary": "political-capital-risk analysis completed successfully"
+      "duration": 0,
+      "summary": "Skipped — output already exists at risk-scoring/political-capital-risk.md"
     },
     {
       "method": "quantitative-swot",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "risk-scoring/quantitative-swot.md",
       "confidence": "medium",
-      "duration": 1,
-      "summary": "quantitative-swot analysis completed successfully"
+      "duration": 0,
+      "summary": "Skipped — output already exists at risk-scoring/quantitative-swot.md"
     },
     {
       "method": "legislative-velocity-risk",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "risk-scoring/legislative-velocity-risk.md",
       "confidence": "medium",
       "duration": 0,
-      "summary": "legislative-velocity-risk analysis completed successfully"
+      "summary": "Skipped — output already exists at risk-scoring/legislative-velocity-risk.md"
     },
     {
       "method": "agent-risk-workflow",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "risk-scoring/agent-risk-workflow.md",
       "confidence": "medium",
-      "duration": 2,
-      "summary": "agent-risk-workflow analysis completed successfully"
+      "duration": 0,
+      "summary": "Skipped — output already exists at risk-scoring/agent-risk-workflow.md"
     },
     {
       "method": "deep-analysis",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "existing/deep-analysis.md",
       "confidence": "high",
       "duration": 0,
-      "summary": "deep-analysis analysis completed successfully"
+      "summary": "Skipped — output already exists at existing/deep-analysis.md"
     },
     {
       "method": "stakeholder-analysis",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "existing/stakeholder-analysis.md",
       "confidence": "high",
-      "duration": 1,
-      "summary": "stakeholder-analysis analysis completed successfully"
+      "duration": 0,
+      "summary": "Skipped — output already exists at existing/stakeholder-analysis.md"
     },
     {
       "method": "coalition-analysis",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "existing/coalition-analysis.md",
       "confidence": "high",
-      "duration": 1,
-      "summary": "coalition-analysis analysis completed successfully"
+      "duration": 0,
+      "summary": "Skipped — output already exists at existing/coalition-analysis.md"
     },
     {
       "method": "voting-patterns",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "existing/voting-patterns.md",
       "confidence": "high",
       "duration": 0,
-      "summary": "voting-patterns analysis completed successfully"
+      "summary": "Skipped — output already exists at existing/voting-patterns.md"
     },
     {
       "method": "cross-session-intelligence",
-      "status": "completed",
+      "status": "skipped",
       "outputFile": "existing/cross-session-intelligence.md",
       "confidence": "high",
-      "duration": 1,
-      "summary": "cross-session-intelligence analysis completed successfully"
+      "duration": 0,
+      "summary": "Skipped — output already exists at existing/cross-session-intelligence.md"
     }
   ],
   "overallConfidence": "medium",
   "dataSourcesUsed": [
+    "events",
     "adoptedTexts",
-    "mepUpdates",
-    "externalDocuments",
-    "declarations"
+    "procedures"
   ]
 }
