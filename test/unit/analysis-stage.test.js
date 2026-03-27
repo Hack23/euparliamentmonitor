@@ -504,7 +504,7 @@ describe('runAnalysisStage', () => {
       expect(content).toContain(testDate);
     });
 
-    it('stakeholder-analysis includes outcome matrix table', async () => {
+    it('stakeholder-analysis includes data inventory table', async () => {
       await runAnalysisStage(buildTestFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -517,7 +517,7 @@ describe('runAnalysisStage', () => {
         'utf-8'
       );
       expect(content).toContain('# Stakeholder Impact Analysis');
-      expect(content).toContain('Stakeholder Outcome Matrix');
+      expect(content).toContain('Data Available for Stakeholder Assessment');
     });
 
     it('coalition-analysis includes cohesion metrics', async () => {
@@ -785,7 +785,7 @@ describe('runAnalysisStage', () => {
       expect(content).not.toContain('RISK-001');
     });
 
-    it('political-capital-risk generates group assessments', async () => {
+    it('political-capital-risk generates data inventory', async () => {
       await runAnalysisStage(buildPopulatedFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -797,9 +797,9 @@ describe('runAnalysisStage', () => {
         'utf-8'
       );
       expect(content).toContain('Political Capital at Risk');
-      // Should contain major political groups
-      expect(content).toContain('EPP');
-      expect(content).toContain('S&D');
+      // Should contain data inventory table (no hardcoded group names)
+      expect(content).toContain('Data Inventory for Capital Risk Assessment');
+      expect(content).toContain('Coalition data points');
     });
 
     it('quantitative-swot includes Mermaid quadrant chart', async () => {

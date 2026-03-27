@@ -325,7 +325,7 @@ export function buildDefaultStakeholderPerspectives(
             ? ('negative' as const)
             : ('neutral' as const),
       severity,
-      reasoning: `Impact on this stakeholder group: ${severity} significance based on "${topic}".`,
+      reasoning: `[AI_ANALYSIS_REQUIRED: ${stakeholder} — score=${score.toFixed(2)}, severity=${severity}, topic="${topic}"]`,
       evidence: [topic],
     };
   });

@@ -48,8 +48,6 @@ import type { ThreatAssessmentInput } from '../../types/political-threats.js';
 import {
   detectVotingTrends,
   computeCrossSessionCoalitionStability,
-  buildDefaultStakeholderPerspectives,
-  buildStakeholderOutcomeMatrix,
 } from '../../utils/intelligence-analysis.js';
 import {
   assessPoliticalSignificance,
@@ -69,7 +67,6 @@ import {
   runAgentRiskAssessment,
   generateRiskAssessmentMarkdown,
   calculatePoliticalRiskScore,
-  assessPoliticalCapitalAtRisk,
   buildQuantitativeSWOT,
   createScoredSWOTItem,
   createScoredOpportunityOrThreat,
@@ -1086,42 +1083,33 @@ ${risks.length > 0 ? risks.map((r) => `### ${r.riskId}: ${r.description}
 
 /**
  * Build markdown for political capital at risk analysis.
+ * Outputs data-derived group metrics for AI agent to perform actual analysis.
  *
- * @param _fetchedData - Raw fetched EP data
+ * @param fetchedData - Raw fetched EP data
  * @param date - Analysis date
  * @returns Markdown content string
  */
 function buildPoliticalCapitalRiskMarkdown(
-  _fetchedData: Record<string, unknown>,
+  fetchedData: Record<string, unknown>,
   date: string
 ): string {
   const header = buildMarkdownHeader('political-capital-risk', date, 'medium');
-  const groups = ['EPP', 'S&D', 'Renew', 'Greens/EFA', 'ECR', 'ID', 'The Left'];
-  const capitalAssessments = groups.map((g) => {
-    const drivers = [
-      createRiskDriver(`Legislative activity for ${g}`, 'internal_dissent', 10, 'stable'),
-    ];
-    return assessPoliticalCapitalAtRisk(g, 'political_group', 70, drivers, 'quarter', 95);
-  });
-
-  const rows = capitalAssessments
-    .map(
-      (a) =>
-        `| ${a.actor} | ${a.currentCapital} | ${a.capitalAtRisk.toFixed(1)} | ${a.timeHorizon} | ${a.riskDrivers.length} drivers |`
-    )
-    .join('\n');
+  const coalitions = safeArr(fetchedData, 'coalitions');
+  const votingRecords = safeArr(fetchedData, 'votingRecords');
+  const patterns = safeArr(fetchedData, 'patterns');
+  const procedures = safeArr(fetchedData, 'procedures');
 
   return (
     header +
     `# Political Capital at Risk
 
-## Overview
-Assessment of political capital at stake for major political groups (${date}).
-
-## Capital at Risk by Political Group
-| Actor/Group | Capital (0-100) | At Risk | Time Horizon | Risk Drivers |
-|-------------|----------------|---------|--------------|--------------|
-${rows}
+## Data Inventory for Capital Risk Assessment
+| Data Source | Count | Relevance |
+|-------------|-------|-----------|
+| Coalition data points | ${coalitions.length} | Group cohesion indicators |
+| Voting records | ${votingRecords.length} | Voting alignment metrics |
+| Voting patterns | ${patterns.length} | Trend and anomaly data |
+| Active procedures | ${procedures.length} | Legislative engagement |
 
 ## Date: ${date}
 `
@@ -1387,22 +1375,6 @@ ${
 
 ## Strategic Priorities Matrix
 
-\`\`\`mermaid
-quadrantChart
-    title Strategic Priorities — Impact vs. Effort (${date})
-    x-axis Low Effort --> High Effort
-    y-axis Low Impact --> High Impact
-    quadrant-1 Major Projects
-    quadrant-2 Quick Wins
-    quadrant-3 Fill-Ins
-    quadrant-4 Avoid or Defer
-    Legislative monitoring: [0.30, 0.85]
-    Coalition tracking: [0.50, 0.80]
-    Stakeholder engagement: [0.60, 0.75]
-    Risk mitigation: [0.70, 0.90]
-    Data collection expansion: [0.80, 0.65]
-\`\`\`
-
 ## Data Summary
 
 | Data Source | Count |
@@ -1552,7 +1524,7 @@ function buildAgentRiskWorkflowMarkdown(
 
 /**
  * Build markdown for the deep multi-perspective analysis.
- * Uses existing `buildDefaultStakeholderPerspectives`.
+ * Outputs raw data metrics per stakeholder group for AI agent enrichment.
  *
  * @param fetchedData - Raw fetched EP data
  * @param date - Analysis date
@@ -1560,40 +1532,45 @@ function buildAgentRiskWorkflowMarkdown(
  */
 function buildDeepAnalysisMarkdown(fetchedData: Record<string, unknown>, date: string): string {
   const header = buildMarkdownHeader('deep-analysis', date, 'high');
-  const events = Array.isArray(fetchedData['events']) ? fetchedData['events'] : [];
-  const topic = `European Parliament activity for ${date}`;
-  const perspectives = buildDefaultStakeholderPerspectives(topic);
-  const perspectivesText = perspectives
-    .map(
-      (p) =>
-        `### ${p.stakeholder.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}\n- **Impact**: ${p.impact}\n- **Severity**: ${p.severity}\n- **Reasoning**: ${p.reasoning}`
-    )
-    .join('\n\n');
+  const events = safeArr(fetchedData, 'events');
+  const procedures = safeArr(fetchedData, 'procedures');
+  const documents = safeArr(fetchedData, 'documents');
+  const adoptedTexts = safeArr(fetchedData, 'adoptedTexts');
+  const questions = safeArr(fetchedData, 'questions');
+  const mepUpdates = safeArr(fetchedData, 'mepUpdates');
   return (
     header +
     `# Deep Multi-Perspective Analysis
 
-## Overview
-Comprehensive multi-stakeholder analysis of European Parliament activities.
+## Raw Data Inventory
+| Data Source | Count |
+|-------------|-------|
+| Events | ${events.length} |
+| Procedures | ${procedures.length} |
+| Documents | ${documents.length} |
+| Adopted Texts | ${adoptedTexts.length} |
+| Questions | ${questions.length} |
+| MEP Updates | ${mepUpdates.length} |
+| **Total** | **${events.length + procedures.length + documents.length + adoptedTexts.length + questions.length + mepUpdates.length}** |
 
-## Scope
-- **Events analysed**: ${events.length}
-- **Stakeholders covered**: 6 groups
-- **Date**: ${date}
+## Stakeholder Groups for AI Analysis
+| Stakeholder Group | Data Points Available |
+|-------------------|---------------------|
+| Political Groups | ${procedures.length + adoptedTexts.length} (procedures + adopted texts) |
+| Civil Society | ${documents.length + questions.length} (documents + questions) |
+| Industry | ${procedures.length} (procedures) |
+| National Governments | ${adoptedTexts.length} (adopted texts) |
+| Citizens | ${questions.length + mepUpdates.length} (questions + MEP updates) |
+| EU Institutions | ${events.length + procedures.length} (events + procedures) |
 
-## Stakeholder Perspectives
-${perspectivesText}
-
-## Key Findings
-- Cross-cutting analysis across all major stakeholder groups completed
-- Impact assessments derived from available parliamentary data
+## Date: ${date}
 `
   );
 }
 
 /**
  * Build markdown for the stakeholder impact analysis.
- * Uses `buildStakeholderOutcomeMatrix`.
+ * Outputs data inventory per stakeholder group for AI agent analysis.
  *
  * @param fetchedData - Raw fetched EP data
  * @param date - Analysis date
@@ -1604,37 +1581,34 @@ function buildStakeholderAnalysisMarkdown(
   date: string
 ): string {
   const header = buildMarkdownHeader('stakeholder-analysis', date, 'high');
-  const actions = ['Legislative proceedings', 'Committee activity', 'Plenary decisions'];
-  const matrices = actions.map((action) =>
-    buildStakeholderOutcomeMatrix(action, {
-      political_groups: 0.7,
-      civil_society: 0.6,
-      industry: 0.5,
-      national_govts: 0.6,
-      citizens: 0.5,
-      eu_institutions: 0.8,
-    })
-  );
-  const tableRows = matrices
-    .map(
-      (m) =>
-        `| ${m.action} | ${m.outcomes['political_groups']} | ${m.outcomes['civil_society']} | ${m.outcomes['industry']} | ${m.outcomes['national_govts']} | ${m.outcomes['citizens']} | ${m.outcomes['eu_institutions']} | ${m.confidence} |`
-    )
-    .join('\n');
+  const procedures = safeArr(fetchedData, 'procedures');
+  const adoptedTexts = safeArr(fetchedData, 'adoptedTexts');
+  const documents = safeArr(fetchedData, 'documents');
+  const events = safeArr(fetchedData, 'events');
+  const questions = safeArr(fetchedData, 'questions');
+  const mepUpdates = safeArr(fetchedData, 'mepUpdates');
+  const votingRecords = safeArr(fetchedData, 'votingRecords');
+  const coalitions = safeArr(fetchedData, 'coalitions');
   return (
     header +
     `# Stakeholder Impact Analysis
 
-## Overview
-Outcome matrix analysis for key parliamentary actions.
+## Data Available for Stakeholder Assessment
+| Stakeholder Group | Primary Data Sources | Data Points |
+|-------------------|---------------------|-------------|
+| Political Groups | Procedures, Adopted Texts, Voting Records, Coalitions | ${procedures.length + adoptedTexts.length + votingRecords.length + coalitions.length} |
+| Civil Society | Documents, Questions, Events | ${documents.length + questions.length + events.length} |
+| Industry | Procedures, Adopted Texts | ${procedures.length + adoptedTexts.length} |
+| National Governments | Adopted Texts, Procedures, Coalitions | ${adoptedTexts.length + procedures.length + coalitions.length} |
+| Citizens | Questions, MEP Updates, Events | ${questions.length + mepUpdates.length + events.length} |
+| EU Institutions | Events, Procedures, Adopted Texts, Voting Records | ${events.length + procedures.length + adoptedTexts.length + votingRecords.length} |
 
-## Stakeholder Outcome Matrix
-| Action | Political Groups | Civil Society | Industry | National Govts | Citizens | EU Institutions | Confidence |
-|--------|-----------------|---------------|----------|----------------|----------|-----------------|------------|
-${tableRows}
+## Data Source Summary
+| Source | Count |
+|--------|-------|
+${Object.keys(fetchedData).filter((k) => Array.isArray(fetchedData[k])).map((k) => `| ${k} | ${(fetchedData[k] as unknown[]).length} |`).join('\n')}
 
 ## Date: ${date}
-- **Data sources used**: ${Object.keys(fetchedData).join(', ')}
 `
   );
 }

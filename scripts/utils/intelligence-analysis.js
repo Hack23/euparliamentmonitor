@@ -17,10 +17,10 @@ const RISK_LEVELS = ['high', 'medium', 'low'];
 const ALIGNMENT_TRENDS = ['strengthening', 'weakening', 'stable'];
 /** Priority weights for significance-based ranking */
 const SIGNIFICANCE_WEIGHTS = {
-    critical: 4,
-    high: 3,
-    medium: 2,
-    low: 1,
+  critical: 4,
+  high: 3,
+  medium: 2,
+  low: 1,
 };
 // ─── Private value-extraction helpers ────────────────────────────────────────
 /**
@@ -30,7 +30,7 @@ const SIGNIFICANCE_WEIGHTS = {
  * @returns The string value or empty string if not a string
  */
 function asStr(val) {
-    return typeof val === 'string' ? val : '';
+  return typeof val === 'string' ? val : '';
 }
 /**
  * Safely extract a finite number from an unknown field value
@@ -40,7 +40,7 @@ function asStr(val) {
  * @returns Finite number or fallback
  */
 function asNum(val, fallback = 0) {
-    return typeof val === 'number' && Number.isFinite(val) ? val : fallback;
+  return typeof val === 'number' && Number.isFinite(val) ? val : fallback;
 }
 /**
  * Safely extract an array of strings from an unknown field value
@@ -49,9 +49,8 @@ function asNum(val, fallback = 0) {
  * @returns Array of strings (empty array if input is not an array)
  */
 function asStrArr(val) {
-    if (!Array.isArray(val))
-        return [];
-    return val.filter((v) => typeof v === 'string');
+  if (!Array.isArray(val)) return [];
+  return val.filter((v) => typeof v === 'string');
 }
 /**
  * Coerce an unknown value to a non-null Record or return null
@@ -60,9 +59,8 @@ function asStrArr(val) {
  * @returns Record or null for null/undefined/non-object input
  */
 function toRecord(input) {
-    if (input === null || input === undefined || typeof input !== 'object')
-        return null;
-    return input;
+  if (input === null || input === undefined || typeof input !== 'object') return null;
+  return input;
 }
 // ─── Private parsing validators ───────────────────────────────────────────────
 /**
@@ -72,8 +70,8 @@ function toRecord(input) {
  * @returns Validated SignificanceLevel, defaulting to 'low'
  */
 function parseSignificance(raw) {
-    const lower = raw.toLowerCase();
-    return SIGNIFICANCE_LEVELS.includes(lower) ? lower : 'low';
+  const lower = raw.toLowerCase();
+  return SIGNIFICANCE_LEVELS.includes(lower) ? lower : 'low';
 }
 /**
  * Validate and normalise a raw risk level string
@@ -82,8 +80,8 @@ function parseSignificance(raw) {
  * @returns Validated RiskLevel, defaulting to 'medium'
  */
 function parseRiskLevel(raw) {
-    const lower = raw.toLowerCase();
-    return RISK_LEVELS.includes(lower) ? lower : 'medium';
+  const lower = raw.toLowerCase();
+  return RISK_LEVELS.includes(lower) ? lower : 'medium';
 }
 /**
  * Validate and normalise a raw alignment trend string
@@ -92,8 +90,8 @@ function parseRiskLevel(raw) {
  * @returns Validated AlignmentTrend, defaulting to 'stable'
  */
 function parseAlignmentTrend(raw) {
-    const lower = raw.toLowerCase();
-    return ALIGNMENT_TRENDS.includes(lower) ? lower : 'stable';
+  const lower = raw.toLowerCase();
+  return ALIGNMENT_TRENDS.includes(lower) ? lower : 'stable';
 }
 // ─── Exported intelligence functions ─────────────────────────────────────────
 /**
@@ -105,21 +103,19 @@ function parseAlignmentTrend(raw) {
  * @returns Structured VotingAnomalyIntelligence or null if input is invalid
  */
 export function scoreVotingAnomaly(rawAnomaly) {
-    const a = toRecord(rawAnomaly);
-    if (!a)
-        return null;
-    const anomalyId = asStr(a['anomalyId']) || asStr(a['id']);
-    if (!anomalyId)
-        return null;
-    return {
-        anomalyId,
-        significance: parseSignificance(asStr(a['significance'])),
-        description: asStr(a['description']),
-        affectedGroups: asStrArr(a['affectedGroups']),
-        deviationPercentage: asNum(a['deviationPercentage']),
-        historicalContext: asStr(a['historicalContext']),
-        implication: asStr(a['implication']),
-    };
+  const a = toRecord(rawAnomaly);
+  if (!a) return null;
+  const anomalyId = asStr(a['anomalyId']) || asStr(a['id']);
+  if (!anomalyId) return null;
+  return {
+    anomalyId,
+    significance: parseSignificance(asStr(a['significance'])),
+    description: asStr(a['description']),
+    affectedGroups: asStrArr(a['affectedGroups']),
+    deviationPercentage: asNum(a['deviationPercentage']),
+    historicalContext: asStr(a['historicalContext']),
+    implication: asStr(a['implication']),
+  };
 }
 /**
  * Analyse a coalition's cohesion from raw MCP coalition data.
@@ -130,20 +126,18 @@ export function scoreVotingAnomaly(rawAnomaly) {
  * @returns Structured CoalitionIntelligence or null if input is invalid
  */
 export function analyzeCoalitionCohesion(rawCoalition) {
-    const c = toRecord(rawCoalition);
-    if (!c)
-        return null;
-    const coalitionId = asStr(c['coalitionId']) || asStr(c['id']);
-    if (!coalitionId)
-        return null;
-    return {
-        coalitionId,
-        groups: asStrArr(c['groups']),
-        cohesionScore: Math.min(1, Math.max(0, asNum(c['cohesionScore']))),
-        alignmentTrend: parseAlignmentTrend(asStr(c['alignmentTrend'])),
-        keyVotes: Math.max(0, Math.round(asNum(c['keyVotes']))),
-        riskLevel: parseRiskLevel(asStr(c['riskLevel'])),
-    };
+  const c = toRecord(rawCoalition);
+  if (!c) return null;
+  const coalitionId = asStr(c['coalitionId']) || asStr(c['id']);
+  if (!coalitionId) return null;
+  return {
+    coalitionId,
+    groups: asStrArr(c['groups']),
+    cohesionScore: Math.min(1, Math.max(0, asNum(c['cohesionScore']))),
+    alignmentTrend: parseAlignmentTrend(asStr(c['alignmentTrend'])),
+    keyVotes: Math.max(0, Math.round(asNum(c['keyVotes']))),
+    riskLevel: parseRiskLevel(asStr(c['riskLevel'])),
+  };
 }
 /**
  * Extract and score MEP influence from raw MCP influence data.
@@ -154,22 +148,20 @@ export function analyzeCoalitionCohesion(rawCoalition) {
  * @returns Structured MEPInfluenceScore or null if input is invalid
  */
 export function scoreMEPInfluence(rawInfluence) {
-    const m = toRecord(rawInfluence);
-    if (!m)
-        return null;
-    const mepId = asStr(m['mepId']) || asStr(m['id']);
-    const mepName = asStr(m['mepName']) || asStr(m['name']);
-    if (!mepId || !mepName)
-        return null;
-    return {
-        mepId,
-        mepName,
-        overallScore: Math.min(100, Math.max(0, asNum(m['overallScore']))),
-        votingActivity: Math.min(100, Math.max(0, asNum(m['votingActivity']))),
-        legislativeOutput: Math.min(100, Math.max(0, asNum(m['legislativeOutput']))),
-        committeeEngagement: Math.min(100, Math.max(0, asNum(m['committeeEngagement']))),
-        rank: asStr(m['rank']),
-    };
+  const m = toRecord(rawInfluence);
+  if (!m) return null;
+  const mepId = asStr(m['mepId']) || asStr(m['id']);
+  const mepName = asStr(m['mepName']) || asStr(m['name']);
+  if (!mepId || !mepName) return null;
+  return {
+    mepId,
+    mepName,
+    overallScore: Math.min(100, Math.max(0, asNum(m['overallScore']))),
+    votingActivity: Math.min(100, Math.max(0, asNum(m['votingActivity']))),
+    legislativeOutput: Math.min(100, Math.max(0, asNum(m['legislativeOutput']))),
+    committeeEngagement: Math.min(100, Math.max(0, asNum(m['committeeEngagement']))),
+    rank: asStr(m['rank']),
+  };
 }
 /**
  * Calculate legislative velocity from raw MCP procedure data.
@@ -180,22 +172,20 @@ export function scoreMEPInfluence(rawInfluence) {
  * @returns Structured LegislativeVelocity or null if input is invalid
  */
 export function calculateLegislativeVelocity(rawProcedure) {
-    const p = toRecord(rawProcedure);
-    if (!p)
-        return null;
-    const procedureId = asStr(p['procedureId']) || asStr(p['id']);
-    const title = asStr(p['title']);
-    if (!procedureId || !title)
-        return null;
-    return {
-        procedureId,
-        title,
-        stage: asStr(p['stage']) || 'Unknown',
-        daysInCurrentStage: Math.max(0, Math.round(asNum(p['daysInCurrentStage']))),
-        velocityScore: Math.min(1, Math.max(0, asNum(p['velocityScore']))),
-        bottleneckRisk: parseRiskLevel(asStr(p['bottleneckRisk'])),
-        predictedCompletion: asStr(p['predictedCompletion']),
-    };
+  const p = toRecord(rawProcedure);
+  if (!p) return null;
+  const procedureId = asStr(p['procedureId']) || asStr(p['id']);
+  const title = asStr(p['title']);
+  if (!procedureId || !title) return null;
+  return {
+    procedureId,
+    title,
+    stage: asStr(p['stage']) || 'Unknown',
+    daysInCurrentStage: Math.max(0, Math.round(asNum(p['daysInCurrentStage']))),
+    velocityScore: Math.min(1, Math.max(0, asNum(p['velocityScore']))),
+    bottleneckRisk: parseRiskLevel(asStr(p['bottleneckRisk'])),
+    predictedCompletion: asStr(p['predictedCompletion']),
+  };
 }
 /**
  * Sort items by significance level descending, with numeric score as
@@ -206,15 +196,14 @@ export function calculateLegislativeVelocity(rawProcedure) {
  * @returns New sorted array ordered by significance then score
  */
 export function rankBySignificance(items) {
-    return [...items].sort((a, b) => {
-        const sigA = SIGNIFICANCE_WEIGHTS[a.significance ?? ''] ?? 0;
-        const sigB = SIGNIFICANCE_WEIGHTS[b.significance ?? ''] ?? 0;
-        if (sigA !== sigB)
-            return sigB - sigA;
-        const scoreA = a.overallScore ?? a.cohesionScore ?? 0;
-        const scoreB = b.overallScore ?? b.cohesionScore ?? 0;
-        return scoreB - scoreA;
-    });
+  return [...items].sort((a, b) => {
+    const sigA = SIGNIFICANCE_WEIGHTS[a.significance ?? ''] ?? 0;
+    const sigB = SIGNIFICANCE_WEIGHTS[b.significance ?? ''] ?? 0;
+    if (sigA !== sigB) return sigB - sigA;
+    const scoreA = a.overallScore ?? a.cohesionScore ?? 0;
+    const scoreB = b.overallScore ?? b.cohesionScore ?? 0;
+    return scoreB - scoreA;
+  });
 }
 /**
  * Build an HTML section element for displaying intelligence items as a list.
@@ -227,12 +216,11 @@ export function rankBySignificance(items) {
  * @returns HTML string for the intelligence section, or empty string if no items
  */
 export function buildIntelligenceSection(title, items, className) {
-    if (items.length === 0)
-        return '';
-    const safeClass = escapeHTML(className);
-    const safeTitle = escapeHTML(title);
-    const itemsHtml = items.map((item) => `<li>${escapeHTML(item)}</li>`).join('\n          ');
-    return `<section class="${safeClass}">
+  if (items.length === 0) return '';
+  const safeClass = escapeHTML(className);
+  const safeTitle = escapeHTML(title);
+  const itemsHtml = items.map((item) => `<li>${escapeHTML(item)}</li>`).join('\n          ');
+  return `<section class="${safeClass}">
         <h2>${safeTitle}</h2>
         <ul>
           ${itemsHtml}
@@ -247,11 +235,9 @@ export function buildIntelligenceSection(title, items, className) {
  * @returns Severity level
  */
 function severityFromScore(score) {
-    if (score >= 0.7)
-        return 'high';
-    if (score >= 0.4)
-        return 'medium';
-    return 'low';
+  if (score >= 0.7) return 'high';
+  if (score >= 0.4) return 'medium';
+  return 'low';
 }
 /**
  * Build a default set of stakeholder perspectives for a parliamentary action.
@@ -264,21 +250,17 @@ function severityFromScore(score) {
  * @returns Array of six StakeholderPerspective objects, one per stakeholder group
  */
 export function buildDefaultStakeholderPerspectives(topic, scores) {
-    return ALL_STAKEHOLDER_TYPES.map((stakeholder) => {
-        const score = scores?.[stakeholder] ?? 0.5;
-        const severity = severityFromScore(score);
-        return {
-            stakeholder,
-            impact: score >= 0.6
-                ? 'positive'
-                : score <= 0.3
-                    ? 'negative'
-                    : 'neutral',
-            severity,
-            reasoning: `Impact on this stakeholder group: ${severity} significance based on "${topic}".`,
-            evidence: [topic],
-        };
-    });
+  return ALL_STAKEHOLDER_TYPES.map((stakeholder) => {
+    const score = scores?.[stakeholder] ?? 0.5;
+    const severity = severityFromScore(score);
+    return {
+      stakeholder,
+      impact: score >= 0.6 ? 'positive' : score <= 0.3 ? 'negative' : 'neutral',
+      severity,
+      reasoning: `[AI_ANALYSIS_REQUIRED: ${stakeholder} — score=${score.toFixed(2)}, severity=${severity}, topic="${topic}"]`,
+      evidence: [topic],
+    };
+  });
 }
 /**
  * Score stakeholder influence from raw MCP data.
@@ -288,30 +270,24 @@ export function buildDefaultStakeholderPerspectives(topic, scores) {
  * @returns Structured StakeholderPerspective or null if input is invalid
  */
 export function scoreStakeholderInfluence(rawData) {
-    const d = toRecord(rawData);
-    if (!d)
-        return null;
-    const stakeholderRaw = asStr(d['stakeholder']);
-    if (!ALL_STAKEHOLDER_TYPES.includes(stakeholderRaw))
-        return null;
-    const stakeholder = stakeholderRaw;
-    const impactRaw = asStr(d['impact']).toLowerCase();
-    const validImpacts = ['positive', 'negative', 'neutral', 'mixed'];
-    const impact = validImpacts.includes(impactRaw)
-        ? impactRaw
-        : 'neutral';
-    const severityRaw = asStr(d['severity']).toLowerCase();
-    const validSeverities = ['high', 'medium', 'low'];
-    const severity = validSeverities.includes(severityRaw)
-        ? severityRaw
-        : 'medium';
-    return {
-        stakeholder,
-        impact,
-        severity,
-        reasoning: asStr(d['reasoning']),
-        evidence: asStrArr(d['evidence']),
-    };
+  const d = toRecord(rawData);
+  if (!d) return null;
+  const stakeholderRaw = asStr(d['stakeholder']);
+  if (!ALL_STAKEHOLDER_TYPES.includes(stakeholderRaw)) return null;
+  const stakeholder = stakeholderRaw;
+  const impactRaw = asStr(d['impact']).toLowerCase();
+  const validImpacts = ['positive', 'negative', 'neutral', 'mixed'];
+  const impact = validImpacts.includes(impactRaw) ? impactRaw : 'neutral';
+  const severityRaw = asStr(d['severity']).toLowerCase();
+  const validSeverities = ['high', 'medium', 'low'];
+  const severity = validSeverities.includes(severityRaw) ? severityRaw : 'medium';
+  return {
+    stakeholder,
+    impact,
+    severity,
+    reasoning: asStr(d['reasoning']),
+    evidence: asStrArr(d['evidence']),
+  };
 }
 /**
  * Build a StakeholderOutcomeMatrix row for a single parliamentary action.
@@ -324,12 +300,14 @@ export function scoreStakeholderInfluence(rawData) {
  * @returns A StakeholderOutcomeMatrix row
  */
 export function buildStakeholderOutcomeMatrix(action, scores = {}, confidence = 'medium') {
-    const outcomes = Object.fromEntries(ALL_STAKEHOLDER_TYPES.map((stakeholder) => {
-        const score = scores[stakeholder] ?? 0.5;
-        const outcome = score > 0.6 ? 'winner' : score < 0.4 ? 'loser' : 'neutral';
-        return [stakeholder, outcome];
-    }));
-    return { action, outcomes, confidence };
+  const outcomes = Object.fromEntries(
+    ALL_STAKEHOLDER_TYPES.map((stakeholder) => {
+      const score = scores[stakeholder] ?? 0.5;
+      const outcome = score > 0.6 ? 'winner' : score < 0.4 ? 'loser' : 'neutral';
+      return [stakeholder, outcome];
+    })
+  );
+  return { action, outcomes, confidence };
 }
 /**
  * Map an array of StakeholderPerspective objects to a simple influence ranking.
@@ -341,29 +319,29 @@ export function buildStakeholderOutcomeMatrix(action, scores = {}, confidence = 
  * @returns Stakeholder types sorted by influence priority
  */
 export function rankStakeholdersByInfluence(perspectives) {
-    const severityWeight = {
-        high: 3,
-        medium: 2,
-        low: 1,
-    };
-    const impactWeight = {
-        negative: 3,
-        mixed: 2,
-        positive: 1,
-        neutral: 0,
-    };
-    return [...perspectives]
-        .sort((a, b) => {
-        const sw = severityWeight[b.severity] - severityWeight[a.severity];
-        if (sw !== 0)
-            return sw;
-        const iw = impactWeight[b.impact] - impactWeight[a.impact];
-        if (iw !== 0)
-            return iw;
-        // Deterministic tie-breaker: canonical ALL_STAKEHOLDER_TYPES order
-        return (ALL_STAKEHOLDER_TYPES.indexOf(a.stakeholder) - ALL_STAKEHOLDER_TYPES.indexOf(b.stakeholder));
+  const severityWeight = {
+    high: 3,
+    medium: 2,
+    low: 1,
+  };
+  const impactWeight = {
+    negative: 3,
+    mixed: 2,
+    positive: 1,
+    neutral: 0,
+  };
+  return [...perspectives]
+    .sort((a, b) => {
+      const sw = severityWeight[b.severity] - severityWeight[a.severity];
+      if (sw !== 0) return sw;
+      const iw = impactWeight[b.impact] - impactWeight[a.impact];
+      if (iw !== 0) return iw;
+      // Deterministic tie-breaker: canonical ALL_STAKEHOLDER_TYPES order
+      return (
+        ALL_STAKEHOLDER_TYPES.indexOf(a.stakeholder) - ALL_STAKEHOLDER_TYPES.indexOf(b.stakeholder)
+      );
     })
-        .map((p) => p.stakeholder);
+    .map((p) => p.stakeholder);
 }
 // ─── Advanced political intelligence functions ──────────────────────────────
 /**
@@ -376,49 +354,46 @@ export function rankStakeholdersByInfluence(perspectives) {
  * valid vote counts (for example, when all records have a total vote count of 0)
  */
 export function computeVotingIntensity(records) {
-    if (records.length === 0)
-        return null;
-    let totalUnanimity = 0;
-    let totalPolarization = 0;
-    let totalMargin = 0;
-    let closeVoteCount = 0;
-    let decisiveVoteCount = 0;
-    let validCount = 0;
-    let polarizationCount = 0;
-    for (const record of records) {
-        const total = record.votes.for + record.votes.against + record.votes.abstain;
-        if (total === 0)
-            continue;
-        validCount++;
-        const forPct = record.votes.for / total;
-        const againstPct = record.votes.against / total;
-        const abstainPct = record.votes.abstain / total;
-        const margin = Math.abs(forPct - againstPct);
-        // Largest-position share: max share among for/against/abstain
-        const maxPct = Math.max(forPct, againstPct, abstainPct);
-        totalUnanimity += maxPct;
-        // Margin, close/decisive, and polarization only meaningful when for+against > 0
-        const forAgainstTotal = record.votes.for + record.votes.against;
-        if (forAgainstTotal > 0) {
-            polarizationCount++;
-            const balance = Math.min(record.votes.for, record.votes.against) / forAgainstTotal;
-            totalPolarization += balance * 2; // normalise: 0 = one-sided, 1 = perfectly split
-            totalMargin += margin;
-            if (margin < 0.1)
-                closeVoteCount++;
-            if (margin > 0.6)
-                decisiveVoteCount++;
-        }
+  if (records.length === 0) return null;
+  let totalUnanimity = 0;
+  let totalPolarization = 0;
+  let totalMargin = 0;
+  let closeVoteCount = 0;
+  let decisiveVoteCount = 0;
+  let validCount = 0;
+  let polarizationCount = 0;
+  for (const record of records) {
+    const total = record.votes.for + record.votes.against + record.votes.abstain;
+    if (total === 0) continue;
+    validCount++;
+    const forPct = record.votes.for / total;
+    const againstPct = record.votes.against / total;
+    const abstainPct = record.votes.abstain / total;
+    const margin = Math.abs(forPct - againstPct);
+    // Largest-position share: max share among for/against/abstain
+    const maxPct = Math.max(forPct, againstPct, abstainPct);
+    totalUnanimity += maxPct;
+    // Margin, close/decisive, and polarization only meaningful when for+against > 0
+    const forAgainstTotal = record.votes.for + record.votes.against;
+    if (forAgainstTotal > 0) {
+      polarizationCount++;
+      const balance = Math.min(record.votes.for, record.votes.against) / forAgainstTotal;
+      totalPolarization += balance * 2; // normalise: 0 = one-sided, 1 = perfectly split
+      totalMargin += margin;
+      if (margin < 0.1) closeVoteCount++;
+      if (margin > 0.6) decisiveVoteCount++;
     }
-    if (validCount === 0)
-        return null;
-    return {
-        unanimity: Math.round((totalUnanimity / validCount) * 100) / 100,
-        polarization: polarizationCount > 0 ? Math.round((totalPolarization / polarizationCount) * 100) / 100 : 0,
-        averageMargin: polarizationCount > 0 ? Math.round((totalMargin / polarizationCount) * 100) / 100 : 0,
-        closeVoteCount,
-        decisiveVoteCount,
-    };
+  }
+  if (validCount === 0) return null;
+  return {
+    unanimity: Math.round((totalUnanimity / validCount) * 100) / 100,
+    polarization:
+      polarizationCount > 0 ? Math.round((totalPolarization / polarizationCount) * 100) / 100 : 0,
+    averageMargin:
+      polarizationCount > 0 ? Math.round((totalMargin / polarizationCount) * 100) / 100 : 0,
+    closeVoteCount,
+    decisiveVoteCount,
+  };
 }
 /**
  * Detect coalition shifts by comparing current cohesion patterns against
@@ -430,48 +405,40 @@ export function computeVotingIntensity(records) {
  * @returns Array of detected coalition shifts, sorted by significance
  */
 export function detectCoalitionShifts(currentPatterns, baselinePatterns) {
-    const baselineMap = new Map();
-    for (const bp of baselinePatterns) {
-        baselineMap.set(bp.group, bp.cohesion);
-    }
-    const shifts = [];
-    for (const current of currentPatterns) {
-        const previous = baselineMap.get(current.group) ?? current.cohesion;
-        const delta = current.cohesion - previous;
-        const absDelta = Math.abs(delta);
-        let direction;
-        if (delta > 0.05)
-            direction = 'strengthening';
-        else if (delta < -0.05)
-            direction = 'weakening';
-        else
-            direction = 'stable';
-        let significance;
-        if (absDelta > 0.2)
-            significance = 'critical';
-        else if (absDelta > 0.1)
-            significance = 'high';
-        else if (absDelta > 0.05)
-            significance = 'medium';
-        else
-            significance = 'low';
-        shifts.push({
-            group: current.group,
-            previousCohesion: Math.round(previous * 100) / 100,
-            currentCohesion: Math.round(current.cohesion * 100) / 100,
-            cohesionDelta: Math.round(delta * 100) / 100,
-            direction,
-            significance,
-        });
-    }
-    // Sort by significance (critical first), then by absolute delta descending
-    const sigOrder = { critical: 4, high: 3, medium: 2, low: 1 };
-    return shifts.sort((a, b) => {
-        const sigDiff = (sigOrder[b.significance] ?? 0) - (sigOrder[a.significance] ?? 0);
-        if (sigDiff !== 0)
-            return sigDiff;
-        return Math.abs(b.cohesionDelta) - Math.abs(a.cohesionDelta);
+  const baselineMap = new Map();
+  for (const bp of baselinePatterns) {
+    baselineMap.set(bp.group, bp.cohesion);
+  }
+  const shifts = [];
+  for (const current of currentPatterns) {
+    const previous = baselineMap.get(current.group) ?? current.cohesion;
+    const delta = current.cohesion - previous;
+    const absDelta = Math.abs(delta);
+    let direction;
+    if (delta > 0.05) direction = 'strengthening';
+    else if (delta < -0.05) direction = 'weakening';
+    else direction = 'stable';
+    let significance;
+    if (absDelta > 0.2) significance = 'critical';
+    else if (absDelta > 0.1) significance = 'high';
+    else if (absDelta > 0.05) significance = 'medium';
+    else significance = 'low';
+    shifts.push({
+      group: current.group,
+      previousCohesion: Math.round(previous * 100) / 100,
+      currentCohesion: Math.round(current.cohesion * 100) / 100,
+      cohesionDelta: Math.round(delta * 100) / 100,
+      direction,
+      significance,
     });
+  }
+  // Sort by significance (critical first), then by absolute delta descending
+  const sigOrder = { critical: 4, high: 3, medium: 2, low: 1 };
+  return shifts.sort((a, b) => {
+    const sigDiff = (sigOrder[b.significance] ?? 0) - (sigOrder[a.significance] ?? 0);
+    if (sigDiff !== 0) return sigDiff;
+    return Math.abs(b.cohesionDelta) - Math.abs(a.cohesionDelta);
+  });
 }
 /**
  * Classify cohesion groups into high-cohesion and fragmented categories.
@@ -480,15 +447,13 @@ export function detectCoalitionShifts(currentPatterns, baselinePatterns) {
  * @returns Tuple of [highCohesionGroups, fragmentedGroups]
  */
 function classifyCohesionGroups(patterns) {
-    const high = [];
-    const fragmented = [];
-    for (const p of patterns) {
-        if (p.cohesion > 0.8)
-            high.push(p.group);
-        if (p.cohesion < 0.5)
-            fragmented.push(p.group);
-    }
-    return [high, fragmented];
+  const high = [];
+  const fragmented = [];
+  for (const p of patterns) {
+    if (p.cohesion > 0.8) high.push(p.group);
+    if (p.cohesion < 0.5) fragmented.push(p.group);
+  }
+  return [high, fragmented];
 }
 /**
  * Compute effective number of voting blocs using Laakso-Taagepera style.
@@ -497,17 +462,15 @@ function classifyCohesionGroups(patterns) {
  * @returns Effective number of blocs
  */
 function computeEffectiveBlocs(patterns) {
-    let totalParticipation = 0;
-    for (const p of patterns)
-        totalParticipation += p.participation;
-    if (totalParticipation <= 0)
-        return patterns.length;
-    let sumSquares = 0;
-    for (const p of patterns) {
-        const share = p.participation / totalParticipation;
-        sumSquares += share * share;
-    }
-    return sumSquares > 0 ? 1 / sumSquares : patterns.length;
+  let totalParticipation = 0;
+  for (const p of patterns) totalParticipation += p.participation;
+  if (totalParticipation <= 0) return patterns.length;
+  let sumSquares = 0;
+  for (const p of patterns) {
+    const share = p.participation / totalParticipation;
+    sumSquares += share * share;
+  }
+  return sumSquares > 0 ? 1 / sumSquares : patterns.length;
 }
 /**
  * Map an overall index to a polarization assessment label.
@@ -516,13 +479,10 @@ function computeEffectiveBlocs(patterns) {
  * @returns Assessment label
  */
 function assessPolarization(index) {
-    if (index >= 0.75)
-        return 'highly-polarized';
-    if (index >= 0.5)
-        return 'polarized';
-    if (index >= 0.25)
-        return 'moderate';
-    return 'consensus';
+  if (index >= 0.75) return 'highly-polarized';
+  if (index >= 0.5) return 'polarized';
+  if (index >= 0.25) return 'moderate';
+  return 'consensus';
 }
 /**
  * Compute a polarization index for a parliamentary period based on
@@ -533,19 +493,18 @@ function assessPolarization(index) {
  * @returns PolarizationIndex assessment, or null if patterns are empty
  */
 export function computePolarizationIndex(patterns) {
-    if (patterns.length === 0)
-        return null;
-    const [highCohesionGroups, fragmentedGroups] = classifyCohesionGroups(patterns);
-    const effectiveBlocs = computeEffectiveBlocs(patterns);
-    const extremeCount = highCohesionGroups.length + fragmentedGroups.length;
-    const overallIndex = Math.round((extremeCount / patterns.length) * 100) / 100;
-    return {
-        overallIndex,
-        effectiveBlocs: Math.round(effectiveBlocs * 100) / 100,
-        highCohesionGroups,
-        fragmentedGroups,
-        assessment: assessPolarization(overallIndex),
-    };
+  if (patterns.length === 0) return null;
+  const [highCohesionGroups, fragmentedGroups] = classifyCohesionGroups(patterns);
+  const effectiveBlocs = computeEffectiveBlocs(patterns);
+  const extremeCount = highCohesionGroups.length + fragmentedGroups.length;
+  const overallIndex = Math.round((extremeCount / patterns.length) * 100) / 100;
+  return {
+    overallIndex,
+    effectiveBlocs: Math.round(effectiveBlocs * 100) / 100,
+    highCohesionGroups,
+    fragmentedGroups,
+    assessment: assessPolarization(overallIndex),
+  };
 }
 // ─── Cross-session analysis functions ─────────────────────────────────────────
 /**
@@ -555,7 +514,7 @@ export function computePolarizationIndex(patterns) {
  * @returns Arithmetic mean, or 0 for empty arrays
  */
 function avg(values) {
-    return values.length > 0 ? values.reduce((s, v) => s + v, 0) / values.length : 0;
+  return values.length > 0 ? values.reduce((s, v) => s + v, 0) / values.length : 0;
 }
 /**
  * Extract valid vote margins and result tallies from voting records.
@@ -569,36 +528,31 @@ function avg(values) {
  * @returns Object containing margins array and per-record result classifications
  */
 function extractMarginData(records) {
-    const margins = [];
-    const results = [];
-    for (const r of records) {
-        const votes = r.votes;
-        if (!votes || typeof votes !== 'object')
-            continue;
-        // Require actual finite numbers — asNum() would silently map non-numbers to 0,
-        // which would include malformed records and skew margins/polarization metrics.
-        const forCount = votes.for;
-        const againstCount = votes.against;
-        if (typeof forCount !== 'number' || !Number.isFinite(forCount) || forCount < 0)
-            continue;
-        if (typeof againstCount !== 'number' || !Number.isFinite(againstCount) || againstCount < 0)
-            continue;
-        const forAgainstTotal = forCount + againstCount;
-        if (forAgainstTotal <= 0)
-            continue;
-        margins.push(Math.abs(forCount - againstCount) / forAgainstTotal);
-        const result = asStr(r.result).toLowerCase();
-        if (result === 'adopted' || result === 'approved') {
-            results.push('adopted');
-        }
-        else if (result === 'rejected') {
-            results.push('rejected');
-        }
-        else {
-            results.push('other');
-        }
+  const margins = [];
+  const results = [];
+  for (const r of records) {
+    const votes = r.votes;
+    if (!votes || typeof votes !== 'object') continue;
+    // Require actual finite numbers — asNum() would silently map non-numbers to 0,
+    // which would include malformed records and skew margins/polarization metrics.
+    const forCount = votes.for;
+    const againstCount = votes.against;
+    if (typeof forCount !== 'number' || !Number.isFinite(forCount) || forCount < 0) continue;
+    if (typeof againstCount !== 'number' || !Number.isFinite(againstCount) || againstCount < 0)
+      continue;
+    const forAgainstTotal = forCount + againstCount;
+    if (forAgainstTotal <= 0) continue;
+    margins.push(Math.abs(forCount - againstCount) / forAgainstTotal);
+    const result = asStr(r.result).toLowerCase();
+    if (result === 'adopted' || result === 'approved') {
+      results.push('adopted');
+    } else if (result === 'rejected') {
+      results.push('rejected');
+    } else {
+      results.push('other');
     }
-    return { margins, results };
+  }
+  return { margins, results };
 }
 /**
  * Compute adoption rate from a results slice.
@@ -607,9 +561,9 @@ function extractMarginData(records) {
  * @returns Adoption rate (0-1), or 0 if no decided records
  */
 function computeAdoptionRate(results) {
-    const adopted = results.filter((r) => r === 'adopted').length;
-    const decided = results.filter((r) => r === 'adopted' || r === 'rejected').length;
-    return decided > 0 ? adopted / decided : 0;
+  const adopted = results.filter((r) => r === 'adopted').length;
+  const decided = results.filter((r) => r === 'adopted' || r === 'rejected').length;
+  return decided > 0 ? adopted / decided : 0;
 }
 /**
  * Derive adoption-rate direction by comparing first-half and second-half rates.
@@ -619,12 +573,10 @@ function computeAdoptionRate(results) {
  * @returns Direction label based on delta between halves
  */
 function adoptionDirection(firstRate, secondRate) {
-    const delta = secondRate - firstRate;
-    if (delta > 0.05)
-        return 'increasing';
-    if (delta < -0.05)
-        return 'decreasing';
-    return 'stable';
+  const delta = secondRate - firstRate;
+  if (delta > 0.05) return 'increasing';
+  if (delta < -0.05) return 'decreasing';
+  return 'stable';
 }
 /**
  * Build a margin-shift trend if the delta exceeds 5%.
@@ -635,20 +587,19 @@ function adoptionDirection(firstRate, secondRate) {
  * @returns VotingTrend or null if delta is within threshold
  */
 function buildMarginTrend(firstHalf, secondHalf, total) {
-    const marginDelta = avg(secondHalf) - avg(firstHalf);
-    if (Math.abs(marginDelta) <= 0.05)
-        return null;
-    const isIncreasing = marginDelta > 0;
-    return {
-        trendId: isIncreasing ? 'increasing-margins' : 'decreasing-margins',
-        description: isIncreasing
-            ? 'Voting margins are widening — greater decisiveness'
-            : 'Voting margins are narrowing — increasing contention',
-        direction: isIncreasing ? 'increasing' : 'decreasing',
-        confidence: Math.min(1, Math.round(Math.abs(marginDelta) * 5 * 100) / 100),
-        recordCount: total,
-        metricValue: Math.round(marginDelta * 100) / 100,
-    };
+  const marginDelta = avg(secondHalf) - avg(firstHalf);
+  if (Math.abs(marginDelta) <= 0.05) return null;
+  const isIncreasing = marginDelta > 0;
+  return {
+    trendId: isIncreasing ? 'increasing-margins' : 'decreasing-margins',
+    description: isIncreasing
+      ? 'Voting margins are widening — greater decisiveness'
+      : 'Voting margins are narrowing — increasing contention',
+    direction: isIncreasing ? 'increasing' : 'decreasing',
+    confidence: Math.min(1, Math.round(Math.abs(marginDelta) * 5 * 100) / 100),
+    recordCount: total,
+    metricValue: Math.round(marginDelta * 100) / 100,
+  };
 }
 /**
  * Build a polarization trend if the close-vote frequency delta exceeds 10%.
@@ -659,22 +610,21 @@ function buildMarginTrend(firstHalf, secondHalf, total) {
  * @returns VotingTrend or null if delta is within threshold
  */
 function buildPolarizationTrend(firstHalf, secondHalf, total) {
-    const closeFirst = firstHalf.filter((m) => m < 0.1).length / firstHalf.length;
-    const closeSecond = secondHalf.filter((m) => m < 0.1).length / secondHalf.length;
-    const closeDelta = closeSecond - closeFirst;
-    if (Math.abs(closeDelta) <= 0.1)
-        return null;
-    const isIncreasing = closeDelta > 0;
-    return {
-        trendId: isIncreasing ? 'increasing-polarization' : 'decreasing-polarization',
-        description: isIncreasing
-            ? 'More close votes detected — increasing polarization'
-            : 'Fewer close votes — declining polarization',
-        direction: isIncreasing ? 'increasing' : 'decreasing',
-        confidence: Math.min(1, Math.round(Math.abs(closeDelta) * 3 * 100) / 100),
-        recordCount: total,
-        metricValue: Math.round(closeDelta * 100) / 100,
-    };
+  const closeFirst = firstHalf.filter((m) => m < 0.1).length / firstHalf.length;
+  const closeSecond = secondHalf.filter((m) => m < 0.1).length / secondHalf.length;
+  const closeDelta = closeSecond - closeFirst;
+  if (Math.abs(closeDelta) <= 0.1) return null;
+  const isIncreasing = closeDelta > 0;
+  return {
+    trendId: isIncreasing ? 'increasing-polarization' : 'decreasing-polarization',
+    description: isIncreasing
+      ? 'More close votes detected — increasing polarization'
+      : 'Fewer close votes — declining polarization',
+    direction: isIncreasing ? 'increasing' : 'decreasing',
+    confidence: Math.min(1, Math.round(Math.abs(closeDelta) * 3 * 100) / 100),
+    recordCount: total,
+    metricValue: Math.round(closeDelta * 100) / 100,
+  };
 }
 /**
  * Detect voting trends across multiple voting records by analysing
@@ -687,49 +637,44 @@ function buildPolarizationTrend(firstHalf, secondHalf, total) {
  * @returns Array of detected VotingTrend objects (empty if fewer than 2 valid records)
  */
 export function detectVotingTrends(records) {
-    if (records.length < 2)
-        return [];
-    const toTimestamp = (d) => {
-        const t = Date.parse(d ?? '');
-        return Number.isFinite(t) ? t : Infinity;
-    };
-    const sorted = [...records].sort((a, b) => {
-        const ta = toTimestamp(a.date);
-        const tb = toTimestamp(b.date);
-        if (ta === tb)
-            return 0;
-        return ta < tb ? -1 : 1;
+  if (records.length < 2) return [];
+  const toTimestamp = (d) => {
+    const t = Date.parse(d ?? '');
+    return Number.isFinite(t) ? t : Infinity;
+  };
+  const sorted = [...records].sort((a, b) => {
+    const ta = toTimestamp(a.date);
+    const tb = toTimestamp(b.date);
+    if (ta === tb) return 0;
+    return ta < tb ? -1 : 1;
+  });
+  const { margins, results } = extractMarginData(sorted);
+  if (margins.length < 2) return [];
+  const mid = Math.floor(margins.length / 2);
+  const firstHalf = margins.slice(0, mid);
+  const secondHalf = margins.slice(mid);
+  const trends = [];
+  const marginTrend = buildMarginTrend(firstHalf, secondHalf, margins.length);
+  if (marginTrend) trends.push(marginTrend);
+  const polTrend = buildPolarizationTrend(firstHalf, secondHalf, margins.length);
+  if (polTrend) trends.push(polTrend);
+  const firstResults = results.slice(0, mid);
+  const secondResults = results.slice(mid);
+  const totalDecided = results.filter((r) => r === 'adopted' || r === 'rejected').length;
+  if (totalDecided > 0) {
+    const overallRate = computeAdoptionRate(results);
+    const firstRate = computeAdoptionRate(firstResults);
+    const secondRate = computeAdoptionRate(secondResults);
+    trends.push({
+      trendId: 'adoption-rate',
+      description: `Adoption rate is ${Math.round(overallRate * 100)}% across ${totalDecided} decided votes`,
+      direction: adoptionDirection(firstRate, secondRate),
+      confidence: Math.min(1, Math.round((totalDecided / margins.length) * 100) / 100),
+      recordCount: totalDecided,
+      metricValue: Math.round(overallRate * 100) / 100,
     });
-    const { margins, results } = extractMarginData(sorted);
-    if (margins.length < 2)
-        return [];
-    const mid = Math.floor(margins.length / 2);
-    const firstHalf = margins.slice(0, mid);
-    const secondHalf = margins.slice(mid);
-    const trends = [];
-    const marginTrend = buildMarginTrend(firstHalf, secondHalf, margins.length);
-    if (marginTrend)
-        trends.push(marginTrend);
-    const polTrend = buildPolarizationTrend(firstHalf, secondHalf, margins.length);
-    if (polTrend)
-        trends.push(polTrend);
-    const firstResults = results.slice(0, mid);
-    const secondResults = results.slice(mid);
-    const totalDecided = results.filter((r) => r === 'adopted' || r === 'rejected').length;
-    if (totalDecided > 0) {
-        const overallRate = computeAdoptionRate(results);
-        const firstRate = computeAdoptionRate(firstResults);
-        const secondRate = computeAdoptionRate(secondResults);
-        trends.push({
-            trendId: 'adoption-rate',
-            description: `Adoption rate is ${Math.round(overallRate * 100)}% across ${totalDecided} decided votes`,
-            direction: adoptionDirection(firstRate, secondRate),
-            confidence: Math.min(1, Math.round((totalDecided / margins.length) * 100) / 100),
-            recordCount: totalDecided,
-            metricValue: Math.round(overallRate * 100) / 100,
-        });
-    }
-    return trends.sort((a, b) => b.confidence - a.confidence);
+  }
+  return trends.sort((a, b) => b.confidence - a.confidence);
 }
 /**
  * Compute cross-session coalition stability by analysing average cohesion
@@ -740,63 +685,58 @@ export function detectVotingTrends(records) {
  * @returns CoalitionStabilityReport (empty report if no patterns)
  */
 export function computeCrossSessionCoalitionStability(patterns) {
-    if (patterns.length === 0) {
-        return {
-            overallStability: 0,
-            patternCount: 0,
-            stableGroups: [],
-            decliningGroups: [],
-            forecast: 'volatile',
-        };
-    }
-    // Aggregate cohesion per group, coercing and clamping to [0, 1]
-    const groupCohesions = new Map();
-    let includedPatterns = 0;
-    for (const p of patterns) {
-        const groupKey = asStr(p.group).trim();
-        if (groupKey.length === 0)
-            continue;
-        includedPatterns++;
-        const raw = asNum(p.cohesion);
-        const clamped = Math.max(0, Math.min(1, raw));
-        const existing = groupCohesions.get(groupKey);
-        if (existing) {
-            existing.push(clamped);
-        }
-        else {
-            groupCohesions.set(groupKey, [clamped]);
-        }
-    }
-    const stableGroups = [];
-    const decliningGroups = [];
-    let totalAvgCohesion = 0;
-    let groupCount = 0;
-    for (const [group, cohesions] of groupCohesions) {
-        const avgCohesion = cohesions.reduce((s, v) => s + v, 0) / cohesions.length;
-        totalAvgCohesion += avgCohesion;
-        groupCount++;
-        if (avgCohesion >= 0.7) {
-            stableGroups.push(group);
-        }
-        else if (avgCohesion < 0.5) {
-            decliningGroups.push(group);
-        }
-    }
-    const overallStability = groupCount > 0 ? Math.round((totalAvgCohesion / groupCount) * 100) / 100 : 0;
-    let forecast;
-    if (overallStability >= 0.7)
-        forecast = 'stable';
-    else if (overallStability >= 0.5)
-        forecast = 'at-risk';
-    else
-        forecast = 'volatile';
+  if (patterns.length === 0) {
     return {
-        overallStability,
-        patternCount: includedPatterns,
-        stableGroups,
-        decliningGroups,
-        forecast,
+      overallStability: 0,
+      patternCount: 0,
+      stableGroups: [],
+      decliningGroups: [],
+      forecast: 'volatile',
     };
+  }
+  // Aggregate cohesion per group, coercing and clamping to [0, 1]
+  const groupCohesions = new Map();
+  let includedPatterns = 0;
+  for (const p of patterns) {
+    const groupKey = asStr(p.group).trim();
+    if (groupKey.length === 0) continue;
+    includedPatterns++;
+    const raw = asNum(p.cohesion);
+    const clamped = Math.max(0, Math.min(1, raw));
+    const existing = groupCohesions.get(groupKey);
+    if (existing) {
+      existing.push(clamped);
+    } else {
+      groupCohesions.set(groupKey, [clamped]);
+    }
+  }
+  const stableGroups = [];
+  const decliningGroups = [];
+  let totalAvgCohesion = 0;
+  let groupCount = 0;
+  for (const [group, cohesions] of groupCohesions) {
+    const avgCohesion = cohesions.reduce((s, v) => s + v, 0) / cohesions.length;
+    totalAvgCohesion += avgCohesion;
+    groupCount++;
+    if (avgCohesion >= 0.7) {
+      stableGroups.push(group);
+    } else if (avgCohesion < 0.5) {
+      decliningGroups.push(group);
+    }
+  }
+  const overallStability =
+    groupCount > 0 ? Math.round((totalAvgCohesion / groupCount) * 100) / 100 : 0;
+  let forecast;
+  if (overallStability >= 0.7) forecast = 'stable';
+  else if (overallStability >= 0.5) forecast = 'at-risk';
+  else forecast = 'volatile';
+  return {
+    overallStability,
+    patternCount: includedPatterns,
+    stableGroups,
+    decliningGroups,
+    forecast,
+  };
 }
 /**
  * Rank MEP influence scores filtered by topic relevance.
@@ -811,28 +751,29 @@ export function computeCrossSessionCoalitionStability(patterns) {
  * @returns Sorted array of matching MEPInfluenceScore entries
  */
 export function rankMEPInfluenceByTopic(scores, topic) {
-    if (scores.length === 0)
-        return [];
-    const lowerTopic = String(topic ?? '')
-        .toLowerCase()
-        .trim();
-    const getSafeScore = (entry) => {
-        const raw = asNum(entry.overallScore);
-        return Number.isFinite(raw) ? raw : 0;
-    };
-    // If topic is empty, return all sorted by score
-    if (lowerTopic.length === 0) {
-        return [...scores].sort((a, b) => getSafeScore(b) - getSafeScore(a));
-    }
-    const matched = scores.filter((s) => {
-        const safeName = typeof s.mepName === 'string' ? s.mepName.toLowerCase() : '';
-        const safeRank = typeof s.rank === 'string' ? s.rank.toLowerCase() : '';
-        const safeId = typeof s.mepId === 'string' ? s.mepId.toLowerCase() : '';
-        return (safeName.includes(lowerTopic) || safeRank.includes(lowerTopic) || safeId.includes(lowerTopic));
-    });
-    // If no matches, return all sorted
-    const pool = matched.length > 0 ? matched : [...scores];
-    return pool.sort((a, b) => getSafeScore(b) - getSafeScore(a));
+  if (scores.length === 0) return [];
+  const lowerTopic = String(topic ?? '')
+    .toLowerCase()
+    .trim();
+  const getSafeScore = (entry) => {
+    const raw = asNum(entry.overallScore);
+    return Number.isFinite(raw) ? raw : 0;
+  };
+  // If topic is empty, return all sorted by score
+  if (lowerTopic.length === 0) {
+    return [...scores].sort((a, b) => getSafeScore(b) - getSafeScore(a));
+  }
+  const matched = scores.filter((s) => {
+    const safeName = typeof s.mepName === 'string' ? s.mepName.toLowerCase() : '';
+    const safeRank = typeof s.rank === 'string' ? s.rank.toLowerCase() : '';
+    const safeId = typeof s.mepId === 'string' ? s.mepId.toLowerCase() : '';
+    return (
+      safeName.includes(lowerTopic) || safeRank.includes(lowerTopic) || safeId.includes(lowerTopic)
+    );
+  });
+  // If no matches, return all sorted
+  const pool = matched.length > 0 ? matched : [...scores];
+  return pool.sort((a, b) => getSafeScore(b) - getSafeScore(a));
 }
 /**
  * Count stages whose document count exceeds 1.5× the average (bottlenecks).
@@ -841,15 +782,13 @@ export function rankMEPInfluenceByTopic(scores, topic) {
  * @returns Number of bottleneck stages
  */
 function countBottleneckStages(stageValues) {
-    if (stageValues.length === 0)
-        return 0;
-    const avgPerStage = stageValues.reduce((s, v) => s + v, 0) / stageValues.length;
-    let count = 0;
-    for (const val of stageValues) {
-        if (val > avgPerStage * 1.5 && val > 1)
-            count++;
-    }
-    return count;
+  if (stageValues.length === 0) return 0;
+  const avgPerStage = stageValues.reduce((s, v) => s + v, 0) / stageValues.length;
+  let count = 0;
+  for (const val of stageValues) {
+    if (val > avgPerStage * 1.5 && val > 1) count++;
+  }
+  return count;
 }
 /**
  * Compute average days per stage from a set of valid timestamps and the
@@ -860,19 +799,16 @@ function countBottleneckStages(stageValues) {
  * @returns Estimated average days per stage (rounded)
  */
 function computeDaysPerStage(dates, stageCount) {
-    if (dates.length < 2 || stageCount <= 0)
-        return 0;
-    let minDate = dates[0];
-    let maxDate = dates[0];
-    for (let i = 1; i < dates.length; i++) {
-        const current = dates[i];
-        if (current < minDate)
-            minDate = current;
-        if (current > maxDate)
-            maxDate = current;
-    }
-    const spanDays = (maxDate - minDate) / (1000 * 60 * 60 * 24);
-    return Math.round(spanDays / stageCount);
+  if (dates.length < 2 || stageCount <= 0) return 0;
+  let minDate = dates[0];
+  let maxDate = dates[0];
+  for (let i = 1; i < dates.length; i++) {
+    const current = dates[i];
+    if (current < minDate) minDate = current;
+    if (current > maxDate) maxDate = current;
+  }
+  const spanDays = (maxDate - minDate) / (1000 * 60 * 60 * 24);
+  return Math.round(spanDays / stageCount);
 }
 /**
  * Determine throughput assessment label based on date availability and
@@ -883,13 +819,10 @@ function computeDaysPerStage(dates, stageCount) {
  * @returns Throughput label: 'fast', 'normal', or 'slow'
  */
 function assessThroughput(hasDateData, avgDays) {
-    if (!hasDateData)
-        return 'normal';
-    if (avgDays <= 30)
-        return 'fast';
-    if (avgDays <= 90)
-        return 'normal';
-    return 'slow';
+  if (!hasDateData) return 'normal';
+  if (avgDays <= 30) return 'fast';
+  if (avgDays <= 90) return 'normal';
+  return 'slow';
 }
 /**
  * Build a legislative velocity report with stage-by-stage breakdown from
@@ -900,37 +833,38 @@ function assessThroughput(hasDateData, avgDays) {
  * @returns LegislativeVelocityReport summary
  */
 export function buildLegislativeVelocityReport(docs) {
-    if (docs.length === 0) {
-        return {
-            documentCount: 0,
-            stageBreakdown: Object.create(null),
-            averageDaysPerStage: 0,
-            bottleneckCount: 0,
-            throughputAssessment: assessThroughput(false, 0),
-        };
-    }
-    const stageBreakdown = Object.create(null);
-    for (const doc of docs) {
-        const status = typeof doc.status === 'string' ? doc.status.trim() : '';
-        const type = typeof doc.type === 'string' ? doc.type.trim() : '';
-        const rawStage = status || type || 'Unknown';
-        const stage = rawStage === '__proto__' || rawStage === 'constructor' || rawStage === 'prototype'
-            ? 'Unknown'
-            : rawStage;
-        stageBreakdown[stage] = (stageBreakdown[stage] ?? 0) + 1;
-    }
-    const bottleneckCount = countBottleneckStages(Object.values(stageBreakdown));
-    const dates = docs
-        .map((d) => (d.date ? new Date(d.date).getTime() : NaN))
-        .filter((t) => !Number.isNaN(t));
-    const hasDateData = dates.length >= 2;
-    const averageDaysPerStage = computeDaysPerStage(dates, Object.keys(stageBreakdown).length);
+  if (docs.length === 0) {
     return {
-        documentCount: docs.length,
-        stageBreakdown,
-        averageDaysPerStage,
-        bottleneckCount,
-        throughputAssessment: assessThroughput(hasDateData, averageDaysPerStage),
+      documentCount: 0,
+      stageBreakdown: Object.create(null),
+      averageDaysPerStage: 0,
+      bottleneckCount: 0,
+      throughputAssessment: assessThroughput(false, 0),
     };
+  }
+  const stageBreakdown = Object.create(null);
+  for (const doc of docs) {
+    const status = typeof doc.status === 'string' ? doc.status.trim() : '';
+    const type = typeof doc.type === 'string' ? doc.type.trim() : '';
+    const rawStage = status || type || 'Unknown';
+    const stage =
+      rawStage === '__proto__' || rawStage === 'constructor' || rawStage === 'prototype'
+        ? 'Unknown'
+        : rawStage;
+    stageBreakdown[stage] = (stageBreakdown[stage] ?? 0) + 1;
+  }
+  const bottleneckCount = countBottleneckStages(Object.values(stageBreakdown));
+  const dates = docs
+    .map((d) => (d.date ? new Date(d.date).getTime() : NaN))
+    .filter((t) => !Number.isNaN(t));
+  const hasDateData = dates.length >= 2;
+  const averageDaysPerStage = computeDaysPerStage(dates, Object.keys(stageBreakdown).length);
+  return {
+    documentCount: docs.length,
+    stageBreakdown,
+    averageDaysPerStage,
+    bottleneckCount,
+    throughputAssessment: assessThroughput(hasDateData, averageDaysPerStage),
+  };
 }
 //# sourceMappingURL=intelligence-analysis.js.map
