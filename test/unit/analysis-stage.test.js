@@ -632,10 +632,9 @@ describe('runAnalysisStage', () => {
       // Should contain Mermaid chart
       expect(content).toContain('```mermaid');
       expect(content).toContain('quadrantChart');
-      // Should contain AI enrichment marker — no hardcoded conclusions
     });
 
-    it('impact-matrix includes Mermaid pie chart and AI markers', async () => {
+    it('impact-matrix includes Mermaid pie chart', async () => {
       await runAnalysisStage(buildPopulatedFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -653,7 +652,6 @@ describe('runAnalysisStage', () => {
       // Mermaid chart
       expect(content).toContain('```mermaid');
       expect(content).toContain('pie title');
-      // AI marker
     });
 
     it('actor-mapping identifies actors from populated data', async () => {
@@ -673,7 +671,7 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('Actor Classification');
     });
 
-    it('forces-analysis shows force assessment with Mermaid pie chart', async () => {
+    it('forces-analysis includes Mermaid pie chart', async () => {
       await runAnalysisStage(buildPopulatedFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -690,7 +688,6 @@ describe('runAnalysisStage', () => {
       // Mermaid chart
       expect(content).toContain('```mermaid');
       expect(content).toContain('pie title');
-      // AI enrichment marker
     });
 
     it('political-stride uses real threat assessment for markdown', async () => {
@@ -805,7 +802,7 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('S&D');
     });
 
-    it('quantitative-swot generates SWOT with Mermaid quadrant chart', async () => {
+    it('quantitative-swot includes Mermaid quadrant chart', async () => {
       await runAnalysisStage(buildPopulatedFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -822,8 +819,6 @@ describe('runAnalysisStage', () => {
       // Mermaid quadrant chart
       expect(content).toContain('```mermaid');
       expect(content).toContain('quadrantChart');
-      // AI enrichment marker
-      // Data-driven content (no hardcoded political conclusions)
       expect(content).toContain('procedures');
       expect(content).toContain('voting records');
     });
@@ -1000,7 +995,7 @@ describe('runAnalysisStage', () => {
       expect(ctx.manifest.analyzedDocumentIds).toContain('shared-doc');
     });
 
-    it('per-document files contain SWOT and threat assessment with AI markers', async () => {
+    it('per-document files contain SWOT and threat assessment', async () => {
       const data = {
         ...buildTestFetchedData(),
         adoptedTexts: [
@@ -1023,7 +1018,6 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('Document Analysis:');
       expect(content).toContain('SWOT Analysis');
       expect(content).toContain('Threat Assessment');
-      // AI markers instead of hardcoded conclusions
       expect(content).toContain('Intelligence Summary');
     });
 
