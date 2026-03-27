@@ -145,19 +145,18 @@ graph LR
     H --> I[Release]
     I --> J[Deploy]
 
-    classDef trigger fill:#bbdefb,stroke:#333,stroke-width:1.5px,color:black
-    classDef test fill:#c8e6c9,stroke:#333,stroke-width:1.5px,color:black
-    classDef security fill:#ffccbc,stroke:#333,stroke-width:1.5px,color:black
-    classDef gate fill:#fff9c4,stroke:#333,stroke-width:1.5px,color:black
-    classDef integrity fill:#d1c4e9,stroke:#333,stroke-width:1.5px,color:black
-    classDef deploy fill:#a5d6a7,stroke:#333,stroke-width:1.5px,color:black
+    classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:1.5px,color:white
+    classDef process fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef security fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+    classDef decision fill:#f39c12,stroke:#e67e22,stroke-width:1.5px,color:black
+    classDef success fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
 
     class A trigger
-    class B test
+    class B process
     class C,D security
-    class E,F gate
-    class G,H integrity
-    class I,J deploy
+    class E,F decision
+    class G,H security
+    class I,J success
 ```
 
 ### Workflow Relationships
@@ -202,16 +201,16 @@ flowchart TB
     main --> DeployS3[Deploy to S3 + CloudFront]
     main -.-> |"tag created"| Release
 
-    classDef integration fill:#a0c8e0,stroke:#333,stroke-width:1.5px,color:black
-    classDef deployment fill:#86b5d9,stroke:#333,stroke-width:1.5px,color:black
-    classDef process fill:#c8e6c9,stroke:#333,stroke-width:1.5px,color:black
-    classDef agentic fill:#d1c4e9,stroke:#333,stroke-width:1.5px,color:black
-    classDef security fill:#ffccbc,stroke:#333,stroke-width:1.5px,color:black
+    classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:1.5px,color:white
+    classDef process fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef success fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+    classDef decision fill:#f39c12,stroke:#e67e22,stroke-width:1.5px,color:black
+    classDef security fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
 
-    class PR,CodeQLScan,DependencyReview,Labeler,REUSECheck integration
-    class Release,BuildTest,BuildPackage,GenerateSBOM,Attestations,CreateRelease deployment
-    class main,DeployS3 process
-    class Schedule1,AgenticNews,Analysis,Articles,ContentPR agentic
+    class PR,CodeQLScan,DependencyReview,Labeler,REUSECheck trigger
+    class Release,BuildTest,BuildPackage,GenerateSBOM,Attestations,CreateRelease process
+    class main,DeployS3 success
+    class Schedule1,AgenticNews,Analysis,Articles,ContentPR decision
     class SecurityEvents,Weekly,WeeklyScan,BranchProtection,Scorecard security
 ```
 
@@ -1032,16 +1031,16 @@ flowchart LR
 
 ### Specific Hardening Measures
 
-Every workflow in the EU Parliament Monitor project implements:
+The project's workflows collectively implement the following security measures (applied per workflow where applicable):
 
 1. **🔒 Permissions Restriction**: Explicit least-privilege permissions with `read-all` or empty `{}` top-level
 2. **📌 SHA Pinning**: 100% of actions pinned to specific SHA hashes — zero tag references
 3. **🛡️ Runner Hardening**: StepSecurity `harden-runner@58077d3c7e43986b6b15fba718e8ea69e387dfcc` for audit logging
-4. **📄 SBOM Generation**: Software Bill of Materials in SPDX format via `anchore/sbom-action`
-5. **🔏 Build Attestations**: SLSA Level 3 provenance via `actions/attest-build-provenance`
-6. **⏱️ Timeout Limits**: All workflows use explicit `timeout-minutes` to prevent resource exhaustion
-7. **🔑 OIDC Tokens**: AWS deployment uses OIDC federation — no long-lived secrets
-8. **🚫 Egress Control**: Deploy workflows use `harden-runner` with `egress-policy: block`
+4. **📄 SBOM Generation**: The release workflow generates a Software Bill of Materials in SPDX format via `anchore/sbom-action`
+5. **🔏 Build Attestations**: The release workflow creates SLSA Level 3 provenance via `actions/attest-build-provenance`
+6. **⏱️ Timeout Limits**: Critical workflows (e.g., E2E and agentic `*.lock.yml` pipelines) use explicit `timeout-minutes` to prevent resource exhaustion; remaining workflows rely on GitHub's default job timeouts and are monitored for anomalies
+7. **🔑 OIDC Tokens**: The `deploy-s3` workflow uses AWS OIDC federation — no long-lived secrets
+8. **🚫 Egress Control**: The `deploy-s3` workflow uses `harden-runner` with `egress-policy: block`
 
 ---
 
