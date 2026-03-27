@@ -105,7 +105,7 @@ This document outlines planned enhancements to the EU Parliament Monitor CI/CD w
 
 | Phase | Timeline | Focus | Key Deliverables | Status |
 |-------|----------|-------|------------------|--------|
-| **Phase 0** | ✅ Completed | Agentic Workflows | 9 gh-aw news workflows, Copilot agent setup, 100% SHA-pinning | ✅ Done |
+| **Phase 0** | ✅ Completed | Agentic Workflows | 10 gh-aw news workflows, Copilot agent setup, 100% SHA-pinning | ✅ Done |
 | **Phase 1** | Q2 2026 | Security Hardening | FOSSA, knip, advanced scanning | 🔄 In Progress |
 | **Phase 2** | Q3 2026 | Performance & Quality | Load testing, mutation testing, E2E expansion | 📋 Planned |
 | **Phase 3** | Q4 2026 | Advanced Automation | Multi-environment, canary deployments | 📋 Planned |
@@ -159,12 +159,12 @@ The following capabilities have already been delivered and are documented in [WO
 
 ### 0.1 Complete SHA-Pinning Migration — ✅ COMPLETED
 
-**Status:** All 13 standard workflows now use 100% SHA-pinned actions.  
+**Status:** All 12 standard workflows now use 100% SHA-pinned actions.  
 **Evidence:** Verified in [WORKFLOWS.md §Workflow Permissions Matrix](WORKFLOWS.md)
 
 ### 0.2 Agentic News Workflows — ✅ COMPLETED
 
-**Status:** 9 agentic news workflows compiled via `gh-aw` (GitHub Agentic Workflows v0.57.0) are in production.  
+**Status:** 10 agentic news workflows compiled via `gh-aw` (GitHub Agentic Workflows v0.57.0) are in production.  
 **Engine:** GitHub Copilot CLI with `claude-opus-4.6` model  
 **Data Source:** `european-parliament-mcp-server` via MCP protocol  
 **Coverage:** 14 languages (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH)
@@ -180,6 +180,7 @@ The following capabilities have already been delivered and are documented in [WO
 | `news-monthly-review.lock.yml` | 28th of month 10:00 UTC | Monthly retrospective |
 | `news-breaking.lock.yml` | Every 6 hours | Breaking news |
 | `news-article-generator.lock.yml` | Manual dispatch | Multi-type generator |
+| `news-translate.lock.yml` | After content PRs merged | Translate EN articles → 13 languages |
 
 ### 0.3 Copilot Agent Setup — ✅ COMPLETED
 

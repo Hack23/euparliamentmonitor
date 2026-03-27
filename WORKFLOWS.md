@@ -108,7 +108,7 @@ EU Parliament Monitor's CI/CD workflows implement security controls mandated by 
 
 ## 📋 Executive Summary
 
-EU Parliament Monitor employs a comprehensive suite of **22 GitHub Actions workflows** (13 standard + 9 agentic) for automated intelligence operations, quality assurance, security scanning, and release management. All workflows follow [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) standards.
+EU Parliament Monitor employs a comprehensive suite of **22 GitHub Actions workflows** (12 standard + 10 agentic) for automated intelligence operations, quality assurance, security scanning, and release management. All workflows follow [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) standards.
 
 ### Workflow Portfolio
 
@@ -129,7 +129,7 @@ EU Parliament Monitor employs a comprehensive suite of **22 GitHub Actions workf
 | 13 | **Setup Labels** | Repository label management | Manual dispatch | Repository governance |
 | 14 | **Copilot Setup Steps** | GitHub Copilot agent environment setup | Push/PR to itself + manual | Agent infrastructure |
 
-**🔒 Security Posture:** All 12 standard workflows use SHA-pinned actions (100%), Harden Runner (`step-security/harden-runner@58077d3c7e43986b6b15fba718e8ea69e387dfcc # v2.15.1`), and minimal permissions following least privilege principle.
+**🔒 Security Posture:** All 12 standard workflows use SHA-pinned actions (100%), Harden Runner (`step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0`), and minimal permissions following least privilege principle.
 
 ### 🏗️ Pipeline Architecture
 
@@ -1036,7 +1036,7 @@ The project's workflows collectively implement the following security measures (
 
 1. **🔒 Permissions Restriction**: Explicit least-privilege permissions with `read-all` or empty `{}` top-level
 2. **📌 SHA Pinning**: 100% of actions pinned to specific SHA hashes — zero tag references
-3. **🛡️ Runner Hardening**: StepSecurity `harden-runner@58077d3c7e43986b6b15fba718e8ea69e387dfcc` for audit logging
+3. **🛡️ Runner Hardening**: StepSecurity `harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0` for audit logging
 4. **📄 SBOM Generation**: The release workflow generates a Software Bill of Materials in SPDX format via `anchore/sbom-action`
 5. **🔏 Build Attestations**: The release workflow creates SLSA Level 3 provenance via `actions/attest-build-provenance`
 6. **⏱️ Timeout Limits**: Critical workflows (e.g., E2E and agentic `*.lock.yml` pipelines) use explicit `timeout-minutes` to prevent resource exhaustion; remaining workflows rely on GitHub's default job timeouts and are monitored for anomalies
