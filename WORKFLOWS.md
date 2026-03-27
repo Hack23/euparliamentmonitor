@@ -2,11 +2,11 @@
   <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
 </p>
 
-<h1 align="center">⚙️ EU Parliament Monitor — CI/CD Workflows</h1>
+<h1 align="center">🔄 EU Parliament Monitor — CI/CD Workflows</h1>
 
 <p align="center">
-  <strong>Current State Workflow Documentation</strong><br>
-  <em>Automated Intelligence Operations with Security-First Design</em>
+  <strong>🛡️ Automated Security Excellence Through Continuous Integration</strong><br>
+  <em>🎯 Transparent Pipeline Operations Demonstrating ISMS Policy Compliance</em>
 </p>
 
 <p align="center">
@@ -18,6 +18,54 @@
 
 **📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:** 2026-03-10 (UTC)  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-10
+
+---
+
+## 📊 Workflow Status Badges
+
+**CI/CD Pipeline Status:**
+
+[![Test and Report](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml)
+[![CodeQL](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml)
+[![E2E Tests](https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml)
+[![Release](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml)
+[![Dependency Review](https://github.com/Hack23/euparliamentmonitor/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/dependency-review.yml)
+[![Scorecard supply-chain security](https://github.com/Hack23/euparliamentmonitor/actions/workflows/scorecards.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/scorecards.yml)
+[![Deploy S3](https://github.com/Hack23/euparliamentmonitor/actions/workflows/deploy-s3.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/deploy-s3.yml)
+[![REUSE Compliance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml)
+
+**Security & Quality Metrics:**
+
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge)](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor)
+[![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://github.com/Hack23/euparliamentmonitor/attestations)
+
+---
+
+## 🔐 ISMS Policy Alignment
+
+EU Parliament Monitor's CI/CD workflows implement security controls mandated by Hack23 AB's ISMS framework:
+
+| **ISMS Policy** | **Workflow Implementation** |
+| --- | --- |
+| [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | SAST (CodeQL), SCA (Dependency Review), E2E testing, performance testing |
+| [📝 Change Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Change_Management.md) | Automated testing gates, security scanning, PR review requirements |
+| [🔍 Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | Dependabot, CodeQL, OSSF Scorecard, npm audit, security advisories |
+| [🔓 Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | SLSA attestations, SBOM generation, REUSE license compliance |
+| [🔐 Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Security-hardened runners, SHA-pinned actions, least privilege permissions |
+| [🔑 Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md) | OIDC authentication, minimal workflow permissions, branch protection |
+| [🔒 Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | Sigstore signing, SLSA L3 provenance, build attestations |
+| [🚨 Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | Automated rollback procedures, incident classification workflows |
+| [💾 Backup & Recovery Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md) | Multi-CDN deployment (S3 + GitHub Pages DR), version control |
+| [🤝 Third Party Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md) | SHA-pinned actions, dependency review, supply chain security |
+
+### Compliance Framework Mapping
+
+| **Framework** | **Version** | **Relevant Controls** | **Implementation** |
+| --- | --- | --- | --- |
+| **ISO 27001** | 2022 | A.8.25, A.8.26, A.8.27, A.8.28, A.12.1.4 | Secure development lifecycle, testing, change management |
+| **NIST CSF** | 2.0 | PR.DS, DE.CM, ID.SC, RS.MI | Data security, monitoring, supply chain, mitigation |
+| **CIS Controls** | v8.1 | 2.2, 4.1, 7.1, 16.1, 17.1 | Software inventory, access control, code signing, application security |
+| **EU CRA** | 2024 | Art. 10, Art. 11 | SBOM generation, vulnerability disclosure, security updates |
 
 ---
 
@@ -132,6 +180,20 @@ graph TD
     J --> K[🌐 14-Language HTML Output]
     K --> L[📝 Create Pull Request<br/>Includes analysis-output/ artifacts]
     L --> M[✅ PR Ready for Review]
+
+    classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
+    classDef process fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef decision fill:#f39c12,stroke:#e67e22,stroke-width:2px,color:black
+    classDef skip fill:#95a5a6,stroke:#7f8c8d,stroke-width:1.5px,color:white
+    classDef analysis fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+    classDef output fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+
+    class A,B trigger
+    class D,F,G,H,I process
+    class C decision
+    class E skip
+    class J1,J1a,J1b,J1c,J1d analysis
+    class J,K,L,M output
 ```
 
 #### Common Agentic Workflow Properties
@@ -205,6 +267,16 @@ graph TD
     D -->|Generate| E[🌍 13 Language Translations]
     E -->|Merge PR| C
     C -->|Deploy| F[📊 GitHub Pages<br/>Language Switchers + Sitemaps]
+
+    classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
+    classDef process fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef deploy fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+    classDef translation fill:#e67e22,stroke:#d35400,stroke-width:1.5px,color:white
+
+    class A trigger
+    class B,C process
+    class D,E translation
+    class F deploy
 ```
 
 #### Content Workflow Schedule
@@ -353,6 +425,18 @@ graph LR
     C --> F
     D --> F
     E --> F
+
+    classDef prepare fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
+    classDef test fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+    classDef security fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+    classDef perf fill:#f39c12,stroke:#e67e22,stroke-width:1.5px,color:black
+    classDef report fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+
+    class A prepare
+    class B,C test
+    class D perf
+    class E security
+    class F report
 ```
 
 | Job | Name | Purpose | Key Steps |
@@ -484,6 +568,20 @@ graph TD
     N --> O[🚀 Release Job]
     O --> P[📝 Draft Release Notes]
     P --> Q[🎉 Create GitHub Release]
+
+    classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
+    classDef test fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+    classDef docs fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef build fill:#f39c12,stroke:#e67e22,stroke-width:1.5px,color:black
+    classDef security fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+    classDef release fill:#2ecc71,stroke:#27ae60,stroke-width:2px,color:white
+
+    class A trigger
+    class B,C,D test
+    class E,F,G,H,I docs
+    class J,K build
+    class L,M,N security
+    class O,P,Q release
 ```
 
 #### Release Jobs
@@ -596,6 +694,16 @@ graph LR
     D --> E[Sync to S3]
     E --> F[Invalidate CloudFront]
     F --> G[✅ Production Live]
+
+    classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
+    classDef security fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+    classDef aws fill:#FF9900,stroke:#232F3E,stroke-width:1.5px,color:white
+    classDef complete fill:#27ae60,stroke:#1e8449,stroke-width:2px,color:white
+
+    class A trigger
+    class B,C security
+    class D,E,F aws
+    class G complete
 ```
 
 > **Note:** `deploy-s3.yml` is the **only workflow** using `egress-policy: block` (all other workflows use `audit`). Outbound network calls are restricted to an explicit allowlist defined in the `allowed-endpoints` parameter of the Harden Runner step within [deploy-s3.yml](.github/workflows/deploy-s3.yml).
@@ -704,6 +812,14 @@ graph LR
     B --> C[Install gh-aw CLI]
     C --> D[Compile .md → .lock.yml]
     D --> E[Commit & Push Lock Files]
+
+    classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
+    classDef process fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef output fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+
+    class A trigger
+    class B,C,D process
+    class E output
 ```
 
 #### Security Controls
@@ -795,6 +911,56 @@ graph LR
 
 ---
 
+## 🔐 Security Hardening Practices
+
+EU Parliament Monitor implements industry best practices for securing CI/CD pipelines, with StepSecurity hardening for all workflows:
+
+```mermaid
+flowchart LR
+    subgraph "🛡️ Pipeline Security Hardening"
+        PH[Permissions Hardening] --> LAP[Least Access Principle]
+        PS[Pin SHA Versions] --> IDT[Immutable Dependencies]
+        AV[Action Verification] --> TS[Trusted Sources]
+        RH[Runner Hardening] --> AL[Audit Logging]
+        OT[OIDC Tokens] --> EF[Ephemeral Credentials]
+    end
+
+    subgraph "🔒 Security Measures"
+        AS[Asset Security] --> AC[Asset Verification]
+        DS[Dependency Security] --> PD[Dependency Pinning]
+        BS[Build Security] --> BA[Build Attestations]
+        RS[Release Security] --> SBOM[SBOM Generation]
+    end
+
+    PH --> AS
+    PS --> DS
+    AV --> BS
+    RH --> RS
+
+    classDef practice fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+    classDef measures fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+
+    class PH,PS,AV,RH,OT practice
+    class LAP,IDT,TS,AL,EF practice
+    class AS,DS,BS,RS measures
+    class AC,PD,BA,SBOM measures
+```
+
+### Specific Hardening Measures
+
+Every workflow in the EU Parliament Monitor project implements:
+
+1. **🔒 Permissions Restriction**: Explicit least-privilege permissions with `read-all` or empty `{}` top-level
+2. **📌 SHA Pinning**: 100% of actions pinned to specific SHA hashes — zero tag references
+3. **🛡️ Runner Hardening**: StepSecurity `harden-runner@58077d3c7e43986b6b15fba718e8ea69e387dfcc` for audit logging
+4. **📄 SBOM Generation**: Software Bill of Materials in SPDX format via `anchore/sbom-action`
+5. **🔏 Build Attestations**: SLSA Level 3 provenance via `actions/attest-build-provenance`
+6. **⏱️ Timeout Limits**: All workflows use explicit `timeout-minutes` to prevent resource exhaustion
+7. **🔑 OIDC Tokens**: AWS deployment uses OIDC federation — no long-lived secrets
+8. **🚫 Egress Control**: Deploy workflows use `harden-runner` with `egress-policy: block`
+
+---
+
 ## 🛡️ Workflow Security Architecture
 
 ### Workflow Permissions Matrix
@@ -859,6 +1025,20 @@ graph TD
     end
 
     Layer1 --> Layer2 --> Layer3 --> Layer4 --> Layer5 --> Layer6
+
+    classDef layer1 fill:#3498db,stroke:#2980b9,stroke-width:1.5px,color:white
+    classDef layer2 fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+    classDef layer3 fill:#f1c40f,stroke:#f39c12,stroke-width:1.5px,color:black
+    classDef layer4 fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+    classDef layer5 fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef layer6 fill:#2c3e50,stroke:#1a252f,stroke-width:1.5px,color:white
+
+    class PC,LS layer1
+    class BP,CR layer2
+    class HR,ST layer3
+    class CQL,DR,NA layer4
+    class SB,AT layer5
+    class S3,CF layer6
 ```
 
 ---
@@ -895,6 +1075,18 @@ graph LR
     G -->|❌ Fail| I[Commit Blocked]
     I --> J[Developer Fixes Issues]
     J --> A
+
+    classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
+    classDef decision fill:#f39c12,stroke:#e67e22,stroke-width:2px,color:black
+    classDef lint fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef pass fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+    classDef fail fill:#e74c3c,stroke:#c0392b,stroke-width:2px,color:white
+
+    class A trigger
+    class B,G decision
+    class C,D,E,F lint
+    class H pass
+    class I,J fail
 ```
 
 | Hook | Version | Purpose | Security Value |
@@ -943,6 +1135,18 @@ graph TD
     J --> K[actions/attest-sbom<br/>Subject: release zip + SBOM path]
     K --> L[GitHub Release: all artifacts attached]
     L --> M[Verification: gh attestation verify --owner Hack23 file.zip]
+
+    classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
+    classDef build fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef security fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+    classDef crypto fill:#f39c12,stroke:#e67e22,stroke-width:1.5px,color:black
+    classDef release fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+
+    class A trigger
+    class B,C,D,E build
+    class F,K security
+    class G,H,I,J crypto
+    class L,M release
 ```
 
 ### Attestation Verification
@@ -1015,6 +1219,14 @@ graph LR
     RL --> WL
     SC2 --> SAR
     SAR --> GH
+
+    classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
+    classDef scanning fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+    classDef output fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+
+    class PR,PS,SC trigger
+    class CQL,NA,DR,RL,SC2 scanning
+    class GH,PRC,SAR,WL output
 ```
 
 ---
@@ -1044,6 +1256,20 @@ graph TD
     K --> L[S3 Sync<br/>Cache-optimised]
     L --> M[CloudFront Invalidation<br/>Cache flush]
     M --> N[✅ Production Live<br/>hack23.com]
+
+    classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
+    classDef decision fill:#f39c12,stroke:#e67e22,stroke-width:2px,color:black
+    classDef pass fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+    classDef fail fill:#e74c3c,stroke:#c0392b,stroke-width:2px,color:white
+    classDef aws fill:#FF9900,stroke:#232F3E,stroke-width:1.5px,color:white
+    classDef security fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+
+    class A trigger
+    class B,D,E,F,G decision
+    class C,H,N pass
+    class BLOCK fail
+    class I,J,K security
+    class L,M aws
 ```
 
 ### AWS Deployment Security Controls
@@ -1094,6 +1320,20 @@ graph TD
     G --> N[✅ Rollback Complete]
     J --> N
     M --> N
+
+    classDef alert fill:#e74c3c,stroke:#c0392b,stroke-width:2px,color:white
+    classDef decision fill:#f39c12,stroke:#e67e22,stroke-width:2px,color:black
+    classDef content fill:#3498db,stroke:#2980b9,stroke-width:1.5px,color:white
+    classDef security fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef dependency fill:#e67e22,stroke:#d35400,stroke-width:1.5px,color:white
+    classDef complete fill:#27ae60,stroke:#1e8449,stroke-width:2px,color:white
+
+    class A alert
+    class B decision
+    class C,F,G content
+    class D,H,I,J security
+    class E,K,L,M dependency
+    class N complete
 ```
 
 ### Recovery Time Objectives
@@ -1139,6 +1379,20 @@ graph LR
     I --> J{Pass?}
     J -->|Yes| K[Auto-merge eligible]
     J -->|No| L[Manual review required]
+
+    classDef scanner fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
+    classDef decision fill:#f39c12,stroke:#e67e22,stroke-width:2px,color:black
+    classDef group fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef pr fill:#e67e22,stroke:#d35400,stroke-width:1.5px,color:white
+    classDef pass fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+    classDef fail fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+
+    class A scanner
+    class B,J decision
+    class C,D,E group
+    class F,G,H pr
+    class I,K pass
+    class L fail
 ```
 
 ### Commit Message Convention
@@ -1188,40 +1442,42 @@ The following tools integrate with the GitHub Security Dashboard via SARIF or na
 
 ---
 
-## 🔒 ISMS Policy Alignment
+## 🔒 ISMS Policy Alignment Summary
 
 ### Policy Coverage
 
-| Policy | Workflows Implementing Controls | Evidence |
-|--------|--------------------------------|----------|
-| **Secure Development Policy** | All workflows | This document |
-| **Information Security Policy** | CodeQL, OpenSSF Scorecard | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
-| **Access Control Policy** | deploy-s3 (OIDC), release (minimal permissions) | Workflow files |
-| **Cryptography Policy** | deploy-s3 (TLS), release (Sigstore/SLSA) | [Attestations](https://github.com/Hack23/euparliamentmonitor/attestations) |
-| **Open Source Policy** | REUSE compliance workflow | [REUSE.toml](REUSE.toml) |
-| **Vulnerability Management** | CodeQL, npm audit, Dependency Review | CodeQL: GitHub Security tab; npm audit: workflow logs (Actions); Dependency Review: PR checks & review comments |
+| **ISMS Policy** | **Workflows Implementing Controls** | **Evidence** |
+| --- | --- | --- |
+| [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | All workflows | This document |
+| [🔐 Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | CodeQL, OpenSSF Scorecard | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
+| [🔑 Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md) | deploy-s3 (OIDC), release (minimal permissions) | Workflow files |
+| [🔒 Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | deploy-s3 (TLS), release (Sigstore/SLSA) | [Attestations](https://github.com/Hack23/euparliamentmonitor/attestations) |
+| [🔓 Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | REUSE compliance workflow | [REUSE.toml](REUSE.toml) |
+| [🔍 Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | CodeQL, npm audit, Dependency Review | GitHub Security tab, PR checks |
+| [📝 Change Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Change_Management.md) | Branch protection, CI gates, PR reviews | Workflow gate enforcement |
+| [🚨 Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | Rollback procedures, incident classification | §Failure Handling section |
 
+### Secure Development Policy Alignment
 
-
-### Policy Alignment
-
-| Policy Section | Implementation | Evidence |
-|----------------|----------------|----------|
+| **Policy Section** | **Implementation** | **Evidence** |
+| --- | --- | --- |
 | **§3.2 Architecture Documentation** | Documentation-as-code in release workflow | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
 | **§3.3 Testing Requirements** | 169 unit tests, E2E tests, 82%+ coverage | [Test & Report Workflow](.github/workflows/test-and-report.yml) |
 | **§4.1 CI/CD Security** | All workflows with security controls | This document |
 | **§4.3 Security Scanning** | CodeQL, npm audit, Dependabot | [CodeQL Workflow](.github/workflows/codeql.yml) |
 | **§4.4 Supply Chain Security** | SLSA L3, SBOM, Dependency Review, REUSE | [Release Workflow](.github/workflows/release.yml) |
+| **§10.1 CI/CD Workflow Excellence** | 22 automated workflows, 100% SHA-pinned | This document |
 
 ### Compliance Frameworks
 
-| Framework | Controls Implemented | Evidence Location |
-|-----------|---------------------|-------------------|
-| **ISO 27001** | A.12.1.4, A.12.6.1, A.14.2.1, A.14.2.5 | Workflow files + this document |
-| **NIST CSF 2.0** | ID.SC (Supply Chain), DE.CM (Detection), PR.DS (Data Security) | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
-| **CIS Controls v8.1** | 16.1, 16.5, 16.7, 16.12 | [Scorecard](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor) |
-| **SLSA** | Level 3 (Build provenance, hermetic, non-falsifiable, authenticated) | [Attestations](https://github.com/Hack23/euparliamentmonitor/attestations) |
-| **OpenSSF Best Practices** | SHA-pinned actions (100%), Harden Runner, branch protection | [Scorecard Report](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor) |
+| **Framework** | **Version** | **Controls Implemented** | **Evidence Location** |
+| --- | --- | --- | --- |
+| **ISO 27001** | 2022 | A.8.25, A.8.26, A.8.27, A.8.28, A.12.1.4, A.12.6.1, A.14.2.1 | Workflow files + this document |
+| **NIST CSF** | 2.0 | ID.SC (Supply Chain), DE.CM (Detection), PR.DS (Data Security) | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
+| **CIS Controls** | v8.1 | 2.2, 4.1, 7.1, 16.1, 16.5, 16.7, 16.12 | [Scorecard](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor) |
+| **SLSA** | L3 | Build provenance, hermetic build, non-falsifiable, authenticated | [Attestations](https://github.com/Hack23/euparliamentmonitor/attestations) |
+| **OpenSSF** | — | SHA-pinned actions (100%), Harden Runner, branch protection | [Scorecard Report](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor) |
+| **EU CRA** | 2024 | SBOM generation, vulnerability disclosure, security updates | [Release Workflow](.github/workflows/release.yml) |
 
 ---
 
