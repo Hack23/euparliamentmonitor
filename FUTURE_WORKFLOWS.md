@@ -5,8 +5,8 @@
 <h1 align="center">🚀 EU Parliament Monitor — Future CI/CD Workflows</h1>
 
 <p align="center">
-  <strong>Planned Workflow Enhancements & Roadmap (2026-2037)</strong><br>
-  <em>Evolution towards Advanced Automation, AI-Driven Operations & AGI-Ready Pipelines</em>
+  <strong>🔮 Planned Workflow Enhancements & Roadmap (2026-2037)</strong><br>
+  <em>🎯 Evolution towards Advanced Automation, AI-Driven Operations & AGI-Ready Pipelines</em>
 </p>
 
 <p align="center">
@@ -105,10 +105,51 @@ This document outlines planned enhancements to the EU Parliament Monitor CI/CD w
 
 | Phase | Timeline | Focus | Key Deliverables | Status |
 |-------|----------|-------|------------------|--------|
-| **Phase 0** | ✅ Completed | Agentic Workflows | 9 gh-aw news workflows, Copilot agent setup, 100% SHA-pinning | ✅ Done |
+| **Phase 0** | ✅ Completed | Agentic Workflows | 10 gh-aw news workflows, Copilot agent setup, 100% SHA-pinning | ✅ Done |
 | **Phase 1** | Q2 2026 | Security Hardening | FOSSA, knip, advanced scanning | 🔄 In Progress |
 | **Phase 2** | Q3 2026 | Performance & Quality | Load testing, mutation testing, E2E expansion | 📋 Planned |
 | **Phase 3** | Q4 2026 | Advanced Automation | Multi-environment, canary deployments | 📋 Planned |
+
+### Pipeline Evolution Architecture
+
+```mermaid
+flowchart TD
+    subgraph Phase0["✅ Phase 0: Current State (Completed)"]
+        P0A[🤖 10 Agentic Workflows] --> P0B[🔐 100% SHA Pinning]
+        P0B --> P0C[🛡️ Harden Runner]
+        P0C --> P0D[📜 SLSA L3 Provenance]
+    end
+
+    subgraph Phase1["🔐 Phase 1: Security Hardening (Q2 2026)"]
+        P1A[📋 FOSSA License Compliance] --> P1B[🧹 Knip Dead Code]
+        P1B --> P1C[🔍 Enhanced SAST/DAST]
+        P1C --> P1D[🕵️ Secret Scanning]
+    end
+
+    subgraph Phase2["⚡ Phase 2: Performance & Quality (Q3 2026)"]
+        P2A[📊 k6 Load Testing] --> P2B[🧬 Stryker Mutation Testing]
+        P2B --> P2C[🌐 Expanded E2E Coverage]
+        P2C --> P2D[📈 Performance Budgets]
+    end
+
+    subgraph Phase3["🚀 Phase 3: Advanced Automation (Q4 2026)"]
+        P3A[🔄 Multi-Environment Deploy] --> P3B[🐦 Canary Deployments]
+        P3B --> P3C[⏪ Automated Rollback]
+        P3C --> P3D[📊 Progressive Delivery]
+    end
+
+    Phase0 --> Phase1 --> Phase2 --> Phase3
+
+    classDef completed fill:#27ae60,stroke:#1e8449,stroke-width:2px,color:white
+    classDef security fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+    classDef performance fill:#f39c12,stroke:#e67e22,stroke-width:1.5px,color:black
+    classDef automation fill:#3498db,stroke:#2980b9,stroke-width:1.5px,color:white
+
+    class P0A,P0B,P0C,P0D completed
+    class P1A,P1B,P1C,P1D security
+    class P2A,P2B,P2C,P2D performance
+    class P3A,P3B,P3C,P3D automation
+```
 
 ---
 
@@ -118,12 +159,12 @@ The following capabilities have already been delivered and are documented in [WO
 
 ### 0.1 Complete SHA-Pinning Migration — ✅ COMPLETED
 
-**Status:** All 13 standard workflows now use 100% SHA-pinned actions.  
+**Status:** All 12 standard workflows now use 100% SHA-pinned actions.  
 **Evidence:** Verified in [WORKFLOWS.md §Workflow Permissions Matrix](WORKFLOWS.md)
 
 ### 0.2 Agentic News Workflows — ✅ COMPLETED
 
-**Status:** 9 agentic news workflows compiled via `gh-aw` (GitHub Agentic Workflows v0.57.0) are in production.  
+**Status:** 10 agentic news workflows compiled via `gh-aw` (GitHub Agentic Workflows v0.57.0) are in production.  
 **Engine:** GitHub Copilot CLI with `claude-opus-4.6` model  
 **Data Source:** `european-parliament-mcp-server` via MCP protocol  
 **Coverage:** 14 languages (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH)
@@ -139,6 +180,7 @@ The following capabilities have already been delivered and are documented in [WO
 | `news-monthly-review.lock.yml` | 28th of month 10:00 UTC | Monthly retrospective |
 | `news-breaking.lock.yml` | Every 6 hours | Breaking news |
 | `news-article-generator.lock.yml` | Manual dispatch | Multi-type generator |
+| `news-translate.lock.yml` | After content PRs merged | Translate EN articles → 13 languages |
 
 ### 0.3 Copilot Agent Setup — ✅ COMPLETED
 
@@ -157,6 +199,29 @@ The following capabilities have already been delivered and are documented in [WO
 ---
 
 ## 🔐 Phase 1: Security Hardening (Q2 2026)
+
+```mermaid
+flowchart TD
+    subgraph "🔐 Phase 1: Security Hardening Pipeline"
+        FOSSA[📋 FOSSA License Compliance] --> KNIP[🧹 Knip Dead Code Detection]
+        KNIP --> SAST[🔍 Enhanced SAST]
+        SAST --> DAST[🕷️ ZAP DAST Scanning]
+        DAST --> SECRET[🔑 Secret Scanning]
+        SECRET --> GATE[🚦 Security Quality Gate]
+    end
+
+    GATE --> DEPLOY[🚀 Secure Deployment]
+
+    classDef security fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+    classDef scanning fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef gate fill:#f39c12,stroke:#e67e22,stroke-width:2px,color:black
+    classDef deploy fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+
+    class FOSSA,KNIP security
+    class SAST,DAST,SECRET scanning
+    class GATE gate
+    class DEPLOY deploy
+```
 
 ### ~~1.1 Complete SHA-Pinning Migration~~ — ✅ COMPLETED
 
@@ -300,6 +365,28 @@ jobs:
 
 ## ⚡ Phase 2: Performance & Quality (Q3 2026)
 
+```mermaid
+flowchart TD
+    subgraph "⚡ Phase 2: Performance & Quality Pipeline"
+        K6[📊 k6 Load Testing] --> STRYKER[🧬 Stryker Mutation Testing]
+        STRYKER --> E2E[🌐 Expanded E2E Tests]
+        E2E --> PERF[📈 Performance Budgets]
+        PERF --> REPORT[📋 Quality Report]
+    end
+
+    REPORT --> QUALITY[✅ Quality Gate Pass]
+
+    classDef perf fill:#f39c12,stroke:#e67e22,stroke-width:1.5px,color:black
+    classDef test fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+    classDef report fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef gate fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
+
+    class K6,PERF perf
+    class STRYKER,E2E test
+    class REPORT report
+    class QUALITY gate
+```
+
 ### ~~2.1 Load Testing & Performance~~ — ⚡ PARTIALLY COMPLETED
 
 **Purpose:** Validate performance under load  
@@ -424,6 +511,33 @@ export default defineConfig({
 
 ## 🚀 Phase 3: Advanced Automation (Q4 2026)
 
+```mermaid
+flowchart TD
+    subgraph "🚀 Phase 3: Advanced Automation Pipeline"
+        MULTI[🔄 Multi-Environment Deploy] --> CANARY[🐦 Canary Deployments]
+        CANARY --> ROLLBACK[⏪ Automated Rollback]
+        ROLLBACK --> MONITOR[📊 Progressive Delivery]
+    end
+
+    subgraph "🌐 Environments"
+        PREVIEW[👁️ Preview] --> STAGING[🧪 Staging]
+        STAGING --> PROD[🚀 Production]
+    end
+
+    MULTI --> PREVIEW
+    MONITOR --> PROD
+
+    classDef automation fill:#3498db,stroke:#2980b9,stroke-width:1.5px,color:white
+    classDef env fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+    classDef rollback fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+    classDef monitor fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+
+    class MULTI,CANARY automation
+    class ROLLBACK rollback
+    class MONITOR monitor
+    class PREVIEW,STAGING,PROD env
+```
+
 ### 3.1 Multi-Environment Deployments
 
 **Purpose:** Staging, production, and preview environments  
@@ -440,6 +554,14 @@ graph LR
     B --> G[E2E Tests]
     D --> H[Smoke Tests]
     F --> I[Health Checks]
+
+    classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
+    classDef env fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef test fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+
+    class A,C,E trigger
+    class B,D,F env
+    class G,H,I test
 ```
 
 #### New Workflow: `deploy-preview.yml`
@@ -599,22 +721,27 @@ jobs:
 
 ### Policy Compliance
 
-| Phase | ISMS Policy | Implementation |
-|-------|-------------|----------------|
-| **Phase 1** | §4.4 Supply Chain Security | SHA-pinning, FOSSA, license compliance |
-| **Phase 1** | §4.3 Security Scanning | Semgrep, Snyk, OWASP ZAP, GitLeaks |
-| **Phase 2** | §3.3 Testing Requirements | Mutation testing, expanded E2E |
-| **Phase 2** | §5.2 Performance Standards | Load testing, Lighthouse |
-| **Phase 3** | §4.1 CI/CD Security | Multi-environment, canary deployment |
+| **Phase** | **ISMS Policy** | **Implementation** |
+| --- | --- | --- |
+| **Phase 1** | [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | SHA-pinning, FOSSA, license compliance |
+| **Phase 1** | [🔍 Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | Semgrep, Snyk, OWASP ZAP, GitLeaks |
+| **Phase 2** | [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Mutation testing, expanded E2E |
+| **Phase 2** | [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Load testing, Lighthouse, performance budgets |
+| **Phase 3** | [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Multi-environment, canary deployment |
+| **Phase 3** | [🚨 Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | Automated rollback, incident classification |
+| **Phase 3** | [💾 Backup & Recovery Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md) | Multi-environment disaster recovery |
 
 ### Compliance Frameworks
 
-| Framework | Control | Phase | Implementation |
-|-----------|---------|-------|----------------|
-| **ISO 27001** | A.12.1.2 Change Management | Phase 3 | Canary deployment |
-| **ISO 27001** | A.14.2.8 System Security Testing | Phase 2 | Mutation testing |
-| **NIST CSF 2.0** | PR.IP-1 Baseline Configuration | Phase 3 | Multi-environment |
-| **CIS Controls** | 16.6 Application Testing | Phase 2 | Performance testing |
+| **Framework** | **Version** | **Control** | **Phase** | **Implementation** |
+| --- | --- | --- | --- | --- |
+| **ISO 27001** | 2022 | A.8.25 Secure development lifecycle | Phase 1-3 | All phases enhance SDLC |
+| **ISO 27001** | 2022 | A.8.28 Secure coding | Phase 2 | Mutation testing, code quality |
+| **ISO 27001** | 2022 | A.12.1.2 Change management | Phase 3 | Canary deployment, progressive delivery |
+| **NIST CSF** | 2.0 | PR.IP-1 Baseline configuration | Phase 3 | Multi-environment baselines |
+| **NIST CSF** | 2.0 | DE.CM Continuous monitoring | Phase 2 | Performance monitoring, load testing |
+| **CIS Controls** | v8.1 | 16.6 Application testing | Phase 2 | Mutation testing, performance testing |
+| **EU CRA** | 2024 | Art. 10 Vulnerability handling | Phase 1 | Enhanced scanning, auto-remediation |
 
 ---
 
@@ -707,6 +834,45 @@ As Anthropic Opus 4.6 evolves (minor updates every ~2.3 months, major version
 upgrades annually) alongside new competitors and potential AGI, CI/CD workflows
 will transform from human-configured pipelines to autonomous, self-optimizing
 systems.
+
+```mermaid
+flowchart LR
+    subgraph "🤖 Phase 4: AI-Enhanced (2027-2029)"
+        P4A[AI Code Review] --> P4B[Predictive Testing]
+        P4B --> P4C[Auto-Fix Pipeline]
+        P4C --> P4D[Security Auto-Remediation]
+    end
+
+    subgraph "🧠 Phase 5: Autonomous (2029-2032)"
+        P5A[Self-Healing Pipelines] --> P5B[Intent-Based Deployment]
+        P5B --> P5C[Cross-Repo Orchestration]
+        P5C --> P5D[Continuous Security Posture]
+    end
+
+    subgraph "🔮 Phase 6: Cognitive (2032-2035)"
+        P6A[Predictive Infrastructure] --> P6B[Autonomous Quality Gates]
+        P6B --> P6C[Global Multi-Region]
+    end
+
+    subgraph "🌐 Phase 7: AGI-Ready (2035-2037)"
+        P7A[Fully Autonomous Pipeline] --> P7B[Self-Evolving Workflows]
+        P7B --> P7C[Universal Compliance]
+    end
+
+    P4D --> P5A
+    P5D --> P6A
+    P6C --> P7A
+
+    classDef ai fill:#3498db,stroke:#2980b9,stroke-width:1.5px,color:white
+    classDef autonomous fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
+    classDef cognitive fill:#e67e22,stroke:#d35400,stroke-width:1.5px,color:white
+    classDef agi fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+
+    class P4A,P4B,P4C,P4D ai
+    class P5A,P5B,P5C,P5D autonomous
+    class P6A,P6B,P6C cognitive
+    class P7A,P7B,P7C agi
+```
 
 ### Phase 4: AI-Enhanced CI/CD (2027-2029)
 
