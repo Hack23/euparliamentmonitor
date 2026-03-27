@@ -1500,13 +1500,40 @@ describe('runAnalysisStage', () => {
           enabledMethods: ['deep-analysis', 'stakeholder-analysis'],
           requireData: true,
         })
-      ).rejects.toThrow('all 2 methods failed');
+      ).rejects.toThrow('2 of 2 methods failed');
 
       // Restore permissions for cleanup
       for (const subdir of ['classification', 'threat-assessment', 'risk-scoring', 'existing']) {
         const dir = path.join(dateDir, subdir);
         if (fs.existsSync(dir)) fs.chmodSync(dir, 0o755);
       }
+    });
+
+    it('throws when requireData=true and ANY method fails (not just all)', async () => {
+      const dataWithEvents = buildTestFetchedData({ events: [{ id: 'ev-1' }] });
+      const dateDir = path.join(tmpDir, testDate);
+      fs.mkdirSync(dateDir, { recursive: true });
+      // Make ONLY the 'existing' subdir read-only so deep-analysis fails
+      // but classification methods could succeed
+      const existingDir = path.join(dateDir, 'existing');
+      fs.mkdirSync(existingDir, { recursive: true });
+      fs.chmodSync(existingDir, 0o444);
+
+      await expect(
+        runAnalysisStage(dataWithEvents, {
+          articleTypes: ['week-ahead'],
+          date: testDate,
+          outputDir: tmpDir,
+          skipCompleted: false,
+          // significance-classification writes to classification/ (will succeed)
+          // deep-analysis writes to existing/ (will fail — read-only)
+          enabledMethods: ['significance-classification', 'deep-analysis'],
+          requireData: true,
+        })
+      ).rejects.toThrow('1 of 2 methods failed');
+
+      // Restore permissions for cleanup
+      fs.chmodSync(existingDir, 0o755);
     });
 
     it('does NOT throw when requireData=false and no data (backward compat)', async () => {

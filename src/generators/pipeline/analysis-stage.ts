@@ -2356,16 +2356,16 @@ export async function runAnalysisStage(
     methodResults.push(result);
   }
 
-  // When requireData is set and every single method failed, the analysis is
-  // worthless — abort before writing the manifest so the caller knows analysis
-  // did not succeed.  Article generation should never proceed in this state.
-  const successfulCount = methodResults.filter(
-    (r) => r.status === 'completed' || r.status === 'skipped'
-  ).length;
-  if (requireData && successfulCount === 0 && methodResults.length > 0) {
+  // When requireData is set (agentic workflows), abort if ANY method failed.
+  // Incomplete analysis must never feed into article generation — the agentic
+  // workflow should fix issues rather than produce articles from partial data.
+  const failedMethods = methodResults.filter((r) => r.status === 'failed');
+  if (requireData && failedMethods.length > 0) {
+    const failedNames = failedMethods.map((r) => r.method).join(', ');
     throw new Error(
-      `Analysis aborted: all ${methodResults.length} methods failed. ` +
-        'No analysis output was produced. Fix data fetch or method errors before retrying.'
+      `Analysis aborted: ${failedMethods.length} of ${methodResults.length} methods failed (${failedNames}). ` +
+        'Agentic workflow requires ALL analysis methods to succeed. ' +
+        'Fix data fetch or method errors before retrying.'
     );
   }
 

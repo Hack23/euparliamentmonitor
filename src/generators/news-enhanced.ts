@@ -394,8 +394,20 @@ async function maybeRunAnalysis(
   console.log(`   Manifest: ${ctx.outputDir}/manifest.json`);
   console.log('');
 
-  // Verify that at least some analysis methods succeeded — article generation
-  // must never proceed without substantive analysis output.
+  // Verify ALL analysis methods succeeded — article generation must never
+  // proceed with incomplete analysis.  Any failures mean the agentic workflow
+  // should fix issues rather than produce articles from partial analysis.
+  if (failedCount > 0) {
+    const failedNames = ctx.manifest.methods
+      .filter((m) => m.status === 'failed')
+      .map((m) => m.method)
+      .join(', ');
+    throw new Error(
+      `Analysis incomplete: ${failedCount} of ${totalMethods} methods failed (${failedNames}). ` +
+        'Article generation requires ALL analysis methods to succeed.'
+    );
+  }
+
   if (ctx.completedMethods.length === 0) {
     throw new Error(
       `Analysis produced no completed methods (${failedCount} failed). ` +
