@@ -121,9 +121,9 @@ function sanitizeCell(input: string): string {
 function sanitizeDocumentId(id: string): string {
   const full = id
     .toLowerCase()
-    .replace(/[^a-z0-9-]/g, '-')
-    .replace(/-{2,}/g, '-')
-    .replace(/^-+|-+$/g, '');
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-/, '')
+    .replace(/-$/, '');
   if (!full) {
     // Deterministic fallback: simple hash from input string for reproducibility
     let hash = 0;
@@ -341,6 +341,16 @@ export const ALL_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
   // increase runtime and repository output size.  Callers must opt-in by
   // explicitly listing it in `enabledMethods`.
 ] as const;
+
+/**
+ * All valid analysis method names, including opt-in methods like
+ * `document-analysis`.  Use this for **validation** of user-supplied method
+ * names (e.g. the `--analysis-methods` CLI flag).  For the default execution
+ * set, use {@link ALL_ANALYSIS_METHODS} instead.
+ */
+export const VALID_ANALYSIS_METHODS: readonly AnalysisMethod[] = Array.from(
+  new Set<AnalysisMethod>([...ALL_ANALYSIS_METHODS, 'document-analysis'])
+);
 
 // ─── Interfaces ───────────────────────────────────────────────────────────────
 

@@ -70,6 +70,7 @@ import type { OutputOptions } from './pipeline/output-stage.js';
 import {
   runAnalysisStage,
   ALL_ANALYSIS_METHODS,
+  VALID_ANALYSIS_METHODS,
   hasSubstantiveData,
 } from './pipeline/analysis-stage.js';
 import type { AnalysisMethod, AnalysisContext } from './pipeline/analysis-stage.js';
@@ -225,6 +226,19 @@ const stats: GenerationStats = {
 // ─── Main orchestration ───────────────────────────────────────────────────────
 
 /**
+ * Type guard that narrows a string to {@link AnalysisMethod}.
+ *
+ * Uses {@link Array.some} so no type assertion is needed — the predicate
+ * compares each element directly to the candidate string.
+ *
+ * @param name - The string to validate
+ * @returns `true` when `name` is a recognised analysis method
+ */
+function isValidAnalysisMethod(name: string): name is AnalysisMethod {
+  return VALID_ANALYSIS_METHODS.some((m) => m === name);
+}
+
+/**
  * Parse the `--analysis-methods=` CLI flag into a validated, deduplicated list.
  * Warns on unrecognised method names and falls back to all methods when no valid
  * names remain.
@@ -246,8 +260,8 @@ function parseAnalysisMethods(): readonly AnalysisMethod[] {
   const unknownMethods: string[] = [];
 
   for (const name of requestedNames) {
-    if ((ALL_ANALYSIS_METHODS as readonly string[]).includes(name)) {
-      validMethods.add(name as AnalysisMethod);
+    if (isValidAnalysisMethod(name)) {
+      validMethods.add(name);
     } else {
       unknownMethods.push(name);
     }

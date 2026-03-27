@@ -23,6 +23,7 @@ import os from 'os';
 import {
   runAnalysisStage,
   ALL_ANALYSIS_METHODS,
+  VALID_ANALYSIS_METHODS,
   hasSubstantiveData,
 } from '../../scripts/generators/pipeline/analysis-stage.js';
 
@@ -90,6 +91,29 @@ describe('ALL_ANALYSIS_METHODS', () => {
   it('has no duplicate entries', () => {
     const unique = new Set(ALL_ANALYSIS_METHODS);
     expect(unique.size).toBe(ALL_ANALYSIS_METHODS.length);
+  });
+});
+
+// ─── VALID_ANALYSIS_METHODS tests ─────────────────────────────────────────────
+
+describe('VALID_ANALYSIS_METHODS', () => {
+  it('contains all default methods plus document-analysis as a valid method', () => {
+    expect(VALID_ANALYSIS_METHODS).toHaveLength(ALL_ANALYSIS_METHODS.length + 1);
+  });
+
+  it('includes all default analysis methods', () => {
+    for (const method of ALL_ANALYSIS_METHODS) {
+      expect(VALID_ANALYSIS_METHODS).toContain(method);
+    }
+  });
+
+  it('includes document-analysis as a valid opt-in method', () => {
+    expect(VALID_ANALYSIS_METHODS).toContain('document-analysis');
+  });
+
+  it('has no duplicate entries', () => {
+    const unique = new Set(VALID_ANALYSIS_METHODS);
+    expect(unique.size).toBe(VALID_ANALYSIS_METHODS.length);
   });
 });
 

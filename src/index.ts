@@ -187,7 +187,11 @@ export {
   createRiskDriver,
 } from './utils/political-risk-assessment.js';
 // ─── Analysis Pipeline Stage ──────────────────────────────────────────────────
-export { ALL_ANALYSIS_METHODS, runAnalysisStage } from './generators/pipeline/analysis-stage.js';
+export {
+  ALL_ANALYSIS_METHODS,
+  VALID_ANALYSIS_METHODS,
+  runAnalysisStage,
+} from './generators/pipeline/analysis-stage.js';
 
 export type {
   AnalysisMethod,
