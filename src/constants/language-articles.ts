@@ -3355,43 +3355,27 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: 'as of',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Breaking developments on ${date}: ${adopted} newly adopted texts, ${events} events, ${procedures} procedure updates, ${meps} MEP changes.`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: 'Legislative Majority',
     breakingWinnerReasonFn: (count) =>
       `${count} legislative texts have been advanced through the parliamentary process.`,
     breakingNeutralActor: 'Opposition Groups',
-    breakingNeutralReason:
-      BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
-    breakingLegalObligationsConsequence:
-      BRK_LEGAL_CONSEQUENCE,
-    breakingProcedureConsequence:
-      BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
-    breakingImpactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    breakingImpactSocial:
-      BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
-    breakingImpactGeopoliticalNormal:
-      BRK_IMPACT_GEO_NORMAL,
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Political Group Whips',
-    breakingMistakeDescription:
-      BRK_MISTAKE_DESC,
-    breakingMistakeAlternative:
-      BRK_MISTAKE_ALT,
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Adopted:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -3426,43 +3410,27 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: 'per',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Senaste händelserna ${date}: ${adopted} nyligen antagna texter, ${events} händelser, ${procedures} proceduruppdateringar, ${meps} MEP-ändringar.`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: 'Lagstiftande majoritet',
     breakingWinnerReasonFn: (count) =>
       `${count} lagstiftningstexter har drivits fram i den parlamentariska processen.`,
     breakingNeutralActor: 'Oppositionsgrupper',
-    breakingNeutralReason:
-      BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
-    breakingLegalObligationsConsequence:
-      BRK_LEGAL_CONSEQUENCE,
-    breakingProcedureConsequence:
-      BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
-    breakingImpactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    breakingImpactSocial:
-      BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
-    breakingImpactGeopoliticalNormal:
-      BRK_IMPACT_GEO_NORMAL,
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Partigruppernas piskare',
-    breakingMistakeDescription:
-      BRK_MISTAKE_DESC,
-    breakingMistakeAlternative:
-      BRK_MISTAKE_ALT,
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Antagen:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -3497,43 +3465,27 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: 'pr.',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Seneste begivenheder den ${date}: ${adopted} nyvedtagne tekster, ${events} begivenheder, ${procedures} procedureopdateringer, ${meps} MEP-ændringer.`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: 'Lovgivningsmæssigt flertal',
     breakingWinnerReasonFn: (count) =>
       `${count} lovgivningstekster er ført frem i den parlamentariske proces.`,
     breakingNeutralActor: 'Oppositionsgrupper',
-    breakingNeutralReason:
-      BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
-    breakingLegalObligationsConsequence:
-      BRK_LEGAL_CONSEQUENCE,
-    breakingProcedureConsequence:
-      BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
-    breakingImpactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    breakingImpactSocial:
-      BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
-    breakingImpactGeopoliticalNormal:
-      BRK_IMPACT_GEO_NORMAL,
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Partigruppernes piskere',
-    breakingMistakeDescription:
-      BRK_MISTAKE_DESC,
-    breakingMistakeAlternative:
-      BRK_MISTAKE_ALT,
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Vedtaget:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -3568,43 +3520,27 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: 'per',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Siste hendelser ${date}: ${adopted} nylig vedtatte tekster, ${events} hendelser, ${procedures} prosedyreoppdateringer, ${meps} MEP-endringer.`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: 'Lovgivningsmessig flertall',
     breakingWinnerReasonFn: (count) =>
       `${count} lovgivningstekster er fremmet i den parlamentariske prosessen.`,
     breakingNeutralActor: 'Opposisjonsgrupper',
-    breakingNeutralReason:
-      BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
-    breakingLegalObligationsConsequence:
-      BRK_LEGAL_CONSEQUENCE,
-    breakingProcedureConsequence:
-      BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
-    breakingImpactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    breakingImpactSocial:
-      BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
-    breakingImpactGeopoliticalNormal:
-      BRK_IMPACT_GEO_NORMAL,
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Partigruppers innpisker',
-    breakingMistakeDescription:
-      BRK_MISTAKE_DESC,
-    breakingMistakeAlternative:
-      BRK_MISTAKE_ALT,
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Vedtatt:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -3640,43 +3576,27 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: 'tilanne',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Uusimmat tapahtumat ${date}: ${adopted} äskettäin hyväksyttyä tekstiä, ${events} tapahtumaa, ${procedures} menettelypäivitystä, ${meps} MEP-muutosta.`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: 'Lainsäädännöllinen enemmistö',
     breakingWinnerReasonFn: (count) =>
       `${count} lainsäädäntötekstiä on edistetty parlamentaarisessa prosessissa.`,
     breakingNeutralActor: 'Oppositioryhmät',
-    breakingNeutralReason:
-      BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
-    breakingLegalObligationsConsequence:
-      BRK_LEGAL_CONSEQUENCE,
-    breakingProcedureConsequence:
-      BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
-    breakingImpactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    breakingImpactSocial:
-      BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
-    breakingImpactGeopoliticalNormal:
-      BRK_IMPACT_GEO_NORMAL,
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Ryhmien parlamenttipiiskurit',
-    breakingMistakeDescription:
-      BRK_MISTAKE_DESC,
-    breakingMistakeAlternative:
-      BRK_MISTAKE_ALT,
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Hyväksytty:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -3712,43 +3632,27 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: 'zum',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Neueste Entwicklungen am ${date}: ${adopted} neu angenommene Texte, ${events} Ereignisse, ${procedures} Verfahrensupdates, ${meps} MdEP-Änderungen.`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: 'Gesetzgebende Mehrheit',
     breakingWinnerReasonFn: (count) =>
       `${count} Gesetzestexte wurden im parlamentarischen Verfahren vorangebracht.`,
     breakingNeutralActor: 'Oppositionsgruppen',
-    breakingNeutralReason:
-      BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
-    breakingLegalObligationsConsequence:
-      BRK_LEGAL_CONSEQUENCE,
-    breakingProcedureConsequence:
-      BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
-    breakingImpactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    breakingImpactSocial:
-      BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
-    breakingImpactGeopoliticalNormal:
-      BRK_IMPACT_GEO_NORMAL,
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Fraktionsgeschäftsführer',
-    breakingMistakeDescription:
-      BRK_MISTAKE_DESC,
-    breakingMistakeAlternative:
-      BRK_MISTAKE_ALT,
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Angenommen:',
     breakingMEPPrefix: 'MdEP:',
     anomalyUnavailable:
@@ -3784,43 +3688,27 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: 'au',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Dernières évolutions au ${date}\u00a0: ${adopted} textes nouvellement adoptés, ${events} événements, ${procedures} mises à jour procédurales, ${meps} changements de députés.`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: 'Majorité législative',
     breakingWinnerReasonFn: (count) =>
       `${count} textes législatifs ont été avancés dans le cadre du processus parlementaire.`,
     breakingNeutralActor: "Groupes d'opposition",
-    breakingNeutralReason:
-      BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
-    breakingLegalObligationsConsequence:
-      BRK_LEGAL_CONSEQUENCE,
-    breakingProcedureConsequence:
-      BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
-    breakingImpactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    breakingImpactSocial:
-      BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
-    breakingImpactGeopoliticalNormal:
-      BRK_IMPACT_GEO_NORMAL,
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Chefs de file des groupes politiques',
-    breakingMistakeDescription:
-      BRK_MISTAKE_DESC,
-    breakingMistakeAlternative:
-      BRK_MISTAKE_ALT,
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Adopté\u00a0:',
     breakingMEPPrefix: 'Député\u00a0:',
     anomalyUnavailable:
@@ -3856,43 +3744,27 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: 'a',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Últimas novedades el ${date}: ${adopted} textos recién adoptados, ${events} eventos, ${procedures} actualizaciones de procedimientos, ${meps} cambios de eurodiputados.`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: 'Mayoría legislativa',
     breakingWinnerReasonFn: (count) =>
       `${count} textos legislativos han sido avanzados en el proceso parlamentario.`,
     breakingNeutralActor: 'Grupos de oposición',
-    breakingNeutralReason:
-      BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
-    breakingLegalObligationsConsequence:
-      BRK_LEGAL_CONSEQUENCE,
-    breakingProcedureConsequence:
-      BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
-    breakingImpactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    breakingImpactSocial:
-      BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
-    breakingImpactGeopoliticalNormal:
-      BRK_IMPACT_GEO_NORMAL,
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Jefes de delegación de grupos políticos',
-    breakingMistakeDescription:
-      BRK_MISTAKE_DESC,
-    breakingMistakeAlternative:
-      BRK_MISTAKE_ALT,
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Adoptado:',
     breakingMEPPrefix: 'Eurodiputado:',
     anomalyUnavailable:
@@ -3928,43 +3800,27 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: 'per',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `Laatste ontwikkelingen op ${date}: ${adopted} nieuw aangenomen teksten, ${events} evenementen, ${procedures} procedurebijwerkingen, ${meps} MEP-wijzigingen.`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: 'Wetgevende meerderheid',
     breakingWinnerReasonFn: (count) =>
       `${count} wetgevingsteksten zijn gevorderd in het parlementaire proces.`,
     breakingNeutralActor: 'Oppositiegroepen',
-    breakingNeutralReason:
-      BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
-    breakingLegalObligationsConsequence:
-      BRK_LEGAL_CONSEQUENCE,
-    breakingProcedureConsequence:
-      BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
-    breakingImpactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    breakingImpactSocial:
-      BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
-    breakingImpactGeopoliticalNormal:
-      BRK_IMPACT_GEO_NORMAL,
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'Fractiedisciplineurs',
-    breakingMistakeDescription:
-      BRK_MISTAKE_DESC,
-    breakingMistakeAlternative:
-      BRK_MISTAKE_ALT,
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'Aangenomen:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -3998,42 +3854,26 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: 'اعتباراً من',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `آخر التطورات في ${date}: ${adopted} نصًا معتمدًا حديثًا، ${events} أحداث، ${procedures} تحديثات إجراءات، ${meps} تغييرات في أعضاء البرلمان.`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: 'الأغلبية التشريعية',
     breakingWinnerReasonFn: (count) => `تم تقديم ${count} نصًا تشريعيًا في العملية البرلمانية.`,
     breakingNeutralActor: 'مجموعات المعارضة',
-    breakingNeutralReason:
-      BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
-    breakingLegalObligationsConsequence:
-      BRK_LEGAL_CONSEQUENCE,
-    breakingProcedureConsequence:
-      BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
-    breakingImpactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    breakingImpactSocial:
-      BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
-    breakingImpactGeopoliticalNormal:
-      BRK_IMPACT_GEO_NORMAL,
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'مسؤولو الانضباط الحزبي',
-    breakingMistakeDescription:
-      BRK_MISTAKE_DESC,
-    breakingMistakeAlternative:
-      BRK_MISTAKE_ALT,
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'معتمد:',
     breakingMEPPrefix: 'عضو البرلمان:',
     anomalyUnavailable:
@@ -4067,42 +3907,26 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: 'נכון ל-',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `ההתפתחויות האחרונות ב-${date}: ${adopted} טקסטים שאומצו לאחרונה, ${events} אירועים, ${procedures} עדכוני הליכים, ${meps} שינויים בחברי פרלמנט.`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: 'הרוב החקיקתי',
     breakingWinnerReasonFn: (count) => `${count} טקסטים חקיקתיים קודמו בתהליך הפרלמנטרי.`,
     breakingNeutralActor: 'קבוצות האופוזיציה',
-    breakingNeutralReason:
-      BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
-    breakingLegalObligationsConsequence:
-      BRK_LEGAL_CONSEQUENCE,
-    breakingProcedureConsequence:
-      BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
-    breakingImpactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    breakingImpactSocial:
-      BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
-    breakingImpactGeopoliticalNormal:
-      BRK_IMPACT_GEO_NORMAL,
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
+    breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: 'מנהיגי הסיעות',
-    breakingMistakeDescription:
-      BRK_MISTAKE_DESC,
-    breakingMistakeAlternative:
-      BRK_MISTAKE_ALT,
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: 'אומץ:',
     breakingMEPPrefix: 'חבר פרלמנט:',
     anomalyUnavailable: 'ניתוח מפורט של חריגות הצבעה אינו זמין כעת עקב מגבלות טכניות בנתוני המקור.',
@@ -4136,41 +3960,26 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: '現在',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `${date}の最新動向：新たに採択されたテキスト${adopted}件、イベント${events}件、手続き更新${procedures}件、MEP変更${meps}件。`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: '立法多数派',
     breakingWinnerReasonFn: (count) => `${count}件の立法テキストが議会プロセスで進められました。`,
     breakingNeutralActor: '野党グループ',
-    breakingNeutralReason:
-      BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
-    breakingLegalObligationsConsequence:
-      BRK_LEGAL_CONSEQUENCE,
-    breakingProcedureConsequence:
-      BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
-    breakingImpactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    breakingImpactSocial:
-      BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: '会派院内幹事',
-    breakingMistakeDescription:
-      BRK_MISTAKE_DESC,
-    breakingMistakeAlternative:
-      BRK_MISTAKE_ALT,
+    breakingMistakeDescription: BRK_MISTAKE_DESC,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: '採択：',
     breakingMEPPrefix: 'MEP：',
     anomalyUnavailable:
@@ -4204,41 +4013,27 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: '기준',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `${date} 최신 동향: 새로 채택된 텍스트 ${adopted}건, 이벤트 ${events}건, 절차 업데이트 ${procedures}건, MEP 변경 ${meps}건.`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: '입법 다수파',
     breakingWinnerReasonFn: (count) =>
       `${count}건의 입법 텍스트가 의회 절차를 통해 진행되었습니다.`,
     breakingNeutralActor: '야당 그룹',
-    breakingNeutralReason:
-      BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
-    breakingLegalObligationsConsequence:
-      BRK_LEGAL_CONSEQUENCE,
-    breakingProcedureConsequence:
-      BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
-    breakingImpactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    breakingImpactSocial:
-      BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
+    breakingNeutralReason: BRK_NEUTRAL_REASON,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
+    breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
+    breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
+    breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
+    breakingImpactSocial: BRK_IMPACT_SOCIAL,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: '정치 그룹 원내총무',
     breakingMistakeDescription: BRK_MISTAKE_DESC,
-    breakingMistakeAlternative:
-      BRK_MISTAKE_ALT,
+    breakingMistakeAlternative: BRK_MISTAKE_ALT,
     breakingAdoptedPrefix: '채택:',
     breakingMEPPrefix: 'MEP:',
     anomalyUnavailable:
@@ -4271,30 +4066,22 @@ export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {
     asOf: '截至',
     breakingWhatFn: (date, adopted, events, procedures, meps) =>
       `${date}最新动态：${adopted}项新通过文本，${events}项活动，${procedures}项程序更新，${meps}项议员变更。`,
-    breakingWhyAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingWhyNormal:
-      BRK_WHY_NORMAL,
+    breakingWhyAnomalies: BRK_WHY_ANOMALIES,
+    breakingWhyNormal: BRK_WHY_NORMAL,
     breakingWinnerActor: '立法多数派',
     breakingWinnerReasonFn: (count) => `${count}项立法文本已通过议会程序推进。`,
     breakingNeutralActor: '反对派团体',
     breakingNeutralReason: BRK_NEUTRAL_REASON,
-    breakingOutlookActiveFn: (date) =>
-      `session_date=${date}`,
-    breakingOutlookTransitionalFn: (date) =>
-      `session_date=${date} transitional=true`,
+    breakingOutlookActiveFn: (date) => `session_date=${date}`,
+    breakingOutlookTransitionalFn: (date) => `session_date=${date} transitional=true`,
     breakingLegalObligationsConsequence: BRK_LEGAL_CONSEQUENCE,
     breakingProcedureConsequence: BRK_PROC_CONSEQUENCE,
-    breakingImpactPoliticalAnomalies:
-      BRK_WHY_ANOMALIES,
-    breakingImpactPoliticalNormalFn: (count) =>
-      `legislative_texts=${count}`,
+    breakingImpactPoliticalAnomalies: BRK_WHY_ANOMALIES,
+    breakingImpactPoliticalNormalFn: (count) => `legislative_texts=${count}`,
     breakingImpactEconomic: BRK_IMPACT_ECONOMIC,
     breakingImpactSocial: BRK_IMPACT_SOCIAL,
-    breakingImpactLegalFn: (count) =>
-      `legal_instruments=${count}`,
-    breakingImpactGeopoliticalCoalition:
-      BRK_IMPACT_GEO_COALITION,
+    breakingImpactLegalFn: (count) => `legal_instruments=${count}`,
+    breakingImpactGeopoliticalCoalition: BRK_IMPACT_GEO_COALITION,
     breakingImpactGeopoliticalNormal: BRK_IMPACT_GEO_NORMAL,
     breakingMistakeActor: '政治团体党鞭',
     breakingMistakeDescription: BRK_MISTAKE_DESC,
@@ -4325,27 +4112,18 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n} documents — highly productive period',
     stakeholderModerateActivity: '{n} document(s) — moderate activity',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
-    impactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    impactSocial:
-      BRK_IMPACT_SOCIAL,
-    impactLegal:
-      CMT_IMPACT_LEGAL,
-    impactGeopolitical:
-      BRK_IMPACT_GEO_NORMAL,
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} processed {n} document(s)',
-    actionConsequence:
-      CMT_ACTION_CONSEQUENCE,
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
     mistakeDescription: CMT_MISTAKE_DESC,
     mistakeAlternative: CMT_MISTAKE_ALT,
-    outlookGood:
-      CMT_OUTLOOK_GOOD,
-    outlookConcern:
-      CMT_OUTLOOK_CONCERN,
+    outlookGood: CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: 'European Parliament committee activity and legislative effectiveness analysis.',
     noRecentDocs: 'No recent documents available',
     committeeMetadataUnavailable:
@@ -4375,29 +4153,18 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n} dokument — mycket produktiv period',
     stakeholderModerateActivity: '{n} dokument — måttlig aktivitet',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
-    impactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    impactSocial:
-      BRK_IMPACT_SOCIAL,
-    impactLegal:
-      CMT_IMPACT_LEGAL,
-    impactGeopolitical:
-      BRK_IMPACT_GEO_NORMAL,
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} behandlade {n} dokument',
-    actionConsequence:
-      CMT_ACTION_CONSEQUENCE,
-    mistakeDescription:
-      CMT_MISTAKE_DESC,
-    mistakeAlternative:
-      CMT_MISTAKE_ALT,
-    outlookGood:
-      CMT_OUTLOOK_GOOD,
-    outlookConcern:
-      CMT_OUTLOOK_CONCERN,
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
+    mistakeAlternative: CMT_MISTAKE_ALT,
+    outlookGood: CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: 'Analys av Europaparlamentets utskottsaktivitet och lagstiftningseffektivitet.',
     noRecentDocs: 'Inga aktuella dokument tillgängliga',
     committeeMetadataUnavailable:
@@ -4427,29 +4194,18 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n} dokumenter — meget produktiv periode',
     stakeholderModerateActivity: '{n} dokument(er) — moderat aktivitet',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
-    impactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    impactSocial:
-      BRK_IMPACT_SOCIAL,
-    impactLegal:
-      CMT_IMPACT_LEGAL,
-    impactGeopolitical:
-      BRK_IMPACT_GEO_NORMAL,
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} behandlede {n} dokument(er)',
-    actionConsequence:
-      CMT_ACTION_CONSEQUENCE,
-    mistakeDescription:
-      CMT_MISTAKE_DESC,
-    mistakeAlternative:
-      CMT_MISTAKE_ALT,
-    outlookGood:
-      CMT_OUTLOOK_GOOD,
-    outlookConcern:
-      CMT_OUTLOOK_CONCERN,
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
+    mistakeAlternative: CMT_MISTAKE_ALT,
+    outlookGood: CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: 'Analyse af Europa-Parlamentets udvalgsaktivitet og lovgivningsmæssig effektivitet.',
     noRecentDocs: 'Ingen nylige dokumenter tilgængelige',
     committeeMetadataUnavailable:
@@ -4479,29 +4235,18 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n} dokumenter — svært produktiv periode',
     stakeholderModerateActivity: '{n} dokument(er) — moderat aktivitet',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
-    impactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    impactSocial:
-      BRK_IMPACT_SOCIAL,
-    impactLegal:
-      CMT_IMPACT_LEGAL,
-    impactGeopolitical:
-      BRK_IMPACT_GEO_NORMAL,
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} behandlet {n} dokument(er)',
-    actionConsequence:
-      CMT_ACTION_CONSEQUENCE,
-    mistakeDescription:
-      CMT_MISTAKE_DESC,
-    mistakeAlternative:
-      CMT_MISTAKE_ALT,
-    outlookGood:
-      CMT_OUTLOOK_GOOD,
-    outlookConcern:
-      CMT_OUTLOOK_CONCERN,
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
+    mistakeAlternative: CMT_MISTAKE_ALT,
+    outlookGood: CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: 'Analyse av Europaparlamentets komitéaktivitet og lovgivningseffektivitet.',
     noRecentDocs: 'Ingen nylige dokumenter tilgjengelig',
     committeeMetadataUnavailable:
@@ -4531,29 +4276,18 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n} asiakirjaa — erittäin tuottoisa kausi',
     stakeholderModerateActivity: '{n} asiakirja(a) — kohtalainen aktiivisuus',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
-    impactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    impactSocial:
-      BRK_IMPACT_SOCIAL,
-    impactLegal:
-      CMT_IMPACT_LEGAL,
-    impactGeopolitical:
-      BRK_IMPACT_GEO_NORMAL,
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} käsitteli {n} asiakirja(a)',
-    actionConsequence:
-      CMT_ACTION_CONSEQUENCE,
-    mistakeDescription:
-      CMT_MISTAKE_DESC,
-    mistakeAlternative:
-      CMT_MISTAKE_ALT,
-    outlookGood:
-      CMT_OUTLOOK_GOOD,
-    outlookConcern:
-      CMT_OUTLOOK_CONCERN,
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
+    mistakeAlternative: CMT_MISTAKE_ALT,
+    outlookGood: CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: 'Analyysi Euroopan parlamentin valiokuntien toiminnasta ja lainsäädäntötehokkuudesta.',
     noRecentDocs: 'Ei viimeaikaisia asiakirjoja saatavilla',
     committeeMetadataUnavailable:
@@ -4584,29 +4318,18 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n} Dokumente — sehr produktiver Zeitraum',
     stakeholderModerateActivity: '{n} Dokument(e) — moderate Aktivität',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
-    impactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    impactSocial:
-      BRK_IMPACT_SOCIAL,
-    impactLegal:
-      CMT_IMPACT_LEGAL,
-    impactGeopolitical:
-      BRK_IMPACT_GEO_NORMAL,
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} hat {n} Dokument(e) bearbeitet',
-    actionConsequence:
-      CMT_ACTION_CONSEQUENCE,
-    mistakeDescription:
-      CMT_MISTAKE_DESC,
-    mistakeAlternative:
-      CMT_MISTAKE_ALT,
-    outlookGood:
-      CMT_OUTLOOK_GOOD,
-    outlookConcern:
-      CMT_OUTLOOK_CONCERN,
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
+    mistakeAlternative: CMT_MISTAKE_ALT,
+    outlookGood: CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: 'Analyse der Ausschusstätigkeit des Europäischen Parlaments und seiner Gesetzgebungswirksamkeit.',
     noRecentDocs: 'Keine aktuellen Dokumente verfügbar',
     committeeMetadataUnavailable:
@@ -4637,29 +4360,18 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n} documents — période très productive',
     stakeholderModerateActivity: '{n} document(s) — activité modérée',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
-    impactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    impactSocial:
-      BRK_IMPACT_SOCIAL,
-    impactLegal:
-      CMT_IMPACT_LEGAL,
-    impactGeopolitical:
-      BRK_IMPACT_GEO_NORMAL,
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} a traité {n} document(s)',
-    actionConsequence:
-      CMT_ACTION_CONSEQUENCE,
-    mistakeDescription:
-      CMT_MISTAKE_DESC,
-    mistakeAlternative:
-      CMT_MISTAKE_ALT,
-    outlookGood:
-      CMT_OUTLOOK_GOOD,
-    outlookConcern:
-      CMT_OUTLOOK_CONCERN,
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
+    mistakeAlternative: CMT_MISTAKE_ALT,
+    outlookGood: CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: "Analyse de l'activité des commissions du Parlement européen et de l'efficacité législative.",
     noRecentDocs: 'Aucun document récent disponible',
     committeeMetadataUnavailable:
@@ -4690,29 +4402,18 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n} documentos — período muy productivo',
     stakeholderModerateActivity: '{n} documento(s) — actividad moderada',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
-    impactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    impactSocial:
-      BRK_IMPACT_SOCIAL,
-    impactLegal:
-      CMT_IMPACT_LEGAL,
-    impactGeopolitical:
-      BRK_IMPACT_GEO_NORMAL,
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} procesó {n} documento(s)',
-    actionConsequence:
-      CMT_ACTION_CONSEQUENCE,
-    mistakeDescription:
-      CMT_MISTAKE_DESC,
-    mistakeAlternative:
-      CMT_MISTAKE_ALT,
-    outlookGood:
-      CMT_OUTLOOK_GOOD,
-    outlookConcern:
-      CMT_OUTLOOK_CONCERN,
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
+    mistakeAlternative: CMT_MISTAKE_ALT,
+    outlookGood: CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: 'Análisis de la actividad de las comisiones del Parlamento Europeo y de su efectividad legislativa.',
     noRecentDocs: 'No hay documentos recientes disponibles',
     committeeMetadataUnavailable:
@@ -4742,29 +4443,18 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n} documenten — zeer productieve periode',
     stakeholderModerateActivity: '{n} document(en) — matige activiteit',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
-    impactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    impactSocial:
-      BRK_IMPACT_SOCIAL,
-    impactLegal:
-      CMT_IMPACT_LEGAL,
-    impactGeopolitical:
-      BRK_IMPACT_GEO_NORMAL,
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} verwerkte {n} document(en)',
-    actionConsequence:
-      CMT_ACTION_CONSEQUENCE,
-    mistakeDescription:
-      CMT_MISTAKE_DESC,
-    mistakeAlternative:
-      CMT_MISTAKE_ALT,
-    outlookGood:
-      CMT_OUTLOOK_GOOD,
-    outlookConcern:
-      CMT_OUTLOOK_CONCERN,
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
+    mistakeDescription: CMT_MISTAKE_DESC,
+    mistakeAlternative: CMT_MISTAKE_ALT,
+    outlookGood: CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: 'Analyse van commissieactiviteiten en wetgevende effectiviteit van het Europees Parlement.',
     noRecentDocs: 'Geen recente documenten beschikbaar',
     committeeMetadataUnavailable:
@@ -4795,25 +4485,17 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n} وثيقة — فترة منتجة جداً',
     stakeholderModerateActivity: '{n} وثيقة/وثائق — نشاط معتدل',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
-    impactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    impactSocial:
-      BRK_IMPACT_SOCIAL,
-    impactLegal:
-      CMT_IMPACT_LEGAL,
-    impactGeopolitical:
-      BRK_IMPACT_GEO_NORMAL,
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: 'عالجت لجنة {abbr} {n} وثيقة/وثائق',
-    actionConsequence:
-      CMT_ACTION_CONSEQUENCE,
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
     mistakeDescription: CMT_MISTAKE_DESC,
     mistakeAlternative: CMT_MISTAKE_ALT,
-    outlookGood:
-      CMT_OUTLOOK_GOOD,
+    outlookGood: CMT_OUTLOOK_GOOD,
     outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: 'تحليل نشاط لجان البرلمان الأوروبي وفعالية عملها التشريعية.',
     noRecentDocs: 'لا توجد وثائق حديثة متاحة',
@@ -4844,24 +4526,17 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n} מסמכים — תקופה פרודוקטיבית מאוד',
     stakeholderModerateActivity: '{n} מסמך/ים — פעילות מתונה',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
-    impactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    impactSocial:
-      BRK_IMPACT_SOCIAL,
-    impactLegal:
-      CMT_IMPACT_LEGAL,
-    impactGeopolitical:
-      BRK_IMPACT_GEO_NORMAL,
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr} עיבד {n} מסמך/ים',
     actionConsequence: CMT_ACTION_CONSEQUENCE,
     mistakeDescription: CMT_MISTAKE_DESC,
     mistakeAlternative: CMT_MISTAKE_ALT,
-    outlookGood:
-      CMT_OUTLOOK_GOOD,
+    outlookGood: CMT_OUTLOOK_GOOD,
     outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: 'ניתוח פעילות ועדות הפרלמנט האירופי ויעילותו החקיקתית.',
     noRecentDocs: 'אין מסמכים אחרונים זמינים',
@@ -4892,28 +4567,18 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n}文書 — 非常に生産的な期間',
     stakeholderModerateActivity: '{n}文書 — 中程度の活動',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
-    impactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    impactSocial:
-      BRK_IMPACT_SOCIAL,
-    impactLegal:
-      CMT_IMPACT_LEGAL,
-    impactGeopolitical:
-      BRK_IMPACT_GEO_NORMAL,
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr}が{n}文書を処理しました',
-    actionConsequence:
-      CMT_ACTION_CONSEQUENCE,
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
     mistakeDescription: CMT_MISTAKE_DESC,
-    mistakeAlternative:
-      CMT_MISTAKE_ALT,
-    outlookGood:
-      CMT_OUTLOOK_GOOD,
-    outlookConcern:
-      CMT_OUTLOOK_CONCERN,
+    mistakeAlternative: CMT_MISTAKE_ALT,
+    outlookGood: CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: '欧州議会委員会の最近の立法成果と活動の有効性を分析します。',
     noRecentDocs: '最近の文書はありません',
     committeeMetadataUnavailable:
@@ -4943,28 +4608,18 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n}개 문서 — 매우 생산적인 기간',
     stakeholderModerateActivity: '{n}개 문서 — 보통 활동',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
-    impactEconomic:
-      BRK_IMPACT_ECONOMIC,
-    impactSocial:
-      BRK_IMPACT_SOCIAL,
-    impactLegal:
-      CMT_IMPACT_LEGAL,
-    impactGeopolitical:
-      BRK_IMPACT_GEO_NORMAL,
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
+    impactEconomic: BRK_IMPACT_ECONOMIC,
+    impactSocial: BRK_IMPACT_SOCIAL,
+    impactLegal: CMT_IMPACT_LEGAL,
+    impactGeopolitical: BRK_IMPACT_GEO_NORMAL,
     actionProcessed: '{abbr}에서 {n}개 문서 처리',
-    actionConsequence:
-      CMT_ACTION_CONSEQUENCE,
+    actionConsequence: CMT_ACTION_CONSEQUENCE,
     mistakeDescription: CMT_MISTAKE_DESC,
-    mistakeAlternative:
-      CMT_MISTAKE_ALT,
-    outlookGood:
-      CMT_OUTLOOK_GOOD,
-    outlookConcern:
-      CMT_OUTLOOK_CONCERN,
+    mistakeAlternative: CMT_MISTAKE_ALT,
+    outlookGood: CMT_OUTLOOK_GOOD,
+    outlookConcern: CMT_OUTLOOK_CONCERN,
     lede: '유럽 의회의 주요 위원회 활동과 입법 효율성을 종합적으로 분석합니다.',
     noRecentDocs: '최근 문서가 없습니다',
     committeeMetadataUnavailable:
@@ -4994,10 +4649,8 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
     stakeholderHighlyProductive: '{n}份文件——非常高产的时期',
     stakeholderModerateActivity: '{n}份文件——中等活跃度',
     stakeholderNoDocs: CMT_NO_DOCS,
-    impactPolitical:
-      CMT_IMPACT_POLITICAL,
-    impactPoliticalNone:
-      'active=0',
+    impactPolitical: CMT_IMPACT_POLITICAL,
+    impactPoliticalNone: 'active=0',
     impactEconomic: BRK_IMPACT_ECONOMIC,
     impactSocial: BRK_IMPACT_SOCIAL,
     impactLegal: CMT_IMPACT_LEGAL,

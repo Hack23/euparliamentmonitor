@@ -514,15 +514,15 @@ function highestImpactDimension(matrix: {
   institutionalImpact: string;
   economicImpact: string;
 }): string {
-  return [
-    { name: 'Legislative', level: matrix.legislativeImpact },
-    { name: 'Coalition', level: matrix.coalitionImpact },
-    { name: 'Public Opinion', level: matrix.publicOpinionImpact },
-    { name: 'Institutional', level: matrix.institutionalImpact },
-    { name: 'Economic', level: matrix.economicImpact },
-  ]
-    .sort((a, b) => impactToNum(b.level) - impactToNum(a.level))[0]
-    ?.name ?? 'N/A';
+  return (
+    [
+      { name: 'Legislative', level: matrix.legislativeImpact },
+      { name: 'Coalition', level: matrix.coalitionImpact },
+      { name: 'Public Opinion', level: matrix.publicOpinionImpact },
+      { name: 'Institutional', level: matrix.institutionalImpact },
+      { name: 'Economic', level: matrix.economicImpact },
+    ].sort((a, b) => impactToNum(b.level) - impactToNum(a.level))[0]?.name ?? 'N/A'
+  );
 }
 
 // ─── Per-method markdown builders ────────────────────────────────────────────
@@ -553,7 +553,7 @@ function buildSignificanceClassificationMarkdown(
 
   const sigMap: Record<string, number> = {
     historic: 0.95,
-    critical: 0.80,
+    critical: 0.8,
     significant: 0.65,
     notable: 0.45,
     routine: 0.25,
@@ -1029,18 +1029,18 @@ ${risks
   .map((r) => {
     const likelihoodMap: Record<string, number> = {
       rare: 0.15,
-      unlikely: 0.30,
-      possible: 0.50,
-      likely: 0.70,
-      'almost certain': 0.90,
+      unlikely: 0.3,
+      possible: 0.5,
+      likely: 0.7,
+      'almost certain': 0.9,
     };
     const impactMap: Record<string, number> = {
-      minor: 0.20,
+      minor: 0.2,
       moderate: 0.45,
-      major: 0.70,
-      critical: 0.90,
+      major: 0.7,
+      critical: 0.9,
     };
-    const lx = likelihoodMap[r.likelihood] ?? 0.50;
+    const lx = likelihoodMap[r.likelihood] ?? 0.5;
     const ly = impactMap[r.impact] ?? 0.45;
     return `    ${sanitizeCell(r.riskId)}: [${lx.toFixed(2)}, ${ly.toFixed(2)}]`;
   })
@@ -1057,7 +1057,11 @@ ${riskRows}
 
 ## Risk Assessment Details
 
-${risks.length > 0 ? risks.map((r) => `### ${r.riskId}: ${r.description}
+${
+  risks.length > 0
+    ? risks
+        .map(
+          (r) => `### ${r.riskId}: ${r.description}
 
 | Metric | Value |
 |--------|-------|
@@ -1065,7 +1069,11 @@ ${risks.length > 0 ? risks.map((r) => `### ${r.riskId}: ${r.description}
 | Risk Level | ${r.riskLevel.toUpperCase()} |
 | Likelihood | ${r.likelihood} |
 | Impact | ${r.impact} |
-`).join('\n') : '| — | — | — | — | — | — |'}
+`
+        )
+        .join('\n')
+    : '| — | — | — | — | — | — |'
+}
 
 ## Risk Mitigation Framework
 
@@ -1368,7 +1376,10 @@ ${
     ? '| Interaction | Net Effect | Rationale |\n|-------------|-----------|----------|\n' +
       swot.crossImpactMatrix
         .slice(0, 10)
-        .map((e) => `| ${e.swotType} #${e.swotIndex + 1} × threat #${e.threatIndex + 1} | ${e.netEffect.toFixed(2)} | ${sanitizeCell(e.rationale)} |`)
+        .map(
+          (e) =>
+            `| ${e.swotType} #${e.swotIndex + 1} × threat #${e.threatIndex + 1} | ${e.netEffect.toFixed(2)} | ${sanitizeCell(e.rationale)} |`
+        )
         .join('\n')
     : '- No cross-impacts identified from available data'
 }
@@ -1606,7 +1617,10 @@ function buildStakeholderAnalysisMarkdown(
 ## Data Source Summary
 | Source | Count |
 |--------|-------|
-${Object.keys(fetchedData).filter((k) => Array.isArray(fetchedData[k])).map((k) => `| ${k} | ${(fetchedData[k] as unknown[]).length} |`).join('\n')}
+${Object.keys(fetchedData)
+  .filter((k) => Array.isArray(fetchedData[k]))
+  .map((k) => `| ${k} | ${(fetchedData[k] as unknown[]).length} |`)
+  .join('\n')}
 
 ## Date: ${date}
 `
@@ -1756,14 +1770,10 @@ Analysis of coalition stability patterns across multiple plenary sessions.
  * @param date - Analysis date
  * @returns Markdown index content string (per-document files are written as side effects)
  */
-function buildDocumentAnalysisMarkdown(
-  fetchedData: Record<string, unknown>,
-  date: string
-): string {
+function buildDocumentAnalysisMarkdown(fetchedData: Record<string, unknown>, date: string): string {
   const header = buildMarkdownHeader(METHOD_DOCUMENT_ANALYSIS, date, 'high');
   const dateOutputDir = (fetchedData as Record<string, unknown>)['_dateOutputDir'];
-  const outputBase =
-    typeof dateOutputDir === 'string' ? dateOutputDir : '';
+  const outputBase = typeof dateOutputDir === 'string' ? dateOutputDir : '';
 
   // Collect all documents across feed categories with deduplication
   const analyzedIds = new Set<string>();
@@ -1811,10 +1821,7 @@ function buildDocumentAnalysisMarkdown(
         const rawJsonFilename = `${sanitizeDocumentId(feedKey)}-${safeId}-raw.json`;
         const rawDataDir = path.join(outputBase, 'documents', 'raw-data');
         ensureDirectoryExists(rawDataDir);
-        writeTextFile(
-          path.join(rawDataDir, rawJsonFilename),
-          JSON.stringify(item, null, 2)
-        );
+        writeTextFile(path.join(rawDataDir, rawJsonFilename), JSON.stringify(item, null, 2));
       }
     }
   }

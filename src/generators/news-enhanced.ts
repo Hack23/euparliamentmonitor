@@ -67,7 +67,11 @@ import { initializeMCPClient, fetchEPFeedData } from './pipeline/fetch-stage.js'
 import { createStrategyRegistry, generateArticleForStrategy } from './pipeline/generate-stage.js';
 import { writeGenerationMetadata } from './pipeline/output-stage.js';
 import type { OutputOptions } from './pipeline/output-stage.js';
-import { runAnalysisStage, ALL_ANALYSIS_METHODS, hasSubstantiveData } from './pipeline/analysis-stage.js';
+import {
+  runAnalysisStage,
+  ALL_ANALYSIS_METHODS,
+  hasSubstantiveData,
+} from './pipeline/analysis-stage.js';
 import type { AnalysisMethod, AnalysisContext } from './pipeline/analysis-stage.js';
 
 // ─── Content-module imports (bounded contexts) ───────────────────────────────
@@ -379,9 +383,7 @@ async function maybeRunAnalysis(
   const completedCount = ctx.manifest.methods.filter(
     (method) => method.status === 'completed'
   ).length;
-  const skippedCount = ctx.manifest.methods.filter(
-    (method) => method.status === 'skipped'
-  ).length;
+  const skippedCount = ctx.manifest.methods.filter((method) => method.status === 'skipped').length;
   const failedMethods = ctx.manifest.methods.filter((method) => method.status === 'failed');
   const failedCount = failedMethods.length;
 

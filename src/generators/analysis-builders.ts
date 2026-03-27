@@ -767,7 +767,10 @@ function buildPropositionsImpact(
  * @param _pct - Pipeline health percentage (unused — AI generates reasoning)
  * @returns Single stakeholder outcome
  */
-function buildPropositionsStakeholderOutcome(_healthScore: number, _pct: string): StakeholderOutcome {
+function buildPropositionsStakeholderOutcome(
+  _healthScore: number,
+  _pct: string
+): StakeholderOutcome {
   if (_healthScore > 0.7) {
     return {
       actor: 'Parliament presidency',
