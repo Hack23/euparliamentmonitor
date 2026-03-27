@@ -2001,7 +2001,6 @@ function buildSingleDocumentAnalysis(
   significance: PoliticalSignificance,
   threats: PoliticalThreatAssessment
 ): string {
-
   // Extract available metadata from the document
   const docType = typeof item['type'] === 'string' ? item['type'] : category;
   const docDate = typeof item['date'] === 'string' ? item['date'] : date;

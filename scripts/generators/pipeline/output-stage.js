@@ -25,22 +25,23 @@ const DRY_RUN_PREFIX = '  [DRY RUN]';
  * @returns `true` when the file was actually written
  */
 export function writeArticleFile(html, filename, options) {
-  const filepath = path.join(options.newsDir, filename);
-  if (options.skipExisting && fs.existsSync(filepath)) {
-    if (options.dryRun) {
-      console.log(`${DRY_RUN_PREFIX} Would skip (already exists): ${filename}`);
-    } else {
-      console.log(`  ⏭️  Skipped (already exists): ${filename}`);
+    const filepath = path.join(options.newsDir, filename);
+    if (options.skipExisting && fs.existsSync(filepath)) {
+        if (options.dryRun) {
+            console.log(`${DRY_RUN_PREFIX} Would skip (already exists): ${filename}`);
+        }
+        else {
+            console.log(`  ⏭️  Skipped (already exists): ${filename}`);
+        }
+        return false;
     }
-    return false;
-  }
-  if (options.dryRun) {
-    console.log(`${DRY_RUN_PREFIX} Would write: ${filename}`);
-    return false;
-  }
-  atomicWrite(filepath, html);
-  console.log(`  ✅ Wrote: ${filename}`);
-  return true;
+    if (options.dryRun) {
+        console.log(`${DRY_RUN_PREFIX} Would write: ${filename}`);
+        return false;
+    }
+    atomicWrite(filepath, html);
+    console.log(`  ✅ Wrote: ${filename}`);
+    return true;
 }
 /**
  * Write a language-specific article file and update the generation stats.
@@ -53,17 +54,19 @@ export function writeArticleFile(html, filename, options) {
  * @returns `true` when the file was actually written
  */
 export function writeSingleArticle(html, slug, lang, options, stats) {
-  const filename = `${slug}-${lang}.html`;
-  const written = writeArticleFile(html, filename, options);
-  if (written) {
-    stats.generated += 1;
-    stats.articles.push(filename);
-  } else if (options.skipExisting && fs.existsSync(path.join(options.newsDir, filename))) {
-    stats.skipped += 1;
-  } else if (options.dryRun) {
-    stats.dryRun += 1;
-  }
-  return written;
+    const filename = `${slug}-${lang}.html`;
+    const written = writeArticleFile(html, filename, options);
+    if (written) {
+        stats.generated += 1;
+        stats.articles.push(filename);
+    }
+    else if (options.skipExisting && fs.existsSync(path.join(options.newsDir, filename))) {
+        stats.skipped += 1;
+    }
+    else if (options.dryRun) {
+        stats.dryRun += 1;
+    }
+    return written;
 }
 /**
  * Persist a generation metadata JSON file to the metadata directory.
@@ -79,62 +82,64 @@ export function writeSingleArticle(html, slug, lang, options, stats) {
  * @param dryRun - When true the file is not written
  */
 export function writeGenerationMetadata(stats, results, usedMCP, metadataDir, dryRun) {
-  if (dryRun) return;
-  const metadataPath = path.join(metadataDir, `generation-${formatDateForSlug()}.json`);
-  // Merge with existing metadata when another workflow already ran today
-  let mergedStats = { ...stats };
-  let mergedResults = [...results];
-  let mergedUsedMCP = usedMCP;
-  if (fs.existsSync(metadataPath)) {
-    try {
-      const existing = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
-      // Accumulate counters from both runs
-      mergedStats = {
-        ...mergedStats,
-        generated: (existing.generated ?? 0) + stats.generated,
-        skipped: (existing.skipped ?? 0) + stats.skipped,
-        dryRun: (existing.dryRun ?? 0) + stats.dryRun,
-        errors: (existing.errors ?? 0) + stats.errors,
-        // Merge article lists, removing any duplicates
-        articles: [...new Set([...(existing.articles ?? []), ...stats.articles])],
-      };
-      // Keep prior results; append new ones (dedup by slug if present)
-      const existingResults = existing.results ?? [];
-      const newSlugs = new Set(results.map((r) => r.slug).filter(Boolean));
-      const priorResults = existingResults.filter((r) => !newSlugs.has(r.slug));
-      const combinedResults = [...priorResults, ...results];
-      // Additionally de-duplicate entries that do not have a slug by using a
-      // stable structural key (JSON representation). This prevents repeated
-      // same-day runs from accumulating duplicate slug-less error entries.
-      const seenAnonymousKeys = new Set();
-      mergedResults = combinedResults.filter((result) => {
-        if (result.slug) {
-          return true;
+    if (dryRun)
+        return;
+    const metadataPath = path.join(metadataDir, `generation-${formatDateForSlug()}.json`);
+    // Merge with existing metadata when another workflow already ran today
+    let mergedStats = { ...stats };
+    let mergedResults = [...results];
+    let mergedUsedMCP = usedMCP;
+    if (fs.existsSync(metadataPath)) {
+        try {
+            const existing = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+            // Accumulate counters from both runs
+            mergedStats = {
+                ...mergedStats,
+                generated: (existing.generated ?? 0) + stats.generated,
+                skipped: (existing.skipped ?? 0) + stats.skipped,
+                dryRun: (existing.dryRun ?? 0) + stats.dryRun,
+                errors: (existing.errors ?? 0) + stats.errors,
+                // Merge article lists, removing any duplicates
+                articles: [...new Set([...(existing.articles ?? []), ...stats.articles])],
+            };
+            // Keep prior results; append new ones (dedup by slug if present)
+            const existingResults = existing.results ?? [];
+            const newSlugs = new Set(results.map((r) => r.slug).filter(Boolean));
+            const priorResults = existingResults.filter((r) => !newSlugs.has(r.slug));
+            const combinedResults = [...priorResults, ...results];
+            // Additionally de-duplicate entries that do not have a slug by using a
+            // stable structural key (JSON representation). This prevents repeated
+            // same-day runs from accumulating duplicate slug-less error entries.
+            const seenAnonymousKeys = new Set();
+            mergedResults = combinedResults.filter((result) => {
+                if (result.slug) {
+                    return true;
+                }
+                const key = JSON.stringify(result);
+                if (seenAnonymousKeys.has(key)) {
+                    return false;
+                }
+                seenAnonymousKeys.add(key);
+                return true;
+            });
+            // usedMCP is true if either run connected to MCP
+            mergedUsedMCP = mergedUsedMCP || (existing.usedMCP ?? false);
         }
-        const key = JSON.stringify(result);
-        if (seenAnonymousKeys.has(key)) {
-          return false;
+        catch {
+            // If the existing file is malformed, proceed with current run's data only
         }
-        seenAnonymousKeys.add(key);
-        return true;
-      });
-      // usedMCP is true if either run connected to MCP
-      mergedUsedMCP = mergedUsedMCP || (existing.usedMCP ?? false);
-    } catch {
-      // If the existing file is malformed, proceed with current run's data only
     }
-  }
-  const metadata = {
-    timestamp: mergedStats.timestamp,
-    generated: mergedStats.generated,
-    skipped: mergedStats.skipped,
-    dryRun: mergedStats.dryRun,
-    errors: mergedStats.errors,
-    articles: mergedStats.articles,
-    results: mergedResults,
-    usedMCP: mergedUsedMCP,
-  };
-  atomicWrite(metadataPath, JSON.stringify(metadata, null, 2));
-  console.log(`📝 Metadata written to: ${metadataPath}`);
+    const metadata = {
+        timestamp: mergedStats.timestamp,
+        generated: mergedStats.generated,
+        skipped: mergedStats.skipped,
+        dryRun: mergedStats.dryRun,
+        errors: mergedStats.errors,
+        articles: mergedStats.articles,
+        results: mergedResults,
+        usedMCP: mergedUsedMCP,
+    };
+    atomicWrite(metadataPath, JSON.stringify(metadata, null, 2));
+    console.log(`📝 Metadata written to: ${metadataPath}`);
 }
 //# sourceMappingURL=output-stage.js.map

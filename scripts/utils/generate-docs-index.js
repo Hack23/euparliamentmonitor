@@ -17,8 +17,8 @@ const DOCS_DIR = join(PROJECT_ROOT, 'docs');
  * @returns HTML content for the documentation index
  */
 export function generateIndexHTML() {
-  const currentDate = new Date().toISOString().split('T')[0] ?? '';
-  return `<!DOCTYPE html>
+    const currentDate = new Date().toISOString().split('T')[0] ?? '';
+    return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -254,21 +254,22 @@ export function generateIndexHTML() {
  * Main execution function
  */
 async function main() {
-  console.log('📚 Generating documentation index...');
-  try {
-    await fs.mkdir(DOCS_DIR, { recursive: true });
-    const indexHTML = generateIndexHTML();
-    const indexPath = join(DOCS_DIR, 'index.html');
-    await fs.writeFile(indexPath, indexHTML, 'utf8');
-    console.log(`✅ Documentation index generated: ${indexPath}`);
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    console.error('❌ Error generating documentation index:', message);
-    process.exit(1);
-  }
+    console.log('📚 Generating documentation index...');
+    try {
+        await fs.mkdir(DOCS_DIR, { recursive: true });
+        const indexHTML = generateIndexHTML();
+        const indexPath = join(DOCS_DIR, 'index.html');
+        await fs.writeFile(indexPath, indexHTML, 'utf8');
+        console.log(`✅ Documentation index generated: ${indexPath}`);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error('❌ Error generating documentation index:', message);
+        process.exit(1);
+    }
 }
 // Only run main when executed directly (not when imported)
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  main();
+    main();
 }
 //# sourceMappingURL=generate-docs-index.js.map
