@@ -323,7 +323,8 @@ async function maybeRunAnalysis(date, client) {
     (method) => method.status === 'completed'
   ).length;
   const skippedCount = ctx.manifest.methods.filter((method) => method.status === 'skipped').length;
-  const failedCount = ctx.manifest.methods.filter((method) => method.status === 'failed').length;
+  const failedMethods = ctx.manifest.methods.filter((method) => method.status === 'failed');
+  const failedCount = failedMethods.length;
   console.log('');
   console.log(
     `🔬 Analysis complete: ${completedCount} completed, ${skippedCount} skipped, ${failedCount} failed (of ${totalMethods})`
@@ -335,10 +336,7 @@ async function maybeRunAnalysis(date, client) {
   // proceed with incomplete analysis.  Any failures mean the agentic workflow
   // should fix issues rather than produce articles from partial analysis.
   if (failedCount > 0) {
-    const failedNames = ctx.manifest.methods
-      .filter((m) => m.status === 'failed')
-      .map((m) => m.method)
-      .join(', ');
+    const failedNames = failedMethods.map((m) => m.method).join(', ');
     throw new Error(
       `Analysis incomplete: ${failedCount} of ${totalMethods} methods failed (${failedNames}). ` +
         'Article generation requires ALL analysis methods to succeed.'
