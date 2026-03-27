@@ -131,6 +131,90 @@ EU Parliament Monitor employs a comprehensive suite of **22 GitHub Actions workf
 
 **🔒 Security Posture:** All 13 standard workflows use SHA-pinned actions (100%), Harden Runner (`step-security/harden-runner@58077d3c7e43986b6b15fba718e8ea69e387dfcc # v2.15.1`), and minimal permissions following least privilege principle.
 
+### 🏗️ Pipeline Architecture
+
+```mermaid
+graph LR
+    A[Code Push] --> B[Build & Test]
+    B --> C[SCA Scan]
+    C --> D[CodeQL Scan]
+    D --> E[Quality Gate]
+    E --> F[Security Gate]
+    F --> G[SBOM Generation]
+    G --> H[Attestations]
+    H --> I[Release]
+    I --> J[Deploy]
+
+    classDef trigger fill:#bbdefb,stroke:#333,stroke-width:1.5px,color:black
+    classDef test fill:#c8e6c9,stroke:#333,stroke-width:1.5px,color:black
+    classDef security fill:#ffccbc,stroke:#333,stroke-width:1.5px,color:black
+    classDef gate fill:#fff9c4,stroke:#333,stroke-width:1.5px,color:black
+    classDef integrity fill:#d1c4e9,stroke:#333,stroke-width:1.5px,color:black
+    classDef deploy fill:#a5d6a7,stroke:#333,stroke-width:1.5px,color:black
+
+    class A trigger
+    class B test
+    class C,D security
+    class E,F gate
+    class G,H integrity
+    class I,J deploy
+```
+
+### Workflow Relationships
+
+```mermaid
+flowchart TB
+    subgraph "Continuous Integration"
+        direction TB
+        PR[Pull Request] --> CodeQLScan[CodeQL Analysis]
+        PR --> DependencyReview[Dependency Review]
+        PR --> Labeler[PR Labeler]
+        PR --> REUSECheck[REUSE Compliance]
+        CodeQLScan --> SecurityEvents[Security Events]
+    end
+
+    subgraph "Agentic Content Pipeline"
+        direction TB
+        Schedule1[Scheduled Triggers] --> AgenticNews[9 Agentic News Workflows]
+        AgenticNews --> Analysis[Political Intelligence Analysis]
+        Analysis --> Articles[14-Language Article Generation]
+        Articles --> ContentPR[Content Pull Request]
+    end
+
+    subgraph "Continuous Deployment"
+        direction TB
+        Release[Release Trigger] --> BuildTest[Prepare & Test]
+        BuildTest --> BuildPackage[Build & Package]
+        BuildPackage --> GenerateSBOM[Generate SBOM]
+        GenerateSBOM --> Attestations[Create Attestations]
+        Attestations --> CreateRelease[Create GitHub Release]
+    end
+
+    subgraph "Security Scanning"
+        direction TB
+        Weekly[Weekly Schedule] --> WeeklyScan[CodeQL Weekly Scan]
+        BranchProtection[Branch Protection] --> Scorecard[Scorecard Analysis]
+    end
+
+    PR -.-> |"approved & merged"| main[Main Branch]
+    ContentPR -.-> |"reviewed & merged"| main
+    main --> Scorecard
+    main --> DeployS3[Deploy to S3 + CloudFront]
+    main -.-> |"tag created"| Release
+
+    classDef integration fill:#a0c8e0,stroke:#333,stroke-width:1.5px,color:black
+    classDef deployment fill:#86b5d9,stroke:#333,stroke-width:1.5px,color:black
+    classDef process fill:#c8e6c9,stroke:#333,stroke-width:1.5px,color:black
+    classDef agentic fill:#d1c4e9,stroke:#333,stroke-width:1.5px,color:black
+    classDef security fill:#ffccbc,stroke:#333,stroke-width:1.5px,color:black
+
+    class PR,CodeQLScan,DependencyReview,Labeler,REUSECheck integration
+    class Release,BuildTest,BuildPackage,GenerateSBOM,Attestations,CreateRelease deployment
+    class main,DeployS3 process
+    class Schedule1,AgenticNews,Analysis,Articles,ContentPR agentic
+    class SecurityEvents,Weekly,WeeklyScan,BranchProtection,Scorecard security
+```
+
 ---
 
 ## 🚀 Workflow Detailed Documentation
