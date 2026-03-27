@@ -123,7 +123,8 @@ function sanitizeDocumentId(id: string): string {
     .toLowerCase()
     .replace(/[^a-z0-9-]/g, '-')
     .replace(/-{2,}/g, '-')
-    .replace(/^-+|-+$/g, '');
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
   if (!full) {
     // Deterministic fallback: simple hash from input string for reproducibility
     let hash = 0;
@@ -349,7 +350,7 @@ export const ALL_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
  * set, use {@link ALL_ANALYSIS_METHODS} instead.
  */
 export const VALID_ANALYSIS_METHODS: readonly AnalysisMethod[] = Array.from(
-  new Set<AnalysisMethod>([...ALL_ANALYSIS_METHODS, 'document-analysis']),
+  new Set<AnalysisMethod>([...ALL_ANALYSIS_METHODS, 'document-analysis'])
 );
 
 // ─── Interfaces ───────────────────────────────────────────────────────────────
