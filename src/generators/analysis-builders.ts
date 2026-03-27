@@ -923,7 +923,7 @@ export function buildCommitteeAnalysis(
       .slice(0, 2)
       .map((c) => ({
         actor: `${c.name} (${c.abbreviation})`,
-        description: s.mistakeDescription,
+        description: AI_MARKER,
         alternative: AI_MARKER,
       })),
     outlook: AI_MARKER,
