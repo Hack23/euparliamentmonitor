@@ -220,6 +220,39 @@ function toThreatInput(data: Record<string, unknown>): ThreatAssessmentInput {
   };
 }
 
+/** Keys in fetchedData that count as substantive EP data */
+const SUBSTANTIVE_DATA_KEYS = [
+  'events',
+  'procedures',
+  'adoptedTexts',
+  'documents',
+  'votingRecords',
+  'coalitions',
+  'questions',
+  'mepUpdates',
+  'plenaryDocuments',
+  'committeeDocuments',
+  'plenarySessionDocuments',
+  'externalDocuments',
+] as const;
+
+/**
+ * Check whether the fetched data contains any substantive EP data.
+ *
+ * Returns `true` when at least one data category has non-empty arrays.
+ * Used to gate analysis execution — analysis should not run on empty data.
+ *
+ * @param data - Raw fetched data record
+ * @returns true if any substantive data is present
+ */
+export function hasSubstantiveData(data: Record<string, unknown>): boolean {
+  for (const key of SUBSTANTIVE_DATA_KEYS) {
+    const arr = safeArr(data, key);
+    if (arr.length > 0) return true;
+  }
+  return false;
+}
+
 // ─── Analysis Method type ─────────────────────────────────────────────────────
 
 /**
@@ -584,17 +617,19 @@ ${procedures.length} procedures, and ${adoptedTexts.length} adopted texts.
 
 ## Key Findings
 
-${events.length === 0 && docs.length === 0 ? '- No data available for significance assessment\n- Recommend expanding data collection timeframe' : `- ${events.length} events and ${docs.length} documents assessed across the analysis period
-- ${procedures.length} legislative procedures tracked in various stages
-- ${adoptedTexts.length} texts adopted, indicating ${adoptedTexts.length > 5 ? 'high' : 'moderate'} legislative output
-- Overall political significance: **${significance.toUpperCase()}**
-- ${significance === 'routine' ? 'Standard parliamentary activity — no elevated risk signals detected' : 'Elevated political activity detected — enhanced monitoring recommended'}`}
+${events.length === 0 && docs.length === 0 ? '- No EP data available for significance assessment\n- MCP connection may have failed — verify data pipeline' : `- ${events.length} events and ${docs.length} documents assessed
+- ${procedures.length} legislative procedures in pipeline
+- ${adoptedTexts.length} texts adopted in current period
+- Overall political significance: **${significance.toUpperCase()}**`}
 
-## Strategic Implications
-
-- **For policy analysts**: ${significance === 'routine' ? 'Standard monitoring cadence sufficient' : 'Increase monitoring frequency and stakeholder engagement'}
-- **For political groups**: Legislative activity levels suggest ${adoptedTexts.length > 3 ? 'productive negotiation outcomes' : 'ongoing deliberation processes'}
-- **For civil society**: ${events.length > 5 ? 'Multiple engagement opportunities through upcoming events' : 'Limited near-term engagement windows'}
+<!-- AI_ANALYSIS: Significance interpretation required.
+     Computed significance level: ${significance}
+     Data: ${events.length} events, ${docs.length} documents, ${procedures.length} procedures, ${adoptedTexts.length} adopted texts.
+     Agentic workflow should provide:
+     1. What specific events/procedures are driving the significance level?
+     2. Are there unusual patterns in the data that warrant attention?
+     3. What are the implications for each political group?
+-->
 
 ## Date: ${date}
 `
@@ -650,17 +685,13 @@ pie title Impact Distribution by Dimension — ${date}
 
 ## Dimensional Analysis
 
-### 🏛️ Legislative Impact: ${matrix.legislativeImpact}
-The legislative dimension assesses the direct effect on EU law-making. Current assessment indicates
-${matrix.legislativeImpact === 'high' || matrix.legislativeImpact === 'critical' ? 'significant legislative activity with potential for major policy changes' : 'standard legislative processing without exceptional developments'}.
-
-### 🤝 Coalition Impact: ${matrix.coalitionImpact}
-Coalition dynamics reflect the stability and alignment of political group alliances.
-${matrix.coalitionImpact === 'high' || matrix.coalitionImpact === 'critical' ? 'Elevated coalition pressure detected — cross-party negotiations may be under strain.' : 'Coalition dynamics appear stable within normal parameters.'}
-
-### 📢 Public Opinion Impact: ${matrix.publicOpinionImpact}
-Public opinion impact measures the potential for citizen engagement and media attention.
-${matrix.publicOpinionImpact === 'high' ? 'High public visibility expected for current parliamentary activity.' : 'Standard public engagement levels anticipated.'}
+<!-- AI_ANALYSIS: Political impact interpretation required.
+     Impact levels: Legislative=${matrix.legislativeImpact}, Coalition=${matrix.coalitionImpact},
+     Public Opinion=${matrix.publicOpinionImpact}, Institutional=${matrix.institutionalImpact},
+     Economic=${matrix.economicImpact}.
+     Agentic workflow should analyse what specific legislative/political developments
+     are driving each impact dimension and their cross-dimensional interactions.
+-->
 
 ## Date: ${date}
 `
@@ -817,24 +848,31 @@ ${forceRow('🌍 External Influences', forces.externalInfluences)}
 ## Force Dynamics Assessment
 
 ### Coalition Power (${(forces.coalitionPower.strength * 100).toFixed(0)}%)
-- **Trend**: ${forces.coalitionPower.trend} — ${forces.coalitionPower.trend === 'increasing' ? 'Coalition cohesion is increasing, supporting legislative momentum' : forces.coalitionPower.trend === 'decreasing' ? 'Coalition fragmentation risks emerging' : 'Stable coalition dynamics maintaining legislative baseline'}
-- **Key Actors**: ${forces.coalitionPower.keyActors.length > 0 ? forces.coalitionPower.keyActors.join(', ') : 'Major political groups (EPP, S&D, Renew)'}
+- **Trend**: ${forces.coalitionPower.trend}
+- **Key Actors**: ${forces.coalitionPower.keyActors.length > 0 ? forces.coalitionPower.keyActors.join(', ') : 'N/A — requires AI analysis of current coalition composition'}
 - **Confidence**: ${forces.coalitionPower.confidence}
 
 ### Opposition Power (${(forces.oppositionPower.strength * 100).toFixed(0)}%)
-- **Trend**: ${forces.oppositionPower.trend} — ${forces.oppositionPower.trend === 'increasing' ? 'Opposition gaining leverage on key dossiers' : 'Opposition influence at baseline levels'}
-- **Key Actors**: ${forces.oppositionPower.keyActors.length > 0 ? forces.oppositionPower.keyActors.join(', ') : 'ECR, ID, The Left, non-attached members'}
+- **Trend**: ${forces.oppositionPower.trend}
+- **Key Actors**: ${forces.oppositionPower.keyActors.length > 0 ? forces.oppositionPower.keyActors.join(', ') : 'N/A — requires AI analysis of opposition dynamics'}
 - **Confidence**: ${forces.oppositionPower.confidence}
 
 ### External Influences (${(forces.externalInfluences.strength * 100).toFixed(0)}%)
-- **Trend**: ${forces.externalInfluences.trend} — Geopolitical pressures, trade dynamics, and international obligations shape EP agenda
-- **Key Actors**: ${forces.externalInfluences.keyActors.length > 0 ? forces.externalInfluences.keyActors.join(', ') : 'European Council, Commission, international partners'}
+- **Trend**: ${forces.externalInfluences.trend}
+- **Key Actors**: ${forces.externalInfluences.keyActors.length > 0 ? forces.externalInfluences.keyActors.join(', ') : 'N/A — requires AI analysis of external factors'}
 - **Confidence**: ${forces.externalInfluences.confidence}
 
-## Strategic Implications
-
-The balance of political forces on ${date} indicates a **${forces.coalitionPower.strength > forces.oppositionPower.strength ? 'coalition-dominant' : 'contested'}** legislative environment.
-${forces.coalitionPower.strength > 0.6 ? 'Strong coalition power suggests high probability of legislative passage for priority dossiers.' : 'Balanced force dynamics suggest negotiation-intensive legislative progress.'}
+<!-- AI_ANALYSIS: Political force dynamics interpretation required.
+     Coalition Power: ${(forces.coalitionPower.strength * 100).toFixed(0)}% (${forces.coalitionPower.trend})
+     Opposition Power: ${(forces.oppositionPower.strength * 100).toFixed(0)}% (${forces.oppositionPower.trend})
+     Institutional Barriers: ${(forces.institutionalBarriers.strength * 100).toFixed(0)}% (${forces.institutionalBarriers.trend})
+     Public Pressure: ${(forces.publicPressure.strength * 100).toFixed(0)}% (${forces.publicPressure.trend})
+     External Influences: ${(forces.externalInfluences.strength * 100).toFixed(0)}% (${forces.externalInfluences.trend})
+     Agentic workflow should provide:
+     1. What specific political developments are driving each force?
+     2. How do force interactions affect legislative outcomes?
+     3. Which political groups benefit or suffer from current force balance?
+-->
 
 ## Date: ${date}
 `
@@ -1119,10 +1157,15 @@ ${riskRows}
 
 ${risks.length > 0 ? risks.map((r) => `### ${r.riskId}: ${r.description}
 - **Risk Score**: ${r.riskScore.toFixed(2)} (${r.riskLevel.toUpperCase()})
-- **Likelihood**: ${r.likelihood} — Based on current parliamentary data signals
-- **Impact**: ${r.impact} — Projected effect on legislative outcomes
-- **Mitigation**: Monitoring through analysis pipeline, early warning via anomaly detection
-`).join('\n') : '- No specific risks identified in current assessment period'}
+- **Likelihood**: ${r.likelihood}
+- **Impact**: ${r.impact}
+`).join('\n') : '- No risks identified — insufficient data for risk scoring'}
+
+<!-- AI_ANALYSIS: Risk interpretation and mitigation strategies required.
+     ${risks.length} risks identified from EP data.
+     Agentic workflow should provide specific political context for each risk,
+     identify which procedures/votes are affected, and suggest monitoring priorities.
+-->
 
 ## Risk Appetite & Tolerance
 
@@ -1185,6 +1228,10 @@ ${rows}
 /**
  * Build the data-driven SWOT items for the political SWOT analysis.
  *
+ * Descriptions are derived purely from data metrics — no pre-written
+ * political conclusions. AI enrichment markers indicate where the agentic
+ * workflow should inject real political intelligence analysis.
+ *
  * Extracted from `buildQuantitativeSwotMarkdown` to reduce cognitive complexity.
  *
  * @param counts - Count of items per data category
@@ -1210,34 +1257,23 @@ function buildPoliticalSwotItems(counts: {
 }) {
   const strengths = [
     createScoredSWOTItem(
-      'Established democratic institutions and treaty-based procedures',
-      4,
-      [
-        'Treaty-based institutional framework ensures legislative continuity',
-        'Structured plenary and committee processes provide predictability',
-        `${counts.procedures} active procedures demonstrate functioning pipeline`,
-      ],
-      'high',
-      'stable'
-    ),
-    createScoredSWOTItem(
-      `Active legislative pipeline with ${counts.procedures} procedures tracked`,
+      `${counts.procedures} procedures in active legislative pipeline`,
       Math.min(counts.procedures / 5, 5),
       [
-        `${counts.procedures} procedures currently in pipeline`,
-        `${counts.adoptedTexts} texts adopted in current period`,
-        `${counts.documents} documents published and available for analysis`,
+        `${counts.procedures} procedures tracked in current period`,
+        `${counts.adoptedTexts} texts adopted`,
+        `${counts.documents} documents published`,
       ],
-      'medium',
+      counts.procedures > 0 ? 'medium' : 'low',
       counts.procedures > 5 ? 'improving' : 'stable'
     ),
     createScoredSWOTItem(
-      `Parliamentary oversight with ${counts.votingRecords} recorded votes`,
+      `${counts.votingRecords} roll-call votes recorded with ${counts.questions} questions`,
       Math.min(counts.votingRecords / 3, 5),
       [
-        `${counts.votingRecords} roll-call voting records available`,
-        'Transparent voting enables democratic accountability',
-        `${counts.questions} parliamentary questions submitted for oversight`,
+        `${counts.votingRecords} voting records available`,
+        `${counts.questions} parliamentary questions filed`,
+        `${counts.mepUpdates} MEP activity updates`,
       ],
       counts.votingRecords > 0 ? 'medium' : 'low',
       'stable'
@@ -1246,23 +1282,12 @@ function buildPoliticalSwotItems(counts: {
 
   const weaknesses = [
     createScoredSWOTItem(
-      'Complex multi-stakeholder decision-making across 27 member states',
-      3,
-      [
-        '27 member states with divergent national interests',
-        '7+ political groups with varying policy positions',
-        'Trilogue negotiations add opacity to legislative process',
-      ],
-      'high',
-      'stable'
-    ),
-    createScoredSWOTItem(
-      `Limited real-time data availability (${counts.mepUpdates} MEP updates)`,
+      `${counts.mepUpdates} MEP updates — data coverage gap assessment`,
       Math.max(2, 5 - counts.mepUpdates / 10),
       [
-        `${counts.mepUpdates} MEP activity updates in current period`,
-        'Feed data may lag behind actual parliamentary activity',
-        'Some legislative stages lack granular public data',
+        `${counts.mepUpdates} MEP updates in current period`,
+        `${counts.documents} documents vs ${counts.procedures} procedures ratio`,
+        `Data freshness depends on EP feed update frequency`,
       ],
       'medium',
       'stable'
@@ -1271,52 +1296,28 @@ function buildPoliticalSwotItems(counts: {
 
   const opportunities = [
     createScoredOpportunityOrThreat(
-      `${counts.events} upcoming parliamentary events for policy advancement`,
+      `${counts.events} parliamentary events scheduled`,
       counts.events > 3 ? 'likely' : 'possible',
       counts.events > 5 ? 'major' : 'moderate',
       [
-        `${counts.events} events scheduled in analysis period`,
-        'Plenary sessions provide legislative momentum opportunities',
-        'Committee hearings enable stakeholder engagement',
+        `${counts.events} events in analysis period`,
+        `${counts.adoptedTexts} texts adopted indicates legislative throughput`,
+        `${counts.procedures} procedures in various stages`,
       ],
       'medium',
       counts.events > 3 ? 'improving' : 'stable'
-    ),
-    createScoredOpportunityOrThreat(
-      `Growing legislative output (${counts.adoptedTexts} adopted texts)`,
-      counts.adoptedTexts > 2 ? 'likely' : 'possible',
-      'moderate',
-      [
-        `${counts.adoptedTexts} texts adopted demonstrates productive period`,
-        'Active legislative pipeline suggests policy momentum',
-        `${counts.procedures} procedures in various stages of completion`,
-      ],
-      'medium',
-      'stable'
     ),
   ];
 
   const threats = [
     createScoredOpportunityOrThreat(
-      'External geopolitical pressures and policy disruption risks',
-      'possible',
-      'major',
-      [
-        'Global political dynamics create legislative uncertainty',
-        'External trade and security pressures may shift priorities',
-        'Member state domestic politics influence EP positions',
-      ],
-      'medium',
-      'stable'
-    ),
-    createScoredOpportunityOrThreat(
-      `Coalition instability risk (${counts.coalitions} coalition data points)`,
+      `${counts.coalitions} coalition data points — cohesion monitoring`,
       counts.coalitions > 0 ? 'possible' : 'unlikely',
       'moderate',
       [
-        `${counts.coalitions} coalition cohesion observations`,
-        'Cross-party alliances may shift on controversial legislation',
-        'Political group discipline varies by policy area',
+        `${counts.coalitions} coalition observations recorded`,
+        `Cross-reference with ${counts.votingRecords} voting records`,
+        `${counts.procedures} procedures may be affected by coalition shifts`,
       ],
       counts.coalitions > 0 ? 'medium' : 'low',
       'stable'
@@ -1503,9 +1504,17 @@ quadrantChart
 
 - **Data Points Analysed**: ${procedures.length + events.length + documents.length + votingRecords.length + adoptedTexts.length}
 - **Political Groups Monitored**: 7 (EPP, S&D, Renew, Greens/EFA, ECR, ID, The Left)
-- **Assessment Confidence**: Medium (data-driven quantitative model)
-- **Strategic Position**: ${swot.strategicPositionScore >= 6 ? '🟢 Strong — favourable balance of strengths and opportunities' : swot.strategicPositionScore >= 4 ? '🟡 Moderate — balanced position requiring active monitoring' : '🔴 Weak — significant risks requiring immediate attention'}
-- **Recommended Actions**: ${swot.strategicPositionScore >= 6 ? 'Maintain monitoring cadence, leverage opportunities' : 'Increase monitoring frequency, develop mitigation strategies'}
+- **Assessment Confidence**: ${procedures.length + events.length > 10 ? 'High — substantial data volume' : procedures.length + events.length > 0 ? 'Medium — limited data volume' : 'Low — insufficient data for reliable assessment'}
+
+<!-- AI_ANALYSIS: Political intelligence assessment required.
+     The data above provides quantitative metrics only.
+     Agentic workflow (Copilot) should analyse the following:
+     1. What do the ${procedures.length} procedures reveal about current EU legislative priorities?
+     2. How do the ${votingRecords.length} voting records indicate coalition stability or fragmentation?
+     3. What strategic position does the current data suggest for each political group?
+     4. What are the key risks and opportunities from ${events.length} upcoming events?
+     5. Cross-reference adopted texts with procedure pipeline for legislative momentum assessment.
+-->
 
 ## Date: ${date}
 `
@@ -2040,41 +2049,41 @@ function buildSingleDocumentAnalysis(
         ? (item['summary'] as string)
         : 'No description available';
 
-  // Build document-specific SWOT items
+  // Build document-specific SWOT items — data-derived only, no pre-written conclusions
   const docStrengths = [
     createScoredSWOTItem(
-      `Document contributes to legislative transparency`,
+      `Document ${sanitizeDocumentId(docId)} available in ${category} feed`,
       3,
-      [`Document ${docId} is publicly available`, `Category: ${category}`],
+      [`Document ID: ${docId}`, `Category: ${category}`, `Status: ${docStatus}`],
       'medium',
       'stable'
     ),
   ];
   const docWeaknesses = [
     createScoredSWOTItem(
-      'Single document may have limited standalone impact',
+      `Document stage: ${docStage}, status: ${docStatus}`,
       2,
-      ['Part of broader legislative context', 'Requires cross-referencing with related documents'],
+      [`Current stage: ${docStage}`, `Type: ${docType}`, `Date: ${docDate}`],
       'medium',
       'stable'
     ),
   ];
   const docOpportunities = [
     createScoredOpportunityOrThreat(
-      'Potential for policy influence and stakeholder engagement',
+      `${category} document with ID ${sanitizeDocumentId(docId)}`,
       'possible',
       'moderate',
-      ['Legislative documents shape EU policy direction'],
+      [`Category: ${category}`, `Date: ${docDate}`],
       'medium',
       'stable'
     ),
   ];
   const docThreats = [
     createScoredOpportunityOrThreat(
-      'Risk of legislative delay or amendment dilution',
+      `Document ${sanitizeDocumentId(docId)} — pipeline risk assessment`,
       'possible',
       'moderate',
-      ['Complex multi-party negotiation dynamics'],
+      [`Stage: ${docStage}`, `Status: ${docStatus}`],
       'medium',
       'stable'
     ),
@@ -2139,21 +2148,26 @@ ${sanitizeCell(docDescription)}
 
 ## Stakeholder Impact
 
-| Stakeholder | Projected Impact |
-|-------------|-----------------|
-| Political Groups | Legislative positioning affected |
-| Civil Society | Transparency and accountability implications |
-| Industry | Regulatory and compliance effects |
-| National Governments | Implementation and transposition requirements |
-| Citizens | Rights and welfare implications |
-| EU Institutions | Institutional balance considerations |
+<!-- AI_ANALYSIS: Document-specific stakeholder impact required.
+     Document ID: ${sanitizeCell(docId)}, Category: ${sanitizeCell(category)},
+     Type: ${sanitizeCell(docType)}, Stage: ${sanitizeCell(docStage)}.
+     Agentic workflow should analyse how this specific document affects
+     political groups, civil society, industry, national governments,
+     citizens, and EU institutions based on its actual content and context.
+-->
 
 ## Intelligence Summary
 
-Document **${sanitizeCell(docId)}** (${sanitizeCell(category)}) represents a ${significance}-significance
-item in the European Parliament legislative pipeline.  Its strategic position score of
-${docSwot.strategicPositionScore.toFixed(1)}/10 reflects ${docSwot.overallAssessment.toLowerCase()} positioning
-within the current political context.
+- **Document**: ${sanitizeCell(docId)} (${sanitizeCell(category)})
+- **Significance**: ${significance}
+- **Strategic Position Score**: ${docSwot.strategicPositionScore.toFixed(1)}/10
+- **Overall Assessment**: ${docSwot.overallAssessment}
+
+<!-- AI_ANALYSIS: Document intelligence assessment required.
+     Provide specific political intelligence analysis of document ${sanitizeCell(docId)}.
+     What are the key political implications? Which political groups are affected?
+     What legislative outcomes does this document signal?
+-->
 
 ## Analysis Date: ${date}
 `;
@@ -2402,6 +2416,16 @@ export async function runAnalysisStage(
     console.log(`   Date: ${date}`);
     console.log(`   Methods: ${deduplicatedMethods.length}`);
     console.log(`   Output: ${dateOutputDir}`);
+  }
+
+  // Warn when no substantive EP data is available — analysis will still run
+  // but output will be data-sparse.  Agentic workflows should check this
+  // and avoid committing empty analysis artifacts.
+  if (!hasSubstantiveData(fetchedData)) {
+    console.warn(
+      '⚠️  [analysis] No substantive EP data in fetchedData — analysis output will be data-sparse. ' +
+        'Ensure MCP connection succeeded and feed data was fetched before running analysis.'
+    );
   }
 
   ensureDirectoryExists(dateOutputDir);

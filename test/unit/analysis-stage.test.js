@@ -23,6 +23,7 @@ import os from 'os';
 import {
   runAnalysisStage,
   ALL_ANALYSIS_METHODS,
+  hasSubstantiveData,
 } from '../../scripts/generators/pipeline/analysis-stage.js';
 
 // ─── Test helpers ─────────────────────────────────────────────────────────────
@@ -89,6 +90,34 @@ describe('ALL_ANALYSIS_METHODS', () => {
   it('has no duplicate entries', () => {
     const unique = new Set(ALL_ANALYSIS_METHODS);
     expect(unique.size).toBe(ALL_ANALYSIS_METHODS.length);
+  });
+});
+
+// ─── hasSubstantiveData tests ─────────────────────────────────────────────────
+
+describe('hasSubstantiveData', () => {
+  it('returns false for completely empty data', () => {
+    expect(hasSubstantiveData({})).toBe(false);
+  });
+
+  it('returns false for data with only empty arrays', () => {
+    expect(hasSubstantiveData({ events: [], procedures: [], documents: [] })).toBe(false);
+  });
+
+  it('returns true when events has data', () => {
+    expect(hasSubstantiveData({ events: [{ id: '1' }] })).toBe(true);
+  });
+
+  it('returns true when procedures has data', () => {
+    expect(hasSubstantiveData({ procedures: [{ id: '1' }] })).toBe(true);
+  });
+
+  it('returns true when documents has data', () => {
+    expect(hasSubstantiveData({ documents: [{ id: '1' }] })).toBe(true);
+  });
+
+  it('returns false for non-array values', () => {
+    expect(hasSubstantiveData({ events: 'string', procedures: 42 })).toBe(false);
   });
 });
 
@@ -600,9 +629,14 @@ describe('runAnalysisStage', () => {
       // With populated data, should report non-zero data points
       expect(content).toContain(`${sampleEvents.length} events`);
       expect(content).toContain(`${sampleDocuments.length} documents`);
+      // Should contain Mermaid chart
+      expect(content).toContain('```mermaid');
+      expect(content).toContain('quadrantChart');
+      // Should contain AI enrichment marker — no hardcoded conclusions
+      expect(content).toContain('AI_ANALYSIS');
     });
 
-    it('impact-matrix shows dimension levels from real analysis', async () => {
+    it('impact-matrix includes Mermaid pie chart and AI markers', async () => {
       await runAnalysisStage(buildPopulatedFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -615,9 +649,13 @@ describe('runAnalysisStage', () => {
       );
       expect(content).toContain('Political Impact Matrix');
       expect(content).toContain('Overall Significance');
-      // Should contain the impact dimension table
       expect(content).toContain('Legislative');
       expect(content).toContain('Coalition');
+      // Mermaid chart
+      expect(content).toContain('```mermaid');
+      expect(content).toContain('pie title');
+      // AI marker
+      expect(content).toContain('AI_ANALYSIS');
     });
 
     it('actor-mapping identifies actors from populated data', async () => {
@@ -637,7 +675,7 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('Actor Classification');
     });
 
-    it('forces-analysis shows force assessment from real data', async () => {
+    it('forces-analysis shows force assessment with Mermaid pie chart', async () => {
       await runAnalysisStage(buildPopulatedFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -651,6 +689,11 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('Political Forces Analysis');
       expect(content).toContain('Coalition Power');
       expect(content).toContain('Opposition Power');
+      // Mermaid chart
+      expect(content).toContain('```mermaid');
+      expect(content).toContain('pie title');
+      // AI enrichment marker
+      expect(content).toContain('AI_ANALYSIS');
     });
 
     it('political-stride uses real threat assessment for markdown', async () => {
@@ -765,7 +808,7 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('S&D');
     });
 
-    it('quantitative-swot generates scored SWOT from data', async () => {
+    it('quantitative-swot generates SWOT with Mermaid quadrant chart', async () => {
       await runAnalysisStage(buildPopulatedFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -779,6 +822,14 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('Full Political SWOT Analysis');
       expect(content).toContain('Strategic Position Score');
       expect(content).toContain('SWOT Overview');
+      // Mermaid quadrant chart
+      expect(content).toContain('```mermaid');
+      expect(content).toContain('quadrantChart');
+      // AI enrichment marker
+      expect(content).toContain('AI_ANALYSIS');
+      // Data-driven content (no hardcoded political conclusions)
+      expect(content).toContain('procedures');
+      expect(content).toContain('voting records');
     });
 
     it('legislative-velocity-risk analyses procedure delays', async () => {
@@ -953,7 +1004,7 @@ describe('runAnalysisStage', () => {
       expect(ctx.manifest.analyzedDocumentIds).toContain('shared-doc');
     });
 
-    it('per-document files contain SWOT and threat assessment', async () => {
+    it('per-document files contain SWOT and threat assessment with AI markers', async () => {
       const data = {
         ...buildTestFetchedData(),
         adoptedTexts: [
@@ -976,8 +1027,40 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('Document Analysis:');
       expect(content).toContain('SWOT Analysis');
       expect(content).toContain('Threat Assessment');
-      expect(content).toContain('Stakeholder Impact');
+      // AI markers instead of hardcoded conclusions
+      expect(content).toContain('AI_ANALYSIS');
       expect(content).toContain('Intelligence Summary');
+    });
+
+    it('stores raw document JSON alongside analysis markdown', async () => {
+      const data = {
+        ...buildTestFetchedData(),
+        adoptedTexts: [
+          { docId: 'RAW-DOC-001', title: 'Raw Test Document', type: 'resolution', status: 'adopted' },
+        ],
+      };
+
+      await runAnalysisStage(data, {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['document-analysis'],
+      });
+
+      // Check raw data directory exists
+      const rawDataDir = path.join(tmpDir, testDate, 'documents', 'raw-data');
+      expect(fs.existsSync(rawDataDir)).toBe(true);
+
+      // Check raw JSON file exists
+      const rawFiles = fs.readdirSync(rawDataDir).filter((f) => f.includes('raw-doc-001'));
+      expect(rawFiles.length).toBe(1);
+
+      // Verify raw JSON contains the original document data
+      const rawContent = JSON.parse(fs.readFileSync(path.join(rawDataDir, rawFiles[0]), 'utf-8'));
+      expect(rawContent.docId).toBe('RAW-DOC-001');
+      expect(rawContent.title).toBe('Raw Test Document');
+      expect(rawContent.type).toBe('resolution');
+      expect(rawContent.status).toBe('adopted');
     });
 
     it('index file contains document count and category breakdown', async () => {
