@@ -27,10 +27,17 @@ import { getLocalizedString, EDITORIAL_STRINGS } from '../constants/languages.js
  * @param lang - Language code for editorial string headings (default: 'en')
  * @returns Full article HTML content string
  */
-export function buildPropositionsContent(proposalsHtml, adoptedTextsHtml, pipelineData, procedureHtml, strings, lang = 'en') {
-    const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
-    const pipelineHtml = pipelineData
-        ? `
+export function buildPropositionsContent(
+  proposalsHtml,
+  adoptedTextsHtml,
+  pipelineData,
+  procedureHtml,
+  strings,
+  lang = 'en'
+) {
+  const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
+  const pipelineHtml = pipelineData
+    ? `
     <div class="pipeline-metrics">
       <div class="metric" aria-label="${escapeHTML(strings.pipelineHealthLabel)}">
         <span class="metric-label">${escapeHTML(strings.pipelineHealthLabel)}</span>
@@ -42,29 +49,29 @@ export function buildPropositionsContent(proposalsHtml, adoptedTextsHtml, pipeli
       </div>
     </div>
     ${pipelineData.procRowsHtml}`
-        : '';
-    const procedureSection = procedureHtml
-        ? `
+    : '';
+  const procedureSection = procedureHtml
+    ? `
           <section class="procedure-status">
             <h2>${escapeHTML(strings.procedureHeading)}</h2>
             ${procedureHtml}
           </section>`
-        : '';
-    const adoptedTextsSection = adoptedTextsHtml
-        ? `
+    : '';
+  const adoptedTextsSection = adoptedTextsHtml
+    ? `
           <section class="adopted-texts-section">
             <h2>${escapeHTML(strings.adoptedTextsHeading)}</h2>
             ${adoptedTextsHtml}
           </section>`
-        : '';
-    const proposalsSection = proposalsHtml
-        ? `
+    : '';
+  const proposalsSection = proposalsHtml
+    ? `
           <section class="proposals-list">
             <h2>${escapeHTML(strings.proposalsHeading)}</h2>
             ${proposalsHtml}
           </section>`
-        : '';
-    return `
+    : '';
+  return `
         <div class="article-content">
           <section class="lede">
             <p>${escapeHTML(strings.lede)}</p>

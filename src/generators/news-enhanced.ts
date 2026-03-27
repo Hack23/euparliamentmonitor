@@ -70,6 +70,7 @@ import type { OutputOptions } from './pipeline/output-stage.js';
 import {
   runAnalysisStage,
   ALL_ANALYSIS_METHODS,
+  VALID_ANALYSIS_METHODS,
   hasSubstantiveData,
 } from './pipeline/analysis-stage.js';
 import type { AnalysisMethod, AnalysisContext } from './pipeline/analysis-stage.js';
@@ -246,7 +247,7 @@ function parseAnalysisMethods(): readonly AnalysisMethod[] {
   const unknownMethods: string[] = [];
 
   for (const name of requestedNames) {
-    if ((ALL_ANALYSIS_METHODS as readonly string[]).includes(name)) {
+    if ((VALID_ANALYSIS_METHODS as readonly string[]).includes(name)) {
       validMethods.add(name as AnalysisMethod);
     } else {
       unknownMethods.push(name);

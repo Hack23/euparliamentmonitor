@@ -102,19 +102,29 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **bre
 
 If **force_generation** is `true`, generate articles even if recent ones exist. Use the **languages** value to determine which languages to generate.
 
-## 🚨 CRITICAL: Realtime Feed-First Breaking News
+## 🚨 CRITICAL: Analysis-First Breaking News Pipeline
 
-**This workflow generates ONLY `breaking` articles using a FEED-FIRST approach for REALTIME news.**
+**This workflow generates ONLY `breaking` articles using an ANALYSIS-FIRST approach. All EP documents are downloaded and fully analyzed with AI BEFORE evaluating breaking news significance.**
 
 > **⚠️ FUNDAMENTAL RULE**: Breaking news covers ONLY what happened TODAY (within the last 12 hours). Use `timeframe: "today"` for ALL feed endpoints. ONLY items published/updated TODAY qualify as breaking news. Precomputed statistics (`get_all_generated_stats`) provide historical context ONLY and are NEVER breaking news. Analytical tools (voting anomalies, coalition dynamics) are OPTIONAL supplementary context.
 
 > **📅 DATE REQUIREMENT**: ALL document/event/procedure references in articles MUST include their publish or creation date (e.g., "Resolution on Digital Markets (adopted 4 March 2026)"). Documents without a recent date are NOT news.
 
+> **🔬 ANALYSIS-FIRST MANDATE**: The AI (Opus 4.6) MUST first download all documents from EP feed endpoints, run the full analysis pipeline (all 19 methods including per-document analysis), and create analysis strategy markdown content BEFORE evaluating whether the data constitutes breaking news. Only after all analysis artifacts are written to `analysis-output/{date}/` should breaking news significance be determined.
+
+**Pipeline order (MANDATORY):**
+1. **DOWNLOAD**: Fetch all EP feed data (adopted texts, events, procedures, MEP updates, documents)
+2. **ANALYZE**: Run full analysis pipeline with all 19 methods including document-analysis — creates per-document markdown + JSON analysis files
+3. **EVALUATE**: Based on the analysis artifacts and AI assessment, determine whether the content constitutes breaking news
+4. **GENERATE**: If newsworthy, generate the article using the analysis intelligence
+5. **NOOP**: If analysis determines no breaking news significance, use `safeoutputs___noop`
+
 **Data source hierarchy:**
 1. **PRIMARY (MANDATORY)**: EP API v2 feed endpoints with `timeframe: "today"` — adopted texts, events, procedures, MEP updates (these 4 feeds are consumed by the generator)
-2. **ADVISORY (NEWSWORTHINESS GATE ONLY)**: Documents, plenary/committee documents, parliamentary questions — inform whether to proceed but are NOT rendered in the article
-3. **SECONDARY (OPTIONAL)**: Analytical context — voting anomalies, coalition dynamics
-4. **CONTEXT ONLY (NEVER NEWS)**: Precomputed statistics from `get_all_generated_stats`
+2. **ANALYSIS (MANDATORY)**: Full document analysis pipeline — all 19 analysis methods including per-document analysis creating structured markdown intelligence
+3. **ADVISORY (NEWSWORTHINESS GATE ONLY)**: Documents, plenary/committee documents, parliamentary questions — inform whether to proceed but are NOT rendered in the article
+4. **SECONDARY (OPTIONAL)**: Analytical context — voting anomalies, coalition dynamics
+5. **CONTEXT ONLY (NEVER NEWS)**: Precomputed statistics from `get_all_generated_stats`
 
 **NEWSWORTHINESS GATE**: If NO events published/updated TODAY are found in feeds, use `safeoutputs___noop` — do NOT generate a breaking news article from stats, analytics, or older documents.
 
@@ -168,9 +178,10 @@ For each breaking development, immediately assess:
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
-- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis-output/{date}/`)
-- **Minutes 8–18**: Query EP feed endpoints for breaking news content
-- **Minutes 18–45**: Generate English article with deep political intelligence analysis
+- **Minutes 3–10**: Query EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates
+- **Minutes 10–25**: 🔬 Full political intelligence analysis stage — run ALL 19 analysis methods including per-document analysis (significance classification, STRIDE threat assessment, risk scoring, actor mapping, document-analysis — writes analysis artifacts and per-document markdown to `analysis-output/{date}/`)
+- **Minutes 25–30**: 📊 AI evaluates analysis artifacts to determine breaking news significance — ONLY proceed if analysis confirms newsworthy developments
+- **Minutes 30–45**: Generate English article with deep political intelligence analysis informed by analysis artifacts
 - **Minutes 45–52**: Validate and finalize changes
 - **Minutes 52–60**: Create PR with `safeoutputs___create_pull_request`
 
@@ -181,18 +192,19 @@ For each breaking development, immediately assess:
 
 ## 🔬 Political Intelligence Analysis Stage
 
-The `--analysis` flag activates the political intelligence analysis pipeline **before** article generation. This stage:
+The `--analysis` flag with `--analysis-methods` activates the full political intelligence analysis pipeline **before** article generation. This stage:
 
 1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
-2. **Runs 18 analysis methods** across 4 categories:
+2. **Runs all 19 analysis methods** across 5 categories:
    - **Classification**: significance scoring, impact matrix, actor mapping, political forces analysis
    - **Threat Assessment**: STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
    - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
-3. **Writes and commits analysis artifacts** to `analysis-output/{date}/` (markdown files + `manifest.json`) — these are included in the PR for review and political intelligence improvement
-4. **Does not block article generation** — if the analysis stage fails, article generation continues normally
+   - **Per-Document Analysis**: individual document intelligence — writes per-document markdown + JSON analysis files for every downloaded EP document
+3. **Writes and commits analysis artifacts** to `analysis-output/{date}/` (markdown files + `manifest.json` + per-document files in `documents/`) — these are included in the PR for review and political intelligence improvement
+4. **AI evaluates analysis artifacts** — after all 19 methods complete, the AI reviews the structured analysis to determine breaking news significance before proceeding to article generation
 
-The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
+The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis. The per-document analysis creates individual markdown files for each EP document, enabling comprehensive AI review before breaking news evaluation.
 
 ## Required Skills
 
@@ -461,6 +473,7 @@ npx tsx src/generators/news-enhanced.ts \
   --types="breaking" \
   --languages="$LANG_ARG" \
   --analysis \
+  --analysis-methods="significance-classification,impact-matrix,actor-mapping,forces-analysis,political-stride,actor-threat-profiling,consequence-trees,legislative-disruption,risk-matrix,political-capital-risk,quantitative-swot,legislative-velocity-risk,agent-risk-workflow,deep-analysis,stakeholder-analysis,coalition-analysis,voting-patterns,cross-session-intelligence,document-analysis" \
   $FEED_DATA_FLAG \
   $SKIP_FLAG
 ```

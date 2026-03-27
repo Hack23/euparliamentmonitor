@@ -9,9 +9,44 @@
  */
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { PROJECT_ROOT, APP_VERSION, NEWS_DIR, createThemeToggleButton, THEME_TOGGLE_SCRIPT, } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, AI_SECTION_CONTENT, FILTER_LABELS, ARTICLE_TYPE_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
-import { getNewsArticles, groupArticlesByLanguage, formatSlug, parseArticleFilename, extractArticleMeta, escapeHTML, atomicWrite, } from '../utils/file-utils.js';
+import {
+  PROJECT_ROOT,
+  APP_VERSION,
+  NEWS_DIR,
+  createThemeToggleButton,
+  THEME_TOGGLE_SCRIPT,
+} from '../constants/config.js';
+import {
+  ALL_LANGUAGES,
+  LANGUAGE_NAMES,
+  LANGUAGE_FLAGS,
+  PAGE_TITLES,
+  PAGE_DESCRIPTIONS,
+  SECTION_HEADINGS,
+  NO_ARTICLES_MESSAGES,
+  SKIP_LINK_TEXTS,
+  AI_SECTION_CONTENT,
+  FILTER_LABELS,
+  ARTICLE_TYPE_LABELS,
+  HEADER_SUBTITLE_LABELS,
+  THEME_TOGGLE_LABELS,
+  FOOTER_ABOUT_HEADING_LABELS,
+  FOOTER_ABOUT_TEXT_LABELS,
+  FOOTER_QUICK_LINKS_LABELS,
+  FOOTER_BUILT_BY_LABELS,
+  FOOTER_LANGUAGES_LABELS,
+  getLocalizedString,
+  getTextDirection,
+} from '../constants/languages.js';
+import {
+  getNewsArticles,
+  groupArticlesByLanguage,
+  formatSlug,
+  parseArticleFilename,
+  extractArticleMeta,
+  escapeHTML,
+  atomicWrite,
+} from '../utils/file-utils.js';
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
 import { detectCategory } from '../utils/article-category.js';
 /**
@@ -22,7 +57,7 @@ import { detectCategory } from '../utils/article-category.js';
  * @returns Filename string
  */
 export function getIndexFilename(lang) {
-    return lang === 'en' ? 'index.html' : `index-${lang}.html`;
+  return lang === 'en' ? 'index.html' : `index-${lang}.html`;
 }
 /**
  * Build the compact language switcher nav HTML.
@@ -32,17 +67,17 @@ export function getIndexFilename(lang) {
  * @returns HTML string
  */
 function buildLangSwitcher(currentLang) {
-    return ALL_LANGUAGES.map((code) => {
-        const flag = getLocalizedString(LANGUAGE_FLAGS, code);
-        const name = getLocalizedString(LANGUAGE_NAMES, code);
-        const active = code === currentLang ? ' active' : '';
-        const href = getIndexFilename(code);
-        const current = code === currentLang ? ' aria-current="page"' : '';
-        const safeHref = escapeHTML(href);
-        const safeCode = escapeHTML(code);
-        const safeName = escapeHTML(name);
-        return `<a href="${safeHref}" class="lang-link${active}" hreflang="${safeCode}" lang="${safeCode}" title="${safeName}" aria-label="${safeName}"${current}>${flag} ${code.toUpperCase()}</a>`;
-    }).join('\n        ');
+  return ALL_LANGUAGES.map((code) => {
+    const flag = getLocalizedString(LANGUAGE_FLAGS, code);
+    const name = getLocalizedString(LANGUAGE_NAMES, code);
+    const active = code === currentLang ? ' active' : '';
+    const href = getIndexFilename(code);
+    const current = code === currentLang ? ' aria-current="page"' : '';
+    const safeHref = escapeHTML(href);
+    const safeCode = escapeHTML(code);
+    const safeName = escapeHTML(name);
+    return `<a href="${safeHref}" class="lang-link${active}" hreflang="${safeCode}" lang="${safeCode}" title="${safeName}" aria-label="${safeName}"${current}>${flag} ${code.toUpperCase()}</a>`;
+  }).join('\n        ');
 }
 /**
  * Build the language grid for the footer.
@@ -51,16 +86,16 @@ function buildLangSwitcher(currentLang) {
  * @returns HTML string for the language grid
  */
 function buildFooterLanguageGrid(currentLang) {
-    return ALL_LANGUAGES.map((code) => {
-        const flag = getLocalizedString(LANGUAGE_FLAGS, code);
-        const name = getLocalizedString(LANGUAGE_NAMES, code);
-        const href = getIndexFilename(code);
-        const active = code === currentLang ? ' class="active"' : '';
-        const safeHref = escapeHTML(href);
-        const safeCode = escapeHTML(code);
-        const safeName = escapeHTML(name);
-        return `<a href="${safeHref}"${active} hreflang="${safeCode}">${flag} ${safeName}</a>`;
-    }).join('\n            ');
+  return ALL_LANGUAGES.map((code) => {
+    const flag = getLocalizedString(LANGUAGE_FLAGS, code);
+    const name = getLocalizedString(LANGUAGE_NAMES, code);
+    const href = getIndexFilename(code);
+    const active = code === currentLang ? ' class="active"' : '';
+    const safeHref = escapeHTML(href);
+    const safeCode = escapeHTML(code);
+    const safeName = escapeHTML(name);
+    return `<a href="${safeHref}"${active} hreflang="${safeCode}">${flag} ${safeName}</a>`;
+  }).join('\n            ');
 }
 /**
  * Render a single news card element.
@@ -73,15 +108,15 @@ function buildFooterLanguageGrid(currentLang) {
  * @returns HTML string for one card
  */
 function renderCard(article, meta, categoryLabels) {
-    const category = detectCategory(article.slug);
-    // Sanitize the category for safe use in CSS class names (allow only alphanumeric and hyphens)
-    const safeCategory = String(category).replace(/[^a-z0-9-]/gi, '');
-    const title = escapeHTML(meta.title || formatSlug(article.slug));
-    const badgeLabel = categoryLabels?.[category] ?? formatSlug(safeCategory);
-    const excerpt = meta.description
-        ? `\n            <p class="news-card__excerpt">${escapeHTML(meta.description)}</p>`
-        : '';
-    return `
+  const category = detectCategory(article.slug);
+  // Sanitize the category for safe use in CSS class names (allow only alphanumeric and hyphens)
+  const safeCategory = String(category).replace(/[^a-z0-9-]/gi, '');
+  const title = escapeHTML(meta.title || formatSlug(article.slug));
+  const badgeLabel = categoryLabels?.[category] ?? formatSlug(safeCategory);
+  const excerpt = meta.description
+    ? `\n            <p class="news-card__excerpt">${escapeHTML(meta.description)}</p>`
+    : '';
+  return `
       <li class="news-card">
         <a href="news/${escapeHTML(article.filename)}" class="news-card__link" lang="${escapeHTML(article.lang)}" hreflang="${escapeHTML(article.lang)}">
           <div class="news-card__accent news-card__accent--${safeCategory}"></div>
@@ -101,12 +136,12 @@ function renderCard(article, meta, categoryLabels) {
  * @returns HTML string of link elements
  */
 function buildHreflangTags() {
-    const links = ALL_LANGUAGES.map((code) => {
-        const href = getIndexFilename(code);
-        return `<link rel="alternate" hreflang="${code}" href="${href}">`;
-    });
-    links.push('<link rel="alternate" hreflang="x-default" href="index.html">');
-    return links.join('\n  ');
+  const links = ALL_LANGUAGES.map((code) => {
+    const href = getIndexFilename(code);
+    return `<link rel="alternate" hreflang="${code}" href="${href}">`;
+  });
+  links.push('<link rel="alternate" hreflang="x-default" href="index.html">');
+  return links.join('\n  ');
 }
 /**
  * Generate index HTML for a language.
@@ -125,61 +160,69 @@ function buildHreflangTags() {
  * @returns Complete HTML document
  */
 export function generateIndexHTML(lang, articles, metaMap = new Map()) {
-    const title = getLocalizedString(PAGE_TITLES, lang);
-    const description = getLocalizedString(PAGE_DESCRIPTIONS, lang);
-    const heading = getLocalizedString(SECTION_HEADINGS, lang);
-    const noArticlesText = getLocalizedString(NO_ARTICLES_MESSAGES, lang);
-    const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
-    const dir = getTextDirection(lang);
-    const year = new Date().getFullYear();
-    const selfHref = getIndexFilename(lang);
-    const heroTitle = title.split(' - ')[0];
-    const filterLabels = getLocalizedString(FILTER_LABELS, lang);
-    const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang);
-    // Collect distinct categories from the current article set
-    const usedCategories = new Set();
-    for (const a of articles) {
-        usedCategories.add(detectCategory(a.slug));
-    }
-    const content = articles.length === 0
-        ? `
+  const title = getLocalizedString(PAGE_TITLES, lang);
+  const description = getLocalizedString(PAGE_DESCRIPTIONS, lang);
+  const heading = getLocalizedString(SECTION_HEADINGS, lang);
+  const noArticlesText = getLocalizedString(NO_ARTICLES_MESSAGES, lang);
+  const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
+  const dir = getTextDirection(lang);
+  const year = new Date().getFullYear();
+  const selfHref = getIndexFilename(lang);
+  const heroTitle = title.split(' - ')[0];
+  const filterLabels = getLocalizedString(FILTER_LABELS, lang);
+  const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang);
+  // Collect distinct categories from the current article set
+  const usedCategories = new Set();
+  for (const a of articles) {
+    usedCategories.add(detectCategory(a.slug));
+  }
+  const content =
+    articles.length === 0
+      ? `
     <div class="empty-state">
       <div class="empty-state__icon" aria-hidden="true">📰</div>
       <p class="empty-state__text">${noArticlesText}</p>
     </div>`
-        : `
+      : `
     <ul class="news-grid" role="list">
       ${articles
-            .map((a) => renderCard(a, metaMap.get(a.filename) ?? { title: formatSlug(a.slug), description: '' }, categoryLabels))
-            .join('\n')}
+        .map((a) =>
+          renderCard(
+            a,
+            metaMap.get(a.filename) ?? { title: formatSlug(a.slug), description: '' },
+            categoryLabels
+          )
+        )
+        .join('\n')}
     </ul>`;
-    const ai = getLocalizedString(AI_SECTION_CONTENT, lang);
-    // Build filter buttons from used categories (with article count)
-    const categoryCounts = new Map();
-    for (const a of articles) {
-        const cat = detectCategory(a.slug);
-        categoryCounts.set(cat, (categoryCounts.get(cat) ?? 0) + 1);
-    }
-    const filterButtons = articles.length > 0
-        ? Array.from(usedCategories)
-            .sort()
-            .map((cat) => {
+  const ai = getLocalizedString(AI_SECTION_CONTENT, lang);
+  // Build filter buttons from used categories (with article count)
+  const categoryCounts = new Map();
+  for (const a of articles) {
+    const cat = detectCategory(a.slug);
+    categoryCounts.set(cat, (categoryCounts.get(cat) ?? 0) + 1);
+  }
+  const filterButtons =
+    articles.length > 0
+      ? Array.from(usedCategories)
+          .sort()
+          .map((cat) => {
             const safeCat = String(cat).replace(/[^a-z0-9-]/gi, '');
             const label = categoryLabels[cat] ?? formatSlug(safeCat);
             const count = categoryCounts.get(cat) ?? 0;
             return `<button type="button" class="filter-btn" data-category="${safeCat}">${escapeHTML(label)}<span class="filter-btn__count">${count}</span></button>`;
-        })
-            .join('\n          ')
-        : '';
-    const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
-    const footerAboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
-    const footerAboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
-    const footerQuickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
-    const footerBuiltByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
-    const footerLanguagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
-    const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
-    const canonicalUrl = `https://hack23.github.io/euparliamentmonitor/${selfHref}`;
-    return `<!DOCTYPE html>
+          })
+          .join('\n          ')
+      : '';
+  const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
+  const footerAboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
+  const footerAboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
+  const footerQuickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
+  const footerBuiltByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
+  const footerLanguagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
+  const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
+  const canonicalUrl = `https://hack23.github.io/euparliamentmonitor/${selfHref}`;
+  return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
   <meta charset="UTF-8">
@@ -252,7 +295,8 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
   </section>
 
   <main id="main" class="site-main">
-    <h2 class="section-heading"><span class="section-heading__icon" aria-hidden="true">📋</span> ${heading}</h2>${articles.length > 0
+    <h2 class="section-heading"><span class="section-heading__icon" aria-hidden="true">📋</span> ${heading}</h2>${
+      articles.length > 0
         ? `
     <div class="filter-toolbar" role="toolbar" aria-label="Filter articles">
       <div class="filter-buttons">
@@ -263,7 +307,8 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
         <input type="search" class="filter-search__input" placeholder="${escapeHTML(filterLabels.search)}" aria-label="${escapeHTML(filterLabels.search)}">
       </div>
     </div>`
-        : ''}
+        : ''
+    }
     ${content}
   </main>
 
@@ -360,53 +405,52 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
  * English generates index.html (primary homepage), others generate index-{lang}.html.
  */
 function main() {
-    console.log('📰 Generating news indexes...');
-    const articles = getNewsArticles();
-    console.log(`📊 Found ${articles.length} articles`);
-    const grouped = groupArticlesByLanguage(articles, ALL_LANGUAGES);
-    // Build metadata map (real titles + descriptions from each article HTML)
-    const metaBuildTimerLabel = `⏱️ Built metadata map for ${articles.length} articles`;
-    console.time(metaBuildTimerLabel);
-    const metaMap = new Map();
-    for (const filename of articles) {
-        const filepath = path.join(NEWS_DIR, filename);
-        metaMap.set(filename, extractArticleMeta(filepath));
-    }
-    console.timeEnd(metaBuildTimerLabel);
-    // Also update the metadata database, reusing the already-extracted meta to avoid re-reading files
-    const dbArticles = articles
-        .map((filename) => {
-        const parsed = parseArticleFilename(filename);
-        if (!parsed)
-            return null;
-        const meta = metaMap.get(filename) ?? { title: '', description: '' };
-        return {
-            filename: parsed.filename,
-            date: parsed.date,
-            slug: parsed.slug,
-            lang: parsed.lang,
-            title: meta.title || formatSlug(parsed.slug),
-            description: meta.description,
-        };
+  console.log('📰 Generating news indexes...');
+  const articles = getNewsArticles();
+  console.log(`📊 Found ${articles.length} articles`);
+  const grouped = groupArticlesByLanguage(articles, ALL_LANGUAGES);
+  // Build metadata map (real titles + descriptions from each article HTML)
+  const metaBuildTimerLabel = `⏱️ Built metadata map for ${articles.length} articles`;
+  console.time(metaBuildTimerLabel);
+  const metaMap = new Map();
+  for (const filename of articles) {
+    const filepath = path.join(NEWS_DIR, filename);
+    metaMap.set(filename, extractArticleMeta(filepath));
+  }
+  console.timeEnd(metaBuildTimerLabel);
+  // Also update the metadata database, reusing the already-extracted meta to avoid re-reading files
+  const dbArticles = articles
+    .map((filename) => {
+      const parsed = parseArticleFilename(filename);
+      if (!parsed) return null;
+      const meta = metaMap.get(filename) ?? { title: '', description: '' };
+      return {
+        filename: parsed.filename,
+        date: parsed.date,
+        slug: parsed.slug,
+        lang: parsed.lang,
+        title: meta.title || formatSlug(parsed.slug),
+        description: meta.description,
+      };
     })
-        .filter((e) => e !== null);
-    dbArticles.sort((a, b) => b.date.localeCompare(a.date));
-    writeMetadataDatabase({ lastUpdated: new Date().toISOString(), articles: dbArticles });
-    console.log('📝 Updated articles metadata database');
-    let generated = 0;
-    for (const lang of ALL_LANGUAGES) {
-        const langArticles = grouped[lang] ?? [];
-        const html = generateIndexHTML(lang, langArticles, metaMap);
-        const filename = getIndexFilename(lang);
-        const filepath = path.join(PROJECT_ROOT, filename);
-        atomicWrite(filepath, html);
-        console.log(`  ✅ Generated ${filename} (${langArticles.length} articles)`);
-        generated++;
-    }
-    console.log(`✅ Generated ${generated} index files`);
+    .filter((e) => e !== null);
+  dbArticles.sort((a, b) => b.date.localeCompare(a.date));
+  writeMetadataDatabase({ lastUpdated: new Date().toISOString(), articles: dbArticles });
+  console.log('📝 Updated articles metadata database');
+  let generated = 0;
+  for (const lang of ALL_LANGUAGES) {
+    const langArticles = grouped[lang] ?? [];
+    const html = generateIndexHTML(lang, langArticles, metaMap);
+    const filename = getIndexFilename(lang);
+    const filepath = path.join(PROJECT_ROOT, filename);
+    atomicWrite(filepath, html);
+    console.log(`  ✅ Generated ${filename} (${langArticles.length} articles)`);
+    generated++;
+  }
+  console.log(`✅ Generated ${generated} index files`);
 }
 // Only run main when executed directly (not when imported)
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-    main();
+  main();
 }
 //# sourceMappingURL=news-indexes.js.map

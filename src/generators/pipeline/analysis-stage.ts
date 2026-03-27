@@ -342,6 +342,17 @@ export const ALL_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
   // explicitly listing it in `enabledMethods`.
 ] as const;
 
+/**
+ * All valid analysis method names, including opt-in methods like
+ * `document-analysis`.  Use this for **validation** of user-supplied method
+ * names (e.g. the `--analysis-methods` CLI flag).  For the default execution
+ * set, use {@link ALL_ANALYSIS_METHODS} instead.
+ */
+export const VALID_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
+  ...ALL_ANALYSIS_METHODS,
+  'document-analysis',
+] as const;
+
 // ─── Interfaces ───────────────────────────────────────────────────────────────
 
 /** Configuration for the analysis pipeline stage */
