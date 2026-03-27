@@ -13,14 +13,14 @@ import { stripScriptBlocks } from './html-sanitize.js';
 // ─── Constants ────────────────────────────────────────────────────────────────
 /** Minimum word counts (plain text) required per article category */
 const MIN_WORD_COUNTS = {
-    [ArticleCategory.WEEK_AHEAD]: 500,
-    [ArticleCategory.MONTH_AHEAD]: 500,
-    [ArticleCategory.BREAKING_NEWS]: 300,
-    [ArticleCategory.COMMITTEE_REPORTS]: 400,
-    [ArticleCategory.PROPOSITIONS]: 300,
-    [ArticleCategory.MOTIONS]: 300,
-    [ArticleCategory.WEEK_IN_REVIEW]: 300,
-    [ArticleCategory.MONTH_IN_REVIEW]: 600,
+  [ArticleCategory.WEEK_AHEAD]: 500,
+  [ArticleCategory.MONTH_AHEAD]: 500,
+  [ArticleCategory.BREAKING_NEWS]: 300,
+  [ArticleCategory.COMMITTEE_REPORTS]: 400,
+  [ArticleCategory.PROPOSITIONS]: 300,
+  [ArticleCategory.MOTIONS]: 300,
+  [ArticleCategory.WEEK_IN_REVIEW]: 300,
+  [ArticleCategory.MONTH_IN_REVIEW]: 600,
 };
 /** Default minimum word count when category is not listed */
 const DEFAULT_MIN_WORDS = 300;
@@ -31,20 +31,16 @@ const READ_TIME_TOLERANCE = 2;
 /** RTL language codes requiring dir="rtl" */
 const RTL_LANGUAGES = new Set(['ar', 'he']);
 /** Patterns that indicate un-replaced template markers */
-const PLACEHOLDER_PATTERNS = [
-    /\{\{[^}]+\}\}/u,
-    /\[TODO[^\]]*\]/iu,
-    /\bPLACEHOLDER\b/u,
-];
+const PLACEHOLDER_PATTERNS = [/\{\{[^}]+\}\}/u, /\[TODO[^\]]*\]/iu, /\bPLACEHOLDER\b/u];
 /** Required structural HTML elements that every article must contain */
 const REQUIRED_HTML_ELEMENTS = [
-    {
-        selector: ['class="site-header__langs"', 'class="language-switcher"'],
-        label: 'language switcher nav',
-    },
-    { selector: 'class="article-top-nav"', label: 'article-top-nav (back button)' },
-    { selector: 'class="site-header"', label: 'site-header' },
-    { selector: '<main id="main"', label: 'main content wrapper' },
+  {
+    selector: ['class="site-header__langs"', 'class="language-switcher"'],
+    label: 'language switcher nav',
+  },
+  { selector: 'class="article-top-nav"', label: 'article-top-nav (back button)' },
+  { selector: 'class="site-header"', label: 'site-header' },
+  { selector: '<main id="main"', label: 'main content wrapper' },
 ];
 /**
  * Localized keyword indicators per language.
@@ -53,19 +49,19 @@ const REQUIRED_HTML_ELEMENTS = [
  * This catches the common issue of English-only keywords in translated articles.
  */
 const LOCALIZED_KEYWORD_INDICATORS = {
-    sv: ['parlamentet', 'lagstiftning', 'EU', 'europeisk', 'utskott', 'omröstning', 'förordning'],
-    da: ['parlamentet', 'lovgivning', 'udvalg', 'afstemning', 'forordning', 'europæisk'],
-    no: ['parlamentet', 'lovgivning', 'komité', 'avstemning', 'forordning', 'europeisk'],
-    fi: ['parlamentti', 'lainsäädäntö', 'valiokunta', 'äänestys', 'asetus', 'eurooppalainen'],
-    de: ['Parlament', 'Gesetzgebung', 'Ausschuss', 'Abstimmung', 'Verordnung', 'europäisch'],
-    fr: ['parlement', 'législation', 'commission', 'vote', 'règlement', 'européen'],
-    es: ['parlamento', 'legislación', 'comisión', 'votación', 'reglamento', 'europeo'],
-    nl: ['parlement', 'wetgeving', 'commissie', 'stemming', 'verordening', 'Europees'],
-    ar: ['البرلمان', 'التشريع', 'اللجنة', 'التصويت', 'الأوروبي', 'القرار'],
-    he: ['הפרלמנט', 'חקיקה', 'ועדה', 'הצבעה', 'האירופי', 'תקנה'],
-    ja: ['議会', '立法', '委員会', '投票', '規則', '欧州'],
-    ko: ['의회', '입법', '위원회', '투표', '규정', '유럽'],
-    zh: ['议会', '立法', '委员会', '投票', '条例', '欧洲'],
+  sv: ['parlamentet', 'lagstiftning', 'EU', 'europeisk', 'utskott', 'omröstning', 'förordning'],
+  da: ['parlamentet', 'lovgivning', 'udvalg', 'afstemning', 'forordning', 'europæisk'],
+  no: ['parlamentet', 'lovgivning', 'komité', 'avstemning', 'forordning', 'europeisk'],
+  fi: ['parlamentti', 'lainsäädäntö', 'valiokunta', 'äänestys', 'asetus', 'eurooppalainen'],
+  de: ['Parlament', 'Gesetzgebung', 'Ausschuss', 'Abstimmung', 'Verordnung', 'europäisch'],
+  fr: ['parlement', 'législation', 'commission', 'vote', 'règlement', 'européen'],
+  es: ['parlamento', 'legislación', 'comisión', 'votación', 'reglamento', 'europeo'],
+  nl: ['parlement', 'wetgeving', 'commissie', 'stemming', 'verordening', 'Europees'],
+  ar: ['البرلمان', 'التشريع', 'اللجنة', 'التصويت', 'الأوروبي', 'القرار'],
+  he: ['הפרלמנט', 'חקיקה', 'ועדה', 'הצבעה', 'האירופי', 'תקנה'],
+  ja: ['議会', '立法', '委員会', '投票', '規則', '欧州'],
+  ko: ['의회', '입법', '위원회', '투표', '규정', '유럽'],
+  zh: ['议会', '立法', '委员会', '投票', '条例', '欧洲'],
 };
 /** CJK language codes requiring ideographic character density checks */
 const CJK_LANGUAGES = new Set(['ja', 'ko', 'zh']);
@@ -84,14 +80,14 @@ const CJK_CHAR_RATIO_THRESHOLD = 0.05;
  * These are generic header/label/placeholder phrases that a proper translation would replace.
  */
 const ENGLISH_PLACEHOLDER_PHRASES = [
-    'European Parliament',
-    'Read more',
-    'Table of Contents',
-    'Key Takeaways',
-    'Executive Summary',
-    'Click here',
-    'Learn more',
-    'Subscribe',
+  'European Parliament',
+  'Read more',
+  'Table of Contents',
+  'Key Takeaways',
+  'Executive Summary',
+  'Click here',
+  'Learn more',
+  'Subscribe',
 ];
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 // stripScriptBlocks is imported from html-sanitize.ts
@@ -106,15 +102,14 @@ const ENGLISH_PLACEHOLDER_PHRASES = [
  * @returns Approximate word count of the main content area
  */
 function countWordsInHtml(html) {
-    const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
-    const source = mainMatch?.[1] ?? html;
-    const plainText = stripScriptBlocks(source)
-        .replace(/<[^>]+>/gu, ' ')
-        .replace(/\s+/gu, ' ')
-        .trim();
-    if (!plainText)
-        return 0;
-    return plainText.split(' ').length;
+  const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
+  const source = mainMatch?.[1] ?? html;
+  const plainText = stripScriptBlocks(source)
+    .replace(/<[^>]+>/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim();
+  if (!plainText) return 0;
+  return plainText.split(' ').length;
 }
 /**
  * Detect whether any un-replaced template placeholder patterns remain in the content.
@@ -123,7 +118,7 @@ function countWordsInHtml(html) {
  * @returns true if at least one placeholder pattern is found
  */
 function detectPlaceholders(html) {
-    return PLACEHOLDER_PATTERNS.some((pattern) => pattern.test(html));
+  return PLACEHOLDER_PATTERNS.some((pattern) => pattern.test(html));
 }
 /**
  * Check that all required structural HTML elements are present.
@@ -132,13 +127,13 @@ function detectPlaceholders(html) {
  * @returns Array of labels for missing elements (empty when all present)
  */
 function findMissingElements(html) {
-    return REQUIRED_HTML_ELEMENTS.filter((el) => {
-        const sel = el.selector;
-        if (Array.isArray(sel)) {
-            return !sel.some((s) => html.includes(s));
-        }
-        return !html.includes(sel);
-    }).map((el) => el.label);
+  return REQUIRED_HTML_ELEMENTS.filter((el) => {
+    const sel = el.selector;
+    if (Array.isArray(sel)) {
+      return !sel.some((s) => html.includes(s));
+    }
+    return !html.includes(sel);
+  }).map((el) => el.label);
 }
 /**
  * Extract the value of the `lang` attribute from the `<html>` tag.
@@ -147,8 +142,8 @@ function findMissingElements(html) {
  * @returns The lang value or empty string if not found
  */
 function extractLangAttribute(html) {
-    const match = /<html[^>]*\slang="([^"]+)"/iu.exec(html);
-    return match?.[1] ?? '';
+  const match = /<html[^>]*\slang="([^"]+)"/iu.exec(html);
+  return match?.[1] ?? '';
 }
 /**
  * Extract the value of the `dir` attribute from the `<html>` tag.
@@ -157,8 +152,8 @@ function extractLangAttribute(html) {
  * @returns The dir value or empty string if not found
  */
 function extractDirAttribute(html) {
-    const match = /<html[^>]*\sdir="([^"]+)"/iu.exec(html);
-    return match?.[1] ?? '';
+  const match = /<html[^>]*\sdir="([^"]+)"/iu.exec(html);
+  return match?.[1] ?? '';
 }
 /**
  * Extract the claimed read-time from the article.
@@ -168,15 +163,15 @@ function extractDirAttribute(html) {
  * @returns Claimed read time in minutes or 0 if not found
  */
 function extractClaimedReadTime(html) {
-    // Look for read-time inside the article meta section
-    const readTimeMatch = /class="article-read-time"[^>]*>([^<]*)/iu.exec(html) ??
-        /article-read-time[^>]*>([^<]*)/iu.exec(html);
-    if (!readTimeMatch?.[1])
-        return 0;
-    const text = readTimeMatch[1].trim();
-    // Extract the numeric portion — handles "5 min read", "5分で読了", "٥ دقائق قراءة"
-    const numMatch = /(\d+)/u.exec(text);
-    return numMatch?.[1] ? parseInt(numMatch[1], 10) : 0;
+  // Look for read-time inside the article meta section
+  const readTimeMatch =
+    /class="article-read-time"[^>]*>([^<]*)/iu.exec(html) ??
+    /article-read-time[^>]*>([^<]*)/iu.exec(html);
+  if (!readTimeMatch?.[1]) return 0;
+  const text = readTimeMatch[1].trim();
+  // Extract the numeric portion — handles "5 min read", "5分で読了", "٥ دقائق قراءة"
+  const numMatch = /(\d+)/u.exec(text);
+  return numMatch?.[1] ? parseInt(numMatch[1], 10) : 0;
 }
 /**
  * Extract meta tag content by name or property.
@@ -187,10 +182,10 @@ function extractClaimedReadTime(html) {
  * @returns The content attribute value or empty string
  */
 function extractMetaContent(html, attr, value) {
-    // Handle both orderings: <meta name="x" content="y"> and <meta content="y" name="x">
-    const pattern1 = new RegExp(`<meta\\s+${attr}="${value}"\\s+content="([^"]*)"`, 'iu');
-    const pattern2 = new RegExp(`<meta\\s+content="([^"]*)"\\s+${attr}="${value}"`, 'iu');
-    return pattern1.exec(html)?.[1] ?? pattern2.exec(html)?.[1] ?? '';
+  // Handle both orderings: <meta name="x" content="y"> and <meta content="y" name="x">
+  const pattern1 = new RegExp(`<meta\\s+${attr}="${value}"\\s+content="([^"]*)"`, 'iu');
+  const pattern2 = new RegExp(`<meta\\s+content="([^"]*)"\\s+${attr}="${value}"`, 'iu');
+  return pattern1.exec(html)?.[1] ?? pattern2.exec(html)?.[1] ?? '';
 }
 /**
  * Extract the page title from the `<title>` tag.
@@ -199,8 +194,8 @@ function extractMetaContent(html, attr, value) {
  * @returns Title text or empty string
  */
 function extractTitle(html) {
-    const match = /<title>([^<]*)<\/title>/iu.exec(html);
-    return match?.[1]?.trim() ?? '';
+  const match = /<title>([^<]*)<\/title>/iu.exec(html);
+  return match?.[1]?.trim() ?? '';
 }
 /**
  * Check whether keywords contain language-specific localized terms.
@@ -213,16 +208,13 @@ function extractTitle(html) {
  * @returns true if keywords appear localized for the given language
  */
 function checkKeywordLocalization(html, language) {
-    if (language === 'en')
-        return true;
-    const keywordsMeta = extractMetaContent(html, 'name', 'keywords');
-    if (!keywordsMeta)
-        return true; // No keywords = no localization issue
-    const indicators = LOCALIZED_KEYWORD_INDICATORS[language];
-    if (!indicators)
-        return true; // Unknown language = skip check
-    const keywordsLower = keywordsMeta.toLowerCase();
-    return indicators.some((indicator) => keywordsLower.includes(indicator.toLowerCase()));
+  if (language === 'en') return true;
+  const keywordsMeta = extractMetaContent(html, 'name', 'keywords');
+  if (!keywordsMeta) return true; // No keywords = no localization issue
+  const indicators = LOCALIZED_KEYWORD_INDICATORS[language];
+  if (!indicators) return true; // Unknown language = skip check
+  const keywordsLower = keywordsMeta.toLowerCase();
+  return indicators.some((indicator) => keywordsLower.includes(indicator.toLowerCase()));
 }
 /**
  * Check whether meta tags (title, OG, Twitter) are synchronized.
@@ -231,25 +223,21 @@ function checkKeywordLocalization(html, language) {
  * @returns true if the core meta tags are reasonably aligned
  */
 function checkMetaTagSync(html) {
-    const pageTitle = extractTitle(html);
-    const ogTitle = extractMetaContent(html, 'property', 'og:title');
-    const twitterTitle = extractMetaContent(html, 'name', 'twitter:title');
-    // If OG or Twitter title is present, it should match the page title
-    // (stripping the " | EU Parliament Monitor" suffix from page title)
-    const coreTitle = pageTitle.replace(/\s*\|\s*EU Parliament Monitor$/iu, '').trim();
-    if (ogTitle && ogTitle !== coreTitle)
-        return false;
-    if (twitterTitle && twitterTitle !== coreTitle)
-        return false;
-    // Also check description alignment
-    const description = extractMetaContent(html, 'name', 'description');
-    const ogDescription = extractMetaContent(html, 'property', 'og:description');
-    const twitterDescription = extractMetaContent(html, 'name', 'twitter:description');
-    if (ogDescription && description && ogDescription !== description)
-        return false;
-    if (twitterDescription && description && twitterDescription !== description)
-        return false;
-    return true;
+  const pageTitle = extractTitle(html);
+  const ogTitle = extractMetaContent(html, 'property', 'og:title');
+  const twitterTitle = extractMetaContent(html, 'name', 'twitter:title');
+  // If OG or Twitter title is present, it should match the page title
+  // (stripping the " | EU Parliament Monitor" suffix from page title)
+  const coreTitle = pageTitle.replace(/\s*\|\s*EU Parliament Monitor$/iu, '').trim();
+  if (ogTitle && ogTitle !== coreTitle) return false;
+  if (twitterTitle && twitterTitle !== coreTitle) return false;
+  // Also check description alignment
+  const description = extractMetaContent(html, 'name', 'description');
+  const ogDescription = extractMetaContent(html, 'property', 'og:description');
+  const twitterDescription = extractMetaContent(html, 'name', 'twitter:description');
+  if (ogDescription && description && ogDescription !== description) return false;
+  if (twitterDescription && description && twitterDescription !== description) return false;
+  return true;
 }
 // ─── Public API ───────────────────────────────────────────────────────────────
 /**
@@ -270,73 +258,85 @@ function checkMetaTagSync(html) {
  * @returns Structured validation result with errors, warnings and metrics
  */
 export function validateArticleContent(html, language, articleType) {
-    const warnings = [];
-    const errors = [];
-    // Word count check
-    const wordCount = countWordsInHtml(html);
-    const minWords = MIN_WORD_COUNTS[articleType] !== undefined ? MIN_WORD_COUNTS[articleType] : DEFAULT_MIN_WORDS;
-    if (wordCount < minWords) {
-        warnings.push(`Content too short: ${wordCount} words (minimum ${minWords} for "${articleType}")`);
-    }
-    // Placeholder detection
-    const hasPlaceholders = detectPlaceholders(html);
-    if (hasPlaceholders) {
-        errors.push('Un-replaced template placeholder(s) detected in generated content');
-    }
-    // Required HTML elements
-    const missingElements = findMissingElements(html);
-    const htmlValid = missingElements.length === 0;
-    if (!htmlValid) {
-        errors.push(`Missing required HTML element(s): ${missingElements.join(', ')}`);
-    }
-    // Read-time accuracy
-    const computedReadTime = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
-    const claimedReadTime = extractClaimedReadTime(html);
-    if (claimedReadTime > 0 && Math.abs(computedReadTime - claimedReadTime) > READ_TIME_TOLERANCE) {
-        warnings.push(`Read-time mismatch: claimed ${claimedReadTime} min but content is ~${computedReadTime} min (${wordCount} words)`);
-    }
-    // Language attribute check
-    const langAttr = extractLangAttribute(html);
-    const langAttributeValid = langAttr === language;
-    if (!langAttributeValid && langAttr) {
-        warnings.push(`Language attribute mismatch: <html lang="${langAttr}"> but expected "${language}"`);
-    }
-    else if (!langAttr) {
-        warnings.push('Missing lang attribute on <html> element');
-    }
-    // Dir attribute check for RTL languages
-    const dirAttr = extractDirAttribute(html);
-    const isRtl = RTL_LANGUAGES.has(language);
-    const dirAttributeValid = isRtl ? dirAttr === 'rtl' : dirAttr !== 'rtl';
-    if (isRtl && dirAttr !== 'rtl') {
-        warnings.push(`RTL language "${language}" should have dir="rtl" but found dir="${dirAttr || '(none)'}"`);
-    }
-    // Meta tag synchronization
-    const metaTagsSynced = checkMetaTagSync(html);
-    if (!metaTagsSynced) {
-        warnings.push('Meta tag mismatch: title, og:title, twitter:title, or descriptions are not synchronized');
-    }
-    // Keyword localization
-    const keywordsLocalized = checkKeywordLocalization(html, language);
-    if (!keywordsLocalized) {
-        warnings.push(`Keywords for "${language}" article appear to be entirely in English — consider localizing`);
-    }
-    return {
-        valid: errors.length === 0,
-        warnings,
-        errors,
-        metrics: {
-            wordCount,
-            htmlValid,
-            hasPlaceholders,
-            computedReadTime,
-            claimedReadTime,
-            langAttributeValid,
-            dirAttributeValid,
-            metaTagsSynced,
-            keywordsLocalized,
-        },
-    };
+  const warnings = [];
+  const errors = [];
+  // Word count check
+  const wordCount = countWordsInHtml(html);
+  const minWords =
+    MIN_WORD_COUNTS[articleType] !== undefined ? MIN_WORD_COUNTS[articleType] : DEFAULT_MIN_WORDS;
+  if (wordCount < minWords) {
+    warnings.push(
+      `Content too short: ${wordCount} words (minimum ${minWords} for "${articleType}")`
+    );
+  }
+  // Placeholder detection
+  const hasPlaceholders = detectPlaceholders(html);
+  if (hasPlaceholders) {
+    errors.push('Un-replaced template placeholder(s) detected in generated content');
+  }
+  // Required HTML elements
+  const missingElements = findMissingElements(html);
+  const htmlValid = missingElements.length === 0;
+  if (!htmlValid) {
+    errors.push(`Missing required HTML element(s): ${missingElements.join(', ')}`);
+  }
+  // Read-time accuracy
+  const computedReadTime = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
+  const claimedReadTime = extractClaimedReadTime(html);
+  if (claimedReadTime > 0 && Math.abs(computedReadTime - claimedReadTime) > READ_TIME_TOLERANCE) {
+    warnings.push(
+      `Read-time mismatch: claimed ${claimedReadTime} min but content is ~${computedReadTime} min (${wordCount} words)`
+    );
+  }
+  // Language attribute check
+  const langAttr = extractLangAttribute(html);
+  const langAttributeValid = langAttr === language;
+  if (!langAttributeValid && langAttr) {
+    warnings.push(
+      `Language attribute mismatch: <html lang="${langAttr}"> but expected "${language}"`
+    );
+  } else if (!langAttr) {
+    warnings.push('Missing lang attribute on <html> element');
+  }
+  // Dir attribute check for RTL languages
+  const dirAttr = extractDirAttribute(html);
+  const isRtl = RTL_LANGUAGES.has(language);
+  const dirAttributeValid = isRtl ? dirAttr === 'rtl' : dirAttr !== 'rtl';
+  if (isRtl && dirAttr !== 'rtl') {
+    warnings.push(
+      `RTL language "${language}" should have dir="rtl" but found dir="${dirAttr || '(none)'}"`
+    );
+  }
+  // Meta tag synchronization
+  const metaTagsSynced = checkMetaTagSync(html);
+  if (!metaTagsSynced) {
+    warnings.push(
+      'Meta tag mismatch: title, og:title, twitter:title, or descriptions are not synchronized'
+    );
+  }
+  // Keyword localization
+  const keywordsLocalized = checkKeywordLocalization(html, language);
+  if (!keywordsLocalized) {
+    warnings.push(
+      `Keywords for "${language}" article appear to be entirely in English — consider localizing`
+    );
+  }
+  return {
+    valid: errors.length === 0,
+    warnings,
+    errors,
+    metrics: {
+      wordCount,
+      htmlValid,
+      hasPlaceholders,
+      computedReadTime,
+      claimedReadTime,
+      langAttributeValid,
+      dirAttributeValid,
+      metaTagsSynced,
+      keywordsLocalized,
+    },
+  };
 }
 // ─── Translation validation helpers ───────────────────────────────────────────
 /**
@@ -347,13 +347,13 @@ export function validateArticleContent(html, language, articleType) {
  * @returns Plain text content from the main element
  */
 function extractMainPlainText(html) {
-    const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
-    const source = mainMatch?.[1] ?? html;
-    return stripScriptBlocks(source)
-        .replace(/<[^>]+>/gu, ' ')
-        .replace(/&(?:[a-z][a-z0-9]+|#\d+|#x[0-9a-f]+);/giu, ' ')
-        .replace(/\s+/gu, ' ')
-        .trim();
+  const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
+  const source = mainMatch?.[1] ?? html;
+  return stripScriptBlocks(source)
+    .replace(/<[^>]+>/gu, ' ')
+    .replace(/&(?:[a-z][a-z0-9]+|#\d+|#x[0-9a-f]+);/giu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim();
 }
 /**
  * Compute the ratio of ASCII printable characters (0x20–0x7E) in a string.
@@ -362,12 +362,11 @@ function extractMainPlainText(html) {
  * @returns Ratio from 0 to 1 (1 = all ASCII)
  */
 function computeAsciiRatio(text) {
-    if (text.length === 0)
-        return 0;
-    const asciiCount = (text.match(/[\x20-\x7E]/gu) ?? []).length;
-    // Use Array.from to correctly count Unicode characters (handles surrogate pairs)
-    const charCount = Array.from(text).length;
-    return asciiCount / charCount;
+  if (text.length === 0) return 0;
+  const asciiCount = (text.match(/[\x20-\x7E]/gu) ?? []).length;
+  // Use Array.from to correctly count Unicode characters (handles surrogate pairs)
+  const charCount = Array.from(text).length;
+  return asciiCount / charCount;
 }
 /**
  * Compute the ratio of CJK Unified Ideograph characters in a string.
@@ -378,16 +377,15 @@ function computeAsciiRatio(text) {
  * @returns Ratio from 0 to 1
  */
 function computeCjkCharRatio(text) {
-    if (text.length === 0)
-        return 0;
-    // CJK Unified Ideographs + Extension A, Hiragana, Katakana, Hangul Syllables
-    // Note: Extension B (U+20000–U+2A6DF) is omitted as it triggers unsafe-regex lint
-    // and is extremely rare in EU Parliament content.
-    const cjkPattern = /[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7AF]/gu;
-    const matches = text.match(cjkPattern);
-    // Use Array.from to correctly count Unicode characters (handles surrogate pairs)
-    const charCount = Array.from(text).length;
-    return (matches?.length ?? 0) / charCount;
+  if (text.length === 0) return 0;
+  // CJK Unified Ideographs + Extension A, Hiragana, Katakana, Hangul Syllables
+  // Note: Extension B (U+20000–U+2A6DF) is omitted as it triggers unsafe-regex lint
+  // and is extremely rare in EU Parliament content.
+  const cjkPattern = /[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7AF]/gu;
+  const matches = text.match(cjkPattern);
+  // Use Array.from to correctly count Unicode characters (handles surrogate pairs)
+  const charCount = Array.from(text).length;
+  return (matches?.length ?? 0) / charCount;
 }
 /**
  * Detect common English phrases that should have been translated in non-English articles.
@@ -396,8 +394,8 @@ function computeCjkCharRatio(text) {
  * @returns Array of detected untranslated English phrases
  */
 function findUntranslatedPhrases(text) {
-    const lowerText = text.toLowerCase();
-    return ENGLISH_PLACEHOLDER_PHRASES.filter((phrase) => lowerText.includes(phrase.toLowerCase()));
+  const lowerText = text.toLowerCase();
+  return ENGLISH_PLACEHOLDER_PHRASES.filter((phrase) => lowerText.includes(phrase.toLowerCase()));
 }
 /**
  * Check whether Unicode bidirectional control characters or HTML bidi markers are present.
@@ -406,11 +404,11 @@ function findUntranslatedPhrases(text) {
  * @returns true if bidi markers or control characters are found
  */
 function detectBidiMarkers(html) {
-    // Unicode bidi control characters: LRM, RLM, LRE, RLE, PDF, LRO, RLO, LRI, RLI, FSI, PDI
-    const bidiControlPattern = /[\u200E\u200F\u202A-\u202E\u2066-\u2069]/u;
-    // HTML entities: &lrm; &rlm;
-    const bidiEntityPattern = /&(?:lrm|rlm);/iu;
-    return bidiControlPattern.test(html) || bidiEntityPattern.test(html);
+  // Unicode bidi control characters: LRM, RLM, LRE, RLE, PDF, LRO, RLO, LRI, RLI, FSI, PDI
+  const bidiControlPattern = /[\u200E\u200F\u202A-\u202E\u2066-\u2069]/u;
+  // HTML entities: &lrm; &rlm;
+  const bidiEntityPattern = /&(?:lrm|rlm);/iu;
+  return bidiControlPattern.test(html) || bidiEntityPattern.test(html);
 }
 /**
  * Validate translation completeness and cultural adaptation for a generated article.
@@ -429,61 +427,70 @@ function detectBidiMarkers(html) {
  * @returns Structured translation validation result with warnings and metrics
  */
 export function validateTranslationCompleteness(html, lang) {
-    const warnings = [];
-    const plainText = extractMainPlainText(html);
-    const asciiRatio = computeAsciiRatio(plainText);
-    const cjkCharRatio = computeCjkCharRatio(plainText);
-    const htmlDir = extractDirAttribute(html);
-    const hasRtlDir = htmlDir === 'rtl';
-    const hasBidiMarkers = detectBidiMarkers(html);
-    const untranslatedPhrases = findUntranslatedPhrases(plainText);
-    // Skip validation warnings for English — it is the source language,
-    // but still compute and return real metrics for telemetry/reporting.
-    if (lang === 'en') {
-        return {
-            valid: true,
-            warnings: [],
-            metrics: {
-                asciiRatio,
-                cjkCharRatio,
-                hasRtlDir,
-                hasBidiMarkers,
-                untranslatedPhrases,
-            },
-        };
-    }
-    // ── RTL validation ──────────────────────────────────────────────────────
-    if (RTL_LANGUAGES.has(lang) && !hasRtlDir) {
-        if (!htmlDir) {
-            warnings.push(`Translation quality: RTL language "${lang}" missing dir="rtl" on <html> element`);
-        }
-        else {
-            warnings.push(`Translation quality: RTL language "${lang}" expected dir="rtl" on <html> element but found dir="${htmlDir}"`);
-        }
-    }
-    // ── CJK density check ──────────────────────────────────────────────────
-    if (CJK_LANGUAGES.has(lang) && plainText.length > 0) {
-        if (asciiRatio > CJK_ASCII_RATIO_THRESHOLD) {
-            warnings.push(`Translation quality: ${lang.toUpperCase()} article has ${(asciiRatio * 100).toFixed(0)}% ASCII characters — content may be untranslated`);
-        }
-        if (cjkCharRatio < CJK_CHAR_RATIO_THRESHOLD) {
-            warnings.push(`Translation quality: ${lang.toUpperCase()} article has only ${(cjkCharRatio * 100).toFixed(1)}% CJK characters — expected native script content`);
-        }
-    }
-    // ── Untranslated English phrase detection ───────────────────────────────
-    if (untranslatedPhrases.length > 0) {
-        warnings.push(`Translation quality: found ${untranslatedPhrases.length} likely untranslated English phrase(s): ${untranslatedPhrases.slice(0, 3).join(', ')}`);
-    }
+  const warnings = [];
+  const plainText = extractMainPlainText(html);
+  const asciiRatio = computeAsciiRatio(plainText);
+  const cjkCharRatio = computeCjkCharRatio(plainText);
+  const htmlDir = extractDirAttribute(html);
+  const hasRtlDir = htmlDir === 'rtl';
+  const hasBidiMarkers = detectBidiMarkers(html);
+  const untranslatedPhrases = findUntranslatedPhrases(plainText);
+  // Skip validation warnings for English — it is the source language,
+  // but still compute and return real metrics for telemetry/reporting.
+  if (lang === 'en') {
     return {
-        valid: warnings.length === 0,
-        warnings,
-        metrics: {
-            asciiRatio,
-            cjkCharRatio,
-            hasRtlDir,
-            hasBidiMarkers,
-            untranslatedPhrases,
-        },
+      valid: true,
+      warnings: [],
+      metrics: {
+        asciiRatio,
+        cjkCharRatio,
+        hasRtlDir,
+        hasBidiMarkers,
+        untranslatedPhrases,
+      },
     };
+  }
+  // ── RTL validation ──────────────────────────────────────────────────────
+  if (RTL_LANGUAGES.has(lang) && !hasRtlDir) {
+    if (!htmlDir) {
+      warnings.push(
+        `Translation quality: RTL language "${lang}" missing dir="rtl" on <html> element`
+      );
+    } else {
+      warnings.push(
+        `Translation quality: RTL language "${lang}" expected dir="rtl" on <html> element but found dir="${htmlDir}"`
+      );
+    }
+  }
+  // ── CJK density check ──────────────────────────────────────────────────
+  if (CJK_LANGUAGES.has(lang) && plainText.length > 0) {
+    if (asciiRatio > CJK_ASCII_RATIO_THRESHOLD) {
+      warnings.push(
+        `Translation quality: ${lang.toUpperCase()} article has ${(asciiRatio * 100).toFixed(0)}% ASCII characters — content may be untranslated`
+      );
+    }
+    if (cjkCharRatio < CJK_CHAR_RATIO_THRESHOLD) {
+      warnings.push(
+        `Translation quality: ${lang.toUpperCase()} article has only ${(cjkCharRatio * 100).toFixed(1)}% CJK characters — expected native script content`
+      );
+    }
+  }
+  // ── Untranslated English phrase detection ───────────────────────────────
+  if (untranslatedPhrases.length > 0) {
+    warnings.push(
+      `Translation quality: found ${untranslatedPhrases.length} likely untranslated English phrase(s): ${untranslatedPhrases.slice(0, 3).join(', ')}`
+    );
+  }
+  return {
+    valid: warnings.length === 0,
+    warnings,
+    metrics: {
+      asciiRatio,
+      cjkCharRatio,
+      hasRtlDir,
+      hasBidiMarkers,
+      untranslatedPhrases,
+    },
+  };
 }
 //# sourceMappingURL=content-validator.js.map

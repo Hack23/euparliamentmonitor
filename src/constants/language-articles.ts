@@ -3305,28 +3305,29 @@ export const WEEK_AHEAD_STAKEHOLDER_STRINGS: LanguageMap<WeekAheadStakeholderStr
   },
 };
 
-// ─── Raw-data-only constants for analysis fields (no narrative — AI produces all analysis) ───
-const BRK_WHY_ANOMALIES = 'voting anomalies detected';
-const BRK_WHY_NORMAL = 'standard parliamentary activity';
-const BRK_NEUTRAL_REASON = 'opposition monitoring';
-const BRK_LEGAL_CONSEQUENCE = 'new legal obligations';
-const BRK_PROC_CONSEQUENCE = 'procedure trajectory altered';
-const BRK_IMPACT_ECONOMIC = 'economic impact pending';
-const BRK_IMPACT_SOCIAL = 'social impact pending';
-const BRK_IMPACT_GEO_COALITION = 'coalition dynamics shift';
-const BRK_IMPACT_GEO_NORMAL = 'geopolitical impact pending';
-const BRK_MISTAKE_DESC = 'procedural risk detected';
-const BRK_MISTAKE_ALT = 'alternative procedure available';
+// ─── AI analysis marker — all analysis text is produced by the AI agent (Opus 4.6) ───
+const AI_ANALYSIS_MARKER = '[AI_ANALYSIS_REQUIRED]';
+const BRK_WHY_ANOMALIES = AI_ANALYSIS_MARKER;
+const BRK_WHY_NORMAL = AI_ANALYSIS_MARKER;
+const BRK_NEUTRAL_REASON = AI_ANALYSIS_MARKER;
+const BRK_LEGAL_CONSEQUENCE = AI_ANALYSIS_MARKER;
+const BRK_PROC_CONSEQUENCE = AI_ANALYSIS_MARKER;
+const BRK_IMPACT_ECONOMIC = AI_ANALYSIS_MARKER;
+const BRK_IMPACT_SOCIAL = AI_ANALYSIS_MARKER;
+const BRK_IMPACT_GEO_COALITION = AI_ANALYSIS_MARKER;
+const BRK_IMPACT_GEO_NORMAL = AI_ANALYSIS_MARKER;
+const BRK_MISTAKE_DESC = AI_ANALYSIS_MARKER;
+const BRK_MISTAKE_ALT = AI_ANALYSIS_MARKER;
 
-const CMT_WHY = '{pct}% active, {descriptor} productivity';
-const CMT_NO_DOCS = 'no recent documents';
-const CMT_IMPACT_POLITICAL = 'active={active} total={total}';
-const CMT_IMPACT_LEGAL = '{docs} documents in consideration';
-const CMT_ACTION_CONSEQUENCE = 'documents advancing to next stage';
-const CMT_MISTAKE_DESC = 'no recent documents produced';
-const CMT_MISTAKE_ALT = 'additional sessions needed';
-const CMT_OUTLOOK_GOOD = '{n}/{total} committees active';
-const CMT_OUTLOOK_CONCERN = 'low committee output';
+const CMT_WHY = AI_ANALYSIS_MARKER;
+const CMT_NO_DOCS = AI_ANALYSIS_MARKER;
+const CMT_IMPACT_POLITICAL = AI_ANALYSIS_MARKER;
+const CMT_IMPACT_LEGAL = AI_ANALYSIS_MARKER;
+const CMT_ACTION_CONSEQUENCE = AI_ANALYSIS_MARKER;
+const CMT_MISTAKE_DESC = AI_ANALYSIS_MARKER;
+const CMT_MISTAKE_ALT = AI_ANALYSIS_MARKER;
+const CMT_OUTLOOK_GOOD = AI_ANALYSIS_MARKER;
+const CMT_OUTLOOK_CONCERN = AI_ANALYSIS_MARKER;
 
 /** Localized section heading strings for breaking news articles */
 export const BREAKING_STRINGS: LanguageMap<BreakingStrings> = {

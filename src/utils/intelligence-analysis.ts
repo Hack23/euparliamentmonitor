@@ -325,7 +325,7 @@ export function buildDefaultStakeholderPerspectives(
             ? ('negative' as const)
             : ('neutral' as const),
       severity,
-      reasoning: `${stakeholder}: score=${score.toFixed(2)}, severity=${severity}`,
+      reasoning: '[AI_ANALYSIS_REQUIRED]',
       evidence: [topic],
     };
   });
