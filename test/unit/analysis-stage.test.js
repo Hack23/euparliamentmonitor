@@ -48,8 +48,8 @@ function readManifest(outputDir, date) {
 // ─── ALL_ANALYSIS_METHODS tests ───────────────────────────────────────────────
 
 describe('ALL_ANALYSIS_METHODS', () => {
-  it('contains exactly 18 analysis methods', () => {
-    expect(ALL_ANALYSIS_METHODS).toHaveLength(18);
+  it('contains exactly 19 analysis methods', () => {
+    expect(ALL_ANALYSIS_METHODS).toHaveLength(19);
   });
 
   it('includes all classification methods', () => {
@@ -80,6 +80,10 @@ describe('ALL_ANALYSIS_METHODS', () => {
     expect(ALL_ANALYSIS_METHODS).toContain('coalition-analysis');
     expect(ALL_ANALYSIS_METHODS).toContain('voting-patterns');
     expect(ALL_ANALYSIS_METHODS).toContain('cross-session-intelligence');
+  });
+
+  it('includes per-document intelligence analysis method', () => {
+    expect(ALL_ANALYSIS_METHODS).toContain('document-analysis');
   });
 
   it('has no duplicate entries', () => {
@@ -246,15 +250,15 @@ describe('runAnalysisStage', () => {
     expect(ctx.completedMethods).toContain('coalition-analysis');
   });
 
-  it('runs all 18 methods when no enabledMethods is specified', async () => {
+  it('runs all 19 methods when no enabledMethods is specified', async () => {
     const ctx = await runAnalysisStage(buildTestFetchedData(), {
       articleTypes: ['week-ahead'],
       date: testDate,
       outputDir: tmpDir,
     });
 
-    expect(ctx.results.size).toBe(18);
-    expect(ctx.manifest.methods).toHaveLength(18);
+    expect(ctx.results.size).toBe(19);
+    expect(ctx.manifest.methods).toHaveLength(19);
   });
 
   it('stores results in the AnalysisContext results map', async () => {
@@ -772,9 +776,9 @@ describe('runAnalysisStage', () => {
         path.join(tmpDir, testDate, 'risk-scoring', 'quantitative-swot.md'),
         'utf-8'
       );
-      expect(content).toContain('Quantitative SWOT Analysis');
+      expect(content).toContain('Full Political SWOT Analysis');
       expect(content).toContain('Strategic Position Score');
-      expect(content).toContain('SWOT Matrix');
+      expect(content).toContain('SWOT Overview');
     });
 
     it('legislative-velocity-risk analyses procedure delays', async () => {
@@ -823,7 +827,7 @@ describe('runAnalysisStage', () => {
       expect(content).toContain(`${sampleEvents.length}`);
     });
 
-    it('runs all 18 methods with populated data without errors', async () => {
+    it('runs all 19 methods with populated data without errors', async () => {
       const ctx = await runAnalysisStage(buildPopulatedFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -837,7 +841,7 @@ describe('runAnalysisStage', () => {
       }
     });
 
-    it('all 18 methods produce valid markdown with frontmatter when data is populated', async () => {
+    it('all 19 methods produce valid markdown with frontmatter when data is populated', async () => {
       const ctx = await runAnalysisStage(buildPopulatedFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -858,6 +862,149 @@ describe('runAnalysisStage', () => {
         expect(md).toContain('date:');
         expect(md).toContain('confidence:');
       }
+    });
+  });
+
+  // ─── Document analysis tests ─────────────────────────────────────────────────
+
+  describe('document-analysis method', () => {
+    it('creates the document-analysis-index.md in documents/ subdirectory', async () => {
+      await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['document-analysis'],
+      });
+
+      const indexPath = path.join(tmpDir, testDate, 'documents', 'document-analysis-index.md');
+      expect(fs.existsSync(indexPath)).toBe(true);
+      const content = fs.readFileSync(indexPath, 'utf-8');
+      expect(content).toContain('Per-Document Intelligence Analysis Index');
+      expect(content).toContain('Total Documents Analyzed');
+    });
+
+    it('creates per-document unique analysis files for each document', async () => {
+      const data = {
+        ...buildTestFetchedData(),
+        documents: [
+          { docId: 'DOC-001', title: 'Test Report A', type: 'report' },
+          { docId: 'DOC-002', title: 'Test Report B', type: 'resolution' },
+        ],
+        procedures: [
+          { procedureId: 'PROC-001', title: 'Digital Markets Act', stage: 'committee' },
+        ],
+      };
+
+      await runAnalysisStage(data, {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['document-analysis'],
+      });
+
+      const docsDir = path.join(tmpDir, testDate, 'documents');
+      expect(fs.existsSync(docsDir)).toBe(true);
+
+      // Should have unique files for each document
+      const files = fs.readdirSync(docsDir).filter((f) => f.endsWith('-analysis.md') && f !== 'document-analysis-index.md');
+      expect(files.length).toBeGreaterThanOrEqual(3); // 2 documents + 1 procedure
+    });
+
+    it('generates unique filenames derived from document IDs', async () => {
+      const data = {
+        ...buildTestFetchedData(),
+        adoptedTexts: [
+          { docId: 'TA-10-2026-0094', title: 'Anti-Corruption Directive' },
+        ],
+      };
+
+      await runAnalysisStage(data, {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['document-analysis'],
+      });
+
+      const docsDir = path.join(tmpDir, testDate, 'documents');
+      const files = fs.readdirSync(docsDir);
+      // Should contain a file with the sanitized doc ID
+      const hasDocFile = files.some((f) => f.includes('ta-10-2026-0094'));
+      expect(hasDocFile).toBe(true);
+    });
+
+    it('deduplicates documents appearing in multiple feed categories', async () => {
+      const sharedDoc = { docId: 'SHARED-DOC', title: 'Shared Document' };
+      const data = {
+        ...buildTestFetchedData(),
+        documents: [sharedDoc],
+        plenaryDocuments: [sharedDoc],
+        committeeDocuments: [sharedDoc],
+      };
+
+      const ctx = await runAnalysisStage(data, {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['document-analysis'],
+      });
+
+      // Manifest should track deduplicated count
+      expect(ctx.manifest.documentsAnalyzed).toBe(1);
+      expect(ctx.manifest.analyzedDocumentIds).toContain('shared-doc');
+    });
+
+    it('per-document files contain SWOT and threat assessment', async () => {
+      const data = {
+        ...buildTestFetchedData(),
+        adoptedTexts: [
+          { docId: 'TA-TEST-001', title: 'Test Adopted Text' },
+        ],
+      };
+
+      await runAnalysisStage(data, {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['document-analysis'],
+      });
+
+      const docsDir = path.join(tmpDir, testDate, 'documents');
+      const files = fs.readdirSync(docsDir).filter((f) => f.includes('ta-test-001'));
+      expect(files.length).toBe(1);
+
+      const content = fs.readFileSync(path.join(docsDir, files[0]), 'utf-8');
+      expect(content).toContain('Document Analysis:');
+      expect(content).toContain('SWOT Analysis');
+      expect(content).toContain('Threat Assessment');
+      expect(content).toContain('Stakeholder Impact');
+      expect(content).toContain('Intelligence Summary');
+    });
+
+    it('index file contains document count and category breakdown', async () => {
+      const data = {
+        ...buildTestFetchedData(),
+        events: [
+          { eventId: 'EVT-001', title: 'Plenary Session' },
+          { eventId: 'EVT-002', title: 'Committee Hearing' },
+        ],
+        procedures: [
+          { procedureId: 'PROC-001', title: 'Test Procedure' },
+        ],
+      };
+
+      await runAnalysisStage(data, {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['document-analysis'],
+      });
+
+      const indexPath = path.join(tmpDir, testDate, 'documents', 'document-analysis-index.md');
+      const content = fs.readFileSync(indexPath, 'utf-8');
+      expect(content).toContain('Total Documents Analyzed');
+      expect(content).toContain('Category Breakdown');
+      expect(content).toContain('events');
+      expect(content).toContain('procedures');
     });
   });
 
