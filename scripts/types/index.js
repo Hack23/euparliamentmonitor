@@ -11,14 +11,7 @@
  * - **mcp** — MCP client transport and tool option interfaces
  * - **world-bank** — World Bank economic data types for article enrichment
  */
-export {
-  ArticleCategory,
-  ArticlePerspective,
-  TimePeriod,
-  AnalysisPerspective,
-  CATEGORY_PERSPECTIVE,
-  CATEGORY_TIME_PERIOD,
-} from './common.js';
+export { ArticleCategory, ArticlePerspective, TimePeriod, AnalysisPerspective, CATEGORY_PERSPECTIVE, CATEGORY_TIME_PERIOD, } from './common.js';
 export { ALL_STAKEHOLDER_TYPES } from './stakeholder.js';
 export { SIGNIFICANCE_ORDER, IMPACT_ORDER } from './political-classification.js';
 //# sourceMappingURL=index.js.map

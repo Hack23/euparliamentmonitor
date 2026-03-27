@@ -359,7 +359,6 @@ async function maybeRunAnalysis(
       '❌ Analysis aborted: no substantive EP data was fetched. ' +
       'MCP data fetch must succeed before analysis can run. ' +
       'Check MCP connection, feed data file, or EP API availability.';
-    console.error(msg);
     throw new Error(msg);
   }
 

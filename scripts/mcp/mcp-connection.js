@@ -657,7 +657,10 @@ export class MCPConnection {
       params,
     };
     return await new Promise((resolve, reject) => {
-      this.pendingRequests.set(id, { resolve, reject });
+      this.pendingRequests.set(id, {
+        resolve: resolve,
+        reject,
+      });
       const message = JSON.stringify(request) + '\n';
       this.process?.stdin?.write(message);
       setTimeout(() => {

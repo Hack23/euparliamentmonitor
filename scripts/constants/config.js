@@ -46,21 +46,22 @@ export const ARTICLE_TYPE_MONTH_IN_REVIEW = ArticleCategory.MONTH_IN_REVIEW;
 export const ARG_SEPARATOR = '=';
 /** Application version read from package.json */
 export const APP_VERSION = (() => {
-  try {
-    const pkgPath = path.join(PROJECT_ROOT, 'package.json');
-    const parsed = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
-    if (typeof parsed === 'object' && parsed !== null && 'version' in parsed) {
-      const versionValue = parsed.version;
-      if (typeof versionValue === 'string' && versionValue.trim() !== '') {
-        return versionValue;
-      }
+    try {
+        const pkgPath = path.join(PROJECT_ROOT, 'package.json');
+        const parsed = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+        if (typeof parsed === 'object' && parsed !== null && 'version' in parsed) {
+            const versionValue = parsed.version;
+            if (typeof versionValue === 'string' && versionValue.trim() !== '') {
+                return versionValue;
+            }
+        }
+        console.warn('Invalid or missing "version" in package.json, falling back to default 0.0.0');
+        return '0.0.0';
     }
-    console.warn('Invalid or missing "version" in package.json, falling back to default 0.0.0');
-    return '0.0.0';
-  } catch (err) {
-    console.warn('Failed to read version from package.json:', err);
-    return '0.0.0';
-  }
+    catch (err) {
+        console.warn('Failed to read version from package.json:', err);
+        return '0.0.0';
+    }
 })();
 /**
  * Generate theme toggle HTML button markup with a localized aria-label.
@@ -70,7 +71,7 @@ export const APP_VERSION = (() => {
  * @returns HTML string for the theme toggle button
  */
 export function createThemeToggleButton(ariaLabel) {
-  return `<button type="button" class="theme-toggle" aria-label="${ariaLabel}"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>`;
+    return `<button type="button" class="theme-toggle" aria-label="${ariaLabel}"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>`;
 }
 /**
  * Theme toggle HTML button markup for site headers (English default).

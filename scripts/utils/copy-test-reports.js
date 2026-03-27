@@ -25,26 +25,29 @@ const PLAYWRIGHT_REPORT_DIRNAME = 'playwright-report';
  * @param dest - Destination directory
  */
 export async function copyDirectory(src, dest) {
-  try {
-    await fs.mkdir(dest, { recursive: true });
-    const entries = await fs.readdir(src, { withFileTypes: true });
-    for (const entry of entries) {
-      const srcPath = join(src, entry.name);
-      const destPath = join(dest, entry.name);
-      if (entry.isDirectory()) {
-        await copyDirectory(srcPath, destPath);
-      } else {
-        await fs.copyFile(srcPath, destPath);
-      }
+    try {
+        await fs.mkdir(dest, { recursive: true });
+        const entries = await fs.readdir(src, { withFileTypes: true });
+        for (const entry of entries) {
+            const srcPath = join(src, entry.name);
+            const destPath = join(dest, entry.name);
+            if (entry.isDirectory()) {
+                await copyDirectory(srcPath, destPath);
+            }
+            else {
+                await fs.copyFile(srcPath, destPath);
+            }
+        }
     }
-  } catch (error) {
-    const nodeError = error;
-    if (nodeError.code === 'ENOENT') {
-      console.warn(`  ⚠️  Source directory not found (skipped): ${src}`);
-    } else {
-      throw error;
+    catch (error) {
+        const nodeError = error;
+        if (nodeError.code === 'ENOENT') {
+            console.warn(`  ⚠️  Source directory not found (skipped): ${src}`);
+        }
+        else {
+            throw error;
+        }
     }
-  }
 }
 /**
  * Copy a single file safely
@@ -54,12 +57,13 @@ export async function copyDirectory(src, dest) {
  * @returns Whether the copy succeeded
  */
 async function copyFileSafe(src, dest) {
-  try {
-    await fs.copyFile(src, dest);
-    return true;
-  } catch {
-    return false;
-  }
+    try {
+        await fs.copyFile(src, dest);
+        return true;
+    }
+    catch {
+        return false;
+    }
 }
 /**
  * Check if a file or directory exists
@@ -68,22 +72,23 @@ async function copyFileSafe(src, dest) {
  * @returns Whether the path exists
  */
 async function pathExists(path) {
-  try {
-    await fs.access(path);
-    return true;
-  } catch {
-    return false;
-  }
+    try {
+        await fs.access(path);
+        return true;
+    }
+    catch {
+        return false;
+    }
 }
 /** Report file names within test-results directory */
 const REPORT_FILES = {
-  vitestHtml: join('html', INDEX_FILENAME),
-  vitestJson: 'results.json',
-  vitestJunit: 'junit.xml',
-  e2eJson: `${E2E_PREFIX}results.json`,
-  e2eJunit: `${E2E_PREFIX}junit.xml`,
-  eslintHtml: `${ESLINT_REPORT_BASE}.html`,
-  eslintJson: `${ESLINT_REPORT_BASE}.json`,
+    vitestHtml: join('html', INDEX_FILENAME),
+    vitestJson: 'results.json',
+    vitestJunit: 'junit.xml',
+    e2eJson: `${E2E_PREFIX}results.json`,
+    e2eJunit: `${E2E_PREFIX}junit.xml`,
+    eslintHtml: `${ESLINT_REPORT_BASE}.html`,
+    eslintJson: `${ESLINT_REPORT_BASE}.json`,
 };
 /**
  * Check which report files exist in the test-results directory
@@ -92,11 +97,11 @@ const REPORT_FILES = {
  * @returns Map of report key to existence boolean
  */
 async function checkReportFiles(testResultsDir) {
-  const results = {};
-  for (const [key, relativePath] of Object.entries(REPORT_FILES)) {
-    results[key] = await pathExists(join(testResultsDir, relativePath));
-  }
-  return results;
+    const results = {};
+    for (const [key, relativePath] of Object.entries(REPORT_FILES)) {
+        results[key] = await pathExists(join(testResultsDir, relativePath));
+    }
+    return results;
 }
 /**
  * Parse vitest JSON results file for summary data
@@ -105,24 +110,25 @@ async function checkReportFiles(testResultsDir) {
  * @returns Summary or null if unavailable
  */
 async function parseVitestSummary(filePath) {
-  try {
-    const raw = await fs.readFile(filePath, 'utf8');
-    const data = JSON.parse(raw);
-    const total = data.numTotalTests ?? 0;
-    const passed = data.numPassedTests ?? 0;
-    const failed = data.numFailedTests ?? 0;
-    let duration = 0;
-    if (Array.isArray(data.testResults)) {
-      for (const r of data.testResults) {
-        if (r.perfStats?.end && r.perfStats?.start) {
-          duration += r.perfStats.end - r.perfStats.start;
+    try {
+        const raw = await fs.readFile(filePath, 'utf8');
+        const data = JSON.parse(raw);
+        const total = data.numTotalTests ?? 0;
+        const passed = data.numPassedTests ?? 0;
+        const failed = data.numFailedTests ?? 0;
+        let duration = 0;
+        if (Array.isArray(data.testResults)) {
+            for (const r of data.testResults) {
+                if (r.perfStats?.end && r.perfStats?.start) {
+                    duration += r.perfStats.end - r.perfStats.start;
+                }
+            }
         }
-      }
+        return { tests: total, passed, failed, duration: Math.round(duration) };
     }
-    return { tests: total, passed, failed, duration: Math.round(duration) };
-  } catch {
-    return null;
-  }
+    catch {
+        return null;
+    }
 }
 /**
  * Parse Playwright JSON results file for summary data
@@ -131,19 +137,20 @@ async function parseVitestSummary(filePath) {
  * @returns Summary or null if unavailable
  */
 async function parseE2eSummary(filePath) {
-  try {
-    const raw = await fs.readFile(filePath, 'utf8');
-    const data = JSON.parse(raw);
-    if (data.stats) {
-      const passed = data.stats.expected ?? 0;
-      const failed = data.stats.unexpected ?? 0;
-      const flaky = data.stats.flaky ?? 0;
-      return { tests: passed + failed + flaky, passed, failed };
+    try {
+        const raw = await fs.readFile(filePath, 'utf8');
+        const data = JSON.parse(raw);
+        if (data.stats) {
+            const passed = data.stats.expected ?? 0;
+            const failed = data.stats.unexpected ?? 0;
+            const flaky = data.stats.flaky ?? 0;
+            return { tests: passed + failed + flaky, passed, failed };
+        }
+        return null;
     }
-    return null;
-  } catch {
-    return null;
-  }
+    catch {
+        return null;
+    }
 }
 /**
  * Gather report availability info for index generation
@@ -151,28 +158,28 @@ async function parseE2eSummary(filePath) {
  * @returns Object describing which reports are available
  */
 async function gatherReportInfo() {
-  const testResultsDir = join(DOCS_DIR, TEST_RESULTS_DIRNAME);
-  const fileStatus = await checkReportFiles(testResultsDir);
-  const info = {
-    hasVitestHtml: fileStatus['vitestHtml'] ?? false,
-    hasVitestJson: fileStatus['vitestJson'] ?? false,
-    hasVitestJunit: fileStatus['vitestJunit'] ?? false,
-    hasE2eJson: fileStatus['e2eJson'] ?? false,
-    hasE2eJunit: fileStatus['e2eJunit'] ?? false,
-    hasEslintHtml: fileStatus['eslintHtml'] ?? false,
-    hasEslintJson: fileStatus['eslintJson'] ?? false,
-    hasCoverage: await pathExists(join(DOCS_DIR, 'coverage', INDEX_FILENAME)),
-    hasPlaywright: await pathExists(join(DOCS_DIR, PLAYWRIGHT_REPORT_DIRNAME, INDEX_FILENAME)),
-    vitestSummary: null,
-    e2eSummary: null,
-  };
-  if (info.hasVitestJson) {
-    info.vitestSummary = await parseVitestSummary(join(testResultsDir, REPORT_FILES.vitestJson));
-  }
-  if (info.hasE2eJson) {
-    info.e2eSummary = await parseE2eSummary(join(testResultsDir, REPORT_FILES.e2eJson));
-  }
-  return info;
+    const testResultsDir = join(DOCS_DIR, TEST_RESULTS_DIRNAME);
+    const fileStatus = await checkReportFiles(testResultsDir);
+    const info = {
+        hasVitestHtml: fileStatus['vitestHtml'] ?? false,
+        hasVitestJson: fileStatus['vitestJson'] ?? false,
+        hasVitestJunit: fileStatus['vitestJunit'] ?? false,
+        hasE2eJson: fileStatus['e2eJson'] ?? false,
+        hasE2eJunit: fileStatus['e2eJunit'] ?? false,
+        hasEslintHtml: fileStatus['eslintHtml'] ?? false,
+        hasEslintJson: fileStatus['eslintJson'] ?? false,
+        hasCoverage: await pathExists(join(DOCS_DIR, 'coverage', INDEX_FILENAME)),
+        hasPlaywright: await pathExists(join(DOCS_DIR, PLAYWRIGHT_REPORT_DIRNAME, INDEX_FILENAME)),
+        vitestSummary: null,
+        e2eSummary: null,
+    };
+    if (info.hasVitestJson) {
+        info.vitestSummary = await parseVitestSummary(join(testResultsDir, REPORT_FILES.vitestJson));
+    }
+    if (info.hasE2eJson) {
+        info.e2eSummary = await parseE2eSummary(join(testResultsDir, REPORT_FILES.e2eJson));
+    }
+    return info;
 }
 /**
  * Build stat-card HTML for a test summary
@@ -182,16 +189,15 @@ async function gatherReportInfo() {
  * @returns HTML string for stat cards
  */
 function buildStatCards(summary, isE2e) {
-  const failedClass = summary.failed > 0 ? 'failed' : 'passed';
-  const durationCard =
-    summary.duration !== undefined
-      ? `<div class="stat-card">
+    const failedClass = summary.failed > 0 ? 'failed' : 'passed';
+    const durationCard = summary.duration !== undefined
+        ? `<div class="stat-card">
         <div class="stat-number">${(summary.duration / 1000).toFixed(1)}s</div>
         <div class="stat-label">Duration</div>
       </div>`
-      : '';
-  const totalLabel = isE2e ? 'Total E2E' : 'Total Tests';
-  return `<div class="stat-card passed">
+        : '';
+    const totalLabel = isE2e ? 'Total E2E' : 'Total Tests';
+    return `<div class="stat-card passed">
         <div class="stat-number">${summary.passed}</div>
         <div class="stat-label">Passed</div>
       </div>
@@ -211,10 +217,10 @@ function buildStatCards(summary, isE2e) {
  * @returns HTML content
  */
 function createTestResultsIndex(info) {
-  const currentDate = new Date().toISOString().split('T')[0] ?? '';
-  const vitestStats = info.vitestSummary ? buildStatCards(info.vitestSummary, false) : '';
-  const e2eStats = info.e2eSummary ? buildStatCards(info.e2eSummary, true) : '';
-  return `<!DOCTYPE html>
+    const currentDate = new Date().toISOString().split('T')[0] ?? '';
+    const vitestStats = info.vitestSummary ? buildStatCards(info.vitestSummary, false) : '';
+    const e2eStats = info.e2eSummary ? buildStatCards(info.e2eSummary, true) : '';
+    return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -435,75 +441,68 @@ function createTestResultsIndex(info) {
  * Main execution function
  */
 async function main() {
-  console.log('📋 Copying test reports to documentation directory...');
-  try {
-    await fs.mkdir(DOCS_DIR, { recursive: true });
-    // 1. Copy coverage report (from vitest)
-    const coverageSrc = join(BUILDS_DIR, 'coverage');
-    const coverageDest = join(DOCS_DIR, 'coverage');
-    console.log('  📊 Copying coverage report...');
-    await copyDirectory(coverageSrc, coverageDest);
-    console.log('  ✅ Coverage report copied');
-    // 2. Copy API documentation (from typedoc)
-    const apiSrc = join(BUILDS_DIR, 'api');
-    const apiDest = join(DOCS_DIR, 'api');
-    console.log('  📖 Copying API docs...');
-    await copyDirectory(apiSrc, apiDest);
-    console.log('  ✅ API docs copied');
-    // 3. Copy Playwright E2E report
-    const playwrightSrc = join(BUILDS_DIR, PLAYWRIGHT_REPORT_DIRNAME);
-    const playwrightDest = join(DOCS_DIR, PLAYWRIGHT_REPORT_DIRNAME);
-    console.log('  🎭 Copying Playwright report...');
-    await copyDirectory(playwrightSrc, playwrightDest);
-    console.log('  ✅ Playwright report copied');
-    // 4. Copy test results directory (vitest HTML, JSON, JUnit, ESLint reports)
-    const buildTestResultsDir = join(BUILDS_DIR, TEST_RESULTS_DIRNAME);
-    const docsTestResultsDir = join(DOCS_DIR, TEST_RESULTS_DIRNAME);
-    await fs.mkdir(docsTestResultsDir, { recursive: true });
-    // 4a. Copy vitest HTML test report
-    console.log('  🧪 Copying Vitest HTML report...');
-    await copyDirectory(join(buildTestResultsDir, 'html'), join(docsTestResultsDir, 'html'));
-    console.log('  ✅ Vitest HTML report copied');
-    // 4b-4g. Copy individual report files
-    const reportCopyTasks = [
-      { file: REPORT_FILES.vitestJson, label: 'Vitest JSON results', icon: '📄' },
-      { file: REPORT_FILES.vitestJunit, label: 'Vitest JUnit XML results', icon: '📄' },
-      { file: REPORT_FILES.e2eJson, label: 'E2E JSON results', icon: '📄' },
-      { file: REPORT_FILES.e2eJunit, label: 'E2E JUnit XML results', icon: '📄' },
-      { file: REPORT_FILES.eslintHtml, label: 'ESLint HTML report', icon: '🔍' },
-      { file: REPORT_FILES.eslintJson, label: 'ESLint JSON report', icon: '🔍' },
-    ];
-    for (const task of reportCopyTasks) {
-      console.log(`  ${task.icon} Copying ${task.label}...`);
-      if (
-        await copyFileSafe(
-          join(buildTestResultsDir, task.file),
-          join(docsTestResultsDir, task.file)
-        )
-      ) {
-        console.log(`  ✅ ${task.label} copied`);
-      } else {
-        console.warn(`  ⚠️  ${task.label} not found (skipped)`);
-      }
+    console.log('📋 Copying test reports to documentation directory...');
+    try {
+        await fs.mkdir(DOCS_DIR, { recursive: true });
+        // 1. Copy coverage report (from vitest)
+        const coverageSrc = join(BUILDS_DIR, 'coverage');
+        const coverageDest = join(DOCS_DIR, 'coverage');
+        console.log('  📊 Copying coverage report...');
+        await copyDirectory(coverageSrc, coverageDest);
+        console.log('  ✅ Coverage report copied');
+        // 2. Copy API documentation (from typedoc)
+        const apiSrc = join(BUILDS_DIR, 'api');
+        const apiDest = join(DOCS_DIR, 'api');
+        console.log('  📖 Copying API docs...');
+        await copyDirectory(apiSrc, apiDest);
+        console.log('  ✅ API docs copied');
+        // 3. Copy Playwright E2E report
+        const playwrightSrc = join(BUILDS_DIR, PLAYWRIGHT_REPORT_DIRNAME);
+        const playwrightDest = join(DOCS_DIR, PLAYWRIGHT_REPORT_DIRNAME);
+        console.log('  🎭 Copying Playwright report...');
+        await copyDirectory(playwrightSrc, playwrightDest);
+        console.log('  ✅ Playwright report copied');
+        // 4. Copy test results directory (vitest HTML, JSON, JUnit, ESLint reports)
+        const buildTestResultsDir = join(BUILDS_DIR, TEST_RESULTS_DIRNAME);
+        const docsTestResultsDir = join(DOCS_DIR, TEST_RESULTS_DIRNAME);
+        await fs.mkdir(docsTestResultsDir, { recursive: true });
+        // 4a. Copy vitest HTML test report
+        console.log('  🧪 Copying Vitest HTML report...');
+        await copyDirectory(join(buildTestResultsDir, 'html'), join(docsTestResultsDir, 'html'));
+        console.log('  ✅ Vitest HTML report copied');
+        // 4b-4g. Copy individual report files
+        const reportCopyTasks = [
+            { file: REPORT_FILES.vitestJson, label: 'Vitest JSON results', icon: '📄' },
+            { file: REPORT_FILES.vitestJunit, label: 'Vitest JUnit XML results', icon: '📄' },
+            { file: REPORT_FILES.e2eJson, label: 'E2E JSON results', icon: '📄' },
+            { file: REPORT_FILES.e2eJunit, label: 'E2E JUnit XML results', icon: '📄' },
+            { file: REPORT_FILES.eslintHtml, label: 'ESLint HTML report', icon: '🔍' },
+            { file: REPORT_FILES.eslintJson, label: 'ESLint JSON report', icon: '🔍' },
+        ];
+        for (const task of reportCopyTasks) {
+            console.log(`  ${task.icon} Copying ${task.label}...`);
+            if (await copyFileSafe(join(buildTestResultsDir, task.file), join(docsTestResultsDir, task.file))) {
+                console.log(`  ✅ ${task.label} copied`);
+            }
+            else {
+                console.warn(`  ⚠️  ${task.label} not found (skipped)`);
+            }
+        }
+        // 5. Gather report info and generate comprehensive index
+        console.log('  📊 Generating test results index...');
+        const reportInfo = await gatherReportInfo();
+        await fs.writeFile(join(docsTestResultsDir, INDEX_FILENAME), createTestResultsIndex(reportInfo), 'utf8');
+        console.log('  ✅ Test results index generated');
+        console.log('✅ All test reports copied successfully');
     }
-    // 5. Gather report info and generate comprehensive index
-    console.log('  📊 Generating test results index...');
-    const reportInfo = await gatherReportInfo();
-    await fs.writeFile(
-      join(docsTestResultsDir, INDEX_FILENAME),
-      createTestResultsIndex(reportInfo),
-      'utf8'
-    );
-    console.log('  ✅ Test results index generated');
-    console.log('✅ All test reports copied successfully');
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    console.error('❌ Error copying test reports:', message);
-    process.exit(1);
-  }
+    catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error('❌ Error copying test reports:', message);
+        process.exit(1);
+    }
 }
 // Only run main when executed directly (not when imported)
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  main();
+    main();
 }
 //# sourceMappingURL=copy-test-reports.js.map
