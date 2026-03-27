@@ -722,11 +722,11 @@ jobs:
 
 | **Phase** | **ISMS Policy** | **Implementation** |
 | --- | --- | --- |
-| **Phase 1** | [🛠️ Secure Development Policy §4.4](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | SHA-pinning, FOSSA, license compliance |
+| **Phase 1** | [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | SHA-pinning, FOSSA, license compliance |
 | **Phase 1** | [🔍 Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | Semgrep, Snyk, OWASP ZAP, GitLeaks |
-| **Phase 2** | [🛠️ Secure Development Policy §3.3](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Mutation testing, expanded E2E |
-| **Phase 2** | [🛠️ Secure Development Policy §5.2](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Load testing, Lighthouse, performance budgets |
-| **Phase 3** | [🛠️ Secure Development Policy §4.1](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Multi-environment, canary deployment |
+| **Phase 2** | [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Mutation testing, expanded E2E |
+| **Phase 2** | [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Load testing, Lighthouse, performance budgets |
+| **Phase 3** | [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Multi-environment, canary deployment |
 | **Phase 3** | [🚨 Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | Automated rollback, incident classification |
 | **Phase 3** | [💾 Backup & Recovery Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md) | Multi-environment disaster recovery |
 
