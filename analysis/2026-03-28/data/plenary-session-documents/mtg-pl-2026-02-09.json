@@ -1,0 +1,34 @@
+{
+  "id": "MTG-PL-2026-02-09",
+  "date": "2026-02-09",
+  "location": "Strasbourg",
+  "agendaItems": [
+    "eli/dl/event/MTG-PL-2026-02-09-VOT-ITM-000001",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-10",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-18",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-15",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-6",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-3",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-21",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-14",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-12",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-2",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-17",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-20",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-5",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-9",
+    "eli/dl/event/MTG-PL-2026-02-09-VOT-ITM-000002",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-16",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-13",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-11",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-4",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-1",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-19",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-8",
+    "eli/dl/event/MTG-PL-2026-02-09-PVCRE-ITM-7"
+  ],
+  "attendanceCount": 604,
+  "documents": [
+    "eli/dl/doc/OJQ-10-2026-02-09"
+  ]
+}

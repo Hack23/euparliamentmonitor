@@ -1,0 +1,40 @@
+{
+  "fetchTimestamp": "2026-03-28T11:42:00Z",
+  "sources": [
+    "get_adopted_texts_feed (one-week)",
+    "get_meps_feed (one-week)",
+    "get_mep_declarations_feed (one-week)",
+    "get_procedures (2026)",
+    "get_plenary_sessions (2026)",
+    "get_speeches (2026)",
+    "get_events (2026)",
+    "get_voting_records",
+    "get_external_documents_feed (one-week)",
+    "generate_political_landscape",
+    "detect_voting_anomalies",
+    "analyze_coalition_dynamics"
+  ],
+  "itemCounts": {
+    "adoptedTexts": 50,
+    "meps": 50,
+    "declarations": 50,
+    "procedures": 20,
+    "plenarySessions": 20,
+    "speeches": 20,
+    "votingRecords": 5,
+    "externalDocuments": 17,
+    "politicalLandscape": 1,
+    "votingAnomalies": 1,
+    "coalitionDynamics": 1
+  },
+  "timedOutFeeds": [
+    "get_events_feed",
+    "get_procedures_feed",
+    "get_documents_feed",
+    "get_plenary_documents_feed",
+    "get_committee_documents_feed",
+    "get_parliamentary_questions_feed",
+    "get_corporate_bodies_feed",
+    "get_plenary_session_documents_feed"
+  ]
+}

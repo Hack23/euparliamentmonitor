@@ -1,0 +1,35 @@
+{
+  "fetchDate": "2026-03-28",
+  "indicators": {
+    "GDP_GROWTH": {
+      "DE": {
+        "country": "Germany",
+        "data": [
+          {
+            "year": 2024,
+            "value": -0.496
+          },
+          {
+            "year": 2023,
+            "value": -0.87
+          }
+        ]
+      },
+      "FR": {
+        "country": "France",
+        "data": [
+          {
+            "year": 2024,
+            "value": 1.19
+          },
+          {
+            "year": 2023,
+            "value": 1.439
+          }
+        ]
+      }
+    }
+  },
+  "source": "World Bank Open Data",
+  "methodology": "World Bank MCP server - GDP growth rate (NY.GDP.MKTP.KD.ZG)"
+}
