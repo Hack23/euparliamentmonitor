@@ -210,6 +210,8 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
 
+> **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to **every downloaded MCP data file**. See `analysis/README.md` for the complete analysis directory documentation.
+
 ### Primary Template: Weekly Intelligence Brief
 
 Read and follow `docs/analysis-methodology/weekly-intelligence-brief.md` for the breaking news analysis. Focus on:
