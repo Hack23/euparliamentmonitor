@@ -12,11 +12,19 @@
  * news articles in all 14 languages.
  *
  * This stage is **side-effect-only**: it writes analysis markdown and a
- * `manifest.json` to disk under `analysis/{date}/`.  The returned
+ * `manifest.json` to disk under `analysis/{date}/{article-type}/`.  When
+ * `articleTypeSlug` is provided (recommended for agentic workflows), each
+ * article type writes to its own subdirectory, preventing merge conflicts
+ * when multiple workflows run concurrently on the same date.  The returned
  * {@link AnalysisContext} is informational and currently not consumed by the
  * generate stage; strategies read the analysis output from disk instead.
  * Analysis artifacts are committed to the repository for review and
  * political intelligence improvement.
+ *
+ * All MCP data — EP feeds, World Bank economic indicators, and OSINT
+ * analytical outputs (political landscape, voting anomalies, coalition
+ * dynamics) — is persisted under `data/` subdirectories for verification
+ * and later reuse.
  *
  * Analysis methods are grouped into four categories:
  * - **Classification** (Issues #804): significance, impact-matrix, actor-mapping, forces
@@ -362,6 +370,16 @@ export interface AnalysisStageOptions {
   readonly date: string;
   /** Base output directory (e.g. 'analysis') */
   readonly outputDir: string;
+  /**
+   * Filesystem-safe slug identifying the article type for this run.
+   *
+   * When provided, analysis output is scoped to `{outputDir}/{date}/{slug}/`
+   * instead of `{outputDir}/{date}/`, preventing merge conflicts when multiple
+   * agentic workflows run concurrently for different article types on the same date.
+   *
+   * Use {@link deriveArticleTypeSlug} to compute the slug from article types.
+   */
+  readonly articleTypeSlug?: string | undefined;
   /** Which methods to run; defaults to {@link ALL_ANALYSIS_METHODS} */
   readonly enabledMethods?: readonly AnalysisMethod[];
   /** When true, skip already-completed methods from a prior run on the same date */
@@ -398,6 +416,8 @@ export interface AnalysisManifest {
   readonly runId: string;
   /** ISO date of the analysis */
   readonly date: string;
+  /** Article-type slug used to scope this run's output directory (prevents collisions) */
+  readonly articleTypeSlug?: string | undefined;
   /** ISO 8601 start timestamp */
   readonly startTime: string;
   /** ISO 8601 end timestamp */
@@ -2199,6 +2219,10 @@ const SUBDIR_DATA = 'data';
  * Each EP data category fetched via MCP is stored in a dedicated subdirectory
  * under `{dateOutputDir}/data/`.  Filenames use EP entity IDs for consistency
  * and traceability (e.g. `data/events/EVT-001.json`).
+ *
+ * Includes World Bank economic indicators (`world-bank/`), OSINT analytical
+ * outputs (`osint/`), and MCP tool responses (`mcp-responses/`) so that ALL
+ * MCP-sourced data is committed for verification and later reuse.
  */
 const DATA_CATEGORY_DIRS: Readonly<Record<string, string>> = {
   events: 'events',
@@ -2215,6 +2239,16 @@ const DATA_CATEGORY_DIRS: Readonly<Record<string, string>> = {
   corporateBodies: 'corporate-bodies',
   votingRecords: 'votes',
   speeches: 'speeches',
+  // World Bank economic data (CSV parsed to JSON)
+  worldBankIndicators: 'world-bank',
+  // OSINT analytical tool outputs
+  politicalLandscape: 'osint',
+  votingAnomalies: 'osint',
+  coalitionDynamics: 'osint',
+  countryDelegations: 'osint',
+  mepInfluence: 'osint',
+  // Raw MCP tool call responses
+  mcpResponses: 'mcp-responses',
 };
 
 /**
@@ -2253,12 +2287,62 @@ function extractItemId(item: unknown, index: number): string {
 }
 
 /**
+ * Persist a singleton OSINT data category (non-array object) to a file.
+ *
+ * @param data - The singleton data object to persist
+ * @param category - The fetchedData key name (camelCase)
+ * @param dataBaseDir - Base directory for data persistence
+ * @param subdir - Target subdirectory under dataBaseDir
+ * @returns 1 if written, 0 if skipped
+ */
+function persistSingletonData(
+  data: unknown,
+  category: string,
+  dataBaseDir: string,
+  subdir: string
+): number {
+  if (data === null || data === undefined) return 0;
+  const categoryDir = path.join(dataBaseDir, subdir);
+  ensureDirectoryExists(categoryDir);
+  const slug = category.replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`);
+  writeTextFile(path.join(categoryDir, `${slug}.json`), JSON.stringify(data, null, 2));
+  return 1;
+}
+
+/**
+ * Persist MCP tool responses (object keyed by tool name) to individual files.
+ *
+ * @param data - Object keyed by MCP tool name
+ * @param dataBaseDir - Base directory for data persistence
+ * @param subdir - Target subdirectory under dataBaseDir
+ * @returns Number of items written
+ */
+function persistMCPResponses(data: unknown, dataBaseDir: string, subdir: string): number {
+  if (data === null || data === undefined || typeof data !== 'object') return 0;
+  const categoryDir = path.join(dataBaseDir, subdir);
+  ensureDirectoryExists(categoryDir);
+  let count = 0;
+  const responses = data as Record<string, unknown>;
+  for (const [toolName, response] of Object.entries(responses)) {
+    if (response === null || response === undefined) continue;
+    const safeName = sanitizeDocumentId(toolName);
+    writeTextFile(path.join(categoryDir, `${safeName}.json`), JSON.stringify(response, null, 2));
+    count++;
+  }
+  return count;
+}
+
+/**
  * Persist raw MCP-fetched data to structured subdirectories for verification
  * and later reuse.
  *
  * Creates `{dateOutputDir}/data/{category}/` directories and writes each item
  * as an individual JSON file named by its EP identifier.  Existing files are
  * overwritten to support update workflows.
+ *
+ * For OSINT categories that share the `osint/` subdirectory (politicalLandscape,
+ * votingAnomalies, coalitionDynamics, etc.), files are prefixed with the category
+ * name to avoid collisions (e.g. `osint/political-landscape.json`).
  *
  * @param fetchedData - Raw EP data keyed by data category
  * @param dateOutputDir - Absolute path to the date-scoped output directory
@@ -2272,8 +2356,30 @@ function persistMCPData(
   const dataBaseDir = path.join(dateOutputDir, SUBDIR_DATA);
   let totalItems = 0;
 
+  /** Categories that share the osint/ subdir — use category name as filename prefix */
+  const OSINT_SINGLETON_CATEGORIES = new Set([
+    'politicalLandscape',
+    'votingAnomalies',
+    'coalitionDynamics',
+    'countryDelegations',
+    'mepInfluence',
+  ]);
+
   for (const [category, subdir] of Object.entries(DATA_CATEGORY_DIRS)) {
     const items = fetchedData[category];
+
+    // Handle singleton objects (e.g. politicalLandscape is one big response, not an array)
+    if (OSINT_SINGLETON_CATEGORIES.has(category)) {
+      totalItems += persistSingletonData(items, category, dataBaseDir, subdir);
+      continue;
+    }
+
+    // Handle mcpResponses: single object, not an array
+    if (category === 'mcpResponses') {
+      totalItems += persistMCPResponses(items, dataBaseDir, subdir);
+      continue;
+    }
+
     if (!Array.isArray(items) || items.length === 0) continue;
 
     const categoryDir = path.join(dataBaseDir, subdir);
@@ -2446,11 +2552,42 @@ function runSingleMethod(
 // ─── Public API ───────────────────────────────────────────────────────────────
 
 /**
+ * Derive a filesystem-safe slug from a list of article types.
+ *
+ * Each agentic workflow runs a single article type (e.g. `week-ahead`).
+ * The slug is used to scope analysis output to
+ * `{outputDir}/{date}/{slug}/` so that concurrent workflows for different
+ * article types never collide on the same files.
+ *
+ * When multiple types are present the slug is the sorted, hyphen-joined list.
+ *
+ * @param articleTypes - One or more article category identifiers
+ * @returns Filesystem-safe slug (lowercase, alphanumeric + hyphens)
+ *
+ * @example
+ * ```ts
+ * deriveArticleTypeSlug(['week-ahead']);       // 'week-ahead'
+ * deriveArticleTypeSlug(['breaking']);          // 'breaking'
+ * deriveArticleTypeSlug(['motions', 'month-ahead']); // 'month-ahead-motions'
+ * ```
+ */
+export function deriveArticleTypeSlug(articleTypes: readonly (ArticleCategory | string)[]): string {
+  if (articleTypes.length === 0) return 'default';
+  return [...articleTypes]
+    .map((t) => t.trim().toLowerCase())
+    .sort()
+    .join('-');
+}
+
+/**
  * Run the full analysis pipeline stage.
  *
  * Executes all enabled analysis methods sequentially, writing markdown files
- * to `outputDir/{date}/` and a `manifest.json` summary.  Individual method
- * failures are isolated — other methods continue regardless.
+ * and a `manifest.json` summary.  When {@link AnalysisStageOptions.articleTypeSlug}
+ * is provided the output is scoped to `outputDir/{date}/{slug}/` — this prevents
+ * merge conflicts when multiple agentic workflows run on the same date.
+ *
+ * Individual method failures are isolated — other methods continue regardless.
  *
  * @param fetchedData - Raw EP data fetched by the fetch stage (keyed by data type)
  * @param options - Analysis stage configuration
@@ -2462,6 +2599,7 @@ function runSingleMethod(
  *   articleTypes: [ArticleCategory.WEEK_AHEAD],
  *   date: '2026-03-26',
  *   outputDir: 'analysis',
+ *   articleTypeSlug: 'week-ahead',
  *   skipCompleted: true,
  *   verbose: true,
  * });
@@ -2475,6 +2613,7 @@ export async function runAnalysisStage(
     articleTypes,
     date,
     outputDir,
+    articleTypeSlug,
     enabledMethods = ALL_ANALYSIS_METHODS,
     skipCompleted = true,
     verbose = false,
@@ -2492,11 +2631,17 @@ export async function runAnalysisStage(
 
   const startTime = new Date().toISOString();
   const runId = randomUUID();
-  const dateOutputDir = path.resolve(outputDir, date);
+
+  // When articleTypeSlug is provided, scope output to a per-article-type
+  // subdirectory so concurrent workflows on the same date never collide.
+  const dateOutputDir = articleTypeSlug
+    ? path.resolve(outputDir, date, articleTypeSlug)
+    : path.resolve(outputDir, date);
 
   if (verbose) {
     console.log(`🔬 [analysis] Starting analysis stage (runId: ${runId})`);
     console.log(`   Date: ${date}`);
+    if (articleTypeSlug) console.log(`   Article type: ${articleTypeSlug}`);
     console.log(`   Methods: ${deduplicatedMethods.length}`);
     console.log(`   Output: ${dateOutputDir}`);
   }
@@ -2566,6 +2711,7 @@ export async function runAnalysisStage(
   const manifest: AnalysisManifest = {
     runId,
     date,
+    articleTypeSlug,
     startTime,
     endTime,
     articleTypes: [...articleTypes],

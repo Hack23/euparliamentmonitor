@@ -256,7 +256,7 @@ graph TD
     J1 --> J1a[📊 Classification: significance, impact-matrix, actors, forces]
     J1 --> J1b[🛡️ Threat Assessment: STRIDE, actor-threats, disruption]
     J1 --> J1c[📈 Risk Scoring: risk-matrix, SWOT, velocity, capital-at-risk]
-    J1a --> J1d[📁 analysis/date/]
+    J1a --> J1d[📁 analysis/date/article-type/]
     J1b --> J1d
     J1c --> J1d
     J1d --> J[📰 Generate News Articles<br/>npx tsx src/generators/news-enhanced.ts --analysis]
@@ -295,7 +295,7 @@ graph TD
 | **EP MCP Server** | `european-parliament-mcp-server` (globally installed) |
 | **Data sources** | European Parliament MCP Server (primary), World Bank MCP (optional) |
 | **Analysis stage** | `--analysis` flag enables 18-method political intelligence pipeline before article generation |
-| **Analysis output** | `analysis/{date}/` — classification, threat-assessment, risk-scoring artifacts committed to PR |
+| **Analysis output** | `analysis/{date}/{article-type}/` — classification, threat-assessment, risk-scoring, data (EP feeds, World Bank, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
 
 #### Compilation Process
 
