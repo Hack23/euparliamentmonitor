@@ -126,6 +126,7 @@
     "worldbank-mcp": "1.0.1"
   },
   "overrides": {
-    "flatted": ">=3.4.2"
+    "flatted": ">=3.4.2",
+    "path-to-regexp": ">=8.4.0"
   }
 }
