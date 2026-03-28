@@ -185,7 +185,7 @@ Connect this month's agenda to longer parliamentary trajectories:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
-- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/{date}/{article-type}/`)
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/month-ahead/`)
 - **Minutes 8–18**: Query plenary sessions, committees, and legislative pipeline for next 30 days
 - **Minutes 18–45**: Generate English article with deep political intelligence analysis
 - **Minutes 45–52**: Validate generated HTML

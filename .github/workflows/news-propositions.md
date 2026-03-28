@@ -191,7 +191,7 @@ For each new legislative proposition, assess:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, EP MCP server warm-up
-- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/{date}/{article-type}/`)
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/propositions/`)
 - **Minutes 8–18**: Query EP MCP tools for legislative proposals and pipeline data
 - **Minutes 18–45**: Generate English article with deep political intelligence analysis
 - **Minutes 45–52**: Validate HTML

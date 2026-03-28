@@ -179,7 +179,7 @@ Beyond listing upcoming events, provide strategic intelligence:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
-- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/{date}/{article-type}/`)
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/week-ahead/`)
 - **Minutes 8–18**: Query plenary sessions, committee meetings, and legislative pipeline for next 7 days
 - **Minutes 18–45**: Generate English article with deep political intelligence analysis
 - **Minutes 45–52**: Validate generated HTML

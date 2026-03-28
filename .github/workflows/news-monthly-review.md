@@ -186,7 +186,7 @@ Provide macro-level parliamentary intelligence:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (up to 3 attempts)
-- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/{date}/{article-type}/`)
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/monthly-review/`)
 - **Minutes 8–18**: Query voting records, documents, reports from past 30 days
 - **Minutes 18–45**: Generate English article with deep political intelligence analysis
 - **Minutes 45–52**: Validate generated HTML
