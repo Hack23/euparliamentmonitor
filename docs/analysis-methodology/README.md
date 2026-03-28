@@ -122,7 +122,7 @@ quadrantChart
 flowchart TD
     A["📥 MCP Data Fetch<br/><em>fetch-stage.ts</em>"] --> B["📊 Data Preparation<br/><em>analysis-stage.ts</em>"]
     B --> C{"🤖 AI Agent<br/>reads methodology<br/>templates"}
-    C --> D["📝 Rich Analysis Markdown<br/><em>analysis/{date}/</em>"]
+    C --> D["📝 Rich Analysis Markdown<br/><em>analysis/{date}/{slug}/</em>"]
     D --> E["📰 Article Generation<br/><em>generate-stage.ts</em>"]
     E --> F["🌐 Multi-Language HTML<br/><em>news/*.html</em>"]
 
@@ -136,10 +136,10 @@ flowchart TD
 
 ### Workflow Integration Points
 
-All news workflows share a single `analysis/{date}/` directory. This ensures:
+All news workflows write analysis artifacts to per-article-type subdirectories under `analysis/{date}/{article-type-slug}/`, with shared MCP data at `analysis/{date}/data/`. This ensures:
 - **Comprehensive analysis** — every downloaded MCP file is analyzed once
-- **No merge conflicts** — concurrent workflows write to the same directory with `skipCompleted` reuse
-- **Full coverage** — all 19 analysis methods including per-document analysis run by default
+- **No merge conflicts** — concurrent workflows write to separate subdirectories
+- **Full coverage** — all 18 default analysis methods run; `document-analysis` is opt-in via `--analysis-methods`
 
 Each news workflow `.md` file references these templates:
 

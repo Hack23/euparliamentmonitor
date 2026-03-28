@@ -139,7 +139,7 @@ Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.2
 | Cross-Group Relevance | 8 | 0.15 | 1.20 |
 | **COMPOSITE SCORE** | — | — | **6.25 / 10** |
 
-**Rationale:** EPP's structural dominance shapes committee chairs, rapporteur allocation, and agenda-setting. The 19:1 ratio with ESN raises democratic representation concerns. However, urgency is moderate as this is a structural condition, not an acute event.
+**Rationale:** EPP's structural dominance shapes committee chairs, rapporteur allocation, and agenda-setting. EPP's ~6.6× size advantage over ESN raises democratic representation concerns. However, urgency is moderate as this is a structural condition, not an acute event.
 
 **Decision:** 📰 **Publish** — Include in political landscape analysis for democratic accountability coverage.
 
@@ -264,7 +264,7 @@ Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.2
 | # | Event | EP Reference | Parl. | Policy | Public | Urgency | X-Group | **Composite** | Decision |
 |:-:|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------------:|----------|
 | 1 | EP10 Legislative Acceleration (+58%) | Legislative pipeline | 9 | 10 | 7 | 7 | 8 | **8.40** | 📰 Priority |
-| 2 | EPP Dominance Risk (19x smallest) | Group composition | 7 | 6 | 6 | 4 | 8 | **6.25** | 📰 Publish |
+| 2 | EPP Dominance Risk (~6.6× smallest) | Group composition | 7 | 6 | 6 | 4 | 8 | **6.25** | 📰 Publish |
 | 3 | Grand Coalition Viability (55%) | Coalition dynamics | 9 | 9 | 8 | 7 | 9 | **8.50** | 📰 Priority |
 | 4 | Right-Bloc Convergence (191 seats) | Voting alignment | 8 | 8 | 8 | 6 | 9 | **7.85** | 📰 Priority |
 | 5 | German Recession Impact (-0.50%) | World Bank GDP | 6 | 9 | 9 | 7 | 7 | **7.65** | 📰 Priority |

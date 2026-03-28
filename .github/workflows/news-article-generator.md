@@ -135,12 +135,12 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 The `--analysis` flag activates the political intelligence analysis pipeline **before** article generation. This stage:
 
 1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
-2. **Runs all 19 analysis methods** across 5 categories (including per-document analysis for every downloaded file):
+2. **Runs all 18 default analysis methods** across 5 categories:
    - **Classification**: significance scoring, impact matrix, actor mapping, political forces analysis
    - **Threat Assessment**: STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
    - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
-   - **Per-Document Analysis**: per-document markdown + JSON intelligence files for every downloaded MCP file
+   - **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`): per-document markdown + JSON intelligence files for every downloaded MCP file
 3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently on the same date; the downloaded MCP `data/` directory under `analysis/${TODAY}/data/` is shared across runs
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 

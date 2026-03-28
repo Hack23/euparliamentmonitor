@@ -176,7 +176,7 @@ For each committee report, analyze:
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
-- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/`)
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/committee-reports/`)
 - **Minutes 8–18**: Query EP MCP tools for committee reports data
 - **Minutes 18–45**: Generate English article with deep political intelligence analysis
 - **Minutes 45–52**: Validate and finalize changes
@@ -192,13 +192,13 @@ For each committee report, analyze:
 The `--analysis` flag activates the political intelligence analysis pipeline **before** article generation. This stage:
 
 1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
-2. **Runs all 19 analysis methods** across 5 categories (including per-document analysis for every downloaded file):
+2. **Runs all 18 default analysis methods** across 5 categories 
    - **Classification**: significance scoring, impact matrix, actor mapping, political forces analysis
    - **Threat Assessment**: STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
    - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
-   - **Per-Document Analysis**: per-document markdown + JSON intelligence files for every downloaded MCP file
-3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/` (markdown files + `manifest.json`) — all workflows share a single date-level directory for comprehensive analysis of all downloaded data
+   - **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`): per-document markdown + JSON intelligence files for every downloaded MCP file
+3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/committee-reports/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is shared at `analysis/${TODAY}/data/`
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
@@ -820,7 +820,7 @@ Pass `$BRANCH_NAME` (e.g., `news/committee-reports-2026-02-24`) as the `head` pa
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament committee-reports articles ${TODAY}`,
-  body: `## EU Parliament Committee Reports Articles\n\nGenerated committee-reports articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/\``,
+  body: `## EU Parliament Committee Reports Articles\n\nGenerated committee-reports articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/committee-reports/\``,
   base: "main",
   head: BRANCH_NAME
 })

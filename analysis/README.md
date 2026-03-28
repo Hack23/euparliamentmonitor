@@ -33,7 +33,7 @@ Analysis artifacts are **not** final content — they are structured intermediat
 - 📊 **Full data analysis**: Every downloaded MCP file receives comprehensive analysis
 - 🧠 **Reusable intelligence**: Cross-workflow pattern sharing and knowledge accumulation
 - 🎯 **Quality assurance**: Structured templates enable validation before article generation
-- 🔀 **Merge conflict avoidance**: Single date-level directory shared by all workflows
+- 🔀 **Merge conflict avoidance**: Per-article-type subdirectories with shared MCP data
 
 ---
 
@@ -54,33 +54,34 @@ analysis/
 │   ├── swot-analysis.md               ← SWOT quadrant template
 │   ├── stakeholder-impact.md          ← Stakeholder impact template
 │   └── significance-scoring.md        ← Significance scoring template
-├── YYYY-MM-DD/                        ← Date-stamped analysis output (shared by all workflows)
-│   ├── manifest.json                  ← Run metadata (methods, timing, confidence)
-│   ├── classification/                ← Political classification results
-│   │   ├── significance-assessment.md
-│   │   ├── impact-matrix.md
-│   │   ├── actor-mapping.md
-│   │   └── forces-analysis.md
-│   ├── threat-assessment/             ← Threat analysis results
-│   │   ├── political-stride-assessment.md
-│   │   ├── actor-threat-profiles.md
-│   │   ├── consequence-trees.md
-│   │   └── legislative-disruption.md
-│   ├── risk-scoring/                  ← Risk assessment results
-│   │   ├── risk-matrix.md
-│   │   ├── political-capital-risk.md
-│   │   ├── quantitative-swot.md
-│   │   ├── legislative-velocity-risk.md
-│   │   └── agent-risk-workflow.md
-│   ├── existing/                      ← Existing analysis method outputs
-│   │   ├── deep-analysis.md
-│   │   ├── stakeholder-analysis.md
-│   │   ├── coalition-analysis.md
-│   │   ├── voting-patterns.md
-│   │   └── cross-session-intelligence.md
-│   ├── documents/                     ← Per-document analysis (when enabled)
-│   │   └── document-analysis-index.md
-│   └── data/                          ← Persistent MCP data repository
+├── YYYY-MM-DD/                        ← Date-stamped output directory
+│   ├── {article-type-slug}/           ← Per-article-type subdirectory (e.g. week-ahead/, breaking/)
+│   │   ├── manifest.json              ← Run metadata (methods, timing, confidence)
+│   │   ├── classification/            ← Political classification results
+│   │   │   ├── significance-assessment.md
+│   │   │   ├── impact-matrix.md
+│   │   │   ├── actor-mapping.md
+│   │   │   └── forces-analysis.md
+│   │   ├── threat-assessment/         ← Threat analysis results
+│   │   │   ├── political-stride-assessment.md
+│   │   │   ├── actor-threat-profiles.md
+│   │   │   ├── consequence-trees.md
+│   │   │   └── legislative-disruption.md
+│   │   ├── risk-scoring/              ← Risk assessment results
+│   │   │   ├── risk-matrix.md
+│   │   │   ├── political-capital-risk.md
+│   │   │   ├── quantitative-swot.md
+│   │   │   ├── legislative-velocity-risk.md
+│   │   │   └── agent-risk-workflow.md
+│   │   ├── existing/                  ← Existing analysis method outputs
+│   │   │   ├── deep-analysis.md
+│   │   │   ├── stakeholder-analysis.md
+│   │   │   ├── coalition-analysis.md
+│   │   │   ├── voting-patterns.md
+│   │   │   └── cross-session-intelligence.md
+│   │   └── documents/                 ← Per-document analysis (when enabled)
+│   │       └── document-analysis-index.md
+│   └── data/                          ← Persistent MCP data repository (shared across workflows)
 │       ├── adopted-texts/             ← EP adopted legislative texts
 │       ├── committee-documents/       ← Committee reports and opinions
 │       ├── corporate-bodies/          ← EP institutional bodies data
