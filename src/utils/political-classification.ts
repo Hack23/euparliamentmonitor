@@ -878,10 +878,19 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
  * Initialize the `analysis/{date}/` directory structure.
  *
  * Creates the following sub-directories if they do not already exist:
- * - `classification/`      — Political classification results
- * - `data/`                — Raw downloaded data cache
- * - `threat-assessment/`   — Political threat analysis (Issue 2)
- * - `risk-scoring/`        — Quantitative risk assessment (Issue 3)
+ * - `classification/`           — Political classification results
+ * - `existing/`                 — Existing analysis method outputs
+ * - `documents/`                — Per-document analysis files
+ * - `threat-assessment/`        — Political threat analysis
+ * - `risk-scoring/`             — Quantitative risk assessment
+ * - `data/`                     — Raw MCP data cache (EP feeds, WB, OSINT)
+ * - `data/{category}/`          — Per-category EP feed data (14 categories)
+ * - `data/world-bank/`          — World Bank economic indicator data
+ * - `data/osint/`               — OSINT analytical tool outputs
+ * - `data/mcp-responses/`       — Raw MCP tool call responses
+ *
+ * When article-type scoping is used (recommended for agentic workflows),
+ * the caller should pass a scoped path such as `analysis/{date}/{slug}`.
  *
  * @param baseDir - Base directory for analysis output (typically `analysis/`)
  * @param date - ISO date string used as the run folder name (YYYY-MM-DD).
@@ -905,6 +914,8 @@ export function initializeAnalysisDirectory(baseDir: string, date: string): stri
   const runDir = path.join(baseDir, date);
   const subdirs = [
     'classification',
+    'existing',
+    'documents',
     'data',
     'data/events',
     'data/procedures',
@@ -920,6 +931,9 @@ export function initializeAnalysisDirectory(baseDir: string, date: string): stri
     'data/corporate-bodies',
     'data/votes',
     'data/speeches',
+    'data/world-bank',
+    'data/osint',
+    'data/mcp-responses',
     'threat-assessment',
     'risk-scoring',
   ];

@@ -156,6 +156,24 @@ describe('deriveArticleTypeSlug', () => {
       expect(deriveArticleTypeSlug([t])).toBe(t);
     }
   });
+
+  it('sanitises special characters from slug', () => {
+    expect(deriveArticleTypeSlug(['week..ahead'])).toBe('week-ahead');
+    expect(deriveArticleTypeSlug(['../../../etc'])).toBe('etc');
+  });
+
+  it('collapses multiple hyphens into one', () => {
+    expect(deriveArticleTypeSlug(['week---ahead'])).toBe('week-ahead');
+  });
+
+  it('returns "default" when all input chars are stripped', () => {
+    expect(deriveArticleTypeSlug(['...'])).toBe('default');
+    expect(deriveArticleTypeSlug(['///'])).toBe('default');
+  });
+
+  it('strips leading and trailing hyphens after sanitisation', () => {
+    expect(deriveArticleTypeSlug(['-breaking-'])).toBe('breaking');
+  });
 });
 
 // ─── hasSubstantiveData tests ─────────────────────────────────────────────────

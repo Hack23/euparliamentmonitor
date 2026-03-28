@@ -2560,9 +2560,11 @@ function runSingleMethod(
  * article types never collide on the same files.
  *
  * When multiple types are present the slug is the sorted, hyphen-joined list.
+ * The result is sanitised to contain only lowercase alphanumeric characters
+ * and hyphens, preventing path traversal or filesystem issues.
  *
  * @param articleTypes - One or more article category identifiers
- * @returns Filesystem-safe slug (lowercase, alphanumeric + hyphens)
+ * @returns Filesystem-safe slug (lowercase, alphanumeric + hyphens only)
  *
  * @example
  * ```ts
@@ -2573,10 +2575,15 @@ function runSingleMethod(
  */
 export function deriveArticleTypeSlug(articleTypes: readonly (ArticleCategory | string)[]): string {
   if (articleTypes.length === 0) return 'default';
-  return [...articleTypes]
+  const raw = [...articleTypes]
     .map((t) => t.trim().toLowerCase())
     .sort()
     .join('-');
+  // Sanitise: strip anything that isn't lowercase alphanumeric or hyphen,
+  // collapse multiple hyphens, and trim leading/trailing hyphens.
+  const sanitised = raw.replace(/[^a-z0-9-]+/gu, '-').replace(/-{2,}/gu, '-');
+  const trimmed = sanitised.replace(/^-/u, '').replace(/-$/u, '');
+  return trimmed.length > 0 ? trimmed : 'default';
 }
 
 /**

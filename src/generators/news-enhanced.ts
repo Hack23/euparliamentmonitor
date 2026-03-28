@@ -13,7 +13,7 @@
  *
  * When the `--analysis` flag is supplied (all 9 agentic workflows do this),
  * the analysis stage runs **before** article generation, producing structured
- * political intelligence artifacts under `analysis/{date}/`.  These
+ * political intelligence artifacts under `analysis/{date}/{article-type}/`.  These
  * artifacts are committed to the repository for review and improvement.
  *
  * Pipeline stages:
@@ -285,7 +285,7 @@ function parseAnalysisMethods(): readonly AnalysisMethod[] {
  * Run the optional analysis stage (Fetch → Analysis) before article generation.
  *
  * This function is **side-effect-only**: it writes analysis markdown and a
- * `manifest.json` to disk under `analysis/{date}/`.  The returned
+ * `manifest.json` to disk under `analysis/{date}/{article-type}/`.  The returned
  * {@link AnalysisContext} is informational; strategies read analysis output
  * from disk rather than consuming the context object in-memory.  Analysis
  * artifacts are committed to the repository for review and political

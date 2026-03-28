@@ -704,6 +704,16 @@ describe('initializeAnalysisDirectory', () => {
     expect(fs.existsSync(path.join(runDir, 'data'))).toBe(true);
   });
 
+  it('creates existing/ subdirectory', () => {
+    const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    expect(fs.existsSync(path.join(runDir, 'existing'))).toBe(true);
+  });
+
+  it('creates documents/ subdirectory', () => {
+    const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    expect(fs.existsSync(path.join(runDir, 'documents'))).toBe(true);
+  });
+
   it('creates threat-assessment/ subdirectory', () => {
     const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
     expect(fs.existsSync(path.join(runDir, 'threat-assessment'))).toBe(true);
@@ -712,6 +722,34 @@ describe('initializeAnalysisDirectory', () => {
   it('creates risk-scoring/ subdirectory', () => {
     const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
     expect(fs.existsSync(path.join(runDir, 'risk-scoring'))).toBe(true);
+  });
+
+  it('creates data/world-bank/ subdirectory for World Bank data', () => {
+    const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    expect(fs.existsSync(path.join(runDir, 'data', 'world-bank'))).toBe(true);
+  });
+
+  it('creates data/osint/ subdirectory for OSINT analytical outputs', () => {
+    const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    expect(fs.existsSync(path.join(runDir, 'data', 'osint'))).toBe(true);
+  });
+
+  it('creates data/mcp-responses/ subdirectory for raw MCP responses', () => {
+    const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    expect(fs.existsSync(path.join(runDir, 'data', 'mcp-responses'))).toBe(true);
+  });
+
+  it('creates all 14 EP feed data subdirectories', () => {
+    const runDir = initializeAnalysisDirectory(tmpDir, '2026-03-26');
+    const epCategories = [
+      'events', 'procedures', 'adopted-texts', 'documents', 'meps',
+      'plenary-documents', 'committee-documents', 'plenary-session-documents',
+      'external-documents', 'questions', 'declarations', 'corporate-bodies',
+      'votes', 'speeches',
+    ];
+    for (const cat of epCategories) {
+      expect(fs.existsSync(path.join(runDir, 'data', cat))).toBe(true);
+    }
   });
 
   it('is idempotent — does not throw if directory already exists', () => {
