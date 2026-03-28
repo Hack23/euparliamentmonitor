@@ -162,6 +162,36 @@ Each news workflow `.md` file references these templates:
 
 ---
 
+## 📐 Structured Analysis Templates & Methodologies
+
+In addition to the higher-level methodology guides in this directory, EU Parliament Monitor provides **detailed structured analysis templates** and **methodology guides** adapted from the [Riksdagsmonitor analysis framework](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/README.md) for the EU Parliament context:
+
+### Analysis Methodology Guides (`analysis/methodologies/`)
+
+| Methodology | File | ISMS Inspiration | Purpose |
+|------------|------|-----------------|---------|
+| **Political Classification** | [`analysis/methodologies/political-classification-guide.md`](../../analysis/methodologies/political-classification-guide.md) | [CLASSIFICATION.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | 7-dimension classification of EP events (sensitivity, urgency, impact) |
+| **Political Risk Assessment** | [`analysis/methodologies/political-risk-methodology.md`](../../analysis/methodologies/political-risk-methodology.md) | [Risk_Assessment_Methodology.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md) | Likelihood × Impact scoring across 6 EP risk categories |
+| **Political Threat Framework** | [`analysis/methodologies/political-threat-framework.md`](../../analysis/methodologies/political-threat-framework.md) | [Threat_Modeling.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) | STRIDE-adapted framework for EU democratic process threats |
+| **Political SWOT Framework** | [`analysis/methodologies/political-swot-framework.md`](../../analysis/methodologies/political-swot-framework.md) | [CIA SWOT.md](https://github.com/Hack23/cia/blob/master/SWOT.md) | Evidence-based SWOT requiring EP document citations |
+
+### Fillable Analysis Templates (`analysis/templates/`)
+
+These templates are designed to be filled by the AI agent (Opus) during the analysis stage:
+
+| Template | File | When to Use |
+|----------|------|-------------|
+| **Political Classification** | [`analysis/templates/political-classification.md`](../../analysis/templates/political-classification.md) | First step for every new EP event/document |
+| **Risk Assessment** | [`analysis/templates/risk-assessment.md`](../../analysis/templates/risk-assessment.md) | Coalition/policy/institutional risk spikes |
+| **Threat Analysis** | [`analysis/templates/threat-analysis.md`](../../analysis/templates/threat-analysis.md) | STRIDE-format democratic threat review |
+| **SWOT Analysis** | [`analysis/templates/swot-analysis.md`](../../analysis/templates/swot-analysis.md) | Strategic political landscape assessment |
+| **Stakeholder Impact** | [`analysis/templates/stakeholder-impact.md`](../../analysis/templates/stakeholder-impact.md) | Policy decision or legislative action impact |
+| **Significance Scoring** | [`analysis/templates/significance-scoring.md`](../../analysis/templates/significance-scoring.md) | Publication priority decisions |
+
+> **⚠️ AI Agent Mandate:** When creating analysis artifacts, the AI MUST read the appropriate methodology guide **and** fill the corresponding template for **every downloaded MCP data file**. This ensures complete, evidence-based analysis of all EP data.
+
+---
+
 ## 📏 Quality Metrics
 
 ### Minimum Output Requirements

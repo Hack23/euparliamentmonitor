@@ -150,7 +150,33 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ CRITICAL**: After MCP data is fetched, the AI agent MUST produce **extensive, publication-quality analysis markdown** following the methodology templates in `docs/analysis-methodology/`. The scripted analysis stage provides data preparation — the AI agent performs the actual analytical work.
 
-### Analysis Methodology Templates
+> **⚠️ FULL DATA ANALYSIS**: Analysis MUST be performed for **every file downloaded** from MCP sources — not per session, not per day summary, but for **every individual piece of content**. Read ALL templates and methodologies before starting.
+
+### Structured Analysis Templates (analysis/templates/)
+
+Read and apply these templates for **every downloaded MCP data file** in `analysis/${TODAY}/data/`:
+
+| Template | File | When to Apply |
+|----------|------|--------------|
+| **Political Classification** | `analysis/templates/political-classification.md` | Every new EP event or document — FIRST STEP |
+| **Risk Assessment** | `analysis/templates/risk-assessment.md` | Coalition/policy/institutional risk indicators |
+| **Threat Analysis** | `analysis/templates/threat-analysis.md` | STRIDE-format democratic threat review |
+| **SWOT Analysis** | `analysis/templates/swot-analysis.md` | Strategic political landscape assessment |
+| **Stakeholder Impact** | `analysis/templates/stakeholder-impact.md` | Policy decisions or legislative actions |
+| **Significance Scoring** | `analysis/templates/significance-scoring.md` | Publication priority decisions |
+
+### Analysis Methodology Guides (analysis/methodologies/)
+
+Read these BEFORE creating analysis artifacts — they define the scoring frameworks:
+
+| Methodology | File | Framework |
+|------------|------|-----------|
+| **Classification Guide** | `analysis/methodologies/political-classification-guide.md` | 7-dimension classification |
+| **Risk Methodology** | `analysis/methodologies/political-risk-methodology.md` | Likelihood × Impact 5×5 matrix |
+| **Threat Framework** | `analysis/methodologies/political-threat-framework.md` | STRIDE-adapted for EU democracy |
+| **SWOT Framework** | `analysis/methodologies/political-swot-framework.md` | Evidence-based SWOT |
+
+### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
 Read and apply these templates when generating analysis artifacts in `analysis/${TODAY}/`:
 
