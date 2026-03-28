@@ -68,7 +68,7 @@ safe-outputs:
     - www.europarl.europa.eu
     - github.com
   create-pull-request:
-    max-size: 2097152
+    max-size: 10485760
   add-comment: {}
 
 steps:
@@ -602,7 +602,7 @@ echo "Branch: $BRANCH_NAME"
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament news articles ${TODAY}`,
-  body: `## EU Parliament News Articles\n\nGenerated ${ARTICLE_TYPES} articles for ${LANG_ARG}.\n\n- Types: ${ARTICLE_TYPES}\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/\``,
+  body: `## EU Parliament News Articles\n\nGenerated ${ARTICLE_TYPES} articles for ${LANG_ARG}.\n\n- Types: ${ARTICLE_TYPES}\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/${ARTICLE_TYPES}/\``,
   base: "main",
   head: BRANCH_NAME
 })

@@ -60,7 +60,7 @@ safe-outputs:
     - www.europarl.europa.eu
     - github.com
   create-pull-request:
-    max-size: 2097152
+    max-size: 10485760
   add-comment: {}
 
 steps:
@@ -783,7 +783,7 @@ Pass `$BRANCH_NAME` (e.g., `news/motions-2026-02-24`) as the `head` parameter wh
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament motions articles ${TODAY}`,
-  body: `## EU Parliament Motions Articles\n\nGenerated motions articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/\``,
+  body: `## EU Parliament Motions Articles\n\nGenerated motions articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/motions/\``,
   base: "main",
   head: BRANCH_NAME
 })

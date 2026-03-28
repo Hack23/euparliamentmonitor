@@ -57,7 +57,7 @@ safe-outputs:
     - www.europarl.europa.eu
     - github.com
   create-pull-request:
-    max-size: 2097152
+    max-size: 10485760
   add-comment: {}
 
 steps:
@@ -576,7 +576,7 @@ echo "Branch: $BRANCH_NAME"
 ```javascript
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament breaking news ${TODAY}`,
-  body: `## EU Parliament Breaking News\n\nGenerated breaking news articles from EP feed endpoints.\n\n- Type: breaking\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament feed endpoints (adopted texts, events, procedures, MEP updates)\n- Analytics: Voting anomalies and coalition dynamics (context only)\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/\``,
+  body: `## EU Parliament Breaking News\n\nGenerated breaking news articles from EP feed endpoints.\n\n- Type: breaking\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament feed endpoints (adopted texts, events, procedures, MEP updates)\n- Analytics: Voting anomalies and coalition dynamics (context only)\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/breaking/\``,
   base: "main",
   head: BRANCH_NAME
 })
