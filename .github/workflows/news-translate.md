@@ -78,8 +78,7 @@ safe-outputs:
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - github.com
-  create-pull-request:
-    max-size: 10485760
+  create-pull-request: {}
   add-comment: {}
 
 steps:
@@ -204,13 +203,16 @@ export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK
 # Check for open content-generation PRs that could cause patch conflicts
 CONTENT_BRANCH_PATTERN="^news/(week-in-review|month-in-review|weekly-review|monthly-review|week-ahead|motions|propositions|committee-reports|breaking|month-ahead)"
 
-PENDING_NEWS_PRS=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --json title,number,headRefName \
-  --jq "[.[] | select(.headRefName | test(\"$CONTENT_BRANCH_PATTERN\"))] | length" 2>/dev/null || echo "0")
+PENDING_NEWS_PRS=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --limit 200 --json title,number,headRefName \
+  --jq "[.[] | select(.headRefName | test(\"$CONTENT_BRANCH_PATTERN\"))] | length" 2>/dev/null || echo "UNKNOWN")
 
-if [ "$PENDING_NEWS_PRS" -gt 0 ]; then
+if [ "$PENDING_NEWS_PRS" = "UNKNOWN" ]; then
+  echo "⚠️ Unable to determine pending content-generation PRs (gh/jq failure) — proceeding with caution."
+  echo "ℹ️ Patch conflicts with content-generation PRs are possible but translations will be attempted."
+elif [ "$PENDING_NEWS_PRS" -gt 0 ]; then
   echo "⚠️ Found $PENDING_NEWS_PRS pending content-generation PR(s) — these may cause patch conflicts"
   echo "Listing pending content PRs:"
-  gh pr list --repo "$GITHUB_REPOSITORY" --state open --json title,number,headRefName \
+  gh pr list --repo "$GITHUB_REPOSITORY" --state open --limit 200 --json title,number,headRefName \
     --jq ".[] | select(.headRefName | test(\"$CONTENT_BRANCH_PATTERN\")) | \"  #\\(.number): \\(.title)\"" 2>/dev/null || true
   echo "ℹ️ Proceeding with translation — patch conflicts are possible but translations will be attempted"
 else
@@ -497,7 +499,7 @@ fi
 rm -f news/metadata/generation-*.json
 rm -f news/articles-metadata.json
 # Remove any analysis-output files that the generator may have created
-rm -rf analysis-output/ analysis/
+rm -rf analysis-output/
 echo "🧹 Cleaned metadata and analysis files from working directory to prevent patch conflicts"
 
 ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
