@@ -61,7 +61,7 @@ mindmap
 |----------|-------|----------------|-------------------|--------------|
 | **[Political Landscape Analysis](political-landscape-analysis.md)** | 🏛️ Power dynamics & fragmentation | Effective Number of Parties, Seat-Share Analysis | `get_current_meps`, `generate_political_landscape`, `compare_political_groups` | 800–1,500 lines |
 | **[Coalition Dynamics Analysis](coalition-dynamics-analysis.md)** | 🤝 Voting alliances & fractures | Alliance Detection, Cohesion Metrics, ACH | `analyze_coalition_dynamics`, `get_voting_records`, `detect_voting_anomalies` | 600–1,200 lines |
-| **[Legislative Risk Assessment](legislative-risk-assessment.md)** | ⚖️ Passage probability & pipeline health | PESTLE, Risk Matrix, Monte Carlo-style | `monitor_legislative_pipeline`, `track_legislation`, `get_procedures` | 600–1,000 lines |
+| **[Legislative Risk Assessment](legislative-risk-assessment.md)** | ⚖️ Passage probability & pipeline health | PESTLE, Risk Matrix, Likelihood×Impact | `monitor_legislative_pipeline`, `track_legislation`, `get_procedures` | 600–1,000 lines |
 | **[MEP Influence Scorecard](mep-influence-scorecard.md)** | 👤 MEP performance & power mapping | 5-Dimension Model, Network Centrality | `assess_mep_influence`, `analyze_voting_patterns`, `network_analysis` | 400–800 lines |
 | **[Weekly Intelligence Brief](weekly-intelligence-brief.md)** | 📰 Weekly situational awareness | Early Warning System, Trend Analysis | `early_warning_system`, `get_events_feed`, `get_adopted_texts_feed` | 500–1,000 lines |
 | **[Committee Power Analysis](committee-power-analysis.md)** | 🏢 Committee workload & influence | Productivity Scoring, Policy Impact | `analyze_committee_activity`, `get_committee_info`, `analyze_legislative_effectiveness` | 500–900 lines |

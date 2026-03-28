@@ -138,20 +138,20 @@ For EACH major political group, provide:
 ```mermaid
 flowchart LR
     subgraph "Grand Coalition (Pro-EU Mainstream)"
-        EPP["🔵 EPP<br/>188 seats"]
-        SD["🔴 S&D<br/>136 seats"]
-        RN["🟡 Renew<br/>77 seats"]
+        EPP["🔵 EPP<br/>{N} seats"]
+        SD["🔴 S&D<br/>{N} seats"]
+        RN["🟡 Renew<br/>{N} seats"]
     end
 
     subgraph "Right-Wing Alliance"
-        ECR["🟠 ECR<br/>78 seats"]
-        PfE["⚫ PfE<br/>84 seats"]
-        ESN["🟤 ESN<br/>25 seats"]
+        ECR["🟠 ECR<br/>{N} seats"]
+        PfE["⚫ PfE<br/>{N} seats"]
+        ESN["🟤 ESN<br/>{N} seats"]
     end
 
     subgraph "Progressive Bloc"
-        GR["🟢 Greens<br/>53 seats"]
-        LF["🔴 Left<br/>46 seats"]
+        GR["🟢 Greens<br/>{N} seats"]
+        LF["🔴 Left<br/>{N} seats"]
     end
 
     EPP <-->|"Traditional<br/>alliance"| SD

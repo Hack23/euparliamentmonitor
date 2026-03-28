@@ -55,6 +55,7 @@ analysis/
 │   ├── stakeholder-impact.md          ← Stakeholder impact template
 │   └── significance-scoring.md        ← Significance scoring template
 ├── YYYY-MM-DD/                        ← Date-stamped output directory
+│   ├── ai-*.md                        ← AI-driven analysis artifacts (at date root for cross-article use)
 │   ├── {article-type-slug}/           ← Per-article-type subdirectory (e.g. week-ahead/, breaking/)
 │   │   ├── manifest.json              ← Run metadata (methods, timing, confidence)
 │   │   ├── classification/            ← Political classification results
@@ -104,6 +105,12 @@ analysis/
 │       ├── votes/                     ← Voting records
 │       └── world-bank/                ← World Bank economic indicators
 ```
+
+### Directory Layout Notes
+
+- **AI-driven analysis artifacts** (`ai-*.md`) are stored at the **date root** (`analysis/YYYY-MM-DD/`) because they synthesise data across all article types and are reusable across workflows.
+- **Workflow-generated outputs** (classification/, risk-scoring/, threat-assessment/, existing/) live under **per-article-type subdirectories** (`analysis/YYYY-MM-DD/{article-type-slug}/`) to prevent merge conflicts when multiple workflows run concurrently.
+- **MCP data** is shared at `analysis/YYYY-MM-DD/data/` and is available to all workflows.
 
 ---
 

@@ -97,16 +97,16 @@ mindmap
 
 ```mermaid
 pie title Committee Workload Distribution (Documents Produced)
-    "ENVI" : 45
-    "ECON" : 38
-    "LIBE" : 35
-    "ITRE" : 32
-    "IMCO" : 28
-    "AFET" : 25
-    "Other" : 97
+    "ENVI" : {N}
+    "ECON" : {N}
+    "LIBE" : {N}
+    "ITRE" : {N}
+    "IMCO" : {N}
+    "AFET" : {N}
+    "Other" : {N}
 ```
 
-> **AI Agent Note:** Replace with actual document counts from MCP data.
+> **⚠️ AI Agent**: Replace all `{N}` placeholders above with actual document counts from `analyze_committee_activity` MCP data. Do NOT use the template defaults.
 
 ### 5. Committee Deep-Dive Profiles (Required for top 5)
 

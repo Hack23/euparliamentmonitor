@@ -105,13 +105,13 @@ quadrantChart
 
 ```mermaid
 pie title Voting Pattern Breakdown
-    "With Group Majority" : 75
-    "Against Group Majority" : 10
-    "Abstained" : 8
-    "Absent" : 7
+    "With Group Majority" : {N}
+    "Against Group Majority" : {N}
+    "Abstained" : {N}
+    "Absent" : {N}
 ```
 
-> **AI Agent Note:** Replace values with actual data from `analyze_voting_patterns`.
+> **⚠️ AI Agent**: Replace all `{N}` placeholders above with actual computed values from `analyze_voting_patterns` MCP data. Do NOT use the template defaults.
 
 ### 6. Legislative Output Assessment (Required)
 
