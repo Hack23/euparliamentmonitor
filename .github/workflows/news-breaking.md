@@ -206,6 +206,28 @@ The `--analysis` flag with `--analysis-methods` activates the full political int
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis. The per-document analysis creates individual markdown files for each EP document, enabling comprehensive AI review before breaking news evaluation.
 
+## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
+
+> **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
+
+### Primary Template: Weekly Intelligence Brief
+
+Read and follow `docs/analysis-methodology/weekly-intelligence-brief.md` for the breaking news analysis. Focus on:
+- Situation overview dashboard with color-coded alert status badges
+- Significance scoring for each breaking item
+- Stakeholder impact assessment for the most newsworthy items
+- Color-coded Mermaid diagrams for context
+
+### Supporting Templates
+
+| Template | File | Purpose for Breaking News |
+|----------|------|-------------------------|
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Group dynamics context for breaking items |
+
+### Quality Standards
+
+Each analysis markdown MUST include: professional header with date/confidence badges, executive summary table, minimum 3 color-coded Mermaid diagrams (political group colors: EPP=#003399, S&D=#cc0000, Renew=#FFD700, ECR=#FF6600, Greens=#009933), structured tables with trend indicators (↑↗→↘↓), confidence levels (🟢/🟡/🔴) on every judgment, source attribution with dates, and minimum 400 lines per document.
+
 ## Required Skills
 
 Before generating articles, consult these skills:

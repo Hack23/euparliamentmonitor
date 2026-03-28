@@ -211,6 +211,30 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
 
+## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
+
+> **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
+
+### Primary Template: Political Landscape Analysis
+
+Read and follow `docs/analysis-methodology/political-landscape-analysis.md` for the month-ahead outlook. This template defines:
+- Seat distribution visualization (Mermaid pie chart with political group colors)
+- Power balance quadrant chart
+- Group-by-group strategic analysis with scoring tables
+- Coalition possibility matrix (Mermaid flowchart)
+- Fragmentation analysis with quantitative metrics
+
+### Supporting Templates
+
+| Template | File | Purpose for Month-Ahead |
+|----------|------|------------------------|
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Pipeline health, PESTLE analysis, passage probability |
+| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Committee workload forecast, upcoming reports |
+
+### Quality Standards
+
+Each analysis markdown MUST include: professional header with date/confidence badges, executive summary table, minimum 3 color-coded Mermaid diagrams (political group colors: EPP=#003399, S&D=#cc0000, Renew=#FFD700, ECR=#FF6600, Greens=#009933), structured tables with trend indicators (↑↗→↘↓), confidence levels (🟢/🟡/🔴) on every judgment, source attribution with dates, forward-looking scenarios with probability badges, and minimum 400 lines per document.
+
 ## Required Skills
 
 1. **`.github/skills/european-political-system.md`** — EU Parliament terminology and political groups

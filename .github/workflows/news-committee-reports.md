@@ -203,6 +203,29 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
 
+## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
+
+> **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
+
+### Primary Template: Committee Power Analysis
+
+Read and follow `docs/analysis-methodology/committee-power-analysis.md` for committee reports. This template defines:
+- Committee power ranking with productivity/pipeline/influence scoring
+- Committee ecosystem mindmap (Mermaid)
+- Workload distribution pie chart
+- Deep-dive profiles for top committees
+- Cross-committee dynamics and rapporteur influence mapping
+
+### Supporting Templates
+
+| Template | File | Purpose for Committee Reports |
+|----------|------|------------------------------|
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Dossier progress tracking, pipeline bottlenecks |
+
+### Quality Standards
+
+Each analysis markdown MUST include: professional header with date/confidence badges, executive summary table, minimum 3 color-coded Mermaid diagrams, structured tables with trend indicators (↑↗→↘↓), confidence levels (🟢/🟡/🔴) on every judgment, source attribution with dates, and minimum 400 lines per document.
+
 ## Required Skills
 
 Before generating articles, consult these skills:

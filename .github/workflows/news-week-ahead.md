@@ -205,6 +205,39 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
 
+## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
+
+> **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
+
+### Primary Template: Weekly Intelligence Brief
+
+Read and follow `docs/analysis-methodology/weekly-intelligence-brief.md` for producing the week-ahead analysis. This template defines:
+- Situation overview dashboard with color-coded status badges
+- Weekly activity flow diagram (Mermaid flowchart)
+- Top developments with significance scoring and stakeholder impact
+- Early warning indicators with trend arrows
+- Forward-looking scenarios with probability badges
+
+### Supporting Templates
+
+| Template | File | Purpose for Week-Ahead |
+|----------|------|----------------------|
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Group dynamics context, coalition viability |
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | Voting alignment patterns, stress points |
+
+### Quality Standards for Analysis Output
+
+Each analysis markdown MUST include:
+
+1. **Professional header** — Title, date, confidence badges
+2. **Executive summary table** — Color-coded key findings (shield.io badges)
+3. **Minimum 3 Mermaid diagrams** — With political group color coding (EPP=#003399, S&D=#cc0000, Renew=#FFD700, etc.)
+4. **Structured tables** — Multi-dimensional assessment with trend indicators (↑↗→↘↓)
+5. **Confidence levels** — 🟢 High / 🟡 Medium / 🔴 Low on every judgment
+6. **Source attribution** — Every claim linked to EP MCP data with dates
+7. **Scenarios** — At least 2 forward-looking scenarios with probability badges
+8. **Minimum 400 lines** per analysis document (target: 800+)
+
 ## Required Skills
 
 1. **`.github/skills/european-political-system.md`** — EU Parliament terminology and political groups

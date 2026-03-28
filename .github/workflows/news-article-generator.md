@@ -146,6 +146,57 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
 
+## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
+
+> **⚠️ CRITICAL**: After MCP data is fetched, the AI agent MUST produce **extensive, publication-quality analysis markdown** following the methodology templates in `docs/analysis-methodology/`. The scripted analysis stage provides data preparation — the AI agent performs the actual analytical work.
+
+### Analysis Methodology Templates
+
+Read and apply these templates when generating analysis artifacts in `analysis/${TODAY}/${article-type}/`:
+
+| Template | File | When to Apply |
+|----------|------|--------------|
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Monthly reviews, month-ahead, strategic context |
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | Weekly reviews, motions, voting analysis |
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Propositions, committee reports, pipeline analysis |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | MEP profiling, delegation analysis |
+| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | Week-ahead, week-in-review, breaking news |
+| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Committee reports, institutional analysis |
+
+### Template Selection by Article Type
+
+| Article Type | Primary Template | Supporting Templates |
+|-------------|-----------------|---------------------|
+| `week-ahead` | Weekly Intelligence Brief | Political Landscape, Coalition Dynamics |
+| `month-ahead` | Political Landscape Analysis | Legislative Risk, Committee Power |
+| `week-in-review` | Weekly Intelligence Brief | Coalition Dynamics, MEP Scorecard |
+| `month-in-review` | Political Landscape Analysis | All templates |
+| `committee-reports` | Committee Power Analysis | Legislative Risk |
+| `propositions` | Legislative Risk Assessment | Coalition Dynamics |
+| `motions` | Coalition Dynamics Analysis | MEP Scorecard |
+| `breaking` | Weekly Intelligence Brief | Political Landscape |
+
+### Quality Standards for Analysis Output
+
+Each analysis markdown file MUST include (matching the quality of `SWOT.md` and `THREAT_MODEL.md`):
+
+1. **Professional header** — Title with emoji, analysis date, confidence level badges
+2. **Executive summary table** — Color-coded key findings using shield.io badges
+3. **Minimum 3 Mermaid diagrams** — Pie charts, flowcharts, quadrant charts, or mindmaps with color coding
+4. **Structured assessment tables** — Multi-dimensional scoring with trend indicators (↑↗→↘↓)
+5. **Confidence levels on every judgment** — 🟢 High / 🟡 Medium / 🔴 Low with justification
+6. **Source attribution** — Every claim linked to specific EP MCP data with dates
+7. **Forward-looking scenarios** — At least 2 scenarios with probability badges
+8. **Minimum 400 lines** per analysis document (target: 800+)
+
+### Anti-Patterns (MUST AVOID)
+
+- ❌ "0 procedures tracked" → ✅ Explain data gaps and their implications
+- ❌ Empty tables with only headers → ✅ Narrative analysis of why data is sparse
+- ❌ All risks scored "Low" without explanation → ✅ Context-specific threat assessment
+- ❌ Hardcoded synthetic IDs → ✅ Real EP document references with dates
+- ❌ Thin scaffolding with raw counts → ✅ Interpretive analysis with political intelligence
+
 ## Required Skills
 
 1. **`.github/skills/european-political-system.md`** — EU Parliament terminology and political groups

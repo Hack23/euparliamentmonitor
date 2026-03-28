@@ -205,6 +205,29 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
 
+## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
+
+> **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
+
+### Primary Template: Weekly Intelligence Brief
+
+Read and follow `docs/analysis-methodology/weekly-intelligence-brief.md` for the retrospective review. This template defines:
+- Situation overview dashboard with color-coded status badges
+- Top developments with significance scoring and stakeholder impact
+- Early warning indicators with trend arrows
+- Trend analysis with activity distribution (Mermaid pie charts)
+
+### Supporting Templates
+
+| Template | File | Purpose for Weekly Review |
+|----------|------|-------------------------|
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | Voting alliance patterns, defection analysis |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | MEP activity highlights, performance context |
+
+### Quality Standards
+
+Each analysis markdown MUST include: professional header with date/confidence badges, executive summary table, minimum 3 color-coded Mermaid diagrams (political group colors: EPP=#003399, S&D=#cc0000, Renew=#FFD700, ECR=#FF6600, Greens=#009933), structured tables with trend indicators (↑↗→↘↓), confidence levels (🟢/🟡/🔴) on every judgment, source attribution with dates, and minimum 400 lines per document.
+
 ## Required Skills
 
 1. **`.github/skills/european-political-system.md`** — EU Parliament terminology and political groups

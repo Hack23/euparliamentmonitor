@@ -212,6 +212,32 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
 
+## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
+
+> **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
+
+### Primary Template: Political Landscape Analysis
+
+Read and follow `docs/analysis-methodology/political-landscape-analysis.md` for the comprehensive monthly review. This template defines:
+- Seat distribution and fragmentation analysis
+- Group-by-group strategic assessment with trend scoring
+- Coalition possibility matrix and viability assessment
+- Strategic outlook with forward-looking scenarios
+
+### Supporting Templates (ALL should be applied for monthly review)
+
+| Template | File | Purpose for Monthly Review |
+|----------|------|--------------------------|
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | Voting alliance analysis, ACH framework, defection tracking |
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Pipeline health, PESTLE analysis, dossier deep-dives |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | Notable MEP activity highlights |
+| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | Early warning indicators, trend analysis |
+| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Committee workload ranking, bottleneck analysis |
+
+### Quality Standards
+
+The monthly review analysis should be the most comprehensive product. Each analysis markdown MUST include: professional header with date/confidence badges, executive summary table, minimum 5 color-coded Mermaid diagrams (political group colors: EPP=#003399, S&D=#cc0000, Renew=#FFD700, ECR=#FF6600, Greens=#009933), structured tables with trend indicators (↑↗→↘↓), confidence levels (🟢/🟡/🔴) on every judgment, source attribution with dates, forward-looking scenarios, and minimum 600 lines per document (target: 1000+).
+
 ## Required Skills
 
 1. **`.github/skills/european-political-system.md`** — EU Parliament terminology and political groups

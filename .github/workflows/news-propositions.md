@@ -217,6 +217,29 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
 
+## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
+
+> **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
+
+### Primary Template: Legislative Risk Assessment
+
+Read and follow `docs/analysis-methodology/legislative-risk-assessment.md` for proposition analysis. This template defines:
+- Pipeline health dashboard with throughput metrics
+- Legislative pipeline flow diagram (Mermaid flowchart)
+- Risk matrix for top dossiers (Mermaid quadrant chart)
+- PESTLE analysis mindmap
+- Dossier deep-dives with passage probability scoring
+
+### Supporting Templates
+
+| Template | File | Purpose for Propositions |
+|----------|------|-------------------------|
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | Political group positions on key dossiers |
+
+### Quality Standards
+
+Each analysis markdown MUST include: professional header with date/confidence badges, executive summary table, minimum 3 color-coded Mermaid diagrams, structured tables with trend indicators (↑↗→↘↓), confidence levels (🟢/🟡/🔴) on every judgment, source attribution with dates, passage probability scoring, and minimum 400 lines per document.
+
 ## MANDATORY Date Context Establishment
 
 **⚠️ ALWAYS run this block FIRST before any MCP calls or article generation.**

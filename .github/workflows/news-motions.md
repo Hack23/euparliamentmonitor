@@ -203,6 +203,29 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
 
+## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
+
+> **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
+
+### Primary Template: Coalition Dynamics Analysis
+
+Read and follow `docs/analysis-methodology/coalition-dynamics-analysis.md` for motion analysis. This template defines:
+- Coalition network visualization (Mermaid flowchart with political group colors)
+- Voting alignment heatmap table
+- Analysis of Competing Hypotheses (ACH) for coalition shifts
+- Defection and anomaly analysis (Mermaid pie chart)
+- Policy-area coalition patterns (Mermaid mindmap)
+
+### Supporting Templates
+
+| Template | File | Purpose for Motions |
+|----------|------|-------------------|
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | Key actor voting behavior, influence scoring |
+
+### Quality Standards
+
+Each analysis markdown MUST include: professional header with date/confidence badges, executive summary table, minimum 3 color-coded Mermaid diagrams (political group colors: EPP=#003399, S&D=#cc0000, Renew=#FFD700, ECR=#FF6600, Greens=#009933), structured tables with trend indicators (↑↗→↘↓), confidence levels (🟢/🟡/🔴) on every judgment, source attribution with dates, and minimum 400 lines per document.
+
 ## Required Skills
 
 1. **`.github/skills/european-political-system.md`** — EU Parliament political groups and dynamics
