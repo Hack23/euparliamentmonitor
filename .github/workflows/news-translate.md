@@ -7,10 +7,12 @@ on:
     # Run 3x daily on weekdays to pick up new English articles
     # Offset from content workflows: committee-reports(04), propositions(05), motions(06), week-ahead(Fri 07)
     - cron: "0 9,12,15 * * 1-5"
-    # Saturday for weekly review translations
-    - cron: "0 12 * * 6"
-    # 1st and 28th for monthly article translations
-    - cron: "0 12 1,28 * *"
+    # Saturday for weekly review translations — offset to 15:00 to avoid conflict
+    # with news-weekly-review (09:00 Sat, ~90min run + PR merge ~11:00-12:00)
+    - cron: "0 15 * * 6"
+    # 1st and 28th for monthly article translations — offset to 15:00 to avoid conflict
+    # with news-monthly-review (10:00 on 28th, ~90min run + PR merge ~12:00-13:00)
+    - cron: "0 15 1,28 * *"
   workflow_dispatch:
     inputs:
       article_types:
@@ -76,8 +78,7 @@ safe-outputs:
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - github.com
-  create-pull-request:
-    max-size: 10485760
+  create-pull-request: {}
   add-comment: {}
 
 steps:
@@ -192,6 +193,31 @@ echo "Article date: $ARTICLE_DATE"
 echo "Year:         $CURRENT_YEAR"
 echo "==================================="
 export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK
+```
+
+## Pre-flight: Verify No Pending Content PRs
+
+> **⚠️ IMPORTANT**: If content-generation workflows (news-weekly-review, news-monthly-review, etc.) have open PRs waiting to be merged, our translation patch will conflict with them. Wait for content PRs to merge before translating.
+
+```bash
+# Check for open content-generation PRs that could cause patch conflicts
+CONTENT_BRANCH_PATTERN="^news/(week-in-review|month-in-review|weekly-review|monthly-review|week-ahead|motions|propositions|committee-reports|breaking|month-ahead)"
+
+PENDING_NEWS_PRS=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --limit 200 --json title,number,headRefName \
+  --jq "[.[] | select(.headRefName | test(\"$CONTENT_BRANCH_PATTERN\"))] | length" 2>/dev/null || echo "UNKNOWN")
+
+if [ "$PENDING_NEWS_PRS" = "UNKNOWN" ]; then
+  echo "⚠️ Unable to determine pending content-generation PRs (gh/jq failure) — proceeding with caution."
+  echo "ℹ️ Patch conflicts with content-generation PRs are possible but translations will be attempted."
+elif [ "$PENDING_NEWS_PRS" -gt 0 ]; then
+  echo "⚠️ Found $PENDING_NEWS_PRS pending content-generation PR(s) — these may cause patch conflicts"
+  echo "Listing pending content PRs:"
+  gh pr list --repo "$GITHUB_REPOSITORY" --state open --limit 200 --json title,number,headRefName \
+    --jq ".[] | select(.headRefName | test(\"$CONTENT_BRANCH_PATTERN\")) | \"  #\\(.number): \\(.title)\"" 2>/dev/null || true
+  echo "ℹ️ Proceeding with translation — patch conflicts are possible but translations will be attempted"
+else
+  echo "✅ No pending content-generation PRs — safe to translate"
+fi
 ```
 
 ## Step 1: Discover English Articles Needing Translation
@@ -471,7 +497,10 @@ fi
 ```bash
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
-echo "🧹 Cleaned metadata files from working directory to prevent patch conflicts"
+rm -f news/articles-metadata.json
+# Remove any analysis-output files that the generator may have created
+rm -rf analysis-output/
+echo "🧹 Cleaned metadata and analysis files from working directory to prevent patch conflicts"
 
 ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
 TRANSLATED_COUNT=$(ls news/${ARTICLE_DATE}-*-{sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh}.html 2>/dev/null | wc -l || echo 0)
