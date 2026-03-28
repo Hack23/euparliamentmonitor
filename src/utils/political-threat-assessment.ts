@@ -1501,7 +1501,7 @@ function buildDisruptionTableMarkdown(analysis: LegislativeDisruptionAnalysis): 
  * to preserve the module's null-safe contract.
  *
  * @param assessment - Complete political threat assessment to render, or null/undefined to use defaults
- * @returns Markdown string suitable for writing to analysis-output directory
+ * @returns Markdown string suitable for writing to analysis directory
  */
 export function generateThreatAssessmentMarkdown(
   assessment: PoliticalThreatAssessment | null | undefined

@@ -1,0 +1,24 @@
+{
+  "period": {
+    "from": "2024-01-01",
+    "to": "2024-12-31"
+  },
+  "targetScope": "All MEPs",
+  "anomalies": [],
+  "summary": {
+    "totalAnomalies": 0,
+    "highSeverity": 0,
+    "mediumSeverity": 0,
+    "lowSeverity": 0
+  },
+  "computedAttributes": {
+    "anomalyRate": 0,
+    "severityIndex": 0,
+    "groupStabilityScore": 100,
+    "defectionTrend": "DECREASING",
+    "riskLevel": "LOW"
+  },
+  "confidenceLevel": "LOW",
+  "dataFreshness": "Real-time EP API data",
+  "sourceAttribution": "European Parliament Open Data Portal"
+}

@@ -508,7 +508,7 @@ export function runAgentRiskAssessment(
 /**
  * Generate a structured markdown document from an agent risk assessment workflow.
  * Produces a YAML-frontmatter header and all risk sections in markdown format
- * suitable for writing to `analysis-output/{date}/risk-scoring/agent-risk-workflow.md`.
+ * suitable for writing to `analysis/{date}/risk-scoring/agent-risk-workflow.md`.
  *
  * @param assessment - Completed agent risk assessment workflow
  * @returns Markdown string with YAML frontmatter and full risk analysis

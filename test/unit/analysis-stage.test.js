@@ -25,6 +25,7 @@ import {
   ALL_ANALYSIS_METHODS,
   VALID_ANALYSIS_METHODS,
   hasSubstantiveData,
+  deriveArticleTypeSlug,
 } from '../../scripts/generators/pipeline/analysis-stage.js';
 
 // ─── Test helpers ─────────────────────────────────────────────────────────────
@@ -44,6 +45,12 @@ function buildTestFetchedData(overrides = {}) {
 /** Parse a manifest.json file from the analysis output directory */
 function readManifest(outputDir, date) {
   const manifestPath = path.join(outputDir, date, 'manifest.json');
+  return JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+}
+
+/** Parse a manifest.json file from an article-type-scoped output directory */
+function readScopedManifest(outputDir, date, slug) {
+  const manifestPath = path.join(outputDir, date, slug, 'manifest.json');
   return JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
 }
 
@@ -114,6 +121,58 @@ describe('VALID_ANALYSIS_METHODS', () => {
   it('has no duplicate entries', () => {
     const unique = new Set(VALID_ANALYSIS_METHODS);
     expect(unique.size).toBe(VALID_ANALYSIS_METHODS.length);
+  });
+});
+
+// ─── deriveArticleTypeSlug tests ──────────────────────────────────────────────
+
+describe('deriveArticleTypeSlug', () => {
+  it('returns a slug for a single article type', () => {
+    expect(deriveArticleTypeSlug(['week-ahead'])).toBe('week-ahead');
+  });
+
+  it('returns sorted, hyphen-joined slug for multiple types', () => {
+    expect(deriveArticleTypeSlug(['motions', 'month-ahead'])).toBe('month-ahead-motions');
+  });
+
+  it('returns "default" for empty array', () => {
+    expect(deriveArticleTypeSlug([])).toBe('default');
+  });
+
+  it('lowercases the slug', () => {
+    expect(deriveArticleTypeSlug(['Week-Ahead'])).toBe('week-ahead');
+  });
+
+  it('trims whitespace', () => {
+    expect(deriveArticleTypeSlug([' breaking '])).toBe('breaking');
+  });
+
+  it('handles all known article types without error', () => {
+    const types = [
+      'week-ahead', 'month-ahead', 'breaking', 'committee-reports',
+      'propositions', 'motions', 'week-in-review', 'month-in-review',
+    ];
+    for (const t of types) {
+      expect(deriveArticleTypeSlug([t])).toBe(t);
+    }
+  });
+
+  it('sanitises special characters from slug', () => {
+    expect(deriveArticleTypeSlug(['week..ahead'])).toBe('week-ahead');
+    expect(deriveArticleTypeSlug(['../../../etc'])).toBe('etc');
+  });
+
+  it('collapses multiple hyphens into one', () => {
+    expect(deriveArticleTypeSlug(['week---ahead'])).toBe('week-ahead');
+  });
+
+  it('returns "default" when all input chars are stripped', () => {
+    expect(deriveArticleTypeSlug(['...'])).toBe('default');
+    expect(deriveArticleTypeSlug(['///'])).toBe('default');
+  });
+
+  it('strips leading and trailing hyphens after sanitisation', () => {
+    expect(deriveArticleTypeSlug(['-breaking-'])).toBe('breaking');
   });
 });
 
@@ -1581,6 +1640,139 @@ describe('runAnalysisStage', () => {
         enabledMethods: ['deep-analysis'],
       });
       expect(ctx).toBeDefined();
+    });
+  });
+
+  // ─── Article-type-scoped output directory tests ─────────────────────────────
+
+  describe('article-type-scoped output (articleTypeSlug)', () => {
+    it('scopes output to {date}/{slug}/ when articleTypeSlug is provided', async () => {
+      const ctx = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        articleTypeSlug: 'week-ahead',
+        enabledMethods: ['deep-analysis'],
+      });
+
+      expect(ctx.outputDir).toContain('week-ahead');
+      const scopedDir = path.join(tmpDir, testDate, 'week-ahead');
+      expect(fs.existsSync(scopedDir)).toBe(true);
+      expect(fs.existsSync(path.join(scopedDir, 'manifest.json'))).toBe(true);
+    });
+
+    it('writes manifest with articleTypeSlug field', async () => {
+      await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        articleTypeSlug: 'week-ahead',
+        enabledMethods: ['deep-analysis'],
+      });
+
+      const manifest = readScopedManifest(tmpDir, testDate, 'week-ahead');
+      expect(manifest.articleTypeSlug).toBe('week-ahead');
+    });
+
+    it('isolates two different article types to separate directories', async () => {
+      await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        articleTypeSlug: 'week-ahead',
+        enabledMethods: ['deep-analysis'],
+      });
+
+      await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['breaking'],
+        date: testDate,
+        outputDir: tmpDir,
+        articleTypeSlug: 'breaking',
+        enabledMethods: ['deep-analysis'],
+      });
+
+      // Both directories exist independently
+      const weekDir = path.join(tmpDir, testDate, 'week-ahead');
+      const breakingDir = path.join(tmpDir, testDate, 'breaking');
+      expect(fs.existsSync(weekDir)).toBe(true);
+      expect(fs.existsSync(breakingDir)).toBe(true);
+
+      // Each has its own manifest
+      const m1 = readScopedManifest(tmpDir, testDate, 'week-ahead');
+      const m2 = readScopedManifest(tmpDir, testDate, 'breaking');
+      expect(m1.articleTypeSlug).toBe('week-ahead');
+      expect(m2.articleTypeSlug).toBe('breaking');
+      expect(m1.runId).not.toBe(m2.runId);
+    });
+
+    it('falls back to {date}/ when articleTypeSlug is omitted (backward compat)', async () => {
+      const ctx = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['deep-analysis'],
+      });
+
+      // outputDir should be {tmpDir}/{date}/ — no extra slug level
+      expect(ctx.outputDir).toBe(path.resolve(tmpDir, testDate));
+    });
+
+    it('persists OSINT singleton data to data/osint/ subdirectory', async () => {
+      const fetchedData = buildTestFetchedData({
+        politicalLandscape: { groups: ['EPP', 'S&D'], timestamp: '2026-03-26' },
+        votingAnomalies: { anomalies: [] },
+      });
+      await runAnalysisStage(fetchedData, {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        articleTypeSlug: 'week-ahead',
+        enabledMethods: ['deep-analysis'],
+      });
+
+      const osintDir = path.join(tmpDir, testDate, 'week-ahead', 'data', 'osint');
+      expect(fs.existsSync(osintDir)).toBe(true);
+      expect(fs.existsSync(path.join(osintDir, 'political-landscape.json'))).toBe(true);
+      expect(fs.existsSync(path.join(osintDir, 'voting-anomalies.json'))).toBe(true);
+    });
+
+    it('persists World Bank data to data/world-bank/ subdirectory', async () => {
+      const fetchedData = buildTestFetchedData({
+        worldBankIndicators: [
+          { countryId: 'DEU', indicatorId: 'NY.GDP.MKTP.CD', year: 2024, value: 4.2 },
+        ],
+      });
+      await runAnalysisStage(fetchedData, {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        articleTypeSlug: 'week-ahead',
+        enabledMethods: ['deep-analysis'],
+      });
+
+      const wbDir = path.join(tmpDir, testDate, 'week-ahead', 'data', 'world-bank');
+      expect(fs.existsSync(wbDir)).toBe(true);
+    });
+
+    it('persists MCP tool responses to data/mcp-responses/ subdirectory', async () => {
+      const fetchedData = buildTestFetchedData({
+        mcpResponses: {
+          'get_current_meps': { meps: [{ name: 'Test MEP' }] },
+          'get_plenary_sessions': { sessions: [] },
+        },
+      });
+      await runAnalysisStage(fetchedData, {
+        articleTypes: ['breaking'],
+        date: testDate,
+        outputDir: tmpDir,
+        articleTypeSlug: 'breaking',
+        enabledMethods: ['deep-analysis'],
+      });
+
+      const responseDir = path.join(tmpDir, testDate, 'breaking', 'data', 'mcp-responses');
+      expect(fs.existsSync(responseDir)).toBe(true);
+      expect(fs.existsSync(path.join(responseDir, 'get-current-meps.json'))).toBe(true);
+      expect(fs.existsSync(path.join(responseDir, 'get-plenary-sessions.json'))).toBe(true);
     });
   });
 });

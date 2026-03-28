@@ -176,7 +176,7 @@ export type ClassificationMethod =
   | 'significance-assessment';
 
 /**
- * Metadata record written to `analysis-output/{date}/manifest.json`.
+ * Metadata record written to `analysis/{date}/{article-type}/manifest.json`.
  * Describes a single analysis run: when it ran, which article types were
  * analysed, and which analytical methods were applied.
  */

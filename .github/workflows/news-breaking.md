@@ -56,7 +56,8 @@ safe-outputs:
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - github.com
-  create-pull-request: {}
+  create-pull-request:
+    max-size: 10485760
   add-comment: {}
 
 steps:
@@ -110,7 +111,7 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 > **📅 DATE REQUIREMENT**: ALL document/event/procedure references in articles MUST include their publish or creation date (e.g., "Resolution on Digital Markets (adopted 4 March 2026)"). Documents without a recent date are NOT news.
 
-> **🔬 ANALYSIS-FIRST MANDATE**: The AI (Opus 4.6) MUST first download all documents from EP feed endpoints, run the full analysis pipeline (all 19 methods including per-document analysis), and create analysis strategy markdown content BEFORE evaluating whether the data constitutes breaking news. Only after all analysis artifacts are written to `analysis-output/{date}/` should breaking news significance be determined.
+> **🔬 ANALYSIS-FIRST MANDATE**: The AI (Opus 4.6) MUST first download all documents from EP feed endpoints, run the full analysis pipeline (all 19 methods including per-document analysis), and create analysis strategy markdown content BEFORE evaluating whether the data constitutes breaking news. Only after all analysis artifacts are written to `analysis/${TODAY}/breaking/` should breaking news significance be determined.
 
 **Pipeline order (MANDATORY):**
 1. **DOWNLOAD**: Fetch all EP feed data (adopted texts, events, procedures, MEP updates, documents)
@@ -179,7 +180,7 @@ For each breaking development, immediately assess:
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–10**: Query EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates
-- **Minutes 10–25**: 🔬 Full political intelligence analysis stage — run ALL 19 analysis methods including per-document analysis (significance classification, STRIDE threat assessment, risk scoring, actor mapping, document-analysis — writes analysis artifacts and per-document markdown to `analysis-output/{date}/`)
+- **Minutes 10–25**: 🔬 Full political intelligence analysis stage — run ALL 19 analysis methods including per-document analysis (significance classification, STRIDE threat assessment, risk scoring, actor mapping, document-analysis — writes analysis artifacts and per-document markdown to `analysis/${TODAY}/breaking/`)
 - **Minutes 25–30**: 📊 AI evaluates analysis artifacts to determine breaking news significance — ONLY proceed if analysis confirms newsworthy developments
 - **Minutes 30–45**: Generate English article with deep political intelligence analysis informed by analysis artifacts
 - **Minutes 45–52**: Validate and finalize changes
@@ -201,7 +202,7 @@ The `--analysis` flag with `--analysis-methods` activates the full political int
    - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - **Per-Document Analysis**: individual document intelligence — writes per-document markdown + JSON analysis files for every downloaded EP document
-3. **Writes and commits analysis artifacts** to `analysis-output/{date}/` (markdown files + `manifest.json` + per-document files in `documents/`) — these are included in the PR for review and political intelligence improvement
+3. **Writes and commits analysis artifacts** to `analysis/{date}/{article-type}/` (markdown files + `manifest.json` + per-document files in `documents/`) — these are included in the PR for review and political intelligence improvement
 4. **AI evaluates analysis artifacts** — after all 19 methods complete, the AI reviews the structured analysis to determine breaking news significance before proceeding to article generation
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis. The per-document analysis creates individual markdown files for each EP document, enabling comprehensive AI review before breaking news evaluation.
@@ -575,7 +576,7 @@ echo "Branch: $BRANCH_NAME"
 ```javascript
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament breaking news ${TODAY}`,
-  body: `## EU Parliament Breaking News\n\nGenerated breaking news articles from EP feed endpoints.\n\n- Type: breaking\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament feed endpoints (adopted texts, events, procedures, MEP updates)\n- Analytics: Voting anomalies and coalition dynamics (context only)\n- 🔬 Political intelligence analysis artifacts in \`analysis-output/${TODAY}/\``,
+  body: `## EU Parliament Breaking News\n\nGenerated breaking news articles from EP feed endpoints.\n\n- Type: breaking\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament feed endpoints (adopted texts, events, procedures, MEP updates)\n- Analytics: Voting anomalies and coalition dynamics (context only)\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/breaking/\``,
   base: "main",
   head: BRANCH_NAME
 })
