@@ -201,14 +201,16 @@ export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK
 
 ```bash
 # Check for open content-generation PRs that could cause patch conflicts
+CONTENT_BRANCH_PATTERN="^news/(week-in-review|month-in-review|weekly-review|monthly-review|week-ahead|motions|propositions|committee-reports|breaking|month-ahead)"
+
 PENDING_NEWS_PRS=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --json title,number,headRefName \
-  --jq '[.[] | select(.headRefName | test("^news/(week-in-review|month-in-review|weekly-review|monthly-review|week-ahead|motions|propositions|committee-reports|breaking|month-ahead)"))] | length' 2>/dev/null || echo "0")
+  --jq "[.[] | select(.headRefName | test(\"$CONTENT_BRANCH_PATTERN\"))] | length" 2>/dev/null || echo "0")
 
 if [ "$PENDING_NEWS_PRS" -gt 0 ]; then
   echo "⚠️ Found $PENDING_NEWS_PRS pending content-generation PR(s) — these may cause patch conflicts"
   echo "Listing pending content PRs:"
   gh pr list --repo "$GITHUB_REPOSITORY" --state open --json title,number,headRefName \
-    --jq '.[] | select(.headRefName | test("^news/(week-in-review|month-in-review|weekly-review|monthly-review|week-ahead|motions|propositions|committee-reports|breaking|month-ahead)")) | "  #\(.number): \(.title)"' 2>/dev/null || true
+    --jq ".[] | select(.headRefName | test(\"$CONTENT_BRANCH_PATTERN\")) | \"  #\\(.number): \\(.title)\"" 2>/dev/null || true
   echo "ℹ️ Proceeding with translation — patch conflicts are possible but translations will be attempted"
 else
   echo "✅ No pending content-generation PRs — safe to translate"
