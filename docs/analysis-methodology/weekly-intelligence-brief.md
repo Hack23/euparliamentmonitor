@@ -176,12 +176,14 @@ mindmap
 
 ```mermaid
 pie title This Week's Activity Distribution
-    "Legislative Actions" : 35
-    "Committee Work" : 25
-    "Plenary Debates" : 20
-    "Parliamentary Questions" : 10
-    "Institutional Events" : 10
+    "Legislative Actions" : {N}
+    "Committee Work" : {N}
+    "Plenary Debates" : {N}
+    "Parliamentary Questions" : {N}
+    "Institutional Events" : {N}
 ```
+
+> **⚠️ AI Agent**: Replace all `{N}` placeholders above with actual computed values from this week's MCP data. Do NOT use the template defaults.
 
 **Trend Assessment:**
 - {Trend 1: description with comparison to recent weeks}

@@ -22,7 +22,7 @@ tags: ["actor-mapping", "political-groups", "institutions", "external-actors", "
 
 > **Classification**: PUBLIC | **Confidence**: HIGH | **Date**: 2026-03-28
 >
-> **Analytical Summary**: This actor mapping profiles all significant political actors in the EP10 ecosystem — 9 parliamentary groups (720 MEPs), 3 EU institutional actors, and key external actors. The EPP (185 seats, 25.7%) serves as the indispensable pivot for all majority coalitions. PfE (84 seats) and ECR (79 seats) have consolidated the right-wing bloc to 22.7% combined. The RE+ECR cohesion anomaly (0.95) signals an emerging centre-right axis. Institutional stability stands at 84/100 with a fragmentation index of 6.59, indicating a complex but functional multi-actor legislative environment. External actors (US, China, Russia, NATO) exert increasing influence on EP10 legislative priorities through geopolitical pressure channels.
+> **Analytical Summary**: This actor mapping profiles all significant political actors in the EP10 ecosystem — 8 political groups + Non-Inscrits (NI) (720 MEPs), 3 EU institutional actors, and key external actors. The EPP (185 seats, 25.7%) serves as the indispensable pivot for all majority coalitions. PfE (84 seats) and ECR (79 seats) have consolidated the right-wing bloc to 22.7% combined. The RE+ECR cohesion anomaly (0.95) signals an emerging centre-right axis. Institutional stability stands at 84/100 with a fragmentation index of 6.59, indicating a complex but functional multi-actor legislative environment. External actors (US, China, Russia, NATO) exert increasing influence on EP10 legislative priorities through geopolitical pressure channels.
 
 ---
 
