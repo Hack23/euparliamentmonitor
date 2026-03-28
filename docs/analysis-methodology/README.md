@@ -136,10 +136,15 @@ flowchart TD
 
 ### Workflow Integration Points
 
+All news workflows share a single `analysis/{date}/` directory. This ensures:
+- **Comprehensive analysis** — every downloaded MCP file is analyzed once
+- **No merge conflicts** — concurrent workflows write to the same directory with `skipCompleted` reuse
+- **Full coverage** — all 19 analysis methods including per-document analysis run by default
+
 Each news workflow `.md` file references these templates:
 
 1. **Data Download Phase** — Scripts fetch EP MCP data (keep existing `fetch-stage.ts`)
-2. **AI Analysis Phase** — Agent reads methodology templates + fetched data → produces rich markdown analysis
+2. **AI Analysis Phase** — Agent reads methodology templates + fetched data → produces rich markdown analysis of ALL downloaded files
 3. **Article Generation Phase** — Agent uses analysis markdown to write news articles
 
 ### Template Selection by Article Type

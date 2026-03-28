@@ -72,7 +72,6 @@ import {
   ALL_ANALYSIS_METHODS,
   VALID_ANALYSIS_METHODS,
   hasSubstantiveData,
-  deriveArticleTypeSlug,
 } from './pipeline/analysis-stage.js';
 import type { AnalysisMethod, AnalysisContext } from './pipeline/analysis-stage.js';
 
@@ -381,11 +380,7 @@ async function maybeRunAnalysis(
     VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory)
   ) as readonly ArticleCategory[];
 
-  // Derive a slug from the article types to scope analysis output per workflow,
-  // preventing merge conflicts when multiple workflows run on the same date.
-  const slug = deriveArticleTypeSlug(validArticleTypes);
-
-  console.log(`   Article type slug: ${slug}`);
+  console.log(`   Analysis: full comprehensive analysis of all downloaded data`);
 
   // Pass requireData=true so runAnalysisStage enforces data availability
   // and aborts on any failed method — no hollow or partially failed analysis should exist.
@@ -393,7 +388,6 @@ async function maybeRunAnalysis(
     articleTypes: validArticleTypes,
     date,
     outputDir: analysisDirBase,
-    articleTypeSlug: slug,
     enabledMethods,
     skipCompleted: true,
     verbose: analysisVerboseArg,
