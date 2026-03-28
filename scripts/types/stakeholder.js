@@ -6,11 +6,11 @@
  * to avoid duplicating the list in multiple files.
  */
 export const ALL_STAKEHOLDER_TYPES = [
-  'political_groups',
-  'civil_society',
-  'industry',
-  'national_govts',
-  'citizens',
-  'eu_institutions',
+    'political_groups',
+    'civil_society',
+    'industry',
+    'national_govts',
+    'citizens',
+    'eu_institutions',
 ];
 //# sourceMappingURL=stakeholder.js.map

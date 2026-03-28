@@ -10,17 +10,8 @@
 import fs from 'fs';
 import path from 'path';
 import { NEWS_DIR } from '../constants/config.js';
-import {
-  getNewsArticles,
-  parseArticleFilename,
-  formatSlug,
-  extractArticleMeta,
-} from './file-utils.js';
-import {
-  buildIndexFromEntries,
-  detectTrends,
-  saveIntelligenceIndex,
-} from './intelligence-index.js';
+import { getNewsArticles, parseArticleFilename, formatSlug, extractArticleMeta, } from './file-utils.js';
+import { buildIndexFromEntries, detectTrends, saveIntelligenceIndex, } from './intelligence-index.js';
 import { detectCategory } from './article-category.js';
 /** Default path for the metadata database file */
 const METADATA_DB_PATH = path.join(NEWS_DIR, 'articles-metadata.json');
@@ -31,29 +22,29 @@ const METADATA_DB_PATH = path.join(NEWS_DIR, 'articles-metadata.json');
  * @returns News metadata database object
  */
 export function buildMetadataDatabase(newsDir = NEWS_DIR) {
-  const articleFiles = getNewsArticles(newsDir);
-  const articles = [];
-  for (const filename of articleFiles) {
-    const parsed = parseArticleFilename(filename);
-    if (parsed) {
-      const filepath = path.join(newsDir, filename);
-      const meta = extractArticleMeta(filepath);
-      articles.push({
-        filename: parsed.filename,
-        date: parsed.date,
-        slug: parsed.slug,
-        lang: parsed.lang,
-        title: meta.title || formatSlug(parsed.slug),
-        description: meta.description,
-      });
+    const articleFiles = getNewsArticles(newsDir);
+    const articles = [];
+    for (const filename of articleFiles) {
+        const parsed = parseArticleFilename(filename);
+        if (parsed) {
+            const filepath = path.join(newsDir, filename);
+            const meta = extractArticleMeta(filepath);
+            articles.push({
+                filename: parsed.filename,
+                date: parsed.date,
+                slug: parsed.slug,
+                lang: parsed.lang,
+                title: meta.title || formatSlug(parsed.slug),
+                description: meta.description,
+            });
+        }
     }
-  }
-  // Sort by date (newest first)
-  articles.sort((a, b) => b.date.localeCompare(a.date));
-  return {
-    lastUpdated: new Date().toISOString(),
-    articles,
-  };
+    // Sort by date (newest first)
+    articles.sort((a, b) => b.date.localeCompare(a.date));
+    return {
+        lastUpdated: new Date().toISOString(),
+        articles,
+    };
 }
 /**
  * Write metadata database to JSON file
@@ -62,11 +53,11 @@ export function buildMetadataDatabase(newsDir = NEWS_DIR) {
  * @param outputPath - Output file path (defaults to news/articles-metadata.json)
  */
 export function writeMetadataDatabase(database, outputPath = METADATA_DB_PATH) {
-  const dir = path.dirname(outputPath);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-  fs.writeFileSync(outputPath, JSON.stringify(database, null, 2), 'utf-8');
+    const dir = path.dirname(outputPath);
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(outputPath, JSON.stringify(database, null, 2), 'utf-8');
 }
 /**
  * Read metadata database from JSON file
@@ -75,11 +66,11 @@ export function writeMetadataDatabase(database, outputPath = METADATA_DB_PATH) {
  * @returns Metadata database or null if file doesn't exist
  */
 export function readMetadataDatabase(inputPath = METADATA_DB_PATH) {
-  if (!fs.existsSync(inputPath)) {
-    return null;
-  }
-  const content = fs.readFileSync(inputPath, 'utf-8');
-  return JSON.parse(content);
+    if (!fs.existsSync(inputPath)) {
+        return null;
+    }
+    const content = fs.readFileSync(inputPath, 'utf-8');
+    return JSON.parse(content);
 }
 /**
  * Update metadata database by rescanning the news directory
@@ -89,9 +80,9 @@ export function readMetadataDatabase(inputPath = METADATA_DB_PATH) {
  * @returns Updated metadata database
  */
 export function updateMetadataDatabase(newsDir = NEWS_DIR, outputPath = METADATA_DB_PATH) {
-  const database = buildMetadataDatabase(newsDir);
-  writeMetadataDatabase(database, outputPath);
-  return database;
+    const database = buildMetadataDatabase(newsDir);
+    writeMetadataDatabase(database, outputPath);
+    return database;
 }
 /** Default path for the intelligence index JSON file */
 const INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
@@ -111,40 +102,41 @@ const INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
  * @returns The rebuilt {@link IntelligenceIndex}
  */
 export function updateIntelligenceIndex(newsDir = NEWS_DIR, indexPath = INTELLIGENCE_INDEX_PATH) {
-  const articleFiles = getNewsArticles(newsDir);
-  // Collect all entries in a single pass, then build the index in O(n) time
-  const entries = [];
-  for (const filename of articleFiles) {
-    const parsed = parseArticleFilename(filename);
-    if (!parsed) continue;
-    const articleId = `${parsed.date}-${parsed.slug}-${parsed.lang}`;
-    const filepath = path.join(newsDir, filename);
-    const meta = extractArticleMeta(filepath);
-    // Derive the ArticleCategory from the slug using the shared detection logic
-    const category = detectCategory(parsed.slug);
-    // Extract meaningful key topics from the slug and article metadata
-    const keyTopics = deriveKeyTopics(parsed.slug, parsed.lang, meta.title, meta.description);
-    entries.push({
-      id: articleId,
-      date: parsed.date,
-      type: category,
-      lang: parsed.lang,
-      keyTopics,
-      keyActors: [],
-      procedures: [],
-      crossReferences: [],
-      trendContributions: [],
-    });
-  }
-  // Sort deterministically (date desc, then id asc) so the persisted index
-  // does not churn between runs due to platform-dependent readdir ordering.
-  entries.sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
-  let index = buildIndexFromEntries(entries);
-  // Refresh trend detections
-  const trends = detectTrends(index);
-  index = { ...index, trends, lastUpdated: new Date().toISOString() };
-  saveIntelligenceIndex(index, indexPath);
-  return index;
+    const articleFiles = getNewsArticles(newsDir);
+    // Collect all entries in a single pass, then build the index in O(n) time
+    const entries = [];
+    for (const filename of articleFiles) {
+        const parsed = parseArticleFilename(filename);
+        if (!parsed)
+            continue;
+        const articleId = `${parsed.date}-${parsed.slug}-${parsed.lang}`;
+        const filepath = path.join(newsDir, filename);
+        const meta = extractArticleMeta(filepath);
+        // Derive the ArticleCategory from the slug using the shared detection logic
+        const category = detectCategory(parsed.slug);
+        // Extract meaningful key topics from the slug and article metadata
+        const keyTopics = deriveKeyTopics(parsed.slug, parsed.lang, meta.title, meta.description);
+        entries.push({
+            id: articleId,
+            date: parsed.date,
+            type: category,
+            lang: parsed.lang,
+            keyTopics,
+            keyActors: [],
+            procedures: [],
+            crossReferences: [],
+            trendContributions: [],
+        });
+    }
+    // Sort deterministically (date desc, then id asc) so the persisted index
+    // does not churn between runs due to platform-dependent readdir ordering.
+    entries.sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
+    let index = buildIndexFromEntries(entries);
+    // Refresh trend detections
+    const trends = detectTrends(index);
+    index = { ...index, trends, lastUpdated: new Date().toISOString() };
+    saveIntelligenceIndex(index, indexPath);
+    return index;
 }
 /**
  * Stop-words excluded from key topic extraction.
@@ -152,60 +144,60 @@ export function updateIntelligenceIndex(newsDir = NEWS_DIR, indexPath = INTELLIG
  * Expand this set as needed for EU Parliament domain-specific noise.
  */
 const STOP_WORDS = new Set([
-  'the',
-  'a',
-  'an',
-  'and',
-  'or',
-  'but',
-  'in',
-  'on',
-  'at',
-  'to',
-  'for',
-  'of',
-  'with',
-  'by',
-  'from',
-  'is',
-  'are',
-  'was',
-  'were',
-  'be',
-  'been',
-  'has',
-  'have',
-  'had',
-  'this',
-  'that',
-  'it',
-  'its',
-  'as',
-  'not',
-  'no',
+    'the',
+    'a',
+    'an',
+    'and',
+    'or',
+    'but',
+    'in',
+    'on',
+    'at',
+    'to',
+    'for',
+    'of',
+    'with',
+    'by',
+    'from',
+    'is',
+    'are',
+    'was',
+    'were',
+    'be',
+    'been',
+    'has',
+    'have',
+    'had',
+    'this',
+    'that',
+    'it',
+    'its',
+    'as',
+    'not',
+    'no',
 ]);
 /**
  * Article-type taxonomy tokens that should be excluded from keyTopics
  * to prevent unrelated articles of the same type from appearing "related".
  */
 const ARTICLE_TYPE_NOISE = new Set([
-  'week',
-  'month',
-  'year',
-  'ahead',
-  'review',
-  'breaking',
-  'committee',
-  'motions',
-  'motion',
-  'propositions',
-  'proposition',
-  'proposal',
-  'deep',
-  'analysis',
-  'reports',
-  'report',
-  'news',
+    'week',
+    'month',
+    'year',
+    'ahead',
+    'review',
+    'breaking',
+    'committee',
+    'motions',
+    'motion',
+    'propositions',
+    'proposition',
+    'proposal',
+    'deep',
+    'analysis',
+    'reports',
+    'report',
+    'news',
 ]);
 /**
  * Extract meaningful words from a text string, excluding stop-words and
@@ -219,16 +211,14 @@ const ARTICLE_TYPE_NOISE = new Set([
  * @param minLength - Minimum cleaned token length (inclusive)
  */
 function extractTokens(text, tokens, minLength) {
-  for (const word of text.toLowerCase().split(/[\s\-_]+/)) {
-    const cleaned = word.replace(/[^\p{L}\p{N}]/gu, '');
-    if (
-      cleaned.length >= minLength &&
-      !STOP_WORDS.has(cleaned) &&
-      !ARTICLE_TYPE_NOISE.has(cleaned)
-    ) {
-      tokens.add(cleaned);
+    for (const word of text.toLowerCase().split(/[\s\-_]+/)) {
+        const cleaned = word.replace(/[^\p{L}\p{N}]/gu, '');
+        if (cleaned.length >= minLength &&
+            !STOP_WORDS.has(cleaned) &&
+            !ARTICLE_TYPE_NOISE.has(cleaned)) {
+            tokens.add(cleaned);
+        }
     }
-  }
 }
 /** Minimum token length for slug-derived topics (shorter segments are too generic) */
 const MIN_SLUG_TOKEN_LENGTH = 3;
@@ -253,15 +243,17 @@ const MIN_METADATA_TOKEN_LENGTH = 4;
  * @returns Deduplicated array of key topic strings
  */
 function deriveKeyTopics(slug, lang, title, description) {
-  const tokens = new Set();
-  extractTokens(slug, tokens, MIN_SLUG_TOKEN_LENGTH);
-  // Only apply title/description tokenisation for English articles where
-  // STOP_WORDS provides meaningful filtering; non-English articles rely
-  // on slug tokens to avoid noisy cross-language relations.
-  if (lang === 'en') {
-    if (title) extractTokens(title, tokens, MIN_METADATA_TOKEN_LENGTH);
-    if (description) extractTokens(description, tokens, MIN_METADATA_TOKEN_LENGTH);
-  }
-  return [...tokens];
+    const tokens = new Set();
+    extractTokens(slug, tokens, MIN_SLUG_TOKEN_LENGTH);
+    // Only apply title/description tokenisation for English articles where
+    // STOP_WORDS provides meaningful filtering; non-English articles rely
+    // on slug tokens to avoid noisy cross-language relations.
+    if (lang === 'en') {
+        if (title)
+            extractTokens(title, tokens, MIN_METADATA_TOKEN_LENGTH);
+        if (description)
+            extractTokens(description, tokens, MIN_METADATA_TOKEN_LENGTH);
+    }
+    return [...tokens];
 }
 //# sourceMappingURL=news-metadata.js.map
