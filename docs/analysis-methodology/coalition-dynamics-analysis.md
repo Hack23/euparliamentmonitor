@@ -108,7 +108,7 @@ flowchart TD
 
 Present pairwise alignment scores:
 
-| | EPP | S&D | Renew | ECR | Greens | Left | ID | ESN |
+| | EPP | S&D | Renew | ECR | Greens | Left | PfE | ESN |
 |---|---|---|---|---|---|---|---|---|
 | **EPP** | — | {N}% | {N}% | {N}% | {N}% | {N}% | {N}% | {N}% |
 | **S&D** | {N}% | — | {N}% | {N}% | {N}% | {N}% | {N}% | {N}% |

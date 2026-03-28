@@ -127,7 +127,7 @@ Actors accumulating power beyond democratic mandate or circumventing institution
 | Actor Type | Examples | Primary STRIDE Categories |
 |-----------|---------|--------------------------|
 | **State Actors** | Russia, China, influence operations | S (Spoofing), I (Disclosure) |
-| **Political Groups** | EPP, S&D, ECR, ID, ESN | R (Repudiation), D (Denial), E (Elevation) |
+| **Political Groups** | EPP, S&D, ECR, PfE, ESN | R (Repudiation), D (Denial), E (Elevation) |
 | **Individual MEPs** | Key rapporteurs, committee chairs | R (Repudiation), T (Tampering) |
 | **EU Institutions** | Commission, Council, EEAS | T (Tampering), E (Elevation) |
 | **Lobby Groups** | Industry federations, NGOs | T (Tampering), I (Disclosure) |

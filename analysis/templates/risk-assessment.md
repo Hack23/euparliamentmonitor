@@ -49,7 +49,7 @@ Risk Tiers:  1–4 = Low 🟢  |  5–9 = Medium 🟡  |  10–14 = High 🟠  |
 | **Coalition Strength** | `[REQUIRED: HIGH / MEDIUM / LOW]` |
 | **Majority Threshold** | `[REQUIRED: 361 of 720 seats]` |
 | **Buffer** | `[REQUIRED: seats above 361]` |
-| **Key Risk Groups** | `[REQUIRED: e.g. "ECR (78) as swing; ID (76) opposition"]` |
+| **Key Risk Groups** | `[REQUIRED: e.g. "ECR (78) as swing; PfE (76) opposition"]` |
 | **Next Major Vote** | `[OPTIONAL: YYYY-MM-DD and subject]` |
 
 ### Coalition Risk Factors

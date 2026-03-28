@@ -119,7 +119,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 ## ⏱️ Time Budget (120 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up
-- **Minutes 3–10**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writing analysis artifacts to `analysis/${TODAY}/` — a single shared directory for comprehensive analysis of all downloaded data)
+- **Minutes 3–10**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writing analysis artifacts to `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/` — a per-article-type directory for comprehensive analysis of all downloaded data for that article type)
 - **Minutes 10–20**: Parse article types and verify MCP connectivity
 - **Minutes 20–100**: Generate English articles for each requested type with deep political intelligence
 - **Minutes 100–110**: Validate generated HTML

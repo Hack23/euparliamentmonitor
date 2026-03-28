@@ -1,3 +1,6 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
 ---
 title: "Political Actor Mapping: EP10 Ecosystem Analysis"
 date: 2026-03-28

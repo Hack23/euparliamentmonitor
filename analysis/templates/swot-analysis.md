@@ -55,16 +55,16 @@
 
 | # | Threat Statement | Evidence (EP reference) | Confidence | Impact |
 |---|-----------------|----------------------|:----------:|:------:|
-| T1 | `[REQUIRED: e.g. "ECR+ID+ESN combined opposition growth threatens grand coalition majority"]` | `[REQUIRED: MCP data source]` | `H/M/L` | `H/M/L` |
+| T1 | `[REQUIRED: e.g. "ECR+PfE+ESN combined opposition growth threatens grand coalition majority"]` | `[REQUIRED: MCP data source]` | `H/M/L` | `H/M/L` |
 | T2 | `[REQUIRED]` | `[EP reference]` | `H/M/L` | `H/M/L` |
 
 **Threat Summary:** `[REQUIRED: 1–2 sentences]`
 
 ---
 
-## 🏛️ Section 2: Opposition Bloc SWOT (ECR + ID/ESN)
+## 🏛️ Section 2: Opposition Bloc SWOT (ECR + PfE/ESN)
 
-**Opposition Subject:** `[REQUIRED: e.g. "ECR (78 seats) + ID (76 seats) + ESN"]`
+**Opposition Subject:** `[REQUIRED: e.g. "ECR (78 seats) + PfE (76 seats) + ESN"]`
 
 ### ✅ Strengths
 

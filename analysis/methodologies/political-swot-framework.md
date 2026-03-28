@@ -92,7 +92,7 @@ Strengths are demonstrated by **legislative achievements** and **institutional c
 
 | Threat Type | MCP Tool | Query Strategy |
 |------------|----------|---------------|
-| Far-right group growth | `compare_political_groups` | Seat share trends for ID/ECR/ESN |
+| Far-right group growth | `compare_political_groups` | Seat share trends for PfE/ECR/ESN |
 | Institutional legitimacy crisis | `get_parliamentary_questions` | Article 7 / rule of law references |
 | Budget framework disputes | `get_adopted_texts` | MFF-related rejections or amendments |
 | Geopolitical pressure | `get_plenary_documents` | CFSP/security resolutions with low consensus |
@@ -106,7 +106,7 @@ Strengths are demonstrated by **legislative achievements** and **institutional c
 |-------|---------|---------|
 | **HIGH** | Multiple independent sources; primary EP document; current (within 90 days) | "Grand coalition secured 412/720 votes on Green Deal regulation (verified via roll-call 2026-03-15)" |
 | **MEDIUM** | Single primary source confirmed; or primary source older than 90 days | "Eurobarometer shows 48% EP trust; single survey" |
-| **LOW** | Credible but single unverified source; inference from related evidence | "Estimated ID group dissent based on plenary debate tone — no formal vote yet" |
+| **LOW** | Credible but single unverified source; inference from related evidence | "Estimated PfE group dissent based on plenary debate tone — no formal vote yet" |
 
 ### Confidence Decay Rule
 
@@ -125,7 +125,7 @@ Strengths are demonstrated by **legislative achievements** and **institutional c
 ```mermaid
 flowchart TD
     A[Individual Group SWOTs] --> B[Grand Coalition SWOT<br/>EPP + S&D + Renew]
-    A --> C[Opposition Bloc SWOT<br/>ECR + ID/ESN]
+    A --> C[Opposition Bloc SWOT<br/>ECR + PfE/ESN]
     A --> D[Cross-cutting SWOT<br/>Greens/EFA + The Left]
 
     B --> E[Landscape SWOT Aggregation]
