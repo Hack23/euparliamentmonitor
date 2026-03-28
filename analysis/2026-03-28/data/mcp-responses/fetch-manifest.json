@@ -1,32 +1,48 @@
 {
-  "fetchTimestamp": "2026-03-28T11:42:00Z",
+  "fetchTimestamp": "2026-03-28T12:16:00.427Z",
   "sources": [
-    "get_adopted_texts_feed (one-week)",
+    "get_adopted_texts_feed (one-week) — initial fetch",
+    "get_adopted_texts_feed (one-month) — extended fetch",
     "get_meps_feed (one-week)",
-    "get_mep_declarations_feed (one-week)",
+    "get_mep_declarations_feed (one-week) — initial fetch",
+    "get_mep_declarations_feed (one-month) — extended fetch",
     "get_procedures (2026)",
     "get_plenary_sessions (2026)",
     "get_speeches (2026)",
     "get_events (2026)",
     "get_voting_records",
-    "get_external_documents_feed (one-week)",
+    "get_external_documents_feed (one-week) — initial fetch",
+    "get_external_documents_feed (one-month) — extended fetch",
+    "get_plenary_documents (2026) — 50 reports",
+    "get_committee_documents (2026) — 50 AFCO documents",
+    "get_all_generated_stats (2024-2026)",
+    "early_warning_system (medium sensitivity)",
+    "monitor_legislative_pipeline (ACTIVE)",
     "generate_political_landscape",
     "detect_voting_anomalies",
-    "analyze_coalition_dynamics"
+    "analyze_coalition_dynamics",
+    "world_bank GDP_GROWTH (DE, FR, IT, ES, PL, SE)"
   ],
   "itemCounts": {
-    "adoptedTexts": 50,
+    "adopted-texts": 242,
+    "committee-documents": 50,
+    "corporate-bodies": 7,
+    "declarations": 498,
+    "documents": 0,
+    "events": 20,
+    "external-documents": 30,
+    "mcp-responses": 2,
     "meps": 50,
-    "declarations": 50,
+    "osint": 5,
+    "plenary-documents": 50,
+    "plenary-session-documents": 20,
     "procedures": 20,
-    "plenarySessions": 20,
+    "questions": 20,
     "speeches": 20,
-    "votingRecords": 5,
-    "externalDocuments": 17,
-    "politicalLandscape": 1,
-    "votingAnomalies": 1,
-    "coalitionDynamics": 1
+    "votes": 5,
+    "world-bank": 2
   },
+  "totalFiles": 1041,
   "timedOutFeeds": [
     "get_events_feed",
     "get_procedures_feed",
@@ -35,6 +51,20 @@
     "get_committee_documents_feed",
     "get_parliamentary_questions_feed",
     "get_corporate_bodies_feed",
-    "get_plenary_session_documents_feed"
-  ]
+    "get_plenary_session_documents_feed",
+    "analyze_country_delegation (DE, FR, SE) — meps/show-current timeout",
+    "compare_political_groups — meps/show-current timeout",
+    "sentiment_tracker — meps/show-current timeout",
+    "network_analysis — meps/show-current timeout"
+  ],
+  "dataQuality": {
+    "adoptedTexts": "Good coverage — 242 items from one-month feed",
+    "declarations": "Good coverage — 498 items from one-month feed",
+    "plenaryDocuments": "50 reports from 2026 (A10-0001 to A10-0061)",
+    "committeeDocuments": "50 AFCO committee documents (opinions, amendments, reports)",
+    "externalDocuments": "30 act follow-up documents (Feb-Mar 2026)",
+    "osint": "Political landscape, voting anomalies, coalition dynamics, early warning, legislative pipeline",
+    "worldBank": "GDP growth data for 6 major EU economies (2021-2024)",
+    "generatedStats": "Comprehensive EP activity statistics 2024-2026 with predictions to 2031"
+  }
 }
