@@ -11,7 +11,7 @@
  * news articles in all 14 languages.
  *
  * This stage is **side-effect-only**: it writes analysis markdown and a
- * `manifest.json` to disk under `analysis-output/{date}/`.  The returned
+ * `manifest.json` to disk under `analysis/{date}/`.  The returned
  * {@link AnalysisContext} is informational and currently not consumed by the
  * generate stage; strategies read the analysis output from disk instead.
  * Analysis artifacts are committed to the repository for review and
@@ -31,7 +31,7 @@
  * const ctx = await runAnalysisStage(fetchedData, {
  *   articleTypes: [ArticleCategory.WEEK_AHEAD],
  *   date: '2026-03-26',
- *   outputDir: 'analysis-output',
+ *   outputDir: 'analysis',
  * });
  * console.log(ctx.completedMethods);
  * ```
@@ -642,7 +642,7 @@ ${forceRow('External Influences', forces.externalInfluences)}
  * Build markdown for the political STRIDE threat assessment.
  *
  * Uses the pipeline `date` parameter to ensure the assessment date in the
- * generated markdown matches the `analysis-output/{date}/` folder, overriding
+ * generated markdown matches the `analysis/{date}/` folder, overriding
  * the `new Date()` timestamp that `assessPoliticalThreats()` stamps internally.
  *
  * @param fetchedData - Raw fetched EP data
@@ -1854,6 +1854,97 @@ const SUBDIR_RISK_SCORING = 'risk-scoring';
 const SUBDIR_EXISTING = 'existing';
 /** Subdirectory name for per-document analysis methods */
 const SUBDIR_DOCUMENTS = 'documents';
+// ─── MCP data persistence subdirectories ──────────────────────────────────────
+/** Subdirectory name for raw MCP data storage */
+const SUBDIR_DATA = 'data';
+/**
+ * MCP data category → filesystem subdirectory mapping.
+ *
+ * Each EP data category fetched via MCP is stored in a dedicated subdirectory
+ * under `{dateOutputDir}/data/`.  Filenames use EP entity IDs for consistency
+ * and traceability (e.g. `data/events/EVT-001.json`).
+ */
+const DATA_CATEGORY_DIRS = {
+  events: 'events',
+  procedures: 'procedures',
+  adoptedTexts: 'adopted-texts',
+  documents: 'documents',
+  mepUpdates: 'meps',
+  plenaryDocuments: 'plenary-documents',
+  committeeDocuments: 'committee-documents',
+  plenarySessionDocuments: 'plenary-session-documents',
+  externalDocuments: 'external-documents',
+  questions: 'questions',
+  declarations: 'declarations',
+  corporateBodies: 'corporate-bodies',
+  votingRecords: 'votes',
+  speeches: 'speeches',
+};
+/**
+ * Extract a stable identifier from an MCP data item for consistent filenames.
+ *
+ * Inspects common EP identifier fields (eventId, procedureId, docId, etc.)
+ * and falls back to an index-based name when no recognised ID is found.
+ *
+ * @param item - Single EP data item (object with potential ID fields)
+ * @param index - Fallback index when no ID field is found
+ * @returns Filesystem-safe identifier string
+ */
+function extractItemId(item, index) {
+  if (typeof item !== 'object' || item === null) return `item-${String(index).padStart(4, '0')}`;
+  const obj = item;
+  const idFields = [
+    'eventId',
+    'procedureId',
+    'docId',
+    'documentId',
+    'mepId',
+    'id',
+    'speechId',
+    'questionId',
+    'processId',
+    'identifier',
+    'alertNumber',
+  ];
+  for (const field of idFields) {
+    const value = obj[field];
+    if (typeof value === 'string' && value.length > 0) return sanitizeDocumentId(value);
+    if (typeof value === 'number') return sanitizeDocumentId(String(value));
+  }
+  return `item-${String(index).padStart(4, '0')}`;
+}
+/**
+ * Persist raw MCP-fetched data to structured subdirectories for verification
+ * and later reuse.
+ *
+ * Creates `{dateOutputDir}/data/{category}/` directories and writes each item
+ * as an individual JSON file named by its EP identifier.  Existing files are
+ * overwritten to support update workflows.
+ *
+ * @param fetchedData - Raw EP data keyed by data category
+ * @param dateOutputDir - Absolute path to the date-scoped output directory
+ * @param verbose - Emit progress messages
+ */
+function persistMCPData(fetchedData, dateOutputDir, verbose) {
+  const dataBaseDir = path.join(dateOutputDir, SUBDIR_DATA);
+  let totalItems = 0;
+  for (const [category, subdir] of Object.entries(DATA_CATEGORY_DIRS)) {
+    const items = fetchedData[category];
+    if (!Array.isArray(items) || items.length === 0) continue;
+    const categoryDir = path.join(dataBaseDir, subdir);
+    ensureDirectoryExists(categoryDir);
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      const itemId = extractItemId(item, i);
+      const filename = `${itemId}.json`;
+      writeTextFile(path.join(categoryDir, filename), JSON.stringify(item, null, 2));
+      totalItems++;
+    }
+  }
+  if (verbose && totalItems > 0) {
+    console.log(`   📂 [analysis] Persisted ${totalItems} MCP data items to ${dataBaseDir}`);
+  }
+}
 /** Analysis method identifier for per-document intelligence analysis */
 const METHOD_DOCUMENT_ANALYSIS = 'document-analysis';
 /** Subdirectory for each analysis method group */
@@ -2006,7 +2097,7 @@ function runSingleMethod(method, fetchedData, date, dateOutputDir, skipCompleted
  * const ctx = await runAnalysisStage(fetchedData, {
  *   articleTypes: [ArticleCategory.WEEK_AHEAD],
  *   date: '2026-03-26',
- *   outputDir: 'analysis-output',
+ *   outputDir: 'analysis',
  *   skipCompleted: true,
  *   verbose: true,
  * });
@@ -2055,6 +2146,10 @@ export async function runAnalysisStage(fetchedData, options) {
     );
   }
   ensureDirectoryExists(dateOutputDir);
+  // Persist raw MCP data to structured data/ subdirectories for verification,
+  // traceability, and later reuse.  Each category gets its own directory and
+  // each item is named by its EP identifier for consistent, ID-based filenames.
+  persistMCPData(fetchedData, dateOutputDir, verbose);
   // Run all enabled methods sequentially; isolate failures
   const methodResults = [];
   for (const method of deduplicatedMethods) {

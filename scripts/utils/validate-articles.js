@@ -30,9 +30,9 @@ const args = process.argv.slice(2);
  * @returns Flag value or undefined if not found
  */
 function getArg(name) {
-    const prefix = `--${name}=`;
-    const arg = args.find((a) => a.startsWith(prefix));
-    return arg?.slice(prefix.length);
+  const prefix = `--${name}=`;
+  const arg = args.find((a) => a.startsWith(prefix));
+  return arg?.slice(prefix.length);
 }
 const filterDate = getArg('date');
 const strictMode = args.includes('--strict');
@@ -48,19 +48,19 @@ const outputFormat = getArg('output');
  * @returns Article type string matching ArticleCategory values
  */
 function slugToArticleType(slug) {
-    const mapping = {
-        'week-ahead': 'week-ahead',
-        'month-ahead': 'month-ahead',
-        breaking: 'breaking',
-        'committee-reports': 'committee-reports',
-        propositions: 'propositions',
-        motions: 'motions',
-        'week-in-review': 'week-in-review',
-        'month-in-review': 'month-in-review',
-        'weekly-review': 'week-in-review',
-        'monthly-review': 'month-in-review',
-    };
-    return mapping[slug] ?? slug;
+  const mapping = {
+    'week-ahead': 'week-ahead',
+    'month-ahead': 'month-ahead',
+    breaking: 'breaking',
+    'committee-reports': 'committee-reports',
+    propositions: 'propositions',
+    motions: 'motions',
+    'week-in-review': 'week-in-review',
+    'month-in-review': 'month-in-review',
+    'weekly-review': 'week-in-review',
+    'monthly-review': 'month-in-review',
+  };
+  return mapping[slug] ?? slug;
 }
 // ─── Main validation logic ────────────────────────────────────────────────────
 /**
@@ -70,33 +70,32 @@ function slugToArticleType(slug) {
  * @returns Article validation summary or null if the filename does not match
  */
 function validateSingleFile(filename) {
-    const match = ARTICLE_FILENAME_PATTERN.exec(filename);
-    if (!match)
-        return null;
-    const date = match[1] ?? '';
-    const slug = match[2] ?? '';
-    const lang = match[3] ?? '';
-    const filePath = path.join(NEWS_DIR, filename);
-    const html = fs.readFileSync(filePath, 'utf-8');
-    const articleType = slugToArticleType(slug);
-    const result = validateArticleContent(html, lang, articleType);
-    const summary = {
-        filename,
-        lang,
-        slug,
-        date,
-        valid: strictMode ? result.valid && result.warnings.length === 0 : result.valid,
-        errors: [...result.errors],
-        warnings: [...result.warnings],
-        wordCount: result.metrics.wordCount,
-    };
-    if (strictMode && result.warnings.length > 0) {
-        summary.errors.push(...result.warnings.map((w) => `[strict] ${w}`));
-    }
-    if (qualityMode) {
-        summary.qualityReport = scoreArticleQuality(html, `${date}-${slug}`, lang, articleType);
-    }
-    return summary;
+  const match = ARTICLE_FILENAME_PATTERN.exec(filename);
+  if (!match) return null;
+  const date = match[1] ?? '';
+  const slug = match[2] ?? '';
+  const lang = match[3] ?? '';
+  const filePath = path.join(NEWS_DIR, filename);
+  const html = fs.readFileSync(filePath, 'utf-8');
+  const articleType = slugToArticleType(slug);
+  const result = validateArticleContent(html, lang, articleType);
+  const summary = {
+    filename,
+    lang,
+    slug,
+    date,
+    valid: strictMode ? result.valid && result.warnings.length === 0 : result.valid,
+    errors: [...result.errors],
+    warnings: [...result.warnings],
+    wordCount: result.metrics.wordCount,
+  };
+  if (strictMode && result.warnings.length > 0) {
+    summary.errors.push(...result.warnings.map((w) => `[strict] ${w}`));
+  }
+  if (qualityMode) {
+    summary.qualityReport = scoreArticleQuality(html, `${date}-${slug}`, lang, articleType);
+  }
+  return summary;
 }
 /**
  * Validate all news articles in the news directory.
@@ -104,46 +103,44 @@ function validateSingleFile(filename) {
  * @returns Validation report with per-article summaries
  */
 function validateAllArticles() {
-    if (!fs.existsSync(NEWS_DIR)) {
-        console.error(`❌ News directory not found: ${NEWS_DIR}`);
-        return { totalArticles: 0, passed: 0, failed: 0, warnings: 0, articles: [] };
+  if (!fs.existsSync(NEWS_DIR)) {
+    console.error(`❌ News directory not found: ${NEWS_DIR}`);
+    return { totalArticles: 0, passed: 0, failed: 0, warnings: 0, articles: [] };
+  }
+  const files = fs
+    .readdirSync(NEWS_DIR)
+    .filter((f) => f.endsWith('.html'))
+    .filter((f) => ARTICLE_FILENAME_PATTERN.test(f))
+    .filter((f) => (filterDate ? f.startsWith(filterDate) : true))
+    .sort();
+  const articles = [];
+  let passed = 0;
+  let failed = 0;
+  let warningCount = 0;
+  for (const filename of files) {
+    const summary = validateSingleFile(filename);
+    if (!summary) continue;
+    if (summary.valid) {
+      passed++;
+    } else {
+      failed++;
     }
-    const files = fs
-        .readdirSync(NEWS_DIR)
-        .filter((f) => f.endsWith('.html'))
-        .filter((f) => ARTICLE_FILENAME_PATTERN.test(f))
-        .filter((f) => (filterDate ? f.startsWith(filterDate) : true))
-        .sort();
-    const articles = [];
-    let passed = 0;
-    let failed = 0;
-    let warningCount = 0;
-    for (const filename of files) {
-        const summary = validateSingleFile(filename);
-        if (!summary)
-            continue;
-        if (summary.valid) {
-            passed++;
-        }
-        else {
-            failed++;
-        }
-        if (summary.warnings.length > 0) {
-            warningCount++;
-        }
-        articles.push(summary);
+    if (summary.warnings.length > 0) {
+      warningCount++;
     }
-    const report = {
-        totalArticles: files.length,
-        passed,
-        failed,
-        warnings: warningCount,
-        articles,
-    };
-    if (qualityMode) {
-        report.gradeDistribution = buildGradeDistribution(articles);
-    }
-    return report;
+    articles.push(summary);
+  }
+  const report = {
+    totalArticles: files.length,
+    passed,
+    failed,
+    warnings: warningCount,
+    articles,
+  };
+  if (qualityMode) {
+    report.gradeDistribution = buildGradeDistribution(articles);
+  }
+  return report;
 }
 /**
  * Build a grade distribution map from article quality reports.
@@ -152,13 +149,13 @@ function validateAllArticles() {
  * @returns Grade distribution counts
  */
 function buildGradeDistribution(articles) {
-    const distribution = { A: 0, B: 0, C: 0, D: 0, F: 0 };
-    for (const article of articles) {
-        if (article.qualityReport) {
-            distribution[article.qualityReport.grade]++;
-        }
+  const distribution = { A: 0, B: 0, C: 0, D: 0, F: 0 };
+  for (const article of articles) {
+    if (article.qualityReport) {
+      distribution[article.qualityReport.grade]++;
     }
-    return distribution;
+  }
+  return distribution;
 }
 /**
  * Print a formatted validation report to the console.
@@ -166,29 +163,29 @@ function buildGradeDistribution(articles) {
  * @param report - Validation report to print
  */
 function printReport(report) {
-    console.log('\n════════════════════════════════════════════════════════════════');
-    console.log('  EU Parliament Monitor — Article Validation Report');
-    console.log('════════════════════════════════════════════════════════════════\n');
-    if (filterDate) {
-        console.log(`  Filter: articles from ${filterDate}`);
-    }
-    if (strictMode) {
-        console.log('  Mode: STRICT (warnings treated as errors)');
-    }
-    if (qualityMode) {
-        console.log('  Mode: QUALITY scoring enabled');
-    }
-    console.log(`  Total articles:  ${report.totalArticles}`);
-    console.log(`  ✅ Passed:       ${report.passed}`);
-    console.log(`  ❌ Failed:       ${report.failed}`);
-    console.log(`  ⚠️  With warnings: ${report.warnings}\n`);
-    printFailures(report);
-    printWarnings(report);
-    if (qualityMode) {
-        printQualityScores(report);
-        printGradeDistribution(report);
-    }
-    console.log('══════════════════════════════════════════════════════════════\n');
+  console.log('\n════════════════════════════════════════════════════════════════');
+  console.log('  EU Parliament Monitor — Article Validation Report');
+  console.log('════════════════════════════════════════════════════════════════\n');
+  if (filterDate) {
+    console.log(`  Filter: articles from ${filterDate}`);
+  }
+  if (strictMode) {
+    console.log('  Mode: STRICT (warnings treated as errors)');
+  }
+  if (qualityMode) {
+    console.log('  Mode: QUALITY scoring enabled');
+  }
+  console.log(`  Total articles:  ${report.totalArticles}`);
+  console.log(`  ✅ Passed:       ${report.passed}`);
+  console.log(`  ❌ Failed:       ${report.failed}`);
+  console.log(`  ⚠️  With warnings: ${report.warnings}\n`);
+  printFailures(report);
+  printWarnings(report);
+  if (qualityMode) {
+    printQualityScores(report);
+    printGradeDistribution(report);
+  }
+  console.log('══════════════════════════════════════════════════════════════\n');
 }
 /**
  * Print failure details from the validation report.
@@ -196,20 +193,19 @@ function printReport(report) {
  * @param report - Validation report
  */
 function printFailures(report) {
-    const failures = report.articles.filter((a) => !a.valid);
-    if (failures.length === 0)
-        return;
-    console.log('── FAILURES ──────────────────────────────────────────────────\n');
-    for (const article of failures) {
-        console.log(`  ❌ ${article.filename} (${article.wordCount} words)`);
-        for (const error of article.errors) {
-            console.log(`     ERROR: ${error}`);
-        }
-        for (const warning of article.warnings) {
-            console.log(`     WARN:  ${warning}`);
-        }
-        console.log('');
+  const failures = report.articles.filter((a) => !a.valid);
+  if (failures.length === 0) return;
+  console.log('── FAILURES ──────────────────────────────────────────────────\n');
+  for (const article of failures) {
+    console.log(`  ❌ ${article.filename} (${article.wordCount} words)`);
+    for (const error of article.errors) {
+      console.log(`     ERROR: ${error}`);
     }
+    for (const warning of article.warnings) {
+      console.log(`     WARN:  ${warning}`);
+    }
+    console.log('');
+  }
 }
 /**
  * Print warning details from the validation report.
@@ -217,17 +213,16 @@ function printFailures(report) {
  * @param report - Validation report
  */
 function printWarnings(report) {
-    const withWarnings = report.articles.filter((a) => a.valid && a.warnings.length > 0);
-    if (withWarnings.length === 0)
-        return;
-    console.log('── WARNINGS ──────────────────────────────────────────────────\n');
-    for (const article of withWarnings) {
-        console.log(`  ⚠️  ${article.filename} (${article.wordCount} words)`);
-        for (const warning of article.warnings) {
-            console.log(`     WARN:  ${warning}`);
-        }
-        console.log('');
+  const withWarnings = report.articles.filter((a) => a.valid && a.warnings.length > 0);
+  if (withWarnings.length === 0) return;
+  console.log('── WARNINGS ──────────────────────────────────────────────────\n');
+  for (const article of withWarnings) {
+    console.log(`  ⚠️  ${article.filename} (${article.wordCount} words)`);
+    for (const warning of article.warnings) {
+      console.log(`     WARN:  ${warning}`);
     }
+    console.log('');
+  }
 }
 /**
  * Print quality scores for all articles (only in --quality mode).
@@ -235,23 +230,23 @@ function printWarnings(report) {
  * @param report - Validation report
  */
 function printQualityScores(report) {
-    const articlesWithQuality = report.articles.filter((a) => a.qualityReport);
-    if (articlesWithQuality.length === 0)
-        return;
-    console.log('── QUALITY SCORES ────────────────────────────────────────────\n');
-    for (const article of articlesWithQuality) {
-        const qr = article.qualityReport;
-        if (!qr)
-            continue;
-        const gate = qr.passesQualityGate ? '✅' : '⚠️ ';
-        console.log(`  ${gate} ${article.filename} — Grade: ${qr.grade} (${qr.overallScore}/100, ${qr.wordCount} words)`);
-        if (!qr.passesQualityGate && qr.recommendations.length > 0) {
-            for (const rec of qr.recommendations.slice(0, 3)) {
-                console.log(`       💡 ${rec}`);
-            }
-        }
+  const articlesWithQuality = report.articles.filter((a) => a.qualityReport);
+  if (articlesWithQuality.length === 0) return;
+  console.log('── QUALITY SCORES ────────────────────────────────────────────\n');
+  for (const article of articlesWithQuality) {
+    const qr = article.qualityReport;
+    if (!qr) continue;
+    const gate = qr.passesQualityGate ? '✅' : '⚠️ ';
+    console.log(
+      `  ${gate} ${article.filename} — Grade: ${qr.grade} (${qr.overallScore}/100, ${qr.wordCount} words)`
+    );
+    if (!qr.passesQualityGate && qr.recommendations.length > 0) {
+      for (const rec of qr.recommendations.slice(0, 3)) {
+        console.log(`       💡 ${rec}`);
+      }
     }
-    console.log('');
+  }
+  console.log('');
 }
 /**
  * Print the grade distribution summary (only in --quality mode).
@@ -259,26 +254,26 @@ function printQualityScores(report) {
  * @param report - Validation report
  */
 function printGradeDistribution(report) {
-    if (!report.gradeDistribution)
-        return;
-    const dist = report.gradeDistribution;
-    console.log('── GRADE DISTRIBUTION ────────────────────────────────────────\n');
-    console.log(`  A (≥80): ${dist['A']}   B (≥65): ${dist['B']}   C (≥40): ${dist['C']}   D (≥25): ${dist['D']}   F (<25): ${dist['F']}`);
-    console.log('');
+  if (!report.gradeDistribution) return;
+  const dist = report.gradeDistribution;
+  console.log('── GRADE DISTRIBUTION ────────────────────────────────────────\n');
+  console.log(
+    `  A (≥80): ${dist['A']}   B (≥65): ${dist['B']}   C (≥40): ${dist['C']}   D (≥25): ${dist['D']}   F (<25): ${dist['F']}`
+  );
+  console.log('');
 }
 // ─── CLI execution ────────────────────────────────────────────────────────────
 const report = validateAllArticles();
 printReport(report);
 if (qualityMode && outputFormat === 'json') {
-    const outputPath = path.join(process.cwd(), 'quality-report.json');
-    fs.writeFileSync(outputPath, JSON.stringify(report, null, 2), 'utf-8');
-    console.log(`📄 Quality report written to ${outputPath}`);
+  const outputPath = path.join(process.cwd(), 'quality-report.json');
+  fs.writeFileSync(outputPath, JSON.stringify(report, null, 2), 'utf-8');
+  console.log(`📄 Quality report written to ${outputPath}`);
 }
 if (!dryRun && report.failed > 0) {
-    console.error(`❌ Validation failed: ${report.failed} article(s) have errors`);
-    process.exit(1);
-}
-else if (report.failed === 0) {
-    console.log('✅ All articles passed validation');
+  console.error(`❌ Validation failed: ${report.failed} article(s) have errors`);
+  process.exit(1);
+} else if (report.failed === 0) {
+  console.log('✅ All articles passed validation');
 }
 //# sourceMappingURL=validate-articles.js.map

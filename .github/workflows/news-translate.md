@@ -76,7 +76,8 @@ safe-outputs:
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - github.com
-  create-pull-request: {}
+  create-pull-request:
+    max-size: 2097152
   add-comment: {}
 
 steps:

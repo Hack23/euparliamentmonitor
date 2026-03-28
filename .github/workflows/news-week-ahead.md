@@ -59,7 +59,8 @@ safe-outputs:
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - github.com
-  create-pull-request: {}
+  create-pull-request:
+    max-size: 2097152
   add-comment: {}
 
 steps:
@@ -178,7 +179,7 @@ Beyond listing upcoming events, provide strategic intelligence:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
-- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis-output/{date}/`)
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/{date}/`)
 - **Minutes 8–18**: Query plenary sessions, committee meetings, and legislative pipeline for next 7 days
 - **Minutes 18–45**: Generate English article with deep political intelligence analysis
 - **Minutes 45–52**: Validate generated HTML
@@ -200,7 +201,7 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
    - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - **Per-Document Analysis** *(opt-in via `--analysis-methods`)*: per-document markdown + JSON intelligence files
-3. **Writes and commits analysis artifacts** to `analysis-output/{date}/` (markdown files + `manifest.json`) — these are included in the PR for review and political intelligence improvement
+3. **Writes and commits analysis artifacts** to `analysis/{date}/` (markdown files + `manifest.json`) — these are included in the PR for review and political intelligence improvement
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
@@ -808,7 +809,7 @@ Then create a PR using safe outputs. The framework automatically captures all fi
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament week-ahead articles ${TODAY}`,
-  body: `## EU Parliament Week Ahead Articles\n\nGenerated week-ahead prospective articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date range: ${TODAY} → ${nextWeek}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis-output/${TODAY}/\``,
+  body: `## EU Parliament Week Ahead Articles\n\nGenerated week-ahead prospective articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date range: ${TODAY} → ${nextWeek}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/\``,
   base: "main",
   head: BRANCH_NAME
 })

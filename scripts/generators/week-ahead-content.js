@@ -6,23 +6,28 @@
  * No side effects — all functions accept data and return strings.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-import { getLocalizedString, EDITORIAL_STRINGS, WEEK_AHEAD_STRINGS, WEEK_AHEAD_STAKEHOLDER_STRINGS, } from '../constants/languages.js';
+import {
+  getLocalizedString,
+  EDITORIAL_STRINGS,
+  WEEK_AHEAD_STRINGS,
+  WEEK_AHEAD_STAKEHOLDER_STRINGS,
+} from '../constants/languages.js';
 /** Keyword constant for article tagging */
 const KEYWORD_EUROPEAN_PARLIAMENT = 'European Parliament';
 /** Placeholder events used when MCP is unavailable or returns no sessions */
 export const PLACEHOLDER_EVENTS = [
-    {
-        date: '',
-        title: 'Plenary Session',
-        type: 'Plenary',
-        description: 'Full parliamentary session',
-    },
-    {
-        date: '',
-        title: 'ENVI Committee Meeting',
-        type: 'Committee',
-        description: 'Environment committee discussion',
-    },
+  {
+    date: '',
+    title: 'Plenary Session',
+    type: 'Plenary',
+    description: 'Full parliamentary session',
+  },
+  {
+    date: '',
+    title: 'ENVI Committee Meeting',
+    type: 'Committee',
+    description: 'Environment committee discussion',
+  },
 ];
 /**
  * Generic parser for settled MCP results.
@@ -34,21 +39,17 @@ export const PLACEHOLDER_EVENTS = [
  * @returns Array of typed objects, or empty array on failure
  */
 function parseSettledMCPResult(settled, key, mapper) {
-    if (settled.status !== 'fulfilled')
-        return [];
-    try {
-        const data = JSON.parse(settled.value.content?.[0]?.text ?? '{}');
-        if (!Object.hasOwn(data, key))
-            return [];
-        // eslint-disable-next-line security/detect-object-injection
-        const items = data[key];
-        if (!Array.isArray(items))
-            return [];
-        return items.map(mapper);
-    }
-    catch {
-        return [];
-    }
+  if (settled.status !== 'fulfilled') return [];
+  try {
+    const data = JSON.parse(settled.value.content?.[0]?.text ?? '{}');
+    if (!Object.hasOwn(data, key)) return [];
+    // eslint-disable-next-line security/detect-object-injection
+    const items = data[key];
+    if (!Array.isArray(items)) return [];
+    return items.map(mapper);
+  } catch {
+    return [];
+  }
 }
 /**
  * Parse plenary sessions from a settled MCP result
@@ -58,12 +59,12 @@ function parseSettledMCPResult(settled, key, mapper) {
  * @returns Array of parliament events
  */
 export function parsePlenarySessions(settled, fallbackDate) {
-    return parseSettledMCPResult(settled, 'sessions', (s) => ({
-        date: s.date ?? fallbackDate,
-        title: s.title ?? 'Parliamentary Session',
-        type: s.type ?? 'Session',
-        description: s.description ?? '',
-    }));
+  return parseSettledMCPResult(settled, 'sessions', (s) => ({
+    date: s.date ?? fallbackDate,
+    title: s.title ?? 'Parliamentary Session',
+    type: s.type ?? 'Session',
+    description: s.description ?? '',
+  }));
 }
 /**
  * Parse EP events (hearings, conferences, seminars) from a settled MCP result
@@ -73,12 +74,12 @@ export function parsePlenarySessions(settled, fallbackDate) {
  * @returns Array of parliament events
  */
 export function parseEPEvents(settled, fallbackDate) {
-    return parseSettledMCPResult(settled, 'events', (e) => ({
-        date: e.date ?? fallbackDate,
-        title: e.title ?? 'EP Event',
-        type: e.type ?? 'Event',
-        description: e.description ?? '',
-    }));
+  return parseSettledMCPResult(settled, 'events', (e) => ({
+    date: e.date ?? fallbackDate,
+    title: e.title ?? 'EP Event',
+    type: e.type ?? 'Event',
+    description: e.description ?? '',
+  }));
 }
 /**
  * Parse committee meetings from a settled MCP result
@@ -88,19 +89,19 @@ export function parseEPEvents(settled, fallbackDate) {
  * @returns Array of committee meetings
  */
 export function parseCommitteeMeetings(settled, fallbackDate) {
-    return parseSettledMCPResult(settled, 'committees', (c) => ({
-        id: c.id,
-        committee: c.committee ?? 'Unknown',
-        committeeName: c.committeeName,
-        date: c.date ?? fallbackDate ?? '',
-        time: c.time,
-        location: c.location,
-        agenda: c.agenda?.map((a) => ({
-            item: a.item,
-            title: a.title ?? '',
-            type: a.type,
-        })),
-    }));
+  return parseSettledMCPResult(settled, 'committees', (c) => ({
+    id: c.id,
+    committee: c.committee ?? 'Unknown',
+    committeeName: c.committeeName,
+    date: c.date ?? fallbackDate ?? '',
+    time: c.time,
+    location: c.location,
+    agenda: c.agenda?.map((a) => ({
+      item: a.item,
+      title: a.title ?? '',
+      type: a.type,
+    })),
+  }));
 }
 /**
  * Parse legislative documents from a settled MCP result
@@ -109,15 +110,15 @@ export function parseCommitteeMeetings(settled, fallbackDate) {
  * @returns Array of legislative documents
  */
 export function parseLegislativeDocuments(settled) {
-    return parseSettledMCPResult(settled, 'documents', (d) => ({
-        id: d.id,
-        type: d.type,
-        title: d.title ?? 'Untitled Document',
-        date: d.date,
-        status: d.status,
-        committee: d.committee,
-        rapporteur: d.rapporteur,
-    }));
+  return parseSettledMCPResult(settled, 'documents', (d) => ({
+    id: d.id,
+    type: d.type,
+    title: d.title ?? 'Untitled Document',
+    date: d.date,
+    status: d.status,
+    committee: d.committee,
+    rapporteur: d.rapporteur,
+  }));
 }
 /**
  * Parse legislative pipeline from a settled MCP result
@@ -126,14 +127,14 @@ export function parseLegislativeDocuments(settled) {
  * @returns Array of legislative procedures
  */
 export function parseLegislativePipeline(settled) {
-    return parseSettledMCPResult(settled, 'procedures', (p) => ({
-        id: p.id,
-        title: p.title ?? 'Unnamed Procedure',
-        stage: p.stage,
-        committee: p.committee,
-        status: p.status,
-        bottleneck: p.bottleneck,
-    }));
+  return parseSettledMCPResult(settled, 'procedures', (p) => ({
+    id: p.id,
+    title: p.title ?? 'Unnamed Procedure',
+    stage: p.stage,
+    committee: p.committee,
+    status: p.status,
+    bottleneck: p.bottleneck,
+  }));
 }
 /**
  * Parse parliamentary questions from a settled MCP result
@@ -142,14 +143,14 @@ export function parseLegislativePipeline(settled) {
  * @returns Array of parliamentary questions
  */
 export function parseParliamentaryQuestions(settled) {
-    return parseSettledMCPResult(settled, 'questions', (q) => ({
-        id: q.id,
-        type: q.type,
-        author: q.author,
-        subject: q.subject ?? 'No subject',
-        date: q.date,
-        status: q.status,
-    }));
+  return parseSettledMCPResult(settled, 'questions', (q) => ({
+    id: q.id,
+    type: q.type,
+    author: q.author,
+    subject: q.subject ?? 'No subject',
+    date: q.date,
+    status: q.status,
+  }));
 }
 // ─── Render helpers ──────────────────────────────────────────────────────────
 /**
@@ -159,7 +160,7 @@ export function parseParliamentaryQuestions(settled) {
  * @returns HTML string
  */
 function renderPlenaryEvent(event) {
-    return `
+  return `
               <div class="event-item">
                 <div class="event-date">${escapeHTML(event.date)}</div>
                 <div class="event-details">
@@ -176,10 +177,11 @@ function renderPlenaryEvent(event) {
  * @returns HTML string
  */
 function renderCommitteeMeeting(meeting) {
-    const agendaHtml = meeting.agenda && meeting.agenda.length > 0
-        ? `<ul class="agenda-list">${meeting.agenda.map((item) => `<li>${escapeHTML(item.title)}${item.type ? ` <span class="agenda-type">(${escapeHTML(item.type)})</span>` : ''}</li>`).join('')}</ul>`
-        : '';
-    return `
+  const agendaHtml =
+    meeting.agenda && meeting.agenda.length > 0
+      ? `<ul class="agenda-list">${meeting.agenda.map((item) => `<li>${escapeHTML(item.title)}${item.type ? ` <span class="agenda-type">(${escapeHTML(item.type)})</span>` : ''}</li>`).join('')}</ul>`
+      : '';
+  return `
               <div class="committee-item">
                 <div class="committee-date">${escapeHTML(meeting.date)}${meeting.time ? ` ${escapeHTML(meeting.time)}` : ''}</div>
                 <div class="committee-details">
@@ -196,7 +198,7 @@ function renderCommitteeMeeting(meeting) {
  * @returns HTML string
  */
 function renderLegislativeDocument(doc) {
-    return `
+  return `
               <li class="document-item">
                 <span class="document-title">${escapeHTML(doc.title)}</span>
                 ${doc.type ? ` <span class="document-type">(${escapeHTML(doc.type)})</span>` : ''}
@@ -211,7 +213,7 @@ function renderLegislativeDocument(doc) {
  * @returns HTML string
  */
 function renderPipelineProcedure(proc) {
-    return `
+  return `
               <li class="pipeline-item${proc.bottleneck ? ' bottleneck' : ''}">
                 <span class="procedure-title">${escapeHTML(proc.title)}</span>
                 ${proc.stage ? ` <span class="procedure-stage">${escapeHTML(proc.stage)}</span>` : ''}
@@ -226,7 +228,7 @@ function renderPipelineProcedure(proc) {
  * @returns HTML string
  */
 function renderQuestion(q) {
-    return `
+  return `
               <li class="qa-item">
                 <span class="qa-subject">${escapeHTML(q.subject)}</span>
                 ${q.type ? ` <span class="qa-type">(${escapeHTML(q.type)})</span>` : ''}
@@ -241,16 +243,16 @@ function renderQuestion(q) {
  * @returns Clamped value between 0 and 100
  */
 function clamp0to100(n) {
-    return Math.max(0, Math.min(100, n));
+  return Math.max(0, Math.min(100, n));
 }
 /**
  * Map from band key to CSS class suffix used in `temp-*` class names.
  */
 const BAND_CSS_CLASS = {
-    low: 'temp-low',
-    moderate: 'temp-moderate',
-    high: 'temp-high',
-    veryHigh: 'temp-very-high',
+  low: 'temp-low',
+  moderate: 'temp-moderate',
+  high: 'temp-high',
+  veryHigh: 'temp-very-high',
 };
 /**
  * Derive a language-agnostic temperature band from a 0–100 score.
@@ -264,13 +266,10 @@ const BAND_CSS_CLASS = {
  * @returns Band key
  */
 function temperatureBand(score) {
-    if (score >= 75)
-        return 'veryHigh';
-    if (score >= 50)
-        return 'high';
-    if (score >= 25)
-        return 'moderate';
-    return 'low';
+  if (score >= 75) return 'veryHigh';
+  if (score >= 50) return 'high';
+  if (score >= 25) return 'moderate';
+  return 'low';
 }
 /**
  * Resolve the localized temperature descriptor for a given band.
@@ -280,13 +279,13 @@ function temperatureBand(score) {
  * @returns Localized descriptor (e.g. "Modéré", "高い")
  */
 function localizedTempLabel(band, strings) {
-    const map = {
-        low: strings.tempLow,
-        moderate: strings.tempModerate,
-        high: strings.tempHigh,
-        veryHigh: strings.tempVeryHigh,
-    };
-    return map[band];
+  const map = {
+    low: strings.tempLow,
+    moderate: strings.tempModerate,
+    high: strings.tempHigh,
+    veryHigh: strings.tempVeryHigh,
+  };
+  return map[band];
 }
 /**
  * Compute a composite political temperature score (0–100) indicating how
@@ -300,15 +299,15 @@ function localizedTempLabel(band, strings) {
  * @returns Political temperature score and band
  */
 export function computeWeekPoliticalTemperature(events, questions) {
-    // Base: volume-driven heuristic — more events & questions ⇒ higher temperature
-    const eventContribution = Math.min(events.length * 10, 50);
-    const questionContribution = Math.min(questions.length * 5, 30);
-    // Diversity bonus: distinct event types signal a broader agenda
-    const uniqueTypes = new Set(events.map((e) => e.type));
-    const diversityBonus = Math.min(uniqueTypes.size * 5, 20);
-    const raw = eventContribution + questionContribution + diversityBonus;
-    const score = clamp0to100(Math.round(raw));
-    return { score, band: temperatureBand(score) };
+  // Base: volume-driven heuristic — more events & questions ⇒ higher temperature
+  const eventContribution = Math.min(events.length * 10, 50);
+  const questionContribution = Math.min(questions.length * 5, 30);
+  // Diversity bonus: distinct event types signal a broader agenda
+  const uniqueTypes = new Set(events.map((e) => e.type));
+  const diversityBonus = Math.min(uniqueTypes.size * 5, 20);
+  const raw = eventContribution + questionContribution + diversityBonus;
+  const score = clamp0to100(Math.round(raw));
+  return { score, band: temperatureBand(score) };
 }
 /**
  * Determine impact level based on a count and a threshold for "high".
@@ -318,9 +317,8 @@ export function computeWeekPoliticalTemperature(events, questions) {
  * @returns Impact level
  */
 function impactFromCount(count, highThreshold) {
-    if (count >= highThreshold)
-        return 'high';
-    return count > 0 ? 'medium' : 'low';
+  if (count >= highThreshold) return 'high';
+  return count > 0 ? 'medium' : 'low';
 }
 /**
  * Build a stakeholder impact matrix from scheduled events and legislative
@@ -337,51 +335,51 @@ function impactFromCount(count, highThreshold) {
  * @returns Stakeholder impact section with rows
  */
 export function buildStakeholderImpactMatrix(events, docs, lang = 'en') {
-    if (events.length === 0 && docs.length === 0) {
-        return { rows: [] };
-    }
-    const strings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, lang);
-    const rows = [];
-    const eventCount = events.length;
-    const docCount = docs.length;
-    const totalCount = eventCount + docCount;
-    if (eventCount > 0) {
-        rows.push({
-            stakeholder: strings.stakeholderPoliticalGroups,
-            impact: impactFromCount(eventCount, 3),
-            reason: strings.reasonEventsScheduled.replace('{count}', String(eventCount)),
-        });
-    }
-    if (docCount > 0) {
-        rows.push({
-            stakeholder: strings.stakeholderCivilSociety,
-            impact: impactFromCount(docCount, 3),
-            reason: strings.reasonDocumentsUnderReview.replace('{count}', String(docCount)),
-        });
-    }
+  if (events.length === 0 && docs.length === 0) {
+    return { rows: [] };
+  }
+  const strings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, lang);
+  const rows = [];
+  const eventCount = events.length;
+  const docCount = docs.length;
+  const totalCount = eventCount + docCount;
+  if (eventCount > 0) {
     rows.push({
-        stakeholder: strings.stakeholderIndustry,
-        impact: impactFromCount(totalCount, 5),
-        reason: strings.reasonIndustryRegulatoryAgenda,
+      stakeholder: strings.stakeholderPoliticalGroups,
+      impact: impactFromCount(eventCount, 3),
+      reason: strings.reasonEventsScheduled.replace('{count}', String(eventCount)),
     });
+  }
+  if (docCount > 0) {
     rows.push({
-        stakeholder: strings.stakeholderEuCitizens,
-        impact: impactFromCount(eventCount, 3),
-        reason: strings.reasonCitizensDecisionsShapePolicy,
+      stakeholder: strings.stakeholderCivilSociety,
+      impact: impactFromCount(docCount, 3),
+      reason: strings.reasonDocumentsUnderReview.replace('{count}', String(docCount)),
     });
-    if (docCount > 0) {
-        rows.push({
-            stakeholder: strings.stakeholderNationalGovernments,
-            impact: impactFromCount(docCount, 3),
-            reason: strings.reasonDocumentsRequireTransposition.replace('{count}', String(docCount)),
-        });
-    }
+  }
+  rows.push({
+    stakeholder: strings.stakeholderIndustry,
+    impact: impactFromCount(totalCount, 5),
+    reason: strings.reasonIndustryRegulatoryAgenda,
+  });
+  rows.push({
+    stakeholder: strings.stakeholderEuCitizens,
+    impact: impactFromCount(eventCount, 3),
+    reason: strings.reasonCitizensDecisionsShapePolicy,
+  });
+  if (docCount > 0) {
     rows.push({
-        stakeholder: strings.stakeholderEuInstitutions,
-        impact: impactFromCount(totalCount, 4),
-        reason: strings.reasonInstitutionsCoordination,
+      stakeholder: strings.stakeholderNationalGovernments,
+      impact: impactFromCount(docCount, 3),
+      reason: strings.reasonDocumentsRequireTransposition.replace('{count}', String(docCount)),
     });
-    return { rows };
+  }
+  rows.push({
+    stakeholder: strings.stakeholderEuInstitutions,
+    impact: impactFromCount(totalCount, 4),
+    reason: strings.reasonInstitutionsCoordination,
+  });
+  return { rows };
 }
 /**
  * Render the stakeholder impact section as HTML.
@@ -392,19 +390,21 @@ export function buildStakeholderImpactMatrix(events, docs, lang = 'en') {
  * @returns HTML string, or empty string when section is empty
  */
 function renderStakeholderSection(section, temperature, lang) {
-    if (section.rows.length === 0)
-        return '';
-    const strings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, lang);
-    const tempClass = BAND_CSS_CLASS[temperature.band];
-    const tempDescriptor = localizedTempLabel(temperature.band, strings);
-    const tableRows = section.rows
-        .map((row) => `<tr>` +
+  if (section.rows.length === 0) return '';
+  const strings = getLocalizedString(WEEK_AHEAD_STAKEHOLDER_STRINGS, lang);
+  const tempClass = BAND_CSS_CLASS[temperature.band];
+  const tempDescriptor = localizedTempLabel(temperature.band, strings);
+  const tableRows = section.rows
+    .map(
+      (row) =>
+        `<tr>` +
         `<td>${escapeHTML(row.stakeholder)}</td>` +
         `<td class="impact-${escapeHTML(row.impact)}">${escapeHTML(row.impact)}</td>` +
         `<td>${escapeHTML(row.reason)}</td>` +
-        `</tr>`)
-        .join('');
-    return `
+        `</tr>`
+    )
+    .join('');
+  return `
           <section class="stakeholder-impact" lang="${escapeHTML(lang)}">
             <h2>${escapeHTML(strings.heading)}</h2>
             <div class="political-temperature ${tempClass}">
@@ -434,16 +434,17 @@ function renderStakeholderSection(section, temperature, lang) {
  * @returns Sentence fragment or empty string
  */
 function buildLedeDetail(committeeCount, pipelineCount) {
-    if (committeeCount === 0 && pipelineCount === 0)
-        return '';
-    const committeePart = committeeCount > 0
-        ? `${committeeCount} committee meeting${committeeCount !== 1 ? 's are' : ' is'} scheduled`
-        : '';
-    const pipelinePart = pipelineCount > 0
-        ? `${pipelineCount} legislative procedure${pipelineCount !== 1 ? 's are' : ' is'} advancing through the pipeline`
-        : '';
-    const conjunction = committeePart && pipelinePart ? ' and ' : '';
-    return ` Notably, ${committeePart}${conjunction}${pipelinePart}.`;
+  if (committeeCount === 0 && pipelineCount === 0) return '';
+  const committeePart =
+    committeeCount > 0
+      ? `${committeeCount} committee meeting${committeeCount !== 1 ? 's are' : ' is'} scheduled`
+      : '';
+  const pipelinePart =
+    pipelineCount > 0
+      ? `${pipelineCount} legislative procedure${pipelineCount !== 1 ? 's are' : ' is'} advancing through the pipeline`
+      : '';
+  const conjunction = committeePart && pipelinePart ? ' and ' : '';
+  return ` Notably, ${committeePart}${conjunction}${pipelinePart}.`;
 }
 /**
  * Build article content HTML from week-ahead data
@@ -454,46 +455,51 @@ function buildLedeDetail(committeeCount, pipelineCount) {
  * @returns HTML content string
  */
 export function buildWeekAheadContent(weekData, dateRange, lang = 'en') {
-    const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
-    const strings = getLocalizedString(WEEK_AHEAD_STRINGS, lang);
-    const plenaryHtml = weekData.events.length > 0
-        ? weekData.events.map(renderPlenaryEvent).join('')
-        : `<p>${escapeHTML(strings.noPlenary)}</p>`;
-    const committeeSection = weekData.committees.length > 0
-        ? `<section class="committee-calendar">
+  const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
+  const strings = getLocalizedString(WEEK_AHEAD_STRINGS, lang);
+  const plenaryHtml =
+    weekData.events.length > 0
+      ? weekData.events.map(renderPlenaryEvent).join('')
+      : `<p>${escapeHTML(strings.noPlenary)}</p>`;
+  const committeeSection =
+    weekData.committees.length > 0
+      ? `<section class="committee-calendar">
             <h2>${escapeHTML(strings.committeeMeetings)}</h2>
             ${weekData.committees.map(renderCommitteeMeeting).join('')}
           </section>`
-        : '';
-    const documentsSection = weekData.documents.length > 0
-        ? `<section class="legislative-documents">
+      : '';
+  const documentsSection =
+    weekData.documents.length > 0
+      ? `<section class="legislative-documents">
             <h2>${escapeHTML(strings.legislativeDocuments)}</h2>
             <ul class="document-list">${weekData.documents.map(renderLegislativeDocument).join('')}</ul>
           </section>`
-        : '';
-    const pipelineSection = weekData.pipeline.length > 0
-        ? `<section class="legislative-pipeline">
+      : '';
+  const pipelineSection =
+    weekData.pipeline.length > 0
+      ? `<section class="legislative-pipeline">
             <h2>${escapeHTML(strings.legislativePipeline)}</h2>
             <ul class="pipeline-list">${weekData.pipeline.map(renderPipelineProcedure).join('')}</ul>
           </section>`
-        : '';
-    const qaSection = weekData.questions.length > 0
-        ? `<section class="qa-schedule">
+      : '';
+  const qaSection =
+    weekData.questions.length > 0
+      ? `<section class="qa-schedule">
             <h2>${escapeHTML(strings.parliamentaryQuestions)}</h2>
             <ul class="qa-list">${weekData.questions.map(renderQuestion).join('')}</ul>
           </section>`
-        : '';
-    const ledeDetail = buildLedeDetail(weekData.committees.length, weekData.pipeline.length);
-    const whyThisMattersSection = `
+      : '';
+  const ledeDetail = buildLedeDetail(weekData.committees.length, weekData.pipeline.length);
+  const whyThisMattersSection = `
           <section class="why-this-matters">
             <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
             <p>${escapeHTML(editorial.parliamentaryContext)}: ${escapeHTML(editorial.sourceAttribution)} — parliamentary schedules determine the legislative agenda affecting EU citizens directly.</p>
           </section>`;
-    // Stakeholder impact analysis
-    const stakeholderData = buildStakeholderImpactMatrix(weekData.events, weekData.documents, lang);
-    const temperature = computeWeekPoliticalTemperature(weekData.events, weekData.questions);
-    const stakeholderSection = renderStakeholderSection(stakeholderData, temperature, lang);
-    return `
+  // Stakeholder impact analysis
+  const stakeholderData = buildStakeholderImpactMatrix(weekData.events, weekData.documents, lang);
+  const temperature = computeWeekPoliticalTemperature(weekData.events, weekData.questions);
+  const stakeholderSection = renderStakeholderSection(stakeholderData, temperature, lang);
+  return `
         <div class="article-content">
           <section class="lede">
             <p>${escapeHTML(strings.lede)} from ${escapeHTML(dateRange.start)} to ${escapeHTML(dateRange.end)}.${escapeHTML(ledeDetail)}</p>
@@ -519,17 +525,15 @@ export function buildWeekAheadContent(weekData, dateRange, lang = 'en') {
  * @returns Array of keyword strings
  */
 export function buildKeywords(weekData) {
-    const keywords = [KEYWORD_EUROPEAN_PARLIAMENT, 'week ahead', 'plenary', 'committees'];
-    for (const c of weekData.committees) {
-        if (c.committee && !keywords.includes(c.committee)) {
-            keywords.push(c.committee);
-        }
+  const keywords = [KEYWORD_EUROPEAN_PARLIAMENT, 'week ahead', 'plenary', 'committees'];
+  for (const c of weekData.committees) {
+    if (c.committee && !keywords.includes(c.committee)) {
+      keywords.push(c.committee);
     }
-    if (weekData.pipeline.length > 0)
-        keywords.push('legislative pipeline');
-    if (weekData.questions.length > 0)
-        keywords.push('parliamentary questions');
-    return keywords;
+  }
+  if (weekData.pipeline.length > 0) keywords.push('legislative pipeline');
+  if (weekData.questions.length > 0) keywords.push('parliamentary questions');
+  return keywords;
 }
 // ─── What-to-Watch section ─────────────────────────────────────────────────
 /** CSS class for bottleneck-risk watch items */
@@ -547,11 +551,14 @@ const WATCH_MAX_NORMAL_ITEMS = 3;
  * @returns HTML list items for high bottleneck risk items
  */
 function buildHighRiskItems(velocities) {
-    return velocities
-        .filter((v) => v.bottleneckRisk === 'high')
-        .map((v) => `<li class="${CSS_WATCH_HIGH}">${escapeHTML(v.title)} — ` +
-        `Stage: ${escapeHTML(v.stage)} (bottleneck risk detected)</li>`)
-        .join('');
+  return velocities
+    .filter((v) => v.bottleneckRisk === 'high')
+    .map(
+      (v) =>
+        `<li class="${CSS_WATCH_HIGH}">${escapeHTML(v.title)} — ` +
+        `Stage: ${escapeHTML(v.stage)} (bottleneck risk detected)</li>`
+    )
+    .join('');
 }
 /**
  * Build list items for procedures flagged as bottlenecks
@@ -560,11 +567,14 @@ function buildHighRiskItems(velocities) {
  * @returns HTML list items for bottlenecked procedures
  */
 function buildBottleneckProcedureItems(procedures) {
-    return procedures
-        .filter((p) => p.bottleneck === true)
-        .map((p) => `<li class="${CSS_WATCH_PROCEDURE}">${escapeHTML(p.title)} — ` +
-        `${escapeHTML(p.stage ?? 'in progress')} stage</li>`)
-        .join('');
+  return procedures
+    .filter((p) => p.bottleneck === true)
+    .map(
+      (p) =>
+        `<li class="${CSS_WATCH_PROCEDURE}">${escapeHTML(p.title)} — ` +
+        `${escapeHTML(p.stage ?? 'in progress')} stage</li>`
+    )
+    .join('');
 }
 /**
  * Build list items for normal-risk velocities
@@ -573,12 +583,15 @@ function buildBottleneckProcedureItems(procedures) {
  * @returns HTML list items for the top normal-risk velocity items
  */
 function buildNormalVelocityItems(velocities) {
-    return velocities
-        .filter((v) => v.bottleneckRisk !== 'high')
-        .slice(0, WATCH_MAX_NORMAL_ITEMS)
-        .map((v) => `<li class="${CSS_WATCH_ITEM}">${escapeHTML(v.title)} — ` +
-        `predicted completion: ${escapeHTML(v.predictedCompletion)}</li>`)
-        .join('');
+  return velocities
+    .filter((v) => v.bottleneckRisk !== 'high')
+    .slice(0, WATCH_MAX_NORMAL_ITEMS)
+    .map(
+      (v) =>
+        `<li class="${CSS_WATCH_ITEM}">${escapeHTML(v.title)} — ` +
+        `predicted completion: ${escapeHTML(v.predictedCompletion)}</li>`
+    )
+    .join('');
 }
 /**
  * Build predictive "What to Watch" analysis section showing legislative
@@ -591,15 +604,14 @@ function buildNormalVelocityItems(velocities) {
  * @returns HTML string for the "What to Watch" section
  */
 export function buildWhatToWatchSection(procedures, velocities, language) {
-    if (procedures.length === 0 && velocities.length === 0)
-        return '';
-    const allItems = buildHighRiskItems(velocities) +
-        buildBottleneckProcedureItems(procedures) +
-        buildNormalVelocityItems(velocities);
-    if (!allItems)
-        return '';
-    const strings = getLocalizedString(WEEK_AHEAD_STRINGS, language);
-    return `
+  if (procedures.length === 0 && velocities.length === 0) return '';
+  const allItems =
+    buildHighRiskItems(velocities) +
+    buildBottleneckProcedureItems(procedures) +
+    buildNormalVelocityItems(velocities);
+  if (!allItems) return '';
+  const strings = getLocalizedString(WEEK_AHEAD_STRINGS, language);
+  return `
         <section class="what-to-watch" lang="${escapeHTML(language)}">
           <h2>${escapeHTML(strings.whatToWatch)}</h2>
           <ul>

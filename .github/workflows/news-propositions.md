@@ -65,7 +65,8 @@ safe-outputs:
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - github.com
-  create-pull-request: {}
+  create-pull-request:
+    max-size: 2097152
   add-comment: {}
 
 steps:
@@ -190,7 +191,7 @@ For each new legislative proposition, assess:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, EP MCP server warm-up
-- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis-output/{date}/`)
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/{date}/`)
 - **Minutes 8–18**: Query EP MCP tools for legislative proposals and pipeline data
 - **Minutes 18–45**: Generate English article with deep political intelligence analysis
 - **Minutes 45–52**: Validate HTML
@@ -212,7 +213,7 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
    - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - **Per-Document Analysis** *(opt-in via `--analysis-methods`)*: per-document markdown + JSON intelligence files
-3. **Writes and commits analysis artifacts** to `analysis-output/{date}/` (markdown files + `manifest.json`) — these are included in the PR for review and political intelligence improvement
+3. **Writes and commits analysis artifacts** to `analysis/{date}/` (markdown files + `manifest.json`) — these are included in the PR for review and political intelligence improvement
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
@@ -809,7 +810,7 @@ Pass `$BRANCH_NAME` (e.g., `news/propositions-2026-02-24`) as the `head` paramet
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament propositions articles ${TODAY}`,
-  body: `## EU Parliament Propositions Articles\n\nGenerated propositions articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis-output/${TODAY}/\``,
+  body: `## EU Parliament Propositions Articles\n\nGenerated propositions articles for ${LANG_ARG}.\n\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/\``,
   base: "main",
   head: BRANCH_NAME
 })

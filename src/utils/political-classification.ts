@@ -875,7 +875,7 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
 // ─── Analysis directory & file utilities ─────────────────────────────────────
 
 /**
- * Initialize the `analysis-output/{date}/` directory structure.
+ * Initialize the `analysis/{date}/` directory structure.
  *
  * Creates the following sub-directories if they do not already exist:
  * - `classification/`      — Political classification results
@@ -883,7 +883,7 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
  * - `threat-assessment/`   — Political threat analysis (Issue 2)
  * - `risk-scoring/`        — Quantitative risk assessment (Issue 3)
  *
- * @param baseDir - Base directory for analysis output (typically `analysis-output/`)
+ * @param baseDir - Base directory for analysis output (typically `analysis/`)
  * @param date - ISO date string used as the run folder name (YYYY-MM-DD).
  *   Must match `^\d{4}-\d{2}-\d{2}$`; rejects path-separator or traversal values.
  * @returns Path to the date-stamped run directory (relative or absolute depending on baseDir)
@@ -891,11 +891,11 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
  *
  * @example
  * ```ts
- * const runDir = initializeAnalysisDirectory('./analysis-output', '2026-03-26');
- * // Creates: ./analysis-output/2026-03-26/classification/
- * //          ./analysis-output/2026-03-26/data/
- * //          ./analysis-output/2026-03-26/threat-assessment/
- * //          ./analysis-output/2026-03-26/risk-scoring/
+ * const runDir = initializeAnalysisDirectory('./analysis', '2026-03-26');
+ * // Creates: ./analysis/2026-03-26/classification/
+ * //          ./analysis/2026-03-26/data/
+ * //          ./analysis/2026-03-26/threat-assessment/
+ * //          ./analysis/2026-03-26/risk-scoring/
  * ```
  */
 export function initializeAnalysisDirectory(baseDir: string, date: string): string {
@@ -903,7 +903,26 @@ export function initializeAnalysisDirectory(baseDir: string, date: string): stri
     throw new Error(`Invalid date format: "${date}" — expected YYYY-MM-DD`);
   }
   const runDir = path.join(baseDir, date);
-  const subdirs = ['classification', 'data', 'threat-assessment', 'risk-scoring'];
+  const subdirs = [
+    'classification',
+    'data',
+    'data/events',
+    'data/procedures',
+    'data/adopted-texts',
+    'data/documents',
+    'data/meps',
+    'data/plenary-documents',
+    'data/committee-documents',
+    'data/plenary-session-documents',
+    'data/external-documents',
+    'data/questions',
+    'data/declarations',
+    'data/corporate-bodies',
+    'data/votes',
+    'data/speeches',
+    'threat-assessment',
+    'risk-scoring',
+  ];
   for (const sub of subdirs) {
     fs.mkdirSync(path.join(runDir, sub), { recursive: true });
   }
@@ -969,7 +988,7 @@ export function serializeFrontmatter(fm: AnalysisFrontmatter): string {
  *
  * @example
  * ```ts
- * writeAnalysisFile('./analysis-output/2026-03-26/classification/significance-assessment.md', fm, body);
+ * writeAnalysisFile('./analysis/2026-03-26/classification/significance-assessment.md', fm, body);
  * ```
  */
 export function writeAnalysisFile(
