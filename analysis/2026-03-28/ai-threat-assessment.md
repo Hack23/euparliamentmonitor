@@ -51,7 +51,7 @@ classification: "Public"
 | **Analysis Date** | `2026-03-28 10:16 UTC` |
 | **Analysis Period** | `2026-W13 (2026-03-23 to 2026-03-29)` |
 | **Produced By** | `EU Parliament Monitor — Intelligence Operative (AI-Enhanced)` |
-| **Political Context** | EP10 is in its operational phase with a stable grand coalition (EPP+S&D+RE = 396 seats, 55%). The right flank (EPP+ECR+PfE+ESN = 376 seats, 52.2%) forms a near-majority, creating latent realignment pressure. No voting anomalies detected; legislative pipeline running at full capacity (20 active procedures, momentum: STRONG). Eurozone divergence (Germany contracting at -0.50%, Spain growing at 3.46%) provides macroeconomic context for policy friction. |
+| **Political Context** | EP10 is in its operational phase with a stable grand coalition (EPP+S&D+RE = 396 seats, 55%). Crucially, EPP sits at the pivot of two viable majority configurations: the centrist grand coalition (EPP+S&D+RE) **and** an alternative right-flank majority (EPP+ECR+PfE+ESN = 376 seats, 52.2%), creating latent realignment pressure. No voting anomalies detected; legislative pipeline running at full capacity (20 active procedures, momentum: STRONG). Eurozone divergence (Germany contracting at -0.50%, Spain growing at 3.46%) provides macroeconomic context for policy friction. |
 | **Overall Threat Level** | 🟡 **MODERATE** |
 | **Assessment Confidence** | **HIGH** — Multiple independent MCP data sources corroborate all findings |
 
