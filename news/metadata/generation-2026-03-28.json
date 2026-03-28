@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-03-28T10:16:33.419Z",
+  "generated": 2,
+  "skipped": 0,
+  "dryRun": 0,
+  "errors": 0,
+  "articles": [
+    "2026-03-28-month-in-review-en.html",
+    "2026-03-28-week-in-review-en.html"
+  ],
+  "results": [
+    {
+      "success": true,
+      "files": 1,
+      "slug": "2026-03-28-month-in-review"
+    },
+    {
+      "success": true,
+      "files": 1,
+      "slug": "2026-03-28-week-in-review"
+    }
+  ],
+  "usedMCP": true
+}

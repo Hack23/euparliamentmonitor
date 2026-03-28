@@ -1,0 +1,74 @@
+{
+  "period": {
+    "from": "2025-03-28",
+    "to": "2026-03-28"
+  },
+  "parliament": {
+    "totalMEPs": 100,
+    "politicalGroups": 8,
+    "countriesRepresented": 23
+  },
+  "groups": [
+    {
+      "name": "PPE",
+      "memberCount": 38,
+      "seatShare": 38,
+      "countries": 14
+    },
+    {
+      "name": "S&D",
+      "memberCount": 22,
+      "seatShare": 22,
+      "countries": 12
+    },
+    {
+      "name": "PfE",
+      "memberCount": 11,
+      "seatShare": 11,
+      "countries": 5
+    },
+    {
+      "name": "Verts/ALE",
+      "memberCount": 10,
+      "seatShare": 10,
+      "countries": 7
+    },
+    {
+      "name": "ECR",
+      "memberCount": 8,
+      "seatShare": 8,
+      "countries": 5
+    },
+    {
+      "name": "Renew",
+      "memberCount": 5,
+      "seatShare": 5,
+      "countries": 4
+    },
+    {
+      "name": "NI",
+      "memberCount": 4,
+      "seatShare": 4,
+      "countries": 3
+    },
+    {
+      "name": "The Left",
+      "memberCount": 2,
+      "seatShare": 2,
+      "countries": 2
+    }
+  ],
+  "powerDynamics": {
+    "largestGroup": "PPE",
+    "majorityThreshold": 51,
+    "grandCoalitionSize": 60
+  },
+  "computedAttributes": {
+    "fragmentationIndex": "HIGH",
+    "majorityType": "MULTI_COALITION_REQUIRED",
+    "politicalBalance": "BALANCED"
+  },
+  "confidenceLevel": "MEDIUM",
+  "dataFreshness": "Real-time EP API data",
+  "sourceAttribution": "European Parliament Open Data Portal"
+}

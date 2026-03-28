@@ -1,0 +1,54 @@
+{
+  "period": {
+    "from": "2024-01-01",
+    "to": "2024-12-31"
+  },
+  "groupMetrics": [
+    {
+      "groupId": "EPP",
+      "memberCount": 0
+    },
+    {
+      "groupId": "S&D",
+      "memberCount": 135
+    },
+    {
+      "groupId": "Renew",
+      "memberCount": 77
+    },
+    {
+      "groupId": "Greens/EFA",
+      "memberCount": 0
+    },
+    {
+      "groupId": "ECR",
+      "memberCount": 81
+    },
+    {
+      "groupId": "ID",
+      "memberCount": 0
+    },
+    {
+      "groupId": "The Left",
+      "memberCount": 46
+    },
+    {
+      "groupId": "NI",
+      "memberCount": 30
+    }
+  ],
+  "dominantCoalition": {
+    "groups": [
+      "Renew",
+      "ECR"
+    ],
+    "cohesion": 0.95
+  },
+  "computedAttributes": {
+    "parliamentaryFragmentation": 4.04,
+    "effectiveNumberOfParties": 4.04
+  },
+  "confidenceLevel": "LOW",
+  "dataFreshness": "Real-time EP API data",
+  "sourceAttribution": "European Parliament Open Data Portal"
+}

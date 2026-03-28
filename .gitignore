@@ -161,4 +161,4 @@ final-index-redesign.png
 # Analysis pipeline output — committed for review and political intelligence improvement.
 # Political Intelligence Classification Framework — analysis output
 # Generated per-run by the Analysis-First Pipeline Stage (Issue 4).
-# Committed to analysis-output/{date}/ so artifacts can be reviewed, compared, and refined.
+# Committed to analysis/{date}/ so artifacts can be reviewed, compared, and refined.

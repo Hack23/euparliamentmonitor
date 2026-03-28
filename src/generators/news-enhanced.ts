@@ -13,7 +13,7 @@
  *
  * When the `--analysis` flag is supplied (all 9 agentic workflows do this),
  * the analysis stage runs **before** article generation, producing structured
- * political intelligence artifacts under `analysis-output/{date}/`.  These
+ * political intelligence artifacts under `analysis/{date}/{article-type}/`.  These
  * artifacts are committed to the repository for review and improvement.
  *
  * Pipeline stages:
@@ -72,6 +72,7 @@ import {
   ALL_ANALYSIS_METHODS,
   VALID_ANALYSIS_METHODS,
   hasSubstantiveData,
+  deriveArticleTypeSlug,
 } from './pipeline/analysis-stage.js';
 import type { AnalysisMethod, AnalysisContext } from './pipeline/analysis-stage.js';
 
@@ -284,7 +285,7 @@ function parseAnalysisMethods(): readonly AnalysisMethod[] {
  * Run the optional analysis stage (Fetch → Analysis) before article generation.
  *
  * This function is **side-effect-only**: it writes analysis markdown and a
- * `manifest.json` to disk under `analysis-output/{date}/`.  The returned
+ * `manifest.json` to disk under `analysis/{date}/{article-type}/`.  The returned
  * {@link AnalysisContext} is informational; strategies read analysis output
  * from disk rather than consuming the context object in-memory.  Analysis
  * artifacts are committed to the repository for review and political
@@ -314,7 +315,7 @@ async function maybeRunAnalysis(
   const analysisDirBase =
     trimmedAnalysisDirBase && trimmedAnalysisDirBase.length > 0
       ? trimmedAnalysisDirBase
-      : 'analysis-output';
+      : 'analysis';
   const enabledMethods = parseAnalysisMethods();
 
   console.log('');
@@ -380,12 +381,19 @@ async function maybeRunAnalysis(
     VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory)
   ) as readonly ArticleCategory[];
 
+  // Derive a slug from the article types to scope analysis output per workflow,
+  // preventing merge conflicts when multiple workflows run on the same date.
+  const slug = deriveArticleTypeSlug(validArticleTypes);
+
+  console.log(`   Article type slug: ${slug}`);
+
   // Pass requireData=true so runAnalysisStage enforces data availability
   // and aborts on any failed method — no hollow or partially failed analysis should exist.
   const ctx = await runAnalysisStage(fetchedData, {
     articleTypes: validArticleTypes,
     date,
     outputDir: analysisDirBase,
+    articleTypeSlug: slug,
     enabledMethods,
     skipCompleted: true,
     verbose: analysisVerboseArg,
