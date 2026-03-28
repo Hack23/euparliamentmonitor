@@ -141,7 +141,7 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
    - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - **Per-Document Analysis**: per-document markdown + JSON intelligence files for every downloaded MCP file
-3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/` (markdown files + `manifest.json`) — all workflows share a single date-level directory for comprehensive analysis of all downloaded data, avoiding merge conflicts
+3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently on the same date; the downloaded MCP `data/` directory under `analysis/${TODAY}/data/` is shared across runs
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.

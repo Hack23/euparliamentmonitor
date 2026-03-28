@@ -12,11 +12,10 @@
  * news articles in all 14 languages.
  *
  * This stage is **side-effect-only**: it writes analysis markdown and a
- * `manifest.json` to disk under `analysis/{date}/`.  All workflows share
- * a single date-level directory so that the full set of downloaded data is
- * analysed once comprehensively, avoiding merge conflicts and duplicate
- * analysis across concurrent workflows (`skipCompleted` reuses results).
- * The returned
+ * `manifest.json` to disk under `analysis/{date}/{article-type}/`.  When
+ * `articleTypeSlug` is provided (recommended for agentic workflows), each
+ * article type writes to its own subdirectory, preventing merge conflicts
+ * when multiple workflows run concurrently on the same date.  The returned
  * {@link AnalysisContext} is informational and currently not consumed by the
  * generate stage; strategies read the analysis output from disk instead.
  * Analysis artifacts are committed to the repository for review and
@@ -345,18 +344,21 @@ export const ALL_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
   'coalition-analysis',
   'voting-patterns',
   'cross-session-intelligence',
-  // Per-document analysis — creates a markdown + JSON file for every feed item,
-  // enabling comprehensive review of all downloaded MCP data.
-  'document-analysis',
+  // NOTE: 'document-analysis' is intentionally excluded from the default set.
+  // It writes one markdown + one JSON file per feed item and can significantly
+  // increase runtime and repository output size.  Callers must opt-in by
+  // explicitly listing it in `enabledMethods`.
 ] as const;
 
 /**
- * All valid analysis method names.  Identical to {@link ALL_ANALYSIS_METHODS}
- * now that `document-analysis` is included by default.  Kept as a separate
- * constant for backwards-compatible validation of user-supplied method names
- * (e.g. the `--analysis-methods` CLI flag).
+ * All valid analysis method names, including opt-in methods like
+ * `document-analysis`.  Use this for **validation** of user-supplied method
+ * names (e.g. the `--analysis-methods` CLI flag).  For the default execution
+ * set, use {@link ALL_ANALYSIS_METHODS} instead.
  */
-export const VALID_ANALYSIS_METHODS: readonly AnalysisMethod[] = [...ALL_ANALYSIS_METHODS];
+export const VALID_ANALYSIS_METHODS: readonly AnalysisMethod[] = Array.from(
+  new Set<AnalysisMethod>([...ALL_ANALYSIS_METHODS, 'document-analysis'])
+);
 
 // ─── Interfaces ───────────────────────────────────────────────────────────────
 
@@ -369,10 +371,13 @@ export interface AnalysisStageOptions {
   /** Base output directory (e.g. 'analysis') */
   readonly outputDir: string;
   /**
-   * @deprecated No longer used.  Analysis output always writes to
-   * `{outputDir}/{date}/` to ensure comprehensive analysis of all
-   * downloaded data and avoid merge conflicts.  Retained for interface
-   * backwards compatibility; the value is ignored at runtime.
+   * Filesystem-safe slug identifying the article type for this run.
+   *
+   * When provided, analysis output is scoped to `{outputDir}/{date}/{slug}/`
+   * instead of `{outputDir}/{date}/`, preventing merge conflicts when multiple
+   * agentic workflows run concurrently for different article types on the same date.
+   *
+   * Use {@link deriveArticleTypeSlug} to compute the slug from article types.
    */
   readonly articleTypeSlug?: string | undefined;
   /** Which methods to run; defaults to {@link ALL_ANALYSIS_METHODS} */
@@ -411,7 +416,7 @@ export interface AnalysisManifest {
   readonly runId: string;
   /** ISO date of the analysis */
   readonly date: string;
-  /** @deprecated Retained for backwards compatibility; always undefined in new runs */
+  /** Article-type slug used to scope this run's output directory (prevents collisions) */
   readonly articleTypeSlug?: string | undefined;
   /** ISO 8601 start timestamp */
   readonly startTime: string;
@@ -2549,12 +2554,24 @@ function runSingleMethod(
 /**
  * Derive a filesystem-safe slug from a list of article types.
  *
- * @deprecated Analysis output is no longer scoped by article type.
- * All workflows write to `{outputDir}/{date}/` for comprehensive analysis
- * of all downloaded data.  Retained for backwards compatibility.
+ * Each agentic workflow runs a single article type (e.g. `week-ahead`).
+ * The slug is used to scope analysis output to
+ * `{outputDir}/{date}/{slug}/` so that concurrent workflows for different
+ * article types never collide on the same files.
+ *
+ * When multiple types are present the slug is the sorted, hyphen-joined list.
+ * The result is sanitised to contain only lowercase alphanumeric characters
+ * and hyphens, preventing path traversal or filesystem issues.
  *
  * @param articleTypes - One or more article category identifiers
  * @returns Filesystem-safe slug (lowercase, alphanumeric + hyphens only)
+ *
+ * @example
+ * ```ts
+ * deriveArticleTypeSlug(['week-ahead']);       // 'week-ahead'
+ * deriveArticleTypeSlug(['breaking']);          // 'breaking'
+ * deriveArticleTypeSlug(['motions', 'month-ahead']); // 'month-ahead-motions'
+ * ```
  */
 export function deriveArticleTypeSlug(articleTypes: readonly (ArticleCategory | string)[]): string {
   if (articleTypes.length === 0) return 'default';
@@ -2573,10 +2590,9 @@ export function deriveArticleTypeSlug(articleTypes: readonly (ArticleCategory | 
  * Run the full analysis pipeline stage.
  *
  * Executes all enabled analysis methods sequentially, writing markdown files
- * and a `manifest.json` summary.  Output always goes to `outputDir/{date}/`
- * so that all workflows share a single comprehensive analysis directory.
- * With `skipCompleted: true` (the default), concurrent workflows reuse
- * already-completed methods rather than duplicating work.
+ * and a `manifest.json` summary.  When {@link AnalysisStageOptions.articleTypeSlug}
+ * is provided the output is scoped to `outputDir/{date}/{slug}/` — this prevents
+ * merge conflicts when multiple agentic workflows run on the same date.
  *
  * Individual method failures are isolated — other methods continue regardless.
  *
@@ -2590,6 +2606,7 @@ export function deriveArticleTypeSlug(articleTypes: readonly (ArticleCategory | 
  *   articleTypes: [ArticleCategory.WEEK_AHEAD],
  *   date: '2026-03-26',
  *   outputDir: 'analysis',
+ *   articleTypeSlug: 'week-ahead',
  *   skipCompleted: true,
  *   verbose: true,
  * });
@@ -2603,7 +2620,7 @@ export async function runAnalysisStage(
     articleTypes,
     date,
     outputDir,
-    // articleTypeSlug is deprecated — ignored; output always goes to {outputDir}/{date}/
+    articleTypeSlug,
     enabledMethods = ALL_ANALYSIS_METHODS,
     skipCompleted = true,
     verbose = false,
@@ -2622,12 +2639,16 @@ export async function runAnalysisStage(
   const startTime = new Date().toISOString();
   const runId = randomUUID();
 
-  // All workflows share a single date-level directory for comprehensive analysis.
-  const dateOutputDir = path.resolve(outputDir, date);
+  // When articleTypeSlug is provided, scope output to a per-article-type
+  // subdirectory so concurrent workflows on the same date never collide.
+  const dateOutputDir = articleTypeSlug
+    ? path.resolve(outputDir, date, articleTypeSlug)
+    : path.resolve(outputDir, date);
 
   if (verbose) {
     console.log(`🔬 [analysis] Starting analysis stage (runId: ${runId})`);
     console.log(`   Date: ${date}`);
+    if (articleTypeSlug) console.log(`   Article type: ${articleTypeSlug}`);
     console.log(`   Methods: ${deduplicatedMethods.length}`);
     console.log(`   Output: ${dateOutputDir}`);
   }
@@ -2697,6 +2718,7 @@ export async function runAnalysisStage(
   const manifest: AnalysisManifest = {
     runId,
     date,
+    articleTypeSlug,
     startTime,
     endTime,
     articleTypes: [...articleTypes],

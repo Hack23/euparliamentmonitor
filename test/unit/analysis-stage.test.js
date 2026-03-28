@@ -57,8 +57,8 @@ function readScopedManifest(outputDir, date, slug) {
 // ─── ALL_ANALYSIS_METHODS tests ───────────────────────────────────────────────
 
 describe('ALL_ANALYSIS_METHODS', () => {
-  it('contains exactly 19 default analysis methods (including document-analysis)', () => {
-    expect(ALL_ANALYSIS_METHODS).toHaveLength(19);
+  it('contains exactly 18 default analysis methods', () => {
+    expect(ALL_ANALYSIS_METHODS).toHaveLength(18);
   });
 
   it('includes all classification methods', () => {
@@ -91,8 +91,8 @@ describe('ALL_ANALYSIS_METHODS', () => {
     expect(ALL_ANALYSIS_METHODS).toContain('cross-session-intelligence');
   });
 
-  it('includes document-analysis in defaults for full data analysis', () => {
-    expect(ALL_ANALYSIS_METHODS).toContain('document-analysis');
+  it('excludes document-analysis from defaults (opt-in only)', () => {
+    expect(ALL_ANALYSIS_METHODS).not.toContain('document-analysis');
   });
 
   it('has no duplicate entries', () => {
@@ -104,8 +104,8 @@ describe('ALL_ANALYSIS_METHODS', () => {
 // ─── VALID_ANALYSIS_METHODS tests ─────────────────────────────────────────────
 
 describe('VALID_ANALYSIS_METHODS', () => {
-  it('is identical to ALL_ANALYSIS_METHODS now that document-analysis is included by default', () => {
-    expect(VALID_ANALYSIS_METHODS).toHaveLength(ALL_ANALYSIS_METHODS.length);
+  it('contains all default methods plus document-analysis as a valid method', () => {
+    expect(VALID_ANALYSIS_METHODS).toHaveLength(ALL_ANALYSIS_METHODS.length + 1);
   });
 
   it('includes all default analysis methods', () => {
@@ -362,15 +362,15 @@ describe('runAnalysisStage', () => {
     expect(ctx.completedMethods).toContain('coalition-analysis');
   });
 
-  it('runs all 19 default methods when no enabledMethods is specified', async () => {
+  it('runs all 18 default methods when no enabledMethods is specified', async () => {
     const ctx = await runAnalysisStage(buildTestFetchedData(), {
       articleTypes: ['week-ahead'],
       date: testDate,
       outputDir: tmpDir,
     });
 
-    expect(ctx.results.size).toBe(19);
-    expect(ctx.manifest.methods).toHaveLength(19);
+    expect(ctx.results.size).toBe(18);
+    expect(ctx.manifest.methods).toHaveLength(18);
   });
 
   it('stores results in the AnalysisContext results map', async () => {
@@ -1643,10 +1643,10 @@ describe('runAnalysisStage', () => {
     });
   });
 
-  // ─── Unified output directory tests (articleTypeSlug deprecated) ──────────────
+  // ─── Article-type-scoped output directory tests ─────────────────────────────
 
-  describe('unified output directory (articleTypeSlug deprecated)', () => {
-    it('always writes to {date}/ regardless of articleTypeSlug', async () => {
+  describe('article-type-scoped output (articleTypeSlug)', () => {
+    it('scopes output to {date}/{slug}/ when articleTypeSlug is provided', async () => {
       const ctx = await runAnalysisStage(buildTestFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -1655,12 +1655,13 @@ describe('runAnalysisStage', () => {
         enabledMethods: ['deep-analysis'],
       });
 
-      // Output should be at {tmpDir}/{date}/ — no slug subdirectory
-      expect(ctx.outputDir).toBe(path.resolve(tmpDir, testDate));
-      expect(fs.existsSync(path.join(tmpDir, testDate, 'manifest.json'))).toBe(true);
+      expect(ctx.outputDir).toContain('week-ahead');
+      const scopedDir = path.join(tmpDir, testDate, 'week-ahead');
+      expect(fs.existsSync(scopedDir)).toBe(true);
+      expect(fs.existsSync(path.join(scopedDir, 'manifest.json'))).toBe(true);
     });
 
-    it('manifest does not contain articleTypeSlug field', async () => {
+    it('writes manifest with articleTypeSlug field', async () => {
       await runAnalysisStage(buildTestFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -1669,15 +1670,16 @@ describe('runAnalysisStage', () => {
         enabledMethods: ['deep-analysis'],
       });
 
-      const manifest = readManifest(tmpDir, testDate);
-      expect(manifest.articleTypeSlug).toBeUndefined();
+      const manifest = readScopedManifest(tmpDir, testDate, 'week-ahead');
+      expect(manifest.articleTypeSlug).toBe('week-ahead');
     });
 
-    it('multiple article types share the same output directory', async () => {
+    it('isolates two different article types to separate directories', async () => {
       await runAnalysisStage(buildTestFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
         outputDir: tmpDir,
+        articleTypeSlug: 'week-ahead',
         enabledMethods: ['deep-analysis'],
       });
 
@@ -1685,16 +1687,25 @@ describe('runAnalysisStage', () => {
         articleTypes: ['breaking'],
         date: testDate,
         outputDir: tmpDir,
+        articleTypeSlug: 'breaking',
         enabledMethods: ['deep-analysis'],
       });
 
-      // Both write to the same date-level directory
-      const dateDir = path.join(tmpDir, testDate);
-      expect(fs.existsSync(dateDir)).toBe(true);
-      expect(fs.existsSync(path.join(dateDir, 'manifest.json'))).toBe(true);
+      // Both directories exist independently
+      const weekDir = path.join(tmpDir, testDate, 'week-ahead');
+      const breakingDir = path.join(tmpDir, testDate, 'breaking');
+      expect(fs.existsSync(weekDir)).toBe(true);
+      expect(fs.existsSync(breakingDir)).toBe(true);
+
+      // Each has its own manifest
+      const m1 = readScopedManifest(tmpDir, testDate, 'week-ahead');
+      const m2 = readScopedManifest(tmpDir, testDate, 'breaking');
+      expect(m1.articleTypeSlug).toBe('week-ahead');
+      expect(m2.articleTypeSlug).toBe('breaking');
+      expect(m1.runId).not.toBe(m2.runId);
     });
 
-    it('falls back to {date}/ when articleTypeSlug is omitted', async () => {
+    it('falls back to {date}/ when articleTypeSlug is omitted (backward compat)', async () => {
       const ctx = await runAnalysisStage(buildTestFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -1715,10 +1726,11 @@ describe('runAnalysisStage', () => {
         articleTypes: ['week-ahead'],
         date: testDate,
         outputDir: tmpDir,
+        articleTypeSlug: 'week-ahead',
         enabledMethods: ['deep-analysis'],
       });
 
-      const osintDir = path.join(tmpDir, testDate, 'data', 'osint');
+      const osintDir = path.join(tmpDir, testDate, 'week-ahead', 'data', 'osint');
       expect(fs.existsSync(osintDir)).toBe(true);
       expect(fs.existsSync(path.join(osintDir, 'political-landscape.json'))).toBe(true);
       expect(fs.existsSync(path.join(osintDir, 'voting-anomalies.json'))).toBe(true);
@@ -1734,10 +1746,11 @@ describe('runAnalysisStage', () => {
         articleTypes: ['week-ahead'],
         date: testDate,
         outputDir: tmpDir,
+        articleTypeSlug: 'week-ahead',
         enabledMethods: ['deep-analysis'],
       });
 
-      const wbDir = path.join(tmpDir, testDate, 'data', 'world-bank');
+      const wbDir = path.join(tmpDir, testDate, 'week-ahead', 'data', 'world-bank');
       expect(fs.existsSync(wbDir)).toBe(true);
     });
 
@@ -1752,10 +1765,11 @@ describe('runAnalysisStage', () => {
         articleTypes: ['breaking'],
         date: testDate,
         outputDir: tmpDir,
+        articleTypeSlug: 'breaking',
         enabledMethods: ['deep-analysis'],
       });
 
-      const responseDir = path.join(tmpDir, testDate, 'data', 'mcp-responses');
+      const responseDir = path.join(tmpDir, testDate, 'breaking', 'data', 'mcp-responses');
       expect(fs.existsSync(responseDir)).toBe(true);
       expect(fs.existsSync(path.join(responseDir, 'get-current-meps.json'))).toBe(true);
       expect(fs.existsSync(path.join(responseDir, 'get-plenary-sessions.json'))).toBe(true);

@@ -78,7 +78,7 @@ pie title European Parliament Seat Distribution (EP10)
     "S&D (Socialists & Democrats)" : 136
     "Renew Europe" : 77
     "ECR (European Conservatives)" : 78
-    "ID (Identity & Democracy)" : 25
+    "PfE (Patriots for Europe)" : 84
     "Greens/EFA" : 53
     "The Left (GUE/NGL)" : 46
     "ESN (Europe of Sovereign Nations)" : 25
@@ -105,7 +105,7 @@ quadrantChart
     Greens/EFA: [0.20, 0.25]
     The Left: [0.15, 0.15]
     ECR: [0.70, 0.70]
-    ID: [0.85, 0.60]
+    PfE: [0.85, 0.60]
     ESN: [0.90, 0.55]
 ```
 
@@ -146,7 +146,7 @@ flowchart LR
 
     subgraph "Right-Wing Alliance"
         ECR["🟠 ECR<br/>78 seats"]
-        ID["⚫ ID<br/>25 seats"]
+        PfE["⚫ PfE<br/>84 seats"]
         ESN["🟤 ESN<br/>25 seats"]
     end
 
@@ -164,7 +164,7 @@ flowchart LR
     style SD fill:#cc0000,color:#fff
     style RN fill:#FFD700,color:#000
     style ECR fill:#FF6600,color:#fff
-    style ID fill:#333333,color:#fff
+    style PfE fill:#333333,color:#fff
     style ESN fill:#8B4513,color:#fff
     style GR fill:#009933,color:#fff
     style LF fill:#990000,color:#fff
@@ -241,7 +241,7 @@ Provide 3 forward-looking scenarios:
 | ECR | Orange | `#FF6600` | `fill:#FF6600,color:#fff` |
 | Greens/EFA | Green | `#009933` | `fill:#009933,color:#fff` |
 | The Left | Dark Red | `#990000` | `fill:#990000,color:#fff` |
-| ID | Dark Grey | `#333333` | `fill:#333333,color:#fff` |
+| PfE | Dark Grey | `#333333` | `fill:#333333,color:#fff` |
 | ESN | Brown | `#8B4513` | `fill:#8B4513,color:#fff` |
 | Non-attached | Light Grey | `#999999` | `fill:#999999,color:#fff` |
 

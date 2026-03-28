@@ -889,8 +889,8 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
  * - `data/osint/`               — OSINT analytical tool outputs
  * - `data/mcp-responses/`       — Raw MCP tool call responses
  *
- * All workflows share a single `analysis/{date}/` directory so that the
- * full set of downloaded MCP data is analysed comprehensively.
+ * When article-type scoping is used (recommended for agentic workflows),
+ * the caller should pass a scoped path such as `analysis/{date}/{slug}`.
  *
  * @param baseDir - Base directory for analysis output (typically `analysis/`)
  * @param date - ISO date string used as the run folder name (YYYY-MM-DD).

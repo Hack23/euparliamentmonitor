@@ -399,14 +399,15 @@ flowchart LR
 ### MCP Data Files Used
 
 ```
-analysis/2026-03-28/data/political-landscape.json
-analysis/2026-03-28/data/coalition-dynamics.json
-analysis/2026-03-28/data/legislative-pipeline.json
-analysis/2026-03-28/data/parliamentary-questions.json
-analysis/2026-03-28/data/voting-records.json
-analysis/2026-03-28/data/plenary-sessions.json
-analysis/2026-03-28/data/mep-composition.json
-World Bank economic indicators (DE, FR, IT, ES, PL, SE)
+analysis/2026-03-28/data/osint/political-landscape.json
+analysis/2026-03-28/data/osint/coalition-dynamics.json
+analysis/2026-03-28/data/osint/legislative-pipeline.json
+analysis/2026-03-28/data/questions/*.json
+analysis/2026-03-28/data/votes/*.json
+analysis/2026-03-28/data/plenary-session-documents/*.json
+analysis/2026-03-28/data/meps/*.json
+analysis/2026-03-28/data/mcp-responses/generated-stats.json
+analysis/2026-03-28/data/world-bank/*.json (economic indicators for DE, FR, IT, ES, PL, SE)
 ```
 
 ---

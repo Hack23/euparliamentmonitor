@@ -47,7 +47,7 @@ import { ensureDirectoryExists } from '../utils/file-utils.js';
 import { initializeMCPClient, fetchEPFeedData } from './pipeline/fetch-stage.js';
 import { createStrategyRegistry, generateArticleForStrategy } from './pipeline/generate-stage.js';
 import { writeGenerationMetadata } from './pipeline/output-stage.js';
-import { runAnalysisStage, ALL_ANALYSIS_METHODS, VALID_ANALYSIS_METHODS, hasSubstantiveData, } from './pipeline/analysis-stage.js';
+import { runAnalysisStage, ALL_ANALYSIS_METHODS, VALID_ANALYSIS_METHODS, hasSubstantiveData, deriveArticleTypeSlug, } from './pipeline/analysis-stage.js';
 // ─── Content-module imports (bounded contexts) ───────────────────────────────
 import { parsePlenarySessions, parseEPEvents, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, parseParliamentaryQuestions, buildWeekAheadContent, buildKeywords, PLACEHOLDER_EVENTS, buildWhatToWatchSection, buildStakeholderImpactMatrix, computeWeekPoliticalTemperature, } from './week-ahead-content.js';
 import { buildBreakingNewsContent, scoreBreakingNewsSignificance, SIGNIFICANCE_THRESHOLD, } from './breaking-content.js';
@@ -260,13 +260,17 @@ async function maybeRunAnalysis(date, client) {
         throw new Error(msg);
     }
     const validArticleTypes = normalizedArticleTypes.filter((t) => VALID_ARTICLE_CATEGORIES.includes(t));
-    console.log(`   Analysis: full comprehensive analysis of all downloaded data`);
+    // Derive a slug from the article types to scope analysis output per workflow,
+    // preventing merge conflicts when multiple workflows run on the same date.
+    const slug = deriveArticleTypeSlug(validArticleTypes);
+    console.log(`   Article type slug: ${slug}`);
     // Pass requireData=true so runAnalysisStage enforces data availability
     // and aborts on any failed method — no hollow or partially failed analysis should exist.
     const ctx = await runAnalysisStage(fetchedData, {
         articleTypes: validArticleTypes,
         date,
         outputDir: analysisDirBase,
+        articleTypeSlug: slug,
         enabledMethods,
         skipCompleted: true,
         verbose: analysisVerboseArg,
