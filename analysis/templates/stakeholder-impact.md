@@ -55,7 +55,7 @@
 
 ---
 
-### 🗳️ Group 3: Opposition Groups (ECR, ID, ESN, The Left, Greens/EFA)
+### 🗳️ Group 3: Opposition Groups (ECR, PfE, ESN, The Left, Greens/EFA)
 
 | Parameter | Value |
 |-----------|-------|

@@ -126,9 +126,9 @@ Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.2
 
 ---
 
-### Event 2: EPP Dominance Risk (19x Smallest Group)
+### Event 2: EPP Dominance Risk (~6.6x Smallest Group)
 
-> EPP at 185 seats is 19× the size of ESN (28 seats) — structural imbalance in EP10
+> EPP at 185 seats is ~6.6× the size of ESN (28 seats) — structural imbalance in EP10
 
 | Dimension | Raw Score | Weight | Weighted Score |
 |-----------|:---------:|:------:|:--------------:|

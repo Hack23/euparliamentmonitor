@@ -164,7 +164,7 @@ flowchart TD
     end
 
     %% EP Internal Coalitions
-    EPP <-->|"Grand coalition<br/>320 seats"| SD
+    EPP <-->|"EPP+S&D core<br/>320 seats"| SD
     EPP <-->|"Centre-right axis<br/>cohesion 0.95"| RE
     EPP <-->|"Conservative bridge<br/>cohesion 0.95"| ECR
     EPP -.->|"Issue-specific<br/>migration/security"| PFE

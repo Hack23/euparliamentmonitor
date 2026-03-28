@@ -111,7 +111,7 @@ analysis/
 > **⚠️ CRITICAL**: Analysis MUST be performed for **every file downloaded** from MCP sources — not per session, not per day summary, but for **every individual piece of content**. This ensures:
 
 1. **Complete coverage**: No downloaded document goes unanalysed
-2. **Merge conflict avoidance**: All workflows write to `analysis/{date}/` (no per-article-type scoping)
+2. **Merge conflict avoidance**: Each workflow writes to `analysis/{date}/{article-type-slug}/` (per-article-type scoping); MCP data is shared at `analysis/{date}/data/`
 3. **Full traceability**: Every analysis artifact traces back to specific MCP data files
 
 ### AI Agent Analysis Requirements
@@ -177,13 +177,13 @@ When running analysis, the AI agent (Opus) MUST:
 **Rules:**
 - All directory names use ISO 8601 dates
 - Never use locale-specific date formats
-- All workflows share a single date-level directory (no per-article-type subdirectories)
+- All workflows share a single date-level directory for MCP data (`analysis/{date}/data/`) but use per-article-type subdirectories for analysis outputs (`analysis/{date}/{article-type-slug}/`)
 
 ---
 
 ## 🤖 Workflow Integration
 
-All 9 agentic news workflows write analysis artifacts to `analysis/{date}/` before article generation:
+All 9 agentic news workflows write analysis artifacts to `analysis/{date}/{article-type-slug}/` before article generation (MCP data is shared at `analysis/{date}/data/`):
 
 | Workflow | Primary Output | Key MCP Data |
 |----------|---------------|-------------|

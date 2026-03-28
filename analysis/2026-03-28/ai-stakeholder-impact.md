@@ -212,7 +212,7 @@ The opposition landscape is fundamentally asymmetric. Right-wing groups (PfE+ECR
 **Opposition Dynamics:**
 - 📈 Right-bloc total: **191 seats** — coherent opposition alternative
 - 📉 Left opposition: **99 seats** — fragmented and shrinking influence
-- ⚠️ ESN quorum risk: **28 seats** — 19x smaller than EPP
+- ⚠️ ESN quorum risk: **28 seats** — ~6.5× smaller than EPP
 - 🔍 Questions weapon: **6,147 filed** — oversight as opposition strategy
 
 ---

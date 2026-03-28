@@ -74,16 +74,15 @@ A structured key findings table with color-coded assessment:
 
 ```mermaid
 pie title European Parliament Seat Distribution (EP10)
-    "EPP (European People's Party)" : 188
-    "S&D (Socialists & Democrats)" : 136
-    "Renew Europe" : 77
-    "ECR (European Conservatives)" : 78
-    "PfE (Patriots for Europe)" : 84
-    "Greens/EFA" : 53
-    "The Left (GUE/NGL)" : 46
-    "ESN (Europe of Sovereign Nations)" : 25
-    "Non-attached" : 33
-    "Vacant" : 59
+    "EPP (European People's Party)" : {N}
+    "S&D (Socialists & Democrats)" : {N}
+    "Renew Europe" : {N}
+    "ECR (European Conservatives)" : {N}
+    "PfE (Patriots for Europe)" : {N}
+    "Greens/EFA" : {N}
+    "The Left (GUE/NGL)" : {N}
+    "ESN (Europe of Sovereign Nations)" : {N}
+    "Non-attached" : {N}
 ```
 
 > **AI Agent Note:** Replace the numbers above with ACTUAL data from `generate_political_landscape`. The pie chart MUST reflect current seat counts.

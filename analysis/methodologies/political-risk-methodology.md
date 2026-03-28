@@ -69,17 +69,16 @@ All political risks are scored using a **5×5 matrix**. Risk Score = Likelihood 
 
 ---
 
-## 📊 Risk Scoring Formula
+## 📊 Risk Scoring
 
-```
-Risk Score = likelihood_probability × impact_weight × 10
+Political risks in this methodology are **only** scored using the 1–25 **Likelihood × Impact** matrix defined above.
 
-Priority thresholds:
-  ≥ 70 → CRITICAL
-  ≥ 50 → HIGH
-  ≥ 30 → MEDIUM
-  < 30 → LOW
-```
+All dashboards, templates, and analyses MUST use:
+- The 1–5 Likelihood scale
+- The 1–5 Impact scale
+- The resulting 1–25 Risk Score with the Low/Medium/High/Critical bands in the Risk Matrix table
+
+No alternative 0–100 scaling or separate threshold system is used in this methodology.
 
 ---
 
