@@ -30,7 +30,7 @@ gdprCompliance: "No personal data processed — aggregate parliamentary statisti
 
 ## Executive Summary
 
-The 10th European Parliament (EP10), inaugurated in July 2024, has entered its mid-term phase exhibiting a **paradox of productive fragmentation**. Legislative output has surged 58% year-on-year (72 → 78 → 114 acts adopted) while political fragmentation remains at historically elevated levels (index: 6.59). The grand coalition of EPP + S&D + Renew Europe commands a **thin but functional majority** of 396/720 seats (55.0%), sustaining a pipeline health score of 100/100 with STRONG legislative momentum.
+The 10th European Parliament (EP10), inaugurated in July 2024, has entered its mid-term phase exhibiting a **paradox of productive fragmentation**. Legislative output has surged 58% year-on-year (72 → 78 → 114 acts adopted) while political fragmentation remains at historically elevated levels (index: 6.59). The grand coalition of EPP + S&D + Renew Europe commands a **thin but functional majority** of 396/720 seats (55.0%), sustaining a pipeline health score of 100/100 (a composite MCP metric measuring legislative procedure progression efficiency, where 100 = zero stalled procedures and maximum throughput) with STRONG legislative momentum.
 
 However, structural asymmetries — the European People's Party (185 seats) is 19× larger than the smallest group ESN (28 seats) — create dominance risks flagged at HIGH severity by the early warning system. Meanwhile, Germany's recession (−0.50% GDP growth) threatens to inject economic anxiety into the legislative agenda, particularly on industrial competitiveness and energy policy.
 
@@ -723,7 +723,7 @@ quadrantChart
 
 ## 12. Scenario Planning
 
-### Scenario A: Stabilised Grand Coalition (Probability: 55%)
+### Scenario A: Stabilised Grand Coalition (Probability: ~55%)
 
 **Conditions**: German economy recovers in 2026 H2; EPP–S&D–RE coordination strengthens; no migration or sovereignty crisis triggers fragmentation.
 
@@ -734,7 +734,7 @@ quadrantChart
 - Grand coalition achieving >90% vote cohesion on priority files
 - No new HIGH-severity early warning flags
 
-### Scenario B: Selective Paralysis (Probability: 30%)
+### Scenario B: Selective Paralysis (Probability: ~30%)
 
 **Conditions**: German recession deepens; migration or energy crisis forces divisive votes; grand coalition splits on 2–3 high-profile files.
 
@@ -745,7 +745,7 @@ quadrantChart
 - Procedure stalling rate rising above 10%
 - Fragmentation index increasing above 7.0 due to group defections
 
-### Scenario C: Systemic Crisis (Probability: 15%)
+### Scenario C: Systemic Crisis (Probability: ~15%)
 
 **Conditions**: Major geopolitical shock (e.g., trade war escalation, security crisis on EU borders) combined with persistent recession creates political emergency.
 
@@ -831,7 +831,7 @@ This analysis applies the **Evidence-Based Political SWOT Framework** defined in
 | **Opportunities Section** | 🟡 MEDIUM | Include some trend extrapolations and pattern inferences |
 | **Threats Section** | 🟡 MEDIUM–HIGH | Economic data HIGH, political risk scenarios MEDIUM |
 | **Strategic Recommendations** | 🟡 MEDIUM | Prescriptive conclusions require judgment beyond data |
-| **Scenario Probabilities** | 🟡 MEDIUM | Expert assessment; not algorithmically derived |
+| **Scenario Probabilities** | 🟡 MEDIUM | Expert assessment; approximate ranges, not algorithmically derived |
 
 ### GDPR Compliance Statement
 
