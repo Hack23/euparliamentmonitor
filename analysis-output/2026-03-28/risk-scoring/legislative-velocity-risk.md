@@ -2,7 +2,7 @@
 method: legislative-velocity-risk
 date: 2026-03-28
 confidence: low
-generated: 2026-03-28T09:17:27.345Z
+generated: 2026-03-28T10:16:33.426Z
 ---
 
 # Legislative Velocity Risk

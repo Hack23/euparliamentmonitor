@@ -2,7 +2,7 @@
 method: risk-matrix
 date: 2026-03-28
 confidence: low
-generated: 2026-03-28T09:17:27.342Z
+generated: 2026-03-28T10:16:33.425Z
 ---
 
 # Political Risk Scoring Matrix

@@ -2,7 +2,7 @@
 method: political-capital-risk
 date: 2026-03-28
 confidence: medium
-generated: 2026-03-28T09:17:27.343Z
+generated: 2026-03-28T10:16:33.425Z
 ---
 
 # Political Capital at Risk

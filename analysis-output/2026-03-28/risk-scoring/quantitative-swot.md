@@ -2,18 +2,18 @@
 method: quantitative-swot
 date: 2026-03-28
 confidence: medium
-generated: 2026-03-28T09:17:27.343Z
+generated: 2026-03-28T10:16:33.425Z
 ---
 
 # Full Political SWOT Analysis
 
 ## Executive Summary
 
-**Strategic Position Score**: 3.4/10
+**Strategic Position Score**: 2.0/10
 **Overall Assessment**: Weak strategic position: weaknesses and threats dominate — urgent mitigation needed.
 **Analysis Date**: 2026-03-28
 
-> This SWOT analysis is derived from 0 procedures, 0 events, 128 adopted texts, 0 documents, 0 voting records, and 0 coalition data points fetched from the European Parliament.
+> This SWOT analysis is derived from 0 procedures, 0 events, 59 adopted texts, 0 documents, 0 voting records, and 0 coalition data points fetched from the European Parliament.
 
 ## SWOT Quadrant Chart
 
@@ -28,7 +28,7 @@ quadrantChart
     quadrant-4 Threats
     S1 0 procedures in active le: [0.55, 0.55]
     S2 0 roll-call votes recorde: [0.55, 0.55]
-    W1 553 MEP updates — data co: [0.30, 0.30]
+    W1 0 MEP updates — data cove: [0.05, 0.05]
     O1 0 parliamentary events sc: [0.65, 0.65]
     T1 0 coalition data points —: [0.59, 0.41]
 ```
@@ -38,7 +38,7 @@ quadrantChart
 | Category | Items | Avg Score | Trend |
 |----------|-------|-----------|-------|
 | 🟢 Strengths | 2 | 0.0 | stable |
-| 🔴 Weaknesses | 1 | 2.0 | stable |
+| 🔴 Weaknesses | 1 | 5.0 | stable |
 | 🔵 Opportunities | 1 | 1.5 | stable |
 | 🟠 Threats | 1 | 0.9 | stable |
 
@@ -50,7 +50,7 @@ quadrantChart
 - **Trend**: stable
 - **Evidence**:
   - 0 procedures tracked in current period
-  - 128 texts adopted
+  - 59 texts adopted
   - 0 documents published
 
 ### S2: 0 roll-call votes recorded with 0 questions
@@ -60,16 +60,16 @@ quadrantChart
 - **Evidence**:
   - 0 voting records available
   - 0 parliamentary questions filed
-  - 553 MEP activity updates
+  - 0 MEP activity updates
 
 ## 🔴 Weaknesses
 
-### W1: 553 MEP updates — data coverage gap assessment
-- **Score**: 2.0/5
+### W1: 0 MEP updates — data coverage gap assessment
+- **Score**: 5.0/5
 - **Confidence**: medium
 - **Trend**: stable
 - **Evidence**:
-  - 553 MEP updates in current period
+  - 0 MEP updates in current period
   - 0 documents vs 0 procedures ratio
   - Data freshness depends on EP feed update frequency
 
@@ -81,7 +81,7 @@ quadrantChart
 - **Trend**: stable
 - **Evidence**:
   - 0 events in analysis period
-  - 128 texts adopted indicates legislative throughput
+  - 59 texts adopted indicates legislative throughput
   - 0 procedures in various stages
 
 ## 🟠 Threats
@@ -101,7 +101,7 @@ quadrantChart
 |-------------|-----------|----------|
 | strength #1 × threat #1 | 0.00 | Strength "0 procedures in active legislative pipeline" partially mitigates threat "0 coalition data points — cohesion monitoring" |
 | strength #2 × threat #1 | 0.00 | Strength "0 roll-call votes recorded with 0 questions" partially mitigates threat "0 coalition data points — cohesion monitoring" |
-| weakness #1 × threat #1 | 0.30 | Weakness "553 MEP updates — data coverage gap assessment" amplifies threat "0 coalition data points — cohesion monitoring" |
+| weakness #1 × threat #1 | 0.75 | Weakness "0 MEP updates — data coverage gap assessment" amplifies threat "0 coalition data points — cohesion monitoring" |
 
 ## Strategic Priorities Matrix
 
@@ -113,10 +113,10 @@ quadrantChart
 | Events | 0 |
 | Documents | 0 |
 | Voting Records | 0 |
-| Adopted Texts | 128 |
+| Adopted Texts | 59 |
 | Coalitions | 0 |
 | Questions | 0 |
-| MEP Updates | 553 |
-| **Total Data Points** | **128** |
+| MEP Updates | 0 |
+| **Total Data Points** | **59** |
 
 ## Date: 2026-03-28

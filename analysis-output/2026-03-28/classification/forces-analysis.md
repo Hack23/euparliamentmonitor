@@ -2,7 +2,7 @@
 method: forces-analysis
 date: 2026-03-28
 confidence: medium
-generated: 2026-03-28T09:17:27.337Z
+generated: 2026-03-28T10:16:33.422Z
 ---
 
 # Political Forces Analysis

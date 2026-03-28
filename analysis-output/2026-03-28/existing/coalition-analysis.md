@@ -2,7 +2,7 @@
 method: coalition-analysis
 date: 2026-03-28
 confidence: high
-generated: 2026-03-28T09:17:27.347Z
+generated: 2026-03-28T10:16:33.428Z
 ---
 
 # Coalition Cohesion Analysis

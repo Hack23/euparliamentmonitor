@@ -2,7 +2,7 @@
 method: impact-matrix
 date: 2026-03-28
 confidence: medium
-generated: 2026-03-28T09:17:27.336Z
+generated: 2026-03-28T10:16:33.421Z
 ---
 
 # Political Impact Matrix

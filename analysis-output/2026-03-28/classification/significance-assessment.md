@@ -2,7 +2,7 @@
 method: significance-classification
 date: 2026-03-28
 confidence: medium
-generated: 2026-03-28T09:17:27.335Z
+generated: 2026-03-28T10:16:33.420Z
 ---
 
 # Political Significance Classification
@@ -31,7 +31,7 @@ quadrantChart
 |--------|----------|-------|
 | Volume | 0 events, 0 documents | 0.0/5 |
 | Pipeline | 0 procedures | 0.0/5 |
-| Output | 128 adopted texts | 5.0/5 |
+| Output | 59 adopted texts | 5.0/5 |
 | Anomalies | Pattern deviation detection | — |
 | Coalition | Group alignment analysis | — |
 
@@ -40,11 +40,11 @@ quadrantChart
 | Metric | Value |
 |--------|-------|
 | Computed significance | ROUTINE |
-| Total data points | 128 |
+| Total data points | 59 |
 | Events | 0 |
 | Documents | 0 |
 | Procedures | 0 |
-| Adopted texts | 128 |
+| Adopted texts | 59 |
 | Date | 2026-03-28 |
 
 ## Date: 2026-03-28

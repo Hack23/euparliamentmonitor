@@ -2,7 +2,7 @@
 method: actor-mapping
 date: 2026-03-28
 confidence: low
-generated: 2026-03-28T09:17:27.337Z
+generated: 2026-03-28T10:16:33.421Z
 ---
 
 # Political Actor Mapping
