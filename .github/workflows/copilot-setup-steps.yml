@@ -62,7 +62,7 @@ jobs:
           # Install system dependencies
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            ca-certificates curl python3 poppler-utils
+            ca-certificates curl python3                    
 
       # JavaScript/TypeScript setup
       - name: Setup Node.js
