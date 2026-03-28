@@ -1,0 +1,161 @@
+{
+  "runId": "5284c2bf-4552-4b34-88a8-e6a87a276f55",
+  "date": "2026-03-28",
+  "startTime": "2026-03-28T09:19:37.798Z",
+  "endTime": "2026-03-28T09:19:37.799Z",
+  "articleTypes": [
+    "week-in-review"
+  ],
+  "methods": [
+    {
+      "method": "significance-classification",
+      "status": "skipped",
+      "outputFile": "classification/significance-assessment.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Skipped — output already exists at classification/significance-assessment.md"
+    },
+    {
+      "method": "impact-matrix",
+      "status": "skipped",
+      "outputFile": "classification/impact-matrix.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Skipped — output already exists at classification/impact-matrix.md"
+    },
+    {
+      "method": "actor-mapping",
+      "status": "skipped",
+      "outputFile": "classification/actor-mapping.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Skipped — output already exists at classification/actor-mapping.md"
+    },
+    {
+      "method": "forces-analysis",
+      "status": "skipped",
+      "outputFile": "classification/forces-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Skipped — output already exists at classification/forces-analysis.md"
+    },
+    {
+      "method": "political-stride",
+      "status": "skipped",
+      "outputFile": "threat-assessment/political-stride-assessment.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Skipped — output already exists at threat-assessment/political-stride-assessment.md"
+    },
+    {
+      "method": "actor-threat-profiling",
+      "status": "skipped",
+      "outputFile": "threat-assessment/actor-threat-profiles.md",
+      "confidence": "low",
+      "duration": 0,
+      "summary": "Skipped — output already exists at threat-assessment/actor-threat-profiles.md"
+    },
+    {
+      "method": "consequence-trees",
+      "status": "skipped",
+      "outputFile": "threat-assessment/consequence-trees.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Skipped — output already exists at threat-assessment/consequence-trees.md"
+    },
+    {
+      "method": "legislative-disruption",
+      "status": "skipped",
+      "outputFile": "threat-assessment/legislative-disruption.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Skipped — output already exists at threat-assessment/legislative-disruption.md"
+    },
+    {
+      "method": "risk-matrix",
+      "status": "skipped",
+      "outputFile": "risk-scoring/risk-matrix.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Skipped — output already exists at risk-scoring/risk-matrix.md"
+    },
+    {
+      "method": "political-capital-risk",
+      "status": "skipped",
+      "outputFile": "risk-scoring/political-capital-risk.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Skipped — output already exists at risk-scoring/political-capital-risk.md"
+    },
+    {
+      "method": "quantitative-swot",
+      "status": "skipped",
+      "outputFile": "risk-scoring/quantitative-swot.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Skipped — output already exists at risk-scoring/quantitative-swot.md"
+    },
+    {
+      "method": "legislative-velocity-risk",
+      "status": "skipped",
+      "outputFile": "risk-scoring/legislative-velocity-risk.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Skipped — output already exists at risk-scoring/legislative-velocity-risk.md"
+    },
+    {
+      "method": "agent-risk-workflow",
+      "status": "skipped",
+      "outputFile": "risk-scoring/agent-risk-workflow.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Skipped — output already exists at risk-scoring/agent-risk-workflow.md"
+    },
+    {
+      "method": "deep-analysis",
+      "status": "skipped",
+      "outputFile": "existing/deep-analysis.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "Skipped — output already exists at existing/deep-analysis.md"
+    },
+    {
+      "method": "stakeholder-analysis",
+      "status": "skipped",
+      "outputFile": "existing/stakeholder-analysis.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "Skipped — output already exists at existing/stakeholder-analysis.md"
+    },
+    {
+      "method": "coalition-analysis",
+      "status": "skipped",
+      "outputFile": "existing/coalition-analysis.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "Skipped — output already exists at existing/coalition-analysis.md"
+    },
+    {
+      "method": "voting-patterns",
+      "status": "skipped",
+      "outputFile": "existing/voting-patterns.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "Skipped — output already exists at existing/voting-patterns.md"
+    },
+    {
+      "method": "cross-session-intelligence",
+      "status": "skipped",
+      "outputFile": "existing/cross-session-intelligence.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "Skipped — output already exists at existing/cross-session-intelligence.md"
+    }
+  ],
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "adoptedTexts"
+  ],
+  "documentsAnalyzed": 0,
+  "analyzedDocumentIds": []
+}
