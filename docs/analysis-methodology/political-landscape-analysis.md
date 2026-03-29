@@ -98,17 +98,17 @@ quadrantChart
     quadrant-2 Right-Pro-EU
     quadrant-3 Left-Pro-EU
     quadrant-4 Left-Eurosceptic
-    EPP: [0.35, 0.65]
-    S&D: [0.25, 0.30]
-    Renew: [0.30, 0.55]
-    Greens/EFA: [0.20, 0.25]
-    The Left: [0.15, 0.15]
-    ECR: [0.70, 0.70]
-    PfE: [0.85, 0.60]
-    ESN: [0.90, 0.55]
+    EPP: [{x}, {y}]
+    S&D: [{x}, {y}]
+    Renew: [{x}, {y}]
+    Greens/EFA: [{x}, {y}]
+    The Left: [{x}, {y}]
+    ECR: [{x}, {y}]
+    PfE: [{x}, {y}]
+    ESN: [{x}, {y}]
 ```
 
-> **AI Agent Note:** Position values should reflect actual political positioning based on voting behavior data from MCP.
+> **⚠️ AI Agent**: Replace ALL `{x}` and `{y}` placeholders with actual positioning values derived from MCP voting behaviour data (`analyze_voting_patterns`, `compare_political_groups`). X-axis = EU integration stance (0=Pro-EU, 1=Eurosceptic). Y-axis = economic orientation (0=Left, 1=Right). Do NOT use the placeholder values.
 
 ### 5. Group-by-Group Analysis (Required)
 

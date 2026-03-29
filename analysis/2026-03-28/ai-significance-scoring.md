@@ -221,9 +221,9 @@ Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.2
 
 ---
 
-### Event 7: Small Group Quorum Risk (RE, NI, The Left ≤5 Members in OSINT)
+### Event 7: Small Group Quorum Risk (ESN, NI, The Left — ≤5 Active Members per Committee)
 
-> Smaller groups face committee representation and procedural viability challenges
+> Smaller groups face committee representation and procedural viability challenges when they cannot staff all committees
 
 | Dimension | Raw Score | Weight | Weighted Score |
 |-----------|:---------:|:------:|:--------------:|

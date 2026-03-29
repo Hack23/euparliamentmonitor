@@ -214,19 +214,19 @@ gantt
     dateFormat YYYY-MM
     axisFormat %Y-%m
 
-    section Dossier 1
-    Committee Stage    :done, d1, 2026-01, 2026-03
-    Plenary Vote       :active, d2, 2026-04, 2026-05
-    Trilogue           :d3, 2026-06, 2026-09
-    Adoption           :d4, 2026-10, 2026-11
+    section {Dossier 1 Title}
+    Committee Stage    :done, d1, {YYYY-MM}, {YYYY-MM}
+    Plenary Vote       :active, d2, {YYYY-MM}, {YYYY-MM}
+    Trilogue           :d3, {YYYY-MM}, {YYYY-MM}
+    Adoption           :d4, {YYYY-MM}, {YYYY-MM}
 
-    section Dossier 2
-    Committee Stage    :active, e1, 2026-02, 2026-05
-    Plenary Vote       :e2, 2026-06, 2026-07
-    Trilogue           :e3, 2026-08, 2026-12
+    section {Dossier 2 Title}
+    Committee Stage    :active, e1, {YYYY-MM}, {YYYY-MM}
+    Plenary Vote       :e2, {YYYY-MM}, {YYYY-MM}
+    Trilogue           :e3, {YYYY-MM}, {YYYY-MM}
 ```
 
-> **AI Agent Note:** Replace with actual dossier timelines from `track_legislation`. Color code stages: done=green, active=blue, future=grey.
+> **⚠️ AI Agent**: Replace ALL `{YYYY-MM}` and `{Dossier N Title}` placeholders with actual dates and dossier names from `track_legislation` MCP results. Color code stages: done=green, active=blue, future=grey. Do NOT use placeholder dates in generated output.
 
 ### 9. Passage Probability Methodology
 

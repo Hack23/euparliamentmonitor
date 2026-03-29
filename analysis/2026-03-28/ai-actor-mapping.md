@@ -260,18 +260,18 @@ quadrantChart
 
 ---
 
-## Actor Type Distribution
+## EP10 Seat Distribution by Bloc
 
 ```mermaid
-pie title EP10 Actor Type Distribution by Influence Weight
-    "Centre-Right EP Groups (EPP+ECR)" : 264
-    "Centre-Left EP Groups (S&D+Greens+Left)" : 234
+pie title EP10 Seat Distribution by Political Bloc (720 MEPs)
+    "Centre-Right (EPP+ECR)" : 264
+    "Centre-Left (S&D+Greens+Left)" : 234
     "Liberal Centre (RE)" : 76
     "Right-Wing Populist (PfE+ESN)" : 112
     "Non-Attached (NI)" : 34
-    "EU Institutions (weighted)" : 150
-    "External Actors (weighted)" : 80
 ```
+
+> **Note:** This chart shows **EP seat distribution only** (720 MEPs). Institutional and external actor influence is assessed qualitatively in the Interaction Matrix and Actor Profiles sections — it is not directly comparable to parliamentary seat counts and is therefore shown separately.
 
 ---
 
@@ -664,6 +664,21 @@ The following matrix maps interaction frequency and quality between key EP10 act
 ---
 
 *This actor mapping was produced using European Parliament MCP data and open-source analytical methods. All data points are verified against official European Parliament sources. The analysis maintains strict political neutrality and does not advocate for any political position or group.*
+
+### MCP Data Files Used
+
+The following MCP-derived datasets under `analysis/2026-03-28/data/` were consulted for quantitative claims:
+
+- `data/meps/current-meps.json` — EP10 group composition, seat counts, country distribution
+- `data/osint/political-landscape.json` — Fragmentation index, institutional stability score, group positioning
+- `data/osint/coalition-dynamics.json` — Coalition cohesion metrics, alliance patterns, cross-group voting
+- `data/osint/voting-anomalies.json` — RE+ECR cohesion anomaly, defection patterns
+- `data/osint/early-warning.json` — Institutional stability indicators, risk signals
+- `data/world-bank/gdp-growth-*.json` — Economic context for external pressure analysis
+- `data/votes/roll-call-votes/*.json` — Voting record patterns for interaction matrix
+- `data/procedures/*.json` — Legislative pipeline data for policy domain mapping
+- `data/speeches/*.json` — Plenary debate positions for actor ideology assessment
+- `data/questions/*.json` — Parliamentary question patterns for engagement metrics
 
 *Next scheduled update: 2026-04-11*
 
