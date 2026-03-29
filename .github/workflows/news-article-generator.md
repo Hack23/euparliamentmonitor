@@ -358,6 +358,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all article types
 - **Across all types in a multi-type run**: each tool may be called once globally — reuse results
 - If data looks sparse after the first call: **proceed to article generation immediately — do NOT retry**
+- **Exception — breaking news only**: The 4 primary feed endpoints (`adopted_texts`, `events`, `procedures`, `meps`) may be called a second time with `timeframe: "one-week"` if the initial `timeframe: "today"` call returned empty/error/404/timeout. This retry exception applies ONLY to breaking news workflows and ONLY for these 4 feeds. All other article types must respect the "each tool at most once, no retries" rule.
 
 **Always verify connectivity first (health gate — up to 3 attempts):**
 ```javascript

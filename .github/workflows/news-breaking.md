@@ -186,6 +186,8 @@ For each breaking development, immediately assess:
 - **Minutes 52–57**: Validate and finalize changes
 - **Minutes 57–60**: Create PR with `safeoutputs___create_pull_request` (if articles generated) or `safeoutputs___noop` with data summary (if no breaking news)
 
+> **⏱️ TIME BUDGET NOTE**: The minute allocations above are best-effort targets, not hard deadlines. In worst-case scenarios (all feed calls hitting the 120s timeout), the feed phase alone may exceed the 3–20 minute window. If feed calls run long: (1) continue waiting — do NOT abort slow responses, (2) compress later phases as needed, (3) if you reach minute 52 without completing all phases, finalize whatever work is done and create the PR or noop immediately. The 60-minute workflow timeout is the only hard deadline.
+
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
 
 **If you reach minute 52 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
