@@ -119,7 +119,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 ## ⏱️ Time Budget (120 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up
-- **Minutes 3–10**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writing analysis artifacts under `analysis/${TODAY}/${article-type}/` (one directory per requested article type from `${ARTICLE_TYPES}`, e.g. `analysis/${TODAY}/week-ahead/`, `analysis/${TODAY}/month-ahead/`, etc.))
+- **Minutes 3–10**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writing analysis artifacts to `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/` — a per-article-type directory for comprehensive analysis of all downloaded data for that article type)
 - **Minutes 10–20**: Parse article types and verify MCP connectivity
 - **Minutes 20–100**: Generate English articles for each requested type with deep political intelligence
 - **Minutes 100–110**: Validate generated HTML
@@ -135,16 +135,93 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 The `--analysis` flag activates the political intelligence analysis pipeline **before** article generation. This stage:
 
 1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
-2. **Runs 18 default analysis methods** across 4 categories (plus `document-analysis` as opt-in, totalling 19 valid methods):
-   - **Classification**: significance scoring, impact matrix, actor mapping, political forces analysis
-   - **Threat Assessment**: STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
-   - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
-   - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
-   - **Per-Document Analysis** *(opt-in via `--analysis-methods`)*: per-document markdown + JSON intelligence files
-3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/${article-type}/` (markdown files + `manifest.json`) — for multi-type runs there is **one directory per article type** in `${ARTICLE_TYPES}` (for example: `analysis/${TODAY}/week-ahead/`, `analysis/${TODAY}/month-ahead/`, `analysis/${TODAY}/committee-reports/`); these directories are included in the PR for review and political intelligence improvement
+2. **Runs all 18 default analysis methods** across 4 default categories:
+   - **Classification** (4 methods): significance scoring, impact matrix, actor mapping, political forces analysis
+   - **Threat Assessment** (4 methods): STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
+   - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
+   - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
+   - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
+3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently on the same date; MCP data is stored at `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/data/`
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
+
+## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
+
+> **⚠️ CRITICAL**: After MCP data is fetched, the AI agent MUST produce **extensive, publication-quality analysis markdown** following the methodology templates in `docs/analysis-methodology/`. The scripted analysis stage provides data preparation — the AI agent performs the actual analytical work.
+
+> **⚠️ FULL DATA ANALYSIS**: Analysis MUST be performed for **every file downloaded** from MCP sources — not per session, not per day summary, but for **every individual piece of content**. Read ALL templates and methodologies before starting.
+
+### Structured Analysis Templates (analysis/templates/)
+
+Read and apply these templates for **every downloaded MCP data file** in `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/data/`:
+
+| Template | File | When to Apply |
+|----------|------|--------------|
+| **Political Classification** | `analysis/templates/political-classification.md` | Every new EP event or document — FIRST STEP |
+| **Risk Assessment** | `analysis/templates/risk-assessment.md` | Coalition/policy/institutional risk indicators |
+| **Threat Analysis** | `analysis/templates/threat-analysis.md` | STRIDE-format democratic threat review |
+| **SWOT Analysis** | `analysis/templates/swot-analysis.md` | Strategic political landscape assessment |
+| **Stakeholder Impact** | `analysis/templates/stakeholder-impact.md` | Policy decisions or legislative actions |
+| **Significance Scoring** | `analysis/templates/significance-scoring.md` | Publication priority decisions |
+
+### Analysis Methodology Guides (analysis/methodologies/)
+
+Read these BEFORE creating analysis artifacts — they define the scoring frameworks:
+
+| Methodology | File | Framework |
+|------------|------|-----------|
+| **Classification Guide** | `analysis/methodologies/political-classification-guide.md` | 7-dimension classification |
+| **Risk Methodology** | `analysis/methodologies/political-risk-methodology.md` | Likelihood × Impact 5×5 matrix |
+| **Threat Framework** | `analysis/methodologies/political-threat-framework.md` | STRIDE-adapted for EU democracy |
+| **SWOT Framework** | `analysis/methodologies/political-swot-framework.md` | Evidence-based SWOT |
+
+### Higher-Level Analysis Templates (docs/analysis-methodology/)
+
+Read and apply these templates when generating analysis artifacts in `analysis/${TODAY}/`:
+
+| Template | File | When to Apply |
+|----------|------|--------------|
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Monthly reviews, month-ahead, strategic context |
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | Weekly reviews, motions, voting analysis |
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Propositions, committee reports, pipeline analysis |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | MEP profiling, delegation analysis |
+| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | Week-ahead, week-in-review, breaking news |
+| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Committee reports, institutional analysis |
+
+### Template Selection by Article Type
+
+| Article Type | Primary Template | Supporting Templates |
+|-------------|-----------------|---------------------|
+| `week-ahead` | Weekly Intelligence Brief | Political Landscape, Coalition Dynamics |
+| `month-ahead` | Political Landscape Analysis | Legislative Risk, Committee Power |
+| `week-in-review` | Weekly Intelligence Brief | Coalition Dynamics, MEP Scorecard |
+| `month-in-review` | Political Landscape Analysis | All templates |
+| `committee-reports` | Committee Power Analysis | Legislative Risk |
+| `propositions` | Legislative Risk Assessment | Coalition Dynamics |
+| `motions` | Coalition Dynamics Analysis | MEP Scorecard |
+| `breaking` | Weekly Intelligence Brief | Political Landscape |
+
+### Quality Standards for Analysis Output
+
+Each analysis markdown file MUST include (matching the quality of `SWOT.md` and `THREAT_MODEL.md`):
+
+1. **Professional header** — Title with emoji, analysis date, confidence level badges
+2. **Executive summary table** — Color-coded key findings using shield.io badges
+3. **Minimum 3 Mermaid diagrams** — Pie charts, flowcharts, quadrant charts, or mindmaps with color coding
+4. **Structured assessment tables** — Multi-dimensional scoring with trend indicators (↑↗→↘↓)
+5. **Confidence levels on every judgment** — 🟢 High / 🟡 Medium / 🔴 Low with justification
+6. **Source attribution** — Every claim linked to specific EP MCP data with dates
+7. **Forward-looking scenarios** — At least 2 scenarios with probability badges
+8. **Minimum 400 lines** per analysis document (target: 800+)
+
+### Anti-Patterns (MUST AVOID)
+
+- ❌ "0 procedures tracked" → ✅ Explain data gaps and their implications
+- ❌ Empty tables with only headers → ✅ Narrative analysis of why data is sparse
+- ❌ All risks scored "Low" without explanation → ✅ Context-specific threat assessment
+- ❌ Hardcoded synthetic IDs → ✅ Real EP document references with dates
+- ❌ Thin scaffolding with raw counts → ✅ Interpretive analysis with political intelligence
 
 ## Required Skills
 
@@ -601,7 +678,7 @@ echo "Branch: $BRANCH_NAME"
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament news articles ${TODAY}`,
-  body: `## EU Parliament News Articles\n\nGenerated ${ARTICLE_TYPES} articles for ${LANG_ARG}.\n\n- Types: ${ARTICLE_TYPES}\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/\` (per-type subdirectories: ${ARTICLE_TYPES})`,
+  body: `## EU Parliament News Articles\n\nGenerated ${ARTICLE_TYPES} articles for ${LANG_ARG}.\n\n- Types: ${ARTICLE_TYPES}\n- Languages: ${LANG_ARG}\n- Date: ${TODAY}\n- Data source: European Parliament MCP Server\n- 🔬 Full political intelligence analysis of all downloaded data in \`analysis/${TODAY}/\``,
   base: "main",
   head: BRANCH_NAME
 })

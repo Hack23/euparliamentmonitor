@@ -178,7 +178,7 @@ Synthesize the week's significance:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (up to 3 attempts)
-- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/weekly-review/`)
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/week-in-review/`)
 - **Minutes 8–18**: Query voting records, documents, and questions from past 7 days
 - **Minutes 18–45**: Generate English article with deep political intelligence analysis
 - **Minutes 45–52**: Validate generated HTML
@@ -194,16 +194,41 @@ Synthesize the week's significance:
 The `--analysis` flag activates the political intelligence analysis pipeline **before** article generation. This stage:
 
 1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
-2. **Runs 18 default analysis methods** across 4 categories (plus `document-analysis` as opt-in, totalling 19 valid methods):
-   - **Classification**: significance scoring, impact matrix, actor mapping, political forces analysis
-   - **Threat Assessment**: STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
-   - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
-   - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
-   - **Per-Document Analysis** *(opt-in via `--analysis-methods`)*: per-document markdown + JSON intelligence files
-3. **Writes and commits analysis artifacts** to `analysis/{date}/{article-type}/` (markdown files + `manifest.json`) — these are included in the PR for review and political intelligence improvement
+2. **Runs all 18 default analysis methods** across 4 default categories:
+   - **Classification** (4 methods): significance scoring, impact matrix, actor mapping, political forces analysis
+   - **Threat Assessment** (4 methods): STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
+   - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
+   - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
+   - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
+3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/week-in-review/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `analysis/${TODAY}/week-in-review/data/`
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
+
+## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
+
+> **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
+
+> **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to **every downloaded MCP data file**. See `analysis/README.md` for the complete analysis directory documentation.
+
+### Primary Template: Weekly Intelligence Brief
+
+Read and follow `docs/analysis-methodology/weekly-intelligence-brief.md` for the retrospective review. This template defines:
+- Situation overview dashboard with color-coded status badges
+- Top developments with significance scoring and stakeholder impact
+- Early warning indicators with trend arrows
+- Trend analysis with activity distribution (Mermaid pie charts)
+
+### Supporting Templates
+
+| Template | File | Purpose for Weekly Review |
+|----------|------|-------------------------|
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | Voting alliance patterns, defection analysis |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | MEP activity highlights, performance context |
+
+### Quality Standards
+
+Each analysis markdown MUST include: professional header with date/confidence badges, executive summary table, minimum 3 color-coded Mermaid diagrams (political group colors: EPP=#003399, S&D=#cc0000, Renew=#FFD700, ECR=#FF6600, Greens=#009933), structured tables with trend indicators (↑↗→↘↓), confidence levels (🟢/🟡/🔴) on every judgment, source attribution with dates, and minimum 400 lines per document.
 
 ## Required Skills
 
@@ -600,7 +625,7 @@ BRANCH_NAME="news/week-in-review-$TODAY"
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament week-in-review articles ${TODAY}`,
-  body: `## EU Parliament Weekly Review Articles\n\nGenerated week-in-review retrospective articles.\n\n- Languages: ${LANG_ARG}\n- Review period: past 7 days\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/weekly-review/\``,
+  body: `## EU Parliament Weekly Review Articles\n\nGenerated week-in-review retrospective articles.\n\n- Languages: ${LANG_ARG}\n- Review period: past 7 days\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/week-in-review/\``,
   base: "main",
   head: BRANCH_NAME
 })

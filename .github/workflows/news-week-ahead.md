@@ -194,16 +194,51 @@ Beyond listing upcoming events, provide strategic intelligence:
 The `--analysis` flag activates the political intelligence analysis pipeline **before** article generation. This stage:
 
 1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
-2. **Runs 18 default analysis methods** across 4 categories (plus `document-analysis` as opt-in, totalling 19 valid methods):
-   - **Classification**: significance scoring, impact matrix, actor mapping, political forces analysis
-   - **Threat Assessment**: STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
-   - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
-   - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
-   - **Per-Document Analysis** *(opt-in via `--analysis-methods`)*: per-document markdown + JSON intelligence files
-3. **Writes and commits analysis artifacts** to `analysis/{date}/{article-type}/` (markdown files + `manifest.json`) — these are included in the PR for review and political intelligence improvement
+2. **Runs all 18 default analysis methods** across 4 default categories:
+   - **Classification** (4 methods): significance scoring, impact matrix, actor mapping, political forces analysis
+   - **Threat Assessment** (4 methods): STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
+   - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
+   - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
+   - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
+3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/week-ahead/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `analysis/${TODAY}/week-ahead/data/`
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
+
+## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
+
+> **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
+
+> **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to **every downloaded MCP data file**. See `analysis/README.md` for the complete analysis directory documentation.
+
+### Primary Template: Weekly Intelligence Brief
+
+Read and follow `docs/analysis-methodology/weekly-intelligence-brief.md` for producing the week-ahead analysis. This template defines:
+- Situation overview dashboard with color-coded status badges
+- Weekly activity flow diagram (Mermaid flowchart)
+- Top developments with significance scoring and stakeholder impact
+- Early warning indicators with trend arrows
+- Forward-looking scenarios with probability badges
+
+### Supporting Templates
+
+| Template | File | Purpose for Week-Ahead |
+|----------|------|----------------------|
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Group dynamics context, coalition viability |
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | Voting alignment patterns, stress points |
+
+### Quality Standards for Analysis Output
+
+Each analysis markdown MUST include:
+
+1. **Professional header** — Title, date, confidence badges
+2. **Executive summary table** — Color-coded key findings (shield.io badges)
+3. **Minimum 3 Mermaid diagrams** — With political group color coding (EPP=#003399, S&D=#cc0000, Renew=#FFD700, etc.)
+4. **Structured tables** — Multi-dimensional assessment with trend indicators (↑↗→↘↓)
+5. **Confidence levels** — 🟢 High / 🟡 Medium / 🔴 Low on every judgment
+6. **Source attribution** — Every claim linked to EP MCP data with dates
+7. **Scenarios** — At least 2 forward-looking scenarios with probability badges
+8. **Minimum 400 lines** per analysis document (target: 800+)
 
 ## Required Skills
 
