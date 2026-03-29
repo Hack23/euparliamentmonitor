@@ -84,9 +84,11 @@ quadrantChart
     quadrant-2 Coalition Architect
     quadrant-3 Committee Specialist
     quadrant-4 Oversight Champion
-    MEP Position: [0.6, 0.7]
-    Group Average: [0.5, 0.5]
+    MEP Position: [{x}, {y}]
+    Group Average: [{x}, {y}]
 ```
+
+> **⚠️ AI Agent**: Replace all `{x}` and `{y}` placeholders above with actual computed positions from `assess_mep_influence` MCP data. Do NOT use the template defaults.
 
 ### 4. Voting Behavior Analysis (Required)
 
@@ -137,11 +139,13 @@ flowchart TD
     C2 --> A2["📊 Attendance: {N}%<br/>Reports: {N}"]
     C3 --> A3["📊 Attendance: {N}%<br/>Reports: {N}"]
 
-    style MEP fill:#003399,color:#fff
+    style MEP fill:#607D8B,color:#fff
     style C1 fill:#FF9800,color:#fff
     style C2 fill:#FF9800,color:#fff
     style C3 fill:#FF9800,color:#fff
 ```
+
+> **⚠️ AI Agent**: The MEP node uses a neutral grey (`#607D8B`). Replace with the MEP's actual political group color from the EP10 palette. Do NOT use EPP blue for all MEPs.
 
 ### 8. Network Centrality (Required)
 

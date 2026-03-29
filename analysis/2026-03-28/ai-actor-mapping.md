@@ -58,7 +58,7 @@ The EP10 political actor ecosystem is characterised by:
 
 | Category | Count | Key Actors | Influence Level |
 |----------|-------|-----------|----------------|
-| EP Political Groups | 9 | EPP, S&D, PfE, ECR, RE | Very High |
+| EP Political Groups + NI | 8+NI | EPP, S&D, PfE, ECR, RE | Very High |
 | EU Institutions | 3 | Commission, Council, ECB | Very High |
 | External State Actors | 4 | US, China, Russia, NATO | High |
 | Civil Society/Other | 3+ | NGOs, Industry, Media | Moderate |

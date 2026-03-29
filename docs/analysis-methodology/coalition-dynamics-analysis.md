@@ -191,13 +191,15 @@ quadrantChart
     quadrant-2 Cohesive but Divergent
     quadrant-3 Fragmented & Divergent
     quadrant-4 Consensus but Fragile
-    Environment: [0.6, 0.7]
-    Economy: [0.5, 0.6]
-    Security: [0.7, 0.8]
-    Migration: [0.3, 0.4]
-    Digital: [0.8, 0.7]
-    Social: [0.4, 0.5]
+    Environment: [{x}, {y}]
+    Economy: [{x}, {y}]
+    Security: [{x}, {y}]
+    Migration: [{x}, {y}]
+    Digital: [{x}, {y}]
+    Social: [{x}, {y}]
 ```
+
+> **⚠️ AI Agent**: Replace all `{x}` and `{y}` placeholders above with actual computed positions from `analyze_coalition_dynamics` and voting cohesion data. Do NOT use the template defaults.
 
 ### 9. Early Warning Indicators (Required)
 
