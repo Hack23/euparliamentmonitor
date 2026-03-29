@@ -143,5 +143,5 @@ Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.2
 ### MCP Data Files Used
 
 ```
-[REQUIRED: List all analysis/YYYY-MM-DD/data/ files consulted]
+[REQUIRED: List all analysis/YYYY-MM-DD/{article-type-slug}/data/ files consulted]
 ```

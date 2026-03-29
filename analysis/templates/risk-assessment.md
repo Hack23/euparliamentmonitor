@@ -110,5 +110,5 @@ Risk Tiers:  1–4 = Low 🟢  |  5–9 = Medium 🟡  |  10–14 = High 🟠  |
 ### MCP Data Files Used
 
 ```
-[REQUIRED: List all analysis/YYYY-MM-DD/data/ files consulted for this assessment]
+[REQUIRED: List all analysis/YYYY-MM-DD/{article-type-slug}/data/ files consulted for this assessment]
 ```

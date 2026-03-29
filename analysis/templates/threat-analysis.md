@@ -124,5 +124,5 @@
 ### MCP Data Files Used
 
 ```
-[REQUIRED: List all analysis/YYYY-MM-DD/data/ files consulted]
+[REQUIRED: List all analysis/YYYY-MM-DD/{article-type-slug}/data/ files consulted]
 ```

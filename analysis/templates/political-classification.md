@@ -93,7 +93,7 @@ Primary Actors:     [REQUIRED: political groups or MEPs, e.g. "EPP, S&D, ECR"]
 Committee:          [OPTIONAL: e.g. "ENVI", "LIBE"]
 Parliamentary Term: [REQUIRED: e.g. "2024-2029"]
 Related Procedures: [OPTIONAL: EP procedure IDs]
-MCP Data Files:     [REQUIRED: paths to analysis/YYYY-MM-DD/data/ files used]
+MCP Data Files:     [REQUIRED: paths to analysis/YYYY-MM-DD/{article-type-slug}/data/ files used]
 ```
 
 ---
