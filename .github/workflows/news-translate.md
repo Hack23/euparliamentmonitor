@@ -65,7 +65,7 @@ mcp-servers:
       - -y
       - european-parliament-mcp-server@1.1.18
     env:
-      EP_REQUEST_TIMEOUT_MS: "30000"
+      EP_REQUEST_TIMEOUT_MS: "120000"
 
 tools:
   github:

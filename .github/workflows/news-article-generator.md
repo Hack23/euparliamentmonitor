@@ -49,7 +49,7 @@ mcp-servers:
       - -y
       - european-parliament-mcp-server@1.1.18
     env:
-      EP_REQUEST_TIMEOUT_MS: "30000"
+      EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
     command: npx
     args:
@@ -408,35 +408,36 @@ european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
 
 **Breaking News (MANDATORY: Feed-First REALTIME — only TODAY's events):**
 
-> **🚨 NEWSWORTHINESS GATE**: Breaking news covers ONLY events published/updated TODAY. Use `timeframe: "today"` for ALL feed calls. If NO items from today are found, use `safeoutputs___noop`. ALL document references MUST include their publish date.
+> **🚨 NEWSWORTHINESS GATE**: Breaking news covers ONLY events published/updated TODAY. Use `timeframe: "today"` for initial feed calls, then retry with `timeframe: "one-week"` for any endpoint that returns empty/error/404/timeout. Data download and analysis are ALWAYS mandatory — the gate only decides whether to generate an article. If NO items from today are found, run analysis on collected data and use `safeoutputs___noop` with data summary.
 
 These 4 feeds map directly to the breaking news generator's data model (`adoptedTexts`, `events`, `procedures`, `mepUpdates`):
 
 ```javascript
-european_parliament___get_adopted_texts_feed({ timeframe: "today", limit: 20 })
+// Try today first, fall back to one-week for any empty/failed endpoint
+european_parliament___get_adopted_texts_feed({ timeframe: "today", limit: 50 })
 european_parliament___get_events_feed({ timeframe: "today", limit: 50 })
 european_parliament___get_procedures_feed({ timeframe: "today", limit: 50 })
-european_parliament___get_meps_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_meps_feed({ timeframe: "today", limit: 50 })
 ```
 
-Optional advisory feeds (for newsworthiness gate context only — not rendered in the generated article):
+MANDATORY advisory feeds (ALWAYS download for analysis context):
 
 ```javascript
-european_parliament___get_documents_feed({ timeframe: "today", limit: 20 })
-european_parliament___get_plenary_documents_feed({ timeframe: "today", limit: 20 })
-european_parliament___get_committee_documents_feed({ timeframe: "today", limit: 20 })
-european_parliament___get_parliamentary_questions_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_committee_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_parliamentary_questions_feed({ timeframe: "one-week", limit: 50 })
 ```
 
-**OPTIONAL supplementary tools (call after feeds, for analytical context):**
+**MANDATORY supplementary tools (call after feeds, for analytical context):**
 
 ```javascript
-// Analytical context — only if feeds contain newsworthy events
+// Analytical context — ALWAYS fetch for comprehensive analysis
 european_parliament___detect_voting_anomalies({})
 european_parliament___analyze_coalition_dynamics({})
-european_parliament___get_committee_info({ committeeId: "ENVI" })
-european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 })
 european_parliament___generate_political_landscape({})
+european_parliament___early_warning_system({ sensitivity: "medium" })
+european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 })
 ```
 
 ### 📡 All Available EP API v2 Feed Endpoints

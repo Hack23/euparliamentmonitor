@@ -19,8 +19,8 @@ const BINARY_NAME = 'european-parliament-mcp-server';
 const BINARY_FILE = process.platform === 'win32' ? `${BINARY_NAME}.cmd` : BINARY_NAME;
 /** Default binary resolved from node_modules/.bin relative to this file's compiled location */
 const DEFAULT_SERVER_BINARY = resolve(dirname(fileURLToPath(import.meta.url)), `../../node_modules/.bin/${BINARY_FILE}`);
-/** Request timeout in milliseconds — EU Parliament API responses commonly take 30+ seconds */
-const REQUEST_TIMEOUT_MS = 60000;
+/** Request timeout in milliseconds — EU Parliament API responses commonly take 30-90+ seconds for large datasets */
+const REQUEST_TIMEOUT_MS = 180000;
 /** Connection startup delay in milliseconds */
 const CONNECTION_STARTUP_DELAY_MS = 500;
 /** Maximum reconnect back-off delay in milliseconds */
