@@ -195,13 +195,13 @@ For each breaking development, immediately assess:
 The `--analysis` flag with `--analysis-methods` activates the full political intelligence analysis pipeline **before** article generation. This stage:
 
 1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
-2. **Runs all 18 default analysis methods** across 5 categories:
-   - **Classification**: significance scoring, impact matrix, actor mapping, political forces analysis
-   - **Threat Assessment**: STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
-   - **Risk Scoring**: political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
-   - **Intelligence**: deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
-   - **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`): per-document markdown + JSON intelligence files for every downloaded MCP file
-3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/breaking/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is shared at `analysis/${TODAY}/data/`
+2. **Runs all 18 default analysis methods** across 4 default categories:
+   - **Classification** (4 methods): significance scoring, impact matrix, actor mapping, political forces analysis
+   - **Threat Assessment** (4 methods): STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
+   - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
+   - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
+   - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
+3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/breaking/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `analysis/${TODAY}/breaking/data/`
 4. **AI evaluates analysis artifacts** — after all methods complete, the AI reviews the structured analysis to determine breaking news significance before proceeding to article generation
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis. The per-document analysis creates individual markdown files for each EP document, enabling comprehensive AI review before breaking news evaluation.

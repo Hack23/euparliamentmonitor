@@ -82,7 +82,7 @@ analysis/
 │   │   │   └── cross-session-intelligence.md
 │   │   └── documents/                 ← Per-document analysis (when enabled)
 │   │       └── document-analysis-index.md
-│   └── data/                          ← Persistent MCP data repository (shared across workflows)
+│   └── data/                          ← MCP data repository (stored under per-article-type directory)
 │       ├── adopted-texts/             ← EP adopted legislative texts
 │       ├── committee-documents/       ← Committee reports and opinions
 │       ├── corporate-bodies/          ← EP institutional bodies data
@@ -110,7 +110,7 @@ analysis/
 
 - **AI-driven analysis artifacts** (`ai-*.md`) are stored at the **date root** (`analysis/YYYY-MM-DD/`) because they synthesise data across all article types and are reusable across workflows.
 - **Workflow-generated outputs** (classification/, risk-scoring/, threat-assessment/, existing/) live under **per-article-type subdirectories** (`analysis/YYYY-MM-DD/{article-type-slug}/`) to prevent merge conflicts when multiple workflows run concurrently.
-- **MCP data** is shared at `analysis/YYYY-MM-DD/data/` and is available to all workflows.
+- **MCP data** is stored at `analysis/YYYY-MM-DD/{article-type-slug}/data/` under each workflow's output directory.
 
 ---
 
@@ -119,7 +119,7 @@ analysis/
 > **⚠️ CRITICAL**: Analysis MUST be performed for **every file downloaded** from MCP sources — not per session, not per day summary, but for **every individual piece of content**. This ensures:
 
 1. **Complete coverage**: No downloaded document goes unanalysed
-2. **Merge conflict avoidance**: Each workflow writes to `analysis/{date}/{article-type-slug}/` (per-article-type scoping); MCP data is shared at `analysis/{date}/data/`
+2. **Merge conflict avoidance**: Each workflow writes to `analysis/{date}/{article-type-slug}/` (per-article-type scoping); MCP data is stored at `analysis/{date}/{article-type-slug}/data/`
 3. **Full traceability**: Every analysis artifact traces back to specific MCP data files
 
 ### AI Agent Analysis Requirements
@@ -191,7 +191,7 @@ When running analysis, the AI agent (Opus) MUST:
 
 ## 🤖 Workflow Integration
 
-All 9 agentic news workflows write analysis artifacts to `analysis/{date}/{article-type-slug}/` before article generation (MCP data is shared at `analysis/{date}/data/`):
+All 9 agentic news workflows write analysis artifacts to `analysis/{date}/{article-type-slug}/` before article generation (MCP data is stored at `analysis/{date}/{article-type-slug}/data/`):
 
 | Workflow | Primary Output | Key MCP Data |
 |----------|---------------|-------------|

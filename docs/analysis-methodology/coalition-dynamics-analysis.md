@@ -78,11 +78,16 @@ flowchart TD
     subgraph "🔴 Centre-Left Bloc"
         SD["🔴 S&D<br/>Cohesion: {N}%"]
         GR["🟢 Greens<br/>Cohesion: {N}%"]
-        LF["🟣 Left<br/>Cohesion: {N}%"]
+        LF["🔴 Left<br/>Cohesion: {N}%"]
     end
 
     subgraph "🟡 Liberal Centre"
         RN["🟡 Renew<br/>Cohesion: {N}%"]
+    end
+
+    subgraph "⬛ Sovereignist Right"
+        PFE["⬛ PfE<br/>Cohesion: {N}%"]
+        ESN["🟤 ESN<br/>Cohesion: {N}%"]
     end
 
     EPP ==>|"Strong alliance<br/>{N}% alignment"| SD
@@ -90,6 +95,7 @@ flowchart TD
     SD -->|"Progressive<br/>{N}%"| GR
     EPP -.->|"Issue-specific<br/>{N}%"| ECR
     RN -.->|"Selective<br/>{N}%"| GR
+    ECR -.->|"Sovereignist<br/>{N}%"| PFE
 
     style EPP fill:#003399,color:#fff,stroke:#003399
     style SD fill:#cc0000,color:#fff,stroke:#cc0000
@@ -97,6 +103,8 @@ flowchart TD
     style ECR fill:#FF6600,color:#fff,stroke:#FF6600
     style GR fill:#009933,color:#fff,stroke:#009933
     style LF fill:#990000,color:#fff,stroke:#990000
+    style PFE fill:#333333,color:#fff,stroke:#333333
+    style ESN fill:#8B4513,color:#fff,stroke:#8B4513
 ```
 
 > **Line thickness convention:**
@@ -116,6 +124,8 @@ Present pairwise alignment scores:
 | **ECR** | {N}% | {N}% | {N}% | — | {N}% | {N}% | {N}% | {N}% |
 | **Greens** | {N}% | {N}% | {N}% | {N}% | — | {N}% | {N}% | {N}% |
 | **Left** | {N}% | {N}% | {N}% | {N}% | {N}% | — | {N}% | {N}% |
+| **PfE** | {N}% | {N}% | {N}% | {N}% | {N}% | {N}% | — | {N}% |
+| **ESN** | {N}% | {N}% | {N}% | {N}% | {N}% | {N}% | {N}% | — |
 
 > **Color coding in narrative:** 🟢 >75% alignment | 🟡 50-75% | 🔴 <50%
 
