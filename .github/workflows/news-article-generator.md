@@ -413,11 +413,16 @@ european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
 These 4 feeds map directly to the breaking news generator's data model (`adoptedTexts`, `events`, `procedures`, `mepUpdates`):
 
 ```javascript
-// Try today first, fall back to one-week for any empty/failed endpoint
+// STEP 1: Try today first (4 calls)
 european_parliament___get_adopted_texts_feed({ timeframe: "today", limit: 50 })
 european_parliament___get_events_feed({ timeframe: "today", limit: 50 })
 european_parliament___get_procedures_feed({ timeframe: "today", limit: 50 })
 european_parliament___get_meps_feed({ timeframe: "today", limit: 50 })
+
+// STEP 2 (CONDITIONAL): For each feed that returned empty/error/404/timeout,
+// retry with one-week to ensure data is always downloaded for analysis
+// european_parliament___get_adopted_texts_feed({ timeframe: "one-week", limit: 50 })  // if Step 1 failed
+// european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })          // if Step 1 failed
 ```
 
 MANDATORY advisory feeds (ALWAYS download for analysis context):

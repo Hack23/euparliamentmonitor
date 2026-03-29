@@ -179,13 +179,13 @@ For each breaking development, immediately assess:
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
-- **Minutes 3–15**: Query ALL EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates. Use `timeframe: "today"` first, then retry with `timeframe: "one-week"` for any empty/failed endpoint. Also fetch advisory feeds (documents, plenary docs, committee docs, questions) with `timeframe: "one-week"`. **⚠️ EP API can be slow (30-90s per call) — be patient, do NOT abort on slow responses**
-- **Minutes 15–25**: 📊 Fetch analytical context (voting anomalies, coalition dynamics, political landscape, early warning) and run precomputed stats
-- **Minutes 25–35**: 🔬 Full political intelligence analysis stage — run all 18 default analysis methods (significance classification, STRIDE threat assessment, risk scoring, actor mapping — writes analysis artifacts to `analysis/${TODAY}/breaking/`; opt-in `document-analysis` via `--analysis-methods` for per-document markdown). Save ALL MCP data to `analysis/${TODAY}/breaking/data/`
-- **Minutes 35–40**: 📊 AI evaluates analysis artifacts to determine breaking news significance — ONLY proceed with article generation if analysis confirms newsworthy developments from TODAY
-- **Minutes 40–50**: Generate English article with deep political intelligence analysis informed by analysis artifacts (SKIP if no today-dated breaking news)
-- **Minutes 50–55**: Validate and finalize changes
-- **Minutes 55–60**: Create PR with `safeoutputs___create_pull_request` (if articles generated) or `safeoutputs___noop` with data summary (if no breaking news)
+- **Minutes 3–20**: Query ALL EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates. Use `timeframe: "today"` first, then retry with `timeframe: "one-week"` for any empty/failed endpoint. Also fetch advisory feeds (documents, plenary docs, committee docs, questions) with `timeframe: "one-week"`. **⚠️ EP API can be slow (30-90s per call) — be patient, do NOT abort on slow responses. Allow up to 120s per call.**
+- **Minutes 20–30**: 📊 Fetch analytical context (voting anomalies, coalition dynamics, political landscape, early warning) and run precomputed stats
+- **Minutes 30–40**: 🔬 Full political intelligence analysis stage — run all 18 default analysis methods (significance classification, STRIDE threat assessment, risk scoring, actor mapping — writes analysis artifacts to `analysis/${TODAY}/breaking/`; opt-in `document-analysis` via `--analysis-methods` for per-document markdown). Save ALL MCP data to `analysis/${TODAY}/breaking/data/`
+- **Minutes 40–45**: 📊 AI evaluates analysis artifacts to determine breaking news significance — ONLY proceed with article generation if analysis confirms newsworthy developments from TODAY
+- **Minutes 45–52**: Generate English article with deep political intelligence analysis informed by analysis artifacts (SKIP if no today-dated breaking news)
+- **Minutes 52–57**: Validate and finalize changes
+- **Minutes 57–60**: Create PR with `safeoutputs___create_pull_request` (if articles generated) or `safeoutputs___noop` with data summary (if no breaking news)
 
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
 
@@ -354,18 +354,19 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 **These 4 feed endpoints map directly to the breaking news generator's data model. Start with `timeframe: "today"`, but if ANY endpoint returns empty, 404, or errors, RETRY with `timeframe: "one-week"` to ensure data is always downloaded:**
 
 ```javascript
-// STEP 1: Try today's feeds first
+// STEP 1: Try today's feeds first (4 calls)
 european_parliament___get_adopted_texts_feed({ timeframe: "today", limit: 50 })
 european_parliament___get_events_feed({ timeframe: "today", limit: 50 })
 european_parliament___get_procedures_feed({ timeframe: "today", limit: 50 })
 european_parliament___get_meps_feed({ timeframe: "today", limit: 50 })
 
-// STEP 2: For ANY feed that returned empty/error/404/timeout, retry with one-week
-// This ensures data is ALWAYS downloaded, even on weekends or quiet days
-european_parliament___get_adopted_texts_feed({ timeframe: "one-week", limit: 50 })
-european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })
-european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
-european_parliament___get_meps_feed({ timeframe: "one-week", limit: 50 })
+// STEP 2 (CONDITIONAL): For each feed that returned empty/error/404/timeout in Step 1,
+// retry with one-week to ensure data is ALWAYS downloaded. Skip feeds that already returned data.
+// Example: if get_adopted_texts_feed returned 404 and get_events_feed timed out:
+european_parliament___get_adopted_texts_feed({ timeframe: "one-week", limit: 50 })  // retry
+european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })          // retry
+// get_procedures_feed — skip, already has data from Step 1
+// get_meps_feed — skip, already has data from Step 1
 ```
 
 > **📅 IMPORTANT**: When using `one-week` fallback, items are still tagged with their actual dates. Only items from TODAY qualify as breaking news for article generation, but ALL downloaded data is persisted for analysis.
@@ -418,11 +419,11 @@ european_parliament___early_warning_system({ sensitivity: "medium" })
 
 - This budget applies to **manual pre-generation data gathering only**.
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once (does not count toward budget)
-- **Feed endpoints**: 4 mandatory calls with today, up to 4 retry calls with one-week fallback = max 8 feed calls
+- **Feed endpoints**: 4 mandatory calls with today + up to 4 conditional retry calls with one-week fallback = max 8 feed calls
 - **Advisory feeds**: 4 mandatory calls with one-week timeframe = 4 calls
-- **Analytical context**: 4 mandatory calls (anomalies, coalition dynamics, political landscape, early warning)
-- **Maximum 18 manual MCP tool calls total** (health-gate and generator script calls exempt)
-- **⚠️ ALL calls are mandatory** — the workflow must attempt every call, logging errors but continuing with other calls
+- **Analytical context**: 4 mandatory calls (anomalies, coalition dynamics, political landscape, early warning) = 4 calls
+- **Maximum 16 manual MCP tool calls total** (4 primary + 4 retries + 4 advisory + 4 analytical; health-gate and generator script calls exempt)
+- **⚠️ ALL non-retry calls are mandatory** — the workflow must attempt every call, logging errors but continuing with other calls
 
 ## 📝 Article Generation
 
