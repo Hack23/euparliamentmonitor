@@ -324,8 +324,8 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **If EP MCP server unavailable (3 retries failed):**
 1. `safeoutputs___noop` with descriptive message — legitimate noop
 
-**If no significant data found (genuinely empty — only after ALL feeds queried with one-week fallback):**
-1. Verify ALL feed endpoints were queried (including retry with timeframe: "one-week")
+**If no significant data found (genuinely empty — only after ALL feeds queried for the configured timeframe):**
+1. Verify ALL feed endpoints were queried with timeframe: "one-week"
 2. Run full analysis pipeline on whatever data was collected
 3. `safeoutputs___noop` with data collection summary — legitimate quiet period
 

@@ -112,22 +112,21 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 > **🔬 ANALYSIS-FIRST MANDATE**: The AI (Opus 4.6) MUST first download all documents from EP feed endpoints, run the full analysis pipeline (all 18 default methods, plus opt-in `document-analysis` when enabled), and create analysis strategy markdown content BEFORE evaluating whether the data constitutes breaking news. Only after all analysis artifacts are written to `analysis/${TODAY}/breaking/` should breaking news significance be determined.
 
-**Pipeline order (MANDATORY — steps 1-3 ALWAYS execute, even on quiet days):**
-1. **DOWNLOAD** (ALWAYS): Fetch ALL EP feed data — first try `timeframe: "today"`, then fall back to `timeframe: "one-week"` for any endpoint that returns empty/error/404. Save ALL data to JSON files in `analysis/${TODAY}/breaking/data/`
-2. **ANALYZE** (ALWAYS): Run full analysis pipeline with all 18 default methods — analysis artifacts are ALWAYS written to `analysis/${TODAY}/breaking/` even when no breaking news exists
-3. **STORE** (ALWAYS): Commit all downloaded MCP data and analysis artifacts via the PR (or include in noop message). Data persistence is mandatory regardless of newsworthiness
-4. **EVALUATE**: Based on the analysis artifacts and AI assessment, determine whether the content constitutes breaking news
-5. **GENERATE**: If newsworthy, generate the article using the analysis intelligence AND commit analysis data in the same PR
-6. **NOOP**: If analysis determines no breaking news significance, use `safeoutputs___noop` — but ONLY after steps 1-3 have completed and data has been stored
+**Pipeline order (MANDATORY — steps 1-2 ALWAYS execute, even on quiet days):**
+1. **DOWNLOAD** (ALWAYS): Fetch ALL EP feed data — first try `timeframe: "today"`, then fall back to `timeframe: "one-week"` for any endpoint that returns empty/error/404. Prepare all data for analysis
+2. **ANALYZE** (ALWAYS): Run full analysis pipeline with all 18 default methods — produce analysis artifacts as part of the reasoning process, even when no breaking news exists
+3. **EVALUATE**: Based on the analysis artifacts and AI assessment, determine whether the content constitutes breaking news
+4. **GENERATE**: If newsworthy, generate the article using the analysis intelligence AND commit analysis data in the same PR to `analysis/${TODAY}/breaking/`
+5. **NOOP**: If analysis determines no breaking news significance, use `safeoutputs___noop` — but ONLY after steps 1-2 have completed. The noop response MUST summarize the analysis context (data collected, findings, reason for no-action) since `safeoutputs___noop` does not create a branch/PR to persist workspace artifacts
 
 **Data source hierarchy:**
 1. **PRIMARY (MANDATORY)**: EP API v2 feed endpoints with `timeframe: "today"` — adopted texts, events, procedures, MEP updates (these 4 feeds are consumed by the generator)
 2. **ANALYSIS (MANDATORY)**: Full analysis pipeline — all 18 default methods creating structured markdown intelligence; opt-in `document-analysis` for per-document analysis
-3. **ADVISORY (NEWSWORTHINESS GATE ONLY)**: Documents, plenary/committee documents, parliamentary questions — inform whether to proceed but are NOT rendered in the article
-4. **SECONDARY (OPTIONAL)**: Analytical context — voting anomalies, coalition dynamics
+3. **ADVISORY (MANDATORY)**: Documents, plenary/committee documents, parliamentary questions — always downloaded for analysis context
+4. **ANALYTICAL (MANDATORY)**: Voting anomalies, coalition dynamics, political landscape, early warning — always fetched for comprehensive analysis
 5. **CONTEXT ONLY (NEVER NEWS)**: Precomputed statistics from `get_all_generated_stats`
 
-**NEWSWORTHINESS GATE**: If NO events published/updated TODAY are found in feeds, the agent MUST still complete data download (with `one-week` fallback) and analysis before using `safeoutputs___noop`. ALL downloaded data and analysis artifacts MUST be committed in the PR or referenced in the noop message. Do NOT skip data collection.
+**NEWSWORTHINESS GATE**: If NO events published/updated TODAY are found in feeds, the agent MUST still complete data download (with `one-week` fallback) and analysis as part of the reasoning process before using `safeoutputs___noop`. On noop runs, analysis outputs are produced and surfaced via the noop summary, but are NOT committed because `safeoutputs___noop` does not create a branch/PR. Do NOT skip data collection.
 
 
 ## 🎭 STAKEHOLDER PERSPECTIVE ANALYSIS (MANDATORY)

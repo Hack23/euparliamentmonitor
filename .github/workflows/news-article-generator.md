@@ -408,7 +408,7 @@ european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
 
 **Breaking News (MANDATORY: Feed-First REALTIME — only TODAY's events):**
 
-> **🚨 NEWSWORTHINESS GATE**: Breaking news covers ONLY events published/updated TODAY. Use `timeframe: "today"` for initial feed calls, then retry with `timeframe: "one-week"` for any endpoint that returns empty/error/404/timeout. Data download and analysis are ALWAYS mandatory — the gate only decides whether to generate an article. If NO items from today are found, run analysis on collected data and use `safeoutputs___noop` with data summary.
+> **🚨 NEWSWORTHINESS GATE**: Breaking news covers ONLY events published/updated TODAY. Use `timeframe: "today"` for initial feed calls, then retry with `timeframe: "one-week"` for any endpoint that returns empty/error/404/timeout. Always perform data download and analysis as part of the reasoning process — the gate only decides whether to generate a breaking-news article. If NO items from today are found, still analyze the collected data but do **not** open an analysis-only PR; instead, return `safeoutputs___noop` and include any important findings in the noop summary output, understanding that no PR will be created and workspace changes will not be persisted.
 
 These 4 feeds map directly to the breaking news generator's data model (`adoptedTexts`, `events`, `procedures`, `mepUpdates`):
 
