@@ -3,7 +3,7 @@
 
 # 🎭 Political Threat Analysis Template — European Parliament
 
-> **📌 Template Instructions:** This template adapts the STRIDE threat modelling framework for EU democratic process threats. See [methodologies/political-threat-framework.md](../methodologies/political-threat-framework.md) for full methodology. Copy to `analysis/YYYY-MM-DD/` and name `threat-analysis.md`. The AI agent MUST process ALL downloaded MCP data to identify threats.
+> **📌 Template Instructions:** This template adapts the STRIDE threat modelling framework for EU democratic process threats. See [methodologies/political-threat-framework.md](../methodologies/political-threat-framework.md) for full methodology. Copy to `analysis/YYYY-MM-DD/{article-type-slug}/` and name `threat-analysis.md`. The AI agent MUST process ALL downloaded MCP data (in `analysis/YYYY-MM-DD/{article-type-slug}/data/`) to identify threats.
 
 ---
 

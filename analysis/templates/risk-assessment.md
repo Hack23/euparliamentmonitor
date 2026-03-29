@@ -3,7 +3,7 @@
 
 # ⚠️ Political Risk Assessment Template — European Parliament
 
-> **📌 Template Instructions:** Copy to `analysis/YYYY-MM-DD/` and name `risk-assessment.md`. Scores use Likelihood × Impact methodology from [methodologies/political-risk-methodology.md](../methodologies/political-risk-methodology.md). The AI agent MUST fill ALL `[REQUIRED]` fields using MCP data.
+> **📌 Template Instructions:** Copy to `analysis/YYYY-MM-DD/{article-type-slug}/` and name `risk-assessment.md`. Scores use Likelihood × Impact methodology from [methodologies/political-risk-methodology.md](../methodologies/political-risk-methodology.md). The AI agent MUST fill ALL `[REQUIRED]` fields using MCP data (in `analysis/YYYY-MM-DD/{article-type-slug}/data/`).
 
 ---
 

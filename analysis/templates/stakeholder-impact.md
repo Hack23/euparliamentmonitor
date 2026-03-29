@@ -3,7 +3,7 @@
 
 # 👥 Stakeholder Impact Assessment Template — European Parliament
 
-> **📌 Template Instructions:** Copy to `analysis/YYYY-MM-DD/` and name `stakeholder-impact.md`. Complete the context block first, then assess each stakeholder group. Groups with NONE impact still require a one-line rationale. The AI agent MUST use MCP data for ALL evidence citations.
+> **📌 Template Instructions:** Copy to `analysis/YYYY-MM-DD/{article-type-slug}/` and name `stakeholder-impact.md`. Complete the context block first, then assess each stakeholder group. Groups with NONE impact still require a one-line rationale. The AI agent MUST use MCP data (in `analysis/YYYY-MM-DD/{article-type-slug}/data/`) for ALL evidence citations.
 
 ---
 

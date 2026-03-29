@@ -3,7 +3,7 @@
 
 # 📈 Political Significance Scoring Template — European Parliament
 
-> **📌 Template Instructions:** Copy to `analysis/YYYY-MM-DD/` and name `significance-scoring.md`. The AI agent MUST score every significant EP event from the downloaded MCP data. Use this for publication prioritisation decisions. See the automated analysis pipeline for scripted scoring — this template is for **AI-driven manual analytical work**.
+> **📌 Template Instructions:** Copy to `analysis/YYYY-MM-DD/{article-type-slug}/` and name `significance-scoring.md`. The AI agent MUST score every significant EP event from the downloaded MCP data (in `analysis/YYYY-MM-DD/{article-type-slug}/data/`). Use this for publication prioritisation decisions. See the automated analysis pipeline for scripted scoring — this template is for **AI-driven manual analytical work**.
 
 ---
 

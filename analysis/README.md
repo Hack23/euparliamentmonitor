@@ -80,30 +80,30 @@ analysis/
 │   │   │   ├── coalition-analysis.md
 │   │   │   ├── voting-patterns.md
 │   │   │   └── cross-session-intelligence.md
-│   │   └── documents/                 ← Per-document analysis (when enabled)
-│   │       └── document-analysis-index.md
-│   └── data/                          ← MCP data repository (stored under per-article-type directory)
-│       ├── adopted-texts/             ← EP adopted legislative texts
-│       ├── committee-documents/       ← Committee reports and opinions
-│       ├── corporate-bodies/          ← EP institutional bodies data
-│       ├── declarations/              ← MEP financial declarations
-│       ├── events/                    ← EP calendar events
-│       ├── external-documents/        ← Council positions, Commission proposals
-│       ├── mcp-responses/             ← Raw MCP tool call responses
-│       ├── meps/                      ← MEP profiles and mandates
-│       ├── osint/                     ← OSINT analytical outputs
-│       │   ├── political-landscape.json
-│       │   ├── voting-anomalies.json
-│       │   ├── coalition-dynamics.json
-│       │   ├── early-warning.json
-│       │   └── legislative-pipeline.json
-│       ├── plenary-documents/         ← Plenary session documents
-│       ├── plenary-session-documents/ ← Session agendas and minutes
-│       ├── procedures/                ← Legislative procedures
-│       ├── questions/                 ← Parliamentary questions
-│       ├── speeches/                  ← Plenary speeches
-│       ├── votes/                     ← Voting records
-│       └── world-bank/                ← World Bank economic indicators
+│   │   ├── documents/                 ← Per-document analysis (when enabled)
+│   │   │   └── document-analysis-index.md
+│   │   └── data/                      ← MCP data repository (per-article-type scoped)
+│   │       ├── adopted-texts/         ← EP adopted legislative texts
+│   │       ├── committee-documents/   ← Committee reports and opinions
+│   │       ├── corporate-bodies/      ← EP institutional bodies data
+│   │       ├── declarations/          ← MEP financial declarations
+│   │       ├── events/                ← EP calendar events
+│   │       ├── external-documents/    ← Council positions, Commission proposals
+│   │       ├── mcp-responses/         ← Raw MCP tool call responses
+│   │       ├── meps/                  ← MEP profiles and mandates
+│   │       ├── osint/                 ← OSINT analytical outputs
+│   │       │   ├── political-landscape.json
+│   │       │   ├── voting-anomalies.json
+│   │       │   ├── coalition-dynamics.json
+│   │       │   ├── early-warning.json
+│   │       │   └── legislative-pipeline.json
+│   │       ├── plenary-documents/     ← Plenary session documents
+│   │       ├── plenary-session-documents/ ← Session agendas and minutes
+│   │       ├── procedures/            ← Legislative procedures
+│   │       ├── questions/             ← Parliamentary questions
+│   │       ├── speeches/              ← Plenary speeches
+│   │       ├── votes/                 ← Voting records
+│   │       └── world-bank/            ← World Bank economic indicators
 ```
 
 ### Directory Layout Notes
@@ -128,7 +128,7 @@ When running analysis, the AI agent (Opus) MUST:
 
 1. **Read ALL methodology guides** in `analysis/methodologies/` before starting
 2. **Read ALL templates** in `analysis/templates/` to understand output format
-3. **Process EVERY downloaded file** in `analysis/{date}/data/` systematically
+3. **Process EVERY downloaded file** in `analysis/{date}/{article-type-slug}/data/` systematically
 4. **Apply the full template** for each analysis type — no shortcuts or summaries
 5. **Cross-reference** data across categories (e.g., voting records ↔ MEP profiles ↔ procedures)
 6. **Cite evidence** with specific EP document IDs, procedure references, or MCP tool calls
@@ -185,7 +185,7 @@ When running analysis, the AI agent (Opus) MUST:
 **Rules:**
 - All directory names use ISO 8601 dates
 - Never use locale-specific date formats
-- All workflows share a single date-level directory for MCP data (`analysis/{date}/data/`) but use per-article-type subdirectories for analysis outputs (`analysis/{date}/{article-type-slug}/`)
+- MCP data is stored under each workflow run's output directory (`analysis/{date}/{article-type-slug}/data/`); all workflows use per-article-type subdirectories for both analysis outputs and MCP data
 
 ---
 

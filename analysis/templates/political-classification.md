@@ -3,7 +3,7 @@
 
 # 🏷️ Political Event Classification Template — European Parliament
 
-> **📌 Template Instructions:** Copy this file to `analysis/YYYY-MM-DD/` and rename to `{event-slug}-classification.md`. Replace all `[REQUIRED]` and `[OPTIONAL]` placeholders with actual values. See [methodologies/political-classification-guide.md](../methodologies/political-classification-guide.md) for full methodology.
+> **📌 Template Instructions:** Copy this file to `analysis/YYYY-MM-DD/{article-type-slug}/` and rename to `{event-slug}-classification.md`. Replace all `[REQUIRED]` and `[OPTIONAL]` placeholders with actual values. See [methodologies/political-classification-guide.md](../methodologies/political-classification-guide.md) for full methodology. MCP data is at `analysis/YYYY-MM-DD/{article-type-slug}/data/`.
 
 ---
 

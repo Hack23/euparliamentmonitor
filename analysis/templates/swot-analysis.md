@@ -3,7 +3,7 @@
 
 # 💼 Political SWOT Analysis Template — European Parliament
 
-> **📌 Template Instructions:** Copy to `analysis/YYYY-MM-DD/` and name `swot-analysis.md`. Each SWOT entry requires an EP document reference or named evidence source — opinion-only entries are prohibited. See [methodologies/political-swot-framework.md](../methodologies/political-swot-framework.md) for full methodology. The AI agent MUST use MCP data as evidence sources.
+> **📌 Template Instructions:** Copy to `analysis/YYYY-MM-DD/{article-type-slug}/` and name `swot-analysis.md`. Each SWOT entry requires an EP document reference or named evidence source — opinion-only entries are prohibited. See [methodologies/political-swot-framework.md](../methodologies/political-swot-framework.md) for full methodology. The AI agent MUST use MCP data (in `analysis/YYYY-MM-DD/{article-type-slug}/data/`) as evidence sources.
 
 ---
 
