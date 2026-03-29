@@ -106,7 +106,7 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 **This workflow generates ONLY `breaking` articles using an ANALYSIS-FIRST approach. All EP documents are downloaded and fully analyzed with AI BEFORE evaluating breaking news significance.**
 
-> **⚠️ FUNDAMENTAL RULE**: Breaking news covers ONLY what happened TODAY (within the last 12 hours). Use `timeframe: "today"` for ALL feed endpoints. ONLY items published/updated TODAY qualify as breaking news. Precomputed statistics (`get_all_generated_stats`) provide historical context ONLY and are NEVER breaking news. Analytical tools (voting anomalies, coalition dynamics) are OPTIONAL supplementary context.
+> **⚠️ FUNDAMENTAL RULE**: Breaking news covers ONLY what happened TODAY (within the last 12 hours). Use `timeframe: "today"` for primary feed endpoints first; fall back to `timeframe: "one-week"` for any endpoint that returns empty/error/404/timeout. ONLY items published/updated TODAY qualify as breaking news. Precomputed statistics (`get_all_generated_stats`) provide historical context ONLY and are NEVER breaking news. Advisory feeds and analytical tools (voting anomalies, coalition dynamics, political landscape, early warning) are MANDATORY for comprehensive analysis context.
 
 > **📅 DATE REQUIREMENT**: ALL document/event/procedure references in articles MUST include their publish or creation date (e.g., "Resolution on Digital Markets (adopted 4 March 2026)"). Documents without a recent date are NOT news.
 
@@ -323,8 +323,8 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **If no newsworthy events found in feeds (but data was collected):**
 1. Verify all feed endpoints were queried (including one-week fallback)
 2. Run the FULL analysis pipeline on collected data
-3. Store all data and analysis artifacts
-4. `safeoutputs___noop` with data collection summary — legitimate quiet period
+3. Capture all relevant data and analysis artifacts in logs and/or noop output (no workspace changes are persisted)
+4. `safeoutputs___noop` with data collection and analysis summary — legitimate quiet period, with results only in the noop output (no branch/PR)
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure
