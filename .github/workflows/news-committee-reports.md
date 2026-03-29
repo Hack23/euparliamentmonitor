@@ -46,7 +46,7 @@ mcp-servers:
       - -y
       - european-parliament-mcp-server@1.1.18
     env:
-      EP_REQUEST_TIMEOUT_MS: "30000"
+      EP_REQUEST_TIMEOUT_MS: "120000"
 
 tools:
   github:
@@ -311,9 +311,10 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **If EP MCP server unavailable (3 retries failed):**
 1. `safeoutputs___noop` with descriptive message — legitimate noop
 
-**If no significant data found (genuinely empty):**
-1. Verify all MCP tools were queried
-2. `safeoutputs___noop` — legitimate quiet period
+**If no significant data found (genuinely empty — only after ALL feeds queried for the configured timeframe):**
+1. Verify ALL feed endpoints were queried once, respecting the "each tool at most once" constraint
+2. Run full analysis pipeline on whatever data was collected
+3. `safeoutputs___noop` with data collection summary — legitimate quiet period
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure
@@ -367,7 +368,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 - If you notice you are about to call a tool you already called during the manual phase, **STOP data gathering and move to generation** (let the generator script handle any further MCP usage)
 
-**OPTIONAL supplementary tools** (call only if feed data suggests relevant committee activity):
+**MANDATORY supplementary tools** (ALWAYS call for comprehensive analysis — do NOT skip even if feed data is sparse for committee activity):
 
 ```javascript
 // Verify connectivity and fetch representative committee info

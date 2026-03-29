@@ -43,7 +43,7 @@ mcp-servers:
       - -y
       - european-parliament-mcp-server@1.1.18
     env:
-      EP_REQUEST_TIMEOUT_MS: "30000"
+      EP_REQUEST_TIMEOUT_MS: "120000"
 
 tools:
   github:
@@ -106,27 +106,27 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 **This workflow generates ONLY `breaking` articles using an ANALYSIS-FIRST approach. All EP documents are downloaded and fully analyzed with AI BEFORE evaluating breaking news significance.**
 
-> **⚠️ FUNDAMENTAL RULE**: Breaking news covers ONLY what happened TODAY (within the last 12 hours). Use `timeframe: "today"` for ALL feed endpoints. ONLY items published/updated TODAY qualify as breaking news. Precomputed statistics (`get_all_generated_stats`) provide historical context ONLY and are NEVER breaking news. Analytical tools (voting anomalies, coalition dynamics) are OPTIONAL supplementary context.
+> **⚠️ FUNDAMENTAL RULE**: Breaking news covers ONLY what happened TODAY (within the last 12 hours). Use `timeframe: "today"` for primary feed endpoints first; fall back to `timeframe: "one-week"` for any endpoint that returns empty/error/404/timeout. ONLY items published/updated TODAY qualify as breaking news. Precomputed statistics (`get_all_generated_stats`) provide historical context ONLY and are NEVER breaking news. Advisory feeds and analytical tools (voting anomalies, coalition dynamics, political landscape, early warning) are MANDATORY for comprehensive analysis context.
 
 > **📅 DATE REQUIREMENT**: ALL document/event/procedure references in articles MUST include their publish or creation date (e.g., "Resolution on Digital Markets (adopted 4 March 2026)"). Documents without a recent date are NOT news.
 
 > **🔬 ANALYSIS-FIRST MANDATE**: The AI (Opus 4.6) MUST first download all documents from EP feed endpoints, run the full analysis pipeline (all 18 default methods, plus opt-in `document-analysis` when enabled), and create analysis strategy markdown content BEFORE evaluating whether the data constitutes breaking news. Only after all analysis artifacts are written to `analysis/${TODAY}/breaking/` should breaking news significance be determined.
 
-**Pipeline order (MANDATORY):**
-1. **DOWNLOAD**: Fetch all EP feed data (adopted texts, events, procedures, MEP updates, documents)
-2. **ANALYZE**: Run full analysis pipeline with all 18 default methods (opt-in `document-analysis` via `--analysis-methods` when per-document intelligence is needed)
+**Pipeline order (MANDATORY — steps 1-2 ALWAYS execute, even on quiet days):**
+1. **DOWNLOAD** (ALWAYS): Fetch ALL EP feed data — first try `timeframe: "today"`, then fall back to `timeframe: "one-week"` for any endpoint that returns empty/error/404. Prepare all data for analysis
+2. **ANALYZE** (ALWAYS): Run full analysis pipeline with all 18 default methods — produce analysis artifacts as part of the reasoning process, even when no breaking news exists
 3. **EVALUATE**: Based on the analysis artifacts and AI assessment, determine whether the content constitutes breaking news
-4. **GENERATE**: If newsworthy, generate the article using the analysis intelligence
-5. **NOOP**: If analysis determines no breaking news significance, use `safeoutputs___noop`
+4. **GENERATE**: If newsworthy, generate the article using the analysis intelligence AND commit analysis data in the same PR to `analysis/${TODAY}/breaking/`
+5. **NOOP**: If analysis determines no breaking news significance, use `safeoutputs___noop` — but ONLY after steps 1-2 have completed. The noop response MUST summarize the analysis context (data collected, findings, reason for no-action) since `safeoutputs___noop` does not create a branch/PR to persist workspace artifacts
 
 **Data source hierarchy:**
 1. **PRIMARY (MANDATORY)**: EP API v2 feed endpoints with `timeframe: "today"` — adopted texts, events, procedures, MEP updates (these 4 feeds are consumed by the generator)
 2. **ANALYSIS (MANDATORY)**: Full analysis pipeline — all 18 default methods creating structured markdown intelligence; opt-in `document-analysis` for per-document analysis
-3. **ADVISORY (NEWSWORTHINESS GATE ONLY)**: Documents, plenary/committee documents, parliamentary questions — inform whether to proceed but are NOT rendered in the article
-4. **SECONDARY (OPTIONAL)**: Analytical context — voting anomalies, coalition dynamics
+3. **ADVISORY (MANDATORY)**: Documents, plenary/committee documents, parliamentary questions — always downloaded for analysis context
+4. **ANALYTICAL (MANDATORY)**: Voting anomalies, coalition dynamics, political landscape, early warning — always fetched for comprehensive analysis
 5. **CONTEXT ONLY (NEVER NEWS)**: Precomputed statistics from `get_all_generated_stats`
 
-**NEWSWORTHINESS GATE**: If NO events published/updated TODAY are found in feeds, use `safeoutputs___noop` — do NOT generate a breaking news article from stats, analytics, or older documents.
+**NEWSWORTHINESS GATE**: If NO events published/updated TODAY are found in feeds, the agent MUST still complete data download (with `one-week` fallback) and analysis as part of the reasoning process before using `safeoutputs___noop`. On noop runs, analysis outputs are produced and surfaced via the noop summary, but are NOT committed because `safeoutputs___noop` does not create a branch/PR. Do NOT skip data collection.
 
 
 ## 🎭 STAKEHOLDER PERSPECTIVE ANALYSIS (MANDATORY)
@@ -178,12 +178,15 @@ For each breaking development, immediately assess:
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
-- **Minutes 3–10**: Query EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates
-- **Minutes 10–25**: 🔬 Full political intelligence analysis stage — run all 18 default analysis methods (significance classification, STRIDE threat assessment, risk scoring, actor mapping — writes analysis artifacts to `analysis/${TODAY}/breaking/`; opt-in `document-analysis` via `--analysis-methods` for per-document markdown)
-- **Minutes 25–30**: 📊 AI evaluates analysis artifacts to determine breaking news significance — ONLY proceed if analysis confirms newsworthy developments
-- **Minutes 30–45**: Generate English article with deep political intelligence analysis informed by analysis artifacts
-- **Minutes 45–52**: Validate and finalize changes
-- **Minutes 52–60**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 3–20**: Query ALL EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates. Use `timeframe: "today"` first, then retry with `timeframe: "one-week"` for any empty/failed endpoint. Also fetch advisory feeds (documents, plenary docs, committee docs, questions) with `timeframe: "one-week"`. **⚠️ EP API can be slow (30-90s per call) — be patient, do NOT abort on slow responses. Allow up to 120s per call.**
+- **Minutes 20–30**: 📊 Fetch analytical context (voting anomalies, coalition dynamics, political landscape, early warning) and run precomputed stats
+- **Minutes 30–40**: 🔬 Full political intelligence analysis stage — run all 18 default analysis methods (significance classification, STRIDE threat assessment, risk scoring, actor mapping — writes analysis artifacts to `analysis/${TODAY}/breaking/`; opt-in `document-analysis` via `--analysis-methods` for per-document markdown). Save ALL MCP data to `analysis/${TODAY}/breaking/data/`
+- **Minutes 40–45**: 📊 AI evaluates analysis artifacts to determine breaking news significance — ONLY proceed with article generation if analysis confirms newsworthy developments from TODAY
+- **Minutes 45–52**: Generate English article with deep political intelligence analysis informed by analysis artifacts (SKIP if no today-dated breaking news)
+- **Minutes 52–57**: Validate and finalize changes
+- **Minutes 57–60**: Create PR with `safeoutputs___create_pull_request` (if articles generated) or `safeoutputs___noop` with data summary (if no breaking news)
+
+> **⏱️ TIME BUDGET NOTE**: The minute allocations above are best-effort targets, not hard deadlines. In worst-case scenarios (all feed calls hitting the 120s timeout), the feed phase alone may exceed the 3–20 minute window. If feed calls run long: (1) continue waiting — do NOT abort slow responses, (2) compress later phases as needed, (3) if you reach minute 52 without completing all phases, finalize whatever work is done and create the PR or noop immediately. The 60-minute workflow timeout is the only hard deadline.
 
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
 
@@ -313,9 +316,17 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **If EP MCP server unavailable (3 retries failed):**
 1. `safeoutputs___noop` with descriptive message — legitimate noop
 
-**If no newsworthy events found in feeds:**
-1. Verify all feed endpoints were queried
-2. `safeoutputs___noop` — legitimate quiet period
+**If individual feed endpoints fail/timeout:**
+1. Log the error and continue with other feeds — do NOT abort the entire data collection
+2. Retry failed endpoints with `timeframe: "one-week"` (wider window = more likely to return data)
+3. If retry also fails, continue with the data you have — partial data is better than no data
+4. NEVER skip analysis because some feeds failed — run analysis with whatever data was collected
+
+**If no newsworthy events found in feeds (but data was collected):**
+1. Verify all feed endpoints were queried (including one-week fallback)
+2. Run the FULL analysis pipeline on collected data
+3. Capture all relevant data and analysis artifacts in logs and/or noop output (no workspace changes are persisted)
+4. `safeoutputs___noop` with data collection and analysis summary — legitimate quiet period, with results only in the noop output (no branch/PR)
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure
@@ -341,66 +352,79 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 
-**These 4 feed endpoints map directly to the breaking news generator's data model. ALL must use `timeframe: "today"` to get ONLY items published/updated today:**
+**These 4 feed endpoints map directly to the breaking news generator's data model. Start with `timeframe: "today"`, but if ANY endpoint returns empty, 404, or errors, RETRY with `timeframe: "one-week"` to ensure data is always downloaded:**
 
 ```javascript
-// Adopted texts — resolutions, directives, regulations adopted TODAY
-european_parliament___get_adopted_texts_feed({ timeframe: "today", limit: 20 })
+// STEP 1: Try today's feeds first (4 calls)
+european_parliament___get_adopted_texts_feed({ timeframe: "today", limit: 50 })
+european_parliament___get_events_feed({ timeframe: "today", limit: 50 })
+european_parliament___get_procedures_feed({ timeframe: "today", limit: 50 })
+european_parliament___get_meps_feed({ timeframe: "today", limit: 50 })
 
-// Events — parliamentary events, hearings, conferences TODAY
-european_parliament___get_events_feed({ timeframe: "today", limit: 20 })
-
-// Procedures — legislative procedure updates TODAY
-european_parliament___get_procedures_feed({ timeframe: "today", limit: 20 })
-
-// MEP updates — MEP changes, new members, departures TODAY
-european_parliament___get_meps_feed({ timeframe: "today", limit: 20 })
+// STEP 2 (CONDITIONAL): For each feed that returned empty/error/404/timeout in Step 1,
+// retry with one-week to ensure data is ALWAYS downloaded. Skip feeds that already returned data.
+// Example: if get_adopted_texts_feed returned 404 and get_events_feed timed out:
+european_parliament___get_adopted_texts_feed({ timeframe: "one-week", limit: 50 })  // retry
+european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })          // retry
+// get_procedures_feed — skip, already has data from Step 1
+// get_meps_feed — skip, already has data from Step 1
 ```
 
-> **📅 IMPORTANT**: Every item returned from feeds has a publish/update date. ONLY include items from TODAY in the article. If an item's date is older than 12 hours, it is NOT breaking news.
+> **📅 IMPORTANT**: When using `one-week` fallback, items are still tagged with their actual dates. Only items from TODAY qualify as breaking news for article generation, but ALL downloaded data is persisted for analysis.
 
-**OPTIONAL: Advisory feeds (for newsworthiness context only — not rendered in the generated article):**
+> **⚠️ TIMEOUT HANDLING**: The EP API can be slow (30-90+ seconds per request). The `EP_REQUEST_TIMEOUT_MS` is set to 120 seconds. If a feed still times out, log the error and continue with other feeds — do NOT abort the entire data collection phase. A partial dataset is better than no data.
+
+**MANDATORY: Advisory feeds (ALWAYS download — for analysis and context):**
 
 ```javascript
-// These feeds inform the NEWSWORTHINESS GATE but are NOT consumed by the generator.
-// Use them to decide whether to proceed with article generation, but do NOT
-// include their items directly in the article output.
-european_parliament___get_documents_feed({ timeframe: "today", limit: 20 })
-european_parliament___get_plenary_documents_feed({ timeframe: "today", limit: 20 })
-european_parliament___get_committee_documents_feed({ timeframe: "today", limit: 20 })
-european_parliament___get_parliamentary_questions_feed({ timeframe: "today", limit: 20 })
+// These feeds provide additional data for analysis. ALWAYS download them.
+// Use timeframe: "one-week" to ensure data availability.
+european_parliament___get_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_committee_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_parliamentary_questions_feed({ timeframe: "one-week", limit: 50 })
 ```
 
 ### 🔍 NEWSWORTHINESS GATE
 
-After fetching all feed data, evaluate newsworthiness:
+> **⚠️ DATA COLLECTION IS MANDATORY BEFORE THIS GATE**: By this point, ALL feed endpoints MUST have been queried (with one-week fallback), ALL data MUST be saved to JSON files, and the analysis pipeline MUST have been run. The gate ONLY decides whether to generate an article — it does NOT skip data collection.
+
+After fetching all feed data AND running analysis, evaluate newsworthiness:
 1. Are there adopted texts published/updated TODAY?
 2. Are there significant parliamentary events happening TODAY?
 3. Are there legislative procedures updated TODAY?
 4. Are there notable MEP changes announced TODAY?
 
 **If YES to any**: Proceed with article generation — include publish dates for ALL referenced items
-**If NO to all**: Use `safeoutputs___noop` — no breaking news today
+**If NO to all**: Use `safeoutputs___noop` with analysis summary — but ONLY after all data has been downloaded, analyzed, and stored. Include a summary of what data WAS collected (e.g., "Downloaded 42 procedures, 15 events from past week; none dated today")
 
-### 📊 OPTIONAL: Analytical Context (Secondary)
+### 📊 MANDATORY: Analytical Context
 
-**Only fetch these if feeds contain newsworthy events:**
+**ALWAYS fetch these — they provide essential context for analysis regardless of newsworthiness:**
 
 ```javascript
-// Voting anomalies — supplementary context for feed events
+// Voting anomalies — mandatory analytical context
 european_parliament___detect_voting_anomalies({ sensitivityThreshold: 0.3 })
 
-// Coalition dynamics — supplementary context for political developments
+// Coalition dynamics — mandatory analytical context
 european_parliament___analyze_coalition_dynamics({})
+
+// Political landscape — mandatory for comprehensive analysis
+european_parliament___generate_political_landscape({})
+
+// Early warning system — mandatory for trend detection
+european_parliament___early_warning_system({ sensitivity: "medium" })
 ```
 
-### ⚡ MCP Call Budget (STRICT)
+### ⚡ MCP Call Budget
 
 - This budget applies to **manual pre-generation data gathering only**.
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once (does not count toward budget)
-- **Feed endpoints**: 4 mandatory calls (adopted texts, events, procedures, MEPs)
-- **Analytical context**: at most 2 optional calls (anomalies, coalition dynamics)
-- **Maximum 8 manual MCP tool calls total** (health-gate and generator script calls exempt)
+- **Feed endpoints**: 4 mandatory calls with today + up to 4 conditional retry calls with one-week fallback = max 8 feed calls
+- **Advisory feeds**: 4 mandatory calls with one-week timeframe = 4 calls
+- **Analytical context**: 4 mandatory calls (anomalies, coalition dynamics, political landscape, early warning) = 4 calls
+- **Maximum 16 manual MCP tool calls total** (4 primary + 4 retries + 4 advisory + 4 analytical; health-gate and generator script calls exempt)
+- **⚠️ ALL non-retry calls are mandatory** — the workflow must attempt every call, logging errors but continuing with other calls
 
 ## 📝 Article Generation
 

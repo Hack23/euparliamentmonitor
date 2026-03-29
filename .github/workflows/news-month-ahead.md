@@ -47,7 +47,7 @@ mcp-servers:
       - -y
       - european-parliament-mcp-server@1.1.18
     env:
-      EP_REQUEST_TIMEOUT_MS: "30000"
+      EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
     command: npx
     args:
@@ -352,7 +352,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 - Each MCP tool may be called **at most once** — never call the same tool a second time
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 
-**OPTIONAL supplementary tools** (call only if feed data suggests relevant upcoming activity):
+**MANDATORY supplementary tools** (ALWAYS call for comprehensive analysis — do NOT skip even if feed data is sparse for upcoming activity):
 
 ```javascript
 const today = new Date().toISOString().split('T')[0];

@@ -49,7 +49,7 @@ mcp-servers:
       - -y
       - european-parliament-mcp-server@1.1.18
     env:
-      EP_REQUEST_TIMEOUT_MS: "30000"
+      EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
     command: npx
     args:
@@ -358,6 +358,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all article types
 - **Across all types in a multi-type run**: each tool may be called once globally — reuse results
 - If data looks sparse after the first call: **proceed to article generation immediately — do NOT retry**
+- **Exception — breaking news only**: The 4 primary feed endpoints (`adopted_texts`, `events`, `procedures`, `meps`) may be called a second time with `timeframe: "one-week"` if the initial `timeframe: "today"` call returned empty/error/404/timeout. This retry exception applies ONLY to breaking news workflows and ONLY for these 4 feeds. All other article types must respect the "each tool at most once, no retries" rule.
 
 **Always verify connectivity first (health gate — up to 3 attempts):**
 ```javascript
@@ -408,35 +409,41 @@ european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
 
 **Breaking News (MANDATORY: Feed-First REALTIME — only TODAY's events):**
 
-> **🚨 NEWSWORTHINESS GATE**: Breaking news covers ONLY events published/updated TODAY. Use `timeframe: "today"` for ALL feed calls. If NO items from today are found, use `safeoutputs___noop`. ALL document references MUST include their publish date.
+> **🚨 NEWSWORTHINESS GATE**: Breaking news covers ONLY events published/updated TODAY. Use `timeframe: "today"` for initial feed calls, then retry with `timeframe: "one-week"` for any endpoint that returns empty/error/404/timeout. Always perform data download and analysis as part of the reasoning process — the gate only decides whether to generate a breaking-news article. If NO items from today are found, still analyze the collected data but do **not** open an analysis-only PR; instead, return `safeoutputs___noop` and include any important findings in the noop summary output, understanding that no PR will be created and workspace changes will not be persisted.
 
 These 4 feeds map directly to the breaking news generator's data model (`adoptedTexts`, `events`, `procedures`, `mepUpdates`):
 
 ```javascript
-european_parliament___get_adopted_texts_feed({ timeframe: "today", limit: 20 })
+// STEP 1: Try today first (4 calls)
+european_parliament___get_adopted_texts_feed({ timeframe: "today", limit: 50 })
 european_parliament___get_events_feed({ timeframe: "today", limit: 50 })
 european_parliament___get_procedures_feed({ timeframe: "today", limit: 50 })
-european_parliament___get_meps_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_meps_feed({ timeframe: "today", limit: 50 })
+
+// STEP 2 (CONDITIONAL): For each feed that returned empty/error/404/timeout,
+// retry with one-week to ensure data is always downloaded for analysis
+// european_parliament___get_adopted_texts_feed({ timeframe: "one-week", limit: 50 })  // if Step 1 failed
+// european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })          // if Step 1 failed
 ```
 
-Optional advisory feeds (for newsworthiness gate context only — not rendered in the generated article):
+MANDATORY advisory feeds (ALWAYS download for analysis context):
 
 ```javascript
-european_parliament___get_documents_feed({ timeframe: "today", limit: 20 })
-european_parliament___get_plenary_documents_feed({ timeframe: "today", limit: 20 })
-european_parliament___get_committee_documents_feed({ timeframe: "today", limit: 20 })
-european_parliament___get_parliamentary_questions_feed({ timeframe: "today", limit: 20 })
+european_parliament___get_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_committee_documents_feed({ timeframe: "one-week", limit: 50 })
+european_parliament___get_parliamentary_questions_feed({ timeframe: "one-week", limit: 50 })
 ```
 
-**OPTIONAL supplementary tools (call after feeds, for analytical context):**
+**MANDATORY supplementary tools (call after feeds, for analytical context):**
 
 ```javascript
-// Analytical context — only if feeds contain newsworthy events
+// Analytical context — ALWAYS fetch for comprehensive analysis
 european_parliament___detect_voting_anomalies({})
 european_parliament___analyze_coalition_dynamics({})
-european_parliament___get_committee_info({ committeeId: "ENVI" })
-european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 })
 european_parliament___generate_political_landscape({})
+european_parliament___early_warning_system({ sensitivity: "medium" })
+european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 })
 ```
 
 ### 📡 All Available EP API v2 Feed Endpoints

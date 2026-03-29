@@ -46,7 +46,7 @@ mcp-servers:
       - -y
       - european-parliament-mcp-server@1.1.18
     env:
-      EP_REQUEST_TIMEOUT_MS: "30000"
+      EP_REQUEST_TIMEOUT_MS: "120000"
 
 tools:
   github:
@@ -347,7 +347,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 **ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate and connectivity check (up to 3 attempts). Do not call it again after it succeeds.**
 
-**OPTIONAL supplementary tools** (call only if feed data suggests relevant activity this week):
+**MANDATORY supplementary tools** (ALWAYS call for comprehensive analysis — do NOT skip even if feed data is sparse for activity this week):
 
 ```javascript
 const lastWeek = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0];
