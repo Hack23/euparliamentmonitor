@@ -142,8 +142,8 @@ function safeArray(val: unknown): readonly unknown[] {
 /**
  * Resolve the voting anomaly array from a `ThreatAssessmentInput`.
  *
- * Reads the `anomalies` field and validates it as an array;
- * non-array values are treated as empty.
+ * Reads the `anomalies` field and validates it as an array.
+ * Non-array values are treated as empty.
  *
  * @param data - Article / threat-assessment data (may be null)
  * @returns Readonly array of anomaly items, never null

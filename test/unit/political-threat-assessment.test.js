@@ -279,7 +279,6 @@ describe('assessPoliticalThreats', () => {
       const data = {
         anomalies: 'string-not-array',
       };
-      expect(() => assessPoliticalThreats(data)).not.toThrow();
       const assessment = assessPoliticalThreats(data);
       expect(assessment.overallThreatLevel).toBe('low');
     });
