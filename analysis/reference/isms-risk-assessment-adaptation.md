@@ -43,7 +43,7 @@ This reference maps [Hack23 ISMS Risk_Assessment_Methodology.md](https://github.
 - **Grand coalition dynamics:** EPP + S&D + Renew command ~60% of seats; baseline stability is high but not guaranteed
 - **Conference of Presidents influence:** Political group leaders set plenary agenda, making obstruction likelihood dependent on group coordination
 - **Trilogue opacity:** Likelihood of policy deviation increases during trilogue (Council-EP-Commission negotiations) due to reduced transparency
-- **Pre-election cycle:** All likelihoods increase by 0.5–1 in the 12 months before EP elections (next: June 2029)
+- **Pre-election cycle:** All likelihoods increase by 0.5–1 level (capped at 5) in the 12 months before EP elections (next: June 2029). This is an additive adjustment to the 1–5 scale — e.g., a Likelihood of 3 becomes 3.5–4.0 during pre-election period, rounded to the nearest integer for the matrix.
 
 ---
 

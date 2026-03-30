@@ -201,6 +201,8 @@ Before finalising any analysis artifact, the AI agent must verify:
 | Actionable intelligence (forward indicators, probability assessments) | 0.15 | `[1-10]` |
 | Political neutrality (no partisan conclusions) | 0.15 | `[1-10]` |
 
+**Weighted Score Formula:** `Final = (Evidence × 0.25) + (Depth × 0.25) + (Structural × 0.20) + (Actionable × 0.15) + (Neutrality × 0.15)`
+
 **Minimum passing score: 7.0/10.** Analysis scoring below 7.0 must be revised before consumption by downstream workflows.
 
 ---

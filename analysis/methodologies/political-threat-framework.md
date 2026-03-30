@@ -17,7 +17,9 @@
 
 ## 🎯 Purpose
 
-This framework provides a **comprehensive, multi-framework approach** to political threat analysis for EU democratic processes. STRIDE alone is insufficient for political intelligence — this methodology combines **six complementary frameworks** to ensure systematic threat coverage:
+This framework provides a **comprehensive, multi-framework approach** to political threat analysis for EU democratic processes. STRIDE alone is insufficient for political intelligence because it was designed for software systems — it categorises threats by type but lacks the **goal-decomposition** of attack trees, the **privacy focus** of LINDDUN, the **macro-environmental scanning** of PESTLE, and the **forward-looking uncertainty modelling** of scenario planning. Political threats are multi-dimensional; a single framework cannot provide adequate coverage.
+
+This methodology combines **six complementary frameworks** to ensure systematic threat coverage:
 
 | Framework | Strength | Political Application |
 |-----------|----------|----------------------|

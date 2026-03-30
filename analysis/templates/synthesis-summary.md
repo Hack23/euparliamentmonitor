@@ -80,6 +80,11 @@ graph TD
     style RSK fill:#6c757d,stroke:#333,stroke-width:2px,stroke-dasharray:5 5,color:#fff
     style THR fill:#6c757d,stroke:#333,stroke-width:2px,stroke-dasharray:5 5,color:#fff
     style SIG fill:#6c757d,stroke:#333,stroke-width:2px,stroke-dasharray:5 5,color:#fff
+
+    %% ⚠️ AI Agent: When filling actual values, replace grey dashed styles above
+    %% with appropriate level colours from the standard palette:
+    %% CRITICAL/RESTRICTED: fill:#dc3545  HIGH/SENSITIVE: fill:#fd7e14
+    %% MEDIUM: fill:#ffc107  LOW/PUBLIC: fill:#28a745
     style BRK fill:#dc3545,color:#fff
     style STD fill:#28a745,color:#fff
     style MON fill:#6c757d,color:#fff
