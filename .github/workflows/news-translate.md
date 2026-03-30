@@ -498,9 +498,13 @@ fi
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
 rm -f news/articles-metadata.json
-# Remove any analysis-output files that the generator may have created
+# ⚠️ CRITICAL: Remove analysis artifacts to stay under 100-file PR limit (E003 safeguard)
+# The safe-outputs framework captures ALL working directory changes as a patch.
+# Analysis artifacts and MCP data files must not be included in the PR.
 rm -rf analysis-output/
-echo "🧹 Cleaned metadata and analysis files from working directory to prevent patch conflicts"
+rm -rf analysis/ 2>/dev/null || true
+git checkout HEAD -- analysis/ 2>/dev/null || true
+echo "🧹 Cleaned metadata and analysis artifacts from working directory"
 
 ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
 TRANSLATED_COUNT=$(ls news/${ARTICLE_DATE}-*-{sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh}.html 2>/dev/null | wc -l || echo 0)

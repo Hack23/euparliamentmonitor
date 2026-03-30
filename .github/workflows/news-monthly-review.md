@@ -644,7 +644,13 @@ fi
 ```bash
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
-echo "🧹 Cleaned metadata files from working directory to prevent patch conflicts"
+
+# ⚠️ CRITICAL: Remove analysis artifacts to stay under 100-file PR limit (E003 safeguard)
+# The safe-outputs framework captures ALL working directory changes as a patch.
+# Analysis artifacts and MCP data files must not be included in the PR.
+rm -rf analysis/ 2>/dev/null || true
+git checkout HEAD -- analysis/ 2>/dev/null || true
+echo "🧹 Cleaned metadata and analysis artifacts from working directory"
 ```
 
 ```bash
@@ -656,7 +662,7 @@ BRANCH_NAME="news/month-in-review-$TODAY"
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament month-in-review articles ${TODAY}`,
-  body: `## EU Parliament Monthly Review Articles\n\nGenerated month-in-review comprehensive analysis articles.\n\n- Languages: ${LANG_ARG}\n- Review period: past 30 days\n- Data source: European Parliament MCP Server\n- 🔬 Political intelligence analysis artifacts in \`analysis/${TODAY}/month-in-review/\``,
+  body: `## EU Parliament Monthly Review Articles\n\nGenerated month-in-review comprehensive analysis articles.\n\n- Languages: ${LANG_ARG}\n- Review period: past 30 days\n- Data source: European Parliament MCP Server`,
   base: "main",
   head: BRANCH_NAME
 })
