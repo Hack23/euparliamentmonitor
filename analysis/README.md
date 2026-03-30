@@ -46,7 +46,7 @@ analysis/
 ├── methodologies/                     ← 6 detailed methodology guides
 │   ├── political-classification-guide.md  ← 7-dimension EP event classification
 │   ├── political-risk-methodology.md      ← Likelihood × Impact scoring for EP
-│   ├── political-threat-framework.md      ← Multi-framework threat analysis (STRIDE + 5 more)
+│   ├── political-threat-framework.md      ← Multi-framework threat analysis (Threat Landscape + 5 more)
 │   ├── political-swot-framework.md        ← Evidence-based SWOT for EP landscape
 │   ├── political-style-guide.md           ← Writing standards and depth levels
 │   └── ai-driven-analysis-guide.md        ← Per-file AI analysis protocol and quality gates
@@ -125,8 +125,9 @@ AI agents must:
 
 ### Rule 3: Multi-Framework Threat Analysis
 
-STRIDE alone is insufficient. AI agents must use **at least two threat frameworks** for any threat rated MODERATE or above:
-- STRIDE (baseline)
+Software-centric threat models (e.g. STRIDE, DREAD) are NOT used. AI agents must use the **Political Threat Landscape** (6 dimensions) as the primary framework, layering additional frameworks for threats rated MODERATE or above:
+- Political Threat Landscape (primary — Coalition Shifts, Transparency Deficit, Policy Reversal, Institutional Pressure, Legislative Obstruction, Democratic Erosion)
+- Diamond Model (adversary analysis)
 - Attack Trees (systemic threats)
 - LINDDUN (privacy/data)
 - PESTLE (macro-environmental)
@@ -182,7 +183,7 @@ flowchart LR
 |:--------:|----------|-------------|
 | 🔴 1 | [political-swot-framework.md](methodologies/political-swot-framework.md) | Evidence hierarchy, confidence levels, temporal decay, aggregation |
 | 🔴 2 | [political-risk-methodology.md](methodologies/political-risk-methodology.md) | 5×5 Likelihood × Impact matrix, EU calibration examples |
-| 🔴 3 | [political-threat-framework.md](methodologies/political-threat-framework.md) | 6-framework threat analysis: STRIDE + Attack Trees + LINDDUN + PESTLE + Scenario Planning + Kill Chain |
+| 🔴 3 | [political-threat-framework.md](methodologies/political-threat-framework.md) | 6-framework threat analysis: Threat Landscape + Diamond Model + Attack Trees + PESTLE + Scenario Planning + Kill Chain |
 | 🟠 4 | [political-classification-guide.md](methodologies/political-classification-guide.md) | Sensitivity levels, EP domain taxonomy, urgency matrix |
 | 🟠 5 | [political-style-guide.md](methodologies/political-style-guide.md) | Writing standards, 3 depth levels, evidence density, anti-patterns |
 | 🟠 6 | [ai-driven-analysis-guide.md](methodologies/ai-driven-analysis-guide.md) | Per-file protocol, quality gates, document-type focus, conflict resolution |
@@ -285,7 +286,7 @@ The `reference/` directory maps ISMS security frameworks to political intelligen
 |-------------------|---------------------|---------------------|
 | [isms-classification-adaptation.md](reference/isms-classification-adaptation.md) | [CLASSIFICATION.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Confidentiality → Sensitivity, Integrity → Accuracy, Availability → Urgency |
 | [isms-risk-assessment-adaptation.md](reference/isms-risk-assessment-adaptation.md) | [Risk_Assessment_Methodology.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md) | CIA Triad → Political Triad (Accountability, Policy Fidelity, Democratic Continuity) |
-| [isms-threat-modeling-adaptation.md](reference/isms-threat-modeling-adaptation.md) | [Threat_Modeling.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) | STRIDE + ATT&CK + Attack Trees + LINDDUN → EU democratic threat landscape |
+| [isms-threat-modeling-adaptation.md](reference/isms-threat-modeling-adaptation.md) | [Threat_Modeling.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) | Political Threat Landscape + Attack Trees + Diamond Model → EU democratic threat landscape |
 | [isms-style-guide-adaptation.md](reference/isms-style-guide-adaptation.md) | [STYLE_GUIDE.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md) | ISMS writing standards → Political intelligence writing standards |
 
 ---

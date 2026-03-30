@@ -56,7 +56,7 @@ flowchart LR
 | 3 | **Classify** — Sensitivity, domain, urgency | [political-classification-guide.md](political-classification-guide.md) | PUBLIC/SENSITIVE/RESTRICTED + domain code |
 | 4 | **SWOT analysis** — Evidence-based quadrant assessment | [political-swot-framework.md](political-swot-framework.md) | 4-quadrant impact with citations |
 | 5 | **Risk assessment** — 5×5 Likelihood × Impact | [political-risk-methodology.md](political-risk-methodology.md) | Risk scores per category |
-| 6 | **Threat analysis** — Multi-framework (STRIDE + attack trees + LINDDUN) | [political-threat-framework.md](political-threat-framework.md) | Threat inventory |
+| 6 | **Threat analysis** — Multi-framework (Threat Landscape + Attack Trees + Diamond Model) | [political-threat-framework.md](political-threat-framework.md) | Threat inventory |
 | 7 | **Stakeholder impact** — 6-lens assessment | Template: [stakeholder-impact.md](../templates/stakeholder-impact.md) | Impact by stakeholder group |
 | 8 | **Significance scoring** — 5-dimension composite | Template: [significance-scoring.md](../templates/significance-scoring.md) | Score 0–10 with publish decision |
 | 9 | **Write per-file analysis** using template | [per-file-political-intelligence.md](../templates/per-file-political-intelligence.md) | `{id}.analysis.md` |
@@ -173,7 +173,7 @@ Before finalising any analysis artifact, the AI agent must verify:
 - [ ] Classification complete (sensitivity + domain + urgency)
 - [ ] SWOT analysis has ≥ 2 entries per quadrant with evidence
 - [ ] Risk assessment uses 5×5 matrix with specific scores (not generic "medium")
-- [ ] Threat analysis goes beyond STRIDE — includes attack trees or scenario planning
+- [ ] Threat analysis uses multiple frameworks — includes attack trees, Diamond Model, or scenario planning
 - [ ] Stakeholder impact covers all 6 lenses with specific assessments
 - [ ] Significance score calculated with 5-dimension breakdown
 
@@ -238,7 +238,7 @@ When multiple agentic workflows run simultaneously:
 |:--------:|----------|-------------|
 | 🔴 1 | [political-swot-framework.md](political-swot-framework.md) | Evidence hierarchy, confidence levels, temporal decay, aggregation |
 | 🔴 2 | [political-risk-methodology.md](political-risk-methodology.md) | 5×5 Likelihood × Impact matrix, coalition risk index |
-| 🔴 3 | [political-threat-framework.md](political-threat-framework.md) | Multi-framework threat analysis: STRIDE + attack trees + LINDDUN + PESTLE |
+| 🔴 3 | [political-threat-framework.md](political-threat-framework.md) | Multi-framework threat analysis: Threat Landscape + Attack Trees + Diamond Model + PESTLE |
 | 🟠 4 | [political-classification-guide.md](political-classification-guide.md) | Sensitivity levels, domain taxonomy, urgency matrix |
 | 🟠 5 | [political-style-guide.md](political-style-guide.md) | Writing standards, evidence density, depth levels, attribution |
 | 🟠 6 | This document | Per-file protocol, quality gates, anti-patterns |

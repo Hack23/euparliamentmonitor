@@ -166,7 +166,7 @@ The following patterns are **REJECTED** in all analysis output:
 | Claims without confidence | Reader cannot assess reliability | Always append `[HIGH/MEDIUM/LOW confidence]` |
 | Opinions without evidence | Violates evidence-based methodology | Cite EP document ID, MCP tool output, or named source |
 | Generic statements ("things are uncertain") | Zero informational value | Quantify: "35–45% probability of X based on Y evidence" |
-| STRIDE-only threat model | STRIDE is one of many frameworks; insufficient alone | Supplement with attack trees, LINDDUN, PESTLE, scenario planning |
+| Software-centric threat models (e.g. STRIDE, DREAD) | Designed for software bugs, not political dynamics; forced mappings produce superficial analysis | Use Political Threat Landscape, Diamond Model, Attack Trees, PESTLE, Scenario Planning |
 | Hardcoded Mermaid values in templates | Propagate to generated output as fake data | Use `{N}`, `{x}`, `{y}` placeholders |
 | Script-generated boilerplate | "Scripted crap content" — violates analytical mandate | AI must read methodology, analyse data, produce original analysis |
 | Overwriting previous analysis | Destroys audit trail; loses temporal context | Each workflow writes to `analysis/{date}/{article-type-slug}/` |

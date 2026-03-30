@@ -5,8 +5,8 @@
 <h1 align="center">🎭 ISMS Threat Modeling → EU Political Threat Adaptation</h1>
 
 <p align="center">
-  <strong>📊 Mapping STRIDE, ATT&CK, Attack Trees & LINDDUN to Democratic Process Threats</strong><br>
-  <em>🎯 STRIDE · MITRE ATT&CK · Attack Trees · LINDDUN · Threat Agents → EU Political Threats</em>
+  <strong>📊 Mapping ISMS Threat Modeling Frameworks to EU Democratic Process Threats</strong><br>
+  <em>🎯 Political Threat Landscape · Diamond Model · Attack Trees · PESTLE · Threat Agents → EU Political Threats</em>
 </p>
 
 <p align="center">
@@ -24,20 +24,24 @@
 
 ## 🎯 Purpose
 
-This reference maps [Hack23 ISMS Threat_Modeling.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) frameworks to EU Parliament Monitor's political threat analysis. The adaptation goes **beyond STRIDE** to include attack trees, LINDDUN privacy threats, PESTLE macro factors, and scenario-based threat modelling — providing a comprehensive multi-framework approach to EU democratic process threat assessment.
+This reference maps [Hack23 ISMS Threat_Modeling.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) frameworks to EU Parliament Monitor's political threat analysis. The adaptation uses **purpose-built political intelligence frameworks** — the Political Threat Landscape (6 dimensions), Diamond Model for adversary analysis, attack trees for systemic threats, PESTLE for macro-environmental scanning, and scenario planning for forward-looking analysis.
+
+> **Note:** Software-centric threat models like STRIDE are NOT used. STRIDE was designed for finding bugs in software architectures (Microsoft SDL). Political intelligence requires frameworks built for human adversarial behaviour, institutional dynamics, and systemic risk cascades.
 
 ---
 
-## 🎭 STRIDE → EU Political Threats
+## 🏛️ Political Threat Landscape → EU Democratic Threats
 
-| STRIDE | Cybersecurity Threat | EU Political Threat | Example |
-|:------:|---------------------|:-------------------:|---------|
-| **S** | Impersonation | 🎭 **Disinformation** | Misrepresented voting records; false MEP attribution |
-| **T** | Data modification | 📝 **Policy Corruption** | Undisclosed lobbying alters legislative text in trilogue |
-| **R** | Denying action | 🚫 **Accountability Evasion** | MEP contradicts their roll-call vote record |
-| **I** | Data exposure | 🔇 **Transparency Failure** | Trilogue documents withheld; lobbying meetings undisclosed |
-| **D** | Service unavailability | ⛔ **Democratic Obstruction** | Committee quorum manipulation; amendment flooding |
-| **E** | Unauthorized escalation | 👑 **Power Concentration** | Commission bypasses EP via delegated acts; Council overreach |
+The Political Threat Landscape maps six dimensions of democratic process threats:
+
+| Dimension | Democratic Process Threat | Example |
+|:--------:|--------------------------|---------|
+| **Coalition Shifts** | Realignment, defection, fragmentation | EPP-S&D voting divergence on flagship legislation |
+| **Transparency Deficit** | Information asymmetry, procedural opacity | Trilogue outcome diverges >30% from EP position |
+| **Policy Reversal** | Rollback, contradiction, abandonment | Political group votes opposite to own report |
+| **Institutional Pressure** | Power concentration, procedural manipulation | Commission delegated acts exceeding legislative mandate |
+| **Legislative Obstruction** | Delay, filibuster, deadlock | >30% of active procedures stalled at same stage |
+| **Democratic Erosion** | Norm degradation, trust decline, participation drop | Plenary attendance drops below 60% in key votes |
 
 ---
 

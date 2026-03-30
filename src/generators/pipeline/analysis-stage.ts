@@ -28,7 +28,7 @@
  *
  * Analysis methods are grouped into four categories:
  * - **Classification** (Issues #804): significance, impact-matrix, actor-mapping, forces
- * - **Threat Assessment** (Issues #805): political-stride, actor-threat, consequence-trees, disruption
+ * - **Threat Assessment** (Issues #805): political-threat-landscape, actor-threat, consequence-trees, disruption
  * - **Risk Scoring** (Issues #806): risk-matrix, capital-risk, quantitative-swot, velocity-risk, agent-workflow
  * - **Existing** (current codebase): deep-analysis, stakeholder-analysis, coalition-analysis, voting-patterns, cross-session-intelligence
  *
@@ -290,7 +290,7 @@ export function hasSubstantiveData(data: Record<string, unknown>): boolean {
  *
  * Methods prefixed with a group label:
  * - Classification (#804): significance-classification, impact-matrix, actor-mapping, forces-analysis
- * - Threat Assessment (#805): political-stride, actor-threat-profiling, consequence-trees, legislative-disruption
+ * - Threat Assessment (#805): political-threat-landscape, actor-threat-profiling, consequence-trees, legislative-disruption
  * - Risk Scoring (#806): risk-matrix, political-capital-risk, quantitative-swot, legislative-velocity-risk, agent-risk-workflow
  * - Existing: deep-analysis, stakeholder-analysis, coalition-analysis, voting-patterns, cross-session-intelligence
  */
@@ -301,7 +301,8 @@ export type AnalysisMethod =
   | 'actor-mapping'
   | 'forces-analysis'
   // Threat Assessment (Issue #805)
-  | 'political-stride'
+  | 'political-threat-landscape'
+  | 'political-stride' // @deprecated — alias kept for backward compatibility
   | 'actor-threat-profiling'
   | 'consequence-trees'
   | 'legislative-disruption'
@@ -328,7 +329,7 @@ export const ALL_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
   'actor-mapping',
   'forces-analysis',
   // Threat Assessment
-  'political-stride',
+  'political-threat-landscape',
   'actor-threat-profiling',
   'consequence-trees',
   'legislative-disruption',
@@ -2179,6 +2180,7 @@ const METHOD_BUILDERS: Readonly<Record<AnalysisMethod, MarkdownBuilder>> = {
   'actor-mapping': buildActorMappingMarkdown,
   'forces-analysis': buildForcesAnalysisMarkdown,
   'political-stride': buildPoliticalStrideMarkdown,
+  'political-threat-landscape': buildPoliticalStrideMarkdown,
   'actor-threat-profiling': buildActorThreatProfilingMarkdown,
   'consequence-trees': buildConsequenceTreesMarkdown,
   'legislative-disruption': buildLegislativeDisruptionMarkdown,
@@ -2409,6 +2411,7 @@ const METHOD_SUBDIRS: Readonly<Record<AnalysisMethod, string>> = {
   'actor-mapping': SUBDIR_CLASSIFICATION,
   'forces-analysis': SUBDIR_CLASSIFICATION,
   'political-stride': SUBDIR_THREAT_ASSESSMENT,
+  'political-threat-landscape': SUBDIR_THREAT_ASSESSMENT,
   'actor-threat-profiling': SUBDIR_THREAT_ASSESSMENT,
   'consequence-trees': SUBDIR_THREAT_ASSESSMENT,
   'legislative-disruption': SUBDIR_THREAT_ASSESSMENT,
@@ -2432,6 +2435,7 @@ const METHOD_DEFAULT_CONFIDENCE: Readonly<Record<AnalysisMethod, ConfidenceLevel
   'actor-mapping': 'medium',
   'forces-analysis': 'medium',
   'political-stride': 'medium',
+  'political-threat-landscape': 'medium',
   'actor-threat-profiling': 'low',
   'consequence-trees': 'medium',
   'legislative-disruption': 'medium',
@@ -2455,6 +2459,7 @@ const METHOD_FILENAMES: Readonly<Record<AnalysisMethod, string>> = {
   'actor-mapping': 'actor-mapping.md',
   'forces-analysis': 'forces-analysis.md',
   'political-stride': 'political-stride-assessment.md',
+  'political-threat-landscape': 'political-threat-landscape.md',
   'actor-threat-profiling': 'actor-threat-profiles.md',
   'consequence-trees': 'consequence-trees.md',
   'legislative-disruption': 'legislative-disruption.md',

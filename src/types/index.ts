@@ -275,6 +275,7 @@ export type {
   DisruptionPoint,
   LegislativeDisruptionAnalysis,
   PoliticalStrideCategory,
+  PoliticalThreatDimension,
   PoliticalThreatAssessment,
   ThreatAssessmentInput,
 } from './political-threats.js';
