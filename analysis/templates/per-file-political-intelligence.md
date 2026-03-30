@@ -178,11 +178,11 @@ graph TD
 
 ## 🎭 Threat Analysis (Multi-Framework)
 
-> *Political threats assessed using multiple complementary frameworks — STRIDE adapted for democratic processes, attack trees for systemic threats, and LINDDUN for data/privacy dimensions. Severity: 1=Negligible, 2=Minor, 3=Moderate, 4=Major, 5=Severe.*
+> *Political threats assessed using the Political Threat Landscape (6 dimensions), supplemented with Diamond Model for adversary analysis, Attack Trees for systemic threats, and PESTLE for macro-environmental factors. Severity: 1=Negligible, 2=Minor, 3=Moderate, 4=Major, 5=Severe.*
 
-### STRIDE Assessment
+### Threat Landscape Assessment
 
-| STRIDE Category | Applicable? | Threat Description | Severity (1–5) | Evidence |
+| Threat Dimension | Applicable? | Threat Description | Severity (1–5) | Evidence |
 |----------------|:-----------:|-------------------|:--------------:|----------|
 | 🎭 S — Disinformation | `[Y/N]` | `[Misrepresentation of positions, false attributions in EP debates]` | `[1-5]` | `[EP ref]` |
 | 🔧 T — Process Manipulation | `[Y/N]` | `[Procedural manipulation, fast-tracking, rule bending in committee]` | `[1-5]` | `[EP ref]` |

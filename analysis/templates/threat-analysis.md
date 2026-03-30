@@ -1,11 +1,11 @@
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
-# 🎭 Political Threat Analysis Template — European Parliament
+# 🎭 Political Threat Landscape Analysis Template — European Parliament
 
-> **📌 Template Instructions:** This template uses the **multi-framework** threat analysis approach — STRIDE as baseline, supplemented with attack trees, LINDDUN, PESTLE, and scenario planning as needed. See [methodologies/political-threat-framework.md](../methodologies/political-threat-framework.md) for full methodology. Copy to `analysis/YYYY-MM-DD/{article-type-slug}/` and name `threat-analysis.md`. The AI agent MUST process ALL downloaded MCP data (in `analysis/YYYY-MM-DD/{article-type-slug}/data/`) to identify threats.
+> **📌 Template Instructions:** This template uses the **Political Threat Landscape** as the primary framework — a purpose-built 6-dimension model for EU democratic threats. Layer Diamond Model, Attack Trees, PESTLE, Scenario Planning, and Kill Chain for threats rated MODERATE or above. See [methodologies/political-threat-framework.md](../methodologies/political-threat-framework.md) for full methodology. Copy to `analysis/YYYY-MM-DD/{article-type-slug}/` and name `threat-analysis.md`. The AI agent MUST process ALL downloaded MCP data (in `analysis/YYYY-MM-DD/{article-type-slug}/data/`) to identify threats.
 
-> **🚨 Anti-Pattern Warning:** STRIDE-only analysis is INSUFFICIENT for threats rated MODERATE or above. When severity ≥ 3, supplement with attack trees (systemic threats), LINDDUN (privacy), PESTLE (macro factors), or scenario planning (forward-looking). Every threat claim MUST cite EP MCP data. See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for quality requirements. **Never use scripted boilerplate — AI must analyse the actual data.**
+> **🚨 Anti-Pattern Warning:** Generic scripted analysis is REJECTED. Statements like "Coalition stability appears maintained" or "No significant signals detected" indicate the agent has NOT analysed the data. Every threat finding MUST cite specific EP MCP data. The AI must READ actual data, IDENTIFY specific threats, and PRODUCE original analysis with evidence. See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for quality requirements.
 
 ---
 
@@ -17,100 +17,113 @@
 | **Analysis Date** | `[REQUIRED: YYYY-MM-DD HH:MM UTC]` |
 | **Analysis Period** | `[REQUIRED: e.g. "2026-W13 (2026-03-23 to 2026-03-29)"]` |
 | **Produced By** | `[REQUIRED: workflow name]` |
-| **Political Context** | `[REQUIRED: 2–3 sentences on current EP political situation]` |
-| **Overall Threat Level** | `[REQUIRED: LOW / MODERATE / HIGH / SEVERE]` |
+| **Political Context** | `[REQUIRED: 2–3 sentences on current EP political situation based on MCP data]` |
+| **Overall Threat Level** | `[REQUIRED: MINIMAL / LOW / MODERATE / HIGH / SEVERE]` |
 
 ---
 
-## 🎭 STRIDE-Adapted Threat Inventory
+## 🏛️ Political Threat Landscape Assessment (6 Dimensions)
 
-### S — Spoofing: False Narratives & Disinformation
+### 🔄 Dimension 1: Coalition Shifts
 
-| Threat ID | Threat Description | Threat Actor | Evidence (MCP data) | Severity (1–5) | Mitigation |
-|-----------|-------------------|-------------|-------------------|:--------------:|------------|
-| `S-001` | `[REQUIRED: e.g. "Disinformation campaign targeting EP Green Deal legislation"]` | `[REQUIRED]` | `[REQUIRED: MCP data file reference]` | `[#]` | `[REQUIRED]` |
-| `S-002` | `[OPTIONAL]` | `[OPTIONAL]` | `[OPTIONAL]` | `[#]` | `[OPTIONAL]` |
+| Threat ID | Finding | Evidence (EP MCP Data) | Severity (1–5) | Trend |
+|-----------|---------|----------------------|:--------------:|:-----:|
+| `CS-001` | `[REQUIRED: Specific finding from voting patterns, coalition dynamics data]` | `[REQUIRED: MCP tool + data reference]` | `[#]` | `[↑/→/↓]` |
+| `CS-002` | `[OPTIONAL]` | `[EP MCP reference]` | `[#]` | `[↑/→/↓]` |
 
-**S-Category Threat Level:** `[LOW / MODERATE / HIGH / SEVERE]`
-
----
-
-### T — Tampering: Policy Corruption Risks
-
-| Threat ID | Threat Description | Threat Actor | Evidence (MCP data) | Severity (1–5) | Mitigation |
-|-----------|-------------------|-------------|-------------------|:--------------:|------------|
-| `T-001` | `[REQUIRED: e.g. "Undisclosed lobbying influence on ENVI committee amendments"]` | `[REQUIRED]` | `[REQUIRED]` | `[#]` | `[REQUIRED]` |
-| `T-002` | `[OPTIONAL]` | `[OPTIONAL]` | `[OPTIONAL]` | `[#]` | `[OPTIONAL]` |
-
-**T-Category Threat Level:** `[LOW / MODERATE / HIGH / SEVERE]`
+**Dimension Assessment:** `[MINIMAL / LOW / MODERATE / HIGH / SEVERE]` — `[1-2 sentence summary with confidence level]`
 
 ---
 
-### R — Repudiation: Accountability Evasion
+### 🔍 Dimension 2: Transparency Deficit
 
-| Threat ID | Threat Description | Threat Actor | Evidence (MCP data) | Severity (1–5) | Mitigation |
-|-----------|-------------------|-------------|-------------------|:--------------:|------------|
-| `R-001` | `[REQUIRED: e.g. "MEP voting record contradicts public position on migration"]` | `[REQUIRED]` | `[REQUIRED: voting record from MCP]` | `[#]` | `[REQUIRED]` |
-| `R-002` | `[OPTIONAL]` | `[OPTIONAL]` | `[OPTIONAL]` | `[#]` | `[OPTIONAL]` |
+| Threat ID | Finding | Evidence (EP MCP Data) | Severity (1–5) | Trend |
+|-----------|---------|----------------------|:--------------:|:-----:|
+| `TD-001` | `[REQUIRED: Specific transparency gap identified from committee, declaration, or procedure data]` | `[REQUIRED: MCP tool + data reference]` | `[#]` | `[↑/→/↓]` |
+| `TD-002` | `[OPTIONAL]` | `[EP MCP reference]` | `[#]` | `[↑/→/↓]` |
 
-**R-Category Threat Level:** `[LOW / MODERATE / HIGH / SEVERE]`
-
----
-
-### I — Information Disclosure: Transparency Failures
-
-| Threat ID | Threat Description | Threat Actor | Evidence (MCP data) | Severity (1–5) | Mitigation |
-|-----------|-------------------|-------------|-------------------|:--------------:|------------|
-| `I-001` | `[REQUIRED: e.g. "Delayed MEP financial declaration disclosures"]` | `[REQUIRED]` | `[REQUIRED: declarations data from MCP]` | `[#]` | `[REQUIRED]` |
-| `I-002` | `[OPTIONAL]` | `[OPTIONAL]` | `[OPTIONAL]` | `[#]` | `[OPTIONAL]` |
-
-**I-Category Threat Level:** `[LOW / MODERATE / HIGH / SEVERE]`
+**Dimension Assessment:** `[MINIMAL / LOW / MODERATE / HIGH / SEVERE]` — `[1-2 sentence summary with confidence level]`
 
 ---
 
-### D — Denial: Democratic Process Obstruction
+### ↩️ Dimension 3: Policy Reversal
 
-| Threat ID | Threat Description | Threat Actor | Evidence (MCP data) | Severity (1–5) | Mitigation |
-|-----------|-------------------|-------------|-------------------|:--------------:|------------|
-| `D-001` | `[REQUIRED: e.g. "Committee blocking of key legislative report through procedural delays"]` | `[REQUIRED]` | `[REQUIRED: pipeline data from MCP]` | `[#]` | `[REQUIRED]` |
-| `D-002` | `[OPTIONAL]` | `[OPTIONAL]` | `[OPTIONAL]` | `[#]` | `[OPTIONAL]` |
+| Threat ID | Finding | Evidence (EP MCP Data) | Severity (1–5) | Trend |
+|-----------|---------|----------------------|:--------------:|:-----:|
+| `PR-001` | `[REQUIRED: Specific policy reversal or contradiction identified from voting/procedure data]` | `[REQUIRED: MCP tool + data reference]` | `[#]` | `[↑/→/↓]` |
+| `PR-002` | `[OPTIONAL]` | `[EP MCP reference]` | `[#]` | `[↑/→/↓]` |
 
-**D-Category Threat Level:** `[LOW / MODERATE / HIGH / SEVERE]`
-
----
-
-### E — Elevation of Privilege: Power Concentration
-
-| Threat ID | Threat Description | Threat Actor | Evidence (MCP data) | Severity (1–5) | Mitigation |
-|-----------|-------------------|-------------|-------------------|:--------------:|------------|
-| `E-001` | `[REQUIRED: e.g. "Commission using delegated acts to bypass EP co-decision"]` | `[REQUIRED]` | `[REQUIRED: procedures data from MCP]` | `[#]` | `[REQUIRED]` |
-| `E-002` | `[OPTIONAL]` | `[OPTIONAL]` | `[OPTIONAL]` | `[#]` | `[OPTIONAL]` |
-
-**E-Category Threat Level:** `[LOW / MODERATE / HIGH / SEVERE]`
+**Dimension Assessment:** `[MINIMAL / LOW / MODERATE / HIGH / SEVERE]` — `[1-2 sentence summary with confidence level]`
 
 ---
 
-## 📊 Threat Summary Matrix
+### 🏛️ Dimension 4: Institutional Pressure
 
-| STRIDE Category | Highest Threat | Severity | Threat Level |
-|----------------|---------------|:--------:|--------------|
-| S — Spoofing | `[threat ID]` | `[#]` | `[level]` |
-| T — Tampering | `[threat ID]` | `[#]` | `[level]` |
-| R — Repudiation | `[threat ID]` | `[#]` | `[level]` |
-| I — Disclosure | `[threat ID]` | `[#]` | `[level]` |
-| D — Denial | `[threat ID]` | `[#]` | `[level]` |
-| E — Elevation | `[threat ID]` | `[#]` | `[level]` |
+| Threat ID | Finding | Evidence (EP MCP Data) | Severity (1–5) | Trend |
+|-----------|---------|----------------------|:--------------:|:-----:|
+| `IP-001` | `[REQUIRED: Specific institutional overreach or power concentration from procedure/committee data]` | `[REQUIRED: MCP tool + data reference]` | `[#]` | `[↑/→/↓]` |
+| `IP-002` | `[OPTIONAL]` | `[EP MCP reference]` | `[#]` | `[↑/→/↓]` |
+
+**Dimension Assessment:** `[MINIMAL / LOW / MODERATE / HIGH / SEVERE]` — `[1-2 sentence summary with confidence level]`
+
+---
+
+### ⏳ Dimension 5: Legislative Obstruction
+
+| Threat ID | Finding | Evidence (EP MCP Data) | Severity (1–5) | Trend |
+|-----------|---------|----------------------|:--------------:|:-----:|
+| `LO-001` | `[REQUIRED: Specific obstruction/delay from legislative pipeline or committee data]` | `[REQUIRED: MCP tool + data reference]` | `[#]` | `[↑/→/↓]` |
+| `LO-002` | `[OPTIONAL]` | `[EP MCP reference]` | `[#]` | `[↑/→/↓]` |
+
+**Dimension Assessment:** `[MINIMAL / LOW / MODERATE / HIGH / SEVERE]` — `[1-2 sentence summary with confidence level]`
+
+---
+
+### 📉 Dimension 6: Democratic Erosion
+
+| Threat ID | Finding | Evidence (EP MCP Data) | Severity (1–5) | Trend |
+|-----------|---------|----------------------|:--------------:|:-----:|
+| `DE-001` | `[REQUIRED: Specific democratic norm concern from attendance, question quality, or Article 7 data]` | `[REQUIRED: MCP tool + data reference]` | `[#]` | `[↑/→/↓]` |
+| `DE-002` | `[OPTIONAL]` | `[EP MCP reference]` | `[#]` | `[↑/→/↓]` |
+
+**Dimension Assessment:** `[MINIMAL / LOW / MODERATE / HIGH / SEVERE]` — `[1-2 sentence summary with confidence level]`
+
+---
+
+## 📊 Threat Landscape Summary
+
+| Dimension | Highest Threat | Severity | Assessment | Trend |
+|-----------|---------------|:--------:|:----------:|:-----:|
+| 🔄 Coalition Shifts | `[threat ID]` | `[#]` | `[level]` | `[↑/→/↓]` |
+| 🔍 Transparency Deficit | `[threat ID]` | `[#]` | `[level]` | `[↑/→/↓]` |
+| ↩️ Policy Reversal | `[threat ID]` | `[#]` | `[level]` | `[↑/→/↓]` |
+| 🏛️ Institutional Pressure | `[threat ID]` | `[#]` | `[level]` | `[↑/→/↓]` |
+| ⏳ Legislative Obstruction | `[threat ID]` | `[#]` | `[level]` | `[↑/→/↓]` |
+| 📉 Democratic Erosion | `[threat ID]` | `[#]` | `[level]` | `[↑/→/↓]` |
+
+---
+
+## 💎 Diamond Model Analysis (for MODERATE+ threats)
+
+> *Apply Diamond Model when specific adversaries are identified with clear motivation. Skip if all dimensions are LOW or MINIMAL.*
+
+| Element | Actor 1 | Actor 2 |
+|---------|---------|---------|
+| **Adversary** | `[Political actor with identified motivation]` | `[OPTIONAL]` |
+| **Capability** | `[Resources, votes, procedural knowledge]` | `[OPTIONAL]` |
+| **Infrastructure** | `[Institutional channels used]` | `[OPTIONAL]` |
+| **Victim** | `[Democratic process under threat]` | `[OPTIONAL]` |
 
 ---
 
 ## 🎯 Threat Actor Mapping
 
-| Actor Type | Specific Actor | Primary STRIDE | Intent | Capability |
-|-----------|---------------|---------------|--------|------------|
-| EU Institution | `[e.g. Commission President]` | `[S/T/R/I/D/E]` | `[known/suspected]` | `[HIGH/MED/LOW]` |
-| Political Group | `[e.g. ECR leadership]` | `[S/T/R/I/D/E]` | `[known/suspected]` | `[HIGH/MED/LOW]` |
-| External State | `[e.g. Russia]` | `[S/T/R/I/D/E]` | `[known/suspected]` | `[HIGH/MED/LOW]` |
-| Media | `[e.g. specific outlet]` | `[S/T/R/I/D/E]` | `[known/suspected]` | `[HIGH/MED/LOW]` |
+| Actor Type | Specific Actor | Primary Dimension | Intent | Capability | Evidence |
+|-----------|---------------|:-----------------:|--------|:----------:|----------|
+| Political Group | `[e.g. ECR leadership]` | `[CS/TD/PR/IP/LO/DE]` | `[known/suspected]` | `[H/M/L]` | `[EP MCP ref]` |
+| EU Institution | `[e.g. Commission]` | `[CS/TD/PR/IP/LO/DE]` | `[known/suspected]` | `[H/M/L]` | `[EP MCP ref]` |
+| External State | `[e.g. Russia]` | `[CS/TD/PR/IP/LO/DE]` | `[known/suspected]` | `[H/M/L]` | `[EP MCP ref]` |
+| Lobby/Industry | `[e.g. specific sector]` | `[CS/TD/PR/IP/LO/DE]` | `[known/suspected]` | `[H/M/L]` | `[EP MCP ref]` |
 
 ---
 
@@ -120,7 +133,16 @@
 2. **[Threat ID]:** `[Mitigation action]`
 3. **[Threat ID]:** `[Mitigation action]`
 
-**Overall Threat Level:** `[REQUIRED: LOW / MODERATE / HIGH / SEVERE]`
+---
+
+## 🔮 Forward Indicators
+
+| # | Indicator | Timeline | Trigger Condition | Watch Priority |
+|---|-----------|----------|-------------------|:--------------:|
+| 1 | `[REQUIRED: specific EP event or metric to monitor]` | `[days/weeks]` | `[what would escalate this threat]` | `🔴/🟠/🟡/🟢` |
+| 2 | `[REQUIRED]` | `[timeline]` | `[trigger]` | `🔴/🟠/🟡/🟢` |
+
+**Overall Threat Level:** `[REQUIRED: MINIMAL / LOW / MODERATE / HIGH / SEVERE]`
 **Assessment Confidence:** `[REQUIRED: HIGH / MEDIUM / LOW]`
 
 ### MCP Data Files Used

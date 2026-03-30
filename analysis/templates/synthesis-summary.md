@@ -57,7 +57,7 @@ graph TD
             RSK["Overall Risk<br/>[CRITICAL/HIGH/MEDIUM/LOW]<br/>Top: [RSK-NNN description]"]
         end
         subgraph "🎭 Threat"
-            THR["Threat Level<br/>[SEVERE/HIGH/MODERATE/LOW]<br/>Top framework: [STRIDE/Attack Tree/LINDDUN]"]
+            THR["Threat Level<br/>[SEVERE/HIGH/MODERATE/LOW]<br/>Top framework: [Threat Landscape/Diamond Model/Attack Tree]"]
         end
         subgraph "📈 Significance"
             SIG["Top Significance<br/>[#.#]/10<br/>[Breaking/Priority/Publish/Monitor]"]
@@ -157,16 +157,16 @@ graph LR
 
 ## 🎭 Threat Summary
 
-> *Multi-framework threat assessment — not limited to STRIDE. Includes attack tree findings, LINDDUN privacy threats, and PESTLE macro-environmental factors.*
+> *Multi-framework threat assessment using the Political Threat Landscape (6 dimensions), Diamond Model for adversary analysis, Attack Trees for systemic risks, PESTLE for macro factors, and Scenario Planning for forward-looking assessments.*
 
-| Threat Framework | Category | Threat Level | Key Finding |
-|-----------------|----------|:------------:|-------------|
-| STRIDE | S — Disinformation | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
-| STRIDE | T — Process Manipulation | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
-| STRIDE | R — Accountability Evasion | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
-| STRIDE | I — Transparency Failure | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
-| STRIDE | D — Democratic Obstruction | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
-| STRIDE | E — Power Concentration | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
+| Framework | Dimension / Category | Threat Level | Key Finding |
+|-----------|---------------------|:------------:|-------------|
+| Threat Landscape | 🔄 Coalition Shifts | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
+| Threat Landscape | 🔍 Transparency Deficit | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
+| Threat Landscape | ↩️ Policy Reversal | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
+| Threat Landscape | 🏛️ Institutional Pressure | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
+| Threat Landscape | ⏳ Legislative Obstruction | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
+| Threat Landscape | 📉 Democratic Erosion | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
 | Attack Tree | Coalition Destabilisation | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
 | Attack Tree | Legislative Capture | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
 | LINDDUN | Privacy/Data Protection | `[LOW/MOD/HIGH/SEVERE]` | `[1 sentence]` |
