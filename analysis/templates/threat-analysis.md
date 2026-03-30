@@ -3,7 +3,9 @@
 
 # 🎭 Political Threat Analysis Template — European Parliament
 
-> **📌 Template Instructions:** This template adapts the STRIDE threat modelling framework for EU democratic process threats. See [methodologies/political-threat-framework.md](../methodologies/political-threat-framework.md) for full methodology. Copy to `analysis/YYYY-MM-DD/{article-type-slug}/` and name `threat-analysis.md`. The AI agent MUST process ALL downloaded MCP data (in `analysis/YYYY-MM-DD/{article-type-slug}/data/`) to identify threats.
+> **📌 Template Instructions:** This template uses the **multi-framework** threat analysis approach — STRIDE as baseline, supplemented with attack trees, LINDDUN, PESTLE, and scenario planning as needed. See [methodologies/political-threat-framework.md](../methodologies/political-threat-framework.md) for full methodology. Copy to `analysis/YYYY-MM-DD/{article-type-slug}/` and name `threat-analysis.md`. The AI agent MUST process ALL downloaded MCP data (in `analysis/YYYY-MM-DD/{article-type-slug}/data/`) to identify threats.
+
+> **🚨 Anti-Pattern Warning:** STRIDE-only analysis is INSUFFICIENT for threats rated MODERATE or above. When severity ≥ 3, supplement with attack trees (systemic threats), LINDDUN (privacy), PESTLE (macro factors), or scenario planning (forward-looking). Every threat claim MUST cite EP MCP data. See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for quality requirements. **Never use scripted boilerplate — AI must analyse the actual data.**
 
 ---
 

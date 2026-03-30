@@ -5,6 +5,8 @@
 
 > **📌 Template Instructions:** Copy to `analysis/YYYY-MM-DD/{article-type-slug}/` and name `swot-analysis.md`. Each SWOT entry requires an EP document reference or named evidence source — opinion-only entries are prohibited. See [methodologies/political-swot-framework.md](../methodologies/political-swot-framework.md) for full methodology. The AI agent MUST use MCP data (in `analysis/YYYY-MM-DD/{article-type-slug}/data/`) as evidence sources.
 
+> **🚨 Anti-Pattern Warning:** SWOT entries without specific evidence citations (EP document IDs, MCP tool outputs, or named sources) are REJECTED. "The EU faces challenges" is NOT a valid Weakness entry. Every entry MUST include: Statement + Evidence (EP doc ref) + Confidence + Impact. See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for quality requirements. **Never use scripted boilerplate — AI must analyse the actual data.**
+
 ---
 
 ## 📋 SWOT Context

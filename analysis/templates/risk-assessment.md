@@ -5,6 +5,8 @@
 
 > **📌 Template Instructions:** Copy to `analysis/YYYY-MM-DD/{article-type-slug}/` and name `risk-assessment.md`. Scores use Likelihood × Impact methodology from [methodologies/political-risk-methodology.md](../methodologies/political-risk-methodology.md). The AI agent MUST fill ALL `[REQUIRED]` fields using MCP data (in `analysis/YYYY-MM-DD/{article-type-slug}/data/`).
 
+> **🚨 Anti-Pattern Warning:** Generic risk statements like "medium risk" or "various challenges" without specific Likelihood × Impact scores, EP document evidence, or calibration are REJECTED. Every risk MUST have a quantified L×I score with cited evidence. See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for quality requirements. **Never use scripted boilerplate — AI must analyse the actual data.**
+
 ---
 
 ## 📋 Risk Context
