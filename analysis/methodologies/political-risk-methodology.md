@@ -141,11 +141,42 @@ flowchart TD
 
 ---
 
+## 🤖 AI Analysis Protocol for Risk Assessment
+
+The AI agent **MUST** follow this protocol when performing risk assessment:
+
+1. **Read this methodology** — understand the 5×5 matrix, calibration examples, and EU-specific factors
+2. **Query EP MCP tools** for evidence:
+   - `analyze_coalition_dynamics` — current grand coalition cohesion
+   - `get_voting_records` + `analyze_voting_patterns` — recent vote margins and group alignment
+   - `track_legislation` — legislative pipeline bottlenecks
+   - `get_parliamentary_questions` — oversight activity patterns
+   - World Bank data — economic context for budget and electoral risk
+3. **Score each risk dimension** using the 5×5 matrix with evidence citations
+4. **Apply calibration** — compare against the calibration examples above
+5. **Assign overall risk level** — weighted: Grand Coalition 0.30, Policy 0.25, Budget 0.20, Electoral 0.15, External 0.10
+6. **Integrate with threat analysis** — risk scores ≥10 should trigger multi-framework threat assessment per [political-threat-framework.md](political-threat-framework.md)
+
+### Risk-to-SWOT Integration
+
+Risk assessment results feed directly into SWOT analysis:
+- **Risk Score ≥ 15 (Critical)** → SWOT Threat entry (HIGH confidence, HIGH impact)
+- **Risk Score 10–14 (High)** → SWOT Threat or Weakness entry (MEDIUM+ confidence)
+- **Risk Score 5–9 (Medium)** → SWOT Weakness or Threat entry (flag for monitoring)
+- **Risk Score 1–4 (Low)** → Informational only; no SWOT entry required
+
+> **🚨 Anti-Pattern Warning:** Generic risk statements like "medium risk" without specific scores, evidence, or calibration examples are REJECTED. Every risk must have a Likelihood × Impact score with cited evidence.
+
+---
+
 ## 🔗 Related Documents
 
 - [templates/risk-assessment.md](../templates/risk-assessment.md) — Risk assessment template
-- [political-threat-framework.md](political-threat-framework.md) — Complementary threat analysis
+- [templates/per-file-political-intelligence.md](../templates/per-file-political-intelligence.md) — Per-file template with risk section
+- [political-threat-framework.md](political-threat-framework.md) — Complementary threat analysis (multi-framework)
 - [political-classification-guide.md](political-classification-guide.md) — Classification (risk input)
+- [reference/isms-risk-assessment-adaptation.md](../reference/isms-risk-assessment-adaptation.md) — ISMS mapping
+- [ai-driven-analysis-guide.md](ai-driven-analysis-guide.md) — Per-file analysis protocol
 
 ---
 
