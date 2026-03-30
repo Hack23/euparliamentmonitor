@@ -27,7 +27,7 @@
  *
  * Analysis methods are grouped into four categories:
  * - **Classification** (Issues #804): significance, impact-matrix, actor-mapping, forces
- * - **Threat Assessment** (Issues #805): political-stride, actor-threat, consequence-trees, disruption
+ * - **Threat Assessment** (Issues #805): political-threat-landscape, actor-threat, consequence-trees, disruption
  * - **Risk Scoring** (Issues #806): risk-matrix, capital-risk, quantitative-swot, velocity-risk, agent-workflow
  * - **Existing** (current codebase): deep-analysis, stakeholder-analysis, coalition-analysis, voting-patterns, cross-session-intelligence
  *
@@ -249,7 +249,7 @@ export const ALL_ANALYSIS_METHODS = [
     'actor-mapping',
     'forces-analysis',
     // Threat Assessment
-    'political-stride',
+    'political-threat-landscape',
     'actor-threat-profiling',
     'consequence-trees',
     'legislative-disruption',
@@ -1558,6 +1558,7 @@ const METHOD_BUILDERS = {
     'actor-mapping': buildActorMappingMarkdown,
     'forces-analysis': buildForcesAnalysisMarkdown,
     'political-stride': buildPoliticalStrideMarkdown,
+    'political-threat-landscape': buildPoliticalStrideMarkdown,
     'actor-threat-profiling': buildActorThreatProfilingMarkdown,
     'consequence-trees': buildConsequenceTreesMarkdown,
     'legislative-disruption': buildLegislativeDisruptionMarkdown,
@@ -1766,6 +1767,7 @@ const METHOD_SUBDIRS = {
     'actor-mapping': SUBDIR_CLASSIFICATION,
     'forces-analysis': SUBDIR_CLASSIFICATION,
     'political-stride': SUBDIR_THREAT_ASSESSMENT,
+    'political-threat-landscape': SUBDIR_THREAT_ASSESSMENT,
     'actor-threat-profiling': SUBDIR_THREAT_ASSESSMENT,
     'consequence-trees': SUBDIR_THREAT_ASSESSMENT,
     'legislative-disruption': SUBDIR_THREAT_ASSESSMENT,
@@ -1788,6 +1790,7 @@ const METHOD_DEFAULT_CONFIDENCE = {
     'actor-mapping': 'medium',
     'forces-analysis': 'medium',
     'political-stride': 'medium',
+    'political-threat-landscape': 'medium',
     'actor-threat-profiling': 'low',
     'consequence-trees': 'medium',
     'legislative-disruption': 'medium',
@@ -1810,6 +1813,7 @@ const METHOD_FILENAMES = {
     'actor-mapping': 'actor-mapping.md',
     'forces-analysis': 'forces-analysis.md',
     'political-stride': 'political-stride-assessment.md',
+    'political-threat-landscape': 'political-threat-landscape.md',
     'actor-threat-profiling': 'actor-threat-profiles.md',
     'consequence-trees': 'consequence-trees.md',
     'legislative-disruption': 'legislative-disruption.md',
