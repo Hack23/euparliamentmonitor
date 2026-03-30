@@ -184,20 +184,20 @@ graph TD
 
 | Threat Dimension | Applicable? | Threat Description | Severity (1–5) | Evidence |
 |----------------|:-----------:|-------------------|:--------------:|----------|
-| 🎭 S — Disinformation | `[Y/N]` | `[Misrepresentation of positions, false attributions in EP debates]` | `[1-5]` | `[EP ref]` |
-| 🔧 T — Process Manipulation | `[Y/N]` | `[Procedural manipulation, fast-tracking, rule bending in committee]` | `[1-5]` | `[EP ref]` |
-| 📝 R — Accountability Evasion | `[Y/N]` | `[Voting record contradictions, position reversals by MEPs/groups]` | `[1-5]` | `[EP ref]` |
-| 🔓 I — Transparency Failure | `[Y/N]` | `[Trilogue opacity, undisclosed lobbying, classification abuse]` | `[1-5]` | `[EP ref]` |
-| 🚫 D — Democratic Obstruction | `[Y/N]` | `[Quorum manipulation, committee delays, amendment flooding]` | `[1-5]` | `[EP ref]` |
-| ⬆️ E — Power Concentration | `[Y/N]` | `[Commission overreach, Council bypassing EP, group leader dominance]` | `[1-5]` | `[EP ref]` |
+| 🔄 CS — Coalition Shifts | `[Y/N]` | `[Realignment, defection, fragmentation of political group voting blocs]` | `[1-5]` | `[EP ref]` |
+| 🔍 TD — Transparency Deficit | `[Y/N]` | `[Trilogue opacity, undisclosed lobbying, declaration gaps]` | `[1-5]` | `[EP ref]` |
+| ↩️ PR — Policy Reversal | `[Y/N]` | `[Voting record contradictions, position reversals, legislative rollbacks]` | `[1-5]` | `[EP ref]` |
+| 🏛️ IP — Institutional Pressure | `[Y/N]` | `[Commission overreach, Council bypassing EP, procedural manipulation]` | `[1-5]` | `[EP ref]` |
+| ⏳ LO — Legislative Obstruction | `[Y/N]` | `[Pipeline stalling, amendment flooding, cross-institutional deadlock]` | `[1-5]` | `[EP ref]` |
+| 📉 DE — Democratic Erosion | `[Y/N]` | `[Attendance decline, question quality degradation, norm weakening]` | `[1-5]` | `[EP ref]` |
 
 ### Attack Tree Assessment
 
 `[If applicable: Identify systemic threat paths — e.g., "Coalition destabilisation via migration policy disagreement → ECR-PfE alliance → grand coalition fracture". Include at least one attack tree if threat level is MODERATE or above.]`
 
-### LINDDUN Privacy Assessment
+### Diamond Model Assessment
 
-`[If applicable: Data protection threats related to MEP declarations, lobbying transparency, citizen data in petitions. Reference GDPR compliance dimensions.]`
+`[If applicable: For HIGH/SEVERE threats, map Adversary → Capability → Infrastructure → Victim relationships for each identified threat actor.]`
 
 ---
 

@@ -54,7 +54,7 @@ analysis/monthly/
 | `monthly-swot-consolidated.md` | Full SWOT synthesis with confidence decay applied | Weekly SWOT files; expired entries removed |
 | `monthly-risk-register.md` | Complete risk register with trajectories (rising/stable/falling) | Weekly risk registers with trend analysis |
 | `monthly-significance-report.md` | Top 10 most significant EU political events of the month | Daily significance scores for the month |
-| `monthly-threat-landscape.md` | Multi-framework threat inventory (STRIDE + Attack Trees + LINDDUN) | Daily threat assessments for the month |
+| `monthly-threat-landscape.md` | Multi-framework threat inventory (Threat Landscape + Attack Trees + Diamond Model) | Daily threat assessments for the month |
 
 ---
 

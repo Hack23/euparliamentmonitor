@@ -19,7 +19,7 @@
 
 This framework provides a **comprehensive, multi-framework approach** to political threat analysis for EU democratic processes using **purpose-built political intelligence frameworks** — not repurposed software security models.
 
-> **⚠️ IMPORTANT:** This methodology does NOT use STRIDE or any other software-centric threat model. STRIDE was designed for finding bugs in software architectures (Microsoft SDL, 1999). Applying it to political intelligence produces **shallow, categorical checklists** that miss the dynamic, relational, and temporal nature of political threats. Political intelligence requires frameworks built for **human adversarial behaviour**, **institutional dynamics**, and **systemic risk cascades**.
+> **⚠️ IMPORTANT:** This methodology does NOT use STRIDE or any other software-centric threat model. STRIDE was designed for finding bugs in software architectures (Microsoft SDL, early 2000s). Applying it to political intelligence produces **shallow, categorical checklists** that miss the dynamic, relational, and temporal nature of political threats. Political intelligence requires frameworks built for **human adversarial behaviour**, **institutional dynamics**, and **systemic risk cascades**.
 
 ### Why Purpose-Built Political Frameworks
 
@@ -161,7 +161,7 @@ graph TD
 
 ## 💎 Framework 2: Diamond Model — Adversary Analysis
 
-The Diamond Model (Caltagirone, Pendergast, Betz 2013) maps the relationship between **adversary**, **capability**, **infrastructure**, and **victim** for each identified threat. Unlike categorical models, it captures the **relational dynamics** between threat actors and their targets:
+The Diamond Model ([Caltagirone, Pendergast, Betz 2013](https://www.activeresponse.org/wp-content/uploads/2013/07/diamond.pdf)) maps the relationship between **adversary**, **capability**, **infrastructure**, and **victim** for each identified threat. Unlike categorical models, it captures the **relational dynamics** between threat actors and their targets:
 
 ```mermaid
 graph TD

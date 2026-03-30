@@ -32,7 +32,7 @@ import type {
 // ─── Constants ─────────────────────────────────────────────────────────────────
 
 /** All threat landscape dimensions in canonical order */
-const ALL_STRIDE_CATEGORIES: readonly PoliticalThreatCategory[] = [
+const ALL_THREAT_DIMENSIONS: readonly PoliticalThreatCategory[] = [
   'shift',
   'transparency',
   'reversal',
@@ -1590,10 +1590,10 @@ export function generateThreatAssessmentMarkdown(
  * Useful for iterating over all dimensions without hardcoding the list.
  */
 export const ALL_POLITICAL_STRIDE_CATEGORIES: readonly PoliticalThreatCategory[] =
-  ALL_STRIDE_CATEGORIES;
+  ALL_THREAT_DIMENSIONS;
 
 /**
  * All Political Threat Landscape dimensions in canonical order (new name).
  */
 export const ALL_THREAT_LANDSCAPE_DIMENSIONS: readonly PoliticalThreatCategory[] =
-  ALL_STRIDE_CATEGORIES;
+  ALL_THREAT_DIMENSIONS;

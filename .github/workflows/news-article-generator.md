@@ -119,7 +119,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 ## ⏱️ Time Budget (120 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up
-- **Minutes 3–10**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writing analysis artifacts to `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/` — a per-article-type directory for comprehensive analysis of all downloaded data for that article type)
+- **Minutes 3–10**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writing analysis artifacts to `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/` — a per-article-type directory for comprehensive analysis of all downloaded data for that article type)
 - **Minutes 10–20**: Parse article types and verify MCP connectivity
 - **Minutes 20–100**: Generate English articles for each requested type with deep political intelligence
 - **Minutes 100–110**: Validate generated HTML
@@ -137,7 +137,7 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
 1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
 2. **Runs all 18 default analysis methods** across 4 default categories:
    - **Classification** (4 methods): significance scoring, impact matrix, actor mapping, political forces analysis
-   - **Threat Assessment** (4 methods): STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
+   - **Threat Assessment** (4 methods): political threat landscape model, actor threat profiling, consequence trees, legislative disruption analysis
    - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
@@ -160,7 +160,7 @@ Read and apply these templates for **every downloaded MCP data file** in `analys
 |----------|------|--------------|
 | **Political Classification** | `analysis/templates/political-classification.md` | Every new EP event or document — FIRST STEP |
 | **Risk Assessment** | `analysis/templates/risk-assessment.md` | Coalition/policy/institutional risk indicators |
-| **Threat Analysis** | `analysis/templates/threat-analysis.md` | STRIDE-format democratic threat review |
+| **Threat Analysis** | `analysis/templates/threat-analysis.md` | Threat Landscape-format democratic threat review |
 | **SWOT Analysis** | `analysis/templates/swot-analysis.md` | Strategic political landscape assessment |
 | **Stakeholder Impact** | `analysis/templates/stakeholder-impact.md` | Policy decisions or legislative actions |
 | **Significance Scoring** | `analysis/templates/significance-scoring.md` | Publication priority decisions |
@@ -173,7 +173,7 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 |------------|------|-----------|
 | **Classification Guide** | `analysis/methodologies/political-classification-guide.md` | 7-dimension classification |
 | **Risk Methodology** | `analysis/methodologies/political-risk-methodology.md` | Likelihood × Impact 5×5 matrix |
-| **Threat Framework** | `analysis/methodologies/political-threat-framework.md` | STRIDE-adapted for EU democracy |
+| **Threat Framework** | `analysis/methodologies/political-threat-framework.md` | Multi-framework analysis adapted for EU democracy |
 | **SWOT Framework** | `analysis/methodologies/political-swot-framework.md` | Evidence-based SWOT |
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)

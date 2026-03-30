@@ -180,7 +180,7 @@ For each breaking development, immediately assess:
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–20**: Query ALL EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates. Use `timeframe: "today"` first, then retry with `timeframe: "one-week"` for any empty/failed endpoint. Also fetch advisory feeds (documents, plenary docs, committee docs, questions) with `timeframe: "one-week"`. **⚠️ EP API can be slow (30-90s per call) — be patient, do NOT abort on slow responses. Allow up to 120s per call.**
 - **Minutes 20–30**: 📊 Fetch analytical context (voting anomalies, coalition dynamics, political landscape, early warning) and run precomputed stats
-- **Minutes 30–40**: 🔬 Full political intelligence analysis stage — run all 18 default analysis methods (significance classification, STRIDE threat assessment, risk scoring, actor mapping — writes analysis artifacts to `analysis/${TODAY}/breaking/`; opt-in `document-analysis` via `--analysis-methods` for per-document markdown). Save ALL MCP data to `analysis/${TODAY}/breaking/data/`
+- **Minutes 30–40**: 🔬 Full political intelligence analysis stage — run all 18 default analysis methods (significance classification, political threat landscape assessment, risk scoring, actor mapping — writes analysis artifacts to `analysis/${TODAY}/breaking/`; opt-in `document-analysis` via `--analysis-methods` for per-document markdown). Save ALL MCP data to `analysis/${TODAY}/breaking/data/`
 - **Minutes 40–45**: 📊 AI evaluates analysis artifacts to determine breaking news significance — ONLY proceed with article generation if analysis confirms newsworthy developments from TODAY
 - **Minutes 45–52**: Generate English article with deep political intelligence analysis informed by analysis artifacts (SKIP if no today-dated breaking news)
 - **Minutes 52–57**: Validate and finalize changes
@@ -200,7 +200,7 @@ The `--analysis` flag with `--analysis-methods` activates the full political int
 1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
 2. **Runs all 18 default analysis methods** across 4 default categories:
    - **Classification** (4 methods): significance scoring, impact matrix, actor mapping, political forces analysis
-   - **Threat Assessment** (4 methods): STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
+   - **Threat Assessment** (4 methods): political threat landscape model, actor threat profiling, consequence trees, legislative disruption analysis
    - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
@@ -521,7 +521,7 @@ npx tsx src/generators/news-enhanced.ts \
   --types="breaking" \
   --languages="$LANG_ARG" \
   --analysis \
-  --analysis-methods="significance-classification,impact-matrix,actor-mapping,forces-analysis,political-stride,actor-threat-profiling,consequence-trees,legislative-disruption,risk-matrix,political-capital-risk,quantitative-swot,legislative-velocity-risk,agent-risk-workflow,deep-analysis,stakeholder-analysis,coalition-analysis,voting-patterns,cross-session-intelligence,document-analysis" \
+  --analysis-methods="significance-classification,impact-matrix,actor-mapping,forces-analysis,political-threat-landscape,actor-threat-profiling,consequence-trees,legislative-disruption,risk-matrix,political-capital-risk,quantitative-swot,legislative-velocity-risk,agent-risk-workflow,deep-analysis,stakeholder-analysis,coalition-analysis,voting-patterns,cross-session-intelligence,document-analysis" \
   $FEED_DATA_FLAG \
   $SKIP_FLAG
 ```

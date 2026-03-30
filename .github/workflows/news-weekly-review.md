@@ -178,7 +178,7 @@ Synthesize the week's significance:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (up to 3 attempts)
-- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, STRIDE threat assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/week-in-review/`)
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/week-in-review/`)
 - **Minutes 8–18**: Query voting records, documents, and questions from past 7 days
 - **Minutes 18–45**: Generate English article with deep political intelligence analysis
 - **Minutes 45–52**: Validate generated HTML
@@ -196,7 +196,7 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
 1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
 2. **Runs all 18 default analysis methods** across 4 default categories:
    - **Classification** (4 methods): significance scoring, impact matrix, actor mapping, political forces analysis
-   - **Threat Assessment** (4 methods): STRIDE political threat model, actor threat profiling, consequence trees, legislative disruption analysis
+   - **Threat Assessment** (4 methods): political threat landscape model, actor threat profiling, consequence trees, legislative disruption analysis
    - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
