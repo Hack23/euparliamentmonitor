@@ -37,8 +37,7 @@ export const VALID_ARTICLE_CATEGORIES: readonly ArticleCategory[] = Object.value
   ArticleCategory
 ) as ArticleCategory[];
 
-/** @deprecated Use ArticleCategory enum directly */
-export const VALID_ARTICLE_TYPES = VALID_ARTICLE_CATEGORIES;
+
 
 /** Week ahead article category constant */
 export const ARTICLE_TYPE_WEEK_AHEAD = ArticleCategory.WEEK_AHEAD;
@@ -98,12 +97,6 @@ export const APP_VERSION: string = (() => {
 export function createThemeToggleButton(ariaLabel: string): string {
   return `<button type="button" class="theme-toggle" aria-label="${ariaLabel}"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>`;
 }
-
-/**
- * Theme toggle HTML button markup for site headers (English default).
- * @deprecated Use {@link createThemeToggleButton} with a localized aria-label instead.
- */
-export const THEME_TOGGLE_BUTTON: string = createThemeToggleButton('Toggle dark/light theme');
 
 /**
  * Raw theme toggle script content (without wrapping `<script>` tags).

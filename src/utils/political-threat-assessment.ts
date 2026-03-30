@@ -142,27 +142,14 @@ function safeArray(val: unknown): readonly unknown[] {
 /**
  * Resolve the voting anomaly array from a `ThreatAssessmentInput`.
  *
- * The real MCP pipeline exposes voting anomalies under the field `anomalies`,
- * while the original type used `votingAnomalies`. This helper reads from
- * `anomalies` first, falling back to `votingAnomalies` for backward compat.
- * Both fields are validated as arrays; non-array values are treated as empty.
+ * Reads the `anomalies` field and validates it as an array;
+ * non-array values are treated as empty.
  *
  * @param data - Article / threat-assessment data (may be null)
  * @returns Readonly array of anomaly items, never null
  */
 function resolveAnomalies(data: ThreatAssessmentInput | null | undefined): readonly unknown[] {
-  const anomalies = data?.anomalies as unknown;
-  const votingAnomalies = data?.votingAnomalies as unknown;
-
-  if (Array.isArray(anomalies)) {
-    return anomalies;
-  }
-
-  if (Array.isArray(votingAnomalies)) {
-    return votingAnomalies;
-  }
-
-  return [];
+  return safeArray(data?.anomalies);
 }
 
 /**

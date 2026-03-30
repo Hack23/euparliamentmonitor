@@ -248,16 +248,8 @@ export interface ThreatAssessmentInput {
   readonly mepInfluence?: readonly unknown[];
   /** Legislative procedure data */
   readonly procedures?: readonly unknown[];
-  /**
-   * Voting anomaly intelligence.
-   *
-   * The existing MCP fetch pipeline and article strategies expose voting
-   * anomalies under the field name `anomalies`.  Both `anomalies` and the
-   * legacy `votingAnomalies` alias are accepted; `anomalies` takes precedence.
-   */
+  /** Voting anomaly intelligence from MCP fetch pipeline */
   readonly anomalies?: readonly unknown[];
-  /** @deprecated Use `anomalies` instead — kept for backward compatibility */
-  readonly votingAnomalies?: readonly unknown[];
   /** Parliamentary questions */
   readonly questions?: readonly unknown[];
   /** Committee data */

@@ -275,19 +275,18 @@ describe('assessPoliticalThreats', () => {
       expect(assessment.threatDimensions).toHaveLength(6);
     });
 
-    it('handles non-array anomalies with non-array votingAnomalies fallback', () => {
+    it('handles non-array anomalies gracefully', () => {
       const data = {
         anomalies: 'string-not-array',
-        votingAnomalies: 42,
       };
       expect(() => assessPoliticalThreats(data)).not.toThrow();
       const assessment = assessPoliticalThreats(data);
       expect(assessment.overallThreatLevel).toBe('low');
     });
 
-    it('supports legacy votingAnomalies field name', () => {
+    it('detects shift threats from anomalies array', () => {
       const data = {
-        votingAnomalies: [
+        anomalies: [
           makeAnomaly({ significance: 'critical' }),
           makeAnomaly({ significance: 'high' }),
         ],
@@ -297,10 +296,9 @@ describe('assessPoliticalThreats', () => {
       expect(['moderate', 'high', 'critical']).toContain(shiftCat.threatLevel);
     });
 
-    it('prefers anomalies over votingAnomalies when both present', () => {
+    it('includes anomaly evidence in shift dimension', () => {
       const data = {
         anomalies: [makeAnomaly({ significance: 'critical' })],
-        votingAnomalies: [],
       };
       const assessment = assessPoliticalThreats(data);
       const shiftCat = assessment.threatDimensions.find((c) => c.category === 'shift');
