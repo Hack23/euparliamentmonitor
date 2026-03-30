@@ -302,7 +302,6 @@ export type AnalysisMethod =
   | 'forces-analysis'
   // Threat Assessment (Issue #805)
   | 'political-threat-landscape'
-  | 'political-stride' // @deprecated — alias kept for backward compatibility
   | 'actor-threat-profiling'
   | 'consequence-trees'
   | 'legislative-disruption'
@@ -840,7 +839,7 @@ ${forceRow('External Influences', forces.externalInfluences)}
 }
 
 /**
- * Build markdown for the political STRIDE threat assessment.
+ * Build markdown for the political threat landscape assessment.
  *
  * Uses the pipeline `date` parameter to ensure the assessment date in the
  * generated markdown matches the `analysis/{date}/` folder, overriding
@@ -850,7 +849,7 @@ ${forceRow('External Influences', forces.externalInfluences)}
  * @param date - Analysis date (used to override assessment date for consistency)
  * @returns Markdown content string
  */
-function buildPoliticalStrideMarkdown(fetchedData: Record<string, unknown>, date: string): string {
+function buildThreatLandscapeMarkdown(fetchedData: Record<string, unknown>, date: string): string {
   const input = toThreatInput(fetchedData);
   const assessment = assessPoliticalThreats(input);
   return generateThreatAssessmentMarkdown({ ...assessment, date });
@@ -1991,7 +1990,7 @@ Each document receives:
 1. **Raw Data Storage** — Full document JSON stored in \`documents/raw-data/\` for complete data preservation
 2. **Significance Classification** — Political importance on 5-level scale
 3. **SWOT Assessment** — Strengths, weaknesses, opportunities, threats specific to the document
-4. **Threat Profiling** — Political STRIDE analysis for disruption potential
+4. **Threat Profiling** — Political threat landscape analysis for disruption potential
 5. **Stakeholder Impact** — Projected effects on key stakeholder groups
 6. **Intelligence Summary** — Key findings and actionable insights
 
@@ -2137,7 +2136,7 @@ ${sanitizeCell(docDescription)}
 
 ## Threat Assessment
 
-- **STRIDE Categories Evaluated**: ${threats.strideCategories.length}
+- **Threat Dimensions Evaluated**: ${threats.threatDimensions.length}
 - **Overall Threat Level**: ${threats.overallThreatLevel}
 - **Assessment Date**: ${threats.date}
 
@@ -2164,7 +2163,7 @@ ${sanitizeCell(docDescription)}
 | Significance | ${significance} |
 | SWOT Score | ${docSwot.strategicPositionScore.toFixed(1)}/10 |
 | Overall Assessment | ${docSwot.overallAssessment} |
-| STRIDE Categories | ${threats.strideCategories.length} |
+| Threat Dimensions | ${threats.threatDimensions.length} |
 | Overall Threat Level | ${threats.overallThreatLevel} |
 
 ## Analysis Date: ${date}
@@ -2179,8 +2178,7 @@ const METHOD_BUILDERS: Readonly<Record<AnalysisMethod, MarkdownBuilder>> = {
   'impact-matrix': buildImpactMatrixMarkdown,
   'actor-mapping': buildActorMappingMarkdown,
   'forces-analysis': buildForcesAnalysisMarkdown,
-  'political-stride': buildPoliticalStrideMarkdown,
-  'political-threat-landscape': buildPoliticalStrideMarkdown,
+  'political-threat-landscape': buildThreatLandscapeMarkdown,
   'actor-threat-profiling': buildActorThreatProfilingMarkdown,
   'consequence-trees': buildConsequenceTreesMarkdown,
   'legislative-disruption': buildLegislativeDisruptionMarkdown,
@@ -2410,7 +2408,6 @@ const METHOD_SUBDIRS: Readonly<Record<AnalysisMethod, string>> = {
   'impact-matrix': SUBDIR_CLASSIFICATION,
   'actor-mapping': SUBDIR_CLASSIFICATION,
   'forces-analysis': SUBDIR_CLASSIFICATION,
-  'political-stride': SUBDIR_THREAT_ASSESSMENT,
   'political-threat-landscape': SUBDIR_THREAT_ASSESSMENT,
   'actor-threat-profiling': SUBDIR_THREAT_ASSESSMENT,
   'consequence-trees': SUBDIR_THREAT_ASSESSMENT,
@@ -2434,7 +2431,6 @@ const METHOD_DEFAULT_CONFIDENCE: Readonly<Record<AnalysisMethod, ConfidenceLevel
   'impact-matrix': 'medium',
   'actor-mapping': 'medium',
   'forces-analysis': 'medium',
-  'political-stride': 'medium',
   'political-threat-landscape': 'medium',
   'actor-threat-profiling': 'low',
   'consequence-trees': 'medium',
@@ -2458,7 +2454,6 @@ const METHOD_FILENAMES: Readonly<Record<AnalysisMethod, string>> = {
   'impact-matrix': 'impact-matrix.md',
   'actor-mapping': 'actor-mapping.md',
   'forces-analysis': 'forces-analysis.md',
-  'political-stride': 'political-stride-assessment.md',
   'political-threat-landscape': 'political-threat-landscape.md',
   'actor-threat-profiling': 'actor-threat-profiles.md',
   'consequence-trees': 'consequence-trees.md',

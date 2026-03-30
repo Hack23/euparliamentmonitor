@@ -69,7 +69,7 @@ describe('ALL_ANALYSIS_METHODS', () => {
   });
 
   it('includes all threat assessment methods', () => {
-    expect(ALL_ANALYSIS_METHODS).toContain('political-stride');
+    expect(ALL_ANALYSIS_METHODS).toContain('political-threat-landscape');
     expect(ALL_ANALYSIS_METHODS).toContain('actor-threat-profiling');
     expect(ALL_ANALYSIS_METHODS).toContain('consequence-trees');
     expect(ALL_ANALYSIS_METHODS).toContain('legislative-disruption');
@@ -301,10 +301,10 @@ describe('runAnalysisStage', () => {
       articleTypes: ['week-ahead'],
       date: testDate,
       outputDir: tmpDir,
-      enabledMethods: ['political-stride'],
+      enabledMethods: ['political-threat-landscape'],
     });
 
-    expect(fs.existsSync(path.join(tmpDir, testDate, 'threat-assessment', 'political-stride-assessment.md'))).toBe(true);
+    expect(fs.existsSync(path.join(tmpDir, testDate, 'threat-assessment', 'political-threat-landscape.md'))).toBe(true);
   });
 
   it('writes risk scoring methods to risk-scoring/ subdirectory', async () => {
@@ -773,21 +773,21 @@ describe('runAnalysisStage', () => {
       expect(content).toContain('pie title');
     });
 
-    it('political-stride uses real threat assessment for markdown', async () => {
+    it('political-threat-landscape uses real threat assessment for markdown', async () => {
       await runAnalysisStage(buildPopulatedFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
         outputDir: tmpDir,
-        enabledMethods: ['political-stride'],
+        enabledMethods: ['political-threat-landscape'],
       });
       const content = fs.readFileSync(
-        path.join(tmpDir, testDate, 'threat-assessment', 'political-stride-assessment.md'),
+        path.join(tmpDir, testDate, 'threat-assessment', 'political-threat-landscape.md'),
         'utf-8'
       );
       expect(content).toContain('Political Threat Assessment');
       expect(content).toContain('Overall Threat Level');
-      // STRIDE categories should appear
-      expect(content).toContain('STRIDE');
+      // Threat landscape dimensions should appear
+      expect(content).toContain('Threat Landscape');
     });
 
     it('actor-threat-profiling generates profiles from data', async () => {
@@ -1299,7 +1299,7 @@ describe('runAnalysisStage', () => {
         articleTypes: ['week-ahead'],
         date: testDate,
         outputDir: tmpDir,
-        enabledMethods: ['significance-classification', 'political-stride', 'risk-matrix', 'deep-analysis'],
+        enabledMethods: ['significance-classification', 'political-threat-landscape', 'risk-matrix', 'deep-analysis'],
       });
 
       const manifest = readManifest(tmpDir, testDate);

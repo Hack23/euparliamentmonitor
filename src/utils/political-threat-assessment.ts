@@ -24,7 +24,7 @@ import type {
   PoliticalActorThreatProfile,
   PoliticalActorType,
   PoliticalConsequenceTree,
-  PoliticalStrideCategory,
+  PoliticalThreatDimension,
   PoliticalThreatAssessment,
   PoliticalThreatCategory,
 } from '../types/political-threats.js';
@@ -62,7 +62,7 @@ const IMPACT_WEIGHTS: Readonly<Record<ImpactLevel, number>> = {
 };
 
 /** Display labels for threat landscape dimensions */
-const STRIDE_LABELS: Readonly<Record<PoliticalThreatCategory, string>> = {
+const DIMENSION_LABELS: Readonly<Record<PoliticalThreatCategory, string>> = {
   shift: 'Coalition Shifts',
   transparency: 'Transparency Deficit',
   reversal: 'Policy Reversal',
@@ -266,16 +266,16 @@ function scoreToImpact(threatScore: number): ImpactLevel {
  * @param defaultEvidence - Fallback evidence when array is empty
  * @param lowAnalysis - Analysis text when threat is low
  * @param elevatedAnalysis - Analysis text when threat is elevated
- * @returns PoliticalStrideCategory result
+ * @returns PoliticalThreatDimension result
  */
-function buildStrideResult(
+function buildDimensionResult(
   category: PoliticalThreatCategory,
   threatScore: number,
   evidence: string[],
   defaultEvidence: string,
   lowAnalysis: string,
   elevatedAnalysis: (level: ImpactLevel) => string
-): PoliticalStrideCategory {
+): PoliticalThreatDimension {
   const threatLevel = scoreToImpact(threatScore);
   return {
     category,
@@ -552,7 +552,7 @@ function scanCriticalAnomaliesForErosion(
  * @param data - Article data containing voting records and coalition data
  * @returns threat landscape dimension assessment for coalition shifts
  */
-function assessShiftThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
+function assessShiftThreats(data: ThreatAssessmentInput): PoliticalThreatDimension {
   const records = safeArray(data.votingRecords);
   const coalitions = safeArray(data.coalitionData);
   const anomalies = resolveAnomalies(data);
@@ -566,7 +566,7 @@ function assessShiftThreats(data: ThreatAssessmentInput): PoliticalStrideCategor
     evidence.push(`${records.length} voting records analysed; no major shift signals detected`);
   }
 
-  return buildStrideResult(
+  return buildDimensionResult(
     'shift',
     threatScore,
     evidence,
@@ -582,7 +582,7 @@ function assessShiftThreats(data: ThreatAssessmentInput): PoliticalStrideCategor
  * @param data - Article data containing committee and procedural data
  * @returns threat landscape dimension assessment for transparency concerns
  */
-function assessTransparencyThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
+function assessTransparencyThreats(data: ThreatAssessmentInput): PoliticalThreatDimension {
   const committees = safeArray(data.committees);
   const questions = safeArray(data.questions);
   const evidence: string[] = [];
@@ -595,7 +595,7 @@ function assessTransparencyThreats(data: ThreatAssessmentInput): PoliticalStride
     );
   }
 
-  return buildStrideResult(
+  return buildDimensionResult(
     'transparency',
     threatScore,
     evidence,
@@ -612,7 +612,7 @@ function assessTransparencyThreats(data: ThreatAssessmentInput): PoliticalStride
  * @param data - Article data containing procedure and feed data
  * @returns threat landscape dimension assessment for policy reversals
  */
-function assessReversalThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
+function assessReversalThreats(data: ThreatAssessmentInput): PoliticalThreatDimension {
   const procedures = safeArray(data.procedures);
   const evidence: string[] = [];
 
@@ -621,7 +621,7 @@ function assessReversalThreats(data: ThreatAssessmentInput): PoliticalStrideCate
   const feedScore = checkFeedAdoptedTexts(feedData, procedures.length, evidence);
   const threatScore = Math.max(procScore, feedScore);
 
-  return buildStrideResult(
+  return buildDimensionResult(
     'reversal',
     threatScore,
     evidence,
@@ -638,7 +638,7 @@ function assessReversalThreats(data: ThreatAssessmentInput): PoliticalStrideCate
  * @param data - Article data containing MEP influence and committee data
  * @returns threat landscape dimension assessment for institutional threats
  */
-function assessInstitutionalThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
+function assessInstitutionalThreats(data: ThreatAssessmentInput): PoliticalThreatDimension {
   const mepInfluence = safeArray(data.mepInfluence);
   const evidence: string[] = [];
 
@@ -647,7 +647,7 @@ function assessInstitutionalThreats(data: ThreatAssessmentInput): PoliticalStrid
   const turnoverScore = checkMEPTurnover(feedData, evidence);
   const threatScore = Math.max(concentrationScore, turnoverScore);
 
-  return buildStrideResult(
+  return buildDimensionResult(
     'institutional',
     threatScore,
     evidence,
@@ -664,7 +664,7 @@ function assessInstitutionalThreats(data: ThreatAssessmentInput): PoliticalStrid
  * @param data - Article data containing procedures and timeline data
  * @returns threat landscape dimension assessment for legislative delays
  */
-function assessDelayThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
+function assessDelayThreats(data: ThreatAssessmentInput): PoliticalThreatDimension {
   const procedures = safeArray(data.procedures);
   const anomalies = resolveAnomalies(data);
   const evidence: string[] = [];
@@ -673,7 +673,7 @@ function assessDelayThreats(data: ThreatAssessmentInput): PoliticalStrideCategor
   const abstentionScore = scanAbstentionAnomalies(anomalies, evidence);
   const threatScore = Math.max(procScore, abstentionScore);
 
-  return buildStrideResult(
+  return buildDimensionResult(
     'delay',
     threatScore,
     evidence,
@@ -690,7 +690,7 @@ function assessDelayThreats(data: ThreatAssessmentInput): PoliticalStrideCategor
  * @param data - Article data containing coalition and voting data
  * @returns threat landscape dimension assessment for democratic erosion
  */
-function assessErosionThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
+function assessErosionThreats(data: ThreatAssessmentInput): PoliticalThreatDimension {
   const coalitions = safeArray(data.coalitionData);
   const anomalies = resolveAnomalies(data);
   const evidence: string[] = [];
@@ -699,7 +699,7 @@ function assessErosionThreats(data: ThreatAssessmentInput): PoliticalStrideCateg
   const anomalyScore = scanCriticalAnomaliesForErosion(anomalies, evidence);
   const threatScore = Math.max(cohesionScore, anomalyScore);
 
-  return buildStrideResult(
+  return buildDimensionResult(
     'erosion',
     threatScore,
     evidence,
@@ -730,7 +730,7 @@ export function assessPoliticalThreats(
   const safeData: ThreatAssessmentInput = data ?? {};
   const date = new Date().toISOString().slice(0, 10);
 
-  const strideCategories: PoliticalStrideCategory[] = [
+  const threatDimensions: PoliticalThreatDimension[] = [
     assessShiftThreats(safeData),
     assessTransparencyThreats(safeData),
     assessReversalThreats(safeData),
@@ -744,14 +744,14 @@ export function assessPoliticalThreats(
   const legislativeDisruptions = buildLegislativeDisruptions(safeData);
 
   const aggregatedThreatLevels: ImpactLevel[] = [
-    ...strideCategories.map((c) => c.threatLevel),
+    ...threatDimensions.map((c) => c.threatLevel),
     ...actorProfiles.map((p) => p.overallThreatLevel),
   ];
   const overallThreatLevel = aggregateImpactLevels(aggregatedThreatLevels);
 
-  const keyFindings: string[] = strideCategories
+  const keyFindings: string[] = threatDimensions
     .filter((c) => c.threatLevel === 'high' || c.threatLevel === 'critical')
-    .map((c) => `${STRIDE_LABELS[c.category]}: ${c.analysis}`);
+    .map((c) => `${DIMENSION_LABELS[c.category]}: ${c.analysis}`);
 
   for (const profile of actorProfiles) {
     if (profile.overallThreatLevel === 'high' || profile.overallThreatLevel === 'critical') {
@@ -766,10 +766,10 @@ export function assessPoliticalThreats(
   }
 
   const recommendations: string[] = [];
-  for (const cat of strideCategories) {
+  for (const cat of threatDimensions) {
     if (cat.threatLevel === 'critical' || cat.threatLevel === 'high') {
       recommendations.push(
-        `Monitor ${STRIDE_LABELS[cat.category].toLowerCase()} — ${cat.evidence[0] ?? 'elevated threat level'}`
+        `Monitor ${DIMENSION_LABELS[cat.category].toLowerCase()} — ${cat.evidence[0] ?? 'elevated threat level'}`
       );
     }
   }
@@ -785,11 +785,11 @@ export function assessPoliticalThreats(
   }
 
   const hasStrongActorSignals = actorProfiles.length > 0;
-  const hasRichStrideEvidence = strideCategories.some((c) => c.evidence.length > 1);
+  const hasRichDimensionEvidence = threatDimensions.some((c) => c.evidence.length > 1);
   let confidence: 'high' | 'medium' | 'low' = 'low';
-  if (hasStrongActorSignals && hasRichStrideEvidence) {
+  if (hasStrongActorSignals && hasRichDimensionEvidence) {
     confidence = 'high';
-  } else if (hasStrongActorSignals || hasRichStrideEvidence) {
+  } else if (hasStrongActorSignals || hasRichDimensionEvidence) {
     confidence = 'medium';
   }
 
@@ -797,7 +797,7 @@ export function assessPoliticalThreats(
     date,
     overallThreatLevel,
     confidence,
-    strideCategories,
+    threatDimensions,
     actorProfiles,
     consequenceTrees,
     legislativeDisruptions,
@@ -1529,10 +1529,10 @@ export function generateThreatAssessmentMarkdown(
     '',
   ];
 
-  for (const cat of safeAssessment.strideCategories) {
+  for (const cat of safeAssessment.threatDimensions) {
     const emoji = THREAT_EMOJIS[cat.threatLevel];
     lines.push(
-      `### ${STRIDE_LABELS[cat.category]}`,
+      `### ${DIMENSION_LABELS[cat.category]}`,
       `**Threat Level**: ${emoji} ${cat.threatLevel.charAt(0).toUpperCase() + cat.threatLevel.slice(1)}`,
       '',
       sanitizeMarkdownText(cat.analysis),
@@ -1588,12 +1588,6 @@ export function generateThreatAssessmentMarkdown(
 /**
  * All Political Threat Landscape dimensions in canonical order.
  * Useful for iterating over all dimensions without hardcoding the list.
- */
-export const ALL_POLITICAL_STRIDE_CATEGORIES: readonly PoliticalThreatCategory[] =
-  ALL_THREAT_DIMENSIONS;
-
-/**
- * All Political Threat Landscape dimensions in canonical order (new name).
  */
 export const ALL_THREAT_LANDSCAPE_DIMENSIONS: readonly PoliticalThreatCategory[] =
   ALL_THREAT_DIMENSIONS;

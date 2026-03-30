@@ -4,7 +4,7 @@
 /**
  * @module Test/PoliticalThreatAssessment
  * @description Unit tests for political-threat-assessment utility functions.
- * Tests Political STRIDE framework, actor threat profiling, consequence trees,
+ * Tests Threat Landscape framework, actor threat profiling, consequence trees,
  * legislative disruption analysis, and markdown generation.
  */
 
@@ -15,7 +15,7 @@ import {
   buildConsequenceTree,
   analyzeLegislativeDisruption,
   generateThreatAssessmentMarkdown,
-  ALL_POLITICAL_STRIDE_CATEGORIES,
+  ALL_THREAT_LANDSCAPE_DIMENSIONS,
 } from '../../scripts/utils/political-threat-assessment.js';
 
 // ─── Fixture helpers ────────────────────────────────────────────────────────
@@ -82,22 +82,22 @@ function makeArticleData(overrides = {}) {
   };
 }
 
-// ─── ALL_POLITICAL_STRIDE_CATEGORIES ────────────────────────────────────────
+// ─── ALL_THREAT_LANDSCAPE_DIMENSIONS ────────────────────────────────────────
 
-describe('ALL_POLITICAL_STRIDE_CATEGORIES', () => {
-  it('contains all six Political STRIDE categories', () => {
-    expect(ALL_POLITICAL_STRIDE_CATEGORIES).toHaveLength(6);
-    expect(ALL_POLITICAL_STRIDE_CATEGORIES).toContain('shift');
-    expect(ALL_POLITICAL_STRIDE_CATEGORIES).toContain('transparency');
-    expect(ALL_POLITICAL_STRIDE_CATEGORIES).toContain('reversal');
-    expect(ALL_POLITICAL_STRIDE_CATEGORIES).toContain('institutional');
-    expect(ALL_POLITICAL_STRIDE_CATEGORIES).toContain('delay');
-    expect(ALL_POLITICAL_STRIDE_CATEGORIES).toContain('erosion');
+describe('ALL_THREAT_LANDSCAPE_DIMENSIONS', () => {
+  it('contains all six Threat Landscape categories', () => {
+    expect(ALL_THREAT_LANDSCAPE_DIMENSIONS).toHaveLength(6);
+    expect(ALL_THREAT_LANDSCAPE_DIMENSIONS).toContain('shift');
+    expect(ALL_THREAT_LANDSCAPE_DIMENSIONS).toContain('transparency');
+    expect(ALL_THREAT_LANDSCAPE_DIMENSIONS).toContain('reversal');
+    expect(ALL_THREAT_LANDSCAPE_DIMENSIONS).toContain('institutional');
+    expect(ALL_THREAT_LANDSCAPE_DIMENSIONS).toContain('delay');
+    expect(ALL_THREAT_LANDSCAPE_DIMENSIONS).toContain('erosion');
   });
 
   it('is an array of strings', () => {
-    expect(Array.isArray(ALL_POLITICAL_STRIDE_CATEGORIES)).toBe(true);
-    expect(ALL_POLITICAL_STRIDE_CATEGORIES.every((category) => typeof category === 'string')).toBe(
+    expect(Array.isArray(ALL_THREAT_LANDSCAPE_DIMENSIONS)).toBe(true);
+    expect(ALL_THREAT_LANDSCAPE_DIMENSIONS.every((category) => typeof category === 'string')).toBe(
       true
     );
   });
@@ -115,10 +115,10 @@ describe('assessPoliticalThreats', () => {
       expect(assessment.confidence).toMatch(/^(high|medium|low)$/);
     });
 
-    it('returns all six STRIDE categories', () => {
+    it('returns all six threat landscape dimensions', () => {
       const assessment = assessPoliticalThreats(makeArticleData());
-      expect(assessment.strideCategories).toHaveLength(6);
-      const categories = assessment.strideCategories.map((c) => c.category);
+      expect(assessment.threatDimensions).toHaveLength(6);
+      const categories = assessment.threatDimensions.map((c) => c.category);
       expect(categories).toContain('shift');
       expect(categories).toContain('transparency');
       expect(categories).toContain('reversal');
@@ -161,7 +161,7 @@ describe('assessPoliticalThreats', () => {
         ],
       });
       const assessment = assessPoliticalThreats(data);
-      const shiftCat = assessment.strideCategories.find((c) => c.category === 'shift');
+      const shiftCat = assessment.threatDimensions.find((c) => c.category === 'shift');
       expect(shiftCat).toBeDefined();
       expect(['moderate', 'high', 'critical']).toContain(shiftCat.threatLevel);
     });
@@ -187,7 +187,7 @@ describe('assessPoliticalThreats', () => {
         ],
       });
       const assessment = assessPoliticalThreats(data);
-      const shiftCat = assessment.strideCategories.find((c) => c.category === 'shift');
+      const shiftCat = assessment.threatDimensions.find((c) => c.category === 'shift');
       expect(['moderate', 'high', 'critical']).toContain(shiftCat.threatLevel);
     });
 
@@ -196,7 +196,7 @@ describe('assessPoliticalThreats', () => {
         anomalies: [makeAnomaly(), makeAnomaly({ anomalyId: 'ANOMALY-002' })],
       });
       const assessment = assessPoliticalThreats(data);
-      const shiftCat = assessment.strideCategories.find((c) => c.category === 'shift');
+      const shiftCat = assessment.threatDimensions.find((c) => c.category === 'shift');
       const hasAnomalyEvidence = shiftCat.evidence.some((e) => e.includes('anomal'));
       expect(hasAnomalyEvidence).toBe(true);
     });
@@ -208,8 +208,8 @@ describe('assessPoliticalThreats', () => {
         procedures: [makeProcedure({ status: 'stalled', currentStage: 'committee' })],
       });
       const assessment = assessPoliticalThreats(data);
-      const reversalCat = assessment.strideCategories.find((c) => c.category === 'reversal');
-      const delayCat = assessment.strideCategories.find((c) => c.category === 'delay');
+      const reversalCat = assessment.threatDimensions.find((c) => c.category === 'reversal');
+      const delayCat = assessment.threatDimensions.find((c) => c.category === 'delay');
       expect(['moderate', 'high', 'critical']).toContain(reversalCat.threatLevel);
       expect(['moderate', 'high', 'critical']).toContain(delayCat.threatLevel);
     });
@@ -248,7 +248,7 @@ describe('assessPoliticalThreats', () => {
       const data = makeArticleData();
       const assessment = assessPoliticalThreats(data);
       expect(assessment).toBeDefined();
-      expect(assessment.strideCategories).toHaveLength(6);
+      expect(assessment.threatDimensions).toHaveLength(6);
     });
 
     it('handles malformed data without throwing', () => {
@@ -272,7 +272,7 @@ describe('assessPoliticalThreats', () => {
       };
       expect(() => assessPoliticalThreats(data)).not.toThrow();
       const assessment = assessPoliticalThreats(data);
-      expect(assessment.strideCategories).toHaveLength(6);
+      expect(assessment.threatDimensions).toHaveLength(6);
     });
 
     it('handles non-array anomalies with non-array votingAnomalies fallback', () => {
@@ -293,7 +293,7 @@ describe('assessPoliticalThreats', () => {
         ],
       };
       const assessment = assessPoliticalThreats(data);
-      const shiftCat = assessment.strideCategories.find((c) => c.category === 'shift');
+      const shiftCat = assessment.threatDimensions.find((c) => c.category === 'shift');
       expect(['moderate', 'high', 'critical']).toContain(shiftCat.threatLevel);
     });
 
@@ -303,7 +303,7 @@ describe('assessPoliticalThreats', () => {
         votingAnomalies: [],
       };
       const assessment = assessPoliticalThreats(data);
-      const shiftCat = assessment.strideCategories.find((c) => c.category === 'shift');
+      const shiftCat = assessment.threatDimensions.find((c) => c.category === 'shift');
       const hasEvidence = shiftCat.evidence.some((e) => e.includes('anomal'));
       expect(hasEvidence).toBe(true);
     });
@@ -629,7 +629,7 @@ describe('generateThreatAssessmentMarkdown', () => {
     const md = generateThreatAssessmentMarkdown(getBaseAssessment());
     expect(md.startsWith('---')).toBe(true);
     expect(md).toContain('analysisType: "threat-assessment"');
-    expect(md).toContain('methods: ["political-stride"');
+    expect(md).toContain('methods: ["political-threat-landscape"');
   });
 
   it('includes threat level in frontmatter', () => {
@@ -650,14 +650,14 @@ describe('generateThreatAssessmentMarkdown', () => {
     expect(md).toContain(`date: "${assessment.date}"`);
   });
 
-  it('includes all six STRIDE category headings', () => {
+  it('includes all six threat landscape dimension headings', () => {
     const md = generateThreatAssessmentMarkdown(getBaseAssessment());
-    expect(md).toContain('Coalition Shifts (S)');
-    expect(md).toContain('Transparency Concerns (T)');
-    expect(md).toContain('Policy Reversals (R)');
-    expect(md).toContain('Institutional Threats (I)');
-    expect(md).toContain('Legislative Delays (D)');
-    expect(md).toContain('Democratic Erosion (E)');
+    expect(md).toContain('Coalition Shifts');
+    expect(md).toContain('Transparency Deficit');
+    expect(md).toContain('Policy Reversal');
+    expect(md).toContain('Institutional Pressure');
+    expect(md).toContain('Legislative Obstruction');
+    expect(md).toContain('Democratic Erosion');
   });
 
   it('includes Actor Threat Profiles section', () => {
@@ -735,7 +735,7 @@ describe('generateThreatAssessmentMarkdown', () => {
     const assessment = assessPoliticalThreats(makeArticleData());
     const md = generateThreatAssessmentMarkdown(assessment);
     expect(md).toContain('# Political Threat Assessment');
-    expect(md).toContain('## Political STRIDE Analysis');
+    expect(md).toContain('## Political Threat Landscape Analysis');
   });
 
   it('handles null input by generating default assessment', () => {
@@ -748,6 +748,6 @@ describe('generateThreatAssessmentMarkdown', () => {
   it('handles undefined input by generating default assessment', () => {
     const md = generateThreatAssessmentMarkdown(undefined);
     expect(md).toContain('# Political Threat Assessment');
-    expect(md).toContain('## Political STRIDE Analysis');
+    expect(md).toContain('## Political Threat Landscape Analysis');
   });
 });

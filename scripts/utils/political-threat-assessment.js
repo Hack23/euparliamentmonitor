@@ -30,7 +30,7 @@ const IMPACT_WEIGHTS = {
     none: 0,
 };
 /** Display labels for threat landscape dimensions */
-const STRIDE_LABELS = {
+const DIMENSION_LABELS = {
     shift: 'Coalition Shifts',
     transparency: 'Transparency Deficit',
     reversal: 'Policy Reversal',
@@ -221,9 +221,9 @@ function scoreToImpact(threatScore) {
  * @param defaultEvidence - Fallback evidence when array is empty
  * @param lowAnalysis - Analysis text when threat is low
  * @param elevatedAnalysis - Analysis text when threat is elevated
- * @returns PoliticalStrideCategory result
+ * @returns PoliticalThreatDimension result
  */
-function buildStrideResult(category, threatScore, evidence, defaultEvidence, lowAnalysis, elevatedAnalysis) {
+function buildDimensionResult(category, threatScore, evidence, defaultEvidence, lowAnalysis, elevatedAnalysis) {
     const threatLevel = scoreToImpact(threatScore);
     return {
         category,
@@ -482,7 +482,7 @@ function assessShiftThreats(data) {
     if (records.length > 10 && evidence.length === 0) {
         evidence.push(`${records.length} voting records analysed; no major shift signals detected`);
     }
-    return buildStrideResult('shift', threatScore, evidence, 'No coalition shift signals detected in available data', 'Coalition stability appears maintained. No significant realignment signals.', (level) => `Coalition dynamics show ${level}-level shift risk. Monitor cohesion trends closely.`);
+    return buildDimensionResult('shift', threatScore, evidence, 'No coalition shift signals detected in available data', 'Coalition stability appears maintained. No significant realignment signals.', (level) => `Coalition dynamics show ${level}-level shift risk. Monitor cohesion trends closely.`);
 }
 /**
  * Assess transparency threats from procedural and committee data.
@@ -498,7 +498,7 @@ function assessTransparencyThreats(data) {
     if (questions.length > 0) {
         evidence.push(`${questions.length} parliamentary question${questions.length === 1 ? '' : 's'} submitted — active oversight`);
     }
-    return buildStrideResult('transparency', threatScore, evidence, 'Procedural transparency within normal parameters', 'Procedural transparency appears adequate. Committee activity within normal parameters.', (level) => `Transparency concerns at ${level} level. Review committee meeting records and public documentation.`);
+    return buildDimensionResult('transparency', threatScore, evidence, 'Procedural transparency within normal parameters', 'Procedural transparency appears adequate. Committee activity within normal parameters.', (level) => `Transparency concerns at ${level} level. Review committee meeting records and public documentation.`);
 }
 /**
  * Assess policy reversal threats from legislative procedure data.
@@ -513,7 +513,7 @@ function assessReversalThreats(data) {
     const feedData = data.feedData ? toRecord(data.feedData) : null;
     const feedScore = checkFeedAdoptedTexts(feedData, procedures.length, evidence);
     const threatScore = Math.max(procScore, feedScore);
-    return buildStrideResult('reversal', threatScore, evidence, 'No significant policy reversal signals detected', 'Legislative trajectory appears stable. No major reversal signals.', (level) => `Policy reversal risk at ${level} level. Monitor stalled procedures and conciliation stages.`);
+    return buildDimensionResult('reversal', threatScore, evidence, 'No significant policy reversal signals detected', 'Legislative trajectory appears stable. No major reversal signals.', (level) => `Policy reversal risk at ${level} level. Monitor stalled procedures and conciliation stages.`);
 }
 /**
  * Assess institutional threats from MEP influence and procedural data.
@@ -528,7 +528,7 @@ function assessInstitutionalThreats(data) {
     const feedData = data.feedData ? toRecord(data.feedData) : null;
     const turnoverScore = checkMEPTurnover(feedData, evidence);
     const threatScore = Math.max(concentrationScore, turnoverScore);
-    return buildStrideResult('institutional', threatScore, evidence, 'No institutional threat signals detected', 'Institutional balance appears maintained. Power distribution within normal parameters.', (level) => `Institutional threats at ${level} level. Monitor concentration of influence and procedural manipulation signals.`);
+    return buildDimensionResult('institutional', threatScore, evidence, 'No institutional threat signals detected', 'Institutional balance appears maintained. Power distribution within normal parameters.', (level) => `Institutional threats at ${level} level. Monitor concentration of influence and procedural manipulation signals.`);
 }
 /**
  * Assess legislative delay threats from procedure and feed data.
@@ -543,7 +543,7 @@ function assessDelayThreats(data) {
     const procScore = scanProceduresForDelay(procedures, evidence);
     const abstentionScore = scanAbstentionAnomalies(anomalies, evidence);
     const threatScore = Math.max(procScore, abstentionScore);
-    return buildStrideResult('delay', threatScore, evidence, 'No significant legislative delay signals detected', 'Legislative pace within normal parameters. No obstruction signals.', (level) => `Delay threats at ${level} level. Monitor stalled procedures and abstention patterns.`);
+    return buildDimensionResult('delay', threatScore, evidence, 'No significant legislative delay signals detected', 'Legislative pace within normal parameters. No obstruction signals.', (level) => `Delay threats at ${level} level. Monitor stalled procedures and abstention patterns.`);
 }
 /**
  * Assess democratic erosion threats from coalition and anomaly data.
@@ -558,7 +558,7 @@ function assessErosionThreats(data) {
     const cohesionScore = countWeakCohesionCoalitions(coalitions, evidence);
     const anomalyScore = scanCriticalAnomaliesForErosion(anomalies, evidence);
     const threatScore = Math.max(cohesionScore, anomalyScore);
-    return buildStrideResult('erosion', threatScore, evidence, 'Democratic norms appear stable. No systematic erosion signals.', 'Democratic norms appear stable. Institutional processes functioning within expected parameters.', (level) => `Democratic erosion signals at ${level} level. Monitor norm deviations and coalition fragmentation patterns.`);
+    return buildDimensionResult('erosion', threatScore, evidence, 'Democratic norms appear stable. No systematic erosion signals.', 'Democratic norms appear stable. Institutional processes functioning within expected parameters.', (level) => `Democratic erosion signals at ${level} level. Monitor norm deviations and coalition fragmentation patterns.`);
 }
 // ─── Exported assessment functions ────────────────────────────────────────────
 /**
@@ -576,7 +576,7 @@ function assessErosionThreats(data) {
 export function assessPoliticalThreats(data) {
     const safeData = data ?? {};
     const date = new Date().toISOString().slice(0, 10);
-    const strideCategories = [
+    const threatDimensions = [
         assessShiftThreats(safeData),
         assessTransparencyThreats(safeData),
         assessReversalThreats(safeData),
@@ -588,13 +588,13 @@ export function assessPoliticalThreats(data) {
     const consequenceTrees = buildConsequenceTrees(safeData);
     const legislativeDisruptions = buildLegislativeDisruptions(safeData);
     const aggregatedThreatLevels = [
-        ...strideCategories.map((c) => c.threatLevel),
+        ...threatDimensions.map((c) => c.threatLevel),
         ...actorProfiles.map((p) => p.overallThreatLevel),
     ];
     const overallThreatLevel = aggregateImpactLevels(aggregatedThreatLevels);
-    const keyFindings = strideCategories
+    const keyFindings = threatDimensions
         .filter((c) => c.threatLevel === 'high' || c.threatLevel === 'critical')
-        .map((c) => `${STRIDE_LABELS[c.category]}: ${c.analysis}`);
+        .map((c) => `${DIMENSION_LABELS[c.category]}: ${c.analysis}`);
     for (const profile of actorProfiles) {
         if (profile.overallThreatLevel === 'high' || profile.overallThreatLevel === 'critical') {
             keyFindings.push(`High-threat actor: ${profile.actor} (${profile.actorType}) — CMO: ${profile.capability}/${profile.motivation}/${profile.opportunity}`);
@@ -604,9 +604,9 @@ export function assessPoliticalThreats(data) {
         keyFindings.push('No high-priority threats detected across threat landscape dimensions');
     }
     const recommendations = [];
-    for (const cat of strideCategories) {
+    for (const cat of threatDimensions) {
         if (cat.threatLevel === 'critical' || cat.threatLevel === 'high') {
-            recommendations.push(`Monitor ${STRIDE_LABELS[cat.category].toLowerCase()} — ${cat.evidence[0] ?? 'elevated threat level'}`);
+            recommendations.push(`Monitor ${DIMENSION_LABELS[cat.category].toLowerCase()} — ${cat.evidence[0] ?? 'elevated threat level'}`);
         }
     }
     for (const profile of actorProfiles) {
@@ -618,19 +618,19 @@ export function assessPoliticalThreats(data) {
         recommendations.push('Continue routine monitoring of parliamentary activity');
     }
     const hasStrongActorSignals = actorProfiles.length > 0;
-    const hasRichStrideEvidence = strideCategories.some((c) => c.evidence.length > 1);
+    const hasRichDimensionEvidence = threatDimensions.some((c) => c.evidence.length > 1);
     let confidence = 'low';
-    if (hasStrongActorSignals && hasRichStrideEvidence) {
+    if (hasStrongActorSignals && hasRichDimensionEvidence) {
         confidence = 'high';
     }
-    else if (hasStrongActorSignals || hasRichStrideEvidence) {
+    else if (hasStrongActorSignals || hasRichDimensionEvidence) {
         confidence = 'medium';
     }
     return {
         date,
         overallThreatLevel,
         confidence,
-        strideCategories,
+        threatDimensions,
         actorProfiles,
         consequenceTrees,
         legislativeDisruptions,
@@ -1266,9 +1266,9 @@ export function generateThreatAssessmentMarkdown(assessment) {
         '## Political Threat Landscape Analysis',
         '',
     ];
-    for (const cat of safeAssessment.strideCategories) {
+    for (const cat of safeAssessment.threatDimensions) {
         const emoji = THREAT_EMOJIS[cat.threatLevel];
-        lines.push(`### ${STRIDE_LABELS[cat.category]}`, `**Threat Level**: ${emoji} ${cat.threatLevel.charAt(0).toUpperCase() + cat.threatLevel.slice(1)}`, '', sanitizeMarkdownText(cat.analysis), '');
+        lines.push(`### ${DIMENSION_LABELS[cat.category]}`, `**Threat Level**: ${emoji} ${cat.threatLevel.charAt(0).toUpperCase() + cat.threatLevel.slice(1)}`, '', sanitizeMarkdownText(cat.analysis), '');
         if (cat.evidence.length > 0) {
             lines.push('**Evidence:**');
             cat.evidence.forEach((e) => lines.push(`- ${sanitizeMarkdownText(e)}`));
@@ -1301,10 +1301,6 @@ export function generateThreatAssessmentMarkdown(assessment) {
 /**
  * All Political Threat Landscape dimensions in canonical order.
  * Useful for iterating over all dimensions without hardcoding the list.
- */
-export const ALL_POLITICAL_STRIDE_CATEGORIES = ALL_THREAT_DIMENSIONS;
-/**
- * All Political Threat Landscape dimensions in canonical order (new name).
  */
 export const ALL_THREAT_LANDSCAPE_DIMENSIONS = ALL_THREAT_DIMENSIONS;
 //# sourceMappingURL=political-threat-assessment.js.map

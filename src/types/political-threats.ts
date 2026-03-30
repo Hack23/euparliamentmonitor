@@ -190,11 +190,8 @@ export interface LegislativeDisruptionAnalysis {
 /**
  * Assessment result for a single Political Threat Landscape dimension.
  * Contains threat level, evidence, and analysis for one dimension.
- *
- * @deprecated Use `PoliticalThreatDimension` instead. This alias is kept for
- * backward compatibility with existing code that imports `PoliticalStrideCategory`.
  */
-export interface PoliticalStrideCategory {
+export interface PoliticalThreatDimension {
   /** Which threat landscape dimension this assessment covers */
   readonly category: PoliticalThreatCategory;
   /** Assessed threat level for this dimension */
@@ -204,12 +201,6 @@ export interface PoliticalStrideCategory {
   /** Human-readable analysis narrative for this dimension */
   readonly analysis: string;
 }
-
-/**
- * Assessment result for a single Political Threat Landscape dimension.
- * Contains threat level, evidence, and analysis for one dimension.
- */
-export type PoliticalThreatDimension = PoliticalStrideCategory;
 
 /**
  * Complete Political Threat Assessment — the top-level output of the
@@ -225,13 +216,8 @@ export interface PoliticalThreatAssessment {
   readonly overallThreatLevel: ImpactLevel;
   /** Confidence level in the assessment */
   readonly confidence: 'high' | 'medium' | 'low';
-  /**
-   * Political Threat Landscape analysis for each of the six dimensions.
-   * @deprecated Field name kept for backward compatibility. Prefer `threatDimensions`.
-   */
-  readonly strideCategories: readonly PoliticalStrideCategory[];
   /** Political Threat Landscape analysis for each of the six dimensions */
-  readonly threatDimensions?: readonly PoliticalThreatDimension[];
+  readonly threatDimensions: readonly PoliticalThreatDimension[];
   /** Threat profiles for key political actors */
   readonly actorProfiles: readonly PoliticalActorThreatProfile[];
   /** Consequence trees for identified high-risk political actions */
