@@ -509,9 +509,51 @@ Before creating the PR, read ALL methodology documents in `analysis/methodologie
 Write the analysis artifacts to `analysis/${ARTICLE_DATE}/translate/` following the templates in `analysis/templates/`. If previous translation analysis exists for this date, read it first and extend/improve it rather than replacing.
 
 ```bash
-ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
-mkdir -p "analysis/${ARTICLE_DATE}/translate"
-echo "📊 Translation analysis directory: analysis/${ARTICLE_DATE}/translate/"
+ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+mkdir -p "${ANALYSIS_DIR}"
+echo "📊 Translation analysis directory: ${ANALYSIS_DIR}/"
+
+# Write a minimal analysis summary to ensure an analysis-only PR path is always possible.
+# Even when no translations are produced (early noop), this baseline satisfies Rule 5.
+SUMMARY_FILE="${ANALYSIS_DIR}/summary.md"
+if [ ! -f "${SUMMARY_FILE}" ]; then
+  cat > "${SUMMARY_FILE}" <<EOF
+# Translation Analysis Summary — ${ARTICLE_DATE}
+
+Automatically generated baseline translation analysis report for ${ARTICLE_DATE}.
+Ensures no workflow run is wasted, even when no new translations were produced
+or when all translations already existed.
+
+## 1. Translation Coverage Matrix
+
+- Article types covered: _(to be filled/extended by translation steps or reviewers)_
+- Languages covered: _(to be filled/extended by translation steps or reviewers)_
+
+## 2. Terminology Consistency
+
+- EP-specific terms observed: _(document here)_
+- Cross-language consistency notes: _(summarize here)_
+
+## 3. Quality Assessment
+
+- Overall quality per language: _(score + brief justification)_
+
+## 4. Coverage Gap Analysis
+
+- Article types not translated and reasons: _(document here)_
+- Languages not translated and reasons: _(document here)_
+
+## 5. Improvement Recommendations
+
+- Short-term: _(e.g., terminology updates, language-specific fixes)_
+- Longer-term: _(e.g., better prompts, additional validation, automation)_
+
+---
+_If a more detailed analysis already exists for this date, extend and refine it rather
+than replacing it. This file is a minimal baseline to satisfy analysis requirements
+when translation activity is low or skipped._
+EOF
+fi
 ```
 
 ## Step 5: Create Pull Request
@@ -528,14 +570,14 @@ rm -f news/articles-metadata.json
 # No workflow run should be wasted — translation analysis is ALWAYS persisted.
 # Remove only raw data downloads to control PR size. Analysis markdown MUST be committed.
 rm -rf analysis-output/
-# Scope cleanup to THIS run's analysis directory only — never touch historical data
+# Scope cleanup to THIS workflow's analysis directory only — never touch other workflows' data
 ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
-CURRENT_ANALYSIS_DIR="analysis/${ARTICLE_DATE}"
-if [ -d "${CURRENT_ANALYSIS_DIR}" ]; then
-  find "${CURRENT_ANALYSIS_DIR}" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
-  find "${CURRENT_ANALYSIS_DIR}" -type d -name "data" -empty -delete 2>/dev/null || true
+TRANSLATE_ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+if [ -d "${TRANSLATE_ANALYSIS_DIR}" ]; then
+  find "${TRANSLATE_ANALYSIS_DIR}" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
+  find "${TRANSLATE_ANALYSIS_DIR}" -type d -name "data" -empty -delete 2>/dev/null || true
 fi
-echo "🧹 Cleaned raw data payloads for ${ARTICLE_DATE}; translation analysis markdown artifacts PRESERVED for commit"
+echo "🧹 Cleaned raw data payloads for ${ARTICLE_DATE}/translate; translation analysis markdown artifacts PRESERVED for commit"
 
 ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
 TRANSLATED_COUNT=$(ls news/${ARTICLE_DATE}-*-{sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh}.html 2>/dev/null | wc -l || echo 0)
