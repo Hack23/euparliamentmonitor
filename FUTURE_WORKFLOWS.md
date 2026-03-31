@@ -198,6 +198,77 @@ The following capabilities have already been delivered and are documented in [WO
 
 ---
 
+## 🔬 Phase 0b: Political Intelligence Quality Enhancement (Q2 2026 — In Progress)
+
+**Priority:** PRIO 1 — All agentic workflows must download data and produce great analytics unique for every article type.
+
+This enhancement phase ensures every agentic workflow produces **unique, high-quality political intelligence** tailored to its specific article type, with per-document deep analysis for important EP items.
+
+```mermaid
+flowchart TD
+    subgraph "🔬 Intelligence Quality Enhancement"
+        direction TB
+        IQ1["📡 Mandatory Data Download\nALL feeds queried before analysis"]
+        IQ2["🔍 Per-Document Deep Analysis\nEvery MCP file gets {id}.analysis.md"]
+        IQ3["🎯 Unique Analytics Per Workflow\nTailored tools per article type"]
+        IQ4["✅ Quality Gate ≥7.0/10\n5-dimension weighted scoring"]
+        IQ5["📊 Evidence-Based Output\nCitations + confidence levels"]
+    end
+
+    IQ1 --> IQ2 --> IQ3 --> IQ4 --> IQ5
+
+    style IQ1 fill:#dc3545,stroke:#b02a37,color:#fff
+    style IQ2 fill:#fd7e14,stroke:#ca6510,color:#fff
+    style IQ3 fill:#ffc107,stroke:#cc9a06,color:#000
+    style IQ4 fill:#198754,stroke:#146c43,color:#fff
+    style IQ5 fill:#0d6efd,stroke:#0a58ca,color:#fff
+```
+
+### 0b.1 Mandatory Data Download Enforcement — ✅ IMPLEMENTED
+
+**Status:** All 9 content workflows now enforce mandatory data download before the newsworthiness gate.
+- `timeframe: "today"` first, `"one-week"` fallback for empty/error/timeout feeds
+- Advisory feeds (documents, plenary docs, committee docs, questions) are MANDATORY, not optional
+- `safeoutputs___noop` only permitted AFTER all data collection and analysis completes
+
+### 0b.2 Workflow-Specific Analytical Tools — ✅ IMPLEMENTED
+
+**Status:** Each workflow now has unique MCP analytical tools tailored to its article type:
+
+| Workflow | Unique Analytical Tools |
+|----------|------------------------|
+| **Breaking** | `detect_voting_anomalies`, `early_warning_system`, `generate_political_landscape` |
+| **Motions** | `get_voting_records`, `compare_political_groups`, `analyze_coalition_dynamics` |
+| **Propositions** | `search_documents`, `monitor_legislative_pipeline`, `track_legislation` |
+| **Committee** | `get_committee_info`, `analyze_legislative_effectiveness` |
+| **Week Ahead** | `get_plenary_sessions` (future dates), `generate_political_landscape` |
+| **Weekly Review** | `get_voting_records`, `detect_voting_anomalies` |
+| **Month Ahead** | `compare_political_groups`, `analyze_country_delegation` |
+| **Monthly Review** | `analyze_legislative_effectiveness`, `compare_political_groups` |
+
+### 0b.3 Per-Document Intelligence Analysis — 🔄 IN PROGRESS
+
+**Goal:** Every downloaded MCP data file receives individual deep analysis following `analysis/templates/per-file-political-intelligence.md`.
+
+**Planned enhancements:**
+- Opt-in `--analysis-methods=document-analysis` flag for per-document markdown + JSON output
+- Quality gate validation per document (minimum 7.0/10 across 5 dimensions)
+- Important documents flagged for extended analysis (committee opinions, legislative resolutions, plenary votes)
+
+### 0b.4 Analysis Quality Metrics — 📋 PLANNED
+
+**Goal:** Automated quality scoring for all analysis output.
+
+| Dimension | Weight | Target |
+|-----------|--------|--------|
+| Evidence density | 30% | ≥7/10 — citations per claim |
+| Analytical depth | 25% | ≥7/10 — multi-framework insights |
+| Structural completeness | 20% | ≥8/10 — Mermaid diagrams, tables |
+| Political relevance | 15% | ≥7/10 — EP-specific stakeholder analysis |
+| Writing quality | 10% | ≥8/10 — style guide compliance |
+
+---
+
 ## 🔐 Phase 1: Security Hardening (Q2 2026)
 
 ```mermaid

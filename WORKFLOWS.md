@@ -329,6 +329,54 @@ The `compile-agentic-workflows.yml` workflow automates this process (see §11).
 
 ---
 
+#### Unique Data & Analytics Per Workflow (PRIO 1)
+
+**Every workflow downloads unique data and produces article-type-specific analytics.** The following matrix shows the mandatory MCP data downloads and analytical tools unique to each workflow:
+
+```mermaid
+flowchart LR
+    subgraph "🔴 Breaking News"
+        B1["adopted_texts_feed\nevents_feed\nprocedures_feed\nmeps_feed"] --> B2["detect_voting_anomalies\nanalyze_coalition_dynamics\nearly_warning_system\ngenerate_political_landscape"]
+    end
+
+    subgraph "📋 Motions"
+        M1["adopted_texts_feed\nquestions_feed\nmeps_feed\nprocedures_feed"] --> M2["detect_voting_anomalies\nanalyze_coalition_dynamics\nget_voting_records\ncompare_political_groups"]
+    end
+
+    subgraph "📜 Propositions"
+        P1["procedures_feed\ndocuments_feed\nadopted_texts_feed\nplenary_docs_feed"] --> P2["search_documents\nmonitor_legislative_pipeline\ntrack_legislation\nanalyze_legislative_effectiveness"]
+    end
+
+    subgraph "🏛️ Committee Reports"
+        C1["committee_docs_feed\nplenary_docs_feed\nadopted_texts_feed\nprocedures_feed"] --> C2["get_committee_info\nmonitor_legislative_pipeline\nanalyze_legislative_effectiveness"]
+    end
+
+    style B1 fill:#dc3545,stroke:#b02a37,color:#fff
+    style B2 fill:#dc3545,stroke:#b02a37,color:#fff
+    style M1 fill:#fd7e14,stroke:#ca6510,color:#fff
+    style M2 fill:#fd7e14,stroke:#ca6510,color:#fff
+    style P1 fill:#ffc107,stroke:#cc9a06,color:#000
+    style P2 fill:#ffc107,stroke:#cc9a06,color:#000
+    style C1 fill:#198754,stroke:#146c43,color:#fff
+    style C2 fill:#198754,stroke:#146c43,color:#fff
+```
+
+| Workflow | Mandatory Feed Data | Mandatory Analytical Tools | Unique Focus |
+|----------|--------------------|-----------------------------|--------------|
+| **Breaking** | adopted_texts, events, procedures, meps (today→one-week) + documents, plenary_docs, committee_docs, questions | detect_voting_anomalies, analyze_coalition_dynamics, early_warning_system, generate_political_landscape | ⚡ Only TODAY's items; 6-hour cycle |
+| **Motions** | adopted_texts, parliamentary_questions, meps, procedures | detect_voting_anomalies, analyze_coalition_dynamics, get_voting_records, compare_political_groups | 🗳️ Per-resolution vote breakdowns |
+| **Propositions** | procedures, documents, adopted_texts, plenary_documents | search_documents, monitor_legislative_pipeline, track_legislation, analyze_legislative_effectiveness | 📜 Procedure stage tracking |
+| **Committee** | committee_documents, plenary_documents, adopted_texts, procedures | get_committee_info, monitor_legislative_pipeline, analyze_legislative_effectiveness | 🏛️ Per-committee deep analysis |
+| **Week Ahead** | events, procedures, plenary_documents, plenary_session_documents | get_plenary_sessions (future), get_committee_info, monitor_legislative_pipeline, generate_political_landscape | 📅 Prospective agenda analysis |
+| **Weekly Review** | adopted_texts, procedures, plenary_documents, parliamentary_questions | get_voting_records, detect_voting_anomalies, generate_political_landscape | 📊 Retrospective outcome review |
+| **Month Ahead** | events, procedures, plenary/committee docs, adopted_texts, session docs, meps | get_plenary_sessions, get_committee_info, monitor_pipeline, generate_landscape, compare_groups, analyze_delegation | 📆 Strategic calendar outlook |
+| **Monthly Review** | adopted_texts, procedures, plenary_documents, parliamentary_questions | get_voting_records, detect_anomalies, generate_landscape, compare_groups, analyze_effectiveness | 📈 Comprehensive monthly trends |
+| **Translate** | — (consumes English articles) | — | 🌐 EN → 13 languages |
+
+> **PRIO 1 MANDATE:** Each workflow ALWAYS downloads its mandatory feed data and runs its mandatory analytical tools BEFORE deciding whether to produce an article. Data collection is NEVER skipped, even for noop runs.
+
+---
+
 ### 1b. Agentic News Workflows (gh-aw)
 
 **📄 Files:** `.github/workflows/news-*.md` (9 content workflows + 1 translation workflow)
