@@ -309,6 +309,7 @@ EOF
     base: "main",
     head: BRANCH_NAME
   })
+  exit 0
 fi
 
 # Check which articles already have translations
@@ -353,6 +354,7 @@ EOF
     base: "main",
     head: BRANCH_NAME
   })
+  exit 0
 fi
 
 echo "🌐 Articles to translate: $NEEDS_TRANSLATION"
