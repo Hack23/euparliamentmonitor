@@ -13,7 +13,7 @@ on:
         description: Force generation even if recent articles exist
         type: boolean
         required: false
-        default: false
+        default: true
       languages:
         description: 'Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow'
         required: false
@@ -527,7 +527,7 @@ EXISTING_PR=$(gh pr list --repo Hack23/euparliamentmonitor \
   --search "news-articles $TODAY in:title" \
   --state open --limit 1 --json number --jq '.[0].number // ""' 2>/dev/null || echo "")
 
-if [ -n "$EXISTING_PR" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+if [ -n "$EXISTING_PR" ] && [ "${EP_FORCE_GENERATION:-true}" != "true" ]; then
   echo "PR #$EXISTING_PR already exists. Skipping to avoid duplicate PR."
   safeoutputs___noop
   exit 0
@@ -614,7 +614,7 @@ case "$LANGUAGES_INPUT" in
 esac
 
 SKIP_FLAG=""
-if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+if [ "${EP_FORCE_GENERATION:-true}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
 fi
 

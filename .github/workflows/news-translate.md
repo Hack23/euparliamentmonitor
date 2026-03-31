@@ -31,7 +31,7 @@ on:
         description: Force translation even if translations already exist
         type: boolean
         required: false
-        default: false
+        default: true
 
 permissions:
   contents: read
@@ -357,10 +357,15 @@ for TYPE in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
   echo "🌐 Translating: $TYPE (date: $ARTICLE_DATE)"
   echo "═══════════════════════════════════════════"
 
+  SKIP_FLAG="--skip-existing"
+  if [ "${{ github.event.inputs.force_translation }}" = "true" ] || [ -z "${{ github.event.inputs.force_translation }}" ]; then
+    SKIP_FLAG=""
+  fi
+
   npx tsx src/generators/news-enhanced.ts \
     --types="$TYPE" \
     --languages="$LANG_ARG" \
-    --skip-existing
+    $SKIP_FLAG
 
   if [ $? -eq 0 ]; then
     TRANSLATED_TYPES="${TRANSLATED_TYPES:+$TRANSLATED_TYPES,}$TYPE"

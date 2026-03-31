@@ -46,7 +46,7 @@ name: "News: Translate Articles"
         description: "Article types to translate (comma-separated: week-ahead,motions,propositions,committee-reports,breaking,week-in-review,month-in-review,month-ahead)"
         required: false
       force_translation:
-        default: false
+        default: true
         description: Force translation even if translations already exist
         required: false
         type: boolean

@@ -11,7 +11,7 @@ on:
         description: Force generation even if recent articles exist
         type: boolean
         required: false
-        default: false
+        default: true
       languages:
         description: 'Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow'
         required: false
@@ -502,7 +502,7 @@ case "$LANGUAGES_INPUT" in
 esac
 
 SKIP_FLAG=""
-if [ "${{ github.event.inputs.force_generation }}" != "true" ]; then
+if [ "${{ github.event.inputs.force_generation }}" = "false" ]; then
   SKIP_FLAG="--skip-existing"
 fi
 
