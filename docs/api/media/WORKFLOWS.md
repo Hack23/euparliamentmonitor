@@ -252,7 +252,7 @@ graph TD
     D --> F[📥 Checkout Repository]
     F --> G[⚙️ Setup Node.js 25]
     G --> H[📦 Install Dependencies]
-    H --> I[🔗 Install EP MCP Server v1.1.19]
+    H --> I[🔗 Install EP MCP Server v1.1.20]
     I --> J1[🔬 Analysis Stage<br/>Political Intelligence Pipeline<br/>--analysis flag]
     J1 --> J1a[📊 Classification: significance, impact-matrix, actors, forces]
     J1 --> J1b[🛡️ Threat Assessment: Political Threat Landscape,<br/>actor-threats, disruption]
@@ -1624,7 +1624,7 @@ The following diagram shows the complete intelligence cycle from EP data collect
 
 ```mermaid
 flowchart TD
-    subgraph Collection["📡 COLLECTION<br/>(EP MCP Server v1.1.19)"]
+    subgraph Collection["📡 COLLECTION<br/>(EP MCP Server v1.1.20)"]
         direction TB
         C1["🗳️ Votes &<br/>Adopted Texts"]
         C2["📜 Legislative<br/>Procedures"]
@@ -1750,7 +1750,7 @@ flowchart LR
     end
 
     subgraph "🔌 MCP Layer"
-        MCP["EP MCP Server<br/>v1.1.19<br/>(120s timeout)"]
+        MCP["EP MCP Server<br/>v1.1.20<br/>(120s timeout)"]
     end
 
     subgraph "🤖 Agent Layer"
