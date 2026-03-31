@@ -11,7 +11,7 @@ on:
         description: Force generation even if recent articles exist
         type: boolean
         required: false
-        default: false
+        default: true
       languages:
         description: 'Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow'
         required: false
@@ -451,14 +451,14 @@ EXISTING_PR=$(gh pr list --repo Hack23/euparliamentmonitor \
   --search "month-ahead $TODAY in:title" \
   --state open --limit 1 --json number --jq '.[0].number // ""' 2>/dev/null || echo "")
 
-if [ -n "$EXISTING_PR" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+if [ -n "$EXISTING_PR" ] && [ "${EP_FORCE_GENERATION:-true}" != "true" ]; then
   echo "PR #$EXISTING_PR already exists for month-ahead on $TODAY. Skipping."
   safeoutputs___noop
   exit 0
 fi
 
 EXISTING_ARTICLE=$(find news/ -name "${TODAY}-month-ahead-en.html" 2>/dev/null | head -1)
-if [ -n "$EXISTING_ARTICLE" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+if [ -n "$EXISTING_ARTICLE" ] && [ "${EP_FORCE_GENERATION:-true}" != "true" ]; then
   echo "Article already exists. Skipping."
   safeoutputs___noop
   exit 0
@@ -527,7 +527,7 @@ case "$LANGUAGES_INPUT" in
 esac
 
 SKIP_FLAG=""
-if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+if [ "${EP_FORCE_GENERATION:-true}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
 fi
 

@@ -11,7 +11,7 @@ on:
         description: Force generation even if recent articles exist
         type: boolean
         required: false
-        default: false
+        default: true
       languages:
         description: 'Languages to generate (en | eu-core | nordic | all) — default en; translations handled by news-translate workflow'
         required: false
@@ -482,7 +482,7 @@ echo "Existing PR check: EXISTING_PR=$EXISTING_PR, TODAY=$TODAY"
 If `EXISTING_PR` is non-empty **and** **force_generation** is `false`:
 
 ```bash
-if [ -n "$EXISTING_PR" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+if [ -n "$EXISTING_PR" ] && [ "${EP_FORCE_GENERATION:-true}" != "true" ]; then
   echo "PR #$EXISTING_PR already exists for committee-reports on $TODAY. Skipping to avoid duplicate PR."
   safeoutputs___noop
   exit 0
@@ -492,7 +492,7 @@ fi
 # Generating patches that modify existing files causes "Failed to apply patch" errors
 # when the base content changes between the agent checkout and safe_outputs checkout.
 EXISTING_ARTICLE=$(find news/ -name "${TODAY}-committee-reports-en.html" 2>/dev/null | head -1)
-if [ -n "$EXISTING_ARTICLE" ] && [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+if [ -n "$EXISTING_ARTICLE" ] && [ "${EP_FORCE_GENERATION:-true}" != "true" ]; then
   echo "Article $EXISTING_ARTICLE already exists in repo for $TODAY. Skipping to avoid duplicate generation and patch conflicts."
   safeoutputs___noop
   exit 0
@@ -585,7 +585,7 @@ case "$LANGUAGES_INPUT" in
 esac
 
 SKIP_FLAG=""
-if [ "${EP_FORCE_GENERATION:-}" != "true" ]; then
+if [ "${EP_FORCE_GENERATION:-true}" != "true" ]; then
   SKIP_FLAG="--skip-existing"
 fi
 

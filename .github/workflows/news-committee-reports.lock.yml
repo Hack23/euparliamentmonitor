@@ -36,7 +36,7 @@ name: "News: EU Parliament Committee Activity"
         required: false
         type: string
       force_generation:
-        default: false
+        default: true
         description: Force generation even if recent articles exist
         required: false
         type: boolean
