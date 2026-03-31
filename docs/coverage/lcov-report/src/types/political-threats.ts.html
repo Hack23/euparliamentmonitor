@@ -328,7 +328,17 @@
 <a name='L263'></a><a href='#L263'>263</a>
 <a name='L264'></a><a href='#L264'>264</a>
 <a name='L265'></a><a href='#L265'>265</a>
-<a name='L266'></a><a href='#L266'>266</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L266'></a><a href='#L266'>266</a>
+<a name='L267'></a><a href='#L267'>267</a>
+<a name='L268'></a><a href='#L268'>268</a>
+<a name='L269'></a><a href='#L269'>269</a>
+<a name='L270'></a><a href='#L270'>270</a>
+<a name='L271'></a><a href='#L271'>271</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -598,12 +608,14 @@
 &nbsp;
 /**
  * @module Types/PoliticalThreats
- * @description Political Threat Assessment types adapted from ISMS threat modeling
- * (STRIDE, MITRE ATT&amp;CK, attack trees) applied to parliamentary political dynamics.
+ * @description Political Threat Assessment types using purpose-built political
+ * intelligence frameworks (Threat Landscape, Diamond Model, Attack Trees,
+ * PESTLE, Scenario Planning, Kill Chain).
  *
- * The Political STRIDE framework maps information-security threat categories to
- * equivalent political intelligence threat categories for structured analysis of
- * European Parliament activity.
+ * The Political Threat Landscape framework provides six dimensions for
+ * structured analysis of European Parliament activity:
+ * - Coalition Shifts, Transparency Deficit, Policy Reversal,
+ * - Institutional Pressure, Legislative Obstruction, Democratic Erosion
  *
  * @see {@link https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md} ISMS Threat Modeling Policy
  */
@@ -639,18 +651,20 @@ export type PoliticalActorType =
  */
 export type ImpactLevel = ClassificationImpactLevel;
 &nbsp;
-// ─── Political STRIDE Categories ──────────────────────────────────────────────
+// ─── Political Threat Landscape Dimensions ────────────────────────────────────
 &nbsp;
 /**
- * Political STRIDE threat categories — adapted from information security STRIDE.
+ * Political Threat Landscape dimensions — purpose-built for parliamentary
+ * political intelligence analysis.
  *
- * Each category maps a classic security threat to its political equivalent:
- * - **Shift** ← Spoofing: Coalition shifts, political realignment, defections
- * - **Transparency** ← Tampering: Information asymmetry, procedural opacity
- * - **Reversal** ← Repudiation: Policy reversals, legislative rollbacks
- * - **Institutional** ← Information Disclosure: Institutional power grabs
- * - **Delay** ← Denial of Service: Legislative delays, procedural obstruction
- * - **Erosion** ← Elevation of Privilege: Democratic norm degradation
+ * Each dimension represents a distinct vector through which democratic
+ * functioning can be undermined:
+ * - **shift**: Coalition shifts, political realignment, defections
+ * - **transparency**: Information asymmetry, procedural opacity
+ * - **reversal**: Policy reversals, legislative rollbacks
+ * - **institutional**: Institutional power grabs, procedural manipulation
+ * - **delay**: Legislative delays, procedural obstruction
+ * - **erosion**: Public trust erosion, democratic norm degradation
  */
 export type PoliticalThreatCategory =
   | 'shift' // Coalition shifts, political realignment, defections
@@ -663,10 +677,8 @@ export type PoliticalThreatCategory =
 // ─── Actor Threat Profiles ────────────────────────────────────────────────────
 &nbsp;
 /**
- * Political actor threat profile — adapted from ISMS threat agent classification.
- *
- * Models capability × motivation × opportunity (CMO) for each political actor,
- * parallel to the threat agent classification in ISMS security assessments.
+ * Political actor threat profile — models capability × motivation × opportunity
+ * (CMO) for each political actor using the Diamond Model framework.
  */
 export interface PoliticalActorThreatProfile {
   /** Name of the political actor (group, institution, individual) */
@@ -681,7 +693,7 @@ export interface PoliticalActorThreatProfile {
   readonly opportunity: 'high' | 'medium' | 'low';
   /** Past similar actions or demonstrated threat behaviours */
   readonly trackRecord: readonly string[];
-  /** Which Political STRIDE categories this actor threatens */
+  /** Which threat landscape dimension this actor threatens */
   readonly threatCategories: readonly PoliticalThreatCategory[];
   /** Overall threat level derived from CMO composite score */
   readonly overallThreatLevel: ImpactLevel;
@@ -749,7 +761,7 @@ export type LegislativeStage =
 export interface DisruptionPoint {
   /** The legislative stage where disruption could occur */
   readonly stage: LegislativeStage;
-  /** Which Political STRIDE category the disruption falls under */
+  /** Which threat landscape dimension the disruption falls under */
   readonly threatCategory: PoliticalThreatCategory;
   /** Estimated likelihood of disruption at this stage (0–1) */
   readonly likelihood: number;
@@ -778,29 +790,35 @@ export interface LegislativeDisruptionAnalysis {
   readonly alternativePathways: readonly string[];
 }
 &nbsp;
-// ─── Political STRIDE Assessment ──────────────────────────────────────────────
+// ─── Political Threat Landscape Assessment ────────────────────────────────────
 &nbsp;
 /**
- * Assessment result for a single Political STRIDE threat category.
- * Contains threat level, evidence, and analysis for one STRIDE dimension.
+ * Assessment result for a single Political Threat Landscape dimension.
+ * Contains threat level, evidence, and analysis for one dimension.
  */
-export interface PoliticalStrideCategory {
-  /** Which Political STRIDE category this assessment covers */
+export interface PoliticalThreatDimension {
+  /** Which threat landscape dimension this assessment covers */
   readonly category: PoliticalThreatCategory;
-  /** Assessed threat level for this category */
+  /** Assessed threat level for this dimension */
   readonly threatLevel: ImpactLevel;
   /** Evidence supporting the threat level assessment */
   readonly evidence: readonly string[];
-  /** Human-readable analysis narrative for this category */
+  /** Human-readable analysis narrative for this dimension */
   readonly analysis: string;
 }
+&nbsp;
+/**
+ * @deprecated Use {@link PoliticalThreatDimension} instead.
+ * Kept for backward compatibility during migration.
+ */
+export type PoliticalStrideCategory = PoliticalThreatDimension;
 &nbsp;
 /**
  * Complete Political Threat Assessment — the top-level output of the
  * political threat assessment pipeline.
  *
- * Combines all STRIDE categories, actor profiles, consequence trees, and
- * legislative disruption analyses into a single structured assessment report.
+ * Combines all threat landscape dimensions, actor profiles, consequence trees,
+ * and legislative disruption analyses into a single structured assessment report.
  */
 export interface PoliticalThreatAssessment {
   /** Date of the assessment (ISO 8601) */
@@ -809,8 +827,13 @@ export interface PoliticalThreatAssessment {
   readonly overallThreatLevel: ImpactLevel;
   /** Confidence level in the assessment */
   readonly confidence: 'high' | 'medium' | 'low';
-  /** Political STRIDE analysis for each of the six categories */
-  readonly strideCategories: readonly PoliticalStrideCategory[];
+  /** Political Threat Landscape analysis for each of the six dimensions */
+  readonly threatDimensions: readonly PoliticalThreatDimension[];
+  /**
+   * @deprecated Use {@link threatDimensions} instead.
+   * Kept for backward compatibility during migration.
+   */
+  readonly strideCategories?: readonly PoliticalThreatDimension[];
   /** Threat profiles for key political actors */
   readonly actorProfiles: readonly PoliticalActorThreatProfile[];
   /** Consequence trees for identified high-risk political actions */
@@ -841,16 +864,8 @@ export interface ThreatAssessmentInput {
   readonly mepInfluence?: readonly unknown[];
   /** Legislative procedure data */
   readonly procedures?: readonly unknown[];
-  /**
-   * Voting anomaly intelligence.
-   *
-   * The existing MCP fetch pipeline and article strategies expose voting
-   * anomalies under the field name `anomalies`.  Both `anomalies` and the
-   * legacy `votingAnomalies` alias are accepted; `anomalies` takes precedence.
-   */
+  /** Voting anomaly intelligence from MCP fetch pipeline */
   readonly anomalies?: readonly unknown[];
-  /** @deprecated Use `anomalies` instead — kept for backward compatibility */
-  readonly votingAnomalies?: readonly unknown[];
   /** Parliamentary questions */
   readonly questions?: readonly unknown[];
   /** Committee data */
@@ -865,7 +880,7 @@ export interface ThreatAssessmentInput {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-30T08:43:38.837Z
+                at 2026-03-31T02:36:47.829Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--10-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--31-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:** 2026-03-10 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-10
+**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last Updated:** 2026-03-31 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 
 ---
 
@@ -89,7 +89,7 @@ EU Parliament Monitor's CI/CD workflows implement security controls mandated by 
 | **[Future State Diagrams](FUTURE_STATEDIAGRAM.md)**                 | 🔄 Behavior     | Enhanced adaptive state transitions            | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_STATEDIAGRAM.md)          |
 | **[Security Architecture](SECURITY_ARCHITECTURE.md)**               | 🛡️ Security     | Current security implementation                | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md)        |
 | **[Future Security Architecture](FUTURE_SECURITY_ARCHITECTURE.md)** | 🛡️ Security     | Security enhancement roadmap                   | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md) |
-| **[Threat Model](THREAT_MODEL.md)**                                 | 🎯 Security     | STRIDE threat analysis                         | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md)                 |
+| **[Threat Model](THREAT_MODEL.md)**                                 | 🎯 Security     | Political Threat Landscape analysis             | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md)                 |
 | **[Classification](CLASSIFICATION.md)**                             | 🏷️ Governance   | CIA classification & BCP                       | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/CLASSIFICATION.md)               |
 | **[CRA Assessment](CRA-ASSESSMENT.md)**                             | 🛡️ Compliance   | Cyber Resilience Act                           | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md)               |
 | **[Workflows](WORKFLOWS.md)**                                       | ⚙️ DevOps       | CI/CD documentation                            | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md)                    |
@@ -218,10 +218,10 @@ flowchart TB
 
 ## 🚀 Workflow Detailed Documentation
 
-### 1. Agentic News Workflows (×9)
+### 1. Agentic News Workflows (×10)
 
 **🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot with the `claude-opus-4.6` model  
-**📁 Architecture:** 9 markdown source files compiled to 9 `.lock.yml` files via `gh aw compile` (GitHub Agentic Workflows CLI)  
+**📁 Architecture:** 10 markdown source files (9 content-generation + 1 translation) compiled to 10 `.lock.yml` files via `gh aw compile` (GitHub Agentic Workflows CLI)  
 **🌐 Languages:** 14 (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 
 #### Agentic Workflow Schedule Matrix
@@ -237,6 +237,7 @@ flowchart TB
 | **EU Parliament Monthly Review** | `news-monthly-review.lock.yml` | 28th of month 10:00 UTC | 60 min |
 | **EU Parliament Breaking News** | `news-breaking.lock.yml` | Every 6 hours (`0 */6 * * *`) | 60 min |
 | **EU Parliament Article Generator** | `news-article-generator.lock.yml` | Manual dispatch only | 120 min |
+| **Translate Articles** | `news-translate.lock.yml` | Weekdays 09:00/12:00/15:00 UTC; Sat 15:00; 1st & 28th 15:00 | 60 min |
 
 #### Agentic Workflow Architecture
 
@@ -251,10 +252,10 @@ graph TD
     D --> F[📥 Checkout Repository]
     F --> G[⚙️ Setup Node.js 25]
     G --> H[📦 Install Dependencies]
-    H --> I[🔗 Install EP MCP Server v1.1.15]
+    H --> I[🔗 Install EP MCP Server v1.1.19]
     I --> J1[🔬 Analysis Stage<br/>Political Intelligence Pipeline<br/>--analysis flag]
     J1 --> J1a[📊 Classification: significance, impact-matrix, actors, forces]
-    J1 --> J1b[🛡️ Threat Assessment: STRIDE, actor-threats, disruption]
+    J1 --> J1b[🛡️ Threat Assessment: Political Threat Landscape,<br/>actor-threats, disruption]
     J1 --> J1c[📈 Risk Scoring: risk-matrix, SWOT, velocity, capital-at-risk]
     J1a --> J1d[📁 analysis/{date}/{article-type}/]
     J1b --> J1d
@@ -325,6 +326,54 @@ The `compile-agentic-workflows.yml` workflow automates this process (see §11).
 - **Workflows:** [`.github/workflows/news-*.lock.yml`](.github/workflows/)
 - **Source definitions:** [`.github/workflows/news-*.md`](.github/workflows/)
 - **Process Flow:** [FLOWCHART.md §News Generation Security Flow](FLOWCHART.md#-news-generation-security-flow)
+
+---
+
+#### Unique Data & Analytics Per Workflow (PRIO 1)
+
+**Every workflow downloads unique data and produces article-type-specific analytics.** The following matrix shows the mandatory MCP data downloads and analytical tools unique to each workflow:
+
+```mermaid
+flowchart LR
+    subgraph "🔴 Breaking News"
+        B1["adopted_texts_feed\nevents_feed\nprocedures_feed\nmeps_feed"] --> B2["detect_voting_anomalies\nanalyze_coalition_dynamics\nearly_warning_system\ngenerate_political_landscape"]
+    end
+
+    subgraph "📋 Motions"
+        M1["adopted_texts_feed\nquestions_feed\nmeps_feed\nprocedures_feed"] --> M2["detect_voting_anomalies\nanalyze_coalition_dynamics\nget_voting_records\ncompare_political_groups"]
+    end
+
+    subgraph "📜 Propositions"
+        P1["procedures_feed\ndocuments_feed\nadopted_texts_feed\nplenary_docs_feed"] --> P2["search_documents\nmonitor_legislative_pipeline\ntrack_legislation\nanalyze_legislative_effectiveness"]
+    end
+
+    subgraph "🏛️ Committee Reports"
+        C1["committee_docs_feed\nplenary_docs_feed\nadopted_texts_feed\nprocedures_feed"] --> C2["get_committee_info\nmonitor_legislative_pipeline\nanalyze_legislative_effectiveness"]
+    end
+
+    style B1 fill:#dc3545,stroke:#b02a37,color:#fff
+    style B2 fill:#dc3545,stroke:#b02a37,color:#fff
+    style M1 fill:#fd7e14,stroke:#ca6510,color:#fff
+    style M2 fill:#fd7e14,stroke:#ca6510,color:#fff
+    style P1 fill:#ffc107,stroke:#cc9a06,color:#000
+    style P2 fill:#ffc107,stroke:#cc9a06,color:#000
+    style C1 fill:#198754,stroke:#146c43,color:#fff
+    style C2 fill:#198754,stroke:#146c43,color:#fff
+```
+
+| Workflow | Mandatory Feed Data | Mandatory Analytical Tools | Unique Focus |
+|----------|--------------------|-----------------------------|--------------|
+| **Breaking** | adopted_texts, events, procedures, meps (today→one-week) + documents, plenary_docs, committee_docs, questions | detect_voting_anomalies, analyze_coalition_dynamics, early_warning_system, generate_political_landscape | ⚡ Only TODAY's items; 6-hour cycle |
+| **Motions** | adopted_texts, parliamentary_questions, meps, procedures | detect_voting_anomalies, analyze_coalition_dynamics, get_voting_records, compare_political_groups | 🗳️ Per-resolution vote breakdowns |
+| **Propositions** | procedures, documents, adopted_texts, plenary_documents | search_documents, monitor_legislative_pipeline, track_legislation, analyze_legislative_effectiveness | 📜 Procedure stage tracking |
+| **Committee** | committee_documents, plenary_documents, adopted_texts, procedures | get_committee_info, monitor_legislative_pipeline, analyze_legislative_effectiveness | 🏛️ Per-committee deep analysis |
+| **Week Ahead** | events, procedures, plenary_documents, plenary_session_documents | get_plenary_sessions (future), get_committee_info, monitor_legislative_pipeline, generate_political_landscape | 📅 Prospective agenda analysis |
+| **Weekly Review** | adopted_texts, procedures, plenary_documents, parliamentary_questions | get_voting_records, detect_voting_anomalies, generate_political_landscape | 📊 Retrospective outcome review |
+| **Month Ahead** | events, procedures, plenary/committee docs, adopted_texts, session docs, meps | get_plenary_sessions, get_committee_info, monitor_pipeline, generate_landscape, compare_groups, analyze_delegation | 📆 Strategic calendar outlook |
+| **Monthly Review** | adopted_texts, procedures, plenary_documents, parliamentary_questions | get_voting_records, detect_anomalies, generate_landscape, compare_groups, analyze_effectiveness | 📈 Comprehensive monthly trends |
+| **Translate** | — (consumes English articles) | — | 🌐 EN → 13 languages |
+
+> **PRIO 1 MANDATE:** Each workflow ALWAYS downloads its mandatory feed data and runs its mandatory analytical tools BEFORE deciding whether to produce an article. Data collection is NEVER skipped, even for noop runs.
 
 ---
 
@@ -1562,6 +1611,210 @@ The following tools integrate with the GitHub Security Dashboard via SARIF or na
 | **SLSA** | L3 | Build provenance, hermetic build, non-falsifiable, authenticated | [Attestations](https://github.com/Hack23/euparliamentmonitor/attestations) |
 | **OpenSSF** | — | SHA-pinned actions (100%), Harden Runner, branch protection | [Scorecard Report](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor) |
 | **EU CRA** | 2024 | SBOM generation, vulnerability disclosure, security updates | [Release Workflow](.github/workflows/release.yml) |
+
+---
+
+## 🔬 Political Intelligence Operations Centre
+
+The 10 agentic news workflows collectively form a **European Parliament Political Intelligence Operations Centre** — a systematic, automated pipeline that transforms raw parliamentary data into multi-language political intelligence articles published daily.
+
+### Intelligence Collection Cycle
+
+The following diagram shows the complete intelligence cycle from EP data collection through analysis to multi-language publication:
+
+```mermaid
+flowchart TD
+    subgraph Collection["📡 COLLECTION<br/>(EP MCP Server v1.1.19)"]
+        direction TB
+        C1["🗳️ Votes &<br/>Adopted Texts"]
+        C2["📜 Legislative<br/>Procedures"]
+        C3["🏛️ Committee<br/>Documents"]
+        C4["🎤 Plenary<br/>Speeches"]
+        C5["❓ Parliamentary<br/>Questions"]
+        C6["📅 Events &<br/>Meetings"]
+        C7["👤 MEP Data &<br/>Declarations"]
+    end
+
+    subgraph Analysis["🔬 ANALYSIS<br/>(Political Intelligence Pipeline)"]
+        direction TB
+        A1["🏷️ Classification<br/>7-dimension taxonomy"]
+        A2["⚠️ Risk Assessment<br/>5×5 Likelihood × Impact"]
+        A3["🎭 Threat Landscape<br/>6 political dimensions"]
+        A4["💼 SWOT Analysis<br/>Evidence-based quadrants"]
+        A5["📊 Significance Scoring<br/>Publication priority"]
+        A6["👥 Stakeholder Impact<br/>Multi-perspective"]
+    end
+
+    subgraph Production["📰 PRODUCTION<br/>(9 Content Workflows)"]
+        direction TB
+        P1["⚡ Breaking News<br/>Every 6 hours"]
+        P2["📋 Daily Intelligence<br/>Motions + Propositions + Committees"]
+        P3["📅 Weekly Intelligence<br/>Week Ahead + Weekly Review"]
+        P4["📊 Monthly Intelligence<br/>Month Ahead + Monthly Review"]
+        P5["🎯 On-Demand<br/>Article Generator"]
+    end
+
+    subgraph Distribution["🌐 DISTRIBUTION<br/>(14 Languages)"]
+        direction TB
+        D1["🇬🇧 English<br/>(source)"]
+        D2["🇸🇪🇩🇰🇳🇴🇫🇮<br/>Nordic Languages"]
+        D3["🇩🇪🇫🇷🇪🇸🇳🇱<br/>Western European"]
+        D4["🇸🇦🇮🇱🇯🇵🇰🇷🇨🇳<br/>Global Languages"]
+    end
+
+    Collection --> Analysis --> Production --> D1
+    D1 --> |"news-translate<br/>workflow"| D2 & D3 & D4
+
+    style Collection fill:#1565C0,stroke:#0D47A1,color:#FFFFFF
+    style Analysis fill:#6A1B9A,stroke:#4A148C,color:#FFFFFF
+    style Production fill:#2E7D32,stroke:#1B5E20,color:#FFFFFF
+    style Distribution fill:#E65100,stroke:#BF360C,color:#FFFFFF
+```
+
+### Threat Landscape Dimensions Monitored
+
+The political intelligence pipeline monitors six threat landscape dimensions across all parliamentary activity:
+
+```mermaid
+mindmap
+  root((🎭 Political<br/>Threat Landscape))
+    🔄 Coalition Shifts
+      Grand coalition stability
+      Cross-party alliance formation
+      Defection patterns
+      Group cohesion metrics
+    🔍 Transparency Deficit
+      Access-to-information gaps
+      Lobbying disclosure failures
+      Declaration compliance
+      Procedural opacity
+    ⏪ Policy Reversal
+      Legislative rollback risk
+      Position contradiction
+      Commitment abandonment
+      Implementation failure
+    🏛️ Institutional Pressure
+      Inter-institutional friction
+      Council-Parliament disputes
+      Commission accountability
+      Rule-of-law mechanisms
+    🚧 Legislative Obstruction
+      Procedure stalling
+      Amendment flooding
+      Committee bottlenecks
+      Trilogue deadlocks
+    🗳️ Democratic Erosion
+      Participation decline
+      Representation gaps
+      Accountability weakening
+      Mandate legitimacy
+```
+
+### Workflow Cadence — Weekly Intelligence Rhythm
+
+The 10 agentic workflows follow a carefully orchestrated schedule to ensure continuous intelligence coverage of the European Parliament:
+
+```mermaid
+gantt
+    title Weekly Agentic Workflow Cadence (UTC)
+    dateFormat HH:mm
+    axisFormat %H:%M
+
+    section Daily (Mon-Fri)
+    Committee Reports (04:00)        :active, d1, 04:00, 1h
+    Propositions (05:00)             :active, d2, 05:00, 1h
+    Motions (06:00)                  :active, d3, 06:00, 1h
+    Breaking News (00/06/12/18)      :crit, d4, 00:00, 1h
+
+    section Weekly
+    Week Ahead (Fri 07:00)           :d5, 07:00, 1h
+
+    section Weekend
+    Weekly Review (Sat 09:00)        :d6, 09:00, 1h
+
+    section Translation
+    Translate (09/12/15 Weekdays)    :d7, 09:00, 1h
+    Translate (Sat 15:00)            :d8, 15:00, 1h
+
+    section Monthly
+    Month Ahead (1st, 08:00)         :milestone, m1, 08:00, 0h
+    Monthly Review (28th, 10:00)     :milestone, m2, 10:00, 0h
+```
+
+### Data Flow — EP MCP Server to Published Article
+
+```mermaid
+flowchart LR
+    subgraph "🏛️ European Parliament"
+        EP["EP Open Data Portal"]
+    end
+
+    subgraph "🔌 MCP Layer"
+        MCP["EP MCP Server<br/>v1.1.19<br/>(120s timeout)"]
+    end
+
+    subgraph "🤖 Agent Layer"
+        Agent["GitHub Copilot<br/>claude-opus-4.6"]
+        Analyze["Analysis Pipeline<br/>6 methodologies<br/>8 templates"]
+    end
+
+    subgraph "📰 Output Layer"
+        EN["🇬🇧 English Article"]
+        Translate["Translation Agent"]
+        Multi["🌐 13 Additional<br/>Languages"]
+    end
+
+    subgraph "🚀 Deployment"
+        PR["Pull Request"]
+        Pages["GitHub Pages"]
+        S3["AWS S3 CDN"]
+    end
+
+    EP --> MCP --> Agent --> Analyze --> EN --> PR
+    EN --> Translate --> Multi --> PR
+    PR --> |"merge"| Pages & S3
+
+    style EP fill:#003399,stroke:#002266,color:#FFFFFF
+    style MCP fill:#6A1B9A,stroke:#4A148C,color:#FFFFFF
+    style Agent fill:#1565C0,stroke:#0D47A1,color:#FFFFFF
+    style Analyze fill:#C62828,stroke:#B71C1C,color:#FFFFFF
+    style EN fill:#2E7D32,stroke:#1B5E20,color:#FFFFFF
+    style Translate fill:#E65100,stroke:#BF360C,color:#FFFFFF
+    style Multi fill:#F57F17,stroke:#F9A825,color:#000000
+    style PR fill:#37474F,stroke:#263238,color:#FFFFFF
+    style Pages fill:#00695C,stroke:#004D40,color:#FFFFFF
+    style S3 fill:#FF6F00,stroke:#E65100,color:#FFFFFF
+```
+
+### Analysis Artifact Structure
+
+Each content workflow deposits analysis artifacts in an isolated directory:
+
+```
+analysis/2026-03-31/
+├── ai-daily-synthesis.md              ← Cross-article synthesis (date root)
+├── breaking/                          ← news-breaking workflow
+│   ├── manifest.json
+│   ├── classification/
+│   ├── threat-assessment/
+│   ├── risk-scoring/
+│   └── data/                          ← EP MCP data for this workflow
+├── committee-reports/                 ← news-committee-reports workflow
+│   ├── manifest.json
+│   ├── classification/
+│   └── data/
+├── motions/                           ← news-motions workflow
+│   ├── manifest.json
+│   └── data/
+├── propositions/                      ← news-propositions workflow
+│   ├── manifest.json
+│   └── data/
+└── week-ahead/                        ← news-week-ahead workflow (Fridays)
+    ├── manifest.json
+    └── data/
+```
+
+> **🚨 Isolation Rule:** Each workflow writes ONLY to its own `{article-type-slug}/` subdirectory. Cross-workflow overwrites are prohibited. The `ai-*.md` synthesis files at the date root aggregate across all workflows.
 
 ---
 
