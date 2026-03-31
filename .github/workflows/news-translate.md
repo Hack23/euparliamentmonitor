@@ -303,12 +303,20 @@ if [ -z "$ARTICLE_TYPES" ]; then
 - **Action**: No translations produced; baseline analysis committed
 EOF
   BRANCH_NAME="news/translate-${ARTICLE_DATE}"
-  safeoutputs___create_pull_request({
-    title: "chore: translate EU Parliament articles ${ARTICLE_DATE} (analysis-only)",
-    body: "## Translation Analysis Only\n\nNo English articles found for ${ARTICLE_DATE}. Baseline translation analysis committed per Rule 5.",
-    base: "main",
-    head: BRANCH_NAME
-  })
+```
+
+Create the analysis-only PR and exit:
+
+```javascript
+safeoutputs___create_pull_request({
+  title: "chore: translate EU Parliament articles ${ARTICLE_DATE} (analysis-only)",
+  body: "## Translation Analysis Only\n\nNo English articles found for ${ARTICLE_DATE}. Baseline translation analysis committed per Rule 5.",
+  base: "main",
+  head: BRANCH_NAME
+})
+```
+
+```bash
   exit 0
 fi
 
@@ -348,12 +356,20 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
 - **Action**: No new translations produced; baseline analysis committed
 EOF
   BRANCH_NAME="news/translate-${ARTICLE_DATE}"
-  safeoutputs___create_pull_request({
-    title: "chore: translate EU Parliament articles ${ARTICLE_DATE} (analysis-only)",
-    body: "## Translation Analysis Only\n\nAll articles for ${ARTICLE_DATE} already have translations. Baseline translation analysis committed per Rule 5.",
-    base: "main",
-    head: BRANCH_NAME
-  })
+```
+
+Create the analysis-only PR and exit:
+
+```javascript
+safeoutputs___create_pull_request({
+  title: "chore: translate EU Parliament articles ${ARTICLE_DATE} (analysis-only)",
+  body: "## Translation Analysis Only\n\nAll articles for ${ARTICLE_DATE} already have translations. Baseline translation analysis committed per Rule 5.",
+  base: "main",
+  head: BRANCH_NAME
+})
+```
+
+```bash
   exit 0
 fi
 
