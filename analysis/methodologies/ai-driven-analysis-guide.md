@@ -77,6 +77,31 @@ Every analysis file MUST demonstrate:
 - **Forward-looking indicators** (what to watch next, with specific triggers)
 - **At least 2 analytical frameworks** applied (e.g., SWOT + Risk, or Attack Tree + Kill Chain)
 
+### Rule 5: ALWAYS Commit Analysis — No Workflow Run Wasted
+
+Every agentic workflow run MUST produce and commit analysis artifacts to the `analysis/` folder. **No workflow run should ever be wasted** — even when no article is generated, the analysis work must be persisted.
+
+| Scenario | Required Action |
+|----------|----------------|
+| Article generated | Include analysis artifacts in the article PR alongside `news/` files |
+| No article (quiet period) | Create an **analysis-only PR** with collected data analysis artifacts instead of discarding work |
+| Existing analysis found | **Improve, extend, correct, or complete** the existing analysis — never skip or overwrite blindly |
+| Translation workflow | Perform translation coverage and terminology quality analysis |
+| MCP server unavailable | Document the connection failure and any partial data in analysis; commit what was gathered |
+
+**Enforcement checklist:**
+- [ ] Analysis artifacts are included in `git add` alongside article files — never deleted before PR creation
+- [ ] Raw MCP data payload files (e.g. `data/**/*.json`, `*.ndjson`, `*.csv`, `*.xml`) may be cleaned to control PR size, but **never delete `*.analysis.md` or other markdown artifacts** under `data/`; analysis markdown is ALWAYS committed
+- [ ] On noop scenarios, create an analysis-only PR (`safeoutputs___create_pull_request`) instead of discarding analysis with `safeoutputs___noop`
+- [ ] Before producing new analysis, check for existing analysis in `analysis/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}/` and **improve/extend** it rather than replacing from scratch
+- [ ] Every workflow references this guide (`analysis/methodologies/ai-driven-analysis-guide.md`) as the authoritative analysis protocol
+
+**Anti-patterns (REJECTED):**
+- ❌ `rm -rf analysis/` before PR creation — this destroys valuable intelligence
+- ❌ `safeoutputs___noop` when analysis artifacts have been produced — use `safeoutputs___create_pull_request` for analysis-only PRs instead
+- ❌ Ignoring existing analysis files — always read, evaluate, and improve them
+- ❌ Skipping analysis because "there's no news" — analysis of quiet periods reveals patterns too
+
 ---
 
 ## 🏗️ Architecture: Per-File vs. Per-Day Analysis

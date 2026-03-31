@@ -217,6 +217,8 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to **every downloaded MCP data file**. See `analysis/README.md` for the complete analysis directory documentation.
 
+> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/${TODAY}/month-ahead/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
+
 ### Primary Template: Political Landscape Analysis
 
 Read and follow `docs/analysis-methodology/political-landscape-analysis.md` for the month-ahead outlook. This template defines:
@@ -649,12 +651,16 @@ fi
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
 
-# ⚠️ CRITICAL: Remove analysis artifacts to stay under 100-file PR limit (E003 safeguard)
-# The safe-outputs framework captures ALL working directory changes as a patch.
-# Analysis artifacts and MCP data files must not be included in the PR.
-rm -rf analysis/ 2>/dev/null || true
-git checkout HEAD -- analysis/ 2>/dev/null || true
-echo "🧹 Cleaned metadata and analysis artifacts from working directory"
+# ⚠️ MANDATORY: Commit analysis artifacts per ai-driven-analysis-guide.md Rule 5
+# No workflow run should be wasted — analysis is ALWAYS persisted.
+# Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
+# Scope cleanup to THIS run's analysis directory only — never touch historical data
+RUN_ANALYSIS_DIR="analysis/${TODAY}/month-ahead"
+if [ -d "$RUN_ANALYSIS_DIR" ]; then
+  find "$RUN_ANALYSIS_DIR" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
+  find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true
+fi
+echo "🧹 Cleaned raw MCP data payloads for ${TODAY}/month-ahead; analysis markdown artifacts PRESERVED for commit"
 ```
 
 ```bash

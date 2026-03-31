@@ -211,6 +211,8 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to **every downloaded MCP data file**. See `analysis/README.md` for the complete analysis directory documentation.
 
+> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/${TODAY}/week-ahead/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
+
 ### Primary Template: Weekly Intelligence Brief
 
 Read and follow `docs/analysis-methodology/weekly-intelligence-brief.md` for producing the week-ahead analysis. This template defines:
@@ -327,7 +329,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **If no significant data found (genuinely empty — only after ALL feeds queried for the configured timeframe):**
 1. Verify ALL feed endpoints were queried with timeframe: "one-week"
 2. Run full analysis pipeline on whatever data was collected
-3. `safeoutputs___noop` with data collection summary — legitimate quiet period
+3. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Commit analysis artifacts to `analysis/${TODAY}/week-ahead/`. If existing analysis exists, improve/extend it
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure
@@ -828,12 +830,16 @@ fi
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
 
-# ⚠️ CRITICAL: Remove analysis artifacts to stay under 100-file PR limit (E003 safeguard)
-# The safe-outputs framework captures ALL working directory changes as a patch.
-# Analysis artifacts and MCP data files must not be included in the PR.
-rm -rf analysis/ 2>/dev/null || true
-git checkout HEAD -- analysis/ 2>/dev/null || true
-echo "🧹 Cleaned metadata and analysis artifacts from working directory"
+# ⚠️ MANDATORY: Commit analysis artifacts per ai-driven-analysis-guide.md Rule 5
+# No workflow run should be wasted — analysis is ALWAYS persisted.
+# Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
+# Scope cleanup to THIS run's analysis directory only — never touch historical data
+RUN_ANALYSIS_DIR="analysis/$TODAY/week-ahead"
+if [ -d "$RUN_ANALYSIS_DIR" ]; then
+  find "$RUN_ANALYSIS_DIR" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
+  find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true
+fi
+echo "🧹 Cleaned raw MCP data payloads for ${TODAY}/week-ahead; analysis markdown artifacts PRESERVED for commit"
 ```
 
 Set the deterministic branch name for the PR.

@@ -193,6 +193,55 @@ echo "Article date: $ARTICLE_DATE"
 echo "Year:         $CURRENT_YEAR"
 echo "==================================="
 export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK
+
+# ⚠️ MANDATORY: Create baseline analysis directory and summary BEFORE any noop exits.
+# Per ai-driven-analysis-guide.md Rule 5, no workflow run should be wasted.
+# This ensures even early noop paths (no articles found, all translations exist)
+# produce a committed analysis artifact via an analysis-only PR.
+ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+mkdir -p "${ANALYSIS_DIR}"
+SUMMARY_FILE="${ANALYSIS_DIR}/summary.md"
+if [ ! -f "${SUMMARY_FILE}" ]; then
+  cat > "${SUMMARY_FILE}" <<EOF
+# Translation Analysis Summary — ${ARTICLE_DATE}
+
+Automatically generated baseline translation analysis report for ${ARTICLE_DATE}.
+Ensures no workflow run is wasted, even when no new translations were produced
+or when all translations already existed.
+
+## 1. Translation Coverage Matrix
+
+- Article types covered: _(to be filled/extended by translation steps or reviewers)_
+- Languages covered: _(to be filled/extended by translation steps or reviewers)_
+
+## 2. Terminology Consistency
+
+- EP-specific terms observed: _(document here)_
+- Cross-language consistency notes: _(summarize here)_
+
+## 3. Quality Assessment
+
+- Overall quality per language: _(score + brief justification)_
+
+## 4. Coverage Gap Analysis
+
+- Article types not translated and reasons: _(document here)_
+- Languages not translated and reasons: _(document here)_
+
+## 5. Improvement Recommendations
+
+- Short-term: _(e.g., terminology updates, language-specific fixes)_
+- Longer-term: _(e.g., better prompts, additional validation, automation)_
+
+---
+_If a more detailed analysis already exists for this date, extend and refine it rather
+than replacing it. This file is a minimal baseline to satisfy analysis requirements
+when translation activity is low or skipped._
+EOF
+  echo "📊 Created baseline translation analysis summary: ${SUMMARY_FILE}"
+else
+  echo "📊 Existing translation analysis found — will extend in Step 4c"
+fi
 ```
 
 ## Pre-flight: Verify No Pending Content PRs
@@ -241,7 +290,33 @@ fi
 
 if [ -z "$ARTICLE_TYPES" ]; then
   echo "ℹ️ No English articles found for $ARTICLE_DATE — nothing to translate"
-  safeoutputs___noop
+  # Per Rule 5: no workflow run wasted — create analysis-only PR with baseline summary
+  echo "📊 Creating analysis-only PR with baseline translation analysis for $ARTICLE_DATE"
+  # Update the baseline summary with specifics about why no translations were produced
+  ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+  cat >> "${ANALYSIS_DIR}/summary.md" <<EOF
+
+## Run Outcome — No Articles Found
+
+- **Date**: ${ARTICLE_DATE}
+- **Result**: No English articles found for this date
+- **Action**: No translations produced; baseline analysis committed
+EOF
+  BRANCH_NAME="news/translate-${ARTICLE_DATE}"
+```
+
+Create the analysis-only PR and exit:
+
+```javascript
+safeoutputs___create_pull_request({
+  title: "chore: translate EU Parliament articles ${ARTICLE_DATE} (analysis-only)",
+  body: "## Translation Analysis Only\n\nNo English articles found for ${ARTICLE_DATE}. Baseline translation analysis committed per Rule 5.",
+  base: "main",
+  head: BRANCH_NAME
+})
+```
+
+```bash
   exit 0
 fi
 
@@ -267,7 +342,34 @@ done
 
 if [ -z "$NEEDS_TRANSLATION" ]; then
   echo "ℹ️ All articles for $ARTICLE_DATE already have translations"
-  safeoutputs___noop
+  # Per Rule 5: no workflow run wasted — create analysis-only PR with baseline summary
+  echo "📊 Creating analysis-only PR with baseline translation analysis for $ARTICLE_DATE"
+  # Update the baseline summary with specifics about why no new translations were produced
+  ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+  cat >> "${ANALYSIS_DIR}/summary.md" <<EOF
+
+## Run Outcome — Translations Already Exist
+
+- **Date**: ${ARTICLE_DATE}
+- **Article types checked**: ${ARTICLE_TYPES}
+- **Result**: All articles already have translations
+- **Action**: No new translations produced; baseline analysis committed
+EOF
+  BRANCH_NAME="news/translate-${ARTICLE_DATE}"
+```
+
+Create the analysis-only PR and exit:
+
+```javascript
+safeoutputs___create_pull_request({
+  title: "chore: translate EU Parliament articles ${ARTICLE_DATE} (analysis-only)",
+  body: "## Translation Analysis Only\n\nAll articles for ${ARTICLE_DATE} already have translations. Baseline translation analysis committed per Rule 5.",
+  base: "main",
+  head: BRANCH_NAME
+})
+```
+
+```bash
   exit 0
 fi
 
@@ -436,10 +538,10 @@ echo "✅ Validation complete"
 echo "=== Scope Verification ==="
 
 # Use NUL-delimited output for safe handling of all filenames
-# Check for modifications outside news/ directory (unstaged, staged, and untracked)
-OUT_OF_SCOPE=$(git diff -z --name-only 2>/dev/null | tr '\0' '\n' | grep -Ev '^news(/|$)' || true)
-STAGED_OOS=$(git diff -z --name-only --staged 2>/dev/null | tr '\0' '\n' | grep -Ev '^news(/|$)' || true)
-UNTRACKED_OOS=$(git ls-files -z --others --exclude-standard 2>/dev/null | tr '\0' '\n' | grep -Ev '^news(/|$)' || true)
+# Check for modifications outside news/ and analysis/ directories (unstaged, staged, and untracked)
+OUT_OF_SCOPE=$(git diff -z --name-only 2>/dev/null | tr '\0' '\n' | grep -Ev '^(news|analysis)(/|$)' || true)
+STAGED_OOS=$(git diff -z --name-only --staged 2>/dev/null | tr '\0' '\n' | grep -Ev '^(news|analysis)(/|$)' || true)
+UNTRACKED_OOS=$(git ls-files -z --others --exclude-standard 2>/dev/null | tr '\0' '\n' | grep -Ev '^(news|analysis)(/|$)' || true)
 
 # Check for modifications to English source articles (translate must not edit originals)
 EN_MODIFIED=$(git diff -z --name-only 2>/dev/null | tr '\0' '\n' | grep -E '^news/.*-en\.html$' || true)
@@ -489,8 +591,34 @@ if [ -n "$SCOPE_VIOLATION" ]; then
 
   echo "✅ Scope violations reverted"
 else
-  echo "✅ All changes are within scope — only non-English news/ files modified"
+  echo "✅ All changes are within scope — only non-English news/ and analysis/ files modified"
 fi
+```
+
+## Step 4c: Translation Analysis (MANDATORY per ai-driven-analysis-guide.md Rule 5)
+
+> **⚠️ MANDATORY**: Per `analysis/methodologies/ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. The translation workflow MUST produce analysis artifacts documenting translation quality, coverage, and terminology consistency. If existing translation analysis exists for this date, improve and extend it.
+
+Before creating the PR, read ALL methodology documents in `analysis/methodologies/` and produce a translation analysis report in `analysis/${ARTICLE_DATE}/translate/`:
+
+**Required analysis content:**
+1. **Translation Coverage Matrix** — Which article types × languages were translated, which were skipped and why
+2. **Terminology Consistency** — EP-specific terms used, any terminology lookups from MCP server, consistency across languages
+3. **Quality Assessment** — Self-assessment of translation quality per language using `analysis/templates/significance-scoring.md`
+4. **Coverage Gap Analysis** — Languages or article types that could not be translated, with reasons
+5. **Improvement Recommendations** — What could be improved in the next translation run
+
+Write the analysis artifacts to `analysis/${ARTICLE_DATE}/translate/` following the templates in `analysis/templates/`. If previous translation analysis exists for this date, read it first and extend/improve it rather than replacing.
+
+```bash
+ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+mkdir -p "${ANALYSIS_DIR}"
+echo "📊 Translation analysis directory: ${ANALYSIS_DIR}/"
+
+# The baseline summary.md was created at the start of the workflow (before any noop exits).
+# If this step is reached, translations were actually produced — extend/improve the analysis.
+SUMMARY_FILE="${ANALYSIS_DIR}/summary.md"
+echo "📊 Extending analysis summary with translation results: ${SUMMARY_FILE}"
 ```
 
 ## Step 5: Create Pull Request
@@ -503,13 +631,18 @@ fi
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
 rm -f news/articles-metadata.json
-# ⚠️ CRITICAL: Remove analysis artifacts to stay under 100-file PR limit (E003 safeguard)
-# The safe-outputs framework captures ALL working directory changes as a patch.
-# Analysis artifacts and MCP data files must not be included in the PR.
+# ⚠️ MANDATORY: Commit analysis artifacts per ai-driven-analysis-guide.md Rule 5
+# No workflow run should be wasted — translation analysis is ALWAYS persisted.
+# Remove only raw data downloads to control PR size. Analysis markdown MUST be committed.
 rm -rf analysis-output/
-rm -rf analysis/ 2>/dev/null || true
-git checkout HEAD -- analysis/ 2>/dev/null || true
-echo "🧹 Cleaned metadata and analysis artifacts from working directory"
+# Scope cleanup to THIS workflow's analysis directory only — never touch other workflows' data
+ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
+TRANSLATE_ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+if [ -d "${TRANSLATE_ANALYSIS_DIR}" ]; then
+  find "${TRANSLATE_ANALYSIS_DIR}" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
+  find "${TRANSLATE_ANALYSIS_DIR}" -type d -name "data" -empty -delete 2>/dev/null || true
+fi
+echo "🧹 Cleaned raw data payloads for ${ARTICLE_DATE}/translate; translation analysis markdown artifacts PRESERVED for commit"
 
 ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
 TRANSLATED_COUNT=$(ls news/${ARTICLE_DATE}-*-{sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh}.html 2>/dev/null | wc -l || echo 0)

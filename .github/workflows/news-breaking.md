@@ -117,7 +117,10 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 2. **ANALYZE** (ALWAYS): Run full analysis pipeline with all 18 default methods — produce analysis artifacts as part of the reasoning process, even when no breaking news exists
 3. **EVALUATE**: Based on the analysis artifacts and AI assessment, determine whether the content constitutes breaking news
 4. **GENERATE**: If newsworthy, generate the article using the analysis intelligence AND commit analysis data in the same PR to `analysis/${TODAY}/breaking/`
-5. **NOOP**: If analysis determines no breaking news significance, use `safeoutputs___noop` — but ONLY after steps 1-2 have completed. The noop response MUST summarize the analysis context (data collected, findings, reason for no-action) since `safeoutputs___noop` does not create a branch/PR to persist workspace artifacts
+5. **ANALYSIS-ONLY PR**: If analysis determines no breaking news significance, **still create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts in `analysis/${TODAY}/breaking/`.
+   - Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted
+   - If existing analysis for this date exists, improve/extend it
+   - Use `safeoutputs___noop` ONLY when MCP server is completely unavailable and zero data was collected
 
 **Data source hierarchy:**
 1. **PRIMARY (MANDATORY)**: EP API v2 feed endpoints with `timeframe: "today"` — adopted texts, events, procedures, MEP updates (these 4 feeds are consumed by the generator)
@@ -126,7 +129,12 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 4. **ANALYTICAL (MANDATORY)**: Voting anomalies, coalition dynamics, political landscape, early warning — always fetched for comprehensive analysis
 5. **CONTEXT ONLY (NEVER NEWS)**: Precomputed statistics from `get_all_generated_stats`
 
-**NEWSWORTHINESS GATE**: If NO events published/updated TODAY are found in feeds, the agent MUST still complete data download (with `one-week` fallback) and analysis as part of the reasoning process before using `safeoutputs___noop`. On noop runs, analysis outputs are produced and surfaced via the noop summary, but are NOT committed because `safeoutputs___noop` does not create a branch/PR. Do NOT skip data collection.
+**NEWSWORTHINESS GATE**: If NO events published/updated TODAY are found in feeds, the agent MUST still complete data download (with `one-week` fallback) and full analysis pipeline.
+- Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted
+- On quiet days, **create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts in `analysis/${TODAY}/breaking/`
+- Analysis of quiet periods reveals patterns and must always be committed
+- If existing analysis for this date already exists, read it first and improve/extend/correct it
+- Do NOT skip data collection
 
 
 ## 🎭 STAKEHOLDER PERSPECTIVE ANALYSIS (MANDATORY)
@@ -184,7 +192,7 @@ For each breaking development, immediately assess:
 - **Minutes 40–45**: 📊 AI evaluates analysis artifacts to determine breaking news significance — ONLY proceed with article generation if analysis confirms newsworthy developments from TODAY
 - **Minutes 45–52**: Generate English article with deep political intelligence analysis informed by analysis artifacts (SKIP if no today-dated breaking news)
 - **Minutes 52–57**: Validate and finalize changes
-- **Minutes 57–60**: Create PR with `safeoutputs___create_pull_request` (if articles generated) or `safeoutputs___noop` with data summary (if no breaking news)
+- **Minutes 57–60**: Create PR with `safeoutputs___create_pull_request` — include both articles (if generated) AND analysis artifacts. If no breaking news, create an analysis-only PR per `ai-driven-analysis-guide.md` Rule 5
 
 > **⏱️ TIME BUDGET NOTE**: The minute allocations above are best-effort targets, not hard deadlines. In worst-case scenarios (all feed calls hitting the 120s timeout), the feed phase alone may exceed the 3–20 minute window. If feed calls run long: (1) continue waiting — do NOT abort slow responses, (2) compress later phases as needed, (3) if you reach minute 52 without completing all phases, finalize whatever work is done and create the PR or noop immediately. The 60-minute workflow timeout is the only hard deadline.
 
@@ -214,6 +222,8 @@ The analysis artifacts provide structured political intelligence that enriches t
 > **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
 
 > **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to **every downloaded MCP data file**. See `analysis/README.md` for the complete analysis directory documentation.
+
+> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/${TODAY}/breaking/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
 
 ### Primary Template: Weekly Intelligence Brief
 
@@ -325,8 +335,8 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **If no newsworthy events found in feeds (but data was collected):**
 1. Verify all feed endpoints were queried (including one-week fallback)
 2. Run the FULL analysis pipeline on collected data
-3. Capture all relevant data and analysis artifacts in logs and/or noop output (no workspace changes are persisted)
-4. `safeoutputs___noop` with data collection and analysis summary — legitimate quiet period, with results only in the noop output (no branch/PR)
+3. Write analysis artifacts to `analysis/${TODAY}/breaking/`
+4. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. If existing analysis for this date exists, improve/extend it
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure
@@ -396,7 +406,7 @@ After fetching all feed data AND running analysis, evaluate newsworthiness:
 4. Are there notable MEP changes announced TODAY?
 
 **If YES to any**: Proceed with article generation — include publish dates for ALL referenced items
-**If NO to all**: Use `safeoutputs___noop` with analysis summary — but ONLY after all data has been downloaded, analyzed, and stored. Include a summary of what data WAS collected (e.g., "Downloaded 42 procedures, 15 events from past week; none dated today")
+**If NO to all**: **Still create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Analysis of quiet periods reveals patterns. Include a summary of what data WAS collected (e.g., "Downloaded 42 procedures, 15 events from past week; none dated today")
 
 ### 📊 MANDATORY: Analytical Context
 
@@ -614,14 +624,19 @@ done
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
 
-# ⚠️ CRITICAL: Remove analysis artifacts to stay under 100-file PR limit (E003 safeguard)
-# The safe-outputs framework captures ALL working directory changes as a patch.
-# Analysis artifacts and MCP data files must not be included in the PR.
-rm -rf analysis/ 2>/dev/null || true
-git checkout HEAD -- analysis/ 2>/dev/null || true
-echo "🧹 Cleaned metadata and analysis artifacts from working directory"
-
+# ⚠️ MANDATORY: Commit analysis artifacts per ai-driven-analysis-guide.md Rule 5
+# No workflow run should be wasted — analysis is ALWAYS persisted.
+# Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
+# Compute TODAY once before cleanup so directory, branch name, and PR title all align
 TODAY=$(date -u +%Y-%m-%d)
+
+# Scope cleanup to THIS run's analysis directory only — never touch historical data
+RUN_ANALYSIS_DIR="analysis/${TODAY}/breaking"
+if [ -d "$RUN_ANALYSIS_DIR" ]; then
+  find "$RUN_ANALYSIS_DIR" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
+  find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true
+fi
+echo "🧹 Cleaned raw MCP data payloads for ${TODAY}/breaking; analysis markdown artifacts PRESERVED for commit"
 BRANCH_NAME="news/breaking-$TODAY"
 echo "Branch: $BRANCH_NAME"
 ```
