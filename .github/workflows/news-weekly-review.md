@@ -619,9 +619,13 @@ rm -f news/metadata/generation-*.json
 # ⚠️ MANDATORY: Commit analysis artifacts per ai-driven-analysis-guide.md Rule 5
 # No workflow run should be wasted — analysis is ALWAYS persisted.
 # Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
-find analysis/ -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
-find analysis/ -type d -name "data" -empty -delete 2>/dev/null || true
-echo "🧹 Cleaned metadata files and raw MCP data payloads; analysis markdown artifacts PRESERVED for commit"
+# Scope cleanup to THIS run's analysis directory only — never touch historical data
+RUN_ANALYSIS_DIR="analysis/${TODAY}/week-in-review"
+if [ -d "$RUN_ANALYSIS_DIR" ]; then
+  find "$RUN_ANALYSIS_DIR" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
+  find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true
+fi
+echo "🧹 Cleaned raw MCP data payloads for ${TODAY}/week-in-review; analysis markdown artifacts PRESERVED for commit"
 ```
 
 ```bash
