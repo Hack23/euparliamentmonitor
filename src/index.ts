@@ -516,10 +516,7 @@ export {
   buildSankeySection,
 } from './generators/sankey-content.js';
 
-export {
-  buildSwotSection,
-  buildMultiDimensionalSwotSection,
-} from './generators/swot-content.js';
+export { buildSwotSection, buildMultiDimensionalSwotSection } from './generators/swot-content.js';
 
 export {
   PLACEHOLDER_EVENTS,
@@ -536,16 +533,10 @@ export {
   buildWhatToWatchSection,
 } from './generators/week-ahead-content.js';
 
-export {
-  type PipelineData,
-  buildPropositionsContent,
-} from './generators/propositions-content.js';
+export { type PipelineData, buildPropositionsContent } from './generators/propositions-content.js';
 
 // ─── Index & Sitemap Generators ──────────────────────────────────────────────
-export {
-  getIndexFilename,
-  generateIndexHTML,
-} from './generators/news-indexes.js';
+export { getIndexFilename, generateIndexHTML } from './generators/news-indexes.js';
 
 export {
   collectDocsHtmlFiles,

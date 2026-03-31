@@ -97,11 +97,11 @@ export { buildDeepAnalysisSection } from './generators/deep-analysis-content.js'
 export { buildMindmapSection, buildIntelligenceMindmapSection, } from './generators/mindmap-content.js';
 export { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent, buildPoliticalAlignmentSection, buildAdoptedTextsSection, } from './generators/motions-content.js';
 export { buildSankeySection, } from './generators/sankey-content.js';
-export { buildSwotSection, buildMultiDimensionalSwotSection, } from './generators/swot-content.js';
+export { buildSwotSection, buildMultiDimensionalSwotSection } from './generators/swot-content.js';
 export { PLACEHOLDER_EVENTS, parsePlenarySessions, parseEPEvents, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, parseParliamentaryQuestions, computeWeekPoliticalTemperature, buildStakeholderImpactMatrix, buildWeekAheadContent, buildKeywords, buildWhatToWatchSection, } from './generators/week-ahead-content.js';
-export { buildPropositionsContent, } from './generators/propositions-content.js';
+export { buildPropositionsContent } from './generators/propositions-content.js';
 // ─── Index & Sitemap Generators ──────────────────────────────────────────────
-export { getIndexFilename, generateIndexHTML, } from './generators/news-indexes.js';
+export { getIndexFilename, generateIndexHTML } from './generators/news-indexes.js';
 export { collectDocsHtmlFiles, generateSitemap, getSitemapFilename, generateSitemapHTML, generateRssFeed, } from './generators/sitemap.js';
 // ─── Political Intelligence Classification ────────────────────────────────────
 export { FRAMEWORK_VERSION, assessPoliticalSignificance, buildImpactMatrix, classifyPoliticalActors, analyzePoliticalForces, initializeAnalysisDirectory, serializeFrontmatter, writeAnalysisFile, writeAnalysisManifest, compareSignificance, maxSignificance, } from './utils/political-classification.js';
