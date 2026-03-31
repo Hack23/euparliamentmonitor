@@ -114,7 +114,7 @@ mindmap
     (🛠️ Build & Tooling)
       📝 TypeScript 6.x
         📅 Current: Latest
-        ⏰ EOL: ~6-month cycles
+        ⏰ EOL: ~12-month major cycles
         🔄 Strict Mode Enabled
       ⚡ ESLint 9.x
         📅 Current: Latest
