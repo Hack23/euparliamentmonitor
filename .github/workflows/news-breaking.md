@@ -627,6 +627,9 @@ rm -f news/metadata/generation-*.json
 # ⚠️ MANDATORY: Commit analysis artifacts per ai-driven-analysis-guide.md Rule 5
 # No workflow run should be wasted — analysis is ALWAYS persisted.
 # Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
+# Compute TODAY once before cleanup so directory, branch name, and PR title all align
+TODAY=$(date -u +%Y-%m-%d)
+
 # Scope cleanup to THIS run's analysis directory only — never touch historical data
 RUN_ANALYSIS_DIR="analysis/${TODAY}/breaking"
 if [ -d "$RUN_ANALYSIS_DIR" ]; then
@@ -634,8 +637,6 @@ if [ -d "$RUN_ANALYSIS_DIR" ]; then
   find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true
 fi
 echo "🧹 Cleaned raw MCP data payloads for ${TODAY}/breaking; analysis markdown artifacts PRESERVED for commit"
-
-TODAY=$(date -u +%Y-%m-%d)
 BRANCH_NAME="news/breaking-$TODAY"
 echo "Branch: $BRANCH_NAME"
 ```

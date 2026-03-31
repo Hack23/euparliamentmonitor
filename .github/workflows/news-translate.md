@@ -193,6 +193,55 @@ echo "Article date: $ARTICLE_DATE"
 echo "Year:         $CURRENT_YEAR"
 echo "==================================="
 export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK
+
+# ⚠️ MANDATORY: Create baseline analysis directory and summary BEFORE any noop exits.
+# Per ai-driven-analysis-guide.md Rule 5, no workflow run should be wasted.
+# This ensures even early noop paths (no articles found, all translations exist)
+# produce a committed analysis artifact via an analysis-only PR.
+ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+mkdir -p "${ANALYSIS_DIR}"
+SUMMARY_FILE="${ANALYSIS_DIR}/summary.md"
+if [ ! -f "${SUMMARY_FILE}" ]; then
+  cat > "${SUMMARY_FILE}" <<EOF
+# Translation Analysis Summary — ${ARTICLE_DATE}
+
+Automatically generated baseline translation analysis report for ${ARTICLE_DATE}.
+Ensures no workflow run is wasted, even when no new translations were produced
+or when all translations already existed.
+
+## 1. Translation Coverage Matrix
+
+- Article types covered: _(to be filled/extended by translation steps or reviewers)_
+- Languages covered: _(to be filled/extended by translation steps or reviewers)_
+
+## 2. Terminology Consistency
+
+- EP-specific terms observed: _(document here)_
+- Cross-language consistency notes: _(summarize here)_
+
+## 3. Quality Assessment
+
+- Overall quality per language: _(score + brief justification)_
+
+## 4. Coverage Gap Analysis
+
+- Article types not translated and reasons: _(document here)_
+- Languages not translated and reasons: _(document here)_
+
+## 5. Improvement Recommendations
+
+- Short-term: _(e.g., terminology updates, language-specific fixes)_
+- Longer-term: _(e.g., better prompts, additional validation, automation)_
+
+---
+_If a more detailed analysis already exists for this date, extend and refine it rather
+than replacing it. This file is a minimal baseline to satisfy analysis requirements
+when translation activity is low or skipped._
+EOF
+  echo "📊 Created baseline translation analysis summary: ${SUMMARY_FILE}"
+else
+  echo "📊 Existing translation analysis found — will extend in Step 4c"
+fi
 ```
 
 ## Pre-flight: Verify No Pending Content PRs
@@ -241,8 +290,25 @@ fi
 
 if [ -z "$ARTICLE_TYPES" ]; then
   echo "ℹ️ No English articles found for $ARTICLE_DATE — nothing to translate"
-  safeoutputs___noop
-  exit 0
+  # Per Rule 5: no workflow run wasted — create analysis-only PR with baseline summary
+  echo "📊 Creating analysis-only PR with baseline translation analysis for $ARTICLE_DATE"
+  # Update the baseline summary with specifics about why no translations were produced
+  ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+  cat >> "${ANALYSIS_DIR}/summary.md" <<EOF
+
+## Run Outcome — No Articles Found
+
+- **Date**: ${ARTICLE_DATE}
+- **Result**: No English articles found for this date
+- **Action**: No translations produced; baseline analysis committed
+EOF
+  BRANCH_NAME="news/translate-${ARTICLE_DATE}"
+  safeoutputs___create_pull_request({
+    title: "chore: translate EU Parliament articles ${ARTICLE_DATE} (analysis-only)",
+    body: "## Translation Analysis Only\n\nNo English articles found for ${ARTICLE_DATE}. Baseline translation analysis committed per Rule 5.",
+    base: "main",
+    head: BRANCH_NAME
+  })
 fi
 
 # Check which articles already have translations
@@ -267,8 +333,26 @@ done
 
 if [ -z "$NEEDS_TRANSLATION" ]; then
   echo "ℹ️ All articles for $ARTICLE_DATE already have translations"
-  safeoutputs___noop
-  exit 0
+  # Per Rule 5: no workflow run wasted — create analysis-only PR with baseline summary
+  echo "📊 Creating analysis-only PR with baseline translation analysis for $ARTICLE_DATE"
+  # Update the baseline summary with specifics about why no new translations were produced
+  ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+  cat >> "${ANALYSIS_DIR}/summary.md" <<EOF
+
+## Run Outcome — Translations Already Exist
+
+- **Date**: ${ARTICLE_DATE}
+- **Article types checked**: ${ARTICLE_TYPES}
+- **Result**: All articles already have translations
+- **Action**: No new translations produced; baseline analysis committed
+EOF
+  BRANCH_NAME="news/translate-${ARTICLE_DATE}"
+  safeoutputs___create_pull_request({
+    title: "chore: translate EU Parliament articles ${ARTICLE_DATE} (analysis-only)",
+    body: "## Translation Analysis Only\n\nAll articles for ${ARTICLE_DATE} already have translations. Baseline translation analysis committed per Rule 5.",
+    base: "main",
+    head: BRANCH_NAME
+  })
 fi
 
 echo "🌐 Articles to translate: $NEEDS_TRANSLATION"
@@ -513,47 +597,10 @@ ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
 mkdir -p "${ANALYSIS_DIR}"
 echo "📊 Translation analysis directory: ${ANALYSIS_DIR}/"
 
-# Write a minimal analysis summary to ensure an analysis-only PR path is always possible.
-# Even when no translations are produced (early noop), this baseline satisfies Rule 5.
+# The baseline summary.md was created at the start of the workflow (before any noop exits).
+# If this step is reached, translations were actually produced — extend/improve the analysis.
 SUMMARY_FILE="${ANALYSIS_DIR}/summary.md"
-if [ ! -f "${SUMMARY_FILE}" ]; then
-  cat > "${SUMMARY_FILE}" <<EOF
-# Translation Analysis Summary — ${ARTICLE_DATE}
-
-Automatically generated baseline translation analysis report for ${ARTICLE_DATE}.
-Ensures no workflow run is wasted, even when no new translations were produced
-or when all translations already existed.
-
-## 1. Translation Coverage Matrix
-
-- Article types covered: _(to be filled/extended by translation steps or reviewers)_
-- Languages covered: _(to be filled/extended by translation steps or reviewers)_
-
-## 2. Terminology Consistency
-
-- EP-specific terms observed: _(document here)_
-- Cross-language consistency notes: _(summarize here)_
-
-## 3. Quality Assessment
-
-- Overall quality per language: _(score + brief justification)_
-
-## 4. Coverage Gap Analysis
-
-- Article types not translated and reasons: _(document here)_
-- Languages not translated and reasons: _(document here)_
-
-## 5. Improvement Recommendations
-
-- Short-term: _(e.g., terminology updates, language-specific fixes)_
-- Longer-term: _(e.g., better prompts, additional validation, automation)_
-
----
-_If a more detailed analysis already exists for this date, extend and refine it rather
-than replacing it. This file is a minimal baseline to satisfy analysis requirements
-when translation activity is low or skipped._
-EOF
-fi
+echo "📊 Extending analysis summary with translation results: ${SUMMARY_FILE}"
 ```
 
 ## Step 5: Create Pull Request
