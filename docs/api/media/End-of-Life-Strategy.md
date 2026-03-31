@@ -112,7 +112,7 @@ mindmap
         ⏰ EOL: N/A
         🔄 Progressive Enhancement
     (🛠️ Build & Tooling)
-      📝 TypeScript 5.x
+      📝 TypeScript 6.x
         📅 Current: Latest
         ⏰ EOL: ~6-month cycles
         🔄 Strict Mode Enabled
@@ -149,7 +149,7 @@ mindmap
 | **Technology Category** | **Current Version**       | **Release Model**               | **EOL Timeline**   | **Migration Complexity**                                                                                                                                |
 | ----------------------- | ------------------------- | ------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **☕ Node.js Runtime**  | 25.x (Current)            | Annual release (odd = Current, even = LTS) | **~Apr 2026** ⚠️ | [![High](https://img.shields.io/badge/Complexity-High-orange?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)     |
-| **📝 TypeScript**       | 5.x (Latest)             | Major every 6 months            | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **📝 TypeScript**       | 6.x (Latest)             | Major every ~12 months          | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **📄 HTML5/CSS3**       | Living Standard           | Evergreen                       | N/A (Perpetual)    | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **⚡ ESLint**           | 9.x (Latest)             | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **🧪 Vitest**           | Latest                    | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
@@ -386,8 +386,8 @@ gantt
     Node.js 29 Current+LTS          :node29, 2029-04-01, 2032-04-30
 
     section Build and Tooling (Review Horizon)
-    TypeScript 5.x (Active)     :active, ts5, 2023-03-16, 2026-12-31
-    TypeScript 6.x (Planning)   :ts6, 2026-06-01, 2028-12-31
+    TypeScript 6.x (Active)     :active, ts6, 2026-03-01, 2028-12-31
+    TypeScript 7.x (Planning)   :ts7, 2027-06-01, 2030-12-31
     ESLint 9.x (Active)         :active, eslint9, 2024-04-01, 2026-12-31
 
     section Frontend (Evergreen)
@@ -510,7 +510,7 @@ Should EOL conditions trigger migration, the successor platform will maintain **
 | Component | Current | Future Candidate | Migration Complexity |
 |-----------|---------|-------------------|---------------------|
 | **☕ Runtime** | Node.js 25 | Node.js 26 LTS (~Apr 2026, immediate) → Node.js 27+ (new annual schedule) | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
-| **📝 Language** | TypeScript 5.x | TypeScript 6.x+ | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **📝 Language** | TypeScript 6.x | TypeScript 7.x+ | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **📄 Frontend** | HTML5/CSS3 (static) | HTML5/CSS3 (evergreen, no change) | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **📦 Hosting** | AWS S3 + CloudFront (primary), GitHub Pages (fallback) | AWS S3 + CloudFront / Cloudflare Pages | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **📡 Data** | EP MCP Server | EP MCP Server v2+ | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |

@@ -166,7 +166,7 @@ template: |
   ## 🏗️ Built With
 
   - **Node.js**: 25.x
-  - **TypeScript**: 5.9.x
+  - **TypeScript**: 6.0.x
   - **Chart.js**: 4.5.x
   - **D3.js**: 7.9.x
   - **Vitest**: 4.x
