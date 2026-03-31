@@ -105,7 +105,7 @@ graph TB
     end
 
     subgraph "📥 Data Ingestion Layer"
-        MCP["🔌 EP MCP Server\nv1.1.19"]
+        MCP["🔌 EP MCP Server\nv1.1.20"]
         PRE["📥 Agentic Workflow\nData Download Stage"]
     end
 
@@ -135,7 +135,7 @@ graph TB
     end
 
     subgraph "✅ Quality Assurance"
-        QG["✅ Quality Gate\n<i>7-check validation</i>"]
+        QG["✅ Quality Gate\n<i>Checklist + 5D score</i>"]
     end
 
     subgraph "📰 Output"
@@ -182,19 +182,6 @@ graph TB
 ```
 analysis/
 ├── README.md                          ← This file (CRITICAL RULES — read first)
-├── data/                              ← Persistent MCP data repository (collision-free)
-│   ├── documents/                     ← Parliamentary documents by type
-│   │   ├── adopted-texts/             ← Adopted texts ({doc_id}.json + .meta.json)
-│   │   ├── committee-documents/       ← Committee reports and opinions
-│   │   ├── procedures/                ← Legislative procedures
-│   │   ├── votes/                     ← Roll-call voting records
-│   │   ├── speeches/                  ← Plenary speeches
-│   │   ├── questions/                 ← Parliamentary questions
-│   │   └── plenary-documents/         ← Plenary session documents
-│   ├── meps/                          ← MEP profiles (mep_id.json)
-│   ├── events/                        ← Date-stamped calendar events (YYYY-MM-DD/)
-│   ├── world-bank/                    ← World Bank economic indicators
-│   └── mcp-responses/                 ← Generic MCP tool response archive
 ├── methodologies/                     ← 6 detailed methodology guides
 │   ├── README.md                      ← Methodology catalog and pipeline overview
 │   ├── political-classification-guide.md  ← 7-dimension EP event classification
@@ -302,7 +289,7 @@ flowchart LR
 
 | ✅ Scripts MAY | 🚫 Scripts MUST NEVER |
 |---------------|----------------------|
-| Download MCP data to `analysis/data/` | Generate analysis prose, tables, or conclusions |
+| Download MCP data to workflow's `data/` subdirectory | Generate analysis prose, tables, or conclusions |
 | Catalog pending files | Create SWOT entries, risk scores, or threat assessments |
 | Validate output format (quality gate) | Fill template sections with generated content |
 | Move/rename files | Produce "placeholder" analysis that looks real |

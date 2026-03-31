@@ -155,7 +155,7 @@
 
 ## 🌳 Attack Tree — Primary Threat Decomposition
 
-> **AI Instructions:** Build an attack tree for the single most significant threat identified. The root is the threat goal; decompose using AND/OR gates down to leaf-level actions. Color-code by feasibility.
+> **AI Instructions:** Build an attack tree for the single most significant threat identified. The root is the threat goal; decompose using AND/OR gates down to leaf-level actions. Color-code by feasibility using this legend: 🟢 high feasibility, 🟡 medium feasibility, 🟠 low feasibility, 🔴 very low or blocked feasibility.
 
 ```mermaid
 graph TD

@@ -197,7 +197,7 @@ flowchart TD
 3. **Map second-order consequences** — what happens as a result of the first-order effects?
 4. **Identify branching points** — where does the chain split into alternative paths?
 5. **Score each node** independently using the 5×5 matrix
-6. **Calculate cumulative chain probability** — multiply probabilities along each path
+6. **Assess cumulative chain risk** — compare alternative paths using the node Likelihood × Impact scores and qualitative judgement; do not multiply the 1–5 Likelihood scores as if they were precise probabilities
 7. **Identify circuit breakers** — what intervention could stop the chain at each stage?
 
 ### Cascading Risk Table Template
@@ -231,9 +231,9 @@ Political risk scores should be **updated** as new evidence arrives, not just re
 |-------------|:---------------------:|---------|
 | Official EP adopted text / roll-call vote result | ±1 to ±2 | Roll-call vote passes/fails |
 | Named MEP or political group public statement | ±1 | EPP group leader demands concession |
-| Verified media report with named sources | ±0.5 to ±1 | Politico reports trilogue stalled |
-| Single unnamed source | ±0.5 | "Sources say Commissioner may resign" |
-| Statistical data (Eurostat, World Bank) | ±0.5 to ±1 | GDP growth data, unemployment change |
+| Verified media report with named sources | ±1 | Politico reports trilogue stalled |
+| Single unnamed source | ±1 | "Sources say Commissioner may resign" |
+| Statistical data (Eurostat, World Bank) | ±1 | GDP growth data, unemployment change |
 
 ---
 
@@ -243,24 +243,28 @@ Political risks are **interconnected** — coalition risk affects legislative ri
 
 ```mermaid
 graph TD
-    CR["🤝 Coalition Risk<br/>Score: [X]"]
-    PR["📋 Policy Risk<br/>Score: [X]"]
-    IR["🏛️ Institutional Risk<br/>Score: [X]"]
-    ER["🗳️ Electoral Risk<br/>Score: [X]"]
-    XR["🌍 Geopolitical Risk<br/>Score: [X]"]
+    CR["🤝 Grand-Coalition Stability<br/>Score: [X]"]
+    PR["📋 Policy Implementation<br/>Score: [X]"]
+    IR["🏛️ Institutional Integrity<br/>Score: [X]"]
+    ER["💶 Economic Governance<br/>Score: [X]"]
+    SR["🧩 Social Cohesion<br/>Score: [X]"]
+    XR["🌍 Geopolitical Standing<br/>Score: [X]"]
 
-    CR -->|"Coalition instability delays<br/>legislative agenda"| PR
-    CR -->|"Grand Coalition friction<br/>weakens institutional credibility"| IR
-    PR -->|"Policy failures erode<br/>public trust in EU"| ER
+    CR -->|"Coalition instability delays<br/>policy implementation agenda"| PR
+    CR -->|"Grand Coalition friction<br/>weakens institutional integrity"| IR
+    PR -->|"Implementation failures erode<br/>public trust and social cohesion"| SR
     IR -->|"Institutional pressure forces<br/>unwanted policy compromises"| PR
-    XR -->|"Geopolitical crisis forces<br/>rapid EU response"| PR
-    XR -->|"External pressure strains<br/>coalition solidarity"| CR
-    ER -->|"Election proximity increases<br/>coalition posturing"| CR
+    XR -->|"Geopolitical crisis forces<br/>rapid EU policy response"| PR
+    XR -->|"External pressure strains<br/>grand-coalition stability"| CR
+    XR -->|"Global economic shocks stress<br/>EU fiscal governance"| ER
+    ER -->|"Budgetary constraints increase<br/>coalition posturing"| CR
+    SR -->|"Social fragmentation<br/>undermines institutional legitimacy"| IR
 
     style CR fill:#dc3545,color:#fff
     style PR fill:#fd7e14,color:#fff
     style IR fill:#ffc107,color:#000
     style ER fill:#0d6efd,color:#fff
+    style SR fill:#198754,color:#fff
     style XR fill:#6f42c1,color:#fff
 ```
 
@@ -268,11 +272,13 @@ graph TD
 
 | From → To | Connection Strength | Mechanism | Evidence |
 |:---------:|:-------------------:|-----------|---------|
-| Coalition → Legislative | **Strong** | Legislative agenda requires coalition majority | `[vote records via get_voting_records]` |
-| Coalition → Institutional | **Strong** | EU institutional functioning depends on EP coalition cooperation | `[committee composition via get_committee_info]` |
-| Policy → Electoral | **Medium** | Policy success/failure affects EU elections | `[Eurobarometer data]` |
-| Geopolitical → Legislative | **Medium** | External pressures constrain legislative calendar | `[EU Council positions]` |
-| Electoral → Coalition | **Medium** | EP election proximity strains coalition positioning | `[calendar, debate rhetoric via get_speeches]` |
+| Grand-Coalition → Policy | **Strong** | Legislative agenda requires coalition majority | `[vote records via get_voting_records]` |
+| Grand-Coalition → Institutional | **Strong** | EU institutional functioning depends on EP coalition cooperation | `[committee composition via get_committee_info]` |
+| Policy → Social Cohesion | **Medium** | Policy success/failure affects citizen trust | `[Eurobarometer data]` |
+| Geopolitical → Policy | **Medium** | External pressures constrain legislative calendar | `[EU Council positions]` |
+| Geopolitical → Economic | **Medium** | Global shocks stress EU fiscal governance | `[World Bank economic data]` |
+| Economic → Grand-Coalition | **Medium** | Budgetary constraints increase coalition posturing | `[MFF debates, budget votes]` |
+| Social Cohesion → Institutional | **Medium** | Social fragmentation undermines institutional legitimacy | `[EP participation data, speeches]` |
 
 **System-Level Risk Assessment:** When ≥3 risk categories score ≥10 (High), the system is in a **fragile state** where any single trigger event could cascade across multiple risk dimensions simultaneously.
 

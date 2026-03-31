@@ -199,7 +199,7 @@ graph LR
 | **Purpose** | Master protocol governing all AI-driven political intelligence analysis |
 | **Scope** | All agentic workflows, all analysis types, all output artifacts |
 | **Key Rules** | Folder isolation · AI-only content · Multi-framework depth · Quality gates |
-| **Version** | 3.0 |
+| **Version** | 2.0 |
 
 **Core Principles:**
 - **Folder Isolation**: Every workflow writes ONLY to its own `analysis/YYYY-MM-DD/{articleType}/` subfolder
@@ -213,7 +213,7 @@ graph LR
 | **Purpose** | Multi-dimensional taxonomy for political document and event classification |
 | **Dimensions** | 7: Public Interest · Democratic Integrity · Policy Urgency · Economic Impact · Governance · Political Capital · Legislative Impact |
 | **Confidence Levels** | HIGH (≥80%) · MEDIUM (60–79%) · LOW (<60%) |
-| **Version** | 3.0 |
+| **Version** | 1.0 |
 
 ### ⚠️ Political Risk Assessment Methodology — `political-risk-methodology.md`
 
@@ -223,7 +223,7 @@ graph LR
 | **Risk Categories** | 6: Coalition Stability · Policy Implementation · Institutional Integrity · Economic Governance · Social Cohesion · Geopolitical Standing |
 | **Scoring Model** | Likelihood (1–5) × Impact (1–5) = Risk Score (1–25) |
 | **Advanced Features** | Cascading risk chains · Grand Coalition stability risk · Risk velocity tracking |
-| **Version** | 3.0 |
+| **Version** | 1.0 |
 
 ### 💼 Political SWOT Analysis Framework — `political-swot-framework.md`
 
@@ -232,7 +232,7 @@ graph LR
 | **Purpose** | Multi-stakeholder strategic analysis for political events and policy decisions |
 | **Stakeholder Lenses** | Grand Coalition · Opposition Bloc · Citizens/Civil Society · Economic Actors · International Observers |
 | **Advanced Features** | TOWS Matrix · Cross-SWOT Interference · 180-day Decay · Scenario Generation · Temporal Dynamics |
-| **Version** | 3.0 |
+| **Version** | 1.0 |
 
 ### 🎭 Political Threat Analysis Framework — `political-threat-framework.md`
 
@@ -252,7 +252,7 @@ graph LR
 | **Purpose** | Establishes writing standards for all political intelligence output |
 | **Scope** | Article tone, evidence citation standards, Mermaid diagram requirements, confidence labelling |
 | **Key Standards** | Evidence tables (not prose) · EP procedure citations · Colour-coded diagrams · Multi-language terminology |
-| **Version** | 3.0 |
+| **Version** | 2.0 |
 
 ---
 

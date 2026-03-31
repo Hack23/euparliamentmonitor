@@ -144,39 +144,42 @@ flowchart TD
 
 ## 🌐 Risk Interconnection Map
 
-> **AI Instructions:** Show how the 6 EP risk dimensions affect each other.
+> **AI Instructions:** Show how the 6 EP risk dimensions (grand-coalition-stability, policy-implementation, institutional-integrity, economic-governance, social-cohesion, geopolitical-standing) affect each other.
 
 ```mermaid
 graph TD
-    CR["🤝 Coalition Risk"]
-    LR["📋 Legislative Risk"]
-    IR["🏛️ Institutional Risk"]
-    ER["🗳️ Electoral Risk"]
-    DR["🗳️ Democratic Risk"]
-    XR["🌍 Geopolitical Risk"]
+    CR["🤝 Grand-Coalition Stability"]
+    LR["📋 Policy Implementation"]
+    IR["🏛️ Institutional Integrity"]
+    ER["💶 Economic Governance"]
+    DR["🧩 Social Cohesion"]
+    XR["🌍 Geopolitical Standing"]
 
-    CR -->|"Coalition instability delays<br/>legislative agenda"| LR
-    CR -->|"Grand Coalition friction<br/>weakens institutional credibility"| IR
-    LR -->|"Legislative failures erode<br/>public trust in EU"| ER
+    CR -->|"Coalition instability delays<br/>policy implementation agenda"| LR
+    CR -->|"Grand Coalition friction<br/>weakens institutional integrity"| IR
+    LR -->|"Implementation failures erode<br/>public trust and social cohesion"| DR
     XR -->|"Geopolitical crisis forces<br/>rapid EU policy response"| LR
-    XR -->|"External pressure strains<br/>coalition solidarity"| CR
-    ER -->|"EP election proximity increases<br/>coalition posturing"| CR
-    DR -->|"Declining participation<br/>undermines legislative legitimacy"| IR
+    XR -->|"External pressure strains<br/>grand-coalition stability"| CR
+    XR -->|"Global economic shocks stress<br/>EU fiscal governance"| ER
+    ER -->|"Budgetary constraints increase<br/>coalition posturing"| CR
+    DR -->|"Social fragmentation<br/>undermines institutional legitimacy"| IR
 
     style CR fill:#dc3545,color:#fff
     style LR fill:#fd7e14,color:#fff
     style IR fill:#ffc107,color:#000
     style ER fill:#0d6efd,color:#fff
-    style DR fill:#6f42c1,color:#fff
-    style XR fill:#198754,color:#fff
+    style DR fill:#198754,color:#fff
+    style XR fill:#6f42c1,color:#fff
 ```
 
 | From → To | Connection Strength | Mechanism | Evidence |
 |:---------:|:-------------------:|-----------|---------|
-| Coalition → Legislative | `[Strong/Medium/Weak]` | `[REQUIRED: How coalition instability delays EP legislative agenda]` | `[EP procedure ref]` |
-| Coalition → Institutional | `[Strong/Medium/Weak]` | `[REQUIRED: How Grand Coalition friction affects EU institutional credibility]` | `[EP resolution ref]` |
-| Legislative → Electoral | `[Strong/Medium/Weak]` | `[REQUIRED: How legislative failures affect EU elections]` | `[Eurobarometer data]` |
-| Geopolitical → Coalition | `[Strong/Medium/Weak]` | `[REQUIRED: How external pressure strains coalition]` | `[EU Council position]` |
+| Grand-Coalition → Policy | `[Strong/Medium/Weak]` | `[REQUIRED: How coalition instability delays EP policy agenda]` | `[EP procedure ref]` |
+| Grand-Coalition → Institutional | `[Strong/Medium/Weak]` | `[REQUIRED: How Grand Coalition friction affects institutional integrity]` | `[EP resolution ref]` |
+| Policy → Social Cohesion | `[Strong/Medium/Weak]` | `[REQUIRED: How implementation failures affect citizen trust]` | `[Eurobarometer data]` |
+| Geopolitical → Grand-Coalition | `[Strong/Medium/Weak]` | `[REQUIRED: How external pressure strains coalition]` | `[EU Council position]` |
+| Economic → Grand-Coalition | `[Strong/Medium/Weak]` | `[REQUIRED: How budgetary constraints affect coalition posturing]` | `[MFF/budget vote ref]` |
+| Social Cohesion → Institutional | `[Strong/Medium/Weak]` | `[REQUIRED: How social fragmentation undermines institutional legitimacy]` | `[EP participation data]` |
 
 **System fragility assessment:** `[REQUIRED: Are ≥3 risk dimensions at High level? If so, system is fragile — describe why.]`
 
