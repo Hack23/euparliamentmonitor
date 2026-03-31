@@ -436,10 +436,10 @@ echo "✅ Validation complete"
 echo "=== Scope Verification ==="
 
 # Use NUL-delimited output for safe handling of all filenames
-# Check for modifications outside news/ directory (unstaged, staged, and untracked)
-OUT_OF_SCOPE=$(git diff -z --name-only 2>/dev/null | tr '\0' '\n' | grep -Ev '^news(/|$)' || true)
-STAGED_OOS=$(git diff -z --name-only --staged 2>/dev/null | tr '\0' '\n' | grep -Ev '^news(/|$)' || true)
-UNTRACKED_OOS=$(git ls-files -z --others --exclude-standard 2>/dev/null | tr '\0' '\n' | grep -Ev '^news(/|$)' || true)
+# Check for modifications outside news/ and analysis/ directories (unstaged, staged, and untracked)
+OUT_OF_SCOPE=$(git diff -z --name-only 2>/dev/null | tr '\0' '\n' | grep -Ev '^(news|analysis)(/|$)' || true)
+STAGED_OOS=$(git diff -z --name-only --staged 2>/dev/null | tr '\0' '\n' | grep -Ev '^(news|analysis)(/|$)' || true)
+UNTRACKED_OOS=$(git ls-files -z --others --exclude-standard 2>/dev/null | tr '\0' '\n' | grep -Ev '^(news|analysis)(/|$)' || true)
 
 # Check for modifications to English source articles (translate must not edit originals)
 EN_MODIFIED=$(git diff -z --name-only 2>/dev/null | tr '\0' '\n' | grep -E '^news/.*-en\.html$' || true)
@@ -489,8 +489,29 @@ if [ -n "$SCOPE_VIOLATION" ]; then
 
   echo "✅ Scope violations reverted"
 else
-  echo "✅ All changes are within scope — only non-English news/ files modified"
+  echo "✅ All changes are within scope — only non-English news/ and analysis/ files modified"
 fi
+```
+
+## Step 4c: Translation Analysis (MANDATORY per ai-driven-analysis-guide.md Rule 5)
+
+> **⚠️ MANDATORY**: Per `analysis/methodologies/ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. The translation workflow MUST produce analysis artifacts documenting translation quality, coverage, and terminology consistency. If existing translation analysis exists for this date, improve and extend it.
+
+Before creating the PR, read ALL methodology documents in `analysis/methodologies/` and produce a translation analysis report in `analysis/${ARTICLE_DATE}/translate/`:
+
+**Required analysis content:**
+1. **Translation Coverage Matrix** — Which article types × languages were translated, which were skipped and why
+2. **Terminology Consistency** — EP-specific terms used, any terminology lookups from MCP server, consistency across languages
+3. **Quality Assessment** — Self-assessment of translation quality per language using the significance scoring template
+4. **Coverage Gap Analysis** — Languages or article types that could not be translated, with reasons
+5. **Improvement Recommendations** — What could be improved in the next translation run
+
+Write the analysis artifacts to `analysis/${ARTICLE_DATE}/translate/` following the templates in `analysis/templates/`. If previous translation analysis exists for this date, read it first and extend/improve it rather than replacing.
+
+```bash
+ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
+mkdir -p "analysis/${ARTICLE_DATE}/translate"
+echo "📊 Translation analysis directory: analysis/${ARTICLE_DATE}/translate/"
 ```
 
 ## Step 5: Create Pull Request
@@ -503,13 +524,12 @@ fi
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
 rm -f news/articles-metadata.json
-# ⚠️ CRITICAL: Remove analysis artifacts to stay under 100-file PR limit (E003 safeguard)
-# The safe-outputs framework captures ALL working directory changes as a patch.
-# Analysis artifacts and MCP data files must not be included in the PR.
+# ⚠️ MANDATORY: Commit analysis artifacts per ai-driven-analysis-guide.md Rule 5
+# No workflow run should be wasted — translation analysis is ALWAYS persisted.
+# Remove only raw data downloads to control PR size. Analysis markdown MUST be committed.
 rm -rf analysis-output/
-rm -rf analysis/ 2>/dev/null || true
-git checkout HEAD -- analysis/ 2>/dev/null || true
-echo "🧹 Cleaned metadata and analysis artifacts from working directory"
+find analysis/ -type d -name "data" -exec rm -rf {} + 2>/dev/null || true
+echo "🧹 Cleaned raw data; translation analysis artifacts PRESERVED for commit"
 
 ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
 TRANSLATED_COUNT=$(ls news/${ARTICLE_DATE}-*-{sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh}.html 2>/dev/null | wc -l || echo 0)

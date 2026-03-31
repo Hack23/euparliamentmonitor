@@ -152,6 +152,8 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ FULL DATA ANALYSIS**: Analysis MUST be performed for **every file downloaded** from MCP sources — not per session, not per day summary, but for **every individual piece of content**. Read ALL templates and methodologies before starting.
 
+> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
+
 ### Structured Analysis Templates (analysis/templates/)
 
 Read and apply these templates for **every downloaded MCP data file** in `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/data/`:
@@ -409,7 +411,7 @@ european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
 
 **Breaking News (MANDATORY: Feed-First REALTIME — only TODAY's events):**
 
-> **🚨 NEWSWORTHINESS GATE**: Breaking news covers ONLY events published/updated TODAY. Use `timeframe: "today"` for initial feed calls, then retry with `timeframe: "one-week"` for any endpoint that returns empty/error/404/timeout. Always perform data download and analysis as part of the reasoning process — the gate only decides whether to generate a breaking-news article. If NO items from today are found, still analyze the collected data but do **not** open an analysis-only PR; instead, return `safeoutputs___noop` and include any important findings in the noop summary output, understanding that no PR will be created and workspace changes will not be persisted.
+> **🚨 NEWSWORTHINESS GATE**: Breaking news covers ONLY events published/updated TODAY. Use `timeframe: "today"` for initial feed calls, then retry with `timeframe: "one-week"` for any endpoint that returns empty/error/404/timeout. Always perform data download and analysis as part of the reasoning process — the gate only decides whether to generate a breaking-news article. If NO items from today are found, still analyze the collected data and **create an analysis-only PR** with `safeoutputs___create_pull_request` containing the analysis artifacts in `analysis/${TODAY}/breaking/`. Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted — analysis of quiet periods reveals patterns and must always be committed. If existing analysis for this date/type already exists, improve and extend it.
 
 These 4 feeds map directly to the breaking news generator's data model (`adoptedTexts`, `events`, `procedures`, `mepUpdates`):
 
@@ -675,12 +677,11 @@ fi
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
 
-# ⚠️ CRITICAL: Remove analysis artifacts to stay under 100-file PR limit (E003 safeguard)
-# The safe-outputs framework captures ALL working directory changes as a patch.
-# Analysis artifacts and MCP data files must not be included in the PR.
-rm -rf analysis/ 2>/dev/null || true
-git checkout HEAD -- analysis/ 2>/dev/null || true
-echo "🧹 Cleaned metadata and analysis artifacts from working directory"
+# ⚠️ MANDATORY: Commit analysis artifacts per ai-driven-analysis-guide.md Rule 5
+# No workflow run should be wasted — analysis is ALWAYS persisted.
+# Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
+find analysis/ -type d -name "data" -exec rm -rf {} + 2>/dev/null || true
+echo "🧹 Cleaned metadata files and raw MCP data; analysis artifacts PRESERVED for commit"
 
 TODAY=$(date -u +%Y-%m-%d)
 BRANCH_NAME="news/articles-$TODAY"

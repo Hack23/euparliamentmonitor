@@ -338,6 +338,16 @@ Every analysis file must demonstrate **genuine political intelligence depth**. T
 - Forward-looking indicators (what to watch next, with specific triggers and timelines)
 - Cross-document pattern identification (how this document relates to other recent EP activity)
 
+### Rule 7: ALWAYS Commit Analysis — No Workflow Run Wasted
+
+Per [`ai-driven-analysis-guide.md` Rule 5](methodologies/ai-driven-analysis-guide.md), every agentic workflow run MUST produce and commit analysis artifacts. **No workflow run should ever be wasted.**
+
+- Analysis artifacts MUST be included in PRs — never deleted before PR creation
+- On quiet days with no article, create an **analysis-only PR** instead of discarding analysis via noop
+- Before producing new analysis, check for existing analysis and **improve/extend/correct/complete** it
+- Even the translation workflow must perform translation coverage and quality analysis
+- Raw MCP data files may be cleaned to control PR size, but analysis markdown is ALWAYS committed
+
 ---
 
 ## 🤖 Workflow-Specific Data Requirements
