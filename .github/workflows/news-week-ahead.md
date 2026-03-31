@@ -329,7 +329,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **If no significant data found (genuinely empty — only after ALL feeds queried for the configured timeframe):**
 1. Verify ALL feed endpoints were queried with timeframe: "one-week"
 2. Run full analysis pipeline on whatever data was collected
-3. `safeoutputs___noop` with data collection summary — legitimate quiet period
+3. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Commit analysis artifacts to `analysis/${TODAY}/week-ahead/`. If existing analysis exists, improve/extend it
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure

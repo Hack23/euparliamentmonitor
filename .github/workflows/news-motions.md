@@ -317,7 +317,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **If no significant data found (genuinely empty — only after ALL feeds were queried in the standard collection pass):**
 1. Verify ALL feed endpoints were queried once according to the data-gathering rules
 2. Run full analysis pipeline on whatever data was collected
-3. `safeoutputs___noop` with data collection summary — legitimate quiet period
+3. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Commit analysis artifacts to `analysis/${TODAY}/motions/`. If existing analysis exists, improve/extend it
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure
@@ -349,7 +349,7 @@ european_parliament___get_meps_feed({ timeframe: "one-week", limit: 20 })
 european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
 ```
 
-> **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific adopted texts, resolutions, or motions** found in these feed results. If feeds return items, those items ARE the news. If feeds return no recent items, use `safeoutputs___noop` — do NOT fall back to writing an article from precomputed stats.
+> **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific adopted texts, resolutions, or motions** found in these feed results. If feeds return items, those items ARE the news. If feeds return no recent items, still perform full analysis and create an analysis-only PR per `ai-driven-analysis-guide.md` Rule 5 — do NOT fall back to writing an article from precomputed stats.
 
 ### 📊 OPTIONAL: Background Context (Secondary — NEVER the news)
 
