@@ -24,8 +24,6 @@ export const ARTICLE_FILENAME_PATTERN = /^(\d{4}-\d{2}-\d{2})-(.+)-([a-z]{2})\.h
 export const WORDS_PER_MINUTE = 250;
 /** Valid article categories for generation — all values of the ArticleCategory enum */
 export const VALID_ARTICLE_CATEGORIES = Object.values(ArticleCategory);
-/** @deprecated Use ArticleCategory enum directly */
-export const VALID_ARTICLE_TYPES = VALID_ARTICLE_CATEGORIES;
 /** Week ahead article category constant */
 export const ARTICLE_TYPE_WEEK_AHEAD = ArticleCategory.WEEK_AHEAD;
 /** Breaking news article category constant */
@@ -73,11 +71,6 @@ export const APP_VERSION = (() => {
 export function createThemeToggleButton(ariaLabel) {
     return `<button type="button" class="theme-toggle" aria-label="${ariaLabel}"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>`;
 }
-/**
- * Theme toggle HTML button markup for site headers (English default).
- * @deprecated Use {@link createThemeToggleButton} with a localized aria-label instead.
- */
-export const THEME_TOGGLE_BUTTON = createThemeToggleButton('Toggle dark/light theme');
 /**
  * Raw theme toggle script content (without wrapping `<script>` tags).
  * Used as single source of truth for both the injected `<script>` block

@@ -148,11 +148,29 @@ flowchart TD
 
 ---
 
+## 🤖 AI Analysis Protocol for SWOT
+
+The AI agent **MUST** follow this protocol when generating SWOT analysis:
+
+1. **Read this framework** — understand evidence hierarchy, confidence levels, decay rules
+2. **Query EP MCP tools** — use the tool/query strategies from the tables above for each quadrant
+3. **Fill SWOT template** — every entry needs: Statement + Evidence (EP doc reference) + Confidence + Impact
+4. **Apply intersection analysis** — identify contested terrain, opposition opportunities, shared risks
+5. **Validate quality gate** — ≥ 2 entries per quadrant, zero opinion-only entries, zero EXPIRED entries
+6. **Integrate with Risk and Threat** — Risk scores ≥10 become SWOT Threat entries; threat actor findings inform SWOT Weakness entries
+
+> **🚨 Anti-Pattern Warning:** SWOT entries without specific evidence citations (EP document IDs, MCP tool outputs, or named sources) are REJECTED. "The EU faces challenges" is not a valid Weakness entry — "EPP-S&D voting alignment dropped from 68% to 54% in Q1 2026 (EP MCP `compare_political_groups`)" is.
+
+---
+
 ## 🔗 Related Documents
 
 - [templates/swot-analysis.md](../templates/swot-analysis.md) — SWOT template
-- [../../SWOT.md](../../SWOT.md) — Platform strategic SWOT
+- [templates/per-file-political-intelligence.md](../templates/per-file-political-intelligence.md) — Per-file template with SWOT section
+- [../../SWOT.md](../../SWOT.md) — Platform strategic SWOT (**formatting exemplar**)
 - [political-risk-methodology.md](political-risk-methodology.md) — Complementary risk scoring
+- [political-style-guide.md](political-style-guide.md) — Writing standards for SWOT entries
+- [ai-driven-analysis-guide.md](ai-driven-analysis-guide.md) — Per-file analysis protocol
 
 ---
 

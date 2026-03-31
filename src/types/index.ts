@@ -274,6 +274,7 @@ export type {
   PoliticalConsequenceTree,
   DisruptionPoint,
   LegislativeDisruptionAnalysis,
+  PoliticalThreatDimension,
   PoliticalStrideCategory,
   PoliticalThreatAssessment,
   ThreatAssessmentInput,

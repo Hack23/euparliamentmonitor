@@ -150,12 +150,38 @@ Legislative Impact           × 0.10
 
 ---
 
+## 🤖 AI Analysis Protocol for Classification
+
+The AI agent **MUST** follow this protocol when classifying political documents:
+
+1. **Read this guide** — understand sensitivity levels, domain taxonomy, urgency matrix
+2. **Extract key fields** from the document (title, type, committee, political groups involved, date)
+3. **Determine sensitivity** — PUBLIC (default), SENSITIVE (triggers apply), RESTRICTED (editorial review)
+4. **Assign primary domain** + up to 2 secondary domains from the EP committee taxonomy
+5. **Assess urgency** using the EP legislative calendar markers
+6. **Score significance** per the 5-dimension rubric in `significance-scoring.md`
+
+### Borderline Classification Guidance
+
+| Scenario | Resolution |
+|----------|-----------|
+| SENSITIVE vs. RESTRICTED | If any single trigger exceeds threshold, classify as RESTRICTED. When in doubt, err toward higher classification. |
+| ROUTINE vs. ELEVATED urgency | Check the EP plenary calendar — if within 2 weeks of a key vote, use ELEVATED. |
+| Domain ambiguity | Assign the domain with strongest evidence as primary; use secondary for remaining relevance. AFCO and LIBE always take precedence when applicable. |
+| Manual vs. automated divergence (>3 points) | Use the higher score and flag for editorial review. |
+
+> **🚨 Anti-Pattern Warning:** Classification without explicit sensitivity level, domain code, and urgency is REJECTED. Every document must receive all three classifications with cited evidence.
+
+---
+
 ## 🔗 Related Documents
 
 - [templates/political-classification.md](../templates/political-classification.md) — Classification template
+- [templates/per-file-political-intelligence.md](../templates/per-file-political-intelligence.md) — Per-file template with classification section
 - [political-risk-methodology.md](political-risk-methodology.md) — Risk scoring (uses classification output)
-- [political-threat-framework.md](political-threat-framework.md) — Threat analysis
-- [../../docs/analysis-methodology/](../../docs/analysis-methodology/) — Higher-level methodology guides
+- [political-threat-framework.md](political-threat-framework.md) — Multi-framework threat analysis
+- [reference/isms-classification-adaptation.md](../reference/isms-classification-adaptation.md) — ISMS mapping
+- [ai-driven-analysis-guide.md](ai-driven-analysis-guide.md) — Per-file analysis protocol
 
 ---
 

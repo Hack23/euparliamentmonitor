@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Timeline-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:** 2026-03-10 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-10  
+**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last Updated:** 2026-03-31 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
 
 ---
@@ -42,7 +42,7 @@
 | **[Future State Diagrams](FUTURE_STATEDIAGRAM.md)** | 🔄 Behavior | Enhanced adaptive state transitions | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_STATEDIAGRAM.md) |
 | **[Security Architecture](SECURITY_ARCHITECTURE.md)** | 🛡️ Security | Current security implementation | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md) |
 | **[Future Security Architecture](FUTURE_SECURITY_ARCHITECTURE.md)** | 🛡️ Security | Security enhancement roadmap | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md) |
-| **[Threat Model](THREAT_MODEL.md)** | 🎯 Security | STRIDE threat analysis | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md) |
+| **[Threat Model](THREAT_MODEL.md)** | 🎯 Security | Political Threat Landscape analysis | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md) |
 | **[Classification](CLASSIFICATION.md)** | 🏷️ Governance | CIA classification & BCP | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/CLASSIFICATION.md) |
 | **[CRA Assessment](CRA-ASSESSMENT.md)** | 🛡️ Compliance | Cyber Resilience Act | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md) |
 | **[Workflows](WORKFLOWS.md)** | ⚙️ DevOps | CI/CD documentation | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md) |
@@ -195,6 +195,77 @@ The following capabilities have already been delivered and are documented in [WO
 ### 0.5 Article Generation Benchmarks — ✅ COMPLETED
 
 **Status:** The `performance` job in `test-and-report.yml` includes article generation benchmarks with a 30-second budget (`GENERATION_BUDGET_MS=30000`).
+
+---
+
+## 🔬 Phase 0b: Political Intelligence Quality Enhancement (Q2 2026 — In Progress)
+
+**Priority:** PRIO 1 — All agentic workflows must download data and produce great analytics unique for every article type.
+
+This enhancement phase ensures every agentic workflow produces **unique, high-quality political intelligence** tailored to its specific article type, with per-document deep analysis for important EP items.
+
+```mermaid
+flowchart TD
+    subgraph "🔬 Intelligence Quality Enhancement"
+        direction TB
+        IQ1["📡 Mandatory Data Download\nALL feeds queried before analysis"]
+        IQ2["🔍 Per-Document Deep Analysis\nEvery MCP file gets {id}.analysis.md"]
+        IQ3["🎯 Unique Analytics Per Workflow\nTailored tools per article type"]
+        IQ4["✅ Quality Gate ≥7.0/10\n5-dimension weighted scoring"]
+        IQ5["📊 Evidence-Based Output\nCitations + confidence levels"]
+    end
+
+    IQ1 --> IQ2 --> IQ3 --> IQ4 --> IQ5
+
+    style IQ1 fill:#dc3545,stroke:#b02a37,color:#fff
+    style IQ2 fill:#fd7e14,stroke:#ca6510,color:#fff
+    style IQ3 fill:#ffc107,stroke:#cc9a06,color:#000
+    style IQ4 fill:#198754,stroke:#146c43,color:#fff
+    style IQ5 fill:#0d6efd,stroke:#0a58ca,color:#fff
+```
+
+### 0b.1 Mandatory Data Download Enforcement — ✅ IMPLEMENTED
+
+**Status:** All 9 content workflows now enforce mandatory data download before the newsworthiness gate.
+- `timeframe: "today"` first, `"one-week"` fallback for empty/error/timeout feeds
+- Advisory feeds (documents, plenary docs, committee docs, questions) are MANDATORY, not optional
+- `safeoutputs___noop` only permitted AFTER all data collection and analysis completes
+
+### 0b.2 Workflow-Specific Analytical Tools — ✅ IMPLEMENTED
+
+**Status:** Each workflow now has unique MCP analytical tools tailored to its article type:
+
+| Workflow | Unique Analytical Tools |
+|----------|------------------------|
+| **Breaking** | `detect_voting_anomalies`, `early_warning_system`, `generate_political_landscape` |
+| **Motions** | `get_voting_records`, `compare_political_groups`, `analyze_coalition_dynamics` |
+| **Propositions** | `search_documents`, `monitor_legislative_pipeline`, `track_legislation` |
+| **Committee** | `get_committee_info`, `analyze_legislative_effectiveness` |
+| **Week Ahead** | `get_plenary_sessions` (future dates), `generate_political_landscape` |
+| **Weekly Review** | `get_voting_records`, `detect_voting_anomalies` |
+| **Month Ahead** | `compare_political_groups`, `analyze_country_delegation` |
+| **Monthly Review** | `analyze_legislative_effectiveness`, `compare_political_groups` |
+
+### 0b.3 Per-Document Intelligence Analysis — 🔄 IN PROGRESS
+
+**Goal:** Every downloaded MCP data file receives individual deep analysis following `analysis/templates/per-file-political-intelligence.md`.
+
+**Planned enhancements:**
+- Opt-in `--analysis-methods=document-analysis` flag for per-document markdown + JSON output
+- Quality gate validation per document (minimum 7.0/10 across 5 dimensions)
+- Important documents flagged for extended analysis (committee opinions, legislative resolutions, plenary votes)
+
+### 0b.4 Analysis Quality Metrics — 📋 PLANNED
+
+**Goal:** Automated quality scoring for all analysis output.
+
+| Dimension | Weight | Target |
+|-----------|--------|--------|
+| Evidence density | 30% | ≥7/10 — citations per claim |
+| Analytical depth | 25% | ≥7/10 — multi-framework insights |
+| Structural completeness | 20% | ≥8/10 — Mermaid diagrams, tables |
+| Political relevance | 15% | ≥7/10 — EP-specific stakeholder analysis |
+| Writing quality | 10% | ≥8/10 — style guide compliance |
 
 ---
 
@@ -828,45 +899,46 @@ jobs:
 
 ## 🔮 Visionary Workflow Roadmap: 2027-2037
 
-### AI-Driven CI/CD Evolution
+### Political Intelligence Evolution — From Pipeline to Autonomous Observatory
 
-As Anthropic Opus 4.6 evolves (minor updates every ~2.3 months, major version
-upgrades annually) alongside new competitors and potential AGI, CI/CD workflows
-will transform from human-configured pipelines to autonomous, self-optimizing
-systems.
+As AI capabilities advance — from current LLMs (Opus 4.6) through multi-modal agents to potential AGI — the EU Parliament Monitor's workflow architecture will evolve from human-configured pipelines into an autonomous political intelligence observatory capable of real-time democratic transparency monitoring across all EU institutions.
 
 ```mermaid
-flowchart LR
-    subgraph "🤖 Phase 4: AI-Enhanced (2027-2029)"
-        P4A[AI Code Review] --> P4B[Predictive Testing]
-        P4B --> P4C[Auto-Fix Pipeline]
-        P4C --> P4D[Security Auto-Remediation]
+flowchart TD
+    subgraph "🤖 Phase 4: AI-Enhanced Intelligence (2027-2029)"
+        direction TB
+        P4A["🔍 Predictive Political<br/>Event Detection"] --> P4B["📊 Automated Source<br/>Triangulation"]
+        P4B --> P4C["🎯 Contextual Analysis<br/>with Historical Memory"]
+        P4C --> P4D["🛡️ Real-Time Threat<br/>Landscape Monitoring"]
     end
 
-    subgraph "🧠 Phase 5: Autonomous (2029-2032)"
-        P5A[Self-Healing Pipelines] --> P5B[Intent-Based Deployment]
-        P5B --> P5C[Cross-Repo Orchestration]
-        P5C --> P5D[Continuous Security Posture]
+    subgraph "🧠 Phase 5: Autonomous OSINT (2029-2032)"
+        direction TB
+        P5A["🌐 Multi-Source<br/>Intelligence Fusion"] --> P5B["🔗 Cross-Institution<br/>Pattern Detection"]
+        P5B --> P5C["📡 Continuous<br/>Democratic Monitoring"]
+        P5C --> P5D["⚡ Automated Alert<br/>& Response System"]
     end
 
-    subgraph "🔮 Phase 6: Cognitive (2032-2035)"
-        P6A[Predictive Infrastructure] --> P6B[Autonomous Quality Gates]
-        P6B --> P6C[Global Multi-Region]
+    subgraph "🔮 Phase 6: Cognitive Observatory (2032-2035)"
+        direction TB
+        P6A["🧪 Predictive<br/>Legislative Modeling"] --> P6B["🌍 Global Parliamentary<br/>Comparison Engine"]
+        P6B --> P6C["📈 Democratic Health<br/>Index Computation"]
     end
 
-    subgraph "🌐 Phase 7: AGI-Ready (2035-2037)"
-        P7A[Fully Autonomous Pipeline] --> P7B[Self-Evolving Workflows]
-        P7B --> P7C[Universal Compliance]
+    subgraph "🌐 Phase 7: AGI Democratic Guardian (2035-2037)"
+        direction TB
+        P7A["🏛️ Full Institutional<br/>Transparency Engine"] --> P7B["🤖 Self-Evolving<br/>Analysis Frameworks"]
+        P7B --> P7C["⚖️ Universal Democratic<br/>Accountability System"]
     end
 
     P4D --> P5A
     P5D --> P6A
     P6C --> P7A
 
-    classDef ai fill:#3498db,stroke:#2980b9,stroke-width:1.5px,color:white
-    classDef autonomous fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
-    classDef cognitive fill:#e67e22,stroke:#d35400,stroke-width:1.5px,color:white
-    classDef agi fill:#e74c3c,stroke:#c0392b,stroke-width:1.5px,color:white
+    classDef ai fill:#1565C0,stroke:#0D47A1,stroke-width:2px,color:#FFFFFF
+    classDef autonomous fill:#6A1B9A,stroke:#4A148C,stroke-width:2px,color:#FFFFFF
+    classDef cognitive fill:#E65100,stroke:#BF360C,stroke-width:2px,color:#FFFFFF
+    classDef agi fill:#B71C1C,stroke:#880E4F,stroke-width:2px,color:#FFFFFF
 
     class P4A,P4B,P4C,P4D ai
     class P5A,P5B,P5C,P5D autonomous
@@ -874,64 +946,188 @@ flowchart LR
     class P7A,P7B,P7C agi
 ```
 
-### Phase 4: AI-Enhanced CI/CD (2027-2029)
+### Phase 4: AI-Enhanced Political Intelligence (2027-2029)
 
-| Capability | Description | Technology |
-| ---------- | ----------- | ---------- |
-| **AI Code Review** | LLM-powered automated code review with context-aware suggestions | Opus 5.x + custom fine-tuning |
-| **Predictive Testing** | ML models predict which tests to run based on changed code | Test impact analysis + ML |
-| **Auto-Fix Pipeline** | Automatically generate and apply fixes for CI failures | LLM-powered patch generation |
-| **Smart Caching** | AI-optimized build caching based on change pattern analysis | ML-driven cache strategies |
-| **Security Auto-Remediation** | Auto-generate security patches for detected vulnerabilities | LLM + vulnerability databases |
+**Vision:** Transform from scheduled data processing to proactive intelligence detection — the system anticipates politically significant events before they unfold.
 
-### Phase 5: Autonomous DevOps (2029-2032)
+```mermaid
+flowchart LR
+    subgraph "📡 Enhanced Collection"
+        EC1["Real-Time EP API<br/>WebSocket Feeds"]
+        EC2["Council of EU<br/>Data Integration"]
+        EC3["Commission<br/>Consultation Tracker"]
+        EC4["CURIA Case Law<br/>Monitor"]
+    end
 
-- **Self-Healing Pipelines**: CI/CD workflows that diagnose failures, identify
-  root causes, and apply fixes without human intervention
-- **Intent-Based Deployment**: Describe deployment goals in natural language;
-  AI generates and executes optimal deployment strategies
-- **Cross-Repository Orchestration**: Unified CI/CD across all Hack23 repos
-  (CIA, riksdagsmonitor, etc.) with intelligent dependency management
-- **Continuous Security Posture**: Real-time security scanning integrated at
-  every stage with autonomous remediation for low-risk issues
+    subgraph "🧠 AI-Enhanced Analysis"
+        AE1["Historical Pattern<br/>Matching Engine"]
+        AE2["Predictive Vote<br/>Outcome Model"]
+        AE3["Coalition Shift<br/>Early Warning"]
+        AE4["Legislative Impact<br/>Simulator"]
+    end
 
-### Phase 6: Cognitive Pipeline Operations (2032-2035)
+    subgraph "📰 Smart Production"
+        SP1["Adaptive Article<br/>Length & Depth"]
+        SP2["Reader Interest<br/>Profiling"]
+        SP3["Personalized<br/>Intelligence Briefs"]
+    end
 
-- **Predictive Infrastructure**: AI forecasts infrastructure needs based on
-  parliamentary calendar and scales resources proactively
-- **Autonomous Quality Gates**: AI dynamically adjusts quality thresholds based
-  on risk analysis, feature criticality, and deployment context
-- **Global Multi-Region Deployment**: Automated deployment to 50+ regions
-  with intelligent traffic routing and content optimization
+    EC1 & EC2 & EC3 & EC4 --> AE1 & AE2 & AE3 & AE4 --> SP1 & SP2 & SP3
 
-### Phase 7: AGI-Ready Operations (2035-2037)
+    style EC1 fill:#1565C0,stroke:#0D47A1,color:#FFFFFF
+    style EC2 fill:#1565C0,stroke:#0D47A1,color:#FFFFFF
+    style EC3 fill:#1565C0,stroke:#0D47A1,color:#FFFFFF
+    style EC4 fill:#1565C0,stroke:#0D47A1,color:#FFFFFF
+    style AE1 fill:#6A1B9A,stroke:#4A148C,color:#FFFFFF
+    style AE2 fill:#6A1B9A,stroke:#4A148C,color:#FFFFFF
+    style AE3 fill:#6A1B9A,stroke:#4A148C,color:#FFFFFF
+    style AE4 fill:#6A1B9A,stroke:#4A148C,color:#FFFFFF
+    style SP1 fill:#2E7D32,stroke:#1B5E20,color:#FFFFFF
+    style SP2 fill:#2E7D32,stroke:#1B5E20,color:#FFFFFF
+    style SP3 fill:#2E7D32,stroke:#1B5E20,color:#FFFFFF
+```
 
-- **Fully Autonomous Development Pipeline**: AGI systems handle the entire
-  development lifecycle from issue analysis to production deployment
-- **Self-Evolving Workflows**: CI/CD pipelines that redesign themselves based
-  on changing requirements, new tools, and performance feedback
-- **Universal Compliance Automation**: Automatic adaptation to evolving
-  regulatory requirements across all jurisdictions
+| Capability | Description | Political Intelligence Impact |
+|------------|-------------|-------------------------------|
+| **Predictive Event Detection** | ML models trained on EP parliamentary calendar predict significant events before official announcements | Earlier breaking news; advance analysis of upcoming votes |
+| **Source Triangulation** | Cross-reference EP data with Council, Commission, and CURIA sources for comprehensive coverage | Higher confidence ratings; multi-institutional perspective |
+| **Historical Context Engine** | Every analysis automatically enriched with relevant historical precedents from EP's legislative history | Deeper contextual intelligence; trend identification |
+| **Real-Time Threat Monitoring** | Continuous Political Threat Landscape assessment with automated alert thresholds | Instant detection of coalition shifts, democratic erosion signals |
+| **Smart Caching** | AI-optimised data caching based on parliamentary rhythm (plenary weeks vs. committee weeks) | Faster analysis cycles; reduced MCP server load |
+
+### Phase 5: Autonomous OSINT Operations (2029-2032)
+
+**Vision:** The platform evolves into a full OSINT (Open Source Intelligence) observatory — autonomously collecting, correlating, and publishing intelligence across the entire EU institutional landscape.
+
+```mermaid
+flowchart TD
+    subgraph "🌐 Multi-Source Fusion"
+        MS1["🏛️ EP Open Data"]
+        MS2["🇪🇺 Council Press"]
+        MS3["📋 Commission<br/>Regulatory Pipeline"]
+        MS4["⚖️ CURIA Judgments"]
+        MS5["📊 Eurostat<br/>Economic Data"]
+        MS6["🗳️ National Parliament<br/>Coordination"]
+    end
+
+    subgraph "🔗 Intelligence Fusion Engine"
+        FE1["Entity Resolution<br/>(MEPs across institutions)"]
+        FE2["Topic Clustering<br/>(Cross-institutional)"]
+        FE3["Influence Network<br/>Graph Analysis"]
+        FE4["Anomaly Detection<br/>(Voting patterns)"]
+    end
+
+    subgraph "📡 Continuous Monitoring"
+        CM1["Democratic Health<br/>Dashboard"]
+        CM2["Legislative Pipeline<br/>Tracker"]
+        CM3["Coalition Stability<br/>Monitor"]
+        CM4["Transparency<br/>Scorecard"]
+    end
+
+    MS1 & MS2 & MS3 & MS4 & MS5 & MS6 --> FE1 & FE2 & FE3 & FE4
+    FE1 & FE2 & FE3 & FE4 --> CM1 & CM2 & CM3 & CM4
+
+    style MS1 fill:#003399,stroke:#002266,color:#FFFFFF
+    style MS2 fill:#003399,stroke:#002266,color:#FFFFFF
+    style MS3 fill:#003399,stroke:#002266,color:#FFFFFF
+    style MS4 fill:#003399,stroke:#002266,color:#FFFFFF
+    style MS5 fill:#003399,stroke:#002266,color:#FFFFFF
+    style MS6 fill:#003399,stroke:#002266,color:#FFFFFF
+    style FE1 fill:#6A1B9A,stroke:#4A148C,color:#FFFFFF
+    style FE2 fill:#6A1B9A,stroke:#4A148C,color:#FFFFFF
+    style FE3 fill:#6A1B9A,stroke:#4A148C,color:#FFFFFF
+    style FE4 fill:#6A1B9A,stroke:#4A148C,color:#FFFFFF
+    style CM1 fill:#C62828,stroke:#B71C1C,color:#FFFFFF
+    style CM2 fill:#C62828,stroke:#B71C1C,color:#FFFFFF
+    style CM3 fill:#C62828,stroke:#B71C1C,color:#FFFFFF
+    style CM4 fill:#C62828,stroke:#B71C1C,color:#FFFFFF
+```
+
+- **Multi-Source Intelligence Fusion**: Combine EP, Council, Commission, and court data into unified intelligence products — every article draws from all EU institutions, not just Parliament
+- **Cross-Institution Pattern Detection**: Identify when legislative proposals move between institutions, detect coordination patterns, track lobby influence across the trilogue process
+- **Continuous Democratic Monitoring**: Real-time dashboards that track democratic health indicators: participation rates, transparency scores, representation metrics, accountability measures
+- **Automated Alert & Response**: When threat landscape dimensions exceed thresholds (e.g., coalition cohesion drops below 60%), the system autonomously generates urgent intelligence briefings
+
+### Phase 6: Cognitive Parliamentary Observatory (2032-2035)
+
+**Vision:** The system becomes a cognitive observatory that models legislative outcomes, compares democratic health across global parliaments, and computes verifiable democratic accountability indices.
+
+- **Predictive Legislative Modeling**: Simulate legislative outcomes with >80% accuracy by modeling MEP voting behaviour, committee dynamics, and political group strategies
+- **Global Parliamentary Comparison Engine**: Compare EP democratic practices against 50+ national parliaments worldwide, identifying best practices and areas for improvement
+- **Democratic Health Index**: A composite, evidence-based score combining transparency, participation, accountability, and representation metrics — updated daily, published monthly
+- **Self-Healing Analysis Pipelines**: Workflows that detect their own analytical blind spots, commission additional data collection, and refine their methodologies without human intervention
+
+### Phase 7: AGI Democratic Guardian (2035-2037)
+
+**Vision:** With the emergence of AGI-level capabilities, the platform evolves into a universal democratic accountability system — monitoring, analysing, and reporting on democratic practices across all levels of European governance.
+
+- **Full Institutional Transparency Engine**: AGI-powered monitoring that covers every EU institution, agency, and body — from the European Central Bank to FRONTEX, from OLAF investigations to ECB monetary policy
+- **Self-Evolving Analysis Frameworks**: The 6 political threat dimensions automatically expand and refine based on emerging democratic challenges (cyber-democratic threats, AI governance risks, climate policy accountability)
+- **Universal Democratic Accountability System**: A platform that any citizen can query in natural language to understand the democratic implications of any EU legislative action, in any of the 24 EU official languages
 
 ### Workflow Evolution Gantt
 
 ```mermaid
 gantt
-    title Workflow Evolution Roadmap (2026-2037)
+    title EU Parliament Monitor Workflow Evolution (2026-2037)
     dateFormat YYYY-MM
 
     section Near-Term (2026)
-    Phase 1 Security Hardening     :p1, 2026-04, 3M
-    Phase 2 Performance & Quality  :p2, 2026-07, 3M
-    Phase 3 Advanced Automation    :p3, 2026-10, 3M
+    Phase 1 Security Hardening           :p1, 2026-04, 3M
+    Phase 2 Performance & Quality        :p2, 2026-07, 3M
+    Phase 3 Advanced Automation          :p3, 2026-10, 3M
 
     section Medium-Term (2027-2029)
-    Phase 4 AI-Enhanced CI/CD      :p4, 2027-01, 12M
-    Phase 5 Autonomous DevOps      :p5, 2029-01, 12M
+    Phase 4 AI-Enhanced Intelligence     :p4, 2027-01, 24M
+    Council/Commission Integration       :p4a, 2027-06, 12M
+    Predictive Event Detection           :p4b, 2028-01, 12M
 
-    section Long-Term (2032-2037)
-    Phase 6 Cognitive Operations   :p6, 2032-01, 18M
-    Phase 7 AGI-Ready Operations   :p7, 2035-01, 24M
+    section Autonomous (2029-2032)
+    Phase 5 Autonomous OSINT             :p5, 2029-01, 36M
+    Multi-Source Intelligence Fusion     :p5a, 2029-01, 18M
+    Democratic Health Dashboard          :p5b, 2030-01, 24M
+
+    section Cognitive (2032-2035)
+    Phase 6 Cognitive Observatory        :p6, 2032-01, 36M
+    Predictive Legislative Modeling      :p6a, 2032-06, 18M
+    Global Parliamentary Comparison      :p6b, 2033-06, 18M
+
+    section AGI (2035-2037)
+    Phase 7 AGI Democratic Guardian      :p7, 2035-01, 24M
+    Universal Accountability System      :p7a, 2036-01, 12M
+```
+
+### Technology Evolution Map
+
+```mermaid
+flowchart LR
+    subgraph "2026"
+        T1["claude-opus-4.6<br/>GitHub Copilot<br/>EP MCP Server"]
+    end
+
+    subgraph "2027-2029"
+        T2["Multi-Modal AI<br/>Real-Time APIs<br/>Cross-Institution MCP"]
+    end
+
+    subgraph "2029-2032"
+        T3["Autonomous Agents<br/>Knowledge Graphs<br/>OSINT Fusion"]
+    end
+
+    subgraph "2032-2035"
+        T4["Cognitive AI<br/>Predictive Models<br/>Global Comparison"]
+    end
+
+    subgraph "2035-2037"
+        T5["AGI Systems<br/>Self-Evolving<br/>Universal Access"]
+    end
+
+    T1 --> T2 --> T3 --> T4 --> T5
+
+    style T1 fill:#2E7D32,stroke:#1B5E20,color:#FFFFFF
+    style T2 fill:#1565C0,stroke:#0D47A1,color:#FFFFFF
+    style T3 fill:#6A1B9A,stroke:#4A148C,color:#FFFFFF
+    style T4 fill:#E65100,stroke:#BF360C,color:#FFFFFF
+    style T5 fill:#B71C1C,stroke:#880E4F,color:#FFFFFF
 ```
 
 ---
@@ -943,6 +1139,9 @@ gantt
 | ⚙️ Current Workflows | Present state documentation | [WORKFLOWS.md](WORKFLOWS.md) |
 | 🔐 Security Architecture | Current security implementation | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
 | 🚀 Future Security | Planned security enhancements | [FUTURE_SECURITY_ARCHITECTURE.md](FUTURE_SECURITY_ARCHITECTURE.md) |
+| 🔬 Analysis Framework | Political intelligence analysis | [analysis/README.md](analysis/README.md) |
+| 📐 Analysis Methodologies | 6 analytical frameworks | [analysis/methodologies/README.md](analysis/methodologies/README.md) |
+| 📋 Analysis Templates | 8 structured templates | [analysis/templates/README.md](analysis/templates/README.md) |
 | 📈 Security Flowcharts | Process flows | [FLOWCHART.md](FLOWCHART.md) |
 | 🛡️ ISMS Policy | Policy framework | [Hack23 ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC) |
 
@@ -952,12 +1151,13 @@ gantt
 
 This document will be reviewed quarterly to assess progress and adjust priorities based on:
 - Security threat landscape changes
-- Technology evolution
-- Business priorities
+- Technology evolution (LLM capabilities, MCP protocol advances)
+- Business priorities and democratic transparency mission
 - Resource availability
-- Compliance requirements
+- Compliance requirements (GDPR, NIS2, EU CRA)
+- European Parliament institutional changes
 
-**Next Review:** 2026-06-10
+**Next Review:** 2026-06-30
 
 ---
 
@@ -966,4 +1166,4 @@ This document will be reviewed quarterly to assess progress and adjust prioritie
 
 ---
 
-*Last updated: 2026-03-10 by Security Architect*
+*Last updated: 2026-03-31 by Intelligence Operative*

@@ -26,7 +26,7 @@
 
 This directory contains **structured analytical methodology templates** that guide AI agents in producing high-quality political intelligence analysis of European Parliament data. Each template defines:
 
-- **Analytical framework** — The structured methodology (ACH, PESTLE, STRIDE, SWOT, etc.)
+- **Analytical framework** — The structured methodology (ACH, PESTLE, Threat Landscape, Diamond Model, SWOT, etc.)
 - **Expected output format** — Professional markdown with Mermaid diagrams, color-coded assessments, and structured tables
 - **Quality standards** — Confidence levels, source attribution, and evidence requirements
 - **MCP data sources** — Which European Parliament MCP tools to query for each analysis type
@@ -46,7 +46,7 @@ mindmap
       [Committee Power Analysis]
     (⚖️ Risk & Threat)
       [Legislative Risk Assessment]
-      [Political STRIDE Assessment]
+      [Political Threat Landscape Assessment]
     (👤 Actor Intelligence)
       [MEP Influence Scorecard]
       [Actor Mapping & Profiling]
@@ -172,7 +172,7 @@ In addition to the higher-level methodology guides in this directory, EU Parliam
 |------------|------|-----------------|---------|
 | **Political Classification** | [`analysis/methodologies/political-classification-guide.md`](../../analysis/methodologies/political-classification-guide.md) | [CLASSIFICATION.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | 7-dimension classification of EP events (sensitivity, urgency, impact) |
 | **Political Risk Assessment** | [`analysis/methodologies/political-risk-methodology.md`](../../analysis/methodologies/political-risk-methodology.md) | [Risk_Assessment_Methodology.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md) | Likelihood × Impact scoring across 6 EP risk categories |
-| **Political Threat Framework** | [`analysis/methodologies/political-threat-framework.md`](../../analysis/methodologies/political-threat-framework.md) | [Threat_Modeling.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) | STRIDE-adapted framework for EU democratic process threats |
+| **Political Threat Framework** | [`analysis/methodologies/political-threat-framework.md`](../../analysis/methodologies/political-threat-framework.md) | [Threat_Modeling.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) | Multi-framework political threat landscape analysis for EU democratic processes |
 | **Political SWOT Framework** | [`analysis/methodologies/political-swot-framework.md`](../../analysis/methodologies/political-swot-framework.md) | [CIA SWOT.md](https://github.com/Hack23/cia/blob/master/SWOT.md) | Evidence-based SWOT requiring EP document citations |
 
 ### Fillable Analysis Templates (`analysis/templates/`)
@@ -183,7 +183,7 @@ These templates are designed to be filled by the AI agent (Opus) during the anal
 |----------|------|-------------|
 | **Political Classification** | [`analysis/templates/political-classification.md`](../../analysis/templates/political-classification.md) | First step for every new EP event/document |
 | **Risk Assessment** | [`analysis/templates/risk-assessment.md`](../../analysis/templates/risk-assessment.md) | Coalition/policy/institutional risk spikes |
-| **Threat Analysis** | [`analysis/templates/threat-analysis.md`](../../analysis/templates/threat-analysis.md) | STRIDE-format democratic threat review |
+| **Threat Analysis** | [`analysis/templates/threat-analysis.md`](../../analysis/templates/threat-analysis.md) | Political Threat Landscape 6-dimension democratic threat review |
 | **SWOT Analysis** | [`analysis/templates/swot-analysis.md`](../../analysis/templates/swot-analysis.md) | Strategic political landscape assessment |
 | **Stakeholder Impact** | [`analysis/templates/stakeholder-impact.md`](../../analysis/templates/stakeholder-impact.md) | Policy decision or legislative action impact |
 | **Significance Scoring** | [`analysis/templates/significance-scoring.md`](../../analysis/templates/significance-scoring.md) | Publication priority decisions |
@@ -213,7 +213,7 @@ These templates are designed to be filled by the AI agent (Opus) during the anal
 |----------------|-------------------|
 | "0 procedures tracked" | "No new procedures detected in the monitoring window — this may indicate a parliamentary recess or data lag" |
 | Empty risk matrix | "Risk assessment deferred — insufficient data for the current period. Priority monitoring items identified for next cycle." |
-| Generic STRIDE with all "Low" | Context-specific threat assessment with explanations of WHY the level is what it is |
+| Generic threat checklists with all "Low" | Context-specific threat assessment with explanations of WHY the level is what it is |
 | Tables with only headers | Narrative analysis explaining data gaps and their implications |
 | Hardcoded synthetic IDs | Real EP document references with dates and URLs |
 

@@ -5,6 +5,8 @@
 
 > **📌 Template Instructions:** Copy this file to `analysis/YYYY-MM-DD/{article-type-slug}/` and rename to `{event-slug}-classification.md`. Replace all `[REQUIRED]` and `[OPTIONAL]` placeholders with actual values. See [methodologies/political-classification-guide.md](../methodologies/political-classification-guide.md) for full methodology. MCP data is at `analysis/YYYY-MM-DD/{article-type-slug}/data/`.
 
+> **🚨 Anti-Pattern Warning:** Plain prose without structured tables, Mermaid diagrams, or evidence citations is REJECTED. Every classification file MUST follow this template exactly: metadata header, structured tables with evidence columns, colour-coded Mermaid diagram, confidence labels on all claims. See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for good vs. bad examples. **Never use scripted boilerplate — AI must analyse the actual document.**
+
 ---
 
 ## 📋 Document Metadata

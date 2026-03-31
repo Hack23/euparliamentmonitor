@@ -27,7 +27,7 @@
  *
  * Analysis methods are grouped into four categories:
  * - **Classification** (Issues #804): significance, impact-matrix, actor-mapping, forces
- * - **Threat Assessment** (Issues #805): political-stride, actor-threat, consequence-trees, disruption
+ * - **Threat Assessment** (Issues #805): political-threat-landscape, actor-threat, consequence-trees, disruption
  * - **Risk Scoring** (Issues #806): risk-matrix, capital-risk, quantitative-swot, velocity-risk, agent-workflow
  * - **Existing** (current codebase): deep-analysis, stakeholder-analysis, coalition-analysis, voting-patterns, cross-session-intelligence
  *
@@ -249,7 +249,7 @@ export const ALL_ANALYSIS_METHODS = [
     'actor-mapping',
     'forces-analysis',
     // Threat Assessment
-    'political-stride',
+    'political-threat-landscape',
     'actor-threat-profiling',
     'consequence-trees',
     'legislative-disruption',
@@ -276,7 +276,12 @@ export const ALL_ANALYSIS_METHODS = [
  * names (e.g. the `--analysis-methods` CLI flag).  For the default execution
  * set, use {@link ALL_ANALYSIS_METHODS} instead.
  */
-export const VALID_ANALYSIS_METHODS = Array.from(new Set([...ALL_ANALYSIS_METHODS, 'document-analysis']));
+export const VALID_ANALYSIS_METHODS = Array.from(new Set([
+    ...ALL_ANALYSIS_METHODS,
+    'document-analysis',
+    // Deprecated alias — accepted for backward compatibility
+    'political-stride',
+]));
 // ─── Internal helpers ─────────────────────────────────────────────────────────
 /**
  * Determine the aggregated confidence level from a set of individual results.
@@ -609,7 +614,7 @@ ${forceRow('External Influences', forces.externalInfluences)}
 `);
 }
 /**
- * Build markdown for the political STRIDE threat assessment.
+ * Build markdown for the political threat landscape assessment.
  *
  * Uses the pipeline `date` parameter to ensure the assessment date in the
  * generated markdown matches the `analysis/{date}/` folder, overriding
@@ -619,7 +624,7 @@ ${forceRow('External Influences', forces.externalInfluences)}
  * @param date - Analysis date (used to override assessment date for consistency)
  * @returns Markdown content string
  */
-function buildPoliticalStrideMarkdown(fetchedData, date) {
+function buildThreatLandscapeMarkdown(fetchedData, date) {
     const input = toThreatInput(fetchedData);
     const assessment = assessPoliticalThreats(input);
     return generateThreatAssessmentMarkdown({ ...assessment, date });
@@ -1418,7 +1423,7 @@ Each document receives:
 1. **Raw Data Storage** — Full document JSON stored in \`documents/raw-data/\` for complete data preservation
 2. **Significance Classification** — Political importance on 5-level scale
 3. **SWOT Assessment** — Strengths, weaknesses, opportunities, threats specific to the document
-4. **Threat Profiling** — Political STRIDE analysis for disruption potential
+4. **Threat Profiling** — Political threat landscape analysis for disruption potential
 5. **Stakeholder Impact** — Projected effects on key stakeholder groups
 6. **Intelligence Summary** — Key findings and actionable insights
 
@@ -1518,7 +1523,7 @@ ${sanitizeCell(docDescription)}
 
 ## Threat Assessment
 
-- **STRIDE Categories Evaluated**: ${threats.strideCategories.length}
+- **Threat Dimensions Evaluated**: ${threats.threatDimensions.length}
 - **Overall Threat Level**: ${threats.overallThreatLevel}
 - **Assessment Date**: ${threats.date}
 
@@ -1545,7 +1550,7 @@ ${sanitizeCell(docDescription)}
 | Significance | ${significance} |
 | SWOT Score | ${docSwot.strategicPositionScore.toFixed(1)}/10 |
 | Overall Assessment | ${docSwot.overallAssessment} |
-| STRIDE Categories | ${threats.strideCategories.length} |
+| Threat Dimensions | ${threats.threatDimensions.length} |
 | Overall Threat Level | ${threats.overallThreatLevel} |
 
 ## Analysis Date: ${date}
@@ -1557,7 +1562,7 @@ const METHOD_BUILDERS = {
     'impact-matrix': buildImpactMatrixMarkdown,
     'actor-mapping': buildActorMappingMarkdown,
     'forces-analysis': buildForcesAnalysisMarkdown,
-    'political-stride': buildPoliticalStrideMarkdown,
+    'political-threat-landscape': buildThreatLandscapeMarkdown,
     'actor-threat-profiling': buildActorThreatProfilingMarkdown,
     'consequence-trees': buildConsequenceTreesMarkdown,
     'legislative-disruption': buildLegislativeDisruptionMarkdown,
@@ -1572,6 +1577,8 @@ const METHOD_BUILDERS = {
     'voting-patterns': buildVotingPatternsMarkdown,
     'cross-session-intelligence': buildCrossSessionIntelligenceMarkdown,
     'document-analysis': buildDocumentAnalysisMarkdown,
+    // Deprecated alias — maps to same builder as 'political-threat-landscape'
+    'political-stride': buildThreatLandscapeMarkdown,
 };
 // ─── Method subdir constants ──────────────────────────────────────────────────
 /** Subdirectory name for classification analysis methods */
@@ -1765,7 +1772,7 @@ const METHOD_SUBDIRS = {
     'impact-matrix': SUBDIR_CLASSIFICATION,
     'actor-mapping': SUBDIR_CLASSIFICATION,
     'forces-analysis': SUBDIR_CLASSIFICATION,
-    'political-stride': SUBDIR_THREAT_ASSESSMENT,
+    'political-threat-landscape': SUBDIR_THREAT_ASSESSMENT,
     'actor-threat-profiling': SUBDIR_THREAT_ASSESSMENT,
     'consequence-trees': SUBDIR_THREAT_ASSESSMENT,
     'legislative-disruption': SUBDIR_THREAT_ASSESSMENT,
@@ -1780,6 +1787,7 @@ const METHOD_SUBDIRS = {
     'voting-patterns': SUBDIR_EXISTING,
     'cross-session-intelligence': SUBDIR_EXISTING,
     'document-analysis': SUBDIR_DOCUMENTS,
+    'political-stride': SUBDIR_THREAT_ASSESSMENT,
 };
 /** Default confidence level for each analysis method group */
 const METHOD_DEFAULT_CONFIDENCE = {
@@ -1787,7 +1795,7 @@ const METHOD_DEFAULT_CONFIDENCE = {
     'impact-matrix': 'medium',
     'actor-mapping': 'medium',
     'forces-analysis': 'medium',
-    'political-stride': 'medium',
+    'political-threat-landscape': 'medium',
     'actor-threat-profiling': 'low',
     'consequence-trees': 'medium',
     'legislative-disruption': 'medium',
@@ -1802,6 +1810,7 @@ const METHOD_DEFAULT_CONFIDENCE = {
     'voting-patterns': 'high',
     'cross-session-intelligence': 'high',
     'document-analysis': 'medium',
+    'political-stride': 'medium',
 };
 /** Filename for each analysis method */
 const METHOD_FILENAMES = {
@@ -1809,7 +1818,7 @@ const METHOD_FILENAMES = {
     'impact-matrix': 'impact-matrix.md',
     'actor-mapping': 'actor-mapping.md',
     'forces-analysis': 'forces-analysis.md',
-    'political-stride': 'political-stride-assessment.md',
+    'political-threat-landscape': 'political-threat-landscape.md',
     'actor-threat-profiling': 'actor-threat-profiles.md',
     'consequence-trees': 'consequence-trees.md',
     'legislative-disruption': 'legislative-disruption.md',
@@ -1824,6 +1833,7 @@ const METHOD_FILENAMES = {
     'voting-patterns': 'voting-patterns.md',
     'cross-session-intelligence': 'cross-session-intelligence.md',
     'document-analysis': 'document-analysis-index.md',
+    'political-stride': 'political-threat-landscape.md',
 };
 // ─── Core runner ──────────────────────────────────────────────────────────────
 /**

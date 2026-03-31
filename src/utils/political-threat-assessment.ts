@@ -4,13 +4,14 @@
 
 /**
  * @module Utils/PoliticalThreatAssessment
- * @description Pure political threat assessment functions adapted from ISMS threat
- * modeling (STRIDE, attack trees, kill chain analysis) applied to parliamentary
- * political dynamics. All functions are stateless and safely handle malformed or
- * missing input data. No side effects.
+ * @description Pure political threat assessment functions using the Political
+ * Threat Landscape framework (6 dimensions: Coalition Shifts, Transparency
+ * Deficit, Policy Reversal, Institutional Pressure, Legislative Obstruction,
+ * Democratic Erosion), supplemented by attack trees and kill chain analysis.
+ * All functions are stateless and safely handle malformed or missing input data.
+ * No side effects.
  *
  * @see {@link https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md} ISMS Threat Modeling Policy
- * @see {@link https://github.com/Hack23/riksdagsmonitor/blob/main/THREAT_MODEL.md} Riksdagsmonitor Threat Model
  */
 
 import type {
@@ -23,15 +24,15 @@ import type {
   PoliticalActorThreatProfile,
   PoliticalActorType,
   PoliticalConsequenceTree,
-  PoliticalStrideCategory,
+  PoliticalThreatDimension,
   PoliticalThreatAssessment,
   PoliticalThreatCategory,
 } from '../types/political-threats.js';
 
 // ─── Constants ─────────────────────────────────────────────────────────────────
 
-/** All Political STRIDE categories in canonical order */
-const ALL_STRIDE_CATEGORIES: readonly PoliticalThreatCategory[] = [
+/** All threat landscape dimensions in canonical order */
+const ALL_THREAT_DIMENSIONS: readonly PoliticalThreatCategory[] = [
   'shift',
   'transparency',
   'reversal',
@@ -60,14 +61,14 @@ const IMPACT_WEIGHTS: Readonly<Record<ImpactLevel, number>> = {
   none: 0,
 };
 
-/** Display labels for Political STRIDE categories */
-const STRIDE_LABELS: Readonly<Record<PoliticalThreatCategory, string>> = {
-  shift: 'Coalition Shifts (S)',
-  transparency: 'Transparency Concerns (T)',
-  reversal: 'Policy Reversals (R)',
-  institutional: 'Institutional Threats (I)',
-  delay: 'Legislative Delays (D)',
-  erosion: 'Democratic Erosion (E)',
+/** Display labels for threat landscape dimensions */
+const DIMENSION_LABELS: Readonly<Record<PoliticalThreatCategory, string>> = {
+  shift: 'Coalition Shifts',
+  transparency: 'Transparency Deficit',
+  reversal: 'Policy Reversal',
+  institutional: 'Institutional Pressure',
+  delay: 'Legislative Obstruction',
+  erosion: 'Democratic Erosion',
 };
 
 /** Emoji threat level indicators for markdown output */
@@ -141,27 +142,14 @@ function safeArray(val: unknown): readonly unknown[] {
 /**
  * Resolve the voting anomaly array from a `ThreatAssessmentInput`.
  *
- * The real MCP pipeline exposes voting anomalies under the field `anomalies`,
- * while the original type used `votingAnomalies`. This helper reads from
- * `anomalies` first, falling back to `votingAnomalies` for backward compat.
- * Both fields are validated as arrays; non-array values are treated as empty.
+ * Reads the `anomalies` field and validates it as an array.
+ * Non-array values are treated as empty.
  *
  * @param data - Article / threat-assessment data (may be null)
  * @returns Readonly array of anomaly items, never null
  */
 function resolveAnomalies(data: ThreatAssessmentInput | null | undefined): readonly unknown[] {
-  const anomalies = data?.anomalies as unknown;
-  const votingAnomalies = data?.votingAnomalies as unknown;
-
-  if (Array.isArray(anomalies)) {
-    return anomalies;
-  }
-
-  if (Array.isArray(votingAnomalies)) {
-    return votingAnomalies;
-  }
-
-  return [];
+  return safeArray(data?.anomalies);
 }
 
 /**
@@ -237,12 +225,12 @@ function clampProbability(p: number): number {
   return Math.max(0, Math.min(1, p));
 }
 
-// ─── STRIDE helper extractors ──────────────────────────────────────────────
+// ─── Threat landscape helper extractors ──────────────────────────────────────────────
 
 /**
  * Convert a raw numeric threat score (1–3) to an ImpactLevel.
  *
- * STRIDE scanner helpers operate on a 1–3 scale where 1=low, 2=medium,
+ * Threat landscape scanner helpers operate on a 1–3 scale where 1=low, 2=medium,
  * 3=high. Any value ≥3 is treated as `high` in this layer; the `critical`
  * impact level is reserved for higher-level analyses (e.g., actor profiles
  * or aggregated assessments) that assign `critical` directly.
@@ -257,24 +245,24 @@ function scoreToImpact(threatScore: number): ImpactLevel {
 }
 
 /**
- * Build STRIDE result object with default evidence fallback.
+ * Build threat dimension result object with default evidence fallback.
  *
- * @param category - STRIDE category
+ * @param category - threat dimension
  * @param threatScore - Raw numeric threat score
  * @param evidence - Collected evidence items
  * @param defaultEvidence - Fallback evidence when array is empty
  * @param lowAnalysis - Analysis text when threat is low
  * @param elevatedAnalysis - Analysis text when threat is elevated
- * @returns PoliticalStrideCategory result
+ * @returns PoliticalThreatDimension result
  */
-function buildStrideResult(
+function buildDimensionResult(
   category: PoliticalThreatCategory,
   threatScore: number,
   evidence: string[],
   defaultEvidence: string,
   lowAnalysis: string,
   elevatedAnalysis: (level: ImpactLevel) => string
-): PoliticalStrideCategory {
+): PoliticalThreatDimension {
   const threatLevel = scoreToImpact(threatScore);
   return {
     category,
@@ -543,15 +531,15 @@ function scanCriticalAnomaliesForErosion(
   return 1;
 }
 
-// ─── STRIDE Analysis ───────────────────────────────────────────────────────────
+// ─── Threat Landscape Analysis ───────────────────────────────────────────────────────────
 
 /**
  * Assess coalition shift threats from voting and coalition data.
  *
  * @param data - Article data containing voting records and coalition data
- * @returns Political STRIDE category assessment for coalition shifts
+ * @returns threat landscape dimension assessment for coalition shifts
  */
-function assessShiftThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
+function assessShiftThreats(data: ThreatAssessmentInput): PoliticalThreatDimension {
   const records = safeArray(data.votingRecords);
   const coalitions = safeArray(data.coalitionData);
   const anomalies = resolveAnomalies(data);
@@ -565,7 +553,7 @@ function assessShiftThreats(data: ThreatAssessmentInput): PoliticalStrideCategor
     evidence.push(`${records.length} voting records analysed; no major shift signals detected`);
   }
 
-  return buildStrideResult(
+  return buildDimensionResult(
     'shift',
     threatScore,
     evidence,
@@ -579,9 +567,9 @@ function assessShiftThreats(data: ThreatAssessmentInput): PoliticalStrideCategor
  * Assess transparency threats from procedural and committee data.
  *
  * @param data - Article data containing committee and procedural data
- * @returns Political STRIDE category assessment for transparency concerns
+ * @returns threat landscape dimension assessment for transparency concerns
  */
-function assessTransparencyThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
+function assessTransparencyThreats(data: ThreatAssessmentInput): PoliticalThreatDimension {
   const committees = safeArray(data.committees);
   const questions = safeArray(data.questions);
   const evidence: string[] = [];
@@ -594,7 +582,7 @@ function assessTransparencyThreats(data: ThreatAssessmentInput): PoliticalStride
     );
   }
 
-  return buildStrideResult(
+  return buildDimensionResult(
     'transparency',
     threatScore,
     evidence,
@@ -609,9 +597,9 @@ function assessTransparencyThreats(data: ThreatAssessmentInput): PoliticalStride
  * Assess policy reversal threats from legislative procedure data.
  *
  * @param data - Article data containing procedure and feed data
- * @returns Political STRIDE category assessment for policy reversals
+ * @returns threat landscape dimension assessment for policy reversals
  */
-function assessReversalThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
+function assessReversalThreats(data: ThreatAssessmentInput): PoliticalThreatDimension {
   const procedures = safeArray(data.procedures);
   const evidence: string[] = [];
 
@@ -620,7 +608,7 @@ function assessReversalThreats(data: ThreatAssessmentInput): PoliticalStrideCate
   const feedScore = checkFeedAdoptedTexts(feedData, procedures.length, evidence);
   const threatScore = Math.max(procScore, feedScore);
 
-  return buildStrideResult(
+  return buildDimensionResult(
     'reversal',
     threatScore,
     evidence,
@@ -635,9 +623,9 @@ function assessReversalThreats(data: ThreatAssessmentInput): PoliticalStrideCate
  * Assess institutional threats from MEP influence and procedural data.
  *
  * @param data - Article data containing MEP influence and committee data
- * @returns Political STRIDE category assessment for institutional threats
+ * @returns threat landscape dimension assessment for institutional threats
  */
-function assessInstitutionalThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
+function assessInstitutionalThreats(data: ThreatAssessmentInput): PoliticalThreatDimension {
   const mepInfluence = safeArray(data.mepInfluence);
   const evidence: string[] = [];
 
@@ -646,7 +634,7 @@ function assessInstitutionalThreats(data: ThreatAssessmentInput): PoliticalStrid
   const turnoverScore = checkMEPTurnover(feedData, evidence);
   const threatScore = Math.max(concentrationScore, turnoverScore);
 
-  return buildStrideResult(
+  return buildDimensionResult(
     'institutional',
     threatScore,
     evidence,
@@ -661,9 +649,9 @@ function assessInstitutionalThreats(data: ThreatAssessmentInput): PoliticalStrid
  * Assess legislative delay threats from procedure and feed data.
  *
  * @param data - Article data containing procedures and timeline data
- * @returns Political STRIDE category assessment for legislative delays
+ * @returns threat landscape dimension assessment for legislative delays
  */
-function assessDelayThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
+function assessDelayThreats(data: ThreatAssessmentInput): PoliticalThreatDimension {
   const procedures = safeArray(data.procedures);
   const anomalies = resolveAnomalies(data);
   const evidence: string[] = [];
@@ -672,7 +660,7 @@ function assessDelayThreats(data: ThreatAssessmentInput): PoliticalStrideCategor
   const abstentionScore = scanAbstentionAnomalies(anomalies, evidence);
   const threatScore = Math.max(procScore, abstentionScore);
 
-  return buildStrideResult(
+  return buildDimensionResult(
     'delay',
     threatScore,
     evidence,
@@ -687,9 +675,9 @@ function assessDelayThreats(data: ThreatAssessmentInput): PoliticalStrideCategor
  * Assess democratic erosion threats from coalition and anomaly data.
  *
  * @param data - Article data containing coalition and voting data
- * @returns Political STRIDE category assessment for democratic erosion
+ * @returns threat landscape dimension assessment for democratic erosion
  */
-function assessErosionThreats(data: ThreatAssessmentInput): PoliticalStrideCategory {
+function assessErosionThreats(data: ThreatAssessmentInput): PoliticalThreatDimension {
   const coalitions = safeArray(data.coalitionData);
   const anomalies = resolveAnomalies(data);
   const evidence: string[] = [];
@@ -698,7 +686,7 @@ function assessErosionThreats(data: ThreatAssessmentInput): PoliticalStrideCateg
   const anomalyScore = scanCriticalAnomaliesForErosion(anomalies, evidence);
   const threatScore = Math.max(cohesionScore, anomalyScore);
 
-  return buildStrideResult(
+  return buildDimensionResult(
     'erosion',
     threatScore,
     evidence,
@@ -712,10 +700,10 @@ function assessErosionThreats(data: ThreatAssessmentInput): PoliticalStrideCateg
 // ─── Exported assessment functions ────────────────────────────────────────────
 
 /**
- * Assess political threats across all six Political STRIDE categories.
+ * Assess political threats across all six Political Threat Landscape categories.
  *
  * Pure function that analyses article data and produces a complete political
- * threat assessment with STRIDE analysis, actor profiles, consequence trees,
+ * threat assessment with threat landscape analysis, actor profiles, consequence trees,
  * and legislative disruption analysis.
  *
  * The function is null-safe and tolerates missing or malformed input data.
@@ -729,7 +717,7 @@ export function assessPoliticalThreats(
   const safeData: ThreatAssessmentInput = data ?? {};
   const date = new Date().toISOString().slice(0, 10);
 
-  const strideCategories: PoliticalStrideCategory[] = [
+  const threatDimensions: PoliticalThreatDimension[] = [
     assessShiftThreats(safeData),
     assessTransparencyThreats(safeData),
     assessReversalThreats(safeData),
@@ -743,14 +731,14 @@ export function assessPoliticalThreats(
   const legislativeDisruptions = buildLegislativeDisruptions(safeData);
 
   const aggregatedThreatLevels: ImpactLevel[] = [
-    ...strideCategories.map((c) => c.threatLevel),
+    ...threatDimensions.map((c) => c.threatLevel),
     ...actorProfiles.map((p) => p.overallThreatLevel),
   ];
   const overallThreatLevel = aggregateImpactLevels(aggregatedThreatLevels);
 
-  const keyFindings: string[] = strideCategories
+  const keyFindings: string[] = threatDimensions
     .filter((c) => c.threatLevel === 'high' || c.threatLevel === 'critical')
-    .map((c) => `${STRIDE_LABELS[c.category]}: ${c.analysis}`);
+    .map((c) => `${DIMENSION_LABELS[c.category]}: ${c.analysis}`);
 
   for (const profile of actorProfiles) {
     if (profile.overallThreatLevel === 'high' || profile.overallThreatLevel === 'critical') {
@@ -761,14 +749,14 @@ export function assessPoliticalThreats(
   }
 
   if (keyFindings.length === 0) {
-    keyFindings.push('No high-priority threats detected across Political STRIDE categories');
+    keyFindings.push('No high-priority threats detected across threat landscape dimensions');
   }
 
   const recommendations: string[] = [];
-  for (const cat of strideCategories) {
+  for (const cat of threatDimensions) {
     if (cat.threatLevel === 'critical' || cat.threatLevel === 'high') {
       recommendations.push(
-        `Monitor ${STRIDE_LABELS[cat.category].toLowerCase()} — ${cat.evidence[0] ?? 'elevated threat level'}`
+        `Monitor ${DIMENSION_LABELS[cat.category].toLowerCase()} — ${cat.evidence[0] ?? 'elevated threat level'}`
       );
     }
   }
@@ -784,11 +772,11 @@ export function assessPoliticalThreats(
   }
 
   const hasStrongActorSignals = actorProfiles.length > 0;
-  const hasRichStrideEvidence = strideCategories.some((c) => c.evidence.length > 1);
+  const hasRichDimensionEvidence = threatDimensions.some((c) => c.evidence.length > 1);
   let confidence: 'high' | 'medium' | 'low' = 'low';
-  if (hasStrongActorSignals && hasRichStrideEvidence) {
+  if (hasStrongActorSignals && hasRichDimensionEvidence) {
     confidence = 'high';
-  } else if (hasStrongActorSignals || hasRichStrideEvidence) {
+  } else if (hasStrongActorSignals || hasRichDimensionEvidence) {
     confidence = 'medium';
   }
 
@@ -796,7 +784,8 @@ export function assessPoliticalThreats(
     date,
     overallThreatLevel,
     confidence,
-    strideCategories,
+    threatDimensions,
+    strideCategories: threatDimensions,
     actorProfiles,
     consequenceTrees,
     legislativeDisruptions,
@@ -1113,7 +1102,7 @@ const STAGE_RISK_MULTIPLIERS: Readonly<Record<LegislativeStage, number>> = {
 };
 
 /**
- * Determine the Political STRIDE threat category for a legislative stage.
+ * Determine the Political Threat Landscape threat category for a legislative stage.
  *
  * @param stage - Legislative stage
  * @returns Corresponding threat category
@@ -1492,7 +1481,7 @@ function buildDisruptionTableMarkdown(analysis: LegislativeDisruptionAnalysis): 
 /**
  * Generate structured markdown analysis from a political threat assessment.
  *
- * Produces a complete markdown document with YAML frontmatter, Political STRIDE
+ * Produces a complete markdown document with YAML frontmatter, Political Threat Landscape
  * analysis, actor threat profiles table, consequence trees with Mermaid diagrams,
  * and legislative disruption analysis.
  *
@@ -1515,7 +1504,7 @@ export function generateThreatAssessmentMarkdown(
     'analysisType: "threat-assessment"',
     `threatLevel: "${safeAssessment.overallThreatLevel}"`,
     `confidence: "${safeAssessment.confidence}"`,
-    'methods: ["political-stride", "actor-profiling", "consequence-trees", "disruption-analysis"]',
+    'methods: ["political-threat-landscape", "actor-profiling", "consequence-trees", "disruption-analysis"]',
     '---',
     '',
     '# Political Threat Assessment',
@@ -1524,14 +1513,14 @@ export function generateThreatAssessmentMarkdown(
     `**Confidence**: ${safeAssessment.confidence}  `,
     `**Date**: ${safeAssessment.date}`,
     '',
-    '## Political STRIDE Analysis',
+    '## Political Threat Landscape Analysis',
     '',
   ];
 
-  for (const cat of safeAssessment.strideCategories) {
+  for (const cat of safeAssessment.threatDimensions) {
     const emoji = THREAT_EMOJIS[cat.threatLevel];
     lines.push(
-      `### ${STRIDE_LABELS[cat.category]}`,
+      `### ${DIMENSION_LABELS[cat.category]}`,
       `**Threat Level**: ${emoji} ${cat.threatLevel.charAt(0).toUpperCase() + cat.threatLevel.slice(1)}`,
       '',
       sanitizeMarkdownText(cat.analysis),
@@ -1582,11 +1571,18 @@ export function generateThreatAssessmentMarkdown(
   return lines.join('\n');
 }
 
-// ─── All Political STRIDE categories constant (for external use) ──────────────
+// ─── All threat landscape dimensions constant (for external use) ──────────────
 
 /**
- * All Political STRIDE categories in canonical order.
- * Useful for iterating over all categories without hardcoding the list.
+ * All Political Threat Landscape dimensions in canonical order.
+ * Useful for iterating over all dimensions without hardcoding the list.
+ */
+export const ALL_THREAT_LANDSCAPE_DIMENSIONS: readonly PoliticalThreatCategory[] =
+  ALL_THREAT_DIMENSIONS;
+
+/**
+ * @deprecated Use {@link ALL_THREAT_LANDSCAPE_DIMENSIONS} instead.
+ * Kept for backward compatibility during migration.
  */
 export const ALL_POLITICAL_STRIDE_CATEGORIES: readonly PoliticalThreatCategory[] =
-  ALL_STRIDE_CATEGORIES;
+  ALL_THREAT_LANDSCAPE_DIMENSIONS;
