@@ -32,7 +32,7 @@ The `analysis/daily/` directory stores per-day analysis artifacts produced by EU
 ```
 analysis/daily/
 ├── YYYY-MM-DD/                        ← ISO 8601 date (always zero-padded)
-│   ├── breaking-news/                 ← news-breaking workflow output
+│   ├── breaking/                      ← news-breaking workflow output
 │   │   ├── classification/
 │   │   ├── risk-scoring/
 │   │   ├── threat-assessment/
@@ -44,7 +44,7 @@ analysis/daily/
 │   │   ├── threat-assessment/
 │   │   ├── data/
 │   │   └── synthesis-summary.md
-│   ├── weekly-review/                 ← news-weekly-review workflow output
+│   ├── week-in-review/                ← news-weekly-review workflow output
 │   │   └── ...
 │   ├── week-ahead/                    ← news-week-ahead workflow output
 │   │   └── ...
@@ -65,14 +65,14 @@ analysis/daily/
 
 | Workflow | Article Type Slug | Output Directory |
 |----------|-------------------|------------------|
-| `news-breaking` | `breaking-news` | `analysis/daily/YYYY-MM-DD/breaking-news/` |
+| `news-breaking` | `breaking` | `analysis/daily/YYYY-MM-DD/breaking/` |
 | `news-committee-reports` | `committee-reports` | `analysis/daily/YYYY-MM-DD/committee-reports/` |
 | `news-propositions` | `propositions` | `analysis/daily/YYYY-MM-DD/propositions/` |
 | `news-motions` | `motions` | `analysis/daily/YYYY-MM-DD/motions/` |
 | `news-week-ahead` | `week-ahead` | `analysis/daily/YYYY-MM-DD/week-ahead/` |
-| `news-weekly-review` | `weekly-review` | `analysis/daily/YYYY-MM-DD/weekly-review/` |
+| `news-weekly-review` | `week-in-review` | `analysis/daily/YYYY-MM-DD/week-in-review/` |
 | `news-month-ahead` | `month-ahead` | `analysis/daily/YYYY-MM-DD/month-ahead/` |
-| `news-monthly-review` | `monthly-review` | `analysis/daily/YYYY-MM-DD/monthly-review/` |
+| `news-monthly-review` | `month-in-review` | `analysis/daily/YYYY-MM-DD/month-in-review/` |
 | `news-article-generator` | `article-generator` | `analysis/daily/YYYY-MM-DD/article-generator/` |
 
 ---

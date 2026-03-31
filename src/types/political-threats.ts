@@ -203,6 +203,12 @@ export interface PoliticalThreatDimension {
 }
 
 /**
+ * @deprecated Use {@link PoliticalThreatDimension} instead.
+ * Kept for backward compatibility during migration.
+ */
+export type PoliticalStrideCategory = PoliticalThreatDimension;
+
+/**
  * Complete Political Threat Assessment — the top-level output of the
  * political threat assessment pipeline.
  *
@@ -218,6 +224,11 @@ export interface PoliticalThreatAssessment {
   readonly confidence: 'high' | 'medium' | 'low';
   /** Political Threat Landscape analysis for each of the six dimensions */
   readonly threatDimensions: readonly PoliticalThreatDimension[];
+  /**
+   * @deprecated Use {@link threatDimensions} instead.
+   * Kept for backward compatibility during migration.
+   */
+  readonly strideCategories?: readonly PoliticalThreatDimension[];
   /** Threat profiles for key political actors */
   readonly actorProfiles: readonly PoliticalActorThreatProfile[];
   /** Consequence trees for identified high-risk political actions */

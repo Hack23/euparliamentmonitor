@@ -318,7 +318,9 @@ export type AnalysisMethod =
   | 'voting-patterns'
   | 'cross-session-intelligence'
   // Per-document intelligence analysis
-  | 'document-analysis';
+  | 'document-analysis'
+  // Deprecated alias — use 'political-threat-landscape' instead
+  | 'political-stride';
 
 /** All analysis methods in default execution order */
 export const ALL_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
@@ -2193,6 +2195,8 @@ const METHOD_BUILDERS: Readonly<Record<AnalysisMethod, MarkdownBuilder>> = {
   'voting-patterns': buildVotingPatternsMarkdown,
   'cross-session-intelligence': buildCrossSessionIntelligenceMarkdown,
   'document-analysis': buildDocumentAnalysisMarkdown,
+  // Deprecated alias — maps to same builder as 'political-threat-landscape'
+  'political-stride': buildThreatLandscapeMarkdown,
 };
 
 // ─── Method subdir constants ──────────────────────────────────────────────────
@@ -2423,6 +2427,7 @@ const METHOD_SUBDIRS: Readonly<Record<AnalysisMethod, string>> = {
   'voting-patterns': SUBDIR_EXISTING,
   'cross-session-intelligence': SUBDIR_EXISTING,
   'document-analysis': SUBDIR_DOCUMENTS,
+  'political-stride': SUBDIR_THREAT_ASSESSMENT,
 };
 
 /** Default confidence level for each analysis method group */
@@ -2446,6 +2451,7 @@ const METHOD_DEFAULT_CONFIDENCE: Readonly<Record<AnalysisMethod, ConfidenceLevel
   'voting-patterns': 'high',
   'cross-session-intelligence': 'high',
   'document-analysis': 'medium',
+  'political-stride': 'medium',
 };
 
 /** Filename for each analysis method */
@@ -2469,6 +2475,7 @@ const METHOD_FILENAMES: Readonly<Record<AnalysisMethod, string>> = {
   'voting-patterns': 'voting-patterns.md',
   'cross-session-intelligence': 'cross-session-intelligence.md',
   'document-analysis': 'document-analysis-index.md',
+  'political-stride': 'political-threat-landscape.md',
 };
 
 // ─── Core runner ──────────────────────────────────────────────────────────────

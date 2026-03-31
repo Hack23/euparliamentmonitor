@@ -621,6 +621,7 @@ export function assessPoliticalThreats(data) {
         overallThreatLevel,
         confidence,
         threatDimensions,
+        strideCategories: threatDimensions,
         actorProfiles,
         consequenceTrees,
         legislativeDisruptions,
@@ -1293,4 +1294,9 @@ export function generateThreatAssessmentMarkdown(assessment) {
  * Useful for iterating over all dimensions without hardcoding the list.
  */
 export const ALL_THREAT_LANDSCAPE_DIMENSIONS = ALL_THREAT_DIMENSIONS;
+/**
+ * @deprecated Use {@link ALL_THREAT_LANDSCAPE_DIMENSIONS} instead.
+ * Kept for backward compatibility during migration.
+ */
+export const ALL_POLITICAL_STRIDE_CATEGORIES = ALL_THREAT_LANDSCAPE_DIMENSIONS;
 //# sourceMappingURL=political-threat-assessment.js.map

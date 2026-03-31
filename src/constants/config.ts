@@ -37,8 +37,6 @@ export const VALID_ARTICLE_CATEGORIES: readonly ArticleCategory[] = Object.value
   ArticleCategory
 ) as ArticleCategory[];
 
-
-
 /** Week ahead article category constant */
 export const ARTICLE_TYPE_WEEK_AHEAD = ArticleCategory.WEEK_AHEAD;
 

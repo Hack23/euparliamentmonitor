@@ -785,6 +785,7 @@ export function assessPoliticalThreats(
     overallThreatLevel,
     confidence,
     threatDimensions,
+    strideCategories: threatDimensions,
     actorProfiles,
     consequenceTrees,
     legislativeDisruptions,
@@ -1578,3 +1579,10 @@ export function generateThreatAssessmentMarkdown(
  */
 export const ALL_THREAT_LANDSCAPE_DIMENSIONS: readonly PoliticalThreatCategory[] =
   ALL_THREAT_DIMENSIONS;
+
+/**
+ * @deprecated Use {@link ALL_THREAT_LANDSCAPE_DIMENSIONS} instead.
+ * Kept for backward compatibility during migration.
+ */
+export const ALL_POLITICAL_STRIDE_CATEGORIES: readonly PoliticalThreatCategory[] =
+  ALL_THREAT_LANDSCAPE_DIMENSIONS;

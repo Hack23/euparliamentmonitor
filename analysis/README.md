@@ -180,8 +180,8 @@ flowchart TD
 Every agentic workflow **MUST** write to its own separate directory:
 
 ```
-✅ news-breaking         → analysis/2026-03-31/breaking-news/
-✅ news-weekly-review     → analysis/2026-03-31/weekly-review/
+✅ news-breaking         → analysis/2026-03-31/breaking/
+✅ news-weekly-review     → analysis/2026-03-31/week-in-review/
 ✅ news-committee-reports → analysis/2026-03-31/committee-reports/
 ✅ news-motions           → analysis/2026-03-31/motions/
 ❌ news-breaking overwrites news-weekly-review output → PROHIBITED
@@ -271,14 +271,14 @@ flowchart TD
 
 | Workflow | Slug | Primary Feeds | Analytical Tools | Unique Focus |
 |----------|------|---------------|-----------------|--------------|
-| **news-breaking** | `breaking-news` | adopted_texts, events, procedures, meps (today→one-week fallback) | detect_voting_anomalies, analyze_coalition_dynamics, early_warning_system, generate_political_landscape | **⚡ Real-time events**: Items published TODAY only; 6-hour cycle |
+| **news-breaking** | `breaking` | adopted_texts, events, procedures, meps (today→one-week fallback) | detect_voting_anomalies, analyze_coalition_dynamics, early_warning_system, generate_political_landscape | **⚡ Real-time events**: Items published TODAY only; 6-hour cycle |
 | **news-motions** | `motions` | adopted_texts, parliamentary_questions, meps, procedures | detect_voting_anomalies, analyze_coalition_dynamics, get_voting_records, compare_political_groups | **🗳️ Specific resolutions**: Individual motion IDs, vote breakdowns by group |
 | **news-propositions** | `propositions` | procedures, documents, adopted_texts, plenary_documents | search_documents, monitor_legislative_pipeline, track_legislation, analyze_legislative_effectiveness | **📜 Legislative tracking**: Procedure stages, committee assignments, rapporteur analysis |
 | **news-committee-reports** | `committee-reports` | committee_documents, plenary_documents, adopted_texts, procedures | get_committee_info, monitor_legislative_pipeline, analyze_legislative_effectiveness | **🏛️ Committee deep-dive**: Per-committee output, meeting agendas, document analysis |
 | **news-week-ahead** | `week-ahead` | events, procedures, plenary_documents, plenary_session_documents | get_plenary_sessions (future), get_committee_info, monitor_legislative_pipeline, generate_political_landscape | **📅 Prospective**: Next week's agenda, scheduled votes, upcoming hearings |
-| **news-weekly-review** | `weekly-review` | adopted_texts, procedures, plenary_documents, parliamentary_questions | get_voting_records, detect_voting_anomalies, generate_political_landscape | **📊 Retrospective**: Week's accomplishments, vote outcomes, legislative progress |
+| **news-weekly-review** | `week-in-review` | adopted_texts, procedures, plenary_documents, parliamentary_questions | get_voting_records, detect_voting_anomalies, generate_political_landscape | **📊 Retrospective**: Week's accomplishments, vote outcomes, legislative progress |
 | **news-month-ahead** | `month-ahead` | events, procedures, plenary_documents, committee_documents, adopted_texts, plenary_session_documents, meps | get_plenary_sessions, get_committee_info, monitor_legislative_pipeline, generate_political_landscape, compare_political_groups, analyze_country_delegation | **📆 Strategic outlook**: Upcoming legislative calendar, committee programming |
-| **news-monthly-review** | `monthly-review` | adopted_texts, procedures, plenary_documents, parliamentary_questions | get_voting_records, detect_voting_anomalies, generate_political_landscape, compare_political_groups, analyze_legislative_effectiveness | **📈 Comprehensive review**: Month's legislative output, political trends |
+| **news-monthly-review** | `month-in-review` | adopted_texts, procedures, plenary_documents, parliamentary_questions | get_voting_records, detect_voting_anomalies, generate_political_landscape, compare_political_groups, analyze_legislative_effectiveness | **📈 Comprehensive review**: Month's legislative output, political trends |
 | **news-translate** | (n/a) | — | — | **🌐 Translation only**: Translates EN articles to 13 languages |
 
 ---

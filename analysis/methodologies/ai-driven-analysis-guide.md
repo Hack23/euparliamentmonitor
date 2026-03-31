@@ -154,7 +154,7 @@ A workflow running on Tuesday overwrites Monday's analysis file in the same loca
 
 ### ✅ Correct Approach
 
-Each workflow writes to its own directory: `analysis/{date}/{article-type-slug}/`. Monday's `news-breaking` writes to `analysis/2026-03-30/breaking-news/`, Tuesday's `news-committee-reports` writes to `analysis/2026-03-31/committee-reports/`. Never overwrite.
+Each workflow writes to its own directory: `analysis/{date}/{article-type-slug}/`. Monday's `news-breaking` writes to `analysis/2026-03-30/breaking/`, Tuesday's `news-committee-reports` writes to `analysis/2026-03-31/committee-reports/`. Never overwrite.
 
 ---
 
@@ -224,7 +224,7 @@ When multiple agentic workflows run simultaneously:
 ### Critical Rule: Never Overwrite Another Workflow's Analysis
 
 ```
-✅ news-breaking   → analysis/2026-03-30/breaking-news/
+✅ news-breaking   → analysis/2026-03-30/breaking/
 ✅ news-weekly-review → analysis/2026-03-30/weekly-review/
 ✅ news-committee-reports → analysis/2026-03-30/committee-reports/
 ❌ news-breaking overwrites news-weekly-review output → PROHIBITED

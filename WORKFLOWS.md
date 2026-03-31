@@ -1793,7 +1793,7 @@ Each content workflow deposits analysis artifacts in an isolated directory:
 ```
 analysis/2026-03-31/
 ├── ai-daily-synthesis.md              ← Cross-article synthesis (date root)
-├── breaking-news/                     ← news-breaking workflow
+├── breaking/                          ← news-breaking workflow
 │   ├── manifest.json
 │   ├── classification/
 │   ├── threat-assessment/
