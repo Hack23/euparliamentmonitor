@@ -9,6 +9,38 @@
     ".": {
       "import": "./scripts/index.js",
       "types": "./scripts/index.d.ts"
+    },
+    "./types": {
+      "import": "./scripts/types/index.js",
+      "types": "./scripts/types/index.d.ts"
+    },
+    "./mcp/*": {
+      "import": "./scripts/mcp/*.js",
+      "types": "./scripts/mcp/*.d.ts"
+    },
+    "./constants/*": {
+      "import": "./scripts/constants/*.js",
+      "types": "./scripts/constants/*.d.ts"
+    },
+    "./utils/*": {
+      "import": "./scripts/utils/*.js",
+      "types": "./scripts/utils/*.d.ts"
+    },
+    "./templates/*": {
+      "import": "./scripts/templates/*.js",
+      "types": "./scripts/templates/*.d.ts"
+    },
+    "./generators/*": {
+      "import": "./scripts/generators/*.js",
+      "types": "./scripts/generators/*.d.ts"
+    },
+    "./generators/pipeline/*": {
+      "import": "./scripts/generators/pipeline/*.js",
+      "types": "./scripts/generators/pipeline/*.d.ts"
+    },
+    "./generators/strategies/*": {
+      "import": "./scripts/generators/strategies/*.js",
+      "types": "./scripts/generators/strategies/*.d.ts"
     }
   },
   "files": [

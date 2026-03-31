@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
-    "target": "ES2024",
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "target": "ES2025",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -14,7 +13,6 @@
     "sourceMap": true,
     "outDir": "./scripts",
     "rootDir": "./src",
-    "baseUrl": ".",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
