@@ -174,6 +174,85 @@ The AI agent **MUST** follow this protocol when classifying political documents:
 
 ---
 
+## 🌡️ Advanced Dimension 1: Political Temperature Index
+
+The Political Temperature Index (PTI) is a **composite score (0–100)** measuring how politically heated an EP event is — beyond simple sensitivity classification:
+
+```mermaid
+graph LR
+    PTI["🌡️ Political<br/>Temperature Index<br/>(0-100)"]
+    PTI --> P1["📊 Partisan Charge<br/>(0-20)"]
+    PTI --> P2["🏛️ Institutional Impact<br/>(0-20)"]
+    PTI --> P3["📰 Media Amplification<br/>(0-20)"]
+    PTI --> P4["👥 Public Salience<br/>(0-20)"]
+    PTI --> P5["⏰ Temporal Pressure<br/>(0-20)"]
+
+    style PTI fill:#dc3545,color:#fff
+    style P1 fill:#fd7e14,color:#fff
+    style P2 fill:#fd7e14,color:#fff
+    style P3 fill:#fd7e14,color:#fff
+    style P4 fill:#fd7e14,color:#fff
+    style P5 fill:#fd7e14,color:#fff
+```
+
+| Temperature Component | Score Range | Assessment Criteria |
+|----------------------|:----------:|---------------------|
+| **Partisan Charge** | 0–20 | How divided are political groups? (0=consensus, 20=deep partisan division across EP groups) |
+| **Institutional Impact** | 0–20 | Does this affect EU institutions? (0=routine, 20=inter-institutional crisis) |
+| **Media Amplification** | 0–20 | Is media likely to amplify? (0=below radar, 20=front-page across member states) |
+| **Public Salience** | 0–20 | Does the public care? (0=technical, 20=pocketbook/safety issue for EU citizens) |
+| **Temporal Pressure** | 0–20 | How urgent is action? (0=no deadline, 20=imminent crisis or expiring legislative deadline) |
+
+### Temperature Classification
+
+| PTI Score | Temperature | Colour | Implication |
+|:---------:|:----------:|:------:|------------|
+| 0–20 | ❄️ Cold | 🔵 Blue | Routine EP activity; standard monitoring |
+| 21–40 | 🌤️ Warm | 🟢 Green | Active interest; regular reporting |
+| 41–60 | 🔥 Hot | 🟡 Yellow | Politically significant; priority analysis across 14 languages |
+| 61–80 | 🔥🔥 Very Hot | 🟠 Orange | Crisis-adjacent; intensive monitoring and breaking news consideration |
+| 81–100 | 🌋 Explosive | 🔴 Red | Constitutional/political crisis; immediate response and all-language deployment |
+
+---
+
+## 🎯 Advanced Dimension 2: Strategic Significance Assessment
+
+Not all politically heated events have long-term significance, and some seemingly routine events have major strategic importance. Distinguish **news value** (short-term) from **strategic significance** (long-term):
+
+| Dimension | News Value (Short-Term) | Strategic Significance (Long-Term) |
+|-----------|------------------------|-----------------------------------|
+| **Time horizon** | Today's headlines | Next 6–24 months |
+| **Question** | "Will this make the news?" | "Will this change the EU political landscape?" |
+| **Indicators** | Media interest, public reaction | Institutional change, precedent setting |
+| **Example (high news, low strategic)** | MEP's controversial statement goes viral | Temporary embarrassment, no policy change |
+| **Example (low news, high strategic)** | Technical trilogue agreement on pension portability | Quietly reshapes retirement policy for 450M EU citizens |
+
+### Strategic Significance Score (1–5)
+
+| Score | Level | Criteria |
+|:-----:|-------|---------|
+| 1 | **Ephemeral** | No lasting impact; forgotten within a week |
+| 2 | **Routine** | Standard EP activity; minor adjustments |
+| 3 | **Significant** | Affects a policy domain meaningfully for 6+ months |
+| 4 | **Major** | Reshapes EP political dynamics; affects Grand Coalition/opposition positioning |
+| 5 | **Transformative** | Changes EU governance, institutions, or democratic norms |
+
+---
+
+## 🧭 Advanced Dimension 3: Coalition Impact Vector
+
+For every classified event, assess its impact on EP coalition dynamics using a **directional vector**:
+
+| Vector | Description | Example |
+|--------|------------|---------|
+| **→ Stabilising** | Strengthens Grand Coalition cohesion or majority | EPP–S&D–Renew coalition secures comfortable majority on Green Deal legislation |
+| **← Destabilising** | Weakens Grand Coalition cohesion or threatens majority | ECR breaks with EPP on rule of law vote, fragmenting centre-right bloc |
+| **↕ Neutral** | No significant impact on coalition dynamics | Routine committee report on fisheries regulation |
+| **↗ Opportunity** | Creates an opening for coalition to strengthen position | Popular digital rights initiative with cross-group support |
+| **↘ Vulnerability** | Exposes coalition weakness that opposition may exploit | Budget dispute between EPP and S&D reveals structural disagreements |
+
+---
+
 ## 🔗 Related Documents
 
 - [templates/political-classification.md](../templates/political-classification.md) — Classification template

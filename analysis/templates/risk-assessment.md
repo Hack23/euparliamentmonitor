@@ -114,3 +114,96 @@ Risk Tiers:  1–4 = Low 🟢  |  5–9 = Medium 🟡  |  10–14 = High 🟠  |
 ```
 [REQUIRED: List all analysis/YYYY-MM-DD/{article-type-slug}/data/ files consulted for this assessment]
 ```
+
+---
+
+## ⚡ Cascading Risk Chain
+
+> **AI Instructions:** For the highest-scoring risk, trace the cascade of second-order and third-order effects.
+
+```mermaid
+flowchart TD
+    TRIGGER["⚠️ TRIGGER:<br/>[REQUIRED: Primary risk event]<br/>Score: [L×I]"]
+    TRIGGER --> FIRST["⚠️ 1ST ORDER:<br/>[REQUIRED: Immediate consequence]<br/>Score: [L×I]"]
+    FIRST --> SECOND_A["⚠️ 2ND ORDER (A):<br/>[REQUIRED: Follow-on effect]<br/>Score: [L×I]"]
+    FIRST --> SECOND_B["⚠️ 2ND ORDER (B):<br/>[OPTIONAL: Alternative path]<br/>Score: [L×I]"]
+
+    style TRIGGER fill:#dc3545,color:#fff
+    style FIRST fill:#fd7e14,color:#fff
+    style SECOND_A fill:#ffc107,color:#000
+    style SECOND_B fill:#ffc107,color:#000
+```
+
+| Chain Stage | Risk Event | L | I | Score | Circuit Breaker |
+|:-----------:|-----------|:-:|:-:|:-----:|----------------|
+| Trigger | `[REQUIRED]` | `[#]` | `[#]` | `[#]` | `[What stops it here?]` |
+| 1st Order | `[REQUIRED]` | `[#]` | `[#]` | `[#]` | `[Intervention point]` |
+| 2nd Order | `[REQUIRED]` | `[#]` | `[#]` | `[#]` | `[Recovery action]` |
+
+---
+
+## 🌐 Risk Interconnection Map
+
+> **AI Instructions:** Show how the 6 EP risk dimensions affect each other.
+
+```mermaid
+graph TD
+    CR["🤝 Coalition Risk"]
+    LR["📋 Legislative Risk"]
+    IR["🏛️ Institutional Risk"]
+    ER["🗳️ Electoral Risk"]
+    DR["🗳️ Democratic Risk"]
+    XR["🌍 Geopolitical Risk"]
+
+    CR -->|"Coalition instability delays<br/>legislative agenda"| LR
+    CR -->|"Grand Coalition friction<br/>weakens institutional credibility"| IR
+    LR -->|"Legislative failures erode<br/>public trust in EU"| ER
+    XR -->|"Geopolitical crisis forces<br/>rapid EU policy response"| LR
+    XR -->|"External pressure strains<br/>coalition solidarity"| CR
+    ER -->|"EP election proximity increases<br/>coalition posturing"| CR
+    DR -->|"Declining participation<br/>undermines legislative legitimacy"| IR
+
+    style CR fill:#dc3545,color:#fff
+    style LR fill:#fd7e14,color:#fff
+    style IR fill:#ffc107,color:#000
+    style ER fill:#0d6efd,color:#fff
+    style DR fill:#6f42c1,color:#fff
+    style XR fill:#198754,color:#fff
+```
+
+| From → To | Connection Strength | Mechanism | Evidence |
+|:---------:|:-------------------:|-----------|---------|
+| Coalition → Legislative | `[Strong/Medium/Weak]` | `[REQUIRED: How coalition instability delays EP legislative agenda]` | `[EP procedure ref]` |
+| Coalition → Institutional | `[Strong/Medium/Weak]` | `[REQUIRED: How Grand Coalition friction affects EU institutional credibility]` | `[EP resolution ref]` |
+| Legislative → Electoral | `[Strong/Medium/Weak]` | `[REQUIRED: How legislative failures affect EU elections]` | `[Eurobarometer data]` |
+| Geopolitical → Coalition | `[Strong/Medium/Weak]` | `[REQUIRED: How external pressure strains coalition]` | `[EU Council position]` |
+
+**System fragility assessment:** `[REQUIRED: Are ≥3 risk dimensions at High level? If so, system is fragile — describe why.]`
+
+---
+
+## 🔮 Forward Indicators & Scenario Outlook
+
+| Scenario | Probability | Key Trigger | Risk Dimensions Affected |
+|----------|:----------:|------------|-------------------------|
+| `[REQUIRED: Most likely outcome]` | `[%]` | `[Specific EP trigger]` | `[Coalition + Legislative + ...]` |
+| `[REQUIRED: Alternative outcome]` | `[%]` | `[Specific EP trigger]` | `[Risk dimensions]` |
+| `[OPTIONAL: Worst case]` | `[%]` | `[Specific EP trigger]` | `[Risk dimensions]` |
+
+### Freshness Requirements
+
+| Risk Tier | Maximum Age Before Re-evaluation |
+|:---------:|:-------------------------------:|
+| 🔴 Critical (15–25) | **24 hours** — must be re-assessed daily |
+| 🟠 High (10–14) | **72 hours** — re-assess within 3 days |
+| 🟡 Medium (5–9) | **7 days** — re-assess weekly |
+| 🟢 Low (1–4) | **30 days** — re-assess monthly |
+
+### When to Escalate from Risk Register to Breaking Analysis
+
+| Condition | Action |
+|-----------|--------|
+| Any risk score increases from ≤14 to ≥15 (crosses into Critical) | Trigger breaking risk assessment; notify editorial |
+| ≥ 3 risks simultaneously in High tier | Elevate overall risk level; flag in daily synthesis |
+| Grand Coalition collapse probability moves from LOW to MEDIUM or HIGH | Immediate re-assessment of all coalition-related risks |
+| Plenary vote approaches with unresolved High risk | Pre-position breaking analysis template |
