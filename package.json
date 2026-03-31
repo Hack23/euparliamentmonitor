@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "0.8.10",
+  "version": "0.8.11",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
