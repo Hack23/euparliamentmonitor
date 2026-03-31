@@ -629,7 +629,7 @@ flowchart TD
     end
     
     subgraph "MCP Server Layer"
-        MCPServer[⚙️ EP MCP Server<br/>TypeScript 5.7<br/>Node.js 25]
+        MCPServer[⚙️ EP MCP Server<br/>european-parliament-mcp-server (npm)<br/>Node.js 25]
         MCPTransport[📡 JSON-RPC 2.0<br/>stdio Transport<br/>Protocol v1.0]
         MCPCache[💾 LRU Cache<br/>TTL: 5 min<br/>Max: 500 entries]
     end

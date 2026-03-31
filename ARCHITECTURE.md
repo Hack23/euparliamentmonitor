@@ -549,7 +549,7 @@ C4Deployment
 | Layer               | Technology | Version | Purpose                          | Rationale |
 | ------------------- | ---------- | ------- | -------------------------------- | --------- |
 | **Runtime**         | Node.js    | 25.x Current | JavaScript execution environment | Current release for latest features, performance improvements; upgrade to Node.js 26 LTS planned April 2026 |
-| **Language**        | TypeScript | 5.x     | Primary development language     | Strict type safety, compile-time error detection; compiles from `src/` to `scripts/` targeting ES2024 |
+| **Language**        | TypeScript | 6.x     | Primary development language     | Strict type safety, compile-time error detection; compiles from `src/` to `scripts/` targeting ES2024 |
 | **Package Manager** | npm        | 10.x    | Dependency management            | Native Node.js package manager, security audit integration |
 | **Testing**         | Vitest     | 4.x     | Unit and integration testing     | Fast, modern, ESM-native test runner with great DX |
 | **E2E Testing**     | Playwright | 1.58.x  | End-to-end browser testing       | Cross-browser support, reliable selectors, parallel execution |
@@ -562,7 +562,7 @@ C4Deployment
 |------------|----------------|-----------------|-------------|---------------|
 | **Node.js** | 25.x (current) | 25.0.0 | ~Apr 2026 (Current EOL; upgrading to Node.js 26 LTS) | Update to Node.js 26 LTS within days of release (~Apr 2026) |
 | **npm** | 10.x (latest) | 10.0.0 | Follows Node.js lifecycle | Auto-updated with Node.js |
-| **TypeScript** | 5.9.x | 5.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
+| **TypeScript** | 6.0.x | 5.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
 | **Vitest** | 4.0.18 | 4.0.0 | N/A | Update to latest minor within 14 days, major within 60 days |
 | **Playwright** | 1.58.2 | 1.50.0 | N/A | Update to latest minor within 14 days, major within 60 days |
 | **ESLint** | 9.39.2 | 9.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
