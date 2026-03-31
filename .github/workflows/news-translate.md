@@ -357,9 +357,9 @@ for TYPE in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
   echo "🌐 Translating: $TYPE (date: $ARTICLE_DATE)"
   echo "═══════════════════════════════════════════"
 
-  SKIP_FLAG="--skip-existing"
-  if [ "${{ github.event.inputs.force_translation }}" = "true" ] || [ -z "${{ github.event.inputs.force_translation }}" ]; then
-    SKIP_FLAG=""
+  SKIP_FLAG=""
+  if [ "${{ github.event.inputs.force_translation }}" = "false" ]; then
+    SKIP_FLAG="--skip-existing"
   fi
 
   npx tsx src/generators/news-enhanced.ts \
