@@ -117,7 +117,10 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 2. **ANALYZE** (ALWAYS): Run full analysis pipeline with all 18 default methods — produce analysis artifacts as part of the reasoning process, even when no breaking news exists
 3. **EVALUATE**: Based on the analysis artifacts and AI assessment, determine whether the content constitutes breaking news
 4. **GENERATE**: If newsworthy, generate the article using the analysis intelligence AND commit analysis data in the same PR to `analysis/${TODAY}/breaking/`
-5. **ANALYSIS-ONLY PR**: If analysis determines no breaking news significance, **still create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts in `analysis/${TODAY}/breaking/`. Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. If existing analysis for this date exists, improve/extend it. Use `safeoutputs___noop` ONLY when MCP server is completely unavailable and zero data was collected.
+5. **ANALYSIS-ONLY PR**: If analysis determines no breaking news significance, **still create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts in `analysis/${TODAY}/breaking/`.
+   - Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted
+   - If existing analysis for this date exists, improve/extend it
+   - Use `safeoutputs___noop` ONLY when MCP server is completely unavailable and zero data was collected
 
 **Data source hierarchy:**
 1. **PRIMARY (MANDATORY)**: EP API v2 feed endpoints with `timeframe: "today"` — adopted texts, events, procedures, MEP updates (these 4 feeds are consumed by the generator)
@@ -126,7 +129,12 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 4. **ANALYTICAL (MANDATORY)**: Voting anomalies, coalition dynamics, political landscape, early warning — always fetched for comprehensive analysis
 5. **CONTEXT ONLY (NEVER NEWS)**: Precomputed statistics from `get_all_generated_stats`
 
-**NEWSWORTHINESS GATE**: If NO events published/updated TODAY are found in feeds, the agent MUST still complete data download (with `one-week` fallback) and full analysis pipeline. Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. On quiet days, **create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts in `analysis/${TODAY}/breaking/` — analysis of quiet periods reveals patterns and must always be committed. If existing analysis for this date already exists, read it first and improve/extend/correct it. Do NOT skip data collection.
+**NEWSWORTHINESS GATE**: If NO events published/updated TODAY are found in feeds, the agent MUST still complete data download (with `one-week` fallback) and full analysis pipeline.
+- Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted
+- On quiet days, **create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts in `analysis/${TODAY}/breaking/`
+- Analysis of quiet periods reveals patterns and must always be committed
+- If existing analysis for this date already exists, read it first and improve/extend/correct it
+- Do NOT skip data collection
 
 
 ## 🎭 STAKEHOLDER PERSPECTIVE ANALYSIS (MANDATORY)

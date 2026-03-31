@@ -502,7 +502,7 @@ Before creating the PR, read ALL methodology documents in `analysis/methodologie
 **Required analysis content:**
 1. **Translation Coverage Matrix** — Which article types × languages were translated, which were skipped and why
 2. **Terminology Consistency** — EP-specific terms used, any terminology lookups from MCP server, consistency across languages
-3. **Quality Assessment** — Self-assessment of translation quality per language using the significance scoring template
+3. **Quality Assessment** — Self-assessment of translation quality per language using `analysis/templates/significance-scoring.md`
 4. **Coverage Gap Analysis** — Languages or article types that could not be translated, with reasons
 5. **Improvement Recommendations** — What could be improved in the next translation run
 

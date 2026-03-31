@@ -84,7 +84,7 @@ Every agentic workflow run MUST produce and commit analysis artifacts to the `an
 | Scenario | Required Action |
 |----------|----------------|
 | Article generated | Include analysis artifacts in the article PR alongside `news/` files |
-| No article (quiet period) | Create an **analysis-only PR** with collected data analysis instead of discarding work |
+| No article (quiet period) | Create an **analysis-only PR** with collected data analysis artifacts instead of discarding work |
 | Existing analysis found | **Improve, extend, correct, or complete** the existing analysis — never skip or overwrite blindly |
 | Translation workflow | Perform translation coverage and terminology quality analysis |
 | MCP server unavailable | Document the connection failure and any partial data in analysis; commit what was gathered |
