@@ -207,3 +207,13 @@ graph TD
 | ≥ 3 risks simultaneously in High tier | Elevate overall risk level; flag in daily synthesis |
 | Grand Coalition collapse probability moves from LOW to MEDIUM or HIGH | Immediate re-assessment of all coalition-related risks |
 | Plenary vote approaches with unresolved High risk | Pre-position breaking analysis template |
+
+---
+
+**Document Control:**
+- **Template Path:** `/analysis/templates/risk-assessment.md`
+- **Version:** 2.0
+- **Advanced Features:** Cascading Risk Chain, Risk Interconnection Map, Freshness tiers, Escalation criteria
+- **Framework Reference:** [methodologies/political-risk-methodology.md](../methodologies/political-risk-methodology.md)
+- **Classification:** Public
+- **Next Review:** 2026-06-30

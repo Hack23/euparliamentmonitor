@@ -141,9 +141,64 @@ Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.2
 | Motion of censure against Commission | 10 | 8 | 10 | 10 | 10 | **9.6** | Breaking |
 | Minor technical amendment to regulation | 2 | 2 | 1 | 1 | 1 | **1.5** | Archive |
 | EP resolution on Ukraine support | 7 | 8 | 9 | 5 | 8 | **7.7** | Priority |
+| EP President election (new term) | 9 | 5 | 7 | 8 | 10 | **7.8** | Priority |
+| ECR-PfE joint opposition on climate target | 8 | 7 | 8 | 9 | 10 | **8.3** | Priority |
+
+### Filled Calibration Example
+
+> *This example demonstrates how to complete the template for a real EP event. Use it as a scoring anchor.*
+
+**Event:** Plenary adoption of EU AI Act trilogue compromise
+
+| Field | Value |
+|-------|-------|
+| **Score ID** | `SIG-2026-03-13-001` |
+| **Event / Document** | AI Act final plenary vote |
+| **Primary EP Reference** | `P9_TA(2026)0089` |
+| **Scoring Date** | `2026-03-13 14:30 UTC` |
+| **Scored By** | `news-breaking` |
+| **Classification ID** | `CLS-2026-03-13-001` |
+
+| Dimension | Raw Score | Weight | Weighted Score |
+|-----------|:---------:|:------:|:--------------:|
+| Parliamentary Significance | 9 | 0.25 | 2.25 |
+| Policy Impact | 10 | 0.25 | 2.50 |
+| Public Interest | 9 | 0.20 | 1.80 |
+| Urgency | 7 | 0.15 | 1.05 |
+| Cross-Group Relevance | 8 | 0.15 | 1.20 |
+| **COMPOSITE SCORE** | — | — | **8.8 / 10** |
+
+**Decision:** 📰 **Priority** (significance 8.8 ≥ 7.5, below 9.0 breaking threshold)
+**Rationale:** Landmark regulation with EU-wide impact on AI industry; strong cross-group support (412–156) but below breaking threshold as trilogue outcome was expected.
+
+---
+
+## 📊 Section 4: Significance Trend Tracking
+
+*When multiple scoring sessions are available for related events, track the trajectory:*
+
+| Date | Event | Composite | Δ (change) | Trend |
+|------|-------|:---------:|:----------:|:-----:|
+| `[date 1]` | `[event]` | `[score]` | — | — |
+| `[date 2]` | `[event]` | `[score]` | `[+/-#]` | `[↑/↓/→]` |
+| `[date 3]` | `[event]` | `[score]` | `[+/-#]` | `[↑/↓/→]` |
+
+**Trend Assessment:** `[REQUIRED: Is significance rising, falling, or stable? What does this indicate about the political cycle?]`
+
+---
 
 ### MCP Data Files Used
 
 ```
 [REQUIRED: List all analysis/YYYY-MM-DD/{article-type-slug}/data/ files consulted]
 ```
+
+---
+
+**Document Control:**
+- **Template Path:** `/analysis/templates/significance-scoring.md`
+- **Version:** 2.0
+- **Advanced Features:** Composite Score Calculation, Publication Decision Thresholds, Significance Trend Tracking
+- **Framework Reference:** [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md)
+- **Classification:** Public
+- **Next Review:** 2026-06-30

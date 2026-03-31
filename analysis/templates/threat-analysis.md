@@ -241,3 +241,13 @@ graph TD
 | Overall threat level = SEVERE | **YES** | Editor notification + all-language deployment |
 | Overall threat level = HIGH | **MONITOR** | Flag in daily synthesis; include in periodic analysis |
 | Overall threat level ≤ MODERATE | **NO** | Include in regular daily/weekly/monthly reporting |
+
+---
+
+**Document Control:**
+- **Template Path:** `/analysis/templates/threat-analysis.md`
+- **Version:** 2.0
+- **Advanced Features:** Attack Tree (AND/OR gates), Kill Chain (5-stage), Diamond Model + ICO Profile, Escalation Decision
+- **Framework Reference:** [methodologies/political-threat-framework.md](../methodologies/political-threat-framework.md)
+- **Classification:** Public
+- **Next Review:** 2026-06-30

@@ -175,3 +175,13 @@
 | `[REQUIRED: Most likely scenario]` | `[%]` | `[Specific EP trigger event]` | `[S1+O2, T1+W1, etc.]` |
 | `[REQUIRED: Alternative scenario]` | `[%]` | `[Specific EP trigger event]` | `[SWOT elements]` |
 | `[OPTIONAL: Worst case]` | `[%]` | `[EP trigger]` | `[SWOT elements]` |
+
+---
+
+**Document Control:**
+- **Template Path:** `/analysis/templates/swot-analysis.md`
+- **Version:** 2.0
+- **Advanced Features:** Cross-SWOT Interference, TOWS Strategic Options, 90-day Scenario Outlook
+- **Framework Reference:** [methodologies/political-swot-framework.md](../methodologies/political-swot-framework.md)
+- **Classification:** Public
+- **Next Review:** 2026-06-30
