@@ -91,7 +91,7 @@ Every agentic workflow run MUST produce and commit analysis artifacts to the `an
 
 **Enforcement checklist:**
 - [ ] Analysis artifacts are included in `git add` alongside article files — never deleted before PR creation
-- [ ] Raw MCP data files (`data/` subdirectories) may be cleaned to control PR size, but analysis markdown is ALWAYS committed
+- [ ] Raw MCP data payload files (e.g. `data/**/*.json`, `*.ndjson`, `*.csv`, `*.xml`) may be cleaned to control PR size, but **never delete `*.analysis.md` or other markdown artifacts** under `data/`; analysis markdown is ALWAYS committed
 - [ ] On noop scenarios, create an analysis-only PR (`safeoutputs___create_pull_request`) instead of discarding analysis with `safeoutputs___noop`
 - [ ] Before producing new analysis, check for existing analysis in `analysis/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}/` and **improve/extend** it rather than replacing from scratch
 - [ ] Every workflow references this guide (`analysis/methodologies/ai-driven-analysis-guide.md`) as the authoritative analysis protocol

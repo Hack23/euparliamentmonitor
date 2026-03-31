@@ -806,8 +806,9 @@ rm -f news/metadata/generation-*.json
 # ⚠️ MANDATORY: Commit analysis artifacts per ai-driven-analysis-guide.md Rule 5
 # No workflow run should be wasted — analysis is ALWAYS persisted.
 # Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
-find analysis/ -type d -name "data" -exec rm -rf {} + 2>/dev/null || true
-echo "🧹 Cleaned metadata files and raw MCP data; analysis artifacts PRESERVED for commit"
+find analysis/ -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
+find analysis/ -type d -name "data" -empty -delete 2>/dev/null || true
+echo "🧹 Cleaned metadata files and raw MCP data payloads; analysis markdown artifacts PRESERVED for commit"
 ```
 
 ### Step 6: Create PR (ONE call — ALL files at once)

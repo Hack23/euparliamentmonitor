@@ -528,8 +528,9 @@ rm -f news/articles-metadata.json
 # No workflow run should be wasted — translation analysis is ALWAYS persisted.
 # Remove only raw data downloads to control PR size. Analysis markdown MUST be committed.
 rm -rf analysis-output/
-find analysis/ -type d -name "data" -exec rm -rf {} + 2>/dev/null || true
-echo "🧹 Cleaned raw data; translation analysis artifacts PRESERVED for commit"
+find analysis/ -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
+find analysis/ -type d -name "data" -empty -delete 2>/dev/null || true
+echo "🧹 Cleaned raw data payloads; translation analysis markdown artifacts PRESERVED for commit"
 
 ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
 TRANSLATED_COUNT=$(ls news/${ARTICLE_DATE}-*-{sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh}.html 2>/dev/null | wc -l || echo 0)

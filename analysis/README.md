@@ -346,7 +346,7 @@ Per [`ai-driven-analysis-guide.md` Rule 5](methodologies/ai-driven-analysis-guid
 - On quiet days with no article, create an **analysis-only PR** instead of discarding analysis via noop
 - Before producing new analysis, check for existing analysis and **improve/extend/correct/complete** it
 - Even the translation workflow must perform translation coverage and quality analysis
-- Raw MCP data files may be cleaned to control PR size, but analysis markdown is ALWAYS committed
+- Raw MCP data payloads (e.g. large JSON/XML responses) may be cleaned to control PR size, but the `data/` directory itself MUST NOT be deleted wholesale — all per-file analysis markdown (`*.analysis.md` and other `.md` files stored alongside the data) MUST ALWAYS be preserved and committed
 
 ---
 
