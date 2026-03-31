@@ -9,8 +9,8 @@
   <em>🎯 MCP Sources · Confidence Levels · Aggregation · Temporal Decay</em>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-03-28 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-28
+**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-31 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -160,6 +160,139 @@ The AI agent **MUST** follow this protocol when generating SWOT analysis:
 6. **Integrate with Risk and Threat** — Risk scores ≥10 become SWOT Threat entries; threat actor findings inform SWOT Weakness entries
 
 > **🚨 Anti-Pattern Warning:** SWOT entries without specific evidence citations (EP document IDs, MCP tool outputs, or named sources) are REJECTED. "The EU faces challenges" is not a valid Weakness entry — "EPP-S&D voting alignment dropped from 68% to 54% in Q1 2026 (EP MCP `compare_political_groups`)" is.
+
+---
+
+## 🔄 Advanced Technique 1: Cross-SWOT Interference Analysis
+
+When the EU political landscape involves multiple actors (Grand Coalition, Opposition, kingmaker groups), their SWOT elements don't exist in isolation — they **interfere** with each other, creating amplification effects:
+
+```mermaid
+graph TD
+    subgraph "Grand Coalition SWOT"
+        GS["💪 GC Strength:<br/>Legislative majority (EPP+S&D+Renew)"]
+        GW["⚡ GC Weakness:<br/>Internal policy disagreements"]
+    end
+    subgraph "Opposition SWOT"
+        OS["💪 Opp Strength:<br/>United front on democratic reform"]
+        OT["🔴 Opp Threat:<br/>ECR-ID coalition building"]
+    end
+    subgraph "Swing Groups SWOT"
+        SS["💪 Swing Strength:<br/>Pivotal voting position"]
+        SW["⚡ Swing Weakness:<br/>Policy delivery credibility"]
+    end
+
+    GW -->|"amplifies"| OS
+    SS -->|"enables"| GS
+    SW -->|"undermines"| GS
+    OT -->|"constrains"| OS
+
+    style GS fill:#28a745,color:#fff
+    style GW fill:#fd7e14,color:#fff
+    style OS fill:#28a745,color:#fff
+    style OT fill:#dc3545,color:#fff
+    style SS fill:#28a745,color:#fff
+    style SW fill:#fd7e14,color:#fff
+```
+
+### Interference Matrix
+
+| GC SWOT Element | Opposition SWOT Element | Interference Effect | Implication |
+|:----------------:|:----------------:|:------------------:|------------|
+| **GC Strength** + Opp Weakness | — | Reinforcing advantage | Grand Coalition position consolidates |
+| **GC Weakness** + Opp Strength | — | Amplified vulnerability | Opposition likely to exploit through amendments |
+| **GC Threat** + Opp Opportunity | — | Converging pressure | High-risk moment for legislative agenda |
+| **GC Strength** + Swing Weakness | — | Fragile dependency | Majority depends on unreliable swing votes |
+
+### Interference Detection Protocol
+
+For each SWOT entry:
+1. Ask: "Does this element AMPLIFY or COUNTERACT any element from another actor's SWOT?"
+2. Map the interference (amplifies, enables, undermines, constrains)
+3. Rate the interference strength (strong/moderate/weak)
+4. Identify the **net political effect** — is the system moving toward stability or instability?
+
+---
+
+## 📊 Advanced Technique 2: TOWS Strategic Options Matrix
+
+TOWS converts SWOT findings into **strategic options** — answering "So what?" for each SWOT combination:
+
+```mermaid
+graph TD
+    SO["SO Strategies<br/>(Strengths × Opportunities)<br/><em>Leverage strengths to exploit opportunities</em>"]
+    WO["WO Strategies<br/>(Weaknesses × Opportunities)<br/><em>Use opportunities to address weaknesses</em>"]
+    ST["ST Strategies<br/>(Strengths × Threats)<br/><em>Use strengths to counter threats</em>"]
+    WT["WT Strategies<br/>(Weaknesses × Threats)<br/><em>Defensive: minimise vulnerabilities</em>"]
+
+    style SO fill:#28a745,color:#fff
+    style WO fill:#0d6efd,color:#fff
+    style ST fill:#ffc107,color:#000
+    style WT fill:#dc3545,color:#fff
+```
+
+| TOWS Cell | Political Context | Example |
+|:---------:|------------------|---------|
+| **SO** (Strength × Opportunity) | "Grand Coalition uses legislative majority (S1) to pass landmark Green Deal legislation (O1) before next EP elections" | Proactive agenda-setting |
+| **WO** (Weakness × Opportunity) | "Coalition uses EU competitiveness mandate (O2) to force internal alignment on industrial policy (W1)" | External pressure as internal discipline |
+| **ST** (Strength × Threat) | "Grand Coalition uses committee control (S2) to moderate ECR-ID proposals, neutralising populist threat (T1)" | Pre-emptive moderation |
+| **WT** (Weakness × Threat) | "Internal disagreements (W1) + right-wing populist growth (T1) = highest-risk scenario requiring immediate coalition management" | Defensive damage control |
+
+**Every SWOT analysis MUST include at least 2 TOWS strategic options** with evidence-backed reasoning.
+
+---
+
+## 🔮 Advanced Technique 3: Strategic Scenario Generation
+
+Use SWOT combinations to construct **plausible political futures** (scenarios), each with a probability range and trigger conditions:
+
+### Scenario Construction Protocol
+
+1. **Identify 2–3 key uncertainties** from the SWOT analysis (e.g., "Will the Grand Coalition hold on Green Deal?" + "Will ECR-ID alliance formalize?")
+2. **Construct 2×2 scenario matrix** from the two most impactful uncertainties
+3. **Name each scenario** and describe its political characteristics
+4. **Assign probability ranges** based on evidence
+5. **Identify trigger indicators** that would signal movement toward each scenario
+
+### Example Scenario Table
+
+| Scenario | GC Status | ECR-ID Status | Probability | Key Trigger |
+|----------|:---------:|:------------:|:-----------:|------------|
+| 🟢 **Status Quo** | Holds | Informal | 40–55% | EPP–S&D publicly confirm legislative pact |
+| 🟠 **Stress Test** | Holds | Formalizes | 15–25% | ECR–ID joint voting bloc on migration |
+| 🟡 **Pressure** | Fractures | Informal | 10–20% | S&D breaks with EPP on rule of law |
+| 🔴 **Realignment** | Fractures | Formalizes | 5–15% | Combined pressure triggers new coalition map |
+
+---
+
+## 📐 Advanced Technique 4: Power-Interest Mapping
+
+Position key stakeholders by their **power** (ability to influence EP outcomes) and **interest** (stake in specific issues) to identify who matters most:
+
+```mermaid
+quadrantChart
+    title Stakeholder Power-Interest Map
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "Manage Closely"
+    quadrant-2 "Keep Satisfied"
+    quadrant-3 "Monitor"
+    quadrant-4 "Keep Informed"
+    "EP President": [0.8, 0.9]
+    "EPP Group": [0.8, 0.85]
+    "S&D Group": [0.75, 0.75]
+    "European Commission": [0.5, 0.8]
+    "EU Council": [0.3, 0.7]
+    "Civil Society": [0.7, 0.25]
+    "EU Citizens": [0.6, 0.15]
+```
+
+| Quadrant | Strategy | Stakeholders |
+|----------|---------|-------------|
+| **Manage Closely** (high power, high interest) | Full analysis; primary intelligence consumer | EP President, EPP, S&D, Renew, Commission President |
+| **Keep Satisfied** (high power, low interest) | Monitor for engagement; alert on activation | EU Council, ECB, member state governments |
+| **Keep Informed** (low power, high interest) | Regular reporting; citizen engagement | Media, civil society, industry associations, EU citizens |
+| **Monitor** (low power, low interest) | Periodic check; no active engagement | Non-Inscrits Members of the European Parliament (NI MEPs), regional bodies, minor party delegations |
 
 ---
 

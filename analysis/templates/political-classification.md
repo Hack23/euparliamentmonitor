@@ -118,3 +118,61 @@ MCP Data Files:     [REQUIRED: paths to analysis/YYYY-MM-DD/{article-type-slug}/
 - [ ] ⚡ **Breaking** — Publish immediately (significance ≥ 8 + URGENT/CRITICAL)
 - [ ] 📋 **Monitor** — Track for follow-up; do not publish standalone
 - [ ] 🗄️ **Archive** — Low significance; archive for trend analysis only
+
+---
+
+## 📊 Calibration Example (Filled)
+
+> *This example demonstrates how to complete the template for a real EP event. Use it as a scoring anchor.*
+
+**Event:** Plenary adoption of revised Emissions Trading System extension (ETS III)
+
+| Field | Value |
+|-------|-------|
+| **Classification ID** | `CLS-2026-03-15-001` |
+| **Document Type** | Political Event Classification |
+| **Event Date** | `2026-03-15` |
+| **Classification Date** | `2026-03-15 16:00 UTC` |
+| **Primary EP Reference** | `P9_TA(2026)0095` |
+| **Classified By** | `news-breaking` |
+
+| Dimension | Value | Justification |
+|-----------|:-----:|---------------|
+| **Sensitivity** | 🟡 SENSITIVE | ETS extension involves cross-group tensions; Greens/EFA and ECR oppose from opposing directions |
+| **Primary Domain** | ENVI | Environment committee lead; secondary: ITRE, ECON |
+| **Urgency** | 🟠 URGENT | Final plenary vote; no further amendment possible |
+| **Impact Scope** | 🇪🇺 EU-WIDE | Affects all EU member states; maritime and aviation sectors EU-wide |
+
+| Dimension | Likelihood (1–5) | Impact (1–5) | Risk Score |
+|-----------|:---------------:|:------------:|:----------:|
+| Democratic Process | 2 | 2 | 4 |
+| Economic Impact | 4 | 5 | **20** |
+| Social Cohesion | 3 | 3 | 9 |
+| Coalition Stability | 3 | 4 | 12 |
+| International Relations | 4 | 4 | 16 |
+
+**Composite Risk Score:** 20 (Economic Impact — max)
+
+| 7-Dimension Score | Level | Numeric |
+|-------------------|-------|:-------:|
+| Public Interest Sensitivity | sensitive | 70 |
+| Democratic Integrity Impact | moderate | 50 |
+| Policy Urgency | immediate | 90 |
+| Economic Impact | major | 80 |
+| Governance Impact | significant | 65 |
+| Political Capital Impact | significant | 70 |
+| Legislative Impact | directive | 75 |
+
+**Weighted Classification Score:** 72/100
+**Overall Classification:** **HIGH**
+**Recommended Action:** ⚡ **Breaking** (HIGH classification + URGENT urgency)
+
+---
+
+**Document Control:**
+- **Template Path:** `/analysis/templates/political-classification.md`
+- **Version:** 2.0
+- **Advanced Dimensions:** Political Temperature Index, Strategic Significance, Coalition Impact Vector
+- **Framework Reference:** [methodologies/political-classification-guide.md](../methodologies/political-classification-guide.md)
+- **Classification:** Public
+- **Next Review:** 2026-06-30

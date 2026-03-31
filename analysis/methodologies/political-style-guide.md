@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--30-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--31-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-03-30 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-31 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -27,6 +27,42 @@
 This style guide establishes the writing standards for all political intelligence analysis produced by EU Parliament Monitor's agentic workflows. It ensures consistent analytical quality across 14 languages, mandates evidence-based claims, and defines the three depth levels that distinguish surface reporting from strategic intelligence.
 
 This guide adapts [Hack23 ISMS STYLE_GUIDE.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md) conventions for political journalism. See [reference/isms-style-guide-adaptation.md](../reference/isms-style-guide-adaptation.md) for the full mapping.
+
+---
+
+## 🚨 Intelligence Depth Standards (New in v2.0)
+
+### What Distinguishes Intelligence from Summary
+
+| ✅ Intelligence Analysis | 🚫 Summary/Shallow Content |
+|-------------------------|---------------------------|
+| Explains **why** something matters, not just what happened | Restates what happened without interpretation |
+| Identifies **who benefits and who loses** (cui bono) | Names no specific actors or interests |
+| Cross-references with **other documents, votes, and trends** | Treats each document in isolation |
+| Provides **forward-looking assessment** (what happens next?) | Only describes current state |
+| Explicitly states **confidence level** and cites evidence | Makes claims without attribution |
+| Identifies **tensions, contradictions, and hidden dynamics** | Only reports the official narrative |
+| Uses **multiple analytical frameworks** (SWOT, Risk, Attack Tree) | Uses no framework or only one |
+
+### Minimum Evidence Density Requirements
+
+| Analysis Type | Min. Evidence Points | Min. EP Doc Citations | Min. Named Actors |
+|-------------|:--------------------:|:--------------------:|:-----------------:|
+| Per-file analysis | 3 | 2 | 2 |
+| Daily SWOT | 8 (≥2 per quadrant) | 4 | 4 |
+| Risk assessment | 5 | 3 | 3 |
+| Threat analysis | 6 | 3 | 3 |
+| Synthesis summary | 10 | 5 | 5 |
+
+### Analytical Depth Indicators
+
+Every analysis file should demonstrate at least 3 of these 5 depth indicators:
+
+1. **Cui Bono Analysis** — Who benefits from this development? Who is harmed? Which political groups, MEPs, or EU institutions gain or lose?
+2. **Second-Order Effects** — What cascading consequences follow from this event? How does this affect pending legislation, coalition dynamics, or institutional credibility?
+3. **Historical Parallels** — Has the EP faced something similar before? What was the outcome? Reference prior legislative terms (EP6–EP9) where applicable.
+4. **Counter-Factual Reasoning** — What would happen if the opposite occurred? What if the vote failed, the coalition fractured, or the rapporteur withdrew?
+5. **Tension Identification** — What contradictions or competing interests does this reveal? Are political groups publicly stating one thing while voting differently?
 
 ---
 
@@ -107,6 +143,43 @@ Every analysis artifact must meet minimum evidence density thresholds:
 
 ---
 
+## 👤 Attribution Standards
+
+### EP Actor Attribution Rules
+
+| Context | Format | Example |
+|---------|--------|---------|
+| First mention | Full name + role + group | "European Parliament President Roberta Metsola (EPP)" |
+| Subsequent mentions | Last name or role | "Metsola" or "the EP President" |
+| Political group | Full name + abbreviation | "European People's Party (EPP)" then "EPP" |
+| Committee | Full name + abbreviation | "Committee on the Environment, Public Health and Food Safety (ENVI)" |
+| Commissioner | Title + name + portfolio | "Commissioner Thierry Breton (Internal Market)" |
+
+### EP Document Attribution Rules
+
+All factual claims about EP actions **must** cite a verifiable reference:
+
+| Claim Type | Required Citation |
+|-----------|------------------|
+| Legislation adopted/rejected | EP adopted text reference (e.g., P9_TA(2026)0089) + vote date |
+| Committee recommendation | Committee document reference (e.g., PE-745.123/2026) |
+| MEP statement | Speech reference from EP plenary (date + debate topic) |
+| Roll-call vote result | RCV reference + vote counts (for/against/abstain) |
+| Legislative procedure status | Procedure reference (e.g., 2024/0001(COD)) |
+| Commission proposal | COM document number |
+
+**Format:** `(EP ref: P9_TA(2026)0089)` or `(RCV-2026-0342, 412 for / 156 against / 12 abstain)`
+
+### What Must Never Be Attributed Without Evidence
+
+- Political group "plans" or "intends" (unless from official group position or adopted text)
+- MEP "believes" or "feels" (unless from direct quote in plenary speech)
+- Coalition "will" do X (unless from formal agreement or confirmed trilogue outcome)
+- Poll-based claims without pollster name, sample size, and date
+- Institutional "sources" without at minimum an EP document reference
+
+---
+
 ## 🎨 Formatting Standards
 
 ### Document Header
@@ -142,8 +215,29 @@ Every analysis artifact must include:
 | 🗳️ | Voting; electoral; roll-call |
 | 🌍 | International dimension; geopolitical |
 | 🔮 | Forward indicators; predictions |
-| 👑 | Power concentration (Elevation threat) |
-| 🎭 | Disinformation (Spoofing threat) |
+| 👑 | Power concentration; institutional pressure |
+| 🎭 | Disinformation; transparency deficit / information integrity risk |
+
+### Policy Domain Icons
+
+| Domain | Icon | EP Context |
+|--------|:----:|-----------|
+| Economics & Finance | 💰 | ECON committee, EU budget, ECB, fiscal policy |
+| Defence & Security | 🛡️ | SEDE subcommittee, CSDP, NATO cooperation |
+| Justice & Law | ⚖️ | JURI/LIBE committees, rule of law, judicial reform |
+| Social Policy | 🤝 | EMPL committee, social climate fund, pensions |
+| Health | 🏥 | ENVI committee (health portfolio), pharmaceutical regulation |
+| Education & Research | 📚 | CULT committee, Horizon Europe, Erasmus+ |
+| Environment & Climate | 🌿 | ENVI committee, Green Deal, ETS, biodiversity |
+| Agriculture | 🌾 | AGRI committee, CAP reform, food security |
+| Infrastructure & Transport | 🏗️ | TRAN committee, TEN-T, digital infrastructure |
+| Energy | ⚡ | ITRE committee, energy security, REPowerEU |
+| Foreign Affairs | 🌍 | AFET committee, EU external action, sanctions |
+| Migration & Asylum | 🔀 | LIBE committee, EU Pact on Migration and Asylum |
+| Constitutional Affairs | 🏛️ | AFCO committee, treaty reform, EP elections |
+| Trade | 🔄 | INTA committee, trade agreements, WTO |
+| Digital & Technology | 💻 | ITRE/IMCO committees, AI Act, Digital Markets Act |
+| Budget | 📋 | BUDG/CONT committees, MFF, EU budget discharge |
 
 ### Mermaid Diagram Standards
 

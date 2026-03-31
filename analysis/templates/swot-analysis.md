@@ -138,3 +138,50 @@
 ```
 [REQUIRED: List all analysis/YYYY-MM-DD/{article-type-slug}/data/ files consulted]
 ```
+
+---
+
+## 🔄 Cross-SWOT Interference Analysis
+
+> *How do SWOT elements from different actors (Grand Coalition, Opposition, swing groups) amplify or counteract each other?*
+
+| GC/Opposition SWOT Element | Interfering Element | Effect | Net Political Impact |
+|:--------------------:|:------------------:|:------:|---------------------|
+| `[e.g. GC W1: Policy disagreements]` | `[e.g. Opp S1: United front on reform]` | Amplifies vulnerability | `[REQUIRED: Specific implication]` |
+| `[e.g. GC S1: Legislative majority]` | `[e.g. ECR W1: Internal divisions]` | Fragile dependency | `[REQUIRED: Specific implication]` |
+| `[REQUIRED: At least 2 interference pairs]` | `[...]` | `[...]` | `[...]` |
+
+---
+
+## 📊 TOWS Strategic Options
+
+> *Convert SWOT findings into strategic options — answering "So what?"*
+
+| TOWS Cell | Strategy | Specific Action | Evidence |
+|:---------:|---------|-----------------|---------|
+| **SO** (Strength × Opportunity) | `[REQUIRED: How to use a strength to exploit an opportunity]` | `[Specific action with timeline]` | `[EP procedure ID]` |
+| **WO** (Weakness × Opportunity) | `[REQUIRED: How to use an opportunity to address a weakness]` | `[Specific action]` | `[EP procedure ID]` |
+| **ST** (Strength × Threat) | `[OPTIONAL: How to use a strength to counter a threat]` | `[Specific action]` | `[EP procedure ID]` |
+| **WT** (Weakness × Threat) | `[OPTIONAL: How to minimise vulnerability]` | `[Specific action]` | `[EP procedure ID]` |
+
+---
+
+## 🔮 Forward Indicators & Scenario Outlook
+
+**90-Day Scenario Outlook:**
+
+| Scenario | Probability | Key Trigger | SWOT Elements Driving It |
+|----------|:----------:|------------|-------------------------|
+| `[REQUIRED: Most likely scenario]` | `[%]` | `[Specific EP trigger event]` | `[S1+O2, T1+W1, etc.]` |
+| `[REQUIRED: Alternative scenario]` | `[%]` | `[Specific EP trigger event]` | `[SWOT elements]` |
+| `[OPTIONAL: Worst case]` | `[%]` | `[EP trigger]` | `[SWOT elements]` |
+
+---
+
+**Document Control:**
+- **Template Path:** `/analysis/templates/swot-analysis.md`
+- **Version:** 2.0
+- **Advanced Features:** Cross-SWOT Interference, TOWS Strategic Options, 90-day Scenario Outlook
+- **Framework Reference:** [methodologies/political-swot-framework.md](../methodologies/political-swot-framework.md)
+- **Classification:** Public
+- **Next Review:** 2026-06-30

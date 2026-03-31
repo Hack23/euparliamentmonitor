@@ -150,3 +150,104 @@
 ```
 [REQUIRED: List all analysis/YYYY-MM-DD/{article-type-slug}/data/ files consulted]
 ```
+
+---
+
+## 🌳 Attack Tree — Primary Threat Decomposition
+
+> **AI Instructions:** Build an attack tree for the single most significant threat identified. The root is the threat goal; decompose using AND/OR gates down to leaf-level actions. Color-code **leaf nodes** by feasibility using this legend: 🟢 high feasibility (#28a745), 🟡 medium feasibility (#ffc107), 🟠 low feasibility (#fd7e14), 🔴 very low or blocked feasibility (#dc3545). The ROOT goal node and path-aggregation nodes use neutral styling (dark grey / slate).
+
+```mermaid
+graph TD
+    ROOT["🎯 GOAL: [REQUIRED: Primary threat goal<br/>e.g. 'Block Green Deal implementation']<br/>(OR — any child path suffices)"]
+    ROOT --> PA["Path A: [REQUIRED: First attack path]<br/>(AND — all children required)"]
+    ROOT --> PB["Path B: [REQUIRED: Second attack path]<br/>(AND — all children required)"]
+
+    PA --> PA1["A1: [REQUIRED: First step]"]
+    PA --> PA2["A2: [REQUIRED: Second step]"]
+    PA --> PA3["A3: [REQUIRED: Third step]"]
+
+    PB --> PB1["B1: [REQUIRED: First step]"]
+    PB --> PB2["B2: [REQUIRED: Second step]"]
+
+    style ROOT fill:#343a40,color:#fff
+    style PA fill:#6c757d,color:#fff
+    style PB fill:#6c757d,color:#fff
+    style PA1 fill:#ffc107,color:#000
+    style PA2 fill:#ffc107,color:#000
+    style PA3 fill:#28a745,color:#fff
+    style PB1 fill:#dc3545,color:#fff
+    style PB2 fill:#ffc107,color:#000
+```
+
+### Attack Path Assessment
+
+| Path | Steps Required | Feasibility (1–5) | Detectability (1–5) | Political Cost | Most Likely? |
+|------|:--------------:|:-----------------:|:-------------------:|:--------------:|:------------:|
+| Path A | `[#]` | `[1-5]` | `[1-5]` | `[H/M/L]` | `[Y/N]` |
+| Path B | `[#]` | `[1-5]` | `[1-5]` | `[H/M/L]` | `[Y/N]` |
+
+**Cheapest attack path:** `[REQUIRED: Which path has highest feasibility and lowest political cost?]`
+
+**Early warning indicators:** `[REQUIRED: What EP MCP-detectable signals precede each path?]`
+
+---
+
+## ⛓️ Kill Chain Assessment
+
+> **AI Instructions:** Assess how far the primary threat has progressed along the Political Kill Chain. Mark each stage as Not Started / Active / Complete.
+
+| Kill Chain Stage | Status | Evidence | Disruption Opportunity |
+|:----------------:|:------:|---------|----------------------|
+| 1️⃣ Reconnaissance | `[Not Started / Active / Complete]` | `[EP procedure ref or evidence]` | `[How to stop here]` |
+| 2️⃣ Mobilization | `[Not Started / Active / Complete]` | `[EP procedure ref or evidence]` | `[How to stop here]` |
+| 3️⃣ Positioning | `[Not Started / Active / Complete]` | `[EP procedure ref or evidence]` | `[How to stop here]` |
+| 4️⃣ Execution | `[Not Started / Active / Complete]` | `[EP procedure ref or evidence]` | `[How to stop here]` |
+| 5️⃣ Exploitation | `[Not Started / Active / Complete]` | `[EP procedure ref or evidence]` | `[Recovery action]` |
+
+**Current kill chain stage:** `[REQUIRED: 1-5]`
+**Next expected stage:** `[REQUIRED: What happens next if unchecked?]`
+
+---
+
+## 💎 Diamond Model — Primary Threat Actor
+
+| Diamond Element | Assessment | Evidence |
+|----------------|-----------|---------|
+| **Adversary** | `[REQUIRED: Who? Political group + key MEPs + role]` | `[EP MCP data reference]` |
+| **Capability** | `[REQUIRED: What parliamentary/political tools do they wield?]` | `[Seat count, committee positions, rapporteurships]` |
+| **Infrastructure** | `[REQUIRED: Alliances, media channels, institutional access]` | `[Cross-group alliances, national party support]` |
+| **Victim** | `[REQUIRED: Who/what is targeted?]` | `[Legislation, Commissioner, coalition stability]` |
+
+### Threat Actor ICO Profile
+
+| Attribute | Assessment | Confidence |
+|-----------|-----------|:----------:|
+| **Intent** | `[REQUIRED: What do they want?]` | `[H/M/L]` |
+| **Capability** | `[REQUIRED: What can they actually do in EP?]` | `[H/M/L]` |
+| **Opportunity** | `[REQUIRED: What upcoming EP events create windows?]` | `[H/M/L]` |
+| **Track Record** | `[REQUIRED: Have they acted on similar threats before?]` | `[H/M/L]` |
+| **Constraints** | `[REQUIRED: What limits their action?]` | `[H/M/L]` |
+| **Overall ICO Level** | `[REQUIRED: HIGH / MEDIUM / LOW]` | `[H/M/L]` |
+
+---
+
+## ⚡ Escalation Decision
+
+| Condition | Escalate? | Action |
+|-----------|:---------:|--------|
+| Any threat dimension severity ≥ 5 | **YES** | Immediate breaking analysis; all 14-language deployment |
+| ≥ 2 threat dimensions severity ≥ 4 | **YES** | Priority analysis; article within 2 hours |
+| Overall threat level = SEVERE | **YES** | Editor notification + all-language deployment |
+| Overall threat level = HIGH | **MONITOR** | Flag in daily synthesis; include in periodic analysis |
+| Overall threat level ≤ MODERATE | **NO** | Include in regular daily/weekly/monthly reporting |
+
+---
+
+**Document Control:**
+- **Template Path:** `/analysis/templates/threat-analysis.md`
+- **Version:** 2.0
+- **Advanced Features:** Attack Tree (AND/OR gates), Kill Chain (5-stage), Diamond Model + ICO Profile, Escalation Decision
+- **Framework Reference:** [methodologies/political-threat-framework.md](../methodologies/political-threat-framework.md)
+- **Classification:** Public
+- **Next Review:** 2026-06-30

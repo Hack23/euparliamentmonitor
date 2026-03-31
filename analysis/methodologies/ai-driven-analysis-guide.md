@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--30-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--31-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-03-30 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-31 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -27,6 +27,90 @@
 This guide defines the **per-file AI analysis protocol** — the primary analysis mode for EU Parliament Monitor. For every downloaded EP MCP data file, the AI agent produces a deep analysis markdown file stored alongside it. This replaces batch summaries with systematic, per-document intelligence production.
 
 **Critical mandate:** AI agents must READ all methodology documents, ANALYSE the specific data file using those methodologies, and PRODUCE original intelligence — never scripted or templated boilerplate.
+
+---
+
+## 🔴 ABSOLUTE RULES (Violations = Rejected Output)
+
+### Rule 1: Folder Isolation — NEVER Overwrite Another Workflow's Analysis
+
+Each agentic workflow writes ONLY to its own isolated folder:
+
+```
+analysis/{YYYY-MM-DD}/{article-type-slug}/
+```
+
+**Enforcement checklist:**
+- [ ] My workflow writes ONLY to `analysis/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}/`
+- [ ] My `git add` is scoped: `git add "analysis/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}/"`
+- [ ] I do NOT touch files in any other workflow's folder
+- [ ] Breaking workflows use the `breaking/` slug
+
+### Rule 2: AI Performs ALL Analysis — Scripts ONLY Download Data
+
+| ✅ Scripts MAY | 🚫 Scripts MUST NEVER |
+|---------------|----------------------|
+| Download EP MCP data files | Generate analysis prose, SWOT entries, risk scores |
+| Catalog pending files | Fill template sections with content |
+| Run quality gate validation | Create "placeholder" text that looks like real analysis |
+| Create directory structure | Produce significance scores or classifications |
+
+**Test:** If you can replace the "analysis" content with Lorem Ipsum and nobody notices, it's scripted crap — not genuine analysis.
+
+### Rule 3: Read ALL Methodologies Before Analyzing
+
+Before analyzing ANY document, the AI MUST read:
+1. `analysis/methodologies/political-swot-framework.md` — Cross-SWOT interference, TOWS matrix, scenario generation
+2. `analysis/methodologies/political-risk-methodology.md` — Cascading risk, Bayesian updating, risk interconnection
+3. `analysis/methodologies/political-threat-framework.md` — Political Threat Landscape, Attack Trees, Diamond Model, Kill Chain, PESTLE
+4. `analysis/methodologies/political-classification-guide.md` — Political Temperature, strategic significance, coalition impact vector
+5. `analysis/methodologies/political-style-guide.md` — Evidence density, attribution, intelligence writing depth levels
+6. ALL 8 templates in `analysis/templates/`
+
+### Rule 4: Multi-Framework Depth Required
+
+Every analysis file MUST demonstrate:
+- **≥ 3 evidence-backed claims** per analytical section (with EP document citations)
+- **≥ 1 colour-coded Mermaid diagram** with real data (not placeholders)
+- **Multi-perspective analysis** (Grand Coalition, opposition, citizens, EU institutions, international)
+- **Cross-document pattern identification** (how this relates to other recent EP activity)
+- **Forward-looking indicators** (what to watch next, with specific triggers)
+- **At least 2 analytical frameworks** applied (e.g., SWOT + Risk, or Attack Tree + Kill Chain)
+
+---
+
+## 🏗️ Architecture: Per-File vs. Per-Day Analysis
+
+### Why Per-File?
+
+```mermaid
+graph LR
+    subgraph "❌ Old: Per-Day Batch Analysis"
+        A1["Download 50 files"] --> A2["Script runs batch analysis"]
+        A2 --> A3["Generic daily summary<br/>⚠️ Shallow, empty tables"]
+        A3 --> A4["Merge conflicts<br/>when multiple workflows run"]
+    end
+
+    subgraph "✅ New: Per-File AI Analysis"
+        B1["Download file X.json"] --> B2["AI reads methodology docs"]
+        B2 --> B3["AI produces X.analysis.md<br/>✅ Deep, evidence-based"]
+        B3 --> B4["No merge conflicts<br/>each file = independent"]
+    end
+
+    style A3 fill:#dc3545,color:#fff
+    style A4 fill:#dc3545,color:#fff
+    style B3 fill:#28a745,color:#fff
+    style B4 fill:#28a745,color:#fff
+```
+
+| Dimension | Per-Day (Old) | Per-File (New) |
+|-----------|:------------:|:--------------:|
+| **Analysis depth** | Shallow (script-generated) | Deep (AI-driven, methodology-guided) |
+| **Output quality** | Empty tables, generic text | SWOT.md-quality with Mermaid diagrams |
+| **Merge conflicts** | Frequent (shared daily files) | None (each file independent) |
+| **Coverage** | Session-based (misses files) | 100% (every downloaded file) |
+| **Reusability** | Daily snapshot only | Persistent per-document intelligence |
+| **Incremental** | Must re-run entire day | Only analyse new/changed files |
 
 ---
 
@@ -104,6 +188,101 @@ graph TD
     style L2 fill:#fd7e14,color:#fff
     style L1 fill:#28a745,color:#fff
 ```
+
+---
+
+## ⏱️ Time Budget & Prioritisation Protocol
+
+### Time Budget Per File
+
+Not all EP documents need the same analysis depth. Prioritise by document type:
+
+| Document Type | Analysis Time Budget | Analysis Depth | Sections Required |
+|--------------|:--------------------:|:--------------:|------------------|
+| **Adopted texts** | 3–5 minutes | Full (all sections) | Classification + SWOT + Risk + Threat + Stakeholder + Forward |
+| **Plenary votes** | 2–4 minutes | Full (all sections) | Classification + SWOT + Risk + Stakeholder + Forward |
+| **Committee documents** | 2–3 minutes | Standard | Classification + SWOT + Risk + Forward |
+| **Legislative procedures** | 2–3 minutes | Standard | Classification + Risk + Stakeholder + Forward |
+| **Speeches** | 1–2 minutes | Quick | Classification + Stakeholder + Forward |
+| **Parliamentary questions** | 1–2 minutes | Quick | Classification + Significance + Forward |
+| **Events** | 1–2 minutes | Quick | Classification + Significance + Forward |
+| **MEP profiles/declarations** | 1–2 minutes | Context | Classification + Stakeholder + Significance |
+| **External documents** | 1–2 minutes | Context | Classification + Risk + SWOT |
+| **World Bank data** | 1–2 minutes | Context | Classification + Economic context note |
+
+### Prioritisation When Time-Constrained
+
+When the workflow time budget is limited:
+
+1. **Sort pending files by expected significance** — Adopted texts and votes first, then committee reports, then everything else
+2. **Analyse highest-priority files first** — Complete full analysis for top-priority documents
+3. **Quick-classify remaining files** — At minimum, assign classification level and significance score
+4. **Stop at time limit** — Whatever is analysed is committed; remaining files are flagged as "pending" for next run
+
+### Maximum Files Per Workflow Run
+
+| Workflow | Typical Download | Analysis Target | Time Budget |
+|----------|:----------------:|:---------------:|:-----------:|
+| Breaking news | 1–5 files | All files (full depth) | 5 minutes |
+| Committee reports | 5–20 files | All files (single type) | 8 minutes |
+| Propositions | 5–15 files | All files (full depth) | 8 minutes |
+| Motions | 10–30 files | Top 10 full + rest quick-classified | 10 minutes |
+| Week in review | 50–200 files | Top 20 full + rest aggregated | 15 minutes |
+| Month in review | 200–500 files | Top 30 full + rest aggregated | 20 minutes |
+| Week ahead | 10–30 files | All files (forward-looking) | 10 minutes |
+| Month ahead | 20–50 files | All files (strategic) | 12 minutes |
+
+---
+
+## 📄 Document-Type-Specific Analysis Focus Areas
+
+### Adopted Texts (Legislative Resolutions, Positions)
+
+Focus areas:
+- **Coalition dynamics**: How did the political groups vote? Any surprising alliances?
+- **Policy impact**: What changes for EU citizens, businesses, member states?
+- **Trilogue outcome**: Did the EP position survive? What concessions were made?
+- **Implementation timeline**: Transposition deadlines, phased implementation
+
+### Committee Documents (Reports, Opinions)
+
+Focus areas:
+- **Committee vote splits**: Which political groups supported/opposed?
+- **Rapporteur strategy**: How did the rapporteur build a majority?
+- **Shadow rapporteur dynamics**: Cross-group negotiation patterns
+- **Amendment adoption rate**: How many amendments survived?
+
+### Legislative Procedures
+
+Focus areas:
+- **Pipeline stage**: Where is this in the EU legislative process?
+- **Trilogue status**: Has trilogue started? How many rounds?
+- **Timeline risk**: Is the procedure at risk of expiring before term ends?
+- **Institutional tension**: EP vs. Council vs. Commission positions
+
+### Plenary Votes (Roll-Call)
+
+Focus areas:
+- **Grand Coalition discipline**: Did EPP-S&D-Renew vote together?
+- **ECR/PfE behavior**: Support, opposition, or abstention pattern?
+- **Cross-party voting**: Unexpected alliances or defections?
+- **Margin analysis**: Close vote = instability indicator
+
+### Speeches (Plenary Debates)
+
+Focus areas:
+- **Rhetorical signals**: New policy positions announced? Tone shifts?
+- **Accountability probes**: Commissioners challenged on record?
+- **Consensus vs. confrontation**: Cross-group appeals or partisan rhetoric?
+- **Media potential**: Quotable statements for news coverage?
+
+### Parliamentary Questions
+
+Focus areas:
+- **Accountability pressure**: What are MEPs demanding answers on?
+- **Commission responsiveness**: Timely and substantive responses?
+- **Policy gaps**: Issues the Commission hasn't addressed?
+- **Pattern detection**: Coordinated questioning campaigns across political groups?
 
 ---
 

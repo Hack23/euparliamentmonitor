@@ -95,11 +95,93 @@ Analysis artifacts are **not** final content — they are structured intermediat
 
 ---
 
+## 🏗️ Analysis System Architecture
+
+```mermaid
+graph TB
+    subgraph "🌐 Data Sources"
+        EP["🏛️ European Parliament\nOpen Data Portal"]
+        WB["🌍 World Bank\nEconomic Data"]
+    end
+
+    subgraph "📥 Data Ingestion Layer"
+        MCP["🔌 EP MCP Server\nv1.1.20"]
+        PRE["📥 Agentic Workflow\nData Download Stage"]
+    end
+
+    subgraph "📚 Methodology Framework (v3.0)"
+        direction TB
+        GUIDE["🤖 AI-Driven Guide\n<i>Master Protocol</i>"]
+        M1["🏷️ Classification"]
+        M2["⚠️ Risk"]
+        M3["🎭 Threat"]
+        M4["💼 SWOT"]
+        M5["✍️ Style"]
+    end
+
+    subgraph "📋 Template Library (8 Templates)"
+        T1["🔍 Per-File Intel"]
+        T2["🏷️ Classification"]
+        T3["⚠️ Risk"]
+        T4["💼 SWOT"]
+        T5["🎭 Threat"]
+        T6["📈 Significance"]
+        T7["👥 Stakeholder"]
+        T8["🧩 Synthesis"]
+    end
+
+    subgraph "🤖 AI Analysis Engine"
+        AI["🧠 GitHub Copilot\nCoding Agent\n<i>All analysis performed here</i>"]
+    end
+
+    subgraph "✅ Quality Assurance"
+        QG["✅ Quality Gate\n<i>Checklist + 5D score</i>"]
+    end
+
+    subgraph "📰 Output"
+        ART["📰 News Articles\n<i>14 languages</i>"]
+        DASH["📊 Analysis Artifacts\n<i>Political intelligence</i>"]
+    end
+
+    EP & WB --> MCP
+    MCP --> PRE
+    PRE -->|"raw data only"| AI
+    GUIDE & M1 & M2 & M3 & M4 & M5 -->|"frameworks"| AI
+    T1 & T2 & T3 & T4 & T5 & T6 & T7 & T8 -->|"templates"| AI
+    AI -->|"analysis artifacts"| QG
+    QG -->|"approved"| ART & DASH
+
+    style EP fill:#003399,color:#fff,stroke:#002266,stroke-width:2px
+    style WB fill:#003399,color:#fff,stroke:#002266,stroke-width:2px
+    style MCP fill:#6610f2,color:#fff,stroke:#520dc2,stroke-width:2px
+    style PRE fill:#6610f2,color:#fff,stroke:#520dc2,stroke-width:2px
+    style GUIDE fill:#dc3545,color:#fff,stroke:#b02a37,stroke-width:2px
+    style AI fill:#198754,color:#fff,stroke:#146c43,stroke-width:3px
+    style QG fill:#fd7e14,color:#fff,stroke:#ca6510,stroke-width:2px
+    style ART fill:#ffc107,color:#000,stroke:#cc9a06,stroke-width:2px
+    style DASH fill:#ffc107,color:#000,stroke:#cc9a06,stroke-width:2px
+    style M1 fill:#e9ecef,color:#212529,stroke:#adb5bd
+    style M2 fill:#e9ecef,color:#212529,stroke:#adb5bd
+    style M3 fill:#e9ecef,color:#212529,stroke:#adb5bd
+    style M4 fill:#e9ecef,color:#212529,stroke:#adb5bd
+    style M5 fill:#e9ecef,color:#212529,stroke:#adb5bd
+    style T1 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
+    style T2 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
+    style T3 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
+    style T4 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
+    style T5 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
+    style T6 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
+    style T7 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
+    style T8 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
+```
+
+---
+
 ## 📁 Directory Structure
 
 ```
 analysis/
-├── README.md                          ← This file
+├── README.md                          ← This file (CRITICAL RULES — read first)
 ├── methodologies/                     ← 6 detailed methodology guides
 │   ├── README.md                      ← Methodology catalog and pipeline overview
 │   ├── political-classification-guide.md  ← 7-dimension EP event classification
@@ -175,7 +257,7 @@ flowchart TD
 - Partial data is better than no data — continue with other feeds on individual failures
 - Even on `noop`, all data collection and analysis MUST complete first
 
-### Rule 2: Per-Workflow Directory Isolation
+### Rule 2: Per-Workflow Directory Isolation — Never Overwrite
 
 Every agentic workflow **MUST** write to its own separate directory:
 
@@ -187,7 +269,30 @@ Every agentic workflow **MUST** write to its own separate directory:
 ❌ news-breaking overwrites news-weekly-review output → PROHIBITED
 ```
 
+**An agentic workflow MUST NEVER overwrite analysis produced by another workflow.** Each workflow run creates new files in its own scope. If a file already exists, the workflow MUST skip it or create an addendum, never replace.
+
+```mermaid
+flowchart LR
+    A["Workflow starts"] --> B{"Does target folder<br/>already contain<br/>analysis files?"}
+    B -->|"No"| C["✅ Create analysis<br/>in own folder"]
+    B -->|"Yes — from SAME workflow"| D["✅ Update/append<br/>to own files only"]
+    B -->|"Yes — from DIFFERENT workflow"| E["🚫 NEVER touch<br/>other workflow's files"]
+
+    style C fill:#28a745,color:#fff
+    style D fill:#ffc107,color:#000
+    style E fill:#dc3545,color:#fff
+```
+
 ### Rule 3: AI Must Read Methodology Then Analyse — Never Script
+
+**Scripts download data. AI performs ALL analysis.** This is a fundamental architectural principle.
+
+| ✅ Scripts MAY | 🚫 Scripts MUST NEVER |
+|---------------|----------------------|
+| Download MCP data to workflow's `data/` subdirectory | Generate analysis prose, tables, or conclusions |
+| Catalog pending files | Create SWOT entries, risk scores, or threat assessments |
+| Validate output format (quality gate) | Fill template sections with generated content |
+| Move/rename files | Produce "placeholder" analysis that looks real |
 
 AI agents must:
 1. **Read ALL 6 methodology documents** in `analysis/methodologies/` before any analysis
@@ -196,6 +301,11 @@ AI agents must:
 4. **Follow the templates exactly** — structured tables, Mermaid diagrams, evidence citations, confidence labels
 
 > **🚫 "Scripted crap content" is REJECTED.** Generic summaries or templates filled with placeholder text are unacceptable.
+
+**Fallback mechanism:** If AI analysis fails or produces unusable output (detected by the quality gate), the workflow should:
+1. Commit a minimal `data-download-manifest.md` documenting what was downloaded
+2. Flag the analysis as `pending` for the next workflow run
+3. Never commit placeholder or stub content that masquerades as genuine analysis
 
 ### Rule 4: Political Threat Landscape — NOT STRIDE
 
@@ -215,6 +325,18 @@ Layer **Diamond Model**, **Attack Trees**, **PESTLE**, **Scenario Planning**, an
 ### Rule 5: Evidence-Based Only
 
 Every factual claim must have a source citation. Every non-factual assessment must have a confidence level (HIGH/MEDIUM/LOW). Opinion-only entries are REJECTED.
+
+### Rule 6: Deep Analysis — Not Shallow Summaries
+
+Every analysis file must demonstrate **genuine political intelligence depth**. The quality standard is [SWOT.md](../SWOT.md) and [Political Threat Framework](methodologies/political-threat-framework.md) — not brief summaries.
+
+**Minimum depth indicators:**
+- ≥ 3 evidence-backed claims per SWOT quadrant (with EP procedure ID or adopted text citations)
+- ≥ 1 colour-coded Mermaid diagram per analysis file (with real data, not placeholders)
+- Multi-perspective analysis (Grand Coalition, Opposition, Citizens, Industry, International)
+- Explicit confidence labels on every analytical claim (HIGH/MEDIUM/LOW)
+- Forward-looking indicators (what to watch next, with specific triggers and timelines)
+- Cross-document pattern identification (how this document relates to other recent EP activity)
 
 ---
 
@@ -280,6 +402,21 @@ flowchart TD
 | **news-month-ahead** | `month-ahead` | events, procedures, plenary_documents, committee_documents, adopted_texts, plenary_session_documents, meps | get_plenary_sessions, get_committee_info, monitor_legislative_pipeline, generate_political_landscape, compare_political_groups, analyze_country_delegation | **📆 Strategic outlook**: Upcoming legislative calendar, committee programming |
 | **news-monthly-review** | `month-in-review` | adopted_texts, procedures, plenary_documents, parliamentary_questions | get_voting_records, detect_voting_anomalies, generate_political_landscape, compare_political_groups, analyze_legislative_effectiveness | **📈 Comprehensive review**: Month's legislative output, political trends |
 | **news-translate** | (n/a) | — | — | **🌐 Translation only**: Translates EN articles to 13 languages |
+
+### Per-Document Unique Intelligence
+
+For **high-significance documents** (significance score ≥ 7.0), workflows produce **document-specific deep dives** that only that workflow type can generate:
+
+| Workflow | EP Data Type | Unique Deep-Dive Analysis |
+|----------|-------------|--------------------------|
+| **Breaking News** | Adopted texts, Emergency events | Real-time significance assessment, political temperature spike detection, urgency classification with 6-hour refresh |
+| **Motions** | Legislative resolutions, Positions | Per-resolution vote breakdown by political group, defection pattern analysis, cross-party alignment maps |
+| **Propositions** | Legislative procedures | Pipeline stage tracking (committee → plenary → trilogue → adoption), rapporteur influence mapping, amendment success rate analysis |
+| **Committee Reports** | Committee documents, Opinions | Committee-level productivity metrics, cross-committee workload comparison, meeting frequency analysis, rapporteur assignment patterns |
+| **Week Ahead** | Calendar events, Upcoming sessions | Scheduled vote significance pre-assessment, debate intensity forecast, committee hearing preview |
+| **Weekly Review** | Aggregated weekly output | Week-over-week trend delta, cross-workflow pattern detection, political narrative arc tracking |
+| **Month Ahead** | Forward calendar, Procedure pipeline | Strategic legislative calendar, major policy decision forecast, committee programming analysis |
+| **Monthly Review** | Comprehensive monthly data | Legislative throughput metrics, political group productivity rankings, Grand Coalition scorecard, inter-temporal trend synthesis |
 
 ---
 

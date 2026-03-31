@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--30-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--31-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-31 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:** 2026-03-31 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -100,6 +100,56 @@ flowchart TD
 
 ---
 
+## 📐 Methodology Architecture
+
+```mermaid
+graph TB
+    subgraph "🏛️ Core Analysis Engine"
+        GUIDE["🤖 AI-Driven Analysis Guide<br/><i>Master Protocol</i>"]
+        STYLE["✍️ Political Style Guide<br/><i>Writing Standards</i>"]
+    end
+
+    subgraph "🔬 Analytical Frameworks"
+        CLASS["🏷️ Classification Guide<br/><i>7-Dimension Taxonomy</i>"]
+        RISK["⚠️ Risk Methodology<br/><i>Cascading Risk Model</i>"]
+        SWOT["💼 SWOT Framework<br/><i>TOWS + Cross-SWOT</i>"]
+        THREAT["🎭 Threat Framework<br/><i>6-Dimension + 5 Frameworks</i>"]
+    end
+
+    subgraph "📋 ISMS Reference Layer"
+        ISMS1["📖 ISMS Classification"]
+        ISMS2["📖 ISMS Risk Assessment"]
+        ISMS3["📖 ISMS Style Guide"]
+        ISMS4["📖 ISMS Threat Modeling"]
+    end
+
+    GUIDE -->|"governs"| CLASS
+    GUIDE -->|"governs"| RISK
+    GUIDE -->|"governs"| SWOT
+    GUIDE -->|"governs"| THREAT
+    STYLE -->|"standards"| CLASS
+    STYLE -->|"standards"| RISK
+    STYLE -->|"standards"| SWOT
+    STYLE -->|"standards"| THREAT
+    ISMS1 -.->|"adapted from"| CLASS
+    ISMS2 -.->|"adapted from"| RISK
+    ISMS3 -.->|"adapted from"| STYLE
+    ISMS4 -.->|"adapted from"| THREAT
+
+    style GUIDE fill:#0d6efd,color:#fff,stroke:#0a58ca,stroke-width:2px
+    style STYLE fill:#6610f2,color:#fff,stroke:#520dc2,stroke-width:2px
+    style CLASS fill:#198754,color:#fff,stroke:#146c43,stroke-width:2px
+    style RISK fill:#dc3545,color:#fff,stroke:#b02a37,stroke-width:2px
+    style SWOT fill:#fd7e14,color:#fff,stroke:#ca6510,stroke-width:2px
+    style THREAT fill:#d63384,color:#fff,stroke:#ab296a,stroke-width:2px
+    style ISMS1 fill:#e9ecef,color:#212529,stroke:#adb5bd
+    style ISMS2 fill:#e9ecef,color:#212529,stroke:#adb5bd
+    style ISMS3 fill:#e9ecef,color:#212529,stroke:#adb5bd
+    style ISMS4 fill:#e9ecef,color:#212529,stroke:#adb5bd
+```
+
+---
+
 ## 📊 Methodology Relationship Map
 
 This diagram shows how the six methodology documents relate to each other and feed into the final analysis output:
@@ -137,6 +187,72 @@ graph LR
 | **4** | **[Political SWOT Framework](political-swot-framework.md)** | Evidence-based SWOT, confidence levels, 180-day decay, group-to-landscape aggregation | Strengths, Weaknesses, Opportunities, Threats — each with confidence (HIGH/MEDIUM/LOW) | **Fourth** — synthesize classification + risk + threat into strategic SWOT assessment |
 | **5** | **[Political Style Guide](political-style-guide.md)** | Writing standards, 3 depth levels, evidence density requirements, anti-patterns | Level 1 Surface (200–500 words), Level 2 Strategic (800–2,000 words), Level 3 Intelligence (2,000–5,000 words) | **Fifth** — apply writing standards when drafting the analysis document |
 | **6** | **[AI-Driven Analysis Guide](ai-driven-analysis-guide.md)** | Per-file AI protocol, quality gates, weighted scoring (7.0/10 minimum), conflict resolution | Evidence (25%), Depth (25%), Structural (20%), Actionable (15%), Neutrality (15%) | **Always** — orchestrates the entire pipeline; AI agents must read this first |
+
+---
+
+## 📖 Methodology Catalog
+
+### 🤖 AI-Driven Analysis Guide — `ai-driven-analysis-guide.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Master protocol governing all AI-driven political intelligence analysis |
+| **Scope** | All agentic workflows, all analysis types, all output artifacts |
+| **Key Rules** | Folder isolation · AI-only content · Multi-framework depth · Quality gates |
+| **Version** | 2.0 |
+
+**Core Principles:**
+- **Folder Isolation**: Every workflow writes ONLY to its own `analysis/YYYY-MM-DD/{articleType}/` subfolder
+- **AI-Only Content**: Scripts must NEVER generate analysis prose, SWOT entries, risk scores, or template content
+- **Quality Gates**: Automated checks validate every analysis artifact before commit (minimum 7.0/10)
+
+### 🏷️ Political Classification Guide — `political-classification-guide.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Multi-dimensional taxonomy for political document and event classification |
+| **Dimensions** | 7: Public Interest · Democratic Integrity · Policy Urgency · Economic Impact · Governance · Political Capital · Legislative Impact |
+| **Confidence Levels** | HIGH (≥80%) · MEDIUM (60–79%) · LOW (<60%) |
+| **Version** | 2.0 |
+
+### ⚠️ Political Risk Assessment Methodology — `political-risk-methodology.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Systematic risk identification, scoring, and cascading impact analysis |
+| **Risk Categories** | 6: Coalition Stability · Policy Implementation · Institutional Integrity · Economic Governance · Social Cohesion · Geopolitical Standing |
+| **Scoring Model** | Likelihood (1–5) × Impact (1–5) = Risk Score (1–25) |
+| **Advanced Features** | Cascading risk chains · Grand Coalition stability risk · Risk velocity tracking |
+| **Version** | 2.0 |
+
+### 💼 Political SWOT Analysis Framework — `political-swot-framework.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Multi-stakeholder strategic analysis for political events and policy decisions |
+| **Stakeholder Lenses** | Grand Coalition · Opposition Bloc · Citizens/Civil Society · Economic Actors · International Observers |
+| **Advanced Features** | TOWS Matrix · Cross-SWOT Interference · 180-day Decay · Scenario Generation · Temporal Dynamics |
+| **Version** | 2.0 |
+
+### 🎭 Political Threat Analysis Framework — `political-threat-framework.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Multi-framework threat modeling for democratic process threats |
+| **Frameworks** | 6: Political Threat Landscape (6D) + Diamond Model + Attack Trees + PESTLE + Scenario Planning + Kill Chain |
+| **Threat Taxonomy** | 6 Dimensions: Coalition Shifts · Transparency Deficit · Policy Reversal · Institutional Pressure · Legislative Obstruction · Democratic Erosion |
+| **Version** | 3.0 |
+
+> ⚠️ **STRIDE is NOT used.** The Political Threat Landscape replaces STRIDE with politically-native dimensions designed for democratic function analysis.
+
+### ✍️ Political Intelligence Style Guide — `political-style-guide.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Establishes writing standards for all political intelligence output |
+| **Scope** | Article tone, evidence citation standards, Mermaid diagram requirements, confidence labelling |
+| **Key Standards** | Evidence tables (not prose) · EP procedure citations · Colour-coded diagrams · Multi-language terminology |
+| **Version** | 2.0 |
 
 ---
 
@@ -518,6 +634,84 @@ flowchart TD
 
 ---
 
+## 🔄 Methodology Integration Flow
+
+```mermaid
+sequenceDiagram
+    participant WF as 🔄 Agentic Workflow
+    participant DL as 📥 Data Download
+    participant CLASS as 🏷️ Classification
+    participant RISK as ⚠️ Risk Assessment
+    participant SWOT as 💼 SWOT Analysis
+    participant THREAT as 🎭 Threat Analysis
+    participant SIG as 📈 Significance
+    participant SYNTH as 🧩 Synthesis
+    participant QG as ✅ Quality Gate
+    participant ART as 📰 Article Generation
+
+    WF->>DL: Fetch EP MCP feed data
+    DL->>CLASS: Raw documents + metadata
+
+    Note over CLASS,THREAT: AI performs ALL analysis<br/>(never scripted)
+
+    CLASS->>RISK: Classification results
+    CLASS->>SWOT: Document classification
+    CLASS->>THREAT: Document classification
+
+    par Parallel Analysis
+        RISK->>SIG: Risk scores + cascading analysis
+        SWOT->>SIG: SWOT matrices + strategic implications
+        THREAT->>SIG: Threat profiles + kill chains
+    end
+
+    SIG->>SYNTH: Significance scores
+    SYNTH->>QG: Synthesis summary
+
+    QG-->>QG: Validate structure,<br/>evidence, Mermaid,<br/>confidence, citations
+    QG->>ART: Approved analysis
+    ART->>WF: HTML article + 14 translations
+
+    Note over QG: Quality gate checks:<br/>✓ Evidence tables<br/>✓ Mermaid diagrams<br/>✓ EP procedure citations<br/>✓ Confidence labels<br/>✓ No stub content
+```
+
+---
+
+## 🎯 Article-Type-Specific Methodology Selection
+
+Different EP document types require **different analytical emphasis**. This matrix maps which methodologies are PRIMARY vs SUPPORTING for each workflow type:
+
+| Article Type | Classification | Risk | SWOT | Threat | Significance | Stakeholder | Unique Focus |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|---|
+| **Breaking News** | 🔴 PRIMARY | 🔴 PRIMARY | ✅ | ✅ | 🔴 PRIMARY | ✅ | Real-time urgency scoring, political temperature spike detection |
+| **Motions** | 🔴 PRIMARY | ✅ | ✅ | 🔴 PRIMARY | ✅ | ✅ | Per-resolution vote breakdown by group, defection pattern analysis |
+| **Propositions** | ✅ | 🔴 PRIMARY | 🔴 PRIMARY | ✅ | ✅ | 🔴 PRIMARY | Legislative pipeline stage, rapporteur influence, amendment success rates |
+| **Committee Reports** | 🔴 PRIMARY | 🔴 PRIMARY | ✅ | ✅ | ✅ | 🔴 PRIMARY | Committee productivity, document classification by committee domain |
+| **Week Ahead** | ✅ | 🔴 PRIMARY | 🔴 PRIMARY | 🔴 PRIMARY | ✅ | ✅ | Prospective risk landscape, scheduled debate preview, expected vote outcomes |
+| **Weekly Review** | 🔴 PRIMARY | ✅ | 🔴 PRIMARY | ✅ | 🔴 PRIMARY | ✅ | Cross-type trend detection, week-over-week pattern shifts |
+| **Month Ahead** | ✅ | 🔴 PRIMARY | ✅ | 🔴 PRIMARY | ✅ | ✅ | Strategic political calendar, major policy decision forecast |
+| **Monthly Review** | ✅ | ✅ | 🔴 PRIMARY | ✅ | ✅ | 🔴 PRIMARY | Legislative throughput, political group productivity, Grand Coalition scorecard |
+
+> **Reading the matrix:** ✅ = always required for all types. 🔴 PRIMARY = the methodology that should receive the most analytical depth and word count for this article type. Each workflow must apply ALL methodologies but allocate **more time and depth** to PRIMARY ones.
+
+### Unique Analytical Sections Per Article Type
+
+Each article type should produce unique analytical sections in its synthesis that **no other workflow can produce**:
+
+| Article Type | Template | Unique Section Name | What Makes It Unique |
+|---|---|---|---|
+| **Breaking News** | Significance | **Breaking Urgency Rating** | Real-time significance assessment with 6-hour refresh — only breaking workflow has this cadence |
+| **Motions** | Threat | **Defection Pattern Dashboard** | Political group voting discipline per-resolution — only motion workflow analyses individual votes |
+| **Propositions** | Risk | **Legislative Pipeline Risk** | Where the procedure sits (committee → plenary → trilogue → adoption) and risk of delay/amendment |
+| **Propositions** | Stakeholder | **Rapporteur Influence Scorecard** | Rapporteur and shadow rapporteur influence mapping — unique to procedure-level analysis |
+| **Committee Reports** | Stakeholder | **Committee Productivity Matrix** | Per-committee output volume, meeting frequency, document production rate |
+| **Committee Reports** | Classification | **Cross-Committee Comparison** | Relative workload and output comparison across EP committees |
+| **Week Ahead** | SWOT | **Pre-Plenary Intelligence Brief** | Forward-looking SWOT for upcoming plenary agenda — only week-ahead can provide this prospective view |
+| **Weekly Review** | SWOT | **Week-over-Week Trend Delta** | How did this week's political temperature differ from last week? Only weekly scope enables this |
+| **Month Ahead** | Risk | **Strategic Calendar Risk Map** | Forward-looking risk landscape tied to specific scheduled events (budget debates, EU summits) |
+| **Monthly Review** | Synthesis | **Grand Coalition Scorecard** | Comprehensive monthly assessment of Grand Coalition legislative effectiveness and cohesion |
+
+---
+
 ## ✅ Quality Gate Requirements
 
 All analysis produced under these methodologies must meet the following minimum quality requirements before publication:
@@ -561,6 +755,19 @@ The following practices are **explicitly prohibited** across all methodologies:
 | **Stale SWOT entries** | Entries older than 180 days without re-verification are unreliable | Enforce 180-day decay rule; re-verify or remove expired entries |
 | **Missing stakeholder analysis** | Analysis without impact assessment has no actionable value | Identify affected political groups, MEPs, committees, and citizens |
 | **Ignoring multi-language requirements** | Analysis must serve 14-language platform | Structure content for translation; avoid idioms and culture-specific references |
+
+---
+
+## 🔗 ISMS Reference Adaptations
+
+The analysis methodologies are adapted from Hack23's ISO 27001/NIST CSF/CIS Controls ISMS framework. The `reference/` directory contains mapping documents showing how cybersecurity risk concepts translate to political intelligence:
+
+| Reference Document | ISMS Source | Political Adaptation |
+|---|---|---|
+| [`isms-classification-adaptation.md`](../reference/isms-classification-adaptation.md) | ISO 27001 A.5.12–A.5.13 | Multi-dimensional political event classification |
+| [`isms-risk-assessment-adaptation.md`](../reference/isms-risk-assessment-adaptation.md) | ISO 27001 A.8.8, NIST CSF ID.RA | Cascading political risk assessment |
+| [`isms-style-guide-adaptation.md`](../reference/isms-style-guide-adaptation.md) | ISO 27001 A.5.37 | Evidence-based political writing standards |
+| [`isms-threat-modeling-adaptation.md`](../reference/isms-threat-modeling-adaptation.md) | ISO 27001 A.5.7, NIST CSF ID.RA-3 | Multi-framework political threat modeling |
 
 ---
 

@@ -114,3 +114,109 @@ Risk Tiers:  1–4 = Low 🟢  |  5–9 = Medium 🟡  |  10–14 = High 🟠  |
 ```
 [REQUIRED: List all analysis/YYYY-MM-DD/{article-type-slug}/data/ files consulted for this assessment]
 ```
+
+---
+
+## ⚡ Cascading Risk Chain
+
+> **AI Instructions:** For the highest-scoring risk, trace the cascade of second-order and third-order effects.
+
+```mermaid
+flowchart TD
+    TRIGGER["⚠️ TRIGGER:<br/>[REQUIRED: Primary risk event]<br/>Score: [L×I]"]
+    TRIGGER --> FIRST["⚠️ 1ST ORDER:<br/>[REQUIRED: Immediate consequence]<br/>Score: [L×I]"]
+    FIRST --> SECOND_A["⚠️ 2ND ORDER (A):<br/>[REQUIRED: Follow-on effect]<br/>Score: [L×I]"]
+    FIRST --> SECOND_B["⚠️ 2ND ORDER (B):<br/>[OPTIONAL: Alternative path]<br/>Score: [L×I]"]
+
+    style TRIGGER fill:#dc3545,color:#fff
+    style FIRST fill:#fd7e14,color:#fff
+    style SECOND_A fill:#ffc107,color:#000
+    style SECOND_B fill:#ffc107,color:#000
+```
+
+| Chain Stage | Risk Event | L | I | Score | Circuit Breaker |
+|:-----------:|-----------|:-:|:-:|:-----:|----------------|
+| Trigger | `[REQUIRED]` | `[#]` | `[#]` | `[#]` | `[What stops it here?]` |
+| 1st Order | `[REQUIRED]` | `[#]` | `[#]` | `[#]` | `[Intervention point]` |
+| 2nd Order | `[REQUIRED]` | `[#]` | `[#]` | `[#]` | `[Recovery action]` |
+
+---
+
+## 🌐 Risk Interconnection Map
+
+> **AI Instructions:** Show how the 6 EP risk dimensions (grand-coalition-stability, policy-implementation, institutional-integrity, economic-governance, social-cohesion, geopolitical-standing) affect each other.
+
+```mermaid
+graph TD
+    CR["🤝 Grand-Coalition Stability"]
+    LR["📋 Policy Implementation"]
+    IR["🏛️ Institutional Integrity"]
+    ER["💶 Economic Governance"]
+    DR["🧩 Social Cohesion"]
+    XR["🌍 Geopolitical Standing"]
+
+    CR -->|"Coalition instability delays<br/>policy implementation agenda"| LR
+    CR -->|"Grand Coalition friction<br/>weakens institutional integrity"| IR
+    LR -->|"Implementation failures erode<br/>public trust and social cohesion"| DR
+    XR -->|"Geopolitical crisis forces<br/>rapid EU policy response"| LR
+    XR -->|"External pressure strains<br/>grand-coalition stability"| CR
+    XR -->|"Global economic shocks stress<br/>EU fiscal governance"| ER
+    ER -->|"Budgetary constraints increase<br/>coalition posturing"| CR
+    DR -->|"Social fragmentation<br/>undermines institutional legitimacy"| IR
+
+    style CR fill:#dc3545,color:#fff
+    style LR fill:#fd7e14,color:#fff
+    style IR fill:#ffc107,color:#000
+    style ER fill:#0d6efd,color:#fff
+    style DR fill:#198754,color:#fff
+    style XR fill:#6f42c1,color:#fff
+```
+
+| From → To | Connection Strength | Mechanism | Evidence |
+|:---------:|:-------------------:|-----------|---------|
+| Grand-Coalition → Policy | `[Strong/Medium/Weak]` | `[REQUIRED: How coalition instability delays EP policy agenda]` | `[EP procedure ref]` |
+| Grand-Coalition → Institutional | `[Strong/Medium/Weak]` | `[REQUIRED: How Grand Coalition friction affects institutional integrity]` | `[EP resolution ref]` |
+| Policy → Social Cohesion | `[Strong/Medium/Weak]` | `[REQUIRED: How implementation failures affect citizen trust]` | `[Eurobarometer data]` |
+| Geopolitical → Grand-Coalition | `[Strong/Medium/Weak]` | `[REQUIRED: How external pressure strains coalition]` | `[EU Council position]` |
+| Economic → Grand-Coalition | `[Strong/Medium/Weak]` | `[REQUIRED: How budgetary constraints affect coalition posturing]` | `[MFF/budget vote ref]` |
+| Social Cohesion → Institutional | `[Strong/Medium/Weak]` | `[REQUIRED: How social fragmentation undermines institutional legitimacy]` | `[EP participation data]` |
+
+**System fragility assessment:** `[REQUIRED: Are ≥3 risk dimensions at High level? If so, system is fragile — describe why.]`
+
+---
+
+## 🔮 Forward Indicators & Scenario Outlook
+
+| Scenario | Probability | Key Trigger | Risk Dimensions Affected |
+|----------|:----------:|------------|-------------------------|
+| `[REQUIRED: Most likely outcome]` | `[%]` | `[Specific EP trigger]` | `[Coalition + Legislative + ...]` |
+| `[REQUIRED: Alternative outcome]` | `[%]` | `[Specific EP trigger]` | `[Risk dimensions]` |
+| `[OPTIONAL: Worst case]` | `[%]` | `[Specific EP trigger]` | `[Risk dimensions]` |
+
+### Freshness Requirements
+
+| Risk Tier | Maximum Age Before Re-evaluation |
+|:---------:|:-------------------------------:|
+| 🔴 Critical (15–25) | **24 hours** — must be re-assessed daily |
+| 🟠 High (10–14) | **72 hours** — re-assess within 3 days |
+| 🟡 Medium (5–9) | **7 days** — re-assess weekly |
+| 🟢 Low (1–4) | **30 days** — re-assess monthly |
+
+### When to Escalate from Risk Register to Breaking Analysis
+
+| Condition | Action |
+|-----------|--------|
+| Any risk score increases from ≤14 to ≥15 (crosses into Critical) | Trigger breaking risk assessment; notify editorial |
+| ≥ 3 risks simultaneously in High tier | Elevate overall risk level; flag in daily synthesis |
+| Grand Coalition collapse probability moves from LOW to MEDIUM or HIGH | Immediate re-assessment of all coalition-related risks |
+| Plenary vote approaches with unresolved High risk | Pre-position breaking analysis template |
+
+---
+
+**Document Control:**
+- **Template Path:** `/analysis/templates/risk-assessment.md`
+- **Version:** 2.0
+- **Advanced Features:** Cascading Risk Chain, Risk Interconnection Map, Freshness tiers, Escalation criteria
+- **Framework Reference:** [methodologies/political-risk-methodology.md](../methodologies/political-risk-methodology.md)
+- **Classification:** Public
+- **Next Review:** 2026-06-30

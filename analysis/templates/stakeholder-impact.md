@@ -138,6 +138,51 @@
 
 `[REQUIRED: 3–5 sentences identifying the most significant stakeholder dynamics. Which groups are in tension? Where are unexpected winners/losers? What are the second-order political effects?]`
 
+---
+
+## ⚡ Conflicting Impact Resolution
+
+When stakeholder impacts conflict (e.g., Citizens benefit but Business bears costs), use this decision matrix:
+
+| Pattern | Overall Assessment | Editorial Framing |
+|---------|-------------------|-------------------|
+| Citizens positive + Business negative | **Politically significant** — redistribution dynamic | Lead with citizen impact; note business costs |
+| Grand Coalition positive + Opposition negative | **Standard partisan** — expected dynamics | Present both perspectives equally |
+| Citizens negative + Grand Coalition positive | **Accountability concern** — policy vs. people | Lead with citizen impact; scrutinise government rationale |
+| All stakeholders negative | **System-level problem** — policy failure signal | Frame as shared challenge requiring cross-group response |
+| All stakeholders positive | **Rare consensus** — highlight cross-party achievement | Note rarity; check for hidden costs or losers |
+| Member States opposed + EP in favour | **Interinstitutional tension** — trilogue friction | Frame as EP asserting legislative power; track Council response |
+| Business positive + Citizens neutral | **Regulatory capture risk** — scrutinise lobbying | Investigate industry influence; check for citizen safeguards |
+
+### Stakeholder Impact Mermaid Diagram
+
+> ⚠️ AI Agent: Replace placeholder values with actual impact assessments from the data.
+
+```mermaid
+graph LR
+    subgraph "📊 Stakeholder Impact Map"
+        EVENT["📋 Policy Event"]
+        C["🏘️ Citizens<br/>Impact: {H/M/L}"]
+        GC["🏛️ Grand Coalition<br/>Impact: {H/M/L}"]
+        O["🗳️ Opposition<br/>Impact: {H/M/L}"]
+        B["🏭 Business<br/>Impact: {H/M/L}"]
+        MS["🤝 Member States<br/>Impact: {H/M/L}"]
+        INT["🌍 International<br/>Impact: {H/M/L}"]
+    end
+
+    EVENT --> C & GC & O & B & MS & INT
+
+    style EVENT fill:#0d6efd,color:#fff,stroke:#0a58ca,stroke-width:2px
+    style C fill:#28a745,color:#fff,stroke:#1e7e34
+    style GC fill:#ffc107,color:#000,stroke:#cc9a06
+    style O fill:#dc3545,color:#fff,stroke:#b02a37
+    style B fill:#17a2b8,color:#fff,stroke:#117a8b
+    style MS fill:#6f42c1,color:#fff,stroke:#59359a
+    style INT fill:#fd7e14,color:#fff,stroke:#ca6510
+```
+
+---
+
 **Publish Recommendation:** `[REQUIRED: YES — HIGH interest / YES — MEDIUM interest / MONITOR — low standalone value]`
 
 ### MCP Data Files Used
@@ -145,3 +190,13 @@
 ```
 [REQUIRED: List all analysis/YYYY-MM-DD/{article-type-slug}/data/ files consulted]
 ```
+
+---
+
+**Document Control:**
+- **Template Path:** `/analysis/templates/stakeholder-impact.md`
+- **Version:** 2.0
+- **Advanced Features:** Conflicting Impact Resolution matrix, Stakeholder Impact Mermaid diagram
+- **Framework Reference:** [methodologies/political-style-guide.md](../methodologies/political-style-guide.md)
+- **Classification:** Public
+- **Next Review:** 2026-06-30
