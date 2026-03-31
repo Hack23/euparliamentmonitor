@@ -9,8 +9,8 @@
   <em>🎯 MCP Sources · Confidence Levels · Aggregation · Temporal Decay</em>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-03-28 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-28
+**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-31 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---

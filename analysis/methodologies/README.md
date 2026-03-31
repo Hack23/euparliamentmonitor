@@ -213,7 +213,7 @@ graph LR
 | **Purpose** | Multi-dimensional taxonomy for political document and event classification |
 | **Dimensions** | 7: Public Interest · Democratic Integrity · Policy Urgency · Economic Impact · Governance · Political Capital · Legislative Impact |
 | **Confidence Levels** | HIGH (≥80%) · MEDIUM (60–79%) · LOW (<60%) |
-| **Version** | 1.0 |
+| **Version** | 2.0 |
 
 ### ⚠️ Political Risk Assessment Methodology — `political-risk-methodology.md`
 
@@ -223,7 +223,7 @@ graph LR
 | **Risk Categories** | 6: Coalition Stability · Policy Implementation · Institutional Integrity · Economic Governance · Social Cohesion · Geopolitical Standing |
 | **Scoring Model** | Likelihood (1–5) × Impact (1–5) = Risk Score (1–25) |
 | **Advanced Features** | Cascading risk chains · Grand Coalition stability risk · Risk velocity tracking |
-| **Version** | 1.0 |
+| **Version** | 2.0 |
 
 ### 💼 Political SWOT Analysis Framework — `political-swot-framework.md`
 
@@ -232,7 +232,7 @@ graph LR
 | **Purpose** | Multi-stakeholder strategic analysis for political events and policy decisions |
 | **Stakeholder Lenses** | Grand Coalition · Opposition Bloc · Citizens/Civil Society · Economic Actors · International Observers |
 | **Advanced Features** | TOWS Matrix · Cross-SWOT Interference · 180-day Decay · Scenario Generation · Temporal Dynamics |
-| **Version** | 1.0 |
+| **Version** | 2.0 |
 
 ### 🎭 Political Threat Analysis Framework — `political-threat-framework.md`
 

@@ -328,7 +328,7 @@ Every factual claim must have a source citation. Every non-factual assessment mu
 
 ### Rule 6: Deep Analysis — Not Shallow Summaries
 
-Every analysis file must demonstrate **genuine political intelligence depth**. The quality standard is [SWOT.md](../SWOT.md) and [THREAT_MODEL.md](../THREAT_MODEL.md) — not brief summaries.
+Every analysis file must demonstrate **genuine political intelligence depth**. The quality standard is [SWOT.md](../SWOT.md) and [Political Threat Framework](methodologies/political-threat-framework.md) — not brief summaries.
 
 **Minimum depth indicators:**
 - ≥ 3 evidence-backed claims per SWOT quadrant (with EP procedure ID or adopted text citations)

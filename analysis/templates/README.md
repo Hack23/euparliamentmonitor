@@ -174,8 +174,8 @@ sequenceDiagram
     participant QG as ✅ Quality Gate
 
     WF->>PRE: Trigger analysis
-    PRE->>PRE: Download data (scripts ONLY download)
-    PRE->>AI: Raw documents + stub files
+    PRE->>PRE: Download data + non-analytical validation/housekeeping
+    PRE->>AI: Prepared documents + stub files (no analytical content)
 
     Note over AI: AI reads methodology +<br/>template + prompt
 
