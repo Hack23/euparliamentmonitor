@@ -14,12 +14,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--30-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--31-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-31 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:** 2026-03-31 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -83,6 +83,53 @@ Templates are **not** standalone outputs. They form a **composable intelligence 
 - 📊 All outputs require **structured tables + colour-coded Mermaid diagrams** — plain prose alone is rejected
 - 🎯 Every analysis must pass a **minimum 7.0/10 quality gate** before consumption by article generators
 
+> **Critical Rule:** AI agents MUST follow these templates. Templates define structure and required sections — the AI fills them with genuine, evidence-based analysis. Templates must NEVER be copied verbatim with placeholder text.
+
+---
+
+## 📐 Template Architecture
+
+```mermaid
+graph TB
+    subgraph "📥 Input Layer"
+        RAW["📄 Raw EP Parliamentary<br/>Documents"]
+        META["📊 Document<br/>Metadata"]
+    end
+
+    subgraph "🔬 Per-Document Analysis"
+        T1["🔍 Per-File Political<br/>Intelligence Template"]
+    end
+
+    subgraph "🧪 Analytical Dimension Templates"
+        T2["🏷️ Political<br/>Classification"]
+        T3["⚠️ Risk<br/>Assessment"]
+        T4["💼 SWOT<br/>Analysis"]
+        T5["🎭 Threat<br/>Analysis"]
+        T6["📈 Significance<br/>Scoring"]
+        T7["👥 Stakeholder<br/>Impact"]
+    end
+
+    subgraph "📰 Synthesis Layer"
+        T8["🧩 Synthesis<br/>Summary"]
+    end
+
+    RAW --> T1
+    META --> T1
+    T1 --> T2 & T3 & T4 & T5 & T6 & T7
+    T2 & T3 & T4 & T5 & T6 & T7 --> T8
+
+    style RAW fill:#6c757d,color:#fff,stroke:#495057,stroke-width:2px
+    style META fill:#6c757d,color:#fff,stroke:#495057,stroke-width:2px
+    style T1 fill:#0d6efd,color:#fff,stroke:#0a58ca,stroke-width:3px
+    style T2 fill:#198754,color:#fff,stroke:#146c43,stroke-width:2px
+    style T3 fill:#dc3545,color:#fff,stroke:#b02a37,stroke-width:2px
+    style T4 fill:#fd7e14,color:#fff,stroke:#ca6510,stroke-width:2px
+    style T5 fill:#d63384,color:#fff,stroke:#ab296a,stroke-width:2px
+    style T6 fill:#6f42c1,color:#fff,stroke:#59359a,stroke-width:2px
+    style T7 fill:#0dcaf0,color:#000,stroke:#0aa2c0,stroke-width:2px
+    style T8 fill:#ffc107,color:#000,stroke:#cc9a06,stroke-width:3px
+```
+
 ---
 
 ## 🔄 Template Usage Workflow
@@ -115,6 +162,46 @@ flowchart TD
     style M fill:#003399,color:#fff,stroke:#002266
     style O fill:#20c997,color:#fff,stroke:#199d76
     style N fill:#dc3545,color:#fff,stroke:#bd2130
+```
+
+### Template Usage Flow — Detailed Sequence
+
+```mermaid
+sequenceDiagram
+    participant WF as 🔄 Workflow
+    participant PRE as 📥 Pre-Analysis Script
+    participant AI as 🤖 AI Agent
+    participant QG as ✅ Quality Gate
+
+    WF->>PRE: Trigger analysis
+    PRE->>PRE: Download data (scripts ONLY download)
+    PRE->>AI: Raw documents + stub files
+
+    Note over AI: AI reads methodology +<br/>template + prompt
+
+    AI->>AI: Apply per-file-political-intelligence.md
+    AI->>AI: Apply political-classification.md
+    AI->>AI: Apply risk-assessment.md
+    AI->>AI: Apply swot-analysis.md
+    AI->>AI: Apply threat-analysis.md
+    AI->>AI: Apply significance-scoring.md
+    AI->>AI: Apply stakeholder-impact.md
+    AI->>AI: Apply synthesis-summary.md
+
+    AI->>QG: Completed analysis files
+
+    QG->>QG: Check 1: Evidence tables present?
+    QG->>QG: Check 2: Mermaid diagrams present?
+    QG->>QG: Check 3: Confidence labels present?
+    QG->>QG: Check 4: EP procedure citations present?
+    QG->>QG: Check 5: Template structure compliant?
+    QG->>QG: Check 6: No stub content remaining?
+
+    alt All checks pass
+        QG->>WF: ✅ Analysis approved
+    else Any check fails
+        QG->>AI: ❌ Revision required
+    end
 ```
 
 ---
@@ -601,6 +688,36 @@ Templates enforce strict anti-patterns to prevent low-quality intelligence produ
 | **Copy-paste from previous analyses** | Recycled content misses document-specific intelligence | Analyse each data file independently; cross-reference prior work but never copy |
 | **Missing confidence labels** | Without confidence tags, consumers cannot assess reliability | Tag every assertion: `[HIGH confidence]`, `[MEDIUM confidence]`, or `[LOW confidence]` |
 
+### ⚠️ STRIDE Anti-Pattern — Correct vs Wrong Approach
+
+```mermaid
+graph TD
+    subgraph "🚫 WRONG Approach"
+        STRIDE["STRIDE Categories<br/>(cybersecurity)"]
+        STRIDE_OUT["❌ Superficial<br/>categorisation"]
+        STRIDE --> STRIDE_OUT
+    end
+
+    subgraph "✅ CORRECT Approach"
+        MULTI["Multi-Framework<br/>Integration"]
+        PTL["🎯 Political Threat<br/>Landscape (6D)"]
+        AT["🌳 Attack Trees"]
+        DM["💎 Diamond Model"]
+        KC["⚔️ Kill Chain"]
+        MULTI --> PTL & AT & DM & KC
+        PTL & AT & DM & KC --> DEEP["✅ Actionable<br/>intelligence"]
+    end
+
+    style STRIDE fill:#dc3545,color:#fff,stroke:#b02a37
+    style STRIDE_OUT fill:#dc3545,color:#fff,stroke:#b02a37
+    style MULTI fill:#198754,color:#fff,stroke:#146c43,stroke-width:2px
+    style PTL fill:#0d6efd,color:#fff,stroke:#0a58ca
+    style AT fill:#fd7e14,color:#fff,stroke:#ca6510
+    style DM fill:#6f42c1,color:#fff,stroke:#59359a
+    style KC fill:#d63384,color:#fff,stroke:#ab296a
+    style DEEP fill:#198754,color:#fff,stroke:#146c43
+```
+
 ---
 
 ## 📰 Workflow-Specific Template Routing
@@ -668,6 +785,73 @@ flowchart TD
 
 ---
 
+## 🎯 Article-Type-Specific Template Customisation
+
+While all 8 templates apply to every document, certain templates produce **richer, more unique output** depending on the document type. The AI agent should allocate proportionally more depth to the highlighted templates:
+
+```mermaid
+graph TB
+    subgraph "🔴 Breaking News"
+        BK_T1["🔍 Per-File Intel<br/><b>Focus: urgency assessment</b>"]
+        BK_T2["📈 Significance<br/><b>Focus: real-time scoring</b>"]
+        BK_T3["⚠️ Risk<br/><b>Focus: impact severity</b>"]
+    end
+
+    subgraph "📋 Motions"
+        MO_T1["🔍 Per-File Intel<br/><b>Focus: vote breakdown</b>"]
+        MO_T2["🎭 Threat<br/><b>Focus: defection patterns</b>"]
+        MO_T3["👥 Stakeholder<br/><b>Focus: group alignment</b>"]
+    end
+
+    subgraph "📜 Propositions"
+        PR_T1["🔍 Per-File Intel<br/><b>Focus: legislative pipeline</b>"]
+        PR_T2["⚠️ Risk<br/><b>Focus: procedure risk</b>"]
+        PR_T3["👥 Stakeholder<br/><b>Focus: rapporteur influence</b>"]
+    end
+
+    subgraph "🏛️ Committee Reports"
+        CR_T1["🔍 Per-File Intel<br/><b>Focus: committee output</b>"]
+        CR_T2["⚠️ Risk<br/><b>Focus: committee risk</b>"]
+        CR_T3["👥 Stakeholder<br/><b>Focus: committee dynamics</b>"]
+    end
+
+    style BK_T1 fill:#dc3545,color:#fff,stroke:#b02a37
+    style BK_T2 fill:#dc3545,color:#fff,stroke:#b02a37
+    style BK_T3 fill:#dc3545,color:#fff,stroke:#b02a37
+    style MO_T1 fill:#fd7e14,color:#fff,stroke:#ca6510
+    style MO_T2 fill:#fd7e14,color:#fff,stroke:#ca6510
+    style MO_T3 fill:#fd7e14,color:#fff,stroke:#ca6510
+    style PR_T1 fill:#0d6efd,color:#fff,stroke:#0a58ca
+    style PR_T2 fill:#0d6efd,color:#fff,stroke:#0a58ca
+    style PR_T3 fill:#0d6efd,color:#fff,stroke:#0a58ca
+    style CR_T1 fill:#198754,color:#fff,stroke:#146c43
+    style CR_T2 fill:#198754,color:#fff,stroke:#146c43
+    style CR_T3 fill:#198754,color:#fff,stroke:#146c43
+```
+
+### Unique Template Sections by Article Type
+
+Each article type should produce unique analytical sections in its synthesis that **no other workflow can produce**:
+
+| Article Type | Template | Unique Section Name | What Makes It Unique |
+|---|---|---|---|
+| **Breaking News** | Significance | **Breaking Urgency Rating** | Real-time significance assessment with 6-hour refresh — only breaking workflow has this cadence |
+| **Breaking News** | Risk | **Political Temperature Spike** | Immediate impact assessment for events published today — no other workflow operates at this tempo |
+| **Motions** | Threat | **Defection Pattern Dashboard** | Political group voting discipline per-resolution — only motion workflow analyses individual vote breakdowns |
+| **Motions** | Stakeholder | **Cross-Group Alignment Map** | Which groups vote together on this resolution — unique cross-party cooperation/opposition analysis |
+| **Propositions** | Risk | **Legislative Pipeline Risk** | Where the procedure sits (committee → plenary → trilogue → adoption) and risk of delay/amendment |
+| **Propositions** | Stakeholder | **Rapporteur Influence Scorecard** | Rapporteur and shadow rapporteur influence mapping, amendment success rate — unique to procedure analysis |
+| **Committee Reports** | Per-File Intel | **Committee Productivity Matrix** | Per-committee output volume, meeting frequency, document production rate |
+| **Committee Reports** | Stakeholder | **Cross-Committee Comparison** | Relative workload and output comparison across EP committees — only committee workflow has this breadth |
+| **Week Ahead** | SWOT | **Pre-Plenary Intelligence Brief** | Forward-looking SWOT for upcoming plenary agenda — only week-ahead can provide this prospective view |
+| **Week Ahead** | Risk | **Scheduled Vote Risk Pre-Assessment** | Vote-by-vote risk prediction for upcoming plenary — unique forward-looking risk assessment |
+| **Weekly Review** | SWOT | **Week-over-Week Trend Delta** | How did this week's political temperature differ from last week? Only weekly scope enables this |
+| **Weekly Review** | Synthesis | **Weekly Parliamentary Pulse** | Aggregated activity index combining all document types into a single weekly metric |
+| **Month Ahead** | Risk | **Strategic Calendar Risk Map** | Forward-looking risk landscape tied to specific scheduled events (budget debates, EU summits) |
+| **Monthly Review** | Synthesis | **Grand Coalition Scorecard** | Monthly assessment of Grand Coalition legislative effectiveness, cohesion, and political group performance rankings |
+
+---
+
 ## 🔗 Related Documentation
 
 | Document | Relationship |
@@ -692,7 +876,7 @@ flowchart TD
 | **Document ID** | `TMPL-README-001` |
 | **Title** | Analysis Templates — Directory Documentation |
 | **Owner** | CEO |
-| **Version** | 2.0 |
+| **Version** | 3.0 |
 | **Classification** | Public |
 | **Created** | 2026-03-30 |
 | **Last Updated** | 2026-03-31 |
