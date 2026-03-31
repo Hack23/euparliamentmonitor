@@ -14,12 +14,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--30-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-03-30 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-31 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -603,6 +603,71 @@ Templates enforce strict anti-patterns to prevent low-quality intelligence produ
 
 ---
 
+## 📰 Workflow-Specific Template Routing
+
+Each agentic workflow uses a **tailored subset** of templates. This ensures every article type produces analytics unique to its focus area:
+
+```mermaid
+flowchart TD
+    subgraph "📋 8 Templates"
+        T1["🏷️ Classification"]
+        T2["⚠️ Risk Assessment"]
+        T3["🎭 Threat Analysis"]
+        T4["💼 SWOT"]
+        T5["👥 Stakeholder Impact"]
+        T6["📈 Significance"]
+        T7["🧩 Synthesis"]
+        T8["🔍 Per-File Intel"]
+    end
+
+    subgraph "📰 Workflows"
+        BK["🔴 Breaking"]
+        MO["📋 Motions"]
+        PR["📜 Propositions"]
+        CR["🏛️ Committee"]
+        WA["📅 Week Ahead"]
+        WR["📊 Weekly Review"]
+        MA["📆 Month Ahead"]
+        MR["📈 Monthly Review"]
+    end
+
+    T1 --> BK & MO & WR
+    T2 --> BK & CR & PR & MR
+    T3 --> MO & MA & MR
+    T4 --> PR & WA & WR & MA & MR
+    T5 --> CR & MO & MA
+    T6 --> BK & WA & WR
+    T7 --> WR & MR
+    T8 --> BK & MO & PR & CR & WA & WR & MA & MR
+
+    style BK fill:#dc3545,stroke:#b02a37,color:#fff
+    style MO fill:#fd7e14,stroke:#ca6510,color:#fff
+    style PR fill:#ffc107,stroke:#cc9a06,color:#000
+    style CR fill:#198754,stroke:#146c43,color:#fff
+    style WA fill:#0d6efd,stroke:#0a58ca,color:#fff
+    style WR fill:#6f42c1,stroke:#59359a,color:#fff
+    style MA fill:#d63384,stroke:#ab296a,color:#fff
+    style MR fill:#0dcaf0,stroke:#0aa2c0,color:#000
+    style T8 fill:#20c997,stroke:#1aa179,color:#fff
+```
+
+### Template Coverage Per Workflow
+
+| Workflow | Primary Templates | Unique Analytics Produced |
+|----------|------------------|--------------------------|
+| **Breaking News** | Classification + Risk + Significance + Per-File | ⚡ Real-time urgency rating; today-only significance scoring; breaking alert classification |
+| **Motions** | Classification + Threat + Stakeholder + Per-File | 🗳️ Per-resolution threat dimension mapping; political group impact analysis; defection tracking |
+| **Propositions** | Risk + SWOT + Per-File | 📜 Legislative pipeline risk scoring; opportunity analysis for upcoming procedures |
+| **Committee Reports** | Risk + Classification + Stakeholder + Per-File | 🏛️ Committee-level stakeholder mapping; document classification by committee domain |
+| **Week Ahead** | SWOT + Risk + Significance + Per-File | 📅 Forward-looking SWOT for upcoming agenda; vote risk pre-assessment |
+| **Weekly Review** | Classification + SWOT + Significance + Synthesis + Per-File | 📊 Outcome classification; week-level SWOT synthesis; performance metrics |
+| **Month Ahead** | SWOT + Threat + Stakeholder + Per-File | 📆 Strategic SWOT outlook; emerging threat landscape; institutional stakeholder analysis |
+| **Monthly Review** | ALL templates | 📈 Comprehensive analysis across all 8 templates; inter-temporal trend synthesis |
+
+> **Per-File Intelligence** (`per-file-political-intelligence.md`) is applied to **every workflow** because every downloaded MCP data file receives individual deep analysis.
+
+---
+
 ## 🔗 Related Documentation
 
 | Document | Relationship |
@@ -627,10 +692,10 @@ Templates enforce strict anti-patterns to prevent low-quality intelligence produ
 | **Document ID** | `TMPL-README-001` |
 | **Title** | Analysis Templates — Directory Documentation |
 | **Owner** | CEO |
-| **Version** | 1.0 |
+| **Version** | 2.0 |
 | **Classification** | Public |
 | **Created** | 2026-03-30 |
-| **Last Updated** | 2026-03-30 |
+| **Last Updated** | 2026-03-31 |
 | **Review Cycle** | Quarterly |
 | **Next Review** | 2026-06-30 |
 | **Organisation** | Hack23 AB (Org.nr 5595347807) |

@@ -5,34 +5,91 @@
 <h1 align="center">🔬 EU Parliament Monitor — Analysis Directory</h1>
 
 <p align="center">
-  <strong>📊 Intermediate Analysis Artifacts for Agentic Political Intelligence Workflows</strong><br>
-  <em>🎯 Daily · Weekly · Monthly · Templates · Methodologies · Reference</em>
+  <strong>📊 Political Intelligence Analysis Framework for European Parliament Agentic Workflows</strong><br>
+  <em>🎯 Evidence-Based · Multi-Framework · Per-Document · Temporal Aggregation</em>
 </p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--30-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--31-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-30 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:** 2026-03-31 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
 
+## 📚 Architecture Documentation Map
+
+<div class="documentation-map">
+
+| Document | Focus | Description | Documentation Link |
+| --- | --- | --- | --- |
+| **[Architecture](../ARCHITECTURE.md)** | 🏛️ Architecture | C4 model showing current system structure | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md) |
+| **[Security Architecture](../SECURITY_ARCHITECTURE.md)** | 🛡️ Security | Security controls and compliance mapping | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md) |
+| **[Threat Model](../THREAT_MODEL.md)** | 🎯 Security | Political Threat Landscape analysis | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md) |
+| **[SWOT Analysis](../SWOT.md)** | 💼 Business | Strategic assessment (**formatting exemplar**) | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md) |
+| **[Workflows](../WORKFLOWS.md)** | ⚙️ DevOps | CI/CD and agentic workflow documentation | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md) |
+| **[Analysis Methodologies](methodologies/README.md)** | 📐 Methodology | 6 political intelligence analysis frameworks | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/README.md) |
+| **[Analysis Templates](templates/README.md)** | 📋 Templates | 8 structured analysis output templates | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/README.md) |
+
+</div>
+
+---
+
+## 🔐 ISMS Policy Alignment
+
+| **ISMS Policy** | **Analysis Implementation** |
+| --- | --- |
+| [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Quality gates enforce evidence-based analysis; anti-pattern rejection prevents low-quality output |
+| [🤖 AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) | AI agents MUST read methodology docs before analysis; per-file protocol ensures reproducibility |
+| [📝 Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md) | 7-dimension classification adapted from ISMS for EP political events (see [reference/](reference/)) |
+| [🔍 Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | Political threat analysis uses 6 purpose-built dimensions, NOT software-centric models |
+| [🔓 Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | All methodology documents published under project license for transparency |
+
+---
+
 ## 🎯 Purpose
 
-The `analysis/` directory stores **intermediate analysis artifacts** produced and consumed by EU Parliament Monitor's agentic workflows. These artifacts bridge raw European Parliament data (sourced via the European Parliament MCP Server) and the final published political intelligence articles, news summaries, and dashboards.
+The `analysis/` directory stores **intermediate political intelligence artifacts** produced and consumed by EU Parliament Monitor's 10 agentic workflows. These artifacts bridge raw European Parliament data (sourced via the **European Parliament MCP Server v1.1.19**) and the final published political intelligence articles across 14 languages.
+
+```mermaid
+flowchart LR
+    subgraph "📡 Data Collection"
+        EP["🏛️ EP MCP Server\nv1.1.19"]
+    end
+
+    subgraph "🔬 Analysis Pipeline"
+        DL["📥 Download\nFeed Data"]
+        AI["🤖 Per-File\nAI Analysis"]
+        QG["✅ Quality\nGate ≥7.0"]
+    end
+
+    subgraph "📰 Article Generation"
+        GEN["📝 Generate\nEN Article"]
+        TR["🌐 Translate\n13 Languages"]
+    end
+
+    EP --> DL --> AI --> QG --> GEN --> TR
+
+    style EP fill:#003399,stroke:#002266,color:#fff
+    style DL fill:#0d6efd,stroke:#0a58ca,color:#fff
+    style AI fill:#6f42c1,stroke:#59359a,color:#fff
+    style QG fill:#198754,stroke:#146c43,color:#fff
+    style GEN fill:#fd7e14,stroke:#ca6510,color:#fff
+    style TR fill:#dc3545,stroke:#b02a37,color:#fff
+```
 
 Analysis artifacts are **not** final content — they are structured intermediate products that enable:
 
 - 🔄 **Workflow composition**: Upstream agents deposit analysis; downstream agents consume it
-- 📐 **Consistent methodology**: Templates enforce analytical rigor across 14 languages
-- 📊 **Full data analysis**: Every downloaded MCP file receives comprehensive per-file analysis
+- 📐 **Consistent methodology**: 6 frameworks + 8 templates enforce analytical rigor
+- 📊 **Full data analysis**: Every downloaded MCP file receives per-file deep analysis
 - 🧠 **Reusable intelligence**: Cross-workflow pattern sharing and knowledge accumulation
-- 🎯 **Quality assurance**: Structured templates enable validation before article generation
+- 🎯 **Quality assurance**: Minimum 7.0/10 quality gate before article generation
 - 🔀 **Collision-free design**: Per-workflow directories prevent merge conflicts
 - 📅 **Temporal aggregation**: Daily → Weekly → Monthly intelligence roll-ups
 
@@ -44,13 +101,15 @@ Analysis artifacts are **not** final content — they are structured intermediat
 analysis/
 ├── README.md                          ← This file
 ├── methodologies/                     ← 6 detailed methodology guides
+│   ├── README.md                      ← Methodology catalog and pipeline overview
 │   ├── political-classification-guide.md  ← 7-dimension EP event classification
 │   ├── political-risk-methodology.md      ← Likelihood × Impact scoring for EP
-│   ├── political-threat-framework.md      ← Multi-framework threat analysis (Threat Landscape + 5 more)
+│   ├── political-threat-framework.md      ← Political Threat Landscape (6 dims) + 5 frameworks
 │   ├── political-swot-framework.md        ← Evidence-based SWOT for EP landscape
-│   ├── political-style-guide.md           ← Writing standards and depth levels
+│   ├── political-style-guide.md           ← Writing standards, depth levels, anti-patterns
 │   └── ai-driven-analysis-guide.md        ← Per-file AI analysis protocol and quality gates
 ├── templates/                         ← 8 reusable analysis templates (AI fills these)
+│   ├── README.md                      ← Template catalog and selection guide
 │   ├── political-classification.md    ← Event classification template
 │   ├── risk-assessment.md             ← Political risk template
 │   ├── threat-analysis.md             ← Multi-framework threat template
@@ -62,58 +121,73 @@ analysis/
 ├── reference/                         ← 4 ISMS adaptation mappings
 │   ├── isms-classification-adaptation.md  ← ISMS → Political classification mapping
 │   ├── isms-risk-assessment-adaptation.md ← ISMS → Political risk mapping
-│   ├── isms-threat-modeling-adaptation.md ← ISMS → Political threat mapping (multi-framework)
+│   ├── isms-threat-modeling-adaptation.md ← ISMS → Political threat mapping
 │   └── isms-style-guide-adaptation.md     ← ISMS → Political writing standards mapping
-├── daily/                             ← Per-day analysis artifacts (YYYY-MM-DD/)
+├── daily/                             ← Per-day analysis artifacts
 │   └── README.md                      ← Daily directory conventions
-├── weekly/                            ← Per-week aggregations (YYYY-WNN/)
+├── weekly/                            ← Per-week aggregations
 │   └── README.md                      ← Weekly directory conventions
-├── monthly/                           ← Per-month strategic briefs (YYYY-MM/)
+├── monthly/                           ← Per-month strategic briefs
 │   └── README.md                      ← Monthly directory conventions
 └── YYYY-MM-DD/                        ← Date-stamped output directory
-    ├── ai-*.md                        ← AI-driven cross-article synthesis (date root)
-    ├── {article-type-slug}/           ← Per-workflow subdirectory (NEVER overwrite other workflows)
-    │   ├── manifest.json              ← Run metadata
-    │   ├── classification/            ← Political classification results
-    │   ├── threat-assessment/         ← Multi-framework threat results
-    │   ├── risk-scoring/              ← Risk assessment results
-    │   ├── existing/                  ← Existing analysis outputs
-    │   └── data/                      ← MCP data for this workflow
-    │       ├── adopted-texts/
-    │       ├── committee-documents/
-    │       ├── events/
-    │       ├── meps/
-    │       ├── procedures/
-    │       ├── questions/
-    │       ├── speeches/
-    │       ├── votes/
-    │       └── ...
-    └── ...
+    ├── ai-*.md                        ← AI cross-article synthesis (date root)
+    └── {article-type-slug}/           ← Per-workflow subdirectory
+        ├── manifest.json              ← Run metadata
+        ├── classification/            ← Political classification results
+        ├── threat-assessment/         ← Political Threat Landscape results
+        ├── risk-scoring/              ← Risk assessment results
+        └── data/                      ← MCP data for this workflow
 ```
-
-### Directory Layout Notes
-
-- **AI synthesis artifacts** (`ai-*.md`) live at the **date root** because they synthesise data across all article types
-- **Workflow outputs** live under **per-article-type subdirectories** (`{article-type-slug}/`) to prevent merge conflicts
-- **MCP data** is scoped per-workflow at `{article-type-slug}/data/`
-- **NEVER overwrite** another workflow's analysis — each workflow has its own directory
 
 ---
 
 ## 🚨 Critical Rules for Agentic Workflows
 
-### Rule 1: Per-Workflow Directory Isolation
+### Rule 1: Mandatory Data Download — ALWAYS Before Analysis
 
-Every agentic workflow **MUST** write to its own separate directory. No workflow may overwrite another workflow's analysis:
+**Every agentic workflow MUST download EP data before deciding whether to produce an article.** Data collection is NEVER optional:
+
+```mermaid
+flowchart TD
+    Start(["🚀 Workflow Triggered"]) --> Health["🏥 MCP Health Gate\nget_plenary_sessions"]
+    Health -->|"✅ Healthy"| Feeds["📡 Download ALL\nFeed Endpoints"]
+    Health -->|"❌ Failed 3x"| Abort(["⛔ Abort Run"])
+    Feeds --> Advisory["📋 Download Advisory\nFeeds MANDATORY"]
+    Advisory --> Analytics["🔬 Run Analytical\nContext Tools"]
+    Analytics --> Gate{"📰 Newsworthy\nItems Found?"}
+    Gate -->|"✅ Yes"| Analyze["🤖 Per-File Analysis\n+ Article Generation"]
+    Gate -->|"❌ No"| Noop["📝 noop\nwith analysis summary"]
+
+    style Start fill:#0d6efd,stroke:#0a58ca,color:#fff
+    style Health fill:#6c757d,stroke:#565e64,color:#fff
+    style Feeds fill:#198754,stroke:#146c43,color:#fff
+    style Advisory fill:#20c997,stroke:#1aa179,color:#fff
+    style Analytics fill:#6f42c1,stroke:#59359a,color:#fff
+    style Gate fill:#ffc107,stroke:#cc9a06,color:#000
+    style Analyze fill:#fd7e14,stroke:#ca6510,color:#fff
+    style Noop fill:#adb5bd,stroke:#6c757d,color:#000
+    style Abort fill:#dc3545,stroke:#b02a37,color:#fff
+```
+
+**Key rules:**
+- `timeframe: "today"` first, fallback to `"one-week"` for empty/error/timeout feeds
+- EP API can take 30–90+ seconds per call — NEVER abort slow responses
+- Partial data is better than no data — continue with other feeds on individual failures
+- Even on `noop`, all data collection and analysis MUST complete first
+
+### Rule 2: Per-Workflow Directory Isolation
+
+Every agentic workflow **MUST** write to its own separate directory:
 
 ```
-✅ news-breaking       → analysis/2026-03-30/breaking-news/
-✅ news-weekly-review   → analysis/2026-03-30/weekly-review/
-✅ news-committee-reports → analysis/2026-03-30/committee-reports/
+✅ news-breaking         → analysis/2026-03-31/breaking-news/
+✅ news-weekly-review     → analysis/2026-03-31/weekly-review/
+✅ news-committee-reports → analysis/2026-03-31/committee-reports/
+✅ news-motions           → analysis/2026-03-31/motions/
 ❌ news-breaking overwrites news-weekly-review output → PROHIBITED
 ```
 
-### Rule 2: AI Must Read Methodology, Then Analyse — Never Script
+### Rule 3: AI Must Read Methodology Then Analyse — Never Script
 
 AI agents must:
 1. **Read ALL 6 methodology documents** in `analysis/methodologies/` before any analysis
@@ -121,89 +195,152 @@ AI agents must:
 3. **Analyse the actual data** — produce original intelligence, not scripted boilerplate
 4. **Follow the templates exactly** — structured tables, Mermaid diagrams, evidence citations, confidence labels
 
-> **🚫 "Scripted crap content" is REJECTED.** Generic summaries, templates filled with placeholder text, or analysis that doesn't engage with the specific data are unacceptable. The AI must demonstrate genuine analytical engagement with the source material.
+> **🚫 "Scripted crap content" is REJECTED.** Generic summaries or templates filled with placeholder text are unacceptable.
 
-### Rule 3: Multi-Framework Threat Analysis
+### Rule 4: Political Threat Landscape — NOT STRIDE
 
-Software-centric threat models (e.g. STRIDE, DREAD) are NOT used. AI agents must use the **Political Threat Landscape** (6 dimensions) as the primary framework, layering additional frameworks for threats rated MODERATE or above:
-- Political Threat Landscape (primary — Coalition Shifts, Transparency Deficit, Policy Reversal, Institutional Pressure, Legislative Obstruction, Democratic Erosion)
-- Diamond Model (adversary analysis)
-- Attack Trees (systemic threats)
-- LINDDUN (privacy/data)
-- PESTLE (macro-environmental)
-- Scenario Planning (forward-looking)
-- Political Kill Chain (influence campaigns)
+Software-centric threat models (STRIDE, DREAD, PASTA) are **explicitly rejected**. Use the **Political Threat Landscape** (6 dimensions):
 
-See [methodologies/political-threat-framework.md](methodologies/political-threat-framework.md).
+| Dimension | Monitors | Example |
+|-----------|----------|---------|
+| 🔄 **Coalition Shifts** | Political group realignment, defection patterns | EPP–S&D grand coalition weakening |
+| 🔍 **Transparency Deficit** | Access-to-information gaps, lobbying opacity | Committee meeting minutes delayed |
+| ⏪ **Policy Reversal** | Legislative rollback, position changes | Green Deal implementation weakened |
+| 🏛️ **Institutional Pressure** | Inter-institutional friction, mandate conflicts | Council blocking EP amendments |
+| 🚧 **Legislative Obstruction** | Procedure stalling, amendment flooding | 1000+ amendments on AI Act |
+| 🗳️ **Democratic Erosion** | Participation decline, representation gaps | EP election turnout decreasing |
 
-### Rule 4: Evidence-Based Only
+Layer **Diamond Model**, **Attack Trees**, **PESTLE**, **Scenario Planning**, and **Kill Chain** for threats rated MODERATE or above.
 
-Every factual claim must have a source citation. Every non-factual assessment must have a confidence level. Opinion-only entries are REJECTED.
+### Rule 5: Evidence-Based Only
+
+Every factual claim must have a source citation. Every non-factual assessment must have a confidence level (HIGH/MEDIUM/LOW). Opinion-only entries are REJECTED.
 
 ---
 
-## 🤖 Per-File AI Analysis (Primary Analysis Mode)
+## 🤖 Workflow-Specific Data Requirements
+
+Each agentic workflow downloads **unique data** tailored to its article type:
+
+```mermaid
+flowchart TD
+    subgraph "📡 EP MCP Server v1.1.19"
+        F1["get_adopted_texts_feed"]
+        F2["get_events_feed"]
+        F3["get_procedures_feed"]
+        F4["get_meps_feed"]
+        F5["get_documents_feed"]
+        F6["get_committee_documents_feed"]
+        F7["get_plenary_documents_feed"]
+        F8["get_parliamentary_questions_feed"]
+        F9["get_plenary_session_documents_feed"]
+    end
+
+    subgraph "📰 Agentic Workflows"
+        W1["🔴 Breaking News"]
+        W2["📋 Motions"]
+        W3["📜 Propositions"]
+        W4["🏛️ Committee Reports"]
+        W5["📅 Week Ahead"]
+        W6["📊 Weekly Review"]
+        W7["📆 Month Ahead"]
+        W8["📈 Monthly Review"]
+    end
+
+    F1 --> W1 & W2 & W3 & W6 & W8
+    F2 --> W1 & W5 & W7
+    F3 --> W1 & W2 & W3 & W5 & W6 & W7 & W8
+    F4 --> W1 & W2
+    F5 --> W1 & W3 & W4
+    F6 --> W4
+    F7 --> W4 & W5 & W6
+    F8 --> W1 & W2 & W6
+    F9 --> W5
+
+    style W1 fill:#dc3545,stroke:#b02a37,color:#fff
+    style W2 fill:#fd7e14,stroke:#ca6510,color:#fff
+    style W3 fill:#ffc107,stroke:#cc9a06,color:#000
+    style W4 fill:#198754,stroke:#146c43,color:#fff
+    style W5 fill:#0d6efd,stroke:#0a58ca,color:#fff
+    style W6 fill:#6f42c1,stroke:#59359a,color:#fff
+    style W7 fill:#d63384,stroke:#ab296a,color:#fff
+    style W8 fill:#0dcaf0,stroke:#0aa2c0,color:#000
+```
+
+### Detailed Workflow Data Matrix
+
+| Workflow | Slug | Primary Feeds | Analytical Tools | Unique Focus |
+|----------|------|---------------|-----------------|--------------|
+| **news-breaking** | `breaking-news` | adopted_texts, events, procedures, meps (today→one-week fallback) | detect_voting_anomalies, analyze_coalition_dynamics, early_warning_system, generate_political_landscape | **⚡ Real-time events**: Items published TODAY only; 6-hour cycle |
+| **news-motions** | `motions` | adopted_texts, parliamentary_questions, meps, procedures | detect_voting_anomalies, analyze_coalition_dynamics, get_voting_records, compare_political_groups | **🗳️ Specific resolutions**: Individual motion IDs, vote breakdowns by group |
+| **news-propositions** | `propositions` | procedures, documents, adopted_texts, plenary_documents | search_documents, monitor_legislative_pipeline, track_legislation, analyze_legislative_effectiveness | **📜 Legislative tracking**: Procedure stages, committee assignments, rapporteur analysis |
+| **news-committee-reports** | `committee-reports` | committee_documents, plenary_documents, adopted_texts, procedures | get_committee_info, monitor_legislative_pipeline, analyze_legislative_effectiveness | **🏛️ Committee deep-dive**: Per-committee output, meeting agendas, document analysis |
+| **news-week-ahead** | `week-ahead` | events, procedures, plenary_documents, plenary_session_documents | get_plenary_sessions (future), get_committee_info, monitor_legislative_pipeline, generate_political_landscape | **📅 Prospective**: Next week's agenda, scheduled votes, upcoming hearings |
+| **news-weekly-review** | `weekly-review` | adopted_texts, procedures, plenary_documents, parliamentary_questions | get_voting_records, detect_voting_anomalies, generate_political_landscape | **📊 Retrospective**: Week's accomplishments, vote outcomes, legislative progress |
+| **news-month-ahead** | `month-ahead` | events, procedures, plenary_documents, committee_documents, adopted_texts, plenary_session_documents, meps | get_plenary_sessions, get_committee_info, monitor_legislative_pipeline, generate_political_landscape, compare_political_groups, analyze_country_delegation | **📆 Strategic outlook**: Upcoming legislative calendar, committee programming |
+| **news-monthly-review** | `monthly-review` | adopted_texts, procedures, plenary_documents, parliamentary_questions | get_voting_records, detect_voting_anomalies, generate_political_landscape, compare_political_groups, analyze_legislative_effectiveness | **📈 Comprehensive review**: Month's legislative output, political trends |
+| **news-translate** | (n/a) | — | — | **🌐 Translation only**: Translates EN articles to 13 languages |
+
+---
+
+## 📊 Per-File AI Analysis (Primary Analysis Mode)
 
 The primary analysis mode is **per-file AI analysis**: for every downloaded EP MCP data file, the AI agent produces a deep analysis markdown file stored alongside it.
 
-### How It Works
-
 ```mermaid
 flowchart LR
-    A["📥 EP MCP Download"] --> B["📋 Catalog<br/>pending files"]
-    B --> C["📖 AI reads ALL<br/>methodology docs"]
-    C --> D["🔍 Per-file deep analysis<br/>following template"]
-    D --> E["💾 {id}.analysis.md<br/>alongside data"]
-    E --> F["📊 Compose<br/>daily synthesis"]
-    F --> G["📅 Weekly / Monthly<br/>aggregation"]
+    A["📥 EP MCP\nDownload"] --> B["📋 Catalog\npending files"]
+    B --> C["📖 Read ALL 6\nmethodology docs"]
+    C --> D["🔍 Per-file\ndeep analysis"]
+    D --> E["💾 Save\nid.analysis.md"]
+    E --> F["📊 Compose\ndaily synthesis"]
+    F --> G["📅 Weekly/Monthly\naggregation"]
 
-    style A fill:#0d6efd,color:#fff
-    style C fill:#6f42c1,color:#fff
-    style D fill:#28a745,color:#fff
-    style F fill:#fd7e14,color:#fff
+    style A fill:#003399,stroke:#002266,color:#fff
+    style B fill:#0d6efd,stroke:#0a58ca,color:#fff
+    style C fill:#6f42c1,stroke:#59359a,color:#fff
+    style D fill:#198754,stroke:#146c43,color:#fff
+    style E fill:#20c997,stroke:#1aa179,color:#fff
+    style F fill:#fd7e14,stroke:#ca6510,color:#fff
+    style G fill:#dc3545,stroke:#b02a37,color:#fff
 ```
 
-| Step | Action | Reference |
-|:----:|--------|-----------|
-| 1 | Download EP MCP data to `data/` subdirectory | EP MCP Server tools |
-| 2 | Catalog files needing analysis | Scan `data/` for unanalysed files |
-| 3 | AI reads ALL methodology docs before analysis | `analysis/methodologies/*.md` (6 files) |
-| 4 | Per-file deep analysis following template | `analysis/templates/per-file-political-intelligence.md` |
+| Step | Action | Quality Check |
+|:----:|--------|---------------|
+| 1 | Download EP MCP data to `data/` subdirectory | All mandatory feeds queried |
+| 2 | Catalog files needing analysis | No file missed |
+| 3 | AI reads ALL 6 methodology docs | Evidence: methodology citations in output |
+| 4 | Per-file deep analysis following template | Mermaid diagrams, evidence tables, confidence labels |
 | 5 | Save analysis alongside data file | `{id}.analysis.md` next to `{id}.json` |
-| 6 | Compose daily synthesis from per-file analyses | `analysis/templates/synthesis-summary.md` |
-| 7 | Weekly/monthly aggregation | `analysis/weekly/`, `analysis/monthly/` |
+| 6 | Compose daily synthesis | Aggregates all per-file analyses |
+| 7 | Weekly/monthly aggregation | Temporal pattern detection |
 
-> **Quality Standard:** Every per-file analysis must match [SWOT.md](../SWOT.md) and [THREAT_MODEL.md](../THREAT_MODEL.md) formatting quality — Hack23 header badges, color-coded Mermaid diagrams, evidence tables with confidence labels, and actionable intelligence.
+### Quality Gate
+
+Every per-file analysis must score **≥ 7.0/10** across 5 weighted dimensions:
+
+| Dimension | Weight | Minimum | Description |
+|-----------|--------|---------|-------------|
+| **Evidence density** | 30% | 6/10 | Citations per claim, source variety |
+| **Analytical depth** | 25% | 6/10 | Multi-framework application, insight quality |
+| **Structural completeness** | 20% | 7/10 | All template sections filled, Mermaid diagrams present |
+| **Political relevance** | 15% | 6/10 | EP-specific insights, stakeholder identification |
+| **Writing quality** | 10% | 7/10 | Style guide compliance, clarity, no boilerplate |
 
 ---
 
-## 📐 Methodology Documents (AI Must Read Before Analysing)
+## 📐 Methodology & Template Cross-Reference
+
+### Methodology Documents (AI Must Read Before Analysing)
 
 | Priority | Document | Key Content |
 |:--------:|----------|-------------|
 | 🔴 1 | [political-swot-framework.md](methodologies/political-swot-framework.md) | Evidence hierarchy, confidence levels, temporal decay, aggregation |
 | 🔴 2 | [political-risk-methodology.md](methodologies/political-risk-methodology.md) | 5×5 Likelihood × Impact matrix, EU calibration examples |
-| 🔴 3 | [political-threat-framework.md](methodologies/political-threat-framework.md) | 6-framework threat analysis: Threat Landscape + Diamond Model + Attack Trees + PESTLE + Scenario Planning + Kill Chain |
+| 🔴 3 | [political-threat-framework.md](methodologies/political-threat-framework.md) | Political Threat Landscape (6 dimensions) + Diamond Model + Attack Trees + PESTLE + Scenario Planning + Kill Chain |
 | 🟠 4 | [political-classification-guide.md](methodologies/political-classification-guide.md) | Sensitivity levels, EP domain taxonomy, urgency matrix |
 | 🟠 5 | [political-style-guide.md](methodologies/political-style-guide.md) | Writing standards, 3 depth levels, evidence density, anti-patterns |
 | 🟠 6 | [ai-driven-analysis-guide.md](methodologies/ai-driven-analysis-guide.md) | Per-file protocol, quality gates, document-type focus, conflict resolution |
-
----
-
-## 📐 Template Usage Guide
-
-### Template Quick Reference
-
-| Template | When to Use | Key Output |
-|----------|-------------|------------|
-| `political-classification.md` | New EP event or document | Sensitivity + urgency + domain |
-| `risk-assessment.md` | Coalition/policy risk spike | Risk scores + mitigation map |
-| `threat-analysis.md` | Democratic threat review | Multi-framework threat inventory |
-| `swot-analysis.md` | Strategic landscape assessment | Quadrant entries with evidence |
-| `stakeholder-impact.md` | Policy decision announced | Impact by stakeholder group |
-| `significance-scoring.md` | Publication prioritisation | Composite score → publish/skip |
-| `synthesis-summary.md` | Daily synthesis (aggregation) | Combined intelligence dashboard |
-| `per-file-political-intelligence.md` | Per-file AI analysis | Full deep analysis per document |
 
 ### Template Selection by Data Category
 
@@ -217,64 +354,31 @@ flowchart LR
 | `questions/` | Political Classification + Significance Scoring | Stakeholder Impact |
 | `events/` | Significance Scoring + Risk Assessment | Stakeholder Impact |
 | `meps/` | Stakeholder Impact + Political Classification | Significance Scoring |
-| `declarations/` | Threat Analysis (I-Disclosure) + Risk Assessment | Political Classification |
 | `plenary-documents/` | Political Classification + Risk Assessment | All templates |
-| `osint/` | SWOT Analysis + Threat Analysis | Risk Assessment |
-| `world-bank/` | Risk Assessment (economic) + SWOT Analysis | Significance Scoring |
 
 ---
 
-## 📅 Naming Conventions
-
-| Scope | Format | Example | Description |
-|-------|--------|---------|-------------|
-| Daily | `YYYY-MM-DD` | `2026-03-30/` | ISO 8601 calendar date |
-| Weekly | `YYYY-WNN` | `2026-W14/` | ISO 8601 week number (Mon–Sun) |
-| Monthly | `YYYY-MM` | `2026-03/` | ISO 8601 year-month |
-| Ad-hoc | descriptive | `coalition-risk/` | Named topic directories when needed |
-
-**Rules:**
-- All directory names use zero-padded numbers (`W03`, not `W3`)
-- Weekly directories align with ISO 8601: weeks start **Monday**
-- Never use locale-specific date formats (no `30/3/2026` or `Mar-30`)
-
----
-
-## 🤖 Workflow Integration
-
-The following agentic workflows produce analysis artifacts. All workflows **MUST** follow the per-file AI analysis protocol — read methodology documents, then analyze each downloaded file individually:
-
-| Workflow | Article Type Slug | Primary Output | Key MCP Data |
-|----------|-------------------|---------------|-------------|
-| `news-week-ahead` | `week-ahead` | Week-ahead prospective | Events, procedures, plenary sessions |
-| `news-weekly-review` | `weekly-review` | Week-in-review retrospective | Adopted texts, votes, speeches |
-| `news-month-ahead` | `month-ahead` | Month-ahead strategic outlook | Procedures, events, committee docs |
-| `news-monthly-review` | `monthly-review` | Month-in-review comprehensive | All data categories |
-| `news-breaking` | `breaking-news` | Breaking news articles | Feed endpoints, voting anomalies |
-| `news-committee-reports` | `committee-reports` | Committee report analysis | Committee documents, procedures |
-| `news-propositions` | `propositions` | Legislative proposition analysis | Procedures, adopted texts |
-| `news-motions` | `motions` | Parliamentary motion analysis | Procedures, votes, MEP data |
-| `news-article-generator` | `article-generator` | Generic article generation | All data categories |
-
-### Temporal Aggregation
+## 📅 Temporal Aggregation
 
 ```mermaid
 flowchart TD
-    D["📅 Daily per-workflow analysis<br/>analysis/YYYY-MM-DD/{slug}/"] --> W["📅 Weekly aggregation<br/>analysis/weekly/YYYY-WNN/"]
-    W --> M["📅 Monthly strategic brief<br/>analysis/monthly/YYYY-MM/"]
-
-    D --> AI["🤖 AI cross-article synthesis<br/>analysis/YYYY-MM-DD/ai-*.md"]
+    D["📅 Daily per-workflow analysis\nanalysis/YYYY-MM-DD/slug/"] --> W["📅 Weekly aggregation\nanalysis/weekly/YYYY-WNN/"]
+    W --> M["📅 Monthly strategic brief\nanalysis/monthly/YYYY-MM/"]
+    D --> AI["🤖 AI cross-article synthesis\nanalysis/YYYY-MM-DD/ai-*.md"]
     AI --> W
 
-    style D fill:#28a745,color:#fff
-    style W fill:#0d6efd,color:#fff
-    style M fill:#6f42c1,color:#fff
-    style AI fill:#fd7e14,color:#fff
+    style D fill:#198754,stroke:#146c43,color:#fff
+    style W fill:#0d6efd,stroke:#0a58ca,color:#fff
+    style M fill:#6f42c1,stroke:#59359a,color:#fff
+    style AI fill:#fd7e14,stroke:#ca6510,color:#fff
 ```
 
-- **Daily**: Each workflow writes to `analysis/{date}/{article-type-slug}/`
-- **Weekly**: `news-week-ahead` aggregates the week's daily analyses into `analysis/weekly/YYYY-WNN/`
-- **Monthly**: End-of-month aggregation produces strategic briefs in `analysis/monthly/YYYY-MM/`
+| Scope | Format | Example | Cadence |
+|-------|--------|---------|---------|
+| Daily | `YYYY-MM-DD` | `2026-03-31/` | Every workflow run |
+| Weekly | `YYYY-WNN` | `2026-W14/` | `news-weekly-review` aggregation |
+| Monthly | `YYYY-MM` | `2026-03/` | `news-monthly-review` aggregation |
+| Cross-article | `ai-*.md` | `ai-daily-synthesis.md` | Date root synthesis |
 
 ---
 
@@ -286,20 +390,23 @@ The `reference/` directory maps ISMS security frameworks to political intelligen
 |-------------------|---------------------|---------------------|
 | [isms-classification-adaptation.md](reference/isms-classification-adaptation.md) | [CLASSIFICATION.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Confidentiality → Sensitivity, Integrity → Accuracy, Availability → Urgency |
 | [isms-risk-assessment-adaptation.md](reference/isms-risk-assessment-adaptation.md) | [Risk_Assessment_Methodology.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md) | CIA Triad → Political Triad (Accountability, Policy Fidelity, Democratic Continuity) |
-| [isms-threat-modeling-adaptation.md](reference/isms-threat-modeling-adaptation.md) | [Threat_Modeling.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) | Political Threat Landscape + Attack Trees + Diamond Model → EU democratic threat landscape |
+| [isms-threat-modeling-adaptation.md](reference/isms-threat-modeling-adaptation.md) | [Threat_Modeling.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) | Political Threat Landscape + Attack Trees + Diamond Model |
 | [isms-style-guide-adaptation.md](reference/isms-style-guide-adaptation.md) | [STYLE_GUIDE.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md) | ISMS writing standards → Political intelligence writing standards |
 
 ---
 
 ## 📚 Related Documentation
 
-- [📐 docs/analysis-methodology/](../docs/analysis-methodology/) — Higher-level methodology guides for article generation
-- [📐 ARCHITECTURE.md](../ARCHITECTURE.md) — System architecture overview
-- [🧠 MINDMAP.md](../MINDMAP.md) — Conceptual relationship map
-- [🔄 FLOWCHART.md](../FLOWCHART.md) — Data flow diagrams
-- [🛡️ THREAT_MODEL.md](../THREAT_MODEL.md) — Platform threat analysis (**formatting exemplar**)
-- [💼 SWOT.md](../SWOT.md) — Platform strategic analysis (**formatting exemplar**)
-- [🔐 SECURITY_ARCHITECTURE.md](../SECURITY_ARCHITECTURE.md) — Security controls
+| Document | Focus | Link |
+|----------|-------|------|
+| 📐 **Analysis Methodologies** | 6 political intelligence frameworks | [methodologies/README.md](methodologies/README.md) |
+| 📋 **Analysis Templates** | 8 structured analysis templates | [templates/README.md](templates/README.md) |
+| 🏛️ **Architecture** | C4 system architecture | [ARCHITECTURE.md](../ARCHITECTURE.md) |
+| ⚙️ **Workflows** | CI/CD and agentic workflows | [WORKFLOWS.md](../WORKFLOWS.md) |
+| 🚀 **Future Workflows** | Workflow evolution roadmap | [FUTURE_WORKFLOWS.md](../FUTURE_WORKFLOWS.md) |
+| 🛡️ **Threat Model** | Platform threat analysis | [THREAT_MODEL.md](../THREAT_MODEL.md) |
+| 💼 **SWOT Analysis** | Strategic assessment | [SWOT.md](../SWOT.md) |
+| 🔐 **Security Architecture** | Security controls | [SECURITY_ARCHITECTURE.md](../SECURITY_ARCHITECTURE.md) |
 
 ---
 

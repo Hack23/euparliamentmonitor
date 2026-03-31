@@ -17,7 +17,7 @@
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-03-30 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-31 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -599,6 +599,72 @@ The following practices are **explicitly prohibited** across all methodologies:
 
 ---
 
+## 📰 Workflow-Specific Analytical Approach
+
+Each agentic workflow applies the 6 methodologies with **unique emphasis** tailored to its article type. The following shows which methodologies are primary vs. supporting for each workflow:
+
+```mermaid
+flowchart TD
+    subgraph "🏷️ Classification"
+        CG["Political Classification Guide"]
+    end
+    subgraph "⚠️ Risk"
+        RM["Risk Methodology"]
+    end
+    subgraph "🎯 Threat"
+        TF["Political Threat Framework"]
+    end
+    subgraph "💼 SWOT"
+        SW["SWOT Framework"]
+    end
+
+    subgraph "📰 Workflow Article Types"
+        BK["🔴 Breaking\n= CG + RM primary"]
+        MO["📋 Motions\n= CG + TF primary"]
+        PR["📜 Propositions\n= RM + SW primary"]
+        CR["🏛️ Committee\n= RM + CG primary"]
+        WA["📅 Week Ahead\n= SW + RM primary"]
+        WR["📊 Weekly Review\n= CG + SW primary"]
+        MA["📆 Month Ahead\n= SW + TF primary"]
+        MR["📈 Monthly Review\n= ALL primary"]
+    end
+
+    CG --> BK & MO & CR & WR
+    RM --> BK & PR & CR & WA & MR
+    TF --> MO & MA & MR
+    SW --> PR & WA & WR & MA & MR
+
+    style CG fill:#00695C,stroke:#004D40,color:#fff
+    style RM fill:#E65100,stroke:#BF360C,color:#fff
+    style TF fill:#B71C1C,stroke:#880E4F,color:#fff
+    style SW fill:#1B5E20,stroke:#1B5E20,color:#fff
+    style BK fill:#dc3545,stroke:#b02a37,color:#fff
+    style MO fill:#fd7e14,stroke:#ca6510,color:#fff
+    style PR fill:#ffc107,stroke:#cc9a06,color:#000
+    style CR fill:#198754,stroke:#146c43,color:#fff
+    style WA fill:#0d6efd,stroke:#0a58ca,color:#fff
+    style WR fill:#6f42c1,stroke:#59359a,color:#fff
+    style MA fill:#d63384,stroke:#ab296a,color:#fff
+    style MR fill:#0dcaf0,stroke:#0aa2c0,color:#000
+```
+
+### Unique Analytics Per Article Type
+
+| Workflow | Primary Methodology Focus | Unique Analytical Requirements |
+|----------|--------------------------|-------------------------------|
+| **Breaking News** | Classification (urgency rating) + Risk (impact severity) | ⚡ Real-time significance scoring; only TODAY's items qualify; 6-hour refresh cycle |
+| **Motions** | Classification (resolution type) + Threat (coalition shifts) | 🗳️ Per-resolution vote breakdown by political group; defection pattern analysis |
+| **Propositions** | Risk (legislative pipeline risk) + SWOT (strategic implications) | 📜 Procedure stage tracking; committee assignment impact; rapporteur influence mapping |
+| **Committee Reports** | Risk (committee output risk) + Classification (document type) | 🏛️ Per-committee productivity analysis; cross-committee comparison; meeting agenda review |
+| **Week Ahead** | SWOT (opportunity identification) + Risk (upcoming vote risks) | 📅 Forward-looking agenda analysis; scheduled vote significance; pre-plenary intelligence |
+| **Weekly Review** | Classification (outcome categorization) + SWOT (accomplishment assessment) | 📊 Vote outcome impact; legislative progress measurement; political group performance |
+| **Month Ahead** | SWOT (strategic outlook) + Threat (emerging democratic threats) | 📆 Legislative calendar analysis; cross-institutional dynamics; emerging policy trends |
+| **Monthly Review** | ALL methodologies at equal weight | 📈 Comprehensive trend analysis; inter-temporal pattern detection; political landscape evolution |
+
+> **Key principle:** Every article type must produce analysis that is **unique and specific** to its focus area. A breaking news analysis looks fundamentally different from a monthly review analysis — different data sources, different methodology emphasis, different analytical depth.
+
+---
+
 ## 🔗 Related Documentation
 
 - **[Architecture](../../ARCHITECTURE.md)** — C4 system architecture and deployment model
@@ -617,7 +683,7 @@ The following practices are **explicitly prohibited** across all methodologies:
 <div class="architecture-footer">
 
 **Document Status:** Living Document
-**Last Updated:** 2026-03-30
+**Last Updated:** 2026-03-31
 **Next Review:** 2026-06-30
 **Owner:** CEO
 
