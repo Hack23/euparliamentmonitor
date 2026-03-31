@@ -122,7 +122,7 @@ export {
 } from './utils/news-metadata.js';
 
 // ─── Metadata Utilities ──────────────────────────────────────────────────────
-export { pl } from './utils/metadata-utils.js';
+export { pl, pl as pluralizeCount } from './utils/metadata-utils.js';
 
 // ─── Political Threat Assessment ─────────────────────────────────────────────
 export {

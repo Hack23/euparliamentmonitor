@@ -48,7 +48,7 @@ export { enrichMetadataFromContent } from './utils/content-metadata.js';
 // ─── News Metadata ───────────────────────────────────────────────────────────
 export { buildMetadataDatabase, writeMetadataDatabase, readMetadataDatabase, updateMetadataDatabase, updateIntelligenceIndex, } from './utils/news-metadata.js';
 // ─── Metadata Utilities ──────────────────────────────────────────────────────
-export { pl } from './utils/metadata-utils.js';
+export { pl, pl as pluralizeCount } from './utils/metadata-utils.js';
 // ─── Political Threat Assessment ─────────────────────────────────────────────
 export { assessPoliticalThreats, buildActorThreatProfiles, buildConsequenceTree, analyzeLegislativeDisruption, generateThreatAssessmentMarkdown, ALL_THREAT_LANDSCAPE_DIMENSIONS, ALL_POLITICAL_STRIDE_CATEGORIES, } from './utils/political-threat-assessment.js';
 // ─── HTML Utilities ──────────────────────────────────────────────────────────
