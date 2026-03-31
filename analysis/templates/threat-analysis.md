@@ -155,7 +155,7 @@
 
 ## 🌳 Attack Tree — Primary Threat Decomposition
 
-> **AI Instructions:** Build an attack tree for the single most significant threat identified. The root is the threat goal; decompose using AND/OR gates down to leaf-level actions. Color-code by feasibility using this legend: 🟢 high feasibility, 🟡 medium feasibility, 🟠 low feasibility, 🔴 very low or blocked feasibility.
+> **AI Instructions:** Build an attack tree for the single most significant threat identified. The root is the threat goal; decompose using AND/OR gates down to leaf-level actions. Color-code **leaf nodes** by feasibility using this legend: 🟢 high feasibility (#28a745), 🟡 medium feasibility (#ffc107), 🟠 low feasibility (#fd7e14), 🔴 very low or blocked feasibility (#dc3545). The ROOT goal node and path-aggregation nodes use neutral styling (dark grey / slate).
 
 ```mermaid
 graph TD
@@ -170,9 +170,9 @@ graph TD
     PB --> PB1["B1: [REQUIRED: First step]"]
     PB --> PB2["B2: [REQUIRED: Second step]"]
 
-    style ROOT fill:#dc3545,color:#fff
-    style PA fill:#fd7e14,color:#fff
-    style PB fill:#fd7e14,color:#fff
+    style ROOT fill:#343a40,color:#fff
+    style PA fill:#6c757d,color:#fff
+    style PB fill:#6c757d,color:#fff
     style PA1 fill:#ffc107,color:#000
     style PA2 fill:#ffc107,color:#000
     style PA3 fill:#28a745,color:#fff

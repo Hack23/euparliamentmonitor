@@ -215,8 +215,8 @@ Every analysis artifact must include:
 | 🗳️ | Voting; electoral; roll-call |
 | 🌍 | International dimension; geopolitical |
 | 🔮 | Forward indicators; predictions |
-| 👑 | Power concentration (Elevation threat) |
-| 🎭 | Disinformation (Spoofing threat) |
+| 👑 | Power concentration; institutional pressure |
+| 🎭 | Disinformation; transparency deficit / information integrity risk |
 
 ### Policy Domain Icons
 
