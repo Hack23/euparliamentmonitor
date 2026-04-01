@@ -16,7 +16,7 @@ export default [
       '@typescript-eslint': tseslint,
     },
     languageOptions: {
-      ecmaVersion: 2024,
+      ecmaVersion: 2025,
       sourceType: 'module',
       parser: tsparser,
       parserOptions: {
@@ -110,7 +110,7 @@ export default [
       jsdoc: jsdocPlugin,
     },
     languageOptions: {
-      ecmaVersion: 2024,
+      ecmaVersion: 2025,
       sourceType: 'module',
       globals: {
         console: 'readonly',

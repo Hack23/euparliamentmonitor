@@ -52,7 +52,10 @@
     "@visualization",
     "@datasource",
     "@stakeholder",
-    "@performance"
+    "@performance",
+    "@isms",
+    "@framework",
+    "@classification"
   ],
   "excludePrivate": false,
   "excludeProtected": false,
@@ -118,7 +121,8 @@
     "🏠 Home": "https://euparliamentmonitor.com",
     "📦 GitHub": "https://github.com/Hack23/euparliamentmonitor",
     "🛡️ ISMS": "https://github.com/Hack23/ISMS-PUBLIC",
-    "🇪🇺 EP MCP Server": "https://github.com/Hack23/European-Parliament-MCP-Server"
+    "🇪🇺 EP MCP Server": "https://github.com/Hack23/European-Parliament-MCP-Server",
+    "📦 npm": "https://www.npmjs.com/package/euparliamentmonitor"
   },
   "sidebarLinks": {
     "🏛️ Architecture": "https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md",
@@ -132,7 +136,16 @@
     "📜 CRA Assessment": "https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md",
     "🚀 Future Architecture": "https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md",
     "🔮 Future Security": "https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md",
-    "📋 Secure Dev Policy": "https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md"
+    "🔮 Future Threat Model": "https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_THREAT_MODEL.md",
+    "📋 Secure Dev Policy": "https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md",
+    "🔐 Information Security Policy": "https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md",
+    "📑 Open Source Policy": "https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md",
+    "🏷️ Classification Policy": "https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md",
+    "🤖 AI Policy": "https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md",
+    "🔑 Access Control Policy": "https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md",
+    "🔏 Cryptography Policy": "https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md",
+    "📋 WORKFLOWS": "https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md",
+    "📋 CONTRIBUTING": "https://github.com/Hack23/euparliamentmonitor/blob/main/CONTRIBUTING.md"
   },
   "sort": ["kind", "source-order", "alphabetical"],
   "visibilityFilters": {
@@ -177,6 +190,19 @@
     "STATEDIAGRAM.md",
     "MINDMAP.md",
     "SWOT.md",
-    "CRA-ASSESSMENT.md"
+    "CRA-ASSESSMENT.md",
+    "FUTURE_ARCHITECTURE.md",
+    "FUTURE_SECURITY_ARCHITECTURE.md",
+    "FUTURE_THREAT_MODEL.md",
+    "FUTURE_DATA_MODEL.md",
+    "FUTURE_FLOWCHART.md",
+    "FUTURE_STATEDIAGRAM.md",
+    "FUTURE_MINDMAP.md",
+    "FUTURE_SWOT.md",
+    "FUTURE_WORKFLOWS.md",
+    "WORKFLOWS.md",
+    "CLASSIFICATION.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md"
   ]
 }
