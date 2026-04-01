@@ -1,0 +1,333 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="../"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>CONTRIBUTING | EU Parliament Monitor — API Documentation - v0.8.13</title><link rel="icon" href="../assets/favicon.ico"/><meta name="description" content="Documentation for EU Parliament Monitor — API Documentation"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/icons.js" id="tsd-icons-script"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script><script async src="../assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="../index.html" class="title">EU Parliament Monitor — API Documentation - v0.8.13</a><div id="tsd-toolbar-links"><a href="https://euparliamentmonitor.com">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server">🇪🇺 EP MCP Server</a><a href="https://www.npmjs.com/package/euparliamentmonitor">📦 npm</a></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><ul class="tsd-breadcrumb" aria-label="Breadcrumb"><li><a href="" aria-current="page">CONTRIBUTING</a></li></ul></div><div class="tsd-panel tsd-typography"><h1 id="contributing-to-eu-parliament-monitor" class="tsd-anchor-link">Contributing to EU Parliament Monitor<a href="#contributing-to-eu-parliament-monitor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<p>Thank you for your interest in contributing to EU Parliament Monitor! This
+document provides guidelines and instructions for contributing to the project.</p>
+<h2 id="table-of-contents" class="tsd-anchor-link">Table of Contents<a href="#table-of-contents" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li><a href="#code-of-conduct">Code of Conduct</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#development-workflow">Development Workflow</a></li>
+<li><a href="#code-quality-requirements">Code Quality Requirements</a></li>
+<li><a href="#commit-guidelines">Commit Guidelines</a></li>
+<li><a href="#pull-request-process">Pull Request Process</a></li>
+</ul>
+<h2 id="code-of-conduct" class="tsd-anchor-link">Code of Conduct<a href="#code-of-conduct" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>By participating in this project, you agree to maintain a respectful and
+inclusive environment for all contributors.</p>
+<h2 id="getting-started" class="tsd-anchor-link">Getting Started<a href="#getting-started" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="prerequisites" class="tsd-anchor-link">Prerequisites<a href="#prerequisites" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li>Node.js &gt;= 20</li>
+<li>npm &gt;= 10</li>
+<li>Git</li>
+</ul>
+<h3 id="setup" class="tsd-anchor-link">Setup<a href="#setup" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ol>
+<li>Fork the repository</li>
+<li>Clone your fork:<pre><code class="bash"><span class="hl-0">git</span><span class="hl-1"> </span><span class="hl-2">clone</span><span class="hl-1"> </span><span class="hl-2">https://github.com/YOUR_USERNAME/euparliamentmonitor.git</span><br/><span class="hl-0">cd</span><span class="hl-1"> </span><span class="hl-2">euparliamentmonitor</span>
+</code><button type="button">Copy</button></pre>
+
+</li>
+<li>Install dependencies:<pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span>
+</code><button type="button">Copy</button></pre>
+
+</li>
+<li>Create a branch for your changes:<pre><code class="bash"><span class="hl-0">git</span><span class="hl-1"> </span><span class="hl-2">checkout</span><span class="hl-1"> </span><span class="hl-3">-b</span><span class="hl-1"> </span><span class="hl-2">feature/your-feature-name</span>
+</code><button type="button">Copy</button></pre>
+
+</li>
+</ol>
+<h2 id="development-workflow" class="tsd-anchor-link">Development Workflow<a href="#development-workflow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="running-locally" class="tsd-anchor-link">Running Locally<a href="#running-locally" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="bash"><span class="hl-4"># Generate news articles (with MCP disabled for testing)</span><br/><span class="hl-5">USE_EP_MCP</span><span class="hl-1">=</span><span class="hl-2">false</span><span class="hl-1"> </span><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-news</span><span class="hl-1"> </span><span class="hl-3">--</span><span class="hl-1"> </span><span class="hl-3">--types=week-ahead</span><span class="hl-1"> </span><span class="hl-3">--languages=en</span><br/><br/><span class="hl-4"># Generate index pages</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-news-indexes</span><br/><br/><span class="hl-4"># Generate sitemap</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-sitemap</span><br/><br/><span class="hl-4"># Serve locally</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">serve</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="code-quality-checks" class="tsd-anchor-link">Code Quality Checks<a href="#code-quality-checks" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Before committing, run these checks:</p>
+<pre><code class="bash"><span class="hl-4"># Lint your code</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">lint</span><br/><br/><span class="hl-4"># Auto-fix linting issues</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">lint:fix</span><br/><br/><span class="hl-4"># Format your code</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">format</span><br/><br/><span class="hl-4"># Check formatting</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">format:check</span><br/><br/><span class="hl-4"># Validate HTML</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">htmlhint</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="code-quality-requirements" class="tsd-anchor-link">Code Quality Requirements<a href="#code-quality-requirements" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>All contributions must meet these quality standards:</p>
+<h3 id="testing-requirements" class="tsd-anchor-link">Testing Requirements<a href="#testing-requirements" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>All contributions must include appropriate tests:</p>
+<h4 id="unit-integration-tests-vitest" class="tsd-anchor-link">Unit &amp; Integration Tests (Vitest)<a href="#unit-integration-tests-vitest" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li><strong>Unit Tests</strong>: Write unit tests for new functions and modules</li>
+<li><strong>Integration Tests</strong>: Add integration tests for new workflows</li>
+<li><strong>Coverage</strong>: Maintain ≥80% line coverage, ≥75% branch coverage</li>
+<li><strong>Test Quality</strong>: Follow AAA pattern (Arrange, Act, Assert)</li>
+<li><strong>No Flaky Tests</strong>: Ensure tests are deterministic and reliable</li>
+</ul>
+<pre><code class="bash"><span class="hl-4"># Run unit &amp; integration tests</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">test</span><br/><br/><span class="hl-4"># Check coverage</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:coverage</span><br/><br/><span class="hl-4"># Run specific test file</span><br/><span class="hl-0">npx</span><span class="hl-1"> </span><span class="hl-2">vitest</span><span class="hl-1"> </span><span class="hl-2">test/unit/your-test.test.js</span>
+</code><button type="button">Copy</button></pre>
+
+<h4 id="end-to-end-tests-playwright" class="tsd-anchor-link">End-to-End Tests (Playwright)<a href="#end-to-end-tests-playwright" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li><strong>E2E Tests</strong>: Add E2E tests for user-facing features</li>
+<li><strong>Accessibility</strong>: Ensure WCAG 2.1 AA compliance</li>
+<li><strong>Responsive Design</strong>: Test on mobile and desktop viewports</li>
+<li><strong>Cross-Browser</strong>: Tests run on Chromium, Firefox, and WebKit</li>
+</ul>
+<pre><code class="bash"><span class="hl-4"># Run E2E tests</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:e2e</span><br/><br/><span class="hl-4"># Run with UI (interactive debugging)</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:e2e:ui</span><br/><br/><span class="hl-4"># Run in headed mode (see browser)</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:e2e:headed</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>When to add E2E tests:</strong></p>
+<ul>
+<li>New user-facing features (navigation, forms, etc.)</li>
+<li>Changes to page structure or layout</li>
+<li>Multi-language functionality changes</li>
+<li>Accessibility improvements</li>
+<li>Responsive design changes</li>
+</ul>
+<p><strong>Required for all code changes:</strong></p>
+<ul>
+<li>New functions must have unit tests</li>
+<li>New features must have integration tests</li>
+<li>User-facing features should have E2E tests</li>
+<li>All tests must pass before PR submission</li>
+<li>Coverage thresholds must be met</li>
+</ul>
+<h3 id="eslint" class="tsd-anchor-link">ESLint<a href="#eslint" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>Zero errors</strong> required (warnings are acceptable for false positives)</li>
+<li>All functions must have complete JSDoc documentation</li>
+<li>Code complexity must be ≤15 (cognitive complexity)</li>
+<li>No security vulnerabilities (eval, unsafe regex, etc.)</li>
+</ul>
+<h3 id="prettier" class="tsd-anchor-link">Prettier<a href="#prettier" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li>All JavaScript files must be formatted with Prettier</li>
+<li>Use the project's <code>.prettierrc.json</code> configuration</li>
+<li>100 character line width</li>
+<li>Single quotes for strings</li>
+</ul>
+<h3 id="jsdoc-documentation" class="tsd-anchor-link">JSDoc Documentation<a href="#jsdoc-documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>All exported functions must include:</p>
+<pre><code class="javascript"><span class="hl-4">/**</span><br/><span class="hl-4"> * Brief function description</span><br/><span class="hl-4"> * </span><span class="hl-3">@param</span><span class="hl-4"> </span><span class="hl-7">{type}</span><span class="hl-4"> </span><span class="hl-5">paramName</span><span class="hl-4"> - Parameter description</span><br/><span class="hl-4"> * </span><span class="hl-3">@returns</span><span class="hl-4"> </span><span class="hl-7">{type}</span><span class="hl-4"> Return value description</span><br/><span class="hl-4"> */</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="security" class="tsd-anchor-link">Security<a href="#security" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Security Architecture</strong>: All security changes must align with the
+<a href="SECURITY_ARCHITECTURE.html">Security Architecture</a> and
+<a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" class="external">ISMS Secure Development Policy</a>.</p>
+<p><strong>Security Requirements</strong>:</p>
+<ul>
+<li>Never commit secrets or API keys</li>
+<li>Use <code>===</code> instead of <code>==</code></li>
+<li>Avoid <code>eval()</code> and <code>new Function()</code></li>
+<li>Validate all user inputs (see <a href="SECURITY_ARCHITECTURE.html#-security-controls">Security Controls</a>)</li>
+<li>Prevent XSS vulnerabilities (multi-layer defense: validation, sanitization, encoding, CSP)</li>
+<li>No SQL injection risks (static site, no databases)</li>
+<li>Test security-critical paths (≥95% coverage)</li>
+<li>Follow threat model mitigations (see <a href="SECURITY_ARCHITECTURE.html#-threat-model">Threat Model</a>)</li>
+</ul>
+<p><strong>Security Review Checklist</strong>:</p>
+<ul>
+<li>[ ] Input validation implemented for all external data</li>
+<li>[ ] HTML sanitization applied (script tags, event handlers removed)</li>
+<li>[ ] Output encoding used (HTML entity encoding)</li>
+<li>[ ] No new dependencies without security scanning (npm audit)</li>
+<li>[ ] Security tests added for new attack surfaces</li>
+<li>[ ] Documentation updated (SECURITY_ARCHITECTURE.md if applicable)</li>
+<li>[ ] Threat model reviewed for new threats</li>
+</ul>
+<p><strong>Security Testing</strong>:</p>
+<pre><code class="bash"><span class="hl-4"># Run security audit</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">audit</span><br/><br/><span class="hl-4"># Run security-focused tests</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:unit</span><span class="hl-1"> </span><span class="hl-3">--</span><span class="hl-1"> </span><span class="hl-3">--grep=</span><span class="hl-2">&quot;security|xss|injection|sanitize&quot;</span><br/><br/><span class="hl-4"># Check for vulnerable dependencies</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">audit</span><span class="hl-1"> </span><span class="hl-3">--audit-level=moderate</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="pre-commit-hooks" class="tsd-anchor-link">Pre-commit Hooks<a href="#pre-commit-hooks" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>The project uses Husky and lint-staged to automatically:</p>
+<ol>
+<li>Run ESLint with auto-fix on staged JavaScript files</li>
+<li>Format staged files with Prettier</li>
+<li>Validate HTML files with htmlhint</li>
+<li>Run affected tests (if configured)</li>
+</ol>
+<p>These hooks run automatically on <code>git commit</code>. To bypass (not recommended):</p>
+<pre><code class="bash"><span class="hl-0">git</span><span class="hl-1"> </span><span class="hl-2">commit</span><span class="hl-1"> </span><span class="hl-3">--no-verify</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="commit-guidelines" class="tsd-anchor-link">Commit Guidelines<a href="#commit-guidelines" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="commit-message-format" class="tsd-anchor-link">Commit Message Format<a href="#commit-message-format" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Use conventional commits format:</p>
+<pre><code><span class="hl-1">&lt;</span><span class="hl-7">type</span><span class="hl-1">&gt;(&lt;</span><span class="hl-7">scope</span><span class="hl-1">&gt;): &lt;</span><span class="hl-7">description</span><span class="hl-1">&gt;</span><br/><br/><span class="hl-1">[</span><span class="hl-5">optional</span><span class="hl-1"> </span><span class="hl-5">body</span><span class="hl-1">]</span><br/><br/><span class="hl-1">[</span><span class="hl-5">optional</span><span class="hl-1"> </span><span class="hl-5">footer</span><span class="hl-1">]</span>
+</code><button>Copy</button></pre>
+
+<h3 id="types" class="tsd-anchor-link">Types<a href="#types" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><code>feat</code>: New feature</li>
+<li><code>fix</code>: Bug fix</li>
+<li><code>docs</code>: Documentation changes</li>
+<li><code>style</code>: Code style changes (formatting, etc.)</li>
+<li><code>refactor</code>: Code refactoring</li>
+<li><code>test</code>: Adding or updating tests (use this for test-related commits!)</li>
+<li><code>chore</code>: Maintenance tasks</li>
+<li><code>ci</code>: CI/CD changes</li>
+</ul>
+<h3 id="examples" class="tsd-anchor-link">Examples<a href="#examples" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="bash"><span class="hl-0">git</span><span class="hl-1"> </span><span class="hl-2">commit</span><span class="hl-1"> </span><span class="hl-3">-m</span><span class="hl-1"> </span><span class="hl-2">&quot;feat(news): add breaking news article type&quot;</span><br/><span class="hl-0">git</span><span class="hl-1"> </span><span class="hl-2">commit</span><span class="hl-1"> </span><span class="hl-3">-m</span><span class="hl-1"> </span><span class="hl-2">&quot;fix(mcp): handle connection timeout gracefully&quot;</span><br/><span class="hl-0">git</span><span class="hl-1"> </span><span class="hl-2">commit</span><span class="hl-1"> </span><span class="hl-3">-m</span><span class="hl-1"> </span><span class="hl-2">&quot;docs: update code standards documentation&quot;</span><br/><span class="hl-0">git</span><span class="hl-1"> </span><span class="hl-2">commit</span><span class="hl-1"> </span><span class="hl-3">-m</span><span class="hl-1"> </span><span class="hl-2">&quot;refactor(generator): reduce complexity in generateWeekAhead&quot;</span><br/><span class="hl-0">git</span><span class="hl-1"> </span><span class="hl-2">commit</span><span class="hl-1"> </span><span class="hl-3">-m</span><span class="hl-1"> </span><span class="hl-2">&quot;test: add unit tests for article template&quot;</span><br/><span class="hl-0">git</span><span class="hl-1"> </span><span class="hl-2">commit</span><span class="hl-1"> </span><span class="hl-3">-m</span><span class="hl-1"> </span><span class="hl-2">&quot;test: increase coverage for MCP client&quot;</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="pull-request-process" class="tsd-anchor-link">Pull Request Process<a href="#pull-request-process" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="before-submitting" class="tsd-anchor-link">Before Submitting<a href="#before-submitting" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ol>
+<li>
+<p><strong>Run all quality checks</strong>:</p>
+<pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">lint</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">format:check</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">htmlhint</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">test</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:e2e</span>
+</code><button type="button">Copy</button></pre>
+
+</li>
+<li>
+<p><strong>Check test coverage</strong>:</p>
+<pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:coverage</span><br/><span class="hl-4"># Ensure coverage thresholds are met</span><br/><span class="hl-4"># Lines: ≥80%, Branches: ≥75%</span>
+</code><button type="button">Copy</button></pre>
+
+</li>
+<li>
+<p><strong>Test your changes</strong>:</p>
+<pre><code class="bash"><span class="hl-4"># Generate news with your changes</span><br/><span class="hl-5">USE_EP_MCP</span><span class="hl-1">=</span><span class="hl-2">false</span><span class="hl-1"> </span><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-news</span><span class="hl-1"> </span><span class="hl-3">--</span><span class="hl-1"> </span><span class="hl-3">--types=week-ahead</span><span class="hl-1"> </span><span class="hl-3">--languages=en</span><br/><br/><span class="hl-4"># Verify output</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-news-indexes</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-sitemap</span><br/><br/><span class="hl-4"># Test E2E (if UI changes)</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">test:e2e:headed</span>
+</code><button type="button">Copy</button></pre>
+
+</li>
+<li>
+<p><strong>Update documentation</strong> if you've:</p>
+<ul>
+<li>Added new features</li>
+<li>Changed APIs or interfaces</li>
+<li>Modified configuration</li>
+<li>Added new test files (update test/README.md or e2e/README.md)</li>
+</ul>
+</li>
+</ol>
+<h3 id="pr-checklist" class="tsd-anchor-link">PR Checklist<a href="#pr-checklist" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li>[ ] Code follows the project's code standards</li>
+<li>[ ] All ESLint checks pass (0 errors)</li>
+<li>[ ] Code is formatted with Prettier</li>
+<li>[ ] All functions have JSDoc documentation</li>
+<li>[ ] <strong>All unit &amp; integration tests pass (npm test)</strong></li>
+<li>[ ] <strong>E2E tests pass (npm run test:e2e)</strong> (if UI changes)</li>
+<li>[ ] <strong>Test coverage meets thresholds (≥80% lines, ≥75% branches)</strong></li>
+<li>[ ] <strong>New code has corresponding tests</strong></li>
+<li>[ ] No security vulnerabilities introduced</li>
+<li>[ ] Documentation updated (if needed)</li>
+<li>[ ] Commit messages follow conventional commits format</li>
+</ul>
+<h3 id="pr-description" class="tsd-anchor-link">PR Description<a href="#pr-description" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Include in your PR description:</p>
+<ol>
+<li><strong>What</strong>: Brief description of the change</li>
+<li><strong>Why</strong>: Reason for the change</li>
+<li><strong>How</strong>: Technical approach used</li>
+<li><strong>Testing</strong>: How you tested the changes</li>
+<li><strong>Screenshots</strong>: For UI changes</li>
+</ol>
+<h3 id="cicd-checks" class="tsd-anchor-link">CI/CD Checks<a href="#cicd-checks" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Your PR must pass these automated checks:</p>
+<ul>
+<li>✅ ESLint (zero errors)</li>
+<li>✅ Prettier formatting</li>
+<li>✅ HTML validation</li>
+<li>✅ JavaScript syntax check</li>
+<li>✅ <strong>Unit tests</strong></li>
+<li>✅ <strong>Integration tests</strong></li>
+<li>✅ <strong>E2E tests</strong> (runs daily and on PRs)</li>
+<li>✅ <strong>Coverage thresholds (80%/75%)</strong></li>
+<li>✅ Security audit (npm audit)</li>
+<li>✅ Functional tests</li>
+</ul>
+<h3 id="review-process" class="tsd-anchor-link">Review Process<a href="#review-process" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ol>
+<li>Automated checks must pass</li>
+<li>At least one maintainer review required</li>
+<li>All review comments must be addressed</li>
+<li>PR will be merged by a maintainer</li>
+</ol>
+<h2 id="project-structure" class="tsd-anchor-link">Project Structure<a href="#project-structure" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code><span class="hl-5">euparliamentmonitor</span><span class="hl-1">/</span><br/><span class="hl-1">├── .</span><span class="hl-5">github</span><span class="hl-1">/              # </span><span class="hl-5">GitHub</span><span class="hl-1"> </span><span class="hl-5">workflows</span><span class="hl-1"> </span><span class="hl-5">and</span><span class="hl-1"> </span><span class="hl-5">configuration</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">workflows</span><span class="hl-1">/        # </span><span class="hl-6">CI</span><span class="hl-1">/</span><span class="hl-6">CD</span><span class="hl-1"> </span><span class="hl-5">workflows</span><br/><span class="hl-1">│   └── </span><span class="hl-5">agents</span><span class="hl-1">/          # </span><span class="hl-5">Custom</span><span class="hl-1"> </span><span class="hl-5">GitHub</span><span class="hl-1"> </span><span class="hl-5">Copilot</span><span class="hl-1"> </span><span class="hl-5">agents</span><br/><span class="hl-1">├── </span><span class="hl-5">scripts</span><span class="hl-1">/             # </span><span class="hl-5">Core</span><span class="hl-1"> </span><span class="hl-5">application</span><span class="hl-1"> </span><span class="hl-5">scripts</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">generate</span><span class="hl-1">-</span><span class="hl-5">news</span><span class="hl-1">-</span><span class="hl-5">enhanced</span><span class="hl-1">.</span><span class="hl-5">js</span><span class="hl-1">      # </span><span class="hl-5">News</span><span class="hl-1"> </span><span class="hl-5">generation</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">generate</span><span class="hl-1">-</span><span class="hl-5">news</span><span class="hl-1">-</span><span class="hl-5">indexes</span><span class="hl-1">.</span><span class="hl-5">js</span><span class="hl-1">       # </span><span class="hl-5">Index</span><span class="hl-1"> </span><span class="hl-5">generation</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">generate</span><span class="hl-1">-</span><span class="hl-5">sitemap</span><span class="hl-1">.</span><span class="hl-5">js</span><span class="hl-1">            # </span><span class="hl-5">Sitemap</span><span class="hl-1"> </span><span class="hl-5">generation</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">article</span><span class="hl-1">-</span><span class="hl-5">template</span><span class="hl-1">.</span><span class="hl-5">js</span><span class="hl-1">            # </span><span class="hl-6">HTML</span><span class="hl-1"> </span><span class="hl-5">templates</span><br/><span class="hl-1">│   └── </span><span class="hl-5">ep</span><span class="hl-1">-</span><span class="hl-5">mcp</span><span class="hl-1">-</span><span class="hl-5">client</span><span class="hl-1">.</span><span class="hl-5">js</span><span class="hl-1">              # </span><span class="hl-6">MCP</span><span class="hl-1"> </span><span class="hl-5">client</span><br/><span class="hl-1">├── </span><span class="hl-5">test</span><span class="hl-1">/                # </span><span class="hl-5">Unit</span><span class="hl-1"> &amp; </span><span class="hl-5">integration</span><span class="hl-1"> </span><span class="hl-5">tests</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">unit</span><span class="hl-1">/            # </span><span class="hl-5">Unit</span><span class="hl-1"> </span><span class="hl-5">tests</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">integration</span><span class="hl-1">/     # </span><span class="hl-5">Integration</span><span class="hl-1"> </span><span class="hl-5">tests</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">fixtures</span><span class="hl-1">/        # </span><span class="hl-5">Test</span><span class="hl-1"> </span><span class="hl-5">data</span><br/><span class="hl-1">│   └── </span><span class="hl-5">helpers</span><span class="hl-1">/         # </span><span class="hl-5">Test</span><span class="hl-1"> </span><span class="hl-5">utilities</span><br/><span class="hl-1">├── </span><span class="hl-5">e2e</span><span class="hl-1">/                 # </span><span class="hl-5">End</span><span class="hl-1">-</span><span class="hl-5">to</span><span class="hl-1">-</span><span class="hl-5">end</span><span class="hl-1"> </span><span class="hl-5">tests</span><br/><span class="hl-1">│   ├── </span><span class="hl-5">tests</span><span class="hl-1">/           # </span><span class="hl-6">E2E</span><span class="hl-1"> </span><span class="hl-5">test</span><span class="hl-1"> </span><span class="hl-5">files</span><br/><span class="hl-1">│   └── </span><span class="hl-6">README</span><span class="hl-1">.</span><span class="hl-5">md</span><span class="hl-1">        # </span><span class="hl-6">E2E</span><span class="hl-1"> </span><span class="hl-5">testing</span><span class="hl-1"> </span><span class="hl-5">guide</span><br/><span class="hl-1">├── </span><span class="hl-5">news</span><span class="hl-1">/                # </span><span class="hl-5">Generated</span><span class="hl-1"> </span><span class="hl-5">news</span><span class="hl-1"> </span><span class="hl-5">articles</span><br/><span class="hl-1">├── </span><span class="hl-5">docs</span><span class="hl-1">/                # </span><span class="hl-5">Documentation</span><br/><span class="hl-1">│   └── </span><span class="hl-6">CODE_STANDARDS</span><span class="hl-1">.</span><span class="hl-5">md</span><span class="hl-1"> # </span><span class="hl-5">Code</span><span class="hl-1"> </span><span class="hl-5">quality</span><span class="hl-1"> </span><span class="hl-5">standards</span><br/><span class="hl-1">├── .</span><span class="hl-5">husky</span><span class="hl-1">/              # </span><span class="hl-5">Pre</span><span class="hl-1">-</span><span class="hl-5">commit</span><span class="hl-1"> </span><span class="hl-5">hooks</span><br/><span class="hl-1">├── </span><span class="hl-5">eslint</span><span class="hl-1">.</span><span class="hl-5">config</span><span class="hl-1">.</span><span class="hl-5">js</span><span class="hl-1">     # </span><span class="hl-5">ESLint</span><span class="hl-1"> </span><span class="hl-5">configuration</span><br/><span class="hl-1">├── .</span><span class="hl-5">prettierrc</span><span class="hl-1">.</span><span class="hl-5">json</span><span class="hl-1">     # </span><span class="hl-5">Prettier</span><span class="hl-1"> </span><span class="hl-5">configuration</span><br/><span class="hl-1">├── </span><span class="hl-5">playwright</span><span class="hl-1">.</span><span class="hl-5">config</span><span class="hl-1">.</span><span class="hl-5">js</span><span class="hl-1"> # </span><span class="hl-5">Playwright</span><span class="hl-1"> </span><span class="hl-6">E2E</span><span class="hl-1"> </span><span class="hl-5">configuration</span><br/><span class="hl-1">└── </span><span class="hl-5">package</span><span class="hl-1">.</span><span class="hl-5">json</span><span class="hl-1">         # </span><span class="hl-5">Dependencies</span><span class="hl-1"> </span><span class="hl-5">and</span><span class="hl-1"> </span><span class="hl-5">scripts</span>
+</code><button>Copy</button></pre>
+
+<h2 id="development-tips" class="tsd-anchor-link">Development Tips<a href="#development-tips" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="custom-agents" class="tsd-anchor-link">Custom Agents<a href="#custom-agents" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>EU Parliament Monitor includes 8 specialized GitHub Copilot agents:</p>
+<ul>
+<li><code>@product-task-agent</code> - Issue creation and coordination</li>
+<li><code>@news-journalist</code> - Content generation</li>
+<li><code>@frontend-specialist</code> - UI/UX improvements</li>
+<li><code>@data-pipeline-specialist</code> - MCP integration</li>
+<li><code>@devops-engineer</code> - CI/CD automation</li>
+<li><code>@security-architect</code> - Security compliance</li>
+<li><code>@documentation-architect</code> - Documentation</li>
+<li><code>@quality-engineer</code> - Testing and validation</li>
+</ul>
+<p>See <a href="../media/README-2.md">.github/agents/README.md</a> for usage.</p>
+<h3 id="debugging" class="tsd-anchor-link">Debugging<a href="#debugging" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="bash"><span class="hl-4"># Enable verbose logging</span><br/><span class="hl-5">DEBUG</span><span class="hl-1">=</span><span class="hl-2">*</span><span class="hl-1"> </span><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-news</span><br/><br/><span class="hl-4"># Generate with placeholder content (no MCP)</span><br/><span class="hl-5">USE_EP_MCP</span><span class="hl-1">=</span><span class="hl-2">false</span><span class="hl-1"> </span><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">generate-news</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="ide-setup" class="tsd-anchor-link">IDE Setup<a href="#ide-setup" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>VS Code Extensions</strong>:</p>
+<ul>
+<li>ESLint</li>
+<li>Prettier</li>
+<li>HTMLHint</li>
+</ul>
+<p><strong>VS Code Settings</strong>:</p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-11">&quot;editor.formatOnSave&quot;</span><span class="hl-1">: </span><span class="hl-3">true</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-11">&quot;editor.defaultFormatter&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;esbenp.prettier-vscode&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-11">&quot;editor.codeActionsOnSave&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">    </span><span class="hl-11">&quot;source.fixAll.eslint&quot;</span><span class="hl-1">: </span><span class="hl-3">true</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="questions" class="tsd-anchor-link">Questions?<a href="#questions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li>Open an issue for bugs or feature requests</li>
+<li>Check <a href="../media/CODE_STANDARDS.md">docs/CODE_STANDARDS.md</a> for code guidelines</li>
+<li>Review existing code for examples</li>
+<li>Contact maintainers via GitHub</li>
+</ul>
+<h2 id="security-badge-maintenance" class="tsd-anchor-link">Security Badge Maintenance<a href="#security-badge-maintenance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="contributing-to-badge-status" class="tsd-anchor-link">Contributing to Badge Status<a href="#contributing-to-badge-status" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>When contributing, be aware of how your changes may affect security badges:</p>
+<h4 id="openssf-scorecard" class="tsd-anchor-link">OpenSSF Scorecard<a href="#openssf-scorecard" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>Your PR may affect the scorecard if it:</p>
+<ul>
+<li>Modifies GitHub Actions workflows</li>
+<li>Adds/removes dependencies</li>
+<li>Changes branch protection settings</li>
+<li>Adds security scanning tools</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Pin all GitHub Actions to SHA hashes (not tags)</li>
+<li>Use maintained, official actions when possible</li>
+<li>Add security tests for new attack surfaces</li>
+<li>Keep dependencies up-to-date</li>
+</ul>
+<h4 id="reuse-compliance" class="tsd-anchor-link">REUSE Compliance<a href="#reuse-compliance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>All new files must include proper license headers or be covered by <code>.reuse/dep5</code>:</p>
+<p><strong>For JavaScript files:</strong></p>
+<pre><code class="javascript"><span class="hl-4">// SPDX-FileCopyrightText: 2024-2026 Hack23 AB</span><br/><span class="hl-4">// SPDX-License-Identifier: Apache-2.0</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>For configuration files:</strong>
+Add entries to <code>.reuse/dep5</code> following existing patterns</p>
+<h4 id="test-coverage" class="tsd-anchor-link">Test Coverage<a href="#test-coverage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>New code must maintain ≥80% line coverage, ≥75% branch coverage:</p>
+<ul>
+<li>Add unit tests for new functions</li>
+<li>Add integration tests for new workflows</li>
+<li>Add E2E tests for user-facing features</li>
+</ul>
+<h4 id="sonarcloud-quality-gate" class="tsd-anchor-link">SonarCloud Quality Gate<a href="#sonarcloud-quality-gate" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>When SonarCloud is enabled, PRs will be checked for:</p>
+<ul>
+<li>Code coverage (target: 80%)</li>
+<li>Code smells and technical debt</li>
+<li>Security vulnerabilities</li>
+<li>Maintainability rating (target: A)</li>
+</ul>
+<p>See <a href="../#badge-maintenance">README.md - Badge Maintenance</a> for detailed badge status and procedures.</p>
+<h2 id="license" class="tsd-anchor-link">License<a href="#license" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>By contributing, you agree that your contributions will be licensed under the
+Apache-2.0 License.</p>
+<hr>
+<p><strong>Thank you for contributing to EU Parliament Monitor!</strong> 🇪🇺</p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-alpha" name="alpha"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Alpha</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-beta" name="beta"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Beta</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#contributing-to-eu-parliament-monitor"><span>Contributing to <wbr/>EU <wbr/>Parliament <wbr/>Monitor</span></a><ul><li><a href="#table-of-contents"><span>Table of <wbr/>Contents</span></a></li><li><a href="#code-of-conduct"><span>Code of <wbr/>Conduct</span></a></li><li><a href="#getting-started"><span>Getting <wbr/>Started</span></a></li><li><ul><li><a href="#prerequisites"><span>Prerequisites</span></a></li><li><a href="#setup"><span>Setup</span></a></li></ul></li><li><a href="#development-workflow"><span>Development <wbr/>Workflow</span></a></li><li><ul><li><a href="#running-locally"><span>Running <wbr/>Locally</span></a></li><li><a href="#code-quality-checks"><span>Code <wbr/>Quality <wbr/>Checks</span></a></li></ul></li><li><a href="#code-quality-requirements"><span>Code <wbr/>Quality <wbr/>Requirements</span></a></li><li><ul><li><a href="#testing-requirements"><span>Testing <wbr/>Requirements</span></a></li><li><ul><li><a href="#unit-integration-tests-vitest"><span>Unit &amp; <wbr/>Integration <wbr/>Tests (<wbr/>Vitest)</span></a></li><li><a href="#end-to-end-tests-playwright"><span>End-<wbr/>to-<wbr/>End <wbr/>Tests (<wbr/>Playwright)</span></a></li></ul></li><li><a href="#eslint"><span>ES<wbr/>Lint</span></a></li><li><a href="#prettier"><span>Prettier</span></a></li><li><a href="#jsdoc-documentation"><span>JS<wbr/>Doc <wbr/>Documentation</span></a></li><li><a href="#security"><span>Security</span></a></li><li><a href="#pre-commit-hooks"><span>Pre-<wbr/>commit <wbr/>Hooks</span></a></li></ul></li><li><a href="#commit-guidelines"><span>Commit <wbr/>Guidelines</span></a></li><li><ul><li><a href="#commit-message-format"><span>Commit <wbr/>Message <wbr/>Format</span></a></li><li><a href="#types"><span>Types</span></a></li><li><a href="#examples"><span>Examples</span></a></li></ul></li><li><a href="#pull-request-process"><span>Pull <wbr/>Request <wbr/>Process</span></a></li><li><ul><li><a href="#before-submitting"><span>Before <wbr/>Submitting</span></a></li><li><a href="#pr-checklist"><span>PR <wbr/>Checklist</span></a></li><li><a href="#pr-description"><span>PR <wbr/>Description</span></a></li><li><a href="#cicd-checks"><span>CI/<wbr/>CD <wbr/>Checks</span></a></li><li><a href="#review-process"><span>Review <wbr/>Process</span></a></li></ul></li><li><a href="#project-structure"><span>Project <wbr/>Structure</span></a></li><li><a href="#development-tips"><span>Development <wbr/>Tips</span></a></li><li><ul><li><a href="#custom-agents"><span>Custom <wbr/>Agents</span></a></li><li><a href="#debugging"><span>Debugging</span></a></li><li><a href="#ide-setup"><span>IDE <wbr/>Setup</span></a></li></ul></li><li><a href="#questions"><span>Questions?</span></a></li><li><a href="#security-badge-maintenance"><span>Security <wbr/>Badge <wbr/>Maintenance</span></a></li><li><ul><li><a href="#contributing-to-badge-status"><span>Contributing to <wbr/>Badge <wbr/>Status</span></a></li><li><ul><li><a href="#openssf-scorecard"><span>Open<wbr/>SSF <wbr/>Scorecard</span></a></li><li><a href="#reuse-compliance"><span>REUSE <wbr/>Compliance</span></a></li><li><a href="#test-coverage"><span>Test <wbr/>Coverage</span></a></li><li><a href="#sonarcloud-quality-gate"><span>Sonar<wbr/>Cloud <wbr/>Quality <wbr/>Gate</span></a></li></ul></li></ul></li><li><a href="#license"><span>License</span></a></li></ul></div></details></div><div class="site-menu"><nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md">🏛️ Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md">🔒 Security Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md">🛡️ Threat Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md">📊 Data Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FLOWCHART.md">🔄 Flowchart</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/STATEDIAGRAM.md">📈 State Diagram</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md">🧠 Mindmap</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md">💼 SWOT Analysis</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md">📜 CRA Assessment</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md">🚀 Future Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md">🔮 Future Security</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_THREAT_MODEL.md">🔮 Future Threat Model</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md">📋 Secure Dev Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md">🔐 Information Security Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md">📑 Open Source Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md">🏷️ Classification Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md">🤖 AI Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md">🔑 Access Control Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md">🔏 Cryptography Policy</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md">📋 WORKFLOWS</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CONTRIBUTING.md">📋 CONTRIBUTING</a><a href="https://euparliamentmonitor.com" class="tsd-nav-link">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor" class="tsd-nav-link">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC" class="tsd-nav-link">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server" class="tsd-nav-link">🇪🇺 EP MCP Server</a><a href="https://www.npmjs.com/package/euparliamentmonitor" class="tsd-nav-link">📦 npm</a></nav><nav class="tsd-navigation"><a href="../modules.html">EU Parliament Monitor — API Documentation - v0.8.13</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>

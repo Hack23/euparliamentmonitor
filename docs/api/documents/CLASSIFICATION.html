@@ -1,0 +1,2106 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="../"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>CLASSIFICATION | EU Parliament Monitor — API Documentation - v0.8.13</title><link rel="icon" href="../assets/favicon.ico"/><meta name="description" content="Documentation for EU Parliament Monitor — API Documentation"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/icons.js" id="tsd-icons-script"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script><script async src="../assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="../index.html" class="title">EU Parliament Monitor — API Documentation - v0.8.13</a><div id="tsd-toolbar-links"><a href="https://euparliamentmonitor.com">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server">🇪🇺 EP MCP Server</a><a href="https://www.npmjs.com/package/euparliamentmonitor">📦 npm</a></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><ul class="tsd-breadcrumb" aria-label="Breadcrumb"><li><a href="" aria-current="page">CLASSIFICATION</a></li></ul></div><div class="tsd-panel tsd-typography"><p align="center">
+  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
+</p>
+<h1 align="center">🏷️ EU Parliament Monitor — Classification & Business Continuity</h1>
+<p align="center">
+  <strong>Systematic Classification Excellence Through Impact Analysis</strong><br>
+  <em>Open Source Intelligence Platform Classification Framework</em>
+</p>
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--02--25-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
+</p>
+<p><strong>📋 Document Owner:</strong> CEO | <strong>📄 Version:</strong> 1.1 | <strong>📅 Last Updated:</strong> 2026-02-25 (UTC)<br>
+<strong>🔄 Review Cycle:</strong> Quarterly | <strong>⏰ Next Review:</strong> 2026-05-25</p>
+<hr>
+<h2 id="📚-architecture-documentation-map" class="tsd-anchor-link">📚 Architecture Documentation Map<a href="#📚-architecture-documentation-map" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<div class="documentation-map">
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Focus</th>
+<th>Description</th>
+<th>Documentation Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="ARCHITECTURE.html">Architecture</a></strong></td>
+<td>🏛️ Architecture</td>
+<td>C4 model showing current system structure</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="FUTURE_ARCHITECTURE.html">Future Architecture</a></strong></td>
+<td>🏛️ Architecture</td>
+<td>C4 model showing future system structure</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="MINDMAP.html">Mindmaps</a></strong></td>
+<td>🧠 Concept</td>
+<td>Current system component relationships</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="FUTURE_MINDMAP.html">Future Mindmaps</a></strong></td>
+<td>🧠 Concept</td>
+<td>Future capability evolution</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_MINDMAP.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="SWOT.html">SWOT Analysis</a></strong></td>
+<td>💼 Business</td>
+<td>Current strategic assessment</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="FUTURE_SWOT.html">Future SWOT Analysis</a></strong></td>
+<td>💼 Business</td>
+<td>Future strategic opportunities</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SWOT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="DATA_MODEL.html">Data Model</a></strong></td>
+<td>📊 Data</td>
+<td>Current data structures and relationships</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="FUTURE_DATA_MODEL.html">Future Data Model</a></strong></td>
+<td>📊 Data</td>
+<td>Enhanced European Parliament data architecture</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_DATA_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="FLOWCHART.html">Flowcharts</a></strong></td>
+<td>🔄 Process</td>
+<td>Current data processing workflows</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FLOWCHART.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="FUTURE_FLOWCHART.html">Future Flowcharts</a></strong></td>
+<td>🔄 Process</td>
+<td>Enhanced AI-driven workflows</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_FLOWCHART.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="STATEDIAGRAM.html">State Diagrams</a></strong></td>
+<td>🔄 Behavior</td>
+<td>Current system state transitions</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/STATEDIAGRAM.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="FUTURE_STATEDIAGRAM.html">Future State Diagrams</a></strong></td>
+<td>🔄 Behavior</td>
+<td>Enhanced adaptive state transitions</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_STATEDIAGRAM.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="SECURITY_ARCHITECTURE.html">Security Architecture</a></strong></td>
+<td>🛡️ Security</td>
+<td>Current security implementation</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="FUTURE_SECURITY_ARCHITECTURE.html">Future Security Architecture</a></strong></td>
+<td>🛡️ Security</td>
+<td>Security enhancement roadmap</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="THREAT_MODEL.html">Threat Model</a></strong></td>
+<td>🎯 Security</td>
+<td>STRIDE threat analysis</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="">Classification</a></strong></td>
+<td>🏷️ Governance</td>
+<td>CIA classification &amp; BCP</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CLASSIFICATION.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="CRA-ASSESSMENT.html">CRA Assessment</a></strong></td>
+<td>🛡️ Compliance</td>
+<td>Cyber Resilience Act</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="WORKFLOWS.html">Workflows</a></strong></td>
+<td>⚙️ DevOps</td>
+<td>CI/CD documentation</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="FUTURE_WORKFLOWS.html">Future Workflows</a></strong></td>
+<td>🚀 DevOps</td>
+<td>Planned CI/CD enhancements</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_WORKFLOWS.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/BCPPlan.md">Business Continuity Plan</a></strong></td>
+<td>🔄 Resilience</td>
+<td>Recovery planning</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/BCPPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/FinancialSecurityPlan.md">Financial Security Plan</a></strong></td>
+<td>💰 Financial</td>
+<td>Cost &amp; security analysis</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FinancialSecurityPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/End-of-Life-Strategy.md">End-of-Life Strategy</a></strong></td>
+<td>📦 Lifecycle</td>
+<td>Technology EOL planning</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/End-of-Life-Strategy.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/UnitTestPlan.md">Unit Test Plan</a></strong></td>
+<td>🧪 Testing</td>
+<td>Unit testing strategy</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/UnitTestPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/E2ETestPlan.md">E2E Test Plan</a></strong></td>
+<td>🔍 Testing</td>
+<td>End-to-end testing</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/E2ETestPlan.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="../media/performance-testing.md">Performance Testing</a></strong></td>
+<td>⚡ Performance</td>
+<td>Performance benchmarks</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/performance-testing.md" target="_blank" class="external">View Source</a></td>
+</tr>
+<tr>
+<td><strong><a href="SECURITY.html">Security Policy</a></strong></td>
+<td>🔒 Security</td>
+<td>Vulnerability reporting &amp; security policy</td>
+<td><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md" target="_blank" class="external">View Source</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="🎯-purpose-statement" class="tsd-anchor-link">🎯 Purpose Statement<a href="#🎯-purpose-statement" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><strong>EU Parliament Monitor's</strong> classification framework demonstrates how systematic impact analysis enables security excellence and informed decision-making for open source intelligence platforms. This comprehensive classification serves as the foundation for threat modeling, risk assessment, and business continuity planning.</p>
+<p>This document provides structured classification across confidentiality, integrity, availability, recovery objectives, and business impact dimensions. It establishes the baseline for security control selection and incident response prioritization.</p>
+<p>Our transparent classification approach showcases methodical risk assessment aligned with <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md" target="_blank" class="external">Hack23 ISMS Classification Framework</a>, enabling evidence-based security decision-making.</p>
+<p><em>— James Pether Sörling, CEO/Founder</em></p>
+<hr>
+<h1 id="🏷️-eu-parliament-monitor-classification-framework" class="tsd-anchor-link">🏷️ EU Parliament Monitor Classification Framework<a href="#🏷️-eu-parliament-monitor-classification-framework" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<p>This document outlines the classification framework and business impact analysis for EU Parliament Monitor, a static website generator creating multi-language news about European Parliament activities.</p>
+<hr>
+<h2 id="📊-classification-decision-tree" class="tsd-anchor-link">📊 Classification Decision Tree<a href="#📊-classification-decision-tree" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>The following decision tree helps determine the appropriate classification level for EU Parliament Monitor data:</p>
+<pre><code class="mermaid"><span class="hl-1">%%{</span><br/><span class="hl-1">  init: {</span><br/><span class="hl-1">    &#39;theme&#39;: &#39;base&#39;,</span><br/><span class="hl-1">    &#39;themeVariables&#39;: {</span><br/><span class="hl-1">      &#39;primaryColor&#39;: &#39;#1565C0&#39;,</span><br/><span class="hl-1">      &#39;primaryTextColor&#39;: &#39;#0D47A1&#39;,</span><br/><span class="hl-1">      &#39;lineColor&#39;: &#39;#1565C0&#39;,</span><br/><span class="hl-1">      &#39;secondaryColor&#39;: &#39;#4CAF50&#39;,</span><br/><span class="hl-1">      &#39;tertiaryColor&#39;: &#39;#FF9800&#39;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">}%%</span><br/><span class="hl-1">flowchart TD</span><br/><span class="hl-1">    START[📊 Data Received/Created] --&gt; EP_CHECK{🏛️ European Parliament&lt;br/&gt;Open Data Source?}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    EP_CHECK --&gt;|✅ Yes| PII_CHECK{👤 Contains non-public or&lt;br/&gt;sensitive personal data?}</span><br/><span class="hl-1">    EP_CHECK --&gt;|❌ No| REVIEW[🔍 Manual Review Required]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    PII_CHECK --&gt;|❌ No| ACCESS_CHECK{🔐 Requires Access&lt;br/&gt;Control?}</span><br/><span class="hl-1">    PII_CHECK --&gt;|✅ Yes| HIGH_CONF[🔴 High Confidentiality&lt;br/&gt;(Non-public/sensitive PII)&lt;br/&gt;Not Applicable to EP Monitor]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    ACCESS_CHECK --&gt;|❌ No| ACCURACY_CHECK{✅ Accuracy&lt;br/&gt;Critical?}</span><br/><span class="hl-1">    ACCESS_CHECK --&gt;|✅ Yes| INTERNAL[🟡 Internal Classification&lt;br/&gt;Not Applicable to EP Monitor]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    ACCURACY_CHECK --&gt;|✅ Yes| PUBLIC_MED[🟢 PUBLIC Confidentiality&lt;br/&gt;🟡 MEDIUM Integrity&lt;br/&gt;✅ Current EP Monitor Status]</span><br/><span class="hl-1">    ACCURACY_CHECK --&gt;|❌ No| PUBLIC_LOW[🟢 PUBLIC Confidentiality&lt;br/&gt;🟢 LOW Integrity&lt;br/&gt;Not Typical for EP Monitor]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    PUBLIC_MED --&gt; AVAIL_CHECK{⏱️ 24-hour Outage&lt;br/&gt;Acceptable?}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    AVAIL_CHECK --&gt;|✅ Yes| FINAL[✅ Final Classification:&lt;br/&gt;📊 Confidentiality: PUBLIC&lt;br/&gt;✅ Integrity: MEDIUM&lt;br/&gt;⏱️ Availability: MEDIUM&lt;br/&gt;🚨 RTO: 24 hours&lt;br/&gt;🔄 RPO: 1 day]</span><br/><span class="hl-1">    AVAIL_CHECK --&gt;|❌ No| HIGH_AVAIL[⚡ High Availability Required&lt;br/&gt;Not Current EP Monitor Design]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    classDef start fill:#2196F3,stroke:#1565C0,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef decision fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef success fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef warning fill:#FFC107,stroke:#FFA000,stroke-width:2px,color:#000000</span><br/><span class="hl-1">    classDef critical fill:#D32F2F,stroke:#B71C1C,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef final fill:#7B1FA2,stroke:#4A148C,stroke-width:3px,color:#ffffff</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    class START start</span><br/><span class="hl-1">    class EP_CHECK,PII_CHECK,ACCESS_CHECK,ACCURACY_CHECK,AVAIL_CHECK decision</span><br/><span class="hl-1">    class PUBLIC_MED,FINAL success</span><br/><span class="hl-1">    class PUBLIC_LOW,INTERNAL warning</span><br/><span class="hl-1">    class HIGH_CONF,HIGH_AVAIL critical</span><br/><span class="hl-1">    class REVIEW final</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Decision Tree Explanation:</strong></p>
+<ol>
+<li><strong>European Parliament Data Check</strong>: All EP Monitor data originates from official EP open data APIs</li>
+<li><strong>PII Check</strong>: MEP names and roles are publicly available personal data from official European Parliament open data sources. Processing is limited to transparency and journalistic purposes and relies on GDPR Article 6(1)(f) (legitimate interests) and applicable Article 85 freedom-of-expression/journalistic exemptions; no special category data is processed.</li>
+<li><strong>Access Control Check</strong>: No authentication or authorization required for public transparency platform</li>
+<li><strong>Accuracy Check</strong>: News accuracy is critical for democratic transparency and public trust</li>
+<li><strong>Availability Check</strong>: 24-hour outages acceptable given daily update schedule and non-critical nature</li>
+</ol>
+<hr>
+<h2 id="📊-system-classification-summary" class="tsd-anchor-link">📊 System Classification Summary<a href="#📊-system-classification-summary" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><strong>EU Parliament Monitor</strong> is classified as:</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Level</th>
+<th>Badge</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🔒 Confidentiality</strong></td>
+<td><strong>Public (Level 1)</strong></td>
+<td><a href="#confidentiality-levels"><img src="https://img.shields.io/badge/Confidentiality-Public-lightgrey?style=for-the-badge&amp;logo=shield&amp;logoColor=black" alt="Public"></a></td>
+<td>All data from European Parliament open data sources, no private information, publicly accessible content</td>
+</tr>
+<tr>
+<td><strong>✅ Integrity</strong></td>
+<td><strong>Medium (Level 2)</strong></td>
+<td><a href="#integrity-levels"><img src="https://img.shields.io/badge/Integrity-Moderate-yellow?style=for-the-badge&amp;logo=check-circle&amp;logoColor=black" alt="Moderate"></a></td>
+<td>News accuracy critical for democratic transparency, incorrect information could mislead public opinion</td>
+</tr>
+<tr>
+<td><strong>⏱️ Availability</strong></td>
+<td><strong>Medium (Level 2)</strong></td>
+<td><a href="#availability-levels"><img src="https://img.shields.io/badge/Availability-Moderate-yellow?style=for-the-badge&amp;logo=clock&amp;logoColor=black" alt="Moderate"></a></td>
+<td>Daily updates expected, 24-hour outages acceptable, not mission-critical infrastructure</td>
+</tr>
+<tr>
+<td><strong>🚨 RTO</strong></td>
+<td><strong>24 hours</strong></td>
+<td><a href="#rto-classifications"><img src="https://img.shields.io/badge/RTO-Medium_(24hrs)-lightgreen?style=for-the-badge&amp;logo=clock&amp;logoColor=white" alt="Medium"></a></td>
+<td>Manual workflow trigger available, automated recovery via GitHub Actions</td>
+</tr>
+<tr>
+<td><strong>🔄 RPO</strong></td>
+<td><strong>1 day</strong></td>
+<td><a href="#rpo-classifications"><img src="https://img.shields.io/badge/RPO-Daily_(24hrs)-lightblue?style=for-the-badge&amp;logo=database&amp;logoColor=white" alt="Daily"></a></td>
+<td>Daily generation schedule, previous day's content acceptable loss</td>
+</tr>
+<tr>
+<td><strong>🏷️ Privacy</strong></td>
+<td><strong>Personal (public-source)</strong></td>
+<td><a href="#privacy-levels"><img src="https://img.shields.io/badge/Privacy-Personal_(public--source)-orange?style=for-the-badge&amp;logo=user-shield&amp;logoColor=white" alt="Personal"></a></td>
+<td>Publicly available personal data of elected representatives (MEP names/roles); no special categories; GDPR applies with reduced risk</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Project Type</strong>: <a href="#project-type-classifications"><img src="https://img.shields.io/badge/Type-Content_Creation-pink?style=for-the-badge&amp;logo=newspaper&amp;logoColor=white" alt="Content Creation"></a> Static site generator for European Parliament intelligence</p>
+<hr>
+<h2 id="💰-business-impact-analysis-matrix" class="tsd-anchor-link">💰 Business Impact Analysis Matrix<a href="#💰-business-impact-analysis-matrix" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="eu-parliament-monitor-specific-impact-assessment" class="tsd-anchor-link">EU Parliament Monitor Specific Impact Assessment<a href="#eu-parliament-monitor-specific-impact-assessment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Impact Category</th>
+<th>Financial</th>
+<th>Operational</th>
+<th>Reputational</th>
+<th>Regulatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🔒 Confidentiality Breach</strong></td>
+<td><a href="#financial-impact-levels"><img src="https://img.shields.io/badge/Negligible-No_impact-lightgrey?style=for-the-badge&amp;logo=dollar-sign&amp;logoColor=black" alt="Negligible"></a></td>
+<td><a href="#operational-impact-levels"><img src="https://img.shields.io/badge/Negligible-No_impact-lightgrey?style=for-the-badge&amp;logo=exclamation-triangle&amp;logoColor=black" alt="Negligible"></a></td>
+<td><a href="#reputational-impact-levels"><img src="https://img.shields.io/badge/Negligible-No_impact-lightgrey?style=for-the-badge&amp;logo=newspaper&amp;logoColor=black" alt="Negligible"></a></td>
+<td><a href="#regulatory-impact-levels"><img src="https://img.shields.io/badge/Negligible-No_impact-lightgrey?style=for-the-badge&amp;logo=gavel&amp;logoColor=black" alt="Negligible"></a></td>
+</tr>
+<tr>
+<td><strong>✅ Integrity Compromise</strong></td>
+<td><a href="#financial-impact-levels"><img src="https://img.shields.io/badge/Low-%3C$500_daily-lightgreen?style=for-the-badge&amp;logo=dollar-sign&amp;logoColor=white" alt="Low - &lt;$500 daily"></a></td>
+<td><a href="#operational-impact-levels"><img src="https://img.shields.io/badge/Moderate-Content_correction-yellow?style=for-the-badge&amp;logo=trending-down&amp;logoColor=black" alt="Moderate - Content correction"></a></td>
+<td><a href="#reputational-impact-levels"><img src="https://img.shields.io/badge/Moderate-Trust_erosion-yellow?style=for-the-badge&amp;logo=newspaper&amp;logoColor=black" alt="Moderate - Trust erosion"></a></td>
+<td><a href="#regulatory-impact-levels"><img src="https://img.shields.io/badge/Low-Transparency_concerns-lightgreen?style=for-the-badge&amp;logo=gavel&amp;logoColor=white" alt="Low - Transparency concerns"></a></td>
+</tr>
+<tr>
+<td><strong>⏱️ Availability Loss</strong></td>
+<td><a href="#financial-impact-levels"><img src="https://img.shields.io/badge/Low-%3C$500_daily-lightgreen?style=for-the-badge&amp;logo=dollar-sign&amp;logoColor=white" alt="Low - &lt;$500 daily"></a></td>
+<td><a href="#operational-impact-levels"><img src="https://img.shields.io/badge/Low-Manual_trigger-lightgreen?style=for-the-badge&amp;logo=stop-circle&amp;logoColor=white" alt="Low - Manual trigger"></a></td>
+<td><a href="#reputational-impact-levels"><img src="https://img.shields.io/badge/Low-Limited_visibility-lightgreen?style=for-the-badge&amp;logo=newspaper&amp;logoColor=white" alt="Low - Limited visibility"></a></td>
+<td><a href="#regulatory-impact-levels"><img src="https://img.shields.io/badge/Negligible-No_impact-lightgrey?style=for-the-badge&amp;logo=gavel&amp;logoColor=black" alt="Negligible"></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="classification-rationale" class="tsd-anchor-link">Classification Rationale<a href="#classification-rationale" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<h4 id="🔒-confidentiality-public-level-1" class="tsd-anchor-link">🔒 Confidentiality: Public (Level 1)<a href="#🔒-confidentiality-public-level-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Justification:</strong></p>
+<ul>
+<li>All source data from European Parliament's public open data APIs</li>
+<li>Generated news articles publicly accessible via AWS S3 + Amazon CloudFront</li>
+<li>No authentication, authorization, or access controls required</li>
+<li>Only publicly available MEP personal data processed (no non-public personal data, no special category data, no end-user tracking data)</li>
+<li>Designed for maximum transparency and public accessibility</li>
+</ul>
+<p><strong>Impact if Compromised:</strong> Negligible - Data already public</p>
+<h4 id="✅-integrity-medium-level-2" class="tsd-anchor-link">✅ Integrity: Medium (Level 2)<a href="#✅-integrity-medium-level-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Justification:</strong></p>
+<ul>
+<li>News accuracy critical for democratic transparency and informed citizenry</li>
+<li>Incorrect information could mislead public opinion on parliamentary activities</li>
+<li>Content influences understanding of European democratic processes</li>
+<li>Manual content validation currently required</li>
+<li>Reputation depends on factual accuracy and reliability</li>
+</ul>
+<p><strong>Impact if Compromised:</strong> Moderate - Public misinformation, trust erosion</p>
+<h4 id="⏱️-availability-medium-level-2" class="tsd-anchor-link">⏱️ Availability: Medium (Level 2)<a href="#⏱️-availability-medium-level-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Justification:</strong></p>
+<ul>
+<li>Daily content generation expected by users</li>
+<li>24-hour outages acceptable (not mission-critical)</li>
+<li>Manual workflow trigger available as backup</li>
+<li>GitHub Actions provides automated recovery</li>
+<li>Static site architecture inherently resilient</li>
+</ul>
+<p><strong>Impact if Compromised:</strong> Low - Delayed content, limited operational impact</p>
+<hr>
+<h2 id="📈-impact-level-definitions" class="tsd-anchor-link">📈 Impact Level Definitions<a href="#📈-impact-level-definitions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="💸-financial-impact-levels-financial-impact-levels" class="tsd-anchor-link">💸 Financial Impact Levels {#financial-impact-levels}<a href="#💸-financial-impact-levels-financial-impact-levels" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EU Parliament Monitor Context:</strong> Low-cost infrastructure (AWS S3 + CloudFront), volunteer-driven, no revenue generation.</p>
+<ul>
+<li><a href="#financial-impact-levels"><img src="https://img.shields.io/badge/Critical-red?style=flat-square&amp;logoColor=white" alt="Critical"></a> Major revenue impact (&gt;$10K daily) — <strong>N/A</strong> for volunteer project</li>
+<li><a href="#financial-impact-levels"><img src="https://img.shields.io/badge/Very_High-darkred?style=flat-square&amp;logoColor=white" alt="Very High"></a> Substantial penalties ($5K-10K daily) — <strong>N/A</strong> for volunteer project</li>
+<li><a href="#financial-impact-levels"><img src="https://img.shields.io/badge/High-orange?style=flat-square&amp;logoColor=white" alt="High"></a> Regulatory fines ($1K-5K daily) — <strong>N/A</strong> for volunteer project</li>
+<li><a href="#financial-impact-levels"><img src="https://img.shields.io/badge/Moderate-yellow?style=flat-square&amp;logoColor=black" alt="Moderate"></a> Incident response costs ($500-1K daily) — <strong>Low probability</strong></li>
+<li><a href="#financial-impact-levels"><img src="https://img.shields.io/badge/Low-lightgreen?style=flat-square&amp;logoColor=white" alt="Low"></a> Minimal impact (&lt;$500 daily) — <strong>Current exposure level</strong></li>
+<li><a href="#financial-impact-levels"><img src="https://img.shields.io/badge/Negligible-lightgrey?style=flat-square&amp;logoColor=black" alt="Negligible"></a> No financial consequences — <strong>Most scenarios</strong></li>
+</ul>
+<h3 id="🏢-operational-impact-levels-operational-impact-levels" class="tsd-anchor-link">🏢 Operational Impact Levels {#operational-impact-levels}<a href="#🏢-operational-impact-levels-operational-impact-levels" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EU Parliament Monitor Context:</strong> Static site generator, GitHub Actions automation, manual fallback available.</p>
+<ul>
+<li><a href="#operational-impact-levels"><img src="https://img.shields.io/badge/Critical-red?style=flat-square&amp;logoColor=white" alt="Critical"></a> Complete service outage — <strong>Low probability</strong> (AWS S3 + CloudFront redundancy)</li>
+<li><a href="#operational-impact-levels"><img src="https://img.shields.io/badge/High-orange?style=flat-square&amp;logoColor=white" alt="High"></a> Major service degradation — <strong>Low probability</strong> (static architecture)</li>
+<li><a href="#operational-impact-levels"><img src="https://img.shields.io/badge/Moderate-yellow?style=flat-square&amp;logoColor=black" alt="Moderate"></a> Partial service impact — <strong>Possible</strong> (workflow failures, content errors)</li>
+<li><a href="#operational-impact-levels"><img src="https://img.shields.io/badge/Low-lightgreen?style=flat-square&amp;logoColor=white" alt="Low"></a> Minor inconvenience — <strong>Current exposure</strong> (delayed updates)</li>
+<li><a href="#operational-impact-levels"><img src="https://img.shields.io/badge/Negligible-lightgrey?style=flat-square&amp;logoColor=black" alt="Negligible"></a> No operational impact — <strong>Most scenarios</strong></li>
+</ul>
+<h3 id="🤝-reputational-impact-levels-reputational-impact-levels" class="tsd-anchor-link">🤝 Reputational Impact Levels {#reputational-impact-levels}<a href="#🤝-reputational-impact-levels-reputational-impact-levels" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EU Parliament Monitor Context:</strong> Transparency-focused intelligence platform, volunteer open source project.</p>
+<ul>
+<li><a href="#reputational-impact-levels"><img src="https://img.shields.io/badge/Critical-red?style=flat-square&amp;logoColor=white" alt="Critical"></a> International media coverage — <strong>Very low probability</strong></li>
+<li><a href="#reputational-impact-levels"><img src="https://img.shields.io/badge/High-orange?style=flat-square&amp;logoColor=white" alt="High"></a> National coverage — <strong>Low probability</strong></li>
+<li><a href="#reputational-impact-levels"><img src="https://img.shields.io/badge/Moderate-yellow?style=flat-square&amp;logoColor=black" alt="Moderate"></a> Industry attention — <strong>Possible</strong> (content accuracy issues)</li>
+<li><a href="#reputational-impact-levels"><img src="https://img.shields.io/badge/Low-lightgreen?style=flat-square&amp;logoColor=white" alt="Low"></a> Limited visibility — <strong>Current exposure</strong> (minor errors)</li>
+<li><a href="#reputational-impact-levels"><img src="https://img.shields.io/badge/Negligible-lightgrey?style=flat-square&amp;logoColor=black" alt="Negligible"></a> No reputational impact — <strong>Most scenarios</strong></li>
+</ul>
+<h3 id="📜-regulatory-impact-levels-regulatory-impact-levels" class="tsd-anchor-link">📜 Regulatory Impact Levels {#regulatory-impact-levels}<a href="#📜-regulatory-impact-levels-regulatory-impact-levels" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EU Parliament Monitor Context:</strong> Public open data, no PII, GDPR compliant by design, transparency-aligned.</p>
+<ul>
+<li><a href="#regulatory-impact-levels"><img src="https://img.shields.io/badge/Critical-red?style=flat-square&amp;logoColor=white" alt="Critical"></a> Criminal charges — <strong>Not applicable</strong> (no sensitive data)</li>
+<li><a href="#regulatory-impact-levels"><img src="https://img.shields.io/badge/Very_High-darkred?style=flat-square&amp;logoColor=white" alt="Very High"></a> Major penalties — <strong>Not applicable</strong> (no sensitive data)</li>
+<li><a href="#regulatory-impact-levels"><img src="https://img.shields.io/badge/High-orange?style=flat-square&amp;logoColor=white" alt="High"></a> Significant fines — <strong>Not applicable</strong> (no sensitive data)</li>
+<li><a href="#regulatory-impact-levels"><img src="https://img.shields.io/badge/Moderate-yellow?style=flat-square&amp;logoColor=black" alt="Moderate"></a> Minor penalties — <strong>Very low probability</strong></li>
+<li><a href="#regulatory-impact-levels"><img src="https://img.shields.io/badge/Low-lightgreen?style=flat-square&amp;logoColor=white" alt="Low"></a> Warnings — <strong>Low probability</strong> (transparency concerns)</li>
+<li><a href="#regulatory-impact-levels"><img src="https://img.shields.io/badge/Negligible-lightgrey?style=flat-square&amp;logoColor=black" alt="Negligible"></a> No regulatory implications — <strong>Current status</strong></li>
+</ul>
+<hr>
+<h2 id="🔒-security-classification-framework" class="tsd-anchor-link">🔒 Security Classification Framework<a href="#🔒-security-classification-framework" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="🏗️-data-classification-hierarchy" class="tsd-anchor-link">🏗️ Data Classification Hierarchy<a href="#🏗️-data-classification-hierarchy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>The following diagram illustrates the four-level information classification hierarchy used across Hack23 projects, with <strong>EU Parliament Monitor</strong> positioned at the <strong>Public</strong> level:</p>
+<pre><code class="mermaid"><span class="hl-1">%%{</span><br/><span class="hl-1">  init: {</span><br/><span class="hl-1">    &#39;theme&#39;: &#39;base&#39;,</span><br/><span class="hl-1">    &#39;themeVariables&#39;: {</span><br/><span class="hl-1">      &#39;primaryColor&#39;: &#39;#1565C0&#39;,</span><br/><span class="hl-1">      &#39;primaryTextColor&#39;: &#39;#0D47A1&#39;,</span><br/><span class="hl-1">      &#39;lineColor&#39;: &#39;#1565C0&#39;,</span><br/><span class="hl-1">      &#39;secondaryColor&#39;: &#39;#4CAF50&#39;,</span><br/><span class="hl-1">      &#39;tertiaryColor&#39;: &#39;#FF9800&#39;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">}%%</span><br/><span class="hl-1">graph TB</span><br/><span class="hl-1">    subgraph HIERARCHY[&quot;🏗️ Hack23 Information Classification Hierarchy&quot;]</span><br/><span class="hl-1">        RESTRICTED[🔴 RESTRICTED&lt;br/&gt;Highest Protection&lt;br/&gt;Zero-trust architecture&lt;br/&gt;HSM, MFA, biometrics]</span><br/><span class="hl-1">        CONFIDENTIAL[🟠 CONFIDENTIAL&lt;br/&gt;Strong Protection&lt;br/&gt;Encryption, RBAC, monitoring]</span><br/><span class="hl-1">        INTERNAL[🟡 INTERNAL&lt;br/&gt;Standard Protection&lt;br/&gt;Access control, authentication]</span><br/><span class="hl-1">        PUBLIC[🟢 PUBLIC&lt;br/&gt;Minimal Protection&lt;br/&gt;TLS in transit only]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    RESTRICTED -.-&gt;|Lower sensitivity| CONFIDENTIAL</span><br/><span class="hl-1">    CONFIDENTIAL -.-&gt;|Lower sensitivity| INTERNAL</span><br/><span class="hl-1">    INTERNAL -.-&gt;|Lower sensitivity| PUBLIC</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    subgraph EP_MONITOR[&quot;🏛️ EU Parliament Monitor&quot;]</span><br/><span class="hl-1">        EP_DATA[📊 European Parliament Data&lt;br/&gt;✅ Public open data APIs&lt;br/&gt;✅ Only public-identifiable data (MEP names/roles)&lt;br/&gt;✅ No non-public or special category data]</span><br/><span class="hl-1">        EP_NEWS[📰 Generated News Articles&lt;br/&gt;✅ 14 languages&lt;br/&gt;✅ Public AWS S3 + CloudFront&lt;br/&gt;✅ No access control]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    PUBLIC -.-&gt;|Applied to| EP_MONITOR</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    classDef critical fill:#D32F2F,stroke:#B71C1C,stroke-width:3px,color:#ffffff</span><br/><span class="hl-1">    classDef high fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef medium fill:#FFC107,stroke:#FFA000,stroke-width:2px,color:#000000</span><br/><span class="hl-1">    classDef low fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef epmonitor fill:#2196F3,stroke:#1565C0,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    class RESTRICTED critical</span><br/><span class="hl-1">    class CONFIDENTIAL high</span><br/><span class="hl-1">    class INTERNAL medium</span><br/><span class="hl-1">    class PUBLIC low</span><br/><span class="hl-1">    class EP_DATA,EP_NEWS epmonitor</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Hierarchy Characteristics:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Protection Controls</th>
+<th>EU Parliament Monitor Applicability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔴 <strong>Restricted</strong></td>
+<td>HSM, zero-trust, biometric auth, air-gapped systems</td>
+<td>❌ Not applicable - no sensitive data</td>
+</tr>
+<tr>
+<td>🟠 <strong>Confidential</strong></td>
+<td>Strong encryption (AES-256), RBAC, SIEM monitoring</td>
+<td>❌ Not applicable - transparency platform</td>
+</tr>
+<tr>
+<td>🟡 <strong>Internal</strong></td>
+<td>Standard access control, authentication, basic encryption</td>
+<td>❌ Not applicable - public by design</td>
+</tr>
+<tr>
+<td>🟢 <strong>Public</strong></td>
+<td>TLS 1.2+ (TLS 1.3 where supported) in transit, public repository, open source</td>
+<td>✅ <strong>CURRENT LEVEL</strong> - maximum transparency</td>
+</tr>
+</tbody>
+</table>
+<h3 id="🛡️-confidentiality-levels-confidentiality-levels" class="tsd-anchor-link">🛡️ Confidentiality Levels {#confidentiality-levels}<a href="#🛡️-confidentiality-levels-confidentiality-levels" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EU Parliament Monitor Classification: Public (Level 1)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Badge</th>
+<th>Description</th>
+<th>EU Parliament Monitor Context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Extreme</strong></td>
+<td><a href="#confidentiality-levels"><img src="https://img.shields.io/badge/Confidentiality-Extreme-black?style=for-the-badge&amp;logo=shield&amp;logoColor=white" alt="Extreme"></a></td>
+<td>National security, quantum encryption</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td><strong>Very High</strong></td>
+<td><a href="#confidentiality-levels"><img src="https://img.shields.io/badge/Confidentiality-Very_High-darkblue?style=for-the-badge&amp;logo=shield&amp;logoColor=white" alt="Very High"></a></td>
+<td>Zero-trust, advanced threat protection</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td><strong>High</strong></td>
+<td><a href="#confidentiality-levels"><img src="https://img.shields.io/badge/Confidentiality-High-blue?style=for-the-badge&amp;logo=shield&amp;logoColor=white" alt="High"></a></td>
+<td>Strong encryption, MFA, monitoring</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td><strong>Moderate</strong></td>
+<td><a href="#confidentiality-levels"><img src="https://img.shields.io/badge/Confidentiality-Moderate-orange?style=for-the-badge&amp;logo=shield&amp;logoColor=white" alt="Moderate"></a></td>
+<td>Standard encryption, role-based access</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td><strong>Low</strong></td>
+<td><a href="#confidentiality-levels"><img src="https://img.shields.io/badge/Confidentiality-Low-yellow?style=for-the-badge&amp;logo=shield&amp;logoColor=black" alt="Low"></a></td>
+<td>Basic protection, standard auth</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td><strong>Public</strong></td>
+<td><a href="#confidentiality-levels"><img src="https://img.shields.io/badge/Confidentiality-Public-lightgrey?style=for-the-badge&amp;logo=shield&amp;logoColor=black" alt="Public"></a></td>
+<td>No confidentiality requirements</td>
+<td><strong>✅ CURRENT LEVEL</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Controls Required:</strong></p>
+<ul>
+<li>✅ TLS 1.2+ (TLS 1.3 where supported) for data in transit (Amazon CloudFront, API calls)</li>
+<li>✅ Public content by design</li>
+<li>✅ No authentication/authorization systems needed</li>
+<li>✅ Transparent, open source codebase</li>
+</ul>
+<h3 id="✅-integrity-levels-integrity-levels" class="tsd-anchor-link">✅ Integrity Levels {#integrity-levels}<a href="#✅-integrity-levels-integrity-levels" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EU Parliament Monitor Classification: Moderate (Level 2)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Badge</th>
+<th>Description</th>
+<th>EU Parliament Monitor Context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Critical</strong></td>
+<td><a href="#integrity-levels"><img src="https://img.shields.io/badge/Integrity-Critical-red?style=for-the-badge&amp;logo=check-circle&amp;logoColor=white" alt="Critical"></a></td>
+<td>Real-time validation, immutable logs</td>
+<td>Future aspiration (Q4 2026)</td>
+</tr>
+<tr>
+<td><strong>High</strong></td>
+<td><a href="#integrity-levels"><img src="https://img.shields.io/badge/Integrity-High-orange?style=for-the-badge&amp;logo=check-circle&amp;logoColor=white" alt="High"></a></td>
+<td>Automated validation, digital signatures</td>
+<td>Future phase (Q3 2026)</td>
+</tr>
+<tr>
+<td><strong>Moderate</strong></td>
+<td><a href="#integrity-levels"><img src="https://img.shields.io/badge/Integrity-Moderate-yellow?style=for-the-badge&amp;logo=check-circle&amp;logoColor=black" alt="Moderate"></a></td>
+<td>Standard validation, checksums</td>
+<td><strong>✅ CURRENT LEVEL</strong></td>
+</tr>
+<tr>
+<td><strong>Low</strong></td>
+<td><a href="#integrity-levels"><img src="https://img.shields.io/badge/Integrity-Low-lightgreen?style=for-the-badge&amp;logo=check-circle&amp;logoColor=white" alt="Low"></a></td>
+<td>Basic validation, manual verification</td>
+<td>Not appropriate</td>
+</tr>
+<tr>
+<td><strong>Minimal</strong></td>
+<td><a href="#integrity-levels"><img src="https://img.shields.io/badge/Integrity-Minimal-lightgrey?style=for-the-badge&amp;logo=check-circle&amp;logoColor=black" alt="Minimal"></a></td>
+<td>Best-effort basis only</td>
+<td>Not acceptable</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Controls Required:</strong></p>
+<ul>
+<li>✅ Git version control (change tracking, audit trail)</li>
+<li>✅ Git object integrity via commit hashes (no automated commit signing)</li>
+<li>✅ Immutable Git history</li>
+<li>✅ Automated testing (unit tests 82%, E2E tests)</li>
+<li>✅ Code review via pull requests</li>
+<li>⏳ Content validation (manual, future automation planned Q3 2026)</li>
+<li>⏳ Fact-checking integration (planned Q4 2026)</li>
+</ul>
+<h3 id="⏱️-availability-levels-availability-levels" class="tsd-anchor-link">⏱️ Availability Levels {#availability-levels}<a href="#⏱️-availability-levels-availability-levels" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EU Parliament Monitor Classification: Moderate (Level 2)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Badge</th>
+<th>Description</th>
+<th>EU Parliament Monitor Context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mission Critical</strong></td>
+<td><a href="#availability-levels"><img src="https://img.shields.io/badge/Availability-Mission_Critical-red?style=for-the-badge&amp;logo=clock&amp;logoColor=white" alt="Mission Critical"></a></td>
+<td>99.99% uptime, instant failover</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td><strong>High</strong></td>
+<td><a href="#availability-levels"><img src="https://img.shields.io/badge/Availability-High-orange?style=for-the-badge&amp;logo=clock&amp;logoColor=white" alt="High"></a></td>
+<td>99.9% uptime, automated failover</td>
+<td>Future phase</td>
+</tr>
+<tr>
+<td><strong>Moderate</strong></td>
+<td><a href="#availability-levels"><img src="https://img.shields.io/badge/Availability-Moderate-yellow?style=for-the-badge&amp;logo=clock&amp;logoColor=black" alt="Moderate"></a></td>
+<td>99.5% uptime, manual failover</td>
+<td><strong>✅ CURRENT LEVEL</strong></td>
+</tr>
+<tr>
+<td><strong>Standard</strong></td>
+<td><a href="#availability-levels"><img src="https://img.shields.io/badge/Availability-Standard-lightgreen?style=for-the-badge&amp;logo=clock&amp;logoColor=white" alt="Standard"></a></td>
+<td>99% uptime, basic redundancy</td>
+<td>Minimum acceptable</td>
+</tr>
+<tr>
+<td><strong>Best Effort</strong></td>
+<td><a href="#availability-levels"><img src="https://img.shields.io/badge/Availability-Best_Effort-lightgrey?style=for-the-badge&amp;logo=clock&amp;logoColor=black" alt="Best Effort"></a></td>
+<td>No uptime guarantees</td>
+<td>Not acceptable</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Controls Required:</strong></p>
+<ul>
+<li>✅ AWS S3 + Amazon CloudFront infrastructure (99.9% uptime SLA)</li>
+<li>✅ Static site architecture (no server-side execution)</li>
+<li>✅ Amazon CloudFront global CDN distribution</li>
+<li>✅ Manual workflow trigger (backup recovery)</li>
+<li>✅ GitHub Actions automated recovery</li>
+<li>✅ Multiple repository copies (Git distributed architecture)</li>
+</ul>
+<h3 id="🏷️-privacy-pii-protection-levels-privacy-levels" class="tsd-anchor-link">🏷️ Privacy &amp; PII Protection Levels {#privacy-levels}<a href="#🏷️-privacy-pii-protection-levels-privacy-levels" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EU Parliament Monitor Classification: Personal (public-source, public-official context)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Badge</th>
+<th>Description</th>
+<th>GDPR Context</th>
+<th>EU Parliament Monitor Context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Special Category</strong></td>
+<td><a href="#privacy-levels"><img src="https://img.shields.io/badge/Privacy-Special_Category-darkred?style=for-the-badge&amp;logo=shield-alt&amp;logoColor=white" alt="Special Category"></a></td>
+<td>Art. 9 data</td>
+<td>Explicit consent required</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td><strong>Personal Identifier</strong></td>
+<td><a href="#privacy-levels"><img src="https://img.shields.io/badge/Privacy-Personal_Identifier-red?style=for-the-badge&amp;logo=fingerprint&amp;logoColor=white" alt="Personal Identifier"></a></td>
+<td>Direct identifiers</td>
+<td>GDPR Art. 4(1)</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td><strong>Personal</strong></td>
+<td><a href="#privacy-levels"><img src="https://img.shields.io/badge/Privacy-Personal-orange?style=for-the-badge&amp;logo=user-shield&amp;logoColor=white" alt="Personal"></a></td>
+<td>Personal data</td>
+<td>GDPR compliance required</td>
+<td><strong>✅ CURRENT STATUS</strong> — publicly available MEP names/roles from EP open data</td>
+</tr>
+<tr>
+<td><strong>Pseudonymized</strong></td>
+<td><a href="#privacy-levels"><img src="https://img.shields.io/badge/Privacy-Pseudonymized-yellow?style=for-the-badge&amp;logo=mask&amp;logoColor=black" alt="Pseudonymized"></a></td>
+<td>De-identified with key</td>
+<td>GDPR Art. 4(5)</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td><strong>Anonymized</strong></td>
+<td><a href="#privacy-levels"><img src="https://img.shields.io/badge/Privacy-Anonymized-lightgreen?style=for-the-badge&amp;logo=user-slash&amp;logoColor=white" alt="Anonymized"></a></td>
+<td>Irreversibly de-identified</td>
+<td>Outside GDPR scope</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td><strong>NA (Not Applicable)</strong></td>
+<td><a href="#privacy-levels"><img src="https://img.shields.io/badge/Privacy-NA-lightgrey?style=for-the-badge&amp;logo=times-circle&amp;logoColor=black" alt="NA"></a></td>
+<td>Non-personal data</td>
+<td>No GDPR obligations</td>
+<td>Not applicable</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GDPR Compliance Status:</strong></p>
+<ul>
+<li>✅ Publicly available personal data of elected representatives only (no special categories, no behavioural profiling)</li>
+<li>✅ No cookies, tracking, or analytics</li>
+<li>✅ No user accounts or authentication</li>
+<li>✅ Public European Parliament data only</li>
+<li>✅ GDPR by design (data protection by design and by default)</li>
+<li>✅ Data subject rights handled case-by-case subject to applicable freedom-of-expression and public-interest exemptions</li>
+</ul>
+<hr>
+<h2 id="⏱️-recovery-time-classifications" class="tsd-anchor-link">⏱️ Recovery Time Classifications<a href="#⏱️-recovery-time-classifications" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="🚨-rto-recovery-time-objective-rto-classifications" class="tsd-anchor-link">🚨 RTO (Recovery Time Objective) {#rto-classifications}<a href="#🚨-rto-recovery-time-objective-rto-classifications" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EU Parliament Monitor Classification: Medium (24 hours)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Badge</th>
+<th>Time Window</th>
+<th>EU Parliament Monitor Context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Instant</strong></td>
+<td><a href="#rto-classifications"><img src="https://img.shields.io/badge/RTO-Instant_(%3C5min)-red?style=for-the-badge&amp;logo=clock&amp;logoColor=white" alt="Instant"></a></td>
+<td>&lt; 5 minutes</td>
+<td>Not required</td>
+</tr>
+<tr>
+<td><strong>Critical</strong></td>
+<td><a href="#rto-classifications"><img src="https://img.shields.io/badge/RTO-Critical_(5--60min)-orange?style=for-the-badge&amp;logo=clock&amp;logoColor=white" alt="Critical"></a></td>
+<td>5-60 minutes</td>
+<td>Not required</td>
+</tr>
+<tr>
+<td><strong>High</strong></td>
+<td><a href="#rto-classifications"><img src="https://img.shields.io/badge/RTO-High_(1--4hrs)-yellow?style=for-the-badge&amp;logo=clock&amp;logoColor=white" alt="High"></a></td>
+<td>1-4 hours</td>
+<td>Not required</td>
+</tr>
+<tr>
+<td><strong>Medium</strong></td>
+<td><a href="#rto-classifications"><img src="https://img.shields.io/badge/RTO-Medium_(4--24hrs)-lightgreen?style=for-the-badge&amp;logo=clock&amp;logoColor=white" alt="Medium"></a></td>
+<td>4-24 hours</td>
+<td><strong>✅ CURRENT TARGET</strong></td>
+</tr>
+<tr>
+<td><strong>Low</strong></td>
+<td><a href="#rto-classifications"><img src="https://img.shields.io/badge/RTO-Low_(24--72hrs)-lightblue?style=for-the-badge&amp;logo=clock&amp;logoColor=white" alt="Low"></a></td>
+<td>24-72 hours</td>
+<td>Acceptable fallback</td>
+</tr>
+<tr>
+<td><strong>Standard</strong></td>
+<td><a href="#rto-classifications"><img src="https://img.shields.io/badge/RTO-Standard_(%3E72hrs)-lightgrey?style=for-the-badge&amp;logo=clock&amp;logoColor=black" alt="Standard"></a></td>
+<td>&gt; 72 hours</td>
+<td>Not acceptable</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recovery Strategy:</strong></p>
+<ul>
+<li>✅ GitHub Actions automated workflow retry</li>
+<li>✅ Manual workflow trigger via GitHub UI</li>
+<li>✅ Static site resilience (existing content remains available)</li>
+<li>✅ AWS S3 + CloudFront redundancy (no single point of failure)</li>
+<li>✅ Daily generation schedule provides natural recovery window</li>
+</ul>
+<p><strong>Acceptable Downtime:</strong> 24 hours (content generation can be delayed without critical impact)</p>
+<h3 id="🔄-rpo-recovery-point-objective-rpo-classifications" class="tsd-anchor-link">🔄 RPO (Recovery Point Objective) {#rpo-classifications}<a href="#🔄-rpo-recovery-point-objective-rpo-classifications" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>EU Parliament Monitor Classification: Daily (24 hours)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Badge</th>
+<th>Data Loss Window</th>
+<th>EU Parliament Monitor Context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Zero Loss</strong></td>
+<td><a href="#rpo-classifications"><img src="https://img.shields.io/badge/RPO-Zero_Loss_(%3C1min)-red?style=for-the-badge&amp;logo=database&amp;logoColor=white" alt="Zero Loss"></a></td>
+<td>&lt; 1 minute</td>
+<td>Not required</td>
+</tr>
+<tr>
+<td><strong>Near Real-time</strong></td>
+<td><a href="#rpo-classifications"><img src="https://img.shields.io/badge/RPO-Near_Realtime_(1--15min)-orange?style=for-the-badge&amp;logo=database&amp;logoColor=white" alt="Near Real-time"></a></td>
+<td>1-15 minutes</td>
+<td>Not required</td>
+</tr>
+<tr>
+<td><strong>Minimal</strong></td>
+<td><a href="#rpo-classifications"><img src="https://img.shields.io/badge/RPO-Minimal_(15--60min)-yellow?style=for-the-badge&amp;logo=database&amp;logoColor=black" alt="Minimal"></a></td>
+<td>15-60 minutes</td>
+<td>Not required</td>
+</tr>
+<tr>
+<td><strong>Hourly</strong></td>
+<td><a href="#rpo-classifications"><img src="https://img.shields.io/badge/RPO-Hourly_(1--4hrs)-lightgreen?style=for-the-badge&amp;logo=database&amp;logoColor=white" alt="Hourly"></a></td>
+<td>1-4 hours</td>
+<td>Future aspiration</td>
+</tr>
+<tr>
+<td><strong>Daily</strong></td>
+<td><a href="#rpo-classifications"><img src="https://img.shields.io/badge/RPO-Daily_(4--24hrs)-lightblue?style=for-the-badge&amp;logo=database&amp;logoColor=white" alt="Daily"></a></td>
+<td>4-24 hours</td>
+<td><strong>✅ CURRENT ACCEPTABLE</strong></td>
+</tr>
+<tr>
+<td><strong>Extended</strong></td>
+<td><a href="#rpo-classifications"><img src="https://img.shields.io/badge/RPO-Extended_(%3E24hrs)-lightgrey?style=for-the-badge&amp;logo=database&amp;logoColor=black" alt="Extended"></a></td>
+<td>&gt; 24 hours</td>
+<td>Not preferred</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Data Loss Strategy:</strong></p>
+<ul>
+<li>✅ Daily content generation schedule</li>
+<li>✅ Git version control (all content versioned)</li>
+<li>✅ GitHub repository backup (distributed copies)</li>
+<li>✅ Previous day's content acceptable loss</li>
+<li>✅ EP API data remains available for regeneration</li>
+</ul>
+<p><strong>Acceptable Data Loss:</strong> Up to 24 hours of generated content (regenerable from source)</p>
+<hr>
+<h2 id="🎯-project-type-classifications-project-type-classifications" class="tsd-anchor-link">🎯 Project Type Classifications {#project-type-classifications}<a href="#🎯-project-type-classifications-project-type-classifications" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="eu-parliament-monitor-project-classification" class="tsd-anchor-link">EU Parliament Monitor Project Classification<a href="#eu-parliament-monitor-project-classification" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Primary Type:</strong></p>
+<ul>
+<li><a href="#project-type-classifications"><img src="https://img.shields.io/badge/Type-Content_Creation-pink?style=for-the-badge&amp;logo=newspaper&amp;logoColor=white" alt="Content Creation"></a> <strong>Static site generator for news intelligence</strong></li>
+</ul>
+<p><strong>Secondary Types:</strong></p>
+<ul>
+<li><a href="#project-type-classifications"><img src="https://img.shields.io/badge/Type-Development_Tools-lightblue?style=for-the-badge&amp;logo=wrench&amp;logoColor=black" alt="Development Tools"></a> <strong>Open source CLI tooling</strong></li>
+<li><a href="#project-type-classifications"><img src="https://img.shields.io/badge/Type-Data_Analytics-orange?style=for-the-badge&amp;logo=chart-line&amp;logoColor=white" alt="Data Analytics"></a> <strong>European Parliament data aggregation</strong></li>
+</ul>
+<p><strong>Characteristics:</strong></p>
+<ul>
+<li>Zero production dependencies</li>
+<li>GitHub Actions automation</li>
+<li>Static HTML output</li>
+<li>Multi-language support (14 languages)</li>
+<li>MCP (Model Context Protocol) integration</li>
+<li>LLM-powered content generation</li>
+</ul>
+<p><strong>Security Level:</strong> Moderate (static architecture, public data, integrity-focused)</p>
+<hr>
+<h2 id="📚-eu-parliament-data-classification-examples" class="tsd-anchor-link">📚 EU Parliament Data Classification Examples<a href="#📚-eu-parliament-data-classification-examples" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="specific-data-type-classifications" class="tsd-anchor-link">Specific Data Type Classifications<a href="#specific-data-type-classifications" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>The following table provides explicit classifications for various types of European Parliament data processed by EU Parliament Monitor:</p>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Source</th>
+<th>Confidentiality</th>
+<th>Integrity</th>
+<th>Availability</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🏛️ MEP Personal Data</strong> (Names, roles, contact)</td>
+<td>EP Open Data API</td>
+<td>🟢 <strong>Public</strong></td>
+<td>🟡 <strong>Medium</strong></td>
+<td>🟡 <strong>Medium</strong></td>
+<td>Public officials, accuracy matters for democratic transparency</td>
+</tr>
+<tr>
+<td><strong>📋 Plenary Session Records</strong></td>
+<td>EP Open Data API</td>
+<td>🟢 <strong>Public</strong></td>
+<td>🟡 <strong>Medium</strong></td>
+<td>🟡 <strong>Medium</strong></td>
+<td>Official parliamentary proceedings, historical accuracy critical</td>
+</tr>
+<tr>
+<td><strong>📊 Committee Documents</strong></td>
+<td>EP Open Data API</td>
+<td>🟢 <strong>Public</strong></td>
+<td>🟡 <strong>Medium</strong></td>
+<td>🟢 <strong>Low</strong></td>
+<td>Committee work publicly accessible, moderate accuracy needs</td>
+</tr>
+<tr>
+<td><strong>🗳️ Voting Records</strong></td>
+<td>EP Open Data API</td>
+<td>🟢 <strong>Public</strong></td>
+<td>🔴 <strong>High</strong></td>
+<td>🟡 <strong>Medium</strong></td>
+<td>Democratic accountability requires highest integrity</td>
+</tr>
+<tr>
+<td><strong>📜 Legislative Documents</strong></td>
+<td>EP Open Data API</td>
+<td>🟢 <strong>Public</strong></td>
+<td>🟡 <strong>Medium</strong></td>
+<td>🟡 <strong>Medium</strong></td>
+<td>Legal texts require accuracy but publicly available</td>
+</tr>
+<tr>
+<td><strong>📰 Generated News Articles</strong> (14 languages)</td>
+<td>EP Monitor (Generated)</td>
+<td>🟢 <strong>Public</strong></td>
+<td>🟡 <strong>Medium</strong></td>
+<td>🟢 <strong>Low</strong></td>
+<td>Transparency content, accuracy important but not mission-critical</td>
+</tr>
+<tr>
+<td><strong>📊 Session Summaries</strong></td>
+<td>EP Monitor (Processed)</td>
+<td>🟢 <strong>Public</strong></td>
+<td>🟡 <strong>Medium</strong></td>
+<td>🟢 <strong>Low</strong></td>
+<td>Aggregated insights, public transparency focus</td>
+</tr>
+<tr>
+<td><strong>🌐 Multi-Language Translations</strong></td>
+<td>EP Monitor (Generated)</td>
+<td>🟢 <strong>Public</strong></td>
+<td>🟡 <strong>Medium</strong></td>
+<td>🟢 <strong>Low</strong></td>
+<td>Linguistic accuracy important for international audience</td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-classification-decision-factors" class="tsd-anchor-link">Data Classification Decision Factors<a href="#data-classification-decision-factors" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Why Everything is Public (Level 1) Confidentiality:</strong></p>
+<ul>
+<li>✅ All data originates from European Parliament's official open data sources</li>
+<li>✅ EU transparency regulations mandate public access to parliamentary proceedings</li>
+<li>✅ No authentication, authorization, or access control mechanisms needed</li>
+<li>✅ Personal data protection (GDPR) requirements apply, but risk and required controls are reduced because MEP information is public official data from open sources</li>
+<li>✅ Designed for maximum democratic transparency and citizen engagement</li>
+</ul>
+<p><strong>Why Integrity Varies (Low to High):</strong></p>
+<ul>
+<li>🗳️ <strong>High Integrity</strong>: Voting records require absolute accuracy for democratic accountability</li>
+<li>🟡 <strong>Medium Integrity</strong>: Most content requires accuracy but corrections are acceptable</li>
+<li>🟢 <strong>Low Integrity</strong>: Supplementary content where errors have minimal impact</li>
+</ul>
+<p><strong>Why Availability is Medium/Low:</strong></p>
+<ul>
+<li>Daily content generation schedule provides natural recovery window</li>
+<li>24-hour outages acceptable - not mission-critical democratic infrastructure</li>
+<li>Manual workflow triggers available as backup</li>
+<li>AWS S3 with CloudFront provides inherent resilience via global CDN distribution</li>
+</ul>
+<h3 id="multi-language-content-classification-multi-language-classification" class="tsd-anchor-link">Multi-Language Content Classification {#multi-language-classification}<a href="#multi-language-content-classification-multi-language-classification" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Language Coverage:</strong> 14 languages (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)</p>
+<p><strong>Uniform Classification Across Languages:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Classification</th>
+<th>Applies to All 14 Languages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🔒 Confidentiality</strong></td>
+<td>🟢 <strong>Public</strong></td>
+<td>✅ Yes - all language variants equally public</td>
+</tr>
+<tr>
+<td><strong>✅ Integrity</strong></td>
+<td>🟡 <strong>Medium</strong></td>
+<td>✅ Yes - translation accuracy equally important</td>
+</tr>
+<tr>
+<td><strong>⏱️ Availability</strong></td>
+<td>🟡 <strong>Medium</strong></td>
+<td>✅ Yes - same 24-hour RTO applies to all</td>
+</tr>
+<tr>
+<td><strong>🚨 RTO</strong></td>
+<td>24 hours</td>
+<td>✅ Yes - same recovery objective for all</td>
+</tr>
+<tr>
+<td><strong>🔄 RPO</strong></td>
+<td>1 day</td>
+<td>✅ Yes - daily regeneration schedule universal</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Language-Specific Considerations:</strong></p>
+<ul>
+<li>Translation quality monitored but not cryptographically verified</li>
+<li>All languages generated simultaneously in single workflow</li>
+<li>No language-based access restrictions or geographic fencing</li>
+<li>Cultural context maintained across translations</li>
+<li>No special protection for any specific language variant</li>
+</ul>
+<hr>
+<h2 id="📋-data-lifecycle-management" class="tsd-anchor-link">📋 Data Lifecycle Management<a href="#📋-data-lifecycle-management" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="complete-data-lifecycle-for-eu-parliament-monitor" class="tsd-anchor-link">Complete Data Lifecycle for EU Parliament Monitor<a href="#complete-data-lifecycle-for-eu-parliament-monitor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="mermaid"><span class="hl-1">%%{</span><br/><span class="hl-1">  init: {</span><br/><span class="hl-1">    &#39;theme&#39;: &#39;base&#39;,</span><br/><span class="hl-1">    &#39;themeVariables&#39;: {</span><br/><span class="hl-1">      &#39;primaryColor&#39;: &#39;#1565C0&#39;,</span><br/><span class="hl-1">      &#39;primaryTextColor&#39;: &#39;#0D47A1&#39;,</span><br/><span class="hl-1">      &#39;lineColor&#39;: &#39;#1565C0&#39;,</span><br/><span class="hl-1">      &#39;secondaryColor&#39;: &#39;#4CAF50&#39;,</span><br/><span class="hl-1">      &#39;tertiaryColor&#39;: &#39;#FF9800&#39;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">}%%</span><br/><span class="hl-1">flowchart TB</span><br/><span class="hl-1">    subgraph CREATION[&quot;📥 Data Creation/Collection&quot;]</span><br/><span class="hl-1">        EP_API[🏛️ EP Open Data API Call]</span><br/><span class="hl-1">        MCP_FETCH[🔌 MCP Server Data Fetch]</span><br/><span class="hl-1">        API_RESPONSE[📊 JSON API Response]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    subgraph PROCESSING[&quot;⚙️ Data Processing&quot;]</span><br/><span class="hl-1">        PARSE[🔍 Parse EP Data]</span><br/><span class="hl-1">        TRANSFORM[🔄 Transform to News Format]</span><br/><span class="hl-1">        LLM_GEN[🤖 LLM Content Generation]</span><br/><span class="hl-1">        TRANSLATE[🌐 14-Language Translation]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    subgraph STORAGE[&quot;💾 Data Storage&quot;]</span><br/><span class="hl-1">        GIT_COMMIT[📝 Git Commit]</span><br/><span class="hl-1">        REPO_STORE[📦 GitHub Repository]</span><br/><span class="hl-1">        PAGES_DEPLOY[🚀 AWS S3 + CloudFront Deployment]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    subgraph PUBLICATION[&quot;📢 Publication&quot;]</span><br/><span class="hl-1">        HTML_SERVE[🌐 Static HTML Serving]</span><br/><span class="hl-1">        CDN_CACHE[⚡ Amazon CloudFront CDN Cache]</span><br/><span class="hl-1">        PUBLIC_ACCESS[👥 Public Access]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    subgraph ARCHIVING[&quot;📚 Archiving&quot;]</span><br/><span class="hl-1">        GIT_HISTORY[🕰️ Git Version History]</span><br/><span class="hl-1">        IMMUTABLE[🔒 Immutable Git Objects]</span><br/><span class="hl-1">        LONG_TERM[📦 Long-Term Preservation]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    subgraph DISPOSAL[&quot;🗑️ Data Disposal&quot;]</span><br/><span class="hl-1">        RETENTION[⏰ Policy-Based Retention]</span><br/><span class="hl-1">        AUTO_ARCHIVE[🤖 Automatic Archiving]</span><br/><span class="hl-1">        NO_DELETION[❌ No Permanent Deletion&lt;br/&gt;Public record preservation]</span><br/><span class="hl-1">    end</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    EP_API --&gt; MCP_FETCH</span><br/><span class="hl-1">    MCP_FETCH --&gt; API_RESPONSE</span><br/><span class="hl-1">    API_RESPONSE --&gt; PARSE</span><br/><span class="hl-1">    PARSE --&gt; TRANSFORM</span><br/><span class="hl-1">    TRANSFORM --&gt; LLM_GEN</span><br/><span class="hl-1">    LLM_GEN --&gt; TRANSLATE</span><br/><span class="hl-1">    TRANSLATE --&gt; GIT_COMMIT</span><br/><span class="hl-1">    GIT_COMMIT --&gt; REPO_STORE</span><br/><span class="hl-1">    REPO_STORE --&gt; PAGES_DEPLOY</span><br/><span class="hl-1">    PAGES_DEPLOY --&gt; HTML_SERVE</span><br/><span class="hl-1">    HTML_SERVE --&gt; CDN_CACHE</span><br/><span class="hl-1">    CDN_CACHE --&gt; PUBLIC_ACCESS</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    REPO_STORE --&gt; GIT_HISTORY</span><br/><span class="hl-1">    GIT_HISTORY --&gt; IMMUTABLE</span><br/><span class="hl-1">    IMMUTABLE --&gt; LONG_TERM</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    PUBLIC_ACCESS --&gt; RETENTION</span><br/><span class="hl-1">    RETENTION --&gt; AUTO_ARCHIVE</span><br/><span class="hl-1">    AUTO_ARCHIVE --&gt; NO_DELETION</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    classDef creation fill:#2196F3,stroke:#1565C0,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef processing fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef storage fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef publication fill:#7B1FA2,stroke:#4A148C,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef archiving fill:#1565C0,stroke:#0D47A1,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef disposal fill:#9E9E9E,stroke:#616161,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    class EP_API,MCP_FETCH,API_RESPONSE creation</span><br/><span class="hl-1">    class PARSE,TRANSFORM,LLM_GEN,TRANSLATE processing</span><br/><span class="hl-1">    class GIT_COMMIT,REPO_STORE,PAGES_DEPLOY storage</span><br/><span class="hl-1">    class HTML_SERVE,CDN_CACHE,PUBLIC_ACCESS publication</span><br/><span class="hl-1">    class GIT_HISTORY,IMMUTABLE,LONG_TERM archiving</span><br/><span class="hl-1">    class RETENTION,AUTO_ARCHIVE,NO_DELETION disposal</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="lifecycle-stage-details" class="tsd-anchor-link">Lifecycle Stage Details<a href="#lifecycle-stage-details" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<h4 id="📥-stage-1-data-creationcollection" class="tsd-anchor-link">📥 Stage 1: Data Creation/Collection<a href="#📥-stage-1-data-creationcollection" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> Daily (automated via GitHub Actions)<br>
+<strong>Classification Impact:</strong> Public data from inception<br>
+<strong>Controls:</strong></p>
+<ul>
+<li>✅ TLS 1.2+ (TLS 1.3 where supported) for API communications</li>
+<li>✅ European Parliament MCP Server runs as a local stdio child process (no network exposure; explicit authentication planned for future remote deployment)</li>
+<li>✅ API rate limiting and error handling</li>
+<li>✅ Automated retry mechanisms</li>
+</ul>
+<p><strong>Data Volumes:</strong></p>
+<ul>
+<li>~50-100 MEP records per execution</li>
+<li>~10-20 plenary sessions per month</li>
+<li>~5-10 committee meetings per day</li>
+<li>JSON payloads: 10-50 KB per request</li>
+</ul>
+<h4 id="⚙️-stage-2-data-processing" class="tsd-anchor-link">⚙️ Stage 2: Data Processing<a href="#⚙️-stage-2-data-processing" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> 15-30 minutes per execution<br>
+<strong>Classification Impact:</strong> Public input → Public output (no classification change)<br>
+<strong>Controls:</strong></p>
+<ul>
+<li>✅ Input validation and sanitization</li>
+<li>✅ Content safety checks (no malicious content generation)</li>
+<li>✅ Translation quality validation</li>
+<li>✅ Git repository integrity via commit hashes (no automated commit signing)</li>
+</ul>
+<p><strong>Processing Steps:</strong></p>
+<ol>
+<li>Parse EP API JSON responses</li>
+<li>Transform to structured news format</li>
+<li>LLM-powered content generation (news articles)</li>
+<li>Multi-language translation (14 languages)</li>
+<li>HTML template rendering</li>
+</ol>
+<h4 id="💾-stage-3-storage" class="tsd-anchor-link">💾 Stage 3: Storage<a href="#💾-stage-3-storage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> Permanent (Git version control)<br>
+<strong>Classification Impact:</strong> Public storage with integrity controls<br>
+<strong>Controls:</strong></p>
+<ul>
+<li>✅ Git version control (immutable history)</li>
+<li>✅ GitHub repository backup (distributed copies)</li>
+<li>✅ Git object integrity via commit hashes (no automated commit signing)</li>
+<li>✅ Branch protection rules</li>
+</ul>
+<p><strong>Storage Characteristics:</strong></p>
+<ul>
+<li><strong>Location:</strong> GitHub cloud infrastructure</li>
+<li><strong>Redundancy:</strong> Git distributed architecture (multiple clones)</li>
+<li><strong>Backup:</strong> GitHub's infrastructure backups + Git clones</li>
+<li><strong>Retention:</strong> Indefinite (public record preservation)</li>
+</ul>
+<h4 id="📢-stage-4-publication" class="tsd-anchor-link">📢 Stage 4: Publication<a href="#📢-stage-4-publication" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> Real-time (CDN caching)<br>
+<strong>Classification Impact:</strong> Public access with availability controls<br>
+<strong>Controls:</strong></p>
+<ul>
+<li>✅ AWS S3 + CloudFront HTTPS (TLS 1.2+, TLS 1.3 where supported)</li>
+<li>✅ Amazon CloudFront (AWS Shield Standard for DDoS protection)</li>
+<li>✅ Static site architecture (no server-side vulnerabilities)</li>
+<li>✅ No authentication required (public by design)</li>
+</ul>
+<p><strong>Availability:</strong></p>
+<ul>
+<li><strong>SLA:</strong> AWS S3 (Standard) and Amazon CloudFront, each with 99.9% availability SLA</li>
+<li><strong>CDN:</strong> Global edge caching</li>
+<li><strong>RTO:</strong> 24 hours (manual workflow trigger)</li>
+<li><strong>RPO:</strong> 1 day (daily generation acceptable)</li>
+</ul>
+<h4 id="📚-stage-5-archiving" class="tsd-anchor-link">📚 Stage 5: Archiving<a href="#📚-stage-5-archiving" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> Automatic (Git version history)<br>
+<strong>Classification Impact:</strong> Public historical record<br>
+<strong>Controls:</strong></p>
+<ul>
+<li>✅ Immutable Git objects (Git object hashing, SHA-1 by default; SHA-256 if enabled)</li>
+<li>✅ Permanent version history</li>
+<li>✅ No content deletion (transparency principle)</li>
+<li>✅ Historical audit trail</li>
+</ul>
+<p><strong>Archive Characteristics:</strong></p>
+<ul>
+<li>All content changes tracked via Git commits</li>
+<li>Complete historical record of all articles</li>
+<li>Tamper-evident via Git cryptographic hashing</li>
+<li>No retroactive content modification</li>
+</ul>
+<h4 id="🗑️-stage-6-data-disposal" class="tsd-anchor-link">🗑️ Stage 6: Data Disposal<a href="#🗑️-stage-6-data-disposal" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> N/A (no permanent deletion)<br>
+<strong>Classification Impact:</strong> Public record preservation<br>
+<strong>Policy:</strong></p>
+<ul>
+<li>❌ <strong>No permanent deletion</strong> of published content</li>
+<li>✅ Content remains in Git history indefinitely</li>
+<li>✅ Transparency principle: public record preservation</li>
+<li>✅ Compliance: EU transparency regulations</li>
+</ul>
+<p><strong>Rationale for No Deletion:</strong></p>
+<ul>
+<li>Democratic transparency requires historical preservation</li>
+<li>Public officials' parliamentary activities are permanent public record</li>
+<li>Git architecture supports immutable history</li>
+<li>DSR rights to erasure are subject to applicable exemptions (public record, freedom of expression, journalistic/archival purpose)</li>
+</ul>
+<hr>
+<h2 id="🛡️-information-handling-matrix" class="tsd-anchor-link">🛡️ Information Handling Matrix<a href="#🛡️-information-handling-matrix" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="classification-based-handling-procedures" class="tsd-anchor-link">Classification-Based Handling Procedures<a href="#classification-based-handling-procedures" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>The following matrix defines specific handling procedures for each classification level across all data operations:</p>
+<table>
+<thead>
+<tr>
+<th>Handling Procedure</th>
+<th>🔴 Restricted</th>
+<th>🟠 Confidential</th>
+<th>🟡 Internal</th>
+<th>🟢 Public</th>
+<th><strong>EU Parliament Monitor</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>💾 Storage</strong></td>
+<td>HSM, encrypted vaults, air-gapped</td>
+<td>AES-256 encryption, encrypted databases</td>
+<td>Access-controlled storage, basic encryption</td>
+<td>Standard storage, version control</td>
+<td>✅ <strong>Git (public), GitHub (cloud)</strong></td>
+</tr>
+<tr>
+<td><strong>📡 Transmission</strong></td>
+<td>Quantum-safe, VPN + TLS 1.3</td>
+<td>TLS 1.3, certificate pinning</td>
+<td>TLS 1.2+, standard HTTPS</td>
+<td>TLS 1.2+ (prefer 1.3)</td>
+<td>✅ <strong>TLS 1.2+, TLS 1.3 where supported (CloudFront CDN, EP API)</strong></td>
+</tr>
+<tr>
+<td><strong>🤝 Sharing</strong></td>
+<td>Need-to-know, zero-trust, MFA</td>
+<td>Role-based, MFA, audit logging</td>
+<td>Authenticated access, logging</td>
+<td>Public access, no restrictions</td>
+<td>✅ <strong>Public AWS S3 + CloudFront, no auth</strong></td>
+</tr>
+<tr>
+<td><strong>🗑️ Disposal</strong></td>
+<td>Cryptographic erasure, physical destruction, witnessed</td>
+<td>Multi-pass overwrite (DoD 5220.22-M), secure deletion</td>
+<td>Standard deletion, recycle bin clearing</td>
+<td>Standard deletion or retention</td>
+<td>✅ <strong>Git history preservation (no deletion)</strong></td>
+</tr>
+<tr>
+<td><strong>🔐 Access Control</strong></td>
+<td>Biometric + MFA, zero-trust</td>
+<td>RBAC + MFA, privileged access management</td>
+<td>Username/password + RBAC</td>
+<td>No access control required</td>
+<td>✅ <strong>No access control (public by design)</strong></td>
+</tr>
+<tr>
+<td><strong>🔒 Encryption</strong></td>
+<td>AES-256 + HSM, quantum-resistant</td>
+<td>AES-256, key rotation, KMS</td>
+<td>AES-128/256, managed keys</td>
+<td>TLS in transit only</td>
+<td>✅ <strong>TLS 1.2+, TLS 1.3 where supported (CloudFront)</strong></td>
+</tr>
+<tr>
+<td><strong>📋 Labeling</strong></td>
+<td>&quot;RESTRICTED - AUTHORIZED ONLY&quot;</td>
+<td>&quot;CONFIDENTIAL - INTERNAL USE&quot;</td>
+<td>&quot;INTERNAL - STAFF ONLY&quot;</td>
+<td>&quot;PUBLIC&quot; or no label</td>
+<td>✅ <strong>PUBLIC (implied, no labels needed)</strong></td>
+</tr>
+<tr>
+<td><strong>📊 Logging</strong></td>
+<td>Immutable audit logs, SIEM, real-time alerting</td>
+<td>Comprehensive logging, SIEM integration</td>
+<td>Standard logging, periodic review</td>
+<td>Basic logging or none</td>
+<td>✅ <strong>Git commits (immutable), GitHub audit</strong></td>
+</tr>
+<tr>
+<td><strong>🔄 Backup</strong></td>
+<td>Air-gapped, encrypted, off-site vaults</td>
+<td>Encrypted backups, off-site replication</td>
+<td>Standard backups, encryption</td>
+<td>Git version control, cloud backups</td>
+<td>✅ <strong>Git (distributed), GitHub backups</strong></td>
+</tr>
+<tr>
+<td><strong>📱 Mobile Devices</strong></td>
+<td>Prohibited or heavily restricted</td>
+<td>MDM, encryption, remote wipe</td>
+<td>MDM, basic encryption</td>
+<td>No restrictions</td>
+<td>✅ <strong>Public access from any device</strong></td>
+</tr>
+<tr>
+<td><strong>☁️ Cloud Storage</strong></td>
+<td>Prohibited or private cloud only</td>
+<td>Encrypted, dedicated tenants</td>
+<td>Encrypted, shared cloud</td>
+<td>Public cloud, standard controls</td>
+<td>✅ <strong>AWS S3 (public cloud), CloudFront (CDN)</strong></td>
+</tr>
+<tr>
+<td><strong>🖨️ Printing</strong></td>
+<td>Prohibited or secure printers only</td>
+<td>Watermarked, secure disposal</td>
+<td>Standard printers, secure disposal</td>
+<td>Unrestricted</td>
+<td>✅ <strong>N/A (web-only content)</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="eu-parliament-monitor-handling-summary" class="tsd-anchor-link">EU Parliament Monitor Handling Summary<a href="#eu-parliament-monitor-handling-summary" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>🟢 Public Classification Handling:</strong></p>
+<p>✅ <strong>Storage:</strong></p>
+<ul>
+<li>Public GitHub repository (no encryption required)</li>
+<li>Git version control for integrity</li>
+<li>Distributed architecture (multiple clones)</li>
+</ul>
+<p>✅ <strong>Transmission:</strong></p>
+<ul>
+<li>TLS 1.2+, TLS 1.3 where supported (Amazon CloudFront)</li>
+<li>European Parliament API calls over HTTPS</li>
+<li>No VPN or additional encryption needed</li>
+</ul>
+<p>✅ <strong>Sharing:</strong></p>
+<ul>
+<li>Public AWS S3 + CloudFront (open access)</li>
+<li>No authentication, authorization, or access control</li>
+<li>Maximum transparency and accessibility</li>
+</ul>
+<p>✅ <strong>Disposal:</strong></p>
+<ul>
+<li>No permanent deletion (public record preservation)</li>
+<li>Git history maintained indefinitely</li>
+<li>Compliance with transparency principles</li>
+</ul>
+<p>✅ <strong>Access Control:</strong></p>
+<ul>
+<li>None required (public by design)</li>
+<li>No user accounts or login</li>
+<li>Open source codebase</li>
+</ul>
+<p>✅ <strong>Encryption:</strong></p>
+<ul>
+<li>TLS 1.2+, TLS 1.3 where supported (in transit only)</li>
+<li>No encryption at rest required (public data)</li>
+<li>Amazon CloudFront HTTPS enforced</li>
+</ul>
+<p>✅ <strong>Logging:</strong></p>
+<ul>
+<li>Git commit history (immutable)</li>
+<li>GitHub Actions workflow logs</li>
+<li>No PII logging (no user data)</li>
+</ul>
+<p>✅ <strong>Backup:</strong></p>
+<ul>
+<li>Git distributed architecture (natural backups)</li>
+<li>GitHub infrastructure backups</li>
+<li>Multiple repository clones</li>
+</ul>
+<hr>
+<h2 id="📜-isms-policy-alignment" class="tsd-anchor-link">📜 ISMS Policy Alignment<a href="#📜-isms-policy-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="framework-compliance-mapping" class="tsd-anchor-link">Framework Compliance Mapping<a href="#framework-compliance-mapping" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>EU Parliament Monitor's classification framework aligns with multiple international standards and best practices:</p>
+<h4 id="🔐-iso-270012022-alignment" class="tsd-anchor-link">🔐 ISO 27001:2022 Alignment<a href="#🔐-iso-270012022-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<table>
+<thead>
+<tr>
+<th>ISO 27001 Control</th>
+<th>Control Name</th>
+<th>EU Parliament Monitor Implementation</th>
+<th>Compliance Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A.5.12</strong></td>
+<td>Classification of information</td>
+<td>✅ Documented classification framework (this document)</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>A.5.13</strong></td>
+<td>Labelling of information</td>
+<td>✅ Badges and metadata in all documents</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>A.5.14</strong></td>
+<td>Information transfer</td>
+<td>✅ TLS 1.2+, TLS 1.3 where supported for all transmissions, EP API over HTTPS</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>A.8.10</strong></td>
+<td>Information deletion</td>
+<td>✅ Git history preservation policy (no deletion)</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>A.8.11</strong></td>
+<td>Data masking</td>
+<td>⚪ N/A (no sensitive data)</td>
+<td>⚪ <strong>N/A</strong></td>
+</tr>
+<tr>
+<td><strong>A.8.12</strong></td>
+<td>Data leakage prevention</td>
+<td>⚪ N/A (public data by design)</td>
+<td>⚪ <strong>N/A</strong></td>
+</tr>
+<tr>
+<td><strong>A.5.10</strong></td>
+<td>Acceptable use of information</td>
+<td>✅ Public domain, open source licensing</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="🛡️-nist-cybersecurity-framework-20-alignment" class="tsd-anchor-link">🛡️ NIST Cybersecurity Framework 2.0 Alignment<a href="#🛡️-nist-cybersecurity-framework-20-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<table>
+<thead>
+<tr>
+<th>NIST CSF 2.0 Category</th>
+<th>Function</th>
+<th>EU Parliament Monitor Implementation</th>
+<th>Maturity Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID.AM-5</strong></td>
+<td>Classify data</td>
+<td>✅ Complete classification framework (Public/Medium/Medium)</td>
+<td>🟢 <strong>Level 4 - Adaptive</strong></td>
+</tr>
+<tr>
+<td><strong>PR.DS-1</strong></td>
+<td>Protect data at rest</td>
+<td>✅ Git version control, GitHub backups</td>
+<td>🟢 <strong>Level 3 - Informed</strong></td>
+</tr>
+<tr>
+<td><strong>PR.DS-2</strong></td>
+<td>Protect data in transit</td>
+<td>✅ TLS 1.2+, TLS 1.3 where supported (CloudFront CDN, S3, EP API)</td>
+<td>🟢 <strong>Level 4 - Adaptive</strong></td>
+</tr>
+<tr>
+<td><strong>PR.DS-5</strong></td>
+<td>Protections against data leaks</td>
+<td>⚪ N/A (public data, no leaks possible)</td>
+<td>⚪ <strong>N/A</strong></td>
+</tr>
+<tr>
+<td><strong>PR.DS-6</strong></td>
+<td>Integrity checking</td>
+<td>✅ Git cryptographic hashing (SHA-1 by default), commit hash verification</td>
+<td>🟢 <strong>Level 3 - Informed</strong></td>
+</tr>
+<tr>
+<td><strong>PR.DS-7</strong></td>
+<td>Separate dev/test/prod</td>
+<td>✅ GitHub Actions environments, branch protection</td>
+<td>🟢 <strong>Level 3 - Informed</strong></td>
+</tr>
+<tr>
+<td><strong>PR.DS-8</strong></td>
+<td>Integrity verification</td>
+<td>✅ Automated testing (82% coverage), Git object hashing</td>
+<td>🟢 <strong>Level 3 - Informed</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>NIST CSF 2.0 Maturity Levels:</strong></p>
+<ul>
+<li>🔴 Level 1 - Partial: Ad hoc, reactive</li>
+<li>🟠 Level 2 - Risk-Informed: Aware but not systematic</li>
+<li>🟡 Level 3 - Repeatable: Documented and followed</li>
+<li>🟢 Level 4 - Adaptive: Continuous improvement</li>
+</ul>
+<h4 id="⚡-cis-controls-v81-alignment" class="tsd-anchor-link">⚡ CIS Controls v8.1 Alignment<a href="#⚡-cis-controls-v81-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<table>
+<thead>
+<tr>
+<th>CIS Control</th>
+<th>Control Name</th>
+<th>EU Parliament Monitor Implementation</th>
+<th>Implementation Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>3.3</strong></td>
+<td>Configure data access control lists</td>
+<td>⚪ N/A (public access, no ACLs)</td>
+<td>⚪ <strong>N/A</strong></td>
+</tr>
+<tr>
+<td><strong>3.6</strong></td>
+<td>Encrypt data on end-user devices</td>
+<td>⚪ N/A (static web content, no user devices)</td>
+<td>⚪ <strong>N/A</strong></td>
+</tr>
+<tr>
+<td><strong>3.11</strong></td>
+<td>Encrypt sensitive data at rest</td>
+<td>⚪ N/A (public data, no encryption required)</td>
+<td>⚪ <strong>N/A</strong></td>
+</tr>
+<tr>
+<td><strong>3.12</strong></td>
+<td>Segment data processing</td>
+<td>✅ GitHub Actions isolation, ephemeral runners</td>
+<td>✅ <strong>IMPLEMENTED</strong></td>
+</tr>
+<tr>
+<td><strong>3.14</strong></td>
+<td>Log sensitive data access</td>
+<td>✅ Git commit logs, GitHub audit logs</td>
+<td>✅ <strong>IMPLEMENTED</strong></td>
+</tr>
+<tr>
+<td><strong>11.4</strong></td>
+<td>Maintain isolated backups</td>
+<td>✅ Git distributed architecture, GitHub backups</td>
+<td>✅ <strong>IMPLEMENTED</strong></td>
+</tr>
+<tr>
+<td><strong>11.5</strong></td>
+<td>Test data recovery</td>
+<td>✅ Manual workflow trigger tested, Git clone recovery</td>
+<td>✅ <strong>IMPLEMENTED</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="🇪🇺-gdpr-compliance" class="tsd-anchor-link">🇪🇺 GDPR Compliance<a href="#🇪🇺-gdpr-compliance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<table>
+<thead>
+<tr>
+<th>GDPR Article</th>
+<th>Requirement</th>
+<th>EU Parliament Monitor Implementation</th>
+<th>Compliance Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Art. 5(1)(a)</strong></td>
+<td>Lawfulness, fairness, transparency</td>
+<td>✅ Public data, open source, maximum transparency</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Art. 5(1)(b)</strong></td>
+<td>Purpose limitation</td>
+<td>✅ Democratic transparency only, defined purpose</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Art. 5(1)(c)</strong></td>
+<td>Data minimization</td>
+<td>✅ European Parliament open data about public functions only; strict data minimization; no special categories</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Art. 5(1)(d)</strong></td>
+<td>Accuracy</td>
+<td>✅ Git version control, automated testing, integrity focus</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Art. 5(1)(e)</strong></td>
+<td>Storage limitation</td>
+<td>✅ Indefinite retention justified (public record preservation)</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Art. 5(1)(f)</strong></td>
+<td>Integrity and confidentiality</td>
+<td>✅ TLS 1.2+, Git integrity, GitHub security</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Art. 25</strong></td>
+<td>Data protection by design</td>
+<td>✅ Architecture limited to EP open data; no behavioural tracking or unnecessary identifiers</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Art. 32</strong></td>
+<td>Security of processing</td>
+<td>✅ TLS 1.2+, Git integrity, GitHub Actions security</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>GDPR Summary:</strong></p>
+<ul>
+<li>✅ <strong>Public-source institutional data only</strong> - Processes European Parliament open data about elected representatives and institutional activities; no special categories or behavioural profiling</li>
+<li>✅ <strong>MEP data is personal data of public officials</strong> - Processed under GDPR on the basis of legitimate/public interest with appropriate safeguards and transparency</li>
+<li>✅ <strong>Data subject rights supported</strong> - DSRs (access, rectification, objection, etc.) are handled case-by-case, subject to applicable legal exemptions (e.g. freedom of expression and information, public interest, archival/record-keeping)</li>
+<li>✅ <strong>No cookies, tracking, or analytics</strong> - Privacy by design</li>
+<li>✅ <strong>Transparency by default</strong> - Open source, public repository, public content</li>
+</ul>
+<h4 id="🏛️-eu-cyber-resilience-act-cra-alignment" class="tsd-anchor-link">🏛️ EU Cyber Resilience Act (CRA) Alignment<a href="#🏛️-eu-cyber-resilience-act-cra-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<table>
+<thead>
+<tr>
+<th>CRA Requirement</th>
+<th>EU Parliament Monitor Implementation</th>
+<th>Compliance Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Security by design</strong></td>
+<td>✅ Static architecture, no server-side execution, public data</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Vulnerability handling</strong></td>
+<td>✅ Dependabot, SonarCloud SAST, GitHub security advisories</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Security updates</strong></td>
+<td>✅ Automated dependency updates, GitHub Actions CI/CD</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Incident reporting</strong></td>
+<td>✅ GitHub security advisories, public issue tracking</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Documentation</strong></td>
+<td>✅ Complete security architecture documentation</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="🇪🇺-nis2-directive-alignment" class="tsd-anchor-link">🇪🇺 NIS2 Directive Alignment<a href="#🇪🇺-nis2-directive-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<table>
+<thead>
+<tr>
+<th>NIS2 Requirement</th>
+<th>EU Parliament Monitor Implementation</th>
+<th>Compliance Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Art. 21 — Security measures</strong></td>
+<td>✅ Static architecture, TLS 1.2+ (TLS 1.3 where supported), GitHub security controls</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Art. 21(2)(a) — Incident handling</strong></td>
+<td>✅ GitHub Actions alerting, manual recovery procedures</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Art. 21(2)(b) — Business continuity</strong></td>
+<td>✅ BCP documented, RTO 24h, RPO 1 day, static resilience</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Art. 21(2)(e) — Supply chain security</strong></td>
+<td>✅ SHA-pinned GitHub Actions, Dependabot, SBOM generation</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Art. 21(2)(i) — Vulnerability disclosure</strong></td>
+<td>✅ GitHub security advisories, <a href="http://SECURITY.md" target="_blank" class="external">SECURITY.md</a>, public issue tracking</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+<tr>
+<td><strong>Art. 23 — Incident reporting</strong></td>
+<td>✅ GitHub security advisories, transparent public reporting</td>
+<td>✅ <strong>COMPLIANT</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="compliance-summary" class="tsd-anchor-link">Compliance Summary<a href="#compliance-summary" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Overall Compliance</th>
+<th>Key Strengths</th>
+<th>Areas for Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ISO 27001:2022</strong></td>
+<td>✅ <strong>Fully Compliant</strong></td>
+<td>Classification framework, TLS 1.2+, Git integrity</td>
+<td>Content validation automation (Q3 2026)</td>
+</tr>
+<tr>
+<td><strong>NIST CSF 2.0</strong></td>
+<td>🟢 <strong>Level 3-4 Maturity</strong></td>
+<td>Data protection, integrity verification, separation</td>
+<td>Real-time monitoring (future phase)</td>
+</tr>
+<tr>
+<td><strong>CIS Controls v8.1</strong></td>
+<td>✅ <strong>Implemented</strong></td>
+<td>Backup testing, logging, data segmentation</td>
+<td>N/A (public data simplifies many controls)</td>
+</tr>
+<tr>
+<td><strong>GDPR</strong></td>
+<td>✅ <strong>Fully Compliant</strong></td>
+<td>Public-source institutional data, minimization, transparency, DSR support with applicable exemptions</td>
+<td>N/A (no special categories or behavioural profiling)</td>
+</tr>
+<tr>
+<td><strong>NIS2</strong></td>
+<td>✅ <strong>Compliant</strong></td>
+<td>Security measures, BCP, supply chain, vulnerability disclosure</td>
+<td>N/A (minimal attack surface simplifies many obligations)</td>
+</tr>
+<tr>
+<td><strong>EU CRA</strong></td>
+<td>✅ <strong>Compliant</strong></td>
+<td>Security by design, vulnerability management</td>
+<td>Continuous improvement</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🔗-related-documentation" class="tsd-anchor-link">🔗 Related Documentation<a href="#🔗-related-documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Purpose</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🏷️ Classification Framework</strong></td>
+<td><strong>This document</strong></td>
+<td>Current document</td>
+</tr>
+<tr>
+<td><strong>🎯 Threat Model</strong></td>
+<td>Risk and threat analysis</td>
+<td><a href="THREAT_MODEL.html">THREAT_MODEL.md</a></td>
+</tr>
+<tr>
+<td><strong>🔐 Security Architecture</strong></td>
+<td>Current security controls</td>
+<td><a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td><strong>🚀 Future Security Architecture</strong></td>
+<td>Security roadmap</td>
+<td><a href="FUTURE_SECURITY_ARCHITECTURE.html">FUTURE_SECURITY_ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td><strong>📊 Data Model</strong></td>
+<td>Data structures</td>
+<td><a href="DATA_MODEL.html">DATA_MODEL.md</a></td>
+</tr>
+<tr>
+<td><strong>📈 Flowchart</strong></td>
+<td>Process flows</td>
+<td><a href="FLOWCHART.html">FLOWCHART.md</a></td>
+</tr>
+<tr>
+<td><strong>📐 Architecture</strong></td>
+<td>System design</td>
+<td><a href="ARCHITECTURE.html">ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td><strong>🛡️ ISMS Classification Policy</strong></td>
+<td>Framework reference</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md" target="_blank" class="external">Hack23 ISMS</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🔄-data-handling-procedures-flowchart" class="tsd-anchor-link">🔄 Data Handling Procedures Flowchart<a href="#🔄-data-handling-procedures-flowchart" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="complete-information-lifecycle-workflow" class="tsd-anchor-link">Complete Information Lifecycle Workflow<a href="#complete-information-lifecycle-workflow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>The following flowchart illustrates the complete data handling lifecycle for EU Parliament Monitor, from data receipt to archiving or disposal:</p>
+<pre><code class="mermaid"><span class="hl-1">%%{</span><br/><span class="hl-1">  init: {</span><br/><span class="hl-1">    &#39;theme&#39;: &#39;base&#39;,</span><br/><span class="hl-1">    &#39;themeVariables&#39;: {</span><br/><span class="hl-1">      &#39;primaryColor&#39;: &#39;#1565C0&#39;,</span><br/><span class="hl-1">      &#39;primaryTextColor&#39;: &#39;#0D47A1&#39;,</span><br/><span class="hl-1">      &#39;lineColor&#39;: &#39;#1565C0&#39;,</span><br/><span class="hl-1">      &#39;secondaryColor&#39;: &#39;#4CAF50&#39;,</span><br/><span class="hl-1">      &#39;tertiaryColor&#39;: &#39;#FF9800&#39;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">}%%</span><br/><span class="hl-1">flowchart TB</span><br/><span class="hl-1">    START[📥 RECEIVE&lt;br/&gt;European Parliament Data] --&gt; CLASSIFY[🏷️ CLASSIFY&lt;br/&gt;Determine Classification Level]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    CLASSIFY --&gt; CLASSIFY_DECISION{Classification?}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    CLASSIFY_DECISION --&gt;|Public| LABEL_PUBLIC[🟢 LABEL&lt;br/&gt;Public Data Badge]</span><br/><span class="hl-1">    CLASSIFY_DECISION --&gt;|Internal| LABEL_INTERNAL[🟡 LABEL&lt;br/&gt;Internal Badge&lt;br/&gt;N/A for EP Monitor]</span><br/><span class="hl-1">    CLASSIFY_DECISION --&gt;|Confidential| LABEL_CONF[🟠 LABEL&lt;br/&gt;Confidential Badge&lt;br/&gt;N/A for EP Monitor]</span><br/><span class="hl-1">    CLASSIFY_DECISION --&gt;|Restricted| LABEL_REST[🔴 LABEL&lt;br/&gt;Restricted Badge&lt;br/&gt;N/A for EP Monitor]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    LABEL_PUBLIC --&gt; HANDLE_PUBLIC[🤝 HANDLE&lt;br/&gt;Public Handling Procedures]</span><br/><span class="hl-1">    LABEL_INTERNAL --&gt; HANDLE_INTERNAL[🔐 HANDLE&lt;br/&gt;Access Control Required]</span><br/><span class="hl-1">    LABEL_CONF --&gt; HANDLE_CONF[🔒 HANDLE&lt;br/&gt;Encryption + RBAC Required]</span><br/><span class="hl-1">    LABEL_REST --&gt; HANDLE_REST[🛡️ HANDLE&lt;br/&gt;Maximum Protection Required]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    HANDLE_PUBLIC --&gt; PROCESS[⚙️ PROCESS&lt;br/&gt;LLM Content Generation&lt;br/&gt;14-Language Translation]</span><br/><span class="hl-1">    HANDLE_INTERNAL --&gt; PROCESS</span><br/><span class="hl-1">    HANDLE_CONF --&gt; PROCESS</span><br/><span class="hl-1">    HANDLE_REST --&gt; PROCESS</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    PROCESS --&gt; STORE[💾 STORE&lt;br/&gt;Git Version Control&lt;br/&gt;GitHub Repository]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    STORE --&gt; DEPLOY[🚀 DEPLOY&lt;br/&gt;AWS S3&lt;br/&gt;CloudFront CDN]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    DEPLOY --&gt; MONITOR[📊 MONITOR&lt;br/&gt;Access Logs&lt;br/&gt;Git Commit History]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    MONITOR --&gt; REVIEW[🔍 REVIEW&lt;br/&gt;Quarterly Classification Review&lt;br/&gt;Security Assessment]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    REVIEW --&gt; REVIEW_DECISION{Review Result?}</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    REVIEW_DECISION --&gt;|Reclassify| CLASSIFY</span><br/><span class="hl-1">    REVIEW_DECISION --&gt;|Maintain| CONTINUE[✅ CONTINUE&lt;br/&gt;Maintain Current Classification]</span><br/><span class="hl-1">    REVIEW_DECISION --&gt;|Archive| ARCHIVE[📚 ARCHIVE&lt;br/&gt;Git History Preservation&lt;br/&gt;Immutable Records]</span><br/><span class="hl-1">    REVIEW_DECISION --&gt;|Dispose| DISPOSE[🗑️ DISPOSE&lt;br/&gt;No Deletion for Public Data&lt;br/&gt;Transparency Principle]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    CONTINUE --&gt; MONITOR</span><br/><span class="hl-1">    ARCHIVE --&gt; LONG_TERM[🕰️ LONG-TERM STORAGE&lt;br/&gt;Permanent Git History]</span><br/><span class="hl-1">    DISPOSE --&gt; PRESERVE[🏛️ PRESERVE&lt;br/&gt;Public Record Retention&lt;br/&gt;Democratic Transparency]</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    classDef start fill:#2196F3,stroke:#1565C0,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef classify fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef label fill:#FFC107,stroke:#FFA000,stroke-width:2px,color:#000000</span><br/><span class="hl-1">    classDef handle fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef process fill:#7B1FA2,stroke:#4A148C,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef store fill:#1565C0,stroke:#0D47A1,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef decision fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef archive fill:#8D6E63,stroke:#5D4037,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef critical fill:#D32F2F,stroke:#B71C1C,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    classDef success fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#ffffff</span><br/><span class="hl-1">    </span><br/><span class="hl-1">    class START start</span><br/><span class="hl-1">    class CLASSIFY,REVIEW classify</span><br/><span class="hl-1">    class CLASSIFY_DECISION,REVIEW_DECISION decision</span><br/><span class="hl-1">    class LABEL_PUBLIC,LABEL_INTERNAL,LABEL_CONF,LABEL_REST label</span><br/><span class="hl-1">    class HANDLE_PUBLIC,HANDLE_INTERNAL,HANDLE_CONF,HANDLE_REST handle</span><br/><span class="hl-1">    class PROCESS,DEPLOY,MONITOR process</span><br/><span class="hl-1">    class STORE store</span><br/><span class="hl-1">    class ARCHIVE,LONG_TERM,PRESERVE archive</span><br/><span class="hl-1">    class DISPOSE,CONTINUE success</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="handling-procedure-details-by-stage" class="tsd-anchor-link">Handling Procedure Details by Stage<a href="#handling-procedure-details-by-stage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<h4 id="📥-stage-1-receive" class="tsd-anchor-link">📥 Stage 1: RECEIVE<a href="#📥-stage-1-receive" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> Continuous (daily automated execution)<br>
+<strong>Responsibility:</strong> GitHub Actions workflow, European Parliament MCP Server<br>
+<strong>Actions:</strong></p>
+<ul>
+<li>Fetch data from European Parliament Open Data API</li>
+<li>Validate API responses (schema validation)</li>
+<li>Log data receipt in Git commit metadata</li>
+</ul>
+<h4 id="🏷️-stage-2-classify" class="tsd-anchor-link">🏷️ Stage 2: CLASSIFY<a href="#🏷️-stage-2-classify" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> Automated (classification rules applied)<br>
+<strong>Responsibility:</strong> Security Architect (policy), automated systems (execution)<br>
+<strong>Classification Criteria:</strong></p>
+<ul>
+<li>✅ Data source: European Parliament Open Data (Public by default)</li>
+<li>✅ Content type: Parliamentary proceedings, MEP information (Public)</li>
+<li>✅ Accuracy requirements: Democratic transparency (Medium Integrity)</li>
+<li>✅ Availability needs: Daily updates (Medium Availability)</li>
+</ul>
+<p><strong>Classification Result:</strong> 🟢 Public / 🟡 Medium Integrity / 🟡 Medium Availability</p>
+<h4 id="🏷️-stage-3-label" class="tsd-anchor-link">🏷️ Stage 3: LABEL<a href="#🏷️-stage-3-label" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> Automatic (badge generation)<br>
+<strong>Responsibility:</strong> Documentation templates, markdown badges<br>
+<strong>Labeling Methods:</strong></p>
+<ul>
+<li>GitHub <a href="http://shields.io" target="_blank" class="external">shields.io</a> badges in documentation</li>
+<li>Classification metadata in file headers</li>
+<li>Git commit messages with classification context</li>
+</ul>
+<p><strong>EU Parliament Monitor Labeling:</strong></p>
+<ul>
+<li>✅ Public badge: <code>[![Public](https://img.shields.io/badge/Confidentiality-Public-lightgrey)]</code></li>
+<li>✅ Medium Integrity: <code>[![Moderate](https://img.shields.io/badge/Integrity-Moderate-yellow)]</code></li>
+<li>✅ Medium Availability: <code>[![Moderate](https://img.shields.io/badge/Availability-Moderate-yellow)]</code></li>
+</ul>
+<h4 id="🤝-stage-4-handle" class="tsd-anchor-link">🤝 Stage 4: HANDLE<a href="#🤝-stage-4-handle" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> Throughout data lifecycle<br>
+<strong>Responsibility:</strong> Automated systems, security controls<br>
+<strong>Public Data Handling:</strong></p>
+<ul>
+<li>✅ TLS 1.2+, TLS 1.3 where supported (TLS 1.3 preferred) for all transmissions</li>
+<li>✅ No access control required (public by design)</li>
+<li>✅ Git version control for integrity</li>
+<li>✅ No encryption at rest (public data)</li>
+<li>✅ Standard GitHub Actions security</li>
+</ul>
+<h4 id="⚙️-stage-5-process" class="tsd-anchor-link">⚙️ Stage 5: PROCESS<a href="#⚙️-stage-5-process" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> 15-30 minutes per execution<br>
+<strong>Responsibility:</strong> LLM content generation, translation services<br>
+<strong>Processing Steps:</strong></p>
+<ol>
+<li>Parse European Parliament data</li>
+<li>Generate news articles (LLM-powered)</li>
+<li>Translate to 14 languages</li>
+<li>Render HTML templates</li>
+<li>Validate output quality</li>
+</ol>
+<h4 id="💾-stage-6-store" class="tsd-anchor-link">💾 Stage 6: STORE<a href="#💾-stage-6-store" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> Permanent (Git version control)<br>
+<strong>Responsibility:</strong> Git, GitHub repository<br>
+<strong>Storage Controls:</strong></p>
+<ul>
+<li>✅ Git cryptographic hashing (integrity)</li>
+<li>✅ Distributed architecture (redundancy)</li>
+<li>✅ Git object integrity via commit hashes (no automated commit signing)</li>
+<li>✅ Branch protection (change control)</li>
+</ul>
+<h4 id="🚀-stage-7-deploy" class="tsd-anchor-link">🚀 Stage 7: DEPLOY<a href="#🚀-stage-7-deploy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> Minutes (AWS S3 + CloudFront deployment)<br>
+<strong>Responsibility:</strong> GitHub Actions, AWS S3, Amazon CloudFront<br>
+<strong>Deployment Controls:</strong></p>
+<ul>
+<li>✅ Automated deployment pipeline</li>
+<li>✅ TLS 1.2+, TLS 1.3 where supported (HTTPS only)</li>
+<li>✅ CDN caching (availability)</li>
+<li>✅ No authentication (public access)</li>
+</ul>
+<h4 id="📊-stage-8-monitor" class="tsd-anchor-link">📊 Stage 8: MONITOR<a href="#📊-stage-8-monitor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> Continuous<br>
+<strong>Responsibility:</strong> GitHub Actions, Git logs, AWS CloudFront, AWS S3, AWS CloudTrail<br>
+<strong>Monitoring Methods:</strong></p>
+<ul>
+<li>✅ Git commit history (all changes tracked)</li>
+<li>✅ GitHub Actions workflow logs</li>
+<li>✅ AWS CloudFront access logs / real-time logs</li>
+<li>✅ AWS S3 server access logs / CloudTrail S3 data events</li>
+<li>✅ Dependabot security alerts</li>
+</ul>
+<h4 id="🔍-stage-9-review" class="tsd-anchor-link">🔍 Stage 9: REVIEW<a href="#🔍-stage-9-review" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> Quarterly (every 3 months)<br>
+<strong>Responsibility:</strong> Security Architect, CEO approval<br>
+<strong>Review Triggers:</strong></p>
+<ul>
+<li>Scheduled: Quarterly reviews (every 3 months)</li>
+<li>Event-driven: Major feature changes, security incidents</li>
+<li>Compliance: Regulatory requirement updates (GDPR, NIS2, EU CRA)</li>
+</ul>
+<p><strong>Review Outcomes:</strong></p>
+<ul>
+<li><strong>Reclassify:</strong> Change classification level (return to Stage 2)</li>
+<li><strong>Maintain:</strong> Continue with current classification (return to Stage 8)</li>
+<li><strong>Archive:</strong> Move to long-term preservation (Stage 10)</li>
+<li><strong>Dispose:</strong> Evaluate for deletion (Stage 11 - N/A for EP Monitor)</li>
+</ul>
+<h4 id="📚-stage-10-archive" class="tsd-anchor-link">📚 Stage 10: ARCHIVE<a href="#📚-stage-10-archive" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> Permanent<br>
+<strong>Responsibility:</strong> Git version history, GitHub repository<br>
+<strong>Archiving Method:</strong></p>
+<ul>
+<li>✅ Immutable Git history (Git object hashing, SHA-1 by default; SHA-256 if enabled)</li>
+<li>✅ No retroactive content modification</li>
+<li>✅ Complete audit trail preservation</li>
+<li>✅ Compliance with transparency principles</li>
+</ul>
+<h4 id="🗑️-stage-11-dispose" class="tsd-anchor-link">🗑️ Stage 11: DISPOSE<a href="#🗑️-stage-11-dispose" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Duration:</strong> N/A (no permanent deletion)<br>
+<strong>Responsibility:</strong> Security Architect policy decision<br>
+<strong>EU Parliament Monitor Policy:</strong></p>
+<ul>
+<li>❌ <strong>No permanent deletion</strong> of public content</li>
+<li>✅ Transparency principle: public record preservation</li>
+<li>✅ Democratic accountability: historical record maintained</li>
+<li>✅ Git architecture: immutable history by design</li>
+</ul>
+<hr>
+<h2 id="📝-classification-decision-log" class="tsd-anchor-link">📝 Classification Decision Log<a href="#📝-classification-decision-log" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="version-10-2026-02-17" class="tsd-anchor-link">Version 1.0 (2026-02-17)<a href="#version-10-2026-02-17" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Initial Classification Decisions:</strong></p>
+<ol>
+<li>
+<p><strong>Confidentiality = Public (Level 1)</strong></p>
+<ul>
+<li>Rationale: European Parliament open data, public by design</li>
+<li>Decision maker: Security Architect</li>
+<li>Review date: 2026-05-17</li>
+</ul>
+</li>
+<li>
+<p><strong>Integrity = Medium (Level 2)</strong></p>
+<ul>
+<li>Rationale: News accuracy critical for democratic transparency</li>
+<li>Decision maker: Security Architect</li>
+<li>Review date: 2026-05-17</li>
+<li>Enhancement plan: Automated fact-checking (Q4 2026)</li>
+</ul>
+</li>
+<li>
+<p><strong>Availability = Medium (Level 2)</strong></p>
+<ul>
+<li>Rationale: Daily updates expected, 24h outage acceptable</li>
+<li>Decision maker: Security Architect</li>
+<li>Review date: 2026-05-17</li>
+</ul>
+</li>
+<li>
+<p><strong>RTO = 24 hours</strong></p>
+<ul>
+<li>Rationale: Manual trigger available, not mission-critical</li>
+<li>Decision maker: Security Architect</li>
+<li>Review date: 2026-05-17</li>
+</ul>
+</li>
+<li>
+<p><strong>RPO = 1 day</strong></p>
+<ul>
+<li>Rationale: Daily generation schedule, regenerable content</li>
+<li>Decision maker: Security Architect</li>
+<li>Review date: 2026-05-17</li>
+</ul>
+</li>
+<li>
+<p><strong>Privacy = Personal (public-source)</strong></p>
+<ul>
+<li>Rationale: Publicly available MEP personal data from EP open data; GDPR applies with reduced risk due to public-official context; no special categories; DSRs handled with applicable exemptions</li>
+<li>Decision maker: Security Architect &amp; Legal</li>
+<li>Review date: 2026-05-17</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="🔄-review-and-maintenance" class="tsd-anchor-link">🔄 Review and Maintenance<a href="#🔄-review-and-maintenance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="review-schedule" class="tsd-anchor-link">Review Schedule<a href="#review-schedule" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>Quarterly Reviews:</strong> Every 3 months</li>
+<li><strong>Next Review:</strong> 2026-05-17</li>
+<li><strong>Triggered Reviews:</strong> Upon architecture changes, incidents, or threat landscape shifts</li>
+</ul>
+<h3 id="review-triggers" class="tsd-anchor-link">Review Triggers<a href="#review-triggers" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li>Major feature additions (e.g., user authentication, API)</li>
+<li>Security incidents affecting classification</li>
+<li>Regulatory requirement changes (GDPR, NIS2, EU CRA)</li>
+<li>Business model changes (e.g., premium features)</li>
+<li>Threat landscape evolution</li>
+</ul>
+<h3 id="ownership" class="tsd-anchor-link">Ownership<a href="#ownership" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>Document Owner:</strong> CEO (James Pether Sörling)</li>
+<li><strong>Classification Authority:</strong> Security Architect</li>
+<li><strong>Review Approver:</strong> CEO</li>
+<li><strong>ISMS Alignment:</strong> <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md" target="_blank" class="external">Hack23 ISMS Classification Framework</a></li>
+</ul>
+<hr>
+<h2 id="📊-classification-driven-control-matrix" class="tsd-anchor-link">📊 Classification-Driven Control Matrix<a href="#📊-classification-driven-control-matrix" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="security-controls-by-classification-level" class="tsd-anchor-link">Security Controls by Classification Level<a href="#security-controls-by-classification-level" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Classification Level</th>
+<th>Required Controls</th>
+<th>EU Parliament Monitor Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Confidentiality: Public</strong></td>
+<td>TLS for transit, public access</td>
+<td>✅ AWS S3 + CloudFront HTTPS, open repository</td>
+</tr>
+<tr>
+<td><strong>Integrity: Medium</strong></td>
+<td>Version control, code review, testing</td>
+<td>✅ Git, PR workflow, 82% test coverage</td>
+</tr>
+<tr>
+<td><strong>Availability: Medium</strong></td>
+<td>Monitoring, manual recovery, CDN</td>
+<td>✅ GitHub Actions monitoring, AWS S3 + CloudFront CDN</td>
+</tr>
+<tr>
+<td><strong>RTO: 24 hours</strong></td>
+<td>Automated recovery, manual backup</td>
+<td>✅ Workflow retry, manual trigger</td>
+</tr>
+<tr>
+<td><strong>RPO: 1 day</strong></td>
+<td>Daily backups, version control</td>
+<td>✅ Git commits, GitHub repository</td>
+</tr>
+<tr>
+<td><strong>Privacy: Personal (public-source)</strong></td>
+<td>GDPR compliance, minimization, DSR handling</td>
+<td>✅ Public-source MEP data only, no special categories, DSRs handled with applicable exemptions</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="📊-iso-270012022-classification-framework-alignment" class="tsd-anchor-link">📊 ISO 27001:2022 Classification Framework Alignment<a href="#📊-iso-270012022-classification-framework-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This classification scheme aligns with ISO 27001:2022 Annex A information classification controls:</p>
+<table>
+<thead>
+<tr>
+<th>ISO 27001:2022 Control</th>
+<th>Classification Requirement</th>
+<th>EU Parliament Monitor Implementation</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5.12</strong> Classification of information</td>
+<td>Define classification levels</td>
+<td>C (Public/Internal/Confidential/Restricted) scheme</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>5.13</strong> Labelling of information</td>
+<td>Apply labels to assets</td>
+<td>Classification badges in all ISMS documents</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>5.14</strong> Information transfer</td>
+<td>Classification-based transfer rules</td>
+<td>HTTPS-only, TLS 1.3 for all transfers</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>5.9</strong> Inventory of information and other assets</td>
+<td>Asset register with classifications</td>
+<td>SBOM (technical assets) + documentation inventory</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>8.12</strong> Data leakage prevention</td>
+<td>Prevent unauthorized disclosure</td>
+<td>No PII collected, public data only</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>5.33</strong> Protection of records</td>
+<td>Records retention and protection</td>
+<td>Git immutable history, GitHub repository</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ISO 27001:2022 Classification Compliance</strong>: ✅ All 6 applicable controls implemented</p>
+<hr>
+<h2 id="🎯-nist-csf-20-governance-identification-alignment" class="tsd-anchor-link">🎯 NIST CSF 2.0 Governance &amp; Identification Alignment<a href="#🎯-nist-csf-20-governance-identification-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>Subcategory</th>
+<th>Description</th>
+<th>Classification Alignment</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GV.RM-01</strong></td>
+<td>Risk management objectives established</td>
+<td>Public C, Moderate I, Standard A drives risk appetite</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>GV.RM-02</strong></td>
+<td>Risk appetite established and communicated</td>
+<td>Classification <a href="http://CLASSIFICATION.md" target="_blank" class="external">CLASSIFICATION.md</a> public documentation</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>ID.AM-05</strong></td>
+<td>Resources prioritized by sensitivity</td>
+<td>Public-only data = lowest priority tier</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>ID.AM-07</strong></td>
+<td>Inventories of data managed</td>
+<td>No PII inventory needed (public data only)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>ID.RA-02</strong></td>
+<td>Threat intelligence received and analyzed</td>
+<td>THREAT_MODEL.md cross-referenced with classification</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>PR.DS-01</strong></td>
+<td>Data at rest protected per classification</td>
+<td>Public data — Git repository integrity</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>PR.DS-02</strong></td>
+<td>Data in transit protected per classification</td>
+<td>TLS 1.3 HTTPS consistent with all classification levels</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🛡️-cis-controls-v81-data-protection-alignment" class="tsd-anchor-link">🛡️ CIS Controls v8.1 Data Protection Alignment<a href="#🛡️-cis-controls-v81-data-protection-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>CIS Control</th>
+<th>Safeguard</th>
+<th>Classification-Based Implementation</th>
+<th>IG Level</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>3.1</strong></td>
+<td>Establish data management process</td>
+<td>Public data classification = minimal handling requirements</td>
+<td>IG1</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>3.2</strong></td>
+<td>Establish data inventory</td>
+<td>SBOM + documentation inventory</td>
+<td>IG1</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>3.3</strong></td>
+<td>Configure data access control</td>
+<td>Public = no access controls; workflow access = least privilege</td>
+<td>IG1</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>3.7</strong></td>
+<td>Establish data classification scheme</td>
+<td>Confidentiality (C), Integrity (I), Availability (A) triad</td>
+<td>IG2</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>3.12</strong></td>
+<td>Segment data processing</td>
+<td>EP data processing isolated in GitHub Actions (ephemeral)</td>
+<td>IG2</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🔗-hack23-isms-public-policy-alignment" class="tsd-anchor-link">🔗 Hack23 ISMS-PUBLIC Policy Alignment<a href="#🔗-hack23-isms-public-policy-alignment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>ISMS-PUBLIC Policy</th>
+<th>Classification Relevance</th>
+<th>Alignment Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md" target="_blank" class="external">📋 Information Security Policy</a></td>
+<td>Overall security governance framework</td>
+<td>Public classification consistent with open-source mandate</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md" target="_blank" class="external">🏷️ Classification Policy</a></td>
+<td>Classification scheme definition</td>
+<td>CIA triad ratings derived from this policy</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md" target="_blank" class="external">🔑 Access Control Policy</a></td>
+<td>Access decisions based on classification</td>
+<td>Public content = no authentication; workflow = least privilege</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md" target="_blank" class="external">🔒 Cryptography Policy</a></td>
+<td>Encryption requirements by classification</td>
+<td>TLS 1.3 minimum consistent with public data classification</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md" target="_blank" class="external">📊 Risk Assessment Methodology</a></td>
+<td>Risk scoring tied to classification</td>
+<td>RTO/RPO derived from Availability classification</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/ISMS_Transparency_Plan.md" target="_blank" class="external">🌐 ISMS Transparency Plan</a></td>
+<td>Public disclosure aligned with C=Public</td>
+<td>All ISMS docs public per transparency commitment</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md" target="_blank" class="external">📝 Open Source Policy</a></td>
+<td>Open source classification requirements</td>
+<td>Apache-2.0 license, public repository, open data</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md" target="_blank" class="external">🤖 AI Policy</a></td>
+<td>AI-generated content classification</td>
+<td>News content generated by AI scripts = public classification maintained</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>Classification Status:</strong> ✅ <strong>COMPLETE</strong><br>
+<strong>Threat Modeling Status:</strong> Ready to proceed (<a href="THREAT_MODEL.html">THREAT_MODEL.md</a>)<br>
+<strong>ISMS Compliance:</strong> ✅ Aligned with <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md" target="_blank" class="external">Hack23 ISMS Classification Framework</a></p>
+<hr>
+<p><em>This classification framework serves as the foundation for threat modeling, risk assessment, and security control selection. All security decisions must align with these classification levels.</em></p>
+<p><em>— EU Parliament Monitor Security Team</em></p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-alpha" name="alpha"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Alpha</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-beta" name="beta"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Beta</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><ul><li><a href="#📚-architecture-documentation-map"><span>📚 <wbr/>Architecture <wbr/>Documentation <wbr/>Map</span></a></li><li><a href="#🎯-purpose-statement"><span>🎯 <wbr/>Purpose <wbr/>Statement</span></a></li></ul><a href="#🏷️-eu-parliament-monitor-classification-framework"><span>🏷️ <wbr/>EU <wbr/>Parliament <wbr/>Monitor <wbr/>Classification <wbr/>Framework</span></a><ul><li><a href="#📊-classification-decision-tree"><span>📊 <wbr/>Classification <wbr/>Decision <wbr/>Tree</span></a></li><li><a href="#📊-system-classification-summary"><span>📊 <wbr/>System <wbr/>Classification <wbr/>Summary</span></a></li><li><a href="#💰-business-impact-analysis-matrix"><span>💰 <wbr/>Business <wbr/>Impact <wbr/>Analysis <wbr/>Matrix</span></a></li><li><ul><li><a href="#eu-parliament-monitor-specific-impact-assessment"><span>EU <wbr/>Parliament <wbr/>Monitor <wbr/>Specific <wbr/>Impact <wbr/>Assessment</span></a></li><li><a href="#classification-rationale"><span>Classification <wbr/>Rationale</span></a></li><li><ul><li><a href="#🔒-confidentiality-public-level-1"><span>🔒 <wbr/>Confidentiality: <wbr/>Public (<wbr/>Level 1)</span></a></li><li><a href="#✅-integrity-medium-level-2"><span>✅ <wbr/>Integrity: <wbr/>Medium (<wbr/>Level 2)</span></a></li><li><a href="#⏱️-availability-medium-level-2"><span>⏱️ <wbr/>Availability: <wbr/>Medium (<wbr/>Level 2)</span></a></li></ul></li></ul></li><li><a href="#📈-impact-level-definitions"><span>📈 <wbr/>Impact <wbr/>Level <wbr/>Definitions</span></a></li><li><ul><li><a href="#💸-financial-impact-levels-financial-impact-levels"><span>💸 <wbr/>Financial <wbr/>Impact <wbr/>Levels {#financial-<wbr/>impact-<wbr/>levels}</span></a></li><li><a href="#🏢-operational-impact-levels-operational-impact-levels"><span>🏢 <wbr/>Operational <wbr/>Impact <wbr/>Levels {#operational-<wbr/>impact-<wbr/>levels}</span></a></li><li><a href="#🤝-reputational-impact-levels-reputational-impact-levels"><span>🤝 <wbr/>Reputational <wbr/>Impact <wbr/>Levels {#reputational-<wbr/>impact-<wbr/>levels}</span></a></li><li><a href="#📜-regulatory-impact-levels-regulatory-impact-levels"><span>📜 <wbr/>Regulatory <wbr/>Impact <wbr/>Levels {#regulatory-<wbr/>impact-<wbr/>levels}</span></a></li></ul></li><li><a href="#🔒-security-classification-framework"><span>🔒 <wbr/>Security <wbr/>Classification <wbr/>Framework</span></a></li><li><ul><li><a href="#🏗️-data-classification-hierarchy"><span>🏗️ <wbr/>Data <wbr/>Classification <wbr/>Hierarchy</span></a></li><li><a href="#🛡️-confidentiality-levels-confidentiality-levels"><span>🛡️ <wbr/>Confidentiality <wbr/>Levels {#confidentiality-<wbr/>levels}</span></a></li><li><a href="#✅-integrity-levels-integrity-levels"><span>✅ <wbr/>Integrity <wbr/>Levels {#integrity-<wbr/>levels}</span></a></li><li><a href="#⏱️-availability-levels-availability-levels"><span>⏱️ <wbr/>Availability <wbr/>Levels {#availability-<wbr/>levels}</span></a></li><li><a href="#🏷️-privacy-pii-protection-levels-privacy-levels"><span>🏷️ <wbr/>Privacy &amp; <wbr/>PII <wbr/>Protection <wbr/>Levels {#privacy-<wbr/>levels}</span></a></li></ul></li><li><a href="#⏱️-recovery-time-classifications"><span>⏱️ <wbr/>Recovery <wbr/>Time <wbr/>Classifications</span></a></li><li><ul><li><a href="#🚨-rto-recovery-time-objective-rto-classifications"><span>🚨 <wbr/>RTO (<wbr/>Recovery <wbr/>Time <wbr/>Objective) {#rto-<wbr/>classifications}</span></a></li><li><a href="#🔄-rpo-recovery-point-objective-rpo-classifications"><span>🔄 <wbr/>RPO (<wbr/>Recovery <wbr/>Point <wbr/>Objective) {#rpo-<wbr/>classifications}</span></a></li></ul></li><li><a href="#🎯-project-type-classifications-project-type-classifications"><span>🎯 <wbr/>Project <wbr/>Type <wbr/>Classifications {#project-<wbr/>type-<wbr/>classifications}</span></a></li><li><ul><li><a href="#eu-parliament-monitor-project-classification"><span>EU <wbr/>Parliament <wbr/>Monitor <wbr/>Project <wbr/>Classification</span></a></li></ul></li><li><a href="#📚-eu-parliament-data-classification-examples"><span>📚 <wbr/>EU <wbr/>Parliament <wbr/>Data <wbr/>Classification <wbr/>Examples</span></a></li><li><ul><li><a href="#specific-data-type-classifications"><span>Specific <wbr/>Data <wbr/>Type <wbr/>Classifications</span></a></li><li><a href="#data-classification-decision-factors"><span>Data <wbr/>Classification <wbr/>Decision <wbr/>Factors</span></a></li><li><a href="#multi-language-content-classification-multi-language-classification"><span>Multi-<wbr/>Language <wbr/>Content <wbr/>Classification {#multi-<wbr/>language-<wbr/>classification}</span></a></li></ul></li><li><a href="#📋-data-lifecycle-management"><span>📋 <wbr/>Data <wbr/>Lifecycle <wbr/>Management</span></a></li><li><ul><li><a href="#complete-data-lifecycle-for-eu-parliament-monitor"><span>Complete <wbr/>Data <wbr/>Lifecycle for <wbr/>EU <wbr/>Parliament <wbr/>Monitor</span></a></li><li><a href="#lifecycle-stage-details"><span>Lifecycle <wbr/>Stage <wbr/>Details</span></a></li><li><ul><li><a href="#📥-stage-1-data-creationcollection"><span>📥 <wbr/>Stage 1: <wbr/>Data <wbr/>Creation/<wbr/>Collection</span></a></li><li><a href="#⚙️-stage-2-data-processing"><span>⚙️ <wbr/>Stage 2: <wbr/>Data <wbr/>Processing</span></a></li><li><a href="#💾-stage-3-storage"><span>💾 <wbr/>Stage 3: <wbr/>Storage</span></a></li><li><a href="#📢-stage-4-publication"><span>📢 <wbr/>Stage 4: <wbr/>Publication</span></a></li><li><a href="#📚-stage-5-archiving"><span>📚 <wbr/>Stage 5: <wbr/>Archiving</span></a></li><li><a href="#🗑️-stage-6-data-disposal"><span>🗑️ <wbr/>Stage 6: <wbr/>Data <wbr/>Disposal</span></a></li></ul></li></ul></li><li><a href="#🛡️-information-handling-matrix"><span>🛡️ <wbr/>Information <wbr/>Handling <wbr/>Matrix</span></a></li><li><ul><li><a href="#classification-based-handling-procedures"><span>Classification-<wbr/>Based <wbr/>Handling <wbr/>Procedures</span></a></li><li><a href="#eu-parliament-monitor-handling-summary"><span>EU <wbr/>Parliament <wbr/>Monitor <wbr/>Handling <wbr/>Summary</span></a></li></ul></li><li><a href="#📜-isms-policy-alignment"><span>📜 <wbr/>ISMS <wbr/>Policy <wbr/>Alignment</span></a></li><li><ul><li><a href="#framework-compliance-mapping"><span>Framework <wbr/>Compliance <wbr/>Mapping</span></a></li><li><ul><li><a href="#🔐-iso-270012022-alignment"><span>🔐 <wbr/>ISO 27001:2022 <wbr/>Alignment</span></a></li><li><a href="#🛡️-nist-cybersecurity-framework-20-alignment"><span>🛡️ <wbr/>NIST <wbr/>Cybersecurity <wbr/>Framework 2.0 <wbr/>Alignment</span></a></li><li><a href="#⚡-cis-controls-v81-alignment"><span>⚡ <wbr/>CIS <wbr/>Controls v8.1 <wbr/>Alignment</span></a></li><li><a href="#🇪🇺-gdpr-compliance"><span>🇪🇺 <wbr/>GDPR <wbr/>Compliance</span></a></li><li><a href="#🏛️-eu-cyber-resilience-act-cra-alignment"><span>🏛️ <wbr/>EU <wbr/>Cyber <wbr/>Resilience <wbr/>Act (<wbr/>CRA) <wbr/>Alignment</span></a></li><li><a href="#🇪🇺-nis2-directive-alignment"><span>🇪🇺 <wbr/>NIS2 <wbr/>Directive <wbr/>Alignment</span></a></li></ul></li><li><a href="#compliance-summary"><span>Compliance <wbr/>Summary</span></a></li></ul></li><li><a href="#🔗-related-documentation"><span>🔗 <wbr/>Related <wbr/>Documentation</span></a></li><li><a href="#🔄-data-handling-procedures-flowchart"><span>🔄 <wbr/>Data <wbr/>Handling <wbr/>Procedures <wbr/>Flowchart</span></a></li><li><ul><li><a href="#complete-information-lifecycle-workflow"><span>Complete <wbr/>Information <wbr/>Lifecycle <wbr/>Workflow</span></a></li><li><a href="#handling-procedure-details-by-stage"><span>Handling <wbr/>Procedure <wbr/>Details by <wbr/>Stage</span></a></li><li><ul><li><a href="#📥-stage-1-receive"><span>📥 <wbr/>Stage 1: <wbr/>RECEIVE</span></a></li><li><a href="#🏷️-stage-2-classify"><span>🏷️ <wbr/>Stage 2: <wbr/>CLASSIFY</span></a></li><li><a href="#🏷️-stage-3-label"><span>🏷️ <wbr/>Stage 3: <wbr/>LABEL</span></a></li><li><a href="#🤝-stage-4-handle"><span>🤝 <wbr/>Stage 4: <wbr/>HANDLE</span></a></li><li><a href="#⚙️-stage-5-process"><span>⚙️ <wbr/>Stage 5: <wbr/>PROCESS</span></a></li><li><a href="#💾-stage-6-store"><span>💾 <wbr/>Stage 6: <wbr/>STORE</span></a></li><li><a href="#🚀-stage-7-deploy"><span>🚀 <wbr/>Stage 7: <wbr/>DEPLOY</span></a></li><li><a href="#📊-stage-8-monitor"><span>📊 <wbr/>Stage 8: <wbr/>MONITOR</span></a></li><li><a href="#🔍-stage-9-review"><span>🔍 <wbr/>Stage 9: <wbr/>REVIEW</span></a></li><li><a href="#📚-stage-10-archive"><span>📚 <wbr/>Stage 10: <wbr/>ARCHIVE</span></a></li><li><a href="#🗑️-stage-11-dispose"><span>🗑️ <wbr/>Stage 11: <wbr/>DISPOSE</span></a></li></ul></li></ul></li><li><a href="#📝-classification-decision-log"><span>📝 <wbr/>Classification <wbr/>Decision <wbr/>Log</span></a></li><li><ul><li><a href="#version-10-2026-02-17"><span>Version 1.0 (2026-<wbr/>02-<wbr/>17)</span></a></li></ul></li><li><a href="#🔄-review-and-maintenance"><span>🔄 <wbr/>Review and <wbr/>Maintenance</span></a></li><li><ul><li><a href="#review-schedule"><span>Review <wbr/>Schedule</span></a></li><li><a href="#review-triggers"><span>Review <wbr/>Triggers</span></a></li><li><a href="#ownership"><span>Ownership</span></a></li></ul></li><li><a href="#📊-classification-driven-control-matrix"><span>📊 <wbr/>Classification-<wbr/>Driven <wbr/>Control <wbr/>Matrix</span></a></li><li><ul><li><a href="#security-controls-by-classification-level"><span>Security <wbr/>Controls by <wbr/>Classification <wbr/>Level</span></a></li></ul></li><li><a href="#📊-iso-270012022-classification-framework-alignment"><span>📊 <wbr/>ISO 27001:2022 <wbr/>Classification <wbr/>Framework <wbr/>Alignment</span></a></li><li><a href="#🎯-nist-csf-20-governance-identification-alignment"><span>🎯 <wbr/>NIST <wbr/>CSF 2.0 <wbr/>Governance &amp; <wbr/>Identification <wbr/>Alignment</span></a></li><li><a href="#🛡️-cis-controls-v81-data-protection-alignment"><span>🛡️ <wbr/>CIS <wbr/>Controls v8.1 <wbr/>Data <wbr/>Protection <wbr/>Alignment</span></a></li><li><a href="#🔗-hack23-isms-public-policy-alignment"><span>🔗 <wbr/>Hack23 <wbr/>ISMS-<wbr/>PUBLIC <wbr/>Policy <wbr/>Alignment</span></a></li></ul></div></details></div><div class="site-menu"><nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md">🏛️ Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md">🔒 Security Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md">🛡️ Threat Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md">📊 Data Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FLOWCHART.md">🔄 Flowchart</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/STATEDIAGRAM.md">📈 State Diagram</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md">🧠 Mindmap</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md">💼 SWOT Analysis</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md">📜 CRA Assessment</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md">🚀 Future Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md">🔮 Future Security</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_THREAT_MODEL.md">🔮 Future Threat Model</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md">📋 Secure Dev Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md">🔐 Information Security Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md">📑 Open Source Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md">🏷️ Classification Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md">🤖 AI Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md">🔑 Access Control Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md">🔏 Cryptography Policy</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md">📋 WORKFLOWS</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CONTRIBUTING.md">📋 CONTRIBUTING</a><a href="https://euparliamentmonitor.com" class="tsd-nav-link">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor" class="tsd-nav-link">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC" class="tsd-nav-link">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server" class="tsd-nav-link">🇪🇺 EP MCP Server</a><a href="https://www.npmjs.com/package/euparliamentmonitor" class="tsd-nav-link">📦 npm</a></nav><nav class="tsd-navigation"><a href="../modules.html">EU Parliament Monitor — API Documentation - v0.8.13</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>

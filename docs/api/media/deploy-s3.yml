@@ -1,0 +1,258 @@
+name: Deploy to S3
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+  actions: write
+
+env:
+  AWS_REGION : "us-east-1"
+  AWS_REGION_ZONE : "us-east-1"
+  S3_BUCKET_NAME: "euparliamentmonitor-frontend-us-east-1-172017021075"
+  CLOUDFRONT_STACK_NAME: "euparliamentmonitor-frontend"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@fe104658747b27e96e4f7e80cd0a94068e53901d # v2.16.1
+        with:
+          egress-policy: block
+          allowed-endpoints: >
+            accounts.google.com:443
+            amazon-cloudfront-secure-static-site-s3bucketroot-14oliw5cmta06.s3.us-east-1.amazonaws.com:443
+            api.github.com:443
+            api.securityscorecards.dev:443
+            app.fossa.io:443
+            auth.docker.io:443
+            bestpractices.coreinfrastructure.org:443
+            cfu.zaproxy.org:443
+            cla-assistant.io:443
+            cla-assistant.io:80
+            clients2.google.com:80
+            cloudformation.us-east-1.amazonaws.com:443
+            cloudfront.amazonaws.com:443
+            content-signature-2.cdn.mozilla.net:443
+            deb.debian.org:80
+            firefox-settings-attachments.cdn.mozilla.net:443
+            firefox.settings.services.mozilla.com:443
+            fonts.googleapis.com:443
+            fonts.gstatic.com:443
+            ghcr.io:443
+            github.com:443
+            hack23.com:443
+            hack23.com:80
+            hack23.comnull:443
+            img.shields.io:443
+            isitmaintained.com:443
+            isitmaintained.com:80
+            location.services.mozilla.com:443
+            news.zaproxy.org:443
+            objects.githubusercontent.com:443
+            pkg-containers.githubusercontent.com:443
+            production.cloudflare.docker.com:443
+            r10.o.lencr.org:443
+            r11.o.lencr.org:80
+            raw.githubusercontent.com:443
+            registry-1.docker.io:443
+            registry.npmjs.org:443
+            safebrowsingohttpgateway.googleapis.com:443
+            shavar.services.mozilla.com:443
+            slsa.dev:443
+            storage.googleapis.com:443
+            sts.us-east-1.amazonaws.com:443
+            tel.zaproxy.org:443
+            tracking-protection.cdn.mozilla.net:443
+            us-central1-lighthouse-infrastructure.cloudfunctions.net:443
+            www.google.com:443
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0  # Need full history to restore mtimes
+
+      - name: Restore file modification times from git
+        run: |
+          # Restore mtimes to git commit time for accurate change detection
+          # This prevents re-uploading all files on every deployment
+          git ls-tree -r --name-only HEAD | while read filename; do
+            TIME=$(git log -1 --format="%ai" -- "$filename")
+            touch -d "$TIME" "$filename"
+          done
+          echo "✅ Restored mtimes for $(git ls-tree -r --name-only HEAD | wc -l) files"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: '25'
+          cache: 'npm'
+
+      - name: Generate derived files (indexes, metadata, sitemap)
+        run: |
+          npm ci
+          npm run prebuild
+          rm -rf node_modules
+          echo "✅ Generated index files, articles-metadata.json, and sitemap.xml"
+
+      - name: Normalise CSP in legacy news articles
+        run: |
+          # Ensure all committed articles use the current relaxed CSP directives
+          # so production is consistent regardless of when each article was generated.
+          count=0
+          for f in news/*.html; do
+            if grep -q "default-src 'none'" "$f" 2>/dev/null; then
+              sed -i \
+                -e "s/default-src 'none'/default-src 'self'/g" \
+                -e "s/script-src 'sha256-/script-src 'self' 'sha256-/g" \
+                -e "s/connect-src 'none'/connect-src 'self'/g" \
+                "$f"
+              count=$((count + 1))
+            fi
+          done
+          echo "✅ Updated CSP in $count legacy article(s)"
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@8df5847569e6427dd6c4fb1cf565c83acfa8afa7 # v6.0.0
+        with:
+          role-to-assume: arn:aws:iam::172017021075:role/GithubWorkFlowRole
+          role-session-name: githubworkflowrolesessiont2
+          aws-region: ${{ env.AWS_REGION }}
+      
+      - name: Deploy to S3 with cache headers
+        run: |
+          BUCKET="s3://${{ env.S3_BUCKET_NAME }}"
+          SRC="."
+          # Common exclusions for non-website directories (bash array)
+          EXCL=(--exclude "screenshots/*" --exclude ".git/*" --exclude "scripts/*" --exclude "test/*" --exclude "e2e/*" --exclude "src/*" --exclude ".github/*" --exclude ".devcontainer/*" --exclude "node_modules/*" --exclude "quicksight/*" --exclude "schemas/*" --exclude "builds/*" --exclude "runbooks/*")
+
+          # HTML files - short cache, must-revalidate
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.html' \
+            --cache-control 'public, max-age=3600, must-revalidate' \
+            --content-type 'text/html; charset=utf-8' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+
+          # CSS files - long cache, immutable
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.css' \
+            --cache-control 'public, max-age=31536000, immutable' \
+            --content-type 'text/css; charset=utf-8' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+
+          # JS files - long cache, immutable (excludes root config files)
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.js' \
+            --exclude '*.config.js' \
+            --cache-control 'public, max-age=31536000, immutable' \
+            --content-type 'text/javascript; charset=utf-8' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+
+          # SVG files - long cache, immutable (explicit mime type)
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.svg' \
+            --cache-control 'public, max-age=31536000, immutable' \
+            --content-type 'image/svg+xml' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+
+          # Raster image files - long cache, immutable
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' \
+            --include '*.webp' --include '*.png' --include '*.jpg' --include '*.jpeg' \
+            --include '*.gif' --include '*.ico' \
+            --cache-control 'public, max-age=31536000, immutable' \
+            "${EXCL[@]}"
+
+          # Font files - long cache, immutable
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' \
+            --include '*.woff' --include '*.woff2' --include '*.ttf' --include '*.eot' --include '*.otf' \
+            --cache-control 'public, max-age=31536000, immutable' \
+            "${EXCL[@]}"
+
+          # JSON files - medium cache (coverage-final.json, package metadata, etc.)
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.json' \
+            --exclude 'package*.json' --exclude 'tsconfig.json' --exclude 'typedoc.json' \
+            --exclude 'jsdoc.json' --exclude '.jscpd.json' --exclude '.lintstagedrc.json' \
+            --cache-control 'public, max-age=86400' \
+            --content-type 'application/json; charset=utf-8' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+
+          # XML files - medium cache (sitemap, rss)
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.xml' \
+            --cache-control 'public, max-age=86400' \
+            --content-type 'text/xml; charset=utf-8' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+
+          # Plain text files - medium cache (robots.txt, .nojekyll)
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' \
+            --include 'robots.txt' --include '*.txt' --include '.nojekyll' \
+            --cache-control 'public, max-age=86400' \
+            --content-type 'text/plain; charset=utf-8' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+
+          # Web manifest
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.webmanifest' \
+            --cache-control 'public, max-age=86400' \
+            --content-type 'application/manifest+json' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+
+          # Remaining files (favicon, lcov.info, etc.) — skip types already uploaded
+          # and all source/config/tooling files.
+          aws s3 sync "$SRC" "$BUCKET" \
+            "${EXCL[@]}" \
+            --exclude '*.html' --exclude '*.css' --exclude '*.js' \
+            --exclude '*.webp' --exclude '*.png' --exclude '*.jpg' --exclude '*.jpeg' \
+            --exclude '*.gif' --exclude '*.svg' --exclude '*.ico' \
+            --exclude '*.woff' --exclude '*.woff2' --exclude '*.ttf' --exclude '*.eot' --exclude '*.otf' \
+            --exclude '*.xml' --exclude '*.json' --exclude '*.txt' --exclude '*.webmanifest' \
+            --exclude '*.md' --exclude 'package*.json' --exclude '.gitignore' \
+            --exclude 'tsconfig.json' --exclude 'typedoc.json' --exclude 'jsdoc.json' \
+            --exclude '*.config.js' --exclude '.eslintcache' --exclude '.prettierrc.json' \
+            --exclude '.lintstagedrc.json' --exclude '.jscpd.json' --exclude '.htmlhintignore' \
+            --exclude '*.patch' --exclude '*.lock' --exclude '*.tgz' --exclude '.nojekyll'
+
+          echo "✅ Deploy with cache headers completed"
+      
+      # Invalidate CloudFront cache to ensure latest content is served
+      # Note: Using blanket "/*" invalidation is optimal for this use case:
+      # - Site has ~500 files (well within 1000 free invalidations/month)
+      # - Deployment frequency is low (PR-based, not continuous)
+      # - Simplicity trumps optimization at this scale
+      # - Cache headers already optimized (1hr HTML, 1yr assets, 24hr metadata)
+      - name: Invalidate CloudFront
+        run: |
+          echo "🔍 Discovering CloudFront distribution ID from stack: ${{ env.CLOUDFRONT_STACK_NAME }}"
+          CloudFrontDistId=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.CLOUDFRONT_STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='CloudFrontDistributionId'].OutputValue" \
+            --output text 2>/dev/null || echo "")
+          
+          if [ -z "$CloudFrontDistId" ]; then
+            echo "⚠️  Warning: CloudFront distribution ID not found in stack outputs"
+            echo "Attempting to find distribution by S3 origin domain..."
+            # List all distributions and filter by S3 bucket origin
+            CloudFrontDistId=$(aws cloudfront list-distributions \
+              --output json 2>/dev/null | \
+              jq -r ".DistributionList.Items[] | select(.Origins.Items[].DomainName | contains(\"${{ env.S3_BUCKET_NAME }}\")) | .Id" | \
+              head -n 1 || echo "")
+          fi
+          
+          if [ -z "$CloudFrontDistId" ] || [ "$CloudFrontDistId" = "None" ]; then
+            echo "❌ Error: Could not discover CloudFront distribution ID"
+            exit 1
+          fi
+          
+          echo "✅ Found CloudFront distribution: $CloudFrontDistId"
+          echo "🔄 Creating cache invalidation for all paths..."
+          
+          aws cloudfront create-invalidation \
+            --distribution-id $CloudFrontDistId \
+            --paths "/*"
+          
+          echo "✅ CloudFront cache invalidation completed"

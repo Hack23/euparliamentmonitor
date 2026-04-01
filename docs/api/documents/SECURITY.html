@@ -1,0 +1,170 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="../"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>SECURITY | EU Parliament Monitor — API Documentation - v0.8.13</title><link rel="icon" href="../assets/favicon.ico"/><meta name="description" content="Documentation for EU Parliament Monitor — API Documentation"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/icons.js" id="tsd-icons-script"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script><script async src="../assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="../index.html" class="title">EU Parliament Monitor — API Documentation - v0.8.13</a><div id="tsd-toolbar-links"><a href="https://euparliamentmonitor.com">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server">🇪🇺 EP MCP Server</a><a href="https://www.npmjs.com/package/euparliamentmonitor">📦 npm</a></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><ul class="tsd-breadcrumb" aria-label="Breadcrumb"><li><a href="" aria-current="page">SECURITY</a></li></ul></div><div class="tsd-panel tsd-typography"><h1 id="security-policy" class="tsd-anchor-link">Security Policy<a href="#security-policy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<h2 id="supported-versions" class="tsd-anchor-link">Supported Versions<a href="#supported-versions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This project is under active development, and we provide security updates for the latest version only. Please ensure you're using the latest version of the project to receive security updates.</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Supported</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>latest</td>
+<td>:white_check_mark:</td>
+</tr>
+</tbody>
+</table>
+<h2 id="security-architecture" class="tsd-anchor-link">Security Architecture<a href="#security-architecture" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>For comprehensive information about the security architecture, threat model, and security controls implemented in EU Parliament Monitor, please refer to:</p>
+<ul>
+<li><strong><a href="SECURITY_ARCHITECTURE.html">Security Architecture</a></strong> - Complete security implementation overview with C4 diagrams, threat model (STRIDE analysis), and compliance mapping</li>
+<li><strong><a href="FUTURE_SECURITY_ARCHITECTURE.html">Future Security Architecture</a></strong> - Security enhancement roadmap (2026-2027)</li>
+<li><strong><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" class="external">Hack23 ISMS Secure Development Policy</a></strong> - Organization-wide secure development standards</li>
+</ul>
+<h2 id="reporting-a-vulnerability" class="tsd-anchor-link">Reporting a Vulnerability<a href="#reporting-a-vulnerability" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>We take the security of the EU Parliament Monitor project seriously. If you have found a potential security vulnerability, we kindly ask you to report it privately, so that we can assess and address the issue before it becomes publicly known.</p>
+<h3 id="what-constitutes-a-vulnerability" class="tsd-anchor-link">What Constitutes a Vulnerability<a href="#what-constitutes-a-vulnerability" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>A vulnerability is a weakness or flaw in the project that can be exploited to compromise the security, integrity, or availability of the system or its data. Examples of vulnerabilities include, but are not limited to:</p>
+<ul>
+<li>Cross-site scripting (XSS) attacks</li>
+<li>HTML injection vulnerabilities</li>
+<li>Insecure dependencies or supply chain attacks</li>
+<li>Exposure of sensitive data</li>
+<li>Insecure defaults or configurations</li>
+<li>Insufficient input validation</li>
+<li>Content Security Policy bypasses</li>
+</ul>
+<h3 id="how-to-privately-report-a-vulnerability-using-github" class="tsd-anchor-link">How to Privately Report a Vulnerability using GitHub<a href="#how-to-privately-report-a-vulnerability-using-github" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Please follow these steps to privately report a security vulnerability:</p>
+<ol>
+<li>On <a href="http://GitHub.com" target="_blank" class="external">GitHub.com</a>, navigate to the main page of the <a href="https://github.com/Hack23/euparliamentmonitor" target="_blank" class="external">euparliamentmonitor repository</a>.</li>
+<li>Under the repository name, click <strong>Security</strong>. If you cannot see the &quot;Security&quot; tab, select the dropdown menu, and then click <strong>Security</strong>.</li>
+<li>In the left sidebar, under &quot;Reporting&quot;, click <strong>Advisories</strong>.</li>
+<li>Click <strong>Report a vulnerability</strong> to open the advisory form.</li>
+<li>Fill in the advisory details form. Provide as much information as possible to help us understand and reproduce the issue, including:
+<ul>
+<li>Description of the vulnerability</li>
+<li>Steps to reproduce</li>
+<li>Potential impact</li>
+<li>Suggested mitigation (if known)</li>
+</ul>
+</li>
+<li>At the bottom of the form, click <strong>Submit report</strong>.</li>
+</ol>
+<p>After you submit the report, the maintainers of the euparliamentmonitor repository will be notified. They will review the report, validate the vulnerability, and take necessary actions to address the issue. You will be added as a collaborator and credited for the security advisory.</p>
+<h3 id="alternative-reporting-methods" class="tsd-anchor-link">Alternative Reporting Methods<a href="#alternative-reporting-methods" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>If you prefer not to use GitHub's security advisory system, you can also report vulnerabilities via:</p>
+<ul>
+<li><strong>Email</strong>: <a href="mailto:security@hack23.com">security@hack23.com</a></li>
+<li><strong>Subject</strong>: [SECURITY] EU Parliament Monitor - [Brief Description]</li>
+</ul>
+<h3 id="disclosure-timeline" class="tsd-anchor-link">Disclosure Timeline<a href="#disclosure-timeline" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Upon receipt of a vulnerability report, our team will:</p>
+<ol>
+<li><strong>Acknowledge</strong> the report within <strong>48 hours</strong></li>
+<li><strong>Validate</strong> the vulnerability within <strong>7 days</strong></li>
+<li><strong>Develop and release</strong> a patch or mitigation within <strong>30 days</strong> for critical/high severity issues, depending on complexity</li>
+<li><strong>Publish</strong> a security advisory with a detailed description of the vulnerability and the fix</li>
+</ol>
+<p><strong>Severity-Based SLAs</strong> (per <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md" target="_blank" class="external">Hack23 ISMS Vulnerability Management Policy</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Remediation SLA</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Critical (CVSS 9.0-10.0)</td>
+<td>7 days</td>
+<td>Immediate threat, active exploitation possible</td>
+</tr>
+<tr>
+<td>High (CVSS 7.0-8.9)</td>
+<td>30 days</td>
+<td>Significant security impact</td>
+</tr>
+<tr>
+<td>Medium (CVSS 4.0-6.9)</td>
+<td>90 days</td>
+<td>Moderate security impact</td>
+</tr>
+<tr>
+<td>Low (CVSS 0.1-3.9)</td>
+<td>Best effort</td>
+<td>Minimal security impact</td>
+</tr>
+</tbody>
+</table>
+<h3 id="security-testing" class="tsd-anchor-link">Security Testing<a href="#security-testing" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>We employ multiple layers of security testing:</p>
+<ul>
+<li><strong>SAST</strong>: CodeQL scanning (automated, weekly + PR triggers)</li>
+<li><strong>SCA</strong>: Dependabot dependency scanning (daily)</li>
+<li><strong>Manual Testing</strong>: Security-focused unit tests (≥80% coverage)</li>
+<li><strong>Vulnerability Scanning</strong>: npm audit (automated in CI/CD)</li>
+</ul>
+<p>See <a href="SECURITY_ARCHITECTURE.html#-security-testing">SECURITY_ARCHITECTURE.md - Security Testing</a> for details.</p>
+<h3 id="scope" class="tsd-anchor-link">Scope<a href="#scope" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>In Scope</strong>:</p>
+<ul>
+<li>News generation scripts (scripts/)</li>
+<li>HTML templates and output</li>
+<li>MCP client integration</li>
+<li>GitHub Actions workflows</li>
+<li>Dependencies and supply chain</li>
+</ul>
+<p><strong>Out of Scope</strong>:</p>
+<ul>
+<li>Third-party services (GitHub, European Parliament APIs)</li>
+<li>Infrastructure (GitHub Pages hosting)</li>
+<li>Client-side browser vulnerabilities (not controlled by this project)</li>
+</ul>
+<h3 id="recognition-and-anonymity" class="tsd-anchor-link">Recognition and Anonymity<a href="#recognition-and-anonymity" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>We appreciate your effort in helping us maintain a secure and reliable project. If your report results in a confirmed security fix, we will recognize your contribution in:</p>
+<ul>
+<li>Release notes</li>
+<li>Security advisory acknowledgment</li>
+<li>Public GitHub recognition (unless you request to remain anonymous)</li>
+</ul>
+<p>Contributors who help improve our security posture may also be considered for our Security Hall of Fame.</p>
+<h2 id="security-compliance" class="tsd-anchor-link">Security Compliance<a href="#security-compliance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>EU Parliament Monitor aligns with:</p>
+<ul>
+<li><strong>ISO 27001</strong>: Information security management (see <a href="SECURITY_ARCHITECTURE.html#-compliance-matrix">SECURITY_ARCHITECTURE.md - Compliance Matrix</a>)</li>
+<li><strong>GDPR</strong>: Data protection and privacy (European Parliament open data is public)</li>
+<li><strong>NIS2</strong>: Network and information security (Article 20, 21 compliance)</li>
+<li><strong>EU Cyber Resilience Act</strong>: Software supply chain security (SBOM, vulnerability disclosure)</li>
+<li><strong>NIST Cybersecurity Framework 2.0</strong>: Identify, Protect, Detect, Respond, Recover</li>
+<li><strong>CIS Controls v8.1</strong>: Critical security controls implementation</li>
+<li><strong>OWASP Top 10</strong>: Web application security best practices</li>
+</ul>
+<h2 id="security-metrics" class="tsd-anchor-link">Security Metrics<a href="#security-metrics" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Current security posture (updated monthly):</p>
+<ul>
+<li><strong>Zero</strong> known vulnerabilities (npm audit clean)</li>
+<li><strong>82%+</strong> code coverage with security tests</li>
+<li><strong>100%</strong> dependency scanning coverage</li>
+<li><strong>0</strong> CodeQL critical/high findings</li>
+<li><strong>OpenSSF Scorecard</strong>: Target ≥7.0 (in progress)</li>
+</ul>
+<p>See <a href="SECURITY_ARCHITECTURE.html#-security-metrics">SECURITY_ARCHITECTURE.md - Security Metrics</a> for detailed metrics.</p>
+<h2 id="security-resources" class="tsd-anchor-link">Security Resources<a href="#security-resources" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li><strong>Threat Model</strong>: <a href="SECURITY_ARCHITECTURE.html#-threat-model">SECURITY_ARCHITECTURE.md - Threat Model</a></li>
+<li><strong>Security Controls</strong>: <a href="SECURITY_ARCHITECTURE.html#-security-controls">SECURITY_ARCHITECTURE.md - Security Controls</a></li>
+<li><strong>Incident Response</strong>: <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md" target="_blank" class="external">Hack23 ISMS Incident Response Plan</a></li>
+<li><strong>Vulnerability Management</strong>: <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md" target="_blank" class="external">Hack23 ISMS Vulnerability Management</a></li>
+</ul>
+<h2 id="contact" class="tsd-anchor-link">Contact<a href="#contact" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>For non-security issues, please use:</p>
+<ul>
+<li><strong>GitHub Issues</strong>: <a href="https://github.com/Hack23/euparliamentmonitor/issues" target="_blank" class="external">https://github.com/Hack23/euparliamentmonitor/issues</a></li>
+<li><strong>General Inquiries</strong>: <a href="mailto:info@hack23.com">info@hack23.com</a></li>
+</ul>
+<hr>
+<p>Thank you for helping us keep the EU Parliament Monitor project and its users safe. Your contributions to our security posture are greatly appreciated!</p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-alpha" name="alpha"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Alpha</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-beta" name="beta"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Beta</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#security-policy"><span>Security <wbr/>Policy</span></a><ul><li><a href="#supported-versions"><span>Supported <wbr/>Versions</span></a></li><li><a href="#security-architecture"><span>Security <wbr/>Architecture</span></a></li><li><a href="#reporting-a-vulnerability"><span>Reporting a <wbr/>Vulnerability</span></a></li><li><ul><li><a href="#what-constitutes-a-vulnerability"><span>What <wbr/>Constitutes a <wbr/>Vulnerability</span></a></li><li><a href="#how-to-privately-report-a-vulnerability-using-github"><span>How to <wbr/>Privately <wbr/>Report a <wbr/>Vulnerability using <wbr/>Git<wbr/>Hub</span></a></li><li><a href="#alternative-reporting-methods"><span>Alternative <wbr/>Reporting <wbr/>Methods</span></a></li><li><a href="#disclosure-timeline"><span>Disclosure <wbr/>Timeline</span></a></li><li><a href="#security-testing"><span>Security <wbr/>Testing</span></a></li><li><a href="#scope"><span>Scope</span></a></li><li><a href="#recognition-and-anonymity"><span>Recognition and <wbr/>Anonymity</span></a></li></ul></li><li><a href="#security-compliance"><span>Security <wbr/>Compliance</span></a></li><li><a href="#security-metrics"><span>Security <wbr/>Metrics</span></a></li><li><a href="#security-resources"><span>Security <wbr/>Resources</span></a></li><li><a href="#contact"><span>Contact</span></a></li></ul></div></details></div><div class="site-menu"><nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md">🏛️ Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md">🔒 Security Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md">🛡️ Threat Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md">📊 Data Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FLOWCHART.md">🔄 Flowchart</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/STATEDIAGRAM.md">📈 State Diagram</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md">🧠 Mindmap</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md">💼 SWOT Analysis</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md">📜 CRA Assessment</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md">🚀 Future Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md">🔮 Future Security</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_THREAT_MODEL.md">🔮 Future Threat Model</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md">📋 Secure Dev Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md">🔐 Information Security Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md">📑 Open Source Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md">🏷️ Classification Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md">🤖 AI Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md">🔑 Access Control Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md">🔏 Cryptography Policy</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md">📋 WORKFLOWS</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CONTRIBUTING.md">📋 CONTRIBUTING</a><a href="https://euparliamentmonitor.com" class="tsd-nav-link">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor" class="tsd-nav-link">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC" class="tsd-nav-link">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server" class="tsd-nav-link">🇪🇺 EP MCP Server</a><a href="https://www.npmjs.com/package/euparliamentmonitor" class="tsd-nav-link">📦 npm</a></nav><nav class="tsd-navigation"><a href="../modules.html">EU Parliament Monitor — API Documentation - v0.8.13</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>

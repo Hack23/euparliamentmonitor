@@ -1,0 +1,1628 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="../"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>FUTURE_THREAT_MODEL | EU Parliament Monitor — API Documentation - v0.8.13</title><link rel="icon" href="../assets/favicon.ico"/><meta name="description" content="Documentation for EU Parliament Monitor — API Documentation"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/icons.js" id="tsd-icons-script"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script><script async src="../assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="../index.html" class="title">EU Parliament Monitor — API Documentation - v0.8.13</a><div id="tsd-toolbar-links"><a href="https://euparliamentmonitor.com">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server">🇪🇺 EP MCP Server</a><a href="https://www.npmjs.com/package/euparliamentmonitor">📦 npm</a></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><ul class="tsd-breadcrumb" aria-label="Breadcrumb"><li><a href="" aria-current="page">FUTURE_THREAT_MODEL</a></li></ul></div><div class="tsd-panel tsd-typography"><p align="center">
+  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
+</p>
+<h1 align="center">🔮 EU Parliament Monitor — Future Threat Model</h1>
+<p align="center">
+  <strong>🛡️ Evolving Threat Landscape & Planned Security Controls</strong><br>
+  <em>🔍 Future Architecture Threats • AI/LLM Security • Advanced Democratic Protection</em>
+</p>
+<p align="center">
+  <a><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
+  <a><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
+  <a><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
+  <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
+</p>
+<p><strong>📋 Document Owner:</strong> CEO | <strong>📄 Version:</strong> 2.0 | <strong>📅 Last Updated:</strong>
+2026-03-19 (UTC)<br>
+<strong>🔄 Review Cycle:</strong> Quarterly | <strong>⏰ Next Review:</strong> 2026-06-19<br>
+<strong>🏷️ Classification:</strong> Public (Open Civic Transparency Platform)</p>
+<hr>
+<h2 id="📚-architecture-documentation-map" class="tsd-anchor-link">📚 Architecture Documentation Map<a href="#📚-architecture-documentation-map" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<div class="documentation-map">
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Document</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🏛️ Architecture</strong></td>
+<td><a href="ARCHITECTURE.html">ARCHITECTURE.md</a></td>
+<td>C4 model system architecture</td>
+<td>✅ Current</td>
+</tr>
+<tr>
+<td><strong>📊 Data Model</strong></td>
+<td><a href="DATA_MODEL.html">DATA_MODEL.md</a></td>
+<td>Entity relationships and data flow</td>
+<td>✅ Current</td>
+</tr>
+<tr>
+<td><strong>🔄 Flowchart</strong></td>
+<td><a href="FLOWCHART.html">FLOWCHART.md</a></td>
+<td>Process workflows and data flows</td>
+<td>✅ Current</td>
+</tr>
+<tr>
+<td><strong>📈 State Diagram</strong></td>
+<td><a href="STATEDIAGRAM.html">STATEDIAGRAM.md</a></td>
+<td>System state transitions</td>
+<td>✅ Current</td>
+</tr>
+<tr>
+<td><strong>🧠 Mind Map</strong></td>
+<td><a href="MINDMAP.html">MINDMAP.md</a></td>
+<td>Conceptual system relationships</td>
+<td>✅ Current</td>
+</tr>
+<tr>
+<td><strong>💼 SWOT</strong></td>
+<td><a href="SWOT.html">SWOT.md</a></td>
+<td>Strategic analysis</td>
+<td>✅ Current</td>
+</tr>
+<tr>
+<td><strong>🛡️ Security</strong></td>
+<td><a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a></td>
+<td>Security controls and architecture</td>
+<td>✅ Current</td>
+</tr>
+<tr>
+<td><strong>🎯 Threats</strong></td>
+<td><a href="THREAT_MODEL.html">THREAT_MODEL.md</a></td>
+<td>Current threat landscape (20 threats)</td>
+<td>✅ Current</td>
+</tr>
+<tr>
+<td><strong>🔮 Future Threats</strong></td>
+<td><strong>FUTURE_THREAT_MODEL.md</strong></td>
+<td><strong>This document</strong> — Future threat analysis</td>
+<td>📋 Planning</td>
+</tr>
+<tr>
+<td><strong>🚀 Future Architecture</strong></td>
+<td><a href="FUTURE_ARCHITECTURE.html">FUTURE_ARCHITECTURE.md</a></td>
+<td>Architectural evolution roadmap</td>
+<td>📋 Planning</td>
+</tr>
+<tr>
+<td><strong>🚀 Future Security</strong></td>
+<td><a href="FUTURE_SECURITY_ARCHITECTURE.html">FUTURE_SECURITY_ARCHITECTURE.md</a></td>
+<td>Planned security enhancements</td>
+<td>📋 Planning</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="🎯-purpose-scope" class="tsd-anchor-link">🎯 Purpose &amp; Scope<a href="#🎯-purpose-scope" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This document identifies <strong>emerging threats</strong> and <strong>planned security controls</strong> for the EU Parliament Monitor as it evolves from a static site generator into an advanced European Parliament intelligence platform. It complements the current <a href="THREAT_MODEL.html">THREAT_MODEL.md</a> with forward-looking analysis of threats that will materialize as new capabilities are added.</p>
+<h3 id="🌟-transparency-commitment" class="tsd-anchor-link"><strong>🌟 Transparency Commitment</strong><a href="#🌟-transparency-commitment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>As an open-source European Parliament monitoring platform, this future threat model is published publicly to:</p>
+<ul>
+<li>🔍 <strong>Demonstrate Proactive Security</strong>: Show commitment to anticipating threats before they materialize</li>
+<li>📋 <strong>Enable Community Review</strong>: Allow security researchers to review planned defenses</li>
+<li>🏛️ <strong>Democratic Accountability</strong>: Ensure transparency in protecting democratic information systems</li>
+<li>🤝 <strong>Build Trust</strong>: Provide evidence of systematic security planning to stakeholders</li>
+</ul>
+<h3 id="📚-framework-integration" class="tsd-anchor-link"><strong>📚 Framework Integration</strong><a href="#📚-framework-integration" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>This future threat model follows the <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md" target="_blank" class="external">Hack23 ISMS Threat Modeling Policy</a> framework:</p>
+<ul>
+<li><strong>STRIDE Framework</strong>: Threat categorization per future system component</li>
+<li><strong>MITRE ATT&amp;CK</strong>: Technique mapping for emerging attack vectors</li>
+<li><strong>ENISA Threat Landscape</strong>: EU-specific threat intelligence integration</li>
+<li><strong>OWASP LLM Top 10</strong>: AI/LLM-specific threat classification</li>
+<li><strong>CIA Triad</strong>: Confidentiality, Integrity, Availability impact analysis</li>
+</ul>
+<h3 id="🔗-reference-documents" class="tsd-anchor-link"><strong>🔗 Reference Documents</strong><a href="#🔗-reference-documents" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="THREAT_MODEL.html">THREAT_MODEL.md</a></td>
+<td>Current threat landscape (20 threats, v2.0)</td>
+</tr>
+<tr>
+<td><a href="FUTURE_ARCHITECTURE.html">FUTURE_ARCHITECTURE.md</a></td>
+<td>Planned architectural evolution</td>
+</tr>
+<tr>
+<td><a href="FUTURE_SECURITY_ARCHITECTURE.html">FUTURE_SECURITY_ARCHITECTURE.md</a></td>
+<td>Planned security controls</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md" target="_blank" class="external">Hack23 ISMS - Threat Modeling</a></td>
+<td>Policy framework</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" class="external">Hack23 ISMS - Secure Development</a></td>
+<td>Secure SDLC requirements</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md" target="_blank" class="external">Hack23 ISMS - Vulnerability Management</a></td>
+<td>Vulnerability lifecycle management</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🔄-planned-architecture-evolution" class="tsd-anchor-link">🔄 Planned Architecture Evolution<a href="#🔄-planned-architecture-evolution" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="📊-architecture-transition-timeline" class="tsd-anchor-link"><strong>📊 Architecture Transition Timeline</strong><a href="#📊-architecture-transition-timeline" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="mermaid"><span class="hl-1">%%{</span><br/><span class="hl-1">  init: {</span><br/><span class="hl-1">    &#39;theme&#39;: &#39;base&#39;,</span><br/><span class="hl-1">    &#39;themeVariables&#39;: {</span><br/><span class="hl-1">      &#39;primaryColor&#39;: &#39;#e3f2fd&#39;,</span><br/><span class="hl-1">      &#39;primaryTextColor&#39;: &#39;#0d47a1&#39;,</span><br/><span class="hl-1">      &#39;lineColor&#39;: &#39;#1976d2&#39;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">}%%</span><br/><span class="hl-1">timeline</span><br/><span class="hl-1">    title EU Parliament Monitor Architecture Evolution</span><br/><span class="hl-1">    section Current (2026 H1)</span><br/><span class="hl-1">        Static Site Generator : Node.js + EP MCP Server</span><br/><span class="hl-1">        GitHub Pages : CDN-delivered static HTML</span><br/><span class="hl-1">        14 Languages : Template-based generation</span><br/><span class="hl-1">    section Phase 2 (2026 H2)</span><br/><span class="hl-1">        AI Content Pipeline : LLM-enhanced news generation</span><br/><span class="hl-1">        Confidence Scoring : Automated fact-checking</span><br/><span class="hl-1">        Enhanced Monitoring : Real-time EP data validation</span><br/><span class="hl-1">    section Phase 3 (2027)</span><br/><span class="hl-1">        Real-Time Dashboard : Dynamic parliamentary analytics</span><br/><span class="hl-1">        API Gateway : Public API for EP data access</span><br/><span class="hl-1">        Community Features : User feedback and reporting</span><br/><span class="hl-1">    section Phase 4 (2028+)</span><br/><span class="hl-1">        Predictive Analytics : AI-powered political forecasting</span><br/><span class="hl-1">        Multi-Parliament : Extended to national parliaments</span><br/><span class="hl-1">        Federation : Decentralized transparency network</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="📊-attack-surface-evolution" class="tsd-anchor-link"><strong>📊 Attack Surface Evolution</strong><a href="#📊-attack-surface-evolution" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="mermaid"><span class="hl-1">flowchart LR</span><br/><span class="hl-1">    subgraph &quot;Current Attack Surface&quot;</span><br/><span class="hl-1">        direction TB</span><br/><span class="hl-1">        C1[📄 Static HTML] --- C2[🔌 EP MCP Client]</span><br/><span class="hl-1">        C2 --- C3[⚙️ GitHub Actions]</span><br/><span class="hl-1">        C3 --- C4[📦 npm Dependencies]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Phase 2 Attack Surface&quot;</span><br/><span class="hl-1">        direction TB</span><br/><span class="hl-1">        P2_1[🤖 LLM Pipeline] --- P2_2[📊 Confidence Scoring]</span><br/><span class="hl-1">        P2_2 --- P2_3[🔍 Fact Checking]</span><br/><span class="hl-1">        P2_3 --- P2_4[📡 Enhanced Monitoring]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Phase 3 Attack Surface&quot;</span><br/><span class="hl-1">        direction TB</span><br/><span class="hl-1">        P3_1[🌐 API Gateway] --- P3_2[👥 User Accounts]</span><br/><span class="hl-1">        P3_2 --- P3_3[💬 Community Features]</span><br/><span class="hl-1">        P3_3 --- P3_4[📊 Real-Time Dashboard]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    subgraph &quot;Phase 4 Attack Surface&quot;</span><br/><span class="hl-1">        direction TB</span><br/><span class="hl-1">        P4_1[🌍 Multi-Parliament] --- P4_2[🔗 Federation Protocol]</span><br/><span class="hl-1">        P4_2 --- P4_3[🧠 Predictive AI]</span><br/><span class="hl-1">        P4_3 --- P4_4[📈 Analytics Engine]</span><br/><span class="hl-1">    end</span><br/><br/><span class="hl-1">    C4 -.-&gt;|&quot;+8-12 threats&quot;| P2_1</span><br/><span class="hl-1">    P2_4 -.-&gt;|&quot;+10-15 threats&quot;| P3_1</span><br/><span class="hl-1">    P3_4 -.-&gt;|&quot;+5-8 threats&quot;| P4_1</span><br/><br/><span class="hl-1">    style C1 fill:#e8f5e9</span><br/><span class="hl-1">    style P2_1 fill:#fff4e1</span><br/><span class="hl-1">    style P3_1 fill:#ffe1e1</span><br/><span class="hl-1">    style P4_1 fill:#f3e5f5</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="💎-future-critical-assets-protection-goals" class="tsd-anchor-link">💎 Future Critical Assets &amp; Protection Goals<a href="#💎-future-critical-assets-protection-goals" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="🏗️-asset-centric-analysis-for-future-architecture" class="tsd-anchor-link"><strong>🏗️ Asset-Centric Analysis for Future Architecture</strong><a href="#🏗️-asset-centric-analysis-for-future-architecture" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>Phase</th>
+<th>CIA Classification</th>
+<th>Protection Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AI/LLM Models</strong></td>
+<td>Phase 2</td>
+<td>C:Low, I:Critical, A:High</td>
+<td>Model integrity, provenance verification</td>
+</tr>
+<tr>
+<td><strong>API Keys &amp; OAuth Tokens</strong></td>
+<td>Phase 3</td>
+<td>C:High, I:High, A:Medium</td>
+<td>Secret management, rotation policies</td>
+</tr>
+<tr>
+<td><strong>User Account Data</strong></td>
+<td>Phase 3</td>
+<td>C:High (GDPR), I:High, A:Medium</td>
+<td>Privacy by design, encryption at rest</td>
+</tr>
+<tr>
+<td><strong>Community Content</strong></td>
+<td>Phase 3</td>
+<td>C:Public, I:High, A:Medium</td>
+<td>Content integrity, moderation</td>
+</tr>
+<tr>
+<td><strong>Federation Credentials</strong></td>
+<td>Phase 4</td>
+<td>C:Critical, I:Critical, A:High</td>
+<td>Mutual TLS, certificate management</td>
+</tr>
+<tr>
+<td><strong>Predictive Models</strong></td>
+<td>Phase 4</td>
+<td>C:Medium, I:Critical, A:Medium</td>
+<td>Model integrity, bias prevention</td>
+</tr>
+<tr>
+<td><strong>Cross-Parliament Data</strong></td>
+<td>Phase 4</td>
+<td>C:Low, I:Critical, A:High</td>
+<td>Data reconciliation, source verification</td>
+</tr>
+</tbody>
+</table>
+<h3 id="🔐-crown-jewel-analysis-future-state" class="tsd-anchor-link"><strong>🔐 Crown Jewel Analysis (Future State)</strong><a href="#🔐-crown-jewel-analysis-future-state" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Crown Jewel</th>
+<th>Threat Category</th>
+<th>Worst-Case Impact</th>
+<th>Protection Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Democratic Content Integrity</strong></td>
+<td>Data Manipulation</td>
+<td>Public misinformation from trusted source</td>
+<td>Multi-layer validation, confidence scoring, human review</td>
+</tr>
+<tr>
+<td><strong>User Privacy (GDPR)</strong></td>
+<td>Data Breach</td>
+<td>Regulatory fines, reputation damage</td>
+<td>Privacy by design, data minimization, encryption</td>
+</tr>
+<tr>
+<td><strong>AI Model Integrity</strong></td>
+<td>Model Poisoning</td>
+<td>Systematically biased political content</td>
+<td>Model provenance, training data audit, bias detection</td>
+</tr>
+<tr>
+<td><strong>Federation Trust</strong></td>
+<td>Protocol Abuse</td>
+<td>Cross-platform trust compromise</td>
+<td>Mutual TLS, zero-trust architecture, audit logging</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🆕-future-threat-categories" class="tsd-anchor-link">🆕 Future Threat Categories<a href="#🆕-future-threat-categories" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="🤖-ft-001-aillm-content-generation-threats" class="tsd-anchor-link"><strong>🤖 FT-001: AI/LLM Content Generation Threats</strong><a href="#🤖-ft-001-aillm-content-generation-threats" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Applies to:</strong> Phase 2 (AI Content Pipeline)</p>
+<table>
+<thead>
+<tr>
+<th>Threat</th>
+<th>Description</th>
+<th>STRIDE</th>
+<th>MITRE ATT&amp;CK</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LLM Prompt Injection</strong></td>
+<td>Adversarial EP data crafted to manipulate LLM output during news generation</td>
+<td>Tampering</td>
+<td><a href="https://attack.mitre.org/techniques/T1059/" target="_blank" class="external">T1059</a></td>
+<td>Medium</td>
+<td>High</td>
+<td>Input sanitization, prompt engineering guardrails, output validation</td>
+</tr>
+<tr>
+<td><strong>LLM Hallucination</strong></td>
+<td>AI generates plausible but incorrect parliamentary information</td>
+<td>Tampering</td>
+<td>N/A</td>
+<td>High</td>
+<td>High</td>
+<td>Confidence scoring, human-in-the-loop for &lt;0.85 confidence, cross-reference validation</td>
+</tr>
+<tr>
+<td><strong>Model Poisoning</strong></td>
+<td>Training data manipulation to bias AI-generated content</td>
+<td>Tampering</td>
+<td><a href="https://attack.mitre.org/techniques/T1565/" target="_blank" class="external">T1565</a></td>
+<td>Low</td>
+<td>Critical</td>
+<td>Model provenance verification, training data audit, bias detection</td>
+</tr>
+<tr>
+<td><strong>LLM Data Leakage</strong></td>
+<td>AI model inadvertently exposing sensitive information in generated content</td>
+<td>Information Disclosure</td>
+<td><a href="https://attack.mitre.org/techniques/T1530/" target="_blank" class="external">T1530</a></td>
+<td>Low</td>
+<td>Medium</td>
+<td>Output filtering, PII detection, content review pipeline</td>
+</tr>
+<tr>
+<td><strong>Adversarial Prompt via EP Data</strong></td>
+<td>Crafted parliamentary text exploiting LLM instruction-following</td>
+<td>Tampering</td>
+<td><a href="https://attack.mitre.org/techniques/T1059/006/" target="_blank" class="external">T1059.006</a></td>
+<td>Medium</td>
+<td>High</td>
+<td>Input boundary enforcement, system prompt hardening</td>
+</tr>
+<tr>
+<td><strong>Model Supply Chain Attack</strong></td>
+<td>Compromised LLM model weights or framework dependency</td>
+<td>Tampering</td>
+<td><a href="https://attack.mitre.org/techniques/T1195/" target="_blank" class="external">T1195</a></td>
+<td>Low</td>
+<td>Critical</td>
+<td>Model checksums, signed artifacts, provenance verification</td>
+</tr>
+</tbody>
+</table>
+<p><strong>OWASP LLM Top 10 Alignment:</strong></p>
+<table>
+<thead>
+<tr>
+<th>OWASP LLM ID</th>
+<th>Threat</th>
+<th>EU Parliament Monitor Relevance</th>
+<th>Planned Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LLM01</strong></td>
+<td>Prompt Injection</td>
+<td>EP data used as LLM input could contain injection vectors</td>
+<td>Input sanitization, prompt hardening</td>
+</tr>
+<tr>
+<td><strong>LLM02</strong></td>
+<td>Insecure Output Handling</td>
+<td>Generated HTML could contain unsafe content from LLM</td>
+<td>Output validation, CSP, auto-escaping</td>
+</tr>
+<tr>
+<td><strong>LLM04</strong></td>
+<td>Model Denial of Service</td>
+<td>Excessive EP data could overwhelm LLM processing</td>
+<td>Rate limiting, input size caps, timeout enforcement</td>
+</tr>
+<tr>
+<td><strong>LLM05</strong></td>
+<td>Supply Chain Vulnerabilities</td>
+<td>LLM model or framework dependencies could be compromised</td>
+<td>Model provenance, dependency scanning</td>
+</tr>
+<tr>
+<td><strong>LLM06</strong></td>
+<td>Sensitive Information Disclosure</td>
+<td>LLM might include sensitive patterns from training data</td>
+<td>Output filtering, content review</td>
+</tr>
+<tr>
+<td><strong>LLM09</strong></td>
+<td>Overreliance</td>
+<td>Trusting LLM output without verification</td>
+<td>Confidence scoring, human review queue</td>
+</tr>
+</tbody>
+</table>
+<h3 id="🌐-ft-002-api-gateway-dynamic-content-threats" class="tsd-anchor-link"><strong>🌐 FT-002: API Gateway &amp; Dynamic Content Threats</strong><a href="#🌐-ft-002-api-gateway-dynamic-content-threats" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Applies to:</strong> Phase 3 (Real-Time Dashboard)</p>
+<table>
+<thead>
+<tr>
+<th>Threat</th>
+<th>Description</th>
+<th>STRIDE</th>
+<th>MITRE ATT&amp;CK</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>API Abuse</strong></td>
+<td>Rate limiting bypass, credential stuffing on API endpoints</td>
+<td>Denial of Service</td>
+<td><a href="https://attack.mitre.org/techniques/T1110/" target="_blank" class="external">T1110</a></td>
+<td>Medium</td>
+<td>Medium</td>
+<td>OAuth2/API keys, rate limiting, WAF rules</td>
+</tr>
+<tr>
+<td><strong>Server-Side Request Forgery</strong></td>
+<td>API gateway exploited to access internal resources</td>
+<td>Elevation of Privilege</td>
+<td><a href="https://attack.mitre.org/techniques/T1190/" target="_blank" class="external">T1190</a></td>
+<td>Low</td>
+<td>High</td>
+<td>Strict allowlisting, network segmentation</td>
+</tr>
+<tr>
+<td><strong>Real-Time Data Poisoning</strong></td>
+<td>Malicious data injected into live dashboard feeds</td>
+<td>Tampering</td>
+<td><a href="https://attack.mitre.org/techniques/T1565/" target="_blank" class="external">T1565</a></td>
+<td>Low</td>
+<td>High</td>
+<td>Schema validation, anomaly detection, data signing</td>
+</tr>
+<tr>
+<td><strong>Session Hijacking</strong></td>
+<td>Authenticated user sessions compromised</td>
+<td>Spoofing</td>
+<td><a href="https://attack.mitre.org/techniques/T1539/" target="_blank" class="external">T1539</a></td>
+<td>Low</td>
+<td>Medium</td>
+<td>Secure session management, HTTPS-only, SameSite cookies</td>
+</tr>
+<tr>
+<td><strong>GraphQL Injection</strong></td>
+<td>Malicious queries exploiting GraphQL endpoint complexity</td>
+<td>Tampering</td>
+<td><a href="https://attack.mitre.org/techniques/T1190/" target="_blank" class="external">T1190</a></td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Query depth limiting, complexity analysis, rate limiting</td>
+</tr>
+<tr>
+<td><strong>WebSocket Hijacking</strong></td>
+<td>Real-time data stream interception or manipulation</td>
+<td>Spoofing</td>
+<td><a href="https://attack.mitre.org/techniques/T1557/" target="_blank" class="external">T1557</a></td>
+<td>Low</td>
+<td>High</td>
+<td>WSS (TLS), origin validation, message authentication</td>
+</tr>
+</tbody>
+</table>
+<h3 id="👥-ft-003-community-feature-threats" class="tsd-anchor-link"><strong>👥 FT-003: Community Feature Threats</strong><a href="#👥-ft-003-community-feature-threats" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Applies to:</strong> Phase 3 (Community Features)</p>
+<table>
+<thead>
+<tr>
+<th>Threat</th>
+<th>Description</th>
+<th>STRIDE</th>
+<th>MITRE ATT&amp;CK</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>User-Generated Content Abuse</strong></td>
+<td>Spam, disinformation, or political manipulation via feedback system</td>
+<td>Tampering</td>
+<td><a href="https://attack.mitre.org/techniques/T1491/" target="_blank" class="external">T1491</a></td>
+<td>High</td>
+<td>Medium</td>
+<td>Content moderation, anti-spam filters, reporting mechanism</td>
+</tr>
+<tr>
+<td><strong>GDPR Data Breach</strong></td>
+<td>User personal data exposure from community features</td>
+<td>Information Disclosure</td>
+<td><a href="https://attack.mitre.org/techniques/T1530/" target="_blank" class="external">T1530</a></td>
+<td>Low</td>
+<td>Critical</td>
+<td>Privacy by design, data minimization, encryption at rest</td>
+</tr>
+<tr>
+<td><strong>Account Takeover</strong></td>
+<td>Community user accounts compromised for manipulation</td>
+<td>Spoofing</td>
+<td><a href="https://attack.mitre.org/techniques/T1078/" target="_blank" class="external">T1078</a></td>
+<td>Medium</td>
+<td>Medium</td>
+<td>MFA, rate limiting, anomaly detection</td>
+</tr>
+<tr>
+<td><strong>Coordinated Inauthentic Behavior</strong></td>
+<td>Bot networks manipulating community sentiment</td>
+<td>Repudiation</td>
+<td><a href="https://attack.mitre.org/techniques/T1583/" target="_blank" class="external">T1583</a></td>
+<td>Medium</td>
+<td>High</td>
+<td>Bot detection, behavioral analysis, rate limiting</td>
+</tr>
+<tr>
+<td><strong>Cross-Site Scripting (Stored)</strong></td>
+<td>User-submitted content containing XSS payloads</td>
+<td>Tampering</td>
+<td><a href="https://attack.mitre.org/techniques/T1189/" target="_blank" class="external">T1189</a></td>
+<td>Medium</td>
+<td>High</td>
+<td>Input sanitization, CSP, output encoding</td>
+</tr>
+</tbody>
+</table>
+<h3 id="🌍-ft-004-multi-parliament-federation-threats" class="tsd-anchor-link"><strong>🌍 FT-004: Multi-Parliament Federation Threats</strong><a href="#🌍-ft-004-multi-parliament-federation-threats" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Applies to:</strong> Phase 4 (Multi-Parliament)</p>
+<table>
+<thead>
+<tr>
+<th>Threat</th>
+<th>Description</th>
+<th>STRIDE</th>
+<th>MITRE ATT&amp;CK</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cross-Parliament Data Integrity</strong></td>
+<td>Inconsistent data between EU and national parliament sources</td>
+<td>Tampering</td>
+<td><a href="https://attack.mitre.org/techniques/T1565/" target="_blank" class="external">T1565</a></td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Data reconciliation, source verification, integrity checksums</td>
+</tr>
+<tr>
+<td><strong>Federation Protocol Abuse</strong></td>
+<td>Exploiting inter-system communication for unauthorized data access</td>
+<td>Elevation of Privilege</td>
+<td><a href="https://attack.mitre.org/techniques/T1071/" target="_blank" class="external">T1071</a></td>
+<td>Low</td>
+<td>High</td>
+<td>Mutual TLS, API authentication, protocol validation</td>
+</tr>
+<tr>
+<td><strong>Jurisdiction Conflict</strong></td>
+<td>Different privacy laws (GDPR vs. national) creating compliance gaps</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Legal review per jurisdiction, data classification, consent management</td>
+</tr>
+<tr>
+<td><strong>Supply Chain via Federation Partner</strong></td>
+<td>Compromised national parliament data source injecting malicious data</td>
+<td>Tampering</td>
+<td><a href="https://attack.mitre.org/techniques/T1195/002/" target="_blank" class="external">T1195.002</a></td>
+<td>Low</td>
+<td>Critical</td>
+<td>Source validation, data integrity checks, anomaly detection</td>
+</tr>
+<tr>
+<td><strong>DNS Hijacking of Federation Endpoints</strong></td>
+<td>Redirecting federation traffic to attacker-controlled servers</td>
+<td>Spoofing</td>
+<td><a href="https://attack.mitre.org/techniques/T1584/002/" target="_blank" class="external">T1584.002</a></td>
+<td>Low</td>
+<td>High</td>
+<td>Certificate pinning, DNSSEC, mutual TLS</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🎖️-mitre-attck-future-coverage-analysis" class="tsd-anchor-link">🎖️ MITRE ATT&amp;CK Future Coverage Analysis<a href="#🎖️-mitre-attck-future-coverage-analysis" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="📊-attck-tactics-for-emerging-attack-surface" class="tsd-anchor-link"><strong>📊 ATT&amp;CK Tactics for Emerging Attack Surface</strong><a href="#📊-attck-tactics-for-emerging-attack-surface" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Tactic</th>
+<th>Current Coverage</th>
+<th>Phase 2 (AI)</th>
+<th>Phase 3 (API)</th>
+<th>Phase 4 (Federation)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Initial Access</strong></td>
+<td>✅ Supply chain, dependency</td>
+<td>🔮 Model poisoning</td>
+<td>🔮 API exploitation, credential stuffing</td>
+<td>🔮 Federation endpoint abuse</td>
+</tr>
+<tr>
+<td><strong>Execution</strong></td>
+<td>✅ GitHub Actions</td>
+<td>🔮 Prompt injection, LLM manipulation</td>
+<td>🔮 GraphQL injection</td>
+<td>🔮 Cross-parliament code execution</td>
+</tr>
+<tr>
+<td><strong>Persistence</strong></td>
+<td>✅ Repository compromise</td>
+<td>🔮 Backdoored models</td>
+<td>🔮 Account persistence, session fixation</td>
+<td>🔮 Federation trust abuse</td>
+</tr>
+<tr>
+<td><strong>Privilege Escalation</strong></td>
+<td>✅ Token scope abuse</td>
+<td>🔮 Model authority escalation</td>
+<td>🔮 OAuth scope escalation</td>
+<td>🔮 Cross-jurisdiction privilege</td>
+</tr>
+<tr>
+<td><strong>Defense Evasion</strong></td>
+<td>✅ SHA pinning bypass</td>
+<td>🔮 Adversarial input evasion</td>
+<td>🔮 WAF bypass</td>
+<td>🔮 Cross-border evasion</td>
+</tr>
+<tr>
+<td><strong>Credential Access</strong></td>
+<td>✅ Secret exposure</td>
+<td>🔮 API key extraction from LLM</td>
+<td>🔮 OAuth token theft</td>
+<td>🔮 mTLS certificate theft</td>
+</tr>
+<tr>
+<td><strong>Collection</strong></td>
+<td>✅ EP data access</td>
+<td>🔮 Training data extraction</td>
+<td>🔮 User data scraping</td>
+<td>🔮 Cross-parliament data harvest</td>
+</tr>
+<tr>
+<td><strong>Impact</strong></td>
+<td>✅ Content manipulation</td>
+<td>🔮 Systematic bias injection</td>
+<td>🔮 Service disruption, data manipulation</td>
+<td>🔮 Democratic process manipulation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="🌳-future-attack-trees" class="tsd-anchor-link"><strong>🌳 Future Attack Trees</strong><a href="#🌳-future-attack-trees" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="mermaid"><span class="hl-1">graph TD</span><br/><span class="hl-1">    ROOT[🎯 Compromise Democratic&lt;br/&gt;Content Integrity] --&gt; AI[🤖 AI Pipeline Attack]</span><br/><span class="hl-1">    ROOT --&gt; API[🌐 API/Dashboard Attack]</span><br/><span class="hl-1">    ROOT --&gt; FED[🌍 Federation Attack]</span><br/><span class="hl-1">    ROOT --&gt; SOCIAL[👥 Social Engineering]</span><br/><br/><span class="hl-1">    AI --&gt; AI1[Prompt Injection&lt;br/&gt;via EP Data]</span><br/><span class="hl-1">    AI --&gt; AI2[Model Poisoning&lt;br/&gt;via Training Data]</span><br/><span class="hl-1">    AI --&gt; AI3[Hallucination&lt;br/&gt;Exploitation]</span><br/><br/><span class="hl-1">    API --&gt; API1[GraphQL&lt;br/&gt;Injection]</span><br/><span class="hl-1">    API --&gt; API2[Real-Time Data&lt;br/&gt;Poisoning]</span><br/><span class="hl-1">    API --&gt; API3[Session&lt;br/&gt;Hijacking]</span><br/><br/><span class="hl-1">    FED --&gt; FED1[Federation&lt;br/&gt;Protocol Abuse]</span><br/><span class="hl-1">    FED --&gt; FED2[Compromised&lt;br/&gt;Partner Data]</span><br/><span class="hl-1">    FED --&gt; FED3[Jurisdiction&lt;br/&gt;Exploitation]</span><br/><br/><span class="hl-1">    SOCIAL --&gt; SOC1[Coordinated&lt;br/&gt;Inauthentic Behavior]</span><br/><span class="hl-1">    SOCIAL --&gt; SOC2[Insider&lt;br/&gt;Threat]</span><br/><br/><span class="hl-1">    style ROOT fill:#ff6b6b,color:#fff</span><br/><span class="hl-1">    style AI fill:#fff4e1</span><br/><span class="hl-1">    style API fill:#e1f5ff</span><br/><span class="hl-1">    style FED fill:#f3e5f5</span><br/><span class="hl-1">    style SOCIAL fill:#ffe1e1</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="👥-future-threat-agent-evolution" class="tsd-anchor-link">👥 Future Threat Agent Evolution<a href="#👥-future-threat-agent-evolution" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="📊-evolving-threat-actor-landscape" class="tsd-anchor-link"><strong>📊 Evolving Threat Actor Landscape</strong><a href="#📊-evolving-threat-actor-landscape" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Agent Type</th>
+<th>Current Risk</th>
+<th>Phase 2 Risk</th>
+<th>Phase 3 Risk</th>
+<th>Phase 4 Risk</th>
+<th>Evolution Driver</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🏛️ Nation-State Actors</strong></td>
+<td>Medium</td>
+<td>High</td>
+<td>High</td>
+<td>Critical</td>
+<td>AI manipulation tools, geopolitical interest in EU data</td>
+</tr>
+<tr>
+<td><strong>💰 Cybercriminals</strong></td>
+<td>Low</td>
+<td>Medium</td>
+<td>High</td>
+<td>High</td>
+<td>API monetization creates financial targets</td>
+</tr>
+<tr>
+<td><strong>🎭 Hacktivists</strong></td>
+<td>Medium</td>
+<td>Medium</td>
+<td>High</td>
+<td>High</td>
+<td>Community features enable social manipulation</td>
+</tr>
+<tr>
+<td><strong>👤 Malicious Insiders</strong></td>
+<td>Low</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>High</td>
+<td>Expanded team, federation partners</td>
+</tr>
+<tr>
+<td><strong>🔧 Accidental Insiders</strong></td>
+<td>Medium</td>
+<td>High</td>
+<td>High</td>
+<td>High</td>
+<td>AI complexity increases error probability</td>
+</tr>
+<tr>
+<td><strong>🤖 AI-Powered Attackers</strong></td>
+<td>Low</td>
+<td>High</td>
+<td>High</td>
+<td>Critical</td>
+<td>Automated adversarial content generation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="🎯-future-threat-agent-capabilities" class="tsd-anchor-link"><strong>🎯 Future Threat Agent Capabilities</strong><a href="#🎯-future-threat-agent-capabilities" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>2026 (Current)</th>
+<th>2027 (Phase 3)</th>
+<th>2028+ (Phase 4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Adversarial ML</strong></td>
+<td>Emerging</td>
+<td>Mainstream</td>
+<td>Advanced</td>
+</tr>
+<tr>
+<td><strong>Automated Content Manipulation</strong></td>
+<td>Basic</td>
+<td>Sophisticated</td>
+<td>AI-native</td>
+</tr>
+<tr>
+<td><strong>Cross-Platform Attacks</strong></td>
+<td>Limited</td>
+<td>Moderate</td>
+<td>Advanced (federation)</td>
+</tr>
+<tr>
+<td><strong>Supply Chain Sophistication</strong></td>
+<td>Known patterns</td>
+<td>AI model supply chain</td>
+<td>Federation supply chain</td>
+</tr>
+<tr>
+<td><strong>Democratic Process Targeting</strong></td>
+<td>Election periods</td>
+<td>Continuous influence</td>
+<td>Systemic manipulation</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="📊-future-risk-assessment" class="tsd-anchor-link">📊 Future Risk Assessment<a href="#📊-future-risk-assessment" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="🎯-risk-matrix-for-future-threats" class="tsd-anchor-link"><strong>🎯 Risk Matrix for Future Threats</strong><a href="#🎯-risk-matrix-for-future-threats" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="mermaid"><span class="hl-1">%%{</span><br/><span class="hl-1">  init: {</span><br/><span class="hl-1">    &#39;theme&#39;: &#39;base&#39;,</span><br/><span class="hl-1">    &#39;themeVariables&#39;: {</span><br/><span class="hl-1">      &#39;primaryColor&#39;: &#39;#fff&#39;,</span><br/><span class="hl-1">      &#39;primaryTextColor&#39;: &#39;#000&#39;,</span><br/><span class="hl-1">      &#39;lineColor&#39;: &#39;#333&#39;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">}%%</span><br/><span class="hl-1">quadrantChart</span><br/><span class="hl-1">    title 🔮 Future Threat Risk Assessment</span><br/><span class="hl-1">    x-axis Low Likelihood --&gt; High Likelihood</span><br/><span class="hl-1">    y-axis Low Impact --&gt; High Impact</span><br/><span class="hl-1">    quadrant-1 Monitor &amp; Prepare</span><br/><span class="hl-1">    quadrant-2 Immediate Planning Required</span><br/><span class="hl-1">    quadrant-3 Accept Risk</span><br/><span class="hl-1">    quadrant-4 Design Controls Now</span><br/><br/><span class="hl-1">    &quot;🤖 LLM Hallucination&quot;: [0.75, 0.70]</span><br/><span class="hl-1">    &quot;🤖 Prompt Injection&quot;: [0.55, 0.65]</span><br/><span class="hl-1">    &quot;🤖 Model Poisoning&quot;: [0.30, 0.85]</span><br/><span class="hl-1">    &quot;🌐 API Abuse&quot;: [0.60, 0.50]</span><br/><span class="hl-1">    &quot;🌐 SSRF&quot;: [0.35, 0.70]</span><br/><span class="hl-1">    &quot;👥 Content Abuse&quot;: [0.70, 0.45]</span><br/><span class="hl-1">    &quot;👥 GDPR Breach&quot;: [0.30, 0.80]</span><br/><span class="hl-1">    &quot;🌍 Data Integrity&quot;: [0.55, 0.55]</span><br/><span class="hl-1">    &quot;🌍 Federation Abuse&quot;: [0.30, 0.65]</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="📈-quantitative-risk-scoring-future-threats" class="tsd-anchor-link"><strong>📈 Quantitative Risk Scoring (Future Threats)</strong><a href="#📈-quantitative-risk-scoring-future-threats" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Threat ID</th>
+<th>Threat</th>
+<th>Likelihood (1-5)</th>
+<th>Impact (1-5)</th>
+<th>Risk Score</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FT-001a</td>
+<td>LLM Prompt Injection</td>
+<td>3</td>
+<td>4</td>
+<td>12</td>
+<td>🔴 High</td>
+</tr>
+<tr>
+<td>FT-001b</td>
+<td>LLM Hallucination</td>
+<td>4</td>
+<td>4</td>
+<td>16</td>
+<td>🔴 Critical</td>
+</tr>
+<tr>
+<td>FT-001c</td>
+<td>Model Poisoning</td>
+<td>2</td>
+<td>5</td>
+<td>10</td>
+<td>🔴 High</td>
+</tr>
+<tr>
+<td>FT-001d</td>
+<td>LLM Data Leakage</td>
+<td>2</td>
+<td>3</td>
+<td>6</td>
+<td>🟡 Medium</td>
+</tr>
+<tr>
+<td>FT-001e</td>
+<td>Adversarial Prompt</td>
+<td>3</td>
+<td>4</td>
+<td>12</td>
+<td>🔴 High</td>
+</tr>
+<tr>
+<td>FT-001f</td>
+<td>Model Supply Chain</td>
+<td>2</td>
+<td>5</td>
+<td>10</td>
+<td>🔴 High</td>
+</tr>
+<tr>
+<td>FT-002a</td>
+<td>API Abuse</td>
+<td>3</td>
+<td>3</td>
+<td>9</td>
+<td>🟡 Medium</td>
+</tr>
+<tr>
+<td>FT-002b</td>
+<td>SSRF</td>
+<td>2</td>
+<td>4</td>
+<td>8</td>
+<td>🟡 Medium</td>
+</tr>
+<tr>
+<td>FT-002c</td>
+<td>Data Poisoning</td>
+<td>2</td>
+<td>4</td>
+<td>8</td>
+<td>🟡 Medium</td>
+</tr>
+<tr>
+<td>FT-002d</td>
+<td>Session Hijacking</td>
+<td>2</td>
+<td>3</td>
+<td>6</td>
+<td>🟡 Medium</td>
+</tr>
+<tr>
+<td>FT-003a</td>
+<td>Content Abuse</td>
+<td>4</td>
+<td>3</td>
+<td>12</td>
+<td>🔴 High</td>
+</tr>
+<tr>
+<td>FT-003b</td>
+<td>GDPR Breach</td>
+<td>2</td>
+<td>5</td>
+<td>10</td>
+<td>🔴 High</td>
+</tr>
+<tr>
+<td>FT-003c</td>
+<td>Account Takeover</td>
+<td>3</td>
+<td>3</td>
+<td>9</td>
+<td>🟡 Medium</td>
+</tr>
+<tr>
+<td>FT-004a</td>
+<td>Cross-Parliament Integrity</td>
+<td>3</td>
+<td>3</td>
+<td>9</td>
+<td>🟡 Medium</td>
+</tr>
+<tr>
+<td>FT-004b</td>
+<td>Federation Protocol Abuse</td>
+<td>2</td>
+<td>4</td>
+<td>8</td>
+<td>🟡 Medium</td>
+</tr>
+</tbody>
+</table>
+<h3 id="📈-threat-evolution-timeline" class="tsd-anchor-link"><strong>📈 Threat Evolution Timeline</strong><a href="#📈-threat-evolution-timeline" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>New Attack Surface</th>
+<th>Threat Count Increase</th>
+<th>Key New Controls Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Current</strong></td>
+<td>Static site + EP MCP</td>
+<td>20 threats (baseline)</td>
+<td>Schema validation, CSP, SAST</td>
+</tr>
+<tr>
+<td><strong>Phase 2</strong></td>
+<td>+ AI/LLM pipeline</td>
+<td>+8-12 threats (LLM-specific)</td>
+<td>Confidence scoring, output validation, prompt hardening</td>
+</tr>
+<tr>
+<td><strong>Phase 3</strong></td>
+<td>+ API gateway, users</td>
+<td>+10-15 threats (API/user)</td>
+<td>WAF, OAuth2, rate limiting, session management</td>
+</tr>
+<tr>
+<td><strong>Phase 4</strong></td>
+<td>+ Multi-parliament federation</td>
+<td>+5-8 threats (federation)</td>
+<td>Mutual TLS, data reconciliation, jurisdiction management</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🎯-scenario-centric-future-threat-analysis" class="tsd-anchor-link">🎯 Scenario-Centric Future Threat Analysis<a href="#🎯-scenario-centric-future-threat-analysis" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="🎭-misuse-cases" class="tsd-anchor-link"><strong>🎭 Misuse Cases</strong><a href="#🎭-misuse-cases" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<h4 id="misuse-case-1-ai-powered-disinformation-campaign" class="tsd-anchor-link"><strong>Misuse Case 1: AI-Powered Disinformation Campaign</strong><a href="#misuse-case-1-ai-powered-disinformation-campaign" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Scenario:</strong> A nation-state actor identifies that EU Parliament Monitor uses LLM-generated content. They craft adversarial European Parliament documents designed to trigger specific LLM outputs, injecting subtle political bias into generated news articles across all 14 languages.</p>
+<p><strong>Attack Path:</strong></p>
+<ol>
+<li>Attacker submits amendments to EP documents with adversarial text patterns</li>
+<li>EP MCP Server fetches legitimate EP data containing adversarial content</li>
+<li>LLM processes the data and generates subtly biased news articles</li>
+<li>Biased content published across 14 languages, amplifying disinformation</li>
+</ol>
+<p><strong>Impact:</strong> Medium-High — Undermines democratic transparency platform credibility</p>
+<p><strong>Mitigation:</strong> Confidence scoring, cross-reference validation, multi-source fact-checking, human review queue for political content</p>
+<h4 id="misuse-case-2-community-feature-manipulation" class="tsd-anchor-link"><strong>Misuse Case 2: Community Feature Manipulation</strong><a href="#misuse-case-2-community-feature-manipulation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><strong>Scenario:</strong> A coordinated group creates fake user accounts to systematically upvote/downvote community assessments of MEP activities, creating artificial consensus around political positions.</p>
+<p><strong>Attack Path:</strong></p>
+<ol>
+<li>Attacker registers multiple accounts using disposable email services</li>
+<li>Bot network systematically rates/reviews MEP activities</li>
+<li>Artificial consensus distorts public perception via platform</li>
+</ol>
+<p><strong>Impact:</strong> High — Platform becomes tool for political manipulation rather than transparency</p>
+<p><strong>Mitigation:</strong> Bot detection, behavioral analysis, rate limiting per account, proof-of-work for registration, anomaly detection on voting patterns</p>
+<h3 id="🤔-what-if-analysis" class="tsd-anchor-link"><strong>🤔 What-If Analysis</strong><a href="#🤔-what-if-analysis" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>What-If Scenario</th>
+<th>Probability</th>
+<th>Impact</th>
+<th>Response Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>What if EP Open Data API introduces authentication?</strong></td>
+<td>Medium</td>
+<td>High</td>
+<td>Implement OAuth2 client, update MCP server, credential rotation</td>
+</tr>
+<tr>
+<td><strong>What if a major LLM provider has a security breach?</strong></td>
+<td>Low</td>
+<td>Critical</td>
+<td>Model isolation, fallback to template-based generation, incident response</td>
+</tr>
+<tr>
+<td><strong>What if EU AI Act mandates content labeling?</strong></td>
+<td>High</td>
+<td>Medium</td>
+<td>Implement AI content disclosure, transparency watermarking</td>
+</tr>
+<tr>
+<td><strong>What if a federation partner is compromised?</strong></td>
+<td>Low</td>
+<td>High</td>
+<td>Mutual TLS revocation, data quarantine, partner isolation</td>
+</tr>
+<tr>
+<td><strong>What if coordinated attack targets during EU elections?</strong></td>
+<td>Medium</td>
+<td>Critical</td>
+<td>Election security protocols, enhanced monitoring, manual override</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🛡️-planned-security-controls" class="tsd-anchor-link">🛡️ Planned Security Controls<a href="#🛡️-planned-security-controls" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="phase-2-ai-content-pipeline-security" class="tsd-anchor-link"><strong>Phase 2: AI Content Pipeline Security</strong><a href="#phase-2-ai-content-pipeline-security" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Purpose</th>
+<th>Priority</th>
+<th>Timeline</th>
+<th>STRIDE Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Confidence Scoring System</strong></td>
+<td>Score 0.0-1.0 for each generated article; human review if &lt;0.85</td>
+<td>P1</td>
+<td>Q3 2026</td>
+<td>Tampering</td>
+</tr>
+<tr>
+<td><strong>LLM Output Validation</strong></td>
+<td>Automated fact-checking against official EP data sources</td>
+<td>P1</td>
+<td>Q3 2026</td>
+<td>Tampering</td>
+</tr>
+<tr>
+<td><strong>Prompt Injection Detection</strong></td>
+<td>Input sanitization for EP data before LLM processing</td>
+<td>P1</td>
+<td>Q3 2026</td>
+<td>Tampering</td>
+</tr>
+<tr>
+<td><strong>Content Integrity Pipeline</strong></td>
+<td>Cross-reference generated content with source EP data</td>
+<td>P2</td>
+<td>Q4 2026</td>
+<td>Tampering, Repudiation</td>
+</tr>
+<tr>
+<td><strong>AI Bias Detection</strong></td>
+<td>Automated political neutrality checking across 14 languages</td>
+<td>P2</td>
+<td>Q4 2026</td>
+<td>Tampering</td>
+</tr>
+<tr>
+<td><strong>Model Provenance Verification</strong></td>
+<td>Signed model artifacts, checksum validation</td>
+<td>P1</td>
+<td>Q3 2026</td>
+<td>Tampering</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phase-3-api-community-security" class="tsd-anchor-link"><strong>Phase 3: API &amp; Community Security</strong><a href="#phase-3-api-community-security" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Purpose</th>
+<th>Priority</th>
+<th>Timeline</th>
+<th>STRIDE Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>API Gateway with WAF</strong></td>
+<td>Rate limiting, authentication, request validation</td>
+<td>P1</td>
+<td>Q1 2027</td>
+<td>DoS, Tampering</td>
+</tr>
+<tr>
+<td><strong>OAuth2/OIDC Authentication</strong></td>
+<td>Secure user authentication for community features</td>
+<td>P1</td>
+<td>Q1 2027</td>
+<td>Spoofing</td>
+</tr>
+<tr>
+<td><strong>Content Moderation System</strong></td>
+<td>Anti-spam, disinformation detection, reporting</td>
+<td>P1</td>
+<td>Q2 2027</td>
+<td>Tampering, Repudiation</td>
+</tr>
+<tr>
+<td><strong>GDPR Compliance Layer</strong></td>
+<td>Privacy by design, data minimization, consent management</td>
+<td>P1</td>
+<td>Q1 2027</td>
+<td>Information Disclosure</td>
+</tr>
+<tr>
+<td><strong>Real-Time Anomaly Detection</strong></td>
+<td>Monitor live data feeds for integrity violations</td>
+<td>P2</td>
+<td>Q2 2027</td>
+<td>Tampering</td>
+</tr>
+<tr>
+<td><strong>GraphQL Query Complexity Limiting</strong></td>
+<td>Prevent denial-of-service via complex queries</td>
+<td>P1</td>
+<td>Q1 2027</td>
+<td>DoS</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phase-4-federation-security" class="tsd-anchor-link"><strong>Phase 4: Federation Security</strong><a href="#phase-4-federation-security" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Purpose</th>
+<th>Priority</th>
+<th>Timeline</th>
+<th>STRIDE Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mutual TLS for Federation</strong></td>
+<td>Secure inter-parliament communication</td>
+<td>P1</td>
+<td>2028</td>
+<td>Spoofing, Tampering</td>
+</tr>
+<tr>
+<td><strong>Data Reconciliation Engine</strong></td>
+<td>Cross-validate data between parliament sources</td>
+<td>P1</td>
+<td>2028</td>
+<td>Tampering</td>
+</tr>
+<tr>
+<td><strong>Jurisdiction Compliance Engine</strong></td>
+<td>Automated GDPR/national law compliance checking</td>
+<td>P2</td>
+<td>2028</td>
+<td>Information Disclosure</td>
+</tr>
+<tr>
+<td><strong>Zero-Trust Federation Architecture</strong></td>
+<td>Never trust, always verify partner data</td>
+<td>P1</td>
+<td>2028</td>
+<td>Spoofing, Elevation of Privilege</td>
+</tr>
+<tr>
+<td><strong>Federation Audit Trail</strong></td>
+<td>Immutable logging of all cross-parliament operations</td>
+<td>P1</td>
+<td>2028</td>
+<td>Repudiation</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="📋-future-compliance-framework-mapping" class="tsd-anchor-link">📋 Future Compliance Framework Mapping<a href="#📋-future-compliance-framework-mapping" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="📊-emerging-regulatory-landscape" class="tsd-anchor-link"><strong>📊 Emerging Regulatory Landscape</strong><a href="#📊-emerging-regulatory-landscape" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Regulation</th>
+<th>Effective Date</th>
+<th>Impact on EP Monitor</th>
+<th>Required Controls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EU AI Act</strong></td>
+<td>2026-2027</td>
+<td>AI content generation transparency requirements</td>
+<td>AI content labeling, risk assessment, bias detection</td>
+</tr>
+<tr>
+<td><strong>EU Cyber Resilience Act (CRA)</strong></td>
+<td>2027</td>
+<td>Software security requirements for open-source</td>
+<td>SBOM, vulnerability disclosure, security updates</td>
+</tr>
+<tr>
+<td><strong>NIS2 Directive</strong></td>
+<td>Already effective</td>
+<td>Critical infrastructure security (if classified)</td>
+<td>Incident reporting, risk management, supply chain security</td>
+</tr>
+<tr>
+<td><strong>GDPR</strong></td>
+<td>Already effective</td>
+<td>User data protection for community features</td>
+<td>Privacy by design, DPO, DPIA, consent management</td>
+</tr>
+<tr>
+<td><strong>EU Data Act</strong></td>
+<td>2025-2026</td>
+<td>Data sharing and interoperability requirements</td>
+<td>Data portability, fair access, interoperability standards</td>
+</tr>
+</tbody>
+</table>
+<h3 id="🏛️-future-iso-270012022-control-mapping" class="tsd-anchor-link"><strong>🏛️ Future ISO 27001:2022 Control Mapping</strong><a href="#🏛️-future-iso-270012022-control-mapping" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Phase 2 Relevance</th>
+<th>Phase 3 Relevance</th>
+<th>Phase 4 Relevance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A.5.23 Cloud Security</strong></td>
+<td>LLM API security</td>
+<td>API gateway cloud deployment</td>
+<td>Federation cloud architecture</td>
+</tr>
+<tr>
+<td><strong>A.8.9 Configuration Management</strong></td>
+<td>AI pipeline config</td>
+<td>API &amp; user config</td>
+<td>Federation config management</td>
+</tr>
+<tr>
+<td><strong>A.8.12 Data Leakage Prevention</strong></td>
+<td>LLM output filtering</td>
+<td>User data protection</td>
+<td>Cross-border data controls</td>
+</tr>
+<tr>
+<td><strong>A.8.25 Secure Development</strong></td>
+<td>AI pipeline testing</td>
+<td>API security testing</td>
+<td>Federation protocol testing</td>
+</tr>
+<tr>
+<td><strong>A.8.28 Secure Coding</strong></td>
+<td>Prompt engineering</td>
+<td>API input validation</td>
+<td>Protocol implementation</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🔄-continuous-threat-landscape-monitoring" class="tsd-anchor-link">🔄 Continuous Threat Landscape Monitoring<a href="#🔄-continuous-threat-landscape-monitoring" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="📡-emerging-threat-indicators" class="tsd-anchor-link"><strong>📡 Emerging Threat Indicators</strong><a href="#📡-emerging-threat-indicators" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>The following developments should trigger a threat model update:</p>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Trigger Action</th>
+<th>Review Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>New LLM vulnerability class discovered</strong></td>
+<td>Update OWASP LLM Top 10 alignment</td>
+<td>🔴 High</td>
+</tr>
+<tr>
+<td><strong>EP API major version change</strong></td>
+<td>Re-assess data integrity controls</td>
+<td>🔴 High</td>
+</tr>
+<tr>
+<td><strong>European Parliament election period</strong></td>
+<td>Activate election security protocols</td>
+<td>🔴 High</td>
+</tr>
+<tr>
+<td><strong>New ENISA Threat Landscape published</strong></td>
+<td>Update ENISA alignment section</td>
+<td>🟡 Medium</td>
+</tr>
+<tr>
+<td><strong>GitHub Actions security advisory</strong></td>
+<td>Review CI/CD security controls</td>
+<td>🟡 Medium</td>
+</tr>
+<tr>
+<td><strong>New EU regulation (AI Act, CRA update)</strong></td>
+<td>Update compliance mapping</td>
+<td>🟡 Medium</td>
+</tr>
+<tr>
+<td><strong>National parliament data source added</strong></td>
+<td>Expand threat model scope</td>
+<td>🟡 Medium</td>
+</tr>
+<tr>
+<td><strong>Major LLM provider breach or incident</strong></td>
+<td>Review AI pipeline security controls</td>
+<td>🔴 High</td>
+</tr>
+<tr>
+<td><strong>Federation partner security incident</strong></td>
+<td>Activate partner isolation protocols</td>
+<td>🔴 High</td>
+</tr>
+</tbody>
+</table>
+<h3 id="📅-future-assessment-lifecycle" class="tsd-anchor-link"><strong>📅 Future Assessment Lifecycle</strong><a href="#📅-future-assessment-lifecycle" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Assessment Type</th>
+<th>Frequency</th>
+<th>Trigger</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Quarterly Review</strong></td>
+<td>Every 3 months</td>
+<td>Scheduled</td>
+<td>Full threat landscape review</td>
+</tr>
+<tr>
+<td><strong>Phase Transition Assessment</strong></td>
+<td>Per architecture phase</td>
+<td>Phase completion</td>
+<td>New attack surface analysis</td>
+</tr>
+<tr>
+<td><strong>Incident-Driven Assessment</strong></td>
+<td>As needed</td>
+<td>Security incident</td>
+<td>Affected threat categories</td>
+</tr>
+<tr>
+<td><strong>Regulatory Update Assessment</strong></td>
+<td>As needed</td>
+<td>New regulation</td>
+<td>Compliance impact analysis</td>
+</tr>
+<tr>
+<td><strong>ENISA-Triggered Review</strong></td>
+<td>Annually</td>
+<td>ENISA report publication</td>
+<td>EU threat landscape alignment</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🎯-future-threat-modeling-maturity" class="tsd-anchor-link">🎯 Future Threat Modeling Maturity<a href="#🎯-future-threat-modeling-maturity" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="📈-planned-maturity-progression" class="tsd-anchor-link"><strong>📈 Planned Maturity Progression</strong><a href="#📈-planned-maturity-progression" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Phase</th>
+<th>Capabilities</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🟢 Level 2: Repeatable</strong></td>
+<td>Current</td>
+<td>Structured STRIDE analysis, MITRE ATT&amp;CK mapping</td>
+<td>THREAT_MODEL.md v2.0</td>
+</tr>
+<tr>
+<td><strong>🟡 Level 3: Defined</strong></td>
+<td>Phase 2</td>
+<td>AI-specific threat modeling, automated threat detection</td>
+<td>OWASP LLM integration, CI/CD security gates</td>
+</tr>
+<tr>
+<td><strong>🟠 Level 4: Managed</strong></td>
+<td>Phase 3</td>
+<td>Quantitative risk assessment, threat intelligence feeds</td>
+<td>Real-time monitoring, SIEM integration</td>
+</tr>
+<tr>
+<td><strong>🔴 Level 5: Optimized</strong></td>
+<td>Phase 4</td>
+<td>Predictive threat analysis, automated response</td>
+<td>AI-driven threat detection, self-healing controls</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="📚-related-documents" class="tsd-anchor-link">📚 Related Documents<a href="#📚-related-documents" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Description</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>THREAT_MODEL.md</strong></td>
+<td>Current threat landscape (20 threats)</td>
+<td><a href="THREAT_MODEL.html">THREAT_MODEL.md</a></td>
+</tr>
+<tr>
+<td><strong>SECURITY_ARCHITECTURE.md</strong></td>
+<td>Current security controls</td>
+<td><a href="SECURITY_ARCHITECTURE.html">SECURITY_ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td><strong>FUTURE_SECURITY_ARCHITECTURE.md</strong></td>
+<td>Planned security enhancements</td>
+<td><a href="FUTURE_SECURITY_ARCHITECTURE.html">FUTURE_SECURITY_ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td><strong>FUTURE_ARCHITECTURE.md</strong></td>
+<td>Planned architectural evolution</td>
+<td><a href="FUTURE_ARCHITECTURE.html">FUTURE_ARCHITECTURE.md</a></td>
+</tr>
+<tr>
+<td><strong>Hack23 ISMS - Threat Modeling</strong></td>
+<td>Policy framework</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md" target="_blank" class="external">Threat_Modeling.md</a></td>
+</tr>
+<tr>
+<td><strong>Hack23 ISMS - Secure Development</strong></td>
+<td>Secure SDLC requirements</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" class="external">Secure_Development_Policy.md</a></td>
+</tr>
+<tr>
+<td><strong>Hack23 ISMS - Vulnerability Management</strong></td>
+<td>Vulnerability lifecycle</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md" target="_blank" class="external">Vulnerability_Management.md</a></td>
+</tr>
+<tr>
+<td><strong>Hack23 ISMS - Classification</strong></td>
+<td>Data classification framework</td>
+<td><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md" target="_blank" class="external">CLASSIFICATION.md</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="approval-and-review" class="tsd-anchor-link">Approval and Review<a href="#approval-and-review" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Name</th>
+<th>Date</th>
+<th>Signature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Security Architect</strong></td>
+<td>Security Team</td>
+<td>2026-03-19</td>
+<td>Approved</td>
+</tr>
+<tr>
+<td><strong>Product Owner</strong></td>
+<td>Product Team</td>
+<td>2026-03-19</td>
+<td>Approved</td>
+</tr>
+<tr>
+<td><strong>CEO / CISO</strong></td>
+<td>CEO</td>
+<td>2026-03-19</td>
+<td>Approved</td>
+</tr>
+</tbody>
+</table>
+<h3 id="📝-change-log" class="tsd-anchor-link"><strong>📝 Change Log</strong><a href="#📝-change-log" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-02-26</td>
+<td>Security Team</td>
+<td>Initial future threat model document</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- AI/LLM threat analysis (OWASP LLM Top 10 alignment)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- API gateway and dynamic content threats</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Community feature threat analysis</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Multi-parliament federation threats</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Planned security controls roadmap (Phase 2-4)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Emerging threat indicator monitoring plan</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>2026-03-19</td>
+<td>Security Team</td>
+<td>Major expansion per ISMS Threat Modeling Policy</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Added architecture documentation map</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Added STRIDE categorization to all threats</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Added MITRE ATT&amp;CK future coverage analysis</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Added future attack trees with Mermaid diagrams</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Added threat agent evolution analysis</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Added quantitative risk scoring</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Added scenario-centric analysis (misuse cases)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Added what-if analysis</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Added future compliance framework mapping</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Added crown jewel analysis for future state</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Added threat modeling maturity progression</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>- Added attack surface evolution diagram</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>📋 Document Control:</strong><br>
+<strong>✅ Approved by:</strong> James Pether Sörling, CEO - Hack23 AB<br>
+<strong>📤 Distribution:</strong> Public<br>
+<strong>🏷️ Classification:</strong>
+<a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#confidentiality-levels" target="_blank" class="external"><img src="https://img.shields.io/badge/C-Public-lightgrey?style=flat-square&amp;logo=shield&amp;logoColor=black" alt="Confidentiality: Public"></a>
+<a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#integrity-levels" target="_blank" class="external"><img src="https://img.shields.io/badge/I-Medium-yellow?style=flat-square&amp;logo=check-circle&amp;logoColor=white" alt="Integrity: Medium"></a>
+<a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#availability-levels" target="_blank" class="external"><img src="https://img.shields.io/badge/A-Medium-yellow?style=flat-square" alt="Availability: Medium"></a></p>
+<hr>
+<p><em>This future threat model anticipates the evolving threat landscape for the EU Parliament Monitor as it advances from a static site generator to a comprehensive European Parliament intelligence platform. It demonstrates Hack23 AB's commitment to proactive security through forward-looking threat analysis aligned with the <a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md" target="_blank" class="external">Hack23 ISMS Threat Modeling Policy</a>.</em></p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-alpha" name="alpha"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Alpha</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-beta" name="beta"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Beta</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#📚-architecture-documentation-map"><span>📚 <wbr/>Architecture <wbr/>Documentation <wbr/>Map</span></a><a href="#🎯-purpose-scope"><span>🎯 <wbr/>Purpose &amp; <wbr/>Scope</span></a><ul><li><a href="#🌟-transparency-commitment"><span>🌟 <wbr/>Transparency <wbr/>Commitment</span></a></li><li><a href="#📚-framework-integration"><span>📚 <wbr/>Framework <wbr/>Integration</span></a></li><li><a href="#🔗-reference-documents"><span>🔗 <wbr/>Reference <wbr/>Documents</span></a></li></ul><a href="#🔄-planned-architecture-evolution"><span>🔄 <wbr/>Planned <wbr/>Architecture <wbr/>Evolution</span></a><ul><li><a href="#📊-architecture-transition-timeline"><span>📊 <wbr/>Architecture <wbr/>Transition <wbr/>Timeline</span></a></li><li><a href="#📊-attack-surface-evolution"><span>📊 <wbr/>Attack <wbr/>Surface <wbr/>Evolution</span></a></li></ul><a href="#💎-future-critical-assets-protection-goals"><span>💎 <wbr/>Future <wbr/>Critical <wbr/>Assets &amp; <wbr/>Protection <wbr/>Goals</span></a><ul><li><a href="#🏗️-asset-centric-analysis-for-future-architecture"><span>🏗️ <wbr/>Asset-<wbr/>Centric <wbr/>Analysis for <wbr/>Future <wbr/>Architecture</span></a></li><li><a href="#🔐-crown-jewel-analysis-future-state"><span>🔐 <wbr/>Crown <wbr/>Jewel <wbr/>Analysis (<wbr/>Future <wbr/>State)</span></a></li></ul><a href="#🆕-future-threat-categories"><span>🆕 <wbr/>Future <wbr/>Threat <wbr/>Categories</span></a><ul><li><a href="#🤖-ft-001-aillm-content-generation-threats"><span>🤖 <wbr/>FT-<wbr/>001: <wbr/>AI/<wbr/>LLM <wbr/>Content <wbr/>Generation <wbr/>Threats</span></a></li><li><a href="#🌐-ft-002-api-gateway-dynamic-content-threats"><span>🌐 <wbr/>FT-<wbr/>002: <wbr/>API <wbr/>Gateway &amp; <wbr/>Dynamic <wbr/>Content <wbr/>Threats</span></a></li><li><a href="#👥-ft-003-community-feature-threats"><span>👥 <wbr/>FT-<wbr/>003: <wbr/>Community <wbr/>Feature <wbr/>Threats</span></a></li><li><a href="#🌍-ft-004-multi-parliament-federation-threats"><span>🌍 <wbr/>FT-<wbr/>004: <wbr/>Multi-<wbr/>Parliament <wbr/>Federation <wbr/>Threats</span></a></li></ul><a href="#🎖️-mitre-attck-future-coverage-analysis"><span>🎖️ <wbr/>MITRE <wbr/>ATT&amp;<wbr/>CK <wbr/>Future <wbr/>Coverage <wbr/>Analysis</span></a><ul><li><a href="#📊-attck-tactics-for-emerging-attack-surface"><span>📊 <wbr/>ATT&amp;<wbr/>CK <wbr/>Tactics for <wbr/>Emerging <wbr/>Attack <wbr/>Surface</span></a></li><li><a href="#🌳-future-attack-trees"><span>🌳 <wbr/>Future <wbr/>Attack <wbr/>Trees</span></a></li></ul><a href="#👥-future-threat-agent-evolution"><span>👥 <wbr/>Future <wbr/>Threat <wbr/>Agent <wbr/>Evolution</span></a><ul><li><a href="#📊-evolving-threat-actor-landscape"><span>📊 <wbr/>Evolving <wbr/>Threat <wbr/>Actor <wbr/>Landscape</span></a></li><li><a href="#🎯-future-threat-agent-capabilities"><span>🎯 <wbr/>Future <wbr/>Threat <wbr/>Agent <wbr/>Capabilities</span></a></li></ul><a href="#📊-future-risk-assessment"><span>📊 <wbr/>Future <wbr/>Risk <wbr/>Assessment</span></a><ul><li><a href="#🎯-risk-matrix-for-future-threats"><span>🎯 <wbr/>Risk <wbr/>Matrix for <wbr/>Future <wbr/>Threats</span></a></li><li><a href="#📈-quantitative-risk-scoring-future-threats"><span>📈 <wbr/>Quantitative <wbr/>Risk <wbr/>Scoring (<wbr/>Future <wbr/>Threats)</span></a></li><li><a href="#📈-threat-evolution-timeline"><span>📈 <wbr/>Threat <wbr/>Evolution <wbr/>Timeline</span></a></li></ul><a href="#🎯-scenario-centric-future-threat-analysis"><span>🎯 <wbr/>Scenario-<wbr/>Centric <wbr/>Future <wbr/>Threat <wbr/>Analysis</span></a><ul><li><a href="#🎭-misuse-cases"><span>🎭 <wbr/>Misuse <wbr/>Cases</span></a></li><li><ul><li><a href="#misuse-case-1-ai-powered-disinformation-campaign"><span>Misuse <wbr/>Case 1: <wbr/>AI-<wbr/>Powered <wbr/>Disinformation <wbr/>Campaign</span></a></li><li><a href="#misuse-case-2-community-feature-manipulation"><span>Misuse <wbr/>Case 2: <wbr/>Community <wbr/>Feature <wbr/>Manipulation</span></a></li></ul></li><li><a href="#🤔-what-if-analysis"><span>🤔 <wbr/>What-<wbr/>If <wbr/>Analysis</span></a></li></ul><a href="#🛡️-planned-security-controls"><span>🛡️ <wbr/>Planned <wbr/>Security <wbr/>Controls</span></a><ul><li><a href="#phase-2-ai-content-pipeline-security"><span>Phase 2: <wbr/>AI <wbr/>Content <wbr/>Pipeline <wbr/>Security</span></a></li><li><a href="#phase-3-api-community-security"><span>Phase 3: <wbr/>API &amp; <wbr/>Community <wbr/>Security</span></a></li><li><a href="#phase-4-federation-security"><span>Phase 4: <wbr/>Federation <wbr/>Security</span></a></li></ul><a href="#📋-future-compliance-framework-mapping"><span>📋 <wbr/>Future <wbr/>Compliance <wbr/>Framework <wbr/>Mapping</span></a><ul><li><a href="#📊-emerging-regulatory-landscape"><span>📊 <wbr/>Emerging <wbr/>Regulatory <wbr/>Landscape</span></a></li><li><a href="#🏛️-future-iso-270012022-control-mapping"><span>🏛️ <wbr/>Future <wbr/>ISO 27001:2022 <wbr/>Control <wbr/>Mapping</span></a></li></ul><a href="#🔄-continuous-threat-landscape-monitoring"><span>🔄 <wbr/>Continuous <wbr/>Threat <wbr/>Landscape <wbr/>Monitoring</span></a><ul><li><a href="#📡-emerging-threat-indicators"><span>📡 <wbr/>Emerging <wbr/>Threat <wbr/>Indicators</span></a></li><li><a href="#📅-future-assessment-lifecycle"><span>📅 <wbr/>Future <wbr/>Assessment <wbr/>Lifecycle</span></a></li></ul><a href="#🎯-future-threat-modeling-maturity"><span>🎯 <wbr/>Future <wbr/>Threat <wbr/>Modeling <wbr/>Maturity</span></a><ul><li><a href="#📈-planned-maturity-progression"><span>📈 <wbr/>Planned <wbr/>Maturity <wbr/>Progression</span></a></li></ul><a href="#📚-related-documents"><span>📚 <wbr/>Related <wbr/>Documents</span></a><a href="#approval-and-review"><span>Approval and <wbr/>Review</span></a><ul><li><a href="#📝-change-log"><span>📝 <wbr/>Change <wbr/>Log</span></a></li></ul></div></details></div><div class="site-menu"><nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md">🏛️ Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md">🔒 Security Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md">🛡️ Threat Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/DATA_MODEL.md">📊 Data Model</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FLOWCHART.md">🔄 Flowchart</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/STATEDIAGRAM.md">📈 State Diagram</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/MINDMAP.md">🧠 Mindmap</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md">💼 SWOT Analysis</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md">📜 CRA Assessment</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_ARCHITECTURE.md">🚀 Future Architecture</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md">🔮 Future Security</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_THREAT_MODEL.md">🔮 Future Threat Model</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md">📋 Secure Dev Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md">🔐 Information Security Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md">📑 Open Source Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md">🏷️ Classification Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md">🤖 AI Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md">🔑 Access Control Policy</a><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md">🔏 Cryptography Policy</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md">📋 WORKFLOWS</a><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CONTRIBUTING.md">📋 CONTRIBUTING</a><a href="https://euparliamentmonitor.com" class="tsd-nav-link">🏠 Home</a><a href="https://github.com/Hack23/euparliamentmonitor" class="tsd-nav-link">📦 GitHub</a><a href="https://github.com/Hack23/ISMS-PUBLIC" class="tsd-nav-link">🛡️ ISMS</a><a href="https://github.com/Hack23/European-Parliament-MCP-Server" class="tsd-nav-link">🇪🇺 EP MCP Server</a><a href="https://www.npmjs.com/package/euparliamentmonitor" class="tsd-nav-link">📦 npm</a></nav><nav class="tsd-navigation"><a href="../modules.html">EU Parliament Monitor — API Documentation - v0.8.13</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>
