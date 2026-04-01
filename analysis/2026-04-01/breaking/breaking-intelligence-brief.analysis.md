@@ -546,3 +546,123 @@ Incorporating the precomputed stats intelligence:
 *Data Source: European Parliament Open Data Portal (data.europarl.europa.eu)*
 *Methodology: Per `analysis/methodologies/ai-driven-analysis-guide.md` Rule 5 — No workflow run wasted*
 *Pass 1: 2026-04-01 00:25 UTC | Pass 2: 2026-04-01 06:33 UTC*
+
+
+---
+
+## 🔄 Third Analysis Pass — Feed Growth & API Stability (12:20 UTC)
+
+> **Pass 3 context**: Third analysis run for 2026-04-01. Previous passes at 00:25 UTC and 06:33 UTC both concluded NO_BREAKING_NEWS. This pass extends the analysis with updated feed data and API behaviour observations.
+
+### Feed Endpoint Results (Pass 3)
+
+| Endpoint | Pass 1 (00:25) | Pass 2 (06:33) | Pass 3 (12:20) | Trend |
+|----------|---------------|---------------|---------------|-------|
+| `get_adopted_texts_feed` | ✅ 6 items | ✅ 10 items | ✅ **14 items** | ↑ +4 items/pass |
+| `get_events_feed` | ❌ 404 | ❌ 404 | ❌ 404 | → Stable (unavailable) |
+| `get_procedures_feed` | ❌ 404 | ❌ 404 | ❌ 404 | → Stable (unavailable) |
+| `get_meps_feed` | ✅ 737 | ✅ 737 | ✅ **737** | → Stable |
+| `get_documents_feed` | ❌ 404 | ⏱️ Timeout | ⏱️ **Timeout** | → Stable (timeout) |
+| `get_plenary_documents_feed` | ❌ 404 | ⏱️ Timeout | ⏱️ **Timeout** | → Stable (timeout) |
+| `get_committee_documents_feed` | ❌ 404 | ⏱️ Timeout | ⏱️ **Timeout** | → Stable (timeout) |
+| `get_parliamentary_questions_feed` | ❌ 404 | ⏱️ Timeout | ⏱️ **Timeout** | → Stable (timeout) |
+| `detect_voting_anomalies` | ✅ 0 anomalies | ✅ 0 anomalies | ✅ **0 anomalies** | → Stable |
+| `analyze_coalition_dynamics` | ✅ 8 groups | ✅ 8 groups | ⏱️ **Timeout** | ↓ Degraded |
+| `generate_political_landscape` | ✅ 100 MEPs | ✅ 100 MEPs | ✅ **100 MEPs** | → Stable |
+| `early_warning_system` | ✅ 3 warnings | ✅ 3 warnings | ✅ **3 warnings** | → Stable |
+
+### Adopted Texts Feed Growth Analysis
+
+The adopted texts feed has shown consistent linear growth across three analysis passes:
+
+```mermaid
+xychart-beta
+    title "Adopted Texts Feed Items — 2026-04-01"
+    x-axis ["00:25 UTC", "06:33 UTC", "12:20 UTC"]
+    y-axis "Items in Feed" 0 --> 20
+    line [6, 10, 14]
+```
+
+**Growth rate**: ~4 items per analysis pass (~6 hours apart), suggesting the EP API backend processes metadata updates in batches throughout the day. At this rate, the feed could contain ~18-20 items by end of day.
+
+**New items in pass 3** (not present in pass 2):
+
+| Identifier | Type | Adoption Date | Assessment |
+|-----------|------|--------------|-----------|
+| TA-10-2025-0281 | T10-0281/2025 | 2025 | Historical text, metadata refresh |
+| TA-10-2025-0283 | T10-0283/2025 | 2025 | Historical text, metadata refresh |
+| TA-10-2025-0288 | T10-0288/2025 | 2025 | Historical text, metadata refresh |
+| TA-10-2025-0290 | T10-0290/2025 | 2025 | Historical text, metadata refresh |
+| TA-10-2025-0292 | T10-0292/2025 | 2025 | Historical text, metadata refresh |
+| TA-10-2026-0044 | T10-0044/2026 | 2026-01 (est.) | 2026 text, metadata refresh |
+| TA-10-2026-0087 | T10-0087/2026 | 2026-03 (est.) | March 2026 text, metadata refresh |
+
+**Assessment**: The feed growth confirms systematic batch re-indexing of adopted texts. The inclusion of 2025 texts alongside 2026 texts indicates a broad metadata refresh cycle rather than selective updates. No items have adoption dates matching today (2026-04-01). 🟢 High confidence — consistent with recess-period administrative processing.
+
+### API Stability Assessment
+
+| API Behaviour | Observation | Interpretation |
+|--------------|-------------|----------------|
+| Events/Procedures 404 | Consistent across 3 passes | Feed endpoints likely disabled/empty during recess |
+| Advisory timeouts | Consistent in passes 2-3 | Backend processing unable to complete within 120s window |
+| Coalition dynamics timeout | New in pass 3 (was successful in 1-2) | Intermittent analytical endpoint availability |
+| Adopted texts growth | Linear ~4 items/pass | Active batch metadata processing |
+| MEP roster stable | 737 across all passes | No membership changes today |
+| Early warning stable | Same 3 warnings all passes | Structural indicators unchanged |
+
+**Overall API health**: 🟡 Medium — Core data endpoints operational; advisory/analytical endpoints experiencing intermittent timeouts. This is consistent with reduced infrastructure load during recess periods where batch processing may compete with live API resources.
+
+### Early Warning System Update (Unchanged)
+
+The early warning system continues to report the same 3 warnings:
+
+1. **🟠 HIGH — Dominant Group Risk**: PPE at 25.7% (corrected) is 4.0x the smallest group (ESN at 3.9%). While less dramatic than the sampled 19.0x ratio, structural dominance persists.
+2. **🟡 MEDIUM — High Fragmentation**: 8-9 political groups with ENP of 6.59 — multi-party coalition arithmetic mandatory.
+3. **🟢 LOW — Small Group Quorum Risk**: 3 groups with 5% or less seat share (NI 4.7%, ESN 3.9%) — actual risk is lower than API indicates since corrected shares show only ESN and NI below 5%.
+
+**Stability score**: 84/100 — no change across all 3 passes. EP10 remains structurally stable during recess.
+
+### Detailed Adopted Texts Context (2026 Texts from API)
+
+Cross-referencing the feed data with the adopted texts detail endpoint (year: 2026) confirms the following recent legislative activity:
+
+| ID | Title | Adopted | Policy Area |
+|----|-------|---------|-------------|
+| TA-10-2026-0096 | Adjustment of customs duties and opening of tariff quotas for the import of certain goods originating in the United States of America | 2026-03-26 | Trade |
+| TA-10-2026-0088 | Request for the waiver of the immunity of Grzegorz Braun | 2026-03-26 | Institutional |
+| TA-10-2026-0084 | Calculation of emission credits for heavy-duty vehicles for the reporting periods of the years 2025 to 2029 | 2026-03-12 | Environment |
+| TA-10-2026-0083 | Case of Elene Khoshtaria and political prisoners under the Georgian Dream regime | 2026-03-12 | Human Rights |
+| TA-10-2026-0073 | Mobilisation of the European Globalisation Adjustment Fund for Displaced Workers: application EGF/2025/004 BE/Tupperware - Belgium | 2026-03-11 | Social |
+| TA-10-2026-0063 | EU regulatory fitness and subsidiarity and proportionality — report on Better Law-Making 2023-2024 | 2026-03-10 | Institutional |
+| TA-10-2026-0060 | Appointment of the Vice-President of the European Central Bank | 2026-03-10 | Economic |
+| TA-10-2026-0053 | Situation in Northeast Syria | 2026-02-12 | Foreign Affairs |
+| TA-10-2026-0051 | Recommendation to the Council on EU priorities for the 70th session of the UN Commission on the Status of Women | 2026-02-12 | Social |
+| TA-10-2026-0050 | Addressing subcontracting chains and the role of intermediaries in order to protect workers' rights | 2026-02-12 | Social/Labour |
+
+**Last adoption date**: March 26, 2026 (Brussels plenary). **Next expected adoptions**: April 27-30, 2026 (Strasbourg plenary).
+
+### Newsworthiness Gate (Pass 3 — Final Confirmation)
+
+| Criterion | Result | Evidence |
+|-----------|--------|---------|
+| Adopted texts published TODAY? | No | 14 feed items, all historical metadata refreshes |
+| Significant events TODAY? | No | Events feed 404 across all 3 passes |
+| Procedures updated TODAY? | No | Procedures feed 404 across all 3 passes |
+| Notable MEP changes TODAY? | No | 737 MEPs stable, routine roster refresh |
+
+**FINAL DECISION: NO BREAKING NEWS** — Third analysis pass unequivocally confirms: the European Parliament is in inter-sessional recess (March 27 to April 26, 2026). No legislative activity, no events, no MEP changes of news significance occurred today. The growing adopted texts feed reflects administrative metadata processing, not new political developments.
+
+### Three-Pass Analysis Value Summary
+
+| Pass | Time (UTC) | New Intelligence | Key Contribution |
+|------|-----------|-----------------|------------------|
+| 1 | 00:25 | Baseline recess assessment | Identified recess period, initial feed status |
+| 2 | 06:33 | Full-parliament correction | Corrected ENP (4.4 to 6.59), Grand Coalition gap, Renew kingmaker role |
+| 3 | 12:20 | Feed growth pattern, API stability | Batch indexing pattern, endpoint degradation tracking, adopted text detail cross-reference |
+
+---
+
+*Pass 3 completed: 2026-04-01 12:20 UTC*
+*Cumulative analysis: 3 documents (intelligence brief, political landscape, manifest)*
+*Generated by EU Parliament Monitor — AI-Driven Analysis Pipeline v2.0*
+*Data Source: European Parliament Open Data Portal (data.europarl.europa.eu)*
