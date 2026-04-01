@@ -119,7 +119,7 @@
   "devDependencies": {
     "@axe-core/playwright": "4.11.1",
     "@eslint/js": "10.0.1",
-    "@playwright/test": "1.59.0",
+    "@playwright/test": "1.59.1",
     "@types/d3": "7.4.3",
     "@types/node": "25.5.0",
     "@types/papaparse": "5.5.2",
@@ -132,7 +132,7 @@
     "d3": "7.9.0",
     "eslint": "10.1.0",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-jsdoc": "62.8.1",
+    "eslint-plugin-jsdoc": "62.9.0",
     "eslint-plugin-security": "4.0.0",
     "eslint-plugin-sonarjs": "4.0.2",
     "happy-dom": "20.8.9",
