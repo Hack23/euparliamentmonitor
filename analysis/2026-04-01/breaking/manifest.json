@@ -2,25 +2,80 @@
   "analysisDate": "2026-04-01",
   "articleType": "breaking",
   "generatedAt": "2026-04-01T00:25:00Z",
-  "updatedAt": "2026-04-01T06:33:00Z",
-  "analysisPassCount": 2,
+  "updatedAt": "2026-04-01T12:20:00Z",
+  "analysisPassCount": 3,
   "methodology": "ai-driven-analysis-guide-v2.0",
   "outcome": "analysis-only",
-  "reason": "No breaking news — EP in parliamentary recess (Mar 27 – Apr 26, 2026). No plenary session today. Adopted texts feed returned 10 metadata updates (no new adoptions). Advisory feeds returned 404 or timed out (120s). Next plenary: April 27-30, Strasbourg.",
+  "reason": "No breaking news \u2014 EP in parliamentary recess (Mar 27 \u2013 Apr 26, 2026). No plenary session today. Adopted texts feed returned 10 metadata updates (no new adoptions). Advisory feeds returned 404 or timed out (120s). Next plenary: April 27-30, Strasbourg.",
   "dataCollected": {
-    "adoptedTextsFeed": { "status": "success", "items": 10, "note": "Metadata updates only, no today-dated adoptions. +4 items vs pass 1" },
-    "eventsFeed": { "status": "error_404", "items": 0, "note": "404 on both today and one-week timeframes (both passes)" },
-    "proceduresFeed": { "status": "error_404", "items": 0, "note": "404 on both today and one-week timeframes (both passes)" },
-    "mepsFeed": { "status": "success", "items": 737, "note": "Full roster refresh (stable across passes)" },
-    "documentsFeed": { "status": "timeout_120s", "items": 0, "note": "Pass 1: 404, Pass 2: timeout — suggests API batch processing" },
-    "plenaryDocumentsFeed": { "status": "timeout_120s", "items": 0, "note": "Pass 1: 404, Pass 2: timeout" },
-    "committeeDocumentsFeed": { "status": "timeout_120s", "items": 0, "note": "Pass 1: 404, Pass 2: timeout" },
-    "parliamentaryQuestionsFeed": { "status": "timeout_120s", "items": 0, "note": "Pass 1: 404, Pass 2: timeout" },
-    "votingAnomalies": { "status": "success", "anomalies": 0, "riskLevel": "LOW" },
-    "coalitionDynamics": { "status": "success", "groups": 8, "note": "Size-ratio based, voting data unavailable" },
-    "politicalLandscape": { "status": "success", "totalMEPs": 100, "groups": 8, "fragmentationIndex": "HIGH", "note": "Sampled data — corrected to 720 MEPs using precomputed stats" },
-    "earlyWarning": { "status": "success", "warnings": 3, "stabilityScore": 84, "riskLevel": "MEDIUM" },
-    "precomputedStats": { "status": "success", "coveragePeriod": "2004-2026", "note": "Full-parliament composition: 720 MEPs, ENP 6.59, 9 groups including ESN" }
+    "adoptedTextsFeed": {
+      "status": "success",
+      "items": 14,
+      "note": "Metadata updates only, no today-dated adoptions. +4 items vs pass 2 (14 total: 5 from 2025, 9 from 2026)"
+    },
+    "eventsFeed": {
+      "status": "error_404",
+      "items": 0,
+      "note": "404 on both today and one-week timeframes (both passes)"
+    },
+    "proceduresFeed": {
+      "status": "error_404",
+      "items": 0,
+      "note": "404 on both today and one-week timeframes (both passes)"
+    },
+    "mepsFeed": {
+      "status": "success",
+      "items": 737,
+      "note": "Full roster refresh (stable across passes)"
+    },
+    "documentsFeed": {
+      "status": "timeout_120s",
+      "items": 0,
+      "note": "Pass 1: 404, Pass 2-3: timeout \u2014 consistent timeout pattern"
+    },
+    "plenaryDocumentsFeed": {
+      "status": "timeout_120s",
+      "items": 0,
+      "note": "Pass 1: 404, Pass 2-3: timeout"
+    },
+    "committeeDocumentsFeed": {
+      "status": "timeout_120s",
+      "items": 0,
+      "note": "Pass 1: 404, Pass 2-3: timeout"
+    },
+    "parliamentaryQuestionsFeed": {
+      "status": "timeout_120s",
+      "items": 0,
+      "note": "Pass 1: 404, Pass 2-3: timeout"
+    },
+    "votingAnomalies": {
+      "status": "success",
+      "anomalies": 0,
+      "riskLevel": "LOW"
+    },
+    "coalitionDynamics": {
+      "status": "timeout",
+      "groups": 8,
+      "note": "Pass 1-2: success (size-ratio based), Pass 3: MCP timeout \u2014 intermittent API availability"
+    },
+    "politicalLandscape": {
+      "status": "success",
+      "totalMEPs": 100,
+      "groups": 8,
+      "fragmentationIndex": "HIGH",
+      "note": "Sampled data \u2014 corrected to 720 MEPs using precomputed stats"
+    },
+    "earlyWarning": {
+      "status": "success",
+      "warnings": 3,
+      "stabilityScore": 84,
+      "riskLevel": "MEDIUM"
+    },
+    "precomputedStats": {
+      "status": "success",
+      "coveragePeriod": "2004-2026",
+      "note": "Full-parliament composition: 720 MEPs, ENP 6.59, 9 groups including ESN"
+    }
   },
   "artifacts": [
     "breaking-intelligence-brief.analysis.md",
@@ -34,17 +89,20 @@
     "proceduresUpdatedToday": false,
     "notableMepChangesToday": false,
     "decision": "NO_BREAKING_NEWS",
-    "evidence": "Parliament in recess. Last plenary: March 26. Next plenary: April 27-30. 10 metadata updates to existing adopted texts. No new legislative activity.",
-    "passCount": 2,
+    "evidence": "Parliament in recess (Mar 27 - Apr 26). Last plenary: March 26. Next plenary: April 27-30. 14 metadata updates to existing adopted texts (+4 from pass 2). No new legislative activity. EP MCP API experiencing intermittent timeouts on advisory/analytical endpoints.",
+    "passCount": 3,
     "pass1Decision": "NO_BREAKING_NEWS",
-    "pass2Decision": "NO_BREAKING_NEWS"
+    "pass2Decision": "NO_BREAKING_NEWS",
+    "pass3Decision": "NO_BREAKING_NEWS"
   },
   "keyCorrections": [
     "Full-parliament composition (720 MEPs) corrects sampled API data (100 MEPs)",
-    "Grand Coalition (EPP+S&D = 320/361) insufficient for majority — 3-group minimum needed",
+    "Grand Coalition (EPP+S&D = 320/361) insufficient for majority \u2014 3-group minimum needed",
     "ENP revised from 4.4 to 6.59 (VERY HIGH fragmentation)",
     "Renew Europe identified as kingmaker group (10.6% share)",
-    "Advisory feed error pattern changed: 404 → timeout (suggests batch processing)"
+    "Advisory feed error pattern changed: 404 \u2192 timeout (suggests batch processing)",
+    "Adopted text feed growth: 6 (pass 1) \u2192 10 (pass 2) \u2192 14 (pass 3) \u2014 batch metadata processing ongoing",
+    "Coalition dynamics endpoint intermittent: success in pass 1-2, timeout in pass 3"
   ],
   "recommendations": [
     "Monitor April 27-30 agenda publication (expected mid-April)",
@@ -52,6 +110,7 @@
     "Watch Clean Industrial Deal committee reports",
     "Monitor EU-Mercosur Court of Justice opinion",
     "Track US trade policy developments post TA-10-2026-0096",
-    "Re-test advisory feed endpoints for timeout pattern resolution"
+    "Re-test advisory feed endpoints for timeout pattern resolution",
+    "Monitor adopted text feed growth pattern \u2014 may indicate pre-recess batch indexing completing"
   ]
 }
