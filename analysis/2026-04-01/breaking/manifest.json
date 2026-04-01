@@ -1,0 +1,46 @@
+{
+  "analysisDate": "2026-04-01",
+  "articleType": "breaking",
+  "generatedAt": "2026-04-01T00:25:00Z",
+  "methodology": "ai-driven-analysis-guide-v2.0",
+  "outcome": "analysis-only",
+  "reason": "No breaking news — EP in parliamentary recess (Mar 27 – Apr 26, 2026). No plenary session today. Adopted texts feed returned 6 metadata updates (no new adoptions). Next plenary: April 27-30, Strasbourg.",
+  "dataCollected": {
+    "adoptedTextsFeed": { "status": "success", "items": 6, "note": "Metadata updates only, no today-dated adoptions" },
+    "eventsFeed": { "status": "error_404", "items": 0, "note": "404 on both today and one-week timeframes" },
+    "proceduresFeed": { "status": "error_404", "items": 0, "note": "404 on both today and one-week timeframes" },
+    "mepsFeed": { "status": "success", "items": 737, "note": "Full roster refresh" },
+    "documentsFeed": { "status": "error_404", "items": 0 },
+    "plenaryDocumentsFeed": { "status": "error_404", "items": 0 },
+    "committeeDocumentsFeed": { "status": "error_404", "items": 0 },
+    "parliamentaryQuestionsFeed": { "status": "error_404", "items": 0 },
+    "votingAnomalies": { "status": "success", "anomalies": 0, "riskLevel": "LOW" },
+    "coalitionDynamics": { "status": "success", "groups": 8, "note": "Size-ratio based, voting data unavailable" },
+    "politicalLandscape": { "status": "success", "totalMEPs": 100, "groups": 8, "fragmentationIndex": "HIGH" },
+    "earlyWarning": { "status": "success", "warnings": 3, "stabilityScore": 84, "riskLevel": "MEDIUM" }
+  },
+  "artifacts": [
+    "breaking-intelligence-brief.analysis.md",
+    "political-landscape.analysis.md",
+    "manifest.json"
+  ],
+  "dataFiles": [
+    "data/adopted-texts-feed.json",
+    "data/political-landscape.json",
+    "data/early-warning.json"
+  ],
+  "newsworthinessGate": {
+    "adoptedTextsToday": false,
+    "significantEventsToday": false,
+    "proceduresUpdatedToday": false,
+    "notableMepChangesToday": false,
+    "decision": "NO_BREAKING_NEWS",
+    "evidence": "Parliament in recess. Last plenary: March 26. Next plenary: April 27-30."
+  },
+  "recommendations": [
+    "Monitor April 27-30 agenda publication (expected mid-April)",
+    "Track EU-Mercosur Court of Justice opinion",
+    "Watch US trade policy developments post TA-10-2026-0096",
+    "Re-test feed endpoints for persistent 404 patterns"
+  ]
+}
