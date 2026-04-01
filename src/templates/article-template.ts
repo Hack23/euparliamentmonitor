@@ -12,6 +12,7 @@ import type {
   ArticleSource,
   ArticleCategoryLabels,
   LanguageCode,
+  LanguageMap,
 } from '../types/index.js';
 import {
   ALL_LANGUAGES,
@@ -365,6 +366,8 @@ export function generateArticleHTML(options: ArticleOptions): string {
     
     ${renderSourcesSection(sources, lang)}
     
+    ${renderAnalysisTransparencySection(date, slug, lang)}
+    
     <nav class="article-nav" aria-label="${escapeHTML(articleNavLabel)}">
       <a href="${indexHref}" class="back-to-news">${backLabel}</a>
     </nav>
@@ -472,5 +475,107 @@ function renderSourcesSection(sources: ArticleSource[], lang: LanguageCode): str
         </ul>
       </section>
     </footer>
+    `;
+}
+
+/** Labels for the "Analysis & Transparency" section heading */
+const ANALYSIS_TRANSPARENCY_LABELS: LanguageMap = {
+  en: 'Analysis & Transparency',
+  sv: 'Analys & transparens',
+  da: 'Analyse & gennemsigtighed',
+  no: 'Analyse & åpenhet',
+  fi: 'Analyysi & avoimuus',
+  de: 'Analyse & Transparenz',
+  fr: 'Analyse & transparence',
+  es: 'Análisis y transparencia',
+  nl: 'Analyse & transparantie',
+  ar: 'التحليل والشفافية',
+  he: 'ניתוח ושקיפות',
+  ja: '分析と透明性',
+  ko: '분석 및 투명성',
+  zh: '分析与透明度',
+};
+
+/** Labels for analysis summary link */
+const ANALYSIS_SUMMARY_LABELS: LanguageMap = {
+  en: 'Analysis Summary',
+  sv: 'Analyssammanfattning',
+  da: 'Analyseoversigt',
+  no: 'Analyseoppsummering',
+  fi: 'Analyysiyhteenveto',
+  de: 'Analyseübersicht',
+  fr: "Résumé de l'analyse",
+  es: 'Resumen del análisis',
+  nl: 'Analyseoverzicht',
+  ar: 'ملخص التحليل',
+  he: 'סיכום ניתוח',
+  ja: '分析概要',
+  ko: '분석 요약',
+  zh: '分析摘要',
+};
+
+/** Labels for methodology link */
+const METHODOLOGY_LABELS: LanguageMap = {
+  en: 'Methodology',
+  sv: 'Metodik',
+  da: 'Metodik',
+  no: 'Metodikk',
+  fi: 'Menetelmä',
+  de: 'Methodik',
+  fr: 'Méthodologie',
+  es: 'Metodología',
+  nl: 'Methodologie',
+  ar: 'المنهجية',
+  he: 'מתודולוגיה',
+  ja: '方法論',
+  ko: '방법론',
+  zh: '方法论',
+};
+
+/**
+ * Render the analysis transparency section with links to analysis artifacts and methodology
+ *
+ * @param date - Article date (YYYY-MM-DD)
+ * @param slug - Article type slug (e.g., 'committee-reports', 'breaking')
+ * @param lang - Language code
+ * @returns HTML string for analysis transparency section
+ */
+function renderAnalysisTransparencySection(date: string, slug: string, lang: LanguageCode): string {
+  const safeDate = escapeHTML(date);
+  const safeSlug = escapeHTML(slug);
+  const heading = escapeHTML(getLocalizedString(ANALYSIS_TRANSPARENCY_LABELS, lang));
+  const analysisSummaryLabel = escapeHTML(getLocalizedString(ANALYSIS_SUMMARY_LABELS, lang));
+  const methodologyLabel = escapeHTML(getLocalizedString(METHODOLOGY_LABELS, lang));
+
+  const repoBase = 'https://github.com/Hack23/euparliamentmonitor/blob/main';
+  const analysisDir = `${repoBase}/analysis/${safeDate}/${safeSlug}`;
+  const methodologyDir = `${repoBase}/analysis/methodologies`;
+
+  return `
+    <section class="analysis-transparency" aria-label="${heading}">
+      <h2>${heading}</h2>
+      <p>This article was generated using AI-driven political intelligence analysis. All analytical content is produced by AI following structured methodologies, while scripts handle only data formatting and HTML rendering.</p>
+      <nav class="analysis-links" aria-label="${analysisSummaryLabel}">
+        <ul>
+          <li><a href="${analysisDir}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📊</span> ${analysisSummaryLabel}</a></li>
+          <li><a href="${analysisDir}/classification" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🏷️</span> Classification Analysis</a></li>
+          <li><a href="${analysisDir}/threat-assessment" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🛡️</span> Threat Assessment</a></li>
+          <li><a href="${analysisDir}/risk-scoring" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⚖️</span> Risk Scoring</a></li>
+          <li><a href="${analysisDir}/existing" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🔍</span> Deep Analysis</a></li>
+        </ul>
+      </nav>
+      <nav class="methodology-links" aria-label="${methodologyLabel}">
+        <h3>${methodologyLabel}</h3>
+        <ul>
+          <li><a href="${methodologyDir}/ai-driven-analysis-guide.md" target="_blank" rel="noopener noreferrer">AI-Driven Analysis Guide</a></li>
+          <li><a href="${methodologyDir}/political-swot-framework.md" target="_blank" rel="noopener noreferrer">Political SWOT Framework</a></li>
+          <li><a href="${methodologyDir}/political-risk-methodology.md" target="_blank" rel="noopener noreferrer">Political Risk Methodology</a></li>
+          <li><a href="${methodologyDir}/political-threat-framework.md" target="_blank" rel="noopener noreferrer">Political Threat Framework</a></li>
+          <li><a href="${methodologyDir}/political-classification-guide.md" target="_blank" rel="noopener noreferrer">Political Classification Guide</a></li>
+          <li><a href="${methodologyDir}/political-style-guide.md" target="_blank" rel="noopener noreferrer">Political Style Guide</a></li>
+        </ul>
+      </nav>
+      <p class="transparency-note"><a href="https://github.com/Hack23/euparliamentmonitor" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🔓</span> View source code on GitHub</a> — Apache-2.0 licensed open-source project</p>
+    </section>
     `;
 }

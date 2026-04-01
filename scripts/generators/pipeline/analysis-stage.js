@@ -279,8 +279,6 @@ export const ALL_ANALYSIS_METHODS = [
 export const VALID_ANALYSIS_METHODS = Array.from(new Set([
     ...ALL_ANALYSIS_METHODS,
     'document-analysis',
-    // Deprecated alias — accepted for backward compatibility
-    'political-stride',
 ]));
 // ─── Internal helpers ─────────────────────────────────────────────────────────
 /**
@@ -1577,8 +1575,6 @@ const METHOD_BUILDERS = {
     'voting-patterns': buildVotingPatternsMarkdown,
     'cross-session-intelligence': buildCrossSessionIntelligenceMarkdown,
     'document-analysis': buildDocumentAnalysisMarkdown,
-    // Deprecated alias — maps to same builder as 'political-threat-landscape'
-    'political-stride': buildThreatLandscapeMarkdown,
 };
 // ─── Method subdir constants ──────────────────────────────────────────────────
 /** Subdirectory name for classification analysis methods */
@@ -1787,7 +1783,6 @@ const METHOD_SUBDIRS = {
     'voting-patterns': SUBDIR_EXISTING,
     'cross-session-intelligence': SUBDIR_EXISTING,
     'document-analysis': SUBDIR_DOCUMENTS,
-    'political-stride': SUBDIR_THREAT_ASSESSMENT,
 };
 /** Default confidence level for each analysis method group */
 const METHOD_DEFAULT_CONFIDENCE = {
@@ -1810,7 +1805,6 @@ const METHOD_DEFAULT_CONFIDENCE = {
     'voting-patterns': 'high',
     'cross-session-intelligence': 'high',
     'document-analysis': 'medium',
-    'political-stride': 'medium',
 };
 /** Filename for each analysis method */
 const METHOD_FILENAMES = {
@@ -1833,7 +1827,6 @@ const METHOD_FILENAMES = {
     'voting-patterns': 'voting-patterns.md',
     'cross-session-intelligence': 'cross-session-intelligence.md',
     'document-analysis': 'document-analysis-index.md',
-    'political-stride': 'political-threat-landscape.md',
 };
 // ─── Core runner ──────────────────────────────────────────────────────────────
 /**

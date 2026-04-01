@@ -104,9 +104,9 @@ describe('ALL_ANALYSIS_METHODS', () => {
 // ─── VALID_ANALYSIS_METHODS tests ─────────────────────────────────────────────
 
 describe('VALID_ANALYSIS_METHODS', () => {
-  it('contains all default methods plus opt-in and deprecated aliases', () => {
-    // ALL_ANALYSIS_METHODS + document-analysis (opt-in) + political-stride (deprecated alias)
-    expect(VALID_ANALYSIS_METHODS).toHaveLength(ALL_ANALYSIS_METHODS.length + 2);
+  it('contains all default methods plus opt-in methods', () => {
+    // ALL_ANALYSIS_METHODS + document-analysis (opt-in)
+    expect(VALID_ANALYSIS_METHODS).toHaveLength(ALL_ANALYSIS_METHODS.length + 1);
   });
 
   it('includes all default analysis methods', () => {
@@ -117,10 +117,6 @@ describe('VALID_ANALYSIS_METHODS', () => {
 
   it('includes document-analysis as a valid opt-in method', () => {
     expect(VALID_ANALYSIS_METHODS).toContain('document-analysis');
-  });
-
-  it('includes political-stride as a deprecated alias for backward compatibility', () => {
-    expect(VALID_ANALYSIS_METHODS).toContain('political-stride');
   });
 
   it('has no duplicate entries', () => {
