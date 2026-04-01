@@ -281,6 +281,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta property="article:modified_time" content="${date}">
   <meta property="article:author" content="EU Parliament Monitor">
   <meta property="article:section" content="${safeCategoryLabel}">
+  <meta name="article-type" content="${escapeHTML(category)}">
   ${keywords
     .slice(0, 10)
     .map((k) => `<meta property="article:tag" content="${escapeHTML(k)}">`)
@@ -552,49 +553,211 @@ const TRANSPARENCY_DISCLOSURE_LABELS: LanguageMap = {
 
 /** Localized analysis category labels */
 const CLASSIFICATION_ANALYSIS_LABELS: LanguageMap = {
-  en: 'Classification Analysis', sv: 'Klassificeringsanalys', da: 'Klassifikationsanalyse',
-  no: 'Klassifiseringsanalyse', fi: 'Luokitteluanalyysi', de: 'Klassifizierungsanalyse',
-  fr: 'Analyse de classification', es: 'Análisis de clasificación', nl: 'Classificatieanalyse',
-  ar: 'تحليل التصنيف', he: 'ניתוח סיווג', ja: '分類分析', ko: '분류 분석', zh: '分类分析',
+  en: 'Classification Analysis',
+  sv: 'Klassificeringsanalys',
+  da: 'Klassifikationsanalyse',
+  no: 'Klassifiseringsanalyse',
+  fi: 'Luokitteluanalyysi',
+  de: 'Klassifizierungsanalyse',
+  fr: 'Analyse de classification',
+  es: 'Análisis de clasificación',
+  nl: 'Classificatieanalyse',
+  ar: 'تحليل التصنيف',
+  he: 'ניתוח סיווג',
+  ja: '分類分析',
+  ko: '분류 분석',
+  zh: '分类分析',
 };
 
 const THREAT_ASSESSMENT_LABELS: LanguageMap = {
-  en: 'Threat Assessment', sv: 'Hotbedömning', da: 'Trusselsvurdering',
-  no: 'Trusselvurdering', fi: 'Uhka-arviointi', de: 'Bedrohungsbewertung',
-  fr: 'Évaluation des menaces', es: 'Evaluación de amenazas', nl: 'Dreigingsbeoordeling',
-  ar: 'تقييم التهديدات', he: 'הערכת איומים', ja: '脅威評価', ko: '위협 평가', zh: '威胁评估',
+  en: 'Threat Assessment',
+  sv: 'Hotbedömning',
+  da: 'Trusselsvurdering',
+  no: 'Trusselvurdering',
+  fi: 'Uhka-arviointi',
+  de: 'Bedrohungsbewertung',
+  fr: 'Évaluation des menaces',
+  es: 'Evaluación de amenazas',
+  nl: 'Dreigingsbeoordeling',
+  ar: 'تقييم التهديدات',
+  he: 'הערכת איומים',
+  ja: '脅威評価',
+  ko: '위협 평가',
+  zh: '威胁评估',
 };
 
 const RISK_SCORING_LABELS: LanguageMap = {
-  en: 'Risk Scoring', sv: 'Riskbedömning', da: 'Risikovurdering',
-  no: 'Risikovurdering', fi: 'Riskinarviointi', de: 'Risikobewertung',
-  fr: 'Évaluation des risques', es: 'Evaluación de riesgos', nl: 'Risicobeoordeling',
-  ar: 'تقييم المخاطر', he: 'דירוג סיכונים', ja: 'リスク評価', ko: '위험 평가', zh: '风险评分',
+  en: 'Risk Scoring',
+  sv: 'Riskbedömning',
+  da: 'Risikovurdering',
+  no: 'Risikovurdering',
+  fi: 'Riskinarviointi',
+  de: 'Risikobewertung',
+  fr: 'Évaluation des risques',
+  es: 'Evaluación de riesgos',
+  nl: 'Risicobeoordeling',
+  ar: 'تقييم المخاطر',
+  he: 'דירוג סיכונים',
+  ja: 'リスク評価',
+  ko: '위험 평가',
+  zh: '风险评分',
 };
 
 const DEEP_ANALYSIS_LABELS: LanguageMap = {
-  en: 'Deep Analysis', sv: 'Djupanalys', da: 'Dybdeanalyse',
-  no: 'Dybdeanalyse', fi: 'Syväanalyysi', de: 'Tiefenanalyse',
-  fr: 'Analyse approfondie', es: 'Análisis profundo', nl: 'Diepgaande analyse',
-  ar: 'التحليل المعمق', he: 'ניתוח מעמיק', ja: '深層分析', ko: '심층 분석', zh: '深度分析',
+  en: 'Deep Analysis',
+  sv: 'Djupanalys',
+  da: 'Dybdeanalyse',
+  no: 'Dybdeanalyse',
+  fi: 'Syväanalyysi',
+  de: 'Tiefenanalyse',
+  fr: 'Analyse approfondie',
+  es: 'Análisis profundo',
+  nl: 'Diepgaande analyse',
+  ar: 'التحليل المعمق',
+  he: 'ניתוח מעמיק',
+  ja: '深層分析',
+  ko: '심층 분석',
+  zh: '深度分析',
 };
 
 const VIEW_SOURCE_LABELS: LanguageMap = {
-  en: 'View source code on GitHub', sv: 'Visa källkod på GitHub', da: 'Se kildekode på GitHub',
-  no: 'Se kildekode på GitHub', fi: 'Näytä lähdekoodi GitHubissa', de: 'Quellcode auf GitHub anzeigen',
-  fr: 'Voir le code source sur GitHub', es: 'Ver código fuente en GitHub', nl: 'Broncode bekijken op GitHub',
-  ar: 'عرض الكود المصدري على GitHub', he: 'הצג קוד מקור ב-GitHub', ja: 'GitHubでソースコードを表示',
-  ko: 'GitHub에서 소스 코드 보기', zh: '在GitHub上查看源代码',
+  en: 'View source code on GitHub',
+  sv: 'Visa källkod på GitHub',
+  da: 'Se kildekode på GitHub',
+  no: 'Se kildekode på GitHub',
+  fi: 'Näytä lähdekoodi GitHubissa',
+  de: 'Quellcode auf GitHub anzeigen',
+  fr: 'Voir le code source sur GitHub',
+  es: 'Ver código fuente en GitHub',
+  nl: 'Broncode bekijken op GitHub',
+  ar: 'عرض الكود المصدري على GitHub',
+  he: 'הצג קוד מקור ב-GitHub',
+  ja: 'GitHubでソースコードを表示',
+  ko: 'GitHub에서 소스 코드 보기',
+  zh: '在GitHub上查看源代码',
 };
 
 const OPEN_SOURCE_NOTE_LABELS: LanguageMap = {
-  en: 'Apache-2.0 licensed open-source project', sv: 'Apache-2.0-licensierat projekt med öppen källkod',
-  da: 'Apache-2.0-licenseret open source-projekt', no: 'Apache-2.0-lisensiert åpen kildekode-prosjekt',
-  fi: 'Apache-2.0-lisensoitu avoimen lähdekoodin projekti', de: 'Apache-2.0-lizenziertes Open-Source-Projekt',
-  fr: 'Projet open source sous licence Apache-2.0', es: 'Proyecto de código abierto con licencia Apache-2.0',
-  nl: 'Apache-2.0-gelicenseerd open-sourceproject', ar: 'مشروع مفتوح المصدر بترخيص Apache-2.0',
-  he: 'פרויקט קוד פתוח ברישיון Apache-2.0', ja: 'Apache-2.0ライセンスのオープンソースプロジェクト',
-  ko: 'Apache-2.0 라이센스 오픈 소스 프로젝트', zh: 'Apache-2.0 许可的开源项目',
+  en: 'Apache-2.0 licensed open-source project',
+  sv: 'Apache-2.0-licensierat projekt med öppen källkod',
+  da: 'Apache-2.0-licenseret open source-projekt',
+  no: 'Apache-2.0-lisensiert åpen kildekode-prosjekt',
+  fi: 'Apache-2.0-lisensoitu avoimen lähdekoodin projekti',
+  de: 'Apache-2.0-lizenziertes Open-Source-Projekt',
+  fr: 'Projet open source sous licence Apache-2.0',
+  es: 'Proyecto de código abierto con licencia Apache-2.0',
+  nl: 'Apache-2.0-gelicenseerd open-sourceproject',
+  ar: 'مشروع مفتوح المصدر بترخيص Apache-2.0',
+  he: 'פרויקט קוד פתוח ברישיון Apache-2.0',
+  ja: 'Apache-2.0ライセンスのオープンソースプロジェクト',
+  ko: 'Apache-2.0 라이센스 오픈 소스 프로젝트',
+  zh: 'Apache-2.0 许可的开源项目',
+};
+
+/** Localized methodology document labels */
+const AI_ANALYSIS_GUIDE_LABELS: LanguageMap = {
+  en: 'AI-Driven Analysis Guide',
+  sv: 'AI-driven analysguide',
+  da: 'AI-drevet analyseguide',
+  no: 'AI-drevet analyseguide',
+  fi: 'Tekoälypohjainen analyysiohje',
+  de: 'KI-gestützte Analyseanleitung',
+  fr: "Guide d'analyse piloté par l'IA",
+  es: 'Guía de análisis impulsada por IA',
+  nl: 'AI-gestuurde analysegids',
+  ar: 'دليل التحليل المدعوم بالذكاء الاصطناعي',
+  he: 'מדריך ניתוח מונע בינה מלאכותית',
+  ja: 'AI駆動分析ガイド',
+  ko: 'AI 기반 분석 가이드',
+  zh: 'AI驱动分析指南',
+};
+
+const SWOT_FRAMEWORK_LABELS: LanguageMap = {
+  en: 'Political SWOT Framework',
+  sv: 'Politiskt SWOT-ramverk',
+  da: 'Politisk SWOT-ramme',
+  no: 'Politisk SWOT-rammeverk',
+  fi: 'Poliittinen SWOT-kehys',
+  de: 'Politisches SWOT-Framework',
+  fr: 'Cadre SWOT politique',
+  es: 'Marco SWOT político',
+  nl: 'Politiek SWOT-raamwerk',
+  ar: 'إطار SWOT السياسي',
+  he: 'מסגרת SWOT פוליטית',
+  ja: '政治SWOT分析フレームワーク',
+  ko: '정치 SWOT 프레임워크',
+  zh: '政治SWOT框架',
+};
+
+const RISK_METHODOLOGY_LABELS: LanguageMap = {
+  en: 'Political Risk Methodology',
+  sv: 'Metodik för politisk risk',
+  da: 'Politisk risikometodik',
+  no: 'Politisk risikometodikk',
+  fi: 'Poliittinen riskimenetelmä',
+  de: 'Methodik politischer Risiken',
+  fr: 'Méthodologie des risques politiques',
+  es: 'Metodología de riesgo político',
+  nl: 'Methodologie politieke risico',
+  ar: 'منهجية المخاطر السياسية',
+  he: 'מתודולוגיית סיכונים פוליטיים',
+  ja: '政治リスク方法論',
+  ko: '정치 리스크 방법론',
+  zh: '政治风险方法论',
+};
+
+const THREAT_FRAMEWORK_LABELS: LanguageMap = {
+  en: 'Political Threat Framework',
+  sv: 'Politiskt hotramverk',
+  da: 'Politisk trusselramme',
+  no: 'Politisk trusselrammeverk',
+  fi: 'Poliittinen uhkakehys',
+  de: 'Politisches Bedrohungs-Framework',
+  fr: 'Cadre des menaces politiques',
+  es: 'Marco de amenazas políticas',
+  nl: 'Politiek dreigingsraamwerk',
+  ar: 'إطار التهديدات السياسية',
+  he: 'מסגרת איומים פוליטיים',
+  ja: '政治脅威フレームワーク',
+  ko: '정치 위협 프레임워크',
+  zh: '政治威胁框架',
+};
+
+const CLASSIFICATION_GUIDE_LABELS: LanguageMap = {
+  en: 'Political Classification Guide',
+  sv: 'Politisk klassificeringsguide',
+  da: 'Politisk klassifikationsguide',
+  no: 'Politisk klassifiseringsguide',
+  fi: 'Poliittinen luokitteluopas',
+  de: 'Politischer Klassifizierungsleitfaden',
+  fr: 'Guide de classification politique',
+  es: 'Guía de clasificación política',
+  nl: 'Politieke classificatiegids',
+  ar: 'دليل التصنيف السياسي',
+  he: 'מדריך סיווג פוליטי',
+  ja: '政治分類ガイド',
+  ko: '정치 분류 가이드',
+  zh: '政治分类指南',
+};
+
+/** Common Scandinavian translation for "Political Style Guide" (sv, da, no) */
+const POLITISK_STILGUIDE = 'Politisk stilguide';
+
+const STYLE_GUIDE_LABELS: LanguageMap = {
+  en: 'Political Style Guide',
+  sv: POLITISK_STILGUIDE,
+  da: POLITISK_STILGUIDE,
+  no: POLITISK_STILGUIDE,
+  fi: 'Poliittinen tyyliopas',
+  de: 'Politischer Stilleitfaden',
+  fr: 'Guide de style politique',
+  es: 'Guía de estilo político',
+  nl: 'Politieke stijlgids',
+  ar: 'دليل الأسلوب السياسي',
+  he: 'מדריך סגנון פוליטי',
+  ja: '政治スタイルガイド',
+  ko: '정치 스타일 가이드',
+  zh: '政治风格指南',
 };
 
 /**
@@ -618,9 +781,16 @@ function renderAnalysisTransparencySection(date: string, slug: string, lang: Lan
   const deepLabel = escapeHTML(getLocalizedString(DEEP_ANALYSIS_LABELS, lang));
   const viewSourceLabel = escapeHTML(getLocalizedString(VIEW_SOURCE_LABELS, lang));
   const openSourceNote = escapeHTML(getLocalizedString(OPEN_SOURCE_NOTE_LABELS, lang));
+  const aiGuideLabel = escapeHTML(getLocalizedString(AI_ANALYSIS_GUIDE_LABELS, lang));
+  const swotLabel = escapeHTML(getLocalizedString(SWOT_FRAMEWORK_LABELS, lang));
+  const riskMethodLabel = escapeHTML(getLocalizedString(RISK_METHODOLOGY_LABELS, lang));
+  const threatFrameworkLabel = escapeHTML(getLocalizedString(THREAT_FRAMEWORK_LABELS, lang));
+  const classGuideLabel = escapeHTML(getLocalizedString(CLASSIFICATION_GUIDE_LABELS, lang));
+  const styleGuideLabel = escapeHTML(getLocalizedString(STYLE_GUIDE_LABELS, lang));
 
   const repoBase = 'https://github.com/Hack23/euparliamentmonitor/blob/main';
-  const analysisDir = `${repoBase}/analysis/${safeDate}/${safeSlug}`;
+  const treeDirBase = 'https://github.com/Hack23/euparliamentmonitor/tree/main';
+  const analysisDir = `${treeDirBase}/analysis/${safeDate}/${safeSlug}`;
   const methodologyDir = `${repoBase}/analysis/methodologies`;
 
   return `
@@ -639,12 +809,12 @@ function renderAnalysisTransparencySection(date: string, slug: string, lang: Lan
       <nav class="methodology-links" aria-label="${methodologyLabel}">
         <h3>${methodologyLabel}</h3>
         <ul>
-          <li><a href="${methodologyDir}/ai-driven-analysis-guide.md" target="_blank" rel="noopener noreferrer">AI-Driven Analysis Guide</a></li>
-          <li><a href="${methodologyDir}/political-swot-framework.md" target="_blank" rel="noopener noreferrer">Political SWOT Framework</a></li>
-          <li><a href="${methodologyDir}/political-risk-methodology.md" target="_blank" rel="noopener noreferrer">Political Risk Methodology</a></li>
-          <li><a href="${methodologyDir}/political-threat-framework.md" target="_blank" rel="noopener noreferrer">Political Threat Framework</a></li>
-          <li><a href="${methodologyDir}/political-classification-guide.md" target="_blank" rel="noopener noreferrer">Political Classification Guide</a></li>
-          <li><a href="${methodologyDir}/political-style-guide.md" target="_blank" rel="noopener noreferrer">Political Style Guide</a></li>
+          <li><a href="${methodologyDir}/ai-driven-analysis-guide.md" target="_blank" rel="noopener noreferrer">${aiGuideLabel}</a></li>
+          <li><a href="${methodologyDir}/political-swot-framework.md" target="_blank" rel="noopener noreferrer">${swotLabel}</a></li>
+          <li><a href="${methodologyDir}/political-risk-methodology.md" target="_blank" rel="noopener noreferrer">${riskMethodLabel}</a></li>
+          <li><a href="${methodologyDir}/political-threat-framework.md" target="_blank" rel="noopener noreferrer">${threatFrameworkLabel}</a></li>
+          <li><a href="${methodologyDir}/political-classification-guide.md" target="_blank" rel="noopener noreferrer">${classGuideLabel}</a></li>
+          <li><a href="${methodologyDir}/political-style-guide.md" target="_blank" rel="noopener noreferrer">${styleGuideLabel}</a></li>
         </ul>
       </nav>
       <p class="transparency-note"><a href="https://github.com/Hack23/euparliamentmonitor" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🔓</span> ${viewSourceLabel}</a> — ${openSourceNote}</p>

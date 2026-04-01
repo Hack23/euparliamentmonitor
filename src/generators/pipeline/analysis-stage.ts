@@ -357,10 +357,7 @@ export const ALL_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
  * set, use {@link ALL_ANALYSIS_METHODS} instead.
  */
 export const VALID_ANALYSIS_METHODS: readonly AnalysisMethod[] = Array.from(
-  new Set<AnalysisMethod>([
-    ...ALL_ANALYSIS_METHODS,
-    'document-analysis',
-  ])
+  new Set<AnalysisMethod>([...ALL_ANALYSIS_METHODS, 'document-analysis'])
 );
 
 // ─── Interfaces ───────────────────────────────────────────────────────────────

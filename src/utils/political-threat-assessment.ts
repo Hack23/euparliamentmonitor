@@ -1578,5 +1578,3 @@ export function generateThreatAssessmentMarkdown(
  */
 export const ALL_THREAT_LANDSCAPE_DIMENSIONS: readonly PoliticalThreatCategory[] =
   ALL_THREAT_DIMENSIONS;
-
-
