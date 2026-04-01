@@ -532,6 +532,71 @@ const METHODOLOGY_LABELS: LanguageMap = {
   zh: '方法论',
 };
 
+/** Localized transparency disclosure text */
+const TRANSPARENCY_DISCLOSURE_LABELS: LanguageMap = {
+  en: 'This article was generated using AI-driven political intelligence analysis. All analytical content is produced by AI following structured methodologies, while scripts handle only data formatting and HTML rendering.',
+  sv: 'Denna artikel genererades med AI-driven politisk underrättelseanalys. Allt analytiskt innehåll produceras av AI enligt strukturerade metoder, medan skript bara hanterar dataformatering och HTML-rendering.',
+  da: 'Denne artikel blev genereret ved hjælp af AI-drevet politisk efterretningsanalyse. Alt analytisk indhold produceres af AI efter strukturerede metoder, mens scripts kun håndterer dataformatering og HTML-rendering.',
+  no: 'Denne artikkelen ble generert ved hjelp av AI-drevet politisk etterretningsanalyse. Alt analytisk innhold produseres av AI etter strukturerte metoder, mens skript bare håndterer dataformatering og HTML-rendering.',
+  fi: 'Tämä artikkeli luotiin tekoälypohjaisella poliittisella tiedusteluanalyysillä. Kaikki analyyttinen sisältö tuotetaan tekoälyllä strukturoituja menetelmiä noudattaen, kun taas skriptit hoitavat vain datan muotoilun ja HTML-renderöinnin.',
+  de: 'Dieser Artikel wurde mithilfe KI-gestützter politischer Geheimdienstanalyse erstellt. Alle analytischen Inhalte werden von KI nach strukturierten Methoden erstellt, während Skripte nur die Datenformatierung und HTML-Darstellung übernehmen.',
+  fr: "Cet article a été généré à l'aide d'une analyse de renseignement politique pilotée par l'IA. Tout le contenu analytique est produit par l'IA selon des méthodologies structurées, tandis que les scripts ne gèrent que le formatage des données et le rendu HTML.",
+  es: 'Este artículo fue generado utilizando análisis de inteligencia política impulsado por IA. Todo el contenido analítico es producido por IA siguiendo metodologías estructuradas, mientras que los scripts solo manejan el formateo de datos y la representación HTML.',
+  nl: 'Dit artikel is gegenereerd met behulp van AI-gestuurde politieke inlichtingenanalyse. Alle analytische inhoud wordt geproduceerd door AI volgens gestructureerde methodologieën, terwijl scripts alleen gegevensopmaak en HTML-weergave afhandelen.',
+  ar: 'تم إنشاء هذه المقالة باستخدام تحليل استخباراتي سياسي مدعوم بالذكاء الاصطناعي. يتم إنتاج جميع المحتويات التحليلية بواسطة الذكاء الاصطناعي وفقاً لمنهجيات منظمة، بينما تتولى البرامج النصية فقط تنسيق البيانات وعرض HTML.',
+  he: 'מאמר זה נוצר באמצעות ניתוח מודיעין פוליטי מונע בינה מלאכותית. כל התוכן האנליטי מיוצר על ידי בינה מלאכותית בהתאם למתודולוגיות מובנות, בעוד שסקריפטים מטפלים רק בעיצוב נתונים ורינדור HTML.',
+  ja: 'この記事はAI駆動の政治インテリジェンス分析を使用して生成されました。すべての分析コンテンツは構造化された方法論に従ってAIによって作成され、スクリプトはデータフォーマットとHTMLレンダリングのみを処理します。',
+  ko: '이 기사는 AI 기반 정치 인텔리전스 분석을 사용하여 생성되었습니다. 모든 분석 콘텐츠는 구조화된 방법론에 따라 AI가 생산하며, 스크립트는 데이터 포맷팅과 HTML 렌더링만 처리합니다.',
+  zh: '本文使用人工智能驱动的政治情报分析生成。所有分析内容均由人工智能按照结构化方法论产生，而脚本仅处理数据格式化和HTML渲染。',
+};
+
+/** Localized analysis category labels */
+const CLASSIFICATION_ANALYSIS_LABELS: LanguageMap = {
+  en: 'Classification Analysis', sv: 'Klassificeringsanalys', da: 'Klassifikationsanalyse',
+  no: 'Klassifiseringsanalyse', fi: 'Luokitteluanalyysi', de: 'Klassifizierungsanalyse',
+  fr: 'Analyse de classification', es: 'Análisis de clasificación', nl: 'Classificatieanalyse',
+  ar: 'تحليل التصنيف', he: 'ניתוח סיווג', ja: '分類分析', ko: '분류 분석', zh: '分类分析',
+};
+
+const THREAT_ASSESSMENT_LABELS: LanguageMap = {
+  en: 'Threat Assessment', sv: 'Hotbedömning', da: 'Trusselsvurdering',
+  no: 'Trusselvurdering', fi: 'Uhka-arviointi', de: 'Bedrohungsbewertung',
+  fr: 'Évaluation des menaces', es: 'Evaluación de amenazas', nl: 'Dreigingsbeoordeling',
+  ar: 'تقييم التهديدات', he: 'הערכת איומים', ja: '脅威評価', ko: '위협 평가', zh: '威胁评估',
+};
+
+const RISK_SCORING_LABELS: LanguageMap = {
+  en: 'Risk Scoring', sv: 'Riskbedömning', da: 'Risikovurdering',
+  no: 'Risikovurdering', fi: 'Riskinarviointi', de: 'Risikobewertung',
+  fr: 'Évaluation des risques', es: 'Evaluación de riesgos', nl: 'Risicobeoordeling',
+  ar: 'تقييم المخاطر', he: 'דירוג סיכונים', ja: 'リスク評価', ko: '위험 평가', zh: '风险评分',
+};
+
+const DEEP_ANALYSIS_LABELS: LanguageMap = {
+  en: 'Deep Analysis', sv: 'Djupanalys', da: 'Dybdeanalyse',
+  no: 'Dybdeanalyse', fi: 'Syväanalyysi', de: 'Tiefenanalyse',
+  fr: 'Analyse approfondie', es: 'Análisis profundo', nl: 'Diepgaande analyse',
+  ar: 'التحليل المعمق', he: 'ניתוח מעמיק', ja: '深層分析', ko: '심층 분석', zh: '深度分析',
+};
+
+const VIEW_SOURCE_LABELS: LanguageMap = {
+  en: 'View source code on GitHub', sv: 'Visa källkod på GitHub', da: 'Se kildekode på GitHub',
+  no: 'Se kildekode på GitHub', fi: 'Näytä lähdekoodi GitHubissa', de: 'Quellcode auf GitHub anzeigen',
+  fr: 'Voir le code source sur GitHub', es: 'Ver código fuente en GitHub', nl: 'Broncode bekijken op GitHub',
+  ar: 'عرض الكود المصدري على GitHub', he: 'הצג קוד מקור ב-GitHub', ja: 'GitHubでソースコードを表示',
+  ko: 'GitHub에서 소스 코드 보기', zh: '在GitHub上查看源代码',
+};
+
+const OPEN_SOURCE_NOTE_LABELS: LanguageMap = {
+  en: 'Apache-2.0 licensed open-source project', sv: 'Apache-2.0-licensierat projekt med öppen källkod',
+  da: 'Apache-2.0-licenseret open source-projekt', no: 'Apache-2.0-lisensiert åpen kildekode-prosjekt',
+  fi: 'Apache-2.0-lisensoitu avoimen lähdekoodin projekti', de: 'Apache-2.0-lizenziertes Open-Source-Projekt',
+  fr: 'Projet open source sous licence Apache-2.0', es: 'Proyecto de código abierto con licencia Apache-2.0',
+  nl: 'Apache-2.0-gelicenseerd open-sourceproject', ar: 'مشروع مفتوح المصدر بترخيص Apache-2.0',
+  he: 'פרויקט קוד פתוח ברישיון Apache-2.0', ja: 'Apache-2.0ライセンスのオープンソースプロジェクト',
+  ko: 'Apache-2.0 라이센스 오픈 소스 프로젝트', zh: 'Apache-2.0 许可的开源项目',
+};
+
 /**
  * Render the analysis transparency section with links to analysis artifacts and methodology
  *
@@ -546,6 +611,13 @@ function renderAnalysisTransparencySection(date: string, slug: string, lang: Lan
   const heading = escapeHTML(getLocalizedString(ANALYSIS_TRANSPARENCY_LABELS, lang));
   const analysisSummaryLabel = escapeHTML(getLocalizedString(ANALYSIS_SUMMARY_LABELS, lang));
   const methodologyLabel = escapeHTML(getLocalizedString(METHODOLOGY_LABELS, lang));
+  const disclosure = escapeHTML(getLocalizedString(TRANSPARENCY_DISCLOSURE_LABELS, lang));
+  const classificationLabel = escapeHTML(getLocalizedString(CLASSIFICATION_ANALYSIS_LABELS, lang));
+  const threatLabel = escapeHTML(getLocalizedString(THREAT_ASSESSMENT_LABELS, lang));
+  const riskLabel = escapeHTML(getLocalizedString(RISK_SCORING_LABELS, lang));
+  const deepLabel = escapeHTML(getLocalizedString(DEEP_ANALYSIS_LABELS, lang));
+  const viewSourceLabel = escapeHTML(getLocalizedString(VIEW_SOURCE_LABELS, lang));
+  const openSourceNote = escapeHTML(getLocalizedString(OPEN_SOURCE_NOTE_LABELS, lang));
 
   const repoBase = 'https://github.com/Hack23/euparliamentmonitor/blob/main';
   const analysisDir = `${repoBase}/analysis/${safeDate}/${safeSlug}`;
@@ -554,14 +626,14 @@ function renderAnalysisTransparencySection(date: string, slug: string, lang: Lan
   return `
     <section class="analysis-transparency" aria-label="${heading}">
       <h2>${heading}</h2>
-      <p>This article was generated using AI-driven political intelligence analysis. All analytical content is produced by AI following structured methodologies, while scripts handle only data formatting and HTML rendering.</p>
+      <p>${disclosure}</p>
       <nav class="analysis-links" aria-label="${analysisSummaryLabel}">
         <ul>
           <li><a href="${analysisDir}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📊</span> ${analysisSummaryLabel}</a></li>
-          <li><a href="${analysisDir}/classification" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🏷️</span> Classification Analysis</a></li>
-          <li><a href="${analysisDir}/threat-assessment" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🛡️</span> Threat Assessment</a></li>
-          <li><a href="${analysisDir}/risk-scoring" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⚖️</span> Risk Scoring</a></li>
-          <li><a href="${analysisDir}/existing" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🔍</span> Deep Analysis</a></li>
+          <li><a href="${analysisDir}/classification" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🏷️</span> ${classificationLabel}</a></li>
+          <li><a href="${analysisDir}/threat-assessment" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🛡️</span> ${threatLabel}</a></li>
+          <li><a href="${analysisDir}/risk-scoring" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⚖️</span> ${riskLabel}</a></li>
+          <li><a href="${analysisDir}/existing" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🔍</span> ${deepLabel}</a></li>
         </ul>
       </nav>
       <nav class="methodology-links" aria-label="${methodologyLabel}">
@@ -575,7 +647,7 @@ function renderAnalysisTransparencySection(date: string, slug: string, lang: Lan
           <li><a href="${methodologyDir}/political-style-guide.md" target="_blank" rel="noopener noreferrer">Political Style Guide</a></li>
         </ul>
       </nav>
-      <p class="transparency-note"><a href="https://github.com/Hack23/euparliamentmonitor" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🔓</span> View source code on GitHub</a> — Apache-2.0 licensed open-source project</p>
+      <p class="transparency-note"><a href="https://github.com/Hack23/euparliamentmonitor" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🔓</span> ${viewSourceLabel}</a> — ${openSourceNote}</p>
     </section>
     `;
 }
