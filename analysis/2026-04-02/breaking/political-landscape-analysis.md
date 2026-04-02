@@ -6,6 +6,8 @@ classification: PUBLIC 🟢
 confidence: MEDIUM 🟡
 analyst: AI-Driven Analysis (Opus 4.6)
 dataSource: European Parliament Open Data Portal
+revisedAt: "2026-04-02T18:20:00Z"
+revision: 2
 ---
 
 ![Hack23](https://hack23.com/wp-content/uploads/2024/01/logo-200.webp)
