@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--31-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--02-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-31 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:** 2026-04-02 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-02
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -185,6 +185,135 @@ The separation between script-generated structure and AI-generated analysis MUST
 - ❌ Stakeholder outcome matrices with "Winner/Loser/Neutral" labels but no supporting rationale
 - ❌ Mindmap visualizations with template-only nodes and `data-connections="0"` — real policy connections required
 - ❌ Scripts producing political narrative text — this is the AI agent's exclusive domain
+
+### Rule 9: AI-Driven Headlines and Descriptions — Newsworthy, Not Technical
+
+Every news article title and meta description MUST be AI-generated based on the **political significance** of the content, never from script-generated technical metrics.
+
+| ❌ REJECTED Titles | ✅ REQUIRED Titles |
+|---|---|
+| `Legislative Procedures: European Parliament Monitor — Pipeline 0%` | `EU Legislative Tracker: Banking Resolution Reforms Clear Committee as Corruption Directive Advances` |
+| `Plenary Votes & Resolutions: 2026-04-02 — 2 Votes, 1 Anomaly` | `Parliament Divided: ECR Dissent Signals Shifting Alliances on Trade Tariff Response` |
+| `EU Parliament Committee Activity Report: ENVI, ECON, AFET, LIBE, AGRI — 19 Adopted Texts` | `Five Committees Reshape EU Policy: Anti-Corruption, Banking Reform, and Climate Regulation Advance` |
+
+**Title requirements:**
+- Lead with the political story, not data metrics (no "Pipeline 0%", "2 Votes", "19 Adopted Texts")
+- Maximum 70 characters for SEO (Google typically displays 50-60 characters)
+- Include the most newsworthy development from feed data
+- Name specific legislation, committees, or political actors when possible
+- Use active verbs: "advances", "divides", "reshapes", "signals"
+
+**Meta description requirements:**
+- 150-160 characters summarizing the political significance
+- Reference specific EP actions with dates
+- Include at least one stakeholder impact statement
+- Never use generic descriptions like "European Parliament committee activity and legislative effectiveness analysis"
+
+**AI prompt for title generation:**
+> Given the following EP feed data and analysis results, generate a newsworthy headline that: (1) leads with the most politically significant development, (2) names specific legislation or actors, (3) uses active voice, (4) stays under 70 characters. Do NOT include raw metrics, dates-only, or data counts in the title.
+
+### Rule 10: Comprehensive Analysis-to-Article Linkage
+
+News articles MUST link to ALL individual analysis files, not just directory-level links. The Analysis & Transparency section MUST enumerate specific analysis artifacts that informed the article.
+
+**Required links per article (in addition to existing directory links):**
+- [ ] Link to `manifest.json` (analysis provenance)
+- [ ] Links to each individual analysis `.md` file produced by the analysis stage
+- [ ] Links to specific methodology documents that were applied
+- [ ] Link to the raw EP data directory if available
+
+**Article HTML template MUST include:**
+```html
+<!-- Individual analysis file links -->
+<li><a href="{analysisDir}/classification/significance-assessment.md">Significance Assessment</a></li>
+<li><a href="{analysisDir}/classification/actor-mapping.md">Actor Mapping</a></li>
+<li><a href="{analysisDir}/classification/forces-analysis.md">Forces Analysis</a></li>
+<li><a href="{analysisDir}/classification/impact-matrix.md">Impact Matrix</a></li>
+<li><a href="{analysisDir}/threat-assessment/political-threat-landscape.md">Political Threat Landscape</a></li>
+<li><a href="{analysisDir}/threat-assessment/actor-threat-profiles.md">Actor Threat Profiles</a></li>
+<li><a href="{analysisDir}/threat-assessment/consequence-trees.md">Consequence Trees</a></li>
+<li><a href="{analysisDir}/threat-assessment/legislative-disruption.md">Legislative Disruption</a></li>
+<li><a href="{analysisDir}/risk-scoring/risk-matrix.md">Risk Matrix</a></li>
+<li><a href="{analysisDir}/risk-scoring/quantitative-swot.md">Quantitative SWOT</a></li>
+<li><a href="{analysisDir}/risk-scoring/political-capital-risk.md">Political Capital Risk</a></li>
+<li><a href="{analysisDir}/risk-scoring/legislative-velocity-risk.md">Legislative Velocity Risk</a></li>
+<li><a href="{analysisDir}/risk-scoring/agent-risk-workflow.md">Agent Risk Workflow</a></li>
+<li><a href="{analysisDir}/existing/deep-analysis.md">Deep Analysis</a></li>
+<li><a href="{analysisDir}/existing/stakeholder-analysis.md">Stakeholder Analysis</a></li>
+<li><a href="{analysisDir}/existing/coalition-analysis.md">Coalition Analysis</a></li>
+<li><a href="{analysisDir}/existing/voting-patterns.md">Voting Patterns</a></li>
+<li><a href="{analysisDir}/existing/cross-session-intelligence.md">Cross-Session Intelligence</a></li>
+```
+
+### Rule 11: Script-Generated Analysis Must Be AI Prompt Placeholders, Not Content
+
+The `existing/` analysis category methods (deep-analysis, stakeholder-analysis, coalition-analysis, voting-patterns, cross-session-intelligence) currently produce **script-generated data inventory tables** that are NOT analysis. These MUST be redesigned as AI prompt placeholders.
+
+**Current problem (observed in 2026-04-02 analysis):**
+```markdown
+# Coalition Cohesion Analysis
+## Coalition Metrics
+- **Overall Stability**: 0.0%
+- **Forecast**: volatile
+- **Patterns Analysed**: 0
+```
+This is a script printing raw metrics — it is NOT intelligence analysis. The AI agent produces the actual analysis in the agentic workflow but the script-generated file is what gets committed to the repository.
+
+**Required change — scripts MUST produce analysis prompt templates:**
+```markdown
+---
+method: coalition-analysis
+date: 2026-04-02
+status: AI_ANALYSIS_PENDING
+dataPointsAvailable:
+  adoptedTexts: 30
+  votingRecords: 0
+  coalitionData: 0
+---
+
+# Coalition Cohesion Analysis — AI Analysis Required
+
+## Data Inventory (Script-Generated)
+[Raw data counts for AI context]
+
+## AI Analysis Prompt
+Analyze coalition dynamics using the political-risk-methodology.md framework:
+1. Which political groups show the strongest/weakest internal cohesion based on available voting data?
+2. What coalition patterns emerge from the adopted texts voting records?
+3. Identify any cross-party voting alignments or defections
+4. Rate overall coalition stability with confidence level (🟢/🟡/🔴)
+5. Provide 2-3 forward-looking scenarios for coalition evolution
+
+## AI-Produced Analysis
+[TO BE FILLED BY AI AGENT IN AGENTIC WORKFLOW]
+```
+
+**Enforcement:** The agentic workflow AI agent MUST read these prompt-placeholder files, execute the analysis prompt, and replace the `[TO BE FILLED BY AI AGENT]` section with substantive intelligence. The quality gate rejects any file still containing `AI_ANALYSIS_PENDING` status after the workflow completes.
+
+### Rule 12: AI Must Generate ALL Article Narrative Text — Zero Script-Generated Prose
+
+No TypeScript code should generate political narrative text, analytical conclusions, or descriptive prose for news articles. Scripts produce HTML structure, data tables, and visual components. ALL textual content in articles that describes, analyses, or interprets EP data MUST come from AI prompts.
+
+**Separation of concerns:**
+
+| Component | Produced By | Examples |
+|-----------|------------|---------|
+| HTML structure, CSS, metadata | Scripts (TypeScript) | `<article>`, `<section>`, meta tags, JSON-LD |
+| Data tables, charts, SWOT grids | Scripts (TypeScript) | Vote count tables, pipeline health bars, mindmap SVGs |
+| Article title, lede, body narrative | AI Agent (Workflow LLM) | Headlines, analytical paragraphs, stakeholder impact text |
+| Stakeholder reasoning, risk justification | AI Agent (Workflow LLM) | "The EPP group's support signals..." |
+| Forward-looking scenarios, predictions | AI Agent (Workflow LLM) | "Three scenarios emerge: (1) likely..." |
+| Confidence assessments on claims | AI Agent (Workflow LLM) | "🟢 High confidence based on EP vote TA-10-2026-0091" |
+
+**AI prompt template for article narrative:**
+> You are writing a news article for EU Parliament Monitor. Based on the analysis artifacts in `analysis/{date}/{slug}/` and the EP MCP feed data, write the following sections:
+> 1. **Headline**: Newsworthy, 50-70 characters, names specific legislation/actors
+> 2. **Meta description**: 150-160 characters, political significance summary
+> 3. **Lede paragraph**: 50-75 words, hook + context + significance
+> 4. **Body sections**: Inverted pyramid structure, active voice, evidence-cited
+> 5. **Stakeholder analysis**: From ≥3 of 6 perspectives, with impact/severity ratings
+> 6. **Forward-looking analysis**: 2-3 scenarios with probability indicators
+> All claims must cite specific EP document IDs or MCP tool data.
 
 ---
 

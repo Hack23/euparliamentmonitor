@@ -187,6 +187,37 @@ For each new legislative proposition, assess:
 - **Blocking coalitions**: Could any combination of groups block or significantly delay this?
 - **Compromise zones**: Where is cross-party agreement most likely to emerge?
 
+## 📰 AI-DRIVEN HEADLINE AND DESCRIPTION GENERATION (MANDATORY)
+
+> **⚠️ CRITICAL**: Article titles and meta descriptions MUST be AI-generated from political content analysis, NEVER from raw data metrics.
+
+**REJECTED title patterns:**
+- ❌ `Legislative Procedures: European Parliament Monitor — Pipeline 0%` (technical metric, meaningless to readers)
+- ❌ `Propositions: 2026-04-02 — Legislative Tracker` (date-centric, no news value)
+
+**REQUIRED title approach — AI must generate headlines by:**
+1. Reading the analysis artifacts in `analysis/${TODAY}/propositions/`
+2. Identifying the most significant legislative procedure or proposal
+3. Writing a headline that names the legislation and its political significance
+4. Keeping under 70 characters for SEO; using active verbs
+
+**Example AI-generated titles:**
+- ✅ `Banking Resolution Reforms and Corruption Directive Lead Parliament's Legislative Surge`
+- ✅ `EU Legislators Advance 12 COD Procedures as Digital Infrastructure Bill Enters Trilogue`
+- ✅ `Parliament's Legislative Pipeline Stalls Between Sessions — Key Proposals Await April Restart`
+
+**Meta description AI prompt:**
+> Based on the EP procedures feed and adopted texts data, generate a meta description (150-160 chars) that: (1) names the most significant legislative proposals, (2) states their stage in the process, (3) indicates political dynamics. Never use generic descriptions like "legislative effectiveness analysis".
+
+## 🔗 ANALYSIS FILE REFERENCES (MANDATORY)
+
+Every generated article MUST link to ALL individual analysis files. Verify the Analysis & Transparency section includes:
+- [ ] Links to `analysis/${TODAY}/propositions/classification/*.md` files
+- [ ] Links to `analysis/${TODAY}/propositions/threat-assessment/*.md` files
+- [ ] Links to `analysis/${TODAY}/propositions/risk-scoring/*.md` files
+- [ ] Links to `analysis/${TODAY}/propositions/existing/*.md` files
+- [ ] Links to `analysis/methodologies/*.md` methodology documents
+
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, EP MCP server warm-up
