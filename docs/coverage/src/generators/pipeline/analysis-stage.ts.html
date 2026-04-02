@@ -2824,19 +2824,7 @@
 <a name='L2759'></a><a href='#L2759'>2759</a>
 <a name='L2760'></a><a href='#L2760'>2760</a>
 <a name='L2761'></a><a href='#L2761'>2761</a>
-<a name='L2762'></a><a href='#L2762'>2762</a>
-<a name='L2763'></a><a href='#L2763'>2763</a>
-<a name='L2764'></a><a href='#L2764'>2764</a>
-<a name='L2765'></a><a href='#L2765'>2765</a>
-<a name='L2766'></a><a href='#L2766'>2766</a>
-<a name='L2767'></a><a href='#L2767'>2767</a>
-<a name='L2768'></a><a href='#L2768'>2768</a>
-<a name='L2769'></a><a href='#L2769'>2769</a>
-<a name='L2770'></a><a href='#L2770'>2770</a>
-<a name='L2771'></a><a href='#L2771'>2771</a>
-<a name='L2772'></a><a href='#L2772'>2772</a>
-<a name='L2773'></a><a href='#L2773'>2773</a>
-<a name='L2774'></a><a href='#L2774'>2774</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L2762'></a><a href='#L2762'>2762</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -3159,8 +3147,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -3197,11 +3183,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -5043,8 +5024,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
@@ -5273,7 +5252,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -5297,9 +5275,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -5929,9 +5905,7 @@ export type AnalysisMethod =
   | 'voting-patterns'
   | 'cross-session-intelligence'
   // Per-document intelligence analysis
-  | 'document-analysis'
-  // Deprecated alias — use 'political-threat-landscape' instead
-  | 'political-stride';
+  | 'document-analysis';
 &nbsp;
 /** All analysis methods in default execution order */
 export const ALL_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
@@ -5970,12 +5944,7 @@ export const ALL_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
  * set, use {@link ALL_ANALYSIS_METHODS} instead.
  */
 export const VALID_ANALYSIS_METHODS: readonly AnalysisMethod[] = Array.from(
-  new Set&lt;AnalysisMethod&gt;([
-    ...ALL_ANALYSIS_METHODS,
-    'document-analysis',
-    // Deprecated alias — accepted for backward compatibility
-    'political-stride',
-  ])
+  new Set&lt;AnalysisMethod&gt;([...ALL_ANALYSIS_METHODS, 'document-analysis'])
 );
 &nbsp;
 // ─── Interfaces ───────────────────────────────────────────────────────────────
@@ -7811,8 +7780,6 @@ const METHOD_BUILDERS: Readonly&lt;Record&lt;AnalysisMethod, MarkdownBuilder&gt;
   'voting-patterns': buildVotingPatternsMarkdown,
   'cross-session-intelligence': buildCrossSessionIntelligenceMarkdown,
   'document-analysis': buildDocumentAnalysisMarkdown,
-  // Deprecated alias — maps to same builder as 'political-threat-landscape'
-  'political-stride': buildThreatLandscapeMarkdown,
 };
 &nbsp;
 // ─── Method subdir constants ──────────────────────────────────────────────────
@@ -8043,7 +8010,6 @@ const METHOD_SUBDIRS: Readonly&lt;Record&lt;AnalysisMethod, string&gt;&gt; = {
   'voting-patterns': SUBDIR_EXISTING,
   'cross-session-intelligence': SUBDIR_EXISTING,
   'document-analysis': SUBDIR_DOCUMENTS,
-  'political-stride': SUBDIR_THREAT_ASSESSMENT,
 };
 &nbsp;
 /** Default confidence level for each analysis method group */
@@ -8067,7 +8033,6 @@ const METHOD_DEFAULT_CONFIDENCE: Readonly&lt;Record&lt;AnalysisMethod, Confidenc
   'voting-patterns': 'high',
   'cross-session-intelligence': 'high',
   'document-analysis': 'medium',
-  'political-stride': 'medium',
 };
 &nbsp;
 /** Filename for each analysis method */
@@ -8091,7 +8056,6 @@ const METHOD_FILENAMES: Readonly&lt;Record&lt;AnalysisMethod, string&gt;&gt; = {
   'voting-patterns': 'voting-patterns.md',
   'cross-session-intelligence': 'cross-session-intelligence.md',
   'document-analysis': 'document-analysis-index.md',
-  'political-stride': 'political-threat-landscape.md',
 };
 &nbsp;
 // ─── Core runner ──────────────────────────────────────────────────────────────
@@ -8389,7 +8353,7 @@ export async function runAnalysisStage(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-01T00:08:35.494Z
+                at 2026-04-02T08:46:15.145Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
