@@ -12,27 +12,29 @@ This agent helps configure **AI engines** in GitHub Agentic Workflows (gh-aw) ma
 
 | Engine | Provider | Frontmatter | Best For |
 |--------|----------|-------------|----------|
-| Copilot | GitHub | `engine: copilot` (default) | General tasks, best GitHub integration |
-| Claude | Anthropic | `engine: claude` | Complex analysis, long context, deep reasoning |
-| Codex | OpenAI | `engine: codex` | Code-focused tasks, structured output |
-| Custom | Any | `engine: custom` | Specialized processing |
+| Copilot | GitHub | `engine: { id: copilot }` (default) | General tasks, best GitHub integration |
+| Claude | Anthropic | `engine: { id: copilot, model: claude-opus-4.6 }` | Complex analysis, long context, deep reasoning |
+| Codex | OpenAI | `engine: { id: codex }` | Code-focused tasks, structured output |
 
 ## Engine Configuration
 
 ### Copilot (Default)
 ```markdown
 ---
-engine: copilot
+engine:
+  id: copilot
 timeout-minutes: 10
 ---
 # My Workflow
 Instructions for the Copilot agent...
 ```
 
-### Claude
+### Claude (via Copilot engine with model override)
 ```markdown
 ---
-engine: claude
+engine:
+  id: copilot
+  model: claude-opus-4.6
 timeout-minutes: 15
 ---
 # My Workflow
@@ -42,7 +44,8 @@ Instructions for Claude...
 ### Codex
 ```markdown
 ---
-engine: codex
+engine:
+  id: codex
 timeout-minutes: 10
 ---
 # My Workflow
@@ -62,25 +65,48 @@ Instructions for Codex...
 
 ## EU Parliament Monitor Usage
 
-This project's gh-aw workflows primarily use the **default Copilot engine** for news generation tasks. For deep EP data analysis, consider using `engine: claude`.
+This project's gh-aw workflows primarily use **Copilot with Claude model** (`engine: { id: copilot, model: claude-opus-4.6 }`) for news generation tasks.
 
 ### Example: News Generation
 ```markdown
 ---
-engine: copilot
-timeout-minutes: 15
+engine:
+  id: copilot
+  model: claude-opus-4.6
+timeout-minutes: 60
 on:
-  schedule: daily
+  schedule:
+    - cron: "0 */6 * * *"
 permissions:
   contents: read
+network:
+  allowed:
+    - node
+    - github.com
+    - api.github.com
+    - data.europarl.europa.eu
+    - "*.europa.eu"
+    - default
+mcp-servers:
+  european-parliament:
+    command: npx
+    args:
+      - -y
+      - european-parliament-mcp-server@1.1.22
+    env:
+      EP_REQUEST_TIMEOUT_MS: "120000"
 tools:
   github:
-    toolsets: [repos, issues]
-  european-parliament: {}
+    toolsets:
+      - all
+  bash: true
 safe-outputs:
-  create-pull-request:
-    title-prefix: "[news] "
-    labels: [automated, news]
+  allowed-domains:
+    - data.europarl.europa.eu
+    - www.europarl.europa.eu
+    - github.com
+  create-pull-request: {}
+  add-comment: {}
 ---
 # EU Parliament News Generator
 Analyze recent EP activity and generate articles...
