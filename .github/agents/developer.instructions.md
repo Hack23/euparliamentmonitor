@@ -134,8 +134,8 @@ engine:
 
 ### Safe Output Rules
 - Agent produces JSONL artifacts, never writes to GitHub directly
-- Write job validates against `safe-outputs` constraints
-- Title prefixes, label allowlists, and max counts enforce guardrails
+- Guardrails are enforced via the compiled `.lock.yml` (e.g. `max_patch_size`, protected file lists, and network/output restrictions)
+- Title prefixes and label allowlists are optional gh-aw capabilities and are not currently configured for this repo
 
 ## Testing Strategy
 

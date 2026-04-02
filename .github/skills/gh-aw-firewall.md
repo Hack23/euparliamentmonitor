@@ -76,11 +76,11 @@ AWF is Layer 3 of the 5-layer security model:
 ## EU Parliament Monitor Relevance
 
 For this project's gh-aw workflows, the AWF ensures:
-- Agents can only access `data.europarl.europa.eu` and `www.europarl.europa.eu` for EP data
-- Wildcard `*.europa.eu` is allowed for additional EU institutional domains
-- GitHub API access is limited to read operations
-- No unauthorized external API calls during news generation
-- All MCP server communication stays within the sandbox
+- Agents can access only explicitly allowlisted domains; for EP data this includes `data.europarl.europa.eu` and `www.europarl.europa.eu`
+- Wildcard `*.europa.eu` is allowed for additional EU institutional domains as configured per workflow
+- GitHub API access (e.g., `github.com`, `api.github.com`) is limited to read operations as defined in the allowlist
+- No unauthorized external API calls during news generation beyond the configured `network.allowed` domains
+- All MCP server communication stays within the sandboxed, allowlisted network environment
 
 ## Integrity Filtering
 

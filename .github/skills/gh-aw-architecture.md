@@ -27,7 +27,7 @@ The agent process **never receives write tokens, API keys, or credentials**. Sec
 The agent runs inside an isolated container. The **Agent Workflow Firewall (AWF)** routes all outbound traffic through a Squid proxy enforcing an explicit domain allowlist. Traffic to unlisted destinations is dropped at the kernel level.
 
 ### Layer 4: Safe Outputs with Guardrails
-The agent produces structured JSONL artifacts describing intended actions (e.g., "create issue with this title"). A **separate write job** with scoped permissions reads the artifact and applies only what the workflow permits — hard limits per operation, required prefixes, label constraints.
+The agent produces structured JSONL artifacts describing intended actions (e.g., "create issue with this title"). A **separate write job** with scoped permissions reads the artifact and applies only what the workflow permits — hard limits per operation (for example, maximum patch size, protected file lists, and optionally required prefixes or label constraints configured per workflow).
 
 ### Layer 5: Agentic Threat Detection
 Before outputs are applied, a dedicated **threat detection job** runs an AI-powered scan checking for prompt injection, leaked credentials, and malicious code patterns. Suspicious output blocks the entire workflow.
@@ -85,7 +85,9 @@ Natural language instructions for the AI agent...
 
 ## Safe Output Types
 
-| Type | Purpose | Key Constraints |
+These are the available gh-aw safe output types with their optional constraint fields. This repo's workflows currently use `create-pull-request: {}` and `add-comment: {}` — enforcement of `max_patch_size`, `protected_files`, and `protected_path_prefixes` is handled by the compiled `.lock.yml`.
+
+| Type | Purpose | Optional Constraint Fields |
 |------|---------|----------------|
 | `create-issue` | Create GitHub issues | `title-prefix`, `labels`, `max` count, `close-older-issues` |
 | `create-pull-request` | Create PRs with code changes | `title-prefix`, `labels`, `max-changed-files` |

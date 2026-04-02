@@ -92,7 +92,9 @@ Natural language instructions for the AI agent.
 
 ### Safe Output Types
 
-| Type | Key Constraints |
+The following are upstream gh-aw safe output types with their **optional** constraint fields. This repo's news workflows currently configure `create-pull-request: {}` and `add-comment: {}` — enforcement of limits like `max_patch_size` and `protected_files` is handled by the compiled `.lock.yml` safe outputs handler config.
+
+| Type | Optional Constraint Fields (upstream gh-aw) |
 |------|----------------|
 | `create-issue` | `title-prefix`, `labels`, `max`, `close-older-issues` |
 | `create-pull-request` | `title-prefix`, `labels`, `max-changed-files` |

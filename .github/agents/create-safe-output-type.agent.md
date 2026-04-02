@@ -70,24 +70,19 @@ safe-outputs:
   update-project-item: {}          # Update GitHub Project fields
 ```
 
-## EU Parliament Monitor Examples
+## EU Parliament Monitor Usage
 
-### News Generation Workflow
-```yaml
-safe-outputs:
-  create-pull-request:
-    title-prefix: "[news] "
-    labels: [automated, news, breaking]
-    max-changed-files: 100
-```
+In this repository, the news workflows configure `create-pull-request: {}` and rely on the compiled `.lock.yml` safe outputs handler config to enforce limits like `max_patch_size`, protected file lists (`protected_files`, `protected_path_prefixes`), and max counts. The constraint fields shown in the types above (`title-prefix`, `labels`, `max-changed-files`) are **optional upstream gh-aw features** and are **not currently used** in this repo's workflows.
 
-### Issue Triage Workflow
 ```yaml
+# This repo's actual safe-outputs configuration (news workflows):
 safe-outputs:
-  add-labels:
-    allowed: [bug, enhancement, documentation, question, help-wanted]
-  add-comment:
-    max: 1
+  allowed-domains:
+    - data.europarl.europa.eu
+    - www.europarl.europa.eu
+    - github.com
+  create-pull-request: {}   # Enforcement via compiled .lock.yml safe outputs handler config
+  add-comment: {}
 ```
 
 ## Security Principles

@@ -15,7 +15,7 @@
 **EU Parliament Monitor** is a European Parliament Intelligence Platform generating multi-language news articles (14 languages) using EP open data via MCP server integration, powered by GitHub Agentic Workflows.
 
 - **Stack**: Node.js 25, TypeScript 6, HTML5/CSS3, Vitest, Playwright, ESLint
-- **License**: Apache-2.0 | **Deployment**: GitHub Pages + S3 CDN
+- **License**: Apache-2.0 | **Deployment**: AWS S3/CloudFront (primary) with GitHub Pages as fallback/runbook
 - **Data**: European Parliament MCP Server (`european-parliament-mcp-server@1.1.22`)
 - **Languages**: EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH
 - **Agentic Workflows**: 10 gh-aw markdown workflows for automated news generation
@@ -77,7 +77,7 @@ This project uses **10 gh-aw markdown workflows** in `.github/workflows/*.md` fo
 2. **Never** break WCAG 2.1 AA compliance
 3. **Never** skip testing before committing
 4. **Never** use deprecated crypto (MD5, SHA-1, DES, 3DES)
-5. **Never** merge Dependabot PRs on gh-aw manifest files directly
+5. **Never** merge Dependabot PRs that modify compiled `.lock.yml` files directly — recompile with `gh aw compile` instead
 
 ## 📐 Architecture Documentation (C4 Model)
 

@@ -8,13 +8,14 @@ tools: []
 
 ## Overview
 
-Every gh-aw workflow runs inside an **isolated container** within GitHub Actions. The sandbox provides resource isolation, read-only filesystem access, and controlled tool execution — the agent can observe the repository but cannot modify it directly.
+Every gh-aw workflow runs inside an **isolated container** within GitHub Actions. The sandbox provides resource isolation, a read-only GitHub token, and controlled tool execution — the agent can read and write files in the ephemeral workspace to generate patches and artifacts, but cannot push changes or use write permissions against the repository directly.
 
 ## Sandbox Properties
 
 ### Execution Environment
 - **Container-based**: Agent runs in a dedicated Docker container
-- **Read-only token**: GitHub token scoped to read-only permissions
+- **Read-only token**: GitHub token scoped to read-only permissions (agent cannot push or create PRs directly)
+- **Writable workspace**: Agent can read/write files in the ephemeral workspace for patch generation
 - **No credentials**: Write tokens and API keys are never exposed to the agent
 - **Network filtered**: All outbound traffic routed through AWF (Agent Workflow Firewall)
 - **Resource limited**: CPU, memory, and time constraints via `timeout-minutes`
@@ -99,7 +100,7 @@ tools:
    - Read-only GitHub token
    - AWF network firewall
    - Configured MCP servers
-   - Repository checkout (read-only)
+   - Repository checkout (writable workspace for patch generation)
 4. AI engine processes workflow instructions
 5. Agent uses tools, reads repository, analyzes data
 6. Agent produces JSONL safe output artifact
