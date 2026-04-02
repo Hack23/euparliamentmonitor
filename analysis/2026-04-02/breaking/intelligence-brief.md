@@ -7,6 +7,8 @@ urgency: ROUTINE
 confidence: MEDIUM 🟡
 analyst: AI-Driven Analysis (Opus 4.6)
 dataSource: European Parliament Open Data Portal
+revisedAt: "2026-04-02T18:20:00Z"
+revision: 2
 ---
 
 ![Hack23](https://hack23.com/wp-content/uploads/2024/01/logo-200.webp)
@@ -18,22 +20,25 @@ dataSource: European Parliament Open Data Portal
 | **Overall Assessment** | 🟢 QUIET — No plenary session; inter-sessional week |
 | **Breaking News Items** | 0 |
 | **Data Points Collected** | 837+ (737 MEPs + 100 adopted texts from fallback) |
-| **Next Scheduled Plenary** | Week of 7 April 2026 (estimated) |
+| **Next Scheduled Plenary** | 27–30 April 2026 in Strasbourg |
+| **Revision** | 2 — Extended with March 26 trade/anti-corruption texts, corrected next plenary date |
 
 ---
 
 ## 1. Executive Summary
 
-Thursday 2 April 2026 is an **inter-sessional period** in the European Parliament calendar. The last plenary session took place on **26 March 2026** in Strasbourg, where MEPs adopted 16+ texts covering banking resolution reform (BRRD3), immunity waivers, customs duties, and the European Globalisation Adjustment Fund. No new legislative activity, adopted texts, events, or procedural updates have been published today.
+Thursday 2 April 2026 is an **inter-sessional recess period** in the European Parliament calendar. The EP is between sessions — the last plenary took place on **25–26 March 2026** in Brussels, where MEPs adopted 16+ texts covering banking resolution reform (BRRD3/SRMR3), anti-corruption legislation, customs tariff adjustments (including US-origin goods), EU-China trade concessions, immunity waivers, and European Globalisation Adjustment Fund mobilisations. The next plenary is scheduled for **27–30 April 2026 in Strasbourg**. No new legislative activity, adopted texts, events, or procedural updates have been published today.
 
 **Key Finding**: The absence of breaking activity does not indicate political stasis. Analysis of the post-March 26 landscape reveals several developing dynamics worth monitoring:
 
-1. **BRRD3 Banking Resolution** (TA-10-2026-0091) — Implementation timeline begins; market and regulatory adaptation expected
-2. **Immunity Waivers** (TA-10-2026-0087, -0089) — Grzegorz Braun (ECR/PL) and Nikos Pappas (The Left/EL) — cross-group judicial accountability precedent
-3. **EGF Mobilisation for Belgium** (TA-10-2026-0102) — Social safety net response to Casa displacement; signals cohesion policy activity
-4. **Dominant Group Dynamics** — PPE at 38% seat share creates 19x size asymmetry with smallest groups; structural power imbalance warrants sustained monitoring
+1. **BRRD3/SRMR3 Banking Resolution Package** (TA-10-2026-0091, TA-10-2026-0092) — Dual banking reform adoption finalises early intervention and resolution funding rules; implementation timeline begins
+2. **Combating Corruption Directive** (TA-10-2026-0094) — Anti-corruption legislation adoption signals rule-of-law commitment; procedure 2023/0135 traces to long-running Commission proposal
+3. **US Tariff Adjustment** (TA-10-2026-0096) — Adjustment of customs duties and opening of tariff quotas for goods originating in the United States — trade policy calibration amid transatlantic tensions
+4. **EU-China Trade Concessions** (TA-10-2026-0101) — Modification of concessions on all tariff rate quotas in EU Schedule CLXXV — signals bilateral trade management
+5. **Immunity Waivers** (TA-10-2026-0087, -0089) — Grzegorz Braun (ECR/PL) and Nikos Pappas (The Left/EL) — cross-group judicial accountability precedent
+6. **Dominant Group Dynamics** — PPE at 38% seat share creates 19x size asymmetry with smallest groups; structural power imbalance warrants sustained monitoring
 
-**Confidence Assessment**: 🟡 MEDIUM — Feed data confirmed via one-week fallback; events/procedures feeds returned 404 errors; advisory feeds timed out at 120s. MEP roster data is current (737 active MEPs). Adopted texts data is complete through 26 March 2026.
+**Confidence Assessment**: 🟡 MEDIUM — Feed data confirmed via one-week fallback; events/procedures/documents feeds returned 404 errors on both timeframes. MEP roster data is current (737 active MEPs). Adopted texts data is complete through 26 March 2026, cross-validated via year-based list endpoint.
 
 ---
 
@@ -53,15 +58,21 @@ Thursday 2 April 2026 is an **inter-sessional period** in the European Parliamen
 
 ### 3.1 Adopted Texts Summary
 
-The March 26 plenary was the most recent legislative activity. Key texts adopted:
+The March 25–26 Brussels plenary was the most recent legislative activity. Key texts adopted:
 
 | Ref | Title | Domain | Significance |
 |-----|-------|--------|-------------|
-| TA-10-2026-0091 | BRRD3 — Early intervention, resolution conditions and funding | ECON | **HIGH** — Major banking reform |
-| TA-10-2026-0087 | Waiver of immunity of Grzegorz Braun | JURI | **MEDIUM** — Rule of law signal |
+| TA-10-2026-0088 | Request for the waiver of the immunity of Grzegorz Braun | JURI | **MEDIUM** — Rule of law signal |
 | TA-10-2026-0089 | Waiver of immunity of Nikos Pappas | JURI | **MEDIUM** — Cross-group accountability |
-| TA-10-2026-0097 | Non-application of customs duties on imports | INTA | **MEDIUM** — Trade policy adjustment |
-| TA-10-2026-0102 | EGF mobilisation BE/Casa | EMPL | **LOW** — Routine social fund activation |
+| TA-10-2026-0091 | BRRD3 — Early intervention, resolution conditions and funding | ECON | **HIGH** — Major banking reform |
+| TA-10-2026-0092 | SRMR3 — Early intervention measures, conditions for resolution and funding of resolution action | ECON | **HIGH** — Banking resolution framework |
+| TA-10-2026-0094 | Combating corruption | LIBE | **HIGH** — Anti-corruption directive |
+| TA-10-2026-0096 | Adjustment of customs duties — import of goods originating in the United States of America | INTA | **HIGH** — US trade policy |
+| TA-10-2026-0097 | Non-application of customs duties on imports | INTA | **MEDIUM** — Trade liberalisation |
+| TA-10-2026-0100 | EU-Lebanon Agreement — scientific and technological cooperation (PRIMA) | AFET | **LOW** — External relations |
+| TA-10-2026-0101 | EU-China Agreement — modification of tariff rate quotas (Schedule CLXXV) | INTA | **HIGH** — Strategic trade management |
+| TA-10-2026-0102 | EGF mobilisation BE/Casa — Belgium | EMPL | **LOW** — Social fund activation |
+| TA-10-2026-0103 | EGF mobilisation AT/KTM — Austria | EMPL | **LOW** — Social fund activation |
 
 ### 3.2 BRRD3 Deep Analysis (TA-10-2026-0091)
 
@@ -81,7 +92,27 @@ The March 26 plenary was the most recent legislative activity. Key texts adopted
 
 **Confidence**: 🟢 HIGH — Based on official adopted text reference and procedure timeline.
 
-### 3.3 Immunity Waiver Cross-Analysis
+### 3.3 Trade Policy Cluster — US Tariffs and EU-China Concessions
+
+**Political Context**: The adoption of TA-10-2026-0096 (US tariff adjustment) and TA-10-2026-0101 (EU-China TRQ modification) on the same day reveals a coordinated trade policy recalibration. The US tariff text — titled "Adjustment of customs duties and opening of tariff quotas for the import of certain goods originating in the United States of America" — suggests a calibrated response to transatlantic trade dynamics. The EU-China concession text modifies tariff rate quotas across Schedule CLXXV, indicating bilateral trade management. Procedure 2025/0261 for the US tariffs text indicates a 2025 Commission proposal reaching parliamentary conclusion.
+
+**Stakeholder Impact**:
+
+| Stakeholder | Impact | Rationale | Confidence |
+|-------------|--------|-----------|------------|
+| EU Exporters to US | Mixed | Tariff adjustments may signal retaliatory or conciliatory posture | 🟡 MEDIUM |
+| EU Importers from US | Positive | Quota openings reduce trade barriers for specific goods | 🟡 MEDIUM |
+| EU-China Trade Operators | Positive | TRQ modifications provide quota certainty | 🟡 MEDIUM |
+| Agricultural Sector | Mixed | Tariff quota changes affect competitive dynamics | 🟡 MEDIUM |
+| WTO Framework | Positive | Both adjustments operate within WTO-compatible framework | 🟡 MEDIUM |
+
+### 3.4 Anti-Corruption Directive — Rule-of-Law Signal
+
+**Political Context**: TA-10-2026-0094 "Combating corruption" traces to procedure 2023/0135, a Commission legislative proposal initiated in 2023. Its adoption in March 2026 completes a three-year legislative process to harmonise criminal law approaches to corruption across EU Member States.
+
+**Significance**: **HIGH** — Anti-corruption legislation directly affects democratic integrity, public trust, and EU enlargement criteria. The simultaneous adoption with two immunity waivers across ECR and The Left political groups creates a strong triple signal of EP commitment to judicial accountability and anti-corruption norms. 🟡 MEDIUM confidence on political impact assessment.
+
+### 3.5 Immunity Waiver Cross-Analysis
 
 The simultaneous processing of immunity waivers for MEPs from different political groups (Braun from ECR-aligned Polish party, Pappas from The Left/Greek SYRIZA) demonstrates:
 
@@ -311,13 +342,20 @@ flowchart TD
 ## 9. Strategic Outlook
 
 ### Scenario 1: Baseline (Likely — 70%)
-The inter-sessional period continues normally. Committee work proceeds on pending procedures. The next plenary session (estimated week of 7 April) follows the standard agenda cycle. BRRD3 implementation begins in the banking sector.
+The inter-sessional period continues normally. Committee work proceeds on 20+ pending procedures (12 COD, 4 BUD, 4 NLE active for 2026). The next plenary session (27–30 April in Strasbourg) follows the standard agenda cycle. BRRD3/SRMR3 implementation begins in the banking sector. Anti-corruption directive enters Member State transposition phase.
 
-### Scenario 2: Upside — Accelerated Reform (Possible — 20%)
-The March 26 legislative momentum carries forward. Committee work during the inter-sessional week advances several pending files (European Semester, ERA Act, Ukraine Facility). Cross-group cooperation on banking reform implementation demonstrates EP effectiveness.
+### Scenario 2: Trade Policy Escalation (Possible — 20%)
+US tariff adjustments (TA-10-2026-0096) trigger counter-responses or further trade negotiations. EU-China TRQ modifications (TA-10-2026-0101) become contested. INTA committee may convene extraordinary meetings before the April plenary. Cross-group cooperation on banking reform implementation demonstrates EP effectiveness.
 
 ### Scenario 3: Disruption — External Shock (Unlikely — 10%)
-An external event (geopolitical crisis, market disruption, institutional scandal) forces an extraordinary plenary session. The current political balance (PPE-led grand coalition at 60%) would be tested under crisis conditions.
+An external event (geopolitical crisis, market disruption, institutional scandal) forces an extraordinary plenary session during the 4-week recess. The current political balance (PPE-led grand coalition at 60%) would be tested under crisis conditions.
+
+**Key Indicators to Watch Before April 27 Plenary**:
+- US trade policy developments (responses to March 26 tariff adjustments)
+- EU-China trade dialogue updates
+- BRRD3/SRMR3 implementation timeline announcements from EBA/SRB
+- Anti-corruption directive transposition plans from Member States
+- Committee meeting agendas for April working sessions
 
 ---
 
@@ -331,10 +369,10 @@ An external event (geopolitical crisis, market disruption, institutional scandal
 | get_events_feed | 404 Error | today + one-week | 0 |
 | get_procedures_feed | 404 Error | today + one-week | 0 |
 | get_meps_feed | Success | today | 737 |
-| get_documents_feed | Timeout (120s) | one-week | 0 |
-| get_plenary_documents_feed | Timeout (120s) | one-week | 0 |
-| get_committee_documents_feed | Timeout (120s) | one-week | 0 |
-| get_parliamentary_questions_feed | Timeout (120s) | one-week | 0 |
+| get_documents_feed | 404 Error | one-week | 0 |
+| get_plenary_documents_feed | 404 Error | one-week | 0 |
+| get_committee_documents_feed | 404 Error | one-week | 0 |
+| get_parliamentary_questions_feed | 404 Error | one-week | 0 |
 | detect_voting_anomalies | Success | default | 0 anomalies |
 | analyze_coalition_dynamics | Partial | default | Group composition only |
 | generate_political_landscape | Success | default | 8 groups, 100 MEPs sampled |
@@ -342,11 +380,21 @@ An external event (geopolitical crisis, market disruption, institutional scandal
 | get_all_generated_stats | Success | 2004-2026 | Full historical data |
 | get_adopted_texts (year=2026) | Success | 2026 | 100+ texts |
 | get_plenary_sessions | Partial | date range | 50 sessions returned |
+| get_adopted_texts (year=2026) | Success | 2026 | 60+ texts (3 pages) |
+| get_procedures (year=2026) | Success | 2026 | 20+ procedures |
+
+### Data Corrections from Previous Run (Revision 2)
+1. **Next plenary date**: Corrected from "week of 7 April" to **27–30 April 2026 in Strasbourg** (confirmed via get_plenary_sessions year=2026)
+2. **Advisory feed status**: Corrected from "timeout 120s" to **404 Not Found** (API returning structured error responses)
+3. **March 26 adopted texts**: Expanded from 5 to **11+ texts** with full titles including trade, anti-corruption, and SRMR3
+4. **Procedure data**: Added 20+ active 2026 procedures (12 COD, 4 BUD, 4 NLE)
+5. **Session location**: Corrected March 25–26 from "Strasbourg" to **Brussels** (confirmed via get_plenary_sessions)
 | get_procedures (year=2026) | Success | 2026 | 10+ procedures |
 
 ### Data Caveats
 - **Events and procedures feeds**: Returning 404 errors on both today and one-week timeframes — possible EP API maintenance or endpoint changes
-- **Advisory feeds**: All 4 timed out at 120s — suggests heavy EP API load or infrastructure issues
+- **Advisory feeds**: All 4 returning 404 errors — consistent pattern suggests EP API infrastructure issue or endpoint changes rather than data absence
+- **Events and procedures feeds**: Returning 404 errors on both today and one-week timeframes — same pattern as advisory feeds
 - **Per-MEP voting statistics**: Not available from EP Open Data API — coalition cohesion scores derived from group size ratios only
 - **Political landscape sample**: 100 MEPs sampled from 720+ total — landscape percentages are indicative
 

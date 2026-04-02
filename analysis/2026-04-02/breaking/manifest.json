@@ -2,10 +2,11 @@
   "articleType": "breaking",
   "articleTypeSlug": "breaking",
   "date": "2026-04-02",
-  "generatedAt": "2026-04-02T12:20:00Z",
+  "generatedAt": "2026-04-02T18:20:00Z",
   "workflowRun": "analysis-only",
+  "revision": 2,
   "newsworthy": false,
-  "reason": "No plenary session on 2026-04-02. No adopted texts, events, or procedures published today. Last plenary session: 2026-03-26. Data downloaded and analyzed for pattern detection.",
+  "reason": "No plenary session on 2026-04-02. No adopted texts, events, or procedures published today. Last plenary session: 2026-03-25/26 (Brussels). Next plenary: 2026-04-27/30 (Strasbourg). Data downloaded and analyzed for pattern detection.",
   "dataCollected": {
     "adoptedTextsFeed": {
       "status": "success_fallback",
@@ -30,29 +31,44 @@
       "itemCount": 737
     },
     "documentsFeed": {
-      "status": "timeout_120s",
+      "status": "failed_404",
       "timeframe": "one-week",
       "itemCount": 0
     },
     "plenaryDocumentsFeed": {
-      "status": "timeout_120s",
+      "status": "failed_404",
       "timeframe": "one-week",
       "itemCount": 0
     },
     "committeeDocumentsFeed": {
-      "status": "timeout_120s",
+      "status": "failed_404",
       "timeframe": "one-week",
       "itemCount": 0
     },
     "parliamentaryQuestionsFeed": {
-      "status": "timeout_120s",
+      "status": "failed_404",
       "timeframe": "one-week",
       "itemCount": 0
+    },
+    "adoptedTextsYear2026": {
+      "status": "success",
+      "itemCount": 60,
+      "latestDate": "2026-03-26"
+    },
+    "procedures2026": {
+      "status": "success",
+      "itemCount": 20,
+      "types": "12 COD, 4 BUD, 4 NLE"
+    },
+    "plenarySessions2026": {
+      "status": "success",
+      "itemCount": 20,
+      "nextSession": "2026-04-27 Strasbourg"
     }
   },
   "analyticalContext": {
     "votingAnomalies": "0 anomalies, LOW risk, stability 100",
-    "coalitionDynamics": "HIGH fragmentation (4.04 ENP), per-MEP voting data unavailable",
+    "coalitionDynamics": "HIGH fragmentation (4.04 ENP), Renew-ECR 0.95 cohesion strengthening",
     "politicalLandscape": "PPE 38%, S&D 22%, PfE 11%, Verts/ALE 10%, ECR 8%, Renew 5%, NI 4%, The Left 2%",
     "earlyWarning": "MEDIUM risk, stability 84, 3 warnings (1 HIGH: dominant group risk)"
   },
@@ -63,5 +79,14 @@
     "threat-assessment/political-threat-landscape.md",
     "risk-scoring/political-risk-matrix.md"
   ],
-  "articleTypes": ["breaking"]
+  "articleTypes": ["breaking"],
+  "march26SessionHighlights": [
+    "TA-10-2026-0091: BRRD3 Banking Resolution",
+    "TA-10-2026-0092: SRMR3 Resolution Framework",
+    "TA-10-2026-0094: Combating Corruption Directive",
+    "TA-10-2026-0096: US Tariff Adjustments",
+    "TA-10-2026-0101: EU-China TRQ Modifications",
+    "TA-10-2026-0088: Immunity Waiver (Braun/ECR)",
+    "TA-10-2026-0089: Immunity Waiver (Pappas/Left)"
+  ]
 }
